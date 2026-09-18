@@ -29,7 +29,9 @@
 | [025](025-ai-pod-goods-marple-redbubble.md) | AI 모델 POD 굿즈 판매 (마플/Redbubble) | 디지털 상품 판매형 | 아이디어 | 2026-09 | S1 재고배송제로, S2 완전자동판매, S3 니치타깃팅전략 |
 | [026](026-chatgpt-newsletter-curation.md) | ChatGPT 해외 아티클 요약 뉴스레터 | 콘텐츠/미디어형 | 아이디어 | 2026-09 | S1 정보가공효율, S2 안정적구독수익, S3 큐레이션관점차별화 |
 | [027](027-chatgpt-prompt-package-kmong.md) | ChatGPT 프롬프트 엔지니어링 패키지 크몽 판매 | 대행/디지털 상품 결합형 | 아이디어 | 2026-09 | S1 순수지식상품, S2 프로세스매뉴얼화고부가가치 |
+| [028](028-claude-code-client-automation-tierlist.md) | 클로드 코드 기반 맞춤형 업무자동화·콘텐츠 대행 | 대행+구독+판매 혼합 | 아이디어 | 2026-09 | S1 업무속도단축, S2 결과물중심솔루션, S3 반복매출, **M1 고객데이터축적맞춤형해자** |
 
 > 새 아이디어가 추가되면 이 표와 `ideas.json`을 함께 갱신한다.
 > 003~009는 [50개 아이템 카탈로그](../research/catalog-2026-09-18-50-items.md) 중 등급 A/A(조건부)만 승격한 것. B/C/D 등급 43개 항목은 카탈로그 원본에만 보존됨.
-> 010~027은 확장 태그형(TITLE/TOPIC/TAG/CORE/PROS/CONS/INSIGHT/HOWTO) 원본 데이터를 그대로 승격한 것 (유튜브 채널별 AI 부업 사례 18건).
+> 010~027은 확장 태그형 v1.1(TITLE/TOPIC/TAG/CORE/PROS/CONS/INSIGHT/HOWTO) 원본 데이터를 그대로 승격한 것 (유튜브 채널별 AI 부업 사례 18건).
+> 028부터는 태그형 v2(+MODEL/TARGET/MOAT/SKILL/SOURCE_RELIABILITY) 적용 — MOAT는 강점 중에서도 "모방 불가능한" 것만 별도로 M번호를 부여하며, 융합 시 우선 채택 대상.
