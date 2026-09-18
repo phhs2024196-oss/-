@@ -76,19 +76,15 @@ UNCERTAIN::미검증/불확실 사항
 2. **강점의 출처를 반드시 표시한다** — 예: "S2(001의 대행료→구독료 전환) + S3(003의 커뮤니티 바이럴 루프)를 결합".
 3. **융합 결과도 다시 저장소의 재료가 된다** — 융합 아이디어에도 "핵심 강점" 섹션을 부여해서, 다음 융합에 다시 쓰일 수 있게 한다.
 
-## 현재 보유 아이디어 (9개)
+## 현재 보유 아이디어 (27개)
 
-- [001. 버티컬 특화 AI 업무자동화 스튜디오](ideas/001-vertical-ai-automation-studio.md) — 반복 서류업무 대행 → SaaS 전환 모델
-  - 뒷받침 리서치: [업종별 AI 페인포인트 10선](research/pain-point-research-2026-09.md)
-- [002. 로블록스 플랫폼 게임 개발 및 수익화](ideas/002-roblox-game-dev-monetization.md) — 로블록스 스튜디오 게임 제작·수익화, 낮은 진입장벽 vs 플랫폼 수수료 종속
-- [003. 학습 자동화 시스템 브랜드](ideas/003-study-automation-brand.md) — 최종추천 1순위, 지금 바로 착수 가능
-- [004. 검증로그 콘텐츠 미디어](ideas/004-verified-log-content-media.md) — 범용 패턴, 003의 구성요소
-- [005. Etsy 디지털 템플릿/클립아트 판매](ideas/005-etsy-digital-templates.md)
-- [006. 노션+Make 동적 워크플로우 템플릿 판매](ideas/006-notion-make-dynamic-templates.md) — 003의 구성요소, 001과 노하우 겹침
-- [007. 마이크로 SaaS (니치 웹툴 자체 운영)](ideas/007-micro-saas-niche-tool.md) — 001의 최종 형태(Phase D)와 동일
-- [008. 웹사이트 플리핑 (Flippa)](ideas/008-website-flipping.md) — 조건부(매입자본 형성 후)
-- [009. AI 트레이너 / RLHF](ideas/009-ai-trainer-rlhf.md) — 사업 아님, 초기 자본 확보용 브릿지 수단
+- **001~002**: 사용자 최초 제공 아이디어 (버티컬 AI 자동화 스튜디오, 로블록스 게임개발)
+- **003~009**: [50개 아이템 카탈로그](research/catalog-2026-09-18-50-items.md) 중 등급 A/A(조건부) 승격분 (학습자동화브랜드·검증로그미디어·Etsy템플릿·노션Make템플릿·마이크로SaaS·웹사이트플리핑·RLHF)
+- **010~015**: "AI사업분석" 태그형 데이터 (SNS자동화SaaS, 생기부/입시 AI 4종, 정치토론AI)
+- **016~027**: 유튜브 AI 부업 채널 12건 태그형 데이터 (ChatGPT SaaS, 숏폼/롱폼 자동화, KDP/Etsy/이모티콘/오디오북/음원/POD/뉴스레터/프롬프트팩)
 
-전체 목록: [`ideas/INDEX.md`](ideas/INDEX.md) · 원본 근거: [50개 아이템 카탈로그](research/catalog-2026-09-18-50-items.md)
+전체 목록(강점 요약 포함): [`ideas/INDEX.md`](ideas/INDEX.md)
+원본 근거: [50개 아이템 카탈로그](research/catalog-2026-09-18-50-items.md), [업종별 AI 페인포인트 10선](research/pain-point-research-2026-09.md)
 
-> 아이디어 9개 확보 — "융합해줘" 명령으로 신규 아이디어 생성 가능. 009(RLHF)는 노동형이라 Fusion 재료로는 부적합, 나머지 8개가 실질 재료.
+> 아이디어 27개 확보 — "융합해줘" 명령으로 신규 아이디어 생성 가능. 009(RLHF)는 노동형이라 Fusion 재료 부적합, 021·025 등 일부는 001/005/007 등과 메커니즘이 겹치니 융합 시 중복 강점은 한 번만 채택할 것.
+> 입력 포맷은 v1(TITLE/TOPIC/CORE/NUM/INSIGHT/HOWTO/UNCERTAIN), v1.1(+TAG/PROS/CONS) 두 버전이 혼재 저장됨. v2(MODEL/TARGET/MOAT/SOURCE_RELIABILITY/SKILL 추가안)는 대화 중 제안만 된 상태 — 사용자가 실제로 v2로 데이터를 주기 시작하면 이 섹션에 정식 등록 예정.
