@@ -53,6 +53,14 @@ UNCERTAIN::미검증/불확실 사항
 - `HOWTO` → "실행 방법"
 - `UNCERTAIN` → "리스크/약점"에 `[미검증]` 표시로 포함
 
+## 입력 데이터 포맷 (카탈로그 일괄형)
+
+여러 아이템을 표 형식(아이템/핵심 방식/초기자본/자동화율/판정 등급)으로 한번에 제공하는 경우:
+
+1. 표 전체를 원본 그대로 `research/catalog-{날짜}-{건수}.md`에 보존 (근거자료로서 모든 등급 유지)
+2. 그중 **등급 A / A(조건부)**로 표시된 항목만 `ideas/NNN-슬러그.md`로 승격, "핵심 강점" 추출
+3. B/C/D/제외 등급은 카탈로그 원본에만 남고 개별 승격하지 않음 — "OO 아이템도 승격해줘"라고 하면 그때 개별 추가
+
 ## 사용 방법 (명령어)
 
 | 사용자가 이렇게 말하면 | 하는 일 |
@@ -68,12 +76,19 @@ UNCERTAIN::미검증/불확실 사항
 2. **강점의 출처를 반드시 표시한다** — 예: "S2(001의 대행료→구독료 전환) + S3(003의 커뮤니티 바이럴 루프)를 결합".
 3. **융합 결과도 다시 저장소의 재료가 된다** — 융합 아이디어에도 "핵심 강점" 섹션을 부여해서, 다음 융합에 다시 쓰일 수 있게 한다.
 
-## 현재 보유 아이디어
+## 현재 보유 아이디어 (9개)
 
 - [001. 버티컬 특화 AI 업무자동화 스튜디오](ideas/001-vertical-ai-automation-studio.md) — 반복 서류업무 대행 → SaaS 전환 모델
   - 뒷받침 리서치: [업종별 AI 페인포인트 10선](research/pain-point-research-2026-09.md)
 - [002. 로블록스 플랫폼 게임 개발 및 수익화](ideas/002-roblox-game-dev-monetization.md) — 로블록스 스튜디오 게임 제작·수익화, 낮은 진입장벽 vs 플랫폼 수수료 종속
+- [003. 학습 자동화 시스템 브랜드](ideas/003-study-automation-brand.md) — 최종추천 1순위, 지금 바로 착수 가능
+- [004. 검증로그 콘텐츠 미디어](ideas/004-verified-log-content-media.md) — 범용 패턴, 003의 구성요소
+- [005. Etsy 디지털 템플릿/클립아트 판매](ideas/005-etsy-digital-templates.md)
+- [006. 노션+Make 동적 워크플로우 템플릿 판매](ideas/006-notion-make-dynamic-templates.md) — 003의 구성요소, 001과 노하우 겹침
+- [007. 마이크로 SaaS (니치 웹툴 자체 운영)](ideas/007-micro-saas-niche-tool.md) — 001의 최종 형태(Phase D)와 동일
+- [008. 웹사이트 플리핑 (Flippa)](ideas/008-website-flipping.md) — 조건부(매입자본 형성 후)
+- [009. AI 트레이너 / RLHF](ideas/009-ai-trainer-rlhf.md) — 사업 아님, 초기 자본 확보용 브릿지 수단
 
-전체 목록: [`ideas/INDEX.md`](ideas/INDEX.md)
+전체 목록: [`ideas/INDEX.md`](ideas/INDEX.md) · 원본 근거: [50개 아이템 카탈로그](research/catalog-2026-09-18-50-items.md)
 
-> 아이디어 2개 확보 — "융합해줘" 명령으로 신규 아이디어 생성 가능한 시점.
+> 아이디어 9개 확보 — "융합해줘" 명령으로 신규 아이디어 생성 가능. 009(RLHF)는 노동형이라 Fusion 재료로는 부적합, 나머지 8개가 실질 재료.
