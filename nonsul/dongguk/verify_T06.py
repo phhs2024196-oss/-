@@ -42,7 +42,7 @@ def p01():
     a3 = sum(p for (d, t1, t2), p in joint.items() if t1 and t2 and d) / both
     wrong = sens  # P(판정|불량)과 혼동
     ok = (a1, a2, a3) == (F(13, 50), F(4, 13), F(16, 25))
-    report("D06-01", ok, f"(1){a1} (2){a2} (3){a3}; 오답(조건 뒤바꿈) {wrong}")
+    report("D06-01", ok, f"(1){a1}, 복귀 {back} (2){a2} (3){a3}; 오답(조건 뒤바꿈) {wrong}")
 
 
 def p02():
@@ -99,7 +99,9 @@ def p04():
     a3 = 2 * TABLE[z]
     ok = (m, s2) == (1, F(1, 2)) and d2 == {0: F(1, 16), F(1, 2): F(4, 16), 1: F(6, 16), F(3, 2): F(4, 16), 2: F(1, 16)} \
         and (e2, v2) == (1, F(1, 4)) and n == 50 and a3 == F('0.9544')
-    report("D06-04", ok, f"(1)m={m},σ²={s2} (2)E={e2},V={v2} (3)n={n}, P={float(a3)}")
+    wrong = next(k for k in range(1, 100) if s2 / k <= F(1, 10))  # σ(X̄)를 σ²/n 으로 착각
+    ok = ok and wrong == 5
+    report("D06-04", ok, f"(1)m={m},σ²={s2} (2)E={e2},V={v2} (3)n={n}, P={float(a3)}; 오답 n={wrong}")
 
 
 def p05():
@@ -121,7 +123,7 @@ def p05():
     a1, a2, a3 = p_both, pw_both / p_both, p_third / p_both
     wrong = F(3, 5)  # 사전확률 그대로
     ok = (a1, a2, a3) == (F(11, 50), F(9, 11), F(3, 11))
-    report("D06-05", ok, f"(1){a1} (2){a2} (3){a3}; 오답(사전확률) {wrong}")
+    report("D06-05", ok, f"(1){a1}, 복귀 {back} (2){a2} (3){a3}; 오답(사전확률) {wrong}")
 
 
 def p06():
@@ -161,9 +163,10 @@ def p07():
     pb = F(1, 2) - TABLE[F(106 - 103, s)]
     tot = F(7, 10) * pa + F(3, 10) * pb
     a3 = F(3, 10) * pb / tot
-    ok = s == 3 and pa == F('0.0228') and pb == F('0.1587') and tot == F('0.06357') and a3 == F(1587, 2119) \
+    wrong = pb / (pa + pb)  # 생산 비율 무시
+    ok = round(float(wrong), 3) == 0.874 and s == 3 and pa == F('0.0228') and pb == F('0.1587') and tot == F('0.06357') and a3 == F(1587, 2119) \
         and round(float(a3), 3) == 0.749 and table_ok()
-    report("D06-07", ok, f"(1)σ={s}, P(A≥106)={float(pa)} (2)P={float(tot)} (3){a3}≈{float(a3):.4f}")
+    report("D06-07", ok, f"(1)σ={s}, P(A≥106)={float(pa)} (2)P={float(tot)} (3){a3}≈{float(a3):.4f}; 오답 {float(wrong):.3f}")
 
 
 def p08():
@@ -193,9 +196,10 @@ def p09():
     a2, a3 = sol[x[2]], sol[x[1]]
     # 시뮬레이션 대신 긴 유한 전수: 2:2에서 2m판 이내 A 승리 확률 -> 4/5 수렴
     approx = sum(F(4, 9) ** j * F(4, 9) for j in range(60))
-    ok = a1 == F(5, 9) and a2 == sp.Rational(4, 5) and a3 == sp.Rational(8, 15) and abs(approx - F(4, 5)) < F(1, 10 ** 15)
+    back = 2 * p * (1 - p)
+    ok = back == F(4, 9) and a1 == F(5, 9) and a2 == sp.Rational(4, 5) and a3 == sp.Rational(8, 15) and abs(approx - F(4, 5)) < F(1, 10 ** 15)
     wrong = p * p  # 2:2 복귀 상태를 무시하고 두 판 연승만 셈
-    report("D06-09", ok, f"(1){a1} (2){a2} (3){a3}; 부분합 수렴 확인, 오답(복귀 무시) {wrong}")
+    report("D06-09", ok, f"(1){a1}, 복귀 {back} (2){a2} (3){a3}; 부분합 수렴 확인, 오답(복귀 무시) {wrong}")
 
 
 def p10():
@@ -233,8 +237,9 @@ def p10():
                         else:
                             e += F(1, 64) * F(9, 2)
             best3 = max(best3, e)
-    ok = (e1, v1) == (F(9, 2), F(21, 4)) and best2 == (F(11, 2), F(17, 4)) and bestS == {1, 2, 3, 4} and best3 == F(97, 16)
-    report("D06-10", ok, f"(1)E={e1},V={v1} (2)최적 재추첨 {sorted(bestS)}, E={best2[0]},V={best2[1]} (3)전략 65536개 전수 최댓값 {best3}")
+    same4 = sum(F(k, 8) for k in vals if k >= 5) + F(1, 2) * best2[0]  # 두 단계 모두 기준 4
+    ok = same4 == 6 and (e1, v1) == (F(9, 2), F(21, 4)) and best2 == (F(11, 2), F(17, 4)) and bestS == {1, 2, 3, 4} and best3 == F(97, 16)
+    report("D06-10", ok, f"(1)E={e1},V={v1} (2)최적 재추첨 {sorted(bestS)}, E={best2[0]},V={best2[1]} (3)전략 65536개 전수 최댓값 {best3}; 오답(기준 4 유지) {same4}")
 
 
 for fn in [p01, p02, p03, p04, p05, p06, p07, p08, p09, p10]:
