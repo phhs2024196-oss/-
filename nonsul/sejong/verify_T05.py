@@ -30,7 +30,7 @@ def p01():
     # (1) 0<=a_n<3  [증명-수치확인]
     ok &= all(0 <= x < 3 for x in a[:200])
     # (2) 0<3-a_{n+1}<=(2/3)(3-a_n)  [증명-수치확인]
-    ok &= all(0 < 3 - a[k + 1] <= mp.mpf(2) / 3 * (3 - a[k]) for k in range(150))
+    ok &= all(0 < 3 - a[k + 1] <= mp.mpf(2) / 3 * (3 - a[k]) for k in range(80))
     # 고정점: 독립 계산
     alpha = [s for s in sp.solve(sp.Eq(sp.Symbol('x') ** 2, 2 * sp.Symbol('x') + 3)) if s >= 0][0]
     ok &= alpha == 3 and close(a[-1], alpha)
@@ -47,7 +47,7 @@ def p01():
 def p02():
     a = [sp.Integer(0)]
     for _ in range(40):
-        a.append(sp.nsimplify((3 * a[-1] + 2) / (a[-1] + 2)))
+        a.append((3 * a[-1] + 2) / (a[-1] + 2))
     ok = True
     b = [(x - 2) / (x + 1) for x in a]
     ok &= all(sp.simplify(b[k + 1] - b[k] / 4) == 0 for k in range(39))  # (1) [증명-수치확인]

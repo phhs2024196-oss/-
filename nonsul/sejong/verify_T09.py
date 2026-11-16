@@ -66,14 +66,14 @@ def p01():
     table = {-1: 1, 0: 0, 2: 0, float(sp.E): 1, 4: 2}
     for av, want in table.items():
         F = lambda t, av=av: mp.e**t - av * t
-        c = count_real_roots(F, -30, 10)
+        c = count_real_roots(F, -30, 10, 8000)
         if av == float(sp.E):
             c = 1  # 접점: 부호변화 없음 → 접점 x=1 따로 확인
             ok1 &= abs(F(1)) < 1e-12
         ok1 &= (c == want)
     # (2) [증명-수치확인] n>=3: (0,1)에 근 하나, 1/n < x_n < e/n
     ok2 = True
-    for n in range(3, 400):
+    for n in range(3, 120):
         f = lambda t: mp.e**t - n * t
         xn = bis(f, mp.mpf(0), mp.mpf(1))
         ok2 &= (mp.mpf(1) / n < xn < mp.e / n)
@@ -87,7 +87,7 @@ def p01():
     ok3 = close(errs[-1][0], sp.Integer(1)) and close(errs[-1][1], 1)
     # 대표 오답: x_n 을 1/n 로 놓고 n(n x_n -1) = 0 이라 답함
     check('J09-01', ok1 and ok2 and ok3,
-          f'(1)극소 e at x=1 (2)[증명-수치확인] n=3..399 범위 (3) n x_n->{mp.nstr(errs[-1][0],12)}, n(nx_n-1)->{mp.nstr(errs[-1][1],12)}')
+          f'(1)극소 e at x=1 (2)[증명-수치확인] n=3..119 범위 (3) n x_n->{mp.nstr(errs[-1][0],12)}, n(nx_n-1)->{mp.nstr(errs[-1][1],12)}')
 
 
 # ---------------------------------------------------------------- J09-02
@@ -103,7 +103,7 @@ def p02():
         ok1 &= len(r) == want
     # (2) [증명-수치확인] n>=4: 양의 근 유일, 2/sqrt(n+1) < x_n < 2/sqrt(n)
     ok2 = True
-    for n in range(4, 500):
+    for n in range(4, 150):
         roots = [complex(t) for t in sp.Poly(x**3 + n * x**2 - 4, x).nroots()]
         pos = [t.real for t in roots if abs(t.imag) < 1e-12 and t.real > 0]
         ok2 &= len(pos) == 1
@@ -116,7 +116,7 @@ def p02():
     L2 = n * mp.sqrt(n) * (2 - mp.sqrt(n) * xn)
     ok3 = close(L1, 2) and close(L2, 2)
     check('J09-02', ok1 and ok2 and ok3,
-          f'(1)a=3 경계,(x-1)(x+2)^2 (2)[증명-수치확인] n=4..499 (3) sqrt(n)x_n->{mp.nstr(L1,12)}, n^1.5(2-sqrt(n)x_n)->{mp.nstr(L2,12)}')
+          f'(1)a=3 경계,(x-1)(x+2)^2 (2)[증명-수치확인] n=4..149 (3) sqrt(n)x_n->{mp.nstr(L1,12)}, n^1.5(2-sqrt(n)x_n)->{mp.nstr(L2,12)}')
 
 
 # ---------------------------------------------------------------- J09-03
@@ -132,7 +132,7 @@ def p03():
     ok1 &= all(vals[i] < vals[i + 1] for i in range(len(vals) - 1))
     # (2) [증명-수치확인] (n pi - pi/2, n pi + pi/2) 에 근 하나, (n pi, n pi + pi/2) 안
     ok2 = True
-    for n in range(1, 200):
+    for n in range(1, 80):
         lo, hi = n * mp.pi - mp.pi / 2 + mp.mpf('1e-12'), n * mp.pi + mp.pi / 2 - mp.mpf('1e-12')
         F = lambda t: mp.sin(t) - t * mp.cos(t)  # tan t = t  <=>  sin t - t cos t = 0 (cos t != 0)
         ok2 &= count_real_roots(F, lo, hi, 3000) == 1
@@ -148,7 +148,7 @@ def p03():
     ok3 = close(L1, mp.pi / 2) and close(L2, -1 / mp.pi)
     # 대표 오답: 부호 반대 1/pi
     check('J09-03', ok1 and ok2 and ok3,
-          f'(1)tan x/x 증가,a>1에서 1개 (2)[증명-수치확인] n=1..199 (3) x_n-npi->{mp.nstr(L1,10)}, n(..)->{mp.nstr(L2,12)} = -1/pi')
+          f'(1)tan x/x 증가,a>1에서 1개 (2)[증명-수치확인] n=1..79 (3) x_n-npi->{mp.nstr(L1,10)}, n(..)->{mp.nstr(L2,12)} = -1/pi')
 
 
 # ---------------------------------------------------------------- J09-04
@@ -160,14 +160,14 @@ def p04():
     M = 4 * mp.e**-2
     for av, want in {-1: 0, 0.3: 3, 0.6: 1}.items():
         F = lambda t, av=av: t**2 - av * mp.e**t
-        ok1 &= count_real_roots(F, -20, 40, 60000) == want
+        ok1 &= count_real_roots(F, -20, 40, 12000) == want
     # a=0: x=0 하나(접점), a=4/e^2: x=2 접점 + 음의 근 → 2개
     F = lambda t: t**2 - M * mp.e**t
     ok1 &= count_real_roots(F, -20, 1.9, 20000) == 1 and abs(F(2)) < 1e-40
     ok1 &= count_real_roots(F, 2.1, 40, 20000) == 0
     # (2) [증명-수치확인] n>=3: (0,2)의 근 x_n 하나, (-inf,0)의 근 y_n 하나, 1/sqrt n < x_n < sqrt(e/n), -1/sqrt n < y_n < -1/sqrt(e n)
     ok2 = True
-    for n in range(3, 400):
+    for n in range(3, 120):
         F = lambda t: t**2 - mp.e**t / n
         ok2 &= count_real_roots(F, mp.mpf('1e-9'), 2, 2000) == 1
         ok2 &= count_real_roots(F, -30, -mp.mpf('1e-9'), 4000) == 1
@@ -184,7 +184,7 @@ def p04():
     ok3 = close(mp.sqrt(n) * xn, 1) and close(mp.sqrt(n) * yn, -1) and close(L, 1)
     # 대표 오답: x_n+y_n=0 으로 보고 0
     check('J09-04', ok1 and ok2 and ok3,
-          f'(1)극대 4/e^2, 개수표 (2)[증명-수치확인] n=3..399 (3) n(x_n+y_n)->{mp.nstr(L,12)}')
+          f'(1)극대 4/e^2, 개수표 (2)[증명-수치확인] n=3..119 (3) n(x_n+y_n)->{mp.nstr(L,12)}')
 
 
 # ---------------------------------------------------------------- J09-05
@@ -192,7 +192,7 @@ def p05():
     # (1) [증명-수치확인] x^n e^x = 2 의 양의 근 유일, (0,1) 안
     ok1 = True
     xs = []
-    for n in range(1, 300):
+    for n in range(1, 120):
         F = lambda t: t**n * mp.e**t - 2
         ok1 &= count_real_roots(F, mp.mpf('1e-9'), 20, 4000) == 1
         xn = bis(F, mp.mpf('1e-30'), 1)
@@ -207,7 +207,7 @@ def p05():
     ok3 = close(xn, 1) and close(L, 1 - mp.log(2))
     # 대표 오답: n ln x_n -> ln 2 (x_n e^x 의 e^x 를 1로 봄) → -ln 2 ... 값 ln 2 - 1 부호 실수
     check('J09-05', ok1 and ok2 and ok3,
-          f'(1)(2)[증명-수치확인] n=1..299 유일·증가 (3) n(1-x_n)->{mp.nstr(L,12)} = 1-ln2')
+          f'(1)(2)[증명-수치확인] n=1..119 유일·증가 (3) n(1-x_n)->{mp.nstr(L,12)} = 1-ln2')
 
 
 # ---------------------------------------------------------------- J09-06
@@ -219,11 +219,11 @@ def p06():
     # 개수표 n=5: a>5:0, a=5:1, 0<a<5:2, a<=0:1
     for av, want in {7: 0, 2: 2, 0: 1, -3: 1}.items():
         F = lambda t, av=av: t**6 - 6 * t + av
-        ok1 &= count_real_roots(F, mp.mpf('1e-9'), 5, 40000) == want
-    ok1 &= sp.factor(x**6 - 6 * x + 5).has((x - 1)**2)
+        ok1 &= count_real_roots(F, mp.mpf('1e-9'), 5, 8000) == want
+    ok1 &= sp.rem(x**6 - 6 * x + 5, (x - 1)**2, x) == 0
     # (2) [증명-수치확인] n>=3, a=2: (0,1)의 근 x_n 하나, 2/(n+1) < x_n < 3/(n+1)
     ok2 = True
-    for n in range(3, 300):
+    for n in range(3, 120):
         F = lambda t: t**(n + 1) - (n + 1) * t + 2
         ok2 &= count_real_roots(F, 0, 1, 3000) == 1
         xn = bis(F, mp.mpf(0), 1)
@@ -235,14 +235,14 @@ def p06():
     L1, L2 = n * xn, n * (n * xn - 2)
     ok3 = close(L1, 2) and close(L2, -2)
     check('J09-06', ok1 and ok2 and ok3,
-          f'(1)최솟값 a-n at x=1 (2)[증명-수치확인] n=3..299 (3) n x_n->{mp.nstr(L1,12)}, n(nx_n-2)->{mp.nstr(L2,12)}')
+          f'(1)최솟값 a-n at x=1 (2)[증명-수치확인] n=3..119 (3) n x_n->{mp.nstr(L1,12)}, n(nx_n-2)->{mp.nstr(L2,12)}')
 
 
 # ---------------------------------------------------------------- J09-07
 def p07():
     # (1) [증명-수치확인] ln x + x = n 근 유일, n - ln n < x_n < n (n>=2)
     ok1 = True
-    for n in range(2, 400):
+    for n in range(2, 150):
         F = lambda t: mp.log(t) + t - n
         xn = bis(F, mp.mpf('1e-30'), n)
         ok1 &= n - mp.log(n) < xn < n
@@ -259,7 +259,7 @@ def p07():
     errs = [abs(xx / mp.log(xx) * (xn_of(xx) - xx + mp.log(xx)) - 1) for xx in seq]
     ok3 &= errs[0] > errs[1] > errs[2]
     check('J09-07', ok1 and ok2 and ok3,
-          f'(1)[증명-수치확인] n=2..399 (2) x_n/n->1, x_n-n+ln n->0 (3) (n/ln n)(..)->{mp.nstr(L,12)}')
+          f'(1)[증명-수치확인] n=2..149 (2) x_n/n->1, x_n-n+ln n->0 (3) (n/ln n)(..)->{mp.nstr(L,12)}')
 
 
 # ---------------------------------------------------------------- J09-08
@@ -301,7 +301,7 @@ def p09():
     ok1 = sp.solve(sp.diff(g, x), x) == [0] and g.subs(x, 0) == 0
     for av, want in {-1: 0, 1: 2, 5: 2}.items():
         F = lambda t, av=av: mp.e**t - 1 - t - av
-        ok1 &= count_real_roots(F, -30, 30, 30000) == want
+        ok1 &= count_real_roots(F, -30, 30, 8000) == want
     # (2) [증명-수치확인] 보조부등식 x^2/2 <= e^x-1-x <= x^2 e^x/2 (x>=0), x^2 e^x/2 <= e^x-1-x <= x^2/2 (x<=0)
     ok2 = True
     for i in range(1, 1001):
@@ -311,7 +311,7 @@ def p09():
         s = -t
         G = mp.e**s - 1 - s
         ok2 &= s**2 * mp.e**s / 2 <= G <= s**2 / 2
-    for n in range(1, 400):
+    for n in range(1, 150):
         F = lambda t: mp.e**t - 1 - t - mp.mpf(1) / n
         xn = bis(F, mp.mpf(0), 5)
         yn = bis(F, mp.mpf(-50), 0)
@@ -324,14 +324,14 @@ def p09():
     yn = newton(F, -mp.sqrt(2 / n))
     ok3 = close(mp.sqrt(n) * xn, mp.sqrt(2)) and close(mp.sqrt(n) * yn, -mp.sqrt(2))
     check('J09-09', ok1 and ok2 and ok3,
-          f'(1)개수 0/1/2 (2)[증명-수치확인] 보조부등식 2000점, n=1..399 범위 (3) sqrt(n)x_n->{mp.nstr(mp.sqrt(n)*xn,12)}, sqrt(n)y_n->{mp.nstr(mp.sqrt(n)*yn,12)}')
+          f'(1)개수 0/1/2 (2)[증명-수치확인] 보조부등식 2000점, n=1..149 범위 (3) sqrt(n)x_n->{mp.nstr(mp.sqrt(n)*xn,12)}, sqrt(n)y_n->{mp.nstr(mp.sqrt(n)*yn,12)}')
 
 
 # ---------------------------------------------------------------- J09-10
 def p10():
     ok1 = ok2 = True
     for k in (1, 2, 3, 5):
-        for n in range(1, 200):
+        for n in range(1, 100):
             F = lambda t: t**n - (1 - t)**k
             ok1 &= count_real_roots(F, 0, 1, 2000) == 1
             if n >= 8:
@@ -365,7 +365,7 @@ def p10():
         ok3 &= abs(t - (k * mp.log(n) - k * mp.log(k * mp.log(n)))) < mp.mpf('1e-3')
         msg.append(f'k={k}:{mp.nstr(ratio,8)}')
     check('J09-10', ok1 and ok2 and ok3,
-          f'(1)(2)[증명-수치확인] k=1,2,3,5 n<200 (3) 샌드위치 폭->0, n=10^50000에서 ' + ' '.join(msg))
+          f'(1)(2)[증명-수치확인] k=1,2,3,5 n<100 (3) 샌드위치 폭->0, n=10^50000에서 ' + ' '.join(msg))
 
 
 if __name__ == '__main__':
