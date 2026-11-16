@@ -182,7 +182,7 @@ def p07():
     ok_rec = all(simplify(I[n] - Rational(n - 1, n) * I[n - 2]) == 0 for n in range(2, 8))
     J = integrate(x * sin(x)**5, (x, 0, pi))
     wrong = pi / 2 * I[5]  # int_0^pi sin^5 = 2 I5 의 2배를 빠뜨림
-    ok = (I[0] == pi / 2 and I[1] == 1 and ok_rec and I[4] == 3 * pi / 16 and I[5] == Rational(8, 15)
+    ok = (I[0] == pi / 2 and I[1] == 1 and I[2] == pi / 4 and ok_rec and I[4] == 3 * pi / 16 and I[5] == Rational(8, 15)
           and simplify(J - 8 * pi / 15) == 0)
     report('D09-07', ok, f"I4={I[4]}, I5={I[5]}, int x sin^5 = {simplify(J)} (오답 {wrong})")
 

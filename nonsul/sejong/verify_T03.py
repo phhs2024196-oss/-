@@ -268,7 +268,7 @@ def p09():
     ok1 = sp.simplify(diff_ - (b - a) * (a ** 2 + a * b + b ** 2 - 1)) == 0
     # 합: 2c - (a^3+b^3) = a+b, p=s^2-1 대입 -> s^3-2s+c=0
     sub = sp.expand((2 * c - (s ** 3 - 3 * (s ** 2 - 1) * s)) - s)
-    ok1 = ok1 and sp.expand(sub / (-2) - (s ** 3 - 2 * s + c)) == 0
+    ok1 = ok1 and sp.expand(sub / 2 - (s ** 3 - 2 * s + c)) == 0
     # (2) c=0
     sols = sp.solve([sp.Eq(b, -a ** 3), sp.Eq(a, -b ** 3)], [a, b], dict=True)
     real = sorted({(sp.nsimplify(d[a]), sp.nsimplify(d[b])) for d in sols if d[a].is_real and d[b].is_real})

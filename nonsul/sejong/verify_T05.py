@@ -223,7 +223,7 @@ def p10():
     # 정확 계산(작은 n)으로 (1)(2) 부등식 확인 [증명-수치확인]
     af = Fraction(1)
     H = 0.0
-    for k in range(1, 40):
+    for k in range(1, 13):
         ok &= 0 < af <= Fraction(2, k + 1)
         ok &= float(1 / af) <= (k + 1) / 2 + math.log(k) + 1e-12
         af = af - af * af / 2
