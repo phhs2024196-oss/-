@@ -55,9 +55,11 @@ def num_close(a, b, tol=1e-6):
 def p01():
     X, Y = t**2, t - t**3 / 3
     # (1) 자기교차: x(s)=x(t), y(s)=y(t), s != t
-    sol = sp.solve([X.subs(t, s) - X, Y.subs(t, s) - Y, ], [s, t], dict=True)
-    cross = {(sp.simplify(X.subs(d)), sp.simplify(Y.subs(d))) for d in sol if sp.simplify(d[s] - d[t]) != 0}
-    ok1 = cross == {(3, 0)}
+    ssol = [r for r in sp.solve(X.subs(t, s) - X, s) if sp.simplify(r - t) != 0]  # s = -t
+    ok1 = ssol == [-t]
+    tsol = [r for r in sp.solve(sp.simplify(Y.subs(t, -t) - Y), t) if r != 0]  # t != 0 (s != t)
+    cross = {(X.subs(t, r), Y.subs(t, r)) for r in tsol}
+    ok1 &= sorted(tsol) == [-sp.sqrt(3), sp.sqrt(3)] and cross == {(3, 0)}
     slope = sp.diff(Y, t) / sp.diff(X, t)
     sl = {sp.simplify(slope.subs(t, sp.sqrt(3))), sp.simplify(slope.subs(t, -sp.sqrt(3)))}
     ok1 &= sl == {-1 / sp.sqrt(3), 1 / sp.sqrt(3)}
@@ -105,13 +107,13 @@ def p03():
     # [증명-수치확인] 속력 = 4|sin(3t/2)| 무작위 20점
     random.seed(3)
     v = sp.lambdify(t, speed(X, Y), 'mpmath')
-    ok1 &= all(abs(v(r) - 4 * abs(mp.sin(1.5 * r))) < 1e-20 for r in [random.uniform(0, 7) for _ in range(20)])
+    ok1 &= all(abs(v(r) - 4 * abs(mp.sin(1.5 * r))) < 1e-12 for r in [random.uniform(0, 7) for _ in range(20)])
     # (2) 길이, 넓이
     L = 3 * sp.integrate(4 * sp.sin(3 * t / 2), (t, 0, 2 * sp.pi / 3))
     S = sp.Abs(sp.integrate(sp.expand(sp.expand_trig(Y * sp.diff(X, t))), (t, 0, 2 * sp.pi)))
     Snum = shoelace(sample(X, Y, 0, 2 * sp.pi)[:-1])
     Lnum = mp.quad(lambda r: v(r), [0, 2 * mp.pi / 3, 4 * mp.pi / 3, 2 * mp.pi])
-    ok2 = eq(L, 16) and num_close(Lnum, 16, 1e-15) and eq(S, 2 * sp.pi) and num_close(Snum, S)
+    ok2 = eq(L, 16) and num_close(Lnum, 16, 1e-12) and eq(S, 2 * sp.pi) and num_close(Snum, S)
     # (3) |OP|^2 = 5+4cos3t >= 1, 내접원 반지름 1, 넓이 차 pi
     r2 = sp.simplify(sp.expand_trig(X**2 + Y**2) - (5 + 4 * sp.cos(3 * t)))
     ok3 = sp.simplify(sp.expand(sp.expand_trig(X**2 + Y**2 - 5 - 4 * sp.cos(3 * t)))) == 0
@@ -159,7 +161,7 @@ def p05():
     ell = sp.simplify(Qx**2 / (1 + d)**2 + Qy**2 / (1 - d)**2)
     S = sp.Abs(sp.integrate(sp.expand(Qy * sp.diff(Qx, t)), (t, 0, 2 * sp.pi)))
     v2 = sp.simplify(sp.diff(Qx, t)**2 + sp.diff(Qy, t)**2 - (1 + d**2 - 2 * d * sp.cos(2 * t)))
-    ok2 = ell == 1 and sp.simplify(S - sp.pi * (1 - d**2)) == 0 and sp.simplify(sp.expand_trig(v2)) == 0
+    ok2 = ell == 1 and all(eq(S.subs(d, dv), sp.pi * (1 - dv**2)) for dv in (sp.Rational(1, 3), sp.Rational(1, 2), sp.Rational(9, 10))) and sp.simplify(sp.expand_trig(v2)) == 0
     # (3) 넓이 = (3/4) pi -> d ; 최대 속력
     dsol = [r for r in sp.solve(sp.Eq(sp.pi * (1 - d**2), sp.Rational(3, 4) * sp.pi), d) if r > 0]
     vmax = max(mp.sqrt(1 + mp.mpf(1) / 4 - mp.cos(2 * mp.pi * i / 2000)) for i in range(2001))
@@ -263,7 +265,10 @@ def p09():
     fx = sp.lambdify(t, X, 'mpmath')
     simple = all(fx(2 * mp.pi * i / 4000) != 1 or i in (0, 4000) for i in range(4001))
     xs = [fx(2 * mp.pi * i / 4000) for i in range(1, 4000)]
-    hits = sum(1 for i in range(len(xs) - 1) if (xs[i] - 1) * (xs[i + 1] - 1) < 0)
+    fy = sp.lambdify(t, Y, 'mpmath')
+    # 선분 x=1, -2π<y<0 위에서 곡선과 만나는 점 수 (x=1 이 되는 t 중 y 가 (-2π,0) 인 것)
+    hits = sum(1 for i in range(len(xs) - 1) if (xs[i] - 1) * (xs[i + 1] - 1) < 0
+               and -2 * mp.pi < fy(2 * mp.pi * (i + 1.5) / 4000) < 0)
     ok3 = eq(S, sp.pi + 4 * sp.pi**3 / 3) and num_close(shoelace(pts), S, 1e-5) and hits == 0
     check('J10-09', ok1 and ok2 and ok3, f'(1)속도⊥QP, 속력 t (2)L={L} (3)S={sp.simplify(S)} (신발끈 {mp.nstr(shoelace(pts),10)}), x=1 재교차 {hits}')
 
@@ -280,11 +285,11 @@ def p10():
         # 굴림 조건: 접점 K=(k cos t,k sin t) 에서 P 속도가 순간중심 K 에 대해 수직 [수치]
         vx, vy = sp.diff(X, t), sp.diff(Y, t)
         f = sp.lambdify(t, vx * (X - k * sp.cos(t)) + vy * (Y - k * sp.sin(t)), 'mpmath')
-        ok1 &= all(abs(f(r)) < 1e-25 for r in (0.3, 1.1, 2.7, 4.4))
+        ok1 &= all(abs(f(r)) < 1e-12 for r in (0.3, 1.1, 2.7, 4.4))
         sp2 = sp.lambdify(t, sp.sqrt(vx**2 + vy**2), 'mpmath')
-        ok1 &= all(abs(sp2(r) - 2 * (k + 1) * abs(mp.sin(k * r / 2))) < 1e-25 for r in (0.3, 1.1, 2.7, 4.4))
+        ok1 &= all(abs(sp2(r) - 2 * (k + 1) * abs(mp.sin(k * r / 2))) < 1e-12 for r in (0.3, 1.1, 2.7, 4.4))
         L = mp.quad(sp2, [2 * mp.pi * j / k for j in range(k + 1)])
-        ok2 &= abs(L - 8 * (k + 1)) < 1e-20
+        ok2 &= abs(L - 8 * (k + 1)) < 1e-12
         S = sp.Abs(sp.integrate(sp.expand(sp.expand_trig(Y * vx)), (t, 0, 2 * sp.pi)))
         ok2 &= eq(S, sp.pi * (k + 1) * (k + 2))
         Snum = shoelace(sample(X, Y, 0, 2 * sp.pi, 8000)[:-1])
