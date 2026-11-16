@@ -72,7 +72,7 @@ def p02():
 # J07-03  I_n = ∫_0^1 x^n e^x dx
 def p03():
     I = [sp.integrate(x**j * sp.exp(x), (x, 0, 1)) for j in range(0, 41)]
-    ok1 = all(sp.Rational(1, j + 1) < I[j] < sp.E / (j + 1) for j in range(0, 41))  # [증명-수치확인]
+    ok1 = all(sp.Rational(1, j + 1) < sp.N(I[j], 120) < sp.N(sp.E / (j + 1), 120) for j in range(0, 41))  # [증명-수치확인]
     ok2 = all(sp.simplify(I[j] - (sp.E - j * I[j - 1])) == 0 for j in range(1, 41))
     # 수치: 역방향 점화로 고정밀 계산
     def In(N):
@@ -84,7 +84,7 @@ def p03():
     N = 10**6
     a = N * In(N)
     b = N * (mp.e - N * In(N))
-    ok2n = abs(a - mp.e) < 5.0 / N
+    ok2n = abs(a - mp.e) < 10.0 / N
     ok3 = abs(b - 2 * mp.e) < 20.0 / N
     # 항등식 e - nI_n = I_n + I_{n+1}
     ok3b = all(sp.simplify(sp.E - j * I[j] - (I[j] + I[j + 1])) == 0 for j in range(0, 40))
@@ -145,10 +145,10 @@ def p06():
 
 # J07-07  cos 다항 부등식 + ln(1-v) -> lim prod cos(√k/n) = e^{-1/4}
 def p07():
-    xs = grid(0, 3, 2000)
-    ok1 = all(1 - xx**2 / 2 < math.cos(xx) < 1 - xx**2 / 2 + xx**4 / 24 for xx in xs)  # [증명-수치확인]
-    vs = grid(0, 0.5, 2000)
-    ok2 = all(-vv - vv**2 < math.log(1 - vv) < -vv for vv in vs)  # [증명-수치확인]
+    xs = [mp.mpf(j) / 400 for j in range(1, 2001)]  # (0, 5]
+    ok1 = all(1 - xx**2 / 2 < mp.cos(xx) < 1 - xx**2 / 2 + xx**4 / 24 for xx in xs)  # [증명-수치확인]
+    vs = [mp.mpf(j) / 4000 for j in range(1, 2000)]  # (0, 1/2)
+    ok2 = all(-vv - vv**2 < mp.log(1 - vv) < -vv for vv in vs)  # [증명-수치확인]
     ok2b = (1 - math.cos(1)) <= 0.5
     sv_hi = sp.limit(sp.summation(k, (k, 1, n)) / (2 * n**2), n, sp.oo)
     sv_lo = sp.limit(sp.summation(k, (k, 1, n)) / (2 * n**2) - sp.summation(k**2, (k, 1, n)) / (24 * n**4), n, sp.oo)

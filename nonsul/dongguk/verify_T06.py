@@ -42,7 +42,7 @@ def p01():
     a3 = sum(p for (d, t1, t2), p in joint.items() if t1 and t2 and d) / both
     wrong = sens  # P(판정|불량)과 혼동
     ok = (a1, a2, a3) == (F(13, 50), F(4, 13), F(16, 25))
-    report("D06-01", ok, f"(1){a1}, 복귀 {back} (2){a2} (3){a3}; 오답(조건 뒤바꿈) {wrong}")
+    report("D06-01", ok, f"(1){a1} (2){a2} (3){a3}; 오답(조건 뒤바꿈) {wrong}")
 
 
 def p02():
@@ -123,7 +123,7 @@ def p05():
     a1, a2, a3 = p_both, pw_both / p_both, p_third / p_both
     wrong = F(3, 5)  # 사전확률 그대로
     ok = (a1, a2, a3) == (F(11, 50), F(9, 11), F(3, 11))
-    report("D06-05", ok, f"(1){a1}, 복귀 {back} (2){a2} (3){a3}; 오답(사전확률) {wrong}")
+    report("D06-05", ok, f"(1){a1} (2){a2} (3){a3}; 오답(사전확률) {wrong}")
 
 
 def p06():

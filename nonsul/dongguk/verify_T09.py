@@ -169,7 +169,9 @@ def p06():
     k = symbols('k', integer=True, positive=True)
     tot = summation(V.subs(tp, 2**(k - 1)), (k, 1, oo))
     wrong = summation(V.subs(tp, 2**(k - 1)), (k, 1, 10))
-    ok = (xint == [2 * tp] and simplify(A - (log(2) - Rational(1, 2))) == 0 and ok_pos
+    # (4) sum_{k<=n} A > 1 의 최소 n (ln2 의 범위 0.69~0.70 에서도 동일)
+    nmin = [min(n for n in range(1, 100) if n * (L - 0.5) > 1) for L in (0.6901, 0.6931471805599453, 0.6999)]
+    ok = (nmin == [6, 6, 6] and xint == [2 * tp] and simplify(A - (log(2) - Rational(1, 2))) == 0 and ok_pos
           and simplify(V - pi / (6 * tp)) == 0 and simplify(tot - pi / 3) == 0)
     report('D09-06', ok, f"넓이={A} (t 무관), V={V}, 합={tot}")
 

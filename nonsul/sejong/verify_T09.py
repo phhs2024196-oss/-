@@ -226,8 +226,10 @@ def p06():
     for n in range(3, 120):
         F = lambda t: t**(n + 1) - (n + 1) * t + 2
         ok2 &= count_real_roots(F, 0, 1, 3000) == 1
-        xn = bis(F, mp.mpf(0), 1)
-        ok2 &= mp.mpf(2) / (n + 1) < xn < mp.mpf(3) / (n + 1)
+        # 정확한 유리수 산술로 부호 확인: F(2/(n+1))>0 > F(3/(n+1)), F 감소 → 근이 그 사이
+        from fractions import Fraction as Fr
+        G = lambda t: t**(n + 1) - (n + 1) * t + 2
+        ok2 &= G(Fr(2, n + 1)) > 0 > G(Fr(3, n + 1))
     # (3) lim n x_n = 2, lim n(n x_n - 2) = -2
     n = 10**30
     F = lambda t: t**(n + 1) - (n + 1) * t + 2
