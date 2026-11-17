@@ -29,13 +29,20 @@ def p01():
     report("S10-01", cnt == 1641, f"전수 개수={cnt} (y 범위 상한 여유 확인, 오답 밑 혼동={wrong})")
 
 
-# S10-02: sum_{k=1}^{200} [log2 k] = 1153
+# S10-02: sum_{k=1}^{100} [(sqrt(8k+1)-1)/2] = 858
 def p02():
-    s = sum(ilog(2, k) for k in range(1, 201))
-    # 다른 방법: 격자점 (k, y), 1<=y, 2^y <= k <= 200 개수
-    t = sum(1 for k in range(1, 201) for y in range(1, 9) if 2 ** y <= k)
-    wrong = sum(j * 2 ** j for j in range(1, 8))  # 마지막 구간을 128~255 전체로 센 오답
-    report("S10-02", s == t == 1153, f"직접합={s}, 격자점세기={t} (오답 마지막 구간 전체={wrong})")
+    from math import isqrt
+    # 직접합: 정수 연산으로 [(sqrt(8k+1)-1)/2] (isqrt 후 보정)
+    def g(k):
+        r = isqrt(8 * k + 1)
+        return (r - 1) // 2
+    s = sum(g(k) for k in range(1, 101))
+    # 실수 판정과 일치 확인 (가장 큰 m: (2m+1)^2 <= 8k+1)
+    chk = all(g(k) == max(m for m in range(0, 50) if (2 * m + 1) ** 2 <= 8 * k + 1) for k in range(1, 101))
+    # 다른 방법: (k, m) 격자점, m>=1, m(m+1)/2 <= k <= 100
+    t = sum(1 for k in range(1, 101) for m in range(1, 20) if m * (m + 1) // 2 <= k)
+    wrong = sum(m * (m + 1) for m in range(1, 13)) + 13 * 14  # 마지막 구간 91~104 전체로 센 오답
+    report("S10-02", chk and s == t == 858, f"직접합={s}, 격자점세기={t} (오답 마지막 구간 전체={wrong})")
 
 
 # S10-03: 1<=n<=1000, [cuberoot n] | n 인 n 의 개수 = 172

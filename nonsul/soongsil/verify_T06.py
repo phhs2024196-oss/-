@@ -82,17 +82,20 @@ def p05():
 
 # S06-06: f=(e^x-1)/(e-1) 와 역함수로 둘러싸인 넓이
 def p06():
-    f = (sp.exp(x) - 1) / (sp.E - 1)
-    ans = 2 * sp.integrate(x - f, (x, 0, 1))
-    ok = sp.simplify(ans - (3 - sp.E) / (sp.E - 1)) == 0
-    finv = lambda s: mp.log(1 + (mp.e - 1) * s)
-    fn = lambda s: (mp.e ** s - 1) / (mp.e - 1)
-    num = mp.quad(lambda s: finv(s) - fn(s), [0, 1])
-    ok &= close(num, ans)
-    # 교점이 x=0,1 뿐 (f(x)-x 의 부호)
-    xs = np.linspace(1e-6, 1 - 1e-6, 10001)
-    ok &= np.all((np.exp(xs) - 1) / (np.e - 1) - xs < 0)
-    check("S06-06", ok, f"넓이=(3-e)/(e-1)={sp.N(ans, 10)}, 오답(2배 누락) {sp.N(ans / 2, 6)}")
+    # S06-06: y=ln(1+x^2) 와 두 변곡점을 지나는 직선으로 둘러싸인 넓이
+    f = sp.log(1 + x ** 2)
+    infl = sorted(sp.solve(sp.diff(f, x, 2), x))
+    P, Q = [(r, f.subs(x, r)) for r in infl]
+    line = P[1] + (Q[1] - P[1]) / (Q[0] - P[0]) * (x - P[0])
+    pts = sorted(sp.solve(sp.Eq(f, line), x))
+    ans = sp.integrate(line - f, (x, pts[0], pts[-1]))
+    ok = infl == [-1, 1] and sp.simplify(line - sp.log(2)) == 0 and sp.simplify(ans - (4 - sp.pi)) == 0
+    num = mp.quad(lambda s: mp.log(2) - mp.log(1 + s * s), [-1, 1])
+    ok &= close(num, 4 - sp.pi)
+    # 대표 오답: ∫_0^1 1/(1+x^2) 를 ln2 로 착각 -> 넓이 4-4ln2
+    wrong = 2 * (sp.log(2) - (sp.log(2) - 2 * (1 - sp.log(2))))
+    ok &= sp.simplify(wrong - (4 - 4 * sp.log(2))) == 0
+    check("S06-06", ok, f"변곡점 x=±1, 직선 y=ln2, 넓이=4-π={sp.N(ans, 10)}, 오답 {sp.N(wrong, 6)}")
 
 
 # S06-07: y=e^x 의 접선과 곡선, x=0, x=2 사이 넓이 최소

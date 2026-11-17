@@ -44,16 +44,18 @@ def p02():
 
 # ---------------- S07-03 ----------------
 def p03():
-    a = {1: 1}
-    for k in range(1, 40):
-        a[k + 1] = a[k] + 1 if k % 2 == 1 else 2 * a[k]
-    s = sum(a[k] for k in range(1, 21))
-    odd_ok = all(a[2 * m - 1] == 3 * 2 ** (m - 1) - 2 for m in range(1, 20))
-    even_ok = all(a[2 * m] == 3 * 2 ** (m - 1) - 1 for m in range(1, 20))
-    # 오답: 홀수항 10개만 합 -> Σ(3*2^(m-1)-2)
-    wrong = sum(3 * 2 ** (m - 1) - 2 for m in range(1, 11))
-    ok = s == 6108 and odd_ok and even_ok
-    report("S07-03", ok, f"sum a1..a20={s}, 홀/짝 일반항 확인, 오답(홀수항만)={wrong}")
+    # a1=60, a_{n+1}=|a_n-n|
+    a = {1: 60}
+    for k in range(1, 200):
+        a[k + 1] = abs(a[k] - k)
+    s = sum(a[k] for k in range(1, 41))
+    ph1 = all(a[k] == 60 - k * (k - 1) // 2 for k in range(1, 12))
+    inv = all(0 <= a[k] <= k for k in range(11, 200))  # [증명-수치확인] n>=11 에서 0<=a_n<=n
+    ph2 = all(a[11 + 2 * j] == 5 + j and a[12 + 2 * j] == 6 + j for j in range(0, 90))
+    # 오답: n>=11 에서 a_{n+1}=a_n+1 로 착각 -> a_n = n-6
+    wrong = sum(a[k] for k in range(1, 12)) + sum(k - 6 for k in range(12, 41))
+    ok = s == 810 and ph1 and inv and ph2 and wrong == 1020
+    report("S07-03", ok, f"sum a1..a40={s}, 1~11항 60-n(n-1)/2, n>=11 0<=a_n<=n 및 a_(n+2)=a_n+1 확인(n<200), 오답={wrong}")
 
 
 # ---------------- S07-04 ----------------
