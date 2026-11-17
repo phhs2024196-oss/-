@@ -249,15 +249,30 @@ def p09():
 
 # D09-10  I(m,n)=int_0^1 x^m (1-x)^n dx
 def p10():
-    I = lambda m, n: integrate(x**m * (1 - x)**n, (x, 0, 1))
-    ok_rec = all(I(m, n) == Rational(n, m + 1) * I(m + 1, n - 1) for m in range(0, 6) for n in range(1, 6))
-    ok_cl = all(I(m, n) == factorial(m) * factorial(n) / factorial(m + n + 1) for m in range(0, 7) for n in range(0, 7))
-    S3 = sum((-1)**k * binomial(5, k) * Rational(1, k + 3) for k in range(6))
-    ok4 = all(sum((-1)**k * binomial(n, k) * Rational(1, (k + 1) * (k + 2)) for k in range(n + 1)) == Rational(1, n + 2)
-              for n in range(0, 40))
-    wrong = sum(binomial(5, k) * Rational(1, k + 3) for k in range(6))  # 부호 누락
-    ok = ok_rec and ok_cl and S3 == Rational(1, 168) and ok4
-    report('D09-10', ok, f"점화·닫힌식 확인, (3)={S3}, (4)=1/(n+2) n=0..39 (오답 {wrong})")
+    # f(x)=[log_2 x] 의 계단 영역을 직접 구간별 적분으로 계산
+    def f_on(k):  # [2^k, 2^{k+1}) 에서 f=k
+        return k
+    def S(n):
+        return sum(integrate(f_on(k), (x, 2**k, 2**(k + 1))) for k in range(n))
+    def V(n):
+        return pi * sum(integrate(f_on(k)**2, (x, 2**k, 2**(k + 1))) for k in range(n))
+    def Lg(n):
+        return integrate(log(x) / log(2), (x, 1, 2**n))
+    ok1 = S(3) == 10 and simplify(Lg(3) - (24 - 7 / log(2))) == 0
+    # (2) 가로 띠 넓이 합과 비교, 닫힌식
+    ok2 = all(S(n) == sum(2**n - 2**j for j in range(1, n)) == (n - 2) * 2**n + 2 for n in range(2, 25))
+    # (3) T_n = ∫log_2 x - S_n
+    ok3 = all(simplify(Lg(n) - S(n) - (2**n - 1) * (2 - 1 / log(2))) == 0 for n in range(1, 12))
+    # 수치 교차검산: T_n 을 mpmath 로 구간별 적분
+    for n in (3, 6):
+        Tn = sum(mp.quad(lambda z: mp.log(z, 2) - k, [2**k, 2**(k + 1)]) for k in range(n))
+        ok3 &= abs(Tn - (2**n - 1) * (2 - 1 / mp.log(2))) < mp.mpf(10)**-25
+    # (4) V_n, 가로 띠 분해 Σ(2j-1)(2^n-2^j)
+    ok4 = all(V(n) == pi * ((n**2 - 4 * n + 6) * 2**n - 6) for n in range(1, 20))
+    ok4 &= all(sum(k**2 * 2**k for k in range(n)) == sum((2 * j - 1) * (2**n - 2**j) for j in range(1, n)) for n in range(1, 30))
+    wrong = [pi * ((n - 2) * 2**n + 2) for n in (4,)]  # 띠 높이 1로 둔 오답
+    ok = ok1 and ok2 and ok3 and ok4 and wrong[0] != V(4)
+    report('D09-10', ok, f"S_3={S(3)}, ∫_1^8 log2={Lg(3)}, Σk2^k 두 방법 일치 n<25, T_n=(2^n-1)(2-1/ln2), V_n=π((n²-4n+6)2^n-6) n<20 (V_4={V(4)}, 오답 {wrong[0]})")
 
 
 if __name__ == '__main__':

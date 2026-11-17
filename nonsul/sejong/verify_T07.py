@@ -71,28 +71,35 @@ def p02():
 
 # J07-03  I_n = ∫_0^1 x^n e^x dx
 def p03():
-    I = [sp.integrate(x**j * sp.exp(x), (x, 0, 1)) for j in range(0, 41)]
-    ok1 = all(sp.Rational(1, j + 1) < sp.N(I[j], 120) < sp.N(sp.E / (j + 1), 120) for j in range(0, 41))  # [증명-수치확인]
-    ok2 = all(sp.simplify(I[j] - (sp.E - j * I[j - 1])) == 0 for j in range(1, 41))
-    # 수치: 역방향 점화로 고정밀 계산
-    def In(N):
-        M = N + 80
-        v = mp.e / (M + 2)
-        for j in range(M, N, -1):
-            v = (mp.e - v) / j
-        return v
-    N = 10**6
-    a = N * In(N)
-    b = N * (mp.e - N * In(N))
-    ok2n = abs(a - mp.e) < 10.0 / N
-    ok3 = abs(b - 2 * mp.e) < 20.0 / N
-    # 항등식 e - nI_n = I_n + I_{n+1}
-    ok3b = all(sp.simplify(sp.E - j * I[j] - (I[j] + I[j + 1])) == 0 for j in range(0, 40))
-    report('J07-03', ok1 and ok2 and ok2n and ok3 and ok3b,
-           f'[증명-수치확인] n=0..40 정확값; 점화식 확인; nI_n(10^6)={float(a):.7f}->e, n(e-nI_n)={float(b):.6f}->2e={float(2*mp.e):.6f}')
+    # a_1=1, a_{n+1}=a_n+1/a_n 직접 반복 (고정밀)
+    a = [None, mp.mpf(1)]
+    for j in range(1, 1300):
+        a.append(a[j] + 1 / a[j])
+    ok1 = all(a[j] ** 2 >= 2 * j - 1 - mp.mpf(10) ** -30 for j in range(1, 1300))  # [증명-수치확인]
+    # 앞 몇 항은 정확값으로도
+    q = [None, sp.Integer(1)]
+    for j in range(1, 8):
+        q.append(q[j] + 1 / q[j])
+    ok1 &= all(q[j] ** 2 >= 2 * j - 1 for j in range(1, 9))
+    ok2 = all(a[j] ** 2 < 2 * j + mp.log(2 * j - 3) / 2 for j in range(3, 1300))  # [증명-수치확인]
+    # 적분 비교 1/(2k-1) < ∫_{k-1}^{k} dx/(2x-1)
+    kk = sp.Symbol('kk', positive=True, integer=True)
+    ok2 &= all(sp.Rational(1, 2 * j - 1) < sp.integrate(1 / (2 * x - 1), (x, j - 1, j)) for j in range(2, 60))
+    ok2 &= sp.simplify(sp.integrate(1 / (2 * x - 1), (x, 1, n - 1)) - sp.log(2 * n - 3) / 2) == 0
+    # (3) 극한: 상·하계의 극한을 sympy 로
+    lo = sp.limit(sp.sqrt(2 - 1 / n), n, sp.oo)
+    hi = sp.limit(sp.sqrt(2 + sp.log(2 * n - 3) / (2 * n)), n, sp.oo)
+    r = a[1248]
+    ok3 = lo == sp.sqrt(2) and hi == sp.sqrt(2) and int(mp.floor(r)) == 49
+    ok3 &= 2496 + math.log(2493) / 2 < 2500 and math.log(2493) < 8 and 2.7 ** 8 > 2493
+    ratio = a[1299] / mp.sqrt(1299)
+    ok3 &= abs(ratio - mp.sqrt(2)) < 0.002
+    # 대표 오답: 1/(2k-1)<=1/k 상계 2n+ln(n-1) 은 50^2 를 넘어 판정 실패
+    wrong_hi = 2496 + math.log(1247)
+    report('J07-03', ok1 and ok2 and ok3 and wrong_hi > 2500,
+           f'[증명-수치확인] a_n^2>=2n-1, a_n^2<2n+ln(2n-3)/2 (n<1300); a_1248={float(r):.6f} -> [ ]=49; a_n/sqrt n->{lo}; 오답 상계 {wrong_hi:.2f}>2500')
 
 
-# J07-04  e^t 다항 부등식 -> floor(10 ∫_0^1 e^{x^2} dx) = 14
 def p04():
     ts = grid(0, 1, 2000)
     ok1 = all(1 + tt + tt**2 / 2 < math.exp(tt) for tt in ts)  # [증명-수치확인]

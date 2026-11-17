@@ -157,21 +157,32 @@ def p06():
 
 # ---------------------------------------------------------------- D08-07
 def p07():
-    I = [sp.integrate(x ** m * sp.exp(x), (x, 0, 1)) for m in range(0, 12)]
-    ok = I[0] == sp.E - 1 and I[1] == 1 and sp.simplify(I[2] - (sp.E - 2)) == 0
-    for m in range(1, 12):
-        ok &= sp.simplify(I[m] - (sp.E - m * I[m - 1])) == 0
-        ok &= sp.Rational(1, m + 1) <= I[m] <= sp.E / (m + 1)
-    # 큰 n: 수치 적분으로 n I_n -> e, n(e - n I_n) -> 2e (오차 O(1/n) 감소 확인)
-    def In(m):
-        return mp.quad(lambda s: s ** m * mp.e ** s, [0, 1 - mp.mpf(50) / m, 1])
-    errs = []
-    for m in (1000, 4000, 16000):
-        v = In(m)
-        errs.append((abs(m * v - mp.e), abs(m * (mp.e - m * v) - 2 * mp.e)))
-    ok &= errs[0][0] > errs[1][0] > errs[2][0] and errs[2][0] < 1e-3
-    ok &= errs[0][1] > errs[1][1] > errs[2][1] and errs[2][1] < 1e-2
-    report("D08-07", ok, f"I_n=e-nI_(n-1), 1/(n+1)<=I_n<=e/(n+1) (n<=11), lim nI_n=e, lim n(e-nI_n)=2e (n=16000 오차 {mp.nstr(errs[2][1],3)})")
+    # a_1=6, a_{n+1}=(a_n^2+4)/(2a_n) 를 정확 유리수로 직접 반복
+    a = [None, sp.Integer(6)]
+    for j in range(1, 9):
+        a.append((a[j] ** 2 + 4) / (2 * a[j]))
+    ok = all(a[j] > 0 for j in range(1, 10))
+    b = [None] + [(a[j] - 2) / (a[j] + 2) for j in range(1, 10)]
+    ok &= all(sp.simplify(b[j + 1] - b[j] ** 2) == 0 for j in range(1, 9))
+    ok &= all(b[j] == sp.Rational(1, 2 ** (2 ** (j - 1))) for j in range(1, 10))
+    ok &= all(a[j] == 2 * (2 ** (2 ** (j - 1)) + 1) / sp.Integer(2 ** (2 ** (j - 1)) - 1) for j in range(1, 10))
+    # (2) 극한: 일반항으로 sympy limit
+    N_ = sp.Symbol('N', positive=True)
+    B = 2 ** (-(2 ** (N_ - 1)))
+    A = 2 * (1 + B) / (1 - B)
+    lim_a = sp.limit(A, N_, sp.oo)
+    ratio = [(a[j + 1] - 2) / (a[j] - 2) ** 2 for j in range(1, 9)]
+    ok &= lim_a == 2 and all(sp.simplify(ratio[j - 1] - 1 / (2 * a[j])) == 0 for j in range(1, 9))
+    ok &= 0 < ratio[-1] - sp.Rational(1, 4) < sp.Rational(1, 10 ** 30)
+    # (3) log2(a_n-2)/2^n -> -1/2 (고정밀), 최소 n
+    lg = [sp.N(sp.log(a[j] - 2, 2) / 2 ** j, 50) for j in (6, 7, 8, 9)]
+    ok &= abs(lg[-1] + sp.Rational(1, 2)) < sp.Rational(1, 2 ** 7) and abs(lg[-1] + sp.Rational(1, 2)) < abs(lg[0] + sp.Rational(1, 2))
+    nmin = next(j for j in range(1, 10) if a[j] - 2 < sp.Rational(1, 10 ** 10))
+    ok &= nmin == 7 and all(a[j] - 2 >= sp.Rational(1, 10 ** 10) for j in range(1, 7))
+    # 대표 오답: b_n=2^{-2^n} 로 밀면 극한 -1, 최소 n=6
+    Aw = [2 * (1 + sp.Rational(1, 2 ** (2 ** j))) / (1 - sp.Rational(1, 2 ** (2 ** j))) for j in range(1, 9)]
+    wn = next(j for j in range(1, 9) if Aw[j - 1] - 2 < sp.Rational(1, 10 ** 10))
+    report("D08-07", ok and wn == 6, f"b_(n+1)=b_n^2, b_n=2^(-2^(n-1)) (n<=9 정확), lim a_n={lim_a}, 비 1/(2a_n)->1/4, log2(a_9-2)/2^9={sp.N(lg[-1],8)}->-1/2, 최소 n={nmin} (오답 {wn})")
 
 
 # ---------------------------------------------------------------- D08-08
