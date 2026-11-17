@@ -6,7 +6,7 @@ import sys
 import random
 from sympy import (symbols, Rational, integrate, diff, solve, sqrt, exp, log, sin, cos, pi, E,
                    simplify, factor, expand, Poly, real_roots, binomial, factorial, Abs, N, floor,
-                   summation, oo, limit, nsolve)
+                   summation, oo, limit, nsolve, lambdify)
 import mpmath as mp
 
 mp.mp.dps = 40
@@ -216,8 +216,8 @@ def p09():
         if expand(f) == 0:
             continue
         K = random.uniform(-6, 6)
-        h = diff(f, x) - K * f
-        vals = [float(h.subs(x, i / 1000)) for i in range(1, 1000)]
+        h = lambdify(x, diff(f, x) - K * f)
+        vals = [float(h(i / 1000)) for i in range(1, 1000)]
         if not (any(v == 0 for v in vals) or any(vals[i] * vals[i + 1] < 0 for i in range(len(vals) - 1))):
             ok2 = False
     # (3) g = pi cos(pi x), k = pi
@@ -253,6 +253,8 @@ def p10():
     okt = all((1 / mp.sqrt(j) + 1 / mp.sqrt(j + 1)) / 2 > 2 * (mp.sqrt(j + 1) - mp.sqrt(j)) for j in range(1, 100))
     okm = all(1 / mp.sqrt(j) < 2 * (mp.sqrt(j + 0.5) - mp.sqrt(j - 0.5)) for j in range(2, 101))
     ans = floor(10 * N(S, 30))
+    wrong_hi = 1 + 2 * (mp.sqrt(mp.mpf('100.5')) - mp.sqrt(mp.mpf('1.5')))
+    assert wrong_hi > mp.mpf('18.6')
     ok = (lo1 < S < hi1 and floor(lo1) == 18 and lo2 == Rational(371, 20) and S > lo2 and okt and okm and
           S < hi3_exact < hi3_bound < Rational(186, 10) and ok_given and ans == 185)
     report('D10-10', ok, f"S≈{mp.nstr(S, 10)}, 하한 {lo2}=18.55, 상한 {float(hi3_bound)}, [10S]={ans}")
