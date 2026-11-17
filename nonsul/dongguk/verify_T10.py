@@ -55,7 +55,7 @@ def p02():
     l2 = mp.log(2)
     ok3 = r3[0] < l2 < r3[1]
     # (4) 대소: 24 ln2 vs 17, 35 ln2 vs 24  (r3 로 결정, r2 로는 결정 불가)
-    dec_a = 24 * r3[1] < 17
+    dec_a = 24 * r3[1] <= 17  # ln2 < 17/24 (엄격) 이므로 24ln2 < 17
     dec_b = 35 * r3[0] > 24
     undec_r2 = not (24 * r2[1] < 17) and not (35 * r2[0] > 24)
     real_a = 24 * l2 < 17 and 35 * l2 > 24
@@ -220,9 +220,9 @@ def p09():
     # (3) g = pi cos(pi x), k = pi
     g = pi * cos(pi * x)
     G = integrate(g.subs(x, t), (t, 0, x))
-    cands = [mp.mpf(i) / 4000 for i in range(1, 4000)]
+    cands = [(mp.mpf(i) + mp.mpf(1) / 3) / 4000 for i in range(0, 4000)]
     hfun = lambda X: mp.pi * mp.cos(mp.pi * X) - mp.pi * mp.sin(mp.pi * X)
-    signch = [i for i in range(len(cands) - 1) if hfun(cands[i]) * hfun(cands[i + 1]) <= 0]
+    signch = [i for i in range(len(cands) - 1) if hfun(cands[i]) * hfun(cands[i + 1]) < 0]
     ok3 = integrate(g, (x, 0, 1)) == 0 and simplify(G - sin(pi * x)) == 0 and simplify(g.subs(x, Rational(1, 4)) - pi * G.subs(x, Rational(1, 4))) == 0 \
         and len(signch) == 1
     # (4) f = x(1-x)e^x, 모든 k 에서 (0,1) 의 해가 유일, k=3 이면 1-1/√2
