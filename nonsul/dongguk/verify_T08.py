@@ -173,7 +173,7 @@ def p07():
     lim_a = sp.limit(A, N_, sp.oo)
     ratio = [(a[j + 1] - 2) / (a[j] - 2) ** 2 for j in range(1, 9)]
     ok &= lim_a == 2 and all(sp.simplify(ratio[j - 1] - 1 / (2 * a[j])) == 0 for j in range(1, 9))
-    ok &= 0 < ratio[-1] - sp.Rational(1, 4) < sp.Rational(1, 10 ** 30)
+    ok &= 0 < sp.Rational(1, 4) - ratio[-1] < sp.Rational(1, 10 ** 30)
     # (3) log2(a_n-2)/2^n -> -1/2 (고정밀), 최소 n
     lg = [sp.N(sp.log(a[j] - 2, 2) / 2 ** j, 50) for j in (6, 7, 8, 9)]
     ok &= abs(lg[-1] + sp.Rational(1, 2)) < sp.Rational(1, 2 ** 7) and abs(lg[-1] + sp.Rational(1, 2)) < abs(lg[0] + sp.Rational(1, 2))
