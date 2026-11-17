@@ -67,11 +67,28 @@ def p04():
     report("S10-04", ok and wrong == 35, f"n<10^6 전수 해 {len(sols)}개(최대 {max(sols)}), k>=4 불가능 확인={no_more} (오답 k=3 누락={wrong})")
 
 
-# S10-05: 2<=x,y<=100 정수, [log_x y] = 2 인 (x,y) 개수 = 321
+# S10-05: n<=200 자연수 중 x[x]=n 인 양의 실수 x 가 존재하는 n 의 개수 = 96
 def p05():
-    cnt = sum(1 for x in range(2, 101) for y in range(2, 101) if ilog(x, y) == 2)
-    wrong = sum(1 for x in range(2, 101) for y in range(2, 101) if x * x <= y <= x ** 3)  # 등호 포함 오답
-    report("S10-05", cnt == 321, f"전수={cnt} (오답 y<=x^3 포함={wrong})")
+    # x[x]=n, [x]=m>=1 이면 x=n/m 이고 m<=n/m<m+1 이어야 함 (Fraction 으로 정확 판정)
+    def ok(n):
+        return any(int(Fraction(n, m)) == m for m in range(1, n + 1))
+    cnt = sum(1 for n in range(1, 201) if ok(n))
+    # 독립 확인: h(x)=x[x] 는 x>=1 에서 비감소이므로 h(x)>=n 인 최소 x 를 이분법으로 찾고, 그 점에서 h=n 인지 확인
+    def h(z):
+        return z * int(z)
+    hit = set()
+    for n in range(1, 201):
+        lo, hi = 1.0, 20.0
+        for _ in range(80):
+            mid = (lo + hi) / 2
+            if h(mid) >= n:
+                hi = mid
+            else:
+                lo = mid
+        if abs(h(hi) - n) < 1e-9:
+            hit.add(n)
+    wrong = sum(1 for n in range(1, 201) if any(m * m <= n <= m * m + m for m in range(1, 15)))  # 끝점 포함 오답
+    report("S10-05", cnt == len(hit) == 96 and wrong == 109, f"전수={cnt}, 이분법 탐색={len(hit)} (오답 끝점 포함={wrong})")
 
 
 # S10-06: 각 자리 1,2,3, 3이 연속하지 않는 여섯 자리 자연수 개수 = 448

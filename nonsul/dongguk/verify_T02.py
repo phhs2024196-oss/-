@@ -34,21 +34,31 @@ def p01():
 
 
 def p02():
-    S = (sp.Rational(1, 2)*3*5*sp.sin(th) + sp.Rational(1, 2)*4*5*sp.cos(th))
-    # 신발끈 공식으로 독립 확인
-    P = (5*sp.cos(th), 5*sp.sin(th))
-    pts = [(0, 0), (3, 0), P, (0, 4)]
-    shoe = sp.Rational(1, 2)*sum(pts[i][0]*pts[(i+1) % 4][1] - pts[(i+1) % 4][0]*pts[i][1] for i in range(4))
-    assert sp.simplify(shoe - S) == 0  # (1)
-    crit = [c for c in sp.solve(sp.diff(S, th), th) if 0 < c < sp.pi/2]
+    # 직사각형 ABCD: A=O, AB=2 (각 θ), AD=1 (각 θ+π/2)
+    B = sp.Matrix([2*sp.cos(th), 2*sp.sin(th)])
+    D = sp.Matrix([sp.cos(th + sp.pi/2), sp.sin(th + sp.pi/2)])
+    C = B + D
+    assert sp.simplify(C[0] - (2*sp.cos(th) - sp.sin(th))) == 0
+    H = sp.simplify(C[1])
+    al = sp.atan(sp.Rational(1, 2))
+    assert sp.simplify(sp.expand_trig(sp.sqrt(5)*sp.sin(th + al)) - H) == 0  # (1) cosα=2/√5, sinα=1/√5
+    crit = [c for c in sp.solve(sp.diff(H, th), th) if 0 < c < sp.pi/2]
     assert len(crit) == 1
     c0 = crit[0]
-    assert sp.simplify(S.subs(th, c0)) == sp.Rational(25, 2)  # (2)
-    assert sp.simplify(5*sp.cos(c0)) == 4 and sp.simplify(5*sp.sin(c0)) == 3
-    assert sp.Rational(25, 2) - 6 == sp.Rational(13, 2)  # (3)
-    # OP ⟂ AB
-    assert (4*(-3) + 3*4) == 0
-    return "D02-02", "S=(15sinθ+20cosθ)/2, 최대 25/2 at P(4,3), △ABP=13/2, OP⟂AB"
+    assert sp.simplify(H.subs(th, c0) - sp.sqrt(5)) == 0 and sp.simplify(sp.tan(c0) - 2) == 0
+    assert sp.simplify(C[0].subs(th, c0)) == 0  # (2) C 가 y축 위
+    # (3) 외접 직사각형: 꼭짓점 좌표의 max-min 을 수치 격자로 독립 계산
+    def M_num(v):
+        pts = [(0, 0)] + [tuple(float(q.subs(th, v)) for q in P) for P in (B, C, D)]
+        xs, ys = [p[0] for p in pts], [p[1] for p in pts]
+        return (max(xs) - min(xs)) * (max(ys) - min(ys))
+    Mexpr = 2 + sp.Rational(5, 2)*sp.sin(2*th)
+    for v in [0.1 + 0.07*k for k in range(20)]:
+        assert close(M_num(v), Mexpr.subs(th, v))
+    assert close(M_num(float(c0)), 4)
+    grid = max(M_num(1e-4 + (sp.pi.evalf()/2 - 2e-4)*k/2000) for k in range(2001))
+    assert abs(grid - 4.5) < 1e-5 and close(M_num(float(sp.pi/4)), sp.Rational(9, 2))
+    return "D02-02", "C=(2cosθ-sinθ, 2sinθ+cosθ), H=√5 sin(θ+α) 최대 √5 at tanθ=2 (C 가 y축 위), M=2+5/2 sin2θ: (2)의 θ에서 4, 최대 9/2 at π/4"
 
 
 def p03():

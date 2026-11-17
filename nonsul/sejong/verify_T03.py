@@ -78,18 +78,25 @@ def p02():
         except Exception:
             pass
     ok1 = found == {1.0}
-    # (2) g(e+1)=e, g'(e+1)=1/f'(e)=e/(e+1)
-    ok2 = sp.simplify(f.subs(x, E) - (E + 1)) == 0 and sp.simplify(1 / sp.diff(f, x).subs(x, E) - E / (E + 1)) == 0
-    intg = sp.integrate(x * sp.diff(f, x), (x, 1, E))  # ∫_1^{e+1} g = ∫_1^e x f'(x)dx
-    ok2b = sp.simplify(intg - (E ** 2 / 2 + E - sp.Rational(3, 2))) == 0
-    # (3) 넓이 = ∫_1^{e+1} (x - g(x)) dx
-    area = sp.simplify(sp.integrate(y, (y, 1, E + 1)) - intg)
-    num = mp.quad(lambda yy: yy - inv(fn, yy, 1.5), [1, mp.e + 1])
-    ok3 = area == sp.Rational(3, 2) and close(num, 1.5)
-    # 오답: ∫ g 를 (e+1)e - ∫_1^e f 로 하면서 1·g(1) 항(=1)을 빠뜨림
-    wrong = sp.simplify(sp.integrate(y, (y, 1, E + 1)) - ((E + 1) * E - sp.integrate(f, (x, 1, E))))
-    report('J03-02', ok1 and ok2 and ok2b and ok3,
-           f"[증명-수치확인] f(f(a))=a 해는 a=1뿐; g(e+1)=e, ∫g={sp.simplify(intg)}; 넓이={area} (수치 {mp.nstr(num, 12)}); 오답={wrong}")
+    # (2) g'(x) = g/(g+1): 1/f'(t) 와 t/(t+1) 비교, 무작위 x 에서 수치 미분으로도 확인
+    ok2 = sp.simplify(1 / sp.diff(f, x) - x / (x + 1)) == 0
+    for _ in range(20):
+        xv = mp.mpf(random.uniform(-3, 8))
+        gv = inv(fn, xv, 1, lo=1e-12, hi=50)
+        d = (inv(fn, xv + mp.mpf('1e-10'), 1, lo=1e-12, hi=50) - inv(fn, xv - mp.mpf('1e-10'), 1, lo=1e-12, hi=50)) / mp.mpf('2e-10')
+        ok2 &= abs(d - gv / (gv + 1)) < 1e-6
+    ok2 &= sp.simplify(f.subs(x, E) - (E + 1)) == 0
+    intg = sp.integrate(x * sp.diff(f, x), (x, 1, E))  # ∫_1^{e+1} g = ∫_1^e t f'(t) dt
+    ok2 &= sp.simplify(intg - (E ** 2 / 2 + E - sp.Rational(3, 2))) == 0
+    # (3) ∫_1^{e+1} x g/(g+1) dx: 치환 x=f(t) 로 sympy, mpmath 수치로 독립 확인
+    val = sp.simplify(sp.integrate(f * (x / (x + 1)) * sp.diff(f, x), (x, 1, E)))
+    num = mp.quad(lambda z: z * inv(fn, z, 1, lo=1e-12, hi=50) / (inv(fn, z, 1, lo=1e-12, hi=50) + 1), [1, mp.e + 1])
+    ok3 = sp.simplify(val - (E ** 2 + 1) / 2) == 0 and close(num, sp.N((E ** 2 + 1) / 2, 30))
+    # 오답: 경계항에서 1*g(1) 누락
+    wrong = sp.simplify((E + 1) * E - intg)
+    ok3 &= sp.simplify(wrong - (E ** 2 + 3) / 2) == 0
+    report('J03-02', ok1 and ok2 and ok3,
+           f"[증명-수치확인] f(f(a))=a 해는 a=1뿐; g'=g/(g+1) 20점 확인, ∫g={sp.simplify(intg)}; (3)={val} (수치 {mp.nstr(num, 12)}); 오답={wrong}")
 
 
 # ---------------- J03-03 : f(x)=x+sin x ----------------
