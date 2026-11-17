@@ -93,7 +93,7 @@ def p03():
     ok2 = True
     for tv in [sp.Rational(1), sp.Rational(-2), sp.Rational(3, 7), sp.Rational(-5, 3)]:
         lo, hi = sorted([tv, -2 * tv])
-        Sv = sp.integrate(sp.Abs(f - line.subs(tt, tv)), (x, lo, hi))
+        Sv = sp.Abs(sp.integrate(sp.expand(f - line.subs(tt, tv)), (x, lo, hi)))  # (x-t)^2(x+2t) 부호 일정
         ok2 &= sp.simplify(Sv - sp.Rational(27, 4) * tv ** 4) == 0
     # 수열 직접 생성 후 넓이 비 16
     xs = [sp.Integer(1)]
@@ -152,13 +152,15 @@ def p05():
     ok1 = sp.expand(cond + (t ** 2 - a * t + a)) == 0 or sp.expand(cond - (t ** 2 - a * t + a)) == 0
 
     def count_lines(av):
-        av = sp.nsimplify(av)
-        sols = sp.solve(sp.Eq(t ** 2 - av * t + av, 0), t)
-        sols = [sp.N(q, 30) for q in sols if q.is_real]
+        av = mp.mpf(av)
+        D = av * av - 4 * av
+        if D < 0:
+            return 0
+        sols = {(av - mp.sqrt(D)) / 2, (av + mp.sqrt(D)) / 2}
         lines = set()
         for q in sols:
-            sl = sp.N(((1 - t) * sp.exp(-t)).subs(t, q), 20)
-            ic = sp.N((t ** 2 * sp.exp(-t)).subs(t, q), 20)
+            sl = (1 - q) * mp.e ** (-q)
+            ic = q ** 2 * mp.e ** (-q)
             lines.add((round(float(sl), 12), round(float(ic), 12)))
         return len(lines)
     table = {-3: 2, -0.5: 2, 0: 1, 1: 0, 3.5: 0, 4: 1, 4.5: 2, 10: 2}

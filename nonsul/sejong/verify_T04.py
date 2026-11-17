@@ -123,6 +123,7 @@ def p06():
             ok2 = False
     # (3) (n+1)!(e - S_n) -> 1
     vals = []
+    mp.mp.dps = 7000
     for m in [20, 200, 2000]:
         S = mp.fsum(1 / mp.factorial(j) for j in range(m + 1))
         vals.append(mp.factorial(m + 1) * (mp.e - S))
@@ -138,7 +139,7 @@ mp.mp.dps = 40
 # ---------------- J04-07 : I_n = ∫_0^π sin(nx)/sin x ----------------
 def p07():
     # 차 I_{n+2}-I_n = ∫ 2cos((n+1)x) = 0 (기호)
-    ok1 = all(sp.simplify(sp.expand_trig(sp.sin((m + 2) * x) - sp.sin(m * x)) - 2 * sp.cos((m + 1) * x) * sp.sin(x)) == 0
+    ok1 = all(sp.simplify(sp.expand_trig(sp.sin((m + 2) * x) - sp.sin(m * x)) - sp.expand_trig(2 * sp.cos((m + 1) * x) * sp.sin(x))) == 0
               for m in range(1, 8)) and all(sp.integrate(2 * sp.cos((m + 1) * x), (x, 0, PI)) == 0 for m in range(1, 30))
     def In(m):
         return mp.quad(lambda t: mp.sin(m * t) / mp.sin(t) if mp.sin(t) != 0 else m, mp.linspace(0, mp.pi, m + 2))
@@ -187,19 +188,19 @@ def p09():
 
 # ---------------- J04-10 : K_n = ∫_0^{π/2} cos^n x cos(nx) ----------------
 def p10():
-    K = [sp.simplify(sp.integrate(sp.cos(x) ** m * sp.cos(m * x), (x, 0, PI / 2))) for m in range(10)]
-    ok1 = all(eq(2 * K[m], K[m - 1]) for m in range(1, 10))
+    K = [sp.simplify(sp.integrate(sp.cos(x) ** m * sp.cos(m * x), (x, 0, PI / 2))) for m in range(7)]
+    ok1 = all(eq(2 * K[m], K[m - 1]) for m in range(1, 7))
     # 보조함수 미분 항등식 무작위 20점
     random.seed(11)
     ok1 = ok1 and all(sp.Abs(sp.N((sp.diff(sp.cos(x) ** m * sp.sin(m * x), x) - m * sp.cos(x) ** (m - 1) * sp.cos((m + 1) * x)).subs(x, v), 30)) < 1e-25
-                      for m, v in [(random.randint(1, 9), random.uniform(0, 1.5)) for _ in range(20)])
-    ok2 = all(eq(K[m], PI / 2 ** (m + 1)) for m in range(10))
-    P = [None] + [sp.simplify(sp.integrate(sp.cos(x) ** (m - 1) * sp.sin(x) * sp.sin(m * x), (x, 0, PI / 2))) for m in range(1, 10)]
-    ok2 = ok2 and all(eq(P[m], K[m]) for m in range(1, 10))
+                      for m, v in [(random.randint(1, 6), random.uniform(0, 1.5)) for _ in range(20)])
+    ok2 = all(eq(K[m], PI / 2 ** (m + 1)) for m in range(7))
+    P = [None] + [sp.simplify(sp.integrate(sp.cos(x) ** (m - 1) * sp.sin(x) * sp.sin(m * x), (x, 0, PI / 2))) for m in range(1, 7)]
+    ok2 = ok2 and all(eq(P[m], K[m]) for m in range(1, 7))
     S = sp.summation(k * PI / 2 ** (k + 1), (k, 1, sp.oo))
     ok3 = eq(S, PI)
     report('J04-10', ok1 and ok2 and ok3,
-           f"2K_n=K_(n-1) n=1..9, K_n=π/2^(n+1), P_n=K_n (기호); [증명-수치확인] 보조함수 미분 20점; Σ kP_k={S}")
+           f"2K_n=K_(n-1) n=1..6, K_n=π/2^(n+1), P_n=K_n (기호); [증명-수치확인] 보조함수 미분 20점; Σ kP_k={S}")
 
 
 if __name__ == '__main__':

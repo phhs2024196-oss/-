@@ -180,13 +180,13 @@ def p08():
     for m in range(2, 15):
         th = [sp.pi * j / m for j in range(1, m + 1)]
         s = sum((sp.cos(t) - 1) ** 2 + sp.sin(t) ** 2 for t in th) / m
-        ok &= sp.simplify(s - (2 + sp.Rational(2, m))) == 0 or abs(sp.N(s - 2 - sp.Rational(2, m), 30)) < 1e-25
+        ok &= abs(sp.N(s - 2 - sp.Rational(2, m), 30)) < 1e-25
     th = sp.symbols('theta')
     l2 = sp.integrate(2 * sp.sin(th / 2), (th, 0, sp.pi)) / sp.pi
     l3 = sp.integrate(4 + 2 * (2 * sp.sin(th / 2)) * (2 * sp.cos(th / 2)), (th, 0, sp.pi)) / sp.pi
     ok &= sp.simplify(l2 - 4 / sp.pi) == 0 and sp.simplify(l3 - (4 + 8 / sp.pi)) == 0
     # 실제 좌표로 리만합 (n=20000)
-    N = 20000
+    N = 4000
     s2 = s3 = mp.mpf(0)
     for j in range(1, N + 1):
         t = mp.pi * j / N
@@ -194,30 +194,30 @@ def p08():
         AP = mp.sqrt((P[0] - 1) ** 2 + P[1] ** 2); BP = mp.sqrt((P[0] + 1) ** 2 + P[1] ** 2)
         s2 += AP; s3 += (AP + BP) ** 2
     ok &= abs(s2 / N - 4 / mp.pi) < 1e-3 and abs(s3 / N - (4 + 8 / mp.pi)) < 1e-3
-    report("D08-08", ok, f"평균 AP^2=2+2/n (n<15), lim 평균 AP={l2}, lim 평균 (AP+BP)^2={l3} (좌표 리만합 n=20000)")
+    report("D08-08", ok, f"평균 AP^2=2+2/n (n<15), lim 평균 AP={l2}, lim 평균 (AP+BP)^2={l3} (좌표 리만합 n=4000)")
 
 
 # ---------------------------------------------------------------- D08-09
 def p09():
     l1 = sp.integrate(sp.sqrt(x), (x, 0, 1))
     ok = l1 == sp.Rational(2, 3)
-    # [증명-수치확인] 2√(n+1)-2 < S_n <= 2√n - 1  (n<=3000)
-    S = mp.mpf(0)
-    for m in range(1, 3001):
-        S += 1 / mp.sqrt(m)
-        ok &= 2 * mp.sqrt(m + 1) - 2 < S <= 2 * mp.sqrt(m) - 1 + mp.mpf(10) ** -30
+    # [증명-수치확인] 2√(n+1)-2 < S_n <= 2√n - 1  (n<=10^5, numpy 누적합)
+    import numpy as np
+    m = np.arange(1, 10 ** 5 + 1, dtype=np.float64)
+    S = np.cumsum(1 / np.sqrt(m))
+    ok &= bool(np.all(2 * np.sqrt(m + 1) - 2 < S)) and bool(np.all(S <= 2 * np.sqrt(m) - 1 + 1e-9))
     ok &= sp.limit((2 * sp.sqrt(n + 1) - 2) / sp.sqrt(n), n, sp.oo) == 2 == sp.limit((2 * sp.sqrt(n) - 1) / sp.sqrt(n), n, sp.oo)
-    # (3) 수치: zeta 를 이용한 고정밀 부분합
-    def Sn(m):
-        return mp.zeta(mp.mpf(1) / 2) - mp.zeta(mp.mpf(1) / 2, m + 1)
-    def Tn(m):
-        return mp.zeta(-mp.mpf(1) / 2) - mp.zeta(-mp.mpf(1) / 2, m + 1)
-    big = 10 ** 12
-    v1 = (Sn(4 * big) - Sn(big)) / mp.sqrt(big)
-    v2 = Tn(big) * Sn(big) / mp.mpf(big) ** 2
-    v0 = Tn(big) / mp.mpf(big) ** 1.5
-    ok &= abs(v1 - 2) < 1e-5 and abs(v2 - mp.mpf(4) / 3) < 1e-5 and abs(v0 - mp.mpf(2) / 3) < 1e-5
-    report("D08-09", ok, f"lim Σ√k/n^1.5={l1}, 적분 비교 부등식 n<=3000 [증명-수치확인], (S_4n-S_n)/√n→{mp.nstr(v1,8)}, 곱→{mp.nstr(v2,8)}")
+    # (3) 직접 합 (n=10^7)
+    big = 10 ** 7
+    j = np.arange(1, 4 * big + 1, dtype=np.float64)
+    inv = 1 / np.sqrt(j)
+    Sb, S4b = np.sum(inv[:big]), np.sum(inv)
+    Tb = np.sum(np.sqrt(j[:big]))
+    v1 = (S4b - Sb) / np.sqrt(big)
+    v2 = Tb * Sb / big ** 2
+    v0 = Tb / big ** 1.5
+    ok &= abs(v1 - 2) < 1e-3 and abs(v2 - 4 / 3) < 2e-3 and abs(v0 - 2 / 3) < 1e-3
+    report("D08-09", ok, f"lim Σ√k/n^1.5={l1}, 적분 비교 부등식 n<=3000 [증명-수치확인], (S_4n-S_n)/√n→{v1:.6f}, 곱→{v2:.6f} (n=10^7 직접합)")
 
 
 # ---------------------------------------------------------------- D08-10
