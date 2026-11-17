@@ -60,7 +60,9 @@ def main():
             count += n
             sid = f"{pre.lower()}{f.stem[1:]}"
             items.append(f'<a href="#{sid}" data-id="{sid}">{html.escape(title)}<span>{n}</span></a>')
-            secs.append(f'<section id="sec-{sid}" class="type" hidden>{to_html(md)}</section>')
+            (ROOT / "dist" / "t").mkdir(parents=True, exist_ok=True)
+            (ROOT / "dist" / "t" / f"{sid}.html").write_text(to_html(md))
+            secs.append(f'<section id="sec-{sid}" class="type" hidden><p class="loading">불러오는 중…</p></section>')
         nav.append(f'<div class="school"><h2>{name}</h2><nav>{"".join(items)}</nav></div>')
     page = (ROOT / "template.html").read_text()
     page = (page.replace("/*KATEX_CSS*/", katex_css())

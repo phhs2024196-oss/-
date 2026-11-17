@@ -41,6 +41,10 @@ section.type h2{font-size:14px;letter-spacing:.06em;color:var(--accent);margin:3
 section.type h3{font-family:var(--serif);font-size:18px;margin:34px 0 2px;scroll-margin-top:16px}
 section.type p{margin:9px 0;max-width:72ch}
 section.type hr{border:0;border-top:1px solid var(--line);margin:30px 0 0}
+p.loading{color:var(--mute)}
+section.type{overflow-wrap:anywhere;overflow-x:hidden;position:relative}
+.katex{position:relative}
+section.type p,section.type li,section.type td{overflow-x:auto;overflow-y:hidden;padding-block:2px}
 p.meta{color:var(--mute);font-size:12.5px;margin:0 0 10px}
 .lv{display:inline-block;font-weight:700;font-size:11.5px;padding:0 7px;border:1px solid currentColor;border-radius:3px;margin-right:6px}
 .lv.l4{color:var(--l4)} .lv.l5{color:var(--l5)} .lv.l6{color:var(--l6)} .lv.l3{color:var(--mute)}
@@ -82,24 +86,21 @@ code{font-size:.9em}
 <!--SECTIONS-->
   </main>
 </div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/katex.min.js"></script>
 <script>
 (function(){
   var links=[].slice.call(document.querySelectorAll('aside a')), done={};
-  function typeset(sec){
-    if(done[sec.id]||!window.katex) return; done[sec.id]=1;
-    sec.querySelectorAll('span.math').forEach(function(el){
-      var disp=el.classList.contains('display'), t=el.textContent;
-      t=t.replace(/^\\\(|\\\)$/g,'').replace(/^\\\[|\\\]$/g,'');
-      try{katex.render(t,el,{displayMode:disp,throwOnError:false,strict:false});}catch(e){}
-    });
+  function load(sec,id){
+    if(done[id]) return; done[id]=1;
+    fetch('t/'+id+'.html').then(function(r){if(!r.ok)throw 0;return r.text();})
+      .then(function(h){sec.innerHTML=h;})
+      .catch(function(){done[id]=0;sec.innerHTML='<p class="loading">이 유형을 불러오지 못했습니다. 목차에서 다시 눌러 주세요.</p>';});
   }
   function show(){
     var id=(location.hash||'').slice(1);
     if(!document.getElementById('sec-'+id)) id=links.length?links[0].dataset.id:'';
     document.querySelectorAll('section.type').forEach(function(s){s.hidden=(s.id!=='sec-'+id);});
     links.forEach(function(a){a.classList.toggle('on',a.dataset.id===id);});
-    var sec=document.getElementById('sec-'+id); if(sec) typeset(sec);
+    var sec=document.getElementById('sec-'+id); if(sec) load(sec,id);
   }
   function cur(){return document.querySelector('section.type:not([hidden])');}
   document.getElementById('openAll').addEventListener('click',function(){var s=cur();if(s)s.querySelectorAll('details').forEach(function(d){d.open=true;});});
