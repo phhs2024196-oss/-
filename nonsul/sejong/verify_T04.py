@@ -193,7 +193,7 @@ def p10():
     # 보조함수 미분 항등식 무작위 20점
     random.seed(11)
     ok1 = ok1 and all(sp.Abs(sp.N((sp.diff(sp.cos(x) ** m * sp.sin(m * x), x) - m * sp.cos(x) ** (m - 1) * sp.cos((m + 1) * x)).subs(x, v), 30)) < 1e-25
-                      for m, v in [(random.randint(1, 6), random.uniform(0, 1.5)) for _ in range(20)])
+                      for m, v in [(random.randint(1, 6), sp.Rational(random.randint(1, 1500), 1000)) for _ in range(20)])
     ok2 = all(eq(K[m], PI / 2 ** (m + 1)) for m in range(7))
     P = [None] + [sp.simplify(sp.integrate(sp.cos(x) ** (m - 1) * sp.sin(x) * sp.sin(m * x), (x, 0, PI / 2))) for m in range(1, 7)]
     ok2 = ok2 and all(eq(P[m], K[m]) for m in range(1, 7))

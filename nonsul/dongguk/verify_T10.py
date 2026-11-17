@@ -56,7 +56,7 @@ def p02():
     ok3 = r3[0] < l2 < r3[1]
     # (4) 대소: 24 ln2 vs 17, 35 ln2 vs 24  (r3 로 결정, r2 로는 결정 불가)
     dec_a = 24 * r3[1] <= 17  # ln2 < 17/24 (엄격) 이므로 24ln2 < 17
-    dec_b = 35 * r3[0] > 24
+    dec_b = 35 * r3[0] >= 24  # ln2 > 24/35 (엄격)
     undec_r2 = not (24 * r2[1] < 17) and not (35 * r2[0] > 24)
     real_a = 24 * l2 < 17 and 35 * l2 > 24
     ok = ok1 and r2 == (Rational(2, 3), Rational(3, 4)) and r3 == (Rational(24, 35), Rational(17, 24)) and ok3 \
@@ -192,8 +192,11 @@ def p08():
         h = expand(h.subs(sol))
         if h == 0:
             continue
-        vals = [h.subs(x, Rational(i, 2000)) for i in range(1, 2000)]
-        changes = sum(1 for i in range(len(vals) - 1) if vals[i] * vals[i + 1] < 0)
+        # (0,1) 안의 홀수 중복도 근(= 부호가 바뀌는 점) 개수
+        mult = {}
+        for r in real_roots(Poly(h, x)):
+            mult[r] = mult.get(r, 0) + 1
+        changes = sum(1 for r, m in mult.items() if 0 < r < 1 and m % 2 == 1)
         if changes < 3:
             ok_gen = False
     ok = (s2 == {a: -1, b: Rational(1, 6)} and set(r2) == {(3 - sqrt(3)) / 6, (3 + sqrt(3)) / 6}
