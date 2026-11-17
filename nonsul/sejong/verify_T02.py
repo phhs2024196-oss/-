@@ -29,12 +29,12 @@ def p01():
     V = sp.integrate(A, (x, 0, tp))
     ok1 = sp.simplify(V - sp.pi * (1 - sp.exp(-2 * tp)) / 16) == 0
     L = sp.limit(V, tp, sp.oo)
-    ok2 = L == sp.pi / 16 and all(float(V.subs(tp, 0.01 * i)) < float(sp.pi / 16) for i in range(1, 3001))
+    ok2 = L == sp.pi / 16 and all(float(V.subs(tp, 0.01 * i)) < float(sp.pi / 16) for i in range(1, 1001))  # t<=10 (배정밀도 반올림 회피)
     t0 = sp.solve(sp.Eq(V, sp.Rational(3, 4) * L), tp)
     ok3 = len(t0) == 1 and sp.simplify(t0[0] - sp.log(2)) == 0
     dV = sp.simplify(sp.diff(V, tp).subs(tp, sp.log(2)))
     ok3 &= sp.simplify(dV - sp.pi / 32) == 0
-    report('J02-01', ok1 and ok2 and ok3, f"V(t)=pi(1-e^-2t)/16; V<pi/16 3000점[증명-수치확인]; t={t0[0]}, V'={dV}")
+    report('J02-01', ok1 and ok2 and ok3, f"V(t)=pi(1-e^-2t)/16; V<pi/16 1000점[증명-수치확인]; t={t0[0]}, V'={dV}")
 
 
 # ---------------------------------------------------------------- J02-02
