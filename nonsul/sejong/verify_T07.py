@@ -71,35 +71,40 @@ def p02():
 
 # J07-03  I_n = ∫_0^1 x^n e^x dx
 def p03():
-    # a_1=1, a_{n+1}=a_n+1/a_n 직접 반복 (고정밀)
-    a = [None, mp.mpf(1)]
-    for j in range(1, 1300):
-        a.append(a[j] + 1 / a[j])
-    ok1 = all(a[j] ** 2 >= 2 * j - 1 - mp.mpf(10) ** -30 for j in range(1, 1300))  # [증명-수치확인]
-    # 앞 몇 항은 정확값으로도
-    q = [None, sp.Integer(1)]
-    for j in range(1, 8):
-        q.append(q[j] + 1 / q[j])
-    ok1 &= all(q[j] ** 2 >= 2 * j - 1 for j in range(1, 9))
-    ok2 = all(a[j] ** 2 < 2 * j + mp.log(2 * j - 3) / 2 for j in range(3, 1300))  # [증명-수치확인]
-    # 적분 비교 1/(2k-1) < ∫_{k-1}^{k} dx/(2x-1)
-    kk = sp.Symbol('kk', positive=True, integer=True)
-    ok2 &= all(sp.Rational(1, 2 * j - 1) < sp.integrate(1 / (2 * x - 1), (x, j - 1, j)) for j in range(2, 60))
-    ok2 &= sp.simplify(sp.integrate(1 / (2 * x - 1), (x, 1, n - 1)) - sp.log(2 * n - 3) / 2) == 0
-    # (3) 극한: 상·하계의 극한을 sympy 로
-    lo = sp.limit(sp.sqrt(2 - 1 / n), n, sp.oo)
-    hi = sp.limit(sp.sqrt(2 + sp.log(2 * n - 3) / (2 * n)), n, sp.oo)
-    r = a[1248]
-    ok3 = lo == sp.sqrt(2) and hi == sp.sqrt(2) and int(mp.floor(r)) == 49
-    ok3 &= 2496 + math.log(2493) / 2 < 2500 and math.log(2493) < 8 and 2.7 ** 8 > 2493
-    ratio = a[1299] / mp.sqrt(1299)
-    ok3 &= abs(ratio - mp.sqrt(2)) < 0.002
-    # 대표 오답: 1/(2k-1)<=1/k 상계 2n+ln(n-1) 은 50^2 를 넘어 판정 실패
-    wrong_hi = 2496 + math.log(1247)
-    report('J07-03', ok1 and ok2 and ok3 and wrong_hi > 2500,
-           f'[증명-수치확인] a_n^2>=2n-1, a_n^2<2n+ln(2n-3)/2 (n<1300); a_1248={float(r):.6f} -> [ ]=49; a_n/sqrt n->{lo}; 오답 상계 {wrong_hi:.2f}>2500')
+    # T_1=sqrt2, T_{n+1}=T_n+sqrt((n+1)(n+2)) 를 점화식대로 직접 누적 (고정밀)
+    mp.mp.dps = 30
+    T = [None, mp.sqrt(2)]
+    for j in range(1, 200000):
+        T.append(T[j] + mp.sqrt(mp.mpf(j + 1) * (j + 2)))
+    mp.mp.dps = 40
+    # (1) [증명-수치확인] 격자 1000점 + 큰 t
+    ts = list(grid(0, 5, 1000)) + [10.0, 100.0, 1e4]
+    ok1 = all(1 + tt / 2 - tt**2 / 8 < math.sqrt(1 + tt) < 1 + tt / 2 for tt in ts)
+    # 보조함수 h: h'(0)=0, h''>0 (sympy)
+    h = sp.sqrt(1 + t) - 1 - t / 2 + t**2 / 8
+    ok1 &= sp.diff(h, t).subs(t, 0) == 0 and all(sp.diff(h, t, 2).subs(t, sp.Rational(j, 7)) > 0 for j in range(1, 50))
+    # (2) [증명-수치확인]
+    idx = list(range(1, 3000)) + list(range(3000, 200000, 997))
+    ok2 = all(j * (j + 2) / mp.mpf(2) - (1 + mp.log(j)) / 8 < T[j] < j * (j + 2) / mp.mpf(2) for j in idx)
+    # (3) 3차 상계 p(t)>0, 정밀 상계, 극한
+    p = 1 + t / 2 - t**2 / 8 + t**3 / 16 - sp.sqrt(1 + t)
+    ok3 = all(p.subs(t, sp.Rational(j, 13)) > 0 for j in range(1, 200))
+    ok3 &= all(T[j] - j * j / mp.mpf(2) - j < (1 - mp.log(j + 1)) / 8 for j in idx)
+    L1lo = sp.limit(1 - (1 + sp.log(n)) / (8 * n), n, sp.oo)
+    L2lo = sp.limit(-(1 + sp.log(n)) / (8 * sp.log(n)), n, sp.oo)
+    L2hi = sp.limit((1 - sp.log(n + 1)) / (8 * sp.log(n)), n, sp.oo)
+    ok3 &= L1lo == 1 and L2lo == sp.Rational(-1, 8) == L2hi
+    N1 = 199999
+    r1 = (T[N1] - N1**2 / mp.mpf(2)) / N1
+    # 수치: 상수항을 소거한 로그 기울기 -> -1/8
+    d = (T[N1] - N1**2 / mp.mpf(2) - N1) - (T[1999] - 1999**2 / mp.mpf(2) - 1999)
+    slope = d / (mp.log(N1) - mp.log(1999))
+    ok3 &= abs(r1 - 1) < 1e-4 and abs(slope + mp.mpf(1) / 8) < 1e-3
+    report('J07-03', ok1 and ok2 and ok3,
+           f'[증명-수치확인] sqrt(1+t) 양쪽·3차 상계, (2) n<2e5; (T_n-n^2/2)/n={float(r1):.6f}->1, 로그 기울기={float(slope):.6f}->-1/8')
 
 
+# J07-04  e^t 다항 부등식 -> floor(10 ∫_0^1 e^{x^2} dx) = 14
 def p04():
     ts = grid(0, 1, 2000)
     ok1 = all(1 + tt + tt**2 / 2 < math.exp(tt) for tt in ts)  # [증명-수치확인]
