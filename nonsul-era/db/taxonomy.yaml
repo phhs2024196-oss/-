@@ -1,12 +1,12 @@
 # 논술의 시대 — 문항 DB 분류 체계 (단일 기준표)
 # validate.py / build_db.py / import_legacy.py 가 이 파일을 읽는다.
 # 값을 추가·변경할 때는 이 파일만 고치고, 문항 파일은 validate.py 로 재검사한다.
-version: 1
+version: 2
 updated: 2026-11-20
 
 # ─────────────────────────────────────────────────────────────
 # 1. 학교 코드 (2~4자 영문 대문자, 한 번 정하면 변경 금지)
-#    pilot: true = 1차 파일럿 3개교 / candidate: true = 15개교 후보(확정 전)
+#    pilot: true = 1차 파일럿 3개교 / candidate: true = 15개교(2027학년도 기준 확정, 2026-11-20). 2028 요강에서 미시행·형식 변경 시 예비로 대체
 #    scope_2027: 2027학년도 수리논술 출제 과목(2015 개정 과목명)
 #    scope_2028: 2028학년도(2022 개정) 출제 과목 — 시행계획·요강 확인 전에는 unknown
 #    exclude_tools: 모범답안에서 쓰면 안 되는 도구(범위 밖) — validate.py 가 키워드로 경고
@@ -14,7 +14,7 @@ updated: 2026-11-20
 schools:
   SSU:  {name: 숭실대, pilot: true, format: "4문항×25점, 100분, 제시문(교과서 정리)+단일 논제", scope_2027: [수학, 수학Ⅰ, 수학Ⅱ, 미적분], scope_2028: unknown, exclude_tools: [기하, 확률과통계]}
   DGU:  {name: 동국대, pilot: true, format: "3문항(30·30·40), 제시문【가】~【다】 인용, 줄 수 제한", scope_2027: [수학, 수학Ⅰ, 수학Ⅱ, 미적분, 확률과통계, 기하], scope_2028: unknown, exclude_tools: [],
-         note: "기하 포함 확인(2026 논술가이드북: 공통·일반선택·기하 기본개념 중심 출제, 기출 분석: 실전 1번 4년 연속 기하). 기존 N제 지침의 '기하 제외'는 오류 → T11 기하 유형 추가(2028 범위에 기하가 남을 때만 제작)"}
+         note: "기하 포함 확인(2026 논술가이드북: 공통·일반선택·기하 기본개념 중심 출제, 기출 분석: 실전 1번 4년 연속 기하). 기존 N제 지침의 '기하 제외'는 오류 → T11 기하 유형 추가(2027학년도 기준이므로 파일럿에서 제작)"}
   SJU:  {name: 세종대, pilot: true, format: "3문항×소문항3(계단식), 제시문 없음, 증명형 포함, 120분", scope_2027: [수학Ⅰ, 수학Ⅱ, 미적분], scope_2028: unknown, exclude_tools: [기하, 확률과통계]}
   COM:  {name: 공통(학교 무관), pilot: false, format: "공통 교재(속전속결·절차탁마·와신상담·일타쌍피·온고지신)", scope_2027: [], scope_2028: unknown, exclude_tools: []}
   # ── 15개교 후보 (확정 전. 2028 시행계획에서 수리논술 시행·범위 확인 후 candidate→true 로 확정) ──
@@ -60,7 +60,7 @@ types:
     T08: 급수와 수열의 극한
     T09: 정적분의 계산과 넓이·부피 종합
     T10: 정적분과 부등식·존재성 증명
-    T11: "기하: 이차곡선·벡터의 내적·공간도형(이면각·삼수선)"   # 신설 예정 — 2028 범위에 기하 유지 확인 후 제작
+    T11: "기하: 이차곡선·벡터의 내적·공간도형(이면각·삼수선)"   # 신설 — 2027학년도 기준으로 파일럿에서 10문항 제작
   SJU:
     T01: 접선·접원과 극한
     T02: 단면이 주어진 입체의 부피와 정적분
@@ -75,13 +75,16 @@ types:
   COM: {}   # 공통 교재 유형은 공통 교재 기획 시 정의
 
 # ─────────────────────────────────────────────────────────────
-# 3. 문항 종류
+# 3. 문항 분류 (양식 v2)
 # ─────────────────────────────────────────────────────────────
-kinds:
-  past:     실전 기출 (원문 수록 여부는 copyright.original_text 로 별도 관리)
-  mock:     대학 모의논술
-  original: 자체 제작
-  variant:  기출·모의 변형 (parent 필수)
+exam_families: [math_nonsul, humanities_nonsul, yaksul, cert_mcq]   # 확장 1차 분기(수리 → 인문·약술 → 자격증)
+item_types: [proof, derivation, short_answer, essay, mcq_single, mcq_multi, numeric]
+origins:
+  past_exam: 실전 기출 (ID 학교-G연도-번호)
+  mock_exam: 대학 모의논술 (ID 학교-M연도-번호)
+  original:  자체 제작
+  variant:   기출·모의·자체 문항의 변형 (variant_of 필수)
+answer_kinds: [value, expression, proof, set, choice]
 
 # ─────────────────────────────────────────────────────────────
 # 4. 난이도 L (막히는 지점 수로 판정 — 소재가 어려워 보인다고 올리지 않음)
@@ -120,16 +123,52 @@ subject_map_2015_to_2022:
 scope_2028: [common, calc2, geom, unknown]
 
 # ─────────────────────────────────────────────────────────────
-# 7. 검수 상태 (순서대로만 진행. 되돌릴 때는 draft 로)
+# 7. 검수 상태 (순서대로만 진행. r1 탈락 → version+1 하고 draft 로)
 # ─────────────────────────────────────────────────────────────
 statuses:
-  draft:     제작 완료, 검토 전
-  r1_pass:   1차 검토 통과 (출제범위·구상 적합성·형식)
-  r2_pass:   2차 검토 통과 (독립 재풀이 2회 정답 일치)
-  verified:  sympy 검산 PASS + 게이트 G1~G7 통과
-  sampled:   본인 샘플 검수 대상으로 뽑혀 통과
+  draft:     구성·제작 완료, 검토 전 (또는 탈락 후 재작업 중)
+  r1_pass:   1차 검토(r1_scope) 통과 — 출제범위·구상 적합성·형식
+  r2_pass:   2차 검토(r2_calc_1·r2_calc_2) 통과 — 정답을 숨긴 독립 재풀이 2회, computed_answers 일치
+  verified:  sympy 검산(verify) PASS + 게이트 G1~G7 + v2 필수 항목 완비
+  sampled:   본인 무작위 5% 표본 검수(human_sample) 통과
   published: 교재에 수록·판매됨 (이후 수정은 version+1, 정오표 필수)
   retired:   폐기 (ID 재사용 금지)
-
-# 판매 가능 상태: verified 이상 (sampled 는 표본, 모든 문항이 sampled 일 필요 없음)
 publishable_from: verified
+
+# 검수 이력(reviews[].stage) — 맨 끝에 덧붙이기만 한다
+review_stages: [compose, generate, r1_scope, r2_calc_1, r2_calc_2, verify, human_sample, edit, errata, legacy_verify]
+verdicts: [pass, fail, revise]
+restart_from: [blank, solution]          # r1 탈락 → blank(구성부터), r2 탈락 → solution(풀이부터)
+reason_codes: [OUT_OF_SCOPE, CONCEPT_MISFIT, ANSWER_MISMATCH, RUBRIC_POINTS_MISMATCH, NOT_UNIQUE, DUPLICATE,
+               FORMAT, LATEX, RUBRIC_UNCLEAR, PROOF_GAP, TRANSCRIPTION]
+actor_types: [model, human, system]
+
+# ─────────────────────────────────────────────────────────────
+# 8. 채점표 (IB·Edexcel 마크 방식)
+# ─────────────────────────────────────────────────────────────
+mark_types:
+  M: 방법 — 방법을 알고 적용을 시도
+  A: 정확성 — 연결된 M(또는 depends_on)을 얻어야 부여
+  B: 독립 정확성 — M 과 무관
+  R: 논리·근거 — 증명·판정의 근거 서술
+  C: 표현·어문 — 인문 논술용
+deduction_effects: [minus, cap, zero]
+ft_scopes: [cross_subpart_only]
+outcome_code_ranges: {full: '20-29', partial: '10-19', misconception: '70-78', other_wrong: '79', illegible: '90', blank: '99'}
+solution_audiences: [A, B, ALT]          # A 상위권(방향), B 기초(전 과정), ALT 대체 풀이
+remedy_triggers: [criterion_missed, misconception, outcome_code, always]
+remedy_relations: [prerequisite, remediation, exemplar, variant, extension, related]
+behavior_domains: [계산, 이해, 추론, 문제해결]
+
+# ─────────────────────────────────────────────────────────────
+# 9. 출처·저작권 (내보내기 차단 규칙은 validate.py)
+# ─────────────────────────────────────────────────────────────
+licenses: [all_rights_reserved, permission_granted, cc_by, cc_by_nc, own_original]
+permission_statuses: [not_requested, requested, granted, denied, not_needed]
+allowed_uses: [internal_only, quote_partial, full_reproduction]
+derivative_levels: [verbatim, modified_numbers, modified_structure, idea_only]
+
+# ─────────────────────────────────────────────────────────────
+# 10. 교재 시리즈 (books/*.yaml 의 series 값)
+# ─────────────────────────────────────────────────────────────
+series: [기생기사, 다다익선, 백전불태, 유유상종, 난공불락, 만류기종, 속전속결, 절차탁마, 와신상담, 일타쌍피, 온고지신, 지피지기, 자초지종, 대증하약, 워크북]

@@ -1,0 +1,166 @@
+# 논술의 시대 문항 양식 v2.0 — 문항 1개 = 이 YAML 파일 1개 (items/<학교>/<유형>/<ID>.yaml)
+# 여러 줄 글·수식은 반드시 | 블록으로 쓴다(역슬래시를 두 번 쓸 필요 없음). 한 줄짜리 수식은 '작은따옴표'.
+# 필드 정의: 02_문항DB_저장계획서.md §5. 값 목록: db/taxonomy.yaml. ● 필수 ◐ 조건부 ○ 선택
+# 「verified 이상에서 필수」인 항목은 draft 에서는 경고, verified 부터는 오류(validate.py).
+
+schema_version: '2.0'            # ●
+id: SSU-T05-011                  # ● 학교-T유형-순번3 / 기출 학교-G26-04 / 모의 학교-M27-02. 영구, 재사용 금지
+legacy_id: null                  # ○ 이관 문항의 옛 ID(S01-01)
+version: 1                       # ● 판매 후 내용 수정 시 +1
+status: draft                    # ● draft → r1_pass → r2_pass → verified → sampled → published / retired
+exam_family: math_nonsul         # ● math_nonsul | humanities_nonsul | yaksul | cert_mcq
+item_type: proof                 # ● proof | derivation | short_answer | essay | mcq_single | mcq_multi | numeric
+origin: original                 # ● past_exam | mock_exam | original | variant
+school: SSU                      # ●
+type: T05                        # ● (기출은 가장 가까운 유형, 없으면 null)
+variant_of: null                 # ◐ origin=variant 이면 원 문항 ID
+replaces: null                   # ○ 폐기 문항을 대신하는 문항이면 그 ID
+level: L5                        # ● L3~L6 (막히는 지점 수 기준)
+form: 귀류                       # ● 형식 12종
+points: 25                       # ● = 소문항 배점 합
+time_estimate_min: 20            # ○
+intent: 몫의 미분으로 최대를 판정하고 그 단조성을 대소 비교 증명에 연결하는 능력을 본다.   # ● (verified 이상)
+key_idea: '$f(x)=\dfrac{\ln x}{x}$의 단조성으로 $e^\pi$와 $\pi^e$를 비교한다.'          # ●
+stuck: 로그를 취해 $f(\pi)$, $f(e)$ 비교로 바꾸는 발상                                 # ● 막히는 지점(AI 힌트 근거)
+idea_tags: [IDEA-MONO-COMPARE-AB-BA]   # ● (verified 이상) 발상 중복 탐지용 통제어휘
+tags: [고전 발상]                      # ○ 자유 태그
+
+curriculum:                      # ●
+  version: '2015'                # ● 2015 | 2022 (2027학년도까지 2015)
+  subjects: [미적분]              # ● 2015 개정 과목명
+  scope_2028: calc2              # ● common | calc2 | geom | unknown
+  scope_confirmed: true          # ● false = 자동 추정값
+  standards:                     # ○ 성취기준(원문 대조 전에는 verified: false)
+  - code: 미확인
+    text: 도함수를 활용하여 함수의 최대·최소와 부등식 문제를 해결한다(요지)
+    verified: false
+  content_area: 미분법 – 도함수의 활용        # ○
+  behavior_domain: 추론                        # ● (verified 이상) 계산 | 이해 | 추론 | 문제해결
+  unit_path: [미적분, 미분법, 도함수의 활용, 최대·최소를 이용한 부등식 증명]   # ○ 4단 계층
+  key_concepts: [몫의 미분법, 최댓값, 로그함수의 단조성]                        # ○
+
+difficulty: {rater: author, p_value: null, n: 0}   # ○ level 을 매긴 주체 + 실측 정답률(판매 후)
+
+source:                          # ●
+  rights_holder: 논술의 시대     # ●
+  license: own_original          # ● all_rights_reserved | permission_granted | cc_by | cc_by_nc | own_original
+  permission_status: not_needed  # ● not_requested | requested | granted | denied | not_needed  ← 내보내기 차단 키
+  allowed_use: full_reproduction # ● internal_only | quote_partial | full_reproduction
+  derivative_level: idea_only    # ● verbatim | modified_numbers | modified_structure | idea_only
+  inspired_by: 널리 알려진 e^π, π^e 대소 비교 발상(특정 기출 아님)   # ○
+  # 기출·모의(◐): institution, admission_year, admission_type, track, question_no,
+  #                official_url, retrieved_at, original_points, rights_notice, permission_ref
+
+verify: verify/SSU-T05-s2.py::p11   # ● (verified 이상) sympy 검산 함수
+
+stimuli:                         # ○ 제시문. 숭실: 교과서 정리 + 【출처】, 동국: 【가】~【다】, 세종: 비움
+- label: 가
+  body: |
+    미분가능한 함수 $f(x)$에 대하여 열린구간 $(a,b)$에서 $f'(x)<0$이면 $f(x)$는 $[a,b]$에서 감소한다.
+    【출처: 미적분 「도함수의 활용」】
+
+stem: |                          # ● 공통 발문
+  함수 $f(x)=\dfrac{\ln x}{x}\ (x>0)$에 대하여 $e^{\pi}>\pi^{e}$임을 증명하시오.
+
+subparts:                        # ● 단일 논제도 소문항 1개("1")로 쓴다
+- id: '1'                        # 단일 논제는 소문항 "1" 하나. 소문항 발문은 짧게(공통 발문 반복 금지)
+  stem: |
+    위 명제를 증명하시오.
+  points: 25
+  depends_on: []                 # ○ 앞 소문항 결과를 쓰면 그 id (이월 FT 판단 근거)
+  answer: {kind: proof, value: null, equivalents: [], tolerance: null}   # ● kind: value|expression|proof|set|choice
+  solutions:                     # ● (verified 이상) audience A(방향) 1개 + B(전 과정) 1개 이상, ALT 는 대체 풀이
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: 로그를 취하면 $f(\pi)<f(e)$와 동치이고, $f$는 $x>e$에서 감소한다.
+    steps:
+    - {id: 1a, content: '$e^\pi>\pi^e\iff \dfrac{\ln\pi}{\pi}<\dfrac1e\iff f(\pi)<f(e)$', criteria: [1.M1, 1.R1, 1.A1]}
+    hint_ladder:
+    - 로그를 취해 보자.
+    - 양변을 $e\pi$로 나누면 어떤 함수가 보이는가?
+  - id: S1-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        두 수는 양수이고 $\ln$은 증가함수이므로 $e^\pi>\pi^e\iff \pi>e\ln\pi\iff \dfrac1e>\dfrac{\ln\pi}{\pi}$, 즉 $f(e)>f(\pi)$.
+      criteria: [1.M1]
+    - id: 1b-2
+      content: |
+        $f'(x)=\dfrac{1-\ln x}{x^2}$이고 $x>e$에서 $1-\ln x<0$이므로 제시문 (가)에 의해 $f$는 $[e,\infty)$에서 감소한다.
+      criteria: [1.M2, 1.A2]
+    - id: 1b-3
+      content: |
+        $\pi>e$이므로 $f(\pi)<f(e)$이고, 1b-1의 동치 관계에 의해 $e^\pi>\pi^e$이다. ■
+      criteria: [1.R1, 1.A1]
+  rubric:                        # ● 1마크 = 1행
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:                    # 글이 들어가는 값은 블록(줄바꿈) 형식으로 — {} 안에 쉼표·물음표가 있으면 깨짐
+    - id: 1.M1
+      mark_type: M
+      points: 7
+      evidence: 로그를 취하거나 동치 변형으로 비교를 $f(\pi)$와 $f(e)$의 비교로 바꾼 식이 있다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1]
+    - id: 1.M2
+      mark_type: M
+      points: 5
+      evidence: $f'(x)=\dfrac{1-\ln x}{x^2}$ 또는 동치식을 구했다.
+      implied_ok: true
+      steps: [1b-2]
+    - id: 1.A2
+      mark_type: A
+      points: 3
+      evidence: $x>e$에서 $f'(x)<0$이므로 감소함을 밝혔다.
+      depends_on: [1.M2]
+      steps: [1b-2]
+    - id: 1.R1
+      mark_type: R
+      points: 6
+      evidence: $\pi>e$와 감소성을 근거로 $f(\pi)<f(e)$를 이끌었다.
+      steps: [1b-3]
+    - id: 1.A1
+      mark_type: A
+      points: 4
+      evidence: 동치 변형의 근거($\ln$의 증가성, 양수로 나눔)를 밝히고 결론을 적었다.
+      depends_on: [1.M1, 1.R1]
+      not_penalized:
+      - $\iff$ 대신 「따라서」로 순방향 서술
+      steps: [1b-3]
+    deductions:
+    - code: D1-1
+      condition: 결론을 가정하고 출발해 참인 식에 도달한 뒤 끝냄(동치 표시 없음)
+      effect: minus             # minus | cap | zero
+      value: 5
+    - code: D1-2
+      condition: 근삿값 계산만으로 대소를 판단
+      effect: cap
+      value: 5
+  outcome_codes:                 # ○ 20~29 만점(방법별) 10~19 부분 70~78 특정 오개념 79 기타 오답 90 판독불가 99 백지
+  - {code: '20', meaning: 만점}
+  - {code: '72', misconception: MC-PRF-0003}
+  misconceptions:                # ● (verified 이상) 1개 이상. id 는 db/misconceptions.yaml 카탈로그에 있어야 함
+  - id: MC-PRF-0003
+    outcome_code: '72'
+    wrong_work: '$e^\pi>\pi^e$라 하면 $\pi>e\ln\pi\Rightarrow\cdots$ 참'
+    detect_cue: 첫 줄에 증명할 부등식이 전제로 쓰였고 $\iff$가 없다
+    feedback: 참인 사실에서 출발하거나 각 단계가 동치($\iff$)임을 밝히세요.
+    remedy: [RL-1]
+
+remedy_links:                    # ● (verified 이상) 처방: 교재 번호가 아니라 개념·문항을 가리킨다
+- id: RL-1
+  trigger: {type: misconception, ref: MC-PRF-0003}   # criterion_missed | misconception | outcome_code | always
+  relation: remediation                              # prerequisite | remediation | exemplar | variant | extension | related
+  target: {kind: concept, ref: CON-PRF-EQUIV-CHAIN}  # concept(db/concepts.yaml) | item(문항 ID)
+  priority: 1
+
+reviews:                         # ● 검수 이력. 맨 끝에 덧붙이기만 한다(고치거나 지우지 않음)
+- {stage: compose, actor_type: model, actor_id: fable, prompt_version: compose-v1, item_version: 1, verdict: pass, date: 2026-12-01}
+- {stage: generate, actor_type: model, actor_id: opus, prompt_version: gen-v1, item_version: 1, verdict: pass, date: 2026-12-01}
+# 이후: r1_scope → r2_calc_1 → r2_calc_2(computed_answers 필수) → verify(sympy) → (human_sample)
+
+created: 2026-12-01
+updated: 2026-12-01

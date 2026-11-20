@@ -48,15 +48,16 @@ A. 범위 태깅: 각 문항의 subjects 와 scope_2028 을 직접 판단해 확
    휴리스틱 추정과 다르게 바꾼 문항은 목록으로 보고해.
 B. 범위 밖 풀이 수정: validate.py 가 "기하 도구 의심" 경고를 낸 문항(세종: J01-01·04·06·07, J10-03·04·05·08·09·10 = SJU-T01-001·004·006·007, SJU-T10-003·004·005·008·009·010)의 모범답안을
    그 학교 범위 안의 도구로 다시 써. 채점표 단계·배점은 모범답안과 1:1 로 맞추고, 정답은 바뀌면 안 돼.
+C0. v2 완비(문항마다, 서브에이전트 model: opus 로 문항 몇 개씩): 원문 내용은 바꾸지 말고 ① 각 채점 마크에 mark_type(M/A/B/R) 지정·필요하면 depends_on·ft·not_penalized 추가(배점 합은 유지) ② 해설 A(방향·핵심) 작성 ③ legacy.wrong_answers 를 오개념으로 구조화: db/misconceptions.yaml 에 없으면 카탈로그에 먼저 추가하고 소문항 misconceptions 에 연결(outcome_code 70~78, wrong_work·detect_cue·feedback) ④ 처방 remedy_links(개념은 db/concepts.yaml 에 추가) ⑤ intent·idea_tags·behavior_domain 작성 ⑥ legacy.answer_text 로 정답이 빈 소문항 채우기 ⑦ depends_on 실제 관계로 확인. 끝나면 legacy 블록은 지우지 말고 둔다.
 C. r1 검토: 유형별로 서브에이전트(model: sonnet)를 하나씩 띄워 db/제작지침.md §9 의 r1 항목을 검토하게 해. 결과를 각 문항 reviews 에 기록하고 통과 문항은 status: r1_pass.
-D. r2 검토: r1_pass 문항마다 서로 독립인 서브에이전트 2개(model: opus)에게 제시문·논제만 주고 최종 답만 받아. 내가(오케스트레이터) 정답과 비교해 둘 다 일치하면 r2a·r2b pass, status: r2_pass.
+D. r2 검토: r1_pass 문항마다 서로 독립인 서브에이전트 2개(model: opus)에게 제시문·발문만 주고 소문항별 최종 답만 받아. 둘 다 정답과 일치하면 reviews 에 r2_calc_1·r2_calc_2(verdict: pass, computed_answers 기록) 추가, status: r2_pass.
    불일치면 sympy 로 누가 맞는지 판정 → 문항 오류면 수정 후 다시 r2, 검토자 오류면 note 에 기록하고 그 검토만 1회 재실행.
 E. verify: r2 까지 끝난 유형은 모두 run_verify.sh 재실행(이관 때의 legacy_verify 기록은 인정 안 됨). PASS + validate ERROR 0 이면 reviews 맨 끝에 stage: verify, result: pass 추가, status: verified.
 F. 유형 하나 끝날 때마다 build_db.py 후 커밋·push.
 보고: 유형별 verified 수, 범위 태그 변경 목록, 수정·폐기한 ID와 이유, 내가 직접 봐야 할 문항(증명 논리 등).
 ```
 
-동국(DGU)은 2027까지 기하가 출제범위에 포함되므로(2026 논술가이드북) 모범답안의 기하 도구는 범위 안이다. 다만 2028 대비용 태그는 정확히 geom 으로 단다. 기하 유형(DGU-T11) 신규 제작은 2028 범위 확인 후 P2로 한다.
+동국(DGU)은 2027까지 기하가 출제범위에 포함되므로(2026 논술가이드북) 모범답안의 기하 도구는 범위 안이다. 다만 2028 대비용 태그는 정확히 geom 으로 단다. 기하 유형(DGU-T11) 10문항은 2027학년도 기준에 따라 P2로 신규 제작한다.
 
 ---
 
@@ -68,11 +69,11 @@ F. 유형 하나 끝날 때마다 build_db.py 후 커밋·push.
 
 1. 중복 확인: python3 tools/build_db.py 후 python3 tools/search.py 〈핵심 단어〉 --school 〈SSU〉 와 python3 tools/search.py 〈핵심 단어〉(전 학교)로 기존 문항의 열쇠·설정 목록을 만들어. 새 문항은 이것들과 열쇠·설정이 겹치면 안 돼.
 2. 설계(서브에이전트 model: fable): 기존 목록과 제작지침을 주고 10행 설계도(ID·L·형식·열쇠·정답 예상·막힘·대표 오답)를 받아. 형식 4종 이상·같은 형식 3회 이하 확인.
-3. 제작(서브에이전트 model: opus, 문항 2~3개씩 나눠 병렬): 설계도 행을 주고 db/item_template.md 형식의 문항 파일과 검산 함수 p〈순번〉() 을 받아. ID 는 이 유형 마지막 순번 다음부터.
+3. 제작(서브에이전트 model: opus, 문항 2~3개씩 나눠 병렬): 설계도 행을 주고 db/item_template.yaml(양식 v2) 형식의 문항 파일(해설 A·B, 1마크=1행 채점표, 오개념·처방 포함)과 검산 함수 p〈순번〉() 을 받아. ID 는 이 유형 마지막 순번 다음부터.
    검산 파일은 세트마다 새로: db/verify_template.py 를 verify/〈SSU〉-〈T03〉-s〈세트번호〉.py 로 복사해 PREFIX 를 바꾸고 함수를 넣어(세트 = 순번 10개 단위, 011~020 = s2). 기존 verify/〈SSU〉-〈T03〉.py 에 덧붙이지 마.
 4. 검산: run_verify.sh 로 이 유형 실행. FAIL 이면 제작 서브에이전트에게 돌려보내 수정(정답이 지저분하면 설정 변경).
 5. r1(서브에이전트 model: sonnet, 제작과 다른 에이전트): 제작지침 §9 r1 항목. fail → 그 문항은 제작부터 백지 재시작.
-6. r2a·r2b(서로 독립 서브에이전트 2개, model: opus): 제시문·논제만 주고 최종 답만 받기. 비교는 네가 해. 불일치 → sympy 로 판정, 문항 오류면 풀이과정부터 재작성.
+6. r2(서로 독립 서브에이전트 2개, model: opus): 제시문·발문만 주고 소문항별 최종 답만 받기 → reviews 에 r2_calc_1·r2_calc_2(computed_answers 필수). 비교는 네가 해. 불일치 → sympy 로 판정, 문항 오류면 restart_from: solution 으로 풀이부터 재작성.
    또 build/r2_packets/〈ID〉.md 에 제시문·논제만 담은 파일을 만들어 둬(내가 다른 계열 AI로 추가 확인할 수 있게).
 7. 같은 문항 3회 연속 탈락 → retired, 새 ID 로 재제작하고 새 문항에 replaces: 〈폐기 ID〉.
 8. 전부 통과하면 validate ERROR 0, run_verify PASS 확인 → reviews 에 verify pass 기록 → status: verified → validate 다시(검수 기록 검사) → build_db.py --stats → 커밋·push.
@@ -90,12 +91,12 @@ F. 유형 하나 끝날 때마다 build_db.py 후 커밋·push.
 ```text
 sources/〈SSU〉/ 의 PDF 들로 〈SSU〉 기출 DB 를 만들어줘. 02_문항DB_저장계획서.md §4·§8 과 CLAUDE.md 를 따라.
 1. 각 PDF 에서 문항을 하나씩 items/〈SSU〉/PAST/〈ID〉.md 로 만들어. ID: 실전 〈SSU〉-G연도2-번호2, 모의 〈SSU〉-M연도2-번호2 (회차 구분이 있으면 연도 뒤 A/B).
-2. kind: past/mock, source: {school, year, session, number, url(PDF 출처 페이지)}, copyright.original_text: false.
-3. 제시문·논제는 원문 그대로 옮기고(내부 분석용), 모범답안·채점표·대표 오답은 직접 작성. 대학이 공개한 채점 기준·예시답안이 있으면 ## 메모 에 요약하고 출처 쪽수를 적어.
+2. origin: past_exam/mock_exam, source: {rights_holder: 〈대학〉, license: all_rights_reserved, permission_status: not_requested, allowed_use: internal_only, derivative_level: verbatim, institution, admission_year, admission_type, track, question_no, official_url, retrieved_at, original_points, rights_notice(보고서 표지 문구 그대로)}.
+3. 제시문·발문은 원문 그대로 옮기고(내부 분석용 — allowed_use: internal_only 라 교재·공개 JSONL 에서 자동 제외), 해설 A·B·채점 마크·오개념은 직접 작성. 대학 공개 채점 기준·예시답안은 legacy 대신 tags/메모가 아니라 solutions(ALT)·rubric 에 반영하고 출처 쪽수를 note 로.
 4. 각 문항 정답을 sympy 로 검산: 연도·회차마다 db/verify_template.py 를 verify/〈SSU〉-G26.py(모의는 -M27) 로 복사해 PREFIX="〈SSU〉-G26", WIDTH=2 로 바꾸고 문항 번호 함수 p04 를 넣어. front matter verify: verify/〈SSU〉-G26.py::p04.
 5. level·form·subjects·scope_2028 태깅, type 은 기존 유형 코드 중 가장 가까운 것(없으면 taxonomy.yaml 에 새 유형 제안만 하고 type: null).
 6. PDF 판독이 불확실한 수식은 [판독확인] 표시를 메모에 남기고 나에게 목록으로 보고.
-7. 검수: r1(서브에이전트 model: sonnet — 원문 PDF와 옮긴 제시문·논제 대조 + 우리 모범답안·채점표 검토) → r2a·r2b(제시문·논제만 주고 독립 풀이) → verify. 전부 pass 면 status: verified(기생기사·다다익선 조판에 필요).
+7. 검수: r1_scope(서브에이전트 model: sonnet — 원문 PDF와 옮긴 제시문·발문 대조 + 해설·채점표 검토) → r2_calc_1·r2_calc_2(제시문·발문만 주고 독립 풀이) → verify. 전부 pass 면 status: verified. 원문 수록 교재(기생기사·다다익선)는 대학 허락(permission_status: granted + permission_ref) 전까지 "출처 + 자체 해설" 판으로만 조판된다.
 8. validate → verify → build → 커밋.
 보고: 연도·회차별 문항 수, 유형 분포(어떤 유형이 몇 번 나왔는지), 판독확인 목록.
 ```
@@ -123,7 +124,7 @@ books/〈SSU-YUYU-2028〉.yaml 의 문항으로 A4 인쇄용 PDF 를 만들어�
 1. python3 tools/validate.py --book books/〈SSU-YUYU-2028〉.yaml --strict 가 통과하는지 먼저 확인(수록 문항 전부 verified 이상, 경고 0). 아니면 멈추고 목록 보고.
 2. 기존 조판 도구(phhs2024196-oss/- 브랜치 claude/confident-volta-323thl 의 nonsul/print/: build_print.py, print.css, prerender_print.js, print_pdf.js)를 tools/print/ 로 가져와, 입력을 books yaml + items md 로 바꿔.
    구성: 표지 → 빠른 정답 → 유형별 풀이 팁 → 문제(홀수 쪽)/해설(짝수 쪽).
-3. kind 가 past/mock 이고 copyright.original_text: false 인 문항은 원문 대신 "출처 + 자체 해설"만 나오게.
+3. source.allowed_use 가 full_reproduction 이 아닌 문항(허락 없는 기출)은 원문 대신 "출처(대학·학년도·번호) + 자체 해설"만 나오게. validate --book 이 원문 수록을 오류로 막는다.
 4. 표지에 판(edition)·발행일, 마지막 쪽에 "오류 신고: 〈스토어 문의〉 · 정오표: 〈주소〉" 를 넣어.
 5. build/pdf/ 에 저장하고 쪽수, 수식 렌더 실패 건수를 보고. 실패 0 이 될 때까지 고쳐.
 6. 출고가 확정되면 python3 tools/build_db.py --lock books/〈SSU-YUYU-2028〉.yaml 로 스냅샷(.lock.yaml)을 만들어 커밋해. 이후 build 때마다 바뀐 문항이 "정오표 대상"으로 보고된다.

@@ -18,12 +18,14 @@
 CLAUDE.md            Claude Code 작업 규칙(이 폴더를 저장소 루트로 쓰면 자동 로딩)
 db/taxonomy.yaml     학교·유형·난이도·형식·과목·상태 기준표
 db/schema.sql        SQLite 스키마(파생 DB)
-db/item_template.md  문항 1개 파일 뼈대
+db/item_template.yaml 문항 1개 = YAML 1개(양식 v2) 완성 예시
+db/misconceptions.yaml 전역 오개념 카탈로그
+db/concepts.yaml     개념 그래프(처방 대상)
 db/제작지침.md        문항 제작·검산·검토 규칙(기존 N제 지침 승계)
 db/verify_template.py 새 세트 검산 파일 뼈대(p숫자 함수 자동 실행)
 tools/import_legacy.py  기존 300문항 → 문항별 파일 이관
 tools/validate.py       검사기(ID·분류값·배점 합·소문항 소계·단계 중복·수식 표기·범위 밖 도구·세트 분포·검수 기록·교재 참조)
-tools/build_db.py       md → build/nonsul.db + 통계 + 출고 후 변경(정오표 대상) 보고, --lock 으로 출고 스냅샷
+tools/build_db.py       YAML → build/nonsul.db + items.jsonl(교환) + items_public.jsonl(공개 가능분) + 중복 탐지 + 통계 + 정오표 대상 보고, --lock 출고 스냅샷
 tools/search.py         부분 문자열 검색(중복 확인)
 tools/run_verify.sh     sympy 검산 일괄 실행
 items/ verify/ books/ errata/ reports/   (P0 실행 후 채워짐)

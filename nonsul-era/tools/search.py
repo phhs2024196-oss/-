@@ -23,8 +23,7 @@ a = ap.parse_args()
 db = KIT / "build" / "nonsul.db"
 if not db.exists():
     sys.exit("build/nonsul.db 없음 — 먼저 python3 tools/build_db.py")
-col = {"all": "(coalesce(key_idea,'') || ' ' || coalesce(concepts,'') || ' ' || body_md)",
-       "key_idea": "coalesce(key_idea,'')", "body": "body_md"}[a.field]
+col = {"all": "search_text", "key_idea": "coalesce(key_idea,'')", "body": "search_text"}[a.field]
 where, params = [], []
 for w in a.words:
     where.append(f"instr({col}, ?) > 0")
