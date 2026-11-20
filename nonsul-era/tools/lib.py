@@ -51,29 +51,34 @@ def split_sections(body: str) -> dict[str, str]:
     return out
 
 
-def parse_rubric(table_md: str) -> list[dict]:
-    """채점표 표 → [{step, sub_question, content, points}].
-    3열(단계|내용|배점) 과 4열(단계|소문항|내용|배점) 모두 지원."""
-    rows = []
+def parse_rubric(table_md: str) -> tuple[list[dict], list[str]]:
+    """채점표 표 → ([{seq, step, sub_question, content, points}], [읽지 못한 행]).
+    3열(단계|내용|배점) 과 4열(단계|소문항|내용|배점) 모두 지원.
+    머리행은 마지막 칸이 정확히 '배점'인 행. 배점 칸은 정수만 허용(14.5 같은 값은 오류로 보고)."""
+    rows, bad = [], []
     for line in table_md.splitlines():
         s = line.strip()
-        if not s.startswith("|") or re.match(r"^\|\s*-", s) or "배점" in s:
+        if not s.startswith("|") or re.match(r"^\|[\s:|-]*$", s):
             continue
         cells = [c.strip() for c in s.strip("|").split("|")]
-        if len(cells) < 3:
+        if cells and cells[-1] == "배점":
             continue
-        pts = re.sub(r"[^\d]", "", cells[-1])
-        if not pts:
+        if len(cells) < 3 or not re.fullmatch(r"\d+", cells[-1]):
+            bad.append(s)
             continue
         if len(cells) >= 4:
             step, sub, content = cells[0], cells[1], " | ".join(cells[2:-1])
         else:
             step, sub, content = cells[0], None, cells[1]
-        rows.append({"step": step, "sub_question": sub or None, "content": content, "points": int(pts)})
-    return rows
+        if sub in ("-", "", "—"):
+            sub = None
+        rows.append({"seq": len(rows) + 1, "step": step, "sub_question": sub,
+                     "content": content, "points": int(cells[-1])})
+    return rows, bad
 
 
 def content_hash(text: str) -> str:
+    """파일 전체(front matter 포함) 해시 앞 16자 — 정답·배점 등 메타데이터 변경도 감지."""
     return hashlib.sha256(text.encode("utf-8")).hexdigest()[:16]
 
 
@@ -81,6 +86,25 @@ def load_item(path: pathlib.Path) -> tuple[dict, dict, str]:
     text = path.read_text(encoding="utf-8")
     meta, body = split_front_matter(text)
     return meta, split_sections(body), body
+
+
+def item_seq(item_id: str) -> int | None:
+    m = ID_ORIGINAL.match(item_id or "")
+    return int(m["seq"]) if m else None
+
+
+def all_item_ids() -> set[str]:
+    """저장소 전체 문항 ID(파일명 기준) — 일부 폴더만 검사할 때 parent·교재 참조 확인용."""
+    return {p.stem for p in (KIT / "items").rglob("*.md")}
+
+
+def load_books() -> list[tuple[pathlib.Path, dict]]:
+    out = []
+    for bf in sorted((KIT / "books").glob("*.yaml")):
+        if bf.name.endswith(".lock.yaml"):
+            continue
+        out.append((bf, yaml.safe_load(bf.read_text(encoding="utf-8")) or {}))
+    return out
 
 
 # ── 2028 출제범위 추정 (키워드 휴리스틱: 확정이 아니라 태깅 우선순위용) ──────────
@@ -91,6 +115,8 @@ CALC2_KW = re.compile(
     r"치환적분|부분적분|역함수의 미분|음함수|매개변수|덧셈정리|이계도함수|변곡점|곡선의 길이|"
     r"급수|\\lim_\{n\s*\\to\s*\\infty\}|\\sum_\{[a-z]=1\}\^\{?\\infty|속도|가속도|구분구적"
 )
+# 확률과통계 고유 도구(고1 '경우의 수·순열·조합'은 제외) — exclude_tools 검사용
+STAT_TOOL_PAT = re.compile(r"확률|기댓값|분산|표준편차|정규분포|이항분포|표본평균|확률변수")
 STAT_PAT = re.compile(r"확률|경우의 수|조합|순열|기댓값|분산|표본|정규분포|이항분포|\\binom|{}_\{?\d*\}?C")
 
 

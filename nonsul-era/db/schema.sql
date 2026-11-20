@@ -49,7 +49,7 @@ CREATE TABLE items (
   path          TEXT NOT NULL,               -- items/SSU/T01/SSU-T01-001.md
   body_md       TEXT NOT NULL,               -- 본문 전체(제시문~해설)
   passage_md    TEXT, prompt_md TEXT, solution_md TEXT, rubric_md TEXT, errors_md TEXT,
-  content_hash  TEXT NOT NULL                -- 본문 sha256 앞 16자: 수정 감지·정오표 근거
+  content_hash  TEXT NOT NULL                -- 파일 전체 sha256 앞 16자: 수정 감지·정오표 근거
 );
 CREATE INDEX idx_items_school_type ON items(school, type);
 CREATE INDEX idx_items_status ON items(status);
@@ -57,11 +57,12 @@ CREATE INDEX idx_items_scope ON items(scope_2028);
 
 CREATE TABLE rubric_steps (               -- 채점표 한 줄 = 한 행 (AI 첨삭이 이 단위로 채점)
   item_id       TEXT NOT NULL REFERENCES items(id),
-  step          TEXT NOT NULL,              -- ①, ② ...
-  sub_question  TEXT,                       -- (1)(2)(3) — 다소문항일 때
+  seq           INTEGER NOT NULL,           -- 표의 행 순서 1, 2, 3 …
+  step          TEXT NOT NULL,              -- ①, ② … (문항 안에서 중복 금지 — validate 가 검사)
+  sub_question  TEXT,                       -- (1)(2)(3) — 단일 논제면 NULL
   content       TEXT NOT NULL,
   points        INTEGER NOT NULL,
-  PRIMARY KEY (item_id, step)
+  PRIMARY KEY (item_id, seq)
 );
 
 CREATE TABLE reviews (                    -- 검토 이력 (front matter reviews[])
@@ -92,15 +93,24 @@ CREATE TABLE placements (                 -- 한 문항이 여러 교재에 실�
   PRIMARY KEY (book, item_id)
 );
 
-CREATE TABLE errata (                     -- 정오표 / 오류 신고
-  id            INTEGER PRIMARY KEY,
+CREATE TABLE errata (                     -- 정오표 / 오류 신고. 원본은 git 의 errata/*.yaml (DB 는 매번 재생성되므로)
+  id            TEXT PRIMARY KEY,           -- 파일명: 2027-03-02-SSU-T03-014
   item_id       TEXT NOT NULL REFERENCES items(id),
   reported      TEXT NOT NULL,
-  reporter      TEXT,                       -- 개인정보 저장 금지: 채널명만 (스토어 문의, 메일)
+  channel       TEXT,                       -- 스토어 문의, 메일 … (신고자 개인정보 저장 금지)
   description   TEXT NOT NULL,
   severity      TEXT CHECK (severity IN ('typo','wording','answer','rubric','scope')),
   fixed_version INTEGER,
   status        TEXT NOT NULL DEFAULT 'open' CHECK (status IN ('open','confirmed','rejected','fixed'))
+);
+
+CREATE TABLE book_locks (                 -- 출고 시점 스냅샷(books/<코드>.lock.yaml). 현재 해시와 다르면 정오표 대상
+  book          TEXT NOT NULL REFERENCES books(code),
+  item_id       TEXT NOT NULL REFERENCES items(id),
+  version       INTEGER NOT NULL,
+  content_hash  TEXT NOT NULL,
+  locked        TEXT NOT NULL,
+  PRIMARY KEY (book, item_id)
 );
 
 -- 전문 검색 (문항 본문·열쇠·개념)

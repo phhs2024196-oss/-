@@ -14,6 +14,7 @@
 | P6 | 주간 점검 | 매주 일요일 | 10분 |
 
 긴 작업은 프롬프트 맨 앞에 `/goal 〈완료 조건〉`을 붙이면 조건을 만족할 때까지 멈추지 않는다(예: `/goal SSU-T03 신규 10문항이 verified 이고 validate ERROR 0`).
+서브에이전트 모델 지정(`model: fable / opus / sonnet`)은 쓰는 Claude Code 버전·요금제에서 지원되는지 처음 한 번 확인하고, 안 되면 "모델 지정 없이 별도 서브에이전트"로 바꿔 쓴다.
 
 ---
 
@@ -65,15 +66,16 @@ F. 유형 하나 끝날 때마다 build_db.py 후 커밋·push.
 〈SSU〉 〈T03 접선·도형과 극한〉 유형에 신규 문항 〈10〉개를 만들어 verified 까지 올려줘. CLAUDE.md, db/제작지침.md, db/taxonomy.yaml 을 먼저 읽어.
 조건: 2028 범위 태그는 〈common 우선(가능하면 10개 전부 common)〉. 난이도 분포 〈L4 2 / L5 6 / L6 2〉.
 
-1. 중복 확인: python3 tools/build_db.py 후 build/nonsul.db 의 items_fts 로 이 유형 기존 문항의 열쇠·개념을 조회해 목록을 만들어. 새 문항은 이것들과 열쇠·설정이 겹치면 안 돼.
+1. 중복 확인: python3 tools/build_db.py 후 python3 tools/search.py 〈핵심 단어〉 --school 〈SSU〉 와 python3 tools/search.py 〈핵심 단어〉(전 학교)로 기존 문항의 열쇠·설정 목록을 만들어. 새 문항은 이것들과 열쇠·설정이 겹치면 안 돼.
 2. 설계(서브에이전트 model: fable): 기존 목록과 제작지침을 주고 10행 설계도(ID·L·형식·열쇠·정답 예상·막힘·대표 오답)를 받아. 형식 4종 이상·같은 형식 3회 이하 확인.
-3. 제작(서브에이전트 model: opus, 문항 2~3개씩 나눠 병렬): 설계도 행을 주고 db/item_template.md 형식의 문항 파일과 verify/〈SSU〉-〈T03〉.py 에 추가할 검산 함수를 받아. ID 는 이 유형 마지막 순번 다음부터.
+3. 제작(서브에이전트 model: opus, 문항 2~3개씩 나눠 병렬): 설계도 행을 주고 db/item_template.md 형식의 문항 파일과 검산 함수 p〈순번〉() 을 받아. ID 는 이 유형 마지막 순번 다음부터.
+   검산 파일은 세트마다 새로: db/verify_template.py 를 verify/〈SSU〉-〈T03〉-s〈세트번호〉.py 로 복사해 PREFIX 를 바꾸고 함수를 넣어(세트 = 순번 10개 단위, 011~020 = s2). 기존 verify/〈SSU〉-〈T03〉.py 에 덧붙이지 마.
 4. 검산: run_verify.sh 로 이 유형 실행. FAIL 이면 제작 서브에이전트에게 돌려보내 수정(정답이 지저분하면 설정 변경).
 5. r1(서브에이전트 model: sonnet, 제작과 다른 에이전트): 제작지침 §9 r1 항목. fail → 그 문항은 제작부터 백지 재시작.
 6. r2a·r2b(서로 독립 서브에이전트 2개, model: opus): 제시문·논제만 주고 최종 답만 받기. 비교는 네가 해. 불일치 → sympy 로 판정, 문항 오류면 풀이과정부터 재작성.
    또 build/r2_packets/〈ID〉.md 에 제시문·논제만 담은 파일을 만들어 둬(내가 다른 계열 AI로 추가 확인할 수 있게).
 7. 같은 문항 3회 연속 탈락 → retired, 새 ID 로 재제작.
-8. 전부 통과하면 validate ERROR 0, run_verify PASS 확인 → reviews 기록 → status: verified → build_db.py --stats → 커밋·push.
+8. 전부 통과하면 validate ERROR 0, run_verify PASS 확인 → reviews 에 verify pass 기록 → status: verified → validate 다시(검수 기록 검사) → build_db.py --stats → 커밋·push.
 보고: CLAUDE.md 보고 형식 + 단계별 탈락 횟수(제작 FAIL, r1 fail, r2 불일치)와 대략의 소요 시간.
 ```
 
@@ -83,17 +85,18 @@ F. 유형 하나 끝날 때마다 build_db.py 후 커밋·push.
 
 ## P3. 기출·모의 DB 입력
 
-사전 준비(사람): 학교 입학처에서 받은 기출·모의·선행학습영향평가 보고서 PDF를 `sources/〈SSU〉/`에 넣는다(파일명 `SSU_2026_실전.pdf`, `SSU_2027_모의.pdf`).
+사전 준비(사람): 학교 입학처에서 받은 기출·모의·선행학습영향평가 보고서 PDF를 세션에 첨부하거나 `sources/〈SSU〉/`에 넣는다(파일명 `SSU_2026_실전.pdf`). PDF는 `.gitignore`로 커밋되지 않으므로 원본은 구글 드라이브에 보관하고, 클라우드 세션에서는 매번 첨부한다.
 
 ```text
 sources/〈SSU〉/ 의 PDF 들로 〈SSU〉 기출 DB 를 만들어줘. 02_문항DB_저장계획서.md §4·§8 과 CLAUDE.md 를 따라.
 1. 각 PDF 에서 문항을 하나씩 items/〈SSU〉/PAST/〈ID〉.md 로 만들어. ID: 실전 〈SSU〉-G연도2-번호2, 모의 〈SSU〉-M연도2-번호2 (회차 구분이 있으면 연도 뒤 A/B).
 2. kind: past/mock, source: {school, year, session, number, url(PDF 출처 페이지)}, copyright.original_text: false.
 3. 제시문·논제는 원문 그대로 옮기고(내부 분석용), 모범답안·채점표·대표 오답은 직접 작성. 대학이 공개한 채점 기준·예시답안이 있으면 ## 메모 에 요약하고 출처 쪽수를 적어.
-4. 각 문항 정답을 verify/〈SSU〉-PAST.py 에 sympy 로 검산(함수명 g26_04 처럼).
+4. 각 문항 정답을 sympy 로 검산: 연도·회차마다 db/verify_template.py 를 verify/〈SSU〉-G26.py(모의는 -M27) 로 복사해 PREFIX="〈SSU〉-G26", WIDTH=2 로 바꾸고 문항 번호 함수 p04 를 넣어. front matter verify: verify/〈SSU〉-G26.py::p04.
 5. level·form·subjects·scope_2028 태깅, type 은 기존 유형 코드 중 가장 가까운 것(없으면 taxonomy.yaml 에 새 유형 제안만 하고 type: null).
 6. PDF 판독이 불확실한 수식은 [판독확인] 표시를 메모에 남기고 나에게 목록으로 보고.
-7. validate → verify → build → 커밋.
+7. 검수: r1(서브에이전트 model: sonnet — 원문 PDF와 옮긴 제시문·논제 대조 + 우리 모범답안·채점표 검토) → r2a·r2b(제시문·논제만 주고 독립 풀이) → verify. 전부 pass 면 status: verified(기생기사·다다익선 조판에 필요).
+8. validate → verify → build → 커밋.
 보고: 연도·회차별 문항 수, 유형 분포(어떤 유형이 몇 번 나왔는지), 판독확인 목록.
 ```
 
@@ -105,7 +108,9 @@ sources/〈SSU〉/ 의 PDF 들로 〈SSU〉 기출 DB 를 만들어줘. 02_문�
 r1·r2 검토 설정이 오류를 잘 잡는지 시험해줘.
 1. verified 문항 20개를 골라 사본을 build/seeded/ 에 만들고, 각 사본에 오류 1개를 심어(정답 계산 실수 5, 조건 누락으로 답 비유일 4, 범위 밖 도구 3, 채점표-모범답안 불일치 4, 증명 논리 비약 4). 어떤 오류를 심었는지는 build/seeded/answer_key.yaml 에만 적어.
 2. r1 설정(model: sonnet)과 r2 설정(model: opus, 제시문·논제만)으로 20개를 검토하게 해. 검토자에게 오류가 있다는 사실은 알리지 마.
-3. 설정별로 잡은 개수 / 20 을 표로 보고해. 18개 미만이면 검토 지시문을 고쳐 다시 시험(최대 3회).
+3. 표로 보고: r1 단독 / r2 단독 / r1+r2 합산(둘 중 하나라도 잡으면 잡은 것)으로 잡은 개수.
+   기준: 합산 18/20 이상, 그리고 r2 는 정답이 바뀌는 오류(계산 실수 5 + 조건 누락 4 = 9개) 중 8개 이상. r2 는 모범답안·채점표를 보지 않으므로 나머지 11개는 r1 몫이다.
+   기준 미달이면 검토 지시문을 고쳐 다시 시험(최대 3회).
 4. 최종 검토 지시문을 db/제작지침.md §9 아래에 "검토 지시문 v1" 으로 추가하고 커밋. build/seeded/ 는 커밋하지 마.
 ```
 
@@ -121,6 +126,7 @@ books/〈SSU-YUYU-2028〉.yaml 의 문항으로 A4 인쇄용 PDF 를 만들어�
 3. kind 가 past/mock 이고 copyright.original_text: false 인 문항은 원문 대신 "출처 + 자체 해설"만 나오게.
 4. 표지에 판(edition)·발행일, 마지막 쪽에 "오류 신고: 〈스토어 문의〉 · 정오표: 〈주소〉" 를 넣어.
 5. build/pdf/ 에 저장하고 쪽수, 수식 렌더 실패 건수를 보고. 실패 0 이 될 때까지 고쳐.
+6. 출고가 확정되면 python3 tools/build_db.py --lock books/〈SSU-YUYU-2028〉.yaml 로 스냅샷(.lock.yaml)을 만들어 커밋해. 이후 build 때마다 바뀐 문항이 "정오표 대상"으로 보고된다.
 ```
 
 ---
@@ -130,10 +136,10 @@ books/〈SSU-YUYU-2028〉.yaml 의 문항으로 A4 인쇄용 PDF 를 만들어�
 ```text
 이번 주 문항 DB 점검 보고서를 써줘.
 1. git log --since="7 days ago" 요약, build_db.py --stats.
-2. 학교·유형별 verified 수와 목표(〈파일럿 3개교 730문항, 2027-03-31〉) 대비 진도율, 이 속도로 목표일까지 끝나는지.
+2. 학교·유형별 verified 수와 목표(〈파일럿 3개교 716문항, 2027-03-31〉) 대비 진도율, 이 속도로 목표일까지 끝나는지.
 3. 이번 주 단계별 탈락률(reviews 의 fail 비율). 30% 넘는 단계가 있으면 원인 추정과 지침 수정안.
 4. scope_confirmed: false 남은 수, retired 수, errata open 수.
-5. build/weekly/〈YYYY-MM-DD〉.md 로 저장하고 커밋.
+5. reports/weekly/〈YYYY-MM-DD〉.md 로 저장하고 커밋(build/ 는 커밋되지 않으므로 쓰지 말 것).
 ```
 
 ---
@@ -145,4 +151,5 @@ books/〈SSU-YUYU-2028〉.yaml 의 문항으로 A4 인쇄용 PDF 를 만들어�
 | 사용량 한도에 걸림 | 유형 1개 단위로 끊어 커밋했으므로 다음 세션에서 "SSU-T03 이어서" 로 재개. 루프 3회 제한이 무한 소모를 막는다 |
 | r2 가 계속 불일치 | 문항이 모호할 가능성이 높다. r1 에 "조건만으로 답이 유일한가"를 다시 시키고, 그래도면 retired |
 | 검산 스크립트가 정답을 하드코딩 | r1 체크 항목. 발견 시 그 유형 전체 검산 재작성 |
-| 같은 열쇠 반복 | P2 1단계 중복 조회 누락. items_fts 조회 결과를 설계 서브에이전트에 반드시 전달 |
+| 같은 열쇠 반복 | P2 1단계 중복 조회 누락. tools/search.py 결과를 설계 서브에이전트에 반드시 전달 |
+| 판매 후 오류 신고 | errata/〈날짜〉-〈ID〉.yaml 작성(item_id, reported, channel, description, severity, status) → 문항 수정·version+1 → build 의 "정오표 대상" 목록으로 정오표 작성 |

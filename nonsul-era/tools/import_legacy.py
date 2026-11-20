@@ -170,11 +170,11 @@ def main() -> int:
                 (args.out / "verify").mkdir(exist_ok=True)
                 shutil.copy(vsrc, args.out / "verify" / f"{sch}-{tcode}.py")
         if books and not args.dry_run:
-            bk = {"code": f"{sch}-YUYU-v0", "title": f"{tax['schools'][sch]['name']} 유유상종 (유형별 N제) v0",
+            bk = {"code": f"{sch}-YUYU-2028", "title": f"{tax['schools'][sch]['name']} 유유상종 (유형별 N제) 0판",
                   "series": "유유상종", "school": sch, "season": "2028", "edition": 0,
                   "items": [{"id": i, "chapter": i.split("-")[1], "ord": n + 1} for n, i in enumerate(books)]}
             (args.out / "books").mkdir(exist_ok=True)
-            (args.out / "books" / f"{sch}-YUYU-v0.yaml").write_text(
+            (args.out / "books" / f"{sch}-YUYU-2028.yaml").write_text(
                 yaml.safe_dump(bk, allow_unicode=True, sort_keys=False), encoding="utf-8")
 
     print("이관 문항 수:", dict(stats), "합계", sum(stats.values()))

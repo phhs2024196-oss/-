@@ -27,7 +27,7 @@ copyright:
 
 # ── 검수 ──────────────────────────────────────────────
 status: draft              # draft → r1_pass → r2_pass → verified → (sampled) → published
-verify: verify/SSU-T01.py::p11
+verify: verify/SSU-T01-s2.py::p11   # 세트 2(011~020) 검산 파일의 p11
 reviews: []                # - {stage: r1, reviewer: claude-sonnet-5-5, date: 2026-12-01, result: pass, note: ""}
 version: 1
 created: 2026-12-01
@@ -56,8 +56,11 @@ $19$
 
 | 단계 | 소문항 | 내용 | 배점 |
 |---|---|---|---|
-| ① | (1) | ... | 6 |
-| ② | (1) | ... | 7 |
+| ① | - | ... | 6 |
+| ② | - | ... | 7 |
+| ③ | - | ... | 12 |
+
+(단일 논제는 소문항 칸에 `-`. 다소문항은 (1)(2)(3)을 쓰고 ①②③…은 끝까지 이어서 번호. 배점은 정수, 합 = points)
 
 ## 대표 오답
 
