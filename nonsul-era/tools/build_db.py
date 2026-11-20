@@ -21,7 +21,7 @@ import sys
 import yaml
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
-from lib import KIT, content_hash, load_books, load_item, load_taxonomy, parse_rubric  # noqa: E402
+from lib import KIT, item_content_hash, load_books, load_item, load_taxonomy, parse_rubric  # noqa: E402
 
 
 def j(v):
@@ -56,10 +56,8 @@ def lock_book(book_path: pathlib.Path) -> int:
     files = {p.stem: p for p in (KIT / "items").rglob("*.md")}
     entries = []
     for it in b.get("items", []):
-        f = files[it["id"]]
-        meta, _, _ = load_item(f)
-        entries.append({"id": it["id"], "version": meta.get("version", 1),
-                        "hash": content_hash(f.read_text(encoding="utf-8"))})
+        meta, _, body = load_item(files[it["id"]])
+        entries.append({"id": it["id"], "version": meta.get("version", 1), "hash": item_content_hash(meta, body)})
     out = book_path.with_name(book_path.stem + ".lock.yaml")
     out.write_text(yaml.safe_dump({"book": b["code"], "edition": b.get("edition", 1),
                                    "locked": datetime.date.today().isoformat(), "items": entries},
@@ -83,6 +81,12 @@ def main() -> int:
             print("validate.py ERROR — 중단 (python3 tools/validate.py 로 상세 확인)")
             return 1
     if args.lock:
+        r = subprocess.run([sys.executable, str(KIT / "tools" / "validate.py"), "--book", str(args.lock), "--strict",
+                            "--quiet"], capture_output=True, text=True)
+        if r.returncode != 0:
+            print(r.stdout)
+            print("이 교재는 validate --book --strict 를 통과하지 못해 출고 스냅샷을 만들 수 없음")
+            return 1
         return lock_book(args.lock)
 
     tax = load_taxonomy()
@@ -118,7 +122,7 @@ def main() -> int:
             "updated": str(meta.get("updated")), "path": str(f.relative_to(KIT)), "body_md": body,
             "passage_md": sec.get("제시문"), "prompt_md": sec.get("논제"), "solution_md": sec.get("모범답안"),
             "rubric_md": sec.get("채점표"), "errors_md": sec.get("대표 오답"),
-            "content_hash": content_hash(f.read_text(encoding="utf-8")),
+            "content_hash": item_content_hash(meta, body),
         }
         con.execute(f"INSERT INTO items ({','.join(rec)}) VALUES ({','.join('?' * len(rec))})", tuple(rec.values()))
         rub, _ = parse_rubric(sec.get("채점표", ""))

@@ -18,7 +18,7 @@ def report(seq: int, ok: bool, msg: str) -> None:
     print(f"{PREFIX}-{seq:0{WIDTH}d} {'PASS' if ok else 'FAIL'}  {msg}")
 
 
-def p11():
+def example_p11():   # ← 예시. 실제 함수는 이름을 p11 처럼 바꿔야 실행된다(예시 그대로 두면 실행 안 됨)
     """예시: 문제 설정으로부터 다시 계산해 md 의 정답과 비교한다."""
     f = 2 * x**3 + 3
     ok = sp.simplify(f.subs(x, 2) - 19) == 0          # md 정답 19

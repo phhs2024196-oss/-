@@ -49,7 +49,7 @@ CREATE TABLE items (
   path          TEXT NOT NULL,               -- items/SSU/T01/SSU-T01-001.md
   body_md       TEXT NOT NULL,               -- 본문 전체(제시문~해설)
   passage_md    TEXT, prompt_md TEXT, solution_md TEXT, rubric_md TEXT, errors_md TEXT,
-  content_hash  TEXT NOT NULL                -- 파일 전체 sha256 앞 16자: 수정 감지·정오표 근거
+  content_hash  TEXT NOT NULL                -- 본문+정답·배점·난이도·열쇠 해시(관리 필드 제외): 정오표 근거
 );
 CREATE INDEX idx_items_school_type ON items(school, type);
 CREATE INDEX idx_items_status ON items(status);

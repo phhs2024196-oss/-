@@ -6,6 +6,7 @@ kind: original             # past | mock | original | variant
 school: SSU
 type: T01
 parent: null               # variant 일 때 원 문항 ID (예: SSU-G26-04)
+replaces: null             # 폐기(retired)된 문항을 대신해 만든 문항이면 그 ID — 세트 분포 검사를 원래 세트로 계산
 
 # ── 분류 ──────────────────────────────────────────────
 level: L5                  # L3~L6 (막히는 지점 수 기준)

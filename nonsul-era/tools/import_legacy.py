@@ -142,7 +142,7 @@ def main() -> int:
                     "stuck": d.get("stuck", ""), "answer": b.get("정답", "").strip(),
                     "source": None, "copyright": {"original_text": False},
                     "status": "draft", "verify": f"verify/{sch}-{tcode}.py::p{seq:02d}",
-                    "reviews": [{"stage": "verify", "reviewer": "sympy(legacy verify_" + tcode + ".py)",
+                    "reviews": [{"stage": "legacy_verify", "reviewer": "sympy(legacy verify_" + tcode + ".py)",
                                  "date": "2026-11-17", "result": "pass",
                                  "note": "기존 N제 제작 시 자체 검산 통과. 새 파이프라인 r1·r2 미실시"}],
                     "version": 1, "created": "2026-11-17", "updated": "2026-11-20",

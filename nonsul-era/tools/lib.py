@@ -77,8 +77,19 @@ def parse_rubric(table_md: str) -> tuple[list[dict], list[str]]:
     return rows, bad
 
 
+CONTENT_FIELDS = ("answer", "points", "sub_points", "level", "key_idea")
+
+
+def item_content_hash(meta: dict, body: str) -> str:
+    """교재에 보이는 내용만 해시: 본문 + 정답·배점·소문항 배점·난이도·열쇠.
+    status·reviews·updated 같은 관리 필드 변경은 정오표 대상이 아니므로 제외."""
+    import json
+    visible = {k: meta.get(k) for k in CONTENT_FIELDS}
+    return content_hash(json.dumps(visible, ensure_ascii=False, sort_keys=True, default=str) + "\n" + body)
+
+
 def content_hash(text: str) -> str:
-    """파일 전체(front matter 포함) 해시 앞 16자 — 정답·배점 등 메타데이터 변경도 감지."""
+    """문자열 sha256 앞 16자."""
     return hashlib.sha256(text.encode("utf-8")).hexdigest()[:16]
 
 

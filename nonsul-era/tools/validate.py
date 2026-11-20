@@ -26,6 +26,10 @@ from lib import (GEOM_PAT, ID_ORIGINAL, ID_PAST, KIT, REQUIRED_SECTIONS, STAT_TO
 
 REQUIRED_FIELDS = ["id", "kind", "school", "level", "form", "points", "status", "version", "created", "updated"]
 REQUIRED_REVIEWS = ("r1", "r2a", "r2b", "verify")     # verified 이상이 되려면 모두 result: pass
+REVIEW_STAGES = {"r1", "r2a", "r2b", "verify", "sample", "errata", "legacy_verify"}
+REVIEW_RESULTS = {"pass", "fail", "fixed"}
+ERRATA_SEVERITY = {"typo", "wording", "answer", "rubric", "scope"}
+ERRATA_STATUS = {"open", "confirmed", "rejected", "fixed"}
 
 
 def check_latex(text: str) -> list[str]:
@@ -136,19 +140,38 @@ def check_item(f: pathlib.Path, tax: dict, E: list, W: list) -> dict | None:
         else:
             W.append("다소문항인데 채점표에 소문항 열이 없음(소계 검사 불가)")
 
+    # ── 검수 기록 형식 ──
+    reviews = meta.get("reviews") or []
+    for i, r in enumerate(reviews, 1):
+        if not isinstance(r, dict):
+            E.append(f"reviews[{i}] 형식 오류")
+            continue
+        if r.get("stage") not in REVIEW_STAGES:
+            E.append(f"reviews[{i}] stage 값 오류: {r.get('stage')}")
+        if r.get("result") not in REVIEW_RESULTS:
+            E.append(f"reviews[{i}] result 값 오류(pass/fail/fixed): {r.get('result')}")
+        if not r.get("reviewer") or not r.get("date"):
+            E.append(f"reviews[{i}] reviewer·date 필수")
+
     # ── 상태·검수 기록 ──
     st = meta.get("status")
     if status_at_least(st, "verified"):
         ref = str(meta.get("verify") or "")
-        vfile = KIT / ref.split("::")[0] if ref else None
+        path_part, _, fn = ref.partition("::")
+        vfile = KIT / path_part if path_part else None
         if not vfile or not vfile.exists():
             E.append(f"status={st} 인데 검산 스크립트 없음: {ref}")
-        last = {}
-        for r in meta.get("reviews") or []:        # 단계별 마지막 기록이 기준
-            last[r.get("stage")] = r.get("result")
+        elif not fn or not re.search(rf"^def {re.escape(fn)}\(", vfile.read_text(encoding="utf-8"), re.M):
+            E.append(f"검산 함수 {fn or '(미지정)'} 가 {path_part} 에 없음")
+        last, pos = {}, {}
+        for i, r in enumerate(reviews):               # 단계별 마지막 기록이 기준
+            if isinstance(r, dict):
+                last[r.get("stage")], pos[r.get("stage")] = r.get("result"), i
         for need in REQUIRED_REVIEWS:
             if last.get(need) != "pass":
                 E.append(f"status={st} 인데 reviews 의 {need} 마지막 기록이 pass 가 아님({last.get(need)})")
+        if "verify" in pos and any(pos.get(s, -1) > pos["verify"] for s in ("r1", "r2a", "r2b")):
+            E.append("verify 기록이 마지막 r1·r2 기록보다 앞섬 — 검토·수정 후 검산을 다시 돌릴 것")
 
     # ── 사람 판단 필요 ──
     if not meta.get("scope_confirmed", False):
@@ -208,6 +231,12 @@ def main() -> int:
             errors[key].append(f"교재 수록 문항인데 status={meta.get('status')} (verified 이상 필요)")
         metas[iid] = meta
         seq = item_seq(iid)
+        rep = meta.get("replaces")                   # 폐기 문항을 대신하는 문항은 원래 세트로 계산
+        if rep:
+            if rep not in repo_ids:
+                errors[key].append(f"replaces {rep} 가 저장소에 없음")
+            elif item_seq(rep):
+                seq = item_seq(rep)
         if meta.get("kind") in ("original", "variant") and seq:
             by_set[(meta["school"], meta["type"], (seq - 1) // 10)].append(meta)
 
@@ -225,6 +254,25 @@ def main() -> int:
             over = [f for f, c in fm.items() if c > 3]
             if over:
                 warns[key].append(f"같은 형식 3회 초과: {over}")
+
+    # ── 정오표 파일 검사(전체 검사일 때) ──
+    if not args.paths and not args.book and (KIT / "errata").exists():
+        for ef in sorted((KIT / "errata").glob("*.yaml")):
+            key = f"[정오표 {ef.name}]"
+            try:
+                e = yaml.safe_load(ef.read_text(encoding="utf-8")) or {}
+            except yaml.YAMLError as ex:
+                errors[key].append(f"YAML 오류: {ex}")
+                continue
+            for k in ("item_id", "reported", "description"):
+                if not e.get(k):
+                    errors[key].append(f"필수 키 누락: {k}")
+            if e.get("item_id") and e["item_id"] not in repo_ids:
+                errors[key].append(f"없는 문항 {e['item_id']}")
+            if e.get("severity") is not None and e["severity"] not in ERRATA_SEVERITY:
+                errors[key].append(f"severity 값 오류: {e['severity']} ({'/'.join(sorted(ERRATA_SEVERITY))})")
+            if e.get("status", "open") not in ERRATA_STATUS:
+                errors[key].append(f"status 값 오류: {e.get('status')}")
 
     # ── 교재 배치표 참조 검사(전체 검사일 때) ──
     if not args.paths and not args.book:

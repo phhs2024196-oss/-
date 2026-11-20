@@ -29,7 +29,8 @@ python3 tools/search.py 단어 [--school SSU --type T03]   # 중복 확인(부�
 7. 기출 원문은 내부 분석용으로만 저장. `copyright.original_text: false`면 교재·사이트에 원문을 싣지 않는다.
 8. 학생 개인정보·API 키·기출 원본 PDF(`sources/**/*.pdf`, gitignore)를 저장소에 넣지 않는다.
 8-1. 출고한 교재의 문항을 고치면 `version`+1, `errata/<날짜>-<ID>.yaml` 작성(정오표 원본).
-9. 같은 문항 3회 연속 탈락 → `retired` 후 새 ID로 재제작. 루프를 무한히 돌리지 않는다.
+9. 같은 문항 3회 연속 탈락 → `retired` 후 새 ID로 재제작하고 새 문항에 `replaces: <폐기 ID>`를 적는다. 루프를 무한히 돌리지 않는다.
+9-1. verify 기록은 마지막 r1·r2 기록 뒤에 있어야 한다(검토 중 고쳤으면 검산 재실행). 이관 문항의 옛 검산은 `legacy_verify`로만 인정되지 않는다.
 10. 작업 단위(유형 1개 등)가 끝날 때마다 validate → verify → build → 커밋. 커밋 메시지: `[SSU-T03] 011~020 verified (r2 불일치 1건 수정)` 형식.
 
 ## 보고 형식 (작업 끝 메시지, 10줄 이내)

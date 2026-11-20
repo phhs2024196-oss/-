@@ -11,7 +11,7 @@
 | P3 | 기출·모의 DB 입력 | 학교별 1회 | 학교당 세션 1개 |
 | P4 | 검토 모델 선정(오류 심은 20문항) | P2 본격 생산 전 1회 | 세션 1개 |
 | P5 | 교재 조판(PDF) | 교재 출고 때 | 세션 1개 |
-| P6 | 주간 점검 | 매주 일요일 | 10분 |
+| P6 | 주간 점검 | 매주 일요일 | 20분 |
 
 긴 작업은 프롬프트 맨 앞에 `/goal 〈완료 조건〉`을 붙이면 조건을 만족할 때까지 멈추지 않는다(예: `/goal SSU-T03 신규 10문항이 verified 이고 validate ERROR 0`).
 서브에이전트 모델 지정(`model: fable / opus / sonnet`)은 쓰는 Claude Code 버전·요금제에서 지원되는지 처음 한 번 확인하고, 안 되면 "모델 지정 없이 별도 서브에이전트"로 바꿔 쓴다.
@@ -51,7 +51,7 @@ B. 범위 밖 풀이 수정: validate.py 가 "기하 도구 의심" 경고를 �
 C. r1 검토: 유형별로 서브에이전트(model: sonnet)를 하나씩 띄워 db/제작지침.md §9 의 r1 항목을 검토하게 해. 결과를 각 문항 reviews 에 기록하고 통과 문항은 status: r1_pass.
 D. r2 검토: r1_pass 문항마다 서로 독립인 서브에이전트 2개(model: opus)에게 제시문·논제만 주고 최종 답만 받아. 내가(오케스트레이터) 정답과 비교해 둘 다 일치하면 r2a·r2b pass, status: r2_pass.
    불일치면 sympy 로 누가 맞는지 판정 → 문항 오류면 수정 후 다시 r2, 검토자 오류면 note 에 기록하고 그 검토만 1회 재실행.
-E. verify: 고친 유형은 run_verify.sh 재실행. PASS + validate ERROR 0 이면 reviews 에 stage: verify 추가, status: verified.
+E. verify: r2 까지 끝난 유형은 모두 run_verify.sh 재실행(이관 때의 legacy_verify 기록은 인정 안 됨). PASS + validate ERROR 0 이면 reviews 맨 끝에 stage: verify, result: pass 추가, status: verified.
 F. 유형 하나 끝날 때마다 build_db.py 후 커밋·push.
 보고: 유형별 verified 수, 범위 태그 변경 목록, 수정·폐기한 ID와 이유, 내가 직접 봐야 할 문항(증명 논리 등).
 ```
@@ -74,7 +74,7 @@ F. 유형 하나 끝날 때마다 build_db.py 후 커밋·push.
 5. r1(서브에이전트 model: sonnet, 제작과 다른 에이전트): 제작지침 §9 r1 항목. fail → 그 문항은 제작부터 백지 재시작.
 6. r2a·r2b(서로 독립 서브에이전트 2개, model: opus): 제시문·논제만 주고 최종 답만 받기. 비교는 네가 해. 불일치 → sympy 로 판정, 문항 오류면 풀이과정부터 재작성.
    또 build/r2_packets/〈ID〉.md 에 제시문·논제만 담은 파일을 만들어 둬(내가 다른 계열 AI로 추가 확인할 수 있게).
-7. 같은 문항 3회 연속 탈락 → retired, 새 ID 로 재제작.
+7. 같은 문항 3회 연속 탈락 → retired, 새 ID 로 재제작하고 새 문항에 replaces: 〈폐기 ID〉.
 8. 전부 통과하면 validate ERROR 0, run_verify PASS 확인 → reviews 에 verify pass 기록 → status: verified → validate 다시(검수 기록 검사) → build_db.py --stats → 커밋·push.
 보고: CLAUDE.md 보고 형식 + 단계별 탈락 횟수(제작 FAIL, r1 fail, r2 불일치)와 대략의 소요 시간.
 ```
@@ -120,7 +120,7 @@ r1·r2 검토 설정이 오류를 잘 잡는지 시험해줘.
 
 ```text
 books/〈SSU-YUYU-2028〉.yaml 의 문항으로 A4 인쇄용 PDF 를 만들어줘.
-1. 수록 문항이 전부 status ≥ verified 이고 python3 tools/validate.py --strict 가 통과하는지 먼저 확인. 아니면 멈추고 목록 보고.
+1. python3 tools/validate.py --book books/〈SSU-YUYU-2028〉.yaml --strict 가 통과하는지 먼저 확인(수록 문항 전부 verified 이상, 경고 0). 아니면 멈추고 목록 보고.
 2. 기존 조판 도구(phhs2024196-oss/- 브랜치 claude/confident-volta-323thl 의 nonsul/print/: build_print.py, print.css, prerender_print.js, print_pdf.js)를 tools/print/ 로 가져와, 입력을 books yaml + items md 로 바꿔.
    구성: 표지 → 빠른 정답 → 유형별 풀이 팁 → 문제(홀수 쪽)/해설(짝수 쪽).
 3. kind 가 past/mock 이고 copyright.original_text: false 인 문항은 원문 대신 "출처 + 자체 해설"만 나오게.
