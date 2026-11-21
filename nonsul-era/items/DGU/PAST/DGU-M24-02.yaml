@@ -1,0 +1,216 @@
+schema_version: '2.0'
+id: DGU-M24-02
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: DGU
+type: T11
+variant_of: null
+replaces: null
+level: L4
+form: 최적2단
+points: 30
+time_estimate_min: 20
+intent: 구가 좌표축에 접할 조건과 평면 단면 원을 구하고, 공간의 점에서 평면 위 원까지의 거리를 수선의 발을 이용해 평면 거리 문제로 바꾸는 능력을 본다.
+key_idea: '$x$축·$y$축에 접하면 $b^2+c^2=r^2=a^2+c^2$에서 $a=b$, 단면 원은 중심 $(a,a,0)$·반지름 $a$. $P$의 수선의 발 $H(10,17,0)$에 대해 $\overline{PX}^2=\overline{HX}^2+9$.'
+stuck: 원 위의 점까지 공간 거리를 수선의 발에서 원까지의 평면 거리로 바꾸는 단계
+idea_tags: [IDEA-GEO-SPHERE-TANGENT-AXIS, IDEA-GEO-FOOT-OF-PERP-REDUCE]
+tags: [구의 방정식, 공간좌표, 동국 모의]
+elements:
+  materials:
+  - '$x$축·$y$축에 접하는 구'
+  - '구와 $xy$평면이 만나서 생기는 원'
+  - '공간의 점 $\mathrm{P}(10,17,3)$'
+  concepts:
+  - '구의 방정식'
+  - '좌표공간의 두 점 사이의 거리'
+  - '직선과 평면의 수직(수선의 발)'
+  - '원 위의 점까지의 최대·최소 거리'
+  tools:
+  - '축에 접할 조건으로 중심 좌표 결정'
+  - '수선의 발로 공간 거리를 평면 거리로 환원'
+  - '원의 중심을 지나는 직선과 원의 교점'
+  conditions:
+  - '$x$축에 접함 ⇔ 중심에서 $x$축까지 거리 $\sqrt{b^2+c^2}=r$ ⇒ $a=b$'
+  - '단면 원의 반지름 $\sqrt{r^2-c^2}=a$, 넓이 $25\pi$ ⇒ $a=5$'
+  - '$\overline{PX}^2=\overline{HX}^2+3^2$ ⇒ 평면 거리의 최대·최소로 환원'
+  stimuli_used: [가, 나, 다]
+  subpart_links: null
+
+curriculum:
+  version: '2015'
+  subjects: [기하]
+  scope_2028: geom
+  scope_confirmed: true
+  standards:
+  - code: 미확인
+    text: 좌표공간에서 두 점 사이의 거리와 구의 방정식을 구할 수 있다(요지)
+    verified: false
+  content_area: 기하 – 공간좌표(구의 방정식)
+  behavior_domain: 문제해결
+  unit_path: [기하, 공간도형과 공간좌표, 공간좌표, 구의 방정식]
+  key_concepts:
+  - '구의 방정식'
+  - '좌표공간의 두 점 사이의 거리'
+  - '직선과 평면의 수직(수선의 발)'
+  - '원 위의 점까지의 최대·최소 거리'
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 동국대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 동국대학교
+  admission_year: 2024
+  admission_type: 논술(모의)
+  track: 자연계열
+  question_no: 2
+  official_url: https://ipsi.dongguk.edu/   # 원문 게시 URL 미확인(교재 재수록본에서 옮김)
+  retrieved_at: '2026-11-21'
+  original_points: null
+  rights_notice: 미확인 — 원문 PDF 표지 문구 확인 필요(현재 사본은 '대치 수리 논술 연구소' 2027 대비 교재 재수록본)
+  note: 문제 = 동국대 수리논술 문제집2027 p.26, 해설 참고 = 해설집2027 p.27. 원문(재수록본)에 배점·줄 수 표기 없음 → 30점은 동국 관례(30·30·40)에 따른 자체 배분. 구 중심의 z좌표 c는 결정되지 않으나 답에 영향 없음
+
+verify: verify/DGU-M24.py::p02
+
+stimuli:
+- label: 가
+  body: |
+    중심이 $(a,b,c)$이고, 반지름의 길이가 $r$인 구의 방정식은
+    $$(x-a)^2+(y-b)^2+(z-c)^2=r^2$$
+    --- 고등학교 기하
+- label: 나
+  body: |
+    좌표공간에서 두 점 $A(x_1,y_1,z_1)$, $B(x_2,y_2,z_2)$ 사이의 거리는
+    $$\overline{AB}=\sqrt{(x_1-x_2)^2+(y_1-y_2)^2+(z_1-z_2)^2}$$
+    이다.
+    -- 고등학교 기하
+- label: 다
+  body: |
+    공간에서 직선 $l$이 평면 $\alpha$와 한 점에서 만나고 평면 $\alpha$ 위의 모든 직선과 서로 수직일 때, 직선 $l$은 평면 $\alpha$와 수직이라고 하며, 이것을 기호로
+    $$l\perp\alpha$$
+    와 같이 나타낸다. 이 때 직선 $l$을 평면 $\alpha$의 수선이라고 하며, 직선 $l$과 평면 $\alpha$가 만나는 점 O를 수선의 발이라고 한다.
+    ---- 고등학교 기하
+
+stem: |
+  중심의 $x$좌표, $y$좌표, $z$좌표가 모두 양수인 구 $B$가 $x$축과 $y$축에 각각 접하고 $xy$평면과 만나서 생기는 원의 넓이가 $25\pi$이다. 점 $\mathrm{P}(10,17,3)$에서 이 $xy$평면위의 원까지의 거리의 최댓값과 최솟값을 구하고, 최대 및 최소가 되는 원 위의 점 Q,R을 각각 구하시오.
+
+subparts:
+- id: '1'
+  stem: |
+    위 논제의 최댓값·최솟값과 점 Q, R을 구하시오.
+  points: 30
+  depends_on: []
+  answer: {kind: value, value: '최댓값 3\sqrt{37},\ Q\left(\dfrac{40}{13},\dfrac{5}{13},0\right);\ 최솟값 \sqrt{73},\ R\left(\dfrac{90}{13},\dfrac{125}{13},0\right)', equivalents: ['max √333 at (40/13,5/13,0), min √73 at (90/13,125/13,0)'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: 단면 원은 중심 $C(5,5,0)$, 반지름 $5$. $H(10,17,0)$에서 $\overline{HC}=13$이므로 평면 거리는 $8\sim18$, 높이 3을 더해 $\sqrt{73}\sim3\sqrt{37}$.
+    steps:
+    - {id: 1a, content: '직선 $CH$와 원의 교점 $C\mp\dfrac{5}{13}(5,12,0)$ 중 먼 점 Q, 가까운 점 R', criteria: [1.A4]}
+    hint_ladder:
+    - 구가 $x$축에 접하면 중심에서 $x$축까지의 거리가 반지름이다.
+    - $P$에서 $xy$평면에 내린 수선의 발을 이용해 보자.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 해설집 p.27
+    steps:
+    - id: 1b-1
+      content: |
+        구 $B$의 중심을 $(a,b,c)$ $(a,b,c>0)$, 반지름을 $r$이라 하자. $x$축 위의 점 $(a,0,0)$이 중심에서 $x$축에 가장 가까운 점이므로 접할 조건은 제시문 【나】에 의해 $b^2+c^2=r^2$, 같은 방법으로 $y$축에 접할 조건은 $a^2+c^2=r^2$이다. 따라서 $a=b$.
+      criteria: [1.M1]
+    - id: 1b-2
+      content: |
+        제시문 【가】에 $z=0$을 대입하면 $(x-a)^2+(y-a)^2=r^2-c^2=a^2$이므로 단면은 중심 $(a,a,0)$, 반지름 $a$인 원이다. $\pi a^2=25\pi$에서 $a=5$. 즉 원 $C$: $(x-5)^2+(y-5)^2=25,\ z=0$.
+      criteria: [1.A1]
+    - id: 1b-3
+      content: |
+        $P$에서 $xy$평면에 내린 수선의 발은 $H(10,17,0)$이고 $\overline{PH}=3$이다(제시문 【다】). 원 위의 점 $X(x,y,0)$에 대해 【나】에 의해
+        $\overline{PX}^2=(x-10)^2+(y-17)^2+9=\overline{HX}^2+9$이므로 $\overline{PX}$의 최대·최소는 $\overline{HX}$의 최대·최소에서 생긴다.
+      criteria: [1.M2]
+    - id: 1b-4
+      content: |
+        원의 중심 $C(5,5,0)$에 대해 $\overline{HC}=\sqrt{25+144}=13>5$이므로 $H$는 원 밖에 있고, $13-5\le\overline{HX}\le13+5$, 즉 $8\le\overline{HX}\le18$이다(등호는 $X$가 직선 $CH$ 위에 있을 때).
+        따라서 최댓값 $\sqrt{18^2+9}=\sqrt{333}=3\sqrt{37}$, 최솟값 $\sqrt{8^2+9}=\sqrt{73}$.
+      criteria: [1.A2, 1.A3]
+    - id: 1b-5
+      content: |
+        최대·최소가 되는 점은 원의 중심 $(5,5,0)$과 $H(10,17,0)$을 지나는 직선 $y-5=\dfrac{12}{5}(x-5)$ $(z=0)$이 원과 만나는 두 점이다. 원의 방정식에 대입하면
+        $25=(x-5)^2+\dfrac{144}{25}(x-5)^2=\dfrac{169}{25}(x-5)^2$, 즉 $x=5\pm\dfrac{25}{13}$, $y=5\pm\dfrac{60}{13}$(복부호 동순).
+        $H$에서 먼 점이 $Q\left(\dfrac{40}{13},\dfrac{5}{13},0\right)$(최대), 가까운 점이 $R\left(\dfrac{90}{13},\dfrac{125}{13},0\right)$(최소)이다.
+      criteria: [1.A4]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 5
+      evidence: 중심에서 $x$축·$y$축까지의 거리가 반지름이라는 식 $b^2+c^2=r^2$, $a^2+c^2=r^2$(또는 동치)을 세웠다.
+      depends_on: []
+      steps: [1b-1]
+    - id: 1.A1
+      mark_type: A
+      points: 5
+      evidence: 단면 원이 중심 $(5,5,0)$, 반지름 $5$임을 적었다.
+      depends_on: [1.M1]
+      steps: [1b-2]
+    - id: 1.M2
+      mark_type: M
+      points: 5
+      evidence: 수선의 발 $H(10,17,0)$을 잡고 $\overline{PX}^2=\overline{HX}^2+9$(또는 좌표로 쓴 거리 식)로 평면 거리 문제로 바꾸었다.
+      depends_on: []
+      steps: [1b-3]
+    - id: 1.A2
+      mark_type: A
+      points: 5
+      evidence: $\overline{HC}=13$에서 평면 거리의 범위 $8\le\overline{HX}\le18$을 적었다.
+      depends_on: [1.M2]
+      steps: [1b-4]
+    - id: 1.A3
+      mark_type: A
+      points: 5
+      evidence: 최댓값 $3\sqrt{37}$, 최솟값 $\sqrt{73}$을 적었다.
+      depends_on: [1.M2]
+      steps: [1b-4]
+    - id: 1.A4
+      mark_type: A
+      points: 5
+      evidence: $Q\left(\dfrac{40}{13},\dfrac{5}{13},0\right)$, $R\left(\dfrac{90}{13},\dfrac{125}{13},0\right)$을 바르게 대응시켜 적었다.
+      depends_on: [1.M2]
+      steps: [1a, 1b-5]
+    deductions:
+    - code: D1-1
+      condition: 제시문 인용 없음(동국 규정)
+      effect: minus
+      value: 1
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-GEO-2301}
+  misconceptions:
+  - id: MC-GEO-2301
+    outcome_code: '70'
+    wrong_work: '평면 거리 $18$, $8$을 그대로 최댓값·최솟값으로 답함($z$좌표 3 무시)'
+    detect_cue: 답이 $18$과 $8$
+    feedback: $P$는 $xy$평면 위에 있지 않습니다. 수선의 길이 3까지 포함해 $\sqrt{\overline{HX}^2+3^2}$로 계산하세요.
+    remedy: [RL-1]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-GEO-2301}
+  relation: remediation
+  target: {kind: concept, ref: CON-GEO-SPACE-COORD}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-input-v1, item_version: 1, verdict: pass, date: 2026-11-21, note: 원문 PDF 이미지 판독으로 옮김 · 해설·채점표 자체 작성}
+
+created: 2026-11-21
+updated: 2026-11-21

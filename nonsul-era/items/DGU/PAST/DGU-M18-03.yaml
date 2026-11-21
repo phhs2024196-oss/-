@@ -1,0 +1,203 @@
+schema_version: '2.0'
+id: DGU-M18-03
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: DGU
+type: T03
+variant_of: null
+replaces: null
+level: L3
+form: 최적2단
+points: 40
+time_estimate_min: 20
+intent: 부피 일정이라는 제약으로 한 변수를 소거해 겉넓이를 일변수 함수로 만들고, 도함수로 최소를 판정해 비를 구하는 능력을 본다.
+key_idea: '$V=\pi r^2h$로 $h$를 소거하면 $A(r)=2\pi r^2+\dfrac{2V}{r}$, $A''(r)=0$에서 $h=2r$.'
+stuck: 부피 일정 조건으로 $h$를 $r$의 식으로 바꿔 대입하는 단계
+idea_tags: [IDEA-OPT-CONSTRAINT-ELIMINATE, IDEA-OPT-RATIO-INVARIANT]
+tags: [원기둥 겉넓이 최소, 동국 모의]
+elements:
+  materials:
+  - '원기둥 모양 용기'
+  - '부피 일정·재료(겉넓이) 최소'
+  concepts:
+  - '극값과 도함수'
+  - '도함수의 부호 변화와 극대·극소'
+  - '닫힌 구간의 최대·최소'
+  - '원기둥의 겉넓이와 부피'
+  tools:
+  - '제약 조건으로 변수 소거'
+  - '겉넓이를 r의 함수로 미분'
+  - '부호 변화로 최소 판정'
+  - 'h/r 계산'
+  conditions:
+  - '부피 일정 ⇒ $h=\dfrac{V}{\pi r^2}$로 소거(일정한 값을 1로 두어도 비는 불변)'
+  - '$r>0$에서 임계점 하나 + 부호 음→양 ⇒ 최소'
+  stimuli_used: [가, 나]
+  subpart_links: null
+
+curriculum:
+  version: '2015'
+  subjects: [미적분]
+  scope_2028: calc2
+  scope_confirmed: true
+  standards:
+  - code: 미확인
+    text: 함수의 최대·최소를 도함수를 활용하여 구할 수 있다(요지)
+    verified: false
+  content_area: 미분법 – 도함수의 활용(최대·최소)
+  behavior_domain: 문제해결
+  unit_path: [미적분, 미분법, 도함수의 활용, 최대·최소]
+  key_concepts: [극값과 도함수, 도함수의 부호 변화와 극대·극소, 닫힌 구간의 최대·최소, 원기둥의 겉넓이와 부피]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 동국대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 동국대학교
+  admission_year: 2018
+  admission_type: 논술(모의)
+  track: 자연계열
+  question_no: 3
+  official_url: https://ipsi.dongguk.edu/   # 원문 게시 URL 미확인(교재 재수록본에서 옮김)
+  retrieved_at: '2026-11-21'
+  original_points: 40
+  rights_notice: 미확인 — 원문 PDF 표지 문구 확인 필요(현재 사본은 '대치 수리 논술 연구소' 교재 재수록본)
+  note: 문제 = 동국대 수리논술 문제집 p.66, 해설 참고 = 해설집 p.67. 재수록본에는 [문제3]만 실림. 원문 제시문 [나]의 부피 식은 'V(r)=πhr²' 로 표기됨
+
+verify: verify/DGU-M18.py::p03
+
+stimuli:
+- label: 가
+  body: |
+    미분 가능한 함수 $f(x)$에 대하여
+    ❶ $f(x)$가 $x=a$에서 극값을 가지면 $f'(a)=0$이다.
+    ❷ $f'(a)=0$이고 $x$가 증가하면서 $x=a$를 지날 때 $f'(x)$의 부호가
+    ① 양에서 음으로 변하면 $f(x)$는 $x=a$에서 극댓값을 가진다.
+    ② 음에서 양으로 변하면 $f(x)$는 $x=a$에서 극솟값을 가진다.
+    －『고등학교 미적분Ⅱ』
+- label: 나
+  body: |
+    밑면의 반지름의 길이가 $r$, 높이가 $h$인 원기둥의 겉넓이 $A(r)$은
+    $$A(r)=2\pi r^2+2\pi hr\ \text{이다.}$$
+    밑면의 반지름의 길이가 $r$, 높이가 $h$인 원기둥의 부피 $V(r)$은
+    $$V(r)=\pi hr^2\ \text{이다.}$$
+    원기둥의 부피가 일정할 때, 원기둥을 만드는 재료를 최소화 하려면 용기의 겉넓이를 최소화 하면 된다.
+
+    함수 $f(x)$가 구간 $[a,b]$에서 연속이면 이 구간에서 $f(x)$는 최댓값과 최솟값을 가진다. 구간 $[a,b]$에서 $f(x)$의 최댓값과 최솟값을 구할 때에는 극댓값, 극솟값, $f(a)$, $f(b)$ 중에서 가장 큰 값과 가장 작은 값을 택하면 된다.
+    －『고등학교 미적분Ⅱ』
+
+stem: |
+  밑면의 반지름 길이가 r, 높이가 h인 원기둥 모양의 용기를 만들 때, 용기의 부피는 일정하게 하고, r과 h의 길이를 조정하여 용기를 만드는 재료를 최소화 하려고 한다면, 원기둥 밑면의 반지름의 길이 r과 높이 h의 비 (r : h)를 어떻게 하면 되는지 [가] ~ [나]를 참고하여 논술하시오.
+  <15 ~ 17줄> [40점]
+
+subparts:
+- id: '1'
+  stem: |
+    위 논제의 비 $r:h$를 구하시오.
+  points: 40
+  depends_on: []
+  answer: {kind: value, value: 'r:h=1:2', equivalents: ['h=2r'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $h=\dfrac{V}{\pi r^2}$를 대입한 $A(r)=2\pi r^2+\dfrac{2V}{r}$의 최소점 $r^3=\dfrac{V}{2\pi}$에서 $\pi r^2h=V=2\pi r^3$이므로 $h=2r$.
+    steps:
+    - {id: 1a, content: '$A''(r)=4\pi r-\dfrac{2V}{r^2}=0\iff V=2\pi r^3\iff h=2r$', criteria: [1.M2, 1.A2]}
+    hint_ladder:
+    - 부피가 일정하다는 조건으로 $h$를 $r$로 나타내 보자.
+    - 겉넓이를 $r$만의 함수로 만들어 미분하자.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 해설집 p.67
+    steps:
+    - id: 1b-1
+      content: |
+        제시문 [나]에서 $A(r)=2\pi r^2+2\pi hr$, $V(r)=\pi hr^2$. 부피가 일정하므로 $V(r)=1$로 놓으면(단위를 바꾸어도 비는 같다) $\pi r^2h=1$에서 $h=\dfrac{1}{\pi r^2}$.
+      criteria: [1.M1]
+    - id: 1b-2
+      content: |
+        대입하면 $A(r)=2\pi r^2+2\pi r\cdot\dfrac{1}{\pi r^2}=2\pi r^2+\dfrac{2}{r}\ (r>0)$.
+      criteria: [1.A1]
+    - id: 1b-3
+      content: |
+        $A'(r)=4\pi r-\dfrac{2}{r^2}=\dfrac{4\pi r^3-2}{r^2}$이고 [가]❶에 의해 $A'(r)=0$에서 $4\pi r^3-2=0$, $r=\sqrt[3]{\dfrac{1}{2\pi}}$.
+      criteria: [1.M2]
+    - id: 1b-4
+      content: |
+        이 $r$의 좌우에서 $A'(r)$의 부호가 음에서 양으로 바뀌므로 [가]❷②에 의해 극소이고, $r>0$에서 극값이 이것뿐이므로 겉넓이의 최솟값이다.
+      criteria: [1.R1]
+    - id: 1b-5
+      content: |
+        $h=\dfrac{1}{\pi r^2}=\dfrac{\sqrt[3]{4\pi^2}}{\pi}$이고 $\dfrac{h}{r}=\dfrac{\sqrt[3]{4\pi^2}/\pi}{\sqrt[3]{1/(2\pi)}}=2$. 따라서 $h$가 $r$의 2배일 때 재료가 최소이고 $r:h=1:2$.
+      criteria: [1.A2]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 6
+      evidence: 부피 일정 조건으로 $h$를 $r$의 식($h=\dfrac{V}{\pi r^2}$ 등)으로 나타냈다.
+      depends_on: []
+      steps: [1b-1]
+    - id: 1.A1
+      mark_type: A
+      points: 6
+      evidence: $A(r)=2\pi r^2+\dfrac{2V}{r}$(또는 $V=1$일 때 $2\pi r^2+\dfrac2r$)을 적었다.
+      depends_on: [1.M1]
+      steps: [1b-2]
+    - id: 1.M2
+      mark_type: M
+      points: 8
+      evidence: $A'(r)$을 구해 $A'(r)=0$에서 $r^3=\dfrac{V}{2\pi}$(또는 $4\pi r^3-2=0$)을 얻었다.
+      depends_on: []
+      steps: [1a, 1b-3]
+    - id: 1.R1
+      mark_type: R
+      points: 10
+      evidence: 임계점 좌우에서 $A'$의 부호가 음→양으로 바뀌어 최소임을 제시문 [가]를 근거로 밝혔다.
+      depends_on: []
+      steps: [1b-4]
+    - id: 1.A2
+      mark_type: A
+      points: 10
+      evidence: $h=2r$, 즉 $r:h=1:2$를 적었다.
+      depends_on: [1.M2]
+      steps: [1a, 1b-5]
+    deductions:
+    - code: D1-1
+      condition: 제시문 인용 없음(동국 규정)
+      effect: minus
+      value: 1
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-CAL-2602}
+  misconceptions:
+  - id: MC-CAL-2602
+    outcome_code: '70'
+    wrong_work: '$h$를 상수로 두고 $A(r)=2\pi r^2+2\pi hr$를 $r$로 미분해 $r=-\dfrac h2$ 등 무의미한 값을 얻음'
+    detect_cue: 부피 조건을 쓰지 않은 채 $A'(r)=4\pi r+2\pi h$가 등장
+    feedback: 부피가 일정하므로 $r$이 변하면 $h$도 변합니다. 먼저 $V=\pi r^2h$로 $h$를 소거해 한 변수 함수로 만드세요.
+    remedy: [RL-1]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CAL-2602}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-OPT-CONSTRAINT}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-input-v1, item_version: 1, verdict: pass, date: 2026-11-21, note: 원문 PDF 이미지 판독으로 옮김 · 해설 B는 해설집 흐름 · 채점표 자체 작성}
+
+created: 2026-11-21
+updated: 2026-11-21

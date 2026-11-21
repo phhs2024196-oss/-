@@ -1,0 +1,337 @@
+schema_version: '2.0'
+id: DGU-G25-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: DGU
+type: T11
+variant_of: null
+replaces: null
+level: L4
+form: 최적2단
+points: 30
+time_estimate_min: 25
+intent: 이차함수와 직선의 교점을 근과 계수의 관계로 다루고, 두 직선이 이루는 각의 코사인을 벡터의 내적으로 k의 식으로 나타낸 뒤 이차식의 최소로 각의 최솟값을 구하는 능력을 본다.
+key_idea: '두 교점을 $(\alpha,\alpha)$, $(\beta,\beta)$로 두면 $\overrightarrow{PQ_1}\cdot\overrightarrow{PQ_2}=2\alpha\beta-(\alpha+\beta)+1=\dfrac13$으로 상수가 되고, 크기의 곱은 $\alpha+\beta$, $\alpha\beta$의 대칭식이 되어 $\cos\theta=\dfrac{1}{\sqrt{(6k-1)^2+4}}$.'
+stuck: 크기의 곱 $(2\alpha^2-2\alpha+1)(2\beta^2-2\beta+1)$을 $\alpha+\beta$, $\alpha\beta$로 정리하는 단계
+idea_tags: [IDEA-GEO-INNER-PRODUCT-ANGLE, IDEA-ALG-VIETA-SYMMETRIC, IDEA-ALG-QUAD-COMPLETE-SQUARE]
+tags: [두 직선이 이루는 각, 벡터의 내적, 근과 계수의 관계, 동국 실전]
+elements:
+  materials:
+  - '고정점 $\mathrm{P}(0,1)$'
+  - '$k$를 포함한 이차함수와 직선 $y=x$의 두 교점 $\mathrm{Q}_1$, $\mathrm{Q}_2$'
+  - '$\mathrm{P}$와 두 교점을 잇는 두 직선 $\ell_1$, $\ell_2$'
+  concepts:
+  - 이차방정식의 판별식
+  - 이차방정식의 근과 계수의 관계
+  - 이차함수의 최대·최소
+  - 벡터의 내적
+  - 두 직선이 이루는 각
+  tools:
+  - '교점을 $(\alpha,\alpha)$, $(\beta,\beta)$로 두기'
+  - '방향벡터 $\overrightarrow{PQ_1}$, $\overrightarrow{PQ_2}$의 내적으로 $\cos\theta$ 표현'
+  - '크기의 곱을 $\alpha+\beta$, $\alpha\beta$의 대칭식으로 정리'
+  - 완전제곱식으로 최소 판정
+  - '$\cos$의 감소성으로 각의 최소 판정'
+  conditions:
+  - '교점은 $y=x$ 위 ⇒ 좌표가 $(\alpha,\alpha)$ 꼴, $x$항 이항 후 근과 계수의 관계'
+  - '$0\le\theta\le\dfrac{\pi}{2}$ ⇒ $\cos\theta=\dfrac{\lvert\vec{a}\cdot\vec{b}\rvert}{\lvert\vec{a}\rvert\lvert\vec{b}\rvert}$, 내적 $\dfrac13>0$ 확인'
+  - '$\theta$ 최소 ⇔ $\cos\theta$ 최대'
+  stimuli_used: [가, 나, 다]
+  subpart_links: '(2)는 (1)의 cosθ 식 사용, (3)은 (2)의 k 사용'
+
+curriculum:
+  version: '2015'
+  subjects: [수학, 기하]
+  scope_2028: geom
+  scope_confirmed: true
+  standards:
+  - code: 미확인
+    text: 두 평면벡터의 내적을 이용해 두 직선이 이루는 각을 구할 수 있다(요지)
+    verified: false
+  content_area: 기하 – 평면벡터(내적과 각)
+  behavior_domain: 문제해결
+  unit_path: [기하, 평면벡터, 평면벡터의 성분과 내적, 두 직선이 이루는 각]
+  key_concepts:
+  - '이차방정식의 판별식'
+  - '이차방정식의 근과 계수의 관계'
+  - '이차함수의 최대·최소'
+  - '벡터의 내적'
+  - '두 직선이 이루는 각'
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 동국대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 동국대학교
+  admission_year: 2025
+  admission_type: 논술
+  track: 자연계열
+  question_no: 1
+  official_url: https://ipsi.dongguk.edu/   # 원문 게시 URL 미확인(교재 재수록본에서 옮김)
+  retrieved_at: '2026-11-21'
+  original_points: null
+  rights_notice: 미확인 — 원문 PDF 표지 문구 확인 필요(현재 사본은 '대치 수리 논술 연구소' 2027 대비 교재 재수록본)
+  note: 문제 = 동국대 수리논술 문제집2027 p.14, 해설 참고 = 해설집2027 p.17. 재수록본에 배점·줄 수 표기 없음 → 동국 규격(30·30·40)에 따라 30점으로 두고 소문항 12·10·8 은 자체 배분
+
+verify: verify/DGU-G25.py::p01
+
+stimuli:
+- label: 가
+  body: |
+    $x$가 모든 실수의 값을 가질 때, 이차함수 $y=a(x-p)^2+q\ (a\neq0)$의 최댓값과 최솟값은
+    $a>0$이면 $x=p$에서 최솟값 $q$를 갖고, 최댓값은 없다.
+    $a<0$이면 $x=p$에서 최댓값 $q$를 갖고, 최솟값은 없다.
+    『고등학교 수학』
+- label: 나
+  body: |
+    $a$, $b$, $c$가 실수일 때, 방정식 $ax^2+bx+c=0\ (a\neq0)$의 두 근을 $\alpha$, $\beta$라고 하면
+    $$\alpha+\beta=-\dfrac{b}{a},\qquad \alpha\beta=\dfrac{c}{a}$$
+    『고등학교 수학』
+- label: 다
+  body: |
+    영벡터가 아닌 두 평면벡터 $\vec{a}=(a_1,a_2)$와 $\vec{b}=(b_1,b_2)$가 이루는 각의 크기를 $\theta$라고 할 때,
+    $$\cos\theta=\dfrac{\vec{a}\cdot\vec{b}}{\lvert\vec{a}\rvert\lvert\vec{b}\rvert}=\dfrac{a_1b_1+a_2b_2}{\sqrt{a_1^2+a_2^2}\sqrt{b_1^2+b_2^2}}$$
+    『고등학교 기하』
+
+stem: |
+  좌표평면 위의 점 $\mathrm{P}(0,1)$이 주어져 있고 이차함수 $y=x^2+\left(\dfrac13-2k\right)x+k$와 직선 $y=x$의 두 교점을 $\mathrm{Q}_1$, $\mathrm{Q}_2$라고 하자. 점 $\mathrm{P}$와 점 $\mathrm{Q}_1$, 점 $\mathrm{P}$와 점 $\mathrm{Q}_2$를 지나는 직선을 각각 $\ell_1$, $\ell_2$라고 하자. 두 직선 $\ell_1$, $\ell_2$가 이루는 각의 크기를 $\theta$라고 할 때, 제시문을 이용하여 다음을 구하시오. (단, $0\le\theta\le\dfrac{\pi}{2}$)
+
+subparts:
+- id: '1'
+  stem: |
+    $\cos\theta$를 실수 $k$를 이용하여 나타내시오.
+  points: 12
+  depends_on: []
+  answer: {kind: expression, value: '\cos\theta=\dfrac{1}{\sqrt{(6k-1)^2+4}}', equivalents: ['1/\sqrt{36k^2-12k+5}'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: 교점의 $x$좌표 $\alpha$, $\beta$의 합·곱으로 내적($=\dfrac13$)과 크기의 곱을 모두 나타낸다.
+    steps:
+    - {id: 1a, content: '$\alpha+\beta=2k+\dfrac23$, $\alpha\beta=k$, $\overrightarrow{PQ_1}\cdot\overrightarrow{PQ_2}=\dfrac13$, $\lvert\overrightarrow{PQ_1}\rvert^2\lvert\overrightarrow{PQ_2}\rvert^2=4k^2-\dfrac43k+\dfrac59$', criteria: [1.M2, 1.A2]}
+    hint_ladder:
+    - 교점은 직선 $y=x$ 위에 있으므로 $(\alpha,\alpha)$ 꼴이다.
+    - 두 직선의 방향벡터로 $\overrightarrow{PQ_1}$, $\overrightarrow{PQ_2}$를 잡아 보자.
+    - 크기의 곱을 $\alpha+\beta$, $\alpha\beta$의 식으로 바꾸어 보자.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 해설집 p.17
+    steps:
+    - id: 1b-1
+      content: |
+        두 식을 연립하면 $x^2+\left(\dfrac13-2k\right)x+k=x$, 즉 $x^2-\left(2k+\dfrac23\right)x+k=0$.
+        판별식 $\dfrac{D}{4}=\left(k+\dfrac13\right)^2-k=\left(k-\dfrac16\right)^2+\dfrac1{12}>0$이므로 서로 다른 두 실근 $\alpha$, $\beta$가 있고, $\mathrm{Q}_1(\alpha,\alpha)$, $\mathrm{Q}_2(\beta,\beta)$. 제시문 【나】에 의해 $\alpha+\beta=2k+\dfrac23$, $\alpha\beta=k$.
+      criteria: [1.M1, 1.A1]
+    - id: 1b-2
+      content: |
+        $\vec{a}=\overrightarrow{PQ_1}=(\alpha,\ \alpha-1)$, $\vec{b}=\overrightarrow{PQ_2}=(\beta,\ \beta-1)$은 각각 $\ell_1$, $\ell_2$의 방향벡터이다.
+        $\vec{a}\cdot\vec{b}=2\alpha\beta-(\alpha+\beta)+1=2k-2k-\dfrac23+1=\dfrac13>0$.
+      criteria: [1.M2]
+    - id: 1b-3
+      content: |
+        $\lvert\vec{a}\rvert^2\lvert\vec{b}\rvert^2=(2\alpha^2-2\alpha+1)(2\beta^2-2\beta+1)=4(\alpha\beta)^2-4\alpha\beta(\alpha+\beta)+2(\alpha+\beta)^2-2(\alpha+\beta)+1$
+        $=4k^2-4k\left(2k+\dfrac23\right)+2\left(2k+\dfrac23\right)^2-2\left(2k+\dfrac23\right)+1=4k^2-\dfrac43k+\dfrac59=\dfrac{(6k-1)^2+4}{9}$.
+      criteria: [1.M2, 1.A2]
+    - id: 1b-4
+      content: |
+        내적이 양수이므로 두 벡터가 이루는 각은 예각이고 그것이 두 직선이 이루는 각 $\theta$이다. 제시문 【다】에 의해
+        $\cos\theta=\dfrac{\dfrac13}{\dfrac13\sqrt{(6k-1)^2+4}}=\dfrac{1}{\sqrt{(6k-1)^2+4}}$.
+      criteria: [1.A2]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 3
+      evidence: 연립하여 $x^2-\left(2k+\dfrac23\right)x+k=0$을 세우고 교점을 $(\alpha,\alpha)$, $(\beta,\beta)$로 두었다.
+      depends_on: []
+      steps: [1b-1]
+    - id: 1.A1
+      mark_type: A
+      points: 2
+      evidence: 근과 계수의 관계로 $\alpha+\beta=2k+\dfrac23$, $\alpha\beta=k$를 적었다.
+      depends_on: [1.M1]
+      steps: [1b-1]
+    - id: 1.M2
+      mark_type: M
+      points: 3
+      evidence: $\overrightarrow{PQ_1}$, $\overrightarrow{PQ_2}$의 내적과 크기를 $\alpha+\beta$, $\alpha\beta$로 나타내는 식이 있다.
+      depends_on: []
+      steps: [1a, 1b-2, 1b-3]
+    - id: 1.A2
+      mark_type: A
+      points: 4
+      evidence: 내적 $\dfrac13$, 크기의 곱 $\dfrac13\sqrt{(6k-1)^2+4}$를 거쳐 $\cos\theta=\dfrac{1}{\sqrt{(6k-1)^2+4}}$(또는 동치식)을 적었다.
+      depends_on: [1.M2]
+      steps: [1a, 1b-3, 1b-4]
+    deductions:
+    - code: D1-1
+      condition: 제시문 인용 없음(동국 규정)
+      effect: minus
+      value: 1
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-ALG-2201}
+  - {code: '71', misconception: MC-GEO-2201}
+  misconceptions:
+  - id: MC-ALG-2201
+    outcome_code: '70'
+    wrong_work: '연립식을 정리하지 않고 이차함수 계수로 바로 $\alpha+\beta=2k-\dfrac13$이라고 씀'
+    detect_cue: '$\alpha+\beta$에 $-\dfrac13$이 나오거나 내적이 $\dfrac13$이 아니다'
+    feedback: 교점의 $x$좌표는 $x^2+\left(\dfrac13-2k\right)x+k-x=0$의 근입니다. $x$항을 이항한 뒤 근과 계수의 관계를 쓰세요.
+    remedy: [RL-1]
+  - id: MC-GEO-2201
+    outcome_code: '71'
+    wrong_work: '두 벡터의 사잇각을 그대로 θ로 보고 내적의 부호를 확인하지 않음(둔각 가능성 무시)'
+    detect_cue: 내적의 부호나 절댓값에 대한 언급이 없다
+    feedback: 두 직선이 이루는 각은 $0\le\theta\le\dfrac{\pi}{2}$이므로 $\cos\theta=\dfrac{\lvert\vec{a}\cdot\vec{b}\rvert}{\lvert\vec{a}\rvert\lvert\vec{b}\rvert}$입니다. 이 문항은 내적이 $\dfrac13>0$이라 그대로 성립함을 밝혀야 합니다.
+    remedy: [RL-2]
+- id: '2'
+  stem: |
+    $\theta$가 최솟값을 가질 때의 실수 $k$의 값과 그때의 $\theta$를 구하시오.
+  points: 10
+  depends_on: ['1']
+  answer: {kind: value, value: 'k=\dfrac16,\ \theta=\dfrac{\pi}{3}', equivalents: ['k=1/6, θ=60°'], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: $\cos\theta$가 최대일 때 $\theta$가 최소이고, 분모의 근호 안 $(6k-1)^2+4$는 $k=\dfrac16$에서 최소 4.
+    steps:
+    - {id: 2a, content: '$\cos\theta\le\dfrac12$, 등호는 $k=\dfrac16$ → $\theta_{\min}=\dfrac{\pi}{3}$', criteria: [2.A1]}
+  - id: S2-B
+    audience: B
+    method_no: 1
+    source_flow: 해설집 p.17
+    steps:
+    - id: 2b-1
+      content: |
+        (1)에서 $\dfrac{1}{4\cos^2\theta}=\dfrac{(6k-1)^2+4}{4}=9\left(k-\dfrac16\right)^2+1$. 제시문 【가】에 의해 이 이차함수는 $k=\dfrac16$에서 최솟값 1을 가지므로 $\cos^2\theta\le\dfrac14$이고, $\cos\theta>0$이므로 $\cos\theta$의 최댓값은 $\dfrac12$(등호는 $k=\dfrac16$일 때만).
+      criteria: [2.M1]
+    - id: 2b-2
+      content: |
+        $0\le\theta\le\dfrac{\pi}{2}$에서 $\cos\theta$는 감소하므로 $\cos\theta$가 최대일 때 $\theta$가 최소이다. 따라서 $k=\dfrac16$일 때 $\cos\theta=\dfrac12$, $\theta$의 최솟값은 $\dfrac{\pi}{3}$.
+      criteria: [2.R1, 2.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 4
+      evidence: $\dfrac{1}{4\cos^2\theta}=9\left(k-\dfrac16\right)^2+1$(또는 $(6k-1)^2+4$)을 완전제곱식으로 보고 【가】를 인용해 $k=\dfrac16$에서 최소임을 적었다.
+      depends_on: []
+      ft: {allowed: true, from: [1.A2], max_points: 4}
+      steps: [2b-1]
+    - id: 2.R1
+      mark_type: R
+      points: 3
+      evidence: $0\le\theta\le\dfrac{\pi}{2}$에서 $\cos\theta$가 감소하므로 $\cos\theta$ 최대 ⇔ $\theta$ 최소라는 근거를 적었다.
+      depends_on: []
+      steps: [2b-2]
+    - id: 2.A1
+      mark_type: A
+      points: 3
+      evidence: $k=\dfrac16$, $\theta=\dfrac{\pi}{3}$을 모두 적었다.
+      depends_on: [2.M1, 2.R1]
+      steps: [2a, 2b-2]
+    deductions:
+    - code: D2-1
+      condition: 제시문 인용 없음(동국 규정)
+      effect: minus
+      value: 1
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-ALG-2202}
+  misconceptions:
+  - id: MC-ALG-2202
+    outcome_code: '70'
+    wrong_work: '$\cos\theta$가 최소가 되는 $k$를 찾으려 하거나, 최솟값이 없다고 결론'
+    detect_cue: '"$\cos\theta$의 최솟값"을 구하는 서술 또는 답이 $\theta=0$'
+    feedback: $0\le\theta\le\dfrac{\pi}{2}$에서 각이 작을수록 코사인 값이 큽니다. $\theta$의 최소는 $\cos\theta$의 최대에서 나옵니다.
+    remedy: [RL-3]
+- id: '3'
+  stem: |
+    $\theta$가 최솟값을 가질 때의 점 $\mathrm{Q}_1$, $\mathrm{Q}_2$의 좌표를 구하시오.
+  points: 8
+  depends_on: ['2']
+  answer: {kind: value, value: '\left(\dfrac{3+\sqrt3}{6},\dfrac{3+\sqrt3}{6}\right),\ \left(\dfrac{3-\sqrt3}{6},\dfrac{3-\sqrt3}{6}\right)', equivalents: ['순서 무관'], tolerance: null}
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: $k=\dfrac16$을 연립식에 넣어 $x^2-x+\dfrac16=0$을 푼다.
+    steps:
+    - {id: 3a, content: '$x=\dfrac{3\pm\sqrt3}{6}$, 교점은 $y=x$ 위', criteria: [3.A1]}
+  - id: S3-B
+    audience: B
+    method_no: 1
+    source_flow: 해설집 p.17
+    steps:
+    - id: 3b-1
+      content: |
+        (2)에서 $k=\dfrac16$이므로 (1)의 연립식은 $x^2-\left(\dfrac13+\dfrac23\right)x+\dfrac16=x^2-x+\dfrac16=0$, 즉 $6x^2-6x+1=0$.
+      criteria: [3.M1]
+    - id: 3b-2
+      content: |
+        근의 공식으로 $x=\dfrac{6\pm\sqrt{36-24}}{12}=\dfrac{3\pm\sqrt3}{6}$. 교점은 직선 $y=x$ 위에 있으므로
+        $\mathrm{Q}_1\left(\dfrac{3+\sqrt3}{6},\dfrac{3+\sqrt3}{6}\right)$, $\mathrm{Q}_2\left(\dfrac{3-\sqrt3}{6},\dfrac{3-\sqrt3}{6}\right)$ (두 점의 이름은 바뀌어도 된다).
+      criteria: [3.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 4
+      evidence: $k=\dfrac16$을 대입한 이차방정식 $x^2-x+\dfrac16=0$(또는 동치)을 세웠다.
+      depends_on: []
+      ft: {allowed: true, from: [2.A1], max_points: 4}
+      steps: [3b-1]
+    - id: 3.A1
+      mark_type: A
+      points: 4
+      evidence: 두 점의 좌표 $\left(\dfrac{3\pm\sqrt3}{6},\dfrac{3\pm\sqrt3}{6}\right)$(복부호 동순)을 적었다.
+      depends_on: [3.M1]
+      steps: [3a, 3b-2]
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-ALG-2201}
+  misconceptions:
+  - id: MC-ALG-2201
+    outcome_code: '70'
+    wrong_work: '$k=\dfrac16$을 원래 이차함수에만 넣어 $x^2+\dfrac13\cdot0\cdot x+\dfrac16=0$ 등 $y=x$와 연립하지 않은 식을 풂'
+    detect_cue: 교점의 $y$좌표가 $x$좌표와 다르거나 근이 허수
+    feedback: 교점은 두 그래프의 공통점입니다. $y=x$와 연립한 식에 $k$를 넣어 푸세요.
+    remedy: [RL-1]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-ALG-2201}
+  relation: remediation
+  target: {kind: concept, ref: CON-ALG-VIETA}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-GEO-2201}
+  relation: remediation
+  target: {kind: concept, ref: CON-GEO-VECTOR-ANGLE}
+  priority: 1
+- id: RL-3
+  trigger: {type: misconception, ref: MC-ALG-2202}
+  relation: remediation
+  target: {kind: concept, ref: CON-GEO-VECTOR-ANGLE}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-input-v1, item_version: 1, verdict: pass, date: 2026-11-21, note: 원문 PDF 이미지 판독으로 옮김 · 해설·채점표 자체 작성}
+
+created: 2026-11-21
+updated: 2026-11-21

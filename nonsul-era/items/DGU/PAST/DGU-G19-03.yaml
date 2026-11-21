@@ -1,0 +1,304 @@
+schema_version: '2.0'
+id: DGU-G19-03
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: DGU
+type: T09
+variant_of: null
+replaces: null
+level: L4
+form: 추론
+points: 30
+time_estimate_min: 25
+intent: 로지스틱 방정식을 변수분리해 부분분수·치환적분으로 풀고, 해의 증가·점근선을 지수 모델과 비교해 현실 인구 자료를 해석하는 능력을 본다.
+key_idea: '$\dfrac{L''}{L(N-L)}=\dfrac1N\left(\dfrac{L''}{L}+\dfrac{L''}{N-L}\right)$를 $\tau=L(t)$로 치환해 적분하면 $\dfrac1N\ln\dfrac{L}{N-L}=kt+C$.'
+stuck: 부분분수 계수 $\dfrac1N$과 적분상수를 $L(0)=1$로 정해 $L$에 대해 푸는 단계
+idea_tags: [IDEA-CAL-SEPARATE-PARTIAL-FRACTION, IDEA-CAL-LOGISTIC-ASYMPTOTE]
+tags: [로지스틱 모델, 맬서스 모델, 동국 기출]
+
+elements:
+  materials:
+  - '세계 인구 증가 자료'
+  - '맬서스 지수 성장 모델'
+  - '베르휠스트 로지스틱 모델'
+  concepts:
+  - '부분분수 분해'
+  - '치환적분'
+  - '지수함수·로그함수'
+  - '도함수와 증가·감소'
+  - '함수의 극한과 점근선'
+  tools:
+  - '양변을 $t$로 부정적분'
+  - '부분분수 후 $\tau=L(t)$ 치환'
+  - '초기 조건으로 적분상수 결정'
+  - '$L$에 대해 풀기'
+  - '극한·도함수 부호로 개형'
+  conditions:
+  - '$0<L(t)<N$ ⇒ 로그의 절댓값 제거'
+  - '$L(0)=1$ ⇒ 적분상수 $-\dfrac{\ln(N-1)}N$'
+  - '「증가율 감소」 = 함숫값 감소가 아니라 기울기 감소'
+  stimuli_used: [가, 나, 다, 라]
+  subpart_links: '(2)는 (1)의 $L(t)$ 사용'
+
+curriculum:
+  version: '2015'
+  subjects: [미적분]
+  scope_2028: calc2
+  scope_confirmed: true
+  standards:
+  - code: 미확인
+    text: 치환적분법을 이해하고, 이를 활용할 수 있다(요지)
+    verified: false
+  content_area: 미적분 – 적분법(치환적분·유리함수)
+  behavior_domain: 문제해결
+  unit_path: [미적분, 적분법, 여러 가지 적분법, 치환적분과 부분분수]
+  key_concepts:
+  - '부분분수 분해'
+  - '치환적분'
+  - '지수함수·로그함수'
+  - '도함수와 증가·감소'
+  - '함수의 극한과 점근선'
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 동국대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 동국대학교
+  admission_year: 2019
+  admission_type: 논술
+  track: 자연계열
+  question_no: 3
+  official_url: https://ipsi.dongguk.edu/   # 원문 게시 URL 미확인(교재 재수록본에서 옮김)
+  retrieved_at: '2026-11-21'
+  original_points: null
+  rights_notice: 미확인 — 원문 PDF 표지 문구 확인 필요(현재 사본은 '대치 수리 논술 연구소' 2027 대비 교재 재수록본)
+  note: 문제 = 동국대 수리논술 문제집2027 p.61~62, 해설 참고 = 해설집2027 p.62. 원문에 배점·줄 수 표기 없음 → 30점, 소문항 15·15 는 자체 배분. 그래프 소문항은 개형 서술로 채점
+
+verify: verify/DGU-G19.py::p03
+
+stimuli:
+- label: 가
+  body: |
+    약 1만 년 전 농경이 시작되었을 때, 지구 상의 인구는 약 530만 명 정도였다. 이것은 현재 서울 인구의 절반 정도에 해당한다. 서기 1년 세계의 인구는 약 2억 5000만 ~ 3억 명이었는데 이는 오늘날 미국의 인구와 비슷하다.
+    19세기 초반 처음으로 10억 명을 넘어선 후 산업혁명을 전후하여 세계의 인구는 뜀박질하듯 증가하기 시작했다. 1960년에는 30억 명에 이르렀으며 2011년에는 세계의 인구가 70억 명을 넘어섰다. 하지만 오늘날 세계의 연평균 인구 증가율이 점차 낮아지고 있다.
+    『고등학교 미적분 Ⅱ』
+- label: 나
+  body: |
+    "인구는 기하급수적으로 증가하고 식량은 산술급수적으로 증가한다."라는 문구로 유명한 영국의 경제학자 맬서스(Malthus, T. R.:1766-1834)는 수학을 이용하여 인구 증가를 체계적으로 다루었다.
+    그의 주장을 단순화하면 인간은 가급적 자손을 많이 남기려는 경향이 있으므로 인구가 증가하는 비율은 현재의 인구에 비례한다는 것이다. 시각 $t$에서의 인구를 $P(t)$라고 하면 이 주장은 다음과 같이 나타낼 수 있다.
+    $$P'(t)=kP(t).$$
+    이 식을 만족하는 $P(t)$를 구하면
+    $$P(t)=P(0)e^{kt}\qquad\cdots\cdots\ (1)$$
+    이 되어 인구 $P(t)$는 대체로 기하급수적으로 증가함을 나타낸다. 이러한 인구 모형을 맬서스의 인구 성장 모델 또는 지수 성장 모델이라고 한다.
+    그러나 실제로는 인구가 늘면 식량, 주거 공간 등 여러 자원이 부족해져 인구 증가율이 감소하게 되므로 지수 성장 모델은 현실과 일치하지 않는다. 벨기에의 수학자 베르휠스트(Verhulst, P. F.:1804~1849)는 인구가 늘면 인구 증가율이 감소한다는 사실을 반영하여 인구 $L(t)$가
+    $$L'(t)=kL(t)(N-L(t))\qquad\cdots\cdots\ (2)$$
+    을 만족하는 모델을 만들었다. (……) 이와 같은 모델을 로지스틱 모델이라고 하며, 인구 성장 외에도 여러 분야에서 등장하고 있다.
+    『고등학교 미적분 Ⅱ』
+- label: 다
+  body: |
+    다음은 $\dfrac{K}{x(K-x)}=\dfrac1x+\dfrac1{K-x}$ 을 이용하여 유리함수의 부정적분을 구하는 과정이다.
+    $$\int\dfrac{1}{x\left(1-\dfrac xK\right)}dx=\int\left(\dfrac1x+\dfrac1{K-x}\right)dx$$
+    $$=\ln\lvert x\rvert-\ln\lvert K-x\rvert+C=\ln\left\lvert\dfrac{x}{K-x}\right\rvert+C.$$
+    『고등학교 미적분 Ⅱ』
+- label: 라
+  body: |
+    미분가능한 함수 $g(t)$에 대하여 $x=g(t)$로 놓으면
+    $$\int f(x)dx=\int f(g(t))g'(t)dt.$$
+    『고등학교 미적분 Ⅱ』
+
+stem: |
+  ※ 다음 제시문을 읽고 물음에 답하시오.
+
+subparts:
+- id: '1'
+  stem: |
+    $L(0)=1,\ k>0,\ N>1$일 때, 로지스틱 모델 (2)를 만족시키는 $L(t)$는 $0<L(t)<N$ 임이 알려져 있다. (2)를 $\dfrac{L'(t)}{L(t)(N-L(t))}=k$ 와 같이 변형하고 【다】와【라】를 이용해 양변을 부정적분하여, $L(t)$를 풀이과정과 함께 구하시오.
+  points: 15
+  depends_on: []
+  answer: {kind: expression, value: 'L(t)=\dfrac{N}{1+(N-1)e^{-Nkt}}', equivalents: ['L(t)=\dfrac{Ne^{Nkt}}{N-1+e^{Nkt}}'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: 부분분수 후 $\tau=L(t)$ 치환 → $\dfrac1N\ln\dfrac{L}{N-L}=kt+C$, $L(0)=1$로 $C$를 정한다.
+    steps:
+    - {id: 1a, content: '$\dfrac{L}{N-L}=\dfrac{e^{Nkt}}{N-1}$ → $L=\dfrac{N}{1+(N-1)e^{-Nkt}}$', criteria: [1.A2]}
+    hint_ladder:
+    - $\dfrac{1}{L(N-L)}$을 부분분수로 나눠 보자.
+    - $\tau=L(t)$로 놓으면 $L'(t)dt=d\tau$이다.
+    - $L(0)=1$을 넣어 적분상수를 정하자.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 해설집 p.62
+    steps:
+    - id: 1b-1
+      content: |
+        (2)를 $\dfrac{L'(t)}{L(t)(N-L(t))}=k$로 변형하고 양변을 부정적분하면 $\displaystyle\int\dfrac{L'(t)}{L(t)(N-L(t))}dt=kt+C_1$.
+      criteria: [1.M1]
+    - id: 1b-2
+      content: |
+        【다】를 이용해 좌변을 부분분수로 바꾸고 【라】에 따라 $\tau=L(t)$로 치환하면
+        $$\int\dfrac{L'(t)}{L(t)(N-L(t))}dt=\dfrac1N\int\left(\dfrac{L'(t)}{L(t)}+\dfrac{L'(t)}{N-L(t)}\right)dt=\dfrac1N\int\left(\dfrac1\tau+\dfrac1{N-\tau}\right)d\tau=\dfrac1N\ln\left\lvert\dfrac{L(t)}{N-L(t)}\right\rvert+C_2.$$
+      criteria: [1.M2, 1.A1]
+    - id: 1b-3
+      content: |
+        $0<L(t)<N$이므로 절댓값을 떼고, $L(0)=1$을 대입하면 $\dfrac1N\ln\dfrac1{N-1}=C_1-C_2$, 즉 $C_1-C_2=-\dfrac{\ln(N-1)}N$. 정리하면
+        $$\dfrac{L(t)}{N-L(t)}=e^{-\ln(N-1)}e^{Nkt}=\dfrac{e^{Nkt}}{N-1},\qquad L(t)=\dfrac{Ne^{Nkt}}{N-1+e^{Nkt}}=\dfrac{N}{1+(N-1)e^{-Nkt}}.$$
+      criteria: [1.R1, 1.A2]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 3
+      evidence: 변형한 식의 양변을 $t$에 대해 부정적분해 $kt+C$를 적었다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1]
+    - id: 1.M2
+      mark_type: M
+      points: 4
+      evidence: 【다】의 부분분수(계수 $\dfrac1N$ 포함)와 【라】의 치환 $\tau=L(t)$를 적용했다.
+      depends_on: []
+      steps: [1b-2]
+    - id: 1.A1
+      mark_type: A
+      points: 3
+      evidence: $\dfrac1N\ln\left\lvert\dfrac{L}{N-L}\right\rvert=kt+C$를 적었다.
+      depends_on: [1.M2]
+      steps: [1b-2]
+    - id: 1.R1
+      mark_type: R
+      points: 2
+      evidence: $0<L<N$으로 절댓값을 처리하고 $L(0)=1$로 적분상수를 정했다.
+      depends_on: []
+      steps: [1b-3]
+    - id: 1.A2
+      mark_type: A
+      points: 3
+      evidence: $L(t)=\dfrac{N}{1+(N-1)e^{-Nkt}}$(또는 동치)를 적었다.
+      depends_on: [1.A1, 1.R1]
+      steps: [1a, 1b-3]
+    deductions:
+    - code: D1-1
+      condition: 제시문 인용 없음(동국 규정)
+      effect: minus
+      value: 1
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-CAL-2509}
+  misconceptions:
+  - id: MC-CAL-2509
+    outcome_code: '70'
+    wrong_work: '부분분수에서 $\dfrac1N$을 빠뜨려 $\ln\dfrac{L}{N-L}=kt+C$로 두고 $L=\dfrac{N}{1+(N-1)e^{-kt}}$을 얻음'
+    detect_cue: 지수에 $N$이 없음($e^{-kt}$)
+    feedback: $\dfrac{1}{L(N-L)}=\dfrac1N\left(\dfrac1L+\dfrac1{N-L}\right)$입니다. 【다】의 식에서 $K$가 분자에 있음을 확인하세요.
+    remedy: [RL-1]
+- id: '2'
+  stem: |
+    증가/감소와 점근선에 유의하여 $P(t)$와 $L(t)$의 개형을 그리고 이것을 이용하여【가】에서 세계 인구 증가율의 감소를 잘 설명하는 것이【나】의 두 모델 중 어느 것인지 선택하고 그 이유와 함께 설명하시오.
+  points: 15
+  depends_on: ['1']
+  answer: {kind: value, value: '로지스틱 모델(L(t)는 증가하며 y=N에 수렴, P(t)는 증가율이 커지며 발산)', equivalents: ['로지스틱'], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: $\displaystyle\lim_{t\to\infty}L(t)=N$, $L'(t)>0$; $P(t)=P(0)e^{kt}$는 발산.
+    steps:
+    - {id: 2a, content: '$L$: 증가, 점근선 $y=N$ / $P$: 지수적 발산 → 로지스틱', criteria: [2.A1, 2.R1]}
+  - id: S2-B
+    audience: B
+    method_no: 1
+    source_flow: 해설집 p.62
+    steps:
+    - id: 2b-1
+      content: |
+        (1)에서 $\displaystyle\lim_{t\to\infty}L(t)=\lim_{t\to\infty}\dfrac{N}{1+(N-1)e^{-Nkt}}=N$이므로 $L(t)$는 $N$으로 수렴하고 직선 $y=N$이 점근선이다. 미분하면
+        $$L'(t)=\dfrac{kN^2(N-1)e^{-Nkt}}{\{1+(N-1)e^{-Nkt}\}^2}>0$$
+        이므로 $L(t)$는 증가함수이다.
+      criteria: [2.M1, 2.A1]
+    - id: 2b-2
+      content: |
+        [개형] $L(t)$: $(0,1)$에서 출발해 증가하며 $y=N$에 한없이 가까워지는 S자 곡선. $P(t)=P(0)e^{kt}$: $(0,P(0))$에서 출발해 점점 가파르게 증가하는 지수함수 곡선(점근선 없이 발산).
+      criteria: [2.B1]
+    - id: 2b-3
+      content: |
+        지수 성장 모델의 해 $P(t)$는 $t\to\infty$일 때 증가율이 기하급수적으로 늘어나 발산하지만, 로지스틱 모델의 해 $L(t)$는 증가율이 줄어들며 $N$으로 수렴한다. 따라서 【가】의 「연평균 인구 증가율이 점차 낮아지는」 현상, 즉 시간이 커질 때 인구 증가율이 정체됨을 잘 설명하는 것은 로지스틱 모델이다.
+      criteria: [2.R1, 2.A2]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 3
+      evidence: (1)의 $L(t)$로 $t\to\infty$ 극한과 도함수를 계산했다.
+      depends_on: []
+      ft: {allowed: true, from: [1.A2], max_points: 3}
+      steps: [2b-1]
+    - id: 2.A1
+      mark_type: A
+      points: 3
+      evidence: $\lim L(t)=N$(점근선 $y=N$)과 $L'(t)>0$(증가)을 적었다.
+      depends_on: [2.M1]
+      steps: [2a, 2b-1]
+    - id: 2.B1
+      mark_type: B
+      points: 3
+      evidence: $P(t)$(지수 증가, 발산)와 $L(t)$(증가, $y=N$에 수렴)의 개형을 그리거나 서술했다.
+      depends_on: []
+      steps: [2b-2]
+    - id: 2.R1
+      mark_type: R
+      points: 4
+      evidence: 증가율(기울기)이 $P$는 커지고 $L$은 줄어 정체됨을 【가】의 증가율 감소와 연결했다.
+      depends_on: []
+      steps: [2a, 2b-3]
+    - id: 2.A2
+      mark_type: A
+      points: 2
+      evidence: 로지스틱 모델을 선택했다.
+      depends_on: [2.R1]
+      steps: [2b-3]
+    deductions:
+    - code: D2-1
+      condition: 제시문 인용 없음(동국 규정)
+      effect: minus
+      value: 1
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-CAL-2510}
+  misconceptions:
+  - id: MC-CAL-2510
+    outcome_code: '70'
+    wrong_work: '「$L(t)$도 계속 증가하므로 증가율 감소를 설명할 수 없다」 또는 「$P$의 증가율 $k$가 일정하므로 맬서스 모델」이라고 판단'
+    detect_cue: 인구 값의 증가와 증가율의 감소를 같은 것으로 다룸
+    feedback: 인구가 늘어나는 것과 증가율이 줄어드는 것은 동시에 일어날 수 있습니다. $L'(t)$가 결국 0으로 가는지(그래프 기울기)를 보세요.
+    remedy: [RL-2]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CAL-2509}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-PARTIAL-FRACTION}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-CAL-2510}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-MONOTONE-INJECTIVE}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-input-v1, item_version: 1, verdict: pass, date: 2026-11-21, note: 원문 PDF 이미지 판독으로 옮김 · 해설·채점표 자체 작성}
+
+created: 2026-11-21
+updated: 2026-11-21

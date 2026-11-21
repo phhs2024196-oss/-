@@ -1,0 +1,201 @@
+schema_version: '2.0'
+id: DGU-G16-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: DGU
+type: T09
+variant_of: null
+replaces: null
+level: L4
+form: 최적2단
+points: 35
+time_estimate_min: 25
+intent: y축 회전체의 부피를 높이의 함수로 나타내 높이 h(t)를 시간의 식으로 구하고, 그 도함수의 최댓값을 단조성으로 판정하는 능력을 본다.
+key_idea: '$\pi\int_0^{h}(2y+2)dy=\pi(h^2+2h)=\pi\tan^2t$에서 $h(t)=\sec t-1$, $h''(t)=\sec t\tan t$는 증가.'
+stuck: 부피–높이 관계식 $h^2+2h=\tan^2t$를 풀어 음이 아닌 근을 고르고 $1+\tan^2t=\sec^2t$로 정리하는 단계
+idea_tags: [IDEA-VOL-ROTATE-Y-AXIS, IDEA-RATE-MONOTONE-MAX]
+tags: [포도주 통, 회전체 부피, 동국 기출]
+elements:
+  materials: [포도주 통(회전체 용기), 시간에 따라 늘어나는 부피, 수면 높이의 변화율]
+  concepts: [y축 둘레 회전체의 부피, 삼각함수의 도함수, 몫의 미분법, 함수의 증가와 최댓값]
+  tools:
+  - 'x²=2y+2 로 바꿔 부피 적분'
+  - '이차방정식 근의 공식과 음수 근 배제'
+  - '1+tan²t=sec²t'
+  - 'h''(t) 단조 증가 판정'
+  conditions:
+  - '통 바닥은 $y=0$ ⇒ 부피는 $\pi\int_0^{h(t)}x^2dy$'
+  - '$h(t)\ge0$ ⇒ 근 $-1-\sec t$ 버림'
+  - '$0\le t\le\dfrac{\pi}{4}$ ⇒ $\sin t$ 증가·$\cos t$ 감소 ⇒ $h''(t)$ 증가, 끝점 최대'
+  stimuli_used: [나, 다]
+  subpart_links: null
+
+curriculum:
+  version: '2015'
+  subjects: [미적분]
+  scope_2028: calc2
+  scope_confirmed: true
+  standards:
+  - code: 미확인
+    text: 삼각함수의 도함수를 구하고 도함수를 활용할 수 있다 / 정적분을 활용하여 부피를 구할 수 있다(요지)
+    verified: false
+  content_area: 미분법·적분법 – 회전체 부피와 변화율
+  behavior_domain: 문제해결
+  unit_path: [미적분, 적분법, 정적분의 활용, 입체도형의 부피]
+  key_concepts: [y축 둘레 회전체의 부피, 삼각함수의 도함수, 몫의 미분법, 함수의 증가와 최댓값]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 동국대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 동국대학교
+  admission_year: 2016
+  admission_type: 논술
+  track: 자연계열
+  question_no: 1
+  official_url: https://ipsi.dongguk.edu/   # 원문 게시 URL 미확인(교재 재수록본에서 옮김)
+  retrieved_at: '2026-11-21'
+  original_points: 35
+  rights_notice: 미확인 — 원문 PDF 표지 문구 확인 필요(현재 사본은 '대치 수리 논술 연구소' 교재 재수록본)
+  note: 문제 = 동국대 수리논술 문제집 p.69, 해설 참고 = 해설집 p.71~72(풀이1·2). 단일 논제라 소문항 1개(35점). y축 회전체 부피는 2015 개정 미적분에서 직접 다루지 않음(제시문 [나]로 공급) — 범위 판단 확인
+
+verify: verify/DGU-G16.py::p01
+
+stimuli:
+- label: 가
+  body: |
+    17세기 천문학자 케플러(Kepler, J.)는 포도주 통에 든 포도주 양을 측정하는 당시 상인들의 방법이 매우 불합리하다고 생각하였다.
+    당시 상인들은 포도주 통에 막대기를 세워 넣은 뒤 막대기에 표시된 포도주 자국으로 포도주의 양을 어림하였다. 그런데 포도주 통의 모양은 원기둥 모양이 아닌 가운데가 볼록한 모양이어서 오차가 생길 수밖에 없었다. 이에 케플러는 구분구적법을 도입하여 포도주 통의 부피 등 여러 가지 회전체의 부피를 정확하게 구하는 방법을 연구하였다.
+    －『고등학교 적분과 통계』
+- label: 나
+  body: |
+    함수 $x=g(y)$가 구간 $[c,d]$에서 연속일 때, 곡선 $x=g(y)$와 $y$축 및 두 직선 $y=c$, $y=d$로 둘러싸인 도형을 $y$축 둘레로 회전시켜서 생기는 부피 $V$는 다음과 같다.
+    $$V=\pi\int_c^dx^2dy=\pi\int_c^d\{g(y)\}^2dy$$
+    －『고등학교 적분과 통계』
+- label: 다
+  body: |
+    미분가능한 함수 $y=f(x)$의 도함수는
+    $$f'(x)=\lim_{h\to0}\dfrac{f(x+h)-f(x)}{h}$$
+    로 정의한다. 또한 삼각함수의 도함수는 다음과 같다.
+    (1) $y=\sin x$ 이면 $y'=\cos x$
+    (2) $y=\cos x$ 이면 $y'=-\sin x$
+    (3) $y=\tan x$ 이면 $y'=\sec^2x$
+    －『고등학교 수학 Ⅱ』
+
+stem: |
+  제시문 [가] ~ [다]를 참고하여 다음 물음에 답하시오. 곡선 $y=\dfrac{x^2}{2}-1$과 $y$축 및 두 직선 $y=0$, $y=5$로 둘러싸인 도형을 $y$축 둘레로 회전시켜서 생기는 회전체 모양의 빈 통(용기)이 있다고 가정하자. 이 통에 포도주를 넣어 시간이 $t$일 때 이 통에 든 포도주의 부피가 $\pi\tan^2t$이고 통의 바닥으로부터 포도주의 높이가 $h(t)$라고 하자. $h(t)$의 순간변화율 $h'(t)$의 최댓값을 구하고 풀이과정을 서술하시오. (단, $0\le t\le\dfrac{\pi}{4}$이고, 통(용기)의 두께는 무시한다.)
+  <10 ~ 15줄> [35점]
+
+subparts:
+- id: '1'
+  stem: |
+    $h'(t)$의 최댓값을 구하시오.
+  points: 35
+  depends_on: []
+  answer: {kind: value, value: '\sqrt2', equivalents: ['h''(\pi/4)=\sqrt2'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $h^2+2h=\tan^2t$ → $h=\sec t-1$, $h'(t)=\dfrac{\sin t}{\cos^2t}$은 $[0,\frac{\pi}{4}]$에서 증가하므로 $t=\dfrac{\pi}{4}$에서 최대.
+    steps:
+    - {id: 1a, content: '$h''\left(\dfrac{\pi}{4}\right)=\dfrac{1/\sqrt2}{1/2}=\sqrt2$', criteria: [1.A2]}
+    hint_ladder:
+    - 곡선을 $x^2=2y+2$로 바꾸어 [나]의 부피 공식을 쓰자.
+    - 부피가 $\pi\tan^2t$라는 식에서 $h(t)$를 풀어 보자.
+    - $h'(t)$가 증가함수인지 확인하자.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 해설집 p.71 (풀이1)
+    steps:
+    - id: 1b-1
+      content: |
+        $y=\dfrac{x^2}{2}-1$에서 $x^2=2y+2$이고, 높이 $h(t)$까지의 부피는 제시문 [나]에 의해
+        $\pi\int_0^{h(t)}x^2dy=\pi\int_0^{h(t)}(2y+2)dy=\pi\left[y^2+2y\right]_0^{h(t)}=\pi\left(h(t)^2+2h(t)\right)$.
+      criteria: [1.M1]
+    - id: 1b-2
+      content: |
+        $\pi\left(h(t)^2+2h(t)\right)=\pi\tan^2t$이므로 $h(t)^2+2h(t)-\tan^2t=0$, 근의 공식으로 $h(t)=-1\pm\sqrt{1+\tan^2t}$. $h(t)\ge0$이고 $1+\tan^2t=\sec^2t$이므로 $h(t)=-1+\sec t=-1+\dfrac{1}{\cos t}$.
+      criteria: [1.A1]
+    - id: 1b-3
+      content: |
+        제시문 [다]를 이용해 미분하면 $h'(t)=\dfrac{\sin t}{\cos^2t}=\sec t\tan t$.
+      criteria: [1.M2]
+    - id: 1b-4
+      content: |
+        $\sin t$와 $\dfrac{1}{\cos^2t}$은 $0\le t\le\dfrac{\pi}{4}$에서 음이 아니고 증가하므로 그 곱 $h'(t)$도 증가함수이다(풀이2: $h''(t)=\dfrac{1+\sin^2t}{\cos^3t}>0$으로도 확인).
+      criteria: [1.R1]
+    - id: 1b-5
+      content: |
+        따라서 $t=\dfrac{\pi}{4}$에서 최댓값 $h'\left(\dfrac{\pi}{4}\right)=\dfrac{\sin(\pi/4)}{\cos^2(\pi/4)}=\dfrac{1/\sqrt2}{1/2}=\sqrt2$.
+      criteria: [1.A2]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 7
+      evidence: 제시문 [나]를 써서 높이 $h$까지의 부피 $\pi\int_0^{h}(2y+2)dy=\pi(h^2+2h)$를 적었다.
+      depends_on: []
+      steps: [1b-1]
+    - id: 1.A1
+      mark_type: A
+      points: 7
+      evidence: 음수 근을 배제하고 $h(t)=\sec t-1$(또는 $-1+\sqrt{1+\tan^2t}$)을 적었다.
+      depends_on: [1.M1]
+      steps: [1b-2]
+    - id: 1.M2
+      mark_type: M
+      points: 7
+      evidence: $h'(t)=\dfrac{\sin t}{\cos^2t}$(또는 $\sec t\tan t$)를 구했다.
+      depends_on: []
+      steps: [1b-3]
+    - id: 1.R1
+      mark_type: R
+      points: 7
+      evidence: $0\le t\le\dfrac{\pi}{4}$에서 $h'(t)$가 증가함을 근거($\sin t$, $\sec^2t$의 증가 또는 $h''>0$)와 함께 밝혔다.
+      depends_on: []
+      steps: [1b-4]
+    - id: 1.A2
+      mark_type: A
+      points: 7
+      evidence: 최댓값 $\sqrt2$($t=\dfrac{\pi}{4}$)를 적었다.
+      depends_on: [1.M2, 1.R1]
+      steps: [1a, 1b-5]
+    deductions:
+    - code: D1-1
+      condition: 제시문 인용 없음(동국 규정)
+      effect: minus
+      value: 1
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-CAL-2603}
+  misconceptions:
+  - id: MC-CAL-2603
+    outcome_code: '70'
+    wrong_work: '$x$축 회전 공식처럼 $\pi\int y^2dx$를 쓰거나 적분 구간을 $y=-1$부터 잡아 부피–높이 관계를 잘못 세움'
+    detect_cue: 부피식에 $\left(\dfrac{x^2}{2}-1\right)^2$이 있거나 $h^2+2h$가 아닌 $(h+1)^2$꼴
+    feedback: $y$축 둘레 회전에서는 $x^2$을 $y$의 식으로 바꿔 $y$에 대해 적분합니다. 통의 바닥이 $y=0$임도 확인하세요.
+    remedy: [RL-1]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CAL-2603}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-VOLUME-ROTATION}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-input-v1, item_version: 1, verdict: pass, date: 2026-11-21, note: 원문 PDF 이미지 판독으로 옮김 · 해설 B는 해설집 흐름 · 채점표 자체 작성}
+
+created: 2026-11-21
+updated: 2026-11-21

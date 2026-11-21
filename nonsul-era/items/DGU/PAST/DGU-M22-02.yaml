@@ -1,0 +1,232 @@
+schema_version: '2.0'
+id: DGU-M22-02
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: DGU
+type: T06
+variant_of: null
+replaces: null
+level: L3
+form: 추론
+points: 30
+time_estimate_min: 20
+intent: 진단 정확도(민감도)와 사후확률을 구분하고, 확률의 덧셈정리·곱셈정리로 양성 판정 확률을 구해 조건부확률을 비교하는 능력을 본다.
+key_idea: '$\mathrm{P}(A\mid B)=\dfrac{\mathrm{P}(A)\mathrm{P}(B\mid A)}{\mathrm{P}(A)\mathrm{P}(B\mid A)+\mathrm{P}(A^c)\mathrm{P}(B\mid A^c)}$에서 유병률 1%가 작아 거짓 양성 비율의 차이가 결과를 뒤집는다.'
+stuck: 표의 98%·99%가 구하는 확률이 아니라 $\mathrm{P}(B\mid A)$임을 알아차리는 단계
+idea_tags: [IDEA-PRB-BAYES-BASE-RATE]
+tags: [베이즈 정리, 진단 키트, 동국 모의]
+elements:
+  materials:
+  - '유병률 1%인 지역'
+  - '두 진단 키트 C, D의 민감도·거짓 양성 비율 표'
+  concepts:
+  - '조건부확률'
+  - '확률의 덧셈정리(배반사건)'
+  - '확률의 곱셈정리'
+  tools:
+  - '사건 $A$(병에 걸림), $B$(양성 판정) 설정'
+  - '$B=(A\cap B)\cup(A^c\cap B)$ 배반 분해'
+  - '곱셈정리로 $\mathrm{P}(A\cap B)$ 계산'
+  - '두 조건부확률 비교'
+  conditions:
+  - '표의 98%·99% ⇒ $\mathrm{P}(B\mid A)$, 1%·2% ⇒ $\mathrm{P}(B\mid A^c)$'
+  - '구하는 것은 $\mathrm{P}(A\mid B)$ (병에 걸렸다고 진단되었을 때 실제로 걸렸을 확률)'
+  - '유병률 $\mathrm{P}(A)=0.01$이 작음 ⇒ 거짓 양성 $0.99\times(\text{오진율})$이 분모를 좌우'
+  stimuli_used: [가, 나, 다]
+  subpart_links: null
+
+curriculum:
+  version: '2015'
+  subjects: [확률과통계]
+  scope_2028: common
+  scope_confirmed: true
+  standards:
+  - code: 미확인
+    text: 조건부확률의 의미를 이해하고 확률의 곱셈정리를 이해한다(요지)
+    verified: false
+  content_area: 확률과통계 – 조건부확률
+  behavior_domain: 추론
+  unit_path: [확률과통계, 확률, 조건부확률, 확률의 곱셈정리]
+  key_concepts: ['조건부확률', '확률의 덧셈정리(배반사건)', '확률의 곱셈정리']
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 동국대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 동국대학교
+  admission_year: 2022
+  admission_type: 논술(모의)
+  track: 자연계열
+  question_no: 2
+  official_url: https://ipsi.dongguk.edu/   # 원문 게시 URL 미확인(교재 재수록본에서 옮김)
+  retrieved_at: '2026-11-21'
+  original_points: null
+  rights_notice: 미확인 — 원문 PDF 표지 문구 확인 필요(현재 사본은 '대치 수리 논술 연구소' 2027 대비 교재 재수록본)
+  note: 문제 = 동국대 수리논술 문제집2027 p.43~44, 해설 참고 = 동국대 수리논술 해설집2027 p.43. 원문(재수록본)에 배점 표기 없음 → 2022 모의 3번이 40점(15+25)이므로 30점으로 자체 배분. 표는 글로 옮김
+
+verify: verify/DGU-M22.py::p02
+
+stimuli:
+- label: 가
+  body: |
+    사건 $A,B$ 중 어느 한 사건이 일어나면 다른 사건은 일어나지 않을 때, 즉 $A\cap B=\phi$일 때, $A$와 $B$는 서로 배반이라고 하고 이 두 사건을 서로 배반사건이라고 한다.
+    표본 공간 $S$의 사건 $A,B$에 대하여
+    1) $\mathrm{P}(A\cup B)=\mathrm{P}(A)+\mathrm{P}(B)-\mathrm{P}(A\cap B)$
+    2) $A,B$가 서로 배반 사건이면 $\mathrm{P}(A\cup B)=\mathrm{P}(A)+\mathrm{P}(B)$
+    『고등학교 확률과 통계』
+- label: 나
+  body: |
+    일반적으로 확률이 0이 아닌 사건 $A$가 일어났다고 가정할 때 사건 $B$가 일어날 확률을 사건 $A$가 일어났을 때 사건 $B$의 조건부확률이라 하고, 이것을 기호로
+    $$\mathrm{P}(B\mid A)$$
+    와 같이 나타낸다. 사건 $A$가 일어났을 때 사건 $B$의 조건부확률은
+    $$\mathrm{P}(B\mid A)=\dfrac{\mathrm{P}(A\cap B)}{\mathrm{P}(A)}\qquad(\text{단, }\mathrm{P}(A)\neq0)$$
+    이다.
+    『고등학교 확률과 통계』
+- label: 다
+  body: |
+    사건 $A$가 일어났을 때의 사건 $B$의 조건부 확률은
+    $$\mathrm{P}(B\mid A)=\dfrac{\mathrm{P}(A\cap B)}{\mathrm{P}(A)}\qquad(\mathrm{P}(A)>0)$$
+    이고, 이 식의 양변에 $\mathrm{P}(A)$를 곱하면
+    $$\mathrm{P}(A\cap B)=\mathrm{P}(A)\mathrm{P}(B\mid A)$$
+    이다. 같은 방법으로
+    $$\mathrm{P}(A\cap B)=\mathrm{P}(B)\mathrm{P}(A\mid B)\qquad(\mathrm{P}(B)>0)$$
+    이다.
+    『고등학교 확률과 통계』
+
+stem: |
+  어느 지역에서 어떤 병에 걸린 사람의 비율은 1%라고 가정하자. 이 병을 진단하는 키트 C, D 두 가지가 새로이 개발되었다. 두 키트로 이 병을 진단할 때, 진단확률은 아래와 같다.
+  [표]
+  - 병에 걸린 사람을 병에 걸렸다고 정확하게 진단할 확률 — C 키트: 98%, D 키트: 99%
+  - 병에 걸리지 않은 사람을 병에 걸렸다고 잘못 진단할 확률 — C 키트: 1%, D 키트: 2%
+  이 지역에서 임의로 한 명을 선택하여 검사를 한 결과 병에 걸렸다고 진단하였을 때, 그 사람이 실제로 병에 걸렸을 확률은 C, D 두 키트 중 어느 키트가 높은지 제시문을 이용하여 설명하시오.
+
+subparts:
+- id: '1'
+  stem: |
+    위 논제에 답하시오.
+  points: 30
+  depends_on: []
+  answer: {kind: choice, value: 'C\ \text{키트}\ \left(\dfrac{98}{197}>\dfrac{99}{297}=\dfrac13\right)', equivalents: ['C (98/197 > 1/3)'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: 양성 판정 확률 $\mathrm{P}(B)$를 참 양성과 거짓 양성으로 나눠 구한 뒤 $\mathrm{P}(A\mid B)=\dfrac{\mathrm{P}(A\cap B)}{\mathrm{P}(B)}$를 비교한다.
+    steps:
+    - {id: 1a, content: 'C: $\dfrac{0.0098}{0.0197}=\dfrac{98}{197}$, D: $\dfrac{0.0099}{0.0297}=\dfrac13$', criteria: [1.M3, 1.A2]}
+    hint_ladder:
+    - 표의 98%는 어떤 조건부확률인가?
+    - 병에 걸렸다고 진단되는 경우를 실제 환자와 비환자로 나누자.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 해설집 p.43
+    steps:
+    - id: 1b-1
+      content: |
+        사건 $A$를 이 지역에서 임의로 선택된 사람이 병에 걸린 사건, 사건 $B$를 그 사람이 병에 걸렸다고 진단(양성)되는 사건이라 하자. 구하는 확률은 제시문 [나]에 의해 조건부확률 $\mathrm{P}(A\mid B)$이다. $\mathrm{P}(A)=0.01$.
+      criteria: [1.M1]
+    - id: 1b-2
+      content: |
+        $A\cap B$와 $A^c\cap B$는 서로 배반이므로 제시문 [가]의 덧셈정리와 제시문 [다]의 곱셈정리에 의해
+        $$\mathrm{P}(B)=\mathrm{P}(A\cap B)+\mathrm{P}(A^c\cap B)=\mathrm{P}(A)\mathrm{P}(B\mid A)+\mathrm{P}(A^c)\mathrm{P}(B\mid A^c).$$
+        C 키트: $\mathrm{P}(B)=0.01\times0.98+0.99\times0.01=0.0197$,
+        D 키트: $\mathrm{P}(B)=0.01\times0.99+0.99\times0.02=0.0297$.
+      criteria: [1.M2, 1.A1]
+    - id: 1b-3
+      content: |
+        조건부확률의 정의와 곱셈정리에 의해 $\mathrm{P}(A\mid B)=\dfrac{\mathrm{P}(A\cap B)}{\mathrm{P}(B)}=\dfrac{\mathrm{P}(A)\mathrm{P}(B\mid A)}{\mathrm{P}(B)}$이므로
+        C 키트: $\mathrm{P}(A\mid B)=\dfrac{0.0098}{0.0197}=\dfrac{98}{197}$, D 키트: $\mathrm{P}(A\mid B)=\dfrac{0.0099}{0.0297}=\dfrac{99}{297}=\dfrac13$.
+      criteria: [1.M3, 1.A2]
+    - id: 1b-4
+      content: |
+        $\dfrac{98}{197}>\dfrac{98}{294}=\dfrac13$이므로, 병에 걸렸다고 진단했을 때 실제로 병에 걸렸을 확률은 C 키트가 D 키트보다 높다.
+      criteria: [1.R1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 6
+      evidence: 사건 $A$(병), $B$(양성 진단)를 정하고 구하는 확률을 $\mathrm{P}(A\mid B)$로 나타냈다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1]
+    - id: 1.M2
+      mark_type: M
+      points: 6
+      evidence: $\mathrm{P}(B)=\mathrm{P}(A)\mathrm{P}(B\mid A)+\mathrm{P}(A^c)\mathrm{P}(B\mid A^c)$ 꼴로 양성 진단 확률을 세웠다.
+      depends_on: []
+      steps: [1b-2]
+    - id: 1.A1
+      mark_type: A
+      points: 4
+      evidence: C 키트 $0.0197$, D 키트 $0.0297$을 모두 맞게 계산했다.
+      depends_on: [1.M2]
+      steps: [1b-2]
+    - id: 1.M3
+      mark_type: M
+      points: 6
+      evidence: $\mathrm{P}(A\mid B)=\dfrac{\mathrm{P}(A)\mathrm{P}(B\mid A)}{\mathrm{P}(B)}$로 두 키트의 확률을 식으로 나타냈다.
+      depends_on: []
+      steps: [1a, 1b-3]
+    - id: 1.A2
+      mark_type: A
+      points: 4
+      evidence: C 키트 $\dfrac{98}{197}$, D 키트 $\dfrac{99}{297}\left(=\dfrac13\right)$을 적었다.
+      depends_on: [1.M3]
+      steps: [1a, 1b-3]
+    - id: 1.R1
+      mark_type: R
+      points: 4
+      evidence: 두 값을 비교하는 근거를 적고 C 키트가 더 높다고 결론 내렸다.
+      depends_on: [1.A2]
+      steps: [1b-4]
+    deductions:
+    - code: D1-1
+      condition: 제시문 인용 없음(동국 규정)
+      effect: minus
+      value: 1
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-PRB-2401}
+  - {code: '71', misconception: MC-PRB-2002}
+  misconceptions:
+  - id: MC-PRB-2401
+    outcome_code: '70'
+    wrong_work: '표의 정확도 98%와 99%를 그대로 비교해 D 키트가 높다고 답함'
+    detect_cue: $\mathrm{P}(B)$ 계산 없이 결론이 D
+    feedback: 표의 값은 병에 걸린 사람이 양성으로 나올 확률 $\mathrm{P}(B\mid A)$입니다. 묻는 것은 양성일 때 실제 환자일 확률 $\mathrm{P}(A\mid B)$입니다.
+    remedy: [RL-1]
+  - id: MC-PRB-2002
+    outcome_code: '71'
+    wrong_work: '$\mathrm{P}(A\cap B)$인 $0.0098$과 $0.0099$를 그대로 비교해 D가 높다고 답함'
+    detect_cue: 답에 $0.0098$, $0.0099$만 있고 $\mathrm{P}(B)$로 나눈 값이 없다
+    feedback: 조건부확률은 조건 사건(양성 판정)의 확률로 나누어야 합니다.
+    remedy: [RL-1]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-PRB-2401}
+  relation: remediation
+  target: {kind: concept, ref: CON-PRB-CONDITIONAL}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-PRB-2002}
+  relation: remediation
+  target: {kind: concept, ref: CON-PRB-CONDITIONAL}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-input-v1, item_version: 1, verdict: pass, date: 2026-11-21, note: 원문 PDF 이미지 판독으로 옮김 · 해설·채점표 자체 작성}
+
+created: 2026-11-21
+updated: 2026-11-21

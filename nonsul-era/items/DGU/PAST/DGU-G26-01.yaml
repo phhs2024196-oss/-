@@ -1,0 +1,401 @@
+schema_version: '2.0'
+id: DGU-G26-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: DGU
+type: T11
+variant_of: null
+replaces: null
+level: L4
+form: 추론
+points: 30
+time_estimate_min: 30
+intent: 정다면체의 이면각을 교선에 수직인 두 반직선(삼수선)으로 잡아 코사인 값을 구하고, 두 이면각의 합이 π임을 이용해 두 평면이 일치함을 논증하는 능력을 본다.
+key_idea: '교선의 중점에서 두 면 위로 그은 수선이 이면각을 만든다. 정팔면체의 둔각 이면각 $\alpha$($\cos\alpha=-\frac13$)와 정사면체 이면각 $\gamma$($\cos\gamma=\frac13$)는 $\alpha+\gamma=\pi$.'
+stuck: (2)에서 두 평면의 교선이 점 A를 지나고 BC에 평행한 직선임을 찾는 단계, (4)에서 이면각의 합으로 공면성을 설명하는 단계
+idea_tags: [IDEA-GEO-DIHEDRAL-PERP-AT-MIDPOINT, IDEA-GEO-PROJECTION-AREA-RATIO, IDEA-GEO-SUPPLEMENTARY-DIHEDRAL-COPLANAR]
+tags: [이면각, 정팔면체, 정사면체, 동국 실전]
+elements:
+  materials: [모서리 길이 1인 정팔면체, 모서리 길이 1인 정사면체, 정사면체를 정팔면체 면에 붙이기]
+  concepts: [이면각의 정의, 직선과 평면의 수직(수선의 발), 직선과 평면의 수직 판정, 코사인법칙, 삼각함수의 덧셈정리(배각), 무게중심의 성질, 정사영의 넓이]
+  tools: [교선의 중점에서 두 면 위로 수선 긋기, 수선의 발(정사각형 중심·정삼각형 무게중심) 찾기, 반각 직각삼각형에서 코사인 후 배각, 평행한 변으로 교선 찾기, 이면각의 합과 각의 범위로 공면성 판정]
+  conditions:
+  - '이면각 ⇒ 교선 위 한 점에서 교선에 수직인 두 반직선(정삼각형이면 변의 중점에서 중선)'
+  - '"둔각"/"예각" 지정 ⇒ 코사인 부호로 어느 쪽 각인지 확인'
+  - '평면 ABC와 AED는 A에서만 만나는 것처럼 보이지만 $BC\parallel ED$ ⇒ 교선은 A를 지나 BC에 평행'
+  - '"평면이 일치" ⇒ 이면각이 $\pi$, 즉 $\alpha+\gamma=\pi$를 각의 범위와 함께 보임'
+  stimuli_used: [가, 나, 다]
+  subpart_links: '(4)는 (1)의 cosα 와 (3)의 cosγ 사용'
+
+curriculum:
+  version: '2015'
+  subjects: [기하]
+  scope_2028: geom
+  scope_confirmed: true
+  standards:
+  - code: 미확인
+    text: 삼수선의 정리를 이해하고 이면각의 크기를 구할 수 있다(요지)
+    verified: false
+  content_area: 기하 – 공간도형(이면각·삼수선)
+  behavior_domain: 추론
+  unit_path: [기하, 공간도형과 공간좌표, 공간도형, 이면각]
+  key_concepts: [이면각의 정의, 직선과 평면의 수직(수선의 발), 직선과 평면의 수직 판정, 코사인법칙, 삼각함수의 덧셈정리(배각), 무게중심의 성질, 정사영의 넓이]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 동국대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 동국대학교
+  admission_year: 2026
+  admission_type: 논술
+  track: 자연계열
+  question_no: 1
+  official_url: https://ipsi.dongguk.edu/   # 원문 게시 URL 미확인(교재 재수록본에서 옮김)
+  retrieved_at: '2026-11-21'
+  original_points: null
+  rights_notice: 미확인 — 원문 PDF 표지 문구 확인 필요(현재 사본은 '대치 수리 논술 연구소' 2027 대비 교재 재수록본)
+  note: 문제 = 문제집2027 p.8, 해설 참고 = 해설집2027 p.7~8. 재수록본에 배점·줄 수 표기 없음 → 동국 형식(30·30·40)에 따라 30점, 소문항 7·7·7·9 는 자체 배분. 그림은 글로 설명함
+
+verify: verify/DGU-G26.py::p01
+
+stimuli:
+- label: 가
+  body: |
+    직선 $l$을 공유하는 두 반평면 $\alpha$, $\beta$로 이루어진 도형을 이면각이라 한다. 이때 직선 $l$을 이면각의 변, 두 반평면 $\alpha$, $\beta$를 각각 이면각의 면이라고 한다. 이면각의 변 $l$위의 한 점 O를 지나고 직선 $l$에 수직인 두 반직선 OA, OB를 두 반평면 $\alpha$, $\beta$ 위에 각각 그을 때, $\angle$AOB의 크기는 점 O의 위치에 관계없이 일정하고 이 각의 크기를 이면각의 크기라고 한다.
+    『고등학교 기하』
+- label: 나
+  body: |
+    공간에서 직선 $l$과 평면 $\alpha$ 위의 모든 직선이 수직일 때, 직선 $l$과 평면 $\alpha$는 서로 수직이라고 하고, 기호로 $l\perp\alpha$와 같이 나타낸다. 이때 직선 $l$을 평면 $\alpha$의 수선이라 하고, 직선 $l$과 평면 $\alpha$가 만나는 점 O를 수선의 발이라고 한다.
+    『고등학교 기하』
+- label: 다
+  body: |
+    평면 $\alpha$와 한 점 O에서 만나는 직선 $l$이 있다. 이때 직선 $l$이 평면 $\alpha$ 위의 점 O를 지나는 서로 다른 두 직선 $m$, $n$과 서로 수직이면 직선 $l$이 평면 $\alpha$에 수직이다.
+    『고등학교 기하』
+
+stem: |
+  모든 변의 길이가 1인 다음 그림의 정팔면체와 정사면체에 대해서 다음 물음에 답하시오.
+  [그림: 정팔면체 ABCDEF — 위 꼭짓점 A, 아래 꼭짓점 F, 가운데 정사각형 B(왼쪽)·C(앞)·D(오른쪽)·E(뒤), 즉 정사각형 BCDE 에서 BC 와 ED 가 마주 보는 변. 왼쪽 아래에 정사면체 GHIJ — 위 꼭짓점 G, 밑면 J(왼쪽)·I(앞 아래)·H(뒤 오른쪽). 정사면체 쪽에서 정팔면체 쪽(위 오른쪽)으로 향하는 화살표가 있어, 정사면체를 옮겨 면 GHI 를 면 BCF 에 붙이는 상황을 나타냄]
+
+subparts:
+- id: '1'
+  stem: |
+    정팔면체에서 평면 ABC와 평면 FBC가 이루는 이면각 중 둔각의 크기를 $\alpha$라고 할 때 $\cos\alpha$의 값을 구하시오.
+  points: 7
+  depends_on: []
+  answer: {kind: value, value: '-\dfrac13', equivalents: ['-1/3'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: BC의 중점 M에서 $\angle AMF$가 이면각이고, 정사각형의 중심 N에 대해 $\angle AMF=2\angle AMN$, $\cos\angle AMN=\frac{1}{\sqrt3}$.
+    steps:
+    - {id: 1a, content: '$\cos\alpha=2\left(\dfrac{1}{\sqrt3}\right)^2-1=-\dfrac13$', criteria: [1.A1]}
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 해설집 p.7
+    steps:
+    - id: 1b-1
+      content: |
+        BC의 중점을 M이라 하면 삼각형 ABC, FBC가 정삼각형이므로 $MA\perp BC$, $MF\perp BC$. 제시문 【가】에 의해 두 평면이 이루는 이면각은 $\angle AMF$이다.
+      criteria: [1.M1]
+    - id: 1b-2
+      content: |
+        점 A에서 평면 BCDE에 내린 수선의 발 N은 정사각형 BCDE의 대각선의 교점이다(제시문 【나】). 삼각형 ANM은 $\angle ANM=\dfrac{\pi}{2}$인 직각삼각형이고 $MA=\dfrac{\sqrt3}{2}$, $MN=\dfrac12$이므로 $\cos\angle AMN=\dfrac{MN}{MA}=\dfrac{1}{\sqrt3}$.
+      criteria: [1.M2]
+    - id: 1b-3
+      content: |
+        대칭에 의해 $\angle AMF=2\angle AMN$이므로 덧셈정리(배각)로 $\cos\angle AMF=2\cos^2\angle AMN-1=\dfrac23-1=-\dfrac13$. $\angle AMF$는 둔각이므로 $\cos\alpha=-\dfrac13$.
+      criteria: [1.A1]
+  - id: S1-ALT
+    audience: ALT
+    method_no: 2
+    key_idea: '$\triangle AMF$에서 $MA=MF=\frac{\sqrt3}{2}$, $AF=\sqrt2$(정사각형의 대각선 길이)로 코사인법칙을 쓴다. (해설집의 다른 풀이: $\triangle ABC$의 평면 BCDE 위 정사영이 $\triangle NBC$이므로 $\cos\angle AMN=\dfrac{1/4}{\sqrt3/4}$.)'
+    steps:
+    - {id: 1c, content: '$\cos\angle AMF=\dfrac{\frac34+\frac34-2}{2\cdot\frac34}=-\dfrac13$', criteria: [1.M2, 1.A1]}
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 3
+      evidence: BC의 중점 M에서 $MA\perp BC$, $MF\perp BC$를 밝히고 이면각을 $\angle AMF$로 잡았다(【가】 인용).
+      depends_on: []
+      steps: [1b-1]
+    - id: 1.M2
+      mark_type: M
+      points: 2
+      evidence: $MA$, $MN$(또는 $AF$)의 길이를 구해 $\cos\angle AMN$ 후 배각(또는 코사인법칙)을 적용했다.
+      depends_on: []
+      steps: [1b-2, 1c]
+    - id: 1.A1
+      mark_type: A
+      points: 2
+      evidence: $\cos\alpha=-\dfrac13$을 적었다.
+      depends_on: [1.M2]
+      steps: [1a, 1b-3, 1c]
+    deductions:
+    - code: D1-1
+      condition: 제시문 인용 없음(동국 규정)
+      effect: minus
+      value: 1
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-GEO-2101}
+  - {code: '71', misconception: MC-GEO-2102}
+  misconceptions:
+  - id: MC-GEO-2101
+    outcome_code: '70'
+    wrong_work: '이면각을 모서리 BA와 BF 사이의 각 $\angle ABF=\dfrac{\pi}{2}$로 잡아 $\cos\alpha=0$'
+    detect_cue: 답이 $0$ 또는 $\dfrac12$
+    feedback: 이면각은 교선 위 한 점에서 교선에 수직으로 그은 두 반직선 사이의 각입니다. BC의 중점에서 그으세요.
+    remedy: [RL-1]
+  - id: MC-GEO-2102
+    outcome_code: '71'
+    wrong_work: '둔각이라는 조건을 무시하고 $\cos\alpha=\dfrac13$으로 답함'
+    detect_cue: 답이 $\dfrac13$
+    feedback: 두 평면이 이루는 이면각은 예각과 둔각이 있습니다. 정팔면체 안쪽의 각 $\angle AMF$가 둔각인지 확인하세요.
+    remedy: [RL-2]
+- id: '2'
+  stem: |
+    정팔면체에서 평면 ABC와 평면 AED가 이루는 이면각 중 예각의 크기를 $\beta$라고 할 때 $\cos\beta$의 값을 구하시오.
+  points: 7
+  depends_on: []
+  answer: {kind: value, value: '\dfrac13', equivalents: ['1/3'], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: '$BC\parallel ED$이므로 교선은 A를 지나 BC에 평행한 직선 $l$. ED의 중점 Q에 대해 $AM\perp l$, $AQ\perp l$이므로 $\angle MAQ$가 이면각.'
+    steps:
+    - {id: 2a, content: '$\cos\angle MAQ=\dfrac{\frac34+\frac34-1}{2\cdot\frac34}=\dfrac13$', criteria: [2.A1]}
+  - id: S2-B
+    audience: B
+    method_no: 1
+    source_flow: 해설집 p.7~8
+    steps:
+    - id: 2b-1
+      content: |
+        정사각형 BCDE에서 $BC\parallel ED$이므로 점 A를 지나고 BC에 평행한 직선 $l$은 두 평면 ABC, AED에 모두 포함되어 두 평면의 교선이다.
+      criteria: [2.M1]
+    - id: 2b-2
+      content: |
+        BC, ED의 중점을 M, Q라 하면 $AM\perp BC$, $AQ\perp ED$이고 $l\parallel BC\parallel ED$이므로 $AM\perp l$, $AQ\perp l$. 제시문 【가】에 의해 이면각은 $\angle MAQ$(또는 그 보각).
+      criteria: [2.M1]
+    - id: 2b-3
+      content: |
+        $AM=AQ=\dfrac{\sqrt3}{2}$, $MQ=1$(정사각형의 마주 보는 변의 중점 사이 거리). 코사인법칙으로 $\cos\angle MAQ=\dfrac{\frac34+\frac34-1}{2\cdot\frac34}=\dfrac13>0$이므로 $\angle MAQ$가 예각이고 $\cos\beta=\dfrac13$.
+      criteria: [2.M2, 2.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 3
+      evidence: 두 평면의 교선이 A를 지나 BC(ED)에 평행한 직선임을 밝히고 $AM\perp l$, $AQ\perp l$로 이면각을 잡았다.
+      depends_on: []
+      steps: [2b-1, 2b-2]
+    - id: 2.M2
+      mark_type: M
+      points: 2
+      evidence: $AM=AQ=\dfrac{\sqrt3}{2}$, $MQ=1$로 코사인법칙을 세웠다.
+      depends_on: []
+      steps: [2b-3]
+    - id: 2.A1
+      mark_type: A
+      points: 2
+      evidence: $\cos\beta=\dfrac13$을 적었다.
+      depends_on: [2.M2]
+      steps: [2a, 2b-3]
+    deductions:
+    - code: D2-1
+      condition: 제시문 인용 없음(동국 규정)
+      effect: minus
+      value: 1
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-GEO-2101}
+  misconceptions:
+  - id: MC-GEO-2101
+    outcome_code: '70'
+    wrong_work: '두 평면이 점 A에서만 만난다고 보고 이면각을 $\angle BAE$나 $\angle CAD=\dfrac{\pi}{2}$로 잡음'
+    detect_cue: 답이 $0$이거나 교선 $l$에 대한 언급이 없음
+    feedback: 두 평면은 직선에서 만납니다. 평행한 두 변 BC, ED를 이용해 교선을 찾고 그 교선에 수직인 두 반직선을 그으세요.
+    remedy: [RL-1]
+- id: '3'
+  stem: |
+    정사면체에서 평면 JGH와 평면 IGH가 이루는 이면각 중 예각의 크기를 $\gamma$라고 할 때 $\cos\gamma$의 값을 구하시오.
+  points: 7
+  depends_on: []
+  answer: {kind: value, value: '\dfrac13', equivalents: ['1/3'], tolerance: null}
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: GH의 중점 O에서 $\angle JOI$가 이면각, J에서 면 IGH에 내린 수선의 발은 무게중심 P이고 $OP=\frac13OI$.
+    steps:
+    - {id: 3a, content: '$\cos\gamma=\dfrac{OP}{OJ}=\dfrac{\frac13\cdot\frac{\sqrt3}{2}}{\frac{\sqrt3}{2}}=\dfrac13$', criteria: [3.A1]}
+  - id: S3-B
+    audience: B
+    method_no: 1
+    source_flow: 해설집 p.8
+    steps:
+    - id: 3b-1
+      content: |
+        GH의 중점을 O라 하면 $OJ\perp GH$, $OI\perp GH$이므로 제시문 【가】에 의해 이면각은 $\angle JOI$.
+      criteria: [3.M1]
+    - id: 3b-2
+      content: |
+        J에서 평면 IGH에 내린 수선의 발 P는 $PG=PH=PI$(직각삼각형 JPG, JPH, JPI가 합동)이므로 정삼각형 IGH의 무게중심이고, 선분 OI 위에 있으며 $OP=\dfrac13OI=\dfrac{\sqrt3}{6}$.
+        $JP\perp$(평면 IGH)이므로(【나】) 삼각형 JOP는 $\angle JPO=\dfrac{\pi}{2}$인 직각삼각형이고 $\cos\angle JOI=\dfrac{OP}{OJ}=\dfrac{\sqrt3/6}{\sqrt3/2}=\dfrac13$. 예각이므로 $\cos\gamma=\dfrac13$.
+      criteria: [3.M2, 3.A1]
+  - id: S3-ALT
+    audience: ALT
+    method_no: 2
+    key_idea: '(해설집의 다른 풀이) $\triangle JGH$의 평면 IGH 위로의 정사영이 $\triangle PGH$이므로 $\cos\gamma=\dfrac{\triangle PGH}{\triangle JGH}=\dfrac{\sqrt3/12}{\sqrt3/4}=\dfrac13$.'
+    steps:
+    - {id: 3c, content: '정사영 넓이 비로 $\cos\gamma=\dfrac13$', criteria: [3.M2, 3.A1]}
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 2
+      evidence: GH의 중점 O에서 $OJ\perp GH$, $OI\perp GH$로 이면각 $\angle JOI$를 잡았다.
+      depends_on: []
+      steps: [3b-1]
+    - id: 3.M2
+      mark_type: M
+      points: 3
+      evidence: 수선의 발이 무게중심 P임과 $OP=\dfrac13OI$를 써서 직각삼각형 JOP(또는 정사영 넓이비)로 코사인을 나타냈다.
+      depends_on: []
+      steps: [3b-2, 3c]
+    - id: 3.A1
+      mark_type: A
+      points: 2
+      evidence: $\cos\gamma=\dfrac13$을 적었다.
+      depends_on: [3.M2]
+      steps: [3a, 3b-2, 3c]
+    deductions:
+    - code: D3-1
+      condition: 제시문 인용 없음(동국 규정)
+      effect: minus
+      value: 1
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-GEO-2103}
+  misconceptions:
+  - id: MC-GEO-2103
+    outcome_code: '70'
+    wrong_work: '수선의 발을 OI의 중점으로 보거나 $OP=\dfrac23OI$로 써서 $\cos\gamma=\dfrac12$ 또는 $\dfrac23$'
+    detect_cue: 답이 $\dfrac12$ 또는 $\dfrac23$
+    feedback: 정사면체 꼭짓점에서 내린 수선의 발은 밑면의 무게중심이고, 무게중심은 중선을 꼭짓점에서 $2:1$로 나눕니다. $OP$는 중선의 $\frac13$입니다.
+    remedy: [RL-1]
+- id: '4'
+  stem: |
+    점 G와 점 B, 점 H와 점 C, 점 I와 점 F를 일치시켰을 때, 평면 ABC와 평면 JGH가 일치함을 이면각을 이용하여 보이시오.
+  points: 9
+  depends_on: ['1', '3']
+  answer: {kind: proof, value: null, equivalents: [], tolerance: null}
+  solutions:
+  - id: S4-A
+    audience: A
+    method_no: 1
+    key_idea: 붙이면 O=M이고 A, F, J가 모두 BC에 수직인 한 평면 위에 있어 $\angle AMJ=\alpha+\gamma$. $\cos\gamma=-\cos\alpha$와 각의 범위로 $\alpha+\gamma=\pi$.
+    steps:
+    - {id: 4a, content: '$\angle AMJ=\alpha+\gamma=\pi$이므로 A, M, J 일직선 → 평면 ABC = 평면 JBC', criteria: [4.R2, 4.A1]}
+  - id: S4-B
+    audience: B
+    method_no: 1
+    source_flow: 해설집 p.8
+    steps:
+    - id: 4b-1
+      content: |
+        G=B, H=C, I=F이면 GH의 중점 O는 BC의 중점 M과 일치한다. $MA$, $MF$, $MJ$는 모두 BC에 수직이므로 제시문 【다】에 의해 BC는 세 점 A, F, J를 지나는 평면(M에서 BC에 수직인 평면)에 수직이고, 세 반직선 $MA$, $MF$, $MJ$는 이 한 평면 위에 있다.
+      criteria: [4.M1]
+    - id: 4b-2
+      content: |
+        정사면체는 면 BCF의 정팔면체 바깥쪽에 붙으므로 반직선 $MF$는 $MA$와 $MJ$ 사이에 있고, 【가】에 의해 $\angle AMF=\alpha$(평면 ABC와 FBC의 이면각), $\angle FMJ=\gamma$(평면 IGH와 JGH의 이면각). 따라서 평면 ABC와 평면 JGH가 BC를 변으로 이루는 이면각은 $\angle AMJ=\alpha+\gamma$.
+      criteria: [4.M1, 4.R1]
+    - id: 4b-3
+      content: |
+        (1), (3)에서 $\cos(\pi-\alpha)=-\cos\alpha=\dfrac13=\cos\gamma$이고 $\alpha$가 둔각, $\gamma$가 예각이므로 $0<\pi-\alpha<\dfrac{\pi}{2}$, $0<\gamma<\dfrac{\pi}{2}$. 이 범위에서 코사인함수는 일대일이므로 $\pi-\alpha=\gamma$, 즉 $\alpha+\gamma=\pi$.
+      criteria: [4.R2]
+    - id: 4b-4
+      content: |
+        그러므로 $\angle AMJ=\pi$, 즉 A, M, J가 한 직선 위에 있다. 평면 ABC는 직선 BC와 직선 AM을 포함하고 평면 JGH(=JBC)는 직선 BC와 직선 JM(=직선 AM)을 포함하므로, 두 평면은 서로 만나는 두 직선 BC, AM을 공유하여 일치한다.
+      criteria: [4.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 4.M1
+      mark_type: M
+      points: 2
+      evidence: 붙였을 때 O와 M이 일치하고 $MA$, $MF$, $MJ$가 모두 BC에 수직임(한 평면 위)을 적었다.
+      depends_on: []
+      steps: [4b-1, 4b-2]
+    - id: 4.R1
+      mark_type: R
+      points: 2
+      evidence: 평면 ABC와 평면 JGH의 이면각이 $\alpha+\gamma$임을 근거(MF가 MA, MJ 사이)와 함께 적었다.
+      depends_on: []
+      steps: [4b-2]
+    - id: 4.R2
+      mark_type: R
+      points: 3
+      evidence: '$-\cos\alpha=\cos\gamma$와 각의 범위($\pi-\alpha$, $\gamma$가 모두 예각)로 $\alpha+\gamma=\pi$를 이끌었다(또는 $\sin(\alpha+\gamma)=0$과 범위).'
+      depends_on: []
+      ft: {allowed: true, from: [1.A1, 3.A1], max_points: 3}
+      steps: [4a, 4b-3]
+    - id: 4.A1
+      mark_type: A
+      points: 2
+      evidence: 이면각이 $\pi$이므로 두 평면이 일치한다는 결론을 적었다.
+      depends_on: [4.R1, 4.R2]
+      steps: [4a, 4b-4]
+    deductions:
+    - code: D4-1
+      condition: 제시문 인용 없음(동국 규정)
+      effect: minus
+      value: 1
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-PRF-2101}
+  misconceptions:
+  - id: MC-PRF-2101
+    outcome_code: '70'
+    wrong_work: '$\cos\alpha=-\cos\gamma$만 쓰고 각의 범위 언급 없이 바로 $\alpha+\gamma=\pi$라고 결론'
+    detect_cue: 둔각·예각 범위나 $\sin(\alpha+\gamma)$ 확인이 답안에 없음
+    feedback: 코사인 값이 같아도 각은 여러 개일 수 있습니다. 두 각이 코사인이 일대일인 범위에 있음을 밝히세요.
+    remedy: [RL-3]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-GEO-2101}
+  relation: remediation
+  target: {kind: concept, ref: CON-GEO-DIHEDRAL}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-GEO-2102}
+  relation: remediation
+  target: {kind: concept, ref: CON-GEO-DIHEDRAL}
+  priority: 1
+- id: RL-3
+  trigger: {type: misconception, ref: MC-PRF-2101}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-TRIG-ADD}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-input-v1, item_version: 1, verdict: pass, date: 2026-11-21, note: 원문 PDF 이미지 판독으로 옮김 · 해설·채점표 자체 작성}
+
+created: 2026-11-21
+updated: 2026-11-21

@@ -1,0 +1,220 @@
+schema_version: '2.0'
+id: DGU-M26-02
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: DGU
+type: T06
+variant_of: null
+replaces: null
+level: L4
+form: 전수
+points: 30
+time_estimate_min: 25
+intent: 명중 조건과 면적 비로 한 발의 점수 확률을 조건부확률의 곱셈정리로 구하고, 독립 시행에서 총점 조건을 만족하는 경우를 빠짐없이 나열해 확률의 덧셈정리로 합하는 능력을 본다.
+key_idea: '총점 29 이상은 (10,10,10)과 10·10·9의 세 배열뿐. 한 발에서 10점 확률 $0.81\cdot\frac{\pi}{22^2}$, 9점 확률 $0.81\cdot\frac{3\pi}{22^2}$.'
+stuck: 면적 비 확률이 '맞혔을 때'의 조건부확률임을 읽고 0.81을 곱하는 단계, 9점이 반지름 25~50mm 고리라는 해석
+idea_tags: [IDEA-PRB-GEOMETRIC-PROB-AREA, IDEA-PRB-CONDITIONAL-MULTIPLY, IDEA-PRB-INDEPENDENT-ENUM]
+tags: [사격, 기하적 확률, 동국 모의]
+elements:
+  materials: [한 변 550mm 정사각형 표적지, 반지름 25mm 간격 동심원 10개, 표적지를 못 맞추는 비율 19%, 3발 사격의 총점]
+  concepts: [확률의 덧셈정리(배반사건), 확률의 곱셈정리(조건부확률), 사건의 독립, 넓이 비로 정한 확률]
+  tools:
+  - '총점 29 이상인 점수 배열 4가지 나열'
+  - '$P(B_1\mid A)$, $P(B_2\mid A)$를 넓이 비로 계산'
+  - '$P(A\cap B_i)=0.81\,P(B_i\mid A)$'
+  - '독립이므로 곱, 배반이므로 합'
+  conditions:
+  - '점수 = 탄착점을 포함하는 원의 개수 ⇒ 반지름 25 이내 10점, 25~50 고리 9점'
+  - '면적 비는 "표적지를 맞췄을 때"의 확률 ⇒ 명중 확률 0.81을 곱함'
+  - '각 사격 독립 ⇒ 세 발의 확률을 곱함'
+  - '총점 29 이상 ⇒ (10,10,10), (10,10,9), (10,9,10), (9,10,10)'
+  stimuli_used: [가, 나, 다]
+  subpart_links: null
+
+curriculum:
+  version: '2015'
+  subjects: [확률과통계]
+  scope_2028: common
+  scope_confirmed: true
+  standards:
+  - code: 미확인
+    text: 확률의 덧셈정리, 조건부확률과 확률의 곱셈정리, 사건의 독립을 이해하고 활용할 수 있다(요지)
+    verified: false
+  content_area: 확률과통계 – 확률
+  behavior_domain: 문제해결
+  unit_path: [확률과통계, 확률, 조건부확률, 사건의 독립과 종속]
+  key_concepts: [확률의 덧셈정리(배반사건), 확률의 곱셈정리(조건부확률), 사건의 독립, 넓이 비로 정한 확률]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 동국대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 동국대학교
+  admission_year: 2026
+  admission_type: 논술(모의)
+  track: 자연계열
+  question_no: 2
+  official_url: https://ipsi.dongguk.edu/   # 원문 게시 URL 미확인(교재 재수록본에서 옮김)
+  retrieved_at: '2026-11-21'
+  original_points: null
+  rights_notice: 미확인 — 원문 PDF 표지 문구 확인 필요(현재 사본은 '대치 수리 논술 연구소' 2027 대비 교재 재수록본)
+  note: 문제 = 문제집2027 p.12, 해설 참고 = 해설집2027 p.15. 재수록본에 배점·줄 수 표기 없음 → 동국 형식(30·30·40)에 따라 30점으로 둠(자체 배분)
+
+verify: verify/DGU-M26.py::p02
+
+stimuli:
+- label: 가
+  body: |
+    표본공간 $S$의 사건 $A,B$에 대하여
+    $$P(A\cup B)=P(A)+P(B)-P(A\cap B)$$
+    사건 $A,B$가 서로 배반사건이면
+    $$P(A\cup B)=P(A)+P(B)$$
+    -『고등학교 확률과 통계』
+- label: 나
+  body: |
+    두 사건 $A,B$에 대하여
+    $$P(A\cap B)=P(A)P(B\mid A)\quad(\text{단, }P(A)\neq0)$$
+    $$P(A\cap B)=P(B)P(A\mid B)\quad(\text{단, }P(B)\neq0)$$
+    -『고등학교 확률과 통계』
+- label: 다
+  body: |
+    두 사건 $A,B$가 서로 독립이기 위한 필요충분조건은
+    $$P(A\cap B)=P(A)P(B)\quad(\text{단, }P(A)\neq0,\ P(B)\neq0)$$
+    -『고등학교 확률과 통계』
+
+stem: |
+  철수는 한 변의 길이가 $550$mm인 정사각형의 표적지에 사격을 한다. 표적지에는 표적지 중심을 기준으로 반지름이 $25$mm부터 $25$mm씩 증가하는 동심원이 $10$개 그려져 있다. 탄착점의 중심을 포함하는 원의 개수를 점수로 하되, 탄착점의 중심이 원의 경계를 맞힌 경우도 그 원에 포함된 것으로 한다. 표적지를 맞췄을 때, 얻게 될 점수의 확률은 표적지 전체 면적 대비 해당 점수가 나오는 영역의 면적 비율로 한다. 과거 사격 기록에 의하면 철수는 표적지를 못 맞추는 비율이 $19$%였다. 철수가 $3$발을 사격 했을 때, 총점이 $29$점 이상일 확률을 각각 제시문을 이용하여 설명하고 구하시오. 단, 각각의 사격은 모두 독립이다.
+
+subparts:
+- id: '1'
+  stem: |
+    위 논제의 확률(총점이 $29$점 이상일 확률)을 제시문을 이용하여 설명하고 구하시오.
+  points: 30
+  depends_on: []
+  answer: {kind: value, value: '10\pi^3\left(\dfrac{9}{220}\right)^6', equivalents: ['0.81^3·(π/22^2)^2·(10π/22^2)', '약 1.453×10^{-6}'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: '$q_{10}=0.81\cdot\frac{\pi}{22^2}$, $q_9=0.81\cdot\frac{3\pi}{22^2}$이고 구하는 확률은 $q_{10}^3+3q_{10}^2q_9=0.81^3p_1^2(p_1+3p_2)$.'
+    steps:
+    - {id: 1a, content: '$0.81^3\left(\dfrac{\pi}{22^2}\right)^2\dfrac{10\pi}{22^2}=10\pi^3\left(\dfrac{9}{220}\right)^6$', criteria: [1.A3]}
+    hint_ladder:
+    - 세 발 점수의 합이 29 이상이 되는 점수 배열을 모두 적어 보자.
+    - 면적 비는 표적지를 맞혔다는 조건에서의 확률이다.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 해설집 p.15
+    steps:
+    - id: 1b-1
+      content: |
+        한 발의 점수는 최대 10점이므로 3발의 총점이 29점 이상인 경우를 사격 순서대로 나열하면 $(10,10,10)$, $(10,10,9)$, $(10,9,10)$, $(9,10,10)$의 4가지이고 이 사건들은 서로 배반이다.
+      criteria: [1.M1]
+    - id: 1b-2
+      content: |
+        '철수가 표적지를 맞추는 사건' $A$, '1발의 사격에서 10점을 받을 사건' $B_1$, '9점을 받을 사건' $B_2$라 하면, 1발에서 10점과 9점을 받는 사건은 각각 $A\cap B_1$, $A\cap B_2$이다. 10점은 반지름 $25$ 이내, 9점은 반지름 $25$와 $50$ 사이 영역이므로
+        $P(B_1\mid A)=p_1=\dfrac{25^2\pi}{550^2}=\dfrac{\pi}{22^2}$, $P(B_2\mid A)=p_2=\dfrac{50^2\pi-25^2\pi}{550^2}=\dfrac{3\pi}{22^2}$.
+      criteria: [1.M2, 1.A1]
+    - id: 1b-3
+      content: |
+        $P(A)=1-0.19=0.81$이므로 제시문 【나】에 의해 $P(A\cap B_1)=P(A)P(B_1\mid A)=0.81p_1$, $P(A\cap B_2)=0.81p_2$.
+      criteria: [1.M3, 1.A2]
+    - id: 1b-4
+      content: |
+        3발의 사격은 독립이므로 제시문 【다】에 의해 네 경우의 확률은 각각 $(0.81p_1)^3$, $(0.81p_1)^2(0.81p_2)$, $(0.81p_1)^2(0.81p_2)$, $(0.81p_1)^2(0.81p_2)$. 제시문 【가】에 의해 구하는 확률은 이들의 합
+        $(0.81p_1)^3+3(0.81p_1)^2(0.81p_2)=0.81^3p_1^2(p_1+3p_2)=0.81^3\left(\dfrac{\pi}{22^2}\right)^2\left(\dfrac{10\pi}{22^2}\right)=10\pi^3\left(\dfrac{9}{220}\right)^6$.
+      criteria: [1.R1, 1.A3]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 5
+      evidence: 총점 29점 이상인 네 가지 점수 배열을 모두 적고 서로 배반임을 밝혔다.
+      depends_on: []
+      steps: [1b-1]
+    - id: 1.M2
+      mark_type: M
+      points: 4
+      evidence: 10점·9점 영역을 반지름 $25$ 이내, $25$~$50$ 고리로 정하고 표적지 넓이 $550^2$에 대한 비로 확률을 세웠다.
+      depends_on: []
+      steps: [1b-2]
+    - id: 1.A1
+      mark_type: A
+      points: 4
+      evidence: $p_1=\dfrac{\pi}{22^2}$, $p_2=\dfrac{3\pi}{22^2}$을 적었다.
+      depends_on: [1.M2]
+      steps: [1b-2]
+    - id: 1.M3
+      mark_type: M
+      points: 4
+      evidence: 【나】로 면적 비가 조건부확률임을 밝히고 명중 확률 $0.81$을 곱했다.
+      depends_on: []
+      steps: [1b-3]
+    - id: 1.A2
+      mark_type: A
+      points: 3
+      evidence: 한 발에서 10점, 9점일 확률 $0.81p_1$, $0.81p_2$를 적었다.
+      depends_on: [1.M3]
+      steps: [1b-3]
+    - id: 1.R1
+      mark_type: R
+      points: 5
+      evidence: 【다】(독립)로 곱하고 【가】(배반)로 더하는 근거를 적었다.
+      depends_on: []
+      steps: [1b-4]
+    - id: 1.A3
+      mark_type: A
+      points: 5
+      evidence: 답 $10\pi^3\left(\dfrac{9}{220}\right)^6$(또는 동치인 식)을 적었다.
+      depends_on: [1.M1, 1.R1]
+      steps: [1a, 1b-4]
+    deductions:
+    - code: D1-1
+      condition: 제시문 인용 없음(동국 규정)
+      effect: minus
+      value: 1
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-PRB-2101}
+  - {code: '71', misconception: MC-PRB-2102}
+  misconceptions:
+  - id: MC-PRB-2101
+    outcome_code: '70'
+    wrong_work: '명중 확률 $0.81$을 곱하지 않고 $p_1^3+3p_1^2p_2=\dfrac{10\pi^3}{22^6}$으로 답함'
+    detect_cue: 답에 $0.81$ 또는 $9^6$ 인수가 없음
+    feedback: 면적 비는 '표적지를 맞혔을 때'의 확률입니다. 곱셈정리로 $P(A)=0.81$을 곱하세요.
+    remedy: [RL-1]
+  - id: MC-PRB-2102
+    outcome_code: '71'
+    wrong_work: '10·10·9의 배열을 한 가지로 보고 $(0.81)^3p_1^2(p_1+p_2)$로 계산'
+    detect_cue: 답의 괄호 안이 $p_1+p_2$ 또는 $4\pi/22^2$
+    feedback: 9점을 받는 발이 첫째·둘째·셋째일 수 있어 3가지 배열이 있습니다. 순서대로 나열해 세세요.
+    remedy: [RL-2]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-PRB-2101}
+  relation: remediation
+  target: {kind: concept, ref: CON-PRB-CONDITIONAL}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-PRB-2102}
+  relation: remediation
+  target: {kind: concept, ref: CON-PRB-INDEPENDENT}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-input-v1, item_version: 1, verdict: pass, date: 2026-11-21, note: 원문 PDF 이미지 판독으로 옮김 · 해설·채점표 자체 작성}
+
+created: 2026-11-21
+updated: 2026-11-21

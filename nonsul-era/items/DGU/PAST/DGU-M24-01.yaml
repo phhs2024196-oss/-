@@ -1,0 +1,218 @@
+schema_version: '2.0'
+id: DGU-M24-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: DGU
+type: T09
+variant_of: null
+replaces: null
+level: L4
+form: 분류
+points: 30
+time_estimate_min: 20
+intent: 단면이 정사각형인 입체를 평면 $y=4$로 자른 부분의 단면을 구간별로 다시 세우고, 단면의 넓이를 적분해 부피를 구하는 능력을 본다.
+key_idea: '밑면 위 선분 $[x^2,\,4x]$가 $y\le4$에 얼마나 남는지에 따라 $0\le x\le1$(정사각형 전체), $1\le x\le2$(직사각형 $(4-x^2)\times(4x-x^2)$), $x\ge2$(없음)로 나눈다.'
+stuck: 잘린 단면이 정사각형이 아니라 높이는 그대로이고 밑변만 줄어든 직사각형임을 알아보는 단계
+idea_tags: [IDEA-CAL-VOLUME-CROSS-SECTION, IDEA-CAL-SPLIT-INTERVAL-BY-CUT]
+tags: [입체의 부피, 동국 모의]
+elements:
+  materials:
+  - '곡선 $y=x^2$과 직선 $y=4x$로 둘러싸인 밑면'
+  - '$x$축에 수직인 단면이 정사각형인 입체'
+  - '평면 $y=4$로 자른 입체 중 $0\le y\le4$ 부분'
+  concepts:
+  - '두 곡선으로 둘러싸인 도형'
+  - '단면의 넓이와 입체의 부피'
+  - '정적분의 구간 분할'
+  tools:
+  - '교점으로 밑면의 범위 구하기'
+  - '$y\le4$ 조건으로 구간 나누기($x=1$, $x=2$)'
+  - '잘린 단면을 직사각형으로 계산'
+  - '다항식의 정적분'
+  conditions:
+  - '단면 정사각형의 한 변 = 밑면 위 선분 길이 $4x-x^2$'
+  - '평면 $y=4$는 밑변($y$방향)만 자르고 높이 $4x-x^2$는 그대로 ⇒ $1\le x\le2$에서 직사각형'
+  - '$x>2$이면 $x^2>4$ ⇒ 남는 부분 없음'
+  stimuli_used: [가, 나]
+  subpart_links: null
+
+curriculum:
+  version: '2015'
+  subjects: [미적분]
+  scope_2028: calc2
+  scope_confirmed: true
+  standards:
+  - code: 미확인
+    text: 정적분을 활용하여 입체도형의 부피를 구할 수 있다(요지)
+    verified: false
+  content_area: 적분법 – 정적분의 활용(입체의 부피)
+  behavior_domain: 문제해결
+  unit_path: [미적분, 적분법, 정적분의 활용, 입체도형의 부피]
+  key_concepts:
+  - '두 곡선으로 둘러싸인 도형'
+  - '단면의 넓이와 입체의 부피'
+  - '정적분의 구간 분할'
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 동국대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 동국대학교
+  admission_year: 2024
+  admission_type: 논술(모의)
+  track: 자연계열
+  question_no: 1
+  official_url: https://ipsi.dongguk.edu/   # 원문 게시 URL 미확인(교재 재수록본에서 옮김)
+  retrieved_at: '2026-11-21'
+  original_points: null
+  rights_notice: 미확인 — 원문 PDF 표지 문구 확인 필요(현재 사본은 '대치 수리 논술 연구소' 2027 대비 교재 재수록본)
+  note: 문제 = 동국대 수리논술 문제집2027 p.25, 해설 참고 = 해설집2027 p.26. 원문(재수록본)에 배점·줄 수 표기 없음 → 30점은 동국 3문항(30·30·40) 관례에 따른 자체 배분
+
+verify: verify/DGU-M24.py::p01
+
+stimuli:
+- label: 가
+  body: |
+    함수 $f(x)$가 임의의 세 실수 $a,b,c$를 포함하는 닫힌구간에서 연속일 때
+    $$\int_a^b f(x)\,dx+\int_b^c f(x)\,dx=\int_a^c f(x)\,dx$$
+    이다.
+    『고등학교 수학Ⅱ』
+- label: 나
+  body: |
+    닫힌구간 $[a,b]$의 임의의 점 $x$에서 $x$축에 수직인 평면으로 자른 단면의 넓이가 $S(x)$인 입체도형의 부피 $V$는
+    $$V=\int_a^b S(x)\,dx$$
+    이다. 단, $S(x)$는 닫힌구간 $[a,b]$에서 연속인 함수이다.
+    『고등학교 미적분』
+
+stem: |
+  곡선 $y=x^2$과 직선 $y=4x$로 둘러싸인 도형을 밑면으로 하고 $x$축에 수직인 평면으로 자른 단면이 모두 정사각형인 입체도형이 있다. 이 입체도형을 $y$축에 수직이며 $y$ 좌표가 $4$인 평면으로 잘라서 얻어진 두 입체도형 중에서 $y$ 좌표가 $0$이상 $4$이하인 영역에 속하는 입체도형의 부피를 구하시오.
+
+subparts:
+- id: '1'
+  stem: |
+    위 논제의 입체도형의 부피를 구하시오.
+  points: 30
+  depends_on: []
+  answer: {kind: value, value: '\dfrac{47}{5}', equivalents: ['47/5', '9.4'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: 단면 정사각형의 한 변은 $4x-x^2$로 그대로이고, $y\le4$ 조건은 밑변(y방향)만 $[x^2,\min(4x,4)]$로 줄인다.
+    steps:
+    - {id: 1a, content: '$V=\displaystyle\int_0^1(4x-x^2)^2dx+\int_1^2(4-x^2)(4x-x^2)dx=\dfrac{53}{15}+\dfrac{88}{15}=\dfrac{47}{5}$', criteria: [1.A4]}
+    hint_ladder:
+    - 밑면 위 선분 $[x^2,4x]$ 중 $y\le4$인 부분은 $x$에 따라 어떻게 달라지는가?
+    - 잘린 단면에서 높이(정사각형의 한 변)는 바뀌는가?
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 해설집 p.26
+    steps:
+    - id: 1b-1
+      content: |
+        $x^2=4x$에서 $x=0,\ 4$이므로 밑면은 $0\le x\le4$, $x^2\le y\le4x$이다. $x$에서 자른 단면은 밑면 위의 선분($y$가 $x^2$부터 $4x$까지, 길이 $4x-x^2$)을 한 변으로 하는 정사각형이다.
+        평면 $y=4$로 자르면 이 정사각형 중 $y\le4$인 부분만 남는다. $4x\le4\iff x\le1$, $x^2\le4\iff x\le2$이므로
+        ① $0\le x\le1$: 선분 전체가 $y\le4$ → 단면은 한 변 $4x-x^2$인 정사각형,
+        ② $1\le x\le2$: 선분 중 $x^2\le y\le4$ 부분만 남음 → 단면은 밑변 $4-x^2$, 높이 $4x-x^2$인 직사각형,
+        ③ $2<x\le4$: $x^2>4$이므로 남는 부분이 없다.
+      criteria: [1.M1, 1.A1]
+    - id: 1b-2
+      content: |
+        제시문 【나】와 【가】에 의해
+        $$V=\int_0^1(4x-x^2)^2dx+\int_1^2(4-x^2)(4x-x^2)dx.$$
+      criteria: [1.M2]
+    - id: 1b-3
+      content: |
+        $\displaystyle\int_0^1(16x^2-8x^3+x^4)dx=\dfrac{16}{3}-2+\dfrac15=\dfrac{53}{15}$.
+      criteria: [1.A2]
+    - id: 1b-4
+      content: |
+        $(4-x^2)(4x-x^2)=x^4-4x^3-4x^2+16x$이므로 $\displaystyle\int_1^2(x^4-4x^3-4x^2+16x)dx=\left[\dfrac{x^5}{5}-x^4-\dfrac{4x^3}{3}+8x^2\right]_1^2=\dfrac{88}{15}$.
+      criteria: [1.A3]
+    - id: 1b-5
+      content: |
+        따라서 $V=\dfrac{53}{15}+\dfrac{88}{15}=\dfrac{141}{15}=\dfrac{47}{5}$.
+      criteria: [1.A4]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 5
+      evidence: $y\le4$ 조건으로 $x$의 구간을 $x=1$, $x=2$에서 나누고 $x>2$에서는 남는 부분이 없다고 적었다.
+      depends_on: []
+      steps: [1b-1]
+    - id: 1.A1
+      mark_type: A
+      points: 5
+      evidence: 단면 넓이를 $0\le x\le1$에서 $(4x-x^2)^2$, $1\le x\le2$에서 $(4-x^2)(4x-x^2)$로 적었다.
+      depends_on: [1.M1]
+      steps: [1b-1]
+    - id: 1.M2
+      mark_type: M
+      points: 5
+      evidence: 제시문 【나】를 인용해 구간별 단면 넓이의 정적분 합으로 부피 식을 세웠다.
+      depends_on: []
+      steps: [1b-2]
+    - id: 1.A2
+      mark_type: A
+      points: 5
+      evidence: 첫 구간의 부피 $\dfrac{53}{15}$을 적었다.
+      depends_on: [1.M2]
+      steps: [1b-3]
+    - id: 1.A3
+      mark_type: A
+      points: 5
+      evidence: 둘째 구간의 부피 $\dfrac{88}{15}$을 적었다.
+      depends_on: [1.M2]
+      steps: [1b-4]
+    - id: 1.A4
+      mark_type: A
+      points: 5
+      evidence: 부피 $\dfrac{47}{5}$을 답으로 적었다.
+      depends_on: [1.M2]
+      steps: [1a, 1b-5]
+    deductions:
+    - code: D1-1
+      condition: 제시문 인용 없음(동국 규정)
+      effect: minus
+      value: 1
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-CAL-2301}
+  - {code: '71', misconception: MC-CAL-2408}
+  misconceptions:
+  - id: MC-CAL-2301
+    outcome_code: '70'
+    wrong_work: '$1\le x\le2$의 잘린 단면을 한 변 $4-x^2$인 정사각형으로 보고 $\displaystyle\int_1^2(4-x^2)^2dx$를 더해 $\dfrac{106}{15}$을 얻음'
+    detect_cue: 답이 $\dfrac{106}{15}$이거나 식에 $(4-x^2)^2$이 있다
+    feedback: 평면 $y=4$는 단면 정사각형의 밑변($y$방향)만 자릅니다. 높이($z$방향) $4x-x^2$는 그대로이므로 잘린 단면은 직사각형입니다.
+    remedy: [RL-1]
+  - id: MC-CAL-2408
+    outcome_code: '71'
+    wrong_work: '단면 넓이 $(4x-x^2)^2$ 대신 밑면의 길이 $4x-x^2$(또는 $4-x^2$)를 적분해 넓이를 구함'
+    detect_cue: 답이 밑면의 넓이 꼴(예 $\dfrac{17}{3}$ 등)이다
+    feedback: 부피는 단면의 넓이를 적분합니다. 정사각형 단면의 넓이는 한 변의 제곱입니다.
+    remedy: [RL-1]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CAL-2301}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-VOLUME-SECTION}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-input-v1, item_version: 1, verdict: pass, date: 2026-11-21, note: 원문 PDF 이미지 판독으로 옮김 · 해설·채점표 자체 작성}
+
+created: 2026-11-21
+updated: 2026-11-21

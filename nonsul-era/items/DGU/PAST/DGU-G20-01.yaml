@@ -1,0 +1,269 @@
+schema_version: '2.0'
+id: DGU-G20-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: DGU
+type: T11
+variant_of: null
+replaces: null
+level: L3
+form: 일반화
+points: 30
+time_estimate_min: 20
+intent: 사인 넓이 공식·내적·성분 표현을 연결해 세 꼭짓점 좌표만으로 삼각형 넓이 공식을 유도하고 적용하는 능력을 본다.
+key_idea: '$\sin\theta=\sqrt{1-\cos^2\theta}$와 $\cos\theta=\dfrac{\overrightarrow{AB}\cdot\overrightarrow{AC}}{\lvert\overrightarrow{AB}\rvert\lvert\overrightarrow{AC}\rvert}$로 $S=\dfrac12\sqrt{\lvert\overrightarrow{AB}\rvert^2\lvert\overrightarrow{AC}\rvert^2-(\overrightarrow{AB}\cdot\overrightarrow{AC})^2}$를 얻고 성분을 넣으면 완전제곱이 된다.'
+stuck: 근호 안을 성분으로 전개한 뒤 완전제곱 $\{(x_2-x_1)(y_3-y_1)-(y_2-y_1)(x_3-x_1)\}^2$으로 묶는 단계
+idea_tags: [IDEA-GEO-AREA-FROM-DOT, IDEA-ALG-LAGRANGE-IDENTITY]
+tags: [삼각형 넓이 공식, 동국 기출]
+
+elements:
+  materials:
+  - '좌표평면 위의 세 점이 만드는 삼각형'
+  - '구체적인 세 점 $\mathrm{A}(1,1)$, $\mathrm{B}(2,2)$, $\mathrm{C}\left(\dfrac12,\dfrac52\right)$'
+  concepts:
+  - '삼각형의 넓이(사인)'
+  - '벡터의 내적'
+  - '$\sin^2\theta+\cos^2\theta=1$'
+  - '벡터의 성분'
+  - '내적의 성분 계산'
+  tools:
+  - '$\sin\theta=\sqrt{1-\cos^2\theta}$로 바꾸기'
+  - '내적으로 $\cos\theta$ 표현'
+  - '성분 전개 후 완전제곱으로 묶기'
+  - '$\sqrt{X^2}=\lvert X\rvert$로 근호 벗기기'
+  conditions:
+  - '$0<\theta<\pi$이므로 $\sin\theta>0$ ⇒ 양의 제곱근 선택'
+  - '넓이는 음이 아님 ⇒ 절댓값 필수'
+  - '공식은 꼭짓점 순서와 무관해야 함'
+  stimuli_used: [가, 나, 다, 라, 마]
+  subpart_links: '(2)는 (1)의 넓이 공식 사용'
+
+curriculum:
+  version: '2015'
+  subjects: [기하]
+  scope_2028: geom
+  scope_confirmed: true
+  standards:
+  - code: 미확인
+    text: 평면벡터의 내적의 뜻을 알고, 이를 구할 수 있다(요지)
+    verified: false
+  content_area: 기하 – 평면벡터의 성분과 내적
+  behavior_domain: 추론
+  unit_path: [기하, 평면벡터, 평면벡터의 성분과 내적, 내적과 삼각형의 넓이]
+  key_concepts:
+  - '삼각형의 넓이(사인)'
+  - '벡터의 내적'
+  - '$\sin^2\theta+\cos^2\theta=1$'
+  - '벡터의 성분'
+  - '내적의 성분 계산'
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 동국대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 동국대학교
+  admission_year: 2020
+  admission_type: 논술
+  track: 자연계열
+  question_no: 1
+  official_url: https://ipsi.dongguk.edu/   # 원문 게시 URL 미확인(교재 재수록본에서 옮김)
+  retrieved_at: '2026-11-21'
+  original_points: null
+  rights_notice: 미확인 — 원문 PDF 표지 문구 확인 필요(현재 사본은 '대치 수리 논술 연구소' 2027 대비 교재 재수록본)
+  note: 문제 = 동국대 수리논술 문제집2027 p.53, 해설 참고 = 해설집2027 p.52. 원문에 배점·줄 수 표기 없음 → 총 30점, 소문항 분리(공식 유도 20·적용 10)는 자체 배분
+
+verify: verify/DGU-G20.py::p01
+
+stimuli:
+- label: 가
+  body: |
+    삼각형 ABC에서 각 $\angle\mathrm{BAC}$를 $\theta$라고 할 때, 삼각형의 넓이 $S$는
+    $$S=\dfrac12\overline{\mathrm{AB}}\ \overline{\mathrm{AC}}\ \sin\theta$$
+    이다.
+    『고등학교 기하와 벡터』
+- label: 나
+  body: |
+    두 벡터 $\vec a,\ \vec b$가 이루는 각의 크기가 $\theta$일 때, 두 벡터의 내적은
+    $$\vec a\cdot\vec b=\lvert\vec a\rvert\lvert\vec b\rvert\cos\theta$$
+    이다.
+    『고등학교 기하와 벡터』
+- label: 다
+  body: |
+    사인함수와 코사인함수는
+    $$\sin^2\theta+\cos^2\theta=1$$
+    을 만족한다.
+    『고등학교 미적분 Ⅱ』
+- label: 라
+  body: |
+    좌표평면 위의 점 $\mathrm{A}(a_1,a_2)$를 시점으로 하고 점 $\mathrm{B}(b_1,b_2)$를 종점으로 하는 벡터 $\overrightarrow{\mathrm{AB}}$를 성분으로 나타내어 보자. 두 점 A, B의 위치벡터를 각각 $\vec a,\ \vec b$라고 하면
+    $$\overrightarrow{\mathrm{AB}}=\vec b-\vec a=(b_1,b_2)-(a_1,a_2)=(b_1-a_1,\ b_2-a_2)$$
+    이다.
+    『고등학교 기하와 벡터』
+- label: 마
+  body: |
+    두 평면 벡터가 $\vec a=(a_1,a_2)$, $\vec b=(b_1,b_2)$일 때, 두 벡터의 내적은
+    $$\vec a\cdot\vec b=a_1b_1+a_2b_2$$
+    이다.
+    『고등학교 기하와 벡터』
+
+stem: |
+  좌표평면 위의 세 점 $\mathrm{A}(x_1,y_1)$, $\mathrm{B}(x_2,y_2)$, $\mathrm{C}(x_3,y_3)$으로 만들어진 삼각형 ABC의 넓이를 제시문 [가]~[마]를 이용하여 $x_1,\ x_2,\ x_3,\ y_1,\ y_2,\ y_3$로 나타내시오.
+  그리고 이 공식을 이용하여 $\mathrm{A}(1,1)$, $\mathrm{B}(2,2)$, $\mathrm{C}\left(\dfrac12,\ \dfrac52\right)$일 때, 삼각형 ABC의 넓이를 구하시오.
+
+subparts:
+- id: '1'
+  stem: |
+    삼각형 ABC의 넓이를 제시문 [가]~[마]를 이용하여 $x_1,\ x_2,\ x_3,\ y_1,\ y_2,\ y_3$로 나타내시오.
+  points: 20
+  depends_on: []
+  answer: {kind: expression, value: 'S=\dfrac12\left\lvert(x_2-x_1)(y_3-y_1)-(y_2-y_1)(x_3-x_1)\right\rvert', equivalents: ['S=\dfrac12\sqrt{\{(x_2-x_1)^2+(y_2-y_1)^2\}\{(x_3-x_1)^2+(y_3-y_1)^2\}-\{(x_2-x_1)(x_3-x_1)+(y_2-y_1)(y_3-y_1)\}^2}'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: 【가】의 $\sin\theta$를 【다】로 $\sqrt{1-\cos^2\theta}$로 바꾸고 【나】의 $\cos\theta$를 넣은 뒤 【라】【마】로 성분화한다.
+    steps:
+    - {id: 1a, content: '$S=\dfrac12\sqrt{\lvert\vec u\rvert^2\lvert\vec w\rvert^2-(\vec u\cdot\vec w)^2}$, $\vec u=\overrightarrow{AB}$, $\vec w=\overrightarrow{AC}$ → 근호 안 $=(u_1w_2-u_2w_1)^2$', criteria: [1.M1, 1.M2, 1.A1]}
+    hint_ladder:
+    - $\sin\theta$를 $\cos\theta$로 나타내 보자.
+    - $\cos\theta$는 내적으로 나타낼 수 있다.
+    - 성분으로 전개한 근호 안의 식이 완전제곱이 되는지 확인해 보자.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 해설집 p.52
+    steps:
+    - id: 1b-1
+      content: |
+        $\vec u=\overrightarrow{\mathrm{AB}}$, $\vec w=\overrightarrow{\mathrm{AC}}$, $\theta=\angle\mathrm{BAC}$ $(0<\theta<\pi)$라 하자. 【가】에서 $S=\dfrac12\lvert\vec u\rvert\lvert\vec w\rvert\sin\theta$이고, $\sin\theta>0$이므로 【다】에 의해 $\sin\theta=\sqrt{1-\cos^2\theta}$이다.
+      criteria: [1.M1]
+    - id: 1b-2
+      content: |
+        【나】에서 $\cos\theta=\dfrac{\vec u\cdot\vec w}{\lvert\vec u\rvert\lvert\vec w\rvert}$이므로
+        $$S=\dfrac12\lvert\vec u\rvert\lvert\vec w\rvert\sqrt{1-\dfrac{(\vec u\cdot\vec w)^2}{\lvert\vec u\rvert^2\lvert\vec w\rvert^2}}=\dfrac12\sqrt{\lvert\vec u\rvert^2\lvert\vec w\rvert^2-(\vec u\cdot\vec w)^2}.$$
+      criteria: [1.M1]
+    - id: 1b-3
+      content: |
+        【라】에 의해 $\vec u=(x_2-x_1,\ y_2-y_1)=(u_1,u_2)$, $\vec w=(x_3-x_1,\ y_3-y_1)=(w_1,w_2)$이고, 【마】에 의해 $\vec u\cdot\vec w=u_1w_1+u_2w_2$이다.
+      criteria: [1.M2]
+    - id: 1b-4
+      content: |
+        $(u_1^2+u_2^2)(w_1^2+w_2^2)-(u_1w_1+u_2w_2)^2=u_1^2w_2^2+u_2^2w_1^2-2u_1u_2w_1w_2=(u_1w_2-u_2w_1)^2$이므로
+        $$S=\dfrac12\sqrt{(u_1w_2-u_2w_1)^2}=\dfrac12\left\lvert(x_2-x_1)(y_3-y_1)-(y_2-y_1)(x_3-x_1)\right\rvert.$$
+      criteria: [1.A1, 1.R1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 6
+      evidence: 【가】【다】【나】를 써서 $S=\dfrac12\sqrt{\lvert\overrightarrow{AB}\rvert^2\lvert\overrightarrow{AC}\rvert^2-(\overrightarrow{AB}\cdot\overrightarrow{AC})^2}$(또는 동치식)을 적었다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1, 1b-2]
+    - id: 1.M2
+      mark_type: M
+      points: 5
+      evidence: 【라】【마】로 $\overrightarrow{AB}$, $\overrightarrow{AC}$의 성분과 내적을 좌표로 적었다.
+      depends_on: []
+      steps: [1b-3]
+    - id: 1.A1
+      mark_type: A
+      points: 6
+      evidence: 근호 안을 전개해 $\{(x_2-x_1)(y_3-y_1)-(y_2-y_1)(x_3-x_1)\}^2$으로 정리한 넓이 공식을 적었다.
+      depends_on: [1.M1, 1.M2]
+      steps: [1a, 1b-4]
+    - id: 1.R1
+      mark_type: R
+      points: 3
+      evidence: 근호를 벗길 때 절댓값을 붙였다(또는 $\sin\theta>0$ 근거로 양의 제곱근을 택했다).
+      depends_on: []
+      steps: [1b-4]
+    deductions:
+    - code: D1-1
+      condition: 제시문 인용 없음(동국 규정)
+      effect: minus
+      value: 1
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-GEO-2501}
+  misconceptions:
+  - id: MC-GEO-2501
+    outcome_code: '70'
+    wrong_work: '$S=\dfrac12\{(x_2-x_1)(y_3-y_1)-(y_2-y_1)(x_3-x_1)\}$로 절댓값 없이 씀'
+    detect_cue: 공식에 절댓값·제곱근이 없음, 또는 (2)에서 넓이가 음수로 나올 수 있는 형태
+    feedback: $\sqrt{X^2}=\lvert X\rvert$입니다. 꼭짓점 순서를 바꾸면 괄호 안 부호가 바뀌므로 넓이에는 절댓값이 필요합니다.
+    remedy: [RL-1]
+- id: '2'
+  stem: |
+    (1)의 공식을 이용하여 $\mathrm{A}(1,1)$, $\mathrm{B}(2,2)$, $\mathrm{C}\left(\dfrac12,\ \dfrac52\right)$일 때, 삼각형 ABC의 넓이를 구하시오.
+  points: 10
+  depends_on: ['1']
+  answer: {kind: value, value: '1', equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: $x_2-x_1=1$, $y_2-y_1=1$, $x_3-x_1=-\dfrac12$, $y_3-y_1=\dfrac32$를 대입한다.
+    steps:
+    - {id: 2a, content: '$S=\dfrac12\left\lvert1\cdot\dfrac32-1\cdot\left(-\dfrac12\right)\right\rvert=1$', criteria: [2.A1]}
+  - id: S2-B
+    audience: B
+    method_no: 1
+    source_flow: 해설집 p.52
+    steps:
+    - id: 2b-1
+      content: |
+        $x_2-x_1=1$, $y_2-y_1=1$, $x_3-x_1=-\dfrac12$, $y_3-y_1=\dfrac32$를 (1)의 공식에 대입한다.
+      criteria: [2.M1]
+    - id: 2b-2
+      content: |
+        $S=\dfrac12\left\lvert1\cdot\dfrac32-1\cdot\left(-\dfrac12\right)\right\rvert=\dfrac12\cdot2=1$.
+      criteria: [2.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 5
+      evidence: 좌표 차 $1,\ 1,\ -\dfrac12,\ \dfrac32$를 (1)의 공식에 대입한 식이 있다.
+      depends_on: []
+      ft: {allowed: true, from: [1.A1], max_points: 5}
+      steps: [2b-1]
+    - id: 2.A1
+      mark_type: A
+      points: 5
+      evidence: 넓이 $1$을 적었다.
+      depends_on: [2.M1]
+      steps: [2a, 2b-2]
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-GEO-2501}
+  misconceptions:
+  - id: MC-GEO-2501
+    outcome_code: '70'
+    wrong_work: '$\dfrac12\left(1\cdot\left(-\dfrac12\right)-1\cdot\dfrac32\right)=-1$을 그대로 답함'
+    detect_cue: 답이 $-1$
+    feedback: 넓이는 음수가 될 수 없습니다. 절댓값을 취해야 합니다.
+    remedy: [RL-1]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-GEO-2501}
+  relation: remediation
+  target: {kind: concept, ref: CON-GEO-POINT-LINE-DIST}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-input-v1, item_version: 1, verdict: pass, date: 2026-11-21, note: 원문 PDF 이미지 판독으로 옮김 · 해설·채점표 자체 작성}
+
+created: 2026-11-21
+updated: 2026-11-21

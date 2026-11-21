@@ -1,0 +1,349 @@
+schema_version: '2.0'
+id: DGU-M25-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: DGU
+type: T04
+variant_of: null
+replaces: null
+level: L5
+form: 최적2단
+points: 30
+time_estimate_min: 30
+intent: 역함수의 미분법으로 역함수 그래프의 접선을 세워 두 접선의 교점을 t의 함수로 나타내고, 닫힌구간에서 최대·최소를 판정하며, 치환적분으로 역함수가 들어간 적분을 바꾸는 능력을 본다.
+key_idea: '두 접선의 교점은 $g(t)=\dfrac{tf''(t)-f(t)}{f''(t)-1}$이고, $x=f(t)$로 치환하면 $\displaystyle\int g(f^{-1}(x))dx=\int g(t)f''(t)dt$라 (3)의 차는 $\displaystyle\int_0^{\pi}(tf''(t)-f(t))dt$가 된다.'
+stuck: '$g''(t)=\dfrac{f''''(t)(f(t)-t)}{(f''(t)-1)^2}$에서 $f(t)-t>0$을 보여 부호를 $\cos2t$로 좁히는 단계, (3)에서 두 적분을 하나로 합치는 단계'
+idea_tags: [IDEA-CAL-INVERSE-TANGENT-SLOPE, IDEA-CAL-CLOSED-INTERVAL-EXTREMA, IDEA-CAL-SUBST-INVERSE-INTEGRAL]
+tags: [역함수의 미분, 접선, 치환적분, 동국 모의]
+elements:
+  materials:
+  - '$f(x)=\sin^2x+4x+3$과 그 역함수'
+  - 두 그래프 위 대응점에서의 두 접선
+  - '두 접선 교점의 $x$좌표 $g(t)$'
+  concepts:
+  - 역함수의 미분법
+  - 접선의 방정식
+  - 몫의 미분법
+  - 삼각함수의 배각 공식
+  - 닫힌구간에서의 최대·최소
+  - 치환적분법
+  - 부분적분법
+  tools:
+  - '역함수 접선 기울기 $\dfrac{1}{f''(t)}$'
+  - '두 접선 연립으로 $g(t)$ 구하기'
+  - '보조함수 $h(t)=f(t)-t$의 부호'
+  - 임계점·끝점 값 비교
+  - '$x=f(t)$ 치환으로 두 적분 합치기'
+  conditions:
+  - '점 $(f(t),t)$에서 $f^{-1}(f(t))=t$ ⇒ 기울기 $\dfrac{1}{f''(t)}$'
+  - '$f''(t)=\sin2t+4>0$ ⇒ 역함수 존재, $f''(t)-1\neq0$'
+  - '닫힌구간 $[0,\pi]$ ⇒ 끝점 $g(0)$, $g(\pi)$도 비교'
+  - '$\displaystyle\int g(f^{-1}(x))dx$ ⇒ $x=f(t)$, $dx=f''(t)dt$'
+  stimuli_used: [가, 나, 다]
+  subpart_links: '(2)(3)은 (1)에서 구한 g(t) 식 사용'
+
+curriculum:
+  version: '2015'
+  subjects: [미적분]
+  scope_2028: calc2
+  scope_confirmed: true
+  standards:
+  - code: 미확인
+    text: 역함수의 미분법을 이해하고, 치환적분법을 이용해 정적분을 구할 수 있다(요지)
+    verified: false
+  content_area: 미적분 – 미분법(역함수의 미분)·적분법(치환적분)
+  behavior_domain: 문제해결
+  unit_path: [미적분, 미분법, 여러 가지 미분법, 역함수의 미분법]
+  key_concepts:
+  - '역함수의 미분법'
+  - '접선의 방정식'
+  - '몫의 미분법'
+  - '삼각함수의 배각 공식'
+  - '닫힌구간에서의 최대·최소'
+  - '치환적분법'
+  - '부분적분법'
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 동국대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 동국대학교
+  admission_year: 2025
+  admission_type: 논술(모의)
+  track: 자연계열
+  question_no: 1
+  official_url: https://ipsi.dongguk.edu/   # 원문 게시 URL 미확인(교재 재수록본에서 옮김)
+  retrieved_at: '2026-11-21'
+  original_points: null
+  rights_notice: 미확인 — 원문 PDF 표지 문구 확인 필요(현재 사본은 '대치 수리 논술 연구소' 2027 대비 교재 재수록본)
+  note: 문제 = 문제집2027 p.17, 해설 참고 = 해설집2027 p.20. 재수록본에 배점·줄 수 표기 없음 → 동국 규격에 따라 30점 가정, 소문항 8·10·12 는 자체 배분
+
+verify: verify/DGU-M25.py::p01
+
+stimuli:
+- label: 가
+  body: |
+    미분가능한 함수 $f(x)$의 역함수 $f^{-1}(x)$가 존재하고 미분가능할 때,
+    $y=f^{-1}(x)$의 도함수는 $(f^{-1})'(x)=\dfrac{1}{f'(f^{-1}(x))}$
+    『고등학교 미적분』
+- label: 나
+  body: |
+    함수 $f(x)$가 닫힌구간 $[a,b]$에서 연속이면 최대·최소 정리에 의하여 $f(x)$는 닫힌구간 $[a,b]$에서 반드시 최댓값과 최솟값을 갖는다. 이때 이 구간에서 극댓값, 극솟값 $f(a)$, $f(b)$의 값 중 가장 큰 값이 최댓값, 가장 작은 값이 최솟값이 된다.
+    『고등학교 미적분』
+- label: 다
+  body: |
+    닫힌구간 $[a,b]$에서 연속인 함수 $f(x)$에 대하여 미분가능한 함수 $x=g(t)$의 도함수 $g'(t)$가 $a=g(\alpha)$, $b=g(\beta)$일 때 $\alpha$, $\beta$를 포함하는 구간에서 연속이면
+    $$\int_a^b f(x)\,dx=\int_{\alpha}^{\beta}f(g(t))g'(t)\,dt$$
+    『고등학교 미적분』
+
+stem: |
+  함수 $f(x)=\sin^2x+4x+3$의 역함수 $f^{-1}(x)$가 존재하고 미분가능하다. 실수 $t$에 대하여 곡선 $y=f(x)$ 위의 점 $(t,f(t))$에서의 접선과 곡선 $y=f^{-1}(x)$ 위의 점 $(f(t),t)$에서의 접선의 교점의 $x$좌표를 $g(t)$라고 하자.
+
+subparts:
+- id: '1'
+  stem: |
+    $g\left(\dfrac{\pi}{2}\right)$의 값을 구하시오.
+  points: 8
+  depends_on: []
+  answer: {kind: value, value: '-\dfrac43', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: 두 접선의 기울기는 $f'(t)$, $\dfrac{1}{f'(t)}$이고 연립하면 $g(t)=\dfrac{tf'(t)-f(t)}{f'(t)-1}$.
+    steps:
+    - {id: 1a, content: '$g(t)=\dfrac{t\sin2t-\sin^2t-3}{\sin2t+3}$, $g\left(\dfrac{\pi}{2}\right)=-\dfrac43$', criteria: [1.A1, 1.A2]}
+    hint_ladder:
+    - 역함수 위의 점 $(f(t),t)$에서의 기울기는 【가】로 구한다.
+    - 두 접선의 방정식을 같다고 놓고 $x$에 대해 풀자.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 해설집 p.20
+    steps:
+    - id: 1b-1
+      content: |
+        $f'(t)=2\sin t\cos t+4=\sin2t+4$이므로 곡선 $y=f(x)$ 위의 점 $(t,f(t))$에서의 접선은 $y=f'(t)(x-t)+f(t)$.
+        제시문 【가】의 역함수 미분법에 의해 곡선 $y=f^{-1}(x)$ 위의 점 $(f(t),t)$에서의 접선의 기울기는 $\dfrac{1}{f'(t)}$이므로 접선은 $y=\dfrac{1}{f'(t)}(x-f(t))+t$.
+      criteria: [1.M1]
+    - id: 1b-2
+      content: |
+        교점의 $x$좌표가 $g(t)$이므로 $f'(t)(g(t)-t)+f(t)=\dfrac{1}{f'(t)}(g(t)-f(t))+t$. 정리하면
+        $g(t)=\dfrac{tf'(t)-f(t)}{f'(t)-1}=\dfrac{t\sin2t-\sin^2t-3}{\sin2t+3}$.
+      criteria: [1.A1]
+    - id: 1b-3
+      content: |
+        따라서 $g\left(\dfrac{\pi}{2}\right)=\dfrac{0-1-3}{0+3}=-\dfrac43$.
+      criteria: [1.A2]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 3
+      evidence: 【가】를 인용해 역함수 위 점 $(f(t),t)$에서의 기울기를 $\dfrac{1}{f'(t)}$로 두고 두 접선의 방정식을 적었다.
+      depends_on: []
+      steps: [1b-1]
+    - id: 1.A1
+      mark_type: A
+      points: 3
+      evidence: $g(t)=\dfrac{tf'(t)-f(t)}{f'(t)-1}$ 또는 $\dfrac{t\sin2t-\sin^2t-3}{\sin2t+3}$을 적었다.
+      depends_on: [1.M1]
+      steps: [1a, 1b-2]
+    - id: 1.A2
+      mark_type: A
+      points: 2
+      evidence: $g\left(\dfrac{\pi}{2}\right)=-\dfrac43$을 적었다.
+      depends_on: [1.M1]
+      steps: [1a, 1b-3]
+    deductions:
+    - code: D1-1
+      condition: 제시문 인용 없음(동국 규정)
+      effect: minus
+      value: 1
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-CAL-2203}
+  misconceptions:
+  - id: MC-CAL-2203
+    outcome_code: '70'
+    wrong_work: '역함수 위 점 $(f(t),t)$에서의 기울기를 $\dfrac{1}{f''(f(t))}$ 또는 $-\dfrac{1}{f''(t)}$로 둠'
+    detect_cue: 접선 기울기에 $f'(f(t))$나 음의 역수가 나온다
+    feedback: '점 $(f(t),t)$에서 $f^{-1}(f(t))=t$이므로 【가】에 의해 기울기는 $\dfrac{1}{f''(t)}$입니다.'
+    remedy: [RL-1]
+- id: '2'
+  stem: |
+    닫힌구간 $[0,\pi]$에서 $g(t)$의 최솟값과 최댓값을 구하시오.
+  points: 10
+  depends_on: ['1']
+  answer: {kind: value, value: '최솟값 -\dfrac{3\pi+14}{8},\ 최댓값 \dfrac{\pi-14}{16}', equivalents: ['min=g(3π/4), max=g(π/4)'], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: '$g''(t)=\dfrac{f''''(t)(f(t)-t)}{(f''(t)-1)^2}$에서 $f(t)-t>0$이므로 부호는 $\cos2t$가 결정.'
+    steps:
+    - {id: 2a, content: '후보 $g(0)=g(\pi)=-1$, $g\left(\dfrac{\pi}{4}\right)=\dfrac{\pi-14}{16}$, $g\left(\dfrac{3\pi}{4}\right)=-\dfrac{3\pi+14}{8}$', criteria: [2.A1]}
+  - id: S2-B
+    audience: B
+    method_no: 1
+    source_flow: 해설집 p.20
+    steps:
+    - id: 2b-1
+      content: |
+        $g(t)=\dfrac{tf'(t)-f(t)}{f'(t)-1}$을 미분하면
+        $g'(t)=\dfrac{f''(t)(f(t)-t)}{(f'(t)-1)^2}=\dfrac{2\cos2t\,(\sin^2t+3t+3)}{(\sin2t+3)^2}$.
+      criteria: [2.M1]
+    - id: 2b-2
+      content: |
+        $h(t)=\sin^2t+3t+3$이라 하면 $h'(t)=\sin2t+3\ge2>0$이므로 $h$는 $[0,\pi]$에서 증가하고 $h(t)\ge h(0)=3>0$. 따라서 $g'(t)=0$이면 $\cos2t=0$, 즉 $t=\dfrac{\pi}{4}$, $\dfrac{3\pi}{4}$.
+      criteria: [2.R1]
+    - id: 2b-3
+      content: |
+        $g(0)=-1$, $g\left(\dfrac{\pi}{4}\right)=\dfrac{\pi-14}{16}$, $g\left(\dfrac{3\pi}{4}\right)=-\dfrac{3\pi+14}{8}$, $g(\pi)=-1$이므로 제시문 【나】에 의해 최솟값은 $g\left(\dfrac{3\pi}{4}\right)=-\dfrac{3\pi+14}{8}$, 최댓값은 $g\left(\dfrac{\pi}{4}\right)=\dfrac{\pi-14}{16}$.
+      criteria: [2.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 3
+      evidence: $g'(t)$를 몫의 미분으로 구해 $\dfrac{2\cos2t(\sin^2t+3t+3)}{(\sin2t+3)^2}$(또는 동치) 꼴로 적었다.
+      depends_on: []
+      ft: {allowed: true, from: [1.A1], max_points: 3}
+      steps: [2b-1]
+    - id: 2.R1
+      mark_type: R
+      points: 3
+      evidence: $\sin^2t+3t+3>0$인 근거를 적고 임계점을 $t=\dfrac{\pi}{4},\dfrac{3\pi}{4}$로 좁혔다.
+      depends_on: []
+      steps: [2b-2]
+    - id: 2.A1
+      mark_type: A
+      points: 4
+      evidence: 끝점 $g(0)=g(\pi)=-1$과 임계점 값을 비교해 최솟값 $-\dfrac{3\pi+14}{8}$, 최댓값 $\dfrac{\pi-14}{16}$을 적었다.
+      depends_on: [2.M1, 2.R1]
+      steps: [2a, 2b-3]
+    deductions:
+    - code: D2-1
+      condition: 제시문 인용 없음(동국 규정)
+      effect: minus
+      value: 1
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-CAL-2204}
+  misconceptions:
+  - id: MC-CAL-2204
+    outcome_code: '70'
+    wrong_work: '극댓값·극솟값만 비교하고 끝점 $g(0)=g(\pi)=-1$을 확인하지 않음'
+    detect_cue: 답안에 $g(0)$, $g(\pi)$의 계산이 없다
+    feedback: 【나】처럼 닫힌구간의 최대·최소는 극값과 양 끝값을 모두 비교해야 확정됩니다.
+    remedy: [RL-2]
+- id: '3'
+  stem: |
+    $\displaystyle\int_{f(0)}^{f(\pi)}g(f^{-1}(x))\,dx-\int_0^{\pi}g(t)\,dt$의 값을 구하시오.
+  points: 12
+  depends_on: ['1']
+  answer: {kind: value, value: '-4\pi', equivalents: [], tolerance: null}
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: '$x=f(t)$로 치환해 두 적분을 합치면 $\displaystyle\int_0^{\pi}g(t)(f''(t)-1)dt=\int_0^{\pi}(tf''(t)-f(t))dt$.'
+    steps:
+    - {id: 3a, content: '$\displaystyle\int_0^{\pi}(t\sin2t-\sin^2t-3)dt=-\dfrac{\pi}{2}-\dfrac{\pi}{2}-3\pi=-4\pi$', criteria: [3.A2]}
+  - id: S3-B
+    audience: B
+    method_no: 1
+    source_flow: 해설집 p.20
+    steps:
+    - id: 3b-1
+      content: |
+        $x=f(t)\ (0\le t\le\pi)$로 놓으면 제시문 【다】의 치환적분에 의해 $\displaystyle\int_{f(0)}^{f(\pi)}g(f^{-1}(x))\,dx=\int_0^{\pi}g(t)f'(t)\,dt$.
+      criteria: [3.M1]
+    - id: 3b-2
+      content: |
+        따라서 $\displaystyle\int_{f(0)}^{f(\pi)}g(f^{-1}(x))\,dx-\int_0^{\pi}g(t)\,dt=\int_0^{\pi}g(t)(f'(t)-1)\,dt=\int_0^{\pi}(tf'(t)-f(t))\,dt=\int_0^{\pi}(t\sin2t-\sin^2t-3)\,dt$.
+      criteria: [3.M2]
+    - id: 3b-3
+      content: |
+        $\displaystyle\int_0^{\pi}t\sin2t\,dt=\left[-\dfrac t2\cos2t\right]_0^{\pi}+\int_0^{\pi}\dfrac12\cos2t\,dt=-\dfrac{\pi}{2}$, $\displaystyle\int_0^{\pi}\sin^2t\,dt=\int_0^{\pi}\dfrac{1-\cos2t}{2}\,dt=\dfrac{\pi}{2}$.
+      criteria: [3.A1]
+    - id: 3b-4
+      content: |
+        그러므로 구하는 값은 $-\dfrac{\pi}{2}-\dfrac{\pi}{2}-3\pi=-4\pi$.
+      criteria: [3.A2]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 4
+      evidence: 【다】를 인용해 $x=f(t)$로 치환하고 적분 구간을 $0$에서 $\pi$로 바꾼 식 $\displaystyle\int_0^{\pi}g(t)f'(t)dt$를 적었다.
+      depends_on: []
+      steps: [3b-1]
+    - id: 3.M2
+      mark_type: M
+      points: 3
+      evidence: 두 적분을 합쳐 $\displaystyle\int_0^{\pi}(tf'(t)-f(t))dt$(또는 $\displaystyle\int_0^{\pi}(t\sin2t-\sin^2t-3)dt$)로 정리했다.
+      depends_on: []
+      ft: {allowed: true, from: [1.A1], max_points: 3}
+      steps: [3b-2]
+    - id: 3.A1
+      mark_type: A
+      points: 2
+      evidence: 부분적분으로 $\displaystyle\int_0^{\pi}t\sin2t\,dt=-\dfrac{\pi}{2}$, 반각으로 $\displaystyle\int_0^{\pi}\sin^2t\,dt=\dfrac{\pi}{2}$를 구했다.
+      depends_on: [3.M2]
+      steps: [3b-3]
+    - id: 3.A2
+      mark_type: A
+      points: 3
+      evidence: $-4\pi$를 답으로 적었다.
+      depends_on: [3.M1, 3.M2]
+      steps: [3a, 3b-4]
+    deductions:
+    - code: D3-1
+      condition: 제시문 인용 없음(동국 규정)
+      effect: minus
+      value: 1
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-CAL-2205}
+  misconceptions:
+  - id: MC-CAL-2205
+    outcome_code: '70'
+    wrong_work: '$\displaystyle\int_{f(0)}^{f(\pi)}g(f^{-1}(x))dx=\int_0^{\pi}g(t)dt$로 보고(즉 $dx=f''(t)dt$ 누락) 차를 0으로 답함'
+    detect_cue: 답이 0 또는 적분 구간을 $f(0)$, $f(\pi)$ 그대로 둔 채 $t$로 적분
+    feedback: $x=f(t)$이면 $dx=f'(t)\,dt$이고 구간도 $t=0$에서 $t=\pi$로 바뀝니다.
+    remedy: [RL-3]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CAL-2203}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-INVERSE-DERIV}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-CAL-2204}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-EXTREME-CLOSED}
+  priority: 1
+- id: RL-3
+  trigger: {type: misconception, ref: MC-CAL-2205}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-SUBST-INT}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-input-v1, item_version: 1, verdict: pass, date: 2026-11-21, note: 원문 PDF 이미지 판독으로 옮김 · 해설 B 는 해설집 흐름 · 채점표 자체 작성}
+
+created: 2026-11-21
+updated: 2026-11-21

@@ -1,0 +1,248 @@
+schema_version: '2.0'
+id: DGU-G23-02
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: DGU
+type: T08
+variant_of: null
+replaces: null
+level: L5
+form: 추론
+points: 30
+time_estimate_min: 25
+intent: 확률질량함수가 가중치의 비로 주어진 이산확률변수의 평균·분산을 분자·분모의 급수로 쓰고, 각각을 구분구적법으로 정적분에 연결한 뒤 부분적분으로 극한을 계산하는 능력을 본다.
+key_idea: '$\mathrm{E}(X)=\dfrac{\sum x_ig(x_i)\Delta x}{\sum g(x_j)\Delta x}\to\dfrac{\int_0^1xe^{-ax}dx}{\int_0^1e^{-ax}dx}$ (분자·분모에 $\Delta x$를 곱해 리만 합으로 만들고, 분모 극한이 양수임을 확인).'
+stuck: 분자와 분모에 같은 $\Delta x$를 곱해 각각을 리만 합으로 만드는 단계, 분모 극한이 0이 아님을 밝혀 몫의 극한을 쓰는 단계
+idea_tags: [IDEA-CAL-RIEMANN-RATIO, IDEA-CAL-INTEGRATION-BY-PARTS, IDEA-PRB-VAR-SHORTCUT]
+tags: [구분구적법, 이산확률변수, 동국 기출]
+elements:
+  materials:
+  - '가중치 $g(x)=e^{-ax}$로 정의된 이산확률변수 $X$'
+  - '$x_i=\dfrac{i}{n}$ 위의 확률질량함수 $\mathrm{P}(X=x_i)=\dfrac{g(x_i)}{\sum g(x_j)}$'
+  concepts:
+  - '이산확률변수의 기댓값과 분산'
+  - '정적분과 급수의 합(구분구적법)'
+  - '수열의 극한의 성질(몫의 극한)'
+  - '부분적분법'
+  - '지수함수의 정적분'
+  tools:
+  - '분자·분모에 $\Delta x$를 곱해 리만 합으로 바꾸기'
+  - '분모 극한이 양수임을 정적분(넓이)으로 확인'
+  - '부분적분 2회'
+  - '$\mathrm{V}(X)=\mathrm{E}(X^2)-\{\mathrm{E}(X)\}^2$'
+  conditions:
+  - '$\Delta x=\dfrac1n$, $x_i=i\Delta x$ ⇒ 구간 $[0,1]$의 리만 합'
+  - '$g(x)>0$ ⇒ $\int_0^1g(x)dx>0$ 이므로 몫의 극한 성질(【다】⑤) 사용 가능'
+  - '$a>0$인 상수 ⇒ 답은 $a$의 식'
+  stimuli_used: [가, 나, 다]
+  subpart_links: null
+
+curriculum:
+  version: '2015'
+  subjects: [미적분, 확률과통계]
+  scope_2028: calc2
+  scope_confirmed: true
+  standards:
+  - code: 미확인
+    text: 정적분과 급수의 합 사이의 관계를 이해한다(요지)
+    verified: false
+  content_area: 적분법 – 정적분과 급수의 합
+  behavior_domain: 추론
+  unit_path: [미적분, 적분법, 정적분, 정적분과 급수의 합]
+  key_concepts:
+  - '이산확률변수의 기댓값과 분산'
+  - '정적분과 급수의 합(구분구적법)'
+  - '수열의 극한의 성질(몫의 극한)'
+  - '부분적분법'
+  - '지수함수의 정적분'
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 동국대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 동국대학교
+  admission_year: 2023
+  admission_type: 논술
+  track: 자연계열
+  question_no: 2
+  official_url: https://ipsi.dongguk.edu/   # 원문 게시 URL 미확인(교재 재수록본에서 옮김)
+  retrieved_at: '2026-11-21'
+  original_points: null
+  rights_notice: 미확인 — 원문 PDF 표지 문구 확인 필요(현재 사본은 '대치 수리 논술 연구소' 2027 대비 교재 재수록본)
+  note: 문제 = 동국대 수리논술 문제집2027 p.31, 해설 참고 = 해설집2027 p.30~31. 원문(재수록본)에 배점·줄 수 표기 없음 → 30점은 동국 관례(30·30·40)에 따른 자체 배분
+
+verify: verify/DGU-G23.py::p02
+
+stimuli:
+- label: 가
+  body: |
+    이산확률변수 $X$의 확률질량함수가 $\mathrm{P}(X=x_i)=p_i\ (i=1,2,3,\cdots,n)$일 때, $X$의 기댓값(평균)과 분산은 다음과 같이 정의된다.
+    ① 기댓값(평균) $\mathrm{E}(X)=x_1p_1+x_2p_2+\cdots+x_np_n$
+    ② 분산 $\mathrm{V}(X)=\mathrm{E}((X-m)^2)=(x_1-m)^2p_1+(x_2-m)^2p_2+\cdots+(x_n-m)^2p_n$
+    (단, $m=\mathrm{E}(X)$)
+    위 분산은 다음과 같은 방법으로도 간단하게 구할 수 있다.
+    $$\mathrm{V}(X)=\mathrm{E}(X^2)-\{\mathrm{E}(X)\}^2=(x_1^2p_1+x_2^2p_2+\cdots+x_n^2p_n)-m^2$$
+    -『고등학교 확률과 통계』
+- label: 나
+  body: |
+    함수 $f(x)$가 닫힌구간 $[a,b]$를 포함하는 열린구간에서 연속일 때
+    $$\lim_{n\to\infty}\sum_{k=1}^{n}f(x_k)\Delta x=\int_a^bf(x)\,dx\ \left(\text{단, }\Delta x=\dfrac{b-a}{n},\ x_k=a+k\Delta x\right)$$
+    -『고등학교 미적분』
+- label: 다
+  body: |
+    두 수열 $\{a_n\}$, $\{b_n\}$이 $\displaystyle\lim_{n\to\infty}a_n=L$, $\displaystyle\lim_{n\to\infty}b_n=M$ ($L$, $M$은 실수)일 때
+    ① $\displaystyle\lim_{n\to\infty}ca_n=cL$, (단, $c$는 상수)
+    ② $\displaystyle\lim_{n\to\infty}(a_n+b_n)=L+M$
+    ③ $\displaystyle\lim_{n\to\infty}(a_n-b_n)=L-M$
+    ④ $\displaystyle\lim_{n\to\infty}(a_nb_n)=LM$
+    ⑤ $\displaystyle\lim_{n\to\infty}\dfrac{a_n}{b_n}=\dfrac{L}{M}$ (단, $b_n\neq0$, $M\neq0$)
+    -『고등학교 미적분』
+
+stem: |
+  이산확률변수 $X$의 확률질량함수 $\mathrm{P}(X)$가 다음과 같이 정의되었다고 가정할 때, $\displaystyle\lim_{n\to\infty}\mathrm{E}(X)$와 $\displaystyle\lim_{n\to\infty}\mathrm{V}(X)$를 구하시오.
+
+  ① $\mathrm{P}(X=x_i)=\dfrac{g(x_i)}{\displaystyle\sum_{j=1}^{n}g(x_j)}\quad(i=1,2,3,\cdots,n)$
+  ② $g(x)=e^{-ax}$ (단, $e=\displaystyle\lim_{x\to0}(1+x)^{\frac1x}$이다. $a$는 상수이고, $a>0$이다.)
+  ③ $\Delta x=\dfrac1n$, $x_i=i\Delta x\quad(i=1,2,3,\cdots,n)$
+
+subparts:
+- id: '1'
+  stem: |
+    $\displaystyle\lim_{n\to\infty}\mathrm{E}(X)$와 $\displaystyle\lim_{n\to\infty}\mathrm{V}(X)$를 구하시오.
+  points: 30
+  depends_on: []
+  answer: {kind: expression, value: '\lim\mathrm{E}(X)=\dfrac1a-\dfrac{e^{-a}}{1-e^{-a}},\ \lim\mathrm{V}(X)=\dfrac{1}{a^2}-\dfrac{e^{-a}}{(1-e^{-a})^2}', equivalents: ['1/a − 1/(e^a − 1), 1/a^2 − e^a/(e^a − 1)^2'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: 극한은 밀도 $\dfrac{e^{-ax}}{\int_0^1e^{-ax}dx}$에 대한 $x$, $x^2$의 정적분 평균이다.
+    steps:
+    - {id: 1a, content: '$\lim\mathrm{E}(X)=\dfrac{\int_0^1xe^{-ax}dx}{\int_0^1e^{-ax}dx}=\dfrac1a-\dfrac{e^{-a}}{1-e^{-a}}$, $\lim\mathrm{V}(X)=\dfrac{1}{a^2}-\dfrac{e^{-a}}{(1-e^{-a})^2}$', criteria: [1.A1, 1.A3]}
+    hint_ladder:
+    - $\mathrm{E}(X)$의 분자와 분모에 같은 $\Delta x$를 곱해 보자.
+    - $\int_0^1x^ke^{-ax}dx$는 부분적분으로 구한다.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 해설집 p.30~31
+    steps:
+    - id: 1b-1
+      content: |
+        제시문 【가】에 의해 $\mathrm{E}(X)=\displaystyle\sum_{i=1}^{n}x_i\mathrm{P}(X=x_i)=\dfrac{\sum_{i=1}^{n}x_ig(x_i)}{\sum_{j=1}^{n}g(x_j)}$.
+      criteria: [1.M1]
+    - id: 1b-2
+      content: |
+        연속함수 $h(x)=xg(x)$와 $g(x)$에 제시문 【나】를 적용하면 ($a=0$, $b=1$)
+        $\displaystyle\lim_{n\to\infty}\sum_{i=1}^{n}h(x_i)\Delta x=\int_0^1xe^{-ax}dx$, $\displaystyle\lim_{n\to\infty}\sum_{j=1}^{n}g(x_j)\Delta x=\int_0^1e^{-ax}dx$.
+        두 정적분은 $[0,1]$에서 $h(x)\ge0$, $g(x)>0$인 함수의 그래프와 $x$축, $x=0$, $x=1$로 둘러싸인 넓이이므로 모두 양수이다.
+      criteria: [1.M2, 1.R1]
+    - id: 1b-3
+      content: |
+        분자·분모에 $\Delta x$를 곱하고 제시문 【다】⑤를 쓰면
+        $\displaystyle\lim_{n\to\infty}\mathrm{E}(X)=\dfrac{\int_0^1xe^{-ax}dx}{\int_0^1e^{-ax}dx}=\dfrac{\int_0^1axe^{-ax}dx}{1-e^{-a}}$.
+        부분적분하면 $\displaystyle\int_0^1axe^{-ax}dx=\left[-xe^{-ax}\right]_0^1+\int_0^1e^{-ax}dx=-e^{-a}-\dfrac1a(e^{-a}-1)$이므로
+        $\displaystyle\lim_{n\to\infty}\mathrm{E}(X)=\dfrac{1}{1-e^{-a}}\left\{-e^{-a}-\dfrac1a(e^{-a}-1)\right\}=\dfrac1a-\dfrac{e^{-a}}{1-e^{-a}}$.
+      criteria: [1.M3, 1.A1]
+    - id: 1b-4
+      content: |
+        제시문 【가】에 의해 $\mathrm{V}(X)=\mathrm{E}(X^2)-\{\mathrm{E}(X)\}^2$이고 $\mathrm{E}(X^2)=\dfrac{\sum x_i^2g(x_i)}{\sum g(x_j)}$. 같은 방법으로 $f(x)=x^2g(x)$에 【나】를 적용하면
+        $\displaystyle\lim_{n\to\infty}\mathrm{E}(X^2)=\dfrac{\int_0^1ax^2e^{-ax}dx}{1-e^{-a}}$.
+      criteria: [1.M4]
+    - id: 1b-5
+      content: |
+        부분적분하면 $\displaystyle\int_0^1ax^2e^{-ax}dx=\left[-x^2e^{-ax}\right]_0^1+\int_0^12xe^{-ax}dx=-e^{-a}+\dfrac2a\left\{\dfrac1a-\dfrac{e^{-a}}{1-e^{-a}}\right\}(1-e^{-a})$ 이므로
+        $\displaystyle\lim_{n\to\infty}\mathrm{E}(X^2)=-\dfrac{e^{-a}}{1-e^{-a}}+\dfrac2a\left\{\dfrac1a-\dfrac{e^{-a}}{1-e^{-a}}\right\}$.
+      criteria: [1.A2]
+    - id: 1b-6
+      content: |
+        제시문 【다】④로 $\displaystyle\lim\{\mathrm{E}(X)\}^2=\left\{\dfrac1a-\dfrac{e^{-a}}{1-e^{-a}}\right\}^2$이고, 【다】③에 의해
+        $\displaystyle\lim_{n\to\infty}\mathrm{V}(X)=-\dfrac{e^{-a}}{1-e^{-a}}+\dfrac2a\left\{\dfrac1a-\dfrac{e^{-a}}{1-e^{-a}}\right\}-\left\{\dfrac1a-\dfrac{e^{-a}}{1-e^{-a}}\right\}^2=\dfrac{1}{a^2}-\dfrac{e^{-a}}{1-e^{-a}}\left\{1+\dfrac{e^{-a}}{1-e^{-a}}\right\}=\dfrac{1}{a^2}-\dfrac{e^{-a}}{(1-e^{-a})^2}$.
+      criteria: [1.A3]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 4
+      evidence: 제시문 【가】로 $\mathrm{E}(X)$를 $\dfrac{\sum x_ig(x_i)}{\sum g(x_j)}$ 꼴로 적었다.
+      depends_on: []
+      steps: [1b-1]
+    - id: 1.M2
+      mark_type: M
+      points: 4
+      evidence: 분자·분모에 $\Delta x$를 곱해 【나】로 각각 $\int_0^1xe^{-ax}dx$, $\int_0^1e^{-ax}dx$에 수렴함을 적었다.
+      depends_on: []
+      steps: [1b-2]
+    - id: 1.R1
+      mark_type: R
+      points: 3
+      evidence: 분모의 극한(정적분)이 양수(0이 아님)임을 밝히고 【다】⑤를 적용했다.
+      depends_on: []
+      steps: [1b-2]
+    - id: 1.M3
+      mark_type: M
+      points: 4
+      evidence: $\int_0^1xe^{-ax}dx$를 부분적분하는 식이 있다.
+      depends_on: []
+      steps: [1b-3]
+    - id: 1.A1
+      mark_type: A
+      points: 4
+      evidence: $\displaystyle\lim\mathrm{E}(X)=\dfrac1a-\dfrac{e^{-a}}{1-e^{-a}}$(또는 동치)를 적었다.
+      depends_on: [1.M2, 1.M3]
+      steps: [1a, 1b-3]
+    - id: 1.M4
+      mark_type: M
+      points: 3
+      evidence: $\mathrm{V}(X)=\mathrm{E}(X^2)-\{\mathrm{E}(X)\}^2$와 $\lim\mathrm{E}(X^2)=\dfrac{\int_0^1x^2e^{-ax}dx}{\int_0^1e^{-ax}dx}$를 적었다.
+      depends_on: []
+      steps: [1b-4]
+    - id: 1.A2
+      mark_type: A
+      points: 4
+      evidence: $\lim\mathrm{E}(X^2)=-\dfrac{e^{-a}}{1-e^{-a}}+\dfrac2a\left(\dfrac1a-\dfrac{e^{-a}}{1-e^{-a}}\right)$(또는 동치)를 적었다.
+      depends_on: [1.M4]
+      steps: [1b-5]
+    - id: 1.A3
+      mark_type: A
+      points: 4
+      evidence: $\displaystyle\lim\mathrm{V}(X)=\dfrac{1}{a^2}-\dfrac{e^{-a}}{(1-e^{-a})^2}$(또는 동치)를 적었다.
+      depends_on: [1.M4]
+      steps: [1a, 1b-6]
+    deductions:
+    - code: D1-1
+      condition: 제시문 인용 없음(동국 규정)
+      effect: minus
+      value: 1
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-CAL-2202}
+  misconceptions:
+  - id: MC-CAL-2202
+    outcome_code: '70'
+    wrong_work: '분자 $\sum x_ig(x_i)$만 $\int_0^1xe^{-ax}dx$로 바꾸고 분모 $\sum g(x_j)$는 그대로 두거나, $\Delta x$ 없이 $\lim\sum f(x_i)=\int f$로 써서 $n$배 차이가 남'
+    detect_cue: 극한값에 $n$이 남거나 0 또는 발산으로 답함
+    feedback: 리만 합은 $\sum f(x_k)\Delta x$ 꼴이어야 정적분으로 바뀝니다. 분자와 분모에 같은 $\Delta x$를 곱하면 값은 그대로이면서 둘 다 리만 합이 됩니다.
+    remedy: [RL-1]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CAL-2202}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-RIEMANN-SUM}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-input-v1, item_version: 1, verdict: pass, date: 2026-11-21, note: 원문 PDF 이미지 판독으로 옮김 · 해설·채점표 자체 작성}
+
+created: 2026-11-21
+updated: 2026-11-21

@@ -1,0 +1,317 @@
+schema_version: '2.0'
+id: DGU-M19-03
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: proof
+origin: mock_exam
+school: DGU
+type: T10
+variant_of: null
+replaces: null
+level: L4
+form: 존재
+points: 30
+time_estimate_min: 25
+intent: 정적분으로 정의된 함수의 도함수 범위를 삼각함수 합성으로 구하고, 평균값 정리로 함숫값을 일차식 사이에 가둔 뒤 사잇값 정리로 해의 존재를 보이는 능력을 본다.
+key_idea: '$\cos x+\sin x=\sqrt2\sin\left(x+\dfrac\pi4\right)$로 $\dfrac13\le s''\le1$, 평균값 정리로 $\dfrac t3\le s(t)\le t$, $h(t)=s(t)-s_2(t)$의 부호를 $t=12$, $t=60$에서 확인.'
+stuck: 부등식 $\dfrac t3\le s(t)\le t$를 이용해 $h$의 부호가 정해지는 두 시각(예 12, 60)을 골라내는 단계
+idea_tags: [IDEA-CAL-TRIG-COMBINE-BOUND, IDEA-CAL-MVT-LINEAR-BOUND, IDEA-CAL-IVT-SIGN-CHANGE]
+tags: [평균값 정리, 사잇값 정리, 동국 모의]
+
+elements:
+  materials:
+  - '수직선 위를 움직이는 두 점 A, B'
+  - '정적분으로 정의된 위치 함수 $s(t)$'
+  concepts:
+  - '미적분의 기본 정리'
+  - '삼각함수의 합성'
+  - '평균값 정리'
+  - '사잇값 정리'
+  - '연속함수'
+  tools:
+  - '$\cos x+\sin x$ 합성으로 분모 범위 구하기'
+  - '역수 취해 부등식 뒤집기'
+  - '평균값 정리로 $\dfrac{s(t)}t$ 끼우기'
+  - '부호가 다른 두 시각 찾기'
+  conditions:
+  - '분모 $>0$ ⇒ 역수에서 부등호 방향 바뀜'
+  - '$s(0)=0$ ⇒ 평균값 정리가 $\dfrac{s(t)}t=s''(t_0)$'
+  - '$h(12)\le0\le h(60)$과 $h$ 연속 ⇒ 사잇값 정리'
+  stimuli_used: [가, 나, 다]
+  subpart_links: '(2)는 (1)의 $s''(t)$ 범위, (3)은 (2)의 부등식 사용'
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅱ, 미적분]
+  scope_2028: calc2
+  scope_confirmed: true
+  standards:
+  - code: 미확인
+    text: 평균값 정리와 사잇값 정리를 이해하고 활용한다(요지)
+    verified: false
+  content_area: 수학Ⅱ – 미분(평균값 정리)·함수의 연속(사잇값 정리) / 미적분 – 삼각함수
+  behavior_domain: 추론
+  unit_path: [수학Ⅱ, 미분, 도함수의 활용, 평균값 정리]
+  key_concepts:
+  - '미적분의 기본 정리'
+  - '삼각함수의 합성'
+  - '평균값 정리'
+  - '사잇값 정리'
+  - '연속함수'
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 동국대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 동국대학교
+  admission_year: 2019
+  admission_type: 논술(모의)
+  track: 자연계열
+  question_no: 3
+  official_url: https://ipsi.dongguk.edu/   # 원문 게시 URL 미확인(교재 재수록본에서 옮김)
+  retrieved_at: '2026-11-21'
+  original_points: null
+  rights_notice: 미확인 — 원문 PDF 표지 문구 확인 필요(현재 사본은 '대치 수리 논술 연구소' 2027 대비 교재 재수록본)
+  note: 문제 = 동국대 수리논술 문제집2027 p.64, 해설 참고 = 해설집2027 p.65. 원문에 배점·줄 수 표기 없음 → 30점, 한 논제의 세 요구를 소문항 (1)(2)(3) 각 10점으로 자체 분리·배분
+
+verify: verify/DGU-M19.py::p03
+
+stimuli:
+- label: 가
+  body: |
+    사잇값 정리
+    함수 $f(x)$가 닫힌 구간 $[a,b]$에서 연속이고 $f(a)\neq f(b)$일 때, $f(a)$와 $f(b)$사이의 임의의 실수 $k$에 대하여 $f(c)=k$인 $c$가 $a$와 $b$ 사이에 적어도 하나 존재한다.
+    『미적분 Ⅰ』
+- label: 나
+  body: |
+    평균값 정리
+    함수 $y=f(x)$가 닫힌 구간 $[a,b]$에서 연속이고 열린 구간 $(a,b)$에서 미분가능하면
+    $$\dfrac{f(b)-f(a)}{b-a}=f'(c)$$
+    인 $c$가 $a$와 $b$ 사이에 적어도 하나 존재한다.
+    『미적분 Ⅰ』
+- label: 다
+  body: |
+    미적분의 기본 정리
+    닫힌 구간 $[a,b]$에서 연속인 함수 $f(x)$의 한 부정적분을 $F(x)$라 하면,
+    $$\int_a^bf(x)\,dx=[F(x)]_a^b=F(b)-F(a)$$
+    『미적분 Ⅰ』
+
+stem: |
+  시간 $t$일 때 수직선 위를 움직이는 점 A의 위치를 $s(t)$라고 하자. 미분가능한 함수 $s(t)$는 $s(t)=\displaystyle\int_0^t\dfrac{\sqrt2}{2\sqrt2+\cos x+\sin x}dx$ 를 만족한다. (단, $t$는 $t\ge0$를 만족한다.)
+  모든 $t\ge0$에 대하여 $\dfrac13\le s'(t)\le1$임을 보이고, [나]를 이용하여 $\dfrac t3\le s(t)\le t$임을 보이시오. 그리고 점 B의 위치가 $s_2(t)=10+\dfrac16t$이면, $s(t)-s_2(t)=0$인 시간 $t$가 적어도 한 번 있음을 보이시오.
+
+subparts:
+- id: '1'
+  stem: |
+    모든 $t\ge0$에 대하여 $\dfrac13\le s'(t)\le1$임을 보이시오.
+  points: 10
+  depends_on: []
+  answer: {kind: proof, value: null, equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $\cos x+\sin x=\sqrt2\sin\left(x+\dfrac\pi4\right)\in[-\sqrt2,\sqrt2]$이므로 분모 $\in[\sqrt2,3\sqrt2]$.
+    steps:
+    - {id: 1a, content: '$\sqrt2\le2\sqrt2+\cos t+\sin t\le3\sqrt2$ → $\dfrac13\le s''(t)\le1$', criteria: [1.M1, 1.A1]}
+    hint_ladder:
+    - $\cos x+\sin x$를 하나의 삼각함수로 합성해 보자.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 해설집 p.65
+    steps:
+    - id: 1b-1
+      content: |
+        $\cos x+\sin x=\sqrt2\cos\left(x-\dfrac\pi4\right)=\sqrt2\sin\left(x+\dfrac\pi4\right)$이므로 $\sqrt2\le2\sqrt2+\cos x+\sin x\le3\sqrt2$.
+      criteria: [1.M1]
+    - id: 1b-2
+      content: |
+        분모가 양수이므로 역수를 취하고 $\sqrt2$를 곱하면 모든 실수 $x$에 대하여 $\dfrac13\le\dfrac{\sqrt2}{2\sqrt2+\cos x+\sin x}\le1$. 피적분함수가 연속이므로 【다】에 의해 $s'(t)=\dfrac{\sqrt2}{2\sqrt2+\cos t+\sin t}$이고, 따라서 $\dfrac13\le s'(t)\le1$. ■
+      criteria: [1.A1, 1.R1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 4
+      evidence: $\cos x+\sin x$를 합성해 범위 $[-\sqrt2,\sqrt2]$(분모 범위 $[\sqrt2,3\sqrt2]$)를 적었다.
+      depends_on: []
+      implied_ok: false
+      steps: [1a, 1b-1]
+    - id: 1.A1
+      mark_type: A
+      points: 3
+      evidence: 역수를 취해 $\dfrac13\le\dfrac{\sqrt2}{2\sqrt2+\cos x+\sin x}\le1$을 적었다.
+      depends_on: [1.M1]
+      steps: [1a, 1b-2]
+    - id: 1.R1
+      mark_type: R
+      points: 3
+      evidence: 【다】(정적분으로 정의된 함수의 미분)로 $s'(t)$가 피적분함수와 같음을 밝히고, 분모가 양수라 역수에서 부등호가 바뀜을 적었다.
+      depends_on: []
+      steps: [1b-2]
+    deductions:
+    - code: D1-1
+      condition: 제시문 인용 없음(동국 규정)
+      effect: minus
+      value: 1
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-CAL-2511}
+  misconceptions:
+  - id: MC-CAL-2511
+    outcome_code: '70'
+    wrong_work: '$-1\le\cos x\le1$, $-1\le\sin x\le1$을 따로 더해 $-2\le\cos x+\sin x\le2$로 두고 $\dfrac{\sqrt2}{2\sqrt2+2}\le s''\le\dfrac{\sqrt2}{2\sqrt2-2}$를 얻음'
+    detect_cue: 범위 끝값이 $\dfrac13$, $1$이 아님
+    feedback: 두 함수가 동시에 최대가 되지 않습니다. $\sqrt2\sin\left(x+\dfrac\pi4\right)$로 합성해 정확한 범위를 구하세요.
+    remedy: [RL-1]
+- id: '2'
+  stem: |
+    [나]를 이용하여 $\dfrac t3\le s(t)\le t$임을 보이시오.
+  points: 10
+  depends_on: ['1']
+  answer: {kind: proof, value: null, equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: 평균값 정리로 $\dfrac{s(t)-s(0)}{t}=s'(t_0)\in\left[\dfrac13,1\right]$, $s(0)=0$.
+    steps:
+    - {id: 2a, content: '$\dfrac13\le\dfrac{s(t)}t\le1$ → $\dfrac t3\le s(t)\le t$', criteria: [2.M1, 2.A1]}
+  - id: S2-B
+    audience: B
+    method_no: 1
+    source_flow: 해설집 p.65
+    steps:
+    - id: 2b-1
+      content: |
+        $t>0$이면 $s(t)$는 $[0,t]$에서 연속이고 $(0,t)$에서 미분가능하므로 【나】에 의해 $\dfrac{s(t)-s(0)}{t-0}=s'(t_0)$인 $t_0$가 $0$과 $t$ 사이에 존재한다.
+      criteria: [2.M1]
+    - id: 2b-2
+      content: |
+        $s(0)=\displaystyle\int_0^0(\cdots)dx=0$이고 (1)에 의해 $\dfrac13\le s'(t_0)\le1$이므로 $\dfrac13\le\dfrac{s(t)}t\le1$, 즉 $\dfrac t3\le s(t)\le t$. $t=0$이면 세 값이 모두 0이므로 성립한다. ■
+      criteria: [2.A1, 2.R1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 4
+      evidence: 【나】를 $[0,t]$에 적용해 $\dfrac{s(t)-s(0)}{t}=s'(t_0)$을 적었다.
+      depends_on: []
+      implied_ok: false
+      steps: [2a, 2b-1]
+    - id: 2.A1
+      mark_type: A
+      points: 4
+      evidence: (1)의 범위를 넣어 $\dfrac t3\le s(t)\le t$를 이끌었다.
+      depends_on: [2.M1]
+      ft: {allowed: true, from: [1.A1], max_points: 4}
+      steps: [2a, 2b-2]
+    - id: 2.R1
+      mark_type: R
+      points: 2
+      evidence: $s(0)=0$과 $t>0$(양수로 곱함), $t=0$인 경우를 밝혔다.
+      depends_on: []
+      steps: [2b-2]
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-CAL-2513}
+  misconceptions:
+  - id: MC-CAL-2513
+    outcome_code: '70'
+    wrong_work: '$s(0)$의 값을 확인하지 않고 $\dfrac{s(t)}{t}=s''(t_0)$이라 쓰거나, $t=0$에서 나눗셈을 그대로 함'
+    detect_cue: $s(0)=0$ 언급 없음, $t>0$ 구분 없음
+    feedback: 평균값 정리는 $\dfrac{s(t)-s(0)}{t-0}$입니다. $s(0)=0$을 정적분으로 확인하고, $t=0$은 따로 보이세요.
+    remedy: [RL-2]
+- id: '3'
+  stem: |
+    점 B의 위치가 $s_2(t)=10+\dfrac16t$이면, $s(t)-s_2(t)=0$인 시간 $t$가 적어도 한 번 있음을 보이시오.
+  points: 10
+  depends_on: ['2']
+  answer: {kind: proof, value: null, equivalents: [], tolerance: null}
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: $h(t)=s(t)-s_2(t)$에서 $h(12)\le0\le h(60)$, 사잇값 정리.
+    steps:
+    - {id: 3a, content: '$h(12)\le12-12=0$, $h(60)\ge20-20=0$', criteria: [3.M1, 3.A1]}
+  - id: S3-B
+    audience: B
+    method_no: 1
+    source_flow: 해설집 p.65
+    steps:
+    - id: 3b-1
+      content: |
+        $h(t)=s(t)-s_2(t)=s(t)-\left(10+\dfrac16t\right)$라 놓으면 (2)에 의해
+        $h(12)=s(12)-s_2(12)\le12-s_2(12)=0$, 즉 $h(12)\le0$.
+        $h(60)=s(60)-\left(10+\dfrac16\times60\right)\ge\dfrac13\times60-20=0$, 즉 $h(60)\ge0$.
+      criteria: [3.M1, 3.A1]
+    - id: 3b-2
+      content: |
+        $h(t)$는 연속함수이다. $h(12)=0$ 또는 $h(60)=0$이면 그 시각이 구하는 $t$이고, 아니면 $h(12)<0<h(60)$이므로 【가】(사잇값 정리)에 의해 $h(c)=0$인 $c$가 $12$와 $60$ 사이에 적어도 하나 존재한다. 따라서 $s(t)-s_2(t)=0$인 시간 $t$가 적어도 한 번 있다. ■
+      criteria: [3.R1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 3
+      evidence: $h(t)=s(t)-s_2(t)$로 두고 (2)의 부등식으로 부호를 판정할 두 시각을 골랐다.
+      depends_on: []
+      implied_ok: false
+      steps: [3a, 3b-1]
+    - id: 3.A1
+      mark_type: A
+      points: 3
+      evidence: 한 시각에서 $h\le0$, 다른 시각에서 $h\ge0$임을 계산으로 적었다(예 $h(12)\le0$, $h(60)\ge0$).
+      depends_on: [3.M1]
+      ft: {allowed: true, from: [2.A1], max_points: 3}
+      steps: [3a, 3b-1]
+    - id: 3.R1
+      mark_type: R
+      points: 4
+      evidence: $h$의 연속성과 【가】(사잇값 정리)를 근거로 근의 존재를 결론지었다(함숫값이 0인 경우 처리 포함).
+      depends_on: []
+      steps: [3b-2]
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-CAL-2512}
+  misconceptions:
+  - id: MC-CAL-2512
+    outcome_code: '70'
+    wrong_work: '「$s(t)$는 증가하고 $s_2(t)$도 증가하므로 언젠가 만난다」처럼 구체적인 두 시각의 부호 확인 없이 존재를 주장'
+    detect_cue: $h(a)\le0\le h(b)$ 꼴의 구체적 계산이 없음
+    feedback: 사잇값 정리는 연속성과 양 끝 함숫값의 부호(또는 대소)를 구체적으로 확인해야 쓸 수 있습니다.
+    remedy: [RL-3]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CAL-2511}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-TRIG-ADD}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-CAL-2513}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-MVT-IVT}
+  priority: 1
+- id: RL-3
+  trigger: {type: misconception, ref: MC-CAL-2512}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-MVT-IVT}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-input-v1, item_version: 1, verdict: pass, date: 2026-11-21, note: 원문 PDF 이미지 판독으로 옮김 · 해설·채점표 자체 작성}
+
+created: 2026-11-21
+updated: 2026-11-21

@@ -1,0 +1,334 @@
+schema_version: '2.0'
+id: DGU-G24-02
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: DGU
+type: T04
+variant_of: null
+replaces: null
+level: L4
+form: 최적2단
+points: 30
+time_estimate_min: 25
+intent: 역함수의 미분법으로 두 접선의 기울기를 구하고 탄젠트의 덧셈정리로 두 직선이 이루는 예각의 탄젠트를 t의 함수로 나타낸 뒤, 치환으로 최솟값을 구하고 치환적분으로 역함수가 들어간 적분을 계산하는 능력을 본다.
+key_idea: '두 접선의 기울기가 $f''(t)$, $\dfrac{1}{f''(t)}$이므로 $g(t)=\dfrac{(f''(t))^2-1}{2f''(t)}$이고, $x=f(t)$로 치환하면 $\displaystyle\int g(f^{-1}(x))dx=\int\dfrac{(f''(t))^2-1}{2}dt$.'
+stuck: 기울기 대신 경사각 α, β를 두고 $\tan(\alpha-\beta)$로 바꾸는 단계, 최솟값에서 $s=\cos t+4$의 범위를 쓰는 단계
+idea_tags: [IDEA-CAL-INVERSE-TANGENT-SLOPE, IDEA-TRIG-TAN-DIFF-ANGLE-LINES, IDEA-CAL-SUBST-INVERSE-INTEGRAL]
+tags: [역함수의 미분, 두 직선이 이루는 각, 탄젠트 덧셈정리, 치환적분, 동국 실전]
+elements:
+  materials:
+  - '$f(x)=\sin x+4x+1$과 그 역함수'
+  - '대응점 $(t,f(t))$, $(f(t),t)$에서의 두 접선 $l_1$, $l_2$'
+  - '두 접선이 이루는 예각의 탄젠트 $g(t)$'
+  concepts:
+  - 역함수의 미분법
+  - 직선의 기울기와 경사각
+  - 탄젠트함수의 덧셈정리
+  - 함수의 증가·감소와 최솟값
+  - 치환적분법
+  - 삼각함수의 정적분(반각 공식)
+  tools:
+  - '역함수 접선 기울기 $\dfrac{1}{f''(t)}$'
+  - '$\tan(\alpha-\beta)=\dfrac{\tan\alpha-\tan\beta}{1+\tan\alpha\tan\beta}$로 예각의 탄젠트'
+  - '$s=\cos t+4$ 치환 후 $h(s)$의 증가성'
+  - '$x=f(t)$ 치환으로 $g(t)f''(t)$ 적분'
+  conditions:
+  - '$f''(t)=\cos t+4\ge3>1$ ⇒ $\alpha>\beta$, $\tan(\alpha-\beta)>0$(예각)'
+  - '$s=\cos t+4$의 범위 $3\le s\le5$'
+  - '$\displaystyle\int_{f(0)}^{f(2\pi)}g(f^{-1}(x))dx$ ⇒ $x=f(t)$, $0\le t\le2\pi$'
+  stimuli_used: [가, 나, 다]
+  subpart_links: '(2)(3)은 (1)에서 구한 g(t) 식 사용'
+
+curriculum:
+  version: '2015'
+  subjects: [미적분]
+  scope_2028: calc2
+  scope_confirmed: true
+  standards:
+  - code: 미확인
+    text: 역함수의 미분법과 삼각함수의 덧셈정리, 치환적분법을 이용할 수 있다(요지)
+    verified: false
+  content_area: 미적분 – 미분법(역함수의 미분, 덧셈정리)·적분법(치환적분)
+  behavior_domain: 문제해결
+  unit_path: [미적분, 미분법, 여러 가지 미분법, 역함수의 미분법]
+  key_concepts:
+  - 역함수의 미분법
+  - 직선의 기울기와 경사각
+  - 탄젠트함수의 덧셈정리
+  - 함수의 증가·감소와 최솟값
+  - 치환적분법
+  - 삼각함수의 정적분(반각 공식)
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 동국대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 동국대학교
+  admission_year: 2024
+  admission_type: 논술
+  track: 자연계열
+  question_no: 2
+  official_url: https://ipsi.dongguk.edu/   # 원문 게시 URL 미확인(교재 재수록본에서 옮김)
+  retrieved_at: '2026-11-21'
+  original_points: null
+  rights_notice: 미확인 — 원문 PDF 표지 문구 확인 필요(현재 사본은 '대치 수리 논술 연구소' 2027 대비 교재 재수록본)
+  note: 문제 = 문제집2027 p.23, 해설 참고 = 해설집2027 p.24. 재수록본에 배점·줄 수 표기 없음 → 동국 규격에 따라 30점 가정, 소문항 8·10·12 는 자체 배분
+
+verify: verify/DGU-G24.py::p02
+
+stimuli:
+- label: 가
+  body: |
+    코사인함수와 탄젠트함수의 덧셈정리는 각각 다음과 같다.
+    $$\cos(\alpha+\beta)=\cos\alpha\cos\beta-\sin\alpha\sin\beta$$
+    $$\tan(\alpha+\beta)=\dfrac{\tan\alpha+\tan\beta}{1-\tan\alpha\tan\beta}$$
+    『고등학교 미적분』
+- label: 나
+  body: |
+    미분가능한 함수 $f(x)$의 역함수 $f^{-1}(x)$가 존재하고 미분가능할 때,
+    $y=f^{-1}(x)$의 도함수는 $(f^{-1})'(x)=\dfrac{1}{f'(f^{-1}(x))}$
+    『고등학교 미적분』
+- label: 다
+  body: |
+    닫힌구간 $[a,b]$에서 연속인 함수 $f(x)$에 대하여 미분가능한 함수 $x=g(t)$의 도함수 $g'(t)$가 $a=g(\alpha)$, $b=g(\beta)$일 때 $\alpha$, $\beta$를 포함하는 구간에서 연속이면
+    $$\int_a^b f(x)\,dx=\int_{\alpha}^{\beta}f(g(t))g'(t)\,dt$$
+    『고등학교 미적분』
+
+stem: |
+  함수 $f(x)=\sin x+4x+1$의 역함수 $f^{-1}(x)$가 존재하고 미분가능하다.
+  실수 $t$에 대하여 곡선 $y=f(x)$ 위의 점 $(t,\ f(t))$에서의 접선을 $l_1$, 곡선 $y=f^{-1}(x)$ 위의 점 $(f(t),\ t)$에서의 접선을 $l_2$라 하고, $l_1$과 $l_2$가 이루는 예각의 크기를 $\theta$라 할 때, $g(t)=\tan\theta$라고 하자. 다음 물음에 답하시오.
+
+subparts:
+- id: '1'
+  stem: |
+    $g\left(\dfrac{\pi}{2}\right)$의 값을 구하시오.
+  points: 8
+  depends_on: []
+  answer: {kind: value, value: '\dfrac{15}{8}', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: 경사각을 α, β로 두면 $\tan\alpha=f'(t)$, $\tan\beta=\dfrac{1}{f'(t)}$이고 $\theta=\alpha-\beta$.
+    steps:
+    - {id: 1a, content: '$g(t)=\dfrac{(f''(t))^2-1}{2f''(t)}$, $f''\left(\dfrac{\pi}{2}\right)=4$ → $\dfrac{15}{8}$', criteria: [1.A1]}
+    hint_ladder:
+    - 두 접선의 기울기를 각각 구하자. 역함수 쪽은 【나】를 쓴다.
+    - 두 직선이 이루는 각은 두 경사각의 차이다.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 해설집 p.24
+    steps:
+    - id: 1b-1
+      content: |
+        곡선 $y=f(x)$ 위의 점 $(t,f(t))$에서의 접선의 기울기는 $f'(t)=\cos t+4$이고, 이 접선과 $x$축의 양의 방향이 이루는 각의 크기를 $\alpha$라 하면 $\tan\alpha=f'(t)=\cos t+4$.
+        제시문 【나】의 역함수 미분법에 의해 곡선 $y=f^{-1}(x)$ 위의 점 $(f(t),t)$에서의 접선의 기울기는 $\dfrac{1}{f'(t)}$이고, 이 접선과 $x$축의 양의 방향이 이루는 각의 크기를 $\beta$라 하면 $\tan\beta=\dfrac{1}{f'(t)}$.
+      criteria: [1.M1]
+    - id: 1b-2
+      content: |
+        $f'(t)\ge3>1$이므로 $0<\beta<\alpha<\dfrac{\pi}{2}$이고 $\theta=\alpha-\beta$. 제시문 【가】의 덧셈정리에서 $\beta$ 대신 $-\beta$를 넣으면
+        $g(t)=\tan\theta=\tan(\alpha-\beta)=\dfrac{\tan\alpha-\tan\beta}{1+\tan\alpha\tan\beta}=\dfrac{(f'(t))^2-1}{2f'(t)}$.
+      criteria: [1.M2]
+    - id: 1b-3
+      content: |
+        $f'\left(\dfrac{\pi}{2}\right)=4$이므로 $g\left(\dfrac{\pi}{2}\right)=\dfrac{16-1}{8}=\dfrac{15}{8}$.
+      criteria: [1.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 3
+      evidence: 【나】를 인용해 두 접선의 기울기 $\cos t+4$, $\dfrac{1}{\cos t+4}$를 적었다.
+      depends_on: []
+      steps: [1b-1]
+    - id: 1.M2
+      mark_type: M
+      points: 2
+      evidence: 경사각의 차에 탄젠트 덧셈정리를 적용해 $g(t)=\dfrac{(f'(t))^2-1}{2f'(t)}$(또는 동치)를 얻었다.
+      depends_on: []
+      steps: [1b-2]
+    - id: 1.A1
+      mark_type: A
+      points: 3
+      evidence: $g\left(\dfrac{\pi}{2}\right)=\dfrac{15}{8}$을 적었다.
+      depends_on: [1.M1, 1.M2]
+      steps: [1a, 1b-3]
+    deductions:
+    - code: D1-1
+      condition: 제시문 인용 없음(동국 규정)
+      effect: minus
+      value: 1
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-CAL-2203}
+  misconceptions:
+  - id: MC-CAL-2203
+    outcome_code: '70'
+    wrong_work: '역함수 위 점에서의 기울기를 $\dfrac{1}{f''(f(t))}$로 두어 $f''\left(f\left(\dfrac{\pi}{2}\right)\right)$를 계산'
+    detect_cue: '$f\left(\dfrac{\pi}{2}\right)=2\pi+2$를 미분계수에 대입한 흔적'
+    feedback: '점 $(f(t),t)$에서 $f^{-1}(f(t))=t$이므로 기울기는 $\dfrac{1}{f''(t)}$입니다.'
+    remedy: [RL-1]
+- id: '2'
+  stem: |
+    함수 $g(t)$의 최솟값을 구하시오.
+  points: 10
+  depends_on: ['1']
+  answer: {kind: value, value: '\dfrac43', equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: '$s=\cos t+4\in[3,5]$에서 $h(s)=\dfrac{s^2-1}{2s}=\dfrac s2-\dfrac{1}{2s}$은 증가.'
+    steps:
+    - {id: 2a, content: '$h(3)=\dfrac43$', criteria: [2.A1]}
+  - id: S2-B
+    audience: B
+    method_no: 1
+    source_flow: 해설집 p.24
+    steps:
+    - id: 2b-1
+      content: |
+        $g(t)=\dfrac{(\cos t+4)^2-1}{2(\cos t+4)}$에서 $\cos t+4=s$로 치환하면 $3\le s\le5$이고, $g(t)$의 최솟값은 $h(s)=\dfrac{s^2-1}{2s}\ (3\le s\le5)$의 최솟값과 같다.
+      criteria: [2.M1]
+    - id: 2b-2
+      content: |
+        $h'(s)=\dfrac{1+s^2}{2s^2}>0$이므로 $h(s)$는 구간 $[3,5]$에서 증가함수이다.
+      criteria: [2.R1]
+    - id: 2b-3
+      content: |
+        따라서 $s=3$(즉 $t=\pi+2n\pi$)일 때 최솟값 $h(3)=\dfrac{9-1}{6}=\dfrac43$을 갖는다.
+      criteria: [2.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 4
+      evidence: $s=\cos t+4$(또는 $f'(t)$)로 치환하고 범위 $3\le s\le5$를 적었다.
+      depends_on: []
+      ft: {allowed: true, from: [1.M2], max_points: 4}
+      steps: [2b-1]
+    - id: 2.R1
+      mark_type: R
+      points: 3
+      evidence: $h'(s)>0$(또는 $\dfrac s2-\dfrac1{2s}$의 증가성)을 근거로 적었다.
+      depends_on: []
+      steps: [2b-2]
+    - id: 2.A1
+      mark_type: A
+      points: 3
+      evidence: 최솟값 $\dfrac43$을 적었다.
+      depends_on: [2.M1, 2.R1]
+      steps: [2a, 2b-3]
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-CAL-2207}
+  misconceptions:
+  - id: MC-CAL-2207
+    outcome_code: '70'
+    wrong_work: '$h(s)=\dfrac{s^2-1}{2s}$의 범위를 무시하고 $s\to0^+$ 또는 $s=1$에서 최솟값 0이라고 답함'
+    detect_cue: 답이 0이거나 $s$의 범위 언급이 없다
+    feedback: '$s=\cos t+4$는 3 이상 5 이하입니다. 치환한 변수의 범위 안에서 최대·최소를 판정하세요.'
+    remedy: [RL-2]
+- id: '3'
+  stem: |
+    $\displaystyle\int_{f(0)}^{f(2\pi)}g(f^{-1}(x))\,dx$의 값을 구하시오.
+  points: 12
+  depends_on: ['1']
+  answer: {kind: value, value: '\dfrac{31\pi}{2}', equivalents: [], tolerance: null}
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: '$x=f(t)$로 치환하면 피적분함수가 $g(t)f''(t)=\dfrac{(\cos t+4)^2-1}{2}$로 다항식이 된다.'
+    steps:
+    - {id: 3a, content: '$\dfrac12\displaystyle\int_0^{2\pi}(\cos^2t+8\cos t+15)dt=\dfrac12(\pi+0+30\pi)$', criteria: [3.A1]}
+  - id: S3-B
+    audience: B
+    method_no: 1
+    source_flow: 해설집 p.24
+    steps:
+    - id: 3b-1
+      content: |
+        $x=f(t)\ (0\le t\le2\pi)$로 놓으면 제시문 【다】에 의해 $\displaystyle\int_{f(0)}^{f(2\pi)}g(f^{-1}(x))\,dx=\int_0^{2\pi}g(t)f'(t)\,dt$.
+      criteria: [3.M1]
+    - id: 3b-2
+      content: |
+        $g(t)=\dfrac{(f'(t))^2-1}{2f'(t)}$, $f'(t)=\cos t+4$이므로
+        $\displaystyle\int_0^{2\pi}g(t)f'(t)\,dt=\int_0^{2\pi}\dfrac12\left((\cos t+4)^2-1\right)dt=\dfrac12\int_0^{2\pi}(\cos^2t+8\cos t+15)\,dt$.
+      criteria: [3.M2]
+    - id: 3b-3
+      content: |
+        $\displaystyle\int_0^{2\pi}\cos^2t\,dt=\int_0^{2\pi}\dfrac{\cos2t+1}{2}\,dt=\left[\dfrac{\sin2t}{4}+\dfrac t2\right]_0^{2\pi}=\pi$, $\displaystyle\int_0^{2\pi}\cos t\,dt=[\sin t]_0^{2\pi}=0$이므로
+        $\displaystyle\int_{f(0)}^{f(2\pi)}g(f^{-1}(x))\,dx=\dfrac12(\pi+0+30\pi)=\dfrac{31\pi}{2}$.
+      criteria: [3.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 5
+      evidence: 【다】를 인용해 $x=f(t)$로 치환하고 $\displaystyle\int_0^{2\pi}g(t)f'(t)dt$로 바꾸었다.
+      depends_on: []
+      steps: [3b-1]
+    - id: 3.M2
+      mark_type: M
+      points: 3
+      evidence: 피적분함수를 $\dfrac12(\cos^2t+8\cos t+15)$로 정리했다.
+      depends_on: []
+      ft: {allowed: true, from: [1.M2], max_points: 3}
+      steps: [3b-2]
+    - id: 3.A1
+      mark_type: A
+      points: 4
+      evidence: $\displaystyle\int_0^{2\pi}\cos^2t\,dt=\pi$를 거쳐 $\dfrac{31\pi}{2}$를 적었다.
+      depends_on: [3.M1, 3.M2]
+      steps: [3a, 3b-3]
+    deductions:
+    - code: D3-1
+      condition: 제시문 인용 없음(동국 규정)
+      effect: minus
+      value: 1
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-CAL-2205}
+  misconceptions:
+  - id: MC-CAL-2205
+    outcome_code: '70'
+    wrong_work: '$dx=f''(t)dt$를 빠뜨려 $\displaystyle\int_0^{2\pi}g(t)\,dt$를 계산하거나, 적분 구간을 $f(0)$, $f(2\pi)$ 그대로 둠'
+    detect_cue: '$\dfrac{(\cos t+4)^2-1}{2(\cos t+4)}$을 그대로 적분하려는 흔적'
+    feedback: '$x=f(t)$이면 $dx=f''(t)\,dt$이고 구간은 $t=0$에서 $t=2\pi$입니다. $f''(t)$가 분모와 약분되어 적분이 쉬워집니다.'
+    remedy: [RL-3]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CAL-2203}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-INVERSE-DERIV}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-CAL-2207}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-EXTREME-CLOSED}
+  priority: 1
+- id: RL-3
+  trigger: {type: misconception, ref: MC-CAL-2205}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-SUBST-INT}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-input-v1, item_version: 1, verdict: pass, date: 2026-11-21, note: 원문 PDF 이미지 판독으로 옮김 · 해설 B 는 해설집 흐름 · 채점표 자체 작성}
+
+created: 2026-11-21
+updated: 2026-11-21

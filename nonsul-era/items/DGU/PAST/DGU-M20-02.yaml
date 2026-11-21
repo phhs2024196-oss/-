@@ -1,0 +1,250 @@
+schema_version: '2.0'
+id: DGU-M20-02
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: DGU
+type: T09
+variant_of: null
+replaces: null
+level: L5
+form: 최적2단
+points: 30
+time_estimate_min: 25
+intent: 확률 조건을 지수 부등식으로 풀어 매개변수 범위를 정하고, 역함수의 정적분을 매개변수의 함수로 구해 단조성으로 최댓값·최솟값을 판정하는 능력을 본다.
+key_idea: '$x=by$ 치환으로 $k=g(b)=\dfrac1b\ln\dfrac1b-\dfrac1b+1$, $g''(b)=\dfrac{\ln b}{b^2}<0\ (0<b<1)$이고 $b\in\left[\ln\sqrt2,\ \ln\dfrac32\right]$.'
+stuck: 두 확률 조건을 $b$의 범위로 바꾸고 그 범위가 $b<1$이어서 $g$가 감소함을 연결하는 단계
+idea_tags: [IDEA-PRB-EXP-DENSITY-INEQ, IDEA-CAL-INVERSE-INTEGRAL-SUBST, IDEA-CAL-PARAM-MONOTONE-EXTREME]
+tags: [지수분포, 역함수 적분, 동국 모의]
+
+elements:
+  materials:
+  - '지수형 확률밀도함수 $f(x)=be^{-bx}$'
+  - '역함수의 정적분으로 정의된 $k$'
+  concepts:
+  - '확률밀도함수와 구간 확률'
+  - '역함수'
+  - '치환적분'
+  - '도함수와 증가·감소'
+  tools:
+  - '밀도함수 적분으로 확률 계산'
+  - '지수 부등식을 로그로 풀기'
+  - '역함수 구하기'
+  - '치환 $x=by$'
+  - '매개변수 함수의 단조성'
+  conditions:
+  - '「1보다 작을 확률이 $\dfrac13$보다 크지 않다」 ⇒ $1-e^{-b}\le\dfrac13$'
+  - '「2보다 작을 확률이 $\dfrac12$보다 작지 않다」 ⇒ $1-e^{-2b}\ge\dfrac12$'
+  - '$b$의 범위가 $b<1$ 안 ⇒ $g''(b)=\dfrac{\ln b}{b^2}<0$, 감소'
+  - '감소함수 ⇒ 최댓값은 하한, 최솟값은 상한에서'
+  stimuli_used: [가, 나, 다]
+  subpart_links: null
+
+curriculum:
+  version: '2015'
+  subjects: [확률과통계, 미적분]
+  scope_2028: calc2
+  scope_confirmed: true
+  standards:
+  - code: 미확인
+    text: 연속확률변수의 뜻을 이해하고, 치환적분법을 이해한다(요지)
+    verified: false
+  content_area: 미적분 – 적분법 / 확률과통계 – 연속확률분포
+  behavior_domain: 문제해결
+  unit_path: [미적분, 적분법, 치환적분, 역함수의 정적분]
+  key_concepts:
+  - '확률밀도함수와 구간 확률'
+  - '역함수'
+  - '치환적분'
+  - '도함수와 증가·감소'
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 동국대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 동국대학교
+  admission_year: 2020
+  admission_type: 논술(모의)
+  track: 자연계열
+  question_no: 2
+  official_url: https://ipsi.dongguk.edu/   # 원문 게시 URL 미확인(교재 재수록본에서 옮김)
+  retrieved_at: '2026-11-21'
+  original_points: null
+  rights_notice: 미확인 — 원문 PDF 표지 문구 확인 필요(현재 사본은 '대치 수리 논술 연구소' 2027 대비 교재 재수록본)
+  note: |
+    문제 = 동국대 수리논술 문제집2027 p.57, 해설 참고 = 해설집2027 p.58. 원문에 배점·줄 수 표기 없음 → 30점 자체 배정.
+    [판독확인] 원문 설정: $f^{-1}$의 정의역은 $0<x\le b$인데 $b<1$이라 적분 구간 $[b,1]$이 정의역 밖이다. 해설집은 식 $-\dfrac1b\ln\dfrac xb$를 그대로 연장해 계산하므로 이를 따름(원문 출제 의도로 해석).
+
+verify: verify/DGU-M20.py::p02
+
+stimuli:
+- label: 가
+  body: |
+    연속확률변수 $X$가 $a\le X\le b$인 범위 안의 임의의 값을 가질 수 있고, 이 범위에서 함수 $f(x)$가 다음 조건을 만족하면 $f(x)$를 $X$의 확률밀도함수라고 한다.
+    (i) 모든 $x$에 대하여 $f(x)\ge0$
+    (ii) 곡선 $y=f(x)$와 $x$축, 직선 $x=a$, $x=b$로 둘러싸인 부분의 넓이가 1
+    (iii) $P(\alpha\le X\le\beta)$ $(a\le\alpha\le\beta\le b)$는 곡선 $y=f(x)$와 $x$축, 직선 $x=\alpha$, $x=\beta$로 둘러싸인 부분의 넓이
+    『고등학교 확률과 통계』
+- label: 나
+  body: |
+    함수 $f:X\to Y,\ y=f(x)$가 일대일 대응일 때, 집합 $Y$의 임의의 원소 $y$에 $f(x)=y$인 집합 $X$의 원소 $x$를 대응시키면 집합 $Y$를 정의역, 집합 $X$를 공역으로 하는 새로운 함수를 얻는다. 이 함수를 함수 $f:X\to Y$의 역함수라고 하며, 이것을 기호로
+    $$f^{-1}$$
+    와 같이 나타낸다. 즉,
+    $$f^{-1}:Y\to X,\ x=f^{-1}(y)$$
+    이다.
+    『고등학교 수학 Ⅱ』
+- label: 다
+  body: |
+    함수 $f(x)$가 어떤 열린 구간에서 미분가능하고, 이 구간의 모든 $x$에 대하여
+    (i) $f'(x)>0$이면 $f(x)$는 이 구간에서 증가한다.
+    (ii) $f'(x)<0$이면 $f(x)$는 이 구간에서 감소한다.
+    『고등학교 미적분 Ⅰ』
+
+stem: |
+  확률밀도함수 $f(x)=be^{-bx}\ (x\ge0,\ b>0)$인 확률변수 $X$가 1보다 작을 확률은 $\dfrac13$보다 크지 않고, 2보다 작을 확률은 $\dfrac12$보다 작지 않을 때, 다음과 같이 정의된 $k$의 최솟값과 최댓값을 구하고 풀이과정을 서술하시오.
+  $$k=\int_1^b f^{-1}(x)dx$$
+
+subparts:
+- id: '1'
+  stem: |
+    $k$의 최솟값과 최댓값을 구하시오.
+  points: 30
+  depends_on: []
+  answer: {kind: value, value: '최댓값 g(\ln\sqrt2)=1-\dfrac{1+\ln(\ln\sqrt2)}{\ln\sqrt2},\ 최솟값 g\left(\ln\dfrac32\right)=1-\dfrac{1+\ln\left(\ln\dfrac32\right)}{\ln\dfrac32}\ \left(g(b)=\dfrac1b\ln\dfrac1b-\dfrac1b+1\right)', equivalents: ['최댓값≈1.1721, 최솟값≈0.7601'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $k=g(b)$를 구하고 $g'(b)=\dfrac{\ln b}{b^2}$, 확률 조건에서 $\ln\sqrt2\le b\le\ln\dfrac32<1$.
+    steps:
+    - {id: 1a, content: '$g$는 $0<b<1$에서 감소 → 최댓값 $g(\ln\sqrt2)$, 최솟값 $g\left(\ln\dfrac32\right)$', criteria: [1.R1, 1.A4]}
+    hint_ladder:
+    - $y=be^{-bx}$를 $x$에 대해 풀어 역함수를 구해 보자.
+    - $x=by$로 치환하면 $\int\ln y\,dy$ 꼴이 된다.
+    - 두 확률 조건이 $b$의 범위를 어떻게 제한하는가?
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 해설집 p.58
+    steps:
+    - id: 1b-1
+      content: |
+        【나】에 의해 $y=be^{-bx}$를 $x$에 대해 풀면 $x=-\dfrac1b\ln\dfrac yb$이므로 $f^{-1}(x)=-\dfrac1b\ln\dfrac xb$.
+      criteria: [1.M1]
+    - id: 1b-2
+      content: |
+        $x=by$로 치환하면 $dx=b\,dy$, $x=1\to y=\dfrac1b$, $x=b\to y=1$이므로
+        $$k=\int_1^b\left(-\dfrac1b\ln\dfrac xb\right)dx=\int_{1/b}^1(-\ln y)\,dy=\Big[-y\ln y+y\Big]_{1/b}^{1}=\dfrac1b\ln\dfrac1b-\dfrac1b+1.$$
+      criteria: [1.M1, 1.A1]
+    - id: 1b-3
+      content: |
+        $k$를 $b$의 함수 $g(b)=\dfrac1b\ln\dfrac1b-\dfrac1b+1$로 보면 $g'(b)=\dfrac{\ln b}{b^2}$. $0<b<1$에서 $g'(b)<0$이므로 【다】에 의해 $g$는 감소함수이고, $b>1$에서는 증가함수이다.
+      criteria: [1.M2, 1.A2]
+    - id: 1b-4
+      content: |
+        【가】에 의해 $P(X<1)=\displaystyle\int_0^1be^{-bx}dx=1-e^{-b}\le\dfrac13$에서 $e^{-b}\ge\dfrac23$, $b\le\ln\dfrac32<\ln e=1$.
+        $P(X<2)=\displaystyle\int_0^2be^{-bx}dx=1-e^{-2b}\ge\dfrac12$에서 $e^{-2b}\le\dfrac12$, $b\ge\ln\sqrt2$. 즉 $0<\ln\sqrt2\le b\le\ln\dfrac32<1$.
+      criteria: [1.M3, 1.A3]
+    - id: 1b-5
+      content: |
+        $b$의 범위가 1보다 작은 구간이고 $g$는 그 구간에서 감소하므로 $k$의 최댓값은 $b$의 하한 $\ln\sqrt2$에서 $g(\ln\sqrt2)$, 최솟값은 상한 $\ln\dfrac32$에서 $g\left(\ln\dfrac32\right)$이다.
+      criteria: [1.R1, 1.A4]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 5
+      evidence: 역함수 $f^{-1}(x)=-\dfrac1b\ln\dfrac xb$를 구하고 치환(또는 부분적분)으로 $k$를 계산하는 식이 있다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1, 1b-2]
+    - id: 1.A1
+      mark_type: A
+      points: 5
+      evidence: $k=\dfrac1b\ln\dfrac1b-\dfrac1b+1$(또는 동치식)을 적었다.
+      depends_on: [1.M1]
+      steps: [1b-2]
+    - id: 1.M2
+      mark_type: M
+      points: 3
+      evidence: $k$를 $b$에 대해 미분했다.
+      depends_on: []
+      steps: [1b-3]
+    - id: 1.A2
+      mark_type: A
+      points: 3
+      evidence: $g'(b)=\dfrac{\ln b}{b^2}$과 $0<b<1$에서 감소를 적었다.
+      depends_on: [1.M2]
+      steps: [1b-3]
+    - id: 1.M3
+      mark_type: M
+      points: 4
+      evidence: 【가】로 $P(X<1)=1-e^{-b}$, $P(X<2)=1-e^{-2b}$를 적분해 조건 부등식을 세웠다.
+      depends_on: []
+      steps: [1b-4]
+    - id: 1.A3
+      mark_type: A
+      points: 4
+      evidence: $\ln\sqrt2\le b\le\ln\dfrac32$를 적었다.
+      depends_on: [1.M3]
+      steps: [1b-4]
+    - id: 1.R1
+      mark_type: R
+      points: 3
+      evidence: 범위가 $b<1$ 안에 있어 감소함을 근거로 최대·최소 위치를 정했다.
+      depends_on: []
+      steps: [1a, 1b-5]
+    - id: 1.A4
+      mark_type: A
+      points: 3
+      evidence: 최댓값 $g(\ln\sqrt2)$, 최솟값 $g\left(\ln\dfrac32\right)$(식 또는 동치 표현)을 적었다.
+      depends_on: [1.A2, 1.A3, 1.R1]
+      steps: [1a, 1b-5]
+    deductions:
+    - code: D1-1
+      condition: 제시문 인용 없음(동국 규정)
+      effect: minus
+      value: 1
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-CAL-2506}
+  - {code: '71', misconception: MC-PRB-2507}
+  misconceptions:
+  - id: MC-CAL-2506
+    outcome_code: '70'
+    wrong_work: '$f^{-1}(x)=\dfrac{1}{be^{-bx}}$로 역수를 적분'
+    detect_cue: 적분식에 $e^{bx}$가 나타나고 로그가 없음
+    feedback: $f^{-1}$은 역함수이지 역수가 아닙니다. $y=be^{-bx}$를 $x$에 대해 풀어 $x$와 $y$를 바꾸세요.
+    remedy: [RL-1]
+  - id: MC-PRB-2507
+    outcome_code: '71'
+    wrong_work: '$1-e^{-b}\le\dfrac13$에서 $b\ge\ln\dfrac32$처럼 부등호 방향을 그대로 둠'
+    detect_cue: $b$의 범위가 $b\ge\ln\dfrac32$ 또는 공집합으로 나옴
+    feedback: $e^{-b}\ge\dfrac23\iff -b\ge\ln\dfrac23\iff b\le\ln\dfrac32$. 음수를 곱할 때 부등호가 바뀝니다.
+    remedy: [RL-2]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CAL-2506}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-INVERSE-FUNC-INT}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-PRB-2507}
+  relation: remediation
+  target: {kind: concept, ref: CON-PRB-CONTINUOUS}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-input-v1, item_version: 1, verdict: pass, date: 2026-11-21, note: 원문 PDF 이미지 판독으로 옮김 · 해설·채점표 자체 작성}
+
+created: 2026-11-21
+updated: 2026-11-21

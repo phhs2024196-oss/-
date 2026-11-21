@@ -1,0 +1,238 @@
+schema_version: '2.0'
+id: DGU-G22-02
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: DGU
+type: T01
+variant_of: null
+replaces: null
+level: L5
+form: 귀납구조
+points: 30
+time_estimate_min: 25
+intent: 충돌(속도 교환)과 경계 반사 규칙에 따라 두 점의 위치함수를 구간별로 추적하고, 반복 구조를 찾아 만남 조건으로 미지수를 결정하는 능력을 본다.
+key_idea: '구간별 위치식을 이어 쓰면 다섯 번째 만남 구간에서 $\mathrm{Q}$는 $at-9$, $\mathrm{P}$는 $-\frac t9+1$이므로 $t=9$에서 $a=1$. (속도 교환은 "두 점이 서로 통과한다"로 볼 수 있어, 속도 $-\dfrac19$로 움직이는 궤적과 속도 $\pm a$로 $[-1,1]$을 왕복하는 궤적의 교점이 만남이다. 5번째 교점이 $t=9$이면 $a=1$.)'
+stuck: 만날 때마다 속도가 바뀌는 규칙을 "두 궤적이 엇갈려 지나간다"로 재해석하는 단계, 구간별 위치식의 반복 구조 파악
+idea_tags: [IDEA-MOTION-PIECEWISE-TRACK, IDEA-COLLISION-SWAP-AS-PASS]
+tags: [수직선 위의 운동, 충돌, 동국 기출]
+elements:
+  materials:
+  - '수직선 위를 움직이는 두 점 P, Q'
+  - '만나면 두 점의 속도가 서로 바뀜'
+  - '위치가 $\pm1$이 되면 속도의 부호만 바뀜'
+  concepts:
+  - '위치와 속도'
+  - '운동 방향'
+  - '미분계수와 접선의 기울기'
+  - '직선의 방정식'
+  tools:
+  - '구간별 일차식으로 위치함수 추적'
+  - '만남 시각 $t_i$ 설정'
+  - '만남 조건(두 위치가 같음) 방정식'
+  - '위치 그래프의 기울기로 속도 읽기'
+  conditions:
+  - '처음 만날 때까지 P는 $-\frac19$, Q는 $a$ ⇒ $f(t)=-\frac t9+1$, $g(t)=at-1$'
+  - '속도 $-\frac19$인 점은 $0<t\le9$에서 $[0,1)$에 있어 경계에 닿지 않음'
+  - '속도 교환 ⇒ 두 위치 그래프의 합집합은 직선과 왕복 꺾은선 그대로'
+  - '$t=9$가 다섯 번째 만남 ⇒ $f(9)=g(9)$, 다섯 번째 구간에서 $g(t)=at-9$'
+  stimuli_used: [가, 나, 다, 라]
+  subpart_links: null
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅱ]
+  scope_2028: common
+  scope_confirmed: true
+  standards:
+  - code: 미확인
+    text: 속도와 거리에 대한 문제를 해결할 수 있다(요지)
+    verified: false
+  content_area: 미분 – 수직선 위의 운동
+  behavior_domain: 문제해결
+  unit_path: [수학Ⅱ, 미분, 도함수의 활용, 속도와 가속도]
+  key_concepts: ['위치와 속도', '운동 방향', '미분계수와 접선의 기울기', '직선의 방정식']
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 동국대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 동국대학교
+  admission_year: 2022
+  admission_type: 논술
+  track: 자연계열
+  question_no: 2
+  official_url: https://ipsi.dongguk.edu/   # 원문 게시 URL 미확인(교재 재수록본에서 옮김)
+  retrieved_at: '2026-11-21'
+  original_points: null
+  rights_notice: 미확인 — 원문 PDF 표지 문구 확인 필요(현재 사본은 '대치 수리 논술 연구소' 2027 대비 교재 재수록본)
+  note: 문제 = 동국대 수리논술 문제집2027 p.39(원문 띄어쓰기 '바뀐 다' 그대로), 해설 참고 = 동국대 수리논술 해설집2027 p.38~39. 원문(재수록본)에 배점 표기 없음 → 동국 관례(30·30·40)에 따라 30점으로 자체 배분
+
+verify: verify/DGU-G22.py::p02
+
+stimuli:
+- label: 가
+  body: |
+    함수 $y=f(x)$의 $x=t$에서의 미분계수 $f'(t)$는 곡선 $y=f(x)$위의 점 $(t,f(t))$에서의 접선의 기울기와 같다.
+    『고등학교 수학Ⅱ』
+- label: 나
+  body: |
+    수직선 위를 움직이는 점 $\mathrm{P}$의 시각 $t$에서의 위치 $x$가 $x=f(t)$일 때 시각 $t$에서 점 $\mathrm{P}$의 속도 $v$는
+    $$v=\dfrac{dx}{dt}=f'(t)$$
+    『고등학교 수학Ⅱ』 / 『고등학교 미적분』
+- label: 다
+  body: |
+    수직선 위를 움직이는 점 $\mathrm{P}$의 운동 방향은 점 $\mathrm{P}$의 속도 $v$가 $v>0$일 때에는 양의 방향이고, $v<0$일 때에는 음의 방향이다.
+    『고등학교 수학Ⅱ』
+- label: 라
+  body: |
+    점 $(x_1,y_1)$을 지나고 기울기가 $m$인 직선의 방정식은
+    $$y-y_1=m(x-x_1)$$
+    『고등학교 수학』
+
+stem: |
+  수직선 위를 움직이는 두 점 $\mathrm{P}$, $\mathrm{Q}$가 있다.
+  ■ 시각 $t=0$에서 $\mathrm{P}$의 위치는 $1$이고 $\mathrm{Q}$의 위치는 $-1$이다.
+  ■ 시각 $t=0$부터 두 점 $\mathrm{P}$, $\mathrm{Q}$가 처음으로 만날 때까지 $\mathrm{P}$는 일정한 속도 $-\dfrac19$로, $\mathrm{Q}$는 일정한 속도 $a\,(a>0)$로 움직인다.
+  시각 $t\ (0<t\le9)$에서 두 점 $\mathrm{P}$, $\mathrm{Q}$의 속도는 다음의 두 경우에만 바뀐다.
+  ■ 두 점 $\mathrm{P}$, $\mathrm{Q}$가 만나면 만남 직후 두 점의 속도는 서로 바뀐다.
+  ■ 두 점 $\mathrm{P}$, $\mathrm{Q}$ 중 어떤 점의 위치가 $-1$또는 $1$이 된 직후 그 점의 속도는 부호만 바뀐 다.
+  이와 같은 조건 하에 시각 $t=9$에서 두 점 $\mathrm{P}$, $\mathrm{Q}$가 다섯 번째 만나도록 $a$값을 구하는 과정을 서술하고, 두 점 $\mathrm{P}$, $\mathrm{Q}$가 네 번째 만나는 시각 $t$를 구하시오. 그리고 이 네 번째 만남 직후 점 $\mathrm{P}$의 속도를 구하시오.
+
+subparts:
+- id: '1'
+  stem: |
+    위 논제의 $a$, 네 번째 만나는 시각 $t$, 네 번째 만남 직후 점 $\mathrm{P}$의 속도를 구하시오.
+  points: 30
+  depends_on: []
+  answer: {kind: value, value: 'a=1,\ t=\dfrac{27}{4},\ v_{\mathrm{P}}=-\dfrac19', equivalents: ['1, 27/4, -1/9'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: 만남 시각을 $t_1,\dots,t_5$로 두고 두 점의 위치를 구간별 일차식으로 쓰면, 마지막 구간에서 $\mathrm{Q}$의 위치가 $at-9$, $\mathrm{P}$의 위치가 $-\dfrac t9+1$이 되어 $t_5=9$에서 $a=1$.
+    steps:
+    - {id: 1a, content: '$f(9)=-\dfrac99+1=0$, $g(9)=9a-9$ → $a=1$; $-t_4+7=-\dfrac{t_4}{9}+1$ → $t_4=\dfrac{27}{4}$', criteria: [1.M2, 1.M3]}
+    hint_ladder:
+    - 처음 만날 때까지 두 점의 위치를 일차식으로 써 보자.
+    - 만나면 속도를 맞바꾸고, $\pm1$에 닿으면 부호만 바뀐다. 구간마다 위치식을 이어 써 보자.
+    - 다섯 번째 만남 구간의 두 위치식에 $t=9$를 넣자.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 해설집 p.38~39
+    steps:
+    - id: 1b-1
+      content: |
+        [1단계] 점 $\mathrm{P}$, $\mathrm{Q}$의 시각 $t$에서의 위치를 각각 $f(t)$, $g(t)$라 하면, 제시문 【나】, 【라】에 의해 처음 만날 때까지
+        $f(t)=-\dfrac t9+1$, $g(t)=at-1$.
+      criteria: [1.M1]
+    - id: 1b-2
+      content: |
+        [2단계] $i$번째 만나는 시각을 $t_i$라 하면 $t_5=9$이다. 만나면 속도를 맞바꾸고 $\pm1$에 닿으면 속도의 부호만 바뀌므로(제시문 【다】),
+        $f(t)=-\dfrac t9+1\ (0\le t\le t_1)$, $at-1\ (t_1<t\le\dfrac2a)$, $-at+3\ (\dfrac2a<t\le t_2)$, $-\dfrac t9+1\ (t_2<t\le t_3)$, $at-5\ (t_3<t\le\dfrac6a)$, $-at+7\ (\dfrac6a<t\le t_4)$, $-\dfrac t9+1\ (t_4<t\le t_5)$,
+        $g(t)=at-1\ (0\le t\le t_1)$, $-\dfrac t9+1\ (t_1<t\le t_2)$, $-at+3\ (t_2<t\le\dfrac4a)$, $at-5\ (\dfrac4a<t\le t_3)$, $-\dfrac t9+1\ (t_3<t\le t_4)$, $-at+7\ (t_4<t\le\dfrac8a)$, $at-9\ (\dfrac8a<t\le t_5)$.
+      criteria: [1.M1]
+    - id: 1b-3
+      content: |
+        시각 $t_5=9$에서 두 점이 만나므로 $0=f(9)=g(9)=9a-9$, 따라서 $a=1$.
+        (이때 만남 시각은 $t_1=\dfrac95,\ t_2=\dfrac94,\ t_3=\dfrac{27}{5},\ t_4=\dfrac{27}{4},\ t_5=9$로 위 구간 순서와 맞는다.)
+      criteria: [1.M2, 1.A1]
+    - id: 1b-4
+      content: |
+        [3단계] $a=1$이고 $-t_4+7=f(t_4)=g(t_4)=-\dfrac19t_4+1$이므로 $t_4=\dfrac{27}{4}$.
+      criteria: [1.M3, 1.A2]
+    - id: 1b-5
+      content: |
+        [4단계] 네 번째 만남 직후($t>t_4$, $t$가 $t_4$에 충분히 가까울 때) 점 $\mathrm{P}$의 위치는 $f(t)=-\dfrac t9+1$이므로, 제시문 【가】, 【나】에 의해 속도는 그 기울기 $f'(t)=-\dfrac19$이다.
+      criteria: [1.R1, 1.A3]
+  - id: S1-ALT
+    audience: ALT
+    method_no: 2
+    key_idea: 속도를 맞바꾸는 것은 두 점이 서로 통과하는 것과 같으므로, 두 위치 그래프의 합집합은 직선 $x=1-\dfrac t9$와 기울기 $\pm a$로 $[-1,1]$을 왕복하는 꺾은선이다. 꺾은선의 단조 구간마다 직선과 한 번씩 만나므로 다섯 번째 단조 구간 $x=at-9$가 $t=9$에서 $0$을 지나야 한다.
+    steps:
+    - id: 1c-1
+      content: |
+        직선 $x=1-\dfrac t9$는 $0<t\le9$에서 $[0,1)$에 있어 경계에 닿지 않고, 꺾은선은 오르는 구간·내리는 구간에서 직선과 한 번씩 교차한다. 다섯 번째 단조 구간은 $x=at-9$이므로 $9a-9=0$, $a=1$. 네 번째 구간 $x=-t+7$과의 교점은 $t=\dfrac{27}{4}$이고, 그 직전 $\mathrm{P}$는 꺾은선(속도 $-1$) 위에 있으므로 직후 속도는 $-\dfrac19$.
+      criteria: [1.M2, 1.A1, 1.M3, 1.A2, 1.R1, 1.A3]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 6
+      evidence: 처음 만날 때까지의 위치식 $-\dfrac t9+1$, $at-1$을 쓰고, 만남·반사 이후의 위치를 구간별 식(또는 그래프)으로 나타냈다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1, 1b-2]
+    - id: 1.M2
+      mark_type: M
+      points: 6
+      evidence: 다섯 번째 만남이 일어나는 구간의 위치식($g(t)=at-9$, $f(t)=-\dfrac t9+1$)을 찾아 $t=9$에서 두 위치가 같다는 식을 세웠다.
+      depends_on: []
+      steps: [1b-3, 1c-1]
+    - id: 1.A1
+      mark_type: A
+      points: 5
+      evidence: $a=1$을 답으로 적었다.
+      depends_on: [1.M2]
+      steps: [1b-3, 1c-1]
+    - id: 1.M3
+      mark_type: M
+      points: 4
+      evidence: 네 번째 만남 구간의 두 위치식($-t+7$, $1-\dfrac t9$)을 같다고 놓았다.
+      depends_on: []
+      steps: [1b-4, 1c-1]
+    - id: 1.A2
+      mark_type: A
+      points: 4
+      evidence: 네 번째 만나는 시각 $t=\dfrac{27}{4}$을 적었다.
+      depends_on: [1.M3]
+      steps: [1b-4, 1c-1]
+    - id: 1.R1
+      mark_type: R
+      points: 3
+      evidence: 네 번째 만남 직후 $\mathrm{P}$의 위치식이 $-\dfrac t9+1$임을 밝히고 그 기울기(도함수)로 속도를 구했다.
+      depends_on: []
+      steps: [1b-5, 1c-1]
+    - id: 1.A3
+      mark_type: A
+      points: 2
+      evidence: 네 번째 만남 직후 $\mathrm{P}$의 속도 $-\dfrac19$을 적었다.
+      depends_on: [1.R1]
+      steps: [1b-5, 1c-1]
+    deductions:
+    - code: D1-1
+      condition: 제시문 인용 없음(동국 규정)
+      effect: minus
+      value: 1
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-CAL-2403}
+  misconceptions:
+  - id: MC-CAL-2403
+    outcome_code: '70'
+    wrong_work: '만난 뒤에도 $\mathrm{P}$는 계속 속도 $-\frac19$, $\mathrm{Q}$는 $\pm a$로 움직인다고 보고 네 번째 만남 직후 $\mathrm{P}$의 속도를 $-1$ 또는 $1$로 답함'
+    detect_cue: 마지막 답이 $\pm1$이거나, 만남마다 어느 점이 어느 궤적 위에 있는지 구분하지 않았다
+    feedback: 궤적의 모양은 그대로지만 만날 때마다 두 점이 궤적을 맞바꿉니다. 만남 직전 각 점이 어느 궤적 위에 있는지 표로 정리하세요.
+    remedy: [RL-1]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CAL-2403}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-MOTION-LINE}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-input-v1, item_version: 1, verdict: pass, date: 2026-11-21, note: 원문 PDF 이미지 판독으로 옮김 · 해설·채점표 자체 작성}
+
+created: 2026-11-21
+updated: 2026-11-21

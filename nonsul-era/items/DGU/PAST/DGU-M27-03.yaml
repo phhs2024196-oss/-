@@ -1,0 +1,337 @@
+schema_version: '2.0'
+id: DGU-M27-03
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: DGU
+type: T04
+variant_of: null
+replaces: null
+level: L4
+form: 추론
+points: 40
+time_estimate_min: 30
+intent: 도함수의 대칭 조건과 역함수의 함숫값·미분계수 조건으로 사차함수를 결정하고, 역함수의 미분법과 치환적분으로 역함수가 들어 있는 정적분을 계산하는 능력을 본다.
+key_idea: '$g(4)=1\iff f(1)=4$, $g''(4)=\dfrac{1}{f''(1)}$로 바꿔 계수를 정하고, (3)은 $x=f(t)$로 치환해 역함수를 없앤다.'
+stuck: 역함수 조건을 원함수 조건으로 옮기는 단계, (3)에서 $x=f(t)$ 치환 후 $\sqrt{t^4+3t^2}=t\sqrt{t^2+3}$로 정리하는 단계
+idea_tags: [IDEA-CAL-INVERSE-TO-ORIGINAL, IDEA-CAL-SUBST-INVERSE-INTEGRAL]
+tags: [역함수, 치환적분, 동국 모의]
+elements:
+  materials: [최고차항 계수 1인 사차함수, 원점 대칭인 도함수, 역함수가 들어 있는 정적분]
+  concepts: [기함수·우함수(원점 대칭), 역함수의 미분법, 미분계수와 접선의 기울기, 치환적분법, 무리함수의 적분]
+  tools:
+  - '도함수의 짝수 차수 계수를 0으로'
+  - '역함수 조건을 $f(1)=4$, $f''(1)=10$으로 변환'
+  - '$f(x)=10$을 $(x^2+5)(x^2-2)=0$으로 인수분해'
+  - '$x=f(t)$ 치환으로 역함수 제거'
+  - '$u=t^2+3$ 재치환'
+  conditions:
+  - '$f''(x)$가 원점 대칭 ⇒ $f''(-x)=-f''(x)$ ⇒ $f''$의 이차항·상수항 계수 0'
+  - '$g(4)=1$ ⇔ $f(1)=4$, $g''(4)=\dfrac{1}{f''(g(4))}=\dfrac{1}{f''(1)}$'
+  - '$x>0$에서 역함수 ⇒ $f(x)=10$의 양의 근만 택함'
+  - '적분 구간 $4$, $28$ ⇒ $f(1)=4$, $f(2)=28$이므로 $t$의 구간 $1\to2$'
+  stimuli_used: [가, 나, 다]
+  subpart_links: '(2)(3)은 (1)의 $f(x)=x^4+3x^2$ 사용'
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅱ, 미적분]
+  scope_2028: calc2
+  scope_confirmed: true
+  standards:
+  - code: 미확인
+    text: 역함수의 미분법, 치환적분법을 이해하고 이를 활용할 수 있다(요지)
+    verified: false
+  content_area: 미분법·적분법 – 역함수의 미분과 치환적분
+  behavior_domain: 계산
+  unit_path: [미적분, 미분법, 여러 가지 미분법, 역함수의 미분법]
+  key_concepts: [기함수·우함수(원점 대칭), 역함수의 미분법, 미분계수와 접선의 기울기, 치환적분법, 무리함수의 적분]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 동국대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 동국대학교
+  admission_year: 2027
+  admission_type: 논술(모의)
+  track: 자연계열
+  question_no: 3
+  official_url: https://ipsi.dongguk.edu/   # 원문 게시 URL 미확인(교재 재수록본에서 옮김)
+  retrieved_at: '2026-11-21'
+  original_points: 40
+  rights_notice: 미확인 — 원문 PDF 표지 문구 확인 필요(현재 사본은 '대치 수리 논술 연구소' 2027 대비 교재 재수록본)
+  note: 문제 = 문제집2027 p.7, 해설 참고 = 해설집2027 p.6. 원문에 소문항별 배점 표기 없음 → 12·12·16 은 자체 배분
+
+verify: verify/DGU-M27.py::p03
+
+stimuli:
+- label: 가
+  body: |
+    함수 $y=f(x)$의 $x=t$에서의 미분계수 $f'(t)$는 곡선 $y=f(x)$ 위의 점 $(t,\ f(t))$에서의 접선의 기울기와 같다.
+    『고등학교 수학Ⅱ』
+- label: 나
+  body: |
+    미분가능한 함수 $f(x)$의 역함수 $f^{-1}(x)$가 존재하고 미분가능할 때,
+    $$y=f^{-1}(x)\text{의 도함수는 }(f^{-1})'(x)=\dfrac{1}{f'(f^{-1}(x))}$$
+    『고등학교 미적분』
+- label: 다
+  body: |
+    닫힌구간 $[a,\ b]$에서 연속인 함수 $f(x)$에 대하여 미분가능한 함수 $x=g(t)$의 도함수 $g'(t)$가 $a=g(\alpha)$, $b=g(\beta)$일 때 $\alpha$, $\beta$를 포함하는 구간에서 연속이면
+    $$\int_a^b f(x)dx=\int_\alpha^\beta f(g(t))g'(t)dt$$
+    『고등학교 미적분』
+
+stem: |
+  다음 〈조건〉을 만족하는 최고차항의 계수가 $1$인 사차함수 $f(x)$가 $x>0$에서 역함수 $g(x)$를 갖는다고 하자.
+  〈조건〉
+  ① $f(x)$의 도함수 $f'(x)$는 원점 $(0,0)$에 대하여 대칭이다.
+  ② $g(4)=1$이고 $g'(4)=\dfrac{1}{10}$이다.
+  <27줄 이내> [40점]
+
+subparts:
+- id: '1'
+  stem: |
+    함수 $f(x)$를 구하고, $f'(2)$의 값을 구하시오.
+  points: 12
+  depends_on: []
+  answer: {kind: value, value: 'f(x)=x^4+3x^2,\ f''(2)=44', equivalents: ['f(x)=x^4+3x^2, 44'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: '$f''$이 홀수 차수 항만 가지므로 $f(x)=x^4+bx^2+d$, 역함수 조건을 $f(1)=4$, $f''(1)=10$으로 바꾼다.'
+    steps:
+    - {id: 1a, content: '$f''(1)=4+2b=10\Rightarrow b=3$, $f(1)=1+3+d=4\Rightarrow d=0$, $f''(2)=44$', criteria: [1.A1, 1.A2]}
+    hint_ladder:
+    - 원점 대칭인 다항함수는 어떤 차수의 항만 가지는가?
+    - $g(4)=1$, $g'(4)$를 $f$에 대한 조건으로 바꾸어 보자.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 해설집 p.6
+    steps:
+    - id: 1b-1
+      content: |
+        $f(x)=x^4+ax^3+bx^2+cx+d$라 하면 $f'(x)=4x^3+3ax^2+2bx+c$. 조건 ①에 의해 $f'(-x)=-f'(x)$가 모든 $x$에서 성립하므로 짝수 차수 항의 계수 $3a=0$, $c=0$이다. 따라서 $f(x)=x^4+bx^2+d$, $f'(x)=4x^3+2bx$.
+      criteria: [1.M1]
+    - id: 1b-2
+      content: |
+        $g$가 $f$의 역함수이므로 $g(4)=1\iff f(1)=4$. 제시문 【나】에 의해 $g'(4)=\dfrac{1}{f'(g(4))}=\dfrac{1}{f'(1)}=\dfrac{1}{10}$이므로 $f'(1)=10$.
+      criteria: [1.M2]
+    - id: 1b-3
+      content: |
+        $f'(1)=4+2b=10$에서 $b=3$, $f(1)=1+3+d=4$에서 $d=0$. 따라서 $f(x)=x^4+3x^2$이고(이때 $x>0$에서 $f'(x)=4x^3+6x>0$이므로 역함수가 존재), $f'(2)=32+12=44$.
+      criteria: [1.A1, 1.A2]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 3
+      evidence: 조건 ①에서 $f'(x)$의 이차항·상수항 계수가 0임을 근거와 함께 적었다.
+      depends_on: []
+      steps: [1b-1]
+    - id: 1.M2
+      mark_type: M
+      points: 3
+      evidence: 제시문 【나】를 인용해 $g(4)=1$, $g'(4)=\dfrac1{10}$을 $f(1)=4$, $f'(1)=10$으로 바꾸었다.
+      depends_on: []
+      steps: [1b-2]
+    - id: 1.A1
+      mark_type: A
+      points: 4
+      evidence: $f(x)=x^4+3x^2$을 적었다.
+      depends_on: [1.M1, 1.M2]
+      steps: [1a, 1b-3]
+    - id: 1.A2
+      mark_type: A
+      points: 2
+      evidence: $f'(2)=44$를 적었다.
+      depends_on: [1.M1]
+      steps: [1a, 1b-3]
+    deductions:
+    - code: D1-1
+      condition: 제시문 인용 없음(동국 규정)
+      effect: minus
+      value: 1
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-CAL-2101}
+  misconceptions:
+  - id: MC-CAL-2101
+    outcome_code: '70'
+    wrong_work: '$g''(4)=\dfrac{1}{f''(4)}$로 두어 $f''(4)=10$에서 계수를 구함'
+    detect_cue: $f'(4)$ 또는 $256+8b$ 같은 식이 보이고 $b$가 정수가 아님
+    feedback: 역함수의 미분계수는 대응점에서 구합니다. $g(4)=1$이므로 $g'(4)=\dfrac{1}{f'(1)}$입니다.
+    remedy: [RL-1]
+- id: '2'
+  stem: |
+    $g(10)$의 값을 구하고, 곡선 $y=g(x)$위의 점 $(10,\ g(10))$에서의 접선의 기울기를 구하시오.
+  points: 12
+  depends_on: ['1']
+  answer: {kind: value, value: 'g(10)=\sqrt2,\ \text{기울기 }\dfrac{\sqrt2}{28}', equivalents: ['√2, 1/(14√2)'], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: '$f(x)=10$의 양의 근이 $g(10)$이고, 기울기는 $\dfrac{1}{f''(\sqrt2)}$.'
+    steps:
+    - {id: 2a, content: '$x^2=2\Rightarrow g(10)=\sqrt2$, $g''(10)=\dfrac{1}{14\sqrt2}=\dfrac{\sqrt2}{28}$', criteria: [2.A1, 2.A2]}
+  - id: S2-B
+    audience: B
+    method_no: 1
+    source_flow: 해설집 p.6
+    steps:
+    - id: 2b-1
+      content: |
+        $g(10)=k$라 하면 $f(k)=10$, $k>0$. $k^4+3k^2-10=(k^2+5)(k^2-2)=0$이고 $k^2+5>0$이므로 $k^2=2$, $k=\sqrt2$. 즉 $g(10)=\sqrt2$.
+      criteria: [2.M1, 2.A1]
+    - id: 2b-2
+      content: |
+        제시문 【가】에 의해 구하는 기울기는 $g'(10)$이고, 【나】에 의해 $g'(10)=\dfrac{1}{f'(g(10))}=\dfrac{1}{f'(\sqrt2)}=\dfrac{1}{8\sqrt2+6\sqrt2}=\dfrac{1}{14\sqrt2}=\dfrac{\sqrt2}{28}$.
+      criteria: [2.M2, 2.A2]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 3
+      evidence: $f(x)=10$ $(x>0)$을 세워 인수분해 등으로 푸는 과정이 있다.
+      depends_on: []
+      ft: {allowed: true, from: [1.A1], max_points: 3}
+      steps: [2b-1]
+    - id: 2.A1
+      mark_type: A
+      points: 3
+      evidence: $g(10)=\sqrt2$를 적었다(음수 근 제외 근거 포함).
+      depends_on: [2.M1]
+      steps: [2a, 2b-1]
+    - id: 2.M2
+      mark_type: M
+      points: 3
+      evidence: 접선의 기울기를 $g'(10)=\dfrac{1}{f'(g(10))}$로 놓은 식이 있다(【가】【나】 인용).
+      depends_on: []
+      steps: [2b-2]
+    - id: 2.A2
+      mark_type: A
+      points: 3
+      evidence: 기울기 $\dfrac{\sqrt2}{28}$(또는 $\dfrac{1}{14\sqrt2}$)를 적었다.
+      depends_on: [2.M2]
+      steps: [2a, 2b-2]
+    deductions:
+    - code: D2-1
+      condition: 제시문 인용 없음(동국 규정)
+      effect: minus
+      value: 1
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-CAL-2101}
+  misconceptions:
+  - id: MC-CAL-2101
+    outcome_code: '70'
+    wrong_work: '기울기를 $\dfrac{1}{f''(10)}=\dfrac{1}{4060}$으로 계산'
+    detect_cue: 답이 $\dfrac{1}{4060}$ 또는 $f'(10)$이 등장
+    feedback: '$y=g(x)$의 $x=10$에서의 기울기는 $f$의 $x=g(10)=\sqrt2$에서의 기울기의 역수입니다.'
+    remedy: [RL-1]
+- id: '3'
+  stem: |
+    $\displaystyle\int_4^{28}\dfrac{g(x)}{\sqrt x}dx$를 구하시오.
+  points: 16
+  depends_on: ['1']
+  answer: {kind: value, value: '\dfrac{10\sqrt7+4}{3}', equivalents: ['(10√7+4)/3', '10.1525'], tolerance: null}
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: '$x=f(t)$로 치환하면 $g(x)=t$, 구간 $1\to2$, 피적분식 $\dfrac{4t^3+6t}{\sqrt{t^2+3}}$을 $u=t^2+3$으로 다시 치환한다.'
+    steps:
+    - {id: 3a, content: '$\displaystyle\int_4^7\dfrac{2u-3}{\sqrt u}du=\left[\dfrac43u^{3/2}-6u^{1/2}\right]_4^7=\dfrac{10\sqrt7+4}{3}$', criteria: [3.A2]}
+    hint_ladder:
+    - 역함수 $g$를 직접 구하기 어렵다면 $x=f(t)$로 바꾸어 보자.
+    - 적분 구간 $4$, $28$은 $f$의 어떤 값인가?
+  - id: S3-B
+    audience: B
+    method_no: 1
+    source_flow: 해설집 p.6
+    steps:
+    - id: 3b-1
+      content: |
+        $x=f(t)=t^4+3t^2$ $(t>0)$으로 치환하면 $g(x)=t$, $dx=f'(t)dt=(4t^3+6t)dt$. $f(1)=4$, $f(2)=28$이므로 제시문 【다】에 의해
+        $\displaystyle\int_4^{28}\dfrac{g(x)}{\sqrt x}dx=\int_1^2\dfrac{t(4t^3+6t)}{\sqrt{t^4+3t^2}}dt=\int_1^2\dfrac{4t^3+6t}{\sqrt{t^2+3}}dt$ ($t>0$에서 $\sqrt{t^4+3t^2}=t\sqrt{t^2+3}$).
+      criteria: [3.M1, 3.A1]
+    - id: 3b-2
+      content: |
+        $u=t^2+3$으로 다시 치환하면 $du=2t\,dt$, $4t^3+6t=2t(2u-3)$, 구간은 $4\to7$이므로
+        $\displaystyle\int_4^7\dfrac{2u-3}{\sqrt u}du=\int_4^7\left(2u^{\frac12}-3u^{-\frac12}\right)du=\left[\dfrac43u^{\frac32}-6u^{\frac12}\right]_4^7$.
+      criteria: [3.M2]
+    - id: 3b-3
+      content: |
+        $=\left(\dfrac{28\sqrt7}{3}-6\sqrt7\right)-\left(\dfrac{32}{3}-12\right)=\dfrac{10\sqrt7}{3}+\dfrac43=\dfrac{10\sqrt7+4}{3}$.
+      criteria: [3.A2]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 5
+      evidence: $x=f(t)$(또는 $t=g(x)$)로 치환하고 적분 구간을 $f(1)=4$, $f(2)=28$로 $1\to2$로 바꾸었다(【다】 인용).
+      depends_on: []
+      ft: {allowed: true, from: [1.A1], max_points: 5}
+      steps: [3b-1]
+    - id: 3.A1
+      mark_type: A
+      points: 3
+      evidence: '피적분식을 $\dfrac{4t^3+6t}{\sqrt{t^2+3}}$(또는 동치)로 정리했다.'
+      depends_on: [3.M1]
+      steps: [3b-1]
+    - id: 3.M2
+      mark_type: M
+      points: 4
+      evidence: $u=t^2+3$ 치환(또는 부분적분 등)으로 부정적분을 구하는 식이 있다.
+      depends_on: []
+      steps: [3b-2]
+    - id: 3.A2
+      mark_type: A
+      points: 4
+      evidence: 답 $\dfrac{10\sqrt7+4}{3}$을 적었다.
+      depends_on: [3.M2]
+      steps: [3a, 3b-3]
+    deductions:
+    - code: D3-1
+      condition: 제시문 인용 없음(동국 규정)
+      effect: minus
+      value: 1
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-CAL-2102}
+  misconceptions:
+  - id: MC-CAL-2102
+    outcome_code: '70'
+    wrong_work: '$x=f(t)$로 치환한 뒤 적분 구간을 $4\to28$ 그대로 둠'
+    detect_cue: $\displaystyle\int_4^{28}\dfrac{4t^3+6t}{\sqrt{t^2+3}}dt$ 꼴이 보임
+    feedback: 치환하면 구간도 새 변수의 값으로 바뀝니다. $f(t)=4$, $f(t)=28$인 $t$를 구하세요.
+    remedy: [RL-2]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CAL-2101}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-INVERSE-DIFF}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-CAL-2102}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-SUBST-INT}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-input-v1, item_version: 1, verdict: pass, date: 2026-11-21, note: 원문 PDF 이미지 판독으로 옮김 · 해설·채점표 자체 작성}
+
+created: 2026-11-21
+updated: 2026-11-21

@@ -1,0 +1,214 @@
+schema_version: '2.0'
+id: DGU-M21-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: DGU
+type: T04
+variant_of: null
+replaces: null
+level: L4
+form: 추론
+points: 30
+time_estimate_min: 20
+intent: 거리 일정 조건을 음함수로 쓰고 음함수 미분과 매개변수 미분을 연결해 두 점의 속력의 비를 좌표의 비로 바꾸는 능력을 본다.
+key_idea: '$x^2+y^2=25$에서 $\dfrac{dy}{dx}=-\dfrac xy=\dfrac{dy/dt}{dx/dt}$이므로 속력의 비 $\left|\dfrac{dy/dt}{dx/dt}\right|=\dfrac xy=2$.'
+stuck: 음함수 미분으로 얻은 $\dfrac{dy}{dx}$를 두 점의 속도의 비로 해석하는 단계
+idea_tags: [IDEA-IMPLICIT-DIFF-RELATED-RATE]
+tags: [사다리 문제, 관련 변화율, 동국 모의]
+elements:
+  materials:
+  - '$x$축 위의 점 $P(x,0)$, $y$축 위의 점 $Q(0,y)$'
+  - '두 점 사이 거리 5로 일정'
+  - '속력의 비 조건'
+  concepts:
+  - '두 점 사이의 거리'
+  - '수직선 위의 속도와 속력'
+  - '매개변수로 나타낸 함수의 미분'
+  - '음함수의 미분'
+  tools:
+  - '거리 조건을 $x^2+y^2=25$로'
+  - '음함수 미분으로 $\dfrac{dy}{dx}=-\dfrac xy$'
+  - '$\dfrac{dy}{dx}=\dfrac{dy/dt}{dx/dt}$로 속도의 비 연결'
+  - '연립하여 좌표 결정'
+  conditions:
+  - '$x,y>0$ ⇒ $\left|-\dfrac xy\right|=\dfrac xy$, 근 중 양수만'
+  - '0이 아닌 속력 ⇒ $\dfrac{dx}{dt}\neq0$이라 나눗셈 가능'
+  - 'P의 속력이 Q의 절반 ⇒ $\left|\dfrac{dx}{dt}\right|=\dfrac12\left|\dfrac{dy}{dt}\right|$'
+  stimuli_used: [가, 나, 다, 라]
+  subpart_links: null
+
+curriculum:
+  version: '2015'
+  subjects: [미적분, 수학Ⅱ, 수학]
+  scope_2028: calc2
+  scope_confirmed: true
+  standards:
+  - code: 미확인
+    text: 매개변수로 나타낸 함수와 음함수를 미분할 수 있다(요지)
+    verified: false
+  content_area: 미분법 – 음함수·매개변수 미분과 속도
+  behavior_domain: 문제해결
+  unit_path: [미적분, 미분법, 여러 가지 미분법, 음함수의 미분법]
+  key_concepts: ['두 점 사이의 거리', '수직선 위의 속도와 속력', '매개변수로 나타낸 함수의 미분', '음함수의 미분']
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 동국대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 동국대학교
+  admission_year: 2021
+  admission_type: 논술(모의)
+  track: 자연계열
+  question_no: 1
+  official_url: https://ipsi.dongguk.edu/   # 원문 게시 URL 미확인(교재 재수록본에서 옮김)
+  retrieved_at: '2026-11-21'
+  original_points: 30
+  rights_notice: 미확인 — 원문 PDF 표지 문구 확인 필요(현재 사본은 '대치 수리 논술 연구소' 2027 대비 교재 재수록본)
+  note: 문제 = 동국대 수리논술 문제집2027 p.50, 해설 참고 = 동국대 수리논술 해설집2027 p.48. 해설집은 거리공식을 '제시문 【나】'로 인용(실제는 【가】) — 인용 표기 오류로 판단해 【가】로 씀
+
+verify: verify/DGU-M21.py::p01
+
+stimuli:
+- label: 가
+  body: |
+    좌표평면 위의 두 점 $A(x_1,y_1)$, $B(x_2,y_2)$ 사이의 거리는
+    $$\overline{AB}=\sqrt{(x_2-x_1)^2+(y_2-y_1)^2}.$$
+    『고등학교 수학』
+- label: 나
+  body: |
+    수직선 위를 움직이는 점 $P$의 시각 $t$에서의 위치 $x$가 $x=f(t)$일 때 시각 $t$에서 점 $P$의 속도는 $v=\displaystyle\lim_{\Delta t\to0}\dfrac{\Delta x}{\Delta t}=\dfrac{dx}{dt}$이다. 속도의 절댓값 $\lvert v\rvert$를 시각 $t$에서 점 $P$의 속력이라고 한다.
+    『고등학교 수학 Ⅱ』
+- label: 다
+  body: |
+    함수 $x=f(t)$, $y=g(t)$가 $t$에 대하여 미분가능하고 $f'(t)\neq0$이면
+    $$\dfrac{dy}{dx}=\dfrac{\ \dfrac{dy}{dt}\ }{\ \dfrac{dx}{dt}\ }=\dfrac{g'(t)}{f'(t)}.$$
+    『고등학교 미적분』
+- label: 라
+  body: |
+    음함수 표현 $f(x,y)=0$에서 $y$를 $x$의 함수로 보고 양변을 $x$에 대하여 미분하여 $\dfrac{dy}{dx}$를 구한다.
+    『고등학교 미적분』
+
+stem: |
+  $x$축 위의 점 $P(x,0)$과 $y$축 위의 점 $Q(0,y)$ 사이의 거리가 5로 일정하게 고정되어 $x,\ y>0$인 영역에서 0이 아닌 속력으로 움직인다고 하자. 점 $P$의 속력이 점 $Q$의 속력의 절반이 될 때의 점 $P$와 점 $Q$의 좌표를 구하고 풀이과정을 서술하시오. [30점]
+
+subparts:
+- id: '1'
+  stem: |
+    위 논제의 점 $P$와 점 $Q$의 좌표를 구하시오.
+  points: 30
+  depends_on: []
+  answer: {kind: value, value: 'P(2\sqrt5,\ 0),\ Q(0,\ \sqrt5)', equivalents: ['P(2√5,0), Q(0,√5)'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: 거리 조건을 시간에 대해 미분하면 $x\dfrac{dx}{dt}+y\dfrac{dy}{dt}=0$이므로 속력의 비는 좌표의 역비이다.
+    steps:
+    - {id: 1a, content: '$\dfrac{|dy/dt|}{|dx/dt|}=\dfrac xy=2$, $x^2+y^2=25$ ⇒ $x=2\sqrt5$, $y=\sqrt5$', criteria: [1.R1, 1.A1]}
+    hint_ladder:
+    - 거리가 5라는 조건을 $x$, $y$의 식으로 쓰자.
+    - $\dfrac{dy}{dx}$를 두 점의 속도로 나타내 보자.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 해설집 p.48
+    steps:
+    - id: 1b-1
+      content: |
+        점 $P(x,0)$과 점 $Q(0,y)$ 사이의 거리가 5로 고정되어 있으므로 제시문 【가】의 거리 공식에 따라 $\sqrt{(x-0)^2+(y-0)^2}=5$이고, 양변을 제곱하면
+        $$x^2+y^2=25.\quad\cdots(1)$$
+      criteria: [1.M1]
+    - id: 1b-2
+      content: |
+        제시문 【라】의 음함수의 미분법으로 (1)을 미분하면
+        $$2x+2y\dfrac{dy}{dx}=0.\quad\cdots(2)$$
+      criteria: [1.M2]
+    - id: 1b-3
+      content: |
+        $x$와 $y$를 시각 $t$의 함수로 보면 제시문 【다】와 식 (2)에 의하여
+        $$\dfrac{\ \dfrac{dy}{dt}\ }{\ \dfrac{dx}{dt}\ }=\dfrac{dy}{dx}=-\dfrac{x}{y}.\quad\cdots(3)$$
+      criteria: [1.M3]
+    - id: 1b-4
+      content: |
+        문제의 조건에서 제시문 【나】에 의해 $\left|\dfrac{dx}{dt}\right|=\dfrac12\left|\dfrac{dy}{dt}\right|\neq0$이고 $x,y>0$이므로, 식 (3)의 절댓값을 취하면 $\dfrac xy=2$, 즉 $x=2y$.
+      criteria: [1.R1]
+    - id: 1b-5
+      content: |
+        이를 식 (1)에 대입하면 $5y^2=25$, $y>0$이므로 $y=\sqrt5$, $x=2\sqrt5$. 즉 $P$의 좌표는 $(2\sqrt5,\ 0)$, $Q$의 좌표는 $(0,\ \sqrt5)$이다.
+      criteria: [1.A1, 1.A2]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 6
+      evidence: 거리 조건을 $x^2+y^2=25$로 나타냈다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1]
+    - id: 1.M2
+      mark_type: M
+      points: 6
+      evidence: 음함수 미분으로 $2x+2y\dfrac{dy}{dx}=0$(또는 $t$로 미분한 $x\dfrac{dx}{dt}+y\dfrac{dy}{dt}=0$)을 얻었다.
+      depends_on: []
+      steps: [1b-2]
+    - id: 1.M3
+      mark_type: M
+      points: 6
+      evidence: $\dfrac{dy/dt}{dx/dt}=-\dfrac xy$로 두 점의 속도의 비를 좌표로 나타냈다.
+      depends_on: []
+      steps: [1b-3]
+    - id: 1.R1
+      mark_type: R
+      points: 4
+      evidence: 속력 조건과 $x,y>0$, 속력 $\neq0$을 근거로 $\dfrac xy=2$($x=2y$)를 이끌었다.
+      depends_on: []
+      steps: [1a, 1b-4]
+    - id: 1.A1
+      mark_type: A
+      points: 4
+      evidence: $x=2\sqrt5$, $y=\sqrt5$를 구했다.
+      depends_on: [1.M1, 1.R1]
+      steps: [1a, 1b-5]
+    - id: 1.A2
+      mark_type: A
+      points: 4
+      evidence: $P(2\sqrt5,\ 0)$, $Q(0,\ \sqrt5)$로 좌표를 답했다.
+      depends_on: [1.M1, 1.R1]
+      steps: [1b-5]
+    deductions:
+    - code: D1-1
+      condition: 제시문 인용 없음(동국 규정)
+      effect: minus
+      value: 1
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-CAL-2409}
+  misconceptions:
+  - id: MC-CAL-2409
+    outcome_code: '70'
+    wrong_work: '속력의 비를 그대로 좌표의 비로 보아 $x=\dfrac12y$로 두고 $P(\sqrt5,0)$, $Q(0,2\sqrt5)$로 답함'
+    detect_cue: 답이 $P(\sqrt5,0)$, $Q(0,2\sqrt5)$
+    feedback: $x\dfrac{dx}{dt}+y\dfrac{dy}{dt}=0$에서 속력의 비는 좌표의 역비입니다.
+    remedy: [RL-1]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CAL-2409}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-RELATED-RATE}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-input-v1, item_version: 1, verdict: pass, date: 2026-11-21, note: 원문 PDF 이미지 판독으로 옮김 · 해설·채점표 자체 작성}
+
+created: 2026-11-21
+updated: 2026-11-21

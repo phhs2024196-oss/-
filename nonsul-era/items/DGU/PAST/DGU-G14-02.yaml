@@ -1,0 +1,211 @@
+schema_version: '2.0'
+id: DGU-G14-02
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: DGU
+type: T06
+variant_of: null
+replaces: null
+level: L5
+form: 불변량
+points: 25
+time_estimate_min: 20
+intent: 단위 변환이 상용로그 가수의 평행이동임을 파악하고, 확률이 평행이동에 대해 불변이라는 조건으로부터 확률밀도함수가 상수임을 이끌어 첫 자리 숫자의 확률을 구하는 능력을 본다.
+key_idea: '단위 불변 ⇒ $P(a\le X\le b)=P(a+c\le X\le b+c)$ ⇒ $f(a)=\lim_{b\to a}\dfrac1{b-a}\int_a^bf=f(a+c)$, 즉 $f\equiv1$ on $[0,1)$.'
+stuck: 단위에 의존하지 않음을 가수 분포의 평행이동 불변으로 번역하는 단계
+idea_tags: [IDEA-SCALE-INVARIANCE-LOG-SHIFT, IDEA-PDF-SHIFT-INVARIANT-CONSTANT]
+tags: [벤포드 법칙, 동국 기출]
+elements:
+  materials:
+  - '남아메리카 12개국 면적·인구 자료'
+  - '첫 번째 자리 숫자의 분포(벤포드 법칙)'
+  - '화폐 단위 변경(환율)'
+  concepts: [상용로그의 지표와 가수, 확률밀도함수의 성질, 정적분과 넓이, 미분계수와 적분의 관계(평균값의 극한)]
+  tools:
+  - '단위 환산 = 상수배 ⇒ 로그에 상수 더하기'
+  - '구간 확률의 평행이동 불변'
+  - '구간 길이→0 극한으로 f 상수 도출'
+  - '첫 자리 2 ⇔ log2≤X<log3'
+  conditions:
+  - '단위에 의존하지 않음 ⇒ 임의의 상수배에도 가수 분포 동일 ⇒ $P(a\le X\le b)=P(a+c\le X\le b+c)$'
+  - '가수의 범위 $0\le X<1$ ⇒ 확률밀도함수의 정의역 $[0,1)$, 넓이 1'
+  - '첫 자리 2 ⇔ $\log2\le X<\log3$'
+  stimuli_used: [가, 나, 다, 라]
+  subpart_links: '제시문 【다】의 가수 개념을 DGU-G14-01 과 공유(별도 문항)'
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅰ, 수학Ⅱ, 확률과통계]
+  scope_2028: common
+  scope_confirmed: true
+  standards:
+  - code: 미확인
+    text: 연속확률변수의 확률밀도함수의 성질을 이해한다 / 상용로그를 활용할 수 있다(요지)
+    verified: false
+  content_area: 확률과통계 – 연속확률분포
+  behavior_domain: 추론
+  unit_path: [확률과통계, 통계, 확률분포, 연속확률변수]
+  key_concepts: [상용로그의 지표와 가수, 확률밀도함수의 성질, 정적분과 넓이, 미분계수와 적분의 관계(평균값의 극한)]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 동국대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 동국대학교
+  admission_year: 2014
+  admission_type: 논술
+  track: 자연계열
+  question_no: 2
+  official_url: https://ipsi.dongguk.edu/   # 원문 게시 URL 미확인(교재 재수록본에서 옮김)
+  retrieved_at: '2026-11-21'
+  original_points: 25
+  rights_notice: 미확인 — 원문 PDF 표지 문구 확인 필요(현재 사본은 '대치 수리 논술 연구소' 교재 재수록본)
+  note: 문제 = 동국대 수리논술 문제집 p.74~75, 해설 참고 = 해설집 p.77. 제시문 【가】~【라】는 DGU-G14-01 과 공유. <표 1>은 원문 2열 표를 한 줄씩 옮김. 평행이동은 실제로는 mod 1(원 위) 평행이동 — 해설집은 a, b, a+c, b+c ∈ [0,1) 범위로 제한해 처리
+
+verify: verify/DGU-G14.py::p02
+
+stimuli:
+- label: 가
+  body: |
+    <표 1>은 남아메리카 국가연합에 소속된 12개국의 면적과 인구의 통계 자료이다. 여기에 나타나는 24개의 숫자자료 중 첫 번째 자리의 숫자가 1로 시작하는 항목은 모두 8개이고, 2로 시작하는 항목은 총 5개로 첫 번째 자리의 숫자가 8이나 9로 시작하는 항목보다 훨씬 자주 나타나고 있다.
+    십진수로 표시된 수는 첫 번째 자리에 1부터 9까지의 9가지 숫자가 될 수 있다. 따라서 일반적인 통계자료에서 첫 번째 자리의 숫자가 1일 확률이 1/9로 나올 것으로 예상하기 쉽다. 하지만 <표 1>에서처럼 어떤 경우에는 자료의 값이 첫 번째 자리의 숫자가 1인 경우는 1/9보다 훨씬 많이 나타나고 반대로 9는 적게 나타난다. 이러한 현상은 하천의 길이나 호수의 넓이 등 여러 자연현상의 자료뿐만 아니라 개인의 소득, 기업의 회계자료 등 사회현상의 많은 자료에서도 공통적으로 나타난다.
+    미국 TV 드라마 '넘버스'에는 주인공이 통계 자료의 수가 가지는 이러한 성질을 가지고 범죄를 해결하는 이야기가 나온다. 실제로 사람이 인위적으로 고른 숫자로 만들어진 가짜 자료는 이러한 특성을 따르기가 어렵기 때문에 회계부정이나 위조 자료를 통한 의료보험의 부정수급 등을 적발하는 데 사용한다고 한다.
+    <표 1> 남아메리카 국가 연합 개요 (국가 / 면적(km²) / 인구(백만명))
+    가이아나 214,969 0.7 · 베네수엘라 912,046 27.9 · 볼리비아 1,098,575 9.5 · 브라질 8,547,360 192.4 · 수리남 163,270 0.5 · 아르헨티나 2,780,388 39.8 · 에콰도르 283,560 13.9 · 우루과이 177,409 3.3 · 칠레 756,626 16.8 · 콜롬비아 1,138,906 48.2 · 파라과이 406,747 6.5 · 페루 1,285,214 29.1
+    ( 자료출처: 『고등학교 세계 지리』 )
+- label: 나
+  body: |
+    자료의 어떤 통계적 특성이 단위에 의존하지 않는다는 것은 다른 단위를 사용하더라도 그 통계적 특성이 바뀌지 않는다는 것을 의미한다. 예를 들어, 길이의 통계자료를 미터로 나타내거나 리(里) 또는 피트나 야드로 자료의 단위를 바꾸더라도 그 통계적 특성은 유지된다. 특히 경제적 가치는 각 나라의 화폐 단위로 표시되고 다른 화폐 단위로의 변경은 환율을 곱하여 이루어지는데, 환율은 거의 연속적으로 변하는 값이다.
+- label: 다
+  body: |
+    임의의 양수 $N$은 $N=a\times10^n$ ($n$은 정수, $1\le a<10$)의 꼴로 나타낼 수 있다. 따라서 $N$의 상용로그의 값은
+    $$\log N=\log(a\times10^n)=\log a+\log10^n=n+\log a$$
+    이므로 $\log N$의 값을 구하려면 상용로그표에서 $\log a$의 값을 찾고, 이 값에 정수 $n$을 더하면 된다. 여기서 정수 $n$을 $\log N$의 지표, $\log a$를 $\log N$의 가수라 한다. 이때 $1\le a<10$이므로 $0\le\log a<1$이다.
+    －『고등학교 수학』
+- label: 라
+  body: |
+    연속확률변수 $X$의 확률밀도함수 $f(x)$에 대하여
+    (1) $f(x)\ge0$
+    (2) 함수 $f(x)$의 그래프와 $x$축 사이의 넓이는 1이다.
+    (3) 확률 $P(a\le X\le b)$는 함수 $f(x)$의 그래프와 $x$축 및 두 직선 $x=a$, $x=b$로 둘러싸인 부분의 넓이이다. 즉,
+    $$P(a\le X\le b)=\int_a^bf(x)dx$$
+    －『고등학교 수학』
+
+stem: |
+  제시문 【가】에서 설명한 첫 번째 자리의 숫자의 분포에 대한 법칙을 상용로그 가수의 분포를 통하여 찾고자 한다. 첫 번째 자리의 숫자의 분포를 따르는 상용로그 가수의 확률변수가 제시문 【라】에서 설명한 확률밀도함수를 가진다고 하자. 제시문 【나】에서 설명한 단위에 의존하지 않는다는 가정을 이용하여 상용로그 가수의 확률밀도함수를 구하시오. 이때 첫 번째 자리의 숫자가 2일 확률을 구하시오.
+  (단, 풀이과정을 포함하여 기술하시오.)
+  <8~15줄> [25점]
+
+subparts:
+- id: '1'
+  stem: |
+    상용로그 가수의 확률밀도함수와 첫 번째 자리의 숫자가 2일 확률을 구하시오.
+  points: 25
+  depends_on: []
+  answer: {kind: value, value: 'f(x)=1\ (0\le x<1),\ P=\log3-\log2\approx0.1761', equivalents: ['log(3/2)', '17.61%'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: 단위 환산 = 값에 상수를 곱함 = 가수에 상수를 더함. 모든 평행이동에 대해 구간 확률이 같으면 밀도는 상수.
+    steps:
+    - {id: 1a, content: '$f\equiv1$ on $[0,1)$, $P(\log2\le X<\log3)=\log3-\log2\approx0.1761$', criteria: [1.A1, 1.A2]}
+    hint_ladder:
+    - 단위를 바꾸면 자료에 어떤 수가 곱해지는가? 로그를 취하면?
+    - 길이가 같은 두 구간의 확률이 항상 같다면 밀도함수는 어떤 모양인가?
+    - 첫 자리가 2인 수의 가수 범위는?
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 해설집 p.77 [문제 2]
+    steps:
+    - id: 1b-1
+      content: |
+        자료의 단위를 다른 단위로 바꾸는 것은 자료의 값에 단위환산율을 곱하는 것이고, 상용로그를 취하면 환산율의 로그를 더한 값이 된다. 제시문 【나】에 의해 임의의 환산율을 곱해도 가수의 분포가 변하지 않으므로 가수의 확률변수 $X$는
+        $P(a\le X\le b)=P(a+c\le X\le b+c)$ (단, $a,b,a+c,b+c\in[0,1)$)
+        를 만족한다.
+      criteria: [1.M1]
+    - id: 1b-2
+      content: |
+        $X$의 확률밀도함수를 $f(x)$라 하면 제시문 【라】의 (3)에 의해 $\int_a^bf(x)dx=\int_{a+c}^{b+c}f(x)dx$이고, 모든 $a,a+c\in[0,1)$에 대하여
+        $f(a)=\lim_{b\to a}\dfrac{1}{b-a}\int_a^bf(x)dx=\lim_{b\to a}\dfrac{1}{b-a}\int_{a+c}^{b+c}f(x)dx=f(a+c)$.
+        즉 $f(x)$는 상수함수이다.
+      criteria: [1.R1]
+    - id: 1b-3
+      content: |
+        【라】의 (2)에서 넓이가 1이고 $f$는 $[0,1)$에서 정의되므로(【다】: $0\le\log a<1$) $f(x)=1\ (0\le x<1)$.
+      criteria: [1.A1]
+    - id: 1b-4
+      content: |
+        첫 번째 자리의 숫자가 2일 확률은 가수가 $\log2$ 이상 $\log3$ 미만일 확률이므로
+        $P(\log2\le X<\log3)=\int_{\log2}^{\log3}1\,dx=\log3-\log2\approx0.1761=17.61\%$.
+      criteria: [1.M2, 1.A2]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 6
+      evidence: 단위 변환이 가수에 상수를 더하는 것임을 쓰고 $P(a\le X\le b)=P(a+c\le X\le b+c)$를 세웠다.
+      depends_on: []
+      steps: [1b-1]
+    - id: 1.R1
+      mark_type: R
+      points: 7
+      evidence: 구간 길이를 0으로 보내는 극한(또는 동치 논증)으로 $f(a)=f(a+c)$, 즉 $f$가 상수임을 보였다.
+      depends_on: [1.M1]
+      steps: [1b-2]
+    - id: 1.A1
+      mark_type: A
+      points: 5
+      evidence: 넓이 1 조건으로 $f(x)=1\ (0\le x<1)$을 적었다.
+      depends_on: [1.R1]
+      steps: [1a, 1b-3]
+    - id: 1.M2
+      mark_type: M
+      points: 4
+      evidence: 첫 자리 2 ⇔ $\log2\le X<\log3$으로 바꾸어 적분(또는 넓이)으로 확률을 세웠다.
+      depends_on: []
+      steps: [1b-4]
+    - id: 1.A2
+      mark_type: A
+      points: 3
+      evidence: 확률 $\log3-\log2\ (\approx0.1761)$을 적었다.
+      depends_on: [1.M2]
+      steps: [1a, 1b-4]
+    deductions:
+    - code: D1-1
+      condition: 제시문 인용 없음(동국 규정)
+      effect: minus
+      value: 1
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-PRB-2602}
+  misconceptions:
+  - id: MC-PRB-2602
+    outcome_code: '70'
+    wrong_work: '단위에 의존하지 않으므로 첫 자리 숫자 1~9가 고르게 나온다고 보아 확률 $\dfrac19$을 답함(가수가 아닌 첫 자리 숫자를 균등하게 둠)'
+    detect_cue: 답이 $\dfrac19$ 또는 밀도함수를 $\{1,\dots,9\}$ 위 이산균등으로 둠
+    feedback: 균등한 것은 첫 자리 숫자가 아니라 상용로그의 가수입니다. 첫 자리가 2인 가수의 구간 길이 $\log3-\log2$를 구하세요.
+    remedy: [RL-1]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-PRB-2602}
+  relation: remediation
+  target: {kind: concept, ref: CON-PRB-CONTINUOUS}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-input-v1, item_version: 1, verdict: pass, date: 2026-11-21, note: 원문 PDF 이미지 판독으로 옮김 · 해설 B는 해설집 흐름 · 채점표 자체 작성}
+
+created: 2026-11-21
+updated: 2026-11-21

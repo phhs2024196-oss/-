@@ -1,0 +1,218 @@
+schema_version: '2.0'
+id: DGU-G20-02
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: proof
+origin: past_exam
+school: DGU
+type: T10
+variant_of: null
+replaces: null
+level: L4
+form: 추론
+points: 30
+time_estimate_min: 20
+intent: 넓이 함수의 증분을 최댓값·최솟값으로 끼워 도함수의 정의와 연속성으로 미적분의 기본정리를 설명하는 능력을 본다.
+key_idea: '$m\Delta x\le\Delta S\le M\Delta x$로 $\dfrac{\Delta S}{\Delta x}$를 끼우고, 연속성으로 $\Delta x\to0$일 때 $m,\ M\to f(x)$.'
+stuck: 넓이의 증분을 직사각형 두 개로 끼우는 부등식과, $m$, $M$이 $f(x)$로 가는 근거(연속성)를 밝히는 단계
+idea_tags: [IDEA-CAL-SQUEEZE-INCREMENT, IDEA-CAL-FTC-FROM-AREA]
+tags: [미적분의 기본정리, 증명, 동국 기출]
+
+elements:
+  materials:
+  - '곡선 아래 넓이 함수 $S(x)$'
+  - '넓이의 증분 $\Delta S$'
+  concepts:
+  - '정적분과 넓이'
+  - '증분'
+  - '최대·최소 정리'
+  - '도함수의 정의'
+  - '연속'
+  tools:
+  - '증분을 높이 $m$, $M$인 직사각형 넓이로 끼우기'
+  - '끼임으로 극한 구하기'
+  - '연속성으로 $m,M\to f(x)$'
+  conditions:
+  - '$f$가 연속 ⇒ $[x,x+\Delta x]$에서 최댓값·최솟값 존재(【다】)'
+  - '$\Delta x>0$으로 나눠도 부등호 방향 유지'
+  - '$\Delta x\to0$이면 $m=f(t_1)$, $M=f(t_2)$에서 $t_1,t_2\to x$'
+  stimuli_used: [가, 나, 다]
+  subpart_links: null
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅱ]
+  scope_2028: common
+  scope_confirmed: true
+  standards:
+  - code: 미확인
+    text: 부정적분과 정적분의 관계를 이해하고, 정적분을 구할 수 있다(요지)
+    verified: false
+  content_area: 수학Ⅱ – 적분(정적분과 미분의 관계)
+  behavior_domain: 추론
+  unit_path: [수학Ⅱ, 적분, 정적분, 정적분으로 정의된 함수의 미분]
+  key_concepts:
+  - '정적분과 넓이'
+  - '증분'
+  - '최대·최소 정리'
+  - '도함수의 정의'
+  - '연속'
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 동국대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 동국대학교
+  admission_year: 2020
+  admission_type: 논술
+  track: 자연계열
+  question_no: 2
+  official_url: https://ipsi.dongguk.edu/   # 원문 게시 URL 미확인(교재 재수록본에서 옮김)
+  retrieved_at: '2026-11-21'
+  original_points: null
+  rights_notice: 미확인 — 원문 PDF 표지 문구 확인 필요(현재 사본은 '대치 수리 논술 연구소' 2027 대비 교재 재수록본)
+  note: 문제 = 동국대 수리논술 문제집2027 p.54, 해설 참고 = 해설집2027 p.53. 원문에 배점·줄 수 표기 없음 → 30점 자체 배정. 제시문은 $f\ge0$(넓이)·$\Delta x>0$으로 설명하나 논제는 부호 조건이 없음 → B는 해설집 흐름(f≥0, Δx>0), 좌극한·일반 f 확장은 ALT
+
+verify: verify/DGU-G20.py::p02
+
+stimuli:
+- label: 가
+  body: |
+    함수 $y=f(t)$가 닫힌 구간 $[a,\ b]$에서 연속이고, $f(t)\ge0$이라 하자.
+    닫힌 구간 $[a,b]$에 속하는 $x$에 대하여 $a$에서 $x$까지 곡선 $y=f(t)$와 $t$축 사이의 넓이를 $S(x)$라 하면,
+    $$S(x)=\int_a^x f(t)dt$$
+    이다.
+    『고등학교 미적분 Ⅰ』
+- label: 나
+  body: |
+    $x$의 증분 $\Delta x$는 $0$에 가깝게 이웃하는 두 $x$값의 차이를 의미한다. $x$의 증분 $\Delta x\,(\Delta x>0)$에 대한 $S(x)$의 증분을 $\Delta S$라 하면,
+    $$\Delta S=S(x+\Delta x)-S(x)$$
+    이다.
+    『고등학교 미적분 Ⅰ』
+- label: 다
+  body: |
+    닫힌 구간 $[x,\ x+\Delta x]$에서 함수 $f(t)$가 연속이면 이 구간에서 최댓값 $M$과 최솟값 $m$을 가진다.
+    『고등학교 미적분 Ⅰ』
+
+stem: |
+  제시문을 이용하여, 함수 $f(x)$가 닫힌 구간 $[a,\ b]$에서 연속이면
+  $$\dfrac{d}{dx}\int_a^x f(t)dt=f(x)\quad(a<x<b)$$
+  이 됨을 설명하시오.
+
+subparts:
+- id: '1'
+  stem: |
+    위 등식이 성립함을 설명하시오.
+  points: 30
+  depends_on: []
+  answer: {kind: proof, value: null, equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: 넓이 증분 $\Delta S$를 높이 $m$, $M$인 직사각형 넓이로 끼우고 $\Delta x\to0$.
+    steps:
+    - {id: 1a, content: '$m\le\dfrac{\Delta S}{\Delta x}\le M$, $\Delta x\to0$이면 $m,M\to f(x)$ → $S''(x)=f(x)$', criteria: [1.M1, 1.R1, 1.A1]}
+    hint_ladder:
+    - $\Delta S$는 폭 $\Delta x$인 띠 모양의 넓이이다.
+    - 띠의 높이는 $m$과 $M$ 사이에 있다.
+    - $\Delta x$를 줄이면 $m$, $M$은 어디로 가는가?
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 해설집 p.53
+    steps:
+    - id: 1b-1
+      content: |
+        먼저 $f(t)\ge0$이라 하자. 【가】에 의해 $S(x)=\displaystyle\int_a^x f(t)dt$는 넓이이고, 【나】에 의해 $\Delta x>0$일 때 $\Delta S=S(x+\Delta x)-S(x)$는 $t=x$부터 $t=x+\Delta x$까지 곡선 아래의 넓이이다.
+      criteria: [1.M1]
+    - id: 1b-2
+      content: |
+        【다】에 의해 $[x,\ x+\Delta x]$에서 $f$의 최솟값 $m$, 최댓값 $M$이 있고 $m\le f(t)\le M$이므로, 그 넓이는 높이 $m$인 직사각형보다 작지 않고 높이 $M$인 직사각형보다 크지 않다:
+        $$m\Delta x\le\Delta S\le M\Delta x,\qquad m\le\dfrac{\Delta S}{\Delta x}\le M.$$
+      criteria: [1.M1, 1.A1]
+    - id: 1b-3
+      content: |
+        $m=f(t_1)$, $M=f(t_2)$인 $t_1,\ t_2$가 $[x,\ x+\Delta x]$에 있으므로 $\Delta x\to0+$이면 $t_1,\ t_2\to x$이고, $f$가 연속이므로 $m\to f(x)$, $M\to f(x)$. 따라서 $\displaystyle\lim_{\Delta x\to0+}\dfrac{\Delta S}{\Delta x}=f(x)$.
+      criteria: [1.R1]
+    - id: 1b-4
+      content: |
+        함수 $y=f(x)$의 도함수의 정의 $f'(x)=\displaystyle\lim_{\Delta x\to0}\dfrac{\Delta y}{\Delta x}$에 의해 $\dfrac{d}{dx}S(x)=\displaystyle\lim_{\Delta x\to0}\dfrac{\Delta S}{\Delta x}=f(x)$이고, $S(x)=\displaystyle\int_a^x f(t)dt$이므로 $\dfrac{d}{dx}\displaystyle\int_a^x f(t)dt=f(x)$이다. ■
+      criteria: [1.A2]
+  - id: S1-ALT
+    audience: ALT
+    method_no: 2
+    key_idea: 해설집 풀이(Δx>0, f≥0)를 보완해 좌극한과 부호 조건 없는 연속함수까지 확장한다.
+    steps:
+    - id: 1c-1
+      content: |
+        $\Delta x<0$이면 구간 $[x+\Delta x,\ x]$에서 같은 논리로 $m\lvert\Delta x\rvert\le S(x)-S(x+\Delta x)\le M\lvert\Delta x\rvert$이고, 양변을 $\lvert\Delta x\rvert=-\Delta x$로 나누면 다시 $m\le\dfrac{\Delta S}{\Delta x}\le M$이므로 좌극한도 $f(x)$이다.
+      criteria: [1.R1]
+    - id: 1c-2
+      content: |
+        $f$의 부호 조건이 없으면, 연속함수 $f$는 $[a,b]$에서 최솟값을 가지므로 $g(t)=f(t)+K\ge0$인 상수 $K$를 잡는다. 위 결과를 $g$에 적용하면 $\dfrac{d}{dx}\displaystyle\int_a^x g(t)dt=g(x)$이고 $\displaystyle\int_a^x g(t)dt=\int_a^x f(t)dt+K(x-a)$이므로 $\dfrac{d}{dx}\displaystyle\int_a^x f(t)dt=f(x)$. ■
+      criteria: [1.A2]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 6
+      evidence: 【가】【나】를 인용해 $\Delta S$를 $[x,\ x+\Delta x]$ 위의 넓이로 해석했다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1, 1b-2]
+    - id: 1.A1
+      mark_type: A
+      points: 6
+      evidence: 【다】의 $m$, $M$으로 $m\Delta x\le\Delta S\le M\Delta x$와 $m\le\dfrac{\Delta S}{\Delta x}\le M$을 적었다.
+      depends_on: [1.M1]
+      steps: [1a, 1b-2]
+    - id: 1.R1
+      mark_type: R
+      points: 10
+      evidence: $\Delta x\to0$일 때 $m\to f(x)$, $M\to f(x)$인 근거로 $f$의 연속성을 밝히고 $\dfrac{\Delta S}{\Delta x}$의 극한이 $f(x)$임을 끼임으로 이끌었다.
+      depends_on: []
+      steps: [1a, 1b-3, 1c-1]
+    - id: 1.A2
+      mark_type: A
+      points: 8
+      evidence: 극한이 도함수의 정의임을 써서 $\dfrac{d}{dx}\displaystyle\int_a^x f(t)dt=f(x)$로 결론지었다.
+      depends_on: [1.R1]
+      not_penalized:
+      - $\Delta x<0$(좌극한)·$f$의 부호가 바뀌는 경우를 따로 다루지 않음(제시문 【나】가 $\Delta x>0$, 【가】가 $f\ge0$을 전제)
+      steps: [1b-4, 1c-2]
+    deductions:
+    - code: D1-1
+      condition: 제시문 인용 없음(동국 규정)
+      effect: minus
+      value: 1
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-PRF-2502}
+  misconceptions:
+  - id: MC-PRF-2502
+    outcome_code: '70'
+    wrong_work: '$m\le\dfrac{\Delta S}{\Delta x}\le M$까지 쓴 뒤 「$\Delta x\to0$이면 $f(x)$」라고만 하고 연속성 근거를 생략'
+    detect_cue: 연속이라는 말이 극한 단계에 없음
+    feedback: $m$, $M$이 $f(x)$로 가는 이유는 $f$의 연속성입니다($m=f(t_1)$, $M=f(t_2)$이고 $t_1,t_2\to x$).
+    remedy: [RL-1]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-PRF-2502}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-FTC}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-input-v1, item_version: 1, verdict: pass, date: 2026-11-21, note: 원문 PDF 이미지 판독으로 옮김 · 해설·채점표 자체 작성}
+
+created: 2026-11-21
+updated: 2026-11-21

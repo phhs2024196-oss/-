@@ -1,0 +1,212 @@
+schema_version: '2.0'
+id: DGU-M21-02
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: DGU
+type: T05
+variant_of: null
+replaces: null
+level: L4
+form: 전수
+points: 30
+time_estimate_min: 20
+intent: 삼차함수가 일대일일 조건을 도함수의 부호(판별식)로 바꾸고, 사잇값 정리로 극값이 있으면 일대일이 아님을 논증한 뒤 주사위 눈의 순서쌍을 세어 확률을 구하는 능력을 본다.
+key_idea: '일대일 $\iff$ 극값이 없음 $\iff$ $f''(x)=3x^2+2ax+b$의 $\dfrac D4=a^2-3b\le0$, 이를 만족하는 $(a,b)$는 16쌍.'
+stuck: 판별식이 0인 경우(중근)도 일대일임을 포함시키는 단계, $c$가 무관함을 보는 단계
+idea_tags: [IDEA-CUBIC-INJECTIVE-DISCRIMINANT, IDEA-CNT-DICE-ENUM]
+tags: [일대일함수, 주사위, 동국 모의]
+elements:
+  materials:
+  - '주사위 3번의 눈 $a,b,c$'
+  - '삼차함수 $f(x)=x^3+ax^2+bx+c$'
+  concepts:
+  - '일대일함수'
+  - '도함수의 부호와 증가·감소'
+  - '사잇값 정리'
+  - '이차방정식의 판별식'
+  - '수학적 확률'
+  tools:
+  - '극값이 있으면 사잇값 정리로 같은 함숫값 두 번 ⇒ 일대일 아님'
+  - '$f''(x)\ge0$ 조건을 $\dfrac D4=a^2-3b\le0$으로'
+  - '$a$별로 $b$ 개수 세기'
+  - '$c$는 조건과 무관 ⇒ $(a,b)$ 36쌍으로 계산'
+  conditions:
+  - '최고차항 계수 양수 ⇒ 일대일이면 증가함수, 즉 모든 $x$에서 $f''(x)\ge0$'
+  - '$a^2-3b=0$(중근)이어도 $f''(x)=0$인 점이 하나뿐 ⇒ 증가, 일대일'
+  - '$a\ge5$이면 $a^2>18\ge3b$ ⇒ 불가능'
+  stimuli_used: [가, 나, 다, 라]
+  subpart_links: null
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅱ, 확률과통계, 수학]
+  scope_2028: common
+  scope_confirmed: true
+  standards:
+  - code: 미확인
+    text: 함수의 증가와 감소를 도함수로 판정하고, 수학적 확률을 구할 수 있다(요지)
+    verified: false
+  content_area: 미분 – 함수의 증가·감소와 확률
+  behavior_domain: 추론
+  unit_path: [수학Ⅱ, 미분, 도함수의 활용, 함수의 증가와 감소]
+  key_concepts: ['일대일함수', '도함수의 부호와 증가·감소', '사잇값 정리', '이차방정식의 판별식', '수학적 확률']
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 동국대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 동국대학교
+  admission_year: 2021
+  admission_type: 논술(모의)
+  track: 자연계열
+  question_no: 2
+  official_url: https://ipsi.dongguk.edu/   # 원문 게시 URL 미확인(교재 재수록본에서 옮김)
+  retrieved_at: '2026-11-21'
+  original_points: null
+  rights_notice: 미확인 — 원문 PDF 표지 문구 확인 필요(현재 사본은 '대치 수리 논술 연구소' 2027 대비 교재 재수록본)
+  note: 문제 = 동국대 수리논술 문제집2027 p.51, 해설 참고 = 동국대 수리논술 해설집2027 p.49. 원문(재수록본)에 배점 표기 없음 → 1번 30점·3번 40점(원문 표기)이므로 30점으로 자체 배분
+
+verify: verify/DGU-M21.py::p02
+
+stimuli:
+- label: 가
+  body: |
+    함수 $f:X\to Y$에서 정의역 $X$의 임의의 두 원소 $x_1$, $x_2$에 대하여
+    $$x_1\neq x_2\text{ 이면 }f(x_1)\neq f(x_2)$$
+    일 때, 함수 $f$를 일대일함수라고 한다.
+    『고등학교 수학』
+- label: 나
+  body: |
+    함수 $f(x)$가 어떤 구간에서 미분가능하고, 이 구간의 모든 $x$에 대하여
+    (i) $f'(x)>0$이면 $f(x)$는 이 구간에서 증가한다.
+    (ii) $f'(x)<0$이면 $f(x)$는 이 구간에서 감소한다.
+    『고등학교 수학 Ⅱ』
+- label: 다
+  body: |
+    함수 $f(x)$가 닫힌구간 $[a,b]$에서 연속이고 $f(a)\neq f(b)$이면 $f(a)$와 $f(b)$ 사이의 임의의 실수 $k$에 대하여 $f(c)=k$인 $c$가 열린구간 $(a,b)$에 적어도 하나 존재한다.
+    『고등학교 수학 Ⅱ』
+- label: 라
+  body: |
+    표본공간이 $S$인 어떤 시행에서 각 근원사건이 일어날 가능성이 모두 같은 정도로 기대될 때, 사건 $A$가 일어날 확률 $P(A)$를
+    $$P(A)=\dfrac{n(A)}{n(S)}$$
+    로 정의하고, 이것을 표본공간 $S$에서 사건 $A$가 일어날 수학적 확률이라고 한다.
+    『고등학교 확률과통계』
+
+stem: |
+  주사위를 3번 던져서 나온 숫자를 순서대로 $a,b,c$라고 할 때, 삼차 함수 $f(x)=x^3+ax^2+bx+c$가 일대일 함수일 확률을 구하고 풀이과정을 서술하시오.
+
+subparts:
+- id: '1'
+  stem: |
+    위 논제의 확률을 구하시오.
+  points: 30
+  depends_on: []
+  answer: {kind: value, value: '\dfrac49', equivalents: ['4/9', '96/216'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: 일대일 $\iff$ $a^2\le3b$. $a=1,2,3,4$일 때 $b$는 각각 6, 5, 4, 1개.
+    steps:
+    - {id: 1a, content: '$6+5+4+1=16$, $\dfrac{16}{36}=\dfrac49$', criteria: [1.A1, 1.A2]}
+    hint_ladder:
+    - 삼차함수가 극댓값을 가지면 같은 함숫값을 두 번 가질 수 있는가?
+    - $f'(x)\ge0$이 항상 성립할 조건을 판별식으로 쓰자.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 해설집 p.49
+    steps:
+    - id: 1b-1
+      content: |
+        삼차함수 $f(x)$가 증가하다가 감소하거나 감소하다가 증가하면 극댓값 또는 극솟값을 갖는다. 만일 극댓값을 가지면 제시문 【다】에 의하여 극댓값보다 작은 어떤 값 $k$에 대하여 증가하는 구간에서 $f(c_1)=k$인 $c_1$이 존재하고, 감소하는 구간에서 $f(c_2)=k$인 $c_2$가 존재한다. 따라서 제시문 【가】에 의해 $f(x)$는 일대일함수가 아니다. 극소를 가져도 마찬가지이다.
+      criteria: [1.R1]
+    - id: 1b-2
+      content: |
+        따라서 $f(x)$가 일대일함수인 것은 $f(x)$가 실수 전체에서 증가(또는 감소)함수인 것이다. 즉 도함수 $f'(x)=3x^2+2ax+b$가 모든 $x$에 대하여 $f'(x)\ge0$(또는 $f'(x)\le0$)이고, 이는 이차방정식 $f'(x)=0$이 중근이나 허근을 갖는 것, 곧 판별식 $\dfrac D4=a^2-3b\le0$이다.
+        (중근일 때도 $f'(x)=0$인 점이 하나뿐이고 그 밖에서 $f'(x)>0$이므로 제시문 【나】에 의해 $f$는 증가한다.)
+      criteria: [1.M1, 1.R2]
+    - id: 1b-3
+      content: |
+        $a^2-3b\le0$을 만족하는 $a,b$의 순서쌍의 개수는 $a=1$일 때 $b=1,\dots,6$, $a=2$일 때 $b=2,\dots,6$, $a=3$일 때 $b=3,\dots,6$, $a=4$일 때 $b=6$으로 모두 16가지이다.
+      criteria: [1.A1]
+    - id: 1b-4
+      content: |
+        상수항 $c$의 값은 $f(x)$가 일대일함수인지 아닌지에 관계가 없으므로 무시하면, 표본공간의 $a,b$의 순서쌍의 개수는 36개이고 제시문 【라】에 의해 구하는 확률은 $\dfrac{16}{36}=\dfrac49$이다.
+      criteria: [1.M2, 1.A2]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.R1
+      mark_type: R
+      points: 8
+      evidence: 극값이 있으면 사잇값 정리로 같은 함숫값을 갖는 서로 다른 두 점이 존재해 일대일이 아님을 서술했다.
+      depends_on: []
+      steps: [1b-1]
+    - id: 1.M1
+      mark_type: M
+      points: 6
+      evidence: 일대일 조건을 $f'(x)\ge0$, 즉 $a^2-3b\le0$으로 바꾸었다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-2]
+    - id: 1.R2
+      mark_type: R
+      points: 3
+      evidence: 판별식이 $0$인 경우(중근)도 증가함수라 일대일임을 밝혔다.
+      depends_on: []
+      steps: [1b-2]
+    - id: 1.A1
+      mark_type: A
+      points: 5
+      evidence: 조건을 만족하는 $(a,b)$ 16쌍을 정확히 셌다.
+      depends_on: [1.M1]
+      steps: [1a, 1b-3]
+    - id: 1.M2
+      mark_type: M
+      points: 4
+      evidence: $c$가 무관함을 밝히고 표본공간(36쌍 또는 216가지)으로 수학적 확률을 세웠다.
+      depends_on: []
+      steps: [1b-4]
+    - id: 1.A2
+      mark_type: A
+      points: 4
+      evidence: 확률 $\dfrac49$를 적었다.
+      depends_on: [1.M1, 1.M2]
+      steps: [1a, 1b-4]
+    deductions:
+    - code: D1-1
+      condition: 제시문 인용 없음(동국 규정)
+      effect: minus
+      value: 1
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-CAL-2411}
+  misconceptions:
+  - id: MC-CAL-2411
+    outcome_code: '70'
+    wrong_work: '판별식 $a^2-3b<0$만 세어 $(3,3)$을 빼고 $\dfrac{15}{36}=\dfrac5{12}$로 답함'
+    detect_cue: 답이 $\dfrac5{12}$
+    feedback: $f'(x)=0$이 중근이면 그 한 점에서만 $f'=0$이고 함수는 계속 증가합니다. 등호를 포함하세요.
+    remedy: [RL-1]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CAL-2411}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-MONOTONE-INJECTIVE}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-input-v1, item_version: 1, verdict: pass, date: 2026-11-21, note: 원문 PDF 이미지 판독으로 옮김 · 해설·채점표 자체 작성}
+
+created: 2026-11-21
+updated: 2026-11-21

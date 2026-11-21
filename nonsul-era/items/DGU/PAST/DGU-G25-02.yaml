@@ -1,0 +1,250 @@
+schema_version: '2.0'
+id: DGU-G25-02
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: DGU
+type: T06
+variant_of: null
+replaces: null
+level: L5
+form: 추론
+points: 30
+time_estimate_min: 30
+intent: 이항분포 확률 조건에서 삼차방정식을 풀어 과체중·비만 확률을 정하고, 조건으로 근을 걸러낸 뒤 정규분포 표준화와 표준정규분포표로 구간 확률을 구하는 능력을 본다.
+key_idea: '$3p(1-p)^2=\dfrac{27}{64}$, $3q(1-q)^2=\dfrac{48}{125}$의 근 중 $p+q<\dfrac12$를 만족하는 쌍은 $\left(\dfrac14,\dfrac15\right)$뿐이고, 이로부터 $\dfrac{23-m}{\sigma}=0.13$, $\dfrac{25-m}{\sigma}=0.84$를 얻는다.'
+stuck: 삼차방정식의 여러 근 가운데 조건 $p+q<\dfrac12$로 하나의 쌍을 고르는 단계, 두 표준화 값의 차로 $\dfrac{2}{\sigma}$를 얻어 $\dfrac{27-m}{\sigma}$를 구하는 단계
+idea_tags: [IDEA-PRB-BINOMIAL-EQUATION, IDEA-ALG-ROOT-SELECTION, IDEA-PRB-NORMAL-STANDARDIZE-TABLE]
+tags: [이항분포, 정규분포, 표준정규분포표, 동국 실전]
+elements:
+  materials:
+  - 체질량지수(과체중·비만 판정)
+  - 3명 임의 추출
+  - 정규분포를 따르는 학생 집단
+  concepts:
+  - 이항분포
+  - 정규분포
+  - 정규분포의 표준화
+  - 표준정규분포표
+  - 삼차방정식의 인수분해
+  tools:
+  - '$B(3,p)$ 확률식으로 삼차방정식 세우기'
+  - 인수정리로 근 구하기
+  - '꼬리확률을 $\dfrac12$에서 빼 표의 값으로 변환'
+  - '두 표준화 값의 차로 $\dfrac{2}{\sigma}$ 구하기'
+  conditions:
+  - '"1명일 확률" ⇒ 이항분포 $P(X=1)={}_{3}C_{1}p(1-p)^2$'
+  - '확률이므로 $0<p<1$, "과체중 또는 비만일 확률 $<\dfrac12$" ⇒ $p+q<\dfrac12$로 근 선택'
+  - '$\mathrm{P}(X\ge a)<\dfrac12$ ⇒ $a>m$, 표 값 $=\dfrac12-\mathrm{P}(X\ge a)$'
+  stimuli_used: [가, 나, 다]
+  subpart_links: null
+
+curriculum:
+  version: '2015'
+  subjects: [확률과통계]
+  scope_2028: common
+  scope_confirmed: true
+  standards:
+  - code: 미확인
+    text: 이항분포와 정규분포의 뜻을 알고, 표준정규분포표를 이용해 확률을 구할 수 있다(요지)
+    verified: false
+  content_area: 확률과통계 – 통계(확률분포)
+  behavior_domain: 문제해결
+  unit_path: [확률과통계, 통계, 확률분포, 이항분포·정규분포]
+  key_concepts:
+  - '이항분포'
+  - '정규분포'
+  - '정규분포의 표준화'
+  - '표준정규분포표'
+  - '삼차방정식의 인수분해'
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 동국대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 동국대학교
+  admission_year: 2025
+  admission_type: 논술
+  track: 자연계열
+  question_no: 2
+  official_url: https://ipsi.dongguk.edu/   # 원문 게시 URL 미확인(교재 재수록본에서 옮김)
+  retrieved_at: '2026-11-21'
+  original_points: null
+  rights_notice: 미확인 — 원문 PDF 표지 문구 확인 필요(현재 사본은 '대치 수리 논술 연구소' 2027 대비 교재 재수록본)
+  note: 문제 = 문제집2027 p.15, 해설 참고 = 해설집2027 p.18. 재수록본에 배점·줄 수 표기 없음 → 동국 규격에 따라 30점 가정. 재수록본 해설은 0.75³ 조건을 '비만'에 붙여 서술하나(문제는 '과체중') 최종 p(과체중)=1/4, p(비만)=1/5·답 0.39 는 문제와 일치
+  # [판독확인] 발문 첫머리 단위 표기 '(kg/m^2)' — 원문 이탤릭 kg/m² 로 판독
+
+verify: verify/DGU-G25.py::p02
+
+stimuli:
+- label: 가
+  body: |
+    한 번의 시행에서 사건 $A$가 일어날 확률이 $p$로 일정할 때, $n$번의 독립시행에서 사건 $A$가 일어나는 횟수를 $X$라고 하자. 이때 확률변수 $X$가 가질 수 있는 값은 $0,1,2,\cdots,n$이고, $X$의 확률질량함수는 다음과 같고, 이와 같은 분포를 이항분포 $B(n,p)$라 한다.
+    $$P(X=x)={}_{n}C_{x}\,p^{x}q^{n-x}\quad(\text{단, }x=0,1,2,\cdots,n,\ q=1-p)$$
+    『고등학교 확률과 통계』
+- label: 나
+  body: |
+    실수 전체의 집합에서 정의된 연속확률변수 $X$의 확률밀도함수가
+    $$f(x)=\dfrac{1}{\sqrt{2\pi}\sigma}e^{-\frac{(x-m)^2}{2\sigma^2}}$$
+    일 때, $X$의 확률분포를 정규분포라고 한다. 여기서 $m$과 $\sigma\ (\sigma>0)$는 각각 연속확률변수 $X$의 평균과 표준편차를 나타내는 상수이고, $e$는 값이 $2.71828\cdots$인 무리수이다. 또한, $Z=\dfrac{X-m}{\sigma}$는 표준정규분포를 따른다.
+    『고등학교 확률과 통계』
+- label: 다
+  body: |
+    확률변수 $Z$가 표준정규분포를 따를 때 $\mathrm{P}(0\le Z\le z)$의 값을 소숫점 이하 셋째 자리에서 반올림한 값은 다음과 같다.
+    [표: $z$ — $\mathrm{P}(0\le Z\le z)$]
+    $0.13$ — $0.05$ / $0.25$ — $0.10$ / $0.39$ — $0.15$ / $0.52$ — $0.20$ / $0.58$ — $0.22$ / $0.84$ — $0.30$ / $1.28$ — $0.40$ / $1.55$ — $0.44$
+    『고등학교 확률과 통계』
+
+stem: |
+  체질량지수 $(kg/m^2)$는 체중을 키의 제곱으로 나눈 값으로 비만의 정도를 나타내는 지표이다. 체질량지수가 23이상에서 25미만이면 과체중, 25이상이면 비만으로 판정한다. 어느 고등학교 학생들의 체질량지수는 정규분포를 따른다고 한다. 과체중 또는 비만일 확률은 $\dfrac12$미만인 것으로 알려져 있다. 임의로 3명을 뽑았을 때 과체중이 1명일 확률이 $0.75^3$이고, 임의로 3명을 뽑았을 때 비만이 1명일 확률은 $\dfrac{48}{125}$이라면 체질량지수가 23초과 27이하일 확률을 제시문을 이용하여 구하시오.
+
+subparts:
+- id: '1'
+  stem: |
+    체질량지수가 23초과 27이하일 확률을 구하시오.
+  points: 30
+  depends_on: []
+  answer: {kind: value, value: '0.39', equivalents: ['0.44-0.05'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: 과체중 확률 $p$, 비만 확률 $q$를 이항분포 식으로 구하고 $p+q<\dfrac12$로 $\left(\dfrac14,\dfrac15\right)$를 고른 뒤 표에서 $0.13$, $0.84$를 읽는다.
+    steps:
+    - {id: 1a, content: '$\dfrac{2}{\sigma}=0.84-0.13=0.71$, $\dfrac{27-m}{\sigma}=1.55$, 확률 $=0.44-0.05=0.39$', criteria: [1.A4]}
+    hint_ladder:
+    - 과체중인 사람 수는 이항분포 $B(3,p)$를 따른다.
+    - 삼차방정식은 쉬운 근 하나를 찾아 인수분해하자.
+    - 두 경계 23, 25를 표준화한 값의 차이는 $\dfrac{2}{\sigma}$이다.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 해설집 p.18
+    steps:
+    - id: 1b-1
+      content: |
+        체질량지수를 $X$, 평균 $m$, 표준편차 $\sigma$라 하고 $p=\mathrm{P}(23\le X<25)$(과체중), $q=\mathrm{P}(X\ge25)$(비만)라 하자. 3명 중 과체중인 사람 수는 제시문 【가】의 $B(3,p)$를 따르므로
+        ${}_{3}C_{1}\,p(1-p)^2=0.75^3=\dfrac{27}{64}$, 같은 방법으로 ${}_{3}C_{1}\,q(1-q)^2=\dfrac{48}{125}$.
+      criteria: [1.M1]
+    - id: 1b-2
+      content: |
+        첫 식은 $192p^3-384p^2+192p-27=0$, 즉 $(4p-1)(16p^2-28p+9)=0$이므로 $p=\dfrac14$ 또는 $p=\dfrac{7\pm\sqrt{13}}{8}$.
+      criteria: [1.A1]
+    - id: 1b-3
+      content: |
+        둘째 식은 $375q^3-750q^2+375q-48=0$, 즉 $(5q-1)(25q^2-45q+16)=0$이므로 $q=\dfrac15$ 또는 $q=\dfrac{9\pm\sqrt{17}}{10}$.
+      criteria: [1.A2]
+    - id: 1b-4
+      content: |
+        확률이므로 $0<p,q<1$이어서 $\dfrac{7+\sqrt{13}}{8}$, $\dfrac{9+\sqrt{17}}{10}$은 제외된다. 남은 후보는 $p\in\left\{\dfrac14,\ \dfrac{7-\sqrt{13}}{8}\approx0.424\right\}$, $q\in\left\{\dfrac15,\ \dfrac{9-\sqrt{17}}{10}\approx0.488\right\}$이고, 과체중 또는 비만일 확률 $p+q<\dfrac12$를 만족하는 쌍은 $p=\dfrac14$, $q=\dfrac15$뿐이다($\dfrac14+\dfrac15=\dfrac{9}{20}$, 나머지 쌍은 모두 $0.6$ 이상).
+      criteria: [1.R1]
+    - id: 1b-5
+      content: |
+        $\mathrm{P}(X\ge25)=\dfrac15<\dfrac12$이고 $\mathrm{P}(X\ge23)=\dfrac{9}{20}<\dfrac12$이므로 $23>m$, $25>m$. 제시문 【나】의 $Z=\dfrac{X-m}{\sigma}$로 표준화하면
+        $\mathrm{P}\left(0\le Z\le\dfrac{25-m}{\sigma}\right)=\dfrac12-\dfrac15=0.30$, $\mathrm{P}\left(0\le Z\le\dfrac{23-m}{\sigma}\right)=\dfrac12-\dfrac{9}{20}=0.05$.
+        제시문 【다】의 표에서 $\dfrac{25-m}{\sigma}=0.84$, $\dfrac{23-m}{\sigma}=0.13$.
+      criteria: [1.M2]
+    - id: 1b-6
+      content: |
+        두 식을 빼면 $\dfrac{2}{\sigma}=0.71$이므로 $\dfrac{27-m}{\sigma}=\dfrac{25-m}{\sigma}+\dfrac{2}{\sigma}=0.84+0.71=1.55$.
+      criteria: [1.A3]
+    - id: 1b-7
+      content: |
+        $\mathrm{P}(23<X\le27)=\mathrm{P}(0.13<Z\le1.55)=\mathrm{P}(0\le Z\le1.55)-\mathrm{P}(0\le Z\le0.13)=0.44-0.05=0.39$.
+      criteria: [1.A4]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 4
+      evidence: 과체중·비만인 사람 수를 각각 $B(3,p)$, $B(3,q)$로 보고 $3p(1-p)^2=\dfrac{27}{64}$, $3q(1-q)^2=\dfrac{48}{125}$을 세웠다.
+      depends_on: []
+      steps: [1b-1]
+    - id: 1.A1
+      mark_type: A
+      points: 4
+      evidence: $p=\dfrac14,\ \dfrac{7\pm\sqrt{13}}{8}$를 구했다.
+      depends_on: [1.M1]
+      steps: [1b-2]
+    - id: 1.A2
+      mark_type: A
+      points: 4
+      evidence: $q=\dfrac15,\ \dfrac{9\pm\sqrt{17}}{10}$를 구했다.
+      depends_on: [1.M1]
+      steps: [1b-3]
+    - id: 1.R1
+      mark_type: R
+      points: 5
+      evidence: $0<p,q<1$과 $p+q<\dfrac12$를 근거로 $p=\dfrac14$, $q=\dfrac15$만 남는다는 비교를 적었다.
+      depends_on: []
+      steps: [1b-4]
+    - id: 1.M2
+      mark_type: M
+      points: 5
+      evidence: 표준화와 표를 이용해 $\dfrac{25-m}{\sigma}=0.84$, $\dfrac{23-m}{\sigma}=0.13$을 얻는 과정이 있다.
+      depends_on: []
+      steps: [1b-5]
+    - id: 1.A3
+      mark_type: A
+      points: 3
+      evidence: $\dfrac{2}{\sigma}=0.71$, $\dfrac{27-m}{\sigma}=1.55$를 적었다.
+      depends_on: [1.M2]
+      steps: [1b-6]
+    - id: 1.A4
+      mark_type: A
+      points: 5
+      evidence: $0.44-0.05=0.39$를 답으로 적었다.
+      depends_on: [1.M2]
+      steps: [1a, 1b-7]
+    deductions:
+    - code: D1-1
+      condition: 제시문 인용 없음(동국 규정)
+      effect: minus
+      value: 1
+    - code: D1-2
+      condition: 근을 고르는 근거($p+q<\dfrac12$) 없이 $\dfrac14$, $\dfrac15$를 택함
+      effect: minus
+      value: 2
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-PRB-2201}
+  - {code: '71', misconception: MC-PRB-2202}
+  misconceptions:
+  - id: MC-PRB-2201
+    outcome_code: '70'
+    wrong_work: '눈에 띄는 근 $\dfrac14$, $\dfrac15$만 찾고 나머지 근의 존재·배제를 다루지 않거나, $p+q<\dfrac12$ 조건 없이 다른 근을 택함'
+    detect_cue: 인수분해 결과나 $p+q<\dfrac12$ 비교가 답안에 없다
+    feedback: 삼차방정식은 근이 최대 셋입니다. 모든 근을 구하고 '확률은 0과 1 사이', '과체중 또는 비만일 확률 $<\dfrac12$'로 걸러야 답이 하나로 정해집니다.
+    remedy: [RL-1]
+  - id: MC-PRB-2202
+    outcome_code: '71'
+    wrong_work: '$\mathrm{P}(X\ge25)=\dfrac15$을 $\mathrm{P}\left(0\le Z\le\dfrac{25-m}{\sigma}\right)=0.2$로 두어 $z=0.52$를 읽음'
+    detect_cue: 표준화 값으로 $0.52$ 또는 $0.39$(=0.15 행)를 사용
+    feedback: 표는 $\mathrm{P}(0\le Z\le z)$입니다. 오른쪽 꼬리 확률은 $\dfrac12$에서 빼서 표의 값으로 바꾸세요.
+    remedy: [RL-2]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-PRB-2201}
+  relation: remediation
+  target: {kind: concept, ref: CON-PRB-BINOMIAL}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-PRB-2202}
+  relation: remediation
+  target: {kind: concept, ref: CON-PRB-NORMAL-STD}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-input-v1, item_version: 1, verdict: pass, date: 2026-11-21, note: 원문 PDF 이미지 판독으로 옮김 · 해설·채점표 자체 작성}
+
+created: 2026-11-21
+updated: 2026-11-21

@@ -1,0 +1,191 @@
+schema_version: '2.0'
+id: DGU-M17-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: DGU
+type: T06
+variant_of: null
+replaces: null
+level: L3
+form: 추론
+points: 35
+time_estimate_min: 15
+intent: 확률밀도함수의 조건(넓이 1)과 연속 조건으로 미정계수를 결정하고, 연속확률변수의 기댓값을 정적분으로 계산하는 능력을 본다.
+key_idea: '연속 조건 $10a=c$와 $\int_0^{20}f=50a+10c=1$을 연립하고 $E(X)=\int_0^{20}xf(x)dx$.'
+stuck: 연속 조건을 경계점 $x=10$에서의 함숫값과 우극한 일치로 바꾸는 단계
+idea_tags: [IDEA-PRB-PDF-NORMALIZE, IDEA-CONT-PIECEWISE-MATCH]
+tags: [연속확률분포, 동국 모의]
+elements:
+  materials: [유행성 감기 완치 시간, 구간별로 정의된 확률밀도함수]
+  concepts: [함수의 연속, 확률밀도함수의 성질, 연속확률변수의 기댓값, 정적분의 계산]
+  tools:
+  - '경계점에서 함숫값=극한값'
+  - '넓이=1 조건'
+  - '연립방정식'
+  - 'E(X)=∫xf(x)dx 구간별 적분'
+  conditions:
+  - '$[0,20]$에서 연속 ⇒ $x=10$에서 $10a=c$'
+  - '확률밀도함수 ⇒ 전체 넓이 1'
+  stimuli_used: [가, 나]
+  subpart_links: null
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅱ, 확률과통계]
+  scope_2028: common
+  scope_confirmed: true
+  standards:
+  - code: 미확인
+    text: 연속확률변수의 뜻을 알고 확률밀도함수의 성질을 이해한다(요지)
+    verified: false
+  content_area: 확률과통계 – 연속확률분포
+  behavior_domain: 계산
+  unit_path: [확률과통계, 통계, 확률분포, 연속확률변수]
+  key_concepts: [함수의 연속, 확률밀도함수의 성질, 연속확률변수의 기댓값, 정적분의 계산]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 동국대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 동국대학교
+  admission_year: 2017
+  admission_type: 논술(모의)
+  track: 자연계열
+  question_no: 1
+  official_url: https://ipsi.dongguk.edu/   # 원문 게시 URL 미확인(교재 재수록본에서 옮김)
+  retrieved_at: '2026-11-21'
+  original_points: 35
+  rights_notice: 미확인 — 원문 PDF 표지 문구 확인 필요(현재 사본은 '대치 수리 논술 연구소' 교재 재수록본)
+  note: 문제 = 동국대 수리논술 문제집 p.68, 해설 참고 = 해설집 p.70. 단일 논제라 소문항 1개(35점). 원문의 E(X)는 표기상 연속확률변수의 기댓값(현행 2015 교육과정에서는 확률밀도함수의 기댓값 계산이 직접 다뤄지지 않을 수 있음 — 범위 확인 필요)
+
+verify: verify/DGU-M17.py::p01
+
+stimuli:
+- label: 가
+  body: |
+    함수 $f(x)$가 실수 $a$에서 대하여
+    (1) $x=a$에서 정의되어 있고
+    (2) 극한값 $\lim_{x\to a}f(x)$가 존재하며
+    (3) $\lim_{x\to a}f(x)=f(a)$
+    일 때, 함수 $f(x)$는 $x=a$에서 연속이라고 한다.
+    －『고등학교 수학 Ⅱ』
+- label: 나
+  body: |
+    일반적으로 $\alpha\le x\le\beta$의 실수값을 가지는 연속확률변수 $X$에 대하여 다음을 만족하는 함수 $f(x)$를 확률변수 $X$의 확률밀도함수라고 한다.
+    (1) $f(x)\ge0\quad(\alpha\le x\le\beta)$
+    (2) $\alpha\le a\le b\le\beta$인 두 실수 $a,b$에 대하여 $P(a\le X\le b)=\int_a^bf(x)dx$이다.
+    (3) $\int_\alpha^\beta f(x)dx=1$
+    －『고등학교 적분과 통계』
+
+stem: |
+  제시문 [가], [나]를 참고하여 다음에 답하시오. 어떤 유행성 감기가 완치되는데 걸리는 시간을 나타내는 연속확률변수를 $X$라고 놓고 연속확률변수 $X$가 폐구간 $[0,20]$에서 값을 갖는다고 가정하자. 연속확률변수 $X$의 확률밀도함수가 $f(x)=\begin{cases}ax, & 0\le x\le10\\ c, & 10<x\le20\end{cases}$ 라고 한다. 함수 $f(x)$가 폐구간 $[0,20]$에서 연속일 때 $a$와 $c$를 구하고, 이 감기를 완치하는데 걸리는 평균시간 $E(X)$를 구하시오. (답안지에 풀이 과정과 답을 함께 기술하시오.)
+  <10 ~ 15줄> [35점]
+
+subparts:
+- id: '1'
+  stem: |
+    $a$, $c$와 $E(X)$를 구하시오.
+  points: 35
+  depends_on: []
+  answer: {kind: value, value: 'a=\dfrac{1}{150},\ c=\dfrac{1}{15},\ E(X)=\dfrac{110}{9}', equivalents: ['E(X)≈12.22'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $c=10a$, $50a+10c=1$ → $a=\dfrac1{150}$; $E(X)=\int_0^{10}\dfrac{x^2}{150}dx+\int_{10}^{20}\dfrac{x}{15}dx$.
+    steps:
+    - {id: 1a, content: '$E(X)=\dfrac{20}{9}+10=\dfrac{110}{9}$', criteria: [1.A2]}
+    hint_ladder:
+    - $x=10$에서의 연속 조건을 식으로 써 보자.
+    - 확률밀도함수의 넓이는 얼마인가?
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 해설집 p.70
+    steps:
+    - id: 1b-1
+      content: |
+        $f(x)$가 연속이므로 제시문 [가]에 의해 $x=10$에서 함숫값과 극한값이 같다: $10a=f(10)=\lim_{x\to10+}f(x)=c$.
+      criteria: [1.M1]
+    - id: 1b-2
+      content: |
+        제시문 [나](3)에 의해 $1=\int_0^{20}f(x)dx=\int_0^{10}ax\,dx+\int_{10}^{20}c\,dx=\left[\dfrac{ax^2}{2}\right]_0^{10}+[cx]_{10}^{20}=50a+10c$.
+      criteria: [1.M2]
+    - id: 1b-3
+      content: |
+        $c=10a$, $50a+10c=1$에서 $150a=1$이므로 $a=\dfrac{1}{150}$, $c=\dfrac{1}{15}$.
+      criteria: [1.A1]
+    - id: 1b-4
+      content: |
+        $E(X)=\int_0^{20}xf(x)dx=\int_0^{10}\dfrac{x^2}{150}dx+\int_{10}^{20}\dfrac{x}{15}dx=\left[\dfrac{x^3}{450}\right]_0^{10}+\left[\dfrac{x^2}{30}\right]_{10}^{20}=\dfrac{1000}{450}+\dfrac{400-100}{30}=\dfrac{20}{9}+10=\dfrac{110}{9}$.
+      criteria: [1.M3, 1.A2]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 7
+      evidence: $x=10$에서의 연속 조건 $10a=c$를 적었다.
+      depends_on: []
+      steps: [1b-1]
+    - id: 1.M2
+      mark_type: M
+      points: 7
+      evidence: $\int_0^{20}f(x)dx=1$로부터 $50a+10c=1$을 적었다.
+      depends_on: []
+      steps: [1b-2]
+    - id: 1.A1
+      mark_type: A
+      points: 7
+      evidence: $a=\dfrac1{150}$, $c=\dfrac1{15}$을 적었다.
+      depends_on: [1.M1, 1.M2]
+      steps: [1b-3]
+    - id: 1.M3
+      mark_type: M
+      points: 7
+      evidence: $E(X)=\int_0^{20}xf(x)dx$를 두 구간으로 나누어 세웠다.
+      depends_on: []
+      steps: [1b-4]
+    - id: 1.A2
+      mark_type: A
+      points: 7
+      evidence: $E(X)=\dfrac{110}{9}$을 적었다.
+      depends_on: [1.M3]
+      ft: {allowed: false}
+      steps: [1a, 1b-4]
+    deductions:
+    - code: D1-1
+      condition: 제시문 인용 없음(동국 규정)
+      effect: minus
+      value: 1
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-PRB-2601}
+  misconceptions:
+  - id: MC-PRB-2601
+    outcome_code: '70'
+    wrong_work: '평균시간을 $\int_0^{20}f(x)dx$로 쓰거나 구간의 가운데 값 10으로 답함'
+    detect_cue: 답이 $1$ 또는 $10$
+    feedback: 연속확률변수의 기댓값은 $\int xf(x)dx$입니다. 확률밀도에 $x$를 곱해 적분하세요.
+    remedy: [RL-1]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-PRB-2601}
+  relation: remediation
+  target: {kind: concept, ref: CON-PRB-CONTINUOUS}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-input-v1, item_version: 1, verdict: pass, date: 2026-11-21, note: 원문 PDF 이미지 판독으로 옮김 · 해설 B는 해설집 흐름 · 채점표 자체 작성}
+
+created: 2026-11-21
+updated: 2026-11-21

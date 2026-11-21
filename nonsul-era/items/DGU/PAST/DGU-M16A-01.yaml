@@ -1,0 +1,203 @@
+schema_version: '2.0'
+id: DGU-M16A-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: DGU
+type: T01
+variant_of: null
+replaces: null
+level: L3
+form: 추론
+points: 30
+time_estimate_min: 20
+intent: 매개변수로 주어진 평면 운동에서 곱의 미분으로 속도·가속도를 구하고, 속력을 정리해 이동 거리를 정적분으로 계산하는 능력을 본다.
+key_idea: '속도 $\left(-e^{-t}(\cos t+\sin t),\ -e^{-t}(\sin t-\cos t)\right)$의 크기가 $\sqrt2e^{-t}$로 깔끔히 정리된다.'
+stuck: 속력 제곱을 전개해 $\cos^2t+\sin^2t$로 묶는 단계
+idea_tags: [IDEA-MOTION-PARAM-SPEED, IDEA-ARC-LENGTH-SPEED-INTEGRAL]
+tags: [로그나선 운동, 동국 모의]
+elements:
+  materials: [좌표평면 위를 움직이는 점, 감쇠하며 회전하는 운동(로그나선)]
+  concepts:
+  - '평면 운동의 속도·가속도'
+  - '속력'
+  - '이동 거리'
+  - '지수·삼각함수의 도함수'
+  - '곱의 미분법'
+  tools: [곱의 미분, 속력 제곱 전개 후 정리, 속력의 정적분]
+  conditions:
+  - '속도·가속도는 벡터(성분) ⇒ 두 성분 모두 적기'
+  - '이동 거리 ⇒ 속력 $\sqrt{(dx/dt)^2+(dy/dt)^2}$의 적분(위치 변화량 아님)'
+  stimuli_used: [가, 나, 다]
+  subpart_links: null
+
+curriculum:
+  version: '2015'
+  subjects: [미적분]
+  scope_2028: calc2
+  scope_confirmed: true
+  standards:
+  - code: 미확인
+    text: 평면 위를 움직이는 점의 속도와 가속도, 이동 거리를 구할 수 있다(요지)
+    verified: false
+  content_area: 미분법·적분법 – 평면 운동과 이동 거리
+  behavior_domain: 계산
+  unit_path: [미적분, 미분법, 도함수의 활용, 평면 위의 운동]
+  key_concepts: [평면 운동의 속도·가속도, 속력, 이동 거리, 지수·삼각함수의 도함수, 곱의 미분법]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 동국대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 동국대학교
+  admission_year: 2016
+  admission_type: 논술(모의)
+  track: 자연계열
+  question_no: 1
+  official_url: https://ipsi.dongguk.edu/   # 원문 게시 URL 미확인(교재 재수록본에서 옮김)
+  retrieved_at: '2026-11-21'
+  original_points: null
+  rights_notice: 미확인 — 원문 PDF 표지 문구 확인 필요(현재 사본은 '대치 수리 논술 연구소' 교재 재수록본)
+  note: 문제 = 동국대 수리논술 문제집 p.70(2016학년도 모의논술고사(1)), 해설 참고 = 해설집 p.73. 원문에 배점·줄 수 표기 없음 → 30점은 자체 배정, 마크 배분도 자체 배분. 단일 논제라 소문항 1개
+
+verify: verify/DGU-M16A.py::p01
+
+stimuli:
+- label: 가
+  body: |
+    지면으로부터 일정한 각도로 던진 물체는 포물선 운동을 한다. 이 때 수평 방향으로는 등속운동을 하고 연직방향으로는 등가속도 운동을 한다. 수직선 위를 움직이는 점 $P$의 위치 $x$가 시각 $t$의 함수 $x=f(t)$로 나타내어질 때 시각 $t$에서 점 $P$의 속도 $v$와 가속도 $a$는 각각 다음과 같이 정의한다.
+    $$v=\dfrac{dx}{dt}=f'(t),\quad a=\dfrac{dv}{dt}=f''(t)$$
+    －『고등학교 수학』
+- label: 나
+  body: |
+    평면 위를 움직이는 물체의 속도와 가속도는 시각 $t$에서의 위치를 $x$축 방향과 $y$축 방향으로 나누어 구할 수 있다. 점 $P(x,y)$가 좌표평면 위를 움직일 때 $x$와 $y$는 각각 시각 $t$의 함수이므로 $x=f(t)$, $y=g(t)$와 같이 나타낼 수 있다.
+    벡터 $\vec v=\left(\dfrac{dx}{dt},\dfrac{dy}{dt}\right)=(f'(t),g'(t))$를 시각 $t$에서 점 $P$의 속도라 하고, 벡터 $\vec v$의 크기 $\lvert\vec v\rvert=\sqrt{\left(\dfrac{dx}{dt}\right)^2+\left(\dfrac{dy}{dt}\right)^2}=\sqrt{\{f'(t)\}^2+\{g'(t)\}^2}$을 점 $P$의 속력이라 한다.
+    그리고 $\vec a=\left(\dfrac{d^2x}{dt^2},\dfrac{d^2y}{dt^2}\right)=(f''(t),g''(t))$을 시각 $t$에서 점 $P$의 가속도라 한다.
+    －『고등학교 수학』
+- label: 다
+  body: |
+    시각 $t$에서 좌표평면 위를 움직이는 점 $P(x,y)$의 $x$와 $y$가 $x=f(t)$, $y=g(t)$일 때 $t=a$에서 $t=b$까지 점 $P(x,y)$가 움직인 거리 $s$는 다음과 같다.
+    $$s=\int_a^b\sqrt{\left(\dfrac{dx}{dt}\right)^2+\left(\dfrac{dy}{dt}\right)^2}dt$$
+    －『고등학교 수학』
+
+stem: |
+  시각 $t$에서 좌표평면 위를 움직이는 점 $P(x,y)$의 $x$와 $y$가 $x=e^{-t}\cos t$, $y=e^{-t}\sin t$일 때 시각 $t$에서 점 $P$의 속도와 가속도를 구하고 $t=2$에서 속력을 제시문 【나】를 이용하여 풀이 과정과 답을 서술하시오. 그리고 $t=0$에서 $t=\pi$까지 점 $P$가 움직인 거리를 제시문 【다】를 이용하여 풀이 과정과 답을 서술하시오.
+
+subparts:
+- id: '1'
+  stem: |
+    속도, 가속도, $t=2$에서의 속력, $t=0$에서 $t=\pi$까지 움직인 거리를 구하시오.
+  points: 30
+  depends_on: []
+  answer: {kind: expression, value: '\vec v=\left(-e^{-t}(\cos t+\sin t),\ -e^{-t}(\sin t-\cos t)\right),\ \vec a=(2e^{-t}\sin t,\ -2e^{-t}\cos t),\ \text{속력 }\sqrt2e^{-2},\ \text{거리 }\sqrt2(1-e^{-\pi})', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: 곱의 미분 후 $\lvert\vec v\rvert^2=e^{-2t}\{(\cos t+\sin t)^2+(\sin t-\cos t)^2\}=2e^{-2t}$.
+    steps:
+    - {id: 1a, content: '$s=\int_0^\pi\sqrt2e^{-t}dt=\sqrt2(1-e^{-\pi})$', criteria: [1.M3, 1.A4]}
+    hint_ladder:
+    - $e^{-t}$와 삼각함수의 곱이므로 곱의 미분법을 쓰자.
+    - 속력의 제곱을 전개해 $\sin^2t+\cos^2t=1$을 이용하자.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 해설집 p.73
+    steps:
+    - id: 1b-1
+      content: |
+        제시문 【가】와 【나】에서 $\dfrac{dx}{dt}=-e^{-t}\cos t-e^{-t}\sin t=-e^{-t}(\cos t+\sin t)$, $\dfrac{dy}{dt}=-e^{-t}\sin t+e^{-t}\cos t=-e^{-t}(\sin t-\cos t)$이므로 속도는 $\vec v=\left(-e^{-t}(\cos t+\sin t),\ -e^{-t}(\sin t-\cos t)\right)$.
+      criteria: [1.M1, 1.A1]
+    - id: 1b-2
+      content: |
+        【나】에서 $\dfrac{d^2x}{dt^2}=e^{-t}(\cos t+\sin t)-e^{-t}(\cos t-\sin t)=2e^{-t}\sin t$, $\dfrac{d^2y}{dt^2}=e^{-t}(\sin t-\cos t)-e^{-t}(\cos t+\sin t)=-2e^{-t}\cos t$이므로 가속도는 $\vec a=(2e^{-t}\sin t,\ -2e^{-t}\cos t)$.
+      criteria: [1.A2]
+    - id: 1b-3
+      content: |
+        【나】에서 속력은 $\lvert\vec v\rvert=\sqrt{\left(-e^{-t}(\cos t+\sin t)\right)^2+\left(-e^{-t}(\sin t-\cos t)\right)^2}=\sqrt2e^{-t}$이므로 $t=2$에서 속력은 $\sqrt2e^{-2}$.
+      criteria: [1.M2, 1.A3]
+    - id: 1b-4
+      content: |
+        【다】에서 $s=\int_0^\pi\lvert\vec v\rvert dt=\int_0^\pi\sqrt2e^{-t}dt=\sqrt2\left[-e^{-t}\right]_0^\pi=\sqrt2(1-e^{-\pi})$.
+      criteria: [1.M3, 1.A4]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 5
+      evidence: 곱의 미분법으로 $\dfrac{dx}{dt}$, $\dfrac{dy}{dt}$를 구하는 식을 적었다.
+      depends_on: []
+      steps: [1b-1]
+    - id: 1.A1
+      mark_type: A
+      points: 5
+      evidence: 속도 $\left(-e^{-t}(\cos t+\sin t),\ -e^{-t}(\sin t-\cos t)\right)$를 적었다.
+      depends_on: [1.M1]
+      steps: [1b-1]
+    - id: 1.A2
+      mark_type: A
+      points: 5
+      evidence: 가속도 $(2e^{-t}\sin t,\ -2e^{-t}\cos t)$를 적었다.
+      depends_on: [1.M1]
+      steps: [1b-2]
+    - id: 1.M2
+      mark_type: M
+      points: 5
+      evidence: 속력 식을 전개·정리해 $\sqrt2e^{-t}$를 얻었다.
+      depends_on: []
+      steps: [1b-3]
+    - id: 1.A3
+      mark_type: A
+      points: 3
+      evidence: $t=2$에서의 속력 $\sqrt2e^{-2}$를 적었다.
+      depends_on: [1.M2]
+      steps: [1b-3]
+    - id: 1.M3
+      mark_type: M
+      points: 4
+      evidence: 움직인 거리를 $\int_0^\pi\sqrt2e^{-t}dt$(속력의 적분)로 세웠다.
+      depends_on: []
+      steps: [1a, 1b-4]
+    - id: 1.A4
+      mark_type: A
+      points: 3
+      evidence: 거리 $\sqrt2(1-e^{-\pi})$를 적었다.
+      depends_on: [1.M3]
+      steps: [1a, 1b-4]
+    deductions:
+    - code: D1-1
+      condition: 제시문 인용 없음(동국 규정)
+      effect: minus
+      value: 1
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-CAL-2604}
+  misconceptions:
+  - id: MC-CAL-2604
+    outcome_code: '70'
+    wrong_work: '$e^{-t}$를 상수처럼 두고 $\dfrac{dx}{dt}=-e^{-t}\sin t$, $\dfrac{dy}{dt}=e^{-t}\cos t$로 미분(곱의 미분 누락)'
+    detect_cue: 속력이 $e^{-t}$(계수 $\sqrt2$ 없음), 거리가 $1-e^{-\pi}$
+    feedback: 두 함수의 곱은 $(fg)'=f'g+fg'$로 미분합니다. $e^{-t}$의 도함수 $-e^{-t}$ 항을 빠뜨리지 마세요.
+    remedy: [RL-1]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CAL-2604}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-MOTION-PLANE}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-input-v1, item_version: 1, verdict: pass, date: 2026-11-21, note: 원문 PDF 이미지 판독으로 옮김 · 해설 B는 해설집 흐름 · 채점표 자체 작성}
+
+created: 2026-11-21
+updated: 2026-11-21

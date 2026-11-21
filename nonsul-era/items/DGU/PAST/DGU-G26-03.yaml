@@ -1,0 +1,398 @@
+schema_version: '2.0'
+id: DGU-G26-03
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: DGU
+type: T03
+variant_of: null
+replaces: null
+level: L5
+form: 존재
+points: 40
+time_estimate_min: 35
+intent: 삼차함수를 변곡점이 원점이 되도록 평행이동해 표준형으로 바꾸고, 접선과 곡선의 두 번째 교점·접선의 수직 조건을 매개변수에 대한 이차방정식의 양의 근 존재 조건으로 바꾸어 변곡점 기울기의 최댓값을 구하는 능력을 본다.
+key_idea: '$g(x)=ax^3+bx$에서 두 접선 기울기의 곱 $(3at^2+b)(12at^2+b)=-1$이 $u=at^2>0$인 해를 가질 조건 $b\le-\frac43$; 변곡점(원점) 기울기는 $b$.'
+stuck: 평행이동으로 이차항·상수항을 없앤 꼴을 떠올리는 단계, 수직 조건을 $at^2$에 대한 이차방정식의 양의 근 조건(판별식 + 근의 부호)으로 바꾸는 단계
+idea_tags: [IDEA-CAL-CUBIC-TRANSLATE-INFLECTION, IDEA-CAL-TANGENT-DOUBLE-ROOT, IDEA-ALG-QUAD-POSITIVE-ROOT]
+tags: [삼차함수, 변곡점, 접선, 수직, 동국 실전]
+elements:
+  materials: [최고차항 계수가 양수인 삼차함수, 한 점의 접선이 다시 곡선과 만나는 점, 두 접선의 수직, 변곡점에서 접선의 기울기]
+  concepts: [접선의 방정식, 변곡점과 이계도함수, 평행이동, 다항식의 인수분해(중근), 두 직선의 수직 조건, 이차방정식의 판별식과 근의 부호]
+  tools:
+  - '변곡점을 원점으로 평행이동해 $g(x)=ax^3+bx$'
+  - '교점 방정식에서 $(x-t)^2$ 인수'
+  - '기울기 곱 $-1$'
+  - '$u=at^2$로 보고 양의 근 존재 조건'
+  - '변곡점 기울기 $g''(0)=b$'
+  conditions:
+  - '평행이동은 접선의 기울기·수직 관계를 바꾸지 않음 ⇒ $g$로 풀어도 됨'
+  - '$Q_0\neq P_0$ ⇒ $t\neq0$'
+  - '수직인 접선쌍이 "존재" ⇒ $36u^2+15bu+b^2+1=0$이 양의 근 $u=at^2$를 가짐(판별식 + 근의 부호)'
+  - '변곡점에서 접선의 기울기의 최댓값 ⇒ $b$의 범위 $b\le-\dfrac43$의 최댓값'
+  stimuli_used: [가, 나, 다]
+  subpart_links: '(2)는 (1)의 g, (3)은 (2)의 접선, (4)는 (2)(3)의 두 접선 사용'
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅱ, 미적분]
+  scope_2028: calc2
+  scope_confirmed: true
+  standards:
+  - code: 미확인
+    text: 접선의 방정식을 구하고, 이계도함수를 이용해 변곡점을 판정할 수 있다(요지)
+    verified: false
+  content_area: 미분법 – 접선과 변곡점
+  behavior_domain: 문제해결
+  unit_path: [미적분, 미분법, 도함수의 활용, 곡선의 오목·볼록과 변곡점]
+  key_concepts: [접선의 방정식, 변곡점과 이계도함수, 평행이동, 다항식의 인수분해(중근), 두 직선의 수직 조건, 이차방정식의 판별식과 근의 부호]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 동국대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 동국대학교
+  admission_year: 2026
+  admission_type: 논술
+  track: 자연계열
+  question_no: 3
+  official_url: https://ipsi.dongguk.edu/   # 원문 게시 URL 미확인(교재 재수록본에서 옮김)
+  retrieved_at: '2026-11-21'
+  original_points: null
+  rights_notice: 미확인 — 원문 PDF 표지 문구 확인 필요(현재 사본은 '대치 수리 논술 연구소' 2027 대비 교재 재수록본)
+  note: 문제 = 문제집2027 p.10, 해설 참고 = 해설집2027 p.11~13(예시답안 1·2). 재수록본에 배점·줄 수 표기 없음 → 동국 형식(30·30·40)에 따라 40점, 소문항 8·10·10·12 는 자체 배분. 유형은 T01~T11 중 가장 가까운 T03(매개변수에 따른 조건)으로 둠
+
+verify: verify/DGU-G26.py::p03
+
+stimuli:
+- label: 가
+  body: |
+    함수 $f(x)$가 $x=a$에서 미분가능할 때, 곡선 $y=f(x)$위의 점 $(a,f(a))$에서의 접선의 방정식은
+    $$y-f(a)=f'(a)(x-a)$$
+    이다.
+    『고등학교 수학Ⅱ』
+- label: 나
+  body: |
+    곡선 $y=f(x)$ 위의 점 $P(a,f(a))$에 대하여 $x=a$의 좌우에서 곡선의 모양이 아래로 볼록에서 위로 볼록으로 바뀌거나 위로 볼록에서 아래로 볼록으로 바뀔 때, 점 P를 곡선 $y=f(x)$의 변곡점이라고 한다.
+    『고등학교 미적분』
+- label: 다
+  body: |
+    이계도함수가 존재하는 함수 $f(x)$에 대하여 $f''(a)=0$이고 $x=a$의 좌우에서 $f''(x)$의 부호가 바뀌면, 점 $(a,f(a))$는 곡선 $y=f(x)$의 변곡점이다.
+    『고등학교 미적분』
+
+stem: |
+  다음 <조건>을 만족하는 점 P가 존재하는 삼차함수 $f(x)$에 대하여 곡선 $y=f(x)$의 변곡점에서 접선의 기울기의 최댓값 M을 다음 순서에 따라 구하시오. (단, $f(x)$의 최고차항의 계수는 양수)
+  <조건>
+  곡선 $y=f(x)$ 위의 점 P에서의 접선 $l$이 점 P가 아닌 곡선 위의 점 Q에서 만나고, 점 Q에서의 접선 $m$이 직선 $l$과 수직이다.
+
+subparts:
+- id: '1'
+  stem: |
+    곡선 $y=f(x)$를 $x$축 및 $y$축의 방향으로 적절히 평행이동하여 항의 개수가 최소가 되는 곡선 $y=g(x)$를 구하시오.
+  points: 8
+  depends_on: []
+  answer: {kind: expression, value: 'g(x)=ax^3+bx\ (a>0)', equivalents: ['ax^3+bx (a>0, b는 상수)'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: '$x$축 방향 평행이동으로 이차항, $y$축 방향 평행이동으로 상수항을 없앤다(변곡점을 원점으로).'
+    steps:
+    - {id: 1a, content: '$g(x)=ax^3+bx\ (a>0)$', criteria: [1.A1]}
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 해설집 p.11
+    steps:
+    - id: 1b-1
+      content: |
+        $f(x)=ax^3+cx^2+dx+e\ (a>0)$를 $x$축의 방향으로 $\dfrac{c}{3a}$만큼 평행이동하면, 즉 $f\!\left(x-\dfrac{c}{3a}\right)$를 전개하면 이차항이 사라진다. 이어서 $y$축의 방향으로 적당히 평행이동하면 상수항을 없앨 수 있다(이는 변곡점 $x=-\dfrac{c}{3a}$를 원점으로 옮기는 것과 같다).
+      criteria: [1.M1]
+    - id: 1b-2
+      content: |
+        따라서 항의 개수가 최소가 되도록 평행이동한 곡선은 $g(x)=ax^3+bx\ (a>0)$ 꼴이다. (평행이동은 접선의 기울기와 수직 관계를 바꾸지 않으므로 $g$도 <조건>을 만족한다.)
+      criteria: [1.A1]
+  - id: S1-ALT
+    audience: ALT
+    method_no: 2
+    key_idea: (해설집 예시답안 2) 극대 또는 극소인 점을 원점으로 옮겨 $g(x)=ax^3+bx^2$로 두고 같은 순서로 진행할 수도 있다. 이후 (2)~(4)의 식은 더 복잡해지지만 최종 답 $M=-\dfrac43$은 같다.
+    steps:
+    - {id: 1c, content: '$g(x)=ax^3+bx^2\ (a>0)$, 변곡점 $x=-\dfrac{b}{3a}$', criteria: [1.M1]}
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 4
+      evidence: $x$축 방향 평행이동으로 이차항, $y$축 방향 평행이동으로 상수항을 없애는 방법(또는 변곡점을 원점으로 옮김)을 적었다.
+      depends_on: []
+      steps: [1b-1, 1c]
+    - id: 1.A1
+      mark_type: A
+      points: 4
+      evidence: $g(x)=ax^3+bx\ (a>0)$를 적었다.
+      depends_on: [1.M1]
+      steps: [1a, 1b-2]
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-CAL-2104}
+  misconceptions:
+  - id: MC-CAL-2104
+    outcome_code: '70'
+    wrong_work: '평행이동으로 일차항까지 없앨 수 있다고 보고 $g(x)=ax^3$이라고 답함'
+    detect_cue: 답이 $ax^3$(한 항)
+    feedback: 평행이동은 $x$, $y$ 두 방향뿐이라 없앨 수 있는 항은 둘입니다. 또 $ax^3$의 접선들은 서로 수직이 될 수 없어 <조건>도 깨집니다.
+    remedy: [RL-1]
+- id: '2'
+  stem: |
+    곡선$y=g(x)$ 위의 점 $P_0(t,\ g(t))$에서의 접선의 방정식을 구하시오.
+  points: 10
+  depends_on: ['1']
+  answer: {kind: expression, value: 'y=(3at^2+b)x-2at^3', equivalents: ['y-(at^3+bt)=(3at^2+b)(x-t)'], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: 제시문 【가】에 $g'(t)=3at^2+b$를 넣는다.
+    steps:
+    - {id: 2a, content: '$y=(3at^2+b)x-2at^3$', criteria: [2.A1]}
+  - id: S2-B
+    audience: B
+    method_no: 1
+    source_flow: 해설집 p.11
+    steps:
+    - id: 2b-1
+      content: |
+        $g'(x)=3ax^2+b$이므로 제시문 【가】에 의해 점 $P_0(t,\ at^3+bt)$에서의 접선은
+        $y-(at^3+bt)=(3at^2+b)(x-t)$.
+      criteria: [2.M1]
+    - id: 2b-2
+      content: |
+        정리하면 $y=(3at^2+b)x-3at^3-bt+at^3+bt=(3at^2+b)x-2at^3$.
+      criteria: [2.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 5
+      evidence: $g'(t)=3at^2+b$를 구하고 【가】의 접선 공식에 대입했다.
+      depends_on: []
+      ft: {allowed: true, from: [1.A1], max_points: 5}
+      steps: [2b-1]
+    - id: 2.A1
+      mark_type: A
+      points: 5
+      evidence: $y=(3at^2+b)x-2at^3$(또는 동치)을 적었다.
+      depends_on: [2.M1]
+      steps: [2a, 2b-2]
+    deductions:
+    - code: D2-1
+      condition: 제시문 인용 없음(동국 규정)
+      effect: minus
+      value: 1
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-CAL-2105}
+  misconceptions:
+  - id: MC-CAL-2105
+    outcome_code: '70'
+    wrong_work: '상수항을 정리하다 $y=(3at^2+b)x+2at^3$ 또는 $-2at^3-bt$로 씀'
+    detect_cue: 상수항이 $+2at^3$이거나 $bt$ 항이 남음
+    feedback: 접선이 $(t,\ g(t))$를 지나는지 $x=t$를 넣어 확인하세요.
+    remedy: [RL-2]
+- id: '3'
+  stem: |
+    (2)에서 구한 접선과 곡선 $y=g(x)$가 만나는 점 $Q_0$ $(\neq P_0)$에서의 접선의 방정식을 구하시오.
+  points: 10
+  depends_on: ['2']
+  answer: {kind: expression, value: 'y=(12at^2+b)x+16at^3\ (t\neq0)', equivalents: ['Q_0(-2t,\ -8at^3-2bt)'], tolerance: null}
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: '$g(x)-(\text{접선})=a(x-t)^2(x+2t)$이므로 $Q_0$의 $x$좌표는 $-2t$ ($t\neq0$).'
+    steps:
+    - {id: 3a, content: '$g''(-2t)=12at^2+b$, 접선 $y=(12at^2+b)x+16at^3$', criteria: [3.A2]}
+  - id: S3-B
+    audience: B
+    method_no: 1
+    source_flow: 해설집 p.11
+    steps:
+    - id: 3b-1
+      content: |
+        교점의 $x$좌표는 $ax^3+bx=(3at^2+b)x-2at^3\iff ax^3-3at^2x+2at^3=0\iff a(x-t)^2(x+2t)=0$에서 $x=t$ 또는 $x=-2t$.
+      criteria: [3.M1]
+    - id: 3b-2
+      content: |
+        $Q_0\neq P_0$이므로 $t\neq0$이고 $Q_0(-2t,\ -8at^3-2bt)$.
+      criteria: [3.A1]
+    - id: 3b-3
+      content: |
+        $g'(-2t)=12at^2+b$이므로 제시문 【가】에 의해 $Q_0$에서의 접선은 $y+8at^3+2bt=(12at^2+b)(x+2t)\iff y=(12at^2+b)x+16at^3$.
+      criteria: [3.M2, 3.A2]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 3
+      evidence: 교점 방정식을 세우고 $(x-t)^2$을 인수로 하여 인수분해했다.
+      depends_on: []
+      ft: {allowed: true, from: [2.A1], max_points: 3}
+      steps: [3b-1]
+    - id: 3.A1
+      mark_type: A
+      points: 2
+      evidence: $Q_0$의 좌표 $(-2t,\ -8at^3-2bt)$와 $t\neq0$을 적었다.
+      depends_on: [3.M1]
+      steps: [3b-2]
+    - id: 3.M2
+      mark_type: M
+      points: 2
+      evidence: $g'(-2t)=12at^2+b$를 구해 【가】에 대입했다.
+      depends_on: []
+      steps: [3b-3]
+    - id: 3.A2
+      mark_type: A
+      points: 3
+      evidence: $y=(12at^2+b)x+16at^3$을 적었다.
+      depends_on: [3.M2]
+      steps: [3a, 3b-3]
+    deductions:
+    - code: D3-1
+      condition: $t\neq0$ 조건 누락
+      effect: minus
+      value: 2
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-CAL-2106}
+  misconceptions:
+  - id: MC-CAL-2106
+    outcome_code: '70'
+    wrong_work: '삼차방정식을 직접 풀다 $x=t$가 중근임을 놓치거나 다른 교점을 $x=2t$로 씀'
+    detect_cue: $Q_0$의 $x$좌표가 $2t$ 또는 $-t$
+    feedback: 접점은 접선과 곡선의 교점 방정식의 중근입니다. $(x-t)^2$으로 나누고 근과 계수의 관계(세 근의 합 $0$)를 확인하세요.
+    remedy: [RL-4]
+- id: '4'
+  stem: |
+    M의 값을 구하시오.
+  points: 12
+  depends_on: ['2', '3']
+  answer: {kind: value, value: '-\dfrac43', equivalents: ['-4/3'], tolerance: null}
+  solutions:
+  - id: S4-A
+    audience: A
+    method_no: 1
+    key_idea: '$36u^2+15bu+b^2+1=0$ ($u=at^2$)이 양의 근을 가질 조건은 $9b^2-16\ge0$, $b<0$, 즉 $b\le-\frac43$. 변곡점은 원점, 기울기 $g''(0)=b$.'
+    steps:
+    - {id: 4a, content: '$M=\max b=-\dfrac43$', criteria: [4.A2]}
+  - id: S4-B
+    audience: B
+    method_no: 1
+    source_flow: 해설집 p.11~12
+    steps:
+    - id: 4b-1
+      content: |
+        (2), (3)의 두 접선이 수직이므로 $(3at^2+b)(12at^2+b)=-1\iff36a^2t^4+15abt^2+b^2+1=0$이고, 이 식을 만족하는 $0$이 아닌 실수 $t$가 존재해야 한다.
+      criteria: [4.M1]
+    - id: 4b-2
+      content: |
+        $t^2$에 대한 이차방정식으로 풀면 $t^2=\dfrac{-15ab\pm\sqrt{81a^2b^2-144a^2}}{72a^2}=\dfrac{-5b\pm\sqrt{9b^2-16}}{24a}$이므로 양의 값이 존재할 조건은
+        $9b^2-16\ge0$ 그리고 ($-5b+\sqrt{9b^2-16}>0$ 또는 $-5b-\sqrt{9b^2-16}>0$) $\iff9b^2-16\ge0$ 그리고 $b<0\iff b\le-\dfrac43$.
+        ($b>0$이면 $-5b+\sqrt{9b^2-16}<-5b+3b<0$이라 양의 근이 없다.)
+      criteria: [4.M2, 4.A1]
+    - id: 4b-3
+      content: |
+        한편 $g''(x)=6ax=0\iff x=0$이고 $x=0$의 좌우에서 $g''(x)$의 부호가 바뀌므로 제시문 【다】에 의해 원점이 곡선 $y=g(x)$의 변곡점이다. 원점에서 접선의 기울기는 $g'(0)=b\le-\dfrac43$이고 $b=-\dfrac43$일 때 등호가 성립하므로(예: $a=1$이면 $t^2=\dfrac{5}{18}$) 최댓값 $M=-\dfrac43$. 평행이동해도 접선의 기울기는 변하지 않으므로 $f$에 대한 답도 같다.
+      criteria: [4.R1, 4.A2]
+  - id: S4-ALT
+    audience: ALT
+    method_no: 2
+    key_idea: '(해설집 예시답안 2) $g=ax^3+bx^2$에서 변곡점 기울기 $-\dfrac{b^2}{3a}$, $s=\dfrac{a}{b}t$로 두고 $h(s)=\dfrac{b^4}{a}s(3s+2)(6s+1)(2s+1)=-a$의 해 존재 조건 $\min h=-\dfrac{b^4}{16a}\le-a$에서 $-\dfrac{b^2}{3a}\le-\dfrac43$.'
+    steps:
+    - {id: 4c, content: '$\min h(s)=h\!\left(-\dfrac13\pm\dfrac{\sqrt{10}}{12}\right)=-\dfrac{b^4}{16a}$ → $M=-\dfrac43$', criteria: [4.M2, 4.A2]}
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 4.M1
+      mark_type: M
+      points: 3
+      evidence: 두 접선 기울기의 곱이 $-1$인 식 $(3at^2+b)(12at^2+b)=-1$을 세웠다.
+      depends_on: []
+      ft: {allowed: true, from: [2.A1, 3.A2], max_points: 3}
+      steps: [4b-1]
+    - id: 4.M2
+      mark_type: M
+      points: 3
+      evidence: $t^2$(또는 $at^2$)에 대한 이차방정식이 양의 근을 가질 조건으로 판별식과 근의 부호 조건을 모두 적었다.
+      depends_on: []
+      steps: [4b-2, 4c]
+    - id: 4.A1
+      mark_type: A
+      points: 2
+      evidence: $b\le-\dfrac43$을 얻었다.
+      depends_on: [4.M2]
+      steps: [4b-2]
+    - id: 4.R1
+      mark_type: R
+      points: 2
+      evidence: 원점이 변곡점임을 【다】(또는 【나】)로 밝히고 그 기울기가 $b$임을 적었다.
+      depends_on: []
+      steps: [4b-3]
+    - id: 4.A2
+      mark_type: A
+      points: 2
+      evidence: $M=-\dfrac43$을 적었다.
+      depends_on: [4.R1]
+      steps: [4a, 4b-3, 4c]
+    deductions:
+    - code: D4-1
+      condition: 제시문 인용 없음(동국 규정)
+      effect: minus
+      value: 1
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-ALG-2101}
+  misconceptions:
+  - id: MC-ALG-2101
+    outcome_code: '70'
+    wrong_work: '판별식 $9b^2-16\ge0$만 써서 $\lvert b\rvert\ge\dfrac43$으로 두고 최댓값이 없다고 하거나 $M=\dfrac43$으로 답함'
+    detect_cue: 답이 $\dfrac43$ 또는 "최댓값 없음"
+    feedback: 구하는 것은 $t^2>0$인 해입니다. 판별식에 더해 근의 합·곱으로 양의 근이 있는지 확인하세요.
+    remedy: [RL-3]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CAL-2104}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-CUBIC-INFLECTION}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-CAL-2105}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-TANGENT}
+  priority: 1
+- id: RL-3
+  trigger: {type: misconception, ref: MC-ALG-2101}
+  relation: remediation
+  target: {kind: concept, ref: CON-ALG-QUAD-ROOTS}
+  priority: 1
+- id: RL-4
+  trigger: {type: misconception, ref: MC-CAL-2106}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-TANGENT}
+  priority: 2
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-input-v1, item_version: 1, verdict: pass, date: 2026-11-21, note: 원문 PDF 이미지 판독으로 옮김 · 해설·채점표 자체 작성}
+
+created: 2026-11-21
+updated: 2026-11-21

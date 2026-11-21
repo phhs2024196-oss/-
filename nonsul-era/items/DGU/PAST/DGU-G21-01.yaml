@@ -1,0 +1,214 @@
+schema_version: '2.0'
+id: DGU-G21-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: DGU
+type: null
+variant_of: null
+replaces: null
+level: L3
+form: 추론
+points: 30
+time_estimate_min: 15
+intent: 일정 비율 증가를 지수 모델로 세우고 상용로그의 성질과 주어진 근삿값으로 증가율을 구하는 능력을 본다.
+key_idea: '$\left(1+\dfrac{a}{100}\right)^5=2$에서 상용로그를 취해 $\log(100+a)=2.06=\log115$.'
+stuck: $\log\left(1+\dfrac a{100}\right)=\log(100+a)-2$로 바꾸어 주어진 $\log1.15$와 연결하는 단계
+idea_tags: [IDEA-EXP-GROWTH-LOG]
+tags: [지수 모델, 상용로그, 동국 기출]
+elements:
+  materials:
+  - '매년 일정 비율로 오르는 비트코인 가격'
+  - '5년 후 초기 가격의 2배'
+  concepts:
+  - '지수함수 모델(복리 증가)'
+  - '로그의 정의'
+  - '로그의 성질'
+  - '상용로그'
+  tools:
+  - '$A_5=A_0\left(1+\dfrac a{100}\right)^5=2A_0$ 세우기'
+  - '양변에 상용로그'
+  - '$\log M^k=k\log M$, $\log\dfrac MN=\log M-\log N$'
+  - '$\log x_1=\log x_2\iff x_1=x_2$로 진수 비교'
+  conditions:
+  - '"매년 일정한 비율" ⇒ 거듭제곱(복리) 모델, 단리 아님'
+  - '$\log2=0.3$, $\log1.15=0.06$ 근삿값 사용 ⇒ $\log(100+a)=2.06=\log115$'
+  stimuli_used: [가, 나, 다, 라]
+  subpart_links: null
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅰ]
+  scope_2028: common
+  scope_confirmed: true
+  standards:
+  - code: 미확인
+    text: 로그의 뜻과 성질을 이해하고 상용로그를 활용할 수 있다(요지)
+    verified: false
+  content_area: 지수함수와 로그함수 – 로그의 성질과 상용로그
+  behavior_domain: 계산
+  unit_path: [수학Ⅰ, 지수함수와 로그함수, 로그, 상용로그]
+  key_concepts: ['지수함수 모델(복리 증가)', '로그의 정의', '로그의 성질', '상용로그']
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 동국대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 동국대학교
+  admission_year: 2021
+  admission_type: 논술
+  track: 자연계열
+  question_no: 1
+  official_url: https://ipsi.dongguk.edu/   # 원문 게시 URL 미확인(교재 재수록본에서 옮김)
+  retrieved_at: '2026-11-21'
+  original_points: null
+  rights_notice: 미확인 — 원문 PDF 표지 문구 확인 필요(현재 사본은 '대치 수리 논술 연구소' 2027 대비 교재 재수록본)
+  note: 문제 = 동국대 수리논술 문제집2027 p.46, 해설 참고 = 동국대 수리논술 해설집2027 p.45. 원문(재수록본)에 배점 표기 없음 → 동국 관례(30·30·40)에 따라 30점으로 자체 배분. 발문 끝 '논술하시오' 뒤 마침표 없음(원문대로)
+
+verify: verify/DGU-G21.py::p01
+
+stimuli:
+- label: 가
+  body: |
+    어떤 비트코인이 초기가격 $A_0$에서 매년 일정하게 $a\%$ 비율로 올라가면 $n$년 후의 비트코인 가격 $A_n$은
+    $$A_n=A_0\left(1+\dfrac{a}{100}\right)^n,\qquad(\text{단, }A_0>0)$$
+    로 표현할 수 있다고 가정하자.
+    『고등학교 수학 Ⅰ』
+- label: 나
+  body: |
+    $a>0,\ a\neq1,\ x_1>0,\ x_2>0$일 때
+    1) $\log_a x_1=b\iff x_1=a^b$
+    2) $\log_a x_1=\log_a x_2\iff x_1=x_2$
+    『고등학교 수학 Ⅰ』
+- label: 다
+  body: |
+    $a>0,\ a\neq1$이고 $M>0,\ N>0$일 때
+    1) $\log_a MN=\log_a M+\log_a N$
+    2) $\log_a\dfrac{M}{N}=\log_a M-\log_a N$
+    3) $\log_a M^k=k\log_a M$ ($k$는 실수)
+    『고등학교 수학 Ⅰ』
+- label: 라
+  body: |
+    10을 밑으로 하는 로그를 상용로그라 하며, 양수 $N$의 상용로그 $\log_{10}N$은 보통 밑 10을 생략하여 $\log N$으로 나타낸다.
+    『고등학교 수학 Ⅰ』
+
+stem: |
+  어떤 비트코인이 초기 가격 $A_0$에서 매년 일정한 비율로 올라가 5년 후 초기 가격의 2배가 되었다고 가정했을 때, 그 비트코인 가격은 매년 몇 %씩 올라갔는지 논술하시오
+  (단, $\log2=0.3$, $\log1.15=0.06$으로 계산하시오).
+
+subparts:
+- id: '1'
+  stem: |
+    위 논제에 답하시오.
+  points: 30
+  depends_on: []
+  answer: {kind: value, value: '15\%', equivalents: ['15', 'a=15'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $\left(1+\dfrac a{100}\right)^5=2$에 상용로그를 취하고 $\log(100+a)=2+0.06$을 $\log115$로 본다.
+    steps:
+    - {id: 1a, content: '$5\{\log(100+a)-2\}=0.3$ ⇒ $\log(100+a)=2.06=\log115$ ⇒ $a=15$', criteria: [1.M2, 1.R1]}
+    hint_ladder:
+    - 5년 후 가격을 제시문 [가]의 식으로 쓰자.
+    - 양변에 상용로그를 취하자.
+    - $2.06=2+0.06$을 하나의 로그로 쓰면?
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 해설집 p.45
+    steps:
+    - id: 1b-1
+      content: |
+        비트코인의 초기 가격을 $A_0$, 매년 $a\%$씩 오른다고 하면 제시문 [가]에 의해 5년 후의 가격은 $A_5=A_0\left(1+\dfrac{a}{100}\right)^5$이다.
+      criteria: [1.M1]
+    - id: 1b-2
+      content: |
+        5년 후 가격이 초기 가격의 2배이므로 $A_0\left(1+\dfrac{a}{100}\right)^5=2A_0$, 즉 $\left(1+\dfrac{a}{100}\right)^5=2$.
+      criteria: [1.A1]
+    - id: 1b-3
+      content: |
+        양변의 상용로그를 취하면(제시문 [나]-2), [라]) $\log\left(1+\dfrac{a}{100}\right)^5=\log2$이고, 제시문 [다]에 의해
+        $5\{\log(100+a)-2\}=\log2$. 따라서 $5\log(100+a)=10+\log2=10.3$이므로 $\log(100+a)=2.06$.
+      criteria: [1.M2, 1.A2]
+    - id: 1b-4
+      content: |
+        $\log(100+a)=2.06=2+0.06=\log100+\log1.15=\log115$이므로 제시문 [나]-2)에 의해 $100+a=115$, $a=15$.
+        따라서 비트코인 가격은 매년 $15\%$씩 올라갔다.
+      criteria: [1.R1, 1.A3]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 6
+      evidence: 제시문 [가]의 식으로 5년 후 가격 $A_0\left(1+\dfrac a{100}\right)^5$을 썼다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1]
+    - id: 1.A1
+      mark_type: A
+      points: 4
+      evidence: $\left(1+\dfrac{a}{100}\right)^5=2$를 세웠다.
+      depends_on: [1.M1]
+      steps: [1b-2]
+    - id: 1.M2
+      mark_type: M
+      points: 8
+      evidence: 양변에 상용로그를 취하고 로그의 성질로 $5\{\log(100+a)-2\}=\log2$(또는 $5\log\left(1+\dfrac a{100}\right)=0.3$)로 정리했다.
+      depends_on: []
+      steps: [1a, 1b-3]
+    - id: 1.A2
+      mark_type: A
+      points: 4
+      evidence: $\log(100+a)=2.06$ 또는 $\log\left(1+\dfrac a{100}\right)=0.06$을 얻었다.
+      depends_on: [1.M2]
+      steps: [1b-3]
+    - id: 1.R1
+      mark_type: R
+      points: 4
+      evidence: $0.06=\log1.15$(또는 $2.06=\log115$)와 로그의 일대일 성질로 진수를 비교했다.
+      depends_on: []
+      steps: [1a, 1b-4]
+    - id: 1.A3
+      mark_type: A
+      points: 4
+      evidence: 매년 $15\%$씩 올랐다고 답했다.
+      depends_on: [1.R1]
+      steps: [1b-4]
+    deductions:
+    - code: D1-1
+      condition: 제시문 인용 없음(동국 규정)
+      effect: minus
+      value: 1
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-ALG-2402}
+  misconceptions:
+  - id: MC-ALG-2402
+    outcome_code: '70'
+    wrong_work: '5년에 100% 올랐으므로 매년 $100\div5=20\%$라고 답함'
+    detect_cue: 답이 $20\%$
+    feedback: 매년 같은 비율로 오르면 증가분이 누적되는 거듭제곱 모델입니다. $(1+r)^5=2$를 세우세요.
+    remedy: [RL-1]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-ALG-2402}
+  relation: remediation
+  target: {kind: concept, ref: CON-ALG-LOG-EXP}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-input-v1, item_version: 1, verdict: pass, date: 2026-11-21, note: 원문 PDF 이미지 판독으로 옮김 · 해설·채점표 자체 작성}
+
+created: 2026-11-21
+updated: 2026-11-21

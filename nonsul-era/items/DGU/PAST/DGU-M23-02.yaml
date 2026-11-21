@@ -1,0 +1,225 @@
+schema_version: '2.0'
+id: DGU-M23-02
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: DGU
+type: T03
+variant_of: null
+replaces: null
+level: L4
+form: 최적2단
+points: 30
+time_estimate_min: 20
+intent: 속력이 다른 두 영역을 지나는 이동 시간을 경계 위 한 점의 함수로 세우고, 굴절의 법칙(또는 도함수)으로 얻은 사차방정식을 인수분해해 유일한 최소점을 판정하는 능력을 본다.
+key_idea: '경계 위의 점 $\mathrm{P}(x,0)$에 대해 $f(x)=\sqrt{x^2+7}+\dfrac12\sqrt{(2-x)^2+1}$, 조건식을 제곱하면 $3x^4-12x^3+9x^2+28x-28=(x-1)(3x^3-9x^2+28)=0$.'
+stuck: 제곱해서 얻은 사차방정식에서 $x=1$을 찾아 인수분해하고, 나머지 삼차식이 $[0,2]$에서 근이 없음을 보이는 단계
+idea_tags: [IDEA-CAL-SNELL-MIN-TIME, IDEA-ALG-FACTOR-QUARTIC, IDEA-CAL-SIGN-CHANGE-MIN]
+tags: [굴절의 법칙, 최소 시간, 동국 모의]
+elements:
+  materials:
+  - '$y\ge0$에서 속력 1, $y<0$에서 속력 2로 움직이는 물체'
+  - '$\mathrm{A}(0,\sqrt7)$에서 $\mathrm{B}(2,-1)$까지의 이동'
+  concepts:
+  - '두 점 사이의 거리'
+  - '굴절의 법칙(최소 시간 경로)'
+  - '합성함수(무리함수)의 미분'
+  - '극대·극소 판정(도함수의 부호 변화)'
+  - '고차방정식의 인수분해(인수정리)'
+  tools:
+  - '경계 위의 점 $\mathrm{P}(x,0)$로 시간 함수 세우기'
+  - '굴절의 법칙 또는 $f''(x)=0$'
+  - '양변 제곱 후 인수정리로 인수분해'
+  - '삼차식의 최솟값으로 근의 부재 확인'
+  conditions:
+  - '각 영역 안에서는 속력이 일정 ⇒ 경로는 선분 AP, PB'
+  - '$\sin\theta_1=\dfrac{x}{\sqrt{x^2+7}}$, $\sin\theta_2=\dfrac{2-x}{\sqrt{(2-x)^2+1}}$ ⇒ 부호가 같아야 하므로 $0\le x\le2$'
+  - '제곱한 방정식의 근은 원래 식의 근인지(범위 $0\le x\le2$) 확인'
+  stimuli_used: [가, 나]
+  subpart_links: null
+
+curriculum:
+  version: '2015'
+  subjects: [미적분, 수학Ⅱ]
+  scope_2028: calc2
+  scope_confirmed: true
+  standards:
+  - code: 미확인
+    text: 함수의 그래프의 개형을 그리고 최대·최소 문제를 해결할 수 있다(요지)
+    verified: false
+  content_area: 미분법 – 도함수의 활용(최대·최소)
+  behavior_domain: 문제해결
+  unit_path: [미적분, 미분법, 도함수의 활용, 최대·최소]
+  key_concepts:
+  - '두 점 사이의 거리'
+  - '굴절의 법칙(최소 시간 경로)'
+  - '합성함수(무리함수)의 미분'
+  - '극대·극소 판정(도함수의 부호 변화)'
+  - '고차방정식의 인수분해(인수정리)'
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 동국대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 동국대학교
+  admission_year: 2023
+  admission_type: 논술(모의)
+  track: 자연계열
+  question_no: 2
+  official_url: https://ipsi.dongguk.edu/   # 원문 게시 URL 미확인(교재 재수록본에서 옮김)
+  retrieved_at: '2026-11-21'
+  original_points: null
+  rights_notice: 미확인 — 원문 PDF 표지 문구 확인 필요(현재 사본은 '대치 수리 논술 연구소' 2027 대비 교재 재수록본)
+  note: 문제 = 동국대 수리논술 문제집2027 p.36, 해설 참고 = 해설집2027 p.35(첫 번째 풀이 = S1-B, 두 번째 풀이 = S1-ALT). 원문(재수록본)에 배점·줄 수 표기 없음 → 30점은 동국 관례(30·30·40)에 따른 자체 배분
+
+verify: verify/DGU-M23.py::p02
+
+stimuli:
+- label: 가
+  body: |
+    미분가능한 함수 $f(x)$에 대하여 $f'(a)=0$이고 $x=a$ 좌우에서
+    ① $f'(x)$의 부호가 양에서 음으로 바뀌면 $f(x)$는 $x=a$에서 극대이다.
+    ② $f'(x)$의 부호가 음에서 양으로 바뀌면 $f(x)$는 $x=a$에서 극소이다.
+    -『고등학교 수학Ⅱ』
+- label: 나
+  body: |
+    두 매질 $C_1$, $C_2$에서 빛의 속도가 각각 $v_1$, $v_2$이고, 빛이 두 매질의 경계면을 통과할 때의 입사각을 $\theta_1$, 굴절각을 $\theta_2$라고 하면
+    $$\dfrac{\sin\theta_1}{v_1}=\dfrac{\sin\theta_2}{v_2}$$
+    가 성립한다. 네덜란드의 수학자 스넬(Snell, 1580~1626)은 위와 같은 굴절의 법칙이 있다는 것을 발견하였는데, 두 점을 지나는 빛은 그 이동 시간이 최소가 되는 경로를 따라 이동한다는 것을 이용하여 증명할 수 있다.
+    [그림: 수평인 경계선 위쪽이 매질 $C_1$, 아래쪽이 매질 $C_2$. 위에서 내려오는 빛이 법선(세로 점선)과 각 $\theta_1$을 이루며 경계에 닿고, 아래로 법선과 각 $\theta_2$를 이루며 진행한다.]
+    -『고등학교 미적분』
+
+stem: |
+  좌표평면 상에서 움직이는 크기를 무시할 수 있는 아주 작은 물체가 $y\ge0$인 부분에서는 1의 일정한 속력으로 이동하고, $y<0$인 부분에서는 2의 일정한 속력으로 이동하는 성질을 가지고 있다고 하자. 그 물체가 점 $\mathrm{A}(0,\sqrt7)$에서 점 $\mathrm{B}(2,-1)$까지 이동하는 데 걸리는 최소 시간을 구하시오.
+
+subparts:
+- id: '1'
+  stem: |
+    위 논제의 최소 시간을 구하시오.
+  points: 30
+  depends_on: []
+  answer: {kind: value, value: '\dfrac{5\sqrt2}{2}', equivalents: ['5√2/2', '2.5√2'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: 굴절의 법칙 $\dfrac{x}{\sqrt{x^2+7}}=\dfrac{2-x}{2\sqrt{(2-x)^2+1}}$에서 $x=1$, 시간 $\sqrt8+\dfrac{\sqrt2}{2}$.
+    steps:
+    - {id: 1a, content: '$f(1)=2\sqrt2+\dfrac{\sqrt2}{2}=\dfrac{5\sqrt2}{2}$', criteria: [1.A2]}
+    hint_ladder:
+    - 같은 속력으로 움직이는 영역 안에서는 어떤 경로가 가장 빠른가?
+    - $x$축과 만나는 점을 $(x,0)$으로 두고 걸리는 시간을 식으로 써 보자.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 해설집 p.35 (첫 번째 풀이)
+    steps:
+    - id: 1b-1
+      content: |
+        각 영역에서 속력이 일정하므로 최소 시간 경로는 선분 AP, PB로 이루어지고, 경로가 $x$축과 만나는 점을 $\mathrm{P}(x,0)$이라 두면 $0\le x\le2$이어야 한다. 걸리는 시간은
+        $\sqrt{x^2+7}+\dfrac12\sqrt{(2-x)^2+1}$.
+      criteria: [1.R1, 1.M1]
+    - id: 1b-2
+      content: |
+        제시문 【나】의 굴절의 법칙은 이동 시간이 최소가 되는 경로를 따라 이동한다는 것으로 증명되므로 이 문제에 적용할 수 있다. 입사각·굴절각은 $\sin\theta_1=\dfrac{x}{\sqrt{x^2+7}}$, $\sin\theta_2=\dfrac{2-x}{\sqrt{(2-x)^2+1}}$이고 $v_1=1$, $v_2=2$이므로
+        $\dfrac{x}{\sqrt{x^2+7}}=\dfrac{2-x}{2\sqrt{(2-x)^2+1}}\quad(0\le x\le2)$.
+      criteria: [1.M2]
+    - id: 1b-3
+      content: |
+        양변을 제곱하면 $4x^2\{(x-2)^2+1\}=(x-2)^2(x^2+7)\iff3x^4-12x^3+9x^2+28x-28=0$. 이 사차방정식은 $x=1$을 해로 가지므로 $(x-1)(3x^3-9x^2+28)=0$.
+      criteria: [1.A1]
+    - id: 1b-4
+      content: |
+        $g(x)=3x^3-9x^2+28$이라 하면 $g'(x)=9x^2-18x=9x(x-2)$이므로 $0\le x\le2$에서 $g$는 감소하고 $g(0)=28$, $g(2)=16>0$. 따라서 $g(x)=0$은 $0\le x\le2$에서 해를 갖지 않고, $x=1$이 굴절의 법칙을 만족시키는 유일한 해이다.
+      criteria: [1.R2]
+    - id: 1b-5
+      content: |
+        이때 걸리는 최소 시간은 $\sqrt{1+7}+\dfrac12\sqrt{1+1}=2\sqrt2+\dfrac{\sqrt2}{2}=\dfrac{5\sqrt2}{2}$.
+      criteria: [1.A2]
+  - id: S1-ALT
+    audience: ALT
+    method_no: 2
+    source_flow: 해설집 p.35 (두 번째 풀이)
+    steps:
+    - id: 1c-1
+      content: |
+        $f(x)=\sqrt{x^2+7}+\dfrac12\sqrt{(2-x)^2+1}$이라 하면 $f'(x)=\dfrac{x}{\sqrt{x^2+7}}-\dfrac{2-x}{2\sqrt{(2-x)^2+1}}$. $f'(x)=0\iff2x\sqrt{(2-x)^2+1}=(2-x)\sqrt{x^2+7}$이므로 $0\le x\le2$이고, 제곱해 정리하면 위와 같은 $(x-1)(3x^3-9x^2+28)=0$, 그 범위의 해는 $x=1$뿐이다.
+      criteria: [1.M2, 1.A1]
+    - id: 1c-2
+      content: |
+        $f'$은 연속이고 $f'(x)=0$의 해는 $x=1$뿐이며 $f'(0)<0$, $f'(2)>0$이므로 $x=1$의 좌우에서 $f'$의 부호가 음에서 양으로 바뀐다. 제시문 【가】에 의해 $f$는 $x=1$에서 극소이자 최소이고, 최소 시간은 $f(1)=\dfrac{5\sqrt2}{2}$.
+      criteria: [1.R2, 1.A2]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.R1
+      mark_type: R
+      points: 3
+      evidence: 각 영역에서 경로가 선분이고 경계 위의 점 $\mathrm{P}(x,0)$이 $0\le x\le2$임을 적었다.
+      depends_on: []
+      steps: [1b-1]
+    - id: 1.M1
+      mark_type: M
+      points: 5
+      evidence: 이동 시간 $\sqrt{x^2+7}+\dfrac12\sqrt{(2-x)^2+1}$을 적었다.
+      depends_on: []
+      steps: [1b-1]
+    - id: 1.M2
+      mark_type: M
+      points: 6
+      evidence: 굴절의 법칙(【나】) 또는 $f'(x)=0$으로 $\dfrac{x}{\sqrt{x^2+7}}=\dfrac{2-x}{2\sqrt{(2-x)^2+1}}$을 세웠다.
+      depends_on: []
+      steps: [1b-2, 1c-1]
+    - id: 1.A1
+      mark_type: A
+      points: 5
+      evidence: 제곱해 $(x-1)(3x^3-9x^2+28)=0$으로 인수분해하고 $x=1$을 얻었다.
+      depends_on: [1.M2]
+      steps: [1b-3, 1c-1]
+    - id: 1.R2
+      mark_type: R
+      points: 6
+      evidence: $3x^3-9x^2+28$이 $0\le x\le2$에서 0이 아님을 보여 해의 유일성을 밝혔다(ALT는 부호 변화로 최소임까지 판정).
+      depends_on: []
+      steps: [1b-4, 1c-2]
+    - id: 1.A2
+      mark_type: A
+      points: 5
+      evidence: 최소 시간 $\dfrac{5\sqrt2}{2}$를 적었다.
+      depends_on: [1.M1]
+      steps: [1a, 1b-5, 1c-2]
+    deductions:
+    - code: D1-1
+      condition: 제시문 인용 없음(동국 규정)
+      effect: minus
+      value: 1
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-CAL-2304}
+  misconceptions:
+  - id: MC-CAL-2304
+    outcome_code: '70'
+    wrong_work: '선분 AB(최단 거리)를 따라 가는 경로의 시간 약 $3.588$을 최소 시간으로 답함'
+    detect_cue: 경계 위의 점을 $x=\dfrac{2\sqrt7}{\sqrt7+1}$로 잡거나 답이 $\dfrac{5\sqrt2}{2}$보다 큼
+    feedback: 속력이 다르면 빠른 영역에서 더 긴 거리를 가는 편이 유리합니다. 경계 위의 점을 변수로 두고 시간을 최소화하세요.
+    remedy: [RL-1]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CAL-2304}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-EXTREME-CLOSED}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-input-v1, item_version: 1, verdict: pass, date: 2026-11-21, note: 원문 PDF 이미지 판독으로 옮김 · 해설·채점표 자체 작성}
+
+created: 2026-11-21
+updated: 2026-11-21

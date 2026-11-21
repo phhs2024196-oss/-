@@ -1,0 +1,186 @@
+schema_version: '2.0'
+id: DGU-G11-03
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: DGU
+type: T08
+variant_of: null
+replaces: null
+level: L4
+form: 불변량
+points: 20
+time_estimate_min: 15
+intent: 연립 점화식에서 총량 보존(불변량) $a_n+b_n$을 찾고, 수렴을 전제로 극한값이 만족하는 방정식을 세워 극한을 구하는 능력을 본다.
+key_idea: '$a_{n+1}+b_{n+1}=a_n+b_n=80000$(불변량)과 극한 방정식 $x=\dfrac23x+\dfrac13y$ ⇒ $x=y=40000$.'
+stuck: 극한 방정식 두 개가 같은 식($x=y$)이라 총량 보존식이 하나 더 필요함을 알아채는 단계
+idea_tags: [IDEA-CONSERVED-SUM, IDEA-LIMIT-FIXED-POINT-EQ]
+tags: [부유물 이동, 연립 점화식, 동국 기출]
+elements:
+  materials:
+  - '태평양 거대 쓰레기 지대'
+  - '두 지역 A·B 사이 부유물 이동'
+  concepts: [연립 점화식, 수열의 극한의 성질, 수렴하는 수열의 극한값 방정식, 총량 보존]
+  tools:
+  - '두 점화식을 더해 a_n+b_n 일정'
+  - '극한을 취해 x=y'
+  - '연립으로 x·y 결정'
+  conditions:
+  - '유입·생성·소멸 없음 ⇒ $a_n+b_n=80000$ 일정'
+  - '$a_n$, $b_n$ 수렴(문제에서 주어짐) ⇒ 점화식 양변 극한 가능'
+  stimuli_used: [가]
+  subpart_links: null
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅰ, 미적분]
+  scope_2028: calc2
+  scope_confirmed: true
+  standards:
+  - code: 미확인
+    text: 수열의 극한에 대한 기본 성질을 이해하고 극한값을 구할 수 있다(요지)
+    verified: false
+  content_area: 수열의 극한
+  behavior_domain: 추론
+  unit_path: [미적분, 수열의 극한, 수열의 극한, 극한의 성질]
+  key_concepts: [연립 점화식, 수열의 극한의 성질, 수렴하는 수열의 극한값 방정식, 총량 보존]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 동국대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 동국대학교
+  admission_year: 2011
+  admission_type: 논술
+  track: 자연계열
+  question_no: 3
+  official_url: https://ipsi.dongguk.edu/   # 원문 게시 URL 미확인(교재 재수록본에서 옮김)
+  retrieved_at: '2026-11-21'
+  original_points: 20
+  rights_notice: 미확인 — 원문 PDF 표지 문구 확인 필요(현재 사본은 '대치 수리 논술 연구소' 교재 재수록본)
+  note: 문제 = 동국대 수리논술 문제집 p.81, 해설 참고 = 해설집 p.81(답안1·2). 재수록본에는 [문제3]·[문제4]만 실림. 제시문은 DGU-G11-04 와 공유(표제 없는 도입 단락은 label '본문'). 제시문의 행렬 표기는 2009 개정 과정 — 이 문항은 행렬 없이 점화식만으로 풀림. 제시문에 출처 표기 없음
+
+verify: verify/DGU-G11.py::p03
+
+stimuli:
+- label: 본문
+  body: |
+    태평양 거대 쓰레기 지대(Great Pacific Garbage Patch)는 각각 하와이 북쪽 지역과 일본과 하와이 사이 지역을 떠다니는 두 개의 거대한 쓰레기 더미를 일컫는다. 이 쓰레기 더미들은 지금까지 인류가 만든 인공물 중 가장 큰 것들로, 하와이 북단의 덩어리 하나만 해도 한반도의 6배 크기다. 이처럼 쓰레기가 한 곳으로 모여 섬에 가까운 모습이 된 것은 원형 순환 해류와 바람 때문인 것으로 알려져 있다. 이러한 태평양 거대 쓰레기 지대 때문에 수많은 해양생물들이 피해를 보고 있으며, 특히 먹이로 잘못 알고 먹었다가 죽게 되는 사례도 있다.
+- label: 가
+  body: |
+    $A$, $B$ 두 지역에 부유물이 모여 있다. $A$, $B$ 외의 다른 지역으로부터 부유물의 유입이 없고, 부유물이 새로 생성되거나 사라지지 않는다고 할 때, 매월 두 지역 $A$, $B$의 부유물의 양이 어떻게 변하는지 행렬로 표현해 보자.
+    1월 초 두 지역 $A$, $B$의 부유물 양은 각각 10,000톤, 70,000톤이라 하자. 또 매월 지역 $A$의 부유물 $\dfrac13$이 지역 $B$로 이동하고 지역 $B$의 부유물 $\dfrac13$이 지역 $A$로 동시에 이동한다고 가정하자.
+    $n$월 초 두 지역 $A$, $B$의 부유물 양을 각각 $a_n$, $b_n$으로 나타내면, 위의 가정에 의해 한 달 동안 지역 $A$의 부유물은 $\dfrac13a_n$이 지역 $B$로 이동하였으므로 $\dfrac23a_n$만큼 남아 있고, 지역 $B$의 부유물 $\dfrac13b_n$이 지역 $A$로 이동하였다. 따라서 $(n+1)$월 초 지역 $A$의 부유물은 $a_{n+1}=\dfrac23a_n+\dfrac13b_n$으로 표현할 수 있다. 같은 방법으로 지역 $B$의 부유물은 $b_{n+1}=\dfrac13a_n+\dfrac23b_n$으로 나타낼 수 있다. 이를 행렬로 표시하면 아래의 식 (1)과 같다.
+    $$\begin{pmatrix}a_{n+1}\\b_{n+1}\end{pmatrix}=\begin{pmatrix}\dfrac23&\dfrac13\\\dfrac13&\dfrac23\end{pmatrix}\begin{pmatrix}a_n\\b_n\end{pmatrix}\quad\cdots\cdots\cdots\cdots\ (1)$$
+
+stem: |
+  제시문 [가]에 나타난 두 지역 $A$, $B$의 부유물 양은 시간이 지남에 따라 각각 $x$, $y$로 수렴한다. 즉 $x=\lim_{n\to\infty}a_n$, $y=\lim_{n\to\infty}b_n$이 성립한다. 이때 $x$, $y$를 구하는 과정을 기술하시오.
+  <8 ~ 9줄 (250 ~ 300자)> [20점]
+
+subparts:
+- id: '1'
+  stem: |
+    $x$, $y$를 구하시오.
+  points: 20
+  depends_on: []
+  answer: {kind: value, value: 'x=40000,\ y=40000', equivalents: ['각 40,000톤'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: 극한 방정식은 $x=y$ 하나뿐이므로 보존량 $a_n+b_n=80000$과 연립.
+    steps:
+    - {id: 1a, content: '$x=y$, $x+y=80000$ ⇒ $x=y=40000$', criteria: [1.A1]}
+    hint_ladder:
+    - 점화식 양변에 극한을 취해 보자. 식이 몇 개 나오는가?
+    - 두 지역의 부유물 총량은 변하는가?
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 해설집 p.81 [문제 3] 답안1
+    steps:
+    - id: 1b-1
+      content: |
+        $x=\lim_{n\to\infty}a_n$, $y=\lim_{n\to\infty}b_n$이므로 제시문 [가]의 두 식 $a_{n+1}=\dfrac23a_n+\dfrac13b_n$, $b_{n+1}=\dfrac13a_n+\dfrac23b_n$의 양변에 극한을 취하면 $x=\dfrac23x+\dfrac13y$, $y=\dfrac13x+\dfrac23y$. 따라서 $x=y$이다.
+      criteria: [1.M1]
+    - id: 1b-2
+      content: |
+        또한 두 식을 더하면 $a_{n+1}+b_{n+1}=a_n+b_n\ (n=1,2,3,\cdots)$이므로 $a_1=10000$, $b_1=70000$으로부터 $a_n+b_n=a_{n-1}+b_{n-1}=\cdots=a_1+b_1=80000$.
+      criteria: [1.M2]
+    - id: 1b-3
+      content: |
+        따라서 $x+y=\lim_{n\to\infty}(a_n+b_n)=80000$.
+      criteria: [1.R1]
+    - id: 1b-4
+      content: |
+        $x=y$, $x+y=80000$으로부터 $x=40000$, $y=40000$이다.
+      criteria: [1.A1]
+  - id: S1-ALT
+    audience: ALT
+    method_no: 2
+    source_flow: 해설집 p.81 [문제 3] 답안2
+    key_idea: $b_n=80000-a_n$을 대입하면 $a_{n+1}=\dfrac13a_n+\dfrac{80000}{3}$, 극한을 취해 $x=\dfrac13x+\dfrac{80000}{3}$.
+    steps:
+    - {id: 1alt-1, content: '$x=40000$, $y=80000-x=40000$', criteria: [1.M2, 1.R1, 1.A1]}
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 5
+      evidence: 점화식 양변에 극한을 취해 $x=\dfrac23x+\dfrac13y$ 등을 쓰고 $x=y$를 얻었다.
+      depends_on: []
+      steps: [1b-1]
+    - id: 1.M2
+      mark_type: M
+      points: 5
+      evidence: 두 식을 더해 $a_n+b_n=80000$(일정)을 보였다.
+      depends_on: []
+      steps: [1b-2, 1alt-1]
+    - id: 1.R1
+      mark_type: R
+      points: 5
+      evidence: 보존식에서 극한을 취해 $x+y=80000$(또는 $a_{n+1}=\dfrac13a_n+\dfrac{80000}3$의 극한 방정식)을 이끌었다.
+      depends_on: [1.M2]
+      steps: [1b-3, 1alt-1]
+    - id: 1.A1
+      mark_type: A
+      points: 5
+      evidence: $x=40000$, $y=40000$을 적었다.
+      depends_on: [1.R1]
+      steps: [1a, 1b-4, 1alt-1]
+    deductions:
+    - code: D1-1
+      condition: 제시문 인용 없음(동국 규정)
+      effect: minus
+      value: 1
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-ALG-2602}
+  misconceptions:
+  - id: MC-ALG-2602
+    outcome_code: '70'
+    wrong_work: '극한 방정식 $x=\dfrac23x+\dfrac13y$, $y=\dfrac13x+\dfrac23y$만으로 연립해 풀려다 $x=y$에서 멈추거나 $x=y=0$이라 답함'
+    detect_cue: 답이 '$x=y$'뿐이거나 $0$
+    feedback: 극한 방정식 두 개는 사실상 같은 식입니다. 초기값이 반영된 보존량 $a_n+b_n=80000$을 함께 쓰세요.
+    remedy: [RL-1]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-ALG-2602}
+  relation: remediation
+  target: {kind: concept, ref: CON-ALG-RECUR-LIMIT}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-input-v1, item_version: 1, verdict: pass, date: 2026-11-21, note: 원문 PDF 이미지 판독으로 옮김 · 해설 B는 해설집 흐름 · 채점표 자체 작성}
+
+created: 2026-11-21
+updated: 2026-11-21

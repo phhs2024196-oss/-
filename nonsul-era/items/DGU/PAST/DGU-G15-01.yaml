@@ -1,0 +1,203 @@
+schema_version: '2.0'
+id: DGU-G15-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: proof
+origin: past_exam
+school: DGU
+type: T10
+variant_of: null
+replaces: null
+level: L6
+form: 추론
+points: 35
+time_estimate_min: 30
+intent: 평균값 정리로 가속도 제한을 속도의 일차 부등식으로 바꾸고, 위치 변화량(정적분)의 비교로 시각 8에서의 속도를 제한한 뒤 9초까지의 이동 거리 상한을 구하는 능력을 본다.
+key_idea: '기준 시각 8초의 속도 $v(8)$를 매개로 $v(t)\ge2t-16+v(8)\ (t<8)$, $v(t)\le2t-16+v(8)\ (t>8)$를 세워 $v(8)\le8$, $\int_0^9v\le25$.'
+stuck: 평균속도 조건을 $\int_0^8v=16$으로 바꾼 뒤 $v(8)$에 대한 부등식을 얻는 비교 함수(아래쪽 직선) 설정
+idea_tags: [IDEA-MVT-RATE-BOUND, IDEA-INTEGRAL-COMPARISON-BOUND, IDEA-PIVOT-TIME-VALUE]
+tags: [구간 단속, 평균값 정리, 동국 기출]
+elements:
+  materials: [구간 과속 단속, 가감속이 제한된 모형자동차, 25m 직선 주행]
+  concepts: [평균값 정리, 속도와 위치의 변화량(정적분), 정적분의 대소 비교, 평균속도]
+  tools:
+  - '평균값 정리로 v(t)의 일차 상·하한'
+  - 'v≥0 와 하한 직선이 0이 되는 시각까지 적분'
+  - 'v(8)≤8 도출'
+  - '∫8^9 상한 합산'
+  conditions:
+  - '최대 2 m/s²로 가감속 ⇒ $\left\lvert\dfrac{v(t)-v(8)}{t-8}\right\rvert\le2$ (평균값 정리)'
+  - '출발~16m 평균 속도 2 ⇒ 8초 후 16m 지점 통과, $\int_0^8v(t)dt=16$'
+  - '후진 없음 ⇒ $v(t)\ge0$ (적분 하한을 $8-\dfrac{v(8)}{2}$로 자를 근거)'
+  stimuli_used: [가, 나, 다]
+  subpart_links: null
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅱ]
+  scope_2028: common
+  scope_confirmed: true
+  standards:
+  - code: 미확인
+    text: 평균값 정리를 이해한다 / 속도와 거리에 대한 문제를 해결할 수 있다(요지)
+    verified: false
+  content_area: 미분·적분 – 평균값 정리, 속도와 거리
+  behavior_domain: 추론
+  unit_path: [수학Ⅱ, 미분, 도함수의 활용, 평균값 정리]
+  key_concepts: [평균값 정리, 속도와 위치의 변화량(정적분), 정적분의 대소 비교, 평균속도]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 동국대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 동국대학교
+  admission_year: 2015
+  admission_type: 논술
+  track: 자연계열
+  question_no: 1
+  official_url: https://ipsi.dongguk.edu/   # 원문 게시 URL 미확인(교재 재수록본에서 옮김)
+  retrieved_at: '2026-11-21'
+  original_points: 35
+  rights_notice: 미확인 — 원문 PDF 표지 문구 확인 필요(현재 사본은 '대치 수리 논술 연구소' 교재 재수록본)
+  note: 문제 = 동국대 수리논술 문제집 p.72, 해설 참고 = 해설집 p.75. 단일 논제라 소문항 1개(35점). 등호 사례 존재(처음 4초 정지 후 가속도 2로 가속 → x(9)=25)
+
+verify: verify/DGU-G15.py::p01
+
+stimuli:
+- label: 가
+  body: |
+    과속으로 인한 자동차 사고를 예방하기 위하여 도로의 상태에 따라 제한속도를 정하고 때로는 단속을 통하여 과속을 예방하고 있다. 특히 운전자가 무인 단속 카메라 앞에서는 감속을 하지만 곧 과속을 하는 경향이 있기 때문에 우리나라에서도 '구간 단속'이란 방법을 도입하였다. 이를테면 제한속도가 시속 100 km인 직선 도로에서 10 km 간격을 두고 설치되어 있는 카메라를 어떤 자동차가 5분 만에 통과하였다면, 이 자동차의 평균속도가 시속 120 km이므로 이 구간 사이에서 적어도 한 번은 과속을 했다는 뜻이므로 단속 대상이 된다.
+    $$\dfrac{A\text{ 지점과 }B\text{ 지점 사이의 거리}}{(B\text{지점 단속 시각}-A\text{ 지점 단속 시각})}=(\text{구간 평균속도})$$
+    －『고등학교 수학』
+- label: 나
+  body: |
+    평균값의 정리: 함수 $f(x)$가 닫힌 구간 $[a,b]$에서 연속이고 열린 구간 $(a,b)$에서 미분가능하면
+    $$\dfrac{f(b)-f(a)}{b-a}=f'(c)$$
+    인 $c$가 $a$와 $b$ 사이에 적어도 하나 존재한다.
+    －『고등학교 수학』
+- label: 다
+  body: |
+    점 $P$가 수직선 위를 시각 $t=a$에서 $t=b$까지 움직일 때, 시각 $t$에서의 속도를 $v(t)$라고 하면 시각 $t=a$에서 $t=b$까지 점 $P$의 위치의 변화량은
+    $$\int_a^bv(t)dt$$
+    이다.
+    －『고등학교 수학』
+
+stem: |
+  최대 2 m/s²로 가감속할 수 있는 모형자동차로 일직선으로 25 m 지점까지 주행하고자 한다. 출발시각부터 16 m 지점을 통과하는 시각까지 평균 속도가 2 m/s라고 할 때, 25 m를 주행하는 데 적어도 9초가 필요함을 제시문 【가】, 【나】, 【다】를 이용하여 설명하시오. (단, 모형자동차는 출발지점에서 정지 상태이며 후진을 하지 않고 일직선으로만 주행한다.)
+  <12 ~ 15줄> [35점]
+
+subparts:
+- id: '1'
+  stem: |
+    25 m를 주행하는 데 적어도 9초가 필요함을 설명하시오.
+  points: 35
+  depends_on: []
+  answer: {kind: proof, value: null, equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $t<8$에서 $v(t)\ge v(8)-2(8-t)$와 $v\ge0$으로 $16\ge\dfrac{v(8)^2}{4}$, 그리고 $\int_8^9v\le v(8)+1\le9$.
+    steps:
+    - {id: 1a, content: '$\int_0^9v\,dt\le16+9=25$이므로 9초 이전에 25 m를 넘을 수 없다', criteria: [1.R2, 1.R3]}
+    hint_ladder:
+    - 16 m 지점을 통과하는 시각은 몇 초인가?
+    - 시각 8초의 속도 $v(8)$를 기준으로 평균값 정리를 써 보자.
+    - $v(8)$의 최댓값을 먼저 구하자.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 해설집 p.75
+    steps:
+    - id: 1b-1
+      content: |
+        시각 $t$의 속도를 $v(t)$라 하자. 처음 16 m 구간의 평균속도가 2 m/s이므로 제시문 【가】에 의해 출발 8초 후에 16 m 지점을 통과하고, 【다】에 의해 $\int_0^8v(t)dt=16$.
+      criteria: [1.M1]
+    - id: 1b-2
+      content: |
+        가속도의 크기가 2 m/s² 이하이므로 【나】 평균값 정리에 의해 $t\neq8$일 때 $\left\lvert\dfrac{v(t)-v(8)}{t-8}\right\rvert\le2$. 따라서 $0<t<8$일 때 $v(t)\ge2t-16+v(8)$이고, $t>8$일 때 $v(t)\le2t-16+v(8)$.
+      criteria: [1.M2]
+    - id: 1b-3
+      content: |
+        후진하지 않으므로 $v(t)\ge0$이고, $2t-16+v(8)\ge0$인 구간은 $t\ge8-\dfrac{v(8)}{2}$이므로
+        $16=\int_0^8v(t)dt\ge\int_{8-v(8)/2}^8\left(2t-16+v(8)\right)dt=\dfrac{v(8)^2}{4}$. 따라서 $0\le v(8)\le8$.
+      criteria: [1.R1]
+    - id: 1b-4
+      content: |
+        또한 $\int_0^9v(t)dt=\int_0^8v(t)dt+\int_8^9v(t)dt\le16+\int_8^9\left(2t-16+v(8)\right)dt\le16+\int_8^9(2t-8)dt=25$.
+      criteria: [1.R2]
+    - id: 1b-5
+      content: |
+        따라서 처음 9초 동안 이동한 거리는 25 m 이하이고(위치는 감소하지 않으므로 9초 이전의 위치도 25 m 이하), 25 m를 이동하는 데는 적어도 9초가 필요하다.
+      criteria: [1.R3]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 7
+      evidence: 평균속도 조건에서 8초 후 16 m 통과, $\int_0^8v(t)dt=16$을 적었다.
+      depends_on: []
+      steps: [1b-1]
+    - id: 1.M2
+      mark_type: M
+      points: 7
+      evidence: 평균값 정리로 $t<8$에서 $v(t)\ge2t-16+v(8)$, $t>8$에서 $v(t)\le2t-16+v(8)$을 적었다.
+      depends_on: []
+      steps: [1b-2]
+    - id: 1.R1
+      mark_type: R
+      points: 7
+      evidence: $v\ge0$과 적분 비교로 $\dfrac{v(8)^2}{4}\le16$, 즉 $v(8)\le8$을 이끌어냈다.
+      depends_on: [1.M1, 1.M2]
+      steps: [1b-3]
+    - id: 1.R2
+      mark_type: R
+      points: 7
+      evidence: $\int_8^9v(t)dt\le\int_8^9(2t-8)dt=9$를 써서 $\int_0^9v(t)dt\le25$를 보였다.
+      depends_on: [1.R1]
+      steps: [1a, 1b-4]
+    - id: 1.R3
+      mark_type: R
+      points: 7
+      evidence: 9초까지 이동 거리가 25 m 이하이므로 적어도 9초가 필요하다는 결론을 적었다.
+      depends_on: [1.R2]
+      steps: [1a, 1b-5]
+    deductions:
+    - code: D1-1
+      condition: 제시문 인용 없음(동국 규정)
+      effect: minus
+      value: 1
+    - code: D1-2
+      condition: 특정 운동(등가속 등) 하나만 계산하고 일반 결론으로 제시
+      effect: cap
+      value: 7
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-PRF-2601}
+  misconceptions:
+  - id: MC-PRF-2601
+    outcome_code: '70'
+    wrong_work: '"출발부터 계속 가속도 2로 달린다"는 한 가지 운동만 계산(예: 4초 만에 16 m)하거나, 속도를 늘 2 m/s로 가정해 12.5초를 얻은 뒤 일반 결론으로 제시'
+    detect_cue: 평균값 정리·부등식 없이 특정 $v(t)$ 식 하나로만 시간 계산
+    feedback: '"적어도 9초"는 조건을 만족하는 모든 운동에 대한 주장입니다. 임의의 $v(t)$에 대해 부등식으로 위치의 상한을 보이세요.'
+    remedy: [RL-1]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-PRF-2601}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-MVT-IVT}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-input-v1, item_version: 1, verdict: pass, date: 2026-11-21, note: 원문 PDF 이미지 판독으로 옮김 · 해설 B는 해설집 흐름 · 채점표 자체 작성}
+
+created: 2026-11-21
+updated: 2026-11-21

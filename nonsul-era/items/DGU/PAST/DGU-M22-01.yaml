@@ -1,0 +1,285 @@
+schema_version: '2.0'
+id: DGU-M22-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: DGU
+type: T11
+variant_of: null
+replaces: null
+level: L4
+form: 최적2단
+points: 30
+time_estimate_min: 25
+intent: 포물선의 접선 공식으로 접선과 준선의 교점을 구해 두 거리를 접점 좌표로 나타내고, 산술·기하평균 관계로 최솟값과 그때의 접점을 구하는 능력을 본다.
+key_idea: '$Q\left(-p,\ \dfrac{y_1}{2}-\dfrac{2p^2}{y_1}\right)$이므로 $\overline{HQ}=\overline{FQ}=\dfrac{|y_1|}{2}+\dfrac{2p^2}{|y_1|}$, 산술·기하평균으로 최솟값 $2|p|$.'
+stuck: 교점 $Q$의 $y$좌표를 $y_1^2=4px_1$로 $y_1$만의 식으로 바꾸는 단계
+idea_tags: [IDEA-PARABOLA-TANGENT-DIRECTRIX, IDEA-AMGM-MIN]
+tags: [포물선, 준선, 동국 모의]
+elements:
+  materials:
+  - '포물선 $y^2=4px$'
+  - '접선과 준선의 교점 $Q$'
+  - '준선에 내린 수선의 발 $H$'
+  - '초점 $F$'
+  concepts:
+  - '포물선의 정의'
+  - '포물선의 방정식'
+  - '포물선의 접선의 방정식'
+  - '두 점 사이의 거리'
+  - '산술평균과 기하평균의 관계'
+  tools:
+  - '접선 공식에 $x=-p$ 대입'
+  - '$y_1^2=4px_1$로 $y_1$만의 식으로 정리'
+  - '거리 제곱을 완전제곱으로 정리'
+  - '산술·기하평균 부등식과 등호 조건'
+  conditions:
+  - '$y_1=0$(꼭짓점)이면 접선 $x=0$이 준선과 평행 ⇒ $y_1\neq0$'
+  - '$\dfrac{y_1}{2}$와 $\dfrac{2p^2}{y_1}$는 부호가 같음 ⇒ 절댓값 합'
+  - '두 항의 곱 $p^2$ 일정 ⇒ 산술·기하평균'
+  - '$|y_1|=2|p|$ ⇒ $y_1=\pm2p$ 두 점'
+  stimuli_used: [나, 다, 라]
+  subpart_links: '2)는 1)에서 구한 $\overline{HQ}$ 식 사용'
+
+curriculum:
+  version: '2015'
+  subjects: [기하, 수학]
+  scope_2028: geom
+  scope_confirmed: true
+  standards:
+  - code: 미확인
+    text: 포물선의 뜻과 접선의 방정식을 이해하고 활용할 수 있다(요지)
+    verified: false
+  content_area: 기하 – 이차곡선(포물선과 접선)
+  behavior_domain: 문제해결
+  unit_path: [기하, 이차곡선, 포물선, 포물선의 접선]
+  key_concepts: ['포물선의 정의', '포물선의 방정식', '포물선의 접선의 방정식', '두 점 사이의 거리', '산술평균과 기하평균의 관계']
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 동국대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 동국대학교
+  admission_year: 2022
+  admission_type: 논술(모의)
+  track: 자연계열
+  question_no: 1
+  official_url: https://ipsi.dongguk.edu/   # 원문 게시 URL 미확인(교재 재수록본에서 옮김)
+  retrieved_at: '2026-11-21'
+  original_points: null
+  rights_notice: 미확인 — 원문 PDF 표지 문구 확인 필요(현재 사본은 '대치 수리 논술 연구소' 2027 대비 교재 재수록본)
+  note: 문제 = 동국대 수리논술 문제집2027 p.42, 해설 참고 = 동국대 수리논술 해설집2027 p.42. 원문(재수록본)에 배점 표기 없음 → 30점(1) 15·2) 15) 자체 배분. 해설집 2)의 '$x_1=\dfrac{y_1^2}{2p}$'는 오식($\dfrac{y_1^2}{4p}$가 맞음, 결과 $x_1=p$는 같음)
+
+verify: verify/DGU-M22.py::p01
+
+stimuli:
+- label: 가
+  body: |
+    평면위의 한 점 $F$와 이 점을 지나지 않는 한 직선 $l$이 주어질 때, 점 $F$와 직선 $l$에 이르는 거리가 각각 같은 점들의 집합을 포물선이라 하고, 점 $F$를 포물선의 초점, 직선 $l$을 포물선의 준선이라고 한다.
+    - 고등학교 『기하』
+- label: 나
+  body: |
+    초점이 점 $F(p,0)$이고 준선의 방정식이 $x=-p$인 포물선의 방정식은
+    $$y^2=4px\quad(\text{단, }p\neq0)$$
+    - 고등학교 『기하』
+- label: 다
+  body: |
+    포물선 $y^2=4px$위의 점 $(x_1,y_1)$에서의 접선의 방정식은
+    $$y_1y=2p(x+x_1)$$
+    - 고등학교 『기하』
+- label: 라
+  body: |
+    두 실수 $a>0$, $b>0$에 대하여 $\dfrac{a+b}{2}\ge\sqrt{ab}$이다. 여기서 등호는 $a=b$일 때 성립한다.
+    - 고등학교 『수학』
+
+stem: |
+  상수 $p\neq0$에 대하여 초점이 점 $F(p,0)$이고 준선의 방정식이 $x=-p$인 포물선이 주어졌다. 포물선 위의 점 $P$에서 포물선의 준선에 내린 수선의 발을 $H$라고 하고 점 $P$에서의 포물선의 접선과 포물선의 준선의 교점을 $Q$라고 하자.
+
+subparts:
+- id: '1'
+  stem: |
+    1) 점 $H$와 점 $Q$사이의 거리와 초점 $F$와 점 $Q$사이의 거리를 구하시오.
+  points: 15
+  depends_on: []
+  answer: {kind: expression, value: '\overline{HQ}=\overline{FQ}=\dfrac{|y_1|}{2}+\dfrac{2p^2}{|y_1|}\ (P(x_1,y_1),\ y_1\neq0)', equivalents: ['|y1|/2 + 2p^2/|y1|'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: 접선 $y_1y=2p(x+x_1)$에 $x=-p$를 넣고 $x_1=\dfrac{y_1^2}{4p}$로 바꾼다.
+    steps:
+    - {id: 1a, content: '$Q\left(-p,\ \dfrac{y_1}{2}-\dfrac{2p^2}{y_1}\right)$, $H(-p,y_1)$', criteria: [1.M1]}
+    hint_ladder:
+    - 접선의 방정식에 준선의 식 $x=-p$를 대입하자.
+    - $y_1^2=4px_1$을 이용해 $x_1$을 없애자.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 해설집 p.42
+    steps:
+    - id: 1b-1
+      content: |
+        제시문 [나]에 의해 포물선은 $y^2=4px$이다. $P(x_1,y_1)$이라 하면 제시문 [다]에 의해 접선은 $y_1y=2p(x+x_1)$. ($y_1=0$이면 접선 $x=0$이 준선과 평행하여 $Q$가 없으므로 $y_1\neq0$.)
+        준선 $x=-p$를 대입하면 $y_1y=2p(-p+x_1)$, $y=\dfrac{2p(x_1-p)}{y_1}$. $y_1^2=4px_1$이므로
+        $$Q\left(-p,\ \dfrac{2p(x_1-p)}{y_1}\right)=\left(-p,\ \dfrac{y_1}{2}-\dfrac{2p^2}{y_1}\right).$$
+      criteria: [1.M1]
+    - id: 1b-2
+      content: |
+        $H(-p,y_1)$이므로 $\overline{HQ}=\left|y_1-\left(\dfrac{y_1}{2}-\dfrac{2p^2}{y_1}\right)\right|=\left|\dfrac{y_1}{2}+\dfrac{2p^2}{y_1}\right|=\dfrac{|y_1|}{2}+\dfrac{2p^2}{|y_1|}$ (두 항의 부호가 같으므로).
+      criteria: [1.A1]
+    - id: 1b-3
+      content: |
+        $\overline{FQ}^2=(2p)^2+\left(\dfrac{y_1}{2}-\dfrac{2p^2}{y_1}\right)^2=\left(\dfrac{y_1}{2}+\dfrac{2p^2}{y_1}\right)^2$이므로 $\overline{FQ}=\dfrac{|y_1|}{2}+\dfrac{2p^2}{|y_1|}$로 $\overline{HQ}$와 같다.
+      criteria: [1.M2, 1.A2]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 5
+      evidence: 접선의 방정식에 $x=-p$를 대입하고 $y_1^2=4px_1$을 써서 $Q$의 좌표를 구했다.
+      depends_on: []
+      implied_ok: false
+      steps: [1a, 1b-1]
+    - id: 1.A1
+      mark_type: A
+      points: 4
+      evidence: $\overline{HQ}=\dfrac{|y_1|}{2}+\dfrac{2p^2}{|y_1|}$(또는 동등식)을 적었다.
+      depends_on: [1.M1]
+      steps: [1b-2]
+    - id: 1.M2
+      mark_type: M
+      points: 3
+      evidence: 거리 공식으로 $\overline{FQ}^2=4p^2+\left(\dfrac{y_1}{2}-\dfrac{2p^2}{y_1}\right)^2$을 세우고 완전제곱으로 정리했다.
+      depends_on: []
+      steps: [1b-3]
+    - id: 1.A2
+      mark_type: A
+      points: 3
+      evidence: $\overline{FQ}=\dfrac{|y_1|}{2}+\dfrac{2p^2}{|y_1|}$(즉 $\overline{HQ}$와 같음)을 적었다.
+      depends_on: [1.M2]
+      steps: [1b-3]
+    deductions:
+    - code: D1-1
+      condition: 제시문 인용 없음(동국 규정)
+      effect: minus
+      value: 1
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-GEO-2401}
+  misconceptions:
+  - id: MC-GEO-2401
+    outcome_code: '70'
+    wrong_work: '접선을 $y_1y=4p(x+x_1)$ 또는 $y_1y=2p(x-x_1)$로 써서 $Q$의 $y$좌표를 틀림'
+    detect_cue: $\overline{HQ}$와 $\overline{FQ}$가 같게 나오지 않는다
+    feedback: $y^2=4px$ 위의 점 $(x_1,y_1)$에서의 접선은 $y_1y=2p(x+x_1)$입니다. 접점을 넣어 성립하는지 확인하세요.
+    remedy: [RL-1]
+- id: '2'
+  stem: |
+    2) 점 $H$와 점 $Q$사이의 거리의 최솟값을 구하고 최솟값을 가질 때의 점 $P$의 좌표를 구하시오.
+  points: 15
+  depends_on: ['1']
+  answer: {kind: value, value: '2|p|,\ P(p,\ 2p)\ \text{또는}\ P(p,\ -2p)', equivalents: ['2|p|, (p, ±2p)'], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: $\dfrac{|y_1|}{2}$와 $\dfrac{2p^2}{|y_1|}$의 곱이 $p^2$으로 일정하다.
+    steps:
+    - {id: 2a, content: '$\dfrac{|y_1|}{2}+\dfrac{2p^2}{|y_1|}\ge2\sqrt{p^2}=2|p|$, 등호 $|y_1|=2|p|$', criteria: [2.M1, 2.R1]}
+    hint_ladder:
+    - 두 항의 곱을 계산해 보자.
+    - 등호가 성립할 때 $y_1$과 $x_1$은?
+  - id: S2-B
+    audience: B
+    method_no: 1
+    source_flow: 해설집 p.42
+    steps:
+    - id: 2b-1
+      content: |
+        1)에서 $\overline{HQ}=\dfrac{|y_1|}{2}+\dfrac{2p^2}{|y_1|}$이고 두 항은 양수이므로 제시문 [라]에 의해
+        $\overline{HQ}\ge2\sqrt{\dfrac{|y_1|}{2}\cdot\dfrac{2p^2}{|y_1|}}=2\sqrt{p^2}=2|p|$.
+      criteria: [2.M1]
+    - id: 2b-2
+      content: |
+        등호는 $\dfrac{|y_1|}{2}=\dfrac{2p^2}{|y_1|}$, 즉 $|y_1|=2|p|$일 때 성립하므로 최솟값은 $2|p|$.
+      criteria: [2.R1, 2.A1]
+    - id: 2b-3
+      content: |
+        이때 $x_1=\dfrac{y_1^2}{4p}=\dfrac{4p^2}{4p}=p$이므로 점 $P$의 좌표는 $(p,\ 2p)$ 또는 $(p,\ -2p)$.
+      criteria: [2.A2]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 5
+      evidence: 1)의 거리식에 산술·기하평균 관계를 적용해 $\ge2|p|$를 이끌었다.
+      depends_on: []
+      implied_ok: false
+      steps: [2a, 2b-1]
+    - id: 2.R1
+      mark_type: R
+      points: 4
+      evidence: 등호 조건 $|y_1|=2|p|$를 밝혀 최솟값이 실제로 달성됨을 보였다.
+      depends_on: []
+      steps: [2a, 2b-2]
+    - id: 2.A1
+      mark_type: A
+      points: 3
+      evidence: 최솟값 $2|p|$를 적었다.
+      depends_on: [2.M1]
+      steps: [2b-2]
+    - id: 2.A2
+      mark_type: A
+      points: 3
+      evidence: 점 $P$의 좌표 $(p,2p)$, $(p,-2p)$ 두 개를 모두 적었다.
+      depends_on: [2.R1]
+      steps: [2b-3]
+    deductions:
+    - code: D2-1
+      condition: 제시문 인용 없음(동국 규정)
+      effect: minus
+      value: 1
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-GEO-2402}
+  - {code: '71', misconception: MC-ALG-2401}
+  misconceptions:
+  - id: MC-GEO-2402
+    outcome_code: '70'
+    wrong_work: '$y_1>0$으로 두고 풀어 $P(p,2p)$ 하나만 답함'
+    detect_cue: 답에 $(p,-2p)$가 없다
+    feedback: $|y_1|=2|p|$에서 $y_1=\pm2p$ 두 경우가 모두 가능합니다. 포물선은 $x$축 대칭입니다.
+    remedy: [RL-1]
+  - id: MC-ALG-2401
+    outcome_code: '71'
+    wrong_work: '등호 조건을 확인하지 않거나, $p<0$일 때 최솟값을 $2p$로 씀'
+    detect_cue: 최솟값이 $2p$이거나 등호 성립 조건 서술이 없다
+    feedback: 산술·기하평균은 등호가 실제로 성립할 때만 최솟값이 됩니다. $\sqrt{p^2}=|p|$도 주의하세요.
+    remedy: [RL-2]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-GEO-2401}
+  relation: remediation
+  target: {kind: concept, ref: CON-GEO-PARABOLA-TANGENT}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-ALG-2401}
+  relation: remediation
+  target: {kind: concept, ref: CON-ALG-AM-GM}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-input-v1, item_version: 1, verdict: pass, date: 2026-11-21, note: 원문 PDF 이미지 판독으로 옮김 · 해설·채점표 자체 작성}
+
+created: 2026-11-21
+updated: 2026-11-21

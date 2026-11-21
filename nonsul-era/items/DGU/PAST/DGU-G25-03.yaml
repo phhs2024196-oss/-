@@ -1,0 +1,405 @@
+schema_version: '2.0'
+id: DGU-G25-03
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: DGU
+type: T09
+variant_of: null
+replaces: null
+level: L4
+form: 일반화
+points: 40
+time_estimate_min: 35
+intent: 대칭식 조건으로 두 곡선을 n의 식으로 결정하고, 교점으로 만든 삼각형의 넓이와 두 곡선 사이의 넓이를 구한 뒤, 급수를 정적분으로 바꾸어 극한을 구하는 능력을 본다.
+key_idea: '$(\alpha-\beta)^2=(\alpha+\beta)^2-4\alpha\beta$에 $\alpha\beta=20n(\alpha-\beta)$를 넣으면 $\alpha-\beta=n$이 되어 두 곡선이 $y=x^2-9nx+20n^2$, $y=\dfrac{12n^3}{x}$로 정해지고 교점은 $x=n,2n,6n$.'
+stuck: 조건식에서 $\alpha-\beta$에 대한 이차방정식을 만드는 단계, 넓이를 $x=2n$에서 나누어 적분하는 단계
+idea_tags: [IDEA-ALG-SYMMETRIC-DIFF-SQUARE, IDEA-CAL-AREA-SPLIT-AT-CROSSING, IDEA-CAL-RIEMANN-SUM-LIMIT]
+tags: [두 곡선 사이의 넓이, 구분구적법, 점과 직선 사이의 거리, 동국 실전]
+elements:
+  materials:
+  - '$n$에 따라 정해지는 이차함수와 유리함수 $y=\dfrac{c}{x}$'
+  - 세 교점이 만드는 삼각형
+  - 두 곡선으로 둘러싸인 두 영역
+  concepts:
+  - 이차방정식의 근과 계수의 관계
+  - 삼차방정식의 인수분해
+  - 점과 직선 사이의 거리
+  - 정적분과 넓이
+  - 'x^r 의 부정적분(로그함수)'
+  - 정적분과 급수의 합
+  tools:
+  - '$(\alpha-\beta)^2=(\alpha+\beta)^2-4\alpha\beta$로 $\alpha-\beta$ 결정'
+  - 교점 방정식 인수분해
+  - 밑변·높이로 삼각형 넓이
+  - 위아래가 바뀌는 교점에서 구간 분할
+  - '급수를 $\displaystyle\int_0^1x^6dx$로 변환'
+  conditions:
+  - '$\alpha>\beta>0$ ⇒ $\alpha-\beta>0$인 근만 채택'
+  - '$[n,2n]$에서 이차함수가 위, $[2n,6n]$에서 $\dfrac{12n^3}{x}$이 위 ⇒ $x=2n$에서 분할'
+  - '$\dfrac{1}{n^7}=\dfrac{1}{n^6}\cdot\dfrac1n$ ⇒ $\left(\dfrac kn\right)^6$과 $\Delta x=\dfrac1n$'
+  stimuli_used: [가, 나, 다]
+  subpart_links: '(2)(3)은 (1)의 교점 사용, (4)는 (2)의 A_n 과 (3)의 S_n 사용'
+
+curriculum:
+  version: '2015'
+  subjects: [수학, 수학Ⅱ, 미적분]
+  scope_2028: calc2
+  scope_confirmed: true
+  standards:
+  - code: 미확인
+    text: 곡선으로 둘러싸인 도형의 넓이를 구하고, 정적분과 급수의 합 사이의 관계를 이해한다(요지)
+    verified: false
+  content_area: 미적분 – 적분법(정적분의 활용, 정적분과 급수)
+  behavior_domain: 문제해결
+  unit_path: [미적분, 적분법, 정적분의 활용, 넓이·정적분과 급수]
+  key_concepts:
+  - '이차방정식의 근과 계수의 관계'
+  - '삼차방정식의 인수분해'
+  - '점과 직선 사이의 거리'
+  - '정적분과 넓이'
+  - 'x^r 의 부정적분(로그함수)'
+  - '정적분과 급수의 합'
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 동국대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 동국대학교
+  admission_year: 2025
+  admission_type: 논술
+  track: 자연계열
+  question_no: 3
+  official_url: https://ipsi.dongguk.edu/   # 원문 게시 URL 미확인(교재 재수록본에서 옮김)
+  retrieved_at: '2026-11-21'
+  original_points: null
+  rights_notice: 미확인 — 원문 PDF 표지 문구 확인 필요(현재 사본은 '대치 수리 논술 연구소' 2027 대비 교재 재수록본)
+  note: 문제 = 문제집2027 p.16, 해설 참고 = 해설집2027 p.19. 재수록본에 배점·줄 수 표기 없음 → 동국 규격에 따라 40점 가정, 소문항 8·10·10·12 는 자체 배분
+
+verify: verify/DGU-G25.py::p03
+
+stimuli:
+- label: 가
+  body: |
+    함수 $f(x)$가 닫힌구간 $[a,b]$에서 연속이고 $f(x)\ge0$일 때, 정적분
+    $$\int_a^b f(x)\,dx$$
+    는 곡선 $y=f(x)$와 $x$축 및 두 직선 $x=a$, $x=b$로 둘러싸인 도형의 넓이와 같다.
+    『고등학교 수학Ⅱ』
+- label: 나
+  body: |
+    함수 $y=x^r$($r$은 실수)의 부정적분은
+    1) $r\neq-1$ 일 때, $\displaystyle\int x^r\,dx=\dfrac{1}{r+1}x^{r+1}+C$
+    2) $r=-1$ 일 때, $\displaystyle\int x^{-1}\,dx=\ln\lvert x\rvert+C$
+    『고등학교 미적분』
+- label: 다
+  body: |
+    함수 $f(x)$가 닫힌구간 $[a,\ b]$에서 연속일 때,
+    $$\int_a^b f(x)\,dx=\lim_{n\to\infty}\sum_{k=1}^{n}f(x_k)\Delta x\ \left(\text{단, }\Delta x=\dfrac{b-a}{n},\ x_k=a+k\Delta x\right)$$
+    『고등학교 미적분』
+
+stem: |
+  실수 $\alpha$, $\beta$는 $\dfrac{\alpha\beta}{\alpha-\beta}=20n$, $\alpha+\beta=9n$, $\alpha>\beta>0$을 만족한다. 두 곡선 $y=(x-\alpha)(x-\beta)$와 $y=\dfrac{3\alpha\beta(\alpha-\beta)}{5x}$로 둘러싸인 도형의 넓이를 $S_n$이라 하자.
+  (단, $n$은 자연수)
+
+subparts:
+- id: '1'
+  stem: |
+    두 곡선의 교점의 $x$좌표를 $n$을 이용하여 나타내시오.
+  points: 8
+  depends_on: []
+  answer: {kind: value, value: 'x=n,\ 2n,\ 6n', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $(\alpha-\beta)^2+80n(\alpha-\beta)-81n^2=0$에서 $\alpha-\beta=n$, 교점 방정식 $x^3-9nx^2+20n^2x-12n^3=0$을 인수분해.
+    steps:
+    - {id: 1a, content: '$(x-n)(x-2n)(x-6n)=0$', criteria: [1.A2]}
+    hint_ladder:
+    - $(\alpha-\beta)^2$을 $\alpha+\beta$와 $\alpha\beta$로 나타내 보자.
+    - $\alpha\beta=20n(\alpha-\beta)$를 대입하면 $\alpha-\beta$에 대한 이차방정식이 된다.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 해설집 p.19
+    steps:
+    - id: 1b-1
+      content: |
+        $(\alpha-\beta)^2=(\alpha+\beta)^2-4\alpha\beta=81n^2-80n(\alpha-\beta)$이므로 $(\alpha-\beta)^2+80n(\alpha-\beta)-81n^2=0$, 즉 $(\alpha-\beta-n)(\alpha-\beta+81n)=0$. $\alpha-\beta>0$이므로 $\alpha-\beta=n$.
+      criteria: [1.M1]
+    - id: 1b-2
+      content: |
+        $\alpha\beta=20n\cdot n=20n^2$이므로 두 곡선은 $y=x^2-9nx+20n^2$, $y=\dfrac{3\cdot20n^2\cdot n}{5x}=\dfrac{12n^3}{x}$이다.
+      criteria: [1.A1]
+    - id: 1b-3
+      content: |
+        $x^2-9nx+20n^2=\dfrac{12n^3}{x}$의 양변에 $x$를 곱해 정리하면 $x^3-9nx^2+20n^2x-12n^3=0$, 인수분해하면 $(x-n)(x-2n)(x-6n)=0$. 따라서 $x=n$ 또는 $x=2n$ 또는 $x=6n$.
+      criteria: [1.A2]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 3
+      evidence: $(\alpha-\beta)^2=(\alpha+\beta)^2-4\alpha\beta$로 $\alpha-\beta$에 대한 이차방정식을 세우고 $\alpha-\beta>0$으로 $\alpha-\beta=n$을 골랐다.
+      depends_on: []
+      steps: [1b-1]
+    - id: 1.A1
+      mark_type: A
+      points: 2
+      evidence: 두 곡선 $y=x^2-9nx+20n^2$, $y=\dfrac{12n^3}{x}$(또는 $\alpha=5n$, $\beta=4n$)를 적었다.
+      depends_on: [1.M1]
+      steps: [1b-2]
+    - id: 1.A2
+      mark_type: A
+      points: 3
+      evidence: 교점 방정식을 인수분해해 $x=n,2n,6n$을 적었다.
+      depends_on: [1.M1]
+      steps: [1a, 1b-3]
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-ALG-2203}
+  misconceptions:
+  - id: MC-ALG-2203
+    outcome_code: '70'
+    wrong_work: '$\alpha-\beta=-81n$도 해로 남기거나, $\alpha$, $\beta$를 따로 구하지 못해 교점 방정식을 세우지 못함'
+    detect_cue: 두 경우를 나누어 계산하거나 $\alpha-\beta$의 부호 언급이 없다
+    feedback: 조건 $\alpha>\beta>0$은 $\alpha-\beta>0$을 뜻합니다. 이차방정식의 해를 조건으로 걸러 하나로 정하세요.
+    remedy: [RL-1]
+- id: '2'
+  stem: |
+    교점을 꼭짓점으로 하는 다각형의 넓이를 $A_n$이라 할 때, $A_n$을 구하시오.
+  points: 10
+  depends_on: ['1']
+  answer: {kind: expression, value: 'A_n=10n^3', equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: 양 끝 교점을 잇는 선분을 밑변, 가운데 교점에서 그 직선까지의 거리를 높이로 하는 삼각형.
+    steps:
+    - {id: 2a, content: '$h=5n\sqrt{1+4n^2}$, $d=\dfrac{4n^2}{\sqrt{4n^2+1}}$, $A_n=\dfrac{dh}{2}=10n^3$', criteria: [2.A2]}
+  - id: S2-B
+    audience: B
+    method_no: 1
+    source_flow: 해설집 p.19
+    steps:
+    - id: 2b-1
+      content: |
+        교점은 $(n,12n^2)$, $(2n,6n^2)$, $(6n,2n^2)$이다. 두 점 $(n,12n^2)$, $(6n,2n^2)$을 지나는 직선은 기울기 $-2n$이므로 $y=-2nx+14n^2$, 즉 $2nx+y-14n^2=0$.
+      criteria: [2.M1]
+    - id: 2b-2
+      content: |
+        점 $(2n,6n^2)$에서 이 직선까지의 거리는 $d=\dfrac{\lvert2n\cdot2n+6n^2-14n^2\rvert}{\sqrt{(2n)^2+1^2}}=\dfrac{4n^2}{\sqrt{4n^2+1}}$이고, 두 점 $(n,12n^2)$, $(6n,2n^2)$ 사이의 거리는 $h=\sqrt{(5n)^2+(10n^2)^2}=5n\sqrt{1+4n^2}$.
+      criteria: [2.M1, 2.A1]
+    - id: 2b-3
+      content: |
+        따라서 세 점을 꼭짓점으로 하는 삼각형의 넓이는 $A_n=\dfrac{dh}{2}=\dfrac12\cdot\dfrac{4n^2}{\sqrt{4n^2+1}}\cdot5n\sqrt{4n^2+1}=10n^3$.
+      criteria: [2.A2]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 4
+      evidence: 세 교점의 좌표를 적고, 한 변을 밑변으로 그 직선의 방정식과 나머지 꼭짓점까지의 거리(또는 신발끈 공식 등 동치)를 쓰는 식이 있다.
+      depends_on: []
+      ft: {allowed: true, from: [1.A2], max_points: 4}
+      steps: [2b-1, 2b-2]
+    - id: 2.A1
+      mark_type: A
+      points: 3
+      evidence: 높이 $\dfrac{4n^2}{\sqrt{4n^2+1}}$과 밑변 $5n\sqrt{1+4n^2}$을 적었다.
+      depends_on: [2.M1]
+      steps: [2b-2]
+    - id: 2.A2
+      mark_type: A
+      points: 3
+      evidence: $A_n=10n^3$을 적었다.
+      depends_on: [2.M1]
+      steps: [2a, 2b-3]
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-GEO-2202}
+  misconceptions:
+  - id: MC-GEO-2202
+    outcome_code: '70'
+    wrong_work: '점과 직선 사이의 거리를 $\lvert2n\cdot2n+6n^2-14n^2\rvert=4n^2$으로만 계산(분모 누락)'
+    detect_cue: 답에 $n^4$ 이상의 차수나 $\sqrt{4n^2+1}$이 남아 있다
+    feedback: 점 $(x_1,y_1)$과 직선 $ax+by+c=0$ 사이의 거리는 $\dfrac{\lvert ax_1+by_1+c\rvert}{\sqrt{a^2+b^2}}$입니다. 분모를 확인하세요.
+    remedy: [RL-2]
+- id: '3'
+  stem: |
+    $S_n$을 구하시오.
+  points: 10
+  depends_on: ['1']
+  answer: {kind: expression, value: 'S_n=\left(\dfrac72+12\ln\dfrac32\right)n^3', equivalents: ['\dfrac72n^3+12n^3\ln\dfrac32'], tolerance: null}
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: $[n,2n]$에서는 이차함수가 위, $[2n,6n]$에서는 $\dfrac{12n^3}{x}$이 위이므로 두 구간으로 나누어 적분.
+    steps:
+    - {id: 3a, content: '$\left(\dfrac{53}{6}-12\ln2\right)n^3+\left(-\dfrac{16}{3}+12\ln3\right)n^3$', criteria: [3.A2]}
+  - id: S3-B
+    audience: B
+    method_no: 1
+    source_flow: 해설집 p.19
+    steps:
+    - id: 3b-1
+      content: |
+        제시문 【가】에 의해
+        $S_n=\displaystyle\int_n^{6n}\left\lvert x^2-9nx+20n^2-\dfrac{12n^3}{x}\right\rvert dx=\int_n^{2n}\left(x^2-9nx+20n^2-\dfrac{12n^3}{x}\right)dx-\int_{2n}^{6n}\left(x^2-9nx+20n^2-\dfrac{12n^3}{x}\right)dx$
+        ($\dfrac{(x-n)(x-2n)(x-6n)}{x}$의 부호가 $[n,2n]$에서 양, $[2n,6n]$에서 음이므로).
+      criteria: [3.M1]
+    - id: 3b-2
+      content: |
+        제시문 【나】로 적분하면
+        $=\left[\dfrac{x^3}{3}\right]_n^{2n}-9n\left[\dfrac{x^2}{2}\right]_n^{2n}+20n^2[x]_n^{2n}-12n^3[\ln\lvert x\rvert]_n^{2n}-\left[\dfrac{x^3}{3}\right]_{2n}^{6n}+9n\left[\dfrac{x^2}{2}\right]_{2n}^{6n}-20n^2[x]_{2n}^{6n}+12n^3[\ln\lvert x\rvert]_{2n}^{6n}$
+        $=\dfrac73n^3-\dfrac{27}{2}n^3+20n^3-12n^3\ln2-\dfrac{208}{3}n^3+144n^3-80n^3+12n^3\ln3$.
+      criteria: [3.A1]
+    - id: 3b-3
+      content: |
+        정리하면 $S_n=\dfrac72n^3+12n^3\ln\dfrac32=\left(\dfrac72+12\ln\dfrac32\right)n^3$.
+      criteria: [3.A2]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 4
+      evidence: 위아래 관계가 바뀌는 $x=2n$에서 구간을 나누어(또는 절댓값으로) 넓이를 정적분으로 쓴 식이 있다.
+      depends_on: []
+      ft: {allowed: true, from: [1.A2], max_points: 4}
+      steps: [3b-1]
+    - id: 3.A1
+      mark_type: A
+      points: 3
+      evidence: $\dfrac{12n^3}{x}$의 부정적분을 $12n^3\ln\lvert x\rvert$로 하여 각 구간의 값을 바르게 계산했다.
+      depends_on: [3.M1]
+      steps: [3b-2]
+    - id: 3.A2
+      mark_type: A
+      points: 3
+      evidence: $S_n=\left(\dfrac72+12\ln\dfrac32\right)n^3$을 적었다.
+      depends_on: [3.M1]
+      steps: [3a, 3b-3]
+    deductions:
+    - code: D3-1
+      condition: 제시문 인용 없음(동국 규정)
+      effect: minus
+      value: 1
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-CAL-2201}
+  misconceptions:
+  - id: MC-CAL-2201
+    outcome_code: '70'
+    wrong_work: '$\displaystyle\int_n^{6n}\left(x^2-9nx+20n^2-\dfrac{12n^3}{x}\right)dx$를 한 번에 계산해 두 영역의 넓이가 상쇄됨'
+    detect_cue: 적분 구간을 $[n,6n]$ 하나로 썼거나 결과가 $\left(\dfrac72+12\ln\dfrac32\right)n^3$보다 작은 값(음수 포함)
+    feedback: 두 곡선 사이의 넓이는 위 곡선에서 아래 곡선을 뺀 것을 적분합니다. 위아래가 바뀌는 교점 $x=2n$에서 구간을 나누세요.
+    remedy: [RL-3]
+- id: '4'
+  stem: |
+    $\displaystyle\lim_{n\to\infty}\dfrac{1}{n^7}\sum_{k=1}^{n}S_kA_{2k}$를 구하시오.
+  points: 12
+  depends_on: ['2', '3']
+  answer: {kind: value, value: '40+\dfrac{960}{7}\ln\dfrac32', equivalents: ['\dfrac{80}{7}\left(\dfrac72+12\ln\dfrac32\right)'], tolerance: null}
+  solutions:
+  - id: S4-A
+    audience: A
+    method_no: 1
+    key_idea: $S_kA_{2k}=80\left(\dfrac72+12\ln\dfrac32\right)k^6$이므로 $\dfrac1n\sum\left(\dfrac kn\right)^6\to\displaystyle\int_0^1x^6dx$.
+    steps:
+    - {id: 4a, content: '$80\left(\dfrac72+12\ln\dfrac32\right)\cdot\dfrac17$', criteria: [4.A1]}
+  - id: S4-B
+    audience: B
+    method_no: 1
+    source_flow: 해설집 p.19
+    steps:
+    - id: 4b-1
+      content: |
+        (2), (3)에서 $S_k=\left(\dfrac72+12\ln\dfrac32\right)k^3$, $A_{2k}=10(2k)^3$이므로
+        $\dfrac{1}{n^7}\displaystyle\sum_{k=1}^{n}S_kA_{2k}=10\left(\dfrac72+12\ln\dfrac32\right)\sum_{k=1}^{n}\left(\dfrac kn\right)^3\left(\dfrac{2k}{2n}\right)^3\dfrac{2^3}{n}=80\left(\dfrac72+12\ln\dfrac32\right)\sum_{k=1}^{n}\left(\dfrac kn\right)^6\dfrac1n$.
+      criteria: [4.M1]
+    - id: 4b-2
+      content: |
+        제시문 【다】에서 $a=0$, $b=1$, $f(x)=x^6$, $\Delta x=\dfrac1n$, $x_k=\dfrac kn$으로 보면
+        $\displaystyle\lim_{n\to\infty}\sum_{k=1}^{n}\left(\dfrac kn\right)^6\dfrac1n=\int_0^1x^6\,dx=\dfrac17$.
+      criteria: [4.M2]
+    - id: 4b-3
+      content: |
+        따라서 구하는 극한은 $\dfrac{80}{7}\left(\dfrac72+12\ln\dfrac32\right)=40+\dfrac{960}{7}\ln\dfrac32$.
+      criteria: [4.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 4.M1
+      mark_type: M
+      points: 3
+      evidence: $S_kA_{2k}$를 $k^6$의 상수배로 정리했다.
+      depends_on: []
+      ft: {allowed: true, from: [2.A2, 3.A2], max_points: 3}
+      steps: [4b-1]
+    - id: 4.M2
+      mark_type: M
+      points: 5
+      evidence: 【다】를 인용해 $\dfrac1n\sum\left(\dfrac kn\right)^6$을 $\displaystyle\int_0^1x^6dx$로 바꾸었다.
+      depends_on: []
+      steps: [4b-2]
+    - id: 4.A1
+      mark_type: A
+      points: 4
+      evidence: $40+\dfrac{960}{7}\ln\dfrac32$(또는 동치)를 답으로 적었다.
+      depends_on: [4.M1, 4.M2]
+      steps: [4a, 4b-3]
+    deductions:
+    - code: D4-1
+      condition: 제시문 인용 없음(동국 규정)
+      effect: minus
+      value: 1
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-CAL-2202}
+  misconceptions:
+  - id: MC-CAL-2202
+    outcome_code: '70'
+    wrong_work: '$A_{2k}$를 $10k^3$으로 두거나, $\dfrac1{n^7}$을 $\left(\dfrac kn\right)^7$로 나누어 $\displaystyle\int_0^1x^7dx$로 바꿈'
+    detect_cue: 답의 계수가 $\dfrac{10}{7}$, $\dfrac{80}{8}$ 등
+    feedback: $\dfrac{1}{n^7}=\dfrac{1}{n^6}\cdot\dfrac1n$으로 나누어 $\left(\dfrac kn\right)^6$과 $\Delta x=\dfrac1n$을 맞추세요. $A_{2k}$는 $n$ 자리에 $2k$를 넣습니다.
+    remedy: [RL-4]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-ALG-2203}
+  relation: remediation
+  target: {kind: concept, ref: CON-ALG-VIETA}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-GEO-2202}
+  relation: remediation
+  target: {kind: concept, ref: CON-GEO-POINT-LINE-DIST}
+  priority: 1
+- id: RL-3
+  trigger: {type: misconception, ref: MC-CAL-2201}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-AREA-BETWEEN}
+  priority: 1
+- id: RL-4
+  trigger: {type: misconception, ref: MC-CAL-2202}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-RIEMANN-SUM}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-input-v1, item_version: 1, verdict: pass, date: 2026-11-21, note: 원문 PDF 이미지 판독으로 옮김 · 해설 B 는 해설집 흐름 · 채점표 자체 작성}
+
+created: 2026-11-21
+updated: 2026-11-21

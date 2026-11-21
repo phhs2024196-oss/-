@@ -1,0 +1,255 @@
+schema_version: '2.0'
+id: DGU-M23-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: DGU
+type: T02
+variant_of: null
+replaces: null
+level: L5
+form: 최적2단
+points: 30
+time_estimate_min: 25
+intent: 원에 내접하는 사각형에서 대각 관계와 코사인법칙으로 변의 합·곱을 한 변수로 나타내고, 두 양수가 존재할 조건(판별식)으로 범위를 정한 뒤 넓이를 이차함수로 최대화하는 능력을 본다.
+key_idea: '$x=\overline{CB}+\overline{CD}$로 두면 $\overline{AB}\cdot\overline{AD}=\dfrac{(22-x)^2-64}{3}$, $\overline{CB}\cdot\overline{CD}=x^2-64$. 합·곱이 주어진 두 양수의 존재 조건으로 $8<x\le\dfrac{16\sqrt3}{3}$.'
+stuck: 변의 길이가 실제로 존재할 조건을 근과 계수의 관계·판별식으로 바꾸는 단계
+idea_tags: [IDEA-ALG-SUM-PRODUCT-EXIST, IDEA-TRIG-LAW-COSINES-CYCLIC, IDEA-QUAD-MAX-ON-INTERVAL]
+tags: [원에 내접하는 사각형, 코사인법칙, 동국 모의]
+elements:
+  materials:
+  - '원에 내접하는 사각형 ABCD'
+  - '네 변의 길이의 합 22, $\angle A=60^\circ$, $\overline{BD}=8$'
+  concepts:
+  - '원에 내접하는 사각형의 대각의 합'
+  - '코사인법칙'
+  - '삼각형의 넓이(사인)'
+  - '이차방정식의 근과 계수의 관계·판별식'
+  - '제한된 범위에서 이차함수의 최대·최소'
+  tools:
+  - '대각선 BD를 공유하는 두 삼각형에 코사인법칙'
+  - '곱을 합의 식으로 바꾸기'
+  - '두 양수 존재 조건(합>0, 곱>0, 판별식≥0)'
+  - '넓이를 $x$의 이차함수로 정리 후 꼭짓점 위치 비교'
+  conditions:
+  - '원에 내접 ⇒ $\angle C=180^\circ-60^\circ=120^\circ$'
+  - '변의 길이는 양수 ⇒ 합·곱이 양수이고 판별식 $\ge0$인 이차방정식의 두 양근'
+  - '꼭짓점 $x=\dfrac{11}{2}$이 범위 밖 ⇒ 범위 끝에서 최대'
+  stimuli_used: [가, 나, 다, 라]
+  subpart_links: null
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅰ, 수학]
+  scope_2028: common
+  scope_confirmed: true
+  standards:
+  - code: 미확인
+    text: 사인법칙과 코사인법칙을 이해하고 활용할 수 있다(요지)
+    verified: false
+  content_area: 수학Ⅰ – 삼각함수(코사인법칙)
+  behavior_domain: 문제해결
+  unit_path: [수학Ⅰ, 삼각함수, 사인법칙과 코사인법칙, 코사인법칙]
+  key_concepts:
+  - '원에 내접하는 사각형의 대각의 합'
+  - '코사인법칙'
+  - '삼각형의 넓이(사인)'
+  - '이차방정식의 근과 계수의 관계·판별식'
+  - '제한된 범위에서 이차함수의 최대·최소'
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 동국대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 동국대학교
+  admission_year: 2023
+  admission_type: 논술(모의)
+  track: 자연계열
+  question_no: 1
+  official_url: https://ipsi.dongguk.edu/   # 원문 게시 URL 미확인(교재 재수록본에서 옮김)
+  retrieved_at: '2026-11-21'
+  original_points: null
+  rights_notice: 미확인 — 원문 PDF 표지 문구 확인 필요(현재 사본은 '대치 수리 논술 연구소' 2027 대비 교재 재수록본)
+  note: 문제 = 동국대 수리논술 문제집2027 p.34~35, 해설 참고 = 해설집2027 p.34. 원문(재수록본)에 배점·줄 수 표기 없음 → 30점은 동국 관례(30·30·40)에 따른 자체 배분
+
+verify: verify/DGU-M23.py::p01
+
+stimuli:
+- label: 가
+  body: |
+    $\triangle\mathrm{ABC}$ 에서
+    [그림: 삼각형 ABC — 꼭짓점 A, B, C의 대변의 길이가 각각 $a$, $b$, $c$]
+    $$a^2=b^2+c^2-2bc\cos A$$
+    $$b^2=c^2+a^2-2ca\cos B$$
+    $$c^2=a^2+b^2-2ab\cos C$$
+    -『고등학교 수학Ⅰ』
+- label: 나
+  body: |
+    삼각형ABC의 넓이를 $S$ 라고 하면
+    $$S=\dfrac12bc\sin A=\dfrac12ca\sin B=\dfrac12ab\sin C$$
+    -『고등학교 수학Ⅰ』
+- label: 다
+  body: |
+    $x$의 값의 범위가 $\alpha\le x\le\beta$일 때, 이차함수 $y=a(x-p)^2+q$ 의 최댓값과 최솟값은 이차함수의 꼭짓점의 $x$좌표 $p$가 주어진 범위에 포함되는지 조사하여 다음과 같이 구한다.
+    (1) $\alpha\le p\le\beta$인 경우, $f(\alpha),f(\beta),f(p)$ 중에서 가장 큰 값이 최댓값이고, 가장 작은 값이 최솟값이다.
+    (2) $p<\alpha$ 또는 $p>\beta$인 경우, $f(\alpha),f(\beta)$ 중에서 가장 큰 값이 최댓값이고, 가장 작은 값이 최솟값이다.
+    -『고등학교 수학』
+- label: 라
+  body: |
+    원에 내접하는 사각형의 한 쌍의 대각의 크기의 합은 $180^\circ$ 이다.
+    -『고등학교 수학Ⅰ』
+
+stem: |
+  원에 내접하는 사각형 ABCD의 네 변의 길이의 합이 22이고, $\angle A=60^o$, $\overline{\mathrm{BD}}=8$일 때, $\overline{\mathrm{CB}}+\overline{\mathrm{CD}}$의 범위를 구하라. 그리고, 사각형 ABCD의 넓이가 최대가 될 때 $\overline{\mathrm{CB}}+\overline{\mathrm{CD}}$의 길이를 구하라.
+  [그림: 원에 내접하는 사각형 ABCD — A는 위, B는 왼쪽, C는 아래, D는 오른쪽에 있고 $\angle A=60^o$로 표시]
+
+subparts:
+- id: '1'
+  stem: |
+    $\overline{\mathrm{CB}}+\overline{\mathrm{CD}}$의 범위와, 넓이가 최대일 때의 $\overline{\mathrm{CB}}+\overline{\mathrm{CD}}$를 구하시오.
+  points: 30
+  depends_on: []
+  answer: {kind: value, value: '8<\overline{CB}+\overline{CD}\le\dfrac{16\sqrt3}{3},\ 넓이 최대일 때 \overline{CB}+\overline{CD}=\dfrac{16\sqrt3}{3}', equivalents: ['(8, 16√3/3], 최대 at 16√3/3'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: '$\overline{CB},\overline{CD}$는 $t^2-xt+(x^2-64)=0$의 두 양근 ⇒ $x>8$, $256-3x^2\ge0$; $S=\dfrac{\sqrt3}{3}(x^2-11x+57)$은 범위에서 증가.'
+    steps:
+    - {id: 1a, content: '범위 $8<x\le\dfrac{16\sqrt3}{3}$, 최대는 $x=\dfrac{16\sqrt3}{3}$($\overline{CB}=\overline{CD}$)', criteria: [1.A2, 1.A3]}
+    hint_ladder:
+    - $\angle C$의 크기는? 두 삼각형 ABD, CBD에 코사인법칙을 써 보자.
+    - 두 변의 합과 곱을 알면 두 변은 어떤 이차방정식의 근인가?
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 해설집 p.34
+    steps:
+    - id: 1b-1
+      content: |
+        $a=\overline{AB}$, $b=\overline{AD}$, $c=\overline{CB}$, $d=\overline{CD}$라 하자. 사각형 ABCD가 원에 내접하므로 제시문 【라】에 의해 $\angle C=120^\circ$이다.
+      criteria: [1.M1]
+    - id: 1b-2
+      content: |
+        제시문 【가】의 코사인법칙을 삼각형 ABD, CBD에 적용하면 $a^2+b^2-ab=64$, $c^2+d^2+cd=64$.
+      criteria: [1.A1]
+    - id: 1b-3
+      content: |
+        $ab=\dfrac{(a+b)^2-64}{3}$, $cd=(c+d)^2-64$이고, $a+b+c+d=22$에서 $x=c+d$라 하면
+        $ab=\dfrac{(22-x)^2-64}{3}$, $cd=x^2-64$.
+      criteria: [1.M2]
+    - id: 1b-4
+      content: |
+        $a,b$는 근과 계수의 관계에 의해 이차방정식 $t^2-(a+b)t+ab=0$의 두 양근이므로
+        $a+b=22-x>0$, $ab=\dfrac{(22-x)^2-64}{3}>0$, $(a+b)^2-4ab=\dfrac{-(22-x)^2+256}{3}\ge0$ ⇒ $6\le x<14$.
+        마찬가지로 $c,d$가 두 양수로 존재할 조건은 $c+d=x>0$, $cd=x^2-64>0$, $(c+d)^2-4cd=-3x^2+256\ge0$ ⇒ $8<x\le\dfrac{16\sqrt3}{3}$.
+      criteria: [1.M3]
+    - id: 1b-5
+      content: |
+        두 결과를 종합하면 $8<\overline{CB}+\overline{CD}\le\dfrac{16\sqrt3}{3}$.
+      criteria: [1.A2]
+    - id: 1b-6
+      content: |
+        사각형의 넓이 $S$는 삼각형 ABD와 CBD의 넓이의 합이므로 제시문 【나】에 의해
+        $S=\dfrac12ab\sin60^\circ+\dfrac12cd\sin120^\circ=\dfrac{\sqrt3}{4}(ab+cd)=\dfrac{\sqrt3}{4}\left(\dfrac{(22-x)^2-64}{3}+x^2-64\right)=\dfrac{\sqrt3}{3}(x^2-11x+57)=\dfrac{\sqrt3}{3}\left(x-\dfrac{11}{2}\right)^2+\dfrac{107}{12}\sqrt3$.
+      criteria: [1.M4]
+    - id: 1b-7
+      content: |
+        꼭짓점의 $x$좌표 $\dfrac{11}{2}$은 범위 $8<x\le\dfrac{16\sqrt3}{3}$ 밖에 있고 이 범위에서 $S$는 증가하므로, 제시문 【다】에 의해 넓이가 최대일 때 $\overline{CB}+\overline{CD}=\dfrac{16\sqrt3}{3}$이다.
+      criteria: [1.A3]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 4
+      evidence: 제시문 【라】로 $\angle C=120^\circ$를 적었다.
+      depends_on: []
+      steps: [1b-1]
+    - id: 1.A1
+      mark_type: A
+      points: 4
+      evidence: 코사인법칙 식 $a^2+b^2-ab=64$, $c^2+d^2+cd=64$를 적었다.
+      depends_on: [1.M1]
+      steps: [1b-2]
+    - id: 1.M2
+      mark_type: M
+      points: 4
+      evidence: $x=\overline{CB}+\overline{CD}$로 두고 $ab$, $cd$를 $x$의 식으로 나타냈다.
+      depends_on: []
+      steps: [1b-3]
+    - id: 1.M3
+      mark_type: M
+      points: 5
+      evidence: 두 양수가 존재할 조건(합>0, 곱>0, 판별식≥0)을 $a,b$와 $c,d$ 각각에 대해 세웠다.
+      depends_on: []
+      steps: [1b-4]
+    - id: 1.A2
+      mark_type: A
+      points: 5
+      evidence: 범위 $8<\overline{CB}+\overline{CD}\le\dfrac{16\sqrt3}{3}$을 등호까지 정확히 적었다.
+      depends_on: [1.M3]
+      steps: [1a, 1b-5]
+    - id: 1.M4
+      mark_type: M
+      points: 4
+      evidence: 제시문 【나】로 넓이를 $\dfrac{\sqrt3}{4}(ab+cd)$로 쓰고 $x$의 이차식 $\dfrac{\sqrt3}{3}(x^2-11x+57)$로 정리했다.
+      depends_on: []
+      steps: [1b-6]
+    - id: 1.A3
+      mark_type: A
+      points: 4
+      evidence: 꼭짓점이 범위 밖임을 근거로 넓이 최대일 때 $\overline{CB}+\overline{CD}=\dfrac{16\sqrt3}{3}$이라고 적었다.
+      depends_on: [1.M4]
+      steps: [1a, 1b-7]
+    deductions:
+    - code: D1-1
+      condition: 제시문 인용 없음(동국 규정)
+      effect: minus
+      value: 1
+    - code: D1-2
+      condition: 범위의 등호(끝점 포함 여부) 오류
+      effect: minus
+      value: 2
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-ALG-2302}
+  - {code: '71', misconception: MC-CAL-2204}
+  misconceptions:
+  - id: MC-ALG-2302
+    outcome_code: '70'
+    wrong_work: '곱 $cd=x^2-64>0$, 합 조건만 써서 범위를 $8<x<14$로 답함(판별식 누락)'
+    detect_cue: 범위의 위 끝이 14
+    feedback: 합과 곱만으로는 두 실수가 존재한다는 보장이 없습니다. $t^2-xt+(x^2-64)=0$이 실근을 가질 조건(판별식)도 확인하세요.
+    remedy: [RL-1]
+  - id: MC-CAL-2204
+    outcome_code: '71'
+    wrong_work: '$S$의 꼭짓점 $x=\dfrac{11}{2}$을 최대(또는 최소) 후보로 그대로 사용'
+    detect_cue: 넓이 최대일 때의 답이 $\dfrac{11}{2}$
+    feedback: 꼭짓점이 주어진 범위 밖이면 범위의 끝 값을 비교해야 합니다(제시문 【다】(2)).
+    remedy: [RL-2]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-ALG-2302}
+  relation: remediation
+  target: {kind: concept, ref: CON-ALG-QUAD-ROOTS}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-CAL-2204}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-EXTREME-CLOSED}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-input-v1, item_version: 1, verdict: pass, date: 2026-11-21, note: 원문 PDF 이미지 판독으로 옮김 · 해설·채점표 자체 작성}
+
+created: 2026-11-21
+updated: 2026-11-21

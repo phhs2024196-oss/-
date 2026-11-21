@@ -1,0 +1,338 @@
+schema_version: '2.0'
+id: DGU-G26-02
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: DGU
+type: T08
+variant_of: null
+replaces: null
+level: L5
+form: 추론
+points: 30
+time_estimate_min: 30
+intent: 극한·합·절댓값 합으로 주어진 조건을 등차수열의 첫째항·공차에 대한 등식·부등식으로 옮겨 두 수열을 결정하고, 절댓값 수열을 구간별로 정리해 최솟값과 부분합의 극한을 구하는 능력을 본다.
+key_idea: '$a_n-b_n=2n+7>0$에서 "n=7일 때만 최소"를 $a_7+b_7<0<a_8+b_8$로 바꾸면 $b_n<0\ (n\le7)$이 되어 절댓값을 벗기고, 공차 $q$의 범위 $\frac{21}{11}<q<\frac{23}{9}$에서 $q=2$.'
+stuck: 조건 ②를 두 항의 부호 조건으로 바꾸는 단계, $b_n<0\ (n\le4)$을 얻어 조건 ③의 절댓값을 벗기는 단계
+idea_tags: [IDEA-ALG-PARTIAL-SUM-MIN-SIGN-CHANGE, IDEA-ALG-ABS-SUM-SIGN-FIX, IDEA-CAL-LIMIT-LEADING-TERM]
+tags: [등차수열, 절댓값, 수열의 극한, 동국 실전]
+elements:
+  materials: [공차가 자연수인 두 등차수열, 차의 극한·합 조건, 합이 n=7일 때만 최소, 절댓값의 합, 절댓값 차로 정의한 수열]
+  concepts: [등차수열의 일반항과 합, 합의 기호 Σ의 성질, 수열의 극한의 성질, 절댓값과 구간별 식, 부분합의 최솟값과 항의 부호]
+  tools: [극한에서 공차 차 결정, Σ 공식으로 첫째항 차 결정, 부분합 최소와 항의 부호 변화, 부호를 정해 절댓값 벗기기, 자연수 공차의 부등식 범위, 구간별 일반항, 최고차항 비교 극한]
+  conditions:
+  - '$\displaystyle\lim\dfrac{a_n-b_n}{n}=2$ ⇒ 공차의 차 $p-q=2$'
+  - '"$n=7$일 때만 최솟값" ⇒ $a_7+b_7<0<a_8+b_8$(등호 없음)'
+  - '$a_n-b_n=2n+7>0$ ⇒ $2b_n<a_n+b_n<0\ (n\le7)$ ⇒ $b_1,\cdots,b_4<0$'
+  - '공차가 자연수 ⇒ $\dfrac{21}{11}<q<\dfrac{23}{9}$에서 $q=2$'
+  - '$\lvert a_n\rvert-\lvert b_n\rvert$ ⇒ $a_n$, $b_n$의 부호가 바뀌는 $n=5$, $n=14$에서 구간 분할'
+  stimuli_used: [가, 나, 다]
+  subpart_links: '(2)는 (1)의 일반항, (3)은 (2)의 구간별 식 사용'
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅰ, 미적분]
+  scope_2028: calc2
+  scope_confirmed: true
+  standards:
+  - code: 미확인
+    text: 등차수열의 일반항과 합, Σ의 성질, 수열의 극한에 대한 기본 성질을 이용할 수 있다(요지)
+    verified: false
+  content_area: 수열 – 등차수열·Σ / 수열의 극한
+  behavior_domain: 추론
+  unit_path: [수학Ⅰ, 수열, 등차수열과 등비수열, 등차수열의 합]
+  key_concepts: [등차수열의 일반항과 합, 합의 기호 Σ의 성질, 수열의 극한의 성질, 절댓값과 구간별 식, 부분합의 최솟값과 항의 부호]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 동국대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 동국대학교
+  admission_year: 2026
+  admission_type: 논술
+  track: 자연계열
+  question_no: 2
+  official_url: https://ipsi.dongguk.edu/   # 원문 게시 URL 미확인(교재 재수록본에서 옮김)
+  retrieved_at: '2026-11-21'
+  original_points: null
+  rights_notice: 미확인 — 원문 PDF 표지 문구 확인 필요(현재 사본은 '대치 수리 논술 연구소' 2027 대비 교재 재수록본)
+  note: '문제 = 문제집2027 p.9, 해설 참고 = 해설집2027 p.9~10. 재수록본에 배점·줄 수 표기 없음 → 동국 형식(30·30·40)에 따라 30점, 소문항 12·8·10 은 자체 배분. [판독확인] 제시문 [가] S_n: 재수록본에 "n2a+(n-1)d over 2"로 중괄호가 빠져 인쇄됨 → n{2a+(n-1)d}/2 로 옮김. [나]①② [다]②③ 의 괄호 첨자 깨짐(b_{k)})도 정상 표기로 옮김'
+
+verify: verify/DGU-G26.py::p02
+
+stimuli:
+- label: 가
+  body: |
+    첫째항이 $a$, 공차가 $d$인 등차수열 $a_n$의 첫째항부터 제 $n$항까지의 합을 $S_n$이라 하면
+    $$a_n=a+(n-1)d,$$
+    $$S_n=\dfrac{n\{2a+(n-1)d\}}{2}\ (\text{단, }n=1,2,3,\cdots)$$
+    『고등학교 수학Ⅰ』
+- label: 나
+  body: |
+    두 수열 $a_n$, $b_n$에 대하여
+    ① $\displaystyle\sum_{k=1}^{n}(a_k+b_k)=\sum_{k=1}^{n}a_k+\sum_{k=1}^{n}b_k$　② $\displaystyle\sum_{k=1}^{n}(a_k-b_k)=\sum_{k=1}^{n}a_k-\sum_{k=1}^{n}b_k$
+    ③ $\displaystyle\sum_{k=1}^{n}ca_k=c\sum_{k=1}^{n}a_k$ (단, c는 상수)　④ $\displaystyle\sum_{k=1}^{n}c=cn$ (단, c는 상수)
+    『고등학교 수학Ⅰ』
+- label: 다
+  body: |
+    두 수열 $a_n$, $b_n$이 $\displaystyle\lim_{n\to\infty}a_n=L$, $\displaystyle\lim_{n\to\infty}b_n=M$ ($L$, $M$은 실수)일 때
+    ① $\displaystyle\lim_{n\to\infty}ca_n=cL$ (단, c는 상수)　② $\displaystyle\lim_{n\to\infty}(a_n+b_n)=L+M$
+    ③ $\displaystyle\lim_{n\to\infty}(a_n-b_n)=L-M$　④ $\displaystyle\lim_{n\to\infty}a_nb_n=LM$
+    ⑤ $\displaystyle\lim_{n\to\infty}\dfrac{a_n}{b_n}=\dfrac{L}{M}$ (단, $b_n\neq0$, $M\neq0$)
+    『고등학교 미적분』
+
+stem: |
+  공차가 자연수인 두 등차수열 $a_n$, $b_n$이 다음 <조건>을 만족한다.
+  <조건>
+  ① $\displaystyle\lim_{n\to\infty}\dfrac{a_n-b_n}{n}=2$, $\displaystyle\sum_{n=1}^{10}(a_n-b_n)=180$
+  ② $\displaystyle\sum_{k=1}^{n}(a_k+b_k)$는 $n=7$일 때만 최솟값을 갖는다.
+  ③ $\displaystyle\sum_{n=1}^{4}\lvert b_n\rvert=88$
+
+subparts:
+- id: '1'
+  stem: |
+    수열 $a_n$과 $b_n$의 일반항을 각각 구하시오.
+  points: 12
+  depends_on: []
+  answer: {kind: expression, value: 'a_n=4n-20,\ b_n=2n-27', equivalents: ['a_n=4n-20, b_n=2n-27'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: '①에서 $p-q=2$, $a_1-b_1=9$. ②는 $a_7+b_7<0<a_8+b_8$이고 $a_n>b_n$이므로 $b_1,\cdots,b_4<0$, ③에서 $b_1=-\frac32q-22$. 부등식으로 $q=2$.'
+    steps:
+    - {id: 1a, content: '$9q-23<0<11q-21\Rightarrow q=2$, $p=4$, $b_1=-25$, $a_1=-16$', criteria: [1.A2]}
+    hint_ladder:
+    - 조건 ①의 극한은 두 공차의 차를 알려 준다.
+    - 등차수열의 합이 $n=7$에서만 최소이면 몇째 항에서 부호가 바뀌는가?
+    - $a_n>b_n$을 이용해 $b_1,\cdots,b_4$의 부호를 정하자.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 해설집 p.9
+    steps:
+    - id: 1b-1
+      content: |
+        두 수열의 공차를 각각 $p$, $q$라 하자. 조건 ①에서 제시문 【다】에 의해 $\displaystyle\lim_{n\to\infty}\dfrac{a_n-b_n}{n}=\lim_{n\to\infty}\dfrac{(a_1-b_1)+(n-1)(p-q)}{n}=p-q=2$이고, 【가】【나】에 의해 $\displaystyle\sum_{n=1}^{10}(a_n-b_n)=10(a_1-b_1)+45(p-q)=180$이므로 $a_1-b_1=9$.
+        따라서 $a_n=b_1+9+(n-1)(q+2)=b_n+2n+7>b_n$ (모든 자연수 $n$).
+      criteria: [1.M1]
+    - id: 1b-2
+      content: |
+        $a_n+b_n$은 공차 $p+q>0$인 등차수열이므로 조건 ②는 $a_n+b_n<0\ (n\le7)$, $a_n+b_n>0\ (n\ge8)$과 같다. 그러므로 $2b_n<a_n+b_n<0\ (n\le7)$, 즉 $b_n<0\ (n\le7)$.
+      criteria: [1.M2]
+    - id: 1b-3
+      content: |
+        조건 ③에서 $\displaystyle\sum_{n=1}^{4}\lvert b_n\rvert=-\sum_{n=1}^{4}b_n=-(4b_1+6q)=88$이므로 $b_1=-\dfrac32q-22$.
+      criteria: [1.M3]
+    - id: 1b-4
+      content: |
+        $a_1=b_1+9$, $p=q+2$를 써서
+        $0>a_7+b_7=2b_1+9+6(2q+2)=9q-23$, $0<a_8+b_8=2b_1+9+7(2q+2)=11q-21$.
+        따라서 $\dfrac{21}{11}<q<\dfrac{23}{9}$이고 $q$는 자연수이므로 $q=2$. 그러면 $p=4$, $b_1=-25$, $a_1=-16$이고
+        $a_n=4n-20$, $b_n=2n-27$.
+      criteria: [1.A1, 1.A2]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 3
+      evidence: 조건 ①에서 $p-q=2$, $a_1-b_1=9$를 구하는 식을 적었다(【다】 또는 【가】【나】 인용).
+      depends_on: []
+      steps: [1b-1]
+    - id: 1.M2
+      mark_type: M
+      points: 3
+      evidence: 조건 ②를 $a_7+b_7<0$, $a_8+b_8>0$(부등호 등호 없음)으로 바꾸었다.
+      depends_on: []
+      steps: [1b-2]
+    - id: 1.M3
+      mark_type: M
+      points: 2
+      evidence: $b_n<0\ (n\le4)$의 근거를 적고 조건 ③을 $-(4b_1+6q)=88$로 바꾸었다.
+      depends_on: []
+      steps: [1b-3]
+    - id: 1.A1
+      mark_type: A
+      points: 2
+      evidence: $\dfrac{21}{11}<q<\dfrac{23}{9}$에서 $q=2$를 얻었다.
+      depends_on: [1.M2, 1.M3]
+      steps: [1b-4]
+    - id: 1.A2
+      mark_type: A
+      points: 2
+      evidence: $a_n=4n-20$, $b_n=2n-27$을 적었다.
+      depends_on: [1.M1]
+      steps: [1a, 1b-4]
+    deductions:
+    - code: D1-1
+      condition: 제시문 인용 없음(동국 규정)
+      effect: minus
+      value: 1
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-ALG-2102}
+  misconceptions:
+  - id: MC-ALG-2102
+    outcome_code: '70'
+    wrong_work: '조건 ②를 $a_7+b_7\le0\le a_8+b_8$로 두어 $q$의 범위를 등호 포함으로 잡거나 $a_7+b_7=0$을 풀려고 함'
+    detect_cue: $9q-23\le0$ 또는 $a_7+b_7=0$이 등장
+    feedback: '"$n=7$일 때만" 최소이므로 $S_6>S_7<S_8$, 즉 $a_7+b_7<0<a_8+b_8$으로 등호가 없습니다.'
+    remedy: [RL-1]
+- id: '2'
+  stem: |
+    수열 $c_n$이 $c_n=\lvert a_n\rvert-\lvert b_n\rvert$일 때, $c_n$의 최솟값을 구하시오.
+  points: 8
+  depends_on: ['1']
+  answer: {kind: value, value: '-17', equivalents: ['c_5=-17'], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: '$a_n$은 $n=5$, $b_n$은 $n=13.5$에서 부호가 바뀌므로 세 구간으로 나눈다.'
+    steps:
+    - {id: 2a, content: '$n\le5$에서 $c_n=-2n-7$이 감소, $n\ge6$에서 증가 → $c_5=-17$', criteria: [2.A1]}
+  - id: S2-B
+    audience: B
+    method_no: 1
+    source_flow: 해설집 p.9
+    steps:
+    - id: 2b-1
+      content: |
+        (1)의 결과에서 $4n-20\ge0\iff n\ge5$, $2n-27>0\iff n\ge14$이므로
+        $c_n=\lvert4n-20\rvert-\lvert2n-27\rvert=\begin{cases}-2n-7 & (n\le5)\\ 6n-47 & (6\le n\le13)\\ 2n+7 & (n\ge14)\end{cases}$
+      criteria: [2.M1]
+    - id: 2b-2
+      content: |
+        $n\le5$에서는 감소, $n\ge6$에서는 증가하므로 $c_n$이 최소가 되는 항은 $n=5$이고 최솟값은 $c_5=-17$ ($c_6=-11$).
+      criteria: [2.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 5
+      evidence: $a_n$, $b_n$의 부호가 바뀌는 $n$을 찾아 $c_n$을 구간별 식으로 적었다.
+      depends_on: []
+      ft: {allowed: true, from: [1.A2], max_points: 5}
+      steps: [2b-1]
+    - id: 2.A1
+      mark_type: A
+      points: 3
+      evidence: 증가·감소를 근거로 최솟값 $-17$($n=5$)을 적었다.
+      depends_on: [2.M1]
+      steps: [2a, 2b-2]
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-ALG-2103}
+  misconceptions:
+  - id: MC-ALG-2103
+    outcome_code: '70'
+    wrong_work: '$c_n=\lvert a_n-b_n\rvert=2n+7$로 보거나 한 구간의 식만 써서 최솟값을 $9$ 또는 $-9$로 답함'
+    detect_cue: 답이 $9$, $-9$, $-11$ 중 하나이거나 구간 구분이 없음
+    feedback: $\lvert a\rvert-\lvert b\rvert$는 $\lvert a-b\rvert$와 다릅니다. 각 수열의 부호가 바뀌는 지점에서 나누세요.
+    remedy: [RL-2]
+- id: '3'
+  stem: |
+    $S_n=\displaystyle\sum_{k=1}^{n}c_k$일 때, $\displaystyle\lim_{n\to\infty}\dfrac{S_n}{n^2}$을 구하시오.
+  points: 10
+  depends_on: ['2']
+  answer: {kind: value, value: '1', equivalents: [], tolerance: null}
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: '$n\ge14$에서 $S_n=(\text{상수})+\sum_{k=14}^{n}(2k+7)=n^2+8n+P$이므로 극한은 최고차항 계수 $1$.'
+    steps:
+    - {id: 3a, content: '$\displaystyle\lim_{n\to\infty}\dfrac{n^2+8n+P}{n^2}=1$', criteria: [3.A2]}
+  - id: S3-B
+    audience: B
+    method_no: 1
+    source_flow: 해설집 p.9~10
+    steps:
+    - id: 3b-1
+      content: |
+        (2)의 결과로부터 $n\ge14$에서
+        $\displaystyle S_n=\sum_{k=1}^{13}c_k+\sum_{k=14}^{n}(2k+7)=\sum_{k=1}^{13}c_k+2\cdot\dfrac{n(n+1)}{2}+7n-\sum_{k=1}^{13}(2k+7)$ (제시문 【나】).
+      criteria: [3.M1]
+    - id: 3b-2
+      content: |
+        즉 $S_n=n^2+8n+P$ ($P$는 상수; 실제로 $\sum_{k=1}^{13}c_k=15$, $\sum_{k=1}^{13}(2k+7)=273$이므로 $P=-258$).
+      criteria: [3.A1]
+    - id: 3b-3
+      content: |
+        제시문 【다】에 의해 $\displaystyle\lim_{n\to\infty}\dfrac{S_n}{n^2}=\lim_{n\to\infty}\left(1+\dfrac8n+\dfrac{P}{n^2}\right)=1$.
+      criteria: [3.M2, 3.A2]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 3
+      evidence: 충분히 큰 $n$($n\ge14$)에서 $S_n$을 앞 13항의 합(상수)과 $\sum(2k+7)$로 나누어 적었다.
+      depends_on: []
+      ft: {allowed: true, from: [2.M1], max_points: 3}
+      steps: [3b-1]
+    - id: 3.A1
+      mark_type: A
+      points: 3
+      evidence: $S_n=n^2+8n+(\text{상수})$ 꼴을 적었다.
+      depends_on: [3.M1]
+      steps: [3b-2]
+    - id: 3.M2
+      mark_type: M
+      points: 2
+      evidence: 극한의 성질(【다】)로 $\dfrac{8}{n}$, $\dfrac{P}{n^2}\to0$을 적었다.
+      depends_on: []
+      steps: [3b-3]
+    - id: 3.A2
+      mark_type: A
+      points: 2
+      evidence: 답 $1$을 적었다.
+      depends_on: [3.M2]
+      steps: [3a, 3b-3]
+    deductions:
+    - code: D3-1
+      condition: 제시문 인용 없음(동국 규정)
+      effect: minus
+      value: 1
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-CAL-2103}
+  misconceptions:
+  - id: MC-CAL-2103
+    outcome_code: '70'
+    wrong_work: '첫 구간 식 $c_n=-2n-7$이나 가운데 구간 식 $6n-47$을 모든 $n$에 적용해 극한을 $-1$ 또는 $3$으로 답함'
+    detect_cue: 답이 $-1$ 또는 $3$
+    feedback: 극한은 충분히 큰 $n$에서의 식으로 정해집니다. 유한 개의 앞 항은 상수로 묶여 $n^2$으로 나누면 사라집니다.
+    remedy: [RL-3]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-ALG-2102}
+  relation: remediation
+  target: {kind: concept, ref: CON-ALG-ARITH-SEQ}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-ALG-2103}
+  relation: remediation
+  target: {kind: concept, ref: CON-ALG-ARITH-SEQ}
+  priority: 1
+- id: RL-3
+  trigger: {type: misconception, ref: MC-CAL-2103}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-SEQ-LIMIT}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-input-v1, item_version: 1, verdict: pass, date: 2026-11-21, note: 원문 PDF 이미지 판독으로 옮김 · 해설·채점표 자체 작성}
+
+created: 2026-11-21
+updated: 2026-11-21

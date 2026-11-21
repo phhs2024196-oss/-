@@ -1,0 +1,187 @@
+schema_version: '2.0'
+id: DGU-G11-04
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: DGU
+type: null
+variant_of: null
+replaces: null
+level: L3
+form: 추론
+points: 15
+time_estimate_min: 12
+intent: 이동 비율로부터 월별 변환 행렬을 세우고, 두 달 연속 변환을 행렬의 곱(순서 주의)으로 합성하는 능력을 본다.
+key_idea: '$P=\begin{pmatrix}4/5&2/5\\1/5&3/5\end{pmatrix}$, $Q=\begin{pmatrix}2/5&2/5\\3/5&3/5\end{pmatrix}$, $R=QP$ (나중 변환이 왼쪽).'
+stuck: 합성 순서($R=QP$, $PQ$ 아님)를 정하는 단계
+idea_tags: [IDEA-TRANSITION-MATRIX-COMPOSE]
+tags: [행렬(현행 교육과정 밖), 부유물 이동, 동국 기출]
+elements:
+  materials:
+  - '두 지역 C·D 사이 부유물 이동'
+  - '달마다 다른 이동 비율'
+  concepts: [행렬의 곱(2009 개정 수학Ⅰ), 연립일차식의 행렬 표현, 일차변환의 합성 순서]
+  tools: [이동 비율로 연립일차식 세우기, 계수를 행렬로, 대입(또는 행렬 곱)으로 합성]
+  conditions:
+  - '1월: C의 1/5이 D로, D의 2/5가 C로 ⇒ $c_2=\dfrac45c_1+\dfrac25d_1$, $d_2=\dfrac15c_1+\dfrac35d_1$'
+  - '2월: C의 3/5이 D로, D의 2/5가 C로 ⇒ $Q$의 열 성분'
+  - '$(c_3,d_3)$은 $(c_2,d_2)$에 $Q$를 먼저가 아니라 나중에 적용 ⇒ $R=QP$'
+  stimuli_used: [가]
+  subpart_links: null
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅰ]
+  scope_2028: unknown
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 행렬의 곱셈(2009 개정 수학Ⅰ) — 2015·2022 개정 교육과정 밖
+    verified: false
+  content_area: 행렬(구 교육과정)
+  behavior_domain: 계산
+  unit_path: [수학Ⅰ, 행렬, 행렬의 연산, 행렬의 곱셈]
+  key_concepts: [행렬의 곱(2009 개정 수학Ⅰ), 연립일차식의 행렬 표현, 일차변환의 합성 순서]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 동국대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 동국대학교
+  admission_year: 2011
+  admission_type: 논술
+  track: 자연계열
+  question_no: 4
+  official_url: https://ipsi.dongguk.edu/   # 원문 게시 URL 미확인(교재 재수록본에서 옮김)
+  retrieved_at: '2026-11-21'
+  original_points: 15
+  rights_notice: 미확인 — 원문 PDF 표지 문구 확인 필요(현재 사본은 '대치 수리 논술 연구소' 교재 재수록본)
+  note: 문제 = 동국대 수리논술 문제집 p.81~82, 해설 참고 = 해설집 p.82(답안1·2). 제시문은 DGU-G11-03 과 공유. 행렬은 현행(2015·2022) 교육과정 밖 → curriculum.subjects 는 당시 과목명 수학Ⅰ, scope_2028 unknown(사람 판단 필요)
+
+verify: verify/DGU-G11.py::p04
+
+stimuli:
+- label: 본문
+  body: |
+    태평양 거대 쓰레기 지대(Great Pacific Garbage Patch)는 각각 하와이 북쪽 지역과 일본과 하와이 사이 지역을 떠다니는 두 개의 거대한 쓰레기 더미를 일컫는다. 이 쓰레기 더미들은 지금까지 인류가 만든 인공물 중 가장 큰 것들로, 하와이 북단의 덩어리 하나만 해도 한반도의 6배 크기다. 이처럼 쓰레기가 한 곳으로 모여 섬에 가까운 모습이 된 것은 원형 순환 해류와 바람 때문인 것으로 알려져 있다. 이러한 태평양 거대 쓰레기 지대 때문에 수많은 해양생물들이 피해를 보고 있으며, 특히 먹이로 잘못 알고 먹었다가 죽게 되는 사례도 있다.
+- label: 가
+  body: |
+    $A$, $B$ 두 지역에 부유물이 모여 있다. $A$, $B$ 외의 다른 지역으로부터 부유물의 유입이 없고, 부유물이 새로 생성되거나 사라지지 않는다고 할 때, 매월 두 지역 $A$, $B$의 부유물의 양이 어떻게 변하는지 행렬로 표현해 보자.
+    1월 초 두 지역 $A$, $B$의 부유물 양은 각각 10,000톤, 70,000톤이라 하자. 또 매월 지역 $A$의 부유물 $\dfrac13$이 지역 $B$로 이동하고 지역 $B$의 부유물 $\dfrac13$이 지역 $A$로 동시에 이동한다고 가정하자.
+    $n$월 초 두 지역 $A$, $B$의 부유물 양을 각각 $a_n$, $b_n$으로 나타내면, 위의 가정에 의해 한 달 동안 지역 $A$의 부유물은 $\dfrac13a_n$이 지역 $B$로 이동하였으므로 $\dfrac23a_n$만큼 남아 있고, 지역 $B$의 부유물 $\dfrac13b_n$이 지역 $A$로 이동하였다. 따라서 $(n+1)$월 초 지역 $A$의 부유물은 $a_{n+1}=\dfrac23a_n+\dfrac13b_n$으로 표현할 수 있다. 같은 방법으로 지역 $B$의 부유물은 $b_{n+1}=\dfrac13a_n+\dfrac23b_n$으로 나타낼 수 있다. 이를 행렬로 표시하면 아래의 식 (1)과 같다.
+    $$\begin{pmatrix}a_{n+1}\\b_{n+1}\end{pmatrix}=\begin{pmatrix}\dfrac23&\dfrac13\\\dfrac13&\dfrac23\end{pmatrix}\begin{pmatrix}a_n\\b_n\end{pmatrix}\quad\cdots\cdots\cdots\cdots\ (1)$$
+
+stem: |
+  $n$월 초 지역 $C$, $D$의 부유물 양을 각각 $c_n$, $d_n$이라고 하자($n=1,2,3$). 또한, $C$와 $D$ 외의 다른 지역으로부터 부유물의 유입이 없고, 부유물이 새로 생성되거나 사라지지 않는다고 가정하자. 1월에는 지역 $C$의 부유물 1/5이 지역 $D$로 이동하고, 지역 $D$의 부유물 2/5가 지역 $C$로 동시에 이동하였다. 2월에는 지역 $C$의 부유물 3/5이 지역 $D$로 이동하고, 지역 $D$의 부유물 2/5가 지역 $C$로 동시에 이동하였다. 다음을 만족하는 행렬 $P$, $Q$, $R$을 구하는 과정을 제시문 [가]를 참조하여 기술하시오.
+  (행렬식을 표시할 때는 답안지 두 줄을 사용하시오)
+  <8 ~ 10줄> [15점]
+  $$\begin{pmatrix}c_2\\d_2\end{pmatrix}=P\begin{pmatrix}c_1\\d_1\end{pmatrix},\quad\begin{pmatrix}c_3\\d_3\end{pmatrix}=Q\begin{pmatrix}c_2\\d_2\end{pmatrix},\quad\begin{pmatrix}c_3\\d_3\end{pmatrix}=R\begin{pmatrix}c_1\\d_1\end{pmatrix}$$
+
+subparts:
+- id: '1'
+  stem: |
+    행렬 $P$, $Q$, $R$을 구하시오.
+  points: 15
+  depends_on: []
+  answer: {kind: value, value: 'P=\begin{pmatrix}\frac45&\frac25\\\frac15&\frac35\end{pmatrix},\ Q=R=\begin{pmatrix}\frac25&\frac25\\\frac35&\frac35\end{pmatrix}', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: 남는 비율이 대각, 넘어오는 비율이 비대각; $R=QP$.
+    steps:
+    - {id: 1a, content: '$QP=\begin{pmatrix}\frac25&\frac25\\\frac35&\frac35\end{pmatrix}$ (열의 합이 1인 $P$를 곱해도 $Q$의 각 행이 같은 값이라 그대로)', criteria: [1.M2, 1.A3]}
+    hint_ladder:
+    - 1월 동안 $C$에 남는 양과 $D$에서 넘어오는 양을 더해 $c_2$를 써 보자.
+    - '$(c_3,d_3)$을 $(c_1,d_1)$로 나타내려면 어떤 변환을 먼저 적용하는가?'
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 해설집 p.82 [문제4] 답안2
+    steps:
+    - id: 1b-1
+      content: |
+        제시문 [가]의 방법을 적용하면 1월에는 $C$에 $\dfrac45c_1$이 남고 $D$에서 $\dfrac25d_1$이 들어오므로
+        $c_2=\dfrac45c_1+\dfrac25d_1$, $d_2=\dfrac15c_1+\dfrac35d_1$, 즉 $P=\begin{pmatrix}\frac45&\frac25\\\frac15&\frac35\end{pmatrix}$.
+      criteria: [1.M1, 1.A1]
+    - id: 1b-2
+      content: |
+        2월에는 $c_3=\dfrac25c_2+\dfrac25d_2$, $d_3=\dfrac35c_2+\dfrac35d_2$이므로 $Q=\begin{pmatrix}\frac25&\frac25\\\frac35&\frac35\end{pmatrix}$.
+      criteria: [1.A2]
+    - id: 1b-3
+      content: |
+        오른쪽 식에 $c_2$, $d_2$를 대입하여 계산하면(행렬로는 $R=QP$)
+        $c_3=\dfrac25\left(\dfrac45c_1+\dfrac25d_1\right)+\dfrac25\left(\dfrac15c_1+\dfrac35d_1\right)=\dfrac25c_1+\dfrac25d_1$, $d_3=\dfrac35c_1+\dfrac35d_1$.
+      criteria: [1.M2]
+    - id: 1b-4
+      content: |
+        따라서 $P=\begin{pmatrix}\frac45&\frac25\\\frac15&\frac35\end{pmatrix}$, $Q=\begin{pmatrix}\frac25&\frac25\\\frac35&\frac35\end{pmatrix}$, $R=\begin{pmatrix}\frac25&\frac25\\\frac35&\frac35\end{pmatrix}$.
+      criteria: [1.A3]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 4
+      evidence: 남는 양과 들어오는 양으로 $c_2$, $d_2$의 식을 세웠다.
+      depends_on: []
+      steps: [1b-1]
+    - id: 1.A1
+      mark_type: A
+      points: 3
+      evidence: 행렬 $P$를 정확히 적었다.
+      depends_on: [1.M1]
+      steps: [1b-1]
+    - id: 1.A2
+      mark_type: A
+      points: 3
+      evidence: 행렬 $Q$를 정확히 적었다.
+      depends_on: [1.M1]
+      steps: [1b-2]
+    - id: 1.M2
+      mark_type: M
+      points: 3
+      evidence: $R=QP$(또는 $c_2$, $d_2$를 대입)로 합성하는 식을 적었다.
+      depends_on: []
+      steps: [1a, 1b-3]
+    - id: 1.A3
+      mark_type: A
+      points: 2
+      evidence: 행렬 $R$을 정확히 적었다.
+      depends_on: [1.M2]
+      steps: [1a, 1b-4]
+    deductions:
+    - code: D1-1
+      condition: 제시문 인용 없음(동국 규정)
+      effect: minus
+      value: 1
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-ALG-2603}
+  misconceptions:
+  - id: MC-ALG-2603
+    outcome_code: '70'
+    wrong_work: '합성을 $R=PQ$로 계산해 $\begin{pmatrix}\frac{14}{25}&\frac{14}{25}\\\frac{11}{25}&\frac{11}{25}\end{pmatrix}$을 얻거나, 이동 비율을 행·열 바꿔 넣음'
+    detect_cue: $R$에 $\dfrac{14}{25}$, $\dfrac{11}{25}$이 등장
+    feedback: 먼저 적용한 변환이 벡터에 가까이(오른쪽) 옵니다. $(c_3,d_3)=Q(c_2,d_2)=Q P(c_1,d_1)$이므로 $R=QP$입니다.
+    remedy: [RL-1]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-ALG-2603}
+  relation: remediation
+  target: {kind: concept, ref: CON-ALG-MATRIX-PRODUCT}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-input-v1, item_version: 1, verdict: pass, date: 2026-11-21, note: 원문 PDF 이미지 판독으로 옮김 · 해설 B는 해설집 흐름 · 채점표 자체 작성}
+
+created: 2026-11-21
+updated: 2026-11-21

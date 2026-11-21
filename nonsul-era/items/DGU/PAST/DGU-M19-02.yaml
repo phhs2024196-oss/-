@@ -1,0 +1,312 @@
+schema_version: '2.0'
+id: DGU-M19-02
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: DGU
+type: T01
+variant_of: null
+replaces: null
+level: L5
+form: 추론
+points: 35
+time_estimate_min: 30
+intent: 굴러가는 원 위 점의 자취를 공전각과 자전각으로 매개변수화하고, 매개변수 곡선의 접선 기울기와 곡선의 길이를 구하는 능력을 본다.
+key_idea: 'PM의 방향각은 $\pi+\dfrac{(R+r)\theta}{r}$이고, $R=3r$이면 속력 $=8r\left\lvert\sin\dfrac{3\theta}2\right\rvert$이다.'
+stuck: 작은 원이 구르며 도는 각이 $\dfrac{R\theta}{r}$에 공전각 $\theta$를 더한 $\dfrac{(R+r)\theta}{r}$임을 잡는 단계, 속력의 절댓값을 구간으로 나눠 적분하는 단계
+idea_tags: [IDEA-CAL-ROLLING-CIRCLE-PARAM, IDEA-CAL-ARC-LENGTH-HALF-ANGLE]
+tags: [에피사이클로이드, 곡선의 길이, 동국 모의]
+
+elements:
+  materials:
+  - '에피사이클로이드(고정된 원 A 바깥을 구르는 원 B 위의 점 M)'
+  - '$R=r$인 경우와 $R=3r$인 경우'
+  concepts:
+  - '매개변수로 나타낸 함수의 미분'
+  - '삼각함수의 덧셈정리·배각'
+  - '곡선의 길이'
+  - '절댓값 함수의 정적분'
+  tools:
+  - '$x(\theta)=0$으로 $\cos\theta$ 결정'
+  - '$\dfrac{dy}{dx}=\dfrac{y''(\theta)}{x''(\theta)}$'
+  - '$\overrightarrow{OM}=\overrightarrow{OP}+\overrightarrow{PM}$으로 위치 구성'
+  - '$2-2\cos3\theta=4\sin^2\dfrac{3\theta}2$'
+  - '대칭으로 구간 3등분 적분'
+  conditions:
+  - '$\lvert\cos\theta\rvert\le1$, $y>0$ ⇒ $\cos\theta=\dfrac{1-\sqrt3}2$만 가능'
+  - 'PM 방향각 = $\pi+\dfrac{(R+r)\theta}r$(자전 + 공전)'
+  - '곡선의 길이 ⇒ 속력의 절댓값을 부호 바뀌는 점에서 나눠 적분'
+  stimuli_used: [가, 나]
+  subpart_links: null
+
+curriculum:
+  version: '2015'
+  subjects: [미적분]
+  scope_2028: calc2
+  scope_confirmed: true
+  standards:
+  - code: 미확인
+    text: 매개변수로 나타낸 함수를 미분하고, 곡선의 길이를 구할 수 있다(요지)
+    verified: false
+  content_area: 미적분 – 매개변수로 나타낸 함수의 미분·곡선의 길이
+  behavior_domain: 문제해결
+  unit_path: [미적분, 적분법, 정적분의 활용, 곡선의 길이]
+  key_concepts:
+  - '매개변수로 나타낸 함수의 미분'
+  - '삼각함수의 덧셈정리·배각'
+  - '곡선의 길이'
+  - '절댓값 함수의 정적분'
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 동국대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 동국대학교
+  admission_year: 2019
+  admission_type: 논술(모의)
+  track: 자연계열
+  question_no: 2
+  official_url: https://ipsi.dongguk.edu/   # 원문 게시 URL 미확인(교재 재수록본에서 옮김)
+  retrieved_at: '2026-11-21'
+  original_points: 35
+  rights_notice: 미확인 — 원문 PDF 표지 문구 확인 필요(현재 사본은 '대치 수리 논술 연구소' 2027 대비 교재 재수록본)
+  note: |
+    문제 = 동국대 수리논술 문제집2027 p.63, 해설 참고 = 해설집2027 p.64. 문제1은 과학논술 문제(재수록본에 없음). 배점 (1)15·(2)20 원문 표기.
+    해설집 (2)에 $\overrightarrow{PM}=(-r\cos(\theta),-r\sin(\theta))$ 오기(바로 다음 줄은 $4\theta$로 바르게 사용) — 모범답안은 $(-r\cos4\theta,-r\sin4\theta)$로 고침. 답 $L=32r$ 은 sympy 와 일치.
+
+verify: verify/DGU-M19.py::p02
+
+stimuli:
+- label: 가
+  body: |
+    에피사이클로이드 (epicycloid)
+    사이클로이드(cycloid)란 직선을 따라 원이 굴러서 회전할 때 원주상의 한 점이 그리는 곡선이다. 이때 원이 직선이 아니라 다른 원 위를 굴러서 회전하면 사이클로이드와는 다른 모습의 곡선이 나타난다. 원 $B$가 고정된 원 $A$의 바깥쪽을 굴러서 회전할 때, 원 $B$ 위의 한 점이 그리는 곡선을 에피사이클로이드라고 한다.
+    고정된 원 $A$의 반지름의 길이 $R$와 둘레를 굴러 가는 원 $B$의 반지름의 길이 $r$사이의 관계에 따라 곡선의 형태가 달라진다.
+    『기하와 벡터』
+- label: 나
+  body: |
+    다음 그림은 각각 $R=r$와 $R=3r$일 때의 에피사이클로이드 곡선의 모양을 나타낸다.
+    [그림: 두 좌표평면. 왼쪽($R=r$): 원점 O 중심의 원 A와, 그 위쪽에 외접한 같은 크기의 원 B(중심 P), B 위의 점 M과 선분 PM이 표시되고, M이 그리는 심장형 곡선(점선)이 원 A를 감싼다. 오른쪽($R=3r$): 원점 O 중심의 큰 원 A와 왼쪽 위에 외접한 작은 원 B(중심 P), 점 M, 선분 OP가 표시되고, M이 그리는 세 개의 꽃잎 모양 곡선(점선)이 원 A를 감싼다.]
+    『기하와 벡터』
+
+stem: |
+  점 $M$은 원 $B$ 위의 점이다. 맨 처음 $B$의 중점 $P$는 양의 $x$축 위에 있고 $M$은 원 $A$와의 교점이었다. 원 $B$가 반시계 방향으로 원 $A$ 위를 구르면서 제시문 [나]의 그림처럼 이동한다. 선분 $\overline{OP}$가 양의 $x$축과 이루는 각을 $\theta$라고 할 때, $M$의 좌표를 $(x(\theta),y(\theta))$라고 가정하고 다음 물음에 답하시오.
+
+subparts:
+- id: '1'
+  stem: |
+    $R=r=1$라고 가정하면 $x(\theta)=2\cos(\theta)-\cos(2\theta)$, $y(\theta)=2\sin(\theta)-\sin(2\theta)$이다. 점 $\left(0,\dfrac{3^{1/4}(1+\sqrt3)}{\sqrt2}\right)$에서 이 곡선의 접선의 기울기를 $m$이라고 할 때, $3^{3/4}\sqrt2m$의 값을 구하시오.
+    <5 ~ 8줄> [15점]
+  points: 15
+  depends_on: []
+  answer: {kind: value, value: '1-\sqrt3', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $x=0$에서 $\cos\theta=\dfrac{1-\sqrt3}2$, $\sin\theta=\dfrac{3^{1/4}}{\sqrt2}$를 구해 $m=\dfrac{y'(\theta)}{x'(\theta)}$에 넣는다.
+    steps:
+    - {id: 1a, content: '$x''=-\sqrt2\,3^{3/4}$, $y''=\sqrt3-1$ → $3^{3/4}\sqrt2m=1-\sqrt3$', criteria: [1.M2, 1.A2]}
+    hint_ladder:
+    - $x(\theta)=0$을 $\cos\theta$에 대한 이차방정식으로 바꾸자.
+    - 두 근 중 어느 것이 가능한가?
+    - 매개변수 곡선의 기울기는 $\dfrac{y'(\theta)}{x'(\theta)}$이다.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 해설집 p.64
+    steps:
+    - id: 1b-1
+      content: |
+        곡선이 점 $\left(0,\dfrac{3^{1/4}(1+\sqrt3)}{\sqrt2}\right)$을 지나므로 $0=2\cos\theta-\cos2\theta=2\cos\theta-2\cos^2\theta+1$이고 $\cos\theta=\dfrac{1\pm\sqrt3}2$.
+        이때 점 $P$가 제2사분면 위의 점이므로($\cos\theta\le1$이기도 함) $\cos\theta=\dfrac{1-\sqrt3}2$이고, $\sin^2\theta+\cos^2\theta=1$에서 $\sin\theta=\dfrac{3^{1/4}}{\sqrt2}$.
+      criteria: [1.M1, 1.A1]
+    - id: 1b-2
+      content: |
+        미분하면
+        $x'(\theta)=-2\sin\theta+2\sin2\theta=-2\sin\theta(1-2\cos\theta)=-\sqrt2\,3^{3/4}$,
+        $y'(\theta)=2\cos\theta-2\cos2\theta=2\cos\theta-2(1-2\sin^2\theta)=\sqrt3-1$.
+      criteria: [1.M2]
+    - id: 1b-3
+      content: |
+        기울기 $m=\dfrac{y'(\theta)}{x'(\theta)}=\dfrac{1-\sqrt3}{\sqrt2\,3^{3/4}}$이므로 $3^{3/4}\sqrt2m=1-\sqrt3$.
+      criteria: [1.A2]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 4
+      evidence: $x(\theta)=0$을 $\cos\theta$의 이차방정식으로 풀었다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1]
+    - id: 1.A1
+      mark_type: A
+      points: 4
+      evidence: 근을 골라 $\cos\theta=\dfrac{1-\sqrt3}2$, $\sin\theta=\dfrac{3^{1/4}}{\sqrt2}$를 근거와 함께 적었다.
+      depends_on: [1.M1]
+      steps: [1b-1]
+    - id: 1.M2
+      mark_type: M
+      points: 4
+      evidence: $x'(\theta)$, $y'(\theta)$를 구하고 $m=\dfrac{y'(\theta)}{x'(\theta)}$로 기울기를 세웠다.
+      depends_on: []
+      steps: [1a, 1b-2]
+    - id: 1.A2
+      mark_type: A
+      points: 3
+      evidence: $3^{3/4}\sqrt2m=1-\sqrt3$을 적었다.
+      depends_on: [1.M2, 1.A1]
+      steps: [1a, 1b-3]
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-ALG-2203}
+  - {code: '71', misconception: MC-CAL-2514}
+  misconceptions:
+  - id: MC-ALG-2203
+    outcome_code: '70'
+    wrong_work: '$\cos\theta=\dfrac{1+\sqrt3}2$도 남기거나 $\sin\theta<0$인 값을 택함'
+    detect_cue: 두 개의 기울기를 답하거나 $1-\sqrt3$의 부호가 바뀜
+    feedback: $\lvert\cos\theta\rvert\le1$과 $y>0$ 조건으로 근을 하나로 고르세요.
+    remedy: [RL-1]
+  - id: MC-CAL-2514
+    outcome_code: '71'
+    wrong_work: '$m=\dfrac{x''(\theta)}{y''(\theta)}$로 계산해 $3^{3/4}\sqrt2m$ 대신 역수 꼴을 얻음'
+    detect_cue: 답이 $-9-3\sqrt3$(=$-3\sqrt3(\sqrt3+1)$)
+    feedback: $\dfrac{dy}{dx}=\dfrac{dy/d\theta}{dx/d\theta}$입니다. 분자가 $y'$입니다.
+    remedy: [RL-2]
+- id: '2'
+  stem: |
+    $R=3r$이라고 가정하자. $M$의 좌표 $(x(\theta),y(\theta))$를 구하고 이것을 이용하여, 에피사이클로이드 곡선의 길이 $L$을 구하시오. (단, $\theta$의 범위는 $0\le\theta\le2\pi$ 이다.)
+    <10 ~ 12줄> [20점]
+  points: 20
+  depends_on: []
+  answer: {kind: value, value: 'x(\theta)=4r\cos\theta-r\cos4\theta,\ y(\theta)=4r\sin\theta-r\sin4\theta,\ L=32r\ \left(=\dfrac{32R}3\right)', equivalents: ['L=32r'], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: $\overrightarrow{OM}=\overrightarrow{OP}+\overrightarrow{PM}$, PM 방향각 $\pi+4\theta$; 속력 $8r\left\lvert\sin\dfrac{3\theta}2\right\rvert$.
+    steps:
+    - {id: 2a, content: '$L=3\displaystyle\int_0^{2\pi/3}8r\sin\dfrac{3\theta}2d\theta=32r$', criteria: [2.M3, 2.A3]}
+    hint_ladder:
+    - 원 B가 원 A 둘레를 $R\theta$만큼 구르면 B는 자기 중심에 대해 얼마나 도는가?
+    - $\overrightarrow{PM}$의 방향각에 공전각 $\theta$도 더해야 한다.
+    - 속력의 제곱을 $1-\cos3\theta$ 꼴로 정리해 보자.
+  - id: S2-B
+    audience: B
+    method_no: 1
+    source_flow: 해설집 p.64
+    steps:
+    - id: 2b-1
+      content: |
+        $\overrightarrow{OP}=((R+r)\cos\theta,(R+r)\sin\theta)=(4r\cos\theta,4r\sin\theta)$이고, $\overrightarrow{OP}$가 $\theta$만큼 회전하면 작은 원은 $\dfrac{R\theta}r$만큼 회전한다. $\overrightarrow{PM}$이 양의 $x$축과 이루는 각은 $\pi+\dfrac{(R+r)\theta}r=\pi+4\theta$이므로
+        $\overrightarrow{PM}=(r\cos(\pi+4\theta),r\sin(\pi+4\theta))=(-r\cos4\theta,-r\sin4\theta)$.
+      criteria: [2.M1]
+    - id: 2b-2
+      content: |
+        $\overrightarrow{OM}=\overrightarrow{OP}+\overrightarrow{PM}$이므로 $x(\theta)=4r\cos\theta-r\cos4\theta$, $y(\theta)=4r\sin\theta-r\sin4\theta$.
+      criteria: [2.A1]
+    - id: 2b-3
+      content: |
+        $x'(\theta)=-4r(\sin\theta-\sin4\theta)$, $y'(\theta)=4r(\cos\theta-\cos4\theta)$이므로
+        $$\sqrt{x'(\theta)^2+y'(\theta)^2}=4r(2-2\cos3\theta)^{1/2}=4r\left(4\sin^2\dfrac{3\theta}2\right)^{1/2}=8r\left\lvert\sin\dfrac{3\theta}2\right\rvert.$$
+      criteria: [2.M2, 2.A2]
+    - id: 2b-4
+      content: |
+        $$L=\int_0^{2\pi}8r\left\lvert\sin\dfrac{3\theta}2\right\rvert d\theta=3\int_0^{2\pi/3}8r\sin\dfrac{3\theta}2d\theta=24r\left[-\dfrac23\cos\dfrac{3\theta}2\right]_0^{2\pi/3}=32r.$$
+        ($R=3r$이므로 $L=32r=8(R+r)=\dfrac{32R}3$도 같은 답이다.)
+      criteria: [2.M3, 2.A3]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 4
+      evidence: $\overrightarrow{OM}=\overrightarrow{OP}+\overrightarrow{PM}$으로 두고 $\overrightarrow{PM}$의 방향각을 $\pi+4\theta$(또는 동치)로 잡았다.
+      depends_on: []
+      implied_ok: false
+      steps: [2b-1]
+    - id: 2.A1
+      mark_type: A
+      points: 4
+      evidence: $x(\theta)=4r\cos\theta-r\cos4\theta$, $y(\theta)=4r\sin\theta-r\sin4\theta$를 적었다.
+      depends_on: [2.M1]
+      steps: [2b-2]
+    - id: 2.M2
+      mark_type: M
+      points: 3
+      evidence: 곡선의 길이 공식 $\displaystyle\int\sqrt{x'^2+y'^2}\,d\theta$에 도함수를 넣었다.
+      depends_on: []
+      steps: [2b-3]
+    - id: 2.A2
+      mark_type: A
+      points: 3
+      evidence: 속력 $8r\left\lvert\sin\dfrac{3\theta}2\right\rvert$(또는 $4r\sqrt{2-2\cos3\theta}$)를 적었다.
+      depends_on: [2.M2]
+      steps: [2b-3]
+    - id: 2.M3
+      mark_type: M
+      points: 3
+      evidence: 절댓값을 처리하기 위해 구간을 나누거나 대칭(3배)을 이용해 적분했다.
+      depends_on: []
+      steps: [2a, 2b-4]
+    - id: 2.A3
+      mark_type: A
+      points: 3
+      evidence: $L=32r$(또는 $\dfrac{32R}3$)을 적었다.
+      depends_on: [2.M3, 2.A2]
+      steps: [2a, 2b-4]
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-CAL-2515}
+  - {code: '71', misconception: MC-CAL-2406}
+  misconceptions:
+  - id: MC-CAL-2515
+    outcome_code: '70'
+    wrong_work: '$\overrightarrow{PM}$의 방향각을 $\pi+3\theta$(=$\pi+\dfrac{R\theta}r$)로 두어 $x=4r\cos\theta-r\cos3\theta$로 씀'
+    detect_cue: 위치식에 $\cos3\theta$, $\sin3\theta$가 나타남
+    feedback: 작은 원은 접점에서 구른 만큼($\dfrac{R\theta}r$) 돌면서 동시에 중심이 $\theta$만큼 공전합니다. 두 각을 더하세요.
+    remedy: [RL-3]
+  - id: MC-CAL-2406
+    outcome_code: '71'
+    wrong_work: '$\displaystyle\int_0^{2\pi}8r\sin\dfrac{3\theta}2d\theta$를 절댓값 없이 계산해 $\dfrac{32r}3$을 얻음'
+    detect_cue: 답이 $\dfrac{32r}3$ 또는 0
+    feedback: 길이의 피적분함수는 음이 아니어야 합니다. $\sin\dfrac{3\theta}2$의 부호가 바뀌는 $\theta=\dfrac{2\pi}3,\dfrac{4\pi}3$에서 구간을 나누세요.
+    remedy: [RL-4]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-ALG-2203}
+  relation: remediation
+  target: {kind: concept, ref: CON-ALG-VIETA}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-CAL-2514}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-PARAM-CURVE}
+  priority: 1
+- id: RL-3
+  trigger: {type: misconception, ref: MC-CAL-2515}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-PARAM-CURVE}
+  priority: 1
+- id: RL-4
+  trigger: {type: misconception, ref: MC-CAL-2406}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-ABS-INTEGRAL}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-input-v1, item_version: 1, verdict: pass, date: 2026-11-21, note: 원문 PDF 이미지 판독으로 옮김 · 해설·채점표 자체 작성}
+
+created: 2026-11-21
+updated: 2026-11-21

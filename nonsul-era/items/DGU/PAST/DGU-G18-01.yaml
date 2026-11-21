@@ -1,0 +1,206 @@
+schema_version: '2.0'
+id: DGU-G18-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: DGU
+type: T03
+variant_of: null
+replaces: null
+level: L5
+form: 분류
+points: 40
+time_estimate_min: 30
+intent: 도착 시간을 상륙 지점의 함수로 세우고, 임계점이 정의역 안에 있는지에 따라 배의 속도 v를 나누어 최솟점을 판정하는 능력을 본다.
+key_idea: '$T(x)=\dfrac{\sqrt{a^2+x^2}}{v}+(b-x)$의 임계점 $x_0=\dfrac{va}{\sqrt{1-v^2}}$가 $[0,b]$ 안에 있는 조건 $v\le\dfrac{b}{\sqrt{a^2+b^2}}$로 경우를 나눈다.'
+stuck: 임계점이 구간 밖(또는 존재하지 않음)일 때 끝점 $x=b$가 최소가 된다는 경우 분류
+idea_tags: [IDEA-OPT-PARAM-CRIT-IN-DOMAIN, IDEA-OPT-ENDPOINT-CASE]
+tags: [최단 시간 경로, 동국 기출]
+elements:
+  materials:
+  - '강 건너기(배 + 도보)'
+  - '평행선 사이 거리 a'
+  - '도착 지점 C까지 b'
+  - '배의 속도 v'
+  concepts:
+  - '극대·극소의 정의'
+  - '최대·최소 정리'
+  - '무리함수의 미분'
+  - '도함수의 부호와 증감'
+  tools: [시간 함수 T(x) 설정, 임계점 x0 계산, 임계점이 구간 안인지에 따른 경우 분류, 끝점 비교]
+  conditions:
+  - '$0\le x\le b$ 닫힌 구간 ⇒ 임계점·끝점 비교([나])'
+  - '임계점 $x_0=\dfrac{va}{\sqrt{1-v^2}}$는 $v<1$일 때만 존재'
+  - '$x_0\le b\iff v\le\dfrac{b}{\sqrt{a^2+b^2}}$ ⇒ 경우 분류 경계'
+  stimuli_used: [가, 나]
+  subpart_links: null
+
+curriculum:
+  version: '2015'
+  subjects: [미적분]
+  scope_2028: calc2
+  scope_confirmed: true
+  standards:
+  - code: 미확인
+    text: 함수의 최대·최소를 도함수를 활용하여 구할 수 있다(요지)
+    verified: false
+  content_area: 미분법 – 도함수의 활용(최대·최소)
+  behavior_domain: 문제해결
+  unit_path: [미적분, 미분법, 도함수의 활용, 최대·최소]
+  key_concepts: [극대·극소의 정의, 최대·최소 정리, 무리함수의 미분, 도함수의 부호와 증감]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 동국대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 동국대학교
+  admission_year: 2018
+  admission_type: 논술
+  track: 자연계열
+  question_no: 1
+  official_url: https://ipsi.dongguk.edu/   # 원문 게시 URL 미확인(교재 재수록본에서 옮김)
+  retrieved_at: '2026-11-21'
+  original_points: 40
+  rights_notice: 미확인 — 원문 PDF 표지 문구 확인 필요(현재 사본은 '대치 수리 논술 연구소' 교재 재수록본)
+  note: 문제 = 동국대 수리논술 문제집 p.65, 해설 참고 = 해설집 p.66. 재수록본에 [문제] 하나만 실려 있어 question_no 1 로 둠. 단일 논제라 소문항 1개(40점)
+
+verify: verify/DGU-G18.py::p01
+
+stimuli:
+- label: 가
+  body: |
+    $x=a$를 포함하는 어떤 열린 구간에 속하는 모든 $x$에 대하여 $f(x)\le f(a)$이면 $f(x)$는 $x=a$에서 극대라고 하며 $f(a)$를 극댓값이라고 한다. 또 $x=a$를 포함하는 어떤 열린 구간에 속하는 모든 $x$에 대하여 $f(x)\ge f(a)$이면 함수 $f(x)$는 $x=a$에서 극소라고 하며 $f(a)$를 극솟값이라고 한다.
+    －『미적분 Ⅰ』
+- label: 나
+  body: |
+    함수 $f(x)$가 닫힌 구간 $[a,b]$에서 연속일 때, 함수 $f(x)$의 최댓값과 최솟값을 구하여 보자.
+    최대·최소 정리에 의하여 함수 $f(x)$는 닫힌 구간 $[a,b]$에서 반드시 최댓값과 최솟값을 갖는다. 그러므로 이 구간에서의 극댓값과 극솟값, $f(a)$, $f(b)$의 값 중에서 가장 큰 값이 최댓값이고 가장 작은 값이 최솟값이다.
+    －『미적분 Ⅰ』
+
+stem: |
+  아래 그림의 두 평행선 사이는 배가 지나갈 만큼 충분히 깊은 물로 채워져 있고 물의 움직임은 없다고 가정하자. 선분 $\overline{AB}$는 평행선에 수직이고 길이는 $a$(km)이다. 두 지점 B, C의 거리는 $b$(km)이다. 그림과 같이 철수는 우선 A에서 배를 타고 $v$(km/h)의 속도로 P까지 강을 건넌 후에 1(km/h)의 속도로 C까지 걸어가려고 한다. B, P 사이의 거리를 $x$(km)라고 하면 $x$는 $0\le x\le b$를 만족한다. 배의 속도 $v$에 대해 철수가 C에 도착하는 시간이 최소가 되는 B와 P의 거리 $x(v)$를 구하는 과정을 기술하시오.
+  (단, $a,b,v$는 모두 양수이고 답안지에 단위는 생략할 수 있음.)<15~25줄> [40점]
+  [그림: 두 평행선 중 위쪽 선 위에 A, 아래쪽 선 위에 왼쪽부터 B, P, C. $\overline{AB}$는 두 선에 수직(B에 직각 표시), A에서 P로 선분(배의 경로), B에서 P까지의 거리를 $x$로 표시. C는 P보다 오른쪽.]
+
+subparts:
+- id: '1'
+  stem: |
+    위 논제의 $x(v)$를 구하는 과정을 기술하시오.
+  points: 40
+  depends_on: []
+  answer: {kind: expression, value: 'v\le\dfrac{b}{\sqrt{a^2+b^2}}\text{이면 }x(v)=\dfrac{va}{\sqrt{1-v^2}},\ v>\dfrac{b}{\sqrt{a^2+b^2}}\text{이면 }x(v)=b', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $T'(x)=\dfrac{x-v\sqrt{a^2+x^2}}{v\sqrt{a^2+x^2}}$의 부호는 $x-v\sqrt{a^2+x^2}$로 정해지고, 근 $x_0=\dfrac{va}{\sqrt{1-v^2}}$($v<1$)가 $b$ 이하인지로 나눈다.
+    steps:
+    - {id: 1a, content: '$x_0\le b\iff v\le\dfrac{b}{\sqrt{a^2+b^2}}$ → 그때 $x(v)=x_0$, 아니면 $T$가 $[0,b]$에서 감소 → $x(v)=b$', criteria: [1.R1, 1.R2, 1.A2]}
+    hint_ladder:
+    - 배로 가는 시간과 걸어가는 시간을 $x$로 나타내 보자.
+    - $T'(x)=0$인 $x$가 $[0,b]$ 안에 있을 조건은?
+    - 임계점이 없거나 $b$보다 크면 $T$는 어떻게 변하는가?
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 해설집 p.66
+    steps:
+    - id: 1b-1
+      content: |
+        배로 $\overline{AP}=\sqrt{a^2+x^2}$를 속도 $v$로, 걸어서 $\overline{PC}=b-x$를 속도 1로 가므로 도착 시간은
+        $T(x)=\dfrac{\sqrt{a^2+x^2}}{v}+(b-x)\ (0\le x\le b)$이고, 이 함수의 최솟값을 주는 $x$를 구하면 된다.
+      criteria: [1.M1]
+    - id: 1b-2
+      content: |
+        $T'(x)=\dfrac{x}{v\sqrt{a^2+x^2}}-1=\dfrac{1}{v\sqrt{a^2+x^2}}\left(x-v\sqrt{a^2+x^2}\right)$.
+      criteria: [1.A1]
+    - id: 1b-3
+      content: |
+        $T'(x)=0\iff x=v\sqrt{a^2+x^2}$. 이를 만족하는 $x$가 있으려면 $(1-v^2)x^2=v^2a^2$이어야 하므로 $v<1$이라 하고 $x_0=\dfrac{va}{\sqrt{1-v^2}}$로 놓는다.
+      criteria: [1.M2]
+    - id: 1b-4
+      content: |
+        (i) $v\le\dfrac{b}{\sqrt{a^2+b^2}}$인 경우 $x_0\le b$이다. $0<x<x_0$이면 $T'(x)<0$, $x_0<x<b$이면 $T'(x)>0$이므로 제시문 [가]에 의해 $T$는 $x_0$에서 극소이고, [나]에 의해 끝값과 비교하면 $x_0$에서 최솟값을 갖는다. 따라서 $x(v)=\dfrac{va}{\sqrt{1-v^2}}$.
+      criteria: [1.R1]
+    - id: 1b-5
+      content: |
+        (ii) $v>\dfrac{b}{\sqrt{a^2+b^2}}$인 경우($v\ge1$이어서 임계점이 없는 경우 포함) $0<x<b$에서 $T'(x)<0$이므로 $T$는 $0\le x\le b$에서 감소하고, [나]에 의해 $x=b$에서 최소이다. 따라서 $x(v)=b$.
+      criteria: [1.R2]
+    - id: 1b-6
+      content: |
+        정리하면 $v\le\dfrac{b}{\sqrt{a^2+b^2}}$이면 $x(v)=\dfrac{va}{\sqrt{1-v^2}}$, $v>\dfrac{b}{\sqrt{a^2+b^2}}$이면 $x(v)=b$.
+      criteria: [1.A2]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 5
+      evidence: 도착 시간 $T(x)=\dfrac{\sqrt{a^2+x^2}}{v}+(b-x)$를 정의역 $0\le x\le b$와 함께 적었다.
+      depends_on: []
+      steps: [1b-1]
+    - id: 1.A1
+      mark_type: A
+      points: 5
+      evidence: $T'(x)=\dfrac{x}{v\sqrt{a^2+x^2}}-1$을 정확히 적었다.
+      depends_on: [1.M1]
+      steps: [1b-2]
+    - id: 1.M2
+      mark_type: M
+      points: 6
+      evidence: $T'(x)=0$에서 $(1-v^2)x^2=v^2a^2$을 얻고 $v<1$일 때 $x_0=\dfrac{va}{\sqrt{1-v^2}}$를 적었다.
+      depends_on: []
+      steps: [1b-3]
+    - id: 1.R1
+      mark_type: R
+      points: 8
+      evidence: $v\le\dfrac{b}{\sqrt{a^2+b^2}}$일 때 $x_0\le b$이고 $x_0$ 좌우에서 $T'$의 부호가 음→양으로 바뀌어 최소임을 밝혔다.
+      depends_on: [1.M2]
+      steps: [1a, 1b-4]
+    - id: 1.R2
+      mark_type: R
+      points: 8
+      evidence: $v>\dfrac{b}{\sqrt{a^2+b^2}}$일 때 $0<x<b$에서 $T'(x)<0$이라 $T$가 감소하여 $x=b$에서 최소임을 밝혔다.
+      depends_on: []
+      steps: [1a, 1b-5]
+    - id: 1.A2
+      mark_type: A
+      points: 8
+      evidence: 두 경우의 $x(v)$를 경계 조건 $\dfrac{b}{\sqrt{a^2+b^2}}$와 함께 정리해 적었다.
+      depends_on: [1.R1, 1.R2]
+      steps: [1a, 1b-6]
+    deductions:
+    - code: D1-1
+      condition: 제시문 인용 없음(동국 규정)
+      effect: minus
+      value: 1
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-CAL-2601}
+  misconceptions:
+  - id: MC-CAL-2601
+    outcome_code: '70'
+    wrong_work: '$v$의 범위를 나누지 않고 모든 $v$에 대해 $x(v)=\dfrac{va}{\sqrt{1-v^2}}$로 답함'
+    detect_cue: 답에 경우 분류가 없거나 $x(v)=b$인 경우가 빠짐
+    feedback: 임계점이 정의역 $[0,b]$ 안에 있는지(그리고 $v<1$인지) 먼저 확인하세요. 밖이면 끝점에서 최소입니다(제시문 [나]).
+    remedy: [RL-1]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CAL-2601}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-EXTREME-CLOSED}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-input-v1, item_version: 1, verdict: pass, date: 2026-11-21, note: 원문 PDF 이미지 판독으로 옮김 · 해설 B는 해설집 흐름 · 채점표 자체 작성}
+
+created: 2026-11-21
+updated: 2026-11-21

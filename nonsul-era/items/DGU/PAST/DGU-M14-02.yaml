@@ -1,0 +1,191 @@
+schema_version: '2.0'
+id: DGU-M14-02
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: DGU
+type: T09
+variant_of: null
+replaces: null
+level: L3
+form: 추론
+points: 20
+time_estimate_min: 15
+intent: 행렬 곱으로 정의된 점의 집합을 연립방정식으로 풀어 두 곡선(포물선·직선)으로 나타내고, 교점을 구해 두 곡선 사이의 넓이를 정적분으로 계산하는 능력을 본다.
+key_idea: '$C$: $y=2x^2$, $D$: $y=-2x$, 교점 $x=-1,0$, 넓이 $\int_{-1}^0(-2x-2x^2)dx=\dfrac13$.'
+stuck: 집합 $D$에서 매개변수 $a$를 소거해 직선의 방정식으로 바꾸는 단계
+idea_tags: [IDEA-SET-TO-CURVE-ELIMINATE, IDEA-AREA-BETWEEN-CURVES]
+tags: [행렬(현행 교육과정 밖), 두 곡선 사이의 넓이, 동국 모의]
+elements:
+  materials:
+  - '2×2 행렬 A'
+  - '행렬 곱으로 정의된 점의 집합 C·D'
+  concepts: [행렬의 곱(2009 개정 수학Ⅰ), 연립방정식, 두 곡선의 교점, 두 곡선 사이의 넓이(정적분)]
+  tools:
+  - '행렬 곱을 성분 연립방정식으로'
+  - '매개변수 a 소거'
+  - '교점 x좌표로 적분 구간'
+  - '위−아래 함수 적분'
+  conditions:
+  - '$A\begin{pmatrix}x^2\\y\end{pmatrix}=\begin{pmatrix}0\\0\end{pmatrix}$의 두 식은 같은 식 ⇒ $y=2x^2$'
+  - '$A\begin{pmatrix}a\\a\end{pmatrix}=\begin{pmatrix}x\\y\end{pmatrix}$ ⇒ $x=a$, $y=-2a$ ⇒ $y=-2x$'
+  - '$-1<x<0$에서 $-2x>2x^2$ ⇒ 직선이 위'
+  stimuli_used: [가, 나]
+  subpart_links: null
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅱ]
+  scope_2028: common
+  scope_confirmed: true
+  standards:
+  - code: 미확인
+    text: 두 곡선으로 둘러싸인 도형의 넓이를 구할 수 있다(요지). 행렬은 현행(2015·2022) 교육과정 밖
+    verified: false
+  content_area: 적분 – 정적분의 활용(넓이)
+  behavior_domain: 계산
+  unit_path: [수학Ⅱ, 적분, 정적분의 활용, 두 곡선 사이의 넓이]
+  key_concepts: [행렬의 곱(2009 개정 수학Ⅰ), 연립방정식, 두 곡선의 교점, 두 곡선 사이의 넓이(정적분)]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 동국대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 동국대학교
+  admission_year: 2014
+  admission_type: 논술(모의)
+  track: 자연계열
+  question_no: 2
+  official_url: https://ipsi.dongguk.edu/   # 원문 게시 URL 미확인(교재 재수록본에서 옮김)
+  retrieved_at: '2026-11-21'
+  original_points: null
+  rights_notice: 미확인 — 원문 PDF 표지 문구 확인 필요(현재 사본은 '대치 수리 논술 연구소' 교재 재수록본)
+  note: 문제 = 동국대 수리논술 문제집 p.76, 해설 참고 = 해설집 p.78. 제시문은 DGU-M14-01 과 공유. 원문에 배점·줄 수 표기 없음 → 20점은 자체 배정, 마크도 자체 배분. 행렬 사용(2009 개정) — 현행 교육과정 밖이며 scope_2028=common 은 넓이 계산 부분 기준(행렬을 연립방정식으로 바꾸면 공통 범위). 해설집은 집합 이름을 A, B로 잘못 적음(문제는 C, D)
+
+verify: verify/DGU-M14.py::p02
+
+stimuli:
+- label: 가
+  body: |
+    아래와 같이 두 연속함수 $f,g$의 그래프로 둘러싸인 영역의 넓이 $S$는 정적분 $\int_a^b(f(x)-g(x))dx$를 계산하여 구할 수 있다.
+    [그림: 위로 볼록한 곡선 $y=f(x)$와 아래로 볼록한 곡선 $y=g(x)$가 $x=a$, $x=b$에서 만나고, 그 사이 $f$가 위에 있는 영역이 $S$로 색칠됨]
+- label: 나
+  body: |
+    두 실수 $a<b$에 대하여 함수 $g$가 닫힌 구간 $[a,b]$에서 연속이라고 가정하자. 또한 미분 가능한 함수 $F$의 도함수 $f$가 $[a,b]$에서 연속이라고 가정하면 다음이 성립한다.
+    1) $\dfrac{d}{dx}\int_a^xg(t)dt=g(x),\quad a\le x\le b.$
+    2) $\int_a^bf(x)dx=F(b)-F(a).$
+- label: 다
+  body: |
+    열린 구간 $(a,b)$에서 정의된 미분 가능한 함수 $f$의 도함수를 $f'$로 놓자. $(a,b)$의 모든 $x$에 대하여 $f'(x)>0$이면 함수 $f$는 증가한다. 반대로 $(a,b)$의 모든 $x$에 대하여 $f'(x)<0$이면 함수 $f$는 감소한다.
+
+stem: |
+  행렬 $A=\begin{pmatrix}2&-1\\-4&2\end{pmatrix}$에 대하여 두 집합 $C,D$를 다음과 같이 정의하자.
+  $$C=\left\{(x,y):A\begin{pmatrix}x^2\\y\end{pmatrix}=\begin{pmatrix}0\\0\end{pmatrix}\right\},\quad D=\left\{(x,y):A\begin{pmatrix}a\\a\end{pmatrix}=\begin{pmatrix}x\\y\end{pmatrix},\ a\text{는 실수}\right\}$$
+  $C,D$로 둘러싸인 영역을 좌표평면에 나타내고 그 영역의 넓이를 구하는 과정을 풀이와 함께 제시하시오.
+
+subparts:
+- id: '1'
+  stem: |
+    $C$, $D$로 둘러싸인 영역을 나타내고 넓이를 구하시오.
+  points: 20
+  depends_on: []
+  answer: {kind: value, value: '\dfrac13', equivalents: ['1/3'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $C$는 포물선 $y=2x^2$, $D$는 직선 $y=-2x$이고 교점 $(-1,2)$, $(0,0)$.
+    steps:
+    - {id: 1a, content: '$S=\int_{-1}^0(-2x-2x^2)dx=\left[-x^2-\dfrac23x^3\right]_{-1}^0=\dfrac13$', criteria: [1.M3, 1.A2]}
+    hint_ladder:
+    - 행렬 곱을 성분별 식으로 풀어 쓰자.
+    - $D$에서 $x=a$이므로 $y$를 $x$로 나타낼 수 있다.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 해설집 p.78 [문제 2]
+    steps:
+    - id: 1b-1
+      content: |
+        $\begin{pmatrix}2&-1\\-4&2\end{pmatrix}\begin{pmatrix}x^2\\y\end{pmatrix}=\begin{pmatrix}0\\0\end{pmatrix}$이면 $2x^2-y=0$, $-4x^2+2y=0$이므로 집합 $C$는 $y=2x^2$의 그래프이다.
+      criteria: [1.M1]
+    - id: 1b-2
+      content: |
+        실수 $a$에 대해 $\begin{pmatrix}2&-1\\-4&2\end{pmatrix}\begin{pmatrix}a\\a\end{pmatrix}=\begin{pmatrix}x\\y\end{pmatrix}$이면 $x=a$, $y=-2a$이므로 집합 $D$는 $y=-2x$의 그래프이다.
+      criteria: [1.M2]
+    - id: 1b-3
+      content: |
+        $2x^2=-2x$를 풀면 $x=-1,\ 0$이므로 두 그래프는 $(-1,2)$와 $(0,0)$에서 만난다. [그림: 포물선 $y=2x^2$와 직선 $y=-2x$, 두 교점 사이에서 직선이 위에 있는 영역을 색칠]
+      criteria: [1.A1]
+    - id: 1b-4
+      content: |
+        제시문 [가]처럼 두 그래프로 둘러싸인 영역의 넓이는 $S=\int_{-1}^0(-2x-2x^2)dx=\left[-x^2-\dfrac23x^3\right]_{x=-1}^0=\dfrac13$.
+      criteria: [1.M3, 1.A2]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 5
+      evidence: 행렬 곱을 풀어 $C$가 $y=2x^2$임을 적었다.
+      depends_on: []
+      steps: [1b-1]
+    - id: 1.M2
+      mark_type: M
+      points: 5
+      evidence: $x=a$, $y=-2a$에서 $D$가 $y=-2x$임을 적었다.
+      depends_on: []
+      steps: [1b-2]
+    - id: 1.A1
+      mark_type: A
+      points: 4
+      evidence: 교점 $(-1,2)$, $(0,0)$을 구하고 영역을 그림(또는 위치 관계 서술)으로 나타냈다.
+      depends_on: [1.M1, 1.M2]
+      steps: [1b-3]
+    - id: 1.M3
+      mark_type: M
+      points: 3
+      evidence: 넓이를 $\int_{-1}^0(-2x-2x^2)dx$(위 함수 − 아래 함수)로 세웠다.
+      depends_on: []
+      steps: [1a, 1b-4]
+    - id: 1.A2
+      mark_type: A
+      points: 3
+      evidence: 넓이 $\dfrac13$을 적었다.
+      depends_on: [1.M3]
+      steps: [1a, 1b-4]
+    deductions:
+    - code: D1-1
+      condition: 제시문 인용 없음(동국 규정)
+      effect: minus
+      value: 1
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-CAL-2607}
+  misconceptions:
+  - id: MC-CAL-2607
+    outcome_code: '70'
+    wrong_work: '위·아래를 바꿔 $\int_{-1}^0(2x^2+2x)dx=-\dfrac13$을 넓이로 답하거나, 적분 구간을 $[0,1]$로 잡음'
+    detect_cue: 답이 $-\dfrac13$이거나 적분 구간에 양수 끝점 1
+    feedback: 넓이는 (위 곡선 − 아래 곡선)을 교점 사이에서 적분합니다. 교점과 $-1<x<0$에서의 위치 관계를 먼저 확인하세요.
+    remedy: [RL-1]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CAL-2607}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-AREA-BETWEEN}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-input-v1, item_version: 1, verdict: pass, date: 2026-11-21, note: 원문 PDF 이미지 판독으로 옮김 · 해설 B는 해설집 흐름 · 채점표 자체 작성}
+
+created: 2026-11-21
+updated: 2026-11-21

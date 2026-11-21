@@ -1,0 +1,310 @@
+schema_version: '2.0'
+id: DGU-G24-03
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: DGU
+type: T01
+variant_of: null
+replaces: null
+level: L5
+form: 최적2단
+points: 40
+time_estimate_min: 35
+intent: 고정점을 지나는 직선과 원의 다른 교점이 움직이는 속력을 음함수 미분으로 구하고, 특정 순간의 각 관계를 이등변삼각형과 배각 공식으로 a의 식으로 바꾸어 최댓값을 구하는 능력을 본다.
+key_idea: '$\angle\mathrm{QOx}=s(t)$로 두면 $\dfrac{\sin s}{a-\cos s}=\dfrac{\sin t}{a-\cos t}$를 $t$로 미분해 Q가 $(0,1)$일 때 $\left\lvert\dfrac{ds}{dt}\right\rvert=\left\lvert1-a\dfrac{\cos t_0}{\sin t_0}\right\rvert$, 그리고 $\tan\alpha=a$, $t_0+\dfrac{\pi}{2}=2\alpha$로 $\dfrac{\cos t_0}{\sin t_0}=\dfrac{2a}{a^2-1}$.'
+stuck: Q의 각 s(t)와 t의 관계식을 세우는 단계, $t_0$를 a로 나타내는 각 관계(이등변삼각형 OPQ)를 찾는 단계
+idea_tags: [IDEA-CAL-IMPLICIT-DIFF-RELATED-RATE, IDEA-GEO-ISOSCELES-ANGLE-CHASE, IDEA-TRIG-DOUBLE-ANGLE-TAN]
+tags: [음함수 미분, 속력, 단위원, 동국 실전]
+elements:
+  materials:
+  - '단위원과 $x$축 위의 고정점 $\mathrm{A}(a,0)$ $(2\le a\le3)$'
+  - '$\angle\mathrm{POA}=t$로 원 위를 도는 점 P'
+  - 직선 AP와 원의 다른 교점 Q의 움직임
+  concepts:
+  - 평면 위를 움직이는 점의 속도와 속력
+  - 음함수의 미분법
+  - 삼각함수의 덧셈정리·배각 공식
+  - 이등변삼각형의 성질
+  - 닫힌구간에서의 최대·최소
+  tools:
+  - 'Q를 $(\cos s(t),\sin s(t))$로 두면 속력 $=\left\lvert\dfrac{ds}{dt}\right\rvert$'
+  - 수선의 발을 내려 두 직각삼각형의 탄젠트가 같다는 관계식
+  - '관계식을 $t$로 음함수 미분 후 $s=\dfrac{\pi}{2}$ 대입'
+  - '$\tan\alpha=a$, $t_0+\dfrac{\pi}{2}=2\alpha$로 $\cot t_0$를 $a$로 표현'
+  conditions:
+  - 'Q가 $(0,1)$ ⇔ $s(t_0)=\dfrac{\pi}{2}$'
+  - '$\overline{\mathrm{OQ}}=\overline{\mathrm{OP}}=1$ ⇒ $\angle\mathrm{QPO}=\angle\mathrm{PQO}=\alpha$'
+  - '$2\le a\le3$ ⇒ $a^2-1>0$이라 절댓값을 벗길 때 부호 확정, 최대는 끝점 비교'
+  stimuli_used: [가, 나, 다]
+  subpart_links: '(2)는 (1)의 속력 식 사용'
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅰ, 수학Ⅱ, 미적분]
+  scope_2028: calc2
+  scope_confirmed: true
+  standards:
+  - code: 미확인
+    text: 음함수의 미분법을 이해하고, 평면 위를 움직이는 점의 속도와 속력을 구할 수 있다(요지)
+    verified: false
+  content_area: 미적분 – 미분법(음함수의 미분, 평면 운동)
+  behavior_domain: 문제해결
+  unit_path: [미적분, 미분법, 도함수의 활용, 속도와 가속도]
+  key_concepts:
+  - 평면 위를 움직이는 점의 속도와 속력
+  - 음함수의 미분법
+  - 삼각함수의 덧셈정리·배각 공식
+  - 이등변삼각형의 성질
+  - 닫힌구간에서의 최대·최소
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 동국대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 동국대학교
+  admission_year: 2024
+  admission_type: 논술
+  track: 자연계열
+  question_no: 3
+  official_url: https://ipsi.dongguk.edu/   # 원문 게시 URL 미확인(교재 재수록본에서 옮김)
+  retrieved_at: '2026-11-21'
+  original_points: null
+  rights_notice: 미확인 — 원문 PDF 표지 문구 확인 필요(현재 사본은 '대치 수리 논술 연구소' 2027 대비 교재 재수록본)
+  note: 문제 = 문제집2027 p.24, 해설 참고 = 해설집2027 p.25. 재수록본에 배점·줄 수 표기 없음 → 동국 규격에 따라 40점 가정, 소문항 24·16 은 자체 배분
+
+verify: verify/DGU-G24.py::p03
+
+stimuli:
+- label: 가
+  body: |
+    좌표평면 위를 움직이는 점 P의 시각 $t$에서의 위치 $(x,y)$가 $x=f(t)$, $y=g(t)$일 때, 점 P의 시각 $t$에서의 속도는 $\left(\dfrac{dx}{dt},\dfrac{dy}{dt}\right)$, 즉 $(f'(t),g'(t))$이고, 속도의 크기 또는 속력은 $\sqrt{\{f'(t)\}^2+\{g'(t)\}^2}$이다.
+    『고등학교 미적분』
+- label: 나
+  body: |
+    함수 $f(x)$가 닫힌구간 $[a,b]$에서 연속이면 함수 $f(x)$는 이 구간에서 반드시 최댓값과 최솟값을 가진다.
+    『고등학교 수학 Ⅱ』
+- label: 다
+  body: |
+    $t$의 함수 $s$가 방정식 $f(t,s)=0$의 꼴로 주어졌을 때, 이를 $s$의 $t$에 대한 음함수 표현이라고 한다. 음함수 표현 $f(t,s)=0$에서 $s$를 $t$의 함수로 보고, 양변의 각 항을 $t$에 대하여 미분하여 $\dfrac{ds}{dt}$를 구할 수 있다.
+    『고등학교 미적분』
+
+stem: |
+  그림과 같이 좌표평면 위에 중심이 원점 O이고 반지름의 길이가 1인 원과 $x$축 위의 점 $\mathrm{A}(a,0)$가 있다. (단, $2\le a\le3$) 점 P는 점 $(1,0)$에서 출발하여, 시각 $t$가 $0\le t<\dfrac{\pi}{3}$일 때 $\angle\mathrm{POA}=t$를 만족하도록 원 위를 반시계방향으로 움직인다. 점 A와 P를 잇는 직선이 원과 만나는 점 중 P가 아닌 점을 Q라 하자.
+  [그림: 원점 O 중심의 단위원과 $x$축 위 원 밖의 점 $\mathrm{A}(a,0)$. 제1사분면의 원 위의 점 P($\angle\mathrm{POA}=t$, 반시계 방향 화살표)와 직선 AP가 원과 다시 만나는 제2사분면 쪽의 점 Q]
+  시각 $t=t_0$일 때, 점 Q의 위치는 $(0,1)$이다. 다음 물음에 답하시오.
+
+subparts:
+- id: '1'
+  stem: |
+    $t=t_0$일 때, 점 Q의 속력을 $a$를 이용하여 나타내시오.
+  points: 24
+  depends_on: []
+  answer: {kind: expression, value: '1+\dfrac{2}{a^2-1}', equivalents: ['\dfrac{a^2+1}{a^2-1}'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: Q의 편각 s(t)에 대한 관계식을 음함수 미분하고, Q=(0,1)인 순간의 각 관계로 $\cot t_0$를 a로 바꾼다.
+    steps:
+    - {id: 1a, content: '$\left\lvert\dfrac{ds}{dt}\right\rvert=\left\lvert1-a\cot t_0\right\rvert$, $\cot t_0=\dfrac{2a}{a^2-1}$ → $1+\dfrac{2}{a^2-1}$', criteria: [1.A2]}
+    hint_ladder:
+    - Q의 좌표를 $(\cos s,\sin s)$로 두면 속력은 $\left\lvert\dfrac{ds}{dt}\right\rvert$이다.
+    - Q, P에서 $x$축에 수선을 내리면 A를 꼭짓점으로 하는 닮은 직각삼각형이 생긴다.
+    - Q가 $(0,1)$일 때 삼각형 OPQ는 이등변삼각형이다.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 해설집 p.25
+    steps:
+    - id: 1b-1
+      content: |
+        시각 $t$에 원점 O와 Q를 잇는 직선 OQ와 $x$축의 양의 방향이 이루는 각을 $s(t)$라 하자. Q는 원 위를 움직이므로 Q의 좌표는 $(\cos s(t),\sin s(t))$이고, 제시문 【가】에 의해 속력은
+        $\sqrt{(\sin^2s(t)+\cos^2s(t))\left(\dfrac{ds}{dt}\right)^2}=\left\lvert\dfrac{ds}{dt}\right\rvert$.
+      criteria: [1.M1]
+    - id: 1b-2
+      content: |
+        Q, P에서 $x$축에 내린 수선의 발을 $\mathrm{h_Q}$, $\mathrm{h_P}$라 하면 $\angle\mathrm{QAh_Q}=\angle\mathrm{PAh_P}$이므로 $\tan(\angle\mathrm{QAh_Q})=\tan(\angle\mathrm{PAh_P})$, 즉
+        $\dfrac{\sin s(t)}{a-\cos s(t)}=\dfrac{\sin t}{a-\cos t}$, 정리하면 $(a-\cos t)\sin s(t)-\sin t\,(a-\cos s(t))=0$.
+      criteria: [1.M2]
+    - id: 1b-3
+      content: |
+        제시문 【다】의 음함수 미분법에 의해 $t$로 미분하면
+        $\sin t\sin s(t)+(a-\cos t)\cos s(t)\dfrac{ds}{dt}-\cos t\,(a-\cos s(t))-\sin t\sin s(t)\dfrac{ds}{dt}=0$.
+      criteria: [1.M3]
+    - id: 1b-4
+      content: |
+        Q가 $(0,1)$을 지날 때 $s(t)=\dfrac{\pi}{2}$이므로 $\sin s(t)=1$, $\cos s(t)=0$이고 $t=t_0$. 대입하면 $\sin t_0-a\cos t_0-\sin t_0\dfrac{ds}{dt}=0$이므로 $t=t_0$에서 Q의 속력은
+        $\left\lvert\dfrac{ds}{dt}\right\rvert=\left\lvert1-a\dfrac{\cos t_0}{\sin t_0}\right\rvert$.
+      criteria: [1.A1]
+    - id: 1b-5
+      content: |
+        이 순간 $\angle\mathrm{AQO}=\alpha$라 하면 직각삼각형 QOA에서 $\tan\alpha=\dfrac{\overline{\mathrm{OA}}}{\overline{\mathrm{OQ}}}=a$. 한편 $\overline{\mathrm{OQ}}=\overline{\mathrm{OP}}$이므로 $\angle\mathrm{QPO}=\alpha$이고, $\angle\mathrm{QOP}=\dfrac{\pi}{2}-t_0$이므로 $t_0+\dfrac{\pi}{2}=2\alpha$.
+      criteria: [1.M4]
+    - id: 1b-6
+      content: |
+        따라서 $\dfrac{\cos t_0}{\sin t_0}=\dfrac{\cos\left(2\alpha-\frac{\pi}{2}\right)}{\sin\left(2\alpha-\frac{\pi}{2}\right)}=\dfrac{\sin2\alpha}{-\cos2\alpha}=-\tan2\alpha=-\dfrac{2\tan\alpha}{1-\tan^2\alpha}=\dfrac{2a}{a^2-1}$이고,
+        Q의 속력은 $\left\lvert1-\dfrac{2a^2}{a^2-1}\right\rvert=\left\lvert-1-\dfrac{2}{a^2-1}\right\rvert=1+\dfrac{2}{a^2-1}$ ($a\ge2$이므로).
+      criteria: [1.A2]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 4
+      evidence: Q를 $(\cos s,\sin s)$로 두고 【가】로 속력이 $\left\lvert\dfrac{ds}{dt}\right\rvert$임을 적었다.
+      depends_on: []
+      steps: [1b-1]
+    - id: 1.M2
+      mark_type: M
+      points: 5
+      evidence: 'Q, P, A가 한 직선 위에 있다는 조건을 $s$와 $t$의 관계식(탄젠트 비 또는 동치)으로 세웠다.'
+      depends_on: []
+      steps: [1b-2]
+    - id: 1.M3
+      mark_type: M
+      points: 5
+      evidence: 【다】를 인용해 관계식을 $t$로 미분한 식이 있다.
+      depends_on: []
+      steps: [1b-3]
+    - id: 1.A1
+      mark_type: A
+      points: 3
+      evidence: '$s=\dfrac{\pi}{2}$를 대입해 속력 $\left\lvert1-a\dfrac{\cos t_0}{\sin t_0}\right\rvert$를 얻었다.'
+      depends_on: [1.M2, 1.M3]
+      steps: [1b-4]
+    - id: 1.M4
+      mark_type: M
+      points: 4
+      evidence: '$\tan\alpha=a$와 이등변삼각형 OPQ에서 $t_0+\dfrac{\pi}{2}=2\alpha$(또는 $t_0$를 $a$로 나타내는 동치 관계)를 적었다.'
+      depends_on: []
+      steps: [1b-5]
+    - id: 1.A2
+      mark_type: A
+      points: 3
+      evidence: '$\dfrac{\cos t_0}{\sin t_0}=\dfrac{2a}{a^2-1}$을 거쳐 속력 $1+\dfrac{2}{a^2-1}$(또는 $\dfrac{a^2+1}{a^2-1}$)을 적었다.'
+      depends_on: [1.M4]
+      steps: [1a, 1b-6]
+    deductions:
+    - code: D1-1
+      condition: 제시문 인용 없음(동국 규정)
+      effect: minus
+      value: 1
+    - code: D1-2
+      condition: 절댓값을 벗길 때 $a\ge2$ 근거 없이 부호를 정함
+      effect: minus
+      value: 2
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-CAL-2208}
+  - {code: '71', misconception: MC-CAL-2206}
+  misconceptions:
+  - id: MC-CAL-2208
+    outcome_code: '70'
+    wrong_work: 'Q도 P와 같은 각속도로 움직인다고 보고 속력을 1이라고 답함'
+    detect_cue: 답이 1이거나 $a$와 무관
+    feedback: Q는 직선 AP와 원의 교점이라 P와 다른 빠르기로 움직입니다. Q의 편각 $s(t)$를 따로 두고 $\dfrac{ds}{dt}$를 구하세요.
+    remedy: [RL-1]
+  - id: MC-CAL-2206
+    outcome_code: '71'
+    wrong_work: '$\dfrac{ds}{dt}=1-\dfrac{2a^2}{a^2-1}$을 그대로 속력으로 써서 음수 값을 답함'
+    detect_cue: '답이 $-1-\dfrac{2}{a^2-1}$ 꼴(음수)'
+    feedback: 속력은 속도의 크기이므로 절댓값을 취합니다. $a\ge2$에서 부호를 확인하세요.
+    remedy: [RL-3]
+- id: '2'
+  stem: |
+    $t=t_0$일 때, 점 Q의 속력이 최대가 되도록 하는 $a$의 값과 그 때의 점 Q의 속력을 구하시오.
+  points: 16
+  depends_on: ['1']
+  answer: {kind: value, value: 'a=2,\ 속력 \dfrac53', equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: $1+\dfrac{2}{a^2-1}$은 $2\le a\le3$에서 감소하므로 왼쪽 끝 $a=2$에서 최대.
+    steps:
+    - {id: 2a, content: '$1+\dfrac23=\dfrac53$', criteria: [2.A1]}
+  - id: S2-B
+    audience: B
+    method_no: 1
+    source_flow: 해설집 p.25
+    steps:
+    - id: 2b-1
+      content: |
+        (1)에서 속력은 $v(a)=1+\dfrac{2}{a^2-1}$. $2\le a\le3$에서 $a^2-1$은 양수이고 증가하므로 $v(a)$는 감소함수이다(또는 $v'(a)=-\dfrac{4a}{(a^2-1)^2}<0$).
+      criteria: [2.M1]
+    - id: 2b-2
+      content: |
+        $v(a)$는 닫힌구간 $[2,3]$에서 연속이므로 제시문 【나】에 의해 최댓값을 가지며, 감소함수이므로 최댓값은 왼쪽 끝 $a=2$에서 얻어진다.
+      criteria: [2.R1]
+    - id: 2b-3
+      content: |
+        따라서 $a=2$일 때 점 Q의 속력은 최대이고, 그 값은 $1+\dfrac23=\dfrac53$이다.
+      criteria: [2.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 6
+      evidence: 속력 식이 $2\le a\le3$에서 감소함을 근거(도함수 부호 또는 분모의 증가)와 함께 적었다.
+      depends_on: []
+      ft: {allowed: true, from: [1.A2], max_points: 6}
+      steps: [2b-1]
+    - id: 2.R1
+      mark_type: R
+      points: 4
+      evidence: 닫힌구간에서 감소함수의 최댓값은 왼쪽 끝값이라는 근거(【나】)를 적었다.
+      depends_on: []
+      steps: [2b-2]
+    - id: 2.A1
+      mark_type: A
+      points: 6
+      evidence: $a=2$, 최대 속력 $\dfrac53$을 모두 적었다.
+      depends_on: [2.M1, 2.R1]
+      steps: [2a, 2b-3]
+    deductions:
+    - code: D2-1
+      condition: 제시문 인용 없음(동국 규정)
+      effect: minus
+      value: 1
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-CAL-2204}
+  misconceptions:
+  - id: MC-CAL-2204
+    outcome_code: '70'
+    wrong_work: '범위 $2\le a\le3$을 무시하고 $a\to1^+$에서 속력이 한없이 커진다고 하거나, 오른쪽 끝 $a=3$을 답함'
+    detect_cue: 답이 $a=3$, $\dfrac54$ 또는 '최댓값 없음'
+    feedback: 정의역은 닫힌구간 $[2,3]$입니다. 감소함수이므로 최댓값은 왼쪽 끝 $a=2$에서 나옵니다.
+    remedy: [RL-2]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CAL-2208}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-IMPLICIT-RATE}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-CAL-2204}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-EXTREME-CLOSED}
+  priority: 1
+- id: RL-3
+  trigger: {type: misconception, ref: MC-CAL-2206}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-IMPLICIT-RATE}
+  priority: 2
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-input-v1, item_version: 1, verdict: pass, date: 2026-11-21, note: 원문 PDF 이미지 판독으로 옮김 · 해설 B 는 해설집 흐름 · 채점표 자체 작성}
+
+created: 2026-11-21
+updated: 2026-11-21
