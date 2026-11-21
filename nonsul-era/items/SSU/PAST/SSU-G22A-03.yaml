@@ -1,0 +1,246 @@
+# 숭실대 2022학년도 논술고사(자연1) 문제 3 — 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: SSU-G22A-03
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: numeric
+origin: past_exam
+school: SSU
+type: T09
+variant_of: null
+replaces: null
+level: L3
+form: 추론
+points: 20
+time_estimate_min: 20
+intent: 사인법칙·넓이 공식·코사인법칙을 연결해 삼각형의 세 변을 결정하는 능력을 본다.
+key_idea: '$a=2R\sin A=2\sqrt3$, 넓이에서 $bc=7$, 코사인법칙을 $(b+c)^2-2bc(1+\cos A)$로 정리해 $b+c=6$.'
+stuck: '코사인법칙을 $b+c$와 $bc$의 식으로 바꾸어 $b,c$를 두 근으로 갖는 이차방정식을 세우는 단계'
+idea_tags:
+- IDEA-SINE-LAW-SIDE
+- IDEA-SUM-PRODUCT-QUADRATIC
+tags:
+- 외접원
+- 삼각형의 결정
+elements:
+  materials:
+  - 외접원이 주어진 삼각형
+  concepts:
+  - 사인법칙
+  - 코사인법칙
+  - 삼각형의 넓이
+  - 이차방정식의 근과 계수의 관계
+  tools:
+  - 사인법칙
+  - '넓이 $\frac12bc\sin A$'
+  - 코사인법칙
+  - 합과 곱으로 이차방정식 세우기
+  conditions:
+  - '외접원의 반지름 $\frac{7\sqrt2}4$ → $a=2R\sin A$'
+  - '$\cos A=\frac57$ → $\sin A=\frac{2\sqrt6}7$ ($0<A<\pi$)'
+  - '넓이 $\sqrt6$ → $bc=7$'
+  stimuli_used:
+  - 제시문
+  subpart_links: null
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학Ⅰ
+  scope_2028: common
+  scope_confirmed: true
+  standards:
+  - code: 미확인
+    text: 사인법칙과 코사인법칙을 이해하고, 이를 활용할 수 있다(요지)
+    verified: false
+  content_area: 삼각함수 – 사인법칙과 코사인법칙
+  behavior_domain: 계산
+  unit_path:
+  - 수학Ⅰ
+  - 삼각함수
+  - 삼각함수의 활용
+  - 사인법칙과 코사인법칙
+  key_concepts:
+  - 사인법칙
+  - 코사인법칙
+  - 삼각형의 넓이
+  - 이차방정식의 근과 계수의 관계
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 숭실대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 숭실대학교
+  admission_year: 2022
+  admission_type: 논술우수자전형
+  track: 자연1
+  question_no: 3
+  official_url: https://iphak.ssu.ac.kr   # [확인필요] 입학처 기출 게시물 주소로 교체
+  retrieved_at: 2026-11-21
+  original_points: 20
+  rights_notice: 미확인(「숭실대 수리논술 문제교재(2026)」 p.46, 「숭실대 수리논술 해설교재(2026)」 p.59에서 옮김)
+verify: verify/SSU-G22A.py::p03
+stimuli:
+- label: 제시문
+  body: |
+    삼각형 $\mathrm{ABC}$의 외접원의 반지름의 길이를 $R$라고 하면
+    $$\dfrac a{\sin A}=\dfrac b{\sin B}=\dfrac c{\sin C}=2R$$
+    [그림 설명] 중심이 $\mathrm{O}$인 원에 삼각형 $\mathrm{ABC}$가 내접하고, $\overline{\mathrm{BC}}=a$, $\overline{\mathrm{CA}}=b$, $\overline{\mathrm{AB}}=c$, $\overline{\mathrm{OC}}=R$로 표시되어 있다.
+    【출처: 수학Ⅰ 「사인법칙과 코사인법칙」】
+stem: |
+  반지름의 길이가 $\dfrac{7\sqrt2}4$인 원에 삼각형 $\mathrm{ABC}$가 내접한다. 삼각형 $\mathrm{ABC}$의 넓이는 $\sqrt6$이고 $\cos A=\dfrac57$이다.
+
+  이때 삼각형 $\mathrm{ABC}$의 세 변의 길이를 모두 구하시오.
+subparts:
+- id: '1'
+  stem: |
+    삼각형 $\mathrm{ABC}$의 세 변의 길이를 모두 구하시오.
+  points: 20
+  depends_on: []
+  answer:
+    kind: set
+    value: '[2*sqrt(3), 3+sqrt(2), 3-sqrt(2)]'
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: '$a=2\sqrt3$, $bc=7$, $b+c=6$ → $b,c=3\pm\sqrt2$.'
+    steps:
+    - id: 1a
+      content: '$12=(b+c)^2-2bc(1+\cos A)\Rightarrow(b+c)^2=36$'
+      criteria:
+      - 1.B1
+      - 1.M1
+      - 1.M2
+      - 1.M3
+      - 1.A1
+      - 1.A2
+    hint_ladder:
+    - '$\sin A$부터 구하자.'
+    - '사인법칙으로 $a$, 넓이로 $bc$를 얻는다.'
+    - '코사인법칙을 $b+c$, $bc$로 나타내자.'
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 해설교재 p.59
+    steps:
+    - id: 1b-1
+      content: '$\cos A=\dfrac57$, $0<A<\pi$이므로 $\sin A=\sqrt{1-\cos^2A}=\dfrac{2\sqrt6}7$.'
+      criteria:
+      - 1.B1
+    - id: 1b-2
+      content: '사인법칙에 의하여 $\dfrac a{\sin A}=2R$, 즉 $a=2R\sin A=2\times\dfrac{7\sqrt2}4\times\dfrac{2\sqrt6}7=2\sqrt3$.'
+      criteria:
+      - 1.M1
+    - id: 1b-3
+      content: '넓이가 $\sqrt6$이므로 $\sqrt6=\dfrac12bc\sin A=\dfrac{\sqrt6}7bc$, 즉 $bc=7$.'
+      criteria:
+      - 1.M2
+    - id: 1b-4
+      content: |
+        코사인법칙에 의하여 $12=a^2=b^2+c^2-2bc\cos A=(b+c)^2-2bc(1+\cos A)$이므로
+        $$(b+c)^2=12+14\left(1+\dfrac57\right)=36,\quad b+c=6$$
+      criteria:
+      - 1.M3
+      - 1.A1
+    - id: 1b-5
+      content: '$b,c$를 두 근으로 갖는 이차방정식 $x^2-6x+7=0$의 해는 $x=3\pm\sqrt2$. 따라서 세 변의 길이는 $2\sqrt3$, $3+\sqrt2$, $3-\sqrt2$.'
+      criteria:
+      - 1.A2
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 1.B1
+      mark_type: B
+      points: 2
+      evidence: '$\sin A=\dfrac{2\sqrt6}7$.'
+      steps:
+      - 1b-1
+    - id: 1.M1
+      mark_type: M
+      points: 4
+      evidence: '사인법칙으로 $a=2\sqrt3$을 구했다.'
+      steps:
+      - 1b-2
+    - id: 1.M2
+      mark_type: M
+      points: 4
+      evidence: '넓이 공식으로 $bc=7$을 구했다.'
+      steps:
+      - 1b-3
+    - id: 1.M3
+      mark_type: M
+      points: 4
+      evidence: '코사인법칙을 세웠다($b+c$와 $bc$로 정리하거나 $b^2+c^2$을 구함).'
+      steps:
+      - 1b-4
+    - id: 1.A1
+      mark_type: A
+      points: 3
+      evidence: '$b+c=6$ (또는 $b^2+c^2=22$).'
+      depends_on:
+      - 1.M3
+      steps:
+      - 1b-4
+    - id: 1.A2
+      mark_type: A
+      points: 3
+      evidence: '세 변 $2\sqrt3$, $3+\sqrt2$, $3-\sqrt2$.'
+      depends_on:
+      - 1.M1
+      - 1.M2
+      - 1.M3
+      cao: true
+      steps:
+      - 1b-5
+    deductions:
+    - code: D1-1
+      condition: 답만 쓰고 과정 없음
+      effect: cap
+      value: 5
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  - code: '71'
+    misconception: MC-ALG-0626
+  misconceptions:
+  - id: MC-ALG-0626
+    outcome_code: '71'
+    wrong_work: '사인법칙을 $\dfrac a{\sin A}=R$로 써서 $a=\sqrt3$을 얻음'
+    detect_cue: '$a=\sqrt3$, 이후 계산 연쇄 오류'
+    feedback: '$\dfrac a{\sin A}=2R$입니다(지름).'
+    remedy:
+    - RL-0626
+remedy_links:
+- id: RL-0626
+  trigger:
+    type: misconception
+    ref: MC-ALG-0626
+  relation: remediation
+  target:
+    kind: concept
+    ref: CON-ALG-SINE-COSINE-LAW
+  priority: 1
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: opus
+  prompt_version: past-transcribe-v1
+  item_version: 1
+  verdict: pass
+  date: 2026-11-21
+created: 2026-11-21
+updated: 2026-11-21

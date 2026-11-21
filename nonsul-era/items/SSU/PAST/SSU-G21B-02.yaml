@@ -1,0 +1,251 @@
+# 숭실대 2021학년도 논술고사(자연2) 문제 2 — 원문은 내부 분석용(allowed_use: internal_only)
+# 소문항 배점 (1)10 (2)10 은 원문에 없어 임의 배분(원문은 문제 전체 20점).
+# (2) 는 b>0(b→∞)인 경우이며, 이때 직선 - 곡선 = (x+2b)^2(4b-x) 로 a 와 무관 → K/L=5/11 (상수). 해설교재와 같은 답.
+schema_version: '2.0'
+id: SSU-G21B-02
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: numeric
+origin: past_exam
+school: SSU
+type: T03
+variant_of: null
+replaces: null
+level: L4
+form: 추론
+points: 20
+time_estimate_min: 15
+intent: 삼차함수의 접선과 곡선의 교점을 중근 인수분해로 구하고, 접선과 곡선 사이 넓이를 정적분으로 계산해 비의 극한을 구하는 능력을 본다.
+key_idea: '접점 $x=t$에서 $(x-t)^2(x+2t)=0$이므로 $Q$의 $x$좌표 $-2t$, 중점 $b=-\dfrac t2$. 곡선과 접선의 차가 $(x+2b)^2(x-4b)$로 $a$와 무관하다.'
+stuck: 곡선과 접선의 차가 접점에서 중근을 가진다는 것을 이용한 인수분해
+idea_tags: [IDEA-TANGENT-DOUBLE-ROOT, IDEA-AREA-RATIO-SCALING]
+tags: [삼차함수의 접선, 넓이의 비]
+elements:
+  materials: [삼차함수, 접선, 선분의 중점, 넓이의 비]
+  concepts: [접선의 방정식, 삼차방정식의 중근, 정적분과 넓이, 함수의 극한]
+  tools: [접점은 교점 방정식의 중근, 인수분해, 정적분으로 넓이 계산]
+  conditions:
+  - '접선과 곡선의 교점 → $(x-t)^2(x+2t)=0$'
+  - '중점 $b=-\frac t2$'
+  - '선분 $PR$, $QR$은 접선 위 → 넓이는 접선과 곡선 사이'
+  - '$b\to\infty$ → $b>0$인 경우만'
+  stimuli_used: [제시문]
+  subpart_links: '(2)는 (1)의 $P$, $Q$의 $x$좌표 $-2b$, $4b$ 사용'
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅱ]
+  scope_2028: common
+  scope_confirmed: true
+  standards:
+  - code: 미확인
+    text: 곡선으로 둘러싸인 도형의 넓이를 구할 수 있다(요지)
+    verified: false
+  content_area: 적분 – 정적분의 활용
+  behavior_domain: 계산
+  unit_path: [수학Ⅱ, 적분, 정적분의 활용, 곡선과 접선 사이의 넓이]
+  key_concepts: [접선의 방정식, 삼차방정식의 중근, 정적분과 넓이, 함수의 극한]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 숭실대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 숭실대학교
+  admission_year: 2021
+  admission_type: 논술우수자전형
+  track: 자연2
+  question_no: 2
+  official_url: https://iphak.ssu.ac.kr   # [확인필요] 입학처 기출 게시물 주소로 교체
+  retrieved_at: 2026-11-21
+  original_points: 20
+  rights_notice: 미확인(대치 수리 논술 연구소 「2027학년도 대비 수리논술 숭실대 기출 및 모의 문제」 p.60, 해설 p.81에서 옮김)
+
+verify: verify/SSU-G21B.py::p02
+
+stimuli:
+- label: 제시문
+  body: |
+    두 함수 $f(x)$, $g(x)$가 닫힌구간 $[a,b]$에서 연속일 때, 두 곡선 $y=f(x)$, $y=g(x)$ 및 두 직선 $x=a$, $x=b$로 둘러싸인 도형의 넓이 $S$는
+    $$S=\int_a^b\lvert f(x)-g(x)\rvert\,dx$$
+    【출처: 수학Ⅱ 「정적분의 활용」】
+
+stem: |
+  곡선 $C:y=x^3+ax$ 위의 점 $P$에서의 접선 $\ell$과 곡선 $C$가 만나는 다른 점을 $Q$라고 하자. 선분 $PQ$의 중점 $R$의 $x$좌표를 $b$라고 할 때, 다음 문항에 답하시오.
+
+subparts:
+- id: '1'
+  stem: |
+    점 $P$와 점 $Q$의 $x$좌표를 각각 $b$의 식으로 나타내시오.
+  points: 10
+  depends_on: []
+  answer: {kind: expression, value: '[-2*b, 4*b]', equivalents: ['P의 $x$좌표 $-2b$, Q의 $x$좌표 $4b$'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: 접점 $t$에서 $x^3+ax-\ell(x)=(x-t)^2(x+2t)$, $Q=-2t$, $b=-\dfrac t2$.
+    steps:
+    - {id: 1a, content: '$t=-2b$, $Q$의 $x$좌표 $-2t=4b$', criteria: [1.M1, 1.M2, 1.A1, 1.A2]}
+    hint_ladder:
+    - 접선의 방정식을 세우고 곡선과 연립해 보자.
+    - 접점의 $x$좌표는 몇 중근인가?
+  - id: S1-B
+    audience: B
+    source_flow: 해설교재 p.81
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        $P(t,\ t^3+at)$라 하면 $y'=3x^2+a$이므로 $\ell:y=(3t^2+a)(x-t)+t^3+at=(3t^2+a)x-2t^3$.
+      criteria: [1.M1]
+    - id: 1b-2
+      content: |
+        $x^3+ax=(3t^2+a)x-2t^3\iff x^3-3t^2x+2t^3=0\iff(x-t)^2(x+2t)=0$. $Q$가 $P$와 다른 점이므로 $t\ne0$이고 $Q$의 $x$좌표는 $-2t$.
+      criteria: [1.M2]
+    - id: 1b-3
+      content: |
+        $b=\dfrac{t+(-2t)}2=-\dfrac t2$이므로 $t=-2b$. 따라서 $P$의 $x$좌표는 $-2b$, $Q$의 $x$좌표는 $4b$.
+      criteria: [1.A1, 1.A2]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 3
+      evidence: 접선 $\ell$의 방정식 $y=(3t^2+a)x-2t^3$을 세웠다.
+      steps: [1b-1]
+    - id: 1.M2
+      mark_type: M
+      points: 3
+      evidence: 연립하여 $(x-t)^2(x+2t)=0$을 얻고 $Q$의 $x$좌표를 $-2t$로 구했다.
+      steps: [1b-2]
+    - id: 1.A1
+      mark_type: A
+      points: 2
+      evidence: $b=-\dfrac t2$, $P$의 $x$좌표 $-2b$.
+      depends_on: [1.M2]
+      steps: [1b-3]
+    - id: 1.A2
+      mark_type: A
+      points: 2
+      evidence: $Q$의 $x$좌표 $4b$.
+      depends_on: [1.M2]
+      steps: [1b-3]
+    deductions:
+    - code: D1-1
+      condition: 답만 쓰고 과정 없음
+      effect: cap
+      value: 5
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-ALG-0717}
+  misconceptions:
+  - id: MC-ALG-0717
+    outcome_code: '71'
+    wrong_work: '$x^3-3t^2x+2t^3=0$을 $x=t$로 한 번만 나누고 남은 이차식의 근을 $Q$로 잘못 구함(예: $Q=-t$)'
+    detect_cue: $Q$의 $x$좌표가 $-2t$가 아님, 중근 언급 없음
+    feedback: 접점은 곡선과 접선의 교점 방정식의 중근입니다. $(x-t)^2$을 인수로 가지므로 나머지 근은 근과 계수의 관계로 $-2t$입니다.
+    remedy: [RL-1]
+- id: '2'
+  stem: |
+    곡선 $C$와 선분 $PR$ 및 직선 $x=b$로 둘러싸인 도형의 넓이를 $K$, 곡선 $C$와 선분 $QR$ 및 직선 $x=b$로 둘러싸인 도형의 넓이를 $L$이라 할 때, 극한값 $\displaystyle\lim_{b\to\infty}\dfrac KL$을 구하시오.
+  points: 10
+  depends_on: ['1']
+  answer: {kind: value, value: '5/11', equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: 직선$-$곡선 $=(x+2b)^2(4b-x)\ge0$ ($-2b\le x\le4b$)이므로 $K=\dfrac{135}4b^4$, $L=\dfrac{297}4b^4$.
+    steps:
+    - {id: 2a, content: '$K/L=135/297=5/11$', criteria: [2.M1, 2.A1, 2.A2, 2.A3]}
+    hint_ladder:
+    - 선분 $PR$, $QR$은 모두 접선 $\ell$ 위에 있다.
+    - 접선과 곡선의 차를 (1)의 인수분해로 써 보자.
+  - id: S2-B
+    audience: B
+    source_flow: 해설교재 p.81
+    method_no: 1
+    steps:
+    - id: 2b-1
+      content: |
+        $b>0$이라 하자($b\to\infty$). $t=-2b$이므로 $\ell:y=(12b^2+a)x+16b^3$이고, 선분 $PR$, $QR$은 $\ell$ 위에 있다. (1)에서 $\ell(x)-(x^3+ax)=-(x+2b)^2(x-4b)=(x+2b)^2(4b-x)\ge0\ (-2b\le x\le4b)$.
+      criteria: [2.M1]
+    - id: 2b-2
+      content: |
+        제시문에 의해 $K=\displaystyle\int_{-2b}^b(-x^3+12b^2x+16b^3)\,dx=\left[-\dfrac{x^4}4+6b^2x^2+16b^3x\right]_{-2b}^b=\dfrac{135}4b^4$.
+      criteria: [2.A1]
+    - id: 2b-3
+      content: |
+        $L=\displaystyle\int_b^{4b}(-x^3+12b^2x+16b^3)\,dx=\left[-\dfrac{x^4}4+6b^2x^2+16b^3x\right]_b^{4b}=\dfrac{297}4b^4$.
+      criteria: [2.A2]
+    - id: 2b-4
+      content: |
+        $\dfrac KL=\dfrac{135}{297}=\dfrac5{11}$ (모든 $b>0$에서 일정)이므로 $\displaystyle\lim_{b\to\infty}\dfrac KL=\dfrac5{11}$.
+      criteria: [2.A3]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 3
+      evidence: $K$, $L$을 접선과 곡선의 차 $(x+2b)^2(4b-x)$(또는 $-x^3+12b^2x+16b^3$)의 정적분으로 세웠다.
+      steps: [2b-1]
+    - id: 2.A1
+      mark_type: A
+      points: 3
+      evidence: $K=\dfrac{135}4b^4$.
+      depends_on: [2.M1]
+      steps: [2b-2]
+    - id: 2.A2
+      mark_type: A
+      points: 3
+      evidence: $L=\dfrac{297}4b^4$.
+      depends_on: [2.M1]
+      steps: [2b-3]
+    - id: 2.A3
+      mark_type: A
+      points: 1
+      evidence: $\dfrac5{11}$.
+      depends_on: [2.M1, 2.A1, 2.A2]
+      cao: true
+      steps: [2b-4]
+    deductions:
+    - code: D2-1
+      condition: 답만 쓰고 과정 없음
+      effect: cap
+      value: 3
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '72', misconception: MC-CAL-0718}
+  misconceptions:
+  - id: MC-CAL-0718
+    outcome_code: '72'
+    wrong_work: '$K$를 곡선과 $x$축 사이 넓이로 계산하거나 $\displaystyle\int(\text{곡선}-\text{직선})$의 부호를 반대로 써서 음수 넓이를 얻음'
+    detect_cue: $K$ 또는 $L$이 음수이거나 $a$가 남아 있음
+    feedback: 두 도형은 곡선과 접선(선분) 사이의 영역입니다. 구간에서 어느 쪽이 위인지 확인하고 (위)$-$(아래)를 적분하세요.
+    remedy: [RL-2]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-ALG-0717}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-TANGENT-DOUBLE-ROOT}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-CAL-0718}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-AREA-BOUNDARY}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-transcribe-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

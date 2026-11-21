@@ -1,0 +1,461 @@
+# 숭실대 2022학년도 모의논술고사(자연) 문제 1 — 원문은 내부 분석용(allowed_use: internal_only)
+# 소문항 배점은 원문 미표기 — (1)(2)(3) 각 10점으로 임의 배분
+schema_version: '2.0'
+id: SSU-M22-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: numeric
+origin: mock_exam
+school: SSU
+type: T02
+variant_of: null
+replaces: null
+level: L5
+form: 분류
+points: 30
+time_estimate_min: 20
+intent: '수열의 극한으로 정의된 함수를 $x$의 범위에 따라 구간별 식으로 나타내고, 연속·미분가능 조건과 방정식의 해의 개수 조건으로 미정계수를 결정하는 능력을 본다.'
+key_idea: '$0\le x<1$, $x=1$, $x>1$로 나누면 $f=c\cos\frac{4\pi x}3$, $\frac{-1+a+b-c/2}2$, $-x^2+ax+b$; 연속·미분가능으로 $a$, $b$를 $c$로 나타내고 $x>1$의 이차식의 최댓값이 0이 되도록 $c$를 정함.'
+stuck: '$x>1$에서 분자·분모를 $x^n$으로 나누고 $\dfrac{\cos(4\pi x/3)}{x^n}\to0$을 보이는 단계, (3)에서 $x>1$ 부분이 정확히 한 근을 갖는 조건을 최댓값 0으로 바꾸는 단계'
+idea_tags:
+- IDEA-LIMIT-XN-CASE-SPLIT
+- IDEA-PIECEWISE-DIFF-MATCH
+- IDEA-ROOT-COUNT-MAX-ZERO
+tags:
+- 수열의 극한으로 정의된 함수
+- 해의 개수
+elements:
+  materials:
+  - '$x^n$이 들어간 수열의 극한으로 정의된 함수'
+  - '$c\cos\frac{4\pi x}3$와 이차함수'
+  concepts:
+  - 등비수열의 극한
+  - 함수의 연속
+  - 미분가능성
+  - 이차함수의 최대·최소
+  tools:
+  - '$x^n$의 극한($|x|<1$, $x=1$, $x>1$)'
+  - 샌드위치 정리(조임 정리)
+  - 좌우 극한과 연속
+  - 좌우 미분계수
+  - 이차함수의 꼭짓점
+  conditions:
+  - '$0\le x<1$ → $x^n\to0$, $x>1$ → $x^n$으로 나눔'
+  - '(1) $[0,\infty)$에서 연속 → $x=1$에서 좌극한 = $f(1)$ = 우극한'
+  - '(2) $(0,\infty)$에서 미분가능 → $x=1$에서 좌우 미분계수 일치'
+  - '(3) $c>0$ → $[0,1]$의 해는 $x=\frac38$ 하나, $x>1$에서 정확히 하나 필요'
+  stimuli_used:
+  - 제시문
+  subpart_links: (2)는 (1)의 관계식, (3)은 (1)·(2)의 관계식을 사용
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학Ⅱ
+  - 미적분
+  scope_2028: calc2
+  scope_confirmed: true
+  standards:
+  - code: 미확인
+    text: 등비수열의 극한을 구할 수 있다(요지)
+    verified: false
+  content_area: 수열의 극한 / 미분 – 미분가능성
+  behavior_domain: 추론
+  unit_path:
+  - 미적분
+  - 수열의 극한
+  - 수열의 극한
+  - 수열의 극한으로 정의된 함수의 연속성과 미분가능성
+  key_concepts:
+  - 등비수열의 극한
+  - 함수의 연속
+  - 미분가능성
+  - 이차함수의 최대·최소
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 숭실대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 숭실대학교
+  admission_year: 2022
+  admission_type: 논술우수자전형 모의논술
+  track: 자연
+  question_no: 1
+  official_url: https://iphak.ssu.ac.kr   # [확인필요] 입학처 기출 게시물 주소로 교체
+  retrieved_at: 2026-11-21
+  original_points: 30
+  rights_notice: 미확인(「숭실대 수리논술 문제교재(2026)」 p.52, 「숭실대 수리논술 해설교재(2026)」 p.69~70에서 옮김)
+verify: verify/SSU-M22.py::p01
+stimuli:
+- label: 제시문
+  body: |
+    함수 $f(x)$에 대하여 다음이 성립한다.
+    $$\lim_{x\to a}f(x)=L\iff\lim_{x\to a+}f(x)=\lim_{x\to a-}f(x)=L\ (L\text{은 실수})$$
+    【출처: 수학Ⅱ 「함수의 극한」】
+stem: |
+  구간 $[0,\infty)$에서 함수 $f(x)$가 아래와 같이 주어져 있다.
+  $$f(x)=\lim_{n\to\infty}\dfrac{-x^{n+2}+ax^{n+1}+bx^n+c\cos\left(\dfrac{4\pi x}3\right)}{x^n+1}\quad(a,\ b,\ c\text{는 상수})$$
+  이때 다음 문항에 답하시오.
+
+  (1) 함수 $f(x)$가 구간 $[0,\infty)$에서 연속이 되도록 하는 $a$, $b$, $c$에 대하여 $a$를 $b$와 $c$의 식으로 나타내시오.
+
+  (2) 함수 $f(x)$가 구간 $(0,\infty)$에서 미분가능하도록 하는 $a$, $b$, $c$에 대하여 $b$를 $c$의 식으로 나타내시오.
+
+  (3) 함수 $f(x)$가 구간 $(0,\infty)$에서 미분가능할 때, 구간 $[0,\infty)$에서 방정식 $f(x)=0$이 서로 다른 두 개의 해를 갖도록 하는 양수 $c$의 값을 구하시오.
+subparts:
+- id: '1'
+  stem: |
+    함수 $f(x)$가 구간 $[0,\infty)$에서 연속이 되도록 하는 $a$, $b$, $c$에 대하여 $a$를 $b$와 $c$의 식으로 나타내시오.
+  points: 10
+  depends_on: []
+  answer:
+    kind: expression
+    value: a=1-b-c/2
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: '$f$를 구간별로 구하면 $x=1$에서 좌극한 $-\dfrac c2$, 우극한 $-1+a+b$.'
+    steps:
+    - id: 1a
+      content: '$-\dfrac c2=-1+a+b\Rightarrow a=1-b-\dfrac c2$'
+      criteria:
+      - 1.B1
+      - 1.M1
+      - 1.M2
+      - 1.A1
+    hint_ladder:
+    - '$0\le x<1$, $x=1$, $x>1$에서 $x^n$의 극한은?'
+    - '$x>1$이면 분자·분모를 $x^n$으로 나누자.'
+    - '$x=1$에서 좌극한·함숫값·우극한을 비교하자.'
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 해설교재 p.69~70
+    steps:
+    - id: 1b-1
+      content: '$0\le x<1$일 때 $\displaystyle\lim_{n\to\infty}x^n=0$이므로 $f(x)=c\cos\left(\dfrac{4\pi x}3\right)$. $x=1$일 때 $\displaystyle\lim_{n\to\infty}x^n=1$이므로 $f(1)=\dfrac{-1+a+b-\frac c2}2$.'
+      criteria:
+      - 1.B1
+    - id: 1b-2
+      content: '$x>1$일 때 $\displaystyle\lim_{n\to\infty}\dfrac1{x^n}=0$이고 $-\dfrac1{x^n}\le\dfrac{\cos(4\pi x/3)}{x^n}\le\dfrac1{x^n}$이므로 $\displaystyle\lim_{n\to\infty}\dfrac{\cos(4\pi x/3)}{x^n}=0$. 분자·분모를 $x^n$으로 나누면 $f(x)=\displaystyle\lim_{n\to\infty}\dfrac{-x^2+ax+b+\frac{c\cos(4\pi x/3)}{x^n}}{1+\frac1{x^n}}=-x^2+ax+b$.'
+      criteria:
+      - 1.M1
+    - id: 1b-3
+      content: |
+        따라서
+        $$f(x)=\begin{cases}c\cos\dfrac{4\pi x}3 & (0\le x<1)\\ \dfrac{-2+2a+2b-c}4 & (x=1)\\ -x^2+ax+b & (x>1)\end{cases}\quad\cdots\ \text{㉠}$$
+        $f$는 $[0,1)$과 $(1,\infty)$에서 연속이므로, $[0,\infty)$에서 연속이려면 $\displaystyle\lim_{x\to1-}f(x)=f(1)=\lim_{x\to1+}f(x)$이면 된다. $\displaystyle\lim_{x\to1-}f(x)=c\cos\dfrac{4\pi}3=-\dfrac c2$, $\displaystyle\lim_{x\to1+}f(x)=-1+a+b$ $\cdots$ ㉡
+      criteria:
+      - 1.M2
+    - id: 1b-4
+      content: '이므로 $-\dfrac c2=-1+a+b$ (이때 $f(1)$도 같은 값), 즉 $a=1-b-\dfrac c2$ $\cdots$ ㉢.'
+      criteria:
+      - 1.A1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 1.B1
+      mark_type: B
+      points: 2
+      evidence: '$0\le x<1$과 $x=1$에서의 $f$를 구했다.'
+      steps:
+      - 1b-1
+    - id: 1.M1
+      mark_type: M
+      points: 3
+      evidence: '$x>1$에서 $x^n$으로 나누고 $\cos$ 항이 0으로 감을 밝혀 $-x^2+ax+b$를 얻었다.'
+      steps:
+      - 1b-2
+    - id: 1.M2
+      mark_type: M
+      points: 3
+      evidence: '$x=1$에서 좌극한·우극한·함숫값이 같아야 한다는 식을 세웠다.'
+      steps:
+      - 1b-3
+    - id: 1.A1
+      mark_type: A
+      points: 2
+      evidence: '$a=1-b-\dfrac c2$.'
+      depends_on:
+      - 1.M2
+      cao: true
+      steps:
+      - 1b-4
+    deductions:
+    - code: D1-1
+      condition: 답만 쓰고 과정 없음
+      effect: cap
+      value: 5
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  - code: '71'
+    misconception: MC-CAL-0641
+  misconceptions:
+  - id: MC-CAL-0641
+    outcome_code: '71'
+    wrong_work: '$x>1$에서 $c\cos\frac{4\pi x}3$ 항을 그대로 남기거나 $x=1$에서 $f(1)=-1+a+b+c\cos\frac{4\pi}3$으로 계산'
+    detect_cue: '$f(1)$의 분모 2가 없음'
+    feedback: '$x=1$이면 분모 $x^n+1\to2$입니다. $x>1$에서는 유계인 $\cos$ 항을 $x^n$으로 나누면 0으로 갑니다.'
+    remedy:
+    - RL-0641
+- id: '2'
+  stem: |
+    함수 $f(x)$가 구간 $(0,\infty)$에서 미분가능하도록 하는 $a$, $b$, $c$에 대하여 $b$를 $c$의 식으로 나타내시오.
+  points: 10
+  depends_on:
+  - '1'
+  answer:
+    kind: expression
+    value: b=-1-(1/2+2*sqrt(3)*pi/3)*c
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: '좌미분계수 $-\dfrac{4\pi c}3\sin\dfrac{4\pi}3=\dfrac{2\pi c}{\sqrt3}$, 우미분계수 $-2+a=-1-b-\dfrac c2$.'
+    steps:
+    - id: 2a
+      content: '$b=-1-\left(\dfrac12+\dfrac{2\pi}{\sqrt3}\right)c$'
+      criteria:
+      - 2.R1
+      - 2.M1
+      - 2.M2
+      - 2.A1
+    hint_ladder:
+    - 미분가능하면 연속이므로 (1)의 ㉢을 쓴다.
+    - '$x=1$에서 좌우 미분계수를 계산하자.'
+  - id: S2-B
+    audience: B
+    method_no: 1
+    source_flow: 해설교재 p.70
+    steps:
+    - id: 2b-1
+      content: '$f$는 $(0,1)$과 $(1,\infty)$에서 미분가능하므로 $x=1$에서 미분가능하면 된다. 미분가능하면 연속이므로 ㉡에서 $f(1)=c\cos\dfrac{4\pi}3=-1+a+b$이고 ㉢이 성립한다.'
+      criteria:
+      - 2.R1
+    - id: 2b-2
+      content: |
+        $$\lim_{x\to1-}\dfrac{f(x)-f(1)}{x-1}=\lim_{x\to1-}\dfrac{c\cos\frac{4\pi x}3-c\cos\frac{4\pi}3}{x-1}=-\dfrac{4\pi c}3\sin\dfrac{4\pi}3=\dfrac{2\pi c}{\sqrt3}$$
+        $$\lim_{x\to1+}\dfrac{f(x)-f(1)}{x-1}=\lim_{x\to1+}\dfrac{(-x^2+ax+b)-(-1+a+b)}{x-1}=-2+a=-1-b-\dfrac c2$$
+      criteria:
+      - 2.M1
+      - 2.M2
+    - id: 2b-3
+      content: '두 값이 같아야 하므로 $b=-1-\left(\dfrac12+\dfrac{2\pi}{\sqrt3}\right)c$ $\cdots$ ㉣.'
+      criteria:
+      - 2.A1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 2.R1
+      mark_type: R
+      points: 2
+      evidence: '$x=1$에서만 확인하면 되고, 연속 조건(㉢)이 필요함을 밝혔다.'
+      steps:
+      - 2b-1
+    - id: 2.M1
+      mark_type: M
+      points: 3
+      evidence: '좌미분계수 $\dfrac{2\pi c}{\sqrt3}$을 구했다.'
+      steps:
+      - 2b-2
+    - id: 2.M2
+      mark_type: M
+      points: 3
+      evidence: '우미분계수 $-2+a$를 구하고 ㉢으로 $b,c$의 식으로 바꿨다.'
+      steps:
+      - 2b-2
+    - id: 2.A1
+      mark_type: A
+      points: 2
+      evidence: '$b=-1-\left(\dfrac12+\dfrac{2\pi}{\sqrt3}\right)c$.'
+      depends_on:
+      - 2.M1
+      - 2.M2
+      cao: true
+      steps:
+      - 2b-3
+    deductions:
+    - code: D2-1
+      condition: 답만 쓰고 과정 없음
+      effect: cap
+      value: 5
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  - code: '71'
+    misconception: MC-CAL-0642
+  misconceptions:
+  - id: MC-CAL-0642
+    outcome_code: '71'
+    wrong_work: '$\left(\cos\frac{4\pi x}3\right)''=-\sin\frac{4\pi x}3$로 속미분 $\frac{4\pi}3$을 빠뜨림'
+    detect_cue: '좌미분계수가 $\dfrac{\sqrt3}2c$'
+    feedback: '$\{\cos(kx)\}''=-k\sin(kx)$입니다.'
+    remedy:
+    - RL-0642
+- id: '3'
+  stem: |
+    구간 $[0,\infty)$에서 방정식 $f(x)=0$이 서로 다른 두 개의 해를 갖도록 하는 양수 $c$의 값을 구하시오.
+  points: 10
+  depends_on:
+  - '1'
+  - '2'
+  answer:
+    kind: value
+    value: 3/(2*pi**2)
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: '$[0,1]$의 해는 $x=\dfrac38$ 하나. $x>1$에서 $f(x)=-\left(x-1-\dfrac{\pi c}{\sqrt3}\right)^2+\dfrac{\pi^2c^2}3-\dfrac c2$의 최댓값이 0.'
+    steps:
+    - id: 3a
+      content: '$\dfrac{\pi^2c^2}3-\dfrac c2=0\Rightarrow c=\dfrac3{2\pi^2}$'
+      criteria:
+      - 3.B1
+      - 3.M1
+      - 3.R1
+      - 3.A1
+    hint_ladder:
+    - '$c>0$일 때 $[0,1]$에서 해는 몇 개인가? $f(1)$의 부호는?'
+    - '㉢, ㉣을 대입해 $x>1$의 식을 완전제곱꼴로.'
+    - '$f(1)<0$이므로 $x>1$에서 해가 하나이려면 최댓값은?'
+  - id: S3-B
+    audience: B
+    method_no: 1
+    source_flow: 해설교재 p.70
+    steps:
+    - id: 3b-1
+      content: '$c>0$일 때 구간 $[0,1]$에서 $f(x)=0$의 해는 $c\cos\dfrac{4\pi x}3=0$에서 $x=\dfrac38$ 하나뿐이다($f(1)=-\dfrac c2\ne0$).'
+      criteria:
+      - 3.B1
+    - id: 3b-2
+      content: '$x>1$일 때 ㉠, ㉢, ㉣로부터 $f(x)=-x^2+\left(2+\dfrac{2\pi c}{\sqrt3}\right)x-1-\left(\dfrac12+\dfrac{2\pi}{\sqrt3}\right)c=-\left(x-1-\dfrac{\pi c}{\sqrt3}\right)^2+\dfrac{\pi^2c^2}3-\dfrac c2$.'
+      criteria:
+      - 3.M1
+    - id: 3b-3
+      content: '따라서 $f$는 $x=1+\dfrac{\pi c}{\sqrt3}\,(>1)$에서 최댓값 $\dfrac{\pi^2c^2}3-\dfrac c2$를 갖는다. $\displaystyle\lim_{x\to1+}f(x)=-\dfrac c2<0$이므로, $(1,\infty)$에서 $f(x)=0$이 꼭 하나의 해를 갖는 것은 최댓값이 0일 때이다(양수이면 해 2개, 음수이면 0개).'
+      criteria:
+      - 3.R1
+    - id: 3b-4
+      content: '$\dfrac{\pi^2c^2}3-\dfrac c2=0$, $c>0$에서 $c=\dfrac3{2\pi^2}$. (이때 해는 $x=\dfrac38$, $x=1+\dfrac{\pi c}{\sqrt3}$ 두 개뿐이다.)'
+      criteria:
+      - 3.A1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 3.B1
+      mark_type: B
+      points: 2
+      evidence: '$[0,1]$에서의 해가 $x=\dfrac38$ 하나뿐임을 밝혔다.'
+      steps:
+      - 3b-1
+    - id: 3.M1
+      mark_type: M
+      points: 3
+      evidence: '$x>1$에서 $f$를 $c$만의 식으로 쓰고 완전제곱꼴(또는 판별식)로 정리했다.'
+      depends_on:
+      - 2.A1
+      steps:
+      - 3b-2
+    - id: 3.R1
+      mark_type: R
+      points: 3
+      evidence: '$f(1+)<0$과 최댓값의 부호로 $x>1$의 해의 개수를 분류해 최댓값 $=0$ 조건을 이끌었다.'
+      depends_on:
+      - 3.M1
+      steps:
+      - 3b-3
+    - id: 3.A1
+      mark_type: A
+      points: 2
+      evidence: '$c=\dfrac3{2\pi^2}$.'
+      depends_on:
+      - 3.R1
+      cao: true
+      steps:
+      - 3b-4
+    deductions:
+    - code: D3-1
+      condition: 답만 쓰고 과정 없음
+      effect: cap
+      value: 5
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  - code: '71'
+    misconception: MC-ALG-0643
+  misconceptions:
+  - id: MC-ALG-0643
+    outcome_code: '71'
+    wrong_work: '$x>1$의 이차식에 판별식 $D>0$을 적용해 범위로 답함'
+    detect_cue: '부등식으로 된 답, $[0,1]$의 해를 세지 않음'
+    feedback: '$[0,1]$에서 이미 해가 하나 있으므로 $x>1$에서는 정확히 하나여야 하고, $f(1+)<0$이므로 꼭짓점이 $x$축에 닿아야 합니다.'
+    remedy:
+    - RL-0643
+remedy_links:
+- id: RL-0641
+  trigger:
+    type: misconception
+    ref: MC-CAL-0641
+  relation: remediation
+  target:
+    kind: concept
+    ref: CON-CAL-SEQ-LIMIT-FUNC
+  priority: 1
+- id: RL-0642
+  trigger:
+    type: misconception
+    ref: MC-CAL-0642
+  relation: remediation
+  target:
+    kind: concept
+    ref: CON-CAL-PIECEWISE-DIFF
+  priority: 1
+- id: RL-0643
+  trigger:
+    type: misconception
+    ref: MC-ALG-0643
+  relation: remediation
+  target:
+    kind: concept
+    ref: CON-CAL-OPTIMIZATION
+  priority: 1
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: opus
+  prompt_version: past-transcribe-v1
+  item_version: 1
+  verdict: pass
+  date: 2026-11-21
+created: 2026-11-21
+updated: 2026-11-21

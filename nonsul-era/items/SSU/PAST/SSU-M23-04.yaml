@@ -1,0 +1,274 @@
+# 숭실대 2023학년도 모의논술고사(자연) 문제 4 — 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: SSU-M23-04
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: numeric
+origin: mock_exam
+school: SSU
+type: T06
+variant_of: null
+replaces: null
+level: L4
+form: 전수
+points: 30
+time_estimate_min: 20
+intent: 순간변화율을 정적분하여 시각별 저장량을 구하고, 끝 시각뿐 아니라 작동 중간의 최솟값·최댓값까지 확인해 조건을 판정하는 능력을 본다.
+key_idea: '6가지 (급수, 배수) 배치 각각에서 물의 양 $W(t)=\dfrac1{10}+\int_0^t(\text{급수율}-\text{배수율})\,ds$를 구해 $0\le t\le1$에서 $0\le W\le5$인지 확인한다.'
+stuck: '$t=1$의 양만 보고 판단하면 1번 급수-2번 배수가 통과처럼 보이지만 $t=\dfrac14$에서 $W<0$이 되는 점'
+idea_tags:
+- IDEA-RATE-INTEGRAL-ACCUMULATION
+- IDEA-CHECK-INTERIOR-EXTREMUM
+tags:
+- 누적량
+- 경우의 수
+elements:
+  materials:
+  - 물탱크와 급수·배수 펌프
+  - 일차함수 꼴의 순간변화율
+  concepts:
+  - 정적분과 변화량
+  - 이차함수의 최대·최소
+  - 순열
+  tools:
+  - 변화율의 정적분
+  - 이차함수의 최솟값
+  - 전수 조사(순열)
+  conditions:
+  - '넘치거나 바닥나지 않음 → 작동 중 모든 $t\in[0,1]$에서 $0\le W(t)\le5$'
+  - 순간변화율 → 정적분하여 변화량
+  - 두 펌프를 골라 급수·배수에 배치 → 순서 있는 선택 6가지
+  stimuli_used:
+  - 제시문
+  subpart_links: null
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학Ⅱ
+  scope_2028: common
+  scope_confirmed: true
+  standards:
+  - code: 미확인
+    text: 정적분을 활용하여 속도·변화량 문제를 해결할 수 있다(요지)
+    verified: false
+  content_area: 적분 – 정적분의 활용
+  behavior_domain: 문제해결
+  unit_path:
+  - 수학Ⅱ
+  - 적분
+  - 정적분의 활용
+  - 변화율의 정적분과 누적량
+  key_concepts:
+  - 정적분과 변화량
+  - 이차함수의 최대·최소
+  - 순열
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 숭실대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 숭실대학교
+  admission_year: 2023
+  admission_type: 논술우수자전형 모의논술
+  track: 자연
+  question_no: 4
+  official_url: https://iphak.ssu.ac.kr   # [확인필요] 입학처 기출 게시물 주소로 교체
+  retrieved_at: 2026-11-21
+  original_points: 30
+  rights_notice: 미확인(「숭실대 수리논술 문제교재(2026)」 p.43, 「숭실대 수리논술 해설교재(2026)」 p.55~56에서 옮김)
+verify: verify/SSU-M23.py::p04
+stimuli:
+- label: 제시문
+  body: |
+    물탱크는 물을 저장하는 용기이다. 급수관을 통하여 물탱크에 물을 채워 넣고, 배수관을 통하여 저장된 물탱크의 물을 밖으로 빼낼 수 있다. 물탱크의 급수/배수량을 조절하기 위하여 펌프를 급수/배수관에 설치한다. 급수 및 배수 속도는 급수관과 배수관에 설치하는 펌프에 따라 달라질 수 있다.
+    [그림 설명] 펌프가 달린 급수관이 물탱크 위쪽으로 물을 넣고(화살표 →), 물탱크 아래쪽의 배수관이 펌프를 거쳐 물을 밖으로 빼내는(화살표 ←) 그림.
+stem: |
+  용량이 5 리터(liter)인 물탱크가 있다. 물탱크에는 급수관과 배수관이 각각 한 개씩 존재한다. 아래에 주어진 세 개의 펌프 중 두 개를 골라서 그 중 한 개를 급수관에, 나머지 한 개를 배수관에 설치한다.
+
+  펌프의 시간 $t$에서의 급수 또는 배수량의 순간변화율은 다음과 같다.
+
+  1번 펌프: $8t+1$ liter/hour
+
+  2번 펌프: $4t+2$ liter/hour
+
+  3번 펌프: $6t+4$ liter/hour
+
+  $t=0$에서 물탱크에 저장된 물은 0.1 리터이다. $t=0$에서 $t=1$까지 1시간(hour) 동안 펌프를 작동시킨다고 하자. 펌프가 작동하는 동안 물탱크의 물이 넘치거나 바닥나지 않도록 펌프를 설치하는 경우의 수를 구하시오.
+subparts:
+- id: '1'
+  stem: |
+    펌프를 설치하는 경우의 수를 구하시오.
+  points: 30
+  depends_on: []
+  answer:
+    kind: value
+    value: '2'
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: '1시간 급수량 5, 4, 7 리터로 $t=1$ 판정 → 후보 3가지, 중간 시각까지 확인하면 (1→2)는 $t=\dfrac14$에서 바닥남.'
+    steps:
+    - id: 1a
+      content: '후보 (1,2), (3,1), (3,2) 중 $W=2t^2-t+\dfrac1{10}$은 최솟값 $-\dfrac1{40}$ → 답 2'
+      criteria:
+      - 1.M1
+      - 1.B1
+      - 1.M2
+      - 1.R1
+      - 1.R2
+      - 1.A1
+    hint_ladder:
+    - 1시간 동안의 급수·배수량은 순간변화율의 정적분이다.
+    - 끝 시각에서 통과한 배치도 중간에 바닥나지 않는지 확인하자.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 해설교재 p.55~56
+    steps:
+    - id: 1b-1
+      content: |
+        1시간 동안의 급수(배수)량은 순간변화율을 정적분한 값이다.
+        $\displaystyle\int_0^1(8t+1)\,dt=5$, $\displaystyle\int_0^1(4t+2)\,dt=4$, $\displaystyle\int_0^1(6t+4)\,dt=7$ (리터).
+      criteria:
+      - 1.M1
+    - id: 1b-2
+      content: |
+        세 펌프 중 두 개를 골라 급수관·배수관에 하나씩 연결하는 경우는 ${}_3\mathrm P_2=6$가지이고, $t=1$에서의 양은 $0.1+(\text{급수량})-(\text{배수량})$이다.
+        (1,2): 1.1, (1,3): −1.9, (2,1): −0.9, (2,3): −2.9, (3,1): 2.1, (3,2): 3.1 (리터).
+        $t=1$에서 0 이하가 되거나 5를 넘지 않는 조합은 (급수 1, 배수 2), (급수 3, 배수 1), (급수 3, 배수 2)의 세 가지이다.
+      criteria:
+      - 1.B1
+    - id: 1b-3
+      content: |
+        작동 중간에 바닥나는 경우도 고려해야 한다. 급수 1번–배수 2번: 시각 $t$에서의 물의 양은
+        $$\int_0^t(8s+1)\,ds-\int_0^t(4s+2)\,ds+\dfrac1{10}=2t^2-t+\dfrac1{10}=2\left(t-\dfrac14\right)^2-\dfrac1{40}$$
+        이므로 $t=\dfrac14$에서 $-\dfrac1{40}<0$이 되어 중간에 바닥난다.
+      criteria:
+      - 1.M2
+      - 1.R1
+    - id: 1b-4
+      content: '급수 3번–배수 1번: $-t^2+3t+\dfrac1{10}$, 급수 3번–배수 2번: $t^2+2t+\dfrac1{10}$은 모두 $0\le t\le1$에서 0과 5 사이에 있으므로(각각 증가하여 $t=1$에서 2.1, 3.1) 넘치거나 바닥나지 않는다.'
+      criteria:
+      - 1.R2
+    - id: 1b-5
+      content: 따라서 조건을 만족하는 경우는 (3번 급수, 1번 배수), (3번 급수, 2번 배수)의 2가지이다.
+      criteria:
+      - 1.A1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 6
+      evidence: 각 펌프의 1시간 급수(배수)량을 정적분으로 구했다(5, 4, 7).
+      steps:
+      - 1b-1
+    - id: 1.B1
+      mark_type: B
+      points: 6
+      evidence: '6가지 배치의 $t=1$에서의 양을 비교해 후보 3가지를 골랐다.'
+      steps:
+      - 1b-2
+    - id: 1.M2
+      mark_type: M
+      points: 6
+      evidence: '시각 $t$에서의 물의 양을 $t$의 식(정적분)으로 나타냈다.'
+      steps:
+      - 1b-3
+    - id: 1.R1
+      mark_type: R
+      points: 6
+      evidence: '급수 1번–배수 2번이 $t=\dfrac14$ 부근에서 음수가 되어 제외됨을 보였다.'
+      depends_on:
+      - 1.M2
+      steps:
+      - 1b-3
+    - id: 1.R2
+      mark_type: R
+      points: 3
+      evidence: '남은 두 배치가 $0\le t\le1$ 전체에서 $0$과 $5$ 사이임을 확인했다.'
+      depends_on:
+      - 1.M2
+      steps:
+      - 1b-4
+    - id: 1.A1
+      mark_type: A
+      points: 3
+      evidence: 경우의 수 2.
+      depends_on:
+      - 1.R1
+      - 1.R2
+      cao: true
+      steps:
+      - 1b-5
+    deductions:
+    - code: D1-1
+      condition: 답만 쓰고 과정 없음
+      effect: cap
+      value: 5
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  - code: '71'
+    misconception: MC-CAL-0620
+  - code: '72'
+    misconception: MC-CAL-0621
+  misconceptions:
+  - id: MC-CAL-0620
+    outcome_code: '71'
+    wrong_work: '$t=1$에서의 양만 비교하여 답을 3으로 씀'
+    detect_cue: '답 3, 시각 $t$에서의 식이 없음'
+    feedback: 작동하는 동안 내내 조건을 만족해야 하므로 중간 시각의 최솟값·최댓값을 확인하세요.
+    remedy:
+    - RL-0620
+  - id: MC-CAL-0621
+    outcome_code: '72'
+    wrong_work: '순간변화율 $8t+1$에 $t=1$을 대입한 9를 1시간 급수량으로 씀'
+    detect_cue: 급수량이 9, 6, 10 등
+    feedback: 변화율은 정적분해야 변화량이 됩니다.
+    remedy:
+    - RL-0621
+remedy_links:
+- id: RL-0620
+  trigger:
+    type: misconception
+    ref: MC-CAL-0620
+  relation: remediation
+  target:
+    kind: concept
+    ref: CON-CAL-ACCUM-INTEGRAL
+  priority: 1
+- id: RL-0621
+  trigger:
+    type: misconception
+    ref: MC-CAL-0621
+  relation: remediation
+  target:
+    kind: concept
+    ref: CON-CAL-ACCUM-INTEGRAL
+  priority: 1
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: opus
+  prompt_version: past-transcribe-v1
+  item_version: 1
+  verdict: pass
+  date: 2026-11-21
+created: 2026-11-21
+updated: 2026-11-21

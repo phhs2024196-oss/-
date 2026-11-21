@@ -1,0 +1,284 @@
+# 숭실대 2015학년도 모의논술고사(자연) 문제 1 — 원문은 내부 분석용(allowed_use: internal_only)
+# 교재(p.79)에는 [문제 1-A]만 실림(1-B 미수록). [확인필요] 원문 배점 표기 없음 → points 25 는 학교 규격으로 둔 임시값, (1)(2) 12·13 임의 배분.
+# 해설교재(p.105)의 오기: 「F(a,b)=S(−a/b)」 → S(−b/a) 가 맞음(본문 흐름상 m=−b/a). 답에는 영향 없음.
+schema_version: '2.0'
+id: SSU-M15-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: numeric
+origin: mock_exam
+school: SSU
+type: T05
+variant_of: null
+replaces: null
+level: L4
+form: 최적2단
+points: 25
+time_estimate_min: 20
+intent: 한 점을 지나는 직선과 두 축이 만드는 직각삼각형 넓이의 최솟값을 기울기의 함수로 구하고, 그 최솟값을 다시 타원 위에서 최대화하는 2단계 최적화 능력을 본다.
+key_idea: '(1) $S(m)=\tfrac12\left(2ab-a^2m-\tfrac{b^2}m\right)$ ($m<0$)은 $m=-\tfrac ba$에서 최소 $2ab$. (2) $b=2\sqrt{1-\tfrac{a^2}9}$을 넣은 $G(a)=\tfrac43a\sqrt{9-a^2}$를 최대화.'
+stuck: (1) 직선의 기울기를 변수로 잡고 기울기가 음수임을 써서 넓이를 한 변수 함수로 만드는 단계
+idea_tags: [IDEA-SLOPE-AS-VARIABLE, IDEA-TWO-STAGE-OPTIMIZATION]
+tags: [직각삼각형 넓이의 최소, 타원 위의 최대]
+elements:
+  materials:
+  - '제1사분면의 점 $P(a,b)$를 지나는 직선'
+  - '두 축과 직선이 만드는 직각삼각형'
+  - '곡선 $y=2\sqrt{1-\dfrac{x^2}9}$ (타원의 일부)'
+  concepts: [직선의 방정식과 절편, 분수함수의 도함수, 무리함수의 도함수, 함수의 최대·최소]
+  tools: [기울기를 변수로 잡기, 몫·합성함수의 미분, 증감표, 산술·기하 평균(ALT), 완전제곱식(ALT)]
+  conditions:
+  - '빗변이 양의 $x$축, 양의 $y$축과 만나야 하므로 기울기 $m<0$'
+  - '$a>0$, $b>0$ → $S''(m)$의 부호는 $(b+am)$이 결정'
+  - '(2) 점 $P$가 곡선 위 → $0<a<3$'
+  stimuli_used: []
+  subpart_links: "(2)는 (1)의 F(a,b)=2ab 사용"
+
+curriculum:
+  version: '2015'
+  subjects: [수학, 미적분]
+  scope_2028: calc2
+  scope_confirmed: true
+  standards:
+  - code: 미확인
+    text: 여러 가지 함수의 도함수를 구하고 최대·최소 문제에 활용할 수 있다(요지)
+    verified: false
+  content_area: 미분법 – 도함수의 활용
+  behavior_domain: 문제해결
+  unit_path: [미적분, 미분법, 도함수의 활용, 도형 넓이의 최대·최소(2단계)]
+  key_concepts: [직선의 방정식과 절편, 분수함수의 도함수, 무리함수의 도함수, 함수의 최대·최소]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 숭실대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 숭실대학교
+  admission_year: 2015
+  admission_type: 모의논술고사
+  track: 자연
+  question_no: 1
+  official_url: https://iphak.ssu.ac.kr   # [확인필요] 입학처 기출 게시물 주소로 교체
+  retrieved_at: 2026-11-21
+  original_points: null
+  rights_notice: 미확인(대치 수리 논술 연구소 「2027학년도 대비 수리논술 숭실대 기출 및 모의 문제」 p.79, 해설교재 p.105에서 옮김. 문제 1-A만 수록)
+
+verify: verify/SSU-M15.py::p01
+
+stem: |
+  【문제 1】
+
+  [문제 1-A] 다음 제시문을 읽고 아래 논제에 답하시오.
+
+  좌표평면의 1사분면 위의 점 $P(a,b)$ $(a>0,\ b>0)$가 있다. 빗변이 점 $P$를 지나고 나머지 두변이 양의 $x$축, 양의 $y$축 위에 놓여 있는 직각삼각형 중 최소 넓이를 갖는 직각삼각형의 넓이를 $F(a,b)$라 할 때, 다음 문항에 답하시오. (<그림 1(a)> 참조)
+
+  [그림 설명] <그림 1(a)>: 원점 $O$, 양의 $y$축 위의 한 점, 양의 $x$축 위의 한 점을 꼭짓점으로 하는 직각삼각형과 빗변 위의 점 $P(a,b)$. <그림 1(b)>: 제1사분면에서 $(0,2)$부터 $(3,0)$까지 이어지는 점선 곡선(타원의 일부)과 그 위의 점 $P(a,b)$.
+
+subparts:
+- id: '1'
+  stem: |
+    (1) 함수 $F(a,b)$의 식을 구하시오.
+  points: 12
+  depends_on: []
+  answer: {kind: expression, value: '2*a*b', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: 기울기 $m<0$인 직선의 절편 $a-\tfrac bm$, $b-am$으로 $S(m)$을 세우고, $S'(m)=\dfrac{(b+am)(b-am)}{2m^2}$의 부호가 $m=-\tfrac ba$에서 음→양이므로 최솟값 $2ab$.
+    steps:
+    - {id: 1a, content: '$F(a,b)=S\left(-\tfrac ba\right)=2ab$', criteria: [1.M1, 1.A1, 1.M2, 1.R1, 1.A2]}
+    hint_ladder:
+    - 빗변의 기울기를 $m$으로 두고 두 절편을 $m$으로 나타내자.
+    - 기울기 $m$의 부호는?
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 해설교재 p.105
+    steps:
+    - id: 1b-1
+      content: |
+        점 $P(a,b)$를 지나는 기울기가 $m$인 직선 $y=m(x-a)+b$의 $x$절편은 $a-\dfrac bm$, $y$절편은 $b-am$이다. 이 직선과 양의 $x$축, 양의 $y$축이 결정하는 직각삼각형의 넓이를 $S(m)$이라 하면 ($m<0$)
+        $$S(m)=\dfrac12\left(a-\dfrac bm\right)(b-am)=\dfrac12\left(2ab-a^2m-\dfrac{b^2}m\right).$$
+      criteria: [1.M1, 1.A1]
+    - id: 1b-2
+      content: |
+        $S(m)$의 도함수는
+        $$S'(m)=\dfrac12\left(-a^2+\dfrac{b^2}{m^2}\right)=\dfrac12\cdot\dfrac{(b+am)(b-am)}{m^2}.$$
+      criteria: [1.M2]
+    - id: 1b-3
+      content: |
+        $a$, $b$는 양수이고 기울기 $m$은 음수이므로 $b-am>0$, $m^2>0$이고 $S'$의 부호는 $b+am$의 부호와 같다. 따라서 $S'$의 부호는 $m=-\dfrac ba$를 기준으로 음에서 양으로 변하고, $S(m)$은 $m=-\dfrac ba$일 때 최솟값을 갖는다.
+      criteria: [1.R1]
+    - id: 1b-4
+      content: |
+        $S\left(-\dfrac ba\right)=\dfrac12(2ab+ab+ab)=2ab$이므로 $F(a,b)=2ab$이다.
+      criteria: [1.A2]
+  - id: S1-ALT
+    audience: ALT
+    method_no: 2
+    key_idea: $k=-m>0$으로 두면 $S=ab+\dfrac12\left(a^2k+\dfrac{b^2}k\right)\ge ab+\sqrt{a^2b^2}=2ab$ (산술·기하 평균, 등호 $k=\tfrac ba$).
+    steps:
+    - {id: 1c, content: '$S\ge2ab$, 등호 $m=-\tfrac ba$', criteria: [1.M2, 1.A2]}
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 3
+      evidence: 빗변의 기울기(또는 절편)를 변수로 두고 두 절편을 식으로 썼다.
+      steps: [1b-1]
+    - id: 1.A1
+      mark_type: A
+      points: 2
+      evidence: $S(m)=\dfrac12\left(2ab-a^2m-\dfrac{b^2}m\right)$ 또는 동치식.
+      depends_on: [1.M1]
+      steps: [1b-1]
+    - id: 1.M2
+      mark_type: M
+      points: 3
+      evidence: $S'(m)$을 구하거나 산술·기하 평균을 적용했다.
+      steps: [1b-2]
+    - id: 1.R1
+      mark_type: R
+      points: 2
+      evidence: $m<0$임을 써서 $m=-\tfrac ba$ 좌우의 부호 변화(또는 등호 조건)를 밝혔다.
+      depends_on: [1.M2]
+      steps: [1b-3]
+    - id: 1.A2
+      mark_type: A
+      points: 2
+      evidence: $F(a,b)=2ab$.
+      depends_on: [1.M2]
+      cao: true
+      steps: [1b-4]
+    deductions:
+    - code: D1-1
+      condition: 답만 쓰고 과정 없음
+      effect: cap
+      value: 5
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-GEO-0825}
+  misconceptions:
+  - id: MC-GEO-0825
+    outcome_code: '71'
+    wrong_work: '기울기를 양수 $m$으로 두어 절편 $a+\dfrac bm$, $b+am$으로 계산했다가 부호가 맞지 않는 극값 $m=\tfrac ba$를 얻음'
+    detect_cue: $m>0$ 또는 $m=\tfrac ba$
+    feedback: 빗변이 두 양의 축과 만나려면 기울기는 음수여야 합니다. 절편을 $m<0$으로 다시 구하세요.
+    remedy: [RL-1]
+- id: '2'
+  stem: |
+    (2) 곡선 $y=2\sqrt{1-\dfrac{x^2}9}$위에 있는 점 $P(a,b)$중에서 $F(a,b)$가 최대가 되는 점 $P$를 구하시오. (<그림 1(b)>참조)
+  points: 13
+  depends_on: ['1']
+  answer: {kind: expression, value: '(3*sqrt(2)/2, sqrt(2))', equivalents: ['최댓값 F=6'], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: $G(a)=\tfrac43a\sqrt{9-a^2}$, $G'(a)=\dfrac{4(9-2a^2)}{3\sqrt{9-a^2}}$의 부호가 $a=\tfrac{3\sqrt2}2$에서 양→음.
+    steps:
+    - {id: 2a, content: '$P\left(\tfrac{3\sqrt2}2,\sqrt2\right)$, 최댓값 6', criteria: [2.M1, 2.M2, 2.A1, 2.R1, 2.A2]}
+    hint_ladder:
+    - $b$를 $a$로 나타내 $F$에 대입하자.
+    - 근호가 있는 함수의 미분은 합성함수의 미분.
+  - id: S2-B
+    audience: B
+    method_no: 1
+    source_flow: 해설교재 p.105
+    steps:
+    - id: 2b-1
+      content: |
+        점 $P(a,b)$가 곡선 위에 놓이므로 $b=2\sqrt{1-\dfrac{a^2}9}$. 이를 (1)에서 얻은 $F(a,b)$에 대입하면
+        $$G(a)=F\left(a,2\sqrt{1-\tfrac{a^2}9}\right)=\dfrac43a\sqrt{9-a^2}\quad(0<a<3).$$
+      criteria: [2.M1]
+    - id: 2b-2
+      content: |
+        $$G'(a)=\dfrac43\sqrt{9-a^2}-\dfrac43a\cdot\dfrac a{\sqrt{9-a^2}}=\dfrac4{3\sqrt{9-a^2}}(9-2a^2).$$
+      criteria: [2.M2, 2.A1]
+    - id: 2b-3
+      content: |
+        열린구간 $(0,3)$에서 $G'(a)$의 부호가 $a=\dfrac{3\sqrt2}2$를 기준으로 양에서 음으로 변하므로 $G(a)$는 $a=\dfrac{3\sqrt2}2$에서 최댓값을 갖는다.
+      criteria: [2.R1]
+    - id: 2b-4
+      content: |
+        이때 $b=2\sqrt{1-\dfrac12}=\sqrt2$이므로 $F(a,b)$는 점 $P\left(\dfrac{3\sqrt2}2,\sqrt2\right)$에서 최댓값 $2\cdot\dfrac{3\sqrt2}2\cdot\sqrt2=6$을 갖는다.
+      criteria: [2.A2]
+  - id: S2-ALT
+    audience: ALT
+    method_no: 2
+    key_idea: $G(a)^2=\dfrac{16}9a^2(9-a^2)=\dfrac{16}9\left\{\dfrac{81}4-\left(a^2-\dfrac92\right)^2\right\}$이므로 $a^2=\dfrac92$에서 최대(미분 없이).
+    steps:
+    - {id: 2c, content: '$a^2=\tfrac92$, $G=6$', criteria: [2.M2, 2.A2]}
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 3
+      evidence: $b=2\sqrt{1-\tfrac{a^2}9}$을 $F=2ab$에 대입해 $a$만의 함수로 나타냈다.
+      ft: {from: [1.A2], max_points: 3}
+      steps: [2b-1]
+    - id: 2.M2
+      mark_type: M
+      points: 3
+      evidence: $G(a)$를 미분(합성함수의 미분 포함)하거나 $G^2$을 완전제곱식으로 정리했다.
+      steps: [2b-2]
+    - id: 2.A1
+      mark_type: A
+      points: 2
+      evidence: $G'(a)=\dfrac{4(9-2a^2)}{3\sqrt{9-a^2}}$.
+      depends_on: [2.M2]
+      steps: [2b-2]
+    - id: 2.R1
+      mark_type: R
+      points: 2
+      evidence: $(0,3)$에서 $G'$의 부호 변화로 최대임을 밝혔다.
+      depends_on: [2.M2]
+      steps: [2b-3]
+    - id: 2.A2
+      mark_type: A
+      points: 3
+      evidence: $P\left(\dfrac{3\sqrt2}2,\sqrt2\right)$.
+      depends_on: [2.M2]
+      cao: true
+      steps: [2b-4]
+    deductions:
+    - code: D2-1
+      condition: 답만 쓰고 과정 없음
+      effect: cap
+      value: 5
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-0826}
+  misconceptions:
+  - id: MC-CAL-0826
+    outcome_code: '71'
+    wrong_work: '$\left(\sqrt{9-a^2}\right)''=\dfrac1{2\sqrt{9-a^2}}$로 속미분 누락'
+    detect_cue: $G'$에 $-2a$ 인수가 없음
+    feedback: $\sqrt{9-a^2}$의 미분은 합성함수의 미분으로 $\dfrac{-2a}{2\sqrt{9-a^2}}$입니다.
+    remedy: [RL-2]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-GEO-0825}
+  relation: remediation
+  target: {kind: concept, ref: CON-GEO-LINE-INTERCEPT}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-CAL-0826}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-CHAIN-RULE}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-transcribe-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

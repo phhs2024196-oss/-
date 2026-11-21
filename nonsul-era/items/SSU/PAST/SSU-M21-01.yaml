@@ -1,0 +1,268 @@
+# 숭실대 2021학년도 모의논술고사 문제 1 — 원문은 내부 분석용(allowed_use: internal_only)
+# 원문에 제시문 없음. 소문항 배점 (1)14 (2)16 은 원문에 없어 임의 배분(원문은 문제 전체 30점).
+schema_version: '2.0'
+id: SSU-M21-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: numeric
+origin: mock_exam
+school: SSU
+type: T06
+variant_of: null
+replaces: null
+level: L4
+form: 추론
+points: 30
+time_estimate_min: 20
+intent: 역함수와 합성함수의 미분법으로 접선을 구하고, 역함수의 정적분을 치환과 넓이 관계·부분적분으로 원함수의 적분으로 바꾸어 계산하는 능력을 본다.
+key_idea: '$h''(x)=2g''(2x-1)$, $g''(\sqrt e)=\dfrac1{f''(e)}$. 넓이는 $\dfrac12\displaystyle\int_0^{\sqrt e}g(x)\,dx$이고 $\displaystyle\int_1^ef+\int_0^{\sqrt e}g=e\sqrt e$로 $\displaystyle\int_1^e\sqrt x\ln x\,dx$의 부분적분으로 바꾼다.'
+stuck: 역함수 $g$의 적분을 직접 하지 않고 넓이 관계 $\displaystyle\int_a^bf+\int_{f(a)}^{f(b)}g=bf(b)-af(a)$로 $f$의 적분으로 바꾸는 단계
+idea_tags: [IDEA-INVERSE-SLOPE, IDEA-INVERSE-INTEGRAL-AREA]
+tags: [역함수, 접선, 넓이]
+elements:
+  materials:
+  - '$\sqrt x\ln x$'
+  - '역함수'
+  - '합성함수 $g(2x-1)$'
+  concepts: [역함수의 미분법, 합성함수의 미분법, 치환적분법, 부분적분법, 정적분과 넓이]
+  tools:
+  - '$g''(f(a))=\frac1{f''(a)}$'
+  - '역함수의 정적분과 직사각형 넓이 관계'
+  - '일차식 치환'
+  - '부분적분'
+  conditions:
+  - '점 $\left(\frac{\sqrt e+1}2,e\right)$ → $g(\sqrt e)=e$, $f(e)=\sqrt e$'
+  - '$g\ge1$ → $h>0$이므로 절댓값 없이 적분'
+  - '$f(1)=0$, $f(e)=\sqrt e$ → 역함수 적분 구간 $[0,\sqrt e]$'
+  stimuli_used: []
+  subpart_links: null
+
+curriculum:
+  version: '2015'
+  subjects: [미적분]
+  scope_2028: calc2
+  scope_confirmed: true
+  standards:
+  - code: 미확인
+    text: 역함수를 미분할 수 있다 / 부분적분법을 이해하고 이를 활용할 수 있다(요지)
+    verified: false
+  content_area: 적분법 – 여러 가지 적분법
+  behavior_domain: 계산
+  unit_path: [미적분, 적분법, 여러 가지 적분법, 역함수의 정적분과 부분적분]
+  key_concepts: [역함수의 미분법, 합성함수의 미분법, 치환적분법, 부분적분법, 정적분과 넓이]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 숭실대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 숭실대학교
+  admission_year: 2021
+  admission_type: 논술우수자전형 모의논술
+  track: 자연
+  question_no: 1
+  official_url: https://iphak.ssu.ac.kr   # [확인필요] 입학처 기출 게시물 주소로 교체
+  retrieved_at: 2026-11-21
+  original_points: 30
+  rights_notice: 미확인(대치 수리 논술 연구소 「2027학년도 대비 수리논술 숭실대 기출 및 모의 문제」 p.62, 해설 p.84~85에서 옮김)
+
+verify: verify/SSU-M21.py::p01
+
+stimuli: []
+
+stem: |
+  함수 $f(x)=\sqrt x\ln x\ (x\ge1)$의 역함수를 $g(x)$라고 할 때, 함수 $h(x)=g(2x-1)$에 대하여 다음 문항에 답하시오.
+
+subparts:
+- id: '1'
+  stem: |
+    곡선 $y=h(x)$ 위의 점 $\left(\dfrac{\sqrt e+1}2,\ e\right)$에서의 접선의 방정식을 구하시오.
+  points: 14
+  depends_on: []
+  answer: {kind: expression, value: '4*sqrt(E)/3*x - (2*sqrt(E) - E)/3', equivalents: ['y=\dfrac{4\sqrt e}3x-\dfrac13(2\sqrt e-e)'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $h'\left(\dfrac{\sqrt e+1}2\right)=2g'(\sqrt e)=\dfrac2{f'(e)}$, $f'(x)=\dfrac{\ln x+2}{2\sqrt x}$에서 $f'(e)=\dfrac3{2\sqrt e}$.
+    steps:
+    - {id: 1a, content: '기울기 $\dfrac{4\sqrt e}3$, $y=\dfrac{4\sqrt e}3x-\dfrac13(2\sqrt e-e)$', criteria: [1.M1, 1.M2, 1.B1, 1.A1]}
+    hint_ladder:
+    - $h'(x)$를 $g'$으로 나타내 보자.
+    - $g(\sqrt e)=e$이다. $g'(\sqrt e)$는 $f'$의 어느 점에서의 값과 관련되는가?
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 해설교재 p.84
+    steps:
+    - id: 1b-1
+      content: |
+        합성함수의 미분법으로 $h'(x)=g'(2x-1)\cdot(2x-1)'=2g'(2x-1)$이므로 접선의 기울기는 $h'\left(\dfrac{\sqrt e+1}2\right)=2g'(\sqrt e)$.
+      criteria: [1.M1]
+    - id: 1b-2
+      content: |
+        $e=h\left(\dfrac{\sqrt e+1}2\right)=g(\sqrt e)$, 즉 $f(e)=\sqrt e$이므로 역함수의 미분법에 의해 $g'(\sqrt e)=\dfrac1{f'(e)}$이고 기울기는 $\dfrac2{f'(e)}$.
+      criteria: [1.M2]
+    - id: 1b-3
+      content: |
+        $f'(x)=\dfrac1{2\sqrt x}\ln x+\sqrt x\cdot\dfrac1x=\dfrac1{2\sqrt x}(\ln x+2)$이므로 $f'(e)=\dfrac3{2\sqrt e}$, 기울기 $=\dfrac{4\sqrt e}3$.
+      criteria: [1.B1]
+    - id: 1b-4
+      content: |
+        접선: $y-e=\dfrac{4\sqrt e}3\left(x-\dfrac{\sqrt e+1}2\right)$, 즉 $y=\dfrac{4\sqrt e}3x-\dfrac13(2\sqrt e-e)$.
+      criteria: [1.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 4
+      evidence: $h'(x)=2g'(2x-1)$을 구했다.
+      steps: [1b-1]
+    - id: 1.M2
+      mark_type: M
+      points: 4
+      evidence: $f(e)=\sqrt e$에서 $g'(\sqrt e)=\dfrac1{f'(e)}$를 적었다.
+      steps: [1b-2]
+    - id: 1.B1
+      mark_type: B
+      points: 3
+      evidence: $f'(x)=\dfrac{\ln x+2}{2\sqrt x}$, $f'(e)=\dfrac3{2\sqrt e}$.
+      steps: [1b-3]
+    - id: 1.A1
+      mark_type: A
+      points: 3
+      evidence: $y=\dfrac{4\sqrt e}3x-\dfrac13(2\sqrt e-e)$ 또는 동치식.
+      depends_on: [1.M1, 1.M2]
+      steps: [1b-4]
+    deductions:
+    - code: D1-1
+      condition: 답만 쓰고 과정 없음
+      effect: cap
+      value: 5
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-0721}
+  misconceptions:
+  - id: MC-CAL-0721
+    outcome_code: '71'
+    wrong_work: '$g''(\sqrt e)=\dfrac1{f''(\sqrt e)}$로 역함수의 미분계수를 잘못된 점에서 계산'
+    detect_cue: $f'(\sqrt e)$가 식에 나타남
+    feedback: $g(\sqrt e)=e$이므로 $g'(\sqrt e)=\dfrac1{f'(g(\sqrt e))}=\dfrac1{f'(e)}$입니다. 역함수의 미분계수는 대응하는 원함수의 점에서 구하세요.
+    remedy: [RL-1]
+- id: '2'
+  stem: |
+    곡선 $y=h(x)$와 $x$축 및 두 직선 $x=\dfrac12$, $x=\dfrac{\sqrt e+1}2$로 둘러싸인 도형의 넓이 $S$를 구하시오.
+  points: 16
+  depends_on: []
+  answer: {kind: value, value: '(7*E*sqrt(E) - 4)/18', equivalents: ['\dfrac1{18}(7e\sqrt e-4)'], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: $h\ge1>0$이므로 $S=\displaystyle\int h=\dfrac12\int_0^{\sqrt e}g$, $\displaystyle\int_0^{\sqrt e}g=e\sqrt e-\int_1^e\sqrt x\ln x\,dx=\dfrac19(7e\sqrt e-4)$.
+    steps:
+    - {id: 2a, content: '$S=\dfrac1{18}(7e\sqrt e-4)$', criteria: [2.R1, 2.M1, 2.M2, 2.M3, 2.A1]}
+    hint_ladder:
+    - $h(x)$의 부호는? $g$의 치역을 생각하자.
+    - $t=2x-1$로 치환하면 어떤 적분이 되는가?
+    - 역함수의 적분은 원함수 그래프의 y축 쪽 넓이이다.
+  - id: S2-B
+    audience: B
+    method_no: 1
+    source_flow: 해설교재 p.84~85
+    steps:
+    - id: 2b-1
+      content: |
+        $f(x)=\sqrt x\ln x$는 $x\ge1$에서 정의된 증가함수이므로 역함수 $g$의 함숫값은 $1$ 이상이다. 따라서 $h(x)=g(2x-1)\ge1>0$이고 $S=\displaystyle\int_{1/2}^{(\sqrt e+1)/2}h(x)\,dx$.
+      criteria: [2.R1]
+    - id: 2b-2
+      content: |
+        $t=2x-1$로 치환하면 $S=\displaystyle\int_{1/2}^{(\sqrt e+1)/2}g(2x-1)\,dx=\dfrac12\int_0^{\sqrt e}g(t)\,dt$.
+      criteria: [2.M1]
+    - id: 2b-3
+      content: |
+        $f(1)=0$, $f(e)=\sqrt e$이고 그래프의 넓이 관계 $\displaystyle\int_a^bf(x)\,dx+\int_{f(a)}^{f(b)}g(x)\,dx=bf(b)-af(a)$에서 $\displaystyle\int_1^ef(x)\,dx+\int_0^{\sqrt e}g(x)\,dx=e\sqrt e$.
+      criteria: [2.M2]
+    - id: 2b-4
+      content: |
+        부분적분: $\displaystyle\int_1^e\sqrt x\ln x\,dx=\left[\dfrac23x^{3/2}\ln x\right]_1^e-\int_1^e\dfrac23x^{3/2}\cdot\dfrac1x\,dx=\dfrac23e\sqrt e-\left[\dfrac49x^{3/2}\right]_1^e=\dfrac23e\sqrt e-\dfrac49e\sqrt e+\dfrac49$.
+        따라서 $\displaystyle\int_0^{\sqrt e}g(x)\,dx=e\sqrt e-\dfrac29e\sqrt e-\dfrac49=\dfrac19(7e\sqrt e-4)$.
+      criteria: [2.M3]
+    - id: 2b-5
+      content: |
+        $S=\dfrac12\cdot\dfrac19(7e\sqrt e-4)=\dfrac1{18}(7e\sqrt e-4)$.
+      criteria: [2.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.R1
+      mark_type: R
+      points: 2
+      evidence: $h(x)\ge1>0$(또는 $h>0$)임을 근거와 함께 밝혀 절댓값 없이 적분했다.
+      steps: [2b-1]
+    - id: 2.M1
+      mark_type: M
+      points: 4
+      evidence: 치환으로 $S=\dfrac12\displaystyle\int_0^{\sqrt e}g(t)\,dt$를 얻었다.
+      steps: [2b-2]
+    - id: 2.M2
+      mark_type: M
+      points: 4
+      evidence: $\displaystyle\int_1^ef+\int_0^{\sqrt e}g=e\sqrt e$ 관계(또는 $x=f(y)$ 치환)를 썼다.
+      steps: [2b-3]
+    - id: 2.M3
+      mark_type: M
+      points: 4
+      evidence: 부분적분으로 $\displaystyle\int_1^e\sqrt x\ln x\,dx=\dfrac29e\sqrt e+\dfrac49$를 구했다.
+      steps: [2b-4]
+    - id: 2.A1
+      mark_type: A
+      points: 2
+      evidence: $S=\dfrac1{18}(7e\sqrt e-4)$.
+      depends_on: [2.M1, 2.M2, 2.M3]
+      cao: true
+      steps: [2b-5]
+    deductions:
+    - code: D2-1
+      condition: 답만 쓰고 과정 없음
+      effect: cap
+      value: 5
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '72', misconception: MC-CAL-0722}
+  misconceptions:
+  - id: MC-CAL-0722
+    outcome_code: '72'
+    wrong_work: '$t=2x-1$ 치환에서 $dx=\dfrac12dt$를 빠뜨려 $S=\dfrac19(7e\sqrt e-4)$'
+    detect_cue: 답이 정답의 2배
+    feedback: 일차식 치환 $t=2x-1$이면 $dt=2\,dx$이므로 $\dfrac12$이 곱해집니다.
+    remedy: [RL-2]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CAL-0721}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-INVERSE-DERIV}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-CAL-0722}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-SUBST-INTEGRAL}
+  priority: 1
+- id: RL-3
+  trigger: {type: criterion_missed, ref: 2.M2}
+  relation: prerequisite
+  target: {kind: concept, ref: CON-CAL-INVERSE-INTEGRAL}
+  priority: 2
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-transcribe-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

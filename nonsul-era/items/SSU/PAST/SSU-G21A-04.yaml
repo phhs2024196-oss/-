@@ -1,0 +1,195 @@
+# 숭실대 2021학년도 논술고사(자연1) 문제 4 — 원문은 내부 분석용(allowed_use: internal_only)
+# 문제 3(확률과통계)은 교재에서 제외됨.
+schema_version: '2.0'
+id: SSU-G21A-04
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: numeric
+origin: past_exam
+school: SSU
+type: T09
+variant_of: null
+replaces: null
+level: L5
+form: 추론
+points: 20
+time_estimate_min: 20
+intent: 두 원의 교점이 만드는 직각삼각형에서 각을 매개변수의 함수로 나타내고, 부채꼴 넓이의 변화율과 그 극한을 삼각함수의 극한으로 구하는 능력을 본다.
+key_idea: '$\overline{OP}\perp\overline{PR}$이므로 $\theta=\angle PRO$에 대해 $\sin\theta=\dfrac1t$, $A(t)=(t^2-1)\theta$이고 $\dfrac{dA}{dt}=2t\theta+(t^2-1)\theta''$에서 $2t\theta\to2$, $(t^2-1)\theta''\to-1$.'
+stuck: 두 원의 반지름 $1$, $\sqrt{t^2-1}$과 중심거리 $t$가 피타고라스 관계를 이루어 $\angle OPR=90^\circ$임을 알아채는 단계
+idea_tags: [IDEA-ORTHOGONAL-CIRCLES, IDEA-SIN-OVER-THETA-LIMIT, IDEA-IMPLICIT-ANGLE-DERIVATIVE]
+tags: [부채꼴의 넓이, 변화율, 삼각함수의 극한]
+elements:
+  materials: [두 원, 부채꼴, 직각삼각형]
+  concepts: [부채꼴의 넓이, 삼각함수의 극한, 합성함수의 미분법, 피타고라스 정리]
+  tools:
+  - '피타고라스 정리로 직각 판정'
+  - '$\sin\theta<\theta<\tan\theta$'
+  - '$\lim\frac{\sin\theta}\theta=1$'
+  - '$\sin\theta=\frac1t$의 양변 미분'
+  conditions:
+  - '반지름 $1$, $\sqrt{t^2-1}$, 중심거리 $t$ → $\angle OPR=90^\circ$'
+  - '부채꼴 중심각 $=2\theta$'
+  - '$t\to\infty$ → $\theta\to0$'
+  stimuli_used: [가, 나]
+  subpart_links: null
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅰ, 미적분]
+  scope_2028: calc2
+  scope_confirmed: true
+  standards:
+  - code: 미확인
+    text: 삼각함수의 극한을 구하고, 합성함수를 미분할 수 있다(요지)
+    verified: false
+  content_area: 미분법 – 여러 가지 함수의 미분
+  behavior_domain: 추론
+  unit_path: [미적분, 미분법, 여러 가지 함수의 미분, 삼각함수의 극한과 변화율]
+  key_concepts: [부채꼴의 넓이, 삼각함수의 극한, 합성함수의 미분법, 피타고라스 정리]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 숭실대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 숭실대학교
+  admission_year: 2021
+  admission_type: 논술우수자전형
+  track: 자연1
+  question_no: 4
+  official_url: https://iphak.ssu.ac.kr   # [확인필요] 입학처 기출 게시물 주소로 교체
+  retrieved_at: 2026-11-21
+  original_points: 20
+  rights_notice: 미확인(대치 수리 논술 연구소 「2027학년도 대비 수리논술 숭실대 기출 및 모의 문제」 p.58, 해설 p.78에서 옮김)
+
+verify: verify/SSU-G21A.py::p04
+
+stimuli:
+- label: 가
+  body: |
+    반지름의 길이가 $r$, 중심각의 크기가 $\theta$(라디안)인 부채꼴의 넓이를 $S$라고 하면
+    $$S=\dfrac12r^2\theta$$
+    【출처: 수학Ⅰ 「삼각함수」】
+- label: 나
+  body: |
+    $\displaystyle\lim_{\theta\to0}\dfrac{\sin\theta}{\theta}=1$ (단, $\theta$의 단위는 라디안)
+    【출처: 미적분 「여러 가지 함수의 미분」】
+
+stem: |
+  좌표평면에 원 $C:x^2+y^2=1$과 원 $D:(x-t)^2+y^2=t^2-1\ (t>1)$이 있다. 〈그림 1〉과 같이 두 원의 교점을 $P$와 $Q$, 원 $D$의 중심을 $R$라고 할 때, 부채꼴 $PRQ$의 넓이를 $A(t)$라고 하자. 부채꼴 $PRQ$의 넓이의 변화율의 극한값 $\displaystyle\lim_{t\to\infty}\dfrac{dA}{dt}$를 구하시오.
+
+  [그림 설명] 〈그림 1〉: 원점 O를 중심으로 하는 단위원 $C$와 중심 $R(t,0)$인 큰 원 $D$가 두 점에서 만난다. 위쪽 교점이 $P$, 아래쪽 교점이 $Q$이고(둘 다 제1·4사분면의 y축 가까이), 중심 $R$에서 $P$, $Q$로 그은 두 반지름과 원 $D$의 호 $PQ$(원 $C$ 내부를 지나는 쪽)로 둘러싸인 부채꼴 $PRQ$에 빗금이 그어져 있고 $A(t)$로 표시되어 있다.
+
+subparts:
+- id: '1'
+  stem: |
+    $\displaystyle\lim_{t\to\infty}\dfrac{dA}{dt}$를 구하시오.
+  points: 20
+  depends_on: []
+  answer: {kind: value, value: '1', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $1^2+(\sqrt{t^2-1})^2=t^2$이므로 $\angle OPR=90^\circ$, $\sin\theta=\dfrac1t$. $A=(t^2-1)\theta$, $\theta'=-\dfrac1{t\sqrt{t^2-1}}$.
+    steps:
+    - {id: 1a, content: '$\dfrac{dA}{dt}=2t\theta+(t^2-1)\theta''=\dfrac{2\theta}{\sin\theta}-\dfrac{\sqrt{t^2-1}}{t}\to2-1=1$', criteria: [1.M1, 1.A1, 1.M2, 1.M3, 1.R1, 1.A2]}
+    hint_ladder:
+    - 삼각형 $OPR$의 세 변의 길이를 구해 보자.
+    - 부채꼴의 중심각을 $2\theta$로 놓으면 $\sin\theta$는?
+    - $t\to\infty$일 때 $\theta\to0$이다. $2t\theta$를 $\dfrac{\theta}{\sin\theta}$로 바꾸어 보자.
+  - id: S1-B
+    audience: B
+    source_flow: 해설교재 p.78
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        삼각형 $OPR$에서 $\overline{OP}=1$, $\overline{PR}=\sqrt{t^2-1}$, $\overline{OR}=t$이고 $1^2+(t^2-1)=t^2$이므로 $\angle OPR=90^\circ$. $\theta(t)=\angle PRO$로 두면 $\sin\theta=\dfrac1t$, $\cos\theta=\dfrac{\sqrt{t^2-1}}t$ $\left(0<\theta<\dfrac\pi2\right)$.
+      criteria: [1.M1]
+    - id: 1b-2
+      content: |
+        대칭성에서 $\angle PRQ=2\theta$이므로 (가)에 의해 $A(t)=\dfrac12(t^2-1)\cdot2\theta=(t^2-1)\theta(t)$, $\dfrac{dA}{dt}=2t\theta+(t^2-1)\dfrac{d\theta}{dt}$.
+      criteria: [1.A1]
+    - id: 1b-3
+      content: |
+        $\sin\theta<\theta<\tan\theta$에서 $\dfrac1t<\theta<\dfrac1{\sqrt{t^2-1}}$이므로 $t\to\infty$이면 $\theta\to0$. 따라서 (나)에 의해 $2t\theta=\dfrac{2\theta}{\sin\theta}\to2$.
+      criteria: [1.M2, 1.R1]
+    - id: 1b-4
+      content: |
+        $\sin\theta(t)=\dfrac1t$의 양변을 $t$로 미분하면 $\cos\theta\cdot\dfrac{d\theta}{dt}=-\dfrac1{t^2}$, 즉 $\dfrac{d\theta}{dt}=-\dfrac1{t\sqrt{t^2-1}}$. 따라서 $(t^2-1)\dfrac{d\theta}{dt}=-\dfrac{\sqrt{t^2-1}}t\to-1$.
+      criteria: [1.M3]
+    - id: 1b-5
+      content: |
+        $\displaystyle\lim_{t\to\infty}\dfrac{dA}{dt}=2+(-1)=1$.
+      criteria: [1.A2]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 4
+      evidence: $\angle OPR=90^\circ$임을 밝히고 $\sin\theta=\dfrac1t$(또는 동치 관계)를 얻었다.
+      steps: [1b-1]
+    - id: 1.A1
+      mark_type: A
+      points: 3
+      evidence: 중심각 $2\theta$로 $A(t)=(t^2-1)\theta$와 $\dfrac{dA}{dt}=2t\theta+(t^2-1)\theta'$을 구했다.
+      depends_on: [1.M1]
+      steps: [1b-2]
+    - id: 1.M2
+      mark_type: M
+      points: 4
+      evidence: (나)를 써서 $\displaystyle\lim_{t\to\infty}2t\theta=2$를 구했다.
+      steps: [1b-3]
+    - id: 1.R1
+      mark_type: R
+      points: 2
+      evidence: $t\to\infty$일 때 $\theta\to0$임을 근거(부등식 또는 $\sin\theta=\frac1t$와 $\theta$의 범위)와 함께 적었다.
+      steps: [1b-3]
+    - id: 1.M3
+      mark_type: M
+      points: 4
+      evidence: $\dfrac{d\theta}{dt}=-\dfrac1{t\sqrt{t^2-1}}$을 구해 $(t^2-1)\theta'\to-1$을 얻었다.
+      steps: [1b-4]
+    - id: 1.A2
+      mark_type: A
+      points: 3
+      evidence: 극한값 $1$.
+      depends_on: [1.M2, 1.M3]
+      cao: true
+      steps: [1b-5]
+    deductions:
+    - code: D1-1
+      condition: 답만 쓰고 과정 없음
+      effect: cap
+      value: 5
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-0714}
+  misconceptions:
+  - id: MC-CAL-0714
+    outcome_code: '71'
+    wrong_work: '부채꼴 중심각을 $\theta=\angle PRO$로 그대로 써서 $A=\dfrac12(t^2-1)\theta$, 극한 $\dfrac12$'
+    detect_cue: 답이 $\dfrac12$, 중심각이 $2\theta$가 아님
+    feedback: 부채꼴 $PRQ$의 중심각은 $\angle PRO$와 $\angle QRO$의 합으로 $2\theta$입니다.
+    remedy: [RL-1]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CAL-0714}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-TRIG-LIMIT}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-transcribe-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

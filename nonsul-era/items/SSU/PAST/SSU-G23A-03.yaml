@@ -1,0 +1,281 @@
+# 숭실대 2023학년도 논술고사(자연1) 문제 3 — 원문은 내부 분석용(allowed_use: internal_only)
+# 해설교재(p.39~40)와 답 일치: (1) t=2, 거리 4  (2) 시작 위치 (0,-1), t=3.
+# 소문항 배점은 원문에 없음(문제 전체 25점) → (1) 10점, (2) 15점으로 임의 배분. [확인필요]
+schema_version: '2.0'
+id: SSU-G23A-03
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: numeric
+origin: past_exam
+school: SSU
+type: T03
+variant_of: null
+replaces: null
+level: L5
+form: 최적2단
+points: 25
+time_estimate_min: 25
+intent: 평면 위 두 물체의 위치를 시각의 함수로 나타내 거리의 최솟값을 미분으로 구하고, 곡선과 직선 사이의 최단 거리 조건(접선의 기울기 = 직선의 기울기)을 시각 조건과 결합하는 능력을 본다.
+key_idea: '(1) 거리의 제곱 $s(t)=2(t-2)^2+(t^2-4t+8)^2$, $s^\prime(t)=4(t-2)(t^2-4t+9)$. (2) 곡선 위에서 직선 $\ell$에 가장 가까운 점은 접선 기울기가 $\sqrt2$인 점 $t=3$, $\mathrm{P}(2\sqrt2,6)$이고, 우주선이 $t=3$에 수선의 발 $\mathrm{Q}(3\sqrt2,5)$에 있어야 한다.'
+stuck: (2)에서 「가장 가까워질 수 있도록」을 곡선과 직선 사이의 최단 거리를 같은 시각에 실현하는 조건으로 해석하는 단계
+idea_tags: [IDEA-DIST-SQUARE-MIN, IDEA-PARAM-TANGENT-PARALLEL, IDEA-SAME-TIME-MATCH]
+tags: [두 물체 사이의 거리, 최단 거리]
+elements:
+  materials: [포물선 궤도의 혜성, 직선 위를 등속 운동하는 우주선, 두 물체 사이의 거리]
+  concepts: [평면 위의 운동(위치와 속도), 두 점 사이의 거리, 매개변수로 나타낸 함수의 미분, 점과 직선 사이의 거리, 다항함수의 증감]
+  tools: [거리의 제곱 미분, 매개변수 미분으로 접선의 기울기, 수선의 발(두 직선의 교점), 위치 = 초기 위치 + 속도×시간]
+  conditions:
+  - '혜성 $(2\sqrt2t-4\sqrt2,\ t^2-2t+3)$, 우주선 속도 $(\sqrt2,2)$ → 우주선 위치 = 초기 위치 + $(\sqrt2t,2t)$'
+  - '우주선은 직선 $\ell:\ y=\sqrt2x-1$ 위 (속도 방향 기울기 $\dfrac{2}{\sqrt2}=\sqrt2$와 일치)'
+  - '직선 $\ell$과 혜성 궤도는 만나지 않음 → 곡선 위 점에서 $\ell$까지 거리의 최솟값이 존재'
+  - '(2) 최단 거리를 실현하려면 혜성이 P에 있는 시각에 우주선이 P의 수선의 발 Q에 있어야 함'
+  stimuli_used: []
+  subpart_links: (2)는 (1)과 같은 거리 함수를 우주선 시작점을 바꾸어 다시 최소화
+
+curriculum:
+  version: '2015'
+  subjects: [수학, 미적분]
+  scope_2028: calc2
+  scope_confirmed: true
+  standards:
+  - code: 미확인
+    text: 매개변수로 나타낸 함수를 미분하고, 평면 위를 움직이는 점의 위치와 속도를 다룬다(요지)
+    verified: false
+  content_area: 미분법 – 매개변수로 나타낸 함수의 미분, 평면 위의 운동
+  behavior_domain: 문제해결
+  unit_path: [미적분, 미분법, 매개변수로 나타낸 함수의 미분, 곡선과 직선 사이의 최단 거리]
+  key_concepts: [평면 위의 운동(위치와 속도), 두 점 사이의 거리, 매개변수로 나타낸 함수의 미분, 점과 직선 사이의 거리, 다항함수의 증감]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 숭실대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 숭실대학교
+  admission_year: 2023
+  admission_type: 논술우수자전형
+  track: 자연1
+  question_no: 3
+  official_url: https://iphak.ssu.ac.kr   # [확인필요] 입학처 기출 게시물 주소로 교체
+  retrieved_at: 2026-11-21
+  original_points: 25
+  rights_notice: 미확인(「숭실대 수리논술 문제교재(2026)」 p.34, 해설교재 p.39~40에서 옮김)
+
+verify: verify/SSU-G23A.py::p03
+
+stimuli: []
+
+stem: |
+  혜성과 혜성을 관측하기 위한 우주선의 위치를 좌표평면 위에서 나타낼 수 있다고 하자.
+  시각 $t$에서의 혜성의 위치 $(x,y)$가 $x=2\sqrt2t-4\sqrt2$, $y=t^2-2t+3$으로 주어져 있다. 우주선은 직선 $\ell:\ y=\sqrt2x-1$ 위를 움직이며, 시각 $t$에서의 우주선의 속도는 $(\sqrt2,2)$로 주어진다고 하자. 직선 $\ell$과 혜성이 움직이는 곡선은 서로 만나지 않는다.
+
+  이때 다음 문항에 답하시오. (단, 혜성과 우주선의 크기는 무시한다.)
+
+  (1) 시각 $t=0$에서의 우주선의 위치가 $(-2\sqrt2,-5)$라고 하자. 이때 혜성과 우주선 사이의 거리가 최소가 되는 시각 $t$와, 그 때의 혜성과 우주선 사이의 거리를 구하시오.
+
+  (2) 이번에는 시각 $t=0$에서의 우주선의 위치를 직선 $\ell$ 위에서 조정하여 혜성을 더 가까운 거리에서 관측하려고 한다. 혜성과 우주선이 가장 가까워질 수 있도록 하는 시각 $t=0$에서의 우주선의 위치와, 이때 혜성과 우주선이 가장 가까워지는 시각 $t$를 구하시오.
+
+subparts:
+- id: '1'
+  stem: |
+    (1) 시각 $t=0$에서의 우주선의 위치가 $(-2\sqrt2,-5)$일 때, 거리가 최소가 되는 시각 $t$와 그 때의 거리를 구하시오.
+  points: 10
+  depends_on: []
+  answer: {kind: set, value: 't=2,\ 4', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: 우주선 $(\sqrt2t-2\sqrt2,\ 2t-5)$. 거리 제곱 $s(t)=2(t-2)^2+(t^2-4t+8)^2$, $s^\prime(t)=4(t-2)(t^2-4t+9)$ → $t=2$에서 최소 $s=16$, 거리 4.
+    steps:
+    - {id: 1a, content: '$s^\prime(t)=4(t-2)(t^2-4t+9)$ → $t=2$, 거리 $4$', criteria: [1.M1, 1.M2, 1.A1, 1.A2]}
+    hint_ladder:
+    - 속도가 일정하면 위치는 (처음 위치) + (속도)×$t$이다.
+    - 거리 대신 거리의 제곱을 미분하자.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 해설교재 p.39
+    steps:
+    - id: 1b-1
+      content: |
+        우주선의 시각 $t$에서의 위치는 $x=\sqrt2t-2\sqrt2$, $y=2t-5$이다. 시각 $t$에서 우주선과 혜성 사이의 거리를 $r(t)$라 하면
+        $$(r(t))^2=2(t-2)^2+(t^2-4t+8)^2.$$
+      criteria: [1.M1]
+    - id: 1b-2
+      content: |
+        $s(t)=(r(t))^2$이라 하면 $s'(t)=4(t-2)+2(t^2-4t+8)(2t-4)=4(t-2)(t^2-4t+9)$. $t^2-4t+9=(t-2)^2+5>0$이므로 $s'(t)$는 $t=2$의 좌우에서 $-$에서 $+$로 바뀐다.
+      criteria: [1.M2, 1.A1]
+    - id: 1b-3
+      content: |
+        따라서 $s(t)$는 $t=2$에서 최솟값 $16$을 가지고 $r(2)=4$. 즉 거리가 최소가 되는 시각은 $t=2$, 그 때의 거리는 $4$.
+      criteria: [1.A2]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 3
+      evidence: 우주선의 위치 $(\sqrt2t-2\sqrt2,\ 2t-5)$와 거리(제곱)의 식을 세웠다.
+      steps: [1b-1]
+    - id: 1.M2
+      mark_type: M
+      points: 3
+      evidence: 거리의 제곱을 미분해 $4(t-2)(t^2-4t+9)$ 등으로 정리했다.
+      depends_on: [1.M1]
+      steps: [1b-2]
+    - id: 1.A1
+      mark_type: A
+      points: 2
+      evidence: 증감(부호 변화)으로 $t=2$에서 최소임을 밝혔다.
+      depends_on: [1.M2]
+      steps: [1b-2]
+    - id: 1.A2
+      mark_type: A
+      points: 2
+      evidence: $t=2$, 거리 $4$.
+      depends_on: [1.M2, 1.A1]
+      cao: true
+      steps: [1b-3]
+    deductions:
+    - code: D1-1
+      condition: 답만 쓰고 과정 없음
+      effect: cap
+      value: 2
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-0518}
+  misconceptions:
+  - id: MC-CAL-0518
+    outcome_code: '71'
+    wrong_work: '우주선의 위치를 속도 그대로 $(\sqrt2t,2t)$로 두거나 초기 위치를 빠뜨림'
+    detect_cue: 우주선 좌표에 $-2\sqrt2$, $-5$가 없음
+    feedback: 속도가 일정하면 위치 = 처음 위치 + 속도 × 시간입니다. 시각 $t=0$의 위치를 더하세요.
+    remedy: [RL-1]
+- id: '2'
+  stem: |
+    (2) 혜성과 우주선이 가장 가까워질 수 있도록 하는 시각 $t=0$에서의 우주선의 위치와, 이때 가장 가까워지는 시각 $t$를 구하시오.
+  points: 15
+  depends_on: []
+  answer: {kind: set, value: '(0,-1),\ t=3', equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: 곡선 위 점 중 $\ell$에 가장 가까운 점은 접선 기울기 $\dfrac{dy}{dx}=\dfrac{2t-2}{2\sqrt2}=\sqrt2$인 $t=3$, $\mathrm{P}(2\sqrt2,6)$. 그 수선의 발 $\mathrm{Q}(3\sqrt2,5)$를 우주선이 $t=3$에 지나야 하므로 시작점 $(0,-1)$.
+    steps:
+    - {id: 2a, content: '$t=3$, $\mathrm{P}(2\sqrt2,6)$, $\mathrm{Q}(3\sqrt2,5)$ → $x_0=0$, 시작점 $(0,-1)$', criteria: [2.M1, 2.A1, 2.M2, 2.A2, 2.R1, 2.A3]}
+    hint_ladder:
+    - 곡선 위의 점 중 직선에 가장 가까운 점에서의 접선은 직선과 어떤 관계인가?
+    - 혜성과 우주선이 각각 가장 가까운 두 점을 같은 시각에 지나야 한다.
+  - id: S2-B
+    audience: B
+    method_no: 1
+    source_flow: 해설교재 p.39~40
+    steps:
+    - id: 2b-1
+      content: |
+        혜성을 가능한 가장 가까운 거리에서 관측하려면, 혜성이 움직이는 곡선 $C$ 위의 점과 직선 $\ell$ 위의 점 중 가장 가까운 두 점을 혜성과 우주선이 각각 같은 시각에 지나야 한다. 곡선 $C$ 위의 점 중 $\ell$과 가장 가까운 점을 P라 하면, P에서의 접선의 기울기는 $\ell$의 기울기 $\sqrt2$와 같다.
+      criteria: [2.M1]
+    - id: 2b-2
+      content: |
+        매개변수로 나타낸 함수의 미분법에 의하여 $\dfrac{dy}{dx}=\dfrac{dy/dt}{dx/dt}=\dfrac{2t-2}{2\sqrt2}$. $\dfrac{dy}{dx}=\sqrt2$이면 $t=3$이고, 이때 혜성의 위치는 $\mathrm{P}(2\sqrt2,6)$.
+      criteria: [2.A1]
+    - id: 2b-3
+      content: |
+        P에서 $\ell$에 내린 수선 $\ell'$은 기울기 $-\dfrac{1}{\sqrt2}$이고 P를 지나므로 $\ell':\ y=-\dfrac{1}{\sqrt2}(x-2\sqrt2)+6=-\dfrac{1}{\sqrt2}x+8$. $\ell$과 $\ell'$을 연립하면 교점 $\mathrm{Q}(3\sqrt2,5)$.
+      criteria: [2.M2, 2.A2]
+    - id: 2b-4
+      content: |
+        시각 $t=0$에서의 우주선의 위치를 $(x_0,\sqrt2x_0-1)$이라 하면 시각 $t$에서의 위치는 $x=\sqrt2t+x_0$, $y=2t+\sqrt2x_0-1$. $t=3$일 때 Q를 지나야 하므로 $3\sqrt2=3\sqrt2+x_0$, $5=6+\sqrt2x_0-1$.
+      criteria: [2.R1]
+    - id: 2b-5
+      content: |
+        따라서 $x_0=0$이고 시각 $t=0$에서의 우주선의 위치는 $(0,-1)$, 가장 가까워지는 시각은 $t=3$이다.
+      criteria: [2.A3]
+  - id: S2-ALT
+    audience: ALT
+    method_no: 2
+    source_flow: 해설교재 p.40 다른 풀이
+    key_idea: (해설교재 다른 풀이) 시작점을 $(a,\sqrt2a-1)$로 두고 거리 제곱 $s(t)$가 $t=3$에서 최소이어야 하므로 $s^\prime(3)=0$.
+    steps:
+    - id: 2c-1
+      content: |
+        $(r(t))^2=(\sqrt2t-4\sqrt2-a)^2+(t^2-4t+4-\sqrt2a)^2$, $s'(t)=2\sqrt2(\sqrt2t-4\sqrt2-a)+2(t^2-4t+4-\sqrt2a)(2t-4)$. $s'(3)=-3\sqrt2a=0$에서 $a=0$, 시작 위치 $(0,-1)$, 시각 $t=3$.
+      criteria: [2.R1, 2.A3]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 3
+      evidence: 곡선 위에서 $\ell$에 가장 가까운 점은 접선의 기울기가 $\sqrt2$인 점이라는 조건을 세웠다.
+      steps: [2b-1]
+    - id: 2.A1
+      mark_type: A
+      points: 3
+      evidence: 매개변수 미분으로 $t=3$, $\mathrm{P}(2\sqrt2,6)$을 구했다.
+      depends_on: [2.M1]
+      steps: [2b-2]
+    - id: 2.M2
+      mark_type: M
+      points: 2
+      evidence: P에서 $\ell$에 내린 수선의 방정식을 세웠다.
+      steps: [2b-3]
+    - id: 2.A2
+      mark_type: A
+      points: 2
+      evidence: 수선의 발 $\mathrm{Q}(3\sqrt2,5)$.
+      depends_on: [2.M2]
+      steps: [2b-3]
+    - id: 2.R1
+      mark_type: R
+      points: 3
+      evidence: 우주선이 같은 시각 $t=3$에 Q를 지나야 한다는 조건(또는 $s^\prime(3)=0$)으로 시작점을 결정했다.
+      depends_on: [2.A1]
+      steps: [2b-4, 2c-1]
+    - id: 2.A3
+      mark_type: A
+      points: 2
+      evidence: 시작 위치 $(0,-1)$과 시각 $t=3$.
+      depends_on: [2.R1]
+      cao: true
+      steps: [2b-5, 2c-1]
+    deductions:
+    - code: D2-1
+      condition: 답만 쓰고 과정 없음
+      effect: cap
+      value: 3
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '72', misconception: MC-GEO-0519}
+  misconceptions:
+  - id: MC-GEO-0519
+    outcome_code: '72'
+    wrong_work: '수선의 발 $\mathrm{Q}(3\sqrt2,5)$를 그대로 $t=0$에서의 우주선 위치로 답함'
+    detect_cue: 답이 $(3\sqrt2,5)$, 시각 조건 $t=3$을 쓰지 않음
+    feedback: Q는 $t=3$일 때 우주선이 있어야 할 위치입니다. 속도로 거슬러 올라가 $t=0$의 위치를 구하세요.
+    remedy: [RL-2]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CAL-0518}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-SPEED-TIME}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-GEO-0519}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-PARAM-TANGENT}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-transcribe-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

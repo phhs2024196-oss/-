@@ -1,0 +1,282 @@
+# 숭실대 2024학년도 모의논술고사(자연) 문제 2 — 원문은 내부 분석용(allowed_use: internal_only)
+# 해설교재(p.33~34)와 답 일치: (2-1) 10π<b≤11π, (2-2) d 최댓값 21π/2.
+# 해설교재 (a)의 부등식 「19π/2 ≤ b < 21π/2」는 표에서 2b 로 표기가 섞여 있으나 내용은 같다(19π/(2b)≤1<21π/(2b)).
+# 소문항 배점은 원문에 없음(문제 전체 25점) → (2-1) 15점, (2-2) 10점으로 임의 배분. [확인필요]
+schema_version: '2.0'
+id: SSU-M24-02
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: numeric
+origin: mock_exam
+school: SSU
+type: T02
+variant_of: null
+replaces: null
+level: L5
+form: 분류
+points: 25
+time_estimate_min: 25
+intent: 구간별로 정의된 함수의 미분가능 조건으로 직선 부분을 결정하고, 삼각함수의 주기성과 직선의 기울기 부호로 실근의 개수를 경우 분류해 세는 능력을 본다.
+key_idea: '$x=1$에서 미분가능하므로 직선 부분은 점 $(1,\cos b)$를 지나고 기울기 $-b\sin b$인 직선이다. 실근 11개 = ($[0,1]$에서 10개 + $x>1$에서 1개) 또는 ($[0,1]$에서 11개 + $x>1$에서 0개)로 나누어 $\cos b$, $-b\sin b$의 부호를 따진다.'
+stuck: 미분가능 조건에서 $c=-b\sin b$, $d=\cos b+b\sin b$를 얻고, 직선 부분이 $x>1$에서 $x$축과 만나는지를 $(1,\cos b)$의 위치와 기울기 부호로 판정하는 단계
+idea_tags: [IDEA-PIECEWISE-DIFF-JOIN, IDEA-ROOT-COUNT-PERIOD, IDEA-LINE-SIGN-CASE]
+tags: [실근의 개수, 경우 분류]
+elements:
+  materials: [코사인함수와 직선으로 구간별로 정의된 함수, 방정식의 실근의 개수, 매개변수의 범위]
+  concepts: [미분가능성과 연속성, 삼각함수의 주기, 삼각함수의 도함수, 함수의 최대·최소]
+  tools: [미분계수의 정의(제시문), 좌·우미분계수 일치, 주기로 근 세기, 직선의 기울기 부호 판정, 증감표]
+  conditions:
+  - '$x>0$에서 미분가능 → $x=1$에서 연속·미분가능: $c+d=\cos b$, $c=-b\sin b$'
+  - '$x>1$은 직선 → 실근 많아야 1개 → (10개+1개) 또는 (11개+0개)로 분류'
+  - '직선이 $x>1$에서 $x$축과 만나는지: 점 $(1,\cos b)$의 위치와 기울기 $-b\sin b$의 부호'
+  stimuli_used: [제시문]
+  subpart_links: (2-2)는 (2-1)에서 구한 b의 범위를 정의역으로 사용
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅰ, 수학Ⅱ, 미적분]
+  scope_2028: calc2
+  scope_confirmed: true
+  standards:
+  - code: 미확인
+    text: 미분가능성과 연속성의 관계를 이해하고, 삼각함수의 도함수를 활용한다(요지)
+    verified: false
+  content_area: 미분법 – 미분가능성, 삼각함수의 미분
+  behavior_domain: 추론
+  unit_path: [미적분, 미분법, 여러 가지 함수의 미분, 구간별로 정의된 함수의 미분가능성과 실근의 개수]
+  key_concepts: [미분가능성과 연속성, 삼각함수의 주기, 삼각함수의 도함수, 함수의 최대·최소]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 숭실대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 숭실대학교
+  admission_year: 2024
+  admission_type: 논술우수자전형 모의논술
+  track: 자연
+  question_no: 2
+  official_url: https://iphak.ssu.ac.kr   # [확인필요] 입학처 기출 게시물 주소로 교체
+  retrieved_at: 2026-11-21
+  original_points: 25
+  rights_notice: 미확인(「숭실대 수리논술 문제교재(2026)」 p.29, 해설교재 p.33~34에서 옮김)
+
+verify: verify/SSU-M24.py::p02
+
+stimuli:
+- label: 제시문
+  body: |
+    미분가능한 함수 $f(x)$의 도함수는
+
+    $$f'(x)=\lim_{h\to0}\dfrac{f(x+h)-f(x)}{h}$$
+
+    【출처: 수학Ⅱ 「미분가능성과 연속성」】
+
+stem: |
+  함수 $f(x)=\begin{cases}\cos bx & (0\le x\le1)\\ cx+d & (x>1)\end{cases}$ 는 $x>0$에서 미분가능하다. (단, $b>0$)
+
+  방정식 $f(x)=0$의 서로 다른 양의 실수해의 개수가 11개일 때, 다음 문항에 답하시오.
+
+  (2-1) $b$의 범위를 구하시오.
+
+  (2-2) $d$의 최댓값을 구하시오.
+
+subparts:
+- id: '1'
+  stem: |
+    (2-1) $b$의 범위를 구하시오.
+  points: 15
+  depends_on: []
+  answer: {kind: set, value: '10\pi<b\le11\pi', equivalents: ['(10\pi,11\pi]'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $\cos bx=0$의 근은 $x=\dfrac{2\pi}{b}\left(k-\dfrac34\right)$, $\dfrac{2\pi}{b}\left(k-\dfrac14\right)$ 꼴. $x=1$에서 미분가능이므로 직선은 $(1,\cos b)$를 지나고 기울기 $-b\sin b$. (a) $[0,1]$에 10개+$x>1$에 1개 → $10\pi<b<\dfrac{21\pi}{2}$, (b) $[0,1]$에 11개+$x>1$에 0개 → $\dfrac{21\pi}{2}\le b\le11\pi$. 합하면 $10\pi<b\le11\pi$.
+    steps:
+    - {id: 1a, content: '(a) $10\pi<b<\dfrac{21\pi}{2}$, (b) $\dfrac{21\pi}{2}\le b\le11\pi$ → $10\pi<b\le11\pi$', criteria: [1.M1, 1.B1, 1.M2, 1.R1, 1.R2, 1.A1]}
+    hint_ladder:
+    - $\cos bx$의 주기는 $\dfrac{2\pi}{b}$이다. 한 주기 안에 근이 몇 개인가?
+    - $x>1$에서는 직선이므로 $x$축과 많아야 한 번 만난다.
+    - $x=1$에서 미분가능하다는 것으로 $c$, $d$를 $b$로 나타내 보자.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 해설교재 p.33~34
+    steps:
+    - id: 1b-1
+      content: |
+        $g(x)=\cos bx$의 주기는 $\dfrac{2\pi}{b}$이므로 $g(x)=0$은 $\left[0,\dfrac{2\pi}{b}\right]$에서 두 개의 해 $\dfrac{2\pi}{b}\cdot\dfrac14$, $\dfrac{2\pi}{b}\cdot\dfrac34$를 갖고, $\left[0,\dfrac{2n\pi}{b}\right]$에서 $2n$개의 해를 갖는다. $2n-1$번째, $2n$번째 해는 각각 $\dfrac{2\pi}{b}\left(n-1+\dfrac14\right)$, $\dfrac{2\pi}{b}\left(n-1+\dfrac34\right)$이다.
+      criteria: [1.M1]
+    - id: 1b-2
+      content: |
+        $x>1$에서 $y=f(x)$의 그래프는 직선이므로 $x$축과 많아야 한 점에서 만난다. 따라서 양의 실수해가 11개이려면 (a) $x>1$에서 1개, $0<x\le1$에서 10개이거나 (b) $x>1$에서 0개, $0<x\le1$에서 11개이어야 한다.
+        또 $f$는 $x=1$에서 미분가능하므로 연속이고 좌·우미분계수가 같다: $c+d=\cos b$, $c=-b\sin b$. 따라서 $x\ge1$에서 $f$는 점 $(1,\cos b)$를 지나고 기울기가 $-b\sin b$인 직선이다.
+      criteria: [1.B1]
+    - id: 1b-3
+      content: |
+        (a) 10번째 해 $\dfrac{2\pi}{b}\left(4+\dfrac34\right)=\dfrac{19\pi}{2b}$는 $[0,1]$에, 11번째 해 $\dfrac{2\pi}{b}\left(5+\dfrac14\right)=\dfrac{21\pi}{2b}$는 $(1,\infty)$에 있어야 하므로 $\dfrac{19\pi}{2}\le b<\dfrac{21\pi}{2}$.
+        i) $b=\dfrac{19\pi}{2}$: $\cos b=0$, 기울기 $-b\sin b=b\ne0$ → 직선은 $(1,0)$에서만 $x$축과 만나므로 $x>1$에서 해가 없다.
+        ii) $\dfrac{19\pi}{2}<b\le10\pi$: $\cos b>0$, 기울기 $-b\sin b\ge0$ → 직선이 제1사분면의 점을 지나고 기울기가 음수가 아니므로 $x>1$에서 해가 없다.
+        iii) $10\pi<b<\dfrac{21\pi}{2}$: $\cos b>0$, 기울기 $<0$ → $x>1$에서 해가 1개.
+        따라서 (a)이면 $10\pi<b<\dfrac{21\pi}{2}$.
+      criteria: [1.M2, 1.R1]
+    - id: 1b-4
+      content: |
+        (b) 11번째 해 $\dfrac{21\pi}{2b}$는 $[0,1]$에, 12번째 해 $\dfrac{23\pi}{2b}$는 $(1,\infty)$에 있어야 하므로 $\dfrac{21\pi}{2}\le b<\dfrac{23\pi}{2}$.
+        i) $b=\dfrac{21\pi}{2}$: 직선은 $(1,0)$을 지나고 기울기 $-b\ne0$ → $x>1$에서 해 없음.
+        ii) $\dfrac{21\pi}{2}<b\le11\pi$: $\cos b<0$, 기울기 $-b\sin b\le0$ → 제4사분면의 점을 지나고 기울기가 양수가 아니므로 해 없음.
+        iii) $11\pi<b<\dfrac{23\pi}{2}$: $\cos b<0$, 기울기 $>0$ → $x>1$에서 해가 생겨 12개가 된다.
+        따라서 (b)이면 $\dfrac{21\pi}{2}\le b\le11\pi$.
+      criteria: [1.R2]
+    - id: 1b-5
+      content: |
+        두 결과를 합하면 $10\pi<b\le11\pi$.
+      criteria: [1.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 2
+      evidence: $\cos bx=0$의 해를 주기 $\dfrac{2\pi}{b}$로 나열했다(몇 번째 해의 위치를 식으로 씀).
+      steps: [1b-1]
+    - id: 1.B1
+      mark_type: B
+      points: 3
+      evidence: 미분가능 조건에서 $c=-b\sin b$, $c+d=\cos b$를 구하고 직선이 $(1,\cos b)$를 지남을 밝혔다.
+      steps: [1b-2]
+    - id: 1.M2
+      mark_type: M
+      points: 2
+      evidence: 해 11개를 ($[0,1]$에 10개 + $x>1$에 1개)와 ($[0,1]$에 11개 + $x>1$에 0개)로 나누었다.
+      steps: [1b-3]
+    - id: 1.R1
+      mark_type: R
+      points: 3
+      evidence: (a)의 경우 $\cos b$와 기울기의 부호로 $x>1$에서 해가 1개인 조건 $10\pi<b<\dfrac{21\pi}{2}$를 판정했다.
+      depends_on: [1.M2, 1.B1]
+      steps: [1b-3]
+    - id: 1.R2
+      mark_type: R
+      points: 3
+      evidence: (b)의 경우 $x>1$에서 해가 없는 조건 $\dfrac{21\pi}{2}\le b\le11\pi$를 판정했다(경계 $b=\dfrac{21\pi}{2}$, $b=11\pi$ 포함 근거).
+      depends_on: [1.M2, 1.B1]
+      steps: [1b-4]
+    - id: 1.A1
+      mark_type: A
+      points: 2
+      evidence: $10\pi<b\le11\pi$.
+      depends_on: [1.R1, 1.R2]
+      cao: true
+      steps: [1b-5]
+    deductions:
+    - code: D1-1
+      condition: 답만 쓰고 과정 없음
+      effect: cap
+      value: 3
+    - code: D1-2
+      condition: 범위의 등호(끝점 포함 여부) 오류
+      effect: minus
+      value: 2
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-0511}
+  misconceptions:
+  - id: MC-CAL-0511
+    outcome_code: '71'
+    wrong_work: '$x>1$의 직선 부분을 무시하고 $\cos bx=0$의 해만 11개로 세어 $\dfrac{21\pi}{2}\le b<\dfrac{23\pi}{2}$라 답함'
+    detect_cue: $c$, $d$를 구하지 않음, 답의 끝이 $\dfrac{23\pi}{2}$
+    feedback: $x>1$의 직선도 $x$축과 만날 수 있습니다. 미분가능 조건으로 직선을 결정하고 기울기 부호를 확인하세요.
+    remedy: [RL-1]
+- id: '2'
+  stem: |
+    (2-2) $d$의 최댓값을 구하시오.
+  points: 10
+  depends_on: ['1']
+  answer: {kind: value, value: '\dfrac{21\pi}{2}', equivalents: ['10.5\pi'], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: $d=b\sin b+\cos b$, $\dfrac{d}{db}(b\sin b+\cos b)=b\cos b$이므로 $10\pi<b\le11\pi$에서 $b=\dfrac{21\pi}{2}$일 때 최대.
+    steps:
+    - {id: 2a, content: '$d(b)=b\sin b+\cos b$, $d^\prime=b\cos b$ → $d\left(\dfrac{21\pi}{2}\right)=\dfrac{21\pi}{2}$', criteria: [2.M1, 2.M2, 2.A1]}
+    hint_ladder:
+    - $d$를 $b$의 식으로 나타내 보자.
+  - id: S2-B
+    audience: B
+    method_no: 1
+    source_flow: 해설교재 p.34
+    steps:
+    - id: 2b-1
+      content: |
+        $f$는 $x=1$에서 연속이므로 $c+d=\cos b$이고 $c=-b\sin b$이므로 $d=-c+\cos b=b\sin b+\cos b$.
+      criteria: [2.M1]
+    - id: 2b-2
+      content: |
+        $10\pi<t\le11\pi$에서 $g(t)=t\sin t+\cos t$라 하면 $g'(t)=\sin t+t\cos t-\sin t=t\cos t$. $10\pi<t<\dfrac{21\pi}{2}$에서 $g'>0$ (증가), $\dfrac{21\pi}{2}<t\le11\pi$에서 $g'<0$ (감소).
+      criteria: [2.M2]
+    - id: 2b-3
+      content: |
+        따라서 $t=\dfrac{21\pi}{2}$일 때 $d$가 최대이고 최댓값은 $\dfrac{21\pi}{2}\sin\dfrac{21\pi}{2}+\cos\dfrac{21\pi}{2}=\dfrac{21\pi}{2}$.
+      criteria: [2.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 3
+      evidence: $d=b\sin b+\cos b$를 구했다.
+      steps: [2b-1]
+    - id: 2.M2
+      mark_type: M
+      points: 4
+      evidence: $(b\sin b+\cos b)'=b\cos b$를 구하고 (2-1)의 범위에서 증감을 판정했다.
+      ft: {allowed: true, from: [1.A1], max_points: 4}
+      steps: [2b-2]
+    - id: 2.A1
+      mark_type: A
+      points: 3
+      evidence: 최댓값 $\dfrac{21\pi}{2}$.
+      depends_on: [2.M1, 2.M2]
+      cao: true
+      steps: [2b-3]
+    deductions:
+    - code: D2-1
+      condition: 답만 쓰고 과정 없음
+      effect: cap
+      value: 2
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '72', misconception: MC-CAL-0512}
+  misconceptions:
+  - id: MC-CAL-0512
+    outcome_code: '72'
+    wrong_work: '$b$가 클수록 $d$가 크다고 보고 $b=11\pi$를 대입해 $d=\cos11\pi=-1$ 또는 $11\pi$로 답함'
+    detect_cue: 증감표 없이 범위의 끝값을 대입
+    feedback: $d$는 $b$의 함수입니다. 도함수 $b\cos b$의 부호로 범위 안에서 최대가 되는 점을 찾으세요.
+    remedy: [RL-2]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CAL-0511}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-PIECEWISE-DIFF}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-CAL-0512}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-OPTIMIZATION}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-transcribe-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

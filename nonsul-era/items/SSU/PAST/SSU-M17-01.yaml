@@ -1,0 +1,344 @@
+# 숭실대 2017학년도 모의논술고사(자연) 문제 1 — 원문은 내부 분석용(allowed_use: internal_only)
+# 원문 문제 1 = 문제 1-A(30점) + 문제 1-B(30점). 소문항 id: A1·A2 = 1-A (1)(2), B = 1-B. points 60(원문 배점 합).
+# [확인필요] 1-A 의 (1)(2) 배점 표기 없음 → 15·15 임의 배분.
+# 원문 1-B 의 유입 속도 식은 「4(t+2)·ln(t+2)」로 ln 이 이탤릭(ln)으로 조판되어 있음 — 자연로그로 옮김.
+schema_version: '2.0'
+id: SSU-M17-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: numeric
+origin: mock_exam
+school: SSU
+type: T10
+variant_of: null
+replaces: null
+level: L4
+form: 분류
+points: 60
+time_estimate_min: 30
+intent: (A) 연립 일차방정식의 자연수 해를 변수 소거와 합의 분류로 세고, (B) 유입·배출 속도의 차를 치환적분·부분적분으로 적분해 물의 양을 구하는 능력을 본다.
+key_idea: '(A1) 두 식을 빼면 $x+y=40$, $z=20$. (A2) $x+y=k$로 두면 $z=2(50-k)$이므로 $2\le k\le49$, $\sum(k-1)=1176$에서 39를 뺀다. (B) $10+\int_0^2(f-g)\,dt$.'
+stuck: (A2) $x+y=k$로 묶어 $z$의 조건($z\ge1$)에서 $k$의 범위를 끌어내는 단계, (B) $\int(t+2)\ln(t+2)\,dt$의 부분적분
+idea_tags: [IDEA-ELIMINATE-THEN-COUNT, IDEA-GROUP-SUM-COUNT, IDEA-RATE-DIFFERENCE-INTEGRAL]
+tags: [자연수 해의 개수, 물탱크 유입·배출]
+elements:
+  materials:
+  - '일차방정식 $2x+2y+z=100$의 자연수 해 집합'
+  - '물탱크의 유입·배출 속도'
+  - '로그함수가 포함된 속도 함수'
+  concepts: [일차방정식의 자연수 해의 개수, 여사건(전체에서 빼기), 변화율과 정적분, 부분적분법, 치환적분법]
+  tools:
+  - '변수 소거'
+  - '합 $x+y=k$로 묶어 세기'
+  - '시그마 합'
+  - '부분적분'
+  - '치환적분'
+  conditions:
+  - '두 식을 빼면 $x+y=40$, $z=20$'
+  - '$z=2(50-k)\ge1$ → $2\le k\le49$'
+  - '「만족하지 않는」 = 전체 $-$ (1)'
+  - '물의 양 = 처음 양 10 + $\int_0^2(f-g)\,dt$'
+  stimuli_used: []
+  subpart_links: "A2 는 A1 의 결과(39개)를 전체에서 뺌. B 는 독립"
+
+curriculum:
+  version: '2015'
+  subjects: [수학, 수학Ⅰ, 미적분]
+  scope_2028: calc2
+  scope_confirmed: true
+  standards:
+  - code: 미확인
+    text: 경우의 수를 구할 수 있다 / 치환적분법과 부분적분법을 이해하고 활용할 수 있다(요지)
+    verified: false
+  content_area: 경우의 수 / 적분법 – 정적분의 활용
+  behavior_domain: 문제해결
+  unit_path: [미적분, 적분법, 정적분의 활용, 속도와 변화량(유입·배출)]
+  key_concepts: [일차방정식의 자연수 해의 개수, 여사건(전체에서 빼기), 변화율과 정적분, 부분적분법, 치환적분법]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 숭실대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 숭실대학교
+  admission_year: 2017
+  admission_type: 모의논술고사
+  track: 자연
+  question_no: 1
+  official_url: https://iphak.ssu.ac.kr   # [확인필요] 입학처 기출 게시물 주소로 교체
+  retrieved_at: 2026-11-21
+  original_points: 60
+  rights_notice: 미확인(대치 수리 논술 연구소 「2027학년도 대비 수리논술 숭실대 기출 및 모의 문제」 p.74~75, 해설교재 p.99~100에서 옮김)
+
+verify: verify/SSU-M17.py::p01
+
+stem: |
+  【문제 1】 문제 1-A, 문제 1-B에 답하시오.
+
+subparts:
+- id: A1
+  stem: |
+    문제 1- A 다음 논제에 답하시오. (30점)
+
+    집합 $A$는 $2x+2y+z=100$을 만족하는 자연수 $x$, $y$, $z$의 순서쌍 $(x,y,z)$의 집합이다. 이때, 다음 문항에 답하시오.
+
+    (1) 집합 $A$의 원소 중에서 $x+y+z=60$을 만족하는 자연수 $x$, $y$, $z$의 순서쌍 $(x,y,z)$의 개수를 구하시오.
+  points: 15
+  depends_on: []
+  answer: {kind: value, value: '39', equivalents: [], tolerance: null}
+  solutions:
+  - id: SA1-A
+    audience: A
+    method_no: 1
+    key_idea: 두 식을 빼면 $x+y=40$, $z=20$. $(x,y)$는 39개.
+    steps:
+    - {id: a1a, content: '$x+y=40$, $z=20$ $\Rightarrow$ 39개', criteria: [A1.M1, A1.A1, A1.A2]}
+    hint_ladder:
+    - 두 방정식을 연립해 한 변수를 없애 보자.
+  - id: SA1-B
+    audience: B
+    method_no: 1
+    source_flow: 해설교재 p.99
+    steps:
+    - id: a1b-1
+      content: |
+        이 문항은 연립방정식 $\begin{cases}2x+2y+z=100\\x+y+z=60\end{cases}$의 자연수 해의 개수를 구하는 것이다. 위의 식에서 아래의 식을 빼면 $x+y=40$이고, 이로부터 $z=20$을 얻는다.
+      criteria: [A1.M1, A1.A1]
+    - id: a1b-2
+      content: |
+        따라서 구하는 개수는 $x+y=40$을 만족하는 자연수 순서쌍 $(x,y)$의 개수와 같고, $x=1,2,\ldots,39$이므로 39개이다.
+      criteria: [A1.A2]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: A1.M1
+      mark_type: M
+      points: 5
+      evidence: 두 방정식을 연립해 한 변수를 소거했다.
+      steps: [a1b-1]
+    - id: A1.A1
+      mark_type: A
+      points: 5
+      evidence: $x+y=40$, $z=20$.
+      depends_on: [A1.M1]
+      steps: [a1b-1]
+    - id: A1.A2
+      mark_type: A
+      points: 5
+      evidence: 개수 39.
+      depends_on: [A1.M1]
+      cao: true
+      steps: [a1b-2]
+    deductions:
+    - code: DA1-1
+      condition: 답만 쓰고 과정 없음
+      effect: cap
+      value: 5
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CNT-0818}
+  misconceptions:
+  - id: MC-CNT-0818
+    outcome_code: '71'
+    wrong_work: '$x+y=40$의 해를 $x=0,1,\ldots,40$으로 세어 41개'
+    detect_cue: 답 41 또는 $x=0$을 포함
+    feedback: 자연수는 1부터입니다. $x$와 $y$가 모두 1 이상이 되도록 범위를 다시 잡으세요.
+    remedy: [RL-1]
+- id: A2
+  stem: |
+    (2) 집합 $A$의 원소 중에서 $x+y+z=60$을 만족하지 않는 자연수 $x$, $y$, $z$의 순서쌍 $(x,y,z)$의 개수를 구하시오.
+  points: 15
+  depends_on: [A1]
+  answer: {kind: value, value: '1137', equivalents: [], tolerance: null}
+  solutions:
+  - id: SA2-A
+    audience: A
+    method_no: 1
+    key_idea: $x+y=k$이면 $z=2(50-k)\ge1$에서 $2\le k\le49$, $|A|=\sum_{k=2}^{49}(k-1)=1176$, 답 $1176-39=1137$.
+    steps:
+    - {id: a2a, content: '$1176-39=1137$', criteria: [A2.M1, A2.A1, A2.M2, A2.A2]}
+    hint_ladder:
+    - $x+y$를 하나의 문자 $k$로 두면 $z$가 정해진다.
+    - 「만족하지 않는」 것은 전체에서 (1)을 빼면 된다.
+  - id: SA2-B
+    audience: B
+    method_no: 1
+    source_flow: 해설교재 p.99
+    steps:
+    - id: a2b-1
+      content: |
+        집합 $A$의 원소의 개수는 $2x+2y+z=100$을 만족하는 자연수 순서쌍의 개수이다. $x+y=k$라 하면 $x$, $y$가 자연수이고 $z=100-2x-2y=2(50-k)$도 자연수이므로 $k$는 2 이상 49 이하의 모든 자연수, 즉 $2\le x+y=k\le49$이다. 따라서 $z$는 2 이상 96 이하의 짝수이고, $|A|$는 $2\le x+y=k\le49$를 만족하는 자연수 순서쌍 $(x,y)$의 개수와 같다.
+      criteria: [A2.M1]
+    - id: a2b-2
+      content: |
+        $x+y=k$를 만족하는 자연수 순서쌍은 $k-1$개이므로
+        $$\sum_{k=2}^{49}(k-1)=\sum_{n=1}^{48}n=\dfrac{48\times49}2=1176.$$
+      criteria: [A2.A1]
+    - id: a2b-3
+      content: |
+        이 중에서 $x+y+z=60$을 만족하는 것은 (1)에서 39개이므로, 만족하지 않는 것은 $1176-39=1137$개이다.
+      criteria: [A2.M2, A2.A2]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: A2.M1
+      mark_type: M
+      points: 5
+      evidence: $x+y=k$로 두고 $z$가 자연수인 조건에서 $2\le k\le49$를 얻었다.
+      steps: [a2b-1]
+    - id: A2.A1
+      mark_type: A
+      points: 4
+      evidence: $|A|=1176$.
+      depends_on: [A2.M1]
+      steps: [a2b-2]
+    - id: A2.M2
+      mark_type: M
+      points: 3
+      evidence: 전체에서 (1)의 개수를 빼는 식을 세웠다.
+      ft: {from: [A1.A2], max_points: 3}
+      steps: [a2b-3]
+    - id: A2.A2
+      mark_type: A
+      points: 3
+      evidence: 답 1137.
+      depends_on: [A2.M1, A2.M2]
+      cao: true
+      steps: [a2b-3]
+    deductions:
+    - code: DA2-1
+      condition: 답만 쓰고 과정 없음
+      effect: cap
+      value: 5
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CNT-0819}
+  misconceptions:
+  - id: MC-CNT-0819
+    outcome_code: '71'
+    wrong_work: '$k$의 범위를 $2\le k\le50$으로 잡아 $|A|=1225$, 답 1186'
+    detect_cue: $k=50$ ($z=0$)을 포함, 1225 또는 1186
+    feedback: $z=2(50-k)$도 자연수여야 하므로 $k\le49$입니다.
+    remedy: [RL-2]
+- id: B
+  stem: |
+    문제 1- B 다음 논제에 답하시오. (30점)
+
+    시각 $t=0$(초)에 10L의 물이 들어있는 물탱크의 유입구와 배출구를 모두 열었다. 시각 $t>0$(초)에서 $f(t)=4(t+2)\cdot\ln(t+2)$ (L/초)의 속도로 새로운 물이 유입되고 $g(t)=\dfrac{2\ln(t+1)}{(t+1)}$ (L/초)의 속도로 물탱크의 물이 배출된다. 시각 $t=2$(초)에 물탱크에 들어있는 물의 양(L)을 구하시오.
+  points: 30
+  depends_on: []
+  answer: {kind: value, value: '56*log(2) - 2 - log(3)**2', equivalents: ['56ln2-2-(ln3)^2'], tolerance: null}
+  solutions:
+  - id: SB-A
+    audience: A
+    method_no: 1
+    key_idea: 물의 양 $=10+\int_0^2(f-g)\,dt$. $x=t+2$로 바꾸어 부분적분하면 $\int_2^44x\ln x\,dx=56\ln2-12$, $u=\ln(t+1)$로 치환하면 $\int_0^2g=(\ln3)^2$.
+    steps:
+    - {id: ba, content: '$10+56\ln2-12-(\ln3)^2=56\ln2-2-(\ln3)^2$', criteria: [B.M1, B.M2, B.A1, B.M3, B.A2, B.A3]}
+    hint_ladder:
+    - 물의 양의 순간변화율은 $f(t)-g(t)$이다.
+    - $\int x\ln x\,dx$는 부분적분, $\int\dfrac{\ln(t+1)}{t+1}dt$는 치환적분.
+  - id: SB-B
+    audience: B
+    method_no: 1
+    source_flow: 해설교재 p.100
+    steps:
+    - id: bb-1
+      content: |
+        시각 $t$에서 물탱크 안의 물의 양의 순간변화율은 $f(t)-g(t)$이다. 따라서 $t=0$에서 $t=2$까지 물의 변화량은 순간변화율을 적분하여 얻고, 처음 물의 양 10L를 더하면 $t=2$에서 물의 양은
+        $$10+\int_0^2\{f(t)-g(t)\}\,dt.$$
+      criteria: [B.M1]
+    - id: bb-2
+      content: |
+        $x=t+2$로 치환하고 부분적분하면
+        $$\int_0^2f(t)\,dt=\int_2^44x\ln x\,dx=\left[2x^2\ln x-x^2\right]_2^4=(32\ln4-16)-(8\ln2-4)=56\ln2-12.$$
+      criteria: [B.M2, B.A1]
+    - id: bb-3
+      content: |
+        $u=\ln(t+1)$로 치환하면 $du=\dfrac{dt}{t+1}$이고 $t:0\to2$일 때 $u:0\to\ln3$이므로
+        $$\int_0^2g(t)\,dt=\int_0^{\ln3}2u\,du=(\ln3)^2.$$
+      criteria: [B.M3, B.A2]
+    - id: bb-4
+      content: |
+        따라서 $t=2$에 물탱크에 들어 있는 물의 양은 $10+(56\ln2-12)-(\ln3)^2=56\ln2-2-(\ln3)^2$ (L)이다.
+      criteria: [B.A3]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: B.M1
+      mark_type: M
+      points: 6
+      evidence: 물의 양을 $10+\int_0^2(f-g)\,dt$로 세웠다.
+      steps: [bb-1]
+    - id: B.M2
+      mark_type: M
+      points: 5
+      evidence: $\int(t+2)\ln(t+2)\,dt$를 부분적분으로 계산하는 식을 썼다.
+      steps: [bb-2]
+    - id: B.A1
+      mark_type: A
+      points: 6
+      evidence: $\int_0^2f(t)\,dt=56\ln2-12$.
+      depends_on: [B.M2]
+      steps: [bb-2]
+    - id: B.M3
+      mark_type: M
+      points: 4
+      evidence: $u=\ln(t+1)$ 치환을 썼다.
+      steps: [bb-3]
+    - id: B.A2
+      mark_type: A
+      points: 5
+      evidence: $\int_0^2g(t)\,dt=(\ln3)^2$.
+      depends_on: [B.M3]
+      steps: [bb-3]
+    - id: B.A3
+      mark_type: A
+      points: 4
+      evidence: $56\ln2-2-(\ln3)^2$ (L).
+      depends_on: [B.M1, B.M2, B.M3]
+      cao: true
+      steps: [bb-4]
+    deductions:
+    - code: DB-1
+      condition: 답만 쓰고 과정 없음
+      effect: cap
+      value: 5
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-0820}
+  misconceptions:
+  - id: MC-CAL-0820
+    outcome_code: '71'
+    wrong_work: '$\int_0^2(f-g)\,dt=56\ln2-12-(\ln3)^2$를 답으로 씀'
+    detect_cue: 처음 물의 양 10이 빠짐(상수항 $-12$)
+    feedback: 적분값은 변화량입니다. 처음 들어 있던 10L를 더해야 합니다.
+    remedy: [RL-3]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CNT-0818}
+  relation: remediation
+  target: {kind: concept, ref: CON-CNT-NATURAL-SOLUTIONS}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-CNT-0819}
+  relation: remediation
+  target: {kind: concept, ref: CON-CNT-NATURAL-SOLUTIONS}
+  priority: 1
+- id: RL-3
+  trigger: {type: misconception, ref: MC-CAL-0820}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-RATE-ACCUMULATION}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-transcribe-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

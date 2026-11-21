@@ -1,0 +1,257 @@
+# 숭실대 2025학년도 모의논술고사(자연) 문제 2 — 원문은 내부 분석용(allowed_use: internal_only)
+# 소문항 배점은 원문에 없음(문제 전체 25점) → (1) 10점, (2) 15점으로 내부 배분. [확인필요]
+schema_version: '2.0'
+id: SSU-M25-02
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: numeric
+origin: mock_exam
+school: SSU
+type: T04
+variant_of: null
+replaces: null
+level: L4
+form: 추론
+points: 25
+time_estimate_min: 20
+intent: 정적분으로 정의된 함수의 미분과 평균값 정리를 이용해 적분 구간이 움직이는 정적분의 극한을 피적분함수의 극한으로 바꾸는 능력을 본다.
+key_idea: '(1) $\dfrac{d}{dx}\displaystyle\int_1^xu\tan\frac1u\,du=x\tan\frac1x\to1$. (2) $F(x+1)-F(x)=F''(c)=f(c)$ ($x<c<x+1$)이고 $c\to\infty$이므로 극한은 $1$.'
+stuck: (2)에서 평균값 정리를 원시함수 $F$에 적용해 정적분을 한 점에서의 함숫값 $f(c)$로 바꾸는 단계
+idea_tags: [IDEA-FTC-DERIVATIVE, IDEA-MVT-MOVING-INTERVAL, IDEA-SUBST-THETA-RECIPROCAL]
+tags: [정적분으로 정의된 함수, 평균값 정리, 삼각함수의 극한]
+elements:
+  materials: [정적분으로 정의된 함수, 탄젠트함수, 적분 구간이 움직이는 정적분]
+  concepts: [미분과 적분의 관계, 평균값 정리, 삼각함수의 극한]
+  tools: [미분과 적분의 관계, 평균값 정리, 치환 θ=1/x, sinθ/θ의 극한]
+  conditions:
+  - '(1) $\frac{d}{dx}\int_1^xf(u)\,du=f(x)$ → $x\tan\frac1x$'
+  - '(2) 길이 1인 구간의 정적분 → 평균값 정리로 $f(c)$, $x<c<x+1$'
+  - '$x\to\infty$이면 $c\to\infty$'
+  stimuli_used: [제시문]
+  subpart_links: "(2)는 (1)의 극한 x tan(1/x)→1 을 사용"
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅱ, 미적분]
+  scope_2028: calc2
+  scope_confirmed: true
+  standards:
+  - code: 미확인
+    text: 미분과 적분의 관계를 이해한다(요지)
+    verified: false
+  content_area: 적분 – 정적분으로 정의된 함수
+  behavior_domain: 이해
+  unit_path: [수학Ⅱ, 적분, 정적분, 정적분으로 정의된 함수의 미분과 극한]
+  key_concepts: [미분과 적분의 관계, 평균값 정리, 삼각함수의 극한]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 숭실대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 숭실대학교
+  admission_year: 2025
+  admission_type: 논술우수자전형 모의논술
+  track: 자연
+  question_no: 2
+  official_url: https://iphak.ssu.ac.kr   # [확인필요] 입학처 기출 게시물 주소로 교체
+  retrieved_at: 2026-11-21
+  original_points: 25
+  rights_notice: 미확인(「숭실대 수리논술 문제교재(2026)」 p.21에서 옮김, 해설교재 p.21 참고)
+
+verify: verify/SSU-M25.py::p02
+
+stimuli:
+- label: 제시문
+  body: |
+    함수 $f(t)$가 닫힌구간 $[a,b]$에서 연속일 때,
+
+    $$\frac{d}{dx}\int_a^xf(t)\,dt=f(x)\quad(\text{단, }a<x<b)$$
+
+    함수 $f(x)$가 닫힌구간 $[a,b]$에서 연속이고 열린구간 $(a,b)$에서 미분가능하면
+
+    $$\frac{f(b)-f(a)}{b-a}=f'(c)$$
+
+    인 $c$가 $a$와 $b$ 사이에 적어도 하나 존재한다.
+    【출처: 수학Ⅱ 「미분, 적분」】
+
+stem: |
+  다음 문항에 답하시오.
+
+subparts:
+- id: '1'
+  stem: |
+    $\displaystyle\lim_{x\to\infty}\frac{d}{dx}\int_1^xu\tan\frac1u\,du$를 구하시오.
+  points: 10
+  depends_on: []
+  answer: {kind: value, value: '1', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: 미분하면 $x\tan\frac1x$이고 $\theta=\frac1x$로 두면 $\frac{\tan\theta}{\theta}\to1$.
+    steps:
+    - {id: 1a, content: '$\lim_{x\to\infty}x\tan\frac1x=\lim_{\theta\to0^+}\frac{\tan\theta}{\theta}=1$', criteria: [1.M1, 1.M2, 1.A1]}
+    hint_ladder:
+    - 위끝이 $x$인 정적분을 $x$로 미분하면?
+    - $\theta=\frac1x$로 치환해 보자.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 해설교재 p.21
+    steps:
+    - id: 1b-1
+      content: |
+        $f(x)=x\tan\dfrac1x$라 하고 $F(x)$를 $f(x)$의 한 부정적분이라 하면 $\displaystyle\int_1^xf(u)\,du=F(x)-F(1)$. ($x\ge1$에서 $0<\frac1x\le1<\frac{\pi}2$이므로 $f$는 연속.) 제시문(미분과 적분의 관계)에 의해 $\dfrac{d}{dx}\displaystyle\int_1^xu\tan\dfrac1u\,du=x\tan\dfrac1x$.
+      criteria: [1.M1]
+    - id: 1b-2
+      content: |
+        $\displaystyle\lim_{x\to\infty}x\tan\frac1x=\lim_{x\to\infty}\frac{\tan\frac1x}{\frac1x}$이고, $\theta=\dfrac1x$라 하면 $x\to\infty$일 때 $\theta\to0^+$.
+      criteria: [1.M2]
+    - id: 1b-3
+      content: |
+        $\displaystyle\lim_{\theta\to0}\frac{\tan\theta}{\theta}=\lim_{\theta\to0}\frac{\sin\theta}{\theta}\cdot\lim_{\theta\to0}\frac1{\cos\theta}=1\cdot1=1$.
+      criteria: [1.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 4
+      evidence: 미분과 적분의 관계로 $\frac{d}{dx}\int_1^xu\tan\frac1u\,du=x\tan\frac1x$를 얻었다.
+      steps: [1b-1]
+    - id: 1.M2
+      mark_type: M
+      points: 3
+      evidence: $\theta=\frac1x$로 치환해 $\frac{\tan\theta}{\theta}$ 꼴로 바꾸었다.
+      steps: [1b-2]
+    - id: 1.A1
+      mark_type: A
+      points: 3
+      evidence: $\frac{\sin\theta}{\theta}\to1$, $\cos\theta\to1$을 써서 극한값 1을 구했다.
+      depends_on: [1.M2]
+      steps: [1b-3]
+    deductions:
+    - code: D1-1
+      condition: 답만 쓰고 과정 없음
+      effect: cap
+      value: 2
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-0421}
+  misconceptions:
+  - id: MC-CAL-0421
+    outcome_code: '71'
+    wrong_work: '$\frac{d}{dx}\int_1^xu\tan\frac1u\,du=x\tan\frac1x-\tan1$로 써서 극한 $1-\tan1$'
+    detect_cue: 아래끝 1을 대입한 항 $\tan1$이 남음
+    feedback: $\int_1^xf(u)\,du=F(x)-F(1)$에서 $F(1)$은 상수이므로 미분하면 사라집니다. 결과는 $f(x)$뿐입니다.
+    remedy: [RL-1]
+- id: '2'
+  stem: |
+    $\displaystyle\lim_{x\to\infty}\int_x^{x+1}u\tan\frac1u\,du$를 구하시오.
+  points: 15
+  depends_on: ['1']
+  answer: {kind: value, value: '1', equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: $\int_x^{x+1}f=F(x+1)-F(x)=f(c)$ ($x<c<x+1$)이고 $x\to\infty$이면 $c\to\infty$이므로 (1)에 의해 1.
+    steps:
+    - {id: 2a, content: '$F(x+1)-F(x)=F''(c)=f(c)\to1$', criteria: [2.M1, 2.M2, 2.R1, 2.A1]}
+    hint_ladder:
+    - 정적분을 원시함수 $F$의 차로 써 보자.
+    - 길이가 1인 구간에서 $F$에 평균값 정리를 쓰면?
+  - id: S2-B
+    audience: B
+    method_no: 1
+    source_flow: 해설교재 p.21
+    steps:
+    - id: 2b-1
+      content: |
+        (1)의 $F$에 대하여 $\displaystyle\int_x^{x+1}u\tan\frac1u\,du=F(x+1)-F(x)$.
+      criteria: [2.M1]
+    - id: 2b-2
+      content: |
+        $F$는 $[x,x+1]$에서 연속이고 $(x,x+1)$에서 미분가능하므로($x\ge1$), 제시문의 평균값 정리에 의해 $F(x+1)-F(x)=F'(c)=f(c)$인 $c$가 열린구간 $(x,x+1)$에 존재한다.
+      criteria: [2.M2]
+    - id: 2b-3
+      content: |
+        $c>x$이므로 $x\to\infty$일 때 $c\to\infty$이고, (1)에서 $\displaystyle\lim_{c\to\infty}f(c)=\lim_{c\to\infty}c\tan\frac1c=1$.
+      criteria: [2.R1]
+    - id: 2b-4
+      content: |
+        따라서 $\displaystyle\lim_{x\to\infty}\int_x^{x+1}u\tan\frac1u\,du=\lim_{x\to\infty}f(c)=1$.
+      criteria: [2.A1]
+  - id: S2-ALT
+    audience: ALT
+    method_no: 2
+    key_idea: '$u\ge1$에서 $f(u)=u\tan\frac1u$가 감소함수임을 보이면 $f(x+1)\le\int_x^{x+1}f\le f(x)$이고 양쪽이 1로 수렴(함수의 극한의 대소 관계).'
+    steps:
+    - id: 2c-1
+      content: |
+        $\theta=\frac1u\in(0,1]$에 대하여 $f=\dfrac{\tan\theta}{\theta}$는 $\theta$에 대해 증가($\left(\frac{\tan\theta}{\theta}\right)'=\dfrac{\theta-\sin\theta\cos\theta}{\theta^2\cos^2\theta}>0$)하므로 $f$는 $u$에 대해 감소. 따라서 $f(x+1)\le\displaystyle\int_x^{x+1}f(u)\,du\le f(x)$이고 양 끝이 1로 수렴하므로 극한은 1.
+      criteria: [2.R1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 3
+      evidence: 정적분을 $F(x+1)-F(x)$로 나타냈다.
+      steps: [2b-1]
+    - id: 2.M2
+      mark_type: M
+      points: 5
+      evidence: 평균값 정리로 $F(x+1)-F(x)=f(c)$, $x<c<x+1$인 $c$의 존재를 적었다(연속·미분가능 조건 언급).
+      steps: [2b-2]
+    - id: 2.R1
+      mark_type: R
+      points: 4
+      evidence: $x\to\infty$이면 $c\to\infty$임을 밝히고 (1)의 극한을 연결했다.
+      ft: {allowed: true, from: [1.A1], max_points: 4}
+      steps: [2b-3, 2c-1]
+    - id: 2.A1
+      mark_type: A
+      points: 3
+      evidence: 극한값 1.
+      depends_on: [2.M2, 2.R1]
+      steps: [2b-4]
+    deductions:
+    - code: D2-1
+      condition: 답만 쓰고 과정 없음
+      effect: cap
+      value: 3
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-0422}
+  misconceptions:
+  - id: MC-CAL-0422
+    outcome_code: '71'
+    wrong_work: '$F(x+1)\to\infty$, $F(x)\to\infty$이므로 $\infty-\infty$ 꼴이라 극한이 없다고 결론'
+    detect_cue: 「발산」 또는 「존재하지 않음」, 평균값 정리 없음
+    feedback: $\infty-\infty$ 꼴은 값이 정해지지 않은 꼴일 뿐입니다. 평균값 정리로 차를 한 점의 함숫값으로 바꾸어 보세요.
+    remedy: [RL-1]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CAL-0421}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-FTC-DERIV}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-CAL-0422}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-FTC-DERIV}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-transcribe-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

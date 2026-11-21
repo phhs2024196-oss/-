@@ -1,0 +1,215 @@
+# 숭실대 2025학년도 모의논술고사(자연) 문제 4 — 원문은 내부 분석용(allowed_use: internal_only)
+# answer.value 는 (k, φ) 순서쌍의 집합.
+schema_version: '2.0'
+id: SSU-M25-04
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: numeric
+origin: mock_exam
+school: SSU
+type: T02
+variant_of: null
+replaces: null
+level: L5
+form: 분류
+points: 25
+time_estimate_min: 20
+intent: 구간별로 정의된 함수와 삼각함수의 곱이 연속이 될 조건을 경계점의 좌우극한으로 세워 매개변수를 좁히고, 정적분 값의 부호·정수 조건으로 최종 후보를 고르는 능력을 본다.
+key_idea: '$f$의 불연속점 $x=0$, $x=\pi$에서 $g=0$이어야 하므로 $\sin\phi=0$, $\sin(k\pi+\phi)=0$에서 $\phi\in\{0,\pi\}$, $k$는 양의 정수. $\int_0^\pi g\,dx=-\frac3k(\cos(k\pi+\phi)-\cos\phi)$가 양의 정수인 경우는 $\phi=0$, $k=1,3$.'
+stuck: 곱의 연속 조건이 「불연속점에서 $g(x)=0$」으로 바뀐다는 것과, 적분값의 부호로 $\phi=\pi$를 배제하는 단계
+idea_tags: [IDEA-PRODUCT-CONT-ZERO-AT-JUMP, IDEA-INTEGER-CONDITION-DIVISOR]
+tags: [함수의 연속, 삼각함수, 정적분]
+elements:
+  materials: [구간별로 정의된 상수함수, 사인함수, 함수의 곱, 정적분 값의 정수 조건]
+  concepts: [함수의 연속, 삼각함수의 성질, 삼각함수의 정적분]
+  tools: [좌극한과 우극한, 사인함수의 영점, 치환적분, 약수 조건]
+  conditions:
+  - '$f$의 불연속점 $x=0$, $x=\pi$에서 곱이 연속 → $g(0)=0$, $g(\pi)=0$'
+  - '$0\le\phi<2\pi$ → $\phi\in\{0,\pi\}$; $\sin k\pi=0$, $k>0$ → $k$ 양의 정수'
+  - '적분값 양의 정수 → $k$ 홀수, $\phi=0$, $\frac6k\in\mathbb{N}$'
+  stimuli_used: [제시문]
+  subpart_links: null
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅰ, 수학Ⅱ, 미적분]
+  scope_2028: calc2
+  scope_confirmed: true
+  standards:
+  - code: 미확인
+    text: 함수의 연속의 뜻을 안다(요지)
+    verified: false
+  content_area: 함수의 극한과 연속 – 함수의 연속
+  behavior_domain: 추론
+  unit_path: [수학Ⅱ, 함수의 극한과 연속, 함수의 연속, 구간별로 정의된 함수와 삼각함수의 곱의 연속]
+  key_concepts: [함수의 연속, 삼각함수의 성질, 삼각함수의 정적분]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 숭실대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 숭실대학교
+  admission_year: 2025
+  admission_type: 논술우수자전형 모의논술
+  track: 자연
+  question_no: 4
+  official_url: https://iphak.ssu.ac.kr   # [확인필요] 입학처 기출 게시물 주소로 교체
+  retrieved_at: 2026-11-21
+  original_points: 25
+  rights_notice: 미확인(「숭실대 수리논술 문제교재(2026)」 p.23에서 옮김, 해설교재 p.23 참고)
+
+verify: verify/SSU-M25.py::p04
+
+stimuli:
+- label: 제시문
+  body: |
+    일반적으로 함수 $f(x)$가 실수 $a$에 대하여 다음 세 조건을 모두 만족시킬 때, $f(x)$는 $x=a$에서 연속이라고 한다.
+
+    (i) 함수 $f(x)$가 $x=a$에서 정의되어 있다.
+
+    (ii) 극한값 $\displaystyle\lim_{x\to a}f(x)$가 존재한다.
+
+    (iii) $\displaystyle\lim_{x\to a}f(x)=f(a)$
+    【출처: 수학Ⅱ 「함수의 연속」】
+
+stem: |
+  함수 $f(x)$가 다음과 같이 정의되어 있다.
+
+  $$f(x)=\begin{cases}-\dfrac13&(x<0)\\[2mm]2&(0\le x<\pi)\\[2mm]\dfrac12&(x\ge\pi)\end{cases}$$
+
+  양수 $k$와 $0\le\phi<2\pi$인 $\phi$에 대하여 함수 $g(x)$가 $g(x)=3\sin(kx+\phi)$로 주어졌을 때, 함수 $f(x)g(x)$가 모든 실수 $x$에서 연속이 되도록 하고, 또한 $\displaystyle\int_0^{\pi}g(x)\,dx$가 양의 정수가 되도록 하는 $k$와 $\phi$를 모두 구하시오.
+
+subparts:
+- id: '1'
+  stem: |
+    조건을 만족시키는 $k$와 $\phi$를 모두 구하시오.
+  points: 25
+  depends_on: []
+  answer: {kind: set, value: '{(1, 0), (3, 0)}', equivalents: ['$\phi=0$, $k=1,3$'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $x=0$에서 $-\sin\phi=6\sin\phi$, $x=\pi$에서 $6\sin(k\pi+\phi)=\frac32\sin(k\pi+\phi)$이므로 $\phi\in\{0,\pi\}$, $k\in\mathbb{N}$. 적분값 $\pm\frac{6}{k}$ ($k$ 홀수) 또는 0이므로 $\phi=0$, $k\mid6$, $k$ 홀수.
+    steps:
+    - {id: 1a, content: '$\phi=0$, $k\in\{1,3\}$', criteria: [1.M1, 1.A1, 1.M2, 1.A2, 1.M3, 1.R1, 1.A3]}
+    hint_ladder:
+    - $f$가 불연속인 점에서 곱이 연속이려면 $g$의 값은?
+    - $\sin\phi=0$, $\sin(k\pi+\phi)=0$에서 $k$에 대해 무엇을 알 수 있는가?
+    - $\int_0^\pi\sin(kx+\phi)\,dx$를 $k$의 홀짝으로 나누어 계산하자.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 해설교재 p.23
+    steps:
+    - id: 1b-1
+      content: |
+        $h(x)=f(x)g(x)$라 하자. $f$, $g$는 $x\ne0$, $x\ne\pi$에서 연속이므로 $h$가 모든 실수에서 연속이려면 $x=0$과 $x=\pi$에서 연속이면 된다.
+      criteria: [1.M1]
+    - id: 1b-2
+      content: |
+        (i) $h(0)=6\sin\phi$, $\displaystyle\lim_{x\to0^-}h(x)=-\sin\phi$, $\displaystyle\lim_{x\to0^+}h(x)=6\sin\phi$. 연속이려면 $-\sin\phi=6\sin\phi$, 즉 $\sin\phi=0$이고 $0\le\phi<2\pi$이므로 $\phi=0$ 또는 $\phi=\pi$.
+      criteria: [1.A1]
+    - id: 1b-3
+      content: |
+        (ii) $h(\pi)=\dfrac32\sin(k\pi+\phi)$, $\displaystyle\lim_{x\to\pi^-}h(x)=6\sin(k\pi+\phi)$, $\displaystyle\lim_{x\to\pi^+}h(x)=\dfrac32\sin(k\pi+\phi)$. 연속이려면 $6\sin(k\pi+\phi)=\dfrac32\sin(k\pi+\phi)$, 즉 $\sin(k\pi+\phi)=0$.
+      criteria: [1.M2]
+    - id: 1b-4
+      content: |
+        (i)에서 $\phi$는 $0$ 또는 $\pi$이므로 $\sin(k\pi+\phi)=\pm\sin k\pi=0$, 따라서 $k\pi$는 $\pi$의 정수배이고 $k>0$이므로 $k$는 양의 정수.
+      criteria: [1.A2]
+    - id: 1b-5
+      content: |
+        $\displaystyle\int_0^\pi g(x)\,dx=3\int_0^\pi\sin(kx+\phi)\,dx=-\frac3k\left(\cos(k\pi+\phi)-\cos\phi\right)$. 짝수인 $k$이면 $\cos(k\pi+\phi)=\cos\phi$이므로 적분값은 0이 되어 양의 정수가 아니다. 따라서 $k$는 홀수, $k=2n+1$ ($n\ge0$인 정수).
+      criteria: [1.M3]
+    - id: 1b-6
+      content: |
+        $\phi=0$이면 $\displaystyle\int_0^\pi g(x)\,dx=-\frac3k(\cos((2n+1)\pi)-1)=\frac6k$이므로 양의 정수가 되는 홀수 $k$는 6의 약수 중 홀수인 $1$, $3$. $\phi=\pi$이면 $-\dfrac3k(\cos((2n+1)\pi+\pi)+1)=-\dfrac6k<0$이므로 양의 정수가 되는 $k$는 없다.
+      criteria: [1.R1]
+    - id: 1b-7
+      content: |
+        따라서 $\phi=0$이고 $k=1$ 또는 $k=3$.
+      criteria: [1.A3]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 3
+      evidence: $x=0$, $x=\pi$에서만 연속성을 확인하면 됨을 적었다.
+      steps: [1b-1]
+    - id: 1.A1
+      mark_type: A
+      points: 4
+      evidence: $x=0$의 좌우극한 비교로 $\sin\phi=0$, $\phi\in\{0,\pi\}$를 얻었다.
+      depends_on: [1.M1]
+      steps: [1b-2]
+    - id: 1.M2
+      mark_type: M
+      points: 3
+      evidence: $x=\pi$의 좌우극한 비교로 $\sin(k\pi+\phi)=0$을 얻었다.
+      steps: [1b-3]
+    - id: 1.A2
+      mark_type: A
+      points: 3
+      evidence: $k$가 양의 정수임을 밝혔다.
+      depends_on: [1.M2]
+      steps: [1b-4]
+    - id: 1.M3
+      mark_type: M
+      points: 5
+      evidence: $\int_0^\pi g\,dx=-\frac3k(\cos(k\pi+\phi)-\cos\phi)$를 구하고 $k$가 짝수이면 0이 됨을 보였다.
+      steps: [1b-5]
+    - id: 1.R1
+      mark_type: R
+      points: 4
+      evidence: $\phi=0$이면 $\frac6k$, $\phi=\pi$이면 $-\frac6k<0$임을 보여 $\phi=\pi$를 배제했다.
+      steps: [1b-6]
+    - id: 1.A3
+      mark_type: A
+      points: 3
+      evidence: $\phi=0$, $k=1,3$.
+      depends_on: [1.M3, 1.R1]
+      cao: true
+      steps: [1b-7]
+    deductions:
+    - code: D1-1
+      condition: 답만 쓰고 과정 없음
+      effect: cap
+      value: 5
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-0425}
+  - {code: '72', misconception: MC-CAL-0426}
+  misconceptions:
+  - id: MC-CAL-0425
+    outcome_code: '71'
+    wrong_work: '적분값의 절댓값 $\frac6k$만 보고 $\phi=0,\pi$와 $k=1,3$을 모두 답으로 씀'
+    detect_cue: 답에 $\phi=\pi$가 포함됨
+    feedback: $\phi=\pi$이면 적분값은 $-\frac6k$로 음수입니다. 「양의 정수」 조건에서 부호를 확인하세요.
+    remedy: [RL-1]
+  - id: MC-CAL-0426
+    outcome_code: '72'
+    wrong_work: '$x=0$에서의 연속만 확인해 $\phi\in\{0,\pi\}$를 얻고 $k$를 양의 실수로 남겨 둠'
+    detect_cue: $x=\pi$에서의 연속 조건이 없음, $k$가 정수라는 근거 없음
+    feedback: $f$는 $x=\pi$에서도 불연속입니다. 그 점에서도 $g(\pi)=0$이어야 하므로 $k$가 정수가 됩니다.
+    remedy: [RL-1]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CAL-0426}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-COMPOSITE-CONT}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-transcribe-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

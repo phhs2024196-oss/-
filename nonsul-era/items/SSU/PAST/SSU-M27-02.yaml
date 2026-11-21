@@ -1,0 +1,179 @@
+# 숭실대 2027학년도 모의논술고사(자연) 문제 2 — 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: SSU-M27-02
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: numeric
+origin: mock_exam
+school: SSU
+type: T03
+variant_of: null
+replaces: null
+level: L4
+form: 추론
+points: 25
+time_estimate_min: 20
+intent: 지수·로그함수의 교점 조건을 로그로 정리해 좌표 관계를 찾고, 역함수 관계를 이용해 접선의 기울기를 계산하는 능력을 본다.
+key_idea: '$\beta=b^\alpha$, $\beta=-\log_b\alpha$와 $\alpha\beta^2=1$에 $\log_b$를 취하면 $\beta=2\alpha$이고, 기울기의 곱은 $-\beta/\alpha$이다.'
+stuck: $\alpha\beta^2=1$에 $\log_b$를 취해 두 교점 조건과 결합하는 단계
+idea_tags: [IDEA-LOG-COMBINE-CONDITIONS, IDEA-INVERSE-SLOPE]
+tags: [접선의 기울기]
+elements:
+  materials: [지수함수, 로그함수, 역함수 그래프의 교점, 접선]
+  concepts: [지수함수의 도함수, 로그함수의 도함수, 역함수, 로그의 성질]
+  tools: [로그의 성질, 지수·로그함수의 미분, 미분계수와 접선의 기울기]
+  conditions:
+  - '교점 → $\beta=b^\alpha$, $\beta=-\log_b\alpha$'
+  - '$\alpha\beta^2=1$에 $\log_b$ → $\beta=2\alpha$'
+  stimuli_used: [제시문]
+  subpart_links: null
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅰ, 미적분]
+  scope_2028: calc2
+  scope_confirmed: true
+  standards:
+  - code: 미확인
+    text: 지수함수와 로그함수를 미분할 수 있다(요지)
+    verified: false
+  content_area: 미분법 – 여러 가지 함수의 미분
+  behavior_domain: 문제해결
+  unit_path: [미적분, 미분법, 여러 가지 함수의 미분, 지수·로그함수의 도함수와 접선]
+  key_concepts: [지수함수의 도함수, 로그함수의 도함수, 역함수, 로그의 성질]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 숭실대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 숭실대학교
+  admission_year: 2027
+  admission_type: 논술우수자전형 모의논술
+  track: 자연
+  question_no: 2
+  official_url: https://iphak.ssu.ac.kr   # [확인필요] 입학처 기출 게시물 주소로 교체
+  retrieved_at: 2026-11-21
+  original_points: 25
+  rights_notice: 미확인(대치 수리 논술 연구소 「2027학년도 대비 수리논술 숭실대 기출 및 모의 문제」 p.5에서 옮김)
+
+verify: verify/SSU-M27.py::p02
+
+stimuli:
+- label: 제시문
+  body: |
+    함수 $f(x)$가 $x=a$에서 미분가능할 때, $x=a$에서의 미분계수 $f'(a)$는 곡선 $y=f(x)$ 위의 점 $(a,f(a))$에서의 접선의 기울기와 같다.
+    【출처: 미적분 「미분법」】
+
+stem: |
+  함수 $f(x)=b^x\ (b>1)$와 그 역함수로 정의되는 함수 $g(x)=-f^{-1}(x)$의 그래프의 교점 $\mathrm{P}(\alpha,\beta)$가 $\alpha\beta^2=1$을 만족시킨다. 이때 점 $\mathrm{P}$에서 곡선 $y=f(x)$에 접하는 접선 $\ell_1$의 기울기와 점 $\mathrm{P}$에서 곡선 $y=g(x)$에 접하는 접선 $\ell_2$의 기울기의 곱을 구하시오.
+
+subparts:
+- id: '1'
+  stem: |
+    두 접선 $\ell_1$, $\ell_2$의 기울기의 곱을 구하시오.
+  points: 25
+  depends_on: []
+  answer: {kind: value, value: '-2', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $\log_b\alpha=-\beta$, $\log_b\beta=\alpha$를 $\log_b(\alpha\beta^2)=0$에 넣으면 $\beta=2\alpha$. 기울기 곱 $=\beta\ln b\cdot\left(-\dfrac1{\alpha\ln b}\right)=-\dfrac\beta\alpha=-2$.
+    steps:
+    - {id: 1a, content: '$-\beta+2\alpha=0$, 곱 $=-\beta/\alpha=-2$', criteria: [1.M1, 1.A1, 1.M2, 1.M3, 1.A2]}
+    hint_ladder:
+    - 점 P가 두 그래프 위에 있다는 조건을 각각 식으로 써 보자.
+    - $\alpha\beta^2=1$의 양변에 $\log_b$를 취해 보자.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 해설교재 p.3
+    steps:
+    - id: 1b-1
+      content: |
+        $f^{-1}(x)=\log_bx$이므로 $g(x)=-\log_bx\ (x>0)$. 점 P가 두 그래프 위에 있으므로 $\beta=b^\alpha$, $\beta=-\log_b\alpha$. 따라서 $\log_b\beta=\alpha$, $\log_b\alpha=-\beta$ (이때 $\alpha>0$, $\beta>0$).
+      criteria: [1.M1]
+    - id: 1b-2
+      content: |
+        $\alpha\beta^2=1$의 양변에 $\log_b$를 취하면 $\log_b\alpha+2\log_b\beta=0$, 즉 $-\beta+2\alpha=0$이므로 $\beta=2\alpha$.
+      criteria: [1.A1]
+    - id: 1b-3
+      content: |
+        제시문에 의해 $\ell_1$의 기울기는 $f'(\alpha)=b^\alpha\ln b=\beta\ln b$.
+      criteria: [1.M2]
+    - id: 1b-4
+      content: |
+        $g'(x)=-\dfrac1{x\ln b}$이므로 $\ell_2$의 기울기는 $g'(\alpha)=-\dfrac1{\alpha\ln b}$.
+      criteria: [1.M3]
+    - id: 1b-5
+      content: |
+        두 기울기의 곱은 $\beta\ln b\cdot\left(-\dfrac1{\alpha\ln b}\right)=-\dfrac\beta\alpha=-2$.
+        (참고: $\alpha\cdot(2\alpha)^2=1$에서 $\alpha=2^{-2/3}$, $\beta=2^{1/3}$이고 $b=\beta^{1/\alpha}>1$이 실제로 존재한다.)
+      criteria: [1.A2]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 5
+      evidence: 교점 조건 $\beta=b^\alpha$, $\beta=-\log_b\alpha$를 식으로 썼다.
+      steps: [1b-1]
+    - id: 1.A1
+      mark_type: A
+      points: 7
+      evidence: $\alpha\beta^2=1$에 로그를 취하고 교점 조건을 대입해 $\beta=2\alpha$를 얻었다.
+      depends_on: [1.M1]
+      steps: [1b-2]
+    - id: 1.M2
+      mark_type: M
+      points: 4
+      evidence: $\ell_1$의 기울기 $b^\alpha\ln b$ (또는 $\beta\ln b$)를 구했다.
+      implied_ok: true
+      steps: [1b-3]
+    - id: 1.M3
+      mark_type: M
+      points: 5
+      evidence: $g'(\alpha)=-\dfrac1{\alpha\ln b}$를 구했다.
+      implied_ok: true
+      steps: [1b-4]
+    - id: 1.A2
+      mark_type: A
+      points: 4
+      evidence: 곱을 $-\beta/\alpha$로 정리해 $-2$를 얻었다.
+      depends_on: [1.A1, 1.M2, 1.M3]
+      cao: true
+      steps: [1b-5]
+    deductions:
+    - code: D1-1
+      condition: 답만 쓰고 과정 없음
+      effect: cap
+      value: 5
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-0203}
+  misconceptions:
+  - id: MC-CAL-0203
+    outcome_code: '71'
+    wrong_work: '$g(x)=-f^{-1}(x)$를 $\dfrac1{f(x)}=b^{-x}$로 해석'
+    detect_cue: $g(x)=b^{-x}$ 또는 $\left(\dfrac1b\right)^x$가 등장
+    feedback: $f^{-1}$은 역수가 아니라 역함수입니다. $f^{-1}(x)=\log_bx$입니다.
+    remedy: [RL-1]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CAL-0203}
+  relation: remediation
+  target: {kind: concept, ref: CON-ALG-INVERSE-EXPLOG}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-transcribe-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

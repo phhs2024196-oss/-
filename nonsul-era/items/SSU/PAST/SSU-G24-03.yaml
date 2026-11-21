@@ -1,0 +1,211 @@
+# 숭실대 2024학년도 논술고사(자연) 문제 3 — 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: SSU-G24-03
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: numeric
+origin: past_exam
+school: SSU
+type: T02
+variant_of: null
+replaces: null
+level: L4
+form: 최적2단
+points: 25
+time_estimate_min: 20
+intent: 합성함수의 연속 조건으로 미정계수를 결정한 뒤, 좌우가 비대칭인 곡선에 내접하는 직사각형의 넓이를 한 변수 함수로 세워 최댓값을 구하는 능력을 본다.
+key_idea: '$x\le0$에서 $g(x)>0$, $x>0$에서 $g(x)<0$이므로 $f(g(0))=f(\frac12)=1-\frac a4$와 우극한 $f(-\frac14)=1-\frac1{16}$이 같아 $a=\frac14$. 높이가 같은 두 꼭짓점 $(m,1-\frac{m^2}4)$, $(-\frac m2,\cdot)$에서 $S(m)=\frac32m-\frac38m^3$.'
+stuck: 합성함수에서 $f$의 어느 식을 쓸지를 $g(x)$의 부호로 정하는 단계와, 직사각형의 왼쪽 꼭짓점이 $-\frac m2$임(비대칭)을 찾는 단계
+idea_tags: [IDEA-COMPOSITE-BRANCH-BY-INNER-SIGN, IDEA-INSCRIBED-RECT-EQUAL-HEIGHT]
+tags: [합성함수의 연속, 내접 직사각형, 최대·최소]
+elements:
+  materials: [구간별로 정의된 이차함수, 구간별로 정의된 일차함수, 합성함수, 곡선에 내접하는 직사각형]
+  concepts: [합성함수의 연속, 도함수를 이용한 최대·최소]
+  tools: [좌극한과 우극한, 높이가 같은 두 점의 좌표 관계, 증감표]
+  conditions:
+  - '$x\le0$이면 $g(x)=-x+\frac12>0$ → $f$의 $x>0$ 식 $1-ax^2$ 사용'
+  - '$x>0$이면 $g(x)=-x-\frac14<0$ → $f$의 $x\le0$ 식 $1-x^2$ 사용'
+  - '$f(g(x))$가 $x=0$에서 연속 → $1-\frac a4=1-\frac1{16}$ → $a=\frac14$'
+  - '직사각형의 위 두 꼭짓점은 높이가 같음 → $1-n^2=1-\frac{m^2}4$ → $n=-\frac m2$'
+  stimuli_used: [제시문]
+  subpart_links: null
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅱ]
+  scope_2028: common
+  scope_confirmed: true
+  standards:
+  - code: 미확인
+    text: 함수의 연속의 뜻을 안다(요지)
+    verified: false
+  content_area: 함수의 극한과 연속 – 함수의 연속 / 미분 – 도함수의 활용
+  behavior_domain: 문제해결
+  unit_path: [수학Ⅱ, 미분, 도함수의 활용, 연속 조건으로 결정한 곡선에 내접하는 직사각형의 최대 넓이]
+  key_concepts: [합성함수의 연속, 도함수를 이용한 최대·최소]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 숭실대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 숭실대학교
+  admission_year: 2024
+  admission_type: 논술우수자전형
+  track: 자연
+  question_no: 3
+  official_url: https://iphak.ssu.ac.kr   # [확인필요] 입학처 기출 게시물 주소로 교체
+  retrieved_at: 2026-11-21
+  original_points: 25
+  rights_notice: 미확인(「숭실대 수리논술 문제교재(2026)」 p.26에서 옮김, 해설교재 p.28 참고)
+
+verify: verify/SSU-G24.py::p03
+
+stimuli:
+- label: 제시문
+  body: |
+    함수 $f(x)$가 실수 $a$에 대하여 다음 세 조건을 모두 만족시킬 때, $f(x)$는 $x=a$에서 연속이라고 한다.
+
+    (i) 함수 $f(x)$가 $x=a$에서 정의되어 있다.
+
+    (ii) 극한값 $\displaystyle\lim_{x\to a}f(x)$가 존재한다.
+
+    (iii) $\displaystyle\lim_{x\to a}f(x)=f(a)$
+    【출처: 수학Ⅱ 「함수의 연속」】
+
+stem: |
+  함수 $f(x)$와 $g(x)$가 아래와 같이 주어져 있다.
+
+  $$f(x)=\begin{cases}1-x^2&(x\le0)\\1-ax^2&(x>0)\end{cases}\ (\text{단, }a\text{는 상수}),\qquad g(x)=\begin{cases}-x+\dfrac12&(x\le0)\\[2mm]-x-\dfrac14&(x>0)\end{cases}$$
+
+  합성함수 $f(g(x))$는 연속이라고 하자.
+
+  이때 한 변이 $x$축 위에 있고, 함수 $f(x)$의 그래프와 $x$축으로 둘러싸인 도형에 내접하는 직사각형의 넓이의 최댓값을 구하시오.
+
+subparts:
+- id: '1'
+  stem: |
+    직사각형의 넓이의 최댓값을 구하시오.
+  points: 25
+  depends_on: []
+  answer: {kind: value, value: '2*sqrt(3)/3', equivalents: ['$\dfrac{2}{\sqrt3}$', '$\dfrac{2\sqrt3}{3}$'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $a=\frac14$. 오른쪽 위 꼭짓점 $(m,1-\frac{m^2}4)$, 왼쪽 위 꼭짓점 $(-\frac m2,\cdot)$이므로 $S(m)=\frac{3m}2\left(1-\frac{m^2}4\right)$, $S'=0$에서 $m=\frac2{\sqrt3}$, 최댓값 $\frac2{\sqrt3}$.
+    steps:
+    - {id: 1a, content: '$a=\frac14$, $S(m)=\frac32m-\frac38m^3$, $S\left(\frac2{\sqrt3}\right)=\frac2{\sqrt3}$', criteria: [1.M1, 1.A1, 1.M2, 1.B1, 1.R1, 1.A2]}
+    hint_ladder:
+    - $x\le0$일 때 $g(x)$의 부호는? 그러면 $f$의 어느 식에 넣어야 하는가?
+    - 직사각형의 위쪽 두 꼭짓점은 같은 높이에 있다.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 해설교재 p.28
+    steps:
+    - id: 1b-1
+      content: |
+        $x\le0$이면 $g(x)=-x+\dfrac12>0$, $x>0$이면 $g(x)=-x-\dfrac14<0$이므로 $f(g(x))=1-a\left(-x+\dfrac12\right)^2$ ($x\le0$), $f(g(x))=1-\left(-x-\dfrac14\right)^2$ ($x>0$).
+      criteria: [1.M1]
+    - id: 1b-2
+      content: |
+        각 식은 다항식이므로 $x\ne0$에서 연속이고, $x=0$에서 연속이려면 $\displaystyle\lim_{x\to0^-}f(g(x))=f(g(0))=\lim_{x\to0^+}f(g(x))$, 즉 $1-\dfrac{a}{2^2}=1-\dfrac1{4^2}$. 따라서 $a=\dfrac14$.
+      criteria: [1.A1]
+    - id: 1b-3
+      content: |
+        $f(x)=1-x^2$ ($x\le0$), $f(x)=1-\dfrac14x^2$ ($x>0$)의 그래프와 $x$축으로 둘러싸인 도형은 $-1\le x\le2$ 부분이다. 직사각형의 오른쪽 변의 $x$좌표를 $m$ ($0<m<2$)이라 하면 오른쪽 위 꼭짓점은 $\mathrm{A}\left(m,1-\dfrac14m^2\right)$. 왼쪽 위 꼭짓점 $\mathrm{B}\left(n,1-\dfrac14m^2\right)$ ($n<0$)은 곡선 $y=1-x^2$ 위에 있으므로 $1-n^2=1-\dfrac14m^2$, $n=-\dfrac m2$.
+      criteria: [1.M2]
+    - id: 1b-4
+      content: |
+        넓이 $S(m)=\left(1-\dfrac{m^2}4\right)\left(m+\dfrac m2\right)=\dfrac32m-\dfrac38m^3$ ($0<m<2$), $S'(m)=\dfrac32-\dfrac98m^2$.
+      criteria: [1.B1]
+    - id: 1b-5
+      content: |
+        $S'(m)=0$에서 $m=\dfrac2{\sqrt3}$. $0<m<\dfrac2{\sqrt3}$에서 $S'>0$, $\dfrac2{\sqrt3}<m<2$에서 $S'<0$이므로 $S$는 $m=\dfrac2{\sqrt3}$에서 극대이자 최대.
+      criteria: [1.R1]
+    - id: 1b-6
+      content: |
+        최댓값 $S\left(\dfrac2{\sqrt3}\right)=\dfrac32\cdot\dfrac2{\sqrt3}\cdot\left(1-\dfrac13\right)=\dfrac2{\sqrt3}=\dfrac{2\sqrt3}3$.
+      criteria: [1.A2]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 4
+      evidence: $g(x)$의 부호에 따라 $f(g(x))$를 구간별 식으로 나타냈다.
+      steps: [1b-1]
+    - id: 1.A1
+      mark_type: A
+      points: 4
+      evidence: $x=0$에서 좌우극한·함숫값 비교로 $a=\frac14$를 구했다.
+      depends_on: [1.M1]
+      steps: [1b-2]
+    - id: 1.M2
+      mark_type: M
+      points: 5
+      evidence: 위쪽 두 꼭짓점의 높이가 같다는 조건에서 왼쪽 꼭짓점의 $x$좌표 $-\frac m2$를 구했다.
+      steps: [1b-3]
+    - id: 1.B1
+      mark_type: B
+      points: 4
+      evidence: 넓이 $S(m)=\frac32m-\frac38m^3$ ($0<m<2$)과 $S'(m)$을 구했다.
+      steps: [1b-4]
+    - id: 1.R1
+      mark_type: R
+      points: 4
+      evidence: $S'$의 부호 변화(증감표)로 $m=\frac2{\sqrt3}$에서 최대임을 밝혔다.
+      steps: [1b-5]
+    - id: 1.A2
+      mark_type: A
+      points: 4
+      evidence: 최댓값 $\frac2{\sqrt3}$.
+      depends_on: [1.M2, 1.R1]
+      cao: true
+      steps: [1b-6]
+    deductions:
+    - code: D1-1
+      condition: 답만 쓰고 과정 없음
+      effect: cap
+      value: 5
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-0431}
+  - {code: '72', misconception: MC-CAL-0432}
+  misconceptions:
+  - id: MC-CAL-0431
+    outcome_code: '71'
+    wrong_work: '$x\le0$이므로 $f(g(x))=1-\left(-x+\frac12\right)^2$로 두어 $a$를 정하지 못하거나 $a=1$이라 씀'
+    detect_cue: $f(g(x))$의 $x\le0$ 식에 $a$가 없음
+    feedback: 합성함수 $f(g(x))$에서 $f$의 식은 $f$에 넣는 값 $g(x)$의 부호로 고릅니다. $x\le0$이면 $g(x)>0$입니다.
+    remedy: [RL-1]
+  - id: MC-CAL-0432
+    outcome_code: '72'
+    wrong_work: '직사각형을 $y$축 대칭으로 보고 $S=2m\left(1-\frac{m^2}4\right)$ 등으로 계산'
+    detect_cue: 왼쪽 꼭짓점을 $-m$으로 둠
+    feedback: $x<0$ 쪽은 $y=1-x^2$, $x>0$ 쪽은 $y=1-\frac14x^2$로 곡선이 다릅니다. 높이가 같은 점을 각각 찾으세요.
+    remedy: [RL-2]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CAL-0431}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-COMPOSITE-CONT}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-CAL-0432}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-OPTIM-CONSTRAINT}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-transcribe-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

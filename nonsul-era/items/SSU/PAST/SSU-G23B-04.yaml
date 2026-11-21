@@ -1,0 +1,267 @@
+# 숭실대 2023학년도 논술고사(자연2) 문제 4 — 원문은 내부 분석용(allowed_use: internal_only)
+# 해설교재(p.47~48)와 답 일치: (1) tanθ=-1, (2) a=7√2.
+# 소문항 배점은 원문에 없음(문제 전체 25점) → (1) 10점, (2) 15점으로 임의 배분. [확인필요]
+schema_version: '2.0'
+id: SSU-G23B-04
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: numeric
+origin: past_exam
+school: SSU
+type: T05
+variant_of: null
+replaces: null
+level: L5
+form: 추론
+points: 25
+time_estimate_min: 25
+intent: 두 구간 이동 시간의 합이 최소가 되는 경로 조건을 해석해 각의 탄젠트를 덧셈정리로 구하고, 이동 시간을 한 변수의 함수로 나타내 극소 조건으로 미지의 속력을 결정하는 능력을 본다.
+key_idea: '(1) Q에서 $\ell$까지 가장 빨리 가려면 $\mathrm{QR}\perp\ell$, 기울기 $\dfrac13$. OQ 기울기 2와 덧셈정리로 $\tan\theta=\tan(\theta_2-\theta_1)=-1$. (2) $t(x)=\dfrac{\sqrt{x^2+(3-x^4)^2}}{a}-\dfrac{3x+(3-x^4)-10}{\sqrt{10}}$에서 $t^\prime(1)=0$ → $a=7\sqrt2$.'
+stuck: 총 시간을 Q의 $x$좌표 하나의 함수로 쓰고, 「Q가 $(1,2)$일 때 가장 빠름」을 $t^\prime(1)=0$으로 바꾸는 단계
+idea_tags: [IDEA-SHORTEST-PERP-FOOT, IDEA-TAN-ADDITION-ANGLE, IDEA-MIN-AT-GIVEN-POINT-DERIV-ZERO]
+tags: [최단 시간 경로, 두 구간 운동]
+elements:
+  materials: [사차함수 그래프 위의 점을 거치는 경로, 직선까지의 최단 시간, 두 속력의 이동]
+  concepts: [두 점 사이의 거리, 점과 직선 사이의 거리, 두 직선의 수직 조건, 탄젠트의 덧셈정리, 합성함수의 미분]
+  tools: [수선의 발, 기울기와 탄젠트, 탄젠트 덧셈정리, 거리 공식, 절댓값 부호 판정, 미분계수 0 조건]
+  conditions:
+  - '경로: O → Q(곡선 $y=3-x^4$ 위, 속력 $a$) → R(직선 $\ell:\ y=-3x+10$ 위, 속력 1)'
+  - 'Q가 정해지면 Q에서 $\ell$까지 가장 빠른 경로는 수선 → QR의 기울기 $\dfrac13$'
+  - '가장 빨리 도착할 때 Q의 좌표가 $(1,2)$ → 시간 함수 $t(x)$가 $x=1$에서 최소 → $t^\prime(1)=0$'
+  - '$\angle\mathrm{OQR}$의 범위 $0\le\theta\le\pi$ → 둔각이면 $\tan\theta<0$'
+  stimuli_used: []
+  subpart_links: (1)과 (2)는 모두 Q=(1,2)에서 QR이 ℓ에 수직이라는 조건을 공유
+
+curriculum:
+  version: '2015'
+  subjects: [수학, 미적분]
+  scope_2028: calc2
+  scope_confirmed: true
+  standards:
+  - code: 미확인
+    text: 삼각함수의 덧셈정리를 이해하고, 여러 가지 함수의 미분을 활용한다(요지)
+    verified: false
+  content_area: 미분법 – 여러 가지 미분법 / 삼각함수의 덧셈정리
+  behavior_domain: 문제해결
+  unit_path: [미적분, 미분법, 도함수의 활용, 최단 시간 경로와 미지수 결정]
+  key_concepts: [두 점 사이의 거리, 점과 직선 사이의 거리, 두 직선의 수직 조건, 탄젠트의 덧셈정리, 합성함수의 미분]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 숭실대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 숭실대학교
+  admission_year: 2023
+  admission_type: 논술우수자전형
+  track: 자연2
+  question_no: 4
+  official_url: https://iphak.ssu.ac.kr   # [확인필요] 입학처 기출 게시물 주소로 교체
+  retrieved_at: 2026-11-21
+  original_points: 25
+  rights_notice: 미확인(「숭실대 수리논술 문제교재(2026)」 p.39, 해설교재 p.47~48에서 옮김)
+
+verify: verify/SSU-G23B.py::p04
+
+stimuli: []
+
+stem: |
+  좌표평면에서 점 $\mathrm{P}$가 다음 조건을 만족시키며 움직인다고 하자.
+
+  점 $\mathrm{P}$는 원점 $\mathrm{O}$를 출발하여 함수 $y=3-x^4$의 그래프의 한 점 $\mathrm{Q}$까지 선분 $\mathrm{OQ}$를 따라 일정한 속력 $a$로 움직인 후, 직선 $\ell:\ y=-3x+10$의 한 점 $\mathrm{R}$까지 선분 $\mathrm{QR}$을 따라 속력 $1$로 움직인다. (단, $a$는 양수)
+
+  [그림 설명] 좌표평면에 곡선 $y=3-x^4$(파란색, $y$절편 3, $x$축과 $x=\sqrt[4]{3}$ 부근에서 만남)과 직선 $y=-3x+10$(빨간색, 곡선의 오른쪽 위를 지남)이 그려져 있다.
+
+  점 $\mathrm{P}$가 직선 $\ell$ 위의 한 점 $\mathrm{R}$까지 가장 빨리 도착할 때 점 $\mathrm{Q}$의 좌표는 $(1,2)$라고 하자. 이때 다음 문항에 답하시오.
+
+  (1) $\theta=\angle\mathrm{OQR}$일 때 $\tan\theta$의 값을 구하시오. (단, $0\le\theta\le\pi$)
+
+  (2) $a$를 구하시오.
+
+subparts:
+- id: '1'
+  stem: |
+    (1) $\theta=\angle\mathrm{OQR}$일 때 $\tan\theta$의 값을 구하시오. (단, $0\le\theta\le\pi$)
+  points: 10
+  depends_on: []
+  answer: {kind: value, value: '-1', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: QR $\perp\ell$이므로 QR의 기울기 $\dfrac13$, OQ의 기울기 2. $\theta=\pi-\theta_1+\theta_2$ ($\tan\theta_1=2$, $\tan\theta_2=\dfrac13$)이므로 $\tan\theta=\tan(\theta_2-\theta_1)=-1$.
+    steps:
+    - {id: 1a, content: '$\tan\theta=\dfrac{\frac13-2}{1+\frac23}=-1$', criteria: [1.M1, 1.M2, 1.A1]}
+    hint_ladder:
+    - Q가 정해져 있을 때 Q에서 직선 $\ell$까지 가장 빨리 가는 경로는?
+    - 두 선분과 $x$축이 이루는 각을 이용해 $\theta$를 나타내 보자.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 해설교재 p.47
+    steps:
+    - id: 1b-1
+      content: |
+        점 P가 조건을 만족시키면서 직선 $\ell$ 위의 점까지 가장 빨리 도착하려면 점 Q와 R을 잇는 직선이 $\ell$과 수직이어야 한다. 이때 QR의 기울기는 $\dfrac13$이고 O와 Q를 잇는 직선의 기울기는 2이다.
+      criteria: [1.M1]
+    - id: 1b-2
+      content: |
+        직선 $\ell$과 $x$축의 교점을 T, $\theta_1=\angle\mathrm{QOT}$라 하고, 점 Q를 지나고 $x$축에 평행한 직선이 $\ell$과 만나는 점을 S, $\theta_2=\angle\mathrm{RQS}$라 하자. 그러면 $\tan\theta_1=2$, $\tan\theta_2=\dfrac13$이고 $\tan\theta=\tan(\pi-\theta_1+\theta_2)=\tan(\theta_2-\theta_1)$.
+      criteria: [1.M2]
+    - id: 1b-3
+      content: |
+        삼각함수의 덧셈정리에 의하여
+        $$\tan(\theta_2-\theta_1)=\dfrac{\tan\theta_2-\tan\theta_1}{1+\tan\theta_2\tan\theta_1}=\dfrac{\frac13-2}{1+\frac23}=-1.$$
+        그러므로 $\tan\theta=-1$.
+      criteria: [1.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 3
+      evidence: 가장 빨리 도착하려면 QR이 $\ell$에 수직(기울기 $\dfrac13$)이어야 함을 밝혔다.
+      steps: [1b-1]
+    - id: 1.M2
+      mark_type: M
+      points: 4
+      evidence: $\theta$를 두 직선이 $x$축과 이루는 각으로 나타냈다(예 $\theta=\pi-\theta_1+\theta_2$).
+      steps: [1b-2]
+    - id: 1.A1
+      mark_type: A
+      points: 3
+      evidence: 덧셈정리로 $\tan\theta=-1$.
+      depends_on: [1.M1, 1.M2]
+      cao: true
+      steps: [1b-3]
+    deductions:
+    - code: D1-1
+      condition: 답만 쓰고 과정 없음
+      effect: cap
+      value: 2
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-0526}
+  misconceptions:
+  - id: MC-CAL-0526
+    outcome_code: '71'
+    wrong_work: '두 직선이 이루는 예각의 공식 $\left\lvert\dfrac{m_1-m_2}{1+m_1m_2}\right\rvert$을 써서 $\tan\theta=1$이라 답함'
+    detect_cue: 절댓값을 씌운 끼인각 공식, 답 $1$
+    feedback: $\angle\mathrm{OQR}$은 둔각일 수 있습니다. 각을 $\pi-\theta_1+\theta_2$처럼 방향을 맞춰 나타낸 뒤 덧셈정리를 쓰세요.
+    remedy: [RL-1]
+- id: '2'
+  stem: |
+    (2) $a$를 구하시오.
+  points: 15
+  depends_on: []
+  answer: {kind: value, value: '7\sqrt{2}', equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: 총 시간 $t(x)=\dfrac{\sqrt{x^2+x^8-6x^4+9}}{a}-\dfrac{3x+(3-x^4)-10}{\sqrt{10}}$가 $x=1$에서 최소 → $t^\prime(1)=\dfrac{-14}{2a\sqrt5}+\dfrac{1}{\sqrt{10}}=0$ → $a=7\sqrt2$.
+    steps:
+    - {id: 2a, content: '$t^\prime(1)=\dfrac{-14}{2a\sqrt5}+\dfrac{1}{\sqrt{10}}=0$ → $a=7\sqrt2$', criteria: [2.M1, 2.M2, 2.R1, 2.M3, 2.A1]}
+    hint_ladder:
+    - Q의 $x$좌표를 변수로 두고 OQ의 길이와 Q에서 $\ell$까지의 거리를 식으로 써 보자.
+    - 절댓값 안의 부호는 그림에서 판단할 수 있다.
+    - $x=1$에서 최소이면 $t^\prime(1)$은?
+  - id: S2-B
+    audience: B
+    method_no: 1
+    source_flow: 해설교재 p.47~48
+    steps:
+    - id: 2b-1
+      content: |
+        원점과 그래프 위의 점 $(x,3-x^4)$을 잇는 선분의 길이는 $\sqrt{x^2+x^8-6x^4+9}$이고, 점 $(x,3-x^4)$과 직선 $\ell:\ y=-3x+10$ 사이의 거리는 $\dfrac{\lvert3x+(3-x^4)-10\rvert}{\sqrt{10}}$이다.
+      criteria: [2.M1]
+    - id: 2b-2
+      content: |
+        점 P가 원점을 출발하여 $\mathrm{Q}(x,3-x^4)$까지 움직인 후 Q에서 $\ell$에 내린 수선을 따라 R에 도착하기까지 걸리는 시간은
+        $$t(x)=\dfrac{\sqrt{x^2+x^8-6x^4+9}}{a}+\dfrac{\lvert3x+(3-x^4)-10\rvert}{\sqrt{10}}.$$
+        문제의 그림으로부터(곡선은 직선 $\ell$의 아래쪽에 있음) $3x+(3-x^4)-10<0$이므로
+        $$t(x)=\dfrac{\sqrt{x^2+x^8-6x^4+9}}{a}-\dfrac{3x+(3-x^4)-10}{\sqrt{10}}$$
+        이고 함수 $t(x)$는 미분가능하다.
+      criteria: [2.M2]
+    - id: 2b-3
+      content: |
+        $t(x)$는 $x=1$일 때 최솟값을 가지므로 $t'(1)=0$이다.
+      criteria: [2.R1]
+    - id: 2b-4
+      content: |
+        $$t'(x)=\dfrac{8x^7-24x^3+2x}{2a\sqrt{x^8-6x^4+x^2+9}}+\dfrac{4x^3-3}{\sqrt{10}},\qquad t'(1)=\dfrac{-14}{2a\sqrt5}+\dfrac{1}{\sqrt{10}}=0.$$
+      criteria: [2.M3]
+    - id: 2b-5
+      content: |
+        따라서 $a=\dfrac{14\sqrt{10}}{2\sqrt5}=7\sqrt2$.
+      criteria: [2.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 3
+      evidence: OQ의 길이와 Q에서 $\ell$까지의 거리를 Q의 $x$좌표로 나타냈다.
+      steps: [2b-1]
+    - id: 2.M2
+      mark_type: M
+      points: 4
+      evidence: 총 시간 $t(x)$를 세우고 절댓값 안의 부호($<0$)를 판정해 정리했다.
+      depends_on: [2.M1]
+      steps: [2b-2]
+    - id: 2.R1
+      mark_type: R
+      points: 2
+      evidence: Q가 $(1,2)$일 때 가장 빠르므로 $t^\prime(1)=0$이라는 근거를 적었다.
+      steps: [2b-3]
+    - id: 2.M3
+      mark_type: M
+      points: 3
+      evidence: $t^\prime(x)$를 합성함수의 미분으로 구하고 $t^\prime(1)$을 계산했다.
+      depends_on: [2.M2]
+      steps: [2b-4]
+    - id: 2.A1
+      mark_type: A
+      points: 3
+      evidence: $a=7\sqrt2$.
+      depends_on: [2.M3, 2.R1]
+      cao: true
+      steps: [2b-5]
+    deductions:
+    - code: D2-1
+      condition: 답만 쓰고 과정 없음
+      effect: cap
+      value: 3
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '72', misconception: MC-GEO-0527}
+  misconceptions:
+  - id: MC-GEO-0527
+    outcome_code: '72'
+    wrong_work: '점과 직선 사이 거리의 절댓값을 그대로 벗겨 $+\dfrac{3x+(3-x^4)-10}{\sqrt{10}}$로 두고 미분해 $a<0$ 또는 다른 값을 얻음'
+    detect_cue: 두 번째 항의 부호가 $+$, $a=-7\sqrt2$ 등 음수 답
+    feedback: 곡선 위의 점은 직선 $\ell$의 아래쪽에 있으므로 $3x+y-10<0$입니다. 절댓값을 벗길 때 부호를 확인하세요.
+    remedy: [RL-2]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CAL-0526}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-TAN-ADDITION}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-GEO-0527}
+  relation: remediation
+  target: {kind: concept, ref: CON-GEO-POINT-LINE-DIST}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-transcribe-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

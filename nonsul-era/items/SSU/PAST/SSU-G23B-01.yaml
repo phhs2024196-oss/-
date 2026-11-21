@@ -1,0 +1,189 @@
+# 숭실대 2023학년도 논술고사(자연2) 문제 1 — 원문은 내부 분석용(allowed_use: internal_only)
+# 해설교재(p.43)와 답 일치: (2+√3)/16.
+# 참고: 교점 P_m 은 원 x^2-x+y^2=0 에서 점 (1,0) 을 제외한 부분만 지난다(m→±∞ 극한). 해설교재는 이를 언급하지 않으나 최대 삼각형을 (1,0) 을 피해 배치할 수 있으므로 답에는 영향 없음 — B 해설에 한 줄 보충.
+schema_version: '2.0'
+id: SSU-G23B-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: numeric
+origin: past_exam
+school: SSU
+type: T09
+variant_of: null
+replaces: null
+level: L5
+form: 최적2단
+points: 20
+time_estimate_min: 20
+intent: 매개변수를 포함한 두 직선의 교점의 자취를 고정점·수직 조건으로 찾고, 사인법칙으로 한 각이 주어진 내접삼각형의 변을 결정해 넓이의 최댓값을 구하는 능력을 본다.
+key_idea: '두 직선은 각각 $(0,0)$, $(1,0)$을 지나고 항상 수직이므로 $\mathrm{P}_m$은 지름이 1인 원 위에 있다. 사인법칙 $\dfrac{a}{\sin A}=2R=1$에서 $\dfrac{\pi}{6}$의 대변은 $\dfrac12$로 고정, 넓이 최대는 이등변삼각형.'
+stuck: 교점을 직접 계산하지 않고 「고정점을 지나는 두 수직 직선의 교점 → 지름 위의 원주각」으로 자취를 알아보는 단계
+idea_tags: [IDEA-PERP-LINES-CIRCLE-LOCUS, IDEA-SINE-LAW-FIXED-CHORD]
+tags: [자취, 내접삼각형의 넓이 최대]
+elements:
+  materials: [매개변수를 포함한 두 직선의 교점, 원에 내접하는 삼각형, 넓이의 최댓값]
+  concepts: [두 직선의 수직 조건, 원주각과 지름, 사인법칙, 삼각함수의 덧셈정리, 삼각형의 넓이]
+  tools: [직선이 항상 지나는 점 찾기, 기울기의 곱 $-1$, 사인법칙(외접원 반지름), 이등변삼각형의 높이, 탄젠트 덧셈정리]
+  conditions:
+  - '$x+2my=0$은 항상 $(0,0)$, $2mx-y-2m=0$은 항상 $(1,0)$을 지나고 기울기의 곱이 $-1$ ($m=0$이면 $y$축과 $x$축) → $\mathrm{P}_m$은 두 점을 지름의 양 끝으로 하는 원 위'
+  - '서로 다른 세 실수 $m_1$, $m_2$, $m_3$ → 세 꼭짓점이 모두 그 원 위 → 외접원 반지름 $\dfrac12$'
+  - '한 각 $\dfrac{\pi}{6}$ → 그 대변의 길이 $=\sin\dfrac{\pi}{6}=\dfrac12$ (고정)'
+  stimuli_used: []
+  subpart_links: null
+
+curriculum:
+  version: '2015'
+  subjects: [수학, 수학Ⅰ, 미적분]
+  scope_2028: calc2
+  scope_confirmed: true
+  standards:
+  - code: 미확인
+    text: 사인법칙을 이해하고 이를 활용할 수 있다(요지)
+    verified: false
+  content_area: 삼각함수 – 사인법칙 / 도형의 방정식
+  behavior_domain: 추론
+  unit_path: [수학Ⅰ, 삼각함수, 사인법칙과 코사인법칙, 원에 내접하는 삼각형의 넓이 최대]
+  key_concepts: [두 직선의 수직 조건, 원주각과 지름, 사인법칙, 삼각함수의 덧셈정리, 삼각형의 넓이]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 숭실대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 숭실대학교
+  admission_year: 2023
+  admission_type: 논술우수자전형
+  track: 자연2
+  question_no: 1
+  official_url: https://iphak.ssu.ac.kr   # [확인필요] 입학처 기출 게시물 주소로 교체
+  retrieved_at: 2026-11-21
+  original_points: 20
+  rights_notice: 미확인(「숭실대 수리논술 문제교재(2026)」 p.36, 해설교재 p.43에서 옮김)
+
+verify: verify/SSU-G23B.py::p01
+
+stimuli: []
+
+stem: |
+  다음 조건을 모두 만족시키는 삼각형의 넓이의 최댓값을 구하시오.
+
+  (i) 실수 $m$에 대하여 두 직선 $x+2my=0$과 $2mx-y-2m=0$의 교점을 $\mathrm{P}_m$이라고 할 때, 서로 다른 세 실수 $m_1$, $m_2$, $m_3$에 대하여 $\mathrm{P}_{m_1}$, $\mathrm{P}_{m_2}$, $\mathrm{P}_{m_3}$을 꼭짓점으로 갖는다.
+
+  (ii) 한 각의 크기는 $\dfrac{\pi}{6}$이다.
+
+subparts:
+- id: '1'
+  stem: |
+    삼각형의 넓이의 최댓값을 구하시오.
+  points: 20
+  depends_on: []
+  answer: {kind: value, value: '\dfrac{2+\sqrt{3}}{16}', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: 자취는 지름이 1인 원. 사인법칙으로 $\dfrac{\pi}{6}$의 대변 $=\dfrac12$, 그 대변에서 가장 먼 원 위의 점이 꼭짓점일 때(이등변) 높이 $\dfrac14\tan\dfrac{5\pi}{12}=\dfrac{2+\sqrt3}{4}$, 넓이 $\dfrac{2+\sqrt3}{16}$.
+    steps:
+    - {id: 1a, content: '$2R=1$, $a=\dfrac12$, 높이 $\dfrac{\tan(5\pi/12)}{4}$ → $\dfrac{2+\sqrt3}{16}$', criteria: [1.M1, 1.A1, 1.M2, 1.R1, 1.A2]}
+    hint_ladder:
+    - 두 직선이 $m$에 관계없이 지나는 점을 찾아보자.
+    - 두 직선의 기울기의 곱은?
+    - 외접원이 정해지면 사인법칙으로 한 변의 길이가 정해진다.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 해설교재 p.43
+    steps:
+    - id: 1b-1
+      content: |
+        직선 $\ell:\ x+2my=0$과 $\ell':\ 2mx-y-2m=0$은 $m$에 관계없이 각각 점 $(0,0)$과 $(1,0)$을 지난다. $m\ne0$이면 두 직선의 기울기는 $-\dfrac{1}{2m}$, $2m$이므로 항상 수직으로 만나고, $m=0$이면 두 직선은 $y$축, $x$축이므로 역시 수직으로 만난다. 따라서 교점 $\mathrm{P}_m$은 점 $(0,0)$과 점 $(1,0)$을 이은 선분을 지름으로 하는 원 위에 있다.
+        (보충: 교점을 직접 구하면 $\mathrm{P}_m\left(\dfrac{4m^2}{4m^2+1},\dfrac{-2m}{4m^2+1}\right)$이므로 이 원에서 점 $(1,0)$만 제외한 모든 점이 나타난다.)
+      criteria: [1.M1]
+    - id: 1b-2
+      content: |
+        세 점 $\mathrm{P}_{m_1}$, $\mathrm{P}_{m_2}$, $\mathrm{P}_{m_3}$을 A, B, C라 하면 삼각형 ABC의 외접원은 위의 원(반지름 $\dfrac12$)이므로 사인법칙에서 $\dfrac{a}{\sin A}=2R=1$. $A=\dfrac{\pi}{6}$이면 $a=\sin A=\dfrac12$. 그러므로 조건을 만족하는 삼각형은 반지름 $\dfrac12$인 원에 내접하고 변 BC의 길이가 $\dfrac12$인 삼각형이다.
+      criteria: [1.A1]
+    - id: 1b-3
+      content: |
+        넓이가 최대이려면 변 BC로부터 거리가 최대인 원 위의 점이 나머지 꼭짓점 A가 되어야 하고, 이때 삼각형 ABC는 이등변삼각형이다($\angle\mathrm{B}=\angle\mathrm{C}=\dfrac{5\pi}{12}$). 이 배치는 점 $(1,0)$을 꼭짓점으로 쓰지 않도록 원 위에서 돌려 잡을 수 있다.
+      criteria: [1.M2, 1.R1]
+    - id: 1b-4
+      content: |
+        밑변 $\dfrac12$, 밑각 $\dfrac{5\pi}{12}$인 이등변삼각형의 높이는 $\dfrac14\tan\dfrac{5\pi}{12}$이고, 덧셈정리에 의하여
+        $$\tan\dfrac{5\pi}{12}=\tan\left(\dfrac{\pi}{6}+\dfrac{\pi}{4}\right)=\dfrac{\tan\frac{\pi}{6}+\tan\frac{\pi}{4}}{1-\tan\frac{\pi}{6}\tan\frac{\pi}{4}}=2+\sqrt3.$$
+        따라서 넓이의 최댓값은 $\dfrac12\cdot\dfrac12\cdot\dfrac{2+\sqrt3}{4}=\dfrac{2+\sqrt3}{16}$.
+      criteria: [1.A2]
+  - id: S1-ALT
+    audience: ALT
+    method_no: 2
+    key_idea: (코사인법칙) 이등변삼각형의 같은 두 변을 $b$라 하면 $\left(\dfrac12\right)^2=2b^2\left(1-\cos\dfrac{\pi}{6}\right)$에서 $b^2=\dfrac{2+\sqrt3}{4}$, 넓이 $\dfrac12b^2\sin\dfrac{\pi}{6}=\dfrac{2+\sqrt3}{16}$. 덧셈정리 없이 수학Ⅰ 범위로 끝난다.
+    steps:
+    - id: 1c-1
+      content: |
+        $b^2=\dfrac{1/4}{2-\sqrt3}=\dfrac{2+\sqrt3}{4}$, 넓이 $=\dfrac12\cdot\dfrac{2+\sqrt3}{4}\cdot\dfrac12=\dfrac{2+\sqrt3}{16}$.
+      criteria: [1.A2]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 6
+      evidence: 두 직선이 고정점 $(0,0)$, $(1,0)$을 지나고 항상 수직임을 근거로 $\mathrm{P}_m$이 지름이 1인 원 위에 있음을 밝혔다(또는 교점을 구해 원의 방정식을 얻음).
+      steps: [1b-1]
+    - id: 1.A1
+      mark_type: A
+      points: 4
+      evidence: 사인법칙($2R=1$)으로 $\dfrac{\pi}{6}$의 대변의 길이 $\dfrac12$를 얻었다.
+      depends_on: [1.M1]
+      steps: [1b-2]
+    - id: 1.M2
+      mark_type: M
+      points: 3
+      evidence: 넓이 최대 조건(대변에서 가장 먼 점, 이등변삼각형)을 제시했다.
+      steps: [1b-3]
+    - id: 1.R1
+      mark_type: R
+      points: 3
+      evidence: 이등변일 때 높이가 최대인 이유(원 위의 점과 현 사이 거리 최대)를 설명했다.
+      depends_on: [1.M2]
+      steps: [1b-3]
+    - id: 1.A2
+      mark_type: A
+      points: 4
+      evidence: 넓이의 최댓값 $\dfrac{2+\sqrt3}{16}$.
+      depends_on: [1.A1, 1.M2]
+      cao: true
+      steps: [1b-4, 1c-1]
+    deductions:
+    - code: D1-1
+      condition: 답만 쓰고 과정 없음
+      effect: cap
+      value: 5
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-ALG-0522}
+  misconceptions:
+  - id: MC-ALG-0522
+    outcome_code: '71'
+    wrong_work: '$\dfrac{\pi}{6}$인 각을 낀 두 변을 원의 지름(길이 1) 등으로 임의로 잡아 직각삼각형 넓이 $\dfrac{\sqrt3}{8}$을 최대로 답함'
+    detect_cue: 답이 $\dfrac{\sqrt3}{8}$, 사인법칙·이등변 조건이 없음
+    feedback: 외접원이 고정되면 $\dfrac{\pi}{6}$의 대변이 $\dfrac12$로 정해집니다. 그 현에서 가장 먼 점을 꼭짓점으로 잡아야 넓이가 최대입니다.
+    remedy: [RL-1]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-ALG-0522}
+  relation: remediation
+  target: {kind: concept, ref: CON-ALG-SINE-LAW}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-transcribe-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

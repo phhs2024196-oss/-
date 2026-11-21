@@ -1,0 +1,390 @@
+# 숭실대 2022학년도 논술고사(자연2) 문제 2 — 원문은 내부 분석용(allowed_use: internal_only)
+# 소문항 배점은 원문 미표기 — (1) 10점, (2) 15점으로 임의 배분
+schema_version: '2.0'
+id: SSU-G22B-02
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: numeric
+origin: past_exam
+school: SSU
+type: T09
+variant_of: null
+replaces: null
+level: L5
+form: 최적2단
+points: 25
+time_estimate_min: 20
+intent: 원주각과 사인법칙으로 고정된 꼭짓점을 찾고, 오각형 넓이 최대를 두 삼각형의 높이 최대(접선이 현과 평행) 문제로 나누어 해결하는 능력을 본다.
+key_idea: '$\triangle\mathrm{ABC}$는 단위원에 내접하므로 $\overline{\mathrm{AC}}=2\sin150^\circ=1$, $\mathrm C\left(\frac12,\frac{\sqrt3}2\right)$ 고정; $\mathrm B$는 호 $\mathrm{AC}$의 중점, $\mathrm D$는 접선이 $\mathrm{CE}$와 평행한 점.'
+stuck: '$\mathrm C$가 고정되어 $\triangle\mathrm{ACE}$가 일정함을 알아차리고, 넓이 최대를 두 삼각형으로 분리하는 단계; $\mathrm D$가 포물선 쪽($x<0$)에 있음을 판단하는 단계'
+idea_tags:
+- IDEA-INSCRIBED-ANGLE-FIXED-CHORD
+- IDEA-MAX-HEIGHT-PARALLEL-TANGENT
+- IDEA-SPLIT-POLYGON-AREA
+tags:
+- 원과 포물선을 이은 곡선
+- 오각형 넓이의 최대
+elements:
+  materials:
+  - '$y=1-x^2\ (x\le0)$과 $y=\sqrt{1-x^2}\ (x>0)$을 이은 곡선'
+  - 곡선 위의 오각형
+  concepts:
+  - 사인법칙
+  - 원주각
+  - 미분계수와 접선의 기울기
+  - 점과 직선 사이의 거리
+  tools:
+  - 사인법칙(외접원)
+  - 정삼각형 판정
+  - 현까지 거리 최대 = 접선이 현과 평행
+  - 구간별 함수의 미분가능성
+  conditions:
+  - '$\mathrm A$, $\mathrm B$, $\mathrm C$가 $x>0$ 부분(단위원) 위 → $\triangle\mathrm{ABC}$의 외접원 반지름 1'
+  - '$\angle\mathrm{ABC}=150^\circ$ → $\overline{\mathrm{AC}}=1$, $\mathrm C$ 고정'
+  - '$\mathrm{B},\mathrm C$의 $x$좌표 양수, 꼭짓점 순서 $\mathrm{A,B,C,D,E}$ → $\mathrm D$는 곡선의 $\mathrm C$와 $\mathrm E$ 사이'
+  stimuli_used:
+  - 제시문
+  subpart_links: '(2)는 (1)에서 고정된 점 $\mathrm C$와 $\triangle\mathrm{ACE}$를 사용'
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학Ⅰ
+  - 수학Ⅱ
+  scope_2028: common
+  scope_confirmed: true
+  standards:
+  - code: 미확인
+    text: 사인법칙과 코사인법칙을 이해하고, 이를 활용할 수 있다(요지)
+    verified: false
+  content_area: 삼각함수 – 사인법칙 / 미분 – 접선
+  behavior_domain: 문제해결
+  unit_path:
+  - 수학Ⅰ
+  - 삼각함수
+  - 삼각함수의 활용
+  - 사인법칙과 넓이의 최대
+  key_concepts:
+  - 사인법칙
+  - 원주각
+  - 미분계수와 접선의 기울기
+  - 점과 직선 사이의 거리
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 숭실대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 숭실대학교
+  admission_year: 2022
+  admission_type: 논술우수자전형
+  track: 자연2
+  question_no: 2
+  official_url: https://iphak.ssu.ac.kr   # [확인필요] 입학처 기출 게시물 주소로 교체
+  retrieved_at: 2026-11-21
+  original_points: 25
+  rights_notice: 미확인(「숭실대 수리논술 문제교재(2026)」 p.49, 「숭실대 수리논술 해설교재(2026)」 p.63~64에서 옮김)
+verify: verify/SSU-G22B.py::p02
+stimuli:
+- label: 제시문
+  body: |
+    삼각형 $\mathrm{ABC}$의 외접원의 반지름의 길이를 $R$라고 하면
+    $$\dfrac a{\sin A}=\dfrac b{\sin B}=\dfrac c{\sin C}=2R$$
+    [그림 설명] 중심이 $\mathrm{O}$인 원에 삼각형 $\mathrm{ABC}$가 내접하고, $\overline{\mathrm{BC}}=a$, $\overline{\mathrm{CA}}=b$, $\overline{\mathrm{AB}}=c$, $\overline{\mathrm{OC}}=R$로 표시되어 있다.
+    【출처: 수학Ⅰ 「사인법칙과 코사인법칙」】
+stem: |
+  함수 $f(x)$가 구간 $[-1,1]$에서 다음과 같이 정의되어 있다.
+  $$f(x)=\begin{cases}1-x^2 & (-1\le x\le0)\\ \sqrt{1-x^2} & (0<x\le1)\end{cases}$$
+  곡선 $y=f(x)$ 위에 오각형 $\mathrm{ABCDE}$의 모든 꼭짓점이 놓여 있다. 점 $\mathrm A$의 좌표는 $(1,0)$, 점 $\mathrm E$의 좌표는 $(-1,0)$이고 두 점 $\mathrm B$, $\mathrm C$의 $x$좌표는 모두 양수이며 $\angle\mathrm{ABC}=150^\circ$이다. 이때 다음 문항에 답하시오.
+
+  (1) 삼각형 $\mathrm{ACE}$의 넓이를 구하시오.
+
+  (2) 오각형 $\mathrm{ABCDE}$의 넓이가 최대가 되도록 하는 꼭짓점 $\mathrm B$, $\mathrm C$, $\mathrm D$의 좌표를 구하시오.
+subparts:
+- id: '1'
+  stem: |
+    삼각형 $\mathrm{ACE}$의 넓이를 구하시오.
+  points: 10
+  depends_on: []
+  answer:
+    kind: value
+    value: sqrt(3)/2
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: '$\triangle\mathrm{ABC}$는 단위원에 내접 → 사인법칙 $\overline{\mathrm{AC}}=1$ → $\triangle\mathrm{OAC}$ 정삼각형.'
+    steps:
+    - id: 1a
+      content: '$\mathrm C\left(\frac12,\frac{\sqrt3}2\right)$, 넓이 $\dfrac12\cdot2\cdot\dfrac{\sqrt3}2=\dfrac{\sqrt3}2$'
+      criteria:
+      - 1.M1
+      - 1.A1
+      - 1.B1
+      - 1.A2
+    hint_ladder:
+    - '$\mathrm A,\mathrm B,\mathrm C$는 어떤 원 위에 있는가?'
+    - '사인법칙으로 $\overline{\mathrm{AC}}$를 구하자.'
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 해설교재 p.63
+    steps:
+    - id: 1b-1
+      content: '오각형 $\mathrm{ABCDE}$를 대각선 $\mathrm{AC}$, $\mathrm{CE}$로 세 삼각형 $\mathrm{ABC}$, $\mathrm{ACE}$, $\mathrm{CDE}$로 나눈다.'
+      criteria: []
+    - id: 1b-2
+      content: '점 $\mathrm A,\mathrm B,\mathrm C$가 곡선 $y=\sqrt{1-x^2}\,(x>0)$ 위에 있으므로 삼각형 $\mathrm{ABC}$는 중심이 $\mathrm O(0,0)$, 반지름이 1인 원에 내접한다. 사인법칙에 의해 $\dfrac{\overline{\mathrm{AC}}}{\sin150^\circ}=2$, 즉 $\overline{\mathrm{AC}}=1$.'
+      criteria:
+      - 1.M1
+      - 1.A1
+    - id: 1b-3
+      content: '$\overline{\mathrm{OA}}=\overline{\mathrm{OC}}=1$이므로 삼각형 $\mathrm{OAC}$는 정삼각형이고 $\mathrm C=\left(\dfrac12,\dfrac{\sqrt3}2\right)$. 삼각형 $\mathrm{ACE}$의 넓이는 $\dfrac12\times2\times\dfrac{\sqrt3}2=\dfrac{\sqrt3}2$.'
+      criteria:
+      - 1.B1
+      - 1.A2
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 3
+      evidence: '$\triangle\mathrm{ABC}$의 외접원이 단위원임을 쓰고 사인법칙을 적용했다.'
+      steps:
+      - 1b-2
+    - id: 1.A1
+      mark_type: A
+      points: 2
+      evidence: '$\overline{\mathrm{AC}}=1$.'
+      depends_on:
+      - 1.M1
+      steps:
+      - 1b-2
+    - id: 1.B1
+      mark_type: B
+      points: 3
+      evidence: '$\mathrm C\left(\dfrac12,\dfrac{\sqrt3}2\right)$.'
+      steps:
+      - 1b-3
+    - id: 1.A2
+      mark_type: A
+      points: 2
+      evidence: '넓이 $\dfrac{\sqrt3}2$.'
+      depends_on:
+      - 1.M1
+      cao: true
+      steps:
+      - 1b-3
+    deductions:
+    - code: D1-1
+      condition: 답만 쓰고 과정 없음
+      effect: cap
+      value: 5
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  - code: '71'
+    misconception: MC-ALG-0633
+  misconceptions:
+  - id: MC-ALG-0633
+    outcome_code: '71'
+    wrong_work: '$\angle\mathrm{ABC}=150^\circ$를 중심각으로 보아 $\angle\mathrm{AOC}=150^\circ$로 둠'
+    detect_cue: '$\mathrm C$의 각이 $150^\circ$, 넓이 $\dfrac12$ 등'
+    feedback: 원주각과 중심각을 구분하세요. 사인법칙을 쓰면 현의 길이가 바로 나옵니다.
+    remedy:
+    - RL-0633
+- id: '2'
+  stem: |
+    오각형 $\mathrm{ABCDE}$의 넓이가 최대가 되도록 하는 꼭짓점 $\mathrm B$, $\mathrm C$, $\mathrm D$의 좌표를 구하시오.
+  points: 15
+  depends_on:
+  - '1'
+  answer:
+    kind: set
+    value: B=(sqrt(3)/2, 1/2), C=(1/2, sqrt(3)/2), D=(-sqrt(3)/6, 11/12)
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: '$\triangle\mathrm{ACE}$ 고정 → $\triangle\mathrm{ABC}$, $\triangle\mathrm{CDE}$ 각각 최대. $\mathrm B$는 $\mathrm{OB}\perp\mathrm{AC}$인 점, $\mathrm D$는 $f''(x)=\dfrac1{\sqrt3}$인 점.'
+    steps:
+    - id: 2a
+      content: '$\mathrm B(\cos30^\circ,\sin30^\circ)$, $-2x=\dfrac1{\sqrt3}\Rightarrow x=-\dfrac1{2\sqrt3}$'
+      criteria:
+      - 2.R1
+      - 2.M1
+      - 2.A1
+      - 2.B1
+      - 2.M2
+      - 2.A2
+      - 2.A3
+    hint_ladder:
+    - (1)에서 고정된 것은 무엇인가?
+    - 현에서 가장 먼 호 위의 점은?
+    - '점 $\mathrm D$에서의 접선이 직선 $\mathrm{CE}$와 평행할 때를 보자.'
+  - id: S2-B
+    audience: B
+    method_no: 1
+    source_flow: 해설교재 p.63~64
+    steps:
+    - id: 2b-1
+      content: '(1)에 의해 삼각형 $\mathrm{ACE}$는 고정되어 있으므로, 두 삼각형 $\mathrm{ABC}$, $\mathrm{CDE}$의 넓이가 각각 최대일 때 오각형의 넓이가 최대이다.'
+      criteria:
+      - 2.R1
+    - id: 2b-2
+      content: '삼각형 $\mathrm{ABC}$의 넓이는 직선 $\mathrm{AC}$와 점 $\mathrm B$ 사이의 거리가 최대일 때 최대이고, 호 $\mathrm{AC}$ 위의 점 $\mathrm B$에서 현 $\mathrm{AC}$까지의 거리는 선분 $\mathrm{OB}$가 현 $\mathrm{AC}$를 수직이등분할 때 최대이다. $\mathrm C=(\cos60^\circ,\sin60^\circ)$이므로 $\mathrm B=(\cos30^\circ,\sin30^\circ)=\left(\dfrac{\sqrt3}2,\dfrac12\right)$.'
+      criteria:
+      - 2.M1
+      - 2.A1
+    - id: 2b-3
+      content: |
+        삼각형 $\mathrm{CDE}$의 넓이가 최대이려면 직선 $\mathrm{CE}$와 점 $\mathrm D$ 사이의 거리가 최대여야 한다. $f(x)$는 $x=0$에서 $\displaystyle\lim_{x\to0+}\dfrac{\sqrt{1-x^2}-1}{x}=\lim_{x\to0+}\dfrac{-x}{\sqrt{1-x^2}+1}=0$, $\displaystyle\lim_{x\to0-}\dfrac{(1-x^2)-1}{x}=0$이므로 $(-1,1)$에서 미분가능하고
+        $$f'(x)=\begin{cases}-2x & (-1<x\le0)\\ -\dfrac{x}{\sqrt{1-x^2}} & (0<x<1)\end{cases}$$
+      criteria:
+      - 2.B1
+    - id: 2b-4
+      content: '따라서 점 $\mathrm D$에서의 접선이 직선 $\mathrm{CE}$와 평행할 때 넓이가 최대이다. 직선 $\mathrm{CE}$의 기울기는 $\dfrac{\frac{\sqrt3}2-0}{\frac12-(-1)}=\dfrac1{\sqrt3}$이고, $f''(x)>0$이려면 $x<0$이어야 하므로 $-2x=\dfrac1{\sqrt3}$, $x=-\dfrac1{2\sqrt3}$. 즉 $\mathrm D\left(-\dfrac1{2\sqrt3},\dfrac{11}{12}\right)$.'
+      criteria:
+      - 2.M2
+      - 2.A2
+    - id: 2b-5
+      content: '따라서 $\mathrm B\left(\dfrac{\sqrt3}2,\dfrac12\right)$, $\mathrm C\left(\dfrac12,\dfrac{\sqrt3}2\right)$, $\mathrm D\left(-\dfrac{\sqrt3}6,\dfrac{11}{12}\right)$.'
+      criteria:
+      - 2.A3
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 2.R1
+      mark_type: R
+      points: 3
+      evidence: '$\triangle\mathrm{ACE}$가 고정이므로 두 삼각형 넓이를 각각 최대화하면 됨을 밝혔다.'
+      steps:
+      - 2b-1
+    - id: 2.M1
+      mark_type: M
+      points: 3
+      evidence: '$\mathrm B$에서 현 $\mathrm{AC}$까지 거리가 최대인 조건(호의 중점, $\mathrm{OB}\perp\mathrm{AC}$ 등)을 썼다.'
+      steps:
+      - 2b-2
+    - id: 2.A1
+      mark_type: A
+      points: 2
+      evidence: '$\mathrm B\left(\dfrac{\sqrt3}2,\dfrac12\right)$.'
+      depends_on:
+      - 2.M1
+      steps:
+      - 2b-2
+    - id: 2.B1
+      mark_type: B
+      points: 2
+      evidence: '$f''(x)$를 구간별로 구했다($x=0$에서의 미분가능성 포함).'
+      steps:
+      - 2b-3
+    - id: 2.M2
+      mark_type: M
+      points: 3
+      evidence: '$\mathrm D$에서의 접선의 기울기가 직선 $\mathrm{CE}$의 기울기 $\dfrac1{\sqrt3}$과 같다는 조건을 세우고 $x<0$ 쪽임을 판단했다.'
+      steps:
+      - 2b-4
+    - id: 2.A2
+      mark_type: A
+      points: 1
+      evidence: '$\mathrm D\left(-\dfrac{\sqrt3}6,\dfrac{11}{12}\right)$.'
+      depends_on:
+      - 2.M2
+      steps:
+      - 2b-4
+    - id: 2.A3
+      mark_type: A
+      points: 1
+      evidence: 세 점의 좌표를 모두 바르게 제시했다.
+      depends_on:
+      - 2.M1
+      - 2.M2
+      cao: true
+      steps:
+      - 2b-5
+    deductions:
+    - code: D2-1
+      condition: 답만 쓰고 과정 없음
+      effect: cap
+      value: 5
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  - code: '71'
+    misconception: MC-CAL-0634
+  - code: '72'
+    misconception: MC-GEO-0635
+  misconceptions:
+  - id: MC-CAL-0634
+    outcome_code: '71'
+    wrong_work: '$\mathrm D$를 원 위($x>0$)에서 찾거나 $f''(x)=-\dfrac{x}{\sqrt{1-x^2}}=\dfrac1{\sqrt3}$을 풀어 음수 $x$를 대입'
+    detect_cue: '$\mathrm D$의 $y$좌표가 $\sqrt{1-x^2}$ 꼴'
+    feedback: '$\mathrm D$는 기울기가 양수인 곳($x<0$, 포물선 부분)에 있습니다. 구간에 맞는 식을 쓰세요.'
+    remedy:
+    - RL-0634
+  - id: MC-GEO-0635
+    outcome_code: '72'
+    wrong_work: '$\triangle\mathrm{ABC}$ 넓이 최대를 $\mathrm B$가 $x$축에서 가장 먼 점일 때로 판단'
+    detect_cue: '$\mathrm B$의 좌표가 $(0,1)$ 근처이거나 $x$좌표 조건 위반'
+    feedback: '삼각형의 밑변은 $\overline{\mathrm{AC}}$입니다. 현 $\mathrm{AC}$까지의 거리가 최대인 점을 찾으세요.'
+    remedy:
+    - RL-0635
+remedy_links:
+- id: RL-0633
+  trigger:
+    type: misconception
+    ref: MC-ALG-0633
+  relation: remediation
+  target:
+    kind: concept
+    ref: CON-ALG-SINE-COSINE-LAW
+  priority: 1
+- id: RL-0634
+  trigger:
+    type: misconception
+    ref: MC-CAL-0634
+  relation: remediation
+  target:
+    kind: concept
+    ref: CON-CAL-TANGENT-NORMAL
+  priority: 1
+- id: RL-0635
+  trigger:
+    type: misconception
+    ref: MC-GEO-0635
+  relation: remediation
+  target:
+    kind: concept
+    ref: CON-CAL-OPTIMIZATION
+  priority: 1
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: opus
+  prompt_version: past-transcribe-v1
+  item_version: 1
+  verdict: pass
+  date: 2026-11-21
+created: 2026-11-21
+updated: 2026-11-21

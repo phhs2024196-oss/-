@@ -1,0 +1,219 @@
+# 숭실대 2024학년도 모의논술고사(자연) 문제 1 — 원문은 내부 분석용(allowed_use: internal_only)
+# 해설교재(p.30~32)와 답 일치: y=-√3x-2. A·B 는 해설교재 본풀이(접점 각 θ, 삼각형 HEG 넓이 최대), ALT 는 해설교재 별해(오각형 OBEGD, tan 합).
+schema_version: '2.0'
+id: SSU-M24-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: numeric
+origin: mock_exam
+school: SSU
+type: T09
+variant_of: null
+replaces: null
+level: L5
+form: 최적2단
+points: 25
+time_estimate_min: 25
+intent: 원의 접선을 접점의 각으로 매개화하고, 고정된 도형에서 잘려 나가는 부분의 넓이를 삼각함수로 나타내 미분으로 최적화하는 능력을 본다.
+key_idea: '접점을 $(-\cos\theta,-\sin\theta)$로 매개화하고, 사각형 = 고정 삼각형 $-$ 삼각형 HEG 이므로 삼각형 HEG의 넓이를 $\theta$에 대해 최대화한다.'
+stuck: 사각형 넓이를 고정된 삼각형에서 잘려 나가는 삼각형 HEG의 넓이 최대 문제로 바꾸는 단계와, $S'(\theta)$를 인수분해해 부호를 $\dfrac{1}{\sqrt3}-\tan\theta$로 판정하는 단계
+idea_tags: [IDEA-TANGENT-ANGLE-PARAM, IDEA-AREA-COMPLEMENT]
+tags: [넓이의 최소, 접선 매개화]
+elements:
+  materials: [원과 접선, 네 직선으로 둘러싸인 사각형, 넓이의 최소]
+  concepts: [원의 접선의 방정식, 두 직선의 교점, 삼각함수의 도함수, 몫의 미분법, 함수의 증가·감소]
+  tools: [원의 접선의 방정식(제시문), 접점의 각 매개화, 넓이의 여사건(고정 도형에서 빼기), 몫의 미분, 도함수 부호 판정]
+  conditions:
+  - '$\ell$: 기울기 $\sqrt3$, $y$절편 양수 → $\ell:\ y=\sqrt3x+2$ (고정)'
+  - '$m$: 기울기·$y$절편 모두 음수 → 접점이 제3사분면, $(-\cos\theta,-\sin\theta)$, $0<\theta<\dfrac{\pi}{2}$'
+  - '사각형 = (직선 $\ell$, $x=1$, $y=-1$의 고정 삼각형) $-$ 삼각형 HEG → HEG 넓이 최대'
+  stimuli_used: [제시문]
+  subpart_links: null
+
+curriculum:
+  version: '2015'
+  subjects: [수학, 수학Ⅰ, 미적분]
+  scope_2028: calc2
+  scope_confirmed: true
+  standards:
+  - code: 미확인
+    text: 삼각함수의 도함수를 이용하여 최대·최소 문제를 해결한다(요지)
+    verified: false
+  content_area: 미분법 – 도함수의 활용
+  behavior_domain: 문제해결
+  unit_path: [미적분, 미분법, 도함수의 활용, 도형의 넓이의 최대·최소]
+  key_concepts: [원의 접선의 방정식, 두 직선의 교점, 삼각함수의 도함수, 몫의 미분법, 함수의 증가·감소]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 숭실대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 숭실대학교
+  admission_year: 2024
+  admission_type: 논술우수자전형 모의논술
+  track: 자연
+  question_no: 1
+  official_url: https://iphak.ssu.ac.kr   # [확인필요] 입학처 기출 게시물 주소로 교체
+  retrieved_at: 2026-11-21
+  original_points: 25
+  rights_notice: 미확인(「숭실대 수리논술 문제교재(2026)」 p.28, 해설교재 p.30~32에서 옮김)
+
+verify: verify/SSU-M24.py::p01
+
+stimuli:
+- label: 제시문
+  body: |
+    원 $x^2+y^2=r^2$ 위의 점 $\mathrm{P}(x_1,y_1)$에서의 접선의 방정식은
+
+    $$x_1x+y_1y=r^2$$
+
+    【출처: 수학 「원과 접선의 방정식」】
+
+stem: |
+  원 $x^2+y^2=1$의 접선 중에서, 기울기가 $\sqrt{3}$이고 $y$절편이 양수인 접선을 $\ell$이라고 하고 기울기와 $y$절편이 모두 음수인 접선을 $m$이라고 하자. 직선 $\ell$, 직선 $m$, 직선 $y=-1$ 및 직선 $x=1$로 둘러싸인 사각형의 면적이 최소가 되도록 하는 직선 $m$의 방정식을 구하시오.
+
+subparts:
+- id: '1'
+  stem: |
+    사각형의 넓이가 최소가 되도록 하는 직선 $m$의 방정식을 구하시오.
+  points: 25
+  depends_on: []
+  answer: {kind: expression, value: 'y=-\sqrt{3}x-2', equivalents: ['\sqrt{3}x+y+2=0'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $m$의 접점을 $(-\cos\theta,-\sin\theta)$ $\left(0<\theta<\dfrac{\pi}{2}\right)$로 두면, 구하는 사각형 = (직선 $\ell$, $x=1$, $y=-1$이 만드는 고정된 삼각형) $-$ (삼각형 HEG)이므로 삼각형 HEG의 넓이 $S(\theta)$를 최대로 하면 된다. $S'(\theta)$의 부호는 $\dfrac{1}{\sqrt3}-\tan\theta$로 정해져 $\theta=\dfrac{\pi}{6}$에서 최대.
+    steps:
+    - {id: 1a, content: '$S(\theta)=\dfrac{\sqrt3}{2}\cdot\dfrac{(\sin\theta+\sqrt3\cos\theta-1)^2}{\cos\theta(\sqrt3\sin\theta+\cos\theta)}$, $S^\prime$의 부호 $=\dfrac{1}{\sqrt3}-\tan\theta$ → $\theta=\dfrac{\pi}{6}$ → $m:\ y=-\sqrt3x-2$', criteria: [1.B1, 1.M1, 1.M2, 1.A1, 1.R1, 1.A2]}
+    hint_ladder:
+    - 원 위의 접점을 각 $\theta$로 나타내면 제시문으로 접선 $m$을 바로 쓸 수 있다.
+    - 직선 $\ell$, $x=1$, $y=-1$이 만드는 삼각형은 $m$과 무관하게 고정되어 있다.
+    - 잘려 나가는 삼각형 HEG의 밑변과 높이를 $\theta$로 나타내 보자.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 해설교재 p.30~31
+    steps:
+    - id: 1b-1
+      content: |
+        $\ell$의 접점을 $(x_1,y_1)$이라 하면 제시문에서 $\ell:\ x_1x+y_1y=1$이고, 기울기 $-\dfrac{x_1}{y_1}=\sqrt3$, $x_1^2+y_1^2=1$, $y$절편 $\dfrac{1}{y_1}>0$에서 접점은 $\left(-\dfrac{\sqrt3}{2},\dfrac12\right)$, 즉 $\ell:\ y=\sqrt3x+2$.
+      criteria: [1.B1]
+    - id: 1b-2
+      content: |
+        기울기와 $y$절편이 모두 음수인 접선 $m$의 접점은 제3사분면에 있으므로 $(-\cos\theta,-\sin\theta)$ $\left(0<\theta<\dfrac{\pi}{2}\right)$로 둘 수 있고, 제시문에서 $-\cos\theta\,x-\sin\theta\,y=1$, 즉
+        $$m:\ y=-\dfrac{\cos\theta}{\sin\theta}x-\dfrac{1}{\sin\theta}.$$
+      criteria: [1.M1]
+    - id: 1b-3
+      content: |
+        $\ell$과 $y=-1$의 교점을 $\mathrm{H}(-\sqrt3,-1)$이라 하면, 구하는 사각형의 넓이는 직선 $\ell$, $x=1$, $y=-1$로 이루어진 삼각형의 넓이에서 삼각형 HEG의 넓이를 뺀 것이다(E, G는 $m$과 $\ell$, $m$과 $y=-1$의 교점). 앞의 삼각형은 고정되어 있으므로 삼각형 HEG의 넓이를 최대로 하는 $m$을 구하면 된다.
+      criteria: [1.M1]
+    - id: 1b-4
+      content: |
+        $\mathrm{G}\left(\dfrac{\sin\theta-1}{\cos\theta},-1\right)$, $\mathrm{E}\left(\dfrac{-2\sin\theta-1}{\sqrt3\sin\theta+\cos\theta},\dfrac{2\cos\theta-\sqrt3}{\sqrt3\sin\theta+\cos\theta}\right)$이므로
+        밑변 $\mathrm{HG}=\dfrac{\sin\theta-1}{\cos\theta}+\sqrt3$, 높이 $=\dfrac{2\cos\theta-\sqrt3}{\sqrt3\sin\theta+\cos\theta}+1$이고
+        $$S(\theta)=\dfrac12\left(\dfrac{\sin\theta-1}{\cos\theta}+\sqrt3\right)\left(\dfrac{2\cos\theta-\sqrt3}{\sqrt3\sin\theta+\cos\theta}+1\right)=\dfrac{\sqrt3}{2}\cdot\dfrac{(\sin\theta+\sqrt3\cos\theta-1)^2}{\cos\theta(\sqrt3\sin\theta+\cos\theta)}\quad\left(0<\theta<\dfrac{\pi}{2}\right).$$
+      criteria: [1.M2]
+    - id: 1b-5
+      content: |
+        몫의 미분법으로 정리하면
+        $$S'(\theta)=\dfrac{3(\sin\theta+\sqrt3\cos\theta-1)^2}{2\cos\theta(\sqrt3\sin\theta+\cos\theta)^2}\left(\dfrac{1}{\sqrt3}-\tan\theta\right).$$
+      criteria: [1.A1]
+    - id: 1b-6
+      content: |
+        $0<\theta<\dfrac{\pi}{2}$에서 $S>0$이므로 $\cos\theta>0$이고 $\sin\theta+\sqrt3\cos\theta-1\ne0$이다. 따라서 $S'(\theta)$의 부호는 $\dfrac{1}{\sqrt3}-\tan\theta$로만 정해지고, $0<\theta<\dfrac{\pi}{6}$에서 $+$, $\theta=\dfrac{\pi}{6}$에서 $0$, $\dfrac{\pi}{6}<\theta<\dfrac{\pi}{2}$에서 $-$이다. 그러므로 $\theta=\dfrac{\pi}{6}$일 때 $S$가 최대, 즉 사각형의 넓이가 최소이다.
+      criteria: [1.R1]
+    - id: 1b-7
+      content: |
+        이때 $m:\ y=-\dfrac{\cos\frac{\pi}{6}}{\sin\frac{\pi}{6}}x-\dfrac{1}{\sin\frac{\pi}{6}}=-\sqrt3x-2$.
+      criteria: [1.A2]
+  - id: S1-ALT
+    audience: ALT
+    method_no: 2
+    source_flow: 해설교재 p.32 별해
+    key_idea: (해설교재 별해) 원의 중심 O와 접점·교점을 이은 오각형 OBEGD의 넓이를 최소화한다. 합동인 직각삼각형에서 $\angle\mathrm{BOE}=\angle\mathrm{FOE}=\theta_1$, $\angle\mathrm{FOG}=\angle\mathrm{DOG}=\theta_2$, $\theta_1+\theta_2=\dfrac{\pi}{3}$.
+    steps:
+    - id: 1c-1
+      content: |
+        오각형 OBEGD의 넓이 $S=2\tan\theta_1+2\tan\theta_2=2\left(\tan\theta_2+\dfrac{\sqrt3-\tan\theta_2}{1+\sqrt3\tan\theta_2}\right)$ $\left(0<\theta_2<\dfrac{\pi}{3}\right)$.
+      criteria: [1.M2]
+    - id: 1c-2
+      content: |
+        $\dfrac{dS}{d\theta_2}=2\cdot\dfrac{3\tan^2\theta_2+2\sqrt3\tan\theta_2-3}{\cos^2\theta_2(\sqrt3\tan\theta_2+1)^2}$이고 분자는 $\tan\theta_2=\dfrac{1}{\sqrt3}$에서만 0, 그 전후로 $-$에서 $+$. 따라서 $\theta_2=\dfrac{\pi}{6}$에서 최소, $m$의 기울기는 $-\tan\dfrac{\pi}{3}=-\sqrt3$이고 $y$절편이 음수인 접선은 $y=-\sqrt3x-2$.
+      criteria: [1.A1, 1.R1, 1.A2]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.B1
+      mark_type: B
+      points: 3
+      evidence: $\ell:\ y=\sqrt3x+2$를 구했다(또는 접점 $\left(-\dfrac{\sqrt3}{2},\dfrac12\right)$).
+      steps: [1b-1]
+    - id: 1.M1
+      mark_type: M
+      points: 5
+      evidence: $m$을 접점의 각 등 한 변수로 나타내고, 사각형 넓이 최소를 고정된 삼각형에서 잘려 나가는 삼각형 HEG 넓이 최대(또는 오각형 넓이 최소)로 바꾸어 설명했다.
+      steps: [1b-2, 1b-3]
+    - id: 1.M2
+      mark_type: M
+      points: 6
+      evidence: 잘려 나가는 삼각형(또는 오각형)의 넓이를 한 변수의 식으로 나타냈다.
+      depends_on: [1.M1]
+      steps: [1b-4, 1c-1]
+    - id: 1.A1
+      mark_type: A
+      points: 4
+      evidence: 도함수를 바르게 구해 도함수가 0이 되는 값 $\theta=\dfrac{\pi}{6}$($\tan\theta=\dfrac{1}{\sqrt3}$)을 얻었다.
+      depends_on: [1.M2]
+      steps: [1b-5, 1c-2]
+    - id: 1.R1
+      mark_type: R
+      points: 3
+      evidence: 도함수의 부호 변화(증감표)로 그 값에서 잘린 부분이 최대(사각형이 최소)임을 밝혔다.
+      depends_on: [1.A1]
+      steps: [1b-6, 1c-2]
+    - id: 1.A2
+      mark_type: A
+      points: 4
+      evidence: $m:\ y=-\sqrt3x-2$.
+      depends_on: [1.M2, 1.A1]
+      cao: true
+      steps: [1b-7, 1c-2]
+    deductions:
+    - code: D1-1
+      condition: 답만 쓰고 과정 없음
+      effect: cap
+      value: 5
+    - code: D1-2
+      condition: 벡터·내적 등 출제범위 밖 도구로 넓이·각을 계산
+      effect: minus
+      value: 2
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-0510}
+  misconceptions:
+  - id: MC-CAL-0510
+    outcome_code: '71'
+    wrong_work: '삼각형 HEG의 넓이를 최소화하여 $m$이 점 H에 가까워지는 극단(넓이 최소가 존재하지 않음) 또는 다른 접선을 답함'
+    detect_cue: 잘려 나가는 부분의 넓이 $S(\theta)$에 대해 $S'=0$인 점에서 「최소」라고 씀, 증감표의 부호가 반대
+    feedback: 구하는 사각형 = 고정된 삼각형 $-$ 잘려 나가는 삼각형입니다. 사각형이 최소이려면 잘려 나가는 부분이 최대여야 합니다.
+    remedy: [RL-1]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CAL-0510}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-OPTIMIZATION}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-transcribe-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

@@ -1,0 +1,203 @@
+# 숭실대 2025학년도 논술고사(자연) 문제 4 — 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: SSU-G25-04
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: numeric
+origin: past_exam
+school: SSU
+type: T05
+variant_of: null
+replaces: null
+level: L4
+form: 최적2단
+points: 25
+time_estimate_min: 20
+intent: 문장으로 주어진 부등식 제약을 식으로 세우고, 겉넓이가 높이에 대해 증가함을 근거로 제약을 등식으로 바꾼 뒤 한 변수 함수의 최솟값을 도함수로 구하는 능력을 본다.
+key_idea: '물의 높이 $w=\dfrac{54}{r^2}$, $h\ge w+3$이고 겉넓이 $\pi r^2+2\pi rh$는 $h$에 대해 증가하므로 $h=3+\dfrac{54}{r^2}$. $A(r)=\pi r^2+6\pi r+\dfrac{108\pi}r$의 최솟값은 $A(3)=63\pi$.'
+stuck: 「차이가 3보다 크거나 같다」는 부등식 조건을 겉넓이 최소에서는 등호로 바꿔도 된다는 근거
+idea_tags: [IDEA-CONSTRAINT-ACTIVE-AT-OPT, IDEA-ELIMINATE-VARIABLE-THEN-DIFF]
+tags: [최대·최소, 원기둥, 활용]
+elements:
+  materials: [뚜껑 없는 원기둥 컵, 부피와 겉넓이, 부등식 제약]
+  concepts: [극대와 극소, 함수의 최솟값, 원기둥의 겉넓이와 부피]
+  tools: [변수 소거, 도함수의 부호와 극소, 인수분해]
+  conditions:
+  - '물의 높이 $\frac{54}{r^2}$, 조건 2) $h\ge3+\frac{54}{r^2}$'
+  - '겉넓이 $\pi r^2+2\pi rh$는 $h$에 대해 증가 → 최소일 때 $h=3+\frac{54}{r^2}$'
+  - '뚜껑 없음 → 밑면 1개'
+  stimuli_used: [제시문]
+  subpart_links: null
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅱ, 미적분]
+  scope_2028: calc2
+  scope_confirmed: true
+  standards:
+  - code: 미확인
+    text: 함수의 증가와 감소, 극대와 극소를 판정하고 설명할 수 있다(요지)
+    verified: false
+  content_area: 미분 – 도함수의 활용(최대·최소)
+  behavior_domain: 문제해결
+  unit_path: [수학Ⅱ, 미분, 도함수의 활용, 실생활 최적화]
+  key_concepts: [극대와 극소, 함수의 최솟값, 원기둥의 겉넓이와 부피]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 숭실대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 숭실대학교
+  admission_year: 2025
+  admission_type: 논술우수자전형
+  track: 자연
+  question_no: 4
+  official_url: https://iphak.ssu.ac.kr   # [확인필요] 입학처 기출 게시물 주소로 교체
+  retrieved_at: 2026-11-21
+  original_points: 25
+  rights_notice: 미확인(「숭실대 수리논술 문제교재(2026)」 p.19에서 옮김, 해설교재 p.19 참고)
+
+verify: verify/SSU-G25.py::p04
+
+stimuli:
+- label: 제시문
+  body: |
+    미분가능한 함수 $f(x)$에서 $f'(a)=0$이고, $x=a$의 좌우에서
+
+    (i) $f'(x)$의 부호가 양(+)에서 음(−)으로 바뀌면 $f(x)$는 $x=a$에서 극대이다.
+
+    (ii) $f'(x)$의 부호가 음(−)에서 양(+)으로 바뀌면 $f(x)$는 $x=a$에서 극소이다.
+    【출처: 수학Ⅱ 「도함수의 활용」】
+
+stem: |
+  다음 조건을 모두 만족시키는 컵의 겉넓이의 최솟값을 구하시오. (단, 컵의 두께는 무시한다)
+
+  1) 컵은 뚜껑이 없는 원기둥 모양이다.
+
+  2) 부피 $54\pi$의 물을 넣었을 때, 컵의 높이와 수면의 높이의 차이가 3보다 크거나 같아야 한다. (단, 수면은 컵의 밑면과 평행하다고 가정한다)
+
+subparts:
+- id: '1'
+  stem: |
+    컵의 겉넓이의 최솟값을 구하시오.
+  points: 25
+  depends_on: []
+  answer: {kind: value, value: '63*pi', equivalents: ['$63\pi$'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $h\ge3+\frac{54}{r^2}$이고 겉넓이는 $h$에 대해 증가하므로 등호일 때 최소. $A'(r)=\frac{2\pi(r-3)(r^2+6r+18)}{r^2}$에서 $r=3$이 최소.
+    steps:
+    - {id: 1a, content: '$A(r)=\pi r^2+6\pi r+\frac{108\pi}{r}$, $A(3)=63\pi$', criteria: [1.M1, 1.R1, 1.M2, 1.B1, 1.R2, 1.A1]}
+    hint_ladder:
+    - 반지름 $r$, 컵의 높이 $h$, 수면의 높이를 식으로 나타내 보자.
+    - $r$를 고정하면 겉넓이는 $h$가 클수록 커지는가?
+    - $A'(r)=0$의 근을 인수분해로 찾아보자.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 해설교재 p.19
+    steps:
+    - id: 1b-1
+      content: |
+        컵의 밑면의 반지름을 $r$, 높이를 $h$라 하면, 물의 높이 $w$는 $\pi r^2w=54\pi$에서 $w=\dfrac{54}{r^2}$. 조건 2)는 $h-w\ge3$, 즉 $h\ge3+\dfrac{54}{r^2}$ (이때 $h>w$이므로 물이 넘치지 않는다).
+      criteria: [1.M1]
+    - id: 1b-2
+      content: |
+        뚜껑이 없으므로 겉넓이는 $\pi r^2+2\pi rh$이고, $r$를 고정하면 $h$에 대해 증가한다. 따라서 각 $r$에서 겉넓이가 가장 작은 것은 $h=3+\dfrac{54}{r^2}$일 때이고, 구하는 최솟값은 $A(r)=\pi r^2+2\pi r\left(3+\dfrac{54}{r^2}\right)=\pi r^2+6\pi r+\dfrac{108\pi}r$ ($r>0$)의 최솟값과 같다.
+      criteria: [1.R1]
+    - id: 1b-3
+      content: |
+        $A'(r)=2\pi r+6\pi-\dfrac{108\pi}{r^2}=\dfrac{2\pi(r^3+3r^2-54)}{r^2}=\dfrac{2\pi(r-3)(r^2+6r+18)}{r^2}$.
+      criteria: [1.M2, 1.B1]
+    - id: 1b-4
+      content: |
+        $r^2+6r+18=(r+3)^2+9>0$이므로 $0<r<3$에서 $A'(r)<0$, $r>3$에서 $A'(r)>0$. 제시문에 의해 $A$는 $r=3$에서 극소이고, $(0,\infty)$에서 감소 후 증가하므로 이 극솟값이 최솟값이다.
+      criteria: [1.R2]
+    - id: 1b-5
+      content: |
+        $A(3)=9\pi+18\pi+36\pi=63\pi$ (이때 $h=9$, 물의 높이 6).
+      criteria: [1.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 5
+      evidence: 수면의 높이 $\frac{54}{r^2}$를 구하고 조건을 $h\ge3+\frac{54}{r^2}$로 나타냈다.
+      steps: [1b-1]
+    - id: 1.R1
+      mark_type: R
+      points: 4
+      evidence: 겉넓이가 $h$에 대해 증가하므로 $h=3+\frac{54}{r^2}$일 때 최소임을 밝히고 $A(r)$을 세웠다(밑면 1개).
+      steps: [1b-2]
+    - id: 1.M2
+      mark_type: M
+      points: 4
+      evidence: $A'(r)$을 구했다.
+      steps: [1b-3]
+    - id: 1.B1
+      mark_type: B
+      points: 4
+      evidence: $A'(r)=0$을 인수분해해 $r=3$이 유일한 양의 근임을 구했다.
+      steps: [1b-3]
+    - id: 1.R2
+      mark_type: R
+      points: 4
+      evidence: $r=3$의 좌우에서 $A'$의 부호 변화(증감표)로 최솟값임을 밝혔다.
+      depends_on: [1.M2]
+      steps: [1b-4]
+    - id: 1.A1
+      mark_type: A
+      points: 4
+      evidence: $63\pi$.
+      depends_on: [1.M2, 1.R1]
+      cao: true
+      steps: [1b-5]
+    deductions:
+    - code: D1-1
+      condition: 답만 쓰고 과정 없음
+      effect: cap
+      value: 5
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-0417}
+  - {code: '72', misconception: MC-GEO-0418}
+  misconceptions:
+  - id: MC-CAL-0417
+    outcome_code: '71'
+    wrong_work: '조건 2)를 빼고 $h=\frac{54}{r^2}$로 두어 $A=\pi r^2+\frac{108\pi}{r}$, 최솟값 $27\sqrt[3]{4}\pi$'
+    detect_cue: $A(r)$에 $6\pi r$ 항이 없음, $r=3\sqrt[3]{2}$, 답 $27\sqrt[3]{4}\pi$
+    feedback: 컵의 높이는 물의 높이보다 3 이상 커야 합니다. 겉넓이가 $h$에 대해 증가하므로 $h=3+\frac{54}{r^2}$로 두는 근거도 적으세요.
+    remedy: [RL-1]
+  - id: MC-GEO-0418
+    outcome_code: '72'
+    wrong_work: '겉넓이를 $2\pi r^2+2\pi rh$로 둠'
+    detect_cue: 밑면 넓이가 $2\pi r^2$
+    feedback: 뚜껑이 없는 컵은 밑면이 하나뿐입니다.
+    remedy: [RL-1]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CAL-0417}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-OPTIM-CONSTRAINT}
+  priority: 1
+- id: RL-2
+  trigger: {type: criterion_missed, ref: 1.M2}
+  relation: prerequisite
+  target: {kind: concept, ref: CON-CAL-DIFF-QUOTIENT}
+  priority: 2
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-transcribe-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

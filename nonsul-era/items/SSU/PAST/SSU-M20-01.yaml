@@ -1,0 +1,283 @@
+# 숭실대 2020학년도 모의논술고사(수학) 문제 1 — 원문은 내부 분석용(allowed_use: internal_only)
+# [확인필요] 원문(교재 p.67)에 배점 표기가 없음 → points 25(숭실 문항 규격)로 두고 original_points: null. 소문항 (1)12 (2)13 임의 배분.
+# 제시문에 【출처】 표기가 원문에 없음(그대로 둠).
+schema_version: '2.0'
+id: SSU-M20-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: numeric
+origin: mock_exam
+school: SSU
+type: T03
+variant_of: null
+replaces: null
+level: L5
+form: 추론
+points: 25
+time_estimate_min: 20
+intent: 원과 로그함수의 그래프가 공통접선을 갖는 조건을 음함수의 미분으로 식으로 세워 미지수를 결정하고, 원과 곡선 및 x축으로 둘러싸인 넓이를 직사각형·활꼴·정적분의 합차로 구하는 능력을 본다.
+key_idea: '공통접선이면 기울기가 같으므로 $\dfrac{x_1}{a-y_1}=\dfrac1{x_1}$, 즉 $x_1^2=a-y_1$. 원의 식과 연립하면 $(a-y_1)^2+(a-y_1)-2=0$에서 $a-y_1=1$.'
+stuck: $y_1=a$인 경우(원의 접선이 $y$축과 평행)를 배제하고, $x_1^2=a-y_1$을 원의 방정식에 넣어 $a-y_1$에 대한 이차방정식으로 보는 단계
+idea_tags: [IDEA-COMMON-TANGENT-SLOPE, IDEA-AREA-BY-DECOMPOSITION]
+tags: [공통접선, 원과 로그함수, 넓이]
+elements:
+  materials:
+  - '원'
+  - '로그함수 $y=\ln\lvert x\rvert+1$'
+  - '공통접선'
+  - '활꼴'
+  concepts: [음함수의 미분법, 로그함수의 도함수, 접선의 방정식, 부채꼴의 넓이, 정적분과 넓이]
+  tools:
+  - '음함수의 미분법'
+  - '접선 기울기 비교'
+  - '부채꼴과 삼각형 넓이의 차'
+  - '정적분 $\int\ln x\,dx=x\ln x-x$'
+  conditions:
+  - '공통접선 → 교점이면서 기울기 같음'
+  - '$y_1\ne a$ ($C_2$는 $y$축과 평행한 접선이 없음)'
+  - '$a-y_1=x_1^2\ge0$ → 음수 근 제외'
+  - '$C_2$는 $y$축 대칭, $x$절편 $\pm\frac1e$'
+  stimuli_used: [제시문]
+  subpart_links: '(2)는 (1)의 $a=2$, $P(1,1)$, $Q(-1,1)$ 사용'
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅰ, 미적분]
+  scope_2028: calc2
+  scope_confirmed: true
+  standards:
+  - code: 미확인
+    text: 음함수를 미분할 수 있다 / 곡선으로 둘러싸인 도형의 넓이를 구할 수 있다(요지)
+    verified: false
+  content_area: 미분법 – 여러 가지 미분법
+  behavior_domain: 문제해결
+  unit_path: [미적분, 미분법, 여러 가지 미분법, 음함수의 미분과 공통접선]
+  key_concepts: [음함수의 미분법, 로그함수의 도함수, 접선의 방정식, 부채꼴의 넓이, 정적분과 넓이]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 숭실대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 숭실대학교
+  admission_year: 2020
+  admission_type: 논술우수자전형 모의논술
+  track: 자연
+  question_no: 1
+  official_url: https://iphak.ssu.ac.kr   # [확인필요] 입학처 기출 게시물 주소로 교체
+  retrieved_at: 2026-11-21
+  original_points: null
+  rights_notice: 미확인(대치 수리 논술 연구소 「2027학년도 대비 수리논술 숭실대 기출 및 모의 문제」 p.67, 해설 p.91~92에서 옮김)
+
+verify: verify/SSU-M20.py::p01
+
+stimuli:
+- label: 제시문
+  body: |
+    함수 $y=f(x)$가 $x=x_0$에서 미분가능할 때, 곡선 $y=f(x)$ 위의 점 $(x_0,f(x_0))$에서의 접선의 방정식은
+    $$y-f(x_0)=f'(x_0)(x-x_0)$$
+
+stem: |
+  원 $C_1:x^2+(y-a)^2=2$와 곡선 $C_2:y=\ln\lvert x\rvert+1$은 서로 다른 두 점 $P$, $Q$에서 만나고, 점 $P$, $Q$에서 각각 공통인 접선을 가진다. 이때 다음 문항에 답하시오.
+
+subparts:
+- id: '1'
+  stem: |
+    상수 $a$의 값을 구하시오.
+  points: 12
+  depends_on: []
+  answer: {kind: value, value: '2', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: 원의 접선 기울기 $\dfrac{x_1}{a-y_1}$, 곡선의 기울기 $\dfrac1{x_1}$에서 $x_1^2=a-y_1$; 원의 식에 넣어 $a-y_1=1$, $x_1=\pm1$, $y_1=1$.
+    steps:
+    - {id: 1a, content: '$P(1,1)$, $Q(-1,1)$, $a=2$', criteria: [1.R1, 1.M1, 1.M2, 1.M3, 1.A1]}
+    hint_ladder:
+    - 교점 $P(x_1,y_1)$에서 원의 접선의 기울기를 음함수의 미분으로 구해 보자.
+    - $y_1=a$일 수 있는가?
+    - $x_1^2=a-y_1$을 원의 방정식에 대입하자.
+  - id: S1-B
+    audience: B
+    source_flow: 해설교재 p.91
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        $P(x_1,y_1)$이라 하면 $x_1^2+(y_1-a)^2=2$ …①, $y_1=\ln\lvert x_1\rvert+1$ …②.
+        $y_1=a$이면 ①에서 $P=(\pm\sqrt2,a)$이고 이때 원 $C_1$의 접선은 $y$축과 평행한데, 곡선 $C_2$는 어떤 점에서도 $y$축과 평행한 접선을 갖지 않으므로 $y_1\ne a$.
+      criteria: [1.R1]
+    - id: 1b-2
+      content: |
+        $x^2+(y-a)^2=2$의 양변을 $x$에 대하여 미분하면 $2x+2(y-a)\dfrac{dy}{dx}=0$이므로 $P$에서 원의 접선의 기울기는 $\dfrac{x_1}{a-y_1}$. 곡선 $C_2$ 위의 점 $P$에서의 접선의 기울기는 $\dfrac1{x_1}$.
+      criteria: [1.M1]
+    - id: 1b-3
+      content: |
+        공통접선이므로 $\dfrac{x_1}{a-y_1}=\dfrac1{x_1}$, 즉 $x_1^2=a-y_1$ …③.
+      criteria: [1.M2]
+    - id: 1b-4
+      content: |
+        ①과 ③에서 $(a-y_1)^2+(a-y_1)-2=0$ (단, $a-y_1=x_1^2\ge0$). $(a-y_1-1)(a-y_1+2)=0$이므로 $a-y_1=1$.
+      criteria: [1.M3]
+    - id: 1b-5
+      content: |
+        ③에서 $x_1=\pm1$, ②에서 $y_1=1$. 따라서 두 점 $P$, $Q$는 $(1,1)$과 $(-1,1)$이고 $a=y_1+1=2$.
+      criteria: [1.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.R1
+      mark_type: R
+      points: 2
+      evidence: $y_1\ne a$임(원의 접선이 $y$축과 평행할 수 없음)을 밝혔다.
+      steps: [1b-1]
+    - id: 1.M1
+      mark_type: M
+      points: 3
+      evidence: 음함수의 미분(또는 다른 방법)으로 원의 접선 기울기 $\dfrac{x_1}{a-y_1}$과 곡선의 기울기 $\dfrac1{x_1}$을 구했다.
+      steps: [1b-2]
+    - id: 1.M2
+      mark_type: M
+      points: 2
+      evidence: 기울기가 같다는 조건으로 $x_1^2=a-y_1$을 얻었다.
+      steps: [1b-3]
+    - id: 1.M3
+      mark_type: M
+      points: 3
+      evidence: 원의 방정식과 연립해 $(a-y_1)^2+(a-y_1)-2=0$을 풀고 $a-y_1\ge0$으로 $a-y_1=1$을 택했다.
+      steps: [1b-4]
+    - id: 1.A1
+      mark_type: A
+      points: 2
+      evidence: $P(1,1)$, $Q(-1,1)$, $a=2$.
+      depends_on: [1.M3]
+      cao: true
+      steps: [1b-5]
+    deductions:
+    - code: D1-1
+      condition: 답만 쓰고 과정 없음
+      effect: cap
+      value: 5
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-0730}
+  misconceptions:
+  - id: MC-CAL-0730
+    outcome_code: '71'
+    wrong_work: '$(a-y_1)^2+(a-y_1)-2=0$의 두 근 $1$, $-2$를 모두 채택해 $a$를 두 개 구하거나 $a-y_1=-2$를 택함'
+    detect_cue: $x_1^2=-2$ 같은 식, 또는 $a$ 후보가 둘
+    feedback: $a-y_1=x_1^2\ge0$이므로 음수 근은 버려야 합니다. 치환한 문자의 범위를 확인하세요.
+    remedy: [RL-1]
+- id: '2'
+  stem: |
+    원 $C_1$과 곡선 $C_2$ 및 $x$축으로 둘러싸인 도형의 넓이를 구하시오.
+  points: 13
+  depends_on: ['1']
+  answer: {kind: value, value: '3 - pi/2 - 2/E', equivalents: ['3-\dfrac\pi2-\dfrac2e'], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: 직사각형 $[-1,1]\times[0,1]$의 넓이 $2$에서 활꼴 $A_1=\dfrac\pi2-1$과 양쪽 곡선 아래 넓이 $A_2=2\displaystyle\int_{1/e}^1(\ln x+1)\,dx=\dfrac2e$를 뺀다.
+    steps:
+    - {id: 2a, content: '$2-\left(\dfrac\pi2-1\right)-\dfrac2e=3-\dfrac\pi2-\dfrac2e$', criteria: [2.M1, 2.M2, 2.A1, 2.M3, 2.A2, 2.A3]}
+    hint_ladder:
+    - 그림을 그려 직선 $y=1$, $x=\pm1$과 $x$축이 만드는 직사각형을 보자.
+    - $\angle PDQ$($D(0,2)$)는 몇 도인가?
+  - id: S2-B
+    audience: B
+    source_flow: 해설교재 p.91~92
+    method_no: 1
+    steps:
+    - id: 2b-1
+      content: |
+        (1)에서 $C_1:x^2+(y-2)^2=2$, $P(1,1)$, $Q(-1,1)$. 구하는 넓이는 직선 $y=1$, $x=1$, $x=-1$과 $x$축이 이루는 직사각형의 넓이 $2$에서, 원 $C_1$과 직선 $y=1$로 둘러싸인 영역 $A_1$의 넓이와, 곡선 $C_2$와 직선 $x=1$, $x=-1$ 및 $x$축으로 둘러싸인 영역 $A_2$의 넓이를 뺀 값이다. [그림 설명] 원의 아래쪽 호 $QP$, 곡선 $C_2$의 두 가지($x=\pm\dfrac1e$에서 $x$축과 만남), $x$축으로 둘러싸인 가운데 영역.
+      criteria: [2.M1]
+    - id: 2b-2
+      content: |
+        원의 중심을 $D(0,2)$라 하면 $\overline{DP}=\overline{DQ}=\sqrt2$, $\overline{PQ}=2$이므로 $\overline{DP}^2+\overline{DQ}^2=\overline{PQ}^2$, $\angle PDQ=\dfrac\pi2$. 따라서 $A_1=(\text{부채꼴 }DPQ)-(\triangle DPQ)=\dfrac14\pi(\sqrt2)^2-1=\dfrac\pi2-1$.
+      criteria: [2.M2, 2.A1]
+    - id: 2b-3
+      content: |
+        곡선 $C_2$는 $y$축에 대하여 대칭이고 $\left(\pm\dfrac1e,0\right)$에서 $x$축과 만나므로 $A_2=2\displaystyle\int_{1/e}^1(\ln x+1)\,dx=2\Big[x\ln x\Big]_{1/e}^1=\dfrac2e$.
+      criteria: [2.M3, 2.A2]
+    - id: 2b-4
+      content: |
+        구하는 넓이는 $2-\left(\dfrac\pi2-1\right)-\dfrac2e=3-\dfrac\pi2-\dfrac2e$.
+      criteria: [2.A3]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 3
+      evidence: 넓이를 직사각형에서 활꼴과 곡선 아래 넓이를 빼는 식(또는 동등한 정적분 식)으로 세웠다.
+      steps: [2b-1]
+    - id: 2.M2
+      mark_type: M
+      points: 2
+      evidence: $\angle PDQ=\dfrac\pi2$임을 밝혔다.
+      steps: [2b-2]
+    - id: 2.A1
+      mark_type: A
+      points: 2
+      evidence: $A_1=\dfrac\pi2-1$.
+      depends_on: [2.M2]
+      steps: [2b-2]
+    - id: 2.M3
+      mark_type: M
+      points: 2
+      evidence: $A_2=2\displaystyle\int_{1/e}^1(\ln x+1)\,dx$로 세웠다.
+      steps: [2b-3]
+    - id: 2.A2
+      mark_type: A
+      points: 2
+      evidence: $A_2=\dfrac2e$.
+      depends_on: [2.M3]
+      steps: [2b-3]
+    - id: 2.A3
+      mark_type: A
+      points: 2
+      evidence: $3-\dfrac\pi2-\dfrac2e$.
+      depends_on: [2.M1, 2.A1, 2.A2]
+      cao: true
+      steps: [2b-4]
+    deductions:
+    - code: D2-1
+      condition: 답만 쓰고 과정 없음
+      effect: cap
+      value: 5
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '72', misconception: MC-CAL-0731}
+  misconceptions:
+  - id: MC-CAL-0731
+    outcome_code: '72'
+    wrong_work: '활꼴 $A_1$ 대신 부채꼴 $DPQ$의 넓이 $\dfrac\pi2$ 전체를 빼서 $2-\dfrac\pi2-\dfrac2e$'
+    detect_cue: 답이 정답보다 1 작음
+    feedback: 직선 $y=1$ 아래에 있는 원의 부분은 부채꼴에서 삼각형 $DPQ$를 뺀 활꼴입니다.
+    remedy: [RL-2]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CAL-0730}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-IMPLICIT-TANGENT}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-CAL-0731}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-AREA-BOUNDARY}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-transcribe-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

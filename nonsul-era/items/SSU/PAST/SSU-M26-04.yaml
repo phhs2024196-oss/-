@@ -1,0 +1,195 @@
+# 숭실대 2026학년도 모의논술고사(자연) 문제 4 — 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: SSU-M26-04
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: numeric
+origin: mock_exam
+school: SSU
+type: T10
+variant_of: null
+replaces: null
+level: L4
+form: 분류
+points: 25
+time_estimate_min: 20
+intent: 조건 $f\circ f\circ f=I$에서 $f$가 일대일대응임을 끌어내고, 고정점의 개수로 경우를 나누어 함수의 개수를 세는 능력을 본다.
+key_idea: '$f$는 일대일대응이고, 고정되지 않는 원소는 $a\to b\to c\to a$ 꼴의 3개 묶음으로만 움직인다. 원소가 4개이므로 항등함수 1개 + (3개 고르기 4가지)×(순환 방향 2가지)=9.'
+stuck: 고정점이 아닌 원소들이 반드시 길이 3의 순환을 이룬다는 구조를 파악하는 단계
+idea_tags: [IDEA-ORDER3-MAP-CYCLES, IDEA-COUNT-BY-FIXED-POINTS]
+tags: [합성함수, 일대일대응, 순열과 조합]
+elements:
+  materials: [유한집합 위의 함수, 합성함수 조건 f∘f∘f=I]
+  concepts: [합성함수, 일대일대응, 역함수, 조합]
+  tools: [일대일대응 판정, 고정점 개수에 따른 경우 분류, 조합(제시문 나)]
+  conditions:
+  - '$f\circ f\circ f=I$ → $f^{-1}=f\circ f$, 일대일대응'
+  - '$f(a)=a$인 원소는 조건을 저절로 만족 → 고정점 개수로 분류'
+  - '두 원소가 서로 바뀌는 대응 불가 → 고정되지 않는 원소는 3개 순환'
+  stimuli_used: [제시문]
+  subpart_links: null
+
+curriculum:
+  version: '2015'
+  subjects: [수학]
+  scope_2028: common
+  scope_confirmed: true
+  standards:
+  - code: 미확인
+    text: 합성함수와 역함수를 이해하고, 순열과 조합을 이용해 경우의 수를 구할 수 있다(요지)
+    verified: false
+  content_area: 함수 – 합성함수와 역함수
+  behavior_domain: 추론
+  unit_path: [수학, 함수와 그래프, 합성함수와 역함수, 조건을 만족하는 함수의 개수]
+  key_concepts: [합성함수, 일대일대응, 역함수, 조합]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 숭실대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 숭실대학교
+  admission_year: 2026
+  admission_type: 논술우수자전형 모의논술
+  track: 자연
+  question_no: 4
+  official_url: https://iphak.ssu.ac.kr   # [확인필요] 입학처 기출 게시물 주소로 교체
+  retrieved_at: 2026-11-21
+  original_points: 25
+  rights_notice: 미확인(대치 수리 논술 연구소 「2027학년도 대비 수리논술 숭실대 기출 및 모의 문제」 p.15에서 옮김, 해설교재 p.13 참고)
+
+verify: verify/SSU-M26.py::p04
+
+stimuli:
+- label: 제시문
+  body: |
+    (가) 서로 다른 $n$개에서 $r\ (0<r\le n)$개를 택하는 순열의 수는
+    $${}_n\mathrm P_r=n(n-1)(n-2)\times\cdots\times(n-r+1)$$
+    (나) 서로 다른 $n$개에서 $r\ (0<r\le n)$개를 택하는 조합의 수는
+    $${}_n\mathrm C_r=\frac{{}_n\mathrm P_r}{r!}=\frac{n!}{r!(n-r)!}$$
+    【출처: 수학 「순열」, 「조합」】
+
+stem: |
+  다음 조건을 만족시키는 함수 $f:A\to A$의 개수를 구하시오.
+
+  ① $A=\{1,2,3,4\}$
+
+  ② $A$의 모든 원소 $x$에 대하여 $(f\circ f\circ f)(x)=x$
+
+subparts:
+- id: '1'
+  stem: |
+    함수 $f$의 개수를 구하시오.
+  points: 25
+  depends_on: []
+  answer: {kind: value, value: '9', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $f$는 일대일대응. 고정점 개수 4·3·2·1·0으로 나누면 4개(항등함수 1가지)와 1개(고정점 4가지×순환 2가지=8가지)만 가능.
+    steps:
+    - {id: 1a, content: '$1+{}_4\mathrm C_1\times2=9$', criteria: [1.M1, 1.R1, 1.A1, 1.R2, 1.A2]}
+    hint_ladder:
+    - $f\circ f\circ f$가 항등함수이면 $f$는 어떤 함수여야 하는가?
+    - $f(a)=b\ (b\ne a)$라 하면 $f(b)$는 무엇이 될 수 있는가?
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 해설교재 p.13
+    steps:
+    - id: 1b-1
+      content: |
+        $(f\circ f\circ f)(x)=x$이므로 $f^{-1}=f\circ f$가 존재한다. 따라서 $f$는 일대일대응이다.
+      criteria: [1.M1]
+    - id: 1b-2
+      content: |
+        $f(a)=a$이면 $f(f(f(a)))=a$가 저절로 성립하므로, $f(a)=a$인 원소 $a$(고정점)의 개수로 경우를 나눈다. $a,b,c,d$는 $A$의 서로 다른 원소이다.
+        (i) 고정점 4개: 항등함수 1가지이고 조건을 만족한다.
+      criteria: [1.A1]
+    - id: 1b-3
+      content: |
+        (ii) 고정점 3개: $f(a)=a$, $f(b)=b$, $f(c)=c$이면 일대일대응이므로 $f(d)=d$가 되어 모순. 없다.
+        (iii) 고정점 2개: $f(a)=a$, $f(b)=b$이면 일대일대응이면서 항등함수가 아니려면 $f(c)=d$, $f(d)=c$인데, $f(f(f(c)))=f(f(d))=f(c)=d\ne c$이므로 불가.
+        (v) 고정점 0개: $f(a)=b$라 하면 (iii)처럼 $f(b)=a$는 불가하므로 $f(b)=c$ (또는 $d$, 대칭)이고, 조건에서 $f(c)=f(f(b))=f(f(f(a)))=a$. 그러면 일대일대응이므로 $f(d)=d$가 되어 고정점 0개에 모순. 없다.
+      criteria: [1.R1]
+    - id: 1b-4
+      content: |
+        (iv) 고정점 1개: $f(a)=a$이고 나머지 $b,c,d$에서 $f(b)=c$이면 $f(c)=b$는 (iii)과 같이 불가하므로 $f(c)=d$, $f(d)=b$. 즉 나머지 세 원소는 $b\to c\to d\to b$ 또는 $b\to d\to c\to b$로 순환한다. 고정점 $a$의 선택 4가지, 나머지 세 원소 중 가장 작은 원소의 함숫값 2가지이므로 $4\times2=8$가지.
+      criteria: [1.R2]
+    - id: 1b-5
+      content: |
+        따라서 $1+8=9$.
+      criteria: [1.A2]
+  - id: S1-ALT
+    audience: ALT
+    method_no: 2
+    key_idea: 일대일대응인 $f$에서 $a\to f(a)\to f(f(a))\to a$이므로 고정되지 않는 원소는 3개씩 순환한다. 4개 중 3개를 골라(${}_4\mathrm C_3=4$) 순환 방향 2가지, 또는 항등함수 → $1+8=9$.
+    steps:
+    - {id: 1c-1, content: '$f(a)\ne a$이면 $a$, $f(a)$, $f(f(a))$는 서로 다르고 $f(f(f(a)))=a$이므로 길이 3의 순환. 원소 4개에서 순환은 0개 또는 1개: $1+{}_4\mathrm C_3\times2=9$', criteria: [1.R1, 1.R2, 1.A2]}
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 5
+      evidence: $f$가 일대일대응임을 보였다.
+      steps: [1b-1]
+    - id: 1.R1
+      mark_type: R
+      points: 7
+      evidence: 고정점이 3개·2개·0개인 경우가 불가능함을 보였다(두 원소가 서로 바뀌는 대응이 조건에 어긋남 포함). 또는 고정되지 않는 원소가 길이 3의 순환을 이룸을 보였다.
+      depends_on: [1.M1]
+      steps: [1b-3]
+    - id: 1.A1
+      mark_type: A
+      points: 3
+      evidence: 고정점이 4개인 경우(항등함수) 1가지.
+      depends_on: [1.M1]
+      steps: [1b-2]
+    - id: 1.R2
+      mark_type: R
+      points: 6
+      evidence: 고정점이 1개인 경우 고정점 선택 4가지와 나머지 세 원소의 순환 방향 2가지를 곱해 8가지를 얻었다.
+      depends_on: [1.R1]
+      steps: [1b-4]
+    - id: 1.A2
+      mark_type: A
+      points: 4
+      evidence: 개수 $9$.
+      depends_on: [1.A1, 1.R2]
+      cao: true
+      steps: [1b-5]
+    deductions:
+    - code: D1-1
+      condition: 답만 쓰고 과정 없음
+      effect: cap
+      value: 5
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CNT-0322}
+  misconceptions:
+  - id: MC-CNT-0322
+    outcome_code: '71'
+    wrong_work: '세 원소 $\{a,b,c\}$를 고른 뒤 순환을 1가지로 세어 $1+4=5$'
+    detect_cue: 답 5, $a\to b\to c$와 $a\to c\to b$를 구분하지 않음
+    feedback: 세 원소의 순환은 $a\to b\to c\to a$와 $a\to c\to b\to a$의 두 가지로 서로 다른 함수입니다.
+    remedy: [RL-1]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CNT-0322}
+  relation: remediation
+  target: {kind: concept, ref: CON-CNT-FUNCTION-COUNT}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-transcribe-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

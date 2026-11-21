@@ -1,0 +1,198 @@
+# 숭실대 2023학년도 논술고사(자연2) 문제 3 — 원문은 내부 분석용(allowed_use: internal_only)
+# 해설교재(p.46)와 답 일치: 6.
+schema_version: '2.0'
+id: SSU-G23B-03
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: numeric
+origin: past_exam
+school: SSU
+type: T04
+variant_of: null
+replaces: null
+level: L5
+form: 최적2단
+points: 25
+time_estimate_min: 25
+intent: 단면의 넓이가 주어진 입체에서 부피 보존 조건을 정적분 식으로 세워 두 높이의 관계를 구하고, 두께를 한 변수의 함수로 나타내 최댓값을 구하는 능력을 본다.
+key_idea: '기름 부피 $12\pi$ 보존. 윗면 $8+a$, 아랫면 $8-b$로 두면 $\dfrac{a^2}{2}+a+\dfrac{b^2}{4}+b=12$에서 $b=-2+\sqrt{-2a^2-4a+52}$, 두께 $h(a)=a-2+\sqrt{-2a^2-4a+52}$는 $a=2$에서 최대 6.'
+stuck: 기름층이 경계 높이 8을 걸치는 동안 위·아래 부분의 부피를 따로 적분해 $a$, $b$의 관계식을 세우는 단계
+idea_tags: [IDEA-VOLUME-CONSERVE-INTEGRAL, IDEA-THICKNESS-ONE-VARIABLE]
+tags: [부피 보존, 두께의 최대]
+elements:
+  materials: [높이에 따라 단면 반지름이 주어진 용기, 물과 기름의 층, 기름층 두께의 최대]
+  concepts: [단면의 넓이와 입체의 부피, 정적분의 계산, 무리함수의 미분, 함수의 최대]
+  tools: [단면적 적분으로 부피, 치환(평행이동) $t=x-8$, 부피 보존 방정식, 근의 공식, 도함수와 증감표]
+  conditions:
+  - '단면은 원, 단면적 $\pi R(x)^2$: $0\le x\le8$에서 $\pi\left(\dfrac{8-x}{2}+1\right)$, $8\le x\le12$에서 $\pi(x-7)$'
+  - '처음 기름은 $8\le x\le12$를 가득 → 부피 $12\pi$로 일정'
+  - '윗면이 8 이상일 때: 윗면 $8+a$ $(0\le a\le4)$, 아랫면 $8-b$ $(b\ge0)$'
+  - '윗면이 8보다 낮아지면 아래로 갈수록 단면적이 커지므로 두께는 감소'
+  stimuli_used: []
+  subpart_links: null
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅱ, 미적분]
+  scope_2028: calc2
+  scope_confirmed: true
+  standards:
+  - code: 미확인
+    text: 정적분을 이용하여 입체도형의 부피를 구할 수 있다(요지)
+    verified: false
+  content_area: 적분법 – 정적분의 활용(입체도형의 부피)
+  behavior_domain: 문제해결
+  unit_path: [미적분, 적분법, 정적분의 활용, 부피 보존과 층의 두께]
+  key_concepts: [단면의 넓이와 입체의 부피, 정적분의 계산, 무리함수의 미분, 함수의 최대]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 숭실대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 숭실대학교
+  admission_year: 2023
+  admission_type: 논술우수자전형
+  track: 자연2
+  question_no: 3
+  official_url: https://iphak.ssu.ac.kr   # [확인필요] 입학처 기출 게시물 주소로 교체
+  retrieved_at: 2026-11-21
+  original_points: 25
+  rights_notice: 미확인(「숭실대 수리논술 문제교재(2026)」 p.38, 해설교재 p.46에서 옮김)
+
+verify: verify/SSU-G23B.py::p03
+
+stimuli: []
+
+stem: |
+  오른쪽 그림과 같이 높이가 $12$인 용기가 있다. 이 용기를 밑면에 평행한 평면으로 자른 단면은 원이며, 밑면으로부터 높이가 $x$인 지점에서 단면의 반지름 $R(x)$는 다음과 같이 주어져 있다.
+
+  $$R(x)=\begin{cases}\sqrt{\dfrac{8-x}{2}+1} & (0\le x\le8)\\ \sqrt{x-7} & (8\le x\le12)\end{cases}$$
+
+  용기의 높이가 $0\le x\le8$인 부분과 $8\le x\le12$인 부분에는 각각 물과 기름이 가득 차 있다.
+
+  [그림 설명] 세로축을 중심축으로 하는 모래시계 모양의 용기. 아래쪽 높이 8인 부분(물, 짙은 색)은 위로 갈수록 좁아지고, 위쪽 높이 4인 부분(기름, 옅은 색)은 위로 갈수록 넓어진다. 높이 $x$에서의 단면 반지름 $R(x)$가 표시되어 있다.
+
+  이제 용기의 바닥, 즉 높이 $x=0$인 부분에 구멍을 뚫어 천천히 물을 용기 밖으로 내보낸다고 하자. 물을 내보냄에 따라 기름층도 아래로 이동하면서 기름층의 두께가 변하게 된다.
+  (단, 기름층의 두께는 기름층의 윗면의 높이와 아랫면의 높이의 차이를 의미한다. 기름과 물은 항상 위와 아래로 분리되어 층을 이루며 기름층의 윗면과 아랫면은 항상 밑면과 평행하다고 가정하자.)
+  이때 기름층의 두께의 최댓값을 구하시오.
+
+subparts:
+- id: '1'
+  stem: |
+    기름층의 두께의 최댓값을 구하시오.
+  points: 25
+  depends_on: []
+  answer: {kind: value, value: '6', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $V=\displaystyle\int_8^{12}\pi(x-7)dx=12\pi$. 윗면 $8+a$, 아랫면 $8-b$이면 $\pi\left(\dfrac{a^2}{2}+a+\dfrac{b^2}{4}+b\right)=12\pi$ → $h(a)=a-2+\sqrt{-2a^2-4a+52}$, $h^\prime(2)=0$, $h(2)=6$.
+    steps:
+    - {id: 1a, content: '$h(a)=a-2+\sqrt{-2a^2-4a+52}$ $(0\le a\le4)$ → 최댓값 $h(2)=6$', criteria: [1.B1, 1.M1, 1.A1, 1.M2, 1.R1, 1.A2]}
+    hint_ladder:
+    - 기름의 부피는 변하지 않는다.
+    - 윗면과 아랫면의 높이를 8을 기준으로 $8+a$, $8-b$로 두어 보자.
+    - 윗면이 8보다 아래로 내려가면 두께는 어떻게 되는가?
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 해설교재 p.46
+    steps:
+    - id: 1b-1
+      content: |
+        기름의 부피를 $V$라 하면 $V=\displaystyle\int_8^{12}\pi(\sqrt{x-7})^2dx=\int_8^{12}\pi(x-7)dx=\pi\left[\dfrac12x^2-7x\right]_8^{12}=12\pi$.
+      criteria: [1.B1]
+    - id: 1b-2
+      content: |
+        1) 기름층의 윗면의 높이가 8보다 크거나 같을 때: $0\le a\le4$에 대해 윗면 높이 $8+a$, 아랫면 높이 $8-b$ $(b\ge0)$라 하면
+        $$12\pi=\int_8^{8+a}\pi(\sqrt{x-7})^2dx+\int_{8-b}^8\pi\left(\sqrt{\dfrac{8-x}{2}+1}\right)^2dx.$$
+        $x-8=t$로 치환하면
+        $$12\pi=\int_0^a\pi(t+1)dt+\int_{-b}^0\pi\left(-\dfrac t2+1\right)dt=\pi\left[\dfrac{t^2}{2}+t\right]_0^a+\pi\left[-\dfrac{t^2}{4}+t\right]_{-b}^0=\pi\left(\dfrac{a^2}{2}+a+\dfrac{b^2}{4}+b\right).$$
+      criteria: [1.M1]
+    - id: 1b-3
+      content: |
+        $b^2+4b+2a^2+4a-48=0$에서 $b=-2\pm\sqrt{-2a^2-4a+52}$인데, $0\le a\le4$일 때 $-2a^2-4a+52\ge4$이므로 $b\ge0$이 되는 것은 $b=-2+\sqrt{-2a^2-4a+52}$. 따라서 윗면 높이가 $8+a$일 때 두께는
+        $$h(a)=a+b=a-2+\sqrt{-2a^2-4a+52}\quad(0\le a\le4).$$
+      criteria: [1.A1]
+    - id: 1b-4
+      content: |
+        $h'(a)=1-\dfrac{2a+2}{\sqrt{-2a^2-4a+52}}$. $h'(a)=0$이면 $2a+2=\sqrt{-2a^2-4a+52}$, $4(a+1)^2=-2a^2-4a+52$, 즉 $a^2+2a-8=(a+4)(a-2)=0$이고 $0\le a\le4$이므로 $a=2$. $0<a<2$에서 $h'>0$, $2<a\le4$에서 $h'<0$이므로 $h(a)$는 $a=2$에서 최댓값 $h(2)=6$을 가진다. ($h(0)=-2+2\sqrt{13}$, $h(4)=4$.) 즉 윗면이 높이 8일 때의 두께 $-2+2\sqrt{13}$은 6보다 작다.
+      criteria: [1.M2, 1.R1]
+    - id: 1b-5
+      content: |
+        2) 기름층의 윗면의 높이가 8보다 작으면, 기름층이 아래로 이동할수록 용기의 단면적이 점점 커지므로 기름층의 두께가 감소한다.
+        1), 2)로부터 기름층의 두께의 최댓값은 $6$이다.
+      criteria: [1.A2]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.B1
+      mark_type: B
+      points: 3
+      evidence: 기름의 부피 $12\pi$를 구했다.
+      steps: [1b-1]
+    - id: 1.M1
+      mark_type: M
+      points: 6
+      evidence: 윗면 $8+a$, 아랫면 $8-b$에 대해 부피 보존 식을 두 구간의 정적분 합으로 세웠다.
+      steps: [1b-2]
+    - id: 1.A1
+      mark_type: A
+      points: 4
+      evidence: $b=-2+\sqrt{-2a^2-4a+52}$ (부호 선택 근거 포함)와 두께 $h(a)$를 얻었다.
+      depends_on: [1.M1]
+      steps: [1b-3]
+    - id: 1.M2
+      mark_type: M
+      points: 4
+      evidence: $h^\prime(a)$를 구하고 $h^\prime(a)=0$에서 $a=2$를 얻었다.
+      depends_on: [1.A1]
+      steps: [1b-4]
+    - id: 1.R1
+      mark_type: R
+      points: 4
+      evidence: 증감표(또는 끝값 비교)로 $a=2$에서 최대임을 밝혔다.
+      depends_on: [1.M2]
+      steps: [1b-4]
+    - id: 1.A2
+      mark_type: A
+      points: 4
+      evidence: 윗면이 8보다 낮아지는 경우 두께가 감소함을 언급하고 최댓값 $6$을 답했다.
+      depends_on: [1.R1]
+      cao: true
+      steps: [1b-5]
+    deductions:
+    - code: D1-1
+      condition: 답만 쓰고 과정 없음
+      effect: cap
+      value: 5
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-0525}
+  misconceptions:
+  - id: MC-CAL-0525
+    outcome_code: '71'
+    wrong_work: '윗면과 아랫면이 같은 거리만큼 내려간다고 보고 두께가 4로 일정하다고 답함'
+    detect_cue: 부피 보존 식이 없음, 답 $4$
+    feedback: 단면적이 높이마다 다르므로 같은 부피를 유지하려면 두 면이 내려가는 거리가 다릅니다. 부피를 정적분으로 같게 놓으세요.
+    remedy: [RL-1]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CAL-0525}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-VOLUME-SECTION}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-transcribe-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

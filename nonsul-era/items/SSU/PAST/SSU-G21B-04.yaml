@@ -1,0 +1,251 @@
+# 숭실대 2021학년도 논술고사(자연2) 문제 4 — 원문은 내부 분석용(allowed_use: internal_only)
+# 문제 3(확률과통계)은 교재에서 제외됨. 소문항 배점 (1)12 (2)8 은 원문에 없어 임의 배분(원문은 문제 전체 20점).
+# 「S의 내부에 포함」의 경계(열린/닫힌) 문제는 해설교재처럼 최댓값(경계에 닿는 극한 상태)으로 처리함 — [확인필요] 엄밀히는 상한.
+schema_version: '2.0'
+id: SSU-G21B-04
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: numeric
+origin: past_exam
+school: SSU
+type: T01
+variant_of: null
+replaces: null
+level: L4
+form: 최적2단
+points: 20
+time_estimate_min: 15
+intent: 포물선과 직선으로 둘러싸인 영역에 내접하는 직사각형의 넓이를 한 변수의 이차함수로 최대화하고, 그 최댓값을 다시 매개변수의 사차함수로 최대화하는 두 단계 최적화 능력을 본다.
+key_idea: '넓이가 최대이려면 왼쪽 아래 꼭짓점이 직선 $\ell$ 위에 있어야 하고, 그 $x$좌표를 변수로 하면 넓이 $(a-x)(2x-a^2)$는 이차함수, 그 최댓값 $M(a)$는 $a$의 사차함수이다.'
+stuck: 넓이 최대 직사각형의 왼쪽 아래 꼭짓점이 직선 위에 놓여야 함을 알아내고, 꼭짓점의 $x$ 범위 $\dfrac{a^2}2<x<a$를 세우는 단계
+idea_tags: [IDEA-TWO-STAGE-OPTIMIZATION, IDEA-INSCRIBED-RECTANGLE]
+tags: [내접 직사각형, 두 단계 최적화]
+elements:
+  materials: [포물선, 직선, 내접 직사각형]
+  concepts: [이차함수의 최대·최소, 도함수의 활용, 함수의 증가·감소]
+  tools: [경계에 닿을 때 최대, 완전제곱식, 도함수의 부호표]
+  conditions:
+  - '(i) $S$ 내부 → 왼쪽 아래 꼭짓점이 직선 $\ell$ 위일 때 최대'
+  - '(iii) 오른쪽 위 꼭짓점 $(a,6-a^2)$ → $0<a<2$'
+  - '꼭짓점 좌표 대소 → $\frac{a^2}2<x<a$'
+  stimuli_used: [제시문]
+  subpart_links: '(2)는 (1)에서 구한 $M(a)$ 사용'
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅱ]
+  scope_2028: common
+  scope_confirmed: true
+  standards:
+  - code: 미확인
+    text: 함수의 그래프의 개형을 그리고 최댓값과 최솟값을 구할 수 있다(요지)
+    verified: false
+  content_area: 미분 – 도함수의 활용
+  behavior_domain: 문제해결
+  unit_path: [수학Ⅱ, 미분, 도함수의 활용, 함수의 최대·최소]
+  key_concepts: [이차함수의 최대·최소, 도함수의 활용, 함수의 증가·감소]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 숭실대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 숭실대학교
+  admission_year: 2021
+  admission_type: 논술우수자전형
+  track: 자연2
+  question_no: 4
+  official_url: https://iphak.ssu.ac.kr   # [확인필요] 입학처 기출 게시물 주소로 교체
+  retrieved_at: 2026-11-21
+  original_points: 20
+  rights_notice: 미확인(대치 수리 논술 연구소 「2027학년도 대비 수리논술 숭실대 기출 및 모의 문제」 p.61, 해설 p.82~83에서 옮김)
+
+verify: verify/SSU-G21B.py::p04
+
+stimuli:
+- label: 제시문
+  body: |
+    함수 $f(x)$가 닫힌구간 $[a,b]$에서 연속이면 최대·최소 정리에 의하여 함수 $f(x)$는 최댓값과 최솟값을 갖는다. 최댓값은 이 구간에서 함수의 극댓값, $f(a)$, $f(b)$ 중 가장 큰 값이고, 최솟값은 극솟값, $f(a)$, $f(b)$ 중에서 가장 작은 값이다.
+    【출처: 수학Ⅱ 「도함수의 활용」】
+
+stem: |
+  곡선 $C:x^2+y=6$과 직선 $\ell:2x+y=6$으로 둘러싸인 도형을 $S$라고 하자. 도형 $T$는 실수 $a$에 대하여 다음 조건을 모두 만족하는 직사각형 중 넓이가 가장 큰 직사각형이다.
+
+  (i) $S$의 내부에 포함된다.
+
+  (ii) 가로는 $x$축과 평행하고 세로는 $y$축과 평행하다.
+
+  (iii) 곡선 $C$ 위의 점 $(a,-a^2+6)$에 오른쪽 위 꼭짓점을 두고 있다.
+
+  다음 문항에 답하시오.
+
+subparts:
+- id: '1'
+  stem: |
+    직사각형 $T$의 넓이 $M$을 $a$의 식으로 나타내시오.
+  points: 12
+  depends_on: []
+  answer: {kind: expression, value: 'a**4/8 - a**3/2 + a**2/2', equivalents: ['M=\dfrac18a^4-\dfrac12a^3+\dfrac12a^2\ (0<a<2)'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: 왼쪽 아래 꼭짓점 $(x,-2x+6)$을 직선 위에 두면 넓이 $f(x)=(a-x)(2x-a^2)$, $\dfrac{a^2}2<x<a$. 꼭짓점 $x=\dfrac{a^2+2a}4$에서 최대.
+    steps:
+    - {id: 1a, content: '$M=f\left(\dfrac{a^2+2a}4\right)=\dfrac{a^4-4a^3+4a^2}8$ $(0<a<2)$', criteria: [1.M1, 1.B1, 1.M2, 1.R1, 1.A1]}
+    hint_ladder:
+    - 오른쪽 위 꼭짓점이 고정되었을 때 직사각형이 $S$를 벗어나기 쉬운 꼭짓점은 어느 것인가?
+    - 왼쪽 아래 꼭짓점을 직선 $\ell$ 위의 점 $(x,-2x+6)$으로 놓아 보자.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 해설교재 p.82
+    steps:
+    - id: 1b-1
+      content: |
+        곡선 $C$와 직선 $\ell$의 교점의 $x$좌표는 $6-x^2=6-2x$에서 $x=0,\,2$이므로 오른쪽 위 꼭짓점이 $S$의 경계인 곡선 위에 있으려면 $0<a<2$. 오른쪽 위 꼭짓점이 고정되면 넓이가 최대인 직사각형은 왼쪽 아래 꼭짓점이 직선 $\ell$ 위에 놓인다(아래 변을 더 내리면 $S$를 벗어남).
+      criteria: [1.M1, 1.B1]
+    - id: 1b-2
+      content: |
+        왼쪽 아래 꼭짓점을 $(x,-2x+6)$이라 하면 그 $x$, $y$좌표가 오른쪽 위 꼭짓점의 좌표보다 작아야 하므로 $x<a$, $-2x+6<-a^2+6$, 즉 $\dfrac{a^2}2<x<a$. 가로 $a-x$, 세로 $(-a^2+6)-(-2x+6)=2x-a^2$이므로 넓이는
+        $f(x)=(a-x)(2x-a^2)=-2\left(x-\dfrac{a^2+2a}4\right)^2+\dfrac{a^4-4a^3+4a^2}8$.
+      criteria: [1.M2]
+    - id: 1b-3
+      content: |
+        $0<a<2$에서 $\dfrac{a^2}2<\dfrac{a^2+2a}4<a$ (둘 다 $a^2<2a$와 동치)이므로 $f$는 $x=\dfrac{a^2+2a}4$에서 최대이다.
+      criteria: [1.R1]
+    - id: 1b-4
+      content: |
+        따라서 $M=\dfrac18a^4-\dfrac12a^3+\dfrac12a^2\ (0<a<2)$.
+      criteria: [1.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 3
+      evidence: 넓이가 최대일 때 왼쪽 아래 꼭짓점이 직선 $\ell$ 위에 있음을 적었다.
+      steps: [1b-1]
+    - id: 1.B1
+      mark_type: B
+      points: 2
+      evidence: 교점 $x=0,\,2$에서 $a$의 범위 $0<a<2$를 적었다.
+      steps: [1b-1]
+    - id: 1.M2
+      mark_type: M
+      points: 3
+      evidence: 넓이를 $f(x)=(a-x)(2x-a^2)$ $\left(\dfrac{a^2}2<x<a\right)$로 나타냈다.
+      steps: [1b-2]
+    - id: 1.R1
+      mark_type: R
+      points: 2
+      evidence: 꼭짓점 $x=\dfrac{a^2+2a}4$가 범위 $\left(\dfrac{a^2}2,\,a\right)$ 안에 있음을 확인했다.
+      steps: [1b-3]
+    - id: 1.A1
+      mark_type: A
+      points: 2
+      evidence: $M=\dfrac18a^4-\dfrac12a^3+\dfrac12a^2$.
+      depends_on: [1.M2]
+      cao: true
+      steps: [1b-4]
+    deductions:
+    - code: D1-1
+      condition: 답만 쓰고 과정 없음
+      effect: cap
+      value: 5
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-0719}
+  misconceptions:
+  - id: MC-CAL-0719
+    outcome_code: '71'
+    wrong_work: '왼쪽 아래 꼭짓점을 $x$축 위나 곡선 $C$ 위에 두고 넓이를 세움'
+    detect_cue: 세로 길이가 $6-a^2$ 또는 $x^2-a^2$ 꼴
+    feedback: 도형 $S$의 아래쪽 경계는 직선 $\ell$입니다. 오른쪽 위 꼭짓점이 고정되면 왼쪽 아래 꼭짓점이 $\ell$에 닿을 때까지 키울 수 있습니다.
+    remedy: [RL-1]
+- id: '2'
+  stem: |
+    넓이 $M$이 최대가 되는 실수 $a$의 값을 구하시오.
+  points: 8
+  depends_on: ['1']
+  answer: {kind: value, value: '1', equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: $M'(a)=\dfrac12a(a-1)(a-2)$이므로 $0<a<2$에서 $a=1$에서 극대이자 최대 $\dfrac18$.
+    steps:
+    - {id: 2a, content: '$M''(a)=\dfrac12a(a-1)(a-2)$, $a=1$', criteria: [2.M1, 2.R1, 2.A1]}
+    hint_ladder:
+    - $M(a)$를 미분하여 인수분해해 보자.
+  - id: S2-B
+    audience: B
+    method_no: 1
+    source_flow: 해설교재 p.83
+    steps:
+    - id: 2b-1
+      content: |
+        $M'(a)=\dfrac12a^3-\dfrac32a^2+a=\dfrac12a(a-1)(a-2)$이므로 $0<a<2$에서 $M'(a)=0$인 것은 $a=1$뿐이다.
+      criteria: [2.M1]
+    - id: 2b-2
+      content: |
+        $0<a<1$에서 $M'(a)>0$, $1<a<2$에서 $M'(a)<0$이므로 $M$은 $a=1$에서 최대이고 $M(1)=\dfrac18$. 답: $a=1$.
+      criteria: [2.R1, 2.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 3
+      evidence: $M'(a)=\dfrac12a(a-1)(a-2)$을 구했다.
+      steps: [2b-1]
+    - id: 2.R1
+      mark_type: R
+      points: 3
+      evidence: $0<a<2$에서 $M'$의 부호 변화(증감표)로 $a=1$에서 최대임을 보였다.
+      steps: [2b-2]
+    - id: 2.A1
+      mark_type: A
+      points: 2
+      evidence: $a=1$.
+      depends_on: [2.M1, 2.R1]
+      cao: true
+      steps: [2b-2]
+    deductions:
+    - code: D2-1
+      condition: 답만 쓰고 과정 없음
+      effect: cap
+      value: 3
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '72', misconception: MC-CAL-0720}
+  misconceptions:
+  - id: MC-CAL-0720
+    outcome_code: '72'
+    wrong_work: '$a$의 범위 $0<a<2$를 무시하고 $M''(a)=0$인 $a=0,\,1,\,2$를 모두 후보로 비교하거나 $a=2$를 답으로 씀'
+    detect_cue: 정의역 언급 없이 $a=0$, $a=2$에서 함숫값 계산
+    feedback: $a$는 직사각형이 존재하는 범위 $0<a<2$에서만 움직입니다. 그 범위 안의 증감으로 판정하세요.
+    remedy: [RL-2]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CAL-0719}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-OPTIMIZATION-DOMAIN}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-CAL-0720}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-OPTIMIZATION-DOMAIN}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-transcribe-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

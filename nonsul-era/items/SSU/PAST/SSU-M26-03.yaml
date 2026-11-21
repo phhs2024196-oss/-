@@ -1,0 +1,274 @@
+# 숭실대 2026학년도 모의논술고사(자연) 문제 3 — 원문은 내부 분석용(allowed_use: internal_only)
+# [확인필요] 소문항 배점: 원문은 문제 전체 25점만 표시. (1) 10점, (2) 15점으로 임의 배분
+# 해설교재 p.12 (2)(다)(i)의 「14 ≤ a_3 < 15」는 a_1의 오식이고, 끝의 「최솟값은 14」는 묻지 않은 내용(답 범위 14 ≤ a_1 < 15는 동일)
+schema_version: '2.0'
+id: SSU-M26-03
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: numeric
+origin: mock_exam
+school: SSU
+type: T07
+variant_of: null
+replaces: null
+level: L5
+form: 분류
+points: 25
+time_estimate_min: 25
+intent: 이차부등식의 해에 따라 갈리는 귀납적 정의를 경우로 나누어 다음 항의 범위를 구하고, 조건을 거꾸로 추적하며 각 경우의 전제 조건과 교차 확인하는 능력을 본다.
+key_idea: '$f(x)=(x-2)(x-15)$이므로 $2<a_n<15$이면 $a_{n+1}=a_n+1$, 아니면 $a_{n+1}=2a_n$. (2)는 $a_4\to a_3\to a_2\to a_1$로 거꾸로 범위를 좁힌다.'
+stuck: (2)에서 거꾸로 구한 범위를 그 경우의 전제($f(a_n)\ge0$ 또는 $<0$)와 교집합해야 한다는 점
+idea_tags: [IDEA-PIECEWISE-RECURSION-BACKTRACK, IDEA-QUADRATIC-SIGN-CASES]
+tags: [귀납적 정의, 이차부등식, 역추적]
+elements:
+  materials: [이차함수의 부호로 갈리는 귀납적 정의 수열, 항의 범위]
+  concepts: [수열의 귀납적 정의, 이차부등식, 일차부등식]
+  tools: [이차부등식의 해, 경우 분류, 역추적과 교집합]
+  conditions:
+  - '$f(x)=(x-2)(x-15)$ → $2<a_n<15$이면 $+1$, 아니면 $\times2$'
+  - '(1) $a_1$이 임의의 실수 → 두 경우의 상(像)의 합집합'
+  - '(2) $a_3<32\le a_4$ → 거꾸로 추적하며 각 경우의 전제와 교집합'
+  stimuli_used: [제시문]
+  subpart_links: "(1)과 (2)는 같은 점화 규칙을 쓰는 독립 소문항((2)는 (1)의 경우 분류를 반복 적용)"
+
+curriculum:
+  version: '2015'
+  subjects: [수학, 수학Ⅰ]
+  scope_2028: common
+  scope_confirmed: true
+  standards:
+  - code: 미확인
+    text: 수열의 귀납적 정의를 이해한다(요지)
+    verified: false
+  content_area: 수열 – 수학적 귀납법
+  behavior_domain: 추론
+  unit_path: [수학Ⅰ, 수열, 수학적 귀납법, 조건에 따라 갈리는 귀납적 정의]
+  key_concepts: [수열의 귀납적 정의, 이차부등식, 일차부등식]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 숭실대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 숭실대학교
+  admission_year: 2026
+  admission_type: 논술우수자전형 모의논술
+  track: 자연
+  question_no: 3
+  official_url: https://iphak.ssu.ac.kr   # [확인필요] 입학처 기출 게시물 주소로 교체
+  retrieved_at: 2026-11-21
+  original_points: 25
+  rights_notice: 미확인(대치 수리 논술 연구소 「2027학년도 대비 수리논술 숭실대 기출 및 모의 문제」 p.14에서 옮김, 해설교재 p.12 참고)
+
+verify: verify/SSU-M26.py::p03
+
+stimuli:
+- label: 제시문
+  body: |
+    일반적으로 수열 $\{a_n\}$을
+
+    ① 첫째항 $a_1$의 값
+
+    ② 두 항 $a_n$, $a_{n+1}$ 사이의 관계식 $(n=1,2,3,\cdots)$
+
+    과 같이 정의할 수 있다. 이와 같이 수열을 처음 몇 개의 항과 이웃하는 여러 항 사이의 관계식으로 정의하는 것을 수열의 귀납적 정의라고 한다.
+    【출처: 수학Ⅰ 「수학적 귀납법」】
+
+stem: |
+  함수 $f(x)=x^2-17x+30$에 대하여 수열 $\{a_n\}$이 다음 관계를 만족시킨다.
+  $$a_{n+1}=\begin{cases}2a_n & (f(a_n)\ge0)\\ a_n+1 & (f(a_n)<0)\end{cases}$$
+  이때 다음 문항에 답하시오.
+
+subparts:
+- id: '1'
+  stem: |
+    수열의 첫째항 $a_1$이 임의의 실수일 때, $a_2$가 될 수 있는 값의 범위를 구하시오.
+  points: 10
+  depends_on: []
+  answer: {kind: set, value: 'Union(Interval.open(-oo, 16), Interval(30, oo))', equivalents: ['$a_2<16$ 또는 $a_2\ge30$'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $2<a_1<15$이면 $a_2=a_1+1\in(3,16)$, $a_1\le2$ 또는 $a_1\ge15$이면 $a_2=2a_1\in(-\infty,4]\cup[30,\infty)$. 합치면 $a_2<16$ 또는 $a_2\ge30$.
+    steps:
+    - {id: 1a, content: '$(3,16)\cup(-\infty,4]\cup[30,\infty)=(-\infty,16)\cup[30,\infty)$', criteria: [1.M1, 1.A1, 1.A2, 1.A3]}
+    hint_ladder:
+    - $f(x)$를 인수분해해 $f(x)<0$인 구간을 구하자.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 해설교재 p.12
+    steps:
+    - id: 1b-1
+      content: |
+        $f(x)=(x-2)(x-15)$이므로 $f(x)<0\iff2<x<15$, $f(x)\ge0\iff x\le2$ 또는 $x\ge15$.
+      criteria: [1.M1]
+    - id: 1b-2
+      content: |
+        (i) $2<a_1<15$: $a_2=a_1+1$이므로 $3<a_2<16$.
+      criteria: [1.A1]
+    - id: 1b-3
+      content: |
+        (ii) $a_1\le2$ 또는 $a_1\ge15$: $a_2=2a_1$이므로 $a_2\le4$ 또는 $a_2\ge30$.
+      criteria: [1.A2]
+    - id: 1b-4
+      content: |
+        (i), (ii)를 합치면 $a_2<16$ 또는 $a_2\ge30$.
+      criteria: [1.A3]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 3
+      evidence: $f(x)<0\iff2<x<15$을 구했다.
+      steps: [1b-1]
+    - id: 1.A1
+      mark_type: A
+      points: 2
+      evidence: $2<a_1<15$일 때 $3<a_2<16$.
+      depends_on: [1.M1]
+      steps: [1b-2]
+    - id: 1.A2
+      mark_type: A
+      points: 3
+      evidence: $a_1\le2$ 또는 $a_1\ge15$일 때 $a_2\le4$ 또는 $a_2\ge30$ (등호 포함).
+      depends_on: [1.M1]
+      steps: [1b-3]
+    - id: 1.A3
+      mark_type: A
+      points: 2
+      evidence: 합집합 $a_2<16$ 또는 $a_2\ge30$.
+      depends_on: [1.M1, 1.A1, 1.A2]
+      cao: true
+      steps: [1b-4]
+    deductions:
+    - code: D1-1
+      condition: 답만 쓰고 과정 없음
+      effect: cap
+      value: 2
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-ALG-0320}
+  misconceptions:
+  - id: MC-ALG-0320
+    outcome_code: '71'
+    wrong_work: '$a_1$의 범위를 그대로 $a_2$의 범위로 써서 $a_2\le2$ 또는 $a_2\ge15$ 등으로 답함'
+    detect_cue: $a_2$의 범위 경계가 2, 15 (변환 $2a_1$, $a_1+1$이 반영되지 않음)
+    feedback: 범위는 $a_1$에 대한 것이고, $a_2$의 범위는 그 구간을 $2x$ 또는 $x+1$로 옮긴 것입니다.
+    remedy: [RL-1]
+
+- id: '2'
+  stem: |
+    $a_3<32\le a_4$를 만족시킬 때, $a_1$이 될 수 있는 값의 범위를 구하시오.
+  points: 15
+  depends_on: []
+  answer: {kind: set, value: 'Interval.Ropen(14, 15)', equivalents: ['$14\le a_1<15$'], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: $a_4\ge32$, $a_3<32$이려면 $a_4=2a_3$, $16\le a_3<32$. 그러려면 $a_3=2a_2$, $15\le a_2<16$. 그러려면 $a_2=a_1+1$, $14\le a_1<15$.
+    steps:
+    - {id: 2a, content: '$a_3\in[16,32)\Leftarrow a_2\in[15,16)\Leftarrow a_1\in[14,15)$', criteria: [2.M1, 2.A1, 2.R1, 2.A2, 2.R2, 2.A3]}
+    hint_ladder:
+    - $a_4$부터 거꾸로 생각하자. $a_3<32$인데 $a_4\ge32$가 되려면 어느 규칙이어야 하는가?
+    - 거꾸로 구한 범위가 그 규칙을 쓰는 조건과 맞는지 꼭 확인하자.
+  - id: S2-B
+    audience: B
+    method_no: 1
+    source_flow: 해설교재 p.12
+    steps:
+    - id: 2b-1
+      content: |
+        ($a_3$) $f(a_3)<0$이면 $a_3<15$이므로 $a_4=a_3+1<16$으로 $a_4\ge32$에 모순. 따라서 $f(a_3)\ge0$, $a_4=2a_3\ge32$에서 $a_3\ge16$. $a_3<32$와 합쳐 $16\le a_3<32$ (이 범위에서 $f(a_3)\ge0$ 성립).
+      criteria: [2.M1, 2.A1]
+    - id: 2b-2
+      content: |
+        ($a_2$) $f(a_2)<0$이면 $a_2<15$이므로 $a_3=a_2+1<16$으로 모순. 따라서 $f(a_2)\ge0$, $a_3=2a_2$에서 $8\le a_2<16$. 이 중 $f(a_2)\ge0$, 즉 $a_2\le2$ 또는 $a_2\ge15$인 것은 $15\le a_2<16$.
+      criteria: [2.R1, 2.A2]
+    - id: 2b-3
+      content: |
+        ($a_1$) $f(a_1)\ge0$이면 $a_2=2a_1$에서 $\dfrac{15}2\le a_1<8$인데 이 범위에서 $f(a_1)<0$이므로 모순. 따라서 $f(a_1)<0$, $a_2=a_1+1$에서 $14\le a_1<15$이고, 이 범위는 $2<a_1<15$에 포함되므로 조건을 만족한다.
+      criteria: [2.R2]
+    - id: 2b-4
+      content: |
+        따라서 $14\le a_1<15$.
+      criteria: [2.A3]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 3
+      evidence: $a_4$에서 거꾸로 각 단계의 규칙(어느 경우인지)을 판단하는 방법을 택했다.
+      steps: [2b-1]
+    - id: 2.A1
+      mark_type: A
+      points: 3
+      evidence: $16\le a_3<32$.
+      depends_on: [2.M1]
+      steps: [2b-1]
+    - id: 2.R1
+      mark_type: R
+      points: 3
+      evidence: $a_3=2a_2$에서 얻은 $8\le a_2<16$을 $f(a_2)\ge0$ 조건과 교집합했다.
+      depends_on: [2.A1]
+      steps: [2b-2]
+    - id: 2.A2
+      mark_type: A
+      points: 2
+      evidence: $15\le a_2<16$.
+      depends_on: [2.R1]
+      steps: [2b-2]
+    - id: 2.R2
+      mark_type: R
+      points: 2
+      evidence: $a_2=2a_1$인 경우가 $f(a_1)\ge0$과 모순임을 보이고 $a_2=a_1+1$ 경우를 택했다.
+      depends_on: [2.A2]
+      steps: [2b-3]
+    - id: 2.A3
+      mark_type: A
+      points: 2
+      evidence: $14\le a_1<15$ (등호 위치 정확).
+      depends_on: [2.R2]
+      cao: true
+      steps: [2b-4]
+    deductions:
+    - code: D2-1
+      condition: 답만 쓰고 과정 없음
+      effect: cap
+      value: 3
+    - code: D2-2
+      condition: 범위의 등호 누락 또는 잘못 포함
+      effect: minus
+      value: 2
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-ALG-0321}
+  misconceptions:
+  - id: MC-ALG-0321
+    outcome_code: '71'
+    wrong_work: '$8\le a_2<16$을 전제 조건과 교집합하지 않고 진행해 $a_1$의 범위에 $\dfrac{15}{2}\le a_1<8$ 등을 포함'
+    detect_cue: $a_2$의 범위 $8\le a_2<16$이 그대로 쓰임, 답에 $7.5$, $7$ 근처 구간이 포함
+    feedback: $a_3=2a_2$라는 규칙은 $f(a_2)\ge0$일 때만 씁니다. 거꾸로 구한 범위와 그 경우의 조건을 꼭 교집합하세요.
+    remedy: [RL-1]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-ALG-0321}
+  relation: remediation
+  target: {kind: concept, ref: CON-ALG-RECURSIVE-SEQ}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-transcribe-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

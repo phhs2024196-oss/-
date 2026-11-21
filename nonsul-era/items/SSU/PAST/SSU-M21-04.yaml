@@ -1,0 +1,192 @@
+# 숭실대 2021학년도 모의논술고사 문제 4 — 원문은 내부 분석용(allowed_use: internal_only)
+# 원문에 제시문 없음. 문제 3(확률과통계)은 교재에서 제외됨.
+# 해설교재는 분자 전개에 이항정리(확률과통계)를 씀 → 숭실 범위(확통 제외)에 맞춰 B 해설은 같은 흐름에서 인수분해 공식
+#   A^{m}-B^{m}=(A-B)(A^{m-1}+A^{m-2}B+…+B^{m-1}) 로 최고차항 (k+1)n^k 을 얻도록 바꿈.
+# 답은 "극한값이 1"이 되는 (a,b) 이므로 b=k+2 와 a=1/(k+1) 이 유일(b 가 다르면 극한이 0 또는 발산).
+schema_version: '2.0'
+id: SSU-M21-04
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: numeric
+origin: mock_exam
+school: SSU
+type: T08
+variant_of: null
+replaces: null
+level: L4
+form: 추론
+points: 20
+time_estimate_min: 15
+intent: 각의 차의 탄젠트를 덧셈정리로 유리식으로 바꾸고, 분자·분모의 최고차항을 비교해 수열의 극한이 0이 아닌 상수가 되는 조건을 찾는 능력을 본다.
+key_idea: '$\tan\theta_n=\dfrac{n}{1/n^k}=n^{k+1}$이므로 $\tan(\theta_{n+1}-\theta_n)=\dfrac{(n+1)^{k+1}-n^{k+1}}{1+(n+1)^{k+1}n^{k+1}}$이고, 분자 최고차항 $(k+1)n^k$, 분모 최고차항 $n^{2k+2}$.'
+stuck: 각 $\theta_n$이 $y$축과 이루는 각이므로 $\tan\theta_n=\dfrac{x}{y}=n^{k+1}$로 잡는 단계와 분자 $(n+1)^{k+1}-n^{k+1}$의 최고차항 $(k+1)n^k$을 찾는 단계
+idea_tags: [IDEA-TAN-DIFFERENCE, IDEA-LEADING-TERM-COMPARE]
+tags: [각의 차, 수열의 극한, 최고차항 비교]
+elements:
+  materials:
+  - '유리함수 $y=\frac1{x^k}$'
+  - '그래프 위의 점열 $P_n$'
+  - '선분과 $y$축이 이루는 각'
+  concepts: [탄젠트함수의 덧셈정리, 수열의 극한, 다항식의 최고차항]
+  tools:
+  - '탄젠트 덧셈정리'
+  - '$A^m-B^m$ 인수분해로 최고차항 찾기'
+  - '분자·분모 최고차항 비교'
+  conditions:
+  - '$y$축과 이루는 각 → $\tan\theta_n=\frac{x}{y}=n^{k+1}$'
+  - '극한값 1 (0이 아닌 상수) → 분자·분모 차수 같음: $k+b=2k+2$'
+  - '극한값 $a(k+1)=1$'
+  stimuli_used: []
+  subpart_links: null
+
+curriculum:
+  version: '2015'
+  subjects: [미적분]
+  scope_2028: calc2
+  scope_confirmed: true
+  standards:
+  - code: 미확인
+    text: 삼각함수의 덧셈정리를 이해한다 / 수열의 극한값을 구할 수 있다(요지)
+    verified: false
+  content_area: 미분법 – 여러 가지 함수의 미분(삼각함수의 덧셈정리), 수열의 극한
+  behavior_domain: 추론
+  unit_path: [미적분, 수열의 극한, 수열의 극한, 덧셈정리와 수열의 극한]
+  key_concepts: [탄젠트함수의 덧셈정리, 수열의 극한, 다항식의 최고차항]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 숭실대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 숭실대학교
+  admission_year: 2021
+  admission_type: 논술우수자전형 모의논술
+  track: 자연
+  question_no: 4
+  official_url: https://iphak.ssu.ac.kr   # [확인필요] 입학처 기출 게시물 주소로 교체
+  retrieved_at: 2026-11-21
+  original_points: 20
+  rights_notice: 미확인(대치 수리 논술 연구소 「2027학년도 대비 수리논술 숭실대 기출 및 모의 문제」 p.64, 해설 p.87에서 옮김)
+
+verify: verify/SSU-M21.py::p04
+
+stimuli: []
+
+stem: |
+  <그림 2>와 같이, 유리함수 $y=\dfrac1{x^k}$의 그래프 위의 점 $P_n\left(n,\,\dfrac1{n^k}\right)$이 있다. (단, $k,n$은 자연수이다.) 원점 $O$와 점 $P_n$을 이은 선분이 $y$축의 양의 방향과 이루는 각을 $\theta_n$이라 할 때,
+  $$\lim_{n\to\infty}\left\{an^b\tan(\theta_{n+1}-\theta_n)\right\}=1$$
+  을 만족하는 $a$, $b$를 $k$에 대한 식으로 각각 나타내시오.
+
+  [그림 설명] <그림 2>: 제1사분면에서 감소하는 곡선 $y=\dfrac1{x^k}$ 위의 점 $P_n\left(n,\,\dfrac1{n^k}\right)$과 원점 $O$를 잇는 선분이 그려져 있고, 이 선분과 $y$축의 양의 방향 사이의 각이 $\theta_n$으로 표시되어 있다. $P_n$에서 두 축으로 점선(높이 $\dfrac1{n^k}$, 가로 위치 $n$)이 그어져 있다.
+
+subparts:
+- id: '1'
+  stem: |
+    $a$, $b$를 $k$에 대한 식으로 각각 나타내시오.
+  points: 20
+  depends_on: []
+  answer: {kind: expression, value: '[1/(k+1), k+2]', equivalents: ['a=\dfrac1{k+1},\ b=k+2'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $\tan(\theta_{n+1}-\theta_n)$의 분자 최고차항 $(k+1)n^k$, 분모 최고차항 $n^{2k+2}$이므로 $an^b\tan(\cdot)\sim a(k+1)n^{b-k-2}$.
+    steps:
+    - {id: 1a, content: '$b=k+2$, $a(k+1)=1$', criteria: [1.M1, 1.M2, 1.M3, 1.R1, 1.A1]}
+    hint_ladder:
+    - $\theta_n$은 $y$축과 이루는 각이다. $\tan\theta_n$은?
+    - 탄젠트의 덧셈정리로 $\tan(\theta_{n+1}-\theta_n)$을 $n$의 식으로 써 보자.
+    - 분자 $(n+1)^{k+1}-n^{k+1}$의 최고차항은?
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 해설교재 p.87
+    steps:
+    - id: 1b-1
+      content: |
+        $\theta_n$은 선분 $OP_n$이 $y$축의 양의 방향과 이루는 각이므로 $\tan\theta_n=\dfrac{n}{1/n^k}=n^{k+1}$.
+      criteria: [1.M1]
+    - id: 1b-2
+      content: |
+        탄젠트함수의 덧셈정리에 의해
+        $\tan(\theta_{n+1}-\theta_n)=\dfrac{\tan\theta_{n+1}-\tan\theta_n}{1+\tan\theta_{n+1}\tan\theta_n}=\dfrac{(n+1)^{k+1}-n^{k+1}}{1+(n+1)^{k+1}n^{k+1}}$.
+      criteria: [1.M2]
+    - id: 1b-3
+      content: |
+        $A^{m}-B^{m}=(A-B)(A^{m-1}+A^{m-2}B+\cdots+B^{m-1})$에서 $A=n+1$, $B=n$, $m=k+1$로 두면 $(n+1)^{k+1}-n^{k+1}=(n+1)^k+(n+1)^{k-1}n+\cdots+n^k$이고, 우변은 $n$에 대한 $k$차 다항식으로 최고차항이 $(k+1)n^k$이다(각 항의 최고차항이 $n^k$이고 $k+1$개). 따라서
+        $an^b\tan(\theta_{n+1}-\theta_n)=\dfrac{a\left\{(k+1)n^{k+b}+(\text{차수가 낮은 항})\right\}}{1+(n+1)^{k+1}n^{k+1}}$.
+        (해설교재는 이 단계를 이항정리로 전개함.)
+      criteria: [1.M3]
+    - id: 1b-4
+      content: |
+        분자와 분모의 최고차항은 각각 $a(k+1)n^{k+b}$와 $n^{2k+2}$이므로 극한값이 $0$이 아닌 상수일 조건은 $a\ne0$, $k+b=2k+2$이고 이때 극한값은 $a(k+1)$이다($k+b<2k+2$이면 $0$, $k+b>2k+2$이면 발산).
+      criteria: [1.R1]
+    - id: 1b-5
+      content: |
+        $a(k+1)=1$이므로 $a=\dfrac1{k+1}$, $b=k+2$.
+      criteria: [1.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 3
+      evidence: $\tan\theta_n=n^{k+1}$을 구했다.
+      steps: [1b-1]
+    - id: 1.M2
+      mark_type: M
+      points: 4
+      evidence: 덧셈정리로 $\tan(\theta_{n+1}-\theta_n)=\dfrac{(n+1)^{k+1}-n^{k+1}}{1+(n+1)^{k+1}n^{k+1}}$을 얻었다.
+      steps: [1b-2]
+    - id: 1.M3
+      mark_type: M
+      points: 4
+      evidence: 인수분해(또는 전개)로 분자의 최고차항이 $(k+1)n^k$임을 밝혔다.
+      accept:
+      - 이항정리로 전개한 풀이(교과 외 도구지만 결과가 맞으면 인정)
+      steps: [1b-3]
+    - id: 1.R1
+      mark_type: R
+      points: 5
+      evidence: 분자·분모의 최고차항 비교로 극한이 0이 아닌 상수가 될 조건 $k+b=2k+2$와 극한값 $a(k+1)$을 근거와 함께 적었다.
+      steps: [1b-4]
+    - id: 1.A1
+      mark_type: A
+      points: 4
+      evidence: $a=\dfrac1{k+1}$, $b=k+2$.
+      depends_on: [1.R1]
+      cao: true
+      steps: [1b-5]
+    deductions:
+    - code: D1-1
+      condition: 답만 쓰고 과정 없음
+      effect: cap
+      value: 5
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-0724}
+  misconceptions:
+  - id: MC-CAL-0724
+    outcome_code: '71'
+    wrong_work: '$\theta_n$을 $x$축과 이루는 각으로 보아 $\tan\theta_n=\dfrac1{n^{k+1}}$로 두고 $a=-\dfrac1{k+1}$을 얻음'
+    detect_cue: $\tan\theta_n=n^{-k-1}$, $a$가 음수
+    feedback: $\theta_n$은 $y$축의 양의 방향과 이루는 각이므로 $\tan\theta_n=\dfrac{x좌표}{y좌표}$입니다. 그림에서 각의 위치를 확인하세요.
+    remedy: [RL-1]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CAL-0724}
+  relation: remediation
+  target: {kind: concept, ref: CON-ALG-TAN-ADDITION}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-transcribe-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

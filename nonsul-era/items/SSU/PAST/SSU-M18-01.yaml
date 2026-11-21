@@ -1,0 +1,264 @@
+# 숭실대 2018학년도 모의논술고사(자연) 문제 1 — 원문은 내부 분석용(allowed_use: internal_only)
+# [확인필요] 원문은 문제 1 전체 50점, 소문항 (1)(2)의 배점은 표기 없음 → 25·25 로 임의 배분.
+# 소문항 (2)의 [그림 1]은 사진(축구공을 4층 정사면체로 쌓은 모습)이라 글로 설명함.
+schema_version: '2.0'
+id: SSU-M18-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: numeric
+origin: mock_exam
+school: SSU
+type: T05
+variant_of: null
+replaces: null
+level: L3
+form: 추론
+points: 50
+time_estimate_min: 20
+intent: 정적분으로 넓이 함수를 세워 로그함수가 포함된 분수함수의 최댓값을 도함수로 구하고, 쌓인 공의 개수를 시그마로 일반화하는 능력을 본다.
+key_idea: '(1) $f(t)=t^2-1$, $g(t)=\ln t$이므로 $h(t)=\dfrac{\ln t}{t^2}$, $h''(t)=\dfrac{1-2\ln t}{t^3}$. (2) $k$층은 한 변에 공 $k$개인 정삼각형 배열이므로 $\dfrac{k(k+1)}2$개, 전체는 $\sum_{k=1}^n\dfrac{k(k+1)}2$.'
+stuck: (1) $f(t)+1=t^2$으로 정리되는 것을 알아보는 단계, (2) 한 층이 정삼각형 모양으로 $1+2+\cdots+n$개임을 보는 단계
+idea_tags: [IDEA-AREA-FUNCTION-RATIO-MAX, IDEA-TETRAHEDRAL-NUMBER-SIGMA]
+tags: [넓이 함수의 최댓값, 정사면체수]
+elements:
+  materials:
+  - '직선 $y=2x$ 아래 넓이'
+  - '곡선 $y=1/x$ 아래 넓이'
+  - '로그가 있는 분수함수'
+  - '정사면체로 쌓은 공'
+  concepts: [정적분과 넓이, 로그함수의 도함수, 몫의 미분법, 함수의 최댓값, 자연수의 거듭제곱의 합, 시그마의 성질]
+  tools: [정적분과 넓이, 몫의 미분법, 증감표, 자연수의 거듭제곱의 합]
+  conditions:
+  - '넓이는 $x=1$부터 $x=t$까지($t>1$)'
+  - '$f(t)+1=t^2$으로 정리됨'
+  - '정사면체의 각 층은 정삼각형 배열 → $k$층은 $\dfrac{k(k+1)}2$개'
+  stimuli_used: []
+  subpart_links: "(1)(2) 독립"
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅰ, 미적분]
+  scope_2028: calc2
+  scope_confirmed: true
+  standards:
+  - code: 미확인
+    text: 로그함수를 미분하고 도함수를 활용하여 최댓값을 구할 수 있다 / 여러 가지 수열의 합을 구할 수 있다(요지)
+    verified: false
+  content_area: 미분법 – 도함수의 활용 / 수열 – 수열의 합
+  behavior_domain: 문제해결
+  unit_path: [미적분, 미분법, 도함수의 활용, 넓이로 정의된 함수의 최댓값]
+  key_concepts: [정적분과 넓이, 로그함수의 도함수, 몫의 미분법, 함수의 최댓값, 자연수의 거듭제곱의 합, 시그마의 성질]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 숭실대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 숭실대학교
+  admission_year: 2018
+  admission_type: 모의논술고사
+  track: 자연
+  question_no: 1
+  official_url: https://iphak.ssu.ac.kr   # [확인필요] 입학처 기출 게시물 주소로 교체
+  retrieved_at: 2026-11-21
+  original_points: 50
+  rights_notice: 미확인(대치 수리 논술 연구소 「2027학년도 대비 수리논술 숭실대 기출 및 모의 문제」 p.71~72, 해설교재 p.96~97에서 옮김)
+
+verify: verify/SSU-M18.py::p01
+
+stem: |
+  【문제 1】 아래 논제에 답하시오. (50점)
+
+subparts:
+- id: '1'
+  stem: |
+    (1) 변수 $t>1$에 대해 $x=1$, $x=t$, $y=0$, $y=2x$로 둘러싸인 평면도형의 넓이를 $f(t)$라 하고 $x=1$, $x=t$, $y=0$, $y=\dfrac1x$로 둘러싸인 평면도형의 넓이를 $g(t)$라 하자. $h(t)$를 아래와 같이 정의 할 때, $h(t)$의 최댓값과 이때의 $t$값을 구하시오.
+    $$h(t)=\dfrac{g(t)}{f(t)+1}$$
+  points: 25
+  depends_on: []
+  answer: {kind: expression, value: '(1/(2*E), sqrt(E))', equivalents: ['최댓값 1/(2e), t=√e'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $h(t)=\dfrac{\ln t}{t^2}$, $h'(t)=\dfrac{1-2\ln t}{t^3}$의 부호가 $t=\sqrt e$에서 양→음.
+    steps:
+    - {id: 1a, content: '$t=\sqrt e$에서 최댓값 $\dfrac1{2e}$', criteria: [1.M1, 1.A1, 1.M2, 1.A2, 1.R1, 1.A3]}
+    hint_ladder:
+    - $f(t)=\int_1^t2x\,dx$, $g(t)=\int_1^t\dfrac1x\,dx$.
+    - $f(t)+1$을 정리해 보자.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 해설교재 p.96
+    steps:
+    - id: 1b-1
+      content: |
+        $t>1$에서 $f(t)=\displaystyle\int_1^t2x\,dx=t^2-1$, $g(t)=\displaystyle\int_1^t\dfrac1x\,dx=\ln t$.
+      criteria: [1.M1, 1.A1]
+    - id: 1b-2
+      content: |
+        따라서 $h(t)=\dfrac{\ln t}{t^2}$이고
+        $$h'(t)=\dfrac{\frac1t\cdot t^2-\ln t\cdot2t}{t^4}=\dfrac{1-2\ln t}{t^3}.$$
+      criteria: [1.M2, 1.A2]
+    - id: 1b-3
+      content: |
+        $h'(t)=0$인 $t$는 $\ln t=\dfrac12$, 즉 $t=\sqrt e$ 하나뿐이고, $1<t<\sqrt e$에서 $h'(t)>0$, $t>\sqrt e$에서 $h'(t)<0$이다. 증감표에서 $h$는 $t=\sqrt e$에서 최대이다.
+      criteria: [1.R1]
+    - id: 1b-4
+      content: |
+        최댓값은 $h(\sqrt e)=\dfrac{1/2}{e}=\dfrac1{2e}$, 이때 $t=\sqrt e$.
+      criteria: [1.A3]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 4
+      evidence: $f(t)$, $g(t)$를 $x=1$부터 $x=t$까지의 정적분으로 나타냈다.
+      steps: [1b-1]
+    - id: 1.A1
+      mark_type: A
+      points: 4
+      evidence: $f(t)=t^2-1$, $g(t)=\ln t$.
+      depends_on: [1.M1]
+      steps: [1b-1]
+    - id: 1.M2
+      mark_type: M
+      points: 5
+      evidence: $h(t)=\dfrac{\ln t}{t^2}$을 몫의 미분법으로 미분했다.
+      steps: [1b-2]
+    - id: 1.A2
+      mark_type: A
+      points: 4
+      evidence: $h'(t)=\dfrac{1-2\ln t}{t^3}$.
+      depends_on: [1.M2]
+      steps: [1b-2]
+    - id: 1.R1
+      mark_type: R
+      points: 4
+      evidence: $t=\sqrt e$ 좌우에서 $h'$의 부호가 양에서 음으로 바뀜(증감표)을 근거로 최대임을 밝혔다.
+      depends_on: [1.M2]
+      steps: [1b-3]
+    - id: 1.A3
+      mark_type: A
+      points: 4
+      evidence: 최댓값 $\dfrac1{2e}$, $t=\sqrt e$.
+      depends_on: [1.M2, 1.R1]
+      cao: true
+      steps: [1b-4]
+    deductions:
+    - code: D1-1
+      condition: 답만 쓰고 과정 없음
+      effect: cap
+      value: 5
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-0107}
+  misconceptions:
+  - id: MC-CAL-0107
+    outcome_code: '71'
+    wrong_work: '$f(t)=\int_0^t2x\,dx=t^2$으로 두어 $h(t)=\dfrac{\ln t}{t^2+1}$'
+    detect_cue: $f(t)=t^2$ 또는 분모 $t^2+1$
+    feedback: 넓이는 $x=1$부터 $x=t$까지입니다. 경계선 $x=1$을 확인하세요.
+    remedy: [RL-1]
+- id: '2'
+  stem: |
+    (2) 공을 [그림1]처럼 쌓아 $n$개의 층으로 이루어진 정사면체를 만들었다. 맨 아래층의 공의 개수와 전체공의 개수를 $n$으로 표현하시오.
+
+    [그림 설명] [그림 1] $n=4$인 경우: 축구공을 4개 층으로 쌓은 정사면체 사진. 각 층은 공이 정삼각형 모양으로 배열되어 있고 위층으로 갈수록 한 변의 공의 개수가 1개씩 줄어 맨 위층은 공 1개이다.
+  points: 25
+  depends_on: []
+  answer: {kind: expression, value: '(n*(n+1)/2, n*(n+1)*(n+2)/6)', equivalents: ['맨 아래층 n(n+1)/2개, 전체 n(n+1)(n+2)/6개'], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: 맨 아래층은 한 변에 공 $n$개인 정삼각형 배열이므로 $\dfrac{n(n+1)}2$, 전체는 $\sum_{k=1}^n\dfrac{k^2+k}2=\dfrac{n(n+1)(n+2)}6$.
+    steps:
+    - {id: 2a, content: '$a_n=\dfrac{n(n+1)}2$, 전체 $\dfrac{n(n+1)(n+2)}6$', criteria: [2.M1, 2.A1, 2.M2, 2.A2]}
+    hint_ladder:
+    - 맨 아래층을 위에서 내려다보면 어떤 모양인가?
+    - $k$번째 층(위에서부터)에는 공이 몇 개 있는가?
+  - id: S2-B
+    audience: B
+    method_no: 1
+    source_flow: 해설교재 p.97
+    steps:
+    - id: 2b-1
+      content: |
+        $n$개의 층으로 이루어진 정사면체의 맨 아래층은 한 변에 공이 $n$개인 정삼각형 꼴이다. 이 정삼각형에 놓인 공은 한 줄씩 $1,2,\ldots,n$개이므로
+        $$1+2+3+\cdots+n=\sum_{k=1}^nk=\dfrac{n(n+1)}2.$$
+      criteria: [2.M1, 2.A1]
+    - id: 2b-2
+      content: |
+        $n$개 층의 맨 아래에 놓인 공의 개수를 $a_n=\dfrac{n(n+1)}2$이라 하면, $n$개 층 정사면체의 위에서 $k$번째 층은 $k$개 층 정사면체의 맨 아래층과 같으므로 공이 $a_k$개이다. 전체 공의 개수는 각 층의 공을 모두 더한 것이다.
+      criteria: [2.M2]
+    - id: 2b-3
+      content: |
+        $$\sum_{k=1}^na_k=\sum_{k=1}^n\dfrac{k^2+k}2=\dfrac12\left\{\dfrac{n(n+1)(2n+1)}6+\dfrac{n(n+1)}2\right\}=\dfrac12\cdot\dfrac16n(n+1)\{(2n+1)+3\}=\dfrac{n(n+1)(n+2)}6.$$
+      criteria: [2.A2]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 6
+      evidence: 맨 아래층이 한 변에 공 $n$개인 정삼각형 배열로 $1+2+\cdots+n$개임을 썼다.
+      steps: [2b-1]
+    - id: 2.A1
+      mark_type: A
+      points: 5
+      evidence: 맨 아래층 공의 개수 $\dfrac{n(n+1)}2$.
+      depends_on: [2.M1]
+      steps: [2b-1]
+    - id: 2.M2
+      mark_type: M
+      points: 7
+      evidence: 전체 개수를 $\sum_{k=1}^n\dfrac{k(k+1)}2$로 세웠다.
+      steps: [2b-2]
+    - id: 2.A2
+      mark_type: A
+      points: 7
+      evidence: 거듭제곱의 합 공식으로 정리해 $\dfrac{n(n+1)(n+2)}6$을 얻었다.
+      depends_on: [2.M2]
+      cao: true
+      steps: [2b-3]
+    deductions:
+    - code: D2-1
+      condition: 답만 쓰고 과정 없음
+      effect: cap
+      value: 5
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-ALG-0815}
+  misconceptions:
+  - id: MC-ALG-0815
+    outcome_code: '71'
+    wrong_work: '맨 아래층 $n^2$개, 전체 $\dfrac{n(n+1)(2n+1)}6$개'
+    detect_cue: $n^2$ 또는 $\sum k^2$이 등장
+    feedback: 정사면체의 각 층은 정사각형이 아니라 정삼각형 모양입니다. 한 줄에 놓인 공이 $1,2,\ldots,k$개입니다.
+    remedy: [RL-2]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CAL-0107}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-AREA-BOUNDARY}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-ALG-0815}
+  relation: remediation
+  target: {kind: concept, ref: CON-ALG-SIGMA-FORMULA}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-transcribe-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

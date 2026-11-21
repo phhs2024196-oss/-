@@ -1,0 +1,199 @@
+# 숭실대 2026학년도 논술고사(자연) 문제 2 — 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: SSU-G26-02
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: numeric
+origin: past_exam
+school: SSU
+type: T08
+variant_of: null
+replaces: null
+level: L4
+form: 추론
+points: 25
+time_estimate_min: 20
+intent: 내분점으로 만든 삼각형 넓이의 합을 정적분과 급수의 관계로 정적분으로 바꾸고, 절댓값이 있는 함수를 부분적분으로 적분하는 능력을 본다.
+key_idea: '$A_k=\dfrac12\cdot\dfrac1n\cdot\dfrac23f\left(\dfrac kn\right)$이므로 $\displaystyle\lim\sum A_k=\frac13\int_0^1\lvert2x-1\rvert e^{2x}\,dx$.'
+stuck: 삼각형의 높이가 $H_k$의 $y$좌표 $\dfrac23f\left(\dfrac kn\right)$임을 보고 합을 리만 합 꼴로 정리하는 단계
+idea_tags: [IDEA-RIEMANN-SUM-GEOMETRY, IDEA-ABS-INTEGRAL-SPLIT-ROOT]
+tags: [정적분과 급수, 내분점, 부분적분]
+elements:
+  materials: [등차수열, 선분의 내분점, 절댓값과 지수함수의 곱, 삼각형 넓이의 합]
+  concepts: [선분의 내분점, 정적분과 급수의 관계, 부분적분법, 절댓값 함수의 적분]
+  tools: [내분점 공식, 정적분과 급수의 관계, 부분적분법, 적분 구간 분할]
+  conditions:
+  - '$x_k=\dfrac{k-1}{n}$ → 밑변 $\dfrac1n$'
+  - '$H_k$는 $P_kG_{k+1}$의 $2:1$ 내분점 → 높이 $\dfrac23f\left(\dfrac kn\right)$'
+  - '$\lvert2x-1\rvert$ → $x=\dfrac12$에서 구간 분할'
+  stimuli_used: [제시문]
+  subpart_links: null
+
+curriculum:
+  version: '2015'
+  subjects: [수학, 미적분]
+  scope_2028: calc2
+  scope_confirmed: true
+  standards:
+  - code: 미확인
+    text: 정적분과 급수의 합 사이의 관계를 이해한다(요지)
+    verified: false
+  content_area: 적분법 – 정적분의 활용
+  behavior_domain: 문제해결
+  unit_path: [미적분, 적분법, 정적분, 정적분과 급수의 합 사이의 관계]
+  key_concepts: [선분의 내분점, 정적분과 급수의 관계, 부분적분법, 절댓값 함수의 적분]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 숭실대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 숭실대학교
+  admission_year: 2026
+  admission_type: 논술우수자전형
+  track: 자연
+  question_no: 2
+  official_url: https://iphak.ssu.ac.kr   # [확인필요] 입학처 기출 게시물 주소로 교체
+  retrieved_at: 2026-11-21
+  original_points: 25
+  rights_notice: 미확인(대치 수리 논술 연구소 「2027학년도 대비 수리논술 숭실대 기출 및 모의 문제」 p.9에서 옮김, 해설교재 p.7 참고)
+
+verify: verify/SSU-G26.py::p02
+
+stimuli:
+- label: 제시문
+  body: |
+    두 점 $A(x_1,y_1)$, $B(x_2,y_2)$를 이은 선분 $AB$를 $m:n\ (m>0,\ n>0)$으로 내분하는 점 $P$의 좌표는
+    $$\left(\frac{mx_2+nx_1}{m+n},\ \frac{my_2+ny_1}{m+n}\right)$$
+    【출처: 수학 「선분의 내분점과 외분점」】
+
+stem: |
+  수열 $\{x_k\}$는 첫째항이 0, 공차가 $\dfrac1n$인 등차수열이다 (단, $n$은 자연수). 점 $P_k(x_k,0)$과 함수 $f(x)=\lvert2x-1\rvert e^{2x}$의 그래프 위의 점 $G_{k+1}(x_{k+1},f(x_{k+1}))$에 대하여 점 $H_k$는 선분 $P_kG_{k+1}$을 $2:1$로 내분하는 점이라고 하자.
+  삼각형 $P_kH_kP_{k+1}$의 넓이를 $A_k$라고 할 때, $\displaystyle\lim_{n\to\infty}\sum_{k=1}^{n}A_k$의 값을 구하시오.
+
+subparts:
+- id: '1'
+  stem: |
+    $\displaystyle\lim_{n\to\infty}\sum_{k=1}^{n}A_k$의 값을 구하시오.
+  points: 25
+  depends_on: []
+  answer: {kind: value, value: '(exp(1)-1)/3', equivalents: ['$\dfrac{e-1}{3}$'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $A_k=\dfrac1{3n}f\left(\dfrac kn\right)$, 합의 극한은 $\dfrac13\displaystyle\int_0^1\lvert2x-1\rvert e^{2x}dx$. $\int(2x-1)e^{2x}dx=(x-1)e^{2x}$이므로 $\dfrac13(e-1)$.
+    steps:
+    - {id: 1a, content: '$\dfrac13\left\{[(1-x)e^{2x}]_0^{1/2}+[(x-1)e^{2x}]_{1/2}^1\right\}=\dfrac{e-1}{3}$', criteria: [1.M1, 1.A1, 1.M2, 1.M3, 1.A2, 1.A3]}
+    hint_ladder:
+    - 삼각형의 밑변 $P_kP_{k+1}$의 길이와 높이는 각각 무엇인가?
+    - $\sum\dfrac1nf\left(\dfrac kn\right)$은 어떤 정적분으로 수렴하는가?
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 해설교재 p.7
+    steps:
+    - id: 1b-1
+      content: |
+        $x_k=\dfrac{k-1}{n}$이므로 $P_k\left(\dfrac{k-1}{n},0\right)$, $G_{k+1}\left(\dfrac kn,f\left(\dfrac kn\right)\right)$. 제시문에 의해 $H_k\left(\dfrac{3k-1}{3n},\ \dfrac23f\left(\dfrac kn\right)\right)$.
+      criteria: [1.M1]
+    - id: 1b-2
+      content: |
+        밑변 $\overline{P_kP_{k+1}}=\dfrac1n$, 높이는 $H_k$의 $y$좌표이므로 $A_k=\dfrac12\cdot\dfrac1n\cdot\dfrac23f\left(\dfrac kn\right)=\dfrac1{3n}f\left(\dfrac kn\right)$.
+      criteria: [1.A1]
+    - id: 1b-3
+      content: |
+        $f$는 $[0,1]$에서 연속이므로 정적분과 급수의 관계에 의해
+        $$\lim_{n\to\infty}\sum_{k=1}^{n}A_k=\lim_{n\to\infty}\sum_{k=1}^{n}\frac13f\left(\frac kn\right)\frac1n=\frac13\int_0^1\lvert2x-1\rvert e^{2x}\,dx.$$
+      criteria: [1.M2]
+    - id: 1b-4
+      content: |
+        부분적분법으로 $\displaystyle\int(2x-1)e^{2x}\,dx=\frac12(2x-1)e^{2x}-\int e^{2x}\,dx=(x-1)e^{2x}+C$. $x=\dfrac12$에서 부호가 바뀌므로
+        $$\int_0^1\lvert2x-1\rvert e^{2x}\,dx=\Big[(1-x)e^{2x}\Big]_0^{\frac12}+\Big[(x-1)e^{2x}\Big]_{\frac12}^{1}.$$
+      criteria: [1.M3, 1.A2]
+    - id: 1b-5
+      content: |
+        $=\left(\dfrac e2-1\right)+\left(0+\dfrac e2\right)=e-1$이므로 구하는 값은 $\dfrac{e-1}{3}$.
+      criteria: [1.A3]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 4
+      evidence: 내분점 공식으로 $H_k$의 $y$좌표 $\dfrac23f\left(\dfrac kn\right)$을 구했다.
+      steps: [1b-1]
+    - id: 1.A1
+      mark_type: A
+      points: 4
+      evidence: $A_k=\dfrac1{3n}f\left(\dfrac kn\right)$을 구했다.
+      depends_on: [1.M1]
+      steps: [1b-2]
+    - id: 1.M2
+      mark_type: M
+      points: 5
+      evidence: 정적분과 급수의 관계로 극한을 $\dfrac13\displaystyle\int_0^1\lvert2x-1\rvert e^{2x}dx$로 바꾸었다.
+      steps: [1b-3]
+    - id: 1.M3
+      mark_type: M
+      points: 4
+      evidence: $x=\dfrac12$에서 적분 구간을 나누어 절댓값을 없앴다.
+      steps: [1b-4]
+    - id: 1.A2
+      mark_type: A
+      points: 4
+      evidence: 부분적분으로 원시함수 $(x-1)e^{2x}$ (또는 $(1-x)e^{2x}$)를 구했다.
+      depends_on: [1.M3]
+      steps: [1b-4]
+    - id: 1.A3
+      mark_type: A
+      points: 4
+      evidence: 최종값 $\dfrac{e-1}{3}$.
+      depends_on: [1.M2, 1.A2]
+      cao: true
+      steps: [1b-5]
+    deductions:
+    - code: D1-1
+      condition: 답만 쓰고 과정 없음
+      effect: cap
+      value: 5
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-0314}
+  - {code: '72', misconception: MC-CAL-0315}
+  misconceptions:
+  - id: MC-CAL-0314
+    outcome_code: '71'
+    wrong_work: '절댓값을 무시하고 $\dfrac13\displaystyle\int_0^1(2x-1)e^{2x}dx=\dfrac13$'
+    detect_cue: 답 $\dfrac13$, 구간 분할 없음
+    feedback: $2x-1$은 $x<\dfrac12$에서 음수입니다. 부호가 바뀌는 $x=\dfrac12$에서 구간을 나누세요.
+    remedy: [RL-1]
+  - id: MC-CAL-0315
+    outcome_code: '72'
+    wrong_work: '삼각형의 높이를 $G_{k+1}$의 $y$좌표 $f\left(\dfrac kn\right)$로 잡아 $\dfrac{e-1}{2}$'
+    detect_cue: $A_k=\dfrac1{2n}f\left(\dfrac kn\right)$, 내분점 계산 없음
+    feedback: 삼각형의 꼭짓점은 $G_{k+1}$이 아니라 $H_k$입니다. 높이는 $H_k$의 $y$좌표 $\dfrac23f\left(\dfrac kn\right)$입니다.
+    remedy: [RL-2]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CAL-0314}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-AREA-BOUNDARY}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-CAL-0315}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-RIEMANN-SUM}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-transcribe-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

@@ -1,0 +1,217 @@
+# 숭실대 2025학년도 논술고사(자연) 문제 2 — 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: SSU-G25-02
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: numeric
+origin: past_exam
+school: SSU
+type: T06
+variant_of: null
+replaces: null
+level: L4
+form: 추론
+points: 25
+time_estimate_min: 20
+intent: 절댓값을 구간별로 풀고 이계도함수의 부호로 곡선과 선분의 위치 관계를 판정한 뒤, 부분적분으로 넓이를 계산하는 능력을 본다.
+key_idea: '$[0,\frac{\pi}{2}]$에서 $f''>0$(아래로 볼록)이라 선분 AB가 위, $[\frac{\pi}{2},\pi]$에서 $f''<0$이라 선분 BC가 아래. 넓이 = 사다리꼴(삼각형) 넓이와 $\int e^{-x}\cos x\,dx$의 차.'
+stuck: 볼록성으로 곡선과 선분의 위아래를 판정하는 단계와 $\int e^{-x}\cos x\,dx$의 부분적분(두 번 적용 후 정리)
+idea_tags: [IDEA-CONVEX-CHORD-POSITION, IDEA-PARTS-CYCLIC-EXP-TRIG]
+tags: [정적분의 활용, 부분적분, 볼록성]
+elements:
+  materials: [지수함수와 삼각함수의 곱, 절댓값 함수, 곡선과 선분으로 둘러싸인 도형]
+  concepts: [이계도함수와 볼록성, 부분적분법, 곡선 사이의 넓이, 절댓값 함수]
+  tools: [이계도함수와 볼록성, 부분적분법, 삼각형의 넓이]
+  conditions:
+  - '$\lvert\cos x\rvert$ → $x=\frac{\pi}{2}$에서 식이 바뀜'
+  - '$[0,\frac{\pi}{2}]$에서 $f''''>0$ → 선분 AB가 곡선 위'
+  - '$[\frac{\pi}{2},\pi]$에서 $f''''<0$ → 곡선이 선분 BC 위'
+  - '선분 아래 넓이는 삼각형 넓이 $\frac{\pi}{4}$, $\frac{\pi e^{-\pi}}{4}$'
+  stimuli_used: [제시문]
+  subpart_links: null
+
+curriculum:
+  version: '2015'
+  subjects: [미적분]
+  scope_2028: calc2
+  scope_confirmed: true
+  standards:
+  - code: 미확인
+    text: 곡선으로 둘러싸인 도형의 넓이를 구할 수 있다(요지)
+    verified: false
+  content_area: 적분법 – 정적분의 활용
+  behavior_domain: 문제해결
+  unit_path: [미적분, 적분법, 정적분의 활용, 곡선과 선분으로 둘러싸인 넓이]
+  key_concepts: [이계도함수와 볼록성, 부분적분법, 곡선 사이의 넓이, 절댓값 함수]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 숭실대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 숭실대학교
+  admission_year: 2025
+  admission_type: 논술우수자전형
+  track: 자연
+  question_no: 2
+  official_url: https://iphak.ssu.ac.kr   # [확인필요] 입학처 기출 게시물 주소로 교체
+  retrieved_at: 2026-11-21
+  original_points: 25
+  rights_notice: 미확인(「숭실대 수리논술 문제교재(2026)」 p.17에서 옮김, 해설교재 pp.15~16 참고)
+
+verify: verify/SSU-G25.py::p02
+
+stimuli:
+- label: 제시문
+  body: |
+    이계도함수가 존재하는 함수 $f(x)$에 대하여 어떤 구간에서
+
+    (i) $f''(x)>0$이면 곡선 $y=f(x)$는 그 구간에서 아래로 볼록하다.
+
+    (ii) $f''(x)<0$이면 곡선 $y=f(x)$는 그 구간에서 위로 볼록하다.
+
+    두 함수 $f(x)$, $g(x)$가 닫힌구간 $[a,b]$에서 연속일 때, 두 곡선 $y=f(x)$, $y=g(x)$ 및 두 직선 $x=a$, $x=b$로 둘러싸인 도형의 넓이 $S$는 다음과 같다.
+
+    $$S=\int_a^b\lvert f(x)-g(x)\rvert\,dx$$
+    【출처: 미적분 「도함수의 활용」, 「정적분의 활용」】
+
+stem: |
+  함수 $f(x)=e^{-x}\lvert\cos x\rvert$의 그래프 위의 세 점 $\mathrm{A}(0,f(0))$, $\mathrm{B}\left(\dfrac{\pi}{2},f\left(\dfrac{\pi}{2}\right)\right)$, $\mathrm{C}(\pi,f(\pi))$가 주어져 있다. 이때 곡선 $y=f(x)$와 선분 $\mathrm{AB}$로 둘러싸인 도형과 곡선 $y=f(x)$와 선분 $\mathrm{BC}$로 둘러싸인 도형의 넓이의 합을 구하시오.
+
+subparts:
+- id: '1'
+  stem: |
+    두 도형의 넓이의 합을 구하시오.
+  points: 25
+  depends_on: []
+  answer: {kind: value, value: 'pi/4 - 1/2 - exp(-pi)/2 - pi*exp(-pi)/4', equivalents: ['$\dfrac{\pi}{4}-\dfrac12-\dfrac{e^{-\pi}}{2}-\dfrac{\pi e^{-\pi}}{4}$'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $\mathrm{A}(0,1)$, $\mathrm{B}\left(\frac{\pi}{2},0\right)$, $\mathrm{C}(\pi,e^{-\pi})$. 볼록성으로 위아래를 정하고, 선분 아래 넓이는 삼각형, 곡선 아래 넓이는 $\int e^{-x}\cos x\,dx=\frac12e^{-x}(\sin x-\cos x)$로 계산.
+    steps:
+    - {id: 1a, content: '$\left(\frac{\pi}{4}-\frac12-\frac12e^{-\pi/2}\right)+\left(\frac12e^{-\pi/2}-\frac12e^{-\pi}-\frac{\pi}{4}e^{-\pi}\right)$', criteria: [1.M1, 1.R1, 1.R2, 1.M2, 1.B1, 1.A1, 1.A2]}
+    hint_ladder:
+    - $\cos x$의 부호가 바뀌는 점에서 $f(x)$를 나누어 쓰자.
+    - 각 구간에서 $f''(x)$의 부호는? 곡선과 선분 중 어느 쪽이 위에 있는가?
+    - 선분 아래의 넓이는 적분하지 않고 삼각형 넓이로 구할 수 있다.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 해설교재 pp.15~16
+    steps:
+    - id: 1b-1
+      content: |
+        $0\le x\le\dfrac{\pi}{2}$에서 $f(x)=e^{-x}\cos x$, $\dfrac{\pi}{2}\le x\le\pi$에서 $f(x)=-e^{-x}\cos x$. 따라서 $\mathrm{A}(0,1)$, $\mathrm{B}\left(\dfrac{\pi}{2},0\right)$, $\mathrm{C}(\pi,e^{-\pi})$.
+      criteria: [1.M1]
+    - id: 1b-2
+      content: |
+        $0<x<\dfrac{\pi}{2}$에서 $(e^{-x}\cos x)'=-e^{-x}(\cos x+\sin x)$, $(e^{-x}\cos x)''=2e^{-x}\sin x>0$이므로 곡선은 아래로 볼록하고, 선분 AB를 나타내는 일차함수 $p(x)$에 대하여 $[0,\frac{\pi}{2}]$에서 $f(x)\le p(x)$.
+      criteria: [1.R1]
+    - id: 1b-3
+      content: |
+        $\dfrac{\pi}{2}<x<\pi$에서 $f''(x)=-2e^{-x}\sin x<0$이므로 위로 볼록하고, 선분 BC를 나타내는 일차함수 $q(x)$에 대하여 $[\frac{\pi}{2},\pi]$에서 $f(x)\ge q(x)$.
+      criteria: [1.R2]
+    - id: 1b-4
+      content: |
+        부분적분을 두 번 쓰면 $I=\displaystyle\int e^{-x}\cos x\,dx=e^{-x}\sin x+\int e^{-x}\sin x\,dx=e^{-x}\sin x-e^{-x}\cos x-I$이므로 $I=\dfrac12e^{-x}(\sin x-\cos x)+C$.
+      criteria: [1.M2]
+    - id: 1b-5
+      content: |
+        $\displaystyle\int_0^{\pi/2}f(x)\,dx=\left[\dfrac12e^{-x}(\sin x-\cos x)\right]_0^{\pi/2}=\dfrac12e^{-\pi/2}+\dfrac12$, $\displaystyle\int_{\pi/2}^{\pi}f(x)\,dx=-\left[\dfrac12e^{-x}(\sin x-\cos x)\right]_{\pi/2}^{\pi}=\dfrac12e^{-\pi/2}-\dfrac12e^{-\pi}$.
+      criteria: [1.B1]
+    - id: 1b-6
+      content: |
+        $\displaystyle\int_0^{\pi/2}p(x)\,dx$는 밑변 $\dfrac{\pi}{2}$, 높이 1인 삼각형의 넓이 $\dfrac{\pi}{4}$이고, $\displaystyle\int_{\pi/2}^{\pi}q(x)\,dx$는 밑변 $\dfrac{\pi}{2}$, 높이 $e^{-\pi}$인 삼각형의 넓이 $\dfrac{\pi e^{-\pi}}{4}$. 따라서 두 넓이는 $\dfrac{\pi}{4}-\dfrac12-\dfrac12e^{-\pi/2}$, $\dfrac12e^{-\pi/2}-\dfrac12e^{-\pi}-\dfrac{\pi e^{-\pi}}{4}$.
+      criteria: [1.A1]
+    - id: 1b-7
+      content: |
+        합은 $\dfrac{\pi}{4}-\dfrac12-\dfrac12e^{-\pi}-\dfrac{\pi}{4}e^{-\pi}$.
+      criteria: [1.A2]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 3
+      evidence: $\cos x$의 부호에 따라 $f(x)$를 $[0,\frac{\pi}{2}]$, $[\frac{\pi}{2},\pi]$에서 나누어 쓰고 세 점의 좌표를 구했다.
+      steps: [1b-1]
+    - id: 1.R1
+      mark_type: R
+      points: 4
+      evidence: $[0,\frac{\pi}{2}]$에서 $f''>0$을 계산해 선분 AB가 곡선보다 위에 있음을 밝혔다.
+      steps: [1b-2]
+    - id: 1.R2
+      mark_type: R
+      points: 4
+      evidence: $[\frac{\pi}{2},\pi]$에서 $f''<0$을 계산해 곡선이 선분 BC보다 위에 있음을 밝혔다.
+      steps: [1b-3]
+    - id: 1.M2
+      mark_type: M
+      points: 4
+      evidence: 부분적분으로 $\int e^{-x}\cos x\,dx=\frac12e^{-x}(\sin x-\cos x)+C$를 구했다.
+      steps: [1b-4]
+    - id: 1.B1
+      mark_type: B
+      points: 3
+      evidence: 두 구간에서 $\int f(x)\,dx$ 값 $\frac12e^{-\pi/2}+\frac12$, $\frac12e^{-\pi/2}-\frac12e^{-\pi}$를 구했다.
+      steps: [1b-5]
+    - id: 1.A1
+      mark_type: A
+      points: 4
+      evidence: 선분 아래 넓이 $\frac{\pi}{4}$, $\frac{\pi e^{-\pi}}{4}$를 써서 두 도형의 넓이를 각각 구했다.
+      depends_on: [1.R1, 1.R2]
+      steps: [1b-6]
+    - id: 1.A2
+      mark_type: A
+      points: 3
+      evidence: $\frac{\pi}{4}-\frac12-\frac12e^{-\pi}-\frac{\pi}{4}e^{-\pi}$.
+      depends_on: [1.M2]
+      cao: true
+      steps: [1b-7]
+    deductions:
+    - code: D1-1
+      condition: 답만 쓰고 과정 없음
+      effect: cap
+      value: 5
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-0413}
+  - {code: '72', misconception: MC-CAL-0414}
+  misconceptions:
+  - id: MC-CAL-0413
+    outcome_code: '71'
+    wrong_work: '$[\frac{\pi}{2},\pi]$에서도 $f(x)=e^{-x}\cos x$로 두고 적분'
+    detect_cue: 두 번째 구간의 적분값이 음수이거나 C의 $y$좌표를 $-e^{-\pi}$로 씀
+    feedback: $\lvert\cos x\rvert$는 $\cos x<0$인 구간에서 $-\cos x$입니다. 부호가 바뀌는 $x=\frac{\pi}{2}$에서 나누세요.
+    remedy: [RL-1]
+  - id: MC-CAL-0414
+    outcome_code: '72'
+    wrong_work: '두 구간 모두 $\int(\text{선분}-f)\,dx$로 계산해 두 번째 넓이가 음수'
+    detect_cue: 볼록성 판정 없이 같은 꼴의 적분을 씀, 음수 넓이
+    feedback: 아래로 볼록하면 현이 곡선 위에, 위로 볼록하면 현이 곡선 아래에 있습니다. $f''$의 부호를 먼저 확인하세요.
+    remedy: [RL-2]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CAL-0413}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-AREA-BOUNDARY}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-CAL-0414}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-CONVEX-CHORD}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-transcribe-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

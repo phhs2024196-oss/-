@@ -1,0 +1,209 @@
+# 숭실대 2025학년도 논술고사(자연) 문제 1 — 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: SSU-G25-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: numeric
+origin: past_exam
+school: SSU
+type: T10
+variant_of: null
+replaces: null
+level: L4
+form: 분류
+points: 25
+time_estimate_min: 20
+intent: 최솟값 조건과 정수 계수 조건으로 이차식 후보를 빠짐없이 나열하고, 근의 조건을 중근·서로 다른 두 근으로 나누어 세어 곱의 법칙으로 합치는 능력을 본다.
+key_idea: '$g$는 최솟값을 가지므로 이차식이고 $h$도 이차식이다. $g(x)=(x-b)^2+c$에서 $-2b$가 정수이므로 $b\in\{0,\frac12,1\}$로 $g$는 5개, $h$는 $10+{}_{10}\mathrm{C}_2=55$개, 곱은 $275$.'
+stuck: 계수가 정수라는 조건을 꼭짓점 $b$가 정수라는 조건으로 착각하지 않고 $-2b$가 정수임으로 바꾸어 $b=\dfrac12$까지 찾는 단계
+idea_tags: [IDEA-INTEGER-COEF-VERTEX, IDEA-COUNT-ROOT-MULTISET, IDEA-UNIQUE-FACTORIZATION-COUNT]
+tags: [경우의 수, 이차함수의 최솟값, 정수 조건]
+elements:
+  materials: [사차식, 이차함수, 정수 계수 다항식, 정수근]
+  concepts: [곱의 법칙, 조합, 이차함수의 최솟값, 다항식의 인수분해]
+  tools: [이차함수의 표준형, 합의 법칙, 곱의 법칙, 조합]
+  conditions:
+  - '조건 1)·2) 최솟값을 가지려면 $g$는 짝수 차수 → $g$, $h$ 모두 이차식'
+  - '조건 2)·3) $g(x)=(x-b)^2+c$에서 $-2b$가 정수 → $b\in\{0,\frac12,1\}$, $1\le c\le2$'
+  - '조건 4) $h(x)=(x-r)(x-s)$, $1\le r\le s\le10$ 정수 → 중근 포함 55개'
+  - '$g$는 실근 없음, $h$는 실근만 → $(g,h)$와 $f$가 일대일'
+  stimuli_used: [제시문]
+  subpart_links: null
+
+curriculum:
+  version: '2015'
+  subjects: [수학]
+  scope_2028: common
+  scope_confirmed: true
+  standards:
+  - code: 미확인
+    text: 합의 법칙과 곱의 법칙을 이해하고, 이를 이용하여 경우의 수를 구할 수 있다(요지)
+    verified: false
+  content_area: 경우의 수 – 합의 법칙과 곱의 법칙
+  behavior_domain: 문제해결
+  unit_path: [수학, 경우의 수, 경우의 수, 조건을 만족하는 다항식의 개수]
+  key_concepts: [곱의 법칙, 조합, 이차함수의 최솟값, 다항식의 인수분해]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 숭실대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 숭실대학교
+  admission_year: 2025
+  admission_type: 논술우수자전형
+  track: 자연
+  question_no: 1
+  official_url: https://iphak.ssu.ac.kr   # [확인필요] 입학처 기출 게시물 주소로 교체
+  retrieved_at: 2026-11-21
+  original_points: 25
+  rights_notice: 미확인(「숭실대 수리논술 문제교재(2026)」 p.16에서 옮김, 해설교재 p.14 참고)
+
+verify: verify/SSU-G25.py::p01
+
+stimuli:
+- label: 제시문
+  body: |
+    두 사건 $A$, $B$가 동시에 일어나지 않을 때, 사건 $A$와 사건 $B$가 일어나는 경우의 수를 각각 $m$, $n$이라고 하면 사건 $A$ 또는 사건 $B$가 일어나는 경우의 수는 $m+n$이다.
+
+    두 사건 $A$, $B$에 대하여 사건 $A$와 사건 $B$가 일어나는 경우의 수를 각각 $m$, $n$이라고 하면 사건 $A$와 사건 $B$가 잇달아 일어나는 경우의 수는 $m\times n$이다.
+    【출처: 수학 「경우의 수」】
+
+stem: |
+  다음 조건을 모두 만족시키는 사차식 $f(x)$의 개수를 구하시오.
+
+  1) $f(x)=g(x)h(x)$이다. (단, $g(x)$와 $h(x)$는 모두 상수가 아니고 최고차항의 계수가 1인 다항식이다.)
+
+  2) 함수 $g(x)$는 $x=b$에서 최솟값을 가지며, 이때 $0\le b\le1$이고 $1\le g(b)\le2$이다.
+
+  3) $g(x)$의 계수는 모두 정수이다.
+
+  4) 방정식 $h(x)=0$의 모든 해는 0보다 크고 11보다 작은 정수이다.
+
+subparts:
+- id: '1'
+  stem: |
+    조건을 모두 만족시키는 사차식 $f(x)$의 개수를 구하시오.
+  points: 25
+  depends_on: []
+  answer: {kind: value, value: '275', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $g$, $h$는 모두 최고차항의 계수가 1인 이차식. $g$는 5개, $h$는 55개이고, $g$는 실근이 없고 $h$는 실근만 가지므로 $(g,h)$와 $f$가 일대일 대응해 $5\times55=275$.
+    steps:
+    - {id: 1a, content: '$g\in\{x^2+1,\ x^2+2,\ x^2-x+2,\ x^2-2x+2,\ x^2-2x+3\}$, $h$: $10+45=55$, $5\times55=275$', criteria: [1.R1, 1.M1, 1.B1, 1.M2, 1.B2, 1.R2, 1.A1]}
+    hint_ladder:
+    - 최솟값을 갖는 다항함수의 차수는 홀수일 수 있는가?
+    - $g(x)=(x-b)^2+c$로 두면 $x$의 계수는? 그것이 정수이려면 $b$는?
+    - $h(x)=0$이 중근을 갖는 경우도 세었는가?
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 해설교재 p.14
+    steps:
+    - id: 1b-1
+      content: |
+        $g$, $h$는 상수가 아니므로 $\deg g\ge1$, $\deg h\ge1$이고 $\deg g+\deg h=4$. 최고차항의 계수가 1인 일차식·삼차식은 최솟값을 갖지 않으므로(아래로 한없이 작아짐) 조건 2)에서 $\deg g$는 짝수, 따라서 $\deg g=2$, $\deg h=2$.
+      criteria: [1.R1]
+    - id: 1b-2
+      content: |
+        $g(x)$는 최고차항의 계수가 1이고 $x=b$에서 최솟값 $c=g(b)$를 가지므로 $g(x)=(x-b)^2+c=x^2-2bx+b^2+c$ ($0\le b\le1$, $1\le c\le2$). 계수가 모두 정수이려면 $-2b$가 정수이어야 하므로 $b=0$, $b=\dfrac12$, $b=1$.
+      criteria: [1.M1]
+    - id: 1b-3
+      content: |
+        $b=0$: $g(x)=x^2+c$에서 $c=1,2$. $b=\dfrac12$: $g(x)=x^2-x+\dfrac14+c$에서 $\dfrac14+c$가 정수이고 $1\le c\le2$이므로 $c=\dfrac74$. $b=1$: $g(x)=x^2-2x+1+c$에서 $c=1,2$. 따라서 $g(x)$는 $x^2+1$, $x^2+2$, $x^2-x+2$, $x^2-2x+2$, $x^2-2x+3$의 5개.
+      criteria: [1.B1]
+    - id: 1b-4
+      content: |
+        $h(x)$는 최고차항의 계수가 1인 이차식이고, $h(x)=0$의 모든 해가 $1$ 이상 $10$ 이하의 정수이므로 $h(x)=(x-r)(x-s)$ ($1\le r\le s\le10$, 정수). 중근($r=s$)인 경우 10개, 서로 다른 두 근인 경우 ${}_{10}\mathrm{C}_2=45$개로 합의 법칙에 의해 55개.
+      criteria: [1.M2, 1.B2]
+    - id: 1b-5
+      content: |
+        각 $g$는 최솟값이 1 이상이므로 $g(x)=0$은 실근이 없고, 각 $h$는 실근만 가진다. 따라서 $f=gh$에서 $f$의 실근을 근으로 갖는 이차 인수가 $h$, 나머지 인수가 $g$로 정해지므로 서로 다른 $(g,h)$는 서로 다른 $f$를 준다.
+      criteria: [1.R2]
+    - id: 1b-6
+      content: |
+        곱의 법칙에 의해 $f(x)$의 개수는 $5\times55=275$.
+      criteria: [1.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.R1
+      mark_type: R
+      points: 4
+      evidence: 최솟값 조건에서 $g$가 이차식이고 따라서 $h$도 이차식임을 근거와 함께 적었다.
+      steps: [1b-1]
+    - id: 1.M1
+      mark_type: M
+      points: 4
+      evidence: $g(x)=(x-b)^2+c$로 두고 계수가 정수일 조건에서 $b=0,\ \dfrac12,\ 1$을 얻었다.
+      steps: [1b-2]
+    - id: 1.B1
+      mark_type: B
+      points: 5
+      evidence: 조건을 만족하는 $g(x)$ 5개(특히 $b=\dfrac12$인 $x^2-x+2$ 포함)를 모두 찾았다.
+      steps: [1b-3]
+    - id: 1.M2
+      mark_type: M
+      points: 3
+      evidence: $h(x)=(x-r)(x-s)$로 두고 중근인 경우와 서로 다른 두 근인 경우로 나누었다.
+      steps: [1b-4]
+    - id: 1.B2
+      mark_type: B
+      points: 4
+      evidence: $h(x)$의 개수 $10+45=55$를 구했다.
+      steps: [1b-4]
+    - id: 1.R2
+      mark_type: R
+      points: 2
+      evidence: $g$는 실근이 없고 $h$는 실근만 있어 서로 다른 $(g,h)$가 같은 $f$를 주지 않음을 언급했다.
+      steps: [1b-5]
+    - id: 1.A1
+      mark_type: A
+      points: 3
+      evidence: $5\times55=275$.
+      depends_on: [1.M1, 1.M2]
+      cao: true
+      steps: [1b-6]
+    deductions:
+    - code: D1-1
+      condition: 답만 쓰고 과정 없음
+      effect: cap
+      value: 5
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CNT-0410}
+  - {code: '72', misconception: MC-CNT-0411}
+  misconceptions:
+  - id: MC-CNT-0410
+    outcome_code: '71'
+    wrong_work: '$h$의 개수를 ${}_{10}\mathrm{C}_2=45$로만 세어 $5\times45=225$'
+    detect_cue: $h$의 개수가 45, 중근 $(x-r)^2$ 경우가 없음
+    feedback: 「모든 해가 정수」는 중근인 경우도 만족합니다. $(x-r)^2$ 꼴 10개를 더하세요.
+    remedy: [RL-1]
+  - id: MC-CNT-0411
+    outcome_code: '72'
+    wrong_work: '$b$가 정수여야 한다고 보고 $b=0,1$만 고려해 $g$를 4개로 세어 $4\times55=220$'
+    detect_cue: $x^2-x+2$가 빠짐, $b=\dfrac12$ 검토 없음
+    feedback: 계수가 정수라는 조건은 $x$의 계수 $-2b$가 정수라는 뜻입니다. $b$는 $\dfrac12$일 수도 있습니다.
+    remedy: [RL-1]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CNT-0410}
+  relation: remediation
+  target: {kind: concept, ref: CON-CNT-CASE-SPLIT}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-transcribe-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

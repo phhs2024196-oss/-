@@ -1,0 +1,206 @@
+# 숭실대 2023학년도 논술고사(자연1) 문제 1 — 원문은 내부 분석용(allowed_use: internal_only)
+# 정답: 함수의 개수 1개, f(x)=x^3-9x^2+19x+5. 해설교재(p.37)와 일치.
+schema_version: '2.0'
+id: SSU-G23A-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: numeric
+origin: past_exam
+school: SSU
+type: T01
+variant_of: null
+replaces: null
+level: L5
+form: 분류
+points: 25
+time_estimate_min: 20
+intent: 삼차함수의 변곡점과 근의 관계(근과 계수의 관계)로 미지의 근을 정수 조건으로 제한하고, 변의 길이 비교로 예각삼각형 여부를 경우별로 판정하는 능력을 본다.
+key_idea: '세 근 $\alpha$, $\beta$, $\gamma$에 대해 변곡점의 $x$좌표는 $\dfrac{\alpha+\beta+\gamma}{3}=\dfrac{4+\gamma}{3}=p$ (양의 정수)이므로 $\gamma=3p-4$. $p=1,2,3,4$와 $p\ge5$로 나누어 예각 조건을 확인하면 $p=3$뿐이다.'
+stuck: 변곡점 $x$좌표 $p$를 세 근의 평균으로 나타내 $\gamma=3p-4$로 후보를 정수 $p$로 줄이는 단계
+idea_tags: [IDEA-INFLECTION-ROOT-MEAN, IDEA-ACUTE-BY-SIDE-SQUARES]
+tags: [예각삼각형, 변곡점]
+elements:
+  materials: [삼차함수, x축과의 교점, 변곡점, 원점과 만드는 삼각형]
+  concepts: [삼차함수의 근과 계수의 관계, 이계도함수와 변곡점, 두 점 사이의 거리, 예각삼각형의 판정]
+  tools: [인수분해형으로 놓기, 이계도함수, 변의 길이의 제곱 비교, 경우 분류]
+  conditions:
+  - '(ii) 세 근 $2-\sqrt5$, $2+\sqrt5$, $\gamma$ → $f(x)=(x^2-4x-1)(x-\gamma)$'
+  - '(iii) 변곡점 $x$좌표 $p=\dfrac{4+\gamma}{3}$가 양의 정수 → $\gamma=3p-4$'
+  - '(iv) 삼각형 OPB, OPC 모두 예각 → 가장 긴 변의 제곱 < 나머지 두 변 제곱의 합, $p\ge5$이면 $\angle\mathrm{OBP}$ 둔각'
+  stimuli_used: []
+  subpart_links: null
+
+curriculum:
+  version: '2015'
+  subjects: [수학, 미적분]
+  scope_2028: calc2
+  scope_confirmed: true
+  standards:
+  - code: 미확인
+    text: 이계도함수를 이용하여 곡선의 변곡점을 구한다(요지)
+    verified: false
+  content_area: 미분법 – 도함수의 활용(변곡점)
+  behavior_domain: 추론
+  unit_path: [미적분, 미분법, 도함수의 활용, 삼차함수의 변곡점과 근]
+  key_concepts: [삼차함수의 근과 계수의 관계, 이계도함수와 변곡점, 두 점 사이의 거리, 예각삼각형의 판정]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 숭실대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 숭실대학교
+  admission_year: 2023
+  admission_type: 논술우수자전형
+  track: 자연1
+  question_no: 1
+  official_url: https://iphak.ssu.ac.kr   # [확인필요] 입학처 기출 게시물 주소로 교체
+  retrieved_at: 2026-11-21
+  original_points: 25
+  rights_notice: 미확인(「숭실대 수리논술 문제교재(2026)」 p.32, 해설교재 p.37에서 옮김)
+
+verify: verify/SSU-G23A.py::p01
+
+stimuli: []
+
+stem: |
+  다음 네 조건을 만족시키는 함수 $f(x)$의 개수를 구하고, 그 함수를 모두 찾으시오.
+
+  (i) $f(x)=x^3+ax^2+bx+c$ (단, $a$, $b$, $c$는 실수)
+
+  (ii) 곡선 $y=f(x)$와 $x$축은 서로 다른 세 점 $\mathrm{A}(2-\sqrt5,0)$, $\mathrm{B}(2+\sqrt5,0)$, $\mathrm{C}(\gamma,0)$에서 만난다.
+
+  (iii) 곡선 $y=f(x)$의 변곡점 $\mathrm{P}$의 $x$좌표는 양의 정수이다.
+
+  (iv) 원점 $\mathrm{O}$에 대하여 삼각형 $\mathrm{OPB}$와 삼각형 $\mathrm{OPC}$는 모두 예각삼각형이다. (단, 예각삼각형은 모든 각의 크기가 $\dfrac{\pi}{2}$보다 작은 삼각형이다.)
+
+subparts:
+- id: '1'
+  stem: |
+    조건을 만족시키는 함수 $f(x)$의 개수를 구하고, 그 함수를 모두 찾으시오.
+  points: 25
+  depends_on: []
+  answer: {kind: expression, value: 'x^3-9x^2+19x+5', equivalents: ['(x-2+\sqrt5)(x-2-\sqrt5)(x-5)', '(x^2-4x-1)(x-5)'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: 변곡점 $x$좌표 $p=\dfrac{4+\gamma}{3}$. $p=1$ 둔각, $p=2$ 퇴화, $p=3$ 예각(OK), $p=4$ 직각, $p\ge5$이면 $\angle\mathrm{OBP}$ 둔각. 따라서 1개, $f(x)=x^3-9x^2+19x+5$.
+    steps:
+    - {id: 1a, content: '$\gamma=3p-4$, $p=3$만 가능 → $f(x)=(x^2-4x-1)(x-5)$', criteria: [1.M1, 1.A1, 1.R1, 1.R2, 1.R3, 1.A2]}
+    hint_ladder:
+    - 세 근을 이용해 $f(x)$를 인수분해된 꼴로 써 보자.
+    - 변곡점의 $x$좌표는 세 근과 어떤 관계인가?
+    - 삼각형이 예각인지는 세 변의 길이의 제곱으로 판정할 수 있다.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 해설교재 p.37
+    steps:
+    - id: 1b-1
+      content: |
+        $\alpha=2-\sqrt5$, $\beta=2+\sqrt5$라 하면 $f(x)=(x-\alpha)(x-\beta)(x-\gamma)=x^3-(\alpha+\beta+\gamma)x^2+(\alpha\beta+\beta\gamma+\gamma\alpha)x-\alpha\beta\gamma$.
+        $f''(x)=6x-2(\alpha+\beta+\gamma)$이므로 변곡점의 $x$좌표는 $p=\dfrac{\alpha+\beta+\gamma}{3}=\dfrac{4+\gamma}{3}$이고, (iii)에 의해 $p$는 양의 정수이다.
+      criteria: [1.M1, 1.A1]
+    - id: 1b-2
+      content: |
+        1) $p=1$: $\gamma=-1$, $f(x)=(x-2+\sqrt5)(x-2-\sqrt5)(x+1)$, $\mathrm{P}(1,-8)$, $\mathrm{C}(-1,0)$. P의 $x$좌표가 O, C의 $x$좌표보다 크므로 $\angle\mathrm{COP}>\dfrac{\pi}{2}$, 삼각형 OCP는 둔각삼각형 → 부적합.
+        2) $p=2$: $\gamma=2$, $\mathrm{P}(2,0)=\mathrm{C}$. O, P, B, C가 모두 $x$축 위에 있어 삼각형이 되지 않음 → 부적합.
+      criteria: [1.R1]
+    - id: 1b-3
+      content: |
+        3) $p=3$: $\gamma=5$, $\mathrm{P}(3,8)$, $\mathrm{C}(5,0)$. $\overline{\mathrm{OP}}^2=73$, $\overline{\mathrm{PC}}^2=68$, $\overline{\mathrm{OC}}^2=25$이고 가장 긴 변 OP에 대해 $73<68+25$이므로 삼각형 POC는 예각삼각형. 또 $\angle\mathrm{OPB}<\angle\mathrm{OPC}$이고 P의 $x$좌표가 O의 $x$좌표보다 크고 B의 $x$좌표 $2+\sqrt5$보다 작으므로 삼각형 OPB도 예각삼각형 → 적합.
+      criteria: [1.R2]
+    - id: 1b-4
+      content: |
+        4) $p=4$: $\gamma=8$, $\mathrm{P}(4,4)$, $\mathrm{C}(8,0)$. $\overline{\mathrm{OP}}^2=32$, $\overline{\mathrm{PC}}^2=32$, $\overline{\mathrm{OC}}^2=64=32+32$이므로 직각삼각형 → 부적합.
+        5) $p\ge5$: P의 $x$좌표가 O와 B의 $x$좌표보다 크므로 $\angle\mathrm{OBP}>\dfrac{\pi}{2}$, 삼각형 OBP는 둔각삼각형 → 부적합.
+      criteria: [1.R3]
+    - id: 1b-5
+      content: |
+        따라서 조건을 모두 만족하는 함수는 1개이고 $f(x)=(x-2+\sqrt5)(x-2-\sqrt5)(x-5)=(x^2-4x-1)(x-5)=x^3-9x^2+19x+5$.
+      criteria: [1.A2]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 4
+      evidence: $f(x)=(x-\alpha)(x-\beta)(x-\gamma)$로 놓고 $f''(x)$를 구했다.
+      steps: [1b-1]
+    - id: 1.A1
+      mark_type: A
+      points: 4
+      evidence: 변곡점 $x$좌표 $p=\dfrac{4+\gamma}{3}$ (즉 $\gamma=3p-4$)를 얻었다.
+      depends_on: [1.M1]
+      steps: [1b-1]
+    - id: 1.R1
+      mark_type: R
+      points: 4
+      evidence: $p=1$(둔각), $p=2$(삼각형이 안 됨)가 부적합함을 근거와 함께 밝혔다.
+      depends_on: [1.A1]
+      steps: [1b-2]
+    - id: 1.R2
+      mark_type: R
+      points: 5
+      evidence: $p=3$일 때 두 삼각형 OPC, OPB가 모두 예각임을 변의 길이 등으로 보였다.
+      depends_on: [1.A1]
+      steps: [1b-3]
+    - id: 1.R3
+      mark_type: R
+      points: 5
+      evidence: $p=4$(직각)와 $p\ge5$(둔각)가 부적합함을 근거와 함께 밝혔다.
+      depends_on: [1.A1]
+      steps: [1b-4]
+    - id: 1.A2
+      mark_type: A
+      points: 3
+      evidence: 개수 1개와 $f(x)=x^3-9x^2+19x+5$ (또는 인수분해형)를 모두 적었다.
+      depends_on: [1.R1, 1.R2, 1.R3]
+      cao: true
+      steps: [1b-5]
+    deductions:
+    - code: D1-1
+      condition: 답만 쓰고 과정 없음
+      effect: cap
+      value: 5
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-GEO-0515}
+  - {code: '72', misconception: MC-CAL-0516}
+  misconceptions:
+  - id: MC-GEO-0515
+    outcome_code: '71'
+    wrong_work: '$p=4$일 때 $\overline{\mathrm{OC}}^2=\overline{\mathrm{OP}}^2+\overline{\mathrm{PC}}^2$인데 예각으로 판정해 함수가 2개라고 답함'
+    detect_cue: 답에 $(x^2-4x-1)(x-8)$ 포함, 또는 「$\le$」로 비교
+    feedback: 가장 긴 변의 제곱이 나머지 두 변 제곱의 합과 같으면 직각삼각형입니다. 예각은 「$<$」일 때만입니다.
+    remedy: [RL-1]
+  - id: MC-CAL-0516
+    outcome_code: '72'
+    wrong_work: '변곡점을 $f^\prime(x)=0$인 점(극점)으로 구함'
+    detect_cue: $f^\prime(x)=0$을 풀어 P를 잡음, $f^{\prime\prime}$이 없음
+    feedback: 변곡점은 $f^{\prime\prime}(x)$의 부호가 바뀌는 점입니다. 삼차함수에서는 세 근의 평균이 변곡점의 $x$좌표입니다.
+    remedy: [RL-2]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-GEO-0515}
+  relation: remediation
+  target: {kind: concept, ref: CON-GEO-ACUTE-TRIANGLE}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-CAL-0516}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-INFLECTION-CUBIC}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-transcribe-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

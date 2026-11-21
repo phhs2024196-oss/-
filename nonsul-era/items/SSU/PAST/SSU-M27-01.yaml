@@ -1,0 +1,210 @@
+# 숭실대 2027학년도 모의논술고사(자연) 문제 1 — 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: SSU-M27-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: numeric
+origin: mock_exam
+school: SSU
+type: T01
+variant_of: null
+replaces: null
+level: L4
+form: 추론
+points: 25
+time_estimate_min: 20
+intent: 함수의 극한에 대한 성질로 극한값 존재·비존재 조건을 함숫값 조건으로 바꾸어 삼차함수를 결정하는 능력을 본다.
+key_idea: '(가)로 최고차항 계수, (다)로 중근 인수 $(x-k)^2$, (나)의 「존재」로 $f(3)=0$, 「존재하지 않음」으로 $f(5)=-8$을 얻는다.'
+stuck: (나)에서 극한이 존재하지 않으려면 분모의 극한이 0이어야 한다는 것, 즉 $f(5)+8=0$을 끌어내는 단계
+idea_tags: [IDEA-LIMIT-EXIST-ZERO-NUM, IDEA-LIMIT-NONEXIST-ZERO-DEN]
+tags: [극한의 존재 조건]
+elements:
+  materials: [삼차함수, 분수꼴 함수의 극한]
+  concepts: [함수의 극한에 대한 성질, 삼차함수의 인수, 다항함수의 연속성]
+  tools: [함수의 극한에 대한 성질, 분모→0이면 분자→0, 인수정리]
+  conditions:
+  - '(가) $\lim_{x\to0}x^3f(1/x)=2$ → 최고차항 계수 2'
+  - '(다) $(x-k)^2$으로 나눈 극한 존재 → 중근 인수'
+  - '(나) $a=-2$ 극한 존재 → $f(3)=0$'
+  - '(나) $a=5$ 극한 없음 → $f(5)+8=0$, $f(10)\ne0$'
+  stimuli_used: [제시문]
+  subpart_links: null
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅱ]
+  scope_2028: common
+  scope_confirmed: true
+  standards:
+  - code: 미확인
+    text: 함수의 극한에 대한 성질을 이해하고, 함수의 극한값을 구할 수 있다(요지)
+    verified: false
+  content_area: 함수의 극한과 연속 – 함수의 극한
+  behavior_domain: 추론
+  unit_path: [수학Ⅱ, 함수의 극한과 연속, 함수의 극한, 극한값의 존재 조건과 미정계수]
+  key_concepts: [함수의 극한에 대한 성질, 삼차함수의 인수, 다항함수의 연속성]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 숭실대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 숭실대학교
+  admission_year: 2027
+  admission_type: 논술우수자전형 모의논술
+  track: 자연
+  question_no: 1
+  official_url: https://iphak.ssu.ac.kr   # [확인필요] 입학처 기출 게시물 주소로 교체
+  retrieved_at: 2026-11-21
+  original_points: 25
+  rights_notice: 미확인(대치 수리 논술 연구소 「2027학년도 대비 수리논술 숭실대 기출 및 모의 문제」 p.4에서 옮김)
+
+verify: verify/SSU-M27.py::p01
+
+stimuli:
+- label: 제시문
+  body: |
+    두 함수 $f(x)$, $g(x)$가 실수 $a$에 대하여 $\displaystyle\lim_{x\to a}f(x)=\alpha$, $\displaystyle\lim_{x\to a}g(x)=\beta$ (단, $\beta\ne0$)를 만족하면, $\displaystyle\lim_{x\to a}\dfrac{f(x)}{g(x)}=\dfrac{\alpha}{\beta}$이다.
+    【출처: 수학Ⅱ 「함수의 극한에 대한 성질」】
+
+stem: |
+  함수 $f(x)$는 아래의 조건을 만족하는 삼차함수이다.
+
+  (가) $\displaystyle\lim_{x\to0}x^3f\left(\dfrac1x\right)=2$
+
+  (나) $\displaystyle\lim_{x\to a}\dfrac{f(x+5)}{(f(x)+8)(x+2)}$의 값이 $a=-2$일 때는 존재하고, $a=5$일 때는 존재하지 않는다.
+
+  (다) 어떤 실수 $k$에 대하여 $\displaystyle\lim_{x\to k}\dfrac{f(x)}{(x-k)^2}$의 값이 존재한다.
+
+  이때 $f(1)$의 값을 구하시오.
+
+subparts:
+- id: '1'
+  stem: |
+    $f(1)$의 값을 구하시오.
+  points: 25
+  depends_on: []
+  answer: {kind: value, value: '-40', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: (가)·(다)로 $f(x)=2(x-k)^2(x-m)$, (나)에서 $f(3)=0$, $f(5)=-8$, $f(10)\ne0$을 얻어 $k=3$, $m=6$.
+    steps:
+    - {id: 1a, content: '$f(x)=2(x-k)^2(x-m)$, $f(3)=0$, $f(5)=-8\Rightarrow k=3,\ m=6$, $f(1)=-40$', criteria: [1.M1, 1.M2, 1.M3, 1.A1]}
+    hint_ladder:
+    - $x^3f(1/x)$에서 $x\to0$이면 $f$의 어느 계수만 남는가?
+    - (나)의 분모가 $a=-2$에서 0으로 가면 분자는 어떻게 되어야 하는가?
+    - $a=5$에서 극한이 존재하지 않으려면 분모에 무엇이 필요한가?
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 해설교재 p.5
+    steps:
+    - id: 1b-1
+      content: |
+        $f(x)=px^3+qx^2+rx+s\ (p\ne0)$라 하면 $x^3f\left(\dfrac1x\right)=p+qx+rx^2+sx^3\to p\ (x\to0)$이므로 (가)에서 $p=2$.
+      criteria: [1.B1]
+    - id: 1b-2
+      content: |
+        (다)에서 분모 $(x-k)^2\to0$이므로 극한이 존재하려면 $f(k)=0$이고, $f(x)=(x-k)h(x)$로 두면 $\dfrac{f(x)}{(x-k)^2}=\dfrac{h(x)}{x-k}$에서 다시 $h(k)=0$. 따라서 $f(x)=2(x-k)^2(x-m)$ ($m$은 실수).
+      criteria: [1.M1]
+    - id: 1b-3
+      content: |
+        (나) $a=-2$: 분모 $(f(x)+8)(x+2)\to0$이고 극한이 존재하므로 분자의 극한 $f(3)$도 0이다(아니면 제시문의 성질에 의해 극한이 존재할 수 없음). 따라서 $k=3$ 또는 $m=3$.
+      criteria: [1.M2]
+    - id: 1b-4
+      content: |
+        (나) $a=5$: 분모의 극한은 $7(f(5)+8)$이다. 이것이 0이 아니면 제시문에 의해 극한값 $\dfrac{f(10)}{7(f(5)+8)}$이 존재하므로 모순. 따라서 $f(5)=-8$이고, 이때 극한이 존재하지 않으려면 $f(10)\ne0$이어야 한다.
+      criteria: [1.M3, 1.R1]
+    - id: 1b-5
+      content: |
+        $m=3$이면 $f(5)=2(5-k)^2\cdot2\ge0$이므로 $f(5)=-8$ 불가. 따라서 $k=3$이고 $f(5)=2\cdot4\cdot(5-m)=-8$에서 $m=6$. 이때 $f(10)=2\cdot49\cdot4\ne0$, 또 $a=-2$에서 $\dfrac{f(x+5)}{(f(x)+8)(x+2)}=\dfrac{2(x+2)(x-1)}{f(x)+8}\to0$이므로 조건을 모두 만족한다.
+      criteria: [1.R2]
+    - id: 1b-6
+      content: |
+        $f(x)=2(x-3)^2(x-6)$이므로 $f(1)=2\cdot4\cdot(-5)=-40$.
+      criteria: [1.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.B1
+      mark_type: B
+      points: 3
+      evidence: (가)에서 최고차항의 계수가 2임을 구했다.
+      steps: [1b-1]
+    - id: 1.M1
+      mark_type: M
+      points: 4
+      evidence: (다)에서 $f(x)$가 $(x-k)^2$을 인수로 가짐을 밝혀 $f(x)=2(x-k)^2(x-m)$ 꼴로 놓았다.
+      implied_ok: false
+      steps: [1b-2]
+    - id: 1.M2
+      mark_type: M
+      points: 4
+      evidence: $a=-2$에서 분모의 극한이 0이므로 $f(3)=0$이어야 함을 근거와 함께 적었다.
+      steps: [1b-3]
+    - id: 1.M3
+      mark_type: M
+      points: 5
+      evidence: $a=5$에서 극한이 존재하지 않으려면 $f(5)+8=0$이어야 함을 제시문(분모의 극한이 0이 아니면 극한 존재)으로 설명했다.
+      steps: [1b-4]
+    - id: 1.R1
+      mark_type: R
+      points: 2
+      evidence: $f(10)\ne0$ 조건(분자의 극한이 0이 아님)을 언급했다.
+      depends_on: [1.M3]
+      steps: [1b-4]
+    - id: 1.R2
+      mark_type: R
+      points: 4
+      evidence: $m=3$인 경우가 $f(5)=-8$과 모순임을 보여 $k=3$으로 결정하고 $m=6$을 구했다.
+      depends_on: [1.M2, 1.M3]
+      steps: [1b-5]
+    - id: 1.A1
+      mark_type: A
+      points: 3
+      evidence: $f(1)=-40$.
+      depends_on: [1.R2]
+      cao: true
+      steps: [1b-6]
+    deductions:
+    - code: D1-1
+      condition: 답만 쓰고 과정 없음
+      effect: cap
+      value: 5
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-0201}
+  - {code: '72', misconception: MC-CAL-0202}
+  misconceptions:
+  - id: MC-CAL-0201
+    outcome_code: '71'
+    wrong_work: '$a=5$에서 극한이 없으므로 $f(10)=0$이라 놓음'
+    detect_cue: $f(10)=0$을 조건으로 씀, $f(5)=-8$이 없음
+    feedback: 분모의 극한이 0이 아니면 극한은 항상 존재합니다. 「존재하지 않음」은 분모의 극한이 0이라는 정보입니다.
+    remedy: [RL-1]
+  - id: MC-CAL-0202
+    outcome_code: '72'
+    wrong_work: '(다)에서 $f(k)=0$만 쓰고 $f(x)=2(x-k)(x^2+\cdots)$로 둠'
+    detect_cue: 중근 인수 $(x-k)^2$이 없음
+    feedback: $(x-k)^2$으로 나눈 극한이 존재하려면 $x-k$로 두 번 나누어떨어져야 합니다.
+    remedy: [RL-1]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CAL-0201}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-LIMIT-EXIST}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-transcribe-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

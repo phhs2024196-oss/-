@@ -1,0 +1,247 @@
+# 숭실대 2025학년도 모의논술고사(자연) 문제 1 — 원문은 내부 분석용(allowed_use: internal_only)
+# 소문항 배점은 원문에 없음(문제 전체 25점) → (1) 15점, (2) 10점으로 내부 배분. [확인필요]
+# type: SSU T01~T10 에 「평면 운동의 속력·거리」 유형이 없어 null.
+schema_version: '2.0'
+id: SSU-M25-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: numeric
+origin: mock_exam
+school: SSU
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 추론
+points: 25
+time_estimate_min: 20
+intent: 매개변수로 나타낸 위치에서 속력을 구하고 근호 안이 완전제곱식이 됨을 알아채 착지 시각의 속력 조건과 움직인 거리를 계산하는 능력을 본다.
+key_idea: '$\left(\dfrac{dx}{dt}\right)^2+\left(\dfrac{dy}{dt}\right)^2=4a^2+t^2(t^2+4a)=(t^2+2a)^2$이므로 속력은 $t^2+2a$. 착지 시각 $t^2=9-4a$에서 속력 $9-2a=5$.'
+stuck: 속력의 근호 안 $t^4+4at^2+4a^2$을 완전제곱식 $(t^2+2a)^2$으로 묶는 단계
+idea_tags: [IDEA-SPEED-PERFECT-SQUARE, IDEA-LANDING-TIME-FROM-Y0]
+tags: [평면 위의 운동, 속력, 움직인 거리]
+elements:
+  materials: [미사일의 운동, 매개변수로 나타낸 위치]
+  concepts: [평면 위의 운동, 속력, 움직인 거리, 합성함수의 미분]
+  tools: [합성함수의 미분, 완전제곱식, 정적분]
+  conditions:
+  - '땅에 도달 → $y(t)=0$ → $t^2+4a=9$'
+  - '속력의 근호 안 $=(t^2+2a)^2$ → 속력 $t^2+2a$'
+  - '착지 속력 $9-2a=5$ → $a=2$, 착지 시각 $t=1$'
+  stimuli_used: [제시문]
+  subpart_links: "(2)는 (1)의 a=2 와 속력 식을 사용"
+
+curriculum:
+  version: '2015'
+  subjects: [미적분]
+  scope_2028: calc2
+  scope_confirmed: true
+  standards:
+  - code: 미확인
+    text: 속도와 거리에 대한 문제를 해결할 수 있다(요지)
+    verified: false
+  content_area: 적분법 – 속도와 거리
+  behavior_domain: 계산
+  unit_path: [미적분, 적분법, 정적분의 활용, 평면 위의 운동에서 속력과 움직인 거리]
+  key_concepts: [평면 위의 운동, 속력, 움직인 거리, 합성함수의 미분]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 숭실대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 숭실대학교
+  admission_year: 2025
+  admission_type: 논술우수자전형 모의논술
+  track: 자연
+  question_no: 1
+  official_url: https://iphak.ssu.ac.kr   # [확인필요] 입학처 기출 게시물 주소로 교체
+  retrieved_at: 2026-11-21
+  original_points: 25
+  rights_notice: 미확인(「숭실대 수리논술 문제교재(2026)」 p.20에서 옮김, 해설교재 p.20 참고)
+
+verify: verify/SSU-M25.py::p01
+
+stimuli:
+- label: 제시문
+  body: |
+    점 $\mathrm{P}$의 시각 $t$에서 위치가 $(x,y)$이고, $x$, $y$가 시각 $t$의 함수일 때,
+
+    시각 $t$에서 점 $\mathrm{P}$의 속력은 $\sqrt{\left(\dfrac{dx}{dt}\right)^2+\left(\dfrac{dy}{dt}\right)^2}$
+
+    $t=a$에서 $t=b$까지 점 $\mathrm{P}$가 움직인 거리 $s$는
+
+    $$s=\int_a^b\sqrt{\left(\frac{dx}{dt}\right)^2+\left(\frac{dy}{dt}\right)^2}\,dt$$
+    【출처: 미적분 「속도와 거리」】
+
+stem: |
+  비행기에서 발사한 후 $t$초가 지났을 때의 미사일의 위치를 다음과 같이 좌표평면 위에 나타낼 수 있다고 하자. 단, $y(t)$는 시각 $t$에서 땅으로부터 잰 미사일의 높이를 의미한다.
+
+  $$\begin{cases}x(t)=2at\\[2mm]y(t)=-\dfrac{(t^2+4a)^{\frac32}}{3}+9\end{cases}\quad(a>0)$$
+
+  이때 다음 문항에 답하시오.
+
+subparts:
+- id: '1'
+  stem: |
+    미사일이 땅에 도달할 때의 속력이 5가 되도록 하는 $a$를 구하시오.
+  points: 15
+  depends_on: []
+  answer: {kind: value, value: '2', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $y=0$에서 $t^2+4a=9$. 속력 $=t^2+2a$이므로 착지 속력 $=9-2a=5$, $a=2$.
+    steps:
+    - {id: 1a, content: '$t=\sqrt{9-4a}$, 속력 $\lvert t^2+2a\rvert=9-2a=5\Rightarrow a=2$', criteria: [1.M1, 1.M2, 1.B1, 1.A1]}
+    hint_ladder:
+    - 땅에 도달한다는 것은 $y(t)=0$이다.
+    - 속력의 근호 안을 정리하면 완전제곱식이 된다.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 해설교재 p.20
+    steps:
+    - id: 1b-1
+      content: |
+        땅에 도달할 때 $y(t)=0$이므로 $(t^2+4a)^{\frac32}=27=3^3$, 즉 $(t^2+4a)^3=3^6$에서 $t^2+4a=9$. 따라서 착지 시각은 $t=\sqrt{9-4a}$ (이때 $a\le\dfrac94$).
+      criteria: [1.M1]
+    - id: 1b-2
+      content: |
+        $\dfrac{dx}{dt}=2a$, $\dfrac{dy}{dt}=-\dfrac13\cdot\dfrac32(t^2+4a)^{\frac12}\cdot2t=-t(t^2+4a)^{\frac12}$.
+      criteria: [1.M2]
+    - id: 1b-3
+      content: |
+        속력은 $\sqrt{4a^2+t^2(t^2+4a)}=\sqrt{t^4+4at^2+4a^2}=\sqrt{(t^2+2a)^2}=t^2+2a$.
+      criteria: [1.B1]
+    - id: 1b-4
+      content: |
+        착지 시각 $t^2=9-4a$에서 속력은 $\sqrt{(9-2a)^2}=\lvert9-2a\rvert$이고 $a\le\dfrac94$이므로 $9-2a$. $9-2a=5$에서 $a=2$.
+      criteria: [1.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 4
+      evidence: $y(t)=0$에서 $t^2+4a=9$, 착지 시각 $t=\sqrt{9-4a}$를 구했다.
+      steps: [1b-1]
+    - id: 1.M2
+      mark_type: M
+      points: 4
+      evidence: $\frac{dx}{dt}=2a$, $\frac{dy}{dt}=-t(t^2+4a)^{1/2}$를 구했다.
+      steps: [1b-2]
+    - id: 1.B1
+      mark_type: B
+      points: 4
+      evidence: 속력이 $t^2+2a$ (완전제곱식)임을 보였다.
+      steps: [1b-3]
+    - id: 1.A1
+      mark_type: A
+      points: 3
+      evidence: 착지 속력 $9-2a=5$에서 $a=2$.
+      depends_on: [1.M1, 1.M2]
+      steps: [1b-4]
+    deductions:
+    - code: D1-1
+      condition: 답만 쓰고 과정 없음
+      effect: cap
+      value: 3
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-0419}
+  misconceptions:
+  - id: MC-CAL-0419
+    outcome_code: '71'
+    wrong_work: '속력을 $\left\lvert\frac{dy}{dt}\right\rvert=t(t^2+4a)^{1/2}=3\sqrt{9-4a}$로 두고 $=5$를 풂'
+    detect_cue: $\frac{dx}{dt}$를 쓰지 않음, $a=\frac{14}{9}$ 같은 답
+    feedback: 평면 위의 운동에서 속력은 두 성분 속도를 모두 넣은 $\sqrt{(dx/dt)^2+(dy/dt)^2}$입니다.
+    remedy: [RL-1]
+- id: '2'
+  stem: |
+    위에서 구한 $a$에 대하여 발사 후 땅에 도달할 때까지 미사일이 움직인 거리를 구하시오.
+  points: 10
+  depends_on: ['1']
+  answer: {kind: value, value: '13/3', equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: $a=2$이면 착지 시각 $t=1$, 속력 $t^2+4$이므로 $\int_0^1(t^2+4)\,dt=\frac{13}3$.
+    steps:
+    - {id: 2a, content: '$\int_0^1(t^2+4)\,dt=\frac{13}{3}$', criteria: [2.M1, 2.M2, 2.A1]}
+    hint_ladder:
+    - $a=2$일 때 미사일이 땅에 닿는 시각은?
+    - (1)에서 구한 속력을 그대로 적분하자.
+  - id: S2-B
+    audience: B
+    method_no: 1
+    source_flow: 해설교재 p.20
+    steps:
+    - id: 2b-1
+      content: |
+        $a=2$일 때 착지 시각은 $t=\sqrt{9-4\cdot2}=1$.
+      criteria: [2.M1]
+    - id: 2b-2
+      content: |
+        (1)에서 속력은 $t^2+2a=t^2+4$이므로 제시문에 의해 움직인 거리는 $\displaystyle\int_0^1(t^2+4)\,dt=\dfrac13+4=\dfrac{13}3$.
+      criteria: [2.M2, 2.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 3
+      evidence: 착지 시각 $t=1$을 구했다.
+      ft: {allowed: true, from: [1.A1], max_points: 3}
+      steps: [2b-1]
+    - id: 2.M2
+      mark_type: M
+      points: 4
+      evidence: 움직인 거리를 $\int_0^1(t^2+4)\,dt$로 세웠다.
+      steps: [2b-2]
+    - id: 2.A1
+      mark_type: A
+      points: 3
+      evidence: $\frac{13}3$.
+      depends_on: [2.M2]
+      steps: [2b-2]
+    deductions:
+    - code: D2-1
+      condition: 답만 쓰고 과정 없음
+      effect: cap
+      value: 2
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-0420}
+  misconceptions:
+  - id: MC-CAL-0420
+    outcome_code: '71'
+    wrong_work: '발사 지점 $(0,9-\frac{16\sqrt2}{3})$과 착지 지점 $(4,0)$ 사이의 거리를 구함'
+    detect_cue: 적분 없이 두 점 사이 거리 공식을 씀
+    feedback: 움직인 거리는 경로의 길이로, 속력을 시간에 대해 적분해야 합니다. 두 점 사이의 직선 거리는 그보다 작습니다.
+    remedy: [RL-1]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CAL-0419}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-SPEED-DISTANCE}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-CAL-0420}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-SPEED-DISTANCE}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-transcribe-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

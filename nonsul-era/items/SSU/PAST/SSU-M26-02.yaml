@@ -1,0 +1,182 @@
+# 숭실대 2026학년도 모의논술고사(자연) 문제 2 — 원문은 내부 분석용(allowed_use: internal_only)
+# [판독확인] 발문 지수: 300dpi 재렌더로 $e^{\left(\frac{k+1}{n}\right)^2}$, $e^{\left(\frac kn\right)^2}$로 판독(해설교재 p.11의 $f(x)=e^{x^2}$과 일치)
+schema_version: '2.0'
+id: SSU-M26-02
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: numeric
+origin: mock_exam
+school: SSU
+type: T08
+variant_of: null
+replaces: null
+level: L5
+form: 추론
+points: 25
+time_estimate_min: 25
+intent: 평균값 정리로 각 항을 도함수 값으로 바꾸고, 도함수의 범위로 합을 위·아래에서 평가해 극한을 구하는 능력을 본다.
+key_idea: '$f(x)=e^{x^2}$에 평균값 정리를 쓰면 각 차가 $\dfrac1nf^\prime(c_k)$이고 $0<f^\prime(c_k)<2e$이므로 $0<\sqrt n\sum\{\cdots\}^2<\dfrac{4e^2}{\sqrt n}$.'
+stuck: 합을 정적분으로 바꾸려 하지 않고, 평균값 정리와 상계로 0에 조인다는 발상
+idea_tags: [IDEA-MVT-DIFFERENCE-BOUND, IDEA-SQUEEZE-SUM-UPPER-BOUND]
+tags: [평균값 정리, 조임정리, 합의 극한]
+elements:
+  materials:
+  - '지수함수 $e^{x^2}$'
+  - '차의 제곱의 합의 극한'
+  concepts: [평균값 정리, 합성함수의 미분, 함수의 극한의 대소 관계]
+  tools: [평균값 정리, 이계도함수로 도함수의 증가 판정, 상계 평가, 조임(대소 관계)]
+  conditions:
+  - '중괄호 안 = $f(x)=e^{x^2}$의 이웃한 함숫값의 차 → 평균값 정리'
+  - '$0<c_k<1$ → $0<f^\prime(c_k)<2e$'
+  - '$\sqrt n\times n\times\dfrac{C}{n^2}=\dfrac{C}{\sqrt n}\to0$'
+  stimuli_used: [제시문]
+  subpart_links: null
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅱ, 미적분]
+  scope_2028: calc2
+  scope_confirmed: true
+  standards:
+  - code: 미확인
+    text: 함수에 대한 평균값 정리를 이해한다(요지)
+    verified: false
+  content_area: 미분 – 도함수의 활용
+  behavior_domain: 추론
+  unit_path: [수학Ⅱ, 미분, 도함수의 활용, 평균값 정리를 이용한 평가]
+  key_concepts: [평균값 정리, 합성함수의 미분, 함수의 극한의 대소 관계]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 숭실대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 숭실대학교
+  admission_year: 2026
+  admission_type: 논술우수자전형 모의논술
+  track: 자연
+  question_no: 2
+  official_url: https://iphak.ssu.ac.kr   # [확인필요] 입학처 기출 게시물 주소로 교체
+  retrieved_at: 2026-11-21
+  original_points: 25
+  rights_notice: 미확인(대치 수리 논술 연구소 「2027학년도 대비 수리논술 숭실대 기출 및 모의 문제」 p.13에서 옮김, 해설교재 p.11 참고)
+
+verify: verify/SSU-M26.py::p02
+
+stimuli:
+- label: 제시문
+  body: |
+    함수 $f(x)$가 닫힌구간 $[a,b]$에서 연속이고 열린구간 $(a,b)$에서 미분가능하면
+    $$\frac{f(b)-f(a)}{b-a}=f^\prime(c)$$
+    인 $c$가 $a$와 $b$ 사이에 적어도 하나 존재한다.
+    【출처: 수학Ⅱ 「도함수의 활용」】
+
+stem: |
+  극한값 $\displaystyle\lim_{n\to\infty}\sqrt n\sum_{k=0}^{n-1}\left\{e^{\left(\frac{k+1}{n}\right)^2}-e^{\left(\frac kn\right)^2}\right\}^2$을 구하시오.
+
+subparts:
+- id: '1'
+  stem: |
+    주어진 극한값을 구하시오.
+  points: 25
+  depends_on: []
+  answer: {kind: value, value: '0', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: 각 차 $=\dfrac1n\cdot2c_ke^{c_k^2}$, $0<2c_ke^{c_k^2}<2e$이므로 식은 $0$과 $\dfrac{4e^2}{\sqrt n}$ 사이 → $0$.
+    steps:
+    - {id: 1a, content: '$0<\sqrt n\sum\{\cdots\}^2<\sqrt n\cdot n\cdot\dfrac{4e^2}{n^2}=\dfrac{4e^2}{\sqrt n}\to0$', criteria: [1.M1, 1.A1, 1.M2, 1.R1, 1.A2]}
+    hint_ladder:
+    - 중괄호 안은 어떤 함수의 두 함숫값의 차인가? 제시문을 적용해 보자.
+    - 평균값 정리로 얻은 $f^\prime(c_k)$는 얼마보다 작은가?
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 해설교재 p.11
+    steps:
+    - id: 1b-1
+      content: |
+        $f(x)=e^{x^2}$이라 하면 $f^\prime(x)=2xe^{x^2}$. $f$는 실수 전체에서 미분가능하므로 각 $k=0,1,\dots,n-1$에 대해 제시문(평균값 정리)에 의해
+        $$e^{\left(\frac{k+1}{n}\right)^2}-e^{\left(\frac kn\right)^2}=\frac1nf^\prime(c_k)=\frac1n\cdot2c_ke^{c_k^2}$$
+        인 $c_k\in\left(\dfrac kn,\dfrac{k+1}{n}\right)$이 존재한다.
+      criteria: [1.M1, 1.A1]
+    - id: 1b-2
+      content: |
+        $0<c_k<1$이고 $x>0$에서 $f^\prime(x)=2xe^{x^2}$은 증가함수($2x$, $e^{x^2}$이 모두 양수이고 증가)이므로 $0=f^\prime(0)<f^\prime(c_k)<f^\prime(1)=2e$.
+      criteria: [1.M2]
+    - id: 1b-3
+      content: |
+        따라서 $0<\displaystyle\sum_{k=0}^{n-1}\left\{\frac1nf^\prime(c_k)\right\}^2<n\cdot\frac{4e^2}{n^2}=\frac{4e^2}{n}$이고, $\sqrt n$을 곱하면
+        $$0<\sqrt n\sum_{k=0}^{n-1}\left\{e^{\left(\frac{k+1}{n}\right)^2}-e^{\left(\frac kn\right)^2}\right\}^2<\frac{4e^2}{\sqrt n}.$$
+      criteria: [1.R1]
+    - id: 1b-4
+      content: |
+        $\displaystyle\lim_{n\to\infty}\frac{4e^2}{\sqrt n}=0$이므로 함수의 극한의 대소 관계에 의해 구하는 극한값은 $0$.
+      criteria: [1.A2]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 6
+      evidence: $f(x)=e^{x^2}$에 평균값 정리를 적용해 각 차를 $\dfrac1nf^\prime(c_k)$로 나타냈다.
+      steps: [1b-1]
+    - id: 1.A1
+      mark_type: A
+      points: 3
+      evidence: $f^\prime(x)=2xe^{x^2}$을 구했다.
+      depends_on: [1.M1]
+      steps: [1b-1]
+    - id: 1.M2
+      mark_type: M
+      points: 6
+      evidence: $0<c_k<1$에서 $0<f^\prime(c_k)<2e$ (또는 다른 유한한 상계)를 근거와 함께 밝혔다.
+      steps: [1b-2]
+    - id: 1.R1
+      mark_type: R
+      points: 6
+      evidence: 주어진 식이 $0$과 $\dfrac{C}{\sqrt n}$ 꼴의 상계 사이에 있음을 보였다.
+      depends_on: [1.M2]
+      steps: [1b-3]
+    - id: 1.A2
+      mark_type: A
+      points: 4
+      evidence: 대소 관계(조임)로 극한값 $0$을 얻었다.
+      depends_on: [1.R1]
+      cao: true
+      steps: [1b-4]
+    deductions:
+    - code: D1-1
+      condition: 답만 쓰고 과정 없음
+      effect: cap
+      value: 5
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-0319}
+  misconceptions:
+  - id: MC-CAL-0319
+    outcome_code: '71'
+    wrong_work: '$\sum$을 정적분과 급수의 관계로 $\displaystyle\int_0^1(\cdots)dx$로 바꾸고 $\sqrt n\to\infty$이므로 발산한다고 판단'
+    detect_cue: 답 $\infty$ 또는 「존재하지 않음」, 각 항의 크기($\dfrac1{n^2}$ 차수) 평가가 없음
+    feedback: 각 항은 $\dfrac1{n^2}$ 정도로 작아서 합은 $\dfrac1n$ 정도입니다. 평균값 정리로 각 항의 크기를 먼저 평가하세요.
+    remedy: [RL-1]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CAL-0319}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-MVT-ESTIMATE}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-transcribe-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

@@ -1,0 +1,389 @@
+# 숭실대 2022학년도 논술고사(자연2) 문제 4 — 원문은 내부 분석용(allowed_use: internal_only)
+# 소문항 배점은 원문 미표기 — (1) 15점, (2) 15점으로 임의 배분
+schema_version: '2.0'
+id: SSU-G22B-04
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: numeric
+origin: past_exam
+school: SSU
+type: T04
+variant_of: null
+replaces: null
+level: L5
+form: 추론
+points: 30
+time_estimate_min: 20
+intent: 절댓값이 든 정적분으로 정의된 함수와 원의 일부를 매끄럽게 잇는 조건으로 원의 중심·반지름을 정하고, 정적분을 넓이(삼각형·부채꼴)로 해석해 계산하는 능력을 본다.
+key_idea: '$f(2)=\dfrac4\pi$, $f''(2)=\left|\cos\pi\right|=1$이므로 원은 $\left(2,\dfrac4\pi\right)$에서 기울기 1인 접선을 가짐 → 중심 $(a,0)$과의 직선 기울기 $-1$; $\int_2^{a+r}$은 직각삼각형+부채꼴.'
+stuck: '정적분으로 정의된 함수의 $x=2$에서의 미분계수가 $\left|\cos\pi\right|=1$이고, 원의 반지름이 접선에 수직이라는 점에서 중심을 찾는 단계'
+idea_tags:
+- IDEA-FTC-DERIVATIVE-MATCH
+- IDEA-CIRCLE-CENTER-FROM-TANGENT
+- IDEA-INTEGRAL-AS-SECTOR
+tags:
+- 정적분으로 정의된 함수
+- 반원
+elements:
+  materials:
+  - '$\int_0^x\left|\cos\frac{\pi t}2\right|dt$'
+  - '원의 윗부분 $\sqrt{r^2-(x-a)^2}$'
+  concepts:
+  - 정적분과 미분의 관계
+  - 미분가능성과 연속성
+  - 삼각함수의 정적분
+  - 부채꼴의 넓이
+  tools:
+  - 정적분과 미분의 관계
+  - 좌우 미분계수 일치
+  - 원의 접선과 반지름의 수직
+  - 정적분의 기하적 해석(삼각형·부채꼴)
+  conditions:
+  - '$[0,a+r]$에서 연속 → $\sqrt{r^2-(2-a)^2}=f(2)=\frac4\pi$'
+  - '$(0,a+r)$에서 미분가능 → $x=2$에서 원의 접선 기울기 $=1$'
+  - '$a+r>2$ → 원의 부분이 실제로 존재'
+  stimuli_used:
+  - 제시문
+  subpart_links: '(2)는 (1)의 $a$, $r$을 사용'
+curriculum:
+  version: '2015'
+  subjects:
+  - 미적분
+  - 수학Ⅱ
+  scope_2028: calc2
+  scope_confirmed: true
+  standards:
+  - code: 미확인
+    text: 정적분과 미분의 관계를 이해하고 넓이를 구할 수 있다(요지)
+    verified: false
+  content_area: 적분법 – 정적분 / 정적분의 활용
+  behavior_domain: 문제해결
+  unit_path:
+  - 미적분
+  - 적분법
+  - 정적분의 활용
+  - 정적분으로 정의된 함수와 넓이
+  key_concepts:
+  - 정적분과 미분의 관계
+  - 미분가능성과 연속성
+  - 삼각함수의 정적분
+  - 부채꼴의 넓이
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 숭실대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 숭실대학교
+  admission_year: 2022
+  admission_type: 논술우수자전형
+  track: 자연2
+  question_no: 4
+  official_url: https://iphak.ssu.ac.kr   # [확인필요] 입학처 기출 게시물 주소로 교체
+  retrieved_at: 2026-11-21
+  original_points: 30
+  rights_notice: 미확인(「숭실대 수리논술 문제교재(2026)」 p.51, 「숭실대 수리논술 해설교재(2026)」 p.67~68에서 옮김)
+verify: verify/SSU-G22B.py::p04
+stimuli:
+- label: 제시문
+  body: |
+    함수 $y=f(x)$가 닫힌구간 $[a,b]$에서 연속일 때, 곡선 $y=f(x)$와 $x$축 및 두 직선 $x=a$, $x=b$로 둘러싸인 도형의 넓이 $S$는 다음과 같다.
+    $$S=\int_a^b|f(x)|\,dx$$
+    【출처: 미적분 「넓이」】
+stem: |
+  $a+r>2$인 두 양수 $a$, $r$에 대하여 함수 $f(x)$가 구간 $[0,a+r]$에서 다음과 같이 정의되어 있다.
+  $$f(x)=\begin{cases}\displaystyle\int_0^x\left|\cos\dfrac{\pi t}2\right|dt & (0\le x\le2)\\ \sqrt{r^2-(x-a)^2} & (2<x\le a+r)\end{cases}$$
+  함수 $f(x)$가 구간 $[0,a+r]$에서 연속이고 구간 $(0,a+r)$에서 미분가능할 때, 다음 문항에 답하시오.
+
+  (1) $a$와 $r$의 값을 구하시오.
+
+  (2) 정적분 $\displaystyle\int_0^{a+r}f(x)\,dx$의 값을 구하시오.
+subparts:
+- id: '1'
+  stem: |
+    $a$와 $r$의 값을 구하시오.
+  points: 15
+  depends_on: []
+  answer:
+    kind: set
+    value: a=2+4/pi, r=4*sqrt(2)/pi
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: '$f(2)=\dfrac4\pi$, $f''(2)=1$ → 원은 $\left(2,\frac4\pi\right)$에서 기울기 1인 접선, 중심 $(a,0)$과 잇는 직선 기울기 $-1$.'
+    steps:
+    - id: 1a
+      content: '$a=2+\dfrac4\pi$, $r=\dfrac{4\sqrt2}\pi$'
+      criteria:
+      - 1.B1
+      - 1.M1
+      - 1.A1
+      - 1.M2
+      - 1.R1
+      - 1.A2
+    hint_ladder:
+    - '$f(2)$를 구간을 나누어 계산하자.'
+    - '$g(x)=\int_0^x\left|\cos\frac{\pi t}2\right|dt$의 $x=2$에서의 미분계수는?'
+    - 원의 반지름은 접선과 수직이다.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 해설교재 p.67
+    steps:
+    - id: 1b-1
+      content: '$f(2)=\displaystyle\int_0^2\left|\cos\dfrac{\pi t}2\right|dt=\int_0^1\cos\dfrac{\pi t}2dt-\int_1^2\cos\dfrac{\pi t}2dt=\left[\dfrac2\pi\sin\dfrac{\pi t}2\right]_0^1-\left[\dfrac2\pi\sin\dfrac{\pi t}2\right]_1^2=\dfrac4\pi$. 따라서 $x=2$에서 연속이려면 $\displaystyle\lim_{x\to2+}f(x)=\dfrac4\pi$.'
+      criteria:
+      - 1.B1
+    - id: 1b-2
+      content: '$f$는 $x=2$에서 미분가능하므로 $f''(2)=\displaystyle\lim_{x\to2-}\dfrac{f(x)-f(2)}{x-2}=\lim_{x\to2+}\dfrac{f(x)-f(2)}{x-2}$. 실수 전체에서 정의된 $g(x)=\displaystyle\int_0^x\left|\cos\dfrac{\pi t}2\right|dt$는 $x=2$에서 미분가능하고 정적분과 미분의 관계에 의해 $g''(2)=\left|\cos\dfrac{2\pi}2\right|=1$이므로 $f''(2)=1$.'
+      criteria:
+      - 1.M1
+      - 1.A1
+    - id: 1b-3
+      content: '$2<x\le a+r$에서 $y=\sqrt{r^2-(x-a)^2}$는 $(x-a)^2+y^2=r^2\ (y\ge0)$으로, 점 $\left(2,\dfrac4\pi\right)$를 지나고 그 점에서 접선의 기울기가 1인 원의 일부이다.'
+      criteria:
+      - 1.M2
+    - id: 1b-4
+      content: '점 $\left(2,\dfrac4\pi\right)$와 중심 $(a,0)$ 사이의 거리는 $r$이고 두 점을 지나는 직선의 기울기는 $-1$이므로 $a=2+\dfrac4\pi$, $r=\sqrt{(a-2)^2+\dfrac{16}{\pi^2}}=\dfrac{4\sqrt2}\pi$.'
+      criteria:
+      - 1.R1
+      - 1.A2
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 1.B1
+      mark_type: B
+      points: 3
+      evidence: '$f(2)=\dfrac4\pi$를 구했다.'
+      steps:
+      - 1b-1
+    - id: 1.M1
+      mark_type: M
+      points: 3
+      evidence: '정적분과 미분의 관계로 $x=2$에서의 미분계수를 구하는 식을 세웠다.'
+      steps:
+      - 1b-2
+    - id: 1.A1
+      mark_type: A
+      points: 2
+      evidence: '$f''(2)=1$.'
+      depends_on:
+      - 1.M1
+      steps:
+      - 1b-2
+    - id: 1.M2
+      mark_type: M
+      points: 3
+      evidence: '원의 일부가 $\left(2,\dfrac4\pi\right)$를 지나고 그 점에서 접선의 기울기가 1이어야 함(또는 동치 방정식)을 세웠다.'
+      steps:
+      - 1b-3
+    - id: 1.R1
+      mark_type: R
+      points: 2
+      evidence: '반지름이 접선에 수직이므로 중심과 접점을 잇는 직선의 기울기가 $-1$임을 이용했다(또는 미분 조건을 풀었다).'
+      steps:
+      - 1b-4
+    - id: 1.A2
+      mark_type: A
+      points: 2
+      evidence: '$a=2+\dfrac4\pi$, $r=\dfrac{4\sqrt2}\pi$.'
+      depends_on:
+      - 1.M2
+      - 1.R1
+      cao: true
+      steps:
+      - 1b-4
+    deductions:
+    - code: D1-1
+      condition: 답만 쓰고 과정 없음
+      effect: cap
+      value: 5
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  - code: '71'
+    misconception: MC-CAL-0638
+  - code: '72'
+    misconception: MC-CAL-0639
+  misconceptions:
+  - id: MC-CAL-0638
+    outcome_code: '71'
+    wrong_work: '$\int_0^2\left|\cos\frac{\pi t}2\right|dt$에서 절댓값을 무시해 $f(2)=0$으로 계산'
+    detect_cue: '$f(2)=0$, 원이 $(2,0)$을 지남'
+    feedback: '$1<t<2$에서 $\cos\dfrac{\pi t}2<0$이므로 구간을 나누어 부호를 바꿔야 합니다.'
+    remedy:
+    - RL-0638
+  - id: MC-CAL-0639
+    outcome_code: '72'
+    wrong_work: '$f''(2)$를 $\cos\pi=-1$로 계산'
+    detect_cue: '접선 기울기 $-1$, 중심 $a<2$'
+    feedback: '정적분으로 정의된 함수의 도함수는 피적분함수 $\left|\cos\frac{\pi x}2\right|$이고 절댓값이 남습니다.'
+    remedy:
+    - RL-0639
+- id: '2'
+  stem: |
+    정적분 $\displaystyle\int_0^{a+r}f(x)\,dx$의 값을 구하시오.
+  points: 15
+  depends_on:
+  - '1'
+  answer:
+    kind: value
+    value: 8*(1+2*pi)/pi**2
+    equivalents:
+    - 4*(2+4*pi)/pi**2
+    tolerance: null
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: '$\int_0^1+\int_1^2=\dfrac4\pi$, $\int_2^{a+r}$은 밑변·높이 $\dfrac r{\sqrt2}$인 직각삼각형과 중심각 $\dfrac{3\pi}4$인 부채꼴.'
+    steps:
+    - id: 2a
+      content: '$\dfrac4\pi+\dfrac14r^2+\dfrac12r^2\cdot\dfrac{3\pi}4=\dfrac{4(2+4\pi)}{\pi^2}$'
+      criteria:
+      - 2.M1
+      - 2.A1
+      - 2.M2
+      - 2.A2
+      - 2.A3
+    hint_ladder:
+    - '$[0,1]$과 $[1,2]$에서 $f$의 식을 구하자.'
+    - '$x=2$부터 $a+r$까지의 원 부분 아래 넓이를 도형으로 나누자.'
+  - id: S2-B
+    audience: B
+    method_no: 1
+    source_flow: 해설교재 p.67~68
+    steps:
+    - id: 2b-1
+      content: '$0\le x<1$에서 $f(x)=\displaystyle\int_0^x\cos\dfrac{\pi t}2dt=\dfrac2\pi\sin\dfrac{\pi x}2$, $1\le x\le2$에서 $f(x)=\displaystyle\int_0^1\cos\dfrac{\pi t}2dt-\int_1^x\cos\dfrac{\pi t}2dt=\dfrac4\pi-\dfrac2\pi\sin\dfrac{\pi x}2$.'
+      criteria:
+      - 2.M1
+    - id: 2b-2
+      content: '$\displaystyle\int_0^{a+r}f(x)\,dx=\int_0^1f(x)\,dx+\int_1^2f(x)\,dx+\int_2^{a+r}f(x)\,dx$로 나눈다. $\displaystyle\int_0^1f(x)\,dx=\left[-\dfrac4{\pi^2}\cos\dfrac{\pi x}2\right]_0^1=\dfrac4{\pi^2}$, $\displaystyle\int_1^2f(x)\,dx=\left[\dfrac4\pi x+\dfrac4{\pi^2}\cos\dfrac{\pi x}2\right]_1^2=\dfrac4\pi-\dfrac4{\pi^2}$.'
+      criteria:
+      - 2.A1
+    - id: 2b-3
+      content: '$\displaystyle\int_2^{a+r}f(x)\,dx$는 밑변과 높이가 $\dfrac r{\sqrt2}$인 직각삼각형의 넓이와 반지름이 $r$이고 중심각이 $\dfrac{3\pi}4$인 부채꼴의 넓이의 합이므로 $\dfrac14r^2+\dfrac12r^2\cdot\dfrac{3\pi}4=\dfrac{4(2+3\pi)}{\pi^2}$.'
+      criteria:
+      - 2.M2
+      - 2.A2
+    - id: 2b-4
+      content: '따라서 $\displaystyle\int_0^{a+r}f(x)\,dx=\dfrac4\pi+\dfrac{4(2+3\pi)}{\pi^2}=\dfrac{4(2+4\pi)}{\pi^2}$.'
+      criteria:
+      - 2.A3
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 4
+      evidence: '$[0,1]$, $[1,2]$에서 $f(x)$의 식을 절댓값을 처리해 구했다.'
+      steps:
+      - 2b-1
+    - id: 2.A1
+      mark_type: A
+      points: 3
+      evidence: '$\int_0^2f(x)\,dx=\dfrac4\pi$ (또는 두 구간 값 $\dfrac4{\pi^2}$, $\dfrac4\pi-\dfrac4{\pi^2}$).'
+      depends_on:
+      - 2.M1
+      steps:
+      - 2b-2
+    - id: 2.M2
+      mark_type: M
+      points: 4
+      evidence: '$\int_2^{a+r}f$를 직각삼각형과 부채꼴(또는 동치 적분)으로 나타냈다.'
+      steps:
+      - 2b-3
+    - id: 2.A2
+      mark_type: A
+      points: 2
+      evidence: '$\int_2^{a+r}f(x)\,dx=\dfrac{4(2+3\pi)}{\pi^2}$.'
+      depends_on:
+      - 2.M2
+      steps:
+      - 2b-3
+    - id: 2.A3
+      mark_type: A
+      points: 2
+      evidence: '$\dfrac{4(2+4\pi)}{\pi^2}$ 또는 동치값.'
+      depends_on:
+      - 2.M1
+      - 2.M2
+      cao: true
+      steps:
+      - 2b-4
+    deductions:
+    - code: D2-1
+      condition: 답만 쓰고 과정 없음
+      effect: cap
+      value: 5
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  - code: '71'
+    misconception: MC-GEO-0640
+  misconceptions:
+  - id: MC-GEO-0640
+    outcome_code: '71'
+    wrong_work: '원 부분 아래 넓이를 사분원 $\dfrac14\pi r^2$로 계산'
+    detect_cue: '중심각을 $\dfrac\pi2$로 둠'
+    feedback: '점 $\left(2,\frac4\pi\right)$는 중심에서 왼쪽 위 $135^\circ$ 방향이므로 부채꼴의 중심각은 $\dfrac{3\pi}4$이고 삼각형이 추가됩니다.'
+    remedy:
+    - RL-0640
+remedy_links:
+- id: RL-0638
+  trigger:
+    type: misconception
+    ref: MC-CAL-0638
+  relation: remediation
+  target:
+    kind: concept
+    ref: CON-CAL-FTC
+  priority: 1
+- id: RL-0639
+  trigger:
+    type: misconception
+    ref: MC-CAL-0639
+  relation: remediation
+  target:
+    kind: concept
+    ref: CON-CAL-FTC
+  priority: 1
+- id: RL-0640
+  trigger:
+    type: misconception
+    ref: MC-GEO-0640
+  relation: remediation
+  target:
+    kind: concept
+    ref: CON-CAL-INTEGRAL-AS-AREA
+  priority: 1
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: opus
+  prompt_version: past-transcribe-v1
+  item_version: 1
+  verdict: pass
+  date: 2026-11-21
+created: 2026-11-21
+updated: 2026-11-21

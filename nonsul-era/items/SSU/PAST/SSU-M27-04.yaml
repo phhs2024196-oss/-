@@ -1,0 +1,202 @@
+# 숭실대 2027학년도 모의논술고사(자연) 문제 4 — 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: SSU-M27-04
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: numeric
+origin: mock_exam
+school: SSU
+type: T10
+variant_of: null
+replaces: null
+level: L4
+form: 분류
+points: 25
+time_estimate_min: 20
+intent: 절댓값이 있는 일차함수의 정적분을 부호가 바뀌는 점의 위치로 경우를 나누어 계산하고, 정수 조건으로 순서쌍을 세는 능력을 본다.
+key_idea: '$-a+b\ge0$이면 적분값 $=2b$, $a>b$이면 $x=-\dfrac ba$에서 나누어 적분값 $=\dfrac{a^2+b^2}{a}$이다.'
+stuck: $a>b$일 때 $a^2+b^2=10a$를 만족하는 양의 정수 해를 빠짐없이 찾고 $a>b$ 조건으로 거르는 단계
+idea_tags: [IDEA-ABS-INTEGRAL-SPLIT-ROOT, IDEA-INTEGER-SOLUTIONS-CASEWORK]
+tags: [절댓값의 적분, 정수 순서쌍, 합의 법칙]
+elements:
+  materials: [절댓값을 포함한 일차함수의 정적분, 양의 정수 순서쌍]
+  concepts: [정적분의 구간 분할, 절댓값 함수, 합의 법칙]
+  tools: [적분 구간 분할(제시문 1), 경우 분류, 완전제곱수 판정, 합의 법칙(제시문 2)]
+  conditions:
+  - '$a,b$ 양의 정수 → $ax+b$는 증가, $x=1$에서 양수'
+  - '$b\ge a$ → 구간에서 $ax+b\ge0$, 적분값 $2b$'
+  - '$a>b$ → $x=-\dfrac ba\in(-1,0)$에서 부호 변화, 적분값 $\dfrac{a^2+b^2}{a}$'
+  stimuli_used: [제시문 1, 제시문 2]
+  subpart_links: null
+
+curriculum:
+  version: '2015'
+  subjects: [수학, 수학Ⅱ]
+  scope_2028: common
+  scope_confirmed: true
+  standards:
+  - code: 미확인
+    text: 정적분의 성질을 이해하고 이를 활용할 수 있다(요지)
+    verified: false
+  content_area: 적분 – 정적분
+  behavior_domain: 문제해결
+  unit_path: [수학Ⅱ, 적분, 정적분, 절댓값을 포함한 함수의 정적분]
+  key_concepts: [정적분의 구간 분할, 절댓값 함수, 합의 법칙]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 숭실대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 숭실대학교
+  admission_year: 2027
+  admission_type: 논술우수자전형 모의논술
+  track: 자연
+  question_no: 4
+  official_url: https://iphak.ssu.ac.kr   # [확인필요] 입학처 기출 게시물 주소로 교체
+  retrieved_at: 2026-11-21
+  original_points: 25
+  rights_notice: 미확인(대치 수리 논술 연구소 「2027학년도 대비 수리논술 숭실대 기출 및 모의 문제」 p.7에서 옮김, 해설교재 p.5 참고)
+
+verify: verify/SSU-M27.py::p04
+
+stimuli:
+- label: 제시문 1
+  body: |
+    함수 $f(x)$가 임의의 세 실수 $a,b,c$를 포함하는 닫힌구간에서 연속일 때,
+    $$\int_a^cf(x)\,dx+\int_c^bf(x)\,dx=\int_a^bf(x)\,dx$$
+    【출처: 수학Ⅱ 「정적분」】
+- label: 제시문 2
+  body: |
+    두 사건 $A$, $B$가 동시에 일어나지 않을 때, 사건 $A$와 사건 $B$가 일어나는 경우의 수가 각각 $m$, $n$이면, 사건 $A$ 또는 사건 $B$가 일어나는 경우의 수는 $m+n$
+    【출처: 수학 「경우의 수」】
+
+stem: |
+  양의 정수 $a,b$에 대하여 $\displaystyle\int_{-1}^{1}\lvert ax+b\rvert\,dx=10$을 만족시키는 순서쌍 $(a,b)$의 개수를 구하시오.
+
+subparts:
+- id: '1'
+  stem: |
+    순서쌍 $(a,b)$의 개수를 구하시오.
+  points: 25
+  depends_on: []
+  answer: {kind: value, value: '7', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $a\le b$이면 $2b=10$에서 5개, $a>b$이면 $a^2+b^2=10a$에서 $(8,4)$, $(9,3)$의 2개.
+    steps:
+    - {id: 1a, content: '$a\le b$: $(a,5)$, $a=1,\dots,5$ / $a>b$: $(8,4),(9,3)$ → $7$', criteria: [1.M1, 1.A1, 1.M2, 1.A2, 1.R1, 1.A3]}
+    hint_ladder:
+    - $ax+b$의 부호가 구간 $[-1,1]$ 안에서 바뀌는가? $x=-1$에서의 값을 보자.
+    - 부호가 바뀌는 점 $x=-\dfrac ba$에서 적분 구간을 나누자.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 해설교재 p.5
+    steps:
+    - id: 1b-1
+      content: |
+        $g(x)=ax+b$라 하면 $a>0$이므로 증가하고 $g(1)=a+b>0$이다. 따라서 $g(-1)=b-a$의 부호로 경우를 나눈다(두 경우는 동시에 일어나지 않으므로 제시문 2에 의해 개수를 더한다).
+      criteria: [1.M1]
+    - id: 1b-2
+      content: |
+        (i) $a\le b$: $[-1,1]$에서 $g(x)\ge0$이므로 $\displaystyle\int_{-1}^{1}(ax+b)\,dx=2b=10$, $b=5$. $a\le5$인 양의 정수 $a$는 5개: $(1,5),(2,5),(3,5),(4,5),(5,5)$.
+      criteria: [1.A1]
+    - id: 1b-3
+      content: |
+        (ii) $a>b$: $g$는 $x=-\dfrac ba\in(-1,0)$에서 부호가 바뀌므로 제시문 1에 의해
+        $$\int_{-1}^{1}\lvert g\rvert\,dx=\int_{-1}^{-\frac ba}(-ax-b)\,dx+\int_{-\frac ba}^{1}(ax+b)\,dx=\frac{(a-b)^2}{2a}+\frac{(a+b)^2}{2a}=\frac{a^2+b^2}{a}.$$
+      criteria: [1.M2, 1.A2]
+    - id: 1b-4
+      content: |
+        $\dfrac{a^2+b^2}{a}=10\iff b^2=a(10-a)$. $b>0$이므로 $1\le a\le9$이고, $a(10-a)$가 완전제곱수인 경우는 $a=1,2,5,8,9$일 때 $b=3,4,5,4,3$이다. 이 중 $a>b$인 것은 $(8,4)$, $(9,3)$의 2개.
+      criteria: [1.R1]
+    - id: 1b-5
+      content: |
+        따라서 구하는 순서쌍의 개수는 $5+2=7$.
+      criteria: [1.A3]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 4
+      evidence: $b-a$(즉 $g(-1)$)의 부호에 따라 $a\le b$, $a>b$로 경우를 나누었다.
+      steps: [1b-1]
+    - id: 1.A1
+      mark_type: A
+      points: 5
+      evidence: $a\le b$에서 적분값 $2b$로 $b=5$, 순서쌍 5개를 구했다.
+      depends_on: [1.M1]
+      steps: [1b-2]
+    - id: 1.M2
+      mark_type: M
+      points: 4
+      evidence: $a>b$에서 $x=-\dfrac ba$를 경계로 적분 구간을 나누어 식을 세웠다.
+      steps: [1b-3]
+    - id: 1.A2
+      mark_type: A
+      points: 5
+      evidence: 적분값 $\dfrac{a^2+b^2}{a}$ (또는 $\dfrac{b^2}{a}+a$)를 구했다.
+      depends_on: [1.M2]
+      steps: [1b-3]
+    - id: 1.R1
+      mark_type: R
+      points: 4
+      evidence: $b^2=a(10-a)$의 양의 정수 해를 모두 찾고 $a>b$ 조건으로 $(8,4)$, $(9,3)$만 남겼다.
+      depends_on: [1.A2]
+      steps: [1b-4]
+    - id: 1.A3
+      mark_type: A
+      points: 3
+      evidence: 개수 $7$.
+      depends_on: [1.A1, 1.R1]
+      cao: true
+      steps: [1b-5]
+    deductions:
+    - code: D1-1
+      condition: 답만 쓰고 과정 없음
+      effect: cap
+      value: 5
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-0311}
+  - {code: '72', misconception: MC-CNT-0312}
+  misconceptions:
+  - id: MC-CAL-0311
+    outcome_code: '71'
+    wrong_work: '$\displaystyle\int_{-1}^{1}\lvert ax+b\rvert\,dx=\left\lvert\int_{-1}^{1}(ax+b)\,dx\right\rvert=2b$로 계산해 답 5'
+    detect_cue: 경우 분류 없이 $2b=10$만 있음, 답 5
+    feedback: 적분 구간 안에서 부호가 바뀌면 절댓값을 적분 밖으로 뺄 수 없습니다. 부호가 바뀌는 점에서 구간을 나누세요.
+    remedy: [RL-1]
+  - id: MC-CNT-0312
+    outcome_code: '72'
+    wrong_work: '$b^2=a(10-a)$의 해 $(1,3),(2,4),(5,5),(8,4),(9,3)$을 모두 세어 $5+5=10$'
+    detect_cue: 답 10 또는 9(중복 $(5,5)$만 뺌), $a>b$ 확인 없음
+    feedback: 식 $\dfrac{a^2+b^2}{a}$는 $a>b$라는 가정 아래에서만 성립합니다. 구한 해가 그 경우의 조건을 만족하는지 다시 확인하세요.
+    remedy: [RL-2]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CAL-0311}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-AREA-BOUNDARY}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-CNT-0312}
+  relation: remediation
+  target: {kind: concept, ref: CON-CNT-CASE-CONDITION}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-transcribe-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

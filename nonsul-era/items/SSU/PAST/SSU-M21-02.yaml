@@ -1,0 +1,192 @@
+# 숭실대 2021학년도 모의논술고사 문제 2 — 원문은 내부 분석용(allowed_use: internal_only)
+# 원문에 제시문 없음.
+schema_version: '2.0'
+id: SSU-M21-02
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: numeric
+origin: mock_exam
+school: SSU
+type: T09
+variant_of: null
+replaces: null
+level: L5
+form: 추론
+points: 20
+time_estimate_min: 20
+intent: 곡선 위의 점이 만드는 부채꼴의 중심각·반지름을 매개변수로 나타내고, 부피가 일정한 기둥의 높이 함수를 몫의 미분법으로 미분한 뒤 삼각함수의 극한으로 극한값을 구하는 능력을 본다.
+key_idea: '선분 $OP$의 기울기가 $\tan u$이므로 $OP$가 $x$축과 이루는 각은 $u$, 부채꼴 중심각 $\dfrac\pi2-u$, 반지름 $u\sec u$. $V\equiv1$이므로 $h=\dfrac1{A(u)}=\dfrac{2\sin^2\left(\frac\pi2-u\right)}{u^2\left(\frac\pi2-u\right)}$.'
+stuck: $\cos u=\sin\left(\dfrac\pi2-u\right)$로 바꾸어 $\dfrac{\sin s}{s}$ $\left(s=\dfrac\pi2-u\to0\right)$ 꼴을 만드는 단계
+idea_tags: [IDEA-CONSTANT-VOLUME-HEIGHT, IDEA-SIN-OVER-THETA-LIMIT]
+tags: [부채꼴 기둥, 순간변화율, 삼각함수의 극한]
+elements:
+  materials:
+  - '곡선 $y=x\tan x$'
+  - '원'
+  - '부채꼴'
+  - '부채꼴 기둥'
+  concepts: [부채꼴의 넓이, 기둥의 부피, 몫의 미분법, 삼각함수의 극한, 삼각함수 사이의 관계]
+  tools:
+  - '기울기 $\tan u$에서 각 $u$ 읽기'
+  - '$1+\tan^2u=\sec^2u$'
+  - '몫의 미분법'
+  - '$\lim\frac{\sin\theta}\theta=1$'
+  conditions:
+  - '부채꼴은 $OP$와 $y$축 사이 → 중심각 $\frac\pi2-u$'
+  - '$\frac{dV}{du}=0$, $V(1)=1$ → $V\equiv1$, $h=\frac1A$'
+  - '$u\to\frac\pi2-$ → $\frac\pi2-u\to0+$'
+  stimuli_used: []
+  subpart_links: null
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅰ, 미적분]
+  scope_2028: calc2
+  scope_confirmed: true
+  standards:
+  - code: 미확인
+    text: 삼각함수의 극한을 구할 수 있다 / 함수의 몫을 미분할 수 있다(요지)
+    verified: false
+  content_area: 미분법 – 여러 가지 함수의 미분
+  behavior_domain: 추론
+  unit_path: [미적분, 미분법, 여러 가지 함수의 미분, 삼각함수의 극한과 변화율]
+  key_concepts: [부채꼴의 넓이, 기둥의 부피, 몫의 미분법, 삼각함수의 극한, 삼각함수 사이의 관계]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 숭실대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 숭실대학교
+  admission_year: 2021
+  admission_type: 논술우수자전형 모의논술
+  track: 자연
+  question_no: 2
+  official_url: https://iphak.ssu.ac.kr   # [확인필요] 입학처 기출 게시물 주소로 교체
+  retrieved_at: 2026-11-21
+  original_points: 20
+  rights_notice: 미확인(대치 수리 논술 연구소 「2027학년도 대비 수리논술 숭실대 기출 및 모의 문제」 p.63, 해설 p.86에서 옮김)
+
+verify: verify/SSU-M21.py::p02
+
+stimuli: []
+
+stem: |
+  좌표평면 위에 중심이 원점 $O$이고 곡선 $y=x\tan x\ \left(0\le x<\dfrac\pi2\right)$ 위의 점 $P(u,\,u\tan u)$를 지나는 원 $C$가 있다. <그림 1>과 같이 평면도형 $F$는 원 $C$와 선분 $OP$ 및 $y$축으로 둘러싸인 부채꼴이고, 입체도형 $S$는 밑면이 $F$이고 높이가 $h(u)$인 부채꼴 기둥이다. $S$의 부피 $V(u)$의 순간변화율 $\dfrac{dV}{du}$가 항상 $0$이고 $V(1)=1$일 때, $\displaystyle\lim_{u\to\frac\pi2-}\dfrac{dh}{du}$를 구하시오.
+
+  [그림 설명] <그림 1> 왼쪽: 원점 $O$ 중심의 원 $C$와 원점에서 출발해 위로 휘어 오르는 곡선 $y=x\tan x$가 제1사분면의 점 $P(u,\,u\tan u)$에서 만난다. 원 $C$와 $y$축의 양의 부분의 교점을 $Q$라 하고, 선분 $OP$, 선분 $OQ$($y$축), 호 $PQ$로 둘러싸인 부채꼴 $F$에 빗금이 그어져 있다. $P$에서 $x$축에 수선(발 $u$), $y$축에 수평선(높이 $u\tan u$)이 점선으로 표시되어 있다. 오른쪽: 부채꼴 $F$(꼭짓점 $O$, 호의 양 끝 $Q$, $P$)를 밑면으로 하고 높이 $h(u)$인 부채꼴 기둥 $S$.
+
+subparts:
+- id: '1'
+  stem: |
+    $\displaystyle\lim_{u\to\frac\pi2-}\dfrac{dh}{du}$를 구하시오.
+  points: 20
+  depends_on: []
+  answer: {kind: value, value: '-8/pi**2', equivalents: ['-\dfrac8{\pi^2}'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $A(u)=\dfrac12u^2\sec^2u\left(\dfrac\pi2-u\right)$, $V\equiv1$에서 $h=\dfrac1A$. $s=\dfrac\pi2-u$로 두면 $h=\dfrac{2\sin^2s}{u^2s}$이고 몫의 미분 후 $\dfrac{\sin s}s\to1$.
+    steps:
+    - {id: 1a, content: '$\dfrac{dh}{du}=-\dfrac{4\cos s}{u^2}\cdot\dfrac{\sin s}{s}-\dfrac{2(\pi-3u)}{u^3}\cdot\dfrac{\sin^2s}{s^2}\to-\dfrac{16}{\pi^2}+\dfrac8{\pi^2}=-\dfrac8{\pi^2}$', criteria: [1.M1, 1.A1, 1.M2, 1.M3, 1.M4, 1.A2]}
+    hint_ladder:
+    - 선분 $OP$의 기울기는? 그 기울기가 $x$축과 이루는 각은?
+    - 부피가 항상 일정하면 $h(u)$는 밑넓이와 어떤 관계인가?
+    - $\cos u=\sin\left(\dfrac\pi2-u\right)$를 이용하자.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 해설교재 p.86
+    steps:
+    - id: 1b-1
+      content: |
+        직선 $OP$의 기울기는 $\dfrac{u\tan u-0}{u-0}=\tan u$이므로 선분 $OP$가 $x$축의 양의 방향과 이루는 각은 $u$이고, 부채꼴 $F$의 중심각은 $\dfrac\pi2-u$. 반지름은 $\overline{OP}=\sqrt{u^2+(u\tan u)^2}=u\sqrt{1+\tan^2u}=u\sec u$.
+      criteria: [1.M1]
+    - id: 1b-2
+      content: |
+        $F$의 넓이 $A(u)=\dfrac12(u\sec u)^2\left(\dfrac\pi2-u\right)=\dfrac12u^2\dfrac{\frac\pi2-u}{\cos^2u}=\dfrac12u^2\dfrac{\frac\pi2-u}{\sin^2\left(\frac\pi2-u\right)}$.
+      criteria: [1.A1]
+    - id: 1b-3
+      content: |
+        $\dfrac{dV}{du}=0$이므로 $V(u)$는 상수이고 $V(1)=1$에서 $V(u)=1$. 따라서 $h(u)=\dfrac{V(u)}{A(u)}=\dfrac{2\sin^2\left(\frac\pi2-u\right)}{u^2\left(\frac\pi2-u\right)}$.
+      criteria: [1.M2]
+    - id: 1b-4
+      content: |
+        분모 $u^2\left(\dfrac\pi2-u\right)$의 도함수는 $\pi u-3u^2$이므로 몫의 미분법에 의해
+        $\dfrac{dh}{du}=\dfrac{-4\sin\left(\frac\pi2-u\right)\cos\left(\frac\pi2-u\right)\cdot u^2\left(\frac\pi2-u\right)-2\sin^2\left(\frac\pi2-u\right)(\pi u-3u^2)}{u^4\left(\frac\pi2-u\right)^2}=-\dfrac{4\cos\left(\frac\pi2-u\right)}{u^2}\cdot\dfrac{\sin\left(\frac\pi2-u\right)}{\frac\pi2-u}-\dfrac{2(\pi-3u)}{u^3}\cdot\dfrac{\sin^2\left(\frac\pi2-u\right)}{\left(\frac\pi2-u\right)^2}$.
+      criteria: [1.M3]
+    - id: 1b-5
+      content: |
+        $u\to\dfrac\pi2-$이면 $\dfrac\pi2-u\to0+$이므로 $\dfrac{\sin\left(\frac\pi2-u\right)}{\frac\pi2-u}\to1$. 함수의 곱의 극한에 대한 성질로
+        $\displaystyle\lim_{u\to\frac\pi2-}\dfrac{dh}{du}=-\dfrac{4\cos0}{\left(\frac\pi2\right)^2}\cdot1-\dfrac{2\left(\pi-\frac{3\pi}2\right)}{\left(\frac\pi2\right)^3}\cdot1=-\dfrac{16}{\pi^2}+\dfrac8{\pi^2}=-\dfrac8{\pi^2}$.
+      criteria: [1.M4, 1.A2]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 4
+      evidence: 부채꼴의 중심각 $\dfrac\pi2-u$와 반지름 $u\sec u$(또는 $\sqrt{u^2+u^2\tan^2u}$)를 구했다.
+      steps: [1b-1]
+    - id: 1.A1
+      mark_type: A
+      points: 2
+      evidence: $A(u)=\dfrac12u^2\sec^2u\left(\dfrac\pi2-u\right)$.
+      depends_on: [1.M1]
+      steps: [1b-2]
+    - id: 1.M2
+      mark_type: M
+      points: 4
+      evidence: $V(u)\equiv1$에서 $h(u)=\dfrac1{A(u)}$로 나타냈다.
+      steps: [1b-3]
+    - id: 1.M3
+      mark_type: M
+      points: 4
+      evidence: 몫의 미분법(또는 곱의 미분)으로 $\dfrac{dh}{du}$를 바르게 구했다.
+      steps: [1b-4]
+    - id: 1.M4
+      mark_type: M
+      points: 4
+      evidence: $\dfrac{\sin\left(\frac\pi2-u\right)}{\frac\pi2-u}\to1$을 써서 각 항의 극한을 구했다.
+      steps: [1b-5]
+    - id: 1.A2
+      mark_type: A
+      points: 2
+      evidence: $-\dfrac8{\pi^2}$.
+      depends_on: [1.M3, 1.M4]
+      cao: true
+      steps: [1b-5]
+    deductions:
+    - code: D1-1
+      condition: 답만 쓰고 과정 없음
+      effect: cap
+      value: 5
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-0723}
+  misconceptions:
+  - id: MC-CAL-0723
+    outcome_code: '71'
+    wrong_work: '부채꼴의 중심각을 $u$(선분 $OP$와 $x$축이 이루는 각)로 잡아 $A=\dfrac12u^3\sec^2u$로 계산'
+    detect_cue: 넓이 식에 $\dfrac\pi2-u$가 없음
+    feedback: 부채꼴 $F$는 선분 $OP$와 $y$축 사이에 있으므로 중심각은 $\dfrac\pi2-u$입니다.
+    remedy: [RL-1]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CAL-0723}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-TRIG-LIMIT}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-transcribe-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

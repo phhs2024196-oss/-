@@ -1,0 +1,288 @@
+# 숭실대 2022학년도 논술고사(자연1) 문제 2 — 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: SSU-G22A-02
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: numeric
+origin: past_exam
+school: SSU
+type: T01
+variant_of: null
+replaces: null
+level: L5
+form: 분류
+points: 25
+time_estimate_min: 20
+intent: 연속 조건을 미분계수의 정의로 해석하여 두 다항함수의 차를 결정하고, 두 곡선으로 둘러싸인 넓이를 구하는 능력을 본다.
+key_idea: '$p=f-g$는 최고차 계수 1인 삼차식, 근이 두 개이므로 중근을 가짐. $\lim\limits_{x\to2}\dfrac{e^{p(x)}-e^{p(2)}}{x-2}=p''(2)=16$으로 꼴을 판정.'
+stuck: '$\dfrac{e^{f}}{e^{g}}-1=e^{p}-1$로 바꾸어 극한을 $e^{p(x)}$의 $x=2$에서의 미분계수로 보는 단계'
+idea_tags:
+- IDEA-LIMIT-AS-DERIVATIVE
+- IDEA-DIFF-POLY-DOUBLE-ROOT
+tags:
+- 두 곡선의 교점
+- 넓이
+elements:
+  materials:
+  - 삼차함수와 이차함수
+  - '지수함수가 들어간 분수꼴 함수 $h(x)$'
+  concepts:
+  - 함수의 연속
+  - 미분계수의 정의
+  - 지수함수의 도함수
+  - 두 곡선 사이의 넓이
+  tools:
+  - 연속의 정의
+  - 미분계수의 정의
+  - 합성함수의 미분
+  - 중근을 갖는 삼차식
+  - 정적분으로 넓이
+  conditions:
+  - '(i)(ii) $p=f-g$는 최고차 계수 1인 삼차식이고 서로 다른 실근 2개, 큰 근 2 → $(x-a)(x-2)^2$ 또는 $(x-a)^2(x-2)$, $a<2$'
+  - '(iii) $h$가 $x=2$에서 연속 → $\lim\limits_{x\to2}\frac{e^{p(x)}-1}{x-2}=16$ → $p''(2)=16$'
+  stimuli_used:
+  - 제시문
+  subpart_links: null
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학Ⅱ
+  - 미적분
+  scope_2028: calc2
+  scope_confirmed: true
+  standards:
+  - code: 미확인
+    text: 두 곡선으로 둘러싸인 도형의 넓이를 구할 수 있다(요지)
+    verified: false
+  content_area: 미분법 – 지수함수의 미분 / 적분 – 넓이
+  behavior_domain: 문제해결
+  unit_path:
+  - 미적분
+  - 미분법
+  - 여러 가지 함수의 미분
+  - 미분계수의 정의로 극한 계산
+  key_concepts:
+  - 함수의 연속
+  - 미분계수의 정의
+  - 지수함수의 도함수
+  - 두 곡선 사이의 넓이
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 숭실대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 숭실대학교
+  admission_year: 2022
+  admission_type: 논술우수자전형
+  track: 자연1
+  question_no: 2
+  official_url: https://iphak.ssu.ac.kr   # [확인필요] 입학처 기출 게시물 주소로 교체
+  retrieved_at: 2026-11-21
+  original_points: 25
+  rights_notice: 미확인(「숭실대 수리논술 문제교재(2026)」 p.45, 「숭실대 수리논술 해설교재(2026)」 p.58에서 옮김)
+verify: verify/SSU-G22A.py::p02
+stimuli:
+- label: 제시문
+  body: |
+    함수 $f(x)$가 실수 $a$에 대하여 다음 세 조건을 모두 만족시킬 때, $f(x)$는 $x=a$에서 연속이라고 한다.
+
+    ① 함수 $f(x)$가 $x=a$에서 정의되어 있다.
+
+    ② 극한값 $\displaystyle\lim_{x\to a}f(x)$가 존재한다.
+
+    ③ $\displaystyle\lim_{x\to a}f(x)=f(a)$
+
+    【출처: 수학Ⅱ 「함수의 연속」】
+stem: |
+  삼차함수 $f(x)$와 이차함수 $g(x)$는 다음 조건을 모두 만족시킨다.
+
+  (i) $f(x)$의 최고차항의 계수는 $1$이다.
+
+  (ii) 곡선 $y=f(x)$와 곡선 $y=g(x)$의 교점은 두 개이며, 두 교점의 $x$좌표 중 더 큰 값은 $2$이다.
+
+  (iii) 함수 $h(x)=\begin{cases}\dfrac1{x-2}\left(\dfrac{e^{f(x)}}{e^{g(x)}}-1\right) & (x\ne2)\\ 16 & (x=2)\end{cases}$ 는 연속함수이다.
+
+  이때 곡선 $y=f(x)$와 곡선 $y=g(x)$로 둘러싸인 도형의 넓이를 구하시오.
+subparts:
+- id: '1'
+  stem: |
+    곡선 $y=f(x)$와 곡선 $y=g(x)$로 둘러싸인 도형의 넓이를 구하시오.
+  points: 25
+  depends_on: []
+  answer:
+    kind: value
+    value: 64/3
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: '$p=f-g$가 $(x-a)(x-2)^2$이면 $p''(2)=0$이라 모순, $p=(x-a)^2(x-2)$에서 $(2-a)^2=16$, $a=-2$. 넓이 $\int_{-2}^2-p=\dfrac{64}3$.'
+    steps:
+    - id: 1a
+      content: '$p''(2)=16\Rightarrow p=(x+2)^2(x-2)$, 넓이 $\dfrac{64}3$'
+      criteria:
+      - 1.M1
+      - 1.M2
+      - 1.A1
+      - 1.R1
+      - 1.A2
+      - 1.M3
+      - 1.A3
+    hint_ladder:
+    - '$p(x)=f(x)-g(x)$로 놓으면 $p$는 어떤 다항식인가?'
+    - '$\dfrac{e^{f}}{e^{g}}=e^{p}$이고 $p(2)=0$이다. 남은 극한은 무엇의 미분계수인가?'
+    - '두 꼴 중 $p''(2)=16$이 가능한 것은?'
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 해설교재 p.58
+    steps:
+    - id: 1b-1
+      content: |
+        $p(x)=f(x)-g(x)$라 하면 $p(x)$는 최고차항의 계수가 1인 삼차함수이다. 방정식 $p(x)=0$의 서로 다른 해가 두 개이고 큰 값이 2이므로, 작은 값을 $a\,(a<2)$라 하면
+        $$p(x)=(x-a)(x-2)^2\ \text{ 또는 }\ p(x)=(x-a)^2(x-2)$$
+      criteria:
+      - 1.M1
+    - id: 1b-2
+      content: |
+        $p(2)=0$이므로
+        $$\lim_{x\to2}h(x)=\lim_{x\to2}\dfrac{e^{f(x)-g(x)}-1}{x-2}=\lim_{x\to2}\dfrac{e^{p(x)}-e^{p(2)}}{x-2}$$
+        이고, 이는 $e^{p(x)}$의 $x=2$에서의 미분계수이므로 $p'(2)e^{p(2)}=p'(2)$이다. $h$가 $x=2$에서 연속이므로 $p'(2)=16$.
+      criteria:
+      - 1.M2
+      - 1.A1
+    - id: 1b-3
+      content: '$p(x)=(x-a)(x-2)^2$이면 $p''(x)=(x-2)^2+2(x-a)(x-2)$, $p''(2)=0\ne16$이므로 불가능하다. 따라서 $p(x)=(x-a)^2(x-2)$이고 $p''(x)=2(x-a)(x-2)+(x-a)^2$, $p''(2)=(2-a)^2=16$에서 $a=-2$ 또는 $a=6$. $a<2$이므로 $p(x)=(x+2)^2(x-2)$.'
+      criteria:
+      - 1.R1
+      - 1.A2
+    - id: 1b-4
+      content: |
+        구간 $[-2,2]$에서 $p(x)\le0$이므로 구하는 넓이는
+        $$\int_{-2}^2|f(x)-g(x)|\,dx=-\int_{-2}^2(x^3+2x^2-4x-8)\,dx=-\left[\dfrac{x^4}4+\dfrac{2x^3}3-2x^2-8x\right]_{-2}^2=\dfrac{64}3$$
+      criteria:
+      - 1.M3
+      - 1.A3
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 4
+      evidence: '$p=f-g$를 놓고 중근을 갖는 두 꼴 $(x-a)(x-2)^2$, $(x-a)^2(x-2)$를 제시했다.'
+      steps:
+      - 1b-1
+    - id: 1.M2
+      mark_type: M
+      points: 5
+      evidence: '$\dfrac{e^{f}}{e^{g}}-1=e^{p}-1$로 바꾸고 극한을 $e^{p(x)}$의 미분계수(또는 동치 방법)로 계산했다.'
+      steps:
+      - 1b-2
+    - id: 1.A1
+      mark_type: A
+      points: 3
+      evidence: '$p''(2)=16$을 얻었다.'
+      depends_on:
+      - 1.M2
+      steps:
+      - 1b-2
+    - id: 1.R1
+      mark_type: R
+      points: 4
+      evidence: '$(x-a)(x-2)^2$ 꼴은 $p''(2)=0$이므로 제외됨을 밝혔다.'
+      steps:
+      - 1b-3
+    - id: 1.A2
+      mark_type: A
+      points: 3
+      evidence: '$a=-2$, $p(x)=(x+2)^2(x-2)$.'
+      depends_on:
+      - 1.R1
+      - 1.M2
+      steps:
+      - 1b-3
+    - id: 1.M3
+      mark_type: M
+      points: 4
+      evidence: '$[-2,2]$에서 $p\le0$임을 고려해 넓이를 $\int_{-2}^2|p|$ 또는 $-\int_{-2}^2p$로 세웠다.'
+      steps:
+      - 1b-4
+    - id: 1.A3
+      mark_type: A
+      points: 2
+      evidence: '$\dfrac{64}3$.'
+      depends_on:
+      - 1.M3
+      cao: true
+      steps:
+      - 1b-4
+    deductions:
+    - code: D1-1
+      condition: 답만 쓰고 과정 없음
+      effect: cap
+      value: 5
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  - code: '71'
+    misconception: MC-CAL-0624
+  - code: '72'
+    misconception: MC-CAL-0625
+  misconceptions:
+  - id: MC-CAL-0624
+    outcome_code: '71'
+    wrong_work: '$\lim\limits_{x\to2}h(x)=16$에서 $p(2)=16$ 또는 $e^{p(2)}=16$으로 둠'
+    detect_cue: '$p''(2)$가 나타나지 않음'
+    feedback: '분모가 $0$으로 가는 극한입니다. $e^{p(x)}-e^{p(2)}$를 $x-2$로 나눈 꼴은 미분계수입니다.'
+    remedy:
+    - RL-0624
+  - id: MC-CAL-0625
+    outcome_code: '72'
+    wrong_work: '$a=6$을 버리지 않거나 $p=(x-a)(x-2)^2$의 경우를 검토하지 않음'
+    detect_cue: '$a=6$으로 계산하거나 경우 분류 없음'
+    feedback: '교점의 $x$좌표 중 더 큰 값이 2이므로 $a<2$이고, 두 꼴을 모두 검토해야 합니다.'
+    remedy:
+    - RL-0625
+remedy_links:
+- id: RL-0624
+  trigger:
+    type: misconception
+    ref: MC-CAL-0624
+  relation: remediation
+  target:
+    kind: concept
+    ref: CON-CAL-LIMIT-AS-DERIVATIVE
+  priority: 1
+- id: RL-0625
+  trigger:
+    type: misconception
+    ref: MC-CAL-0625
+  relation: remediation
+  target:
+    kind: concept
+    ref: CON-CAL-AREA-BOUNDARY
+  priority: 1
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: opus
+  prompt_version: past-transcribe-v1
+  item_version: 1
+  verdict: pass
+  date: 2026-11-21
+created: 2026-11-21
+updated: 2026-11-21

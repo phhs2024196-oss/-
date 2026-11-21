@@ -1,0 +1,249 @@
+# 숭실대 2017학년도 논술고사(자연) 문제 1 — 원문은 내부 분석용(allowed_use: internal_only)
+# 원문 문제 1 은 50점이고 교재(p.73)에는 문제 1-A(30점)만 실림. 문제 1-B(20점으로 추정)는 교재에 없음(확통·기하 제외 편집으로 보임) → 이 파일은 1-A 만, points 30.
+# [확인필요] 1-A 소문항 (1)(2) 배점 표기 없음 → 15·15 임의 배분.
+schema_version: '2.0'
+id: SSU-G17-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: numeric
+origin: past_exam
+school: SSU
+type: T10
+variant_of: null
+replaces: null
+level: L4
+form: 분류
+points: 30
+time_estimate_min: 20
+intent: 정적분·미분 조건을 계수의 일차식으로 바꾸고, 자연수 순서쌍의 개수를 대칭성으로 세는 능력을 본다.
+key_idea: '(1) 대칭 구간 적분으로 $a+c=20$, $b=80$. (2) $f''\left(-\tfrac12\right)<0\iff a>b$이고, $a+b+c=100$의 해 4851개에서 $a=b$인 49개를 뺀 뒤 $a>b$와 $a<b$의 대칭으로 반으로 나눈다.'
+stuck: (2)에서 $a>b$인 경우와 $a<b$인 경우가 일대일로 대응(대칭)함을 보고 $a=b$를 먼저 빼는 단계
+idea_tags: [IDEA-SYMMETRIC-INTEGRAL-ODD-VANISH, IDEA-COUNT-BY-SYMMETRY-HALF]
+tags: [자연수 순서쌍의 개수, 이차함수의 계수 조건]
+elements:
+  materials: [계수가 자연수인 이차함수, 대칭 구간의 정적분, 미분계수의 부호 조건, 자연수 순서쌍]
+  concepts: [다항함수의 정적분, 우함수·기함수의 정적분, 미분계수, 일차방정식의 자연수 해의 개수]
+  tools:
+  - '대칭 구간 정적분(홀수차항 소거)'
+  - '자연수 해 개수 세기'
+  - '대칭성(a>b와 a<b의 일대일 대응)'
+  conditions:
+  - '$f(1)=100\iff a+b+c=100$'
+  - '$\int_{-\sqrt3}^{\sqrt3}f=2\sqrt3(a+c)$ → $a+c=20$, $b=80$'
+  - '$f''\left(-\tfrac12\right)<0\iff a>b$'
+  - '$a,b,c$ 모두 자연수(1 이상)'
+  stimuli_used: []
+  subpart_links: "(1)(2) 모두 a+b+c=100 공유, 결과 이월 없음"
+
+curriculum:
+  version: '2015'
+  subjects: [수학, 수학Ⅱ]
+  scope_2028: common
+  scope_confirmed: true
+  standards:
+  - code: 미확인
+    text: 다항함수의 정적분을 구할 수 있다 / 경우의 수를 구할 수 있다(요지)
+    verified: false
+  content_area: 적분 – 정적분 / 경우의 수
+  behavior_domain: 문제해결
+  unit_path: [수학Ⅱ, 적분, 정적분, 계수 조건과 자연수 순서쌍의 개수]
+  key_concepts: [다항함수의 정적분, 우함수·기함수의 정적분, 미분계수, 일차방정식의 자연수 해의 개수]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 숭실대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 숭실대학교
+  admission_year: 2017
+  admission_type: 논술고사
+  track: 자연
+  question_no: 1
+  official_url: https://iphak.ssu.ac.kr   # [확인필요] 입학처 기출 게시물 주소로 교체
+  retrieved_at: 2026-11-21
+  original_points: 30
+  rights_notice: 미확인(대치 수리 논술 연구소 「2027학년도 대비 수리논술 숭실대 기출 및 모의 문제」 p.73, 해설교재 p.98에서 옮김. 문제 1 전체 50점 중 1-A 30점만 수록)
+
+verify: verify/SSU-G17.py::p01
+
+stem: |
+  【문제 1】 아래 논제에 답하시오. (50점)
+
+  문제 1-A 이차함수 $f(x)=ax^2+bx+c$의 모든 계수 $a$, $b$, $c$가 자연수 일 때, 다음 문항에 답하시오. (30점)
+
+subparts:
+- id: '1'
+  stem: |
+    (1) $f(1)=100$, $\displaystyle\int_{-\sqrt3}^{\sqrt3}f(x)\,dx=40\sqrt3$을 만족시키는 순서쌍 $(a,b,c)$의 개수를 구하시오.
+  points: 15
+  depends_on: []
+  answer: {kind: value, value: '19', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $\int_{-\sqrt3}^{\sqrt3}f=2\sqrt3a+2\sqrt3c$이므로 $a+c=20$, $b=80$. $(a,c)$는 19개.
+    steps:
+    - {id: 1a, content: '$b=80$, $a+c=20\Rightarrow19$개', criteria: [1.M1, 1.A1, 1.A2]}
+    hint_ladder:
+    - $bx$는 홀함수이므로 대칭 구간에서 적분하면 0이다.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 해설교재 p.98
+    steps:
+    - id: 1b-1
+      content: |
+        $f(1)=100$에서 $a+b+c=100$.
+      criteria: [1.M1]
+    - id: 1b-2
+      content: |
+        $\displaystyle\int_{-\sqrt3}^{\sqrt3}(ax^2+bx+c)\,dx=2\int_0^{\sqrt3}(ax^2+c)\,dx=2\left(\sqrt3a+\sqrt3c\right)=2\sqrt3a+2\sqrt3c$이므로 $2\sqrt3a+2\sqrt3c=40\sqrt3$, 즉 $a+c=20$. 위 식에서 $b=80$.
+      criteria: [1.M1, 1.A1]
+    - id: 1b-3
+      content: |
+        $a+c=20$을 만족하는 자연수 순서쌍 $(a,c)$는 $a=1,2,\ldots,19$의 19개이고 $b=80$은 하나로 정해지므로 구하는 개수는 19이다.
+      criteria: [1.A2]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 5
+      evidence: $a+b+c=100$과 정적분 조건을 계수의 식으로 바꾸었다.
+      steps: [1b-1, 1b-2]
+    - id: 1.A1
+      mark_type: A
+      points: 5
+      evidence: $a+c=20$, $b=80$.
+      depends_on: [1.M1]
+      steps: [1b-2]
+    - id: 1.A2
+      mark_type: A
+      points: 5
+      evidence: 순서쌍의 개수 19.
+      depends_on: [1.M1, 1.A1]
+      cao: true
+      steps: [1b-3]
+    deductions:
+    - code: D1-1
+      condition: 답만 쓰고 과정 없음
+      effect: cap
+      value: 5
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-0816}
+  misconceptions:
+  - id: MC-CAL-0816
+    outcome_code: '71'
+    wrong_work: '$\int_{-\sqrt3}^{\sqrt3}f=\sqrt3a+\sqrt3c$ (2배 누락)로 두어 $a+c=40$, 답 39'
+    detect_cue: $a+c=40$ 또는 $b$가 남은 식
+    feedback: 대칭 구간에서 짝수차항은 $2\int_0^{\sqrt3}$, 홀수차항은 0입니다.
+    remedy: [RL-1]
+- id: '2'
+  stem: |
+    (2) $f(1)=100$, $f'\left(-\dfrac12\right)<0$을 만족시키는 순서쌍 $(a,b,c)$의 개수를 구하시오.
+  points: 15
+  depends_on: []
+  answer: {kind: value, value: '2401', equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: '$f''\left(-\tfrac12\right)=-a+b<0\iff a>b$. $a+b+c=100$의 해 $\binom{99}2=4851$개 중 $a=b$인 49개를 빼고 반으로: $2401$.'
+    steps:
+    - {id: 2a, content: '$\dfrac{4851-49}2=2401$', criteria: [2.M1, 2.M2, 2.A1, 2.R1, 2.A2]}
+    hint_ladder:
+    - $a$와 $b$를 바꾸어도 $a+b+c=100$은 그대로이다.
+    - $a=b$인 경우는 몇 개인가?
+  - id: S2-B
+    audience: B
+    method_no: 1
+    source_flow: 해설교재 p.98
+    steps:
+    - id: 2b-1
+      content: |
+        ① $f(1)=100$에서 $a+b+c=100$. ② $f'(x)=2ax+b$이므로 $f'\left(-\dfrac12\right)<0$에서 $-a+b<0$, 즉 $a>b$.
+      criteria: [2.M1]
+    - id: 2b-2
+      content: |
+        조건 ①을 만족하는 자연수 순서쌍의 개수는 $a=k$ ($k=1,\ldots,98$)일 때 $b+c=100-k$의 해가 $99-k$개이므로
+        $$\sum_{k=1}^{98}(99-k)=\sum_{k=1}^{98}k=\dfrac{99\times98}2=4851.$$
+      criteria: [2.M2, 2.A1]
+    - id: 2b-3
+      content: |
+        이들은 $a>b$, $a=b$, $a<b$인 경우로 나뉜다. $(a,b,c)\mapsto(b,a,c)$는 $a>b$인 순서쌍과 $a<b$인 순서쌍을 일대일로 대응시키므로 두 경우의 개수는 같다. 따라서 ①, ②를 만족하는 개수는 ①의 개수에서 $a=b$인 것을 뺀 나머지의 절반이다.
+      criteria: [2.R1]
+    - id: 2b-4
+      content: |
+        $a=b$이면 $2a+c=100$, $c=2(50-a)$이므로 $c=2,4,\ldots,98$의 49개. 따라서 구하는 개수는 $\dfrac{4851-49}2=2401$.
+      criteria: [2.A2]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 3
+      evidence: $f'\left(-\tfrac12\right)<0$을 $a>b$로 바꾸었다.
+      steps: [2b-1]
+    - id: 2.M2
+      mark_type: M
+      points: 3
+      evidence: $a+b+c=100$의 자연수 해의 개수를 세는 식을 세웠다.
+      steps: [2b-2]
+    - id: 2.A1
+      mark_type: A
+      points: 3
+      evidence: 개수 4851을 구했다.
+      depends_on: [2.M2]
+      steps: [2b-2]
+    - id: 2.R1
+      mark_type: R
+      points: 3
+      evidence: $a$와 $b$를 바꾸는 대응으로 $a>b$와 $a<b$의 개수가 같음을 밝혔다.
+      steps: [2b-3]
+    - id: 2.A2
+      mark_type: A
+      points: 3
+      evidence: $a=b$인 49개를 빼고 반으로 나누어 2401을 얻었다.
+      depends_on: [2.R1, 2.M2]
+      cao: true
+      steps: [2b-4]
+    deductions:
+    - code: D2-1
+      condition: 답만 쓰고 과정 없음
+      effect: cap
+      value: 5
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CNT-0817}
+  misconceptions:
+  - id: MC-CNT-0817
+    outcome_code: '71'
+    wrong_work: '$\dfrac{4851}2$을 반올림해 2425 또는 2426'
+    detect_cue: $a=b$인 경우를 따로 세지 않음, 답 2425·2426
+    feedback: 대칭으로 반을 나누기 전에 대칭이 아닌 경우($a=b$)를 먼저 빼야 합니다.
+    remedy: [RL-2]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CAL-0816}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-SYMMETRIC-INTEGRAL}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-CNT-0817}
+  relation: remediation
+  target: {kind: concept, ref: CON-CNT-SYMMETRY-COUNT}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-transcribe-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

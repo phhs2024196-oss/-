@@ -1,0 +1,350 @@
+# 숭실대 2022학년도 논술고사(자연2) 문제 3 — 원문은 내부 분석용(allowed_use: internal_only)
+# 소문항 배점은 원문 미표기 — (1) 10점, (2) 10점으로 임의 배분
+schema_version: '2.0'
+id: SSU-G22B-03
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: numeric
+origin: past_exam
+school: SSU
+type: T05
+variant_of: null
+replaces: null
+level: L4
+form: 최적2단
+points: 20
+time_estimate_min: 20
+intent: 원의 접선과 수선의 발을 좌표로 구하고, 삼각형의 넓이를 삼각함수로 나타내 도함수로 최댓값을 구하는 능력을 본다.
+key_idea: '$\ell:x\cos\theta+y\sin\theta=1$과 $\mathrm A$를 지나는 수선의 교점 $\mathrm H$; $\overline{\mathrm{HA}}=1+\cos\theta$, $\overline{\mathrm{HP}}=\sin\theta$이므로 넓이 $\dfrac12(1+\cos\theta)\sin\theta$.'
+stuck: '넓이 함수의 도함수를 $\left(\cos\theta-\dfrac12\right)(\cos\theta+1)$로 인수분해하는 단계'
+idea_tags:
+- IDEA-FOOT-OF-PERPENDICULAR-COORD
+- IDEA-TRIG-AREA-MAX
+tags:
+- 원의 접선
+- 수선의 발
+elements:
+  materials:
+  - '단위원 $x^2+y^2=1$'
+  - 원 위의 점에서의 접선
+  - 직각삼각형 APH
+  concepts:
+  - 원의 접선의 방정식
+  - 두 직선의 수직 조건
+  - 삼각함수의 도함수
+  - 함수의 극대와 극소
+  tools:
+  - 원의 접선 공식
+  - 수직인 직선의 방정식
+  - 두 점 사이의 거리
+  - 증감표
+  conditions:
+  - '$0<\theta<\pi$ → $\sin\theta>0$, $1+\cos\theta>0$'
+  - '$\mathrm H$는 수선의 발 → $\angle\mathrm{AHP}=90^\circ$'
+  stimuli_used:
+  - 제시문
+  subpart_links: '(2)는 (1)의 $\mathrm H$의 좌표를 사용'
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학
+  - 미적분
+  scope_2028: calc2
+  scope_confirmed: true
+  standards:
+  - code: 미확인
+    text: 함수의 그래프의 개형을 그리고 최대·최소를 구할 수 있다(요지)
+    verified: false
+  content_area: 미분법 – 도함수의 활용
+  behavior_domain: 계산
+  unit_path:
+  - 미적분
+  - 미분법
+  - 도함수의 활용
+  - 삼각함수로 나타낸 넓이의 최대
+  key_concepts:
+  - 원의 접선의 방정식
+  - 두 직선의 수직 조건
+  - 삼각함수의 도함수
+  - 함수의 극대와 극소
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 숭실대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 숭실대학교
+  admission_year: 2022
+  admission_type: 논술우수자전형
+  track: 자연2
+  question_no: 3
+  official_url: https://iphak.ssu.ac.kr   # [확인필요] 입학처 기출 게시물 주소로 교체
+  retrieved_at: 2026-11-21
+  original_points: 20
+  rights_notice: 미확인(「숭실대 수리논술 문제교재(2026)」 p.50, 「숭실대 수리논술 해설교재(2026)」 p.65~66에서 옮김)
+verify: verify/SSU-G22B.py::p03
+stimuli:
+- label: 제시문
+  body: |
+    미분가능한 함수 $f(x)$에 대하여 $f'(a)=0$이고 $x=a$의 좌우에서
+
+    ① $f'(x)$의 부호가 양에서 음으로 바뀌면 $f(x)$는 $x=a$에서 극대이다.
+
+    ② $f'(x)$의 부호가 음에서 양으로 바뀌면 $f(x)$는 $x=a$에서 극소이다.
+
+    【출처: 수학Ⅱ 「함수의 극대와 극소」】
+stem: |
+  원 $x^2+y^2=1$ 위의 점 $\mathrm P(\cos\theta,\sin\theta)$에서의 접선을 $\ell$이라고 하고, 점 $\mathrm A(-1,0)$에서 직선 $\ell$에 내린 수선의 발을 $\mathrm H$라고 하자. (단, $0<\theta<\pi$)
+
+  이때 다음 문항에 답하시오.
+
+  (1) 점 $\mathrm H$의 좌표를 $\theta$를 이용하여 나타내시오.
+
+  (2) 삼각형 $\mathrm{APH}$의 넓이의 최댓값을 구하시오.
+subparts:
+- id: '1'
+  stem: |
+    점 $\mathrm H$의 좌표를 $\theta$를 이용하여 나타내시오.
+  points: 10
+  depends_on: []
+  answer:
+    kind: expression
+    value: H=(cos(theta)-sin(theta)**2, sin(theta)*(1+cos(theta)))
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: '$\ell:(\cos\theta)x+(\sin\theta)y=1$, 수선 $\ell'':(\cos\theta)y-(\sin\theta)(x+1)=0$의 교점.'
+    steps:
+    - id: 1a
+      content: '$\mathrm H(\cos\theta-\sin^2\theta,\ \sin\theta(1+\cos\theta))$'
+      criteria:
+      - 1.B1
+      - 1.M1
+      - 1.M2
+      - 1.A1
+    hint_ladder:
+    - '원 위의 점 $(x_1,y_1)$에서의 접선은 $x_1x+y_1y=1$.'
+    - '$\ell$에 수직이고 $\mathrm A$를 지나는 직선을 쓰자.'
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 해설교재 p.65
+    steps:
+    - id: 1b-1
+      content: '원 위의 점 $\mathrm P(\cos\theta,\sin\theta)$에서의 접선은 $\ell:(\cos\theta)x+(\sin\theta)y=1$ $\left(y=-\dfrac{\cos\theta}{\sin\theta}x+\dfrac1{\sin\theta}\right)$.'
+      criteria:
+      - 1.B1
+    - id: 1b-2
+      content: '점 $\mathrm A(-1,0)$을 지나고 $\ell$에 수직인 직선은 $\ell'':(\cos\theta)y-(\sin\theta)(x+1)=0$.'
+      criteria:
+      - 1.M1
+    - id: 1b-3
+      content: '두 식을 연립하면 $(\sin^2\theta)(x+1)=-(\cos^2\theta)x+\cos\theta$에서 $x=\cos\theta-\sin^2\theta$이고, $\cos\theta(\cos\theta-\sin^2\theta)+(\sin\theta)y=1$에서 $y=\sin\theta(1+\cos\theta)$. 따라서 $\mathrm H(\cos\theta-\sin^2\theta,\ \sin\theta(1+\cos\theta))$.'
+      criteria:
+      - 1.M2
+      - 1.A1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 1.B1
+      mark_type: B
+      points: 2
+      evidence: '접선 $\ell$의 방정식.'
+      steps:
+      - 1b-1
+    - id: 1.M1
+      mark_type: M
+      points: 3
+      evidence: '$\mathrm A$를 지나고 $\ell$에 수직인 직선의 방정식을 세웠다.'
+      steps:
+      - 1b-2
+    - id: 1.M2
+      mark_type: M
+      points: 2
+      evidence: 두 직선을 연립했다.
+      steps:
+      - 1b-3
+    - id: 1.A1
+      mark_type: A
+      points: 3
+      evidence: '$\mathrm H(\cos\theta-\sin^2\theta,\ \sin\theta(1+\cos\theta))$ 또는 동치식.'
+      depends_on:
+      - 1.M1
+      - 1.M2
+      cao: true
+      steps:
+      - 1b-3
+    deductions:
+    - code: D1-1
+      condition: 답만 쓰고 과정 없음
+      effect: cap
+      value: 5
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  - code: '71'
+    misconception: MC-CAL-0636
+  misconceptions:
+  - id: MC-CAL-0636
+    outcome_code: '71'
+    wrong_work: '수선의 기울기를 $-\dfrac{\cos\theta}{\sin\theta}$(접선과 같은 기울기)로 씀'
+    detect_cue: '$\ell''$이 $\ell$과 평행'
+    feedback: '수직인 두 직선의 기울기의 곱은 $-1$입니다. 수선의 기울기는 $\dfrac{\sin\theta}{\cos\theta}$입니다.'
+    remedy:
+    - RL-0636
+- id: '2'
+  stem: |
+    삼각형 $\mathrm{APH}$의 넓이의 최댓값을 구하시오.
+  points: 10
+  depends_on:
+  - '1'
+  answer:
+    kind: value
+    value: 3*sqrt(3)/8
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: '$\overline{\mathrm{HA}}=1+\cos\theta$, $\overline{\mathrm{HP}}=\sin\theta$, $f(\theta)=\dfrac12(1+\cos\theta)\sin\theta$, $f''(\theta)=(\cos\theta-\frac12)(\cos\theta+1)$.'
+    steps:
+    - id: 2a
+      content: '$\theta=\dfrac\pi3$에서 최댓값 $\dfrac{3\sqrt3}8$'
+      criteria:
+      - 2.M1
+      - 2.A1
+      - 2.M2
+      - 2.R1
+      - 2.A2
+    hint_ladder:
+    - '$\angle\mathrm{AHP}=90^\circ$이다.'
+    - '$f''(\theta)$를 $\cos\theta$에 대한 이차식으로 정리하자.'
+  - id: S2-B
+    audience: B
+    method_no: 1
+    source_flow: 해설교재 p.65~66
+    steps:
+    - id: 2b-1
+      content: |
+        삼각형 $\mathrm{APH}$는 $\angle\mathrm{AHP}=90^\circ$인 직각삼각형이다.
+        $\overline{\mathrm{HA}}=\sqrt{(\cos\theta-\sin^2\theta+1)^2+(\sin\theta+\sin\theta\cos\theta)^2}=1+\cos\theta$, $\overline{\mathrm{HP}}=\sqrt{(\cos\theta-\sin^2\theta-\cos\theta)^2+(\sin\theta+\sin\theta\cos\theta-\sin\theta)^2}=\sin\theta$
+        이므로 넓이는 $f(\theta)=\dfrac12(1+\cos\theta)\sin\theta$.
+      criteria:
+      - 2.M1
+      - 2.A1
+    - id: 2b-2
+      content: '$f''(\theta)=-\dfrac12\sin^2\theta+\dfrac12(1+\cos\theta)\cos\theta=\cos^2\theta+\dfrac12\cos\theta-\dfrac12=\left(\cos\theta-\dfrac12\right)(\cos\theta+1)$.'
+      criteria:
+      - 2.M2
+    - id: 2b-3
+      content: '$\left(0,\dfrac\pi3\right)$에서 $f''(\theta)>0$, $\left(\dfrac\pi3,\pi\right)$에서 $f''(\theta)<0$이므로 $f$는 $\theta=\dfrac\pi3$에서 극대이자 최대이고, 최댓값은 $f\left(\dfrac\pi3\right)=\dfrac12\left(1+\dfrac12\right)\dfrac{\sqrt3}2=\dfrac{3\sqrt3}8$.'
+      criteria:
+      - 2.R1
+      - 2.A2
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 3
+      evidence: '직각삼각형임을 이용해 두 변 $\overline{\mathrm{HA}}$, $\overline{\mathrm{HP}}$를 구했다.'
+      steps:
+      - 2b-1
+    - id: 2.A1
+      mark_type: A
+      points: 1
+      evidence: '넓이 $\dfrac12(1+\cos\theta)\sin\theta$.'
+      depends_on:
+      - 2.M1
+      steps:
+      - 2b-1
+    - id: 2.M2
+      mark_type: M
+      points: 3
+      evidence: '$f''(\theta)$를 구해 $\left(\cos\theta-\frac12\right)(\cos\theta+1)$ 등으로 부호를 판단할 수 있게 정리했다.'
+      steps:
+      - 2b-2
+    - id: 2.R1
+      mark_type: R
+      points: 2
+      evidence: '증감(부호 변화)으로 $\theta=\dfrac\pi3$에서 최대임을 밝혔다.'
+      depends_on:
+      - 2.M2
+      steps:
+      - 2b-3
+    - id: 2.A2
+      mark_type: A
+      points: 1
+      evidence: '$\dfrac{3\sqrt3}8$.'
+      depends_on:
+      - 2.R1
+      cao: true
+      steps:
+      - 2b-3
+    deductions:
+    - code: D2-1
+      condition: 답만 쓰고 과정 없음
+      effect: cap
+      value: 5
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  - code: '71'
+    misconception: MC-CAL-0637
+  misconceptions:
+  - id: MC-CAL-0637
+    outcome_code: '71'
+    wrong_work: '$f''(\theta)=0$의 해 $\cos\theta=-1$도 후보로 넣거나 증감 확인 없이 극값을 최댓값으로 씀'
+    detect_cue: 부호 판정·증감표 없음
+    feedback: '$0<\theta<\pi$에서 $\cos\theta+1>0$입니다. 도함수의 부호 변화로 최대를 확인하세요.'
+    remedy:
+    - RL-0637
+remedy_links:
+- id: RL-0636
+  trigger:
+    type: misconception
+    ref: MC-CAL-0636
+  relation: remediation
+  target:
+    kind: concept
+    ref: CON-CAL-TANGENT-NORMAL
+  priority: 1
+- id: RL-0637
+  trigger:
+    type: misconception
+    ref: MC-CAL-0637
+  relation: remediation
+  target:
+    kind: concept
+    ref: CON-CAL-OPTIMIZATION
+  priority: 1
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: opus
+  prompt_version: past-transcribe-v1
+  item_version: 1
+  verdict: pass
+  date: 2026-11-21
+created: 2026-11-21
+updated: 2026-11-21

@@ -1,0 +1,186 @@
+# 숭실대 2026학년도 논술고사(자연) 문제 1 — 원문은 내부 분석용(allowed_use: internal_only)
+# [판독확인] 발문 둘째 줄: 원문 표기 「직선 {l}」(중괄호가 인쇄됨) → 「직선 $l$」의 조판 오류로 보고 $l$로 옮김
+schema_version: '2.0'
+id: SSU-G26-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: numeric
+origin: past_exam
+school: SSU
+type: T03
+variant_of: null
+replaces: null
+level: L4
+form: 추론
+points: 25
+time_estimate_min: 20
+intent: 알려진 교점 $(-1,0)$과 근과 계수의 관계로 다른 교점의 좌표를 구하고, 길이·넓이를 $m$의 식으로 나타내어 부정형 극한을 계산하는 능력을 본다.
+key_idea: '직선 $y=m(x+1)$은 항상 $(-1,0)$을 지나므로 두 근의 곱에서 $x_{\mathrm P}=\dfrac{1-m^2}{1+m^2}$, 그러면 $\dfrac{f(m)}{g(m)}=\dfrac{2}{1+m}$.'
+stuck: 이차방정식의 한 근이 $-1$임을 알아채고 근과 계수의 관계로 다른 근을 바로 구하는 단계
+idea_tags: [IDEA-KNOWN-ROOT-VIETA, IDEA-LIMIT-CANCEL-COMMON-FACTOR]
+tags: [원과 직선의 교점, 근과 계수의 관계, 부정형 극한]
+elements:
+  materials: [원과 직선의 교점, 좌표평면 위의 삼각형, 좌극한]
+  concepts: [근과 계수의 관계, 원과 직선의 교점, 삼각형의 넓이, 좌극한]
+  tools: [근과 계수의 관계, 인수분해와 약분, 다항함수의 극한]
+  conditions:
+  - '직선 $y=m(x+1)$은 항상 $(-1,0)$을 지남 → 이차방정식의 한 근 $-1$'
+  - '$x$좌표가 더 큰 점 → $P$의 $x$좌표 $\dfrac{1-m^2}{1+m^2}$'
+  - '$m\to1-$ → $f,g\to0$, 공통인수 $(1-m)^2$ 약분'
+  stimuli_used: [제시문]
+  subpart_links: null
+
+curriculum:
+  version: '2015'
+  subjects: [수학, 수학Ⅱ]
+  scope_2028: common
+  scope_confirmed: true
+  standards:
+  - code: 미확인
+    text: 이차방정식의 근과 계수의 관계를 이해한다(요지)
+    verified: false
+  content_area: 함수의 극한과 연속 – 함수의 극한
+  behavior_domain: 문제해결
+  unit_path: [수학Ⅱ, 함수의 극한과 연속, 함수의 극한, 도형에서 나오는 부정형 극한]
+  key_concepts: [근과 계수의 관계, 원과 직선의 교점, 삼각형의 넓이, 좌극한]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 숭실대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 숭실대학교
+  admission_year: 2026
+  admission_type: 논술우수자전형
+  track: 자연
+  question_no: 1
+  official_url: https://iphak.ssu.ac.kr   # [확인필요] 입학처 기출 게시물 주소로 교체
+  retrieved_at: 2026-11-21
+  original_points: 25
+  rights_notice: 미확인(대치 수리 논술 연구소 「2027학년도 대비 수리논술 숭실대 기출 및 모의 문제」 p.8에서 옮김, 해설교재 p.6 참고)
+
+verify: verify/SSU-G26.py::p01
+
+stimuli:
+- label: 제시문
+  body: |
+    이차방정식 $ax^2+bx+c=0$의 두 근을 $\alpha$, $\beta$라고 하면
+    $$\alpha+\beta=-\frac ba,\quad \alpha\beta=\frac ca$$
+    【출처: 수학 「이차방정식의 근과 계수의 관계」】
+
+stem: |
+  직선 $l:y=mx+m\ (0<m<1)$과 원 $C:x^2+y^2=1$의 교점 중 $x$좌표가 더 큰 점을 $P$, 직선 $l$과 $y$축의 교점을 $Q$, 좌표가 $(0,1)$인 점을 $R$이라고 하자.
+  점 $P$와 직선 $y=1$ 사이의 거리를 $f(m)$, 삼각형 $PQR$의 넓이를 $g(m)$이라고 할 때, $\displaystyle\lim_{m\to1-}\frac{f(m)}{g(m)}$의 값을 구하시오.
+
+subparts:
+- id: '1'
+  stem: |
+    $\displaystyle\lim_{m\to1-}\frac{f(m)}{g(m)}$의 값을 구하시오.
+  points: 25
+  depends_on: []
+  answer: {kind: value, value: '1', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: 한 근이 $-1$이므로 곱 $\dfrac{m^2-1}{m^2+1}$에서 $P\left(\dfrac{1-m^2}{1+m^2},\dfrac{2m}{1+m^2}\right)$. $f=\dfrac{(1-m)^2}{1+m^2}$, $g=\dfrac{(1-m)^2(1+m)}{2(1+m^2)}$, 비 $=\dfrac2{1+m}\to1$.
+    steps:
+    - {id: 1a, content: '$\dfrac{f(m)}{g(m)}=\dfrac{2}{1+m}\to1$', criteria: [1.M1, 1.A1, 1.B1, 1.M2, 1.A2, 1.A3]}
+    hint_ladder:
+    - 직선 $y=m(x+1)$이 $m$에 관계없이 지나는 점은?
+    - 그 점이 원 위에 있으면 이차방정식의 한 근을 이미 아는 셈이다.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 해설교재 p.6
+    steps:
+    - id: 1b-1
+      content: |
+        $x^2+(mx+m)^2=1$에서 $(1+m^2)x^2+2m^2x+m^2-1=0$. 직선은 점 $(-1,0)$을 지나고 이 점은 원 위에 있으므로 $x=-1$이 한 근이다.
+      criteria: [1.M1]
+    - id: 1b-2
+      content: |
+        다른 근을 $\beta$라 하면 근과 계수의 관계에서 $-1\cdot\beta=\dfrac{m^2-1}{m^2+1}$, $\beta=\dfrac{1-m^2}{1+m^2}>-1$. 따라서 $P\left(\dfrac{1-m^2}{1+m^2},\ \dfrac{2m}{1+m^2}\right)$ ($y$좌표는 $m\beta+m$).
+      criteria: [1.A1]
+    - id: 1b-3
+      content: |
+        $0<m<1$이면 $\dfrac{2m}{1+m^2}<1$이므로 $f(m)=1-\dfrac{2m}{1+m^2}=\dfrac{(1-m)^2}{1+m^2}$.
+      criteria: [1.B1]
+    - id: 1b-4
+      content: |
+        $Q(0,m)$, $R(0,1)$이므로 밑변 $\overline{QR}=1-m$, 높이는 $P$의 $x$좌표 $\dfrac{1-m^2}{1+m^2}$. 따라서 $g(m)=\dfrac12(1-m)\cdot\dfrac{1-m^2}{1+m^2}=\dfrac{(1-m)^2(1+m)}{2(1+m^2)}$.
+      criteria: [1.M2, 1.A2]
+    - id: 1b-5
+      content: |
+        $\dfrac{f(m)}{g(m)}=\dfrac{2}{1+m}$ ($0<m<1$에서 $(1-m)^2\ne0$으로 약분)이므로 $\displaystyle\lim_{m\to1-}\frac{f(m)}{g(m)}=\frac22=1$.
+      criteria: [1.A3]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 4
+      evidence: 교점의 $x$좌표에 대한 이차방정식을 세우고 $x=-1$이 한 근임을 밝혔다.
+      steps: [1b-1]
+    - id: 1.A1
+      mark_type: A
+      points: 5
+      evidence: 근과 계수의 관계(또는 인수분해)로 $P\left(\dfrac{1-m^2}{1+m^2},\dfrac{2m}{1+m^2}\right)$을 구했다.
+      depends_on: [1.M1]
+      steps: [1b-2]
+    - id: 1.B1
+      mark_type: B
+      points: 4
+      evidence: $f(m)=\dfrac{(1-m)^2}{1+m^2}$ (또는 $1-\dfrac{2m}{1+m^2}$)을 구했다.
+      steps: [1b-3]
+    - id: 1.M2
+      mark_type: M
+      points: 3
+      evidence: 삼각형 $PQR$의 밑변을 $\overline{QR}=1-m$, 높이를 $P$의 $x$좌표로 잡았다.
+      steps: [1b-4]
+    - id: 1.A2
+      mark_type: A
+      points: 4
+      evidence: $g(m)=\dfrac{(1-m)^2(1+m)}{2(1+m^2)}$ (또는 동치식)을 구했다.
+      depends_on: [1.M2]
+      steps: [1b-4]
+    - id: 1.A3
+      mark_type: A
+      points: 5
+      evidence: $(1-m)^2$을 약분해 $\dfrac{2}{1+m}$으로 정리하고 극한값 $1$을 얻었다.
+      depends_on: [1.M1, 1.M2, 1.A1, 1.A2]
+      cao: true
+      steps: [1b-5]
+    deductions:
+    - code: D1-1
+      condition: 답만 쓰고 과정 없음
+      effect: cap
+      value: 5
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-0313}
+  misconceptions:
+  - id: MC-CAL-0313
+    outcome_code: '71'
+    wrong_work: '$m\to1-$이면 $f(m)\to0$, $g(m)\to0$이므로 극한값은 $0$ (또는 존재하지 않음)'
+    detect_cue: 분자·분모의 극한만 따로 구하고 약분 과정이 없음
+    feedback: $\dfrac00$ 꼴은 값이 정해지지 않습니다. 분자·분모를 인수분해해 공통인수 $(1-m)^2$을 약분한 뒤 극한을 구하세요.
+    remedy: [RL-1]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CAL-0313}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-LIMIT-INDET-CANCEL}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-transcribe-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

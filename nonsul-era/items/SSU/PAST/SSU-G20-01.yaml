@@ -1,0 +1,317 @@
+# 숭실대 2020학년도 논술고사(수학) 문제 1 — 원문은 내부 분석용(allowed_use: internal_only)
+# 원문 배점 25점(문제 전체). 소문항 배점 (1)8 (2)8 (3)9 는 원문에 없어 임의 배분.
+# 제시문 출처 표기 「미적분I」「미적분II」는 원문(2009 개정 과목명) 그대로 옮김.
+schema_version: '2.0'
+id: SSU-G20-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: numeric
+origin: past_exam
+school: SSU
+type: T04
+variant_of: null
+replaces: null
+level: L4
+form: 추론
+points: 25
+time_estimate_min: 20
+intent: 적분으로 정의된 함수를 미적분의 기본정리로 미분하여 부분적분에 쓰고, 역함수의 정적분과의 넓이 관계 및 미분계수의 정의로 극한을 구하는 능력을 본다.
+key_idea: '$f''(x)=e^{-x^2}$이므로 $A(\alpha)=\alpha f(\alpha)-\displaystyle\int_0^\alpha xe^{-x^2}dx=\alpha f(\alpha)-\dfrac12(1-e^{-\alpha^2})$, $B(\alpha)=\alpha f(\alpha)-A(\alpha)$, 극한은 $\dfrac{f(\alpha)}\alpha\to f''(0)=1$과 $\dfrac{1-e^{-\alpha^2}}{\alpha^2}\to1$.'
+stuck: 닫힌 형태가 없는 $f(x)$를 직접 적분하지 않고 부분적분에서 $f'(x)=e^{-x^2}$만 쓰는 발상
+idea_tags: [IDEA-FTC-INTEGRAL-FUNCTION, IDEA-INVERSE-INTEGRAL-AREA, IDEA-LIMIT-AS-DERIVATIVE]
+tags: [적분으로 정의된 함수, 역함수의 정적분, 미분계수의 정의]
+elements:
+  materials:
+  - '적분으로 정의된 함수 $\int_0^xe^{-t^2}dt$'
+  - '역함수'
+  concepts: [정적분으로 정의된 함수의 미분, 부분적분법, 치환적분법, 역함수의 정적분, 미분계수의 정의]
+  tools:
+  - '미적분의 기본정리'
+  - '부분적분'
+  - '치환 $t=x^2$'
+  - '역함수의 정적분과 직사각형 넓이 관계'
+  - '미분계수의 정의로 극한'
+  conditions:
+  - '(가) → $f''(x)=e^{-x^2}>0$, $f$ 증가 → 역함수 존재'
+  - '$f(0)=0$ → $B(\alpha)=\alpha f(\alpha)-A(\alpha)$'
+  - '$\frac{f(\alpha)}\alpha\to f''(0)=1$'
+  stimuli_used: [가, 나]
+  subpart_links: '(2)는 (1)의 $A(\alpha)$, (3)은 (1)·(2)의 결과 사용'
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅱ, 미적분]
+  scope_2028: calc2
+  scope_confirmed: true
+  standards:
+  - code: 미확인
+    text: 부분적분법을 이해하고, 이를 활용할 수 있다(요지)
+    verified: false
+  content_area: 적분법 – 여러 가지 적분법
+  behavior_domain: 이해
+  unit_path: [미적분, 적분법, 여러 가지 적분법, 적분으로 정의된 함수의 부분적분]
+  key_concepts: [정적분으로 정의된 함수의 미분, 부분적분법, 치환적분법, 역함수의 정적분, 미분계수의 정의]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 숭실대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 숭실대학교
+  admission_year: 2020
+  admission_type: 논술우수자전형
+  track: 자연
+  question_no: 1
+  official_url: https://iphak.ssu.ac.kr   # [확인필요] 입학처 기출 게시물 주소로 교체
+  retrieved_at: 2026-11-21
+  original_points: 25
+  rights_notice: 미확인(대치 수리 논술 연구소 「2027학년도 대비 수리논술 숭실대 기출 및 모의 문제」 p.65, 해설 p.88~89에서 옮김)
+
+verify: verify/SSU-G20.py::p01
+
+stimuli:
+- label: 가
+  body: |
+    함수 $h(t)$가 닫힌 구간 $[a,b]$에서 연속일 때,
+    $$\dfrac{d}{dx}\int_a^xh(t)\,dt=h(x)\quad(\text{단, }a<x<b)$$
+    【출처: 미적분Ⅰ 「정적분」】
+- label: 나
+  body: |
+    미분가능한 두 함수 $h(x)$, $k(x)$에 대하여 $h'(x)$, $k'(x)$가 닫힌 구간 $[a,b]$에서 연속일 때,
+    $$\int_a^bh(x)k'(x)\,dx=\Big[h(x)k(x)\Big]_a^b-\int_a^bh'(x)k(x)\,dx$$
+    【출처: 미적분Ⅱ 「여러 가지 적분법」】
+
+stem: |
+  함수 $f(x)=\displaystyle\int_0^xe^{-t^2}dt$에 대하여 다음 문항에 답하시오.
+
+subparts:
+- id: '1'
+  stem: |
+    부분적분법을 이용하여 정적분 $A(\alpha)=\displaystyle\int_0^\alpha f(x)\,dx$를 $\alpha$와 $f(\alpha)$의 식으로 나타내시오.
+  points: 8
+  depends_on: []
+  answer: {kind: expression, value: 'alpha*f(alpha) - (1 - exp(-alpha**2))/2', equivalents: ['A(\alpha)=\alpha f(\alpha)-\dfrac12\left(1-e^{-\alpha^2}\right)'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: (나)에서 $h=f$, $k=x$로 두면 $A=\alpha f(\alpha)-\displaystyle\int_0^\alpha xe^{-x^2}dx$, 치환 $t=x^2$.
+    steps:
+    - {id: 1a, content: '$A(\alpha)=\alpha f(\alpha)-\dfrac12(1-e^{-\alpha^2})$', criteria: [1.M1, 1.M2, 1.A1]}
+    hint_ladder:
+    - $f(x)$를 $f(x)\cdot1$로 보고 부분적분하자. $f'(x)$는?
+  - id: S1-B
+    audience: B
+    source_flow: 해설교재 p.88
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        (가)에서 $f'(x)=e^{-x^2}$. (나)에 $h(x)=f(x)$, $k(x)=x$를 대입하면
+        $A(\alpha)=\Big[xf(x)\Big]_0^\alpha-\displaystyle\int_0^\alpha xf'(x)\,dx=\alpha f(\alpha)-\int_0^\alpha xe^{-x^2}dx$.
+      criteria: [1.M1]
+    - id: 1b-2
+      content: |
+        $t=x^2$으로 놓으면 $\dfrac{dt}{dx}=2x$이고 $x=0$일 때 $t=0$, $x=\alpha$일 때 $t=\alpha^2$이므로
+        $\displaystyle\int_0^\alpha xe^{-x^2}dx=\dfrac12\int_0^{\alpha^2}e^{-t}dt=\dfrac12\Big[-e^{-t}\Big]_0^{\alpha^2}=\dfrac12\left(1-e^{-\alpha^2}\right)$.
+      criteria: [1.M2]
+    - id: 1b-3
+      content: |
+        따라서 $A(\alpha)=\alpha f(\alpha)-\dfrac12\left(1-e^{-\alpha^2}\right)$.
+      criteria: [1.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 3
+      evidence: (가)로 $f'(x)=e^{-x^2}$을 쓰고 부분적분식 $\alpha f(\alpha)-\displaystyle\int_0^\alpha xe^{-x^2}dx$를 세웠다.
+      steps: [1b-1]
+    - id: 1.M2
+      mark_type: M
+      points: 3
+      evidence: 치환으로 $\displaystyle\int_0^\alpha xe^{-x^2}dx=\dfrac12(1-e^{-\alpha^2})$을 구했다.
+      steps: [1b-2]
+    - id: 1.A1
+      mark_type: A
+      points: 2
+      evidence: $A(\alpha)=\alpha f(\alpha)-\dfrac12(1-e^{-\alpha^2})$.
+      depends_on: [1.M1, 1.M2]
+      steps: [1b-3]
+    deductions:
+    - code: D1-1
+      condition: 답만 쓰고 과정 없음
+      effect: cap
+      value: 3
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-0725}
+  misconceptions:
+  - id: MC-CAL-0725
+    outcome_code: '71'
+    wrong_work: '부분적분에서 경계항 $\Big[xf(x)\Big]_0^\alpha$를 빠뜨려 $A(\alpha)=-\dfrac12(1-e^{-\alpha^2})$'
+    detect_cue: 답에 $\alpha f(\alpha)$가 없음
+    feedback: 부분적분 공식에는 $\Big[h(x)k(x)\Big]_a^b$ 항이 있습니다. $f(0)=0$이어도 $\alpha f(\alpha)$는 남습니다.
+    remedy: [RL-1]
+- id: '2'
+  stem: |
+    함수 $f(x)$의 역함수를 $g(x)$라 할 때, 정적분 $B(\alpha)=\displaystyle\int_0^{f(\alpha)}g(x)\,dx$를 $\alpha$의 식으로 나타내시오.
+  points: 8
+  depends_on: ['1']
+  answer: {kind: expression, value: '(1 - exp(-alpha**2))/2', equivalents: ['B(\alpha)=\dfrac12\left(1-e^{-\alpha^2}\right)'], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: $f(0)=0$이고 $\displaystyle\int_0^\alpha f+\int_{f(0)}^{f(\alpha)}g=\alpha f(\alpha)$이므로 $B=\alpha f(\alpha)-A(\alpha)$.
+    steps:
+    - {id: 2a, content: '$B(\alpha)=\dfrac12(1-e^{-\alpha^2})$', criteria: [2.M1, 2.A1]}
+    hint_ladder:
+    - 그래프에서 $A(\alpha)$와 $B(\alpha)$의 넓이를 합하면 어떤 도형인가?
+  - id: S2-B
+    audience: B
+    source_flow: 해설교재 p.88
+    method_no: 1
+    steps:
+    - id: 2b-1
+      content: |
+        $f'(x)=e^{-x^2}>0$이므로 $f$는 증가함수이고 역함수 $g$가 존재한다. 함수와 역함수의 관계(그림에서 두 영역의 넓이의 합이 직사각형) $\displaystyle\int_0^\alpha f(x)\,dx+\int_{f(0)}^{f(\alpha)}g(x)\,dx=\alpha f(\alpha)$와 $f(0)=0$에서 $B(\alpha)=\alpha f(\alpha)-\displaystyle\int_0^\alpha f(x)\,dx$.
+      criteria: [2.M1]
+    - id: 2b-2
+      content: |
+        (1)에서 $B(\alpha)=\alpha f(\alpha)-\left[\alpha f(\alpha)-\dfrac12\left(1-e^{-\alpha^2}\right)\right]=\dfrac12\left(1-e^{-\alpha^2}\right)$.
+      criteria: [2.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 5
+      evidence: $\displaystyle\int_0^\alpha f+\int_0^{f(\alpha)}g=\alpha f(\alpha)$ 관계(또는 $x=f(y)$ 치환)를 근거와 함께 썼다.
+      steps: [2b-1]
+    - id: 2.A1
+      mark_type: A
+      points: 3
+      evidence: $B(\alpha)=\dfrac12(1-e^{-\alpha^2})$.
+      depends_on: [2.M1]
+      steps: [2b-2]
+    deductions:
+    - code: D2-1
+      condition: 답만 쓰고 과정 없음
+      effect: cap
+      value: 3
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '72', misconception: MC-CAL-0726}
+  misconceptions:
+  - id: MC-CAL-0726
+    outcome_code: '72'
+    wrong_work: '역함수 그래프가 $y=x$에 대칭이므로 $B(\alpha)=A(\alpha)$라 답함'
+    detect_cue: $B$에 $\alpha f(\alpha)$가 남아 있음
+    feedback: 대칭이동한 넓이는 $\displaystyle\int_0^{f(\alpha)}g$ 자체가 아니라 직사각형에서 $A(\alpha)$를 뺀 넓이입니다.
+    remedy: [RL-2]
+- id: '3'
+  stem: |
+    극한값 $\displaystyle\lim_{\alpha\to0}\dfrac{A(\alpha)}{B(\alpha)}$를 구하시오.
+  points: 9
+  depends_on: ['1', '2']
+  answer: {kind: value, value: '1', equivalents: [], tolerance: null}
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: $\dfrac AB=\dfrac{2\alpha f(\alpha)}{1-e^{-\alpha^2}}-1=2\cdot\dfrac{f(\alpha)/\alpha}{(1-e^{-\alpha^2})/\alpha^2}-1$, 분자 $\to f'(0)=1$, 분모 $\to1$.
+    steps:
+    - {id: 3a, content: '$2\cdot\dfrac11-1=1$', criteria: [3.M1, 3.M2, 3.M3, 3.A1]}
+    hint_ladder:
+    - $\dfrac{f(\alpha)}\alpha$는 어떤 미분계수의 정의인가?
+    - $\dfrac{1-e^{-\beta}}\beta$도 미분계수로 보자.
+  - id: S3-B
+    audience: B
+    source_flow: 해설교재 p.89
+    method_no: 1
+    steps:
+    - id: 3b-1
+      content: |
+        (1), (2)에서 $\dfrac{A(\alpha)}{B(\alpha)}=\dfrac{\alpha f(\alpha)-\frac12(1-e^{-\alpha^2})}{\frac12(1-e^{-\alpha^2})}=\dfrac{2\alpha f(\alpha)}{1-e^{-\alpha^2}}-1=2\cdot\dfrac{\frac{f(\alpha)}\alpha}{\frac{1-e^{-\alpha^2}}{\alpha^2}}-1$.
+      criteria: [3.M1]
+    - id: 3b-2
+      content: |
+        분자: $\displaystyle\lim_{\alpha\to0}\dfrac{f(\alpha)}\alpha=\lim_{\alpha\to0}\dfrac{f(\alpha)-f(0)}{\alpha-0}=f'(0)=e^{0}=1$.
+      criteria: [3.M2]
+    - id: 3b-3
+      content: |
+        분모: $u(x)=e^{-x}$, $\beta=\alpha^2$으로 두면 $\displaystyle\lim_{\alpha\to0}\dfrac{1-e^{-\alpha^2}}{\alpha^2}=\lim_{\beta\to0}\dfrac{1-e^{-\beta}}\beta=-\lim_{\beta\to0}\dfrac{u(\beta)-u(0)}{\beta-0}=-u'(0)=1$.
+      criteria: [3.M3]
+    - id: 3b-4
+      content: |
+        따라서 $\displaystyle\lim_{\alpha\to0}\dfrac{A(\alpha)}{B(\alpha)}=2\cdot\dfrac11-1=1$.
+      criteria: [3.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 2
+      evidence: $\dfrac AB$를 $\dfrac{f(\alpha)}\alpha$와 $\dfrac{1-e^{-\alpha^2}}{\alpha^2}$의 식으로 변형했다.
+      steps: [3b-1]
+    - id: 3.M2
+      mark_type: M
+      points: 3
+      evidence: $\dfrac{f(\alpha)}\alpha\to f'(0)=1$을 미분계수의 정의와 (가)로 보였다.
+      steps: [3b-2]
+    - id: 3.M3
+      mark_type: M
+      points: 2
+      evidence: $\dfrac{1-e^{-\alpha^2}}{\alpha^2}\to1$을 구했다.
+      steps: [3b-3]
+    - id: 3.A1
+      mark_type: A
+      points: 2
+      evidence: 극한값 $1$.
+      depends_on: [3.M2, 3.M3]
+      cao: true
+      steps: [3b-4]
+    deductions:
+    - code: D3-1
+      condition: 답만 쓰고 과정 없음
+      effect: cap
+      value: 3
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '73', misconception: MC-CAL-0727}
+  misconceptions:
+  - id: MC-CAL-0727
+    outcome_code: '73'
+    wrong_work: '$\alpha\to0$이면 $\alpha f(\alpha)\to0$이므로 분자에서 지우고 $\dfrac AB\to-1$'
+    detect_cue: 답이 $-1$
+    feedback: 분모 $B(\alpha)$도 $0$으로 가므로 같은 차수($\alpha^2$)의 항은 지울 수 없습니다. $\alpha f(\alpha)\approx\alpha^2$입니다.
+    remedy: [RL-3]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CAL-0725}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-INTEGRATION-BY-PARTS}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-CAL-0726}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-INVERSE-INTEGRAL}
+  priority: 1
+- id: RL-3
+  trigger: {type: misconception, ref: MC-CAL-0727}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-LIMIT-AS-DERIVATIVE}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-transcribe-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

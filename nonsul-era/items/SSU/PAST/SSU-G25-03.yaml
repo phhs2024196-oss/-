@@ -1,0 +1,261 @@
+# 숭실대 2025학년도 논술고사(자연) 문제 3 — 원문은 내부 분석용(allowed_use: internal_only)
+# 소문항 배점은 원문에 없음(문제 전체 25점) → (1) 10점, (2) 15점으로 내부 배분. [확인필요]
+schema_version: '2.0'
+id: SSU-G25-03
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: SSU
+type: T02
+variant_of: null
+replaces: null
+level: L5
+form: 분류
+points: 25
+time_estimate_min: 25
+intent: 구간별로 정의된 함수의 곱·합성함수가 연속이 되는 조건을 좌우극한으로 세우고, 합성함수의 연속을 이차함수의 최솟값 조건으로 바꾸어 꼭짓점 위치에 따라 경우를 나누는 능력을 본다.
+key_idea: '(1) $x=-1$에서 좌우극한 일치로 $g(-1)=0$, $g(-1)=g(2)$. (2) $f$가 $u=-1$에서만 불연속이고 그 왼쪽 값이 더 작으므로 $f(g(x)+3)$이 연속 $\iff$ $g(x)\ge-4$ (모든 $x$).'
+stuck: (2)에서 「$g(x)+3$이 $-1$보다 작은 값을 갖지 않는다」로 조건을 바꾸고, 꼭짓점 $b+\frac32$, $-\frac b2$의 위치로 경우를 나누는 단계
+idea_tags: [IDEA-PIECEWISE-ONESIDED-LIMIT, IDEA-COMPOSITE-CONT-AVOID-JUMP, IDEA-QUADRATIC-MIN-VERTEX-CASE]
+tags: [함수의 연속, 합성함수, 이차함수의 최솟값]
+elements:
+  materials: [구간별로 정의된 함수, 합성함수, 함수의 곱, 이차함수]
+  concepts: [좌극한과 우극한, 합성함수의 연속, 이차함수의 최솟값]
+  tools: [좌극한과 우극한, 연속의 정의, 이차함수의 꼭짓점과 최솟값]
+  conditions:
+  - '$g$는 $x=0$에서 연속, $f$는 $x=-1$에서만 불연속 → $x=-1$만 조사'
+  - '$f(x)g(x)$ 연속 → $-g(-1)=2g(-1)$, 즉 $g(-1)=0$'
+  - '$g(f(x))$ 연속 → $g(-1)=g(2)$'
+  - '$f(g(x)+3)$ 연속 → 모든 $x$에서 $g(x)\ge-4$ (등호 허용)'
+  stimuli_used: [제시문]
+  subpart_links: "(2)는 (1)의 a=-2b-3, c=-2b-4 를 사용"
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅱ]
+  scope_2028: common
+  scope_confirmed: true
+  standards:
+  - code: 미확인
+    text: 함수의 연속의 뜻을 안다(요지)
+    verified: false
+  content_area: 함수의 극한과 연속 – 함수의 연속
+  behavior_domain: 추론
+  unit_path: [수학Ⅱ, 함수의 극한과 연속, 함수의 연속, 구간별로 정의된 함수의 곱과 합성의 연속]
+  key_concepts: [좌극한과 우극한, 합성함수의 연속, 이차함수의 최솟값]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 숭실대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 숭실대학교
+  admission_year: 2025
+  admission_type: 논술우수자전형
+  track: 자연
+  question_no: 3
+  official_url: https://iphak.ssu.ac.kr   # [확인필요] 입학처 기출 게시물 주소로 교체
+  retrieved_at: 2026-11-21
+  original_points: 25
+  rights_notice: 미확인(「숭실대 수리논술 문제교재(2026)」 p.18에서 옮김, 해설교재 pp.17~18 참고)
+
+verify: verify/SSU-G25.py::p03
+
+stimuli:
+- label: 제시문
+  body: |
+    함수 $f(x)$가 실수 $a$에 대하여 다음 세 조건을 모두 만족시킬 때, $f(x)$는 $x=a$에서 연속이라고 한다.
+
+    (i) 함수 $f(x)$가 $x=a$에서 정의되어 있다.
+
+    (ii) 극한값 $\displaystyle\lim_{x\to a}f(x)$가 존재한다.
+
+    (iii) $\displaystyle\lim_{x\to a}f(x)=f(a)$
+    【출처: 수학Ⅱ 「함수의 연속」】
+
+stem: |
+  함수 $f(x)$와 $g(x)$가 아래와 같이 주어져 있다.
+
+  $$f(x)=\begin{cases}x&(x<-1)\\x+3&(x\ge-1)\end{cases},\qquad g(x)=\begin{cases}x^2+ax+c&(x<0)\\x^2+bx+c&(x\ge0)\end{cases}$$
+
+  이때 다음 문항에 답하시오.
+
+subparts:
+- id: '1'
+  stem: |
+    함수 $f(x)g(x)$와 $g(f(x))$가 모든 실수 $x$에서 연속일 때, $a$와 $c$를 각각 $b$에 대한 식으로 나타내시오.
+  points: 10
+  depends_on: []
+  answer: {kind: expression, value: '[-2*b - 3, -2*b - 4]', equivalents: ['$a=-2b-3$, $c=-2b-4$'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $g$는 연속, $f$는 $x=-1$에서만 불연속. $x=-1$에서 $f(x)g(x)$의 좌우극한 $-g(-1)$, $2g(-1)$이 같으려면 $g(-1)=0$, $g(f(x))$의 좌우극한 $g(-1)$, $g(2)$가 같으려면 $g(-1)=g(2)$.
+    steps:
+    - {id: 1a, content: '$1-a+c=0$, $1-a+c=4+2b+c\Rightarrow a=-2b-3$, $c=-2b-4$', criteria: [1.M1, 1.M2, 1.A1]}
+    hint_ladder:
+    - $g(x)$는 $x=0$에서도 연속인가? 그렇다면 문제가 되는 점은 어디인가?
+    - $x\to-1^+$일 때 $f(x)\to2$이다. $g(f(x))$의 우극한은?
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 해설교재 p.17
+    steps:
+    - id: 1b-1
+      content: |
+        $g$는 두 다항식이 $x=0$에서 같은 값 $c$를 가지므로 모든 실수에서 연속이고, $f$는 $x\ne-1$에서 연속이다. 따라서 $f(x)g(x)$, $g(f(x))$는 $x\ne-1$에서 연속이고 $x=-1$만 조사하면 된다.
+      criteria: [1.M1]
+    - id: 1b-2
+      content: |
+        $\displaystyle\lim_{x\to-1^-}f(x)g(x)=(-1)\cdot g(-1)=-(1-a+c)$, $\displaystyle\lim_{x\to-1^+}f(x)g(x)=2\cdot g(-1)=2(1-a+c)$이고 함숫값은 $2(1-a+c)$. 연속이려면 $-(1-a+c)=2(1-a+c)$, 즉 $1-a+c=0$.
+      criteria: [1.M2]
+    - id: 1b-3
+      content: |
+        $\displaystyle\lim_{x\to-1^-}g(f(x))=g(-1)=1-a+c$, $\displaystyle\lim_{x\to-1^+}g(f(x))=g(2)=4+2b+c=g(f(-1))$. 연속이려면 $1-a+c=4+2b+c$, 즉 $a=-2b-3$. 이를 $1-a+c=0$에 넣으면 $c=a-1=-2b-4$.
+      criteria: [1.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 2
+      evidence: $g$가 연속이고 $x=-1$에서만 연속성을 조사하면 됨을 적었다.
+      steps: [1b-1]
+    - id: 1.M2
+      mark_type: M
+      points: 4
+      evidence: $f(x)g(x)$의 $x=-1$에서의 좌우극한 $-g(-1)$, $2g(-1)$을 비교해 $1-a+c=0$을 얻었다.
+      steps: [1b-2]
+    - id: 1.A1
+      mark_type: A
+      points: 4
+      evidence: $g(-1)=g(2)$에서 $a=-2b-3$, $c=-2b-4$를 구했다.
+      depends_on: [1.M2]
+      steps: [1b-3]
+    deductions:
+    - code: D1-1
+      condition: 답만 쓰고 과정 없음
+      effect: cap
+      value: 2
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-0415}
+  misconceptions:
+  - id: MC-CAL-0415
+    outcome_code: '71'
+    wrong_work: '$\displaystyle\lim_{x\to-1^+}f(x)g(x)=2g(2)$로 계산'
+    detect_cue: $f(x)g(x)$의 우극한에 $g(2)$ 또는 $4+2b+c$가 나옴
+    feedback: $f(x)g(x)$는 두 함숫값의 곱입니다. $g$는 $x$에서 계산하므로 $x\to-1$이면 $g(x)\to g(-1)$입니다.
+    remedy: [RL-2]
+- id: '2'
+  stem: |
+    함수 $f(x)g(x)$, $g(f(x))$, $f(g(x)+3)$이 모든 실수 $x$에서 연속일 때, 실수 $b$의 값의 범위를 구하시오.
+  points: 15
+  depends_on: ['1']
+  answer: {kind: set, value: 'Interval(-9/2, 0)', equivalents: ['$-\dfrac92\le b\le0$'], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: $f(g(x)+3)$이 연속 $\iff$ 모든 $x$에서 $g(x)\ge-4$. (1)의 $g$에서 왼쪽 조각의 꼭짓점 $b+\frac32$, 오른쪽 조각의 꼭짓점 $-\frac b2$의 위치로 나누면 $-\frac92\le b<-\frac32$ 또는 $-\frac32\le b\le0$.
+    steps:
+    - {id: 2a, content: '$\min g\ge-4\iff -\frac92\le b\le0$', criteria: [2.R1, 2.M1, 2.B1, 2.B2, 2.A1]}
+    hint_ladder:
+    - $f(u)$는 $u=-1$에서 왼쪽으로 값이 끊긴다. $g(x)+3$이 $-1$을 지나 아래로 내려가면 어떻게 되는가?
+    - $g(x)\to\infty$ ($x\to\pm\infty$)이므로 $g(x)+3<-1$이 항상일 수는 없다.
+    - 두 이차식 조각의 꼭짓점이 각자의 정의역 안에 있는지 나누어 보자.
+  - id: S2-B
+    audience: B
+    method_no: 1
+    source_flow: 해설교재 pp.17~18
+    steps:
+    - id: 2b-1
+      content: |
+        $f$는 $u\ne-1$에서 연속이고 $\displaystyle\lim_{u\to-1^-}f(u)=-1\ne2=f(-1)$. 모든 $x$에서 $g(x)\ge-4$, 즉 $g(x)+3\ge-1$이면 $f(g(x)+3)=g(x)+6$이므로 연속이다. 반대로 $g(x_1)<-4$인 $x_1$이 있으면, $g(x)\to\infty$ ($x\to\pm\infty$)이고 $g$가 연속이므로 집합 $\{x\mid g(x)<-4\}$의 끝점 $x_0$에서 $g(x_0)=-4$이고 $x_0$에 한없이 가까운 곳에 $g(x)<-4$인 점이 있다. 그 점들에서 $f(g(x)+3)=g(x)+3<-1$이므로 $x\to x_0$ 방향의 극한은 $-1$이고 $f(g(x_0)+3)=f(-1)=2$와 달라 불연속. 따라서 조건은 「모든 실수 $x$에서 $g(x)\ge-4$」.
+      criteria: [2.R1]
+    - id: 2b-2
+      content: |
+        (1)에서 $g(x)=x^2-(2b+3)x-(2b+4)$ ($x<0$), $g(x)=x^2+bx-(2b+4)$ ($x\ge0$). 왼쪽 조각의 꼭짓점은 $x=b+\dfrac32$, 오른쪽 조각의 꼭짓점은 $x=-\dfrac b2$이고 $g(0)=-2b-4$.
+      criteria: [2.M1]
+    - id: 2b-3
+      content: |
+        (a) $b<-\dfrac32$: 왼쪽 조각의 최솟값 $g\left(b+\dfrac32\right)=-b^2-5b-\dfrac{25}4\ge-4\iff4b^2+20b+9\le0\iff-\dfrac92\le b\le-\dfrac12$. 이때 $-\dfrac b2>0$이므로 오른쪽 조각의 최솟값 $-\dfrac{b^2}4-2b-4\ge-4\iff-8\le b\le0$. 공통부분은 $-\dfrac92\le b<-\dfrac32$.
+      criteria: [2.B1]
+    - id: 2b-4
+      content: |
+        (b) $b\ge-\dfrac32$: 왼쪽 조각은 $x\le0$에서 감소하므로 최솟값(하한)은 $g(0)=-2b-4\ge-4\iff b\le0$. $-\dfrac32\le b\le0$이면 오른쪽 조각의 꼭짓점 $-\dfrac b2\ge0$이고 $-\dfrac{b^2}4-2b-4\ge-4$ ($-8\le b\le0$에서 성립). $b>0$이면 $g(0)=-2b-4<-4$이므로 불가. 따라서 $-\dfrac32\le b\le0$.
+      criteria: [2.B2]
+    - id: 2b-5
+      content: |
+        (a), (b)를 합하면 $-\dfrac92\le b\le0$. 이때 (1)의 조건도 만족하므로 세 함수가 모두 연속이다.
+      criteria: [2.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.R1
+      mark_type: R
+      points: 5
+      evidence: $f(g(x)+3)$의 연속 조건을 「모든 $x$에서 $g(x)\ge-4$」로 바꾸고, $g(x)+3<-1$인 점이 생기면 불연속임(또는 $g\to\infty$ 근거)을 설명했다.
+      steps: [2b-1]
+    - id: 2.M1
+      mark_type: M
+      points: 2
+      evidence: (1)의 결과로 $g$를 $b$로 나타내고 두 조각의 꼭짓점 $b+\frac32$, $-\frac b2$를 구했다.
+      ft: {allowed: true, from: [1.A1], max_points: 2}
+      steps: [2b-2]
+    - id: 2.B1
+      mark_type: B
+      points: 3
+      evidence: 왼쪽 꼭짓점이 $x<0$에 있는 경우 $-\frac92\le b<-\frac32$를 구했다.
+      steps: [2b-3]
+    - id: 2.B2
+      mark_type: B
+      points: 3
+      evidence: 왼쪽 꼭짓점이 $x\ge0$에 있는 경우 $g(0)\ge-4$와 오른쪽 조각 조건에서 $-\frac32\le b\le0$을 구했다.
+      steps: [2b-4]
+    - id: 2.A1
+      mark_type: A
+      points: 2
+      evidence: $-\frac92\le b\le0$ (양 끝 등호 포함).
+      depends_on: [2.R1, 2.M1]
+      steps: [2b-5]
+    deductions:
+    - code: D2-1
+      condition: 등호 조건(양 끝값 포함 여부) 누락 또는 오류
+      effect: minus
+      value: 2
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-0416}
+  misconceptions:
+  - id: MC-CAL-0416
+    outcome_code: '71'
+    wrong_work: '$g(x)+3\ne-1$이어야 한다고 보고 $g(x)>-4$로 풀어 $-\frac92<b<0$'
+    detect_cue: 답에서 양 끝 등호가 빠짐, 「$-1$을 지나지 않아야」 대신 「$-1$이 되면 안 됨」
+    feedback: $f$는 $u=-1$에서 오른쪽 연속입니다. $g(x)+3$이 $-1$에 닿기만 하고 아래로 내려가지 않으면 합성함수는 연속입니다.
+    remedy: [RL-1]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CAL-0416}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-COMPOSITE-CONT}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-CAL-0415}
+  relation: prerequisite
+  target: {kind: concept, ref: CON-CAL-LIMIT-EXIST}
+  priority: 2
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-transcribe-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

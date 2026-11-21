@@ -1,0 +1,339 @@
+# 숭실대 2022학년도 모의논술고사(자연) 문제 2 — 원문은 내부 분석용(allowed_use: internal_only)
+# 소문항 배점은 원문 미표기 — (1) 8점, (2) 12점으로 임의 배분
+schema_version: '2.0'
+id: SSU-M22-02
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: numeric
+origin: mock_exam
+school: SSU
+type: T04
+variant_of: null
+replaces: null
+level: L5
+form: 점화
+points: 20
+time_estimate_min: 20
+intent: '$(f+f'')e^t=(fe^t)''$ 구조를 부분적분으로 발견하고, 정적분으로 정의된 함수열의 값이 등비수열을 이룸을 보여 급수의 합을 구하는 능력을 본다.'
+key_idea: '$\displaystyle\int_0^x\dfrac{p+p''}3e^tdt=\dfrac13\big[p(t)e^t\big]_0^x$이므로 $f_{n+1}\left(\frac12\right)=\dfrac{\sqrt e}3f_n\left(\frac12\right)$, 공비 $\dfrac{\sqrt e}3<1$.'
+stuck: '(1)의 결과가 이차함수가 아닌 일반 함수 $f$에도 그대로 성립함(부분적분)을 알아차리고, $f_n(0)=0$을 이용해 점화 관계를 세우는 단계'
+idea_tags:
+- IDEA-PRODUCT-RULE-REVERSE
+- IDEA-INTEGRAL-OPERATOR-ITERATE
+- IDEA-GEOMETRIC-SERIES-SUM
+tags:
+- 부분적분
+- 급수
+elements:
+  materials:
+  - '$\dfrac{p(t)+p''(t)}3e^t$ 꼴의 피적분함수'
+  - 정적분으로 귀납적으로 정의된 함수열
+  concepts:
+  - 부분적분법
+  - 정적분으로 정의된 함수
+  - 등비급수
+  tools:
+  - 부분적분
+  - '곱의 미분 $(fe^t)''=(f+f'')e^t$'
+  - 등비급수의 합
+  conditions:
+  - '$f(0)=0$, $f\left(\frac12\right)=3$ → 첫째항 결정'
+  - '$f_n(0)=0$(정적분의 아래끝 0) → 매 단계 $f_{n+1}\left(\frac12\right)=\frac{\sqrt e}3f_n\left(\frac12\right)$'
+  - 도함수가 연속 → 부분적분 가능
+  stimuli_used:
+  - 제시문
+  subpart_links: (2)는 (1)에서 얻은 식 ㉠이 일반 함수에도 성립함을 사용
+curriculum:
+  version: '2015'
+  subjects:
+  - 미적분
+  scope_2028: calc2
+  scope_confirmed: true
+  standards:
+  - code: 미확인
+    text: 부분적분법을 이해하고, 이를 활용할 수 있다(요지)
+    verified: false
+  content_area: 적분법 – 부분적분법 / 수열의 극한 – 등비급수
+  behavior_domain: 추론
+  unit_path:
+  - 미적분
+  - 적분법
+  - 여러 가지 적분법
+  - 부분적분과 정적분으로 정의된 함수열
+  key_concepts:
+  - 부분적분법
+  - 정적분으로 정의된 함수
+  - 등비급수
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 숭실대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 숭실대학교
+  admission_year: 2022
+  admission_type: 논술우수자전형 모의논술
+  track: 자연
+  question_no: 2
+  official_url: https://iphak.ssu.ac.kr   # [확인필요] 입학처 기출 게시물 주소로 교체
+  retrieved_at: 2026-11-21
+  original_points: 20
+  rights_notice: 미확인(「숭실대 수리논술 문제교재(2026)」 p.53, 「숭실대 수리논술 해설교재(2026)」 p.71에서 옮김)
+verify: verify/SSU-M22.py::p02
+stimuli:
+- label: 제시문
+  body: |
+    두 함수 $f(x)$, $g(x)$가 모두 미분가능할 때
+    $$\int f(x)g'(x)\,dx=f(x)g(x)-\int f'(x)g(x)\,dx$$
+    【출처: 미적분 「여러 가지 적분법」】
+stem: |
+  (1) 이차함수 $p(t)=t^2+bt+c$에 대하여 정적분 $\displaystyle\int_0^x\dfrac{p(t)+p'(t)}3e^t\,dt$를 구하시오. ($b$, $c$는 상수)
+
+  (2) $f(0)=0$, $f\left(\frac12\right)=3$이고 도함수가 실수 전체에서 연속인 함수 $f(t)$에 대하여
+  $$f_1(x)=\int_0^x\dfrac{f(t)+f'(t)}3e^t\,dt$$
+  $$f_{n+1}(x)=\int_0^x\dfrac{f_n(t)+f_n{}'(t)}3e^t\,dt\ (n\text{은 자연수})$$
+  로 정의하자. 이때 급수 $\displaystyle\sum_{n=1}^\infty f_n\left(\frac12\right)$의 합을 구하시오.
+subparts:
+- id: '1'
+  stem: |
+    정적분 $\displaystyle\int_0^x\dfrac{p(t)+p'(t)}3e^t\,dt$를 구하시오.
+  points: 8
+  depends_on: []
+  answer:
+    kind: expression
+    value: ((x**2+b*x+c)*exp(x)-c)/3
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: '제시문에 $f=p$, $g=\dfrac13e^t$를 넣으면 $\dfrac13\int pe^t=\dfrac13pe^t-\dfrac13\int p''e^t$.'
+    steps:
+    - id: 1a
+      content: '$\dfrac13\big[p(t)e^t\big]_0^x=\dfrac13\left((x^2+bx+c)e^x-c\right)$'
+      criteria:
+      - 1.M1
+      - 1.M2
+      - 1.A1
+    hint_ladder:
+    - '$g(t)=\dfrac13e^t$이면 $g''=g$이다.'
+    - '$p''e^t$ 항을 옮기면?'
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 해설교재 p.71
+    steps:
+    - id: 1b-1
+      content: '제시문에 $f(t)=p(t)$, $g(t)=\dfrac13e^t$를 대입하고 $g''(t)=g(t)$를 이용하면 $\dfrac13\displaystyle\int p(t)e^t\,dt=\dfrac13p(t)e^t-\dfrac13\int p''(t)e^t\,dt$.'
+      criteria:
+      - 1.M1
+    - id: 1b-2
+      content: '$$\int_0^x\dfrac{p(t)+p''(t)}3e^t\,dt=\dfrac13\Big[p(t)e^t\Big]_0^x=\dfrac13\left(p(x)e^x-p(0)\right)=\dfrac13\left((x^2+bx+c)e^x-c\right)\quad\cdots\ \text{㉠}$$'
+      criteria:
+      - 1.M2
+      - 1.A1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 3
+      evidence: '부분적분(또는 $(pe^t)''=(p+p'')e^t$)을 적용했다.'
+      steps:
+      - 1b-1
+    - id: 1.M2
+      mark_type: M
+      points: 3
+      evidence: '$\dfrac13\big[p(t)e^t\big]_0^x$ 꼴로 정리했다.'
+      steps:
+      - 1b-2
+    - id: 1.A1
+      mark_type: A
+      points: 2
+      evidence: '$\dfrac13\left((x^2+bx+c)e^x-c\right)$.'
+      depends_on:
+      - 1.M2
+      cao: true
+      steps:
+      - 1b-2
+    deductions:
+    - code: D1-1
+      condition: 답만 쓰고 과정 없음
+      effect: cap
+      value: 5
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  - code: '71'
+    misconception: MC-CAL-0644
+  misconceptions:
+  - id: MC-CAL-0644
+    outcome_code: '71'
+    wrong_work: '아래끝 $t=0$의 값 $p(0)=c$를 빼지 않음'
+    detect_cue: '답에 $-c$ 항이 없음'
+    feedback: '정적분은 위끝 값에서 아래끝 값을 뺍니다. $p(0)e^0=c$입니다.'
+    remedy:
+    - RL-0644
+- id: '2'
+  stem: |
+    급수 $\displaystyle\sum_{n=1}^\infty f_n\left(\frac12\right)$의 합을 구하시오.
+  points: 12
+  depends_on:
+  - '1'
+  answer:
+    kind: value
+    value: 3*sqrt(E)/(3-sqrt(E))
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: '㉠은 도함수가 연속인 모든 $f$에 성립: $f_1\left(\frac12\right)=\dfrac{\sqrt e}3f\left(\frac12\right)$, $f_{n+1}\left(\frac12\right)=\dfrac{\sqrt e}3f_n\left(\frac12\right)$.'
+    steps:
+    - id: 2a
+      content: '$\displaystyle\sum=\dfrac{\frac{\sqrt e}3\cdot3}{1-\frac{\sqrt e}3}=\dfrac{3\sqrt e}{3-\sqrt e}$'
+      criteria:
+      - 2.M1
+      - 2.A1
+      - 2.M2
+      - 2.R1
+      - 2.M3
+      - 2.A2
+    hint_ladder:
+    - '(1)의 계산에서 $p$가 이차함수라는 사실을 썼는가?'
+    - '$f_n(0)$의 값은?'
+    - 공비가 1보다 작은 등비급수.
+  - id: S2-B
+    audience: B
+    method_no: 1
+    source_flow: 해설교재 p.71
+    steps:
+    - id: 2b-1
+      content: '식 ㉠은 도함수가 실수 전체에서 연속인 함수 $f(t)$에 대해서도 성립하므로 구간 $\left[0,\frac12\right]$에서 $f_1\left(\frac12\right)=\displaystyle\int_0^{\frac12}\dfrac{f(t)+f''(t)}3e^t\,dt=\dfrac13\Big[f(t)e^t\Big]_0^{\frac12}=\dfrac13\left(f\left(\frac12\right)\sqrt e-f(0)\right)$ $\cdots$ ㉡'
+      criteria:
+      - 2.M1
+    - id: 2b-2
+      content: '$f(0)=0$이므로 $f_1\left(\frac12\right)=\dfrac{\sqrt e}3f\left(\frac12\right)$.'
+      criteria:
+      - 2.A1
+    - id: 2b-3
+      content: '$f_n(x)$의 정의에 따라 모든 자연수 $n$에 대해 $f_n(0)=0$이므로 ㉡을 $f_n$에 적용하면 $f_{n+1}\left(\frac12\right)=\dfrac{\sqrt e}3f_n\left(\frac12\right)=\left(\dfrac{\sqrt e}3\right)^{n+1}f\left(\frac12\right)$.'
+      criteria:
+      - 2.M2
+      - 2.R1
+    - id: 2b-4
+      content: '따라서 $f_n\left(\frac12\right)$은 첫째항 $\dfrac{\sqrt e}3f\left(\frac12\right)$, 공비 $\dfrac{\sqrt e}3$인 등비수열이고, 공비가 1보다 작으므로 급수는 수렴하며 합은 $\displaystyle\sum_{n=1}^\infty f\left(\frac12\right)\left(\dfrac{\sqrt e}3\right)^n=\dfrac{\sqrt e}3f\left(\frac12\right)\cdot\dfrac1{1-\frac{\sqrt e}3}=\dfrac{3\sqrt e}{3-\sqrt e}$.'
+      criteria:
+      - 2.M3
+      - 2.A2
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 3
+      evidence: '(1)의 결과(부분적분)를 일반 함수 $f$에 적용해 $f_1\left(\frac12\right)=\dfrac13\left(f\left(\frac12\right)\sqrt e-f(0)\right)$을 얻었다.'
+      steps:
+      - 2b-1
+    - id: 2.A1
+      mark_type: A
+      points: 1
+      evidence: '$f_1\left(\frac12\right)=\sqrt e$ (또는 $\dfrac{\sqrt e}3f\left(\frac12\right)$).'
+      depends_on:
+      - 2.M1
+      steps:
+      - 2b-2
+    - id: 2.M2
+      mark_type: M
+      points: 3
+      evidence: '$f_{n+1}\left(\frac12\right)=\dfrac{\sqrt e}3f_n\left(\frac12\right)$을 세웠다.'
+      steps:
+      - 2b-3
+    - id: 2.R1
+      mark_type: R
+      points: 2
+      evidence: '$f_n(0)=0$임을 근거로 들었다.'
+      depends_on:
+      - 2.M2
+      steps:
+      - 2b-3
+    - id: 2.M3
+      mark_type: M
+      points: 2
+      evidence: '공비 $\dfrac{\sqrt e}3<1$을 확인하고 등비급수의 합 공식을 적용했다.'
+      steps:
+      - 2b-4
+    - id: 2.A2
+      mark_type: A
+      points: 1
+      evidence: '$\dfrac{3\sqrt e}{3-\sqrt e}$.'
+      depends_on:
+      - 2.M3
+      cao: true
+      steps:
+      - 2b-4
+    deductions:
+    - code: D2-1
+      condition: 답만 쓰고 과정 없음
+      effect: cap
+      value: 5
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  - code: '71'
+    misconception: MC-ALG-0645
+  misconceptions:
+  - id: MC-ALG-0645
+    outcome_code: '71'
+    wrong_work: '급수의 첫째항을 $f\left(\frac12\right)=3$으로 잡아 합을 $\dfrac{3}{1-\sqrt e/3}=\dfrac9{3-\sqrt e}$로 씀'
+    detect_cue: '답 $\dfrac9{3-\sqrt e}$'
+    feedback: '급수는 $f_1$부터 시작합니다. 첫째항은 $f_1\left(\frac12\right)=\sqrt e$입니다.'
+    remedy:
+    - RL-0645
+remedy_links:
+- id: RL-0644
+  trigger:
+    type: misconception
+    ref: MC-CAL-0644
+  relation: remediation
+  target:
+    kind: concept
+    ref: CON-CAL-PARTS-INTEGRAL
+  priority: 1
+- id: RL-0645
+  trigger:
+    type: misconception
+    ref: MC-ALG-0645
+  relation: remediation
+  target:
+    kind: concept
+    ref: CON-ALG-GEOMETRIC-SERIES
+  priority: 1
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: opus
+  prompt_version: past-transcribe-v1
+  item_version: 1
+  verdict: pass
+  date: 2026-11-21
+created: 2026-11-21
+updated: 2026-11-21

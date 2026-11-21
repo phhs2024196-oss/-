@@ -1,0 +1,168 @@
+# 숭실대 2026학년도 논술고사(자연) 문제 3 — 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: SSU-G26-03
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: numeric
+origin: past_exam
+school: SSU
+type: T07
+variant_of: null
+replaces: null
+level: L4
+form: 점화
+points: 25
+time_estimate_min: 20
+intent: 홀수항·짝수항으로 나누어 부분합 사이의 관계식 $S_{2m}=S_m+\dfrac{m(m+1)}2$를 세우고 반복 적용하는 능력을 본다.
+key_idea: '$S_{2m}=\sum_{n=1}^{m}a_{2n-1}+\sum_{n=1}^{m}a_{2n}=0+\sum_{n=1}^{m}(a_n+n)=S_m+\dfrac{m(m+1)}{2}$.'
+stuck: 부분합을 홀수항 합과 짝수항 합으로 나누어 $S_{2m}$을 $S_m$으로 나타내는 단계
+idea_tags: [IDEA-PARTIAL-SUM-HALVING, IDEA-ODD-EVEN-SPLIT]
+tags: [수열의 합, 귀납적 정의, 부분합 점화식]
+elements:
+  materials: [귀납적으로 정의된 수열, 부분합]
+  concepts: [합의 기호, 귀납적으로 정의된 수열, 자연수의 합]
+  tools: [홀수항·짝수항 분할, 부분합 점화식의 반복 적용]
+  conditions:
+  - '$a_{2n-1}=0$ → 홀수항의 합은 0'
+  - '$a_{2n}=a_n+n$ → $S_{2m}=S_m+\dfrac{m(m+1)}2$'
+  - '$128=2^7$ → 관계식 7회 반복'
+  stimuli_used: [제시문]
+  subpart_links: null
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅰ]
+  scope_2028: common
+  scope_confirmed: true
+  standards:
+  - code: 미확인
+    text: 수열의 귀납적 정의를 이해하고 합의 기호를 활용할 수 있다(요지)
+    verified: false
+  content_area: 수열 – 수열의 합
+  behavior_domain: 추론
+  unit_path: [수학Ⅰ, 수열, 수열의 합, 홀짝 분할과 부분합의 관계]
+  key_concepts: [합의 기호, 귀납적으로 정의된 수열, 자연수의 합]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 숭실대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 숭실대학교
+  admission_year: 2026
+  admission_type: 논술우수자전형
+  track: 자연
+  question_no: 3
+  official_url: https://iphak.ssu.ac.kr   # [확인필요] 입학처 기출 게시물 주소로 교체
+  retrieved_at: 2026-11-21
+  original_points: 25
+  rights_notice: 미확인(대치 수리 논술 연구소 「2027학년도 대비 수리논술 숭실대 기출 및 모의 문제」 p.10에서 옮김, 해설교재 p.8 참고)
+
+verify: verify/SSU-G26.py::p03
+
+stimuli:
+- label: 제시문
+  body: |
+    수열 $\{a_n\}$의 첫째항부터 제$N$항까지의 합 $a_1+a_2+a_3+\cdots+a_N$을 합의 기호 $\sum$를 사용하여 다음과 같이 간단히 나타낼 수 있다.
+    $$a_1+a_2+a_3+\cdots+a_N=\sum_{n=1}^{N}a_n$$
+    【출처: 수학Ⅰ 「수열의 합」】
+
+stem: |
+  수열 $\{a_n\}$이 $a_{2n-1}=0$, $a_{2n}-a_n=n\ (n=1,2,3,\cdots)$을 만족시킨다. 이때 $\displaystyle\sum_{n=1}^{128}a_n$의 값을 구하시오.
+
+subparts:
+- id: '1'
+  stem: |
+    $\displaystyle\sum_{n=1}^{128}a_n$의 값을 구하시오.
+  points: 25
+  depends_on: []
+  answer: {kind: value, value: '2794', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $S_k=\sum_{n=1}^{k}a_n$이라 하면 $S_{2m}=S_m+\dfrac{m(m+1)}2$, $S_1=0$에서 $S_{128}=1+3+10+36+136+528+2080$.
+    steps:
+    - {id: 1a, content: '$S_{128}=0+1+3+10+36+136+528+2080=2794$', criteria: [1.M1, 1.A1, 1.M2, 1.A2]}
+    hint_ladder:
+    - 1부터 128까지의 합을 홀수 번째 항의 합과 짝수 번째 항의 합으로 나누어 보자.
+    - 짝수 번째 항의 합에 $a_{2n}=a_n+n$을 대입하면 무엇이 보이는가?
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 해설교재 p.8
+    steps:
+    - id: 1b-1
+      content: |
+        $S_k=\displaystyle\sum_{n=1}^{k}a_n$이라 하자. 자연수 $m$에 대하여
+        $$S_{2m}=\sum_{n=1}^{m}a_{2n-1}+\sum_{n=1}^{m}a_{2n}=0+\sum_{n=1}^{m}(a_n+n)=S_m+\frac{m(m+1)}{2}.$$
+      criteria: [1.M1, 1.A1]
+    - id: 1b-2
+      content: |
+        $S_1=a_1=0$ ($n=1$일 때 $a_{2n-1}=a_1=0$). 관계식을 $m=1,2,4,\dots,64$에 차례로 적용하면
+        $S_2=0+1=1$, $S_4=1+3=4$, $S_8=4+10=14$, $S_{16}=14+36=50$, $S_{32}=50+136=186$, $S_{64}=186+528=714$.
+      criteria: [1.M2]
+    - id: 1b-3
+      content: |
+        $S_{128}=714+\dfrac{64\cdot65}{2}=714+2080=2794$.
+      criteria: [1.A2]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 7
+      evidence: 부분합을 홀수항의 합과 짝수항의 합으로 나누고 $a_{2n}=a_n+n$을 대입했다.
+      steps: [1b-1]
+    - id: 1.A1
+      mark_type: A
+      points: 6
+      evidence: $S_{2m}=S_m+\dfrac{m(m+1)}{2}$ (또는 $S_{128}=S_{64}+2080$ 등 구체적 관계식)을 얻었다.
+      depends_on: [1.M1]
+      steps: [1b-1]
+    - id: 1.M2
+      mark_type: M
+      points: 7
+      evidence: $S_1=0$에서 출발해 관계식을 반복 적용해 $S_2,S_4,\dots,S_{64}$ (또는 합 $1+3+10+\cdots+2080$)을 구했다.
+      depends_on: [1.A1]
+      steps: [1b-2]
+    - id: 1.A2
+      mark_type: A
+      points: 5
+      evidence: $S_{128}=2794$.
+      depends_on: [1.M2]
+      cao: true
+      steps: [1b-3]
+    deductions:
+    - code: D1-1
+      condition: 답만 쓰고 과정 없음
+      effect: cap
+      value: 5
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-ALG-0316}
+  misconceptions:
+  - id: MC-ALG-0316
+    outcome_code: '71'
+    wrong_work: '짝수항을 $a_{2n}=n$으로 보고 $\displaystyle\sum_{n=1}^{64}n=2080$'
+    detect_cue: 답 2080, $a_n$ 항(재귀 부분)이 사라짐
+    feedback: $a_{2n}=a_n+n$이므로 짝수항의 합에는 앞쪽 항들의 합 $S_m$이 다시 들어갑니다. 부분합 사이의 관계식을 세우세요.
+    remedy: [RL-1]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-ALG-0316}
+  relation: remediation
+  target: {kind: concept, ref: CON-ALG-RECURSIVE-SEQ}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-transcribe-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

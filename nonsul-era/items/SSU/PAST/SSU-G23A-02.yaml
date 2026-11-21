@@ -1,0 +1,194 @@
+# 숭실대 2023학년도 논술고사(자연1) 문제 2 — 원문은 내부 분석용(allowed_use: internal_only)
+# 해설교재(p.38)와 답 일치: h=2√2/3.
+schema_version: '2.0'
+id: SSU-G23A-02
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: numeric
+origin: past_exam
+school: SSU
+type: T05
+variant_of: null
+replaces: null
+level: L5
+form: 최적2단
+points: 25
+time_estimate_min: 25
+intent: 속력으로부터 위치(이동 거리)를 정적분으로 구하고, 원호 위의 이동 시간과 합친 총 시간을 각에 대한 함수로 나타내 최댓값을 구하는 능력을 본다.
+key_idea: '곡선은 중심 $(1,0)$, 반지름 1인 원의 일부이므로 만나는 점을 $\mathrm{Q}(1+\cos\theta,\sin\theta)$로 두면 $h=\sin\theta$. 수평 구간 시간 $T=\sqrt{2(1+\cos\theta)}$, 원호 시간 $\dfrac{\theta}{\sqrt3}$이므로 $t(\theta)=\sqrt{2+2\cos\theta}+\dfrac{\theta}{\sqrt3}$를 최대화.'
+stuck: 속력 $v(t)=t$에서 위치 $x(t)=\dfrac{t^2}{2}$를 얻고, 원호 구간을 각 $\theta$로 매개화해 총 시간을 한 변수로 나타내는 단계
+idea_tags: [IDEA-SPEED-INTEGRAL-POSITION, IDEA-ARC-ANGLE-PARAM]
+tags: [이동 시간의 최대, 원호 위의 운동]
+elements:
+  materials: [직선 위의 가속 운동, 원호 위의 등속 운동, 이동 시간의 최대]
+  concepts: [속도와 위치(정적분), 호의 길이와 중심각, 삼각함수의 도함수, 극대·극소와 최대]
+  tools: [속력의 정적분으로 위치 구하기, 원의 매개화, 합성함수 미분, 이계도함수로 극대 판정]
+  conditions:
+  - '(i) 출발점 $(0,h)$, $0\le h\le1$'
+  - '(ii) 수평 구간 속력 $v(t)=t$ → $x(t)=\dfrac{t^2}{2}$, 곡선 위에서는 속력 $\sqrt3$'
+  - '곡선 $y=\sqrt{-x^2+2x}$ $(1\le x\le2)$는 중심 $(1,0)$, 반지름 1인 원의 일부 → $\mathrm{Q}(1+\cos\theta,\sin\theta)$, $h=\sin\theta$'
+  - '(iii) $x(t)$는 증가 → 오른쪽으로만 이동'
+  stimuli_used: []
+  subpart_links: null
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅰ, 수학Ⅱ, 미적분]
+  scope_2028: calc2
+  scope_confirmed: true
+  standards:
+  - code: 미확인
+    text: 속도와 거리에 대한 문제를 정적분을 이용하여 해결하고, 도함수를 활용하여 최대·최소를 구한다(요지)
+    verified: false
+  content_area: 적분 – 속도와 거리 / 미분법 – 도함수의 활용
+  behavior_domain: 문제해결
+  unit_path: [미적분, 미분법, 도함수의 활용, 운동 시간의 최대·최소]
+  key_concepts: [속도와 위치(정적분), 호의 길이와 중심각, 삼각함수의 도함수, 극대·극소와 최대]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 숭실대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 숭실대학교
+  admission_year: 2023
+  admission_type: 논술우수자전형
+  track: 자연1
+  question_no: 2
+  official_url: https://iphak.ssu.ac.kr   # [확인필요] 입학처 기출 게시물 주소로 교체
+  retrieved_at: 2026-11-21
+  original_points: 25
+  rights_notice: 미확인(「숭실대 수리논술 문제교재(2026)」 p.33, 해설교재 p.38에서 옮김)
+
+verify: verify/SSU-G23A.py::p02
+
+stimuli: []
+
+stem: |
+  좌표평면 위의 점 $\mathrm{P}$가 다음 조건을 모두 만족시키며 움직인다고 하자.
+
+  (i) 시각 $t=0$에서의 점 $\mathrm{P}$의 위치는 $(0,h)$이며 $0\le h\le1$이다.
+
+  (ii) 점 $\mathrm{P}$는 시각 $t$에서 속력 $v(t)=t$로 $x$축과 평행한 직선 위를 움직이다가 곡선 $y=\sqrt{-x^2+2x}$ $(1\le x\le2)$를 만나면 곡선을 따라 일정한 속력 $\sqrt3$으로 움직인다.
+
+  (iii) 시각 $t$에서의 점 $\mathrm{P}$의 $x$좌표 $x(t)$는 $t_1<t_2$일 때 $x(t_1)<x(t_2)$이다.
+
+  [그림 설명] 좌표평면에 곡선 $y=\sqrt{-x^2+2x}$가 점 $(1,1)$에서 점 $(2,0)$까지 그려져 있고, 높이 $h$인 수평선 위의 점 P가 오른쪽(화살표)으로 움직여 곡선과 만난 뒤 곡선을 따라 $(2,0)$까지 내려가는 경로가 굵은 선으로 표시되어 있다. $y$축에 1과 $h$, $x$축에 1, 2가 표시되어 있다.
+
+  점 $\mathrm{P}$가 점 $(0,h)$에서 점 $(2,0)$까지 이동하는데 걸리는 시간이 최대가 되도록 하는 $h$를 구하시오.
+
+subparts:
+- id: '1'
+  stem: |
+    이동 시간이 최대가 되도록 하는 $h$를 구하시오.
+  points: 25
+  depends_on: []
+  answer: {kind: value, value: '\dfrac{2\sqrt{2}}{3}', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $t(\theta)=\sqrt{2+2\cos\theta}+\dfrac{\theta}{\sqrt3}$, $t^\prime(\theta_1)=0$에서 $\dfrac{1-\cos\theta_1}{2}=\dfrac13$, $\cos\theta_1=\dfrac13$, $h=\sin\theta_1=\dfrac{2\sqrt2}{3}$.
+    steps:
+    - {id: 1a, content: '$t(\theta)=\sqrt{2+2\cos\theta}+\dfrac{\theta}{\sqrt3}$ → $\cos\theta_1=\dfrac13$ → $h=\dfrac{2\sqrt2}{3}$', criteria: [1.M1, 1.M2, 1.M3, 1.A1, 1.R1, 1.A2]}
+    hint_ladder:
+    - 곡선 $y=\sqrt{-x^2+2x}$는 어떤 원의 일부인가?
+    - 속력 $v(t)=t$로 움직일 때 $x$좌표를 $t$의 식으로 나타내 보자.
+    - 원호 위에서 이동한 거리는 중심각과 어떤 관계인가?
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 해설교재 p.38
+    steps:
+    - id: 1b-1
+      content: |
+        출발점을 $\mathrm{A}(0,h)$, 곡선을 만날 때의 위치를 Q라 하자. $1\le x\le2$에서 곡선 $y=\sqrt{-x^2+2x}$는 중심이 $\mathrm{C}(1,0)$이고 반지름이 1인 원의 일부이므로, $\angle\mathrm{QCB}=\theta$ ($\mathrm{B}(2,0)$)라 하면 $\mathrm{Q}(1+\cos\theta,\sin\theta)$, $0\le\theta\le\dfrac{\pi}{2}$.
+      criteria: [1.M1]
+    - id: 1b-2
+      content: |
+        곡선을 만나는 시각을 $T$라 하면 (ii)에 의해 $0\le t\le T$에서 P의 $x$좌표는 $x_0+\displaystyle\int_0^tu\,du=\dfrac{t^2}{2}$ ($x_0=0$). 따라서 P의 위치는 $\left(\dfrac{t^2}{2},h\right)$이고 $h=\sin\theta$. 또 $\dfrac{T^2}{2}=1+\cos\theta$에서 $T=\sqrt{2(1+\cos\theta)}$.
+      criteria: [1.M2]
+    - id: 1b-3
+      content: |
+        Q에서 $(2,0)$까지 곡선 위를 속력 $\sqrt3$으로 움직이고, 이동 거리는 $r\theta=\theta$이므로 걸리는 시간은 $\dfrac{\theta}{\sqrt3}$. 따라서 총 시간은
+        $$t(\theta)=\sqrt{2+2\cos\theta}+\dfrac{\theta}{\sqrt3},\quad t'(\theta)=\dfrac{-\sin\theta}{\sqrt{2+2\cos\theta}}+\dfrac{1}{\sqrt3},\quad t''(\theta)=-\dfrac{\sqrt{2(1+\cos\theta)}}{4}.$$
+      criteria: [1.M3]
+    - id: 1b-4
+      content: |
+        $t'(\theta_1)=0$이면 $\dfrac{\sin\theta_1}{\sqrt{2+2\cos\theta_1}}=\dfrac{1}{\sqrt3}$, 제곱하면 $\dfrac{1-\cos^2\theta_1}{2(1+\cos\theta_1)}=\dfrac13$. $0\le\theta_1\le\dfrac{\pi}{2}$에서 $1+\cos\theta_1\ne0$이므로 $\dfrac{1-\cos\theta_1}{2}=\dfrac13$, 즉 $\cos\theta_1=\dfrac13$, $\sin\theta_1=\dfrac{2\sqrt2}{3}$.
+      criteria: [1.A1]
+    - id: 1b-5
+      content: |
+        $t(\theta_1)$은 $0\le\theta\le\dfrac{\pi}{2}$에서 유일한 극값이고 $t''(\theta_1)<0$이므로 극댓값이다. 그러므로 $t(\theta)$는 $\theta=\theta_1$에서 최댓값을 가지고, 이때 $h=\sin\theta_1=\dfrac{2\sqrt2}{3}$.
+      criteria: [1.R1, 1.A2]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 3
+      evidence: 곡선이 중심 $(1,0)$, 반지름 1인 원의 일부임을 이용해 만나는 점을 $(1+\cos\theta,\sin\theta)$ 등으로 나타냈다.
+      steps: [1b-1]
+    - id: 1.M2
+      mark_type: M
+      points: 6
+      evidence: 속력을 적분해 $x(t)=\dfrac{t^2}{2}$를 얻고 수평 구간 시간 $T=\sqrt{2(1+\cos\theta)}$ (또는 $h$의 식)를 구했다.
+      steps: [1b-2]
+    - id: 1.M3
+      mark_type: M
+      points: 5
+      evidence: 원호 구간 시간 $\dfrac{\theta}{\sqrt3}$를 더해 총 시간을 한 변수의 함수로 나타내고 미분했다.
+      depends_on: [1.M1]
+      steps: [1b-3]
+    - id: 1.A1
+      mark_type: A
+      points: 4
+      evidence: $t^\prime(\theta)=0$에서 $\cos\theta=\dfrac13$을 얻었다.
+      depends_on: [1.M3]
+      steps: [1b-4]
+    - id: 1.R1
+      mark_type: R
+      points: 3
+      evidence: 유일한 극값이 극댓값($t^{\prime\prime}<0$ 또는 부호 변화)이므로 최댓값임을 밝혔다.
+      depends_on: [1.A1]
+      steps: [1b-5]
+    - id: 1.A2
+      mark_type: A
+      points: 4
+      evidence: $h=\dfrac{2\sqrt2}{3}$.
+      depends_on: [1.A1, 1.M2]
+      cao: true
+      steps: [1b-5]
+    deductions:
+    - code: D1-1
+      condition: 답만 쓰고 과정 없음
+      effect: cap
+      value: 5
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-0517}
+  misconceptions:
+  - id: MC-CAL-0517
+    outcome_code: '71'
+    wrong_work: '수평 구간을 등속으로 보고 시간 $=\dfrac{\text{거리}}{\text{속력}}$ 또는 $\dfrac{1+\cos\theta}{t}$처럼 계산'
+    detect_cue: 수평 구간 시간에 $\sqrt{\ }$가 없음, $x(t)=\dfrac{t^2}{2}$가 없음
+    feedback: 속력이 $v(t)=t$로 변하므로 위치는 속력을 적분해 $x(t)=\displaystyle\int_0^tu\,du=\dfrac{t^2}{2}$로 구해야 합니다.
+    remedy: [RL-1]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CAL-0517}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-SPEED-TIME}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-transcribe-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

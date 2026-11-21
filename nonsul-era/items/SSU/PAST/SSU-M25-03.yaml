@@ -1,0 +1,293 @@
+# 숭실대 2025학년도 모의논술고사(자연) 문제 3 — 원문은 내부 분석용(allowed_use: internal_only)
+# 소문항 배점은 원문에 없음(문제 전체 25점) → (1) 12점, (2) 13점으로 내부 배분. [확인필요]
+# answer.value 는 sympy 논리식(a, b 는 실수). (2)는 해설교재 표기 「(a>0, 2a+b=0) 또는 a=b=0」과 동치인 「a≥0, b=-2a」로 적음.
+schema_version: '2.0'
+id: SSU-M25-03
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: SSU
+type: T01
+variant_of: null
+replaces: null
+level: L4
+form: 분류
+points: 25
+time_estimate_min: 20
+intent: 최고차항의 계수가 문자인 부등식을 계수의 부호(양·0·음)로 나누고, 이차함수의 그래프와 판별식으로 해의 존재 조건과 절대부등식 조건을 구하는 능력을 본다.
+key_idea: '(1) $a>0$이면 항상, $a=0$이면 $b\ge1$, $a<0$이면 최댓값 $f(2)=b-a-1\ge0$. (2) $a>0$이면 $D=(2a+b)^2\le0$, $a=0$이면 $b=0$, $a<0$이면 불가.'
+stuck: 최고차항의 계수 $a=0$인 경우를 따로 다루고, (2)에서 판별식이 완전제곱식 $(2a+b)^2$이 되어 등호만 가능함을 읽는 단계
+idea_tags: [IDEA-LEADING-COEF-SIGN-CASE, IDEA-DISCRIMINANT-PERFECT-SQUARE]
+tags: [이차부등식, 판별식, 절대부등식]
+elements:
+  materials: [이차부등식, 문자 계수 이차함수, 절대부등식]
+  concepts: [이차방정식의 판별식, 이차부등식과 이차함수의 그래프, 절대부등식]
+  tools: [최고차항 계수의 부호에 따른 경우 나누기, 판별식, 완전제곱식]
+  conditions:
+  - '이차항 계수 $a$가 문자 → $a>0$, $a=0$, $a<0$으로 나눔'
+  - '(1) 「만족하는 $x$가 존재」 → $a<0$이면 $f(x)=0$이 실근을 가짐'
+  - '(2) 「모든 $x$에 대하여」 → $a>0$이고 $D\le0$ (또는 $a=b=0$)'
+  - '(2) $D=(2a+b)^2$ → $D\le0$이면 $2a+b=0$'
+  stimuli_used: [제시문]
+  subpart_links: "(2)는 (1)과 같은 방식(a의 부호로 경우 나누기)을 사용"
+
+curriculum:
+  version: '2015'
+  subjects: [수학]
+  scope_2028: common
+  scope_confirmed: true
+  standards:
+  - code: 미확인
+    text: 이차부등식과 이차함수의 관계를 이해하고, 이차부등식을 풀 수 있다(요지)
+    verified: false
+  content_area: 방정식과 부등식 – 이차부등식
+  behavior_domain: 추론
+  unit_path: [수학, 방정식과 부등식, 여러 가지 부등식, 이차부등식의 해 존재와 절대부등식 조건]
+  key_concepts: [이차방정식의 판별식, 이차부등식과 이차함수의 그래프, 절대부등식]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 숭실대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 숭실대학교
+  admission_year: 2025
+  admission_type: 논술우수자전형 모의논술
+  track: 자연
+  question_no: 3
+  official_url: https://iphak.ssu.ac.kr   # [확인필요] 입학처 기출 게시물 주소로 교체
+  retrieved_at: 2026-11-21
+  original_points: 25
+  rights_notice: 미확인(「숭실대 수리논술 문제교재(2026)」 p.22에서 옮김, 해설교재 p.22 참고)
+
+verify: verify/SSU-M25.py::p03
+
+stimuli:
+- label: 제시문
+  body: |
+    이차방정식 $ax^2+bx+c=0$에서 $D=b^2-4ac$라고 하면
+
+    (i) $D>0$: 서로 다른 두 실근을 갖는다.
+
+    (ii) $D=0$: 중근(서로 같은 두 실근)을 갖는다.
+
+    (iii) $D<0$: 서로 다른 두 허근을 갖는다.
+
+    일반적으로 이차부등식의 해와 이차함수의 그래프 사이에는 다음과 같은 관계가 성립한다.
+
+    (i) $ax^2+bx+c>0$의 해는 $y=ax^2+bx+c$에서 $y>0$인 $x$의 값의 범위, 즉 함수 $y=ax^2+bx+c$의 그래프가 $x$축보다 위쪽에 있는 부분의 $x$의 값의 범위와 같다.
+
+    (ii) $ax^2+bx+c<0$의 해는 $y=ax^2+bx+c$에서 $y<0$인 $x$의 값의 범위, 즉 함수 $y=ax^2+bx+c$의 그래프가 $x$축보다 아래쪽에 있는 부분의 $x$의 값의 범위와 같다.
+
+    전체집합이 실수 전체의 집합일 때, 부등식 $x^2+1\ge0$은 전체집합에 속하는 모든 $x$에 대하여 성립한다. 이와 같이 전체집합에 속한 모든 값에 대하여 성립하는 부등식을 절대부등식이라고 한다.
+    【출처: 수학 「이차방정식의 판별식, 이차부등식, 절대부등식」】
+
+stem: |
+  다음 문항에 답하시오.
+
+subparts:
+- id: '1'
+  stem: |
+    부등식 $a(x-1)(x-3)+b\ge1$을 만족시키는 실수 $x$가 존재하기 위한 실수 $a$와 $b$의 조건을 구하시오.
+  points: 12
+  depends_on: []
+  answer: {kind: set, value: 'Or(a > 0, And(a <= 0, b >= a + 1))', equivalents: ['$a>0$ 또는 ($a\le0$, $b\ge a+1$)'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $f(x)=ax^2-4ax+3a+b-1\ge0$. $a>0$이면 항상 존재, $a=0$이면 $b\ge1$, $a<0$이면 $f=0$이 실근을 가져야 하므로 $\frac D4=a(a-b+1)\ge0$, 즉 $b\ge a+1$.
+    steps:
+    - {id: 1a, content: '$a>0$ 또는 ($a\le0$, $b\ge a+1$)', criteria: [1.M1, 1.B1, 1.B2, 1.M2, 1.A1]}
+    hint_ladder:
+    - $a$의 부호에 따라 그래프의 모양이 어떻게 달라지는가?
+    - 위로 볼록한 포물선에서 $f(x)\ge0$인 $x$가 있으려면 그래프가 $x$축과 만나야 한다.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 해설교재 p.22
+    steps:
+    - id: 1b-1
+      content: |
+        $f(x)=ax^2-4ax+3a+b-1$로 두면 주어진 부등식은 $f(x)\ge0$. 이차항의 계수 $a$의 부호에 따라 $y=f(x)$의 그래프 모양이 정해지므로 $a$의 부호로 경우를 나눈다.
+      criteria: [1.M1]
+    - id: 1b-2
+      content: |
+        1) $a>0$: $y=f(x)$는 아래로 볼록한 포물선이므로 $x$가 충분히 크면 $f(x)>0$. 따라서 $x$가 항상 존재한다.
+      criteria: [1.B1]
+    - id: 1b-3
+      content: |
+        2) $a=0$: $f(x)=b-1$이므로 $b-1\ge0$, 즉 $b\ge1$이어야 $x$가 존재한다.
+      criteria: [1.B2]
+    - id: 1b-4
+      content: |
+        3) $a<0$: $y=f(x)$는 위로 볼록한 포물선이므로 $f(x)\ge0$인 $x$가 있으려면 그래프가 $x$축과 한 점 또는 두 점에서 만나야, 즉 $f(x)=0$이 실근을 가져야 한다. 제시문에 의해 $\dfrac D4=4a^2-a(3a+b-1)=a(a-b+1)\ge0$이고 $a<0$이므로 $a-b+1\le0$, 즉 $b\ge a+1$.
+      criteria: [1.M2]
+    - id: 1b-5
+      content: |
+        1), 2), 3)을 종합하면 $a>0$ 또는 ($a\le0$, $b\ge a+1$). ($a=0$일 때 $b\ge a+1$은 $b\ge1$과 같다.)
+      criteria: [1.A1]
+  - id: S1-ALT
+    audience: ALT
+    method_no: 2
+    key_idea: 해설교재의 별해. $a<0$이면 양변을 $a$로 나누어 $(x-2)^2\le\frac{a-b+1}{a}$이고, 이를 만족하는 $x$가 있으려면 $\frac{a-b+1}{a}\ge0$, 즉 $b\ge a+1$.
+    steps:
+    - id: 1c-1
+      content: |
+        $a<0$: $x^2-4x+3+\dfrac{b-1}a\le0$, 즉 $(x-2)^2\le\dfrac{a-b+1}{a}$. 우변이 0 이상이어야 하므로 $a-b+1\le0$.
+      criteria: [1.M2]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 2
+      evidence: 부등식을 $f(x)\ge0$ 꼴로 정리하고 $a$의 부호로 경우를 나누었다.
+      steps: [1b-1]
+    - id: 1.B1
+      mark_type: B
+      points: 2
+      evidence: $a>0$이면 항상 존재함을 그래프 모양으로 설명했다.
+      steps: [1b-2]
+    - id: 1.B2
+      mark_type: B
+      points: 2
+      evidence: $a=0$이면 $b\ge1$임을 구했다.
+      steps: [1b-3]
+    - id: 1.M2
+      mark_type: M
+      points: 4
+      evidence: $a<0$에서 실근 조건(판별식 $\ge0$ 또는 $(x-2)^2\le\frac{a-b+1}a$)으로 $b\ge a+1$을 얻었다.
+      steps: [1b-4, 1c-1]
+    - id: 1.A1
+      mark_type: A
+      points: 2
+      evidence: 종합한 조건 「$a>0$ 또는 ($a\le0$, $b\ge a+1$)」을 적었다.
+      depends_on: [1.M2]
+      steps: [1b-5]
+    deductions:
+    - code: D1-1
+      condition: 등호 조건 누락
+      effect: minus
+      value: 2
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-ALG-0423}
+  misconceptions:
+  - id: MC-ALG-0423
+    outcome_code: '71'
+    wrong_work: '$a>0$, $a<0$ 두 경우만 다루어 $a=0$일 때의 조건을 빠뜨림'
+    detect_cue: 답에 $a=0$에 대한 언급이 없음
+    feedback: $a=0$이면 부등식은 이차가 아니라 $b-1\ge0$이 됩니다. 최고차항의 계수가 문자이면 0인 경우를 따로 보세요.
+    remedy: [RL-1]
+- id: '2'
+  stem: |
+    모든 실수 $x$에 대하여 부등식 $a(x-1)(x-3)+b\ge bx$가 성립하도록 하는 실수 $a$와 $b$의 조건을 구하시오.
+  points: 13
+  depends_on: []
+  answer: {kind: set, value: 'And(a >= 0, Eq(b, -2*a))', equivalents: ['($a>0$, $2a+b=0$) 또는 $a=b=0$', '$a\ge0$, $b=-2a$'], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: $f(x)=ax^2-(4a+b)x+(3a+b)\ge0$ (모든 $x$). $a>0$이면 $D=(2a+b)^2\le0$에서 $b=-2a$, $a=0$이면 $-bx+b\ge0$에서 $b=0$, $a<0$이면 불가.
+    steps:
+    - {id: 2a, content: '($a>0$, $2a+b=0$) 또는 $a=b=0$', criteria: [2.M1, 2.M2, 2.B1, 2.B2, 2.A1]}
+    hint_ladder:
+    - (1)과 같이 $a$의 부호로 나누어 보자.
+    - 판별식을 정리하면 완전제곱식이 된다.
+  - id: S2-B
+    audience: B
+    method_no: 1
+    source_flow: 해설교재 p.22
+    steps:
+    - id: 2b-1
+      content: |
+        $f(x)=ax^2-(4a+b)x+(3a+b)$로 두면 주어진 부등식은 $f(x)\ge0$. (1)에서와 같이 $a$의 부호로 경우를 나눈다.
+      criteria: [2.M1]
+    - id: 2b-2
+      content: |
+        1) $a>0$: 아래로 볼록한 포물선이므로 모든 $x$에서 $f(x)\ge0$이려면 그래프가 $x$축 아래로 내려가지 않아야, 즉 $f(x)=0$이 서로 다른 두 실근을 갖지 않아야 한다. $D=(4a+b)^2-4a(3a+b)=4a^2+4ab+b^2=(2a+b)^2\le0$이므로 $2a+b=0$.
+      criteria: [2.M2]
+    - id: 2b-3
+      content: |
+        2) $a=0$: $f(x)=-bx+b$이므로 모든 $x$에서 $f(x)\ge0$이려면 $b=0$.
+      criteria: [2.B1]
+    - id: 2b-4
+      content: |
+        3) $a<0$: 위로 볼록한 포물선이므로 $x$가 충분히 크면 $f(x)<0$. 모든 $x$에서 성립할 수 없다.
+      criteria: [2.B2]
+    - id: 2b-5
+      content: |
+        종합하면 ($a>0$, $2a+b=0$) 또는 $a=b=0$, 즉 $a\ge0$이고 $b=-2a$.
+      criteria: [2.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 2
+      evidence: $f(x)=ax^2-(4a+b)x+(3a+b)\ge0$으로 정리하고 $a$의 부호로 나누었다.
+      steps: [2b-1]
+    - id: 2.M2
+      mark_type: M
+      points: 5
+      evidence: $a>0$에서 $D\le0$을 세우고 $D=(2a+b)^2$으로 정리해 $2a+b=0$을 얻었다.
+      steps: [2b-2]
+    - id: 2.B1
+      mark_type: B
+      points: 2
+      evidence: $a=0$이면 $b=0$임을 구했다.
+      steps: [2b-3]
+    - id: 2.B2
+      mark_type: B
+      points: 2
+      evidence: $a<0$이면 불가능함을 설명했다.
+      steps: [2b-4]
+    - id: 2.A1
+      mark_type: A
+      points: 2
+      evidence: ($a>0$, $2a+b=0$) 또는 $a=b=0$.
+      depends_on: [2.M2]
+      steps: [2b-5]
+    deductions:
+    - code: D2-1
+      condition: 답만 쓰고 과정 없음
+      effect: cap
+      value: 3
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-ALG-0424}
+  - {code: '72', misconception: MC-ALG-0423}
+  misconceptions:
+  - id: MC-ALG-0424
+    outcome_code: '71'
+    wrong_work: '$a>0$, $D=(2a+b)^2<0$으로 두고 「만족하는 $a$, $b$가 없다」고 결론'
+    detect_cue: 판별식 조건에 등호가 없음
+    feedback: $f(x)\ge0$이 항상 성립하려면 그래프가 $x$축에 접해도 됩니다. 조건은 $D\le0$입니다.
+    remedy: [RL-1]
+  - id: MC-ALG-0423
+    outcome_code: '72'
+    wrong_work: '$a>0$인 경우만 다루어 $a=b=0$을 빠뜨림'
+    detect_cue: 답이 「$a>0$, $b=-2a$」뿐
+    feedback: $a=0$이면 일차(또는 상수) 부등식이 됩니다. 이때 $b=0$이면 항상 성립합니다.
+    remedy: [RL-1]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-ALG-0423}
+  relation: remediation
+  target: {kind: concept, ref: CON-ALG-QUAD-INEQ}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-transcribe-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

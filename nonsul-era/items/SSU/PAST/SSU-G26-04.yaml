@@ -1,0 +1,193 @@
+# 숭실대 2026학년도 논술고사(자연) 문제 4 — 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: SSU-G26-04
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: numeric
+origin: past_exam
+school: SSU
+type: T10
+variant_of: null
+replaces: null
+level: L4
+form: 분류
+points: 25
+time_estimate_min: 20
+intent: 조건 $f(f(x))=f(x)$를 「치역의 원소는 자기 자신으로 대응」으로 해석하고, 치역의 크기로 경우를 나누어 함수의 개수를 세는 능력을 본다.
+key_idea: '$y=f(b)$이면 $f(y)=y$이므로 $f$는 치역에서 항등함수이다. 치역 $S\subset\{1,2,3\}$을 정하면 나머지 $6-\lvert S\rvert$개 원소는 $S$로 자유롭게 대응한다.'
+stuck: ①을 치역 위에서 항등이라는 구조로 바꾸는 단계
+idea_tags: [IDEA-IDEMPOTENT-RANGE-FIXED, IDEA-COUNT-BY-RANGE-SIZE]
+tags: [함수의 개수, 합성함수, 치역]
+elements:
+  materials: [유한집합 위의 함수, 합성함수 조건 f(f(x))=f(x)]
+  concepts: [치역, 합성함수, 곱의 법칙, 합의 법칙]
+  tools: [치역 위의 항등 성질, 치역 크기에 따른 경우 분류, 곱의 법칙]
+  conditions:
+  - '① $f(f(x))=f(x)$ → 치역의 원소 $y$는 $f(y)=y$'
+  - '② $f(x)\le3$ → 치역 $\subset\{1,2,3\}$'
+  - '치역 밖 원소는 치역 안 아무 곳으로 대응'
+  stimuli_used: [제시문]
+  subpart_links: null
+
+curriculum:
+  version: '2015'
+  subjects: [수학]
+  scope_2028: common
+  scope_confirmed: true
+  standards:
+  - code: 미확인
+    text: 함수의 개념을 이해하고 합성함수를 구할 수 있다(요지)
+    verified: false
+  content_area: 함수 – 함수
+  behavior_domain: 추론
+  unit_path: [수학, 함수와 그래프, 함수, 조건을 만족하는 함수의 개수]
+  key_concepts: [치역, 합성함수, 곱의 법칙, 합의 법칙]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 숭실대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 숭실대학교
+  admission_year: 2026
+  admission_type: 논술우수자전형
+  track: 자연
+  question_no: 4
+  official_url: https://iphak.ssu.ac.kr   # [확인필요] 입학처 기출 게시물 주소로 교체
+  retrieved_at: 2026-11-21
+  original_points: 25
+  rights_notice: 미확인(대치 수리 논술 연구소 「2027학년도 대비 수리논술 숭실대 기출 및 모의 문제」 p.11에서 옮김, 해설교재 p.9 참고)
+
+verify: verify/SSU-G26.py::p04
+
+stimuli:
+- label: 제시문
+  body: |
+    함수 $f:X\to Y$에서 정의역 $X$의 원소 $x$에 공역 $Y$의 원소 $y$가 대응할 때, 이것을 기호로 $y=f(x)$와 같이 나타낸다. 이때 $f(x)$를 $x$에서의 함숫값이라 하고, 함숫값 전체의 집합 $\{f(x)\mid x\in X\}$를 함수 $f$의 치역이라고 한다.
+    【출처: 수학 「함수」】
+
+stem: |
+  집합 $A=\{1,2,3,4,5,6\}$에 대하여 다음 조건을 모두 만족시키는 함수 $f:A\to A$의 개수를 구하시오.
+
+  ① 집합 $A$의 모든 원소 $x$에 대하여 $f(f(x))=f(x)$
+
+  ② 집합 $A$의 모든 원소 $x$에 대하여 $f(x)\le3$
+
+subparts:
+- id: '1'
+  stem: |
+    함수 $f$의 개수를 구하시오.
+  points: 25
+  depends_on: []
+  answer: {kind: value, value: '78', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: 치역 $S$는 $\{1,2,3\}$의 공집합이 아닌 부분집합, $S$ 위에서 항등. 개수 $=\sum_{s=1}^{3}{}_3\mathrm C_s\,s^{6-s}=3+48+27$.
+    steps:
+    - {id: 1a, content: '$3\cdot1^5+3\cdot2^4+1\cdot3^3=78$', criteria: [1.M1, 1.R1, 1.A1, 1.A2, 1.A3, 1.A4]}
+    hint_ladder:
+    - $y$가 치역의 원소이면 $f(y)$는 무엇이어야 하는가?
+    - 치역을 먼저 정하고, 치역 밖의 원소가 갈 곳을 세어 보자.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 해설교재 p.9
+    steps:
+    - id: 1b-1
+      content: |
+        $y$가 $f$의 치역의 원소이면 $y=f(b)$인 $b$가 있고, ①에 의해 $f(y)=f(f(b))=f(b)=y$. 즉 치역의 원소는 자기 자신으로 대응한다. 역으로 치역의 모든 원소 $y$가 $f(y)=y$이면 $f(f(x))=f(x)$가 성립한다.
+      criteria: [1.M1]
+    - id: 1b-2
+      content: |
+        ②에 의해 치역은 $\{1,2,3\}$의 공집합이 아닌 부분집합이다. 치역 $S$가 정해지면 $S$의 원소는 고정되고, 나머지 원소는 $S$의 원소 중 아무 곳으로 대응하면 된다(치역이 정확히 $S$가 되는 것은 $S$의 원소가 자기 자신으로 가므로 자동). 치역의 원소 개수로 경우를 나눈다.
+      criteria: [1.R1]
+    - id: 1b-3
+      content: |
+        (i) 원소 1개: 치역 $\{1\},\{2\},\{3\}$, 상수함수 3개.
+      criteria: [1.A1]
+    - id: 1b-4
+      content: |
+        (ii) 원소 2개: 치역은 3가지이고, 각각 치역 밖 4개 원소가 2곳 중 하나로 가므로 $2^4=16$. 합 $3\cdot16=48$.
+      criteria: [1.A2]
+    - id: 1b-5
+      content: |
+        (iii) 원소 3개: 치역 $\{1,2,3\}$, $f(4),f(5),f(6)$이 각각 3가지이므로 $3^3=27$.
+      criteria: [1.A3]
+    - id: 1b-6
+      content: |
+        세 경우는 동시에 일어나지 않으므로 $3+48+27=78$.
+      criteria: [1.A4]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 7
+      evidence: ①로부터 치역의 원소 $y$에 대해 $f(y)=y$임을 보였다.
+      steps: [1b-1]
+    - id: 1.R1
+      mark_type: R
+      points: 4
+      evidence: ②에서 치역이 $\{1,2,3\}$의 부분집합임을 밝히고 치역의 크기로 경우를 나누었다.
+      depends_on: [1.M1]
+      steps: [1b-2]
+    - id: 1.A1
+      mark_type: A
+      points: 3
+      evidence: 치역의 원소가 1개인 경우 3개.
+      depends_on: [1.R1]
+      steps: [1b-3]
+    - id: 1.A2
+      mark_type: A
+      points: 4
+      evidence: 치역의 원소가 2개인 경우 $3\cdot2^4=48$개.
+      depends_on: [1.R1]
+      steps: [1b-4]
+    - id: 1.A3
+      mark_type: A
+      points: 4
+      evidence: 치역의 원소가 3개인 경우 $3^3=27$개.
+      depends_on: [1.R1]
+      steps: [1b-5]
+    - id: 1.A4
+      mark_type: A
+      points: 3
+      evidence: 합 $78$.
+      depends_on: [1.R1, 1.A1, 1.A2, 1.A3]
+      cao: true
+      steps: [1b-6]
+    deductions:
+    - code: D1-1
+      condition: 답만 쓰고 과정 없음
+      effect: cap
+      value: 5
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CNT-0317}
+  misconceptions:
+  - id: MC-CNT-0317
+    outcome_code: '71'
+    wrong_work: '치역 $\{1,2\}$인 경우를 $f(1),\dots,f(6)$이 모두 1 또는 2인 $2^6-2$개로 셈(치역 원소의 고정 조건 누락)'
+    detect_cue: $2^6$, $3^6$ 같은 전체 대응 수가 등장, $f(1)=1$ 같은 고정 조건 언급 없음
+    feedback: ①은 치역의 원소가 자기 자신으로 가야 한다는 뜻입니다. 치역의 원소는 함숫값이 정해지고, 나머지 원소만 자유롭게 대응합니다.
+    remedy: [RL-1]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CNT-0317}
+  relation: remediation
+  target: {kind: concept, ref: CON-CNT-FUNCTION-COUNT}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-transcribe-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

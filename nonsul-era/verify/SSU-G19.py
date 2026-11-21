@@ -1,0 +1,60 @@
+#!/usr/bin/env python3
+"""숭실대 SSU-G19-01 — sympy 검산. 규칙(db/제작지침.md §6): 정답 하드코딩 비교 금지, 설정으로부터 독립 재계산.
+p<번호>() 함수는 자동 실행된다. 소문항 정답은 yaml 의 subparts[].answer.value 에서 읽는다."""
+import re
+import sys
+
+import sympy as sp
+
+PREFIX = "SSU-G19"
+WIDTH = 2
+RESULTS = []
+x, t, n = sp.symbols("x t n", real=True)
+
+
+def report(seq: int, ok: bool, msg: str) -> None:
+    RESULTS.append(bool(ok))
+    print(f"{PREFIX}-{seq:0{WIDTH}d} {'PASS' if ok else 'FAIL'}  {msg}")
+
+
+def load_answers(seq):
+    """소문항 id → answer.value(문자열). 증명 소문항은 None."""
+    import yaml, pathlib
+    d = yaml.safe_load(pathlib.Path(__file__).resolve().parent.parent.joinpath(f"items/SSU/PAST/{PREFIX}-{seq:0{WIDTH}d}.yaml").read_text())
+    return {str(s["id"]): s["answer"]["value"] for s in d["subparts"]}
+
+
+def p01():
+    """(1) |t-1/2| 구간 분할 적분, (2) 무작위 다항식 f 에 대해 F'(1/2) 를 수치미분과 A-B 비교."""
+    ans = load_answers(1)
+    tt = sp.Symbol("tt", real=True)
+    F1 = sp.integrate(2 * tt * sp.Abs(tt - sp.Rational(1, 2)), (tt, 0, 1))
+    ok1 = sp.simplify(F1 - sp.sympify(ans["1"])) == 0
+    import random
+    A_, B_ = sp.symbols("A B")
+    expr = sp.sympify(ans["2"], locals={"A": A_, "B": B_})
+    ok2 = True
+    random.seed(1)
+    for _ in range(20):
+        cs = [sp.Rational(random.randint(-9, 9), random.randint(1, 5)) for _ in range(4)]
+        f = sum(c * tt**i for i, c in enumerate(cs))
+        Fx = sp.integrate(f * (x - tt), (tt, 0, x)) + sp.integrate(f * (tt - x), (tt, x, 1))   # 0<x<1
+        d = sp.diff(Fx, x).subs(x, sp.Rational(1, 2))
+        Av = sp.integrate(f, (tt, 0, sp.Rational(1, 2))); Bv = sp.integrate(f, (tt, sp.Rational(1, 2), 1))
+        ok2 &= sp.simplify(d - expr.subs({A_: Av, B_: Bv})) == 0
+    report(1, ok1 and ok2, f"(1) F(1/2)={F1} md={ans['1']} | (2) 무작위 다항식 20개 F'(1/2)=A-B 일치={ok2}")
+
+
+if __name__ == "__main__":
+    fns = sorted((name for name in dir() if re.fullmatch(r"p\d+", name)), key=lambda s: int(s[1:]))
+    for name in fns:
+        seq = int(name[1:])
+        try:
+            globals()[name]()
+        except Exception as e:  # noqa: BLE001
+            report(seq, False, f"{type(e).__name__}: {e}")
+    npass = sum(RESULTS)
+    m = re.search(r"-s(\d+)\.py$", __file__)
+    label = PREFIX + (f"-s{m.group(1)}" if m else "")
+    print(f"SUMMARY {label}: {npass}/{len(RESULTS)} PASS")
+    sys.exit(0 if RESULTS and npass == len(RESULTS) else 1)

@@ -1,0 +1,263 @@
+# 숭실대 2023학년도 논술고사(자연1) 문제 4 — 원문은 내부 분석용(allowed_use: internal_only)
+# 해설교재(p.41~42)와 답 일치: (1) -1, (2) 2023/2024.
+# 소문항 배점은 원문에 없음(문제 전체 25점) → (1) 10점, (2) 15점으로 임의 배분. [확인필요]
+schema_version: '2.0'
+id: SSU-G23A-04
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: numeric
+origin: past_exam
+school: SSU
+type: T06
+variant_of: null
+replaces: null
+level: L5
+form: 추론
+points: 25
+time_estimate_min: 25
+intent: 수열의 합으로 정의된 구간의 끝점과 일차식 치환을 이용해 정적분의 적분 구간을 옮기고, 구간별 적분값을 부분분수 꼴로 나타내 합을 구하는 능력을 본다.
+key_idea: '$-S_n+a_n=-S_{n-1}$이므로 (iii)은 $\displaystyle\int_{-S_n}^{-S_{n-1}}g=1$. $[n-1,n]$에서 $t=-S_n+(n-1-x)a_{n+1}$로 치환하면 $\displaystyle\int_{n-1}^nf=\dfrac{1}{a_{n+1}}\int_{-S_{n+1}}^{-S_n}g=\dfrac{1}{n(n+1)}$.'
+stuck: 치환한 적분 구간의 끝점 $-S_n-a_{n+1}=-S_{n+1}$을 알아보고 (1)의 결과와 연결하는 단계
+idea_tags: [IDEA-SUBST-SHIFT-INTERVAL, IDEA-TELESCOPE-PARTIAL-FRACTION]
+tags: [구간별로 정의된 함수의 적분, 망원급수]
+elements:
+  materials: [구간마다 g를 일차식으로 합성한 함수, 수열의 합 $S_n$이 만드는 구간, 정적분의 합]
+  concepts: [정적분의 치환적분법, 정적분의 성질(구간 나누기), 수열의 합, 부분분수와 망원합]
+  tools: [일차식 치환, 적분 구간 바꾸기, 정적분의 구간 분할, 부분분수 분해]
+  conditions:
+  - '(i) $x\le0$에서 $f=g$'
+  - '(ii) $n-1\le x<n$에서 $f(x)=g(-S_n+(n-1-x)a_{n+1})$, $t=-S_n+(n-1-x)a_{n+1}$는 $[-S_{n+1},-S_n]$을 움직임'
+  - '(iii) $x-S_n\in[-S_n,-S_{n-1}]$ ($\le0$)이므로 (i)로 $g$의 적분으로 바뀜'
+  - '$a_1=0$, $S_1=0$, $-S_n+a_n=-S_{n-1}$'
+  stimuli_used: []
+  subpart_links: (2)는 (1)의 결과(구간 $[-S_{n+1},-S_n]$에서 $g$의 적분값)를 사용
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅰ, 수학Ⅱ, 미적분]
+  scope_2028: calc2
+  scope_confirmed: true
+  standards:
+  - code: 미확인
+    text: 치환적분법을 이해하고, 이를 활용할 수 있다(요지)
+    verified: false
+  content_area: 적분법 – 치환적분
+  behavior_domain: 추론
+  unit_path: [미적분, 적분법, 치환적분법, 구간별로 정의된 함수의 정적분과 수열의 합]
+  key_concepts: [정적분의 치환적분법, 정적분의 성질(구간 나누기), 수열의 합, 부분분수와 망원합]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 숭실대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 숭실대학교
+  admission_year: 2023
+  admission_type: 논술우수자전형
+  track: 자연1
+  question_no: 4
+  official_url: https://iphak.ssu.ac.kr   # [확인필요] 입학처 기출 게시물 주소로 교체
+  retrieved_at: 2026-11-21
+  original_points: 25
+  rights_notice: 미확인(「숭실대 수리논술 문제교재(2026)」 p.35, 해설교재 p.41~42에서 옮김)
+
+verify: verify/SSU-G23A.py::p04
+
+stimuli: []
+
+stem: |
+  함수 $g(x)$는 $x\le0$에서 정의된 연속함수이며, 일반항이 $a_n=n(n-1)$인 수열 $\{a_n\}$과 $S_n=\displaystyle\sum_{i=1}^na_i$에 대하여 함수 $f(x)$가 다음 조건을 모두 만족시키는 연속함수라고 하자.
+
+  (i) $x\le0$일 때 $f(x)=g(x)$
+
+  (ii) $1$보다 크거나 같은 정수 $n$에 대하여 $n-1\le x<n$일 때
+  $$f(x)=g(-S_n+(n-1-x)a_{n+1})$$
+
+  (iii) $2$보다 크거나 같은 정수 $n$에 대하여 $\displaystyle\int_0^{a_n}f(x-S_n)dx=1$
+
+  이때 다음 문항에 답하시오.
+
+  (1) $2$보다 크거나 같은 정수 $n$에 대하여 정적분 $\displaystyle\int_{-S_{n-1}}^{-S_n}g(x)dx$의 값을 구하시오.
+
+  (2) 정적분 $\displaystyle\int_0^{2023}f(x)dx$의 값을 구하시오.
+
+subparts:
+- id: '1'
+  stem: |
+    (1) $2$보다 크거나 같은 정수 $n$에 대하여 정적분 $\displaystyle\int_{-S_{n-1}}^{-S_n}g(x)dx$의 값을 구하시오.
+  points: 10
+  depends_on: []
+  answer: {kind: value, value: '-1', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $t=x-S_n$로 치환하면 (iii)은 $\displaystyle\int_{-S_n}^{-S_{n-1}}f(t)dt=1$이고 구간이 $x\le0$이므로 $f=g$. 적분 방향을 바꾸면 $-1$.
+    steps:
+    - {id: 1a, content: '$\displaystyle\int_{-S_n}^{-S_{n-1}}g=1$ → $\displaystyle\int_{-S_{n-1}}^{-S_n}g=-1$', criteria: [1.M1, 1.R1, 1.A1]}
+    hint_ladder:
+    - $x-S_n=t$로 치환하면 적분 구간은 어떻게 바뀌는가?
+    - $-S_n+a_n$은 무엇과 같은가?
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 해설교재 p.41
+    steps:
+    - id: 1b-1
+      content: |
+        $t=x-S_n$으로 치환하면 $\displaystyle\int_0^{a_n}f(x-S_n)dx=\int_{-S_n}^{-S_n+a_n}f(t)dt$이고, $-S_n+a_n=-S_{n-1}$이므로 $\displaystyle\int_{-S_n}^{-S_n+a_n}f(t)dt=\int_{-S_n}^{-S_{n-1}}f(t)dt$.
+      criteria: [1.M1]
+    - id: 1b-2
+      content: |
+        $a_n$은 모두 0보다 크거나 같으므로 $-S_n\le-S_{n-1}\le0$이다. 조건 (i)에 의하여 $\displaystyle\int_{-S_n}^{-S_{n-1}}f(t)dt=\int_{-S_n}^{-S_{n-1}}g(t)dt$.
+      criteria: [1.R1]
+    - id: 1b-3
+      content: |
+        따라서 $\displaystyle\int_{-S_n}^{-S_{n-1}}g(x)dx=\int_0^{a_n}f(x-S_n)dx=1$이고, $\displaystyle\int_{-S_{n-1}}^{-S_n}g(x)dx=-1$.
+      criteria: [1.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 4
+      evidence: $t=x-S_n$ 치환과 $-S_n+a_n=-S_{n-1}$로 적분 구간을 $[-S_n,-S_{n-1}]$로 바꾸었다.
+      steps: [1b-1]
+    - id: 1.R1
+      mark_type: R
+      points: 3
+      evidence: 구간이 $x\le0$에 있으므로 (i)에 의해 $f=g$임을 밝혔다.
+      steps: [1b-2]
+    - id: 1.A1
+      mark_type: A
+      points: 3
+      evidence: 적분 방향을 바꾸어 $-1$을 얻었다.
+      depends_on: [1.M1, 1.R1]
+      cao: true
+      steps: [1b-3]
+    deductions:
+    - code: D1-1
+      condition: 답만 쓰고 과정 없음
+      effect: cap
+      value: 2
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-0520}
+  misconceptions:
+  - id: MC-CAL-0520
+    outcome_code: '71'
+    wrong_work: '(iii)을 그대로 옮겨 $\displaystyle\int_{-S_{n-1}}^{-S_n}g=1$이라 답함'
+    detect_cue: 답이 $1$, 위끝·아래끝 순서 확인 없음
+    feedback: $-S_n<-S_{n-1}$입니다. (iii)은 아래끝 $-S_n$에서 위끝 $-S_{n-1}$까지의 적분이므로 끝을 바꾸면 부호가 바뀝니다.
+    remedy: [RL-1]
+- id: '2'
+  stem: |
+    (2) 정적분 $\displaystyle\int_0^{2023}f(x)dx$의 값을 구하시오.
+  points: 15
+  depends_on: ['1']
+  answer: {kind: value, value: '\dfrac{2023}{2024}', equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: $\displaystyle\int_{n-1}^nf(x)dx$에서 $t=-S_n+(n-1-x)a_{n+1}$로 치환하면 $\dfrac{1}{a_{n+1}}\displaystyle\int_{-S_{n+1}}^{-S_n}g(t)dt=\dfrac{1}{n(n+1)}$. 합은 $1-\dfrac{1}{2024}$.
+    steps:
+    - {id: 2a, content: '$\displaystyle\int_{n-1}^nf=\dfrac1n-\dfrac{1}{n+1}$ → $\displaystyle\int_0^{2023}f=\dfrac{2023}{2024}$', criteria: [2.M1, 2.M2, 2.A1, 2.R1, 2.A2]}
+    hint_ladder:
+    - $[0,2023]$을 길이 1인 구간으로 나누어 보자.
+    - 각 구간에서 $g$ 안의 일차식을 $t$로 치환하면 적분 구간의 끝은 무엇이 되는가?
+  - id: S2-B
+    audience: B
+    method_no: 1
+    source_flow: 해설교재 p.41~42
+    steps:
+    - id: 2b-1
+      content: |
+        정적분의 성질에 의하여 $\displaystyle\int_0^{2023}f(x)dx=\sum_{n=1}^{2023}\int_{n-1}^nf(x)dx$이고, $n\ge1$일 때 $\displaystyle\int_{n-1}^nf(x)dx=\int_{n-1}^ng(-S_n+(n-1-x)a_{n+1})dx$.
+      criteria: [2.M1]
+    - id: 2b-2
+      content: |
+        $t=-S_n+(n-1-x)a_{n+1}$이라 두면 $dt=-a_{n+1}dx$, $x=n-1$일 때 $t=-S_n$, $x=n$일 때 $t=-S_n-a_{n+1}$이므로
+        $$\int_{n-1}^nf(x)dx=\int_{-S_n}^{-S_n-a_{n+1}}\left(-\dfrac{g(t)}{a_{n+1}}\right)dt=\int_{-S_n-a_{n+1}}^{-S_n}\dfrac{g(t)}{a_{n+1}}dt.$$
+      criteria: [2.M2]
+    - id: 2b-3
+      content: |
+        $-S_n-a_{n+1}=-S_{n+1}$이고, $n\ge2$일 때 (1)의 결과에 의하여 $\displaystyle\int_{-S_n}^{-S_{n-1}}g(t)dt=1$이므로 $n\ge1$일 때 $\displaystyle\int_{-S_{n+1}}^{-S_n}g(t)dt=1$. 그러므로
+        $$\int_{-S_n-a_{n+1}}^{-S_n}\dfrac{g(t)}{a_{n+1}}dt=\dfrac{1}{a_{n+1}}\int_{-S_{n+1}}^{-S_n}g(t)dt=\dfrac{1}{a_{n+1}}.$$
+      criteria: [2.A1, 2.R1]
+    - id: 2b-4
+      content: |
+        따라서 $\displaystyle\int_{n-1}^nf(x)dx=\dfrac{1}{a_{n+1}}=\dfrac{1}{n(n+1)}=\dfrac1n-\dfrac{1}{n+1}$이고
+        $$\int_0^{2023}f(x)dx=\sum_{n=1}^{2023}\left(\dfrac1n-\dfrac{1}{n+1}\right)=1-\dfrac{1}{2024}=\dfrac{2023}{2024}.$$
+      criteria: [2.A2]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 2
+      evidence: 적분을 $\displaystyle\sum_{n=1}^{2023}\int_{n-1}^nf(x)dx$로 나누었다.
+      steps: [2b-1]
+    - id: 2.M2
+      mark_type: M
+      points: 5
+      evidence: $t=-S_n+(n-1-x)a_{n+1}$ 치환으로 $dt=-a_{n+1}dx$와 바뀐 적분 구간을 바르게 적었다.
+      steps: [2b-2]
+    - id: 2.A1
+      mark_type: A
+      points: 2
+      evidence: $-S_n-a_{n+1}=-S_{n+1}$을 확인했다.
+      depends_on: [2.M2]
+      steps: [2b-3]
+    - id: 2.R1
+      mark_type: R
+      points: 3
+      evidence: (1)의 결과로 $\displaystyle\int_{-S_{n+1}}^{-S_n}g=1$ ($n\ge1$)을 써서 $\displaystyle\int_{n-1}^nf=\dfrac{1}{a_{n+1}}$을 얻었다.
+      depends_on: [2.M2]
+      ft: {allowed: true, from: [1.A1], max_points: 3}
+      steps: [2b-3]
+    - id: 2.A2
+      mark_type: A
+      points: 3
+      evidence: 부분분수로 합을 구해 $\dfrac{2023}{2024}$.
+      depends_on: [2.R1]
+      cao: true
+      steps: [2b-4]
+    deductions:
+    - code: D2-1
+      condition: 답만 쓰고 과정 없음
+      effect: cap
+      value: 3
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '72', misconception: MC-CAL-0521}
+  misconceptions:
+  - id: MC-CAL-0521
+    outcome_code: '72'
+    wrong_work: '치환에서 $dx=-\dfrac{dt}{a_{n+1}}$의 계수를 빠뜨려 각 구간 적분을 1로 보고 $2023$이라 답함'
+    detect_cue: 답이 $2023$ 또는 $\pm2023$, $\dfrac{1}{a_{n+1}}$이 없음
+    feedback: $t=(\text{일차식})$으로 치환하면 $dt=(\text{기울기})\,dx$입니다. 기울기 $-a_{n+1}$로 나누는 것을 잊지 마세요.
+    remedy: [RL-2]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CAL-0520}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-SUBST-INTEGRAL}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-CAL-0521}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-SUBST-INTEGRAL}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-transcribe-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21
