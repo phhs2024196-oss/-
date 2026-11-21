@@ -1,0 +1,192 @@
+# 건국대 2024학년도 KU논술우수자 자연계 B [문제 3] — 기출 원문은 내부 분석용(allowed_use: internal_only)
+# 채점: 원본에 채점기준 없음. 아래 마크는 예시답안 단계를 따라 입력자가 나눈 자체 설계(공식 아님, 확인필요).
+# 원문 제시문 3 의 둘째 항목 표기는 '나)'(여는 괄호 없음) — 원문 그대로 옮김.
+schema_version: '2.0'
+id: KKU-G24B-03
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: KKU
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 추론
+points: 30
+time_estimate_min: 25
+intent: |
+  각의 크기가 변하는 상황을 함수로 표현하고, 합성함수의 미분을 활용할 수 있는지 알아본다.
+key_idea: |
+  교점 $\mathrm{C}$에 대해 $\angle\mathrm{AOC}=\alpha$, 이등변삼각형 $\mathrm{OAC}$에서 $\angle\mathrm{OAC}=\pi-2\alpha$. 부채꼴 두 개에서 삼각형을 빼 $S(t)=\alpha+t^2(\pi-2\alpha)-t\sin\alpha$, $\cos\alpha=\dfrac1{2t}$를 미분해 $\dfrac{d\alpha}{dt}$를 얻는다.
+stuck: |
+  공통 부분을 (부채꼴 $\mathrm{OBC}$ + 부채꼴 $\mathrm{AOC}$ − 삼각형 $\mathrm{OAC}$)의 2배로 나누는 것, 그리고 $\alpha$를 $t$의 함수로 보고 $\cos\alpha=\tfrac1{2t}$를 음함수처럼 미분하는 것.
+idea_tags: [IDEA-LENS-SECTOR-MINUS-TRIANGLE, IDEA-ANGLE-AS-FUNCTION-CHAIN-RULE]
+tags: [건국대, 자연, 두 원의 공통 부분, 합성함수의 미분, 채점기준미확보]
+elements:
+  materials:
+  - '중심 원점·반지름 $1$인 원과 중심 $(t,0)$·반지름 $t$인 원'
+  - '두 원의 내부의 공통 부분의 넓이 $S(t)$'
+  concepts:
+  - '부채꼴의 넓이 $\tfrac12r^2\theta$'
+  - '코사인법칙'
+  - '이등변삼각형의 각'
+  - '합성함수의 미분법'
+  tools:
+  - '$\angle\mathrm{AOC}=\alpha$, $\angle\mathrm{OAC}=\pi-2\alpha$'
+  - '$S(t)=2(S_1+S_2-S_3)=\alpha+t^2(\pi-2\alpha)-t\sin\alpha$'
+  - '$\cos\alpha=\tfrac1{2t}$ → $-\sin\alpha\dfrac{d\alpha}{dt}=-\dfrac1{2t^2}$'
+  conditions:
+  - '$t>0$ (두 원은 원점에서 내부가 겹친다)'
+  - '$t=1$에서 삼각형 $\mathrm{OAC}$는 정삼각형, $\alpha=\tfrac{\pi}{3}$'
+  stimuli_used: [가, 나]
+  subpart_links: '단일 논제'
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅰ, 미적분]
+  scope_2028: calc2
+  scope_confirmed: false
+  standards:
+  - code: 12미적02-07
+    text: 합성함수를 미분할 수 있다.
+    verified: false
+  - code: 12수학Ⅰ02-03
+    text: 사인법칙과 코사인법칙을 이해하고, 이를 활용할 수 있다.
+    verified: false
+  content_area: 미분법 – 합성함수의 미분, 삼각함수 – 부채꼴의 넓이·코사인법칙
+  behavior_domain: 문제해결
+  unit_path: [미적분, 미분법, 여러 가지 미분법, 합성함수의 미분]
+  key_concepts: [부채꼴의 넓이, 코사인법칙, 합성함수의 미분법]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 건국대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 건국대학교
+  admission_year: 2024
+  admission_type: KU논술우수자
+  track: 자연
+  question_no: 3
+  official_url: https://enter.konkuk.ac.kr  # [확인필요] 원문은 아래 공개 문제지
+  retrieved_at: 2026-11-21
+  original_points: 30
+  rights_notice: 미확인
+  transcribed_from: '2024학년도 논술(KU논술우수자) 기출문제_자연B.pdf p.2 (원본 이미지 대조 2026-11-21)'
+
+verify: verify/KKU-G24B.py::p03
+
+stimuli:
+- label: 가
+  body: |
+    (제시문 3) 반지름의 길이가 $r$이고 중심각의 크기가 $\theta$인 부채꼴의 넓이는 $\dfrac12r^2\theta$이다.
+- label: 나
+  body: |
+    나) 그림에서 한 원은 중심이 원점이고 반지름이 $1$이며, 다른 원은 중심이 점 $(t,0)$이고 반지름이 $t$이다. 두 원의 내부의 공통 부분의 넓이가 $S(t)$이다.
+
+    [그림: 좌표축과 원점 $O$. 원점 중심의 큰 원과, $x$축 위 점 $t$(원점과 $1$ 사이)를 중심으로 하고 원점을 지나는 원이 겹쳐 있으며, 두 원 내부의 공통 부분(렌즈 모양)이 색칠되어 있다. $x$축 위에 $t$와 $1$ 표시.]
+
+stem: |
+  [문제 3] (나)에서 $t=1$에서의 미분계수 $S^{\prime}(1)$의 값을 구하고 풀이 과정을 쓰시오. [30점]
+
+subparts:
+- id: '1'
+  stem: |
+    $S^{\prime}(1)$의 값을 구하시오.
+  points: 30
+  depends_on: []
+  answer: {kind: value, value: '2*pi/3 - sqrt(3)', equivalents: ['(2/3)π − √3'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $S=\alpha+t^2(\pi-2\alpha)-t\sin\alpha$, $\cos\alpha=\tfrac1{2t}$; $t=1$에서 $\alpha=\tfrac{\pi}{3}$, $\alpha^{\prime}=\tfrac1{\sqrt3}$ → $S^{\prime}(1)=\tfrac{2\pi}{3}-\sqrt3$.
+    steps:
+    - {id: 1a, content: '넓이를 부채꼴·삼각형으로 분해 → $t$로 미분 → 코사인법칙으로 $\tfrac{d\alpha}{dt}$ → $t=1$ 대입', criteria: ['1.M1', '1.M2', '1.M3', '1.R1', '1.A1']}
+    hint_ladder:
+    - 두 원의 교점 $\mathrm{C}$와 두 중심을 이은 삼각형을 그려 보자. 어떤 삼각형인가?
+    - 공통 부분은 부채꼴 두 개와 삼각형으로 나타낼 수 있다.
+  - id: S1-B
+    audience: B
+    source_flow: 2024학년도 논술(KU논술우수자) 기출문제_자연B.pdf p.6 예시답안
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        [그림: 왼쪽은 $0<t\le1$인 경우, 오른쪽은 $t\ge1$인 경우. $\mathrm{O}$, $\mathrm{A}(t,0)$, $\mathrm{B}(1,0)$, 교점 $\mathrm{C}$, $\angle\mathrm{AOC}=\alpha$, $\angle\mathrm{OAC}=\pi-2\alpha$, $\mathrm{OC}=1$, $\mathrm{AC}=t$ 표시]
+        $\mathrm{A}(t,0)$, $\mathrm{B}(1,0)$이라 하고 두 원의 교점을 $\mathrm{C}$라 하자. $\angle\mathrm{AOC}=\alpha$라 하면 $\angle\mathrm{OAC}=\pi-2\alpha$이다. ($0<t\le1$일 때는 왼쪽 그림, $t\ge1$일 때는 오른쪽 그림 참조)
+        중심이 $\mathrm{O}$이고 반지름이 $1$인 부채꼴 $\mathrm{OBC}$의 넓이를 $S_1$이라 하고, 중심이 $\mathrm{A}$이고 반지름이 $t$인 부채꼴 $\mathrm{AOC}$의 넓이를 $S_2$라 하고, 삼각형 $\mathrm{OAC}$의 넓이를 $S_3$이라 하면,
+        $$S(t)=2(S_1+S_2-S_3)=2\left(\frac12\alpha+\frac12t^2(\pi-2\alpha)-\frac12t\sin\alpha\right)=\alpha+t^2(\pi-2\alpha)-t\sin\alpha$$
+      criteria: ['1.M1']
+    - id: 1b-2
+      content: |
+        $$S^{\prime}(t)=\frac{d\alpha}{dt}+2t(\pi-2\alpha)+t^2\left(-2\frac{d\alpha}{dt}\right)-\sin\alpha-t\cos\alpha\frac{d\alpha}{dt}$$
+      criteria: ['1.M2']
+    - id: 1b-3
+      content: |
+        삼각형 $\mathrm{OAC}$에서 코사인법칙을 적용하면 $\cos\alpha=\dfrac{1+t^2-t^2}{2\cdot1\cdot t}=\dfrac1{2t}$.
+        양변을 미분하면 $-\sin\alpha\dfrac{d\alpha}{dt}=-\dfrac1{2t^2}$.
+        $t=1$일 때, 삼각형 $\mathrm{OAC}$는 정삼각형이므로 $\alpha=\dfrac{\pi}{3}$, $\dfrac{d\alpha}{dt}=\dfrac1{\sqrt3}$.
+      criteria: ['1.M3', '1.R1']
+    - id: 1b-4
+      content: |
+        $$S^{\prime}(1)=\frac1{\sqrt3}+2\left(\pi-\frac{2\pi}{3}\right)-2\cdot\frac1{\sqrt3}-\frac{\sqrt3}{2}-\frac12\cdot\frac1{\sqrt3}=\frac23\pi-\sqrt3$$
+      criteria: ['1.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    # 원본에 채점기준 없음 — 예시답안 단계 기준 자체 설계.
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 8
+      evidence: |
+        $\angle\mathrm{AOC}=\alpha$, $\angle\mathrm{OAC}=\pi-2\alpha$를 쓰고 $S(t)=\alpha+t^2(\pi-2\alpha)-t\sin\alpha$(부채꼴 2개 − 삼각형, 2배)를 세웠다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1]
+    - id: 1.M2
+      mark_type: M
+      points: 7
+      evidence: |
+        $\alpha$를 $t$의 함수로 보고 $S^{\prime}(t)$를 $\dfrac{d\alpha}{dt}$를 포함한 식으로 미분했다.
+      depends_on: [1.M1]
+      implied_ok: false
+      steps: [1b-2]
+    - id: 1.M3
+      mark_type: M
+      points: 6
+      evidence: |
+        코사인법칙으로 $\cos\alpha=\dfrac1{2t}$를 얻고 미분하여 $-\sin\alpha\dfrac{d\alpha}{dt}=-\dfrac1{2t^2}$를 썼다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-3]
+    - id: 1.R1
+      mark_type: R
+      points: 3
+      evidence: |
+        $t=1$에서 정삼각형이므로 $\alpha=\dfrac{\pi}{3}$, $\dfrac{d\alpha}{dt}=\dfrac1{\sqrt3}$임을 밝혔다.
+      depends_on: [1.M3]
+      steps: [1b-3]
+    - id: 1.A1
+      mark_type: A
+      points: 6
+      evidence: |
+        $S^{\prime}(1)=\dfrac{2\pi}{3}-\sqrt3$을 얻었다.
+      depends_on: [1.M2, 1.R1]
+      steps: [1b-4]
+    deductions: []
+  outcome_codes:
+  - {code: '30', meaning: 만점}
+  misconceptions: []
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-transcribe-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

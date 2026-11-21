@@ -1,0 +1,249 @@
+# 건국대 2024학년도 KU논술우수자 자연계 A [문제 2] — 기출 원문은 내부 분석용(allowed_use: internal_only)
+# 채점: 원본에 채점기준 없음. 소문항 배점(10·10)과 마크는 예시답안 단계를 따라 입력자가 나눈 자체 설계(공식 아님, 확인필요). 원문 배점은 문제 전체 20점.
+schema_version: '2.0'
+id: KKU-G24A-02
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: KKU
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 분류
+points: 20
+time_estimate_min: 20
+intent: |
+  같은 것이 있는 순열의 수를 이해하고 구할 수 있는지 알아본다.
+key_idea: |
+  (1) 여사건: DD를 한 문자로 묶은 배열을 전체에서 뺀다. (2) A·B의 자리 7개를 먼저 고르고, 그중 가장 왼쪽 자리에 A를 고정한다.
+stuck: |
+  (2)에서 "처음 나오는 A가 처음 나오는 B보다 먼저"를 "A·B가 놓인 7자리 중 가장 왼쪽이 A"로 바꾸는 것.
+idea_tags: [IDEA-COMPLEMENT-GLUE-BLOCK, IDEA-FIRST-POSITION-FIX]
+tags: [건국대, 자연, 같은 것이 있는 순열, 여사건, 채점기준미확보]
+elements:
+  materials:
+  - '문자 A 3개, B 4개, C 3개, D 2개, 모두 12개의 일렬 배열'
+  - '[조건 1] D가 연속하지 않음, [조건 2] 처음 나오는 A가 처음 나오는 B보다 먼저'
+  concepts:
+  - '같은 것이 있는 순열 $\dfrac{n!}{p!q!\cdots r!}$'
+  - '여사건의 경우의 수'
+  - '조합 ${}_n\mathrm{C}_r$'
+  - '곱의 법칙'
+  tools:
+  - 'DD를 한 문자로 묶어 11개 배열 $\dfrac{11!}{3!4!3!1!}$'
+  - 'A·B 자리 선택 ${}_{12}\mathrm{C}_7$ → 맨 왼쪽 A 고정 → 나머지 $\dfrac{6!}{2!4!}$ → C·D $\dfrac{5!}{3!2!}$'
+  conditions:
+  - '같은 문자끼리는 구별하지 않음'
+  - '(1)과 (2)는 서로 독립'
+  stimuli_used: [가, 나]
+  subpart_links: '(1)·(2) 독립(같은 소재, 다른 조건)'
+
+curriculum:
+  version: '2015'
+  subjects: [확률과통계]
+  scope_2028: common
+  scope_confirmed: false
+  standards:
+  - code: 12확통01-02
+    text: 같은 것이 있는 순열을 이해하고, 그 순열의 수를 구할 수 있다.
+    verified: false
+  content_area: 경우의 수 – 순열과 조합
+  behavior_domain: 문제해결
+  unit_path: [확률과통계, 경우의 수, 순열과 조합, 같은 것이 있는 순열]
+  key_concepts: [같은 것이 있는 순열, 여사건, 조합]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 건국대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 건국대학교
+  admission_year: 2024
+  admission_type: KU논술우수자
+  track: 자연
+  question_no: 2
+  official_url: https://enter.konkuk.ac.kr  # [확인필요] 원문은 아래 공개 문제지
+  retrieved_at: 2026-11-21
+  original_points: 20
+  rights_notice: 미확인
+  transcribed_from: '2024학년도 논술(KU논술우수자) 기출문제_자연A.pdf p.1-2 (원본 이미지 대조 2026-11-21)'
+
+verify: verify/KKU-G24A.py::p02
+
+stimuli:
+- label: 가
+  body: |
+    (제시문 2) $n$개 중에서 서로 같은 것이 각각 $p$개, $q$개, $\cdots$, $r$개씩 있을 때, $n$개를 일렬로 나열하는 순열의 수는
+    $$\frac{n!}{p!\times q!\times\cdots\times r!}\quad(\text{단, }p+q+\cdots+r=n)$$
+- label: 나
+  body: |
+    [조건 1] 또는 [조건 2]를 만족하도록 문자 A 3개, B 4개, C 3개, D 2개로 이루어진 12개의 문자 A, A, A, B, B, B, B, C, C, C, D, D를 왼쪽부터 일렬로 나열하자.
+
+    [조건 1] 문자 D는 연속하여 나오지 않는다. 예를 들어, ABBCADABBCCD는 [조건 1]을 만족하고, ABBCADDABBCC는 [조건 1]을 만족하지 않는다.
+
+    [조건 2] 처음 나오는 문자 A가 처음 나오는 문자 B보다 먼저 나온다. 예를 들어, CDACBBBBAACD는 [조건 2]를 만족하고, CDBAAABBBCDC는 [조건 2]를 만족하지 않는다.
+
+stem: |
+  [문제 2] 다음 물음에 답하시오. [20점]
+
+subparts:
+- id: '1'
+  stem: |
+    (1) (나)에서 [조건 1]을 만족하도록 나열하는 방법의 수를 구하고 풀이 과정을 쓰시오.
+  points: 10
+  depends_on: []
+  answer: {kind: value, value: '231000', equivalents: ['231,000'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: 전체 $\dfrac{12!}{3!4!3!2!}$에서 DD 묶음 배열 $\dfrac{11!}{3!4!3!1!}$을 뺀다.
+    steps:
+    - {id: 1a, content: '$277200-46200=231000$', criteria: ['1.M1', '1.M2', '1.A1']}
+    hint_ladder:
+    - D가 연속하는 경우를 세어 전체에서 빼 보자.
+  - id: S1-B
+    audience: B
+    source_flow: 2024학년도 논술(KU논술우수자) 기출문제_자연A.pdf p.5 예시답안
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        먼저 D가 연속하여 나타나는 경우의 수를 구한다. 이 경우 DD를 하나로 생각하면 D가 연속으로 나타나게 배열하는 방법의 수는 모두 $\dfrac{11!}{3!\times4!\times3!\times1!}$이다.
+      criteria: ['1.M1']
+    - id: 1b-2
+      content: |
+        따라서 문자 D가 연속하여 나타나지 않는 경우의 수는
+        $$\frac{12!}{3!\times4!\times3!\times2!}-\frac{11!}{3!\times4!\times3!\times1!}=\frac{5\times11!}{3!\times4!\times3!}=231{,}000$$
+      criteria: ['1.M2', '1.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    # 원본에 채점기준 없음 — 예시답안 단계 기준 자체 설계.
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 4
+      evidence: |
+        DD를 한 문자로 묶어 D가 연속하는 배열의 수 $\dfrac{11!}{3!4!3!1!}$을 식으로 썼다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1]
+    - id: 1.M2
+      mark_type: M
+      points: 3
+      evidence: |
+        전체 배열의 수 $\dfrac{12!}{3!4!3!2!}$에서 D가 연속하는 경우를 빼는 식을 썼다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-2]
+    - id: 1.A1
+      mark_type: A
+      points: 3
+      evidence: |
+        답 $231000$을 얻었다.
+      depends_on: [1.M1, 1.M2]
+      steps: [1b-2]
+    deductions: []
+  outcome_codes:
+  - {code: '10', meaning: 만점}
+  misconceptions: []
+- id: '2'
+  stem: |
+    (2) (나)에서 [조건 2]를 만족하도록 나열하는 방법의 수를 구하고 풀이 과정을 쓰시오.
+  points: 10
+  depends_on: []
+  answer: {kind: value, value: '118800', equivalents: ['118,800'], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: A·B 자리 ${}_{12}\mathrm{C}_7$, 맨 왼쪽은 A로 고정 후 $\dfrac{6!}{2!4!}$, C·D는 $\dfrac{5!}{3!2!}$.
+    steps:
+    - {id: 2a, content: '$792\times15\times10=118800$', criteria: ['2.M1', '2.M2', '2.M3', '2.A1']}
+    hint_ladder:
+    - A와 B만 놓인 자리들 중 가장 왼쪽 자리에 무엇이 와야 하는가?
+  - id: S2-B
+    audience: B
+    source_flow: 2024학년도 논술(KU논술우수자) 기출문제_자연A.pdf p.5 예시답안
+    method_no: 1
+    steps:
+    - id: 2b-1
+      content: |
+        다음과 같이 1단계, 2단계, 3단계로 분석하여 각 단계별 경우의 수를 구한다.
+        (1단계) 먼저 12자리 중 문자 A와 B의 위치를 결정한다. A와 B가 총 7개이므로 12개의 자리에서 7자리를 택하는 방법의 수는 ${}_{12}\mathrm{C}_7$이다.
+        [그림: 1~12번 칸 중 3, 5, 6, 8, 9, 10, 11번 칸에 화살표가 있고 차례로 A, B, B, A, B, A, B가 적혀 있는 예시]
+      criteria: ['2.M1']
+    - id: 2b-2
+      content: |
+        (2단계) 선택된 7자리에 문자 A와 B를 배치하는 방법의 수를 구한다. 문자 A와 B의 위치가 결정되었을 때, 선택된 7자리 중 가장 왼쪽에 위치한 자리는 문자 A를 놓고 나머지 6자리에 2개의 문자 A와 4개의 문자 B를 배치하는 경우의 수는 $\dfrac{6!}{2!\times4!}$이다.
+      criteria: ['2.M2']
+    - id: 2b-3
+      content: |
+        (3단계) 남은 자리 5개에 문자 C와 D를 배치한다. 문자 C가 3개, 문자 D가 2개이므로 $\dfrac{5!}{3!\times2!}$가지의 경우가 있다.
+      criteria: ['2.M3']
+    - id: 2b-4
+      content: |
+        따라서 1단계, 2단계, 3단계에 의해 [조건 2]를 만족하면서 A, B, C, D를 배열하는 방법의 수는
+        $${}_{12}\mathrm{C}_7\times\frac{6!}{2!\times4!}\times\frac{5!}{3!\times2!}=118{,}800$$
+        이다.
+      criteria: ['2.A1']
+  - id: S2-ALT
+    audience: ALT
+    method_no: 2
+    steps:
+    - id: 2c-1
+      content: |
+        (입력자 별해) A·B 7개만 보면 그 순서 중 첫 문자가 A일 비율은 $\dfrac{3}{7}$이고, 이 비율은 C·D 배치와 무관하므로 $\dfrac{12!}{3!4!3!2!}\times\dfrac37=277200\times\dfrac37=118800$.
+      criteria: ['2.M2', '2.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    # 원본에 채점기준 없음 — 예시답안 1~3단계 기준 자체 설계.
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 3
+      evidence: |
+        A·B가 놓일 7자리를 고르는 수 ${}_{12}\mathrm{C}_7$을 썼다.
+      depends_on: []
+      implied_ok: false
+      steps: [2b-1]
+    - id: 2.M2
+      mark_type: M
+      points: 3
+      evidence: |
+        7자리 중 가장 왼쪽에 A를 고정하고 나머지에 A 2개·B 4개를 배치하는 수 $\dfrac{6!}{2!4!}$을 썼다(또는 첫 문자가 A일 비율 $\tfrac37$ 사용).
+      depends_on: []
+      implied_ok: false
+      steps: [2b-2, 2c-1]
+    - id: 2.M3
+      mark_type: M
+      points: 2
+      evidence: |
+        남은 5자리에 C 3개·D 2개를 배치하는 수 $\dfrac{5!}{3!2!}$을 썼다.
+      depends_on: []
+      implied_ok: false
+      steps: [2b-3]
+    - id: 2.A1
+      mark_type: A
+      points: 2
+      evidence: |
+        답 $118800$을 얻었다.
+      depends_on: [2.M1, 2.M2, 2.M3]
+      steps: [2b-4, 2c-1]
+    deductions: []
+  outcome_codes:
+  - {code: '10', meaning: 만점}
+  misconceptions: []
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-transcribe-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

@@ -1,0 +1,181 @@
+# 건국대 2023학년도 수시 논술 자연계 B [문제 1] — 기출 원문은 내부 분석용(allowed_use: internal_only)
+# 원본은 문제지뿐(공식 출제의도·해설·채점기준 미확보). 해설 B는 자체 풀이, 채점표는 입력자 자체 설계(공식 아님).
+schema_version: '2.0'
+id: KKU-G23B-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: KKU
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 추론
+points: 10
+time_estimate_min: 15
+intent: |
+  (공식 출제의도 미확보 — 입력자 추정) 원과 접선의 위치 관계(점과 직선 사이의 거리)로 $d_n$을 $n$의 식으로 나타내고, 수열의 극한값을 구할 수 있는지 본다.
+key_idea: |
+  점 $\mathrm{A}_n$을 지나는 직선이 원에 접할 조건(중심에서의 거리 $=1$)으로 두 접선의 기울기를 구하고, 두 접선이 $l_2$와 만나는 점의 $x$좌표 차로 $d_n=\dfrac{8\sqrt{n^2+3}}{3}$을 얻는다.
+stuck: |
+  좌표를 잡아 접선을 기울기로 표현하고, 두 교점의 $x$좌표 차를 기울기의 역수의 차로 바꾸어 근과 계수의 관계로 처리하는 발상
+idea_tags: [IDEA-TANGENT-SLOPE-DISTANCE-CONDITION, IDEA-ROOT-DIFFERENCE-VIETA]
+tags: [공식해설미확보, 원의 접선, 수열의 극한]
+elements:
+  materials:
+  - '반지름 1인 원 O, 중심에서 거리 2인 평행선 $l_1$, $l_2$'
+  - '$l_1$ 위의 점 $\mathrm{A}_0$(O에서 내린 수선의 발), $\overline{\mathrm{A}_0\mathrm{A}_n}=n$인 점 $\mathrm{A}_n$'
+  - '$\mathrm{A}_n$에서 그은 두 접선이 $l_2$와 만나는 두 점 사이의 거리 $d_n$'
+  concepts:
+  - '점과 직선 사이의 거리'
+  - '원과 직선이 접할 조건'
+  - '이차방정식의 근과 계수의 관계'
+  - '수열의 극한(제시문 (가))'
+  tools:
+  - '접선 $y-2=m(x-n)$이 원에 접할 조건 $\dfrac{\lvert 2-mn\rvert}{\sqrt{1+m^2}}=1$'
+  - '$l_2$와의 교점 $x=n-\dfrac4m$, $d_n=4\left\lvert\dfrac1{m_1}-\dfrac1{m_2}\right\rvert$'
+  - '$\displaystyle\lim_{n\to\infty}\frac{\sqrt{n^2+3}}{n}=1$'
+  conditions:
+  - '$n$은 자연수($n=1$이면 한 접선이 $x=1$로 수직이지만 같은 식이 성립)'
+  stimuli_used: [가, 나]
+  subpart_links: '단일 논제'
+
+curriculum:
+  version: '2015'
+  subjects: [수학, 미적분]
+  scope_2028: calc2
+  scope_confirmed: false
+  standards:
+  - code: 10수학02-04
+    text: 점과 직선 사이의 거리를 구할 수 있다.
+    verified: false
+  - code: 10수학02-07
+    text: 좌표평면에서 원과 직선의 위치 관계를 이해한다.
+    verified: false
+  - code: 12미적01-01
+    text: 수열의 수렴, 발산의 뜻을 알고, 이를 판별할 수 있다.
+    verified: false
+  content_area: 도형의 방정식 · 수열의 극한
+  behavior_domain: 문제해결
+  unit_path: [미적분, 수열의 극한, 수열의 극한, 도형에서 정의된 수열의 극한]
+  key_concepts: [원의 접선, 점과 직선 사이의 거리, 근과 계수의 관계, 수열의 극한]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 건국대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 건국대학교
+  admission_year: 2023
+  admission_type: KU논술우수자
+  track: 자연
+  question_no: 1
+  official_url: https://enter.konkuk.ac.kr   # [확인필요] 원문은 아래 문제지
+  retrieved_at: 2026-11-21
+  original_points: [10]
+  rights_notice: 미확인
+  transcribed_from: '2023건국대논술문제지_자연계B.pdf p.2 (원본 이미지 대조 2026-11-21)'
+
+verify: verify/KKU-G23B.py::p01
+
+stimuli:
+- label: 가
+  body: |
+    수열 $\{a_n\}$에서 $n$의 값이 한없이 커질 때, $a_n$의 값이 일정한 값 $\alpha$에 한없이 가까워지면 수열 $\{a_n\}$은 $\alpha$에 수렴한다고 하고
+    $$\lim_{n\to\infty}a_n=\alpha$$
+    와 같이 나타낸다.
+- label: 나
+  body: |
+    그림에서 반지름의 길이가 1인 원 O가 평행한 직선 $l_1$, $l_2$ 사이에 놓여 있다. 두 직선 $l_1$, $l_2$는 각각 원의 중심 O로부터의 거리가 2이다. 점 $\mathrm{A}_0$은 점 O에서 직선 $l_1$에 내린 수선의 발이고, 자연수 $n$에 대하여 점 $\mathrm{A}_n$은 직선 $l_1$ 위에 있고 $\mathrm{A}_0$와의 거리가 $n$이다. 점 $\mathrm{A}_n$에서 원에 그은 두 접선이 직선 $l_2$와 만나는 두 점 사이의 거리가 $d_n$이다.
+
+    [그림: 위쪽 수평선 $l_1$과 아래쪽 수평선 $l_2$ 사이에 중심 O(점으로 표시)인 원이 있다. $l_1$ 위에 점 $\mathrm{A}_0$(원의 중심 바로 위)와 그 오른쪽의 점 $\mathrm{A}_n$이 있다. $\mathrm{A}_n$에서 원에 그은 두 접선 중 하나는 원의 위쪽을 스치며 왼쪽 아래로 길게 내려가 $l_2$의 왼쪽 점에서 만나고, 다른 하나는 원의 오른쪽을 스치며 $l_2$의 원 오른쪽 아래 점에서 만난다. $l_2$ 위 두 교점 사이에 점선 호와 $d_n$이 표시되어 있다.]
+
+stem: |
+  [문제 1] (나)에서 주어진 수열 $\{d_n\}$에 대하여 $\displaystyle\lim_{n\to\infty}\frac{d_n}{n}$을 구하고 풀이 과정을 쓰시오. [10점]
+
+subparts:
+- id: '1'
+  stem: |
+    (나)에서 주어진 수열 $\{d_n\}$에 대하여 $\displaystyle\lim_{n\to\infty}\frac{d_n}{n}$을 구하고 풀이 과정을 쓰시오.
+  points: 10
+  depends_on: []
+  answer: {kind: value, value: '8/3', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: 접선 $y-2=m(x-n)$의 접할 조건에서 $\tfrac1m$에 대한 이차방정식 $3k^2-4nk+n^2-1=0$, $d_n=4\lvert k_1-k_2\rvert=\tfrac{8}{3}\sqrt{n^2+3}$.
+    steps:
+    - {id: 1a, content: '$d_n=\dfrac{8\sqrt{n^2+3}}{3}$이므로 $\displaystyle\lim_{n\to\infty}\frac{d_n}{n}=\frac83$', criteria: ['1.M1', '1.M2', '1.A1', '1.A2']}
+    hint_ladder:
+    - 원의 중심을 원점으로 하는 좌표를 잡아 보자.
+    - 접선이 $l_2$와 만나는 점의 $x$좌표를 기울기로 나타내 보자.
+  - id: S1-B
+    audience: B
+    source_flow: 자체 풀이(공식 해설 미확보)
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        원의 중심 O를 원점으로, $l_1:y=2$, $l_2:y=-2$, $\mathrm{A}_0(0,2)$, $\mathrm{A}_n(n,2)$로 놓는다. $n\ge 2$이면 $\mathrm{A}_n$에서 그은 접선은 수직이 아니므로 $y-2=m(x-n)$, 즉 $mx-y+2-mn=0$으로 둘 수 있고, 원에 접할 조건(중심에서의 거리가 1)은
+        $$\frac{\lvert 2-mn\rvert}{\sqrt{m^2+1}}=1\iff (n^2-1)m^2-4nm+3=0.$$
+      criteria: ['1.M1']
+    - id: 1b-2
+      content: |
+        이 접선과 $l_2$의 교점은 $-2-2=m(x-n)$에서 $x=n-\dfrac4m$이다. 두 접선의 기울기를 $m_1,m_2$, $k_i=\dfrac1{m_i}$라 하면 위 식을 $m^2$으로 나누어 $k_1,k_2$는 $3k^2-4nk+(n^2-1)=0$의 두 근이다. 따라서
+        $$d_n=4\lvert k_1-k_2\rvert=4\cdot\frac{\sqrt{16n^2-12(n^2-1)}}{3}=\frac{8\sqrt{n^2+3}}{3}.$$
+        ($n=1$이면 접선은 $x=1$과 기울기 $\tfrac34$인 직선이고 $l_2$와의 교점은 $x=1$, $x=-\tfrac{13}{3}$이므로 $d_1=\tfrac{16}{3}$으로 같은 식이 성립한다.)
+      criteria: ['1.M2', '1.A1']
+    - id: 1b-3
+      content: |
+        제시문 (가)에 따라
+        $$\lim_{n\to\infty}\frac{d_n}{n}=\lim_{n\to\infty}\frac{8}{3}\sqrt{1+\frac{3}{n^2}}=\frac83.$$
+      criteria: ['1.A2']
+  rubric:
+    # 공식 채점기준 미확보 — 아래 마크·배점은 입력자 자체 설계(tags: 공식해설미확보)
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 3
+      evidence: |
+        $\mathrm{A}_n$을 지나는 직선이 원에 접할 조건을 식으로 세웠다(점과 직선 사이의 거리 또는 판별식 등).
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1]
+    - id: 1.M2
+      mark_type: M
+      points: 2
+      evidence: |
+        두 접선과 $l_2$의 교점을 기울기(또는 각)로 나타내 $d_n$을 두 교점 좌표의 차로 썼다.
+      depends_on: [1.M1]
+      implied_ok: false
+      steps: [1b-2]
+    - id: 1.A1
+      mark_type: A
+      points: 3
+      evidence: |
+        $d_n=\dfrac{8\sqrt{n^2+3}}{3}$ 또는 동치식을 구했다.
+      depends_on: [1.M2]
+      steps: [1b-2]
+    - id: 1.A2
+      mark_type: A
+      points: 2
+      evidence: |
+        극한값 $\dfrac83$을 구했다.
+      depends_on: [1.M2]
+      steps: [1b-3]
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-transcribe-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

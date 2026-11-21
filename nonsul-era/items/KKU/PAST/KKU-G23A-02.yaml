@@ -1,0 +1,176 @@
+# 건국대 2023학년도 KU논술우수자 자연계 A [문제 2] — 기출 원문은 내부 분석용(allowed_use: internal_only)
+# 원본은 문제지뿐(공식 출제의도·해설·채점기준 미확보). intent·해설·채점표는 입력자 자체 작성(tags: 공식해설미확보).
+schema_version: '2.0'
+id: KKU-G23A-02
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: KKU
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 추론
+points: 15
+time_estimate_min: 15
+intent: |
+  (자체 추정, 공식 출제의도 미확보) 부채꼴의 넓이를 이용하여 두 원의 공통 부분의 넓이를 중심 사이 거리의 함수로 나타내고, 치환적분 또는 부분적분으로 정적분의 값을 구할 수 있는지 알아본다.
+key_idea: |
+  $\cos\alpha=\dfrac x2$인 $\alpha$에 대해 $A(x)=2\alpha-\sin2\alpha$. $x=2\cos\alpha$로 치환하면 $\displaystyle\int_0^2A(x)\,dx=\int_0^{\pi/2}(2\alpha-\sin2\alpha)\,2\sin\alpha\,d\alpha=4-\dfrac43=\dfrac83$.
+stuck: |
+  공통 부분을 (부채꼴 − 삼각형)의 두 배로 나타내고, 적분변수를 각 $\alpha$로 바꾸는 단계
+idea_tags: [IDEA-LENS-AREA-SECTOR-MINUS-TRIANGLE, IDEA-TRIG-SUBSTITUTION-ANGLE-PARAM]
+tags: [공식해설미확보, 부채꼴 넓이, 치환적분, 부분적분]
+elements:
+  materials:
+  - '반지름 1인 두 원, 중심 사이 거리 $x$'
+  - '두 원 내부의 공통 부분의 넓이 $A(x)$'
+  - '$\displaystyle\int_0^2A(x)\,dx$'
+  concepts:
+  - '부채꼴의 넓이 $S=\dfrac12r^2\theta$(제시문 (가))'
+  - '삼각형의 넓이, 배각공식'
+  - '치환적분, 부분적분'
+  tools:
+  - '$A(x)=2\left(\dfrac12\cdot2\alpha-\dfrac12\sin2\alpha\right)$, $\cos\alpha=\dfrac x2$'
+  - '$x=2\cos\alpha$ 치환'
+  conditions:
+  - '$0\le x\le2$ ($x=2$에서 $A=0$, $x=0$에서 $A=\pi$)'
+  stimuli_used: [가, 나]
+  subpart_links: '단일 논제'
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅰ, 미적분]
+  scope_2028: calc2
+  scope_confirmed: false
+  standards:
+  - code: 12수학Ⅰ02-01
+    text: 일반각과 호도법의 뜻을 안다.
+    verified: false
+  - code: 12미적03-02
+    text: 치환적분법과 부분적분법을 이해하고, 이를 활용할 수 있다.
+    verified: false
+  content_area: 삼각함수 · 적분법
+  behavior_domain: 문제해결
+  unit_path: [미적분, 적분법, 여러 가지 적분법, 치환적분과 부분적분]
+  key_concepts: [부채꼴의 넓이, 치환적분, 부분적분, 배각공식]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 건국대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 건국대학교
+  admission_year: 2023
+  admission_type: KU논술우수자
+  track: 자연
+  question_no: 2
+  official_url: https://enter.konkuk.ac.kr   # [확인필요] 원문은 아래 문제지
+  retrieved_at: 2026-11-21
+  original_points: [15]
+  rights_notice: 미확인
+  transcribed_from: '2023건국대논술문제지_자연계A.pdf p.3 (원본 이미지 대조 2026-11-21)'
+
+verify: verify/KKU-G23A.py::p02
+
+stimuli:
+- label: 가
+  body: |
+    반지름의 길이가 $r$이고 중심각의 크기가 $\theta$인 부채꼴의 넓이는 $S=\dfrac12r^2\theta$이다.
+- label: 나
+  body: |
+    그림에서 두 원의 반지름의 길이는 1이고 중심 사이의 거리는 $x$이다. 두 원 내부의 공통 부분의 넓이를 $A(x)$라고 하자.
+
+    [그림: 크기가 같은 두 원이 좌우로 겹쳐 있다. 두 중심이 점으로 표시되고 선분으로 이어져 있으며, 그 위에 점선 호와 함께 거리 $x$가 표시되어 있다. 두 원의 공통 부분(렌즈 모양)이 회색으로 칠해져 있다.]
+
+stem: |
+  [문제 2] (나)에서 정적분 $\displaystyle\int_0^2A(x)\,dx$의 값을 구하고 풀이 과정을 쓰시오. [15점]
+
+subparts:
+- id: '1'
+  stem: |
+    (나)에서 정적분 $\displaystyle\int_0^2A(x)\,dx$의 값을 구하고 풀이 과정을 쓰시오.
+  points: 15
+  depends_on: []
+  answer: {kind: value, value: '8/3', equivalents: ['\dfrac{8}{3}'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $A(x)=2\alpha-\sin2\alpha$ ($\cos\alpha=x/2$), $x=2\cos\alpha$ 치환 후 부분적분으로 $\dfrac83$.
+    steps:
+    - {id: 1a, content: '$\int_0^{\pi/2}(4\alpha\sin\alpha-2\sin2\alpha\sin\alpha)\,d\alpha=4-\tfrac43=\tfrac83$', criteria: ['1.M1', '1.M2', '1.A1']}
+    hint_ladder:
+    - 두 원의 교점과 한 중심을 이어 만든 부채꼴을 생각해 보자.
+    - 공통 부분은 (부채꼴 − 삼각형)의 몇 배인가?
+    - 적분변수를 부채꼴 중심각의 절반 $\alpha$로 바꿔 보자.
+  - id: S1-B
+    audience: B
+    source_flow: 자체 풀이(공식 해설 미확보)
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        한 중심에서 두 교점을 바라본 중심각을 $2\alpha$ $\left(0\le\alpha\le\dfrac\pi2\right)$라 하면 $\cos\alpha=\dfrac x2$이다. 공통 부분은 공통현에 대해 대칭이므로, 제시문 (가)에 의해
+        $$A(x)=2\left(\frac12\cdot1^2\cdot2\alpha-\frac12\cdot1^2\sin2\alpha\right)=2\alpha-\sin2\alpha.$$
+      criteria: ['1.M1']
+    - id: 1b-2
+      content: |
+        $x=2\cos\alpha$로 치환하면 $dx=-2\sin\alpha\,d\alpha$, $x:0\to2$일 때 $\alpha:\dfrac\pi2\to0$이므로
+        $$\int_0^2A(x)\,dx=\int_0^{\pi/2}(2\alpha-\sin2\alpha)\,2\sin\alpha\,d\alpha=4\int_0^{\pi/2}\alpha\sin\alpha\,d\alpha-4\int_0^{\pi/2}\sin^2\alpha\cos\alpha\,d\alpha.$$
+      criteria: ['1.M2']
+    - id: 1b-3
+      content: |
+        부분적분으로 $\displaystyle\int_0^{\pi/2}\alpha\sin\alpha\,d\alpha=\Big[-\alpha\cos\alpha+\sin\alpha\Big]_0^{\pi/2}=1$, 또 $\displaystyle\int_0^{\pi/2}\sin^2\alpha\cos\alpha\,d\alpha=\Big[\frac{\sin^3\alpha}{3}\Big]_0^{\pi/2}=\frac13$. 따라서 값은 $4-\dfrac43=\dfrac83$이다.
+      criteria: ['1.A1']
+  - id: S1-ALT
+    audience: ALT
+    method_no: 2
+    steps:
+    - id: 1c-1
+      content: |
+        $\cos\alpha=\dfrac x2$로 정해지는 $\alpha$를 $x$의 함수로 보면 $A(x)=2\alpha-\dfrac x2\sqrt{4-x^2}$이고, 음함수 미분 $-\sin\alpha\,\dfrac{d\alpha}{dx}=\dfrac12$와 $\sin\alpha=\dfrac{\sqrt{4-x^2}}{2}$에서 $A^{\prime}(x)=-\sqrt{4-x^2}$, $A(2)=0$이다. 부분적분으로 $\displaystyle\int_0^2A\,dx=\Big[xA(x)\Big]_0^2-\int_0^2xA^{\prime}(x)\,dx=\int_0^2x\sqrt{4-x^2}\,dx=\frac83$.
+      criteria: ['1.M2', '1.A1']
+  rubric:
+    # 채점표는 자체 설계(공식 채점기준 미확보)
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 6
+      evidence: 부채꼴과 삼각형의 넓이로 $A(x)=2\alpha-\sin2\alpha$($\cos\alpha=\dfrac x2$) 또는 동치식을 세웠다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1]
+    - id: 1.M2
+      mark_type: M
+      points: 5
+      evidence: 치환($x=2\cos\alpha$ 등)으로 적분 구간·$dx$를 바르게 바꾼 적분식을 세웠다(또는 부분적분으로 $\int x\sqrt{4-x^2}\,dx$로 바꿨다).
+      depends_on: [1.M1]
+      implied_ok: false
+      steps: [1b-2, 1c-1]
+    - id: 1.A1
+      mark_type: A
+      points: 4
+      evidence: 적분을 계산해 $\dfrac83$을 얻었다.
+      depends_on: [1.M2]
+      steps: [1b-3, 1c-1]
+    deductions:
+    - code: D1-1
+      condition: 사소한 계산 실수
+      effect: minus
+      value: 2
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-transcribe-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

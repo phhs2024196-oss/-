@@ -1,0 +1,186 @@
+# 건국대 2023학년도 KU논술우수자 자연계 A [문제 4] — 기출 원문은 내부 분석용(allowed_use: internal_only)
+# 원본은 문제지뿐(공식 출제의도·해설·채점기준 미확보). intent·해설·채점표는 입력자 자체 작성(tags: 공식해설미확보).
+# 해석 주의: θ 를 그림처럼 'P에서 l1 의 오른쪽 방향으로부터 반직선 PS 까지 잰 각'으로 읽으면 θ=π/2 는 t=π/2 하나뿐(답 4/3).
+#   '두 직선이 이루는 각(기울기각, 0≤θ<π)'으로 읽으면 S 가 P 바로 아래(t=3π/2)일 때도 θ=π/2 이고 그때 dθ/dt=4/5 이다.
+schema_version: '2.0'
+id: KKU-G23A-04
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: KKU
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 추론
+points: 25
+time_estimate_min: 20
+intent: |
+  (자체 추정, 공식 출제의도 미확보) 각 $\theta$와 시각 $t$ 사이의 관계를 삼각함수로 나타내고, 합성함수의 미분법(음함수 미분)을 이용하여 $\dfrac{d\theta}{dt}$를 구할 수 있는지 알아본다.
+key_idea: |
+  $\mathrm{P}(0,r)$, $\mathrm{S}(4r\cos t,4r\sin t)$이므로 $\tan\theta=\dfrac{4\sin t-1}{4\cos t}$. 양변을 $t$로 미분하면 $\dfrac{d\theta}{dt}=\dfrac{4(4-\sin t)}{17-8\sin t}$. $\theta=0\iff\sin t=\dfrac14$ → $1$, $\theta=\dfrac\pi2\iff t=\dfrac\pi2$ → $\dfrac43$.
+stuck: |
+  $\theta$를 $t$의 식으로 쓰는 단계($\tan\theta$ 또는 $\cot\theta$)와, $\theta=\dfrac\pi2$에서 $\tan$이 정의되지 않아 $\cot\theta$(또는 일반식)로 바꾸는 단계
+idea_tags: [IDEA-RELATED-RATES-ANGLE-CHAIN-RULE]
+tags: [공식해설미확보, 합성함수의 미분, 관련 변화율, 해석확인]
+elements:
+  materials:
+  - '중심 O인 동심원 $\mathrm C_1$(반지름 $r$), $\mathrm C_2$(반지름 $R=4r$)'
+  - '$\mathrm C_1$에 P에서 접하는 직선 $l_1$, O를 지나고 $l_1$에 평행한 $l_2$'
+  - '$\mathrm C_2$ 위를 도는 점 S: $l_2$와 OS가 이루는 각 $=t$'
+  - '$\theta$: $l_1$과 PS가 이루는 각'
+  concepts:
+  - '합성함수의 미분법(제시문 (가))'
+  - '삼각함수의 미분, $\tan$의 도함수'
+  - '좌표를 이용한 기울기'
+  tools:
+  - '$\tan\theta=\dfrac{4\sin t-1}{4\cos t}$, $\cot\theta=\dfrac{4\cos t}{4\sin t-1}$'
+  - '$\sec^2\theta\cdot\dfrac{d\theta}{dt}=\dfrac{d}{dt}\tan\theta$'
+  conditions:
+  - '$\theta=0$: $\sin t=\dfrac14$'
+  - '$\theta=\dfrac\pi2$: $t=\dfrac\pi2$ (S가 P 바로 위)'
+  - '[해석확인] 기울기각 해석이면 $t=\dfrac{3\pi}2$도 $\theta=\dfrac\pi2$ → $\dfrac45$'
+  stimuli_used: [가, 나]
+  subpart_links: '단일 논제'
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅰ, 미적분]
+  scope_2028: calc2
+  scope_confirmed: false
+  standards:
+  - code: 12미적02-04
+    text: 삼각함수를 미분할 수 있다.
+    verified: false
+  - code: 12미적02-06
+    text: 합성함수를 미분할 수 있다.
+    verified: false
+  content_area: 미분법
+  behavior_domain: 문제해결
+  unit_path: [미적분, 미분법, 여러 가지 미분법, 합성함수의 미분]
+  key_concepts: [합성함수의 미분, 삼각함수의 미분, 관련 변화율]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 건국대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 건국대학교
+  admission_year: 2023
+  admission_type: KU논술우수자
+  track: 자연
+  question_no: 4
+  official_url: https://enter.konkuk.ac.kr   # [확인필요] 원문은 아래 문제지
+  retrieved_at: 2026-11-21
+  original_points: [25]
+  rights_notice: 미확인
+  transcribed_from: '2023건국대논술문제지_자연계A.pdf p.5 (원본 이미지 대조 2026-11-21)'
+
+verify: verify/KKU-G23A.py::p04
+
+stimuli:
+- label: 가
+  body: |
+    두 함수 $f(x)$, $g(x)$가 미분가능할 때, 합성함수 $y=f(g(x))$의 도함수는 $y^{\prime}=f^{\prime}(g(x))g^{\prime}(x)$이다.
+- label: 나
+  body: |
+    그림에서 $\mathrm{C}_1$, $\mathrm{C}_2$는 중심이 $\mathrm{O}$인 동심원이고 $\mathrm{C}_1$의 반지름은 $r$, $\mathrm{C}_2$의 반지름은 $R$이다. 직선 $l_1$은 원 $\mathrm{C}_1$과 점 $\mathrm{P}$에서 접한다. 직선 $l_2$는 점 $\mathrm{O}$를 지나고 $l_1$과 평행하다. 점 $\mathrm{S}$는 원 $\mathrm{C}_2$를 따라 돌고 있다. 시각 $t$일 때 직선 $l_2$와 직선 $\mathrm{OS}$가 이루는 각의 크기가 $t$이고, $\theta$는 직선 $l_1$과 직선 $\mathrm{PS}$가 이루는 각의 크기이다.
+
+    [그림: 중심 O인 작은 원 $\mathrm C_1$과 큰 원 $\mathrm C_2$. O를 지나는 수평선 $l_2$와, 작은 원의 맨 위 점 P에서 접하는 수평선 $l_1$. 큰 원 위 오른쪽 위(제1사분면 쪽)에 점 S가 있고, 선분 OS와 선분 PS가 그어져 있다. O에서 $l_2$의 오른쪽 방향과 OS 사이의 각에 $t$, P에서 $l_1$의 오른쪽 방향과 PS 사이의 각에 $\theta$가 표시되어 있다.]
+
+stem: |
+  [문제 4] (나)에서 $R=4r$라고 하자. $\theta=0$일 때의 $\dfrac{d\theta}{dt}$와 $\theta=\dfrac\pi2$일 때의 $\dfrac{d\theta}{dt}$를 모두 구하고 풀이 과정을 쓰시오. [25점]
+
+subparts:
+- id: '1'
+  stem: |
+    $R=4r$일 때, $\theta=0$일 때의 $\dfrac{d\theta}{dt}$와 $\theta=\dfrac\pi2$일 때의 $\dfrac{d\theta}{dt}$를 모두 구하고 풀이 과정을 쓰시오.
+  points: 25
+  depends_on: []
+  answer: {kind: value, value: '(1, 4/3)', equivalents: ['θ=0: 1, θ=π/2: 4/3'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $\tan\theta=\dfrac{4\sin t-1}{4\cos t}$를 $t$로 미분 → $\dfrac{d\theta}{dt}=\dfrac{4(4-\sin t)}{17-8\sin t}$; $\sin t=\dfrac14$에서 1, $\sin t=1$에서 $\dfrac43$.
+    steps:
+    - {id: 1a, content: '$\theta=0$: $\dfrac{d\theta}{dt}=1$, $\theta=\dfrac\pi2$: $\dfrac{d\theta}{dt}=\dfrac43$', criteria: ['1.M1', '1.M2', '1.A1', '1.A2']}
+    hint_ladder:
+    - O를 원점, $l_2$를 $x$축으로 하는 좌표를 잡아 P, S의 좌표를 써 보자.
+    - 직선 PS의 기울기는 $\tan\theta$이다.
+    - $\theta=\dfrac\pi2$에서는 $\tan$ 대신 무엇을 쓰면 좋을까?
+  - id: S1-B
+    audience: B
+    source_flow: 자체 풀이(공식 해설 미확보)
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        O를 원점, $l_2$를 $x$축으로 잡으면 $\mathrm P(0,r)$, $\mathrm S(4r\cos t,\,4r\sin t)$이다. 직선 PS의 기울기가 $\tan\theta$이므로
+        $$\tan\theta=\frac{4r\sin t-r}{4r\cos t}=\frac{4\sin t-1}{4\cos t}.$$
+      criteria: ['1.M1']
+    - id: 1b-2
+      content: |
+        제시문 (가)에 의해 양변을 $t$로 미분하면
+        $$\sec^2\theta\,\frac{d\theta}{dt}=\frac{16\cos^2t+4\sin t(4\sin t-1)}{16\cos^2t}=\frac{4-\sin t}{4\cos^2t}.$$
+        $\sec^2\theta=1+\tan^2\theta=\dfrac{16\cos^2t+(4\sin t-1)^2}{16\cos^2t}=\dfrac{17-8\sin t}{16\cos^2t}$이므로 $\dfrac{d\theta}{dt}=\dfrac{4(4-\sin t)}{17-8\sin t}$.
+      criteria: ['1.M2']
+    - id: 1b-3
+      content: |
+        $\theta=0$이면 S가 $l_1$ 위에 있으므로 $4\sin t=1$, $\sin t=\dfrac14$이다. 따라서 $\dfrac{d\theta}{dt}=\dfrac{4\cdot\frac{15}4}{15}=1$.
+      criteria: ['1.A1']
+    - id: 1b-4
+      content: |
+        $\theta=\dfrac\pi2$이면 $\tan\theta$가 정의되지 않으므로 $\cot\theta=\dfrac{4\cos t}{4\sin t-1}$를 미분한다: $-\csc^2\theta\,\dfrac{d\theta}{dt}=\dfrac{4\sin t-16}{(4\sin t-1)^2}$. 이때 S는 P의 바로 위, 즉 $t=\dfrac\pi2$($\sin t=1$)이고 $\csc^2\theta=1$이므로 $\dfrac{d\theta}{dt}=\dfrac{12}{9}=\dfrac43$.
+      criteria: ['1.A2']
+  rubric:
+    # 채점표는 자체 설계(공식 채점기준 미확보)
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 7
+      evidence: P, S의 좌표를 정하고 $\theta$와 $t$의 관계식($\tan\theta=\dfrac{4\sin t-1}{4\cos t}$ 또는 동치)을 세웠다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1]
+    - id: 1.M2
+      mark_type: M
+      points: 8
+      evidence: 합성함수의 미분법으로 관계식을 $t$로 미분하여 $\dfrac{d\theta}{dt}$의 식을 얻었다.
+      depends_on: [1.M1]
+      implied_ok: false
+      steps: [1b-2]
+    - id: 1.A1
+      mark_type: A
+      points: 5
+      evidence: $\theta=0$일 때 $\sin t=\dfrac14$을 쓰고 $\dfrac{d\theta}{dt}=1$을 구했다.
+      depends_on: [1.M2]
+      steps: [1b-3]
+    - id: 1.A2
+      mark_type: A
+      points: 5
+      evidence: $\theta=\dfrac\pi2$일 때 $t=\dfrac\pi2$을 쓰고 $\dfrac{d\theta}{dt}=\dfrac43$을 구했다($\cot$ 이용 또는 일반식 대입).
+      depends_on: [1.M2]
+      steps: [1b-4]
+      not_penalized:
+      - 'S가 P 바로 아래인 경우($t=\dfrac{3\pi}2$)의 $\dfrac45$를 함께 적은 것'
+    deductions:
+    - code: D1-1
+      condition: 사소한 계산 실수
+      effect: minus
+      value: 2
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-transcribe-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

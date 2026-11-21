@@ -1,0 +1,176 @@
+# 건국대 2023학년도 수시 논술 자연계 B [문제 2] — 기출 원문은 내부 분석용(allowed_use: internal_only)
+# 원본은 문제지뿐(공식 출제의도·해설·채점기준 미확보). 해설 B는 자체 풀이, 채점표는 입력자 자체 설계(공식 아님).
+schema_version: '2.0'
+id: KKU-G23B-02
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: KKU
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 분류
+points: 15
+time_estimate_min: 15
+intent: |
+  (공식 출제의도 미확보 — 입력자 추정) 홀짝·배수 조건이 붙은 분배 문제를 변수 치환으로 음이 아닌 정수해의 개수 문제로 바꾸고, 경우를 나누어 중복조합으로 셀 수 있는지 본다.
+key_idea: |
+  $A=2a+1$, $B=2b+1$, $C=2c+2$, $D=2d+2$, $E=5e+5$로 놓으면 $2(a+b+c+d)+5e=29$이고, $e$는 홀수이므로 $e=1,3,5$로 나누어 ${}_4\mathrm{H}_{12}+{}_4\mathrm{H}_{7}+{}_4\mathrm{H}_{2}=585$.
+stuck: |
+  각 상자의 개수를 음이 아닌 정수로 치환한 뒤 $5e$의 홀짝으로 $e$의 가능한 값을 제한하는 발상
+idea_tags: [IDEA-PARITY-SUBSTITUTION-STARS-BARS]
+tags: [공식해설미확보, 중복조합, 경우의 수]
+elements:
+  materials:
+  - '서로 구별되지 않는 구슬 40개, 상자 A, B, C, D, E'
+  - '조건 (1) 각 1개 이상, (2) A·B 홀수, (3) C·D 짝수, (4) E는 5의 배수'
+  concepts:
+  - '중복조합 ${}_n\mathrm{H}_r={}_{n+r-1}\mathrm{C}_r$ (제시문 (가))'
+  - '방정식의 음이 아닌 정수해의 개수'
+  - '홀수·짝수'
+  tools:
+  - '치환 $A=2a+1$, $B=2b+1$, $C=2c+2$, $D=2d+2$, $E=5e+5$ ($a,b,c,d,e\ge0$)'
+  - '$2(a+b+c+d)=29-5e$에서 $e$는 홀수'
+  conditions:
+  - 'C, D는 짝수이면서 1개 이상이므로 2개 이상, E는 5개 이상'
+  stimuli_used: [가, 나]
+  subpart_links: '단일 논제'
+
+curriculum:
+  version: '2015'
+  subjects: [확률과통계]
+  scope_2028: common
+  scope_confirmed: false
+  standards:
+  - code: 12확통01-02
+    text: 중복조합을 이해하고, 중복조합의 수를 구할 수 있다.
+    verified: false
+  content_area: 경우의 수 – 중복조합
+  behavior_domain: 문제해결
+  unit_path: [확률과통계, 경우의 수, 중복조합, 조건이 있는 분배]
+  key_concepts: [중복조합, 음이 아닌 정수해, 홀짝 조건]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 건국대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 건국대학교
+  admission_year: 2023
+  admission_type: KU논술우수자
+  track: 자연
+  question_no: 2
+  official_url: https://enter.konkuk.ac.kr   # [확인필요] 원문은 아래 문제지
+  retrieved_at: 2026-11-21
+  original_points: [15]
+  rights_notice: 미확인
+  transcribed_from: '2023건국대논술문제지_자연계B.pdf p.3 (원본 이미지 대조 2026-11-21)'
+
+verify: verify/KKU-G23B.py::p02
+
+stimuli:
+- label: 가
+  body: |
+    서로 다른 $n$개에서 $r$개를 택하는 조합의 수는 ${}_n\mathrm{C}_r=\dfrac{n!}{r!(n-r)!}$이고, 중복조합의 수는 ${}_n\mathrm{H}_r={}_{n+r-1}\mathrm{C}_r$이다.
+- label: 나
+  body: |
+    서로 구별되지 않는 구슬들을 다섯 개의 상자 A, B, C, D, E에 다음 조건을 모두 만족하도록 넣으려 한다.
+
+    (1) 각 상자에 1개 이상의 구슬을 넣는다.
+    (2) 상자 A와 B에는 각각 홀수 개의 구슬을 넣는다.
+    (3) 상자 C와 D에는 각각 짝수 개의 구슬을 넣는다.
+    (4) 상자 E에 넣는 구슬의 개수는 5의 배수이다.
+
+stem: |
+  [문제 2] (나)에서 제시한 방법으로 서로 구별되지 않는 40개의 구슬을 상자에 넣는 방법의 수를 구하고 풀이 과정을 쓰시오. [15점]
+
+subparts:
+- id: '1'
+  stem: |
+    (나)에서 제시한 방법으로 서로 구별되지 않는 40개의 구슬을 상자에 넣는 방법의 수를 구하고 풀이 과정을 쓰시오.
+  points: 15
+  depends_on: []
+  answer: {kind: value, value: '585', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: 치환 후 $2(a+b+c+d)+5e=29$, $e=1,3,5$이면 $a+b+c+d=12,7,2$이므로 $455+120+10=585$.
+    steps:
+    - {id: 1a, content: '${}_4\mathrm{H}_{12}+{}_4\mathrm{H}_{7}+{}_4\mathrm{H}_{2}=455+120+10=585$', criteria: ['1.M1', '1.M2', '1.A1', '1.A2']}
+    hint_ladder:
+    - 홀수 개는 $2a+1$, 짝수 개(1개 이상)는 $2c+2$ 꼴로 써 보자.
+    - $5e$의 홀짝을 보면 $e$가 될 수 있는 값이 정해진다.
+  - id: S1-B
+    audience: B
+    source_flow: 자체 풀이(공식 해설 미확보)
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        조건 (1)~(4)에 의해 각 상자의 구슬 수를 음이 아닌 정수 $a,b,c,d,e$로
+        $$A=2a+1,\quad B=2b+1,\quad C=2c+2,\quad D=2d+2,\quad E=5e+5$$
+        로 나타낼 수 있다(C, D는 1개 이상의 짝수이므로 2개 이상, E는 1개 이상의 5의 배수이므로 5개 이상). 이 대응은 일대일이다.
+      criteria: ['1.M1']
+    - id: 1b-2
+      content: |
+        $A+B+C+D+E=40$에서 $2(a+b+c+d)+5e=29$이다. 좌변의 $2(a+b+c+d)$는 짝수이므로 $5e$는 홀수, 즉 $e$는 홀수이고 $5e\le29$이므로 $e=1,3,5$이다. 이때 $a+b+c+d=12,\ 7,\ 2$이다.
+      criteria: ['1.M2']
+    - id: 1b-3
+      content: |
+        $a+b+c+d=k$의 음이 아닌 정수해의 개수는 제시문 (가)의 중복조합 ${}_4\mathrm{H}_k={}_{k+3}\mathrm{C}_3$이므로
+        $${}_4\mathrm{H}_{12}={}_{15}\mathrm{C}_3=455,\quad {}_4\mathrm{H}_{7}={}_{10}\mathrm{C}_3=120,\quad {}_4\mathrm{H}_{2}={}_{5}\mathrm{C}_3=10.$$
+      criteria: ['1.A1']
+    - id: 1b-4
+      content: |
+        따라서 구하는 방법의 수는 $455+120+10=585$이다.
+      criteria: ['1.A2']
+  rubric:
+    # 공식 채점기준 미확보 — 아래 마크·배점은 입력자 자체 설계(tags: 공식해설미확보)
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 4
+      evidence: |
+        각 상자의 개수를 $2a+1$, $2c+2$, $5e+5$ 꼴 등 음이 아닌 정수로 치환하거나 동등한 표현을 적었다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1]
+    - id: 1.M2
+      mark_type: M
+      points: 5
+      evidence: |
+        $2(a+b+c+d)+5e=29$ 등에서 E의 개수가 $5,15,25$뿐임을 밝히고 각 경우의 방정식을 세웠다.
+      depends_on: [1.M1]
+      implied_ok: false
+      steps: [1b-2]
+    - id: 1.A1
+      mark_type: A
+      points: 4
+      evidence: |
+        각 경우의 수 $455$, $120$, $10$을 중복조합으로 구했다.
+      depends_on: [1.M2]
+      steps: [1b-3]
+    - id: 1.A2
+      mark_type: A
+      points: 2
+      evidence: |
+        합 $585$를 답으로 적었다.
+      depends_on: [1.M2]
+      steps: [1b-4]
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-transcribe-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

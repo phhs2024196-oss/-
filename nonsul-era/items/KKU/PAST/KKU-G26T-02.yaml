@@ -1,0 +1,435 @@
+# 건국대 2026학년도 KU논술우수자 통합(수학) 문제 2(2-1·2-2·2-3) — 기출 원문은 내부 분석용(allowed_use: internal_only)
+# 채점: 보고서 채점기준(p.85)은 등급(A+·A·B+·B·C·D·F)만 있고 등급별 점수는 없다.
+#       아래 마크는 공식 등급 단계를 그대로 한 행씩 옮긴 것이며, 각 마크의 점수 배분은 입력자 배분(공식 아님, 확인필요).
+schema_version: '2.0'
+id: KKU-G26T-02
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: KKU
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 추론
+points: 50
+time_estimate_min: 50
+intent: |
+  [문제 2-1] 미분으로 접선의 방정식을 구하고, 정적분으로 두 곡선으로 둘러싸인 도형의 넓이를 구할 수 있는지 본다.
+  [문제 2-2] 조합의 수를 이용하여 조건에 맞는 함수의 개수를 셀 수 있는지 본다.
+  [문제 2-3] 주어진 조건과 도함수를 활용하여 삼차방정식을 해결할 수 있는지 본다.
+key_idea: |
+  (2-1) 원의 중심에서 접선까지의 거리 = 반지름, 넓이는 (포물선·현·$y$축 영역) − (부채꼴). (2-2) $f(a)>2a$ 는 곱의 법칙, 증가함수는 ${}_n\mathrm{C}_3$. (2-3) 넓이 최대 ⇔ $\mathrm{P}$에서의 접선이 $y=4x$와 평행, $f(x)-4x=x(x-3)(x-b)$.
+stuck: |
+  (2-1) 원과 곡선이 공통접선을 가진다는 조건을 '중심과 접선 사이 거리 = 반지름'으로 바꾸는 것과 넓이를 부채꼴로 빼는 분할. (2-2) $p-q$를 $n$의 다항식으로 만들어 부호를 판정하는 것. (2-3) 삼각형 넓이의 최대를 접선 기울기 조건 $f'(4/3)=4$로 바꾸는 것.
+idea_tags: [IDEA-TANGENT-NORMAL-CENTER, IDEA-AREA-MINUS-SECTOR, IDEA-INCREASING-MAP-AS-COMBINATION, IDEA-MAXDIST-TANGENT-PARALLEL, IDEA-CUBIC-MINUS-LINE-FACTOR]
+tags: [건국대, 통합(수학), 공통접선 원, 함수의 개수, 삼차방정식]
+elements:
+  materials:
+  - '포물선 $y=x^2$ 위의 대칭인 두 점 $\mathrm{A}(t,t^2)$, $\mathrm{B}(-t,t^2)$에서 접하는 원 $T$ (중심 $y$축 위)'
+  - '$X=\{1,2,3\}$에서 $Y=\{1,\cdots,n\}$으로의 함수: $f(a)>2a$ 인 함수 $p$개, 증가함수 $q$개'
+  - '최고차항의 계수가 $1$인 삼차함수와 직선 $y=4x$가 만드는 삼각형 $\mathrm{OAP}$'
+  concepts:
+  - '접선의 방정식(미분계수)'
+  - '점과 직선 사이의 거리'
+  - '원의 방정식·부채꼴의 넓이'
+  - '곡선으로 둘러싸인 도형의 넓이(정적분)'
+  - '함수의 정의, 곱의 법칙, 조합'
+  - '이차식의 증가(완전제곱)'
+  - '삼차방정식의 인수분해, 미분계수의 기하적 의미'
+  tools:
+  - '중심 $(0,c)$에서 접선 $y=2tx-t^2$까지의 거리 = 반지름 $\overline{\mathrm{AC}}$'
+  - '넓이 분할 $2(S_1-S_2)$'
+  - '$p=(n-2)(n-4)(n-6)$, $q={}_n\mathrm{C}_3$'
+  - '$p-q=\dfrac{(n-2)(5n^2-59n+144)}{6}$ 의 부호 판정'
+  - '밑변 고정 → 높이(점과 직선 거리) 최대 ⇔ 접선 평행'
+  - '$g(x)=f(x)-4x=x(x-3)(x-b)$'
+  conditions:
+  - '$t>0$, 원 $T$는 $\mathrm{A}$·$\mathrm{B}$를 지나고 $\mathrm{A}$에서 곡선과 접선 공유'
+  - '삼각형 $\mathrm{ABC}$의 넓이 $\tfrac14$ → $c=t^2\pm\tfrac{1}{4t}$ 중 원이 곡선에 접할 수 있는 쪽 선택'
+  - '$n\ge7$ ($f(3)\ge7$ 이 가능하도록)'
+  - '$a=4$, $b=1$, $0<t<3$, 넓이 최대가 $t=\tfrac43$, 다른 두 근은 $3$보다 큼'
+  stimuli_used: ['2-1(가)', '2-1(나)', '2-2(가)', '2-2(나)', '2-3(가)', '2-3(나)']
+  subpart_links: '세 소문항은 서로 독립(각자 제시문 2-1·2-2·2-3 사용). 각 소문항 안의 (1)→(2)는 이어짐: 2-1(2)는 (1)의 A·C 좌표, 2-2(2)는 (1)의 p·q 세는 방법을 일반화'
+
+curriculum:
+  version: '2015'
+  subjects: [수학, 수학Ⅰ, 수학Ⅱ]
+  scope_2028: common
+  scope_confirmed: false
+  standards:
+  - code: 10수학02-05
+    text: 점과 직선 사이의 거리를 구할 수 있다.
+    verified: false
+  - code: 10수학02-06
+    text: 원의 방정식을 구할 수 있다.
+    verified: false
+  - code: 12수학Ⅱ02-06
+    text: 접선의 방정식을 구할 수 있다.
+    verified: false
+  - code: 12수학Ⅱ03-05
+    text: 곡선으로 둘러싸인 도형의 넓이를 구할 수 있다.
+    verified: false
+  - code: 10수학05-01
+    text: 합의 법칙과 곱의 법칙을 이해하고, 이를 이용하여 경우의 수를 구할 수 있다.
+    verified: false
+  - code: 10수학05-03
+    text: 조합의 의미를 이해하고, 조합의 수를 구할 수 있다.
+    verified: false
+  - code: 10수학01-12
+    text: 간단한 삼차방정식과 사차방정식을 풀 수 있다.
+    verified: false
+  - code: 12수학Ⅱ02-02
+    text: 미분계수의 기하적 의미를 이해한다.
+    verified: false
+  content_area: 접선·넓이 / 경우의 수 / 도함수의 활용
+  behavior_domain: 문제해결
+  unit_path: [수학Ⅱ, 미분·적분, 도함수와 정적분의 활용, 접선·넓이·방정식]
+  key_concepts: [접선의 방정식, 점과 직선 사이의 거리, 부채꼴의 넓이, 정적분과 넓이, 곱의 법칙, 조합, 삼차방정식]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 건국대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 건국대학교
+  admission_year: 2026
+  admission_type: KU논술우수자
+  track: 통합(수학)
+  question_no: 2
+  official_url: https://enter.konkuk.ac.kr   # [확인필요] 원문은 아래 보고서
+  retrieved_at: 2026-11-21
+  original_points: [13, 17, 20]
+  rights_notice: 미확인
+  transcribed_from: '건국대학교 2026학년도 선행학습 영향평가 결과보고서 p.79~87 (원본 이미지 대조 2026-11-21)'
+
+verify: verify/KKU-G26T.py::p02
+
+stimuli:
+- label: 2-1(가)
+  body: |
+    두 함수 $f(x)$, $g(x)$가 닫힌구간 $[a,b]$에서 연속일 때, 두 곡선 $y=f(x)$, $y=g(x)$와 두 직선 $x=a$, $x=b$로 둘러싸인 도형의 넓이 $S$는
+    $$S=\int_a^b\lvert f(x)-g(x)\rvert\,dx$$
+- label: 2-1(나)
+  body: |
+    그림에서 곡선 $y=x^2$ 위에 두 점 $\mathrm{A}(t,t^2)$, $\mathrm{B}(-t,t^2)$가 있다. 원 $T$는 $y$축 위의 점 $\mathrm{C}$를 중심으로 하고 점 $\mathrm{A}$와 점 $\mathrm{B}$를 지난다. 점 $\mathrm{A}$에서 원 $T$의 접선과 곡선 $y=x^2$의 접선이 같다. (단, $t>0$)
+    [그림: 좌표평면에 곡선 $y=x^2$(오른쪽 위에 라벨 $y=x^2$)과 원 $T$가 그려져 있다. 원 $T$의 중심 $\mathrm{C}$는 $y$축 위(원점 위쪽)에 있고, 원은 곡선 위의 두 점 $\mathrm{B}$(왼쪽)·$\mathrm{A}$(오른쪽)에서 곡선에 접한다. 선분 $\mathrm{CA}$, $\mathrm{CB}$, $\mathrm{BA}$가 그어져 삼각형 $\mathrm{ABC}$를 이룬다. 원의 아래쪽 호와 곡선 $y=x^2$ 사이, $\mathrm{B}$에서 $\mathrm{A}$까지의 초승달 모양 영역이 회색으로 칠해져 있다. 원점 $\mathrm{O}$, $x$축·$y$축 라벨이 있다.]
+- label: 2-2(가)
+  body: |
+    서로 다른 $n$개에서 $r$개를 택하는 조합의 수는
+    $${}_n\mathrm{C}_r=\dfrac{{}_n\mathrm{P}_r}{r!}=\dfrac{n!}{r!\,(n-r)!}\quad(\text{단, }0\le r\le n)$$
+- label: 2-2(나)
+  body: |
+    집합 $X=\{1,2,3\}$이고 집합 $Y=\{y\mid y\text{는 }n\text{ 이하의 자연수}\}$이다. (단, $n$은 $7$ 이상의 자연수)
+    - $X$에서 $Y$로의 함수 $f$ 중 다음 조건을 만족시키는 함수는 $p$개이다.
+      $X$의 임의의 원소 $a$에 대하여 $f(a)>2a$
+    - $X$에서 $Y$로의 함수 $g$ 중 다음 조건을 만족시키는 함수는 $q$개이다.
+      $X$의 임의의 두 원소 $a$, $b$에 대하여 $a<b$이면 $g(a)<g(b)$
+- label: 2-3(가)
+  body: |
+    미분가능한 함수 $f(x)$가 $x=a$에서 극값을 가지면 $f'(a)=0$이다.
+- label: 2-3(나)
+  body: |
+    그림은 직선 $y=ax\ (a>0)$와 최고차항의 계수가 양수 $b$인 삼차함수 $f(x)$의 그래프를 나타낸 것이다. 방정식 $f(x)=0$은 서로 다른 세 근을 갖는데, 한 근은 $0$이고, 다른 두 근은 $3$보다 크다. 점 $\mathrm{A}(3,3a)$와 점 $\mathrm{P}(t,f(t))$는 곡선 $y=f(x)$ 위에 있다. (단, $0<t<3$)
+    [그림: 원점 $\mathrm{O}$를 지나는 직선 $y=ax$(오른쪽 위로 올라감)와 삼차함수 $y=f(x)$의 그래프. 곡선은 원점을 지나 가파르게 올라가 직선 위쪽에서 극대가 된 뒤 내려오며 점 $\mathrm{A}$에서 직선과 만나고, 계속 내려가 $x$축을 지나 $x$축 아래에서 극소가 된 뒤 다시 올라가 $x$축을 지난다. 점 $\mathrm{P}$는 원점과 극대점 사이의 곡선 위(직선 위쪽)에 표시되어 있다. 라벨: $y=ax$, $y=f(x)$, $\mathrm{P}$, $\mathrm{A}$, $\mathrm{O}$, $x$, $y$.]
+
+stem: |
+  [문제 2] 다음 제시문 2-1, 2-2, 2-3을 읽고 [문제 2-1]~[문제 2-3]에 각각 답하시오. (입력자 요약 — 원문에는 공통 발문 없음)
+
+subparts:
+- id: '1'
+  stem: |
+    [문제 2-1] (13점)
+    (나)에서 삼각형 $\mathrm{ABC}$의 넓이가 $\dfrac14$일 때, 다음을 구하고 풀이과정을 쓰시오.
+    (1) 점 $\mathrm{A}$의 좌표
+    (2) 원 $T$와 곡선 $y=x^2$으로 둘러싸인 도형의 넓이
+  points: 13
+  depends_on: []
+  answer: {kind: expression, value: 'A = (1/2, 1/4); S = 5/12 - pi/8', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: 넓이 조건으로 $\mathrm{C}(0,t^2+\tfrac{1}{4t})$, 중심과 접선 사이 거리 = 반지름으로 $t=\tfrac12$. 넓이는 $2(S_1-S_2)$.
+    steps:
+    - {id: 1a, content: '$c=t^2+\tfrac{1}{4t}$, $(t-\tfrac12)^2=0$, $\mathrm{A}(\tfrac12,\tfrac14)$; $2\left(\tfrac{5}{24}-\tfrac{\pi}{16}\right)=\tfrac{5}{12}-\tfrac{\pi}{8}$', criteria: ['1.M1', '1.A1', '1.A2', '1.M2', '1.A3']}
+    hint_ladder:
+    - 삼각형 $\mathrm{ABC}$의 밑변 $\mathrm{AB}$와 높이를 $c$로 나타내 보자.
+    - 원의 접선은 중심에서 반지름만큼 떨어져 있다.
+    - 구하는 넓이를 $y$축으로 반 나누고, 부채꼴을 빼 보자.
+  - id: S1-B
+    audience: B
+    source_flow: 선행학습 영향평가 보고서 2026 p.86 예시답안
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        $\mathrm{C}$의 좌표를 $(0,c)$라 하면 선분 $\mathrm{AB}$의 길이는 $2t$이고 $\mathrm{C}$에서 선분 $\mathrm{AB}$에 이르는 거리는 $\lvert c-t^2\rvert$이다. 삼각형 $\mathrm{ABC}$의 넓이가 $\dfrac14$이므로 $\dfrac12\times2t\times\lvert c-t^2\rvert=\dfrac14$에서 $c=t^2\pm\dfrac{1}{4t}$이다.
+      criteria: ['1.M1']
+    - id: 1b-2
+      content: |
+        $c=t^2-\dfrac{1}{4t}$이면 원 $T$가 곡선에 접할 수 없으므로 $c=t^2+\dfrac{1}{4t}$이고 $\mathrm{C}$의 좌표는 $\left(0,t^2+\dfrac{1}{4t}\right)$이다.
+      criteria: ['1.A1']
+    - id: 1b-3
+      content: |
+        점 $\mathrm{A}$에서 $y=x^2$에 접하는 직선은 $y=2tx-t^2$이다. 점 $\mathrm{C}$에서 이 직선까지의 거리가 원 $T$의 반지름인 선분 $\mathrm{AC}$의 길이와 같아야 하므로
+        $$\dfrac{\left\lvert t^2+\dfrac{1}{4t}+t^2\right\rvert}{\sqrt{1+4t^2}}=\sqrt{t^2+\dfrac{1}{16t^2}}$$
+      criteria: ['1.A2']
+    - id: 1b-4
+      content: |
+        이를 풀면 $t^2-t+\dfrac14=0$이므로 점 $\mathrm{A}$의 좌표는 $\left(\dfrac12,\dfrac14\right)$이다.
+      criteria: ['1.A2']
+    - id: 1b-5
+      content: |
+        곡선 $y=x^2$과 직선 $\mathrm{AC}$, 그리고 $y$축으로 둘러싸인 도형의 넓이를 $S_1$이라 하고, 원 $T$의 내부를 선분 $\mathrm{AC}$와 선분 $\mathrm{CO}$로 잘라서 만들어지는 부채꼴 중 작은 것의 넓이를 $S_2$라 하면 구하는 넓이는 $2(S_1-S_2)$이다.
+      criteria: ['1.M2']
+    - id: 1b-6
+      content: |
+        직선 $\mathrm{AC}$의 방정식이 $y=-x+\dfrac34$이므로 $S_1=\displaystyle\int_0^{\frac12}\left(-x^2-x+\dfrac34\right)dx=\dfrac{5}{24}$이다. $S_2$는 반지름이 $\dfrac{1}{\sqrt2}$이고 중심각이 $\dfrac{\pi}{4}$인 부채꼴의 넓이이므로 $S_2=\dfrac{\pi}{16}$이다.
+      criteria: ['1.M2']
+    - id: 1b-7
+      content: |
+        구하는 도형의 넓이는 $2(S_1-S_2)=2\left(\dfrac{5}{24}-\dfrac{\pi}{16}\right)=\dfrac{5}{12}-\dfrac{\pi}{8}$이다.
+      criteria: ['1.A3']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 2
+      evidence: |
+        [공식 D] 풀이와 관계있는 의미 있는 시도: 중심을 $(0,c)$로 두고 삼각형 $\mathrm{ABC}$의 넓이 식 $\dfrac12\cdot2t\cdot\lvert c-t^2\rvert=\dfrac14$ 등을 세웠다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1]
+    - id: 1.A1
+      mark_type: A
+      points: 3
+      evidence: |
+        [공식 C] $\mathrm{C}\left(0,t^2+\dfrac{1}{4t}\right)$를 정확히 구했다.
+      depends_on: [1.M1]
+      steps: [1b-2]
+    - id: 1.A2
+      mark_type: A
+      points: 3
+      evidence: |
+        [공식 B] $\mathrm{A}\left(\dfrac12,\dfrac14\right)$를 정확히 구했다.
+      depends_on: [1.M1, 1.A1]
+      steps: [1b-3, 1b-4]
+    - id: 1.M2
+      mark_type: M
+      points: 3
+      evidence: |
+        [공식 B+] 넓이 $S_1=\dfrac{5}{24}$, $S_2=\dfrac{\pi}{16}$ 중 하나를 정확히 구했다.
+      depends_on: [1.A2]
+      implied_ok: false
+      steps: [1b-5, 1b-6]
+    - id: 1.A3
+      mark_type: A
+      points: 2
+      evidence: |
+        [공식 A+] 답과 풀이가 맞음: 넓이 $\dfrac{5}{12}-\dfrac{\pi}{8}$을 얻었다.
+      depends_on: [1.M2]
+      steps: [1b-7]
+    deductions:
+    - code: D1-1
+      condition: '[공식 A] 풀이가 맞았으나 사소한 계산 실수가 있음'
+      effect: minus
+      value: 1
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+
+- id: '2'
+  stem: |
+    [문제 2-2] (17점)
+    (1) (나)에서 $n=7$일 때 $p-q$의 값을 구하고 풀이과정을 쓰시오.
+    (2) (나)에서 $p-q>0$이 성립하도록 하는 자연수 $n$의 최솟값을 구하고 풀이과정을 쓰시오.
+  points: 17
+  depends_on: []
+  answer: {kind: value, value: '(1) -20; (2) 9', equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: $p=(n-2)(n-4)(n-6)$, $q={}_n\mathrm{C}_3$, $p-q=\tfrac{(n-2)(5n^2-59n+144)}{6}$ 의 부호를 $n=8,9$에서 본다.
+    steps:
+    - {id: 2a, content: '$n=7$: $15-35=-20$; $5n^2-59n+144$ 는 $n=8$에서 $-8$, $n=9$에서 $18$ → 최솟값 $9$', criteria: ['2.M1', '2.A1', '2.M2', '2.A2', '2.A3']}
+    hint_ladder:
+    - $f(1)$, $f(2)$, $f(3)$이 가질 수 있는 값을 각각 세어 보자.
+    - 증가함수는 $Y$에서 세 수를 고르는 것과 같다.
+  - id: S2-B
+    audience: B
+    source_flow: 선행학습 영향평가 보고서 2026 p.86~87 예시답안
+    method_no: 1
+    steps:
+    - id: 2b-1
+      content: |
+        (1) $f(a)>2a$인 함수 $f$의 개수: $f(1)>2$이어야 하므로 $f(1)$은 $3,4,5,6,7$의 $5$가지, $f(2)>4$이어야 하므로 $f(2)$는 $5,6,7$의 $3$가지, $f(3)>6$이어야 하므로 $f(3)$은 $7$의 $1$가지가 가능하다. 따라서 $p=5\times3\times1=15$.
+      criteria: ['2.M1', '2.A1']
+    - id: 2b-2
+      content: |
+        $a<b$이면 $f(a)<f(b)$인 함수 $f$를 만들려면 $1,2,\cdots,n$에서 서로 다른 세 개의 숫자를 골라서 크기 순서로 $f(1)$, $f(2)$, $f(3)$으로 두면 된다. 따라서 $q={}_7\mathrm{C}_3=\dfrac{7\times6\times5}{3\times2\times1}=35$이고 $p-q=15-35=-20$이다.
+      criteria: ['2.A1']
+    - id: 2b-3
+      content: |
+        (2) $f(a)>2a$인 함수 $f$의 개수는 $p=(n-2)(n-4)(n-6)$이고, $a<b$이면 $f(a)<f(b)$인 함수 $f$의 개수는 $q={}_n\mathrm{C}_3=\dfrac{n(n-1)(n-2)}{6}$이다. 따라서
+        $$p-q=(n-2)(n-4)(n-6)-\dfrac{n(n-1)(n-2)}{6}=\dfrac{(n-2)(5n^2-59n+144)}{6}.$$
+      criteria: ['2.M2', '2.A2']
+    - id: 2b-4
+      content: |
+        $n$이 $7$보다 크므로 $n-2>0$이다. 또한 $5n^2-59n+144=5\left(n-\dfrac{59}{10}\right)^2-5\left(\dfrac{59}{10}\right)^2+144$이므로 $n>\dfrac{59}{10}$일 때 이차식 $5n^2-59n+144$는 $n$이 커짐에 따라 증가한다. 문제의 조건에서 $n\ge7$이므로 $5n^2-59n+144$는 $n$이 커짐에 따라 증가한다.
+      criteria: ['2.A3']
+    - id: 2b-5
+      content: |
+        $n=9$일 때 $5n^2-59n+144=18>0$이므로 $n\ge9$이면 $5n^2-59n+144>0$이다. $n=8$일 때 $5n^2-59n+144=-8<0$이므로 $p-q>0$을 만족하도록 하는 $n$의 최솟값은 $9$이다.
+      criteria: ['2.A3']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 2
+      evidence: |
+        [공식 D] 풀이와 관계있는 의미 있는 시도: $f(1)$, $f(2)$, $f(3)$의 가능한 값을 따지거나 증가함수를 조합으로 세려 했다.
+      depends_on: []
+      implied_ok: false
+      steps: [2b-1]
+    - id: 2.A1
+      mark_type: A
+      points: 5
+      evidence: |
+        [공식 C] $n=7$일 때 $p-q$를 정확히 구했다($p=15$, $q=35$, $p-q=-20$).
+      depends_on: [2.M1]
+      steps: [2b-1, 2b-2]
+    - id: 2.M2
+      mark_type: M
+      points: 3
+      evidence: |
+        [공식 B] C에 더해, $n=8$일 때 풀이가 맞았으나 사소한 계산 실수가 있음(같은 방법을 $n=8$ 또는 일반 $n$에 적용했다).
+      depends_on: [2.A1]
+      implied_ok: true
+      steps: [2b-3]
+    - id: 2.A2
+      mark_type: A
+      points: 4
+      evidence: |
+        [공식 B+] $n=7$, $n=8$일 때 $p-q$를 정확히 구하거나($-20$, $-8$), $p-q$를 $n$의 다항식으로 나타냈다.
+      depends_on: [2.M2]
+      steps: [2b-3]
+    - id: 2.A3
+      mark_type: A
+      points: 3
+      evidence: |
+        [공식 A+] 답과 풀이가 맞음: $n=8$에서 $p-q<0$, $n\ge9$에서 $p-q>0$임을 밝혀 최솟값 $9$를 얻었다.
+      depends_on: [2.M2, 2.A2]
+      steps: [2b-4, 2b-5]
+    deductions:
+    - code: D2-1
+      condition: '[공식 A] 풀이가 맞았으나 사소한 계산 실수가 있음'
+      effect: minus
+      value: 1
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+
+- id: '3'
+  stem: |
+    [문제 2-3] (20점)
+    (나)에서 $a=4$, $b=1$이라고 하자. 삼각형 $\mathrm{OAP}$의 넓이가 $t=\dfrac43$에서 최대가 될 때, 방정식 $f(x)=0$의 $0$이 아닌 두 근을 모두 구하고 풀이과정을 쓰시오.
+  points: 20
+  depends_on: []
+  answer: {kind: set, value: '{4, 7}', equivalents: [], tolerance: null}
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: 밑변 $\mathrm{OA}$ 고정이므로 넓이 최대 ⇔ $\mathrm{P}$에서의 접선이 $y=4x$와 평행, 즉 $f'(\tfrac43)=4$. $f(x)-4x=x(x-3)(x-k)$.
+    steps:
+    - {id: 3a, content: '$f(x)=x(x-3)(x-k)+4x$, $f''(\tfrac43)=4\Rightarrow k=8$, $f(x)=x(x-4)(x-7)$', criteria: ['3.M1', '3.M2', '3.M3', '3.A1', '3.A2']}
+    hint_ladder:
+    - 밑변 $\mathrm{OA}$가 고정되면 넓이는 무엇에 따라 달라지는가?
+    - $f(x)-4x$는 어떤 두 근을 반드시 가지는가?
+  - id: S3-B
+    audience: B
+    source_flow: 선행학습 영향평가 보고서 2026 p.87 예시답안
+    method_no: 1
+    steps:
+    - id: 3b-1
+      content: |
+        삼각형 $\mathrm{OAP}$에서 밑변 $\mathrm{OA}$의 길이가 일정하므로 삼각형의 넓이가 최댓값을 갖는 것은 점 $\mathrm{P}$에서 직선 $y=4x$에 이르는 거리가 최대일 때이다. 또한 이것은 점 $\mathrm{P}$에서의 접선이 직선 $y=4x$와 평행할 때이다. 따라서 $f'\left(\dfrac43\right)=4$이다.
+      criteria: ['3.M1', '3.M2']
+    - id: 3b-2
+      content: |
+        $g(x)=f(x)-4x$라 하자. $g(x)$는 최고차항의 계수가 $1$인 삼차함수이다. $0$과 $3$이 방정식 $g(x)=0$의 근이므로 $g(x)=x(x-3)(x-b)$ 꼴이다. (원 해설은 여기서 문자 $b$를 셋째 근으로 다시 씀 — 최고차항 계수 $b=1$과 다른 문자)
+      criteria: ['3.M3']
+    - id: 3b-3
+      content: |
+        따라서 $f(x)=g(x)+4x=x(x-3)(x-b)+4x=x^3-(b+3)x^2+(3b+4)x$이고 $f'(x)=3x^2-2(b+3)x+(3b+4)$이다.
+      criteria: ['3.M3']
+    - id: 3b-4
+      content: |
+        $f'\left(\dfrac43\right)=4$이므로 $3\times\dfrac{16}{9}-2(b+3)\times\dfrac43+(3b+4)=4$이다. 따라서 $b=8$이고, $f(x)=x(x-3)(x-8)+4x=x^3-11x^2+28x=x(x-4)(x-7)$이다.
+      criteria: ['3.A1']
+    - id: 3b-5
+      content: |
+        $f(x)=0$의 근이 $0$, $4$, $7$이므로 $f(x)=0$의 $0$이 아닌 두 근은 $4$, $7$이다.
+      criteria: ['3.A2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 2
+      evidence: |
+        [공식 D] 풀이와 관계있는 의미 있는 시도: 넓이를 점과 직선 사이의 거리나 $f$의 식으로 나타내려 했다.
+      depends_on: []
+      implied_ok: false
+      steps: [3b-1]
+    - id: 3.M2
+      mark_type: M
+      points: 6
+      evidence: |
+        [공식 C] $f'\left(\dfrac43\right)=4$를 적었다.
+      depends_on: []
+      implied_ok: false
+      steps: [3b-1]
+    - id: 3.M3
+      mark_type: M
+      points: 4
+      evidence: |
+        [공식 B] $f'\left(\dfrac43\right)=4$와 함께 $f(x)=x(x-3)(x-k)+4x$ 꼴(원 해설 표기 $x(x-3)(x-b)+4x$)을 적었다.
+      depends_on: [3.M2]
+      implied_ok: false
+      steps: [3b-2, 3b-3]
+    - id: 3.A1
+      mark_type: A
+      points: 5
+      evidence: |
+        [공식 B+] $f(x)=x(x-3)(x-8)+4x$ 또는 $f(x)=x^3-11x^2+28x$를 구했다.
+      depends_on: [3.M2, 3.M3]
+      steps: [3b-4]
+    - id: 3.A2
+      mark_type: A
+      points: 3
+      evidence: |
+        [공식 A+] 답과 풀이가 맞음: $0$이 아닌 두 근 $4$, $7$을 구했다.
+      depends_on: [3.M3, 3.A1]
+      steps: [3b-5]
+    deductions:
+    - code: D3-1
+      condition: '[공식 A] 풀이가 맞았으나 사소한 계산 실수가 있음'
+      effect: minus
+      value: 1
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-transcribe-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

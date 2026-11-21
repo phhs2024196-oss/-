@@ -1,0 +1,216 @@
+# 건국대 2026학년도 KU논술우수자 자연계 [문제 4] — 기출 원문은 내부 분석용(allowed_use: internal_only)
+# 채점표: 보고서 채점기준은 등급(A+·A·B+·B·C·D·F)만 있고 점수 배분이 없다. 마크는 공식 등급 항목 단위로 나누고
+# 점수 배분은 입력자가 정함(공식 아님). A(사소한 계산 실수)는 감점으로, D(의미 있는 시도)·F(공란)는 마크로 만들지 않음.
+schema_version: '2.0'
+id: KKU-G26-04
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: KKU
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 분류
+points: 31
+time_estimate_min: 30
+intent: |
+  서로 수직인 두 직선의 기울기 사이의 관계, 삼차함수의 극대와 극소를 이해하고 이를 활용하여 문제를 해결할 수 있는지 알아본다.
+key_idea: |
+  수직 조건을 $t$에 대한 삼차방정식 $f(t)=t^3-2(b-1)t-2a=0$으로 바꾸고, 서로 다른 세 실근 조건 (극댓값)×(극솟값)$<0$을 $b=5,6,7$별로 풀어 $a$를 센다.
+stuck: |
+  「수직이 되는 점 P가 3개」를 「삼차방정식의 서로 다른 실근이 3개」로 번역하고, 극값의 곱이 음수라는 조건을 $a^2<\dfrac{8(b-1)^3}{27}$ 꼴로 정리하는 것
+idea_tags: [IDEA-NORMAL-LINES-CUBIC-ROOT-COUNT, IDEA-CUBIC-THREE-ROOTS-EXTREMA-PRODUCT]
+tags: [법선의 개수, 삼차방정식의 실근, 극값, 격자점 세기]
+elements:
+  materials:
+  - '곡선 $y=\dfrac12x^2$ 위의 점 $\mathrm{P}\left(t,\dfrac12t^2\right)$'
+  - '곡선 밖의 점 $\mathrm{A}(a,b)$'
+  - 'P에서의 접선과 직선 AP가 수직이 되는 점 P가 3개'
+  - '$4\le a\le20$, $5\le b\le7$인 자연수 $a$, $b$'
+  concepts:
+  - '접선의 기울기'
+  - '서로 수직인 두 직선의 기울기의 곱 $-1$'
+  - '삼차함수의 극대·극소'
+  - '삼차방정식의 서로 다른 실근의 개수'
+  tools:
+  - '$t\times\dfrac{\frac12t^2-b}{t-a}=-1\Rightarrow t^3-2(b-1)t-2a=0$'
+  - '$f^{\prime}(t)=0\Rightarrow t=\pm\sqrt{\dfrac{2(b-1)}{3}}$'
+  - '$f\left(\sqrt{\tfrac{2(b-1)}{3}}\right)\times f\left(-\sqrt{\tfrac{2(b-1)}{3}}\right)<0$'
+  - '$b=5,6,7$로 경우 분류'
+  conditions:
+  - '$b\ge5$이므로 $b-1>0$, $f$는 극대·극소를 가짐'
+  - '$a$는 $4\le a\le20$인 자연수'
+  stimuli_used: [가, 나]
+  subpart_links: '단일 논제'
+
+curriculum:
+  version: '2015'
+  subjects: [수학, 수학Ⅱ]
+  scope_2028: common
+  scope_confirmed: false
+  standards:
+  - code: 10수학02-04
+    text: 두 직선의 평행 조건과 수직 조건을 이해한다.
+    verified: false
+  - code: 12수학Ⅱ02-04
+    text: 함수 y=x^n(n은 양의 정수)의 도함수를 구할 수 있다.
+    verified: false
+  - code: 12수학Ⅱ02-08
+    text: 함수의 증가와 감소, 극대와 극소를 판정하고 설명할 수 있다.
+    verified: false
+  - code: 12수학Ⅱ02-09
+    text: 함수의 그래프의 개형을 그릴 수 있다.
+    verified: false
+  - code: 12수학Ⅱ02-10
+    text: 방정식과 부등식에 대한 문제를 해결할 수 있다.
+    verified: false
+  content_area: 미분 – 도함수의 활용
+  behavior_domain: 문제해결
+  unit_path: [수학Ⅱ, 미분, 도함수의 활용, 방정식의 실근의 개수]
+  key_concepts: [수직 조건, 삼차함수의 극값, 삼차방정식의 실근의 개수]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 건국대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 건국대학교
+  admission_year: 2026
+  admission_type: KU논술우수자
+  track: 자연
+  question_no: 4
+  official_url: https://enter.konkuk.ac.kr   # [확인필요] 원문은 아래 보고서
+  retrieved_at: 2026-11-21
+  original_points: [31]
+  rights_notice: 미확인
+  transcribed_from: '건국대학교 2026학년도 선행학습 영향평가 결과보고서 p.92 (원본 이미지 대조 2026-11-21); 대학 공개 문제지 g26.pdf p.4 과 문제·예시답안 대조 일치 2026-11-21'
+
+verify: verify/KKU-G26.py::p04
+
+stimuli:
+- label: 가
+  body: |
+    함수 $y=f(x)$가 $x=a$에서 미분가능할 때, 곡선 $y=f(x)$ 위의 점 $(a,\,f(a))$에서의 접선의 방정식은
+    $$y-f(a)=f'(a)(x-a)$$
+- label: 나
+  body: |
+    [그림]에서 세 점 $\mathrm{P}_1$, $\mathrm{P}_2$, $\mathrm{P}_3$은 곡선 $y=\dfrac12x^2$ 위에 있고, 점 $\mathrm{A}$는 곡선 위에 있지 않다. 세 직선 $\mathrm{AP}_1$, $\mathrm{AP}_2$, $\mathrm{AP}_3$은 각각 점 $\mathrm{P}_1$, $\mathrm{P}_2$, $\mathrm{P}_3$에서 곡선 $y=\dfrac12x^2$의 접선과 수직이다.
+
+    [그림: 좌표축과 원점 O. 원점에서 $x$축에 접하는 아래로 볼록한 포물선 $y=\dfrac12x^2$. 점 A는 제1사분면에서 곡선의 오른쪽 가지 바깥(오른쪽 아래)에 있다. $\mathrm{P}_1$은 오른쪽 가지 위의 점으로 A 바로 왼쪽 위에 있고, $\mathrm{P}_2$는 원점 가까운 왼쪽 가지 위의 점, $\mathrm{P}_3$은 $\mathrm{P}_2$보다 위쪽의 왼쪽 가지 위의 점이다. 각 $\mathrm{P}_i$에서 접선이 짧게 그어져 있고, 선분 $\mathrm{AP}_1$, $\mathrm{AP}_2$, $\mathrm{AP}_3$이 그어져 각 $\mathrm{P}_i$에 직각 표시가 있다. 그림 아래에 [그림] 캡션.]
+
+stem: |
+  [문제 4] (31점)
+  다음 조건 (1), (2)를 모두 만족시키는 점 $\mathrm{A}(a,b)$의 개수를 구하고 풀이과정을 쓰시오.
+
+  > (1) $a$와 $b$는 모두 자연수이고 $4\le a\le20$, $5\le b\le7$이다.
+  > (2) [그림]처럼 곡선 $y=\dfrac12x^2$ 위의 점 $\mathrm{P}\left(t,\,\dfrac12t^2\right)$에서의 접선과 직선 $\mathrm{AP}$가 수직이 되는 점 $\mathrm{P}$가 3개 있다.
+
+subparts:
+- id: '1'
+  stem: |
+    조건 (1), (2)를 모두 만족시키는 점 $\mathrm{A}(a,b)$의 개수를 구하고 풀이과정을 쓰시오.
+  points: 31
+  depends_on: []
+  answer: {kind: value, value: '8', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: 수직 조건 $t^3-2(b-1)t-2a=0$이 서로 다른 세 실근 ⇔ 극값의 곱 $<0$ ⇔ $a^2<\dfrac{8(b-1)^3}{27}$. $b=5,6,7$에서 $a$는 각각 1, 3, 4개.
+    steps:
+    - {id: 1a, content: '$b=5$: $a^2<\tfrac{512}{27}$ → $a=4$; $b=6$: $a^2<\tfrac{1000}{27}$ → $a=4,5,6$; $b=7$: $a^2<64$ → $a=4,\dots,7$. 합 8', criteria: ['1.M1', '1.M2', '1.R1', '1.A1']}
+    hint_ladder:
+    - 접선의 기울기 $t$와 직선 AP의 기울기의 곱이 $-1$인 식을 세우자.
+    - 그 식은 $t$에 대한 몇 차 방정식인가? 서로 다른 실근이 3개일 조건은?
+  - id: S1-B
+    audience: B
+    source_flow: 선행학습 영향평가 보고서 2026 p.99 예시답안
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        점 $\mathrm{P}$에서의 접선이 기울기가 $t$이고 직선 $\mathrm{AP}$와 수직이므로 $t\times\dfrac{\frac12t^2-b}{t-a}=\dfrac{t^3-2bt}{2(t-a)}=-1$이다. 정리하면
+        $$t^3-2(b-1)t-2a=0.$$
+      criteria: ['1.M1']
+    - id: 1b-2
+      content: |
+        $f(t)=t^3-2(b-1)t-2a$라 하면 $f'(t)=3t^2-2(b-1)$이다. $f'(t)=0$일 때 $t=\pm\sqrt{\dfrac{2(b-1)}{3}}$이다.
+      criteria: ['1.M2']
+    - id: 1b-3
+      content: |
+        조건 (2)를 만족시키려면 $f(t)=0$이 서로 다른 세 실근을 가져야 한다.
+      criteria: ['1.R1']
+    - id: 1b-4
+      content: |
+        (i) $b=5$일 때
+        $\sqrt{\dfrac{2(b-1)}{3}}=\sqrt{\dfrac83}$이다. $f(t)=0$이 서로 다른 세 실근을 가질 조건은 $f\left(\sqrt{\dfrac83}\right)\times f\left(-\sqrt{\dfrac83}\right)<0$이다.
+        따라서 $\left(\dfrac83\sqrt{\dfrac83}-8\sqrt{\dfrac83}-2a\right)\left(-\dfrac83\sqrt{\dfrac83}+8\sqrt{\dfrac83}-2a\right)<0$이고, $\left(a+\dfrac83\sqrt{\dfrac83}\right)\left(a-\dfrac83\sqrt{\dfrac83}\right)<0$이다.
+        $-\dfrac83\sqrt{\dfrac83}<a<\dfrac83\sqrt{\dfrac83}$이고, $a^2<\dfrac{512}{27}=18+\dfrac{26}{27}$이므로 $a\le4$이다. 조건 (1)에 의해 $a=4$이다.
+      criteria: ['1.R1']
+    - id: 1b-5
+      content: |
+        (ii) $b=6$일 때
+        $\sqrt{\dfrac{2(b-1)}{3}}=\sqrt{\dfrac{10}{3}}$이다. $f(t)=0$이 서로 다른 세 실근을 가질 조건은 $f\left(\sqrt{\dfrac{10}{3}}\right)\times f\left(-\sqrt{\dfrac{10}{3}}\right)<0$이다.
+        (i)과 같이 풀면 $-\dfrac{10}{3}\sqrt{\dfrac{10}{3}}<a<\dfrac{10}{3}\sqrt{\dfrac{10}{3}}$을 얻는다.
+        $a^2<\dfrac{1000}{27}=37+\dfrac{1}{27}$이므로 $a\le6$이다. 조건 (1)에 의해 $a=4,5,6$이다.
+      criteria: ['1.R1']
+    - id: 1b-6
+      content: |
+        (iii) $b=7$일 때
+        $\sqrt{\dfrac{2(b-1)}{3}}=2$이다. $f(t)=0$이 서로 다른 세 실근을 가질 조건은 $f(2)\times f(-2)<0$이다.
+        (i)과 같이 풀면 $-8<a<8$을 얻는다. 조건 (1)에 의해 $a=4,5,6,7$이다.
+        따라서 조건 (1), (2)를 모두 만족시키는 점 $\mathrm{A}(a,b)$의 개수는 $1+3+4=8$이다.
+      criteria: ['1.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 8
+      evidence: |
+        (공식 등급 C) P에서의 접선과 직선 AP의 수직 조건 $f(t)=t^3-2(b-1)t-2a=0$을 구했다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1]
+    - id: 1.M2
+      mark_type: M
+      points: 6
+      evidence: |
+        (공식 등급 B) $f'(t)=0$을 풀어 $t=\pm\sqrt{\dfrac{2(b-1)}{3}}$을 구했다.
+      depends_on: [1.M1]
+      implied_ok: false
+      steps: [1b-2]
+    - id: 1.R1
+      mark_type: R
+      points: 9
+      evidence: |
+        (공식 등급 B+) $f\left(\sqrt{\dfrac{2(b-1)}{3}}\right)\times f\left(-\sqrt{\dfrac{2(b-1)}{3}}\right)<0$일 때 $f(t)=0$이 서로 다른 세 실근을 가짐을 적었다.
+      depends_on: [1.M2]
+      steps: [1b-3, 1b-4, 1b-5]
+    - id: 1.A1
+      mark_type: A
+      points: 8
+      evidence: |
+        (공식 등급 A+) $b=5,6,7$ 각각에서 $a$의 개수 1, 3, 4를 구해 점 A의 개수 8을 얻었다.
+      depends_on: [1.R1]
+      steps: [1b-6]
+    deductions:
+    - code: D1-1
+      condition: 풀이가 맞았으나 사소한 계산 실수가 있음(공식 등급 A)
+      effect: minus
+      value: 2
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-transcribe-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

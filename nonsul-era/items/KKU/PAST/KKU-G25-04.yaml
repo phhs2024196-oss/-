@@ -1,0 +1,259 @@
+# 건국대 2025학년도 KU논술우수자 자연계 [문제 4] — 기출 원문은 내부 분석용(allowed_use: internal_only)
+# 채점: 보고서 채점기준은 문제 전체(30점)에 대한 등급(A+·A·B+·B·C·D·F)만 있고 등급별 점수·소문항별 배점이 없다.
+# 아래 소문항 배점 (1) 8 / (2) 22 와 마크 배점은 등급 단계를 마크로 옮긴 추정 분할이다(공식 B 등급은 표에 없음).
+schema_version: '2.0'
+id: KKU-G25-04
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: KKU
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 추론
+points: 30
+time_estimate_min: 30
+intent: |
+  곡선 사이의 넓이를 적분을 이용하여 구할 수 있는지, 합성함수를 미분할 수 있는지, 삼각함수를 미분할 수 있는지 알아본다. 제시된 조건으로부터 넓이를 정적분으로 표현하고 삼각함수·합성함수의 미분으로 주어진 식을 미분한다.
+key_idea: |
+  $f(\theta)=\dfrac{t}{2}(10+t^2)-\displaystyle\int_0^tx^2dx=\dfrac16t^3+5t$와 $\tan\theta=\dfrac{t}{10-t^2}$에서 $\dfrac{dt}{d\theta}$를 구해 $f'(\theta)=\dfrac{(10-t^2)^2+t^2}{2}$. $g'(\theta)=0\iff f'(\theta)=f'\!\left(\theta+\tfrac{\pi}{2}\right)$에서 $a^2+b^2=19$, 수직 조건에서 $ab=9$.
+stuck: |
+  넓이를 $\theta$ 대신 $t$로 표현하고 $t$를 $\theta$의 함수로 보아 미분하는 것, 그리고 $g'(\theta)=0$을 $f'$ 값이 같다는 대칭식으로 바꿔 $a^2\ne b^2$로 인수를 나누는 단계
+idea_tags: [IDEA-PARAM-CHANGE-AREA-DIFF, IDEA-SYMMETRIC-FUNCTIONS-AB]
+tags: [넓이 함수, 매개변수 미분, 수직 조건, 대칭식]
+elements:
+  materials:
+  - '곡선 $y=x^2\ (x\ge0)$과 점 $\mathrm{P}(0,10)$'
+  - '$\angle\mathrm{OPA}=\theta$일 때 곡선·선분 $\mathrm{OP}$·선분 $\mathrm{PA}$로 둘러싸인 넓이 $f(\theta)$'
+  - '$\angle\mathrm{APB}=\tfrac{\pi}{2}$일 때 곡선·선분 $\mathrm{PA}$·선분 $\mathrm{PB}$로 둘러싸인 넓이 $g(\theta)=f(\theta+\tfrac{\pi}{2})-f(\theta)$'
+  concepts:
+  - '곡선과 축 사이의 넓이(정적분)'
+  - '사다리꼴의 넓이'
+  - '탄젠트함수의 미분, $\sec^2\theta=1+\tan^2\theta$'
+  - '합성함수의 미분법(매개변수 $t$를 통한 미분)'
+  - '두 직선의 수직 조건(기울기의 곱 $-1$)'
+  - '대칭식 $a^2+b^2$, $ab$와 $b^3-a^3$'
+  tools:
+  - '$f=$사다리꼴 $\mathrm{OPAQ}-\int_0^tx^2dx$'
+  - '$\tan\theta=\dfrac{t}{10-t^2}$을 $\theta$로 미분해 $\dfrac{dt}{d\theta}$ 구하기'
+  - '$f\prime(\theta)=\dfrac{df}{dt}\cdot\dfrac{dt}{d\theta}$'
+  - '$(a^2-b^2)(a^2+b^2-19)=0$, $(ab-9)(ab+10)=0$ 인수분해'
+  conditions:
+  - '$0<\theta<\pi$, $0<\theta<\tfrac{\pi}{2}$에서 $g$ 정의'
+  - '$a\ne b$이므로 $a^2\ne b^2$; $a,b>0$이므로 $ab>0$'
+  stimuli_used: [가, 나]
+  subpart_links: '(2)는 (1)의 $f\prime(\theta)$ 식을 $t=a$, $t=b$에 적용'
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅰ, 수학Ⅱ, 미적분]
+  scope_2028: calc2
+  scope_confirmed: false
+  standards:
+  - code: 12수학Ⅰ02-02
+    text: 삼각함수의 뜻을 알고, 사인함수, 코사인함수, 탄젠트함수의 그래프를 그릴 수 있다.
+    verified: false
+  - code: 12미적02-05
+    text: 사인함수와 코사인함수를 미분할 수 있다.
+    verified: false
+  - code: 12미적02-07
+    text: 합성함수를 미분할 수 있다.
+    verified: false
+  - code: 12미적03-05
+    text: 곡선으로 둘러싸인 도형의 넓이를 구할 수 있다.
+    verified: false
+  content_area: 미분법·적분법 – 합성함수의 미분, 정적분의 활용
+  behavior_domain: 문제해결
+  unit_path: [미적분, 미분법, 여러 가지 미분법, 합성함수의 미분법]
+  key_concepts: [정적분과 넓이, 합성함수의 미분법, 탄젠트함수의 미분, 수직 조건]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 건국대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 건국대학교
+  admission_year: 2025
+  admission_type: KU논술우수자
+  track: 자연
+  question_no: 4
+  official_url: https://enter.konkuk.ac.kr  # [확인필요] 원문은 아래 보고서
+  retrieved_at: 2026-11-21
+  original_points: 30   # 문제 전체 배점만 공개, 소문항 배점 없음
+  rights_notice: 미확인
+  transcribed_from: '건국대학교 2025학년도 선행학습 영향평가 결과보고서 p.100 · g25.pdf(대학 공개 문제지) p.4 교차 대조 일치 (원본 이미지 대조 2026-11-21)'
+
+verify: verify/KKU-G25.py::p04
+
+stimuli:
+- label: 가
+  body: |
+    함수 $f(x)$가 닫힌구간 $[a,b]$에서 연속이고 $f(x)\ge0$일 때, 곡선 $y=f(x)$와 $x$축 및 두 직선 $x=a$, $x=b$로 둘러싸인 도형의 넓이 $S$는
+    $$S=\int_a^bf(x)dx$$
+- label: 나
+  body: |
+    [그림 1], [그림 2]와 같이 좌표평면 위에 곡선 $y=x^2\ (x\ge0)$과 점 $\mathrm{P}(0,10)$이 있다. 점 $\mathrm{A}$와 $\mathrm{B}$는 곡선 위에 있고 $\angle\mathrm{OPA}=\theta$이다.
+    [그림 1]에서 곡선과 선분 $\mathrm{OP}$, 선분 $\mathrm{PA}$로 둘러싸인 도형의 넓이가 $f(\theta)$이다. (단, $\mathrm{O}$는 원점이고 $0<\theta<\pi$이다.)
+    [그림 2]에서 $\angle\mathrm{APB}=\dfrac{\pi}{2}$이고 곡선과 선분 $\mathrm{PA}$, 선분 $\mathrm{PB}$로 둘러싸인 도형의 넓이가 $g(\theta)$이다.
+    $0<\theta<\dfrac{\pi}{2}$일 때, 두 함수 $f(\theta)$와 $g(\theta)$ 사이에는 다음과 같은 관계가 있다.
+    $$g(\theta)=f\left(\theta+\frac{\pi}{2}\right)-f(\theta)$$
+
+    [그림: [그림 1] 좌표평면에 곡선 $y=x^2\ (x\ge0)$, $y$축 위의 점 $\mathrm{P}$, 곡선 위의 점 $\mathrm{A}$가 있고, $\mathrm{P}$에서 선분 $\mathrm{PO}$(아래 방향)와 선분 $\mathrm{PA}$ 사이의 각에 $\theta$가 표시되어 있다. $y$축(선분 $\mathrm{OP}$), 선분 $\mathrm{PA}$, 곡선으로 둘러싸인 부분이 회색으로 칠해져 있다. [그림 2] 같은 곡선과 점 $\mathrm{P}$, 곡선 위의 점 $\mathrm{A}$(아래쪽)와 $\mathrm{B}$(위쪽)가 있고, $\mathrm{P}$에서 $\mathrm{PA}$와 $\mathrm{PB}$ 사이에 직각 표시, $\mathrm{PO}$와 $\mathrm{PA}$ 사이에 $\theta$가 표시되어 있다. 선분 $\mathrm{PA}$, 선분 $\mathrm{PB}$, 곡선으로 둘러싸인 부분이 회색으로 칠해져 있다.]
+
+stem: |
+  [문제 4] (30점)
+
+subparts:
+- id: '1'
+  stem: |
+    (나)에서 점 $\mathrm{A}$의 $x$좌표가 $t$일 때, $f'(\theta)$를 $t$의 식으로 표현하시오.
+  points: 8
+  depends_on: []
+  answer: {kind: expression, value: '((10 - t**2)**2 + t**2)/2', equivalents: ['(t**4 - 19*t**2 + 100)/2'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $f=\tfrac16t^3+5t$, $\tan\theta=\tfrac{t}{10-t^2}$을 미분해 $\tfrac{dt}{d\theta}=\tfrac{(10-t^2)^2+t^2}{10+t^2}$.
+    steps:
+    - {id: 1a, content: '$f\prime(\theta)=\left(\tfrac12t^2+5\right)\dfrac{dt}{d\theta}=\dfrac{(10-t^2)^2+t^2}{2}$', criteria: ['1.M1', '1.A1']}
+    hint_ladder:
+    - 넓이를 $t$로 나타내 보자. 사다리꼴에서 무엇을 빼면 되는가?
+    - $\theta$와 $t$의 관계를 탄젠트로 쓰고 양변을 $\theta$로 미분하자.
+  - id: S1-B
+    audience: B
+    source_flow: 선행학습 영향평가 보고서 2025 p.108 예시답안
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        $\mathrm{A}$에서 $x$축에 내린 수선의 발을 $\mathrm{Q}$라 하면 사다리꼴 $\mathrm{OPAQ}$의 넓이 $\dfrac{t}{2}(10+t^2)$에서 $x$축과 곡선 사이의 넓이를 뺀 값이 $f(\theta)$이다. 따라서
+        $$f(\theta)=\frac{t}{2}(10+t^2)-\int_0^tx^2dx=\frac16t^3+5t.$$
+      criteria: ['1.M1']
+    - id: 1b-2
+      content: |
+        $\mathrm{A}$에서 $y$축에 내린 수선의 발을 $\mathrm{H}$라 하면 직각삼각형 $\mathrm{APH}$에서 $\tan\theta=\dfrac{t}{10-t^2}$이다. $t$가 $\theta$의 함수이므로, 양변을 $\theta$에 대하여 미분하면 $\sec^2\theta=\dfrac{10+t^2}{(10-t^2)^2}\dfrac{dt}{d\theta}$이다.
+      criteria: ['1.M1']
+    - id: 1b-3
+      content: |
+        $\sec^2\theta=1+\tan^2\theta=1+\left(\dfrac{t}{10-t^2}\right)^2=\dfrac{(10-t^2)^2+t^2}{(10-t^2)^2}$이므로
+        $$\frac{dt}{d\theta}=\frac{(10-t^2)^2+t^2}{10+t^2},\qquad f'(\theta)=\left(\frac12t^2+5\right)\frac{dt}{d\theta}=\frac{(10-t^2)^2+t^2}{2}.$$
+      criteria: ['1.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    # 공식 C(문제 (1)의 답이 맞음) = 1.M1+1.A1. 배점은 추정 분할.
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 4
+      evidence: |
+        $f(\theta)=\dfrac16t^3+5t$와 $\tan\theta=\dfrac{t}{10-t^2}$(또는 $\theta$와 $t$의 동치 관계)를 세우고 $\theta$에 대해 미분하는 식을 적었다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1, 1b-2]
+    - id: 1.A1
+      mark_type: A
+      points: 4
+      evidence: |
+        (공식 C) $f'(\theta)=\dfrac{dt}{d\theta}\cdot\left(\dfrac12t^2+5\right)=\dfrac{(10-t^2)^2+t^2}{2}$을 얻었다.
+      depends_on: [1.M1]
+      steps: [1b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '2'
+  stem: |
+    (나)에서 $g'(\theta)=0$일 때 점 $\mathrm{A}$, $\mathrm{B}$의 $x$좌표를 각각 $a$, $b$라 하자. 이때 $a^2+b^2$, $ab$, $g(\theta)$의 값을 모두 구하고 풀이과정을 쓰시오.
+  points: 22
+  depends_on: ['1']
+  answer: {kind: value, value: 'a**2+b**2 = 19; a*b = 9; g = 29/3', equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: $f'(\theta)=f'(\theta+\tfrac{\pi}{2})$에서 $(a^2-b^2)(a^2+b^2-19)=0$, 수직 조건 $(a^2-10)(b^2-10)+ab=0$에서 $ab=9$, $b-a=1$.
+    steps:
+    - {id: 2a, content: '$a^2+b^2=19$, $ab=9$, $g=\tfrac16(b^3-a^3)+5(b-a)=\tfrac{28}{6}+5=\tfrac{29}{3}$', criteria: ['2.M1', '2.M2', '2.A1']}
+    hint_ladder:
+    - $g'(\theta)=0$은 $f'$의 두 값이 같다는 뜻이다.
+    - $\overline{\mathrm{PA}}\perp\overline{\mathrm{PB}}$를 기울기로 쓰고 $a^2+b^2=19$를 대입하자.
+  - id: S2-B
+    audience: B
+    source_flow: 선행학습 영향평가 보고서 2025 p.108~109 예시답안
+    method_no: 1
+    steps:
+    - id: 2b-1
+      content: |
+        $f'(\theta)=\dfrac{(10-a^2)^2+a^2}{2}$이고 같은 방법으로 $f'\!\left(\theta+\dfrac{\pi}{2}\right)=\dfrac{(10-b^2)^2+b^2}{2}$이다.
+        $g'(\theta)=0$일 때 $f'(\theta)=f'\!\left(\theta+\dfrac{\pi}{2}\right)$이므로 다음이 성립한다.
+        $$(*)\quad \frac{(10-b^2)^2+b^2}{2}=\frac{(10-a^2)^2+a^2}{2}$$
+      criteria: ['2.M1']
+    - id: 2b-2
+      content: |
+        따라서
+        $$\{a^2+(a^2-10)^2\}-\{b^2+(b^2-10)^2\}=a^2-b^2+(a^2-10)^2-(b^2-10)^2=(a^2-b^2)+(a^2-b^2)(a^2+b^2-20)=(a^2-b^2)(a^2+b^2-19)=0$$
+        $a^2\ne b^2$이어야 하므로 $a^2+b^2=19$를 얻는다.
+      criteria: ['2.M1']
+    - id: 2b-3
+      content: |
+        또한 $\overline{\mathrm{AP}}$와 $\overline{\mathrm{BP}}$가 수직이므로
+        $$(**)\quad \frac{a^2-10}{a}\cdot\frac{b^2-10}{b}=-1$$
+        이고 $(a^2-10)(b^2-10)+ab=0$.
+        $$(a^2-10)(b^2-10)+ab=a^2b^2-10(a^2+b^2)+100+ab=(ab)^2-10\cdot19+100+ab=(ab)^2+ab-90=(ab-9)(ab+10)$$
+        이로부터 $ab=9$를 얻는다.
+      criteria: ['2.M2']
+    - id: 2b-4
+      content: |
+        $a^2+b^2=19$와 $ab=9$를 연립하여 풀면 $a+b=\sqrt{37}$이고,
+        $$a=\frac{\sqrt{37}-1}{2},\qquad b=\frac{\sqrt{37}+1}{2}.$$
+        이때 $b-a=1$이고 $b^3-a^3=(b-a)(b^2+ba+a^2)=19+9=28$이다.
+        이때 $g(\theta)$의 값은
+        $$g(\theta)=\left(\frac16b^3+5b\right)-\left(\frac16a^3+5a\right)=\frac16(b^3-a^3)+5(b-a)=\frac{28}{6}+5=\frac{29}{3}.$$
+      criteria: ['2.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    # 공식 B+ = (*)·(**) 중 하나, A = (*)와 (**) 모두, A+ = 답과 풀이. D·F 는 마크 없음. 배점은 추정 분할.
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 7
+      evidence: |
+        (공식 B+/A) $g'(\theta)=0$에서 $f'(\theta)=f'\!\left(\theta+\dfrac{\pi}{2}\right)$인 관계식 (*)을 세우고 $a^2+b^2=19$를 이끌었다.
+      depends_on: []
+      implied_ok: false
+      ft: {allowed: true, from: [1.A1], max_points: 7}
+      steps: [2b-1, 2b-2]
+    - id: 2.M2
+      mark_type: M
+      points: 7
+      evidence: |
+        (공식 B+/A) $\overline{\mathrm{AP}}\perp\overline{\mathrm{BP}}$에서 관계식 (**) $\dfrac{a^2-10}{a}\cdot\dfrac{b^2-10}{b}=-1$을 세우고 $ab=9$를 이끌었다.
+      depends_on: []
+      implied_ok: false
+      steps: [2b-3]
+    - id: 2.A1
+      mark_type: A
+      points: 8
+      evidence: |
+        (공식 A+) $a^2+b^2=19$, $ab=9$, $g(\theta)=\dfrac{29}{3}$을 모두 바르게 구했다.
+      depends_on: [2.M1, 2.M2]
+      steps: [2b-4]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-transcribe-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

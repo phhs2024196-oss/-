@@ -1,0 +1,191 @@
+# 건국대 2023학년도 KU논술우수자 자연계 A [문제 3] — 기출 원문은 내부 분석용(allowed_use: internal_only)
+# 원본은 문제지뿐(공식 출제의도·해설·채점기준 미확보). intent·해설·채점표는 입력자 자체 작성(tags: 공식해설미확보).
+schema_version: '2.0'
+id: KKU-G23A-03
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: KKU
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 최적2단
+points: 20
+time_estimate_min: 20
+intent: |
+  (자체 추정, 공식 출제의도 미확보) 사인법칙으로 $\sin\angle\mathrm{AXB}$를 삼각형 $\mathrm{AXB}$의 외접원의 반지름으로 바꾸고, 외접원이 곡선에 접할 때(접선의 기울기 = 미분계수) 최대가 됨을 미분으로 찾을 수 있는지 알아본다.
+key_idea: |
+  사인법칙 $\sin\angle\mathrm{AXB}=\dfrac{\overline{\mathrm{AB}}}{2\rho}=\dfrac1\rho$. 외접원의 중심은 $(3,k)$, $\rho^2=1+k^2$이므로 $k$가 최소일 때 최대. $k(a)=\sqrt2\left(1-\dfrac6a+\dfrac8{a^2}+\dfrac{a^2}8\right)$의 최솟값 $\dfrac{\sqrt2}2$ ($a=2$, 이때 외접원이 곡선에 접함) → $\dfrac{\sqrt6}3$.
+stuck: |
+  각의 사인을 외접원의 반지름으로 바꾸고, 외접원의 중심이 선분 AB의 수직이등분선 $x=3$ 위에 있음을 이용해 한 변수 $k$의 최소 문제로 바꾸는 발상
+idea_tags: [IDEA-SINE-LAW-CIRCUMRADIUS, IDEA-TANGENT-CIRCLE-MAX-ANGLE]
+tags: [공식해설미확보, 사인법칙, 외접원, 접하는 원, 최대 시야각]
+elements:
+  materials:
+  - '곡선 $y=\dfrac{\sqrt2}{4}x^2$ 위의 점 X'
+  - '$\mathrm{A}(2,0)$, $\mathrm{B}(4,0)$'
+  - '$\sin\angle\mathrm{AXB}$의 최댓값'
+  concepts:
+  - '사인법칙, 외접원'
+  - '접선의 기울기 = 미분계수(제시문 (가))'
+  - '도함수를 이용한 최솟값'
+  tools:
+  - '$\sin\angle\mathrm{AXB}=\dfrac{\overline{\mathrm{AB}}}{2\rho}$'
+  - '외접원의 중심 $(3,k)$, $\rho^2=1+k^2$'
+  - '$k(a)$의 도함수 $k^{\prime}(a)=\dfrac{\sqrt2(a-2)(a^3+2a^2+4a+32)}{4a^3}$'
+  conditions:
+  - '$a\ne0$ (X가 원점이면 세 점이 일직선)'
+  - '곡선 위의 모든 점은 선분 AB를 지름으로 하는 원 밖에 있어 $k>0$'
+  - '최대일 때 $\mathrm{X}(2,\sqrt2)$이고 외접원이 곡선에 X에서 접함(중심이 X에서의 법선 위)'
+  stimuli_used: [가, 나]
+  subpart_links: '단일 논제'
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅰ, 수학Ⅱ]
+  scope_2028: common
+  scope_confirmed: false
+  standards:
+  - code: 12수학Ⅰ02-04
+    text: 사인법칙과 코사인법칙을 이해하고, 이를 활용할 수 있다.
+    verified: false
+  - code: 12수학Ⅱ02-09
+    text: 함수의 그래프의 개형을 그릴 수 있다(최대·최소 활용).
+    verified: false
+  content_area: 삼각함수 · 미분법
+  behavior_domain: 문제해결
+  unit_path: [수학Ⅱ, 미분, 도함수의 활용, 최대·최소]
+  key_concepts: [사인법칙, 외접원, 접선의 기울기, 최솟값]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 건국대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 건국대학교
+  admission_year: 2023
+  admission_type: KU논술우수자
+  track: 자연
+  question_no: 3
+  official_url: https://enter.konkuk.ac.kr   # [확인필요] 원문은 아래 문제지
+  retrieved_at: 2026-11-21
+  original_points: [20]
+  rights_notice: 미확인
+  transcribed_from: '2023건국대논술문제지_자연계A.pdf p.4 (원본 이미지 대조 2026-11-21)'
+
+verify: verify/KKU-G23A.py::p03
+
+stimuli:
+- label: 가
+  body: |
+    함수 $f(x)$가 $x=a$에서 미분가능할 때, 곡선 $y=f(x)$ 위의 점 $\mathrm{P}(a,f(a))$에서의 접선의 기울기는 미분계수 $f^{\prime}(a)$와 같다.
+- label: 나
+  body: |
+    그림에서 점 $\mathrm{X}$는 곡선 $y=\dfrac{\sqrt2}{4}x^2$ 위의 점이고 점 $\mathrm{A}$, $\mathrm{B}$는 $x$축 위에 있다.
+
+    [그림: 좌표축과 원점 O. 원점에서 $x$축에 접하는 아래로 볼록한 포물선. 점 X는 포물선 위 제1사분면의 점이고, $x$축 양의 부분 위에 점 A와 그 오른쪽의 점 B가 있다. 선분 XA, XB가 그어져 있다.]
+
+stem: |
+  [문제 3] (나)에서 점 $\mathrm{A}$, $\mathrm{B}$의 좌표가 각각 $(2,0)$, $(4,0)$일 때 $\sin(\angle\mathrm{AXB})$의 최댓값을 구하고 풀이 과정을 쓰시오. [20점]
+
+subparts:
+- id: '1'
+  stem: |
+    점 $\mathrm{A}$, $\mathrm{B}$의 좌표가 각각 $(2,0)$, $(4,0)$일 때 $\sin(\angle\mathrm{AXB})$의 최댓값을 구하고 풀이 과정을 쓰시오.
+  points: 20
+  depends_on: []
+  answer: {kind: value, value: 'sqrt(6)/3', equivalents: ['\dfrac{\sqrt6}{3}', '2/sqrt(6)'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: 사인법칙으로 $\sin\angle\mathrm{AXB}=1/\rho$, 외접원 중심 $(3,k)$의 $k$를 최소화 → $a=2$, $k=\dfrac{\sqrt2}2$, $\rho=\dfrac{\sqrt6}2$.
+    steps:
+    - {id: 1a, content: '$k(a)$ 최소 $\Rightarrow a=2$, $\sin\angle\mathrm{AXB}=\dfrac{1}{\sqrt{1+1/2}}=\dfrac{\sqrt6}3$', criteria: ['1.M1', '1.M2', '1.M3', '1.A1']}
+    hint_ladder:
+    - 사인법칙에서 $\sin\angle\mathrm{AXB}$와 외접원의 반지름은 어떤 관계인가?
+    - 세 점 A, B, X를 지나는 원의 중심은 어느 직선 위에 있는가?
+    - 외접원이 곡선에 접할 때를 생각해 보자.
+  - id: S1-B
+    audience: B
+    source_flow: 자체 풀이(공식 해설 미확보)
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        $\mathrm{X}\left(a,\dfrac{\sqrt2}4a^2\right)$ $(a\ne0)$라 하고 삼각형 $\mathrm{AXB}$의 외접원의 반지름을 $\rho$라 하면 사인법칙에 의해 $\sin\angle\mathrm{AXB}=\dfrac{\overline{\mathrm{AB}}}{2\rho}=\dfrac1\rho$이다. 따라서 $\rho$가 최소일 때 최대이다.
+      criteria: ['1.M1']
+    - id: 1b-2
+      content: |
+        외접원의 중심은 선분 AB의 수직이등분선 $x=3$ 위에 있으므로 $(3,k)$로 놓으면 $\rho^2=1+k^2$이다. 중심에서 X까지의 거리가 $\rho$이므로 $(a-3)^2+\left(\dfrac{\sqrt2}4a^2-k\right)^2=1+k^2$, 정리하면
+        $$k(a)=\frac{(a-3)^2+\frac{a^4}{8}-1}{\frac{\sqrt2}{2}a^2}=\sqrt2\left(1-\frac6a+\frac8{a^2}+\frac{a^2}8\right).$$
+        분자 $(a-3)^2+\dfrac{a^4}8-1>0$(곡선 위의 점은 AB를 지름으로 하는 원 밖)이므로 $k>0$이고, $\rho$ 최소 $\iff$ $k$ 최소이다.
+      criteria: ['1.M2']
+    - id: 1b-3
+      content: |
+        $k^{\prime}(a)=\sqrt2\left(\dfrac6{a^2}-\dfrac{16}{a^3}+\dfrac a4\right)=\dfrac{\sqrt2(a^4+24a-64)}{4a^3}=\dfrac{\sqrt2(a-2)(a^3+2a^2+4a+32)}{4a^3}$.
+        $a>0$에서 $a^3+2a^2+4a+32>0$이므로 $k$는 $0<a<2$에서 감소, $a>2$에서 증가하여 $k(2)=\dfrac{\sqrt2}2$가 $a>0$에서의 최솟값이다. $a<0$이면 $-\dfrac6a>0$이므로 $k(a)>\sqrt2\left(1+\dfrac{a^2}8\right)>\sqrt2>\dfrac{\sqrt2}2$이다.
+      criteria: ['1.M3']
+    - id: 1b-4
+      content: |
+        따라서 $\mathrm{X}(2,\sqrt2)$일 때 $\rho^2=1+\dfrac12=\dfrac32$, 최댓값은 $\sin\angle\mathrm{AXB}=\dfrac{1}{\rho}=\sqrt{\dfrac23}=\dfrac{\sqrt6}3$이다. (이때 중심 $\left(3,\dfrac{\sqrt2}2\right)$은 X에서의 접선(기울기 $f^{\prime}(2)=\sqrt2$)에 수직인 직선 위에 있어, 외접원이 곡선에 접한다.)
+      criteria: ['1.A1']
+  - id: S1-ALT
+    audience: ALT
+    method_no: 2
+    steps:
+    - id: 1c-1
+      content: |
+        (접하는 원) 중심 $(3,k)$인 원이 X에서 곡선에 접하면 중심은 X에서의 법선 위에 있으므로 제시문 (가)에서 $\dfrac{k-\frac{\sqrt2}4a^2}{3-a}=-\dfrac{1}{\frac{\sqrt2}{2}a}$. 이것과 $(a-3)^2+\left(\frac{\sqrt2}4a^2-k\right)^2=1+k^2$를 연립하면 $a^4+24a-64=0$, 양수 해 $a=2$, $k=\dfrac{\sqrt2}2$를 얻는다.
+      criteria: ['1.M2', '1.M3']
+  rubric:
+    # 채점표는 자체 설계(공식 채점기준 미확보)
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 5
+      evidence: 사인법칙 등으로 $\sin\angle\mathrm{AXB}$를 외접원의 반지름(또는 X의 좌표의 식, 예 $\dfrac{2y}{\overline{\mathrm{XA}}\cdot\overline{\mathrm{XB}}}$)으로 나타냈다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1]
+    - id: 1.M2
+      mark_type: M
+      points: 5
+      evidence: 외접원의 중심 $(3,k)$와 $\rho^2=1+k^2$을 쓰고, $k$를 $a$의 식으로 나타냈다(또는 접할 조건을 연립했다).
+      depends_on: [1.M1]
+      implied_ok: false
+      steps: [1b-2, 1c-1]
+    - id: 1.M3
+      mark_type: M
+      points: 6
+      evidence: 미분하여 $a=2$에서 최소(최대)임을 증감 또는 비교로 보였다($a<0$ 경우 배제 포함).
+      depends_on: [1.M2]
+      implied_ok: false
+      steps: [1b-3, 1c-1]
+    - id: 1.A1
+      mark_type: A
+      points: 4
+      evidence: 최댓값 $\dfrac{\sqrt6}3$을 구했다.
+      depends_on: [1.M3]
+      steps: [1b-4]
+    deductions:
+    - code: D1-1
+      condition: 사소한 계산 실수
+      effect: minus
+      value: 2
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-transcribe-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

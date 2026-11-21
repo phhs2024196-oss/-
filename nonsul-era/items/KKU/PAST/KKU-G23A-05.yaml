@@ -1,0 +1,186 @@
+# 건국대 2023학년도 KU논술우수자 자연계 A [문제 5] — 기출 원문은 내부 분석용(allowed_use: internal_only)
+# 원본은 문제지뿐(공식 출제의도·해설·채점기준 미확보). intent·해설·채점표는 입력자 자체 작성(tags: 공식해설미확보).
+schema_version: '2.0'
+id: KKU-G23A-05
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: KKU
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 불변량
+points: 30
+time_estimate_min: 25
+intent: |
+  (자체 추정, 공식 출제의도 미확보) 가우스 기호와 급수로 정의된 함수의 성질을 파악하여 $g(n)$이 $n$의 각 자리 숫자의 합임을 밝히고, 조건을 만족하는 자연수의 개수를 경우를 나누어 셀 수 있는지 알아본다.
+key_idea: |
+  $\left[\dfrac{10n}{10^k}\right]=\left[\dfrac{n}{10^{k-1}}\right]$이므로 $f(10n)=n+f(n)$, $g(n)=n-9f(n)$. $n=\sum d_i10^i$이면 $f(n)=\sum d_i\dfrac{10^i-1}9$이므로 $g(n)=\sum d_i$(자릿수의 합). 자릿수 합이 8인 $1\le n\le6200$의 개수 $=155+6=161$.
+stuck: |
+  $g(n)$이 자릿수의 합이라는 것을 알아차리는 단계와, 천의 자리가 6인 경우($n\le6200$)를 따로 세는 단계
+idea_tags: [IDEA-FLOOR-SUM-DIGIT-SUM, IDEA-STARS-AND-BARS-UPPER-BOUND]
+tags: [공식해설미확보, 가우스 기호, 자릿수의 합, 중복조합]
+elements:
+  materials:
+  - '$f(n)=\displaystyle\sum_{k=1}^{\infty}\left[\dfrac{n}{10^k}\right]$'
+  - '$g(n)=f(10n)-10f(n)$'
+  - '$g(n)=8$, $1\le n\le6200$인 자연수 $n$의 개수'
+  concepts:
+  - '가우스 기호(제시문 (가))'
+  - '십진법 전개, 등비수열의 합'
+  - '중복조합(음이 아닌 정수해의 개수)'
+  tools:
+  - '$f(10n)=n+f(n)$'
+  - '$g(n)=$ $n$의 각 자리 숫자의 합'
+  - '$\mathrm{_4H_8}={}_{11}\mathrm C_3$에서 천의 자리 $\ge6$인 경우 제외'
+  conditions:
+  - '천의 자리 $0\sim5$: 155개'
+  - '천의 자리 6: $6002,6011,6020,6101,6110,6200$의 6개'
+  stimuli_used: [가, 나]
+  subpart_links: '단일 논제'
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅰ, 확률과통계]
+  scope_2028: common
+  scope_confirmed: false
+  standards:
+  - code: 12수학Ⅰ03-04
+    text: $\sum$의 뜻과 성질을 이해하고, 이를 활용할 수 있다.
+    verified: false
+  - code: 12확통01-02
+    text: 중복조합을 이해하고, 중복조합의 수를 구할 수 있다.
+    verified: false
+  content_area: 수열 · 경우의 수
+  behavior_domain: 추론
+  unit_path: [확률과통계, 경우의 수, 중복조합, 방정식의 음이 아닌 정수해]
+  key_concepts: [가우스 기호, 자릿수의 합, 중복조합]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 건국대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 건국대학교
+  admission_year: 2023
+  admission_type: KU논술우수자
+  track: 자연
+  question_no: 5
+  official_url: https://enter.konkuk.ac.kr   # [확인필요] 원문은 아래 문제지
+  retrieved_at: 2026-11-21
+  original_points: [30]
+  rights_notice: 미확인
+  transcribed_from: '2023건국대논술문제지_자연계A.pdf p.6 (원본 이미지 대조 2026-11-21)'
+
+verify: verify/KKU-G23A.py::p05
+
+stimuli:
+- label: 가
+  body: |
+    실수 $x$에 대하여 $x$보다 크지 않은 최대의 정수를 $[x]$로 나타내자. 예를 들어 $[4]=4$이고 $\left[\dfrac{21}5\right]=4$이다.
+- label: 나
+  body: |
+    자연수 $n$에 대하여 함수 $f(n)$은 다음과 같이 정의한다.
+    $$f(n)=\sum_{k=1}^{\infty}\left[\frac{n}{10^k}\right]$$
+    예를 들어, $f(123)=\left[\dfrac{123}{10}\right]+\left[\dfrac{123}{10^2}\right]+\left[\dfrac{123}{10^3}\right]+\cdots=12+1+0+\cdots=13$이다.
+
+stem: |
+  [문제 5] (나)에서 정의된 함수 $f(n)$을 이용하여 함수 $g(n)$을 다음과 같이 정의한다.
+  $$g(n)=f(10n)-10f(n)$$
+  다음을 만족하는 자연수 $n$의 개수를 구하고 풀이 과정을 쓰시오.
+  $$g(n)=8,\quad 1\le n\le6200$$
+  [30점]
+
+subparts:
+- id: '1'
+  stem: |
+    $g(n)=f(10n)-10f(n)$일 때, $g(n)=8$, $1\le n\le6200$을 만족하는 자연수 $n$의 개수를 구하고 풀이 과정을 쓰시오.
+  points: 30
+  depends_on: []
+  answer: {kind: value, value: '161', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: |
+      $g(n)$은 $n$의 자릿수의 합. 네 자리(앞자리 0 허용) 합 8, 천의 자리 $\le5$인 것 ${}_{11}\mathrm C_3-{}_5\mathrm C_3=155$개, 천의 자리 6인 것 6개 → 161.
+    steps:
+    - {id: 1a, content: '$g(n)=n-9f(n)=$ 자릿수 합, $155+6=161$', criteria: ['1.M1', '1.R1', '1.M2', '1.A1']}
+    hint_ladder:
+    - $f(10n)$과 $f(n)$을 비교해 보자.
+    - $g(n)$을 작은 $n$ 몇 개에 대해 계산해 보자. 어떤 값이 나오는가?
+    - 자릿수의 합이 8인 네 자리 이하의 수는 몇 개인가?
+  - id: S1-B
+    audience: B
+    source_flow: 자체 풀이(공식 해설 미확보)
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        $\left[\dfrac{10n}{10^k}\right]=\left[\dfrac{n}{10^{k-1}}\right]$이므로 $f(10n)=\left[n\right]+\sum_{k=1}^{\infty}\left[\dfrac{n}{10^k}\right]=n+f(n)$이고, $g(n)=n-9f(n)$이다.
+      criteria: ['1.M1']
+    - id: 1b-2
+      content: |
+        $n=d_m10^m+\cdots+d_110+d_0$ ($0\le d_i\le9$)이라 하면 $\left[\dfrac{n}{10^k}\right]=\sum_{i\ge k}d_i10^{i-k}$이므로
+        $$f(n)=\sum_{i}d_i\left(10^{i-1}+\cdots+10+1\right)=\sum_i d_i\frac{10^i-1}{9}.$$
+        따라서 $g(n)=n-9f(n)=\sum_i d_i$, 즉 $g(n)$은 $n$의 각 자리 숫자의 합이다. (예: $g(123)=123-9\cdot13=6$)
+      criteria: ['1.R1']
+    - id: 1b-3
+      content: |
+        $1\le n\le5999$: $n$을 네 자리 $abcd$(앞자리 0 허용, $0\le a\le5$)로 보면 $a+b+c+d=8$의 음이 아닌 정수해의 개수 ${}_4\mathrm H_8={}_{11}\mathrm C_3=165$에서 $a\ge6$인 해 ${}_4\mathrm H_2={}_5\mathrm C_3=10$을 빼면 155개($n=0$은 합이 0이라 포함 안 됨, 각 자리는 8 이하라 9 초과 제약 없음).
+      criteria: ['1.M2']
+    - id: 1b-4
+      content: |
+        $6000\le n\le6200$: 천의 자리 6, 나머지 세 자리의 합이 2이고 $n\le6200$인 수는 $6002,6011,6020,6101,6110,6200$의 6개. 따라서 구하는 개수는 $155+6=161$이다.
+      criteria: ['1.A1']
+  rubric:
+    # 채점표는 자체 설계(공식 채점기준 미확보)
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 6
+      evidence: $f(10n)=n+f(n)$, $g(n)=n-9f(n)$을 보였다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1]
+    - id: 1.R1
+      mark_type: R
+      points: 10
+      evidence: 십진법 전개로 $g(n)$이 각 자리 숫자의 합임을 근거와 함께 보였다(예시 몇 개만으로 단정하면 불인정).
+      depends_on: [1.M1]
+      implied_ok: false
+      steps: [1b-2]
+    - id: 1.M2
+      mark_type: M
+      points: 8
+      evidence: $1\le n\le5999$에서 자릿수 합이 8인 수의 개수 155를 중복조합 등으로 셌다.
+      depends_on: [1.R1]
+      implied_ok: false
+      steps: [1b-3]
+    - id: 1.A1
+      mark_type: A
+      points: 6
+      evidence: $6000\le n\le6200$의 6개를 더해 161을 구했다.
+      depends_on: [1.M2]
+      steps: [1b-4]
+    deductions:
+    - code: D1-1
+      condition: 사소한 계산 실수
+      effect: minus
+      value: 3
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-transcribe-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21
