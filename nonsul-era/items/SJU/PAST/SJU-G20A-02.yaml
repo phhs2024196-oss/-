@@ -1,0 +1,333 @@
+# 세종대 2020학년도 수시 논술고사[A](자연계열) 문제 2 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: SJU-G20A-02
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: SJU
+type: null          # [제안] 확률과통계 문항(현행 세종 범위 밖): 「두 상자 사이 공 옮기기와 조건부확률·표본평균」 — 확통 유형 신설 시 분류
+variant_of: null
+replaces: null
+level: L4
+form: 분류
+points: 230
+time_estimate_min: 30
+intent: |
+  두 단계로 이루어진 시행에서 첫 단계의 결과로 경우를 나누어 전확률을 구하고, 조건부확률을 계산하며, 독립 시행 3회의 표본평균이 가질 수 있는 값을 따져 확률을 구하는 능력을 본다.
+key_idea: |
+  A에서 꺼낸 두 공이 ($-1$,$-1$), ($1$,$1$), 서로 다름의 세 경우로 나누면 $\mathrm{P}(X=1)=\tfrac15\cdot\tfrac16+\tfrac1{15}\cdot\tfrac36+\tfrac{11}{15}\cdot\tfrac14=\tfrac14$.
+stuck: |
+  ($0$,$0$)은 A에 $0$이 하나뿐이라 불가능하다는 점, (2-3)에서 $\overline X$가 $\tfrac13$의 배수라 $\overline X>0.7$은 $\overline X=1$뿐이라는 점
+idea_tags: [IDEA-TOTAL-PROBABILITY-CASES, IDEA-DISCRETE-MEAN-VALUES]
+tags: [조건부확률, 표본평균, 범위 밖(현행)]
+
+elements:
+  materials:
+  - '상자 A: $-1$ 세 개, $0$ 한 개, $1$ 두 개'
+  - '상자 B: $-1$ 한 개, $0$ 두 개, $1$ 한 개'
+  - 'A에서 같은 숫자 두 개를 꺼내면 B로 옮긴 뒤 B에서 한 개를 꺼냄'
+  concepts:
+  - '조합을 이용한 확률'
+  - '확률의 곱셈정리'
+  - '조건부확률'
+  - '독립시행'
+  - '표본평균'
+  tools:
+  - '전확률(경우 $A_m$, $A_p$, $A_d$로 분할)'
+  - '여사건'
+  - '$\overline X$가 가질 수 있는 값 나열'
+  conditions:
+  - '숫자가 같으면 두 공을 B로 옮기고, 다르면 옮기지 않음'
+  - '$0$의 공은 A에 하나뿐이므로 ($0$,$0$) 불가능'
+  - '매 실험 후 처음 상태로 되돌림(독립)'
+  stimuli_used: []
+  subpart_links: '(2-2)는 (2-1)의 $\mathrm{P}(X=1)=\tfrac14$을, (2-3)은 (2-1)의 결과를 사용'
+
+curriculum:
+  version: '2015'
+  subjects: [확률과통계]
+  scope_2028: common
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 조건부확률의 의미를 이해하고 확률의 곱셈정리를 이용할 수 있다(요지)
+    verified: false
+  content_area: 확률 – 조건부확률
+  behavior_domain: 문제해결
+  unit_path: [확률과통계, 확률, 조건부확률, 확률의 곱셈정리]
+  key_concepts: [조합을 이용한 확률, 확률의 곱셈정리, 조건부확률, 독립시행, 표본평균]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 세종대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 세종대학교
+  admission_year: 2020
+  admission_type: 수시 논술
+  track: 자연계열
+  question_no: 2
+  official_url: https://ipsi.sejong.ac.kr   # [확인 필요] 입학처 자료실의 정확한 게시물 URL로 교체
+  retrieved_at: 2026-11-21
+  original_points: [80, 70, 80]
+  rights_notice: 미확인(대학 원본 PDF 표지 문구 확인 필요)
+  transcribed_from: 대치 수리 논술 연구소 「2027학년도 대비 수리논술 세종대 기출 및 모의 문제」 p.74 + 해설교재 p.136 (원본 PDF 이미지 대조 완료 2026-11-21)
+
+verify: verify/SJU-G20A.py::p02
+
+stimuli: []
+
+stem: |
+  다음과 같은 실험을 한다.
+  아래 그림과 같이 상자 $\mathbf{A}$와 상자 $\mathbf{B}$가 있고, 각 공에는 숫자 $-1$, $0$ 또는 $1$이 표시되어 있다.
+  (가) 상자 $\mathbf{A}$에는 $-1$의 공 세 개, $0$의 공 한 개, $1$의 공 두 개가 들어있다.
+  (나) 상자 $\mathbf{B}$에는 $-1$의 공 한 개, $0$의 공 두 개, $1$의 공 한 개가 들어있다.
+  상자 $\mathbf{A}$에서 임의로 두 개의 공을 동시에 꺼내 숫자가 같으면 이 두 개의 공을 상자 $\mathbf{B}$로 옮기고, 숫자가 다르면 $\mathbf{B}$로 옮기지 않는다.
+  그다음에 상자 $\mathbf{B}$에서 임의로 한 개의 공을 꺼내 표시된 숫자를 확인한다. 이 수를 확률변수 $X$라고 하자. 그리고 공들을 처음 상태로 되돌린다.
+  (그림: 상자 A에 $-1$ 세 개, $0$ 한 개, $1$ 두 개, 상자 B에 $-1$ 한 개, $0$ 두 개, $1$ 한 개의 공이 그려져 있음)
+
+subparts:
+- id: '1'
+  stem: |
+    확률 $\mathrm{P}(X=1)$을 구하시오.
+  points: 80
+  depends_on: []
+  answer: {kind: value, value: '1/4', equivalents: ['0.25'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: A에서 꺼낸 결과 $A_m$($-1$ 두 개), $A_p$($1$ 두 개), $A_d$(서로 다름)로 나눈 전확률.
+    steps:
+    - {id: 1a, content: '$\tfrac15\cdot\tfrac16+\tfrac1{15}\cdot\tfrac36+\tfrac{11}{15}\cdot\tfrac14=\tfrac14$', criteria: ['1.M1', '1.A1', '1.A2', '1.A3']}
+    hint_ladder:
+    - A에서 같은 숫자 두 개가 나올 수 있는 경우는 몇 가지인가?
+    - 각 경우 B의 구성은 어떻게 바뀌는가?
+  - id: S1-B
+    audience: B
+    source_flow: 해설교재 p.136
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        A에서 $-1$ 두 개를 꺼내는 사건을 $A_m$, $1$ 두 개를 꺼내는 사건을 $A_p$, 숫자가 다른 두 개를 꺼내는 사건을 $A_d$라 하면
+        $\mathrm{P}(A_m)=\dfrac{{}_3\mathrm{C}_2}{{}_6\mathrm{C}_2}=\dfrac15$, $\mathrm{P}(A_p)=\dfrac{{}_2\mathrm{C}_2}{{}_6\mathrm{C}_2}=\dfrac1{15}$, $\mathrm{P}(A_d)=1-\dfrac15-\dfrac1{15}=\dfrac{11}{15}$.
+      criteria: ['1.M1', '1.A1']
+    - id: 1b-2
+      content: |
+        B에서 $1$의 공을 꺼내는 사건을 $B_1$이라 하면 $\mathrm{P}(B_1\mid A_m)=\dfrac16$, $\mathrm{P}(B_1\mid A_p)=\dfrac36$, $\mathrm{P}(B_1\mid A_d)=\dfrac14$이다.
+      criteria: ['1.A2']
+    - id: 1b-3
+      content: |
+        $\mathrm{P}(X=1)=\mathrm{P}(A_m)\mathrm{P}(B_1\mid A_m)+\mathrm{P}(A_p)\mathrm{P}(B_1\mid A_p)+\mathrm{P}(A_d)\mathrm{P}(B_1\mid A_d)=\dfrac1{30}+\dfrac1{30}+\dfrac{11}{60}=\dfrac14$.
+      criteria: ['1.A3']
+  - id: S1-ALT
+    audience: ALT
+    source_flow: 해설교재 p.136 주의
+    method_no: 2
+    key_idea: 원 해설 [주의] — $\mathrm{P}(A_d)$를 ($-1$,$0$), ($-1$,$1$), ($0$,$1$)로 나누어 직접 셈.
+    steps:
+    - id: 1c-1
+      content: |
+        $\mathrm{P}(A_d)=\dfrac{{}_3\mathrm{C}_1}{{}_6\mathrm{C}_2}+\dfrac{{}_3\mathrm{C}_1\times{}_2\mathrm{C}_1}{{}_6\mathrm{C}_2}+\dfrac{{}_2\mathrm{C}_1}{{}_6\mathrm{C}_2}=\dfrac{3+6+2}{15}=\dfrac{11}{15}$.
+      criteria: ['1.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 20
+      evidence: |
+        A에서 꺼낸 결과를 같은 숫자 두 경우와 서로 다른 경우로 나누었다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1]
+    - id: 1.A1
+      mark_type: A
+      points: 20
+      evidence: |
+        $\mathrm{P}(A_m)=\tfrac15$, $\mathrm{P}(A_p)=\tfrac1{15}$, $\mathrm{P}(A_d)=\tfrac{11}{15}$을 구했다.
+      depends_on: [1.M1]
+      steps: [1b-1, 1c-1]
+    - id: 1.A2
+      mark_type: A
+      points: 20
+      evidence: |
+        각 경우 B에서 $1$이 나올 조건부확률 $\tfrac16$, $\tfrac36$, $\tfrac14$을 구했다.
+      depends_on: [1.M1]
+      steps: [1b-2]
+    - id: 1.A3
+      mark_type: A
+      points: 20
+      evidence: |
+        곱의 합으로 $\mathrm{P}(X=1)=\tfrac14$을 얻었다.
+      depends_on: [1.M1, 1.A1, 1.A2]
+      steps: [1b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '2'
+  stem: |
+    $X=1$일 때 상자 $\mathbf{A}$에서 꺼냈던 두 개의 공이 서로 같은 숫자일 확률을 구하시오.
+  points: 70
+  depends_on: ['1']
+  answer: {kind: value, value: '4/15', equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: $\dfrac{\mathrm{P}(A_m\cap B_1)+\mathrm{P}(A_p\cap B_1)}{\mathrm{P}(B_1)}=\dfrac{1/15}{1/4}$.
+    steps:
+    - {id: 2a, content: '$\tfrac{1/30+1/30}{1/4}=\tfrac4{15}$', criteria: ['2.M1', '2.A1']}
+    hint_ladder:
+    - 조건이 되는 사건은 $X=1$이다.
+  - id: S2-B
+    audience: B
+    source_flow: 해설교재 p.136
+    method_no: 1
+    steps:
+    - id: 2b-1
+      content: |
+        구하는 확률은 $\mathrm{P}(A_m\mid B_1)+\mathrm{P}(A_p\mid B_1)=\dfrac{\mathrm{P}(A_m)\mathrm{P}(B_1\mid A_m)+\mathrm{P}(A_p)\mathrm{P}(B_1\mid A_p)}{\mathrm{P}(B_1)}$이다.
+      criteria: ['2.M1']
+    - id: 2b-2
+      content: |
+        $=\dfrac{\frac15\cdot\frac16+\frac1{15}\cdot\frac36}{\frac14}=\dfrac{1/15}{1/4}=\dfrac4{15}$.
+      criteria: ['2.A1']
+  - id: S2-ALT
+    audience: ALT
+    source_flow: 해설교재 p.136 별해
+    method_no: 2
+    key_idea: 원 해설 별해 — 여사건 $\mathrm{P}(A_d\mid B_1)=\dfrac{\frac{11}{15}\cdot\frac14}{\frac14}=\dfrac{11}{15}$에서 $1-\dfrac{11}{15}=\dfrac4{15}$.
+    steps:
+    - id: 2c-1
+      content: |
+        $\mathrm{P}(A_d\mid B_1)=\dfrac{\mathrm{P}(A_d)\mathrm{P}(B_1\mid A_d)}{\mathrm{P}(B_1)}=\dfrac{11}{15}$이므로 답은 $1-\dfrac{11}{15}=\dfrac4{15}$.
+      criteria: ['2.M1', '2.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 40
+      evidence: |
+        $X=1$을 조건으로 하는 조건부확률식(분모 $\mathrm{P}(X=1)$)을 세웠다.
+      depends_on: []
+      implied_ok: false
+      ft: {allowed: true, from: [1.A3], max_points: 40}
+      steps: [2b-1, 2c-1]
+    - id: 2.A1
+      mark_type: A
+      points: 30
+      evidence: |
+        $\dfrac4{15}$을 얻었다.
+      depends_on: [2.M1]
+      steps: [2b-2, 2c-1]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '21', meaning: 만점(여사건 별해)}
+  - {code: '71', misconception: MC-PRB-3113}
+  misconceptions:
+  - id: MC-PRB-3113
+    outcome_code: '71'
+    wrong_work: '$\mathrm{P}(A_m)+\mathrm{P}(A_p)=\tfrac4{15}$ 또는 $\mathrm{P}(A_m\cap B_1)+\mathrm{P}(A_p\cap B_1)=\tfrac1{15}$로 답함'
+    detect_cue: $X=1$이라는 조건(분모 $\tfrac14$)을 반영하지 않았다
+    feedback: "'$X=1$일 때'의 확률이므로 $\\mathrm{P}(X=1)$로 나누어야 합니다. 수치가 우연히 같아도 식을 확인하세요."
+    remedy: [RL-1]
+
+- id: '3'
+  stem: |
+    위의 실험을 $3$회 독립 시행하여 구한 표본평균을 $\overline X$라 하자. 확률 $\mathrm{P}(\overline X\le0.7)$을 구하시오.
+  points: 80
+  depends_on: ['1']
+  answer: {kind: value, value: '63/64', equivalents: [], tolerance: null}
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: $\overline X$는 $\tfrac13$의 배수이므로 $\overline X>0.7\iff\overline X=1\iff$ 세 번 모두 $1$.
+    steps:
+    - {id: 3a, content: '$1-\left(\tfrac14\right)^3=\tfrac{63}{64}$', criteria: ['3.M1', '3.R1', '3.A1']}
+    hint_ladder:
+    - 세 값의 평균 $\overline X$가 가질 수 있는 값은?
+    - 여사건을 생각하자.
+  - id: S3-B
+    audience: B
+    source_flow: 해설교재 p.136
+    method_no: 1
+    steps:
+    - id: 3b-1
+      content: |
+        여사건을 이용하면 $\mathrm{P}(\overline X\le0.7)=1-\mathrm{P}(\overline X>0.7)$이다.
+      criteria: ['3.M1']
+    - id: 3b-2
+      content: |
+        $\overline X$는 $\tfrac13$의 정수배이고 $\tfrac23<0.7<1$이므로 $\{\overline X>0.7\}=\{\overline X=1\}$이며, 이는 세 번의 결과가 모두 $1$인 사건이다.
+      criteria: ['3.R1']
+    - id: 3b-3
+      content: |
+        각 시행은 독립이므로 $\mathrm{P}(\overline X=1)=\left(\dfrac14\right)^3=\dfrac1{64}$, 따라서 답은 $1-\dfrac1{64}=\dfrac{63}{64}$이다.
+      criteria: ['3.A1']
+  - id: S3-ALT
+    audience: ALT
+    source_flow: 해설교재 p.136 별해
+    method_no: 2
+    key_idea: 원 해설 별해 — $\mathrm{P}(X=-1)=\tfrac{53}{180}$, $\mathrm{P}(X=0)=\tfrac{41}{90}$, $\mathrm{P}(X=1)=\tfrac14$을 구해 모두 $1$인 경우를 뺀 $(i,j,k)$의 곱을 합한다.
+    steps:
+    - id: 3c-1
+      content: |
+        $\displaystyle\sum_{(i,j,k)\ne(1,1,1)}\mathrm{P}(X=i)\mathrm{P}(X=j)\mathrm{P}(X=k)=1-\left(\tfrac14\right)^3=\tfrac{63}{64}$.
+      criteria: ['3.M1', '3.R1', '3.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 20
+      evidence: |
+        여사건(또는 전체 경우의 합)으로 계산 방향을 세웠다.
+      depends_on: []
+      implied_ok: false
+      steps: [3b-1, 3c-1]
+    - id: 3.R1
+      mark_type: R
+      points: 35
+      evidence: |
+        $\overline X$의 가능한 값을 따져 $\overline X>0.7$이 세 번 모두 $1$인 경우뿐임을 밝혔다.
+      depends_on: [3.M1]
+      steps: [3b-2, 3c-1]
+    - id: 3.A1
+      mark_type: A
+      points: 25
+      evidence: |
+        독립성으로 $\dfrac{63}{64}$을 얻었다.
+      depends_on: [3.R1]
+      ft: {allowed: true, from: [1.A3], max_points: 25}
+      steps: [3b-3, 3c-1]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '21', meaning: 만점(전체 분포 별해)}
+  misconceptions: []
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-PRB-3113}
+  relation: remediation
+  target: {kind: concept, ref: CON-PRB-BAYES}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

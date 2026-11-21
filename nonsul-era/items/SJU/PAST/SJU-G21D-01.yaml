@@ -1,0 +1,376 @@
+# 세종대 2021학년도 수시 논술고사[D](자연계열) 문제 1 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: SJU-G21D-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: SJU
+type: T06
+variant_of: null
+replaces: null
+level: L4
+form: 추론
+points: 230
+time_estimate_min: 35
+intent: |
+  정적분을 포함한 등식에서 상수인 정적분을 문자로 처리해 함수와 상수를 결정하고, 두 지수곡선 사이 직사각형 넓이의 최대와 접선·수평선과 곡선으로 둘러싸인 넓이를 구하는 능력을 본다.
+key_idea: |
+  $x=0$을 대입하면 $a\displaystyle\int_0^{\ln3}e^{-t}f(t)\,dt=1$이 되어 $\displaystyle\int_0^xf(t)\,dt=e^x-e^{3x}$, 미분하면 $f(x)=e^x-3e^{3x}$이다.
+stuck: |
+  우변의 정적분이 $x$와 무관한 상수라는 점, 그리고 $x=0$ 대입으로 그 상수와 $a$의 곱이 $1$임을 끌어내는 단계
+idea_tags: [IDEA-INTEGRAL-CONSTANT-SUB, IDEA-AREA-SPLIT-AT-INTERSECTION]
+tags: [정적분으로 정의된 함수, 넓이, 최대·최소]
+
+elements:
+  materials:
+  - '등식 $\displaystyle\int_0^xf(t)\,dt=e^x-ae^{3x}\int_0^{\ln3}e^{-t}f(t)\,dt$'
+  - '두 곡선 $y=f(x)$, $y=e^x$와 $y$축 사이의 직사각형'
+  - '$y$절편에서의 접선과 극댓값을 지나는 수평선, 곡선으로 둘러싸인 영역'
+  concepts:
+  - '정적분으로 정의된 함수의 미분'
+  - '지수함수의 미분과 적분'
+  - '함수의 최대·최소'
+  - '접선의 방정식'
+  - '곡선과 직선 사이의 넓이'
+  tools:
+  - '$x=0$ 대입으로 상수 결정'
+  - '양변 미분 $\dfrac{d}{dx}\displaystyle\int_0^xf(t)\,dt=f(x)$'
+  - '증감표'
+  - '교점에서 적분 구간 나누기'
+  conditions:
+  - '$\displaystyle\int_0^{\ln3}e^{-t}f(t)\,dt$는 상수'
+  - '직사각형 꼭짓점 $(x,e^x)$, $(x,f(x))$, $(0,e^x)$, $(0,f(x))$ ($x<0$)'
+  - '$\ell_2$는 극댓값 $f(-\ln3)=\tfrac29$을 지나는 수평선'
+  stimuli_used: []
+  subpart_links: '(1-2)·(1-3)은 (1-1)에서 구한 $f(x)=e^x-3e^{3x}$를 사용'
+
+curriculum:
+  version: '2015'
+  subjects: [미적분]
+  scope_2028: calc2
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 여러 가지 함수의 정적분을 구하고 곡선으로 둘러싸인 도형의 넓이를 구할 수 있다(요지)
+    verified: false
+  content_area: 적분법 – 정적분의 활용
+  behavior_domain: 문제해결
+  unit_path: [미적분, 적분법, 정적분의 활용, 넓이]
+  key_concepts: [정적분으로 정의된 함수의 미분, 지수함수의 미분과 적분, 함수의 최대·최소, 접선의 방정식, 곡선과 직선 사이의 넓이]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 세종대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 세종대학교
+  admission_year: 2021
+  admission_type: 수시 논술
+  track: 자연계열
+  question_no: 1
+  official_url: https://ipsi.sejong.ac.kr   # [확인 필요] 입학처 자료실의 정확한 게시물 URL로 교체
+  retrieved_at: 2026-11-21
+  original_points: [70, 80, 80]
+  rights_notice: 미확인(대학 원본 PDF 표지 문구 확인 필요)
+  transcribed_from: 대치 수리 논술 연구소 「2027학년도 대비 수리논술 세종대 기출 및 모의 문제」 p.67 + 해설교재 p.127~128 (원본 PDF 이미지 대조 완료 2026-11-21)
+
+verify: verify/SJU-G21D.py::p01
+
+stimuli: []
+
+stem: |
+  실수 전체의 집합에서 연속인 함수 $f(x)$가 상수 $a$에 대하여 다음 식을 만족한다.
+  $$\int_0^xf(t)\,dt=e^x-ae^{3x}\int_0^{\ln3}e^{-t}f(t)\,dt$$
+  다음 물음에 각각 답하시오.
+
+subparts:
+- id: '1'
+  stem: |
+    함수 $f(x)$와 실수 $a$를 각각 구하시오.
+  points: 70
+  depends_on: []
+  answer: {kind: expression, value: 'f(x) = exp(x) - 3*exp(3*x); a = 1/(log(3) - 12)', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $x=0$ 대입으로 $aK=1$ ($K$는 우변의 정적분), 미분해 $f$를 얻고 $K$를 계산해 $a$를 구한다.
+    steps:
+    - {id: 1a, content: '$aK=1\Rightarrow f(x)=e^x-3e^{3x}$, $K=\int_0^{\ln3}(1-3e^{2t})dt=\ln3-12$, $a=\tfrac{1}{\ln3-12}$', criteria: ['1.M1', '1.A1', '1.M2', '1.A2']}
+    hint_ladder:
+    - 우변의 정적분은 $x$에 따라 변하는가?
+    - $x=0$을 대입해 보자.
+  - id: S1-B
+    audience: B
+    source_flow: 해설교재 p.127
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        $x=0$을 대입하면 $0=1-a\displaystyle\int_0^{\ln3}e^{-t}f(t)\,dt$이므로 $a\displaystyle\int_0^{\ln3}e^{-t}f(t)\,dt=1$이다. 따라서 $\displaystyle\int_0^xf(t)\,dt=e^x-e^{3x}$.
+      criteria: ['1.M1']
+    - id: 1b-2
+      content: |
+        양변을 $x$에 대하여 미분하면 $f(x)=e^x-3e^{3x}$이다.
+      criteria: ['1.A1']
+    - id: 1b-3
+      content: |
+        $1=a\displaystyle\int_0^{\ln3}e^{-t}f(t)\,dt=a\int_0^{\ln3}(1-3e^{2t})\,dt=a\left[t-\frac32e^{2t}\right]_0^{\ln3}=a(\ln3-12)$.
+      criteria: ['1.M2']
+    - id: 1b-4
+      content: |
+        따라서 $a=\dfrac{1}{\ln3-12}$이다.
+      criteria: ['1.A2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 20
+      evidence: |
+        $x=0$을 대입해 $a\displaystyle\int_0^{\ln3}e^{-t}f(t)\,dt=1$을 얻었다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1]
+    - id: 1.A1
+      mark_type: A
+      points: 20
+      evidence: |
+        양변을 미분해 $f(x)=e^x-3e^{3x}$를 얻었다.
+      depends_on: [1.M1]
+      steps: [1b-2]
+    - id: 1.M2
+      mark_type: M
+      points: 15
+      evidence: |
+        구한 $f$를 넣어 $\displaystyle\int_0^{\ln3}(1-3e^{2t})\,dt$를 계산하는 식을 세웠다.
+      depends_on: [1.A1]
+      steps: [1b-3]
+    - id: 1.A2
+      mark_type: A
+      points: 15
+      evidence: |
+        $a=\dfrac{1}{\ln3-12}$을 얻었다.
+      depends_on: [1.M2]
+      steps: [1b-4]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-3117}
+  misconceptions:
+  - id: MC-CAL-3117
+    outcome_code: '71'
+    wrong_work: '양변을 바로 미분하며 $\int_0^{\ln3}e^{-t}f(t)\,dt$도 $x$에 대해 미분하거나 $e^{-x}f(x)$로 바꿈'
+    detect_cue: 상수인 정적분을 $x$의 함수처럼 다루었다
+    feedback: 위끝·아래끝이 상수인 정적분은 하나의 수입니다. 문자 $K$로 두고 $x=0$ 대입으로 먼저 정하세요.
+    remedy: [RL-1]
+
+- id: '2'
+  stem: |
+    좌표평면의 $x<0$인 부분에서 두 곡선 $y=f(x)$, $y=e^x$ 위에 각각 하나씩 점을 잡고, $y$축 위에 두 점을 잡아서 직사각형을 만들 때, 직사각형 넓이의 최댓값을 구하시오.
+  points: 80
+  depends_on: ['1']
+  answer: {kind: value, value: 'exp(-1)', equivalents: ['1/E'], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: 넓이 $A(x)=(-x)\{e^x-f(x)\}=-3xe^{3x}$, $A'(x)=-3e^{3x}(1+3x)$.
+    steps:
+    - {id: 2a, content: '$A(-\tfrac13)=e^{-1}$이 최대', criteria: ['2.M1', '2.A1', '2.R1', '2.A2']}
+    hint_ladder:
+    - 직사각형의 한 변은 $y$축 위에 있으므로 가로와 세로는 각각 무엇인가?
+    - 넓이를 $x$의 함수로 놓고 미분하자.
+  - id: S2-B
+    audience: B
+    source_flow: 해설교재 p.127
+    method_no: 1
+    steps:
+    - id: 2b-1
+      content: |
+        $x<0$에서 $f(x)<e^x$이고(그림), 직사각형의 꼭짓점은 $(x,e^x)$, $(x,e^x-3e^{3x})$, $(0,e^x)$, $(0,e^x-3e^{3x})$이다.
+      criteria: ['2.M1']
+    - id: 2b-2
+      content: |
+        가로 $-x$, 세로 $3e^{3x}$이므로 넓이는 $A(x)=-3xe^{3x}$ ($x<0$)이다.
+      criteria: ['2.A1']
+    - id: 2b-3
+      content: |
+        $A'(x)=-3e^{3x}(1+3x)$이므로 $A'\!\left(-\tfrac13\right)=0$이고, $x<-\tfrac13$에서 $A'(x)>0$, $-\tfrac13<x<0$에서 $A'(x)<0$이다. 따라서 $A$는 $x=-\tfrac13$에서 최대이다.
+      criteria: ['2.R1']
+    - id: 2b-4
+      content: |
+        최댓값은 $A\!\left(-\tfrac13\right)=e^{-1}$이다.
+      criteria: ['2.A2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 20
+      evidence: |
+        같은 $x$좌표의 두 곡선 위 점과 $y$축 위 두 점으로 직사각형 꼭짓점을 잡았다.
+      depends_on: []
+      implied_ok: false
+      ft: {allowed: true, from: [1.A1], max_points: 20}
+      steps: [2b-1]
+    - id: 2.A1
+      mark_type: A
+      points: 20
+      evidence: |
+        넓이 $A(x)=-3xe^{3x}$를 세웠다.
+      depends_on: [2.M1]
+      steps: [2b-2]
+    - id: 2.R1
+      mark_type: R
+      points: 25
+      evidence: |
+        $A'(x)$의 부호 변화(증감)로 $x=-\tfrac13$에서 최대임을 보였다.
+      depends_on: [2.A1]
+      steps: [2b-3]
+    - id: 2.A2
+      mark_type: A
+      points: 15
+      evidence: |
+        최댓값 $e^{-1}$을 얻었다.
+      depends_on: [2.R1]
+      steps: [2b-4]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-3003}
+  misconceptions:
+  - id: MC-CAL-3003
+    outcome_code: '71'
+    wrong_work: '$A^{\prime}(-\tfrac13)=0$만 확인하고 최댓값이라 답함'
+    detect_cue: 증감표나 부호 변화가 없다
+    feedback: 임계점이 최대임을 $A'$의 부호 변화로 보이세요.
+    remedy: [RL-2]
+
+- id: '3'
+  stem: |
+    곡선 $y=f(x)$와 $y$축의 교점을 $\mathrm{P}$라 하자. 직선 $\ell_1$은 곡선 $y=f(x)$ 위의 점 $\mathrm{P}$에서의 접선이고, $\ell_2$는 $x$축과 평행하면서 곡선 $y=f(x)$에 접하는 직선이다. 곡선 $y=f(x)$와 두 직선 $\ell_1$, $\ell_2$로 둘러싸인 영역의 넓이를 구하시오.
+  points: 80
+  depends_on: ['1']
+  answer: {kind: value, value: '2*log(3)/9 - 1/81', equivalents: [], tolerance: null}
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: $\ell_2:y=\tfrac29$ (극대 $x=-\ln3$), $\ell_1:y=-8x-2$, 교점 $x=-\tfrac5{18}$에서 적분 구간을 나눈다.
+    steps:
+    - {id: 3a, content: '$\int_{-\ln3}^{-5/18}(\tfrac29-f)dx+\int_{-5/18}^0(-8x-2-f)dx=\tfrac29\ln3-\tfrac1{81}$', criteria: ['3.M1', '3.A1', '3.M2', '3.A2']}
+    hint_ladder:
+    - $x$축과 평행한 접선은 극값에서 생긴다.
+    - 두 직선의 교점에서 위쪽 경계가 바뀐다.
+  - id: S3-B
+    audience: B
+    source_flow: 해설교재 p.128
+    method_no: 1
+    steps:
+    - id: 3b-1
+      content: |
+        $f'(x)=e^x-9e^{3x}=e^x(1-9e^{2x})$이므로 $f'(-\ln3)=0$이고, $x<-\ln3$에서 $f'>0$, $x>-\ln3$에서 $f'<0$이다. 따라서 $f$는 $x=-\ln3$에서 최대이고 최댓값은 $f(-\ln3)=\tfrac13-\tfrac19=\tfrac29$이므로 $\ell_2:y=\tfrac29$.
+      criteria: ['3.M1']
+    - id: 3b-2
+      content: |
+        $\mathrm{P}=(0,-2)$, $f'(0)=-8$이므로 $\ell_1:y=-8x-2$. $-8x-2=\tfrac29$에서 두 직선의 교점의 $x$좌표는 $-\tfrac5{18}$이다.
+      criteria: ['3.A1']
+    - id: 3b-3
+      content: |
+        구하는 넓이는(그림: 곡선이 두 직선 아래에 있고 $x=-\ln3$에서 $\ell_2$에, $x=0$에서 $\ell_1$에 접함)
+        $$\int_{-\ln3}^{-\frac5{18}}\left(\frac29-e^x+3e^{3x}\right)dx+\int_{-\frac5{18}}^0\left(-8x-2-e^x+3e^{3x}\right)dx.$$
+      criteria: ['3.M2']
+    - id: 3b-4
+      content: |
+        계산하면 $\dfrac29\ln3-\dfrac1{81}$이다.
+      criteria: ['3.A2']
+  - id: S3-ALT
+    audience: ALT
+    source_flow: 해설교재 p.128 별해
+    method_no: 2
+    key_idea: 원 해설 별해 — 도형의 넓이 이용. $\ell_2$ 아래·곡선 위 넓이 $\int_{-\ln3}^0(\tfrac29-f)dx$에서 두 직선과 $y$축이 만드는 삼각형 넓이를 뺀다.
+    steps:
+    - id: 3c-1
+      content: |
+        $\ell_2$ 아래·곡선 위의 넓이는 $\displaystyle\int_{-\ln3}^0\left(\frac29-e^x+3e^{3x}\right)dx=\frac29\ln3+\frac{8}{27}$이다.
+        이 중 영역 밖인 부분은 꼭짓점 $\left(-\tfrac5{18},\tfrac29\right)$, $\left(0,\tfrac29\right)$, $(0,-2)$인 삼각형이다.
+      criteria: ['3.M2']
+    - id: 3c-2
+      content: |
+        삼각형의 넓이는 $\dfrac12\cdot\dfrac5{18}\cdot\dfrac{20}{9}=\dfrac{25}{81}$이므로 구하는 넓이는 $\dfrac29\ln3+\dfrac{24}{81}-\dfrac{25}{81}=\dfrac29\ln3-\dfrac1{81}$이다.
+      criteria: ['3.A2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 20
+      evidence: |
+        $f'$의 부호로 극댓값 $\tfrac29$을 구해 $\ell_2:y=\tfrac29$를 얻었다.
+      depends_on: []
+      implied_ok: false
+      ft: {allowed: true, from: [1.A1], max_points: 20}
+      steps: [3b-1]
+    - id: 3.A1
+      mark_type: A
+      points: 15
+      evidence: |
+        $\ell_1:y=-8x-2$와 두 직선의 교점 $x=-\tfrac5{18}$을 구했다.
+      depends_on: [3.M1]
+      steps: [3b-2]
+    - id: 3.M2
+      mark_type: M
+      points: 25
+      evidence: |
+        교점에서 구간을 나눈 넓이 적분식(또는 큰 넓이에서 삼각형을 빼는 식)을 바르게 세웠다.
+      depends_on: [3.A1]
+      steps: [3b-3, 3c-1]
+    - id: 3.A2
+      mark_type: A
+      points: 20
+      evidence: |
+        넓이 $\dfrac29\ln3-\dfrac1{81}$을 얻었다.
+      depends_on: [3.M2]
+      steps: [3b-4, 3c-2]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '21', meaning: 만점(도형 넓이 차)}
+  - {code: '71', misconception: MC-CAL-0107}
+  misconceptions:
+  - id: MC-CAL-0107
+    outcome_code: '71'
+    wrong_work: '$\int_{-\ln3}^0(\tfrac29-f)\,dx$ 하나로 계산(교점 $-\tfrac5{18}$에서 나누지 않음)'
+    detect_cue: $\ell_1$이 경계가 되는 부분을 무시했다
+    feedback: 위쪽 경계가 $x=-\tfrac5{18}$에서 $\ell_2$에서 $\ell_1$로 바뀝니다. 그 점에서 구간을 나누세요.
+    remedy: [RL-3]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CAL-3117}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-INTEGRAL-EQUATION}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-CAL-3003}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-EXTREMA-JUSTIFY}
+  priority: 1
+- id: RL-3
+  trigger: {type: misconception, ref: MC-CAL-0107}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-AREA-BOUNDARY}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

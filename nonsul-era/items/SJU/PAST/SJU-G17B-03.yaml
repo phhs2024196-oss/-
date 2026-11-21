@@ -1,0 +1,404 @@
+# 세종대 2017학년도 수시 논술고사[B](자연계열) 문제 3 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: SJU-G17B-03
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: SJU
+type: T07
+variant_of: null
+replaces: null
+level: L5
+form: 최적2단
+points: 240
+time_estimate_min: 35
+intent: |
+  산술·기하평균(완전제곱) 부등식을 피적분함수에 적용해 정적분의 상계를 얻고, 등호가 성립하는 함수를 실제로 구성해 최댓값임을 확인하는 능력을 본다. 마지막은 $12hh'$의 적분을 치환적분으로 $h(k)$에 연결한다.
+key_idea: |
+  $2ab\le a^2+b^2$을 $a=g(x)$, $b=\sqrt{x^3+1}$ 또는 $a=3h$, $b=2h'$에 적용해 적분하고, 등호 조건 $a=b$를 만족하는 함수가 조건을 만족함을 보인다.
+stuck: |
+  (3-4)에서 $9h^2+4h'^2\ge12hh'$로 묶고 $\int_0^k12hh'\,dx=6\{h(k)^2-h(0)^2\}$로 바꾸는 발상, 그리고 등호 조건 $h'=\dfrac32h$에서 $h=2e^{\frac32x}$를 구성하는 것
+idea_tags: [IDEA-AMGM-INTEGRAND-BOUND, IDEA-EQUALITY-CASE-CONSTRUCTION]
+tags: [구교육과정, 산술기하평균, 정적분의 최댓값]
+elements:
+  materials:
+  - '지수함수 $ae^{bx}$와 미분 조건'
+  - '$p^2+q^2=4$인 음이 아닌 두 연속함수'
+  - '$\int_0^2g^2=6$인 함수와 가중치 $\sqrt{x^3+1}$'
+  - '$\int_0^k(9h^2+4h^{\prime2})=6$, $h(0)=2$인 증가함수'
+  concepts:
+  - '지수함수의 미분'
+  - '산술평균과 기하평균의 관계'
+  - '정적분의 성질(대소 관계)'
+  - '치환적분법'
+  - '미분방정식 $h^{\prime}=ch$의 해(지수함수)'
+  tools:
+  - '$2ab\le a^2+b^2$ (등호 $a=b$)'
+  - '부등식의 양변 적분'
+  - '$\int_0^k2hh^{\prime}dx=h(k)^2-h(0)^2$'
+  - '등호를 만족하는 함수 구성으로 최댓값 확인'
+  conditions:
+  - '$a\ne0$, $b\ne0$'
+  - '$p,q\ge0$ ⇒ $p=q=\sqrt2$에서 등호'
+  - '$\int_0^2(x^3+1)dx=6$이 조건값 6과 같음 ⇒ $g=\sqrt{x^3+1}$ 허용'
+  - '(다)의 적분값이 양수 ⇒ $k>0$'
+  - '$h(0)=2$ ⇒ 등호 함수 $h=2e^{\frac32x}$, $e^{3k}=\tfrac54$'
+  stimuli_used: []
+  subpart_links: '(3-2)~(3-4)는 같은 부등식 원리를 반복 적용하며, (3-4)의 등호 함수는 (3-1)의 지수함수 꼴'
+
+curriculum:
+  version: '2015'
+  subjects: [미적분]
+  scope_2028: calc2
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 치환적분법을 이해하고 정적분의 성질을 활용할 수 있다(요지)
+    verified: false
+  content_area: 적분법 – 정적분
+  behavior_domain: 추론
+  unit_path: [미적분, 적분법, 정적분, 정적분의 성질과 부등식]
+  key_concepts: [지수함수의 미분, 산술평균과 기하평균의 관계, 정적분의 성질(대소 관계), 치환적분법, 미분방정식 h'=ch의 해(지수함수)]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 세종대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 세종대학교
+  admission_year: 2017
+  admission_type: 수시 논술고사[B]
+  track: 자연계열
+  question_no: 3
+  official_url: https://ipsi.sejong.ac.kr   # [확인 필요] 입학처 자료실의 정확한 게시물 URL로 교체
+  retrieved_at: 2026-11-21
+  original_points: [60, 60, 60, 60]
+  rights_notice: 미확인(대학 원본 PDF 표지 문구 확인 필요)
+  transcribed_from: 대치 수리 논술 연구소 「2027학년도 대비 수리논술 세종대 기출 및 모의 문제」 p.105 + 해설교재 p.177~178 (원본 PDF 이미지 대조 완료 2026-11-21)
+
+verify: verify/SJU-G17B.py::p03
+
+stimuli: []
+
+stem: |
+  모든 실수 $x$에서 연속인 함수 $f(x)$, $g(x)$, $h(x)$, $p(x)$, $q(x)$에 대하여 다음 물음에 각각 답하시오.
+
+subparts:
+- id: '1'
+  stem: |
+    함수 $f(x)=ae^{bx}$은 다음 조건을 만족시킨다.
+    (가) $f(0)=2$
+    (나) $f'(x)=5f(x)$
+    상수 $a$와 $b$의 값을 각각 구하시오. (단, $a\ne0$, $b\ne0$이다.)
+  points: 60
+  depends_on: []
+  answer: {kind: expression, value: 'a = 2; b = 5', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $f(0)=a$, $f'(x)=abe^{bx}=bf(x)$.
+    steps:
+    - {id: 1a, content: '$a=2$, $abe^{bx}=5ae^{bx}\Rightarrow b=5$', criteria: ['1.B1', '1.M1', '1.A1']}
+    hint_ladder:
+    - $f'(x)$를 $f(x)$로 나타내 보자.
+  - id: S1-B
+    audience: B
+    source_flow: 해설교재 p.177
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        $a=ae^0=f(0)=2$이다.
+      criteria: ['1.B1']
+    - id: 1b-2
+      content: |
+        $f'(x)=abe^{bx}$이고 (나)에서 $abe^{bx}=5ae^{bx}$이다. $ae^{bx}\ne0$이므로 $b=5$이다.
+      criteria: ['1.M1', '1.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.B1
+      mark_type: B
+      points: 20
+      evidence: |
+        $a=2$.
+      depends_on: []
+      steps: [1b-1]
+    - id: 1.M1
+      mark_type: M
+      points: 20
+      evidence: |
+        $f'(x)=abe^{bx}$을 구해 (나)에 대입했다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-2]
+    - id: 1.A1
+      mark_type: A
+      points: 20
+      evidence: |
+        $ae^{bx}\ne0$으로 나누어 $b=5$.
+      depends_on: [1.M1]
+      steps: [1b-2]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '79', meaning: '기타 오답(예: $f^{\prime}(x)=bx\,e^{bx-1}$로 미분)'}
+  misconceptions: []
+
+- id: '2'
+  stem: |
+    함수 $p(x)$와 $q(x)$는 다음 조건을 만족시킨다.
+    (가) $p(x)\ge0$, $q(x)\ge0$
+    (나) $\{p(x)\}^2+\{q(x)\}^2=4$
+    정적분 $\displaystyle\int_0^1p(x)q(x)\,dx$의 최댓값을 구하시오.
+  points: 60
+  depends_on: []
+  answer: {kind: value, value: '2', equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: $pq\le\dfrac{p^2+q^2}{2}=2$를 적분, 등호는 $p=q=\sqrt2$.
+    steps:
+    - {id: 2a, content: '$\int_0^1pq\,dx\le\int_0^12\,dx=2$, $p=q=\sqrt2$에서 등호', criteria: ['2.M1', '2.A1', '2.R1']}
+    hint_ladder:
+    - 피적분함수 $p(x)q(x)$의 최댓값을 $p^2+q^2$으로 눌러 보자.
+    - 등호가 실제로 성립하는 함수가 있는가?
+  - id: S2-B
+    audience: B
+    source_flow: 해설교재 p.177
+    method_no: 1
+    steps:
+    - id: 2b-1
+      content: |
+        산술평균과 기하평균의 관계에 의해 $p(x)q(x)\le\dfrac{\{p(x)\}^2+\{q(x)\}^2}{2}=\dfrac42=2$이다.
+        (또는 $\{p(x)\}^2-2p(x)q(x)+\{q(x)\}^2=\{p(x)-q(x)\}^2\ge0$을 이용해도 된다.)
+      criteria: ['2.M1']
+    - id: 2b-2
+      content: |
+        $2-p(x)q(x)\ge0$이므로 $\displaystyle\int_0^12\,dx-\int_0^1p(x)q(x)\,dx=\int_0^1\{2-p(x)q(x)\}dx\ge0$, 즉 $\displaystyle\int_0^1p(x)q(x)\,dx\le2$이다.
+      criteria: ['2.A1']
+    - id: 2b-3
+      content: |
+        $p(x)$, $q(x)$가 모두 상수함수 $\sqrt2$이면 (가), (나)를 만족하고 등호가 성립한다. 따라서 최댓값은 $2$이다.
+      criteria: ['2.R1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 20
+      evidence: |
+        $pq\le\dfrac{p^2+q^2}{2}=2$(또는 완전제곱)를 썼다.
+      depends_on: []
+      implied_ok: false
+      steps: [2b-1]
+    - id: 2.A1
+      mark_type: A
+      points: 20
+      evidence: |
+        적분하여 $\int_0^1pq\,dx\le2$를 얻었다.
+      depends_on: [2.M1]
+      steps: [2b-2]
+    - id: 2.R1
+      mark_type: R
+      points: 20
+      evidence: |
+        등호를 만족하는 함수($p=q=\sqrt2$)를 제시해 최댓값 $2$로 결론지었다.
+      depends_on: [2.A1]
+      steps: [2b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-3160}
+  misconceptions:
+  - id: MC-CAL-3160
+    outcome_code: '71'
+    wrong_work: '$\int_0^1pq\,dx\le2$만 보이고 최댓값 2라고 결론'
+    detect_cue: 등호가 성립하는 $p$, $q$의 예가 없다
+    feedback: 상계는 최댓값의 후보일 뿐입니다. 등호를 실제로 만족하는 함수를 보여야 최댓값입니다.
+    remedy: [RL-1]
+
+- id: '3'
+  stem: |
+    함수 $g(x)$는 다음을 만족시킨다.
+    (가) $g(x)\ge0$
+    (나) $\displaystyle\int_0^2\{g(x)\}^2dx=6$
+    정적분 $\displaystyle\int_0^2g(x)\sqrt{x^3+1}\,dx$의 최댓값을 구하시오.
+  points: 60
+  depends_on: []
+  answer: {kind: value, value: '6', equivalents: [], tolerance: null}
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: $2g\sqrt{x^3+1}\le g^2+x^3+1$을 적분하면 $2I\le6+6$. 등호는 $g=\sqrt{x^3+1}$.
+    steps:
+    - {id: 3a, content: '$2\int_0^2g\sqrt{x^3+1}\,dx\le6+\int_0^2(x^3+1)dx=12$', criteria: ['3.M1', '3.A1', '3.R1']}
+    hint_ladder:
+    - $\{g(x)-\sqrt{x^3+1}\}^2\ge0$을 펼쳐 보자.
+    - $\int_0^2(x^3+1)dx$는 얼마인가?
+  - id: S3-B
+    audience: B
+    source_flow: 해설교재 p.177
+    method_no: 1
+    steps:
+    - id: 3b-1
+      content: |
+        $0\le x\le2$에서 $\{g(x)-\sqrt{x^3+1}\}^2\ge0$이므로 $2g(x)\sqrt{x^3+1}\le\{g(x)\}^2+x^3+1$ ⋯ ①
+      criteria: ['3.M1']
+    - id: 3b-2
+      content: |
+        ①을 $0$부터 $2$까지 적분하면
+        $2\displaystyle\int_0^2g(x)\sqrt{x^3+1}\,dx\le\int_0^2\{g(x)\}^2dx+\int_0^2(x^3+1)dx=6+6=12$ ⋯ ②
+        이므로 $\displaystyle\int_0^2g(x)\sqrt{x^3+1}\,dx\le6$ ⋯ ③
+      criteria: ['3.A1']
+    - id: 3b-3
+      content: |
+        ①의 등호는 $g(x)=\sqrt{x^3+1}$일 때 성립하고 이때 ②, ③의 등호도 성립한다. 이 함수는 연속이고 (가), (나)를 만족한다($\int_0^2(x^3+1)dx=6$). 따라서 최댓값은 $6$이다.
+      criteria: ['3.R1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 20
+      evidence: |
+        $2g\sqrt{x^3+1}\le g^2+(x^3+1)$을 세웠다.
+      depends_on: []
+      implied_ok: false
+      steps: [3b-1]
+    - id: 3.A1
+      mark_type: A
+      points: 20
+      evidence: |
+        $\int_0^2(x^3+1)dx=6$을 계산해 $\int_0^2g\sqrt{x^3+1}\,dx\le6$을 얻었다.
+      depends_on: [3.M1]
+      steps: [3b-2]
+    - id: 3.R1
+      mark_type: R
+      points: 20
+      evidence: |
+        $g=\sqrt{x^3+1}$이 조건을 만족하고 등호가 성립함을 보여 최댓값 6으로 결론지었다.
+      depends_on: [3.A1]
+      steps: [3b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-3160}
+  misconceptions:
+  - id: MC-CAL-3160
+    outcome_code: '71'
+    wrong_work: '$g\sqrt{x^3+1}\le\tfrac{g^2+9}{2}$처럼 $\sqrt{x^3+1}$을 최댓값 3으로 눌러 상계 $\tfrac{15}{2}$를 최댓값이라 함'
+    detect_cue: 등호가 성립하는 함수가 제시되지 않았거나 존재하지 않는 상계
+    feedback: 등호가 모든 $x$에서 성립할 수 있도록 $g$와 $\sqrt{x^3+1}$을 그대로 짝지어야 합니다.
+    remedy: [RL-1]
+
+- id: '4'
+  stem: |
+    함수 $h(x)$의 도함수 $h'(x)$는 모든 실수 $x$에서 연속이다. 다음 조건을 만족시키는 함수 $h(x)$와 실수 $k$에 대하여 $h(k)$의 최댓값을 구하시오.
+    (가) $h(x)\ge0$, $h'(x)\ge0$
+    (나) $h(0)=2$
+    (다) $\displaystyle\int_0^k\left(9\{h(x)\}^2+4\{h'(x)\}^2\right)dx=6$
+  points: 60
+  depends_on: []
+  answer: {kind: value, value: 'sqrt(5)', equivalents: [], tolerance: null}
+  solutions:
+  - id: S4-A
+    audience: A
+    method_no: 1
+    key_idea: $12hh'\le9h^2+4h'^2$를 적분하면 $6\{h(k)^2-4\}\le6$. 등호 $h'=\dfrac32h$, $h=2e^{\frac32x}$.
+    steps:
+    - {id: 4a, content: '$6h(k)^2-24\le6\Rightarrow h(k)\le\sqrt5$, $h=2e^{\frac32x}$, $k=\tfrac13\ln\tfrac54$에서 등호', criteria: ['4.M1', '4.M2', '4.A1', '4.R1']}
+    hint_ladder:
+    - $9h^2+4h'^2$를 $(3h)^2+(2h')^2$으로 보자.
+    - $hh'$의 적분은 무엇인가?
+    - 등호가 되려면 $h'$과 $h$는 어떤 관계인가?
+  - id: S4-B
+    audience: B
+    source_flow: 해설교재 p.178
+    method_no: 1
+    steps:
+    - id: 4b-1
+      content: |
+        (다)의 피적분함수는 음이 아니고 $h(0)=2$이므로 적분값이 $6>0$이려면 $k>0$이다.
+        모든 $x$에서 $12h(x)h'(x)=2\cdot3h(x)\cdot2h'(x)\le\{3h(x)\}^2+\{2h'(x)\}^2$이므로
+        $\displaystyle\int_0^k12h(x)h'(x)\,dx\le\int_0^k\left(9\{h(x)\}^2+4\{h'(x)\}^2\right)dx=6$ ⋯ ④
+      criteria: ['4.M1']
+    - id: 4b-2
+      content: |
+        $t=h(x)$로 치환하면 $\displaystyle\int_0^k12h(x)h'(x)\,dx=6\int_0^k2h(x)h'(x)\,dx=6\{h(k)^2-h(0)^2\}=6h(k)^2-24$이다.
+      criteria: ['4.M2']
+    - id: 4b-3
+      content: |
+        ④에서 $6h(k)^2-24\le6$, 즉 $\{h(k)\}^2\le5$이고 $h(k)\ge0$이므로 $h(k)\le\sqrt5$ ⋯ ⑤
+      criteria: ['4.A1']
+    - id: 4b-4
+      content: |
+        ④의 등호는 $3h(x)=2h'(x)$, 즉 $h'(x)=\dfrac32h(x)$일 때 성립한다. $h(0)=2$인 $h(x)=2e^{\frac32x}$를 택하면 (가), (나)를 만족하고,
+        (다)에 대입하면 $\displaystyle\int_0^k18\cdot4e^{3x}dx=24(e^{3k}-1)=6$에서 $e^{3k}=\dfrac54$, $k=\dfrac13\ln\dfrac54$이다. 이때 $h(k)=2\sqrt{e^{3k}}=\sqrt5$이므로 최댓값은 $\sqrt5$이다.
+      criteria: ['4.R1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 4.M1
+      mark_type: M
+      points: 15
+      evidence: |
+        $12hh'\le9h^2+4h'^2$을 세워 적분했다.
+      depends_on: []
+      implied_ok: false
+      steps: [4b-1]
+    - id: 4.M2
+      mark_type: M
+      points: 15
+      evidence: |
+        치환적분으로 $\int_0^k12hh'\,dx=6\{h(k)^2-h(0)^2\}$을 얻었다.
+      depends_on: []
+      implied_ok: false
+      steps: [4b-2]
+    - id: 4.A1
+      mark_type: A
+      points: 15
+      evidence: |
+        $h(k)\le\sqrt5$를 얻었다.
+      depends_on: [4.M1, 4.M2]
+      steps: [4b-3]
+    - id: 4.R1
+      mark_type: R
+      points: 15
+      evidence: |
+        등호 조건 $h'=\dfrac32h$에서 $h=2e^{\frac32x}$, $k=\dfrac13\ln\dfrac54$를 구해 등호가 실제로 성립함을 보였다.
+      depends_on: [4.A1]
+      steps: [4b-4]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-3160}
+  misconceptions:
+  - id: MC-CAL-3160
+    outcome_code: '71'
+    wrong_work: '$h(k)\le\sqrt5$만 보이고 등호 성립 함수를 구성하지 않음'
+    detect_cue: $h=2e^{\frac32x}$, $k$의 값이 없다
+    feedback: 최댓값임을 말하려면 등호를 만족하는 $h$와 $k$가 실제로 있음을 보여야 합니다.
+    remedy: [RL-1]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CAL-3160}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-INEQ-EQUALITY}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

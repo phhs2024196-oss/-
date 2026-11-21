@@ -1,0 +1,356 @@
+# 세종대 2021학년도 수시 논술고사 [A] 문제 1 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+# type: null — 확률과 통계 문항(2021학년도 이전 출제 범위). SJU 유형 T01~T10에 해당 없음 → 신설 제안: SJU T11 "확률과 통계: 경우의 수·확률분포·통계적 추정(2021학년도 이전 범위)"
+schema_version: '2.0'
+id: SJU-G21A-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: SJU
+type: null
+variant_of: null
+replaces: null
+level: L3
+form: 추론
+points: 230
+time_estimate_min: 30
+intent: |
+  과수원 판매 상황에서 중복조합을 두 번 적용해 주문 방법의 수를 세고, 표본평균의 분포로 재포장 기준을 표본 크기에 맞게 바꾸며, 이항분포와 기댓값으로 상자당 예상 수익을 식으로 나타내는 능력을 본다.
+key_idea: |
+  바구니 구성은 $a+b+c=9$ $(a,b,c\ge2)$의 해 $10$가지이고 주문은 그중 $4$개를 중복 허용해 고르는 $_{10}\mathrm{H}_4$이다. 표본평균의 표준화 값이 같도록 $\tfrac{a-250}{15/4}=-2$로 놓는다.
+stuck: |
+  "구별되지 않는 바구니"와 "동일한 구성 중복 주문 허용"을 중복조합 두 단계로 해석하는 것, 그리고 환불 시 수익이 $3600-9000=-5400$원이라는 것
+idea_tags: [IDEA-DOUBLE-MULTISET, IDEA-STANDARDIZE-MATCH]
+tags: [중복조합, 표본평균, 이항분포, 기댓값, 범위 밖(현행)]
+elements:
+  materials:
+  - '사과·배·감을 각 2개 이상 담은 9개짜리 과일바구니 4개 주문'
+  - '무게가 $N(250,15^2)$를 따르는 사과의 9개·16개 포장'
+  - '상한 사과가 3개 이상이면 환불하는 판매 조건'
+  concepts:
+  - '중복조합'
+  - '정규분포와 표준화'
+  - '표본평균의 분포'
+  - '이항분포'
+  - '이산확률변수의 기댓값'
+  tools:
+  - '$a+b+c=9$, $a,b,c\ge2$ ⇒ $x+y+z=3$의 음이 아닌 정수해 $_3\mathrm{H}_3=10$'
+  - '$_{10}\mathrm{H}_4={}_{13}\mathrm{C}_4=715$'
+  - '$\overline{X}_n\sim N\!\left(250,\tfrac{225}{n}\right)$, $Z$값 일치'
+  - '$P(X\le2)=\tfrac{22}9\cdot0.9^9$'
+  - '확률분포표로 $E(Y)$'
+  conditions:
+  - '바구니 구별 안 됨·동일 구성 중복 주문 가능 ⇒ 중복조합'
+  - '재포장률 유지 ⇒ $P(\overline{X}_9\le240)=P(\overline{X}_{16}\le a)$'
+  - '환불 시 사과는 돌려받지 않음 ⇒ 수익 $-5400$원'
+  stimuli_used: []
+  subpart_links: '세 소문항은 같은 과수원 상황을 공유하며, (1-2)(1-3)은 사과 무게·불량 조건을 각각 사용(계산상 독립)'
+
+curriculum:
+  version: '2015'
+  subjects: [확률과통계]
+  scope_2028: common
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 중복조합을 이해하고, 표본평균의 분포와 이항분포를 활용할 수 있다(요지)
+    verified: false
+  content_area: 경우의 수·확률분포·통계적 추정
+  behavior_domain: 문제해결
+  unit_path: [확률과통계, 통계, 통계적 추정, 표본평균의 분포]
+  key_concepts: [중복조합, 정규분포와 표준화, 표본평균의 분포, 이항분포, 이산확률변수의 기댓값]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 세종대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 세종대학교
+  admission_year: 2021
+  admission_type: 수시 논술고사(A형)
+  track: 자연계열
+  question_no: 1
+  official_url: https://ipsi.sejong.ac.kr   # [확인 필요] 입학처 자료실의 정확한 게시물 URL로 교체
+  retrieved_at: 2026-11-21
+  original_points: [70, 80, 80]
+  rights_notice: 미확인(대학 원본 PDF 표지 문구 확인 필요)
+  transcribed_from: 대치 수리 논술 연구소 「2027학년도 대비 수리논술 세종대 기출 및 모의 문제」 p.58 + 해설교재 p.111 (원본 PDF 이미지 대조 완료 2026-11-21)
+
+verify: verify/SJU-G21A.py::p01
+
+stimuli: []
+
+stem: |
+  어느 과수원에서 해마다 사과, 배, 감을 수확하여 일부는 소비자에게 직접 팔기도 한다. 생산하는 사과의 무게는 평균 $250\mathrm{g}$, 표준편차 $15\mathrm{g}$인 정규분포를 따른다고 한다.
+  다음 물음에 각각 답하시오.
+
+subparts:
+- id: '1'
+  stem: |
+    구별이 되지 않는 바구니에 사과, 배, 감을 각각 $2$개 이상씩, 모두 $9$개의 과일을 담아 주문 제작하는 상점이 있다. 이 상점에서 $4$개의 과일바구니를 주문하는 방법의 수를 구하시오. (단, 동일한 구성의 바구니를 중복해서 주문할 수 있다.)
+  points: 70
+  depends_on: []
+  answer: {kind: value, value: '715', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: 바구니 종류는 $_3\mathrm{H}_3=10$가지, 그중 $4$개를 중복 허용해 고르면 $_{10}\mathrm{H}_4$이다.
+    steps:
+    - id: 1a
+      content: |
+        $_3\mathrm{H}_3=10$, $_{10}\mathrm{H}_4={}_{13}\mathrm{C}_4=715$
+      criteria: ['1.M1', '1.A1', '1.M2', '1.A2']
+    hint_ladder:
+    - 먼저 바구니 한 개를 구성하는 방법은 몇 가지인가?
+    - 순서 없이 같은 것을 여러 번 고를 수 있으면 어떤 경우의 수인가?
+  - id: S1-B
+    audience: B
+    source_flow: 해설교재 p.111
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        바구니에 든 사과, 배, 감의 수를 $a$, $b$, $c$라 하면 바구니 구성 방법의 수는 $a+b+c=9$ $(a\ge2,\,b\ge2,\,c\ge2)$의 정수해의 개수와 같다.
+      criteria: ['1.M1']
+    - id: 1b-2
+      content: |
+        $a=x+2$, $b=y+2$, $c=z+2$로 놓으면 $x+y+z=3$의 음이 아닌 정수해의 개수이므로 $_3\mathrm{H}_3={}_5\mathrm{C}_3={}_5\mathrm{C}_2=10$가지이다.
+      criteria: ['1.A1']
+    - id: 1b-3
+      content: |
+        가능한 $10$가지 바구니 중 중복을 허용하여 $4$개를 고르는 방법의 수는 $_{10}\mathrm{H}_4$이다.
+      criteria: ['1.M2']
+    - id: 1b-4
+      content: |
+        $_{10}\mathrm{H}_4={}_{13}\mathrm{C}_4=\dfrac{13\cdot12\cdot11\cdot10}{4\cdot3\cdot2\cdot1}=715$이다.
+      criteria: ['1.A2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 15
+      evidence: |
+        바구니 구성을 $a+b+c=9$ $(a,b,c\ge2)$의 정수해로 바꾸었다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1]
+    - id: 1.A1
+      mark_type: A
+      points: 20
+      evidence: |
+        구성 방법 $10$가지를 얻었다.
+      depends_on: [1.M1]
+      steps: [1b-2]
+    - id: 1.M2
+      mark_type: M
+      points: 20
+      evidence: |
+        주문을 $10$가지 중 $4$개를 중복 허용해 고르는 중복조합으로 세웠다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-3]
+    - id: 1.A2
+      mark_type: A
+      points: 15
+      evidence: |
+        $715$를 얻었다.
+      depends_on: [1.M2, 1.A1]
+      steps: [1b-4]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CNT-3108}
+  misconceptions:
+  - id: MC-CNT-3108
+    outcome_code: '71'
+    wrong_work: '주문을 $10^4$(순서 고려) 또는 $_{10}\mathrm{C}_4$(중복 불허)로 세거나, 바구니 구성을 $_3\mathrm{H}_9$로 셈'
+    detect_cue: 하한 $2$를 빼는 치환이나 중복조합 $_{10}\mathrm{H}_4$가 없다
+    feedback: 바구니는 구별되지 않고 같은 구성을 여러 번 고를 수 있으므로 중복조합입니다. 각 과일 $2$개 이상 조건은 먼저 $2$개씩 넣어 처리하세요.
+    remedy: [RL-1]
+
+- id: '2'
+  stem: |
+    사과 $9$개를 담아 판매용 포장을 할 때, 사과 $9$개의 표본평균이 $240\mathrm{g}$ 이하이면 재포장을 한다. $16$개가 들어있는 판매용 포장을 하는 경우에도 $9$개가 들어있는 포장 때와 같은 재포장률을 유지하려고 한다. $16$개 사과의 표본평균이 얼마 이하가 되어야 하는지 구하시오.
+  points: 80
+  depends_on: []
+  answer: {kind: value, value: '485/2', equivalents: ['242.5'], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: $\overline{X}_9$의 표준편차는 $5$, $\overline{X}_{16}$은 $\tfrac{15}4$이므로 $\tfrac{a-250}{15/4}=\tfrac{240-250}{5}=-2$이다.
+    steps:
+    - id: 2a
+      content: |
+        $a=250-2\cdot\tfrac{15}4=242.5$
+      criteria: ['2.M1', '2.M2', '2.A1']
+    hint_ladder:
+    - 표본평균의 표준편차는 표본 크기에 따라 어떻게 바뀌는가?
+  - id: S2-B
+    audience: B
+    source_flow: 해설교재 p.111
+    method_no: 1
+    steps:
+    - id: 2b-1
+      content: |
+        사과 $1$개의 무게 $X$는 $N(250,15^2)$을 따르므로 $n$개의 표본평균 $\overline{X}_n$은 $N\!\left(250,\dfrac{225}{n}\right)$을 따른다.
+      criteria: ['2.M1']
+    - id: 2b-2
+      content: |
+        구하는 값을 $a$라 하면 $P(\overline{X}_9\le240)=P(\overline{X}_{16}\le a)$이고, $P(\overline{X}_9\le240)=P\!\left(Z\le\dfrac{240-250}{15/3}\right)=P(Z\le-2)$, $P(\overline{X}_{16}\le a)=P\!\left(Z\le\dfrac{a-250}{15/4}\right)$이다.
+      criteria: ['2.M2']
+    - id: 2b-3
+      content: |
+        $\dfrac{a-250}{15/4}=-2$에서 $a=242.5$이다. 따라서 $16$개 포장은 표본평균이 $242.5\mathrm{g}$ 이하일 때 재포장해야 한다.
+      criteria: ['2.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 25
+      evidence: |
+        $\overline{X}_n$이 $N\!\left(250,\dfrac{15^2}{n}\right)$을 따름을 썼다.
+      depends_on: []
+      implied_ok: false
+      steps: [2b-1]
+    - id: 2.M2
+      mark_type: M
+      points: 30
+      evidence: |
+        두 포장의 재포장 확률이 같도록 표준화 값을 같게 놓았다.
+      depends_on: [2.M1]
+      steps: [2b-2]
+    - id: 2.A1
+      mark_type: A
+      points: 25
+      evidence: |
+        $242.5\mathrm{g}$을 얻었다.
+      depends_on: [2.M2]
+      steps: [2b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-PRB-3107}
+  misconceptions:
+  - id: MC-PRB-3107
+    outcome_code: '71'
+    wrong_work: '표본평균의 표준편차를 $\tfrac{15}9$, $\tfrac{15}{16}$으로 두어 $a=\tfrac{1955}{8}$ 등을 얻음'
+    detect_cue: 표준편차에 $\sqrt n$ 대신 $n$이 쓰였다
+    feedback: 표본평균의 분산이 $\tfrac{\sigma^2}n$이므로 표준편차는 $\tfrac{\sigma}{\sqrt n}$입니다.
+    remedy: [RL-2]
+
+- id: '3'
+  stem: |
+    판매용 사과가 상해 있을 확률은 $0.1$이고, 사과 $9$개가 들어있는 한 상자를 $9000$원에 판매하는데 이 중 $3600$원이 수익이라고 한다. 한 상자에서 상한 사과가 $3$개 이상 나오면 사과는 돌려받지 않고 받은 돈을 환불한다는 조건으로 판매할 때, 한 상자 당 예상 수익은 $0.9^9\times a+b$원이다. 정수 $a$와 $b$의 값을 각각 구하시오.
+  points: 80
+  depends_on: []
+  answer: {kind: expression, value: 'a=22000; b=-5400', equivalents: [], tolerance: null}
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: 상한 사과 수 $X\sim B(9,0.1)$, $P(X\le2)=\tfrac{22}9\cdot0.9^9$이고 수익은 환불 시 $-5400$, 아니면 $3600$이다.
+    steps:
+    - id: 3a
+      content: |
+        $E(Y)=-5400+9000\cdot\tfrac{22}9A=22000A-5400$ $(A=0.9^9)$
+      criteria: ['3.M1', '3.A1', '3.M2', '3.A2']
+    hint_ladder:
+    - 상한 사과의 개수는 어떤 분포를 따르는가?
+    - 환불하면 이 상자에서 얻는 수익은 얼마인가?
+  - id: S3-B
+    audience: B
+    source_flow: 해설교재 p.111
+    method_no: 1
+    steps:
+    - id: 3b-1
+      content: |
+        $A=0.9^9$라 하자. 한 상자의 상한 사과 수 $X$는 이항분포 $B(9,0.1)$을 따른다.
+      criteria: ['3.M1']
+    - id: 3b-2
+      content: |
+        $P(X\ge3)=1-P(X\le2)=1-0.9^9-{}_9\mathrm{C}_1\cdot0.9^8\cdot0.1-{}_9\mathrm{C}_2\cdot0.9^7\cdot0.1^2=1-\left(1+1+\dfrac49\right)A=1-\dfrac{22}9A$이다.
+      criteria: ['3.A1']
+    - id: 3b-3
+      content: |
+        한 상자 수익 $Y$는 환불하면 $3600-9000=-5400$원, 아니면 $3600$원이므로 확률분포는 $P(Y=-5400)=1-\dfrac{22}9A$, $P(Y=3600)=\dfrac{22}9A$이다.
+      criteria: ['3.M2']
+    - id: 3b-4
+      content: |
+        $E(Y)=-5400\left(1-\dfrac{22}9A\right)+3600\cdot\dfrac{22}9A=-5400+22000A$이므로 $a=22000$, $b=-5400$이다.
+      criteria: ['3.A2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 15
+      evidence: |
+        상한 사과 수가 이항분포 $B(9,0.1)$을 따름을 썼다.
+      depends_on: []
+      implied_ok: false
+      steps: [3b-1]
+    - id: 3.A1
+      mark_type: A
+      points: 20
+      evidence: |
+        $P(X\le2)=\dfrac{22}9\cdot0.9^9$(또는 환불 확률 $1-\dfrac{22}9\cdot0.9^9$)을 얻었다.
+      depends_on: [3.M1]
+      steps: [3b-2]
+    - id: 3.M2
+      mark_type: M
+      points: 25
+      evidence: |
+        환불 시 수익을 $-5400$원으로 두고 수익의 확률분포를 세웠다.
+      depends_on: []
+      implied_ok: false
+      steps: [3b-3]
+    - id: 3.A2
+      mark_type: A
+      points: 20
+      evidence: |
+        $a=22000$, $b=-5400$을 얻었다.
+      depends_on: [3.M2, 3.A1]
+      steps: [3b-4]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-PRB-3109}
+  misconceptions:
+  - id: MC-PRB-3109
+    outcome_code: '71'
+    wrong_work: '환불 시 수익을 $0$원으로 두어 $E(Y)=3600\cdot\tfrac{22}9A=8800A$, $b=0$을 얻음'
+    detect_cue: 환불한 상자의 수익에 원가 손실이 반영되지 않았다
+    feedback: 사과를 돌려받지 않고 $9000$원을 돌려주므로 그 상자의 수익은 $3600-9000=-5400$원입니다.
+    remedy: [RL-3]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CNT-3108}
+  relation: remediation
+  target: {kind: concept, ref: CON-CNT-MULTISET}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-PRB-3107}
+  relation: remediation
+  target: {kind: concept, ref: CON-PRB-SAMPLE-MEAN}
+  priority: 1
+- id: RL-3
+  trigger: {type: misconception, ref: MC-PRB-3109}
+  relation: remediation
+  target: {kind: concept, ref: CON-PRB-EXP-VAR}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

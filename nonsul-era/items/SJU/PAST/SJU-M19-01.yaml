@@ -1,0 +1,419 @@
+# 세종대 2019학년도 논술 모의평가(자연계열) 문제 1 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: SJU-M19-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: SJU
+type: null          # [제안] 범위 밖(확률과통계: 경우의 수·이항분포) — 현행 세종 범위 밖이라 유형 신설 불요
+variant_of: null
+replaces: null
+level: L3
+form: 전수
+points: 180
+time_estimate_min: 25
+intent: |
+  제한된 선택의 가위바위보에서 경우를 세고, 여사건과 이항분포·이항정리로 확률과 기댓값을 구하는 능력을 본다.
+key_idea: |
+  $A$가 이기는 것은 (가위,보)뿐이라 이길 확률 $\tfrac14$; $\mathrm{E}(9^k)$는 이항정리로 $(\tfrac94+\tfrac34)^n$.
+stuck: |
+  (1-3)에서 $9^k$를 이항정리의 $a^k$로 흡수하는 것
+idea_tags:
+- IDEA-BINOMIAL-THEOREM-EXPECT
+tags:
+- 범위 밖(현행)
+- 경우의 수
+- 이항분포
+elements:
+  materials:
+  - '가위·바위만 내는 $A$와 바위·보만 내는 $B$의 가위바위보'
+  - '상금 $9^k$원'
+  concepts:
+  - '경우의 수'
+  - '여사건의 확률'
+  - '독립시행의 확률'
+  - '이항분포'
+  - '이항정리'
+  - '기댓값'
+  tools:
+  - '결과표로 경우 나누기'
+  - '여사건의 확률'
+  - '이항분포 ${}_n\mathrm{C}_kp^kq^{n-k}$'
+  - '이항정리'
+  conditions:
+  - '비김 = (바위,바위), 이김 = (가위,보)뿐'
+  - '각 조합의 확률 $\tfrac14$'
+  - '$1-(\tfrac34)^n\ge0.5$'
+  stimuli_used: []
+  subpart_links: '(1-3)은 (1-2)의 이길 확률 1/4을 사용'
+curriculum:
+  version: '2015'
+  subjects:
+  - 확률과통계
+  scope_2028: common
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 여사건의 확률과 이항분포를 이해하고 활용할 수 있다(요지)
+    verified: false
+  content_area: 확률·확률분포
+  behavior_domain: 문제해결
+  unit_path:
+  - 확률과통계
+  - 확률
+  - 이항분포
+  key_concepts:
+  - 경우의 수
+  - 여사건의 확률
+  - 독립시행의 확률
+  - 이항분포
+  - 이항정리
+  - 기댓값
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 세종대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 세종대학교
+  admission_year: 2019
+  admission_type: 수시 모의논술
+  track: 자연계열
+  question_no: 1
+  official_url: https://ipsi.sejong.ac.kr   # [확인 필요] 입학처 자료실의 정확한 게시물 URL로 교체
+  retrieved_at: '2026-11-21'
+  original_points:
+  - 60
+  - 60
+  - 60
+  rights_notice: 미확인(대학 원본 PDF 표지 문구 확인 필요)
+  transcribed_from: 대치 수리 논술 연구소 「2027학년도 대비 수리논술 세종대 기출 및 모의 문제」 p.88 + 해설교재 p.152 (원본 PDF 이미지 대조 완료 2026-11-21)
+verify: verify/SJU-M19.py::p01
+stimuli: []
+stem: |
+  두 어린이 $A$와 $B$가 가위바위보 게임을 한다. 그런데 매 게임마다 $A$는 가위와 바위, $B$는 바위와 보 중에 임의로 내며, 게임의 횟수를 셀 때는 비긴 게임도 포함한다.
+subparts:
+- id: '1'
+  stem: |
+    5번 게임을 하면서 $A$는 ‘가위, 바위, 가위, 바위, 가위’를 냈는데 2번 이기고 2번 지고, 1번 비겼다. 이런 결과가 나올 수 있도록 $B$가 낼 수 있는 방법의 수를 구하시오.
+  points: 60
+  depends_on: []
+  answer:
+    kind: value
+    value: '6'
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $A$ 승 = (가위, 보), 무 = (바위, 바위)뿐 ⇒ 무는 바위 자리, 승은 가위 자리.
+    steps:
+    - id: 1a
+      content: ${}_3\mathrm{C}_2\times{}_2\mathrm{C}_1=6$
+      criteria:
+      - 1.M1
+      - 1.R1
+      - 1.A1
+    hint_ladder:
+    - $A$가 비길 수 있는 경우는 몇 가지인가?
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 해설교재 p.152
+    steps:
+    - id: 1b-1
+      content: |
+        $A$와 $B$가 낸 것을 $(A,B)$로 나타내면, $A$가 비기는 경우는 (바위, 바위), 이기는 경우는 (가위, 보), 지는 경우는 (가위, 바위)와 (바위, 보)뿐이다.
+      criteria:
+      - 1.M1
+    - id: 1b-2
+      content: |
+        한 번 비겨야 하므로 $A$의 '바위' 두 자리 중 한 곳에서 $B$는 바위를 내고, 두 번 이겨야 하므로 $A$의 '가위' 세 자리 중 두 곳에서 $B$는 보를 낸다. 나머지 '바위' 자리에는 보, 나머지 '가위' 자리에는 바위를 내야 2번 진다.
+      criteria:
+      - 1.R1
+    - id: 1b-3
+      content: |
+        따라서 방법의 수는 $2\times3=6$이다.
+      criteria:
+      - 1.A1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 20
+      evidence: |
+        네 가지 $(A,B)$ 조합의 승·무·패를 정리했다.
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 1b-1
+    - id: 1.R1
+      mark_type: R
+      points: 20
+      evidence: |
+        비김은 바위 자리, 이김은 가위 자리에서만 가능함을 근거로 배치를 정했다.
+      depends_on:
+      - 1.M1
+      steps:
+      - 1b-2
+    - id: 1.A1
+      mark_type: A
+      points: 20
+      evidence: |
+        $6$을 얻었다.
+      depends_on:
+      - 1.R1
+      steps:
+      - 1b-3
+    deductions: []
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  - code: '71'
+    misconception: MC-CNT-3135
+  misconceptions:
+  - id: MC-CNT-3135
+    outcome_code: '71'
+    wrong_work: 승2·패2·무1의 배열 수 $\tfrac{5!}{2!2!1!}=30$
+    detect_cue: $A$의 고정된 순서를 무시한 배열
+    feedback: $A$가 낸 것이 정해져 있으므로 각 자리에서 가능한 결과가 제한됩니다.
+    remedy:
+    - RL-1
+- id: '2'
+  stem: |
+    $A$와 $B$가 게임을 하는데 $A$가 적어도 1번 이상 이길 확률이 0.5 이상 되기 위해서는 게임을 몇 번 이상 하여야 하는지 구하시오.
+  points: 60
+  depends_on: []
+  answer:
+    kind: value
+    value: '3'
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: 한 판에서 $A$가 이길 확률 $\tfrac14$; $1-(\tfrac34)^n\ge\tfrac12$.
+    steps:
+    - id: 2a
+      content: '$n=2$: $\tfrac7{16}$, $n=3$: $\tfrac{37}{64}$ ⇒ 3번'
+      criteria:
+      - 2.M1
+      - 2.M2
+      - 2.A1
+    hint_ladder:
+    - 한 판에서 이길 확률은?
+    - '''적어도 한 번''은 여사건으로.'
+  - id: S2-B
+    audience: B
+    method_no: 1
+    source_flow: 해설교재 p.152
+    steps:
+    - id: 2b-1
+      content: |
+        한 게임에서 가능한 $(A,B)$는 (가위,보), (바위,바위), (가위,바위), (바위,보)의 네 가지가 같은 확률로 일어나고, $A$가 이기는 것은 (가위,보)뿐이므로 이길 확률은 $\dfrac14$이다.
+      criteria:
+      - 2.M1
+    - id: 2b-2
+      content: |
+        $n$번 게임에서 적어도 1번 이길 확률은 한 번도 이기지 못할 확률의 여사건이므로 $1-\left(\dfrac34\right)^n$이다.
+      criteria:
+      - 2.M2
+    - id: 2b-3
+      content: |
+        $1-\left(\dfrac34\right)^n\ge0.5$에서 $n=2$이면 $\dfrac7{16}<\dfrac12$, $n=3$이면 $\dfrac{37}{64}\ge\dfrac12$이므로 3번 이상 해야 한다.
+      criteria:
+      - 2.A1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 20
+      evidence: |
+        한 판에 이길 확률 $\tfrac14$을 구했다.
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 2b-1
+    - id: 2.M2
+      mark_type: M
+      points: 20
+      evidence: |
+        여사건으로 $1-(\tfrac34)^n$을 세웠다.
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 2b-2
+    - id: 2.A1
+      mark_type: A
+      points: 20
+      evidence: |
+        $n=2,3$을 확인해 3번을 얻었다.
+      depends_on:
+      - 2.M1
+      - 2.M2
+      steps:
+      - 2b-3
+    deductions: []
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  - code: '71'
+    misconception: MC-CNT-3135
+  misconceptions:
+  - id: MC-CNT-3135
+    outcome_code: '71'
+    wrong_work: 이길 확률을 $\tfrac12$로 두어 $n=1$
+    detect_cue: $p=\tfrac12$
+    feedback: 네 가지 조합 중 $A$가 이기는 것은 하나뿐입니다.
+    remedy:
+    - RL-1
+- id: '3'
+  stem: |
+    게임을 $n$번 하였을 때 $A$가 이긴 횟수 $k$에 대하여, $A$가 받는 상금 $9^k$(원)을 확률변수 $X$라 하자. 기댓값 $\mathrm{E}(X)$를 구하시오.
+  points: 60
+  depends_on:
+  - '2'
+  answer:
+    kind: expression
+    value: 3**n
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: 이긴 횟수는 $\mathrm{B}(n,\tfrac14)$, 이항정리.
+    steps:
+    - id: 3a
+      content: $\sum{}_n\mathrm{C}_k(\tfrac94)^k(\tfrac34)^{n-k}=3^n$
+      criteria:
+      - 3.M1
+      - 3.M2
+      - 3.A1
+    hint_ladder:
+    - 이긴 횟수의 분포는?
+    - $\sum{}_n\mathrm{C}_ka^kb^{n-k}=(a+b)^n$
+  - id: S3-B
+    audience: B
+    method_no: 1
+    source_flow: 해설교재 p.152
+    steps:
+    - id: 3b-1
+      content: |
+        이긴 횟수가 $k$일 확률은 ${}_n\mathrm{C}_k\left(\dfrac14\right)^k\left(\dfrac34\right)^{n-k}$이므로 $\mathrm{P}(X=9^k)={}_n\mathrm{C}_k\left(\dfrac14\right)^k\left(\dfrac34\right)^{n-k}$이다.
+      criteria:
+      - 3.M1
+    - id: 3b-2
+      content: |
+        $\mathrm{E}(X)=\displaystyle\sum_{k=0}^n9^k\,{}_n\mathrm{C}_k\left(\dfrac14\right)^k\left(\dfrac34\right)^{n-k}=\sum_{k=0}^n{}_n\mathrm{C}_k\left(\dfrac94\right)^k\left(\dfrac34\right)^{n-k}$.
+      criteria:
+      - 3.M2
+    - id: 3b-3
+      content: |
+        이항정리에 의해 $\mathrm{E}(X)=\left(\dfrac94+\dfrac34\right)^n=3^n$이다.
+      criteria:
+      - 3.A1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 20
+      evidence: |
+        $\mathrm{P}(X=9^k)$를 이항분포로 썼다.
+      depends_on: []
+      implied_ok: false
+      ft:
+        allowed: true
+        from:
+        - 2.M1
+        max_points: 20
+      steps:
+      - 3b-1
+    - id: 3.M2
+      mark_type: M
+      points: 20
+      evidence: |
+        기댓값을 합으로 세우고 $9^k$를 묶었다.
+      depends_on:
+      - 3.M1
+      steps:
+      - 3b-2
+    - id: 3.A1
+      mark_type: A
+      points: 20
+      evidence: |
+        이항정리로 $3^n$을 얻었다.
+      depends_on:
+      - 3.M2
+      steps:
+      - 3b-3
+    deductions: []
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  - code: '71'
+    misconception: MC-PRB-3134
+  misconceptions:
+  - id: MC-PRB-3134
+    outcome_code: '71'
+    wrong_work: $\mathrm{E}(X)=9^{\mathrm{E}(k)}=9^{n/4}$
+    detect_cue: 지수에 기댓값
+    feedback: $\mathrm{E}(9^k)\ne9^{\mathrm{E}(k)}$입니다. 확률분포로 직접 합을 구하세요.
+    remedy:
+    - RL-2
+remedy_links:
+- id: RL-1
+  trigger:
+    type: misconception
+    ref: MC-CNT-3135
+  relation: remediation
+  target:
+    kind: concept
+    ref: CON-CNT-CASE-COUNT
+  priority: 1
+- id: RL-2
+  trigger:
+    type: misconception
+    ref: MC-PRB-3134
+  relation: remediation
+  target:
+    kind: concept
+    ref: CON-PRB-BINOMIAL-EXPECT
+  priority: 1
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: opus
+  prompt_version: p3-past-v1
+  item_version: 1
+  verdict: pass
+  date: '2026-11-21'
+created: '2026-11-21'
+updated: '2026-11-21'

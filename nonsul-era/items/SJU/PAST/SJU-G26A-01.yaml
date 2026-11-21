@@ -1,0 +1,382 @@
+# 세종대 2026학년도 논술고사(자연계열A) 문제 1 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: SJU-G26A-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: SJU
+type: T03
+variant_of: null
+replaces: null
+level: L5
+form: 추론
+points: 230
+time_estimate_min: 35
+intent: |
+  정적분을 포함한 등식을 미분해 역함수 $f^{-1}$을 결정하고, 역함수의 미분법·역함수 그래프의 대칭을 이용한 정적분, 롤의 정리와 볼록성으로 최댓값의 위치를 특정하는 능력을 본다.
+key_idea: |
+  (나)를 미분하면 $f^{-1}(x)=2xe^x$. $f$를 직접 구할 수 없으므로 모든 계산을 $f^{-1}$ 쪽으로 옮긴다: $f'(f^{-1}(y))=\dfrac{1}{(f^{-1})'(y)}$, $\displaystyle\int_0^b f=bf(b)-\int_0^{f(b)}f^{-1}$, 최댓값 조건 $f'(\alpha)=\tfrac14$를 $2xe^x=\alpha$, $(1+x)e^x=2$로 바꾼다.
+stuck: |
+  $f$의 식을 구하지 않고 역함수 쪽에서 계산하는 발상, 그리고 (1-3)에서 두 식 $2xe^x=\alpha$, $(1+x)e^x=2$를 나눠 $x=\dfrac{\alpha}{4-\alpha}$로 $e^x$를 소거하는 것
+idea_tags: [IDEA-WORK-ON-INVERSE-SIDE, IDEA-ROLLE-CONCAVE-UNIQUE-MAX]
+tags: [역함수, 정적분으로 정의된 함수, 롤의 정리]
+elements:
+  materials:
+  - '증가하는 연속함수 $f(x)$와 역함수 $f^{-1}(x)=2xe^x$'
+  - '적분 등식 $\displaystyle\int_0^x e^{-t}f^{-1}(t)dt=x^2$'
+  - '함수 $g(x)=f(x)-\dfrac x4$ $(0\le x\le4\ln2)$'
+  concepts:
+  - '정적분으로 정의된 함수의 미분'
+  - '역함수의 미분법'
+  - '역함수의 그래프와 정적분'
+  - '부분적분법'
+  - '롤의 정리'
+  - '이계도함수와 그래프의 볼록성'
+  - '최댓값'
+  tools:
+  - '적분 등식의 양변 미분(미적분의 기본정리)'
+  - '연속성으로 $f^{-1}(0)=0$ 결정'
+  - '$f(2xe^x)=x$의 양변 미분'
+  - '역함수 그래프의 대칭으로 넓이 바꾸기 $\sqrt e f(\sqrt e)-\displaystyle\int_0^{1/2}f^{-1}$'
+  - '롤의 정리 + 위로 볼록 ⇒ 임계점 유일·최대'
+  - '두 식을 나눠 $e^x$ 소거'
+  conditions:
+  - '(가) $f^{-1}$의 연속성 ⇒ $x=0$에서도 $f^{-1}(0)=0$'
+  - '$f(\sqrt e)=\dfrac12$, $f(4\ln2)=\ln2$'
+  - '$g(0)=g(4\ln2)=0$'
+  - '$g^{\prime}(\alpha)=0\iff f^{\prime}(\alpha)=\dfrac14$'
+  stimuli_used: []
+  subpart_links: '(1-2)·(1-3)은 (1-1)에서 구한 f^{-1}(x)=2xe^x와 f(√e)=1/2, f(4ln2)=ln2를 사용'
+
+curriculum:
+  version: '2015'
+  subjects: [미적분]
+  scope_2028: calc2
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 역함수의 미분법을 이해하고, 정적분으로 정의된 함수를 미분할 수 있다(요지)
+    verified: false
+  content_area: 미분법·적분법
+  behavior_domain: 문제해결
+  unit_path: [미적분, 미분법, 여러 가지 미분법, 역함수의 미분법]
+  key_concepts: [정적분으로 정의된 함수의 미분, 역함수의 미분법, 역함수의 그래프와 정적분, 부분적분법, 롤의 정리, 이계도함수와 그래프의 볼록성, 최댓값]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 세종대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 세종대학교
+  admission_year: 2026
+  admission_type: 수시 논술고사
+  track: 자연계열A
+  question_no: 1
+  official_url: https://ipsi.sejong.ac.kr   # [확인 필요] 입학처 자료실의 정확한 게시물 URL로 교체
+  retrieved_at: 2026-11-21
+  original_points: [70, 80, 80]
+  rights_notice: 미확인(대학 원본 PDF 표지 문구 확인 필요)
+  transcribed_from: 대치 수리 논술 연구소 「2027학년도 대비 수리논술 세종대 기출 및 모의 문제」 p.7 + 해설교재 p.12~13 (원본 PDF 이미지 대조 완료 2026-11-21)
+
+verify: verify/SJU-G26A.py::p01
+
+stimuli: []
+
+stem: |
+  $x\ge0$에서 정의된 증가하는 연속함수 $f(x)$의 역함수 $f^{-1}(x)$가 다음 조건을 만족시킨다.
+
+  (가) $x\ge0$에서 $f^{-1}(x)$는 연속이다.
+  (나) $x\ge0$에서 $\displaystyle\int_0^x e^{-t}f^{-1}(t)dt=x^2$이다.
+
+subparts:
+- id: '1'
+  stem: |
+    $f^{-1}(\ln2)$, $f^{-1}(\dfrac12)$, $f'(f^{-1}(\dfrac12))$의 값을 각각 구하시오.
+  points: 70
+  depends_on: []
+  answer: {kind: value, value: '4*log(2); sqrt(E); 1/(3*sqrt(E))', equivalents: ['4ln2; e^(1/2); sqrt(e)/(3e)'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: (나)를 미분하면 $e^{-x}f^{-1}(x)=2x$이고, 역함수의 미분법으로 $f'(f^{-1}(y))=\dfrac1{(f^{-1})'(y)}$.
+    steps:
+    - {id: 1a, content: '$f^{-1}(x)=2xe^x$, $f^{-1}(\ln2)=4\ln2$, $f^{-1}(\tfrac12)=\sqrt e$, $(f^{-1})^{\prime}(\tfrac12)=3\sqrt e$', criteria: ['1.M1', '1.A1', '1.A2', '1.M2', '1.A3']}
+    hint_ladder:
+    - (나)의 양변을 $x$에 대해 미분해 보자.
+    - $f'$을 직접 구하기 어렵다면 역함수의 미분법을 쓰자.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 해설교재 p.12
+    steps:
+    - id: 1b-1
+      content: |
+        $x>0$에서 (나)의 양변을 $x$에 대해 미분하면 $e^{-x}f^{-1}(x)=2x$, 즉 $f^{-1}(x)=2xe^x$이다.
+      criteria: ['1.M1']
+    - id: 1b-2
+      content: |
+        (가)에 의해 $f^{-1}$은 $x=0$에서도 연속이므로 $f^{-1}(0)=\displaystyle\lim_{x\to0+}2xe^x=0$이고, $x\ge0$에서 $f^{-1}(x)=2xe^x$이다.
+        따라서 $f^{-1}(\ln2)=2\ln2\cdot e^{\ln2}=4\ln2$, $f^{-1}\!\left(\dfrac12\right)=2\cdot\dfrac12\cdot e^{1/2}=\sqrt e$.
+      criteria: ['1.A1', '1.A2']
+    - id: 1b-3
+      content: |
+        $(f^{-1})^{\prime}(x)=2(1+x)e^x$이므로 역함수의 미분법에 의해
+        $$f^{\prime}\!\left(f^{-1}\!\left(\tfrac12\right)\right)=\dfrac{1}{(f^{-1})^{\prime}\!\left(\tfrac12\right)}=\dfrac{1}{2\cdot\tfrac32\cdot\sqrt e}=\dfrac{1}{3\sqrt e}.$$
+      criteria: ['1.M2', '1.A3']
+  - id: S1-ALT
+    audience: ALT
+    method_no: 2
+    source_flow: 해설교재 p.12 별해
+    key_idea: $f(2xe^x)=x$의 양변을 미분해 $f^{\prime}(2xe^x)=\dfrac1{2(1+x)e^x}$를 얻고 $x=\tfrac12$를 대입한다.
+    steps:
+    - id: 1c-1
+      content: |
+        $f(2xe^x)=x$에서 $f^{\prime}(2xe^x)\cdot2(1+x)e^x=1$. $x=\dfrac12$이면 $2xe^x=\sqrt e$이므로 $f^{\prime}(f^{-1}(\tfrac12))=f^{\prime}(\sqrt e)=\dfrac1{3\sqrt e}$.
+      criteria: ['1.M2', '1.A3']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 20
+      evidence: |
+        (나)를 미분해 $e^{-x}f^{-1}(x)=2x$를 얻었다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1]
+    - id: 1.A1
+      mark_type: A
+      points: 10
+      evidence: |
+        $f^{-1}(x)=2xe^x$이고 연속성으로 $x=0$에서도 성립함을 적었다.
+      depends_on: [1.M1]
+      steps: [1b-2]
+    - id: 1.A2
+      mark_type: A
+      points: 15
+      evidence: |
+        $f^{-1}(\ln2)=4\ln2$, $f^{-1}(\tfrac12)=\sqrt e$를 구했다.
+      depends_on: [1.M1, 1.A1]
+      steps: [1b-2]
+    - id: 1.M2
+      mark_type: M
+      points: 10
+      evidence: |
+        역함수의 미분법 $f^{\prime}(f^{-1}(y))=\dfrac{1}{(f^{-1})^{\prime}(y)}$(또는 $f(2xe^x)=x$의 미분)을 사용했다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-3]
+    - id: 1.A3
+      mark_type: A
+      points: 15
+      evidence: |
+        $f^{\prime}(f^{-1}(\tfrac12))=\dfrac1{3\sqrt e}$를 얻었다.
+      depends_on: [1.M2, 1.A1]
+      steps: [1b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-3013}
+  misconceptions:
+  - id: MC-CAL-3013
+    outcome_code: '71'
+    wrong_work: '(나)를 미분하여 $f^{-1}(x)=2x$로 둠($e^{-x}$ 누락)'
+    detect_cue: 피적분함수 $e^{-t}f^{-1}(t)$의 $e^{-t}$가 미분 결과에 없다
+    feedback: $\dfrac{d}{dx}\displaystyle\int_0^x h(t)dt=h(x)$이므로 피적분함수 전체 $e^{-x}f^{-1}(x)$가 나와야 합니다.
+    remedy: [RL-1]
+
+- id: '2'
+  stem: |
+    $\displaystyle\int_0^{\sqrt e}f(x)dx$의 값을 구하시오.
+  points: 80
+  depends_on: ['1']
+  answer: {kind: value, value: '3*sqrt(E)/2 - 2', equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: $f(\sqrt e)=\tfrac12$이고 $y=f(x)$와 $y=f^{-1}(x)$의 대칭으로 $\displaystyle\int_0^{\sqrt e}f=\sqrt e\cdot\tfrac12-\int_0^{1/2}2xe^xdx$.
+    steps:
+    - {id: 2a, content: '$\int_0^{1/2}2xe^xdx=[2(x-1)e^x]_0^{1/2}=2-\sqrt e$이므로 답은 $\tfrac{\sqrt e}{2}-(2-\sqrt e)=\tfrac{3\sqrt e}{2}-2$', criteria: ['2.M1', '2.M2', '2.A1']}
+    hint_ladder:
+    - $f$의 식은 모르지만 $f^{-1}$의 식은 안다. 넓이를 $y$축 쪽에서 보면?
+    - 직사각형 $[0,\sqrt e]\times[0,\tfrac12]$의 넓이를 이용하자.
+  - id: S2-B
+    audience: B
+    method_no: 1
+    source_flow: 해설교재 p.12
+    steps:
+    - id: 2b-1
+      content: |
+        (1)에서 $f^{-1}(\tfrac12)=\sqrt e$이므로 $f(\sqrt e)=\dfrac12$이다.
+      criteria: ['2.M1']
+    - id: 2b-2
+      content: |
+        $y=f(x)$와 $y=f^{-1}(x)$의 그래프는 직선 $y=x$에 대해 대칭이므로, $y=f(x)$ 아래 넓이($0\le x\le\sqrt e$)와 $y=f^{-1}(x)$ 아래 넓이($0\le x\le\tfrac12$)의 합은 직사각형의 넓이 $\sqrt e\cdot f(\sqrt e)$와 같다. 따라서
+        $$\int_0^{\sqrt e}f(x)dx=\sqrt e f(\sqrt e)-\int_0^{f(\sqrt e)}2xe^xdx=\dfrac{\sqrt e}{2}-\int_0^{1/2}2xe^xdx.$$
+      criteria: ['2.M2']
+    - id: 2b-3
+      content: |
+        부분적분으로 $\displaystyle\int_0^{1/2}2xe^xdx=\Big[2(x-1)e^x\Big]_0^{1/2}=-\sqrt e+2$이므로 구하는 값은 $\dfrac{\sqrt e}{2}+\sqrt e-2=\dfrac{3\sqrt e}{2}-2$.
+      criteria: ['2.A1']
+  - id: S2-ALT
+    audience: ALT
+    method_no: 2
+    source_flow: 해설교재 p.13 별해
+    key_idea: $f(x)=t$로 치환하면 $x=2te^t$, $dx=2(1+t)e^tdt$이고 $t$는 $0$에서 $\tfrac12$까지 변한다.
+    steps:
+    - id: 2c-1
+      content: |
+        $\displaystyle\int_0^{\sqrt e}f(x)dx=\int_0^{1/2}t\cdot2(1+t)e^tdt=\Big[2(t^2-t+1)e^t\Big]_0^{1/2}=\dfrac{3\sqrt e}{2}-2$.
+      criteria: ['2.M2', '2.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 20
+      evidence: |
+        $f(\sqrt e)=\dfrac12$을 적었다.
+      depends_on: []
+      implied_ok: true
+      ft: {allowed: true, from: [1.A2], max_points: 20}
+      steps: [2b-1]
+    - id: 2.M2
+      mark_type: M
+      points: 30
+      evidence: |
+        $\displaystyle\int_0^{\sqrt e}f=\sqrt e\cdot\tfrac12-\int_0^{1/2}f^{-1}$ (또는 치환 $x=2te^t$로 $\displaystyle\int_0^{1/2}2t(1+t)e^tdt$)로 바꿨다.
+      depends_on: [2.M1]
+      steps: [2b-2]
+    - id: 2.A1
+      mark_type: A
+      points: 30
+      evidence: |
+        부분적분을 바르게 하여 $\dfrac{3\sqrt e}{2}-2$를 얻었다.
+      depends_on: [2.M2]
+      steps: [2b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-3014}
+  misconceptions:
+  - id: MC-CAL-3014
+    outcome_code: '71'
+    wrong_work: '$\displaystyle\int_0^{\sqrt e}f(x)dx=\int_0^{\sqrt e}f^{-1}(x)dx$ 또는 $\sqrt e\cdot\sqrt e-\displaystyle\int_0^{\sqrt e}2xe^xdx$로 계산'
+    detect_cue: 역함수 쪽 적분의 위끝이 $f(\sqrt e)=\tfrac12$가 아니다
+    feedback: 대칭으로 넘어간 넓이의 구간은 $y$값의 범위 $[0,f(\sqrt e)]$입니다. 직사각형 $\sqrt e\times f(\sqrt e)$에서 빼세요.
+    remedy: [RL-2]
+
+- id: '3'
+  stem: |
+    $0\le x\le4\ln2$에서 $g(x)=f(x)-\dfrac x4$라 하자. 함수 $g(x)$가 $x=\alpha$에서 최댓값을 가질 때, $g(\alpha)$를 $\alpha$의 유리식으로 나타내시오.
+  points: 80
+  depends_on: ['1']
+  answer: {kind: expression, value: 'alpha**2/(4*(4 - alpha))', equivalents: ['alpha/(4-alpha) - alpha/4'], tolerance: null}
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: $g(0)=g(4\ln2)=0$이고 $f^{-1}$이 아래로 볼록이므로 $f$, $g$는 위로 볼록 → 최대는 $g^{\prime}(\alpha)=0$인 유일한 점. $\alpha=2xe^x$, $f^{\prime}(\alpha)=\dfrac1{2(1+x)e^x}=\dfrac14$에서 $x=\dfrac{\alpha}{4-\alpha}=f(\alpha)$.
+    steps:
+    - {id: 3a, content: '$2xe^x=\alpha$, $(1+x)e^x=2\Rightarrow\tfrac{x}{1+x}=\tfrac{\alpha}{4}\Rightarrow x=\tfrac{\alpha}{4-\alpha}$, $g(\alpha)=\tfrac{\alpha}{4-\alpha}-\tfrac{\alpha}{4}=\tfrac{\alpha^2}{4(4-\alpha)}$', criteria: ['3.R1', '3.M1', '3.A1', '3.A2']}
+    hint_ladder:
+    - $g$의 양 끝값을 계산해 보자.
+    - $f$의 볼록성은 $f^{-1}$의 볼록성과 어떤 관계인가?
+    - $f(\alpha)=x$로 두면 $\alpha$와 $x$ 사이에 어떤 두 식이 성립하는가?
+  - id: S3-B
+    audience: B
+    method_no: 1
+    source_flow: 해설교재 p.13
+    steps:
+    - id: 3b-1
+      content: |
+        $f(0)=0$, $f(4\ln2)=\ln2$이므로 $g(0)=0$, $g(4\ln2)=\ln2-\ln2=0$이다. 롤의 정리에 의해 $g^{\prime}(a)=f^{\prime}(a)-\dfrac14=0$인 $a$가 $(0,4\ln2)$에 존재한다.
+      criteria: ['3.M1']
+    - id: 3b-2
+      content: |
+        $(f^{-1})^{\prime\prime}(x)=2(x+2)e^x>0$이므로 $f^{-1}$은 아래로 볼록이고, 그 역함수 $f$는 위로 볼록이다. 따라서 $g(x)=f(x)-\dfrac x4$도 위로 볼록이므로 $g^{\prime}(a)=0$인 $a$는 유일하고 $g$는 $x=a$에서 최댓값을 가진다. 즉 $a=\alpha$이다.
+      criteria: ['3.R1']
+    - id: 3b-3
+      content: |
+        $f(\alpha)=x$라 하면 $2xe^x=\alpha$이고, $f^{\prime}(2xe^x)=\dfrac1{2(1+x)e^x}$에서 $f^{\prime}(\alpha)=\dfrac14$이므로 $(1+x)e^x=2$이다.
+      criteria: ['3.A1']
+    - id: 3b-4
+      content: |
+        두 식을 나누면 $\dfrac{2x}{1+x}=\dfrac{\alpha}{2}$, 즉 $x=\dfrac{\alpha}{4-\alpha}$이다. 따라서
+        $$g(\alpha)=f(\alpha)-\dfrac{\alpha}{4}=\dfrac{\alpha}{4-\alpha}-\dfrac{\alpha}{4}=\dfrac{\alpha^2}{4(4-\alpha)}.$$
+      criteria: ['3.A2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 20
+      evidence: |
+        $g(0)=g(4\ln2)=0$을 확인하고 롤의 정리(또는 $g^{\prime}=0$)로 임계점의 존재를 보였다.
+      depends_on: []
+      implied_ok: false
+      ft: {allowed: true, from: [1.A1], max_points: 20}
+      steps: [3b-1]
+    - id: 3.R1
+      mark_type: R
+      points: 20
+      evidence: |
+        $(f^{-1})^{\prime\prime}>0$에서 $g$가 위로 볼록임을 밝혀 임계점이 유일한 최댓점임을 정당화했다.
+      depends_on: [3.M1]
+      steps: [3b-2]
+    - id: 3.A1
+      mark_type: A
+      points: 20
+      evidence: |
+        $f(\alpha)=x$로 두고 $2xe^x=\alpha$, $(1+x)e^x=2$를 얻었다.
+      depends_on: [3.M1]
+      steps: [3b-3]
+    - id: 3.A2
+      mark_type: A
+      points: 20
+      evidence: |
+        $x=\dfrac{\alpha}{4-\alpha}$를 거쳐 $g(\alpha)=\dfrac{\alpha^2}{4(4-\alpha)}$를 얻었다.
+      depends_on: [3.M1, 3.A1]
+      steps: [3b-4]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-3003}
+  misconceptions:
+  - id: MC-CAL-3003
+    outcome_code: '71'
+    wrong_work: '$f^{\prime}(\alpha)=\tfrac14$만 쓰고 그 점이 최댓점인 이유(유일성·볼록성)를 적지 않음'
+    detect_cue: 롤의 정리·볼록성·증감표 등 최대임을 보이는 근거가 없다
+    feedback: 임계점이 곧 최댓점인 것은 아닙니다. $f^{-1}$이 아래로 볼록 ⇒ $g$가 위로 볼록임을 써서 유일한 최댓점임을 밝히세요.
+    remedy: [RL-3]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CAL-3013}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-FTC-DIFF}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-CAL-3014}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-INVERSE-INTEGRAL}
+  priority: 1
+- id: RL-3
+  trigger: {type: misconception, ref: MC-CAL-3003}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-EXTREMA-JUSTIFY}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

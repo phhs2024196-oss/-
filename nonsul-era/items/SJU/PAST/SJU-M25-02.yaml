@@ -1,0 +1,348 @@
+# 세종대 2025학년도 모의논술고사(자연계열) 문제 2 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: SJU-M25-02
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: SJU
+type: T01
+variant_of: null
+replaces: null
+level: L5
+form: 추론
+points: 230
+time_estimate_min: 40
+intent: |
+  삼차함수의 접선이 곡선과 다시 만나는 점의 $x$좌표를 접점의 중근 인수로 구하고, 변곡점과의 관계로 계수를 정하며, 합성함수의 좌우 미분계수 비교로 미분가능 조건과 도함수의 연속성을 판정하는 능력을 본다.
+key_idea: |
+  접선과 곡선의 교점 방정식은 $(x-t)^2(x+2t-6)=0$이므로 $g(t)=\max(t,\,6-2t)$이고, $h=f\circ g$가 $t=2$에서 미분가능하려면 $-2f'(2)=f'(2)$, 즉 $f'(2)=0$.
+stuck: |
+  (2-1)에서 「$g(t)=t$인 $t$의 최솟값」이 변곡점의 $x$좌표라는 해석, (2-3)에서 $t\to2-$일 때 $s=6-2t\to2+$로 바꿔 좌미분계수를 $-2f'(2)$로 계산하는 단계
+idea_tags: [IDEA-TANGENT-THIRD-INTERSECTION, IDEA-COMPOSITE-ONE-SIDED-DERIV]
+tags: [삼차함수, 접선, 변곡점, 미분가능성]
+elements:
+  materials:
+  - '최고차항의 계수가 1인 삼차함수 $f(x)$'
+  - '접선과 곡선의 교점 중 가장 큰 $x$좌표 $g(t)$'
+  - '합성함수 $h(t)=f(g(t))$'
+  concepts:
+  - '접선의 방정식'
+  - '삼차함수의 변곡점'
+  - '인수정리와 조립제법'
+  - '합성함수의 미분'
+  - '미분가능성과 좌우 미분계수'
+  - '도함수의 연속'
+  - '정적분과 미적분의 기본정리'
+  tools:
+  - '교점 방정식에서 접점의 중근 인수 $(x-t)^2$'
+  - '근과 계수의 관계(세 근의 합 $=6$)'
+  - '좌·우 미분계수 비교와 치환 $s=6-2t$'
+  - '$\int_1^2h''(t)dt=h(2)-h(1)$'
+  conditions:
+  - '$g(t)=t\iff t\ge6-2t\iff t\ge2$ ⇒ 최솟값 $2$ = 변곡점 $x$좌표'
+  - '$g$는 $t=2$에서만 미분불가능 ⇒ $h$는 $t=2$에서 미분가능하면 됨'
+  - '$f''(2)=0$ ⇒ $b=12$, $h''(2)=0$'
+  stimuli_used: []
+  subpart_links: '(2-2)는 (2-1)의 f''''(2)=0(a=-6)을, (2-3)은 (2-2)의 g(t)=6-2t를 사용'
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅱ, 미적분]
+  scope_2028: calc2
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 접선의 방정식을 구하고, 합성함수의 미분가능성과 미적분의 기본정리를 이해한다(요지)
+    verified: false
+  content_area: 미분·적분
+  behavior_domain: 추론
+  unit_path: [수학Ⅱ, 미분, 도함수의 활용, 접선의 방정식]
+  key_concepts: [접선의 방정식, 삼차함수의 변곡점, 인수정리와 조립제법, 합성함수의 미분, 미분가능성과 좌우 미분계수, 도함수의 연속, 정적분과 미적분의 기본정리]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 세종대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 세종대학교
+  admission_year: 2025
+  admission_type: 수시 모의논술
+  track: 자연계열
+  question_no: 2
+  official_url: https://ipsi.sejong.ac.kr   # [확인 필요] 입학처 자료실의 정확한 게시물 URL로 교체
+  retrieved_at: 2026-11-21
+  original_points: [70, 80, 80]
+  rights_notice: 미확인(대학 원본 PDF 표지 문구 확인 필요)
+  transcribed_from: 대치 수리 논술 연구소 「2027학년도 대비 수리논술 세종대 기출 및 모의 문제」 p.25 + 해설교재 p.53~54 (원본 PDF 이미지 대조 완료 2026-11-21)
+
+verify: verify/SJU-M25.py::p02
+
+stimuli: []
+
+stem: |
+  최고차항의 계수가 $1$인 삼차함수 $f(x)$가 있다. 실수 $t$에 대하여 곡선 $y=f(x)$ 위의 점 $(t,\,f(t))$에서의 접선과 곡선 $y=f(x)$가 만나는 점의 $x$좌표 중 가장 큰 값을 $g(t)$라 정의하자. 또한 $h(t)=f(g(t))$라 정의하자. 함수 $g(t)$와 $h(t)$가 다음 조건을 만족시킨다.
+
+  (가) 방정식 $g(t)=t$를 만족시키는 실수 $t$의 최솟값은 $2$이다.
+
+  (나) $h(t)$는 실수 전체의 집합에서 미분가능하다.
+
+subparts:
+- id: '1'
+  stem: |
+    $f''(1)$을 구하시오.
+  points: 70
+  depends_on: []
+  answer: {kind: value, value: '-6', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: 접점 $t$에서의 접선이 다시 만나는 점은 $-a-2t$이므로 $g(t)=t\iff t\ge-\tfrac a3$, 즉 변곡점 $x=2$.
+    steps:
+    - {id: 1a, content: '$-\tfrac a3=2\Rightarrow a=-6$, $f''''(x)=6x-12$, $f''''(1)=-6$', criteria: ['1.M1', '1.A1', '1.A2']}
+    hint_ladder:
+    - 변곡점에서 그은 접선은 곡선과 몇 번 만나는가?
+    - 변곡점보다 오른쪽에서 그은 접선이 다시 만나는 점은 어느 쪽에 있는가?
+  - id: S1-B
+    audience: B
+    source_flow: 해설교재 p.53
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        최고차항의 계수가 양수인 삼차함수의 개형을 생각하면, 접점이 변곡점보다 오른쪽에 있으면 접선이 다시 만나는 점은 접점보다 왼쪽에 있으므로 $g(t)=t$이고, 왼쪽에 있으면 $g(t)>t$이다. 따라서 조건 (가)에서 $g(t)=t$인 $t$의 최솟값은 변곡점의 $x$좌표이고, 변곡점은 $(2,f(2))$이다.
+      criteria: ['1.M1']
+    - id: 1b-2
+      content: |
+        $f(x)=x^3+ax^2+bx+c$라 하면 $f''(x)=6x+2a$이고 $f''(2)=12+2a=0$에서 $a=-6$이다. $f''(x)=6x-12$는 $x=2$를 경계로 부호가 바뀌므로 $(2,f(2))$는 변곡점이다.
+      criteria: ['1.A1']
+    - id: 1b-3
+      content: |
+        따라서 $f''(1)=6-12=-6$이다.
+      criteria: ['1.A2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 30
+      evidence: |
+        조건 (가)의 최솟값이 변곡점의 $x$좌표임을 근거(접선이 다시 만나는 위치)와 함께 밝혔다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1]
+    - id: 1.A1
+      mark_type: A
+      points: 25
+      evidence: |
+        $f''(2)=0$에서 $a=-6$을 얻었다.
+      depends_on: [1.M1]
+      steps: [1b-2]
+    - id: 1.A2
+      mark_type: A
+      points: 15
+      evidence: |
+        $f''(1)=-6$을 얻었다.
+      depends_on: [1.M1, 1.A1]
+      steps: [1b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-3048}
+  misconceptions:
+  - id: MC-CAL-3048
+    outcome_code: '71'
+    wrong_work: '접선이 곡선과 다시 만나는 점(접점 중근 외의 근)을 구하지 않고 $g(t)=t$인 최소 $t$를 극솟점으로 추측해 $f''(2)=0$으로 둠'
+    detect_cue: 교점 방정식의 나머지 근 $-a-2t$ 또는 변곡점 언급이 없다
+    feedback: 접선과 곡선의 교점 방정식은 접점을 중근으로 갖습니다. 나머지 근이 접점보다 큰지 작은지가 $g(t)$를 결정합니다.
+    remedy: [RL-1]
+
+- id: '2'
+  stem: |
+    $t<2$일 때 $g(t)$를 구하시오.
+  points: 80
+  depends_on: ['1']
+  answer: {kind: expression, value: '6 - 2*t', equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: 교점 방정식의 좌변은 $(x-t)^2$을 인수로 가지므로 나머지 근은 세 근의 합 $6$에서 $6-2t$.
+    steps:
+    - {id: 2a, content: '$(x-t)^2(x+2t-6)=0$, $t<2$이면 $6-2t>t$이므로 $g(t)=6-2t$', criteria: ['2.M1', '2.A1', '2.A2']}
+    hint_ladder:
+    - 접점은 교점 방정식의 몇 중근인가?
+  - id: S2-B
+    audience: B
+    source_flow: 해설교재 p.53
+    method_no: 1
+    steps:
+    - id: 2b-1
+      content: |
+        $f(x)=x^3-6x^2+bx+c$, $f'(x)=3x^2-12x+b$이므로 점 $(t,f(t))$에서의 접선은 $y=(3t^2-12t+b)(x-t)+t^3-6t^2+bt+c$이다.
+        이 직선과 곡선의 교점의 $x$좌표는 $x^3-6x^2-(3t^2-12t)x+2t^3-6t^2=0$의 근이다.
+      criteria: ['2.M1']
+    - id: 2b-2
+      content: |
+        $x=t$에서 접하므로 좌변은 $(x-t)^2$을 인수로 갖고, 조립제법으로 인수분해하면 $(x-t)^2(x+2t-6)=0$이다.
+      criteria: ['2.A1']
+    - id: 2b-3
+      content: |
+        $t<2$이면 $6-2t>t$이므로 가장 큰 근은 $6-2t$이고 $g(t)=6-2t$이다.
+      criteria: ['2.A2']
+  - id: S2-ALT1
+    audience: ALT
+    source_flow: 해설교재 p.54 별해
+    method_no: 2
+    key_idea: 원 해설 별해 — 접선을 $L(x)=\alpha x+\beta$라 하면 $f(x)=(x-t)^2(x-g(t))+L(x)$이고, $x^2$의 계수 비교로 $2t+g(t)=6$.
+    steps:
+    - id: 2c-1
+      content: |
+        $x^3-6x^2+bx+c=x^3-(2t+g(t))x^2+\cdots$에서 $g(t)=6-2t$.
+      criteria: ['2.A1', '2.A2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 25
+      evidence: |
+        접선의 방정식을 세우고 곡선과의 교점 방정식을 만들었다.
+      depends_on: []
+      implied_ok: false
+      ft: {allowed: true, from: [1.A1], max_points: 25}
+      steps: [2b-1]
+    - id: 2.A1
+      mark_type: A
+      points: 30
+      evidence: |
+        $(x-t)^2(x+2t-6)=0$으로 인수분해했다(또는 계수 비교로 $2t+g(t)=6$).
+      depends_on: [2.M1]
+      steps: [2b-2]
+    - id: 2.A2
+      mark_type: A
+      points: 25
+      evidence: |
+        $t<2$에서 $6-2t>t$를 확인해 $g(t)=6-2t$를 얻었다.
+      depends_on: [2.M1, 2.A1]
+      steps: [2b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-3048}
+  misconceptions:
+  - id: MC-CAL-3048
+    outcome_code: '71'
+    wrong_work: '교점 방정식을 일반 삼차방정식으로 풀려다 막히거나, 근을 $t$와 다른 두 근으로 두어 잘못 인수분해함'
+    detect_cue: $(x-t)^2$ 인수가 없다
+    feedback: 접점은 교점 방정식의 중근입니다. $(x-t)^2$으로 나누면 나머지 일차식이 바로 나옵니다.
+    remedy: [RL-1]
+
+- id: '3'
+  stem: |
+    $h'(t)$가 실수 전체의 집합에서 연속임을 보이고, 정적분 $\displaystyle\int_1^2h'(t)\,dt$를 구하시오.
+  points: 80
+  depends_on: ['1', '2']
+  answer: {kind: value, value: '-8', equivalents: [], tolerance: null}
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: 좌미분계수 $-2f'(2)=24-2b$, 우미분계수 $f'(2)=b-12$가 같아야 하므로 $b=12$, 이때 $h'$은 $t=2$에서 $0$으로 연속.
+    steps:
+    - {id: 3a, content: '$b=12$, $h''(t)\to0$ ($t\to2\pm$), $\int_1^2h''=f(2)-f(4)=-8$', criteria: ['3.M1', '3.A1', '3.R1', '3.A2']}
+    hint_ladder:
+    - $g(t)$는 어디에서 미분가능하지 않은가?
+    - $t\to2-$이면 $g(t)=6-2t$는 어느 쪽에서 $2$에 다가가는가?
+  - id: S3-B
+    audience: B
+    source_flow: 해설교재 p.54
+    method_no: 1
+    steps:
+    - id: 3b-1
+      content: |
+        $g(t)=\begin{cases}6-2t & (t\le2)\\ t & (t\ge2)\end{cases}$이므로 $g$는 연속이고 $t=2$에서만 미분불가능하다. 따라서 조건 (나)는 $h$가 $t=2$에서 미분가능하다는 것과 같다.
+      criteria: ['3.M1']
+    - id: 3b-2
+      content: |
+        좌미분계수: $s=6-2t$로 두면 $t\to2-$일 때 $s\to2+$이므로
+        $\displaystyle\lim_{t\to2-}\dfrac{h(t)-h(2)}{t-2}=\lim_{t\to2-}\dfrac{f(6-2t)-f(2)}{(6-2t)-2}\cdot\dfrac{(6-2t)-2}{t-2}=-2f'(2)=24-2b$.
+        우미분계수: $\displaystyle\lim_{t\to2+}\dfrac{f(t)-f(2)}{t-2}=f'(2)=b-12$. 두 값이 같아야 하므로 $b=12$, $f(x)=x^3-6x^2+12x+c$이고 $h'(2)=0$이다.
+      criteria: ['3.A1']
+    - id: 3b-3
+      content: |
+        $h'(t)=\begin{cases}-2f'(6-2t) & (t<2)\\ 0 & (t=2)\\ f'(t) & (t>2)\end{cases}$이므로 $t\ne2$에서 $h'$은 연속이고,
+        $\displaystyle\lim_{t\to2-}h'(t)=-2f'(2)=0$, $\displaystyle\lim_{t\to2+}h'(t)=f'(2)=0$이므로 $t=2$에서도 연속이다.
+      criteria: ['3.R1']
+    - id: 3b-4
+      content: |
+        $\displaystyle\int_1^2h'(t)\,dt=h(2)-h(1)=f(g(2))-f(g(1))=f(2)-f(4)=(8+c)-(16+c)=-8$이다.
+      criteria: ['3.A2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 15
+      evidence: |
+        $g(t)$를 구간별로 쓰고 $t=2$에서만 미분가능성을 확인하면 됨을 밝혔다.
+      depends_on: []
+      implied_ok: false
+      ft: {allowed: true, from: [2.A2], max_points: 15}
+      steps: [3b-1]
+    - id: 3.A1
+      mark_type: A
+      points: 25
+      evidence: |
+        좌미분계수 $-2f'(2)$와 우미분계수 $f'(2)$를 비교해 $b=12$를 얻었다.
+      depends_on: [3.M1]
+      steps: [3b-2]
+    - id: 3.R1
+      mark_type: R
+      points: 25
+      evidence: |
+        $h'(t)$를 구간별로 쓰고 $t\to2\pm$의 극한이 $h'(2)=0$과 같음을 보여 연속성을 증명했다.
+      depends_on: [3.A1]
+      steps: [3b-3]
+    - id: 3.A2
+      mark_type: A
+      points: 15
+      evidence: |
+        $h(2)-h(1)=f(2)-f(4)=-8$을 얻었다.
+      depends_on: [3.M1, 3.A1]
+      steps: [3b-4]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-3036}
+  misconceptions:
+  - id: MC-CAL-3036
+    outcome_code: '71'
+    wrong_work: '$t<2$에서 $h''(t)=f''(6-2t)$로 써서 속미분 $-2$를 빠뜨려 $b$를 $f''(2)=0$ 없이 정하지 못하거나 다른 값을 얻음'
+    detect_cue: 좌미분계수에 계수 $-2$가 없다
+    feedback: $h(t)=f(6-2t)$를 미분하면 $-2f'(6-2t)$입니다. 안쪽 함수의 도함수를 곱하세요.
+    remedy: [RL-2]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CAL-3048}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-TANGENT-INTERSECTION}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-CAL-3036}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-CHAIN-RULE}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

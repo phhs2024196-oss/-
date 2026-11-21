@@ -1,0 +1,381 @@
+# 세종대 2021학년도 수시 논술고사 [A] 문제 3 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: SJU-G21A-03
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: proof
+origin: past_exam
+school: SJU
+type: T03
+variant_of: null
+replaces: null
+level: L6
+form: 귀류
+points: 240
+time_estimate_min: 45
+intent: |
+  구간별로 정의된 함수와의 합성 $f(x(t))=(e-1)t-\ln t$로 암묵적으로 주어진 함수 $x(t)$에 대해, 최솟값 비교로 $x(t)>1$을 보이고, 음함수 미분으로 미분계수를 구하며, $x''(a)=0$을 가정한 귀류법과 사잇값 정리로 $x''(t)>0$을 증명하는 능력을 본다.
+key_idea: |
+  $x''(a)=0$이면 둘째 미분식에서 $\tfrac1a=\tfrac{x'(a)}{x(a)}$, 첫째 미분식에서 $x'(a)=e-1$이므로 $x(a)=(e-1)a$가 되는데, 이를 원래 식에 넣으면 $\ln a=\ln\{(e-1)a\}$로 모순이다. $x''(1)>0$과 사잇값 정리로 부호가 고정된다.
+stuck: |
+  $x''$이 $0$이 되는 점이 없음을 귀류법으로 보이고, 한 점의 부호와 연속성(사잇값 정리)으로 전 구간 부호를 결정하는 구조를 스스로 세우는 것
+idea_tags: [IDEA-NO-ZERO-THEN-IVT-SIGN, IDEA-IMPLICIT-DIFF-CONTRADICTION]
+tags: [음함수 미분, 귀류법, 사잇값 정리, 이계도함수]
+elements:
+  materials:
+  - '$f(x)=x-\ln x$ $(x>1)$, $f(x)=x$ $(x\le1)$'
+  - '$f(x(t))=(e-1)t-\ln t$, $x(1)=e$인 함수 $x(t)$ $\left(t>\tfrac1{e-1}\right)$'
+  concepts:
+  - '함수의 최대·최소'
+  - '로그함수의 미분'
+  - '합성함수의 미분법'
+  - '몫의 미분법'
+  - '이계도함수'
+  - '사잇값 정리'
+  - '귀류법'
+  tools:
+  - '$g(t)=(e-1)t-\ln t$의 최솟값 $1+\ln(e-1)>1$'
+  - '$x\le1$이면 $f(x)\le1$이므로 경우 배제'
+  - '$(e-1)-\tfrac1t=x''(t)\left(1-\tfrac1{x(t)}\right)$'
+  - '$\tfrac1{t^2}=x''''(t)-\tfrac{x''''(t)x(t)-x''(t)^2}{x(t)^2}$'
+  - '$x''''(a)=0$ 가정 ⇒ $x(a)=(e-1)a$ ⇒ 모순'
+  - '$x''''(1)>0$과 사잇값 정리'
+  conditions:
+  - '$t>\tfrac1{e-1}$ ⇒ $g''(t)>0$, $x''(t)>0$'
+  - '$x(t)>1$ ⇒ 조건식은 $x-\ln x=(e-1)t-\ln t$'
+  - '$e-1\ne1$ ⇒ $a=(e-1)a$는 모순'
+  stimuli_used: []
+  subpart_links: '(3-2)는 (3-1)의 $x(t)>1$로 식을 $x-\ln x$로 쓰고, (3-3)은 (3-2)의 미분식과 $x''''(1)>0$을 사용'
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅱ, 미적분]
+  scope_2028: calc2
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 합성함수를 미분할 수 있고, 사잇값 정리를 이해한다(요지)
+    verified: false
+  content_area: 미분법 – 여러 가지 미분법
+  behavior_domain: 추론
+  unit_path: [미적분, 미분법, 여러 가지 미분법, 합성함수의 미분법]
+  key_concepts: [함수의 최대·최소, 로그함수의 미분, 합성함수의 미분법, 몫의 미분법, 이계도함수, 사잇값 정리, 귀류법]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 세종대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 세종대학교
+  admission_year: 2021
+  admission_type: 수시 논술고사(A형)
+  track: 자연계열
+  question_no: 3
+  official_url: https://ipsi.sejong.ac.kr   # [확인 필요] 입학처 자료실의 정확한 게시물 URL로 교체
+  retrieved_at: 2026-11-21
+  original_points: [80, 80, 80]
+  rights_notice: 미확인(대학 원본 PDF 표지 문구 확인 필요)
+  transcribed_from: 대치 수리 논술 연구소 「2027학년도 대비 수리논술 세종대 기출 및 모의 문제」 p.60 + 해설교재 p.114~116 (원본 PDF 이미지 대조 완료 2026-11-21)
+
+verify: verify/SJU-G21A.py::p03
+
+stimuli: []
+
+stem: |
+  함수 $f(x)=\begin{cases}x-\ln x,&x>1\\x,&x\le1\end{cases}$에 대하여, $x(1)=e$이고 이계도함수가 연속인 함수 $x(t)$는 모든 실수 $t>\dfrac1{e-1}$에 대하여 $f(x(t))=(e-1)t-\ln t$를 만족한다. 다음 물음에 각각 답하시오.
+
+subparts:
+- id: '1'
+  stem: |
+    $t>\dfrac1{e-1}$인 모든 $t$에 대하여 $x(t)>1$임을 보이시오.
+  points: 80
+  depends_on: []
+  answer: {kind: proof, value: null, equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: 우변 $g(t)$의 최솟값이 $1+\ln(e-1)>1$이고, $x\le1$이면 $f(x)=x\le1$이다.
+    steps:
+    - id: 1a
+      content: |
+        $g(t)\ge1+\ln(e-1)>1$, $x\le1\Rightarrow f(x)\le1$ $\Rightarrow x(t)>1$
+      criteria: ['1.M1', '1.A1', '1.R1']
+    hint_ladder:
+    - 우변 $(e-1)t-\ln t$의 최솟값을 구해 보자.
+    - $x\le1$일 때 $f(x)$의 값은 어디까지인가?
+  - id: S1-B
+    audience: B
+    source_flow: 해설교재 p.114
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        $g(t)=(e-1)t-\ln t$라 하면 $g'(t)=e-1-\dfrac1t$이므로 $g$는 $t=\dfrac1{e-1}$에서 최솟값 $1+\ln(e-1)$을 갖는다.
+      criteria: ['1.M1']
+    - id: 1b-2
+      content: |
+        $e-1>1$이므로 $1+\ln(e-1)>1$이고, $t>\dfrac1{e-1}$에서 $f(x(t))=g(t)>1$이다.
+      criteria: ['1.A1']
+    - id: 1b-3
+      content: |
+        한편 $x\le1$이면 $f(x)=x\le1$이므로, $x(t)\le1$이면 $f(x(t))\le1$이 되어 모순이다. 따라서 $x(t)>1$이다. ■
+      criteria: ['1.R1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 30
+      evidence: |
+        $g(t)=(e-1)t-\ln t$를 미분해 최솟값 $1+\ln(e-1)$을 구했다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1]
+    - id: 1.A1
+      mark_type: A
+      points: 20
+      evidence: |
+        $1+\ln(e-1)>1$로 $f(x(t))>1$을 얻었다.
+      depends_on: [1.M1]
+      steps: [1b-2]
+    - id: 1.R1
+      mark_type: R
+      points: 30
+      evidence: |
+        $x\le1$이면 $f(x)\le1$임을 들어 $x(t)\le1$인 경우를 배제했다.
+      depends_on: [1.A1]
+      steps: [1b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-PRF-3104}
+  misconceptions:
+  - id: MC-PRF-3104
+    outcome_code: '71'
+    wrong_work: '$x-\ln x=(e-1)t-\ln t$만 다루고 $x\le1$인 경우를 배제하지 않음'
+    detect_cue: $x\le1$이면 $f(x)\le1$이라는 비교가 없다
+    feedback: 구간별 함수이므로 $x(t)\le1$인 경우가 불가능함을 따로 보여야 합니다.
+    remedy: [RL-1]
+
+- id: '2'
+  stem: |
+    $x'(1)$, $x''(1)$의 값을 각각 구하시오.
+  points: 80
+  depends_on: ['1']
+  answer: {kind: expression, value: 'x1=(exp(2) - 2*exp(1))/(exp(1) - 1); x2=(2*exp(2) - 3*exp(1))/(exp(1) - 1)**3', equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: $(e-1)t-\ln t=x(t)-\ln x(t)$를 두 번 미분하고 $t=1$, $x(1)=e$를 넣는다.
+    steps:
+    - id: 2a
+      content: |
+        $e-2=x'(1)\left(1-\tfrac1e\right)$, $1=x''(1)\left(1-\tfrac1e\right)+\tfrac{x'(1)^2}{e^2}$
+      criteria: ['2.M1', '2.A1', '2.M2', '2.A2']
+    hint_ladder:
+    - (3-1)에 의해 조건식은 $x-\ln x$로 쓸 수 있다.
+    - $\ln x(t)$의 미분은 $\dfrac{x'(t)}{x(t)}$이다.
+  - id: S2-B
+    audience: B
+    source_flow: 해설교재 p.114
+    method_no: 1
+    steps:
+    - id: 2b-1
+      content: |
+        (3-1)에 의해 조건식은 $(e-1)t-\ln t=x(t)-\ln x(t)$ ⋯ ① 이다. 미분하면 $(e-1)-\dfrac1t=x'(t)-\dfrac{x'(t)}{x(t)}$이다.
+      criteria: ['2.M1']
+    - id: 2b-2
+      content: |
+        $t=1$, $x(1)=e$를 대입하면 $e-2=x'(1)\left(1-\dfrac1e\right)$이므로 $x'(1)=\dfrac{e^2-2e}{e-1}$이다.
+      criteria: ['2.A1']
+    - id: 2b-3
+      content: |
+        ①을 두 번 미분하면 $\dfrac1{t^2}=x''(t)-\dfrac{x''(t)x(t)-\{x'(t)\}^2}{\{x(t)\}^2}$이다.
+      criteria: ['2.M2']
+    - id: 2b-4
+      content: |
+        $t=1$을 대입하면 $1=x''(1)\left(1-\dfrac1e\right)+\dfrac{(e-2)^2}{(e-1)^2}$이므로 $x''(1)=\dfrac{e}{e-1}\cdot\dfrac{(e-1)^2-(e-2)^2}{(e-1)^2}=\dfrac{2e^2-3e}{(e-1)^3}$이다.
+      criteria: ['2.A2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 20
+      evidence: |
+        $x(t)>1$로 조건식을 $x-\ln x$로 쓰고 합성함수 미분으로 한 번 미분했다.
+      depends_on: []
+      implied_ok: false
+      ft: {allowed: true, from: [1.R1], max_points: 20}
+      steps: [2b-1]
+    - id: 2.A1
+      mark_type: A
+      points: 20
+      evidence: |
+        $x'(1)=\dfrac{e^2-2e}{e-1}$을 얻었다.
+      depends_on: [2.M1]
+      steps: [2b-2]
+    - id: 2.M2
+      mark_type: M
+      points: 20
+      evidence: |
+        몫의 미분법으로 두 번째 미분식을 바르게 세웠다.
+      depends_on: [2.M1]
+      steps: [2b-3]
+    - id: 2.A2
+      mark_type: A
+      points: 20
+      evidence: |
+        $x''(1)=\dfrac{2e^2-3e}{(e-1)^3}$을 얻었다.
+      depends_on: [2.M2, 2.A1]
+      steps: [2b-4]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-3094}
+  misconceptions:
+  - id: MC-CAL-3094
+    outcome_code: '71'
+    wrong_work: '$\ln x(t)$를 미분해 $\dfrac1{x(t)}$로 두어 $x''(t)$ 인수를 빠뜨림'
+    detect_cue: $\dfrac{x'(t)}{x(t)}$ 대신 $\dfrac1{x(t)}$가 있다
+    feedback: $x$는 $t$의 함수이므로 $\{\ln x(t)\}'=\dfrac{x'(t)}{x(t)}$입니다.
+    remedy: [RL-2]
+
+- id: '3'
+  stem: |
+    $t>\dfrac1{e-1}$인 모든 $t$에 대하여 $x''(t)>0$임을 보이시오.
+  points: 80
+  depends_on: ['2']
+  answer: {kind: proof, value: null, equivalents: [], tolerance: null}
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: $x''$이 $0$이 되는 점이 없음을 귀류법으로 보이고, $x''(1)>0$과 사잇값 정리로 부호를 고정한다.
+    steps:
+    - id: 3a
+      content: |
+        $x''(a)=0\Rightarrow\tfrac1a=\tfrac{x'(a)}{x(a)}$, $x'(a)=e-1\Rightarrow x(a)=(e-1)a\Rightarrow a=(e-1)a$ 모순; $x''(1)>0$ + 사잇값 정리
+      criteria: ['3.M1', '3.M2', '3.R1', '3.R2']
+    hint_ladder:
+    - $x''(a)=0$인 $a$가 있다고 가정하고 두 미분식에 넣어 보자.
+    - $x''(1)$의 부호는? 연속함수가 부호를 바꾸려면 어디를 지나야 하는가?
+  - id: S3-B
+    audience: B
+    source_flow: 해설교재 p.114~115
+    method_no: 1
+    steps:
+    - id: 3b-1
+      content: |
+        (단계 1) $(e-1)-\dfrac1t=x'(t)\left(1-\dfrac1{x(t)}\right)$에서 $t>\dfrac1{e-1}$이면 좌변이 양수이고 $x(t)>1$이므로 $x'(t)>0$이다.
+      criteria: ['3.M1']
+    - id: 3b-2
+      content: |
+        (단계 2) $a>\dfrac1{e-1}$에서 $x''(a)=0$이라 가정하면 둘째 미분식에서 $\dfrac1{a^2}=\left\{\dfrac{x'(a)}{x(a)}\right\}^2$이고 $x(a),x'(a)>0$이므로 $\dfrac1a=\dfrac{x'(a)}{x(a)}$이다.
+        첫째 미분식에 넣으면 $(e-1)-\dfrac1a=x'(a)-\dfrac1a$, 즉 $x'(a)=e-1$이고 $x(a)=(e-1)a$이다.
+      criteria: ['3.M2']
+    - id: 3b-3
+      content: |
+        이를 ①에 넣으면 $(e-1)a-\ln a=(e-1)a-\ln\{(e-1)a\}$에서 $a=(e-1)a$가 되어 $e\ne2$에 모순이다. 따라서 $t>\dfrac1{e-1}$에서 $x''(t)\ne0$이다.
+      criteria: ['3.R1']
+    - id: 3b-4
+      content: |
+        (단계 3, 4) (3-2)에서 $x''(1)=\dfrac{2e^2-3e}{(e-1)^3}=\dfrac{e(2e-3)}{(e-1)^3}>0$이다. 어떤 $a>\dfrac1{e-1}$에서 $x''(a)<0$이면 $x''$이 연속이므로 사잇값 정리에 의해 $1$과 $a$ 사이에 $x''(b)=0$인 $b$가 존재하여 (단계 2)에 모순이다. 따라서 $x''(t)>0$이다. ■
+      criteria: ['3.R2']
+  - id: S3-ALT1
+    audience: ALT
+    source_flow: 해설교재 p.115 별해 1
+    method_no: 2
+    key_idea: $f(x(t))=g(t)$를 두 번 미분한 $x''=\dfrac{g''f'(x)-g'f''(x)x'}{f'(x)^2}$에서 $x''(a)\le0$을 가정해 부등식으로 모순을 낸다.
+    steps:
+    - id: 3c-1
+      content: |
+        $x''(a)\le0$이면 $g''(a)\{f'(x(a))\}^2\le\{g'(a)\}^2f''(x(a))$이고 이를 정리하면 $x(a)\le(e-1)a$이다. 원래 식에서 $(e-1)a-\ln a=x(a)-\ln x(a)\le(e-1)a-\ln x(a)$이므로 $a\ge x(a)=f^{-1}(g(a))$, 따라서 $a-\ln a=f(a)\ge g(a)=(e-1)a-\ln a$, 즉 $a\ge(e-1)a$가 되어 모순이다.
+      criteria: ['3.M1', '3.M2', '3.R1', '3.R2']
+  - id: S3-ALT2
+    audience: ALT
+    source_flow: 해설교재 p.115~116 별해 2
+    method_no: 3
+    key_idea: 별해 1의 $x''$ 공식으로 $x''(a)=0$이면 $x(a)=(e-1)a$임을 보여 $x''\ne0$을 얻고, $x''(1)>0$과 사잇값 정리로 결론짓는다.
+    steps:
+    - id: 3d-1
+      content: |
+        $x''(a)=0$이면 $g''(a)\{f'(x(a))\}^2=\{g'(a)\}^2f''(x(a))$에서 $x(a)=(e-1)a$이고, 원래 식에서 $a=(e-1)a$의 모순이 생긴다. $x''(1)>0$이고 $x''$은 연속이므로 사잇값 정리에 의해 $x''(t)>0$이다.
+      criteria: ['3.M1', '3.M2', '3.R1', '3.R2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 15
+      evidence: |
+        첫째 미분식에서 $x'(t)>0$을 밝혔다(또는 $x''$의 식을 $f$, $g$로 나타냈다).
+      depends_on: []
+      implied_ok: false
+      ft: {allowed: true, from: [2.M1], max_points: 15}
+      steps: [3b-1, 3c-1, 3d-1]
+    - id: 3.M2
+      mark_type: M
+      points: 25
+      evidence: |
+        $x''(a)=0$(또는 $\le0$)을 가정해 $x(a)=(e-1)a$(또는 $\le$)를 이끌었다.
+      depends_on: []
+      implied_ok: false
+      steps: [3b-2, 3c-1, 3d-1]
+    - id: 3.R1
+      mark_type: R
+      points: 20
+      evidence: |
+        원래 식에 대입해 $a=(e-1)a$(또는 $a\ge(e-1)a$)의 모순을 보였다.
+      depends_on: [3.M2]
+      steps: [3b-3, 3c-1, 3d-1]
+    - id: 3.R2
+      mark_type: R
+      points: 20
+      evidence: |
+        $x''(1)>0$과 $x''$의 연속성(사잇값 정리)으로 모든 $t$에서 $x''(t)>0$을 결론지었다(별해 1은 $\le0$ 가정의 모순으로 직접 결론).
+      depends_on: [3.R1]
+      ft: {allowed: true, from: [2.A2], max_points: 20}
+      steps: [3b-4, 3c-1, 3d-1]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '21', meaning: 만점(별해)}
+  - {code: '71', misconception: MC-PRF-3106}
+  misconceptions:
+  - id: MC-PRF-3106
+    outcome_code: '71'
+    wrong_work: '$x''''(t)\ne0$만 보이고 $x''''(t)>0$이라 결론, 또는 $x''''(1)>0$만 보이고 전 구간 양수라 결론'
+    detect_cue: 「0이 아님」과 「한 점에서 양수」를 사잇값 정리로 연결하지 않았다
+    feedback: 연속함수가 $0$이 되지 않으면 부호가 바뀌지 않습니다. 한 점의 부호와 사잇값 정리를 함께 쓰세요.
+    remedy: [RL-3]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-PRF-3104}
+  relation: remediation
+  target: {kind: concept, ref: CON-PRF-CASE-COVER}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-CAL-3094}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-CHAIN-RULE}
+  priority: 1
+- id: RL-3
+  trigger: {type: misconception, ref: MC-PRF-3106}
+  relation: remediation
+  target: {kind: concept, ref: CON-PRF-IVT-SIGN}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

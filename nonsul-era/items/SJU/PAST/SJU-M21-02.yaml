@@ -1,0 +1,334 @@
+# 세종대 2021학년도 모의논술고사(자연계열) 문제 2 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: SJU-M21-02
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: SJU
+type: null          # [제안] 확률과통계 문항(현행 세종 범위 밖): 「먼저 n번 성공하는 게임의 확률과 기댓값 최적화」 — 확통 유형 신설 시 분류
+variant_of: null
+replaces: null
+level: L5
+form: 최적2단
+points: 230
+time_estimate_min: 35
+intent: |
+  동전 던지기 게임이 끝나는 시점의 확률분포와 기댓값을 구하고, 중단된 게임의 상금을 승리 확률로 분배하며, 출발점을 매개변수로 한 기대 수익을 이차함수로 최적화하는 능력을 본다.
+key_idea: |
+  A는 앞면 $n$번, B는 뒷면 $m$번이 먼저 나오면 이긴다. A가 이길 확률 $=\mathrm{P}(n+m-1\text{번 중 앞면}\ge n)$이고, (2-3)의 기대 수익은 $1250(-3n^2+29n-28)$.
+stuck: |
+  게임이 $x$번째에 끝나려면 $x$번째가 결정 시행이어야 하므로 ${}_{x-1}\mathrm{C}_3$을 쓴다는 점, (2-3)에서 승리 확률을 시행 횟수별로 합해 $\dfrac{8+4n+n(n+1)}{2^{n+3}}$을 얻는 점
+idea_tags: [IDEA-STOPPING-TIME-COUNT, IDEA-PROBLEM-OF-POINTS]
+tags: [확률분포, 기댓값, 이차함수 최대, 범위 밖(현행)]
+
+elements:
+  materials:
+  - '수직선 위 $-4$, $+4$에서 출발하는 A, B의 말'
+  - '동전 앞면이면 A가 $+1$, 뒷면이면 B가 $-1$ 이동'
+  - '중단된 게임의 상금 분배(파스칼의 분배 문제)'
+  - '출발점 $-n$ 선택 비용 $5000(n-3)^2$원과 상금 $2^n\times10000$원'
+  concepts:
+  - '독립시행의 확률'
+  - '조합'
+  - '이산확률변수의 기댓값'
+  - '이차함수의 최대'
+  tools:
+  - '종료 시점의 마지막 시행 고정 $2\times\dfrac{{}_{x-1}\mathrm{C}_3}{2^x}$'
+  - '시행 횟수별 승리 확률의 합'
+  - '기대 수익 $=$ 상금 $\times$ 승리 확률 $-$ 비용'
+  - '정수 $n$에서 이차함수의 축과 가까운 정수 비교'
+  conditions:
+  - '원점에 먼저 도착한 사람이 이김'
+  - '(2-2): A는 $-3$, B는 $+2$에서 재개'
+  - '(2-3): B는 $+3$, $n\ge3$'
+  stimuli_used: []
+  subpart_links: '(2-3)은 (2-2)의 승리 확률 계산 방법을 일반화해 사용'
+
+curriculum:
+  version: '2015'
+  subjects: [확률과통계]
+  scope_2028: common
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 독립시행의 확률을 구하고 이산확률변수의 기댓값을 구할 수 있다(요지)
+    verified: false
+  content_area: 확률 – 독립시행 / 통계 – 확률분포
+  behavior_domain: 문제해결
+  unit_path: [확률과통계, 확률, 조건부확률, 독립시행의 확률]
+  key_concepts: [독립시행의 확률, 조합, 이산확률변수의 기댓값, 이차함수의 최대]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 세종대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 세종대학교
+  admission_year: 2021
+  admission_type: 수시 모의논술
+  track: 자연계열
+  question_no: 2
+  official_url: https://ipsi.sejong.ac.kr   # [확인 필요] 입학처 자료실의 정확한 게시물 URL로 교체
+  retrieved_at: 2026-11-21
+  original_points: [70, 80, 80]
+  rights_notice: 미확인(대학 원본 PDF 표지 문구 확인 필요)
+  transcribed_from: 대치 수리 논술 연구소 「2027학년도 대비 수리논술 세종대 기출 및 모의 문제」 p.71 + 해설교재 p.133 (원본 PDF 이미지 대조 완료 2026-11-21)
+
+verify: verify/SJU-M21.py::p02
+
+stimuli: []
+
+stem: |
+  A와 B가 한 개의 동전을 이용한 게임을 하고 있다. A의 말은 수직선 위의 $-4$에, B의 말은 $+4$에 자리 잡고 있는데 동전을 던져서 앞면이 나오면 A의 말은 오른쪽으로 한 칸 $(+1)$ 움직이고, 뒷면이 나오면 B의 말이 왼쪽으로 한 칸 $(-1)$ 움직이기를 반복한다. 원점에 먼저 도착한 사람이 이기고 상금 $10000$원을 모두 갖게 된다.
+
+subparts:
+- id: '1'
+  stem: |
+    게임이 시작된 후 처음으로 원점에 도달할 때까지 동전을 던지는 횟수를 확률변수 $X$라 하자. $X$의 기댓값을 구하시오.
+  points: 70
+  depends_on: []
+  answer: {kind: value, value: '93/16', equivalents: ['5.8125'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $X=x$는 $x$번째가 네 번째 앞면 또는 네 번째 뒷면인 경우이므로 $\mathrm{P}(X=x)=2\cdot\dfrac{{}_{x-1}\mathrm{C}_3}{2^x}$ ($x=4,\dots,7$).
+    steps:
+    - {id: 1a, content: '$\mathrm{P}=\tfrac18,\tfrac14,\tfrac{10}{32},\tfrac{20}{64}$, $\mathrm{E}(X)=\tfrac{93}{16}$', criteria: ['1.M1', '1.A1', '1.A2']}
+    hint_ladder:
+    - 게임은 최소 몇 번, 최대 몇 번 만에 끝나는가?
+    - $x$번째 시행에서 끝나려면 $x$번째 결과는 어떠해야 하는가?
+  - id: S1-B
+    audience: B
+    source_flow: 해설교재 p.133
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        A는 앞면 4번, B는 뒷면 4번이 필요하므로 $X$의 값은 $4,5,6,7$이다. $x$번째에 끝나려면 $x$번째에 네 번째 앞면(또는 네 번째 뒷면)이 나와야 하므로 $\mathrm{P}(X=x)=2\times\dfrac{1}{2^x}\times{}_{x-1}\mathrm{C}_3$.
+      criteria: ['1.M1']
+    - id: 1b-2
+      content: |
+        $\mathrm{P}(X=4)=\dfrac18$, $\mathrm{P}(X=5)=\dfrac14$, $\mathrm{P}(X=6)=\dfrac{10}{32}$, $\mathrm{P}(X=7)=\dfrac{20}{64}$.
+      criteria: ['1.A1']
+    - id: 1b-3
+      content: |
+        $\mathrm{E}(X)=\displaystyle\sum_{x=4}^7x\,\mathrm{P}(X=x)=\frac{32+80+120+140}{64}=\frac{93}{16}$.
+      criteria: ['1.A2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 25
+      evidence: |
+        $X$의 값이 $4\sim7$이고 마지막 시행이 결정 시행임을 반영한 확률식을 세웠다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1]
+    - id: 1.A1
+      mark_type: A
+      points: 25
+      evidence: |
+        확률분포표 $\tfrac18,\tfrac14,\tfrac{10}{32},\tfrac{20}{64}$을 얻었다.
+      depends_on: [1.M1]
+      steps: [1b-2]
+    - id: 1.A2
+      mark_type: A
+      points: 20
+      evidence: |
+        $\mathrm{E}(X)=\dfrac{93}{16}$을 얻었다.
+      depends_on: [1.M1, 1.A1]
+      steps: [1b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-PRB-3124}
+  misconceptions:
+  - id: MC-PRB-3124
+    outcome_code: '71'
+    wrong_work: '$\mathrm{P}(X=x)=2\cdot\dfrac{{}_x\mathrm{C}_4}{2^x}$로 계산(합이 1이 안 됨)'
+    detect_cue: 마지막 시행을 고정하지 않고 $x$번 중 4번을 골랐다
+    feedback: 게임이 $x$번째에 끝나려면 $x$번째 결과가 네 번째 성공이어야 합니다. 앞 $x-1$번에서 3번을 고르세요.
+    remedy: [RL-1]
+
+- id: '2'
+  stem: |
+    A의 말은 $-3$, B의 말은 $+2$에 놓여 있는 상황에서 게임이 중단되었다. 게임을 끝까지 진행한다고 가정할 때 각자 이길 확률에 비례하여 상금을 분배한다면 A가 받을 상금의 액수는 얼마일지 계산하시오.
+  points: 80
+  depends_on: []
+  answer: {kind: value, value: '3125', equivalents: ['3125원'], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: A는 앞면 3번, B는 뒷면 2번 필요. A가 이길 확률 $=\tfrac1{2^3}+\tfrac{3}{2^4}=\tfrac5{16}$.
+    steps:
+    - {id: 2a, content: '$10000\times\tfrac5{16}=3125$', criteria: ['2.M1', '2.A1', '2.A2']}
+    hint_ladder:
+    - 승자가 정해지기까지 최대 몇 번 던지는가?
+    - A가 3번 만에 이기는 경우와 4번 만에 이기는 경우로 나누자.
+  - id: S2-B
+    audience: B
+    source_flow: 해설교재 p.133
+    method_no: 1
+    steps:
+    - id: 2b-1
+      content: |
+        승자가 나올 때까지 계속하면 2번~4번($4=2+3-1$) 만에 승자가 결정된다. A가 이기는 것은 3번 연속 앞면이거나, 4번째에 세 번째 앞면이 나오는 경우이다.
+      criteria: ['2.M1']
+    - id: 2b-2
+      content: |
+        A가 이길 확률은 $\dfrac1{2^3}+\dfrac{{}_3\mathrm{C}_2}{2^4}=\dfrac{1}{8}+\dfrac{3}{16}=\dfrac{5}{16}$이다.
+      criteria: ['2.A1']
+    - id: 2b-3
+      content: |
+        A가 받을 상금은 $10000\times\dfrac5{16}=3125$원이다.
+      criteria: ['2.A2']
+  - id: S2-ALT
+    audience: ALT
+    source_flow: 해설교재 p.133 별해
+    method_no: 2
+    key_idea: 원 해설 별해 — 승자가 나오거나 두 말이 원점에서 같은 거리가 될 때까지만 진행하면 1~3번 만에 분배가 정해진다(같은 거리면 반씩).
+    steps:
+    - id: 2c-1
+      content: |
+        1번 만에 같은 거리(앞면): 확률 $\tfrac12$, A 기대 상금 $5000\times\tfrac12=2500$. 2번 만에 끝나는 경우(뒷·뒷)는 B 승. 3번 만에 끝나는 경우(같은 거리가 되거나 B 승) 각 확률 $\tfrac18$이고 A 기대 상금 $5000\times\tfrac18=625$. 합 $3125$원.
+      criteria: ['2.M1', '2.A1', '2.A2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 30
+      evidence: |
+        A가 이기는 경우를 시행 횟수(3번, 4번)로 나누었다(또는 같은 거리에서 멈추는 별해 구조를 세웠다).
+      depends_on: []
+      implied_ok: false
+      ft: {allowed: true, from: [1.M1], max_points: 30}
+      steps: [2b-1, 2c-1]
+    - id: 2.A1
+      mark_type: A
+      points: 30
+      evidence: |
+        A의 승리 확률 $\dfrac5{16}$을 얻었다.
+      depends_on: [2.M1]
+      steps: [2b-2, 2c-1]
+    - id: 2.A2
+      mark_type: A
+      points: 20
+      evidence: |
+        상금 $3125$원을 답했다.
+      depends_on: [2.M1, 2.A1]
+      steps: [2b-3, 2c-1]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '21', meaning: 만점(같은 거리 별해)}
+  - {code: '71', misconception: MC-PRB-3124}
+  misconceptions:
+  - id: MC-PRB-3124
+    outcome_code: '71'
+    wrong_work: 'A가 이길 확률을 $\tfrac1{2^3}+\tfrac{{}_4\mathrm{C}_3}{2^4}=\tfrac38$로 계산'
+    detect_cue: 4번째가 A의 결정 시행이라는 조건 없이 4번 중 3번 앞면을 셌다
+    feedback: 4번째에 A가 이기려면 4번째가 앞면이어야 합니다. 앞 3번에서 앞면 2번을 고르세요.
+    remedy: [RL-1]
+
+- id: '3'
+  stem: |
+    B의 말이 $+3$에 놓여 있는 상황에서 A는 $5000\times(n-3)^2$원을 지불하고 수직선 위의 $-n$점을 선택하고 상금을 $2^n\times10000$원으로 변경할 수 있다. (단, $n\ge3$이다.) 이제 게임을 중단하지 않고 A, B 둘 중 하나가 원점에 먼저 도달할 때까지 진행한다. A가 받게 될 수익금의 기댓값이 최대가 되기 위해서는 A는 수직선 위의 어느 점을 선택하여야 하는가?
+  points: 80
+  depends_on: ['2']
+  answer: {kind: value, value: '-5', equivalents: ['x=-5'], tolerance: null}
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: A의 승리 확률 $\dfrac{8+4n+n(n+1)}{2^{n+3}}$, 기대 수익 $1250(-3n^2+29n-28)$은 축 $n=\tfrac{29}{6}$에 가장 가까운 정수 $n=5$에서 최대.
+    steps:
+    - {id: 3a, content: '$f(n)=-3n^2+29n-28$, $f(4)=40<f(5)=42$ $\Rightarrow$ $-5$점', criteria: ['3.M1', '3.A1', '3.M2', '3.A2']}
+    hint_ladder:
+    - A는 앞면 $n$번, B는 뒷면 3번이 필요하다. 최대 몇 번 만에 끝나는가?
+    - A가 $n$, $n+1$, $n+2$번 만에 이기는 확률을 각각 구하자.
+    - 기대 수익을 $n$의 식으로 정리하면 이차식이 된다.
+  - id: S3-B
+    audience: B
+    source_flow: 해설교재 p.133
+    method_no: 1
+    steps:
+    - id: 3b-1
+      content: |
+        승자가 나올 때까지 진행하면 최대 $n+2$번 만에 승자가 정해진다. A가 이길 확률은 $n$번 연속 앞면 $\dfrac1{2^n}$, $(n+1)$번 만에 $\dfrac{{}_n\mathrm{C}_1}{2^{n+1}}$, $(n+2)$번 만에 $\dfrac{{}_{n+1}\mathrm{C}_2}{2^{n+2}}$의 합이다.
+      criteria: ['3.M1']
+    - id: 3b-2
+      content: |
+        합하면 A가 이길 확률은 $\dfrac{8+4n+n(n+1)}{2^{n+3}}$이다.
+      criteria: ['3.A1']
+    - id: 3b-3
+      content: |
+        기대 수익은 $\dfrac{8+4n+n(n+1)}{2^{n+3}}\times2^n\times10000-5000(n-3)^2=1250(-3n^2+29n-28)$이다.
+      criteria: ['3.M2']
+    - id: 3b-4
+      content: |
+        $f(x)=-3x^2+29x-28$은 $x=\tfrac{29}{6}$에 대칭인 위로 볼록한 이차함수이므로 정수 $n\ge3$에서는 $\tfrac{29}{6}$에 가장 가까운 $n=5$에서 최대이다. 따라서 A는 $5000\times4=20000$원을 내고 $-5$점을 선택해야 한다.
+      criteria: ['3.A2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 20
+      evidence: |
+        A가 $n$, $n+1$, $n+2$번 만에 이기는 경우로 나누어 확률식을 세웠다.
+      depends_on: []
+      implied_ok: false
+      ft: {allowed: true, from: [2.M1], max_points: 20}
+      steps: [3b-1]
+    - id: 3.A1
+      mark_type: A
+      points: 20
+      evidence: |
+        승리 확률 $\dfrac{8+4n+n(n+1)}{2^{n+3}}$(또는 동치식)을 얻었다.
+      depends_on: [3.M1]
+      steps: [3b-2]
+    - id: 3.M2
+      mark_type: M
+      points: 20
+      evidence: |
+        상금 기댓값에서 비용을 뺀 기대 수익을 $1250(-3n^2+29n-28)$로 정리했다.
+      depends_on: [3.A1]
+      steps: [3b-3]
+    - id: 3.A2
+      mark_type: A
+      points: 20
+      evidence: |
+        정수 조건에서 $n=5$를 골라 $-5$점을 답했다.
+      depends_on: [3.M2]
+      steps: [3b-4]
+    deductions:
+    - code: D3-1
+      condition: $n=\tfrac{29}{6}$을 그대로 답하거나 정수 처리 근거가 없음
+      effect: minus
+      value: 15
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-PRB-3124}
+  relation: remediation
+  target: {kind: concept, ref: CON-PRB-STOPPING-COUNT}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

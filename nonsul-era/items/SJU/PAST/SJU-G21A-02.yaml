@@ -1,0 +1,378 @@
+# 세종대 2021학년도 수시 논술고사 [A] 문제 2 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: SJU-G21A-02
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: SJU
+type: T06
+variant_of: null
+replaces: null
+level: L5
+form: 추론
+points: 230
+time_estimate_min: 35
+intent: |
+  곡선의 길이와 넓이가 같다는 적분 관계식을 미분해 $\sqrt{1+\{f'\}^2}=f$를 얻고, 이를 다시 미분해 $f''=f$로 바꾼 뒤 보조함수 $g=f+f'$의 미분방정식과 인수분해로 $f$를 결정하는 능력을 본다.
+key_idea: |
+  $\sqrt{1+\{f'(t)\}^2}=f(t)$에서 $1+\{f'\}^2=f^2$, 미분하면 $f''=f$ $(f'>0)$이다. $g=f+f'$이면 $g'=g$이고, $f^2-\{f'\}^2=1$을 $(f+f')(f-f')$로 인수분해한다.
+stuck: |
+  적분 관계식을 미분해 피적분함수끼리의 관계로 바꾸는 것, 그리고 $f^2-\{f'\}^2=1$을 합·차의 곱으로 보는 것
+idea_tags: [IDEA-INTEGRAL-IDENTITY-DIFFERENTIATE, IDEA-SUM-DIFF-FACTOR]
+tags: [곡선의 길이, 미분방정식, 쌍곡선 함수]
+elements:
+  materials:
+  - '$f(0)=1$, $x>0$에서 $f''(x)>0$인 함수'
+  - '곡선의 길이 $\ell(t)$와 넓이 $\int_0^tf(x)dx$가 같은 곡선(현수선)'
+  - '$g(x)=f(x)+f''(x)$'
+  concepts:
+  - '곡선의 길이'
+  - '정적분으로 정의된 함수의 미분'
+  - '합성함수의 미분법'
+  - '지수함수의 미분과 적분'
+  - '로그함수의 미분'
+  tools:
+  - '양변 미분 $\sqrt{1+\{f''(t)\}^2}=f(t)$'
+  - '제곱 후 미분해 $f''''=f$ ($f''>0$로 나눔)'
+  - '$\tfrac{g''}{g}=1$ 적분 $\ln g=x+c$'
+  - '$f^2-\{f''\}^2=(f+f'')(f-f'')$ 인수분해'
+  - '적분인자 $e^x$ 곱하기(별해)'
+  conditions:
+  - '$t\to0$ 연속성 ⇒ $t=0$에서도 $\sqrt{1+f''(0)^2}=f(0)=1$'
+  - '$x>0$에서 $f''>0$ ⇒ $f''$로 나눌 수 있고 $g>0$'
+  - '$g(0)=f(0)+f''(0)=1$'
+  stimuli_used: []
+  subpart_links: '(2-2)는 (2-1)의 $f''(0)=0$으로 $g(0)=1$을, (2-3)은 (2-2)의 $g(x)=e^x$를 사용'
+
+curriculum:
+  version: '2015'
+  subjects: [미적분]
+  scope_2028: calc2
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 곡선의 길이를 구할 수 있다(요지)
+    verified: false
+  content_area: 적분법 – 정적분의 활용(곡선의 길이)
+  behavior_domain: 추론
+  unit_path: [미적분, 적분법, 정적분의 활용, 곡선의 길이]
+  key_concepts: [곡선의 길이, 정적분으로 정의된 함수의 미분, 합성함수의 미분법, 지수함수의 미분과 적분, 로그함수의 미분]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 세종대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 세종대학교
+  admission_year: 2021
+  admission_type: 수시 논술고사(A형)
+  track: 자연계열
+  question_no: 2
+  official_url: https://ipsi.sejong.ac.kr   # [확인 필요] 입학처 자료실의 정확한 게시물 URL로 교체
+  retrieved_at: 2026-11-21
+  original_points: [70, 80, 80]
+  rights_notice: 미확인(대학 원본 PDF 표지 문구 확인 필요)
+  transcribed_from: 대치 수리 논술 연구소 「2027학년도 대비 수리논술 세종대 기출 및 모의 문제」 p.59 + 해설교재 p.112~113 (원본 PDF 이미지 대조 완료 2026-11-21)
+
+verify: verify/SJU-G21A.py::p02
+
+stimuli: []
+
+stem: |
+  실수 전체의 집합에서 정의된 함수 $y=f(x)$의 이계도함수는 연속함수이고, 아래 조건을 모두 만족한다. 다음 물음에 각각 답하시오.
+
+  < 조건 >
+  (가) $f(0)=1$
+  (나) $x>0$인 모든 실수 $x$에 대하여 $f'(x)>0$이다.
+  (다) $0\le x\le t$에서 곡선 $y=f(x)$의 길이를 $\ell(t)$라 할 때, 모든 양의 실수 $t$에 대하여 $\ell(t)=\displaystyle\int_0^tf(x)dx$가 성립한다.
+
+subparts:
+- id: '1'
+  stem: |
+    $f'(0)$을 구하시오.
+  points: 70
+  depends_on: []
+  answer: {kind: value, value: '0', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: (다)를 미분하면 $\sqrt{1+\{f'(t)\}^2}=f(t)$이고 $t=0$을 넣는다.
+    steps:
+    - id: 1a
+      content: |
+        $\sqrt{1+f'(0)^2}=f(0)=1\Rightarrow f'(0)=0$
+      criteria: ['1.M1', '1.A1', '1.A2']
+    hint_ladder:
+    - 곡선의 길이를 정적분으로 쓰고 양변을 $t$로 미분하자.
+  - id: S1-B
+    audience: B
+    source_flow: 해설교재 p.112
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        (다)에서 $\displaystyle\int_0^t\sqrt{1+\{f'(x)\}^2}dx=\int_0^tf(x)dx$가 모든 $t>0$에서 성립한다.
+      criteria: ['1.M1']
+    - id: 1b-2
+      content: |
+        양변을 $t$에 대하여 미분하면 $\sqrt{1+\{f'(t)\}^2}=f(t)$ $(t>0)$이고, 양변이 연속이므로 $t\to0+$로 보내면 $t=0$에서도 성립한다.
+      criteria: ['1.A1']
+    - id: 1b-3
+      content: |
+        $t=0$을 대입하면 $\sqrt{1+\{f'(0)\}^2}=f(0)=1$이므로 $f'(0)=0$이다.
+      criteria: ['1.A2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 25
+      evidence: |
+        곡선의 길이를 $\displaystyle\int_0^t\sqrt{1+\{f'(x)\}^2}dx$로 썼다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1]
+    - id: 1.A1
+      mark_type: A
+      points: 25
+      evidence: |
+        양변을 미분해 $\sqrt{1+\{f'(t)\}^2}=f(t)$를 얻었다.
+      depends_on: [1.M1]
+      steps: [1b-2]
+    - id: 1.A2
+      mark_type: A
+      points: 20
+      evidence: |
+        $t=0$을 대입해 $f'(0)=0$을 얻었다.
+      depends_on: [1.M1, 1.A1]
+      steps: [1b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-3105}
+  misconceptions:
+  - id: MC-CAL-3105
+    outcome_code: '71'
+    wrong_work: '곡선의 길이를 $\int_0^t\sqrt{1+\{f(x)\}^2}dx$로 써서 $\sqrt{1+f(0)^2}=1$의 모순에 빠짐'
+    detect_cue: 길이의 피적분함수에 $f'$이 아니라 $f$가 들어 있다
+    feedback: 곡선의 길이는 $\int\sqrt{1+\{f'(x)\}^2}dx$입니다.
+    remedy: [RL-1]
+
+- id: '2'
+  stem: |
+    $g(x)=f(x)+f'(x)$라 할 때, $x>0$에 대하여 $g(x)$를 구하시오.
+  points: 80
+  depends_on: ['1']
+  answer: {kind: expression, value: 'exp(x)', equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: $1+\{f'\}^2=f^2$를 미분하면 $f'f''=ff'$, $f'>0$이므로 $f''=f$, 따라서 $g'=g$이다.
+    steps:
+    - id: 2a
+      content: |
+        $f''=f\Rightarrow g'=g$, $g>0$, $g(0)=1\Rightarrow g(x)=e^x$
+      criteria: ['2.M1', '2.A1', '2.M2', '2.A2']
+    hint_ladder:
+    - (2-1)의 식을 제곱하고 한 번 더 미분해 보자.
+    - $g'(x)$를 $g(x)$로 나타내 보자.
+  - id: S2-B
+    audience: B
+    source_flow: 해설교재 p.112
+    method_no: 1
+    steps:
+    - id: 2b-1
+      content: |
+        $\sqrt{1+\{f'(t)\}^2}=f(t)$에서 $1+\{f'(t)\}^2=\{f(t)\}^2$이다. 미분하면 $2f'(t)f''(t)=2f(t)f'(t)$이고 $t>0$에서 $f'(t)>0$이므로 $f''(t)=f(t)$이다.
+      criteria: ['2.M1']
+    - id: 2b-2
+      content: |
+        그러므로 $g'(x)=f'(x)+f''(x)=f'(x)+f(x)=g(x)$ $(x>0)$이다.
+      criteria: ['2.A1']
+    - id: 2b-3
+      content: |
+        $f(x)=\sqrt{1+\{f'(x)\}^2}\ge1$, $f'(x)>0$이므로 $g(x)>0$이고 $\dfrac{g'(x)}{g(x)}=1$이다. 양변을 적분하면 $\ln g(x)=x+c$이다.
+      criteria: ['2.M2']
+    - id: 2b-4
+      content: |
+        (가)와 (2-1)에서 $g(0)=f(0)+f'(0)=1$이고 $g$는 연속이므로 $c=0$이다. 따라서 $g(x)=e^x$이다.
+      criteria: ['2.A2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 25
+      evidence: |
+        제곱한 식을 미분하고 $f'>0$으로 나누어 $f''=f$를 얻었다.
+      depends_on: []
+      implied_ok: false
+      steps: [2b-1]
+    - id: 2.A1
+      mark_type: A
+      points: 15
+      evidence: |
+        $g'(x)=g(x)$를 얻었다.
+      depends_on: [2.M1]
+      steps: [2b-2]
+    - id: 2.M2
+      mark_type: M
+      points: 20
+      evidence: |
+        $g>0$을 확인하고 $\dfrac{g'}{g}=1$을 적분했다.
+      depends_on: [2.A1]
+      steps: [2b-3]
+    - id: 2.A2
+      mark_type: A
+      points: 20
+      evidence: |
+        $g(0)=1$로 상수를 정해 $g(x)=e^x$를 얻었다.
+      depends_on: [2.M2]
+      ft: {allowed: true, from: [1.A2], max_points: 20}
+      steps: [2b-4]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-PRF-3101}
+  misconceptions:
+  - id: MC-PRF-3101
+    outcome_code: '71'
+    wrong_work: '$f''f''''=ff''$에서 근거 없이 $f''$로 나누거나, $g>0$ 확인 없이 $\ln g$를 씀'
+    detect_cue: $f'>0$, $g>0$ 조건 언급이 없다
+    feedback: $0$으로 나눌 수 없고 로그는 양수에서만 정의됩니다. 조건 (나)와 $f\ge1$로 부호를 확인하세요.
+    remedy: [RL-2]
+
+- id: '3'
+  stem: |
+    $x>0$에 대하여 $f(x)$를 구하시오.
+  points: 80
+  depends_on: ['2']
+  answer: {kind: expression, value: '(exp(x) + exp(-x))/2', equivalents: [], tolerance: null}
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: $1=f^2-\{f'\}^2=(f+f')(f-f')$이므로 $f-f'=e^{-x}$이다.
+    steps:
+    - id: 3a
+      content: |
+        $f+f'=e^x$, $f-f'=e^{-x}\Rightarrow f=\tfrac12(e^x+e^{-x})$
+      criteria: ['3.M1', '3.A1', '3.A2']
+    hint_ladder:
+    - $f^2-\{f'\}^2$을 인수분해해 보자.
+  - id: S3-B
+    audience: B
+    source_flow: 해설교재 p.112
+    method_no: 1
+    steps:
+    - id: 3b-1
+      content: |
+        $1=\{f(x)\}^2-\{f'(x)\}^2=\{f(x)+f'(x)\}\{f(x)-f'(x)\}$이다.
+      criteria: ['3.M1']
+    - id: 3b-2
+      content: |
+        따라서 $f(x)-f'(x)=\dfrac1{g(x)}=e^{-x}$이다.
+      criteria: ['3.A1']
+    - id: 3b-3
+      content: |
+        (2-2)의 $f(x)+f'(x)=e^x$와 연립하면 $f(x)=\dfrac12(e^x+e^{-x})$이다.
+      criteria: ['3.A2']
+  - id: S3-ALT1
+    audience: ALT
+    source_flow: 해설교재 p.112 별해 1
+    method_no: 2
+    key_idea: $f'=e^x-f$를 $f^2-\{f'\}^2=1$에 대입한다.
+    steps:
+    - id: 3c-1
+      content: |
+        $1=f^2-(e^x-f)^2=-e^{2x}+2e^xf$이므로 $2e^xf(x)=e^{2x}+1$, $f(x)=\dfrac12(e^x+e^{-x})$이다.
+      criteria: ['3.M1', '3.A1', '3.A2']
+  - id: S3-ALT2
+    audience: ALT
+    source_flow: 해설교재 p.112~113 별해 2
+    method_no: 3
+    key_idea: $h=f-f'$이면 $h'=f'-f''=f'-f=-h$이므로 (2-2)와 같은 방법으로 $h=e^{-x}$이다.
+    steps:
+    - id: 3d-1
+      content: |
+        $h(x)=f(x)-f'(x)$라 하면 $h'(x)=-h(x)$, $h(0)=1$이므로 $h(x)=e^{-x}$이고 $f(x)=\dfrac{g(x)+h(x)}2=\dfrac{e^x+e^{-x}}2$이다.
+      criteria: ['3.M1', '3.A1', '3.A2']
+  - id: S3-ALT3
+    audience: ALT
+    source_flow: 해설교재 p.113 별해 3
+    method_no: 4
+    key_idea: $f+f'=e^x$의 양변에 $e^x$를 곱하면 $\{e^xf\}'=e^{2x}$이다.
+    steps:
+    - id: 3e-1
+      content: |
+        $e^xf(x)=\dfrac12e^{2x}+C$이고 $x=0$에서 $1=\dfrac12+C$, $C=\dfrac12$이므로 $f(x)=\dfrac12(e^x+e^{-x})$이다.
+      criteria: ['3.M1', '3.A1', '3.A2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 30
+      evidence: |
+        $f^2-\{f'\}^2=1$의 인수분해(또는 $f'=e^x-f$ 대입, $h=f-f'$, 적분인자 $e^x$) 중 하나로 $f$를 구하는 식을 세웠다.
+      depends_on: []
+      implied_ok: false
+      ft: {allowed: true, from: [2.A2], max_points: 30}
+      steps: [3b-1, 3c-1, 3d-1, 3e-1]
+    - id: 3.A1
+      mark_type: A
+      points: 25
+      evidence: |
+        $f-f'=e^{-x}$ 또는 동치인 식을 얻었다.
+      depends_on: [3.M1]
+      steps: [3b-2, 3c-1, 3d-1, 3e-1]
+    - id: 3.A2
+      mark_type: A
+      points: 25
+      evidence: |
+        $f(x)=\dfrac12(e^x+e^{-x})$를 얻었다.
+      depends_on: [3.M1, 3.A1]
+      steps: [3b-3, 3c-1, 3d-1, 3e-1]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '21', meaning: 만점(별해)}
+  - {code: '71', misconception: MC-CAL-3091}
+  misconceptions:
+  - id: MC-CAL-3091
+    outcome_code: '71'
+    wrong_work: '$e^xf=\tfrac12e^{2x}+C$에서 $C$를 정하지 않거나 $C=0$으로 두어 $f=\tfrac12e^x$를 얻음'
+    detect_cue: $f(0)=1$을 써서 상수를 정하지 않았다
+    feedback: 적분 후 남는 상수는 초기조건 $f(0)=1$로 정합니다.
+    remedy: [RL-3]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CAL-3105}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-CURVE-LENGTH}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-PRF-3101}
+  relation: remediation
+  target: {kind: concept, ref: CON-PRF-SIGN-CHECK}
+  priority: 1
+- id: RL-3
+  trigger: {type: misconception, ref: MC-CAL-3091}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-ANTIDERIV-INIT}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

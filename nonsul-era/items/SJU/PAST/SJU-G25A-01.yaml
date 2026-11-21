@@ -1,0 +1,380 @@
+# 세종대 2025학년도 수시 논술고사(A형) 문항 1 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+# [해설 불일치] 해설교재 p.42 별해3 마지막 줄의 극솟값 「2a^{a/2}」는 2e^{a/2}의 오식으로 판단(본 풀이·별해1·2와 같은 값 2e^{a/2}를 정답으로 함)
+schema_version: '2.0'
+id: SJU-G25A-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: SJU
+type: null          # [제안] 기존 SJU 유형에 맞는 것이 없음: 「정적분으로 정의된 함수의 미분과 증감·최대·최소」 신설 검토 (SJU-M26-03, SJU-G25B-03 과 공통)
+variant_of: null
+replaces: null
+level: L4
+form: 불변량
+points: 230
+time_estimate_min: 35
+intent: |
+  근과 정적분 조건으로 삼차함수를 결정하고, 피적분함수에 $x$가 든 정적분을 치환해 미분하며, 삼차함수의 점대칭에서 나오는 $h(x)+h(a-x)=a$를 산술·기하 평균에 연결해 최솟값을 구하는 능력을 본다.
+key_idea: |
+  $f(x)=x\left(x-\tfrac a2\right)(x-a)$는 점 $\left(\tfrac a2,0\right)$에 대해 대칭이므로 $h(x)+h(a-x)=a$이고, $e^{h(x)}+e^{a-h(x)}\ge2e^{a/2}$이다.
+stuck: |
+  $h(a-x)=a-h(x)$라는 불변량을 발견해 두 지수의 곱이 상수 $e^a$가 되게 만드는 단계
+idea_tags: [IDEA-CUBIC-POINT-SYMMETRY, IDEA-AMGM-CONSTANT-PRODUCT]
+tags: [삼차함수, 정적분으로 정의된 함수, 산술기하평균]
+elements:
+  materials:
+  - '최고차항의 계수가 1인 삼차함수 $f(x)=x(x-a)(x-b)$'
+  - '정적분으로 정의된 함수 $g(x)=\int_0^xtf(x-t)dt$'
+  - '지수함수의 합 $p(x)=e^{h(x)}+e^{h(a-x)}$'
+  concepts:
+  - '삼차함수의 극대와 극소'
+  - '정적분의 계산'
+  - '치환적분법'
+  - '정적분으로 정의된 함수의 미분'
+  - '삼차함수 그래프의 대칭성'
+  - '산술평균과 기하평균의 관계'
+  tools:
+  - '$\int_0^af(x)dx=0$으로 $b=\frac a2$ 결정'
+  - '$y=x-t$ 치환 후 $x$를 적분 밖으로 빼기'
+  - '$h(a-x)=a-h(x)$ 계산(또는 점대칭)'
+  - '산술·기하 평균 부등식과 등호 조건'
+  conditions:
+  - '$f(0)=f(a)=0$ ⇒ $f(x)=x(x-a)(x-b)$'
+  - '$g''''(x)=f(x)$ ⇒ $g''''(-a)=f(-a)$'
+  - '$h\left(\frac a2\right)=\frac a2$ ⇒ 등호 성립'
+  stimuli_used: []
+  subpart_links: '(1-2)·(1-3)은 (1-1)의 f(x)=x(x-a/2)(x-a)를 사용'
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅱ, 미적분]
+  scope_2028: calc2
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 정적분으로 정의된 함수를 미분하고, 도함수를 활용하여 함수의 극값과 최솟값을 구할 수 있다(요지)
+    verified: false
+  content_area: 미분·적분
+  behavior_domain: 문제해결
+  unit_path: [수학Ⅱ, 적분, 정적분, 정적분으로 정의된 함수]
+  key_concepts: [삼차함수의 극대와 극소, 정적분의 계산, 치환적분법, 정적분으로 정의된 함수의 미분, 삼차함수 그래프의 대칭성, 산술평균과 기하평균의 관계]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 세종대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 세종대학교
+  admission_year: 2025
+  admission_type: 수시 논술고사
+  track: 자연계열(A형)
+  question_no: 1
+  official_url: https://ipsi.sejong.ac.kr   # [확인 필요] 입학처 자료실의 정확한 게시물 URL로 교체
+  retrieved_at: 2026-11-21
+  original_points: [70, 80, 80]
+  rights_notice: 미확인(대학 원본 PDF 표지 문구 확인 필요)
+  transcribed_from: 대치 수리 논술 연구소 「2027학년도 대비 수리논술 세종대 기출 및 모의 문제」 p.18 + 해설교재 p.41~42 (원본 PDF 이미지 대조 완료 2026-11-21)
+
+verify: verify/SJU-G25A.py::p01
+
+stimuli: []
+
+stem: |
+  최고차항의 계수가 $1$인 삼차함수 $f(x)$가 다음 조건을 만족시킨다.
+
+  (가) $f(0)=f(a)=0$ (단, $a>0$)
+
+  (나) $\displaystyle\int_0^af(x)\,dx=0$
+
+subparts:
+- id: '1'
+  stem: |
+    $f(x)$의 극댓값을 $a$의 식으로 나타내시오.
+  points: 70
+  depends_on: []
+  answer: {kind: expression, value: 'sqrt(3)*a**3/36', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: 조건 (나)로 세 번째 근이 $\tfrac a2$이고, 극대는 작은 임계점 $\tfrac{3-\sqrt3}{6}a$에서.
+    steps:
+    - {id: 1a, content: '$b=\tfrac a2$, $f''(x)=3x^2-3ax+\tfrac{a^2}{2}=0\Rightarrow x=\tfrac{3\pm\sqrt3}{6}a$, 극댓값 $\tfrac{\sqrt3}{36}a^3$', criteria: ['1.M1', '1.A1', '1.M2', '1.A2']}
+    hint_ladder:
+    - 조건 (가)로 $f(x)$를 인수분해된 꼴로 두자.
+    - 조건 (나)는 남은 미지수 하나를 정한다.
+  - id: S1-B
+    audience: B
+    source_flow: 해설교재 p.41
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        조건 (가)로 $f(x)=x(x-a)(x-b)$라 하면
+        $0=\displaystyle\int_0^a\{x^3-(a+b)x^2+abx\}dx=\dfrac{a^4}{4}-\dfrac{(a+b)a^3}{3}+\dfrac{a^3b}{2}=\dfrac{a^3}{12}(-a+2b)$이다.
+      criteria: ['1.M1']
+    - id: 1b-2
+      content: |
+        $a>0$이므로 $b=\dfrac a2$, $f(x)=x(x-a)\left(x-\dfrac a2\right)$이고 $f'(x)=3x^2-3ax+\dfrac{a^2}{2}$이다.
+      criteria: ['1.A1']
+    - id: 1b-3
+      content: |
+        $f'(x)=0$에서 $x=\dfrac{3\pm\sqrt3}{6}a$이고, 증감을 조사하면 $f$는 $x=\dfrac{3-\sqrt3}{6}a$에서 증가에서 감소로 바뀌어 극대이다.
+      criteria: ['1.M2']
+    - id: 1b-4
+      content: |
+        극댓값은 $f\left(\dfrac{3-\sqrt3}{6}a\right)=\dfrac{\sqrt3}{36}a^3$이다.
+      criteria: ['1.A2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 20
+      evidence: |
+        $f(x)=x(x-a)(x-b)$로 두고 조건 (나)의 적분을 계산했다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1]
+    - id: 1.A1
+      mark_type: A
+      points: 15
+      evidence: |
+        $b=\tfrac a2$를 얻었다.
+      depends_on: [1.M1]
+      steps: [1b-2]
+    - id: 1.M2
+      mark_type: M
+      points: 15
+      evidence: |
+        $f'(x)=0$의 두 근을 구하고 증감으로 극대점을 판정했다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-3]
+    - id: 1.A2
+      mark_type: A
+      points: 20
+      evidence: |
+        극댓값 $\tfrac{\sqrt3}{36}a^3$을 얻었다.
+      depends_on: [1.M2, 1.A1]
+      steps: [1b-4]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-3003}
+  misconceptions:
+  - id: MC-CAL-3003
+    outcome_code: '71'
+    wrong_work: '임계점 $\tfrac{3+\sqrt3}{6}a$에서의 값(극솟값 $-\tfrac{\sqrt3}{36}a^3$)을 극댓값으로 씀'
+    detect_cue: 증감표 또는 $f''$의 부호 판정이 없다
+    feedback: 최고차항 계수가 양수인 삼차함수는 작은 임계점에서 극대입니다. 증감을 확인하세요.
+    remedy: [RL-1]
+
+- id: '2'
+  stem: |
+    $g(x)=\displaystyle\int_0^xtf(x-t)\,dt$에 대하여 $g''(-a)$를 $a$의 식으로 나타내시오.
+  points: 80
+  depends_on: ['1']
+  answer: {kind: expression, value: '-3*a**3', equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: $y=x-t$로 바꾸면 $g(x)=x\int_0^xf(y)dy-\int_0^xyf(y)dy$, $g''=f$.
+    steps:
+    - {id: 2a, content: '$g''(x)=\int_0^xf(y)dy$, $g''''(x)=f(x)$, $g''''(-a)=f(-a)=-3a^3$', criteria: ['2.M1', '2.A1', '2.A2']}
+    hint_ladder:
+    - 피적분함수의 $x$를 $f$ 밖으로 꺼내도록 치환하자.
+  - id: S2-B
+    audience: B
+    source_flow: 해설교재 p.41
+    method_no: 1
+    steps:
+    - id: 2b-1
+      content: |
+        $y=x-t$로 치환하면 $dt=-dy$이고 $g(x)=\displaystyle\int_x^0(x-y)f(y)(-dy)=\int_0^x(x-y)f(y)dy=x\int_0^xf(y)dy-\int_0^xyf(y)dy$이다.
+      criteria: ['2.M1']
+    - id: 2b-2
+      content: |
+        미분하면 $g'(x)=\displaystyle\int_0^xf(y)dy+xf(x)-xf(x)=\int_0^xf(y)dy$이고 $g''(x)=f(x)$이다.
+      criteria: ['2.A1']
+    - id: 2b-3
+      content: |
+        $g''(-a)=f(-a)=(-a)(-2a)\left(-\dfrac{3a}{2}\right)=-3a^3$이다.
+      criteria: ['2.A2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 30
+      evidence: |
+        $y=x-t$ 치환으로 $g(x)=x\int_0^xf(y)dy-\int_0^xyf(y)dy$ 꼴을 얻었다.
+      depends_on: []
+      implied_ok: false
+      steps: [2b-1]
+    - id: 2.A1
+      mark_type: A
+      points: 30
+      evidence: |
+        $g'(x)=\int_0^xf(y)dy$, $g''(x)=f(x)$를 얻었다.
+      depends_on: [2.M1]
+      steps: [2b-2]
+    - id: 2.A2
+      mark_type: A
+      points: 20
+      evidence: |
+        $g''(-a)=-3a^3$을 얻었다.
+      depends_on: [2.M1, 2.A1]
+      ft: {allowed: true, from: [1.A1], max_points: 20}
+      steps: [2b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-3034}
+  misconceptions:
+  - id: MC-CAL-3034
+    outcome_code: '71'
+    wrong_work: '$g''(x)=xf(x-x)=xf(0)=0$처럼 피적분함수에 $t=x$를 바로 대입'
+    detect_cue: 치환이나 $x$ 분리 없이 미적분의 기본정리를 적용했다
+    feedback: 피적분함수가 $x$에 의존하면 기본정리를 바로 쓸 수 없습니다. $y=x-t$로 치환해 $x$를 밖으로 꺼내세요.
+    remedy: [RL-2]
+
+- id: '3'
+  stem: |
+    $h(x)=f(x)+x$, $p(x)=e^{h(x)}+e^{h(a-x)}$라 각각 정의할 때, $p(x)$의 최솟값을 $a$의 식으로 나타내시오.
+  points: 80
+  depends_on: ['1']
+  answer: {kind: expression, value: '2*exp(a/2)', equivalents: ['2*sqrt(exp(a))'], tolerance: null}
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: $h(a-x)=a-h(x)$이므로 두 지수의 곱이 $e^a$로 일정, 산술·기하 평균.
+    steps:
+    - {id: 3a, content: '$p(x)=e^{h(x)}+e^{a-h(x)}\ge2\sqrt{e^a}$, 등호는 $h(x)=\tfrac a2$, 예: $x=\tfrac a2$', criteria: ['3.M1', '3.A1', '3.M2', '3.R1']}
+    hint_ladder:
+    - $h(x)+h(a-x)$를 계산해 보자.
+    - 곱이 일정한 두 양수의 합의 최솟값은?
+  - id: S3-B
+    audience: B
+    source_flow: 해설교재 p.41
+    method_no: 1
+    steps:
+    - id: 3b-1
+      content: |
+        $h(x)=x\left(x-\dfrac a2\right)(x-a)+x$이고
+        $h(a-x)=(a-x)\left(\dfrac a2-x\right)(-x)+a-x=-x\left(x-\dfrac a2\right)(x-a)-x+a=-h(x)+a$이다.
+      criteria: ['3.M1', '3.A1']
+    - id: 3b-2
+      content: |
+        $e^{h(x)}>0$, $e^{a-h(x)}>0$이므로 산술·기하 평균 부등식에 의해 $p(x)=e^{h(x)}+e^{a-h(x)}\ge2\sqrt{e^{h(x)}e^{a-h(x)}}=2\sqrt{e^a}=2e^{a/2}$이다.
+      criteria: ['3.M2']
+    - id: 3b-3
+      content: |
+        $h\left(\dfrac a2\right)=\dfrac a2$이므로 $x=\dfrac a2$에서 $e^{h(x)}=e^{a-h(x)}$, 즉 등호가 성립한다. 따라서 최솟값은 $2e^{a/2}$이다.
+      criteria: ['3.R1']
+  - id: S3-ALT1
+    audience: ALT
+    source_flow: 해설교재 p.41 별해1
+    method_no: 2
+    key_idea: 원 해설 별해1 — $h(x)=x\left(x-\tfrac a2\right)(x-a)+\left(x-\tfrac a2\right)+\tfrac a2$는 점 $\left(\tfrac a2,\tfrac a2\right)$에 대해 대칭이므로 $h(a-x)=a-h(x)$. 이후 본 풀이와 같다.
+    steps:
+    - id: 3c-1
+      content: |
+        $y=h(x)$의 그래프가 점 $\left(\tfrac a2,\tfrac a2\right)$에 대해 대칭이므로 $h(x)+h(a-x)=a$이고, 산술·기하 평균으로 최솟값 $2e^{a/2}$.
+      criteria: ['3.M1', '3.A1', '3.M2', '3.R1']
+  - id: S3-ALT2
+    audience: ALT
+    source_flow: 해설교재 p.42 별해2
+    method_no: 3
+    key_idea: 원 해설 별해2 — $t=h(x)$로 두면 $q(t)=e^t+e^{a-t}$, $q'(t)=e^t-e^{a-t}$의 부호가 $t=\tfrac a2$에서 바뀌어 최솟값 $2e^{a/2}$(삼차함수 $h$의 치역은 실수 전체).
+    steps:
+    - id: 3d-1
+      content: |
+        $q'(t)<0$ ($t<\tfrac a2$), $q'(t)>0$ ($t>\tfrac a2$)이므로 $q$는 $t=\tfrac a2$에서 최소 $2e^{a/2}$이고, $h(x)=\tfrac a2$인 $x$(예: $\tfrac a2$)가 있다.
+      criteria: ['3.M2', '3.R1']
+  - id: S3-ALT3
+    audience: ALT
+    source_flow: 해설교재 p.42 별해3
+    method_no: 4
+    key_idea: 원 해설 별해3 — $p'(x)=h'(x)\left\{e^{h(x)}-e^{a-h(x)}\right\}$에서 $h'(x)=0$ 또는 $h(x)=\tfrac a2$인 점을 구해 증감을 조사한다. 극솟값은 모두 $2e^{a/2}$.
+    steps:
+    - id: 3e-1
+      content: |
+        $a>2$이면 $x=\tfrac a2\pm\tfrac12\sqrt{a^2-4}$, $\tfrac a2$에서 극소(모두 $h=\tfrac a2$), $0<a\le2$이면 $x=\tfrac a2$에서만 극소이고 극솟값은 $2e^{a/2}$.
+      criteria: ['3.M2', '3.R1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 20
+      evidence: |
+        $h(a-x)$를 계산하거나 대칭성을 써서 $h(x)$와의 관계를 찾으려 했다.
+      depends_on: []
+      implied_ok: false
+      ft: {allowed: true, from: [1.A1], max_points: 20}
+      steps: [3b-1]
+    - id: 3.A1
+      mark_type: A
+      points: 20
+      evidence: |
+        $h(a-x)=a-h(x)$를 얻었다.
+      depends_on: [3.M1]
+      steps: [3b-1]
+    - id: 3.M2
+      mark_type: M
+      points: 20
+      evidence: |
+        산술·기하 평균(또는 $q(t)=e^t+e^{a-t}$의 증감)으로 $p(x)\ge2e^{a/2}$를 보였다.
+      depends_on: []
+      implied_ok: false
+      steps: [3b-2]
+    - id: 3.R1
+      mark_type: R
+      points: 20
+      evidence: |
+        등호가 성립하는 $x$(예: $x=\tfrac a2$)가 실제로 있음을 보여 최솟값 $2e^{a/2}$를 확정했다.
+      depends_on: [3.M2]
+      steps: [3b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-ALG-3037}
+  misconceptions:
+  - id: MC-ALG-3037
+    outcome_code: '71'
+    wrong_work: '$p(x)\ge2e^{a/2}$만 쓰고 등호가 성립하는 $x$의 존재를 확인하지 않음'
+    detect_cue: $h(x)=\tfrac a2$ 또는 $x=\tfrac a2$의 언급이 없다
+    feedback: 부등식의 하한이 최솟값이 되려면 등호가 실제로 성립하는 점이 있어야 합니다.
+    remedy: [RL-3]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CAL-3003}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-EXTREMA-JUSTIFY}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-CAL-3034}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-FTC-PARAM}
+  priority: 1
+- id: RL-3
+  trigger: {type: misconception, ref: MC-ALG-3037}
+  relation: remediation
+  target: {kind: concept, ref: CON-ALG-AM-GM}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

@@ -1,0 +1,333 @@
+# 세종대 2025학년도 모의논술고사(자연계열) 문제 3 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: SJU-M25-03
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: SJU
+type: T06           # 가장 가까운 유형. 반복 대입·연속성 발상은 SJU-M26-01, SJU-M26F-02 와 공통(신설 유형 제안 참고)
+variant_of: null
+replaces: null
+level: L4
+form: 귀납구조
+points: 240
+time_estimate_min: 30
+intent: |
+  정적분으로 정의된 함수의 합성 관계식 $g(g(x))=4x$에서 $g(4x)=4g(x)$를 끌어내고, 미분과 연속성(극한)으로 피적분함수와 아래끝을 결정하는 능력을 본다.
+key_idea: |
+  $g(g(g(x)))$를 두 가지로 읽으면 $g(4x)=4g(x)$이고, 미분하면 $f(4x)=f(x)$, 반복하면 $f(x)=f\left(\tfrac{x}{4^n}\right)\to f(0)=2$.
+stuck: |
+  $g(g(g(x)))$를 안쪽부터, 바깥쪽부터 두 번 계산해 $g(4x)=4g(x)$를 얻는 발상
+idea_tags: [IDEA-FUNC-EQ-ITERATE-LIMIT, IDEA-TRIPLE-COMPOSITION-TWO-WAYS]
+tags: [함수방정식, 정적분으로 정의된 함수, 연속성]
+elements:
+  materials:
+  - '정적분으로 정의된 함수 $g(x)=\int_a^xf(t)dt$'
+  - '합성 관계식 $g(g(x))=4x$'
+  concepts:
+  - '정적분으로 정의된 함수의 미분'
+  - '합성함수의 미분법'
+  - '함수의 연속'
+  - '수열의 극한'
+  tools:
+  - '$g(g(g(x)))$를 두 방식으로 계산'
+  - '양변 미분 후 $x=0$ 대입'
+  - '반복 대입 $f(x)=f\left(\frac{x}{4^n}\right)$'
+  - '연속성으로 극한을 함수 안으로'
+  conditions:
+  - '$g''(x)=f(x)$ (미적분의 기본정리)'
+  - '$f(0)>0$ ⇒ $f(0)=2$ (음수 해 배제)'
+  - '$g(0)=0$ ⇒ 아래끝 $a=0$'
+  stimuli_used: []
+  subpart_links: '(3-2)는 (3-1)의 g(0)=0을, (3-3)은 (3-1)의 g(4x)=4g(x)와 (3-2)의 f(0)=2를 사용'
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅱ, 미적분]
+  scope_2028: calc2
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 정적분으로 정의된 함수를 미분하고 함수의 연속을 이용하여 함수를 결정할 수 있다(요지)
+    verified: false
+  content_area: 적분
+  behavior_domain: 추론
+  unit_path: [수학Ⅱ, 적분, 정적분, 정적분으로 정의된 함수]
+  key_concepts: [정적분으로 정의된 함수의 미분, 합성함수의 미분법, 함수의 연속, 수열의 극한]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 세종대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 세종대학교
+  admission_year: 2025
+  admission_type: 수시 모의논술
+  track: 자연계열
+  question_no: 3
+  official_url: https://ipsi.sejong.ac.kr   # [확인 필요] 입학처 자료실의 정확한 게시물 URL로 교체
+  retrieved_at: 2026-11-21
+  original_points: [80, 80, 80]
+  rights_notice: 미확인(대학 원본 PDF 표지 문구 확인 필요)
+  transcribed_from: 대치 수리 논술 연구소 「2027학년도 대비 수리논술 세종대 기출 및 모의 문제」 p.26 + 해설교재 p.55 (원본 PDF 이미지 대조 완료 2026-11-21)
+
+verify: verify/SJU-M25.py::p03
+
+stimuli: []
+
+stem: |
+  실수 전체의 집합에서 연속인 함수 $f(x)$와 실수 $a$에 대하여 $g(x)$를 다음과 같이 정의한다.
+  $$g(x)=\int_a^xf(t)dt$$
+  $f(0)>0$이고 모든 $x$에 대하여 $g(g(x))=4x$일 때, 다음 문제에 답하시오.
+
+subparts:
+- id: '1'
+  stem: |
+    $g(0)$을 구하시오.
+  points: 80
+  depends_on: []
+  answer: {kind: value, value: '0', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $g(g(g(x)))=g(4x)$이고 동시에 $=4g(x)$.
+    steps:
+    - {id: 1a, content: '$g(4x)=4g(x)$에 $x=0$: $g(0)=4g(0)\Rightarrow g(0)=0$', criteria: ['1.M1', '1.A1', '1.A2']}
+    hint_ladder:
+    - $g$를 세 번 합성한 것을 두 가지 방법으로 계산해 보자.
+  - id: S1-B
+    audience: B
+    source_flow: 해설교재 p.55
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        $g(g(g(x)))$에서 안쪽 $g(g(x))=4x$를 쓰면 $g(4x)$이고, 바깥쪽에 $y=g(x)$로 $g(g(y))=4y$를 쓰면 $4g(x)$이다.
+      criteria: ['1.M1']
+    - id: 1b-2
+      content: |
+        따라서 모든 $x$에 대하여 $g(4x)=4g(x)$이다.
+      criteria: ['1.A1']
+    - id: 1b-3
+      content: |
+        $x=0$을 대입하면 $g(0)=4g(0)$이므로 $g(0)=0$이다.
+      criteria: ['1.A2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 30
+      evidence: |
+        $g(g(g(x)))$를 두 방식으로 계산하려 했다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1]
+    - id: 1.A1
+      mark_type: A
+      points: 25
+      evidence: |
+        $g(4x)=4g(x)$를 얻었다.
+      depends_on: [1.M1]
+      steps: [1b-2]
+    - id: 1.A2
+      mark_type: A
+      points: 25
+      evidence: |
+        $g(0)=0$을 얻었다.
+      depends_on: [1.M1, 1.A1]
+      steps: [1b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-PRF-0003}
+  misconceptions:
+  - id: MC-PRF-0003
+    outcome_code: '71'
+    wrong_work: '$g(g(0))=0$에서 근거 없이 $g(0)=0$이라 하거나, $g(0)=0$을 가정하고 대입해 확인만 함'
+    detect_cue: $g(4x)=4g(x)$ 같은 관계식 없이 결론을 냈다
+    feedback: $g(0)=0$은 결론이므로 가정할 수 없습니다. $g(g(g(x)))$를 두 방법으로 계산해 $g(4x)=4g(x)$를 먼저 보이세요.
+    remedy: [RL-3]
+
+- id: '2'
+  stem: |
+    $f(0)$을 구하시오.
+  points: 80
+  depends_on: ['1']
+  answer: {kind: value, value: '2', equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: $g'(g(x))g'(x)=4$에 $x=0$, $g(0)=0$, $g'=f$.
+    steps:
+    - {id: 2a, content: '$\{f(0)\}^2=4$, $f(0)>0\Rightarrow f(0)=2$', criteria: ['2.M1', '2.A1', '2.A2']}
+    hint_ladder:
+    - $g(g(x))=4x$의 양변을 미분하자.
+  - id: S2-B
+    audience: B
+    source_flow: 해설교재 p.55
+    method_no: 1
+    steps:
+    - id: 2b-1
+      content: |
+        $g(g(x))=4x$의 양변을 미분하면 $g'(g(x))g'(x)=4$이다.
+      criteria: ['2.M1']
+    - id: 2b-2
+      content: |
+        $x=0$을 대입하고 (3-1)의 $g(0)=0$을 쓰면 $g'(0)g'(0)=4$이다.
+      criteria: ['2.A1']
+    - id: 2b-3
+      content: |
+        $g'(x)=f(x)$이므로 $\{f(0)\}^2=4$이고, $f(0)>0$에서 $f(0)=2$이다.
+      criteria: ['2.A2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 30
+      evidence: |
+        합성함수 미분으로 $g'(g(x))g'(x)=4$를 얻었다.
+      depends_on: []
+      implied_ok: false
+      steps: [2b-1]
+    - id: 2.A1
+      mark_type: A
+      points: 25
+      evidence: |
+        $x=0$과 $g(0)=0$을 대입해 $\{g'(0)\}^2=4$를 얻었다.
+      depends_on: [2.M1]
+      ft: {allowed: true, from: [1.A2], max_points: 25}
+      steps: [2b-2]
+    - id: 2.A2
+      mark_type: A
+      points: 25
+      evidence: |
+        $g'=f$와 $f(0)>0$으로 $f(0)=2$를 얻었다.
+      depends_on: [2.M1, 2.A1]
+      steps: [2b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-3036}
+  misconceptions:
+  - id: MC-CAL-3036
+    outcome_code: '71'
+    wrong_work: '$g(g(x))$를 미분해 $g''(g(x))=4$로 쓰고 속미분 $g''(x)$를 빠뜨림'
+    detect_cue: $g'(x)$ 곱이 없다
+    feedback: 합성함수를 미분할 때는 안쪽 함수의 도함수 $g'(x)$를 곱해야 합니다.
+    remedy: [RL-2]
+
+- id: '3'
+  stem: |
+    $f(x)$와 $a$를 구하시오.
+  points: 80
+  depends_on: ['1', '2']
+  answer: {kind: expression, value: 'f(x) = 2; a = 0', equivalents: [], tolerance: null}
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: $g(4x)=4g(x)$를 미분해 $f(4x)=f(x)$, 반복과 연속성으로 $f\equiv f(0)=2$.
+    steps:
+    - {id: 3a, content: '$f(x)=\lim f\left(\tfrac{x}{4^n}\right)=f(0)=2$, $g(x)=2(x-a)$, $g(0)=0\Rightarrow a=0$', criteria: ['3.M1', '3.R1', '3.A1', '3.A2']}
+    hint_ladder:
+    - (3-1)에서 얻은 $g(4x)=4g(x)$를 미분하면?
+    - $f(x)=f\left(\tfrac x4\right)=f\left(\tfrac{x}{16}\right)=\cdots$의 끝은?
+  - id: S3-B
+    audience: B
+    source_flow: 해설교재 p.55
+    method_no: 1
+    steps:
+    - id: 3b-1
+      content: |
+        $g(4x)=4g(x)$의 양변을 미분하면 $4g'(4x)=4g'(x)$, 즉 $f(4x)=f(x)$이다.
+      criteria: ['3.M1']
+    - id: 3b-2
+      content: |
+        $x$ 대신 $\dfrac x4$를 넣으면 $f(x)=f\left(\dfrac14x\right)$이고, 반복하면 $f(x)=f\left(\dfrac{1}{4^n}x\right)$이다. $f$가 연속이므로 $f(x)=\displaystyle\lim_{n\to\infty}f\left(\dfrac{1}{4^n}x\right)=f(0)=2$이다.
+      criteria: ['3.R1', '3.A1']
+    - id: 3b-3
+      content: |
+        $g(x)=\displaystyle\int_a^x2\,dt=2(x-a)$이고 $g(0)=0$이므로 $a=0$이다(이때 $g(g(x))=4x$ 성립).
+      criteria: ['3.A2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 20
+      evidence: |
+        $g(4x)=4g(x)$를 미분해 $f(4x)=f(x)$를 얻었다.
+      depends_on: []
+      implied_ok: false
+      ft: {allowed: true, from: [1.A1], max_points: 20}
+      steps: [3b-1]
+    - id: 3.R1
+      mark_type: R
+      points: 25
+      evidence: |
+        반복 대입과 연속성(극한)으로 $f(x)=f(0)$임을 보였다.
+      depends_on: [3.M1]
+      steps: [3b-2]
+    - id: 3.A1
+      mark_type: A
+      points: 15
+      evidence: |
+        $f(x)=2$를 얻었다.
+      depends_on: [3.R1]
+      ft: {allowed: true, from: [2.A2], max_points: 15}
+      steps: [3b-2]
+    - id: 3.A2
+      mark_type: A
+      points: 20
+      evidence: |
+        $g(x)=2(x-a)$와 $g(0)=0$으로 $a=0$을 얻었다.
+      depends_on: [3.M1, 3.A1]
+      steps: [3b-3]
+    deductions:
+    - code: D3-1
+      condition: 연속성 언급 없이 $\lim f\left(\tfrac{x}{4^n}\right)=f(0)$을 씀
+      effect: minus
+      value: 10
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-3030}
+  misconceptions:
+  - id: MC-CAL-3030
+    outcome_code: '71'
+    wrong_work: '$f(x)=f\left(\tfrac{x}{4^n}\right)$에서 근거 없이 $f(x)=f(0)$이라 씀'
+    detect_cue: 「연속이므로」나 극한 기호가 없다
+    feedback: $\tfrac{x}{4^n}$은 $0$이 되지 않고 $0$에 가까워질 뿐입니다. $f$의 연속성으로 극한과 함숫값을 바꾸세요.
+    remedy: [RL-1]
+
+remedy_links:
+- id: RL-3
+  trigger: {type: misconception, ref: MC-PRF-0003}
+  relation: remediation
+  target: {kind: concept, ref: CON-PRF-EQUIV-CHAIN}
+  priority: 1
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CAL-3030}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-FUNC-EQ-ITERATION}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-CAL-3036}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-CHAIN-RULE}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

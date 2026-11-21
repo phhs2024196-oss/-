@@ -1,0 +1,387 @@
+# 세종대 2015학년도 신입학 관련 모의평가 문제 2 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+# [해설 오기] 해설교재 p.203 (2-1)의 "f(x)≥4 (x>0)" 는 "f(x)≥f(4)=2-ln4" 의 오기, p.204 (2-3) 증감표의 "r^{3/2}" 는 "e^{3/2}" 의 오기. 결론에는 영향 없음.
+# 해설교재 (2-2)는 "x>0일 때 0<ln x/x" 라 썼으나 0<x<1 에서는 성립하지 않으므로 B 해설은 x>1 로 고쳐 씀.
+# 해설교재 (2-4)는 그래프 개형만 제시 — B 해설은 같은 흐름(로그 → (2-3) 그래프)을 따르되 m<e<n 논증을 보충함.
+schema_version: '2.0'
+id: SJU-M15-02
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: proof
+origin: mock_exam
+school: SJU
+type: T07
+variant_of: null
+replaces: null
+level: L4
+form: 추론
+points: 40
+time_estimate_min: 30
+intent: |
+  보조함수로 부등식 $\ln x<\sqrt x$를 증명하고 샌드위치 정리로 $\dfrac{\ln x}{x}\to0$을 보인 뒤, $\dfrac{\ln x}{x}$의 그래프 개형을 이용해 $m^n=n^m$의 자연수 해를 결정하는 능력을 본다.
+key_idea: |
+  $m^n=n^m\iff\dfrac{\ln m}{m}=\dfrac{\ln n}{n}$. $f(x)=\dfrac{\ln x}{x}$는 $(0,e]$에서 증가, $[e,\infty)$에서 감소하므로 $m<e<n$, 즉 $m\in\{1,2\}$이고 $f(2)=f(4)$.
+stuck: |
+  방정식을 $f(m)=f(n)$ 꼴로 바꾸는 것, 그리고 $m<e<n$이어야 함을 단조 구간으로 논증하는 것
+idea_tags: [IDEA-LOG-TRANSFORM-EQUAL-VALUES, IDEA-SQUEEZE-WITH-SQRT]
+tags: [구교육과정, 로그함수 부등식, m^n=n^m]
+elements:
+  materials:
+  - '부등식 $\ln x<\sqrt x$ $(x>0)$'
+  - '함수 $f(x)=\dfrac{\ln x}{x}$ $(x>0)$'
+  - '자연수 방정식 $m^n=n^m$ $(m<n)$'
+  concepts:
+  - '로그함수의 도함수'
+  - '함수의 증가와 감소, 극대·극소'
+  - '이계도함수와 변곡점'
+  - '함수의 극한의 대소 관계'
+  - '그래프의 개형'
+  tools:
+  - '보조함수 $\sqrt x-\ln x$의 최솟값'
+  - '$\ln2<1$ ($2<e$)'
+  - '샌드위치 정리 $0<\dfrac{\ln x}{x}<\dfrac1{\sqrt x}$'
+  - '양변에 자연로그를 취해 $\dfrac{\ln m}{m}=\dfrac{\ln n}{n}$'
+  conditions:
+  - '$f^{\prime}(x)=\dfrac{1-\ln x}{x^2}$, $f^{\prime\prime}(x)=\dfrac{2\ln x-3}{x^3}$'
+  - '$\displaystyle\lim_{x\to0+}f(x)=-\infty$, $\displaystyle\lim_{x\to\infty}f(x)=0$'
+  - '$f(2)=f(4)=\dfrac{\ln2}{2}$'
+  stimuli_used: []
+  subpart_links: '(2-2)는 (2-1)의 부등식을, (2-3)은 (2-2)의 극한을, (2-4)는 (2-3)의 그래프 개형을 사용'
+
+curriculum:
+  version: '2015'
+  subjects: [미적분]
+  scope_2028: calc2
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 함수의 그래프의 개형을 그리고 방정식과 부등식에 활용할 수 있다(요지)
+    verified: false
+  content_area: 미분법
+  behavior_domain: 추론
+  unit_path: [미적분, 미분법, 도함수의 활용, 함수의 그래프]
+  key_concepts:
+  - 로그함수의 도함수
+  - 함수의 증가와 감소, 극대·극소
+  - 이계도함수와 변곡점
+  - 함수의 극한의 대소 관계
+  - 그래프의 개형
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 세종대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 세종대학교
+  admission_year: 2015
+  admission_type: 신입학 관련 모의평가
+  track: 자연계열
+  question_no: 2
+  official_url: https://ipsi.sejong.ac.kr   # [확인 필요] 입학처 자료실의 정확한 게시물 URL로 교체
+  retrieved_at: 2026-11-21
+  original_points: [10, 10, 10, 10]
+  rights_notice: 미확인(대학 원본 PDF 표지 문구 확인 필요)
+  transcribed_from: 대치 수리 논술 연구소 「2027학년도 대비 수리논술 세종대 기출 및 모의 문제」 p.122 + 해설교재 p.203~204 (원본 PDF 이미지 대조 완료 2026-11-21)
+
+verify: verify/SJU-M15.py::p02
+
+stimuli: []
+
+stem: |
+  주어진 단계에 따라, 각 물음에 답하시오.
+
+subparts:
+- id: '1'
+  stem: |
+    $x>0$일 때 $\ln x<\sqrt x$임을 보이시오.
+  points: 10
+  depends_on: []
+  answer: {kind: proof, value: null, equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $g(x)=\sqrt x-\ln x$의 최솟값 $g(4)=2-2\ln2>0$.
+    steps:
+    - {id: 1a, content: '$g^{\prime}(x)=\tfrac{\sqrt x-2}{2x}$, 최솟값 $g(4)=2-2\ln2>0$', criteria: ['1.M1', '1.A1', '1.R1']}
+    hint_ladder:
+    - 두 함수의 차를 새 함수로 두고 최솟값을 구해 보자.
+  - id: S1-B
+    audience: B
+    source_flow: 해설교재 p.203
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        $g(x)=\sqrt x-\ln x$ $(x>0)$로 두면 $g'(x)=\dfrac{1}{2\sqrt x}-\dfrac1x=\dfrac{\sqrt x-2}{2x}$이므로 $g'(4)=0$이다.
+      criteria: ['1.M1']
+    - id: 1b-2
+      content: |
+        $0<x<4$이면 $g'(x)<0$이고 $x>4$이면 $g'(x)>0$이므로 $g$는 $x=4$에서 최솟값을 갖고 $g(x)\ge g(4)$이다.
+      criteria: ['1.A1']
+    - id: 1b-3
+      content: |
+        $g(4)=2-\ln4=2-2\ln2>0$ ($2<e$이므로 $\ln2<1$)이다. 따라서 $x>0$일 때 $\sqrt x-\ln x>0$, 즉 $\ln x<\sqrt x$이다. ■
+      criteria: ['1.R1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 3
+      evidence: |
+        $g(x)=\sqrt x-\ln x$를 두고 $g^{\prime}(x)=\dfrac{\sqrt x-2}{2x}$를 구했다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1]
+    - id: 1.A1
+      mark_type: A
+      points: 3
+      evidence: |
+        증감으로 $x=4$에서 최소임을 밝혔다.
+      depends_on: [1.M1]
+      steps: [1b-2]
+    - id: 1.R1
+      mark_type: R
+      points: 4
+      evidence: |
+        $g(4)=2-2\ln2>0$을 $\ln2<1$ 근거와 함께 보여 결론지었다.
+      depends_on: [1.A1]
+      steps: [1b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-PRF-0011}
+  misconceptions:
+  - id: MC-PRF-0011
+    outcome_code: '71'
+    wrong_work: '$\ln4\approx1.39<2$ 등 몇 개의 $x$에 대입해 성립한다고 씀'
+    detect_cue: 최솟값 논의 없이 수치 대입만 있다
+    feedback: 몇 점의 확인은 증명이 아닙니다. 차함수의 최솟값이 양수임을 보이세요.
+    remedy: [RL-1]
+
+- id: '2'
+  stem: |
+    (2-1)을 이용하여 $\displaystyle\lim_{x\to\infty}\dfrac{\ln x}{x}=0$임을 보이시오.
+  points: 10
+  depends_on: ['1']
+  answer: {kind: proof, value: null, equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: $x>1$에서 $0<\dfrac{\ln x}{x}<\dfrac{1}{\sqrt x}\to0$.
+    steps:
+    - {id: 2a, content: '$0<\tfrac{\ln x}{x}<\tfrac{1}{\sqrt x}$ ⇒ 극한 $0$', criteria: ['2.M1', '2.R1']}
+    hint_ladder:
+    - (2-1)의 양변을 $x$로 나누어 보자.
+  - id: S2-B
+    audience: B
+    source_flow: 해설교재 p.203
+    method_no: 1
+    steps:
+    - id: 2b-1
+      content: |
+        $x>1$일 때 $\ln x>0$이고 (2-1)에서 $\ln x<\sqrt x$이므로 $0<\dfrac{\ln x}{x}<\dfrac{\sqrt x}{x}=\dfrac{1}{\sqrt x}$이다.
+      criteria: ['2.M1']
+    - id: 2b-2
+      content: |
+        $\displaystyle\lim_{x\to\infty}0=0$, $\displaystyle\lim_{x\to\infty}\dfrac1{\sqrt x}=0$이므로 함수의 극한의 대소 관계에 의해 $\displaystyle\lim_{x\to\infty}\dfrac{\ln x}{x}=0$이다. ■
+      criteria: ['2.R1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 5
+      evidence: |
+        (2-1)에서 $0<\dfrac{\ln x}{x}<\dfrac1{\sqrt x}$($x>1$)를 이끌었다.
+      depends_on: []
+      implied_ok: false
+      ft: {allowed: true, from: [1.R1], max_points: 5}
+      steps: [2b-1]
+    - id: 2.R1
+      mark_type: R
+      points: 5
+      evidence: |
+        양쪽 극한이 $0$임과 대소 관계(샌드위치)를 근거로 결론을 적었다.
+      depends_on: [2.M1]
+      steps: [2b-2]
+    deductions:
+    - code: D2-1
+      condition: 로피탈 정리 등 교육과정 밖 도구로만 보이고 (2-1)을 쓰지 않음
+      effect: cap
+      value: 2
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '79', meaning: '로피탈 정리로 답함((2-1) 미사용·교육과정 밖)'}
+  misconceptions: []
+
+- id: '3'
+  stem: |
+    함수 $f(x)=\dfrac{\ln x}{x}$ $(x>0)$의 그래프의 개형을 그리고, 극대, 극소 또는 변곡점이 있으면 해당되는 점의 $x$좌표를 모두 구하시오.
+  points: 10
+  depends_on: ['2']
+  answer: {kind: expression, value: 'local_max_x = E; inflection_x = exp(3/2)', equivalents: [], tolerance: null}
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: $f^{\prime}=\dfrac{1-\ln x}{x^2}$, $f^{\prime\prime}=\dfrac{2\ln x-3}{x^3}$. 극대 $x=e$, 극소 없음, 변곡점 $x=e^{3/2}$.
+    steps:
+    - {id: 3a, content: '극대 $x=e$($f(e)=\tfrac1e$), 변곡점 $x=e^{\frac32}$, $\lim_{x\to0+}f=-\infty$, $\lim_{x\to\infty}f=0$', criteria: ['3.M1', '3.A1', '3.A2', '3.B1']}
+    hint_ladder:
+    - $f^{\prime}$과 $f^{\prime\prime}$의 부호를 표로 정리하자.
+  - id: S3-B
+    audience: B
+    source_flow: 해설교재 p.204
+    method_no: 1
+    steps:
+    - id: 3b-1
+      content: |
+        $f'(x)=\dfrac{1-\ln x}{x^2}$, $f''(x)=\dfrac{2\ln x-3}{x^3}$이다.
+      criteria: ['3.M1']
+    - id: 3b-2
+      content: |
+        $0<x<e$에서 $f'>0$, $x>e$에서 $f'<0$이므로 $x=e$에서 극대(극댓값 $f(e)=\dfrac1e$)이고 극소는 없다.
+      criteria: ['3.A1']
+    - id: 3b-3
+      content: |
+        $0<x<e^{\frac32}$에서 $f''<0$, $x>e^{\frac32}$에서 $f''>0$이므로 변곡점은 $\left(e^{\frac32},\dfrac{3}{2e^{\frac32}}\right)$이다.
+      criteria: ['3.A2']
+    - id: 3b-4
+      content: |
+        $\displaystyle\lim_{x\to0+}f(x)=-\infty$, (2-2)에서 $\displaystyle\lim_{x\to\infty}f(x)=0$이고 $f(1)=0$이므로, 그래프는 $x\to0+$에서 아래로 한없이 내려가다 $(1,0)$을 지나 $x=e$에서 최고점에 이른 뒤 감소하며, $x=e^{\frac32}$에서 오목이 바뀌어 $x$축에 점근한다.
+      criteria: ['3.B1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 3
+      evidence: |
+        $f^{\prime}(x)$와 $f^{\prime\prime}(x)$를 바르게 구했다.
+      depends_on: []
+      implied_ok: false
+      steps: [3b-1]
+    - id: 3.A1
+      mark_type: A
+      points: 2
+      evidence: |
+        극대 $x=e$, 극소 없음을 적었다.
+      depends_on: [3.M1]
+      steps: [3b-2]
+    - id: 3.A2
+      mark_type: A
+      points: 2
+      evidence: |
+        변곡점의 $x$좌표 $e^{\frac32}$를 적었다.
+      depends_on: [3.M1]
+      steps: [3b-3]
+    - id: 3.B1
+      mark_type: B
+      points: 3
+      evidence: |
+        양 끝 극한($-\infty$, $0$), $x$절편 $1$, 증감·오목을 반영한 개형을 그렸다.
+      depends_on: []
+      ft: {allowed: true, from: [2.R1], max_points: 3}
+      steps: [3b-4]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '79', meaning: '변곡점 누락 또는 $x\to\infty$에서 $x$축에 점근함을 반영하지 않은 개형'}
+  misconceptions: []
+
+- id: '4'
+  stem: |
+    (2-3)을 이용하여 다음 방정식의 자연수 해는 $m=2$, $n=4$뿐임을 보이시오.
+    $$m^n=n^m\quad(\text{단, }m<n\text{이다.})$$
+  points: 10
+  depends_on: ['3']
+  answer: {kind: proof, value: null, equivalents: [], tolerance: null}
+  solutions:
+  - id: S4-A
+    audience: A
+    method_no: 1
+    key_idea: $f(m)=f(n)$, $m<n$이면 $m<e<n$ ⇒ $m=1$ 또는 $2$, $m=1$ 불가, $m=2$면 $n=4$.
+    steps:
+    - {id: 4a, content: '$\tfrac{\ln m}{m}=\tfrac{\ln n}{n}$, $m<e<n$, $f(2)=f(4)$, $[e,\infty)$에서 $f$ 일대일', criteria: ['4.M1', '4.R1', '4.A1']}
+    hint_ladder:
+    - 양변에 자연로그를 취해 $f(x)=\tfrac{\ln x}{x}$의 같은 값 문제로 바꾸자.
+    - $m$과 $n$이 모두 $e$보다 작거나 모두 크면 어떤가?
+  - id: S4-B
+    audience: B
+    source_flow: 해설교재 p.204
+    method_no: 1
+    steps:
+    - id: 4b-1
+      content: |
+        양변에 자연로그를 취하면($\ln$은 일대일) $m^n=n^m\iff n\ln m=m\ln n\iff\dfrac{\ln m}{m}=\dfrac{\ln n}{n}$, 즉 $f(m)=f(n)$이다. 또 $\dfrac{\ln4}{4}=\dfrac{2\ln2}{4}=\dfrac{\ln2}{2}$이므로 $(m,n)=(2,4)$는 해이다.
+      criteria: ['4.M1']
+    - id: 4b-2
+      content: |
+        (2-3)에서 $f$는 $(0,e]$에서 증가, $[e,\infty)$에서 감소한다. $m<n$이 같은 구간에 있으면 $f(m)\ne f(n)$이므로 $m<e<n$이고 $m$은 $1$ 또는 $2$이다. $m=1$이면 $f(1)=0$이지만 $n>1$에서 $f(n)>0$이므로 불가능하다.
+      criteria: ['4.R1']
+    - id: 4b-3
+      content: |
+        $m=2$이면 $f(n)=f(2)=f(4)$이고 $n$, $4$가 모두 $[e,\infty)$에 있으며 $f$는 이 구간에서 일대일이므로 $n=4$이다. 따라서 자연수 해는 $m=2$, $n=4$뿐이다. ■
+      criteria: ['4.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 4.M1
+      mark_type: M
+      points: 3
+      evidence: |
+        로그를 취해 $\dfrac{\ln m}{m}=\dfrac{\ln n}{n}$으로 바꾸고 $f(2)=f(4)$를 확인했다.
+      depends_on: []
+      implied_ok: false
+      steps: [4b-1]
+    - id: 4.R1
+      mark_type: R
+      points: 4
+      evidence: |
+        $f$의 증감으로 $m<e<n$을 이끌고 $m=1$을 배제했다.
+      depends_on: [4.M1]
+      ft: {allowed: true, from: [3.A1], max_points: 4}
+      steps: [4b-2]
+    - id: 4.A1
+      mark_type: A
+      points: 3
+      evidence: |
+        $[e,\infty)$에서 $f$가 일대일임을 근거로 $n=4$가 유일함을 결론지었다.
+      depends_on: [4.R1]
+      steps: [4b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-3188}
+  misconceptions:
+  - id: MC-CAL-3188
+    outcome_code: '71'
+    wrong_work: '그래프를 그려 보니 $\tfrac{\ln2}{2}=\tfrac{\ln4}{4}$인 점만 보이므로 $(2,4)$뿐이다'
+    detect_cue: $m<e<n$ 논증과 $m=1$ 배제가 없다
+    feedback: 그래프는 논증의 근거로 쓰되, 증가·감소 구간에서 $m<e<n$이 되어야 하는 이유와 $m=1$이 안 되는 이유를 적으세요.
+    remedy: [RL-2]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-PRF-0011}
+  relation: remediation
+  target: {kind: concept, ref: CON-PRF-EQUIV-CHAIN}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-CAL-3188}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-EXTREMA-JUSTIFY}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

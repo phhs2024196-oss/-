@@ -1,0 +1,328 @@
+# 세종대 2020학년도 논술 모의평가(자연계열) 문제 3 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: SJU-M20-03
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: SJU
+type: T03
+variant_of: null
+replaces: null
+level: L5
+form: 추론
+points: 240
+time_estimate_min: 40
+intent: |
+  원점까지의 거리와 기울기의 곱이 일정하다는 조건으로 곡선의 관계식을 세우고, $x$를 $y$의 함수로 나타내 역함수의 미분으로 상수를 결정하며, $y=f(x)$ 치환으로 정적분을 계산하는 능력을 본다.
+key_idea: |
+  $d(x)m(x)=c$에서 $x^2y^2+y^4=c^2x^2$, 즉 $x=\dfrac{y^2}{\sqrt{c^2-y^2}}$. $y=1$에서 $\dfrac{dx}{dy}=3$으로 $c=\sqrt2$.
+stuck: |
+  관계식을 $y$에 대해 풀지 않고 $x$를 $y$의 식으로 표현해 $\dfrac{dx}{dy}=\dfrac{1}{f'(x)}$로 조건 (나)를 쓰는 발상, (3-3)에서 $y=f(x)$로 치환해 $x^2=\dfrac{y^4}{2-y^2}$을 대입하는 점
+idea_tags: [IDEA-INVERSE-AS-FUNCTION-OF-Y, IDEA-SUBSTITUTE-Y-EQUALS-F]
+tags: [역함수의 미분, 치환적분, 점과 직선 사이의 거리]
+
+elements:
+  materials:
+  - '양수 함수 $y=f(x)$ ($x>0$) 위의 점 P와 원점 O'
+  - '$d(x)=\overline{\mathrm{OP}}$, $m(x)=$ 직선 OP의 기울기'
+  - '접선의 기울기가 $\tfrac13$인 점 $(a,1)$'
+  concepts:
+  - '두 점 사이의 거리'
+  - '역함수의 미분법'
+  - '접선의 방정식'
+  - '점과 직선 사이의 거리'
+  - '치환적분법'
+  tools:
+  - '$d(x)m(x)=c$를 제곱해 $x^2y^2+y^4=c^2x^2$'
+  - '$x=\dfrac{y^2}{\sqrt{c^2-y^2}}$의 $y$에 대한 미분'
+  - '$(c^2-2)(9c^4-13c^2+5)=0$에서 판별식으로 $c^2=2$'
+  - '치환 $y=f(x)$, $f''(x)\,dx=dy$'
+  conditions:
+  - '$x>0$, $f(x)>0$'
+  - '(나): $y=1$에서 $\dfrac{dy}{dx}=\dfrac13$, 즉 $\dfrac{dx}{dy}=3$'
+  - '$f(1)=1$, $f\!\left(\tfrac{1}{\sqrt6}\right)=\tfrac{1}{\sqrt2}$'
+  stimuli_used: []
+  subpart_links: '(3-2)는 (3-1)의 $c=\sqrt2$를, (3-3)은 (3-2)의 두 점 $(1,1)$, $\left(\tfrac1{\sqrt6},\tfrac1{\sqrt2}\right)$을 사용'
+
+curriculum:
+  version: '2015'
+  subjects: [미적분]
+  scope_2028: calc2
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 역함수의 미분법과 치환적분법을 이해하고 이를 활용할 수 있다(요지)
+    verified: false
+  content_area: 미분법 / 적분법
+  behavior_domain: 문제해결
+  unit_path: [미적분, 미분법, 여러 가지 미분법, 역함수의 미분법]
+  key_concepts: [두 점 사이의 거리, 역함수의 미분법, 접선의 방정식, 점과 직선 사이의 거리, 치환적분법]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 세종대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 세종대학교
+  admission_year: 2020
+  admission_type: 수시 모의논술
+  track: 자연계열
+  question_no: 3
+  official_url: https://ipsi.sejong.ac.kr   # [확인 필요] 입학처 자료실의 정확한 게시물 URL로 교체
+  retrieved_at: 2026-11-21
+  original_points: [80, 80, 80]
+  rights_notice: 미확인(대학 원본 PDF 표지 문구 확인 필요)
+  transcribed_from: 대치 수리 논술 연구소 「2027학년도 대비 수리논술 세종대 기출 및 모의 문제」 p.81 + 해설교재 p.143 (원본 PDF 이미지 대조 완료 2026-11-21)
+
+verify: verify/SJU-M20.py::p03
+
+stimuli: []
+
+stem: |
+  $x>0$에서 정의된 함수 $f(x)$는 항상 $f(x)>0$이며 모든 점에서 미분가능하다. 곡선 $y=f(x)$의 한 점 $\mathrm{P}(x,y)$에서 원점 $\mathrm{O}$까지의 거리를 $d(x)$, 직선 $\mathrm{OP}$의 기울기를 $m(x)$이라 할 때 다음이 성립한다.
+  (가) $x>0$에서 $d(x)m(x)$는 상수함수이다.
+  (나) $y=f(x)$의 어떤 점 $(a,1)$에서의 접선의 기울기는 $\dfrac13$이다. (단, $a$는 상수)
+  다음 물음에 각각 답하시오.
+
+subparts:
+- id: '1'
+  stem: |
+    (가)에서 $d(x)m(x)$의 값을 구하시오.
+  points: 80
+  depends_on: []
+  answer: {kind: value, value: 'sqrt(2)', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $x=\dfrac{y^2}{\sqrt{c^2-y^2}}$, $\dfrac{dx}{dy}\Big|_{y=1}=\dfrac{2c^2-1}{(c^2-1)^{3/2}}=3$.
+    steps:
+    - {id: 1a, content: '$(2c^2-1)^2=9(c^2-1)^3\Rightarrow(c^2-2)(9c^4-13c^2+5)=0\Rightarrow c=\sqrt2$', criteria: ['1.M1', '1.A1', '1.M2', '1.A2']}
+    hint_ladder:
+    - $d(x)=\sqrt{x^2+y^2}$, $m(x)=\tfrac yx$이다.
+    - 관계식을 $x$에 대해 풀면 $x$는 $y$의 함수가 된다.
+    - 접선의 기울기 $\tfrac13$을 $\tfrac{dx}{dy}$로 바꾸자.
+  - id: S1-B
+    audience: B
+    source_flow: 해설교재 p.143
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        $d(x)m(x)=c$라 두면 $d(x)=\sqrt{x^2+y^2}$, $m(x)=\dfrac yx$이므로 $x^2y^2+y^4=c^2x^2$이다.
+      criteria: ['1.M1']
+    - id: 1b-2
+      content: |
+        따라서 $x=\dfrac{y^2}{\sqrt{c^2-y^2}}$이고 $\dfrac{dx}{dy}=\dfrac{y^3+2y(c^2-y^2)}{\sqrt{(c^2-y^2)^3}}$이다.
+      criteria: ['1.A1']
+    - id: 1b-3
+      content: |
+        (나)에서 $y=1$일 때 $\dfrac{dx}{dy}=3$이므로 $2c^2-1=3(c^2-1)\sqrt{c^2-1}$이다.
+      criteria: ['1.M2']
+    - id: 1b-4
+      content: |
+        양변을 제곱해 정리하면 $(c^2-2)(9c^4-13c^2+5)=0$이고 $9c^4-13c^2+5>0$이므로(판별식 음수) $c^2=2$, $c=d(x)m(x)=\sqrt2$이다.
+      criteria: ['1.A2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 20
+      evidence: |
+        $d$, $m$을 대입해 $x^2y^2+y^4=c^2x^2$을 세웠다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1]
+    - id: 1.A1
+      mark_type: A
+      points: 20
+      evidence: |
+        $x=\dfrac{y^2}{\sqrt{c^2-y^2}}$과 $\dfrac{dx}{dy}$를 구했다(또는 음함수 미분으로 동치식).
+      depends_on: [1.M1]
+      steps: [1b-2]
+    - id: 1.M2
+      mark_type: M
+      points: 20
+      evidence: |
+        (나)를 $y=1$에서 $\dfrac{dx}{dy}=3$(또는 $\dfrac{dy}{dx}=\dfrac13$)으로 적용했다.
+      depends_on: [1.A1]
+      steps: [1b-3]
+    - id: 1.A2
+      mark_type: A
+      points: 20
+      evidence: |
+        인수분해와 $9c^4-13c^2+5>0$의 근거로 $c=\sqrt2$를 얻었다.
+      depends_on: [1.M2]
+      steps: [1b-4]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-3118}
+  misconceptions:
+  - id: MC-CAL-3118
+    outcome_code: '71'
+    wrong_work: '$x=\dfrac{y^2}{\sqrt{c^2-y^2}}$을 미분한 $\dfrac{dx}{dy}$를 $\dfrac13$로 놓음'
+    detect_cue: 접선의 기울기 $\tfrac{dy}{dx}$와 $\tfrac{dx}{dy}$를 바꿔 썼다
+    feedback: 접선의 기울기는 $\tfrac{dy}{dx}$입니다. $x$를 $y$로 미분했다면 그 역수가 $\tfrac13$, 즉 $\tfrac{dx}{dy}=3$입니다.
+    remedy: [RL-1]
+
+- id: '2'
+  stem: |
+    (나)의 점 $(a,1)$에서 곡선 $y=f(x)$에 대한 접선의 방정식을 구하고, 이 접선과 점 $\left(\dfrac1{\sqrt6},f\!\left(\dfrac1{\sqrt6}\right)\right)$ 사이의 거리를 구하시오.
+  points: 80
+  depends_on: ['1']
+  answer: {kind: expression, value: 'tangent: x - 3*y + 2 = 0; distance = (6*sqrt(10) + sqrt(15) - 9*sqrt(5))/30', equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: $x^2f^2+f^4=2x^2$에서 $a=1$, $f\!\left(\tfrac1{\sqrt6}\right)=\tfrac1{\sqrt2}$.
+    steps:
+    - {id: 2a, content: '$x-3y+2=0$, 거리 $\tfrac{\lvert1/\sqrt6-3/\sqrt2+2\rvert}{\sqrt{10}}=\tfrac1{30}(6\sqrt{10}+\sqrt{15}-9\sqrt5)$', criteria: ['2.M1', '2.A1', '2.A2', '2.A3']}
+    hint_ladder:
+    - $f(a)=1$을 관계식에 넣어 $a$를 구하자.
+    - $f\!\left(\tfrac1{\sqrt6}\right)$도 같은 관계식에서 구한다.
+  - id: S2-B
+    audience: B
+    source_flow: 해설교재 p.143
+    method_no: 1
+    steps:
+    - id: 2b-1
+      content: |
+        (3-1)에서 $x^2f(x)^2+f(x)^4=2x^2$이다. $a>0$, $f(a)=1$이므로 $a^2+1=2a^2$, $a=1$.
+      criteria: ['2.M1']
+    - id: 2b-2
+      content: |
+        $x=\dfrac1{\sqrt6}$이면 $\dfrac16f^2+f^4=\dfrac13$에서 $f^2=\dfrac12$이므로 $f\!\left(\dfrac1{\sqrt6}\right)=\dfrac1{\sqrt2}$.
+      criteria: ['2.A1']
+    - id: 2b-3
+      content: |
+        접선은 $y-1=\dfrac13(x-1)$, 즉 $x-3y+2=0$이다.
+      criteria: ['2.A2']
+    - id: 2b-4
+      content: |
+        거리는 $\dfrac{\left\lvert\frac1{\sqrt6}-\frac3{\sqrt2}+2\right\rvert}{\sqrt{1^2+(-3)^2}}=\dfrac1{30}\lvert6\sqrt{10}+\sqrt{15}-9\sqrt5\rvert=\dfrac1{30}(6\sqrt{10}+\sqrt{15}-9\sqrt5)$이다.
+      criteria: ['2.A3']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 20
+      evidence: |
+        (3-1)의 관계식에 $f(a)=1$을 넣어 $a=1$을 구했다.
+      depends_on: []
+      implied_ok: false
+      ft: {allowed: true, from: [1.A2], max_points: 20}
+      steps: [2b-1]
+    - id: 2.A1
+      mark_type: A
+      points: 20
+      evidence: |
+        $f\!\left(\tfrac1{\sqrt6}\right)=\tfrac1{\sqrt2}$을 구했다.
+      depends_on: [2.M1]
+      steps: [2b-2]
+    - id: 2.A2
+      mark_type: A
+      points: 20
+      evidence: |
+        접선 $x-3y+2=0$을 얻었다.
+      depends_on: [2.M1]
+      steps: [2b-3]
+    - id: 2.A3
+      mark_type: A
+      points: 20
+      evidence: |
+        거리 $\dfrac1{30}(6\sqrt{10}+\sqrt{15}-9\sqrt5)$(또는 동치식)를 얻었다.
+      depends_on: [2.A1, 2.A2]
+      implied_ok: true
+      steps: [2b-4]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '3'
+  stem: |
+    $\displaystyle\int_{1/\sqrt6}^1\frac{x^2}{f(x)^3}f'(x)\,dx$의 값을 구하시오.
+  points: 80
+  depends_on: ['2']
+  answer: {kind: value, value: 'log(3/2)/2', equivalents: ['(log(3)-log(2))/2'], tolerance: null}
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: $y=f(x)$로 치환하면 $\dfrac{x^2}{y^3}=\dfrac{y}{2-y^2}$, 구간 $\tfrac1{\sqrt2}\to1$.
+    steps:
+    - {id: 3a, content: '$\int_{1/\sqrt2}^1\tfrac{y}{2-y^2}dy=\tfrac12\ln\tfrac32$', criteria: ['3.M1', '3.A1', '3.A2']}
+    hint_ladder:
+    - $f'(x)\,dx$가 보이면 $y=f(x)$로 치환하자.
+    - $x^2$을 $y$로 나타내는 식은 (3-1)에서 얻었다.
+  - id: S3-B
+    audience: B
+    source_flow: 해설교재 p.143
+    method_no: 1
+    steps:
+    - id: 3b-1
+      content: |
+        (3-2)에서 곡선은 $\left(\tfrac1{\sqrt6},\tfrac1{\sqrt2}\right)$과 $(1,1)$을 지난다. $y=f(x)$로 치환하면 $f'(x)\,dx=dy$이다.
+      criteria: ['3.M1']
+    - id: 3b-2
+      content: |
+        $x^2=\dfrac{y^4}{2-y^2}$이므로 $\displaystyle\int_{1/\sqrt6}^1\frac{x^2}{f(x)^3}f'(x)\,dx=\int_{1/\sqrt2}^1\frac{y}{2-y^2}\,dy$.
+      criteria: ['3.A1']
+    - id: 3b-3
+      content: |
+        $=\left[-\dfrac12\ln(2-y^2)\right]_{1/\sqrt2}^1=\dfrac12\ln\dfrac32$.
+      criteria: ['3.A2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 25
+      evidence: |
+        $y=f(x)$ 치환과 적분 구간 $\tfrac1{\sqrt2}\to1$을 적었다.
+      depends_on: []
+      implied_ok: false
+      ft: {allowed: true, from: [2.A1], max_points: 25}
+      steps: [3b-1]
+    - id: 3.A1
+      mark_type: A
+      points: 30
+      evidence: |
+        $x^2=\dfrac{y^4}{2-y^2}$을 대입해 피적분함수를 $\dfrac{y}{2-y^2}$로 바꾸었다.
+      depends_on: [3.M1]
+      steps: [3b-2]
+    - id: 3.A2
+      mark_type: A
+      points: 25
+      evidence: |
+        $\dfrac12\ln\dfrac32$을 얻었다.
+      depends_on: [3.A1]
+      implied_ok: true
+      steps: [3b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CAL-3118}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-INVERSE-DIFF}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

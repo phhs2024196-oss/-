@@ -1,0 +1,367 @@
+# 세종대 2017학년도 수시 논술고사[A](자연계열) 문제 1 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: SJU-G17A-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: SJU
+type: T10
+variant_of: null
+replaces: null
+level: L3
+form: 추론
+points: 180
+time_estimate_min: 25
+intent: |
+  곡선의 길이 공식으로 현수선의 호의 길이 함수를 구하고, 속력을 적분한 이동 거리(곡선 위 위치)를 비교해 두 점이 만나는 횟수를 삼차방정식의 실근 개수로 판정하는 능력을 본다.
+key_idea: |
+  $1+\{f'(x)\}^2=\left(\dfrac{e^x+e^{-x}}{2}\right)^2$이므로 호의 길이가 $\dfrac{e^x-e^{-x}}{2}$로 깔끔해지고, 두 점이 만나는 것은 $(0,1)$로부터의 곡선 길이가 같아지는 것과 같다.
+stuck: |
+  곡선 위를 같은 방향으로 움직이는 두 점이 만나는 조건을 '기준점 $(0,1)$에서 잰 곡선의 길이가 같다'로 바꾸는 발상
+idea_tags: [IDEA-ARC-LENGTH-POSITION, IDEA-CUBIC-ROOT-COUNT-EXTREMA]
+tags: [구교육과정, 곡선의 길이, 현수선, 속력과 이동 거리]
+elements:
+  materials:
+  - '현수선 $y=\tfrac12(e^x+e^{-x})$'
+  - '곡선 위를 같은 방향으로 움직이는 두 점 P, Q'
+  - '이차식 속력 함수 $u(t)$, $v(t)$'
+  concepts:
+  - '곡선의 길이'
+  - '속도와 거리'
+  - '지수함수의 미분'
+  - '삼차방정식의 실근 개수'
+  tools:
+  - '$1+\left(\tfrac{e^x-e^{-x}}{2}\right)^2=\left(\tfrac{e^x+e^{-x}}{2}\right)^2$ 완전제곱'
+  - '$e^x$ 치환 이차방정식 $e^{2x}-6e^x-1=0$'
+  - '속력의 정적분으로 곡선 위 위치(기준점에서의 길이) 표현'
+  - '극값의 부호와 사잇값 정리로 실근 개수 판정'
+  conditions:
+  - '두 점 모두 $x$좌표 증가 방향 ⇒ 기준점 $(0,1)$에서 잰 곡선 길이가 같으면 같은 점'
+  - 'Q는 제1사분면 ⇒ $x>0$, $e^x>0$인 근 선택'
+  - '시각 $0$에서 Q까지 길이 3 ⇒ Q의 위치 = $3+\int_0^tv$'
+  - '$t\ge0$ 제한 ⇒ $g(0)$의 부호도 확인'
+  stimuli_used: []
+  subpart_links: '(1-2)는 (1-1)의 호의 길이 계산을 일반화, (1-3)은 (1-2)의 초기 길이 3을 사용'
+
+curriculum:
+  version: '2015'
+  subjects: [미적분]
+  scope_2028: calc2
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 속도와 거리에 대한 문제를 해결할 수 있다(곡선의 길이 포함, 요지)
+    verified: false
+  content_area: 적분법 – 정적분의 활용
+  behavior_domain: 문제해결
+  unit_path: [미적분, 적분법, 정적분의 활용, 속도와 거리]
+  key_concepts: [곡선의 길이, 속도와 거리, 지수함수의 미분, 삼차방정식의 실근 개수]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 세종대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 세종대학교
+  admission_year: 2017
+  admission_type: 수시 논술고사[A]
+  track: 자연계열
+  question_no: 1
+  official_url: https://ipsi.sejong.ac.kr   # [확인 필요] 입학처 자료실의 정확한 게시물 URL로 교체
+  retrieved_at: 2026-11-21
+  original_points: [60, 60, 60]
+  rights_notice: 미확인(대학 원본 PDF 표지 문구 확인 필요)
+  transcribed_from: 대치 수리 논술 연구소 「2027학년도 대비 수리논술 세종대 기출 및 모의 문제」 p.100 + 해설교재 p.170 (원본 PDF 이미지 대조 완료 2026-11-21)
+
+verify: verify/SJU-G17A.py::p01
+
+stimuli: []
+
+stem: |
+  아래 글을 읽고, 각 물음에 답하시오.
+
+  좌표평면에 곡선 $C:y=\dfrac12(e^x+e^{-x})$이 있다. 점 $\mathrm{P}$와 $\mathrm{Q}$는 곡선 $C$ 위에서 시각 $t$가 증가할 때 $x$좌표가 증가하는 방향으로 움직인다. 시각 $t=0$일 때, 점 $\mathrm{P}$와 $\mathrm{Q}$는 다음을 만족시킨다.
+  (가) 점 $\mathrm{P}$의 좌표는 $(0,1)$이다.
+  (나) 점 $\mathrm{Q}$는 제1사분면에 위치한다.
+  (다) 점 $(0,1)$로부터 $\mathrm{Q}$까지의 $C$의 길이는 $3$이다.
+
+subparts:
+- id: '1'
+  stem: |
+    곡선 $C$의 $x=0$에서 $x=1$까지의 길이를 구하시오.
+  points: 60
+  depends_on: []
+  answer: {kind: value, value: '(exp(1) - exp(-1))/2', equivalents: ['(E - 1/E)/2'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $1+\{f'(x)\}^2$가 $\left(\dfrac{e^x+e^{-x}}{2}\right)^2$으로 완전제곱이 된다.
+    steps:
+    - {id: 1a, content: '$\int_0^1\sqrt{1+\{f^{\prime}(x)\}^2}\,dx=\int_0^1\tfrac{e^x+e^{-x}}{2}dx=\tfrac12\left(e-\tfrac1e\right)$', criteria: ['1.M1', '1.A1', '1.A2']}
+    hint_ladder:
+    - 곡선 $y=f(x)$의 길이 공식은 무엇인가?
+    - $1+\left(\dfrac{e^x-e^{-x}}{2}\right)^2$을 전개해 보자.
+  - id: S1-B
+    audience: B
+    source_flow: 해설교재 p.170
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        $f(x)=\dfrac12(e^x+e^{-x})$라 하면 $f'(x)=\dfrac{e^x-e^{-x}}{2}$이고, 구하는 길이는 $\displaystyle\int_0^1\sqrt{1+\{f'(t)\}^2}\,dt$이다.
+      criteria: ['1.M1']
+    - id: 1b-2
+      content: |
+        $1+\left(\dfrac{e^t-e^{-t}}{2}\right)^2=\dfrac{e^{2t}+2+e^{-2t}}{4}=\left(\dfrac{e^t+e^{-t}}{2}\right)^2$이므로 피적분함수는 $\dfrac{e^t+e^{-t}}{2}$이다.
+      criteria: ['1.A1']
+    - id: 1b-3
+      content: |
+        $\displaystyle\int_0^1\dfrac{e^t+e^{-t}}{2}\,dt=\left[\dfrac{e^t-e^{-t}}{2}\right]_0^1=\dfrac12\left(e-\dfrac1e\right)$.
+      criteria: ['1.A2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 20
+      evidence: |
+        곡선의 길이 $\displaystyle\int_0^1\sqrt{1+\{f'(t)\}^2}\,dt$를 세웠다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1]
+    - id: 1.A1
+      mark_type: A
+      points: 20
+      evidence: |
+        근호 안을 $\left(\dfrac{e^t+e^{-t}}{2}\right)^2$으로 정리했다.
+      depends_on: [1.M1]
+      steps: [1b-2]
+    - id: 1.A2
+      mark_type: A
+      points: 20
+      evidence: |
+        길이 $\dfrac12\left(e-\dfrac1e\right)$을 얻었다.
+      depends_on: [1.M1, 1.A1]
+      steps: [1b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-3150}
+  misconceptions:
+  - id: MC-CAL-3150
+    outcome_code: '71'
+    wrong_work: '$\int_0^1\sqrt{1+f(x)^2}\,dx$ 또는 $\int_0^1 f(x)\,dx$로 길이를 계산'
+    detect_cue: 근호 안에 도함수 $f'$이 없다
+    feedback: 곡선의 길이는 $\int\sqrt{1+\{f'(x)\}^2}\,dx$입니다. 함숫값이 아니라 기울기가 들어갑니다.
+    remedy: [RL-1]
+
+- id: '2'
+  stem: |
+    시각 $t=0$일 때, 점 $\mathrm{Q}$의 좌표를 구하시오.
+  points: 60
+  depends_on: ['1']
+  answer: {kind: expression, value: '(log(3 + sqrt(10)), sqrt(10))', equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: (1)과 같은 계산으로 $(0,1)$에서 $(x,f(x))$까지의 길이가 $\dfrac{e^x-e^{-x}}{2}$이므로 이것을 $3$으로 놓는다.
+    steps:
+    - {id: 2a, content: '$\tfrac{e^x-e^{-x}}{2}=3\Rightarrow e^x=3+\sqrt{10}$, $y=\tfrac12(e^x+e^{-x})=\sqrt{10}$', criteria: ['2.M1', '2.M2', '2.A1', '2.A2']}
+    hint_ladder:
+    - $(0,1)$에서 $(x,f(x))$까지의 길이를 $x$의 식으로 나타내 보자.
+    - $e^x=X$로 두면 어떤 방정식이 되는가?
+  - id: S2-B
+    audience: B
+    source_flow: 해설교재 p.170
+    method_no: 1
+    steps:
+    - id: 2b-1
+      content: |
+        $x>0$일 때 점 $(0,1)$에서 점 $(x,f(x))$까지의 곡선의 길이는 (1)과 같은 계산으로
+        $\displaystyle\int_0^x\dfrac{e^t+e^{-t}}{2}\,dt=\dfrac{e^x-e^{-x}}{2}$이다.
+      criteria: ['2.M1']
+    - id: 2b-2
+      content: |
+        $\dfrac12(e^x-e^{-x})=3$의 양변에 $2e^x$를 곱하면 $e^{2x}-6e^x-1=0$이다.
+      criteria: ['2.M2']
+    - id: 2b-3
+      content: |
+        $e^x>0$이므로 $e^x=3+\sqrt{10}$, 즉 $x=\ln(3+\sqrt{10})$이다($x>0$으로 제1사분면 조건도 만족).
+      criteria: ['2.A1']
+    - id: 2b-4
+      content: |
+        $e^{-x}=\dfrac{1}{3+\sqrt{10}}=\sqrt{10}-3$이므로 $y=\dfrac12\{(3+\sqrt{10})+(\sqrt{10}-3)\}=\sqrt{10}$. 따라서 $\mathrm{Q}(\ln(3+\sqrt{10}),\,\sqrt{10})$이다.
+      criteria: ['2.A2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 20
+      evidence: |
+        $(0,1)$에서 $(x,f(x))$까지의 길이를 $\dfrac{e^x-e^{-x}}{2}$(또는 동치 적분식)로 나타냈다.
+      depends_on: []
+      implied_ok: false
+      ft: {allowed: true, from: [1.A1], max_points: 20}
+      steps: [2b-1]
+    - id: 2.M2
+      mark_type: M
+      points: 15
+      evidence: |
+        길이 $=3$에서 $e^x$에 관한 이차방정식 $e^{2x}-6e^x-1=0$을 세웠다.
+      depends_on: [2.M1]
+      steps: [2b-2]
+    - id: 2.A1
+      mark_type: A
+      points: 15
+      evidence: |
+        $e^x>0$ 근거로 $x=\ln(3+\sqrt{10})$을 택했다.
+      depends_on: [2.M2]
+      steps: [2b-3]
+    - id: 2.A2
+      mark_type: A
+      points: 10
+      evidence: |
+        $y=\sqrt{10}$을 구해 $\mathrm{Q}(\ln(3+\sqrt{10}),\sqrt{10})$을 제시했다.
+      depends_on: [2.M2, 2.A1]
+      steps: [2b-4]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-3150}
+  misconceptions:
+  - id: MC-CAL-3150
+    outcome_code: '71'
+    wrong_work: '$f(x)-f(0)=3$, 즉 높이 차를 길이로 놓고 $\tfrac12(e^x+e^{-x})=4$를 풂'
+    detect_cue: 곡선의 길이 대신 $y$좌표의 차를 썼다
+    feedback: '"곡선의 길이"는 호의 길이 적분으로 구합니다. (1)의 계산을 $0$부터 $x$까지 일반화하세요.'
+    remedy: [RL-1]
+
+- id: '3'
+  stem: |
+    점 $\mathrm{P}$와 $\mathrm{Q}$가 시각 $t$에서 각각 다음과 같은 속력으로 움직인다.
+    $$u(t)=6t^2-8t+14,\quad v(t)=3t^2+4t+5$$
+    시간 $t\ge0$에서 점 $\mathrm{P}$와 $\mathrm{Q}$가 만나는 횟수를 구하시오.
+  points: 60
+  depends_on: ['2']
+  answer: {kind: value, value: '3', equivalents: [], tolerance: null}
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: $(0,1)$에서 잰 곡선 길이로 두 점의 위치를 나타내면 만나는 조건은 $t^3-6t^2+9t-3=0$이고, 극값의 부호로 근의 개수를 센다.
+    steps:
+    - {id: 3a, content: '$2t^3-4t^2+14t=3+t^3+2t^2+5t\iff g(t)=t^3-6t^2+9t-3=0$, $g(0)=-3$, $g(1)=1$, $g(3)=-3$ ⇒ 3번', criteria: ['3.M1', '3.A1', '3.M2', '3.R1']}
+    hint_ladder:
+    - 곡선 위에서 같은 방향으로 움직이는 두 점이 만난다는 것을 곡선의 길이로 표현해 보자.
+    - 시각 $t$까지 점 $\mathrm{P}$가 곡선을 따라 움직인 거리는 무엇인가?
+    - 삼차함수의 극값의 부호를 조사하자.
+  - id: S3-B
+    audience: B
+    source_flow: 해설교재 p.170
+    method_no: 1
+    steps:
+    - id: 3b-1
+      content: |
+        두 점은 모두 $x$좌표가 증가하는 방향으로 움직이므로, 시각 $t$에서 점 $(0,1)$과 점 $\mathrm{P}$ 사이의 곡선의 길이는 $\displaystyle\int_0^t u(z)\,dz=2t^3-4t^2+14t$이다.
+        점 $(0,1)$과 점 $\mathrm{Q}$ 사이의 곡선의 길이는 처음 길이 $3$에 이동 거리를 더한 $3+\displaystyle\int_0^t v(z)\,dz=t^3+2t^2+5t+3$이다.
+      criteria: ['3.M1']
+    - id: 3b-2
+      content: |
+        두 점이 만나는 것은 두 길이가 같을 때이므로 $2t^3-4t^2+14t=t^3+2t^2+5t+3$, 즉 $t^3-6t^2+9t-3=0$이다.
+      criteria: ['3.A1']
+    - id: 3b-3
+      content: |
+        $g(t)=t^3-6t^2+9t-3$이라 하면 $g'(t)=3t^2-12t+9=3(t-1)(t-3)$이므로 $g$는 $t=1$에서 극대, $t=3$에서 극소이다.
+      criteria: ['3.M2']
+    - id: 3b-4
+      content: |
+        $g(0)=-3<0$, $g(1)=1>0$, $g(3)=-3<0$이고 $t\to\infty$일 때 $g(t)\to\infty$이다. 사잇값 정리와 각 구간에서의 단조성에 의해 $(0,1)$, $(1,3)$, $(3,\infty)$에서 실근이 하나씩 있다.
+        따라서 $t\ge0$에서 점 $\mathrm{P}$와 $\mathrm{Q}$는 $3$번 만난다.
+      criteria: ['3.R1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 15
+      evidence: |
+        두 점의 위치를 $(0,1)$에서 잰 곡선의 길이로 나타내고, $\mathrm{Q}$에는 초기 길이 $3$을 더했다.
+      depends_on: []
+      implied_ok: false
+      steps: [3b-1]
+    - id: 3.A1
+      mark_type: A
+      points: 15
+      evidence: |
+        만나는 조건 $t^3-6t^2+9t-3=0$을 얻었다.
+      depends_on: [3.M1]
+      steps: [3b-2]
+    - id: 3.M2
+      mark_type: M
+      points: 15
+      evidence: |
+        $g'(t)=3(t-1)(t-3)$으로 극값을 조사했다.
+      depends_on: []
+      implied_ok: false
+      steps: [3b-3]
+    - id: 3.R1
+      mark_type: R
+      points: 15
+      evidence: |
+        $g(0)<0$, $g(1)>0$, $g(3)<0$과 $t\to\infty$의 부호로 $t\ge0$의 실근이 3개임을 근거와 함께 결론지었다.
+      depends_on: [3.A1, 3.M2]
+      steps: [3b-4]
+    deductions:
+    - code: D3-1
+      condition: 극댓값·극솟값의 부호만 보고 $g(0)$의 부호(구간 $t\ge0$의 왼쪽 끝)를 확인하지 않음
+      effect: minus
+      value: 5
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-3151}
+  - {code: '72', misconception: MC-CAL-3152}
+  misconceptions:
+  - id: MC-CAL-3151
+    outcome_code: '71'
+    wrong_work: '$\int_0^t u\,dz=\int_0^t v\,dz$로 놓아 $t^3-6t^2+9t=0$, 만나는 횟수 2(또는 3, $t=0$ 포함)'
+    detect_cue: $\mathrm{Q}$의 처음 위치(길이 3)가 빠졌다
+    feedback: 시각 $0$에서 $\mathrm{Q}$는 이미 $(0,1)$로부터 곡선 길이 $3$인 곳에 있습니다. 위치 = 처음 위치 + 이동 거리.
+    remedy: [RL-2]
+  - id: MC-CAL-3152
+    outcome_code: '72'
+    wrong_work: '극댓값 $g(1)>0$, 극솟값 $g(3)<0$이므로 실근 3개라고만 씀'
+    detect_cue: $t\ge0$ 범위 안에 세 근이 있는지(왼쪽 끝 $g(0)$ 부호) 확인이 없다
+    feedback: 구간이 $t\ge0$으로 제한되어 있으므로 $g(0)$의 부호까지 확인해야 세 근이 모두 범위 안에 있음을 보일 수 있습니다.
+    remedy: [RL-3]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CAL-3150}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-ARC-LENGTH}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-CAL-3151}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-SPEED-DISTANCE}
+  priority: 1
+- id: RL-3
+  trigger: {type: misconception, ref: MC-CAL-3152}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-ROOT-COUNT}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

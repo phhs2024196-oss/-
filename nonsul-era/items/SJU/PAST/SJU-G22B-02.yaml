@@ -1,0 +1,368 @@
+# 세종대 2022학년도 수시 논술고사 [B] 문제 2 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: SJU-G22B-02
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: SJU
+type: T06
+variant_of: null
+replaces: null
+level: L5
+form: 추론
+points: 230
+time_estimate_min: 35
+intent: |
+  함수방정식 $f(2x)=4f(x)$를 치환적분과 결합해 구간을 두 배씩 옮긴 정적분의 관계를 만들고, 함수방정식을 미분한 조건으로 구간 $[1,2]$의 삼차함수를 결정하는 능력을 본다.
+key_idea: |
+  $\displaystyle\int_{2a}^{2b}f(x)\,dx=\int_a^b f(2y)\,2\,dy=8\int_a^b f(y)\,dy$이고, $f(2x)=4f(x)$를 미분하면 $f'(2x)=2f'(x)$이므로 $g(2)=4g(1)$, $g'(2)=2g'(1)$이다.
+stuck: |
+  치환 $x=2y$로 적분 구간을 반씩 줄여 배율 $8$을 얻는 것, 그리고 경계 $x=1,2$에서 함수방정식이 $g$의 계수 조건이 된다는 것
+idea_tags: [IDEA-FUNC-EQ-SCALING-INTEGRAL, IDEA-FUNC-EQ-DIFFERENTIATE]
+tags: [함수방정식, 치환적분, 삼차함수 결정]
+elements:
+  materials:
+  - '모든 실수에서 $f(2x)=4f(x)$를 만족하는 미분가능한 함수'
+  - '$[1,2]$에서 최고차항의 계수가 $1$인 삼차함수와 일치하는 함수'
+  - '정적분 $\int_1^3 2^xf(2^x)\,dx$'
+  concepts:
+  - '치환적분법'
+  - '정적분의 성질(구간 나누기)'
+  - '지수함수의 미분'
+  - '합성함수의 미분법'
+  - '등비급수'
+  - '다항함수의 정적분'
+  tools:
+  - '치환 $u=2^x$, $du=2^x\ln2\,dx$'
+  - '치환 $x=2y$로 $\int_{2a}^{2b}f=8\int_a^bf$'
+  - '$\int_0^2f=\int_0^1f+\int_1^2f$로 미지 적분에 대한 일차방정식'
+  - '함수방정식 미분 $2f''(2x)=4f''(x)$'
+  - '연립방정식으로 계수 결정'
+  conditions:
+  - '(가) ⇒ 정적분이 구간 두 배마다 $8$배'
+  - '(나) $\int_1^2f=6$이 모든 적분값의 기준'
+  - '$f$가 실수 전체에서 미분가능 ⇒ $f(2)=4f(1)$, $f''(2)=2f''(1)$을 $g$에 적용'
+  stimuli_used: []
+  subpart_links: '(2-1)(2-2)는 같은 치환 배율 $8$을 사용하고, (2-3)은 (나)의 $\int_1^2 f=6$과 (가)를 미분한 조건을 사용'
+
+curriculum:
+  version: '2015'
+  subjects: [미적분]
+  scope_2028: calc2
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 치환적분법을 이해하고 이를 활용할 수 있다(요지)
+    verified: false
+  content_area: 적분법 – 여러 가지 적분법
+  behavior_domain: 문제해결
+  unit_path: [미적분, 적분법, 여러 가지 적분법, 치환적분법]
+  key_concepts: [치환적분법, 정적분의 성질, 지수함수의 미분, 합성함수의 미분법, 등비급수, 다항함수의 정적분]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 세종대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 세종대학교
+  admission_year: 2022
+  admission_type: 수시 논술고사(B형)
+  track: 자연계열
+  question_no: 2
+  official_url: https://ipsi.sejong.ac.kr   # [확인 필요] 입학처 자료실의 정확한 게시물 URL로 교체
+  retrieved_at: 2026-11-21
+  original_points: [70, 80, 80]
+  rights_notice: 미확인(대학 원본 PDF 표지 문구 확인 필요)
+  transcribed_from: 대치 수리 논술 연구소 「2027학년도 대비 수리논술 세종대 기출 및 모의 문제」 p.49 + 해설교재 p.102 (원본 PDF 이미지 대조 완료 2026-11-21)
+
+verify: verify/SJU-G22B.py::p02
+
+stimuli: []
+
+stem: |
+  실수 전체의 집합에서 미분가능한 함수 $f(x)$는 다음 조건을 만족시킨다.
+
+  (가) 모든 실수 $x$에 대하여 $f(2x)=4f(x)$이다.
+  (나) $\displaystyle\int_1^2f(x)dx=6$
+  (다) 최고차항의 계수가 $1$인 삼차함수 $g(x)$에 대하여 $1\le x\le2$에서 $f(x)=g(x)$이다.
+
+subparts:
+- id: '1'
+  stem: |
+    $\displaystyle\int_1^3 2^xf(2^x)dx$를 구하시오.
+  points: 70
+  depends_on: []
+  answer: {kind: value, value: '432/log(2)', equivalents: ['432/ln2'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $u=2^x$로 바꾸면 $\tfrac1{\ln2}\int_2^8f(u)du$이고, $x=2y$ 치환으로 $\int_2^4f=8\cdot6$, $\int_4^8f=64\cdot6$이다.
+    steps:
+    - id: 1a
+      content: |
+        $\displaystyle\int_1^32^xf(2^x)dx=\dfrac1{\ln2}\int_2^8f(u)du=\dfrac{48+384}{\ln2}=\dfrac{432}{\ln2}$
+      criteria: ['1.M1', '1.A1', '1.M2', '1.A2']
+    hint_ladder:
+    - $2^x$를 한 문자로 바꾸면 $2^x\,dx$는 무엇이 되는가?
+    - $\int_2^4f(x)dx$에서 $x=2y$로 치환하고 (가)를 써 보자.
+  - id: S1-B
+    audience: B
+    source_flow: 해설교재 p.102
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        $u=2^x$로 치환하면 $du=2^x\ln2\,dx$이고 $x=1\to u=2$, $x=3\to u=8$이므로
+        $\displaystyle\int_1^32^xf(2^x)dx=\dfrac1{\ln2}\int_2^8f(u)du$이다.
+      criteria: ['1.M1']
+    - id: 1b-2
+      content: |
+        $x=2y$로 치환하고 (가)를 쓰면
+        $\displaystyle\int_2^4f(x)dx=\int_1^2f(2y)\cdot2dy=8\int_1^2f(y)dy=48$,
+        $\displaystyle\int_4^8f(x)dx=\int_2^4f(2y)\cdot2dy=8\int_2^4f(y)dy=384$이다.
+      criteria: ['1.M2', '1.A1']
+    - id: 1b-3
+      content: |
+        따라서 $\displaystyle\int_2^8f(x)dx=48+384=432$이고 $\displaystyle\int_1^32^xf(2^x)dx=\dfrac{432}{\ln2}$이다.
+      criteria: ['1.A2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 20
+      evidence: |
+        $u=2^x$ 치환으로 $\dfrac1{\ln2}\displaystyle\int_2^8f(u)du$(구간·계수 포함)로 바꾸었다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1]
+    - id: 1.M2
+      mark_type: M
+      points: 20
+      evidence: |
+        $x=2y$ 치환과 (가)로 $\displaystyle\int_{2a}^{2b}f(x)dx=8\int_a^bf(y)dy$ 관계를 세웠다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-2]
+    - id: 1.A1
+      mark_type: A
+      points: 15
+      evidence: |
+        $\displaystyle\int_2^4f=48$, $\displaystyle\int_4^8f=384$를 얻었다.
+      depends_on: [1.M2]
+      steps: [1b-2]
+    - id: 1.A2
+      mark_type: A
+      points: 15
+      evidence: |
+        $\dfrac{432}{\ln2}$를 얻었다.
+      depends_on: [1.M1, 1.A1]
+      steps: [1b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-3093}
+  misconceptions:
+  - id: MC-CAL-3093
+    outcome_code: '71'
+    wrong_work: '$\int_2^4f(x)dx=\int_1^2f(2y)dy=4\cdot6=24$로 $dx=2dy$를 빠뜨림(또는 $\tfrac1{\ln2}$ 누락)'
+    detect_cue: 배율이 $8$이 아니라 $4$이거나 답에 $\ln2$가 없다
+    feedback: 치환할 때 $dx$도 바꿔야 합니다. $x=2y$이면 $dx=2dy$입니다.
+    remedy: [RL-1]
+
+- id: '2'
+  stem: |
+    $\displaystyle\int_0^1f(x)dx$를 구하시오.
+  points: 80
+  depends_on: []
+  answer: {kind: value, value: '6/7', equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: $I=\int_0^1f$라 하면 $\int_0^2f=8I$이고 동시에 $I+6$이다.
+    steps:
+    - id: 2a
+      content: |
+        $8I=I+6\Rightarrow I=\dfrac67$
+      criteria: ['2.M1', '2.M2', '2.A1']
+    hint_ladder:
+    - $\int_0^2f(x)dx$를 두 가지 방법으로 나타내 보자.
+  - id: S2-B
+    audience: B
+    source_flow: 해설교재 p.102
+    method_no: 1
+    steps:
+    - id: 2b-1
+      content: |
+        $\displaystyle\int_0^2f(x)dx$에서 $x=2u$로 치환하면 $\displaystyle\int_0^1f(2u)\cdot2du=8\int_0^1f(u)du$이다.
+      criteria: ['2.M1']
+    - id: 2b-2
+      content: |
+        한편 $\displaystyle\int_0^2f(x)dx=\int_0^1f(x)dx+\int_1^2f(x)dx=\int_0^1f(x)dx+6$이다.
+      criteria: ['2.M2']
+    - id: 2b-3
+      content: |
+        두 식에서 $8\displaystyle\int_0^1f(x)dx=\int_0^1f(x)dx+6$이므로 $\displaystyle\int_0^1f(x)dx=\dfrac67$이다.
+      criteria: ['2.A1']
+  - id: S2-ALT
+    audience: ALT
+    source_flow: 해설교재 p.102 별해
+    method_no: 2
+    key_idea: 구간 $[2^{-k},2^{-k+1}]$의 적분이 $\tfrac{6}{8^k}$이므로 등비급수로 합한다.
+    steps:
+    - id: 2c-1
+      content: |
+        $x=2^{-k}y$로 치환하면 $\displaystyle\int_{2^{-k}}^{2^{-k+1}}f(x)dx=\int_1^2f(2^{-k}y)2^{-k}dy=8^{-k}\int_1^2f(y)dy=\dfrac6{8^k}$이고,
+        $\displaystyle\int_0^1f(x)dx=\sum_{k=1}^{\infty}\dfrac6{8^k}=\dfrac{6/8}{1-1/8}=\dfrac67$이다.
+      criteria: ['2.M1', '2.M2', '2.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 30
+      evidence: |
+        치환으로 $\displaystyle\int_0^2f=8\int_0^1f$(또는 $\int_{2^{-k}}^{2^{-k+1}}f=8^{-k}\cdot6$)를 얻었다.
+      depends_on: []
+      implied_ok: false
+      steps: [2b-1, 2c-1]
+    - id: 2.M2
+      mark_type: M
+      points: 25
+      evidence: |
+        $\displaystyle\int_0^2f=\int_0^1f+6$으로 구간을 나누었다(또는 $[0,1]$을 $[2^{-k},2^{-k+1}]$로 나누어 급수로 표현).
+      depends_on: []
+      implied_ok: false
+      steps: [2b-2, 2c-1]
+    - id: 2.A1
+      mark_type: A
+      points: 25
+      evidence: |
+        $\dfrac67$을 얻었다.
+      depends_on: [2.M1, 2.M2]
+      steps: [2b-3, 2c-1]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '21', meaning: 만점(등비급수 풀이)}
+  - {code: '71', misconception: MC-CAL-3093}
+  misconceptions:
+  - id: MC-CAL-3093
+    outcome_code: '71'
+    wrong_work: '$\int_0^2f=4\int_0^1f$로 두어 $4I=I+6$, $I=2$를 얻음'
+    detect_cue: 배율 $8$ 대신 $4$를 썼다
+    feedback: $f(2u)=4f(u)$에 $dx=2du$의 $2$가 곱해져 배율은 $8$입니다.
+    remedy: [RL-1]
+
+- id: '3'
+  stem: |
+    $g(x)$를 구하시오.
+  points: 80
+  depends_on: ['2']
+  answer: {kind: expression, value: 'x**3 - 7*x**2/4 + 6*x - 8/3', equivalents: [], tolerance: null}
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: (가)를 미분한 $f'(2x)=2f'(x)$와 (가)를 $x=1$에 적용하면 $g(2)=4g(1)$, $g'(2)=2g'(1)$이고, (나)가 세 번째 식이다.
+    steps:
+    - id: 3a
+      content: |
+        $g=x^3+ax^2+bx+c$: $g'(2)=2g'(1)\Rightarrow b=6$, $g(2)=4g(1)\Rightarrow c=-\tfrac83$, $\int_1^2g=6\Rightarrow a=-\tfrac74$
+      criteria: ['3.M1', '3.A1', '3.M2', '3.A2']
+    hint_ladder:
+    - 구간 $[1,2]$의 양 끝 $1$과 $2=2\cdot1$은 (가)로 어떻게 연결되는가?
+    - (가)의 양변을 미분해 보자.
+  - id: S3-B
+    audience: B
+    source_flow: 해설교재 p.102
+    method_no: 1
+    steps:
+    - id: 3b-1
+      content: |
+        (가)의 양변을 미분하면 $2f'(2x)=4f'(x)$, 즉 $f'(2x)=2f'(x)$이다. $x=1$을 대입하면 $f(2)=4f(1)$, $f'(2)=2f'(1)$이다.
+        $f$는 $[1,2]$에서 $g$와 같고 실수 전체에서 미분가능하므로 $g(2)=4g(1)$, $g'(2)=2g'(1)$이다.
+      criteria: ['3.M1']
+    - id: 3b-2
+      content: |
+        $g(x)=x^3+ax^2+bx+c$라 하면 $g'(x)=3x^2+2ax+b$이다.
+        $g'(2)=2g'(1)$에서 $12+4a+b=6+4a+2b$, 즉 $b=6$이고, $g(2)=4g(1)$에서 $8+4a+2b+c=4+4a+4b+4c$, 즉 $2b+3c=4$이므로 $c=-\dfrac83$이다.
+      criteria: ['3.A1']
+    - id: 3b-3
+      content: |
+        (나)에서 $\displaystyle\int_1^2\left(x^3+ax^2+6x-\dfrac83\right)dx=\dfrac{15}4+\dfrac73a+9-\dfrac83=6$이다.
+      criteria: ['3.M2']
+    - id: 3b-4
+      content: |
+        $\dfrac73a=-\dfrac{49}{12}$에서 $a=-\dfrac74$이므로 $g(x)=x^3-\dfrac74x^2+6x-\dfrac83$이다.
+      criteria: ['3.A2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 25
+      evidence: |
+        (가)와 그 미분 $f'(2x)=2f'(x)$에서 $g(2)=4g(1)$, $g'(2)=2g'(1)$을 이끌었다.
+      depends_on: []
+      implied_ok: false
+      steps: [3b-1]
+    - id: 3.A1
+      mark_type: A
+      points: 20
+      evidence: |
+        $b=6$, $c=-\dfrac83$을 얻었다.
+      depends_on: [3.M1]
+      steps: [3b-2]
+    - id: 3.M2
+      mark_type: M
+      points: 15
+      evidence: |
+        (나)를 $g$의 정적분 식으로 세웠다.
+      depends_on: []
+      implied_ok: false
+      steps: [3b-3]
+    - id: 3.A2
+      mark_type: A
+      points: 20
+      evidence: |
+        $a=-\dfrac74$, 즉 $g(x)=x^3-\dfrac74x^2+6x-\dfrac83$을 얻었다.
+      depends_on: [3.M2, 3.A1]
+      steps: [3b-4]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-3094}
+  misconceptions:
+  - id: MC-CAL-3094
+    outcome_code: '71'
+    wrong_work: '(가)를 미분해 $f''(2x)=4f''(x)$로 두어 $g''(2)=4g''(1)$을 씀'
+    detect_cue: 좌변 미분에서 속함수 $2x$의 도함수 $2$가 없다
+    feedback: $f(2x)$를 미분하면 $2f'(2x)$입니다. 합성함수의 미분법을 확인하세요.
+    remedy: [RL-2]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CAL-3093}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-SUBSTITUTION}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-CAL-3094}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-CHAIN-RULE}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

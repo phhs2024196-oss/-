@@ -1,0 +1,348 @@
+# 세종대 2021학년도 수시 논술고사[D](자연계열) 문제 3 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: SJU-G21D-03
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: SJU
+type: T10
+variant_of: null
+replaces: null
+level: L5
+form: 추론
+points: 240
+time_estimate_min: 40
+intent: |
+  극좌표 꼴 매개변수 곡선의 속력을 구해 이동 거리 조건을 미분 등식으로 바꾸고, 그 등식에서 곱의 부호에 관한 부등식을 이끌어 정적분으로 함수를 결정하는 능력을 본다.
+key_idea: |
+  $\left(\dfrac{dx}{dt}\right)^2+\left(\dfrac{dy}{dt}\right)^2=\{f'(t)\}^2+\{f(t)\}^2(2t-2)^2$이고, 이동 거리 조건을 미분하면 $\{f'\}^2+f^2(2x-2)^2=e^{2x}\{4(x^2-1)^2+(x+2)^2\}$. 정리하면 $(\,f'^2-(x+2)^2e^{2x})(f^2-(x+1)^2e^{2x})=-(2x-2)^2(f^2-(x+1)^2e^{2x})^2\le0$.
+stuck: |
+  (3-2)에서 두 차이 $f'^2-(x+2)^2e^{2x}$와 $f^2-(x+1)^2e^{2x}$의 곱이 음이 아닌 수의 $-1$배가 되도록 묶는 정리, (3-3)에서 곱이 $\tfrac12\{(f-(x+1)e^x)^2\}'$임을 알아보는 발상
+idea_tags: [IDEA-POLAR-SPEED, IDEA-SQUARE-DERIVATIVE-MONOTONE]
+tags: [매개변수 곡선, 곡선의 길이, 부등식, 함수 결정]
+
+elements:
+  materials:
+  - '극좌표 꼴 곡선 $x(t)=f(t)\cos(t^2-2t)$, $y(t)=f(t)\sin(t^2-2t)$'
+  - '이동 거리 $\displaystyle\int_0^ae^t\sqrt{4(t^2-1)^2+(t+2)^2}\,dt$'
+  - '보조식 $(x+1)e^x$, $(x+2)e^x$'
+  concepts:
+  - '매개변수로 나타낸 함수의 미분'
+  - '속력과 이동 거리(곡선의 길이)'
+  - '정적분으로 정의된 함수의 미분'
+  - '곱의 미분법'
+  - '정적분의 성질과 부호'
+  tools:
+  - '$\cos^2+\sin^2=1$로 속력 정리'
+  - '양변 미분으로 적분 등식을 미분 등식으로 변환'
+  - '인수분해·완전제곱 정리'
+  - '$\{(f-(x+1)e^x)^2\}''=2(f''-(x+2)e^x)(f-(x+1)e^x)$'
+  conditions:
+  - '$f(0)=1$, $t>0$에서 $f''(t)>0$이므로 $x\ge0$에서 $f(x)>0$'
+  - '모든 양수 $a$에 대해 이동 거리 등식 성립'
+  - '$f''(x)+(x+2)e^x>0$, $f(x)+(x+1)e^x>0$'
+  stimuli_used: []
+  subpart_links: '(3-2)는 (3-1)의 속력 등식을, (3-3)은 (3-2)의 부등식을 사용'
+
+curriculum:
+  version: '2015'
+  subjects: [미적분]
+  scope_2028: calc2
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 속도와 거리에 대한 문제를 해결할 수 있다(요지)
+    verified: false
+  content_area: 적분법 – 정적분의 활용
+  behavior_domain: 추론
+  unit_path: [미적분, 적분법, 정적분의 활용, 속도와 거리]
+  key_concepts: [매개변수로 나타낸 함수의 미분, 속력과 이동 거리(곡선의 길이), 정적분으로 정의된 함수의 미분, 곱의 미분법, 정적분의 성질과 부호]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 세종대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 세종대학교
+  admission_year: 2021
+  admission_type: 수시 논술
+  track: 자연계열
+  question_no: 3
+  official_url: https://ipsi.sejong.ac.kr   # [확인 필요] 입학처 자료실의 정확한 게시물 URL로 교체
+  retrieved_at: 2026-11-21
+  original_points: [80, 80, 80]
+  rights_notice: 미확인(대학 원본 PDF 표지 문구 확인 필요)
+  transcribed_from: 대치 수리 논술 연구소 「2027학년도 대비 수리논술 세종대 기출 및 모의 문제」 p.69 + 해설교재 p.131 (원본 PDF 이미지 대조 완료 2026-11-21)
+
+verify: verify/SJU-G21D.py::p03
+
+stimuli: []
+
+stem: |
+  실수 전체의 집합에서 미분가능한 함수 $y=f(t)$는 다음 조건을 만족한다.
+  (가) $f(0)=1$
+  (나) $t>0$인 모든 실수 $t$에 대하여 $f'(t)>0$이다.
+  $t\ge0$에 대하여 매개변수 방정식
+  $$x(t)=f(t)\cos(t^2-2t),\quad y(t)=f(t)\sin(t^2-2t)$$
+  로 정의되는 점 $\mathrm{P}(x(t),y(t))$가 있다. 임의의 양수 $a$에 대하여 $0\le t\le a$에서 점 $\mathrm{P}$가 움직인 거리가 $\displaystyle\int_0^ae^t\sqrt{4(t^2-1)^2+(t+2)^2}\,dt$일 때, 다음 물음에 각각 답하시오.
+
+subparts:
+- id: '1'
+  stem: |
+    $f'(1)$을 구하시오.
+  points: 80
+  depends_on: []
+  answer: {kind: value, value: '3*E', equivalents: ['3*exp(1)'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: 속력 $\sqrt{f'^2+f^2(2t-2)^2}$와 주어진 피적분함수가 같고, $t=1$에서 회전 항이 사라진다.
+    steps:
+    - {id: 1a, content: '$\{f^{\prime}(1)\}^2=e^2\cdot9\Rightarrow f^{\prime}(1)=3e$', criteria: ['1.M1', '1.A1', '1.M2', '1.A2']}
+    hint_ladder:
+    - $\dfrac{dx}{dt}$, $\dfrac{dy}{dt}$를 구해 제곱의 합을 정리하자.
+    - 모든 $a$에 대해 두 적분이 같으면 피적분함수는?
+  - id: S1-B
+    audience: B
+    source_flow: 해설교재 p.131
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        $\dfrac{dx}{dt}=f'(t)\cos(t^2-2t)-f(t)(2t-2)\sin(t^2-2t)$, $\dfrac{dy}{dt}=f'(t)\sin(t^2-2t)+f(t)(2t-2)\cos(t^2-2t)$.
+      criteria: ['1.M1']
+    - id: 1b-2
+      content: |
+        $\left(\dfrac{dx}{dt}\right)^2+\left(\dfrac{dy}{dt}\right)^2=\{f'(t)\}^2+\{f(t)\}^2(2t-2)^2$이다.
+      criteria: ['1.A1']
+    - id: 1b-3
+      content: |
+        모든 양수 $a$에 대해 $\displaystyle\int_0^a\sqrt{\{f'(t)\}^2+\{f(t)\}^2(2t-2)^2}\,dt=\int_0^ae^t\sqrt{4(t^2-1)^2+(t+2)^2}\,dt$이므로 양변을 미분하면, 모든 양수 $x$에 대하여
+        $\{f'(x)\}^2+\{f(x)\}^2(2x-2)^2=e^{2x}\{4(x^2-1)^2+(x+2)^2\}$이다.
+      criteria: ['1.M2']
+    - id: 1b-4
+      content: |
+        $x=1$을 대입하면 $\{f'(1)\}^2=9e^2$이고, $f'(1)>0$이므로 $f'(1)=3e$이다.
+      criteria: ['1.A2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 20
+      evidence: |
+        곱의 미분과 합성함수의 미분으로 $\dfrac{dx}{dt}$, $\dfrac{dy}{dt}$를 구했다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1]
+    - id: 1.A1
+      mark_type: A
+      points: 20
+      evidence: |
+        제곱의 합 $\{f'\}^2+f^2(2t-2)^2$을 얻었다.
+      depends_on: [1.M1]
+      steps: [1b-2]
+    - id: 1.M2
+      mark_type: M
+      points: 20
+      evidence: |
+        모든 $a$에 대한 적분 등식을 미분해 피적분함수끼리 같다고 놓았다.
+      depends_on: [1.A1]
+      steps: [1b-3]
+    - id: 1.A2
+      mark_type: A
+      points: 20
+      evidence: |
+        $x=1$ 대입과 $f'(1)>0$으로 $f'(1)=3e$를 얻었다.
+      depends_on: [1.M2]
+      steps: [1b-4]
+    deductions:
+    - code: D1-1
+      condition: $f'(1)=\pm3e$로 두고 부호를 정하지 않음
+      effect: minus
+      value: 10
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-3121}
+  misconceptions:
+  - id: MC-CAL-3121
+    outcome_code: '71'
+    wrong_work: '속력을 $\lvert f^{\prime}(t)\rvert$로만 두어 $f^{\prime}(t)=e^t\sqrt{4(t^2-1)^2+(t+2)^2}$'
+    detect_cue: 각도 $t^2-2t$의 변화에서 오는 항 $f(t)(2t-2)$가 없다
+    feedback: 극좌표 꼴 곡선의 속력에는 반지름 변화 $f'$과 회전에 의한 $f\cdot\theta'$이 모두 들어갑니다.
+    remedy: [RL-1]
+
+- id: '2'
+  stem: |
+    모든 양의 실수 $x$에 대하여 $(f'(x)-(x+2)e^x)(f(x)-(x+1)e^x)\le0$가 성립함을 보이시오.
+  points: 80
+  depends_on: ['1']
+  answer: {kind: proof, value: null, equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: $4(x^2-1)^2=(2x-2)^2(x+1)^2$로 보면 등식은 $\{f'^2-(x+2)^2e^{2x}\}=-(2x-2)^2\{f^2-(x+1)^2e^{2x}\}$.
+    steps:
+    - {id: 2a, content: '두 차이의 곱 $=-(2x-2)^2\{f^2-(x+1)^2e^{2x}\}^2\le0$, 합 인수 양수로 나눔', criteria: ['2.M1', '2.A1', '2.R1']}
+    hint_ladder:
+    - $4(x^2-1)^2$을 $(2x-2)^2$과 무엇의 곱으로 쓸 수 있는가?
+    - $A^2-B^2=(A-B)(A+B)$를 떠올리자.
+  - id: S2-B
+    audience: B
+    source_flow: 해설교재 p.131
+    method_no: 1
+    steps:
+    - id: 2b-1
+      content: |
+        (3-1)의 등식에서 $\{f'(x)\}^2=-\{f(x)\}^2(2x-2)^2+e^{2x}\{4(x^2-1)^2+(x+2)^2\}$이다. $4(x^2-1)^2=(2x-2)^2(x+1)^2$이므로
+        $\{f'(x)\}^2-(x+2)^2e^{2x}=(2x-2)^2\{-f(x)^2+e^{2x}(x+1)^2\}$.
+      criteria: ['2.M1']
+    - id: 2b-2
+      content: |
+        양변에 $\{f(x)\}^2-(x+1)^2e^{2x}$을 곱하면
+        $(\{f'(x)\}^2-(x+2)^2e^{2x})(\{f(x)\}^2-(x+1)^2e^{2x})=-(2x-2)^2(\{f(x)\}^2-(x+1)^2e^{2x})^2\le0$.
+      criteria: ['2.A1']
+    - id: 2b-3
+      content: |
+        $x>0$에서 $f'(x)>0$이고, $f(0)=1$과 증가성에서 $f(x)>0$이므로 $f'(x)+(x+2)e^x>0$, $f(x)+(x+1)e^x>0$이다. 이 두 양수로 나누면
+        $(f'(x)-(x+2)e^x)(f(x)-(x+1)e^x)\le0$이다. ■
+      criteria: ['2.R1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 30
+      evidence: |
+        (3-1)의 등식을 $\{f'\}^2-(x+2)^2e^{2x}=-(2x-2)^2\{f^2-(x+1)^2e^{2x}\}$ 꼴로 정리했다.
+      depends_on: []
+      implied_ok: false
+      ft: {allowed: true, from: [1.M2], max_points: 30}
+      steps: [2b-1]
+    - id: 2.A1
+      mark_type: A
+      points: 25
+      evidence: |
+        제곱 차의 곱이 $-(2x-2)^2(\cdots)^2\le0$임을 보였다.
+      depends_on: [2.M1]
+      steps: [2b-2]
+    - id: 2.R1
+      mark_type: R
+      points: 25
+      evidence: |
+        $f'(x)+(x+2)e^x>0$, $f(x)+(x+1)e^x>0$의 근거($f'>0$, $f>0$)를 밝히고 나누어 결론을 얻었다.
+      depends_on: [2.A1]
+      steps: [2b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-3122}
+  misconceptions:
+  - id: MC-CAL-3122
+    outcome_code: '71'
+    wrong_work: '제곱 차의 곱이 0 이하이므로 곧바로 $(f^{\prime}-(x+2)e^x)(f-(x+1)e^x)\le0$이라 씀'
+    detect_cue: 합 인수 $f'+(x+2)e^x$, $f+(x+1)e^x$의 부호를 확인하지 않았다
+    feedback: $A^2-B^2=(A-B)(A+B)$에서 $(A+B)$가 양수여야 부호가 유지됩니다. $f>0$, $f'>0$의 근거를 쓰세요.
+    remedy: [RL-2]
+
+- id: '3'
+  stem: |
+    $x\ge0$에서 함수 $f(x)$를 구하시오.
+  points: 80
+  depends_on: ['2']
+  answer: {kind: expression, value: '(x+1)*exp(x)', equivalents: ['x*exp(x)+exp(x)'], tolerance: null}
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: (3-2)의 좌변은 $\tfrac12\{(f-(x+1)e^x)^2\}'$이므로 $0$부터 $a$까지 적분하면 $\tfrac12(f(a)-(a+1)e^a)^2\le0$.
+    steps:
+    - {id: 3a, content: '$\tfrac12(f(a)-(a+1)e^a)^2\le0\Rightarrow f(a)=(a+1)e^a$', criteria: ['3.M1', '3.A1', '3.R1']}
+    hint_ladder:
+    - $\{(f(x)-(x+1)e^x)^2\}'$을 계산해 보자.
+    - $f(0)-(0+1)e^0$의 값은?
+  - id: S3-B
+    audience: B
+    source_flow: 해설교재 p.131
+    method_no: 1
+    steps:
+    - id: 3b-1
+      content: |
+        $a>0$에 대하여 (3-2)에서 $\displaystyle\int_0^a(f'(x)-(x+2)e^x)(f(x)-(x+1)e^x)\,dx\le0$이다.
+      criteria: ['3.M1']
+    - id: 3b-2
+      content: |
+        $\{(x+1)e^x\}'=(x+2)e^x$이므로 이 적분은
+        $\left[\dfrac12(f(x)-(x+1)e^x)^2\right]_0^a=\dfrac12(f(a)-(a+1)e^a)^2$이다($f(0)-1=0$).
+      criteria: ['3.A1']
+    - id: 3b-3
+      content: |
+        $\dfrac12(f(a)-(a+1)e^a)^2\le0$이므로 $f(a)=(a+1)e^a$이고, $f$의 연속성(또는 $f(0)=1$)으로 모든 $x\ge0$에서 $f(x)=(x+1)e^x$이다.
+      criteria: ['3.R1']
+  - id: S3-ALT
+    audience: ALT
+    source_flow: 해설교재 p.131 별해
+    method_no: 2
+    key_idea: 원 해설 별해 — $g(x)=(f(x)-(x+1)e^x)^2\ge0$, $g'(x)\le0$((3-2)), $g(0)=0$이므로 $g\equiv0$.
+    steps:
+    - id: 3c-1
+      content: |
+        $g(x)=(f(x)-(x+1)e^x)^2$이라 하면 $g\ge0$이고 양수 $x$에서 $g'(x)=2(f'(x)-(x+2)e^x)(f(x)-(x+1)e^x)\le0$이다. $g(0)=0$이고 $g$가 감소하므로 $g(x)\le0$, 따라서 $g(x)=0$, 즉 $f(x)=(x+1)e^x$ ($x\ge0$).
+      criteria: ['3.M1', '3.A1', '3.R1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 25
+      evidence: |
+        (3-2)의 부등식을 적분하거나 보조함수 $g=(f-(x+1)e^x)^2$을 도입했다.
+      depends_on: []
+      implied_ok: false
+      ft: {allowed: true, from: [2.R1], max_points: 25}
+      steps: [3b-1, 3c-1]
+    - id: 3.A1
+      mark_type: A
+      points: 30
+      evidence: |
+        좌변이 $\tfrac12\{(f-(x+1)e^x)^2\}'$(또는 $g'$)임을 보이고 $f(0)=1$로 상수항을 처리했다.
+      depends_on: [3.M1]
+      steps: [3b-2, 3c-1]
+    - id: 3.R1
+      mark_type: R
+      points: 25
+      evidence: |
+        제곱이 $0$ 이하이므로 $0$임을 근거로 $f(x)=(x+1)e^x$ ($x\ge0$)을 결론지었다.
+      depends_on: [3.A1]
+      steps: [3b-3, 3c-1]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '21', meaning: 만점(보조함수 감소)}
+  misconceptions: []
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CAL-3121}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-PARAM-LENGTH}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-CAL-3122}
+  relation: remediation
+  target: {kind: concept, ref: CON-PRF-EQUIV-CHAIN}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

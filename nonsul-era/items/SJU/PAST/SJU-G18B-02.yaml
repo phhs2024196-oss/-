@@ -1,0 +1,445 @@
+# 세종대 2018학년도 수시 논술고사[B] 문제 2 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: SJU-G18B-02
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: SJU
+type: null          # [제안] 범위 밖(기하: 공간벡터) — 현행 세종 범위 밖이라 유형 신설 불요
+variant_of: null
+replaces: null
+level: L3
+form: 최적2단
+points: 180
+time_estimate_min: 25
+intent: |
+  정사면체에서 공간벡터로 수선의 발과 내분점을 표현하고, 내적으로 길이와 거리의 최솟값을 계산하는 능력을 본다.
+key_idea: |
+  모서리 벡터의 크기 1, 내적 $\tfrac12$로 모든 길이를 계산한다.
+stuck: |
+  (2-3)에서 $L^2$이 $t$의 이차식이 됨을 보고 정의역 $[0,1]$을 확인하는 것
+idea_tags:
+- IDEA-VECTOR-BASIS-TETRA
+tags:
+- 범위 밖(현행)
+- 정사면체
+- 공간벡터
+elements:
+  materials:
+  - '한 변의 길이가 1인 정사면체 $\mathrm{ABCD}$'
+  - '$\mathrm{BC}$의 $2:1$ 내분점 $\mathrm{P}$, $\mathrm{AP}$의 중점 $\mathrm{Q}$, 선분 $\mathrm{AP}$ 위의 점 $\mathrm{R}$'
+  concepts:
+  - '공간벡터의 연산'
+  - '내분점의 위치벡터'
+  - '벡터의 내적'
+  - '수선의 발'
+  - '이차함수의 최솟값'
+  tools:
+  - '공간벡터의 기저 $\vec b$, $\vec c$, $\vec d$'
+  - '내적 $\vec b\cdot\vec c=\tfrac12$'
+  - '수선의 발 = 무게중심'
+  - '이차함수의 최솟값'
+  conditions:
+  - '$\mathrm{DA}=\mathrm{DB}=\mathrm{DC}$ ⇒ $\mathrm{H}$는 외심 = 무게중심'
+  - '$0\le t\le1$'
+  stimuli_used: []
+  subpart_links: '(2-3)은 (2-2)의 AP 표현을 사용'
+curriculum:
+  version: '2015'
+  subjects:
+  - 기하
+  scope_2028: geom
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 공간벡터의 연산과 내적을 활용할 수 있다(요지)
+    verified: false
+  content_area: 공간도형과 공간좌표·벡터
+  behavior_domain: 계산
+  unit_path:
+  - 기하
+  - 벡터
+  - 공간벡터
+  - 벡터의 내적
+  key_concepts:
+  - 공간벡터의 연산
+  - 내분점의 위치벡터
+  - 벡터의 내적
+  - 수선의 발
+  - 이차함수의 최솟값
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 세종대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 세종대학교
+  admission_year: 2018
+  admission_type: 수시 논술
+  track: 자연계열
+  question_no: 2
+  official_url: https://ipsi.sejong.ac.kr   # [확인 필요] 입학처 자료실의 정확한 게시물 URL로 교체
+  retrieved_at: '2026-11-21'
+  original_points:
+  - 60
+  - 60
+  - 60
+  rights_notice: 미확인(대학 원본 PDF 표지 문구 확인 필요)
+  transcribed_from: 대치 수리 논술 연구소 「2027학년도 대비 수리논술 세종대 기출 및 모의 문제」 p.95 + 해설교재 p.162 (원본 PDF 이미지 대조 완료 2026-11-21)
+verify: verify/SJU-G18B.py::p02
+stimuli: []
+stem: |
+  그림과 같이 한 변의 길이가 1인 정사면체 $\mathrm{ABCD}$가 있다. 선분 $\mathrm{BC}$를 $2:1$로 내분하는 점을 $\mathrm{P}$라 하고 $\overrightarrow{\mathrm{AB}}=\vec b$, $\overrightarrow{\mathrm{AC}}=\vec c$, $\overrightarrow{\mathrm{AD}}=\vec d$라 하자. (그림: 정사면체 $\mathrm{ABCD}$, 꼭짓점 $\mathrm{D}$가 위, 모서리 $\mathrm{BC}$ 위의 $\mathrm{P}$는 $\mathrm{C}$ 쪽에 가까움)
+subparts:
+- id: '1'
+  stem: |
+    세 꼭짓점 $\mathrm{A}$, $\mathrm{B}$, $\mathrm{C}$를 포함하는 평면을 $\alpha$라 하자. 점 $\mathrm{D}$에서 평면 $\alpha$에 내린 수선의 발을 $\mathrm{H}$라 할 때, $\overrightarrow{\mathrm{DH}}$를 $\vec b$, $\vec c$, $\vec d$에 관한 식으로 나타내시오.
+  points: 60
+  depends_on: []
+  answer:
+    kind: expression
+    value: DH = b/3 + c/3 - d
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $\mathrm{H}$는 정삼각형 $\mathrm{ABC}$의 무게중심.
+    steps:
+    - id: 1a
+      content: $\overrightarrow{\mathrm{DH}}=\tfrac{\vec b}3+\tfrac{\vec c}3-\vec d$
+      criteria:
+      - 1.M1
+      - 1.R1
+      - 1.A1
+    hint_ladder:
+    - $\mathrm{H}$에서 세 꼭짓점까지의 거리를 비교하자.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 해설교재 p.162 1안
+    steps:
+    - id: 1b-1
+      content: |
+        $\overline{\mathrm{DA}}=\overline{\mathrm{DB}}=\overline{\mathrm{DC}}$이고 $\mathrm{DH}\perp\alpha$이므로 $\overline{\mathrm{HA}}=\overline{\mathrm{HB}}=\overline{\mathrm{HC}}$, $\mathrm{H}$는 정삼각형 $\mathrm{ABC}$의 외심, 곧 무게중심이다.
+      criteria:
+      - 1.M1
+      - 1.R1
+    - id: 1b-2
+      content: |
+        $\overrightarrow{\mathrm{AH}}=\dfrac{\vec b}3+\dfrac{\vec c}3$이므로 $\overrightarrow{\mathrm{DH}}=\overrightarrow{\mathrm{AH}}-\overrightarrow{\mathrm{AD}}=\dfrac{\vec b}3+\dfrac{\vec c}3-\vec d$이다.
+      criteria:
+      - 1.A1
+  - id: S1-ALT
+    audience: ALT
+    method_no: 2
+    key_idea: 원 해설 2안 — $\overrightarrow{\mathrm{AH}}=k(\vec b+\vec c)$와 수직 조건.
+    source_flow: 해설교재 p.162 2안
+    steps:
+    - id: 1c-1
+      content: |
+        대칭성으로 $\overrightarrow{\mathrm{AH}}=k(\vec b+\vec c)$, $\overrightarrow{\mathrm{DH}}=k(\vec b+\vec c)-\vec d$로 두고 $\overrightarrow{\mathrm{AH}}\perp\overrightarrow{\mathrm{DH}}$에서 $\{k(\vec b+\vec c)-\vec d\}\cdot(\vec b+\vec c)=3k-1=0$.
+      criteria:
+      - 1.M1
+      - 1.R1
+    - id: 1c-2
+      content: |
+        $k=\dfrac13$이므로 $\overrightarrow{\mathrm{DH}}=\dfrac13(\vec b+\vec c)-\vec d$.
+      criteria:
+      - 1.A1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 20
+      evidence: |
+        $\mathrm{H}$가 삼각형 $\mathrm{ABC}$의 무게중심(외심)임을 밝혔다(또는 $\overrightarrow{\mathrm{AH}}=k(\vec b+\vec c)$와 수직 조건).
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 1b-1
+      - 1c-1
+    - id: 1.R1
+      mark_type: R
+      points: 20
+      evidence: |
+        그 근거(등거리 또는 내적 0)를 제시했다.
+      depends_on:
+      - 1.M1
+      steps:
+      - 1b-1
+      - 1c-1
+    - id: 1.A1
+      mark_type: A
+      points: 20
+      evidence: |
+        $\overrightarrow{\mathrm{DH}}=\tfrac13(\vec b+\vec c)-\vec d$를 얻었다.
+      depends_on:
+      - 1.M1
+      steps:
+      - 1b-2
+      - 1c-2
+    deductions: []
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  - code: '71'
+    misconception: MC-GEO-3138
+  misconceptions:
+  - id: MC-GEO-3138
+    outcome_code: '71'
+    wrong_work: $\overrightarrow{\mathrm{AH}}=\tfrac12(\vec b+\vec c)$로 두어 $\overrightarrow{\mathrm{DH}}=\tfrac12(\vec b+\vec c)-\vec d$
+    detect_cue: 계수 $\tfrac12$
+    feedback: $\tfrac12(\vec b+\vec c)$는 $\mathrm{BC}$의 중점입니다. 수선의 발은 무게중심입니다.
+    remedy:
+    - RL-1
+- id: '2'
+  stem: |
+    선분 $\mathrm{AP}$의 중점을 $\mathrm{Q}$라 할 때, $\overrightarrow{\mathrm{DQ}}$를 $\vec b$, $\vec c$, $\vec d$에 관한 식으로 나타내고 $\lvert\overrightarrow{\mathrm{DQ}}\rvert$를 구하시오.
+  points: 60
+  depends_on: []
+  answer:
+    kind: expression
+    value: DQ = b/6 + c/3 - d; |DQ| = 5/6
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: $\overrightarrow{\mathrm{AP}}=\tfrac{\vec b+2\vec c}3$, 내적은 모두 $\tfrac12$.
+    steps:
+    - id: 2a
+      content: $\lvert\overrightarrow{\mathrm{DQ}}\rvert^2=\tfrac{25}{36}$
+      criteria:
+      - 2.M1
+      - 2.A1
+      - 2.M2
+      - 2.A2
+    hint_ladder:
+    - $\mathrm{BC}$를 $2:1$로 내분하는 점의 위치벡터는?
+    - $\vec b\cdot\vec c$는?
+  - id: S2-B
+    audience: B
+    method_no: 1
+    source_flow: 해설교재 p.162
+    steps:
+    - id: 2b-1
+      content: |
+        $\mathrm{P}$는 $\mathrm{BC}$를 $2:1$로 내분하므로 $\overrightarrow{\mathrm{AP}}=\dfrac{\vec b}3+\dfrac{2\vec c}3$, $\overrightarrow{\mathrm{AQ}}=\dfrac12\overrightarrow{\mathrm{AP}}=\dfrac{\vec b}6+\dfrac{\vec c}3$이다.
+      criteria:
+      - 2.M1
+    - id: 2b-2
+      content: |
+        $\overrightarrow{\mathrm{DQ}}=\dfrac{\vec b}6+\dfrac{\vec c}3-\vec d$이다.
+      criteria:
+      - 2.A1
+    - id: 2b-3
+      content: |
+        $\lvert\vec b\rvert=\lvert\vec c\rvert=\lvert\vec d\rvert=1$, $\vec b\cdot\vec c=\vec c\cdot\vec d=\vec d\cdot\vec b=\dfrac12$이므로
+        $\lvert\overrightarrow{\mathrm{DQ}}\rvert^2=\dfrac1{36}+\dfrac19+1+\dfrac1{18}-\dfrac16-\dfrac13=\dfrac{25}{36}$, $\lvert\overrightarrow{\mathrm{DQ}}\rvert=\dfrac56$이다.
+      criteria:
+      - 2.M2
+      - 2.A2
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 15
+      evidence: |
+        $\overrightarrow{\mathrm{AP}}=\tfrac{\vec b+2\vec c}3$을 얻었다.
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 2b-1
+    - id: 2.A1
+      mark_type: A
+      points: 15
+      evidence: |
+        $\overrightarrow{\mathrm{DQ}}=\tfrac{\vec b}6+\tfrac{\vec c}3-\vec d$를 얻었다.
+      depends_on:
+      - 2.M1
+      steps:
+      - 2b-2
+    - id: 2.M2
+      mark_type: M
+      points: 15
+      evidence: |
+        내적값 $\tfrac12$을 써서 $\lvert\overrightarrow{\mathrm{DQ}}\rvert^2$을 전개했다.
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 2b-3
+    - id: 2.A2
+      mark_type: A
+      points: 15
+      evidence: |
+        $\tfrac56$을 얻었다.
+      depends_on:
+      - 2.M2
+      - 2.A1
+      steps:
+      - 2b-3
+    deductions: []
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  - code: '71'
+    misconception: MC-GEO-3138
+  misconceptions:
+  - id: MC-GEO-3138
+    outcome_code: '71'
+    wrong_work: 서로 다른 벡터의 내적을 0으로 두어 $\lvert\overrightarrow{\mathrm{DQ}}\rvert^2=\tfrac{41}{36}$
+    detect_cue: 교차항이 없다
+    feedback: 정사면체 모서리 벡터끼리의 내적은 $\cos60^\circ=\tfrac12$입니다.
+    remedy:
+    - RL-1
+- id: '3'
+  stem: |
+    점 $\mathrm{R}$가 선분 $\mathrm{AP}$ 위를 움직일 때, 점 $\mathrm{D}$와 점 $\mathrm{R}$ 사이의 거리를 $L$이라 하자. $L^2$의 최솟값을 구하시오.
+  points: 60
+  depends_on:
+  - '2'
+  answer:
+    kind: value
+    value: 19/28
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: $\overrightarrow{\mathrm{DR}}=t\overrightarrow{\mathrm{AP}}-\vec d$, $L^2=\tfrac79t^2-t+1$ $(0\le t\le1)$.
+    steps:
+    - id: 3a
+      content: $t=\tfrac9{14}$에서 $\tfrac{19}{28}$
+      criteria:
+      - 3.M1
+      - 3.A1
+      - 3.A2
+    hint_ladder:
+    - $\overrightarrow{\mathrm{AR}}=t\overrightarrow{\mathrm{AP}}$로 두자.
+  - id: S3-B
+    audience: B
+    method_no: 1
+    source_flow: 해설교재 p.162
+    steps:
+    - id: 3b-1
+      content: |
+        $\mathrm{R}$가 $\mathrm{AP}$를 $t:(1-t)$로 내분한다고 하면 $\overrightarrow{\mathrm{AR}}=t\left(\dfrac{\vec b}3+\dfrac{2\vec c}3\right)$, $\overrightarrow{\mathrm{DR}}=t\left(\dfrac{\vec b}3+\dfrac{2\vec c}3\right)-\vec d$ $(0\le t\le1)$이다.
+      criteria:
+      - 3.M1
+    - id: 3b-2
+      content: |
+        $L^2=\lvert\overrightarrow{\mathrm{DR}}\rvert^2=\dfrac79t^2-t+1$이다.
+      criteria:
+      - 3.A1
+    - id: 3b-3
+      content: |
+        꼭짓점 $t=\dfrac9{14}$는 $[0,1]$ 안에 있으므로 $L^2$의 최솟값은 $\dfrac79\cdot\dfrac{81}{196}-\dfrac9{14}+1=\dfrac{19}{28}$이다.
+      criteria:
+      - 3.A2
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 20
+      evidence: |
+        $\overrightarrow{\mathrm{DR}}$을 매개변수 $t$로 나타냈다.
+      depends_on: []
+      implied_ok: false
+      ft:
+        allowed: true
+        from:
+        - 2.M1
+        max_points: 20
+      steps:
+      - 3b-1
+    - id: 3.A1
+      mark_type: A
+      points: 20
+      evidence: |
+        $L^2=\tfrac79t^2-t+1$을 얻었다.
+      depends_on:
+      - 3.M1
+      steps:
+      - 3b-2
+    - id: 3.A2
+      mark_type: A
+      points: 20
+      evidence: |
+        $t=\tfrac9{14}\in[0,1]$을 확인해 $\tfrac{19}{28}$을 얻었다.
+      depends_on:
+      - 3.M1
+      - 3.A1
+      steps:
+      - 3b-3
+    deductions: []
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  - code: '71'
+    misconception: MC-CAL-3148
+  misconceptions:
+  - id: MC-CAL-3148
+    outcome_code: '71'
+    wrong_work: $t$의 범위 $[0,1]$ 확인 없이 꼭짓점 값을 씀(이 문항은 우연히 같음) 또는 $t=0,1$ 끝값만 비교해 $\tfrac79$
+    detect_cue: 끝값 비교만 있다
+    feedback: 이차함수의 최솟값은 꼭짓점이 정의역 안에 있는지 확인해 정합니다.
+    remedy:
+    - RL-2
+remedy_links:
+- id: RL-1
+  trigger:
+    type: misconception
+    ref: MC-GEO-3138
+  relation: remediation
+  target:
+    kind: concept
+    ref: CON-GEO-PROJECTION
+  priority: 1
+- id: RL-2
+  trigger:
+    type: misconception
+    ref: MC-CAL-3148
+  relation: remediation
+  target:
+    kind: concept
+    ref: CON-CAL-CONSTRAINED-OPT
+  priority: 1
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: opus
+  prompt_version: p3-past-v1
+  item_version: 1
+  verdict: pass
+  date: '2026-11-21'
+created: '2026-11-21'
+updated: '2026-11-21'

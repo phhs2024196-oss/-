@@ -1,0 +1,357 @@
+# 세종대 2023학년도 수시모집 논술고사[B형] 문제 2 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+# type: null — SJU T01~T10 에 해당 유형 없음. 신설 제안: "정적분으로 정의된 함수와 치환·부분적분(대칭 치환)"
+schema_version: '2.0'
+id: SJU-G23B-02
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: SJU
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 불변량
+points: 230
+time_estimate_min: 35
+intent: |
+  정적분으로 정의된 함수의 도함수로 최솟값을 판정하고, 부분적분·지수 치환으로 다른 적분을 주어진 값으로 나타내며, $x=\dfrac1y$ 대칭 치환으로 $I=-I$를 얻는 능력을 본다.
+key_idea: |
+  $f'(x)=\tan(\ln x)$. $\int\tan(\ln x)dx$의 부분적분에서 $\int\sec^2(\ln x)dx$가 나오고 $x=e^t$로 $\int e^t\sec^2t\,dt$로 바뀐다. (2-3)은 $I=\int_{1/e}^e\left(1+\dfrac1{x^2}\right)\tan(\ln x)dx$이고 $x=\dfrac1y$이면 $I=-I$.
+stuck: |
+  $-f\!\left(\tfrac1e\right)$을 적분 $\int_{1/e}^e\tan(\ln x)dx$로 바꿔 하나의 적분으로 합치고, $x\mapsto\tfrac1x$에서 피적분식이 부호만 바뀜을 알아보는 것
+idea_tags: [IDEA-FTC-DERIVATIVE, IDEA-IBP-EXP-SUBST, IDEA-RECIPROCAL-SUBST-ODD]
+tags: [정적분으로 정의된 함수, 부분적분, 치환적분, 대칭 치환]
+elements:
+  materials:
+  - '$f(x)=\int_e^x\tan(\ln t)\,dt$ $\left(e^{-\frac{\pi}{2}}<x<e^{\frac{\pi}{2}}\right)$'
+  - '$\int_0^1e^x\tan^2x\,dx$'
+  - '$\int_{1/e}^e\frac{f''(x)}{x^2}dx-f\left(\frac1e\right)$'
+  concepts:
+  - '정적분으로 정의된 함수의 미분'
+  - '함수의 증가와 감소, 최솟값'
+  - '로그함수와 탄젠트함수의 합성'
+  - '부분적분법'
+  - '치환적분법'
+  - '삼각함수 사이의 관계 $\sec^2x=1+\tan^2x$'
+  tools:
+  - '$f''(x)=\tan(\ln x)$의 부호 판정'
+  - '$\int\tan(\ln x)dx$의 부분적분'
+  - '$x=e^t$ 치환'
+  - '$x=\frac1y$ 치환으로 $I=-I$'
+  - '(별해) $\theta=\ln x$ 치환 후 $y=-\theta$로 기함수 적분'
+  conditions:
+  - '$e^{-\frac\pi2}<x<e^{\frac\pi2}$ ⇒ $-\frac\pi2<\ln x<\frac\pi2$ ($\tan$이 정의됨)'
+  - '$f(1)=a$ (적분 방향 $e\to1$에 주의)'
+  - '$-f\left(\frac1e\right)=\int_{1/e}^e\tan(\ln x)dx$'
+  stimuli_used: []
+  subpart_links: '(2-2)·(2-3)은 (2-1)의 f''(x)=tan(ln x)를 사용(세 소문항이 같은 f 를 공유)'
+
+curriculum:
+  version: '2015'
+  subjects: [미적분]
+  scope_2028: calc2
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 치환적분법과 부분적분법을 이해하고 정적분으로 정의된 함수를 미분할 수 있다(요지)
+    verified: false
+  content_area: 적분법 – 여러 가지 적분법
+  behavior_domain: 문제해결
+  unit_path: [미적분, 적분법, 여러 가지 적분법, 부분적분법]
+  key_concepts: [정적분으로 정의된 함수의 미분, 함수의 증가와 감소·최솟값, 로그함수와 탄젠트함수의 합성, 부분적분법, 치환적분법, 삼각함수 사이의 관계]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 세종대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 세종대학교
+  admission_year: 2023
+  admission_type: 수시 논술고사 B형
+  track: 자연계열
+  question_no: 2
+  official_url: https://ipsi.sejong.ac.kr   # [확인 필요] 입학처 자료실의 정확한 게시물 URL로 교체
+  retrieved_at: 2026-11-21
+  original_points: [70, 80, 80]
+  rights_notice: 미확인(대학 원본 PDF 표지 문구 확인 필요)
+  transcribed_from: 대치 수리 논술 연구소 「2027학년도 대비 수리논술 세종대 기출 및 모의 문제」 p.40 + 해설교재 p.87~88 (원본 PDF 이미지 대조 완료 2026-11-21)
+
+verify: verify/SJU-G23B.py::p02
+
+stimuli: []
+
+stem: |
+  $e^{-\frac{\pi}{2}}<x<e^{\frac{\pi}{2}}$에 대하여 $f(x)=\displaystyle\int_e^x\tan(\ln t)\,dt$라 하자.
+
+subparts:
+- id: '1'
+  stem: |
+    $f(x)$가 최소가 되는 $x$의 값을 구하시오.
+  points: 70
+  depends_on: []
+  answer: {kind: value, value: '1', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $f'(x)=\tan(\ln x)$는 $x=1$의 좌우에서 음에서 양으로 바뀐다.
+    steps:
+    - {id: 1a, content: '$f^{\prime}(x)=\tan(\ln x)$, $x<1$에서 음, $x>1$에서 양 ⇒ $x=1$', criteria: ['1.M1', '1.R1', '1.A1']}
+    hint_ladder:
+    - 정적분으로 정의된 함수를 미분해 보자.
+    - $\ln x$의 범위에 따라 $\tan(\ln x)$의 부호는?
+  - id: S1-B
+    audience: B
+    source_flow: 해설교재 p.87
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        $f'(x)=\tan(\ln x)$이므로 $f'(1)=\tan0=0$이다.
+      criteria: ['1.M1']
+    - id: 1b-2
+      content: |
+        $e^{-\frac\pi2}<x<1$이면 $-\dfrac\pi2<\ln x<0$이므로 $f'(x)<0$이고, $1<x<e^{\frac\pi2}$이면 $0<\ln x<\dfrac\pi2$이므로 $f'(x)>0$이다.
+      criteria: ['1.R1']
+    - id: 1b-3
+      content: |
+        따라서 $f$는 $x=1$에서 감소에서 증가로 바뀌고, $x=1$에서 최소이다.
+      criteria: ['1.A1']
+  - id: S1-ALT
+    audience: ALT
+    source_flow: 해설교재 p.87 별해
+    method_no: 2
+    key_idea: $f''(x)=\dfrac{\sec^2(\ln x)}{x}>0$이므로 아래로 볼록, 유일한 임계점 $x=1$에서 최소.
+    steps:
+    - id: 1c-1
+      content: |
+        $f'(1)=0$이고 $f''(x)=\dfrac{\sec^2(\ln x)}{x}>0$이므로 $f'$은 증가하고 $x=1$에서만 $0$이다. 따라서 $x=1$에서 최소이다.
+      criteria: ['1.R1', '1.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 25
+      evidence: |
+        $f'(x)=\tan(\ln x)$를 쓰고 $f'(1)=0$을 얻었다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1]
+    - id: 1.R1
+      mark_type: R
+      points: 30
+      evidence: |
+        $\ln x$의 범위로 $x=1$ 좌우의 $f'$ 부호를 판정(또는 $f''>0$)했다.
+      depends_on: [1.M1]
+      steps: [1b-2, 1c-1]
+    - id: 1.A1
+      mark_type: A
+      points: 15
+      evidence: |
+        $x=1$에서 최소라고 답했다.
+      depends_on: [1.R1]
+      steps: [1b-3, 1c-1]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-3075}
+  misconceptions:
+  - id: MC-CAL-3075
+    outcome_code: '71'
+    wrong_work: '$f^{\prime}(x)=\dfrac{\tan(\ln x)}{x}$ 또는 $\dfrac{\sec^2(\ln x)}{x}$로 미분'
+    detect_cue: 정적분으로 정의된 함수의 도함수에 피적분함수 이외의 인수가 붙었다
+    feedback: $\dfrac{d}{dx}\int_e^x h(t)dt=h(x)$입니다. 피적분함수에 $x$를 넣기만 하면 됩니다.
+    remedy: [RL-1]
+
+- id: '2'
+  stem: |
+    $f(1)=a$라 할 때, $\displaystyle\int_0^1e^x\tan^2x\,dx$를 $a$의 식으로 나타내시오.
+  points: 80
+  depends_on: []
+  answer: {kind: expression, value: 'E*tan(1) + a - E + 1', equivalents: ['e*tan(1)+a-e+1'], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: $a=\int_e^1\tan(\ln x)dx$를 부분적분하면 $\int\sec^2(\ln x)dx$가 나오고, $x=e^t$로 $\int e^t(1+\tan^2t)dt$가 된다.
+    steps:
+    - {id: 2a, content: '$\int_e^1\sec^2(\ln x)dx=-e\tan1-a=-\int_0^1e^t\tan^2t\,dt-(e-1)$', criteria: ['2.M1', '2.M2', '2.A1']}
+    hint_ladder:
+    - $\int\tan(\ln x)dx$를 부분적분해 보자.
+    - $x=e^t$로 치환하면 $\sec^2(\ln x)dx$는?
+  - id: S2-B
+    audience: B
+    source_flow: 해설교재 p.87
+    method_no: 1
+    steps:
+    - id: 2b-1
+      content: |
+        부분적분하면 $a=f(1)=\displaystyle\int_e^1\tan(\ln x)dx=\left[x\tan(\ln x)\right]_e^1-\int_e^1\sec^2(\ln x)dx$이므로
+        $\displaystyle\int_e^1\sec^2(\ln x)dx=\left[x\tan(\ln x)\right]_e^1-a=-e\tan1-a$이다.
+      criteria: ['2.M1']
+    - id: 2b-2
+      content: |
+        $x=e^t$로 치환하면 $dx=e^tdt$이고 $x:e\to1$일 때 $t:1\to0$이므로
+        $\displaystyle\int_e^1\sec^2(\ln x)dx=-\int_0^1e^t\sec^2t\,dt=-\int_0^1e^t\tan^2t\,dt-\int_0^1e^tdt=-\int_0^1e^t\tan^2t\,dt-(e-1)$이다.
+      criteria: ['2.M2']
+    - id: 2b-3
+      content: |
+        두 식을 비교하면 $\displaystyle\int_0^1e^x\tan^2x\,dx=e\tan1+a-e+1$이다.
+      criteria: ['2.A1']
+  - id: S2-ALT
+    audience: ALT
+    source_flow: 해설교재 p.87 별해
+    method_no: 2
+    key_idea: $t=e^x$로 치환하면 $a=-\int_0^1e^x\tan x\,dx$이고, 이것을 부분적분한다.
+    steps:
+    - id: 2c-1
+      content: |
+        $a=\displaystyle\int_e^1\tan(\ln t)dt=-\int_0^1e^x\tan x\,dx=\left[-e^x\tan x\right]_0^1+\int_0^1e^x\sec^2x\,dx=-e\tan1+(e-1)+\int_0^1e^x\tan^2x\,dx$이므로 $\displaystyle\int_0^1e^x\tan^2x\,dx=e\tan1+a-e+1$이다.
+      criteria: ['2.M1', '2.M2', '2.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 30
+      evidence: |
+        $f(1)=\int_e^1\tan(\ln x)dx$(또는 $-\int_0^1e^x\tan x\,dx$)를 부분적분해 $\sec^2$ 적분과 연결했다.
+      depends_on: []
+      implied_ok: false
+      steps: [2b-1, 2c-1]
+    - id: 2.M2
+      mark_type: M
+      points: 30
+      evidence: |
+        지수 치환($x=e^t$ 또는 $t=e^x$)과 $\sec^2=1+\tan^2$을 써서 $\int_0^1e^t\tan^2t\,dt$가 나타나게 했다.
+      depends_on: []
+      implied_ok: false
+      steps: [2b-2, 2c-1]
+    - id: 2.A1
+      mark_type: A
+      points: 20
+      evidence: |
+        $e\tan1+a-e+1$을 얻었다.
+      depends_on: [2.M1, 2.M2]
+      steps: [2b-3, 2c-1]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-3076}
+  misconceptions:
+  - id: MC-CAL-3076
+    outcome_code: '71'
+    wrong_work: '$x=e^t$ 치환에서 $dx=e^tdt$ 또는 구간 $e\to1$이 $1\to0$이 되는 것을 빠뜨려 부호·인수가 틀림'
+    detect_cue: 결과에 $-a$ 또는 $e^t$ 없는 적분이 나온다
+    feedback: $x=e^t$이면 $dx=e^tdt$이고 적분 구간도 $t$의 값으로 바꿔야 합니다.
+    remedy: [RL-2]
+
+- id: '3'
+  stem: |
+    $\displaystyle\int_{\frac1e}^{e}\dfrac{f'(x)}{x^2}\,dx-f\!\left(\dfrac1e\right)$을 구하시오.
+  points: 80
+  depends_on: ['1']
+  answer: {kind: value, value: '0', equivalents: [], tolerance: null}
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: $I=\int_{1/e}^e\left(1+\tfrac1{x^2}\right)\tan(\ln x)dx$이고 $x=\tfrac1y$로 치환하면 $I=-I$.
+    steps:
+    - {id: 3a, content: '$I=\int_{1/e}^e(1+x^{-2})\tan(\ln x)dx\overset{x=1/y}{=}-I\Rightarrow I=0$', criteria: ['3.M1', '3.M2', '3.A1']}
+    hint_ladder:
+    - $-f\!\left(\tfrac1e\right)$을 $\tfrac1e$부터 $e$까지의 적분으로 써 보자.
+    - $x=\tfrac1y$로 치환하면 $\ln x$와 $1+\tfrac1{x^2}$은 어떻게 바뀌는가?
+  - id: S3-B
+    audience: B
+    source_flow: 해설교재 p.87
+    method_no: 1
+    steps:
+    - id: 3b-1
+      content: |
+        $I=\displaystyle\int_{\frac1e}^e\dfrac{f'(x)}{x^2}dx-f\!\left(\dfrac1e\right)$라 하자. $f'(x)=\tan(\ln x)$이고 $-f\!\left(\dfrac1e\right)=-\displaystyle\int_e^{\frac1e}\tan(\ln x)dx=\int_{\frac1e}^e\tan(\ln x)dx$이므로
+        $$I=\int_{\frac1e}^e\left(1+\dfrac1{x^2}\right)\tan(\ln x)\,dx.$$
+      criteria: ['3.M1']
+    - id: 3b-2
+      content: |
+        $x=\dfrac1y$로 치환하면 $dx=-\dfrac{1}{y^2}dy$, $\tan(\ln x)=-\tan(\ln y)$, $1+\dfrac1{x^2}=1+y^2$이고 $x:\tfrac1e\to e$일 때 $y:e\to\tfrac1e$이므로
+        $$I=\int_e^{\frac1e}(1+y^2)\{-\tan(\ln y)\}\left(-\dfrac1{y^2}\right)dy=-\int_{\frac1e}^e\left(1+\dfrac1{y^2}\right)\tan(\ln y)\,dy=-I.$$
+      criteria: ['3.M2']
+    - id: 3b-3
+      content: |
+        따라서 $2I=0$, $I=0$이다.
+      criteria: ['3.A1']
+  - id: S3-ALT
+    audience: ALT
+    source_flow: 해설교재 p.88 별해
+    method_no: 2
+    key_idea: $\theta=\ln x$로 치환하면 $I=\int_{-1}^1(e^\theta+e^{-\theta})\tan\theta\,d\theta$이고 피적분함수가 기함수이다.
+    steps:
+    - id: 3c-1
+      content: |
+        $\theta=\ln x$이면 $dx=e^\theta d\theta$이므로 $I=\displaystyle\int_{-1}^1(e^\theta+e^{-\theta})\tan\theta\,d\theta$이다. $y=-\theta$로 치환하면 $I=-\displaystyle\int_{-1}^1(e^y+e^{-y})\tan y\,dy=-I$이므로 $I=0$이다.
+      criteria: ['3.M2', '3.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 30
+      evidence: |
+        $-f\!\left(\tfrac1e\right)=\int_{1/e}^e\tan(\ln x)dx$로 바꿔 $I=\int_{1/e}^e\left(1+\tfrac1{x^2}\right)\tan(\ln x)dx$로 합쳤다.
+      depends_on: []
+      implied_ok: true
+      ft: {allowed: true, from: [1.M1], max_points: 30}
+      steps: [3b-1]
+    - id: 3.M2
+      mark_type: M
+      points: 30
+      evidence: |
+        $x=\tfrac1y$(또는 $\theta=\ln x$, $y=-\theta$) 치환으로 $I=-I$를 보였다.
+      depends_on: []
+      implied_ok: false
+      steps: [3b-2, 3c-1]
+    - id: 3.A1
+      mark_type: A
+      points: 20
+      evidence: |
+        $I=0$을 얻었다.
+      depends_on: [3.M2]
+      steps: [3b-3, 3c-1]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점(x=1/y 치환)}
+  - {code: '21', meaning: 만점(θ=ln x 치환)}
+  - {code: '71', misconception: MC-CAL-3076}
+  misconceptions:
+  - id: MC-CAL-3076
+    outcome_code: '71'
+    wrong_work: '$x=\tfrac1y$ 치환에서 $dx=-\tfrac{dy}{y^2}$를 빠뜨려 $I=\int(1+y^2)\tan(\ln y)dy$로 둠'
+    detect_cue: 치환 후 피적분식이 원래 식과 다른 꼴로 남아 $I=-I$가 나오지 않는다
+    feedback: $x=\tfrac1y$이면 $dx=-\tfrac1{y^2}dy$입니다. 이 인수가 $1+y^2$를 $1+\tfrac1{y^2}$로 바꿉니다.
+    remedy: [RL-2]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CAL-3075}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-FTC-DIFF}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-CAL-3076}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-SUBST-SYMMETRY}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

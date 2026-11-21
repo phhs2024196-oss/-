@@ -1,0 +1,405 @@
+# 세종대 2017학년도 수시 모의논술고사(자연계열) 문제 3 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: SJU-M17-03
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: SJU
+type: T09
+variant_of: null
+replaces: null
+level: L5
+form: 분류
+points: 80
+time_estimate_min: 35
+intent: |
+  지수함수와 거듭제곱함수가 접하는 조건으로 매개변수를 정하고, $\lvert u(x)\rvert$의 미분불가능점이 '부호가 바뀌는 근'임을 근거로 교점 개수를 $a$와 $k$의 홀짝에 따라 분류한 뒤 합으로 개수를 세는 능력을 본다.
+key_idea: |
+  $\lvert u\rvert$는 $u(c)=0$, $u'(c)\ne0$인 점에서 미분불가능하고, $e^{ax}=x^k$의 양의 근 개수는 $ax=k\ln x$에서 $a$와 $\dfrac ke$의 대소로 정해진다(음의 근은 $k$가 짝수일 때 하나).
+stuck: |
+  $\lvert e^{ax}-x^k\rvert$의 미분불가능점 개수를 $k$의 홀짝과 $a\gtrless\dfrac ke$로 표로 정리하고, 서로 다른 $k$의 교점이 겹치지 않음을 확인해 단순 합으로 세는 것
+idea_tags: [IDEA-ABS-NONDIFF-SIGN-CHANGE, IDEA-LOG-LINEARIZE-INTERSECTION]
+tags: [구교육과정, 미분가능성, 절댓값 함수, 공통접선]
+elements:
+  materials:
+  - '곡선 $y=e^{ax}$와 포물선 $y=x^2$의 공통접선'
+  - '$f(x)=\lvert e^{\frac x3}-x^2\rvert$'
+  - '$g(x)=\sum_{k=1}^n\lvert e^{ax}-x^k\rvert$, $a=\tfrac{11}{2e}$'
+  concepts:
+  - '접선의 방정식'
+  - '지수함수의 미분'
+  - '미분가능성과 연속성'
+  - '절댓값 함수의 미분가능성'
+  - '로그함수의 그래프'
+  - '방정식의 실근 개수'
+  tools:
+  - '접할 조건: 함숫값·미분계수 일치 $\alpha^2=e^{a\alpha}$, $2\alpha=ae^{a\alpha}$'
+  - '$u(\beta)=0$, $u^{\prime}(\beta)\ne0$이면 좌우 미분계수 $\pm u^{\prime}(\beta)$'
+  - '로그를 취해 $ax=k\ln x$ (직선과 로그곡선의 교점)'
+  - '홀짝·대소에 따른 표 작성과 부분합'
+  conditions:
+  - '$a>0$'
+  - '$a=\tfrac{k}{e}$이면 접함(미분가능), $a<\tfrac ke$이면 양의 교점 2개, $a>\tfrac ke$이면 0개'
+  - '$k$ 짝수 ⇒ $x<0$에서 교점 1개, 홀수 ⇒ 없음'
+  - '$x=\pm1$에서는 $e^{ax}\ne1$ ⇒ 서로 다른 $k$의 교점은 겹치지 않음'
+  - '$\tfrac5e\le\tfrac{11}{2e}<\tfrac6e$'
+  stimuli_used: []
+  subpart_links: '(3-2)는 (3-1)의 접선식을, (3-3)은 (3-2)의 $a=\tfrac2e$ 경계를, (3-4)는 (3-3)의 판정을 일반화해 사용'
+
+curriculum:
+  version: '2015'
+  subjects: [미적분]
+  scope_2028: calc2
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 함수의 미분가능성과 연속성의 관계를 이해하고, 지수함수를 미분할 수 있다(요지)
+    verified: false
+  content_area: 미분법 – 지수함수의 미분, 미분가능성
+  behavior_domain: 추론
+  unit_path: [미적분, 미분법, 도함수의 활용, 방정식의 실근 개수]
+  key_concepts: [접선의 방정식, 지수함수의 미분, 미분가능성과 연속성, 절댓값 함수의 미분가능성, 로그함수의 그래프, 방정식의 실근 개수]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 세종대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 세종대학교
+  admission_year: 2017
+  admission_type: 수시 모의논술
+  track: 자연계열
+  question_no: 3
+  official_url: https://ipsi.sejong.ac.kr   # [확인 필요] 입학처 자료실의 정확한 게시물 URL로 교체
+  retrieved_at: 2026-11-21
+  original_points: [20, 20, 20, 20]
+  rights_notice: 미확인(대학 원본 PDF 표지 문구 확인 필요)
+  transcribed_from: 대치 수리 논술 연구소 「2027학년도 대비 수리논술 세종대 기출 및 모의 문제」 p.108 + 해설교재 p.182~184 (원본 PDF 이미지 대조 완료 2026-11-21)
+
+verify: verify/SJU-M17.py::p03
+
+stimuli: []
+
+stem: |
+  다음 물음에 각각 답하시오.
+
+subparts:
+- id: '1'
+  stem: |
+    곡선 $y=e^{ax}$ 위의 점 $\mathrm{P}(c,e^{ac})$에서의 접선의 방정식을 구하시오. (단, $a$와 $c$는 모두 상수이며 $a>0$이다.)
+  points: 20
+  depends_on: []
+  answer: {kind: expression, value: 'y = a*exp(a*c)*(x - c) + exp(a*c)', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $y'=ae^{ax}$.
+    steps:
+    - {id: 1a, content: '$y=ae^{ac}(x-c)+e^{ac}$', criteria: ['1.M1', '1.A1']}
+    hint_ladder:
+    - $e^{ax}$의 도함수는?
+  - id: S1-B
+    audience: B
+    source_flow: 해설교재 p.182
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        $y'=ae^{ax}$이므로 점 $\mathrm{P}(c,e^{ac})$에서 접선의 기울기는 $ae^{ac}$이다.
+      criteria: ['1.M1']
+    - id: 1b-2
+      content: |
+        접선의 방정식은 $y=ae^{ac}(x-c)+e^{ac}$이다.
+      criteria: ['1.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 10
+      evidence: |
+        $y'=ae^{ax}$로 기울기 $ae^{ac}$를 구했다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1]
+    - id: 1.A1
+      mark_type: A
+      points: 10
+      evidence: |
+        $y=ae^{ac}(x-c)+e^{ac}$.
+      depends_on: [1.M1]
+      steps: [1b-2]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '79', meaning: '기타 오답(예: 기울기를 $e^{ac}$로 둠)'}
+  misconceptions: []
+
+- id: '2'
+  stem: |
+    직선 $L$이 곡선 $y=e^{ax}$과 포물선 $y=x^2$에 동일한 점 $\mathrm{Q}$에서 접한다. 양의 상수 $a$의 값과 점 $\mathrm{Q}$의 좌표를 각각 구하시오. (아래 그림 참조)
+    (그림: 원점 근처에서 $y=e^{ax}$(파란색)와 $y=x^2$(보라색)이 제1사분면의 점 Q에서 직선 $L$에 함께 접함)
+  points: 20
+  depends_on: ['1']
+  answer: {kind: expression, value: 'a = 2/E; Q = (E, E**2)', equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: Q의 $x$좌표 $\alpha$에서 함숫값·미분계수 일치.
+    steps:
+    - {id: 2a, content: '$\alpha^2=e^{a\alpha}$, $2\alpha=ae^{a\alpha}=a\alpha^2\Rightarrow a\alpha=2$, $\alpha^2=e^2$, $\alpha=e$, $a=\tfrac2e$', criteria: ['2.M1', '2.A1', '2.A2']}
+    hint_ladder:
+    - 같은 점에서 같은 직선에 접하려면 두 곡선의 무엇이 같아야 하는가?
+  - id: S2-B
+    audience: B
+    source_flow: 해설교재 p.182
+    method_no: 1
+    steps:
+    - id: 2b-1
+      content: |
+        Q의 $x$좌표를 $\alpha$라 하면 두 곡선의 함숫값과 도함수 값이 같아야 하므로 $\alpha^2=e^{a\alpha}$, $2\alpha=ae^{a\alpha}$이다.
+      criteria: ['2.M1']
+    - id: 2b-2
+      content: |
+        둘째 식에 첫째 식을 대입하면 $2\alpha=a\alpha^2$이고 $\alpha\ne0$($e^{a\alpha}>0$)이므로 $a\alpha=2$이다. 그러면 $\alpha^2=e^2$이고 $a\alpha=2>0$, $a>0$이므로 $\alpha=e$, $a=\dfrac2e$이다.
+      criteria: ['2.A1']
+    - id: 2b-3
+      content: |
+        따라서 $a=\dfrac2e$이고 $\mathrm{Q}(e,e^2)$이다.
+      criteria: ['2.A2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 8
+      evidence: |
+        함숫값 일치와 미분계수 일치 두 식을 세웠다.
+      depends_on: []
+      implied_ok: false
+      steps: [2b-1]
+    - id: 2.A1
+      mark_type: A
+      points: 7
+      evidence: |
+        연립해 $\alpha=e$, $a=\dfrac2e$를 얻었다.
+      depends_on: [2.M1]
+      steps: [2b-2]
+    - id: 2.A2
+      mark_type: A
+      points: 5
+      evidence: |
+        $\mathrm{Q}(e,e^2)$.
+      depends_on: [2.M1, 2.A1]
+      steps: [2b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-3004}
+  misconceptions:
+  - id: MC-CAL-3004
+    outcome_code: '71'
+    wrong_work: '$ae^{a\alpha}=2\alpha$만 쓰고 $a$를 $\alpha$로 남겨 둠'
+    detect_cue: 함숫값 일치식 $\alpha^2=e^{a\alpha}$가 없다
+    feedback: 같은 점에서 접하려면 함숫값과 기울기가 모두 같아야 합니다.
+    remedy: [RL-1]
+
+- id: '3'
+  stem: |
+    실수 전체의 집합에서 정의되는 함수 $f(x)=\lvert e^{\frac x3}-x^2\rvert$에 대하여 $f(x)$가 미분가능하지 않은 점의 개수를 구하시오.
+  points: 20
+  depends_on: ['2']
+  answer: {kind: value, value: '3', equivalents: [], tolerance: null}
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: $\lvert u\rvert$는 $u$가 부호를 바꾸는 근에서 미분불가능. 제2사분면 교점 1개, $a=\dfrac13<\dfrac2e$이므로 제1사분면 교점 2개.
+    steps:
+    - {id: 3a, content: '$x<0$: 1개, $x>0$: $\tfrac13<\tfrac2e$이므로 2개 ⇒ 3', criteria: ['3.M1', '3.R1', '3.A1']}
+    hint_ladder:
+    - $\lvert u(x)\rvert$가 미분가능하지 않으려면 $u(c)$와 $u'(c)$는 어떠해야 하는가?
+    - (3-2)의 $a=\dfrac2e$와 $\dfrac13$을 비교하자.
+  - id: S3-B
+    audience: B
+    source_flow: 해설교재 p.182~183
+    method_no: 1
+    steps:
+    - id: 3b-1
+      content: |
+        $u(x)=e^{\frac x3}-x^2$이라 하면 $f=\lvert u\rvert$이다. $u(\beta)=0$, $u'(\beta)>0$이면
+        $\displaystyle\lim_{h\to0+}\dfrac{f(\beta+h)-f(\beta)}{h}=u'(\beta)>0$, $\displaystyle\lim_{h\to0-}\dfrac{f(\beta+h)-f(\beta)}{h}=-u'(\beta)<0$이므로 $f$는 $\beta$에서 미분가능하지 않다.
+        일반적으로 $v(c)=0$일 때 $\lvert v\rvert$가 $c$에서 미분가능하려면 $v'(c)=0$이어야 한다. 따라서 $\lvert v_1-v_2\rvert$는 $v_1(c)=v_2(c)$인 점에서 두 곡선이 공통 접선을 가질 때만 미분가능하다.
+      criteria: ['3.M1']
+    - id: 3b-2
+      content: |
+        $x<0$에서 $x^2$은 $\infty$에서 $0$으로 감소하고 $e^{\frac x3}$은 $0$에서 $1$로 증가하므로 두 곡선은 제2사분면의 한 점 $\beta$에서 만나며 그 점에서 접하지 않는다(기울기 부호가 다름). 따라서 $\beta$에서 미분불가능하다.
+      criteria: ['3.R1']
+    - id: 3b-3
+      content: |
+        $x>0$에서 $e^{ax}=x^2\iff ax=2\ln x$이므로 직선 $y=ax$와 곡선 $y=2\ln x$의 위치관계로 보면 (3-2)로부터
+        (i) $a=\dfrac2e$이면 한 점에서 공통 접선, (ii) $0<a<\dfrac2e$이면 두 점에서 만남, (iii) $a>\dfrac2e$이면 만나지 않는다.
+        이 문제에서 $a=\dfrac13<\dfrac2e$이므로 제1사분면의 두 점에서 (접하지 않고) 만나고, 그 점들에서 $f$는 미분가능하지 않다.
+      criteria: ['3.R1']
+    - id: 3b-4
+      content: |
+        따라서 $f(x)$가 미분가능하지 않은 점의 개수는 $3$이다.
+      criteria: ['3.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 6
+      evidence: |
+        $\lvert u\rvert$가 $u(c)=0$, $u'(c)\ne0$인 점에서 미분불가능함을 좌우 미분계수로 밝혔다.
+      depends_on: []
+      implied_ok: false
+      steps: [3b-1]
+    - id: 3.R1
+      mark_type: R
+      points: 8
+      evidence: |
+        $x<0$의 교점 1개와, $\dfrac13<\dfrac2e$로부터 $x>0$의 교점 2개(접하지 않음)를 근거와 함께 보였다.
+      depends_on: [3.M1]
+      ft: {allowed: true, from: [2.A1], max_points: 8}
+      steps: [3b-2, 3b-3]
+    - id: 3.A1
+      mark_type: A
+      points: 6
+      evidence: |
+        개수 $3$.
+      depends_on: [3.M1, 3.R1]
+      steps: [3b-4]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-3164}
+  misconceptions:
+  - id: MC-CAL-3164
+    outcome_code: '71'
+    wrong_work: '제1사분면의 교점 2개만 세어 2라고 답함'
+    detect_cue: $x<0$의 교점을 조사하지 않았다
+    feedback: $x^2$은 짝수 차수라 $x<0$에서도 $e^{\frac x3}$과 만납니다. 음수 쪽 교점도 확인하세요.
+    remedy: [RL-2]
+
+- id: '4'
+  stem: |
+    자연수 $n$에 대하여 함수 $g(x)$를 실수 전체의 집합에서 다음과 같이 정의 하자.
+    $$g(x)=\sum_{k=1}^n\lvert e^{ax}-x^k\rvert$$
+    $a=\dfrac{11}{2e}$일 때 $g(x)$의 미분가능하지 않은 점의 개수가 $17$이 되도록 하는 자연수 $n$의 값을 구하시오.
+  points: 20
+  depends_on: ['3']
+  answer: {kind: value, value: '11', equivalents: [], tolerance: null}
+  solutions:
+  - id: S4-A
+    audience: A
+    method_no: 1
+    key_idea: $p_k=\lvert e^{ax}-x^k\rvert$의 미분불가능점 수는 (홀수, $a<\tfrac ke$)=2, (홀수, $a\ge\tfrac ke$)=0, (짝수, $a<\tfrac ke$)=3, (짝수, $a\ge\tfrac ke$)=1. 위치가 겹치지 않으므로 합.
+    steps:
+    - {id: 4a, content: '$k=1,\dots$: $0,1,0,1,0,3,2,3,2,3,2,\dots$, 부분합 $17$은 $n=11$', criteria: ['4.M1', '4.A1', '4.R1', '4.A2']}
+    hint_ladder:
+    - (3-3)의 방법을 $x^k$로 일반화하자. $k$의 홀짝에 따라 $x<0$에서 무엇이 달라지는가?
+    - $a=\dfrac{11}{2e}$는 $\dfrac ke$ 중 어느 둘 사이에 있는가?
+    - 서로 다른 $k$에 대한 미분불가능점이 같은 위치일 수 있는가?
+  - id: S4-B
+    audience: B
+    source_flow: 해설교재 p.183~184
+    method_no: 1
+    steps:
+    - id: 4b-1
+      content: |
+        $p_k(x)=\lvert e^{ax}-x^k\rvert$라 하자. $k$가 짝수이면 (3-3)과 같은 이유로 두 곡선은 제2사분면의 한 점에서 접하지 않고 만나 $p_k$는 그 점에서 미분불가능하다. $k$가 홀수이면 $x<0$에서 $x^k<0<e^{ax}$이므로 만나지 않는다.
+        제1사분면에서는 $ax=k\ln x$이므로 $a=\dfrac ke$일 때 공통접선(미분가능), $a<\dfrac ke$이면 두 점에서 만나고, $a>\dfrac ke$이면 만나지 않는다.
+      criteria: ['4.M1']
+    - id: 4b-2
+      content: |
+        따라서 $p_k$의 미분불가능한 점의 수는 $k$가 홀수일 때 $a<\dfrac ke$이면 $2$, $\dfrac ke\le a$이면 $0$이고, $k$가 짝수일 때 각각 $3$, $1$이다.
+        $a=\dfrac{11}{2e}$이면 $\dfrac5e\le a<\dfrac6e$이므로 $k=1,2,3,\dots$에 대해 $0,1,0,1,0,3,2,3,2,3,2,\dots$ ⋯ (3.1)이다.
+      criteria: ['4.A1']
+    - id: 4b-3
+      content: |
+        서로 다른 $k$, $m$에 대해 $p_k$, $p_m$의 미분불가능점이 같다면 그 점에서 $x^k=x^m=e^{ax}>0$이어야 하므로 $\lvert x\rvert=1$이고, 그러면 $e^{\pm a}=1$이 되어 $a>0$에 모순이다. 즉 $k$가 다르면 교점의 위치($ax=k\ln\lvert x\rvert$)가 모두 다르다.
+        또한 한 점에서 하나의 $p_k$만 미분불가능하고 나머지는 미분가능하므로, 그 점에서 $g$는 미분가능하지 않다. 따라서 $g$의 미분불가능점의 개수는 (3.1)의 첫째항부터 제$n$항까지의 합과 같다.
+      criteria: ['4.R1']
+    - id: 4b-4
+      content: |
+        부분합은 $0,1,1,2,2,5,7,10,12,15,17,\dots$이므로 합이 $17$이 되는 것은 $n=11$일 때이다.
+      criteria: ['4.A2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 4.M1
+      mark_type: M
+      points: 5
+      evidence: |
+        $k$의 홀짝과 $a$, $\dfrac ke$의 대소에 따라 교점·접함을 분류했다.
+      depends_on: []
+      implied_ok: false
+      ft: {allowed: true, from: [3.R1], max_points: 5}
+      steps: [4b-1]
+    - id: 4.A1
+      mark_type: A
+      points: 5
+      evidence: |
+        표(2,0,3,1)와 $a=\dfrac{11}{2e}$에서의 수열 $0,1,0,1,0,3,2,3,2,\dots$를 얻었다.
+      depends_on: [4.M1]
+      steps: [4b-2]
+    - id: 4.R1
+      mark_type: R
+      points: 5
+      evidence: |
+        서로 다른 $k$의 미분불가능점이 겹치지 않아 단순 합으로 셀 수 있음을 근거와 함께 밝혔다.
+      depends_on: [4.M1]
+      steps: [4b-3]
+    - id: 4.A2
+      mark_type: A
+      points: 5
+      evidence: |
+        부분합 17에서 $n=11$.
+      depends_on: [4.M1, 4.A1]
+      steps: [4b-4]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-3164}
+  - {code: '72', misconception: MC-CAL-3169}
+  misconceptions:
+  - id: MC-CAL-3164
+    outcome_code: '71'
+    wrong_work: '$a=\tfrac ke$ 경계를 잘못 처리하거나 짝수 $k$의 음의 교점을 빼고 세어 $n=12$ 이상으로 답함'
+    detect_cue: 짝수 $k$의 개수에 음의 교점 1개가 없다
+    feedback: 짝수 $k$에서는 $x<0$에서도 한 번 만납니다. 표를 홀짝·대소 네 칸으로 정리하세요.
+    remedy: [RL-2]
+  - id: MC-CAL-3169
+    outcome_code: '72'
+    wrong_work: '개수를 그냥 더하면서 겹침 여부를 언급하지 않음'
+    detect_cue: 위치가 다르다는 근거가 없다
+    feedback: 여러 함수의 미분불가능점을 더하려면 위치가 서로 다름(또는 겹쳐도 상쇄되지 않음)을 보여야 합니다.
+    remedy: [RL-2]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CAL-3004}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-TANGENT-COND}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-CAL-3164}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-ABS-DIFF}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

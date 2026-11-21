@@ -1,0 +1,426 @@
+# 세종대 2022학년도 수시 논술고사 [B] 문제 3 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: SJU-G22B-03
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: SJU
+type: T03
+variant_of: null
+replaces: null
+level: L5
+form: 추론
+points: 240
+time_estimate_min: 40
+intent: |
+  $f'(\cos x)=e^x$로 주어진 함수에서 합성함수 $g(x)=f(\cos x)$의 도함수를 구해 적분으로 $g$를 복원하고, 대칭성으로 그래프 전체를 그린 뒤, 수평선과의 두 교점 사이 거리 함수를 역함수의 미분법으로 미분하는 능력을 본다.
+key_idea: |
+  $g'(x)=f'(\cos x)(-\sin x)=-e^x\sin x$이므로 $g(x)=\tfrac12e^x(\cos x-\sin x)$이고, $g(2\pi-x)=g(x)$이므로 $h(t)=2\{\pi-g^{-1}(t)\}$이다.
+stuck: |
+  $f$를 직접 구하지 않고 $g$의 도함수를 합성함수 미분으로 얻는 것, 그리고 $x=\pi$ 대칭으로 두 교점 사이 거리를 한쪽 교점만으로 나타내는 것
+idea_tags: [IDEA-COMPOSITE-DERIV-RECOVER, IDEA-SYMMETRY-DISTANCE-INVERSE]
+tags: [합성함수, 그래프 개형, 역함수 미분]
+elements:
+  materials:
+  - '$f''(\cos x)=e^x$를 만족하는 함수 $f$'
+  - '$g(x)=f(\cos x)$ $(0\le x\le2\pi)$의 그래프'
+  - '직선 $y=t$와 곡선의 두 교점 사이 거리 $h(t)$'
+  concepts:
+  - '합성함수의 미분법'
+  - '부분적분법(또는 도함수 확인)'
+  - '삼각함수의 미분'
+  - '이계도함수와 변곡점'
+  - '그래프의 대칭'
+  - '함수의 최대·최소'
+  - '역함수의 미분법'
+  tools:
+  - '$g''(x)=-e^x\sin x$를 적분해 $g=\tfrac12e^x(\cos x-\sin x)+C$'
+  - '연속성으로 끝점 $x=0$까지 식 연장, $g(0)=f(1)$로 $C=0$'
+  - '$g(2\pi-x)=g(x)$ 대칭'
+  - '$g''''(x)=-e^x(\cos x+\sin x)$ 부호표'
+  - '$h(t)=2\{\pi-g^{-1}(t)\}$와 역함수 미분'
+  conditions:
+  - '(가)는 $0<x<\pi$에서만 주어짐 ⇒ $[\pi,2\pi]$는 대칭으로 구함'
+  - '(나) $f(1)=\tfrac12$ ⇒ $g(0)=\tfrac12$'
+  - '$[0,\pi]$에서 $g$ 감소 ⇒ 역함수 존재'
+  - '$h(k)=\pi$ ⇔ 교점이 $x=\tfrac{\pi}{2},\tfrac{3\pi}{2}$'
+  stimuli_used: []
+  subpart_links: '(3-2)는 (3-1)의 $g$와 대칭성을 사용하고, (3-3)은 (3-2)의 $m$, $M$과 대칭성, (3-1)의 $g''$을 사용'
+
+curriculum:
+  version: '2015'
+  subjects: [미적분]
+  scope_2028: calc2
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 합성함수와 역함수를 미분할 수 있고, 함수의 그래프의 개형을 그릴 수 있다(요지)
+    verified: false
+  content_area: 미분법 – 여러 가지 미분법·도함수의 활용
+  behavior_domain: 문제해결
+  unit_path: [미적분, 미분법, 여러 가지 미분법, 합성함수의 미분법]
+  key_concepts: [합성함수의 미분법, 부분적분법, 삼각함수의 미분, 이계도함수와 변곡점, 그래프의 대칭, 함수의 최대·최소, 역함수의 미분법]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 세종대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 세종대학교
+  admission_year: 2022
+  admission_type: 수시 논술고사(B형)
+  track: 자연계열
+  question_no: 3
+  official_url: https://ipsi.sejong.ac.kr   # [확인 필요] 입학처 자료실의 정확한 게시물 URL로 교체
+  retrieved_at: 2026-11-21
+  original_points: [80, 80, 80]
+  rights_notice: 미확인(대학 원본 PDF 표지 문구 확인 필요)
+  transcribed_from: 대치 수리 논술 연구소 「2027학년도 대비 수리논술 세종대 기출 및 모의 문제」 p.50 + 해설교재 p.103~104 (원본 PDF 이미지 대조 완료 2026-11-21)
+
+verify: verify/SJU-G22B.py::p03
+
+stimuli: []
+
+stem: |
+  닫힌구간 $[-1,1]$에서 연속이고 열린구간 $(-1,1)$에서 이계도함수가 존재하는 함수 $f(x)$가 다음 조건을 만족시킨다.
+
+  (가) $0<x<\pi$인 모든 실수 $x$에 대하여 $f'(\cos x)=e^x$이다.
+  (나) $f(1)=\dfrac12$
+
+  $0\le x\le2\pi$일 때 함수 $g(x)$를 $g(x)=f(\cos x)$라 정의하자. 다음 물음에 각각 답하시오.
+
+subparts:
+- id: '1'
+  stem: |
+    $0\le x\le\pi$일 때 $g(x)$를 구하시오.
+  points: 80
+  depends_on: []
+  answer: {kind: expression, value: 'exp(x)*(cos(x) - sin(x))/2', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $g'(x)=-e^x\sin x$를 적분하고, 연속성으로 끝점까지 식을 늘린 뒤 $g(0)=f(1)$로 상수를 정한다.
+    steps:
+    - id: 1a
+      content: |
+        $g'=-e^x\sin x\Rightarrow g=\tfrac12e^x(\cos x-\sin x)+C$, $g(0)=\tfrac12\Rightarrow C=0$
+      criteria: ['1.M1', '1.A1', '1.M2', '1.A2']
+    hint_ladder:
+    - $f$를 구하지 말고 $g(x)=f(\cos x)$를 미분해 보자.
+    - $e^x\sin x$의 부정적분은 부분적분을 두 번 하거나 $\{e^x(\cos x-\sin x)\}'$을 계산해 확인한다.
+  - id: S1-B
+    audience: B
+    source_flow: 해설교재 p.103
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        $0<x<\pi$에서 합성함수의 미분법과 (가)에 의하여 $g'(x)=f'(\cos x)\cdot(-\sin x)=-e^x\sin x$이다.
+      criteria: ['1.M1']
+    - id: 1b-2
+      content: |
+        $\left\{\dfrac12e^x(\cos x-\sin x)\right\}'=\dfrac12e^x(\cos x-\sin x-\sin x-\cos x)=-e^x\sin x$이므로
+        $0<x<\pi$에서 $g(x)=\dfrac12e^x(\cos x-\sin x)+C$이다.
+      criteria: ['1.A1']
+    - id: 1b-3
+      content: |
+        $f$가 $[-1,1]$에서 연속이므로 $g$는 $[0,\pi]$에서 연속이고, 이 식은 $0\le x\le\pi$에서도 성립한다. $x=0$을 대입하면 $g(0)=f(1)=\dfrac12+C$이고 (나)에서 $C=0$이다.
+      criteria: ['1.M2']
+    - id: 1b-4
+      content: |
+        따라서 $g(x)=\dfrac12e^x(\cos x-\sin x)$ $(0\le x\le\pi)$이다.
+      criteria: ['1.A2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 25
+      evidence: |
+        합성함수의 미분법으로 $g'(x)=-e^x\sin x$를 얻었다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1]
+    - id: 1.A1
+      mark_type: A
+      points: 20
+      evidence: |
+        $g(x)=\dfrac12e^x(\cos x-\sin x)+C$를 얻었다(부분적분 또는 미분으로 확인).
+      depends_on: [1.M1]
+      steps: [1b-2]
+    - id: 1.M2
+      mark_type: M
+      points: 20
+      evidence: |
+        연속성으로 끝점 $x=0$까지 식을 쓰고 $g(0)=f(1)=\dfrac12$로 상수를 정했다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-3]
+    - id: 1.A2
+      mark_type: A
+      points: 15
+      evidence: |
+        $g(x)=\dfrac12e^x(\cos x-\sin x)$를 얻었다.
+      depends_on: [1.M2, 1.A1]
+      steps: [1b-4]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-3094}
+  - {code: '72', misconception: MC-CAL-3091}
+  misconceptions:
+  - id: MC-CAL-3094
+    outcome_code: '71'
+    wrong_work: '$g''(x)=f''(\cos x)=e^x$로 두어 $g(x)=e^x-\tfrac12$를 얻음'
+    detect_cue: $-\sin x$ 인수가 없다
+    feedback: $g(x)=f(\cos x)$는 합성함수입니다. 속함수 $\cos x$의 도함수 $-\sin x$를 곱하세요.
+    remedy: [RL-1]
+  - id: MC-CAL-3091
+    outcome_code: '72'
+    wrong_work: '적분상수를 두지 않고 $g(x)=\tfrac12e^x(\cos x-\sin x)$라고만 씀(우연히 맞음)'
+    detect_cue: $g(0)=f(1)$을 이용한 상수 결정이 없다
+    feedback: 부정적분에는 상수가 붙습니다. (나)로 상수가 $0$임을 보이세요.
+    remedy: [RL-2]
+
+- id: '2'
+  stem: |
+    $\pi\le x\le2\pi$일 때 함수 $g(x)$를 구하고, $0\le x\le2\pi$일 때 곡선 $y=g(x)$의 그래프의 개형을 그리시오. 또한 이 곡선이 $x$축과 만나는 점의 $x$좌표와 변곡점의 $x$좌표를 모두 구하고, 함수 $g(x)$의 최솟값을 $m$, 최댓값을 $M$이라 할 때 상수 $m$과 $M$을 각각 구하시오.
+  points: 80
+  depends_on: ['1']
+  answer: {kind: expression, value: 'g(x)=exp(2*pi - x)*(cos(x) + sin(x))/2; zeros=pi/4,7*pi/4; inflections=3*pi/4,5*pi/4; m=-exp(pi)/2; M=1/2', equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: $\cos(2\pi-x)=\cos x$이므로 $g(2\pi-x)=g(x)$, 곡선은 $x=\pi$에 대칭이다. $[0,\pi]$에서 $g$는 감소하고 $g''=-e^x(\cos x+\sin x)$의 부호가 $x=\tfrac{3\pi}4$에서 바뀐다.
+    steps:
+    - id: 2a
+      content: |
+        $g(x)=\tfrac12e^{2\pi-x}(\cos x+\sin x)$ $(\pi\le x\le2\pi)$, 영점 $\tfrac{\pi}4,\tfrac{7\pi}4$, 변곡점 $\tfrac{3\pi}4,\tfrac{5\pi}4$, $m=g(\pi)=-\tfrac{e^\pi}2$, $M=g(0)=\tfrac12$
+      criteria: ['2.M1', '2.A1', '2.M2', '2.A2', '2.A3', '2.A4']
+    hint_ladder:
+    - $\cos(2\pi-x)$와 $\cos x$의 관계를 이용하자.
+    - $[0,\pi]$에서 $g'$와 $g''$의 부호를 조사하자.
+  - id: S2-B
+    audience: B
+    source_flow: 해설교재 p.103
+    method_no: 1
+    steps:
+    - id: 2b-1
+      content: |
+        $\pi\le x\le2\pi$이면 $0\le2\pi-x\le\pi$이고 $g(2\pi-x)=f(\cos(2\pi-x))=f(\cos x)=g(x)$이므로 곡선 $y=g(x)$는 직선 $x=\pi$에 대칭이다.
+      criteria: ['2.M1']
+    - id: 2b-2
+      content: |
+        (3-1)의 식에 $x$ 대신 $2\pi-x$를 넣으면
+        $g(x)=\dfrac12e^{2\pi-x}\{\cos(2\pi-x)-\sin(2\pi-x)\}=\dfrac12e^{2\pi-x}(\cos x+\sin x)$ $(\pi\le x\le2\pi)$이다.
+      criteria: ['2.A1']
+    - id: 2b-3
+      content: |
+        $0<x<\pi$에서 $g'(x)=-e^x\sin x<0$이므로 $g$는 감소한다. $g''(x)=-e^x(\cos x+\sin x)$이고 $g''(x)=0$이면 $\tan x=-1$, 즉 $x=\dfrac{3\pi}4$이다. $0<x<\dfrac{3\pi}4$에서 $g''<0$(위로 볼록), $\dfrac{3\pi}4<x<\pi$에서 $g''>0$(아래로 볼록)이다.
+      criteria: ['2.M2']
+    - id: 2b-4
+      content: |
+        $[0,\pi]$에서 $g(x)=0$이면 $\cos x=\sin x$, 즉 $x=\dfrac{\pi}4$이다. 그래프는 $\left(0,\dfrac12\right)$에서 출발해 $x=\dfrac{\pi}4$에서 $x$축을 지나고 $x=\dfrac{3\pi}4$에서 오목·볼록이 바뀌며 $\left(\pi,-\dfrac{e^\pi}2\right)$까지 감소하고($g'(\pi)=0$), $[\pi,2\pi]$는 $x=\pi$ 대칭으로 증가하여 $\left(2\pi,\dfrac12\right)$에 이른다.
+      criteria: ['2.A2']
+    - id: 2b-5
+      content: |
+        대칭성에 의해 $x$축과 만나는 점의 $x$좌표는 $\dfrac{\pi}4$, $\dfrac{7\pi}4$이고 변곡점의 $x$좌표는 $\dfrac{3\pi}4$, $\dfrac{5\pi}4$이다($x=\pi$의 양쪽은 모두 아래로 볼록이므로 $x=\pi$는 변곡점이 아니다).
+      criteria: ['2.A3']
+    - id: 2b-6
+      content: |
+        $m=g(\pi)=-\dfrac{e^\pi}2$, $M=g(0)=g(2\pi)=\dfrac12$이다.
+      criteria: ['2.A4']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 15
+      evidence: |
+        $g(2\pi-x)=g(x)$(직선 $x=\pi$ 대칭)를 근거와 함께 밝혔다.
+      depends_on: []
+      implied_ok: false
+      steps: [2b-1]
+    - id: 2.A1
+      mark_type: A
+      points: 15
+      evidence: |
+        $\pi\le x\le2\pi$에서 $g(x)=\dfrac12e^{2\pi-x}(\cos x+\sin x)$를 얻었다.
+      depends_on: [2.M1]
+      ft: {allowed: true, from: [1.A2], max_points: 15}
+      steps: [2b-2]
+    - id: 2.M2
+      mark_type: M
+      points: 15
+      evidence: |
+        $g'$, $g''$의 부호를 조사해 증감과 오목·볼록을 판정했다.
+      depends_on: []
+      implied_ok: false
+      steps: [2b-3]
+    - id: 2.A2
+      mark_type: A
+      points: 10
+      evidence: |
+        증감·볼록성·대칭이 반영된 그래프 개형을 그렸다.
+      depends_on: [2.M2]
+      steps: [2b-4]
+    - id: 2.A3
+      mark_type: A
+      points: 15
+      evidence: |
+        $x$축과의 교점 $\dfrac{\pi}4,\dfrac{7\pi}4$와 변곡점 $\dfrac{3\pi}4,\dfrac{5\pi}4$를 모두 구했다.
+      depends_on: [2.M2, 2.M1]
+      steps: [2b-5]
+    - id: 2.A4
+      mark_type: A
+      points: 10
+      evidence: |
+        $m=-\dfrac{e^\pi}2$, $M=\dfrac12$을 구했다.
+      depends_on: [2.M2]
+      steps: [2b-6]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-3095}
+  misconceptions:
+  - id: MC-CAL-3095
+    outcome_code: '71'
+    wrong_work: '대칭점 $x=\pi$나 끝점 $x=0,2\pi$까지 변곡점에 포함'
+    detect_cue: $g''$의 부호가 바뀌는지 확인하지 않고 변곡점을 나열했다
+    feedback: 변곡점은 이계도함수의 부호가 바뀌는 점입니다. $x=\pi$ 양쪽은 모두 아래로 볼록입니다.
+    remedy: [RL-3]
+
+- id: '3'
+  stem: |
+    (3-2)에서 구한 상수 $m$과 $M$에 대하여 열린구간 $(m,M)$을 $I$라 하자. 실수 $t\in I$에 대하여 직선 $y=t$가 곡선 $y=g(x)$와 만나서 생기는 두 점 사이의 거리를 $h(t)$라 정의하자. 미분가능한 함수 $h(t)$에 대하여 $h(k)=\pi$일 때 상수 $k$와 $h'(k)$의 값을 각각 구하시오.
+  points: 80
+  depends_on: ['1', '2']
+  answer: {kind: expression, value: 'k=-exp(pi/2)/2; h1=2*exp(-pi/2)', equivalents: [], tolerance: null}
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: 왼쪽 교점을 $x_1$이라 하면 대칭에 의해 오른쪽 교점은 $2\pi-x_1$, $h=2(\pi-x_1)$, $g(x_1)=t$를 미분한다.
+    steps:
+    - id: 3a
+      content: |
+        $h(k)=\pi\Rightarrow x_1=\tfrac{\pi}2$, $k=-\tfrac12e^{\pi/2}$, $h'(k)=-\dfrac2{g'(\pi/2)}=2e^{-\pi/2}$
+      criteria: ['3.M1', '3.A1', '3.M2', '3.A2']
+    hint_ladder:
+    - 두 교점은 직선 $x=\pi$에 대해 대칭이다.
+    - 왼쪽 교점의 $x$좌표를 $t$의 함수로 보고, 그 도함수를 $g'$으로 나타내자.
+  - id: S3-B
+    audience: B
+    source_flow: 해설교재 p.104
+    method_no: 1
+    steps:
+    - id: 3b-1
+      content: |
+        곡선이 $x=\pi$에 대칭이므로 두 교점의 $x$좌표는 $\pi-\dfrac12h(t)$, $\pi+\dfrac12h(t)$이다. $h(k)=\pi$이면 두 교점의 $x$좌표는 $\dfrac{\pi}2$, $\dfrac{3\pi}2$이다.
+      criteria: ['3.M1']
+    - id: 3b-2
+      content: |
+        따라서 $k=g\!\left(\dfrac{\pi}2\right)=\dfrac12e^{\pi/2}(0-1)=-\dfrac12e^{\frac{\pi}2}$이다.
+      criteria: ['3.A1']
+    - id: 3b-3
+      content: |
+        $g\!\left(\pi-\dfrac12h(t)\right)=t$의 양변을 $t$에 대하여 미분하면 $-\dfrac12g'\!\left(\pi-\dfrac12h(t)\right)h'(t)=1$이므로
+        $h'(t)=-\dfrac{2}{g'\!\left(\pi-\frac12h(t)\right)}$이다.
+      criteria: ['3.M2']
+    - id: 3b-4
+      content: |
+        $t=k$, $h(k)=\pi$를 대입하면 $h'(k)=-\dfrac{2}{g'(\pi/2)}=-\dfrac{2}{-e^{\pi/2}\sin\frac{\pi}2}=2e^{-\frac{\pi}2}$이다.
+      criteria: ['3.A2']
+  - id: S3-ALT
+    audience: ALT
+    source_flow: 해설교재 p.104 별해
+    method_no: 2
+    key_idea: $[0,\pi]$에서 $g$는 감소하므로 역함수가 있고 $h(t)=2\{\pi-g^{-1}(t)\}$이다.
+    steps:
+    - id: 3c-1
+      content: |
+        $h(k)=\pi$에서 $g^{-1}(k)=\dfrac{\pi}2$, $k=g(\tfrac{\pi}2)=-\dfrac12e^{\pi/2}$이고, 역함수의 미분법으로
+        $h'(t)=-2\{g^{-1}(t)\}'=-\dfrac{2}{g'(g^{-1}(t))}$, $h'(k)=\dfrac{2}{e^{\pi/2}\sin\frac{\pi}2}=2e^{-\frac{\pi}2}$이다.
+      criteria: ['3.M1', '3.A1', '3.M2', '3.A2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 20
+      evidence: |
+        대칭성으로 두 교점을 $\pi\mp\dfrac12h(t)$(또는 $h=2\{\pi-g^{-1}(t)\}$)로 나타냈다.
+      depends_on: []
+      implied_ok: false
+      ft: {allowed: true, from: [2.M1], max_points: 20}
+      steps: [3b-1, 3c-1]
+    - id: 3.A1
+      mark_type: A
+      points: 20
+      evidence: |
+        $k=-\dfrac12e^{\pi/2}$을 얻었다.
+      depends_on: [3.M1]
+      steps: [3b-2, 3c-1]
+    - id: 3.M2
+      mark_type: M
+      points: 20
+      evidence: |
+        $g(\pi-\tfrac12h(t))=t$를 미분(또는 역함수의 미분법)해 $h'(t)$를 $g'$으로 나타냈다.
+      depends_on: []
+      implied_ok: false
+      steps: [3b-3, 3c-1]
+    - id: 3.A2
+      mark_type: A
+      points: 20
+      evidence: |
+        $h'(k)=2e^{-\pi/2}$를 얻었다.
+      depends_on: [3.M2, 3.A1]
+      steps: [3b-4, 3c-1]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '21', meaning: 만점(역함수 별해)}
+  - {code: '71', misconception: MC-CAL-3096}
+  misconceptions:
+  - id: MC-CAL-3096
+    outcome_code: '71'
+    wrong_work: '$h''(k)=-2g''(\tfrac{\pi}2)=-2e^{\pi/2}$처럼 역함수 미분에서 역수를 취하지 않거나 $g''(k)$에 $k$를 대입'
+    detect_cue: $h'(k)$가 $g'$의 역수가 아니거나 $g'$에 교점의 $x$좌표 대신 $k$를 넣었다
+    feedback: $x_1(t)=g^{-1}(t)$의 도함수는 $\dfrac1{g'(x_1)}$이고, $g'$에는 교점의 $x$좌표 $\tfrac{\pi}2$를 넣어야 합니다.
+    remedy: [RL-4]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CAL-3094}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-CHAIN-RULE}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-CAL-3091}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-ANTIDERIV-INIT}
+  priority: 2
+- id: RL-3
+  trigger: {type: misconception, ref: MC-CAL-3095}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-INFLECTION}
+  priority: 1
+- id: RL-4
+  trigger: {type: misconception, ref: MC-CAL-3096}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-INVERSE-DIFF}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

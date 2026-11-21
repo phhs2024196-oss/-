@@ -1,0 +1,348 @@
+# 세종대 2021학년도 수시 논술고사[D](자연계열) 문제 2 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: SJU-G21D-02
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: SJU
+type: null          # [제안] 확률과통계 문항(현행 세종 범위 밖): 「확률분포·상태가 바뀌는 시행의 확률·정규근사」 — 확통 유형 신설 시 분류
+variant_of: null
+replaces: null
+level: L4
+form: 전수
+points: 230
+time_estimate_min: 30
+intent: |
+  비복원 추출의 확률분포로 상금의 표준편차를 구하고, 꺼낸 공에 따라 상자 구성이 바뀌는 시행의 확률을 경우별로 계산하며, 이항분포의 정규근사로 필요한 시행 횟수를 구하는 능력을 본다.
+key_idea: |
+  상금 $Y=12000+2000X$($X$: 뽑은 '0' 공 수)이므로 $\sigma(Y)=2000\sigma(X)$. (2-3)은 $k\overline{X}\sim\mathrm{B}(k,\tfrac12)$에서 $\mathrm{P}(\lvert Z\rvert\le0.2\sqrt k)\ge0.95$.
+stuck: |
+  (2-2)에서 앞 두 번의 결과에 따라 상자 구성이 달라지므로 네 경우로 나눠야 한다는 점, (2-3)에서 '1'의 개수의 평균 $X$를 합 $Y=kX$로 바꾸는 점
+idea_tags: [IDEA-LINEAR-TRANSFORM-VARIANCE, IDEA-CASE-TREE-STATE-CHANGE]
+tags: [확률분포, 표준편차, 정규근사, 범위 밖(현행)]
+
+elements:
+  materials:
+  - '0이 적힌 공 $n$개와 1이 적힌 공 4개가 든 상자'
+  - '공 개수에 따른 상금(0: 5000원, 1: 3000원)'
+  - '꺼낸 공이 1이면 1 공을 하나 더 넣는 시행'
+  - '복원 추출 $k$번에서 1의 개수의 평균'
+  concepts:
+  - '이산확률변수의 평균·분산·표준편차'
+  - '확률변수 $aX+b$의 표준편차'
+  - '조합'
+  - '확률의 곱셈정리'
+  - '이항분포의 정규근사'
+  tools:
+  - '확률분포표 작성'
+  - '$\sigma(aX+b)=\lvert a\rvert\sigma(X)$'
+  - '경우 나누기(앞 두 번의 결과)'
+  - '표준화와 $\mathrm{P}(\lvert Z\rvert\le1.96)=0.95$'
+  conditions:
+  - '$n=3$일 때 7개 중 4개를 동시에 뽑음(비복원)'
+  - '$n=2$일 때 0이 나오면 빼고, 1이 나오면 1 공을 하나 추가'
+  - '$n=4$일 때 1이 나올 확률 $\tfrac12$, 복원 추출'
+  stimuli_used: []
+  subpart_links: null
+
+curriculum:
+  version: '2015'
+  subjects: [확률과통계]
+  scope_2028: common
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 이산확률변수의 기댓값과 표준편차를 구하고 이항분포와 정규분포의 관계를 이해한다(요지)
+    verified: false
+  content_area: 통계 – 확률분포
+  behavior_domain: 문제해결
+  unit_path: [확률과통계, 통계, 확률분포, 이산확률변수의 기댓값과 표준편차]
+  key_concepts: [이산확률변수의 평균·분산·표준편차, 확률변수 aX+b의 표준편차, 조합, 확률의 곱셈정리, 이항분포의 정규근사]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 세종대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 세종대학교
+  admission_year: 2021
+  admission_type: 수시 논술
+  track: 자연계열
+  question_no: 2
+  official_url: https://ipsi.sejong.ac.kr   # [확인 필요] 입학처 자료실의 정확한 게시물 URL로 교체
+  retrieved_at: 2026-11-21
+  original_points: [70, 80, 80]
+  rights_notice: 미확인(대학 원본 PDF 표지 문구 확인 필요)
+  transcribed_from: 대치 수리 논술 연구소 「2027학년도 대비 수리논술 세종대 기출 및 모의 문제」 p.68 + 해설교재 p.129~130 (원본 PDF 이미지 대조 완료 2026-11-21)
+
+verify: verify/SJU-G21D.py::p02
+
+stimuli: []
+
+stem: |
+  상자 안에 '0'이 적힌 공 $n$개와 '1'이 적힌 공 $4$개가 들어 있다. 다음 물음에 각각 답하시오.
+
+subparts:
+- id: '1'
+  stem: |
+    상자에서 공 $4$개를 동시에 뽑아 '0'이 적힌 공 한 개당 $5000$원을, '1'이 적힌 공 한 개당 $3000$원을 상금으로 받는다. $n=3$일 때, 상금의 표준편차를 구하시오.
+  points: 70
+  depends_on: []
+  answer: {kind: value, value: '4000*sqrt(6)/7', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: 뽑은 '0' 공의 개수 $X$의 분산 $\tfrac{24}{49}$, 상금 $Y=12000+2000X$.
+    steps:
+    - {id: 1a, content: '$\mathrm{V}(X)=\tfrac{24}{7}-\left(\tfrac{12}{7}\right)^2=\tfrac{24}{49}$, $\sigma(Y)=2000\cdot\tfrac{2\sqrt6}{7}=\tfrac{4000\sqrt6}{7}$', criteria: ['1.M1', '1.A1', '1.M2', '1.A2']}
+    hint_ladder:
+    - 뽑은 '0' 공의 개수를 확률변수로 두자.
+    - 상금은 그 개수의 일차식이다.
+  - id: S1-B
+    audience: B
+    source_flow: 해설교재 p.129
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        뽑은 공 중 '0' 공의 개수를 $X$라 하면 $\mathrm{P}(X=r)=\dfrac{{}_3\mathrm{C}_r\,{}_4\mathrm{C}_{4-r}}{{}_7\mathrm{C}_4}$이므로 $X=0,1,2,3$일 확률은 각각 $\dfrac1{35},\dfrac{12}{35},\dfrac{18}{35},\dfrac4{35}$이다.
+      criteria: ['1.M1']
+    - id: 1b-2
+      content: |
+        $\mathrm{E}(X)=\dfrac{1}{35}(12+36+12)=\dfrac{12}{7}$, $\mathrm{E}(X^2)=\dfrac1{35}(12+72+36)=\dfrac{24}{7}$이므로 $\mathrm{V}(X)=\dfrac{24}{7}-\dfrac{144}{49}=\dfrac{24}{49}$.
+      criteria: ['1.A1']
+    - id: 1b-3
+      content: |
+        상금을 $Y$라 하면 $Y=5000X+3000(4-X)=12000+2000X$이다.
+      criteria: ['1.M2']
+    - id: 1b-4
+      content: |
+        $\sigma(Y)=2000\,\sigma(X)=2000\cdot\dfrac{2\sqrt6}{7}=\dfrac{4000\sqrt6}{7}$(원).
+      criteria: ['1.A2']
+  - id: S1-ALT
+    audience: ALT
+    source_flow: 해설교재 p.129~130 별해 1·2·3
+    method_no: 2
+    key_idea: 원 해설 별해 — (1) '1' 공의 개수 $X$로 두면 $Y=20000-2000X$, $\mathrm{V}(X)=\tfrac{24}{49}$로 같은 결과. (2) 상금 $Y$의 분포(12000·14000·16000·18000원)에서 직접 $\mathrm{V}(Y)=\tfrac{96}{49}\cdot10^6$. (3) '0' 공 하나당 2000원씩 받는 $Z$의 표준편차가 상금의 표준편차와 같음을 이용.
+    steps:
+    - id: 1c-1
+      content: |
+        별해 2: $\mathrm{E}(Y)=\dfrac{1000}{35}(12+14\cdot12+16\cdot18+18\cdot4)=\dfrac{108000}{7}$, $\mathrm{E}(Y^2)=\dfrac{1680}{7}\times10^6$이므로 $\mathrm{V}(Y)=\dfrac{96}{49}\times10^6$, $\sigma(Y)=\dfrac{4000\sqrt6}{7}$.
+      criteria: ['1.M1', '1.A1', '1.M2', '1.A2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 20
+      evidence: |
+        조합으로 확률분포표($\tfrac1{35},\tfrac{12}{35},\tfrac{18}{35},\tfrac4{35}$)를 작성했다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1, 1c-1]
+    - id: 1.A1
+      mark_type: A
+      points: 20
+      evidence: |
+        $\mathrm{V}(X)=\dfrac{24}{49}$(또는 $\mathrm{V}(Y)$)을 구했다.
+      depends_on: [1.M1]
+      steps: [1b-2, 1c-1]
+    - id: 1.M2
+      mark_type: M
+      points: 15
+      evidence: |
+        상금을 $Y=12000+2000X$ 꼴의 일차식으로 나타냈다(또는 $Y$의 분포를 직접 사용).
+      depends_on: []
+      implied_ok: true
+      steps: [1b-3, 1c-1]
+    - id: 1.A2
+      mark_type: A
+      points: 15
+      evidence: |
+        $\sigma(Y)=\dfrac{4000\sqrt6}{7}$을 얻었다.
+      depends_on: [1.A1, 1.M2]
+      steps: [1b-4, 1c-1]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '21', meaning: 만점(별해)}
+  - {code: '71', misconception: MC-PRB-3119}
+  misconceptions:
+  - id: MC-PRB-3119
+    outcome_code: '71'
+    wrong_work: '$X\sim\mathrm{B}(4,\tfrac37)$로 보고 $\mathrm{V}(X)=4\cdot\tfrac37\cdot\tfrac47$'
+    detect_cue: 동시에 뽑는(비복원) 상황에 이항분포 분산을 썼다
+    feedback: 동시에 뽑으면 각 공이 독립이 아닙니다. 조합으로 분포표를 만들어 분산을 구하세요.
+    remedy: [RL-1]
+
+- id: '2'
+  stem: |
+    $n=2$일 때, 상자에서 공을 한 개씩 꺼내어, '0'이 나오면 다시 넣지 않고 '1'이 나오면 '1'이 적힌 새로운 공 한 개와 꺼낸 공을 함께 상자에 다시 넣는 시행을 $3$번 반복한다.
+    세 번째 꺼낸 공이 '1'이 적힌 공일 확률을 구하시오.
+  points: 80
+  depends_on: []
+  answer: {kind: value, value: '169/210', equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: 처음 두 번의 결과 $(a,b)$ 네 경우로 나누어 상자 구성을 추적한다.
+    steps:
+    - {id: 2a, content: '$\tfrac5{14}+\tfrac{10}{63}+\tfrac29+\tfrac1{15}=\tfrac{169}{210}$', criteria: ['2.M1', '2.A1', '2.A2']}
+    hint_ladder:
+    - 처음 상자에는 '0' 2개, '1' 4개가 있다.
+    - 첫째·둘째 결과에 따라 상자 구성이 어떻게 바뀌는지 표로 정리하자.
+  - id: S2-B
+    audience: B
+    source_flow: 해설교재 p.130
+    method_no: 1
+    steps:
+    - id: 2b-1
+      content: |
+        첫째, 둘째 시행에서 나온 수를 $a$, $b$라 하자. '1'이 나오면 '1' 공이 하나 늘고, '0'이 나오면 '0' 공이 하나 준다(처음 '0' 2개, '1' 4개).
+      criteria: ['2.M1']
+    - id: 2b-2
+      content: |
+        $(a,b)=(1,1)$: $\dfrac46\cdot\dfrac57\cdot\dfrac68=\dfrac5{14}$. $(a,b)=(1,0)$: $\dfrac46\cdot\dfrac27\cdot\dfrac56=\dfrac{10}{63}$.
+        $(a,b)=(0,1)$: $\dfrac26\cdot\dfrac45\cdot\dfrac56=\dfrac29$. $(a,b)=(0,0)$: $\dfrac26\cdot\dfrac15\cdot\dfrac44=\dfrac1{15}$.
+      criteria: ['2.A1']
+    - id: 2b-3
+      content: |
+        네 경우를 더하면 구하는 확률은 $\dfrac{169}{210}$이다.
+      criteria: ['2.A2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 25
+      evidence: |
+        앞 두 번의 결과 네 경우로 나누고 각 경우의 상자 구성 변화를 반영했다.
+      depends_on: []
+      implied_ok: false
+      steps: [2b-1]
+    - id: 2.A1
+      mark_type: A
+      points: 40
+      evidence: |
+        네 경우의 확률 $\tfrac5{14},\tfrac{10}{63},\tfrac29,\tfrac1{15}$을 각각 구했다(각 10점).
+      depends_on: [2.M1]
+      steps: [2b-2]
+    - id: 2.A2
+      mark_type: A
+      points: 15
+      evidence: |
+        합 $\dfrac{169}{210}$을 얻었다.
+      depends_on: [2.M1, 2.A1]
+      steps: [2b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-PRB-3120}
+  misconceptions:
+  - id: MC-PRB-3120
+    outcome_code: '71'
+    wrong_work: '매 시행 확률이 처음과 같다고 보고 $\tfrac46=\tfrac23$으로 답함'
+    detect_cue: 상자 구성 변화를 반영하지 않았다
+    feedback: 꺼낸 결과에 따라 공의 개수가 바뀝니다. 앞 시행 결과로 경우를 나누어 추적하세요.
+    remedy: [RL-2]
+
+- id: '3'
+  stem: |
+    $n=4$라 하자. 상자에서 임의로 공을 한 개 꺼내어 적힌 숫자를 확인하고 다시 넣는 시행을 $k$번 반복할 때, '1'이 적힌 공의 개수의 평균을 확률변수 $X$라 하자. 이항분포와 정규분포의 관계를 이용하여 조건 $\mathrm{P}(0.4\le X\le0.6)\ge0.95$이 성립하는 $k$의 최솟값을 구하시오. (단, 표준정규분포를 따르는 확률변수 $Z$에 대해 $\mathrm{P}(\lvert Z\rvert\le1.96)=0.95$로 계산한다.)
+  points: 80
+  depends_on: []
+  answer: {kind: value, value: '97', equivalents: [], tolerance: null}
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: $Y=kX\sim\mathrm{B}(k,\tfrac12)\approx\mathrm{N}(\tfrac k2,\tfrac k4)$, $\mathrm{P}(\lvert Z\rvert\le0.2\sqrt k)\ge0.95\iff0.2\sqrt k\ge1.96$.
+    steps:
+    - {id: 3a, content: '$\sqrt k\ge9.8\Rightarrow k\ge96.04\Rightarrow k=97$', criteria: ['3.M1', '3.M2', '3.A1']}
+    hint_ladder:
+    - 뽑힌 '1'의 개수의 합 $Y=kX$는 어떤 분포를 따르는가?
+    - $0.4k\le Y\le0.6k$를 표준화하자.
+  - id: S3-B
+    audience: B
+    source_flow: 해설교재 p.130
+    method_no: 1
+    steps:
+    - id: 3b-1
+      content: |
+        '1'이 나올 확률은 $\tfrac48=\tfrac12$이므로 $k$번 중 '1'의 개수 $Y=kX$는 $\mathrm{B}(k,\tfrac12)$를 따르고 평균 $\dfrac k2$, 분산 $\dfrac k4$이다. $k$가 충분히 크면 $Y$는 근사적으로 $\mathrm{N}\!\left(\dfrac k2,\dfrac k4\right)$를 따른다.
+      criteria: ['3.M1']
+    - id: 3b-2
+      content: |
+        $\mathrm{P}(0.4\le X\le0.6)=\mathrm{P}(0.4k\le Y\le0.6k)=\mathrm{P}\!\left(\left\lvert\dfrac{Y-k/2}{\sqrt{k/4}}\right\rvert\le\dfrac{0.1k}{\sqrt{k/4}}\right)=\mathrm{P}(\lvert Z\rvert\le0.2\sqrt k)\ge0.95$.
+      criteria: ['3.M2']
+    - id: 3b-3
+      content: |
+        따라서 $0.2\sqrt k\ge1.96$, 즉 $k\ge96.04$이므로 $k$의 최솟값은 $97$이다.
+      criteria: ['3.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 25
+      evidence: |
+        $kX\sim\mathrm{B}(k,\tfrac12)$와 평균 $\tfrac k2$, 분산 $\tfrac k4$를 적고 정규근사했다.
+      depends_on: []
+      implied_ok: false
+      steps: [3b-1]
+    - id: 3.M2
+      mark_type: M
+      points: 30
+      evidence: |
+        표준화해 $\mathrm{P}(\lvert Z\rvert\le0.2\sqrt k)\ge0.95$로 바꿨다.
+      depends_on: [3.M1]
+      steps: [3b-2]
+    - id: 3.A1
+      mark_type: A
+      points: 25
+      evidence: |
+        $0.2\sqrt k\ge1.96$에서 $k=97$을 얻었다.
+      depends_on: [3.M2]
+      steps: [3b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-PRB-3114}
+  misconceptions:
+  - id: MC-PRB-3114
+    outcome_code: '71'
+    wrong_work: '$X$의 분산을 $\tfrac k4$로 두고 $\mathrm{P}\left(\lvert Z\rvert\le\tfrac{0.1}{\sqrt{k}/2}\right)$로 표준화'
+    detect_cue: 평균 $X$와 합 $kX$의 분산(표준편차)을 섞어 썼다
+    feedback: 합 $Y=kX$의 분산은 $\tfrac k4$, 평균 $X$의 분산은 $\tfrac1{4k}$입니다. 하나를 골라 일관되게 표준화하세요.
+    remedy: [RL-3]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-PRB-3119}
+  relation: remediation
+  target: {kind: concept, ref: CON-PRB-DISCRETE-VAR}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-PRB-3120}
+  relation: remediation
+  target: {kind: concept, ref: CON-PRB-MULT-RULE}
+  priority: 1
+- id: RL-3
+  trigger: {type: misconception, ref: MC-PRB-3114}
+  relation: remediation
+  target: {kind: concept, ref: CON-PRB-NORMAL-APPROX}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

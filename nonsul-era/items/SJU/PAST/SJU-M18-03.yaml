@@ -1,0 +1,575 @@
+# 세종대 2018학년도 논술 모의평가(자연계열) 문제 3 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: SJU-M18-03
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: SJU
+type: T06
+variant_of: null
+replaces: null
+level: L5
+form: 분류
+points: 240
+time_estimate_min: 40
+intent: |
+  $xe^{-x}$의 개형을 분석해 합성 구조 $g'=h(f)$에서 함숫값을 결정하고, 이계도함수의 근의 개수 조건으로 사차함수를 분류하는 능력을 본다.
+key_idea: |
+  $g'=h(f)$이고 $h$의 최댓값 $\tfrac1e$이 $t=1$에서만 ⇒ $f(0)=1$; $g''=f'e^{-f}(1-f)$의 근이 0뿐 ⇒ $f'$의 실근은 0뿐.
+stuck: |
+  (3-3)에서 $f'$의 실근이 $x=0$ 하나뿐이어야 함을 끌어내 두 가지 꼴로 분류하는 것
+idea_tags:
+- IDEA-COMPOSE-WITH-MAX-UNIQUE
+- IDEA-ROOT-COUNT-CLASSIFY
+tags:
+- 정적분으로 정의된 함수
+- 사차함수 분류
+- 변곡점
+elements:
+  materials:
+  - '$h(x)=xe^{-x}$'
+  - '사차함수 $f$와 $g(x)=\int_0^xf(t)e^{-f(t)}dt$'
+  concepts:
+  - '지수함수의 미분'
+  - '극대와 극소'
+  - '변곡점'
+  - '정적분으로 정의된 함수'
+  - '합성함수의 미분법'
+  - '사차함수'
+  tools:
+  - '도함수·이계도함수로 개형 그리기'
+  - '미적분의 기본정리'
+  - '최댓값의 유일성'
+  - '삼차방정식의 실근 존재'
+  - '기함수 적분 소거'
+  conditions:
+  - '$g''(0)=\tfrac1e$ ⇒ $f(0)=1$'
+  - '$g''''$의 근 1개 ⇒ $f''$의 실근은 0뿐, $1-f$의 근도 0뿐'
+  - '$b^2<4c$ ⇒ $c>0$'
+  stimuli_used: []
+  subpart_links: '(3-2)는 (3-1)의 그래프를, (3-3)은 (3-2)의 f(0)=1을, (3-4)는 (3-3)의 f를 사용'
+curriculum:
+  version: '2015'
+  subjects:
+  - 미적분
+  scope_2028: calc2
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 여러 가지 함수의 도함수를 활용하여 그래프의 개형을 그리고 정적분으로 정의된 함수를 미분할 수 있다(요지)
+    verified: false
+  content_area: 미분법 – 도함수의 활용, 적분
+  behavior_domain: 추론
+  unit_path:
+  - 미적분
+  - 미분법
+  - 도함수의 활용
+  - 곡선의 오목과 볼록
+  key_concepts:
+  - 지수함수의 미분
+  - 극대와 극소
+  - 변곡점
+  - 정적분으로 정의된 함수
+  - 합성함수의 미분법
+  - 사차함수
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 세종대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 세종대학교
+  admission_year: 2018
+  admission_type: 수시 모의논술
+  track: 자연계열
+  question_no: 3
+  official_url: https://ipsi.sejong.ac.kr   # [확인 필요] 입학처 자료실의 정확한 게시물 URL로 교체
+  retrieved_at: '2026-11-21'
+  original_points:
+  - 60
+  - 60
+  - 60
+  - 60
+  rights_notice: 미확인(대학 원본 PDF 표지 문구 확인 필요)
+  transcribed_from: 대치 수리 논술 연구소 「2027학년도 대비 수리논술 세종대 기출 및 모의 문제」 p.99 + 해설교재 p.168~169 (원본 PDF 이미지 대조 완료 2026-11-21)
+verify: verify/SJU-M18.py::p03
+stimuli: []
+stem: |
+  사차함수 $f(x)$와 함수 $g(x)=\displaystyle\int_0^xf(t)e^{-f(t)}dt$가 다음 조건을 만족시킨다.
+
+  (가) $f(x)$의 최고차항의 계수는 $1$이다.
+
+  (나) $g'(0)=\dfrac1e$
+
+  (다) 집합 $\{x\mid g''(x)=0\text{ 이고 }x\text{는 실수}\}$의 원소의 개수는 $1$이다.
+
+  다음 물음에 각각 답하시오.
+subparts:
+- id: '1'
+  stem: |
+    함수 $h(x)=xe^{-x}$의 도함수와 이계도함수를 이용하여 좌표평면에 곡선 $y=h(x)$의 개형을 그리시오. 또한, 함수의 극값과 곡선의 변곡점의 좌표를 구하시오.
+  points: 60
+  depends_on: []
+  answer:
+    kind: value
+    value: max=exp(-1) (x=1); inflection=(2, 2*exp(-2))
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $h'=(1-x)e^{-x}$, $h''=(x-2)e^{-x}$.
+    steps:
+    - id: 1a
+      content: 극댓값 $\tfrac1e$ ($x=1$), 변곡점 $(2,\tfrac2{e^2})$
+      criteria:
+      - 1.M1
+      - 1.A1
+      - 1.A2
+      - 1.B1
+    hint_ladder:
+    - 곱의 미분으로 $h'$을 구하자.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 해설교재 p.168
+    steps:
+    - id: 1b-1
+      content: |
+        $h'(x)=(1-x)e^{-x}$, $h''(x)=(x-2)e^{-x}$이다.
+      criteria:
+      - 1.M1
+    - id: 1b-2
+      content: |
+        $x<1$에서 $h'>0$, $x>1$에서 $h'<0$이므로 $x=1$에서 극댓값 $h(1)=\dfrac1e$를 갖는다.
+      criteria:
+      - 1.A1
+    - id: 1b-3
+      content: |
+        $x<2$에서 $h''<0$(위로 볼록), $x>2$에서 $h''>0$(아래로 볼록)이므로 변곡점은 $\left(2,\dfrac2{e^2}\right)$이다.
+      criteria:
+      - 1.A2
+    - id: 1b-4
+      content: |
+        개형: 원점을 지나고 $x=1$까지 증가해 최댓값 $\dfrac1e$에 이른 뒤 감소하며, $x=2$에서 볼록성이 바뀌고 $x\to\infty$이면 $h(x)\to0$, $x\to-\infty$이면 $h(x)\to-\infty$이다.
+      criteria:
+      - 1.B1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 15
+      evidence: |
+        $h'$, $h''$을 구했다.
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 1b-1
+    - id: 1.A1
+      mark_type: A
+      points: 15
+      evidence: |
+        극댓값 $\tfrac1e$ ($x=1$)를 얻었다.
+      depends_on:
+      - 1.M1
+      steps:
+      - 1b-2
+    - id: 1.A2
+      mark_type: A
+      points: 15
+      evidence: |
+        변곡점 $(2,\tfrac2{e^2})$를 얻었다.
+      depends_on:
+      - 1.M1
+      steps:
+      - 1b-3
+    - id: 1.B1
+      mark_type: B
+      points: 15
+      evidence: |
+        원점 통과, 증가·감소, $x\to\pm\infty$의 극한이 반영된 개형을 그렸다.
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 1b-4
+    deductions: []
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  - code: '71'
+    misconception: MC-CAL-3143
+  misconceptions:
+  - id: MC-CAL-3143
+    outcome_code: '71'
+    wrong_work: $h'=0$인 $x=1$을 변곡점이라 함
+    detect_cue: 변곡점이 $(1,\tfrac1e)$
+    feedback: 변곡점은 $h''$의 부호가 바뀌는 점입니다.
+    remedy:
+    - RL-1
+- id: '2'
+  stem: |
+    $f(0)$을 구하시오.
+  points: 60
+  depends_on:
+  - '1'
+  answer:
+    kind: value
+    value: '1'
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: $g'(x)=f(x)e^{-f(x)}=h(f(x))$, $h(t)=\tfrac1e\iff t=1$.
+    steps:
+    - id: 2a
+      content: $f(0)=1$
+      criteria:
+      - 2.M1
+      - 2.R1
+      - 2.A1
+    hint_ladder:
+    - $g'(x)$를 $h$로 나타내자.
+  - id: S2-B
+    audience: B
+    method_no: 1
+    source_flow: 해설교재 p.168
+    steps:
+    - id: 2b-1
+      content: |
+        정적분과 미분의 관계에서 $g'(x)=f(x)e^{-f(x)}$이다.
+      criteria:
+      - 2.M1
+    - id: 2b-2
+      content: |
+        (1)의 그래프에서 $h(t)=te^{-t}=\dfrac1e$을 만족하는 $t$는 최댓값을 갖는 $t=1$뿐이다. $g'(0)=f(0)e^{-f(0)}=\dfrac1e$이므로 $f(0)=1$이다.
+      criteria:
+      - 2.R1
+      - 2.A1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 20
+      evidence: |
+        $g'(x)=f(x)e^{-f(x)}$를 썼다.
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 2b-1
+    - id: 2.R1
+      mark_type: R
+      points: 25
+      evidence: |
+        $h$의 최댓값 $\tfrac1e$이 $t=1$에서만 취해짐을 근거로 $f(0)=1$을 유일하게 정했다.
+      depends_on:
+      - 2.M1
+      ft:
+        allowed: true
+        from:
+        - 1.A1
+        max_points: 25
+      steps:
+      - 2b-2
+    - id: 2.A1
+      mark_type: A
+      points: 15
+      evidence: |
+        $f(0)=1$을 얻었다.
+      depends_on:
+      - 2.R1
+      steps:
+      - 2b-2
+    deductions: []
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  - code: '71'
+    misconception: MC-CAL-3147
+  misconceptions:
+  - id: MC-CAL-3147
+    outcome_code: '71'
+    wrong_work: $g'(x)=f(x)e^{-f(x)}-f(0)e^{-f(0)}$ 등으로 기본정리를 잘못 적용
+    detect_cue: 하한값이 빠지지 않은 식
+    feedback: $\tfrac{d}{dx}\int_0^xF(t)\,dt=F(x)$입니다.
+    remedy:
+    - RL-2
+- id: '3'
+  stem: |
+    함수 $f(x)$로 가능한 것을 모두 구하시오.
+  points: 60
+  depends_on:
+  - '2'
+  answer:
+    kind: set
+    value: x**4+1; x**4+(4/3)*b*x**3+2*c*x**2+1 (b**2<4*c)
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: $g''=f'e^{-f}(1-f)$의 근이 $x=0$뿐 ⇒ $f'$의 실근은 0뿐.
+    steps:
+    - id: 3a
+      content: $f=x^4+1$ 또는 $x^4+\tfrac43bx^3+2cx^2+1$ $(b^2<4c)$
+      criteria:
+      - 3.M1
+      - 3.R1
+      - 3.A1
+      - 3.R2
+    hint_ladder:
+    - $g''$을 구하자.
+    - $f'(x)=0$의 실근은 몇 개일 수 있는가?
+  - id: S3-B
+    audience: B
+    method_no: 1
+    source_flow: 해설교재 p.168~169
+    steps:
+    - id: 3b-1
+      content: |
+        $g''(x)=f'(x)e^{-f(x)}\{1-f(x)\}$이므로 (다)에서 $f'(x)\{1-f(x)\}=0$의 실근이 1개이다. $f(0)=1$이므로 $x=0$이 그 근이다.
+      criteria:
+      - 3.M1
+    - id: 3b-2
+      content: |
+        $f'(x)$는 삼차식이라 실근을 적어도 하나 가지므로 그 실근은 $x=0$뿐이어야 한다. 따라서 $f'(x)=4x^3$ 또는 $f'(x)=4x(x^2+bx+c)$ $(b^2-4c<0)$이다.
+      criteria:
+      - 3.R1
+    - id: 3b-3
+      content: |
+        $f'(x)=4x^3$이면 $f(x)=x^4+1$이고 $1-f(x)=-x^4=0$의 해는 $x=0$뿐이므로 조건을 만족한다.
+      criteria:
+      - 3.A1
+      - 3.R2
+    - id: 3b-4
+      content: |
+        $f'(x)=4x(x^2+bx+c)$이면 $f(x)=x^4+\dfrac43bx^3+2cx^2+1$이다. $0\le b^2<4c$에서 $x^2+\dfrac{4b}3x+2c$의 판별식은 $\dfrac{16b^2}9-8c<\dfrac{64c}9-8c=-\dfrac{8c}9<0$이므로 $x^2+\dfrac{4b}3x+2c>0$이고 $1-f(x)=-x^2\left(x^2+\dfrac{4b}3x+2c\right)=0$은 $x=0$만 실근으로 갖는다. 따라서 조건을 만족한다.
+      criteria:
+      - 3.A1
+      - 3.R2
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 15
+      evidence: |
+        $g''(x)=f'(x)e^{-f(x)}\{1-f(x)\}$를 구했다.
+      depends_on: []
+      implied_ok: false
+      ft:
+        allowed: true
+        from:
+        - 2.A1
+        max_points: 15
+      steps:
+      - 3b-1
+    - id: 3.R1
+      mark_type: R
+      points: 15
+      evidence: |
+        $f'$의 실근이 0뿐이어야 함을 근거와 함께 보였다.
+      depends_on:
+      - 3.M1
+      steps:
+      - 3b-2
+    - id: 3.A1
+      mark_type: A
+      points: 15
+      evidence: |
+        두 꼴 $x^4+1$, $x^4+\tfrac43bx^3+2cx^2+1$ $(b^2<4c)$를 얻었다.
+      depends_on:
+      - 3.R1
+      steps:
+      - 3b-3
+      - 3b-4
+    - id: 3.R2
+      mark_type: R
+      points: 15
+      evidence: |
+        각 경우 $1-f(x)=0$의 실근이 0뿐임을 확인했다.
+      depends_on:
+      - 3.A1
+      steps:
+      - 3b-3
+      - 3b-4
+    deductions: []
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  - code: '71'
+    misconception: MC-CAL-3148
+  misconceptions:
+  - id: MC-CAL-3148
+    outcome_code: '71'
+    wrong_work: $f(x)=x^4+1$만 답함
+    detect_cue: 둘째 꼴이 없다
+    feedback: $f'(x)=4x(x^2+bx+c)$에서 $x^2+bx+c$가 실근이 없으면 역시 가능합니다.
+    remedy:
+    - RL-3
+- id: '4'
+  stem: |
+    $\displaystyle\int_{-1}^1f(x)\,dx$의 최솟값을 구하시오.
+  points: 60
+  depends_on:
+  - '3'
+  answer:
+    kind: value
+    value: 12/5
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S4-A
+    audience: A
+    method_no: 1
+    key_idea: '홀수차항의 적분은 0: $\tfrac{12}5+\tfrac43c$, $c>0$.'
+    steps:
+    - id: 4a
+      content: 최솟값 $\tfrac{12}5$ ($f=x^4+1$)
+      criteria:
+      - 4.M1
+      - 4.R1
+      - 4.A1
+    hint_ladder:
+    - $[-1,1]$에서 홀수차항의 적분은?
+  - id: S4-B
+    audience: B
+    method_no: 1
+    source_flow: 해설교재 p.169
+    steps:
+    - id: 4b-1
+      content: |
+        (i) $f(x)=x^4+1$이면 $\displaystyle\int_{-1}^1f(x)\,dx=\dfrac{12}5$이다.
+      criteria:
+      - 4.M1
+    - id: 4b-2
+      content: |
+        (ii) $f(x)=x^4+\dfrac43bx^3+2cx^2+1$ $(b^2<4c)$이면 $c>\dfrac{b^2}4\ge0$이고, 홀수차항의 적분은 0이므로 $\displaystyle\int_{-1}^1f(x)\,dx=2\int_0^1(x^4+2cx^2+1)\,dx=\dfrac{12}5+\dfrac43c>\dfrac{12}5$이다.
+      criteria:
+      - 4.M1
+      - 4.R1
+    - id: 4b-3
+      content: |
+        (i), (ii)에서 최솟값은 $\dfrac{12}5$이다.
+      criteria:
+      - 4.A1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 4.M1
+      mark_type: M
+      points: 20
+      evidence: |
+        (3)의 각 경우에 적분을 계산했다(홀수차항 소거).
+      depends_on: []
+      implied_ok: false
+      ft:
+        allowed: true
+        from:
+        - 3.A1
+        max_points: 20
+      steps:
+      - 4b-1
+      - 4b-2
+    - id: 4.R1
+      mark_type: R
+      points: 20
+      evidence: |
+        $c>0$을 근거로 (ii)의 값이 $\tfrac{12}5$보다 큼을 보였다.
+      depends_on:
+      - 4.M1
+      steps:
+      - 4b-2
+    - id: 4.A1
+      mark_type: A
+      points: 20
+      evidence: |
+        최솟값 $\tfrac{12}5$를 얻었다.
+      depends_on:
+      - 4.R1
+      steps:
+      - 4b-3
+    deductions: []
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  - code: '71'
+    misconception: MC-CAL-3148
+  misconceptions:
+  - id: MC-CAL-3148
+    outcome_code: '71'
+    wrong_work: (ii)에서 $c$의 부호 조건을 쓰지 않아 최솟값이 없다고 함
+    detect_cue: $c>0$ 언급이 없다
+    feedback: $b^2<4c$이면 $c>0$입니다. 조건을 빠짐없이 반영하세요.
+    remedy:
+    - RL-3
+remedy_links:
+- id: RL-1
+  trigger:
+    type: misconception
+    ref: MC-CAL-3143
+  relation: remediation
+  target:
+    kind: concept
+    ref: CON-CAL-CONVEXITY-TANGENT
+  priority: 1
+- id: RL-2
+  trigger:
+    type: misconception
+    ref: MC-CAL-3147
+  relation: remediation
+  target:
+    kind: concept
+    ref: CON-CAL-INTEGRAL-DEFINED-FUNC
+  priority: 1
+- id: RL-3
+  trigger:
+    type: misconception
+    ref: MC-CAL-3148
+  relation: remediation
+  target:
+    kind: concept
+    ref: CON-CAL-CONSTRAINED-OPT
+  priority: 1
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: opus
+  prompt_version: p3-past-v1
+  item_version: 1
+  verdict: pass
+  date: '2026-11-21'
+created: '2026-11-21'
+updated: '2026-11-21'

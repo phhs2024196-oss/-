@@ -1,0 +1,360 @@
+# 세종대 2020학년도 수시 논술고사[B](자연계열) 문제 2 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: SJU-G20B-02
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: SJU
+type: null          # [제안] 기하(이차곡선) 결합 문항(현행 세종 범위 밖): 「거리 조건으로 정의된 자취(쌍곡선)와 정적분·부등식」 — 기하 유형 신설 시 분류
+variant_of: null
+replaces: null
+level: L5
+form: 추론
+points: 230
+time_estimate_min: 40
+intent: |
+  원까지의 최단 거리와 직선까지의 거리 조건으로 자취를 구해 쌍곡선의 일부임을 밝히고, 치환적분으로 정적분을 계산하며, 두 함수의 차의 단조성과 극한으로 부등식이 항상 성립할 매개변수의 범위를 구하는 능력을 본다.
+key_idea: |
+  원 $C$ 밖의 점에서 원까지의 최단 거리는 (중심까지 거리)$-$(반지름)이므로 $f(x)=\sqrt{\tfrac{x^2}3+1}-1$, $g(x)=\sqrt{\tfrac{(x-a)^2}3+1}+\tfrac14=f(x-a)+\tfrac54$.
+stuck: |
+  (2-1)에서 점이 원 안에 있는 경우가 불가능함을 보이는 점, (2-3)에서 $g(x)=f(x-a)+\tfrac54$로 보고 차 $h=g-f$가 감소함수임을 $f''>0$으로 보이는 점
+idea_tags: [IDEA-LOCUS-DISTANCE-HYPERBOLA, IDEA-DIFFERENCE-MONOTONE-LIMIT]
+tags: [자취, 쌍곡선, 점근선, 치환적분, 범위 밖(현행)]
+
+elements:
+  materials:
+  - '중심 $(0,1)$, 반지름 $\tfrac12$인 원 $C$와 직선 $y=-\tfrac14$'
+  - '중심 $\left(a,-\tfrac74\right)$, 반지름 $\tfrac12$인 원 $D$와 $x$축'
+  - '최단 거리가 다른 거리의 2배인 점의 자취 $A$, $B$'
+  concepts:
+  - '두 점 사이의 거리'
+  - '쌍곡선의 방정식과 점근선'
+  - '치환적분법'
+  - '이계도함수와 함수의 증감'
+  - '함수의 극한'
+  tools:
+  - '원까지의 최단 거리 $=\lvert(\text{중심까지 거리})-r\rvert$'
+  - '제곱해 이차곡선 표준형으로 정리'
+  - '치환 $u=\tfrac{(x-a)^2}{3}+1$'
+  - '$g(x)=f(x-a)+\tfrac54$로 평행이동 관계 파악'
+  - '$h=g-f$의 감소성과 $x\to\infty$ 극한'
+  conditions:
+  - '$y\ge0$'
+  - '원 $C$ 안쪽인 경우 $-2y=\sqrt{x^2+(y-1)^2}$로 모순'
+  - '$a>0$이고 모든 $x$에서 $f(x)\le g(x)$'
+  stimuli_used: []
+  subpart_links: '(2-3)은 (2-1)의 $f$와 (2-2)의 $g$를 함께 사용'
+
+curriculum:
+  version: '2015'
+  subjects: [기하, 미적분]
+  scope_2028: geom
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 쌍곡선의 뜻과 방정식, 점근선을 이해한다 / 치환적분법을 이용할 수 있다(요지)
+    verified: false
+  content_area: 이차곡선 / 적분법
+  behavior_domain: 추론
+  unit_path: [기하, 이차곡선, 쌍곡선, 쌍곡선의 점근선]
+  key_concepts: [두 점 사이의 거리, 쌍곡선의 방정식과 점근선, 치환적분법, 이계도함수와 함수의 증감, 함수의 극한]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 세종대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 세종대학교
+  admission_year: 2020
+  admission_type: 수시 논술
+  track: 자연계열
+  question_no: 2
+  official_url: https://ipsi.sejong.ac.kr   # [확인 필요] 입학처 자료실의 정확한 게시물 URL로 교체
+  retrieved_at: 2026-11-21
+  original_points: [70, 80, 80]
+  rights_notice: 미확인(대학 원본 PDF 표지 문구 확인 필요)
+  transcribed_from: 대치 수리 논술 연구소 「2027학년도 대비 수리논술 세종대 기출 및 모의 문제」 p.77 + 해설교재 p.139 (원본 PDF 이미지 대조 완료 2026-11-21)
+
+verify: verify/SJU-G20B.py::p02
+
+stimuli: []
+
+stem: |
+  다음을 읽고 답하시오.
+  (가) 원 C는 중심이 $(0,1)$이고 반지름이 $\dfrac12$이다. $A$는 다음을 만족하는 점 $(x,y)$들의 집합이다.
+  ● $y\ge0$
+  ● 점 $(x,y)$로부터 원 C까지의 최단 거리는 점 $(x,y)$로부터 직선 $y=-\dfrac14$까지 거리의 2배이다.
+  (나) 양의 실수 $a$에 대하여 원 D는 중심이 $\left(a,-\dfrac74\right)$이고 반지름이 $\dfrac12$이다. $B$는 다음을 만족하는 점 $(x,y)$들의 집합이다.
+  ● $y\ge0$
+  ● 점 $(x,y)$로부터 원 D까지의 최단 거리는 점 $(x,y)$로부터 $x$축까지 거리의 2배이다.
+  실수에서 정의되는 함수 $f(x)$와 $g(x)$에 대하여, 집합 $A$는 $y=f(x)$의 그래프이고 집합 $B$는 $y=g(x)$의 그래프이다.
+
+subparts:
+- id: '1'
+  stem: |
+    $y=f(x)$의 그래프의 점근선을 구하시오.
+  points: 70
+  depends_on: []
+  answer: {kind: expression, value: 'y = sqrt(3)*x/3 - 1; y = -sqrt(3)*x/3 - 1', equivalents: ['y = x/sqrt(3) - 1; y = -x/sqrt(3) - 1'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $\sqrt{x^2+(y-1)^2}-\tfrac12=2\left(y+\tfrac14\right)$을 제곱하면 $\tfrac{x^2}3-(y+1)^2=-1$.
+    steps:
+    - {id: 1a, content: '쌍곡선 $\tfrac{x^2}{3}-(y+1)^2=-1$의 $y\ge0$ 부분, 점근선 $y=\pm\tfrac1{\sqrt3}x-1$', criteria: ['1.M1', '1.A1', '1.R1', '1.A2']}
+    hint_ladder:
+    - 원 밖의 점에서 원까지의 최단 거리는 중심까지의 거리에서 무엇을 뺀 것인가?
+    - 점이 원 안에 있는 경우도 가능한지 확인하자.
+  - id: S1-B
+    audience: B
+    source_flow: 해설교재 p.139
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        $y=f(x)$라 하면 조건은 $\left\lvert\sqrt{x^2+(y-1)^2}-\dfrac12\right\rvert=2\left(y+\dfrac14\right)$이다.
+      criteria: ['1.M1']
+    - id: 1b-2
+      content: |
+        $\sqrt{x^2+(y-1)^2}\ge\dfrac12$인 경우 $\sqrt{x^2+(y-1)^2}=2y+1$을 제곱해 정리하면 $\dfrac{x^2}3-(y+1)^2=-1$이다.
+      criteria: ['1.A1']
+    - id: 1b-3
+      content: |
+        $\sqrt{x^2+(y-1)^2}<\dfrac12$인 경우 $\dfrac12-\sqrt{x^2+(y-1)^2}=2y+\dfrac12$에서 $-2y=\sqrt{x^2+(y-1)^2}$인데 $y\ge0$이면 $y=0$, $x^2+1=0$이 되어 불가능하다.
+      criteria: ['1.R1']
+    - id: 1b-4
+      content: |
+        따라서 $y=f(x)$는 쌍곡선 $\dfrac{x^2}3-(y+1)^2=-1$의 $y\ge0$인 부분이고, 점근선은 $y=\pm\dfrac1{\sqrt3}x-1$이다.
+      criteria: ['1.A2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 15
+      evidence: |
+        원까지의 최단 거리를 $\left\lvert\sqrt{x^2+(y-1)^2}-\tfrac12\right\rvert$로 두고 조건식을 세웠다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1]
+    - id: 1.A1
+      mark_type: A
+      points: 20
+      evidence: |
+        원 밖인 경우를 정리해 $\dfrac{x^2}3-(y+1)^2=-1$을 얻었다.
+      depends_on: [1.M1]
+      steps: [1b-2]
+    - id: 1.R1
+      mark_type: R
+      points: 15
+      evidence: |
+        원 안인 경우가 불가능함을 보였다.
+      depends_on: [1.M1]
+      steps: [1b-3]
+    - id: 1.A2
+      mark_type: A
+      points: 20
+      evidence: |
+        점근선 $y=\pm\dfrac1{\sqrt3}x-1$을 답했다.
+      depends_on: [1.M1, 1.A1]
+      steps: [1b-4]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-GEO-3128}
+  misconceptions:
+  - id: MC-GEO-3128
+    outcome_code: '71'
+    wrong_work: '$\sqrt{x^2+(y-1)^2}=2\left(y+\tfrac14\right)$로 놓음(반지름을 빼지 않음)'
+    detect_cue: 원까지의 거리를 중심까지의 거리로 썼다
+    feedback: 원까지의 최단 거리는 중심까지의 거리에서 반지름 $\tfrac12$을 뺀 값(원 밖일 때)입니다.
+    remedy: [RL-1]
+
+- id: '2'
+  stem: |
+    정적분 $\displaystyle\int_a^{a+1}(x-a)g(x)\,dx$를 계산하시오.
+  points: 80
+  depends_on: []
+  answer: {kind: value, value: '8*sqrt(3)/9 - 7/8', equivalents: ['8/(3*sqrt(3)) - 7/8'], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: $g(x)=\sqrt{\tfrac{(x-a)^2}{3}+1}+\tfrac14$이고 $u=\tfrac{(x-a)^2}3+1$로 치환.
+    steps:
+    - {id: 2a, content: '$\tfrac32\int_1^{4/3}\sqrt u\,du+\tfrac18=\tfrac{8}{3\sqrt3}-1+\tfrac18$', criteria: ['2.M1', '2.A1', '2.M2', '2.A2']}
+    hint_ladder:
+    - 원 D는 $x$축 아래에 있으므로 $y\ge0$인 점은 항상 원 D 밖에 있다.
+    - $(x-a)\,dx$가 보이면 어떤 치환이 좋을까?
+  - id: S2-B
+    audience: B
+    source_flow: 해설교재 p.139
+    method_no: 1
+    steps:
+    - id: 2b-1
+      content: |
+        $y=g(x)$라 하면 조건은 $\sqrt{(x-a)^2+\left(y+\tfrac74\right)^2}-\dfrac12=2y$이다($y\ge0$이면 원 D 밖).
+      criteria: ['2.M1']
+    - id: 2b-2
+      content: |
+        $\sqrt{(x-a)^2+\left(y+\tfrac74\right)^2}=2y+\dfrac12$를 제곱해 정리하면 $\dfrac{(x-a)^2}3-\left(y-\dfrac14\right)^2=-1$이므로 $g(x)=\sqrt{\dfrac{(x-a)^2}3+1}+\dfrac14$.
+      criteria: ['2.A1']
+    - id: 2b-3
+      content: |
+        $u=\dfrac{(x-a)^2}{3}+1$로 치환하면 $(x-a)\,dx=\dfrac32du$이고
+        $\displaystyle\int_a^{a+1}(x-a)g(x)\,dx=\frac32\int_1^{4/3}\sqrt u\,du+\frac14\int_a^{a+1}(x-a)\,dx$.
+      criteria: ['2.M2']
+    - id: 2b-4
+      content: |
+        $=\left[u^{3/2}\right]_1^{4/3}+\dfrac18=\dfrac{8}{3\sqrt3}-1+\dfrac18=\dfrac{8\sqrt3}{9}-\dfrac78$.
+      criteria: ['2.A2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 15
+      evidence: |
+        원 D까지의 최단 거리 조건을 식으로 세웠다.
+      depends_on: []
+      implied_ok: false
+      ft: {allowed: true, from: [1.M1], max_points: 15}
+      steps: [2b-1]
+    - id: 2.A1
+      mark_type: A
+      points: 25
+      evidence: |
+        $g(x)=\sqrt{\dfrac{(x-a)^2}3+1}+\dfrac14$을 얻었다.
+      depends_on: [2.M1]
+      steps: [2b-2]
+    - id: 2.M2
+      mark_type: M
+      points: 20
+      evidence: |
+        치환 $u=\dfrac{(x-a)^2}3+1$ 등으로 적분식을 바꾸었다.
+      depends_on: [2.A1]
+      steps: [2b-3]
+    - id: 2.A2
+      mark_type: A
+      points: 20
+      evidence: |
+        $\dfrac{8\sqrt3}9-\dfrac78$을 얻었다.
+      depends_on: [2.M2]
+      steps: [2b-4]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-GEO-3128}
+  misconceptions:
+  - id: MC-GEO-3128
+    outcome_code: '71'
+    wrong_work: '원 D의 중심까지 거리를 $2y$로 두어 $g$를 잘못 구함'
+    detect_cue: 반지름 $\tfrac12$을 빼지 않았다
+    feedback: 원 D까지의 최단 거리는 중심까지의 거리에서 반지름을 뺀 값입니다.
+    remedy: [RL-1]
+
+- id: '3'
+  stem: |
+    모든 $x$에 대하여 $f(x)\le g(x)$를 만족하는 $a$의 최댓값을 구하시오.
+  points: 80
+  depends_on: ['1', '2']
+  answer: {kind: value, value: '5*sqrt(3)/4', equivalents: [], tolerance: null}
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: $h=g-f$는 감소하고 $\lim_{x\to\infty}h=-\tfrac a{\sqrt3}+\tfrac54$이므로 $h\ge0\iff a\le\tfrac{5\sqrt3}4$.
+    steps:
+    - {id: 3a, content: '$-\tfrac{a}{\sqrt3}+\tfrac54\ge0\Rightarrow a_{\max}=\tfrac{5\sqrt3}4$', criteria: ['3.M1', '3.R1', '3.A1', '3.A2']}
+    hint_ladder:
+    - $g(x)$를 $f$로 나타내 보자. 두 그래프는 어떤 평행이동 관계인가?
+    - $h(x)=g(x)-f(x)$의 증감과 $x\to\infty$에서의 극한을 보자.
+  - id: S3-B
+    audience: B
+    source_flow: 해설교재 p.139
+    method_no: 1
+    steps:
+    - id: 3b-1
+      content: |
+        $f(x)=\sqrt{\dfrac{x^2}3+1}-1$, $g(x)=\sqrt{\dfrac{(x-a)^2}3+1}+\dfrac14$이므로 $g(x)=f(x-a)+\dfrac54$이고 $h(x)=g(x)-f(x)$라 두면 $h'(x)=f'(x-a)-f'(x)$.
+      criteria: ['3.M1']
+    - id: 3b-2
+      content: |
+        $f''(x)=\dfrac{\sqrt3}{(3+x^2)^{3/2}}>0$이므로 $f'$은 증가함수이고, $x-a<x$이므로 항상 $h'(x)<0$, 즉 $h$는 감소함수이다.
+      criteria: ['3.R1']
+    - id: 3b-3
+      content: |
+        $\displaystyle\lim_{x\to\infty}h(x)=\lim_{x\to\infty}\left(\sqrt{\frac{(x-a)^2}{3}+1}-\sqrt{\frac{x^2}{3}+1}+\frac54\right)=-\frac{a}{\sqrt3}+\frac54$.
+      criteria: ['3.A1']
+    - id: 3b-4
+      content: |
+        $h$가 감소하므로 항상 $h(x)\ge0$이려면 $-\dfrac a{\sqrt3}+\dfrac54\ge0$이어야 하고(이때 $h>0$), $a$의 최댓값은 $\dfrac{5\sqrt3}4$이다.
+      criteria: ['3.A2']
+  - id: S3-ALT
+    audience: ALT
+    source_flow: 해설교재 p.139 별해
+    method_no: 2
+    key_idea: 원 해설 별해 — 두 쌍곡선은 $\tfrac{x^2}3-y^2=-1$을 $(0,-1)$, $\left(a,\tfrac14\right)$만큼 평행이동한 것이므로 점근선이 평행하다. $f\le g$인 $a$의 최댓값은 점근선 $y=\tfrac1{\sqrt3}x-1$과 $y=\tfrac1{\sqrt3}(x-a)+\tfrac14$가 겹칠 때.
+    steps:
+    - id: 3c-1
+      content: |
+        $\left(a,\tfrac14\right)$이 $y=\tfrac1{\sqrt3}x-1$ 위에 있어야 하므로 $\tfrac14=\tfrac a{\sqrt3}-1$, $a=\tfrac{5\sqrt3}4$.
+      criteria: ['3.M1', '3.R1', '3.A1', '3.A2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 20
+      evidence: |
+        $g(x)=f(x-a)+\tfrac54$(또는 평행이동 관계)를 밝히고 차 $h=g-f$를 다루었다.
+      depends_on: []
+      implied_ok: false
+      ft: {allowed: true, from: [1.A1, 2.A1], max_points: 20}
+      steps: [3b-1, 3c-1]
+    - id: 3.R1
+      mark_type: R
+      points: 25
+      evidence: |
+        $f''>0$으로 $h$가 감소함을 보였다(또는 점근선 비교의 근거를 제시했다).
+      depends_on: [3.M1]
+      steps: [3b-2, 3c-1]
+    - id: 3.A1
+      mark_type: A
+      points: 15
+      evidence: |
+        $\lim_{x\to\infty}h(x)=-\dfrac a{\sqrt3}+\dfrac54$을 구했다.
+      depends_on: [3.R1]
+      steps: [3b-3, 3c-1]
+    - id: 3.A2
+      mark_type: A
+      points: 20
+      evidence: |
+        $a$의 최댓값 $\dfrac{5\sqrt3}4$을 얻었다.
+      depends_on: [3.R1, 3.A1]
+      steps: [3b-4, 3c-1]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '21', meaning: 만점(점근선 별해)}
+  misconceptions: []
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-GEO-3128}
+  relation: remediation
+  target: {kind: concept, ref: CON-GEO-CONIC-LOCUS}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

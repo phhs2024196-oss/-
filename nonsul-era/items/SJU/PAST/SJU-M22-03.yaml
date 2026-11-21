@@ -1,0 +1,350 @@
+# 세종대 2022학년도 논술 모의평가 문제 3 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: SJU-M22-03
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: proof
+origin: mock_exam
+school: SJU
+type: T07
+variant_of: null
+replaces: null
+level: L5
+form: 존재
+points: 240
+time_estimate_min: 40
+intent: |
+  정적분 조건으로 암묵적으로 정의된 함수 $g(t)$에 대해, 구체적 값 확인, 피적분함수의 하한 $f\ge1$과 사잇값 정리로 $g(t)$의 범위를 증명하고, 정적분의 미분과 압축으로 $g'(t)$의 극한을 구하는 능력을 본다.
+key_idea: |
+  모든 $x$에서 $f(x)\ge1$이므로 $\int_t^{t+2}f\ge2$이고, $h(u)=\int_t^uf$에 사잇값 정리를 쓰면 $t\le g(t)\le t+2$이다. $\int_t^{g(t)}f=2$를 미분하면 $f(g(t))g'(t)=f(t)$이다.
+stuck: |
+  구간별 함수 모두에서 $f(x)\ge1$임을 확인하는 것, 그리고 $\dfrac{g(t)}{t}\to1$을 $g'(t)=\left\{\dfrac{t}{g(t)}\right\}^4\dfrac{1+g(t)^2}{1+t^2}$에 넣는 것
+idea_tags: [IDEA-INTEGRAND-LOWER-BOUND-IVT, IDEA-SQUEEZE-RATIO]
+tags: [정적분으로 정의된 함수, 사잇값 정리, 극한]
+elements:
+  materials:
+  - '구간별 함수 $f(x)=1+\tfrac{\pi}2\cos\tfrac{\pi}2x$ $(\lvert x\rvert\le1)$, $\tfrac{2x^4}{1+x^2}$ $(\lvert x\rvert>1)$'
+  - '$\int_t^sf(x)\,dx=2$를 만족하는 유일한 $s=g(t)$'
+  concepts:
+  - '삼각함수의 정적분'
+  - '정적분으로 정의된 함수의 미분'
+  - '사잇값 정리'
+  - '부등식과 정적분'
+  - '함수의 극한의 대소 관계'
+  - '유리함수의 극한'
+  tools:
+  - '$\int_{-1}^0(1+\tfrac{\pi}2\cos\tfrac{\pi}2x)dx=[x+\sin\tfrac{\pi}2x]_{-1}^0$'
+  - '$2x^4\ge x^2+1$ $(\lvert x\rvert>1)$로 $f\ge1$'
+  - '$h(u)=\int_t^uf(x)dx$에 사잇값 정리'
+  - '$1\le\tfrac{g(t)}t\le1+\tfrac2t$ 압축'
+  - '$\tfrac{d}{dt}\int_t^{g(t)}f=f(g(t))g''(t)-f(t)$'
+  conditions:
+  - '$s$가 유일하게 존재 ⇒ 값을 하나 찾으면 그것이 $g(t)$'
+  - '$f\ge1$ ⇒ $h(t+2)\ge2$, $h(t)=0$'
+  - '$t>1$ ⇒ $t$, $g(t)$ 모두 $\lvert x\rvert>1$ 영역의 식 사용'
+  stimuli_used: []
+  subpart_links: '(3-3)은 (3-2)의 $t\le g(t)\le t+2$로 $\tfrac{g(t)}{t}\to1$을 얻어 사용'
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅱ, 미적분]
+  scope_2028: calc2
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 정적분으로 정의된 함수를 미분하고, 사잇값 정리를 이해한다(요지)
+    verified: false
+  content_area: 적분법 – 정적분으로 정의된 함수
+  behavior_domain: 추론
+  unit_path: [수학Ⅱ, 적분, 정적분, 정적분으로 정의된 함수]
+  key_concepts: [삼각함수의 정적분, 정적분으로 정의된 함수의 미분, 사잇값 정리, 부등식과 정적분, 함수의 극한의 대소 관계, 유리함수의 극한]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 세종대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 세종대학교
+  admission_year: 2022
+  admission_type: 수시 모의논술
+  track: 자연계열
+  question_no: 3
+  official_url: https://ipsi.sejong.ac.kr   # [확인 필요] 입학처 자료실의 정확한 게시물 URL로 교체
+  retrieved_at: 2026-11-21
+  original_points: [80, 80, 80]
+  rights_notice: 미확인(대학 원본 PDF 표지 문구 확인 필요)
+  transcribed_from: 대치 수리 논술 연구소 「2027학년도 대비 수리논술 세종대 기출 및 모의 문제」 p.56 + 해설교재 p.110 (원본 PDF 이미지 대조 완료 2026-11-21)
+
+verify: verify/SJU-M22.py::p03
+
+stimuli: []
+
+stem: |
+  실수 전체의 집합에서 정의된 함수
+  $$f(x)=\begin{cases}1+\dfrac{\pi}2\cos\dfrac{\pi}2x&(\lvert x\rvert\le1)\\\dfrac{2x^4}{1+x^2}&(\lvert x\rvert>1)\end{cases}$$
+  가 있다. 실수 $t$에 대하여 다음 조건을 만족시키는 실수 $s$가 유일하게 존재하는데, 이를 $g(t)$라 정의한다.
+  $$\int_t^sf(x)\,dx=2$$
+  미분가능한 함수 $g(t)$에 대하여 다음 질문에 각각 답하시오.
+
+subparts:
+- id: '1'
+  stem: |
+    $g(-1)=0$임을 보이시오.
+  points: 80
+  depends_on: []
+  answer: {kind: proof, value: null, equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $\int_{-1}^0f(x)dx=2$를 계산하면 $s=0$이 조건을 만족하고, 유일성에서 $g(-1)=0$이다.
+    steps:
+    - id: 1a
+      content: |
+        $\displaystyle\int_{-1}^0\left(1+\tfrac{\pi}2\cos\tfrac{\pi}2x\right)dx=\left[x+\sin\tfrac{\pi}2x\right]_{-1}^0=2$
+      criteria: ['1.M1', '1.A1', '1.R1']
+    hint_ladder:
+    - $s=0$을 넣어 적분값을 계산해 보자.
+  - id: S1-B
+    audience: B
+    source_flow: 해설교재 p.110
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        $-1\le x\le0$에서 $f(x)=1+\dfrac{\pi}2\cos\dfrac{\pi}2x$이고 $\left(\sin\dfrac{\pi}2x\right)'=\dfrac{\pi}2\cos\dfrac{\pi}2x$이므로
+        $\displaystyle\int_{-1}^0f(x)dx=\left[x+\sin\dfrac{\pi}2x\right]_{-1}^0$이다.
+      criteria: ['1.M1']
+    - id: 1b-2
+      content: |
+        $=0-(-1-1)=2$이다.
+      criteria: ['1.A1']
+    - id: 1b-3
+      content: |
+        따라서 $t=-1$일 때 $s=0$이 조건 $\displaystyle\int_t^sf(x)dx=2$를 만족하고, 그러한 $s$는 유일하므로 $g(-1)=0$이다. ■
+      criteria: ['1.R1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 30
+      evidence: |
+        $\displaystyle\int_{-1}^0f(x)dx$를 $\lvert x\rvert\le1$의 식으로 세우고 부정적분 $x+\sin\dfrac{\pi}2x$를 구했다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1]
+    - id: 1.A1
+      mark_type: A
+      points: 30
+      evidence: |
+        적분값 $2$를 얻었다.
+      depends_on: [1.M1]
+      steps: [1b-2]
+    - id: 1.R1
+      mark_type: R
+      points: 20
+      evidence: |
+        $s$의 유일성을 근거로 $g(-1)=0$이라 결론지었다.
+      depends_on: [1.A1]
+      steps: [1b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-PRF-3104}
+  misconceptions:
+  - id: MC-PRF-3104
+    outcome_code: '71'
+    wrong_work: '적분값이 $2$임만 계산하고 유일성 언급 없이 끝냄(또는 $s$를 구간 밖 식으로 계산)'
+    detect_cue: $g$의 정의(유일하게 존재하는 $s$)와 연결하는 문장이 없다
+    feedback: $g(t)$는 조건을 만족하는 유일한 $s$입니다. 조건을 만족하는 값을 찾았으면 유일성으로 결론을 맺으세요.
+    remedy: [RL-1]
+
+- id: '2'
+  stem: |
+    $t\le g(t)\le t+2$임을 보이시오.
+  points: 80
+  depends_on: []
+  answer: {kind: proof, value: null, equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: $f\ge1$이므로 $h(u)=\int_t^uf$는 $h(t)=0<2\le h(t+2)$이고 사잇값 정리로 $[t,t+2]$에 $h(c)=2$인 $c$가 있다.
+    steps:
+    - id: 2a
+      content: |
+        $f\ge1\Rightarrow h(t+2)\ge2$, $h(t)=0$, 사잇값 정리 $\Rightarrow c\in[t,t+2]$, 유일성 $\Rightarrow g(t)=c$
+      criteria: ['2.M1', '2.A1', '2.R1']
+    hint_ladder:
+    - 모든 $x$에서 $f(x)$의 하한은 얼마인가?
+    - $\int_t^uf(x)dx$를 $u$의 함수로 보자.
+  - id: S2-B
+    audience: B
+    source_flow: 해설교재 p.110
+    method_no: 1
+    steps:
+    - id: 2b-1
+      content: |
+        고정된 $t$에 대하여 $h(u)=\displaystyle\int_t^uf(x)dx$라 정의하면 $h(t)=0$이다.
+      criteria: ['2.M1']
+    - id: 2b-2
+      content: |
+        $\lvert x\rvert>1$이면 $2x^4-(x^2+1)=(2x^2+1)(x^2-1)>0$이므로 $f(x)=\dfrac{2x^4}{1+x^2}>1$이고, $\lvert x\rvert\le1$이면 $\dfrac{\pi}2\cos\dfrac{\pi}2x\ge0$이므로 $f(x)\ge1$이다.
+        따라서 $h(t+2)=\displaystyle\int_t^{t+2}f(x)dx\ge\int_t^{t+2}1\,dx=2$이다.
+      criteria: ['2.A1']
+    - id: 2b-3
+      content: |
+        $h(u)$는 $[t,t+2]$에서 연속이고 $h(t)=0<2\le h(t+2)$이므로 사잇값 정리에 의해 $h(c)=2$인 $c$가 $[t,t+2]$에 존재한다. $s$의 유일성에 의해 $g(t)=c$이므로 $t\le g(t)\le t+2$이다. ■
+      criteria: ['2.R1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 20
+      evidence: |
+        $h(u)=\displaystyle\int_t^uf(x)dx$와 같이 위끝의 함수를 두고 $h(t)=0$을 썼다.
+      depends_on: []
+      implied_ok: false
+      steps: [2b-1]
+    - id: 2.A1
+      mark_type: A
+      points: 30
+      evidence: |
+        두 구간 모두에서 $f(x)\ge1$을 보이고 $h(t+2)\ge2$를 얻었다.
+      depends_on: [2.M1]
+      steps: [2b-2]
+    - id: 2.R1
+      mark_type: R
+      points: 30
+      evidence: |
+        연속성과 사잇값 정리, 유일성으로 $t\le g(t)\le t+2$를 결론지었다.
+      depends_on: [2.A1]
+      steps: [2b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-PRF-3106}
+  misconceptions:
+  - id: MC-PRF-3106
+    outcome_code: '71'
+    wrong_work: '$f>0$이므로 $g(t)\ge t$라고만 쓰고 $g(t)\le t+2$는 근거 없이 주장(또는 $f\ge1$을 $\lvert x\rvert\le1$에서만 확인)'
+    detect_cue: $h(t+2)\ge2$와 사잇값 정리가 없다
+    feedback: 위쪽 경계는 $\int_t^{t+2}f\ge2$와 사잇값 정리(또는 $h$의 증가성)로 보여야 합니다. $f\ge1$은 두 구간 모두에서 확인하세요.
+    remedy: [RL-2]
+
+- id: '3'
+  stem: |
+    $\displaystyle\lim_{t\to\infty}g'(t)$를 구하시오.
+  points: 80
+  depends_on: ['2']
+  answer: {kind: value, value: '1', equivalents: [], tolerance: null}
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: $t>1$에서 $f(g(t))g'(t)=f(t)$이므로 $g'(t)=\left\{\dfrac{t}{g(t)}\right\}^4\dfrac{1+g(t)^2}{1+t^2}$이고, $\dfrac{g(t)}t\to1$이다.
+    steps:
+    - id: 3a
+      content: |
+        $1\le\dfrac{g(t)}t\le1+\dfrac2t\Rightarrow\dfrac{g(t)}t\to1$, $g'(t)=\left(\dfrac{t}{g}\right)^4\dfrac{1/t^2+(g/t)^2}{1/t^2+1}\to1$
+      criteria: ['3.M1', '3.A1', '3.M2', '3.A2']
+    hint_ladder:
+    - $\int_t^{g(t)}f(x)dx=2$를 $t$에 대하여 미분해 보자.
+    - (3-2)를 $t$로 나누면 무엇을 알 수 있는가?
+  - id: S3-B
+    audience: B
+    source_flow: 해설교재 p.110
+    method_no: 1
+    steps:
+    - id: 3b-1
+      content: |
+        (3-2)에 의해 $t>0$이면 $1\le\dfrac{g(t)}t\le1+\dfrac2t$이므로 함수의 극한의 대소 관계에서 $\displaystyle\lim_{t\to\infty}\dfrac{g(t)}t=1$이다.
+      criteria: ['3.M1']
+    - id: 3b-2
+      content: |
+        (위 결과로) 충분히 큰 $t$에서 $t>1$, $g(t)\ge t>1$이다.
+      criteria: ['3.A1']
+    - id: 3b-3
+      content: |
+        $\displaystyle\int_t^{g(t)}f(x)dx=2$의 양변을 $t$에 대하여 미분하면 $f(g(t))g'(t)-f(t)=0$, 즉 $t>1$일 때
+        $g'(t)\dfrac{2\{g(t)\}^4}{1+\{g(t)\}^2}-\dfrac{2t^4}{1+t^2}=0$이다.
+      criteria: ['3.M2']
+    - id: 3b-4
+      content: |
+        $g'(t)=\left\{\dfrac{t}{g(t)}\right\}^4\dfrac{1+\{g(t)\}^2}{1+t^2}=\left\{\dfrac{1}{g(t)/t}\right\}^4\dfrac{\frac1{t^2}+\left\{\frac{g(t)}t\right\}^2}{\frac1{t^2}+1}$이므로 $\displaystyle\lim_{t\to\infty}g'(t)=1\cdot\dfrac{0+1}{0+1}=1$이다.
+      criteria: ['3.A2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 20
+      evidence: |
+        (3-2)를 $t$로 나누어 압축 정리로 $\dfrac{g(t)}t\to1$을 얻었다.
+      depends_on: []
+      implied_ok: false
+      ft: {allowed: true, from: [2.R1], max_points: 20}
+      steps: [3b-1]
+    - id: 3.A1
+      mark_type: A
+      points: 10
+      evidence: |
+        큰 $t$에서 $t$, $g(t)$가 모두 $\lvert x\rvert>1$ 영역임을 밝혔다.
+      depends_on: [3.M1]
+      steps: [3b-2]
+    - id: 3.M2
+      mark_type: M
+      points: 25
+      evidence: |
+        $\displaystyle\int_t^{g(t)}f=2$를 미분해 $f(g(t))g'(t)=f(t)$를 얻었다.
+      depends_on: []
+      implied_ok: false
+      steps: [3b-3]
+    - id: 3.A2
+      mark_type: A
+      points: 25
+      evidence: |
+        $g'(t)$를 $\dfrac{g(t)}t$로 정리해 극한값 $1$을 얻었다.
+      depends_on: [3.M2, 3.M1]
+      steps: [3b-4]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-3103}
+  misconceptions:
+  - id: MC-CAL-3103
+    outcome_code: '71'
+    wrong_work: '$\dfrac{d}{dt}\int_t^{g(t)}f=f(g(t))g''(t)$만 쓰고 아래끝 항 $-f(t)$를 빠뜨려 $g''(t)=0$을 얻음'
+    detect_cue: 미분식에 $f(t)$ 항이 없다
+    feedback: 위끝과 아래끝이 모두 $t$의 함수이면 $f(\text{위끝})\cdot(\text{위끝})'-f(\text{아래끝})\cdot(\text{아래끝})'$입니다.
+    remedy: [RL-3]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-PRF-3104}
+  relation: remediation
+  target: {kind: concept, ref: CON-PRF-CASE-COVER}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-PRF-3106}
+  relation: remediation
+  target: {kind: concept, ref: CON-PRF-IVT-SIGN}
+  priority: 1
+- id: RL-3
+  trigger: {type: misconception, ref: MC-CAL-3103}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-FTC-DIFF}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

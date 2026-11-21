@@ -1,0 +1,406 @@
+# 세종대 2024학년도 수시 논술고사[B형] 문제 1 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: SJU-G24B-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: SJU
+type: T05
+variant_of: null
+replaces: null
+level: L5
+form: 전수
+points: 230
+time_estimate_min: 35
+intent: |
+  항의 크기와 홀짝에 따라 세 갈래로 정의된 수열에서, 앞 항으로부터 뒤 항을 계산하고 뒤 항으로부터 가능한 앞 항을 빠짐없이 역추적해 최솟값·최댓값을 결정하는 능력을 본다.
+key_idea: |
+  (가)는 항상 짝수를 만들고, (나)의 $a_{n+1}=\tfrac{a_n}{2}+n+1$은 첨자 $n$에 의존하며, (다)는 $a_n=2a_{n+1}-1$로 거꾸로 무한히 늘릴 수 있다. 조건마다 역상을 구해 경우를 나눈다.
+stuck: |
+  (1-3)에서 $a_6=12$로부터 $a_5$, $a_4$의 후보를 조건별로 모두 역추적하고, 각 후보가 실제로 앞쪽 항($a_3,a_2,a_1$)까지 이어지는지(특히 $a_4=3$이 불가능함) 확인하는 것
+idea_tags: [IDEA-BACKTRACK-PIECEWISE-RECURSION, IDEA-PARITY-CASE-SPLIT]
+tags: [귀납적으로 정의된 수열, 역추적, 홀짝 경우 나누기]
+elements:
+  materials:
+  - '항의 크기($10$ 기준)와 홀짝에 따라 세 갈래로 정의된 자연수 수열 $\{a_n\}$'
+  - '(나)의 첨자 의존 점화식 $a_{n+1}=\frac{a_n}{2}+n+1$'
+  - '$a_6=12$에서 거꾸로 추적한 $a_4$의 최솟값·최댓값'
+  concepts:
+  - '귀납적으로 정의된 수열'
+  - '홀수·짝수의 성질'
+  - '부등식과 최대·최소'
+  tools:
+  - '조건별 경우 나누기'
+  - '역추적(역상 구하기)'
+  - '표로 모든 경우 정리'
+  - '단조성 비교(더 큰 $a_1$이면 더 큰 $a_2$)'
+  - '(다)의 역 $a_n=2a_{n+1}-1$로 앞 항 만들기'
+  conditions:
+  - '(가)로 만들어진 항은 항상 짝수 $\Rightarrow a_2$가 홀수이면 $a_1\ge10$'
+  - '(나)에서 $n$은 그 항의 첨자: $a_6=\frac{a_5}{2}+6$, $a_5=\frac{a_4}{2}+5$, $a_4=\frac{a_3}{2}+4$'
+  - '(나)·(다)는 $a_n\ge10$일 때만 적용, 모든 항은 자연수'
+  - '$a_4=3$은 어느 조건으로도 만들어질 수 없음'
+  stimuli_used: []
+  subpart_links: '세 소문항 모두 같은 점화 규칙을 쓰며, (1-3)의 역추적은 (1-1)·(1-2)의 조건별 역상 계산을 확장한 것'
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅰ]
+  scope_2028: common
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 수열의 귀납적 정의를 이해하고 항을 구할 수 있다(요지)
+    verified: false
+  content_area: 수열
+  behavior_domain: 추론
+  unit_path: [수학Ⅰ, 수열, 수학적 귀납법, 수열의 귀납적 정의]
+  key_concepts: [귀납적으로 정의된 수열, 홀수·짝수의 성질, 부등식과 최대·최소]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 세종대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 세종대학교
+  admission_year: 2024
+  admission_type: 수시 논술고사(B형)
+  track: 자연계열
+  question_no: 1
+  official_url: https://ipsi.sejong.ac.kr   # [확인 필요] 입학처 자료실의 정확한 게시물 URL로 교체
+  retrieved_at: 2026-11-21
+  original_points: [70, 80, 80]
+  rights_notice: 미확인(대학 원본 PDF 표지 문구 확인 필요)
+  transcribed_from: 대치 수리 논술 연구소 「2027학년도 대비 수리논술 세종대 기출 및 모의 문제」 p.30 + 해설교재 p.65~67 (원본 PDF 이미지 대조 완료 2026-11-21)
+
+verify: verify/SJU-G24B.py::p01
+
+stimuli: []
+
+stem: |
+  모든 항이 자연수인 수열 $\{a_n\}$이 모든 자연수 $n$에 대하여 다음 조건을 만족시킨다.
+
+  (가) $a_n<10$이면 $a_{n+1}=2a_n$
+
+  (나) $a_n\ge10$이고 $a_n$이 짝수이면 $a_{n+1}=\dfrac{a_n}{2}+n+1$
+
+  (다) $a_n\ge10$이고 $a_n$이 홀수이면 $a_{n+1}=\dfrac{a_n+1}{2}$
+
+subparts:
+- id: '1'
+  stem: |
+    $a_2$가 홀수인 경우 $a_2$의 최솟값을 구하고, 이때 가능한 $a_1$의 값을 모두 구하시오.
+  points: 70
+  depends_on: []
+  answer: {kind: set, value: 'a2_min = 7; a1 = [10, 13]', equivalents: ['a2 최솟값 7, a1 = 10 또는 13'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: (가)는 짝수만 만들므로 $a_1\ge10$이고, (나)·(다) 각각에서 $a_2$가 홀수가 되는 가장 작은 경우를 찾는다.
+    steps:
+    - {id: 1a, content: '$a_1$ 짝수: $a_2=\tfrac{a_1}2+2$, 최소 홀수 $7$($a_1=10$); $a_1$ 홀수: $a_2=\tfrac{a_1+1}2$, $a_1=11$이면 $6$(짝수), 최소 홀수 $7$($a_1=13$)', criteria: ['1.R1', '1.M1', '1.A1', '1.A2']}
+    hint_ladder:
+    - (가)로 만들어지는 수는 짝수인가 홀수인가?
+    - $a_1$이 짝수일 때와 홀수일 때 $a_2$를 $a_1$의 식으로 나타내 보자.
+  - id: S1-B
+    audience: B
+    source_flow: 해설교재 p.65
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        $a_1<10$이면 (가)에 의해 $a_2=2a_1$은 짝수이므로 조건에 맞지 않는다. 따라서 $a_1\ge10$이다.
+      criteria: ['1.R1']
+    - id: 1b-2
+      content: |
+        $a_1$이 $10$ 이상의 짝수이면 (나)에서 $a_2=\dfrac{a_1}{2}+2$이다. $a_1=10$이면 $a_2=7$(홀수)이고, $a_1\ge12$인 짝수이면 $a_2\ge8$이므로 (나)로 만들어지는 홀수 $a_2$의 최솟값은 $7$이다.
+      criteria: ['1.M1', '1.A1']
+    - id: 1b-3
+      content: |
+        $a_1$이 $10$ 이상의 홀수이면 (다)에서 $a_2=\dfrac{a_1+1}{2}$이다. $a_1=11$이면 $a_2=6$으로 홀수가 아니고, $a_1=13$이면 $a_2=7$, $a_1\ge15$인 홀수이면 $a_2\ge8$이다. 따라서 (다)로 만들어지는 홀수 $a_2$의 최솟값도 $7$이다.
+      criteria: ['1.A1']
+    - id: 1b-4
+      content: |
+        결국 $a_2$의 최솟값은 $7$이고, 이때 $a_1=10$ 또는 $a_1=13$이다.
+      criteria: ['1.A2']
+  - id: S1-ALT
+    audience: ALT
+    source_flow: 해설교재 p.65 별해
+    method_no: 2
+    key_idea: $a_1\ge10$을 확인한 뒤 짝수·홀수 $a_1$에 대해 홀수 $a_2$가 나오는 경우를 표로 나열한다.
+    steps:
+    - id: 1alt-1
+      content: |
+        $a_1$ 짝수($\ge10$): $a_2=\dfrac{a_1}2+2$가 홀수인 경우는 $a_1=10,14,18,\cdots$이고 $a_2=7,9,11,\cdots$. $a_1$ 홀수($\ge10$): $a_2=\dfrac{a_1+1}2$가 홀수인 경우는 $a_1=13,17,21,\cdots$이고 $a_2=7,9,11,\cdots$. 따라서 최솟값 $7$, $a_1=10$ 또는 $13$.
+      criteria: ['1.M1', '1.A1', '1.A2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.R1
+      mark_type: R
+      points: 15
+      evidence: |
+        $a_1<10$이면 $a_2$가 짝수가 되므로 $a_1\ge10$임을 밝혔다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1]
+    - id: 1.M1
+      mark_type: M
+      points: 15
+      evidence: |
+        $a_1$이 짝수·홀수인 경우 $a_2=\dfrac{a_1}2+2$, $a_2=\dfrac{a_1+1}2$로 나타냈다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-2, 1alt-1]
+    - id: 1.A1
+      mark_type: A
+      points: 20
+      evidence: |
+        두 경우 각각 홀수 $a_2$의 최솟값이 $7$임을($a_1=11$이면 $a_2=6$ 제외 포함) 보였다.
+      depends_on: [1.M1]
+      steps: [1b-2, 1b-3, 1alt-1]
+    - id: 1.A2
+      mark_type: A
+      points: 20
+      evidence: |
+        최솟값 $7$과 $a_1=10$, $13$을 모두 답했다.
+      depends_on: [1.A1, 1.M1]
+      steps: [1b-4, 1alt-1]
+    deductions:
+    - code: D1-1
+      condition: $a_1$의 값 중 하나만 답함
+      effect: minus
+      value: 10
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CNT-3059}
+  misconceptions:
+  - id: MC-CNT-3059
+    outcome_code: '71'
+    wrong_work: '(나)의 경우만 보고 $a_1=10$만 답함'
+    detect_cue: $a_1=13$이 빠져 있다
+    feedback: $a_1$이 홀수인 경우((다))에서도 $a_2=7$이 만들어집니다. 조건마다 빠짐없이 확인하세요.
+    remedy: [RL-1]
+
+- id: '2'
+  stem: |
+    $a_2$와 $a_3$이 모두 $10$ 이하의 짝수인 경우 $a_1$의 최댓값을 구하시오.
+  points: 80
+  depends_on: []
+  answer: {kind: value, value: '19', equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: $a_1\ge20$이면 $a_2\ge11$이므로 $a_1\le19$이고, $a_1=19$가 실제로 가능하다.
+    steps:
+    - {id: 2a, content: '$a_1=19\Rightarrow a_2=10, a_3=\tfrac{10}2+3=8$; $a_1\ge20$ 짝수 $\Rightarrow a_2\ge12$, $a_1\ge21$ 홀수 $\Rightarrow a_2\ge11$', criteria: ['2.M1', '2.A1', '2.R1', '2.A2']}
+    hint_ladder:
+    - $a_2\le10$이 되려면 $a_1$은 얼마 이하여야 하는가?
+    - $a_3$을 구할 때 (나)의 $n$은 $2$이다.
+  - id: S2-B
+    audience: B
+    source_flow: 해설교재 p.65
+    method_no: 1
+    steps:
+    - id: 2b-1
+      content: |
+        $a_1=19$이면 (다)에서 $a_2=10$, (나)에서 $a_3=\dfrac{10}{2}+2+1=8$이므로 조건을 모두 만족시킨다.
+      criteria: ['2.M1', '2.A1']
+    - id: 2b-2
+      content: |
+        $a_1=20$이면 $a_2=\dfrac{20}2+2=12>10$이고, $a_1$이 $20$보다 큰 짝수이면 $a_2$는 더 커지므로 조건을 만족시키지 않는다.
+      criteria: ['2.R1']
+    - id: 2b-3
+      content: |
+        $a_1=21$이면 $a_2=11>10$이고, $a_1$이 $21$보다 큰 홀수이면 $a_2$는 더 커지므로 조건을 만족시키지 않는다. 따라서 $a_1$의 최댓값은 $19$이다.
+      criteria: ['2.R1', '2.A2']
+  - id: S2-ALT
+    audience: ALT
+    source_flow: 해설교재 p.66 별해
+    method_no: 2
+    key_idea: $a_2$를 기준으로 경우를 나눠 가능한 $(a_1,a_2,a_3)$을 모두 나열한다.
+    steps:
+    - id: 2alt-1
+      content: |
+        $a_2$가 $10$ 미만의 짝수이면 $a_3=2a_2\le10$에서 $a_2=2$ 또는 $4$이고, 이때 $a_1=1$ 또는 $2$이다. $a_2=10$이면 $a_3=8$이고 $a_2=10$을 만드는 $a_1$은 $5$((가)), $16$((나)), $19$((다))이다.
+      criteria: ['2.M1', '2.R1']
+    - id: 2alt-2
+      content: |
+        가능한 경우는 $(a_1,a_2,a_3)=(1,2,4),(2,4,8),(5,10,8),(16,10,8),(19,10,8)$의 다섯 가지이므로 $a_1$의 최댓값은 $19$이다.
+      criteria: ['2.A1', '2.A2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 15
+      evidence: |
+        $a_1$의 홀짝·크기에 따라 $a_2$, $a_3$을 계산했다((나)에서 $n$을 바르게 대입).
+      depends_on: []
+      implied_ok: false
+      steps: [2b-1, 2alt-1]
+    - id: 2.A1
+      mark_type: A
+      points: 20
+      evidence: |
+        $a_1=19$에서 $a_2=10$, $a_3=8$로 조건을 만족함을 확인했다.
+      depends_on: [2.M1]
+      steps: [2b-1, 2alt-2]
+    - id: 2.R1
+      mark_type: R
+      points: 30
+      evidence: |
+        $a_1\ge20$이면(짝수·홀수 모두) $a_2>10$이 되어 불가능함을 근거와 함께 밝혔다(또는 모든 경우를 나열했다).
+      depends_on: []
+      implied_ok: false
+      steps: [2b-2, 2b-3, 2alt-1]
+    - id: 2.A2
+      mark_type: A
+      points: 15
+      evidence: |
+        최댓값 $19$를 답했다.
+      depends_on: [2.A1, 2.R1]
+      steps: [2b-3, 2alt-2]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-ALG-3058}
+  misconceptions:
+  - id: MC-ALG-3058
+    outcome_code: '71'
+    wrong_work: '$a_3=\tfrac{a_2}2+1+1$($n=1$을 대입)로 계산해 $a_2=10$에서 $a_3=7$이라 하여 $a_1=19$를 제외'
+    detect_cue: $a_3$ 계산에서 $n$ 자리에 $1$이 들어갔다
+    feedback: (나)의 $n$은 그 항의 첨자입니다. $a_3$은 $a_2$에서 $n=2$로 계산하므로 $a_3=\tfrac{a_2}{2}+3$입니다.
+    remedy: [RL-2]
+
+- id: '3'
+  stem: |
+    $a_6=12$인 경우 $a_4$의 최솟값과 최댓값을 각각 구하시오.
+  points: 80
+  depends_on: []
+  answer: {kind: value, value: 'min = 6; max = 45', equivalents: ['최솟값 6, 최댓값 45'], tolerance: null}
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: $a_5\in\{6,12,23\}$, $a_4\in\{3,11,6,14,23,36,45\}$이고 $a_4=3$은 만들 수 없으며, (다)의 역 $a_n=2a_{n+1}-1$로 앞 항을 항상 만들 수 있다.
+    steps:
+    - {id: 3a, content: '$a_5$: $6$(가), $12$(나), $23$(다); $a_4$: $3,11$ / $6,14,23$ / $36,45$; $a_4=3$ 불가, $a_4=6\leftarrow11\leftarrow21\leftarrow41$, $a_4=45\leftarrow89\leftarrow177\leftarrow353$', criteria: ['3.M1', '3.A1', '3.A2', '3.R1', '3.R2', '3.A3']}
+    hint_ladder:
+    - $a_6=12$을 만드는 $a_5$를 (가)(나)(다) 각각에서 구해 보자. (나)에서는 $n=5$이다.
+    - 같은 방법으로 $a_4$의 후보를 모두 구하고, 각 후보가 앞 항에서 실제로 만들어지는지 확인하자.
+  - id: S3-B
+    audience: B
+    source_flow: 해설교재 p.66~67
+    method_no: 1
+    steps:
+    - id: 3b-1
+      content: |
+        $a_6=12$를 만드는 $a_5$: (가) $2a_5=12$에서 $a_5=6$, (나) $\dfrac{a_5}{2}+6=12$에서 $a_5=12$, (다) $\dfrac{a_5+1}{2}=12$에서 $a_5=23$.
+      criteria: ['3.M1']
+    - id: 3b-2
+      content: |
+        같은 방법으로 $a_4$를 구한다($a_5=\dfrac{a_4}2+5$). $a_5=6$이면 $a_4=3$((가)) 또는 $11$((다))이고 (나)로는 $a_4=2<10$이 되어 불가능하다. $a_5=12$이면 $a_4=6,14,23$, $a_5=23$이면 $a_4=36,45$((가)로는 불가능)이다.
+      criteria: ['3.A1']
+    - id: 3b-3
+      content: |
+        $a_4=3$은 홀수이므로 (가)로 만들어질 수 없고, (나)로 만들어지려면 $\dfrac{a_3}{2}+4=3$에서 $a_3=-2$, (다)로 만들어지려면 $a_3=5<10$이어야 하므로 모두 불가능하다. 따라서 $a_4\ne3$이다.
+      criteria: ['3.R1']
+    - id: 3b-4
+      content: |
+        $a_4=6$이면 (다)의 역 $a_n=2a_{n+1}-1$로 $a_3=11$, $a_2=21$, $a_1=41$을 택할 수 있고(모두 $10$ 이상의 홀수), $a_4=45$이면 $a_3=89$, $a_2=177$, $a_1=353$을 택할 수 있다. 따라서 두 값은 실제로 가능하다.
+      criteria: ['3.R2']
+    - id: 3b-5
+      content: |
+        후보 $\{6,11,14,23,36,45\}$에서 $a_4$의 최솟값은 $6$, 최댓값은 $45$이다.
+      criteria: ['3.A2', '3.A3']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 10
+      evidence: |
+        $a_6=12$에서 (가)(나)(다)별로 $a_5=6,12,23$을 구했다.
+      depends_on: []
+      implied_ok: false
+      steps: [3b-1]
+    - id: 3.A1
+      mark_type: A
+      points: 20
+      evidence: |
+        $a_4$의 후보 $3,11,6,14,23,36,45$를 빠짐없이 구했다.
+      depends_on: [3.M1]
+      steps: [3b-2]
+    - id: 3.R1
+      mark_type: R
+      points: 15
+      evidence: |
+        $a_4=3$이 앞 항에서 만들어질 수 없음을 세 조건 모두 확인해 밝혔다.
+      depends_on: [3.A1]
+      steps: [3b-3]
+    - id: 3.R2
+      mark_type: R
+      points: 15
+      evidence: |
+        $a_4=6$, $a_4=45$를 만드는 $a_3,a_2,a_1$의 예를 제시해 실제로 가능함을 보였다.
+      depends_on: [3.A1]
+      steps: [3b-4]
+    - id: 3.A2
+      mark_type: A
+      points: 10
+      evidence: |
+        최솟값 $6$을 답했다.
+      depends_on: [3.R1, 3.R2]
+      steps: [3b-5]
+    - id: 3.A3
+      mark_type: A
+      points: 10
+      evidence: |
+        최댓값 $45$를 답했다.
+      depends_on: [3.R2]
+      steps: [3b-5]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CNT-3059}
+  - {code: '72', misconception: MC-ALG-3058}
+  misconceptions:
+  - id: MC-CNT-3059
+    outcome_code: '71'
+    wrong_work: '$a_4$ 후보 중 $3$을 최솟값으로 답함(앞 항에서 만들어지는지 확인하지 않음)'
+    detect_cue: 최솟값이 $3$이다
+    feedback: 후보가 나오면 그 값이 앞 항에서 실제로 만들어지는지까지 확인해야 합니다. $a_4=3$을 만드는 $a_3$은 없습니다.
+    remedy: [RL-1]
+  - id: MC-ALG-3058
+    outcome_code: '72'
+    wrong_work: '$a_6=\tfrac{a_5}2+1+1$처럼 $n$을 고정값으로 두어 $a_5=20$ 등을 얻음'
+    detect_cue: (나)의 역추적에서 $a_5=12$가 아닌 값이 나온다
+    feedback: $a_6$을 만들 때 (나)의 $n$은 $5$입니다. $a_6=\tfrac{a_5}2+6$으로 계산하세요.
+    remedy: [RL-2]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CNT-3059}
+  relation: remediation
+  target: {kind: concept, ref: CON-CNT-CASE-EXHAUST}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-ALG-3058}
+  relation: remediation
+  target: {kind: concept, ref: CON-ALG-RECURSIVE-SEQ}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

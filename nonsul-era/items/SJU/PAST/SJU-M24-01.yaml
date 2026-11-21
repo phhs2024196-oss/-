@@ -1,0 +1,373 @@
+# 세종대 2024학년도 모의논술고사(자연계열) 문제 1 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: SJU-M24-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: SJU
+type: T05
+variant_of: null
+replaces: null
+level: L5
+form: 전수
+points: 230
+time_estimate_min: 35
+intent: |
+  한 칸 건너뛴 항을 다음 항의 크기($80$ 기준)에 따라 결정하는 이항 점화식에서, 주어진 항 $a_5=4$로부터 앞 항을 경우별로 역추적하고 뒤 항을 순추적해 가능한 값을 빠짐없이 정리하는 능력을 본다.
+key_idea: |
+  $a_{n+2}$를 정하는 기준은 $a_{n+1}$의 크기이다. $a_5=4$에서 $a_4\le80$($a_3=2$)과 $a_4>80$($a_4=84$)으로 나누고, $a_2<200$으로 $a_2\le80$을 이끌어 $a_3=2a_1$을 얻는다.
+stuck: |
+  $a_4=84$ 갈래에서 다시 $a_3\le80$, $a_3>80$($a_3=164$)으로 나누고, $a_2>80$이면 $a_2=244$가 되어 (가)에 모순임을 찾는 것
+idea_tags: [IDEA-BACKTRACK-PIECEWISE-RECURSION, IDEA-CASE-TREE]
+tags: [귀납적으로 정의된 수열, 역추적, 경우의 수]
+elements:
+  materials:
+  - '$a_{n+2}=2a_n\ (a_{n+1}\le80)$, $a_{n+2}=a_{n+1}-80\ (a_{n+1}>80)$으로 정의된 자연수 수열'
+  - '고정된 항 $a_5=4$와 제약 $a_2<200$'
+  - '가능한 $a_1$, $a_9$ 값들의 합'
+  concepts:
+  - '귀납적으로 정의된 수열'
+  - '경우의 수(빠짐없이 나누기)'
+  - '자연수의 합 $\sum_{k=1}^{n}k$'
+  tools:
+  - '수형도(경우 나무)로 역추적'
+  - '모순 찾기($a_2=244$)'
+  - '표로 가능한 수열 정리'
+  - '$\sum_{k=1}^{40}k=820$'
+  conditions:
+  - '$a_{n+2}$의 식을 고르는 기준은 $a_n$이 아니라 $a_{n+1}$의 크기'
+  - '$a_2<200$이므로 $a_2\le80$, 따라서 $a_3=2a_1$'
+  - '$a_3$은 $80$ 이하의 짝수 또는 $164$, $a_4$는 $80$ 이하의 짝수 또는 $84$'
+  - '(1-3)에서 $a_8\le90$이므로 $40<a_4\le80$인 경우는 제외'
+  stimuli_used: []
+  subpart_links: '(1-2)는 (1-1)의 $a_2\le80$과 $a_3$의 후보를, (1-3)은 (1-2)의 $a_4$ 후보(짝수 또는 $84$)를 사용'
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅰ]
+  scope_2028: common
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 수열의 귀납적 정의를 이해하고 항을 구할 수 있다(요지)
+    verified: false
+  content_area: 수열
+  behavior_domain: 추론
+  unit_path: [수학Ⅰ, 수열, 수학적 귀납법, 수열의 귀납적 정의]
+  key_concepts: [귀납적으로 정의된 수열, 경우의 수(빠짐없이 나누기), 자연수의 합]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 세종대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 세종대학교
+  admission_year: 2024
+  admission_type: 수시 모의논술
+  track: 자연계열
+  question_no: 1
+  official_url: https://ipsi.sejong.ac.kr   # [확인 필요] 입학처 자료실의 정확한 게시물 URL로 교체
+  retrieved_at: 2026-11-21
+  original_points: [70, 80, 80]
+  rights_notice: 미확인(대학 원본 PDF 표지 문구 확인 필요)
+  transcribed_from: 대치 수리 논술 연구소 「2027학년도 대비 수리논술 세종대 기출 및 모의 문제」 p.33 + 해설교재 p.76~78 (원본 PDF 이미지 대조 완료 2026-11-21)
+
+verify: verify/SJU-M24.py::p01
+
+stimuli: []
+
+stem: |
+  모든 항이 자연수인 수열 $\{a_n\}$이 다음 조건을 만족시킨다.
+
+  (가) $a_5=4$이고 $a_2<200$
+
+  (나) 모든 자연수 $n$에 대하여 $a_{n+2}=\begin{cases}2a_n & (a_{n+1}\le80)\\ a_{n+1}-80 & (a_{n+1}>80)\end{cases}$
+
+subparts:
+- id: '1'
+  stem: |
+    $a_2$의 최댓값을 구하시오.
+  points: 70
+  depends_on: []
+  answer: {kind: value, value: '80', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $a_4\le80$이면 $a_2\le40$; $a_4>80$이면 $a_4=84$, 그 앞에서 $a_2=42$ 또는 $a_3=164$이고 $a_2>80$이면 $a_2=244$로 모순.
+    steps:
+    - {id: 1a, content: '$a_4\le80\Rightarrow a_3=2, a_2=\tfrac{a_4}2\le40$; $a_4=84\Rightarrow a_2=42$ 또는 $a_3=164$, $a_2\le80$; 예 $(82,80,164,84,4)$', criteria: ['1.M1', '1.A1', '1.R1', '1.A2']}
+    hint_ladder:
+    - $a_5$를 정하는 식은 $a_4$의 크기에 따라 달라진다. 두 경우로 나누자.
+    - $a_2>80$이면 $a_3$, $a_4$는 어떻게 되는가? (가)의 $a_2<200$과 비교하자.
+  - id: S1-B
+    audience: B
+    source_flow: 해설교재 p.76
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        (i) $a_4\le80$이면 $a_5=2a_3$에서 $a_3=2\le80$이므로 $a_4=2a_2$이고 $a_2=\dfrac{a_4}{2}\le40$이다.
+      criteria: ['1.M1']
+    - id: 1b-2
+      content: |
+        (ii) $a_4>80$이면 $a_5=a_4-80$에서 $a_4=84$이다. $a_3\le80$이면 $a_4=2a_2$에서 $a_2=42$이다. $a_3>80$이면 $a_4=a_3-80$에서 $a_3=164$이다.
+      criteria: ['1.A1']
+    - id: 1b-3
+      content: |
+        이때 $a_2>80$이면 $a_3=a_2-80$에서 $a_2=244$인데 이는 $a_2<200$에 모순이다. 따라서 $a_2\le80$이고 $a_3=2a_1$에서 $a_1=82$이며, $a_2$는 $80$ 이하의 모든 자연수가 될 수 있다.
+      criteria: ['1.R1']
+    - id: 1b-4
+      content: |
+        실제로 $a_1=82$, $a_2=80$, $a_3=164$, $a_4=84$, $a_5=4$는 조건을 모두 만족시키므로 $a_2$의 최댓값은 $80$이다.
+      criteria: ['1.A2']
+  - id: S1-ALT
+    audience: ALT
+    source_flow: 해설교재 p.76 다른 풀이
+    method_no: 2
+    key_idea: $a_2>80$을 가정하고 $80<a_2\le160$, $a_2>160$의 두 경우 모두 모순을 보인다.
+    steps:
+    - id: 1alt-1
+      content: |
+        $80<a_2\le160$이면 $a_3=a_2-80\le80$이므로 $a_4=2a_2>160$, $a_5=a_4-80=4$에서 $a_4=84$로 모순이다. $a_2>160$이면 $a_3=a_2-80>80$, $a_4=a_2-160$이고, $a_4\le80$이면 $a_3=2$에서 $a_2=82$로 모순, $a_4>80$이면 $a_2=244$로 (가)에 모순이다.
+      criteria: ['1.R1']
+    - id: 1alt-2
+      content: |
+        따라서 $a_2\le80$이고, $(a_1,\cdots,a_5)=(82,80,164,84,4)$가 조건을 만족시키므로 최댓값은 $80$이다.
+      criteria: ['1.A2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 15
+      evidence: |
+        $a_4\le80$, $a_4>80$으로 나누어 $a_5=4$에서 거꾸로 추적했다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1]
+    - id: 1.A1
+      mark_type: A
+      points: 15
+      evidence: |
+        $a_4=84$, $a_3=164$(또는 $a_2=42$) 등 각 갈래의 값을 바르게 구했다.
+      depends_on: [1.M1]
+      steps: [1b-2]
+    - id: 1.R1
+      mark_type: R
+      points: 25
+      evidence: |
+        $a_2>80$이면 $a_2=244$(또는 다른 모순)가 되어 (가)에 어긋나므로 $a_2\le80$임을 보였다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-3, 1alt-1]
+    - id: 1.A2
+      mark_type: A
+      points: 15
+      evidence: |
+        $a_2=80$인 수열의 예를 제시하고 최댓값 $80$을 답했다.
+      depends_on: [1.R1]
+      steps: [1b-4, 1alt-2]
+    deductions:
+    - code: D1-1
+      condition: $a_2=80$이 실제로 가능한 예(수열)를 제시하지 않음
+      effect: minus
+      value: 10
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CNT-3059}
+  misconceptions:
+  - id: MC-CNT-3059
+    outcome_code: '71'
+    wrong_work: '$a_4\le80$ 경우만 보고 $a_2$의 최댓값을 $40$이라 답함'
+    detect_cue: $a_4=84$ 갈래가 없다
+    feedback: $a_5=a_4-80$인 경우($a_4>80$)도 있습니다. 모든 갈래를 수형도로 정리하세요.
+    remedy: [RL-1]
+
+- id: '2'
+  stem: |
+    $a_1$이 될 수 있는 서로 다른 모든 수의 합을 구하시오.
+  points: 80
+  depends_on: ['1']
+  answer: {kind: value, value: '902', equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: $a_2\le80$이므로 $a_1=\tfrac{a_3}2$이고 $a_3\in\{2,4,\cdots,80\}\cup\{164\}$.
+    steps:
+    - {id: 2a, content: '$a_1\in\{1,2,\cdots,40\}\cup\{82\}$, 합 $=820+82=902$', criteria: ['2.M1', '2.A1', '2.A2']}
+    hint_ladder:
+    - (1-1)에서 $a_2\le80$이었다. 그러면 $a_3$과 $a_1$은 어떤 관계인가?
+    - $a_3$이 될 수 있는 값을 모두 모아 보자.
+  - id: S2-B
+    audience: B
+    source_flow: 해설교재 p.77
+    method_no: 1
+    steps:
+    - id: 2b-1
+      content: |
+        (1-1)에서 $a_2\le80$이므로 $a_3=2a_1$, 즉 $a_1=\dfrac{a_3}{2}$이다.
+      criteria: ['2.M1']
+    - id: 2b-2
+      content: |
+        (1-1)의 풀이에서 $a_3$은 $2$($a_4\le80$), $2,4,\cdots,80$($a_4=84$, $a_2=42$), $164$($a_4=84$, $a_3>80$)이므로 가능한 수열은 $(1;\,1\sim40;\,2;\,2a_2;\,4)$, $(1\sim40;\,42;\,2a_1;\,84;\,4)$, $(82;\,1\sim80;\,164;\,84;\,4)$이고 모두 조건을 만족시킨다.
+      criteria: ['2.A1']
+    - id: 2b-3
+      content: |
+        따라서 $a_1$은 $40$ 이하의 자연수 또는 $82$이고, 그 합은 $\displaystyle\sum_{k=1}^{40}k+82=820+82=902$이다.
+      criteria: ['2.A2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 20
+      evidence: |
+        $a_2\le80$에서 $a_1=\dfrac{a_3}{2}$임을 이용했다.
+      depends_on: []
+      implied_ok: false
+      ft: {allowed: true, from: [1.R1], max_points: 20}
+      steps: [2b-1]
+    - id: 2.A1
+      mark_type: A
+      points: 35
+      evidence: |
+        $a_1$이 될 수 있는 값이 $1,2,\cdots,40$과 $82$임을 (표 등으로) 빠짐없이 구했다.
+      depends_on: [2.M1]
+      steps: [2b-2]
+    - id: 2.A2
+      mark_type: A
+      points: 25
+      evidence: |
+        합 $902$를 얻었다.
+      depends_on: [2.A1, 2.M1]
+      steps: [2b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CNT-3069}
+  misconceptions:
+  - id: MC-CNT-3069
+    outcome_code: '71'
+    wrong_work: '$a_1=1$을 두 갈래에서 각각 세어 $903$으로 답함'
+    detect_cue: 합이 $902$보다 $1$(또는 겹친 값만큼) 크다
+    feedback: 「서로 다른 수」의 합이므로 여러 경우에서 겹치는 값은 한 번만 더합니다.
+    remedy: [RL-2]
+
+- id: '3'
+  stem: |
+    $a_8\le90$일 때, $a_9$가 될 수 있는 서로 다른 모든 수의 합을 구하시오.
+  points: 80
+  depends_on: ['2']
+  answer: {kind: value, value: '200', equivalents: [], tolerance: null}
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: $a_6=2a_4$이고 $a_4\le20$, $a_4=22$, $a_4=84$일 때만 $a_8\le90$이며 각각 $a_9=16,8,176$.
+    steps:
+    - {id: 3a, content: '$a_4\le40$: $a_7=8$, $a_8=4a_4$ → $a_9=16$($a_4\le20$) 또는 $8$($a_4=22$); $40<a_4\le80$: $a_8>160$ 불가; $a_4=84$: $a_7=88$, $a_8=8$, $a_9=176$', criteria: ['3.M1', '3.A1', '3.R1', '3.A2', '3.A3']}
+    hint_ladder:
+    - $a_5=4\le80$이므로 $a_6$은 무엇인가?
+    - $a_4$의 크기를 $40$, $80$ 기준으로 나누어 $a_7$, $a_8$을 계산하자.
+  - id: S3-B
+    audience: B
+    source_flow: 해설교재 p.77
+    method_no: 1
+    steps:
+    - id: 3b-1
+      content: |
+        $a_5=4\le80$이므로 $a_6=2a_4$이다.
+      criteria: ['3.M1']
+    - id: 3b-2
+      content: |
+        (i) $a_4\le40$이면 $a_6\le80$이므로 $a_7=2a_5=8$이고 $a_8=2a_6=4a_4$이다. (1-2)에서 $a_4$는 짝수이므로 $a_8$은 $8$의 배수이다. $a_4\le20$이면 $a_8\le80$이므로 $a_9=2a_7=16$이다. $20<a_4\le40$이면 $a_8>80$이고 $a_8\le90$이므로 $a_8=88$($a_4=22$), $a_9=a_8-80=8$이다.
+      criteria: ['3.A1']
+    - id: 3b-3
+      content: |
+        (ii) $40<a_4\le80$이면 $80<a_6\le160$이므로 $a_7=a_6-80\le80$이고 $a_8=2a_6>160$이 되어 $a_8\le90$에 어긋난다.
+      criteria: ['3.R1']
+    - id: 3b-4
+      content: |
+        (iii) $a_4>80$이면 $a_4=84$이고 $a_6=168>80$이므로 $a_7=a_6-80=88>80$, $a_8=a_7-80=8\le80$, $a_9=2a_7=176$이다.
+      criteria: ['3.A2']
+    - id: 3b-5
+      content: |
+        각 경우의 수열이 실제로 존재하므로($a_4=2$, $a_4=22$, $a_4=84$ 등) $a_9$가 될 수 있는 값은 $16,8,176$이고 합은 $200$이다.
+      criteria: ['3.A3']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 10
+      evidence: |
+        $a_6=2a_4$를 쓰고 $a_4$의 크기로 경우를 나눴다.
+      depends_on: []
+      implied_ok: false
+      ft: {allowed: true, from: [2.A1], max_points: 10}
+      steps: [3b-1]
+    - id: 3.A1
+      mark_type: A
+      points: 25
+      evidence: |
+        $a_4\le40$에서 $a_9=16$($a_4\le20$), $a_9=8$($a_4=22$)을 구했다.
+      depends_on: [3.M1]
+      steps: [3b-2]
+    - id: 3.R1
+      mark_type: R
+      points: 15
+      evidence: |
+        $40<a_4\le80$이면 $a_8>160$이 되어 불가능함을 밝혔다.
+      depends_on: [3.M1]
+      steps: [3b-3]
+    - id: 3.A2
+      mark_type: A
+      points: 15
+      evidence: |
+        $a_4=84$에서 $a_7=88$, $a_8=8$, $a_9=176$을 구했다.
+      depends_on: [3.M1]
+      steps: [3b-4]
+    - id: 3.A3
+      mark_type: A
+      points: 15
+      evidence: |
+        합 $16+8+176=200$을 얻었다.
+      depends_on: [3.A1, 3.A2, 3.M1]
+      steps: [3b-5]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CNT-3059}
+  misconceptions:
+  - id: MC-CNT-3059
+    outcome_code: '71'
+    wrong_work: '$a_4=84$ 갈래를 빠뜨려 합을 $24$로 답함'
+    detect_cue: $176$이 없다
+    feedback: (1-2)에서 $a_4$는 $80$ 이하의 짝수뿐 아니라 $84$도 될 수 있습니다. 모든 갈래를 확인하세요.
+    remedy: [RL-1]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CNT-3059}
+  relation: remediation
+  target: {kind: concept, ref: CON-CNT-CASE-EXHAUST}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-CNT-3069}
+  relation: remediation
+  target: {kind: concept, ref: CON-CNT-CASE-EXHAUST}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

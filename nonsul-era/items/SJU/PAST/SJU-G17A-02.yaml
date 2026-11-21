@@ -1,0 +1,325 @@
+# 세종대 2017학년도 수시 논술고사[A](자연계열) 문제 2 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+# 확률과통계 문항(현행 세종 범위 밖) — type: null. 신설 유형 제안: "조건부확률·베이즈 정리와 조건 아래 최적화"
+schema_version: '2.0'
+id: SJU-G17A-02
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: SJU
+type: null
+variant_of: null
+replaces: null
+level: L3
+form: 최적2단
+points: 180
+time_estimate_min: 25
+intent: |
+  전확률 공식과 베이즈 정리로 불량률·사후확률을 계산하고, 사후확률 하한 조건과 비용 제약을 연립한 일차부등식으로 최댓값을 구하는 능력을 본다.
+key_idea: |
+  $p_3=\dfrac{p_1\cdot0.01}{p_1\cdot0.01+(1-p_2)\cdot0.99}$이고, $p_1$의 증가량 $x$, $p_2$의 감소량 $y$에 대해 $p_3\ge\dfrac{8}{107}\iff y\le\dfrac x8$이다.
+stuck: |
+  "$p_3$이 작아지지 않는다"는 조건을 $p_1$, $p_2$의 변화량 사이의 일차부등식 $y\le\dfrac{x}{8}$로 바꾸는 것
+idea_tags: [IDEA-BAYES-POSTERIOR, IDEA-LINEAR-CONSTRAINT-MAX]
+tags: [구교육과정, 범위 밖(현행), 베이즈 정리, 조건부확률]
+elements:
+  materials:
+  - '기계 작동상태와 불량률(정상 0.01, 비정상 0.10)'
+  - '센서 신호의 민감도 $p_1$·특이도 $p_2$·사후확률 $p_3$'
+  - '비용 제약(증가 0.01당 100만원, 감소 0.01당 50만원 절약, 상한 1500만원)'
+  concepts:
+  - '조건부확률'
+  - '확률의 곱셈정리'
+  - '전확률 공식'
+  - '베이즈 정리'
+  - '여사건의 확률'
+  - '일차부등식'
+  tools:
+  - '$\mathrm{P}(D)=\mathrm{P}(D\mid A)\mathrm{P}(A)+\mathrm{P}(D\mid A^C)\mathrm{P}(A^C)$'
+  - '$\mathrm{P}(B\mid A^C)=1-p_2$ 여사건 변환'
+  - '변화량 $x$, $y$ 도입 후 두 부등식 연립'
+  conditions:
+  - '$p_3$은 (2-2)의 값보다 작아지지 않음 ⇒ $y\le\tfrac{x}{8}$'
+  - '추가 비용 1500만원 이하 ⇒ $100x-50y\le15$'
+  - '$p_2$는 낮춤 ⇒ $y\ge0$, 비용 절약을 최대로 하려면 $y=\tfrac x8$'
+  stimuli_used: []
+  subpart_links: '(2-3)은 (2-2)의 $p_3=\tfrac{8}{107}$을 하한으로 사용'
+
+curriculum:
+  version: '2015'
+  subjects: [확률과통계]
+  scope_2028: common
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 조건부확률을 이해하고 확률의 곱셈정리를 이용하여 문제를 해결할 수 있다(요지)
+    verified: false
+  content_area: 확률 – 조건부확률
+  behavior_domain: 문제해결
+  unit_path: [확률과통계, 확률, 조건부확률, 확률의 곱셈정리]
+  key_concepts: [조건부확률, 확률의 곱셈정리, 전확률 공식, 베이즈 정리, 여사건의 확률, 일차부등식]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 세종대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 세종대학교
+  admission_year: 2017
+  admission_type: 수시 논술고사[A]
+  track: 자연계열
+  question_no: 2
+  official_url: https://ipsi.sejong.ac.kr   # [확인 필요] 입학처 자료실의 정확한 게시물 URL로 교체
+  retrieved_at: 2026-11-21
+  original_points: [60, 60, 60]
+  rights_notice: 미확인(대학 원본 PDF 표지 문구 확인 필요)
+  transcribed_from: 대치 수리 논술 연구소 「2027학년도 대비 수리논술 세종대 기출 및 모의 문제」 p.101 + 해설교재 p.171 (원본 PDF 이미지 대조 완료 2026-11-21)
+
+verify: verify/SJU-G17A.py::p02
+
+stimuli: []
+
+stem: |
+  아래 글을 읽고, 각 물음에 답하시오.
+
+  어느 공장에서 생산되는 제품의 불량률은 이 제품을 생산하는 기계의 작동상태에 따라 다르다. 이 기계가 정상적으로 작동할 경우 불량률은 $0.01$이고, 정상적으로 작동하지 않을 경우 불량률은 $0.10$이라고 한다. 이 기계의 작동상태를 관리하기 위하여 관리자는 기계에 센서를 설치하였다. 이 센서에 빨간 신호가 켜지면 기계의 작동상태가 정상적이지 않다는 것을 나타낸다.
+  이 기계가 정상적으로 작동하지 않는 경우 센서에 빨간 신호가 켜지는 확률을 $p_1$, 기계가 정상적으로 작동하는 경우 센서에 빨간 신호가 켜지지 않는 확률을 $p_2$, 센서에 빨간 신호가 켜졌을 때 실제로 이 기계가 정상적으로 작동하고 있지 않을 확률을 $p_3$이라 하자. 즉, $A$를 이 기계가 정상적으로 작동하지 않을 사건이라 하고 $B$를 이 센서에 빨간 신호가 켜지는 사건이라 할 때,
+  $p_1=\mathrm{P}(B\mid A)$, $p_2=\mathrm{P}(B^C\mid A^C)$, $p_3=\mathrm{P}(A\mid B)$이다.
+  이 기계가 정상적으로 작동하지 않을 확률 $\mathrm{P}(A)$는 $0.01$로 일정하며, 현재 $p_1=0.80$, $p_2=0.90$이라고 한다.
+
+subparts:
+- id: '1'
+  stem: |
+    이 기계에서 생산되는 제품 중에서 임의로 한 개를 골랐을 때 이 제품이 불량품일 확률을 구하시오.
+  points: 60
+  depends_on: []
+  answer: {kind: value, value: '109/10000', equivalents: ['0.0109'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: 기계 상태 $A$, $A^C$로 나누어 전확률 공식을 쓴다.
+    steps:
+    - {id: 1a, content: '$\mathrm{P}(D)=0.1\times0.01+0.01\times0.99=0.0109$', criteria: ['1.M1', '1.A1']}
+    hint_ladder:
+    - 기계가 정상일 때와 아닐 때로 나누어 생각하자.
+  - id: S1-B
+    audience: B
+    source_flow: 해설교재 p.171
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        불량품이 뽑히는 사건을 $D$라 하면 $D=(D\cap A)\cup(D\cap A^C)$이고 두 사건은 서로 배반이므로
+        $\mathrm{P}(D)=\mathrm{P}(D\mid A)\mathrm{P}(A)+\mathrm{P}(D\mid A^C)\mathrm{P}(A^C)$이다.
+      criteria: ['1.M1']
+    - id: 1b-2
+      content: |
+        $\mathrm{P}(D\mid A)=0.1$, $\mathrm{P}(A)=0.01$, $\mathrm{P}(D\mid A^C)=0.01$, $\mathrm{P}(A^C)=0.99$를 대입하면
+        $\mathrm{P}(D)=0.001+0.0099=\dfrac{109}{10000}=0.0109$이다.
+      criteria: ['1.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 30
+      evidence: |
+        사건 $A$, $A^C$로 나눈 전확률 식을 세웠다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1]
+    - id: 1.A1
+      mark_type: A
+      points: 30
+      evidence: |
+        $0.0109\left(=\dfrac{109}{10000}\right)$을 얻었다.
+      depends_on: [1.M1]
+      steps: [1b-2]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '79', meaning: 기타 오답}
+  misconceptions: []
+
+- id: '2'
+  stem: |
+    확률 $p_3$을 구하시오.
+  points: 60
+  depends_on: []
+  answer: {kind: value, value: '8/107', equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: 베이즈 정리. 분모의 $\mathrm{P}(B\mid A^C)$는 $1-p_2=0.1$이다.
+    steps:
+    - {id: 2a, content: '$p_3=\dfrac{0.8\times0.01}{0.8\times0.01+0.1\times0.99}=\dfrac{8}{107}$', criteria: ['2.M1', '2.M2', '2.A1']}
+    hint_ladder:
+    - $\mathrm{P}(A\mid B)=\dfrac{\mathrm{P}(A\cap B)}{\mathrm{P}(B)}$에서 $\mathrm{P}(B)$를 어떻게 구할까?
+    - $\mathrm{P}(B\mid A^C)$를 $p_2$로 나타내자.
+  - id: S2-B
+    audience: B
+    source_flow: 해설교재 p.171
+    method_no: 1
+    steps:
+    - id: 2b-1
+      content: |
+        $p_3=\mathrm{P}(A\mid B)=\dfrac{\mathrm{P}(A\cap B)}{\mathrm{P}(B)}=\dfrac{\mathrm{P}(B\mid A)\mathrm{P}(A)}{\mathrm{P}(B\mid A)\mathrm{P}(A)+\mathrm{P}(B\mid A^C)\mathrm{P}(A^C)}$.
+      criteria: ['2.M1']
+    - id: 2b-2
+      content: |
+        $\mathrm{P}(B\mid A^C)=1-\mathrm{P}(B^C\mid A^C)=1-p_2=0.1$이다.
+      criteria: ['2.M2']
+    - id: 2b-3
+      content: |
+        $p_3=\dfrac{0.8\times0.01}{0.8\times0.01+0.1\times0.99}=\dfrac{0.008}{0.107}=\dfrac{8}{107}\,(\approx0.075)$.
+      criteria: ['2.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 25
+      evidence: |
+        베이즈 정리(분모에 전확률)로 $p_3$의 식을 세웠다.
+      depends_on: []
+      implied_ok: false
+      steps: [2b-1]
+    - id: 2.M2
+      mark_type: M
+      points: 15
+      evidence: |
+        $\mathrm{P}(B\mid A^C)=1-p_2=0.1$을 썼다.
+      depends_on: []
+      implied_ok: true
+      steps: [2b-2]
+    - id: 2.A1
+      mark_type: A
+      points: 20
+      evidence: |
+        $p_3=\dfrac{8}{107}$을 얻었다.
+      depends_on: [2.M1, 2.M2]
+      steps: [2b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-PRB-3153}
+  - {code: '72', misconception: MC-PRB-3154}
+  misconceptions:
+  - id: MC-PRB-3153
+    outcome_code: '71'
+    wrong_work: '$p_3=\mathrm{P}(B\mid A)=0.8$ 또는 $p_3=\mathrm{P}(A\cap B)=0.008$'
+    detect_cue: 분모 $\mathrm{P}(B)$가 없다
+    feedback: $p_3$은 신호가 켜졌다는 조건 아래의 확률입니다. $\mathrm{P}(A\cap B)$를 $\mathrm{P}(B)$로 나누세요.
+    remedy: [RL-1]
+  - id: MC-PRB-3154
+    outcome_code: '72'
+    wrong_work: '분모에 $0.9\times0.99$를 사용해 $p_3=\tfrac{8}{899}$'
+    detect_cue: $\mathrm{P}(B\mid A^C)$ 자리에 $p_2=0.9$가 들어 있다
+    feedback: $p_2$는 정상일 때 신호가 켜지지 않을 확률입니다. 켜질 확률은 $1-p_2$입니다.
+    remedy: [RL-1]
+
+- id: '3'
+  stem: |
+    확률 $p_3$은 (2-2)에서 구한 값보다 작아지지 않으면서, $p_2$는 낮추고 $p_1$을 최대한 높이고자 한다. 확률 $p_1$은 $0.01$ 증가할 때마다 $100$만원씩의 추가 비용이 발생하며, $p_2$는 $0.01$ 감소할 때마다 $50$만원씩의 비용이 절약된다. 추가로 드는 비용이 $1500$만원을 넘지 않는 범위 내에서 $p_1$의 최댓값을 구하시오.
+  points: 60
+  depends_on: ['2']
+  answer: {kind: value, value: '24/25', equivalents: ['0.96'], tolerance: null}
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: $p_1$ 증가량 $x$, $p_2$ 감소량 $y$에 대해 $p_3\ge\dfrac{8}{107}\iff y\le\dfrac x8$, 비용 $100x-50y\le15$를 연립한다.
+    steps:
+    - {id: 3a, content: '$y\le\tfrac{x}{8}$, $100x-50y\le15\Rightarrow 100x-\tfrac{50}{8}x\le15\Rightarrow x\le0.16$, $p_1\le0.96$', criteria: ['3.M1', '3.M2', '3.A1', '3.A2']}
+    hint_ladder:
+    - 변화량을 문자로 두고 두 조건을 부등식으로 쓰자.
+    - $p_3\ge\dfrac{8}{107}$을 정리하면 $x$와 $y$의 어떤 관계가 되는가?
+  - id: S3-B
+    audience: B
+    source_flow: 해설교재 p.171
+    method_no: 1
+    steps:
+    - id: 3b-1
+      content: |
+        $p_1$의 증가량을 $x$, $p_2$의 감소량을 $y\,(x,y\ge0)$라 하자. 추가 비용(만원)은 $\dfrac{100}{0.01}x-\dfrac{50}{0.01}y$이므로 조건은
+        $100x-50y\le15$ ⋯ ①
+      criteria: ['3.M1']
+    - id: 3b-2
+      content: |
+        변화 후 $p_1=0.8+x$, $\mathrm{P}(B\mid A^C)=1-(0.9-y)=0.1+y$이므로 $p_3$ 조건은
+        $\dfrac{(0.8+x)\times0.01}{(0.8+x)\times0.01+(0.1+y)\times0.99}\ge\dfrac{8}{107}$ ⋯ ②
+      criteria: ['3.M2']
+    - id: 3b-3
+      content: |
+        ②의 분모를 넘겨 정리하면 $107(0.8+x)\ge8(0.8+x)+792(0.1+y)$, 즉 $99x\ge792y$, $y\le\dfrac{x}{8}$이다.
+      criteria: ['3.A1']
+    - id: 3b-4
+      content: |
+        ①에서 $100x\le15+50y\le15+\dfrac{50}{8}x$이므로 $\dfrac{375}{4}x\le15$, $x\le\dfrac{4}{25}=0.16$이다. $x=0.16$, $y=0.02$이면 ①②가 모두 성립한다.
+        따라서 $p_1$의 최댓값은 $0.8+0.16=0.96$이다.
+      criteria: ['3.A2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 15
+      evidence: |
+        변화량을 두고 비용 조건 $100x-50y\le15$(또는 동치)를 세웠다.
+      depends_on: []
+      implied_ok: false
+      steps: [3b-1]
+    - id: 3.M2
+      mark_type: M
+      points: 15
+      evidence: |
+        변화 후 $p_3$의 식을 세워 $\ge\dfrac{8}{107}$ 조건을 썼다.
+      depends_on: []
+      implied_ok: false
+      ft: {allowed: true, from: [2.A1], max_points: 15}
+      steps: [3b-2]
+    - id: 3.A1
+      mark_type: A
+      points: 15
+      evidence: |
+        $y\le\dfrac{x}{8}$을 얻었다.
+      depends_on: [3.M2]
+      steps: [3b-3]
+    - id: 3.A2
+      mark_type: A
+      points: 15
+      evidence: |
+        연립하여 $x\le0.16$, $p_1$의 최댓값 $0.96$을 얻었다.
+      depends_on: [3.M1, 3.A1]
+      steps: [3b-4]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-PRB-3154}
+  misconceptions:
+  - id: MC-PRB-3154
+    outcome_code: '71'
+    wrong_work: '$p_2$를 낮추면 분모의 $(0.9-y)\times0.99$가 줄어든다고 보고 부등식 방향을 거꾸로 세움'
+    detect_cue: 분모에 $1-p_2$ 대신 $p_2$가 들어갔다
+    feedback: 신호가 잘못 켜질 확률은 $1-p_2$이므로 $p_2$를 낮추면 오히려 $p_3$이 작아지는 쪽으로 작용합니다.
+    remedy: [RL-1]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-PRB-3153}
+  relation: remediation
+  target: {kind: concept, ref: CON-PRB-BAYES}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

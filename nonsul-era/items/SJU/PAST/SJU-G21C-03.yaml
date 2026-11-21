@@ -1,0 +1,353 @@
+# 세종대 2021학년도 수시 논술고사[C](자연계열) 문제 3 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: SJU-G21C-03
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: SJU
+type: T07
+variant_of: null
+replaces: null
+level: L5
+form: 추론
+points: 240
+time_estimate_min: 40
+intent: |
+  주기함수와 증가함수의 곱의 정적분을 구간별로 나누어 평가하는 부등식을 증명하고, 구분구적법과 조임 정리로 수열의 극한을 구하는 능력을 본다.
+key_idea: |
+  $a_n=\dfrac1n\displaystyle\sum_{k=1}^n\int_{k-1}^k f\!\left(\tfrac tn\right)g(t)\,dt$로 나누고, 각 구간에서 $f\!\left(\tfrac{k-1}{n}\right)\le f\!\left(\tfrac tn\right)\le f\!\left(\tfrac kn\right)$, $\int_{k-1}^kg=\tfrac12$을 쓴다.
+stuck: |
+  $t=nx$로 치환해 적분 구간을 길이 1짜리 $n$개로 나누고, 각 구간에서 증가함수 $f$를 오른쪽 끝값으로 위에서 누르는 발상
+idea_tags: [IDEA-PERIODIC-SPLIT, IDEA-SQUEEZE-RIEMANN]
+tags: [구분구적법, 주기함수, 조임 정리]
+
+elements:
+  materials:
+  - '로지스틱 함수 $f(x)=\dfrac{1}{1+e^{-x}}$'
+  - '주기 $1$인 함수 $g(x)=\sin^2(\pi x)$'
+  - '$a_n=\displaystyle\int_0^1f(x)g(nx)\,dx$'
+  concepts:
+  - '삼각함수의 덧셈정리(배각 공식)'
+  - '치환적분법'
+  - '정적분의 성질'
+  - '구분구적법(정적분과 급수)'
+  - '수열의 극한과 대소 관계'
+  tools:
+  - '반각 공식 $\sin^2\alpha=\dfrac{1-\cos2\alpha}{2}$'
+  - '치환 $t=nx$'
+  - '구간 분할과 증가함수의 끝값 평가'
+  - '조임(샌드위치) 정리'
+  - '$(\ln(1+e^x))''=\dfrac{e^x}{1+e^x}$'
+  conditions:
+  - '$f''(x)>0$이므로 $f$는 증가'
+  - '$g(x)\ge0$이고 주기가 $1$이므로 $\int_{k-1}^kg(t)\,dt=\int_0^1g(t)\,dt$'
+  - '(3-3)에서 두 리만 합의 극한이 같다는 사실이 주어짐'
+  stimuli_used: []
+  subpart_links: '(3-2)는 (3-1)의 값 $\tfrac12$을, (3-3)은 (3-2)의 평가 방법을 아래쪽에도 적용해 사용'
+
+curriculum:
+  version: '2015'
+  subjects: [미적분]
+  scope_2028: calc2
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 정적분과 급수의 합 사이의 관계를 이해한다(요지)
+    verified: false
+  content_area: 적분법 – 정적분과 급수
+  behavior_domain: 추론
+  unit_path: [미적분, 적분법, 정적분, 정적분과 급수의 합 사이의 관계]
+  key_concepts: [삼각함수의 덧셈정리(배각 공식), 치환적분법, 정적분의 성질, 구분구적법(정적분과 급수), 수열의 극한과 대소 관계]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 세종대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 세종대학교
+  admission_year: 2021
+  admission_type: 수시 논술
+  track: 자연계열
+  question_no: 3
+  official_url: https://ipsi.sejong.ac.kr   # [확인 필요] 입학처 자료실의 정확한 게시물 URL로 교체
+  retrieved_at: 2026-11-21
+  original_points: [80, 80, 80]
+  rights_notice: 미확인(대학 원본 PDF 표지 문구 확인 필요)
+  transcribed_from: 대치 수리 논술 연구소 「2027학년도 대비 수리논술 세종대 기출 및 모의 문제」 p.66 + 해설교재 p.125~126 (원본 PDF 이미지 대조 완료 2026-11-21)
+
+verify: verify/SJU-G21C.py::p03
+
+stimuli: []
+
+stem: |
+  실수 전체의 집합에서 정의된 두 함수 $f(x)=\dfrac{1}{1+e^{-x}}$, $g(x)=\sin^2(\pi x)$에 대하여 수열 $\{a_n\}$을
+  $$a_n=\int_0^1f(x)g(nx)\,dx,\quad(n=1,2,\cdots)$$
+  로 정의할 때, 다음 물음에 각각 답하시오.
+
+subparts:
+- id: '1'
+  stem: |
+    $\displaystyle\int_0^1g(x)\,dx$의 값을 구하시오.
+  points: 80
+  depends_on: []
+  answer: {kind: value, value: '1/2', equivalents: ['0.5'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: 배각 공식으로 $\sin^2(\pi x)=\tfrac{1-\cos(2\pi x)}{2}$.
+    steps:
+    - {id: 1a, content: '$\tfrac12\int_0^1(1-\cos2\pi x)\,dx=\tfrac12$', criteria: ['1.M1', '1.A1']}
+    hint_ladder:
+    - $\sin^2$를 차수가 낮은 삼각함수로 바꾸는 공식은?
+  - id: S1-B
+    audience: B
+    source_flow: 해설교재 p.125
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        덧셈정리에서 $\cos2\alpha=\cos^2\alpha-\sin^2\alpha=1-2\sin^2\alpha$이므로 $\sin^2\alpha=\dfrac{1-\cos2\alpha}{2}$이다.
+      criteria: ['1.M1']
+    - id: 1b-2
+      content: |
+        $\displaystyle\int_0^1\sin^2(\pi x)\,dx=\frac12\int_0^1\{1-\cos(2\pi x)\}\,dx=\frac12\left[x-\frac{\sin(2\pi x)}{2\pi}\right]_0^1=\frac12$.
+      criteria: ['1.A1']
+  - id: S1-ALT
+    audience: ALT
+    source_flow: 해설교재 p.125 별해
+    method_no: 2
+    key_idea: 원 해설 별해 — 대칭성·주기성으로 $\int_0^1\sin^2\pi x\,dx=\int_0^1\cos^2\pi x\,dx$이고 두 적분의 합이 $1$.
+    steps:
+    - id: 1c-1
+      content: |
+        $\displaystyle\int_0^1\sin^2\pi x\,dx=\frac12\left(\int_0^1\sin^2\pi x\,dx+\int_0^1\cos^2\pi x\,dx\right)=\frac12\int_0^1 1\,dx=\frac12$.
+      criteria: ['1.M1', '1.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 40
+      evidence: |
+        $\sin^2(\pi x)=\dfrac{1-\cos(2\pi x)}{2}$로 바꾸었다(또는 $\sin^2+\cos^2=1$과 대칭성을 이용했다).
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1, 1c-1]
+    - id: 1.A1
+      mark_type: A
+      points: 40
+      evidence: |
+        적분값 $\dfrac12$을 얻었다.
+      depends_on: [1.M1]
+      steps: [1b-2, 1c-1]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '21', meaning: 만점(대칭성 풀이)}
+  misconceptions: []
+
+- id: '2'
+  stem: |
+    모든 자연수 $n$에 대하여 다음 부등식이 성립함을 보이시오.
+    $$a_n\le\frac{1}{2n}\sum_{k=1}^nf\!\left(\frac kn\right)$$
+  points: 80
+  depends_on: ['1']
+  answer: {kind: proof, value: null, equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: $t=nx$로 치환해 $[k-1,k]$로 나누고, $f$의 증가성으로 $f(\tfrac tn)\le f(\tfrac kn)$, 주기성으로 $\int_{k-1}^kg=\tfrac12$.
+    steps:
+    - {id: 2a, content: '$a_n=\tfrac1n\sum_k\int_{k-1}^kf(\tfrac tn)g(t)\,dt\le\tfrac1n\sum_kf(\tfrac kn)\int_{k-1}^kg=\tfrac{1}{2n}\sum_kf(\tfrac kn)$', criteria: ['2.M1', '2.M2', '2.R1', '2.A1']}
+    hint_ladder:
+    - $nx=t$로 치환하면 적분 구간은 어떻게 되는가?
+    - $[k-1,k]$에서 $f(\tfrac tn)$은 어떤 값보다 크지 않은가?
+    - $g$의 주기는 얼마인가?
+  - id: S2-B
+    audience: B
+    source_flow: 해설교재 p.125
+    method_no: 1
+    steps:
+    - id: 2b-1
+      content: |
+        $f'(x)=\dfrac{e^{-x}}{(1+e^{-x})^2}>0$이므로 $f$는 실수 전체에서 증가함수이다.
+      criteria: ['2.M1']
+    - id: 2b-2
+      content: |
+        $nx=t$로 치환하고 적분 구간을 나누면
+        $$a_n=\int_0^1f(x)g(nx)\,dx=\frac1n\int_0^nf\!\left(\frac tn\right)g(t)\,dt=\frac1n\sum_{k=1}^n\int_{k-1}^kf\!\left(\frac tn\right)g(t)\,dt\quad\cdots(*)$$
+      criteria: ['2.M2']
+    - id: 2b-3
+      content: |
+        $k-1\le t\le k$에서 $f$가 증가하고 $g(t)\ge0$이므로 $f\!\left(\tfrac kn\right)g(t)-f\!\left(\tfrac tn\right)g(t)\ge0$이고, 따라서
+        $\displaystyle\int_{k-1}^k\left\{f\!\left(\tfrac kn\right)-f\!\left(\tfrac tn\right)\right\}g(t)\,dt\ge0$, 즉 $\displaystyle\int_{k-1}^kf\!\left(\tfrac tn\right)g(t)\,dt\le f\!\left(\tfrac kn\right)\int_{k-1}^kg(t)\,dt$이다.
+      criteria: ['2.R1']
+    - id: 2b-4
+      content: |
+        $g$는 주기가 $1$이므로 $\displaystyle\int_{k-1}^kg(t)\,dt=\int_0^1g(t)\,dt=\frac12$((3-1)). 이를 $(*)$에 넣으면
+        $$a_n\le\frac1n\sum_{k=1}^nf\!\left(\frac kn\right)\cdot\frac12=\frac{1}{2n}\sum_{k=1}^nf\!\left(\frac kn\right).\ ■$$
+      criteria: ['2.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 15
+      evidence: |
+        $f'(x)>0$을 근거로 $f$가 증가함수임을 밝혔다.
+      depends_on: []
+      implied_ok: false
+      steps: [2b-1]
+    - id: 2.M2
+      mark_type: M
+      points: 25
+      evidence: |
+        $t=nx$ 치환으로 $a_n=\dfrac1n\displaystyle\sum_{k=1}^n\int_{k-1}^kf(\tfrac tn)g(t)\,dt$로 나누었다.
+      depends_on: []
+      implied_ok: false
+      steps: [2b-2]
+    - id: 2.R1
+      mark_type: R
+      points: 25
+      evidence: |
+        $g\ge0$과 $f$의 증가성으로 각 구간의 적분을 $f(\tfrac kn)\int_{k-1}^kg$ 이하로 평가했다.
+      depends_on: [2.M1, 2.M2]
+      steps: [2b-3]
+    - id: 2.A1
+      mark_type: A
+      points: 15
+      evidence: |
+        $g$의 주기성과 (3-1)의 값 $\tfrac12$을 써서 결론 부등식을 얻었다.
+      depends_on: [2.R1]
+      ft: {allowed: true, from: [1.A1], max_points: 15}
+      steps: [2b-4]
+    deductions:
+    - code: D2-1
+      condition: $g(t)\ge0$을 언급하지 않고 곱의 부등식을 씀
+      effect: minus
+      value: 5
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-3115}
+  misconceptions:
+  - id: MC-CAL-3115
+    outcome_code: '71'
+    wrong_work: '$\int_0^1f(x)g(nx)\,dx=\int_0^1f(x)\,dx\cdot\int_0^1g(nx)\,dx$로 분리'
+    detect_cue: 곱의 적분을 적분의 곱으로 바꾸었다
+    feedback: 곱의 적분은 적분의 곱이 아닙니다. 짧은 구간으로 나누고 한 함수를 끝값으로 눌러 평가하세요.
+    remedy: [RL-1]
+
+- id: '3'
+  stem: |
+    $\displaystyle\lim_{n\to\infty}\frac1n\sum_{k=1}^nf\!\left(\frac kn\right)=\lim_{n\to\infty}\frac1n\sum_{k=1}^nf\!\left(\frac{k-1}{n}\right)$이 성립함을 이용하여 극한 $\displaystyle\lim_{n\to\infty}a_n$의 값을 구하시오.
+  points: 80
+  depends_on: ['2']
+  answer: {kind: value, value: 'log((1+E)/2)/2', equivalents: ['(log(1+E)-log(2))/2'], tolerance: null}
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: 같은 방법으로 아래쪽 평가 $\tfrac{1}{2n}\sum f(\tfrac{k-1}{n})\le a_n$을 얻어 조임 정리로 $\lim a_n=\tfrac12\int_0^1f$.
+    steps:
+    - {id: 3a, content: '$\lim a_n=\tfrac12\int_0^1\tfrac{e^x}{1+e^x}dx=\tfrac12\ln\tfrac{1+e}{2}$', criteria: ['3.M1', '3.R1', '3.M2', '3.A1']}
+    hint_ladder:
+    - (3-2)와 같은 방법으로 $a_n$의 아래쪽 한계도 만들 수 있다.
+    - 두 리만 합의 극한은 어떤 정적분인가?
+    - $\dfrac{1}{1+e^{-x}}=\dfrac{e^x}{1+e^x}$로 바꿔 적분하자.
+  - id: S3-B
+    audience: B
+    source_flow: 해설교재 p.126
+    method_no: 1
+    steps:
+    - id: 3b-1
+      content: |
+        (3-2)에서 $f\!\left(\tfrac{k-1}{n}\right)\le f\!\left(\tfrac tn\right)$ ($k-1\le t\le k$)를 같은 방식으로 쓰면 모든 자연수 $n$에 대하여
+        $$\frac{1}{2n}\sum_{k=1}^nf\!\left(\frac{k-1}{n}\right)\le a_n\le\frac{1}{2n}\sum_{k=1}^nf\!\left(\frac kn\right).$$
+      criteria: ['3.M1']
+    - id: 3b-2
+      content: |
+        양 끝의 극한은 모두 $\dfrac12\displaystyle\int_0^1f(x)\,dx$이므로 조임 정리에 의해 $\displaystyle\lim_{n\to\infty}a_n=\frac12\int_0^1f(x)\,dx$.
+      criteria: ['3.R1']
+    - id: 3b-3
+      content: |
+        $\displaystyle\int_0^1f(x)\,dx=\int_0^1\frac{e^x}{1+e^x}\,dx=\int_0^1\frac{(1+e^x)'}{1+e^x}\,dx=\Big[\ln(1+e^x)\Big]_0^1=\ln(1+e)-\ln2$.
+      criteria: ['3.M2']
+    - id: 3b-4
+      content: |
+        따라서 $\displaystyle\lim_{n\to\infty}a_n=\frac12\ln\frac{1+e}{2}=\ln\sqrt{\frac{1+e}{2}}$이다.
+      criteria: ['3.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 20
+      evidence: |
+        아래쪽 평가 $\dfrac{1}{2n}\sum f(\tfrac{k-1}{n})\le a_n$을 (3-2)와 같은 근거로 세웠다.
+      depends_on: []
+      implied_ok: false
+      ft: {allowed: true, from: [2.R1], max_points: 20}
+      steps: [3b-1]
+    - id: 3.R1
+      mark_type: R
+      points: 20
+      evidence: |
+        두 리만 합의 극한이 $\tfrac12\int_0^1f$로 같음과 조임 정리를 근거로 $\lim a_n$을 정적분으로 나타냈다.
+      depends_on: [3.M1]
+      steps: [3b-2]
+    - id: 3.M2
+      mark_type: M
+      points: 20
+      evidence: |
+        $\int_0^1\dfrac{e^x}{1+e^x}dx=\ln(1+e)-\ln2$를 계산했다.
+      depends_on: []
+      implied_ok: false
+      steps: [3b-3]
+    - id: 3.A1
+      mark_type: A
+      points: 20
+      evidence: |
+        $\dfrac12\ln\dfrac{1+e}{2}$ 또는 동치식을 답했다.
+      depends_on: [3.R1, 3.M2]
+      steps: [3b-4]
+    deductions:
+    - code: D3-1
+      condition: 아래쪽 평가 없이 위쪽 부등식만으로 극한값을 결론
+      effect: minus
+      value: 20
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-3116}
+  misconceptions:
+  - id: MC-CAL-3116
+    outcome_code: '71'
+    wrong_work: '$\lim a_n=\int_0^1f(x)\,dx=\ln\dfrac{1+e}{2}$ (인자 $\tfrac12$ 누락)'
+    detect_cue: 답이 정답의 2배이다
+    feedback: 각 구간에서 $\int_{k-1}^kg=\tfrac12$이 곱해집니다. 극한에도 그 인자가 남습니다.
+    remedy: [RL-2]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CAL-3115}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-INTEGRAL-ESTIMATE}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-CAL-3116}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-RIEMANN-SUM}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

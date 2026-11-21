@@ -1,0 +1,417 @@
+# 세종대 2015학년도 신입학 수시모집 논술고사[B] 문제 2 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+# [유형 제안] SJU T01~T10 중 맞는 유형 없음 → type: null. 신설 제안: "평균값·중간값 정리와 할선의 기울기(그래프의 회전)"
+schema_version: '2.0'
+id: SJU-G15B-02
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: proof
+origin: past_exam
+school: SJU
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 존재
+points: 40
+time_estimate_min: 30
+intent: |
+  중간값 정리로 해의 존재, 단조성으로 유일성을 보이고, 평균값 정리로 할선 기울기의 상한을 증명한 뒤, 할선 기울기의 범위를 그래프의 회전 후 함수 조건으로 해석하는 능력을 본다.
+key_idea: |
+  $f'(x)=\dfrac{\cos x}{\sqrt3}\le\dfrac{1}{\sqrt3}$이고 등호는 고립점에서만 성립하므로 할선 기울기는 $\dfrac1{\sqrt3}$보다 작고 $\left(0,\dfrac1{\sqrt3}\right)$의 값은 모두 나온다. 회전한 곡선이 함수의 그래프이려면 기울기 $\tan\left(\dfrac\pi2-\theta\right)$인 할선이 없어야 하므로 $\theta\le\dfrac\pi3$.
+stuck: |
+  (2-4)에서 "회전 후 함수의 그래프" ⇔ "원래 그래프에 기울기가 $\tan\left(\frac\pi2-\theta\right)$인 할선이 없음"으로 번역하는 것
+idea_tags: [IDEA-SECANT-SLOPE-RANGE, IDEA-ROTATION-VERTICAL-LINE-TEST]
+tags: [구교육과정, 평균값 정리, 중간값 정리, 회전이동]
+elements:
+  materials:
+  - '함수 $f(x)=\dfrac{1}{\sqrt3}\sin x$'
+  - '할선의 기울기 $L(x_1,x_2)=\dfrac{f(x_2)-f(x_1)}{x_2-x_1}$'
+  - '원점을 중심으로 각 $\theta$만큼 회전한 그래프'
+  concepts:
+  - '중간값 정리'
+  - '평균값 정리'
+  - '삼각함수의 도함수'
+  - '함수의 증가와 감소'
+  - '함수의 연속'
+  - '회전이동과 함수의 그래프'
+  tools:
+  - '보조함수 $h(x)=\dfrac{\sin x}{\sqrt3}-\dfrac{x}{\sqrt3}$의 단조성'
+  - '귀류법과 평균값 정리'
+  - '$g(x)=L(0,x)$, $g(0)=\dfrac1{\sqrt3}$로 연속 확장 후 중간값 정리'
+  - '수직선 판정(세로선과 한 점에서만 만남)'
+  conditions:
+  - '$h^{\prime}(x)=\dfrac{\cos x-1}{\sqrt3}\le0$, 상수함수 아님'
+  - '$\cos t\le1$ ⇒ $L\le\dfrac1{\sqrt3}$'
+  - '$g(\pi)=0$, $g(0)=\dfrac1{\sqrt3}$'
+  - '회전 후 세로선 ⇔ 원래 평면에서 기울기 $\tan\left(\dfrac\pi2-\theta\right)$인 직선'
+  stimuli_used: []
+  subpart_links: '(2-4)는 (2-1)·(2-2)·(2-3)의 할선 기울기 범위를 사용'
+
+curriculum:
+  version: '2015'
+  subjects: [미적분]
+  scope_2028: calc2
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 평균값 정리와 중간값 정리를 이해하고 활용할 수 있다(요지)
+    verified: false
+  content_area: 미분법
+  behavior_domain: 추론
+  unit_path: [미적분, 미분법, 도함수의 활용, 평균값 정리]
+  key_concepts:
+  - 중간값 정리
+  - 평균값 정리
+  - 삼각함수의 도함수
+  - 함수의 증가와 감소
+  - 함수의 연속
+  - 회전이동과 함수의 그래프
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 세종대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 세종대학교
+  admission_year: 2015
+  admission_type: 수시 논술고사 [B]
+  track: 자연계열
+  question_no: 2
+  official_url: https://ipsi.sejong.ac.kr   # [확인 필요] 입학처 자료실의 정확한 게시물 URL로 교체
+  retrieved_at: 2026-11-21
+  original_points: [10, 10, 10, 10]
+  rights_notice: 미확인(대학 원본 PDF 표지 문구 확인 필요)
+  transcribed_from: 대치 수리 논술 연구소 「2027학년도 대비 수리논술 세종대 기출 및 모의 문제」 p.119 + 해설교재 p.199~200 (원본 PDF 이미지 대조 완료 2026-11-21)
+
+verify: verify/SJU-G15B.py::p02
+
+stimuli: []
+
+stem: |
+  모든 실수에서 정의된 함수 $f$가 $f(x)=\dfrac{1}{\sqrt3}\sin x$라고 하자.
+  이때, $x_1<x_2$인 실수 $x_1$, $x_2$에 대하여 두 점 $(x_1,f(x_1))$과 $(x_2,f(x_2))$를 지나는 직선의 기울기를 $L(x_1,x_2)$로 나타내자. 즉,
+  $$L(x_1,x_2)=\dfrac{f(x_2)-f(x_1)}{x_2-x_1}$$
+  이다. 주어진 단계에 따라 각 물음에 답하시오.
+
+subparts:
+- id: '1'
+  stem: |
+    임의의 실수 $c$에 대하여, 방정식 $f(x)=\dfrac{x}{\sqrt3}+c$의 해가 오직 한 개임을 보이시오.
+  points: 10
+  depends_on: []
+  answer: {kind: proof, value: null, equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $h(x)=\dfrac{\sin x-x}{\sqrt3}$은 연속이고 값이 $-\infty$부터 $\infty$까지 걸치며(존재) 상수가 아닌 감소함수(유일).
+    steps:
+    - {id: 1a, content: '중간값 정리로 존재, $h^{\prime}=\tfrac{\cos x-1}{\sqrt3}\le0$로 유일', criteria: ['1.M1', '1.R1', '1.M2', '1.R2']}
+    hint_ladder:
+    - 해의 개수 문제는 존재와 유일성으로 나누어 보이자.
+  - id: S1-B
+    audience: B
+    source_flow: 해설교재 p.199
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        $h(x)=\dfrac{\sin x}{\sqrt3}-\dfrac{x}{\sqrt3}$라 하면 $h$는 연속이다. $\lvert\sin x\rvert\le1$이므로 임의의 실수 $c$에 대해 $a$를 충분히 크게($a>\sqrt3\lvert c\rvert+1$), $b$를 충분히 작게($b<-\sqrt3\lvert c\rvert-1$) 잡으면 $h(a)<c<h(b)$이다.
+      criteria: ['1.M1']
+    - id: 1b-2
+      content: |
+        중간값 정리에 의해 $a$와 $b$ 사이에 $h(x)=c$, 즉 $f(x)=\dfrac{x}{\sqrt3}+c$의 해가 존재한다.
+      criteria: ['1.R1']
+    - id: 1b-3
+      content: |
+        $h'(x)=f'(x)-\dfrac1{\sqrt3}=\dfrac1{\sqrt3}(\cos x-1)\le0$이고 등호는 $x=2n\pi$에서만 성립하므로 $h$는 (상수함수가 아닌) 감소함수이다.
+      criteria: ['1.M2']
+    - id: 1b-4
+      content: |
+        감소함수는 같은 값을 두 번 갖지 않으므로 방정식 $h(x)=c$의 해는 유일하다. ■
+      criteria: ['1.R2']
+  - id: S1-ALT
+    audience: ALT
+    source_flow: 해설교재 p.199 별해1
+    method_no: 2
+    key_idea: $h(x)=\dfrac{x}{\sqrt3}-\dfrac{\sin x}{\sqrt3}$로 정의하면 $h'(x)=\dfrac{1-\cos x}{\sqrt3}\ge0$인 (상수 아닌) 증가함수이다.
+    steps:
+    - id: 1c-1
+      content: |
+        $h(a)<-c<h(b)$인 $a$, $b$에서 중간값 정리로 해가 존재하고, $h$가 증가함수이므로 유일하다.
+      criteria: ['1.M1', '1.R1', '1.M2', '1.R2']
+  - id: S1-ALT2
+    audience: ALT
+    source_flow: 해설교재 p.199 별해2
+    method_no: 3
+    key_idea: $h(x)=\dfrac{x}{\sqrt3}+c-\dfrac{\sin x}{\sqrt3}$로 두고 $h(a)<0<h(b)$에서 존재, $h'\ge0$(상수 아님)에서 유일.
+    steps:
+    - id: 1d-1
+      content: |
+        $h(a)<0<h(b)$인 $a$, $b$가 있으므로 중간값 정리로 $h(x)=0$의 해가 존재하고, $h'(x)=\dfrac{1-\cos x}{\sqrt3}\ge0$이므로 해는 유일하다.
+      criteria: ['1.M1', '1.R1', '1.M2', '1.R2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 3
+      evidence: |
+        보조함수 $h$를 정의하고 $h(a)<c<h(b)$(또는 부호가 다른 두 값)인 $a$, $b$의 존재를 밝혔다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1, 1c-1, 1d-1]
+    - id: 1.R1
+      mark_type: R
+      points: 2
+      evidence: |
+        중간값 정리로 해의 존재를 결론지었다.
+      depends_on: [1.M1]
+      steps: [1b-2, 1c-1, 1d-1]
+    - id: 1.M2
+      mark_type: M
+      points: 3
+      evidence: |
+        $h'(x)=\dfrac{\cos x-1}{\sqrt3}\le0$(또는 $\ge0$)을 계산했다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-3, 1c-1, 1d-1]
+    - id: 1.R2
+      mark_type: R
+      points: 2
+      evidence: |
+        상수함수가 아닌 단조함수임을 근거로 해가 유일함을 결론지었다.
+      depends_on: [1.M2]
+      steps: [1b-4, 1c-1, 1d-1]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '21', meaning: 만점(별해)}
+  - {code: '71', misconception: MC-CAL-3184}
+  misconceptions:
+  - id: MC-CAL-3184
+    outcome_code: '71'
+    wrong_work: '중간값 정리로 해가 있으므로 해는 하나뿐이다'
+    detect_cue: 단조성($h^{\prime}$의 부호) 논의가 없다
+    feedback: 중간값 정리는 존재만 보장합니다. 유일성은 $h$가 단조임을 보여야 합니다.
+    remedy: [RL-1]
+
+- id: '2'
+  stem: |
+    평균값 정리를 이용하여, $m>\dfrac{1}{\sqrt3}$이면 $L(x_1,x_2)=m$을 만족하는 $x_1$, $x_2$가 존재하지 않음을 보이시오.
+  points: 10
+  depends_on: []
+  answer: {kind: proof, value: null, equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: $L(x_1,x_2)=f'(t)=\dfrac{\cos t}{\sqrt3}\le\dfrac1{\sqrt3}$.
+    steps:
+    - {id: 2a, content: '$L=m>\tfrac1{\sqrt3}\Rightarrow\cos t>1$ 모순', criteria: ['2.M1', '2.R1']}
+    hint_ladder:
+    - 할선의 기울기는 어떤 점의 접선의 기울기와 같은가?
+  - id: S2-B
+    audience: B
+    source_flow: 해설교재 p.199
+    method_no: 1
+    steps:
+    - id: 2b-1
+      content: |
+        $L(x_1,x_2)=m>\dfrac{1}{\sqrt3}$인 $x_1<x_2$가 존재한다고 가정하자. $f$는 $[x_1,x_2]$에서 연속, $(x_1,x_2)$에서 미분가능하므로 평균값 정리에 의해 $f'(t)=\dfrac{\cos t}{\sqrt3}=m>\dfrac1{\sqrt3}$인 $t\in(x_1,x_2)$가 존재한다.
+      criteria: ['2.M1']
+    - id: 2b-2
+      content: |
+        그러면 $\cos t>1$인데 $\cos t\le1$이므로 모순이다. 따라서 그러한 $x_1$, $x_2$는 존재하지 않는다. ■
+      criteria: ['2.R1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 5
+      evidence: |
+        평균값 정리로 $f'(t)=\dfrac{\cos t}{\sqrt3}=m$인 $t$의 존재를 끌어냈다.
+      depends_on: []
+      implied_ok: false
+      steps: [2b-1]
+    - id: 2.R1
+      mark_type: R
+      points: 5
+      evidence: |
+        $\cos t\le1$과 모순임을 밝혀 결론지었다.
+      depends_on: [2.M1]
+      steps: [2b-2]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-PRF-0011}
+  misconceptions:
+  - id: MC-PRF-0011
+    outcome_code: '71'
+    wrong_work: '몇 쌍의 $(x_1,x_2)$에 대해 $L$을 계산해 모두 $\tfrac1{\sqrt3}$보다 작으므로 성립한다고 씀'
+    detect_cue: 평균값 정리 없이 수치 예만 있다
+    feedback: 모든 $x_1<x_2$에 대해 성립해야 합니다. 평균값 정리로 일반적인 $t$를 잡아 $\cos t\le1$을 쓰세요.
+    remedy: [RL-2]
+
+- id: '3'
+  stem: |
+    중간값 정리를 이용하여, $0<m<\dfrac{1}{\sqrt3}$이면 $L(0,x)=m$을 만족하는 $x$가 구간 $(0,\pi)$에 존재함을 보이시오.
+  points: 10
+  depends_on: []
+  answer: {kind: proof, value: null, equivalents: [], tolerance: null}
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: $g(x)=\dfrac{\sin x}{\sqrt3x}$, $g(0)=\dfrac1{\sqrt3}$으로 두면 $[0,\pi]$에서 연속이고 $g(\pi)=0$.
+    steps:
+    - {id: 3a, content: '$g(\pi)=0<m<\tfrac1{\sqrt3}=g(0)$ ⇒ 중간값 정리', criteria: ['3.M1', '3.R1']}
+    hint_ladder:
+    - $L(0,x)$를 $x$의 함수로 보고, $x\to0+$일 때의 극한을 생각하자.
+  - id: S3-B
+    audience: B
+    source_flow: 해설교재 p.200
+    method_no: 1
+    steps:
+    - id: 3b-1
+      content: |
+        구간 $(0,\pi]$에서 $g(x)=L(0,x)=\dfrac{\sin x}{\sqrt3x}$라 하고 $g(0)=\dfrac1{\sqrt3}$이라 하면, $\displaystyle\lim_{x\to0+}\dfrac{\sin x}{x}=1$이므로 $g$는 닫힌구간 $[0,\pi]$에서 연속이다.
+      criteria: ['3.M1']
+    - id: 3b-2
+      content: |
+        $g(\pi)=0<m<\dfrac1{\sqrt3}=g(0)$이므로 중간값 정리에 의해 $g(x)=L(0,x)=m$을 만족하는 $x$가 열린구간 $(0,\pi)$에 존재한다. ■
+      criteria: ['3.R1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 5
+      evidence: |
+        $g(x)=L(0,x)$에 $g(0)=\dfrac1{\sqrt3}$을 정의해 $[0,\pi]$에서 연속임을 밝혔다($\lim_{x\to0}\tfrac{\sin x}{x}=1$ 근거).
+      depends_on: []
+      implied_ok: false
+      steps: [3b-1]
+    - id: 3.R1
+      mark_type: R
+      points: 5
+      evidence: |
+        $g(\pi)=0<m<g(0)$을 확인하고 중간값 정리로 $(0,\pi)$ 안의 해 존재를 결론지었다.
+      depends_on: [3.M1]
+      steps: [3b-2]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-3006}
+  misconceptions:
+  - id: MC-CAL-3006
+    outcome_code: '71'
+    wrong_work: '$x=0$에서 정의되지 않는 $\dfrac{\sin x}{\sqrt3x}$에 그대로 $[0,\pi]$의 중간값 정리를 적용'
+    detect_cue: $g(0)$의 정의나 $x\to0$ 극한으로 연속성을 확인하지 않았다
+    feedback: 중간값 정리는 닫힌구간에서 연속일 때 씁니다. $g(0)=\tfrac1{\sqrt3}$로 정의해 연속성을 먼저 보이세요.
+    remedy: [RL-3]
+
+- id: '4'
+  stem: |
+    함수 $f$의 그래프를 원점을 중심으로 각 $\theta$ $\left(0\le\theta\le\dfrac\pi2\right)$만큼 회전이동 했다고 하자. 이 회전이동으로 얻은 곡선이 어떤 함수의 그래프가 되도록 하는 $\theta$의 최댓값을 구하시오.
+  points: 10
+  depends_on: ['1', '2', '3']
+  answer: {kind: value, value: 'pi/3', equivalents: [], tolerance: null}
+  solutions:
+  - id: S4-A
+    audience: A
+    method_no: 1
+    key_idea: 회전 후 세로선은 회전 전 기울기 $\tan\left(\frac\pi2-\theta\right)$인 직선. 그런 할선이 없어야 하고, 할선 기울기는 $\left[0,\frac1{\sqrt3}\right)$ 안의 값을 모두 가지므로 $\tan\left(\frac\pi2-\theta\right)\ge\frac1{\sqrt3}$.
+    steps:
+    - {id: 4a, content: '$\tan\left(\tfrac\pi2-\theta_m\right)=\tfrac1{\sqrt3}\Rightarrow\theta_m=\tfrac\pi3$', criteria: ['4.M1', '4.R1', '4.A1']}
+    hint_ladder:
+    - 곡선이 함수의 그래프일 조건을 세로선으로 말해 보자.
+    - 회전 전 평면에서 그 세로선은 어떤 기울기의 직선인가?
+  - id: S4-B
+    audience: B
+    source_flow: 해설교재 p.200
+    method_no: 1
+    steps:
+    - id: 4b-1
+      content: |
+        회전이동한 곡선이 함수의 그래프이려면 $y$축에 평행한 직선이 그 곡선과 두 점에서 만나지 않아야 한다. 회전을 되돌리면 이 조건은 "원래 그래프 $y=f(x)$와 두 점에서 만나는, 기울기가 $\tan\left(\dfrac\pi2-\theta\right)$인 직선이 없다", 즉 $L(x_1,x_2)=\tan\left(\dfrac\pi2-\theta\right)$인 $x_1<x_2$가 없다는 것이다($\theta=0$이면 조건은 자명).
+      criteria: ['4.M1']
+    - id: 4b-2
+      content: |
+        (2-2)에서 $m>\dfrac1{\sqrt3}$인 할선 기울기는 없고, (2-1)에서 기울기 $\dfrac1{\sqrt3}$인 직선 $y=\dfrac{x}{\sqrt3}+c$는 그래프와 한 점에서만 만나므로 $m=\dfrac1{\sqrt3}$인 할선도 없다. 반면 (2-3)에서 $0<m<\dfrac1{\sqrt3}$인 모든 $m$은 할선 기울기로 나타나고, $m=0$도 $L(0,\pi)=0$으로 나타난다.
+      criteria: ['4.R1']
+    - id: 4b-3
+      content: |
+        따라서 $0<\theta\le\dfrac\pi2$일 때 조건은 $\tan\left(\dfrac\pi2-\theta\right)\ge\dfrac1{\sqrt3}$, 즉 $\theta\le\dfrac\pi3$이고, 최댓값 $\theta_m$은 $\tan\left(\dfrac\pi2-\theta_m\right)=\dfrac1{\sqrt3}$을 만족하는 $\theta_m=\dfrac\pi3$이다.
+      criteria: ['4.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 4.M1
+      mark_type: M
+      points: 4
+      evidence: |
+        "함수의 그래프" 조건을 원래 그래프에 기울기 $\tan\left(\frac\pi2-\theta\right)$인 할선이 없다는 조건으로 바꿨다.
+      depends_on: []
+      implied_ok: false
+      steps: [4b-1]
+    - id: 4.R1
+      mark_type: R
+      points: 3
+      evidence: |
+        (2-1)~(2-3)으로 할선 기울기의 범위($\tfrac1{\sqrt3}$ 이상은 없음, $\left[0,\tfrac1{\sqrt3}\right)$는 모두 가능)를 정리했다.
+      depends_on: [4.M1]
+      ft: {allowed: true, from: [1.R2, 2.R1, 3.R1], max_points: 3}
+      steps: [4b-2]
+    - id: 4.A1
+      mark_type: A
+      points: 3
+      evidence: |
+        $\theta$의 최댓값 $\dfrac\pi3$을 얻었다.
+      depends_on: [4.M1]
+      steps: [4b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-3185}
+  misconceptions:
+  - id: MC-CAL-3185
+    outcome_code: '71'
+    wrong_work: '금지 기울기를 $\tan\theta$로 두어 $\tan\theta=\tfrac1{\sqrt3}$, $\theta=\tfrac\pi6$'
+    detect_cue: 회전 전 세로선의 기울기를 $\tan\theta$로 잡았다
+    feedback: 각 $\theta$만큼 돌린 뒤 세로선이 되는 직선은 돌리기 전에 $x$축과 $\tfrac\pi2-\theta$를 이룹니다.
+    remedy: [RL-4]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CAL-3184}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-IVT-MVT}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-PRF-0011}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-IVT-MVT}
+  priority: 1
+- id: RL-3
+  trigger: {type: misconception, ref: MC-CAL-3006}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-PIECEWISE-DIFF}
+  priority: 1
+- id: RL-4
+  trigger: {type: misconception, ref: MC-CAL-3185}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-IVT-MVT}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

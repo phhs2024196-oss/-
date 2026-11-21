@@ -1,0 +1,324 @@
+# 세종대 2016학년도 신입학 수시모집 모의 논술고사 문제 1 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+# [해설 불일치] (1-3) 해설교재 p.188 은 V=6π+2∫S(z)dz 로 세운 뒤 다음 식에서 2를 빠뜨리고 최종값을 (3√3-7/3)π 로 적었다.
+#   올바른 값은 6π+2π(3√3-11/3)=(6√3-4/3)π=2(9√3-2)π/3 (≈9.06π; 원기둥 부피 6√3π≈10.39π, 구 부피 32π/3 보다 작음). 자기 계산을 정답으로 둠.
+schema_version: '2.0'
+id: SJU-M16-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: SJU
+type: T02
+variant_of: null
+replaces: null
+level: L3
+form: 추론
+points: 30
+time_estimate_min: 20
+intent: |
+  구와 원기둥을 축을 포함하는 평면으로 잘라 단면의 관계를 읽고, 높이에 따른 단면 원의 넓이를 적분해 공통 부분의 부피를 구하는 능력을 본다.
+key_idea: |
+  축에 수직인 평면 $z=k$로 자른 공통 부분의 단면은 (구의 단면 원)과 (원기둥 단면 원) 중 작은 원이다. $\sqrt3-1\le z\le\sqrt3+1$에서는 원기둥 단면, 그 위아래는 구의 단면이다.
+stuck: |
+  단면이 바뀌는 높이 $z=\sqrt3\pm1$을 찾는 것, 그리고 위·아래 두 조각이 대칭이라 적분을 2배 해야 한다는 점
+idea_tags: [IDEA-AXIAL-CROSS-SECTION, IDEA-SLICE-MIN-DISK]
+tags: [구교육과정, 범위 밖(현행), 구와 원기둥, 단면 부피]
+elements:
+  materials:
+  - '중심이 $(0,0,\sqrt3)$이고 반지름이 $2$인 구'
+  - '밑면 반지름 $\sqrt3$, 높이 $2\sqrt3$인 원기둥'
+  - '구와 원기둥의 공통 부분'
+  concepts:
+  - '구의 방정식'
+  - '구와 평면이 만나 생기는 원'
+  - '원기둥의 단면'
+  - '단면의 넓이와 입체의 부피'
+  - '다항함수의 정적분'
+  tools:
+  - '축을 포함하는 평면 $x=0$으로 자른 단면도'
+  - '단면 원의 반지름 $\sqrt{R^2-d^2}$'
+  - '평면 $z=\sqrt3$에 대한 위아래 대칭'
+  - '치환 $u=z-\sqrt3$'
+  conditions:
+  - '옆면 위의 점은 단면도에서 $y=\sqrt3$ ⇒ 구와 만나는 높이 $z=\sqrt3\pm1$'
+  - '$a\le k\le2\sqrt3$에서 공통 부분의 단면은 구의 단면'
+  - '$\sqrt3-1\le z\le\sqrt3+1$에서 공통 부분의 단면은 원기둥 단면(넓이 $3\pi$)'
+  stimuli_used: []
+  subpart_links: '(1-2)는 (1-1)의 a를 구간 끝으로 쓰고, (1-3)은 (1-1)의 $z=\sqrt3\pm1$과 (1-2)의 S(k)를 사용'
+
+curriculum:
+  version: '2015'
+  subjects: [미적분, 기하]
+  scope_2028: geom
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 좌표공간에서 구의 방정식을 이해하고, 정적분을 이용하여 입체도형의 부피를 구할 수 있다(요지)
+    verified: false
+  content_area: 공간좌표·적분법
+  behavior_domain: 문제해결
+  unit_path: [미적분, 적분법, 정적분의 활용, 입체도형의 부피]
+  key_concepts: [구의 방정식, 구와 평면이 만나 생기는 원, 원기둥의 단면, 단면의 넓이와 입체의 부피, 다항함수의 정적분]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 세종대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 세종대학교
+  admission_year: 2016
+  admission_type: 수시 모의논술
+  track: 자연계열
+  question_no: 1
+  official_url: https://ipsi.sejong.ac.kr   # [확인 필요] 입학처 자료실의 정확한 게시물 URL로 교체
+  retrieved_at: 2026-11-21
+  original_points: [10, 10, 10]
+  rights_notice: 미확인(대학 원본 PDF 표지 문구 확인 필요)
+  transcribed_from: 대치 수리 논술 연구소 「2027학년도 대비 수리논술 세종대 기출 및 모의 문제」 p.112 + 해설교재 p.188 (원본 PDF 이미지 대조 완료 2026-11-21)
+
+verify: verify/SJU-M16.py::p01
+
+stimuli: []
+
+stem: |
+  좌표공간에서 집합 $A$는 반지름이 $2$이고 중심의 좌표가 $(0,0,\sqrt3)$인 구이다. 집합 $B$는 원기둥이며 $B$의 밑면과 윗면은 중심이 각각 $(0,0,0)$, $(0,0,2\sqrt3)$이고 반지름이 $\sqrt3$인 원이다. 다음 그림을 참고하여 각각의 물음에 답하시오.
+  (그림: $z$축을 공통의 축으로 하는 구 $A$와 원기둥 $B$가 겹쳐 있고, 구의 위·아래 끝이 원기둥의 윗면·밑면 밖으로 조금 나와 있으며 구의 옆쪽은 원기둥 옆면 밖으로 조금 나와 있다.)
+
+subparts:
+- id: '1'
+  stem: |
+    구 $A$와 원기둥 $B$의 윗면의 교집합으로 나타나는 원의 반지름을 $r$라 하자. 또한 구 $A$와 원기둥 $B$의 옆면에 공통으로 속하는 점에 대한 $z$좌표의 최댓값을 $a$라 하자. $r$와 $a$의 값을 각각 구하시오.
+  points: 10
+  depends_on: []
+  answer: {kind: expression, value: 'r = 1; a = sqrt(3) + 1', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: 구의 방정식에 윗면 $z=2\sqrt3$을 넣으면 $r$, 평면 $x=0$ 단면에서 옆면 $y=\sqrt3$을 넣으면 $a$가 나온다.
+    steps:
+    - {id: 1a, content: '$x^2+y^2=4-3=1\Rightarrow r=1$, $3+(z-\sqrt3)^2=4\Rightarrow a=\sqrt3+1$', criteria: ['1.M1', '1.A1', '1.M2', '1.A2']}
+    hint_ladder:
+    - 구의 방정식을 써 보자. 윗면은 어떤 평면 위에 있는가?
+    - $z$축을 품은 평면으로 잘라 단면도를 그려 보자.
+  - id: S1-B
+    audience: B
+    source_flow: 해설교재 p.188
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        구 $A$의 방정식은 $x^2+y^2+(z-\sqrt3)^2=4$이다. 윗면은 평면 $z=2\sqrt3$ 위에 있으므로 대입하면 $x^2+y^2=1$이다.
+      criteria: ['1.M1']
+    - id: 1b-2
+      content: |
+        이 원은 반지름 $1(<\sqrt3)$이어서 윗면 안에 들어가므로 $r=1$이다.
+      criteria: ['1.A1']
+    - id: 1b-3
+      content: |
+        평면 $x=0$으로 자르면 구는 원 $y^2+(z-\sqrt3)^2=4$, 원기둥 옆면은 직선 $y=\pm\sqrt3$이 된다. $y=\sqrt3$을 대입하면 $(z-\sqrt3)^2=1$, 즉 $z=\sqrt3\pm1$이다.
+      criteria: ['1.M2']
+    - id: 1b-4
+      content: |
+        두 값 모두 $0\le z\le2\sqrt3$ 안에 있으므로 $z$좌표의 최댓값은 $a=\sqrt3+1$이다(참고로 최솟값은 $\sqrt3-1$).
+      criteria: ['1.A2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 3
+      evidence: |
+        구의 방정식에 $z=2\sqrt3$을 대입해 교선의 방정식을 세웠다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1]
+    - id: 1.A1
+      mark_type: A
+      points: 2
+      evidence: |
+        $r=1$을 얻었다.
+      depends_on: [1.M1]
+      steps: [1b-2]
+    - id: 1.M2
+      mark_type: M
+      points: 3
+      evidence: |
+        옆면 위의 점 조건($x^2+y^2=3$ 또는 단면에서 $y=\sqrt3$)을 구의 방정식에 대입했다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-3]
+    - id: 1.A2
+      mark_type: A
+      points: 2
+      evidence: |
+        $a=\sqrt3+1$을 얻었다.
+      depends_on: [1.M2]
+      steps: [1b-4]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-GEO-3171}
+  misconceptions:
+  - id: MC-GEO-3171
+    outcome_code: '71'
+    wrong_work: '중심에서 윗면까지 거리 $\sqrt3$을 빼서 $r=2-\sqrt3$으로 둠'
+    detect_cue: 반지름을 $R-d$로 계산했고 $\sqrt{R^2-d^2}$ 꼴이 없다
+    feedback: 구를 평면으로 자른 원의 반지름은 피타고라스 정리로 $\sqrt{R^2-d^2}$입니다.
+    remedy: [RL-1]
+
+- id: '2'
+  stem: |
+    $a\le k\le2\sqrt3$일 때 평면 $z=k$가 구 $A$와 만나 이루어지는 원의 넓이를 $S(k)$라 하자. $S(k)$를 구하시오.
+  points: 10
+  depends_on: ['1']
+  answer: {kind: expression, value: 'pi*(1 + 2*sqrt(3)*k - k**2)', equivalents: ['pi*(4 - (k - sqrt(3))**2)'], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: 단면도에서 높이 $k$인 점 $(y,k)$가 원 위에 있으므로 반지름의 제곱은 $4-(k-\sqrt3)^2$이다.
+    steps:
+    - {id: 2a, content: '$S(k)=\pi\{4-(k-\sqrt3)^2\}=\pi(1+2\sqrt3k-k^2)$', criteria: ['2.M1', '2.A1']}
+    hint_ladder:
+    - 단면 원의 반지름은 단면도의 어느 선분인가?
+  - id: S2-B
+    audience: B
+    source_flow: 해설교재 p.188
+    method_no: 1
+    steps:
+    - id: 2b-1
+      content: |
+        $a\le k\le2\sqrt3$이면 구의 단면 원은 원기둥 안에 있다. 평면 $x=0$ 단면도에서 단면 원의 반지름은 점 $(0,k)$와 원 $y^2+(z-\sqrt3)^2=4$ 위의 점 $(y,k)$ 사이의 거리 $y$이므로 $y^2=4-(k-\sqrt3)^2$이다.
+      criteria: ['2.M1']
+    - id: 2b-2
+      content: |
+        따라서 $S(k)=\pi y^2=\pi\{4-(k-\sqrt3)^2\}=\pi(1+2\sqrt3k-k^2)$이다.
+      criteria: ['2.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 5
+      evidence: |
+        단면 원의 반지름의 제곱을 $4-(k-\sqrt3)^2$로 나타냈다.
+      depends_on: []
+      implied_ok: false
+      steps: [2b-1]
+    - id: 2.A1
+      mark_type: A
+      points: 5
+      evidence: |
+        $S(k)=\pi(1+2\sqrt3k-k^2)$ 또는 동치식을 얻었다.
+      depends_on: [2.M1]
+      steps: [2b-2]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-GEO-3171}
+  misconceptions:
+  - id: MC-GEO-3171
+    outcome_code: '71'
+    wrong_work: '반지름을 $2-(k-\sqrt3)$로 두어 $S(k)=\pi(2+\sqrt3-k)^2$'
+    detect_cue: 반지름이 $k$의 일차식이다
+    feedback: 단면 원의 반지름은 $\sqrt{4-(k-\sqrt3)^2}$입니다. 중심까지의 거리를 반지름에서 빼면 안 됩니다.
+    remedy: [RL-1]
+
+- id: '3'
+  stem: |
+    구 $A$의 내부와 원기둥 $B$의 내부에 공통으로 속하는 영역의 부피를 구하시오.
+  points: 10
+  depends_on: ['1', '2']
+  answer: {kind: expression, value: '(6*sqrt(3) - 4/3)*pi', equivalents: ['2*pi*(9*sqrt(3) - 2)/3'], tolerance: null}
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: 가운데 $\sqrt3-1\le z\le\sqrt3+1$은 원기둥 조각(부피 $6\pi$), 위·아래는 대칭이므로 $2\int_{\sqrt3+1}^{2\sqrt3}S(z)dz$.
+    steps:
+    - {id: 3a, content: '$V=6\pi+2\pi\int_1^{\sqrt3}(4-u^2)du=6\pi+2\pi\left(3\sqrt3-\tfrac{11}{3}\right)=\left(6\sqrt3-\tfrac43\right)\pi$', criteria: ['3.M1', '3.M2', '3.A1']}
+    hint_ladder:
+    - 높이마다 공통 부분의 단면은 어떤 원인가?
+    - 위 조각과 아래 조각은 어떤 관계인가?
+  - id: S3-B
+    audience: B
+    source_flow: 해설교재 p.188
+    method_no: 1
+    steps:
+    - id: 3b-1
+      content: |
+        (1)에서 $\sqrt3-1\le z\le\sqrt3+1$이면 구의 단면 반지름이 $\sqrt3$ 이상이므로 공통 부분의 단면은 원기둥의 단면(넓이 $3\pi$)이다. 이 부분의 부피는 $3\pi\times2=6\pi$이다.
+      criteria: ['3.M1']
+    - id: 3b-2
+      content: |
+        $\sqrt3+1\le z\le2\sqrt3$에서는 단면이 구의 단면이고 넓이는 $S(z)$이다. 아래쪽 $0\le z\le\sqrt3-1$ 부분은 평면 $z=\sqrt3$에 대하여 위쪽과 대칭이므로
+        $$V=6\pi+2\int_{\sqrt3+1}^{2\sqrt3}S(z)\,dz=6\pi+2\pi\int_{\sqrt3+1}^{2\sqrt3}\{4-(z-\sqrt3)^2\}dz.$$
+      criteria: ['3.M2']
+    - id: 3b-3
+      content: |
+        $u=z-\sqrt3$으로 두면 $\displaystyle\int_1^{\sqrt3}(4-u^2)du=4(\sqrt3-1)-\dfrac{3\sqrt3-1}{3}=3\sqrt3-\dfrac{11}{3}$이므로
+        $V=6\pi+2\pi\left(3\sqrt3-\dfrac{11}{3}\right)=\left(6\sqrt3-\dfrac43\right)\pi$이다.
+      criteria: ['3.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 3
+      evidence: |
+        가운데 구간의 공통 부분이 원기둥 조각이고 부피가 $6\pi$임을 적었다.
+      depends_on: []
+      implied_ok: false
+      ft: {allowed: true, from: [1.A2], max_points: 3}
+      steps: [3b-1]
+    - id: 3.M2
+      mark_type: M
+      points: 4
+      evidence: |
+        위·아래 조각의 대칭을 근거로 $2\int_{\sqrt3+1}^{2\sqrt3}S(z)dz$(또는 두 적분의 합)를 세웠다.
+      depends_on: []
+      implied_ok: false
+      ft: {allowed: true, from: [2.A1], max_points: 4}
+      steps: [3b-2]
+    - id: 3.A1
+      mark_type: A
+      points: 3
+      evidence: |
+        $V=\left(6\sqrt3-\dfrac43\right)\pi$를 얻었다.
+      depends_on: [3.M1, 3.M2]
+      steps: [3b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-3170}
+  misconceptions:
+  - id: MC-CAL-3170
+    outcome_code: '71'
+    wrong_work: '$V=6\pi+\int_{\sqrt3+1}^{2\sqrt3}S(z)dz=\left(3\sqrt3+\tfrac73\right)\pi$처럼 위 조각만 더함'
+    detect_cue: 아래 조각(또는 대칭 2배)이 빠져 있다
+    feedback: 공통 부분은 $z=\sqrt3$에 대하여 대칭입니다. 위 조각과 같은 아래 조각도 더하세요.
+    remedy: [RL-2]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-GEO-3171}
+  relation: remediation
+  target: {kind: concept, ref: CON-GEO-SPHERE-SECTION}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-CAL-3170}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-VOLUME-SECTION}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

@@ -1,0 +1,373 @@
+# 세종대 2023학년도 신입학 수시모집 논술 모의평가 문제 3 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+# type: null — SJU T01~T10 에 해당 유형 없음. 신설 제안: "합성함수의 그래프 개형(증감·볼록·대칭)과 조건 추론"
+schema_version: '2.0'
+id: SJU-M23-03
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: SJU
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 분류
+points: 240
+time_estimate_min: 40
+intent: |
+  이차함수의 합성함수 $f(f(x))$의 극값 개수를 계수의 부호로 분류해 볼록성을 결정하고, 대칭성과 증감으로 매개변수의 범위와 정적분 등식의 해를 구하는 능력을 본다.
+key_idea: |
+  $f(x)=a(x-k)^2$이면 $g'(x)=4a^2\{a(x-k)^2-k\}(x-k)$. $a<0$이면 극값 3개, $a>0$이면 1개. $g$는 $x=k$에 대해 대칭인 아래로 볼록 함수이고 $h(x)=g(g(-x))$는 $x=-k$에 대해 대칭이며 $x<-k$에서 감소, $x>-k$에서 증가하므로 등식은 $p=-k$에서만 성립.
+stuck: |
+  $g'(x)=0$의 이차 인수의 판별식 $\tfrac D4=ak$의 부호로 극값 개수를 나누는 것, 그리고 $\int_0^ph=\int_p^{2p}h$를 대칭축 $x=p$로 해석하는 것
+idea_tags: [IDEA-COMPOSITE-QUADRATIC-SHAPE, IDEA-SYMMETRY-AXIS-INTEGRAL]
+tags: [합성함수, 볼록성, 대칭, 정적분 등식]
+elements:
+  materials:
+  - '이차함수 $f(x)=a(x-k)^2$ ($k<0$)와 합성함수 $g(x)=f(f(x))$'
+  - '$h(x)=g(g(-x))$와 정적분 등식 $\int_0^ph(x)dx=\int_p^{2p}h(x)dx$'
+  concepts:
+  - '합성함수의 미분법'
+  - '함수의 극대·극소'
+  - '이차방정식의 판별식'
+  - '이계도함수와 곡선의 볼록'
+  - '그래프의 대칭(선대칭)'
+  - '정적분의 성질'
+  tools:
+  - '조건 (가)로 $f(x)=a(x-k)^2$ 설정'
+  - '$g''(x)=4a^2(ax^2-2akx+ak^2-k)(x-k)$와 판별식 $\frac D4=ak$'
+  - '$g''''(x)=4a^2(3ax^2-6akx+3ak^2-k)$의 판별식 $\frac D4=3ak<0$'
+  - '$x=k$ 대칭과 증감으로 $\lvert k+1\rvert\le\lvert k\rvert$'
+  - '$h(-k+c)=h(-k-c)$와 $h''$의 부호'
+  conditions:
+  - '(가) $f(k)=f''(k)=0$ ⇒ $x=k$가 중근'
+  - '(나) 극값 하나 ⇒ $a>0$'
+  - '(다) $g(-1)\le g(0)$ ⇒ $-1$이 $0$보다 대칭축 $k$에 가깝거나 같음 ⇒ $k\le-\frac12$'
+  - '등식 ⇒ $h$의 대칭축 $x=-k$와 $p$가 일치'
+  stimuli_used: []
+  subpart_links: '(3-2)는 (3-1)의 a>0 과 g'' 를, (3-3)은 (3-2)의 g>0·대칭·증감과 k≤-1/2 를 사용'
+
+curriculum:
+  version: '2015'
+  subjects: [미적분]
+  scope_2028: calc2
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 이계도함수를 이용하여 곡선의 오목과 볼록을 판정하고 함수의 그래프의 개형을 그릴 수 있다(요지)
+    verified: false
+  content_area: 미분법 – 도함수의 활용
+  behavior_domain: 추론
+  unit_path: [미적분, 미분법, 도함수의 활용, 곡선의 오목과 볼록]
+  key_concepts: [합성함수의 미분법, 함수의 극대·극소, 이차방정식의 판별식, 이계도함수와 곡선의 볼록, 그래프의 대칭(선대칭), 정적분의 성질]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 세종대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 세종대학교
+  admission_year: 2023
+  admission_type: 수시 모의논술
+  track: 자연계열
+  question_no: 3
+  official_url: https://ipsi.sejong.ac.kr   # [확인 필요] 입학처 자료실의 정확한 게시물 URL로 교체
+  retrieved_at: 2026-11-21
+  original_points: [80, 80, 80]
+  rights_notice: 미확인(대학 원본 PDF 표지 문구 확인 필요)
+  transcribed_from: 대치 수리 논술 연구소 「2027학년도 대비 수리논술 세종대 기출 및 모의 문제」 p.44 + 해설교재 p.94~96 (원본 PDF 이미지 대조 완료 2026-11-21)
+
+verify: verify/SJU-M23.py::p03
+
+stimuli: []
+
+stem: |
+  이차함수 $f(x)$에 대하여 함수 $g(x)$를 $g(x)=f(f(x))$로 정의할 때, 함수 $f(x)$, $g(x)$ 및 실수 $k$가 다음 조건을 만족시킨다.
+
+  (가) $f(k)=f'(k)=0$ (단, $k<0$)
+  (나) 함수 $g(x)$는 극값을 하나만 갖는다.
+  (다) $g(-1)\le g(0)$
+
+subparts:
+- id: '1'
+  stem: |
+    곡선 $y=f(x)$가 위로 볼록한지, 아니면 아래로 볼록한지 조사하시오.
+  points: 80
+  depends_on: []
+  answer: {kind: choice, value: '아래로 볼록', equivalents: ['a>0'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $g'(x)=4a^2\{a(x-k)^2-k\}(x-k)$, 이차 인수의 $\tfrac D4=ak$. $a<0$이면 극값 3개.
+    steps:
+    - {id: 1a, content: '$a<0\Rightarrow$ 근 $k,\ k\pm\sqrt{k/a}$ (극값 3개), $a>0\Rightarrow$ 근 $k$만 ⇒ $a>0$', criteria: ['1.M1', '1.A1', '1.R1', '1.R2']}
+    hint_ladder:
+    - 조건 (가)에서 $f(x)$의 꼴을 정해 보자.
+    - $g'(x)$를 인수분해해 $a$의 부호에 따라 근의 개수를 세어 보자.
+  - id: S1-B
+    audience: B
+    source_flow: 해설교재 p.94
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        (가)에서 $f(x)=a(x-k)^2$ ($a\ne0$, $k<0$)로 둘 수 있고 $g(x)=a\{a(x-k)^2-k\}^2=a(ax^2-2akx+ak^2-k)^2$이다.
+      criteria: ['1.M1']
+    - id: 1b-2
+      content: |
+        $g'(x)=2a(ax^2-2akx+ak^2-k)\cdot2a(x-k)=4a^2(ax^2-2akx+ak^2-k)(x-k)$이고, 이차식 $ax^2-2akx+ak^2-k$의 판별식은 $\dfrac D4=a^2k^2-a(ak^2-k)=ak$이다.
+      criteria: ['1.A1']
+    - id: 1b-3
+      content: |
+        $a<0$이면 $\dfrac D4>0$이므로 $g'(x)=0$은 서로 다른 세 실근 $x=k$, $k\pm\sqrt{\dfrac ka}$를 갖고 각 점에서 $g'$의 부호가 바뀌어 극값이 세 개이므로 (나)에 모순이다.
+      criteria: ['1.R1']
+    - id: 1b-4
+      content: |
+        $a>0$이면 $\dfrac D4<0$이고 이차 인수는 항상 양수이므로 $g'(x)=0$의 실근은 $x=k$뿐이며 $x<k$에서 $g'<0$, $x>k$에서 $g'>0$이다. $g$는 $x=k$에서만 극솟값을 가져 (나)를 만족한다. 따라서 $a>0$이고 포물선 $y=f(x)$는 아래로 볼록하다.
+      criteria: ['1.R2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 15
+      evidence: |
+        $f(x)=a(x-k)^2$으로 두고 $g(x)$를 식으로 나타냈다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1]
+    - id: 1.A1
+      mark_type: A
+      points: 20
+      evidence: |
+        $g'(x)=4a^2(ax^2-2akx+ak^2-k)(x-k)$와 판별식 $\dfrac D4=ak$를 얻었다.
+      depends_on: [1.M1]
+      steps: [1b-2]
+    - id: 1.R1
+      mark_type: R
+      points: 25
+      evidence: |
+        $a<0$이면 극값이 세 개여서 (나)에 모순임을 보였다.
+      depends_on: [1.A1]
+      steps: [1b-3]
+    - id: 1.R2
+      mark_type: R
+      points: 20
+      evidence: |
+        $a>0$이면 극값이 $x=k$ 하나뿐임을 보이고 아래로 볼록이라 결론지었다.
+      depends_on: [1.A1]
+      steps: [1b-4]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-3083}
+  misconceptions:
+  - id: MC-CAL-3083
+    outcome_code: '71'
+    wrong_work: '$a$의 부호를 나누지 않고 "$g^{\prime}(x)=0$의 근이 $x=k$이므로 극값 하나"라고 씀'
+    detect_cue: 이차 인수의 판별식(또는 $a<0$ 경우)이 없다
+    feedback: $a$의 부호에 따라 이차 인수가 실근을 가질 수 있습니다. 두 경우를 모두 따져 보세요.
+    remedy: [RL-1]
+
+- id: '2'
+  stem: |
+    $g''(x)>0$인 $x$의 범위를 구하시오. 또한 $k$의 최댓값을 구하시오.
+  points: 80
+  depends_on: ['1']
+  answer: {kind: expression, value: 'range = all_real; kmax = -1/2', equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: $g''(x)=4a^2\{3a(x-k)^2-k\}>0$. $g$는 $x=k$ 대칭이므로 (다)는 $\lvert k+1\rvert\le\lvert k\rvert$.
+    steps:
+    - {id: 2a, content: '$g^{\prime\prime}>0$ (모든 실수), $\lvert k+1\rvert\le-k\Rightarrow k\le-\tfrac12$', criteria: ['2.M1', '2.A1', '2.M2', '2.A2']}
+    hint_ladder:
+    - $g''(x)$의 이차 인수의 판별식을 보자.
+    - $g$의 그래프는 어느 직선에 대해 대칭인가?
+  - id: S2-B
+    audience: B
+    source_flow: 해설교재 p.94~95
+    method_no: 1
+    steps:
+    - id: 2b-1
+      content: |
+        $g''(x)=4a^2(3ax^2-6akx+3ak^2-k)$이고, $a>0$, $k<0$이므로 이차식 $3ax^2-6akx+3ak^2-k$의 판별식은 $\dfrac D4=3ak<0$이다.
+      criteria: ['2.M1']
+    - id: 2b-2
+      content: |
+        따라서 모든 실수 $x$에 대하여 $3ax^2-6akx+3ak^2-k>0$이고 $g''(x)>0$이다. $g''(x)>0$인 $x$의 범위는 실수 전체의 집합이다.
+      criteria: ['2.A1']
+    - id: 2b-3
+      content: |
+        $g(k)=ak^2>0$이고, $f(x)=a(x-k)^2$이 직선 $x=k$에 대해 대칭이므로 $g(x)=f(f(x))$도 $x=k$에 대해 대칭이다. $g$는 $x<k$에서 감소, $x>k$에서 증가하므로 (다) $g(-1)\le g(0)$이려면 $\lvert k-(-1)\rvert\le\lvert k-0\rvert$이어야 한다.
+      criteria: ['2.M2']
+    - id: 2b-4
+      content: |
+        $k<0$이므로 $\lvert k+1\rvert\le-k$, 즉 $k\le k+1\le-k$에서 $k\le-\dfrac12$이다. $k$의 최댓값은 $-\dfrac12$이다.
+      criteria: ['2.A2']
+  - id: S2-ALT
+    audience: ALT
+    source_flow: 해설교재 p.95 별해
+    method_no: 2
+    key_idea: $g(-1)=a\{a(1+k)^2-k\}^2$, $g(0)=a(ak^2-k)^2$를 직접 비교한다.
+    steps:
+    - id: 2c-1
+      content: |
+        $a>0$, $ak^2-k>0$, $a(1+k)^2-k\ge-k>0$이고 $y=ax^2$은 $x>0$에서 증가하므로 $g(-1)\le g(0)\iff a+2ak+ak^2-k\le ak^2-k\iff a(1+2k)\le0\iff k\le-\dfrac12$이다.
+      criteria: ['2.M2', '2.A2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 20
+      evidence: |
+        $g''(x)=4a^2(3ax^2-6akx+3ak^2-k)$을 구하고 이차 인수의 판별식 $3ak$를 조사했다.
+      depends_on: []
+      implied_ok: false
+      ft: {allowed: true, from: [1.R2], max_points: 20}
+      steps: [2b-1]
+    - id: 2.A1
+      mark_type: A
+      points: 20
+      evidence: |
+        $g''(x)>0$인 범위가 실수 전체임을 얻었다.
+      depends_on: [2.M1]
+      steps: [2b-2]
+    - id: 2.M2
+      mark_type: M
+      points: 20
+      evidence: |
+        $g$의 $x=k$ 대칭과 증감(또는 $g(-1)$, $g(0)$의 직접 비교)으로 (다)를 $k$의 부등식으로 바꿨다.
+      depends_on: []
+      implied_ok: false
+      steps: [2b-3, 2c-1]
+    - id: 2.A2
+      mark_type: A
+      points: 20
+      evidence: |
+        $k\le-\dfrac12$, 최댓값 $-\dfrac12$을 얻었다.
+      depends_on: [2.M2]
+      steps: [2b-4, 2c-1]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점(대칭)}
+  - {code: '21', meaning: 만점(직접 비교)}
+  - {code: '71', misconception: MC-CAL-3083}
+  misconceptions:
+  - id: MC-CAL-3083
+    outcome_code: '71'
+    wrong_work: '$g(-1)\le g(0)$에서 $g$가 증가함수라 보고 $-1\le0$이므로 항상 성립, $k$의 최댓값 없음(또는 $0$)'
+    detect_cue: $g$의 대칭축 $x=k$를 고려하지 않았다
+    feedback: $g$는 $x=k$에서 최소이고 그 양쪽이 대칭입니다. 대칭축까지의 거리로 비교하세요.
+    remedy: [RL-1]
+
+- id: '3'
+  stem: |
+    함수 $h(x)$를 $h(x)=g(g(-x))$로 정의할 때 다음 식이 성립하도록 하는 실수 $p$의 최솟값을 구하시오. (단, $p>0$)
+    $$\int_0^ph(x)\,dx=\int_p^{2p}h(x)\,dx$$
+  points: 80
+  depends_on: ['2']
+  answer: {kind: value, value: '1/2', equivalents: ['0.5'], tolerance: null}
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: $h$는 $x=-k$ 대칭, $x<-k$ 감소, $x>-k$ 증가이므로 등식은 $p=-k$에서만 성립하고 $-k\ge\tfrac12$.
+    steps:
+    - {id: 3a, content: '$h(-k+c)=h(-k-c)$, $h^{\prime}$ 부호 ⇒ $p=-k\ge\tfrac12$', criteria: ['3.M1', '3.M2', '3.R1', '3.A1']}
+    hint_ladder:
+    - $h$의 그래프는 어느 직선에 대해 대칭인가?
+    - $p$가 대칭축보다 작으면 두 적분 중 어느 쪽이 큰가?
+  - id: S3-B
+    audience: B
+    source_flow: 해설교재 p.95~96
+    method_no: 1
+    steps:
+    - id: 3b-1
+      content: |
+        모든 실수 $x$에서 $g(x)>0$이다. $g$가 $x=k$에 대해 대칭이므로 임의의 $c$에 대해 $h(-k+c)=g(g(k-c))=g(g(k+c))=h(-k-c)$이고, $h$의 그래프는 직선 $x=-k$에 대해 대칭이다.
+      criteria: ['3.M1']
+    - id: 3b-2
+      content: |
+        $h'(x)=-g'(g(-x))g'(-x)$이고 $g(-x)>0>k$이므로 $g'(g(-x))>0$이다. 따라서 $x<-k$이면 $-x>k$, $g'(-x)>0$이므로 $h'(x)<0$, $x=-k$이면 $h'(x)=0$, $x>-k$이면 $h'(x)>0$이다. (참고: $h''(x)=g''(g(-x))\{g'(-x)\}^2+g'(g(-x))g''(-x)>0$이므로 아래로 볼록.)
+      criteria: ['3.M2']
+    - id: 3b-3
+      content: |
+        $p=-k$이면 대칭성으로 $\displaystyle\int_0^{-k}h\,dx=\int_{-k}^{-2k}h\,dx$이다. $0<p<-k$이면 대칭성과 증감에 의해 $\displaystyle\int_0^ph\,dx>\int_p^{2p}h\,dx$, $p>-k$이면 $\displaystyle\int_0^ph\,dx<\int_p^{2p}h\,dx$이다. 따라서 등식을 만족하는 $p$는 $-k$뿐이다.
+      criteria: ['3.R1']
+    - id: 3b-4
+      content: |
+        (3-2)에서 $k\le-\dfrac12$이므로 $p=-k\ge\dfrac12$이고, $p$의 최솟값은 $\dfrac12$이다.
+      criteria: ['3.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 20
+      evidence: |
+        $h(-k+c)=h(-k-c)$로 $h$가 $x=-k$에 대해 대칭임을 보였다.
+      depends_on: []
+      implied_ok: false
+      steps: [3b-1]
+    - id: 3.M2
+      mark_type: M
+      points: 20
+      evidence: |
+        $h'(x)=-g'(g(-x))g'(-x)$의 부호로 $x=-k$ 좌우의 증감을 밝혔다.
+      depends_on: []
+      implied_ok: false
+      ft: {allowed: true, from: [2.A1], max_points: 20}
+      steps: [3b-2]
+    - id: 3.R1
+      mark_type: R
+      points: 25
+      evidence: |
+        $p<-k$, $p=-k$, $p>-k$ 세 경우를 비교해 등식의 해가 $p=-k$뿐임을 근거와 함께 적었다.
+      depends_on: [3.M1, 3.M2]
+      steps: [3b-3]
+    - id: 3.A1
+      mark_type: A
+      points: 15
+      evidence: |
+        $k\le-\tfrac12$을 써서 $p$의 최솟값 $\tfrac12$을 얻었다.
+      depends_on: [3.R1]
+      ft: {allowed: true, from: [2.A2], max_points: 15}
+      steps: [3b-4]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-3084}
+  misconceptions:
+  - id: MC-CAL-3084
+    outcome_code: '71'
+    wrong_work: '$p=-k$이면 등식이 성립함만 보이고 다른 $p$가 없다는 근거 없이 최솟값 $\tfrac12$'
+    detect_cue: $p\ne-k$인 경우의 대소 비교가 없다
+    feedback: 최솟값을 말하려면 $p=-k$ 외에는 해가 없음을 대칭성과 증감으로 보여야 합니다.
+    remedy: [RL-2]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CAL-3083}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-COMPOSITE-SHAPE}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-CAL-3084}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-COMPOSITE-SHAPE}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

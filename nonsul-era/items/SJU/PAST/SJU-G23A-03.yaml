@@ -1,0 +1,340 @@
+# 세종대 2023학년도 수시모집 논술고사[A형] 문제 3 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+# type: null — SJU T01~T10 에 해당 유형 없음. 신설 제안: "구간 최댓값·최솟값으로 정의된 함수의 미분가능성과 삼차함수 결정"
+schema_version: '2.0'
+id: SJU-G23A-03
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: SJU
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 분류
+points: 240
+time_estimate_min: 40
+intent: |
+  닫힌구간 $[t,t+1]$에서의 최댓값 함수 $g(t)$의 개형을 삼차함수의 극값 배치에 따라 분류하고, 미분불가능점과 상수 구간 조건으로 삼차함수를 결정하는 능력을 본다.
+key_idea: |
+  $f(\alpha+1)<f(\alpha)$일 때 $g$는 $[\alpha-1,\alpha]$에서 상수 $f(\alpha)$이고, 미분불가능한 점은 $f(\gamma)=f(\gamma+1)$인 $\gamma$(극소점이 $(\gamma,\gamma+1)$ 안) 하나뿐이다. 따라서 $\gamma=3$, $f(3)=f(4)$.
+stuck: |
+  $g$의 꺾인 점이 상수 구간의 끝($\alpha-1$, $\alpha$)이 아니라 $f(t)=f(t+1)$이 되는 점이라는 것, 그리고 상수 구간 $[\alpha-1,\alpha]$가 $\left[0,\tfrac12\right]$을 포함해야 한다는 것
+idea_tags: [IDEA-INTERVAL-MAX-CORNER, IDEA-CUBIC-EXTREMA-CASES]
+tags: [구간 최댓값 함수, 미분가능성, 삼차함수 결정]
+elements:
+  materials:
+  - '최고차항의 계수가 1인 삼차함수 $f(x)$'
+  - '닫힌구간 $[t,t+1]$에서의 최댓값 함수 $g(t)$'
+  concepts:
+  - '삼차함수의 극대·극소'
+  - '닫힌구간에서의 최댓값'
+  - '함수의 미분가능성(좌미분계수·우미분계수)'
+  - '함수의 증가와 감소'
+  - '이차방정식의 풀이'
+  tools:
+  - '극값 존재 여부와 $f(\alpha+1)$, $f(\alpha)$의 대소에 따른 경우 분류'
+  - '그래프 개형으로 $g(t)$의 구간별 식 결정($f(t+1)$, $f(\alpha)$, $f(t)$)'
+  - '$f(x)=(x-\alpha)^2(x-\beta)+7$ 꼴 설정'
+  - '$f(3)=f(4)$, $f(5)=7$ 연립'
+  conditions:
+  - '(가) $t=3$에서 미분불가능 ⇒ $f(3)=f(4)$, 극소점이 $(3,4)$ 안'
+  - '(나) $\left[0,\frac12\right]$에서 $g(t)=7$ ⇒ 극댓값 $7$, $\left[0,\frac12\right]\subset[\alpha-1,\alpha]$'
+  - '$g(4)=7$ ⇒ $[4,\infty)$에서 $f$ 증가이므로 $f(5)=7$'
+  - '$\frac12\le\alpha\le1$ ⇒ $\alpha=2-\sqrt2$ 선택'
+  stimuli_used: []
+  subpart_links: '(3-2)는 (3-1)의 경우 분류(g 의 상수 구간 [α-1, α])를, (3-3)은 (3-1)의 f(3)=f(4)와 (3-2)의 1/2≤α≤1 을 사용'
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅱ]
+  scope_2028: common
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 함수의 증가·감소, 극대·극소를 판정하고 미분가능성을 조사할 수 있다(요지)
+    verified: false
+  content_area: 미분 – 도함수의 활용
+  behavior_domain: 추론
+  unit_path: [수학Ⅱ, 미분, 도함수의 활용, 함수의 극대와 극소]
+  key_concepts: [삼차함수의 극대·극소, 닫힌구간에서의 최댓값, 함수의 미분가능성(좌미분계수·우미분계수), 함수의 증가와 감소, 이차방정식의 풀이]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 세종대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 세종대학교
+  admission_year: 2023
+  admission_type: 수시 논술고사 A형
+  track: 자연계열
+  question_no: 3
+  official_url: https://ipsi.sejong.ac.kr   # [확인 필요] 입학처 자료실의 정확한 게시물 URL로 교체
+  retrieved_at: 2026-11-21
+  original_points: [80, 80, 80]
+  rights_notice: 미확인(대학 원본 PDF 표지 문구 확인 필요)
+  transcribed_from: 대치 수리 논술 연구소 「2027학년도 대비 수리논술 세종대 기출 및 모의 문제」 p.38 + 해설교재 p.84~85 (원본 PDF 이미지 대조 완료 2026-11-21)
+
+verify: verify/SJU-G23A.py::p03
+
+stimuli: []
+
+stem: |
+  최고차항의 계수가 1인 삼차함수 $f(x)$와 실수 $t$에 대하여 닫힌구간 $[t,\,t+1]$에서 $f(x)$의 최댓값을 $g(t)$로 정의할 때 함수 $g(t)$는 다음을 만족시킨다.
+
+  (가) $g(t)$는 $t=3$에서 미분가능하지 않다.
+  (나) 닫힌구간 $\left[0,\,\dfrac12\right]$에 속하는 모든 $t$에 대하여 $g(t)=7$이다.
+
+subparts:
+- id: '1'
+  stem: |
+    $f(3)-f(4)$의 값을 구하시오.
+  points: 80
+  depends_on: []
+  answer: {kind: value, value: '0', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: 극값이 없으면 $g(t)=f(t+1)$로 미분가능. 극값이 있고 $f(\alpha+1)<f(\alpha)$이면 꺾인 점은 $f(\gamma)=f(\gamma+1)$인 $\gamma$ 하나뿐이므로 $\gamma=3$.
+    steps:
+    - {id: 1a, content: '꺾인 점 $\gamma$에서 $f(\gamma)=f(\gamma+1)$, $\gamma=3\Rightarrow f(3)-f(4)=0$', criteria: ['1.M1', '1.R1', '1.R2', '1.A1']}
+    hint_ladder:
+    - $f$가 증가함수이면 $g(t)$는 어떤 식인가?
+    - $g(t)$가 상수인 구간의 양 끝에서 좌·우미분계수는 각각 얼마인가?
+    - 최댓값이 왼쪽 끝 $f(t)$에서 오른쪽 끝 $f(t+1)$로 바뀌는 순간은 언제인가?
+  - id: S1-B
+    audience: B
+    source_flow: 해설교재 p.84
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        $f$가 극값을 갖지 않으면 $f$는 증가함수이므로 $g(t)=f(t+1)$이고 $g$는 실수 전체에서 미분가능하여 (가)에 모순이다. 따라서 $f$는 $x=\alpha$에서 극댓값, 그보다 오른쪽 점에서 극솟값을 갖는다.
+      criteria: ['1.M1']
+    - id: 1b-2
+      content: |
+        $f(\alpha+1)\ge f(\alpha)$인 경우: $f(s+1)=f(\alpha)$ ($s\le\alpha$)인 $s$에 대하여 $g$는 $t<\alpha-1$에서 $f(t+1)$, $[\alpha-1,s]$에서 상수 $f(\alpha)$, $t>s$에서 $f(t+1)$이므로 $g$가 상수인 구간은 $[\alpha-1,s]$뿐이고 꺾인 점은 $t=s$뿐이다. (가)에서 $s=3$이면 $\alpha\ge3$이므로 $[\alpha-1,s]$가 $\left[0,\tfrac12\right]$을 포함할 수 없어 (나)에 모순이다.
+      criteria: ['1.R1']
+    - id: 1b-3
+      content: |
+        $f(\alpha+1)<f(\alpha)$인 경우: $g$는 $t\le\alpha-1$에서 $f(t+1)$, $[\alpha-1,\alpha]$에서 $f(\alpha)$, $\alpha\le t\le\gamma$에서 $f(t)$, $t\ge\gamma$에서 $f(t+1)$이다(단, $\gamma>\alpha$는 $f(\gamma)=f(\gamma+1)$인 수로, 극소점은 $(\gamma,\gamma+1)$ 안에 있다). $t=\alpha-1$, $t=\alpha$에서는 좌·우미분계수가 모두 $0$($f'(\alpha)=0$)이므로 미분가능하고, $t=\gamma$에서는 좌미분계수 $f'(\gamma)<0$, 우미분계수 $f'(\gamma+1)>0$이므로 미분가능하지 않다.
+      criteria: ['1.R2']
+    - id: 1b-4
+      content: |
+        따라서 (가)에서 $\gamma=3$이고, 열린구간 $(3,4)$에 속하는 점에서 $f$가 극솟값을 가지며 $f(3)=f(4)$이다. 즉 $f(3)-f(4)=0$이다.
+      criteria: ['1.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 15
+      evidence: |
+        극값이 없으면 $g(t)=f(t+1)$이 미분가능하여 (가)에 모순임을 보이고, $f$가 극대·극소를 가짐을 밝혔다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1]
+    - id: 1.R1
+      mark_type: R
+      points: 20
+      evidence: |
+        $f(\alpha+1)\ge f(\alpha)$인 경우가 (가)·(나)를 동시에 만족할 수 없음을 근거와 함께 적었다.
+      depends_on: [1.M1]
+      steps: [1b-2]
+    - id: 1.R2
+      mark_type: R
+      points: 25
+      evidence: |
+        $f(\alpha+1)<f(\alpha)$인 경우 $g$의 구간별 식을 적고, $\alpha-1$, $\alpha$에서는 미분가능, $f(\gamma)=f(\gamma+1)$인 $\gamma$에서만 미분불가능함을 좌·우미분계수로 밝혔다.
+      depends_on: [1.M1]
+      steps: [1b-3]
+    - id: 1.A1
+      mark_type: A
+      points: 20
+      evidence: |
+        $\gamma=3$에서 $f(3)=f(4)$, 즉 $f(3)-f(4)=0$을 얻었다.
+      depends_on: [1.R2]
+      steps: [1b-4]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-3072}
+  misconceptions:
+  - id: MC-CAL-3072
+    outcome_code: '71'
+    wrong_work: '$g$가 상수인 구간의 끝 $t=\alpha$가 꺾인 점이라 보고 $\alpha=3$으로 둠'
+    detect_cue: $t=\alpha-1$, $\alpha$에서의 좌·우미분계수(모두 0) 비교가 없다
+    feedback: 상수 구간의 끝에서는 $f'(\alpha)=0$이라 양쪽 미분계수가 모두 0입니다. 최댓값이 $f(t)$에서 $f(t+1)$로 바뀌는 점을 찾으세요.
+    remedy: [RL-1]
+
+- id: '2'
+  stem: |
+    $f(x)$는 $x=\alpha$에서 극댓값을 갖는다. $\alpha$의 최솟값과 최댓값을 각각 구하시오.
+  points: 80
+  depends_on: ['1']
+  answer: {kind: expression, value: 'min = 1/2; max = 1', equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: $g$가 상수인 구간은 $[\alpha-1,\alpha]$뿐이므로 $\left[0,\tfrac12\right]\subset[\alpha-1,\alpha]$.
+    steps:
+    - {id: 2a, content: '$\alpha-1\le0$, $\tfrac12\le\alpha\Rightarrow\tfrac12\le\alpha\le1$', criteria: ['2.M1', '2.A1', '2.R1']}
+    hint_ladder:
+    - $g(t)=7$인 구간과 (3-1)의 상수 구간을 비교해 보자.
+  - id: S2-B
+    audience: B
+    source_flow: 해설교재 p.85
+    method_no: 1
+    steps:
+    - id: 2b-1
+      content: |
+        (나)에서 $\left[0,\tfrac12\right]$에서 $g(t)=7$이므로 (3-1)과 같이 생각하면 $f$의 극댓값은 $f(\alpha)=7$이고 $\alpha\le1$이다. 극소점은 $(3,4)$에 있어 $\alpha$보다 2 이상 오른쪽에 있으므로 $[\alpha-1,\alpha]$의 모든 $t$에 대하여 $g(t)=7$이며, $g$가 값 $7$을 갖는 구간은 이 구간뿐이다.
+      criteria: ['2.M1']
+    - id: 2b-2
+      content: |
+        따라서 $\left[0,\tfrac12\right]\subset[\alpha-1,\alpha]$이어야 하고 $\dfrac12\le\alpha\le1$이다.
+      criteria: ['2.A1']
+    - id: 2b-3
+      content: |
+        양 끝값이 실제로 가능함을 확인한다. $f(x)=(x-\alpha)^2(x-\beta)+7$로 두면 $f(3)=f(4)$에서 $\beta=\dfrac{\alpha^2-14\alpha+37}{7-2\alpha}$이고, $\alpha=\tfrac12$이면 $\beta=\tfrac{121}{24}$, $\alpha=1$이면 $\beta=\tfrac{24}{5}$로 둘 다 $\beta>\alpha+1$, 극소점 $\tfrac{\alpha+2\beta}{3}\in(3,4)$를 만족한다. 따라서 $\alpha$의 최솟값은 $\dfrac12$, 최댓값은 $1$이다.
+      criteria: ['2.R1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 30
+      evidence: |
+        극댓값 $f(\alpha)=7$이고 $g(t)=7$인 구간이 $[\alpha-1,\alpha]$임을 밝혔다.
+      depends_on: []
+      implied_ok: false
+      ft: {allowed: true, from: [1.R2], max_points: 30}
+      steps: [2b-1]
+    - id: 2.A1
+      mark_type: A
+      points: 30
+      evidence: |
+        $\left[0,\tfrac12\right]\subset[\alpha-1,\alpha]$에서 $\dfrac12\le\alpha\le1$을 얻었다.
+      depends_on: [2.M1]
+      steps: [2b-2]
+    - id: 2.R1
+      mark_type: R
+      points: 20
+      evidence: |
+        양 끝값 $\alpha=\tfrac12$, $\alpha=1$에서 조건을 만족하는 $f$가 존재함을 확인하고 최솟값 $\tfrac12$, 최댓값 $1$을 답했다.
+      depends_on: [2.A1]
+      steps: [2b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-3072}
+  misconceptions:
+  - id: MC-CAL-3072
+    outcome_code: '71'
+    wrong_work: '$g$가 $[\alpha,\alpha+1]$에서 상수라고 보아 $-\tfrac12\le\alpha\le0$'
+    detect_cue: 상수 구간을 $[\alpha-1,\alpha]$가 아닌 $[\alpha,\alpha+1]$로 잡았다
+    feedback: $[t,t+1]$이 $\alpha$를 포함하는 $t$는 $\alpha-1\le t\le\alpha$입니다.
+    remedy: [RL-1]
+
+- id: '3'
+  stem: |
+    $g(4)=7$일 때 $f(3)$을 구하시오.
+  points: 80
+  depends_on: ['1', '2']
+  answer: {kind: value, value: '1 - 4*sqrt(2)', equivalents: [], tolerance: null}
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: $f(x)=(x-\alpha)^2(x-\beta)+7$, $g(4)=f(5)=7$에서 $\beta=5$, $f(3)=f(4)$에서 $\alpha=2-\sqrt2$.
+    steps:
+    - {id: 3a, content: '$\beta=5$, $2(3-\alpha)^2=(4-\alpha)^2$, $\alpha=2-\sqrt2$, $f(3)=1-4\sqrt2$', criteria: ['3.M1', '3.A1', '3.M2', '3.A2']}
+    hint_ladder:
+    - 극댓값이 $7$인 삼차함수를 $(x-\alpha)^2$을 써서 나타내 보자.
+    - $t=4$이면 $[4,5]$에서 $f$는 증가하는가?
+  - id: S3-B
+    audience: B
+    source_flow: 해설교재 p.85
+    method_no: 1
+    steps:
+    - id: 3b-1
+      content: |
+        (3-1), (3-2)에서 $f(\alpha)=7$, $f'(\alpha)=0$이므로 $f(x)=(x-\alpha)^2(x-\beta)+7$ $\left(\tfrac12\le\alpha\le1,\ \beta>3\right)$로 둘 수 있다.
+      criteria: ['3.M1']
+    - id: 3b-2
+      content: |
+        극소점이 $(3,4)$에 있으므로 $[4,\infty)$에서 $f$는 증가하고 $g(4)=f(5)$이다. $7=f(5)=(5-\alpha)^2(5-\beta)+7$이고 $\alpha\ne5$이므로 $\beta=5$이다.
+      criteria: ['3.A1']
+    - id: 3b-3
+      content: |
+        $f(3)=f(4)$에서 $-2(3-\alpha)^2+7=-(4-\alpha)^2+7$, 즉 $\alpha^2-4\alpha+2=0$이므로 $\alpha=2\pm\sqrt2$이고, $\tfrac12\le\alpha\le1$이므로 $\alpha=2-\sqrt2$이다.
+      criteria: ['3.M2']
+    - id: 3b-4
+      content: |
+        $f(x)=(x-2+\sqrt2)^2(x-5)+7$이므로 $f(3)=-2(1+\sqrt2)^2+7=1-4\sqrt2$이다.
+      criteria: ['3.A2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 20
+      evidence: |
+        $f(x)=(x-\alpha)^2(x-\beta)+7$ 꼴로 놓았다.
+      depends_on: []
+      implied_ok: false
+      ft: {allowed: true, from: [2.M1], max_points: 20}
+      steps: [3b-1]
+    - id: 3.A1
+      mark_type: A
+      points: 20
+      evidence: |
+        $g(4)=f(5)$의 근거를 적고 $\beta=5$를 얻었다.
+      depends_on: [3.M1]
+      steps: [3b-2]
+    - id: 3.M2
+      mark_type: M
+      points: 20
+      evidence: |
+        $f(3)=f(4)$와 $\tfrac12\le\alpha\le1$로 $\alpha=2-\sqrt2$를 골랐다.
+      depends_on: [3.M1]
+      ft: {allowed: true, from: [1.A1, 2.A1], max_points: 20}
+      steps: [3b-3]
+    - id: 3.A2
+      mark_type: A
+      points: 20
+      evidence: |
+        $f(3)=1-4\sqrt2$를 얻었다.
+      depends_on: [3.A1, 3.M2]
+      steps: [3b-4]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-3072}
+  misconceptions:
+  - id: MC-CAL-3072
+    outcome_code: '71'
+    wrong_work: '$g(4)=f(4)$로 두어 $(4-\alpha)^2(4-\beta)=0$, $\beta=4$'
+    detect_cue: $[4,5]$에서의 최댓값을 왼쪽 끝 값으로 잡았다
+    feedback: 극소점이 $(3,4)$에 있으므로 $[4,5]$에서 $f$는 증가하고 최댓값은 $f(5)$입니다.
+    remedy: [RL-1]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CAL-3072}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-INTERVAL-MAX-FUNC}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

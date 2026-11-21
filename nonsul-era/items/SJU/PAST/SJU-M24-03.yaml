@@ -1,0 +1,383 @@
+# 세종대 2024학년도 모의논술고사(자연계열) 문제 3 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+# [해설 불일치] 해설교재 p.80 은 「p(x)는 구간 [0,1]에서 역함수가 존재」라 썼으나 h(t) 가 (-1,1) 전체를 움직이므로 [-1,1] 이 맞다(답에는 영향 없음)
+schema_version: '2.0'
+id: SJU-M24-03
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: SJU
+type: T06
+variant_of: null
+replaces: null
+level: L5
+form: 존재
+points: 240
+time_estimate_min: 40
+intent: |
+  바깥 변수 $x$가 피적분함수와 적분 구간에 함께 들어 있는 정적분 함수를 분리해 미분하고, 도함수가 증가함수임과 중간값으로 최소점 $h(t)$의 존재·유일성을 보인 뒤, 그 특성식 $\int_{-1}^{h(t)}f=\tfrac{t}{1+t}f(0)$을 미분하거나 역함수로 풀어 $h'(1)$과 $h(t)$를 구하는 능력을 본다.
+key_idea: |
+  $g'(x)=(1+t)\left(F(x)-\dfrac{t}{1+t}f(0)\right)$, $F(x)=\displaystyle\int_{-1}^xf(y)dy$이고 $F(1)=f(0)$(조건 (나))이다. $F$가 증가하므로 $g'$은 한 번만 부호가 바뀌고 $F(h(t))=\dfrac{t}{1+t}f(0)$이다.
+stuck: |
+  $g'(x)$에서 $\int_x^1f$를 $f(0)-F(x)$로 바꿔 $g'$을 $F$ 하나로 정리하고, 조건 (나)를 $F(1)=f(0)$으로 읽어 $0<\tfrac{t}{1+t}f(0)<F(1)$에서 최소점의 존재와 유일성을 끌어내는 것
+idea_tags: [IDEA-SEPARATE-PARAMETER-IN-INTEGRAND, IDEA-MONOTONE-DERIV-UNIQUE-ROOT]
+tags: [정적분으로 정의된 함수, 최소점의 존재, 역함수, 음함수의 미분]
+elements:
+  materials:
+  - '구간 $[-1,1]$에서 양수인 연속함수 $f$와 조건 $f(0)=\int_{-1}^1f(x)dx$'
+  - '매개변수 $t>0$을 가진 함수 $g(x)=\int_{-1}^x(x-y)f(y)dy+t\int_x^1(y-x)f(y)dy$'
+  - '최소점 $h(t)$와 그 도함수 $h''(1)$'
+  - '삼각형 모양 함수 $f(x)=1-\lvert x\rvert$'
+  concepts:
+  - '정적분으로 정의된 함수의 미분'
+  - '증가함수와 함수의 최대·최소'
+  - '사잇값 정리'
+  - '합성함수의 미분법'
+  - '역함수'
+  - '정적분의 계산'
+  tools:
+  - '피적분함수의 $x$를 적분 밖으로 꺼내기'
+  - '$F(x)=\int_{-1}^xf(y)dy$로 $g''(x)=(1+t)\left(F(x)-\frac{t}{1+t}f(0)\right)$ 정리'
+  - '$F$ 증가 $\Rightarrow g''$ 증가 $\Rightarrow$ 부호가 한 번만 바뀜'
+  - '항등식 $\frac{1}{f(0)}\int_{-1}^{h(t)}f=\frac{t}{1+t}$를 $t$로 미분'
+  - '$p(x)=\frac{1}{f(0)}\int_{-1}^xf$의 역함수 $h(t)=p^{-1}\left(\frac{t}{1+t}\right)$'
+  - '$t\le1$, $t>1$로 나누어 이차방정식 풀기'
+  conditions:
+  - '(가) $f>0\Rightarrow F$는 증가'
+  - '(나) $F(1)=f(0)$'
+  - '$t>0\Rightarrow0<\frac{t}{1+t}f(0)<f(0)$이므로 $h(t)\in(-1,1)$이 유일'
+  - '$h(1)=0$, $\frac{t}{1+t}\le\frac12\iff t\le1$'
+  stimuli_used: []
+  subpart_links: '(3-2)는 (3-1)의 식 $\frac{1}{f(0)}\int_{-1}^{h(t)}f=\frac{t}{1+t}$를 미분하고, (3-3)은 같은 식에 주어진 $f$를 넣어 $h(t)$를 구함'
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅱ, 미적분]
+  scope_2028: calc2
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 정적분으로 정의된 함수를 미분하고 함수의 최솟값을 구할 수 있다(요지)
+    verified: false
+  content_area: 적분법·미분법
+  behavior_domain: 추론
+  unit_path: [수학Ⅱ, 적분, 정적분, 정적분으로 정의된 함수]
+  key_concepts: [정적분으로 정의된 함수의 미분, 증가함수와 함수의 최대·최소, 사잇값 정리, 합성함수의 미분법, 역함수, 정적분의 계산]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 세종대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 세종대학교
+  admission_year: 2024
+  admission_type: 수시 모의논술
+  track: 자연계열
+  question_no: 3
+  official_url: https://ipsi.sejong.ac.kr   # [확인 필요] 입학처 자료실의 정확한 게시물 URL로 교체
+  retrieved_at: 2026-11-21
+  original_points: [80, 80, 80]
+  rights_notice: 미확인(대학 원본 PDF 표지 문구 확인 필요)
+  transcribed_from: 대치 수리 논술 연구소 「2027학년도 대비 수리논술 세종대 기출 및 모의 문제」 p.35 + 해설교재 p.80~81 (원본 PDF 이미지 대조 완료 2026-11-21)
+
+verify: verify/SJU-M24.py::p03
+
+stimuli: []
+
+stem: |
+  구간 $[-1,1]$에서 정의되는 연속함수 $f(x)$가 다음 조건을 만족시킨다.
+
+  (가) 모든 $x\in(-1,1)$에 대하여 $f(x)>0$
+
+  (나) $f(0)=\displaystyle\int_{-1}^1f(x)dx$
+
+  실수 $x\in[-1,\,1]$와 $t>0$에 대하여 $g(x)=\displaystyle\int_{-1}^x(x-y)f(y)dy+t\int_x^1(y-x)f(y)dy$라고 정의할 때, $g(x)$가 최소가 되도록 하는 $x\in(-1,1)$의 값을 $h(t)$라고 하자.
+
+subparts:
+- id: '1'
+  stem: |
+    $\dfrac{1}{f(0)}\displaystyle\int_{-1}^{h(t)}f(x)dx$를 $t$의 식으로 나타내시오.
+  points: 80
+  depends_on: []
+  answer: {kind: expression, value: 't/(1+t)', equivalents: ['t/(t+1)'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $g'(x)=\int_{-1}^xf-t\int_x^1f=(1+t)\left(F(x)-\tfrac{t}{1+t}f(0)\right)$이고 $F$가 증가하므로 최소점에서 $F(h(t))=\tfrac{t}{1+t}f(0)$.
+    steps:
+    - {id: 1a, content: '$g^{\prime}(x)=(1+t)\left(F(x)-\tfrac{t}{1+t}f(0)\right)$, $F(-1)=0<\tfrac{t}{1+t}f(0)<f(0)=F(1)\Rightarrow\tfrac1{f(0)}\int_{-1}^{h(t)}f=\tfrac t{1+t}$', criteria: ['1.M1', '1.A1', '1.R1', '1.A2']}
+    hint_ladder:
+    - 피적분함수의 $(x-y)$를 전개해 $x$를 적분 밖으로 꺼내자.
+    - $\int_x^1f=\int_{-1}^1f-\int_{-1}^xf$이고 조건 (나)를 쓰자.
+    - $g'(x)$가 증가함수이면 $g$는 어디에서 최소인가?
+  - id: S1-B
+    audience: B
+    source_flow: 해설교재 p.80
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        $g(x)=x\displaystyle\int_{-1}^xf(y)dy-\int_{-1}^xyf(y)dy+t\left(\int_x^1yf(y)dy-x\int_x^1f(y)dy\right)$이므로 $g$는 $(-1,1)$에서 미분가능하고
+        $g'(x)=\displaystyle\int_{-1}^xf(y)dy+xf(x)-xf(x)+t\left(-xf(x)-\int_x^1f(y)dy+xf(x)\right)=\int_{-1}^xf(y)dy-t\int_x^1f(y)dy$이다.
+      criteria: ['1.M1']
+    - id: 1b-2
+      content: |
+        $\displaystyle\int_x^1f=\int_{-1}^1f-\int_{-1}^xf$이므로 $F(x)=\displaystyle\int_{-1}^xf(y)dy$라 하면 $g'(x)=(1+t)\left(F(x)-\dfrac{t}{1+t}F(1)\right)$이고, 조건 (나)에서 $F(1)=f(0)$이다.
+      criteria: ['1.A1']
+    - id: 1b-3
+      content: |
+        (가)에서 $F$는 증가함수이므로 $g'$도 증가함수이다. $t>0$이므로 $F(-1)=0<\dfrac{t}{1+t}f(0)<f(0)=F(1)$이고, $F(a)=\dfrac{t}{1+t}f(0)$인 $a\in(-1,1)$가 유일하게 존재하며 $x<a$이면 $g'(x)<0$, $x>a$이면 $g'(x)>0$이다. 따라서 $g$는 $x=a$에서 최소이고 $a=h(t)$이다.
+      criteria: ['1.R1']
+    - id: 1b-4
+      content: |
+        그러므로 $F(h(t))=\dfrac{t}{1+t}f(0)$, 즉 $\dfrac{1}{f(0)}\displaystyle\int_{-1}^{h(t)}f(x)dx=\dfrac{t}{1+t}$이다.
+      criteria: ['1.A2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 20
+      evidence: |
+        $x$를 적분 밖으로 꺼내 $g'(x)=\displaystyle\int_{-1}^xf-t\int_x^1f$를 얻었다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1]
+    - id: 1.A1
+      mark_type: A
+      points: 20
+      evidence: |
+        조건 (나)를 써서 $g'(x)=(1+t)\left(F(x)-\tfrac{t}{1+t}f(0)\right)$ 꼴로 정리했다.
+      depends_on: [1.M1]
+      steps: [1b-2]
+    - id: 1.R1
+      mark_type: R
+      points: 25
+      evidence: |
+        $F$의 증가성과 $0<\tfrac{t}{1+t}f(0)<f(0)$으로 $g'$의 부호가 한 점에서 음→양으로 바뀌어 그 점이 최소점임을 밝혔다.
+      depends_on: [1.A1]
+      steps: [1b-3]
+    - id: 1.A2
+      mark_type: A
+      points: 15
+      evidence: |
+        $\dfrac{1}{f(0)}\displaystyle\int_{-1}^{h(t)}f=\dfrac{t}{1+t}$을 얻었다.
+      depends_on: [1.R1]
+      steps: [1b-4]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-3055}
+  misconceptions:
+  - id: MC-CAL-3055
+    outcome_code: '71'
+    wrong_work: '$g^{\prime}(x)=(x-x)f(x)+t(x-x)f(x)=0$으로 미분해 진행하지 못함'
+    detect_cue: 피적분함수의 $x$를 분리하지 않고 미적분의 기본정리를 적용했다
+    feedback: 피적분함수에 $x$가 있으면 먼저 $(x-y)f(y)=xf(y)-yf(y)$로 나누어 $x$를 적분 밖으로 꺼내야 합니다.
+    remedy: [RL-1]
+
+- id: '2'
+  stem: |
+    $h(t)$가 $t>0$에서 미분가능하고 $h(1)=0$일 때 $h'(1)$의 값을 구하시오.
+  points: 80
+  depends_on: ['1']
+  answer: {kind: value, value: '1/4', equivalents: ['0.25'], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: (3-1)의 항등식을 $t$로 미분하면 $\dfrac{f(h(t))h'(t)}{f(0)}=\dfrac{1}{(1+t)^2}$.
+    steps:
+    - {id: 2a, content: '$t=1$, $h(1)=0$: $h^{\prime}(1)=\tfrac14$', criteria: ['2.M1', '2.A1', '2.A2']}
+    hint_ladder:
+    - (3-1)의 결과는 모든 $t>0$에서 성립하는 항등식이다.
+    - 위끝이 $h(t)$인 정적분을 $t$로 미분하면 무엇이 곱해지는가?
+  - id: S2-B
+    audience: B
+    source_flow: 해설교재 p.80
+    method_no: 1
+    steps:
+    - id: 2b-1
+      content: |
+        (3-1)에서 모든 $t>0$에 대해 $\dfrac{1}{f(0)}\displaystyle\int_{-1}^{h(t)}f(x)dx=\dfrac{t}{1+t}$이다.
+      criteria: ['2.M1']
+    - id: 2b-2
+      content: |
+        양변을 $t$에 대하여 미분하면 $\dfrac{1}{f(0)}f(h(t))h'(t)=\dfrac{1}{(1+t)^2}$이다.
+      criteria: ['2.A1']
+    - id: 2b-3
+      content: |
+        $t=1$을 대입하고 $h(1)=0$을 쓰면 $\dfrac{f(0)}{f(0)}h'(1)=\dfrac14$이므로 $h'(1)=\dfrac14$이다.
+      criteria: ['2.A2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 20
+      evidence: |
+        (3-1)의 식을 $t$에 대한 항등식으로 보고 미분하려 했다.
+      depends_on: []
+      implied_ok: false
+      ft: {allowed: true, from: [1.A2], max_points: 20}
+      steps: [2b-1]
+    - id: 2.A1
+      mark_type: A
+      points: 35
+      evidence: |
+        합성함수 미분으로 $\dfrac{f(h(t))h'(t)}{f(0)}=\dfrac{1}{(1+t)^2}$을 얻었다.
+      depends_on: [2.M1]
+      steps: [2b-2]
+    - id: 2.A2
+      mark_type: A
+      points: 25
+      evidence: |
+        $t=1$, $h(1)=0$을 대입해 $h'(1)=\dfrac14$을 얻었다.
+      depends_on: [2.A1, 2.M1]
+      steps: [2b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-3067}
+  misconceptions:
+  - id: MC-CAL-3067
+    outcome_code: '71'
+    wrong_work: '$\tfrac{1}{f(0)}f(h(t))=\tfrac1{(1+t)^2}$로 미분해 $h^{\prime}(t)$를 구하지 못함'
+    detect_cue: 미분한 식에 $h'(t)$가 없다
+    feedback: 위끝이 $h(t)$이면 $\dfrac{d}{dt}\displaystyle\int_{-1}^{h(t)}f=f(h(t))\,h'(t)$입니다.
+    remedy: [RL-2]
+
+- id: '3'
+  stem: |
+    $f(x)$가
+    $$f(x)=\begin{cases}1+x & (-1\le x\le0)\\ 1-x & (0<x\le1)\end{cases}$$
+    로 주어질 때, $h(t)$를 구하시오.
+  points: 80
+  depends_on: ['1']
+  answer: {kind: expression, value: 'h(t) = -1 + sqrt(2*t/(1+t)) (0<t<=1); 1 - sqrt(2/(1+t)) (t>1)', equivalents: [], tolerance: null}
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: $p(x)=\tfrac1{f(0)}\int_{-1}^xf$는 $[-1,1]$에서 증가하는 함수이고 $h(t)=p^{-1}\left(\tfrac{t}{1+t}\right)$; $p(0)=\tfrac12$을 경계로 나눈다.
+    steps:
+    - {id: 3a, content: '$p(x)=\tfrac{(1+x)^2}2\ (x\le0)$, $1-\tfrac{(1-x)^2}2\ (x>0)$ $\Rightarrow h(t)=-1+\sqrt{\tfrac{2t}{1+t}}\ (0<t\le1)$, $1-\sqrt{\tfrac{2}{1+t}}\ (t>1)$', criteria: ['3.M1', '3.A1', '3.M2', '3.A2', '3.A3']}
+    hint_ladder:
+    - 주어진 $f$에서 $f(0)$과 $\int_{-1}^xf$를 계산하자.
+    - $\int_{-1}^0f=\tfrac12$이므로 $\tfrac{t}{1+t}$가 $\tfrac12$보다 큰지 작은지에 따라 $h(t)$가 $0$의 어느 쪽에 있는지 정해진다.
+  - id: S3-B
+    audience: B
+    source_flow: 해설교재 p.80~81
+    method_no: 1
+    steps:
+    - id: 3b-1
+      content: |
+        $f(0)=1$이다. $p(x)=\dfrac{1}{f(0)}\displaystyle\int_{-1}^xf(y)dy$라 하면 $p(x)=\dfrac{(1+x)^2}{2}\ (-1\le x\le0)$, $p(x)=1-\dfrac{(1-x)^2}{2}\ (0<x\le1)$이다.
+      criteria: ['3.M1', '3.A1']
+    - id: 3b-2
+      content: |
+        $p$는 $[-1,1]$에서 증가하므로 역함수가 존재하고, (3-1)에서 $p(h(t))=\dfrac{t}{1+t}$이므로 $h(t)=p^{-1}\left(\dfrac{t}{1+t}\right)$이다.
+      criteria: ['3.M2']
+    - id: 3b-3
+      content: |
+        $p^{-1}(x)=-1+\sqrt{2x}\ \left(0\le x\le\dfrac12\right)$, $p^{-1}(x)=1-\sqrt{2(1-x)}\ \left(\dfrac12<x\le1\right)$이다.
+      criteria: ['3.A2']
+    - id: 3b-4
+      content: |
+        $\dfrac{t}{1+t}\le\dfrac12\iff t\le1$이므로 $h(t)=-1+\sqrt{\dfrac{2t}{1+t}}\ (0<t\le1)$, $h(t)=1-\sqrt{\dfrac{2}{1+t}}\ (t>1)$이다.
+      criteria: ['3.A3']
+  - id: S3-ALT
+    audience: ALT
+    source_flow: 해설교재 p.81 다른 풀이
+    method_no: 2
+    key_idea: $\int_{-1}^af=\tfrac{t}{1+t}$를 $a$에 대한 이차방정식으로 직접 푼다.
+    steps:
+    - id: 3alt-1
+      content: |
+        $\displaystyle\int_{-1}^af(x)dx=a+\dfrac{a^2}{2}+\dfrac12\ (-1\le a\le0)$, $a-\dfrac{a^2}{2}+\dfrac12\ (0<a\le1)$이므로 $h(t)$는 이 함수와 직선 $y=\dfrac{t}{1+t}$의 교점의 $x$좌표이다.
+      criteria: ['3.M1', '3.A1', '3.M2']
+    - id: 3alt-2
+      content: |
+        (i) $t\le1$이면 $x^2+2x+\left(1-\dfrac{2t}{1+t}\right)=0$의 해 $-1\pm\sqrt{\dfrac{2t}{1+t}}$ 중 $(-1,1)$에 속하는 $h(t)=-1+\sqrt{\dfrac{2t}{1+t}}$. (ii) $t>1$이면 $x^2-2x-\left(1-\dfrac{2t}{1+t}\right)=0$의 해 $1\pm\sqrt{\dfrac{2}{1+t}}$ 중 $h(t)=1-\sqrt{\dfrac{2}{1+t}}$.
+      criteria: ['3.A2', '3.A3']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 10
+      evidence: |
+        $f(0)=1$을 확인하고 $\displaystyle\int_{-1}^xf$를 구간별로 계산하려 했다.
+      depends_on: []
+      implied_ok: false
+      ft: {allowed: true, from: [1.A2], max_points: 10}
+      steps: [3b-1, 3alt-1]
+    - id: 3.A1
+      mark_type: A
+      points: 20
+      evidence: |
+        $\dfrac{(1+x)^2}{2}$, $1-\dfrac{(1-x)^2}{2}$(또는 동치식)을 얻었다.
+      depends_on: [3.M1]
+      steps: [3b-1, 3alt-1]
+    - id: 3.M2
+      mark_type: M
+      points: 15
+      evidence: |
+        (3-1)의 식으로 $h(t)$를 $p^{-1}\left(\tfrac{t}{1+t}\right)$ 또는 방정식의 해로 나타냈다.
+      depends_on: []
+      implied_ok: false
+      steps: [3b-2, 3alt-1]
+    - id: 3.A2
+      mark_type: A
+      points: 15
+      evidence: |
+        두 구간의 역함수(또는 방정식의 해와 근 선택)를 바르게 구했다.
+      depends_on: [3.A1, 3.M2]
+      steps: [3b-3, 3alt-2]
+    - id: 3.A3
+      mark_type: A
+      points: 20
+      evidence: |
+        경계 $t=1$로 나누어 $h(t)=-1+\sqrt{\tfrac{2t}{1+t}}\ (0<t\le1)$, $1-\sqrt{\tfrac{2}{1+t}}\ (t>1)$을 답했다.
+      depends_on: [3.A2, 3.M2]
+      steps: [3b-4, 3alt-2]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-3068}
+  misconceptions:
+  - id: MC-CAL-3068
+    outcome_code: '71'
+    wrong_work: '모든 $t>0$에 대해 $h(t)=-1+\sqrt{\tfrac{2t}{1+t}}$ 한 식으로 답함'
+    detect_cue: $t>1$인 경우의 식이 없다
+    feedback: $\tfrac{t}{1+t}>\tfrac12$이면 $h(t)>0$이므로 $f(x)=1-x$ 쪽 식으로 풀어야 합니다. 경계 $t=1$로 나누세요.
+    remedy: [RL-3]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CAL-3055}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-FTC-DIFF}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-CAL-3067}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-FTC-DIFF}
+  priority: 1
+- id: RL-3
+  trigger: {type: misconception, ref: MC-CAL-3068}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-PIECEWISE-INVERSE}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

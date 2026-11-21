@@ -1,0 +1,596 @@
+# 세종대 2019학년도 논술 모의평가(자연계열) 문제 3 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: SJU-M19-03
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: SJU
+type: T06
+variant_of: null
+replaces: null
+level: L4
+form: 최적2단
+points: 240
+time_estimate_min: 40
+intent: |
+  정적분을 포함한 등식에서 함수를 결정하고, 포물선과 원·포물선 사이의 접함과 최소 거리를 미분으로 구하는 능력을 본다.
+key_idea: |
+  $x=0$ 대입으로 상수 결정 후 미분해 $f(x)=x^2$; 최소 거리는 중심까지 거리 제곱 함수나 평행 접선 조건으로 한 변수화.
+stuck: |
+  (3-2)에서 대칭성으로 만나는 점이 원점이어야 함을 보는 것
+idea_tags:
+- IDEA-INTEGRAL-EQ-SUBST-ZERO
+- IDEA-DIST-SQUARED-MIN
+tags:
+- 정적분으로 정의된 함수
+- 최소 거리
+elements:
+  materials:
+  - '$\int_0^xf(t)\,dt$를 포함한 등식'
+  - '포물선 $y=x^2$과 원 $x^2+(y-h)^2=r^2$'
+  - '원 $(x-3)^2+y^2=1$'
+  - '포물선 $y=-\tfrac12(x-2)^2+\tfrac14$'
+  concepts:
+  - '정적분으로 정의된 함수'
+  - '미적분의 기본정리'
+  - '원의 방정식'
+  - '최댓값과 최솟값'
+  - '접선의 기울기'
+  tools:
+  - '$x=0$ 대입과 양변 미분'
+  - '$y$축 대칭성'
+  - '거리 제곱 함수의 미분과 인수분해'
+  - '평행한 접선의 기울기 일치'
+  conditions:
+  - '$\int_0^0f=0$ ⇒ $a\int_0^1tf''=-2$'
+  - '한 점에서 만남 ⇒ 원점, $h=r$'
+  - '$x^2=2r-1$이 0 외의 해 없음 ⇒ $r\le\tfrac12$'
+  - '$2t=2-s$'
+  stimuli_used: []
+  subpart_links: '(3-2)~(3-4)는 모두 (3-1)의 f(x)=x²을 사용'
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학Ⅱ
+  scope_2028: common
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 정적분으로 정의된 함수를 미분하고, 도함수를 활용해 최대·최소를 구할 수 있다(요지)
+    verified: false
+  content_area: 적분 – 정적분, 미분 – 도함수의 활용
+  behavior_domain: 문제해결
+  unit_path:
+  - 수학Ⅱ
+  - 적분
+  - 정적분
+  - 정적분으로 정의된 함수
+  key_concepts:
+  - 정적분으로 정의된 함수
+  - 미적분의 기본정리
+  - 원의 방정식
+  - 최댓값과 최솟값
+  - 접선의 기울기
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 세종대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 세종대학교
+  admission_year: 2019
+  admission_type: 수시 모의논술
+  track: 자연계열
+  question_no: 3
+  official_url: https://ipsi.sejong.ac.kr   # [확인 필요] 입학처 자료실의 정확한 게시물 URL로 교체
+  retrieved_at: '2026-11-21'
+  original_points:
+  - 60
+  - 60
+  - 60
+  - 60
+  rights_notice: 미확인(대학 원본 PDF 표지 문구 확인 필요)
+  transcribed_from: 대치 수리 논술 연구소 「2027학년도 대비 수리논술 세종대 기출 및 모의 문제」 p.90 + 해설교재 p.154~155 (원본 PDF 이미지 대조 완료 2026-11-21)
+verify: verify/SJU-M19.py::p03
+stimuli: []
+stem: |
+  실수 전체의 집합에서 미분가능한 함수 $f(x)$가 상수 $a$에 대하여 다음 식을 만족시킨다.
+
+  $$\int_0^xf(t)\,dt=\dfrac13x^3+x^2+2+a\left(\dfrac12x^2+1\right)\int_0^1tf'(t)\,dt$$
+subparts:
+- id: '1'
+  stem: |
+    함수 $f(x)$와 실수 $a$를 구하시오.
+  points: 60
+  depends_on: []
+  answer:
+    kind: value
+    value: f(x)=x**2; a=-3
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $x=0$ 대입으로 $\int_0^1tf'(t)\,dt=-\tfrac2a$, 미분해 $f$.
+    steps:
+    - id: 1a
+      content: $f(x)=x^2$, $2+\tfrac23a=0\Rightarrow a=-3$
+      criteria:
+      - 1.M1
+      - 1.M2
+      - 1.A1
+      - 1.A2
+    hint_ladder:
+    - $x=0$을 대입하면?
+    - 양변을 미분하자.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 해설교재 p.154
+    steps:
+    - id: 1b-1
+      content: |
+        $x=0$을 대입하면 $0=2+a\displaystyle\int_0^1tf'(t)\,dt$이므로 $\displaystyle\int_0^1tf'(t)\,dt=-\dfrac2a$이다.
+      criteria:
+      - 1.M1
+    - id: 1b-2
+      content: |
+        주어진 식은 $\displaystyle\int_0^xf(t)\,dt=\dfrac13x^3+x^2+2+a\left(\dfrac12x^2+1\right)\left(-\dfrac2a\right)=\dfrac13x^3$이 되고, 양변을 $x$에 대하여 미분하면 $f(x)=x^2$이다.
+      criteria:
+      - 1.M2
+      - 1.A1
+    - id: 1b-3
+      content: |
+        $0=2+a\displaystyle\int_0^1t\cdot2t\,dt=2+\dfrac23a$이므로 $a=-3$이다.
+      criteria:
+      - 1.A2
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 20
+      evidence: |
+        $x=0$을 대입해 $a\int_0^1tf'(t)\,dt=-2$를 얻었다.
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 1b-1
+    - id: 1.M2
+      mark_type: M
+      points: 15
+      evidence: |
+        양변을 미분했다.
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 1b-2
+    - id: 1.A1
+      mark_type: A
+      points: 15
+      evidence: |
+        $f(x)=x^2$을 얻었다.
+      depends_on:
+      - 1.M1
+      - 1.M2
+      steps:
+      - 1b-2
+    - id: 1.A2
+      mark_type: A
+      points: 10
+      evidence: |
+        $a=-3$을 얻었다.
+      depends_on:
+      - 1.M1
+      - 1.A1
+      steps:
+      - 1b-3
+    deductions: []
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  - code: '71'
+    misconception: MC-CAL-3147
+  misconceptions:
+  - id: MC-CAL-3147
+    outcome_code: '71'
+    wrong_work: $x=0$ 대입 없이 미분만 해서 $f(x)=x^2+2x+akx$로 두고 $k$를 못 정함
+    detect_cue: 상수 조건이 없다
+    feedback: $\int_0^0f=0$이므로 $x=0$을 대입하면 상수항 조건이 나옵니다.
+    remedy:
+    - RL-1
+- id: '2'
+  stem: |
+    양의 실수 $h$와 $r$에 대하여 원 $x^2+(y-h)^2=r^2$이 곡선 $y=f(x)$와 한 점에서 만날 때, $r$의 최댓값을 구하시오.
+  points: 60
+  depends_on:
+  - '1'
+  answer:
+    kind: value
+    value: 1/2
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: 대칭성으로 만나는 점은 원점 ⇒ $h=r$, $x^2(x^2+1-2r)=0$이 0 외의 해가 없을 조건.
+    steps:
+    - id: 2a
+      content: $2r-1\le0\Rightarrow r\le\tfrac12$
+      criteria:
+      - 2.M1
+      - 2.A1
+      - 2.M2
+      - 2.A2
+    hint_ladder:
+    - 곡선과 원은 모두 $y$축에 대칭이다.
+    - $x=0$ 외의 해가 없을 조건은?
+  - id: S2-B
+    audience: B
+    method_no: 1
+    source_flow: 해설교재 p.154
+    steps:
+    - id: 2b-1
+      content: |
+        만나는 점을 $(b,b^2)$라 하면 $(-b,b^2)$도 만나는 점이다. 한 점에서만 만나므로 $b=-b$, 즉 $b=0$이고 원점에서만 만난다.
+      criteria:
+      - 2.M1
+    - id: 2b-2
+      content: |
+        원이 원점을 지나므로 $h=r$이다.
+      criteria:
+      - 2.A1
+    - id: 2b-3
+      content: |
+        $y=x^2$을 대입하면 $x^2+(x^2-r)^2=r^2$, 즉 $x^2(x^2+1-2r)=0$이다. $x=0$ 이외의 해가 없어야 하므로 $x^2=2r-1$이 해를 갖지 않거나 $x=0$뿐이어야 하고 $2r-1\le0$이다. 따라서 $r\le\dfrac12$이고 최댓값은 $\dfrac12$이다.
+      criteria:
+      - 2.M2
+      - 2.A2
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 15
+      evidence: |
+        $y$축 대칭으로 만나는 점이 원점임을 보였다.
+      depends_on: []
+      implied_ok: false
+      ft:
+        allowed: true
+        from:
+        - 1.A1
+        max_points: 15
+      steps:
+      - 2b-1
+    - id: 2.A1
+      mark_type: A
+      points: 15
+      evidence: |
+        $h=r$을 얻었다.
+      depends_on:
+      - 2.M1
+      steps:
+      - 2b-2
+    - id: 2.M2
+      mark_type: M
+      points: 15
+      evidence: |
+        연립해 $x^2(x^2+1-2r)=0$을 얻었다.
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 2b-3
+    - id: 2.A2
+      mark_type: A
+      points: 15
+      evidence: |
+        $2r-1\le0$에서 최댓값 $\tfrac12$을 얻었다.
+      depends_on:
+      - 2.M2
+      - 2.A1
+      steps:
+      - 2b-3
+    deductions: []
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  - code: '71'
+    misconception: MC-ALG-3144
+  misconceptions:
+  - id: MC-ALG-3144
+    outcome_code: '71'
+    wrong_work: $y$에 대한 이차방정식 $y+(y-h)^2=r^2$의 판별식 $=0$으로 처리
+    detect_cue: $y\ge0$ 조건과 $x$의 개수를 고려하지 않았다
+    feedback: $y$의 근 하나가 $x$ 두 개에 대응할 수 있습니다. $x$의 해 개수로 따지세요.
+    remedy:
+    - RL-2
+- id: '3'
+  stem: |
+    곡선 $y=f(x)$위의 한 점 $P$와 원 $x^2+y^2-6x+8=0$ 위의 한 점 $Q$에 대하여 선분 $\overline{PQ}$의 길이의 최솟값을 구하시오.
+  points: 60
+  depends_on:
+  - '1'
+  answer:
+    kind: value
+    value: sqrt(5)-1
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: 중심 $(3,0)$까지 거리 제곱 $g(t)=t^4+t^2-6t+9$의 최솟값 5.
+    steps:
+    - id: 3a
+      content: $\sqrt5-1$
+      criteria:
+      - 3.M1
+      - 3.M2
+      - 3.R1
+      - 3.A1
+    hint_ladder:
+    - 원 위의 점 대신 원의 중심까지의 거리를 생각하자.
+  - id: S3-B
+    audience: B
+    method_no: 1
+    source_flow: 해설교재 p.154
+    steps:
+    - id: 3b-1
+      content: |
+        $x^2+y^2-6x+8=0$은 $(x-3)^2+y^2=1$, 중심 $(3,0)$, 반지름 1인 원이다.
+      criteria:
+      - 3.M1
+    - id: 3b-2
+      content: |
+        곡선 위의 점 $(t,t^2)$과 $(3,0)$ 사이 거리의 제곱을 $g(t)=(t-3)^2+t^4=t^4+t^2-6t+9$라 하면 $g'(t)=4t^3+2t-6=2(t-1)(2t^2+2t+3)$이다.
+      criteria:
+      - 3.M2
+    - id: 3b-3
+      content: |
+        $2t^2+2t+3>0$이므로 $t<1$에서 $g'<0$, $t>1$에서 $g'>0$이고 $g$는 $t=1$에서 최솟값 $5$를 갖는다.
+      criteria:
+      - 3.R1
+    - id: 3b-4
+      content: |
+        곡선 위의 점과 원의 중심 사이 거리의 최솟값은 $\sqrt5$이므로 $\overline{PQ}$의 최솟값은 $\sqrt5-1$이다.
+      criteria:
+      - 3.M1
+      - 3.A1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 15
+      evidence: |
+        원의 중심 $(3,0)$·반지름 1을 구하고 중심까지 거리로 바꿨다.
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 3b-1
+      - 3b-4
+    - id: 3.M2
+      mark_type: M
+      points: 15
+      evidence: |
+        $g(t)=t^4+t^2-6t+9$를 세우고 미분했다.
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 3b-2
+    - id: 3.R1
+      mark_type: R
+      points: 15
+      evidence: |
+        인수분해와 증감으로 $t=1$에서 최소임을 보였다.
+      depends_on:
+      - 3.M2
+      steps:
+      - 3b-3
+    - id: 3.A1
+      mark_type: A
+      points: 15
+      evidence: |
+        $\sqrt5-1$을 얻었다.
+      depends_on:
+      - 3.R1
+      - 3.M1
+      steps:
+      - 3b-4
+    deductions: []
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  - code: '71'
+    misconception: MC-CAL-3149
+  misconceptions:
+  - id: MC-CAL-3149
+    outcome_code: '71'
+    wrong_work: 중심까지의 최소 거리 $\sqrt5$를 그대로 답함
+    detect_cue: 반지름 1을 빼지 않았다
+    feedback: 원 위의 점까지 거리는 중심까지 거리에서 반지름을 뺀 값이 최소입니다.
+    remedy:
+    - RL-3
+- id: '4'
+  stem: |
+    곡선 $y=f(x)$위의 점 $P$에서의 접선과 평행한 직선이 곡선 $y=-\dfrac12(x-2)^2+\dfrac14$와 점 $R$에서 접할 때, 선분 $\overline{PR}$의 길이의 최솟값을 구하시오.
+  points: 60
+  depends_on:
+  - '1'
+  answer:
+    kind: value
+    value: sqrt(2)/2
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S4-A
+    audience: A
+    method_no: 1
+    key_idea: 기울기 일치 $2t=2-s$, $\overline{PR}^2=9t^4+\tfrac{15}2t^2-12t+\tfrac{65}{16}$.
+    steps:
+    - id: 4a
+      content: $t=\tfrac12$에서 최소 $\tfrac12$ ⇒ $\tfrac{\sqrt2}2$
+      criteria:
+      - 4.M1
+      - 4.M2
+      - 4.R1
+      - 4.A1
+    hint_ladder:
+    - 두 접선의 기울기가 같다.
+    - $\overline{PR}^2$을 $t$ 하나로 나타내자.
+  - id: S4-B
+    audience: B
+    method_no: 1
+    source_flow: 해설교재 p.155
+    steps:
+    - id: 4b-1
+      content: |
+        $P(t,t^2)$, $h(x)=-\dfrac12(x-2)^2+\dfrac14$ 위의 $R(s,h(s))$에서 접선의 기울기가 같아야 하므로 $2t=-(s-2)$, 즉 $s=2-2t$이다.
+      criteria:
+      - 4.M1
+    - id: 4b-2
+      content: |
+        $\overline{PR}^2=\{t-(2-2t)\}^2+\{t^2-h(2-2t)\}^2=9t^4+\dfrac{15}2t^2-12t+\dfrac{65}{16}$이다.
+      criteria:
+      - 4.M2
+    - id: 4b-3
+      content: |
+        미분하면 $36t^3+15t-12=3(2t-1)(6t^2+3t+4)$이고 $6t^2+3t+4>0$이므로 $t=\dfrac12$에서 최소이다. 이때 $s=1$, $P\left(\dfrac12,\dfrac14\right)$, $R\left(1,-\dfrac14\right)$이고 $\overline{PR}=\dfrac{\sqrt2}2$이다.
+      criteria:
+      - 4.R1
+      - 4.A1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 4.M1
+      mark_type: M
+      points: 15
+      evidence: |
+        기울기 조건 $s=2-2t$를 세웠다.
+      depends_on: []
+      implied_ok: false
+      ft:
+        allowed: true
+        from:
+        - 1.A1
+        max_points: 15
+      steps:
+      - 4b-1
+    - id: 4.M2
+      mark_type: M
+      points: 15
+      evidence: |
+        $\overline{PR}^2$을 $t$의 식으로 나타냈다.
+      depends_on:
+      - 4.M1
+      steps:
+      - 4b-2
+    - id: 4.R1
+      mark_type: R
+      points: 15
+      evidence: |
+        도함수의 인수분해와 부호로 $t=\tfrac12$에서 최소임을 보였다.
+      depends_on:
+      - 4.M2
+      steps:
+      - 4b-3
+    - id: 4.A1
+      mark_type: A
+      points: 15
+      evidence: |
+        $\tfrac{\sqrt2}2$를 얻었다.
+      depends_on:
+      - 4.R1
+      steps:
+      - 4b-3
+    deductions: []
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  - code: '71'
+    misconception: MC-CAL-3003
+  misconceptions:
+  - id: MC-CAL-3003
+    outcome_code: '71'
+    wrong_work: $\tfrac{d}{dt}\overline{PR}^2=0$인 $t$만 구하고 최소임을 확인하지 않음
+    detect_cue: 증감 판정이 없다
+    feedback: 임계점이 최소임은 도함수 부호나 유일성으로 보여야 합니다.
+    remedy:
+    - RL-4
+remedy_links:
+- id: RL-1
+  trigger:
+    type: misconception
+    ref: MC-CAL-3147
+  relation: remediation
+  target:
+    kind: concept
+    ref: CON-CAL-INTEGRAL-DEFINED-FUNC
+  priority: 1
+- id: RL-2
+  trigger:
+    type: misconception
+    ref: MC-ALG-3144
+  relation: remediation
+  target:
+    kind: concept
+    ref: CON-ALG-ROOT-SELECTION
+  priority: 1
+- id: RL-3
+  trigger:
+    type: misconception
+    ref: MC-CAL-3149
+  relation: remediation
+  target:
+    kind: concept
+    ref: CON-CAL-DIST-CURVE-CIRCLE
+  priority: 1
+- id: RL-4
+  trigger:
+    type: misconception
+    ref: MC-CAL-3003
+  relation: remediation
+  target:
+    kind: concept
+    ref: CON-CAL-EXTREMA-JUSTIFY
+  priority: 1
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: opus
+  prompt_version: p3-past-v1
+  item_version: 1
+  verdict: pass
+  date: '2026-11-21'
+created: '2026-11-21'
+updated: '2026-11-21'

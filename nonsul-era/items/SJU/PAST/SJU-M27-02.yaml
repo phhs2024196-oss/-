@@ -1,0 +1,408 @@
+# 세종대 2027학년도 모의논술고사(자연계열) 문제 2 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: SJU-M27-02
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: SJU
+type: T03
+variant_of: null
+replaces: null
+level: L5
+form: 최적2단
+points: 270
+time_estimate_min: 40
+intent: |
+  역함수의 이계도함수 공식을 유도·적용하고, 거리 제곱 함수의 임계점 조건을 역함수의 도함수가 같아지는 조건으로 바꿔 대칭성으로 임계점을 찾는 능력을 본다.
+key_idea: |
+  $F(x)=\{g(x+1)-g(x)\}^2+1$의 임계점에서 $g'(x+1)=g'(x)$, 즉 $f'(b)=f'(a)$이고 $f'$이 짝함수이므로 $b=-a$가 되어 $x_0=\tfrac12$이다.
+stuck: |
+  $F'(x)=0$을 $g'(x+1)=g'(x)$로 줄인 뒤, $f'(a)=f'(b)$에서 $b=-a$를 끌어내 $f(a)+f(-a)=2$를 쓰는 발상
+idea_tags: [IDEA-INV-DERIV-SYMMETRY]
+tags: [역함수 이계도함수, 거리 최대]
+elements:
+  materials:
+  - '삼차함수 $f(x)=x^3+3x+1$의 역함수'
+  - '그래프 위 두 점 사이 거리'
+  concepts:
+  - '역함수의 미분법'
+  - '이계도함수'
+  - '함수의 증가와 감소'
+  - '최댓값'
+  - '평균값 정리'
+  - '음함수의 미분법'
+  tools:
+  - '역함수 이계도함수 공식 $g''''=-f''''(g)/\{f''(g)\}^3$'
+  - '거리 제곱 함수'
+  - '$f''$의 짝함수 성질'
+  - '대칭성 $f(x)+f(-x)=2$'
+  - '이계도함수 판정법'
+  conditions:
+  - '$f$ 증가 ⇒ 함숫값 대소 = 변수 대소'
+  - '$g(x+1)-g(x)>0$ ⇒ $F''=0\iff g''(x+1)=g''(x)$'
+  - '$f''(a)=f''(b)$·$a\ne b$ ⇒ $b=-a$'
+  stimuli_used: []
+  subpart_links: '(2-2)는 (2-1)의 α<0<β를, (2-3)의 극대 판정은 (2-2)의 g'''' 부호 판정 방법을 사용'
+
+curriculum:
+  version: '2015'
+  subjects: [미적분]
+  scope_2028: calc2
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 역함수의 미분법을 이해하고 이를 활용할 수 있다(요지)
+    verified: false
+  content_area: 미분법 – 여러 가지 미분법
+  behavior_domain: 문제해결
+  unit_path: [미적분, 미분법, 여러 가지 미분법, 역함수의 미분법]
+  key_concepts: [역함수의 미분법, 이계도함수, 최대·최소]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 세종대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 세종대학교
+  admission_year: 2027
+  admission_type: 수시 모의논술
+  track: 자연계열
+  question_no: 2
+  official_url: https://ipsi.sejong.ac.kr   # [확인 필요] 입학처 자료실의 정확한 게시물 URL로 교체
+  retrieved_at: 2026-11-21
+  original_points: [80, 90, 100]
+  rights_notice: 미확인(대학 원본 PDF 표지 문구 확인 필요)
+  transcribed_from: 대치 수리 논술 연구소 「2027학년도 대비 수리논술 세종대 기출 및 모의 문제」 p.4 (원본 PDF 이미지 대조 완료 2026-11-21)
+
+verify: verify/SJU-M27.py::p02
+
+stimuli: []
+
+stem: |
+  함수 $f(x)=x^3+3x+1$의 역함수를 $y=g(x)$라 할 때 다음 물음에 각각 답하시오.
+
+subparts:
+- id: '1'
+  stem: |
+    $f(\alpha)=\dfrac13$, $f(\beta)=\dfrac43$일 때, $\alpha<0$, $\beta>0$임을 각각 보이시오.
+  points: 80
+  depends_on: []
+  answer: {kind: proof, value: null, equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $f$가 증가함수이므로 함숫값의 대소가 곧 변수의 대소이고, $f(0)=1$과 비교한다.
+    steps:
+    - {id: 1a, content: '$f^{\prime}>0$이므로 $f(\alpha)<f(0)<f(\beta)\Rightarrow\alpha<0<\beta$', criteria: ['1.M1', '1.R1']}
+    hint_ladder:
+    - $f$는 증가함수인가?
+    - $f(0)$의 값과 $\tfrac13$, $\tfrac43$을 비교해 보자.
+  - id: S1-B
+    audience: B
+    source_flow: 해설교재 p.4
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        $f'(x)=3x^2+3>0$이므로 $f$는 실수 전체에서 증가한다.
+      criteria: ['1.M1']
+    - id: 1b-2
+      content: |
+        $f(0)=1$이고 $f(\alpha)=\dfrac13<1=f(0)$이므로 $f$의 증가성에 의해 $\alpha<0$이다.
+      criteria: ['1.R1']
+    - id: 1b-3
+      content: |
+        $f(\beta)=\dfrac43>1=f(0)$이므로 같은 이유로 $\beta>0$이다. ■
+      criteria: ['1.R2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 30
+      evidence: |
+        $f'(x)=3x^2+3>0$을 근거로 $f$가 증가함수임을 밝혔다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1]
+    - id: 1.R1
+      mark_type: R
+      points: 25
+      evidence: |
+        $f(0)=1$과 비교해 증가성으로부터 $\alpha<0$을 이끌었다.
+      depends_on: [1.M1]
+      steps: [1b-2]
+    - id: 1.R2
+      mark_type: R
+      points: 25
+      evidence: |
+        같은 논리로 $\beta>0$을 이끌었다.
+      depends_on: [1.M1]
+      steps: [1b-3]
+    deductions:
+    - code: D1-1
+      condition: 근삿값($\alpha\approx-0.21$ 등)만 계산해 부호를 판단
+      effect: cap
+      value: 30
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-PRF-0011}
+  misconceptions:
+  - id: MC-PRF-0011
+    outcome_code: '71'
+    wrong_work: '계산기식 근삿값 $\alpha\approx-0.22$로 $\alpha<0$이라 씀'
+    detect_cue: 증가성 언급 없이 소수 근삿값만 있다
+    feedback: 근삿값은 증명이 아닙니다. 증가성과 $f(0)=1$ 비교로 부호를 정하세요.
+    remedy: [RL-1]
+
+- id: '2'
+  stem: |
+    $g''\!\left(\dfrac13\right)>0$, $g''\!\left(\dfrac43\right)<0$임을 각각 보이시오.
+  points: 90
+  depends_on: ['1']
+  answer: {kind: proof, value: null, equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: $g''(x)=-\dfrac{f''(g(x))}{\{f'(g(x))\}^3}$이고 $f''(t)=6t$의 부호는 $t$의 부호와 같으므로 (1)의 $\alpha<0<\beta$를 쓴다.
+    steps:
+    - {id: 2a, content: '$g^{\prime\prime}(x)=-f^{\prime\prime}(g(x))/\{f^{\prime}(g(x))\}^3$, $g(\tfrac13)=\alpha$, $g(\tfrac43)=\beta$', criteria: ['2.M1', '2.A2']}
+    hint_ladder:
+    - $f(g(x))=x$를 두 번 미분해 보자.
+    - $g(\tfrac13)$은 무엇인가?
+  - id: S2-B
+    audience: B
+    source_flow: 해설교재 p.4
+    method_no: 1
+    steps:
+    - id: 2b-1
+      content: |
+        $f(g(x))=x$를 미분하면 $f'(g(x))g'(x)=1$이므로 $g'(x)=\dfrac{1}{f'(g(x))}$이다. 다시 미분하면
+        $$g''(x)=-\dfrac{f''(g(x))\,g'(x)}{\{f'(g(x))\}^2}=-\dfrac{f''(g(x))}{\{f'(g(x))\}^3}.$$
+      criteria: ['2.M1', '2.A1']
+    - id: 2b-2
+      content: |
+        $g(\tfrac13)=\alpha$, $g(\tfrac43)=\beta$이고 $f''(t)=6t$, $f'(t)=3t^2+3>0$이므로
+        $g''(\tfrac13)=\dfrac{-6\alpha}{(3\alpha^2+3)^3}$, $g''(\tfrac43)=\dfrac{-6\beta}{(3\beta^2+3)^3}$.
+      criteria: ['2.A2']
+    - id: 2b-3
+      content: |
+        (1)에서 $\alpha<0<\beta$이고 분모는 양수이므로 $g''(\tfrac13)>0$, $g''(\tfrac43)<0$이다. ■
+      criteria: ['2.R1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 25
+      evidence: |
+        $f(g(x))=x$의 미분 또는 역함수 미분법으로 $g'(x)=\dfrac1{f'(g(x))}$를 쓰고 한 번 더 미분을 시도했다.
+      depends_on: []
+      implied_ok: false
+      steps: [2b-1]
+    - id: 2.A1
+      mark_type: A
+      points: 25
+      evidence: |
+        $g''(x)=-\dfrac{f''(g(x))}{\{f'(g(x))\}^3}$ 또는 동치식을 얻었다.
+      depends_on: [2.M1]
+      steps: [2b-1]
+    - id: 2.A2
+      mark_type: A
+      points: 15
+      evidence: |
+        $g(\tfrac13)=\alpha$, $g(\tfrac43)=\beta$를 대입해 $g''$을 $\alpha$, $\beta$로 나타냈다.
+      depends_on: [2.A1]
+      implied_ok: true
+      steps: [2b-2]
+    - id: 2.R1
+      mark_type: R
+      points: 25
+      evidence: |
+        분모가 양수이고 (1)의 $\alpha<0<\beta$를 근거로 두 부호를 판정했다.
+      depends_on: [2.A2]
+      ft: {allowed: true, from: [1.R1, 1.R2], max_points: 25}
+      steps: [2b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-3001}
+  misconceptions:
+  - id: MC-CAL-3001
+    outcome_code: '71'
+    wrong_work: '$g^{\prime\prime}(x)=\dfrac{1}{f^{\prime\prime}(g(x))}$로 두고 부호 판정'
+    detect_cue: 분모에 $f''$만 있고 세제곱 항이 없다
+    feedback: $g'(x)=\dfrac1{f'(g(x))}$를 합성함수 미분법으로 한 번 더 미분하세요.
+    remedy: [RL-2]
+
+- id: '3'
+  stem: |
+    두 점 $\mathrm{P}(x,\,g(x))$와 $\mathrm{Q}(x+1,\,g(x+1))$사이의 거리가 최대가 되는 $x$의 값을 구하시오.
+  points: 100
+  depends_on: ['2']
+  answer: {kind: value, value: '1/2', equivalents: ['0.5'], tolerance: null}
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: 임계점에서 $g'(x+1)=g'(x)\Rightarrow f'(b)=f'(a)\Rightarrow b=-a\Rightarrow 2x_0+1=f(a)+f(-a)=2$.
+    steps:
+    - {id: 3a, content: '$F^{\prime}(x_0)=0\Rightarrow g^{\prime}(x_0+1)=g^{\prime}(x_0)\Rightarrow b=-a\Rightarrow x_0=\tfrac12$', criteria: ['3.M1', '3.A1', '3.M2', '3.A2']}
+    hint_ladder:
+    - 거리의 제곱 $F(x)$를 미분해 보자. $g(x+1)-g(x)$는 0이 될 수 있는가?
+    - $f'(a)=f'(b)$이고 $a\ne b$이면 $a$, $b$는 어떤 관계인가?
+    - $f(a)+f(-a)$를 계산해 보자.
+  - id: S3-B
+    audience: B
+    source_flow: 해설교재 p.4
+    method_no: 1
+    steps:
+    - id: 3b-1
+      content: |
+        $F(x)=\overline{\mathrm{PQ}}^2=\{g(x+1)-g(x)\}^2+1$이라 하면
+        $F'(x)=2\{g(x+1)-g(x)\}\{g'(x+1)-g'(x)\}$이다. $g$는 증가함수이므로 $g(x+1)-g(x)>0$이고,
+        $F'(x_0)=0\iff g'(x_0+1)=g'(x_0)$이다.
+      criteria: ['3.M1']
+    - id: 3b-2
+      content: |
+        $a=g(x_0)$, $b=g(x_0+1)$이라 하면 $a<b$이고 $\dfrac{1}{f'(a)}=\dfrac{1}{f'(b)}$, 즉 $3a^2+3=3b^2+3$에서 $b=-a$이다.
+      criteria: ['3.A1']
+    - id: 3b-3
+      content: |
+        $x_0=f(a)=a^3+3a+1$, $x_0+1=f(-a)=-a^3-3a+1$을 더하면 $2x_0+1=2$, 즉 $x_0=\dfrac12$이다.
+      criteria: ['3.M2', '3.A2']
+    - id: 3b-4
+      content: |
+        $F''(x)=2\{g'(x+1)-g'(x)\}^2+2\{g(x+1)-g(x)\}\{g''(x+1)-g''(x)\}$이므로
+        $F''(\tfrac12)=2\{g(\tfrac32)-g(\tfrac12)\}\{g''(\tfrac32)-g''(\tfrac12)\}$이다.
+        $f(a)=\tfrac12<1=f(0)$이므로 $a<0$, $b=-a>0$이고, (2)와 같이 $g''(\tfrac12)=\dfrac{-6a}{(3a^2+3)^3}>0$, $g''(\tfrac32)=\dfrac{-6b}{(3b^2+3)^3}<0$이므로 $F''(\tfrac12)<0$이다.
+        임계점은 $x=\tfrac12$ 하나뿐이고 극대이므로 최대이다. 따라서 구하는 $x$의 값은 $\dfrac12$이다.
+      criteria: ['3.R1']
+  - id: S3-ALT1
+    audience: ALT
+    source_flow: 해설교재 p.5 별해1
+    method_no: 2
+    key_idea: 원 해설 별해1 — $\mathrm{P}(f(y),y)$, $\mathrm{Q}(f(y+t),y+t)$로 두면 $f(y+t)-f(y)=1$이고, 거리 $\sqrt{t^2+1}$이 최대인 것은 $t$가 최대일 때이므로 음함수 미분으로 $\dfrac{dt}{dy}=0$인 $y=-\tfrac t2$를 찾는다.
+    steps:
+    - id: 3c-1
+      content: |
+        $3t^2y+3ty^2+t^3+3t=1$에서 $\dfrac{dt}{dy}=-\dfrac{2ty+t^2}{(y+t)^2+1}=0\iff y=-\dfrac t2$이고, 이때 $\dfrac{d^2t}{dy^2}=-\dfrac{2t}{(y+t)^2+1}<0$이므로 $t$는 최대이다.
+        $1=f(\tfrac t2)-f(-\tfrac t2)$이므로 $x=f(y)=f(-\tfrac t2)=\tfrac12$.
+      criteria: ['3.R1']
+  - id: S3-ALT2
+    audience: ALT
+    source_flow: 해설교재 p.5 별해2
+    method_no: 3
+    key_idea: 원 해설 별해2 — $f(x)+f(-x)=2$이므로 $g$의 그래프는 $(1,0)$에 대해 대칭, $g(x)=-g(2-x)$, $g'(x)=g'(2-x)$이고 평균값 정리로 $\tfrac{dt}{dx}$의 부호를 판정한다.
+    steps:
+    - id: 3d-1
+      content: |
+        $t=g(x+1)-g(x)$라 하면 $\dfrac{dt}{dx}=g'(x+1)-g'(2-x)$이므로 $x=\tfrac12$에서 $0$이다.
+        $\tfrac12<x$이면 평균값 정리로 $\dfrac{dt}{dx}=g''(z)\cdot(\text{양수})$ 꼴이고 $z>1$에서 $g''(z)=\dfrac{-6g(z)}{\{3g(z)^2+3\}^3}<0$이므로 $t$ 감소, $x<\tfrac12$에서는 같은 방법으로 증가한다. 따라서 $x=\tfrac12$에서 최대.
+      criteria: ['3.R1']
+  - id: S3-ALT3
+    audience: ALT
+    method_no: 4
+    key_idea: 증감 직접 판정 — $x<\tfrac12$이면 $|a|>|b|$라 $f'(a)>f'(b)$, $g'(x)<g'(x+1)$로 $F'>0$, $x>\tfrac12$이면 $F'<0$.
+    steps:
+    - id: 3e-1
+      content: |
+        $x<\tfrac12$이면 $a<-b$, 즉 $|a|>|b|$이므로 $f'(a)>f'(b)$, $g'(x)<g'(x+1)$에서 $F'(x)>0$이고, $x>\tfrac12$이면 $F'(x)<0$이다. 따라서 $x=\tfrac12$에서 최대.
+      criteria: ['3.R1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 25
+      evidence: |
+        거리(또는 그 제곱)를 $x$의 함수로 놓고 미분해 $g'(x+1)=g'(x)$ 조건을 얻었다($g(x+1)\ne g(x)$의 근거 포함).
+      depends_on: []
+      implied_ok: false
+      steps: [3b-1]
+    - id: 3.A1
+      mark_type: A
+      points: 20
+      evidence: |
+        $f'(a)=f'(b)$, $a\ne b$에서 $b=-a$를 얻었다.
+      depends_on: [3.M1]
+      steps: [3b-2]
+    - id: 3.M2
+      mark_type: M
+      points: 20
+      evidence: |
+        $x=f(a)$, $x+1=f(-a)$를 연립(합)하여 $x$를 구하려 했다.
+      depends_on: []
+      implied_ok: false
+      steps: [3b-3]
+    - id: 3.A2
+      mark_type: A
+      points: 10
+      evidence: |
+        $x=\dfrac12$을 얻었다.
+      depends_on: [3.M2, 3.A1]
+      steps: [3b-3]
+    - id: 3.R1
+      mark_type: R
+      points: 25
+      evidence: |
+        $x=\tfrac12$에서 최대임을 증감표, $F''(\tfrac12)<0$과 유일성·극한, 또는 동치 논거로 정당화했다.
+      depends_on: [3.A2]
+      ft: {allowed: true, from: [2.A1, 2.R1], max_points: 25}
+      steps: [3b-4, 3c-1, 3d-1, 3e-1]
+    deductions:
+    - code: D3-1
+      condition: 임계점만 구하고 최대임을 정당화하지 않음
+      effect: cap
+      value: 75
+  outcome_codes:
+  - {code: '20', meaning: 만점(이계도함수 판정, 원 해설)}
+  - {code: '21', meaning: 만점(음함수 미분, 별해1)}
+  - {code: '22', meaning: 만점(대칭성·평균값 정리, 별해2)}
+  - {code: '23', meaning: 만점(증감 직접 판정)}
+  - {code: '71', misconception: MC-CAL-3002}
+  - {code: '72', misconception: MC-CAL-3003}
+  misconceptions:
+  - id: MC-CAL-3002
+    outcome_code: '71'
+    wrong_work: '$3a^2+3=3b^2+3\Rightarrow a=b$이므로 모순, 임계점 없음'
+    detect_cue: $a^2=b^2$에서 $a=-b$ 경우를 다루지 않았다
+    feedback: $a^2=b^2$이면 $a=b$ 또는 $a=-b$입니다. $a<b$이므로 $b=-a$를 쓰세요.
+    remedy: [RL-2]
+  - id: MC-CAL-3003
+    outcome_code: '72'
+    wrong_work: '$x=\tfrac12$에서 $F^{\prime}=0$이므로 최대'
+    detect_cue: 증감·이계도함수·극한 비교가 없다
+    feedback: 임계점이 최대임을 증감표나 $F''$ 부호, 양 끝 극한으로 보이세요.
+    remedy: [RL-3]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-PRF-0011}
+  relation: remediation
+  target: {kind: concept, ref: CON-PRF-EQUIV-CHAIN}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-CAL-3001}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-INVERSE-DIFF}
+  priority: 1
+- id: RL-3
+  trigger: {type: misconception, ref: MC-CAL-3003}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-EXTREMA-JUSTIFY}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

@@ -1,0 +1,344 @@
+# 세종대 2022학년도 신입학 수시모집 논술고사[A] 문제 1 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: SJU-G22A-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: SJU
+type: T01
+variant_of: null
+replaces: null
+level: L4
+form: 최적2단
+points: 230
+time_estimate_min: 35
+intent: |
+  지수함수 곡선의 변곡점과 원점까지의 최단 거리를 구하고, 수직 조건으로 $x$절편을 접점의 좌표로 나타내 산술·기하평균으로 최소화하는 능력을 본다.
+key_idea: |
+  거리의 제곱 $D(x)=x^2+t^2e^{-2x^2}$의 임계점에서 $2t^2e^{-2\alpha^2}=1$. 이 관계로 $r=\alpha+\dfrac{t^2e^{-2\alpha^2}}{\alpha}=\alpha+\dfrac1{2\alpha}$이 되어 $\alpha=\dfrac{1}{\sqrt2}$에서 최소.
+stuck: |
+  $t^2e^{-2\alpha^2}=\tfrac12$을 이용해 $r$을 $\alpha$만의 식으로 바꾸는 것
+idea_tags: [IDEA-DIST-SQUARE-MIN, IDEA-CRITICAL-RELATION-SUBST, IDEA-AMGM-MIN]
+tags: [최단 거리, 변곡점, 산술기하평균]
+elements:
+  materials:
+  - '$f(x)=te^{-x^2}$ ($x>0$, $t>\frac{\sqrt2}{2}$)의 그래프'
+  - '원점에서 가장 가까운 곡선 위의 점 $\mathrm{P}$, 변곡점 $\mathrm{Q}$'
+  - '$\angle\mathrm{OPS}=\frac\pi2$인 $x$축 위의 점 $\mathrm{S}(r,0)$'
+  concepts:
+  - '지수함수의 미분'
+  - '이계도함수와 변곡점'
+  - '두 점 사이의 거리'
+  - '함수의 최솟값'
+  - '두 직선의 수직 조건'
+  - '산술평균과 기하평균의 관계'
+  - '로그함수'
+  tools:
+  - '거리 대신 거리의 제곱 $D(x)$를 미분'
+  - '임계점 관계식 $2t^2e^{-2\alpha^2}=1$로 $t$ 소거'
+  - '수직 조건(기울기 곱 $-1$)으로 $r=\alpha+\frac1{2\alpha}$'
+  - '$\alpha+\frac1{2\alpha}\ge\sqrt2$ (등호 $\alpha=\frac{1}{\sqrt2}$)'
+  conditions:
+  - '$t>\frac{\sqrt2}{2}$ ⇒ $2t^2>1$ ⇒ 임계점 $\alpha=\sqrt{\frac{\ln(2t^2)}{2}}>0$ 존재'
+  - '$0<x<\alpha$에서 $D''<0$, $x>\alpha$에서 $D''>0$'
+  - '등호 조건에서 $t=\sqrt{\frac e2}>\frac{\sqrt2}{2}$ 확인'
+  stimuli_used: []
+  subpart_links: '(1-3)은 (1-2)의 α=sqrt(ln(2t^2)/2), 즉 2t^2 e^{-2α^2}=1 을 사용'
+
+curriculum:
+  version: '2015'
+  subjects: [미적분]
+  scope_2028: calc2
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 지수함수를 미분하고 도함수를 활용하여 최솟값과 변곡점을 구할 수 있다(요지)
+    verified: false
+  content_area: 미분법 – 도함수의 활용
+  behavior_domain: 문제해결
+  unit_path: [미적분, 미분법, 도함수의 활용, 함수의 최대와 최소]
+  key_concepts: [지수함수의 미분, 이계도함수와 변곡점, 두 점 사이의 거리, 함수의 최솟값, 두 직선의 수직 조건, 산술평균과 기하평균의 관계, 로그함수]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 세종대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 세종대학교
+  admission_year: 2022
+  admission_type: 수시 논술고사 A
+  track: 자연계열
+  question_no: 1
+  official_url: https://ipsi.sejong.ac.kr   # [확인 필요] 입학처 자료실의 정확한 게시물 URL로 교체
+  retrieved_at: 2026-11-21
+  original_points: [70, 80, 80]
+  rights_notice: 미확인(대학 원본 PDF 표지 문구 확인 필요)
+  transcribed_from: 대치 수리 논술 연구소 「2027학년도 대비 수리논술 세종대 기출 및 모의 문제」 p.45 + 해설교재 p.97 (원본 PDF 이미지 대조 완료 2026-11-21)
+
+verify: verify/SJU-G22A.py::p01
+
+stimuli: []
+
+stem: |
+  실수 $t$에 대하여 함수 $f(x)$를 $f(x)=te^{-x^2}$ $(x>0)$이라 정의하자. 곡선 $y=f(x)$ 위의 점 중 원점 $\mathrm{O}$와 가장 가까운 점을 $\mathrm{P}$, 변곡점을 $\mathrm{Q}$라 할 때 다음 물음에 각각 답하시오. (단, $t>\dfrac{\sqrt2}{2}$)
+
+subparts:
+- id: '1'
+  stem: |
+    점 $\mathrm{Q}$의 $x$좌표를 구하시오.
+  points: 70
+  depends_on: []
+  answer: {kind: value, value: 'sqrt(2)/2', equivalents: ['1/sqrt(2)'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $f''(x)=t(4x^2-2)e^{-x^2}$의 부호가 $x=\tfrac{\sqrt2}2$에서 바뀐다.
+    steps:
+    - {id: 1a, content: '$f^{\prime\prime}(x)=t(4x^2-2)e^{-x^2}$, 부호 변화 $\Rightarrow x=\tfrac{\sqrt2}{2}$', criteria: ['1.M1', '1.A1', '1.R1']}
+    hint_ladder:
+    - $f''(x)$를 구해 부호가 바뀌는 곳을 찾자.
+  - id: S1-B
+    audience: B
+    source_flow: 해설교재 p.97
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        $f'(x)=t(-2xe^{-x^2})$, $f''(x)=t(4x^2-2)e^{-x^2}$이다.
+      criteria: ['1.M1']
+    - id: 1b-2
+      content: |
+        $f''\!\left(\dfrac{\sqrt2}{2}\right)=0$이다.
+      criteria: ['1.A1']
+    - id: 1b-3
+      content: |
+        $t>0$이므로 $0<x<\dfrac{\sqrt2}2$에서 $f''(x)<0$, $x>\dfrac{\sqrt2}2$에서 $f''(x)>0$이다. 따라서 $\mathrm{Q}$의 $x$좌표는 $\dfrac{\sqrt2}{2}$이다.
+      criteria: ['1.R1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 25
+      evidence: |
+        $f''(x)=t(4x^2-2)e^{-x^2}$을 구했다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1]
+    - id: 1.A1
+      mark_type: A
+      points: 20
+      evidence: |
+        $f''(x)=0$인 $x=\dfrac{\sqrt2}{2}$를 구했다.
+      depends_on: [1.M1]
+      steps: [1b-2]
+    - id: 1.R1
+      mark_type: R
+      points: 25
+      evidence: |
+        $x=\dfrac{\sqrt2}2$ 좌우에서 $f''$의 부호가 바뀜을 확인했다.
+      depends_on: [1.A1]
+      steps: [1b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-3085}
+  misconceptions:
+  - id: MC-CAL-3085
+    outcome_code: '71'
+    wrong_work: '$f^{\prime\prime}=0$인 점을 구하고 부호 변화 확인 없이 변곡점이라 씀'
+    detect_cue: $f''$의 부호 조사가 없다
+    feedback: $f''=0$이어도 부호가 바뀌지 않으면 변곡점이 아닙니다. 좌우 부호를 확인하세요.
+    remedy: [RL-1]
+
+- id: '2'
+  stem: |
+    원점 $\mathrm{O}$와 점 $\mathrm{P}$ 사이의 거리를 $t$에 대한 식으로 나타내시오.
+  points: 80
+  depends_on: []
+  answer: {kind: expression, value: 'sqrt((log(2*t**2) + 1)/2)', equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: $D(x)=x^2+t^2e^{-2x^2}$의 임계점에서 $e^{2\alpha^2}=2t^2$이고 $D(\alpha)=\alpha^2+\tfrac12$.
+    steps:
+    - {id: 2a, content: '$D^{\prime}=2x(1-2t^2e^{-2x^2})=0$, $\alpha^2=\tfrac{\ln(2t^2)}{2}$, $\sqrt{D(\alpha)}=\sqrt{\tfrac{\ln(2t^2)+1}{2}}$', criteria: ['2.M1', '2.A1', '2.R1', '2.A2']}
+    hint_ladder:
+    - 거리의 제곱을 함수로 놓고 미분해 보자.
+  - id: S2-B
+    audience: B
+    source_flow: 해설교재 p.97
+    method_no: 1
+    steps:
+    - id: 2b-1
+      content: |
+        곡선 위의 점 $\mathrm{R}(x,te^{-x^2})$과 원점 사이의 거리를 $d(x)$라 하면, $d(x)$가 최소일 필요충분조건은 $D(x)=\{d(x)\}^2=x^2+t^2e^{-2x^2}$이 최소인 것이다.
+      criteria: ['2.M1']
+    - id: 2b-2
+      content: |
+        $D'(x)=2x(1-2t^2e^{-2x^2})=0$을 만족하는 양수 $x$를 $\alpha$라 하면 $e^{2\alpha^2}=2t^2$, $\alpha=\sqrt{\dfrac{\ln(2t^2)}{2}}$이다($t>\tfrac{\sqrt2}2$이므로 $\ln(2t^2)>0$).
+      criteria: ['2.A1']
+    - id: 2b-3
+      content: |
+        $0<x<\alpha$이면 $2t^2e^{-2x^2}>1$이므로 $D'(x)<0$, $x>\alpha$이면 $D'(x)>0$이다. 따라서 $d(x)$는 $x=\alpha$에서 최소이다.
+      criteria: ['2.R1']
+    - id: 2b-4
+      content: |
+        $D(\alpha)=\alpha^2+t^2e^{-2\alpha^2}=\dfrac{\ln(2t^2)}{2}+\dfrac12$이므로 구하는 거리는 $\sqrt{\dfrac{\ln(2t^2)+1}{2}}$이다.
+      criteria: ['2.A2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 15
+      evidence: |
+        거리의 제곱 $D(x)=x^2+t^2e^{-2x^2}$을 세웠다.
+      depends_on: []
+      implied_ok: false
+      steps: [2b-1]
+    - id: 2.A1
+      mark_type: A
+      points: 25
+      evidence: |
+        $D'(x)=0$에서 $\alpha=\sqrt{\dfrac{\ln(2t^2)}{2}}$(또는 $e^{2\alpha^2}=2t^2$)을 얻었다.
+      depends_on: [2.M1]
+      steps: [2b-2]
+    - id: 2.R1
+      mark_type: R
+      points: 20
+      evidence: |
+        $D'$의 부호 변화로 $x=\alpha$에서 최소임을 밝혔다.
+      depends_on: [2.A1]
+      steps: [2b-3]
+    - id: 2.A2
+      mark_type: A
+      points: 20
+      evidence: |
+        거리 $\sqrt{\dfrac{\ln(2t^2)+1}{2}}$을 얻었다.
+      depends_on: [2.M1, 2.A1]
+      steps: [2b-4]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-3003}
+  misconceptions:
+  - id: MC-CAL-3003
+    outcome_code: '71'
+    wrong_work: '$D^{\prime}(\alpha)=0$만 보이고 최소라고 결론'
+    detect_cue: 증감 또는 극소 판정이 없다
+    feedback: 임계점이 최소인 이유(부호 변화)를 적으세요.
+    remedy: [RL-2]
+
+- id: '3'
+  stem: |
+    $\angle\mathrm{OPS}=\dfrac{\pi}{2}$를 만족하는 $x$축 위의 점 $\mathrm{S}(r,0)$에 대하여 $r$가 최소일 때, 점 $\mathrm{P}$의 $x$좌표를 구하시오.
+  points: 80
+  depends_on: ['2']
+  answer: {kind: value, value: 'sqrt(2)/2', equivalents: ['1/sqrt(2)'], tolerance: null}
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: 직선 $\mathrm{PS}\perp\mathrm{OP}$에서 $r=\alpha+\dfrac{t^2e^{-2\alpha^2}}{\alpha}=\alpha+\dfrac1{2\alpha}\ge\sqrt2$.
+    steps:
+    - {id: 3a, content: '$r=\alpha+\tfrac1{2\alpha}\ge\sqrt2$, 등호 $\alpha=\tfrac{\sqrt2}2$ ($t=\sqrt{e/2}$)', criteria: ['3.M1', '3.A1', '3.M2', '3.A2']}
+    hint_ladder:
+    - 직선 $\mathrm{OP}$의 기울기를 이용해 직선 $\mathrm{PS}$의 기울기를 구하자.
+    - (1-2)의 관계 $2t^2e^{-2\alpha^2}=1$로 $t$를 없애 보자.
+  - id: S3-B
+    audience: B
+    source_flow: 해설교재 p.97
+    method_no: 1
+    steps:
+    - id: 3b-1
+      content: |
+        두 점 $\mathrm{P}$, $\mathrm{S}$를 지나는 직선을 $\ell$이라 하자. 직선 $\mathrm{OP}$의 기울기는 $\dfrac{te^{-\alpha^2}}{\alpha}$이므로 $\ell$의 기울기는 $-\dfrac{\alpha e^{\alpha^2}}{t}$이다.
+      criteria: ['3.M1']
+    - id: 3b-2
+      content: |
+        $\ell:y=-\dfrac{\alpha e^{\alpha^2}}{t}(x-\alpha)+te^{-\alpha^2}$에서 $y=0$이면 $r=\alpha+\dfrac{t^2e^{-2\alpha^2}}{\alpha}$이고, $\alpha=\sqrt{\dfrac{\ln(2t^2)}{2}}$에서 $t^2e^{-2\alpha^2}=\dfrac12$이므로 $r=\alpha+\dfrac{1}{2\alpha}$이다.
+      criteria: ['3.A1']
+    - id: 3b-3
+      content: |
+        산술평균과 기하평균의 관계에서 $\alpha+\dfrac1{2\alpha}\ge2\sqrt{\alpha\cdot\dfrac1{2\alpha}}=\sqrt2$이고, 등호는 $\alpha=\dfrac{1}{2\alpha}$일 때 성립한다.
+      criteria: ['3.M2']
+    - id: 3b-4
+      content: |
+        $1=2\alpha^2=\ln(2t^2)$에서 $t=\sqrt{\dfrac e2}>\dfrac{\sqrt2}{2}$이므로 가능하고, 이때 $\mathrm{P}$의 $x$좌표는 $\alpha=\dfrac{\sqrt2}{2}$이다.
+      criteria: ['3.A2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 20
+      evidence: |
+        수직 조건으로 직선 $\mathrm{PS}$의 기울기 $-\dfrac{\alpha e^{\alpha^2}}{t}$을 구했다.
+      depends_on: []
+      implied_ok: false
+      steps: [3b-1]
+    - id: 3.A1
+      mark_type: A
+      points: 25
+      evidence: |
+        (1-2)의 관계로 $r=\alpha+\dfrac1{2\alpha}$을 얻었다.
+      depends_on: [3.M1]
+      ft: {allowed: true, from: [2.A1], max_points: 25}
+      steps: [3b-2]
+    - id: 3.M2
+      mark_type: M
+      points: 20
+      evidence: |
+        산술·기하평균(또는 미분)으로 $r$의 최솟값과 등호 조건을 구했다.
+      depends_on: [3.A1]
+      steps: [3b-3]
+    - id: 3.A2
+      mark_type: A
+      points: 15
+      evidence: |
+        등호가 가능함($t=\sqrt{e/2}>\tfrac{\sqrt2}2$)을 확인하고 $x$좌표 $\dfrac{\sqrt2}{2}$를 답했다.
+      depends_on: [3.M2]
+      steps: [3b-4]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-ALG-3086}
+  misconceptions:
+  - id: MC-ALG-3086
+    outcome_code: '71'
+    wrong_work: '$r\ge\sqrt2$만 쓰고 등호가 가능한 $t$의 존재를 확인하지 않음'
+    detect_cue: 등호 조건과 $t>\tfrac{\sqrt2}{2}$의 확인이 없다
+    feedback: 최솟값이 되려면 등호가 실제로 성립해야 합니다. 그때의 $t$가 조건을 만족하는지 확인하세요.
+    remedy: [RL-3]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CAL-3085}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-INFLECTION}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-CAL-3003}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-EXTREMA-JUSTIFY}
+  priority: 1
+- id: RL-3
+  trigger: {type: misconception, ref: MC-ALG-3086}
+  relation: remediation
+  target: {kind: concept, ref: CON-ALG-AMGM}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

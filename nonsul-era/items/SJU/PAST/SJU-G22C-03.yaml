@@ -1,0 +1,394 @@
+# 세종대 2022학년도 수시 논술고사 [C] 문제 3 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+# [판독확인] 해설교재 p.107 (3-1) ℓ(x) 둘째 식의 적분 아래끝이 인쇄 누락(250dpi 확인) — 경로 구성상 a 로 보완(∫_a^x √(1+{f'(t)}²)dt)
+schema_version: '2.0'
+id: SJU-G22C-03
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: SJU
+type: T06
+variant_of: null
+replaces: null
+level: L5
+form: 구성
+points: 240
+time_estimate_min: 40
+intent: |
+  아래로 볼록한 곡선과 수평선으로 둘러싸인 영역에서 한 점까지의 최단 경로가 접선을 경계로 "선분" 또는 "선분+곡선"이 됨을 해석하고, 경계점에서의 미분가능성, 주어진 경로 길이 함수로부터 접점과 원래 함수를 복원하는 능력을 본다.
+key_idea: |
+  $0\le x\le a$에서는 $\ell(x)=\sqrt{x^2+\{f(x)+\sqrt2\}^2}$, $a<x\le2a$에서는 $\ell(a)+\int_a^x\sqrt{1+\{f'(t)\}^2}dt$이고, 접선 조건 $f(a)+\sqrt2=af'(a)$에서 $\ell(a)=a\ell'(a)$가 된다.
+stuck: |
+  최단 경로가 접점까지는 선분, 그 뒤로는 곡선을 따른다는 기하적 해석, 그리고 $\ell(a)=a\ell'(a)$로 접점의 $x$좌표를 방정식으로 바꾸는 것
+idea_tags: [IDEA-SHORTEST-PATH-CONVEX-TANGENT, IDEA-LENGTH-FUNCTION-RECOVER]
+tags: [곡선의 길이, 최단 경로, 접선, 미분가능성]
+elements:
+  materials:
+  - '$x>0$에서 $f>0$, $f''>0$, $f''''>0$인 함수'
+  - '점 $\mathrm{A}(0,-\sqrt2)$를 지나는 접선의 접점 $(a,f(a))$'
+  - '곡선, $y=-\sqrt2$, $x=0$, $x=2a$로 둘러싸인 도형 $S$ 안의 최단 경로 길이 $\ell(x)$'
+  concepts:
+  - '곡선의 길이'
+  - '접선의 방정식'
+  - '구간별로 정의된 함수의 미분가능성'
+  - '정적분으로 정의된 함수의 미분'
+  - '합성함수의 미분법'
+  - '고차방정식의 인수분해'
+  - '부정적분과 초기조건'
+  tools:
+  - '볼록성으로 최단 경로를 선분/선분+곡선으로 구분'
+  - '접선이 $\mathrm{A}$를 지남 ⇒ $f(a)+\sqrt2=af''(a)$'
+  - '좌·우 미분계수 비교'
+  - '$\ell(a)=a\ell''(a)$로 $a$에 대한 삼차방정식'
+  - '$\ell''(x)=\sqrt{1+\{f''(x)\}^2}$에서 $f''$를 구해 적분'
+  - '$\{f(x)+\sqrt2\}^2=\ell(x)^2-x^2$에서 $f$를 직접 구함'
+  conditions:
+  - '$f''''>0$ ⇒ 아래로 볼록 ⇒ 접선 아래쪽은 $S$ 안'
+  - '$f''>0$, $f>0$ ⇒ 제곱근의 양수 선택'
+  - '$f(1)=\sqrt2$로 적분상수 결정, $x=1$에서 두 식이 이어짐'
+  stimuli_used: []
+  subpart_links: '(3-2)는 (3-1)의 $\ell(x)$ 식과 $\ell''(a)=\sqrt{1+\{f''(a)\}^2}$를, (3-3)은 (3-2)의 $a=1$, $f(1)=\sqrt2$를 사용'
+
+curriculum:
+  version: '2015'
+  subjects: [미적분]
+  scope_2028: calc2
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 곡선의 길이를 구할 수 있다(요지)
+    verified: false
+  content_area: 적분법 – 정적분의 활용(곡선의 길이)
+  behavior_domain: 문제해결
+  unit_path: [미적분, 적분법, 정적분의 활용, 곡선의 길이]
+  key_concepts: [곡선의 길이, 접선의 방정식, 구간별로 정의된 함수의 미분가능성, 정적분으로 정의된 함수의 미분, 합성함수의 미분법, 고차방정식의 인수분해, 부정적분과 초기조건]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 세종대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 세종대학교
+  admission_year: 2022
+  admission_type: 수시 논술고사(C형)
+  track: 자연계열
+  question_no: 3
+  official_url: https://ipsi.sejong.ac.kr   # [확인 필요] 입학처 자료실의 정확한 게시물 URL로 교체
+  retrieved_at: 2026-11-21
+  original_points: [80, 80, 80]
+  rights_notice: 미확인(대학 원본 PDF 표지 문구 확인 필요)
+  transcribed_from: 대치 수리 논술 연구소 「2027학년도 대비 수리논술 세종대 기출 및 모의 문제」 p.53 + 해설교재 p.107 (원본 PDF 이미지 대조 완료 2026-11-21)
+
+verify: verify/SJU-G22C.py::p03
+
+stimuli: []
+
+stem: |
+  $x\ge0$에서 연속인 함수 $f(x)$는 다음 조건을 만족시킨다.
+
+  (가) $x>0$에서 $f(x)$는 두 번 미분가능하고 $f(x)>0$, $f'(x)>0$, $f''(x)>0$이다.
+  (나) 곡선 $y=f(x)$ 위의 점 $(a,f(a))$에서의 접선이 점 $\mathrm{A}(0,-\sqrt2)$를 지난다. (단, $a>0$)
+
+  곡선 $y=f(x)$와 직선 $y=-\sqrt2$ 및 두 직선 $x=0$, $x=2a$로 둘러싸인 도형을 $S$라 하자. 도형 $S$에서 점 $\mathrm{A}$와 점 $(x,f(x))$ $(0\le x\le2a)$를 잇는 가장 짧은 경로의 길이를 $\ell(x)$라 하자.
+
+subparts:
+- id: '1'
+  stem: |
+    $x=a$에서 $\ell(x)$가 미분가능함을 보이시오.
+  points: 80
+  depends_on: []
+  answer: {kind: proof, value: null, equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: 오른쪽 미분계수는 곡선의 길이에서 $\sqrt{1+f'(a)^2}$, 왼쪽 미분계수는 선분 길이의 미분에 접선 조건 $f(a)+\sqrt2=af'(a)$를 넣어 같은 값이 된다.
+    steps:
+    - id: 1a
+      content: |
+        $\ell'_+(a)=\sqrt{1+f'(a)^2}$, $\ell'_-(a)=\dfrac{a+\{f(a)+\sqrt2\}f'(a)}{\sqrt{a^2+\{f(a)+\sqrt2\}^2}}=\dfrac{a(1+f'(a)^2)}{a\sqrt{1+f'(a)^2}}=\sqrt{1+f'(a)^2}$
+      criteria: ['1.M1', '1.M2', '1.A1', '1.R1']
+    hint_ladder:
+    - 곡선이 아래로 볼록할 때 $\mathrm{A}$에서 곡선 위의 점까지 직선으로 갈 수 있는 범위는 어디까지인가?
+    - $x=a$의 왼쪽과 오른쪽에서 $\ell(x)$의 식이 다르다. 각각 미분계수를 구하자.
+  - id: S1-B
+    audience: B
+    source_flow: 해설교재 p.107
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        $y=f(x)$의 그래프가 아래로 볼록하므로, $0\le x\le a$이면 $\mathrm{A}$와 $(x,f(x))$를 잇는 선분이 $S$ 안에 있어 최단 경로가 되고, $a<x\le2a$이면 $\mathrm{A}$에서 접점 $(a,f(a))$까지 선분으로 간 뒤 곡선을 따라가야 한다. 따라서
+        $$\ell(x)=\begin{cases}\sqrt{x^2+\{f(x)+\sqrt2\}^2}&(0\le x\le a)\\\sqrt{a^2+\{f(a)+\sqrt2\}^2}+\displaystyle\int_a^x\sqrt{1+\{f'(t)\}^2}dt&(a<x\le2a)\end{cases}$$
+      criteria: ['1.M1']
+    - id: 1b-2
+      content: |
+        $(a,f(a))$에서의 접선 $y=f'(a)(x-a)+f(a)$가 $\mathrm{A}(0,-\sqrt2)$를 지나므로 $-af'(a)+f(a)=-\sqrt2$, 즉 $f(a)+\sqrt2=af'(a)$이다.
+      criteria: ['1.M2']
+    - id: 1b-3
+      content: |
+        $\displaystyle\lim_{h\to0+}\dfrac{\ell(a+h)-\ell(a)}{h}=\lim_{h\to0+}\dfrac1h\int_a^{a+h}\sqrt{1+\{f'(t)\}^2}dt=\sqrt{1+\{f'(a)\}^2}$이고,
+        $\displaystyle\lim_{h\to0-}\dfrac{\ell(a+h)-\ell(a)}{h}=\dfrac12\cdot\dfrac{2a+2\{f(a)+\sqrt2\}f'(a)}{\sqrt{a^2+\{f(a)+\sqrt2\}^2}}=\dfrac{a+a\{f'(a)\}^2}{\sqrt{a^2+a^2\{f'(a)\}^2}}=\sqrt{1+\{f'(a)\}^2}$이다.
+      criteria: ['1.A1']
+    - id: 1b-4
+      content: |
+        좌우 미분계수가 같으므로 $\ell(x)$는 $x=a$에서 미분가능하고 $\ell'(a)=\sqrt{1+\{f'(a)\}^2}$이다. ■
+      criteria: ['1.R1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 25
+      evidence: |
+        볼록성을 근거로 최단 경로를 $x\le a$(선분)와 $x>a$(접점까지 선분+곡선)로 나누어 $\ell(x)$를 식으로 썼다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1]
+    - id: 1.M2
+      mark_type: M
+      points: 15
+      evidence: |
+        접선이 $\mathrm{A}$를 지나는 조건 $f(a)+\sqrt2=af'(a)$를 세웠다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-2]
+    - id: 1.A1
+      mark_type: A
+      points: 25
+      evidence: |
+        우미분계수 $\sqrt{1+f'(a)^2}$와 좌미분계수(접선 조건 대입 후 $\sqrt{1+f'(a)^2}$)를 모두 계산했다.
+      depends_on: [1.M1, 1.M2]
+      steps: [1b-3]
+    - id: 1.R1
+      mark_type: R
+      points: 15
+      evidence: |
+        좌우 미분계수가 같음을 근거로 미분가능하다고 결론지었다.
+      depends_on: [1.A1]
+      steps: [1b-4]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-3006}
+  misconceptions:
+  - id: MC-CAL-3006
+    outcome_code: '71'
+    wrong_work: '한쪽 식만 미분해 $\ell''(a)=\sqrt{1+f''(a)^2}$이므로 미분가능하다고 씀'
+    detect_cue: 좌미분계수 계산이나 접선 조건 대입이 없다
+    feedback: 연결점에서는 양쪽 식의 미분계수를 각각 구해 같음을 보여야 합니다.
+    remedy: [RL-1]
+
+- id: '2'
+  stem: |
+    $\ell(x)=\dfrac{x^3}{3}+x^2+\dfrac53$일 때 접점 $(a,f(a))$를 구하시오.
+  points: 80
+  depends_on: ['1']
+  answer: {kind: expression, value: '(1, sqrt(2))', equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: $\ell(a)=\sqrt{a^2+a^2f'(a)^2}=a\ell'(a)$이므로 $\tfrac{a^3}3+a^2+\tfrac53=a(a^2+2a)$이다.
+    steps:
+    - id: 2a
+      content: |
+        $(a-1)(2a^2+5a+5)=0\Rightarrow a=1$, $\ell(1)=3=\sqrt{1+(f(1)+\sqrt2)^2}\Rightarrow f(1)=\sqrt2$
+      criteria: ['2.M1', '2.A1', '2.M2', '2.A2']
+    hint_ladder:
+    - 접선 조건을 쓰면 $\ell(a)$와 $\ell'(a)$ 사이에 어떤 관계가 생기는가?
+  - id: S2-B
+    audience: B
+    source_flow: 해설교재 p.107
+    method_no: 1
+    steps:
+    - id: 2b-1
+      content: |
+        접선 조건 $f(a)+\sqrt2=af'(a)$와 (3-1)의 결과로 $\ell(a)=\sqrt{a^2+\{f(a)+\sqrt2\}^2}=\sqrt{a^2+\{af'(a)\}^2}=a\sqrt{1+\{f'(a)\}^2}=a\ell'(a)$이다.
+      criteria: ['2.M1']
+    - id: 2b-2
+      content: |
+        $\ell'(x)=x^2+2x$이므로 $\dfrac{a^3}3+a^2+\dfrac53=a(a^2+2a)$, 즉 $\dfrac13(2a^3+3a^2-5)=\dfrac13(a-1)(2a^2+5a+5)=0$이다. $2a^2+5a+5>0$이므로 $a=1$이다.
+      criteria: ['2.A1']
+    - id: 2b-3
+      content: |
+        $\ell(1)=\dfrac13+1+\dfrac53=3=\sqrt{1+\{f(1)+\sqrt2\}^2}$이다.
+      criteria: ['2.M2']
+    - id: 2b-4
+      content: |
+        $\{f(1)+\sqrt2\}^2=8$이고 $f(1)>0$이므로 $f(1)=\sqrt2$, 접점은 $(1,\sqrt2)$이다.
+      criteria: ['2.A2']
+  - id: S2-ALT
+    audience: ALT
+    source_flow: 해설교재 p.107 별해
+    method_no: 2
+    key_idea: $\ell'(a)=\sqrt{1+f'(a)^2}$에서 $f'(a)$를 $a$로 나타내 $\ell(a)^2$의 두 표현을 비교한다.
+    steps:
+    - id: 2c-1
+      content: |
+        $\ell'(a)=a^2+2a$에서 $\{f'(a)\}^2=(a^2+2a)^2-1=(a+1)^2(a^2+2a-1)$, $f'(a)=(a+1)\sqrt{a^2+2a-1}$이다.
+        $\{\ell(a)\}^2=a^2+\{af'(a)\}^2=a^2+\{a(a+1)\sqrt{a^2+2a-1}\}^2$과 $\left(\dfrac{a^3}3+a^2+\dfrac53\right)^2$의 차를 $h(a)$라 하면
+        $h(a)=\dfrac19(a-1)(8a^5+38a^4+65a^3+55a^2+25a+25)$이고 $a>0$이므로 $h(a)=0$인 $a$는 $1$뿐이다. 이후 $f(1)=\sqrt2$는 같다.
+      criteria: ['2.M1', '2.A1', '2.M2', '2.A2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 25
+      evidence: |
+        접선 조건으로 $\ell(a)=a\ell'(a)$(또는 $\ell(a)^2=a^2+a^2f'(a)^2$)를 얻었다.
+      depends_on: []
+      implied_ok: false
+      ft: {allowed: true, from: [1.M2, 1.R1], max_points: 25}
+      steps: [2b-1, 2c-1]
+    - id: 2.A1
+      mark_type: A
+      points: 25
+      evidence: |
+        $a$에 대한 방정식을 인수분해해 $a=1$만 가능함을 보였다.
+      depends_on: [2.M1]
+      steps: [2b-2, 2c-1]
+    - id: 2.M2
+      mark_type: M
+      points: 15
+      evidence: |
+        $\ell(1)=\sqrt{1+\{f(1)+\sqrt2\}^2}$을 세웠다.
+      depends_on: []
+      implied_ok: false
+      steps: [2b-3, 2c-1]
+    - id: 2.A2
+      mark_type: A
+      points: 15
+      evidence: |
+        $f(1)>0$을 써서 접점 $(1,\sqrt2)$를 얻었다.
+      depends_on: [2.M2, 2.A1]
+      steps: [2b-4, 2c-1]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '21', meaning: 만점(직접 계산 별해)}
+  - {code: '71', misconception: MC-CAL-3004}
+  misconceptions:
+  - id: MC-CAL-3004
+    outcome_code: '71'
+    wrong_work: '접선이 $\mathrm{A}$를 지난다는 조건을 쓰지 않고 $\ell(a)=\ell''(a)$ 등 근거 없는 관계로 $a$를 정함'
+    detect_cue: $f(a)+\sqrt2=af'(a)$가 풀이에 없다
+    feedback: 접선의 방정식에 $\mathrm{A}$의 좌표를 넣으면 함숫값과 기울기 사이의 관계가 나옵니다.
+    remedy: [RL-2]
+
+- id: '3'
+  stem: |
+    (3-2)의 $\ell(x)$에 대하여 $f(x)$ $(0\le x\le2a)$를 구하시오.
+  points: 80
+  depends_on: ['2']
+  answer: {kind: expression, value: 'f1=sqrt((x**3/3 + x**2 + 5/3)**2 - x**2) - sqrt(2); f2=(x**2 + 2*x - 1)**(3/2)/3 + sqrt(2)/3', equivalents: [], tolerance: null}
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: $1\le x\le2$에서는 $\ell'=\sqrt{1+f'^2}$으로 $f'$를 구해 적분하고, $0\le x\le1$에서는 $\ell^2=x^2+(f+\sqrt2)^2$으로 $f$를 직접 구한다.
+    steps:
+    - id: 3a
+      content: |
+        $f(x)=\sqrt{\left(\tfrac{x^3}3+x^2+\tfrac53\right)^2-x^2}-\sqrt2$ $(0\le x\le1)$, $f(x)=\tfrac13(x^2+2x-1)^{3/2}+\tfrac{\sqrt2}3$ $(1<x\le2)$
+      criteria: ['3.M1', '3.A1', '3.M2', '3.A2']
+    hint_ladder:
+    - $x>1$에서 $\ell'(x)$는 곡선 길이의 피적분함수와 같다.
+    - $f'(x)>0$이므로 제곱근의 부호를 고를 수 있다.
+  - id: S3-B
+    audience: B
+    source_flow: 해설교재 p.107
+    method_no: 1
+    steps:
+    - id: 3b-1
+      content: |
+        $1\le x\le2$인 경우: $\ell'(x)=\sqrt{1+\{f'(x)\}^2}=x^2+2x$이므로 $\{f'(x)\}^2=(x^2+2x)^2-1=(x+1)^2(x^2+2x-1)$이고 $f'(x)>0$이므로 $f'(x)=(x+1)\sqrt{x^2+2x-1}$이다.
+      criteria: ['3.M1']
+    - id: 3b-2
+      content: |
+        적분하면 $f(x)=\dfrac13(x^2+2x-1)^{3/2}+C$이고 $f(1)=\sqrt2$에서 $\dfrac{2\sqrt2}{3}+C=\sqrt2$, $C=\dfrac{\sqrt2}3$이다.
+      criteria: ['3.A1']
+    - id: 3b-3
+      content: |
+        $0\le x\le1$인 경우: $\ell(x)=\sqrt{x^2+\{f(x)+\sqrt2\}^2}=\dfrac{x^3}3+x^2+\dfrac53$이므로 $\{f(x)+\sqrt2\}^2=\left(\dfrac{x^3}3+x^2+\dfrac53\right)^2-x^2$이다.
+      criteria: ['3.M2']
+    - id: 3b-4
+      content: |
+        $f(x)>0$이므로 $f(x)+\sqrt2>0$이고 $f(x)=\left\{\left(\dfrac{x^3}3+x^2+\dfrac53\right)^2-x^2\right\}^{1/2}-\sqrt2$이다. 정리하면
+        $$f(x)=\begin{cases}\left\{\left(\dfrac{x^3}3+x^2+\dfrac53\right)^2-x^2\right\}^{1/2}-\sqrt2&(0\le x\le1)\\\dfrac13(x^2+2x-1)^{3/2}+\dfrac{\sqrt2}3&(1<x\le2)\end{cases}$$
+        이고 이 함수는 문제의 조건을 모두 만족한다.
+      criteria: ['3.A2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 20
+      evidence: |
+        $x\ge1$에서 $\ell'(x)=\sqrt{1+f'(x)^2}$을 써서 $f'(x)=(x+1)\sqrt{x^2+2x-1}$을 얻었다($f'>0$ 근거 포함).
+      depends_on: []
+      implied_ok: false
+      steps: [3b-1]
+    - id: 3.A1
+      mark_type: A
+      points: 20
+      evidence: |
+        $f(1)=\sqrt2$로 적분상수를 정해 $1<x\le2$의 식을 얻었다.
+      depends_on: [3.M1]
+      ft: {allowed: true, from: [2.A2], max_points: 20}
+      steps: [3b-2]
+    - id: 3.M2
+      mark_type: M
+      points: 20
+      evidence: |
+        $0\le x\le1$에서 $\ell(x)^2=x^2+\{f(x)+\sqrt2\}^2$을 세웠다.
+      depends_on: []
+      implied_ok: false
+      steps: [3b-3]
+    - id: 3.A2
+      mark_type: A
+      points: 20
+      evidence: |
+        양수 조건으로 제곱근을 골라 $0\le x\le1$의 식을 얻고 두 식을 정리했다.
+      depends_on: [3.M2]
+      steps: [3b-4]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-PRF-3101}
+  misconceptions:
+  - id: MC-PRF-3101
+    outcome_code: '71'
+    wrong_work: '$f''(x)=\pm(x+1)\sqrt{x^2+2x-1}$로 두 경우를 남기거나 $f(x)+\sqrt2=\pm\sqrt{\cdots}$를 그대로 둠'
+    detect_cue: $f'>0$, $f>0$ 조건으로 부호를 고르지 않았다
+    feedback: 조건 (가)의 $f'(x)>0$, $f(x)>0$이 제곱근의 부호를 하나로 정해 줍니다.
+    remedy: [RL-3]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CAL-3006}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-PIECEWISE-DIFF}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-CAL-3004}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-TANGENT-COND}
+  priority: 1
+- id: RL-3
+  trigger: {type: misconception, ref: MC-PRF-3101}
+  relation: remediation
+  target: {kind: concept, ref: CON-PRF-SIGN-CHECK}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

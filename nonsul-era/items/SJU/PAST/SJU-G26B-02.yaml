@@ -1,0 +1,424 @@
+# 세종대 2026학년도 논술고사(자연계열B) 문제 2 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+# [유형 신설 제안] type: null — SJU T01~T10 에 맞는 유형 없음. 신설안 "T11: 구간별로 정의된 함수의 극값·미분가능성 조건 추론"(삼차함수+일차함수 연결, 극값 유일 조건, |p(x)| 의 미분불가능점 개수).
+# [해설 보완] 원 해설은 "(나)·(다)를 만족하면 x=α>0 에서 극소"를 그림으로만 보임. α=0(x>0 에서 f 증가)인 경우는 (다)와 함께 불가능함(f'(0)=c>0 이면 f'=0 의 두 근이 모두 양수가 되어 극값 3개)을 B 해설 2b-1 에 한 줄로 보탬.
+schema_version: '2.0'
+id: SJU-G26B-02
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: SJU
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 분류
+points: 230
+time_estimate_min: 40
+intent: |
+  연속 조건·극한 조건·극값의 유일성·정적분 조건을 해석해 삼차함수의 꼴을 좁히고, 매개변수 관계식으로 극소점의 범위를 구한 뒤, 절댓값 함수의 미분불가능점 개수를 경우 분류로 세는 능력을 본다.
+key_idea: |
+  (가)⇒최고차항 계수 $\pm1$, (나)⇒$a=1$이고 $f^{\prime}=3(x-\alpha)(x-\beta)$, $\alpha>0\ge\beta$. (다)⇒$\alpha+\beta-3\alpha\beta=1$이므로 $\alpha=\dfrac{1-\beta}{1-3\beta}$. (2-3)은 $p(x)=g(x)-f^{\prime}(0)x$가 $x\le0$에서 $-(\alpha+\beta-\tfrac12)x$, $x>0$에서 $x^2\{x-\tfrac32(\alpha+\beta)\}$.
+stuck: |
+  조건 (나)를 "$f^{\prime}=0$의 두 근 중 양수 하나($\alpha$), 나머지는 $0$ 이하"로 번역하는 것, 그리고 (2-3)에서 $\alpha+\beta-1=-\tfrac12$이면 $x\le0$ 부분이 항등적으로 $0$이 되어 $x=0$에서 미분가능해지는 예외를 찾는 것
+idea_tags: [IDEA-UNIQUE-EXTREMUM-ROOT-SIGN, IDEA-PARAMETER-RELATION-RANGE, IDEA-ABS-NONDIFF-SIMPLE-ROOT]
+tags: [삼차함수, 극값, 절댓값 함수의 미분가능성]
+elements:
+  materials:
+  - '$x\le0$에서 $-\tfrac12x$, $x>0$에서 삼차함수 $f(x)$인 연속함수 $g(x)$'
+  - '극한 조건 $\displaystyle\lim_{x\to\infty}\dfrac{\lvert g(x)\rvert}{x^3}=1$'
+  - '정적분 조건 $\displaystyle\int_{-1}^1g(x)dx=0$'
+  - '$h(x)=\lvert g(x)-f^{\prime}(0)x\rvert$의 미분불가능점 집합 $D$'
+  concepts:
+  - '함수의 연속'
+  - '다항함수의 극한'
+  - '극대·극소와 도함수의 부호'
+  - '이차방정식의 근과 계수의 관계'
+  - '정적분의 계산'
+  - '유리함수의 그래프'
+  - '절댓값 함수의 미분가능성'
+  tools:
+  - '연속 조건으로 $f(0)=0$'
+  - '최고차항 비교로 계수 $\pm1$'
+  - '$g^{\prime}$의 부호 변화 횟수로 극값 개수 판정'
+  - '$f^{\prime}(x)=3(x-\alpha)(x-\beta)$로 두고 적분'
+  - '$\alpha=\dfrac{1-\beta}{1-3\beta}$의 그래프(또는 $b$, $c$ 매개변수 함수의 단조성)'
+  - '좌·우미분계수 비교'
+  conditions:
+  - '(나) 극값을 갖는 $x$는 하나 ⇒ $\alpha>0$, $\beta\le0$'
+  - '(다) $\displaystyle\int_0^1f(x)dx=-\dfrac14$'
+  - '$\alpha+\beta\le0\iff\tfrac13<\alpha\le\tfrac{\sqrt3}{3}$'
+  - '$\alpha+\beta=\tfrac12\iff6\alpha^2-3\alpha-1=0$'
+  stimuli_used: []
+  subpart_links: '(2-2)는 (2-1)의 최고차항 계수 1과 f(0)=0을 사용, (2-3)은 (2-2)의 관계식 α+β-3αβ=1과 α의 범위를 사용'
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅱ]
+  scope_2028: common
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 함수의 극대·극소를 판정하고, 미분가능성과 연속성의 관계를 이해한다(요지)
+    verified: false
+  content_area: 미분·적분
+  behavior_domain: 추론
+  unit_path: [수학Ⅱ, 미분, 도함수의 활용, 함수의 극대와 극소]
+  key_concepts: [함수의 연속, 다항함수의 극한, 극대·극소와 도함수의 부호, 이차방정식의 근과 계수의 관계, 정적분의 계산, 유리함수의 그래프, 절댓값 함수의 미분가능성]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 세종대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 세종대학교
+  admission_year: 2026
+  admission_type: 수시 논술고사
+  track: 자연계열B
+  question_no: 2
+  official_url: https://ipsi.sejong.ac.kr   # [확인 필요] 입학처 자료실의 정확한 게시물 URL로 교체
+  retrieved_at: 2026-11-21
+  original_points: [70, 80, 80]
+  rights_notice: 미확인(대학 원본 PDF 표지 문구 확인 필요)
+  transcribed_from: 대치 수리 논술 연구소 「2027학년도 대비 수리논술 세종대 기출 및 모의 문제」 p.11 + 해설교재 p.23~29 (원본 PDF 이미지 대조 완료 2026-11-21)
+
+verify: verify/SJU-G26B.py::p02
+
+stimuli: []
+
+stem: |
+  삼차함수 $f(x)$에 대하여 실수 전체의 집합에서 연속인 함수
+  $$g(x)=\begin{cases}-\dfrac12x&(x\le0)\\f(x)&(x>0)\end{cases}$$
+  이 다음을 만족시킨다.
+
+  (가) $\displaystyle\lim_{x\to\infty}\dfrac{\lvert g(x)\rvert}{x^3}=1$
+  (나) $g(x)$가 극값을 갖는 $x$의 값은 $\alpha$ 하나뿐이다. (단, $\alpha$는 실수이다.)
+  (다) $\displaystyle\int_{-1}^1g(x)dx=0$
+
+subparts:
+- id: '1'
+  stem: |
+    $f(x)$의 최고차항의 계수를 구하시오.
+  points: 70
+  depends_on: []
+  answer: {kind: value, value: '1', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: (가)에서 계수는 $\pm1$. 계수가 $-1$이면 $g^{\prime}$은 $x<0$에서 음수, $x\to\infty$에서도 음수이므로 부호 변화가 짝수 번(0 또는 2) → 극값 0개 또는 2개.
+    steps:
+    - {id: 1a, content: '$f(0)=0$, 계수 $\pm1$, $-1$은 (나) 위반, $f(x)=x^3-\tfrac32x^2$이 (가)(나)(다)를 만족 ⇒ 계수 $1$', criteria: ['1.B1', '1.M1', '1.R1', '1.A1']}
+    hint_ladder:
+    - $\lvert g(x)\rvert/x^3\to1$이면 최고차항 계수의 절댓값은?
+    - 계수가 $-1$이면 $x$가 매우 클 때와 $x<0$일 때 $g$의 증감은 같은가?
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 해설교재 p.23
+    steps:
+    - id: 1b-1
+      content: |
+        $g$가 $x=0$에서 연속이므로 $f(0)=\displaystyle\lim_{x\to0+}f(x)=g(0)=0$이다.
+      criteria: ['1.B1']
+    - id: 1b-2
+      content: |
+        $f(x)$의 최고차항의 계수를 $a$라 하면 (가)에서 $\displaystyle\lim_{x\to\infty}\dfrac{\lvert f(x)\rvert}{x^3}=\lvert a\rvert=1$이므로 $a=1$ 또는 $a=-1$이다.
+      criteria: ['1.M1']
+    - id: 1b-3
+      content: |
+        $a=-1$이면 $x<0$에서 $g$는 감소하고, $x$가 충분히 크면 $f^{\prime}(x)<0$이어서 다시 감소한다. 따라서 $g$의 증감이 바뀌는 횟수는 짝수이므로, 극값이 없거나(계속 감소) 극값을 갖는 $x$가 두 개 생겨(감소→증가→감소) 조건 (나)를 만족시키지 않는다.
+      criteria: ['1.R1']
+    - id: 1b-4
+      content: |
+        반면 $a=1$이면 예를 들어 $f(x)=x^3-\dfrac32x^2$일 때 $g$는 $x=1$에서만 극값(극소)을 갖고 $\displaystyle\int_{-1}^1g(x)dx=\dfrac14+\left(\dfrac14-\dfrac12\right)=0$이므로 조건 (가), (나), (다)를 모두 만족시킨다. 따라서 최고차항의 계수는 $1$이다.
+      criteria: ['1.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.B1
+      mark_type: B
+      points: 10
+      evidence: |
+        연속 조건으로 $f(0)=0$을 적었다.
+      steps: [1b-1]
+    - id: 1.M1
+      mark_type: M
+      points: 20
+      evidence: |
+        (가)에서 최고차항 계수가 $1$ 또는 $-1$임을 얻었다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-2]
+    - id: 1.R1
+      mark_type: R
+      points: 25
+      evidence: |
+        계수 $-1$이면 극값이 없거나 두 개임을 (그래프 개형 또는 증감 변화 횟수로) 보여 (나)에 모순임을 밝혔다.
+      depends_on: [1.M1]
+      steps: [1b-3]
+    - id: 1.A1
+      mark_type: A
+      points: 15
+      evidence: |
+        계수 $1$로 조건을 만족시키는 경우가 있음을 확인하고 답 $1$을 적었다.
+      depends_on: [1.M1, 1.R1]
+      steps: [1b-4]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-3025}
+  misconceptions:
+  - id: MC-CAL-3025
+    outcome_code: '71'
+    wrong_work: '(가)에서 절댓값을 무시하고 바로 "최고차항 계수 $=1$"이라고 씀'
+    detect_cue: $a=-1$인 경우를 검토하지 않았다
+    feedback: $\lvert g(x)\rvert$이므로 계수는 $\pm1$입니다. $-1$을 배제하는 근거를 조건 (나)에서 찾아야 합니다.
+    remedy: [RL-1]
+
+- id: '2'
+  stem: |
+    실수 $\alpha$의 값의 범위를 구하시오.
+  points: 80
+  depends_on: ['1']
+  answer: {kind: set, value: '(1/3, 1]', equivalents: ['1/3<alpha<=1'], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: $f^{\prime}(x)=3(x-\alpha)(x-\beta)$, $\alpha>0\ge\beta$, $f(0)=0$이고 (다)에서 $\displaystyle\int_0^1f=-\tfrac14$ ⇒ $\alpha+\beta-3\alpha\beta=1$ ⇒ $\alpha=\dfrac{1-\beta}{1-3\beta}$, $\beta\le0$.
+    steps:
+    - {id: 2a, content: '$\beta=0$이면 $\alpha=1$, $\beta\to-\infty$이면 $\alpha\to\tfrac13^+$, 단조 ⇒ $\tfrac13<\alpha\le1$', criteria: ['2.M1', '2.A1', '2.A2', '2.A3']}
+    hint_ladder:
+    - $x\le0$에서 $g$는 감소한다. $g$가 극값을 단 한 번 가지려면 $x>0$에서 어떤 모양이어야 하는가?
+    - $\displaystyle\int_{-1}^0g(x)dx$의 값은?
+  - id: S2-B
+    audience: B
+    method_no: 1
+    source_flow: 해설교재 p.23~24
+    steps:
+    - id: 2b-1
+      content: |
+        (1)에서 최고차항 계수는 $1$이다. $g$는 $x\le0$에서 감소하므로 (나), (다)를 만족시키려면 적당한 양수 $\alpha$에서 극소이고 그 밖에서는 극값이 없어야 한다. 따라서 $f^{\prime}(x)=0$은 서로 다른 두 실근 $\alpha$, $\beta$를 갖고 $\alpha>0$, $\beta\le0$이다. ($x>0$에서 $f$가 증가하면 $f^{\prime}(0)\ge0$이고, 아래에서 얻는 관계와 함께 $f^{\prime}=0$의 두 근이 모두 양수가 되어 극값이 여러 개 생기므로 불가능하다.)
+      criteria: ['2.M1']
+    - id: 2b-2
+      content: |
+        $f^{\prime}(x)=3(x-\alpha)(x-\beta)=3x^2-3(\alpha+\beta)x+3\alpha\beta$로 두면 $f(0)=0$이므로 $f(x)=x^3-\dfrac32(\alpha+\beta)x^2+3\alpha\beta x$이다.
+      criteria: ['2.A1']
+    - id: 2b-3
+      content: |
+        (다)에서 $\displaystyle\int_{-1}^0g(x)dx=\int_{-1}^0\left(-\tfrac12x\right)dx=\dfrac14$이므로
+        $$\int_0^1f(x)dx=\dfrac14-\dfrac12(\alpha+\beta)+\dfrac32\alpha\beta=-\dfrac14,$$
+        즉 $\alpha+\beta-3\alpha\beta=1$, $\alpha=\dfrac{1-\beta}{1-3\beta}$ $(\beta\le0)$이다.
+      criteria: ['2.A2']
+    - id: 2b-4
+      content: |
+        $\alpha=\dfrac{1-\beta}{1-3\beta}=\dfrac13+\dfrac{2/3}{1-3\beta}$는 $\beta\le0$에서 $\beta$가 증가할 때 증가하고, $\beta=0$이면 $\alpha=1$, $\beta\to-\infty$이면 $\alpha\to\tfrac13$이다. 따라서 $\dfrac13<\alpha\le1$.
+      criteria: ['2.A3']
+  - id: S2-ALT1
+    audience: ALT
+    method_no: 2
+    source_flow: 해설교재 p.24~25 별해 1
+    key_idea: $f(x)=x^3+bx^2+cx$로 두면 (다)에서 $c=-\tfrac23b-1$. $f^{\prime}(0)=-\tfrac23b-1\le0$ ($b\ge-\tfrac32$)일 때만 조건을 만족하고, $\alpha=u(b)=\tfrac13\left(-b+\sqrt{b^2+2b+3}\right)$는 감소함수로 $u(-\tfrac32)=1$, $\displaystyle\lim_{b\to\infty}u(b)=\tfrac13$.
+    steps:
+    - id: 2c-1
+      content: |
+        $u^{\prime}(b)=\dfrac13\left(-1+\dfrac{b+1}{\sqrt{(b+1)^2+2}}\right)<0$이므로 $\dfrac13<\alpha\le1$.
+      criteria: ['2.A2', '2.A3']
+  - id: S2-ALT2
+    audience: ALT
+    method_no: 3
+    source_flow: 해설교재 p.25~26 별해 2
+    key_idea: $f(x)=x^3+bx^2+cx$에서 (다)로 $b=-\tfrac32c-\tfrac32$, $f(x)=x^3-\tfrac32(c+1)x^2+cx$. 조건은 $c=f^{\prime}(0)\le0$이고 $\alpha=v(c)=\tfrac12\left(c+1+\sqrt{c^2+\tfrac23c+1}\right)$는 증가함수로 $v(0)=1$, $\displaystyle\lim_{c\to-\infty}v(c)=\tfrac13$.
+    steps:
+    - id: 2d-1
+      content: |
+        $v^{\prime}(c)=\dfrac12\left(1+\dfrac{c+\tfrac13}{\sqrt{(c+\tfrac13)^2+\tfrac89}}\right)>0$이므로 $\dfrac13<\alpha\le1$.
+      criteria: ['2.A2', '2.A3']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 20
+      evidence: |
+        (나)를 "$f^{\prime}=0$의 두 실근 $\alpha>0$, $\beta\le0$"(또는 $f^{\prime}(0)\le0$)으로 번역했다.
+      depends_on: []
+      implied_ok: false
+      ft: {allowed: true, from: [1.A1], max_points: 20}
+      steps: [2b-1]
+    - id: 2.A1
+      mark_type: A
+      points: 15
+      evidence: |
+        $f(x)=x^3-\tfrac32(\alpha+\beta)x^2+3\alpha\beta x$ (또는 $b$, $c$로 나타낸 식)을 얻었다.
+      depends_on: [2.M1]
+      steps: [2b-2]
+    - id: 2.A2
+      mark_type: A
+      points: 20
+      evidence: |
+        (다)로 $\alpha+\beta-3\alpha\beta=1$ (또는 $c=-\tfrac23b-1$)을 얻었다.
+      depends_on: [2.M1]
+      steps: [2b-3]
+    - id: 2.A3
+      mark_type: A
+      points: 25
+      evidence: |
+        단조성·극한으로 $\dfrac13<\alpha\le1$을 얻었다(양 끝의 포함 여부 정확).
+      depends_on: [2.M1, 2.A2]
+      steps: [2b-4]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-3026}
+  misconceptions:
+  - id: MC-CAL-3026
+    outcome_code: '71'
+    wrong_work: '$\beta<0$만 허용해 $\dfrac13<\alpha<1$로 답함'
+    detect_cue: $\beta=0$ ($f^{\prime}(0)=0$)인 경우를 검토하지 않았다
+    feedback: $\beta=0$이면 $f^{\prime}(x)=3x(x-1)$로 $x=0$ 좌우에서 $g$가 계속 감소하므로 $x=0$은 극점이 아닙니다. 이 경우도 조건을 만족합니다.
+    remedy: [RL-2]
+
+- id: '3'
+  stem: |
+    함수 $h(x)=\lvert g(x)-f'(0)x\rvert$에 대하여
+    $$D=\{k\mid h(x)\text{는 }x=k\text{에서 미분가능하지 않다.}\}$$
+    라 하자. $D$의 원소의 개수가 1이 되도록 하는 실수 $\alpha$의 값을 모두 구하시오.
+  points: 80
+  depends_on: ['2']
+  answer: {kind: set, value: '(1/3, sqrt(3)/3] U {1/4 + sqrt(33)/12}', equivalents: ['1/3<alpha<=sqrt(3)/3 or alpha=(3+sqrt(33))/12'], tolerance: null}
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: $p(x)=g(x)-3\alpha\beta x$는 $x\le0$에서 $-(\alpha+\beta-\tfrac12)x$, $x>0$에서 $x^2\{x-\tfrac32(\alpha+\beta)\}$. $x=0$은 왼쪽 계수가 $0$이 아니면 미분불가능, 양의 단순근은 $\alpha+\beta>0$일 때 생겨 미분불가능.
+    steps:
+    - {id: 3a, content: '$\alpha+\beta=\tfrac{1-3\alpha^2}{1-3\alpha}$; $\alpha+\beta\le0\iff\tfrac13<\alpha\le\tfrac{\sqrt3}{3}$ (D={0}); $\alpha+\beta=\tfrac12\iff\alpha=\tfrac14+\tfrac{\sqrt{33}}{12}$ (D={양근}); 나머지 2개', criteria: ['3.M1', '3.A1', '3.R1', '3.A2']}
+    hint_ladder:
+    - $f^{\prime}(0)=3\alpha\beta$이다. $p(x)=g(x)-f^{\prime}(0)x$를 구간별로 써 보자.
+    - $\lvert p\rvert$는 어떤 점에서 미분불가능해지는가? (단순근, 좌우 기울기가 다른 점)
+  - id: S3-B
+    audience: B
+    method_no: 1
+    source_flow: 해설교재 p.26~28
+    steps:
+    - id: 3b-1
+      content: |
+        (2)에서 $f(x)=x^3-\tfrac32(\alpha+\beta)x^2+3\alpha\beta x$, $f^{\prime}(0)=3\alpha\beta$이고, $\alpha+\beta-3\alpha\beta=1$에서 $\beta=\dfrac{1-\alpha}{1-3\alpha}$, $\alpha+\beta=\dfrac{1-3\alpha^2}{1-3\alpha}$ $\left(\tfrac13<\alpha\le1\right)$이다.
+        $p(x)=g(x)-f^{\prime}(0)x$라 하면 $h(x)=\lvert p(x)\rvert$이고
+        $p(x)=-\tfrac12x-(\alpha+\beta-1)x$ $(x\le0)$, $p(x)=x^3-\tfrac32(\alpha+\beta)x^2=x^2\left\{x-\tfrac32(\alpha+\beta)\right\}$ $(x>0)$.
+      criteria: ['3.M1']
+    - id: 3b-2
+      content: |
+        $x\le0$에서 $p(x)\equiv0$인 것은 $\alpha+\beta-1=-\tfrac12$일 때뿐이고, $x>0$에서 $p(x)=0$은 $\alpha+\beta>0$일 때 양의 실근 $\tfrac32(\alpha+\beta)$를 갖는다. 따라서
+        - $\alpha+\beta\le0$: $\dfrac{1-3\alpha^2}{1-3\alpha}\le0$이므로 $\dfrac13<\alpha\le\dfrac{\sqrt3}{3}$.
+        - $\alpha+\beta>0$: $\dfrac{\sqrt3}{3}<\alpha\le1$.
+        - $\alpha+\beta=\tfrac12$: $6\alpha^2-3\alpha-1=0$에서 $\alpha=\dfrac14+\dfrac{\sqrt{33}}{12}$ (이때 $\alpha+\beta>0$).
+      criteria: ['3.A1']
+    - id: 3b-3
+      content: |
+        (i) $\tfrac13<\alpha\le\tfrac{\sqrt3}{3}$: $p=0$의 양의 실근이 없고, $x\le0$의 일차항 계수가 $0$이 아니므로 $h$의 $x=0$에서의 좌미분계수는 음수, 우미분계수는 $0$ → $x=0$에서만 미분불가능, $D$의 원소는 1개.
+        (ii) $\tfrac{\sqrt3}{3}<\alpha\le1$, $\alpha\ne\tfrac14+\tfrac{\sqrt{33}}{12}$: $x=0$에서 미분불가능하고, 양의 실근에서도 좌미분계수 음수·우미분계수 양수로 미분불가능 → 2개.
+        (iii) $\alpha=\tfrac14+\tfrac{\sqrt{33}}{12}$: $x\le0$에서 $p=0$이므로 $x=0$에서 좌·우미분계수가 모두 $0$으로 미분가능하고, 양의 실근에서만 미분불가능 → 1개.
+      criteria: ['3.R1']
+    - id: 3b-4
+      content: |
+        따라서 $\dfrac13<\alpha\le\dfrac{\sqrt3}{3}$ 또는 $\alpha=\dfrac14+\dfrac{\sqrt{33}}{12}$.
+      criteria: ['3.A2']
+  - id: S3-ALT1
+    audience: ALT
+    method_no: 2
+    source_flow: 해설교재 p.28 별해 1
+    key_idea: (2-2) 별해 1의 매개변수 $b$로 경우를 나눈다. $\alpha+\beta=-\tfrac23b$이므로 (i) $b\ge0$ ⇔ $\tfrac13<\alpha\le u(0)=\tfrac{\sqrt3}{3}$, (ii) $-\tfrac32\le b<0$ ⇔ $\tfrac{\sqrt3}{3}<\alpha\le1$, (iii) $b=-\tfrac34$ ⇔ $\alpha=\tfrac14+\tfrac{\sqrt{33}}{12}$. 이후는 본풀이와 같다.
+    steps:
+    - id: 3c-1
+      content: |
+        $u(b)=\tfrac13\left(-b+\sqrt{b^2+2b+3}\right)$이 감소함수이고 $u(0)=\tfrac{\sqrt3}{3}$, $u(-\tfrac34)=\tfrac14+\tfrac{\sqrt{33}}{12}$이므로 같은 결론을 얻는다.
+      criteria: ['3.A1', '3.A2']
+  - id: S3-ALT2
+    audience: ALT
+    method_no: 3
+    source_flow: 해설교재 p.29 별해 2
+    key_idea: (2-2) 별해 2의 매개변수 $c$로 경우를 나눈다. (i) $c\le-1$ ⇔ $\tfrac13<\alpha\le v(-1)=\tfrac{\sqrt3}{3}$, (ii) $-1<c\le0$ ⇔ $\tfrac{\sqrt3}{3}<\alpha\le1$, (iii) $c=-\tfrac12$ ⇔ $\alpha=\tfrac14+\tfrac{\sqrt{33}}{12}$.
+    steps:
+    - id: 3d-1
+      content: |
+        $v(c)$가 증가함수이고 $v(-1)=\tfrac{\sqrt3}{3}$, $v(0)=1$이므로 같은 결론을 얻는다.
+      criteria: ['3.A1', '3.A2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 20
+      evidence: |
+        $f^{\prime}(0)=3\alpha\beta$를 써서 $p(x)=g(x)-f^{\prime}(0)x$를 구간별로 정리했다.
+      depends_on: []
+      implied_ok: false
+      ft: {allowed: true, from: [2.A1, 2.A2], max_points: 20}
+      steps: [3b-1]
+    - id: 3.A1
+      mark_type: A
+      points: 20
+      evidence: |
+        $\alpha+\beta$의 부호와 $\alpha+\beta=\tfrac12$인 경우를 $\alpha$의 범위·값으로 나타냈다.
+      depends_on: [3.M1]
+      steps: [3b-2]
+    - id: 3.R1
+      mark_type: R
+      points: 25
+      evidence: |
+        각 경우 $x=0$과 양의 실근에서의 좌·우미분계수를 비교해 $D$의 원소 개수를 판정했다.
+      depends_on: [3.A1]
+      steps: [3b-3]
+    - id: 3.A2
+      mark_type: A
+      points: 15
+      evidence: |
+        $\dfrac13<\alpha\le\dfrac{\sqrt3}{3}$ 또는 $\alpha=\dfrac14+\dfrac{\sqrt{33}}{12}$를 답했다.
+      depends_on: [3.M1, 3.R1]
+      steps: [3b-4]
+    deductions:
+    - code: D3-1
+      condition: $\alpha=\tfrac14+\tfrac{\sqrt{33}}{12}$ (경우 iii)를 빠뜨림
+      effect: minus
+      value: 20
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-3027}
+  misconceptions:
+  - id: MC-CAL-3027
+    outcome_code: '71'
+    wrong_work: '$p(x)=0$인 점(중근 $x=0$ 포함)을 모두 미분불가능점으로 세거나, $x\le0$에서 $p\equiv0$인 경우에도 $x=0$을 미분불가능점으로 셈'
+    detect_cue: 좌·우미분계수를 계산하지 않고 "$\lvert p\rvert$의 근 = 미분불가능점"으로 처리했다
+    feedback: $\lvert p\rvert$가 미분불가능한 곳은 $p$의 부호가 바뀌며 기울기가 $0$이 아닌 근, 또는 좌·우 기울기가 다른 연결점입니다. 중근이나 항등적으로 $0$인 부분에서는 미분가능할 수 있습니다.
+    remedy: [RL-3]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CAL-3025}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-POLY-LIMIT}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-CAL-3026}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-EXTREMA-JUSTIFY}
+  priority: 1
+- id: RL-3
+  trigger: {type: misconception, ref: MC-CAL-3027}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-ABS-DIFF}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

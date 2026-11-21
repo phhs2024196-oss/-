@@ -1,0 +1,358 @@
+# 세종대 2026학년도 논술고사(자연계열B) 문제 3 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+# [판독확인] 원문 첫 줄 "n=1, 2, 3, ⋯ 100, 101에 대하여" — '⋯' 뒤 쉼표가 인쇄되어 있지 않음. 원문대로 옮김.
+schema_version: '2.0'
+id: SJU-G26B-03
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: SJU
+type: T04
+variant_of: null
+replaces: null
+level: L5
+form: 점화
+points: 240
+time_estimate_min: 35
+intent: |
+  베타적분 꼴 정적분을 이항정리로 묶어 계산하고, 부분적분으로 이웃 항의 비 $\dfrac{a_n}{a_{n+1}}$을 구해 수열의 증감과 최솟값의 위치를 판정한 뒤, 비의 곱(망원곱)으로 특정 항의 값을 구하는 능력을 본다.
+key_idea: |
+  $\dfrac{a_n}{2^n}=\displaystyle\int_0^1x^n(1-x)^{102-n}dx$이므로 (3-1)의 계수 $1,3,3,1$은 $\{(1-x)+x\}^3=1$로 묶인다. 부분적분으로 $\dfrac{a_n}{a_{n+1}}=\dfrac{102-n}{2(n+1)}$이고, 이 비가 $1$ 이상인 것은 $n\le33$이므로 $m=34$.
+stuck: |
+  (3-1)에서 $x^{98}(1-x)$를 공통인수로 꺼내 이항전개를 알아보는 것, (3-3)에서 $a_{34}$를 $a_{101}$(또는 $a_1$)부터 비를 곱해 나가 $_{102}\mathrm{C}_{34}$와 상쇄시키는 것
+idea_tags: [IDEA-BINOMIAL-REGROUP-INTEGRAND, IDEA-RATIO-RECURRENCE-MONOTONE, IDEA-TELESCOPING-PRODUCT]
+tags: [정적분의 점화식, 부분적분, 이항정리, 수열의 최솟값]
+elements:
+  materials:
+  - '$a_n=\displaystyle\int_0^1(2x)^n(1-x)^{102-n}dx$ $(n=1,\,2,\,\cdots,\,101)$'
+  - '계수 $1,3,3,1$로 묶인 네 항의 합'
+  - '이웃 항의 비 $\dfrac{a_n}{a_{n+1}}$'
+  - '$_{102}\mathrm{C}_m\times a_m$'
+  concepts:
+  - '정적분의 계산'
+  - '부분적분법'
+  - '이항정리'
+  - '수열의 증가와 감소'
+  - '조합의 수'
+  tools:
+  - '$2^n$을 적분 밖으로 빼기'
+  - '$\{(1-x)+x\}^3=1$로 묶기'
+  - '부분적분으로 $a_n$과 $a_{n+1}$의 관계식(점화식) 유도'
+  - '비 $\ge1$ 부등식 풀이'
+  - '비의 망원곱'
+  conditions:
+  - '$\dfrac{a_n}{a_{n+1}}=\dfrac{102-n}{2(n+1)}\ge1\iff n\le\dfrac{100}{3}$'
+  - '$a_1>a_2>\cdots>a_{34}<a_{35}<\cdots<a_{101}$'
+  - '$p$, $q$는 서로소인 자연수'
+  stimuli_used: []
+  subpart_links: '(3-3)은 (3-2)의 비 a_n/a_{n+1}=(102-n)/(2(n+1))과 n≤33 결과를 사용'
+
+curriculum:
+  version: '2015'
+  subjects: [미적분]
+  scope_2028: calc2
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 부분적분법을 이해하고 이를 활용할 수 있다(요지)
+    verified: false
+  content_area: 적분법
+  behavior_domain: 문제해결
+  unit_path: [미적분, 적분법, 여러 가지 적분법, 부분적분법]
+  key_concepts: [정적분의 계산, 부분적분법, 이항정리, 수열의 증가와 감소, 조합의 수]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 세종대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 세종대학교
+  admission_year: 2026
+  admission_type: 수시 논술고사
+  track: 자연계열B
+  question_no: 3
+  official_url: https://ipsi.sejong.ac.kr   # [확인 필요] 입학처 자료실의 정확한 게시물 URL로 교체
+  retrieved_at: 2026-11-21
+  original_points: [80, 80, 80]
+  rights_notice: 미확인(대학 원본 PDF 표지 문구 확인 필요)
+  transcribed_from: 대치 수리 논술 연구소 「2027학년도 대비 수리논술 세종대 기출 및 모의 문제」 p.12 + 해설교재 p.30~31 (원본 PDF 이미지 대조 완료 2026-11-21)
+
+verify: verify/SJU-G26B.py::p03
+
+stimuli: []
+
+stem: |
+  $n=1,\,2,\,3,\,\cdots\ 100,\,101$에 대하여
+  $$a_n=\int_0^1(2x)^n(1-x)^{102-n}dx$$
+  라 하자.
+
+subparts:
+- id: '1'
+  stem: |
+    $\dfrac{a_{98}}{2^{98}}+3\dfrac{a_{99}}{2^{99}}+3\dfrac{a_{100}}{2^{100}}+\dfrac{a_{101}}{2^{101}}=\dfrac qp$일 때, $p$와 $q$를 각각 구하시오.
+    (단, $p$, $q$는 서로소인 자연수이다.)
+  points: 80
+  depends_on: []
+  answer: {kind: value, value: 'p = 9900; q = 1', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $\dfrac{a_n}{2^n}=\displaystyle\int_0^1x^n(1-x)^{102-n}dx$이고, 네 피적분함수의 합은 $x^{98}(1-x)\{(1-x)+x\}^3=x^{98}-x^{99}$.
+    steps:
+    - {id: 1a, content: '$\int_0^1(x^{98}-x^{99})dx=\tfrac1{99}-\tfrac1{100}=\tfrac1{9900}$', criteria: ['1.M1', '1.M2', '1.A1']}
+    hint_ladder:
+    - $\dfrac{a_n}{2^n}$은 어떤 적분인가?
+    - 계수 $1,3,3,1$은 무엇의 전개 계수인가?
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 해설교재 p.30
+    steps:
+    - id: 1b-1
+      content: |
+        $\dfrac{a_n}{2^n}=\displaystyle\int_0^1x^n(1-x)^{102-n}dx$이므로 주어진 식은
+        $$\int_0^1\left\{x^{98}(1-x)^4+3x^{99}(1-x)^3+3x^{100}(1-x)^2+x^{101}(1-x)\right\}dx.$$
+      criteria: ['1.M1']
+    - id: 1b-2
+      content: |
+        $x^{98}(1-x)$를 묶으면 피적분함수는 $x^{98}(1-x)\left\{(1-x)^3+3x(1-x)^2+3x^2(1-x)+x^3\right\}=x^{98}(1-x)\{(1-x)+x\}^3=x^{98}-x^{99}$이다.
+      criteria: ['1.M2']
+    - id: 1b-3
+      content: |
+        $\displaystyle\int_0^1(x^{98}-x^{99})dx=\dfrac1{99}-\dfrac1{100}=\dfrac1{9900}$이므로 $p=9900$, $q=1$.
+      criteria: ['1.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 25
+      evidence: |
+        $\dfrac{a_n}{2^n}=\displaystyle\int_0^1x^n(1-x)^{102-n}dx$로 바꿔 네 항을 한 적분으로 합쳤다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1]
+    - id: 1.M2
+      mark_type: M
+      points: 30
+      evidence: |
+        공통인수 $x^{98}(1-x)$를 꺼내고 이항정리로 $\{(1-x)+x\}^3=1$을 적용해 피적분함수를 $x^{98}-x^{99}$로 정리했다.
+      depends_on: [1.M1]
+      steps: [1b-2]
+    - id: 1.A1
+      mark_type: A
+      points: 25
+      evidence: |
+        $\dfrac1{9900}$을 계산해 $p=9900$, $q=1$을 답했다.
+      depends_on: [1.M2]
+      steps: [1b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-ALG-3028}
+  misconceptions:
+  - id: MC-ALG-3028
+    outcome_code: '71'
+    wrong_work: '네 적분을 각각 전개해 계산하다 포기하거나, 계수 $1,3,3,1$을 무시하고 $\{(1-x)+x\}^4$로 묶음'
+    detect_cue: 공통인수 $x^{98}(1-x)$를 꺼내지 않았다
+    feedback: 네 항의 공통인수 $x^{98}(1-x)$를 꺼내면 남는 식은 $(1-x)^3+3x(1-x)^2+3x^2(1-x)+x^3=\{(1-x)+x\}^3$입니다.
+    remedy: [RL-1]
+
+- id: '2'
+  stem: |
+    $\dfrac{a_n}{a_{n+1}}\ge1$을 만족시키는 $n$을 모두 구하시오.
+  points: 80
+  depends_on: []
+  answer: {kind: set, value: '{1, 2, ..., 33}', equivalents: ['1<=n<=33'], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: $(1-x)^{102-n}$을 미분, $x^n$을 적분하는 부분적분으로 $a_n=\dfrac{102-n}{2(n+1)}a_{n+1}$.
+    steps:
+    - {id: 2a, content: '$\tfrac{102-n}{2(n+1)}\ge1\iff n\le\tfrac{100}{3}$, $n=1,2,\cdots,33$', criteria: ['2.M1', '2.A1', '2.A2']}
+    hint_ladder:
+    - $a_n$을 부분적분해서 $a_{n+1}$이 나오게 해 보자.
+  - id: S2-B
+    audience: B
+    method_no: 1
+    source_flow: 해설교재 p.30
+    steps:
+    - id: 2b-1
+      content: |
+        $a_n=2^n\displaystyle\int_0^1x^n(1-x)^{102-n}dx$를 부분적분하면
+        $$a_n=2^n\left[\dfrac{x^{n+1}}{n+1}(1-x)^{102-n}\right]_0^1+2^n\int_0^1\dfrac{x^{n+1}}{n+1}(102-n)(1-x)^{101-n}dx.$$
+      criteria: ['2.M1']
+    - id: 2b-2
+      content: |
+        경계항은 $0$이므로 $a_n=2^n\dfrac{102-n}{n+1}\displaystyle\int_0^1x^{n+1}(1-x)^{101-n}dx=\dfrac{102-n}{2(n+1)}a_{n+1}$, 즉 $\dfrac{a_n}{a_{n+1}}=\dfrac{102-n}{2(n+1)}$.
+      criteria: ['2.A1']
+    - id: 2b-3
+      content: |
+        $\dfrac{102-n}{2(n+1)}\ge1\iff102-n\ge2n+2\iff n\le\dfrac{100}{3}$이므로 $n=1,\,2,\,3,\,\cdots,\,33$.
+      criteria: ['2.A2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 30
+      evidence: |
+        $a_n$을 부분적분해 $a_{n+1}$꼴의 적분이 나오도록 했다.
+      depends_on: []
+      implied_ok: false
+      steps: [2b-1]
+    - id: 2.A1
+      mark_type: A
+      points: 30
+      evidence: |
+        $\dfrac{a_n}{a_{n+1}}=\dfrac{102-n}{2(n+1)}$을 얻었다.
+      depends_on: [2.M1]
+      steps: [2b-2]
+    - id: 2.A2
+      mark_type: A
+      points: 20
+      evidence: |
+        부등식을 풀어 $n=1,2,\cdots,33$을 답했다.
+      depends_on: [2.M1, 2.A1]
+      steps: [2b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-3028}
+  misconceptions:
+  - id: MC-CAL-3028
+    outcome_code: '71'
+    wrong_work: '부분적분에서 $\{(1-x)^{102-n}\}^{\prime}=(102-n)(1-x)^{101-n}$ (부호 누락) 또는 $2^n$과 $2^{n+1}$의 차이를 빠뜨려 $\dfrac{a_n}{a_{n+1}}=\dfrac{102-n}{n+1}$'
+    detect_cue: 비에 $\tfrac12$이 없거나 부호가 음수이다
+    feedback: $(1-x)^k$를 미분하면 $-k(1-x)^{k-1}$이고, 부분적분의 빼기와 합쳐 양수가 됩니다. $a_{n+1}$에는 $2^{n+1}$이 붙어 있으니 $\tfrac12$이 생깁니다.
+    remedy: [RL-2]
+
+- id: '3'
+  stem: |
+    $a_n$이 $n=m$에서 최솟값을 가질 때, $m$을 구하시오. 또한 $_{102}\mathrm{C}_m\times a_m=\dfrac qp$일 때, $p$와 $q$를 각각 구하시오. (단, $p$, $q$는 서로소인 자연수이다.)
+  points: 80
+  depends_on: ['2']
+  answer: {kind: value, value: 'm = 34; p = 103; q = 2**34', equivalents: [], tolerance: null}
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: (2)에서 $a_1>\cdots>a_{33}>a_{34}<a_{35}<\cdots<a_{101}$이므로 $m=34$. $a_{101}=\dfrac{2^{101}}{102\cdot103}$에서 비를 곱해 내려오면 $_{102}\mathrm{C}_{34}a_{34}=\dfrac{2^{34}}{103}$.
+    steps:
+    - {id: 3a, content: '$_{102}\mathrm{C}_{34}\times\tfrac{68}{2\cdot35}\times\cdots\times\tfrac{2}{2\cdot101}\times\tfrac{2^{101}}{102\cdot103}=\tfrac{2^{34}}{103}$', criteria: ['3.R1', '3.M1', '3.A1', '3.A2']}
+    hint_ladder:
+    - (2)에서 $n\le33$이면 $a_n\ge a_{n+1}$이다. $n=33$일 때 등호는 성립하는가?
+    - $a_{101}$은 직접 계산할 수 있다. 거기서부터 비를 곱해 내려가자.
+  - id: S3-B
+    audience: B
+    method_no: 1
+    source_flow: 해설교재 p.30
+    steps:
+    - id: 3b-1
+      content: |
+        (2)에서 $n\le33$이면 $\dfrac{a_n}{a_{n+1}}=\dfrac{102-n}{2(n+1)}>1$ ($\tfrac{100}{3}$은 정수가 아니므로 등호 없음), $n\ge34$이면 $<1$이므로 $a_1>a_2>\cdots>a_{33}>a_{34}<a_{35}<\cdots<a_{100}<a_{101}$이고 $m=34$이다.
+      criteria: ['3.R1']
+    - id: 3b-2
+      content: |
+        $_{102}\mathrm{C}_{34}\times a_{34}={}_{102}\mathrm{C}_{34}\times\dfrac{a_{34}}{a_{35}}\times\dfrac{a_{35}}{a_{36}}\times\cdots\times\dfrac{a_{100}}{a_{101}}\times a_{101}$이고
+        $a_{101}=2^{101}\displaystyle\int_0^1(x^{101}-x^{102})dx=\dfrac{2^{101}}{102\times103}$이다.
+      criteria: ['3.M1', '3.A1']
+    - id: 3b-3
+      content: |
+        $$_{102}\mathrm{C}_{34}\times\dfrac{68}{2\times35}\times\dfrac{67}{2\times36}\times\cdots\times\dfrac{2}{2\times101}\times\dfrac{2^{101}}{102\times103}=\dfrac{102!}{34!\,68!}\cdot\dfrac{68!\cdot34!}{2^{67}\cdot101!}\cdot\dfrac{2^{101}}{102\cdot103}=\dfrac{2^{34}}{103}.$$
+        따라서 $p=103$, $q=2^{34}$.
+      criteria: ['3.A2']
+  - id: S3-ALT1
+    audience: ALT
+    method_no: 2
+    source_flow: 해설교재 p.31 별해 1
+    key_idea: $a_1=\dfrac{2}{102\times103}$에서 시작해 $a_{n+1}=a_n\times\dfrac{2(n+1)}{102-n}$을 곱해 올라가면 $a_{34}=\dfrac{2^{34}\times34!\times68!}{103!}$이고 $_{102}\mathrm{C}_{34}\times a_{34}=\dfrac{2^{34}}{103}$.
+    steps:
+    - id: 3c-1
+      content: |
+        $a_{34}=\dfrac{2}{102\times103}\times\dfrac{2\times2}{101}\times\dfrac{2\times3}{100}\times\cdots\times\dfrac{2\times34}{69}=\dfrac{2^{34}\times34!\times68!}{103!}$, $\dfrac{102!}{34!\,68!}\times\dfrac{2^{34}\times34!\times68!}{103!}=\dfrac{2^{34}}{103}$.
+      criteria: ['3.M1', '3.A1', '3.A2']
+  - id: S3-ALT2
+    audience: ALT
+    method_no: 3
+    source_flow: 해설교재 p.31 별해 2
+    key_idea: $a_{101}=\dfrac{2^{101}}{102\times103}$에서 $a_{100}=a_{101}\times\dfrac{2}{2\times101}$, $a_{99}=a_{100}\times\dfrac{3}{2\times100}$, … 처럼 한 단계씩 내려가 $a_{34}$를 구한다(본풀이와 같은 곱).
+    steps:
+    - id: 3d-1
+      content: |
+        $a_{98}=\dfrac{2^{101}}{102\times103}\times\dfrac{2}{2\times101}\times\dfrac{3}{2\times100}\times\dfrac{4}{2\times99}$, … 이를 $a_{34}$까지 계속하면 같은 결과 $\dfrac{2^{34}}{103}$을 얻는다.
+      criteria: ['3.M1', '3.A2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 3.R1
+      mark_type: R
+      points: 20
+      evidence: |
+        (2)의 결과로 수열의 증감($a_{33}>a_{34}<a_{35}$)을 밝혀 $m=34$를 얻었다.
+      depends_on: []
+      ft: {allowed: true, from: [2.A1, 2.A2], max_points: 20}
+      steps: [3b-1]
+    - id: 3.M1
+      mark_type: M
+      points: 20
+      evidence: |
+        $a_{34}$를 $a_{101}$(또는 $a_1$)과 이웃 항의 비의 곱으로 나타냈다.
+      depends_on: []
+      implied_ok: false
+      steps: [3b-2]
+    - id: 3.A1
+      mark_type: A
+      points: 15
+      evidence: |
+        $a_{101}=\dfrac{2^{101}}{102\times103}$ (또는 $a_1=\dfrac{2}{102\times103}$)을 계산했다.
+      depends_on: [3.M1]
+      steps: [3b-2]
+    - id: 3.A2
+      mark_type: A
+      points: 25
+      evidence: |
+        곱을 정리해 $_{102}\mathrm{C}_{34}\times a_{34}=\dfrac{2^{34}}{103}$, $p=103$, $q=2^{34}$을 얻었다.
+      depends_on: [3.M1, 3.A1]
+      steps: [3b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-3029}
+  misconceptions:
+  - id: MC-CAL-3029
+    outcome_code: '71'
+    wrong_work: '(2)의 마지막 값 $n=33$을 그대로 최소점 $m=33$으로 답함'
+    detect_cue: $\dfrac{a_{33}}{a_{34}}>1$이 $a_{33}>a_{34}$를 뜻한다는 점을 반영하지 않았다
+    feedback: $\dfrac{a_n}{a_{n+1}}\ge1$은 $a_n\ge a_{n+1}$, 즉 다음 항으로 갈 때 줄어든다는 뜻입니다. $n=33$까지 줄어들므로 최솟값은 $a_{34}$입니다.
+    remedy: [RL-3]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-ALG-3028}
+  relation: remediation
+  target: {kind: concept, ref: CON-ALG-BINOMIAL}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-CAL-3028}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-INTEGRATION-BY-PARTS}
+  priority: 1
+- id: RL-3
+  trigger: {type: misconception, ref: MC-CAL-3029}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-DISCRETE-EXTREMUM}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

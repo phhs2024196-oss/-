@@ -1,0 +1,391 @@
+# 세종대 2015학년도 신입학 수시모집 논술고사[A] 문제 2 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+# [유형 제안] SJU T01~T10 중 맞는 유형 없음(구교육과정 수학Ⅰ 행렬) → type: null. 신설 제안: "행렬의 성질과 역행렬(구교육과정)"
+# curriculum.subjects: 행렬은 2009 개정 수학Ⅰ 단원(2015 개정에서 삭제, 2022 개정 공통수학1에 연산만 재도입). taxonomy 에 맞는 과목값이 없어 수학Ⅰ 로 둠.
+schema_version: '2.0'
+id: SJU-G15A-02
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: proof
+origin: past_exam
+school: SJU
+type: null
+variant_of: null
+replaces: null
+level: L3
+form: 귀류
+points: 40
+time_estimate_min: 25
+intent: |
+  멱영행렬 $N^3=O$의 성질을 이용해 $E-N$의 역행렬을 구성하고, 교환 가능한 행렬로 일반화하며, 귀류법과 성분 계산으로 $N$의 역행렬 부재와 $N^2=O$를 보이는 논증 능력을 본다.
+key_idea: |
+  $(E-N)(E+N+N^2)=E-N^3=E$. $N$이 역행렬을 가지면 $N^3=O$에 $N^{-1}$을 두 번 곱해 $N=O$이 되어 모순. $b=ac$이면 $N^2=(a+c)N$이므로 $O=N^3=(a+c)^2N$에서 $a+c=0$.
+stuck: |
+  (2-4)에서 $N^2$을 직접 계산해 $(a+c)N$으로 묶어 내는 것, $N\ne O$(성분 $1$)이므로 $a+c=0$을 끌어내는 것
+idea_tags: [IDEA-NILPOTENT-GEOMETRIC-SUM, IDEA-INVERSE-CONTRADICTION]
+tags: [구교육과정, 범위 밖(현행), 행렬, 역행렬]
+elements:
+  materials:
+  - '양의 상수 $a$와 $N=\begin{pmatrix}a&1\\b&c\end{pmatrix}$, $N^3=O$'
+  - '$NA=AN$을 만족하는 행렬 $A$'
+  concepts:
+  - '행렬의 곱셈과 거듭제곱'
+  - '역행렬의 정의'
+  - '역행렬이 존재할 조건($ad-bc\ne0$)'
+  - '행렬 곱셈의 교환법칙이 성립하지 않음'
+  tools:
+  - '$(E-N)(E+N+N^2)=E-N^3$ 전개'
+  - '$NA=AN$일 때 $(AN)^3=A^3N^3$'
+  - '귀류법($N^{-1}$을 곱해 $N=O$ 모순)'
+  - '성분 계산으로 $N^2=(a+c)N$'
+  conditions:
+  - '$N^3=O$'
+  - '$N$의 $(1,2)$성분이 $1$ ⇒ $N\ne O$'
+  - '역행렬 부재 ⇔ $ac-b=0$'
+  stimuli_used: []
+  subpart_links: '(2-2)는 (2-1)의 결과를 AN에 적용하고, (2-4)는 (2-3)의 b=ac를 사용'
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅰ]
+  scope_2028: unknown
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: (2009 개정 수학Ⅰ) 행렬의 곱셈과 역행렬의 뜻을 알고 그 성질을 이해한다(요지)
+    verified: false
+  content_area: 행렬과 그래프(구교육과정)
+  behavior_domain: 추론
+  unit_path: [수학Ⅰ(2009), 행렬과 그래프, 역행렬]
+  key_concepts:
+  - 행렬의 곱셈과 거듭제곱
+  - 역행렬의 정의
+  - 역행렬이 존재할 조건($ad-bc\ne0$)
+  - 행렬 곱셈의 교환법칙이 성립하지 않음
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 세종대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 세종대학교
+  admission_year: 2015
+  admission_type: 수시 논술고사 [A]
+  track: 자연계열
+  question_no: 2
+  official_url: https://ipsi.sejong.ac.kr   # [확인 필요] 입학처 자료실의 정확한 게시물 URL로 교체
+  retrieved_at: 2026-11-21
+  original_points: [10, 10, 10, 10]
+  rights_notice: 미확인(대학 원본 PDF 표지 문구 확인 필요)
+  transcribed_from: 대치 수리 논술 연구소 「2027학년도 대비 수리논술 세종대 기출 및 모의 문제」 p.116 + 해설교재 p.196 (원본 PDF 이미지 대조 완료 2026-11-21)
+
+verify: verify/SJU-G15A.py::p02
+
+stimuli: []
+
+stem: |
+  양의 상수 $a$에 대하여 이차정사각행렬 $N=\begin{pmatrix}a&1\\b&c\end{pmatrix}$가 조건 $N^3=O$을 만족한다. 각 물음에 답하시오.(단, $O$은 $2\times2$ 영행렬이고, $E$는 $2\times2$ 단위행렬이다.)
+
+subparts:
+- id: '1'
+  stem: |
+    행렬 $E-N$의 역행렬이 $E+N+N^2$임을 근거를 들어 설명하시오.
+  points: 10
+  depends_on: []
+  answer: {kind: proof, value: null, equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: 곱을 전개하면 $E-N^3=E$.
+    steps:
+    - {id: 1a, content: '$(E-N)(E+N+N^2)=(E+N+N^2)(E-N)=E-N^3=E$', criteria: ['1.M1', '1.R1']}
+    hint_ladder:
+    - $1-x^3=(1-x)(1+x+x^2)$을 떠올려 보자.
+  - id: S1-B
+    audience: B
+    source_flow: 해설교재 p.196
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        분배법칙으로 전개하면 $(E-N)(E+N+N^2)=E+N+N^2-N-N^2-N^3=E-N^3$이고, 조건 $N^3=O$에서 이 값은 $E$이다. 같은 방법으로 $(E+N+N^2)(E-N)=E-N^3=E$이다.
+      criteria: ['1.M1']
+    - id: 1b-2
+      content: |
+        두 순서의 곱이 모두 $E$이므로 역행렬의 정의에 의해 $E-N$의 역행렬은 $E+N+N^2$이다. ■
+      criteria: ['1.R1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 6
+      evidence: |
+        $(E-N)(E+N+N^2)$을 전개해 $E-N^3=E$를 보였다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1]
+    - id: 1.R1
+      mark_type: R
+      points: 4
+      evidence: |
+        역행렬의 정의(곱이 $E$)를 근거로 결론을 적었다.
+      depends_on: [1.M1]
+      steps: [1b-2]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-PRF-0003}
+  misconceptions:
+  - id: MC-PRF-0003
+    outcome_code: '71'
+    wrong_work: '$(E-N)^{-1}=E+N+N^2$이라 두고 양변에 $E-N$을 곱해 $N^3=O$을 얻었으므로 성립한다고 씀'
+    detect_cue: 결론을 가정하고 조건으로 거꾸로 도달했다
+    feedback: 주어진 조건 $N^3=O$에서 출발해 곱이 $E$가 됨을 보이세요.
+    remedy: [RL-1]
+
+- id: '2'
+  stem: |
+    이차정사각행렬 $A$가 $NA=AN$을 만족할 때, 행렬 $E-AN$의 역행렬을 구하시오.
+  points: 10
+  depends_on: ['1']
+  answer: {kind: expression, value: 'E + A*N + A**2*N**2', equivalents: ['E + A*N + (A*N)**2', 'E + A*N'], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: $NA=AN$이면 $(AN)^3=A^3N^3=O$이므로 (2-1)을 $AN$에 적용한다.
+    steps:
+    - {id: 2a, content: '$(E-AN)^{-1}=E+AN+(AN)^2=E+AN+A^2N^2$', criteria: ['2.M1', '2.A1']}
+    hint_ladder:
+    - $AN$도 세제곱하면 $O$이 되는가? 무엇이 필요한가?
+  - id: S2-B
+    audience: B
+    source_flow: 해설교재 p.196
+    method_no: 1
+    steps:
+    - id: 2b-1
+      content: |
+        $NA=AN$이므로 $(AN)^3=ANANAN=A^3N^3=O$이다.
+      criteria: ['2.M1']
+    - id: 2b-2
+      content: |
+        (2-1)의 결과를 $AN$에 적용하면 $E-AN$의 역행렬은 $E+AN+(AN)^2=E+AN+A^2N^2$이다.
+      criteria: ['2.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 5
+      evidence: |
+        $NA=AN$을 근거로 $(AN)^3=A^3N^3=O$을 보였다.
+      depends_on: []
+      implied_ok: false
+      steps: [2b-1]
+    - id: 2.A1
+      mark_type: A
+      points: 5
+      evidence: |
+        $E+AN+A^2N^2$(또는 $E+AN+(AN)^2$)을 얻었다.
+      depends_on: [2.M1]
+      ft: {allowed: true, from: [1.M1], max_points: 5}
+      steps: [2b-2]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-ALG-3178}
+  misconceptions:
+  - id: MC-ALG-3178
+    outcome_code: '71'
+    wrong_work: '$(AN)^3=A^3N^3$을 $NA=AN$ 언급 없이 바로 씀'
+    detect_cue: 교환 조건을 쓰지 않고 거듭제곱을 분리했다
+    feedback: 행렬은 일반적으로 $AN\ne NA$입니다. $(AN)^3=A^3N^3$은 $NA=AN$일 때만 성립합니다.
+    remedy: [RL-2]
+
+- id: '3'
+  stem: |
+    행렬 $N$의 조건으로부터 $N$의 역행렬이 존재하지 않음을 보이고, $b=ac$임을 보이시오.
+  points: 10
+  depends_on: []
+  answer: {kind: proof, value: null, equivalents: [], tolerance: null}
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: $N^{-1}$이 있으면 $N=N^{-2}N^3=O$이 되어 모순, 따라서 $ac-b=0$.
+    steps:
+    - {id: 3a, content: '$N^{-1}N^3=N^2=O$, $N^{-1}N^2=N=O$ 모순 ⇒ $ac-b=0$', criteria: ['3.M1', '3.R1', '3.A1']}
+    hint_ladder:
+    - 역행렬이 있다고 가정하고 $N^3=O$의 양변에 곱해 보자.
+  - id: S3-B
+    audience: B
+    source_flow: 해설교재 p.196
+    method_no: 1
+    steps:
+    - id: 3b-1
+      content: |
+        $N$이 역행렬 $N^{-1}$을 가진다고 가정하자. $N^3=O$의 양변에 왼쪽에서 $N^{-1}$을 곱하면 $N^2=O$이고, 다시 곱하면 $N=O$이다.
+      criteria: ['3.M1']
+    - id: 3b-2
+      content: |
+        그런데 $N$의 $(1,2)$성분은 $1$이므로 $N\ne O$이다. 모순이므로 $N$은 역행렬을 갖지 않는다.
+      criteria: ['3.R1']
+    - id: 3b-3
+      content: |
+        이차정사각행렬 $N$이 역행렬을 갖지 않을 조건은 $ac-b\cdot1=0$이므로 $b=ac$이다. ■
+      criteria: ['3.A1']
+  - id: S3-ALT
+    audience: ALT
+    source_flow: 해설교재 p.196 별해
+    method_no: 2
+    key_idea: $N^3$을 성분으로 계산해 $N^3=O$을 직접 푼다.
+    steps:
+    - id: 3c-1
+      content: |
+        $N^3=\begin{pmatrix}a^3+2ab+bc&a^2+b+ac+c^2\\a^2b+abc+b^2+bc^2&ab+2bc+c^3\end{pmatrix}=O$을 풀면($a>0$) $c=-a$, $b=-a^2$, 즉 $N=\begin{pmatrix}a&1\\-a^2&-a\end{pmatrix}$이다.
+        $a(-a)-1\cdot(-a^2)=0$이므로 $N$은 역행렬을 갖지 않고, $b=-a^2=ac$이다.
+      criteria: ['3.M1', '3.R1', '3.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 4
+      evidence: |
+        역행렬이 있다고 가정하고 $N^3=O$에 $N^{-1}$을 곱해 $N=O$을 끌어냈다(또는 $N^3$ 성분 계산).
+      depends_on: []
+      implied_ok: false
+      steps: [3b-1, 3c-1]
+    - id: 3.R1
+      mark_type: R
+      points: 3
+      evidence: |
+        $N\ne O$($(1,2)$성분 $1$)과 모순임을 밝혀 역행렬이 없음을 결론지었다.
+      depends_on: [3.M1]
+      steps: [3b-2, 3c-1]
+    - id: 3.A1
+      mark_type: A
+      points: 3
+      evidence: |
+        역행렬이 없을 조건 $ac-b=0$에서 $b=ac$를 적었다.
+      depends_on: [3.R1]
+      steps: [3b-3, 3c-1]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '21', meaning: 만점(성분 계산 별해)}
+  - {code: '71', misconception: MC-ALG-3179}
+  misconceptions:
+  - id: MC-ALG-3179
+    outcome_code: '71'
+    wrong_work: '$N^3=O$이므로 $N=O$이고 따라서 역행렬이 없다'
+    detect_cue: $N^3=O\Rightarrow N=O$을 근거 없이 썼다($N\ne O$인데도)
+    feedback: 행렬은 $N\ne O$이어도 $N^3=O$일 수 있습니다. 역행렬을 가정했을 때만 $N=O$이 나오고, 그것이 모순입니다.
+    remedy: [RL-3]
+
+- id: '4'
+  stem: |
+    $N^2=O$이 성립함을 보이시오.
+  points: 10
+  depends_on: ['3']
+  answer: {kind: proof, value: null, equivalents: [], tolerance: null}
+  solutions:
+  - id: S4-A
+    audience: A
+    method_no: 1
+    key_idea: $b=ac$이면 $N^2=(a+c)N$, $O=N^3=(a+c)^2N$, $N\ne O$이므로 $a+c=0$.
+    steps:
+    - {id: 4a, content: '$N^2=(a+c)N\Rightarrow(a+c)^2N=O\Rightarrow a+c=0\Rightarrow N^2=O$', criteria: ['4.M1', '4.A1', '4.R1']}
+    hint_ladder:
+    - $b=ac$를 넣고 $N^2$을 계산해 $N$과 비교해 보자.
+  - id: S4-B
+    audience: B
+    source_flow: 해설교재 p.196
+    method_no: 1
+    steps:
+    - id: 4b-1
+      content: |
+        (2-3)에서 $b=ac$이므로 $N=\begin{pmatrix}a&1\\ac&c\end{pmatrix}$이고
+        $N^2=\begin{pmatrix}a^2+ac&a+c\\a^2c+ac^2&ac+c^2\end{pmatrix}=(a+c)N$이다.
+      criteria: ['4.M1', '4.A1']
+    - id: 4b-2
+      content: |
+        $O=N^3=N\cdot N^2=(a+c)N^2=(a+c)^2N$이고 $N\ne O$이므로 $a+c=0$이다. 따라서 $N^2=(a+c)N=O$이다. ■
+      criteria: ['4.R1']
+  - id: S4-ALT
+    audience: ALT
+    source_flow: 해설교재 p.196 별해
+    method_no: 2
+    key_idea: (2-3) 별해의 $N=\begin{pmatrix}a&1\\-a^2&-a\end{pmatrix}$를 직접 제곱한다.
+    steps:
+    - id: 4c-1
+      content: |
+        $N^2=\begin{pmatrix}a&1\\-a^2&-a\end{pmatrix}\begin{pmatrix}a&1\\-a^2&-a\end{pmatrix}=\begin{pmatrix}a^2-a^2&a-a\\-a^3+a^3&-a^2+a^2\end{pmatrix}=O$이다.
+      criteria: ['4.M1', '4.A1', '4.R1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 4.M1
+      mark_type: M
+      points: 3
+      evidence: |
+        $b=ac$를 대입해 $N^2$을 성분으로 계산했다.
+      depends_on: []
+      implied_ok: false
+      ft: {allowed: true, from: [3.A1], max_points: 3}
+      steps: [4b-1, 4c-1]
+    - id: 4.A1
+      mark_type: A
+      points: 3
+      evidence: |
+        $N^2=(a+c)N$을 얻었다(별해: $N^2=O$ 직접 계산).
+      depends_on: [4.M1]
+      steps: [4b-1, 4c-1]
+    - id: 4.R1
+      mark_type: R
+      points: 4
+      evidence: |
+        $(a+c)^2N=O$과 $N\ne O$에서 $a+c=0$을 이끌어 $N^2=O$을 결론지었다.
+      depends_on: [4.A1]
+      steps: [4b-2, 4c-1]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '21', meaning: 만점(별해)}
+  - {code: '71', misconception: MC-ALG-3179}
+  misconceptions:
+  - id: MC-ALG-3179
+    outcome_code: '71'
+    wrong_work: '$(a+c)^2N=O$에서 $N=O$ 또는 $a+c=0$이라 하고 $N=O$인 경우를 배제하지 않음 / $N^3=O$에서 바로 $N^2=O$'
+    detect_cue: $N\ne O$인 근거($(1,2)$성분 $1$)가 없다
+    feedback: 스칼라 $k$에 대해 $kN=O$이고 $N\ne O$이면 $k=0$입니다. $N\ne O$인 이유를 쓰세요.
+    remedy: [RL-3]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-PRF-0003}
+  relation: remediation
+  target: {kind: concept, ref: CON-PRF-EQUIV-CHAIN}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-ALG-3178}
+  relation: remediation
+  target: {kind: concept, ref: CON-ALG-MATRIX-ALGEBRA}
+  priority: 1
+- id: RL-3
+  trigger: {type: misconception, ref: MC-ALG-3179}
+  relation: remediation
+  target: {kind: concept, ref: CON-ALG-MATRIX-ALGEBRA}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

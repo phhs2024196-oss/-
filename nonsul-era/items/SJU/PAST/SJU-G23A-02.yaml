@@ -1,0 +1,375 @@
+# 세종대 2023학년도 수시모집 논술고사[A형] 문제 2 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+# type: null — SJU T01~T10 에 '음함수로 정의된 함수의 미분과 최대·최소' 유형이 없음. 신설 제안: "음함수(관계식)로 정의된 함수의 미분과 극값·부등식"
+schema_version: '2.0'
+id: SJU-G23A-02
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: SJU
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 추론
+points: 230
+time_estimate_min: 35
+intent: |
+  음함수 미분법으로 접선의 기울기와 극값을 구하고, 같은 함숫값을 갖는 두 점의 관계식을 지수 부등식으로 바꿔 범위를 판정하는 능력을 본다.
+key_idea: |
+  $y'=\dfrac{x+y-1}{x+y+1}$이므로 $y'=0\iff x+y=1$이고 관계식에서 $x=y=\tfrac12$. $f(0)=f(\alpha)=\beta$이면 $\beta=\dfrac{\alpha}{e^\alpha-1}>\tfrac12$이 되어 $2\alpha+1>e^\alpha$.
+stuck: |
+  두 관계식 $\beta+\ln\beta=0$, $\beta+\ln(\alpha+\beta)=\alpha$를 빼서 $\beta$를 $\alpha$로 나타내고, 최솟값 $\tfrac12$을 부등식의 근거로 쓰는 발상
+idea_tags: [IDEA-IMPLICIT-CRITICAL, IDEA-MIN-VALUE-TO-INEQUALITY]
+tags: [음함수 미분, 최솟값, 지수 부등식]
+elements:
+  materials:
+  - '관계식 $y+\ln(x+y)=x$로 정의된 함수 $y=f(x)$'
+  - '곡선 위의 점 $\left(\frac{e+1}{2},\frac{e-1}{2}\right)$'
+  - '같은 함숫값 $f(0)=f(\alpha)=\beta$'
+  concepts:
+  - '음함수의 미분법'
+  - '로그함수의 미분'
+  - '접선의 기울기'
+  - '함수의 극값과 최솟값'
+  - '이계도함수'
+  - '지수함수의 그래프'
+  tools:
+  - '음함수 미분으로 $y''=\frac{x+y-1}{x+y+1}$'
+  - '$y''=0\iff x+y=1$과 관계식 연립'
+  - '이계도함수 판정(또는 $y''''=\frac{4(x+y)}{(x+y+1)^3}>0$)'
+  - '두 관계식의 차로 $\beta=\frac{\alpha}{e^\alpha-1}$'
+  - '$y=e^x$와 $y=2x+1$의 그래프 비교'
+  conditions:
+  - '$x+y>0$ (로그의 진수 조건)'
+  - '최솟값 $\frac12$은 $x=\frac12$에서만 ⇒ $f(0)=\beta>\frac12$'
+  - '$\alpha\ne0$, $f(\alpha)=f(0)$ ⇒ $\alpha>\frac12>0$'
+  - '$2\cdot2+1=5<e^2$ ⇒ $\alpha<x_0<2$'
+  stimuli_used: []
+  subpart_links: '(2-3)은 (2-2)의 최솟값 1/2(과 x<1/2 감소, x>1/2 증가)을 부등식의 근거로 사용'
+
+curriculum:
+  version: '2015'
+  subjects: [미적분]
+  scope_2028: calc2
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 음함수의 미분법을 이해하고, 도함수를 이용하여 함수의 극값과 최댓값·최솟값을 구할 수 있다(요지)
+    verified: false
+  content_area: 미분법 – 여러 가지 미분법, 도함수의 활용
+  behavior_domain: 문제해결
+  unit_path: [미적분, 미분법, 여러 가지 미분법, 음함수의 미분법]
+  key_concepts: [음함수의 미분법, 로그함수의 미분, 접선의 기울기, 함수의 극값과 최솟값, 이계도함수, 지수함수의 그래프]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 세종대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 세종대학교
+  admission_year: 2023
+  admission_type: 수시 논술고사 A형
+  track: 자연계열
+  question_no: 2
+  official_url: https://ipsi.sejong.ac.kr   # [확인 필요] 입학처 자료실의 정확한 게시물 URL로 교체
+  retrieved_at: 2026-11-21
+  original_points: [70, 80, 80]
+  rights_notice: 미확인(대학 원본 PDF 표지 문구 확인 필요)
+  transcribed_from: 대치 수리 논술 연구소 「2027학년도 대비 수리논술 세종대 기출 및 모의 문제」 p.37 + 해설교재 p.83 (원본 PDF 이미지 대조 완료 2026-11-21)
+
+verify: verify/SJU-G23A.py::p02
+
+stimuli: []
+
+stem: |
+  실수 전체의 집합에서 정의된 함수 $f(x)$에 대하여 $y=f(x)$라 할 때 $y+\ln(x+y)=x$가 성립한다.
+
+subparts:
+- id: '1'
+  stem: |
+    곡선 $y=f(x)$ 위의 점 $\left(\dfrac{e+1}{2},\,\dfrac{e-1}{2}\right)$에서의 접선의 기울기를 구하시오.
+  points: 70
+  depends_on: []
+  answer: {kind: expression, value: '(e-1)/(e+1)', equivalents: ['(E-1)/(E+1)'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: 양변을 $x$로 미분해 $y'$을 $x+y$로 나타내고, 주어진 점에서 $x+y=e$를 대입한다.
+    steps:
+    - {id: 1a, content: '$y^{\prime}=\dfrac{x+y-1}{x+y+1}$, $x+y=e\Rightarrow y^{\prime}=\dfrac{e-1}{e+1}$', criteria: ['1.M1', '1.A1', '1.A2']}
+    hint_ladder:
+    - $\ln(x+y)$를 $x$로 미분하면 무엇이 되는가?
+  - id: S1-B
+    audience: B
+    source_flow: 해설교재 p.83
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        $y+\ln(x+y)=x$의 양변을 $x$에 대하여 미분하면 $y'+\dfrac{1+y'}{x+y}=1$이다.
+      criteria: ['1.M1']
+    - id: 1b-2
+      content: |
+        양변에 $x+y$를 곱해 정리하면 $y'(x+y+1)=x+y-1$, 즉 $y'=\dfrac{x+y-1}{x+y+1}$이다.
+      criteria: ['1.A1']
+    - id: 1b-3
+      content: |
+        점 $\left(\dfrac{e+1}{2},\dfrac{e-1}{2}\right)$에서 $x+y=e$이므로 접선의 기울기는 $\dfrac{e-1}{e+1}$이다.
+      criteria: ['1.A2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 25
+      evidence: |
+        관계식의 양변을 $x$로 미분하며 $\ln(x+y)$의 도함수를 $\dfrac{1+y'}{x+y}$로 썼다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1]
+    - id: 1.A1
+      mark_type: A
+      points: 25
+      evidence: |
+        $y'=\dfrac{x+y-1}{x+y+1}$ 또는 동치식을 얻었다.
+      depends_on: [1.M1]
+      steps: [1b-2]
+    - id: 1.A2
+      mark_type: A
+      points: 20
+      evidence: |
+        기울기 $\dfrac{e-1}{e+1}$을 얻었다.
+      depends_on: [1.M1, 1.A1]
+      steps: [1b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-3071}
+  misconceptions:
+  - id: MC-CAL-3071
+    outcome_code: '71'
+    wrong_work: '$y^{\prime}+\dfrac{1}{x+y}=1$로 미분해 $y^{\prime}=1-\dfrac1e$'
+    detect_cue: $\ln(x+y)$의 도함수에 $(1+y')$가 없다
+    feedback: $x+y$를 $x$로 미분하면 $1+y'$입니다. 합성함수 미분을 빠뜨리지 마세요.
+    remedy: [RL-1]
+
+- id: '2'
+  stem: |
+    함수 $f(x)$의 최솟값을 구하시오.
+  points: 80
+  depends_on: ['1']
+  answer: {kind: value, value: '1/2', equivalents: ['0.5'], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: $y'=0\iff x+y=1$이고 관계식에서 $\ln1=0$이므로 $y=x$, 따라서 $x=y=\tfrac12$이 유일한 임계점이며 $y''>0$.
+    steps:
+    - {id: 2a, content: '$y^{\prime}=0\Rightarrow x+y=1,\ x=y=\tfrac12$, $y^{\prime\prime}(\tfrac12)=\tfrac12>0$', criteria: ['2.M1', '2.A1', '2.M2', '2.R1']}
+    hint_ladder:
+    - $y'=0$이면 $x+y$는 얼마인가?
+    - 그때 관계식에서 $\ln(x+y)$는 얼마인가?
+  - id: S2-B
+    audience: B
+    source_flow: 해설교재 p.83
+    method_no: 1
+    steps:
+    - id: 2b-1
+      content: |
+        (2-1)의 $y'=\dfrac{x+y-1}{x+y+1}$에서 $x+y>0$이므로 $y'=0\iff x+y=1$이다.
+      criteria: ['2.M1']
+    - id: 2b-2
+      content: |
+        이때 $\ln(x+y)=0$이므로 관계식에서 $y=x$이고, $x+y=1$과 연립하면 $x=y=\dfrac12$이다. 따라서 $y'=0$인 점은 $x=\dfrac12$ 하나뿐이다.
+      criteria: ['2.A1']
+    - id: 2b-3
+      content: |
+        $y''=\dfrac{(1+y')(x+y+1)-(x+y-1)(1+y')}{(x+y+1)^2}$이고 $x=\dfrac12$에서 $y'=0$, $x+y=1$이므로 $y''=\dfrac{1\cdot2-0}{4}=\dfrac12>0$이다.
+      criteria: ['2.M2']
+    - id: 2b-4
+      content: |
+        $f$는 미분가능하고 임계점이 $x=\dfrac12$ 하나뿐이며 그 점에서 극소이므로 그 극솟값이 최솟값이다. 최솟값은 $f\!\left(\dfrac12\right)=\dfrac12$이다.
+      criteria: ['2.R1']
+  - id: S2-ALT1
+    audience: ALT
+    source_flow: 해설교재 p.83 별해1
+    method_no: 2
+    key_idea: $y''=\dfrac{4(x+y)}{(x+y+1)^3}>0$이므로 곡선은 아래로 볼록이고 유일한 임계점에서 최소.
+    steps:
+    - id: 2c-1
+      content: |
+        $1+y'=\dfrac{2(x+y)}{x+y+1}$를 써서 정리하면 $y''=\dfrac{4(x+y)}{(x+y+1)^3}$이고 $x+y>0$이므로 항상 $y''>0$이다. 따라서 $y'=0$인 $x=\tfrac12$에서 최솟값 $\tfrac12$을 갖는다.
+      criteria: ['2.M2', '2.R1']
+  - id: S2-ALT2
+    audience: ALT
+    source_flow: 해설교재 p.83 별해2
+    method_no: 3
+    key_idea: 관계식에서 $x+y>1\iff x>y$이므로 $y'$의 부호와 $x$의 위치를 연결한다.
+    steps:
+    - id: 2d-1
+      content: |
+        $y'>0\iff x+y>1\iff \ln(x+y)>0\iff x>y$이고, 이때 $x+y>1$, $x>y$에서 $x>\tfrac12$이다. 마찬가지로 $y'<0$이면 $x<\tfrac12$이다. 따라서 $f$는 $x<\tfrac12$에서 감소, $x>\tfrac12$에서 증가하고 최솟값은 $f(\tfrac12)=\tfrac12$이다.
+      criteria: ['2.M2', '2.R1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 20
+      evidence: |
+        $y'=0$에서 $x+y=1$을 얻었다.
+      depends_on: []
+      implied_ok: false
+      ft: {allowed: true, from: [1.A1], max_points: 20}
+      steps: [2b-1]
+    - id: 2.A1
+      mark_type: A
+      points: 20
+      evidence: |
+        관계식과 연립해 임계점 $x=y=\dfrac12$(유일)을 얻었다.
+      depends_on: [2.M1]
+      steps: [2b-2]
+    - id: 2.M2
+      mark_type: M
+      points: 20
+      evidence: |
+        이계도함수의 부호(또는 $y'$의 부호 변화)로 $x=\dfrac12$에서 극소임을 판정했다.
+      depends_on: []
+      implied_ok: false
+      steps: [2b-3, 2c-1, 2d-1]
+    - id: 2.R1
+      mark_type: R
+      points: 20
+      evidence: |
+        유일한 임계점에서의 극소(또는 볼록성·증감)임을 근거로 최솟값 $\dfrac12$이라고 결론지었다.
+      depends_on: [2.A1, 2.M2]
+      steps: [2b-4, 2c-1, 2d-1]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점(이계도함수 판정)}
+  - {code: '21', meaning: 만점(증감 판정)}
+  - {code: '71', misconception: MC-CAL-3003}
+  misconceptions:
+  - id: MC-CAL-3003
+    outcome_code: '71'
+    wrong_work: '$y^{\prime}=0$인 $x=\tfrac12$을 찾고 바로 최솟값 $\tfrac12$'
+    detect_cue: 극소·최소의 판정 근거(이계도함수, 부호 변화, 유일성)가 없다
+    feedback: 임계점이 최소가 되는 이유를 이계도함수나 증감으로 보이세요.
+    remedy: [RL-2]
+
+- id: '3'
+  stem: |
+    $f(0)=f(\alpha)=\beta$일 때, $\beta$를 $\alpha$의 식으로 표현하고 $\alpha<2$임을 보이시오. (단, $\alpha\neq0$)
+  points: 80
+  depends_on: ['2']
+  answer: {kind: expression, value: 'beta = alpha/(exp(alpha)-1)', equivalents: [], tolerance: null}
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: 두 관계식의 차에서 $\beta=\dfrac{\alpha}{e^\alpha-1}$, 최솟값으로 $\beta>\tfrac12$이므로 $2\alpha+1>e^\alpha$, 그런데 $e^2>5$.
+    steps:
+    - {id: 3a, content: '$e^\alpha=1+\dfrac\alpha\beta$, $\beta>\tfrac12\Rightarrow 2\alpha+1>e^\alpha\Rightarrow\alpha<x_0<2$', criteria: ['3.M1', '3.A1', '3.M2', '3.R1']}
+    hint_ladder:
+    - $f(0)=\beta$, $f(\alpha)=\beta$를 각각 관계식에 대입해 보자.
+    - $\beta$와 최솟값 $\tfrac12$의 대소는?
+    - $y=e^x$와 $y=2x+1$의 그래프는 어디서 만나는가?
+  - id: S3-B
+    audience: B
+    source_flow: 해설교재 p.83
+    method_no: 1
+    steps:
+    - id: 3b-1
+      content: |
+        $(0,\beta)$, $(\alpha,\beta)$가 곡선 위에 있으므로 $\beta+\ln\beta=0$, $\beta+\ln(\alpha+\beta)=\alpha$이다. 두 식을 빼면 $\alpha=\ln(\alpha+\beta)-\ln\beta=\ln\!\left(1+\dfrac{\alpha}{\beta}\right)$이다.
+      criteria: ['3.M1']
+    - id: 3b-2
+      content: |
+        $e^\alpha=1+\dfrac{\alpha}{\beta}$이고 $\alpha\ne0$이므로 $\beta=\dfrac{\alpha}{e^\alpha-1}$이다.
+      criteria: ['3.A1']
+    - id: 3b-3
+      content: |
+        (2-2)에서 $f$는 $x<\dfrac12$에서 감소, $x>\dfrac12$에서 증가하고 최솟값 $\dfrac12$은 $x=\dfrac12$에서만 갖는다. $f(\alpha)=f(0)$, $\alpha\ne0$이므로 $\alpha>\dfrac12>0$이고, $\beta=f(0)>\dfrac12$이다. 따라서 $\dfrac{\alpha}{e^\alpha-1}>\dfrac12$, 분모가 양수이므로 $2\alpha+1>e^\alpha$이다.
+      criteria: ['3.M2']
+    - id: 3b-4
+      content: |
+        $y=e^x$와 $y=2x+1$은 $x=0$과 $x=x_0$ ($x_0>0$)에서 만나고, $2x+1>e^x$인 양수 $x$의 범위는 $0<x<x_0$이다. $x=2$에서 $2\cdot2+1=5<e^2$이므로 $2$는 $0<x\le x_0$에 속하지 않아 $x_0<2$이고, 따라서 $\alpha<x_0<2$이다. ■
+      criteria: ['3.R1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 20
+      evidence: |
+        $\beta+\ln\beta=0$, $\beta+\ln(\alpha+\beta)=\alpha$를 세우고 두 식을 연립했다.
+      depends_on: []
+      implied_ok: false
+      steps: [3b-1]
+    - id: 3.A1
+      mark_type: A
+      points: 20
+      evidence: |
+        $\beta=\dfrac{\alpha}{e^\alpha-1}$을 얻었다.
+      depends_on: [3.M1]
+      steps: [3b-2]
+    - id: 3.M2
+      mark_type: M
+      points: 20
+      evidence: |
+        (2-2)의 최솟값을 근거로 $\beta>\dfrac12$(그리고 $\alpha>0$)을 써서 $2\alpha+1>e^\alpha$를 얻었다.
+      depends_on: [3.A1]
+      ft: {allowed: true, from: [2.A1, 2.R1], max_points: 20}
+      steps: [3b-3]
+    - id: 3.R1
+      mark_type: R
+      points: 20
+      evidence: |
+        $y=e^x$와 $y=2x+1$의 위치 관계와 $5<e^2$을 근거로 $\alpha<2$를 결론지었다.
+      depends_on: [3.M2]
+      steps: [3b-4]
+    deductions:
+    - code: D3-1
+      condition: $\alpha>0$의 근거 없이 분모 $e^\alpha-1$을 양수로 두고 부등식을 정리
+      effect: minus
+      value: 5
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-PRF-0011}
+  misconceptions:
+  - id: MC-PRF-0011
+    outcome_code: '71'
+    wrong_work: '$\alpha\approx1.04$을 수치로 구해 $\alpha<2$라고 씀'
+    detect_cue: 부등식 $2\alpha+1>e^\alpha$와 $e^2>5$ 비교 없이 근삿값만 있다
+    feedback: 근삿값은 증명이 아닙니다. $2\alpha+1>e^\alpha$와 $x=2$에서의 대소 비교로 보이세요.
+    remedy: [RL-3]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CAL-3071}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-IMPLICIT-DIFF}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-CAL-3003}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-EXTREMA-JUSTIFY}
+  priority: 1
+- id: RL-3
+  trigger: {type: misconception, ref: MC-PRF-0011}
+  relation: remediation
+  target: {kind: concept, ref: CON-PRF-EQUIV-CHAIN}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

@@ -1,0 +1,347 @@
+# [판독확인] 원문 제시문에 "구간 [0.8]" 로 인쇄됨 — 함수 정의 범위(0≤x≤8)로 보아 [0,8] 의 오식으로 판단해 [0,8] 로 옮김.
+# 세종대 2016학년도 수시 논술고사(자연계열) 문제 3 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: SJU-G16-03
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: SJU
+type: T01
+variant_of: null
+replaces: null
+level: L4
+form: 분류
+points: 150
+time_estimate_min: 30
+intent: |
+  기울기가 $\tan t$인 직선이 반원에 접할 때의 $x$절편으로 그림자 길이를 구하고, 어느 반원이 그림자를 결정하는지 $t$의 범위로 나누어 구간별 함수 $g(t)$와 미분불가능점을 찾은 뒤, 역함수의 미분으로 $h'(4)$를 구하는 능력을 본다.
+key_idea: |
+  중심 $(c,0)$, 반지름 $r$인 반원에 각 $t$로 접하는 직선의 $x$절편은 $c-\dfrac{r}{\sin t}$이므로 그림자 길이는 $\max\left(\dfrac{3}{\sin t}-5,\ \dfrac{1}{\sin t}-1\right)$이고, 두 값이 같아지는 $t=\dfrac\pi6$(공통접선)에서 바뀐다.
+stuck: |
+  두 반원 중 그림자를 결정하는 쪽이 $t=\dfrac\pi6$(두 반원의 공통접선 기울기각)에서 바뀐다는 분류, 그리고 $h$가 $g$의 역함수임을 이용한 미분
+idea_tags: [IDEA-TANGENT-LINE-INTERCEPT-CIRCLE, IDEA-PIECEWISE-SWITCH-COMMON-TANGENT, IDEA-INVERSE-FUNCTION-DERIVATIVE]
+tags: [구교육과정, 그림자, 원의 접선, 역함수의 미분]
+elements:
+  materials:
+  - '반지름 1인 반원(중심 $(1,0)$)과 반지름 3인 반원(중심 $(5,0)$)으로 이루어진 영역'
+  - '$x$축과 각 $t$를 이루며 비치는 평행광선과 $x\le0$의 그림자'
+  - '그림자 길이 $g(t)$와 그 역함수 $h(s)$'
+  concepts:
+  - '원의 접선(중심과 직선 사이 거리 = 반지름)'
+  - '삼각비'
+  - '구간별로 정의된 함수'
+  - '미분가능성(좌·우미분계수)'
+  - '삼각함수의 미분'
+  - '역함수의 미분법'
+  tools:
+  - '직각삼각형으로 $x$절편 $=c-\tfrac{r}{\sin t}$'
+  - '두 후보의 대소 비교 $\tfrac{3}{\sin t}-5\gtrless\tfrac{1}{\sin t}-1\iff\sin t\lessgtr\tfrac12$'
+  - '좌·우 미분계수 비교'
+  - '$s=g(h(s))$ 양변 미분 또는 $h^{\prime}(g(t))=\tfrac{1}{g^{\prime}(t)}$'
+  conditions:
+  - '$0<t<\tfrac\pi2$'
+  - '$t=\tfrac\pi6$에서 두 반원에 공통으로 접함, 그림자 길이 1'
+  - '$g$는 감소 ⇒ $s\ge1$이면 $h(s)\le\tfrac\pi6$, 큰 반원 식 사용'
+  - '$\sin h(4)=\tfrac13$, $\cos h(4)=\tfrac{2\sqrt2}{3}$'
+  stimuli_used: []
+  subpart_links: '(3-2)는 (3-1)의 접선 절편 계산을 일반화, (3-3)은 (3-2)의 $g(t)$ 식을 사용'
+
+curriculum:
+  version: '2015'
+  subjects: [미적분]
+  scope_2028: calc2
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 삼각함수의 도함수를 구하고 역함수의 미분법을 활용할 수 있다(요지)
+    verified: false
+  content_area: 미분법 – 여러 가지 미분법
+  behavior_domain: 문제해결
+  unit_path: [미적분, 미분법, 여러 가지 미분법, 역함수의 미분법]
+  key_concepts: [원의 접선(중심과 직선 사이 거리 = 반지름), 삼각비, 구간별로 정의된 함수, 미분가능성(좌·우미분계수), 삼각함수의 미분, 역함수의 미분법]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 세종대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 세종대학교
+  admission_year: 2016
+  admission_type: 수시 논술고사
+  track: 자연계열
+  question_no: 3
+  official_url: https://ipsi.sejong.ac.kr   # [확인 필요] 입학처 자료실의 정확한 게시물 URL로 교체
+  retrieved_at: 2026-11-21
+  original_points: [50, 50, 50]
+  rights_notice: 미확인(대학 원본 PDF 표지 문구 확인 필요)
+  transcribed_from: 대치 수리 논술 연구소 「2027학년도 대비 수리논술 세종대 기출 및 모의 문제」 p.111 + 해설교재 p.187 (원본 PDF 이미지 대조 완료 2026-11-21)
+
+verify: verify/SJU-G16.py::p03
+
+stimuli: []
+
+stem: |
+  아래 글을 읽고, 각 물음에 답하시오.
+
+  구간 $[0,8]$에서 정의된 함수
+  $$f(x)=\begin{cases}\sqrt{1-(x-1)^2}&(0\le x\le2)\\\sqrt{9-(x-5)^2}&(2<x\le8)\end{cases}$$
+  의 그래프와 $x$축이 둘러 싼 영역에 그림과 같이 빛이 비쳐, $x$축의 $x\le0$인 구간에 그림자가 생긴다. 시각 $t\left(0<t<\dfrac\pi2\right)$에서 빛이 $x$축과 이루는 각은 $t$이다. 시각 $t$에서 그림자의 길이를 $g(t)$라 하자.
+  (그림: $x$축 위에 중심 $(1,0)$ 반지름 1인 작은 반원과 중심 $(5,0)$ 반지름 3인 큰 반원이 회색 영역으로 붙어 있고, 오른쪽 위에서 왼쪽 아래로 평행한 빛(점선 화살표)이 비쳐 $x\le0$ 쪽 $x$축 위에 그림자가 생김. 빛과 $x$축이 이루는 각을 $t$로 표시)
+
+subparts:
+- id: '1'
+  stem: |
+    $g\!\left(\dfrac\pi4\right)$의 값을 구하시오.
+  points: 50
+  depends_on: []
+  answer: {kind: value, value: 'sqrt(2) - 1', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: 기울기 1인 직선이 작은 반원에 접할 때 $x$절편은 $1-\sqrt2$.
+    steps:
+    - {id: 1a, content: '$x$절편 $1-\tfrac{1}{\sin(\pi/4)}=1-\sqrt2$, $g(\tfrac\pi4)=\sqrt2-1$', criteria: ['1.M1', '1.A1', '1.A2']}
+    hint_ladder:
+    - 그림자의 끝은 빛이 영역에 접하는 직선이 $x$축과 만나는 점이다.
+    - $t=\dfrac\pi4$일 때 어느 반원이 더 멀리 그림자를 만드는가?
+  - id: S1-B
+    audience: B
+    source_flow: 해설교재 p.187
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        $t=\dfrac\pi4$일 때 그림자의 길이는 반지름 $1$인 반원에 의해 결정된다(큰 반원에 접하는 직선의 $x$절편은 $5-3\sqrt2>0$이라 그림자를 만들지 않는다).
+      criteria: ['1.M1']
+    - id: 1b-2
+      content: |
+        $x$축과 $\dfrac\pi4$의 각을 이루며 반지름 $1$인 반원에 접하는 직선은, 중심 $(1,0)$, 접점, $x$절편이 이루는 직각이등변삼각형에서 중심과 $x$절편 사이 거리가 $\sqrt2$이므로 $x$절편이 $1-\sqrt2$이다.
+      criteria: ['1.A1']
+    - id: 1b-3
+      content: |
+        따라서 $g\!\left(\dfrac\pi4\right)=\sqrt2-1$이다.
+      criteria: ['1.A2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 20
+      evidence: |
+        그림자 끝을 반원에 접하는 광선의 $x$절편으로 보고 작은 반원이 결정함을 밝혔다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1]
+    - id: 1.A1
+      mark_type: A
+      points: 20
+      evidence: |
+        $x$절편 $1-\sqrt2$를 구했다.
+      depends_on: [1.M1]
+      steps: [1b-2]
+    - id: 1.A2
+      mark_type: A
+      points: 10
+      evidence: |
+        $g\!\left(\dfrac\pi4\right)=\sqrt2-1$.
+      depends_on: [1.M1, 1.A1]
+      steps: [1b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '79', meaning: '기타 오답(예: 접점의 $x$좌표 $1-\tfrac{\sqrt2}{2}$를 그림자 끝으로 봄)'}
+  misconceptions: []
+
+- id: '2'
+  stem: |
+    $0<t<\dfrac\pi2$에서 함수 $g(t)$를 구하고, $g(t)$가 미분가능하지 않은 $t$의 값을 구하시오.
+  points: 50
+  depends_on: ['1']
+  answer: {kind: expression, value: 'g(t) = 3/sin(t) - 5 (0<t<=pi/6), 1/sin(t) - 1 (pi/6<t<pi/2); t = pi/6', equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: 두 반원의 접선 절편 $5-\dfrac3{\sin t}$, $1-\dfrac1{\sin t}$ 중 작은 쪽이 그림자 끝. $\sin t=\dfrac12$에서 바뀜.
+    steps:
+    - {id: 2a, content: '$g=\tfrac3{\sin t}-5$ $(t\le\tfrac\pi6)$, $\tfrac1{\sin t}-1$ $(t>\tfrac\pi6)$, 좌미분 $-6\sqrt3\ne$ 우미분 $-2\sqrt3$', criteria: ['2.M1', '2.A1', '2.M2', '2.A2']}
+    hint_ladder:
+    - 반지름 $r$, 중심 $(c,0)$인 반원에 각 $t$로 접하는 직선의 $x$절편은?
+    - 두 반원에 동시에 접하는 직선의 기울기각은?
+    - $t=\dfrac\pi6$에서 좌·우 미분계수를 비교하자.
+  - id: S2-B
+    audience: B
+    source_flow: 해설교재 p.187
+    method_no: 1
+    steps:
+    - id: 2b-1
+      content: |
+        두 반원에 공통으로 접하는 직선이 $x$축과 이루는 각은 $t=\dfrac\pi6$이다(중심 사이 거리 $4$, 반지름 차 $2$이므로 $\sin t=\dfrac24$).
+        $0<t<\dfrac\pi6$에서는 그림자 길이가 반지름 $3$인 반원에 의해 결정되고, $\dfrac\pi6<t<\dfrac\pi2$에서는 반지름 $1$인 반원에 의해 결정된다.
+      criteria: ['2.M1']
+    - id: 2b-2
+      content: |
+        중심 $(c,0)$, 반지름 $r$인 반원에 각 $t$로 접하는 직선의 $x$절편은 $c-\dfrac{r}{\sin t}$이므로
+        $$g(t)=\begin{cases}\dfrac{3}{\sin t}-5&\left(0<t\le\dfrac\pi6\right)\\\dfrac{1}{\sin t}-1&\left(\dfrac\pi6<t<\dfrac\pi2\right)\end{cases}$$
+      criteria: ['2.A1']
+    - id: 2b-3
+      content: |
+        $t=\dfrac\pi6$에서 $g=1$로 연속이고,
+        $\displaystyle\lim_{t\to\pi/6+}\dfrac{g(t)-1}{t-\pi/6}=-\dfrac{\cos t}{\sin^2t}\Big|_{\pi/6}=-2\sqrt3$, $\displaystyle\lim_{t\to\pi/6-}\dfrac{g(t)-1}{t-\pi/6}=-\dfrac{3\cos t}{\sin^2t}\Big|_{\pi/6}=-6\sqrt3$이다.
+      criteria: ['2.M2']
+    - id: 2b-4
+      content: |
+        좌·우 미분계수가 다르므로 $g(t)$는 $t=\dfrac\pi6$에서 미분가능하지 않다(나머지 점에서는 각 식이 미분가능).
+      criteria: ['2.A2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 15
+      evidence: |
+        공통접선 각 $t=\dfrac\pi6$을 경계로 그림자를 결정하는 반원을 나누었다.
+      depends_on: []
+      implied_ok: false
+      steps: [2b-1]
+    - id: 2.A1
+      mark_type: A
+      points: 15
+      evidence: |
+        구간별 $g(t)$ 식을 바르게 제시했다.
+      depends_on: [2.M1]
+      steps: [2b-2]
+    - id: 2.M2
+      mark_type: M
+      points: 10
+      evidence: |
+        $t=\dfrac\pi6$에서 좌·우 미분계수를 계산했다.
+      depends_on: []
+      implied_ok: false
+      steps: [2b-3]
+    - id: 2.A2
+      mark_type: A
+      points: 10
+      evidence: |
+        미분가능하지 않은 $t=\dfrac\pi6$.
+      depends_on: [2.M2, 2.A1]
+      steps: [2b-4]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-3167}
+  misconceptions:
+  - id: MC-CAL-3167
+    outcome_code: '71'
+    wrong_work: '모든 $t$에서 $g(t)=\tfrac1{\sin t}-1$이라 하여 미분불가능점이 없다고 답함'
+    detect_cue: 큰 반원이 그림자를 결정하는 구간을 고려하지 않았다
+    feedback: $t$가 작으면 큰 반원의 그림자가 더 멀리 갑니다. 두 후보를 비교해 경계 $t$를 찾으세요.
+    remedy: [RL-1]
+
+- id: '3'
+  stem: |
+    $s>0$에 대하여 그림자의 길이가 $s$가 되는 시각을 $h(s)$라 할 때, $h'(4)$를 구하시오.
+  points: 50
+  depends_on: ['2']
+  answer: {kind: value, value: '-sqrt(2)/36', equivalents: ['-1/(18*sqrt(2))'], tolerance: null}
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: $s\ge1$이면 $s=\dfrac{3}{\sin h(s)}-5$. 미분하면 $1=-\dfrac{3\cos h}{\sin^2h}h'$.
+    steps:
+    - {id: 3a, content: '$\sin h(4)=\tfrac13$, $\cos h(4)=\tfrac{2\sqrt2}{3}$, $h^{\prime}(4)=-\tfrac{\sin^2h}{3\cos h}=-\tfrac{1}{18\sqrt2}$', criteria: ['3.M1', '3.M2', '3.A1']}
+    hint_ladder:
+    - $s=4$일 때 그림자를 결정하는 반원은 어느 쪽인가?
+    - $s=g(h(s))$를 $s$로 미분하자.
+  - id: S3-B
+    audience: B
+    source_flow: 해설교재 p.187
+    method_no: 1
+    steps:
+    - id: 3b-1
+      content: |
+        그림자의 길이는 $t$가 커질수록 짧아지며 $t=\dfrac\pi6$일 때 $1$이다. 따라서 $s\ge1$이면 $h(s)\le\dfrac\pi6$이고 $s=g(h(s))=\dfrac{3}{\sin h(s)}-5$가 성립한다.
+      criteria: ['3.M1']
+    - id: 3b-2
+      content: |
+        양변을 $s$로 미분하면 $1=-\dfrac{3\cos h(s)}{\sin^2h(s)}h'(s)$이다.
+      criteria: ['3.M2']
+    - id: 3b-3
+      content: |
+        $4=\dfrac{3}{\sin h(4)}-5$에서 $\sin h(4)=\dfrac13$이고 $\cos h(4)=\dfrac{2\sqrt2}{3}$이므로 $h'(4)=-\dfrac{(1/3)^2}{3\cdot\frac{2\sqrt2}{3}}=-\dfrac{1}{18\sqrt2}=-\dfrac{\sqrt2}{36}$이다.
+      criteria: ['3.A1']
+  - id: S3-ALT
+    audience: ALT
+    source_flow: 해설교재 p.187 별해
+    method_no: 2
+    key_idea: 원 해설 별해 — 항등식 $t=h(g(t))$를 미분하면 $1=h'(g(t))g'(t)=h'(g(t))\left(-\dfrac{3\cos t}{\sin^2t}\right)$.
+    steps:
+    - id: 3c-1
+      content: |
+        $4=g(t)=\dfrac3{\sin t}-5$에서 $\sin t=\dfrac13$, $\cos t=\dfrac{2\sqrt2}{3}$이므로 $h'(4)=-\dfrac{\sin^2t}{3\cos t}=-\dfrac{1}{18\sqrt2}$.
+      criteria: ['3.M2', '3.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 15
+      evidence: |
+        $s=4\ (\ge1)$에서는 큰 반원의 식 $s=\dfrac3{\sin h}-5$를 써야 함을 밝혔다.
+      depends_on: []
+      implied_ok: false
+      ft: {allowed: true, from: [2.A1], max_points: 15}
+      steps: [3b-1]
+    - id: 3.M2
+      mark_type: M
+      points: 15
+      evidence: |
+        $s=g(h(s))$ 또는 $t=h(g(t))$를 미분해 $h'$의 식을 세웠다.
+      depends_on: []
+      implied_ok: false
+      steps: [3b-2, 3c-1]
+    - id: 3.A1
+      mark_type: A
+      points: 20
+      evidence: |
+        $h'(4)=-\dfrac{1}{18\sqrt2}\left(=-\dfrac{\sqrt2}{36}\right)$.
+      depends_on: [3.M1, 3.M2]
+      steps: [3b-3, 3c-1]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '21', meaning: 만점(항등식 별해)}
+  - {code: '71', misconception: MC-CAL-3166}
+  misconceptions:
+  - id: MC-CAL-3166
+    outcome_code: '71'
+    wrong_work: '$h^{\prime}(4)=\tfrac{1}{g^{\prime}(4)}$로 $t=4$를 대입'
+    detect_cue: $g'$에 $s$값 4를 그대로 넣었다
+    feedback: $h'(4)=\dfrac{1}{g'(h(4))}$입니다. 먼저 $g(t)=4$인 $t=h(4)$를 구하세요.
+    remedy: [RL-2]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CAL-3167}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-PIECEWISE-DIFF}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-CAL-3166}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-INVERSE-DIFF}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

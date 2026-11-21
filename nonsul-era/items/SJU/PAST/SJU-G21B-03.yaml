@@ -1,0 +1,389 @@
+# 세종대 2021학년도 수시 논술고사 [B] 문제 3 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: SJU-G21B-03
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: proof
+origin: past_exam
+school: SJU
+type: T07
+variant_of: null
+replaces: null
+level: L5
+form: 존재
+points: 240
+time_estimate_min: 40
+intent: |
+  원점을 지나는 직선이 그래프 아래에 놓이는 기울기의 집합 $A_f$를 다루며, 반례로 공집합임을 보이고, $f''\ge0$일 때 보조함수의 최솟값(또는 평균값 정리)으로 접선이 그래프 아래에 있음을 증명하고, 한쪽 극한으로 기울기가 $f'(0)$ 하나뿐임을 보이는 능력을 본다.
+key_idea: |
+  $g(x)=f(x)-f(0)-f'(0)x$이면 $g'(0)=0$이고 $g'$이 증가하므로 $g\ge g(0)=0$이다. $m\in A_f$이면 $x>0$, $x<0$에서 $\tfrac{f(x)-f(0)}{x}$와 $m$의 대소가 반대이므로 양쪽 극한으로 $m=f'(0)$이다.
+stuck: |
+  "모든 실수 $x$에 대하여" 조건을 반례 하나로 깨는 것, 그리고 $x>0$과 $x<0$을 나누어 부등호 방향을 바꾼 뒤 우극한·좌극한을 쓰는 것
+idea_tags: [IDEA-AUX-FUNCTION-MIN, IDEA-ONE-SIDED-LIMIT-SQUEEZE]
+tags: [볼록함수, 접선, 보조함수, 평균값 정리]
+elements:
+  materials:
+  - '$A_f=\{m\in\mathbb{R}\mid$ 모든 실수 $x$에 대하여 $f(x)\ge f(0)+mx\}$'
+  - '$f(x)=x^3$, $f(x)=\lvert x\rvert$'
+  - '$f''''(x)\ge0$인 함수'
+  concepts:
+  - '집합과 명제(모든·어떤)'
+  - '삼차부등식'
+  - '이계도함수와 함수의 증가'
+  - '함수의 최대·최소'
+  - '평균값 정리'
+  - '미분계수의 정의(좌극한·우극한)'
+  tools:
+  - '$x(x^2-m)\ge0$의 해집합 경우 분류'
+  - '반례 $x=\pm1$'
+  - '보조함수 $g(x)=f(x)-f(0)-f''(0)x$'
+  - '평균값 정리 반복 적용'
+  - '$x>0$, $x<0$ 분리 후 한쪽 극한'
+  conditions:
+  - '그림을 이용한 직관적 설명 불허 ⇒ 식으로 논증'
+  - '$f''''\ge0$ ⇒ $f''$ 증가'
+  - '$x<0$에서 나누면 부등호 방향이 바뀜'
+  stimuli_used: []
+  subpart_links: '(3-3)은 (3-2)의 $f''(0)\in A_f$를 사용해 $A_f\supseteq\{f''(0)\}$을 얻고 반대 포함만 보임'
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅱ, 미적분]
+  scope_2028: calc2
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 이계도함수를 이용해 그래프의 오목·볼록을 판정하고, 평균값 정리를 이해한다(요지)
+    verified: false
+  content_area: 미분법 – 도함수의 활용
+  behavior_domain: 추론
+  unit_path: [미적분, 미분법, 도함수의 활용, 곡선의 오목과 볼록]
+  key_concepts: [집합과 명제, 삼차부등식, 이계도함수와 함수의 증가, 함수의 최대·최소, 평균값 정리, 미분계수의 정의]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 세종대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 세종대학교
+  admission_year: 2021
+  admission_type: 수시 논술고사(B형)
+  track: 자연계열
+  question_no: 3
+  official_url: https://ipsi.sejong.ac.kr   # [확인 필요] 입학처 자료실의 정확한 게시물 URL로 교체
+  retrieved_at: 2026-11-21
+  original_points: [80, 80, 80]
+  rights_notice: 미확인(대학 원본 PDF 표지 문구 확인 필요)
+  transcribed_from: 대치 수리 논술 연구소 「2027학년도 대비 수리논술 세종대 기출 및 모의 문제」 p.63 + 해설교재 p.120~121 (원본 PDF 이미지 대조 완료 2026-11-21)
+
+verify: verify/SJU-G21B.py::p03
+
+stimuli: []
+
+stem: |
+  실수 전체의 집합에서 정의된 함수 $f(x)$에 대하여 집합 $A_f$를 다음과 같이 정의하자.
+  $$A_f=\{m\in\mathbb{R}\mid\text{모든 실수 }x\text{에 대하여 }f(x)\ge f(0)+mx\text{가 성립한다.}\}$$
+  예를 들어, $f(x)=\lvert x\rvert$에 대하여 집합 $A_f$는 $A_f=\{m\mid-1\le m\le1\}$이다.
+  다음 물음에 각각 답하시오.
+
+subparts:
+- id: '1'
+  stem: |
+    $f(x)=x^3$에 대하여 $A_f$는 공집합이 됨을 보이시오.
+  points: 80
+  depends_on: []
+  answer: {kind: proof, value: null, equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: 어떤 $m$에 대해서도 $x^3\ge mx$가 실패하는 $x$가 있다($x\to-\infty$ 쪽).
+    steps:
+    - id: 1a
+      content: |
+        $x(x^2-m)\ge0$의 해집합은 $m\le0$이면 $x\ge0$, $m>0$이면 $-\sqrt m\le x\le0$ 또는 $x\ge\sqrt m$으로 실수 전체가 아니다.
+      criteria: ['1.M1', '1.R1', '1.R2']
+    hint_ladder:
+    - $f(0)=0$이므로 조건은 $x^3\ge mx$이다.
+    - 충분히 작은 음수 $x$를 넣어 보자.
+  - id: S1-B
+    audience: B
+    source_flow: 해설교재 p.120
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        $f(0)=0$이므로 모든 실수 $x$에 대하여 $x^3\ge mx$를 만족하는 실수 $m$이 없음을 보이면 된다. $x^3-mx=x(x^2-m)\ge0$을 $m$에 따라 푼다.
+      criteria: ['1.M1']
+    - id: 1b-2
+      content: |
+        (i) $m\le0$이면 $x^2-m\ge0$이므로 해집합은 $\{x\mid x\ge0\}$이다.
+      criteria: ['1.R1']
+    - id: 1b-3
+      content: |
+        (ii) $m>0$이면 해집합은 $\{x\mid-\sqrt m\le x\le0\text{ 또는 }x\ge\sqrt m\}$이다.
+        어느 경우에도 해집합이 실수 전체가 아니므로 모든 실수 $x$에 대해 $x^3\ge mx$인 $m$은 존재하지 않고, $A_f=\varnothing$이다. ■
+      criteria: ['1.R2']
+  - id: S1-ALT1
+    audience: ALT
+    source_flow: 해설교재 p.120 별해 1
+    method_no: 2
+    key_idea: $m>0$, $m=0$, $m<0$으로 나누어 $y=x^3-mx$의 그래프 개형에서 음수가 되는 구간을 확인한다.
+    steps:
+    - id: 1c-1
+      content: |
+        $g(x)=x^3-mx$의 그래프는 $m>0$이면 $x<-\sqrt m$에서, $m\le0$이면 $x<0$에서 $x$축 아래에 있으므로 모든 $x$에서 $g\ge0$인 $m$은 없다.
+      criteria: ['1.M1', '1.R1', '1.R2']
+  - id: S1-ALT2
+    audience: ALT
+    source_flow: 해설교재 p.120 별해 2
+    method_no: 3
+    key_idea: 귀류법 — 그런 $m$이 있으면 $x=1$, $x=-1$에서 $m=1$이 강제되지만 $x^3\ge x$는 $x<-1$에서 거짓이다.
+    steps:
+    - id: 1d-1
+      content: |
+        모든 $x$에서 $x^3\ge mx$이면 $x=1$에서 $m\le1$, $x=-1$에서 $m\ge1$이므로 $m=1$이다. 그런데 $x^3\ge x$의 해집합은 $\{x\mid-1\le x\le0\text{ 또는 }x\ge1\}$이므로(예: $x=-2$에서 $-8<-2$) 모순이다.
+      criteria: ['1.M1', '1.R1', '1.R2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 20
+      evidence: |
+        $f(0)=0$을 써서 조건을 "모든 $x$에서 $x^3\ge mx$"로 바꾸었다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1, 1c-1, 1d-1]
+    - id: 1.R1
+      mark_type: R
+      points: 30
+      evidence: |
+        $m\le0$인 경우(또는 $x=\pm1$ 대입으로 $m=1$ 강제)를 근거와 함께 처리했다.
+      depends_on: [1.M1]
+      steps: [1b-2, 1c-1, 1d-1]
+    - id: 1.R2
+      mark_type: R
+      points: 30
+      evidence: |
+        $m>0$인 경우(또는 $m=1$일 때의 반례)를 처리하여 모든 $m$에 대해 성립하지 않음을 결론지었다.
+      depends_on: [1.M1]
+      steps: [1b-3, 1c-1, 1d-1]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '21', meaning: 만점(별해)}
+  - {code: '71', misconception: MC-PRF-3104}
+  misconceptions:
+  - id: MC-PRF-3104
+    outcome_code: '71'
+    wrong_work: '$m=0$(또는 특정 몇 개의 $m$)에서만 반례를 들고 모든 $m$에 대해 공집합이라 결론'
+    detect_cue: 임의의 $m$에 대한 논증(경우 분류 또는 귀류)이 없다
+    feedback: 공집합임을 보이려면 모든 실수 $m$에 대해 실패하는 $x$가 있음을 보여야 합니다.
+    remedy: [RL-1]
+
+- id: '2'
+  stem: |
+    함수 $f(x)$의 이계도함수 $f''(x)$가 모든 실수 $x$에 대하여 $f''(x)\ge0$을 만족하면, $f'(0)\in A_f$가 성립함을 보이시오. (단, 그림을 이용한 직관적인 설명은 허용하지 않습니다.)
+  points: 80
+  depends_on: []
+  answer: {kind: proof, value: null, equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: $g(x)=f(x)-f(0)-f'(0)x$는 $g'(0)=0$, $g''\ge0$이므로 $x=0$에서 최솟값 $0$을 갖는다.
+    steps:
+    - id: 2a
+      content: |
+        $g''=f''\ge0\Rightarrow g'$ 증가, $g'(0)=0\Rightarrow g\ge g(0)=0$
+      criteria: ['2.M1', '2.R1', '2.R2']
+    hint_ladder:
+    - 보이려는 부등식을 한 함수 $g(x)\ge0$로 바꿔 보자.
+    - $g'(0)$의 값과 $g'$의 증감을 조사하자.
+  - id: S2-B
+    audience: B
+    source_flow: 해설교재 p.120
+    method_no: 1
+    steps:
+    - id: 2b-1
+      content: |
+        $g(x)=f(x)-f(0)-f'(0)x$라 할 때 모든 $x$에서 $g(x)\ge0$임을 보이면 된다. $g'(x)=f'(x)-f'(0)$이고 $g''(x)=f''(x)\ge0$이므로 $g'$은 실수 전체에서 증가함수이다.
+      criteria: ['2.M1']
+    - id: 2b-2
+      content: |
+        $g'(0)=0$인 증가함수이므로 $x<0$이면 $g'(x)\le0$, $x>0$이면 $g'(x)\ge0$이다.
+      criteria: ['2.R1']
+    - id: 2b-3
+      content: |
+        따라서 $g$는 $x=0$에서 최솟값 $g(0)=0$을 갖고, 모든 실수 $x$에 대하여 $f(x)-f(0)-f'(0)x\ge0$이므로 $f'(0)\in A_f$이다. ■
+      criteria: ['2.R2']
+  - id: S2-ALT1
+    audience: ALT
+    source_flow: 해설교재 p.121 별해 1
+    method_no: 2
+    key_idea: 평균값 정리를 두 번 적용해 $f(x)-f(0)-f'(0)x=f''(t_2)t_1x$로 쓴다.
+    steps:
+    - id: 2c-1
+      content: |
+        $x\ne0$이면 $f(x)-f(0)-f'(0)x=\{f'(t_1)-f'(0)\}x=f''(t_2)t_1x$인 $t_1$, $t_2$가 있다($x>0$이면 $0<t_2<t_1<x$, $x<0$이면 $x<t_1<t_2<0$). 어느 경우든 $t_1x>0$, $f''(t_2)\ge0$이므로 식은 $0$ 이상이고, $x=0$이면 $0$이다.
+      criteria: ['2.M1', '2.R1', '2.R2']
+  - id: S2-ALT2
+    audience: ALT
+    source_flow: 해설교재 p.121 별해 2
+    method_no: 3
+    key_idea: 평균값 정리를 한 번 쓰고 $f'$의 증가성으로 부호를 정한다.
+    steps:
+    - id: 2d-1
+      content: |
+        $x\ne0$이면 $f(x)-f(0)-f'(0)x=\{f'(t_1)-f'(0)\}x$ ($t_1$은 $0$과 $x$ 사이)이다. $f'$은 증가하므로 $x>0$이면 $f'(t_1)-f'(0)\ge0$, $x<0$이면 $f'(t_1)-f'(0)\le0$이어서 두 경우 모두 식은 $0$ 이상이다.
+      criteria: ['2.M1', '2.R1', '2.R2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 25
+      evidence: |
+        보조함수 $g(x)=f(x)-f(0)-f'(0)x$를 두고 $g''\ge0$을 쓰거나 평균값 정리로 식을 변형했다.
+      depends_on: []
+      implied_ok: false
+      steps: [2b-1, 2c-1, 2d-1]
+    - id: 2.R1
+      mark_type: R
+      points: 30
+      evidence: |
+        $x<0$, $x>0$ 두 경우 각각에서 부호($g'$ 또는 $f'(t_1)-f'(0)$)를 판정했다.
+      depends_on: [2.M1]
+      steps: [2b-2, 2c-1, 2d-1]
+    - id: 2.R2
+      mark_type: R
+      points: 25
+      evidence: |
+        모든 $x$에서 $f(x)\ge f(0)+f'(0)x$이므로 $f'(0)\in A_f$라고 결론지었다.
+      depends_on: [2.R1]
+      steps: [2b-3, 2c-1, 2d-1]
+    deductions:
+    - code: D2-1
+      condition: 그래프(볼록성 그림)에 의존한 직관적 설명만 있음
+      effect: cap
+      value: 20
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '21', meaning: 만점(평균값 정리 별해)}
+  - {code: '71', misconception: MC-PRF-0003}
+  misconceptions:
+  - id: MC-PRF-0003
+    outcome_code: '71'
+    wrong_work: '$f(x)\ge f(0)+f''(0)x$를 가정하고 양변을 미분해 $f''(x)\ge f''(0)$을 얻어 성립한다고 씀'
+    detect_cue: 결론 부등식에서 출발해 조건으로 거슬러 올라갔다
+    feedback: 미분한 부등식이 참이라고 원래 부등식이 참인 것은 아닙니다. 보조함수의 최솟값으로 앞에서부터 증명하세요.
+    remedy: [RL-2]
+
+- id: '3'
+  stem: |
+    함수 $f(x)$의 이계도함수 $f''(x)$가 모든 실수 $x$에 대하여 $f''(x)\ge0$을 만족하면, 실제로 $A_f=\{f'(0)\}$이 됨을 보이시오. (단, 그림을 이용한 직관적인 설명은 허용하지 않습니다.)
+  points: 80
+  depends_on: ['2']
+  answer: {kind: proof, value: null, equivalents: [], tolerance: null}
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: $m\in A_f$이면 $x>0$에서 $\tfrac{f(x)-f(0)}x\ge m$, $x<0$에서 $\le m$이므로 우극한·좌극한으로 $f'(0)\ge m$, $f'(0)\le m$이다.
+    steps:
+    - id: 3a
+      content: |
+        $f'(0)=\lim_{x\to0+}\tfrac{f(x)-f(0)}x\ge m$, $f'(0)=\lim_{x\to0-}\tfrac{f(x)-f(0)}x\le m$
+      criteria: ['3.M1', '3.R1', '3.R2', '3.R3']
+    hint_ladder:
+    - (3-2)로 $f'(0)\in A_f$는 이미 안다. 남은 것은?
+    - $f(x)-f(0)\ge mx$를 $x$로 나눌 때 $x$의 부호에 주의하자.
+  - id: S3-B
+    audience: B
+    source_flow: 해설교재 p.121
+    method_no: 1
+    steps:
+    - id: 3b-1
+      content: |
+        (3-2)에 의해 $f'(0)\in A_f$이므로, $m\in A_f$이면 $m=f'(0)$임을 보이면 된다. $m\in A_f$라 하면 모든 실수 $x$에 대하여 $f(x)-f(0)\ge mx$이다.
+      criteria: ['3.M1']
+    - id: 3b-2
+      content: |
+        (i) $x>0$이면 $\dfrac{f(x)-f(0)}{x}\ge m$이므로 $f'(0)=\displaystyle\lim_{x\to0+}\dfrac{f(x)-f(0)}{x}\ge m$이다.
+      criteria: ['3.R1']
+    - id: 3b-3
+      content: |
+        (ii) $x<0$이면 $\dfrac{f(x)-f(0)}{x}\le m$이므로 $f'(0)=\displaystyle\lim_{x\to0-}\dfrac{f(x)-f(0)}{x}\le m$이다.
+      criteria: ['3.R2']
+    - id: 3b-4
+      content: |
+        따라서 $A_f$의 임의의 원소 $m$은 $m=f'(0)$이고, (3-2)와 합하면 $A_f=\{f'(0)\}$이다. ■
+      criteria: ['3.R3']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 15
+      evidence: |
+        (3-2)의 $f'(0)\in A_f$를 쓰고, 임의의 $m\in A_f$가 $f'(0)$과 같음을 보이는 구조를 세웠다.
+      depends_on: []
+      implied_ok: false
+      ft: {allowed: true, from: [2.R2], max_points: 15}
+      steps: [3b-1]
+    - id: 3.R1
+      mark_type: R
+      points: 25
+      evidence: |
+        $x>0$에서 나누어 우극한으로 $f'(0)\ge m$을 얻었다.
+      depends_on: [3.M1]
+      steps: [3b-2]
+    - id: 3.R2
+      mark_type: R
+      points: 25
+      evidence: |
+        $x<0$에서 부등호 방향을 바꿔 좌극한으로 $f'(0)\le m$을 얻었다.
+      depends_on: [3.M1]
+      steps: [3b-3]
+    - id: 3.R3
+      mark_type: R
+      points: 15
+      evidence: |
+        두 부등식을 합해 $m=f'(0)$, 따라서 $A_f=\{f'(0)\}$이라 결론지었다.
+      depends_on: [3.R1, 3.R2]
+      steps: [3b-4]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-PRF-3104}
+  misconceptions:
+  - id: MC-PRF-3104
+    outcome_code: '71'
+    wrong_work: '$x>0$인 경우만 다루어 $f''(0)\ge m$만 얻고 $A_f=\{f''(0)\}$이라 결론'
+    detect_cue: $x<0$에서 부등호가 바뀌는 경우(좌극한)가 없다
+    feedback: $x<0$으로 나누면 부등호 방향이 바뀝니다. 좌극한으로 반대 부등식을 얻어야 등호가 나옵니다.
+    remedy: [RL-1]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-PRF-3104}
+  relation: remediation
+  target: {kind: concept, ref: CON-PRF-CASE-COVER}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-PRF-0003}
+  relation: remediation
+  target: {kind: concept, ref: CON-PRF-EQUIV-CHAIN}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

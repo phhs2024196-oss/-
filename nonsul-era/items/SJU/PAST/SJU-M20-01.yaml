@@ -1,0 +1,286 @@
+# 세종대 2020학년도 논술 모의평가(자연계열) 문제 1 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: SJU-M20-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: SJU
+type: null          # [제안] 확률과통계 문항(현행 세종 범위 밖): 「표본평균의 분포·기댓값의 선형성·모비율의 신뢰구간」 — 확통 유형 신설 시 분류
+variant_of: null
+replaces: null
+level: L3
+form: 전수
+points: 230
+time_estimate_min: 25
+intent: |
+  매개변수가 있는 확률분포에서 표본평균의 확률을 경우를 나열해 구하고, 기댓값의 선형성으로 가중합의 기댓값을 계산하며, 이항분포의 정규근사로 모비율의 신뢰구간을 구하는 능력을 본다.
+key_idea: |
+  방의 개수의 기댓값은 $1\cdot\tfrac a2+2(1-a)+3\cdot\tfrac a2=2$로 $a$와 무관하고, '방 1개 또는 3개'의 확률이 $a$이므로 $Y\sim\mathrm{B}(100,a)$, $\hat a=\tfrac{Y}{100}=0.2$.
+stuck: |
+  (1-2)에서 $\mathrm{E}(X_k)=2$가 $a$에 무관하다는 점, (1-3)에서 추정 대상 $a$가 '1개 또는 3개'인 사건의 확률이라는 해석
+idea_tags: [IDEA-LINEARITY-EXPECTATION, IDEA-PROPORTION-CI]
+tags: [표본평균, 기댓값, 신뢰구간, 범위 밖(현행)]
+
+elements:
+  materials:
+  - '방의 개수 1~3개의 확률 $\tfrac a2$, $1-a$, $\tfrac a2$'
+  - '표본 2개의 평균, 가중합 $T=\sum\tfrac{k}{100}X_k$ ($X_{100}$의 계수 $1$)'
+  - '표본 100개 중 1개 또는 3개인 경우 20건'
+  concepts:
+  - '이산확률분포'
+  - '표본평균'
+  - '기댓값의 선형성'
+  - '이항분포의 정규근사'
+  - '모비율의 신뢰구간'
+  tools:
+  - '$X_1+X_2$의 값 나열'
+  - '$\mathrm{E}(\sum c_kX_k)=\sum c_k\mathrm{E}(X_k)$'
+  - '$\hat a\pm1.96\sqrt{\tfrac{\hat a(1-\hat a)}{n}}$'
+  conditions:
+  - '$0<a<1$'
+  - '$2<\overline X<4\iff X_1+X_2\in\{5,6\}$'
+  - '$\hat a=\tfrac{20}{100}=0.2$'
+  stimuli_used: []
+  subpart_links: null
+
+curriculum:
+  version: '2015'
+  subjects: [확률과통계]
+  scope_2028: common
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 표본평균의 분포를 이해하고 모평균(모비율)을 추정할 수 있다(요지)
+    verified: false
+  content_area: 통계 – 통계적 추정
+  behavior_domain: 계산
+  unit_path: [확률과통계, 통계, 통계적 추정, 모평균의 추정]
+  key_concepts: [이산확률분포, 표본평균, 기댓값의 선형성, 이항분포의 정규근사, 모비율의 신뢰구간]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 세종대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 세종대학교
+  admission_year: 2020
+  admission_type: 수시 모의논술
+  track: 자연계열
+  question_no: 1
+  official_url: https://ipsi.sejong.ac.kr   # [확인 필요] 입학처 자료실의 정확한 게시물 URL로 교체
+  retrieved_at: 2026-11-21
+  original_points: [70, 80, 80]
+  rights_notice: 미확인(대학 원본 PDF 표지 문구 확인 필요)
+  transcribed_from: 대치 수리 논술 연구소 「2027학년도 대비 수리논술 세종대 기출 및 모의 문제」 p.79 + 해설교재 p.141 (원본 PDF 이미지 대조 완료 2026-11-21)
+
+verify: verify/SJU-M20.py::p01
+
+stimuli: []
+
+stem: |
+  A학생은 "가"지역에 있는 아파트의 방의 개수에 관심이 있으며, "가"지역의 아파트는 1~3개의 방을 가지고 있다. 방이 1개일 경우의 확률은 $\dfrac a2\ (0<a<1)$, 2개일 경우의 확률은 $1-a$, 그리고 3개일 경우의 확률은 $\dfrac a2$이다. 표준정규분포표가 필요한 경우 아래 표를 사용하여, 다음 물음에 각각 답하시오.
+  (표준정규분포표: $\mathrm{P}(0\le Z\le0.50)=0.1915$, $\mathrm{P}(0\le Z\le1.00)=0.3413$, $\mathrm{P}(0\le Z\le1.50)=0.4332$, $\mathrm{P}(0\le Z\le1.96)=0.4750$, $\mathrm{P}(0\le Z\le2.00)=0.4772$, $\mathrm{P}(0\le Z\le2.50)=0.4938$)
+
+subparts:
+- id: '1'
+  stem: |
+    "가"지역에서 독립으로 임의추출한 2개 아파트 표본 $X_1$, $X_2$에 대하여 $\overline X=\dfrac12(X_1+X_2)$라고 하자. 확률 $\mathrm{P}(2<\overline X<4)$를 구하시오.
+  points: 70
+  depends_on: []
+  answer: {kind: expression, value: 'a*(4-3*a)/4', equivalents: ['a - 3*a**2/4'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $4<X_1+X_2<8$은 $(2,3)$, $(3,2)$, $(3,3)$뿐.
+    steps:
+    - {id: 1a, content: '$2(1-a)\tfrac a2+\tfrac{a^2}4=\tfrac14a(4-3a)$', criteria: ['1.M1', '1.A1']}
+    hint_ladder:
+    - $X_1+X_2$가 가질 수 있는 값 중 $4$보다 크고 $8$보다 작은 것은?
+  - id: S1-B
+    audience: B
+    source_flow: 해설교재 p.141
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        $\mathrm{P}(2<\overline X<4)=\mathrm{P}(4<X_1+X_2<8)=\mathrm{P}(X_1=2,X_2=3)+\mathrm{P}(X_1=3,X_2=2)+\mathrm{P}(X_1=3,X_2=3)$.
+      criteria: ['1.M1']
+    - id: 1b-2
+      content: |
+        $=(1-a)\cdot\dfrac a2+\dfrac a2\cdot(1-a)+\dfrac a2\cdot\dfrac a2=\dfrac14a(4-3a)$.
+      criteria: ['1.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 35
+      evidence: |
+        조건을 만족하는 $(X_1,X_2)$를 $(2,3)$, $(3,2)$, $(3,3)$으로 나열했다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1]
+    - id: 1.A1
+      mark_type: A
+      points: 35
+      evidence: |
+        $\dfrac14a(4-3a)$를 얻었다.
+      depends_on: [1.M1]
+      steps: [1b-2]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '2'
+  stem: |
+    "가"지역에서 독립으로 임의추출한 $100$개 아파트 표본 $X_1,X_2,\ldots,X_{100}$에 대하여 $T=\dfrac1{100}X_1+\dfrac2{100}X_2+\cdots+\dfrac{99}{100}X_{99}+X_{100}$라고 하자. 기댓값 $\mathrm{E}(T)$를 구하시오.
+  points: 80
+  depends_on: []
+  answer: {kind: value, value: '101', equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: $\mathrm{E}(X_k)=2$, $\mathrm{E}(T)=\tfrac2{100}\sum_{k=1}^{100}k$.
+    steps:
+    - {id: 2a, content: '$\tfrac{2}{100}\cdot5050=101$', criteria: ['2.M1', '2.A1', '2.A2']}
+    hint_ladder:
+    - 한 아파트의 방의 개수의 기댓값을 먼저 구하자.
+  - id: S2-B
+    audience: B
+    source_flow: 해설교재 p.141
+    method_no: 1
+    steps:
+    - id: 2b-1
+      content: |
+        방의 개수의 기댓값은 $1\cdot\dfrac a2+2(1-a)+3\cdot\dfrac a2=2$이므로 $\mathrm{E}(X_k)=2$ ($k=1,2,\ldots,100$).
+      criteria: ['2.M1']
+    - id: 2b-2
+      content: |
+        $X_{100}$의 계수 $1=\dfrac{100}{100}$이므로 $\mathrm{E}(T)=\dfrac1{100}\displaystyle\sum_{k=1}^{100}k\,\mathrm{E}(X_k)=\dfrac{2}{100}\sum_{k=1}^{100}k$.
+      criteria: ['2.A1']
+    - id: 2b-3
+      content: |
+        $=\dfrac2{100}\times\dfrac{100\times101}{2}=101$.
+      criteria: ['2.A2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 30
+      evidence: |
+        $\mathrm{E}(X_k)=2$를 구했다.
+      depends_on: []
+      implied_ok: false
+      steps: [2b-1]
+    - id: 2.A1
+      mark_type: A
+      points: 25
+      evidence: |
+        기댓값의 선형성으로 $\mathrm{E}(T)=\tfrac2{100}\sum k$를 세웠다.
+      depends_on: [2.M1]
+      steps: [2b-2]
+    - id: 2.A2
+      mark_type: A
+      points: 25
+      evidence: |
+        $101$을 얻었다.
+      depends_on: [2.A1]
+      implied_ok: true
+      steps: [2b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '3'
+  stem: |
+    "가"지역에서 독립으로 임의추출한 $100$개 아파트 표본을 조사한 결과 방의 개수가 1개 또는 3개인 경우가 $20$건, 그리고 2개인 경우가 $80$건이었다. $a$에 대하여 신뢰도 $95\%$인 신뢰구간을 구하시오.
+  points: 80
+  depends_on: []
+  answer: {kind: set, value: '[76/625, 174/625]', equivalents: ['(0.1216, 0.2784)', '[0.1216, 0.2784]'], tolerance: null}
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: $Y\sim\mathrm{B}(100,a)$, $\hat a=0.2$, $0.2\pm1.96\sqrt{\tfrac{0.2\cdot0.8}{100}}=0.2\pm0.0784$.
+    steps:
+    - {id: 3a, content: '$(0.1216,\,0.2784)$', criteria: ['3.M1', '3.M2', '3.A1']}
+    hint_ladder:
+    - 방이 1개 또는 3개일 확률은?
+    - 표본비율의 표준편차는 $\sqrt{\tfrac{a(1-a)}{n}}$이다.
+  - id: S3-B
+    audience: B
+    source_flow: 해설교재 p.141
+    method_no: 1
+    steps:
+    - id: 3b-1
+      content: |
+        방의 개수가 1개 또는 3개일 확률은 $\tfrac a2+\tfrac a2=a$이므로, 그런 아파트의 수 $Y$는 $\mathrm{B}(100,a)$를 따른다. $\hat a=\dfrac{Y}{100}=0.2$.
+      criteria: ['3.M1']
+    - id: 3b-2
+      content: |
+        $\dfrac{Y-100a}{\sqrt{100a(1-a)}}=\dfrac{\frac{Y}{100}-a}{\sqrt{\frac{a(1-a)}{100}}}$은 근사적으로 $\mathrm{N}(0,1)$을 따르므로 $95\%$ 신뢰구간은 $\left(\dfrac15-1.96\sqrt{\dfrac{\frac15\cdot\frac45}{100}},\ \dfrac15+1.96\sqrt{\dfrac{\frac15\cdot\frac45}{100}}\right)$.
+      criteria: ['3.M2']
+    - id: 3b-3
+      content: |
+        $=\left(\dfrac{125-49}{625},\dfrac{125+49}{625}\right)=\left(\dfrac{76}{625},\dfrac{174}{625}\right)=(0.1216,\ 0.2784)$.
+      criteria: ['3.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 25
+      evidence: |
+        '1개 또는 3개'의 확률이 $a$임을 밝히고 $\hat a=0.2$를 구했다.
+      depends_on: []
+      implied_ok: false
+      steps: [3b-1]
+    - id: 3.M2
+      mark_type: M
+      points: 30
+      evidence: |
+        정규근사로 $\hat a\pm1.96\sqrt{\tfrac{\hat a(1-\hat a)}{100}}$ 꼴의 신뢰구간식을 세웠다.
+      depends_on: [3.M1]
+      steps: [3b-2]
+    - id: 3.A1
+      mark_type: A
+      points: 25
+      evidence: |
+        $(0.1216,\ 0.2784)$를 얻었다.
+      depends_on: [3.M2]
+      steps: [3b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-PRB-3114}
+  misconceptions:
+  - id: MC-PRB-3114
+    outcome_code: '71'
+    wrong_work: '$0.2\pm1.96\sqrt{0.2\times0.8}$ (표본 크기 $100$으로 나누지 않음)'
+    detect_cue: 표본비율의 표준편차 대신 한 개체의 표준편차를 썼다
+    feedback: 표본비율 $\hat a=\tfrac Y{100}$의 표준편차는 $\sqrt{\tfrac{a(1-a)}{100}}$입니다.
+    remedy: [RL-1]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-PRB-3114}
+  relation: remediation
+  target: {kind: concept, ref: CON-PRB-CONF-INTERVAL}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

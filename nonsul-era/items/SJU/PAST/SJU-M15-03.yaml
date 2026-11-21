@@ -1,0 +1,365 @@
+# 세종대 2015학년도 신입학 관련 모의평가 문제 3 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+# [해설 불일치] (3-1) 해설교재 p.205 는 1행 (0,1/2,1/2)를 구해 놓고 최종 행렬 1행을 (1,1/2,1/2)로, 2행을 (1,1,-1)로 적었다.
+#   x(0,1,2)+y(1,0,1)+z(1,0,-1)=(0,1,0) 을 풀면 2행은 (1,-1,1). 정답 A=[[0,1/2,1/2],[1,-1,1],[0,1/2,-1/2]](=B^{-1}) 로 둠.
+# [해설 오기] (3-2) 해설의 "(0,2)A=(2,4)" 는 직선 y=3x-2 위의 점 (0,-2) 의 오기(계산 0·A[1]+(-2)·A[2] 는 (0,-2) 기준).
+# [유형 제안] SJU T01~T10 중 맞는 유형 없음(구교육과정 수학Ⅰ 행렬) → type: null. 신설 제안: "행렬의 곱셈과 역행렬(구교육과정)"
+# curriculum.subjects: 행렬은 2009 개정 수학Ⅰ 단원. taxonomy 에 맞는 과목값이 없어 수학Ⅰ 로 둠.
+schema_version: '2.0'
+id: SJU-M15-03
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: SJU
+type: null
+variant_of: null
+replaces: null
+level: L3
+form: 구성
+points: 30
+time_estimate_min: 25
+intent: |
+  행렬의 곱을 행벡터의 일차결합으로 이해해 $AB=E$인 $A$와 점을 옮기는 변환의 행렬을 구성하고, $2\times2$ 행렬에서 $AB=E$이면 $BA=E$임을 행렬식에 따른 경우 분류로 설명하는 능력을 본다.
+key_idea: |
+  $(AB)[i]=a_{i1}B[1]+a_{i2}B[2]+a_{i3}B[3]$. (3-3)은 $ad-bc\ne0$이면 $A=B^{-1}$, $ad-bc=0$이면 수반행렬 $C$에 대해 $BC=O$이라 $C=A(BC)=O$이 되어 $B=O$, 모순.
+stuck: |
+  (3-3)에서 $ad-bc=0$인 경우를 수반행렬 $C=\begin{pmatrix}d&-b\\-c&a\end{pmatrix}$로 처리해 모순을 이끄는 것
+idea_tags: [IDEA-ROW-COMBINATION-PRODUCT, IDEA-ADJUGATE-CONTRADICTION]
+tags: [구교육과정, 범위 밖(현행), 행렬, 역행렬]
+elements:
+  materials:
+  - '$3\times3$ 행렬 $B=\begin{pmatrix}0&1&2\\1&0&1\\1&0&-1\end{pmatrix}$와 $AB=E$'
+  - '점 $(x,y)$를 $(x,y)A$로 보내는 변환 $F$와 직선 $y=3x-2$'
+  - '$2\times2$ 행렬 $B=\begin{pmatrix}a&b\\c&d\end{pmatrix}$'
+  concepts:
+  - '행렬의 곱셈'
+  - '행벡터의 실수배와 덧셈(일차결합)'
+  - '역행렬의 정의와 존재 조건'
+  - '연립일차방정식'
+  - '행렬 곱셈의 결합법칙'
+  tools:
+  - '$(AB)[i]=\sum_ka_{ik}B[k]$로 행 단위 연립'
+  - '직선 위 두 점 $(0,-2)$, $(1,1)$ 대입'
+  - '항등식 비교(별해)'
+  - '수반행렬 $C$와 $BC=(ad-bc)E$, 귀류법'
+  conditions:
+  - '$AB=E$의 각 행이 단위행렬의 행'
+  - '직선 위의 모든 점이 $(2,4)$로 이동'
+  - '$ad-bc\ne0$ / $ad-bc=0$ 경우 분류'
+  stimuli_used: ['가', '나']
+  subpart_links: '(3-1)·(3-2)는 제시문 (가)의 행벡터 일차결합을, (3-3)은 제시문 (나)의 역행렬 정의를 사용'
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅰ]
+  scope_2028: unknown
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: (2009 개정 수학Ⅰ) 행렬의 곱셈과 역행렬의 뜻을 알고 그 성질을 이해한다(요지)
+    verified: false
+  content_area: 행렬과 그래프(구교육과정)
+  behavior_domain: 추론
+  unit_path: [수학Ⅰ(2009), 행렬과 그래프, 행렬의 곱셈]
+  key_concepts:
+  - 행렬의 곱셈
+  - 행벡터의 실수배와 덧셈(일차결합)
+  - 역행렬의 정의와 존재 조건
+  - 연립일차방정식
+  - 행렬 곱셈의 결합법칙
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 세종대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 세종대학교
+  admission_year: 2015
+  admission_type: 신입학 관련 모의평가
+  track: 자연계열
+  question_no: 3
+  official_url: https://ipsi.sejong.ac.kr   # [확인 필요] 입학처 자료실의 정확한 게시물 URL로 교체
+  retrieved_at: 2026-11-21
+  original_points: [10, 10, 10]
+  rights_notice: 미확인(대학 원본 PDF 표지 문구 확인 필요)
+  transcribed_from: 대치 수리 논술 연구소 「2027학년도 대비 수리논술 세종대 기출 및 모의 문제」 p.123 + 해설교재 p.205~206 (원본 PDF 이미지 대조 완료 2026-11-21)
+
+verify: verify/SJU-M15.py::p03
+
+stimuli:
+- label: 가
+  body: |
+    벡터의 실수배와 덧셈을 이용하면, 곱셈이 정의되는 두 행렬 $A$, $B$의 곱 $AB$를 벡터의 연산을 이용하여 이해할 수 있다.
+    우선, 행의 개수가 $1$인 행렬을 행벡터라 할 때, $n\times m$ 행렬은 $n$개의 행벡터를 위에서 아래로 나열해 놓은 것으로 생각할 수 있다. 즉, 행렬 $C$의 $(i,j)$성분을 $c_{ij}$라 할 때, 행렬 $C$의 제 $i$행을 행벡터로 생각한 것을 $C[i]$로 나타내면, $C[i]=(c_{i1},c_{i2},\cdots,c_{im})$이다.
+    이제, 벡터의 연산을 이용하여 행렬의 곱셈을 이해하는 방법을 알아보기 위해, 아래와 같이 $3\times2$ 행렬 $A$와 $2\times2$ 행렬 $B$의 곱 $AB$를 살펴보자.
+    $$\begin{pmatrix}-2&3\\-1&1\\1&0\end{pmatrix}\begin{pmatrix}a&b\\c&d\end{pmatrix}=\begin{pmatrix}-2a+3c&-2b+3d\\-a+c&-b+d\\a&b\end{pmatrix}$$
+    행렬 $A$의 $(i,j)$ 성분을 $a_{ij}$라 할 때, 행렬 $AB$의 제 $1$행에 대응되는 행벡터는
+    $$(AB)[1]=(-2a+3c,\,-2b+3d)=-2(a,b)+3(c,d)=a_{11}B[1]+a_{12}B[2]$$
+    이고, $AB$의 나머지 행도 같은 방법으로 벡터의 연산을 이용하여 얻을 수 있다.
+    일반적으로 $(i,k)$성분이 $a_{ik}$인 $n\times r$ 행렬 $A$와 $r\times m$ 행렬 $B$의 곱 $AB$의 $i$행은
+    $$a_{i1}B[1]+a_{i2}B[2]+\cdots+a_{ir}B[r]$$
+    와 같이 행렬 $A$의 $i$행의 각 성분과 행렬 $B$의 각 행에 대응되는 행벡터를 이용하여 구할 수 있다.
+- label: 나
+  body: |
+    $2\times2$행렬 $A$에 대하여 $AB=E$와 $BA=E$를 동시에 만족하는 행렬 $B$가 존재할 때, $B$를 $A$의 역행렬이라고 한다. (단, $E$는 $2\times2$ 단위행렬)
+
+stem: |
+  아래 제시문 (가)와 (나)를 읽고, 이를 이용하여 각 물음에 답하시오.
+
+subparts:
+- id: '1'
+  stem: |
+    위 제시문 (가)를 이용하여 $3\times3$ 행렬 $B=\begin{pmatrix}0&1&2\\1&0&1\\1&0&-1\end{pmatrix}$에 대하여 $AB=\begin{pmatrix}1&0&0\\0&1&0\\0&0&1\end{pmatrix}$를 만족하는 행렬 $A$를 구하시오.
+  points: 10
+  depends_on: []
+  answer: {kind: expression, value: 'Matrix([[0, 1/2, 1/2], [1, -1, 1], [0, 1/2, -1/2]])', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $A$의 $i$행 $(x,y,z)$에 대해 $x(0,1,2)+y(1,0,1)+z(1,0,-1)$이 $E$의 $i$행이 되도록 연립한다.
+    steps:
+    - {id: 1a, content: '1행 $(0,\tfrac12,\tfrac12)$, 2행 $(1,-1,1)$, 3행 $(0,\tfrac12,-\tfrac12)$', criteria: ['1.M1', '1.A1', '1.A2']}
+    hint_ladder:
+    - $AB$의 각 행은 $B$의 행들의 일차결합이다. 계수가 곧 $A$의 행이다.
+  - id: S1-B
+    audience: B
+    source_flow: 해설교재 p.205
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        제시문 (가)에 따라 $A$의 $i$행을 $(x,y,z)$라 하면 $(AB)[i]=x(0,1,2)+y(1,0,1)+z(1,0,-1)=(y+z,\,x,\,2x+y-z)$이다.
+      criteria: ['1.M1']
+    - id: 1b-2
+      content: |
+        1행: $(y+z,x,2x+y-z)=(1,0,0)$에서 $x=0$, $y=z=\dfrac12$이므로 $A$의 1행은 $\left(0,\dfrac12,\dfrac12\right)$이다.
+      criteria: ['1.A1']
+    - id: 1b-3
+      content: |
+        같은 방법으로 2행은 $(y+z,x,2x+y-z)=(0,1,0)$에서 $x=1$, $y=-1$, $z=1$, 3행은 $(0,0,1)$에서 $x=0$, $y=\dfrac12$, $z=-\dfrac12$이다. 따라서
+        $$A=\begin{pmatrix}0&\frac12&\frac12\\1&-1&1\\0&\frac12&-\frac12\end{pmatrix}$$
+        이다.
+      criteria: ['1.A2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 4
+      evidence: |
+        $A$의 한 행을 $(x,y,z)$로 두고 $B$의 행벡터의 일차결합으로 $(AB)[i]$를 나타냈다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1]
+    - id: 1.A1
+      mark_type: A
+      points: 3
+      evidence: |
+        1행 $\left(0,\dfrac12,\dfrac12\right)$을 구했다.
+      depends_on: [1.M1]
+      steps: [1b-2]
+    - id: 1.A2
+      mark_type: A
+      points: 3
+      evidence: |
+        2행 $(1,-1,1)$, 3행 $\left(0,\dfrac12,-\dfrac12\right)$을 구해 $A$를 완성했다.
+      depends_on: [1.M1]
+      steps: [1b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-ALG-3189}
+  misconceptions:
+  - id: MC-ALG-3189
+    outcome_code: '71'
+    wrong_work: '$(AB)[i]$를 $B$의 열벡터의 결합으로 세워 성분 위치가 뒤바뀐 $A$를 얻음'
+    detect_cue: $x(0,1,2)+y(1,0,1)+z(1,0,-1)$ 대신 $B$의 열로 결합했다
+    feedback: $AB$의 $i$행은 $A$의 $i$행 성분을 계수로 한 $B$의 행벡터들의 결합입니다.
+    remedy: [RL-1]
+
+- id: '2'
+  stem: |
+    $2\times2$ 행렬 $A$에 대하여, 좌표평면 위의 점 $(x,y)$를 행렬의 곱으로 정의된 점 $(x,y)A$로 보내는 변환 $F$가 있다. 변환 $F$가 직선 $y=3x-2$ 위의 모든 점을 점 $(2,4)$로 옮긴다고 할 때, 행렬 $A$를 구하시오.
+  points: 10
+  depends_on: []
+  answer: {kind: expression, value: 'Matrix([[3, 6], [-1, -2]])', equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: 직선 위 두 점 $(0,-2)$, $(1,1)$을 넣으면 $-2A[2]=(2,4)$, $A[1]+A[2]=(2,4)$.
+    steps:
+    - {id: 2a, content: '$A[2]=(-1,-2)$, $A[1]=(3,6)$', criteria: ['2.M1', '2.A1', '2.A2']}
+    hint_ladder:
+    - $(x,y)A=xA[1]+yA[2]$이다. 직선 위의 쉬운 점을 넣어 보자.
+  - id: S2-B
+    audience: B
+    source_flow: 해설교재 p.205
+    method_no: 1
+    steps:
+    - id: 2b-1
+      content: |
+        $x=0$일 때 $(0,-2)$, $x=1$일 때 $(1,1)$은 직선 $y=3x-2$ 위의 점이다. 제시문 (가)에 의해 $(x,y)A=x\,A[1]+y\,A[2]$이다.
+      criteria: ['2.M1']
+    - id: 2b-2
+      content: |
+        (i) $(0,-2)A=(2,4)$에서 $0\cdot A[1]+(-2)\cdot A[2]=(2,4)$이므로 $A[2]=(-1,-2)$이다.
+      criteria: ['2.A1']
+    - id: 2b-3
+      content: |
+        (ii) $(1,1)A=(2,4)$에서 $A[1]+A[2]=(2,4)$이고 $A[2]=(-1,-2)$이므로 $A[1]=(3,6)$이다. 따라서 $A=\begin{pmatrix}3&6\\-1&-2\end{pmatrix}$이다.
+      criteria: ['2.A2']
+  - id: S2-ALT
+    audience: ALT
+    source_flow: 해설교재 p.205~206 별해
+    method_no: 2
+    key_idea: 직선 위 임의의 점 $(x,3x-2)$에 대해 항등식을 세운다.
+    steps:
+    - id: 2c-1
+      content: |
+        $A=\begin{pmatrix}a&b\\c&d\end{pmatrix}$라 하면 $(x,3x-2)A=(ax+3cx-2c,\ bx+3dx-2d)=(2,4)$가 모든 $x$에 대해 성립하므로
+        $(a+3c)x-2c=2$, $(b+3d)x-2d=4$가 항등식이다. 첫 식에서 $c=-1$, $a=3$, 둘째 식에서 $d=-2$, $b=6$이다. 따라서 $A=\begin{pmatrix}3&6\\-1&-2\end{pmatrix}$.
+      criteria: ['2.M1', '2.A1', '2.A2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 4
+      evidence: |
+        직선 위의 점(두 점 또는 일반점 $(x,3x-2)$)을 $(x,y)A=(2,4)$에 대입해 식을 세웠다.
+      depends_on: []
+      implied_ok: false
+      steps: [2b-1, 2c-1]
+    - id: 2.A1
+      mark_type: A
+      points: 3
+      evidence: |
+        $A[2]=(-1,-2)$(즉 $c=-1$, $d=-2$)를 구했다.
+      depends_on: [2.M1]
+      steps: [2b-2, 2c-1]
+    - id: 2.A2
+      mark_type: A
+      points: 3
+      evidence: |
+        $A=\begin{pmatrix}3&6\\-1&-2\end{pmatrix}$를 얻었다.
+      depends_on: [2.M1]
+      steps: [2b-3, 2c-1]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '21', meaning: 만점(항등식 별해)}
+  - {code: '71', misconception: MC-ALG-3189}
+  misconceptions:
+  - id: MC-ALG-3189
+    outcome_code: '71'
+    wrong_work: '$A\begin{pmatrix}x\\y\end{pmatrix}=\begin{pmatrix}2\\4\end{pmatrix}$로 계산해 $A=\begin{pmatrix}3&-1\\6&-2\end{pmatrix}$(전치)를 답함'
+    detect_cue: 행벡터 곱 $(x,y)A$를 열벡터 곱으로 바꿔 계산했다
+    feedback: $(x,y)A=xA[1]+yA[2]$로 $A$의 행이 결합됩니다. 곱의 순서와 모양을 지키세요.
+    remedy: [RL-1]
+
+- id: '3'
+  stem: |
+    일반적으로 행렬의 곱셈에 대한 교환법칙은 성립하지 않는다. 하지만, $2\times2$ 행렬 $B=\begin{pmatrix}a&b\\c&d\end{pmatrix}$에 대하여 $AB=E$를 만족하는 행렬 $A$가 존재하면, $BA=E$가 성립함을 설명하시오. (단, $E$는 단위행렬)
+  points: 10
+  depends_on: []
+  answer: {kind: proof, value: null, equivalents: [], tolerance: null}
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: $ad-bc\ne0$이면 $A=B^{-1}$. $ad-bc=0$이면 $C=\begin{pmatrix}d&-b\\-c&a\end{pmatrix}$에 대해 $C=A(BC)=O$이 되어 $B=O$, 모순.
+    steps:
+    - {id: 3a, content: '$ad-bc\ne0\Rightarrow A=ABB^{-1}=B^{-1}\Rightarrow BA=E$; $ad-bc=0\Rightarrow C=(ad-bc)A=O\Rightarrow B=O$ 모순', criteria: ['3.M1', '3.R1', '3.M2', '3.R2']}
+    hint_ladder:
+    - $B$의 행렬식이 $0$인지 아닌지로 나누어 보자.
+    - $ad-bc=0$이면 $B\begin{pmatrix}d&-b\\-c&a\end{pmatrix}$는 무엇인가?
+  - id: S3-B
+    audience: B
+    source_flow: 해설교재 p.206
+    method_no: 1
+    steps:
+    - id: 3b-1
+      content: |
+        $ad-bc\ne0$이면 $B$의 역행렬 $B^{-1}=\dfrac{1}{ad-bc}\begin{pmatrix}d&-b\\-c&a\end{pmatrix}$가 존재한다. $AB=E$의 양변 오른쪽에 $B^{-1}$을 곱하면 $ABB^{-1}=EB^{-1}$, 즉 $A=B^{-1}$이다.
+      criteria: ['3.M1']
+    - id: 3b-2
+      content: |
+        이때 $BA=BB^{-1}=E$가 성립한다.
+      criteria: ['3.R1']
+    - id: 3b-3
+      content: |
+        $ad-bc=0$일 때 $C=\begin{pmatrix}d&-b\\-c&a\end{pmatrix}$라 하자. $AB=E$에서 $ABC=EC=C$이고, $BC=(ad-bc)E=O$이므로 $ABC=A(BC)=(ad-bc)A=O$, 즉 $C=O$이다.
+      criteria: ['3.M2']
+    - id: 3b-4
+      content: |
+        $C=O$이면 $a=b=c=d=0$이므로 $B=O$이고 $AB=O\ne E$가 되어 조건에 모순이다. 따라서 $AB=E$이면 $ad-bc\ne0$이고, 앞의 경우에 의해 $BA=E$가 성립한다. ■
+      criteria: ['3.R2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 3
+      evidence: |
+        $ad-bc\ne0$인 경우 $B^{-1}$을 곱해 $A=B^{-1}$을 얻었다.
+      depends_on: []
+      implied_ok: false
+      steps: [3b-1]
+    - id: 3.R1
+      mark_type: R
+      points: 2
+      evidence: |
+        $BA=BB^{-1}=E$를 결론지었다.
+      depends_on: [3.M1]
+      steps: [3b-2]
+    - id: 3.M2
+      mark_type: M
+      points: 3
+      evidence: |
+        $ad-bc=0$인 경우 $C=\begin{pmatrix}d&-b\\-c&a\end{pmatrix}$와 $BC=(ad-bc)E$를 이용해 $C=O$을 이끌었다.
+      depends_on: []
+      implied_ok: false
+      steps: [3b-3]
+    - id: 3.R2
+      mark_type: R
+      points: 2
+      evidence: |
+        $B=O$이 되어 $AB=E$와 모순임을 밝혀 이 경우가 불가능함을 결론지었다.
+      depends_on: [3.M2]
+      steps: [3b-4]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-ALG-3178}
+  misconceptions:
+  - id: MC-ALG-3178
+    outcome_code: '71'
+    wrong_work: '$AB=E$이므로 $BA=AB=E$라고 교환하거나, $ad-bc=0$인 경우를 검토하지 않고 $B^{-1}$을 곱함'
+    detect_cue: 교환을 근거 없이 쓰거나 $B^{-1}$의 존재를 확인하지 않았다
+    feedback: 행렬 곱은 일반적으로 교환되지 않습니다. $B^{-1}$이 존재함(즉 $ad-bc\ne0$)부터 보여야 합니다.
+    remedy: [RL-2]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-ALG-3189}
+  relation: remediation
+  target: {kind: concept, ref: CON-ALG-MATRIX-ALGEBRA}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-ALG-3178}
+  relation: remediation
+  target: {kind: concept, ref: CON-ALG-MATRIX-ALGEBRA}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

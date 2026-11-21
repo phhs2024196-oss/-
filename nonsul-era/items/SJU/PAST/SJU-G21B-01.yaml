@@ -1,0 +1,364 @@
+# 세종대 2021학년도 수시 논술고사 [B] 문제 1 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: SJU-G21B-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: SJU
+type: T06
+variant_of: null
+replaces: null
+level: L4
+form: 추론
+points: 230
+time_estimate_min: 30
+intent: |
+  곡선의 길이가 함숫값으로 주어진 관계식을 미분·제곱해 도함수를 구하고 함수를 결정한 뒤, 최솟값과 접선을 이용한 넓이, 그리고 점과 직선 사이 거리의 최대 조건을 해석하는 능력을 본다.
+key_idea: |
+  $\sqrt{1+\{f'(x)\}^2}=f'(x)+2e^{-x}$을 제곱하면 $1=4f'(x)e^{-x}+4e^{-2x}$, 즉 $f'(x)=\tfrac14e^x-e^{-x}$이다.
+stuck: |
+  길이 관계식을 미분해 근호 하나짜리 식으로 만든 뒤 제곱하면 $\{f'\}^2$이 소거된다는 점
+idea_tags: [IDEA-INTEGRAL-IDENTITY-DIFFERENTIATE, IDEA-PERP-MAX-DISTANCE]
+tags: [곡선의 길이, 넓이, 점과 직선 사이 거리]
+elements:
+  materials:
+  - '$f(0)=1$이고 $0\le x\le t$의 곡선 길이가 $f(t)-2e^{-t}+1$인 함수'
+  - '최솟값 $b$, 점 $(0,1)$에서의 접선 $\ell$과 $y=b$, 곡선으로 둘러싸인 영역'
+  - '$x(t)=-t^2+4t+1$이 최대인 점 $\mathrm{A}$를 지나는 직선'
+  concepts:
+  - '곡선의 길이'
+  - '정적분으로 정의된 함수의 미분'
+  - '지수함수의 미분과 적분'
+  - '함수의 최대·최소'
+  - '접선의 방정식'
+  - '두 곡선 사이의 넓이'
+  - '점과 직선 사이의 거리'
+  tools:
+  - '양변 미분 후 제곱으로 $\{f''\}^2$ 소거'
+  - '$f''''>0$으로 유일 임계점이 최소'
+  - '교점 $x=\tfrac13$에서 넓이 구간 분할'
+  - '이차함수 완전제곱 $-(t-2)^2+5$'
+  - '거리 최대 ⇔ 두 점을 잇는 직선에 수직'
+  conditions:
+  - '$t=0$에서 길이 $0=f(0)-2+1$ 확인'
+  - '$f''(x)+2e^{-x}>0$ ⇒ 제곱해도 동치'
+  - '점 $(0,1)$에서 직선까지의 거리는 $(0,1)$과 $\mathrm{A}$의 거리 이하'
+  stimuli_used: []
+  subpart_links: '(1-2)는 (1-1)의 $f$를 사용하고, (1-3)은 점 $(0,1)$(곡선 위 접점)과 별개의 위치 함수로 만든 점 $\mathrm{A}$를 사용(계산상 독립)'
+
+curriculum:
+  version: '2015'
+  subjects: [수학, 미적분]
+  scope_2028: calc2
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 곡선의 길이를 구하고, 곡선으로 둘러싸인 도형의 넓이를 구할 수 있다(요지)
+    verified: false
+  content_area: 적분법 – 정적분의 활용
+  behavior_domain: 문제해결
+  unit_path: [미적분, 적분법, 정적분의 활용, 곡선의 길이]
+  key_concepts: [곡선의 길이, 정적분으로 정의된 함수의 미분, 지수함수의 미분과 적분, 함수의 최대·최소, 접선의 방정식, 두 곡선 사이의 넓이, 점과 직선 사이의 거리]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 세종대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 세종대학교
+  admission_year: 2021
+  admission_type: 수시 논술고사(B형)
+  track: 자연계열
+  question_no: 1
+  official_url: https://ipsi.sejong.ac.kr   # [확인 필요] 입학처 자료실의 정확한 게시물 URL로 교체
+  retrieved_at: 2026-11-21
+  original_points: [70, 80, 80]
+  rights_notice: 미확인(대학 원본 PDF 표지 문구 확인 필요)
+  transcribed_from: 대치 수리 논술 연구소 「2027학년도 대비 수리논술 세종대 기출 및 모의 문제」 p.61 + 해설교재 p.117 (원본 PDF 이미지 대조 완료 2026-11-21)
+
+verify: verify/SJU-G21B.py::p01
+
+stimuli: []
+
+stem: |
+  실수 전체의 집합에서 미분가능한 함수 $f(x)$는 아래 조건을 만족한다.
+
+  < 조건 >
+  (가) $f(0)=1$
+  (나) $0\le x\le t$에서 곡선 $y=f(x)$의 길이는 $f(t)-2e^{-t}+1$이다.
+
+  다음 물음에 각각 답하시오.
+
+subparts:
+- id: '1'
+  stem: |
+    함수 $f(x)$를 구하시오.
+  points: 70
+  depends_on: []
+  answer: {kind: expression, value: 'exp(x)/4 + exp(-x) - 1/4', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: 미분해서 $\sqrt{1+\{f'\}^2}=f'+2e^{-x}$, 제곱하면 $f'$의 일차식이다.
+    steps:
+    - id: 1a
+      content: |
+        $f'(x)=\tfrac14e^x-e^{-x}$, $f(x)=\tfrac14e^x+e^{-x}-\tfrac14$
+      criteria: ['1.M1', '1.A1', '1.M2', '1.A2']
+    hint_ladder:
+    - 곡선의 길이를 적분으로 쓰고 $x$로 미분하자.
+    - 양변을 제곱하면 $\{f'\}^2$이 없어진다.
+  - id: S1-B
+    audience: B
+    source_flow: 해설교재 p.117
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        (나)에서 $\displaystyle\int_0^x\sqrt{1+\{f'(t)\}^2}dt=f(x)-2e^{-x}+1$이고 양변을 $x$에 대하여 미분하면 $\sqrt{1+\{f'(x)\}^2}=f'(x)+2e^{-x}$이다.
+      criteria: ['1.M1']
+    - id: 1b-2
+      content: |
+        양변을 제곱하면 $1=4f'(x)e^{-x}+4e^{-2x}$이므로 $f'(x)=\dfrac14e^x-e^{-x}$이다. (이때 $f'(x)+2e^{-x}=\dfrac14e^x+e^{-x}>0$이므로 제곱 전 식과 동치이다.)
+      criteria: ['1.A1']
+    - id: 1b-3
+      content: |
+        적분하면 $f(x)=\dfrac14e^x+e^{-x}+c$이고 $f(0)=1$에서 $c=-\dfrac14$이다.
+      criteria: ['1.M2']
+    - id: 1b-4
+      content: |
+        따라서 $f(x)=\dfrac14e^x+e^{-x}-\dfrac14$이다.
+      criteria: ['1.A2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 20
+      evidence: |
+        길이를 $\displaystyle\int_0^x\sqrt{1+\{f'(t)\}^2}dt$로 쓰고 미분해 $\sqrt{1+\{f'(x)\}^2}=f'(x)+2e^{-x}$을 얻었다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1]
+    - id: 1.A1
+      mark_type: A
+      points: 20
+      evidence: |
+        제곱해 $f'(x)=\dfrac14e^x-e^{-x}$을 얻었다.
+      depends_on: [1.M1]
+      steps: [1b-2]
+    - id: 1.M2
+      mark_type: M
+      points: 15
+      evidence: |
+        적분하고 $f(0)=1$로 적분상수를 정했다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-3]
+    - id: 1.A2
+      mark_type: A
+      points: 15
+      evidence: |
+        $f(x)=\dfrac14e^x+e^{-x}-\dfrac14$을 얻었다.
+      depends_on: [1.M2, 1.A1]
+      steps: [1b-4]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-3105}
+  misconceptions:
+  - id: MC-CAL-3105
+    outcome_code: '71'
+    wrong_work: '길이의 피적분함수를 $\sqrt{1+f''(x)}$ 또는 $\sqrt{1+\{f(x)\}^2}$로 씀'
+    detect_cue: 미분한 식의 좌변이 $\sqrt{1+\{f'(x)\}^2}$이 아니다
+    feedback: 곡선 $y=f(x)$의 길이는 $\int\sqrt{1+\{f'(x)\}^2}dx$입니다.
+    remedy: [RL-1]
+
+- id: '2'
+  stem: |
+    함수 $f(x)$는 $x=a$에서 최솟값 $b$를 갖는다. 곡선 $y=f(x)$ 위의 점 $(0,1)$에서의 접선 $\ell$과 직선 $y=b$, 곡선 $y=f(x)$로 둘러싸인 영역의 넓이를 구하시오.
+  points: 80
+  depends_on: ['1']
+  answer: {kind: value, value: '17/24 - log(2)', equivalents: ['17/24-ln2'], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: $a=\ln2$, $b=\tfrac34$, $\ell:y=-\tfrac34x+1$이 $y=b$와 $x=\tfrac13$에서 만나므로 넓이를 $[0,\tfrac13]$과 $[\tfrac13,\ln2]$로 나눈다.
+    steps:
+    - id: 2a
+      content: |
+        $\displaystyle\int_0^{1/3}\left(f+\tfrac34x-1\right)dx+\int_{1/3}^{\ln2}\left(f-\tfrac34\right)dx=\tfrac{17}{24}-\ln2$
+      criteria: ['2.M1', '2.A1', '2.M2', '2.A2']
+    hint_ladder:
+    - $f'(x)=0$인 점과 $f''$의 부호를 확인하자.
+    - 영역의 아래 경계가 바뀌는 점은 어디인가?
+  - id: S2-B
+    audience: B
+    source_flow: 해설교재 p.117
+    method_no: 1
+    steps:
+    - id: 2b-1
+      content: |
+        $f'(x)=\dfrac14e^x-e^{-x}=0$이면 $e^{2x}=4$, $x=\ln2$이다. $f''(x)=\dfrac14e^x+e^{-x}>0$이므로 $f$는 $x=\ln2$에서 최솟값 $f(\ln2)=\dfrac12+\dfrac12-\dfrac14=\dfrac34$를 갖고, $a=\ln2$, $b=\dfrac34$이다.
+      criteria: ['2.M1']
+    - id: 2b-2
+      content: |
+        $f'(0)=\dfrac14-1=-\dfrac34$이므로 접선 $\ell$은 $y=-\dfrac34x+1$이고, $y=\dfrac34$와는 $-\dfrac34x+1=\dfrac34$에서 $x=\dfrac13$일 때 만난다.
+      criteria: ['2.A1']
+    - id: 2b-3
+      content: |
+        곡선은 아래로 볼록하여 접선보다 위에 있으므로 구하는 넓이는
+        $\displaystyle\int_0^{1/3}\left(\dfrac14e^x+e^{-x}+\dfrac34x-\dfrac54\right)dx+\int_{1/3}^{\ln2}\left(\dfrac14e^x+e^{-x}-1\right)dx$이다.
+      criteria: ['2.M2']
+    - id: 2b-4
+      content: |
+        부정적분 $\dfrac14e^x-e^{-x}$을 이용해 계산하면 넓이는 $\left[\dfrac14e^x-e^{-x}\right]_0^{\ln2}+\left[\dfrac38x^2-\dfrac54x\right]_0^{1/3}+\left[-x\right]_{1/3}^{\ln2}=\dfrac34+\left(\dfrac1{24}-\dfrac5{12}\right)-\ln2+\dfrac13=\dfrac{17}{24}-\ln2$이다.
+      criteria: ['2.A2']
+  - id: S2-ALT
+    audience: ALT
+    source_flow: 해설교재 p.117 별해
+    method_no: 2
+    key_idea: 곡선 아래 넓이에서 사다리꼴(직선 $\ell$, $y=b$, $x=0$, $x=\ln2$로 둘러싸인 도형)의 넓이를 뺀다.
+    steps:
+    - id: 2c-1
+      content: |
+        $\displaystyle\int_0^{\ln2}f(x)dx=\dfrac34-\dfrac14\ln2$이고, 아래 경계(접선과 $y=\tfrac34$) 아래의 넓이는 직사각형 $\dfrac34\ln2$와 삼각형 $\dfrac12\cdot\dfrac13\cdot\dfrac14=\dfrac1{24}$의 합이므로
+        구하는 넓이는 $\left(\dfrac34-\dfrac14\ln2\right)-\dfrac34\ln2-\dfrac1{24}=\dfrac{17}{24}-\ln2$이다.
+      criteria: ['2.M1', '2.A1', '2.M2', '2.A2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 20
+      evidence: |
+        $f'=0$과 $f''>0$으로 $a=\ln2$, $b=\dfrac34$을 구했다.
+      depends_on: []
+      implied_ok: false
+      ft: {allowed: true, from: [1.A2], max_points: 20}
+      steps: [2b-1, 2c-1]
+    - id: 2.A1
+      mark_type: A
+      points: 15
+      evidence: |
+        접선 $y=-\dfrac34x+1$과 교점 $x=\dfrac13$을 구했다.
+      depends_on: [2.M1]
+      steps: [2b-2, 2c-1]
+    - id: 2.M2
+      mark_type: M
+      points: 25
+      evidence: |
+        구간을 $\left[0,\dfrac13\right]$, $\left[\dfrac13,\ln2\right]$로 나누어(또는 곡선 아래 넓이에서 사다리꼴을 빼서) 넓이 식을 세웠다.
+      depends_on: [2.A1]
+      steps: [2b-3, 2c-1]
+    - id: 2.A2
+      mark_type: A
+      points: 20
+      evidence: |
+        $\dfrac{17}{24}-\ln2$를 얻었다.
+      depends_on: [2.M2]
+      steps: [2b-4, 2c-1]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '21', meaning: 만점(도형 넓이 별해)}
+  - {code: '71', misconception: MC-CAL-3098}
+  misconceptions:
+  - id: MC-CAL-3098
+    outcome_code: '71'
+    wrong_work: '구간을 나누지 않고 $\int_0^{\ln2}\{f(x)-\ell(x)\}dx$ 또는 $\int_0^{\ln2}\{f(x)-b\}dx$ 하나로 계산'
+    detect_cue: 아래 경계가 $x=\tfrac13$에서 바뀌는 것을 반영하지 않았다
+    feedback: 영역의 아래 경계는 $x=\tfrac13$까지는 접선, 그 뒤로는 $y=b$입니다. 경계가 바뀌는 점에서 구간을 나누세요.
+    remedy: [RL-2]
+
+- id: '3'
+  stem: |
+    $x$축 위를 움직이는 어떤 점의 시각 $t$에서의 위치가 $x(t)=-t^2+4t+1$이다. $x(t)$가 최댓값을 갖게 되는 $x$축 위의 점을 $\mathrm{A}$라 하자. 점 $\mathrm{A}$를 지나는 임의의 직선 $\ell$에 대하여 점 $(0,1)$에서 직선 $\ell$까지의 거리를 $\mathrm{d}(\ell)$이라 할 때, $\mathrm{d}(\ell)$이 최대가 되는 직선 $\ell$의 방정식을 구하시오.
+  points: 80
+  depends_on: []
+  answer: {kind: expression, value: 'y=5*x-25', equivalents: ['y=5*(x-5)'], tolerance: null}
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: $\mathrm{A}(5,0)$이고 $\mathrm{d}(\ell)\le$ (두 점 사이 거리)이며 등호는 $\ell$이 두 점을 잇는 직선에 수직일 때이다.
+    steps:
+    - id: 3a
+      content: |
+        $\mathrm{A}=(5,0)$, 기울기 $-\tfrac15$에 수직 $\Rightarrow\ell:y=5(x-5)$
+      criteria: ['3.B1', '3.M1', '3.A1']
+    hint_ladder:
+    - 점에서 직선까지의 거리는 그 점과 직선 위 임의의 점 사이 거리보다 클 수 없다.
+  - id: S3-B
+    audience: B
+    source_flow: 해설교재 p.117
+    method_no: 1
+    steps:
+    - id: 3b-1
+      content: |
+        $-t^2+4t+1=-(t-2)^2+5$이므로 $x(t)$의 최댓값은 $5$이고 $\mathrm{A}=(5,0)$이다.
+      criteria: ['3.B1']
+    - id: 3b-2
+      content: |
+        점 $\mathrm{B}(0,1)$에서 $\mathrm{A}$를 지나는 직선 $\ell$까지의 거리는 수선의 발을 $\mathrm{H}$라 할 때 $\overline{\mathrm{BH}}\le\overline{\mathrm{BA}}$이고, 등호는 $\mathrm{H}=\mathrm{A}$, 즉 $\ell\perp\mathrm{AB}$일 때 성립한다. 따라서 $\mathrm{d}(\ell)$이 최대인 직선은 두 점 $(0,1)$, $\mathrm{A}$를 지나는 직선에 수직이다.
+      criteria: ['3.M1']
+    - id: 3b-3
+      content: |
+        직선 $\mathrm{AB}$의 기울기는 $-\dfrac15$이므로 $\ell$의 기울기는 $5$이고, $\ell$의 방정식은 $y=5(x-5)$이다.
+      criteria: ['3.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 3.B1
+      mark_type: B
+      points: 20
+      evidence: |
+        $\mathrm{A}=(5,0)$을 구했다.
+      depends_on: []
+      steps: [3b-1]
+    - id: 3.M1
+      mark_type: M
+      points: 35
+      evidence: |
+        거리가 최대인 직선이 두 점을 잇는 직선에 수직임을 근거(직각삼각형의 빗변, 또는 거리 공식의 최대화)와 함께 밝혔다.
+      depends_on: []
+      implied_ok: false
+      steps: [3b-2]
+    - id: 3.A1
+      mark_type: A
+      points: 25
+      evidence: |
+        $y=5(x-5)$을 얻었다.
+      depends_on: [3.M1, 3.B1]
+      steps: [3b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '79', meaning: '두 점을 잇는 직선 $y=-\tfrac15(x-5)$를 답함(거리 0인 직선)'}
+  misconceptions: []
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CAL-3105}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-CURVE-LENGTH}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-CAL-3098}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-AREA-BETWEEN}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

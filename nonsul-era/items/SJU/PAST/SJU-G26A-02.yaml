@@ -1,0 +1,387 @@
+# 세종대 2026학년도 논술고사(자연계열A) 문제 2 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: SJU-G26A-02
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: SJU
+type: T06
+variant_of: null
+replaces: null
+level: L5
+form: 분류
+points: 230
+time_estimate_min: 35
+intent: |
+  피적분함수에 $x$가 섞인 적분 등식을 정리해 두 번 미분하여 함수를 결정하고, 비대칭 차분몫의 극한을 미분계수로 바꾸며, 치환으로 얻은 이차방정식의 근의 위치와 구간별 함수의 경계점을 함께 고려해 교점 개수를 분류하는 능력을 본다.
+key_idea: |
+  $\displaystyle\int_0^x(2t-x)f(t)dt=\int_0^x2tf(t)dt-x\int_0^xf(t)dt$로 나눠 미분하면 $f^{\prime}(x)=e^x$. $r(x)$는 $x\ne0$에서 $3g^{\prime}(x)$이고 $x=0$에서는 연속 조건 $C=2$ 후 직접 계산해 $5$. 교점은 $x>0$에서 $t=e^x>1$인 $t^2-3t+k=0$의 근, $x\le0$에서는 직선부분과 점 $(0,5)$로 나눠 센다.
+stuck: |
+  $r(0)$이 존재하려면 분자 $\to0$이어야 한다는 것에서 $C$를 결정하는 것, 그리고 $r(0)=5$라는 고립된 점이 $k=4$에서 교점 하나를 더 만든다는 것
+idea_tags: [IDEA-SPLIT-X-OUT-OF-INTEGRAL, IDEA-ASYM-DIFFERENCE-QUOTIENT, IDEA-SUBST-EXP-QUADRATIC-ROOT-LOCATION]
+tags: [정적분으로 정의된 함수, 미분계수의 정의, 교점의 개수]
+elements:
+  materials:
+  - '적분 등식 $\displaystyle\int_0^x(2t-x)f(t)dt=(x-2)e^x+ax+b$'
+  - '구간별 함수 $g(x)$ ($x<0$에서 $x^2+2x+3$, $x\ge0$에서 $f(x)$)'
+  - '비대칭 차분몫의 극한 $r(x)=\displaystyle\lim_{h\to0+}\dfrac{g(x+h)-g(x-2h)}{h}$'
+  - '곡선 $y=e^{2x}+k$와 구간별 함수 $y=r(x)$의 교점'
+  concepts:
+  - '정적분으로 정의된 함수의 미분'
+  - '미분계수의 정의'
+  - '함수의 극한'
+  - '지수함수의 미분'
+  - '이차방정식의 근의 위치'
+  - '방정식의 실근의 개수'
+  tools:
+  - '$x=0$ 대입으로 상수 결정'
+  - '$x$를 적분 밖으로 빼고 곱의 미분'
+  - '분모 $\to0$이면 분자 $\to0$'
+  - '$g(x+h)-g(x)+g(x)-g(x-2h)$로 나눠 미분계수 두 개로 표현'
+  - '치환 $t=e^x$ ($x>0\iff t>1$)'
+  - '판별식·축·$p(1)$의 부호로 근의 위치 판정'
+  conditions:
+  - '$f$가 미분가능 ⇒ $f(x)=e^x+C$ ($C$는 (2-1)에서 미정)'
+  - '모든 $x$에서 $r(x)$ 존재 ⇒ $x=0$에서 $\lim g(h)=\lim g(-2h)$, $C=2$'
+  - '$r(0)=5$는 $x<0$ 부분의 극한 $6$과 다른 고립값'
+  - '$x\le0$에서 $e^{2x}+k$의 기울기는 2 이하로 $6x+6$보다 작음'
+  stimuli_used: []
+  subpart_links: '(2-2)는 (2-1)의 f(x)=e^x+C를 사용, (2-3)은 (2-2)의 r(x)를 사용'
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅱ, 미적분]
+  scope_2028: calc2
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 정적분으로 정의된 함수를 미분할 수 있고, 미분계수의 정의를 이용할 수 있다(요지)
+    verified: false
+  content_area: 미분법·적분법
+  behavior_domain: 문제해결
+  unit_path: [수학Ⅱ, 적분, 정적분, 정적분으로 정의된 함수]
+  key_concepts: [정적분으로 정의된 함수의 미분, 미분계수의 정의, 함수의 극한, 지수함수의 미분, 이차방정식의 근의 위치, 방정식의 실근의 개수]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 세종대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 세종대학교
+  admission_year: 2026
+  admission_type: 수시 논술고사
+  track: 자연계열A
+  question_no: 2
+  official_url: https://ipsi.sejong.ac.kr   # [확인 필요] 입학처 자료실의 정확한 게시물 URL로 교체
+  retrieved_at: 2026-11-21
+  original_points: [70, 80, 80]
+  rights_notice: 미확인(대학 원본 PDF 표지 문구 확인 필요)
+  transcribed_from: 대치 수리 논술 연구소 「2027학년도 대비 수리논술 세종대 기출 및 모의 문제」 p.8 + 해설교재 p.14~16 (원본 PDF 이미지 대조 완료 2026-11-21)
+
+verify: verify/SJU-G26A.py::p02
+
+stimuli: []
+
+stem: |
+  실수 전체의 집합에서 미분가능한 함수 $f(x)$가 모든 실수 $x$에 대하여 다음을 만족시킨다.
+  $$\int_0^x(2t-x)f(t)dt=(x-2)e^x+ax+b\ \text{(단, }a\text{와 }b\text{는 상수)}$$
+
+subparts:
+- id: '1'
+  stem: |
+    상수 $a$, $b$의 값과 $f(2)-f(1)$의 값을 각각 구하시오.
+  points: 70
+  depends_on: []
+  answer: {kind: value, value: 'a = 1; b = 2; d = exp(2) - E', equivalents: ['a=1, b=2, f(2)-f(1)=e^2-e'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $x=0$ 대입으로 $b$, $x$를 밖으로 뺀 뒤 미분하고 다시 $x=0$ 대입으로 $a$, 한 번 더 미분해 $f^{\prime}(x)=e^x$.
+    steps:
+    - {id: 1a, content: '$b=2$; $xf(x)-\int_0^xf=(x-1)e^x+a\Rightarrow a=1$; $xf^{\prime}(x)=xe^x\Rightarrow f=e^x+C$, $f(2)-f(1)=e^2-e$', criteria: ['1.B1', '1.M1', '1.A1', '1.A2']}
+    hint_ladder:
+    - 양변에 $x=0$을 넣어 보자.
+    - 피적분함수의 $x$는 적분변수가 아니므로 적분 밖으로 꺼낼 수 있다.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 해설교재 p.14
+    steps:
+    - id: 1b-1
+      content: |
+        주어진 식을 (1)이라 하자. $x=0$을 대입하면 $0=-2+b$이므로 $b=2$이다.
+      criteria: ['1.B1']
+    - id: 1b-2
+      content: |
+        $\displaystyle\int_0^x(2t-x)f(t)dt=\int_0^x2tf(t)dt-x\int_0^xf(t)dt$이므로 (1)의 양변을 미분하면
+        $$2xf(x)-\int_0^xf(t)dt-xf(x)=e^x+(x-2)e^x+a,$$
+        즉 $xf(x)-\displaystyle\int_0^xf(t)dt=(x-1)e^x+a$ ……(2). $x=0$을 대입하면 $0=-1+a$이므로 $a=1$.
+      criteria: ['1.M1', '1.A1']
+    - id: 1b-3
+      content: |
+        (2)의 양변을 미분하면 $f(x)+xf^{\prime}(x)-f(x)=xe^x$이므로 $f^{\prime}(x)=e^x$이다($x\ne0$에서 얻고 $f^{\prime}$의 값이 $x=0$에서도 연결된다). 따라서 적당한 상수 $C$에 대해 $f(x)=e^x+C$이고 이 함수는 조건을 만족시킨다. 그러므로 $f(2)-f(1)=e^2-e$.
+      criteria: ['1.A2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.B1
+      mark_type: B
+      points: 10
+      evidence: |
+        $x=0$ 대입으로 $b=2$를 얻었다.
+      steps: [1b-1]
+    - id: 1.M1
+      mark_type: M
+      points: 20
+      evidence: |
+        $x$를 적분 밖으로 빼서 $\displaystyle\int_0^x2tf(t)dt-x\int_0^xf(t)dt$로 쓰고 곱의 미분으로 미분했다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-2]
+    - id: 1.A1
+      mark_type: A
+      points: 15
+      evidence: |
+        $xf(x)-\displaystyle\int_0^xf(t)dt=(x-1)e^x+a$와 $a=1$을 얻었다.
+      depends_on: [1.M1]
+      steps: [1b-2]
+    - id: 1.A2
+      mark_type: A
+      points: 25
+      evidence: |
+        한 번 더 미분해 $f^{\prime}(x)=e^x$, $f(x)=e^x+C$를 얻고 $f(2)-f(1)=e^2-e$를 구했다.
+      depends_on: [1.M1, 1.A1]
+      steps: [1b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-3015}
+  misconceptions:
+  - id: MC-CAL-3015
+    outcome_code: '71'
+    wrong_work: '$\dfrac{d}{dx}\displaystyle\int_0^x(2t-x)f(t)dt=(2x-x)f(x)=xf(x)$로 계산'
+    detect_cue: $-\displaystyle\int_0^xf(t)dt$ 항이 없다
+    feedback: 피적분함수에 $x$가 있으면 먼저 $x$를 적분 밖으로 꺼낸 뒤 곱의 미분법을 쓰세요.
+    remedy: [RL-1]
+
+- id: '2'
+  stem: |
+    함수 $g(x)=\begin{cases}x^2+2x+3&(x<0)\\f(x)&(x\ge0)\end{cases}$에 대하여 $r(x)=\displaystyle\lim_{h\to0+}\dfrac{g(x+h)-g(x-2h)}{h}$라 하자. 모든 실수 $x$에 대하여 $r(x)$의 값이 존재할 때, $f(x)$와 $r(x)$를 각각 구하시오.
+  points: 80
+  depends_on: ['1']
+  answer: {kind: expression, value: 'f = exp(x) + 2; rneg = 6*x + 6; r0 = 5; rpos = 3*exp(x)', equivalents: ['r(x)=6x+6 (x<0), 5 (x=0), 3e^x (x>0)'], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: $r(0)$ 존재 ⇒ $\lim g(h)=\lim g(-2h)$ ⇒ $1+C=3$. $x\ne0$이면 $r(x)=g^{\prime}(x)+2g^{\prime}(x)=3g^{\prime}(x)$, $x=0$은 직접 계산.
+    steps:
+    - {id: 2a, content: '$C=2$; $r(0)=\lim\tfrac{e^h-1}{h}+\lim\tfrac{4h-4h^2}{h}=5$; $r(x)=6x+6\ (x<0)$, $3e^x\ (x>0)$', criteria: ['2.M1', '2.A1', '2.A2', '2.M2', '2.A3']}
+    hint_ladder:
+    - $x=0$에서 분모가 $0$으로 갈 때 분자는?
+    - $g(x+h)-g(x-2h)=\{g(x+h)-g(x)\}+\{g(x)-g(x-2h)\}$
+  - id: S2-B
+    audience: B
+    method_no: 1
+    source_flow: 해설교재 p.14~15
+    steps:
+    - id: 2b-1
+      content: |
+        (1)에서 $g(x)=x^2+2x+3$ $(x<0)$, $g(x)=e^x+C$ $(x\ge0)$이다. $r(0)=\displaystyle\lim_{h\to0+}\dfrac{g(h)-g(-2h)}{h}$가 존재하고 분모 $\to0$이므로 분자 $\to0$, 즉 $\displaystyle\lim_{h\to0+}g(h)=\lim_{h\to0+}g(-2h)$에서 $1+C=3$, $C=2$이다. 따라서 $f(x)=e^x+2$.
+      criteria: ['2.M1', '2.A1']
+    - id: 2b-2
+      content: |
+        $\displaystyle\lim_{h\to0+}\dfrac{e^h-1}{h}=1$이므로
+        $$r(0)=\lim_{h\to0+}\dfrac{e^h+2-(4h^2-4h+3)}{h}=\lim_{h\to0+}\dfrac{e^h-1}{h}+\lim_{h\to0+}(4-4h)=5.$$
+      criteria: ['2.A2']
+    - id: 2b-3
+      content: |
+        $x\ne0$이면 $g$가 $x$에서 미분가능하므로
+        $$r(x)=\lim_{h\to0+}\dfrac{g(x+h)-g(x)}{h}+2\lim_{h\to0+}\dfrac{g(x-2h)-g(x)}{-2h}=3g^{\prime}(x).$$
+        따라서 $r(x)=6x+6$ $(x<0)$, $r(0)=5$, $r(x)=3e^x$ $(x>0)$.
+      criteria: ['2.M2', '2.A3']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 15
+      evidence: |
+        $r(0)$의 존재에서 분자 $\to0$, 즉 $g$의 $x=0$ 좌우 극한이 같아야 함을 적었다.
+      depends_on: []
+      implied_ok: false
+      ft: {allowed: true, from: [1.A2], max_points: 15}
+      steps: [2b-1]
+    - id: 2.A1
+      mark_type: A
+      points: 15
+      evidence: |
+        $C=2$, $f(x)=e^x+2$를 얻었다.
+      depends_on: [2.M1]
+      steps: [2b-1]
+    - id: 2.A2
+      mark_type: A
+      points: 20
+      evidence: |
+        $r(0)=5$를 극한 계산으로 얻었다.
+      depends_on: [2.M1, 2.A1]
+      steps: [2b-2]
+    - id: 2.M2
+      mark_type: M
+      points: 15
+      evidence: |
+        $x\ne0$에서 차분몫을 두 미분계수로 나눠 $r(x)=3g^{\prime}(x)$를 보였다.
+      depends_on: []
+      implied_ok: false
+      steps: [2b-3]
+    - id: 2.A3
+      mark_type: A
+      points: 15
+      evidence: |
+        $r(x)=6x+6\ (x<0)$, $3e^x\ (x>0)$를 적었다.
+      depends_on: [2.M2]
+      steps: [2b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-3016}
+  misconceptions:
+  - id: MC-CAL-3016
+    outcome_code: '71'
+    wrong_work: '$r(x)=g^{\prime}(x)$로 두어 $r(x)=2x+2$, $e^x$ 등으로 씀'
+    detect_cue: 계수 3이 없다(또는 $x=0$에서도 $g^{\prime}$으로 처리)
+    feedback: 분자의 두 점 사이 간격은 $3h$입니다. $g(x)$를 더하고 빼서 두 미분계수로 나누면 $g^{\prime}(x)+2g^{\prime}(x)$입니다.
+    remedy: [RL-2]
+
+- id: '3'
+  stem: |
+    (2-2)에서 구한 함수 $r(x)$에 대하여 곡선 $y=e^{2x}+k$와 함수 $y=r(x)$의 그래프가 만나는 점의 개수가 2가 되도록 하는 실수 $k$의 값을 모두 구하시오.
+  points: 80
+  depends_on: ['2']
+  answer: {kind: set, value: '(-oo, 2] U {9/4, 4}', equivalents: ['k<=2 or k=9/4 or k=4'], tolerance: null}
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: $x>0$에서 $t=e^x>1$인 $t^2-3t+k=0$의 근 수, $x<0$에서 $6x+6=e^{2x}+k$의 근 수($k<5$이면 1), $x=0$에서 $1+k=5$인지를 더한다.
+    steps:
+    - {id: 3a, content: '$x>0$: $k\le2$ 1개, $2<k<\tfrac94$ 2개, $k=\tfrac94$ 1개, $k>\tfrac94$ 0개; $x<0$: $k<5$ 1개; $x=0$: $k=4$ 1개 ⇒ 합 2는 $k\le2$, $k=\tfrac94$, $k=4$', criteria: ['3.M1', '3.A1', '3.M2', '3.A2']}
+    hint_ladder:
+    - $x>0$ 부분은 $e^x=t$로 놓으면 이차방정식이 된다. $t$의 범위는?
+    - $x=0$에서 $r(0)=5$는 따로 생각해야 한다.
+  - id: S3-B
+    audience: B
+    method_no: 1
+    source_flow: 해설교재 p.15~16
+    steps:
+    - id: 3b-1
+      content: |
+        $x>0$에서 $e^{2x}+k=3e^x$의 실근 수를 센다. $t=e^x$로 두면 $x>0\iff t>1$이므로 $t^2-3t+k=0$ ……(3)의 $t>1$인 근의 개수를 구하면 된다. 판별식은 $D=9-4k$이다.
+      criteria: ['3.M1']
+    - id: 3b-2
+      content: |
+        (i) $k>\dfrac94$이면 $D<0$이므로 근이 없다. (ii) $k=\dfrac94$이면 중근 $t=\dfrac32(>1)$ 하나.
+        (iii) $k<\dfrac94$이면 서로 다른 두 실근이 있다. $p(t)=t^2-3t+k$의 축은 $t=\dfrac32$이므로
+        ① $k\le2$이면 $p(1)=k-2\le0$이어서 $t>1$인 근은 1개, ② $2<k<\dfrac94$이면 $p(1)>0$이어서 $t>1$인 근은 2개.
+        즉 $x>0$에서 교점은 $k\le2$ 또는 $k=\tfrac94$일 때 1개, $2<k<\tfrac94$일 때 2개, $k>\tfrac94$일 때 0개.
+      criteria: ['3.A1']
+    - id: 3b-3
+      content: |
+        $x<0$에서 $e^{2x}+k$의 기울기 $2e^{2x}$는 2보다 작고 직선 $6x+6$의 기울기는 6이므로 $6x+6-e^{2x}-k$는 증가하며 $x\to0-$일 때 $5-k$로 간다. 따라서 $k<5$일 때 교점 1개, $k\ge5$일 때 0개. 또 $x=0$에서는 $1+k=r(0)=5$, 즉 $k=4$일 때만 교점이 생긴다.
+      criteria: ['3.M2']
+    - id: 3b-4
+      content: |
+        합하면 교점의 개수는 $k\le2$: 2, $2<k<\tfrac94$: 3, $k=\tfrac94$: 2, $\tfrac94<k<4$: 1, $k=4$: 2, $4<k<5$: 1, $k\ge5$: 0. 따라서 $k\le2$ 또는 $k=\dfrac94$ 또는 $k=4$.
+      criteria: ['3.A2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 15
+      evidence: |
+        $x>0$ 부분을 $t=e^x$ 치환으로 $t^2-3t+k=0$, $t>1$의 근 문제로 바꿨다.
+      depends_on: []
+      implied_ok: false
+      ft: {allowed: true, from: [2.A3], max_points: 15}
+      steps: [3b-1]
+    - id: 3.A1
+      mark_type: A
+      points: 25
+      evidence: |
+        판별식과 $p(1)$의 부호로 $k\le2$, $2<k<\tfrac94$, $k=\tfrac94$, $k>\tfrac94$의 근 개수를 바르게 분류했다.
+      depends_on: [3.M1]
+      steps: [3b-2]
+    - id: 3.M2
+      mark_type: M
+      points: 20
+      evidence: |
+        $x<0$의 교점(조건 $k<5$)과 $x=0$에서의 교점($k=4$)을 따로 판정했다.
+      depends_on: []
+      implied_ok: false
+      ft: {allowed: true, from: [2.A2, 2.A3], max_points: 20}
+      steps: [3b-3]
+    - id: 3.A2
+      mark_type: A
+      points: 20
+      evidence: |
+        합하여 $k\le2$ 또는 $k=\dfrac94$ 또는 $k=4$를 얻었다.
+      depends_on: [3.M2, 3.A1]
+      steps: [3b-4]
+    deductions:
+    - code: D3-1
+      condition: $k=4$(점 $(0,5)$에서의 교점)를 빠뜨림
+      effect: minus
+      value: 20
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-ALG-3017}
+  - {code: '72', misconception: MC-CAL-3018}
+  misconceptions:
+  - id: MC-ALG-3017
+    outcome_code: '71'
+    wrong_work: '$t^2-3t+k=0$의 실근 개수만 보고 $k<\tfrac94$이면 교점 2개라고 함'
+    detect_cue: $t=e^x>1$ 조건($p(1)$의 부호)을 쓰지 않았다
+    feedback: $x>0$이면 $t=e^x>1$입니다. 근이 $t>1$에 있는지 축과 $p(1)$로 확인하세요.
+    remedy: [RL-3]
+  - id: MC-CAL-3018
+    outcome_code: '72'
+    wrong_work: '$r(0)=5$를 무시하고 $x\le0$에서 $r(x)=6x+6$으로 처리해 $k=4$를 빠뜨림'
+    detect_cue: 답에 $k=4$가 없다
+    feedback: 구간별로 정의된 함수는 경계점의 함숫값을 따로 확인해야 합니다. $r(0)=5$는 직선 $6x+6$ 위에 있지 않습니다.
+    remedy: [RL-4]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CAL-3015}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-FTC-DIFF}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-CAL-3016}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-LIMIT-DERIV-DEF}
+  priority: 1
+- id: RL-3
+  trigger: {type: misconception, ref: MC-ALG-3017}
+  relation: remediation
+  target: {kind: concept, ref: CON-ALG-ROOT-LOCATION}
+  priority: 1
+- id: RL-4
+  trigger: {type: misconception, ref: MC-CAL-3018}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-ROOT-COUNT}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

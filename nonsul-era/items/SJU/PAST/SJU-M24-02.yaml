@@ -1,0 +1,386 @@
+# 세종대 2024학년도 모의논술고사(자연계열) 문제 2 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+# type: T01 은 가장 가까운 유형(접선 기울기 + 평행한 접선으로 최단 거리). 음함수 미분·오목볼록이 중심이라 꼭 맞지는 않음
+schema_version: '2.0'
+id: SJU-M24-02
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: SJU
+type: T01
+variant_of: null
+replaces: null
+level: L4
+form: 최적2단
+points: 230
+time_estimate_min: 30
+intent: |
+  음함수의 미분법으로 접선의 기울기와 이계도함수를 구해 곡선이 실수 전체에서 위로 볼록함을 증명하고, 볼록성과 평행한 접선을 이용해 직선과 곡선 사이의 최단 거리를 주는 점을 찾는 능력을 본다.
+key_idea: |
+  $y'=\dfrac{1-e^{x+y}}{1+e^{x+y}}$이고 $e^{x+y}=x-y$를 대입하면 $y'=\dfrac{1-x+y}{1+x-y}$, $y''=\dfrac{2(y'-1)}{(1+x-y)^2}<0$이다. 기울기 $\tfrac12$인 접선이 접하는 점이 최단점이다.
+stuck: |
+  곡선이 직선 $y=\tfrac x2-\tfrac12$와 만나지 않음을 접선 $\ell$의 $y$절편 비교와 위로 볼록함으로 확인하는 것
+idea_tags: [IDEA-IMPLICIT-DIFF-SUBSTITUTE-RELATION, IDEA-PARALLEL-TANGENT-MIN-DIST]
+tags: [음함수의 미분법, 위로 볼록, 최단 거리]
+elements:
+  materials:
+  - '관계식 $e^{x+y}+y-x=0$으로 정해지는 함수 $y=f(x)$'
+  - '곡선 위의 점 $\left(\frac12,-\frac12\right)$'
+  - '직선 $y=\frac x2-\frac12$ 위의 점과 곡선 위의 점 사이의 최단 거리'
+  concepts:
+  - '음함수의 미분법'
+  - '이계도함수와 곡선의 오목·볼록'
+  - '접선의 방정식'
+  - '점과 직선 사이의 거리'
+  - '지수함수와 로그함수'
+  tools:
+  - '양변을 $x$로 미분($y$는 $x$의 함수)'
+  - '관계식 $e^{x+y}=x-y$를 대입해 $y''$을 $x,y$의 유리식으로'
+  - '$y''-1=-\dfrac{2e^{x+y}}{1+e^{x+y}}<0$'
+  - '기울기가 같은 접선(평행 접선)'
+  - '점과 직선 사이의 거리 공식과 보조함수 $g(x)=\dfrac{x-2f(x)-1}{\sqrt5}$'
+  conditions:
+  - '$e^{x+y}>0$이므로 $1+e^{x+y}>0$, $1+x-y=1+e^{x+y}>0$'
+  - '$y''''<0$이 모든 점에서 성립 $\Rightarrow$ 실수 전체에서 위로 볼록'
+  - '접선 $\ell$의 $y$절편 $-\frac14-\frac14\ln3<-\frac12$ $\Rightarrow$ 곡선은 직선 $y=\frac x2-\frac12$와 만나지 않음'
+  stimuli_used: []
+  subpart_links: '(2-2)는 (2-1)의 $y''$ 식을, (2-3)은 (2-1)의 $y''$과 (2-2)의 위로 볼록함을 사용'
+
+curriculum:
+  version: '2015'
+  subjects: [미적분]
+  scope_2028: calc2
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 음함수의 미분법을 이해하고, 이계도함수를 이용하여 곡선의 오목과 볼록을 판정할 수 있다(요지)
+    verified: false
+  content_area: 미분법
+  behavior_domain: 추론
+  unit_path: [미적분, 미분법, 여러 가지 미분법, 음함수의 미분법]
+  key_concepts: [음함수의 미분법, 이계도함수와 곡선의 오목·볼록, 접선의 방정식, 점과 직선 사이의 거리, 지수함수와 로그함수]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 세종대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 세종대학교
+  admission_year: 2024
+  admission_type: 수시 모의논술
+  track: 자연계열
+  question_no: 2
+  official_url: https://ipsi.sejong.ac.kr   # [확인 필요] 입학처 자료실의 정확한 게시물 URL로 교체
+  retrieved_at: 2026-11-21
+  original_points: [70, 80, 80]
+  rights_notice: 미확인(대학 원본 PDF 표지 문구 확인 필요)
+  transcribed_from: 대치 수리 논술 연구소 「2027학년도 대비 수리논술 세종대 기출 및 모의 문제」 p.34 + 해설교재 p.78~79 (원본 PDF 이미지 대조 완료 2026-11-21)
+
+verify: verify/SJU-M24.py::p02
+
+stimuli: []
+
+stem: |
+  실수 전체의 집합에서 정의된 함수 $f(x)$에 대하여 $y=f(x)$라 할 때
+  $e^{x+y}+y-x=0$이 성립한다.
+
+subparts:
+- id: '1'
+  stem: |
+    곡선 $y=f(x)$ 위의 점 $\left(\dfrac12,\,-\dfrac12\right)$에서의 접선의 기울기를 구하시오.
+  points: 70
+  depends_on: []
+  answer: {kind: value, value: '0', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: 음함수 미분으로 $y'=\dfrac{1-e^{x+y}}{1+e^{x+y}}$, $x+y=0$을 대입한다.
+    steps:
+    - {id: 1a, content: '$e^{x+y}(1+y^{\prime})+y^{\prime}-1=0\Rightarrow y^{\prime}=\tfrac{1-e^{x+y}}{1+e^{x+y}}=\tfrac{1-1}{1+1}=0$', criteria: ['1.M1', '1.A1', '1.A2']}
+    hint_ladder:
+    - $y$를 $x$의 함수로 보고 양변을 $x$에 대하여 미분하자.
+    - 점 $\left(\tfrac12,-\tfrac12\right)$에서 $x+y$의 값은?
+  - id: S1-B
+    audience: B
+    source_flow: 해설교재 p.78
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        음함수의 미분법에 의해 $e^{x+y}+y-x=0$의 양변을 $x$에 대하여 미분하면 $e^{x+y}(1+y')+y'-1=0$이다.
+      criteria: ['1.M1']
+    - id: 1b-2
+      content: |
+        정리하면 $y'=\dfrac{1-e^{x+y}}{1+e^{x+y}}$이다.
+      criteria: ['1.A1']
+    - id: 1b-3
+      content: |
+        $x=\dfrac12$, $y=-\dfrac12$을 대입하면 $e^0=1$이므로 접선의 기울기는 $0$이다.
+      criteria: ['1.A2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 25
+      evidence: |
+        $y$를 $x$의 함수로 보고 양변을 미분해 $e^{x+y}(1+y')+y'-1=0$을 얻었다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1]
+    - id: 1.A1
+      mark_type: A
+      points: 25
+      evidence: |
+        $y'=\dfrac{1-e^{x+y}}{1+e^{x+y}}$을 얻었다.
+      depends_on: [1.M1]
+      steps: [1b-2]
+    - id: 1.A2
+      mark_type: A
+      points: 20
+      evidence: |
+        점을 대입해 기울기 $0$을 얻었다.
+      depends_on: [1.A1, 1.M1]
+      steps: [1b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-3065}
+  misconceptions:
+  - id: MC-CAL-3065
+    outcome_code: '71'
+    wrong_work: '$e^{x+y}+y^{\prime}-1=0$처럼 $e^{x+y}$의 미분에서 $(1+y^{\prime})$을 빠뜨림'
+    detect_cue: 지수 부분의 미분에 $y'$이 없다
+    feedback: $y$는 $x$의 함수이므로 $\dfrac{d}{dx}e^{x+y}=e^{x+y}(1+y')$입니다.
+    remedy: [RL-1]
+
+- id: '2'
+  stem: |
+    곡선 $y=f(x)$가 실수 전체의 집합에서 위로 볼록함을 보이시오.
+  points: 80
+  depends_on: ['1']
+  answer: {kind: proof, value: null, equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: $e^{x+y}=x-y$를 대입해 $y'=\dfrac{1-x+y}{1+x-y}$로 쓰고 다시 미분하면 $y''=\dfrac{2(y'-1)}{(1+x-y)^2}$, $y'<1$.
+    steps:
+    - {id: 2a, content: '$y^{\prime\prime}=\tfrac{2(y^{\prime}-1)}{(1+x-y)^2}$, $y^{\prime}-1=-\tfrac{2e^{x+y}}{1+e^{x+y}}<0\Rightarrow y^{\prime\prime}<0$', criteria: ['2.M1', '2.A1', '2.R1', '2.R2']}
+    hint_ladder:
+    - 주어진 관계식에서 $e^{x+y}$를 $x,y$로 바꿔 쓸 수 있다.
+    - $y'-1$의 부호를 보자.
+  - id: S2-B
+    audience: B
+    source_flow: 해설교재 p.78
+    method_no: 1
+    steps:
+    - id: 2b-1
+      content: |
+        (2-1)에서 $y'=\dfrac{1-e^{x+y}}{1+e^{x+y}}$이고 주어진 식에서 $e^{x+y}=x-y$이므로 $y'=\dfrac{1-x+y}{1+x-y}$이다.
+      criteria: ['2.M1']
+    - id: 2b-2
+      content: |
+        이를 $x$에 대하여 미분하면 $y''=\dfrac{(-1+y')(1+x-y)-(1-x+y)(1-y')}{(1+x-y)^2}=\dfrac{2(y'-1)}{(1+x-y)^2}$이다.
+      criteria: ['2.A1']
+    - id: 2b-3
+      content: |
+        $y'-1=\dfrac{-2e^{x+y}}{1+e^{x+y}}<0$이므로 $y'<1$이고, $1+x-y=1+e^{x+y}>0$이다.
+      criteria: ['2.R1']
+    - id: 2b-4
+      content: |
+        따라서 모든 실수 $x$에서 $y''=\dfrac{2(y'-1)}{(1+x-y)^2}<0$이므로 곡선 $y=f(x)$는 실수 전체의 집합에서 위로 볼록하다. ■
+      criteria: ['2.R2']
+  - id: S2-ALT1
+    audience: ALT
+    source_flow: 해설교재 p.78 다른 풀이 1
+    method_no: 2
+    key_idea: $y'=\dfrac{1-e^{x+y}}{1+e^{x+y}}$를 몫의 미분으로 직접 미분한다.
+    steps:
+    - id: 2alt1-1
+      content: |
+        $1+y'=\dfrac{2}{1+e^{x+y}}$이고 몫의 미분법으로 $y''=\dfrac{-e^{x+y}(1+y')(1+e^{x+y})-(1-e^{x+y})e^{x+y}(1+y')}{(1+e^{x+y})^2}=-\dfrac{4e^{x+y}}{(1+e^{x+y})^3}<0$이다.
+      criteria: ['2.A1', '2.R1', '2.R2']
+  - id: S2-ALT2
+    audience: ALT
+    source_flow: 해설교재 p.78 다른 풀이 2
+    method_no: 3
+    key_idea: (2-1)의 식 $e^{x+y}(1+y')+y'-1=0$을 한 번 더 미분한다.
+    steps:
+    - id: 2alt2-1
+      content: |
+        $e^{x+y}(1+y')^2+e^{x+y}y''+y''=0$에서 $y''=-\dfrac{e^{x+y}(1+y')^2}{e^{x+y}+1}$이고, $1+y'=\dfrac{2}{1+e^{x+y}}$를 대입하면 $y''=-\dfrac{4e^{x+y}}{(e^{x+y}+1)^3}<0$이다.
+      criteria: ['2.A1', '2.R1', '2.R2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 20
+      evidence: |
+        $y'$ 식을 다시 미분할 수 있는 꼴로 정리했다($e^{x+y}=x-y$ 대입, 또는 몫의 미분·재미분 시작).
+      depends_on: []
+      implied_ok: false
+      ft: {allowed: true, from: [1.A1], max_points: 20}
+      steps: [2b-1]
+    - id: 2.A1
+      mark_type: A
+      points: 25
+      evidence: |
+        $y''=\dfrac{2(y'-1)}{(1+x-y)^2}$ 또는 $y''=-\dfrac{4e^{x+y}}{(1+e^{x+y})^3}$을 얻었다.
+      depends_on: [2.M1]
+      steps: [2b-2, 2alt1-1, 2alt2-1]
+    - id: 2.R1
+      mark_type: R
+      points: 20
+      evidence: |
+        $y'-1<0$(또는 $e^{x+y}>0$)과 분모가 양수임을 근거로 $y''$의 부호를 판정했다.
+      depends_on: [2.A1]
+      steps: [2b-3, 2alt1-1, 2alt2-1]
+    - id: 2.R2
+      mark_type: R
+      points: 15
+      evidence: |
+        모든 실수에서 $y''<0$이므로 위로 볼록하다고 결론지었다.
+      depends_on: [2.R1]
+      steps: [2b-4, 2alt1-1, 2alt2-1]
+    deductions:
+    - code: D2-1
+      condition: 몇 개의 점에서만 $y''<0$을 확인하고 결론지음
+      effect: cap
+      value: 45
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-3066}
+  misconceptions:
+  - id: MC-CAL-3066
+    outcome_code: '71'
+    wrong_work: '점 $\left(\tfrac12,-\tfrac12\right)$에서 $y^{\prime\prime}=-\tfrac12<0$임만 계산해 위로 볼록하다고 씀'
+    detect_cue: $y''$의 부호를 일반 점에서 판정하지 않았다
+    feedback: 실수 전체에서 위로 볼록하려면 모든 점에서 $y''<0$이어야 합니다. $e^{x+y}>0$을 이용해 일반적으로 보이세요.
+    remedy: [RL-2]
+
+- id: '3'
+  stem: |
+    직선 $y=\dfrac x2-\dfrac12$ 위의 점 $\mathrm{P}$와 곡선 $y=f(x)$ 위의 점 $\mathrm{Q}$ 사이의 거리가 최소가 되도록 하는 $\mathrm{Q}$의 좌표를 구하시오.
+  points: 80
+  depends_on: ['1', '2']
+  answer: {kind: expression, value: '((1/3 - log(3))/2, -(1/3 + log(3))/2)', equivalents: ['(1/6 - log(3)/2, -1/6 - log(3)/2)'], tolerance: null}
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: 기울기 $\tfrac12$인 접선의 접점 $(a,b)$를 구하고, 위로 볼록한 곡선이 그 접선 아래에 있으며 접선이 주어진 직선 아래에 있음을 확인한다.
+    steps:
+    - {id: 3a, content: '$e^{a+b}=\tfrac13$, $a-b=e^{a+b}=\tfrac13\Rightarrow(a,b)=\left(\tfrac12(\tfrac13-\ln3),-\tfrac12(\tfrac13+\ln3)\right)$; 접선 $y$절편 $-\tfrac14-\tfrac14\ln3<-\tfrac12$', criteria: ['3.M1', '3.A1', '3.R1', '3.A2']}
+    hint_ladder:
+    - 곡선과 직선이 만나지 않으면, 최단 거리는 직선과 평행한 접선의 접점에서 생긴다.
+    - $y'=\tfrac12$이 되는 점을 찾자.
+  - id: S3-B
+    audience: B
+    source_flow: 해설교재 p.79
+    method_no: 1
+    steps:
+    - id: 3b-1
+      content: |
+        곡선 위의 점 $\mathrm{Q}(a,b)$에서의 접선 $\ell$의 기울기가 $\dfrac12$이라 하면 $\dfrac{1-e^{a+b}}{1+e^{a+b}}=\dfrac12$에서 $e^{a+b}=\dfrac13$, 즉 $a+b=-\ln3$이다.
+      criteria: ['3.M1']
+    - id: 3b-2
+      content: |
+        $e^{a+b}+b-a=0$에서 $a-b=\dfrac13$이다. 연립하면 $a=\dfrac12\left(\dfrac13-\ln3\right)$, $b=-\dfrac12\left(\dfrac13+\ln3\right)$이다.
+      criteria: ['3.A1']
+    - id: 3b-3
+      content: |
+        접선 $\ell$의 $y$절편은 $-\dfrac a2+b=-\dfrac14-\dfrac14\ln3<-\dfrac14-\dfrac14=-\dfrac12$이다($\ln3>1$). 곡선은 위로 볼록하므로 접선 $\ell$의 아래쪽(오른쪽)에 있고, $\ell$은 직선 $y=\dfrac x2-\dfrac12$와 평행하면서 그보다 아래에 있으므로 곡선은 이 직선과 만나지 않는다.
+      criteria: ['3.R1']
+    - id: 3b-4
+      content: |
+        따라서 곡선 위의 점과 직선 $y=\dfrac x2-\dfrac12$ 사이의 거리는 곡선과 평행한 접선의 접점에서 최소이고, 구하는 $\mathrm{Q}$의 좌표는 $\left(\dfrac12\left(\dfrac13-\ln3\right),\,-\dfrac12\left(\dfrac13+\ln3\right)\right)$이다.
+      criteria: ['3.A2']
+  - id: S3-ALT
+    audience: ALT
+    source_flow: 해설교재 p.79 다른 풀이
+    method_no: 2
+    key_idea: 거리를 $g(x)=\dfrac{x-2f(x)-1}{\sqrt5}$로 두고 $g''>0$으로 최소를 판정한다.
+    steps:
+    - id: 3alt-1
+      content: |
+        점 $(x_0,y_0)$과 직선 $x-2y-1=0$ 사이의 거리는 $\dfrac{\lvert x_0-2y_0-1\rvert}{\sqrt5}$이다. $g(x)=\dfrac{x-2f(x)-1}{\sqrt5}=\dfrac{e^{x+f(x)}-f(x)-1}{\sqrt5}$라 하면 $g'(x)=\dfrac{3e^{x+f(x)}-1}{\sqrt5(1+e^{x+f(x)})}$, $g''(x)=\dfrac{8e^{x+f(x)}}{\sqrt5(1+e^{x+f(x)})^3}>0$이다.
+      criteria: ['3.M1']
+    - id: 3alt-2
+      content: |
+        $g'(a)=0$에서 $3e^{a+b}=1$, $a-b=e^{a+b}$이므로 $a=\dfrac12\left(\dfrac13-\ln3\right)$, $b=-\dfrac12\left(\dfrac13+\ln3\right)$이고 $g(a)=\dfrac{\ln3-1}{2\sqrt5}>0$이다. 따라서 모든 $x$에서 $g(x)\ge g(a)>0$이고 거리는 $x=a$에서 최소이다.
+      criteria: ['3.A1', '3.R1', '3.A2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 20
+      evidence: |
+        기울기가 $\dfrac12$인 접선의 접점 조건 $y'=\dfrac12$(또는 거리 함수의 도함수 $=0$)을 세웠다.
+      depends_on: []
+      implied_ok: false
+      ft: {allowed: true, from: [1.A1], max_points: 20}
+      steps: [3b-1, 3alt-1]
+    - id: 3.A1
+      mark_type: A
+      points: 20
+      evidence: |
+        $a+b=-\ln3$, $a-b=\dfrac13$을 연립해 $(a,b)$를 구했다.
+      depends_on: [3.M1]
+      steps: [3b-2, 3alt-2]
+    - id: 3.R1
+      mark_type: R
+      points: 25
+      evidence: |
+        위로 볼록함과 접선의 $y$절편 비교(또는 $g''>0$, $g(a)>0$)로 곡선이 직선과 만나지 않고 그 접점이 최단점임을 정당화했다.
+      depends_on: [3.A1]
+      steps: [3b-3, 3alt-2]
+    - id: 3.A2
+      mark_type: A
+      points: 15
+      evidence: |
+        $\mathrm{Q}\left(\dfrac12\left(\dfrac13-\ln3\right),-\dfrac12\left(\dfrac13+\ln3\right)\right)$을 답했다.
+      depends_on: [3.A1, 3.M1]
+      steps: [3b-4, 3alt-2]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-3054}
+  misconceptions:
+  - id: MC-CAL-3054
+    outcome_code: '71'
+    wrong_work: '접점만 구하고 곡선이 직선과 만나지 않는지(만나면 거리 최소는 0) 확인하지 않음'
+    detect_cue: 곡선과 직선의 위치 관계에 대한 서술이 없다
+    feedback: 곡선이 직선과 만나면 최소 거리는 $0$입니다. 볼록성과 접선의 $y$절편으로 만나지 않음을 먼저 보이세요.
+    remedy: [RL-3]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CAL-3065}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-IMPLICIT-DIFF}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-CAL-3066}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-CONCAVITY}
+  priority: 1
+- id: RL-3
+  trigger: {type: misconception, ref: MC-CAL-3054}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-DIST-POINT-CURVE}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

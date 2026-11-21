@@ -1,0 +1,352 @@
+# 세종대 2025학년도 수시 논술고사(B형) 문항 3 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: SJU-G25B-03
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: SJU
+type: null          # [제안] 기존 SJU 유형에 맞는 것이 없음: 「정적분으로 정의된 함수의 미분과 증감·최대·최소」 신설 검토 (SJU-M26-03, SJU-G25A-01 과 공통)
+variant_of: null
+replaces: null
+level: L5
+form: 추론
+points: 240
+time_estimate_min: 40
+intent: |
+  우함수의 대칭성으로 정적분으로 정의된 함수의 관계식 $F(x)+F(-x)=C$를 얻고, 곱의 도함수 부호를 보조함수의 단조성으로 판정해 증가 조건을 구하며, 치환과 대칭으로 곱의 적분을 계산하는 능력을 본다.
+key_idea: |
+  $F(-x)=C-F(x)$. (3-2)는 $g'$의 부호가 $h(x)=e^{-x^2}-2a^2xF(x)$의 부호와 같고 $h$가 $x>0$에서 감소하므로 $h(1)\ge0$이 필요충분. (3-3)은 $x\to-x$ 치환으로 $\int f(ax)F(x)dx=\tfrac C2\int_{-1}^1f(ax)dx$.
+stuck: |
+  (3-2)에서 $g'$의 부호를 결정하는 보조함수 $h$를 세우고 그 단조성으로 조건을 끝점 $x=1$ 하나로 줄이는 단계, (3-3)에서 $\int f(ax)F(-x)dx$를 치환해 원래 적분으로 되돌리는 단계
+idea_tags: [IDEA-EVEN-FUNC-INTEGRAL-COMPLEMENT, IDEA-SIGN-AUX-FUNCTION-MONOTONE]
+tags: [우함수, 정적분으로 정의된 함수, 증가 조건]
+elements:
+  materials:
+  - '양의 우함수 $f(x)$와 $F(x)=\int_{-1}^xf(t)dt$'
+  - '곱 함수 $g(x)=f(ax)F(x)$'
+  - '가우스 함수 $f(x)=e^{-x^2}$'
+  concepts:
+  - '우함수의 정적분'
+  - '정적분으로 정의된 함수의 미분'
+  - '곱의 미분법'
+  - '함수의 증가와 감소'
+  - '치환적분법'
+  tools:
+  - '$t\to-t$ 치환으로 $F(-x)=\int_x^1f(t)dt$'
+  - '$g''$의 부호를 결정하는 보조함수 $h(x)=e^{-x^2}-2a^2xF(x)$'
+  - '$h''<0$ ($x>0$)으로 조건을 $h(1)\ge0$으로 축소'
+  - '$x\to-x$ 치환과 $F(x)=C-F(-x)$로 곱의 적분 계산'
+  conditions:
+  - '$f>0$ ⇒ $F$ 증가, $F(1)=C>0$'
+  - '$-1<x\le0$에서 $xF(x)\le0$ ⇒ $h>0$'
+  - '$F(a)=\frac23C$, $\int_{-1}^0f=\frac C2$ ⇒ $\int_0^af=\frac C6$'
+  stimuli_used: []
+  subpart_links: '(3-3)은 (3-1)의 F(x)+F(-x)=C를 사용'
+
+curriculum:
+  version: '2015'
+  subjects: [미적분]
+  scope_2028: calc2
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 정적분으로 정의된 함수를 미분하고 치환적분법을 이용하여 정적분을 구할 수 있다(요지)
+    verified: false
+  content_area: 미분법·적분법
+  behavior_domain: 추론
+  unit_path: [미적분, 적분법, 정적분, 정적분으로 정의된 함수]
+  key_concepts: [우함수의 정적분, 정적분으로 정의된 함수의 미분, 곱의 미분법, 함수의 증가와 감소, 치환적분법]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 세종대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 세종대학교
+  admission_year: 2025
+  admission_type: 수시 논술고사
+  track: 자연계열(B형)
+  question_no: 3
+  official_url: https://ipsi.sejong.ac.kr   # [확인 필요] 입학처 자료실의 정확한 게시물 URL로 교체
+  retrieved_at: 2026-11-21
+  original_points: [80, 80, 80]
+  rights_notice: 미확인(대학 원본 PDF 표지 문구 확인 필요)
+  transcribed_from: 대치 수리 논술 연구소 「2027학년도 대비 수리논술 세종대 기출 및 모의 문제」 p.23 + 해설교재 p.52 (원본 PDF 이미지 대조 완료 2026-11-21)
+
+verify: verify/SJU-G25B.py::p03
+
+stimuli: []
+
+stem: |
+  실수 전체의 집합에서 연속인 함수 $f(x)$가 다음 조건을 만족시킨다.
+
+  (가) 모든 실수 $x$에 대하여 $f(x)>0$이고 $f(x)=f(-x)$
+
+  (나) $\displaystyle\int_{-1}^1f(x)dx=C$
+
+  $F(x)=\displaystyle\int_{-1}^xf(t)dt$라 정의하고 상수 $a>0$에 대하여 $g(x)=f(ax)F(x)$라 정의하자.
+
+subparts:
+- id: '1'
+  stem: |
+    $F(x)+F(-x)$를 $C$의 식으로 나타내시오.
+  points: 80
+  depends_on: []
+  answer: {kind: expression, value: 'C', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $t\to-t$ 치환과 $f$의 대칭으로 $F(-x)=\int_x^1f(t)dt$.
+    steps:
+    - {id: 1a, content: '$F(x)+F(-x)=\int_{-1}^xf+\int_x^1f=C$', criteria: ['1.M1', '1.A1', '1.A2']}
+    hint_ladder:
+    - $F(-x)$에서 $t=-s$로 치환해 보자.
+  - id: S1-B
+    audience: B
+    source_flow: 해설교재 p.52
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        $F(-x)=\displaystyle\int_{-1}^{-x}f(t)dt$에서 $t=-s$로 치환하면 $\displaystyle\int_1^{x}f(-s)(-ds)=\int_x^1f(-s)ds$이다.
+      criteria: ['1.M1']
+    - id: 1b-2
+      content: |
+        $f(-s)=f(s)$이므로 $F(-x)=\displaystyle\int_x^1f(t)dt$이다.
+      criteria: ['1.A1']
+    - id: 1b-3
+      content: |
+        따라서 $F(x)+F(-x)=\displaystyle\int_{-1}^xf(t)dt+\int_x^1f(t)dt=\int_{-1}^1f(t)dt=C$이다.
+      criteria: ['1.A2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 30
+      evidence: |
+        $F(-x)$에 $t=-s$ 치환을 적용했다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1]
+    - id: 1.A1
+      mark_type: A
+      points: 25
+      evidence: |
+        우함수 성질로 $F(-x)=\int_x^1f(t)dt$를 얻었다.
+      depends_on: [1.M1]
+      steps: [1b-2]
+    - id: 1.A2
+      mark_type: A
+      points: 25
+      evidence: |
+        구간을 합쳐 $F(x)+F(-x)=C$를 얻었다.
+      depends_on: [1.M1, 1.A1]
+      steps: [1b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-3045}
+  misconceptions:
+  - id: MC-CAL-3045
+    outcome_code: '71'
+    wrong_work: '$F(-x)=\int_{-1}^{-x}f=\int_{1}^{x}f$로 바꾸면서 부호를 놓쳐 $F(x)+F(-x)=0$ 또는 $2F(x)$로 씀'
+    detect_cue: 치환 후 적분 구간과 $-ds$ 부호 처리가 맞지 않는다
+    feedback: $t=-s$로 치환하면 구간 끝 $-1\to1$, $-x\to x$로 바뀌고 $dt=-ds$입니다. 두 번의 부호 변화를 함께 정리하세요.
+    remedy: [RL-1]
+
+- id: '2'
+  stem: |
+    $f(x)=e^{-x^2}$일 때, 함수 $g(x)$가 구간 $(-1,1)$에서 증가함수이기 위한 양수 $a$의 최댓값을 $C$의 식으로 나타내시오.
+  points: 80
+  depends_on: []
+  answer: {kind: expression, value: '1/sqrt(2*E*C)', equivalents: ['exp(-1/2)/sqrt(2*C)'], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: $g'(x)=e^{-a^2x^2}h(x)$, $h(x)=e^{-x^2}-2a^2xF(x)$는 $x>0$에서 감소하므로 증가 조건은 $h(1)\ge0$.
+    steps:
+    - {id: 2a, content: '$e^{-1}\ge2a^2F(1)=2a^2C\Rightarrow a\le\tfrac{1}{\sqrt{2eC}}$', criteria: ['2.M1', '2.R1', '2.R2', '2.A1']}
+    hint_ladder:
+    - $g'(x)$에서 항상 양수인 인수를 묶어 내자.
+    - 남은 식을 $h(x)$로 두고 $x\le0$, $x>0$에서 부호를 살피자.
+  - id: S2-B
+    audience: B
+    source_flow: 해설교재 p.52
+    method_no: 1
+    steps:
+    - id: 2b-1
+      content: |
+        $g'(x)=af'(ax)F(x)+f(ax)f(x)=-2a^2xe^{-a^2x^2}F(x)+e^{-(a^2+1)x^2}=e^{-a^2x^2}\left\{e^{-x^2}-2a^2xF(x)\right\}$이므로 $g'$의 부호는 $h(x)=e^{-x^2}-2a^2xF(x)$의 부호와 같다.
+      criteria: ['2.M1']
+    - id: 2b-2
+      content: |
+        $-1<x\le0$이면 $F(x)>0$, $x\le0$이라 $h(x)>0$이므로 $g'(x)>0$이다.
+        $h'(x)=-2xe^{-x^2}-2a^2F(x)-2a^2xe^{-x^2}$은 $x>0$일 때 항상 음수이므로 $h$는 $(0,\infty)$에서 감소한다.
+      criteria: ['2.R1']
+    - id: 2b-3
+      content: |
+        $h(1)\ge0$이면 $(0,1)$에서 $h(x)>h(1)\ge0$이라 $g'>0$이다. $h(1)<0$이면 $h$가 음수인 구간이 $(0,1)$ 안에 생겨 $g$가 감소하는 구간이 있다. 따라서 $g$가 $(-1,1)$에서 증가할 필요충분조건은 $h(1)\ge0$이다.
+      criteria: ['2.R2']
+    - id: 2b-4
+      content: |
+        $h(1)\ge0\iff e^{-1}\ge2a^2F(1)=2a^2C$이므로 $a$의 최댓값은 $\dfrac{e^{-1/2}}{\sqrt{2C}}=\dfrac{1}{\sqrt{2eC}}$이다.
+      criteria: ['2.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 20
+      evidence: |
+        곱의 미분으로 $g'(x)$를 구하고 양의 인수를 묶어 부호를 정하는 식 $h(x)$를 세웠다.
+      depends_on: []
+      implied_ok: false
+      steps: [2b-1]
+    - id: 2.R1
+      mark_type: R
+      points: 20
+      evidence: |
+        $x\le0$에서 $h>0$, $x>0$에서 $h'<0$임을 보였다.
+      depends_on: [2.M1]
+      steps: [2b-2]
+    - id: 2.R2
+      mark_type: R
+      points: 20
+      evidence: |
+        $h$의 감소성으로 증가 조건이 $h(1)\ge0$과 동치임을 양방향으로 밝혔다.
+      depends_on: [2.R1]
+      steps: [2b-3]
+    - id: 2.A1
+      mark_type: A
+      points: 20
+      evidence: |
+        $a$의 최댓값 $\tfrac{1}{\sqrt{2eC}}$를 얻었다.
+      depends_on: [2.R2]
+      steps: [2b-4]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-3003}
+  misconceptions:
+  - id: MC-CAL-3003
+    outcome_code: '71'
+    wrong_work: '$g''(1)\ge0$만 조건으로 쓰고, 그것이 $(-1,1)$ 전체의 증가를 보장하는 이유를 밝히지 않음'
+    detect_cue: $h$의 단조성(또는 $h'<0$) 언급이 없다
+    feedback: 한 점에서의 부호만으로 구간 전체의 부호를 결정할 수 없습니다. $h$가 감소함을 보여야 끝점 조건 하나로 충분해집니다.
+    remedy: [RL-2]
+
+- id: '3'
+  stem: |
+    $F(a)=\dfrac23C$일 때, $a\displaystyle\int_{-1}^1g(x)dx$의 값을 $C$의 식으로 나타내시오.
+  points: 80
+  depends_on: ['1']
+  answer: {kind: expression, value: 'C**2/6', equivalents: [], tolerance: null}
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: $I=\int f(ax)F(x)dx=C\int f(ax)dx-I$이므로 $I=\tfrac C2\int_{-1}^1f(ax)dx=\tfrac Ca\int_0^af=\tfrac{C^2}{6a}$.
+    steps:
+    - {id: 3a, content: '$\int_0^af=F(a)-\tfrac C2=\tfrac C6$, $a\int_{-1}^1g=\tfrac{C^2}{6}$', criteria: ['3.M1', '3.A1', '3.M2', '3.A2']}
+    hint_ladder:
+    - $F(x)=C-F(-x)$를 대입하자.
+    - $\int f(ax)F(-x)dx$에서 $x\to-x$로 치환하면?
+  - id: S3-B
+    audience: B
+    source_flow: 해설교재 p.52
+    method_no: 1
+    steps:
+    - id: 3b-1
+      content: |
+        조건 (가)와 (3-1)에 의해 $\displaystyle\int_{-1}^1f(ax)F(x)dx=\int_{-1}^1f(ax)\{C-F(-x)\}dx=C\int_{-1}^1f(ax)dx-\int_{-1}^1f(ax)F(-x)dx$이다.
+      criteria: ['3.M1']
+    - id: 3b-2
+      content: |
+        마지막 적분에서 $x\to-x$로 치환하면 $\displaystyle\int_{-1}^1f(-ax)F(x)dx=\int_{-1}^1f(ax)F(x)dx$이므로
+        $\displaystyle\int_{-1}^1f(ax)F(x)dx=\dfrac C2\int_{-1}^1f(ax)dx=\dfrac{C}{2a}\int_{-a}^af(x)dx=\dfrac Ca\int_0^af(x)dx$이다.
+      criteria: ['3.A1']
+    - id: 3b-3
+      content: |
+        대칭성에 의해 $\displaystyle\int_{-1}^0f(x)dx=\dfrac C2$이고 $\displaystyle\int_0^af(x)dx=F(a)-\int_{-1}^0f(x)dx=\dfrac23C-\dfrac C2=\dfrac C6$이다.
+      criteria: ['3.M2']
+    - id: 3b-4
+      content: |
+        따라서 $\displaystyle\int_{-1}^1f(ax)F(x)dx=\dfrac{C^2}{6a}$이고 $a\displaystyle\int_{-1}^1g(x)dx=\dfrac{C^2}{6}$이다.
+      criteria: ['3.A2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 20
+      evidence: |
+        $F(x)=C-F(-x)$를 대입해 적분을 두 부분으로 나눴다.
+      depends_on: []
+      implied_ok: false
+      ft: {allowed: true, from: [1.A2], max_points: 20}
+      steps: [3b-1]
+    - id: 3.A1
+      mark_type: A
+      points: 25
+      evidence: |
+        $x\to-x$ 치환으로 $\int f(ax)F(x)dx=\tfrac Ca\int_0^af(x)dx$를 얻었다.
+      depends_on: [3.M1]
+      steps: [3b-2]
+    - id: 3.M2
+      mark_type: M
+      points: 20
+      evidence: |
+        $\int_{-1}^0f=\tfrac C2$와 $F(a)=\tfrac23C$로 $\int_0^af=\tfrac C6$을 구했다.
+      depends_on: []
+      implied_ok: false
+      steps: [3b-3]
+    - id: 3.A2
+      mark_type: A
+      points: 15
+      evidence: |
+        $a\int_{-1}^1g(x)dx=\tfrac{C^2}{6}$을 얻었다.
+      depends_on: [3.A1, 3.M2]
+      steps: [3b-4]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-3031}
+  misconceptions:
+  - id: MC-CAL-3031
+    outcome_code: '71'
+    wrong_work: '$\int_{-1}^1f(ax)dx=\int_{-a}^af(x)dx$로 계수 $\tfrac1a$을 빠뜨려 답을 $\tfrac{aC^2}{6}$ 등으로 씀'
+    detect_cue: $\tfrac1a$ 계수가 없다
+    feedback: $u=ax$로 치환하면 $dx=\tfrac1a du$입니다. 문제에서 앞에 $a$를 곱한 이유가 이 계수를 지우기 위해서입니다.
+    remedy: [RL-3]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CAL-3045}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-SYMMETRY-INTEGRAL}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-CAL-3003}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-EXTREMA-JUSTIFY}
+  priority: 1
+- id: RL-3
+  trigger: {type: misconception, ref: MC-CAL-3031}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-SUBST-INTEGRAL}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

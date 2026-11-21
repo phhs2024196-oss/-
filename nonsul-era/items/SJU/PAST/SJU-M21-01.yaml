@@ -1,0 +1,323 @@
+# 세종대 2021학년도 모의논술고사(자연계열) 문제 1 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: SJU-M21-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: SJU
+type: T08
+variant_of: null
+replaces: null
+level: L4
+form: 최적2단
+points: 230
+time_estimate_min: 30
+intent: |
+  선분 위를 움직이는 점이 만드는 삼각형의 넓이를 각의 함수로 나타내고, 그 증가성으로 역함수 존재를 설명하며, 역함수의 미분과 연쇄법칙으로 각의 변화율이 최대가 되는 위치를 찾는 능력을 본다.
+key_idea: |
+  $r=\dfrac{2}{\cos\theta+2\sin\theta}$, $S=\dfrac{2\sin\theta}{\cos\theta+2\sin\theta}$, $\dfrac{dS}{d\theta}=\dfrac{2}{(\cos\theta+2\sin\theta)^2}$이므로 $\dfrac{d\theta}{dt}=\dfrac{c(\cos\theta+2\sin\theta)^2}{2}$.
+stuck: |
+  $\dfrac{d\theta}{dt}=\dfrac{d\theta}{dS}\cdot\dfrac{dS}{dt}$에서 $\dfrac{d\theta}{dS}=1\Big/\dfrac{dS}{d\theta}$로 바꾸는 단계
+idea_tags: [IDEA-POLAR-LINE, IDEA-INVERSE-RATE]
+tags: [관련 변화율, 삼각함수, 역함수의 미분]
+
+elements:
+  materials:
+  - '선분 $\mathrm{AB}$ ($\mathrm{A}(2,0)$, $\mathrm{B}(0,1)$) 위를 움직이는 점 $\mathrm{P}$'
+  - '삼각형 $\mathrm{OPA}$의 넓이 $S$와 $\angle\mathrm{POA}=\theta$'
+  - '넓이의 시간 변화율이 양의 상수 $c$'
+  concepts:
+  - '삼각함수의 정의(극좌표 표현)'
+  - '몫의 미분법'
+  - '역함수의 존재와 미분법'
+  - '합성함수의 미분법(연쇄법칙)'
+  - '삼각함수의 합성과 최대'
+  tools:
+  - '$\mathrm{P}(r\cos\theta,r\sin\theta)$를 직선 $x+2y=2$에 대입'
+  - '$\dfrac{dS}{d\theta}>0$으로 일대일 대응 판정'
+  - '$\dfrac{d\theta}{dt}=\dfrac{1}{dS/d\theta}\cdot\dfrac{dS}{dt}$'
+  - '이계도함수가 $0$인 조건 $-\sin\theta+2\cos\theta=0$'
+  conditions:
+  - '$0<\theta\le\tfrac{\pi}{2}$에서 $\cos\theta+2\sin\theta>0$'
+  - '$\dfrac{dS}{dt}=c>0$ 상수'
+  stimuli_used: []
+  subpart_links: '(1-2)는 (1-1)의 $S(\theta)$를, (1-3)은 (1-1)·(1-2)의 $\tfrac{dS}{d\theta}$를 사용'
+
+curriculum:
+  version: '2015'
+  subjects: [미적분]
+  scope_2028: calc2
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 삼각함수의 미분과 합성함수·역함수의 미분법을 활용할 수 있다(요지)
+    verified: false
+  content_area: 미분법 – 여러 가지 미분법
+  behavior_domain: 문제해결
+  unit_path: [미적분, 미분법, 여러 가지 미분법, 역함수의 미분법]
+  key_concepts: [삼각함수의 정의(극좌표 표현), 몫의 미분법, 역함수의 존재와 미분법, 합성함수의 미분법(연쇄법칙), 삼각함수의 합성과 최대]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 세종대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 세종대학교
+  admission_year: 2021
+  admission_type: 수시 모의논술
+  track: 자연계열
+  question_no: 1
+  official_url: https://ipsi.sejong.ac.kr   # [확인 필요] 입학처 자료실의 정확한 게시물 URL로 교체
+  retrieved_at: 2026-11-21
+  original_points: [70, 80, 80]
+  rights_notice: 미확인(대학 원본 PDF 표지 문구 확인 필요)
+  transcribed_from: 대치 수리 논술 연구소 「2027학년도 대비 수리논술 세종대 기출 및 모의 문제」 p.70 + 해설교재 p.132 (원본 PDF 이미지 대조 완료 2026-11-21)
+
+verify: verify/SJU-M21.py::p01
+
+stimuli: []
+
+stem: |
+  점 $P(x,y)$가 점 $A(2,0)$에서 출발하여 선분 $AB$를 따라 점 $B(0,1)$로 움직이고 있다. 삼각형 $\triangle OPA$의 넓이를 $S$라 할 때, 시간 $t$에 대한 $S$의 변화율 $\dfrac{dS}{dt}=c$는 양의 상수이다.
+  (그림: 원점 $O$, $A(2,0)$, $B(0,1)$, 선분 $AB$ 위의 점 $P(x,y)$, $\angle POA=\theta$, 삼각형 $OPA$가 색칠됨)
+
+subparts:
+- id: '1'
+  stem: |
+    $\angle POA=\theta$일 때, $S$를 $\theta$에 대한 함수로 나타내시오.
+  points: 70
+  depends_on: []
+  answer: {kind: expression, value: '2*sin(theta)/(cos(theta) + 2*sin(theta))', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $\mathrm{P}=(r\cos\theta,r\sin\theta)$를 $x+2y=2$에 대입해 $r$을 구하고, 밑변 $\mathrm{OA}=2$, 높이 $r\sin\theta$.
+    steps:
+    - {id: 1a, content: '$r=\tfrac{2}{\cos\theta+2\sin\theta}$, $S=r\sin\theta=\tfrac{2\sin\theta}{\cos\theta+2\sin\theta}$', criteria: ['1.M1', '1.A1', '1.A2']}
+    hint_ladder:
+    - $\mathrm{OP}=r$로 두고 $\mathrm{P}$의 좌표를 $r$, $\theta$로 나타내자.
+    - 삼각형의 밑변을 $\mathrm{OA}$로 보면 높이는?
+  - id: S1-B
+    audience: B
+    source_flow: 해설교재 p.132
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        $\overline{\mathrm{OP}}=r$이라 하면 $\mathrm{P}(r\cos\theta,r\sin\theta)$이고, 선분 $\mathrm{AB}$는 $x+2y=2$ 위에 있다.
+      criteria: ['1.M1']
+    - id: 1b-2
+      content: |
+        대입하면 $r(\cos\theta+2\sin\theta)=2$, 즉 $r=\dfrac{2}{\cos\theta+2\sin\theta}$.
+      criteria: ['1.A1']
+    - id: 1b-3
+      content: |
+        $S=\dfrac12\times2\times r\sin\theta=\dfrac{2\sin\theta}{\cos\theta+2\sin\theta}$.
+      criteria: ['1.A2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 25
+      evidence: |
+        $\mathrm{P}$를 $(r\cos\theta,r\sin\theta)$로 두고 직선 $\mathrm{AB}$의 방정식 $x+2y=2$를 이용했다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1]
+    - id: 1.A1
+      mark_type: A
+      points: 20
+      evidence: |
+        $r=\dfrac{2}{\cos\theta+2\sin\theta}$를 얻었다.
+      depends_on: [1.M1]
+      steps: [1b-2]
+    - id: 1.A2
+      mark_type: A
+      points: 25
+      evidence: |
+        $S=\dfrac{2\sin\theta}{\cos\theta+2\sin\theta}$를 얻었다.
+      depends_on: [1.M1, 1.A1]
+      steps: [1b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '2'
+  stem: |
+    (1-1)에서 구한 함수의 역함수가 존재함을 설명하시오.
+  points: 80
+  depends_on: ['1']
+  answer: {kind: proof, value: null, equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: $\dfrac{dS}{d\theta}=\dfrac{2}{(\cos\theta+2\sin\theta)^2}>0$이므로 증가하는 일대일 대응.
+    steps:
+    - {id: 2a, content: '$S^{\prime}(\theta)>0\Rightarrow S:(0,\tfrac{\pi}{2}]\to(0,1]$ 증가·일대일 대응', criteria: ['2.M1', '2.A1', '2.R1']}
+    hint_ladder:
+    - 역함수가 존재할 조건은 일대일 대응이다.
+    - $S$를 $\theta$로 미분해 부호를 보자.
+  - id: S2-B
+    audience: B
+    source_flow: 해설교재 p.132
+    method_no: 1
+    steps:
+    - id: 2b-1
+      content: |
+        몫의 미분법으로 $\dfrac{dS}{d\theta}=\dfrac{2\cos\theta(\cos\theta+2\sin\theta)-2\sin\theta(-\sin\theta+2\cos\theta)}{(\cos\theta+2\sin\theta)^2}$.
+      criteria: ['2.M1']
+    - id: 2b-2
+      content: |
+        분자는 $2(\cos^2\theta+\sin^2\theta)=2$이므로 $\dfrac{dS}{d\theta}=\dfrac{2}{(\cos\theta+2\sin\theta)^2}>0$이다.
+      criteria: ['2.A1']
+    - id: 2b-3
+      content: |
+        따라서 $S=S(\theta):\left(0,\dfrac{\pi}{2}\right]\to(0,1]$은 $\theta$에 대하여 항상 증가하는 일대일 대응이고 역함수가 존재한다. ■
+      criteria: ['2.R1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 25
+      evidence: |
+        $S(\theta)$를 몫의 미분법으로 미분했다.
+      depends_on: []
+      implied_ok: false
+      ft: {allowed: true, from: [1.A2], max_points: 25}
+      steps: [2b-1]
+    - id: 2.A1
+      mark_type: A
+      points: 25
+      evidence: |
+        $\dfrac{dS}{d\theta}=\dfrac{2}{(\cos\theta+2\sin\theta)^2}>0$을 얻었다.
+      depends_on: [2.M1]
+      steps: [2b-2]
+    - id: 2.R1
+      mark_type: R
+      points: 30
+      evidence: |
+        정의역과 치역을 밝혀 증가 $\Rightarrow$ 일대일 대응 $\Rightarrow$ 역함수 존재로 설명했다.
+      depends_on: [2.A1]
+      steps: [2b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '3'
+  stem: |
+    시간 $t$에 대한 $\theta$의 변화율 $\dfrac{d\theta}{dt}$가 최대가 되는 점 $P$의 좌표 $(x,y)$를 구하시오.
+  points: 80
+  depends_on: ['2']
+  answer: {kind: value, value: '(2/5, 4/5)', equivalents: ['(0.4, 0.8)'], tolerance: null}
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: $\dfrac{d\theta}{dt}=\dfrac{c(\cos\theta+2\sin\theta)^2}{2}$이고 $\cos\theta+2\sin\theta$는 $\tan\theta=2$에서 최대 $\sqrt5$.
+    steps:
+    - {id: 3a, content: '$\tan\theta=2\Rightarrow r=\tfrac{2}{\sqrt5}$, $\mathrm{P}(\tfrac25,\tfrac45)$', criteria: ['3.M1', '3.A1', '3.M2', '3.A2']}
+    hint_ladder:
+    - $\dfrac{d\theta}{dt}=\dfrac{d\theta}{dS}\cdot\dfrac{dS}{dt}$.
+    - $\cos\theta+2\sin\theta$가 최대가 되는 $\theta$는?
+  - id: S3-B
+    audience: B
+    source_flow: 해설교재 p.132
+    method_no: 1
+    steps:
+    - id: 3b-1
+      content: |
+        $\dfrac{d\theta}{dt}=\dfrac{d\theta}{dS}\cdot\dfrac{dS}{dt}=c\cdot\dfrac{1}{dS/d\theta}=\dfrac{c(\cos\theta+2\sin\theta)^2}{2}$.
+      criteria: ['3.M1', '3.A1']
+    - id: 3b-2
+      content: |
+        최대가 되려면 $\dfrac{d^2\theta}{dt^2}=\dfrac{d}{d\theta}\left(\dfrac{c(\cos\theta+2\sin\theta)^2}{2}\right)\dfrac{d\theta}{dt}=\dfrac{c^2}{2}(\cos\theta+2\sin\theta)^3(-\sin\theta+2\cos\theta)=0$.
+      criteria: ['3.M2']
+    - id: 3b-3
+      content: |
+        $0<\theta\le\tfrac{\pi}{2}$에서 $\cos\theta+2\sin\theta>0$이므로 $\sin\theta=2\cos\theta$, 즉 $\cos\theta=\tfrac1{\sqrt5}$, $\sin\theta=\tfrac2{\sqrt5}$. 이 앞에서는 $-\sin\theta+2\cos\theta>0$, 뒤에서는 $<0$이므로 여기서 최대이다.
+      criteria: ['3.R1']
+    - id: 3b-4
+      content: |
+        $r=\dfrac{2}{\cos\theta+2\sin\theta}=\dfrac{2}{\sqrt5}$이므로 $x=r\cos\theta=\dfrac25$, $y=r\sin\theta=\dfrac45$이다.
+      criteria: ['3.A2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 20
+      evidence: |
+        연쇄법칙과 역함수의 미분으로 $\dfrac{d\theta}{dt}=c\Big/\dfrac{dS}{d\theta}$를 세웠다.
+      depends_on: []
+      implied_ok: false
+      ft: {allowed: true, from: [2.A1], max_points: 20}
+      steps: [3b-1]
+    - id: 3.A1
+      mark_type: A
+      points: 15
+      evidence: |
+        $\dfrac{d\theta}{dt}=\dfrac{c(\cos\theta+2\sin\theta)^2}{2}$을 얻었다.
+      depends_on: [3.M1]
+      steps: [3b-1]
+    - id: 3.M2
+      mark_type: M
+      points: 15
+      evidence: |
+        $\theta$에 대해 미분(또는 삼각함수 합성)하여 최대 조건 $\sin\theta=2\cos\theta$를 세웠다.
+      depends_on: [3.A1]
+      steps: [3b-2]
+    - id: 3.R1
+      mark_type: R
+      points: 15
+      evidence: |
+        $\cos\theta+2\sin\theta>0$과 부호 변화(또는 합성 최대 $\sqrt5$)로 최대임을 밝혔다.
+      depends_on: [3.M2]
+      steps: [3b-3]
+    - id: 3.A2
+      mark_type: A
+      points: 15
+      evidence: |
+        $\mathrm{P}\left(\dfrac25,\dfrac45\right)$를 얻었다.
+      depends_on: [3.R1]
+      steps: [3b-4]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-3123}
+  misconceptions:
+  - id: MC-CAL-3123
+    outcome_code: '71'
+    wrong_work: '$\dfrac{d\theta}{dt}=\dfrac{dS}{d\theta}\cdot\dfrac{dS}{dt}=\dfrac{2c}{(\cos\theta+2\sin\theta)^2}$로 놓고 최대점을 찾음'
+    detect_cue: $\dfrac{d\theta}{dS}$ 자리에 $\dfrac{dS}{d\theta}$를 썼다(최대 대신 최소 위치가 나옴)
+    feedback: $\dfrac{d\theta}{dS}$는 $\dfrac{dS}{d\theta}$의 역수입니다. 연쇄법칙의 분모·분자를 맞추세요.
+    remedy: [RL-1]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CAL-3123}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-CHAIN-RATE}
+  priority: 1
+- id: RL-2
+  trigger: {type: criterion_missed, ref: 2.R1}
+  relation: prerequisite
+  target: {kind: concept, ref: CON-CAL-INVERSE-DIFF}
+  priority: 2
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

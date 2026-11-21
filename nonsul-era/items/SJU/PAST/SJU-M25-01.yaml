@@ -1,0 +1,322 @@
+# 세종대 2025학년도 모의논술고사(자연계열) 문제 1 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: SJU-M25-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: SJU
+type: T09
+variant_of: null
+replaces: null
+level: L4
+form: 존재
+points: 230
+time_estimate_min: 30
+intent: |
+  두 점에서 접하는 직선 조건을 인수분해 꼴로 바꿔 사차함수를 한 개의 미지수로 나타내고, 이계도함수로 볼록 구간을 구하며, 사잇값 정리로 실근의 위치를 보이는 능력을 본다.
+key_idea: |
+  $f(x)-(x+1)=k(x+1)^2(x-2)^2$이고, $f(x)=(x+1)\{1+k(x+1)(x-2)^2\}$에서 $g(x)=1+k(x+1)(x-2)^2$의 부호를 $x=-1,0,2,3$에서 비교한다.
+stuck: |
+  (1-3)에서 $f$를 $(x+1)$로 묶고 남은 삼차식 $g$의 값이 $g(-1)=g(2)=1$, $g(0)=g(3)=1+4k<0$임을 찾아 사잇값 정리를 세 번 쓰는 발상
+idea_tags: [IDEA-BITANGENT-IDENTITY, IDEA-IVT-SIGN-TABLE]
+tags: [사차함수, 이중접선, 사잇값 정리]
+elements:
+  materials:
+  - '두 점 $(-1,0)$, $(2,3)$에서 직선 $y=x+1$에 접하는 사차함수'
+  - '조건 $f(0)<0$'
+  concepts:
+  - '접선의 방정식'
+  - '인수정리'
+  - '이계도함수와 그래프의 볼록'
+  - '사잇값 정리'
+  - '삼차방정식의 실근의 개수'
+  tools:
+  - '$f(x)-(x+1)=k(x+1)^2(x-2)^2$로 놓기'
+  - '곱의 미분'
+  - '$f''''(x)=6k(2x^2-2x-1)$의 부호'
+  - '$f=(x+1)g$로 인수분해 후 $g$의 부호 표'
+  conditions:
+  - '두 점에서 접함 ⇒ $f(x)-(x+1)$은 $(x+1)^2(x-2)^2$으로 나누어떨어짐'
+  - '$f(0)=1+4k<0$ ⇒ $k<0$'
+  - '$g$는 삼차식이라 실근이 많아야 3개'
+  stimuli_used: []
+  subpart_links: '(1-2)·(1-3)은 (1-1)의 f(x)=x+1+k(x+1)^2(x-2)^2과 k<0을 사용'
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅱ, 미적분]
+  scope_2028: calc2
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 접선의 방정식, 그래프의 볼록과 사잇값 정리를 이용하여 문제를 해결할 수 있다(요지)
+    verified: false
+  content_area: 미분
+  behavior_domain: 추론
+  unit_path: [수학Ⅱ, 미분, 도함수의 활용, 방정식의 실근]
+  key_concepts: [접선의 방정식, 인수정리, 이계도함수와 그래프의 볼록, 사잇값 정리, 삼차방정식의 실근의 개수]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 세종대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 세종대학교
+  admission_year: 2025
+  admission_type: 수시 모의논술
+  track: 자연계열
+  question_no: 1
+  official_url: https://ipsi.sejong.ac.kr   # [확인 필요] 입학처 자료실의 정확한 게시물 URL로 교체
+  retrieved_at: 2026-11-21
+  original_points: [70, 80, 80]
+  rights_notice: 미확인(대학 원본 PDF 표지 문구 확인 필요)
+  transcribed_from: 대치 수리 논술 연구소 「2027학년도 대비 수리논술 세종대 기출 및 모의 문제」 p.24 + 해설교재 p.53 (원본 PDF 이미지 대조 완료 2026-11-21)
+
+verify: verify/SJU-M25.py::p01
+
+stimuli: []
+
+stem: |
+  사차함수 $f(x)$가 점 $(-1,0)$과 점 $(2,3)$에서 직선 $y=x+1$과 접하고 있다. (단, $f(0)<0$)
+
+subparts:
+- id: '1'
+  stem: |
+    $f'\left(\dfrac12\right)$의 값을 구하시오.
+  points: 70
+  depends_on: []
+  answer: {kind: value, value: '1', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $f(x)-x-1=k(x+1)^2(x-2)^2$이고 $x=\tfrac12$은 $(x+1)(x-2)$의 대칭축.
+    steps:
+    - {id: 1a, content: '$f''(x)=1+2k(x+1)(x-2)(2x-1)\Rightarrow f''\left(\tfrac12\right)=1$', criteria: ['1.M1', '1.A1', '1.A2']}
+    hint_ladder:
+    - 곡선과 직선이 두 점에서 접하면 $f(x)-(x+1)$은 어떤 꼴인가?
+  - id: S1-B
+    audience: B
+    source_flow: 해설교재 p.53
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        $x=-1$, $x=2$에서 직선 $y=x+1$과 접하므로 사차식 $f(x)-x-1$은 $(x+1)^2$과 $(x-2)^2$을 인수로 갖고, $f(x)-x-1=k(x+1)^2(x-2)^2$ ($k\ne0$)이다.
+      criteria: ['1.M1']
+    - id: 1b-2
+      content: |
+        미분하면 $f'(x)=1+2k(x+1)(x-2)^2+2k(x+1)^2(x-2)=1+2k(x+1)(x-2)(2x-1)$이다.
+      criteria: ['1.A1']
+    - id: 1b-3
+      content: |
+        따라서 $f'\left(\dfrac12\right)=1$이다.
+      criteria: ['1.A2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 30
+      evidence: |
+        $f(x)-x-1=k(x+1)^2(x-2)^2$로 놓았다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1]
+    - id: 1.A1
+      mark_type: A
+      points: 25
+      evidence: |
+        $f'(x)=1+2k(x+1)(x-2)(2x-1)$을 얻었다.
+      depends_on: [1.M1]
+      steps: [1b-2]
+    - id: 1.A2
+      mark_type: A
+      points: 15
+      evidence: |
+        $f'\left(\tfrac12\right)=1$을 얻었다.
+      depends_on: [1.M1, 1.A1]
+      steps: [1b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-3004}
+  misconceptions:
+  - id: MC-CAL-3004
+    outcome_code: '71'
+    wrong_work: '$f(-1)=0$, $f(2)=3$만 쓰고 $f''(-1)=f''(2)=1$을 쓰지 않아 미지수를 정하지 못함'
+    detect_cue: 접선 기울기 조건 또는 중근 인수가 없다
+    feedback: 접한다는 것은 함숫값과 기울기가 모두 같다는 뜻이고, 이는 $f(x)-(x+1)$이 $(x-p)^2$을 인수로 갖는 것과 같습니다.
+    remedy: [RL-1]
+
+- id: '2'
+  stem: |
+    $f(x)$가 아래로 볼록한 구간을 구하시오.
+  points: 80
+  depends_on: ['1']
+  answer: {kind: set, value: '((1-sqrt(3))/2, (1+sqrt(3))/2)', equivalents: ['[(1-sqrt(3))/2, (1+sqrt(3))/2]'], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: $f(0)=1+4k<0$에서 $k<0$, $f''(x)=6k(2x^2-2x-1)>0\iff2x^2-2x-1<0$.
+    steps:
+    - {id: 2a, content: '$\tfrac{1-\sqrt3}{2}<x<\tfrac{1+\sqrt3}{2}$', criteria: ['2.B1', '2.M1', '2.A1']}
+    hint_ladder:
+    - $f(0)<0$은 $k$의 부호를 알려 준다.
+  - id: S2-B
+    audience: B
+    source_flow: 해설교재 p.53
+    method_no: 1
+    steps:
+    - id: 2b-1
+      content: |
+        $f(0)=1+k\cdot1\cdot4=1+4k<0$이므로 $k<0$이다.
+      criteria: ['2.B1']
+    - id: 2b-2
+      content: |
+        $f''(x)=6k(2x^2-2x-1)$이므로 $k<0$에서 $f''(x)>0\iff2x^2-2x-1<0$이다.
+      criteria: ['2.M1']
+    - id: 2b-3
+      content: |
+        이 부등식을 풀면 $\dfrac{1-\sqrt3}{2}<x<\dfrac{1+\sqrt3}{2}$이고, 이 구간에서 $f$는 아래로 볼록하다.
+      criteria: ['2.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.B1
+      mark_type: B
+      points: 20
+      evidence: |
+        $f(0)=1+4k<0$에서 $k<0$을 얻었다.
+      depends_on: []
+      steps: [2b-1]
+    - id: 2.M1
+      mark_type: M
+      points: 30
+      evidence: |
+        $f''(x)=6k(2x^2-2x-1)$을 구하고 $f''>0$인 조건을 세웠다.
+      depends_on: []
+      implied_ok: false
+      ft: {allowed: true, from: [1.A1], max_points: 30}
+      steps: [2b-2]
+    - id: 2.A1
+      mark_type: A
+      points: 30
+      evidence: |
+        $k<0$에 맞게 부등호 방향을 처리해 구간 $\left(\tfrac{1-\sqrt3}{2},\tfrac{1+\sqrt3}{2}\right)$을 얻었다(닫힌 구간도 인정).
+      depends_on: [2.M1, 2.B1]
+      steps: [2b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-3047}
+  misconceptions:
+  - id: MC-CAL-3047
+    outcome_code: '71'
+    wrong_work: '$k$의 부호를 확인하지 않고 $2x^2-2x-1>0$인 구간을 아래로 볼록한 구간으로 답함'
+    detect_cue: $f(0)<0$에서 $k<0$을 얻는 단계가 없다
+    feedback: $f''(x)=6k(2x^2-2x-1)$의 부호는 $k$의 부호에 따라 뒤집힙니다. 단서 조건 $f(0)<0$이 $k<0$을 알려 줍니다.
+    remedy: [RL-3]
+
+- id: '3'
+  stem: |
+    방정식 $f(x)=0$의 네 실근이 모두 $3$보다 작음을 보이시오.
+  points: 80
+  depends_on: ['1', '2']
+  answer: {kind: proof, value: 'roots: -1, alpha in (-1,0), beta in (0,2), gamma in (2,3)', equivalents: [], tolerance: null}
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: $f(x)=(x+1)g(x)$, $g(x)=1+k(x+1)(x-2)^2$에서 $g(-1)=g(2)=1>0$, $g(0)=g(3)=1+4k<0$.
+    steps:
+    - {id: 3a, content: '사잇값 정리로 $g$의 근이 $(-1,0)$, $(0,2)$, $(2,3)$에 하나씩, $g$는 삼차라 그것이 전부', criteria: ['3.M1', '3.A1', '3.R1']}
+    hint_ladder:
+    - $f(x)$를 $(x+1)$로 묶어 보자.
+    - 남은 식의 값을 $x=-1,0,2,3$에서 계산하자.
+  - id: S3-B
+    audience: B
+    source_flow: 해설교재 p.53
+    method_no: 1
+    steps:
+    - id: 3b-1
+      content: |
+        $f(x)=x+1+k(x+1)^2(x-2)^2=(x+1)\{1+k(x+1)(x-2)^2\}$이므로 $g(x)=1+k(x+1)(x-2)^2$이라 두자.
+      criteria: ['3.M1']
+    - id: 3b-2
+      content: |
+        $g(-1)=g(2)=1>0$이고 $g(0)=g(3)=1+4k<0$이다.
+      criteria: ['3.A1']
+    - id: 3b-3
+      content: |
+        $g$는 연속이므로 사잇값 정리에 의해 $g(x)=0$은 $(-1,0)$, $(0,2)$, $(2,3)$에서 각각 근 $\alpha$, $\beta$, $\gamma$를 갖는다. $g$는 삼차식이므로 근은 이 셋뿐이다.
+        따라서 $f(x)=0$의 네 근 $-1,\alpha,\beta,\gamma$는 모두 $3$보다 작다.
+      criteria: ['3.R1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 20
+      evidence: |
+        $f(x)=(x+1)g(x)$로 인수분해했다.
+      depends_on: []
+      implied_ok: false
+      ft: {allowed: true, from: [1.A1], max_points: 20}
+      steps: [3b-1]
+    - id: 3.A1
+      mark_type: A
+      points: 25
+      evidence: |
+        $g(-1)$, $g(0)$, $g(2)$, $g(3)$의 값(부호)을 구했다($k<0$ 이용).
+      depends_on: [3.M1]
+      ft: {allowed: true, from: [2.B1], max_points: 25}
+      steps: [3b-2]
+    - id: 3.R1
+      mark_type: R
+      points: 35
+      evidence: |
+        사잇값 정리로 세 구간에 근이 있음을 보이고, 삼차식이라 근이 그뿐임을 밝혀 네 근이 모두 $3$보다 작다고 결론지었다.
+      depends_on: [3.A1]
+      steps: [3b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-3049}
+  misconceptions:
+  - id: MC-CAL-3049
+    outcome_code: '71'
+    wrong_work: '$g(2)>0$, $g(3)<0$만 보이고 다른 근이 $3$ 이상에 있을 가능성을 배제하지 않음'
+    detect_cue: 근의 개수가 삼차식의 차수로 제한된다는 언급이 없다
+    feedback: 사잇값 정리는 근의 존재만 알려 줍니다. 세 구간에서 근을 찾은 뒤 삼차식이라 더 없다는 점까지 써야 「모두」가 보장됩니다.
+    remedy: [RL-2]
+
+remedy_links:
+- id: RL-3
+  trigger: {type: misconception, ref: MC-CAL-3047}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-CONCAVITY}
+  priority: 1
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CAL-3004}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-TANGENT-COND}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-CAL-3049}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-IVT}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

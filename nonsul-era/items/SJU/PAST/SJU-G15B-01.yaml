@@ -1,0 +1,307 @@
+# 세종대 2015학년도 신입학 수시모집 논술고사[B] 문제 1 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+# 회전체의 부피는 2009 개정 적분과 통계 내용(2015 개정 미적분에서는 단면 넓이로 구하는 입체 부피만 다룸) → tags 에 범위 밖(현행) 표시.
+schema_version: '2.0'
+id: SJU-G15B-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: SJU
+type: T02
+variant_of: null
+replaces: null
+level: L3
+form: 추론
+points: 30
+time_estimate_min: 20
+intent: |
+  튜브(두 원이 겹친 단면의 회전체)를 좌표평면의 회전체로 모델링하고, 두 곡선 사이 영역의 회전체 부피를 단면 넓이의 적분으로 바꿔 계산하는 능력을 본다.
+key_idea: |
+  $V=\pi\int_a^b(c+f)^2dx-\pi\int_a^b(c-f)^2dx=4c\pi\int_a^bf(x)dx$이고 $\int_a^bf(x)dx$는 단면 넓이의 절반이다(파푸스 정리와 같은 꼴).
+stuck: |
+  상자의 크기 $62$, $18$에서 반지름 $6$, 중심까지 거리 $25$를 읽어 내는 것, 그리고 겹친 두 원의 위쪽 절반 넓이를 부채꼴 두 개와 정삼각형으로 나누는 것
+idea_tags: [IDEA-REVOLUTION-WASHER-DIFFERENCE, IDEA-OVERLAP-DISKS-SECTOR-TRIANGLE]
+tags: [구교육과정, 범위 밖(현행), 회전체 부피, 튜브]
+elements:
+  materials:
+  - '반지름이 같고 서로의 중심을 지나는 두 원을 단면으로 하는 튜브'
+  - '가로·세로 $62\,\mathrm{cm}$, 높이 $18\,\mathrm{cm}$인 직육면체 상자'
+  - '두 곡선 $y=c+f(x)$, $y=c-f(x)$ 사이 영역의 회전체'
+  concepts:
+  - '회전체의 부피'
+  - '정적분의 성질'
+  - '부채꼴의 넓이'
+  - '정삼각형의 넓이'
+  tools:
+  - '상자 치수에서 $3r=18$, $2(d+r)=62$'
+  - '$(c+f)^2-(c-f)^2=4cf$'
+  - '겹친 두 원의 위쪽 절반 = 중심각 $\dfrac{2\pi}{3}$인 부채꼴 2개 + 한 변 $6$인 정삼각형'
+  conditions:
+  - '두 원의 중심 사이 거리 = 반지름'
+  - '$\int_a^bf(x)dx$는 단면 넓이의 절반'
+  - '$c=25$(원의 중심에서 회전축까지 거리)'
+  stimuli_used: ['제시문']
+  subpart_links: '(1-3)은 (1-1)의 반지름·중심 거리와 (1-2)의 부피 공식을 사용'
+
+curriculum:
+  version: '2015'
+  subjects: [미적분]
+  scope_2028: calc2
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 정적분을 이용하여 입체도형(회전체)의 부피를 구할 수 있다(요지)
+    verified: false
+  content_area: 적분법
+  behavior_domain: 문제해결
+  unit_path: [미적분, 적분법, 정적분의 활용, 입체도형의 부피]
+  key_concepts:
+  - 회전체의 부피
+  - 정적분의 성질
+  - 부채꼴의 넓이
+  - 정삼각형의 넓이
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 세종대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 세종대학교
+  admission_year: 2015
+  admission_type: 수시 논술고사 [B]
+  track: 자연계열
+  question_no: 1
+  official_url: https://ipsi.sejong.ac.kr   # [확인 필요] 입학처 자료실의 정확한 게시물 URL로 교체
+  retrieved_at: 2026-11-21
+  original_points: [10, 10, 10]
+  rights_notice: 미확인(대학 원본 PDF 표지 문구 확인 필요)
+  transcribed_from: 대치 수리 논술 연구소 「2027학년도 대비 수리논술 세종대 기출 및 모의 문제」 p.118 + 해설교재 p.198 (원본 PDF 이미지 대조 완료 2026-11-21)
+
+verify: verify/SJU-G15B.py::p01
+
+stimuli:
+- label: 제시문
+  body: |
+    아래 그림과 같이 반지름이 같은 두 원이 서로의 중심을 지나는 단면을 갖도록 튜브를 만들 때, 주입해야 할 공기의 양을 구하고 싶다.
+    (그림: 위쪽 절반(주황)과 아래쪽 절반(파랑)으로 칠해진 도넛 모양 튜브. 왼쪽 그림은 튜브를 잘라 단면이 겹친 두 원(위아래로 포개짐)임을 보여 주고, 오른쪽 그림은 직육면체 틀 안에 꼭 맞게 놓인 튜브의 전체 모습이다.)
+    가로와 세로의 길이가 $62\,\mathrm{cm}$이고, 높이가 $18\,\mathrm{cm}$인 직육면체의 상자에 꼭 맞게 들어가도록 튜브를 만들 때, 주입해야 할 공기의 부피($\mathrm{cm}^3$)를 다음 단계에 따라 구하시오.
+
+stem: |
+  아래 글을 읽고, 각 물음에 답하시오.
+
+subparts:
+- id: '1'
+  stem: |
+    문제에서 주어진 튜브의 부피는 교과서에서 배운 회전체의 부피를 이용하여 구할 수 있다. 튜브를 $x$축에 대한 회전체로 이해할 수 있도록, 튜브의 단면을 좌표평면의 제$1$사분면에 그리시오. 또, 그려진 두 원의 중심 사이의 거리와 원의 중심에서 $x$축까지의 최단거리를 구하시오.
+  points: 10
+  depends_on: []
+  answer: {kind: expression, value: 'center_distance = 6; axis_distance = 25', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: 회전축($x$축)을 튜브의 중심축으로 두면 단면은 $y=25$ 위에 중심이 $6$만큼 떨어진 반지름 $6$인 두 원이다.
+    steps:
+    - {id: 1a, content: '$3r=18\Rightarrow r=6$, $2(d+6)=62\Rightarrow d=25$', criteria: ['1.M1', '1.A1', '1.A2']}
+    hint_ladder:
+    - 서로의 중심을 지나는 두 원을 축 방향으로 포개면 높이는 반지름의 몇 배인가?
+  - id: S1-B
+    audience: B
+    source_flow: 해설교재 p.198
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        튜브의 중심축을 $x$축으로 두면 튜브를 축을 포함하는 평면으로 자른 단면(제$1$사분면 쪽)은 중심이 직선 $y=d$ 위에 있고 $x$축 방향으로 반지름 $r$만큼 떨어진 두 원이다(예: 중심 $(6,25)$, $(12,25)$인 반지름 $6$인 두 원).
+      criteria: ['1.M1']
+    - id: 1b-2
+      content: |
+        두 원이 서로의 중심을 지나므로 축 방향 전체 길이는 $3r$이고 이것이 상자의 높이 $18$이므로 $r=6$, 두 원의 중심 사이 거리는 $6$이다.
+      criteria: ['1.A1']
+    - id: 1b-3
+      content: |
+        튜브의 바깥 지름 $2(d+r)$이 상자의 가로·세로 $62$와 같으므로 $d+6=31$, 원의 중심에서 $x$축까지의 최단거리는 $25$이다.
+      criteria: ['1.A2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 4
+      evidence: |
+        $x$축을 회전축으로 하는 단면(직선 $y=d$ 위에 중심이 있는 두 원)을 제$1$사분면에 그렸다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1]
+    - id: 1.A1
+      mark_type: A
+      points: 3
+      evidence: |
+        중심 사이의 거리 $6$을 구했다.
+      depends_on: [1.M1]
+      steps: [1b-2]
+    - id: 1.A2
+      mark_type: A
+      points: 3
+      evidence: |
+        중심에서 $x$축까지의 거리 $25$를 구했다.
+      depends_on: [1.M1]
+      steps: [1b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '79', meaning: '높이 $18$을 $2r$로 보아 $r=9$로 둠(겹친 원 구조 미반영)'}
+  misconceptions: []
+
+- id: '2'
+  stem: |
+    양의 상수 $c$에 대해, 닫힌구간 $[a,b]$에서 연속함수 $f(x)$는 $0\le f(x)\le c$이다. 두 직선 $x=a$, $x=b$와 두 함수 $y=c+f(x)$, $y=c-f(x)$의 그래프로 둘러싸인 영역을 $x$축 둘레로 회전시킨 입체의 부피를 $\displaystyle\int_a^bf(x)dx$를 이용하여 나타내시오.
+  points: 10
+  depends_on: []
+  answer: {kind: expression, value: '4*pi*c*Integral(f(x), (x, a, b))', equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: 바깥 회전체에서 안쪽 회전체를 빼면 피적분함수가 $(c+f)^2-(c-f)^2=4cf$.
+    steps:
+    - {id: 2a, content: '$V=\pi\int_a^b\{(c+f)^2-(c-f)^2\}dx=4c\pi\int_a^bf(x)dx$', criteria: ['2.M1', '2.A1']}
+    hint_ladder:
+    - 구멍 뚫린 회전체의 부피는 두 회전체 부피의 차이다.
+  - id: S2-B
+    audience: B
+    source_flow: 해설교재 p.198
+    method_no: 1
+    steps:
+    - id: 2b-1
+      content: |
+        $0\le c-f(x)\le c+f(x)$이므로 회전체는 $y=c+f(x)$를 회전시킨 입체에서 $y=c-f(x)$를 회전시킨 입체를 뺀 것이다:
+        $V=\pi\displaystyle\int_a^b(c+f(x))^2dx-\pi\int_a^b(c-f(x))^2dx$.
+      criteria: ['2.M1']
+    - id: 2b-2
+      content: |
+        $(c+f)^2-(c-f)^2=4cf$이므로 $V=4c\pi\displaystyle\int_a^bf(x)dx$이다.
+      criteria: ['2.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 5
+      evidence: |
+        두 회전체 부피의 차 $\pi\int(c+f)^2dx-\pi\int(c-f)^2dx$를 세웠다.
+      depends_on: []
+      implied_ok: false
+      steps: [2b-1]
+    - id: 2.A1
+      mark_type: A
+      points: 5
+      evidence: |
+        $4c\pi\int_a^bf(x)dx$를 얻었다.
+      depends_on: [2.M1]
+      steps: [2b-2]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-3183}
+  misconceptions:
+  - id: MC-CAL-3183
+    outcome_code: '71'
+    wrong_work: '$V=\pi\int_a^b\{(c+f)-(c-f)\}^2dx=4\pi\int_a^bf^2dx$'
+    detect_cue: 차를 먼저 하고 제곱했다($\int f$가 아닌 $\int f^2$)
+    feedback: 단면은 바깥 반지름 $c+f$, 안쪽 반지름 $c-f$인 고리이므로 넓이는 $\pi\{(c+f)^2-(c-f)^2\}$입니다.
+    remedy: [RL-1]
+
+- id: '3'
+  stem: |
+    (1-1)과 (1-2)의 결과를 이용하여, 튜브에 주입해야 할 공기의 부피를 구하시오.
+  points: 10
+  depends_on: ['1', '2']
+  answer: {kind: expression, value: '2400*pi**2 + 900*sqrt(3)*pi', equivalents: ['100*pi*(24*pi + 9*sqrt(3))'], tolerance: null}
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: $\int f$ = 단면 넓이의 절반 $=24\pi+9\sqrt3$, $c=25$.
+    steps:
+    - {id: 3a, content: '$4\cdot25\pi(24\pi+9\sqrt3)=2400\pi^2+900\sqrt3\pi$', criteria: ['3.M1', '3.A1', '3.A2']}
+    hint_ladder:
+    - $\int_a^bf(x)dx$는 단면의 어느 부분의 넓이인가?
+  - id: S3-B
+    audience: B
+    source_flow: 해설교재 p.198
+    method_no: 1
+    steps:
+    - id: 3b-1
+      content: |
+        (1-2)의 $\displaystyle\int_a^bf(x)dx$는 튜브 단면의 위쪽 절반(직선 $y=c$ 위)의 넓이이고, $2\displaystyle\int_a^bf(x)dx$가 단면의 넓이이다. 또 $c=25$이다.
+      criteria: ['3.M1']
+    - id: 3b-2
+      content: |
+        단면의 위쪽 절반은 중심각이 $\dfrac{2\pi}{3}$이고 반지름이 $6$인 부채꼴 두 개와 한 변이 $6$인 정삼각형으로 나뉘므로
+        $\displaystyle\int_a^bf(x)dx=\pi\times6^2\times\dfrac23+9\sqrt3=24\pi+9\sqrt3$이다.
+      criteria: ['3.A1']
+    - id: 3b-3
+      content: |
+        따라서 $4c\pi\displaystyle\int_a^bf(x)dx=100\pi(24\pi+9\sqrt3)=2400\pi^2+900\sqrt3\pi\ (\mathrm{cm}^3)$이다.
+      criteria: ['3.A2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 3
+      evidence: |
+        $\int_a^bf(x)dx$가 단면 넓이의 절반이고 $c=25$임을 적었다.
+      depends_on: []
+      implied_ok: false
+      ft: {allowed: true, from: [1.A2, 2.A1], max_points: 3}
+      steps: [3b-1]
+    - id: 3.A1
+      mark_type: A
+      points: 4
+      evidence: |
+        $\int_a^bf(x)dx=24\pi+9\sqrt3$을 구했다.
+      depends_on: [3.M1]
+      steps: [3b-2]
+    - id: 3.A2
+      mark_type: A
+      points: 3
+      evidence: |
+        $2400\pi^2+900\sqrt3\pi$를 얻었다.
+      depends_on: [3.M1]
+      steps: [3b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-3182}
+  misconceptions:
+  - id: MC-CAL-3182
+    outcome_code: '71'
+    wrong_work: '단면 넓이를 $2\times36\pi$로 두어 $\int f=36\pi$, $V=3600\pi^2$'
+    detect_cue: 겹친 부분을 두 번 셌다
+    feedback: 두 원은 겹쳐 있습니다. 위쪽 절반을 부채꼴 두 개와 정삼각형으로 나누어 넓이를 구하세요.
+    remedy: [RL-2]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CAL-3183}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-VOLUME-REVOLUTION}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-CAL-3182}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-VOLUME-REVOLUTION}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

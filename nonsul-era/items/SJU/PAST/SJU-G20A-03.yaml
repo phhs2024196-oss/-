@@ -1,0 +1,321 @@
+# 세종대 2020학년도 수시 논술고사[A](자연계열) 문제 3 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: SJU-G20A-03
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: SJU
+type: null          # [제안] 기하(공간도형·공간좌표) 문항(현행 세종 범위 밖): 「구의 접선·접점의 자취와 공간 직선의 사영」 — 기하 유형 신설 시 분류
+variant_of: null
+replaces: null
+level: L5
+form: 최적2단
+points: 240
+time_estimate_min: 40
+intent: |
+  공간에서 한 점을 지나는 직선과 평면의 교점을 매개변수로 구하고, 구에 그은 접선의 접점들이 한 평면 위에 있음을 수직 조건으로 보이며, 접점에 대응하는 그림자 점의 좌표를 최대화하는 능력을 본다.
+key_idea: |
+  직선 $\mathrm{P}+s(\mathrm{Q}-\mathrm{P})$의 $z$좌표가 $0$인 $s=\tfrac4{4-c}$에서 $\mathrm{Q}'$의 $y$좌표 $\tfrac{4b}{4-c}$. 접점 조건 $\overrightarrow{\mathrm{CQ}}\perp\overrightarrow{\mathrm{PQ}}$와 구의 방정식을 빼면 평면 $x+2z=5$.
+stuck: |
+  접점들의 집합이 평면 위에 있다는 것을 구의 방정식과 수직 조건의 차로 얻는 점, 그리고 (3-3)에서 $b$를 $c$로 나타내 한 변수 함수로 만드는 점
+idea_tags: [IDEA-TANGENCY-PLANE-SUBTRACT, IDEA-PROJECTION-PARAMETER]
+tags: [공간좌표, 구의 접선, 최대, 범위 밖(현행)]
+
+elements:
+  materials:
+  - '점 $\mathrm{P}(1,0,4)$와 구 $x^2+y^2+(z-2)^2=1$'
+  - '$\mathrm{P}$에서 구에 그은 접선들의 접점이 이루는 곡선 $C$'
+  - '$\mathrm{P}$와 $C$ 위의 점 $\mathrm{Q}$를 지나는 직선이 $xy$평면과 만나는 점 $\mathrm{Q}''$'
+  concepts:
+  - '공간에서 직선의 방정식'
+  - '구의 방정식'
+  - '공간벡터의 내적(수직 조건)'
+  - '평면의 방정식'
+  - '함수의 최대(미분)'
+  tools:
+  - '직선의 매개변수 표현과 $z=0$ 조건'
+  - '$\overrightarrow{\mathrm{CQ}}\cdot\overrightarrow{\mathrm{PQ}}=0$과 구의 방정식의 차'
+  - '평면과 구의 교선 위에서 $b$를 $c$로 표현'
+  - '몫의 미분으로 최대점 찾기(또는 삼각함수 매개변수)'
+  conditions:
+  - '구의 중심 $(0,0,2)$, 반지름 $1$'
+  - '접점 $\mathrm{Q}$에서 반지름과 접선이 수직'
+  - '$\mathrm{Q}''$의 $y$좌표를 최대로 하려면 $b>0$'
+  stimuli_used: []
+  subpart_links: '(3-3)은 (3-1)의 $\tfrac{4b}{4-c}$와 (3-2)의 평면 $x+2z=5$를 사용'
+
+curriculum:
+  version: '2015'
+  subjects: [기하]
+  scope_2028: geom
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 좌표공간에서 구의 방정식과 두 벡터의 내적을 활용할 수 있다(요지)
+    verified: false
+  content_area: 공간도형과 공간좌표
+  behavior_domain: 문제해결
+  unit_path: [기하, 공간도형과 공간좌표, 공간좌표, 구의 방정식]
+  key_concepts: [공간에서 직선의 방정식, 구의 방정식, 공간벡터의 내적(수직 조건), 평면의 방정식, 함수의 최대(미분)]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 세종대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 세종대학교
+  admission_year: 2020
+  admission_type: 수시 논술
+  track: 자연계열
+  question_no: 3
+  official_url: https://ipsi.sejong.ac.kr   # [확인 필요] 입학처 자료실의 정확한 게시물 URL로 교체
+  retrieved_at: 2026-11-21
+  original_points: [80, 80, 80]
+  rights_notice: 미확인(대학 원본 PDF 표지 문구 확인 필요)
+  transcribed_from: 대치 수리 논술 연구소 「2027학년도 대비 수리논술 세종대 기출 및 모의 문제」 p.75 + 해설교재 p.137 (원본 PDF 이미지 대조 완료 2026-11-21)
+
+verify: verify/SJU-G20A.py::p03
+
+stimuli: []
+
+stem: |
+  좌표공간의 점 $\mathrm{P}(1,0,4)$를 지나는 직선이 구 $x^2+y^2+(z-2)^2=1$과 접하는 점들의 집합을 곡선 $C$라 하자. 점 $\mathrm{P}$를 지나는 직선이 $C$ 위의 한 점 $\mathrm{Q}$를 지나 $xy$평면과 만나는 점을 $\mathrm{Q}'$라 하자.
+  (그림: 꼭짓점 $\mathrm{P}$에서 구에 접하는 원뿔면, 구 위의 접점 곡선 $C$와 그 위의 점 $\mathrm{Q}$, 직선 $\mathrm{PQ}$가 $xy$평면과 만나는 점 $\mathrm{Q}'$, $xy$평면 위에 원뿔의 그림자)
+
+subparts:
+- id: '1'
+  stem: |
+    점 $\mathrm{Q}(a,b,c)$에 대응되는 $\mathrm{Q}'$의 $y$좌표를 $a$, $b$, $c$로 나타내시오.
+  points: 80
+  depends_on: []
+  answer: {kind: expression, value: '4*b/(4-c)', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: 직선 $(1,0,4)+s(a-1,b,c-4)$에서 $z=0$이면 $s=\tfrac4{4-c}$.
+    steps:
+    - {id: 1a, content: '$y=sb=\tfrac{4b}{4-c}$', criteria: ['1.M1', '1.A1', '1.A2']}
+    hint_ladder:
+    - 두 점 $\mathrm{P}$, $\mathrm{Q}$를 지나는 직선을 매개변수로 나타내자.
+  - id: S1-B
+    audience: B
+    source_flow: 해설교재 p.137
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        두 점 $\mathrm{P}$, $\mathrm{Q}$를 잇는 직선은 $(1,0,4)+s(a-1,b,c-4)$이다.
+      criteria: ['1.M1']
+    - id: 1b-2
+      content: |
+        $\mathrm{Q}'$의 $z$좌표는 $0$이므로 $4+s(c-4)=0$, $s=\dfrac4{4-c}$이다.
+      criteria: ['1.A1']
+    - id: 1b-3
+      content: |
+        따라서 $\mathrm{Q}'$의 $y$좌표는 $sb=\dfrac{4b}{4-c}$이다.
+      criteria: ['1.A2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 30
+      evidence: |
+        직선 $\mathrm{PQ}$를 매개변수로 나타냈다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1]
+    - id: 1.A1
+      mark_type: A
+      points: 25
+      evidence: |
+        $z=0$ 조건으로 $s=\dfrac4{4-c}$를 구했다.
+      depends_on: [1.M1]
+      steps: [1b-2]
+    - id: 1.A2
+      mark_type: A
+      points: 25
+      evidence: |
+        $y$좌표 $\dfrac{4b}{4-c}$를 얻었다.
+      depends_on: [1.M1, 1.A1]
+      steps: [1b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '2'
+  stem: |
+    곡선 $C$를 포함하는 평면의 방정식을 구하시오.
+  points: 80
+  depends_on: []
+  answer: {kind: expression, value: 'x + 2*z = 5', equivalents: ['x + 2*z - 5 = 0'], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: 접점에서 $\overrightarrow{\mathrm{CQ}}\perp\overrightarrow{\mathrm{PQ}}$($\mathrm{C}$는 구의 중심), 구의 방정식과 빼면 일차식.
+    steps:
+    - {id: 2a, content: '$x^2+y^2+(z-2)(z-4)-x=0$과 $x^2+y^2+(z-2)^2=1$의 차 $\Rightarrow x+2z=5$', criteria: ['2.M1', '2.A1', '2.A2']}
+    hint_ladder:
+    - 구의 접선은 접점에서 반지름과 어떤 관계인가?
+    - 두 이차식의 차를 계산해 보자.
+  - id: S2-B
+    audience: B
+    source_flow: 해설교재 p.137
+    method_no: 1
+    steps:
+    - id: 2b-1
+      content: |
+        곡선 $C$ 위의 점 $(x,y,z)$는 구 $x^2+y^2+(z-2)^2=1$ 위에 있고, 접선 조건에서 $(x,y,z-2)\cdot(x-1,y,z-4)=0$을 만족한다.
+      criteria: ['2.M1']
+    - id: 2b-2
+      content: |
+        둘째 식은 $x^2-x+y^2+(z-2)(z-4)=0$이고 첫째 식을 빼면 $-x+(z-2)(z-4)-(z-2)^2=-1$, 즉 $-x-2(z-2)=-1$.
+      criteria: ['2.A1']
+    - id: 2b-3
+      content: |
+        정리하면 곡선 $C$를 포함하는 평면은 $x+2z=5$이다.
+      criteria: ['2.A2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 30
+      evidence: |
+        접점 조건을 중심-접점 벡터와 $\mathrm{P}$-접점 벡터의 수직(내적 $0$)으로 세웠다.
+      depends_on: []
+      implied_ok: false
+      steps: [2b-1]
+    - id: 2.A1
+      mark_type: A
+      points: 30
+      evidence: |
+        구의 방정식과 연립(차)해 이차항을 소거했다.
+      depends_on: [2.M1]
+      steps: [2b-2]
+    - id: 2.A2
+      mark_type: A
+      points: 20
+      evidence: |
+        평면 $x+2z=5$를 얻었다.
+      depends_on: [2.M1, 2.A1]
+      steps: [2b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '3'
+  stem: |
+    점 $\mathrm{Q}'$의 $y$좌표가 최대가 되는 점 $\mathrm{Q}$의 좌표를 구하시오.
+  points: 80
+  depends_on: ['1', '2']
+  answer: {kind: value, value: '(0, sqrt(3)/2, 5/2)', equivalents: [], tolerance: null}
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: $x=5-2z$를 구에 대입해 $y=\sqrt{-5z^2+24z-28}$, $\mathrm{Q}'$의 $y$좌표 $\dfrac{4\sqrt{-5z^2+24z-28}}{4-z}$를 $z$로 미분.
+    steps:
+    - {id: 3a, content: '도함수 분자 $4(-8z+20)=0\Rightarrow z=\tfrac52$, $\mathrm{Q}(0,\tfrac{\sqrt3}2,\tfrac52)$', criteria: ['3.M1', '3.A1', '3.M2', '3.A2']}
+    hint_ladder:
+    - 곡선 $C$ 위의 점은 평면과 구를 동시에 만족한다. $y$를 $z$로 나타내자.
+    - $y$좌표가 최대이려면 $b>0$이어야 한다.
+  - id: S3-B
+    audience: B
+    source_flow: 해설교재 p.137
+    method_no: 1
+    steps:
+    - id: 3b-1
+      content: |
+        $x+2z=5$를 구의 방정식에 넣으면 $(5-2z)^2+y^2+(z-2)^2=1$이고, $y>0$인 쪽에서 $y=\sqrt{-5z^2+24z-28}$이다.
+      criteria: ['3.M1']
+    - id: 3b-2
+      content: |
+        (3-1)에 의해 $\mathrm{Q}'$의 $y$좌표는 $\dfrac{4\sqrt{-5z^2+24z-28}}{4-z}$이다.
+      criteria: ['3.A1']
+    - id: 3b-3
+      content: |
+        미분하여 정리하면 $\dfrac{4(-8z+20)}{(4-z)^2\sqrt{-5z^2+24z-28}}$이므로 $z<\tfrac52$에서 양, $z>\tfrac52$에서 음이고 $z=\dfrac52$에서 최대이다.
+      criteria: ['3.M2']
+    - id: 3b-4
+      content: |
+        $z=\tfrac52$이면 $x=0$, $y=\sqrt{\tfrac34}=\tfrac{\sqrt3}2$이므로 $\mathrm{Q}\left(0,\dfrac{\sqrt3}{2},\dfrac52\right)$이다.
+      criteria: ['3.A2']
+  - id: S3-ALT
+    audience: ALT
+    source_flow: 해설교재 p.137 별해
+    method_no: 2
+    key_idea: 원 해설 별해 — $C$를 $xy$평면에 정사영한 타원 $5(x-\tfrac15)^2+4y^2=\tfrac{16}5$를 $x=\tfrac45\cos t+\tfrac15$, $y=\tfrac2{\sqrt5}\sin t$로 매개화.
+    steps:
+    - id: 3c-1
+      content: |
+        $z=-\tfrac25\cos t+\tfrac{12}5$이고 $\mathrm{Q}'$의 $y$좌표는 $\dfrac{4b}{4-c}=\dfrac{4\sqrt5\sin t}{4+\cos t}$.
+        $\dfrac{dy}{dt}=\dfrac{4\sqrt5(4\cos t+1)}{(4+\cos t)^2}=0$에서 $\cos t=-\tfrac14$, $\sin t=\tfrac{\sqrt{15}}4$. 최댓값 $\tfrac4{\sqrt3}$, $\mathrm{Q}\left(0,\tfrac{\sqrt3}2,\tfrac52\right)$.
+      criteria: ['3.M1', '3.A1', '3.M2', '3.A2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 20
+      evidence: |
+        평면과 구를 연립해 $C$ 위의 점의 $y$를 $z$로(또는 매개변수로) 나타냈다.
+      depends_on: []
+      implied_ok: false
+      ft: {allowed: true, from: [2.A2], max_points: 20}
+      steps: [3b-1, 3c-1]
+    - id: 3.A1
+      mark_type: A
+      points: 20
+      evidence: |
+        $\mathrm{Q}'$의 $y$좌표를 한 변수 함수로 나타냈다.
+      depends_on: [3.M1]
+      ft: {allowed: true, from: [1.A2], max_points: 20}
+      steps: [3b-2, 3c-1]
+    - id: 3.M2
+      mark_type: M
+      points: 20
+      evidence: |
+        미분해 증감을 따져 최대가 되는 $z=\tfrac52$(또는 $\cos t=-\tfrac14$)를 찾았다.
+      depends_on: [3.A1]
+      steps: [3b-3, 3c-1]
+    - id: 3.A2
+      mark_type: A
+      points: 20
+      evidence: |
+        $\mathrm{Q}\left(0,\dfrac{\sqrt3}2,\dfrac52\right)$를 얻었다.
+      depends_on: [3.M2]
+      steps: [3b-4, 3c-1]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '21', meaning: 만점(매개변수 별해)}
+  misconceptions: []
+
+remedy_links:
+- id: RL-1
+  trigger: {type: criterion_missed, ref: 2.M1}
+  relation: prerequisite
+  target: {kind: concept, ref: CON-GEO-SPHERE-TANGENT}
+  priority: 1
+- id: RL-2
+  trigger: {type: criterion_missed, ref: 3.M2}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-EXTREMA-JUSTIFY}
+  priority: 2
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

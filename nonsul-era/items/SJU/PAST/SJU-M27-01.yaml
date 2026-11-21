@@ -1,0 +1,365 @@
+# 세종대 2027학년도 모의논술고사(자연계열) 문제 1 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: SJU-M27-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: SJU
+type: T01
+variant_of: null
+replaces: null
+level: L4
+form: 추론
+points: 260
+time_estimate_min: 35
+intent: |
+  접함 조건(함숫값·기울기)으로 접점과 원의 중심을 구하고, 접선의 길이 함수의 도함수 극한과 단면이 정삼각형인 입체의 부피를 계산하는 능력을 본다.
+key_idea: |
+  접점 $\mathrm{P}(p,\sqrt3p)$에서 $2ap=\sqrt3$, $ap^2+t=\sqrt3p$를 연립하고, $\mathrm{PQ}\perp$ 접선으로 중심 $\mathrm{Q}$를 구한다.
+stuck: |
+  원의 중심이 접점에서 접선에 수직인 직선 위에 있다는 사실, 그리고 접선의 길이를 직각삼각형 $\mathrm{MPQ}$로 바꾸는 발상
+idea_tags: [IDEA-TANGENT-NORMAL-CENTER, IDEA-TANGENT-LENGTH-PYTHAGORAS]
+tags: [접원, 단면 부피]
+elements:
+  materials:
+  - '이차함수 $ax^2+t$와 직선 $y=\sqrt3x$의 접점'
+  - '접점에서 접하고 중심이 $x$축 위인 원'
+  - '외부 점에서 원에 그은 접선의 길이'
+  - '단면이 정삼각형인 입체'
+  concepts:
+  - '접선의 방정식'
+  - '원의 접선과 반지름의 수직'
+  - '두 점 사이의 거리'
+  - '함수의 극한'
+  - '합성함수의 미분법'
+  - '단면의 넓이와 입체의 부피'
+  - '치환적분법'
+  tools:
+  - '접함 조건(기울기·함숫값) 연립'
+  - '법선의 $x$절편'
+  - '닮음 $\overline{\mathrm{OH}}:\overline{\mathrm{OP}}=\overline{\mathrm{OP}}:\overline{\mathrm{OQ}}$'
+  - '피타고라스 정리'
+  - '정삼각형 넓이 $\tfrac{\sqrt3}{4}k^2$'
+  conditions:
+  - '중심 Q는 P를 지나고 접선에 수직인 직선 위'
+  - '접선 길이 $=\sqrt{\mathrm{MQ}^2-R^2}$'
+  - '단면 한 변 = 직선 PQ의 높이'
+  stimuli_used: []
+  subpart_links: '(1-2)·(1-3)은 (1-1)의 P·Q 좌표와 g(t)를 사용'
+
+curriculum:
+  version: '2015'
+  subjects: [미적분]
+  scope_2028: calc2
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 접선의 방정식을 구하고 정적분으로 입체의 부피를 구할 수 있다(요지)
+    verified: false
+  content_area: 미분법·적분법
+  behavior_domain: 문제해결
+  unit_path: [미적분, 적분법, 정적분의 활용, 입체도형의 부피]
+  key_concepts: [접선의 방정식, 원의 접선, 함수의 극한, 단면의 넓이와 부피]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 세종대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 세종대학교
+  admission_year: 2027
+  admission_type: 수시 모의논술
+  track: 자연계열
+  question_no: 1
+  official_url: https://ipsi.sejong.ac.kr   # [확인 필요] 입학처 자료실의 정확한 게시물 URL로 교체
+  retrieved_at: 2026-11-21
+  original_points: [80, 90, 90]
+  rights_notice: 미확인(대학 원본 PDF 표지 문구 확인 필요)
+  transcribed_from: 대치 수리 논술 연구소 「2027학년도 대비 수리논술 세종대 기출 및 모의 문제」 p.3 (원본 PDF 이미지 대조 완료 2026-11-21)
+
+verify: verify/SJU-M27.py::p01
+
+stimuli: []
+
+stem: |
+  양의 실수 $a$와 양의 실수 $t$에 대하여 함수 $f(x)=ax^2+t$로 정의된 곡선 $y=f(x)$가 한 점 $\mathrm{P}$에서 직선 $y=\sqrt3x$에 접하도록 하는 $a$의 값을 $g(t)$라 하자. 원 $C$는 점 $\mathrm{P}$에서 직선 $y=\sqrt3x$에 접하고, $C$의 중심 $\mathrm{Q}$는 양의 $x$축 위에 있다. 다음 물음에 각각 답하시오.
+
+subparts:
+- id: '1'
+  stem: |
+    점 $\mathrm{Q}$의 좌표를 $t$에 관한 식으로 나타내시오.
+  points: 80
+  depends_on: []
+  answer: {kind: expression, value: '(8*sqrt(3)*t/3, 0)', equivalents: ['(8*t/sqrt(3), 0)'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: 접함 조건 두 식으로 $\mathrm{P}$를 구하고, $\mathrm{P}$를 지나며 접선에 수직인 직선의 $x$절편이 $\mathrm{Q}$이다.
+    steps:
+    - {id: 1a, content: '$2ap=\sqrt3$, $ap^2+t=\sqrt3p\Rightarrow p=\tfrac{2t}{\sqrt3}$, $\mathrm{Q}=(\tfrac{8\sqrt3}{3}t,0)$', criteria: ['1.M1', '1.A1', '1.M2', '1.A2']}
+    hint_ladder:
+    - 접한다는 것은 두 가지 조건을 뜻한다.
+    - 원의 중심은 접점에서 그은 어떤 직선 위에 있는가?
+  - id: S1-B
+    audience: B
+    source_flow: 해설교재 p.2
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        $\mathrm{P}(p,\sqrt3p)$라 하면 접할 조건은 $f'(p)=2ap=\sqrt3$, $f(p)=ap^2+t=\sqrt3p$이다.
+      criteria: ['1.M1']
+    - id: 1b-2
+      content: |
+        첫 식에서 $ap^2=\dfrac{\sqrt3}{2}p$이므로 둘째 식은 $\dfrac{\sqrt3}{2}p+t=\sqrt3p$, 즉 $p=\dfrac{2t}{\sqrt3}$이고 $a=\dfrac{3}{4t}$이다. 따라서 $\mathrm{P}\left(\dfrac{2t}{\sqrt3},\,2t\right)$, $g(t)=\dfrac{3}{4t}$.
+      criteria: ['1.A1']
+    - id: 1b-3
+      content: |
+        원이 $\mathrm{P}$에서 접선에 접하므로 $\mathrm{PQ}\perp$접선이고, 직선 $\mathrm{PQ}$는 $y-2t=-\dfrac{1}{\sqrt3}\left(x-\dfrac{2t}{\sqrt3}\right)$이다.
+      criteria: ['1.M2']
+    - id: 1b-4
+      content: |
+        $y=0$을 대입하면 $x=\dfrac{8t}{\sqrt3}$이므로 $\mathrm{Q}\left(\dfrac{8\sqrt3}{3}t,\,0\right)$이다.
+      criteria: ['1.A2']
+  - id: S1-ALT
+    audience: ALT
+    source_flow: 해설교재 p.2 별해
+    method_no: 2
+    key_idea: 원 해설 별해 — 수선의 발 H에 대해 $\triangle\mathrm{OPQ}\sim\triangle\mathrm{OHP}$이므로 $\overline{\mathrm{OQ}}=\dfrac{\overline{\mathrm{OP}}^2}{\overline{\mathrm{OH}}}=\dfrac{8}{\sqrt3}t$.
+    steps:
+    - id: 1c-1
+      content: |
+        $\overline{\mathrm{OH}}=\dfrac{2t}{\sqrt3}$, $\overline{\mathrm{OP}}=\dfrac{4t}{\sqrt3}$이고 $\overline{\mathrm{OH}}:\overline{\mathrm{OP}}=\overline{\mathrm{OP}}:\overline{\mathrm{OQ}}$에서 $\overline{\mathrm{OQ}}=\dfrac{8}{\sqrt3}t$, $\mathrm{Q}\left(\dfrac{8\sqrt3}{3}t,0\right)$.
+      criteria: ['1.M2', '1.A2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 20
+      evidence: |
+        접점에서 기울기 조건과 함숫값 조건 두 식을 세웠다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1]
+    - id: 1.A1
+      mark_type: A
+      points: 20
+      evidence: |
+        $\mathrm{P}\left(\dfrac{2t}{\sqrt3},2t\right)$와 $g(t)=\dfrac{3}{4t}$를 구했다.
+      depends_on: [1.M1]
+      steps: [1b-2]
+    - id: 1.M2
+      mark_type: M
+      points: 20
+      evidence: |
+        중심이 접점을 지나고 접선에 수직인 직선 위에 있음을 이용했다(또는 닮음 $\mathrm{OH}:\mathrm{OP}=\mathrm{OP}:\mathrm{OQ}$).
+      depends_on: []
+      implied_ok: false
+      steps: [1b-3, 1c-1]
+    - id: 1.A2
+      mark_type: A
+      points: 20
+      evidence: |
+        $\mathrm{Q}\left(\dfrac{8\sqrt3}{3}t,0\right)$을 얻었다.
+      depends_on: [1.M2, 1.A1]
+      steps: [1b-4, 1c-1]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-3004}
+  misconceptions:
+  - id: MC-CAL-3004
+    outcome_code: '71'
+    wrong_work: '$2ap=\sqrt3$만 쓰고 $a$를 $p$로 남겨 둠'
+    detect_cue: 함숫값 일치식 $ap^2+t=\sqrt3p$가 없다
+    feedback: 접한다는 것은 기울기와 함숫값이 모두 같다는 뜻입니다.
+    remedy: [RL-1]
+
+- id: '2'
+  stem: |
+    $y$축 위의 점 $\mathrm{M}(0,\,g(t))$에서 원 $C$에 그은 접선의 길이를 $\ell(t)$라고 하자. 도함수 $\ell'(t)$를 구하고, 극한값 $\displaystyle\lim_{t\to\infty}\ell'(t)$를 구하시오.
+  points: 90
+  depends_on: ['1']
+  answer: {kind: expression, value: 'l1(t) = (32*t/3 - 9/(8*t**3))/(2*sqrt(16*t**2/3 + 9/(16*t**2))); limit = 4*sqrt(3)/3', equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: 접선의 길이는 $\sqrt{\mathrm{MQ}^2-R^2}$이고 $R=\mathrm{PQ}=4t$이다.
+    steps:
+    - {id: 2a, content: '$\ell(t)^2=\tfrac{64}{3}t^2+\tfrac{9}{16t^2}-16t^2=\tfrac{16}{3}t^2+\tfrac{9}{16t^2}$', criteria: ['2.M1', '2.A1']}
+    hint_ladder:
+    - 원 밖의 점에서 그은 접선, 반지름, 중심까지의 선분은 어떤 삼각형을 이루는가?
+  - id: S2-B
+    audience: B
+    source_flow: 해설교재 p.2
+    method_no: 1
+    steps:
+    - id: 2b-1
+      content: |
+        반지름 $R=\overline{\mathrm{PQ}}=\sqrt{\left(\dfrac{6t}{\sqrt3}\right)^2+(2t)^2}=4t$이다.
+      criteria: ['2.M1']
+    - id: 2b-2
+      content: |
+        접점을 $\mathrm{T}$라 하면 $\triangle\mathrm{MTQ}$는 직각삼각형이므로
+        $\ell(t)^2=\overline{\mathrm{MQ}}^2-R^2=\dfrac{64}{3}t^2+\dfrac{9}{16t^2}-16t^2=\dfrac{16}{3}t^2+\dfrac{9}{16t^2}$.
+      criteria: ['2.A1']
+    - id: 2b-3
+      content: |
+        $\ell'(t)=\dfrac{\dfrac{32}{3}t-\dfrac{9}{8t^3}}{2\sqrt{\dfrac{16}{3}t^2+\dfrac{9}{16t^2}}}$.
+      criteria: ['2.M2', '2.A2']
+    - id: 2b-4
+      content: |
+        분자·분모를 $t$로 나누면 $\displaystyle\lim_{t\to\infty}\ell'(t)=\dfrac{32/3}{2\cdot\frac{4}{\sqrt3}}=\dfrac{4}{\sqrt3}=\dfrac{4\sqrt3}{3}$.
+      criteria: ['2.A3']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 20
+      evidence: |
+        반지름 $R=4t$를 구하고 접선 길이를 $\sqrt{\mathrm{MQ}^2-R^2}$로 표현하려 했다.
+      depends_on: []
+      implied_ok: false
+      ft: {allowed: true, from: [1.A1, 1.A2], max_points: 20}
+      steps: [2b-1]
+    - id: 2.A1
+      mark_type: A
+      points: 25
+      evidence: |
+        $\ell(t)^2=\dfrac{16}{3}t^2+\dfrac{9}{16t^2}$ 또는 동치식을 얻었다.
+      depends_on: [2.M1]
+      steps: [2b-2]
+    - id: 2.M2
+      mark_type: M
+      points: 15
+      evidence: |
+        합성함수(또는 음함수) 미분으로 $\ell'(t)$를 구하려 했다.
+      depends_on: []
+      implied_ok: true
+      steps: [2b-3]
+    - id: 2.A2
+      mark_type: A
+      points: 15
+      evidence: |
+        $\ell'(t)$를 바르게 구했다.
+      depends_on: [2.M2, 2.A1]
+      steps: [2b-3]
+    - id: 2.A3
+      mark_type: A
+      points: 15
+      evidence: |
+        극한값 $\dfrac{4\sqrt3}{3}$을 근거와 함께 구했다.
+      depends_on: [2.M2, 2.A2]
+      steps: [2b-4]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '3'
+  stem: |
+    점 $\mathrm{P}$에서 $x$축에 내린 수선의 발을 $\mathrm{H}$라 하자. 삼각형 $\mathrm{PQH}$를 밑면으로 하는 입체도형을 $x$축에 수직인 평면으로 자른 단면이 항상 정삼각형일 때, 이 입체도형의 부피 $V$를 $t$에 관한 식으로 나타내시오.
+  points: 90
+  depends_on: ['1']
+  answer: {kind: expression, value: '2*t**3', equivalents: [], tolerance: null}
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: 단면 정삼각형의 한 변은 직선 $\mathrm{PQ}$의 높이 $y(x)$이므로 $V=\int\tfrac{\sqrt3}{4}y^2dx$.
+    steps:
+    - {id: 3a, content: '$V=\tfrac{\sqrt3}{4}\int_{2t/\sqrt3}^{8t/\sqrt3}\left(-\tfrac{x}{\sqrt3}+\tfrac{8}{3}t\right)^2dx=2t^3$', criteria: ['3.M1', '3.M2', '3.A1']}
+    hint_ladder:
+    - $x$축에 수직인 단면에서 정삼각형의 한 변은 무엇인가?
+  - id: S3-B
+    audience: B
+    source_flow: 해설교재 p.3
+    method_no: 1
+    steps:
+    - id: 3b-1
+      content: |
+        $\mathrm{H}\left(\dfrac{2t}{\sqrt3},0\right)$이고 $\dfrac{2t}{\sqrt3}\le x\le\dfrac{8t}{\sqrt3}$에서 단면 정삼각형의 한 변은 직선 $\mathrm{PQ}$의 높이 $s(x)=-\dfrac{1}{\sqrt3}x+\dfrac83t$이다.
+      criteria: ['3.M1']
+    - id: 3b-2
+      content: |
+        단면의 넓이는 $\dfrac{\sqrt3}{4}s(x)^2$이므로 $V(t)=\dfrac{\sqrt3}{4}\displaystyle\int_{2t/\sqrt3}^{8t/\sqrt3}\left(-\dfrac{1}{\sqrt3}x+\dfrac83t\right)^2dx$.
+      criteria: ['3.M2']
+    - id: 3b-3
+      content: |
+        $u=-\dfrac{1}{\sqrt3}x+\dfrac83t$로 치환하면 $V(t)=\dfrac{\sqrt3}{4}\displaystyle\int_0^{2t}\sqrt3\,u^2du=\dfrac34\cdot\dfrac{8t^3}{3}=2t^3$.
+      criteria: ['3.A1']
+  - id: S3-ALT
+    audience: ALT
+    source_flow: 해설교재 p.3 별해
+    method_no: 2
+    key_idea: 원 해설 별해 — Q로부터 거리 $s$인 QH 위의 점에서 단면의 한 변은 $\tfrac{s}{\sqrt3}$이므로 $V=\int_0^{2\sqrt3t}\tfrac{s^2}{4\sqrt3}ds$.
+    steps:
+    - id: 3c-1
+      content: |
+        $\overline{\mathrm{QH}}=2\sqrt3t$이고 단면 한 변이 $\dfrac{s}{\sqrt3}$이므로 $V=\displaystyle\int_0^{2\sqrt3t}\dfrac{s^2}{4\sqrt3}ds=2t^3$.
+      criteria: ['3.M1', '3.M2', '3.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 30
+      evidence: |
+        단면 정삼각형의 한 변을 $x$에 대한 식(직선 $\mathrm{PQ}$의 높이)으로 나타냈다.
+      depends_on: []
+      implied_ok: false
+      ft: {allowed: true, from: [1.A1, 1.A2], max_points: 30}
+      steps: [3b-1, 3c-1]
+    - id: 3.M2
+      mark_type: M
+      points: 30
+      evidence: |
+        단면 넓이 $\dfrac{\sqrt3}{4}s^2$를 적분 구간 $\left[\dfrac{2t}{\sqrt3},\dfrac{8t}{\sqrt3}\right]$에서 적분하는 식을 세웠다.
+      depends_on: [3.M1]
+      steps: [3b-2]
+    - id: 3.A1
+      mark_type: A
+      points: 30
+      evidence: |
+        $V(t)=2t^3$을 얻었다.
+      depends_on: [3.M2]
+      steps: [3b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-3005}
+  misconceptions:
+  - id: MC-CAL-3005
+    outcome_code: '71'
+    wrong_work: '단면 넓이를 $\tfrac12 s^2$ 또는 $s^2$으로 둠'
+    detect_cue: 정삼각형 넓이 $\tfrac{\sqrt3}{4}s^2$가 아니다
+    feedback: 단면이 정삼각형이므로 한 변 $s$에 대해 넓이는 $\tfrac{\sqrt3}{4}s^2$입니다.
+    remedy: [RL-2]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CAL-3004}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-TANGENT-COND}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-CAL-3005}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-VOLUME-SECTION}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

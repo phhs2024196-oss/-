@@ -1,0 +1,364 @@
+# 세종대 2021학년도 수시 논술고사[C](자연계열) 문제 2 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: SJU-G21C-02
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: SJU
+type: null          # [제안] 확률과통계 문항(현행 세종 범위 밖): 「조건부확률·이항분포의 정규근사와 기댓값 비교」 — 확통 유형 신설 시 분류
+variant_of: null
+replaces: null
+level: L4
+form: 최적2단
+points: 230
+time_estimate_min: 30
+intent: |
+  진단검사 상황에서 전확률·베이즈 정리로 확률을 구하고, 이항분포를 정규분포로 근사해 확률을 계산하며, 비용의 기댓값을 비교해 조건을 만족하는 최소 인원을 찾는 능력을 본다.
+key_idea: |
+  $\mathrm{P}(A)=\mathrm{P}(D)\mathrm{P}(A\mid D)+\mathrm{P}(D^C)\mathrm{P}(A\mid D^C)=0.0396$, $\mathrm{P}(D\mid A)=\tfrac14$이고, 검사 시 기대 비용 $C(n)+0.0396n\times10^5$을 미검사 비용 $0.01n\times10^6$과 비교한다.
+stuck: |
+  (2-3)에서 검사하면 양성판정을 받은 모든 사람(실제 환자 여부와 무관)에게 10만원이 든다는 점, 그리고 $C(n)$이 $n\le40000$에서 이차식이라는 점
+idea_tags: [IDEA-BAYES-TREE, IDEA-EXPECTED-COST-COMPARE]
+tags: [조건부확률, 정규근사, 범위 밖(현행)]
+
+elements:
+  materials:
+  - '질병 진단키트(유병률 $0.01$, 민감도 $0.99$, 위양성률 $0.03$)'
+  - '양성판정자 768명 중 환자 수'
+  - '집단검진 비용 함수 $C(n)$과 치료비'
+  concepts:
+  - '조건부확률'
+  - '확률의 곱셈정리'
+  - '이항분포의 평균과 분산'
+  - '이항분포의 정규근사'
+  - '기댓값'
+  tools:
+  - '전확률 공식'
+  - '베이즈 정리'
+  - '표준화 $Z=\dfrac{X-m}{\sigma}$'
+  - '이차부등식 풀이'
+  conditions:
+  - '양성판정 시 실제 질병 여부와 무관하게 1인당 10만원'
+  - '양성판정자 중 환자 수 $X\sim\mathrm{B}(768,\tfrac14)$'
+  - '$n\le40000$에서 $C(n)=10000n-\tfrac{n^2}{10}$'
+  stimuli_used: []
+  subpart_links: '(2-2)는 (2-1)의 $\mathrm{P}(D\mid A)=\tfrac14$을, (2-3)은 (2-1)의 $\mathrm{P}(A)=0.0396$을 사용'
+
+curriculum:
+  version: '2015'
+  subjects: [확률과통계]
+  scope_2028: common
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 조건부확률의 의미를 이해하고 이항분포와 정규분포의 관계를 이용할 수 있다(요지)
+    verified: false
+  content_area: 확률 – 조건부확률 / 통계 – 확률분포
+  behavior_domain: 문제해결
+  unit_path: [확률과통계, 확률, 조건부확률, 확률의 곱셈정리]
+  key_concepts: [조건부확률, 확률의 곱셈정리, 이항분포의 평균과 분산, 이항분포의 정규근사, 기댓값]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 세종대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 세종대학교
+  admission_year: 2021
+  admission_type: 수시 논술
+  track: 자연계열
+  question_no: 2
+  official_url: https://ipsi.sejong.ac.kr   # [확인 필요] 입학처 자료실의 정확한 게시물 URL로 교체
+  retrieved_at: 2026-11-21
+  original_points: [70, 80, 80]
+  rights_notice: 미확인(대학 원본 PDF 표지 문구 확인 필요)
+  transcribed_from: 대치 수리 논술 연구소 「2027학년도 대비 수리논술 세종대 기출 및 모의 문제」 p.65 + 해설교재 p.124 (원본 PDF 이미지 대조 완료 2026-11-21)
+
+verify: verify/SJU-G21C.py::p02
+
+stimuli: []
+
+stem: |
+  어떤 질병에 걸릴 확률은 $0.01$이며 전체 주민 중 이 질병에 걸리는 환자 수는 이항분포를 따른다고 하자. 또한 진단키트를 이용하여 실제로 이 질병에 걸린 사람을 검사하였을 때 양성으로 판정할 확률은 $0.99$이고, 질병에 걸리지 않은 사람을 검사하였을 때 양성으로 판정할 확률은 $0.03$이라고 한다.
+
+subparts:
+- id: '1'
+  stem: |
+    어떤 사람이 진단키트 검사로 양성판정을 받을 확률과 양성판정을 받았을 때 이 사람이 질병에 걸려 있을 확률을 각각 구하시오.
+  points: 70
+  depends_on: []
+  answer: {kind: value, value: 'P(A) = 0.0396; P(D|A) = 1/4', equivalents: ['99/2500; 1/4'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: 질병 여부로 나눈 전확률 공식과 베이즈 정리.
+    steps:
+    - {id: 1a, content: '$\mathrm{P}(A)=0.01\cdot0.99+0.99\cdot0.03=0.0396$, $\mathrm{P}(D\mid A)=\tfrac{0.0099}{0.0396}=\tfrac14$', criteria: ['1.M1', '1.A1', '1.M2', '1.A2']}
+    hint_ladder:
+    - 질병에 걸린 경우와 걸리지 않은 경우로 나누어 양성판정 확률을 더하자.
+    - 구하는 둘째 확률의 조건(분모)은 어느 사건인가?
+  - id: S1-B
+    audience: B
+    source_flow: 해설교재 p.124
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        질병에 걸리는 사건을 $D$, 양성으로 판정되는 사건을 $A$라 하면 $\mathrm{P}(D)=0.01$, $\mathrm{P}(D^C)=0.99$, $\mathrm{P}(A\mid D)=0.99$, $\mathrm{P}(A\mid D^C)=0.03$이다.
+        $\mathrm{P}(A)=\mathrm{P}(A\cap D)+\mathrm{P}(A\cap D^C)=\mathrm{P}(D)\mathrm{P}(A\mid D)+\mathrm{P}(D^C)\mathrm{P}(A\mid D^C)$.
+      criteria: ['1.M1']
+    - id: 1b-2
+      content: |
+        $\mathrm{P}(A)=\dfrac{1}{100}\cdot\dfrac{99}{100}+\dfrac{99}{100}\cdot\dfrac{3}{100}=\dfrac{4\times99}{10^4}=0.0396$.
+      criteria: ['1.A1']
+    - id: 1b-3
+      content: |
+        $\mathrm{P}(D\mid A)=\dfrac{\mathrm{P}(A\cap D)}{\mathrm{P}(A)}=\dfrac{\mathrm{P}(D)\mathrm{P}(A\mid D)}{\mathrm{P}(D)\mathrm{P}(A\mid D)+\mathrm{P}(D^C)\mathrm{P}(A\mid D^C)}$.
+      criteria: ['1.M2']
+    - id: 1b-4
+      content: |
+        $\mathrm{P}(D\mid A)=\dfrac{\frac{1}{100}\cdot\frac{99}{100}}{\frac{4\times99}{10^4}}=\dfrac14$.
+      criteria: ['1.A2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 20
+      evidence: |
+        질병 여부로 나누어 $\mathrm{P}(A)$를 두 곱의 합으로 세웠다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1]
+    - id: 1.A1
+      mark_type: A
+      points: 15
+      evidence: |
+        $\mathrm{P}(A)=0.0396$을 얻었다.
+      depends_on: [1.M1]
+      steps: [1b-2]
+    - id: 1.M2
+      mark_type: M
+      points: 20
+      evidence: |
+        $\mathrm{P}(D\mid A)=\dfrac{\mathrm{P}(A\cap D)}{\mathrm{P}(A)}$의 조건부확률 식을 세웠다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-3]
+    - id: 1.A2
+      mark_type: A
+      points: 15
+      evidence: |
+        $\mathrm{P}(D\mid A)=\dfrac14$을 얻었다.
+      depends_on: [1.M2, 1.A1]
+      steps: [1b-4]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-PRB-3113}
+  misconceptions:
+  - id: MC-PRB-3113
+    outcome_code: '71'
+    wrong_work: '양성판정 시 질병일 확률을 $\mathrm{P}(A\mid D)=0.99$로 답함'
+    detect_cue: 분모에 $\mathrm{P}(A)$가 없고 $0.99$를 그대로 썼다
+    feedback: 조건이 '양성판정'이므로 $\mathrm{P}(D\mid A)=\dfrac{\mathrm{P}(A\cap D)}{\mathrm{P}(A)}$입니다. $\mathrm{P}(A\mid D)$와 조건이 반대입니다.
+    remedy: [RL-1]
+
+- id: '2'
+  stem: |
+    이 진단키트 검사결과 양성판정을 받은 사람 중에서 질병에 걸려 있는 환자 수는 이항분포를 따른다고 하자. 양성판정을 받은 $768$명 중에서 질병에 걸려 있는 환자 수가 $210$명 이하일 확률을 오른쪽 표준정규분포표를 이용하여 구하시오.
+    (표준정규분포표: $\mathrm{P}(0\le Z\le1.0)=0.34$, $\mathrm{P}(0\le Z\le1.5)=0.43$, $\mathrm{P}(0\le Z\le2.0)=0.48$, $\mathrm{P}(0\le Z\le2.5)=0.49$)
+  points: 80
+  depends_on: ['1']
+  answer: {kind: value, value: '0.93', equivalents: ['93/100'], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: $X\sim\mathrm{B}(768,\tfrac14)$, $m=192$, $\sigma=12$이므로 $\mathrm{P}(X\le210)\approx\mathrm{P}(Z\le1.5)$.
+    steps:
+    - {id: 2a, content: '$\mathrm{P}(Z\le\tfrac{210-192}{12})=0.5+0.43=0.93$', criteria: ['2.M1', '2.A1', '2.M2', '2.A2']}
+    hint_ladder:
+    - 양성판정자 한 명이 실제 환자일 확률은 (2-1)에서 구했다.
+    - 이항분포의 평균과 표준편차를 구해 표준화하자.
+  - id: S2-B
+    audience: B
+    source_flow: 해설교재 p.124
+    method_no: 1
+    steps:
+    - id: 2b-1
+      content: |
+        양성판정자 768명 중 실제 환자 수를 $X$라 하면 (2-1)에서 $X\sim\mathrm{B}\left(768,\dfrac14\right)$이다.
+      criteria: ['2.M1']
+    - id: 2b-2
+      content: |
+        $\mathrm{E}(X)=768\cdot\dfrac14=192$, $\mathrm{V}(X)=768\cdot\dfrac14\cdot\dfrac34=144$이므로 $X$는 근사적으로 $\mathrm{N}(192,12^2)$을 따른다.
+      criteria: ['2.A1']
+    - id: 2b-3
+      content: |
+        $\mathrm{P}(X\le210)=\mathrm{P}\left(\dfrac{X-192}{12}\le\dfrac{210-192}{12}\right)=\mathrm{P}(Z\le1.5)$.
+      criteria: ['2.M2']
+    - id: 2b-4
+      content: |
+        $\mathrm{P}(Z\le1.5)=0.5+0.43=0.93$.
+      criteria: ['2.A2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 20
+      evidence: |
+        환자 수가 $\mathrm{B}(768,\tfrac14)$을 따름을 적었다.
+      depends_on: []
+      implied_ok: false
+      ft: {allowed: true, from: [1.A2], max_points: 20}
+      steps: [2b-1]
+    - id: 2.A1
+      mark_type: A
+      points: 20
+      evidence: |
+        평균 $192$, 분산 $144$(표준편차 $12$)를 구했다.
+      depends_on: [2.M1]
+      steps: [2b-2]
+    - id: 2.M2
+      mark_type: M
+      points: 20
+      evidence: |
+        정규근사 후 표준화해 $\mathrm{P}(Z\le1.5)$로 바꿨다.
+      depends_on: [2.A1]
+      steps: [2b-3]
+    - id: 2.A2
+      mark_type: A
+      points: 20
+      evidence: |
+        $0.93$을 얻었다.
+      depends_on: [2.M2]
+      steps: [2b-4]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-PRB-3114}
+  misconceptions:
+  - id: MC-PRB-3114
+    outcome_code: '71'
+    wrong_work: '$Z=\dfrac{210-192}{144}$으로 표준화'
+    detect_cue: 표준편차 대신 분산으로 나누었다
+    feedback: 표준화는 표준편차 $\sigma=\sqrt{npq}=12$로 나눕니다.
+    remedy: [RL-2]
+
+- id: '3'
+  stem: |
+    의료보험에서 이 질병에 걸린 환자 한 명을 치료하기 위해 부담하는 비용은 $100$만원이지만, 진단키트 검사로 조기 진단하는 경우 양성판정을 받으면 실제로 질병에 걸리는 것과 상관없이 한 명에 대해 부담하는 치료비용이 $10$만원으로 줄어든다.
+    다만 집단검진을 통해 전체 $n$명을 검사할 때 소요되는 검사비용 $C(n)$은 다음과 같다.
+    $$C(n)=\begin{cases}6000n, & n>40000\\[1mm] 10000n-\dfrac{n^2}{10}, & n\le40000\end{cases}$$
+    어떤 지역 주민 전체 $n$명을 집단검진할 때, 의료보험에서 부담하는 총 비용(전체 주민에 대한 검사비용과 양성판정을 받은 모든 사람에 대한 치료비용을 더한 비용)의 기댓값이 집단검진하지 않을 때 질병에 걸릴 환자 전체에 대한 치료비용의 기댓값보다 작아지는 $n$의 최솟값을 구하시오.
+  points: 80
+  depends_on: ['1']
+  answer: {kind: value, value: '39601', equivalents: [], tolerance: null}
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: 미검사 $10^4n$원, 검사 $C(n)+3960n$원. $n\le40000$에서 $\tfrac{n^2}{10}>3960n\iff n>39600$.
+    steps:
+    - {id: 3a, content: '$10^4n>10^4n-\tfrac{n^2}{10}+3960n\iff n>39600\Rightarrow n_{\min}=39601$', criteria: ['3.M1', '3.M2', '3.A1', '3.R1']}
+    hint_ladder:
+    - 미검사 시 환자 수의 기댓값과 검사 시 양성판정자 수의 기댓값을 구하자.
+    - $C(n)$은 $n$의 범위에 따라 식이 다르다. 작은 $n$부터 보자.
+  - id: S3-B
+    audience: B
+    source_flow: 해설교재 p.124
+    method_no: 1
+    steps:
+    - id: 3b-1
+      content: |
+        주민 $n$명 중 환자 수의 기댓값은 $0.01n$, 양성판정자 수의 기댓값은 $n\,\mathrm{P}(A)=0.0396n$이다.
+      criteria: ['3.M1']
+    - id: 3b-2
+      content: |
+        (i) 검사하지 않을 때 비용의 기댓값: $0.01n\times10^6=10^4n$(원).
+        (ii) 검사할 때 비용의 기댓값: $C(n)+0.0396n\times10^5=C(n)+3960n$(원).
+      criteria: ['3.M2']
+    - id: 3b-3
+      content: |
+        $n\le40000$이면 $10^4n>10^4n-\dfrac{n^2}{10}+3960n\iff\dfrac{n^2}{10}>3960n\iff n>39600$이므로 조건을 만족하는 최소의 $n$은 $39601$이다.
+      criteria: ['3.A1']
+    - id: 3b-4
+      content: |
+        $39601\le40000$이므로 이 범위에서 찾은 값이 최솟값이고, $n>40000$인 경우는 더 볼 필요가 없다. 따라서 $n$의 최솟값은 $39601$이다.
+      criteria: ['3.R1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 20
+      evidence: |
+        환자 수 기댓값 $0.01n$과 양성판정자 수 기댓값 $0.0396n$을 구했다.
+      depends_on: []
+      implied_ok: false
+      ft: {allowed: true, from: [1.A1], max_points: 20}
+      steps: [3b-1]
+    - id: 3.M2
+      mark_type: M
+      points: 25
+      evidence: |
+        두 경우의 비용 기댓값 $10^4n$과 $C(n)+3960n$을 식으로 세웠다.
+      depends_on: [3.M1]
+      steps: [3b-2]
+    - id: 3.A1
+      mark_type: A
+      points: 25
+      evidence: |
+        $n\le40000$에서 부등식을 풀어 $n>39600$, 최솟값 $39601$을 얻었다.
+      depends_on: [3.M2]
+      steps: [3b-3]
+    - id: 3.R1
+      mark_type: R
+      points: 10
+      evidence: |
+        구한 값이 $n\le40000$ 범위 안이어서 최솟값임을 밝혔다.
+      depends_on: [3.A1]
+      steps: [3b-4]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-PRB-3115}
+  misconceptions:
+  - id: MC-PRB-3115
+    outcome_code: '71'
+    wrong_work: '검사 시 치료비를 실제 환자 기댓값 $0.01n\times10^5$으로 계산'
+    detect_cue: 양성판정자 수 $0.0396n$ 대신 $0.01n$을 썼다
+    feedback: 조기 진단 치료비는 '양성판정을 받은 모든 사람'에게 듭니다. 위양성자도 포함하세요.
+    remedy: [RL-3]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-PRB-3113}
+  relation: remediation
+  target: {kind: concept, ref: CON-PRB-BAYES}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-PRB-3114}
+  relation: remediation
+  target: {kind: concept, ref: CON-PRB-NORMAL-APPROX}
+  priority: 1
+- id: RL-3
+  trigger: {type: misconception, ref: MC-PRB-3115}
+  relation: remediation
+  target: {kind: concept, ref: CON-PRB-EXPECTATION-MODEL}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21
