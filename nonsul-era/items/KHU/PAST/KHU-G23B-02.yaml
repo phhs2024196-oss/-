@@ -1,0 +1,266 @@
+schema_version: '2.0'
+id: KHU-G23B-02
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: KHU
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 존재
+points: 33
+time_estimate_min: 30
+intent: 미분을 활용한 함수의 증가와 감소, 함수의 그래프의 개형, 적분을 활용한 입체도형의 부피 등을 종합적으로 이해하고 응용할 수 있는지 본다.
+key_idea: '$h(x)=f(x)-g(x)=x^2+\dfrac1{x^2}-x-\dfrac1x-k$에서 $t=x+\dfrac1x\ (t\ge2)$로 치환하면 $t^2-t-2-k=0$이 되고, 그 근 $t_0>2$에 대해 $x+\dfrac1x=t_0$이 두 실근을 가진다.'
+stuck: $x^2+\dfrac1{x^2}=\left(x+\dfrac1x\right)^2-2$로 보고 $t=x+\dfrac1x$로 치환하는 발상
+idea_tags: [IDEA-RECIPROCAL-SUM-SUBSTITUTION, IDEA-VIETA-DIFF-SQUARE-VOLUME]
+tags: [역수 합 치환, 실근의 개수, 근과 계수의 관계, 단면과 부피, 경희 2023 실전]
+elements:
+  materials: [함수 f(x)=-x+1/x^2, 함수 g(x)=-x^2+k+1/x, 보조함수 y=x+1/x, 두 교점의 x좌표 α·β, S(k)=(α-β)^2, 단면 넓이 6S(x)인 입체]
+  concepts: [함수의 증가와 감소, 그래프의 개형과 방정식의 실근, 이차방정식의 근과 계수의 관계, 단면의 넓이와 입체의 부피]
+  tools: [y=x+1/x 증감표, f-g를 t=x+1/x로 치환, 이차방정식 근의 공식과 범위 판정, 수평선과 그래프의 교점 개수, (α-β)^2=(α+β)^2-4αβ, 정적분 계산]
+  conditions:
+  - '$x>0$ ⇒ $t=x+\dfrac1x\ge2$ (등호 $x=1$)'
+  - '$k>0$ ⇒ $t^2-t-2-k=0$의 근 중 2보다 큰 것은 $\dfrac{1+\sqrt{4k+9}}2$ 하나'
+  - '$t_0>2$ ⇒ $x+\dfrac1x=t_0$은 $x>0$에서 서로 다른 두 실근'
+  stimuli_used: [다, 라, 마]
+  subpart_links: '(2)는 (1)의 $t_0=\dfrac{1+\sqrt{4k+9}}2$와 두 교점 $\alpha$, $\beta$를 사용'
+
+curriculum:
+  version: '2015'
+  subjects: [수학, 미적분]
+  scope_2028: calc2
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 입체도형의 부피를 구할 수 있다(요지)
+    verified: false
+  content_area: 미분법 – 도함수의 활용(방정식의 실근) / 적분법 – 입체의 부피
+  behavior_domain: 추론
+  unit_path: [미적분, 적분법, 정적분의 활용, 입체도형의 부피]
+  key_concepts: [증가와 감소, 실근의 개수, 근과 계수의 관계, 입체의 부피]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 경희대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 경희대학교
+  admission_year: 2023
+  admission_type: 논술(논술우수자전형)
+  track: 자연계열
+  question_no: 2
+  official_url: https://iphak.khu.ac.kr/detail.do?menuurl=89BGs%2bk748ajyySWoWlQPw%3d%3d&board_seq=7867&pageNo=1&categoryid=27&userpwd=
+  retrieved_at: '2026-11-21'
+  original_points: 33
+  rights_notice: 경희대학교 입학처 공개 자료(기출문제·예시답안). 내부 분석용
+  note: '11.20(일) 오전 시험. 문제 = 5. 2023학년도 논술고사 기출문제(자연계)_11.20 오전.pdf p.2(문제지 3-2) · p.7(문항카드), 원 번호 [논제 Ⅱ], 해설 = 같은 파일 p.7(출제 의도·문항 해설) · p.8(채점 기준·예시답안). 문항카드의 제시문 [다]~[마]만 수록. 예시답안은 치환 변수로 $t$를 씀(문항에 $t$ 없음).'
+
+verify: verify/KHU-G23B.py::p02
+
+stimuli:
+- label: 다
+  body: |
+    함수 $f(x)$가 어떤 열린구간에서 미분가능하고, 이 구간에 속하는 모든 $x$에 대하여
+    ① $f'(x)>0$이면 $f(x)$는 이 구간에서 증가한다.
+    ② $f'(x)<0$이면 $f(x)$는 이 구간에서 감소한다.
+- label: 라
+  body: |
+    방정식 $f(x)=g(x)$의 실근은 두 함수 $y=f(x)$, $y=g(x)$의 그래프가 만나는 점의 $x$좌표와 같다.
+- label: 마
+  body: |
+    닫힌구간 $[a,\ b]$의 임의의 점 $x$에서 $x$축에 수직인 평면으로 자른 단면의 넓이가 $S(x)$인 입체도형의 부피 $V$는
+    $$V=\int_a^bS(x)\,dx\ (\text{단, }S(x)\text{는 닫힌구간 }[a,\ b]\text{에서 연속})$$
+
+stem: |
+  함수 $f(x)=-x+\dfrac1{x^2}$, $g(x)=-x^2+k+\dfrac1x$에 대하여 다음 물음에 답하시오. (단, $x>0$, $k$는 상수이다.)
+
+subparts:
+- id: '1'
+  stem: |
+    구간 $(0,\ \infty)$에서 함수 $y=x+\dfrac1x$의 증가와 감소를 표로 나타내시오. 이 결과를 이용하여 상수 $k$가 양수일 때 두 함수 $y=f(x)$와 $y=g(x)$의 그래프가 서로 다른 두 점에서 만남을 보이고, 그 근거를 논술하시오.
+    (단, $\displaystyle\lim_{x\to0+}\left(x+\dfrac1x\right)=\infty$, $\displaystyle\lim_{x\to\infty}\left(x+\dfrac1x\right)=\infty$) (18점)
+  points: 18
+  depends_on: []
+  answer: {kind: proof, value: null, equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $t=x+\dfrac1x\ge2$로 두면 $h=0\iff t^2-t-2-k=0$, 2보다 큰 근이 하나이고 그 값에 대해 $x$가 두 개.
+    steps:
+    - {id: 1a, content: '$t_0=\dfrac{1+\sqrt{4k+9}}2>2$ ($k>0$), 증감표에서 $y=t_0$과 두 점에서 만남', criteria: [1.M2, 1.R1]}
+    hint_ladder:
+    - $x^2+\dfrac1{x^2}$을 $x+\dfrac1x$로 나타내 보자.
+    - 치환한 이차방정식의 근 중 $t\ge2$인 것은 몇 개인가?
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 예시답안 p.8
+    steps:
+    - id: 1b-1
+      content: |
+        구간 $(0,\infty)$에서 $y=x+\dfrac1x$의 도함수는 $y'=\dfrac{(x+1)(x-1)}{x^2}$이므로 제시문 [다]에 의해 증가와 감소의 표는 다음과 같다.
+        $x$: $0$ | $\cdots$ | $1$ | $\cdots$
+        $y'$: (없음) | $-$ | $0$ | $+$
+        $y$: (없음) | 감소(↘) | $2$ | 증가(↗)
+      criteria: [1.B1]
+    - id: 1b-2
+      content: |
+        $h(x)=f(x)-g(x)=x^2+\dfrac1{x^2}-x-\dfrac1x-k$라고 두면 제시문 [라]에 의해 두 그래프의 교점의 $x$좌표는 $h(x)=0$의 실근이다.
+        $t=x+\dfrac1x$라고 두면 $t\ge2$이고 $t^2-t-2-k=0$이다.
+      criteria: [1.M1]
+    - id: 1b-3
+      content: |
+        $k$가 양수일 때 $t^2-t-2-k=0$은 2보다 큰 실근 $\dfrac{1+\sqrt{4k+9}}2$를 한 개만 가진다. 이 실근을 $t_0=\dfrac{1+\sqrt{4k+9}}2$라고 두면 $h(x)=0$의 실근 $x$는 $x+\dfrac1x=t_0$의 실근이고, 이는 두 그래프 $y=x+\dfrac1x$와 $y=t_0$의 교점의 $x$좌표이다.
+      criteria: [1.M2]
+    - id: 1b-4
+      content: |
+        함수 $y=x+\dfrac1x$의 증가와 감소의 표와 주어진 극한을 이용하면 그래프의 개형으로부터 $t_0>2$일 때 $y=x+\dfrac1x$와 $y=t_0$은 $x>0$에서 서로 다른 2개의 점에서 만난다. 따라서 $h(x)=0$은 서로 다른 두 개의 실근을 가지고, 두 함수의 그래프 $y=f(x)$와 $y=g(x)$는 서로 다른 2개의 점에서 만난다.
+      criteria: [1.R1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.B1
+      mark_type: B
+      points: 6
+      evidence: $y'=\dfrac{(x+1)(x-1)}{x^2}$과 증감표($0<x<1$ 감소, $x=1$에서 최솟값 2, $x>1$ 증가)를 적었다.
+      depends_on: []
+      steps: [1b-1]
+    - id: 1.M1
+      mark_type: M
+      points: 6
+      evidence: 교점이 만족하는 방정식 $h(x)=0$을 세우고 $t=x+\dfrac1x$로 $t^2-t-2-k=0$을 얻었다.
+      depends_on: []
+      steps: [1b-2]
+    - id: 1.M2
+      mark_type: M
+      points: 3
+      evidence: $k>0$일 때 $t\ge2$인 근이 $t_0=\dfrac{1+\sqrt{4k+9}}2$ 하나뿐임을 밝혔다.
+      depends_on: []
+      steps: [1b-3]
+    - id: 1.R1
+      mark_type: R
+      points: 3
+      evidence: 증감표(그래프 개형)로 $x+\dfrac1x=t_0\ (t_0>2)$이 서로 다른 두 양의 실근을 가짐을 근거로 결론을 냈다.
+      depends_on: [1.B1]
+      steps: [1b-4]
+    deductions:
+    - code: D1-1
+      condition: 치환 후 $t\ge2$ 조건 없이 두 근을 모두 사용
+      effect: minus
+      value: 2
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-CAL-6515}
+  misconceptions:
+  - id: MC-CAL-6515
+    outcome_code: '70'
+    wrong_work: '$t^2-t-2-k=0$의 두 근 각각에 대해 $x+\dfrac1x=t$가 두 근을 가진다고 보아 교점이 4개라고 함'
+    detect_cue: 교점 개수가 4 또는 음의 $t$에 대한 논의가 있음
+    feedback: '$x>0$이면 $x+\dfrac1x\ge2$이므로 음수인 근은 버려야 합니다.'
+    remedy: [RL-1]
+- id: '2'
+  stem: |
+    (1)에서 두 교점의 $x$좌표를 각각 $\alpha$와 $\beta$라 할 때, $(\alpha-\beta)^2$을 $k$에 대한 식으로 나타내고, 그 식을 $S(k)$라 하자. 닫힌구간 $[4,\ 10]$의 임의의 점 $x$에서 $x$축에 수직인 평면으로 자른 단면의 넓이가 $6S(x)$인 입체도형의 부피를 구하고, 그 근거를 논술하시오. (15점)
+  points: 15
+  depends_on: ['1']
+  answer: {kind: value, value: '307', equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: $\alpha+\beta=t_0$, $\alpha\beta=1$이므로 $S(k)=t_0^2-4=k-\dfrac32+\dfrac12\sqrt{4k+9}$.
+    steps:
+    - {id: 2a, content: '$\int_4^{10}6S(x)\,dx=\left[3x^2-9x+\dfrac12(4x+9)^{3/2}\right]_4^{10}=307$', criteria: [2.A1, 2.B2]}
+    hint_ladder:
+    - $\alpha$, $\beta$는 어떤 이차방정식의 두 근인가?
+    - $(\alpha-\beta)^2$을 근과 계수의 관계로 나타내자.
+  - id: S2-B
+    audience: B
+    method_no: 1
+    source_flow: 예시답안 p.8
+    steps:
+    - id: 2b-1
+      content: |
+        $\alpha$와 $\beta$는 $x+\dfrac1x=t_0$, 즉 $x^2-t_0x+1=0$의 두 근이므로 $\alpha+\beta=t_0$이고 $\alpha\beta=1$이다.
+      criteria: [2.M1]
+    - id: 2b-2
+      content: |
+        $t_0=\dfrac{1+\sqrt{4k+9}}2$를 대입하여 계산하면 $(\alpha-\beta)^2=(\alpha+\beta)^2-4\alpha\beta=k-\dfrac32+\dfrac12\sqrt{4k+9}$이다.
+      criteria: [2.A1]
+    - id: 2b-3
+      content: |
+        이를 이용하면 $S(x)=x-\dfrac32+\dfrac12\sqrt{4x+9}$이므로 제시문 [마]에 의해 입체의 부피는
+        $\displaystyle\int_4^{10}6S(x)\,dx=\int_4^{10}6\left(x-\dfrac32+\dfrac12\sqrt{4x+9}\right)dx=\left[3x^2-9x+\dfrac12(4x+9)^{\frac32}\right]_4^{10}=307$이다.
+      criteria: [2.B2]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 5
+      evidence: $\alpha$, $\beta$가 $x^2-t_0x+1=0$의 두 근임을 보고 $\alpha+\beta=t_0$, $\alpha\beta=1$을 적었다.
+      depends_on: []
+      ft: {allowed: true, from: [1.M2], max_points: 5, condition: (1)의 $t_0$ 식 오류를 이어 쓴 경우}
+      steps: [2b-1]
+    - id: 2.A1
+      mark_type: A
+      points: 5
+      evidence: $S(k)=(\alpha-\beta)^2=k-\dfrac32+\dfrac12\sqrt{4k+9}$를 구했다.
+      depends_on: [2.M1]
+      steps: [2b-2]
+    - id: 2.B2
+      mark_type: B
+      points: 5
+      evidence: 부피를 $\int_4^{10}6S(x)\,dx$로 세우고 307을 계산했다.
+      depends_on: []
+      steps: [2b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-ALG-6516}
+  - {code: '72', misconception: MC-CAL-6517}
+  misconceptions:
+  - id: MC-ALG-6516
+    outcome_code: '71'
+    wrong_work: '$(\alpha-\beta)^2=(\alpha+\beta)^2-2\alpha\beta=t_0^2-2$'
+    detect_cue: $S(k)=k+\dfrac12+\dfrac12\sqrt{4k+9}$ 꼴
+    feedback: '$(\alpha-\beta)^2=(\alpha+\beta)^2-4\alpha\beta$입니다. $\alpha^2+\beta^2$과 혼동하지 마세요.'
+    remedy: [RL-2]
+  - id: MC-CAL-6517
+    outcome_code: '72'
+    wrong_work: '$\int\sqrt{4x+9}\,dx=\dfrac23(4x+9)^{3/2}$로 계산'
+    detect_cue: 부피가 307이 아니고 $(4x+9)^{3/2}$ 계수가 2
+    feedback: 일차식 합성은 속미분 4로 나눠야 합니다. $\int\sqrt{4x+9}\,dx=\dfrac16(4x+9)^{3/2}+C$.
+    remedy: [RL-3]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CAL-6515}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-ROOT-COUNT-GRAPH}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-ALG-6516}
+  relation: remediation
+  target: {kind: concept, ref: CON-ALG-VIETA}
+  priority: 1
+- id: RL-3
+  trigger: {type: misconception, ref: MC-CAL-6517}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-VOLUME-SECTION}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-input-v1, item_version: 1, verdict: pass, date: 2026-11-21, note: 원문 PDF 이미지 판독으로 옮김 · 해설은 경희대 예시답안 흐름}
+
+created: 2026-11-21
+updated: 2026-11-21

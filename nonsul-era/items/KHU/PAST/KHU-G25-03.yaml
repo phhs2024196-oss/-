@@ -1,0 +1,273 @@
+schema_version: '2.0'
+id: KHU-G25-03
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: KHU
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 점화
+points: 37
+time_estimate_min: 35
+intent: |
+  사인법칙, 등비급수, 삼각함수의 덧셈정리, 함수의 미분 등을 이해하여 주어진 상황을 수학적으로 표현하고 문제 해결을 위한 논리적인 방향을 제시하여 합리적으로 해결할 수 있는 능력을 평가한다(경희대 출제 의도 요지).
+key_idea: '삼각형 $\mathrm{OP_1P_2}$에서 사인법칙으로 $\overline{OP_2}=\dfrac{2}{\sqrt3}\sin\left(\alpha+\dfrac\pi3\right)\overline{OP_1}$, 수선의 발로 $\overline{OP_3}=\sin\alpha\,\overline{OP_2}$, 같은 과정을 α 대신 $\dfrac\pi2-\beta$로 반복 → 한 바퀴마다 같은 비율의 등비급수.'
+stuck: 삼각형 $\mathrm{OP_1P_2}$에서 ∠$\mathrm{OP_1P_2}=\pi-\left(\alpha+\dfrac\pi3\right)$를 찾는 것, 직선 m 에서 각을 $\dfrac\pi2-\beta$로 바꾸는 것
+idea_tags: [IDEA-SINE-LAW-CHAIN, IDEA-SIMILAR-RATIO-GEOM-SERIES, IDEA-TRIG-PRODUCT-TO-SUM-MAX]
+tags: [경희 실전, 사인법칙, 등비급수, 덧셈정리]
+elements:
+  materials: [원점을 지나는 직선 l(기울기 양, x축과 각 α), 직선 m(기울기 음, x축 음의 방향과 각 β), 점 P1(1,0), 각 P1P2O=π/3 인 점 P2, 좌표축에 내린 수선의 발 P3·P5, 시계 반대 방향으로 반복되는 점열 P_n]
+  concepts: [사인법칙, 직각삼각형의 삼각비, 삼각함수의 덧셈정리, 닮음, 등비급수, 도함수의 부호와 증감표]
+  tools: [사인법칙으로 OP2 를 OP1 로 표현, 수선의 발로 OP3 = sinα·OP2, α 를 π/2-β 로 바꾸어 같은 과정 반복, 사인·코사인 변환, 닮음비 = 공비, 등비급수 합 공식, 곱의 미분 후 덧셈정리로 f′ 정리, 증감표]
+  conditions:
+  - '$0<\alpha<\dfrac\pi2$, $0<\beta<\dfrac\pi2$ ⇒ 각 삼각형의 각 범위 확정'
+  - '$0<B<\dfrac\pi2$, $-\dfrac\pi2<C<0$ ⇒ A,B,C 표현의 유일성'
+  - '$\beta=\dfrac\pi6$ ⇒ $\dfrac43\cos\left(\beta-\dfrac\pi3\right)\cos\beta=1$'
+  - '$|r|<1$ ⇒ 제시문 [마]의 등비급수 합 공식 적용'
+  stimuli_used: [라, 마, 바, 사]
+  subpart_links: (2)는 (1)의 OP5 식에 β=π/6 을 대입해 공비를 얻음
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅰ, 미적분]
+  scope_2028: calc2
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 사인법칙을 이해하고 이를 활용할 수 있다 / 등비급수의 뜻을 알고 그 합을 구할 수 있다(요지)
+    verified: false
+  content_area: 삼각함수의 활용 – 사인법칙, 등비급수, 덧셈정리
+  behavior_domain: 문제해결
+  unit_path: [미적분, 수열의 극한, 급수, 등비급수의 활용]
+  key_concepts: [사인법칙, 등비급수, 삼각함수의 덧셈정리, 증감표]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 경희대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 경희대학교
+  admission_year: 2025
+  admission_type: 논술(논술우수자전형)
+  track: 자연계열
+  question_no: 3
+  official_url: https://iphak.khu.ac.kr/detail.do?menuurl=89BGs%2bk748ajyySWoWlQPw%3d%3d&board_seq=13928&pageNo=1&categoryid=27&userpwd=
+  retrieved_at: '2026-11-21'
+  original_points: 37
+  rights_notice: 경희대학교 입학처 공개 자료(기출문제·예시답안). 내부 분석용
+  note: |
+    문제 = 3. 2025 논술고사 기출문제(자연계).pdf p.4(문제지 [3-3]), 원 번호 [논제 Ⅲ], 해설 = 같은 파일 p.12~13(채점 기준·예시 답안).
+    예시 답안 (2)의 닮음비 표기 중 $\dfrac{OP_9}{OP_5}$만 이탤릭(오버라인 없음) — 표기 차이일 뿐 내용 동일.
+
+verify: verify/KHU-G25.py::p03
+
+stimuli:
+- label: 라
+  body: |
+    삼각형 ABC에서 외접원의 반지름의 길이를 $R$라고 하면
+    $$\dfrac{a}{\sin A}=\dfrac{b}{\sin B}=\dfrac{c}{\sin C}=2R$$
+- label: 마
+  body: |
+    등비급수 $\displaystyle\sum_{n=1}^{\infty}ar^{n-1}(a\neq0)$은
+    ① $|r|<1$일 때, 수렴하고 그 합은 $\dfrac{a}{1-r}$이다.
+    ② $|r|\ge1$일 때, 발산한다.
+- label: 바
+  body: |
+    사인함수와 코사인함수의 덧셈정리
+    ① $\sin(\alpha+\beta)=\sin\alpha\cos\beta+\cos\alpha\sin\beta$, $\sin(\alpha-\beta)=\sin\alpha\cos\beta-\cos\alpha\sin\beta$
+    ② $\cos(\alpha+\beta)=\cos\alpha\cos\beta-\sin\alpha\sin\beta$, $\cos(\alpha-\beta)=\cos\alpha\cos\beta+\sin\alpha\sin\beta$
+- label: 사
+  body: |
+    함수 $f(x)$가 어떤 구간에서 미분가능하고, 이 구간의 모든 $x$에 대하여
+    ① $f'(x)>0$이면 $f(x)$는 이 구간에서 증가한다.
+    ② $f'(x)<0$이면 $f(x)$는 이 구간에서 감소한다.
+
+stem: |
+  <그림 2>와 같이 좌표평면 위에 원점 O를 지나고 기울기가 양수인 직선 $l$과 기울기가 음수인 직선 $m$이 있다. (단, $0<\alpha<\dfrac{\pi}{2}$, $0<\beta<\dfrac{\pi}{2}$) 점 $\mathrm{P}_1(1,0)$에서 시작하여 제1사분면에서 $\angle\mathrm{P_1P_2O}=\dfrac{\pi}{3}$인 직선 $l$ 위의 점 $\mathrm{P}_2$를 찾는다. 점 $\mathrm{P}_2$에서 $y$축에 내린 수선의 발을 $\mathrm{P}_3$, 제2사분면에서 $\angle\mathrm{P_3P_4O}=\dfrac{\pi}{3}$인 직선 $m$ 위의 점 $\mathrm{P}_4$를 찾는다. 점 $\mathrm{P}_4$에서 $x$축에 내린 수선의 발을 $\mathrm{P}_5$라 하자. 이와 같은 방법으로 하여, 시계 반대 방향으로 점 $\mathrm{P}_6,\mathrm{P}_7,\mathrm{P}_8,\mathrm{P}_9,\cdots$를 한없이 만들어 나갈 때, 다음 물음에 답하시오.
+  [그림 2 설명: 원점 O 를 지나는 직선 $l$(오른쪽 위로 올라감)이 $x$축의 양의 방향과 이루는 각이 $\alpha$, 직선 $m$(왼쪽 위로 올라감)이 $x$축의 음의 방향과 이루는 각이 $\beta$로 표시됨. $\mathrm{P}_1$은 $x$축 양의 부분, $\mathrm{P}_2$는 $l$ 위 제1사분면, $\mathrm{P}_3$은 $y$축 양의 부분($\mathrm{P_2P_3}\perp y$축, 직각 표시), $\mathrm{P}_4$는 $m$ 위 제2사분면, $\mathrm{P}_5$는 $x$축 음의 부분($\mathrm{P_4P_5}\perp x$축), $\mathrm{P}_6$은 $l$ 위 제3사분면, $\mathrm{P}_7$은 $y$축 음의 부분, $\mathrm{P}_8$은 $m$ 위 제4사분면, $\mathrm{P}_9$는 $x$축 양의 부분($\mathrm{OP_9}<\mathrm{OP_1}$). 선분 $\mathrm{P_1P_2}$, $\mathrm{P_2P_3}$, $\mathrm{P_3P_4}$, … 가 차례로 이어져 원점 주위를 감아 들어간다.]
+
+subparts:
+- id: '1'
+  stem: |
+    $\overline{\mathrm{OP}_5}$를 $\alpha$와 $\beta$에 대한 식으로 정리하면
+    $$\overline{\mathrm{OP}_5}=A\sin(\alpha+B)\sin\alpha\cos(\beta+C)\cos\beta$$
+    일 때, 상수 $A$, $B$, $C$의 값을 각각 구하고 그 근거를 논술하시오. (단, $0<B<\dfrac{\pi}{2}$, $-\dfrac{\pi}{2}<C<0$) (16점)
+  points: 16
+  depends_on: []
+  answer: {kind: value, value: 'A=\dfrac43,\ B=\dfrac\pi3,\ C=-\dfrac\pi3', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: 사인법칙과 수선의 발을 두 번씩 쓰면 $\overline{OP_5}=\dfrac43\sin\left(\alpha+\dfrac\pi3\right)\sin\alpha\sin\left(\dfrac\pi2-\beta+\dfrac\pi3\right)\sin\left(\dfrac\pi2-\beta\right)$.
+    steps:
+    - {id: 1a, content: '$\sin\left(\dfrac{5\pi}{6}-\beta\right)=\cos\left(\beta-\dfrac\pi3\right)$이므로 $A=\dfrac43$, $B=\dfrac\pi3$, $C=-\dfrac\pi3$', criteria: [1.M1, 1.A1]}
+    hint_ladder:
+    - 삼각형 $\mathrm{OP_1P_2}$의 세 각을 모두 구해 보자.
+    - 직각삼각형 $\mathrm{OP_3P_2}$에서 $\overline{OP_3}$는?
+    - 직선 $m$과 $y$축이 이루는 각은?
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 3. 2025 논술고사 기출문제(자연계).pdf 예시 답안 p.12
+    steps:
+    - id: 1b-1
+      content: |
+        삼각형 $\mathrm{OP_1P_2}$에서 ($\angle\mathrm{P_1OP_2}=\alpha$, $\angle\mathrm{OP_2P_1}=\dfrac\pi3$이므로 $\angle\mathrm{OP_1P_2}=\pi-\left(\alpha+\dfrac\pi3\right)$) 사인법칙(제시문 [라])을 적용하여,
+        $\dfrac{\overline{OP_2}}{\sin\left(\pi-\left(\alpha+\dfrac\pi3\right)\right)}=\dfrac{\overline{OP_1}}{\sin\dfrac\pi3}$이고, $\overline{OP_2}=\dfrac{2}{\sqrt3}\sin\left(\alpha+\dfrac\pi3\right)\overline{OP_1}$이다.
+        직각삼각형 $\mathrm{OP_3P_2}$에서 $\overline{OP_3}=\sin\alpha\,\overline{OP_2}$이다.
+      criteria: [1.M1]
+    - id: 1b-2
+      content: |
+        이와 같은 방법으로, $\alpha$ 대신 $\dfrac\pi2-\beta$를 사용하여 $\overline{OP_3}$으로부터 $\overline{OP_4}$와 $\overline{OP_5}$는
+        $\overline{OP_4}=\dfrac{2}{\sqrt3}\sin\left(\dfrac\pi2-\beta+\dfrac\pi3\right)\overline{OP_3}$이고, $\overline{OP_5}=\sin\left(\dfrac\pi2-\beta\right)\overline{OP_4}$이다.
+        위의 결과들과 $\overline{OP_1}=1$을 모두 적용하면,
+        $\overline{OP_5}=\dfrac43\sin\left(\alpha+\dfrac\pi3\right)\sin\alpha\sin\left(\dfrac\pi2-\beta+\dfrac\pi3\right)\sin\left(\dfrac\pi2-\beta\right)$.
+      criteria: [1.M1]
+    - id: 1b-3
+      content: |
+        이때, 아래 등식들을 적용하여
+        $\sin\left(\dfrac\pi2-\beta+\dfrac\pi3\right)=\sin\left(\dfrac\pi2-\left(\beta-\dfrac\pi3\right)\right)=\cos\left(\beta-\dfrac\pi3\right)$, $\sin\left(\dfrac\pi2-\beta\right)=\cos\beta$,
+        $\overline{OP_5}=\dfrac43\sin\left(\alpha+\dfrac\pi3\right)\sin\alpha\cos\left(\beta-\dfrac\pi3\right)\cos\beta$이다.
+        따라서, $A=\dfrac43$, $B=\dfrac\pi3$, $C=-\dfrac\pi3$이다.
+      criteria: [1.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 10
+      evidence: (공식 <10점>) 제시문의 삼각함수의 성질(사인법칙·직각삼각형)을 이용하여 $\overline{OP_2}$, $\overline{OP_3}$, $\overline{OP_4}$, $\overline{OP_5}$ 사이의 관계식을 구했다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1, 1b-2]
+    - id: 1.A1
+      mark_type: A
+      points: 6
+      evidence: (공식 <6점>) $\overline{OP_5}$를 제시한 식으로 정리하여 $A=\dfrac43$, $B=\dfrac\pi3$, $C=-\dfrac\pi3$을 구했다.
+      depends_on: [1.M1]
+      steps: [1b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-ALG-6307}
+  misconceptions:
+  - id: MC-ALG-6307
+    outcome_code: '70'
+    wrong_work: '삼각형 $\mathrm{OP_1P_2}$에서 $\overline{OP_2}$의 대각을 $\alpha$로 잡아 $\overline{OP_2}=\dfrac{2}{\sqrt3}\sin\alpha$로 씀'
+    detect_cue: $\sin\left(\alpha+\dfrac\pi3\right)$ 인수가 없다
+    feedback: $\overline{OP_2}$의 대각은 $\angle\mathrm{OP_1P_2}=\pi-\left(\alpha+\dfrac\pi3\right)$입니다.
+    remedy: [RL-1]
+- id: '2'
+  stem: |
+    $\beta=\dfrac{\pi}{6}$일 때, $x$축 위의 점 $\mathrm{P}_1,\mathrm{P}_5,\mathrm{P}_9,\cdots$에 대하여, $\overline{\mathrm{OP}_1}+\overline{\mathrm{OP}_5}+\overline{\mathrm{OP}_9}+\cdots$의 합을 $\alpha$에 대한 식으로 구하고, 이를 $f(\alpha)$라 하자. 이때, $f(\alpha)$의 증가와 감소의 표를 구하시오. 이를 이용하여 $f(\alpha)$가 최대가 되는 $\alpha$의 값과, 그때의 최댓값을 구하고 그 근거를 논술하시오. (21점)
+  points: 21
+  depends_on: ['1']
+  answer: {kind: value, value: 'f(\alpha)=\dfrac{1}{1-\sin\left(\alpha+\dfrac\pi3\right)\sin\alpha},\ \alpha=\dfrac\pi3\text{에서 최댓값 }4', equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: $\beta=\dfrac\pi6$이면 공비 $r=\sin\left(\alpha+\dfrac\pi3\right)\sin\alpha$, $f=\dfrac1{1-r}$, $f'$의 분자 $=\sin\left(2\alpha+\dfrac\pi3\right)$.
+    steps:
+    - {id: 2a, content: '$\alpha=\dfrac\pi3$에서 $r=\dfrac34$, $f=4$', criteria: [2.M1, 2.A1, 2.A2]}
+    hint_ladder:
+    - $\beta=\dfrac\pi6$을 (1)의 식에 넣어 보자.
+    - 삼각형 $\mathrm{OP_1P_2}$와 $\mathrm{OP_5P_6}$은 닮았는가?
+    - $\sin\left(\alpha+\dfrac\pi3\right)\sin\alpha$의 도함수를 하나의 사인으로 정리해 보자.
+  - id: S2-B
+    audience: B
+    method_no: 1
+    source_flow: 3. 2025 논술고사 기출문제(자연계).pdf 예시 답안 p.12~13
+    steps:
+    - id: 2b-1
+      content: |
+        $\beta=\dfrac\pi6$이면 ($\dfrac43\cos\left(-\dfrac\pi6\right)\cos\dfrac\pi6=1$이므로) $\overline{OP_5}=\overline{OP_1}\sin\left(\alpha+\dfrac\pi3\right)\sin\alpha$이고,
+        삼각형 $\mathrm{OP_1P_2}$, $\mathrm{OP_5P_6}$, $\mathrm{OP_9P_{10}}$, $\cdots$들은 모두 닮음이고, 그 닮음비가 $\dfrac{\overline{OP_5}}{\overline{OP_1}}=\dfrac{\overline{OP_9}}{\overline{OP_5}}=\cdots$이므로, $\overline{OP_1}+\overline{OP_5}+\overline{OP_9}+\cdots$의 합은 등비급수의 합이다.
+      criteria: [2.M1]
+    - id: 2b-2
+      content: |
+        첫째항이 $\overline{OP_1}=1$이고 공비가 $r=\dfrac{\overline{OP_{4n+1}}}{\overline{OP_{4n-3}}}=\sin\left(\alpha+\dfrac\pi3\right)\sin\alpha$인 등비급수의 합이다. 따라서, $0<\alpha<\dfrac\pi2$에서 $|r|<1$이므로 제시문 [마]에 의해
+        $f(\alpha)=\dfrac{1}{1-\sin\left(\alpha+\dfrac\pi3\right)\sin\alpha}$.
+      criteria: [2.A1]
+    - id: 2b-3
+      content: |
+        이때, $f(\alpha)$를 미분하여 삼각함수의 덧셈정리(제시문 [바])를 적용하여 정리하면
+        $f'(\alpha)=\dfrac{\cos\left(\alpha+\dfrac\pi3\right)\sin\alpha+\sin\left(\alpha+\dfrac\pi3\right)\cos\alpha}{\left(1-\sin\left(\alpha+\dfrac\pi3\right)\sin\alpha\right)^2}=\dfrac{\sin\left(2\alpha+\dfrac\pi3\right)}{\left(1-\sin\left(\alpha+\dfrac\pi3\right)\sin\alpha\right)^2}$
+        $0<\alpha<\dfrac\pi2$에서 $f(\alpha)$에 대하여 다음과 같이 증가와 감소의 표를 구할 수 있다(제시문 [사]).
+        | $\alpha$ | $(0)$ | $\cdots$ | $\dfrac\pi3$ | $\cdots$ | $\left(\dfrac\pi2\right)$ |
+        | $f'(\alpha)$ | | $+$ | $0$ | $-$ | |
+        | $f(\alpha)$ | | ↗ | $4$ | ↘ | |
+        따라서, $f(\alpha)$는 $\alpha=\dfrac\pi3$에서 최댓값 4를 갖는다.
+      criteria: [2.A2]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 7
+      evidence: (공식 <7점>) 삼각형들의 닮음 등을 근거로 길이의 합 $\overline{OP_1}+\overline{OP_5}+\cdots$가 등비급수임을 보였다.
+      depends_on: []
+      implied_ok: false
+      steps: [2b-1]
+    - id: 2.A1
+      mark_type: A
+      points: 7
+      evidence: (공식 <7점>) 첫째항 1, 공비 $\sin\left(\alpha+\dfrac\pi3\right)\sin\alpha$(및 $|r|<1$)를 구하고 합 $f(\alpha)=\dfrac{1}{1-\sin\left(\alpha+\dfrac\pi3\right)\sin\alpha}$를 구했다.
+      depends_on: [2.M1]
+      steps: [2b-2]
+    - id: 2.A2
+      mark_type: A
+      points: 7
+      evidence: (공식 <7점>) 미분을 이용하여 $f(\alpha)$의 증가와 감소의 표를 구하고, $\alpha=\dfrac\pi3$에서 최댓값 4를 구했다.
+      depends_on: [2.M1]
+      steps: [2b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-CAL-6308}
+  - {code: '71', misconception: MC-CAL-6309}
+  misconceptions:
+  - id: MC-CAL-6308
+    outcome_code: '70'
+    wrong_work: '공비의 범위 확인 없이 $\dfrac{1}{1-r}$을 씀, 또는 첫째항을 $\overline{OP_5}$로 잡음'
+    detect_cue: $|r|<1$ 언급이 없거나 $f(\alpha)=\dfrac{r}{1-r}$
+    feedback: 등비급수의 합 공식은 $|r|<1$일 때만 쓸 수 있습니다. 첫째항은 $\overline{OP_1}=1$입니다.
+    remedy: [RL-2]
+  - id: MC-CAL-6309
+    outcome_code: '71'
+    wrong_work: '$\cos\left(\alpha+\dfrac\pi3\right)\sin\alpha+\sin\left(\alpha+\dfrac\pi3\right)\cos\alpha$를 $\sin\dfrac\pi3$ 등으로 잘못 합쳐 극대점을 $\dfrac\pi6$ 등으로 얻음'
+    detect_cue: 극대점이 $\dfrac\pi3$이 아니거나 최댓값이 4가 아니다
+    feedback: $\sin A\cos B+\cos A\sin B=\sin(A+B)$에서 $A+B=2\alpha+\dfrac\pi3$입니다.
+    remedy: [RL-3]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-ALG-6307}
+  relation: remediation
+  target: {kind: concept, ref: CON-ALG-SINE-LAW}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-CAL-6308}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-GEOM-SERIES}
+  priority: 1
+- id: RL-3
+  trigger: {type: misconception, ref: MC-CAL-6309}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-TRIG-ADD}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-input-v1, item_version: 1, verdict: pass, date: 2026-11-21, note: 원문 PDF 이미지 판독으로 옮김 · 해설은 경희대 예시답안 흐름}
+
+created: 2026-11-21
+updated: 2026-11-21

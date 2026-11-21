@@ -1,0 +1,258 @@
+schema_version: '2.0'
+id: KHU-M24-03
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: KHU
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 추론
+points: 37
+time_estimate_min: 25
+intent: 원과 쌍곡선의 성질들에 대한 기본적인 이해를 바탕으로, 삼각함수 값의 극한 및 도출된 식의 부정적분을 계산하는 미적분과 기하에 대한 종합적인 문제 해결 능력을 평가한다.
+key_idea: |
+  외접원의 중심 A는 $y$축 위의 $(0,l)$이고 $l=\dfrac{c^2q^2-b^4}{2b^2q}$이다. 원주각과 중심각의 성질로 $\angle\mathrm{PAO}=2\alpha+\beta$이므로 $\cos(2\alpha+\beta)$를 A와 P의 $y$좌표 차와 $\overline{\mathrm{AP}}$로 나타내 극한을 구한다.
+stuck: '$2\alpha+\beta$가 외접원의 중심 A에서 본 각 $\angle\mathrm{PAO}$임을 원주각·중심각으로 알아내는 단계'
+idea_tags: [IDEA-INSCRIBED-CENTRAL-ANGLE-SUM, IDEA-LIMIT-LEADING-TERM-RATIO]
+tags: [경희 모의, 쌍곡선, 외접원, 원주각과 중심각, 극한, 부정적분]
+elements:
+  materials: ['쌍곡선 x²/a²−y²/b²=1 (a>b>0)', '쌍곡선 위의 점 P(p,q) (p,q>0)', '두 초점 F(c,0), F''(−c,0)', '삼각형 PFF''의 외접원과 그 중심 A(k,l)', '∠PF''F=α, ∠F''PF=β']
+  concepts: [쌍곡선의 방정식과 초점(b²=c²−a² 관계), 외접원의 중심(수직이등분선의 교점), 원주각과 중심각, 무한대에서의 극한, 부정적분]
+  tools: ['A는 FF''의 수직이등분선(y축) 위 ⇒ k=0', 'AF=AP 를 p²=a²(1+q²/b²)로 정리해 l 구하기', '∠FAO=β, ∠PAF=2α ⇒ ∠PAO=2α+β', 'cos(∠PAO)=(A와 P의 y좌표 차)/AP', '최고차항 비교로 극한', 't(1−2/(t²+1)) 로 바꿔 적분']
+  conditions:
+  - '$l>0$ ⇔ $c^2q^2-b^4>0$ ⇔ $q>\dfrac{b^2}{c}$'
+  - '$a>b>0$ ⇒ 충분히 큰 $q$에서 A의 $y$좌표가 P보다 큼, $\angle\mathrm{PAO}$ 예각'
+  stimuli_used: [바, 사]
+  subpart_links: '(2)는 (1)의 $l=\dfrac{c^2q^2-b^4}{2b^2q}$와 $q>\dfrac{b^2}{c}$의 경우를 사용'
+
+curriculum:
+  version: '2015'
+  subjects: [기하, 미적분, 수학Ⅱ]
+  scope_2028: geom
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 쌍곡선의 뜻과 방정식을 이해하고, 함수의 극한과 부정적분을 구할 수 있다(요지)
+    verified: false
+  content_area: 기하 – 쌍곡선 / 미적분 – 극한·적분
+  behavior_domain: 추론
+  unit_path: [기하, 이차곡선, 쌍곡선, 쌍곡선의 초점]
+  key_concepts: [쌍곡선의 초점, 외접원, 원주각과 중심각, 함수의 극한, 치환적분]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 경희대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 경희대학교
+  admission_year: 2024
+  admission_type: 논술(모의)
+  track: 자연계열
+  question_no: 3
+  official_url: https://iphak.khu.ac.kr/detail.do?menuurl=89BGs%2bk748ajyySWoWlQPw%3d%3d&board_seq=9315&pageNo=1&categoryid=27&userpwd=
+  retrieved_at: '2026-11-21'
+  original_points: 37
+  rights_notice: 경희대학교 입학처 공개 자료(기출문제·예시답안). 내부 분석용
+  note: |
+    문제 = 3-1. [자연계] 2024 문제지_최종.pdf p.2(제시문 p.1), 원 번호 [논제 Ⅲ], 해설 = 3-2. [자연계] 2024 예시답안 및 문항해설_최종.pdf p.2(문항 해설 p.3).
+    공식 채점 기준 미공개 → 소문항 배점(7·30)만 원문, 소문항 안 마크 배점은 자체 배분.
+    [오기] 예시답안 p.2에서 극한 기호 일부가 $\lim_{y\to\infty}$로 적혀 있음($q\to\infty$의 오기). 예시답안의 부정적분 결과 $\log(1+t^2)$는 자연로그 $\ln$의 뜻으로 옮김.
+    [판독확인] 문제지 p.2 단서 '(단, $p,q>0$ 이고 $a>b>0$이다)' 끝에 마침표 없음 — 원문 그대로.
+
+verify: verify/KHU-M24.py::p03
+
+stimuli:
+- label: 바
+  body: |
+    두 초점 $\mathrm{F}(c,0)$, $\mathrm{F'}(-c,0)$으로부터의 거리의 차가 $2a\ (c>a>0)$인 쌍곡선의 방정식은
+    $$\dfrac{x^2}{a^2}-\dfrac{y^2}{b^2}=1\ (\text{단, }b^2=c^2-a^2)$$
+- label: 사
+  body: |
+    미분가능한 함수 $g(t)$에 대하여 $x=g(t)$로 놓으면
+    $$\int f(x)dx=\int f(g(t))g'(t)dt$$
+
+stem: |
+  쌍곡선 $\dfrac{x^2}{a^2}-\dfrac{y^2}{b^2}=1$ 위에 한 점 $\mathrm{P}(p,q)$와 두 초점 $\mathrm{F}=(c,0)$, $\mathrm{F'}=(-c,0)$이 있다. (단, $p,q>0$ 이고 $a>b>0$이다)
+
+subparts:
+- id: '1'
+  stem: |
+    삼각형 $\mathrm{PFF'}$의 외접원의 중심을 $\mathrm{A}(k,l)$라고 할 때, A의 $y$좌표 $l$이 양수인 $q$의 범위를 구하시오. (7점)
+  points: 7
+  depends_on: []
+  answer: {kind: set, value: 'q>\dfrac{b^2}{c}', equivalents: ['q>\dfrac{b^2}{\sqrt{a^2+b^2}}'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: '$k=0$, $\overline{\mathrm{AF}}=\overline{\mathrm{AP}}$에 $p^2=a^2+\dfrac{a^2}{b^2}q^2$를 넣어 $l$을 구한다.'
+    steps:
+    - {id: 1a, content: '$l=\dfrac{c^2q^2-b^4}{2b^2q}>0\iff q>\dfrac{b^2}{c}$', criteria: [1.M1, 1.A1]}
+    hint_ladder:
+    - 외접원의 중심은 F와 F'에서 같은 거리에 있다.
+    - P가 쌍곡선 위에 있다는 조건으로 $p^2$을 없애자.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 3-2. [자연계] 2024 예시답안 및 문항해설_최종.pdf 예시답안 p.2
+    steps:
+    - id: 1b-1
+      content: |
+        삼각형 $\mathrm{PF'F}$의 외접원의 중심 A는 점 F와 점 F'에서부터의 거리가 같아야 하므로, 선분 F'F의 수직이등분선, 즉 $y$축 위에 있어야 한다. 따라서 $k=0$이고, $\mathrm{A}(0,l)$로 둘 수 있다. 한편, $\overline{\mathrm{AF}}=\overline{\mathrm{AP}}$이므로,
+        $$\sqrt{c^2+l^2}=\sqrt{(l-q)^2+p^2}$$
+      criteria: [1.M1]
+    - id: 1b-2
+      content: |
+        이다. 이를 풀면(제시문 [바]의 $b^2=c^2-a^2$와 $p^2=a^2+\dfrac{a^2}{b^2}q^2$ 사용),
+        $$l=\dfrac{p^2+q^2-c^2}{2q}=\dfrac{\frac{a^2}{b^2}q^2+a^2+q^2-c^2}{2q}=\dfrac{c^2q^2-b^4}{2b^2q}$$
+        가 된다. 따라서, $q>0$이므로, A의 $y$좌표 $l$이 양수이기 위한 $q$의 조건은 $q>\dfrac{b^2}{c}$가 된다.
+      criteria: [1.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 3
+      evidence: '외접원의 중심이 $y$축 위($k=0$)에 있음을 밝히고 $\overline{\mathrm{AF}}=\overline{\mathrm{AP}}$ 식을 세웠다.'
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1]
+    - id: 1.A1
+      mark_type: A
+      points: 4
+      evidence: '$l=\dfrac{c^2q^2-b^4}{2b^2q}$를 구하고 $q>\dfrac{b^2}{c}$를 얻었다.'
+      depends_on: [1.M1]
+      steps: [1b-2]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-GEO-6417}
+  misconceptions:
+  - id: MC-GEO-6417
+    outcome_code: '70'
+    wrong_work: '외접원의 중심을 세 꼭짓점의 무게중심 $\left(\dfrac p3,\dfrac q3\right)$으로 두거나 $k\neq0$으로 연립'
+    detect_cue: A의 $x$좌표가 $0$이 아니다
+    feedback: 외접원의 중심은 세 변의 수직이등분선의 교점이고, 선분 FF'의 수직이등분선은 $y$축입니다.
+    remedy: [RL-1]
+- id: '2'
+  stem: |
+    $\angle\mathrm{PF'F}=\alpha$, $\angle\mathrm{F'PF}=\beta$라 할 때, 극한값 $\displaystyle\lim_{q\to\infty}\cos(2\alpha+\beta)$를 $t=\dfrac ab$에 대한 함수 $f(t)$로 나타내고, 부정적분 $\displaystyle\int tf(t)\,dt$을 구하시오. (30점)
+  points: 30
+  depends_on: ['1']
+  answer: {kind: expression, value: 'f(t)=\dfrac{t^2-1}{t^2+1},\ \int tf(t)\,dt=\dfrac{t^2}{2}-\ln(1+t^2)+C', equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: '$\cos(2\alpha+\beta)=\cos\angle\mathrm{PAO}=\dfrac{l-q}{\overline{\mathrm{AP}}}\to\dfrac{a^2-b^2}{a^2+b^2}$.'
+    steps:
+    - {id: 2a, content: '$f(t)=\dfrac{t^2-1}{t^2+1}=1-\dfrac{2}{t^2+1}$, $\int tf(t)dt=\dfrac{t^2}{2}-\ln(1+t^2)+C$', criteria: [2.M1, 2.A2, 2.A3]}
+    hint_ladder:
+    - 원주각 $\alpha$, $\beta$에 대응하는 중심각을 찾아보자.
+    - '$2\alpha+\beta$는 A에서 보이는 어떤 각인가?'
+    - A와 P의 $y$좌표 차를 $\overline{\mathrm{AP}}$로 나누자.
+  - id: S2-B
+    audience: B
+    method_no: 1
+    source_flow: 3-2. [자연계] 2024 예시답안 및 문항해설_최종.pdf 예시답안 p.2
+    steps:
+    - id: 2b-1
+      content: |
+        $q$가 양의 무한대로 발산하는 극한을 구해야 하므로, 일반성을 잃지 않고, $q>\dfrac{b^2}{c}$인 경우를 생각해도 충분하다. 이때, 원점을 O라 하면, 원주각과 중심각의 성질에 의해 $\angle\mathrm{FAO}=\beta$, $\angle\mathrm{PAF}=2\alpha$이므로 $\angle\mathrm{PAO}=2\alpha+\beta$가 된다. 따라서, 구하고자 하는 극한은 $\displaystyle\lim_{q\to\infty}\cos(\angle\mathrm{PAO})$이다.
+      criteria: [2.M1]
+    - id: 2b-2
+      content: |
+        그런데, 점 P의 $y$좌표와 점 A의 $y$좌표의 차이를 계산해보면,
+        $$q-\dfrac{c^2q^2-b^4}{2b^2q}=\dfrac{(b^2-a^2)q^2+b^4}{2b^2q}$$
+        이다. 따라서, 주어진 조건대로 $a>b>0$이면, $q>\dfrac{b^2}{\sqrt{a^2-b^2}}$일 때 A의 $y$좌표가 P의 $y$좌표보다 크다. 따라서, 충분히 큰 $q$에 대해 $\angle\mathrm{PAO}$는 예각이다. 따라서 이 경우에는
+        $$\cos(2\alpha+\beta)=\dfrac{\text{A의 }y\text{좌표}-\text{P의 }y\text{좌표}}{\overline{\mathrm{AP}}}$$
+      criteria: [2.M2]
+    - id: 2b-3
+      content: |
+        이므로,
+        $$\cos(2\alpha+\beta)=\dfrac{\dfrac{(a^2-b^2)q^2-b^4}{2b^2q}}{\sqrt{p^2+\left(\dfrac{(b^2-a^2)q^2+b^4}{2b^2q}\right)^2}}=\dfrac{\dfrac{(a^2-b^2)q^2-b^4}{2b^2q}}{\sqrt{\dfrac{a^2}{b^2}q^2+a^2+\left(\dfrac{(b^2-a^2)q^2+b^4}{2b^2q}\right)^2}}$$
+        이다. 따라서 (보충: 분자·분모를 $q$로 나누면 분자 $\to\dfrac{a^2-b^2}{2b^2}$, 분모 $\to\sqrt{\dfrac{a^2}{b^2}+\dfrac{(a^2-b^2)^2}{4b^4}}=\dfrac{a^2+b^2}{2b^2}$)
+        $$\lim_{q\to\infty}\cos(2\alpha+\beta)=\dfrac{a^2-b^2}{a^2+b^2}=\dfrac{\frac{a^2}{b^2}-1}{\frac{a^2}{b^2}+1}$$
+        이고, $f(t)=\dfrac{t^2-1}{t^2+1}$이다.
+      criteria: [2.A2]
+    - id: 2b-4
+      content: |
+        그러므로, 구하고자 하는 부정적분은
+        $$\int tf(t)\,dt=\int t\dfrac{t^2-1}{t^2+1}dt=\int t\left(1-\dfrac{2}{t^2+1}\right)dt=\dfrac{t^2}{2}-\ln(1+t^2)+C$$
+        (보충: $u=t^2+1$로 치환, 제시문 [사])
+      criteria: [2.A3]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 8
+      evidence: '원주각과 중심각의 성질로 $\angle\mathrm{PAO}=2\alpha+\beta$임을 밝혔다.'
+      depends_on: []
+      implied_ok: false
+      steps: [2b-1]
+    - id: 2.M2
+      mark_type: M
+      points: 6
+      evidence: '$\cos(2\alpha+\beta)$를 A와 P의 $y$좌표 차와 $\overline{\mathrm{AP}}$로 나타냈다(충분히 큰 $q$에서 예각임을 언급).'
+      depends_on: [2.M1]
+      implied_ok: false
+      steps: [2b-2]
+    - id: 2.A2
+      mark_type: A
+      points: 8
+      evidence: '극한을 계산해 $f(t)=\dfrac{t^2-1}{t^2+1}$을 구했다.'
+      depends_on: [2.M2]
+      steps: [2b-3]
+    - id: 2.A3
+      mark_type: A
+      points: 8
+      evidence: '$\int tf(t)\,dt=\dfrac{t^2}{2}-\ln(1+t^2)+C$를 구했다.'
+      depends_on: [2.M2]
+      steps: [2b-4]
+    deductions:
+    - code: D2-1
+      condition: 적분상수 $C$ 누락
+      effect: minus
+      value: 1
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-6418}
+  misconceptions:
+  - id: MC-CAL-6418
+    outcome_code: '71'
+    wrong_work: '$q\to\infty$에서 $\alpha\to$ 점근선 각, $\beta\to0$이라 보고 $\cos2\alpha=\dfrac{a^2-b^2}{a^2+b^2}$ 대신 부호나 분모를 틀리거나, 극한에서 $p^2$ 항을 빠뜨려 분모를 $\dfrac{a^2-b^2}{2b^2}$로 둠'
+    detect_cue: '$f(t)=1$ 또는 $f(t)=\dfrac{1-t^2}{1+t^2}$'
+    feedback: '$p^2=\dfrac{a^2}{b^2}q^2+a^2$도 $q^2$ 차수이므로 분모의 최고차항에 들어갑니다.'
+    remedy: [RL-2]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-GEO-6417}
+  relation: remediation
+  target: {kind: concept, ref: CON-GEO-HYPERBOLA-FOCUS}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-CAL-6418}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-LIMIT-AT-INFINITY}
+  priority: 1
+- id: RL-3
+  trigger: {type: misconception, ref: MC-CAL-6418}
+  relation: prerequisite
+  target: {kind: concept, ref: CON-GEO-INSCRIBED-ANGLE}
+  priority: 2
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-input-v1, item_version: 1, verdict: pass, date: 2026-11-21, note: 원문 PDF 이미지 판독으로 옮김 · 해설은 경희대 예시답안 흐름}
+
+created: 2026-11-21
+updated: 2026-11-21

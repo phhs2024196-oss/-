@@ -1,0 +1,311 @@
+schema_version: '2.0'
+id: KHU-M21-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: KHU
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 분류
+points: 30
+time_estimate_min: 30
+intent: 이차함수의 도함수로 접선을 구해 원의 중심을 찾고, 원의 중심과 곡선 위의 점 사이 거리를 함수로 표현해 증가·감소와 극값으로 원과 곡선의 교점 개수를 분류하는 능력을 본다.
+key_idea: '원의 반지름은 중심 $C(0,b)$와 곡선 위의 점 사이 거리의 최솟값이므로 $f(x)=x^2+(x^2-b)^2$의 최솟값을 $b$의 범위에 따라 나누어 구한다.'
+stuck: (2)에서 '접하는 원의 반지름 = 중심과 곡선 사이 최소 거리'로 바꾸고, $f'(x)=4x(x^2-b+\frac12)$의 근의 개수로 $b\le\frac12$, $b>\frac12$를 나누는 단계
+idea_tags: [IDEA-NORMAL-LINE-CENTER, IDEA-MIN-DISTANCE-SQUARED, IDEA-CASE-SPLIT-CRITICAL-POINTS]
+tags: [포물선에 접하는 원, 최소 거리, 경희 모의]
+elements:
+  materials: [곡선 y=x^2, y축 위에 중심이 있는 원, 접점 P, 원의 반지름 r]
+  concepts: [접선의 방정식, 수직인 두 직선의 기울기, 두 점 사이의 거리, 도함수의 부호와 증가·감소, 극대·극소, 최솟값]
+  tools: [도함수로 접선 기울기 구하기, 접선에 수직인 직선의 y절편으로 중심 찾기, 거리 제곱 함수 f(x)=x^2+(x^2-b)^2 미분, 증감표, b의 범위에 따른 경우 분류]
+  conditions:
+  - '원의 접선 = 곡선의 접선 ⇒ 중심 $C$는 $P$에서의 법선 위'
+  - '$b,r>0$ ⇒ $0<b\le\dfrac12$이면 $r=b$'
+  - '$f''(x)=0$의 근이 $x=0$뿐인지 세 개인지가 $b=\dfrac12$에서 갈림'
+  stimuli_used: [가, 나, 다]
+  subpart_links: (1)의 결과 $b=\dfrac54$, $r=1$은 (2)의 $r^2=b-\dfrac14$ 관계를 만족하는 한 예(직접 이용하지는 않음)
+
+curriculum:
+  version: '2015'
+  subjects: [수학, 수학Ⅱ]
+  scope_2028: common
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 함수의 증가와 감소, 극대와 극소를 판정하고 설명할 수 있다(요지)
+    verified: false
+  content_area: 미분 – 도함수의 활용(접선, 최대·최소)
+  behavior_domain: 문제해결
+  unit_path: [수학Ⅱ, 미분, 도함수의 활용, 접선과 최대·최소]
+  key_concepts: [접선의 방정식, 두 점 사이의 거리, 극대·극소, 최솟값]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 경희대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 경희대학교
+  admission_year: 2021
+  admission_type: 논술(모의)
+  track: 자연계열
+  question_no: 1
+  official_url: https://iphak.khu.ac.kr/detail.do?menuurl=89BGs%2bk748ajyySWoWlQPw%3d%3d&board_seq=2102&pageNo=1&categoryid=27&userpwd=
+  retrieved_at: '2026-11-21'
+  original_points: 30
+  rights_notice: '경희대학교 입학처 공개 자료(기출문제·예시답안). 내부 분석용'
+  note: |
+    문제 = 4. 2021 모의논술 문제지(자연계 ).pdf p.1~2, 원 번호 [논제 I-1] (1)(2), 해설 = 4. 예시답안, 출제개요(자연계).pdf p.1~2(예시답안), p.5(문항 해설).
+    채점 기준 미공개(모의 자료는 예시답안·문항 해설만 있음) — 소문항 배점(10·20)은 원문, 마크 단위 배점은 자체 배분.
+    [판독확인] 예시답안 p.1: 접선 기울기를 '$f(\frac{\sqrt3}{2})=\sqrt3$'으로 적음 — $f'(\frac{\sqrt3}{2})$의 오기, B 해설에서 바로잡음.
+    [판독확인] 제시문 [마] 원문 분모 표기 '$p!\times q!\times\cdots r!$'(마지막 $\times$ 없음) 그대로 옮김.
+
+verify: verify/KHU-M21.py::p01
+
+stimuli:
+- label: 가
+  body: |
+    함수 $f(x)$가 $x=a$에서 미분가능할 때, 곡선 $y=f(x)$ 위의 점 $P(a,f(a))$에서의 접선의 방정식은
+    $$y-f(a)=f'(a)(x-a)$$
+- label: 나
+  body: |
+    함수 $f(x)$가 어떤 열린구간에서 미분가능할 때, 그 열린구간에 속하는 모든 $x$에 대하여
+    (1) $f'(x)>0$이면 $f(x)$는 그 열린구간에서 증가한다.
+    (2) $f'(x)<0$이면 $f(x)$는 그 열린구간에서 감소한다.
+- label: 다
+  body: |
+    함수 $f(x)$가 미분가능하고 $f'(a)=0$일 때, $x=a$의 좌우에서 $f'(x)$의 부호가
+    (1) 양에서 음으로 바뀌면 $f(x)$는 $x=a$에서 극대이고, 극댓값 $f(a)$를 갖는다.
+    (2) 음에서 양으로 바뀌면 $f(x)$는 $x=a$에서 극소이고, 극솟값 $f(a)$를 갖는다.
+- label: 라
+  body: |
+    동시에 일어나지 않는 두 사건에 대하여 다음과 같은 합의 법칙이 성립한다.
+    두 사건 $A$, $B$가 동시에 일어나지 않을 때, 사건 $A$와 사건 $B$가 일어나는 경우의 수가 각각 $m$, $n$이면, 사건 $A$ 또는 사건 $B$가 일어나는 경우의 수는 $m+n$이다.
+- label: 마
+  body: |
+    일반적으로 같은 것이 있는 순열의 수는 다음과 같다.
+    $n$개 중에서 서로 같은 것이 각각 $p$개, $q$개, ..., $r$개 있을 때, $n$개를 일렬로 나열하는 순열의 수는
+    $$\dfrac{n!}{p!\times q!\times\cdots r!}\quad(\text{단, }p+q+\cdots+r=n)$$
+
+stem: |
+  Ⅰ. 다음 제시문을 읽고 논제에 답하시오.(60점)
+  [논제 I] 제시문 [가]~[마]를 읽고 다음 질문에 답하시오.
+  [그림 1 설명: 좌표평면에 곡선 $y=x^2$(왼쪽 위에 '$y=x^2$' 표기)이 그려져 있다. $y$축 위의 점 $C$를 중심으로 하는 큰 원이 곡선과 좌우 두 점에서 접하고, 오른쪽 접점 $P$와 $C$를 잇는 점선 옆에 $r$이 표기되어 있다. 점 $P$를 지나는 곡선의 접선(오른쪽 위로 가파르게 올라가는 직선)이 그려져 있고, 원점 $O$에서 곡선에 접하는 작은 원도 함께 그려져 있다.]
+  [논제 I-1] [그림 1]과 같이 곡선 $y=x^2$위의 점 $P$를 지나고 $y$축 위의 점 $C(0,b)$를 중심으로 하며, 점 $P$에서의 접선이 곡선 $y=x^2$의 접선과 일치하는 원이 있다. 원의 반지름을 $r$이라 했을 때, 다음 물음에 답하시오 (단, $b,r>0$).
+
+subparts:
+- id: '1'
+  stem: |
+    (1) 점 $P$의 좌표가 $\left(\dfrac{\sqrt3}{2},\dfrac34\right)$일 때, 원의 중심 $C(0,b)$와 원의 반지름 $r$을 구하고 그 근거를 논술하시오. (10점)
+  points: 10
+  depends_on: []
+  answer: {kind: value, value: 'C\left(0,\dfrac54\right),\ r=1', equivalents: ['b=5/4, r=1'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: 원의 중심은 $P$에서 곡선의 접선에 수직인 직선(법선)이 $y$축과 만나는 점이다.
+    steps:
+    - {id: 1a, content: '접선 기울기 $\sqrt3$ ⇒ 법선 기울기 $-\dfrac{1}{\sqrt3}$ ⇒ $y$절편 $\dfrac54$, $r=CP=1$', criteria: [1.M1, 1.M2, 1.A1]}
+    hint_ladder:
+    - 원의 접선은 접점과 중심을 잇는 반지름에 수직이다.
+    - 점 $P$에서 곡선의 접선에 수직인 직선이 $y$축과 만나는 점을 찾아보자.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 예시답안(자연계) p.1
+    steps:
+    - id: 1b-1
+      content: |
+        함수 $f(x)=x^2$의 도함수는 $f'(x)=2x$이므로, 곡선 $y=x^2$ 위의 점 $P\left(\dfrac{\sqrt3}{2},\dfrac34\right)$에서 접하는 접선을 $l$이라 하면 기울기는 $f'\left(\dfrac{\sqrt3}{2}\right)=\sqrt3$이다. 따라서 제시문 [가]에 의해 접선 $l$의 방정식은 $y-\dfrac34=\sqrt3\left(x-\dfrac{\sqrt3}{2}\right)$이고 이는 원의 접선이기도 하다.
+        (공식 예시답안은 기울기를 $f\left(\dfrac{\sqrt3}{2}\right)$로 적었으나 $f'$의 오기이다.)
+      criteria: [1.M1]
+    - id: 1b-2
+      content: |
+        그러므로 원의 중심 $C(0,b)$는 $P$를 지나고 $l$에 수직인 직선 $m$이 $y$축과 만나는 점이다. $m$의 방정식은 $y-\dfrac34=-\dfrac{1}{\sqrt3}\left(x-\dfrac{\sqrt3}{2}\right)$이고, $m$의 $y$절편은 $\dfrac34+\dfrac12=\dfrac54$이다.
+      criteria: [1.M2]
+    - id: 1b-3
+      content: |
+        따라서 $b=\dfrac54$이고 $C\left(0,\dfrac54\right)$이며, 원의 반지름은 $C$와 $P$ 사이의 거리 $r=\sqrt{\dfrac34+\left(\dfrac54-\dfrac34\right)^2}=\sqrt{\dfrac34+\dfrac14}=1$이다.
+      criteria: [1.A1, 1.A2]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 3
+      evidence: 도함수 $f'(x)=2x$로 점 $P$에서의 접선 기울기 $\sqrt3$(또는 접선의 방정식)을 구했다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1]
+    - id: 1.M2
+      mark_type: M
+      points: 3
+      evidence: 원의 중심이 $P$를 지나고 접선에 수직인 직선(기울기 $-\dfrac{1}{\sqrt3}$) 위에 있다는 근거로 그 직선의 방정식을 세웠다.
+      depends_on: []
+      steps: [1b-2]
+    - id: 1.A1
+      mark_type: A
+      points: 2
+      evidence: $b=\dfrac54$, 즉 $C\left(0,\dfrac54\right)$를 적었다.
+      depends_on: [1.M2]
+      steps: [1b-3]
+    - id: 1.A2
+      mark_type: A
+      points: 2
+      evidence: $C$와 $P$ 사이 거리로 $r=1$을 적었다.
+      depends_on: [1.M2]
+      steps: [1b-3]
+    deductions:
+    - code: D1-1
+      condition: 그림만 보고 중심·반지름을 근거 없이 적음
+      effect: cap
+      value: 2
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-CAL-6901}
+  misconceptions:
+  - id: MC-CAL-6901
+    outcome_code: '70'
+    wrong_work: '법선의 기울기를 $\dfrac{1}{\sqrt3}$로 잡아 $y$절편 $\dfrac14$, 즉 $b=\dfrac14$로 계산'
+    detect_cue: $b=\dfrac14$ 또는 $r=\dfrac{\sqrt3}{2}\cdot\dfrac{2}{\sqrt3}$처럼 중심이 $P$보다 아래에 있다
+    feedback: 수직인 두 직선의 기울기의 곱은 $-1$입니다. 법선의 기울기는 $-\dfrac{1}{\sqrt3}$입니다.
+    remedy: [RL-1]
+- id: '2'
+  stem: |
+    (2) 원과 곡선 $y=x^2$이 한 점에서 만나기 위한 $r$의 범위와 두 점에서 만나기 위한 $r$의 범위를 각각 구하고 그 근거를 서술하시오. (20점)
+  points: 20
+  depends_on: []
+  answer: {kind: set, value: '한 점: 0<r\le\dfrac12,\ 두 점: r>\dfrac12', equivalents: ['한 점 (0,1/2], 두 점 (1/2,∞)'], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: $r^2$은 $f(x)=x^2+(x^2-b)^2$의 최솟값이고, $f'(x)=4x\left(x^2-b+\dfrac12\right)$의 근이 $b$에 따라 1개 또는 3개로 갈린다.
+    steps:
+    - {id: 2a, content: '$b\le\dfrac12$: 최솟값 $f(0)=b^2$, $r=b$, 원점 한 점 / $b>\dfrac12$: 최솟값 $b-\dfrac14$, $r>\dfrac12$, 두 점', criteria: [2.M1, 2.M2, 2.A1, 2.M3, 2.A2]}
+    hint_ladder:
+    - 곡선에 접하는 원의 반지름은 중심과 곡선 위의 점 사이 거리의 최솟값이다.
+    - 거리의 제곱을 $x$의 함수로 놓고 미분해 보자.
+    - 도함수가 0이 되는 $x$가 몇 개인지는 $b$와 $\dfrac12$의 대소에 달려 있다.
+  - id: S2-B
+    audience: B
+    method_no: 1
+    source_flow: 예시답안(자연계) p.2
+    steps:
+    - id: 2b-1
+      content: |
+        원의 중심 $C(0,b)$와 곡선 $y=x^2$ 위의 점들 사이의 거리 중 최솟값이 원의 반지름 $r$이 된다. 따라서 곡선 위의 점 $Q(x,x^2)$에서 $C(0,b)$까지의 거리 $\overline{CQ}=\sqrt{x^2+(x^2-b)^2}$에 대하여 $f(x)=\overline{CQ}^2=x^2+(x^2-b)^2$이라 하면 $f(x)$의 최솟값이 $r^2$이다.
+      criteria: [2.M1]
+    - id: 2b-2
+      content: |
+        도함수 $f'(x)=2x+4x(x^2-b)=4x\left(x^2-b+\dfrac12\right)$에 대하여 $b$의 범위를 나눈다.
+      criteria: [2.M2]
+    - id: 2b-3
+      content: |
+        a) $0<b\le\dfrac12$일 때, $f'(x)=0$인 경우는 $x=0$뿐이며, $x<0$일 때 $f'(x)<0$이고, $x>0$일 때 $f'(x)>0$이다(제시문 [나]). 그러므로 $f(x)$는 $x=0$일 때 최솟값 $f(0)=b^2$을 가진다(제시문 [다]). 즉, $r^2=f(0)=b^2$이고 $b,r>0$이므로 $b=r$이다.
+        따라서 $0<r\le\dfrac12$인 경우 원과 곡선 $y=x^2$은 $x=0$일 때 한 점, $O(0,0)$에서 만난다.
+      criteria: [2.R1, 2.A1]
+    - id: 2b-4
+      content: |
+        b) $b>\dfrac12$일 때, $f'(x)=0$인 경우는 $x=0$과 $x=\pm\sqrt{b-\dfrac12}$이다. 증감표:
+        $x<-\sqrt{b-\frac12}$에서 $f'<0$(감소), $-\sqrt{b-\frac12}<x<0$에서 $f'>0$(증가), $0<x<\sqrt{b-\frac12}$에서 $f'<0$(감소), $x>\sqrt{b-\frac12}$에서 $f'>0$(증가)이고, $f\left(\pm\sqrt{b-\dfrac12}\right)=b-\dfrac12+\dfrac14=b-\dfrac14$.
+        위의 증감표에 의해 $f(x)$는 $x=\pm\sqrt{b-\dfrac12}$에서 최솟값 $b-\dfrac14$를 가지고, $r^2=b-\dfrac14$이다.
+      criteria: [2.M3]
+    - id: 2b-5
+      content: |
+        따라서 $b>\dfrac12$인 경우는 $r^2>\dfrac14$, 즉 $r>\dfrac12$인 경우이며, 이때 원과 곡선 $y=x^2$은 두 점 $\left(\pm\sqrt{r^2-\dfrac14},\ r^2-\dfrac14\right)$에서 만난다.
+        결론: 한 점에서 만나기 위한 $r$의 범위는 $0<r\le\dfrac12$, 두 점에서 만나기 위한 $r$의 범위는 $r>\dfrac12$이다.
+      criteria: [2.A2]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 4
+      evidence: 반지름 $r$이 중심 $C(0,b)$와 곡선 위의 점 사이 거리의 최솟값임을 밝히고 $f(x)=x^2+(x^2-b)^2$(거리 또는 거리의 제곱)을 세웠다.
+      depends_on: []
+      implied_ok: false
+      steps: [2b-1]
+    - id: 2.M2
+      mark_type: M
+      points: 3
+      evidence: $f'(x)=4x\left(x^2-b+\dfrac12\right)$을 구하고 $b\le\dfrac12$와 $b>\dfrac12$로 경우를 나누었다.
+      depends_on: []
+      steps: [2b-2]
+    - id: 2.R1
+      mark_type: R
+      points: 3
+      evidence: $0<b\le\dfrac12$일 때 $f'$의 부호(증감)로 $x=0$에서 최소임을 보이고 $r=b$를 얻었다.
+      depends_on: []
+      steps: [2b-3]
+    - id: 2.A1
+      mark_type: A
+      points: 3
+      evidence: 한 점(원점)에서 만나는 $r$의 범위 $0<r\le\dfrac12$를 적었다.
+      depends_on: [2.R1]
+      steps: [2b-3]
+    - id: 2.M3
+      mark_type: M
+      points: 4
+      evidence: $b>\dfrac12$일 때 증감표로 $x=\pm\sqrt{b-\dfrac12}$에서 최솟값 $r^2=b-\dfrac14$임을 보였다.
+      depends_on: []
+      steps: [2b-4]
+    - id: 2.A2
+      mark_type: A
+      points: 3
+      evidence: 두 점에서 만나는 $r$의 범위 $r>\dfrac12$(교점 $\left(\pm\sqrt{r^2-\frac14},r^2-\frac14\right)$)를 적었다.
+      depends_on: [2.M3]
+      steps: [2b-5]
+    deductions:
+    - code: D2-1
+      condition: 경계 $r=\dfrac12$를 두 경우 중 어디에도 넣지 않거나 양쪽에 모두 넣음
+      effect: minus
+      value: 2
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-6902}
+  - {code: '72', misconception: MC-CAL-6903}
+  misconceptions:
+  - id: MC-CAL-6902
+    outcome_code: '71'
+    wrong_work: '$f''(0)=0$만 보고 항상 $x=0$에서 최소라 하여 $r=b$, 모든 $r$에서 한 점에서 만난다고 결론'
+    detect_cue: 답에 두 점에서 만나는 경우가 없거나 $f'(x)=0$의 다른 근 $\pm\sqrt{b-\frac12}$가 없다
+    feedback: $b>\dfrac12$이면 $x=0$은 극대점이 됩니다. $f'(x)=0$의 근을 모두 구해 증감표를 그리세요.
+    remedy: [RL-2]
+  - id: MC-CAL-6903
+    outcome_code: '72'
+    wrong_work: '한 점: $0<r<\dfrac12$, 두 점: $r>\dfrac12$로 써서 $r=\dfrac12$를 빠뜨림(또는 양쪽에 포함)'
+    detect_cue: 범위의 경계 부등호가 $r<\dfrac12$ / $r\ge\dfrac12$ 등으로 어긋난다
+    feedback: $b=\dfrac12$이면 $f'(x)=4x^3$이라 $x=0$에서만 최소입니다. 경계값을 대입해 확인하세요.
+    remedy: [RL-3]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CAL-6901}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-TANGENT-NORMAL}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-CAL-6902}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-MINDIST-CURVE}
+  priority: 1
+- id: RL-3
+  trigger: {type: misconception, ref: MC-CAL-6903}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-MINDIST-CURVE}
+  priority: 2
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-input-v1, item_version: 1, verdict: pass, date: 2026-11-21, note: 원문 PDF 이미지 판독으로 옮김 · 해설은 경희대 예시답안 흐름}
+
+created: 2026-11-21
+updated: 2026-11-21

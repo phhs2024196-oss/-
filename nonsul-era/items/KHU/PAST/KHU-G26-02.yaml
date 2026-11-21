@@ -1,0 +1,229 @@
+schema_version: '2.0'
+id: KHU-G26-02
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: KHU
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 분류
+points: 33
+time_estimate_min: 20
+intent: 확률 및 조건부확률을 구하는 방법을 이해하고, 주어진 상황에서 경우를 나누어 수학적으로 추론하여 확률을 구하고 방정식을 풀 수 있는지 평가한다.
+key_idea: '남은 칸 수만큼 앞면이 나오되 마지막은 앞면, 뒷면은 허용 횟수 미만으로 경우를 나누고, 돌림판 결과로 가중합한다.'
+stuck: '「마지막 던짐은 앞면」이라는 조건으로 배열 수를 세는 단계, $f(p)=g(p)$를 $(p-1)^2(15p-8)=0$으로 인수분해하는 단계'
+idea_tags: [IDEA-LAST-TRIAL-FIXED-COUNT, IDEA-TOTAL-PROBABILITY-WEIGHT]
+tags: [윷짝, 말판, 조건부확률, 경희 실전]
+elements:
+  materials: [점 4개짜리 말판(맨 왼쪽 출발), 앞면 확률 p 인 윷짝, 영역 5개 돌림판(같은 확률)]
+  concepts: [독립시행의 확률, 조건부확률과 곱셈정리, 확률의 덧셈(배반 사건), 삼차방정식의 인수분해]
+  tools: [뒷면 개수로 경우 분류, 마지막 시행 고정 후 배열 세기, 경우별 확률의 가중합, 인수정리]
+  conditions:
+  - '(1) 첫 결과가 앞면 ⇒ 남은 2칸, 뒷면 최대 2번'
+  - '(2) 영역 1~4 ⇒ 세 번째 점(남은 1칸), 영역 5 ⇒ 두 번째 점(남은 2칸), 뒷면 최대 1번'
+  - '$0<p<1$ ⇒ $p=1$(중근) 제외'
+  stimuli_used: [다]
+  subpart_links: '(2)는 (1)에서 구한 $f(p)$와 같게 놓아 $p$를 구한다'
+
+curriculum:
+  version: '2015'
+  subjects: [확률과통계, 수학]
+  scope_2028: common
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 확률의 곱셈정리를 이해하고 활용할 수 있다 / 조건부확률을 이해하고 구할 수 있다(요지)
+    verified: false
+  content_area: 확률 – 조건부확률과 곱셈정리
+  behavior_domain: 추론
+  unit_path: [확률과통계, 확률, 조건부확률, 확률의 곱셈정리]
+  key_concepts: [독립시행, 조건부확률, 확률의 곱셈정리, 인수분해]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 경희대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 경희대학교
+  admission_year: 2026
+  admission_type: 논술(논술우수자전형)
+  track: 자연계열
+  question_no: 2
+  official_url: https://iphak.khu.ac.kr/detail.do?menuurl=89BGs%2bk748ajyySWoWlQPw%3d%3d&board_seq=16903&pageNo=1&categoryid=27&userpwd=
+  retrieved_at: '2026-11-21'
+  original_points: 33
+  rights_notice: 경희대학교 입학처 공개 자료(기출문제·예시답안). 내부 분석용
+  note: '문제 = 3. 2026 논술고사 기출문제(자연계).pdf p.2, 원 번호 [논제 Ⅱ], 해설 = 같은 파일 p.6~8. 예시답안의 말 위치 그림(현재위치 표시)은 글로 옮김. [판독확인] 없음'
+
+verify: verify/KHU-G26.py::p02
+
+stimuli:
+- label: 다
+  body: |
+    두 사건 $A$, $B$에 대하여 $\mathrm{P}(A\cap B)=\mathrm{P}(A)\mathrm{P}(B\mid A)=\mathrm{P}(B)\mathrm{P}(A\mid B)$이다. (단, $\mathrm{P}(A)>0$, $\mathrm{P}(B)>0$)
+
+stem: |
+  <그림 1>의 말판에서 처음에 말은 맨 왼쪽 점에서 출발한다. 그리고 앞면(둥근 면)이 나올 확률이 $p\ (0<p<1)$이고 뒷면(평평한 면)이 나올 확률이 $1-p$인 윷짝 한 개를 계속해서 던진다. 앞면이 나오면 말은 오른쪽으로 한 칸 이동하고, 뒷면이 나오면 말은 이동하지 않는다. 다음 물음에 답하시오.
+  [그림 1 설명: 가로 선분 위에 같은 간격으로 점 4개가 있고, 맨 왼쪽 점 옆에 '출발'과 오른쪽 화살표가 표시되어 있다. 즉 맨 오른쪽 점까지 3칸.]
+
+subparts:
+- id: '1'
+  stem: |
+    처음 윷짝을 던진 결과가 앞면이 나왔을 때, 뒷면이 세 번 나오기 전에 말이 맨 오른쪽 점까지 도달할 확률 $f(p)$를 구하고, 그 근거를 논술하시오. (12점)
+  points: 12
+  depends_on: []
+  answer: {kind: expression, value: 'p^2(3p^2-8p+6)', equivalents: ['3p^4-8p^3+6p^2'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: '남은 2칸: 뒷면 $k$번($k=0,1,2$), 마지막은 앞면 ⇒ 배열 $k+1$가지, $f=p^2\sum(k+1)(1-p)^k$.'
+    steps:
+    - {id: 1a, content: '$f(p)=p^2\{1+2(1-p)+3(1-p)^2\}$', criteria: [1.M1, 1.A1]}
+    hint_ladder:
+    - 첫 앞면 뒤 말은 두 번째 점에 있다. 앞면이 몇 번 더 필요한가?
+    - 마지막 던짐은 반드시 앞면이다.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 3. 2026 논술고사 기출문제(자연계).pdf 예시 답안 p.7
+    steps:
+    - id: 1b-1
+      content: |
+        윷짝을 던진 첫 결과가 앞면이면 말은 왼쪽에서 두 번째 점(현재위치)에 있다. 다음에 앞면은 두 번 나와야 하고, 뒷면은 최대 두 번 나와야 하며, 마지막은 앞면으로 끝나야 한다. 뒷면의 개수로 경우를 나누면
+        뒷면 0번: 앞앞 ⇒ 확률 $p^2$
+        뒷면 1번: 앞뒤앞, 뒤앞앞 ⇒ 확률 $2p^2(1-p)$
+        뒷면 2번: 앞뒤뒤앞, 뒤앞뒤앞, 뒤뒤앞앞 ⇒ 확률 $3p^2(1-p)^2$
+      criteria: [1.M1]
+    - id: 1b-2
+      content: |
+        따라서 $f(p)=p^2\{1+2(1-p)+3(1-p)^2\}=p^2(3p^2-8p+6)$.
+      criteria: [1.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 9
+      evidence: '뒷면의 개수(0, 1, 2번)에 따른 각각의 확률 $p^2$, $2p^2(1-p)$, $3p^2(1-p)^2$을 구했다.'
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1]
+    - id: 1.A1
+      mark_type: A
+      points: 3
+      evidence: '확률을 합쳐 $f(p)=p^2(3p^2-8p+6)$으로 정리했다.'
+      depends_on: [1.M1]
+      steps: [1b-2]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-PRB-6203}
+  misconceptions:
+  - id: MC-PRB-6203
+    outcome_code: '70'
+    wrong_work: '뒷면 2번인 경우를 ${}_4\mathrm{C}_2=6$가지로 세어 $6p^2(1-p)^2$으로 계산'
+    detect_cue: 계수가 1, 3, 6 처럼 조합 전체 수로 되어 있다
+    feedback: 오른쪽 끝에 도달하면 던지기가 끝나므로 마지막은 반드시 앞면입니다. 마지막을 고정하고 앞의 배열만 세세요.
+    remedy: [RL-1]
+- id: '2'
+  stem: |
+    $1,2,3,4,5$라는 다섯 개의 영역이 있는 돌림판이 있고, 각 영역이 나올 확률은 동일하다. 돌림판을 돌려서 영역 $1,2,3,4$ 중 하나가 나오면 말을 왼쪽에서 세 번째 점에 두고, 반면에 영역 $5$가 나오면 말을 왼쪽에서 두 번째 점에 둔다. 그 후에 윷짝을 계속해서 던져서 뒷면이 두 번 나오기 전에 말이 맨 오른쪽 점까지 도달할 확률을 $g(p)$라고 하자. (1)에서 구한 $f(p)$에 대하여 $f(p)=g(p)$인 $p$의 값을 구하고, 그 근거를 논술하시오. (단, $0<p<1$) (21점)
+  points: 21
+  depends_on: ['1']
+  answer: {kind: value, value: '\dfrac{8}{15}', equivalents: ['8/15'], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: '$g=\dfrac45p(2-p)+\dfrac15p^2(3-2p)$, $f=g$ ⇒ $(p-1)^2(15p-8)=0$.'
+    steps:
+    - {id: 2a, content: '$15p^3-38p^2+31p-8=(p-1)^2(15p-8)=0$, $p<1$ ⇒ $p=\dfrac{8}{15}$', criteria: [2.M1, 2.M2, 2.A1]}
+    hint_ladder:
+    - 돌림판 결과에 따라 남은 칸 수가 다르다. 두 경우로 나누자.
+    - 제시문 [다]의 곱셈정리로 두 경우를 합친다.
+  - id: S2-B
+    audience: B
+    method_no: 1
+    source_flow: 3. 2026 논술고사 기출문제(자연계).pdf 예시 답안 p.7~8
+    steps:
+    - id: 2b-1
+      content: |
+        ① 경우 1(영역 1, 2, 3, 4가 나온 경우): 말은 왼쪽에서 세 번째 점에 있다. 다음에 앞면은 한 번 나와야 하고, 뒷면은 최대 한 번 나와야 하며, 마지막은 앞면으로 끝나야 한다.
+        뒷면 0번: 앞 ⇒ 확률 $p$, 뒷면 1번: 뒤앞 ⇒ 확률 $p(1-p)$.
+        따라서 경우 1일 때 맨 오른쪽 점까지 도달할 확률은 $g_1(p)=p(2-p)$.
+      criteria: [2.M1]
+    - id: 2b-2
+      content: |
+        ② 경우 2(영역 5가 나온 경우): 말은 왼쪽에서 두 번째 점에 있다. 다음에 앞면은 두 번 나와야 하고, 뒷면은 최대 한 번 나와야 하며, 마지막은 앞면으로 끝나야 한다.
+        뒷면 0번: 앞앞 ⇒ 확률 $p^2$, 뒷면 1번: 앞뒤앞, 뒤앞앞 ⇒ 확률 $2p^2(1-p)$.
+        따라서 경우 2일 때 확률은 $g_2(p)=p^2(3-2p)$.
+      criteria: [2.M2]
+    - id: 2b-3
+      content: |
+        ③ 함께 계산하기: 확률의 곱셈정리(제시문 [다])에 의하여
+        $g(p)=\dfrac45g_1(p)+\dfrac15g_2(p)=\dfrac45p(2-p)+\dfrac15p^2(3-2p)=\dfrac15p(-2p^2-p+8)$.
+        $f(p)=g(p)$이므로 $p^2(3p^2-8p+6)=\dfrac15p(-2p^2-p+8)$이다. $p>0$이므로 양변을 $p$로 나누고 다시 정리하면 $15p^3-38p^2+31p-8=0$이고, 인수분해하면 $(p-1)^2(15p-8)=0$.
+        $p<1$이므로 $p=\dfrac{8}{15}$.
+      criteria: [2.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 7
+      evidence: '영역이 1, 2, 3, 4가 나올 경우의 확률 $g_1(p)=p(2-p)$를 구했다.'
+      depends_on: []
+      implied_ok: false
+      steps: [2b-1]
+    - id: 2.M2
+      mark_type: M
+      points: 7
+      evidence: '영역 5가 나올 경우의 확률 $g_2(p)=p^2(3-2p)$를 구했다.'
+      depends_on: []
+      implied_ok: false
+      steps: [2b-2]
+    - id: 2.A1
+      mark_type: A
+      points: 7
+      evidence: '$g(p)=\dfrac45g_1+\dfrac15g_2$로 함께 계산하여 $f(p)=g(p)$에서 $p=\dfrac{8}{15}$을 구했다.'
+      depends_on: [2.M1, 2.M2]
+      ft: {allowed: true, from: [1.A1], max_points: 7}
+      steps: [2b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-PRB-6204}
+  misconceptions:
+  - id: MC-PRB-6204
+    outcome_code: '70'
+    wrong_work: '$g(p)=g_1(p)+g_2(p)$ 또는 $\dfrac12\{g_1(p)+g_2(p)\}$로 돌림판 확률 $\dfrac45$, $\dfrac15$를 반영하지 않음'
+    detect_cue: $g(p)$ 식에 $\dfrac45$, $\dfrac15$가 없다
+    feedback: 각 경우가 일어날 확률을 곱해서 더해야 합니다(곱셈정리). 영역 1~4가 나올 확률은 $\dfrac45$입니다.
+    remedy: [RL-2]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-PRB-6203}
+  relation: remediation
+  target: {kind: concept, ref: CON-PRB-STOP-PATH-CASES}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-PRB-6204}
+  relation: remediation
+  target: {kind: concept, ref: CON-PRB-TOTAL-PROBABILITY}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-input-v1, item_version: 1, verdict: pass, date: 2026-11-21, note: 원문 PDF 이미지 판독으로 옮김 · 해설은 경희대 예시답안 흐름}
+
+created: 2026-11-21
+updated: 2026-11-21

@@ -1,0 +1,262 @@
+schema_version: '2.0'
+id: KHU-G22A-02
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: KHU
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 전수
+points: 25
+time_estimate_min: 20
+intent: 두 가지 대진표에서 1위 팀이 우승하는 경우를 빠짐없이 나누어 확률의 곱셈정리·덧셈정리로 확률을 구하고, 그 식을 비교해 삼차방정식을 인수분해로 푸는 능력을 본다.
+key_idea: '<대진표 1>은 $P_1=r\{p^2+(1-p)q\}$, <대진표 2>는 X·Y 경기 결과 네 경우로 $P_2=p^3+2p(1-p)q+(1-p)(1-q)r$.'
+stuck: <대진표 2>에서 1위의 결승 상대가 X·Y 경기 결과에 따라 2위·3위·4위로 갈리는 네 경우를 모두 찾는 단계
+idea_tags: [IDEA-TREE-ENUMERATE-PATHS, IDEA-CUBIC-DOUBLE-ROOT-FACTOR]
+tags: [대진표, 확률의 곱셈정리, 삼차방정식, 경희 실전]
+elements:
+  materials: [예선 상위 4팀, <대진표 1>(A·B·C 경기), <대진표 2>(X·Y·Z 경기), 순위 차이에 따른 승률 p·q·r]
+  concepts: [확률의 곱셈정리, 확률의 덧셈정리(배반사건), 여사건의 확률, 인수분해, 삼차방정식]
+  tools: [우승 경로 전수 열거, 경로별 확률 곱, 배반인 경로 확률 합, 인수정리로 삼차식 인수분해, 조건 p<1 로 근 선택]
+  conditions:
+  - '하위 팀이 이길 확률 = $1-(\text{상위 팀 승률})$ (비기는 경우 없음)'
+  - '<대진표 2>: X(3위 vs 4위) → Y(2위 vs X 승자) → Z(1위 vs Y 승자)'
+  - '$0.5\le p<q<r\le1$ ⇒ (2)의 근 $p=1$ 제외'
+  stimuli_used: [다]
+  subpart_links: (2)는 (1)에서 세운 일반식 $P_1$, $P_2$에 $q=\dfrac56$, $r=1$을 대입
+
+curriculum:
+  version: '2015'
+  subjects: [수학, 확률과통계]
+  scope_2028: common
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 확률의 덧셈정리와 곱셈정리를 이해하고 이를 활용할 수 있다(요지)
+    verified: false
+  content_area: 확률 – 확률의 곱셈정리
+  behavior_domain: 문제해결
+  unit_path: [확률과통계, 확률, 조건부확률, 확률의 곱셈정리]
+  key_concepts: [확률의 곱셈정리, 확률의 덧셈정리, 삼차방정식]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 경희대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 경희대학교
+  admission_year: 2022
+  admission_type: 논술(논술우수자전형)
+  track: 자연계열
+  question_no: 2
+  official_url: https://iphak.khu.ac.kr/detail.do?menuurl=89BGs%2bk748ajyySWoWlQPw%3d%3d&board_seq=4485&pageNo=1&categoryid=27&userpwd=
+  retrieved_at: '2026-11-21'
+  original_points: 25
+  rights_notice: '경희대학교 입학처 공개 자료(기출문제·예시답안). 내부 분석용'
+  note: |
+    시험 시간대: 11월 20일(토) 오후 자연계.
+    문제 = 4. 2022학년도 논술고사 기출문제(자연계)_11.20 오후.pdf p.1(제시문)·p.2, 원 번호 [논제 II] (1)(2), 해설 = 같은 PDF p.7~9(출제 의도·해설·채점 기준 p.8, 예시답안 p.9).
+    채점 기준 p.8 (1) 둘째 줄 '확률 $P_2$의 값은 정확하게 구한다' — 원문 조사 그대로.
+
+verify: verify/KHU-G22A.py::p02
+
+stimuli:
+- label: 다
+  body: |
+    확률의 곱셈정리
+    두 사건 $A$, $B$가 동시에 일어날 확률은
+    $$\mathrm{P}(A\cap B)=\mathrm{P}(A)\mathrm{P}(B\mid A)=\mathrm{P}(B)\mathrm{P}(A\mid B)\ (\text{단, }\mathrm{P}(A)>0,\ \mathrm{P}(B)>0)$$
+
+stem: |
+  [논제 II]
+  체육 대회에서 예선을 통하여 상위 4개의 팀이 선발되었고, 이 중에서 우승팀을 결정하려고 한다. 우승팀을 결정하는 대진표는 아래와 같이 A, B, C 세 경기를 치르는 <대진표 1>과 X, Y, Z 세 경기를 치르는 <대진표 2>가 있다. 각 경기에서 한 팀이 다른 팀을 이길 확률은 예선 순위의 차이로 결정된다. 예선 상위 팀이 하위 팀을 이길 확률은 순위 차이가 1일 때 $p$, 순위 차이가 2일 때 $q$, 순위 차이가 3일 때 $r$이다. 예를 들어, 예선 1위 팀과 2위 팀이 경기를 할 때 1위가 이길 확률이 $p$, 2위와 4위가 경기를 할 때 2위가 이길 확률이 $q$, 1위와 4위가 경기를 할 때 1위가 이길 확률이 $r$이다. 단, 비기는 경우는 없으며, $0.5\le p<q<r\le1$이다. <대진표 1>로 대회를 진행할 때 예선 1위 팀이 우승할 확률을 $P_1$, <대진표 2>로 대회를 진행할 때 예선 1위 팀이 우승할 확률을 $P_2$라 하자.
+  [그림 설명: <대진표 1> — A 경기(1위 vs 4위), B 경기(2위 vs 3위), A·B 승자끼리 C 경기. <대진표 2> — X 경기(3위 vs 4위), X 승자와 2위가 Y 경기, Y 승자와 1위가 Z 경기(계단식).]
+
+subparts:
+- id: '1'
+  stem: |
+    $p=0.6$, $q=0.7$, $r=0.8$일 때, $P_1$과 $P_2$를 구하고, 그 근거를 논술하시오. (10점)
+  points: 10
+  depends_on: []
+  answer: {kind: value, value: 'P_1=0.512,\ P_2=0.648', equivalents: ['P_1=\dfrac{64}{125},\ P_2=\dfrac{81}{125}'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: 1위가 이기는 경로를 대진표마다 모두 나열해 곱셈정리로 곱하고 더한다.
+    steps:
+    - {id: 1a, content: '$P_1=r\{p^2+(1-p)q\}$, $P_2=p^3+2p(1-p)q+(1-p)(1-q)r$', criteria: [1.M1, 1.M3]}
+    hint_ladder:
+    - <대진표 1>에서 1위의 결승 상대는 누가 될 수 있는가?
+    - <대진표 2>에서 X, Y 경기 결과의 네 가지 경우를 나눠 보자.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 4. 2022학년도 논술고사 기출문제(자연계)_11.20 오후.pdf 예시답안 p.9
+    steps:
+    - id: 1b-1
+      content: |
+        (i) <대진표 1>로 진행할 때, 1위 팀이 우승하는 경우는 다음과 같다.
+        (a) A에서 1위 승리, B에서 2위 승리, C에서 1위 승리
+        (b) A에서 1위 승리, B에서 3위 승리, C에서 1위 승리
+        따라서 제시문 [다]의 곱셈정리에 의해 $P_1=rpp+r(1-p)q=p^2r+(1-p)qr$이다.
+      criteria: [1.M1]
+    - id: 1b-2
+      content: |
+        $p=0.6$, $q=0.7$, $r=0.8$이므로 $P_1=0.6^2\times0.8+0.4\times0.7\times0.8=0.512$이다.
+      criteria: [1.A2]
+    - id: 1b-3
+      content: |
+        (ii) <대진표 2>로 진행할 때, 1위 팀이 우승하는 경우는 다음과 같다.
+        (a) X에서 3위 승리, Y에서 2위 승리, Z에서 1위 승리
+        (b) X에서 3위 승리, Y에서 3위 승리, Z에서 1위 승리
+        (c) X에서 4위 승리, Y에서 2위 승리, Z에서 1위 승리
+        (d) X에서 4위 승리, Y에서 4위 승리, Z에서 1위 승리
+        따라서 $P_2=ppp+p(1-p)q+(1-p)qp+(1-p)(1-q)r=p^3+2p(1-p)q+(1-p)(1-q)r$이다.
+      criteria: [1.M3]
+    - id: 1b-4
+      content: |
+        $p=0.6$, $q=0.7$, $r=0.8$이므로 $P_2=0.6^3+2\times0.6\times0.4\times0.7+0.4\times0.3\times0.8=0.648$이다.
+      criteria: [1.A4]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 2
+      evidence: <대진표 1>에서 1위가 우승하는 두 경우(B 승자 2위/3위)를 나누어 $P_1=p^2r+(1-p)qr$을 세웠다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1]
+    - id: 1.A2
+      mark_type: A
+      points: 2
+      evidence: $P_1=0.512$를 정확하게 구했다.
+      depends_on: [1.M1]
+      steps: [1b-2]
+    - id: 1.M3
+      mark_type: M
+      points: 3
+      evidence: <대진표 2>에서 1위가 우승하는 네 경우를 모두 나누어 $P_2=p^3+2p(1-p)q+(1-p)(1-q)r$을 세웠다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-3]
+    - id: 1.A4
+      mark_type: A
+      points: 3
+      evidence: $P_2=0.648$을 정확하게 구했다.
+      depends_on: [1.M3]
+      steps: [1b-4]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-PRB-6704}
+  - {code: '71', misconception: MC-PRB-6705}
+  misconceptions:
+  - id: MC-PRB-6704
+    outcome_code: '70'
+    wrong_work: '<대진표 2>에서 (a)·(c) 등 일부 경우만 더해 $P_2=p^3+(1-p)qp$ 꼴로 씀'
+    detect_cue: $P_2$ 식의 항이 4개 미만, $(1-p)(1-q)r$ 항 없음
+    feedback: X 경기 승자(3위/4위)와 Y 경기 승자에 따라 1위의 결승 상대가 2위·3위·4위로 바뀝니다. 수형도로 네 경우를 모두 찾으세요.
+    remedy: [RL-1]
+  - id: MC-PRB-6705
+    outcome_code: '71'
+    wrong_work: '3위가 2위를 이길 확률을 $p$로 씀(하위 팀 승리 확률을 $1-p$로 바꾸지 않음)'
+    detect_cue: 식에 $(1-p)$, $(1-q)$ 인수가 없음
+    feedback: 주어진 $p,q,r$은 상위 팀이 이길 확률입니다. 하위 팀이 이기는 경기에는 $1-p$ 등 여사건의 확률을 쓰세요.
+    remedy: [RL-1]
+
+- id: '2'
+  stem: |
+    $q=\dfrac56$, $r=1$일 때, $P_1$과 $P_2$를 각각 $p$의 식으로 나타내고, $P_1=P_2$가 되는 $p$를 구하시오. 그리고 그 근거를 논술하시오. (15점)
+  points: 15
+  depends_on: ['1']
+  answer: {kind: value, value: 'P_1=\dfrac16(6p^2-5p+5),\ P_2=\dfrac16(6p^3-10p^2+9p+1),\ p=\dfrac23', equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: (1)의 일반식에 대입해 같다고 놓으면 $2(p-1)^2(3p-2)=0$이고 $p<1$.
+    steps:
+    - {id: 2a, content: '$6p^3-16p^2+14p-4=2(p-1)^2(3p-2)=0$, $p=\dfrac23$', criteria: [2.A5]}
+    hint_ladder:
+    - (1)에서 구한 $P_1$, $P_2$의 일반식을 그대로 쓰자.
+    - 삼차방정식은 $p=1$을 대입해 보며 인수분해하자.
+  - id: S2-B
+    audience: B
+    method_no: 1
+    source_flow: 4. 2022학년도 논술고사 기출문제(자연계)_11.20 오후.pdf 예시답안 p.9
+    steps:
+    - id: 2b-1
+      content: |
+        $q=\dfrac56$, $r=1$을 (1)에서 구한 $P_1$, $P_2$에 대입하여 $p$의 식으로 나타내면
+        $P_1=p^2+\dfrac56(1-p)=\dfrac16(6p^2-5p+5)$,
+      criteria: [2.M1]
+    - id: 2b-2
+      content: |
+        $P_2=p^3+\dfrac53p(1-p)+\dfrac16(1-p)=\dfrac16(6p^3-10p^2+9p+1)$이다.
+      criteria: [2.M3]
+    - id: 2b-3
+      content: |
+        따라서 $6p^2-5p+5=6p^3-10p^2+9p+1$이고, $6p^3-16p^2+14p-4=2(p-1)^2(3p-2)=0$, $p<1$이므로 $p=\dfrac23$이다.
+      criteria: [2.A5]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 5
+      evidence: $P_1=\dfrac16(6p^2-5p+5)$을 $p$의 식으로 정확하게 나타냈다.
+      depends_on: []
+      implied_ok: false
+      steps: [2b-1]
+    - id: 2.M3
+      mark_type: M
+      points: 5
+      evidence: $P_2=\dfrac16(6p^3-10p^2+9p+1)$을 $p$의 식으로 정확하게 나타냈다.
+      depends_on: []
+      implied_ok: false
+      steps: [2b-2]
+    - id: 2.A5
+      mark_type: A
+      points: 5
+      evidence: $2(p-1)^2(3p-2)=0$으로 인수분해하고 $p<1$에서 $p=\dfrac23$을 정확하게 구했다.
+      depends_on: [2.M1, 2.M3]
+      steps: [2b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-ALG-6706}
+  misconceptions:
+  - id: MC-ALG-6706
+    outcome_code: '70'
+    wrong_work: '$p=1$ 또는 $p=\dfrac23$ 두 값을 모두 답으로 씀'
+    detect_cue: 답에 $p=1$이 포함됨
+    feedback: 조건 $0.5\le p<q=\dfrac56$을 확인해 범위 밖의 근을 버리세요.
+    remedy: [RL-2]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-PRB-6704}
+  relation: remediation
+  target: {kind: concept, ref: CON-PRB-MULT-THEOREM}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-ALG-6706}
+  relation: remediation
+  target: {kind: concept, ref: CON-ALG-CUBIC-FACTOR}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-input-v1, item_version: 1, verdict: pass, date: 2026-11-21, note: 원문 PDF 이미지 판독으로 옮김 · 해설은 경희대 예시답안 흐름}
+
+created: 2026-11-21
+updated: 2026-11-21

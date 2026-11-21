@@ -1,0 +1,274 @@
+schema_version: '2.0'
+id: KHU-M23D-02
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: KHU
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 최적2단
+points: 30
+time_estimate_min: 25
+intent: 부채꼴에 내접하며 이웃끼리 접하는 원들의 반지름을 삼각비로 구해 등비급수의 합을 계산하고, 100번째 원의 반지름을 최대로 하는 각을 치환과 몫의 미분으로 찾는 능력을 본다.
+key_idea: '$\sin\theta=\dfrac{r_1}{1-r_1}$, $\sin\theta=\dfrac{r_n-r_{n+1}}{r_n+r_{n+1}}$로 공비 $\dfrac{1-\sin\theta}{1+\sin\theta}$를 얻고, $x=\sin\theta$로 치환해 $g(x)=\dfrac{x(1-x)^{99}}{(1+x)^{100}}$의 최대를 찾는다.'
+stuck: 이웃한 두 원의 반지름 관계를 각의 이등분선 위 직각삼각형에서 $\sin\theta$로 표현하는 단계
+idea_tags: [IDEA-TANGENT-CIRCLES-GEOMETRIC-RATIO, IDEA-SUBSTITUTE-SIN-MAXIMIZE]
+tags: [경희 모의, 등비급수, 원의 접함, 몫의 미분]
+elements:
+  materials: ['반지름 1, 중심각 $2\theta$인 부채꼴 OAB', 부채꼴에 내접하고 이웃끼리 접하는 원들의 열, '$r_{100}=f(\theta)$']
+  concepts: [삼각비, 등비수열과 등비급수, 몫의 미분법, 극대·극소]
+  tools: [접점까지 수선으로 직각삼각형 만들기, 넓이의 공비 = 반지름 공비의 제곱, 'x=sinθ 치환으로 함수 단순화', 도함수 부호 변화로 최대 판정]
+  conditions:
+  - '$0<\theta<\dfrac{\pi}{2}$ ⇒ $0<\sin\theta<1$, 공비 $\dfrac{1-\sin\theta}{1+\sin\theta}\in(0,1)$로 급수 수렴'
+  - '원의 중심은 모두 $\angle AOB$의 이등분선 위'
+  - '$\cos\theta>0$ ⇒ $f''(\theta)$와 $g''(\sin\theta)$의 부호가 같음'
+  stimuli_used: [나, 다, 라]
+  subpart_links: (2)는 (1)의 $r_1$과 공비 $\dfrac{1-\sin\theta}{1+\sin\theta}$를 사용
+
+curriculum:
+  version: '2015'
+  subjects: [미적분, 수학Ⅰ]
+  scope_2028: calc2
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 등비급수의 뜻을 알고, 그 합을 구할 수 있다(요지)
+    verified: false
+  content_area: 수열의 극한 – 등비급수, 미분법 – 몫의 미분
+  behavior_domain: 문제해결
+  unit_path: [미적분, 수열의 극한, 급수, 등비급수의 활용(도형)]
+  key_concepts: [등비급수, 삼각비, 몫의 미분법, 최대·최소]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 경희대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 경희대학교
+  admission_year: 2023
+  admission_type: 논술(모의)
+  track: 의·약학계열(수학)
+  question_no: 2
+  official_url: 'https://iphak.khu.ac.kr/detail.do?menuurl=89BGs%2bk748ajyySWoWlQPw%3d%3d&board_seq=6225&pageNo=1&categoryid=27&userpwd='
+  retrieved_at: '2026-11-21'
+  original_points: 30
+  rights_notice: 경희대학교 입학처 공개 자료(기출문제·예시답안). 내부 분석용
+  note: '문제 = 4. [의약학계_수학] 2023 문제지_공지.pdf p.2, 원 번호 [논제 I-2], 해설 = 4. [의약학계_수학] 2023 예시답안 및 문항해설_공지.pdf p.2~3(예시답안), p.3(문항 해설). 공식 채점 기준 미공개 — 소문항 배점(15·15)은 원문, 마크 배분은 자체.'
+
+verify: verify/KHU-M23D.py::p02
+
+stimuli:
+- label: 가
+  body: |
+    평면 $\alpha$ 위에 있는 도형의 넓이를 $\mathrm{S}$, 이 도형의 평면 $\beta$ 위로의 정사영의 넓이를 $\mathrm{S'}$이라 할 때, 두 평면 $\alpha$와 $\beta$가 이루는 각의 크기를 $\theta\ (0^\circ\le\theta\le90^\circ)$라 하면
+    $$\mathrm{S'}=\mathrm{S}\cos\theta.$$
+- label: 나
+  body: |
+    등비급수 $\displaystyle\sum_{n=1}^{\infty}ar^{n-1}=a+ar+ar^2+\cdots+ar^{n-1}+\cdots\ (a\neq0)$은
+    (1) $|r|<1$일 때, 수렴하고 그 합은 $\dfrac{a}{1-r}$이다.
+    (2) $|r|\ge1$일 때, 발산한다.
+- label: 다
+  body: |
+    미분가능한 두 함수 $f(x)$와 $g(x)\ (g(x)\neq0)$에 대하여
+    (1) $\left\{\dfrac{1}{g(x)}\right\}'=-\dfrac{g'(x)}{\{g(x)\}^2}$
+    (2) $\left\{\dfrac{f(x)}{g(x)}\right\}'=\dfrac{f'(x)g(x)-f(x)g'(x)}{\{g(x)\}^2}$
+- label: 라
+  body: |
+    미분가능한 함수 $f(x)$에 대하여 $f'(a)=0$이고, $x=a$의 좌우에서
+    (1) $f'(x)$의 부호가 양에서 음으로 바뀌면 $f(x)$는 $x=a$에서 극대이다.
+    (2) $f'(x)$의 부호가 음에서 양으로 바뀌면 $f(x)$는 $x=a$에서 극소이다.
+
+stem: |
+  Ⅰ. 다음 제시문을 읽고 논제에 답하시오. (60점)
+  [논제 I-2] 원점이 O이고 점 B가 $x$축에 있다고 하자. $\overline{\mathrm{OA}}=1$이고, 중심각이 $\angle\mathrm{AOB}=2\theta$인 부채꼴 OAB 안에 그림과 같이 내접하는 원을 그리고, 그 중심을 $\mathrm{C_1}$이라 하자. 선분 OA, 선분 OB와 중심이 $\mathrm{C_1}$인 원과 그림과 같이 접하는 두 번째 원의 중심을 $\mathrm{C_2}$라 하자. 같은 방법으로 그림과 같이 인접하는 원들끼리 서로 접하는 원들을 무한히 그리고, 각각의 중심을 $\mathrm{C_3},\mathrm{C_4},\cdots$라고 하자. 이때, 중심이 $\mathrm{C}_n$인 원의 반지름을 $r_n$이라 하자. 단, $0<\theta<\dfrac{\pi}{2}$이다.
+  [그림 설명: 좌표평면에서 O를 꼭짓점으로 하고 B는 x축 위, A는 제1사분면에 있는 부채꼴 OAB. 호 AB와 선분 OA, OB에 접하는 가장 큰 원(중심 C₁)이 있고, 호와의 접점이 D이다. 각 AOB의 이등분선(O와 D를 잇는 선분) 위에 C₁, C₂, C₃, C₄가 O 쪽으로 차례로 놓이며, 원들은 점점 작아지면서 OA, OB에 접하고 이웃한 원과 외접한다.]
+
+subparts:
+- id: '1'
+  stem: |
+    부채꼴 OAB 안에 접하는 모든 원들의 넓이의 합을 구하고, 그 근거를 논술하시오. (15점)
+  points: 15
+  depends_on: []
+  answer: {kind: expression, value: '\dfrac{\pi}{4}\sin\theta', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $r_1=\dfrac{\sin\theta}{1+\sin\theta}$, 반지름 공비 $\dfrac{1-\sin\theta}{1+\sin\theta}$, 넓이 공비는 그 제곱.
+    steps:
+    - {id: 1a, content: '$\displaystyle\sum A_n=\dfrac{\pi r_1^2}{1-\left(\frac{1-\sin\theta}{1+\sin\theta}\right)^2}=\dfrac{\pi}{4}\sin\theta$', criteria: [1.M1, 1.A1, 1.M2, 1.A2]}
+    hint_ladder:
+    - 첫 번째 원의 중심에서 OB에 수선을 내려 보자.
+    - 이웃한 두 원의 중심을 잇고 작은 원의 중심에서 큰 원 쪽 수선을 생각하자.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 예시답안 p.2
+    steps:
+    - id: 1b-1
+      content: |
+        중심이 $\mathrm{C_1}$인 원이 부채꼴과 접하는 점을 D(호), E(OA), F(OB)라 하면 선분 $\mathrm{OC_1}$의 연장선과 호 AB가 D에서 만난다. $\overline{\mathrm{C_1D}}=\overline{\mathrm{C_1F}}=r_1$이고 $\angle\mathrm{BOD}=\theta$이므로 삼각형 $\mathrm{C_1OF}$에서 $\sin\theta=\dfrac{\overline{\mathrm{C_1F}}}{\overline{\mathrm{OC_1}}}=\dfrac{r_1}{1-r_1}$, 따라서 $r_1=\dfrac{\sin\theta}{1+\sin\theta}$.
+      criteria: [1.M1]
+    - id: 1b-2
+      content: |
+        자연수 $n$에 대해 중심이 $\mathrm{C}_{n+1}$인 원은 중심이 $\mathrm{C}_n$인 원과 접하므로 $\sin\theta=\dfrac{r_n-r_{n+1}}{r_n+r_{n+1}}$이고, $r_{n+1}=\dfrac{1-\sin\theta}{1+\sin\theta}r_n$.
+      criteria: [1.A1]
+    - id: 1b-3
+      content: |
+        중심이 $\mathrm{C}_n$인 원의 넓이를 $A_n$이라 하면 $\{A_n\}$은 첫째항 $\pi r_1^2=\pi\left(\dfrac{\sin\theta}{1+\sin\theta}\right)^2$, 공비 $\left(\dfrac{1-\sin\theta}{1+\sin\theta}\right)^2$인 등비수열이다(공비는 0과 1 사이).
+      criteria: [1.M2]
+    - id: 1b-4
+      content: |
+        제시문 [나]에 의해 $\displaystyle\sum_{n=1}^{\infty}A_n=\dfrac{\pi\left(\frac{\sin\theta}{1+\sin\theta}\right)^2}{1-\left(\frac{1-\sin\theta}{1+\sin\theta}\right)^2}=\dfrac{\pi\sin^2\theta}{4\sin\theta}=\dfrac{\pi}{4}\sin\theta$.
+      criteria: [1.A2]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 4
+      evidence: 삼각형 $\mathrm{C_1OF}$에서 $\sin\theta=\dfrac{r_1}{1-r_1}$로 $r_1=\dfrac{\sin\theta}{1+\sin\theta}$를 구했다.
+      depends_on: []
+      steps: [1b-1]
+    - id: 1.A1
+      mark_type: A
+      points: 4
+      evidence: $r_{n+1}=\dfrac{1-\sin\theta}{1+\sin\theta}r_n$을 근거와 함께 구했다.
+      depends_on: [1.M1]
+      steps: [1b-2]
+    - id: 1.M2
+      mark_type: M
+      points: 3
+      evidence: 넓이가 첫째항 $\pi r_1^2$, 공비 $\left(\dfrac{1-\sin\theta}{1+\sin\theta}\right)^2$인 등비수열임을 밝히고 등비급수 합 공식을 적용했다.
+      depends_on: []
+      steps: [1b-3]
+    - id: 1.A2
+      mark_type: A
+      points: 4
+      evidence: 넓이의 합 $\dfrac{\pi}{4}\sin\theta$를 구했다.
+      depends_on: [1.M2, 1.A1]
+      steps: [1b-4]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-CAL-6609}
+  misconceptions:
+  - id: MC-CAL-6609
+    outcome_code: '70'
+    wrong_work: '넓이의 공비를 $\dfrac{1-\sin\theta}{1+\sin\theta}$로 두어 합을 $\dfrac{\pi\sin\theta}{2(1+\sin\theta)}$로 계산'
+    detect_cue: 넓이 급수의 공비가 제곱되어 있지 않다
+    feedback: 반지름이 $k$배이면 넓이는 $k^2$배입니다.
+    remedy: [RL-1]
+- id: '2'
+  stem: |
+    $0<\theta<\dfrac{\pi}{2}$에서 $\theta$의 값이 변하면, 모든 원들의 크기가 변한다. $r_{100}=f(\theta)$라 할 때, $f(\theta)$가 최대가 되는 경우의 $\theta$에 대해서 $r_1$의 값을 구하고, 그 근거를 논술하시오. (15점)
+  points: 15
+  depends_on: ['1']
+  answer: {kind: value, value: '\dfrac{1}{200}', equivalents: ['1/200'], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: $x=\sin\theta$, $g(x)=\dfrac{x(1-x)^{99}}{(1+x)^{100}}$, $g'(x)=\dfrac{(1-x)^{98}(1-199x)}{(1+x)^{101}}$ ⇒ $\sin\theta=\dfrac{1}{199}$.
+    steps:
+    - {id: 2a, content: '$r_1=\dfrac{1/199}{1+1/199}=\dfrac{1}{200}$', criteria: [2.M1, 2.M2, 2.A1, 2.R1, 2.A2]}
+    hint_ladder:
+    - $r_{100}$을 $\sin\theta$만의 식으로 나타내 보자.
+    - $\sin\theta=x$로 치환하면 미분이 쉬워진다.
+  - id: S2-B
+    audience: B
+    method_no: 1
+    source_flow: 예시답안 p.2~3
+    steps:
+    - id: 2b-1
+      content: |
+        (1)에서 $\{r_n\}$은 첫째항 $r_1$, 공비 $\dfrac{1-\sin\theta}{1+\sin\theta}$인 등비수열이므로 $r_n=\dfrac{\sin\theta(1-\sin\theta)^{n-1}}{(1+\sin\theta)^n}$, 따라서 $r_{100}=\dfrac{\sin\theta(1-\sin\theta)^{99}}{(1+\sin\theta)^{100}}=f(\theta)$.
+      criteria: [2.M1]
+    - id: 2b-2
+      content: |
+        $x=\sin\theta$, $g(x)=\dfrac{x(1-x)^{99}}{(1+x)^{100}}$라 하면 $f(\theta)=g(\sin\theta)$, $f'(\theta)=g'(\sin\theta)\cos\theta$이고 $0<\theta<\dfrac{\pi}{2}$에서 $\cos\theta>0$, $0<x<1$이므로 $g'(x)=0$인 $x$를 찾으면 된다.
+      criteria: [2.M2]
+    - id: 2b-3
+      content: |
+        제시문 [다]에 의해 $g'(x)=\dfrac{\{(1-x)^{99}-99x(1-x)^{98}\}(1+x)^{100}-100x(1-x)^{99}(1+x)^{99}}{(1+x)^{200}}$이고 정리하면
+        $g'(x)=\dfrac{(1-x)^{98}\{(1+x)(1-100x)-100x(1-x)\}}{(1+x)^{101}}=\dfrac{(1-x)^{98}(1-199x)}{(1+x)^{101}}$.
+      criteria: [2.A1]
+    - id: 2b-4
+      content: |
+        $\sin\theta=\dfrac{1}{199}$을 만족하는 $0<\theta<\dfrac{\pi}{2}$는 $\sin\theta$가 증가함수이므로 유일하게 존재하고, 이를 $\theta_0$이라 하자. $\theta<\theta_0$이면 $f'(\theta)>0$, $\theta>\theta_0$이면 $f'(\theta)<0$이므로 제시문 [라]에 의해 $f(\theta)$는 $\theta=\theta_0$에서 극댓값을 갖고 이는 최댓값이다.
+      criteria: [2.R1]
+    - id: 2b-5
+      content: |
+        즉, $r_{100}$은 $\sin\theta=\dfrac{1}{199}$일 때 최대가 된다. 이때 $r_1=\dfrac{\sin\theta}{1+\sin\theta}=\dfrac{\frac{1}{199}}{1+\frac{1}{199}}=\dfrac{1}{200}$.
+      criteria: [2.A2]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 3
+      evidence: $r_{100}=\dfrac{\sin\theta(1-\sin\theta)^{99}}{(1+\sin\theta)^{100}}$을 구했다.
+      depends_on: []
+      ft: {allowed: true, from: [1.A1], max_points: 3}
+      steps: [2b-1]
+    - id: 2.M2
+      mark_type: M
+      points: 3
+      evidence: '$x=\sin\theta$ 치환(또는 직접 미분)으로 $f\,''(\theta)=g\,''(\sin\theta)\cos\theta$, $\cos\theta>0$을 밝혔다.'
+      depends_on: []
+      steps: [2b-2]
+    - id: 2.A1
+      mark_type: A
+      points: 4
+      evidence: $g'(x)=\dfrac{(1-x)^{98}(1-199x)}{(1+x)^{101}}$을 구했다.
+      depends_on: [2.M2]
+      steps: [2b-3]
+    - id: 2.R1
+      mark_type: R
+      points: 3
+      evidence: $\sin\theta=\dfrac{1}{199}$의 좌우에서 도함수 부호가 양에서 음으로 바뀌어 최대임을 밝혔다.
+      depends_on: [2.A1]
+      steps: [2b-4]
+    - id: 2.A2
+      mark_type: A
+      points: 2
+      evidence: $r_1=\dfrac{1}{200}$을 구했다.
+      depends_on: [2.R1]
+      steps: [2b-5]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-6610}
+  misconceptions:
+  - id: MC-CAL-6610
+    outcome_code: '71'
+    wrong_work: '$g''(x)=0$의 해로 $x=1$도 후보로 두거나 부호 변화 확인 없이 $\sin\theta=\dfrac{1}{199}$을 최대로 단정'
+    detect_cue: 극대 판정(부호 변화) 또는 $0<x<1$ 범위 언급이 없다
+    feedback: 치환한 변수의 범위 $0<x<1$을 확인하고, 도함수의 부호 변화로 최대임을 밝히세요.
+    remedy: [RL-2]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CAL-6609}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-GEOM-SERIES}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-CAL-6610}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-COMPOSITE-DIFF-MAX}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-input-v1, item_version: 1, verdict: pass, date: 2026-11-21, note: 원문 PDF 이미지 판독으로 옮김 · 해설은 경희대 예시답안 흐름}
+
+created: 2026-11-21
+updated: 2026-11-21

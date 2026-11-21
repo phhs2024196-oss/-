@@ -1,0 +1,263 @@
+schema_version: '2.0'
+id: KHU-M23-03
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: KHU
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 전수
+points: 35
+time_estimate_min: 25
+intent: 가격 변동을 수형도로 구성해 경로별 이익과 확률로 기댓값을 계산하고, 일반화된 상황에서 항등식 조건을 연립방정식으로 바꾸어 푸는 능력을 본다.
+key_idea: (1)은 8가지 경로를 모두 나열해 최저 가격과 이익을 표로 정리하고, (2)는 $A_1=uA_0$, $A_1=dA_0$ 두 경우를 대입해 $p$, $\beta$의 연립방정식을 푼다.
+stuck: (2)에서 'A_1의 가격에 상관없이'를 두 경우 대입으로 읽는 단계
+idea_tags: [IDEA-TREE-DIAGRAM-ENUM, IDEA-IDENTITY-SUBSTITUTE-CASES]
+tags: [경희 모의, 기댓값, 수형도, 이항 가격 모형]
+elements:
+  materials: [금 한 돈 가격의 1년 단위 변동(확률 p로 u배, q로 d배), 3년 동안 최저가 구매 약정, 1년 후 조건부 구매 약정]
+  concepts: [이산확률변수의 기댓값, 독립시행의 확률, 항등식]
+  tools: [수형도로 경로 전수 나열, 경로별 확률 곱, 'A_1의 두 값 대입으로 연립방정식']
+  conditions:
+  - '$p=\dfrac13$, $u=2$, $d=\dfrac12$, $A_0=20$ ⇒ 3년 후 가격 경로 8가지'
+  - '이익 = 3년 후 가격 − 3년 동안 가격 중 최저가(공식 해설은 현재 가격 $A_0$ 포함)'
+  - '$V_0+\beta A_0=V_1+\beta A_1$이 $A_1$에 상관없이 성립 ⇒ $A_1=uA_0$, $A_1=dA_0$ 두 식'
+  stimuli_used: [라]
+  subpart_links: null
+
+curriculum:
+  version: '2015'
+  subjects: [확률과통계]
+  scope_2028: common
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 이산확률변수의 기댓값(평균)과 표준편차를 구할 수 있다(요지)
+    verified: false
+  content_area: 통계 – 확률분포(이산확률변수의 기댓값)
+  behavior_domain: 문제해결
+  unit_path: [확률과통계, 통계, 확률분포, 이산확률변수의 기댓값]
+  key_concepts: [기댓값, 독립시행, 항등식]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 경희대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 경희대학교
+  admission_year: 2023
+  admission_type: 논술(모의)
+  track: 자연계열
+  question_no: 3
+  official_url: 'https://iphak.khu.ac.kr/detail.do?menuurl=89BGs%2bk748ajyySWoWlQPw%3d%3d&board_seq=6225&pageNo=1&categoryid=27&userpwd='
+  retrieved_at: '2026-11-21'
+  original_points: 35
+  rights_notice: 경희대학교 입학처 공개 자료(기출문제·예시답안). 내부 분석용
+  note: '문제 = 3. [자연계] 2023 문제지_공지.pdf p.2, 원 번호 [논제 Ⅲ], 해설 = 3. [자연계] 2023 예시답안 및 문항해설_공지.pdf p.3~4(예시답안), p.4(문항 해설). 공식 채점 기준 미공개 — 소문항 배점(15·20)은 원문, 마크 배분은 자체. [해석 주의] (1) 공식 예시답안은 최저 가격에 현재 가격 A_0=20을 포함(예: 20→40→80→160 의 최저가 20, 이익 140)해 100/9를 얻음. 발문 예시(A_1~A_3만 나열)대로 A_1~A_3 중 최저가로 읽으면 80/9 (verify 에 두 값 출력). 공식 답 100/9 를 정답으로 둠.'
+
+verify: verify/KHU-M23.py::p03
+
+stimuli:
+- label: 가
+  body: |
+    함수 $f(x)$가 닫힌구간 $[a,b]$에서 연속일 때, 곡선 $y=f(x)$와 $x$축 및 두 직선 $x=a$, $x=b$로 둘러싸인 도형의 넓이 $S$는
+    $$S=\int_a^b|f(x)|\,dx$$
+    이다.
+- label: 나
+  body: |
+    함수 $f(x)$가 닫힌구간 $[a,b]$에서 연속이고 $f(a)\neq f(b)$이면, $f(a)$와 $f(b)$ 사이의 임의의 값 $k$에 대하여
+    $$f(c)=k$$
+    인 $c$가 열린구간 $(a,b)$에 적어도 하나 존재한다.
+- label: 다
+  body: |
+    두 초점 $\mathrm{F}(c,0)$, $\mathrm{F'}(-c,0)$에서의 거리의 합이 $2a$인 타원의 방정식은
+    $$\dfrac{x^2}{a^2}+\dfrac{y^2}{b^2}=1\ (\text{단, }a>c>0,\ b^2=a^2-c^2)$$
+    두 초점 $\mathrm{F}(0,c)$, $\mathrm{F'}(0,-c)$에서의 거리의 합이 $2b$인 타원의 방정식은
+    $$\dfrac{x^2}{a^2}+\dfrac{y^2}{b^2}=1\ (\text{단, }b>c>0,\ a^2=b^2-c^2)$$
+- label: 라
+  body: |
+    이산확률변수 $X$의 확률질량함수가 $P(X=x_i)=p_i\ (i=1,2,\cdots,n)$일 때, $X$의 기댓값(평균) $E(X)$는
+    $$E(X)=x_1p_1+x_2p_2+\cdots+x_np_n$$
+
+stem: |
+  [논제 Ⅲ] 경희 금은방에서 현재 금 한 돈을 $A_0$만원의 가격에 판매하고 있다. 금 한 돈의 가격이 1년마다 변한다고 할 때, $n$년 후의 금 한 돈의 가격을 $A_n$만원이라 하자. $A_n$은 $p$의 확률로 $uA_{n-1}$이 되고 $q=1-p$의 확률로 $dA_{n-1}$이 된다고 하자. (단, $n$은 자연수, $0<d<1<u$). 다음 물음에 답하시오.
+
+subparts:
+- id: '1'
+  stem: |
+    $p=\dfrac13$, $u=2$, $d=\dfrac12$, $A_0=20$이라 하자. 민국은 3년 후에 금 한 돈을 3년 동안 변한 금 한 돈의 가격 중에 가장 싼 값으로 구입하기로 경희 금은방과 약속하였다. 민국이 3년 후에 이 금 한 돈 거래를 통해 얻는 이익의 기댓값을 구하고, 그 근거를 논술하시오. (예를 들어, 금 한 돈의 가격이 3년 동안 $A_1=10$, $A_2=20$, $A_3=40$으로 변했다면 민국은 3년 후 40만원인 금 한 돈의 가격을 10만원으로 구입하여 30만원의 이익을 남긴다.) (15점)
+  points: 15
+  depends_on: []
+  answer: {kind: value, value: '\dfrac{100}{9}', equivalents: ['100/9'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: 8가지 경로의 (최저가, 이익, 확률)을 표로 정리해 기댓값을 계산한다.
+    steps:
+    - {id: 1a, content: '이익 $140,20,20,0,30,0,5,0$, 확률 $\dfrac{1}{27},\dfrac{2}{27},\dfrac{2}{27},\dfrac{4}{27},\dfrac{2}{27},\dfrac{4}{27},\dfrac{4}{27},\dfrac{8}{27}$', criteria: [1.M1, 1.A1, 1.M2, 1.A2]}
+    hint_ladder:
+    - 3년 동안의 가격 변화를 수형도로 그려 보자.
+    - 각 경로의 확률은 $p$, $q$의 곱이다.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 예시답안 p.3
+    steps:
+    - id: 1b-1
+      content: |
+        수형도: $20\to40$ 또는 $10$; $40\to80$ 또는 $20$, $10\to20$ 또는 $5$; 3년 후 가격은 $160,40,40,10,40,10,10,\dfrac52$. 총 8가지 경로가 있다.
+      criteria: [1.M1]
+    - id: 1b-2
+      content: |
+        경로별 (최저가격, 이익, 확률):
+        $20\to40\to80\to160$: $(20,140,\tfrac{1}{27})$, $20\to40\to80\to40$: $(20,20,\tfrac{2}{27})$, $20\to40\to20\to40$: $(20,20,\tfrac{2}{27})$, $20\to40\to20\to10$: $(10,0,\tfrac{4}{27})$,
+        $20\to10\to20\to40$: $(10,30,\tfrac{2}{27})$, $20\to10\to20\to10$: $(10,0,\tfrac{4}{27})$, $20\to10\to5\to10$: $(5,5,\tfrac{4}{27})$, $20\to10\to5\to\tfrac52$: $(\tfrac52,0,\tfrac{8}{27})$.
+      criteria: [1.A1, 1.M2]
+    - id: 1b-3
+      content: |
+        제시문 [라]에 의해 이익의 기댓값은
+        $140\times\dfrac{1}{27}+20\times\dfrac{2}{27}+20\times\dfrac{2}{27}+0\times\dfrac{4}{27}+30\times\dfrac{2}{27}+0\times\dfrac{4}{27}+5\times\dfrac{4}{27}+0\times\dfrac{8}{27}=\dfrac{100}{9}$.
+      criteria: [1.A2]
+  - id: S1-ALT
+    audience: ALT
+    method_no: 2
+    key_idea: '[해석 주의] 최저가를 $A_1$~$A_3$ 중에서만 고르면 이익은 $120,0,20,0,30,0,5,0$이 되어 기댓값은 $\dfrac{80}{9}$. 공식 예시답안은 현재 가격을 포함해 $\dfrac{100}{9}$.'
+    steps:
+    - {id: 1c-1, content: '$120\cdot\dfrac{1}{27}+20\cdot\dfrac{2}{27}+30\cdot\dfrac{2}{27}+5\cdot\dfrac{4}{27}=\dfrac{80}{9}$ (참고)', criteria: []}
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 4
+      evidence: 3년 동안의 가격 변화 8가지 경로(수형도)를 제시했다.
+      depends_on: []
+      steps: [1b-1]
+    - id: 1.A1
+      mark_type: A
+      points: 4
+      evidence: 각 경로의 최저가격과 이익을 정확히 구했다.
+      depends_on: [1.M1]
+      steps: [1b-2]
+    - id: 1.M2
+      mark_type: M
+      points: 3
+      evidence: 각 경로의 확률을 $p$, $q$의 곱($\dfrac{1}{27}$, $\dfrac{2}{27}$, $\dfrac{4}{27}$, $\dfrac{8}{27}$)으로 구했다.
+      depends_on: []
+      steps: [1b-2]
+    - id: 1.A2
+      mark_type: A
+      points: 4
+      evidence: 기댓값 $\dfrac{100}{9}$을 구했다.
+      depends_on: [1.A1, 1.M2]
+      steps: [1b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-PRB-6605}
+  misconceptions:
+  - id: MC-PRB-6605
+    outcome_code: '70'
+    wrong_work: '8가지 경로를 모두 확률 $\dfrac18$로 두어 기댓값을 $\dfrac{215}{8}$ 등으로 계산'
+    detect_cue: 확률에 $\dfrac18$이 나오거나 $p$, $q$를 쓰지 않았다
+    feedback: 오를 확률 $\dfrac13$과 내릴 확률 $\dfrac23$이 다르므로 경로마다 확률이 다릅니다.
+    remedy: [RL-1]
+- id: '2'
+  stem: |
+    민국은 1년 후에 금 한 돈의 가격 $A_1$만원이 $A_0$만원보다 비싼 경우에는 $A_0$만원의 가격으로 금 한 돈을 구입하고, $A_0$만원보다 싼 경우에는 금 한 돈을 구입하지 않기로 경희 금은방과 약속하였다. 민국이가 1년 후에 얻는 이익을 $V_1$이라고 하자. $V_0$을 $V_1$의 기댓값이라고 할 때, 상수 $\beta$가 $A_1$의 가격에 상관없이 $V_0+\beta A_0=V_1+\beta A_1$을 만족한다. $p$와 $\beta$를 $u$와 $d$를 이용하여 나타내고, 그 근거를 논술하시오. (20점)
+  points: 20
+  depends_on: []
+  answer: {kind: expression, value: 'p=\dfrac{1-d}{u-d},\ \beta=\dfrac{1-u}{u-d}', equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: $V_0=pA_0(u-1)$이고, $A_1=uA_0$, $A_1=dA_0$ 두 경우를 대입한 연립방정식을 푼다.
+    steps:
+    - {id: 2a, content: '$V_0+\beta A_0=A_0(u-1)+\beta uA_0=\beta dA_0$', criteria: [2.M1, 2.A1, 2.M2, 2.A2]}
+    hint_ladder:
+    - 1년 후 가능한 상황은 두 가지뿐이다.
+    - 두 경우 모두 등식이 성립해야 한다.
+  - id: S2-B
+    audience: B
+    method_no: 1
+    source_flow: 예시답안 p.3~4
+    steps:
+    - id: 2b-1
+      content: |
+        1년 후 $A_1=uA_0$(확률 $p$)이면 $V_1=uA_0-A_0$, $A_1=dA_0$(확률 $q$)이면 구입하지 않아 $V_1=0$. 제시문 [라]에 의해 $V_0=p\times(uA_0-A_0)+q\times0=pA_0(u-1)$.
+      criteria: [2.M1, 2.A1]
+    - id: 2b-2
+      content: |
+        $V_0+\beta A_0=V_1+\beta A_1$이 $A_1$에 상관없이 성립하므로 $A_1=uA_0$, $A_1=dA_0$일 때 대입하면
+        $V_0+\beta A_0=A_0(u-1)+\beta uA_0$, $V_0+\beta A_0=0+\beta dA_0$.
+      criteria: [2.M2]
+    - id: 2b-3
+      content: |
+        두 식을 빼면 $A_0(u-1)+\beta A_0(u-d)=0$이므로 $\beta=\dfrac{1-u}{u-d}$. 둘째 식에 $V_0=pA_0(u-1)$을 넣으면 $p(u-1)=\beta(d-1)=\dfrac{(1-u)(d-1)}{u-d}$, 따라서 $p=\dfrac{1-d}{u-d}$.
+      criteria: [2.A2]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 4
+      evidence: 1년 후 두 경우의 이익 $V_1=uA_0-A_0$ 또는 $0$을 제시했다.
+      depends_on: []
+      steps: [2b-1]
+    - id: 2.A1
+      mark_type: A
+      points: 4
+      evidence: $V_0=pA_0(u-1)$을 구했다.
+      depends_on: [2.M1]
+      steps: [2b-1]
+    - id: 2.M2
+      mark_type: M
+      points: 6
+      evidence: $A_1=uA_0$, $A_1=dA_0$를 각각 대입한 두 등식을 세웠다.
+      depends_on: []
+      steps: [2b-2]
+    - id: 2.A2
+      mark_type: A
+      points: 6
+      evidence: 연립방정식을 풀어 $\beta=\dfrac{1-u}{u-d}$, $p=\dfrac{1-d}{u-d}$를 구했다.
+      depends_on: [2.M2]
+      steps: [2b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-PRB-6606}
+  misconceptions:
+  - id: MC-PRB-6606
+    outcome_code: '71'
+    wrong_work: '$A_1$ 자리에 기댓값 $E(A_1)$ 하나만 넣어 식이 하나뿐이어서 $p$, $\beta$를 정하지 못함'
+    detect_cue: 등식이 하나만 있고 $p$와 $\beta$ 중 하나가 남아 있다
+    feedback: '$A_1$에 상관없이 성립하므로 가능한 두 값 $uA_0$, $dA_0$을 모두 대입해 두 식을 얻으세요.'
+    remedy: [RL-2]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-PRB-6605}
+  relation: remediation
+  target: {kind: concept, ref: CON-PRB-EXPECT}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-PRB-6606}
+  relation: remediation
+  target: {kind: concept, ref: CON-PRB-EXPECT}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-input-v1, item_version: 1, verdict: pass, date: 2026-11-21, note: 원문 PDF 이미지 판독으로 옮김 · 해설은 경희대 예시답안 흐름}
+
+created: 2026-11-21
+updated: 2026-11-21

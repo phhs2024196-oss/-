@@ -1,0 +1,321 @@
+schema_version: '2.0'
+id: KHU-M22-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: KHU
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 최적2단
+points: 25
+time_estimate_min: 30
+intent: 절대부등식(또는 인수분해 공식)으로 제약 아래 이차식의 최댓값을 구하고, 지수함수를 합성한 함수의 조건에서 계수를 결정해 최솟값의 함수가 최댓값을 갖는지 판정하는 능력을 본다.
+key_idea: (1)은 $2pq\le p^2+q^2$에 $p=ax$, $q=\dfrac{120y}{a}$를 넣고 $100+a^2=\dfrac{120^2}{a^2}$이 되도록 $a$를 고른다. (2)는 $b=12$, $c=-9a$, 극값 조건 $a<-12$를 얻고, 최솟값 $k(a)=\dfrac34a^3-9a$가 $a<-12$에서 증가하므로 최댓값이 없다.
+stuck: (2)에서 극값 조건으로 얻은 범위 $a<-12$가 끝점을 포함하지 않아 최댓값이 존재하지 않음을 판단하는 단계
+idea_tags: [IDEA-AM-GM-WEIGHTED-SPLIT, IDEA-EXP-SUBSTITUTE-POLY, IDEA-OPEN-INTERVAL-NO-MAX]
+tags: [경희 모의, 절대부등식, 지수함수의 미분, 최대·최소]
+elements:
+  materials: ['$x^2+y^2=1$ 위의 이차식 $100x^2+240xy$', '삼차함수 $f(x)=4x^3+ax^2+bx+c$와 $g(x)=f(e^x)$', '조건 (ㄱ)(ㄴ)(ㄷ)', '$h(x)=g(x)-2(a^2+6)e^x$의 최솟값']
+  concepts: [인수분해 공식과 절대부등식, 지수함수의 도함수, 극한, 극대·극소, 함수의 증가·감소, 최대·최소]
+  tools: ['$(p-q)^2\ge0$에서 $2pq\le p^2+q^2$', '계수가 같도록 매개변수 $a$ 선택', '항등식에 $x=1$ 대입으로 계수 결정', '$A=e^x$ 치환으로 이차식의 양근 조건', 'k(a)의 도함수 부호로 증가 판정']
+  conditions:
+  - '$x^2+y^2=1$ ⇒ 상계가 $x^2+y^2$의 상수배가 되도록 분할'
+  - '(ㄱ) 모든 실수 $x$에서 $g\,''(x)=e^{4x}g\,''(-x)$ ⇒ $b=12$'
+  - '(ㄴ) $\lim_{x\to-\infty}g(x)=-9a$ ⇒ $c=-9a$'
+  - '(ㄷ) 극값이 적어도 하나 ⇒ $6A^2+aA+6$이 중근이 아닌 양의 근을 가짐 ⇒ $a<-12$ (끝점 미포함)'
+  stimuli_used: [가, 나, 다, 라]
+  subpart_links: null
+
+curriculum:
+  version: '2015'
+  subjects: [수학, 수학Ⅱ, 미적분]
+  scope_2028: calc2
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 지수함수와 로그함수를 미분할 수 있다(요지)
+    verified: false
+  content_area: 미분법 – 지수함수의 도함수, 도함수의 활용(극값·최대·최소)
+  behavior_domain: 추론
+  unit_path: [미적분, 미분법, 도함수의 활용, 함수의 최대·최소]
+  key_concepts: [절대부등식, 지수함수의 도함수, 극값, 최대·최소]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 경희대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 경희대학교
+  admission_year: 2022
+  admission_type: 논술(모의)
+  track: 자연계열
+  question_no: 1
+  official_url: 'https://iphak.khu.ac.kr/detail.do?menuurl=89BGs%2bk748ajyySWoWlQPw%3d%3d&board_seq=2097&pageNo=1&categoryid=27&userpwd='
+  retrieved_at: '2026-11-21'
+  original_points: 25
+  rights_notice: 경희대학교 입학처 공개 자료(기출문제·예시답안). 내부 분석용
+  note: '문제 = [자연계] 2022학년도 모의논술 문제지_최종.pdf p.1~2, 원 번호 [논제 1], 해설 = [자연계] 2022학년도 모의논술 예시답안 및 문항해설_최종.pdf p.1~2(예시답안), p.7(문항 해설). 공식 채점 기준 미공개 — 소문항 배점(10·15)은 원문, 마크 배분은 자체. 예시답안은 조건을 ''조건(가)(나)(다)''로 부르나 문제지는 (ㄱ)(ㄴ)(ㄷ). (2)의 공식 답은 ''최솟값이 최대가 되는 a는 없다''. (2)는 의학계 수학 [논제 I-1](KHU-M22D-01)과 같은 문항.'
+
+verify: verify/KHU-M22.py::p01
+
+stimuli:
+- label: 가
+  body: |
+    하나의 다항식을 두 개 이상의 다항식의 곱으로 나타내는 인수분해는 다항식의 전개 과정을 거꾸로 생각한 것이다. 다음 인수분해 공식은 곱셈 공식에서 얻은 것이다.
+    (1) $a^2+2ab+b^2=(a+b)^2$
+    (2) $a^2-2ab+b^2=(a-b)^2$
+    (3) $a^2-b^2=(a+b)(a-b)$
+    (4) $x^2+(a+b)x+ab=(x+a)(x+b)$
+    (5) $acx^2+(ad+bc)x+bd=(ax+b)(cx+d)$
+- label: 나
+  body: |
+    함수 $f(x)$가 어떤 구간에 속하는 임의의 두 수 $x_1$, $x_2$에 대하여 $x_1<x_2$일 때 $f(x_1)<f(x_2)$이면 함수 $f(x)$는 그 구간에서 증가한다고 한다. 또, $x_1<x_2$일 때 $f(x_1)>f(x_2)$이면 $f(x)$는 그 구간에서 감소한다고 한다. 함수 $f(x)$가 어떤 열린구간에서 미분이 가능할 때, 그 열린구간에 속하는 모든 $x$에 대하여
+    (1) $f'(x)>0$이면 $f(x)$는 그 열린구간에서 증가한다.
+    (2) $f'(x)<0$이면 $f(x)$는 그 열린구간에서 감소한다.
+- label: 다
+  body: |
+    미분가능한 함수 $f(x)$에 대하여 $f'(a)=0$이고 $x=a$의 좌우에서
+    (1) $f'(x)$의 부호가 양에서 음으로 바뀌면 $f(x)$는 $x=a$에서 극대이다.
+    (2) $f'(x)$의 부호가 음에서 양으로 바뀌면 $f(x)$는 $x=a$에서 극소이다.
+- label: 라
+  body: |
+    함수 $f(x)$에서 $x$의 값이 음수이면서 그 절댓값이 한없이 커질 때, $f(x)$의 값이 일정한 값 $L$에 한없이 가까워지면 이것을 기호로
+    $$\lim_{x\to-\infty}f(x)=L\quad\text{또는}\quad x\to-\infty\text{일 때 }f(x)\to L$$
+    과 같이 나타낸다.
+- label: 마
+  body: |
+    어떤 시행에서 사건 $A$가 일어날 가능성을 수로 나타낸 것을 사건 $A$의 확률이라 하며, 이것을 기호로 $\mathrm{P}(A)$와 같이 나타낸다. 표본공간이 $S$인 어떤 시행에서 각 근원사건이 일어날 가능성이 모두 같은 정도로 기대될 때, 사건 $A$가 일어날 확률 $\mathrm{P}(A)$를 $\mathrm{P}(A)=\dfrac{n(A)}{n(S)}$로 정의하고, 이것을 표본공간 $S$에서 사건 $A$가 일어날 수학적 확률이라고 한다.
+- label: 바
+  body: |
+    사인법칙
+    삼각형ABC에서 $\angle\mathrm{A}$, $\angle\mathrm{B}$, $\angle\mathrm{C}$의 크기를 $\mathrm{A}$, $\mathrm{B}$, $\mathrm{C}$로 나타내고, 이들의 대변의 길이를 각각 $a$, $b$, $c$로 나타내기로 한다. 이때, 삼각형ABC의 외접원의 반지름의 길이를 $R$라 하면 다음 법칙이 성립한다.
+    $$\dfrac{a}{\sin A}=\dfrac{b}{\sin B}=\dfrac{c}{\sin C}=2R$$
+- label: 사
+  body: |
+    삼각함수의 덧셈정리
+    (1) $\sin(\alpha+\beta)=\sin\alpha\cos\beta+\cos\alpha\sin\beta$, $\sin(\alpha-\beta)=\sin\alpha\cos\beta-\cos\alpha\sin\beta$,
+    (2) $\cos(\alpha+\beta)=\cos\alpha\cos\beta-\sin\alpha\sin\beta$, $\cos(\alpha-\beta)=\cos\alpha\cos\beta+\sin\alpha\sin\beta$,
+    (3) $\tan(\alpha+\beta)=\dfrac{\tan\alpha+\tan\beta}{1-\tan\alpha\tan\beta}$, $\tan(\alpha-\beta)=\dfrac{\tan\alpha-\tan\beta}{1+\tan\alpha\tan\beta}$.
+
+stem: |
+  제시문 [가]~[사]를 읽고 다음 질문에 답하시오.
+  [논제 1]
+
+subparts:
+- id: '1'
+  stem: |
+    $x^2+y^2=1$을 만족하는 실수 $x,y$에 대하여 $100x^2+240xy$의 최댓값을 구하고, 그 근거를 논술하시오. (10점)
+  points: 10
+  depends_on: []
+  answer: {kind: value, value: '180', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $240xy\le a^2x^2+\dfrac{120^2}{a^2}y^2$에서 $100+a^2=\dfrac{120^2}{a^2}$이 되게 하면 상계가 $180(x^2+y^2)$.
+    steps:
+    - {id: 1a, content: '$a^2=\dfrac{-100+\sqrt{100^2+4\times120^2}}{2}=80$, $100+a^2=180$', criteria: [1.M1, 1.M2, 1.A1]}
+    hint_ladder:
+    - $(p-q)^2\ge0$을 이용해 $240xy$의 상계를 만들어 보자.
+    - 상계가 $x^2+y^2$의 상수배가 되도록 하자.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 예시답안 p.1
+    steps:
+    - id: 1b-1
+      content: |
+        임의의 실수 $p,q$에 대하여 $(p-q)^2\ge0$에서 $2pq\le p^2+q^2$이고 등호는 $p=q$에서 성립한다(제시문 [가]). $p=ax$, $q=120\dfrac{y}{a}$를 대입하면 $240xy\le a^2x^2+120^2\dfrac{y^2}{a^2}$에서
+        $100x^2+240xy\le(100+a^2)x^2+120^2\dfrac{y^2}{a^2}$이다.
+      criteria: [1.M1]
+    - id: 1b-2
+      content: |
+        $100+a^2=\dfrac{120^2}{a^2}$이 되도록 하는 $a^2$을 찾으면 $a^2=\dfrac{-100+\sqrt{100^2+4\times120^2}}{2}$(=80)이고
+        $100x^2+240xy\le\dfrac{100+\sqrt{100^2+4\times120^2}}{2}(x^2+y^2)=180$이다.
+      criteria: [1.M2]
+    - id: 1b-3
+      content: |
+        등호는 $ax=\dfrac{120y}{a}$, 즉 $y=\dfrac{2}{3}x$ ($x^2+y^2=1$)일 때 성립하므로 $100x^2+240xy$의 최댓값은 $180$이다.
+      criteria: [1.A1]
+  - id: S1-ALT
+    audience: ALT
+    method_no: 2
+    key_idea: $x=\cos t$, $y=\sin t$로 두면 $100x^2+240xy=50+50\cos2t+120\sin2t=50+130\sin(2t+\varphi)\le180$ (제시문 [사] 덧셈정리).
+    steps:
+    - {id: 1c-1, content: '$50+130\sin(2t+\varphi)$의 최댓값 $180$', criteria: [1.M1, 1.M2, 1.A1]}
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 4
+      evidence: $2pq\le p^2+q^2$(또는 삼각치환)으로 $240xy$의 상계를 세웠다.
+      depends_on: []
+      steps: [1b-1, 1c-1]
+    - id: 1.M2
+      mark_type: M
+      points: 3
+      evidence: 상계가 $x^2+y^2$의 상수배가 되도록 $a^2$을 정해 $180(x^2+y^2)$을 얻었다.
+      depends_on: []
+      steps: [1b-2, 1c-1]
+    - id: 1.A1
+      mark_type: A
+      points: 3
+      evidence: 등호가 성립함(또는 최댓값이 실제로 취해짐)을 밝히고 최댓값 $180$을 답했다.
+      depends_on: [1.M1, 1.M2]
+      steps: [1b-3, 1c-1]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-ALG-6611}
+  misconceptions:
+  - id: MC-ALG-6611
+    outcome_code: '70'
+    wrong_work: '$240xy\le120(x^2+y^2)=120$이므로 $100x^2+240xy\le100+120=220$을 최댓값으로 답함'
+    detect_cue: 답이 220이거나 등호 성립 조건을 확인하지 않았다
+    feedback: 두 부등식의 등호가 동시에 성립하는지 확인해야 상계가 최댓값이 됩니다.
+    remedy: [RL-1]
+- id: '2'
+  stem: |
+    삼차함수 $f(x)=4x^3+ax^2+bx+c$ ($a,b,c$ 상수)에 대하여 함수 $g(x)=f(e^x)$가 다음 조건을 만족시킨다.
+    (ㄱ) 모든 실수 $x$에 대하여 $g'(x)=e^{4x}g'(-x)$이다.
+    (ㄴ) $\displaystyle\lim_{x\to-\infty}g(x)=-9a$이다.
+    (ㄷ) 함수 $g(x)$는 최소한 하나의 극값을 가진다.
+    이러한 모든 함수 $g(x)$에 대하여, 함수 $h(x)=g(x)-2(a^2+6)e^x$의 최솟값이 최대가 되는 $a$의 값을 구하고, 그 근거를 논술하시오. (15점)
+  points: 15
+  depends_on: []
+  answer: {kind: value, value: '존재하지 않는다', equivalents: ['최솟값이 최대가 되는 a는 없다'], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: $b=12$, $c=-9a$, $a<-12$; $h$의 최솟값 $k(a)=\dfrac34a^3-9a$는 $a<-12$에서 증가하고 끝점이 없으므로 최댓값이 없다.
+    steps:
+    - {id: 2a, content: '$k\,''(a)=\dfrac94(a^2-4)>0$ ($a<-12$) ⇒ 최대가 되는 $a$ 없음', criteria: [2.M1, 2.A1, 2.M2, 2.A2, 2.M3, 2.A3, 2.R1]}
+    hint_ladder:
+    - (ㄱ)의 양변을 $e^x$의 거듭제곱으로 정리해 비교하자.
+    - $A=e^x$로 두면 $g'(x)=0$은 $A$에 대한 이차방정식이 된다.
+    - 최솟값을 $a$의 함수로 보고, $a$의 범위에 끝점이 있는지 살펴보자.
+  - id: S2-B
+    audience: B
+    method_no: 1
+    source_flow: 예시답안 p.2
+    steps:
+    - id: 2b-1
+      content: |
+        $g(x)=4e^{3x}+ae^{2x}+be^x+c$를 미분하면 $g'(x)=12e^{3x}+2ae^{2x}+be^x$이고, 조건 (ㄱ) $g'(x)=e^{4x}g'(-x)$로부터 $12e^{3x}+2ae^{2x}+be^x=e^{4x}(12e^{-3x}+2ae^{-2x}+be^{-x})=12e^x+2ae^{2x}+be^{3x}$. $x=1$을 대입하면 $12e^3+2ae^2+be=12e+2ae^2+be^3$이 되고, $b=12$임을 알 수 있다.
+      criteria: [2.M1]
+    - id: 2b-2
+      content: |
+        그래서 $g(x)=4e^{3x}+ae^{2x}+12e^x+c$이다. $\displaystyle\lim_{x\to-\infty}g(x)=\lim_{x\to-\infty}(4e^{3x}+ae^{2x}+12e^x+c)=c$이므로 조건 (ㄴ)으로부터 $c=-9a$이다(제시문 [라]).
+      criteria: [2.A1]
+    - id: 2b-3
+      content: |
+        조건 (ㄷ) 함수 $g(x)$가 최소한 하나의 극값을 가져야 하기에 도함수 $g'(x)=12e^{3x}+2ae^{2x}+12e^x$가 부호가 바뀌는 근을 가진다(제시문 [다]). $A=e^x$라 하면 $12A^3+2aA^2+12A=2A(6A^2+aA+6)$이 중근이 아닌 양의 근을 가져야 한다. $A>0$이므로 이차함수 $y=6A^2+aA+6$이 중근이 아닌 양의 근을 가져야 한다.
+      criteria: [2.M2]
+    - id: 2b-4
+      content: |
+        판별식 $a^2-4\cdot6\cdot6>0$이므로 $|a|>12$이다. 양의 근을 가지기 위하여 꼭짓점의 $A$좌표가 양수이므로 $a<0$이다. 이로부터 $a<-12$이다.
+      criteria: [2.A2]
+    - id: 2b-5
+      content: |
+        $h(x)=g(x)-2(a^2+6)e^x=4e^{3x}+ae^{2x}-2a^2e^x-9a$이고 $h'(x)=12e^{3x}+2ae^{2x}-2a^2e^x=2e^x(6e^{2x}+ae^x-a^2)=2e^x(3e^x-a)(2e^x+a)$이다. $a<0$이므로 $e^x=-\dfrac{a}{2}$, 즉 $x=\ln\left(-\dfrac{a}{2}\right)$만 근이 된다. $h'(x)$가 이 점에서 음에서 양으로 부호가 바뀌므로 $h(x)$는 $x=\ln\left(-\dfrac a2\right)$에서 최소이고, $h\left(\ln\left(-\dfrac a2\right)\right)=4\left(-\dfrac a2\right)^3+a\left(-\dfrac a2\right)^2-2a^2\left(-\dfrac a2\right)-9a=\dfrac34a^3-9a$가 최솟값이다.
+      criteria: [2.M3, 2.A3]
+    - id: 2b-6
+      content: |
+        함수 $k(a)=\dfrac34a^3-9a$라 하면 $k'(a)=\dfrac94a^2-9=\dfrac94(a^2-4)$이다. $a<-12$에서 $k'(a)$의 부호가 항상 양이므로 $k(a)$는 증가함수이다(제시문 [나]). $a<-12$에는 끝점이 포함되지 않으므로 $k(a)$는 최댓값을 가지지 않는다. 그래서 함수 $h(x)$의 최솟값이 최대가 되는 $a$는 없다.
+      criteria: [2.R1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 2
+      evidence: 조건 (ㄱ)을 정리해 $b=12$를 구했다.
+      depends_on: []
+      steps: [2b-1]
+    - id: 2.A1
+      mark_type: A
+      points: 2
+      evidence: 조건 (ㄴ)에서 $c=-9a$를 구했다.
+      depends_on: [2.M1]
+      steps: [2b-2]
+    - id: 2.M2
+      mark_type: M
+      points: 2
+      evidence: $A=e^x$ 치환으로 극값 조건을 $6A^2+aA+6$이 중근이 아닌 양의 근을 가질 조건으로 바꾸었다.
+      depends_on: []
+      steps: [2b-3]
+    - id: 2.A2
+      mark_type: A
+      points: 2
+      evidence: 판별식과 꼭짓점 조건으로 $a<-12$를 구했다.
+      depends_on: [2.M2]
+      steps: [2b-4]
+    - id: 2.M3
+      mark_type: M
+      points: 2
+      evidence: $h'(x)=2e^x(3e^x-a)(2e^x+a)$로 인수분해하고 $x=\ln\left(-\dfrac a2\right)$에서 최소임을 부호 변화로 밝혔다.
+      depends_on: []
+      steps: [2b-5]
+    - id: 2.A3
+      mark_type: A
+      points: 2
+      evidence: 최솟값 $\dfrac34a^3-9a$를 구했다.
+      depends_on: [2.M3]
+      steps: [2b-5]
+    - id: 2.R1
+      mark_type: R
+      points: 3
+      evidence: $k(a)=\dfrac34a^3-9a$가 $a<-12$에서 증가하고 끝점이 포함되지 않아 최댓값이 없으므로, 조건을 만족하는 $a$가 없다고 결론지었다.
+      depends_on: [2.A2, 2.A3]
+      steps: [2b-6]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-6612}
+  - {code: '72', misconception: MC-CAL-6613}
+  misconceptions:
+  - id: MC-CAL-6612
+    outcome_code: '71'
+    wrong_work: '$k(a)$가 증가하므로 $a=-12$에서 최대라고 답함'
+    detect_cue: 답이 $a=-12$
+    feedback: $a<-12$에는 $-12$가 포함되지 않습니다. 끝점이 없는 구간에서 증가함수는 최댓값을 갖지 않습니다.
+    remedy: [RL-2]
+  - id: MC-CAL-6613
+    outcome_code: '72'
+    wrong_work: '판별식 $\ge0$으로 두어 $a\le-12$를 얻고 $a=-12$를 답함'
+    detect_cue: 극값 조건에 등호($a\le-12$)가 있다
+    feedback: 도함수가 중근을 가지면 부호가 바뀌지 않아 극값이 아닙니다. 판별식 $>0$이어야 합니다.
+    remedy: [RL-3]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-ALG-6611}
+  relation: remediation
+  target: {kind: concept, ref: CON-ALG-QUAD-FORM-MAX}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-CAL-6612}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-MAXMIN-INTERVAL}
+  priority: 1
+- id: RL-3
+  trigger: {type: misconception, ref: MC-CAL-6613}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-EXP-EXTREMA}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-input-v1, item_version: 1, verdict: pass, date: 2026-11-21, note: 원문 PDF 이미지 판독으로 옮김 · 해설은 경희대 예시답안 흐름}
+
+created: 2026-11-21
+updated: 2026-11-21

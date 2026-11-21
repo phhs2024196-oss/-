@@ -1,0 +1,243 @@
+schema_version: '2.0'
+id: KHU-G22A-04
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: KHU
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 구성
+points: 25
+time_estimate_min: 30
+intent: 서로를 향해 움직이는 점들의 대칭성을 이용해 점의 위치를 극좌표 꼴 매개변수로 나타내고, 매개변수 미분과 덧셈정리로 반지름이 만족하는 관계식을 세워 치환적분으로 위치 함수와 움직인 거리를 구하는 능력을 본다.
+key_idea: '$f_1=r\cos t$, $g_1=r\sin t$, $f_2=r\cos(t+\theta)$, $g_2=r\sin(t+\theta)$로 두고 $\dfrac{g_1''}{f_1''}=$ 직선 $\mathrm{P_1P_2}$의 기울기에서 $\dfrac{r''}{r}=-\dfrac{1-\cos\theta}{\sin\theta}=-\alpha$.'
+stuck: 대칭성(모든 점이 같은 반지름·같은 각 간격 유지)을 써서 $\mathrm{P_2}$를 $\mathrm{P_1}$의 회전으로 표현하고 기울기 조건을 $r$, $r'$의 식으로 바꾸는 단계
+idea_tags: [IDEA-PURSUIT-CURVE-LOG-SPIRAL, IDEA-PARAM-SLOPE-EQUALS-CHORD, IDEA-SEPARATE-LOG-DERIVATIVE]
+tags: [추적 곡선, 로그나선, 매개변수 미분, 경희 실전]
+elements:
+  materials: [원점 중심 반지름 1인 원 위의 등간격 점 P_1…P_n, 서로를 향해 움직이는 점, 동경 OP_1이 나타내는 각 t, 상수 α]
+  concepts: [삼각함수의 정의, 삼각함수의 덧셈정리, 매개변수로 나타낸 함수의 미분법, 치환적분법, 평면 위의 점이 움직인 거리, 지수함수의 극한]
+  tools: [회전으로 P_2 좌표 표현, 접선 기울기=할선 기울기 비교, f'g-fg'=-r^2·ff'+gg'=rr' 정리, r'/r=-α 적분, 속력 √(r'^2+r^2) 적분]
+  conditions:
+  - '$\overline{\mathrm{OP_1}}=\overline{\mathrm{OP_2}}=r$, $\angle\mathrm{P_1OP_2}=\theta=\dfrac{2\pi}{n}$ 항상 유지'
+  - '$\mathrm{P_1}$의 속도 방향 = $\mathrm{P_1}$에서 $\mathrm{P_2}$를 향하는 방향'
+  - '$t=0$일 때 $r=1$ (출발점 $(1,0)$)'
+  stimuli_used: [라, 마, 바, 사]
+  subpart_links: (2)는 (1)에서 구한 $f_1(t)=e^{-\alpha t}\cos t$, $g_1(t)=e^{-\alpha t}\sin t$를 이용
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅰ, 미적분]
+  scope_2028: calc2
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 매개변수로 나타낸 함수를 미분하고, 평면 위를 움직이는 점이 움직인 거리를 구할 수 있다(요지)
+    verified: false
+  content_area: 미분법·적분법 – 매개변수 함수의 미분, 속도와 거리
+  behavior_domain: 문제해결
+  unit_path: [미적분, 적분법, 정적분의 활용, 속도와 거리]
+  key_concepts: [삼각함수의 덧셈정리, 매개변수로 나타낸 함수의 미분법, 치환적분법, 점이 움직인 거리]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 경희대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 경희대학교
+  admission_year: 2022
+  admission_type: 논술(논술우수자전형)
+  track: 자연계열
+  question_no: 4
+  official_url: https://iphak.khu.ac.kr/detail.do?menuurl=89BGs%2bk748ajyySWoWlQPw%3d%3d&board_seq=4485&pageNo=1&categoryid=27&userpwd=
+  retrieved_at: '2026-11-21'
+  original_points: 25
+  rights_notice: '경희대학교 입학처 공개 자료(기출문제·예시답안). 내부 분석용'
+  note: |
+    시험 시간대: 11월 20일(토) 오후 자연계.
+    문제 = 4. 2022학년도 논술고사 기출문제(자연계)_11.20 오후.pdf p.1(제시문)·p.3, 원 번호 [논제 IV] (1)(2), 해설 = 같은 PDF p.13~15(채점 기준·예시답안 p.15).
+    예시답안은 $r$을 $t$의 함수로 쓰면서 $r(t)$ 대신 $r$, $r'$로 표기 — 그대로 옮김. 기울기 비교는 방향(부호)까지는 따지지 않음.
+    의학계 [논제 I-2] (1)(KHU-G22D-02)은 같은 설정에서 '처음으로 $y$축을 만날 때까지 움직인 거리'를 물음.
+
+verify: verify/KHU-G22A.py::p04
+
+stimuli:
+- label: 라
+  body: |
+    좌표평면의 원점 O와 점 $\mathrm{P}(x,y)$에 대하여, 동경 OP가 나타내는 각의 크기를 $\theta$, $\overline{\mathrm{OP}}$를 $r$이라 하면
+    $\sin\theta=\dfrac yr$, $\cos\theta=\dfrac xr$, $\tan\theta=\dfrac yx\ (x\ne0)$, $\csc\theta=\dfrac ry\ (y\ne0)$, $\sec\theta=\dfrac rx\ (x\ne0)$, $\cot\theta=\dfrac xy\ (y\ne0)$
+- label: 마
+  body: |
+    삼각함수의 덧셈정리
+    $\sin(\alpha+\beta)=\sin\alpha\cos\beta+\cos\alpha\sin\beta$, $\sin(\alpha-\beta)=\sin\alpha\cos\beta-\cos\alpha\sin\beta$,
+    $\cos(\alpha+\beta)=\cos\alpha\cos\beta-\sin\alpha\sin\beta$, $\cos(\alpha-\beta)=\cos\alpha\cos\beta+\sin\alpha\sin\beta$
+- label: 바
+  body: |
+    매개변수 $t$로 나타낸 함수 $x=f(t)$, $y=g(t)$가 $t$에 대하여 미분가능하고 $f'(t)\ne0$이면 $\dfrac{dy}{dx}=\dfrac{\frac{dy}{dt}}{\frac{dx}{dt}}=\dfrac{g'(t)}{f'(t)}$이다.
+- label: 사
+  body: |
+    좌표평면 위를 움직이는 점 $\mathrm{P}(x,y)$의 위치를 매개변수 $t$에 관한 함수 $x=f(t)$, $y=g(t)$로 나타내면, $t=a$에서 $t=b$까지 점 P가 움직인 거리는 $\displaystyle\int_a^b\sqrt{\{f'(t)\}^2+\{g'(t)\}^2}dt$이다.
+
+stem: |
+  [논제 IV]
+  <그림 1>과 같이 중심이 원점 O이고 반지름이 1인 원 위에 같은 간격으로 놓여 있는 세 개 이상의 점 $\mathrm{P}_1,\cdots,\mathrm{P}_n$이 있다. 매순간 점 $\mathrm{P}_k\ (k<n)$는 점 $\mathrm{P}_{k+1}$을 향하여 움직이고, 점 $\mathrm{P}_n$은 점 $\mathrm{P}_1$을 향하여 움직인다. 점 $\mathrm{P}_1$은 점 $(1,0)$에서 출발하고, $\overline{\mathrm{OP_1}}=\overline{\mathrm{OP_2}}=\cdots=\overline{\mathrm{OP}_n}>0$와 $\angle\mathrm{P_1OP_2}=\cdots=\angle\mathrm{P}_{n-1}\mathrm{OP}_n=\angle\mathrm{P}_n\mathrm{OP_1}$는 항상 성립한다. $\alpha=\dfrac{1-\cos\dfrac{2\pi}{n}}{\sin\dfrac{2\pi}{n}}$라고 할 때, 다음 물음에 답하시오.
+  [그림 1 설명: $n=3$인 경우. 원점 중심 반지름 1인 원(축 눈금 $\pm1$)에 $\mathrm{P_1}(1,0)$, 제2사분면의 $\mathrm{P_2}$, 제3사분면의 $\mathrm{P_3}$이 찍혀 있고, $\mathrm{P_1}$에서 왼쪽 위($\mathrm{P_2}$ 쪽), $\mathrm{P_2}$에서 아래($\mathrm{P_3}$ 쪽), $\mathrm{P_3}$에서 오른쪽 위($\mathrm{P_1}$ 쪽)로 점선 화살표가 있음.]
+
+subparts:
+- id: '1'
+  stem: |
+    매개변수 $t$가 동경 $\mathrm{OP_1}$이 나타내는 각의 크기일 때, 점 $\mathrm{P_1}$의 좌표 $(x_1,y_1)$을 나타내는 함수 $x_1=f_1(t)$, $y_1=g_1(t)$를 $\alpha$를 이용하여 나타내고, 그 근거를 논술하시오. (15점)
+  points: 15
+  depends_on: []
+  answer: {kind: expression, value: 'f_1(t)=e^{-\alpha t}\cos t,\ g_1(t)=e^{-\alpha t}\sin t', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: 접선 기울기 $\dfrac{g_1'}{f_1'}$ = 할선 $\mathrm{P_1P_2}$ 기울기에서 $f_1'g_1-f_1g_1'=-r^2$, $f_1'f_1+g_1'g_1=r'r$를 쓰면 $\dfrac{r'}{r}=-\alpha$.
+    steps:
+    - {id: 1a, content: '$-r^2(1-\cos\theta)=r''r\sin\theta\Rightarrow r=e^{-\alpha t}$', criteria: [1.M1, 1.M2, 1.A3]}
+    hint_ladder:
+    - 모든 점이 원점에서 같은 거리, 같은 각 간격을 유지한다. $\mathrm{P_2}$는 $\mathrm{P_1}$을 $\theta$만큼 회전한 점이다.
+    - $\mathrm{P_1}$의 진행 방향(접선 기울기)은 직선 $\mathrm{P_1P_2}$의 기울기와 같다.
+    - 식을 $r$과 $r'$만 남도록 정리하면 $\dfrac{r'}{r}$이 상수이다.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 4. 2022학년도 논술고사 기출문제(자연계)_11.20 오후.pdf 예시답안 p.15
+    steps:
+    - id: 1b-1
+      content: |
+        $\theta=\dfrac{2\pi}{n}=\angle\mathrm{P_1OP_2}=\cdots=\angle\mathrm{P}_{n-1}\mathrm{OP}_n=\angle\mathrm{P}_n\mathrm{OP_1}$이라 하자. 매개변수 $t$가 동경 $\mathrm{OP_1}$이 나타내는 각의 크기일 때, 점 $\mathrm{P_1}$의 좌표 $(x_1,y_1)$을 나타내는 함수는 $x_1=f_1(t)$, $y_1=g_1(t)$이고, 점 $\mathrm{P_2}$의 좌표 $(x_2,y_2)$를 나타내는 함수는 $x_2=f_2(t)$, $y_2=g_2(t)$이다.
+        $r=\overline{\mathrm{OP_1}}=\overline{\mathrm{OP_2}}$라 하면 제시문 [라]에 의해 $f_1(t)=r\cos t$, $g_1(t)=r\sin t$, $f_2(t)=r\cos(t+\theta)$, $g_2(t)=r\sin(t+\theta)$이다.
+        삼각함수의 덧셈정리(제시문 [마])에 의해 $f_2=r\cos t\cos\theta-r\sin t\sin\theta=f_1\cos\theta-g_1\sin\theta$, $g_2=r\sin t\cos\theta+r\cos t\sin\theta=g_1\cos\theta+f_1\sin\theta$이다.
+      criteria: [1.M1]
+    - id: 1b-2
+      content: |
+        제시문 [바]에 의해 $\dfrac{dy_1}{dx_1}=\dfrac{g_1'}{f_1'}$이 직선 $\mathrm{P_1P_2}$의 기울기 $\dfrac{-g_1(1-\cos\theta)+f_1\sin\theta}{-f_1(1-\cos\theta)-g_1\sin\theta}$와 같으므로,
+        $(f_1'g_1-f_1g_1')(1-\cos\theta)=(f_1'f_1+g_1'g_1)\sin\theta$이다.
+      criteria: [1.M2]
+    - id: 1b-3
+      content: |
+        $f_1'(t)=r'\cos t-r\sin t$, $g_1'(t)=r'\sin t+r\cos t$이므로 $f_1'g_1-f_1g_1'=-r^2$이고 $f_1'f_1+g_1'g_1=r'r$이므로, $-r^2(1-\cos\theta)=r'r\sin\theta$이다.
+        $r>0$이므로 $\dfrac{r'}{r}=-\dfrac{1-\cos\theta}{\sin\theta}$이고, $\dfrac{1-\cos\theta}{\sin\theta}=\dfrac{1-\cos\frac{2\pi}{n}}{\sin\frac{2\pi}{n}}=\alpha$이므로 양변을 치환적분하면 $r=ke^{-\alpha t}$이고, $t=0$일 때 $r=1$이므로 $k=1$이다.
+        따라서 $f_1(t)=e^{-\alpha t}\cos t$, $g_1(t)=e^{-\alpha t}\sin t$이다.
+      criteria: [1.A3]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 5
+      evidence: '$\overline{\mathrm{OP_1}}=\overline{\mathrm{OP_2}}=r$, 각 간격 $\theta=\dfrac{2\pi}{n}$를 이용해 $\mathrm{P_1}$, $\mathrm{P_2}$의 좌표를 $r\cos t$, $r\cos(t+\theta)$ 등으로 나타내고 덧셈정리로 $f_2$, $g_2$를 $f_1$, $g_1$로 표현했다(점 $\mathrm{P_1}$이 만족하는 조건).'
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1]
+    - id: 1.M2
+      mark_type: M
+      points: 5
+      evidence: '$\dfrac{g_1''}{f_1''}$을 직선 $\mathrm{P_1P_2}$의 기울기와 같게 놓아 $(f_1''g_1-f_1g_1'')(1-\cos\theta)=(f_1''f_1+g_1''g_1)\sin\theta$를 세웠다(매개변수로 나타낸 함수로 표시).'
+      depends_on: [1.M1]
+      implied_ok: false
+      steps: [1b-2]
+    - id: 1.A3
+      mark_type: A
+      points: 5
+      evidence: '$f_1''g_1-f_1g_1''=-r^2$, $f_1''f_1+g_1''g_1=r''r$로 정리해 $\dfrac{r''}{r}=-\alpha$를 얻고, 초기 조건 $r(0)=1$로 $f_1(t)=e^{-\alpha t}\cos t$, $g_1(t)=e^{-\alpha t}\sin t$를 논리적으로 이끌었다.'
+      depends_on: [1.M2]
+      steps: [1b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-CAL-6709}
+  misconceptions:
+  - id: MC-CAL-6709
+    outcome_code: '70'
+    wrong_work: '$\mathrm{P_1}$이 반지름 1인 원 위를 돈다고 보고 $f_1(t)=\cos t$, $g_1(t)=\sin t$로 답함'
+    detect_cue: 답에 $e^{-\alpha t}$(또는 $r(t)$)가 없다
+    feedback: 점들은 서로를 향해 원 안쪽으로 움직이므로 $\overline{\mathrm{OP_1}}$도 $t$에 따라 변합니다. $r$을 $t$의 함수로 두고 기울기 조건을 세우세요.
+    remedy: [RL-1]
+
+- id: '2'
+  stem: |
+    점 $\mathrm{P_1}$이 $t=0$에서 $t=u$까지 움직인 거리 $s(u)$의 극한값 $\displaystyle\lim_{u\to\infty}s(u)$를 $\alpha$를 이용하여 나타내고, 그 근거를 논술하시오. (10점)
+  points: 10
+  depends_on: ['1']
+  answer: {kind: expression, value: '\dfrac{\sqrt{\alpha^2+1}}{\alpha}', equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: 속력 $=\sqrt{r'^2+r^2}=\sqrt{\alpha^2+1}e^{-\alpha t}$.
+    steps:
+    - {id: 2a, content: '$s(u)=\dfrac{\sqrt{\alpha^2+1}}{\alpha}(1-e^{-\alpha u})\to\dfrac{\sqrt{\alpha^2+1}}{\alpha}$', criteria: [2.M1, 2.A2]}
+    hint_ladder:
+    - 제시문 [사]의 식에 (1)의 결과를 넣자.
+  - id: S2-B
+    audience: B
+    method_no: 1
+    source_flow: 4. 2022학년도 논술고사 기출문제(자연계)_11.20 오후.pdf 예시답안 p.15
+    steps:
+    - id: 2b-1
+      content: |
+        제시문 [사]와 (1)의 결과에 의해 $s(u)=\displaystyle\int_0^u\sqrt{\{f_1'(t)\}^2+\{g_1'(t)\}^2}dt=\int_0^u\sqrt{\alpha^2+1}\,e^{-\alpha t}dt$
+        (보충: $f_1'=-e^{-\alpha t}(\alpha\cos t+\sin t)$, $g_1'=e^{-\alpha t}(\cos t-\alpha\sin t)$이므로 제곱의 합은 $(\alpha^2+1)e^{-2\alpha t}$).
+      criteria: [2.M1]
+    - id: 2b-2
+      content: |
+        $s(u)=\dfrac{\sqrt{\alpha^2+1}}{\alpha}(1-e^{-\alpha u})$이므로, $\alpha>0$에서 $\displaystyle\lim_{u\to\infty}s(u)=\dfrac{\sqrt{\alpha^2+1}}{\alpha}$이다.
+      criteria: [2.A2]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 5
+      evidence: '$s(u)=\displaystyle\int_0^u\sqrt{\{f_1''(t)\}^2+\{g_1''(t)\}^2}dt=\int_0^u\sqrt{\alpha^2+1}e^{-\alpha t}dt$로 움직인 거리를 식으로 표현했다.'
+      depends_on: []
+      implied_ok: false
+      ft: {allowed: true, from: [1.A3], max_points: 5}
+      steps: [2b-1]
+    - id: 2.A2
+      mark_type: A
+      points: 5
+      evidence: '적분해 $s(u)=\dfrac{\sqrt{\alpha^2+1}}{\alpha}(1-e^{-\alpha u})$을 구하고 극한값 $\dfrac{\sqrt{\alpha^2+1}}{\alpha}$을 계산했다.'
+      depends_on: [2.M1]
+      steps: [2b-2]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-CAL-6710}
+  misconceptions:
+  - id: MC-CAL-6710
+    outcome_code: '70'
+    wrong_work: '움직인 거리를 $\int_0^u|r''(t)|dt=1-e^{-\alpha u}$로 계산해 극한 1'
+    detect_cue: 답에 $\sqrt{\alpha^2+1}$이 없다
+    feedback: 반지름의 변화량이 아니라 경로의 길이입니다. 제시문 [사]대로 $\sqrt{f_1''^2+g_1''^2}$를 적분하세요.
+    remedy: [RL-2]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CAL-6709}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-PURSUIT-ODE}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-CAL-6710}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-PARAM-LENGTH}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-input-v1, item_version: 1, verdict: pass, date: 2026-11-21, note: 원문 PDF 이미지 판독으로 옮김 · 해설은 경희대 예시답안 흐름}
+
+created: 2026-11-21
+updated: 2026-11-21

@@ -1,0 +1,250 @@
+schema_version: '2.0'
+id: KHU-G25-02
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: KHU
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 분류
+points: 33
+time_estimate_min: 30
+intent: |
+  선분의 내분점과 외분점, 매개변수로 나타낸 함수, 이차곡선 등을 종합적으로 이해하고 응용할 수 있는지 파악한다. 주어진 조건으로부터 수학적으로 추론하고, 상황을 수학적으로 표현하여 합리적으로 해결하는 능력을 평가한다(경희대 출제 의도 요지).
+key_idea: '$\overline{PQ}=\overline{OQ}=2$에서 $Q\left(\dfrac t2,\sqrt{4-\dfrac{t^2}{4}}\right)$, R 은 PQ 를 5:3 으로 외분하는 점 → $y=5\sqrt{1-x^2}$. 교점은 $(y-5)(y-25a+5)=0$.'
+stuck: 막대 위 점 R 를 선분 PQ 의 외분점으로 보는 것, (2)에서 $y=25a-5$의 범위와 $a=\dfrac25$일 때 교점이 겹치는 것
+idea_tags: [IDEA-SECTION-POINT-LOCUS, IDEA-PARAM-ELIMINATE, IDEA-QUAD-IN-Y-FACTOR]
+tags: [경희 실전, 자취, 교점 개수]
+elements:
+  materials: [길이 5인 막대 PR, PR 을 2:3 으로 내분하는 점 Q, x축 위를 움직이는 끝점 P, 반원 y=√(4-x²) 위를 움직이는 점 Q, 곡선 y=5-x²/a]
+  concepts: [선분의 내분점과 외분점, 매개변수로 나타낸 함수, 원의 방정식, 타원(이차곡선), 이차방정식]
+  tools: ['PQ=2 이고 Q 가 원 위 ⇒ PQ=OQ 이등변으로 Q 의 x좌표 t/2', 외분점 공식으로 R 좌표, 매개변수 소거, x² 소거 후 y 에 대한 이차방정식 인수분해, y 의 범위로 a 범위]
+  conditions:
+  - '$\overline{PQ}=2$, Q 는 반지름 2인 원 위 ⇒ $\overline{PQ}=\overline{OQ}$'
+  - 'P 가 (-4,0)→(4,0) ⇒ 매개변수 $-4\le t\le4$, R 의 x좌표 범위 $-1\le x\le1$'
+  - '서로 다른 교점 2개 이상 ⇒ $y=25a-5$가 $0\le y\le5$에 있고 $y=5$와 겹치지 않음'
+  stimuli_used: [나, 다]
+  subpart_links: (2)는 (1)에서 구한 함수 y=5√(1-x²) (-1≤x≤1)를 사용
+
+curriculum:
+  version: '2015'
+  subjects: [수학, 미적분]
+  scope_2028: calc2
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 선분의 내분점과 외분점의 좌표를 구할 수 있다(요지)
+    verified: false
+  content_area: 도형의 방정식 – 내분점·외분점, 매개변수로 나타낸 함수
+  behavior_domain: 문제해결
+  unit_path: [수학, 도형의 방정식, 평면좌표, 내분점과 외분점]
+  key_concepts: [내분점과 외분점, 매개변수 소거, 이차방정식]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 경희대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 경희대학교
+  admission_year: 2025
+  admission_type: 논술(논술우수자전형)
+  track: 자연계열
+  question_no: 2
+  official_url: https://iphak.khu.ac.kr/detail.do?menuurl=89BGs%2bk748ajyySWoWlQPw%3d%3d&board_seq=13928&pageNo=1&categoryid=27&userpwd=
+  retrieved_at: '2026-11-21'
+  original_points: 33
+  rights_notice: 경희대학교 입학처 공개 자료(기출문제·예시답안). 내부 분석용
+  note: |
+    문제 = 3. 2025 논술고사 기출문제(자연계).pdf p.3(문제지 [3-2]), 원 번호 [논제 Ⅱ], 해설 = 같은 파일 p.8~9(채점 기준·예시 답안).
+    예시 답안 (1)의 그림(P 가 x축 위 t, 반원 위 Q, 직선 PQ 연장선 위 R)은 글로 대신함.
+
+verify: verify/KHU-G25.py::p02
+
+stimuli:
+- label: 나
+  body: |
+    좌표평면 위의 두 점 $\mathrm{A}(x_1,y_1)$, $\mathrm{B}(x_2,y_2)$에 대하여 선분 AB를 $m:n(m>0,n>0)$으로
+    ① 내분하는 점 P의 좌표는 $\left(\dfrac{mx_2+nx_1}{m+n},\ \dfrac{my_2+ny_1}{m+n}\right)$
+    ② 외분하는 점 Q의 좌표는 $\left(\dfrac{mx_2-nx_1}{m-n},\ \dfrac{my_2-ny_1}{m-n}\right)$ (단, $m\neq n$)
+- label: 다
+  body: |
+    일반적으로 두 변수 $x$, $y$ 사이의 관계가 변수 $t$를 매개로 하여 $x=f(t)$, $y=g(t)$와 같이 나타내어질 때, 변수 $t$를 $x$, $y$의 매개변수라 하고 두 함수 $x=f(t)$, $y=g(t)$를 매개변수로 나타낸 함수라고 한다.
+
+stem: |
+  길이가 5인 막대가 좌표평면 위에서 움직인다. 막대의 한 쪽 끝점을 P, 다른 쪽 끝점을 R라 할 때, 선분 PR를 $2:3$으로 내분하는 막대 위의 점을 Q라 하자. 다음 물음에 답하시오. (단, 막대는 변형되지 않고, 그 두께는 무시한다.)
+
+subparts:
+- id: '1'
+  stem: |
+    점 P가 점 $(-4,0)$에서 점 $(4,0)$까지 $x$축을 따라 움직인다. 점 P가 움직이는 동안 점 Q는 곡선 $y=\sqrt{4-x^2}$을 따라 움직인다고 할 때, 점 R가 그리는 곡선을 나타내는 함수 $y=f(x)$를 구하고 그 근거를 논술하시오. (단, 점 P가 원점에 있을 때, 점 Q의 좌표는 $(0,2)$이다.) (15점)
+  points: 15
+  depends_on: []
+  answer: {kind: expression, value: 'f(x)=5\sqrt{1-x^2}\ (-1\le x\le1)', equivalents: ['y=\dfrac52\sqrt{4-4x^2}'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $\overline{PQ}=\overline{OQ}=2$이므로 Q 의 x좌표는 $\dfrac t2$이고, R 는 PQ 를 5:3 으로 외분하는 점이다.
+    steps:
+    - {id: 1a, content: '$R\left(-\dfrac t4,\ \dfrac52\sqrt{4-\dfrac{t^2}{4}}\right)\Rightarrow y=5\sqrt{1-x^2}$', criteria: [1.M2, 1.A1]}
+    hint_ladder:
+    - 선분 PQ 와 OQ 의 길이를 비교해 보자.
+    - R 는 선분 PQ 를 어떤 비로 외분하는가?
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 3. 2025 논술고사 기출문제(자연계).pdf 예시 답안 p.8~9
+    steps:
+    - id: 1b-1
+      content: |
+        점 Q가 곡선 $y=\sqrt{4-x^2}$ 위를 움직이고, 선분 PQ의 길이가 2이므로, 점 P가 $x$축을 따라 $(-4,0)$에서 $(4,0)$까지 움직일 때, 점 Q는 곡선 $y=\sqrt{4-x^2}$을 따라 $(-2,0)$에서 $(2,0)$까지 움직인다.
+        매개변수 $t(-4\le t\le4)$를 이용하여 점 P의 위치를 $P(t,0)$이라 하면, 점 Q의 위치는 $\overline{PQ}=\overline{OQ}$이므로 $Q\left(\dfrac t2,\ \sqrt{4-\dfrac{t^2}{4}}\right)$이다.
+      criteria: [1.M1]
+    - id: 1b-2
+      content: |
+        점 R는 선분 PQ를 $5:3$으로 외분하는 점이므로 제시문 [나]에 의해 $R\left(-\dfrac t4,\ \dfrac52\sqrt{4-\dfrac{t^2}{4}}\right)$이다.
+      criteria: [1.M2]
+    - id: 1b-3
+      content: |
+        따라서 점 R의 $x$좌표와 $y$좌표 사이의 관계식은 ($x=-\dfrac t4$에서 $t=-4x$) $y=\dfrac52\sqrt{4-4x^2}$으로부터 $y=5\sqrt{1-x^2}\ (-1\le x\le1)$.
+      criteria: [1.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 5
+      evidence: (공식 <5점>) 점 Q 의 좌표를 매개변수로 $Q\left(\dfrac t2,\ \sqrt{4-\dfrac{t^2}{4}}\right)$와 같이 표현했다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1]
+    - id: 1.M2
+      mark_type: M
+      points: 5
+      evidence: (공식 <5점>) 내분/외분점 개념을 이용하여 점 R 의 좌표 $\left(-\dfrac t4,\ \dfrac52\sqrt{4-\dfrac{t^2}{4}}\right)$를 표현했다.
+      depends_on: []
+      steps: [1b-2]
+    - id: 1.A1
+      mark_type: A
+      points: 5
+      evidence: (공식 <5점>) 매개변수로 표현된 함수로부터 관계식 $y=5\sqrt{1-x^2}$을 유도했다.
+      depends_on: [1.M2]
+      steps: [1b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-GEO-6304}
+  - {code: '71', misconception: MC-CAL-6305}
+  misconceptions:
+  - id: MC-GEO-6304
+    outcome_code: '70'
+    wrong_work: 'R 를 선분 PQ 의 3:5 내분점 또는 2:5 외분점으로 잡아 $R\left(\dfrac{t}{4}\cdots\right)$, $y=\dfrac52\cdots$가 아닌 식을 얻음'
+    detect_cue: R 의 x좌표가 $-\dfrac t4$가 아니다
+    feedback: P 에서 R 까지 5, P 에서 Q 까지 2 이므로 R 는 PQ 를 5:3 으로 외분하는 점입니다.
+    remedy: [RL-1]
+  - id: MC-CAL-6305
+    outcome_code: '71'
+    wrong_work: '$y=5\sqrt{1-x^2}$만 쓰고 $-1\le x\le1$을 적지 않거나 $-4\le x\le4$로 적음'
+    detect_cue: 정의역이 없거나 t 의 범위를 그대로 옮김
+    feedback: $x=-\dfrac t4$이므로 $t$의 범위 $[-4,4]$가 $x$의 범위 $[-1,1]$로 바뀝니다.
+    remedy: [RL-2]
+- id: '2'
+  stem: |
+    (1)에서의 함수 $y=f(x)$의 그래프와 곡선 $y=5-\dfrac{x^2}{a}$의 서로 다른 교점이 2개 이상이 되는 양수 $a$의 범위를 구하고 그 근거를 논술하시오. (18점)
+  points: 18
+  depends_on: ['1']
+  answer: {kind: set, value: '\dfrac15\le a<\dfrac25', equivalents: ['1/5<=a<2/5'], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: $x^2=a(5-y)$를 대입하면 $(y-5)(y-25a+5)=0$. $y=5$는 항상 $(0,5)$, $y=25a-5$가 $0\le y<5$이면 교점이 추가된다.
+    steps:
+    - {id: 2a, content: '$0\le25a-5<5\iff\dfrac15\le a<\dfrac25$', criteria: [2.A1, 2.R1]}
+    hint_ladder:
+    - $x^2$을 소거해 $y$에 대한 방정식을 만들어 보자.
+    - (1)의 곡선 위에서 $y$가 가질 수 있는 범위는?
+    - 두 근이 같아지는 경우를 조심하자.
+  - id: S2-B
+    audience: B
+    method_no: 1
+    source_flow: 3. 2025 논술고사 기출문제(자연계).pdf 예시 답안 p.9
+    steps:
+    - id: 2b-1
+      content: |
+        $y=5-\dfrac{x^2}{a}$에서 $x^2=a(5-y)$를 $y=5\sqrt{1-x^2}$에 대입하면 $y=5\sqrt{1-5a+ay}$이다. 양변을 제곱하여 정리하면 $y^2-25ay+125a-25=0$이고
+        $y^2-25ay+5(25a-5)=(y-5)(y-25a+5)=0$이다. 따라서 $y=5$ 또는 $y=25a-5$이다.
+      criteria: [2.M1]
+    - id: 2b-2
+      content: |
+        $y=5$일 때는 교점 $(0,5)$를 가진다. $y=25a-5$일 때는 $y=5\sqrt{1-x^2}$이 $-1\le x\le1$에서 $0\le y\le5$이므로 $0\le25a-5\le5$이고, 따라서 $\dfrac15\le a\le\dfrac25$이다.
+        (보충: 이때 $x^2=a(5-y)=a(10-25a)$이고 $0\le x^2\le1$이 성립하며, $y<5$이면 $x=\pm\sqrt{a(10-25a)}$로 교점 2개가 생긴다.)
+      criteria: [2.A1]
+    - id: 2b-3
+      content: |
+        $a=\dfrac25$이면 $y=5$가 되어서 교점이 $(0,5)$뿐이므로 서로 다른 교점을 (2개 이상) 갖기 위해서는 $\dfrac15\le a<\dfrac25$.
+      criteria: [2.R1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 7
+      evidence: (공식 <7점>) $x^2$을 소거해 교점에 관한 이차방정식 $y^2-25ay+125a-25=0$ (또는 $(y-5)(y-25a+5)=0$)을 유도했다.
+      depends_on: []
+      implied_ok: false
+      steps: [2b-1]
+    - id: 2.A1
+      mark_type: A
+      points: 6
+      evidence: (공식 <6점>) $0\le y\le5$로부터 $0\le25a-5\le5$, 즉 교점을 가지는 범위 $\dfrac15\le a\le\dfrac25$를 구했다.
+      depends_on: [2.M1]
+      steps: [2b-2]
+    - id: 2.R1
+      mark_type: R
+      points: 5
+      evidence: (공식 <5점>) 교점의 개수를 확인하여 $a=\dfrac25$를 제외하고 $\dfrac15\le a<\dfrac25$를 답했다.
+      depends_on: [2.A1]
+      steps: [2b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-ALG-6306}
+  misconceptions:
+  - id: MC-ALG-6306
+    outcome_code: '70'
+    wrong_work: '$\dfrac15\le a\le\dfrac25$로 답함(또는 $a=\dfrac15$에서 교점 $(\pm1,0)$을 놓쳐 $\dfrac15<a$)'
+    detect_cue: 끝점 $\dfrac25$ 포함 또는 $\dfrac15$ 제외
+    feedback: $a=\dfrac25$이면 두 근이 모두 $y=5$로 겹쳐 교점은 $(0,5)$ 하나뿐입니다. $a=\dfrac15$일 때는 $(\pm1,0)$이 교점입니다.
+    remedy: [RL-3]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-GEO-6304}
+  relation: remediation
+  target: {kind: concept, ref: CON-GEO-SECTION-POINT}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-CAL-6305}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-PARAM-ELIM}
+  priority: 1
+- id: RL-3
+  trigger: {type: misconception, ref: MC-ALG-6306}
+  relation: remediation
+  target: {kind: concept, ref: CON-ALG-QUAD-ROOT-RANGE}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-input-v1, item_version: 1, verdict: pass, date: 2026-11-21, note: 원문 PDF 이미지 판독으로 옮김 · 해설은 경희대 예시답안 흐름}
+
+created: 2026-11-21
+updated: 2026-11-21

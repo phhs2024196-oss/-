@@ -1,0 +1,245 @@
+schema_version: '2.0'
+id: KHU-G24-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: KHU
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 점화
+points: 30
+time_estimate_min: 25
+intent: 고등학교 교육과정의 직선의 방정식, 이차곡선, 등비급수 등을 종합적으로 이해하고 응용할 수 있는지, 주어진 상황을 수학적으로 표현하여 논리적으로 해결할 수 있는지를 평가한다.
+key_idea: '수직이등분선을 반복하면 직각삼각형들이 닮음비 $\dfrac34$로 이어지고, 빗변의 중점이 4단계마다 같은 사분면으로 돌아오므로 각 $A_i$는 공비 $\left(\dfrac{9}{16}\right)^4$인 등비급수이다.'
+stuck: 사분면이 4단계 주기로 반복된다는 것을 보고 $A_1$과 $A_2+A_3+A_4$의 비교를 첫째항 $S_1$과 $S_2+S_3+S_4$의 비교로 바꾸는 단계
+idea_tags: [IDEA-PERP-BISECTOR-ITERATION, IDEA-GEOM-SERIES-PERIODIC-SPLIT]
+tags: [경희 실전, 수직이등분선, 쌍곡선의 접선, 등비급수]
+elements:
+  materials: [원점과 두 점 P1(8,0), Q1(0,4), 선분의 수직이등분선, 쌍곡선 x²−y²=b, 반복해서 만드는 직각삼각형 OPnQn, 사분면별 넓이의 합 A1~A4]
+  concepts: [선분의 중점, 두 직선의 수직 조건(기울기의 곱 −1), 이차곡선과 직선이 접할 조건(판별식), 삼각형의 닮음과 넓이비, 등비급수의 합]
+  tools: [중점·수직 기울기로 수직이등분선 방정식 세우기, 연립해 얻은 이차방정식의 판별식 D/4=0, 축과의 교점 계산, 닮음비 제곱으로 넓이비, 주기 4로 나눈 등비급수 비교]
+  conditions:
+  - '수직이등분선이 쌍곡선과 접함 ⇒ 연립한 이차방정식의 판별식 $=0$'
+  - '수직이등분선이 $x$축, $y$축과 만나는 점을 다음 $P_{n+1}$, $Q_{n+1}$로 ⇒ 직각삼각형이 계속 닮음'
+  - '빗변의 중점의 사분면으로 분류 ⇒ 1, 4, 3, 2사분면 순서가 4단계마다 반복'
+  stimuli_used: [가, 나]
+  subpart_links: '(2)의 직선 $l_2$는 (1)에서 구한 수직이등분선 $m:\ y=2x-6$을 그대로 사용'
+
+curriculum:
+  version: '2015'
+  subjects: [수학, 미적분, 기하]
+  scope_2028: geom
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 이차곡선과 직선의 위치 관계를 이해하고, 등비급수의 합을 구할 수 있다(요지)
+    verified: false
+  content_area: 기하 – 이차곡선의 접선 / 미적분 – 등비급수
+  behavior_domain: 문제해결
+  unit_path: [기하, 이차곡선, 이차곡선과 직선, 접선의 조건]
+  key_concepts: [선분의 수직이등분선, 두 직선의 수직 조건, 쌍곡선의 접선, 닮음, 등비급수]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 경희대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 경희대학교
+  admission_year: 2024
+  admission_type: 논술(논술우수자전형)
+  track: 자연계열
+  question_no: 1
+  official_url: https://iphak.khu.ac.kr/detail.do?menuurl=89BGs%2bk748ajyySWoWlQPw%3d%3d&board_seq=10802&pageNo=1&categoryid=27&userpwd=
+  retrieved_at: '2026-11-21'
+  original_points: 30
+  rights_notice: 경희대학교 입학처 공개 자료(기출문제·예시답안). 내부 분석용
+  note: 문제 = 3. 2024 논술고사 기출문제(자연계).pdf p.2(문항카드 p.4와 대조), 원 번호 [논제 Ⅰ], 해설 = 같은 파일 p.5(출제 의도 p.4, 문항 해설·채점 기준·예시답안 p.5)
+
+verify: verify/KHU-G24.py::p01
+
+stimuli:
+- label: 가
+  body: |
+    두 직선 $l:y=mx+n$, $l':y=m'x+n'$에 대하여 $l$과 $l'$이 서로 수직이면 $mm'=-1$이다.
+    거꾸로 $mm'=-1$이면 $l$과 $l'$이 서로 수직이다.
+- label: 나
+  body: |
+    첫째항이 $a\ (a\neq0)$이고 공비가 $r$인 등비급수 $\displaystyle\sum_{n=1}^{\infty}ar^{n-1}$은 $\lvert r\rvert<1$일 때, 수렴하고 그 합은 $\dfrac{a}{1-r}$이다.
+
+stem: |
+  좌표평면 위의 원점 $\mathrm{O}(0,\ 0)$과 두 점 $\mathrm{P}_1(8,\ 0)$, $\mathrm{Q}_1(0,\ 4)$에 대하여 다음 물음에 답하시오.
+
+subparts:
+- id: '1'
+  stem: |
+    선분 $\mathrm{P_1Q_1}$의 수직이등분선이 쌍곡선 $x^2-y^2=b$와 접한다고 한다. 이때 $b$의 값을 구하고, 그 근거를 논술하시오. (12점)
+  points: 12
+  depends_on: []
+  answer: {kind: value, value: '12', equivalents: ['b=12'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: 수직이등분선 $y=2x-6$을 쌍곡선에 대입한 이차방정식의 판별식이 0이다.
+    steps:
+    - {id: 1a, content: '$m:\ y=2x-6$, $3x^2-24x+36+b=0$의 $\dfrac D4=0$에서 $b=12$', criteria: [1.M1, 1.A1]}
+    hint_ladder:
+    - 중점과 기울기로 수직이등분선을 구하자.
+    - 직선과 쌍곡선이 접하면 연립한 이차방정식은 중근을 갖는다.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 3. 2024 논술고사 기출문제(자연계).pdf 예시답안 p.5
+    steps:
+    - id: 1b-1
+      content: |
+        선분 $\mathrm{P_1Q_1}$의 수직이등분선을 $m$이라 하자. 선분 $\mathrm{P_1Q_1}$의 중점의 좌표는 $(4,\ 2)$이고 직선 $\mathrm{P_1Q_1}$의 기울기가 $-\dfrac12$이므로 제시문 [가]에 의해 $m$의 기울기는 $2$이다. 따라서 직선 $m$의 방정식은 $y=2x-6$이다.
+      criteria: [1.M1]
+    - id: 1b-2
+      content: |
+        쌍곡선 $x^2-y^2=b$와 직선 $m$이 접하려면 이차방정식 $x^2-(2x-6)^2=b$, 즉 $3x^2-24x+36+b=0$의 판별식이 $0$이어야 한다.
+        따라서 $\dfrac D4=12^2-3\times(36+b)=0$이므로 $b=12$이다.
+      criteria: [1.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 6
+      evidence: 선분의 중점 $(4,2)$, 기울기 $-\dfrac12$ 등을 활용하여 수직이등분선 $y=2x-6$을 구했다(공식 <6점>).
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1]
+    - id: 1.A1
+      mark_type: A
+      points: 6
+      evidence: 연립한 이차방정식 $3x^2-24x+36+b=0$의 판별식이 $0$임을 이용해 $b=12$를 구했다(공식 <6점>).
+      depends_on: [1.M1]
+      steps: [1b-2]
+    deductions:
+    - code: D1-1
+      condition: 판별식 조건 없이 그림이나 추측으로 $b$를 제시
+      effect: cap
+      value: 6
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-GEO-6401}
+  - {code: '71', misconception: MC-GEO-6402}
+  misconceptions:
+  - id: MC-GEO-6401
+    outcome_code: '70'
+    wrong_work: '수직이등분선의 기울기를 $-\dfrac12$(선분의 기울기)로 쓰거나 원점을 지나는 직선 $y=2x$로 씀'
+    detect_cue: 직선이 $y=-\dfrac12x+\cdots$ 또는 $y=2x$
+    feedback: 수직이등분선은 중점을 지나고 기울기의 곱이 $-1$인 직선입니다(제시문 [가]).
+    remedy: [RL-1]
+  - id: MC-GEO-6402
+    outcome_code: '71'
+    wrong_work: '$x^2-(2x-6)^2=b$를 정리할 때 부호를 틀려 $-3x^2+24x-36=b$의 판별식을 $b$ 위치를 놓친 채 계산'
+    detect_cue: $b$의 값이 $12$가 아닌 값(예 $-12$, $36$)
+    feedback: 이항해 $ax^2+bx+c=0$ 꼴로 만든 뒤 판별식을 쓰세요.
+    remedy: [RL-2]
+- id: '2'
+  stem: |
+    두 점 $\mathrm{P}_1$, $\mathrm{Q}_1$에 대하여 직각삼각형 $\mathrm{OP_1Q_1}$을 만든다. 선분 $\mathrm{P_1Q_1}$의 수직이등분선이 $x$축, $y$축과 만나는 두 점을 각각 $\mathrm{P}_2$, $\mathrm{Q}_2$라 하고 직각삼각형 $\mathrm{OP_2Q_2}$를 만든다. 선분 $\mathrm{P_2Q_2}$의 수직이등분선이 $x$축, $y$축과 만나는 두 점을 각각 $\mathrm{P}_3$, $\mathrm{Q}_3$라 하고 직각삼각형 $\mathrm{OP_3Q_3}$를 만든다. 선분 $\mathrm{P_3Q_3}$의 수직이등분선이 $x$축, $y$축과 만나는 두 점을 각각 $\mathrm{P}_4$, $\mathrm{Q}_4$라 하고 직각삼각형 $\mathrm{OP_4Q_4}$를 만든다. 이와 같은 과정을 계속하여 직각삼각형 $\mathrm{OP_5Q_5}$, $\mathrm{OP_6Q_6}$, $\mathrm{OP_7Q_7}$, $\cdots$ 을 만든다. 이때, 빗변의 중점이 제1사분면에 있는 직각삼각형들의 넓이의 합을 $A_1$, 빗변의 중점이 제2사분면에 있는 직각삼각형들의 넓이의 합을 $A_2$, 빗변의 중점이 제3사분면에 있는 직각삼각형들의 넓이의 합을 $A_3$, 빗변의 중점이 제4사분면에 있는 직각삼각형들의 넓이의 합을 $A_4$라 하자. 다음 명제의 참, 거짓을 판별하고, 그 근거를 논술하시오. (18점)
+
+    [명제 : $A_1$은 $A_2+A_3+A_4$보다 크다.]
+  points: 18
+  depends_on: ['1']
+  answer: {kind: choice, value: '거짓', equivalents: ['A_1<A_2+A_3+A_4', '명제는 거짓'], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: 넓이가 공비 $\dfrac{9}{16}$으로 줄고 사분면은 1→4→3→2 순으로 4단계마다 반복되므로 $A_1:(A_2+A_3+A_4)=S_1:(S_2+S_3+S_4)$이다.
+    steps:
+    - {id: 2a, content: '$S_1=16<9+\dfrac{81}{16}+\dfrac{729}{256}=S_2+S_3+S_4$이므로 거짓', criteria: [2.M1, 2.A1]}
+    hint_ladder:
+    - $\mathrm{P_2Q_2}$, $\mathrm{P_3Q_3}$을 실제로 구해 넓이를 비교해 보자.
+    - 빗변의 중점은 어느 사분면을 차례로 지나는가?
+    - 같은 사분면의 넓이들은 등비수열을 이룬다.
+  - id: S2-B
+    audience: B
+    method_no: 1
+    source_flow: 3. 2024 논술고사 기출문제(자연계).pdf 예시답안 p.5
+    steps:
+    - id: 2b-1
+      content: |
+        $\mathrm{P}_n$과 $\mathrm{Q}_n$을 지나는 직선을 $l_n$이라 하자. 직선 $l_2$는 (1)에서 구한 직선 $m$이고 $x$축과 $\mathrm{P}_2(3,\ 0)$, $y$축과 $\mathrm{Q}_2(0,\ -6)$에서 만난다. 직선 $l_3$는 선분 $\mathrm{P_2Q_2}$의 수직이등분선이므로 점 $\left(\dfrac32,\ -3\right)$을 지나고 기울기는 $-\dfrac12$이다. 따라서 직선 $l_3$의 방정식은 $y=-\dfrac12x-\dfrac94$이고 $x$축과 $\mathrm{P}_3\left(-\dfrac92,\ 0\right)$, $y$축과 $\mathrm{Q}_3\left(0,\ -\dfrac94\right)$에서 만난다.
+      criteria: [2.M1]
+    - id: 2b-2
+      content: |
+        이제 직각삼각형 $\mathrm{OP}_n\mathrm{Q}_n$의 넓이를 $S_n$이라 하면 $S_1=16$, $S_2=9$, $S_3=\dfrac{81}{16}$이다. 직각삼각형 $\mathrm{OP}_n\mathrm{Q}_n$들은 모두 서로 닮음이고, 연속하여 만들어지는 직각삼각형의 닮음비는 $\dfrac34$이므로 넓이의 비는 $\left(\dfrac34\right)^2=\dfrac{9}{16}$이다. 따라서 $S_4$는 $\dfrac{729}{256}$이다.
+      criteria: [2.M1]
+    - id: 2b-3
+      content: |
+        (보충: 빗변의 중점은 $\triangle\mathrm{OP_1Q_1}$이 $(4,2)$로 제1사분면, $\triangle\mathrm{OP_2Q_2}$가 $\left(\dfrac32,-3\right)$으로 제4사분면, $\triangle\mathrm{OP_3Q_3}$가 $\left(-\dfrac94,-\dfrac98\right)$로 제3사분면, $\triangle\mathrm{OP_4Q_4}$가 제2사분면에 있고, 이후 4단계마다 같은 사분면이 반복된다.)
+        $A_1$은 첫째항이 $S_1=16$이고 공비가 $\left(\dfrac{9}{16}\right)^4$인 등비급수의 합이다. 마찬가지로 $A_4$는 첫째항이 $S_2=9$이고 공비가 $\left(\dfrac{9}{16}\right)^4$인 등비급수의 합, $A_3$은 첫째항이 $S_3=\dfrac{81}{16}$이고 공비가 $\left(\dfrac{9}{16}\right)^4$인 등비급수의 합, $A_2$는 첫째항이 $S_4=\dfrac{729}{256}$이고 공비가 $\left(\dfrac{9}{16}\right)^4$인 등비급수의 합이다(제시문 [나]).
+      criteria: [2.A1]
+    - id: 2b-4
+      content: |
+        따라서 $A_1$과 $A_2+A_3+A_4$의 대소 관계를 비교하기 위해, $S_1$과 $S_2+S_3+S_4$의 대소 관계를 비교하면,
+        $$S_1=16<9+\dfrac{81}{16}+\dfrac{729}{256}=S_2+S_3+S_4$$
+        따라서 $A_1<A_2+A_3+A_4$이고 주어진 명제는 거짓이다.
+      criteria: [2.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 8
+      evidence: 연속하여 만들어지는 직각삼각형들이 닮음(닮음비 $\dfrac34$, 넓이비 $\dfrac{9}{16}$)임을 확인했다(공식 <8점>).
+      depends_on: []
+      implied_ok: false
+      steps: [2b-1, 2b-2]
+    - id: 2.A1
+      mark_type: A
+      points: 10
+      evidence: $A_1$, $A_2$, $A_3$, $A_4$를 공비 $\left(\dfrac{9}{16}\right)^4$인 등비급수로 나타내 비교하고 명제가 거짓임을 판별했다(공식 <10점>).
+      depends_on: [2.M1]
+      steps: [2b-3, 2b-4]
+    deductions:
+    - code: D2-1
+      condition: 근거 없이 참·거짓만 적음
+      effect: cap
+      value: 3
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '72', misconception: MC-CAL-6403}
+  misconceptions:
+  - id: MC-CAL-6403
+    outcome_code: '72'
+    wrong_work: '$A_1$을 공비 $\dfrac{9}{16}$인 등비급수 $\dfrac{16}{1-9/16}$로 계산(모든 삼각형을 제1사분면에 넣음)'
+    detect_cue: $A_1=\dfrac{256}{7}$ 등 공비 $\dfrac{9}{16}$ 하나로 계산하고 명제를 참이라 함
+    feedback: 빗변의 중점이 어느 사분면에 있는지 몇 단계 직접 확인하세요. 같은 사분면은 4단계마다 돌아옵니다.
+    remedy: [RL-3]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-GEO-6401}
+  relation: remediation
+  target: {kind: concept, ref: CON-GEO-PERP-BISECTOR}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-GEO-6402}
+  relation: remediation
+  target: {kind: concept, ref: CON-GEO-CONIC-TANGENT-DISC}
+  priority: 1
+- id: RL-3
+  trigger: {type: misconception, ref: MC-CAL-6403}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-GEOM-SERIES}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-input-v1, item_version: 1, verdict: pass, date: 2026-11-21, note: 원문 PDF 이미지 판독으로 옮김 · 해설은 경희대 예시답안 흐름}
+
+created: 2026-11-21
+updated: 2026-11-21

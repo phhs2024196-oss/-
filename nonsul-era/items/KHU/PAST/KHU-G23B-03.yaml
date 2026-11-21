@@ -1,0 +1,262 @@
+schema_version: '2.0'
+id: KHU-G23B-03
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: KHU
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 추론
+points: 37
+time_estimate_min: 30
+intent: 확률의 독립, 독립시행, 확률변수, 이항분포 및 정규분포 등의 개념을 이해하고 실생활 상황에 종합적으로 적용하여 문제 해결 방법을 수립할 수 있는지 본다.
+key_idea: '방마다 처음 도착한 학생만 출구를 고르고, 운동장 출구가 정해진 방은 뒤 학생이 통과하므로, 상품을 받지 못한 학생 수 = 운동장 출구를 고른 방의 수 ~ $\mathrm{B}\left(n,\dfrac12\right)$. $j$번 학생은 낙첨자 수가 $j-1$ 이하일 때 상품을 받는다.'
+stuck: 게임 규칙을 "낙첨자 수 = 운동장 출구 선택 횟수"로 바꾸어 보는 단계, (2)에서 '상품 190명 이상'을 '낙첨자 210명 이하'로 바꾸는 단계
+idea_tags: [IDEA-GAME-TO-BINOMIAL-COUNT, IDEA-NORMAL-APPROX-COMPARE-Z]
+tags: [방 통과 게임, 조건부확률, 이항분포, 정규근사, 경희 2023 실전]
+elements:
+  materials: [연결된 (n+1)개의 방, 방마다 다음 방 출구와 운동장 출구, 1~n번 조끼 학생, 방 (n+1)의 상품, 운동장 출구 선택 확률 1/2]
+  concepts: [독립시행의 확률, 조건부확률, 이항분포의 평균과 표준편차, 이항분포의 정규근사, 표준정규분포]
+  tools: [낙첨자 수를 이항분포로 모델링, 사건 C·D를 낙첨자 수 범위로 변환, 이항계수 합, 표준화 Z=(X-m)/σ, 표준정규분포 누적확률의 단조성 비교]
+  conditions:
+  - '(1) $n=7$ ⇒ 6번 학생 수상 ⇔ 낙첨자 0~5명, 3번 학생 낙첨 ⇔ 낙첨자 3~7명'
+  - '(2) $n=400$, 상품 190명 이상 ⇔ 낙첨자 $X_A\le210$'
+  - '(2) $n=72$, 상품 $k$명 이상 ⇔ 낙첨자 $X_B\le72-k$'
+  stimuli_used: [바, 사]
+  subpart_links: '(2)는 (1)에서 쓴 "낙첨자 수 = 운동장 출구 선택 횟수 ~ 이항분포" 모델을 $n=400$, $72$에 적용'
+
+curriculum:
+  version: '2015'
+  subjects: [확률과통계]
+  scope_2028: common
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 이항분포와 정규분포의 관계를 이해하고, 확률을 구할 수 있다(요지)
+    verified: false
+  content_area: 확률 – 조건부확률·독립시행 / 통계 – 이항분포·정규분포
+  behavior_domain: 문제해결
+  unit_path: [확률과통계, 통계, 확률분포, 이항분포와 정규분포]
+  key_concepts: [독립시행, 조건부확률, 이항분포, 정규분포]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 경희대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 경희대학교
+  admission_year: 2023
+  admission_type: 논술(논술우수자전형)
+  track: 자연계열
+  question_no: 3
+  official_url: https://iphak.khu.ac.kr/detail.do?menuurl=89BGs%2bk748ajyySWoWlQPw%3d%3d&board_seq=7867&pageNo=1&categoryid=27&userpwd=
+  retrieved_at: '2026-11-21'
+  original_points: 37
+  rights_notice: 경희대학교 입학처 공개 자료(기출문제·예시답안). 내부 분석용
+  note: '11.20(일) 오전 시험. 문제 = 5. 2023학년도 논술고사 기출문제(자연계)_11.20 오전.pdf p.3(문제지 3-3) · p.9~10(문항카드), 원 번호 [논제 Ⅲ], 해설 = 같은 파일 p.10(출제 의도·문항 해설·채점 기준) · p.11(예시답안). 문항카드의 제시문 [바]·[사]만 수록. 예시답안 오기: $X_B$의 표준편차를 $\sigma_A=\sqrt{72\times\frac12\times\frac12}$로 표기($\sigma_B$가 맞음). 예시답안은 "충분히 크므로 정규분포를 따른다"며 연속성 수정 없이 정규근사로 31을 얻음 — 문제에 근사 지시가 없고 이항분포 정확 계산으로는 $k$ 최댓값이 32(verify 참고 출력). 출제 의도·채점 기준이 정규분포 사용을 명시하므로 공식 답 31을 정답으로 둠.'
+
+verify: verify/KHU-G23B.py::p03
+
+stimuli:
+- label: 바
+  body: |
+    어떤 시행에서 사건 $A$가 일어날 확률이 $p\ (0<p<1)$일 때, 이 시행을 $n$회 반복하는 독립시행에서 사건 $A$가 $r$회 일어날 확률은
+    $${}_n\mathrm{C}_r\,p^r(1-p)^{n-r}\ (\text{단, }r=0,\ 1,\ 2,\ \cdots,\ n)$$
+- label: 사
+  body: |
+    사건 $A$가 일어났을 때의 사건 $B$의 조건부확률은
+    $$\mathrm{P}(B\mid A)=\dfrac{\mathrm{P}(A\cap B)}{\mathrm{P}(A)}\ (\text{단, }\mathrm{P}(A)>0)$$
+
+stem: |
+  아래 그림과 같이 운동장 안에 $(n+1)$개의 연결된 방이 있다. 모든 $i=1,\ 2,\ \cdots,\ n$에 대하여 방 $i$에는 두 개의 출구가 있어서, 그 중 하나만 방 $(i+1)$과 연결되어 있고 다른 하나는 운동장으로 나오는 출구이다. 방 $(n+1)$에는 운동장으로 나오는 출구만 있다.
+  [그림 설명: 방 1, 방 2, …, 방 $(i-1)$, 방 $i$, …, 방 $n$, 방 $(n+1)$[상품]이 가로로 늘어서 있다. 방 $i$에는 왼쪽에서 방 $(i-1)$로부터 들어오는 통로(화살표)가 있고, 오른쪽에 방 $(i+1)$로 가는 출구(화살표)와 아래 '운동장'으로 나가는 출구(화살표)가 있다. 방 1 아래에 '출발' 통로와 달리는 사람·위쪽 화살표, 방 $(n+1)$ 아래에 운동장으로 나가는 통로와 아래쪽 화살표가 있고, 가운데에 '운 동 장'이라고 쓰여 있다.]
+  각각 1, 2, $\cdots$, $n$번 조끼를 입은 학생들이 운동장에 모여 있고 아래와 같은 규칙으로 방을 통과하는 게임에 참여한다.
+  (가) 1번 조끼를 입은 학생부터 조끼 번호의 오름차순으로 한 명씩 방 1로 들어간다.
+  (나) 모든 $i=1,\ 2,\ \cdots,\ n$에 대하여 방 $i$에 처음으로 도착한 학생은 두 개의 출구 중 하나를 선택한다. 이때 다음 방으로 연결된 출구를 선택하면 이 학생은 다음 방으로 가고, 그렇지 않으면 운동장으로 나온다. 방 $(n+1)$에 도착한 모든 학생은 상품을 받고 출구를 통해 운동장으로 나온다. (단, 지나온 길을 되돌아가지는 않는다.)
+  (다) 먼저 출발한 학생이 운동장으로 나오면, 그 다음 학생은 방 1로 들어간다. 먼저 출발한 학생이 방 $i$의 출구($i=1,\ 2,\ \cdots,\ n$)에서 운동장으로 나오면, 그 다음에 출발하는 학생은 방 1부터 연결된 출구들을 통해 방 $(i+1)$로 간다. 먼저 출발한 학생이 방 $(n+1)$에서 나오면, 그 다음 학생은 항상 방 $(n+1)$까지 간다.
+  (라) $n$번 조끼를 입은 학생이 방 1로 들어가서, 운동장으로 다시 나오면 게임은 끝난다.
+  모든 $i=1,\ 2,\ \cdots,\ n$에 대하여 방 $i$의 두 개의 출구 중에서 운동장으로 나오는 출구를 선택할 확률은 $\dfrac12$이며, 각각의 선택은 독립이라고 할 때, 다음 물음에 답하시오.
+
+subparts:
+- id: '1'
+  stem: |
+    $n=7$이라고 하자. 6번 조끼를 입은 학생이 상품을 받을 때, 3번 조끼를 입은 학생이 상품을 받지 못하였을 확률을 구하고, 그 근거를 논술하시오. (17점)
+  points: 17
+  depends_on: []
+  answer: {kind: value, value: '\dfrac{91}{120}', equivalents: ['91/120'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: 낙첨자 수 $Y\sim\mathrm{B}\left(7,\dfrac12\right)$. $C=\{Y\le5\}$, $C\cap D=\{3\le Y\le5\}$.
+    steps:
+    - {id: 1a, content: '$\dfrac{{}_7\mathrm{C}_3+{}_7\mathrm{C}_4+{}_7\mathrm{C}_5}{2^7-{}_7\mathrm{C}_6-{}_7\mathrm{C}_7}=\dfrac{91}{120}$', criteria: [1.M1, 1.A2]}
+    hint_ladder:
+    - 상품을 받지 못한 학생 수는 무엇과 같은가?
+    - 6번이 상품을 받으려면 앞에서 몇 명 이하가 떨어져야 하나?
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 예시답안 p.11
+    steps:
+    - id: 1b-1
+      content: |
+        6번 조끼를 입은 학생이 상품을 받은 사건을 $C$, 3번 조끼를 입은 학생이 상품을 받지 못하였을 사건을 $D$라 하자. 6번 학생이 상품을 받는 경우는 상품을 받지 못한 학생의 수가 0, 1, 2, 3, 4, 5명일 때이다. 3번 학생이 상품을 받지 못하는 경우는 상품을 받지 못한 학생의 수가 3, 4, 5, 6, 7명일 때이다.
+      criteria: [1.M1]
+    - id: 1b-2
+      content: |
+        따라서 사건 $C$의 확률은 두 출구 중 하나를 선택하는 시행을 7회 반복할 때 운동장으로 나오는 출구를 0, 1, 2, 3, 4, 5개 선택하는 경우의 확률과 같고, 사건 $C\cap D$의 확률은 운동장 출구를 3, 4, 5개 선택하는 경우의 확률과 같다. 제시문 [바]에 의하여 $p=\dfrac12$이므로
+        $\mathrm{P}(C)=\displaystyle\sum_{r=0}^{5}{}_7\mathrm{C}_r\left(\dfrac12\right)^7=\dfrac{120}{128}$, $\mathrm{P}(C\cap D)=\left({}_7\mathrm{C}_3+{}_7\mathrm{C}_4+{}_7\mathrm{C}_5\right)\left(\dfrac12\right)^7=\dfrac{91}{128}$.
+      criteria: [1.A1]
+    - id: 1b-3
+      content: |
+        따라서 6번 학생이 상품을 받을 때 3번 학생이 상품을 받지 못하였을 확률은 제시문 [사]의 조건부확률의 정의에 의해 $\dfrac{91/128}{120/128}=\dfrac{91}{120}$이다.
+      criteria: [1.A2]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 6
+      evidence: 사건 $C$, $D$를 상품을 받지 못한 학생 수(운동장 출구 선택 횟수)의 범위(0~5명, 3~7명)로 바꾸었다.
+      depends_on: []
+      steps: [1b-1]
+    - id: 1.A1
+      mark_type: A
+      points: 6
+      evidence: 독립시행의 확률로 $\mathrm{P}(C)=\dfrac{120}{128}$, $\mathrm{P}(C\cap D)=\dfrac{91}{128}$을 계산했다.
+      depends_on: [1.M1]
+      steps: [1b-2]
+    - id: 1.A2
+      mark_type: A
+      points: 5
+      evidence: 조건부확률의 정의로 $\dfrac{91}{120}$을 구했다.
+      depends_on: [1.M1]
+      steps: [1b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-PRB-6518}
+  - {code: '71', misconception: MC-PRB-6509}
+  misconceptions:
+  - id: MC-PRB-6518
+    outcome_code: '70'
+    wrong_work: '학생마다 상품을 받을 확률을 따로 구해 $\mathrm{P}(D)\times\mathrm{P}(C)$처럼 독립으로 곱함'
+    detect_cue: 계산에 '낙첨자 수' 대신 학생별 확률의 곱이 등장
+    feedback: 앞 학생들의 결과가 뒤 학생의 경로를 정하므로 학생들의 수상 여부는 독립이 아닙니다. 낙첨자 수 하나로 두 사건을 표현하세요.
+    remedy: [RL-1]
+  - id: MC-PRB-6509
+    outcome_code: '71'
+    wrong_work: '$\mathrm{P}(C\cap D)$만 답하거나 $\dfrac{\mathrm{P}(C\cap D)}{\mathrm{P}(D)}=\dfrac{91}{99}$로 계산'
+    detect_cue: 답이 $\dfrac{91}{128}$ 또는 $\dfrac{91}{99}$
+    feedback: '"6번이 상품을 받을 때"가 조건이므로 분모는 $\mathrm{P}(C)$입니다.'
+    remedy: [RL-2]
+- id: '2'
+  stem: |
+    $n=400$일 때 상품을 받은 학생이 190명 이상일 사건을 $A$라 하고, $n=72$일 때 상품을 받은 학생이 $k$명 이상일 사건을 $B$라고 하자. 이때, $\mathrm{P}(A)\le\mathrm{P}(B)$를 만족하는 자연수 $k$의 최댓값을 구하고, 그 근거를 논술하시오. (20점)
+  points: 20
+  depends_on: ['1']
+  answer: {kind: value, value: '31', equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: '$X_A\sim\mathrm{B}\left(400,\dfrac12\right)\approx\mathrm{N}(200,10^2)$, $X_B\sim\mathrm{B}\left(72,\dfrac12\right)\approx\mathrm{N}(36,18)$. $\mathrm{P}(Z\le1)\le\mathrm{P}\left(Z\le\dfrac{36-k}{\sqrt{18}}\right)$.'
+    steps:
+    - {id: 2a, content: '$\dfrac{36-k}{3\sqrt2}\ge1\iff k\le36-3\sqrt2\approx31.76$', criteria: [2.M2, 2.A2]}
+    hint_ladder:
+    - 상품을 받은 학생 수 조건을 받지 못한 학생 수 조건으로 바꾸자.
+    - 두 확률을 표준정규분포로 나타내면 비교는 $z$값 비교가 된다.
+  - id: S2-B
+    audience: B
+    method_no: 1
+    source_flow: 예시답안 p.11
+    steps:
+    - id: 2b-1
+      content: |
+        400명의 학생이 게임에 참가할 때 상품을 받지 못한 학생 수를 확률변수 $X_A$라고 하면 $X_A$는 운동장으로 나가는 출구를 선택한 횟수와 같다. 따라서 $X_A$는 이항분포 $\mathrm{B}\left(400,\dfrac12\right)$을 따르므로 평균 $m_A=400\times\dfrac12=200$, 표준편차 $\sigma_A=\sqrt{400\times\dfrac12\times\dfrac12}=10$이다.
+        이때 학생 수 400과 평균 200이 충분히 크므로 $X_A$는 정규분포 $\mathrm{N}(200,10^2)$을 따른다. $Z=\dfrac{X_A-200}{10}$은 표준정규분포를 따르므로
+        $\mathrm{P}(A)=\mathrm{P}(X_A\le210)=\mathrm{P}\left(Z\le\dfrac{210-200}{10}\right)=\mathrm{P}(Z\le1)$ ⋯ ①
+      criteria: [2.M1]
+    - id: 2b-2
+      content: |
+        72명의 학생이 게임에 참가할 때 상품을 받지 못한 학생 수를 확률변수 $X_B$라고 하면 $X_B$는 이항분포 $\mathrm{B}\left(72,\dfrac12\right)$을 따르므로 평균 $m_B=36$, 표준편차 $\sigma_B=\sqrt{72\times\dfrac12\times\dfrac12}=\sqrt{18}$이다. 학생 수 72와 평균 36이 충분히 크므로 $X_B$는 정규분포 $\mathrm{N}(36,18)$을 따르고, $Z=\dfrac{X_B-36}{\sqrt{18}}$에 대해
+        $\mathrm{P}(B)=\mathrm{P}(X_B\le72-k)=\mathrm{P}\left(Z\le\dfrac{36-k}{\sqrt{18}}\right)$ ⋯ ②
+      criteria: [2.A1]
+    - id: 2b-3
+      content: |
+        ①과 ②에서 $1\le\dfrac{36-k}{\sqrt{18}}$일 때만 $\mathrm{P}(Z\le1)\le\mathrm{P}\left(Z\le\dfrac{36-k}{\sqrt{18}}\right)$이다. 즉 $k\le36-\sqrt{18}=36-3\sqrt2$ ($3\sqrt2\approx4.24$).
+      criteria: [2.M2]
+    - id: 2b-4
+      content: |
+        따라서 $\mathrm{P}(A)\le\mathrm{P}(B)$를 만족하는 가장 큰 자연수 $k$는 31이다.
+      criteria: [2.A2]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 7
+      evidence: '$X_A\sim\mathrm{B}\left(400,\dfrac12\right)$의 평균 200·표준편차 10을 구하고 정규분포로 표준화해 $\mathrm{P}(A)=\mathrm{P}(Z\le1)$을 얻었다.'
+      depends_on: []
+      steps: [2b-1]
+    - id: 2.A1
+      mark_type: A
+      points: 7
+      evidence: '$X_B\sim\mathrm{B}\left(72,\dfrac12\right)$의 평균 36·표준편차 $\sqrt{18}$로 $\mathrm{P}(B)=\mathrm{P}\left(Z\le\dfrac{36-k}{\sqrt{18}}\right)$을 얻었다.'
+      depends_on: [2.M1]
+      steps: [2b-2]
+    - id: 2.M2
+      mark_type: M
+      points: 3
+      evidence: 표준정규분포의 누적확률 비교를 $1\le\dfrac{36-k}{\sqrt{18}}$로 바꾸었다.
+      depends_on: []
+      steps: [2b-3]
+    - id: 2.A2
+      mark_type: A
+      points: 3
+      evidence: $k\le36-3\sqrt2$에서 자연수 최댓값 31을 답했다.
+      depends_on: [2.M2]
+      steps: [2b-4]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '72', misconception: MC-PRB-6519}
+  misconceptions:
+  - id: MC-PRB-6519
+    outcome_code: '72'
+    wrong_work: '$\mathrm{P}(A)=\mathrm{P}(X\ge190)$를 낙첨자 수로 바꾸지 않고 그대로 쓰거나, $\mathrm{N}(36,18)$에서 표준편차를 18로 두어 $k\le18$'
+    detect_cue: 답이 18, 35, 36 근처이거나 표준화 분모가 18
+    feedback: 확률변수를 '낙첨자 수'로 정했다면 '상품 190명 이상'은 '낙첨자 210명 이하'입니다. $\mathrm{N}(m,\sigma^2)$의 두 번째 값은 분산입니다.
+    remedy: [RL-3]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-PRB-6518}
+  relation: remediation
+  target: {kind: concept, ref: CON-PRB-INDEP-TRIAL}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-PRB-6509}
+  relation: remediation
+  target: {kind: concept, ref: CON-PRB-COND}
+  priority: 1
+- id: RL-3
+  trigger: {type: misconception, ref: MC-PRB-6519}
+  relation: remediation
+  target: {kind: concept, ref: CON-PRB-NORMAL-APPROX}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-input-v1, item_version: 1, verdict: pass, date: 2026-11-21, note: 원문 PDF 이미지 판독으로 옮김 · 해설은 경희대 예시답안 흐름}
+
+created: 2026-11-21
+updated: 2026-11-21

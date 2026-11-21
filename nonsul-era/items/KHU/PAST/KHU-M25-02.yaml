@@ -1,0 +1,218 @@
+schema_version: '2.0'
+id: KHU-M25-02
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: KHU
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 추론
+points: 33
+time_estimate_min: 25
+intent: |
+  공간도형과 공간좌표의 기본 개념을 종합적으로 이해하고, 직선과 평면의 위치 관계와 구의 성질을 응용할 수 있는지 파악한다(경희대 문항 해설 요지).
+key_idea: '삼수선의 정리로 $\angle\mathrm{AMH}=\theta$(M 은 BC 의 중점), $\overline{AM}=\dfrac{\overline{HM}}{\cos\theta}=5$. 외접구 중심은 직선 AH 위에 있어 $\overline{BH}^2+(R-\overline{AH})^2=R^2$.'
+stuck: 이면각 θ 를 ∠AMH 로 잡는 것(삼수선), 외접구 중심이 수선 AH 위에 있음을 아는 것
+idea_tags: [IDEA-DIHEDRAL-THREE-PERPENDICULARS, IDEA-CIRCUMSPHERE-ON-ALTITUDE]
+tags: [경희 모의, 공간도형, 이면각, 외접구]
+elements:
+  materials: [밑면 BCD 가 한 변 10인 정삼각형인 사면체 ABCD, A 에서 평면 BCD 에 내린 수선의 발 H(= 삼각형 BCD 의 무게중심), 평면 ABC 와 평면 BCD 가 이루는 각 θ(cosθ=√3/3), 사면체의 외접구]
+  concepts: [직선과 평면의 수직(제시문 다), 구의 방정식(제시문 라), 삼수선의 정리, 이면각, 무게중심의 성질, 피타고라스 정리]
+  tools: [중선 DM 을 2:1 로 내분하는 무게중심, AM⊥BC·HM⊥BC 로 이면각 = ∠AMH, 직각삼각형 AMH·ABM, 외접구 중심 P 가 AH 위 ⇒ AP=BP 로 직각삼각형 PBH]
+  conditions:
+  - 'H 가 정삼각형 BCD 의 무게중심 ⇒ $\overline{HM}=\dfrac{5\sqrt3}{3}$, $\overline{BH}=\dfrac{10\sqrt3}{3}$'
+  - '$\cos\theta=\dfrac{\sqrt3}{3}$ ⇒ $\overline{AM}=5$'
+  - '외접구 중심은 B, C, D 에서 같은 거리 ⇒ 직선 AH 위'
+  stimuli_used: [다, 라]
+  subpart_links: (2)는 (1)의 AB=5√2 와 BH, AH 를 사용
+
+curriculum:
+  version: '2015'
+  subjects: [기하]
+  scope_2028: geom
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 삼수선의 정리를 이해한다 / 정사영의 뜻을 알고, 이를 구할 수 있다(요지)
+    verified: false
+  content_area: 공간도형과 공간좌표 – 삼수선의 정리, 이면각, 구
+  behavior_domain: 문제해결
+  unit_path: [기하, 공간도형과 공간좌표, 공간도형, 삼수선의 정리]
+  key_concepts: [삼수선의 정리, 이면각, 외접구]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 경희대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 경희대학교
+  admission_year: 2025
+  admission_type: 논술(모의)
+  track: 자연계열
+  question_no: 2
+  official_url: https://iphak.khu.ac.kr/detail.do?menuurl=89BGs%2bk748ajyySWoWlQPw%3d%3d&board_seq=12260&pageNo=1&categoryid=27&userpwd=
+  retrieved_at: '2026-11-21'
+  original_points: 33
+  rights_notice: 경희대학교 입학처 공개 자료(기출문제·예시답안). 내부 분석용
+  note: |
+    문제 = 3-1. [자연계] 2025 모의논술고사 문제지_최종.pdf p.2, 원 번호 [논제 Ⅱ], 해설 = 3-2. [자연계] 2025 모의논술고사 예시답안 및 채점기준_최종.pdf p.1~2(예시답안), p.3(채점 기준).
+    [공식 해설 오기] 예시답안 (2)의 $\overline{AH}=\sqrt{(5\sqrt2)^2-\left(\dfrac{10\sqrt6}{3}\right)^2}$에서 $\dfrac{10\sqrt6}{3}$은 $\overline{BH}=\dfrac{10\sqrt3}{3}$의 오기(결과 $\dfrac{5\sqrt6}{3}$은 맞음). B 해설에서 바로잡음.
+
+verify: verify/KHU-M25.py::p02
+
+stimuli:
+- label: 다
+  body: |
+    공간에서 직선 $l$이 평면 $\alpha$ 위의 모든 직선과 수직일 때, 직선 $l$과 평면 $\alpha$는 서로 수직이라고 하며, 이것을 기호로 $l\perp\alpha$와 같이 나타낸다.
+- label: 라
+  body: |
+    중심의 좌표가 $(a,b,c)$이고 반지름의 길이가 $r$인 구의 방정식은
+    $$(x-a)^2+(y-b)^2+(z-c)^2=r^2$$
+
+stem: |
+  다음 그림과 같이 $\overline{BC}=\overline{CD}=\overline{DB}=10$인 사면체가 있다. 꼭짓점 A에서 평면 BCD에 내린 수선의 발을 H라고 하고, 평면 ABC와 평면 BCD가 이루는 각의 크기를 $\theta$라고 하자. 점 H는 삼각형 BCD의 무게중심이고, $\cos\theta=\dfrac{\sqrt3}{3}$일 때, 다음 물음에 답하시오.
+  [그림 설명: 사면체 ABCD. 밑면 BCD(음영)에서 B 는 왼쪽 아래, C 는 오른쪽 아래, D 는 뒤쪽 위. 꼭짓점 A 에서 밑면으로 내린 수선(점선) AH, H 에 직각 표시. 모서리 BD 는 점선(뒤쪽).]
+
+subparts:
+- id: '1'
+  stem: |
+    선분 AB의 길이를 구하고, 그 근거를 논술하시오. (16점)
+  points: 16
+  depends_on: []
+  answer: {kind: value, value: '5\sqrt{2}', equivalents: ['5\sqrt2'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: BC 의 중점 M 에 대해 $\angle\mathrm{AMH}=\theta$, $\overline{HM}=\dfrac{5\sqrt3}{3}$이므로 $\overline{AM}=5$, $\overline{AB}=\sqrt{25+25}$.
+    steps:
+    - {id: 1a, content: '$\overline{AB}=\sqrt{\overline{AM}^2+\overline{BM}^2}=5\sqrt2$', criteria: [1.A1]}
+    hint_ladder:
+    - 두 평면의 교선 BC 에 수직인 두 직선을 찾자.
+    - 무게중심은 중선을 몇 대 몇으로 나누는가?
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 3-2. [자연계] 2025 모의논술고사 예시답안 및 채점기준_최종.pdf p.1
+    steps:
+    - id: 1b-1
+      content: |
+        한 변의 길이가 10인 정삼각형 BCD의 한 모서리 BC의 중점을 M이라고 하면, 선분 DM의 길이는 $\overline{DM}=5\sqrt3$이다. 점 H는 삼각형 BCD의 무게중심이므로 선분 DM을 2:1로 내분하는 점이고, 따라서 $\overline{HM}=\dfrac13\overline{DM}=\dfrac{5\sqrt3}{3}$.
+      criteria: [1.B1]
+    - id: 1b-2
+      content: |
+        이때 $\overline{AM}\perp\overline{BC}$, $\overline{HM}\perp\overline{BC}$이므로(삼수선의 정리) $\angle\mathrm{AMH}=\theta$이고 $\cos\theta=\dfrac{\overline{HM}}{\overline{AM}}=\dfrac{\sqrt3}{3}$이므로 $\overline{AM}=5$이다.
+        따라서 직각삼각형 ABM에서 $\overline{AB}=\sqrt{5^2+5^2}=5\sqrt2$.
+      criteria: [1.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.B1
+      mark_type: B
+      points: 8
+      evidence: (공식 8점) 무게중심의 성질로 선분 HM 의 길이 $\dfrac{5\sqrt3}{3}$을 구했다.
+      depends_on: []
+      steps: [1b-1]
+    - id: 1.A1
+      mark_type: A
+      points: 8
+      evidence: (공식 8점) $\angle\mathrm{AMH}=\theta$에서 $\overline{AM}=5$를 얻고 선분 AB 의 길이 $5\sqrt2$를 구했다.
+      depends_on: []
+      implied_ok: true
+      steps: [1b-2, 1a]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-GEO-6316}
+  misconceptions:
+  - id: MC-GEO-6316
+    outcome_code: '70'
+    wrong_work: '$\theta$를 $\angle\mathrm{ABH}$로 보고 $\overline{AB}=\dfrac{\overline{BH}}{\cos\theta}=10$으로 계산'
+    detect_cue: 답이 10 이거나 BH 를 cosθ 로 나눔
+    feedback: 두 평면이 이루는 각은 교선 BC 에 수직인 두 직선 AM, HM 이 이루는 각입니다(삼수선의 정리).
+    remedy: [RL-1]
+- id: '2'
+  stem: |
+    사면체에 외접하는 구의 반지름을 구하고, 그 근거를 논술하시오. (17점)
+  points: 17
+  depends_on: ['1']
+  answer: {kind: value, value: '\dfrac{5\sqrt{6}}{2}', equivalents: ['5\sqrt6/2'], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: $\overline{AH}=\dfrac{5\sqrt6}{3}$, 중심 P 는 AH 위이므로 $\dfrac{100}{3}+\left(R-\dfrac{5\sqrt6}{3}\right)^2=R^2$.
+    steps:
+    - {id: 2a, content: '$R=\dfrac{50}{\frac{10\sqrt6}{3}}=\dfrac{5\sqrt6}{2}$', criteria: [2.M1]}
+    hint_ladder:
+    - B, C, D 에서 같은 거리에 있는 점들은 어떤 직선 위에 있는가?
+  - id: S2-B
+    audience: B
+    method_no: 1
+    source_flow: 3-2. [자연계] 2025 모의논술고사 예시답안 및 채점기준_최종.pdf p.2
+    steps:
+    - id: 2b-1
+      content: |
+        점 H는 삼각형 BCD의 무게중심이므로 $\overline{BH}=\overline{DH}$이고, 선분 DM을 2:1로 내분하는 점이므로 $\overline{BH}=\dfrac23\overline{DM}=\dfrac{10\sqrt3}{3}$이다. (1)에 의해 $\overline{AB}=5\sqrt2$이므로 직각삼각형 ABH에서
+        $$\overline{AH}=\sqrt{(5\sqrt2)^2-\left(\dfrac{10\sqrt3}{3}\right)^2}=\dfrac{5\sqrt6}{3}$$
+        (공식 예시답안에는 $\dfrac{10\sqrt6}{3}$으로 인쇄 — $\overline{BH}$의 오기.)
+      criteria: [2.A1]
+    - id: 2b-2
+      content: |
+        한편 사면체에 외접하는 구의 중심을 P라 하면, 사면체의 꼭짓점에서 구의 중심까지의 거리는 같아야 하므로 $\overline{AP}=\overline{BP}$. 따라서 직각삼각형 PBH에서 $\overline{BH}^2+(\overline{AP}-\overline{AH})^2=\overline{AP}^2$이고, 구의 반지름의 길이는 $\overline{AP}=\dfrac{5\sqrt6}{2}$.
+        (보충: $\dfrac{100}{3}+\dfrac{50}{3}-\dfrac{10\sqrt6}{3}\overline{AP}=0$에서 $\overline{AP}=\dfrac{50}{\frac{10\sqrt6}{3}}=\dfrac{15}{\sqrt6}=\dfrac{5\sqrt6}{2}$.)
+      criteria: [2.M1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.A1
+      mark_type: A
+      points: 8
+      evidence: (공식 8점) 직각삼각형 ABH 에서 선분 AH 의 길이 $\dfrac{5\sqrt6}{3}$을 구했다.
+      depends_on: []
+      implied_ok: true
+      ft: {allowed: true, from: [1.A1], max_points: 8}
+      steps: [2b-1]
+    - id: 2.M1
+      mark_type: M
+      points: 9
+      evidence: (공식 9점) 구의 중심 P 에 대하여 $\overline{AP}=\overline{BP}$를 이용, 직각삼각형 PBH 로부터 반지름 $\dfrac{5\sqrt6}{2}$을 구했다.
+      depends_on: []
+      steps: [2b-2, 2a]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-GEO-6317}
+  misconceptions:
+  - id: MC-GEO-6317
+    outcome_code: '70'
+    wrong_work: '외접구 중심을 H 로 보고 반지름을 $\overline{BH}=\dfrac{10\sqrt3}{3}$ 또는 $\overline{AH}$로 답함'
+    detect_cue: 답이 $\dfrac{10\sqrt3}{3}$ 또는 $\dfrac{5\sqrt6}{3}$
+    feedback: H 는 B, C, D 에서 같은 거리이지만 A 까지 거리는 다릅니다. 중심은 직선 AH 위에서 $\overline{AP}=\overline{BP}$인 점입니다.
+    remedy: [RL-2]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-GEO-6316}
+  relation: remediation
+  target: {kind: concept, ref: CON-GEO-SPACE-DIHEDRAL}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-GEO-6317}
+  relation: remediation
+  target: {kind: concept, ref: CON-GEO-SPHERE-CIRCUM}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-input-v1, item_version: 1, verdict: pass, date: 2026-11-21, note: 원문 PDF 이미지 판독으로 옮김 · 해설은 경희대 예시답안 흐름(AH 계산식 오기 바로잡음)}
+
+created: 2026-11-21
+updated: 2026-11-21

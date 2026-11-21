@@ -1,0 +1,259 @@
+schema_version: '2.0'
+id: KHU-G23B-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: KHU
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 추론
+points: 30
+time_estimate_min: 25
+intent: 이차함수·이차곡선(포물선)·접선의 방정식 등의 개념을 종합적으로 이해하고, 좌표평면 위를 움직이는 점의 위치와 움직인 거리, 시각에 따른 삼각형 넓이의 비의 극한을 구할 수 있는지 본다.
+key_idea: '수직인 두 접선의 교점 C는 항상 준선 $y=-\dfrac14$ 위에 있고 $x(t)=\dfrac t2-\dfrac1{8t}$이므로 움직인 거리는 $\int_1^2\lvert x''(t)\rvert\,dt$. (2)는 $\triangle ABC$가 C에서 직각이므로 $\dfrac12\overline{AC}\cdot\overline{BC}$.'
+stuck: 수직 조건으로 B의 $x$좌표 $-\dfrac1{4t}$를 구하고, 직각삼각형 넓이를 두 변 길이로 쓴 뒤 최고차항으로 나누는 단계
+idea_tags: [IDEA-PERP-TANGENTS-PARABOLA-DIRECTRIX, IDEA-AREA-RATIO-LIMIT-LEADING-TERM]
+tags: [포물선, 수직인 접선, 움직인 거리, 넓이 비의 극한, 경희 2023 실전]
+elements:
+  materials: [포물선 y=x^2, 움직이는 점 A(t,t^2), A에서의 접선 l1, l1과 수직인 접선 l2와 접점 B, 두 접선의 교점 C, A에서 x축에 내린 수선의 발 P, 원점 O]
+  concepts: [접선의 방정식, 두 직선의 수직 조건, 평면 위를 움직이는 점이 움직인 거리, 삼각형의 넓이, 함수의 극한]
+  tools: [미분으로 접선 기울기, 기울기 곱 -1로 B 결정, 두 접선 연립으로 C, 속력 적분, 직각삼각형 넓이, 최고차항으로 나누어 극한]
+  conditions:
+  - '$t>0$ ⇒ $\dfrac12+\dfrac1{8t^2}>0$이므로 근호를 그대로 벗김'
+  - '$l_1\perp l_2$ ⇒ 기울기 $2t\cdot2u=-1$'
+  - '$\triangle ABC$는 C에서 직각(두 접선이 수직)'
+  stimuli_used: [가, 나]
+  subpart_links: '(2)는 (1)에서 구한 B, C의 좌표를 사용'
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅱ, 미적분]
+  scope_2028: calc2
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 속도와 거리에 대한 문제를 해결할 수 있다(요지)
+    verified: false
+  content_area: 적분법 – 정적분의 활용(움직인 거리) / 함수의 극한
+  behavior_domain: 문제해결
+  unit_path: [미적분, 적분법, 정적분의 활용, 평면 위를 움직이는 점이 움직인 거리]
+  key_concepts: [접선의 방정식, 수직인 두 직선, 움직인 거리, 함수의 극한]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 경희대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 경희대학교
+  admission_year: 2023
+  admission_type: 논술(논술우수자전형)
+  track: 자연계열
+  question_no: 1
+  official_url: https://iphak.khu.ac.kr/detail.do?menuurl=89BGs%2bk748ajyySWoWlQPw%3d%3d&board_seq=7867&pageNo=1&categoryid=27&userpwd=
+  retrieved_at: '2026-11-21'
+  original_points: 30
+  rights_notice: 경희대학교 입학처 공개 자료(기출문제·예시답안). 내부 분석용
+  note: '11.20(일) 오전 시험. 문제 = 5. 2023학년도 논술고사 기출문제(자연계)_11.20 오전.pdf p.2(문제지 3-2) · p.4(문항카드), 원 번호 [논제 Ⅰ], 해설 = 같은 파일 p.5(출제 의도·문항 해설·채점 기준) · p.6(예시답안). 시험지 공통 제시문 [가]~[사] 중 문항카드의 [가]·[나]만 수록. 채점 기준 (1)에 "(기하에서 포물선의 정의를 이용할 수 있음.)" 부기.'
+
+verify: verify/KHU-G23B.py::p01
+
+stimuli:
+- label: 가
+  body: |
+    곡선 $y=f(x)$ 위의 점 $(a,\ f(a))$에서 접하는 접선의 방정식은
+    $$y-f(a)=f'(a)(x-a)$$
+- label: 나
+  body: |
+    좌표평면 위를 움직이는 점 P의 시각 $t$에서의 위치가 $x=f(t)$, $y=g(t)$일 때, 시각 $t=a$에서 $t=b$까지 점 P가 움직인 거리 $s$는
+    $$s=\int_a^b\sqrt{\left(\dfrac{dx}{dt}\right)^2+\left(\dfrac{dy}{dt}\right)^2}\,dt=\int_a^b\sqrt{\{f'(t)\}^2+\{g'(t)\}^2}\,dt$$
+
+stem: |
+  곡선 $y=x^2$ 위를 움직이는 점 A$(x,\ y)$의 시각 $t$에서의 위치가 $x=t$, $y=t^2$이다. 이 점 A에서 곡선 $y=x^2$에 접하는 접선을 $l_1$이라 하고, 직선 $l_1$과 수직이고 곡선 $y=x^2$에 접하는 접선을 $l_2$라고 하자. 접선 $l_2$와 곡선 $y=x^2$이 만나는 점을 B라 하고, 원점을 O라고 하자. 다음 물음에 답하시오. (단, $t>0$)
+  [그림 설명: 포물선 $y=x^2$ 위 제1사분면의 점 A에서 접선 $l_1$(오른쪽 위로 올라감), 제2사분면의 점 B에서 접선 $l_2$(오른쪽 아래로 내려감)가 그려져 있고, 두 접선은 $x$축 아래 점 C에서 직각(직각 표시)으로 만난다. A에서 $x$축에 내린 수선의 발 P(직각 표시, 점선)가 있다.]
+
+subparts:
+- id: '1'
+  stem: |
+    두 접선 $l_1$과 $l_2$의 교점을 C라고 하자. 시각 $t=1$에서 $t=2$까지 점 C가 움직인 거리 $s$를 구하고, 그 근거를 논술하시오. (15점)
+  points: 15
+  depends_on: []
+  answer: {kind: value, value: '\dfrac{9}{16}', equivalents: ['9/16'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: 'B$\left(-\dfrac1{4t},\dfrac1{16t^2}\right)$, C$\left(\dfrac t2-\dfrac1{8t},-\dfrac14\right)$이므로 C는 직선 $y=-\dfrac14$ 위를 오른쪽으로만 움직인다.'
+    steps:
+    - {id: 1a, content: '$s=x(2)-x(1)=\left(1-\dfrac1{16}\right)-\left(\dfrac12-\dfrac18\right)=\dfrac9{16}$', criteria: [1.M2, 1.A2]}
+    hint_ladder:
+    - 기울기의 곱이 $-1$인 접선의 접점을 찾자.
+    - 두 접선을 연립해 C를 $t$로 나타내자. $y$좌표에 특징이 있다.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 예시답안 p.6
+    steps:
+    - id: 1b-1
+      content: |
+        곡선 $y=x^2$ 위의 점 $(a,a^2)$에서 접하는 접선의 기울기는 $2a$이다. 제시문 [가]에 의해 점 A$(t,t^2)$에서의 접선은 $l_1:y=2tx-t^2$이다.
+        접선 $l_1$과 수직인 직선의 기울기는 $-\dfrac1{2t}$이고, 접선의 기울기가 $-\dfrac1{2t}$가 되는 곡선 위의 점은 B$\left(-\dfrac1{4t},\dfrac1{16t^2}\right)$이다. 따라서 $l_2:y=-\dfrac1{2t}x-\dfrac1{16t^2}$이다.
+      criteria: [1.M1]
+    - id: 1b-2
+      content: |
+        접선 $l_1$과 $l_2$의 교점은 C$\left(\dfrac t2-\dfrac1{8t},\ -\dfrac14\right)$이고, 점 C의 시각 $t$에서의 위치는 $x(t)=\dfrac t2-\dfrac1{8t}$, $y(t)=-\dfrac14$이다.
+      criteria: [1.A1]
+    - id: 1b-3
+      content: |
+        제시문 [나]에 의해 시각 $t=1$에서 $t=2$까지 점 C가 움직인 거리는
+        $s=\displaystyle\int_1^2\sqrt{(x'(t))^2+(y'(t))^2}\,dt=\int_1^2\left(\dfrac12+\dfrac1{8t^2}\right)dt=\dfrac9{16}$이다.
+      criteria: [1.M2, 1.A2]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 5
+      evidence: 접선 $l_1:y=2tx-t^2$와 수직 조건으로 B$\left(-\dfrac1{4t},\dfrac1{16t^2}\right)$, $l_2$의 방정식을 구했다.
+      depends_on: []
+      steps: [1b-1]
+    - id: 1.A1
+      mark_type: A
+      points: 4
+      evidence: 교점 C$\left(\dfrac t2-\dfrac1{8t},-\dfrac14\right)$을 시각 $t$에서의 위치로 나타냈다.
+      depends_on: [1.M1]
+      steps: [1b-2]
+    - id: 1.M2
+      mark_type: M
+      points: 3
+      evidence: 움직인 거리를 $\int_1^2\sqrt{(x')^2+(y')^2}\,dt$로 세웠다.
+      depends_on: []
+      steps: [1b-3]
+    - id: 1.A2
+      mark_type: A
+      points: 3
+      evidence: $\int_1^2\left(\dfrac12+\dfrac1{8t^2}\right)dt=\dfrac9{16}$을 계산했다.
+      depends_on: [1.M2]
+      steps: [1b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-CAL-6513}
+  - {code: '71', misconception: MC-CAL-6512}
+  misconceptions:
+  - id: MC-CAL-6513
+    outcome_code: '70'
+    wrong_work: '$l_2$의 기울기를 $\dfrac1{2t}$ 또는 $-2t$로 잡아 B를 $\left(\dfrac1{4t},\cdot\right)$, $(-t,t^2)$ 등으로 구함'
+    detect_cue: C의 $y$좌표가 $-\dfrac14$로 일정하지 않음
+    feedback: 수직인 두 직선은 기울기의 곱이 $-1$입니다. $2t\times m=-1$에서 $m=-\dfrac1{2t}$.
+    remedy: [RL-1]
+  - id: MC-CAL-6512
+    outcome_code: '71'
+    wrong_work: '$s$를 C$(t=1)$과 C$(t=2)$ 사이의 거리로만 계산하고 왕복 여부를 확인하지 않음'
+    detect_cue: 속력 적분식 없이 두 위치의 차만 있음(값은 같아도 근거 부족)
+    feedback: 움직인 거리는 속력의 정적분입니다(제시문 [나]). 위치 차와 같으려면 한 방향으로만 움직임을 보여야 합니다.
+    remedy: [RL-2]
+- id: '2'
+  stem: |
+    점 A에서 $x$축에 내린 수선의 발을 P라고 하자. 시각 $t$에서 두 삼각형 AOP와 ABC의 넓이의 비를 $S(t)=\dfrac{\triangle\mathrm{ABC}}{\triangle\mathrm{AOP}}$라고 할 때, $\displaystyle\lim_{t\to\infty}S(t)$를 구하고, 그 근거를 논술하시오. (15점)
+  points: 15
+  depends_on: ['1']
+  answer: {kind: value, value: '\dfrac{1}{2}', equivalents: ['1/2', '0.5'], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: $\triangle ABC=\dfrac12\overline{AC}\cdot\overline{BC}$에서 $\overline{AC}\sim t^2$, $\overline{BC}\sim\dfrac t2$, $\triangle AOP=\dfrac12t^3$.
+    steps:
+    - {id: 2a, content: '$S(t)=\sqrt{1+\cdots}\sqrt{\dfrac14+\cdots}\to\dfrac12$', criteria: [2.A1, 2.M2]}
+    hint_ladder:
+    - 두 접선이 수직이니 삼각형 ABC는 직각삼각형이다.
+    - 분모·분자를 $t^3$으로 나누어 보자.
+  - id: S2-B
+    audience: B
+    method_no: 1
+    source_flow: 예시답안 p.6
+    steps:
+    - id: 2b-1
+      content: |
+        삼각형 AOP의 넓이는 $\dfrac12t^3$이다. 삼각형 ABC의 넓이를 구하기 위해 선분 AC와 BC의 길이를 구한다. B$\left(-\dfrac1{4t},\dfrac1{16t^2}\right)$, C$\left(\dfrac t2-\dfrac1{8t},-\dfrac14\right)$이므로
+        $\overline{AC}=\sqrt{t^4+\dfrac34t^2+\dfrac3{16}+\dfrac1{64t^2}}$, $\overline{BC}=\sqrt{\dfrac{t^2}4+\dfrac3{16}+\dfrac3{64t^2}+\dfrac1{256t^4}}$이다.
+      criteria: [2.M1]
+    - id: 2b-2
+      content: |
+        따라서 (두 접선이 수직이므로) $\triangle ABC=\dfrac12\sqrt{t^4+\dfrac34t^2+\dfrac3{16}+\dfrac1{64t^2}}\sqrt{\dfrac{t^2}4+\dfrac3{16}+\dfrac3{64t^2}+\dfrac1{256t^4}}$이고
+        $S(t)=\sqrt{1+\dfrac3{4t^2}+\dfrac3{16t^4}+\dfrac1{64t^6}}\sqrt{\dfrac14+\dfrac3{16t^2}+\dfrac3{64t^4}+\dfrac1{256t^6}}$이다.
+      criteria: [2.A1]
+    - id: 2b-3
+      content: |
+        이때 $\displaystyle\lim_{t\to\infty}\dfrac1t=0$이므로 $\displaystyle\lim_{t\to\infty}\dfrac1{t^2}=\lim_{t\to\infty}\dfrac1{t^4}=\lim_{t\to\infty}\dfrac1{t^6}=0$이고, 따라서 $\displaystyle\lim_{t\to\infty}S(t)=\sqrt1\cdot\sqrt{\dfrac14}=\dfrac12$이다.
+      criteria: [2.M2, 2.A2]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 4
+      evidence: $\triangle AOP=\dfrac12t^3$과 선분 AC, BC의 길이를 $t$로 나타냈다.
+      depends_on: []
+      ft: {allowed: true, from: [1.A1], max_points: 2, condition: (1)의 B·C 좌표 오류를 이어 쓴 경우}
+      steps: [2b-1]
+    - id: 2.A1
+      mark_type: A
+      points: 5
+      evidence: 직각삼각형 넓이 $\dfrac12\overline{AC}\cdot\overline{BC}$로 $S(t)$를 정리했다.
+      depends_on: [2.M1]
+      steps: [2b-2]
+    - id: 2.M2
+      mark_type: M
+      points: 3
+      evidence: 분모·분자를 최고차항($t^3$)으로 나누어 $\dfrac1{t^n}\to0$을 이용했다.
+      depends_on: []
+      steps: [2b-3]
+    - id: 2.A2
+      mark_type: A
+      points: 3
+      evidence: $\displaystyle\lim_{t\to\infty}S(t)=\dfrac12$을 답했다.
+      depends_on: [2.M2]
+      steps: [2b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '72', misconception: MC-CAL-6514}
+  misconceptions:
+  - id: MC-CAL-6514
+    outcome_code: '72'
+    wrong_work: '$\overline{BC}$의 최고차항을 $t^2$ 또는 상수로 보고 극한을 $\infty$나 0으로 답함'
+    detect_cue: 답이 $0$, $1$, $\infty$
+    feedback: '$\overline{AC}\approx t^2$, $\overline{BC}\approx\dfrac t2$이므로 분자는 $t^3$ 차수입니다. 분모 $\dfrac12t^3$과 차수를 맞춰 나누세요.'
+    remedy: [RL-3]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CAL-6513}
+  relation: remediation
+  target: {kind: concept, ref: CON-GEO-ELLIPSE-TANGENT}
+  priority: 2
+- id: RL-2
+  trigger: {type: misconception, ref: MC-CAL-6512}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-ARC-LENGTH}
+  priority: 1
+- id: RL-3
+  trigger: {type: misconception, ref: MC-CAL-6514}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-LIMIT-INF}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-input-v1, item_version: 1, verdict: pass, date: 2026-11-21, note: 원문 PDF 이미지 판독으로 옮김 · 해설은 경희대 예시답안 흐름}
+
+created: 2026-11-21
+updated: 2026-11-21

@@ -1,0 +1,303 @@
+schema_version: '2.0'
+id: KHU-M21-02
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: KHU
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 전수
+points: 30
+time_estimate_min: 25
+intent: 합의 법칙과 같은 것이 있는 순열로 격자 도로망의 최단 경로의 수를 빠짐없이 구하고, 통과 금지 지점이 있을 때 조건에 맞는 경우를 세어 확률을 구하는 능력을 본다.
+key_idea: '두 지점의 가로·세로 거리 $(m,n)$에 대해 최단 경로의 수는 $\dfrac{(m+n)!}{m!\,n!}$이고, 지점 A를 지나는 경로는 A가 직사각형의 다른 꼭짓점일 때 1가지뿐이다.'
+stuck: (2)에서 A가 두 지점이 만드는 직사각형의 꼭짓점이 되는 경우만 경로 수가 1 줄어든다는 것을 찾아 (2,2), (2,3), (3,3) 쌍을 하나씩 확인하는 단계
+idea_tags: [IDEA-GRID-PATH-MULTINOMIAL, IDEA-CASE-BY-DISTANCE-PAIR, IDEA-FORBIDDEN-CORNER-SUBTRACT]
+tags: [격자 최단 경로, 확률, 경희 모의]
+elements:
+  materials: [16개 교차로 지점의 정사각형 도로망(4×4 격자점), 이웃한 지점 사이 거리 1, 모서리 지점 A, 지점 B]
+  concepts: [합의 법칙, 같은 것이 있는 순열, 조합, 수학적 확률]
+  tools: [가로 거리 m·세로 거리 n으로 경우 분류, 최단 경로의 수 (m+n)!/(m!n!), A를 지나는 경로 빼기, 표본공간 15C2=105]
+  conditions:
+  - '서로 다른 두 지점 ⇒ $(m,n)\ne(0,0)$, $0\le m,n\le3$'
+  - '(2) A를 지날 수 없음 ⇒ A가 직사각형의 꼭짓점인 쌍은 경로 수 $-1$'
+  - '(2) A를 제외한 15개 지점에서 두 지점 선택 ⇒ $\binom{15}{2}=105$'
+  stimuli_used: [라, 마]
+  subpart_links: (2)는 (1)의 표에서 최단 경로의 수가 6 이상인 거리 쌍 (2,2), (2,3), (3,2), (3,3)을 골라 이용
+
+curriculum:
+  version: '2015'
+  subjects: [수학, 확률과통계]
+  scope_2028: common
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 같은 것이 있는 순열을 이해하고 그 순열의 수를 구할 수 있다(요지)
+    verified: false
+  content_area: 경우의 수 – 같은 것이 있는 순열, 확률
+  behavior_domain: 문제해결
+  unit_path: [확률과통계, 순열과 조합, 같은 것이 있는 순열, 최단 경로의 수]
+  key_concepts: [합의 법칙, 같은 것이 있는 순열, 수학적 확률]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 경희대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 경희대학교
+  admission_year: 2021
+  admission_type: 논술(모의)
+  track: 자연계열
+  question_no: 2
+  official_url: https://iphak.khu.ac.kr/detail.do?menuurl=89BGs%2bk748ajyySWoWlQPw%3d%3d&board_seq=2102&pageNo=1&categoryid=27&userpwd=
+  retrieved_at: '2026-11-21'
+  original_points: 30
+  rights_notice: '경희대학교 입학처 공개 자료(기출문제·예시답안). 내부 분석용'
+  note: |
+    문제 = 4. 2021 모의논술 문제지(자연계 ).pdf p.2, 원 번호 [논제 I-2] (1)(2), 해설 = 4. 예시답안, 출제개요(자연계).pdf p.3~4(예시답안), p.5(문항 해설).
+    채점 기준 미공개(모의 자료는 예시답안·문항 해설만 있음) — 소문항 배점(10·20)은 원문, 마크 단위 배점은 자체 배분.
+    [판독확인] [그림 2]: A는 왼쪽 위 모서리 지점, B는 A에서 오른쪽으로 2칸·아래로 2칸인 지점으로 판독(발문의 'A와 B 사이 최단 경로의 수는 6'과 일치).
+    [판독확인] 예시답안 p.3: 'm=3인 경우' 항목 번호가 '3)'으로 중복 표기됨(원문 그대로, 내용 영향 없음).
+
+verify: verify/KHU-M21.py::p02
+
+stimuli:
+- label: 가
+  body: |
+    함수 $f(x)$가 $x=a$에서 미분가능할 때, 곡선 $y=f(x)$ 위의 점 $P(a,f(a))$에서의 접선의 방정식은
+    $$y-f(a)=f'(a)(x-a)$$
+- label: 나
+  body: |
+    함수 $f(x)$가 어떤 열린구간에서 미분가능할 때, 그 열린구간에 속하는 모든 $x$에 대하여
+    (1) $f'(x)>0$이면 $f(x)$는 그 열린구간에서 증가한다.
+    (2) $f'(x)<0$이면 $f(x)$는 그 열린구간에서 감소한다.
+- label: 다
+  body: |
+    함수 $f(x)$가 미분가능하고 $f'(a)=0$일 때, $x=a$의 좌우에서 $f'(x)$의 부호가
+    (1) 양에서 음으로 바뀌면 $f(x)$는 $x=a$에서 극대이고, 극댓값 $f(a)$를 갖는다.
+    (2) 음에서 양으로 바뀌면 $f(x)$는 $x=a$에서 극소이고, 극솟값 $f(a)$를 갖는다.
+- label: 라
+  body: |
+    동시에 일어나지 않는 두 사건에 대하여 다음과 같은 합의 법칙이 성립한다.
+    두 사건 $A$, $B$가 동시에 일어나지 않을 때, 사건 $A$와 사건 $B$가 일어나는 경우의 수가 각각 $m$, $n$이면, 사건 $A$ 또는 사건 $B$가 일어나는 경우의 수는 $m+n$이다.
+- label: 마
+  body: |
+    일반적으로 같은 것이 있는 순열의 수는 다음과 같다.
+    $n$개 중에서 서로 같은 것이 각각 $p$개, $q$개, ..., $r$개 있을 때, $n$개를 일렬로 나열하는 순열의 수는
+    $$\dfrac{n!}{p!\times q!\times\cdots r!}\quad(\text{단, }p+q+\cdots+r=n)$$
+
+stem: |
+  Ⅰ. 다음 제시문을 읽고 논제에 답하시오.(60점)
+  [논제 I] 제시문 [가]~[마]를 읽고 다음 질문에 답하시오.
+  [논제 I -2] [그림 2]와 같이 16개의 교차로 지점이 있는 정사각형 도로망이 있다. 이웃한 두 지점 사이의 거리는 모두 1이다.
+  [그림 2 설명: 가로 3칸, 세로 3칸의 정사각형 격자 도로망(가로선 4개, 세로선 4개, 교차로 지점 16개). 왼쪽 위 모서리 지점에 A가 표시되어 있고, A에서 오른쪽으로 2칸, 아래로 2칸 떨어진 지점에 B가 표시되어 있다.]
+
+subparts:
+- id: '1'
+  stem: |
+    (1) 임의의 서로 다른 두 교차로 지점을 선택했을 때 두 지점 사이 최단 경로의 수가 될 수 있는 자연수를 모두 구하고, 그 근거를 논술하시오. 예를 들어, 지점 A와 지점 B 사이의 최단 경로의 수는 6이다. (10점)
+  points: 10
+  depends_on: []
+  answer: {kind: set, value: '\{1,2,3,4,6,10,20\}', equivalents: ['1, 2, 3, 4, 6, 10, 20'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: 가로 거리 $m$, 세로 거리 $n$ $(0\le m,n\le3)$에 대해 최단 경로의 수는 $\dfrac{(m+n)!}{m!\,n!}$이므로 모든 $(m,n)$을 나열한다.
+    steps:
+    - {id: 1a, content: '$m=0,1,2,3$별로 $n$을 바꿔 가며 경로 수를 나열 ⇒ $1,2,3,4,6,10,20$', criteria: [1.M1, 1.M2, 1.A1]}
+    hint_ladder:
+    - 두 지점 사이의 최단 경로는 가로 거리와 세로 거리만으로 결정된다.
+    - 오른쪽 $m$번, 아래쪽 $n$번 이동을 일렬로 나열하는 방법의 수를 생각해 보자.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 예시답안(자연계) p.3
+    steps:
+    - id: 1b-1
+      content: |
+        임의의 두 지점의 가로 거리를 $m$, 세로 거리를 $n$이라고 하자. 최단 경로는 가로 방향 이동 $m$번과 세로 방향 이동 $n$번을 일렬로 나열한 것이므로 제시문 [마]에 의해 그 수는 $\dfrac{(m+n)!}{m!\,n!}$이다.
+      criteria: [1.M1]
+    - id: 1b-2
+      content: |
+        1) $m=0$인 경우: 서로 다른 두 지점이므로 $n$은 1, 2, 3이 될 수 있으며, (제시문 [마]를 이용하면) 각각의 경우 최단 경로의 수는 1, 1, 1이다.
+        2) $m=1$인 경우: $n$은 0, 1, 2, 3이 될 수 있으며, 각각의 경우 최단 경로의 수는 1, 2, 3, 4이다.
+        3) $m=2$인 경우: $n$은 0, 1, 2, 3이 될 수 있으며, 각각의 경우 최단 경로의 수는 1, 3, 6, 10이다.
+        4) $m=3$인 경우: $n$은 0, 1, 2, 3이 될 수 있으며, 각각의 경우 최단 경로의 수는 1, 4, 10, 20이다.
+      criteria: [1.M2]
+    - id: 1b-3
+      content: |
+        이 경우들은 동시에 일어나지 않으므로(제시문 [라]) 모두 모으면, 최단 경로의 수가 될 수 있는 자연수는 1, 2, 3, 4, 6, 10, 20이다.
+      criteria: [1.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 3
+      evidence: 가로 거리 $m$, 세로 거리 $n$에 대해 최단 경로의 수를 같은 것이 있는 순열 $\dfrac{(m+n)!}{m!\,n!}$로 나타냈다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1]
+    - id: 1.M2
+      mark_type: M
+      points: 4
+      evidence: $m=0,1,2,3$(및 각 $n$)의 모든 경우를 빠짐없이 나누어 경로의 수를 구했다.
+      depends_on: []
+      steps: [1b-2]
+    - id: 1.A1
+      mark_type: A
+      points: 3
+      evidence: 가능한 자연수 1, 2, 3, 4, 6, 10, 20을 모두(그리고 그것만) 적었다.
+      depends_on: [1.M2]
+      steps: [1b-3]
+    deductions:
+    - code: D1-1
+      condition: 근거 없이 값만 나열함
+      effect: cap
+      value: 2
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-CNT-6904}
+  misconceptions:
+  - id: MC-CNT-6904
+    outcome_code: '70'
+    wrong_work: '최단 경로의 수를 $m\times n$이나 $m+n$으로 세어 9, 5 같은 값을 포함'
+    detect_cue: 답에 5, 8, 9처럼 $\binom{m+n}{m}$ 꼴이 아닌 수가 있다
+    feedback: 최단 경로는 가로 $m$번, 세로 $n$번 이동을 일렬로 나열하는 순열입니다. $\dfrac{(m+n)!}{m!\,n!}$을 쓰세요.
+    remedy: [RL-1]
+- id: '2'
+  stem: |
+    (2) 도로망에서 지점 A를 지날 수 없다고 가정하자. 지점 A를 제외하고 서로 다른 두 교차로 지점을 선택했을 때 두 지점 사이 최단 경로의 수가 6 이상이 될 확률을 구하고, 그 근거를 논술하시오. (20점)
+  points: 20
+  depends_on: ['1']
+  answer: {kind: value, value: '\dfrac{13}{105}', equivalents: ['13/105'], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: 경로 수 6 이상은 거리 쌍 $(2,2),(2,3),(3,2),(3,3)$뿐이고, A가 직사각형의 꼭짓점이면 A를 지나는 경로 1가지를 뺀다.
+    steps:
+    - {id: 2a, content: '$(2,2)$: $8-2=6$, $(2,3)$: $4-1=3$, $(3,2)$: 3, $(3,3)$: 1 ⇒ $\dfrac{13}{105}$', criteria: [2.M1, 2.M2, 2.M3, 2.A1, 2.B1, 2.A2]}
+    hint_ladder:
+    - (1)의 결과에서 경로의 수가 6 이상인 가로·세로 거리 쌍을 골라 보자.
+    - A를 지나는 최단 경로는 A가 두 지점이 만드는 직사각형의 꼭짓점일 때만 생긴다.
+  - id: S2-B
+    audience: B
+    method_no: 1
+    source_flow: 예시답안(자연계) p.4
+    steps:
+    - id: 2b-1
+      content: |
+        (1)에서 계산한 결과를 보면, 두 지점 사이 최단 경로의 수가 6 이상인 경우는 두 지점의 가로, 세로 거리가 각각 2, 2 또는 2, 3 또는 3, 2 또는 3, 3인 경우이다(A를 지날 수 없으면 경로 수는 줄어들 뿐이므로 다른 거리 쌍은 6 이상이 될 수 없다).
+      criteria: [2.M1]
+    - id: 2b-2
+      content: |
+        1) 2, 2인 경우: 가로, 세로가 각각 2, 2인 정사각형이 4개 있으므로 (대각선 쌍) 8가지 경우가 있다. 이때 지점 A를 제외해야 하므로 A와 B 사이 최단 경로는 제외된다. 또한 A를 꼭짓점으로 하는 정사각형의 다른 대각선 두 꼭짓점 C(A에서 아래로 2칸)와 D(A에서 오른쪽으로 2칸) 사이 최단 경로의 수는 A를 지나는 경로가 제외되어 $6-1=5$가지이므로, C와 D 사이 최단 경로도 제외된다. 따라서 최단 경로의 수가 6 이상인 경우는 6가지이다.
+      criteria: [2.M2, 2.A1]
+    - id: 2b-3
+      content: |
+        2) 2, 3인 경우: 가로, 세로가 각각 2, 3인 직사각형이 2개 있으므로 4가지 경우가 있다. 1)과 마찬가지로 A와 F(A에서 오른쪽 2칸, 아래 3칸) 사이 최단 경로는 제외된다. 또한 D(A에서 오른쪽 2칸)와 E(A에서 아래 3칸) 사이 최단 경로의 수는 A를 지나는 경로가 제외되어도 $10-1=9$가지이므로, 6 이상이 되어 D와 E 사이 최단 경로는 포함된다. 따라서 최단 경로의 수가 6 이상인 경우는 3가지이다.
+        3) 3, 2인 경우: 2, 3인 경우와 마찬가지이므로 3가지이다.
+      criteria: [2.M3]
+    - id: 2b-4
+      content: |
+        4) 3, 3인 경우: 전체 정사각형에서 A를 포함하지 않는 대각선의 경우 1가지가 있다. 이때 최단 경로의 수는 A를 지나는 경로가 제외되어도 $20-1=19$가지이므로 포함된다. 따라서 최단 경로의 수가 6 이상인 경우는 1가지이다.
+      criteria: [2.B1]
+    - id: 2b-5
+      content: |
+        그러므로 (제시문 [라]의 합의 법칙에 의해) 최단 경로의 수가 6 이상인 경우는 $6+3+3+1=13$이고, A를 제외하고 임의의 서로 다른 두 지점을 선택하는 경우의 수는 $\dfrac{15\times14}{2}=105$이므로, 두 지점 사이 최단 경로의 수가 6 이상이 될 확률은 $\dfrac{13}{105}$이다.
+      criteria: [2.A2]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 4
+      evidence: (1)의 결과로 경로 수가 6 이상인 거리 쌍 (2,2), (2,3), (3,2), (3,3)을 골랐다.
+      depends_on: []
+      implied_ok: false
+      steps: [2b-1]
+    - id: 2.M2
+      mark_type: M
+      points: 3
+      evidence: (2,2)인 쌍 8가지 중 A를 끝점으로 하는 쌍과, A를 지나는 경로가 빠져 5가지가 되는 쌍(C, D)을 제외했다.
+      depends_on: []
+      steps: [2b-2]
+    - id: 2.A1
+      mark_type: A
+      points: 3
+      evidence: (2,2)인 경우 6가지를 얻었다.
+      depends_on: [2.M2]
+      steps: [2b-2]
+    - id: 2.M3
+      mark_type: M
+      points: 3
+      evidence: (2,3), (3,2)인 경우 A를 끝점으로 하는 쌍은 제외하고, A를 지나는 경로를 빼도 9가지인 쌍은 포함하여 각각 3가지를 얻었다.
+      depends_on: []
+      steps: [2b-3]
+    - id: 2.B1
+      mark_type: B
+      points: 2
+      evidence: (3,3)인 경우 A를 포함하지 않는 대각선 쌍 1가지(경로 19가지)를 포함했다.
+      depends_on: []
+      steps: [2b-4]
+    - id: 2.A2
+      mark_type: A
+      points: 5
+      evidence: 전체 경우의 수 $\binom{15}{2}=105$와 조건에 맞는 경우 13으로 확률 $\dfrac{13}{105}$을 적었다.
+      depends_on: [2.M1]
+      steps: [2b-5]
+    deductions:
+    - code: D2-1
+      condition: 근거 없이 확률만 적음
+      effect: cap
+      value: 4
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-PRB-6905}
+  - {code: '72', misconception: MC-PRB-6906}
+  misconceptions:
+  - id: MC-PRB-6905
+    outcome_code: '71'
+    wrong_work: 'A를 지나는 경로를 빼지 않아 C와 D 쌍(경로 6)을 포함해 $\dfrac{14}{105}$로 답함'
+    detect_cue: (2,2)인 경우를 7가지로 세거나 답이 $\dfrac{14}{105}=\dfrac{2}{15}$
+    feedback: A를 지날 수 없으면 A가 직사각형의 꼭짓점인 쌍은 경로가 1가지 줄어듭니다. 각 쌍마다 A가 직사각형에 들어가는지 확인하세요.
+    remedy: [RL-2]
+  - id: MC-PRB-6906
+    outcome_code: '72'
+    wrong_work: '표본공간을 $\binom{16}{2}=120$이나 순서쌍 $15\times14=210$으로 잡음'
+    detect_cue: 분모가 120 또는 210
+    feedback: A를 제외한 15개 지점에서 순서 없이 두 지점을 고르므로 $\binom{15}{2}=105$입니다.
+    remedy: [RL-3]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CNT-6904}
+  relation: remediation
+  target: {kind: concept, ref: CON-PRB-GRID-PATH}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-PRB-6905}
+  relation: remediation
+  target: {kind: concept, ref: CON-PRB-GRID-PATH}
+  priority: 1
+- id: RL-3
+  trigger: {type: misconception, ref: MC-PRB-6906}
+  relation: remediation
+  target: {kind: concept, ref: CON-PRB-CLASSICAL}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-input-v1, item_version: 1, verdict: pass, date: 2026-11-21, note: 원문 PDF 이미지 판독으로 옮김 · 해설은 경희대 예시답안 흐름}
+
+created: 2026-11-21
+updated: 2026-11-21

@@ -1,0 +1,289 @@
+schema_version: '2.0'
+id: KHU-M22-04
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: KHU
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 불변량
+points: 25
+time_estimate_min: 30
+intent: 반원에 걸친 두 직각이등변삼각형에서 원주각의 성질로 두 다리 길이의 관계 $a^2+b^2=r^2$을 찾고, 이를 이용해 넓이 합(불변)과 둘레 합의 최댓값을 구하는 능력을 본다.
+key_idea: 반원을 원으로 확장하고 E를 지나 지름에 평행한 현 EI를 그으면 직각삼각형 IEG의 빗변 GI가 지름이 되어 $(2a)^2+(2b)^2=(2r)^2$.
+stuck: 반원을 원으로 확장하고 보조점 F, G, H, I를 잡아 원주각이 $\dfrac{\pi}{4}$, $\dfrac{\pi}{2}$인 삼각형을 찾는 단계
+idea_tags: [IDEA-EXTEND-SEMICIRCLE-TO-CIRCLE, IDEA-INVARIANT-SUM-OF-SQUARES]
+tags: [경희 모의, 원주각, 직각이등변삼각형, 최대·최소]
+elements:
+  materials: ['반지름 $r$인 반원', '직각이등변삼각형 $ABC$ ($\angle ABC=\dfrac{\pi}{2}$, $\overline{AB}=\overline{BC}$)', '직각이등변삼각형 $CDE$ ($\angle CDE=\dfrac{\pi}{2}$, $\overline{CD}=\overline{DE}$)', 'A, E 는 호 위, BC·CD 는 지름 위, 두 삼각형은 C 에서만 만남']
+  concepts: [원주각과 중심각, 이등변삼각형의 성질, 피타고라스 정리, 함수의 증가와 최대]
+  tools: [반원을 원으로 확장, 같은 호에 대한 원주각, 지름의 원주각은 직각, 'b 의 함수로 둘레 합을 나타내 미분']
+  conditions:
+  - '대칭성 ⇒ $\overline{AB}\ge\overline{DE}$인 경우만 보면 충분 ⇒ $0\le b\le\dfrac{r}{\sqrt2}$'
+  - '$\overline{AB}=\overline{BC}=a$, $\overline{CD}=\overline{DE}=b$ ⇒ $a^2+b^2=r^2$'
+  - '둘레의 합 $(2+\sqrt2)(a+b)$'
+  stimuli_used: []
+  subpart_links: (2)는 (1)에서 얻은 $a^2+b^2=r^2$을 사용
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅱ]
+  scope_2028: common
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 함수의 증가와 감소, 극대와 극소를 판정하고 설명할 수 있다(요지)
+    verified: false
+  content_area: 미분 – 도함수의 활용(최대·최소), 중학 원의 성질
+  behavior_domain: 추론
+  unit_path: [수학Ⅱ, 미분, 도함수의 활용, 함수의 최대·최소]
+  key_concepts: [원주각, 피타고라스 정리, 최대·최소]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 경희대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 경희대학교
+  admission_year: 2022
+  admission_type: 논술(모의)
+  track: 자연계열
+  question_no: 4
+  official_url: 'https://iphak.khu.ac.kr/detail.do?menuurl=89BGs%2bk748ajyySWoWlQPw%3d%3d&board_seq=2097&pageNo=1&categoryid=27&userpwd='
+  retrieved_at: '2026-11-21'
+  original_points: 25
+  rights_notice: 경희대학교 입학처 공개 자료(기출문제·예시답안). 내부 분석용
+  note: '문제 = [자연계] 2022학년도 모의논술 문제지_최종.pdf p.3, 원 번호 [논제 4], 해설 = [자연계] 2022학년도 모의논술 예시답안 및 문항해설_최종.pdf p.6(예시답안, 보조 그림), p.7(문항 해설). 공식 채점 기준 미공개 — 소문항 배점(15·10)은 원문, 마크 배분은 자체. 발문은 ''서술하시오''(원문 그대로). 제시문 [가]~[사] 중 직접 인용되는 것은 없음(원주각·피타고라스는 중학 내용).'
+
+verify: verify/KHU-M22.py::p04
+
+stimuli:
+- label: 가
+  body: |
+    하나의 다항식을 두 개 이상의 다항식의 곱으로 나타내는 인수분해는 다항식의 전개 과정을 거꾸로 생각한 것이다. 다음 인수분해 공식은 곱셈 공식에서 얻은 것이다.
+    (1) $a^2+2ab+b^2=(a+b)^2$
+    (2) $a^2-2ab+b^2=(a-b)^2$
+    (3) $a^2-b^2=(a+b)(a-b)$
+    (4) $x^2+(a+b)x+ab=(x+a)(x+b)$
+    (5) $acx^2+(ad+bc)x+bd=(ax+b)(cx+d)$
+- label: 나
+  body: |
+    함수 $f(x)$가 어떤 구간에 속하는 임의의 두 수 $x_1$, $x_2$에 대하여 $x_1<x_2$일 때 $f(x_1)<f(x_2)$이면 함수 $f(x)$는 그 구간에서 증가한다고 한다. 또, $x_1<x_2$일 때 $f(x_1)>f(x_2)$이면 $f(x)$는 그 구간에서 감소한다고 한다. 함수 $f(x)$가 어떤 열린구간에서 미분이 가능할 때, 그 열린구간에 속하는 모든 $x$에 대하여
+    (1) $f'(x)>0$이면 $f(x)$는 그 열린구간에서 증가한다.
+    (2) $f'(x)<0$이면 $f(x)$는 그 열린구간에서 감소한다.
+- label: 다
+  body: |
+    미분가능한 함수 $f(x)$에 대하여 $f'(a)=0$이고 $x=a$의 좌우에서
+    (1) $f'(x)$의 부호가 양에서 음으로 바뀌면 $f(x)$는 $x=a$에서 극대이다.
+    (2) $f'(x)$의 부호가 음에서 양으로 바뀌면 $f(x)$는 $x=a$에서 극소이다.
+- label: 라
+  body: |
+    함수 $f(x)$에서 $x$의 값이 음수이면서 그 절댓값이 한없이 커질 때, $f(x)$의 값이 일정한 값 $L$에 한없이 가까워지면 이것을 기호로
+    $$\lim_{x\to-\infty}f(x)=L\quad\text{또는}\quad x\to-\infty\text{일 때 }f(x)\to L$$
+    과 같이 나타낸다.
+- label: 마
+  body: |
+    어떤 시행에서 사건 $A$가 일어날 가능성을 수로 나타낸 것을 사건 $A$의 확률이라 하며, 이것을 기호로 $\mathrm{P}(A)$와 같이 나타낸다. 표본공간이 $S$인 어떤 시행에서 각 근원사건이 일어날 가능성이 모두 같은 정도로 기대될 때, 사건 $A$가 일어날 확률 $\mathrm{P}(A)$를 $\mathrm{P}(A)=\dfrac{n(A)}{n(S)}$로 정의하고, 이것을 표본공간 $S$에서 사건 $A$가 일어날 수학적 확률이라고 한다.
+- label: 바
+  body: |
+    사인법칙
+    삼각형ABC에서 $\angle\mathrm{A}$, $\angle\mathrm{B}$, $\angle\mathrm{C}$의 크기를 $\mathrm{A}$, $\mathrm{B}$, $\mathrm{C}$로 나타내고, 이들의 대변의 길이를 각각 $a$, $b$, $c$로 나타내기로 한다. 이때, 삼각형ABC의 외접원의 반지름의 길이를 $R$라 하면 다음 법칙이 성립한다.
+    $$\dfrac{a}{\sin A}=\dfrac{b}{\sin B}=\dfrac{c}{\sin C}=2R$$
+- label: 사
+  body: |
+    삼각함수의 덧셈정리
+    (1) $\sin(\alpha+\beta)=\sin\alpha\cos\beta+\cos\alpha\sin\beta$, $\sin(\alpha-\beta)=\sin\alpha\cos\beta-\cos\alpha\sin\beta$,
+    (2) $\cos(\alpha+\beta)=\cos\alpha\cos\beta-\sin\alpha\sin\beta$, $\cos(\alpha-\beta)=\cos\alpha\cos\beta+\sin\alpha\sin\beta$,
+    (3) $\tan(\alpha+\beta)=\dfrac{\tan\alpha+\tan\beta}{1-\tan\alpha\tan\beta}$, $\tan(\alpha-\beta)=\dfrac{\tan\alpha-\tan\beta}{1+\tan\alpha\tan\beta}$.
+
+stem: |
+  제시문 [가]~[사]를 읽고 다음 질문에 답하시오.
+  [논제 4]
+  [그림 2 설명: 지름이 아래쪽 수평선인 반원. 지름 위에 왼쪽부터 B, C, D가 있다. A는 B 바로 위 호 위의 점이고 $\angle ABC$가 직각(표시), 선분 AC가 그어져 있다. E는 D 바로 위 호 위의 점이고 $\angle CDE$가 직각(표시), 선분 CE가 그어져 있다. 삼각형 ABC가 CDE보다 크게 그려져 있다.]
+  반지름이 $r$인 반원과 두 개의 삼각형이 [그림 2]와 같이 주어져 있다. 삼각형$ABC$는 $\angle ABC=\dfrac{\pi}{2}$이고 $\overline{AB}=\overline{BC}$이며, 삼각형$CDE$는 $\angle CDE=\dfrac{\pi}{2}$이고 $\overline{CD}=\overline{DE}$인 직각이등변삼각형이다. 변$BC$와 변$CD$는 반원의 지름 위에 있으며, 점 $A$와 점$E$는 반원의 호 위에 있고, 두 삼각형은 한 점 $C$에서만 만날 때 다음 물음에 답하시오.
+
+subparts:
+- id: '1'
+  stem: |
+    두 삼각형의 넓이의 합의 최댓값을 구하고 그 근거를 서술하시오. (15점)
+  points: 15
+  depends_on: []
+  answer: {kind: value, value: '\dfrac{r^2}{2}', equivalents: ['r^2/2'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: 원으로 확장해 $\angle IAF=\angle IEF=\dfrac{\pi}{4}$로 $\overline{AH}=\overline{HI}$, 직각삼각형 $IEG$의 빗변이 지름 ⇒ $a^2+b^2=r^2$, 넓이 합은 항상 $\dfrac{r^2}{2}$.
+    steps:
+    - {id: 1a, content: '$(2a)^2+(2b)^2=(2r)^2$ ⇒ $\dfrac{a^2}{2}+\dfrac{b^2}{2}=\dfrac{r^2}{2}$', criteria: [1.M1, 1.R1, 1.M2, 1.A1, 1.A2]}
+    hint_ladder:
+    - 반원의 호를 연장해 원을 만들어 보자.
+    - 선분 AC, CE를 연장해 원과 만나는 점을 잡자.
+    - 넓이 합이 $a$, $b$에 따라 변하는지 살펴보자.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 예시답안 p.6
+    steps:
+    - id: 1b-1
+      content: |
+        대칭성에 의해 $\overline{AB}\ge\overline{DE}$일 때를 생각하면 충분하다. 반원의 호를 연장하여 얻은 원에 대하여, 선분 $AC$의 연장선이 원과 만나는 점을 $G$, 선분 $CE$의 연장선이 원과 만나는 점을 $F$라 하자. 점 $E$를 지나고 선분 $CD$에 평행한 직선이 선분 $AB$와 만나는 점을 $H$, 이 직선이 원과 만나는 또 하나의 점을 $I$라 하자.
+      criteria: [1.M1]
+    - id: 1b-2
+      content: |
+        삼각형 $AFI$와 삼각형 $EFI$는 원에 내접하고 변 $FI$를 공통으로 가지고 있으므로 $\angle IAF=\angle IEF=\dfrac{\pi}{4}$이다. 따라서 삼각형 $AHI$는 $\angle AHI=\dfrac{\pi}{2}$이고 $\angle IAH=\dfrac{\pi}{4}$인 직각이등변삼각형이므로 $\overline{AH}=\overline{HI}$이다.
+      criteria: [1.R1]
+    - id: 1b-3
+      content: |
+        $\overline{AB}=\overline{BC}=a$, $\overline{CD}=\overline{DE}=b$라 하면 $\overline{HI}=\overline{AH}=a-b$, $\overline{EH}=a+b$이므로 $\overline{EI}=2a$이고, $\overline{EG}=2b$이다. 또한 $\angle IEG=\dfrac{\pi}{2}$이므로 삼각형 $IEG$는 원에 내접하는 직각삼각형이다.
+      criteria: [1.M2]
+    - id: 1b-4
+      content: |
+        따라서 선분 $GI$는 원의 중심을 지나므로 $\overline{GI}=2r$이며, $(\overline{EI})^2+(\overline{EG})^2=(\overline{GI})^2$이다. 따라서 $a^2+b^2=r^2$이다.
+      criteria: [1.A1]
+    - id: 1b-5
+      content: |
+        두 삼각형의 넓이의 합은 $\dfrac{a^2}{2}+\dfrac{b^2}{2}=\dfrac{r^2}{2}$으로 항상 일정하므로, 두 삼각형의 넓이의 합의 최댓값은 $\dfrac{r^2}{2}$이다.
+      criteria: [1.A2]
+  - id: S1-ALT
+    audience: ALT
+    method_no: 2
+    key_idea: 중심을 원점으로 $C(c,0)$, $A(c-a,a)$, $E(c+b,b)$가 원 $x^2+y^2=r^2$ 위에 있다는 두 식을 빼면 $c=a-b$, 대입하면 $a^2+b^2=r^2$.
+    steps:
+    - {id: 1c-1, content: '$(c-a)^2+a^2=r^2$, $(c+b)^2+b^2=r^2$ ⇒ $c=a-b$, $a^2+b^2=r^2$', criteria: [1.M2, 1.A1]}
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 3
+      evidence: 반원을 원으로 확장하고 보조점(G, F, H, I 등)을 잡거나 좌표를 도입했다.
+      depends_on: []
+      steps: [1b-1]
+    - id: 1.R1
+      mark_type: R
+      points: 3
+      evidence: 원주각으로 $\angle IAF=\angle IEF=\dfrac{\pi}{4}$, $\overline{AH}=\overline{HI}$를 근거와 함께 밝혔다.
+      depends_on: [1.M1]
+      steps: [1b-2]
+    - id: 1.M2
+      mark_type: M
+      points: 3
+      evidence: $\overline{EI}=2a$, $\overline{EG}=2b$와 $\angle IEG=\dfrac{\pi}{2}$(또는 좌표식 두 개)를 얻었다.
+      depends_on: []
+      steps: [1b-3, 1c-1]
+    - id: 1.A1
+      mark_type: A
+      points: 3
+      evidence: $a^2+b^2=r^2$을 이끌었다.
+      depends_on: [1.M2]
+      steps: [1b-4, 1c-1]
+    - id: 1.A2
+      mark_type: A
+      points: 3
+      evidence: 넓이 합이 $\dfrac{r^2}{2}$로 일정하므로 최댓값이 $\dfrac{r^2}{2}$임을 답했다.
+      depends_on: [1.M2, 1.A1]
+      steps: [1b-5]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-GEO-6618}
+  misconceptions:
+  - id: MC-GEO-6618
+    outcome_code: '70'
+    wrong_work: '각 삼각형이 따로 최대가 될 수 있다고 보아 넓이 합을 $r^2$ 등으로 답함'
+    detect_cue: $a$와 $b$의 관계식 없이 각 삼각형을 독립적으로 최대화했다
+    feedback: 두 삼각형은 C를 공유하므로 크기가 서로 묶여 있습니다. 먼저 $a$, $b$의 관계를 찾으세요.
+    remedy: [RL-1]
+- id: '2'
+  stem: |
+    두 삼각형의 둘레의 길이의 합의 최댓값을 구하고 그 근거를 서술하시오. (10점)
+  points: 10
+  depends_on: ['1']
+  answer: {kind: value, value: '(2+2\sqrt2)r', equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: 둘레 합 $(2+\sqrt2)(b+\sqrt{r^2-b^2})$는 $0\le b\le\dfrac{r}{\sqrt2}$에서 증가 ⇒ $b=\dfrac{r}{\sqrt2}$에서 최대.
+    steps:
+    - {id: 2a, content: '$f\left(\dfrac{r}{\sqrt2}\right)=(2+2\sqrt2)r$', criteria: [2.M1, 2.R1, 2.A1]}
+    hint_ladder:
+    - 직각이등변삼각형의 둘레는 다리 길이의 몇 배인가?
+    - $a$를 $b$로 나타내 한 변수 함수로 만들자.
+  - id: S2-B
+    audience: B
+    method_no: 1
+    source_flow: 예시답안 p.6
+    steps:
+    - id: 2b-1
+      content: |
+        [논제 4](1)에서 $a^2+b^2=r^2$이고 $a,b\ge0$이므로 $a=\sqrt{r^2-b^2}$이다. 따라서 두 삼각형의 둘레의 길이의 합을 $b$로 표현하면 $f(b)=(2+\sqrt2)(b+\sqrt{r^2-b^2})$이다. 한편 $\overline{CD}=b$일 때, $0\le\sqrt2b\le r$이므로 $0\le b\le\dfrac{r}{\sqrt2}$이다.
+      criteria: [2.M1]
+    - id: 2b-2
+      content: |
+        $0<b<\dfrac{r}{\sqrt2}$인 경우 $f'(b)=(2+\sqrt2)\left(1-\dfrac{b}{\sqrt{r^2-b^2}}\right)>0$이므로 $f(b)$는 $0\le b\le\dfrac{r}{\sqrt2}$에서 증가함수이다.
+      criteria: [2.R1]
+    - id: 2b-3
+      content: |
+        따라서 $f\left(\dfrac{r}{\sqrt2}\right)=(2+2\sqrt2)r$이 최대이고, 두 삼각형의 둘레의 길이의 합의 최댓값은 $(2+2\sqrt2)r$이다.
+      criteria: [2.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 4
+      evidence: 둘레 합을 $f(b)=(2+\sqrt2)(b+\sqrt{r^2-b^2})$로 나타내고 $b$의 범위를 밝혔다.
+      depends_on: []
+      ft: {allowed: true, from: [1.A1], max_points: 4}
+      steps: [2b-1]
+    - id: 2.R1
+      mark_type: R
+      points: 3
+      evidence: $f'(b)>0$으로 주어진 범위에서 증가함을 보였다.
+      depends_on: [2.M1]
+      steps: [2b-2]
+    - id: 2.A1
+      mark_type: A
+      points: 3
+      evidence: 최댓값 $(2+2\sqrt2)r$을 구했다.
+      depends_on: [2.M1, 2.R1]
+      steps: [2b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-6619}
+  misconceptions:
+  - id: MC-CAL-6619
+    outcome_code: '71'
+    wrong_work: '$b$의 범위를 $0\le b\le r$로 두고 끝점 $b=r$ 또는 $b=0$에서 최대라고 보아 $(2+\sqrt2)r$로 답함'
+    detect_cue: 답이 $(2+\sqrt2)r$이거나 $b=\dfrac{r}{\sqrt2}$가 나오지 않는다
+    feedback: $a+b$는 $a=b=\dfrac{r}{\sqrt2}$에서 최대입니다. 도함수 부호와 범위를 함께 확인하세요.
+    remedy: [RL-2]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-GEO-6618}
+  relation: remediation
+  target: {kind: concept, ref: CON-GEO-INSCRIBED-ANGLE}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-CAL-6619}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-MAXMIN-INTERVAL}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-input-v1, item_version: 1, verdict: pass, date: 2026-11-21, note: 원문 PDF 이미지 판독으로 옮김 · 해설은 경희대 예시답안 흐름}
+
+created: 2026-11-21
+updated: 2026-11-21

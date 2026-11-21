@@ -1,0 +1,273 @@
+schema_version: '2.0'
+id: KHU-G22A-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: KHU
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 분류
+points: 25
+time_estimate_min: 25
+intent: 곡선 밖의 점에서 로그함수 그래프에 그은 접선의 x절편 수열의 비의 극한을 구하고, 곡선·접선·x축으로 둘러싸인 도형을 구간별로 결정해 정삼각형 단면 입체의 부피를 부분적분으로 계산하는 능력을 본다.
+key_idea: '접점을 $(a,\ln a)$로 두어 $a=e^{1-n}$을 얻고, (2)는 밑면을 $0\le x\le1$(접선과 $x$축 사이)과 $1\le x\le e$(접선과 곡선 사이)로 나누어 단면 한 변의 길이를 정한다.'
+stuck: (2)에서 $0\le x\le1$ 구간은 곡선이 아니라 $x$축이 아래 경계임을 알아차리고 구간을 나누는 단계
+idea_tags: [IDEA-TANGENT-FROM-EXTERNAL-POINT, IDEA-VOLUME-CROSS-SECTION-SPLIT, IDEA-PARTS-TWICE-LOG-SQUARE]
+tags: [로그함수의 접선, 정삼각형 단면 입체, 경희 실전]
+elements:
+  materials: [곡선 y=ln x, 점 P_n(0,-n), 접선의 x절편 수열 b_n, 원점에서 그은 접선 y=x/e, 정삼각형 단면 입체]
+  concepts: [접선의 방정식, 수열의 극한, 입체도형의 부피(단면의 넓이 적분), 정삼각형의 넓이, 부분적분법]
+  tools: [접점을 미지수로 두고 외부 점 대입, x절편 계산, 비의 극한, 구간 분할 적분, 부분적분 두 번]
+  conditions:
+  - '접선이 $(0,-n)$을 지남 ⇒ $-n-\ln a=-1$, $a=e^{1-n}$'
+  - '원점에서 그은 접선 ⇒ 접점 $(e,1)$, $y=\dfrac{x}{e}$'
+  - '$0\le x\le1$에서 $\ln x\le0$ ⇒ 밑면의 아래 경계는 $x$축, $1\le x\le e$에서는 곡선'
+  - '단면이 정삼각형 ⇒ 넓이 $\dfrac{\sqrt3}{4}\times(\text{한 변})^2$'
+  stimuli_used: [가]
+  subpart_links: 없음((1)과 (2)는 같은 곡선 $y=\ln x$의 접선을 쓰지만 결과를 이어 쓰지 않음)
+
+curriculum:
+  version: '2015'
+  subjects: [미적분]
+  scope_2028: calc2
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 여러 가지 함수의 도함수와 적분법을 이용하여 접선과 입체도형의 부피를 구할 수 있다(요지)
+    verified: false
+  content_area: 미분법·적분법 – 접선, 입체도형의 부피
+  behavior_domain: 계산
+  unit_path: [미적분, 적분법, 정적분의 활용, 입체도형의 부피]
+  key_concepts: [접선의 방정식, 수열의 극한, 입체도형의 부피, 부분적분법]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 경희대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 경희대학교
+  admission_year: 2022
+  admission_type: 논술(논술우수자전형)
+  track: 자연계열
+  question_no: 1
+  official_url: https://iphak.khu.ac.kr/detail.do?menuurl=89BGs%2bk748ajyySWoWlQPw%3d%3d&board_seq=4485&pageNo=1&categoryid=27&userpwd=
+  retrieved_at: '2026-11-21'
+  original_points: 25
+  rights_notice: '경희대학교 입학처 공개 자료(기출문제·예시답안). 내부 분석용'
+  note: |
+    시험 시간대: 11월 20일(토) 오후 자연계.
+    문제 = 4. 2022학년도 논술고사 기출문제(자연계)_11.20 오후.pdf p.1(제시문)·p.2, 원 번호 [논제 I] (1)(2), 해설 = 같은 PDF p.4~6(문항카드: 출제 의도 p.4, 해설·채점 기준 p.5, 예시답안 p.6).
+    예시답안 p.6 은 $0\le x\le1$ 부분을 '사면체라는 입체도형'(채점 기준 p.5)으로 부름 — 꼭짓점이 원점인 삼각뿔. 원문 그대로 옮김.
+    [판독확인] 예시답안 p.6: 극한식 가운데 곱셈 기호가 '.'(마침표)로 찍혀 있음 — 곱셈으로 읽음.
+
+verify: verify/KHU-G22A.py::p01
+
+stimuli:
+- label: 가
+  body: |
+    닫힌구간 $[a,b]$에서 $x$좌표가 $x$인 점을 지나고 $x$축에 수직인 평면으로 자른 단면의 넓이가 $S(x)$인 입체도형의 부피 $V$는
+    $$V=\int_a^b S(x)dx$$
+
+stem: |
+  다음 제시문을 읽고 논제에 답하시오.
+  [논제 I]
+
+subparts:
+- id: '1'
+  stem: |
+    자연수 $n$에 대하여 점 $\mathrm{P}_n(0,-n)$에서 곡선 $y=\ln x$에 그은 접선의 $x$절편을 $b_n$이라 할 때, $\displaystyle\lim_{n\to\infty}\dfrac{b_{n+1}}{b_n}$의 값을 구하고, 그 근거를 논술하시오. (10점)
+  points: 10
+  depends_on: []
+  answer: {kind: value, value: '\dfrac{1}{e}', equivalents: ['e^{-1}'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: 접점 $(a,\ln a)$의 접선이 $(0,-n)$을 지나면 $\ln a=1-n$, $x$절편은 $a(1-\ln a)=na$.
+    steps:
+    - {id: 1a, content: '$a=e^{1-n}$, $b_n=\dfrac{n}{e^{n-1}}$, $\dfrac{b_{n+1}}{b_n}=\dfrac1e\cdot\dfrac{n+1}{n}\to\dfrac1e$', criteria: [1.M1, 1.A2]}
+    hint_ladder:
+    - 점 $\mathrm{P}_n$은 곡선 위에 있지 않다. 접점을 미지수로 두자.
+    - 접선이 $(0,-n)$을 지난다는 조건으로 접점을 $n$으로 나타내자.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 4. 2022학년도 논술고사 기출문제(자연계)_11.20 오후.pdf 예시답안 p.6
+    steps:
+    - id: 1b-1
+      content: |
+        $\mathrm{P}_n(0,-n)$에서 곡선 $y=\ln x$에 그은 접선의 접점을 $(a,\ln a)$라 하면 $y'=\dfrac1x$이므로 접선은 $y-\ln a=\dfrac1a(x-a)$이다.
+        이 접선이 $(0,-n)$을 지나므로 $-n-\ln a=-1$, 즉 $a=\dfrac{1}{e^{n-1}}$이다.
+      criteria: [1.M1]
+    - id: 1b-2
+      content: |
+        $y=0$을 대입하면 $x=a(1-\ln a)=a\cdot n$이므로 이 접선의 $x$절편은 $b_n=\dfrac{n}{e^{n-1}}$이다.
+      criteria: [1.A1]
+    - id: 1b-3
+      content: |
+        따라서 $\displaystyle\lim_{n\to\infty}\dfrac{b_{n+1}}{b_n}=\lim_{n\to\infty}\left(\dfrac{n+1}{e^n}\cdot\dfrac{e^{n-1}}{n}\right)=\lim_{n\to\infty}\dfrac1e\cdot\dfrac{n+1}{n}=\dfrac1e$이다.
+      criteria: [1.A2]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 3
+      evidence: 도함수를 이용해 접점 $(a,\ln a)$에서의 접선 $y-\ln a=\dfrac1a(x-a)$를 세우고 $(0,-n)$을 대입해 $a=e^{1-n}$을 구했다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1]
+    - id: 1.A1
+      mark_type: A
+      points: 2
+      evidence: 접선의 $x$절편 $b_n=\dfrac{n}{e^{n-1}}$을 정확히 적었다.
+      depends_on: [1.M1]
+      steps: [1b-2]
+    - id: 1.A2
+      mark_type: A
+      points: 5
+      evidence: $\dfrac{b_{n+1}}{b_n}=\dfrac1e\cdot\dfrac{n+1}{n}$으로 정리해 극한값 $\dfrac1e$을 정확히 계산했다.
+      depends_on: [1.M1]
+      steps: [1b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-CAL-6701}
+  misconceptions:
+  - id: MC-CAL-6701
+    outcome_code: '70'
+    wrong_work: '$\mathrm{P}_n$에서의 기울기를 구하려고 $x=0$을 $\dfrac1x$에 넣거나, 접점을 $(n,\ln n)$ 등으로 임의로 둠'
+    detect_cue: 접점을 미지수로 두는 식 없이 바로 접선식을 씀, $b_n$에 $e^{n-1}$이 없음
+    feedback: 곡선 밖의 점에서 그은 접선은 접점을 $(a,\ln a)$로 두고, 그 접선이 주어진 점을 지난다는 조건으로 $a$를 구하세요.
+    remedy: [RL-1]
+
+- id: '2'
+  stem: |
+    좌표평면의 곡선 $y=\ln x$와 원점에서 이 곡선에 그은 접선 및 $x$축으로 둘러싸인 도형을 밑면으로 하는 입체도형이 있다. 이 입체도형을 $x$축에 수직인 평면으로 자른 단면이 모두 정삼각형일 때, 이 입체도형의 부피를 구하고, 그 근거를 논술하시오. (15점)
+  points: 15
+  depends_on: []
+  answer: {kind: value, value: '\dfrac{5\sqrt3}{24}e-\dfrac{\sqrt3}{2}-\dfrac{\sqrt3}{8e}', equivalents: ['\dfrac{\sqrt3}{2}\left(\dfrac{5e}{12}-1-\dfrac{1}{4e}\right)', '약 0.03520'], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: 접선 $y=\dfrac xe$(접점 $(e,1)$). 단면 한 변은 $[0,1]$에서 $\dfrac xe$, $[1,e]$에서 $\dfrac xe-\ln x$.
+    steps:
+    - {id: 2a, content: '$V=\dfrac{\sqrt3}{4}\left\{\int_0^1\dfrac{x^2}{e^2}dx+\int_1^e\left(\dfrac xe-\ln x\right)^2dx\right\}$, 부분적분 두 번', criteria: [2.M1, 2.A2, 2.M3, 2.A4]}
+    hint_ladder:
+    - 원점에서 그은 접선의 접점을 먼저 구하자.
+    - '$0\le x\le1$에서 $\ln x$는 음수이다. 밑면의 아래 경계는 무엇인가?'
+    - '$x\ln x$와 $(\ln x)^2$의 적분은 부분적분으로.'
+  - id: S2-B
+    audience: B
+    method_no: 1
+    source_flow: 4. 2022학년도 논술고사 기출문제(자연계)_11.20 오후.pdf 예시답안 p.6
+    steps:
+    - id: 2b-1
+      content: |
+        원점에서 곡선 $y=\ln x$에 그은 접선의 접점을 $(t,\ln t)$라 하면 $0-\ln t=\dfrac1t(0-t)$에서 $t=e$이므로 접선의 방정식은 $y=\dfrac xe$이다.
+        이 접선과 $x$축 및 곡선으로 이루어진 도형 위의 입체도형은 두 부분으로 나누어진다($0\le x\le1$: 접선과 $x$축 사이, $1\le x\le e$: 접선과 곡선 사이).
+      criteria: [2.M1]
+    - id: 2b-2
+      content: |
+        $0\le x\le1$일 때, 입체도형의 단면은 한 변의 길이가 $\dfrac xe$인 정삼각형이고, 제시문 [가]에 의해 이 입체도형의 부피는
+        $$V_1=\int_0^1\dfrac{\sqrt3}{4}\left(\dfrac xe\right)^2dx=\dfrac{\sqrt3}{12e^2}$$
+      criteria: [2.A2]
+    - id: 2b-3
+      content: |
+        $1\le x\le e$일 때, 입체도형의 단면은 한 변의 길이가 $\dfrac xe-\ln x$인 정삼각형이고, 이 입체도형의 부피는
+        $$V_2=\int_1^e\dfrac{\sqrt3}{4}\left(\dfrac xe-\ln x\right)^2dx=\dfrac{\sqrt3}{4}\int_1^e\left(\dfrac{x^2}{e^2}-\dfrac2ex\ln x+(\ln x)^2\right)dx$$
+        (보충) 부분적분으로 $\int_1^e x\ln x\,dx=\left[\dfrac{x^2}{2}\ln x\right]_1^e-\int_1^e\dfrac x2dx=\dfrac{e^2+1}{4}$,
+        $\int_1^e(\ln x)^2dx=\left[x(\ln x)^2\right]_1^e-2\int_1^e\ln x\,dx=e-2$, $\int_1^e\dfrac{x^2}{e^2}dx=\dfrac{e^3-1}{3e^2}$.
+      criteria: [2.M3]
+    - id: 2b-4
+      content: |
+        따라서 $V_2=\dfrac{\sqrt3}{4}\left(\dfrac{e^3-1}{3e^2}-\dfrac{e^2+1}{2e}+e-2\right)=\dfrac{5\sqrt3}{24}e-\dfrac{\sqrt3}{2}-\dfrac{\sqrt3}{8e}-\dfrac{\sqrt3}{12e^2}$이다.
+      criteria: [2.A4]
+    - id: 2b-5
+      content: |
+        따라서 입체도형의 전체 부피는 $V=V_1+V_2=\dfrac{5\sqrt3}{24}e-\dfrac{\sqrt3}{2}-\dfrac{\sqrt3}{8e}=\dfrac{\sqrt3}{2}\left(\dfrac{5e}{12}-1-\dfrac{1}{4e}\right)$이다.
+      criteria: [2.A5]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 3
+      evidence: 도함수를 이용해 원점에서 그은 접선 $y=\dfrac xe$를 구하고, 접선·곡선·$x$축으로 이루어진 도형을 $0\le x\le1$과 $1\le x\le e$로 나누어 결정했다.
+      depends_on: []
+      implied_ok: false
+      steps: [2b-1]
+    - id: 2.A2
+      mark_type: A
+      points: 4
+      evidence: 구간 $0\le x\le1$에서 한 변 $\dfrac xe$인 정삼각형 단면으로 부피 $V_1=\dfrac{\sqrt3}{12e^2}$을 제시했다.
+      depends_on: [2.M1]
+      steps: [2b-2]
+    - id: 2.M3
+      mark_type: M
+      points: 3
+      evidence: 구간 $1\le x\le e$에서 한 변 $\dfrac xe-\ln x$의 단면 넓이를 적분식으로 세우고 $x\ln x$, $(\ln x)^2$을 부분적분했다.
+      depends_on: [2.M1]
+      steps: [2b-3]
+    - id: 2.A4
+      mark_type: A
+      points: 3
+      evidence: $V_2=\dfrac{5\sqrt3}{24}e-\dfrac{\sqrt3}{2}-\dfrac{\sqrt3}{8e}-\dfrac{\sqrt3}{12e^2}$을 정확히 계산했다.
+      depends_on: [2.M3]
+      steps: [2b-4]
+    - id: 2.A5
+      mark_type: A
+      points: 2
+      evidence: 두 부피를 더해 전체 부피 $\dfrac{5\sqrt3}{24}e-\dfrac{\sqrt3}{2}-\dfrac{\sqrt3}{8e}$을 제시했다.
+      depends_on: [2.M1, 2.M3]
+      steps: [2b-5]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-CAL-6702}
+  - {code: '71', misconception: MC-CAL-6703}
+  misconceptions:
+  - id: MC-CAL-6702
+    outcome_code: '70'
+    wrong_work: '$V=\int_0^e\dfrac{\sqrt3}{4}\left(\dfrac xe-\ln x\right)^2dx$로 한 번에 적분(또는 $\int_0^1$ 부분이 발산해 막힘)'
+    detect_cue: 적분 구간이 하나뿐이고 $V_1$이 없다
+    feedback: 둘러싸인 도형의 아래 경계는 $0\le x\le1$에서 $x$축, $1\le x\le e$에서 곡선입니다. 구간을 나누어 단면 한 변을 정하세요.
+    remedy: [RL-2]
+  - id: MC-CAL-6703
+    outcome_code: '71'
+    wrong_work: '$\int_1^e(\ln x)^2dx=\left[x(\ln x)^2\right]_1^e=e$로 끝냄'
+    detect_cue: $V_2$에 $e-2$ 대신 $e$가 들어간 결과
+    feedback: '$(\ln x)^2$의 적분은 부분적분을 한 번 더 해서 $-2\int\ln x\,dx$ 항까지 계산하세요.'
+    remedy: [RL-3]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CAL-6701}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-TANGENT-EXT-POINT}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-CAL-6702}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-VOLUME-SECTION}
+  priority: 1
+- id: RL-3
+  trigger: {type: misconception, ref: MC-CAL-6703}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-INT-PARTS}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-input-v1, item_version: 1, verdict: pass, date: 2026-11-21, note: 원문 PDF 이미지 판독으로 옮김 · 해설은 경희대 예시답안 흐름}
+
+created: 2026-11-21
+updated: 2026-11-21

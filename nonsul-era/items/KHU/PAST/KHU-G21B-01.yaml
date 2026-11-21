@@ -1,0 +1,184 @@
+schema_version: '2.0'
+id: KHU-G21B-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: KHU
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 추론
+points: 10
+time_estimate_min: 12
+intent: 확률질량함수에서 이항분포를 알아보고 평균·표준편차를 표현한 뒤, 정규분포 근사와 표준화로 주어진 확률 조건을 표준정규분포표의 값과 맞추어 $n$과 $p$를 결정하는 능력을 본다.
+key_idea: '$\mathrm{P}\left(\lvert Z\rvert\ge\dfrac{2m}{5\sigma}\right)=0.0456=1-2\mathrm{P}(0\le Z\le2)$에서 $m=5\sigma$, $m\sigma=80$과 연립한다.'
+stuck: 정규근사 조건 $np\ge5$, $n(1-p)\ge5$를 확인하고 $\lvert X-m\rvert\ge\dfrac25m$을 $\lvert Z\rvert\ge\dfrac{2m}{5\sigma}$로 표준화하는 단계
+idea_tags: [IDEA-BINOMIAL-NORMAL-APPROX, IDEA-STANDARDIZE-MATCH-TABLE]
+tags: [이항분포, 정규근사, 경희 실전]
+elements:
+  materials: [이항분포 B(n,p)를 따르는 확률변수 X, 평균 m과 표준편차 σ, 표준정규분포표 값 0.3413·0.4772·0.4987]
+  concepts: [이항분포의 평균과 표준편차, 이항분포의 정규분포 근사, 표준화, 표준정규분포의 대칭성]
+  tools: [확률질량함수로 이항분포 판별, 표준화 Z=(X-m)/σ, 1-2P(0≤Z≤z)로 양쪽 꼬리 확률 계산, 연립방정식]
+  conditions:
+  - '$n\ge60$, $0.1\le p\le0.5$ ⇒ $np\ge6\ge5$, $n(1-p)\ge30\ge5$ ⇒ 정규분포로 근사'
+  - '$m\sigma=80$'
+  - '$\mathrm{P}(\lvert X-m\rvert\ge\dfrac25m)=0.0456$ ⇒ 표에서 $z=2$'
+  stimuli_used: [가]
+  subpart_links: null
+
+curriculum:
+  version: '2015'
+  subjects: [확률과통계]
+  scope_2028: common
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 이항분포와 정규분포의 관계를 이해하고 활용할 수 있다(요지)
+    verified: false
+  content_area: 통계 – 확률분포(이항분포의 정규근사)
+  behavior_domain: 문제해결
+  unit_path: [확률과통계, 통계, 확률분포, 이항분포와 정규분포]
+  key_concepts: [이항분포, 정규분포, 표준화]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 경희대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 경희대학교
+  admission_year: 2021
+  admission_type: 논술(논술우수자전형)
+  track: 자연계열
+  question_no: 1
+  official_url: https://iphak.khu.ac.kr/detail.do?menuurl=89BGs%2bk748ajyySWoWlQPw%3d%3d&board_seq=2100&pageNo=1&categoryid=27&userpwd=
+  retrieved_at: '2026-11-21'
+  original_points: 10
+  rights_notice: '경희대학교 입학처 공개 자료(기출문제·예시답안). 내부 분석용'
+  note: |
+    시험 = 2020.12.6.(일) 오전 실시 자연계. 문제 = 5 2021학년도 논술고사 기출문제(자연계)_1206 오전.pdf p.2, 원 번호 [논제 I-1], 해설 = 같은 파일 p.9(예시답안), p.15(채점 기준), p.17(출제 의도), p.19(문항 해설).
+    원문 조건 (ㄷ)은 이산확률변수의 확률을 0.0456으로 '='로 적었으나 실제로는 정규근사값(이항분포 정확값과 다름) — 공식 예시답안도 근사로 처리. 원문 그대로 둠.
+    공식 답 $n=100$, $p=0.2$와 sympy 검산 일치.
+
+verify: verify/KHU-G21B.py::p01
+
+stimuli:
+- label: 가
+  body: |
+    $n$번의 독립시행에서 사건 $A$가 일어나는 횟수를 $X$라고 하면 $X$는 $0,1,\cdots,n$의 값을 갖는 확률변수이다. 한 번의 시행에서 사건 $A$가 일어날 확률을 $p$라고 하면 $X$의 확률질량함수는 독립시행의 확률에 의하여
+    $$\mathrm{P}(X=k)={}_n\mathrm{C}_k\,p^kq^{n-k}\quad(q=1-p,\ k=0,1,\cdots,n)$$
+    이다.
+- label: 나
+  body: |
+    미분가능한 두 함수 $y=f(u)$와 $u=g(x)$에 대하여 합성함수 $y=f(g(x))$의 도함수는
+    $$\dfrac{dy}{dx}=\dfrac{dy}{du}\times\dfrac{du}{dx}\ \text{또는}\ \{f(g(x))\}'=f'(g(x))g'(x)$$
+    이다.
+- label: 다
+  body: |
+    미분가능한 함수 $f(x)$의 도함수는
+    $$f'(x)=\lim_{h\to0}\dfrac{f(x+h)-f(x)}{h}$$
+- label: 라
+  body: |
+    두 함수 $f(x)$, $g(x)$가 미분가능하고 $f'(x)$, $g'(x)$가 닫힌구간 $[a,b]$에서 연속일 때,
+    $$\int_a^b f(x)g'(x)dx=\left[f(x)g(x)\right]_a^b-\int_a^b f'(x)g(x)dx$$
+- label: 마
+  body: |
+    함수 $f(t)$가 닫힌구간 $[a,b]$에서 연속일 때,
+    $$\dfrac{d}{dx}\int_a^x f(t)dt=f(x)\quad(\text{단, }a<x<b)$$
+
+stem: |
+  [논제 I] 제시문 [가]~[마]를 읽고 다음 질문에 답하시오.
+  [논제 I-1]
+  자연수 $n$과 확률 $p$에 대하여 이산확률변수 $X$가 가질 수 있는 값은 0부터 $n$까지 음이 아닌 정수이며, $X$의 확률질량함수는
+  $$\mathrm{P}(X=k)={}_n\mathrm{C}_k\,p^kq^{n-k}\quad(q=1-p,\ k=0,1,\cdots,n)$$
+  이다. $X$의 평균과 표준편차를 각각 $m$과 $\sigma$라 할 때, 다음 조건들이 성립한다.
+  (ㄱ) $n\ge60$, $0.1\le p\le0.5$ (ㄴ) $m\sigma=80$ (ㄷ) $\mathrm{P}\left(\lvert X-m\rvert\ge\dfrac25m\right)=0.0456$.
+  이때, $n$과 $p$를 구하고, 그 근거를 논술하시오. (단, $Z$가 표준정규분포를 따르는 확률변수일 때, $\mathrm{P}(0\le Z\le1)=0.3413$, $\mathrm{P}(0\le Z\le2)=0.4772$, $\mathrm{P}(0\le Z\le3)=0.4987$로 계산한다.) (10점)
+
+subparts:
+- id: '1'
+  stem: |
+    위 논제의 $n$과 $p$를 구하시오.
+  points: 10
+  depends_on: []
+  answer: {kind: value, value: 'n=100,\ p=0.2', equivalents: ['p=1/5'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $X\sim B(n,p)$, 정규근사 후 표준화하면 $\dfrac{2m}{5\sigma}=2$, 즉 $m=5\sigma$이다.
+    steps:
+    - {id: 1a, content: '$m=5\sigma$, $m\sigma=80$ ⇒ $m=20$, $\sigma=4$ ⇒ $np=20$, $np(1-p)=16$', criteria: [1.A1]}
+    hint_ladder:
+    - 확률질량함수를 보면 어떤 분포인가?
+    - $n$이 충분히 크면 어떤 분포로 근사할 수 있는가?
+    - 0.0456을 표의 값으로 나타내 보자.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 5 2021학년도 논술고사 기출문제(자연계)_1206 오전.pdf 예시답안 p.9
+    steps:
+    - id: 1b-1
+      content: |
+        주어진 확률질량함수로부터 $X$는 이항분포 $B(n,p)$를 따른다(제시문 [가]). 따라서 $X$의 평균은 $m=np$이고 표준편차는 $\sigma=\sqrt{np(1-p)}$이다.
+      criteria: [1.M1]
+    - id: 1b-2
+      content: |
+        $n\ge60$, $0.1\le p\le0.5$에서 $np\ge5$, $n(1-p)\ge5$이므로 $X$는 근사적으로 정규분포 $N(np,\ np(1-p))$를 따른다.
+      criteria: [1.R1]
+    - id: 1b-3
+      content: |
+        따라서 $\mathrm{P}\left(\lvert X-m\rvert\ge\dfrac25m\right)=\mathrm{P}\left(\dfrac{\lvert X-m\rvert}{\sigma}\ge\dfrac{2m}{5\sigma}\right)=\mathrm{P}\left(\lvert Z\rvert\ge\dfrac{2m}{5\sigma}\right)=0.0456$이고, $\mathrm{P}(\lvert Z\rvert\ge2)=1-2\mathrm{P}(0\le Z\le2)=0.0456$에서 $\dfrac{2m}{5\sigma}=2$이다.
+        따라서 $m=5\sigma$이고 $m\sigma=80$에서 $m=20$, $\sigma=4$이므로 $np=20$, $np(1-p)=16$이다. 따라서 $n=100$, $p=0.2$이다.
+      criteria: [1.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 2
+      evidence: 이산확률변수 $X$의 평균과 분산(표준편차)을 $n$과 $p$로 표현했다($m=np$, $\sigma=\sqrt{np(1-p)}$).
+      depends_on: []
+      steps: [1b-1]
+    - id: 1.R1
+      mark_type: R
+      points: 3
+      evidence: $np\ge5$, $n(1-p)\ge5$에서 이산확률변수 $X$의 분포가 근사적으로 정규분포를 따름을 설명했다.
+      depends_on: []
+      steps: [1b-2]
+    - id: 1.A1
+      mark_type: A
+      points: 5
+      evidence: 주어진 표준정규분포에 대한 확률을 이용하여 $\dfrac{2m}{5\sigma}=2$를 얻고 $n=100$, $p=0.2$를 구했다.
+      depends_on: [1.M1]
+      steps: [1b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-PRB-6806}
+  misconceptions:
+  - id: MC-PRB-6806
+    outcome_code: '70'
+    wrong_work: '표준화에서 분산 $np(1-p)$로 나누거나 $\sigma=np(1-p)$로 두어 $m\sigma=80$을 $np\cdot np(1-p)=80$으로 풂'
+    detect_cue: 답의 $n$, $p$가 $np=20$, $np(1-p)=16$을 만족하지 않음
+    feedback: 표준편차는 분산의 양의 제곱근 $\sqrt{np(1-p)}$입니다. 표준화 $Z=\dfrac{X-m}{\sigma}$에도 표준편차를 씁니다.
+    remedy: [RL-1]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-PRB-6806}
+  relation: remediation
+  target: {kind: concept, ref: CON-PRB-BINOM-NORMAL}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-input-v1, item_version: 1, verdict: pass, date: 2026-11-21, note: 원문 PDF 이미지 판독으로 옮김 · 해설은 경희대 예시답안 흐름}
+
+created: 2026-11-21
+updated: 2026-11-21

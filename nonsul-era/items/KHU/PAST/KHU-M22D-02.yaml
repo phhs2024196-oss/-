@@ -1,0 +1,222 @@
+schema_version: '2.0'
+id: KHU-M22D-02
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: KHU
+type: null
+variant_of: null
+replaces: null
+level: L6
+form: 분류
+points: 20
+time_estimate_min: 30
+intent: 사다리꼴의 변을 삼각비로 나타내고, 원이 윗변에 접하는 경우와 빗변에 접하는 경우로 나누어 두 반지름 중 작은 값의 최댓값을 미분으로 찾는 능력을 본다.
+key_idea: '$\overline{CD}=x$, $\angle C=\theta$로 두면 $x=\dfrac{1}{1+3\cos\theta+\sin\theta}$, $r_1=\dfrac12x\sin\theta$(AD에 접함), $r_2=x(\cos\theta+\sin\theta-1)$(CD에 접함, 직각삼각형 FBC의 내접원)이고 $r=\min(r_1,r_2)$는 $\cos\theta=\dfrac35$에서 최대.'
+stuck: 원의 크기를 제한하는 변이 θ에 따라 AD 또는 CD로 바뀐다는 점을 보고 두 경우로 나누는 단계
+idea_tags: [IDEA-MIN-OF-TWO-CONSTRAINTS, IDEA-TRIG-PARAM-SHAPE]
+tags: [경희 모의, 삼각비, 내접원, 최대·최소]
+elements:
+  materials: ['$\angle B=90^\circ$, $AD\parallel BC$인 사다리꼴 ABCD', '$\overline{AD}:\overline{BC}=1:2$, 둘레 1', '변 AB, BC에 접하고 사다리꼴 내부에 있는 가장 큰 원 O']
+  concepts: [삼각비, 직각삼각형의 내접원, 삼각함수의 도함수, 함수의 증가·감소, 최대·최소]
+  tools: ['D에서 BC에 수선 DE로 변을 $x\cos\theta$, $x\sin\theta$로 표현', 'AB, CD 연장선의 교점 F로 내접원 반지름 공식 $\dfrac{a+b-c}{2}$', '$r_2-r_1$의 부호로 경우 분류', '$\cos\theta=\dfrac35$를 기준으로 구간별 미분']
+  conditions:
+  - '$\overline{AD}:\overline{BC}=1:2$ ⇒ $\overline{AD}=\overline{BE}=\overline{EC}=x\cos\theta$'
+  - '둘레 1 ⇒ $x(1+3\cos\theta+\sin\theta)=1$'
+  - '$0<\theta<\dfrac{\pi}{2}$, $r=\min(r_1,r_2)$'
+  stimuli_used: [가, 다]
+  subpart_links: null
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅰ, 미적분]
+  scope_2028: calc2
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 삼각함수의 도함수를 구할 수 있다(요지)
+    verified: false
+  content_area: 미분법 – 삼각함수의 도함수, 도함수의 활용(최대·최소)
+  behavior_domain: 문제해결
+  unit_path: [미적분, 미분법, 도함수의 활용, 도형의 최대·최소]
+  key_concepts: [삼각비, 내접원, 몫의 미분, 최대·최소]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 경희대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 경희대학교
+  admission_year: 2022
+  admission_type: 논술(모의)
+  track: 의·약학계열(수학)
+  question_no: 2
+  official_url: 'https://iphak.khu.ac.kr/detail.do?menuurl=89BGs%2bk748ajyySWoWlQPw%3d%3d&board_seq=2097&pageNo=1&categoryid=27&userpwd='
+  retrieved_at: '2026-11-21'
+  original_points: 20
+  rights_notice: 경희대학교 입학처 공개 자료(기출문제·예시답안). 내부 분석용
+  note: '문제 = [의학계_수학] 2022학년도 모의논술 문제지_최종.pdf p.2, 원 번호 [논제 I-2], 해설 = [의학계_수학] 2022학년도 모의논술 예시답안 및 문항해설_최종.pdf p.1~3(예시답안, 보조 그림 2개), p.4(문항 해설). 공식 채점 기준 미공개 — 배점(20)은 원문, 마크 배분은 자체. [공식 오기] 예시답안 p.3 의 α≤θ<π/2 구간 dr/dθ: 분자 (−sinθ+cosθ)(3cosθ+sinθ+1)−(cosθ+sinθ−1)(−3sinθ+cosθ) 를 분모 2(3cosθ+sinθ+1)² 로 나눠 (cosθ−2sinθ+1)/(3cosθ+sinθ+1)² 로 적었으나, r₂ 에는 1/2 이 없으므로 올바른 값은 2(cosθ−2sinθ+1)/(3cosθ+sinθ+1)² (sympy 확인). 부호 판단·최댓값 1/9 에는 영향 없음 — B 해설에서 바로잡음.'
+
+verify: verify/KHU-M22D.py::p02
+
+stimuli:
+- label: 가
+  body: |
+    미분가능한 함수 $f(x)$에 대하여 $f'(a)=0$이고 $x=a$의 좌우에서
+    (1) $f'(x)$의 부호가 양에서 음으로 바뀌면 $f(x)$는 $x=a$에서 극대이다.
+    (2) $f'(x)$의 부호가 음에서 양으로 바뀌면 $f(x)$는 $x=a$에서 극소이다.
+- label: 나
+  body: |
+    함수 $f(x)$에서 $x$의 값이 음수이면서 그 절댓값이 한없이 커질 때, $f(x)$의 값이 일정한 값 $L$에 한없이 가까워지면 이것을 기호로
+    $$\lim_{x\to-\infty}f(x)=L\quad\text{또는}\quad x\to-\infty\text{일 때 }f(x)\to L$$
+    과 같이 나타낸다.
+- label: 다
+  body: |
+    사인함수와 코사인함수의 도함수
+    (1) $y=\sin x$이면 $y'=\cos x$
+    (2) $y=\cos x$이면 $y'=-\sin x$
+- label: 라
+  body: |
+    서로 다른 $n$개에서 $r\ (0\le r\le n)$개를 택하는 조합의 수는
+    $${}_nC_r=\dfrac{n!}{r!(n-r)!}$$
+
+stem: |
+  Ⅰ. 다음 제시문을 읽고 논제에 답하시오. (60점)
+  [논제 I] 제시문 [가]~[라]를 읽고 다음 질문에 답하시오.
+  [논제 I-2]
+  [그림 1]과 같이 변 AB가 변 BC와 직각을 이루는 사다리꼴 ABCD가 있다. 변 AB와 변 BC에 동시에 접하고 사다리꼴 ABCD의 내부에 들어있으며 반지름의 길이 $r$이 최대가 되는 원 O에 대하여 다음 질문에 답하시오.
+  [그림 1 설명: 두 개의 그림. 둘 다 왼쪽 위 A, 오른쪽 위 D, 왼쪽 아래 B(직각 표시), 오른쪽 아래 C인 사다리꼴이고 C에서의 각이 θ로 표시되어 있으며, 원 O가 AB와 BC에 접하고 O에서 BC로 반지름 r이 그어져 있다. 왼쪽 그림은 θ가 커서(빗변이 가파름) 원이 윗변 AD와 빗변 CD에도 접하는 모습, 오른쪽 그림은 θ가 작아서(빗변이 완만함) 원이 윗변 AD에 접하고 빗변 CD와는 떨어져 있는 모습.]
+
+subparts:
+- id: '1'
+  stem: |
+    변 AD와 변 BC의 길이의 비가 $1:2$일 때, 둘레의 길이가 1인 모든 사다리꼴 ABCD에 대하여 원 O의 반지름의 길이의 최댓값을 구하고, 그 근거를 논술하시오. (20점)
+  points: 20
+  depends_on: []
+  answer: {kind: value, value: '\dfrac{1}{9}', equivalents: ['1/9'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $r=\min(r_1,r_2)$이고 $r_2-r_1=x\left(\cos\theta+\dfrac12\sin\theta-1\right)$의 부호가 $\cos\theta=\dfrac35$에서 바뀐다. $\theta\le\alpha$에서 $r_1$ 증가, $\theta\ge\alpha$에서 $r_2$ 감소 ⇒ $r_{\max}=r_1(\alpha)=\dfrac19$.
+    steps:
+    - {id: 1a, content: '$r_1(\alpha)=\dfrac{4/5}{2(9/5+4/5+1)}=\dfrac19$', criteria: [1.M1, 1.A1, 1.M2, 1.R1, 1.R2, 1.A2]}
+    hint_ladder:
+    - $\overline{CD}=x$, $\angle C=\theta$로 두고 모든 변을 나타내 보자.
+    - 원을 막는 변이 AD일 때와 CD일 때를 나누어 보자.
+    - 두 반지름 중 작은 것이 실제 반지름이다.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 예시답안 p.1~3
+    steps:
+    - id: 1b-1
+      content: |
+        변 CD의 길이를 $x$라 하자. 점 D에서 선분 BC에 내린 수선의 발을 점 E라 하자. 각 DCE를 $\theta$라 하자. $\overline{EC}=x\cos\theta$, $\overline{DE}=\overline{AB}=x\sin\theta$이다. $\overline{AD}:\overline{BC}=1:2$이므로 $\overline{AD}=\overline{BE}=\overline{EC}=x\cos\theta$이다. 사다리꼴 ABCD의 둘레의 길이가 1이므로 $x(1+3\cos\theta+\sin\theta)=1$이고, $x=\dfrac{1}{1+3\cos\theta+\sin\theta}$이다.
+      criteria: [1.M1]
+    - id: 1b-2
+      content: |
+        원 O가 선분 AD에 접하는 경우와 선분 CD에 접하는 경우로 나누어 생각한다. 원 O가 선분 AD에 접하는 경우, 반지름은 $r_1=\dfrac12\overline{AB}=\dfrac12x\sin\theta=\dfrac{\sin\theta}{2(3\cos\theta+\sin\theta+1)}$.
+        원 O가 선분 CD에 접하는 경우, 점 F를 직선 AB와 직선 CD의 교점이라 하면 원 O는 직각삼각형 FBC의 내접원이다.
+        $r_2=\dfrac12(\overline{BF}+\overline{BC}-\overline{CF})=\dfrac12(2\overline{AB}+2\overline{EC}-2\overline{CD})=x(\cos\theta+\sin\theta-1)=\dfrac{\cos\theta+\sin\theta-1}{3\cos\theta+\sin\theta+1}$.
+      criteria: [1.A1]
+    - id: 1b-3
+      content: |
+        주어진 $\theta$에 대하여 $r_1$과 $r_2$ 중 작은 것이 구하고자 하는 $r$이다. $r_2-r_1=x\left(\cos\theta+\dfrac12\sin\theta-1\right)$이고 $x>0$이므로 $f(\theta)=\cos\theta+\dfrac12\sin\theta-1$의 부호가 $r_2-r_1$의 부호와 같다.
+        $f(\theta)=0$으로부터 $\sin\theta=2-2\cos\theta$, 양변을 제곱하면 $1-\cos^2\theta=4-8\cos\theta+4\cos^2\theta$, 즉 $5\cos^2\theta-8\cos\theta+3=(5\cos\theta-3)(\cos\theta-1)=0$이다. $0<\theta<\dfrac{\pi}{2}$이기에 이 방정식은 $\cos\theta=\dfrac35$인 근 하나만을 가진다. 이 근을 $\theta=\alpha$라 하면 $\cos\alpha=\dfrac35$, $\sin\alpha=\dfrac45$이다.
+      criteria: [1.M2]
+    - id: 1b-4
+      content: |
+        $\cos\dfrac{\pi}{4}=\dfrac{\sqrt2}{2}>\dfrac35=\cos\alpha$이므로 $\dfrac{\pi}{4}<\alpha$, $\cos\dfrac{\pi}{2}=0<\dfrac35$이므로 $\dfrac{\pi}{2}>\alpha$이다. 또한 $f\left(\dfrac{\pi}{4}\right)=\dfrac{3\sqrt2}{4}-1>0$이고 $f\left(\dfrac{\pi}{2}\right)=-\dfrac12<0$이다. 이로부터 $0<\theta\le\alpha$일 때 $r_2\ge r_1$이고, $\alpha\le\theta<\dfrac{\pi}{2}$일 때 $r_2\le r_1$이다. 즉
+        $r=\dfrac{\sin\theta}{2(3\cos\theta+\sin\theta+1)}$ $(0<\theta\le\alpha)$, $r=\dfrac{\cos\theta+\sin\theta-1}{3\cos\theta+\sin\theta+1}$ $\left(\alpha\le\theta<\dfrac{\pi}{2}\right)$.
+      criteria: [1.R1]
+    - id: 1b-5
+      content: |
+        $0<\theta\le\alpha$일 때, 제시문 [다]에 의해 $\dfrac{dr}{d\theta}=\dfrac{\cos\theta(3\cos\theta+\sin\theta+1)-\sin\theta(-3\sin\theta+\cos\theta)}{2(3\cos\theta+\sin\theta+1)^2}=\dfrac{3+\cos\theta}{2(3\cos\theta+\sin\theta+1)^2}>0$이므로 $r$은 $\theta$에 대하여 증가함수가 되어 $\theta=\alpha$에서 최댓값을 가진다.
+        $\alpha\le\theta<\dfrac{\pi}{2}$일 때, $\dfrac{dr}{d\theta}=\dfrac{(-\sin\theta+\cos\theta)(3\cos\theta+\sin\theta+1)-(\cos\theta+\sin\theta-1)(-3\sin\theta+\cos\theta)}{(3\cos\theta+\sin\theta+1)^2}=\dfrac{2(\cos\theta-2\sin\theta+1)}{(3\cos\theta+\sin\theta+1)^2}$이다(예시답안은 분모에 2를 더 붙여 $\dfrac{\cos\theta-2\sin\theta+1}{(3\cos\theta+\sin\theta+1)^2}$로 적었으나 부호 판단은 같다). $\cos\theta\le\cos\alpha=\dfrac35$, $\sin\theta\ge\sin\alpha=\dfrac45$이므로 $\cos\theta-2\sin\theta+1\le\dfrac35-2\cdot\dfrac45+1=0$이고 $\dfrac{dr}{d\theta}\le0$이다. 이 경우에도 $\theta=\alpha$에서 최댓값을 가진다.
+      criteria: [1.R2]
+    - id: 1b-6
+      content: |
+        이 두 경우 모두 $\theta=\alpha$에서 최댓값을 가지므로 $r$의 최댓값은 $r=r_1=\dfrac{\sin\alpha}{2(3\cos\alpha+\sin\alpha+1)}=\dfrac{\frac45}{2\left(3\cdot\frac35+\frac45+1\right)}=\dfrac19$이다.
+      criteria: [1.A2]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 3
+      evidence: $\overline{CD}=x$, $\angle C=\theta$로 변을 나타내고 둘레 조건에서 $x=\dfrac{1}{1+3\cos\theta+\sin\theta}$를 구했다.
+      depends_on: []
+      steps: [1b-1]
+    - id: 1.A1
+      mark_type: A
+      points: 4
+      evidence: AD에 접할 때 $r_1=\dfrac12x\sin\theta$, CD에 접할 때 $r_2=x(\cos\theta+\sin\theta-1)$을 구했다.
+      depends_on: [1.M1]
+      steps: [1b-2]
+    - id: 1.M2
+      mark_type: M
+      points: 4
+      evidence: $r=\min(r_1,r_2)$임을 밝히고 $r_2-r_1=0$에서 $\cos\theta=\dfrac35$를 구했다.
+      depends_on: []
+      steps: [1b-3]
+    - id: 1.R1
+      mark_type: R
+      points: 3
+      evidence: $\theta\le\alpha$에서 $r_2\ge r_1$, $\theta\ge\alpha$에서 $r_2\le r_1$임을 근거와 함께 밝혀 $r$을 구간별로 나타냈다.
+      depends_on: [1.M2]
+      steps: [1b-4]
+    - id: 1.R2
+      mark_type: R
+      points: 4
+      evidence: 각 구간에서 $\dfrac{dr}{d\theta}$의 부호(앞 구간 양, 뒤 구간 음 이하)로 $\theta=\alpha$에서 최대임을 보였다.
+      depends_on: [1.R1]
+      steps: [1b-5]
+    - id: 1.A2
+      mark_type: A
+      points: 2
+      evidence: 최댓값 $\dfrac19$를 구했다.
+      depends_on: [1.R2]
+      steps: [1b-6]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-CAL-6620}
+  - {code: '71', misconception: MC-GEO-6621}
+  misconceptions:
+  - id: MC-CAL-6620
+    outcome_code: '70'
+    wrong_work: '원이 항상 AD에 접한다고 보고 $r_1=\dfrac{\sin\theta}{2(3\cos\theta+\sin\theta+1)}$만 최대화해 $\theta\to\dfrac{\pi}{2}$ 쪽 값($\dfrac14$ 등)을 답함'
+    detect_cue: $r_2$(CD에 접하는 경우)가 없다
+    feedback: θ가 크면 원은 빗변 CD에 먼저 닿습니다. 두 제약 중 작은 반지름이 실제 반지름입니다.
+    remedy: [RL-1]
+  - id: MC-GEO-6621
+    outcome_code: '71'
+    wrong_work: '직각삼각형 FBC의 내접원 반지름을 $\dfrac{\overline{BF}+\overline{BC}+\overline{CF}}{2}$ 또는 넓이/둘레로 잘못 계산'
+    detect_cue: $r_2$에 $\cos\theta+\sin\theta-1$ 꼴이 없다
+    feedback: 직각삼각형의 내접원 반지름은 $\dfrac{(\text{두 직각변의 합})-(\text{빗변})}{2}$입니다.
+    remedy: [RL-2]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CAL-6620}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-MAX-OF-MIN}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-GEO-6621}
+  relation: remediation
+  target: {kind: concept, ref: CON-GEO-INRADIUS-RIGHT}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-input-v1, item_version: 1, verdict: pass, date: 2026-11-21, note: 원문 PDF 이미지 판독으로 옮김 · 해설은 경희대 예시답안 흐름(dr/dθ 계수 오기 1곳 바로잡음)}
+
+created: 2026-11-21
+updated: 2026-11-21

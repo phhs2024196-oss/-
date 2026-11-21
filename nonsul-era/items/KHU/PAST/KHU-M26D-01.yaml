@@ -1,0 +1,221 @@
+schema_version: '2.0'
+id: KHU-M26D-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: KHU
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 분류
+points: 28
+time_estimate_min: 20
+intent: 사건의 독립의 개념과 확률의 곱셈정리, 확률의 덧셈정리, 여사건의 확률, 절대부등식을 활용하여 주어진 값을 구하는 과정을 통해 종합적인 사고력과 문제해결 능력을 평가한다.
+key_idea: '연결선 PA를 넣으면 회로는 (1∥4)-(2·3∥5·6)의 직렬, PB를 넣으면 (1·2∥4·5)-(3∥6)의 직렬로 나뉜다. $f-g=-p^2(1-p)^2<0$.'
+stuck: '연결선을 추가한 회로를 왼쪽 부분과 오른쪽 부분의 직렬(독립)로 나누는 단계'
+idea_tags: [IDEA-CIRCUIT-SERIES-PARALLEL, IDEA-COMPLEMENT-PROBABILITY]
+tags: [스위치 회로, 독립, 여사건, 경희 모의, 의약학계]
+elements:
+  materials: [스위치 1·2·3(위 줄), 4·5·6(아래 줄)이 병렬인 회로, 스위치가 켜질 확률 p, 1-2 사이 점 P, 4-5 사이 점 A, 5-6 사이 점 B]
+  concepts: [사건의 독립, 확률의 곱셈정리, 확률의 덧셈정리, 여사건의 확률, 다항식 부등식]
+  tools: [직렬 = 곱, 병렬 = 1-(1-p)(1-q) 또는 p+q-pq, 연결점에서 회로를 두 부분으로 분할, f-g 인수분해와 부호 판정]
+  conditions:
+  - '$0<p<1$, 각 스위치는 독립적으로 작동'
+  - '추가 연결선은 회로의 다른 부분에 닿지 않음'
+  stimuli_used: [가]
+  subpart_links: '(2)는 (1)의 직렬·병렬 확률 계산을 부분 회로에 적용한다'
+
+curriculum:
+  version: '2015'
+  subjects: [확률과통계]
+  scope_2028: common
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 사건의 독립과 종속을 이해하고 확률의 곱셈정리를 활용한다 / 여사건의 확률(요지)
+    verified: false
+  content_area: 확률 – 독립사건, 여사건
+  behavior_domain: 추론
+  unit_path: [확률과통계, 확률, 조건부확률, 사건의 독립과 종속]
+  key_concepts: [독립사건, 확률의 덧셈정리, 여사건, 인수분해]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 경희대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 경희대학교
+  admission_year: 2026
+  admission_type: 논술(모의)
+  track: 의·약학계열(수학)
+  question_no: 1
+  official_url: https://iphak.khu.ac.kr/detail.do?menuurl=89BGs%2bk748ajyySWoWlQPw%3d%3d&board_seq=15627&pageNo=1&categoryid=27&userpwd=
+  retrieved_at: '2026-11-21'
+  original_points: 28
+  rights_notice: 경희대학교 입학처 공개 자료(기출문제·예시답안). 내부 분석용
+  note: '문제 = 4-1. [의약학계_수학] 2026 모의논술고사 문제지_fv.pdf p.2, 원 번호 [논제 Ⅰ], 해설 = 4-2. [의약학계_수학] 2026 모의논술고사 예시답안및채점기준_fv.pdf p.1~2. 원문 「두가지」(띄어쓰기) 그대로. 제시문 [나]~[라]는 논제 Ⅱ용이라 생략. [판독확인] 없음'
+
+verify: verify/KHU-M26D.py::p01
+
+stimuli:
+- label: 가
+  body: |
+    두 사건 $A,B$가 서로 독립이기 위한 필요충분조건은
+    $$\mathrm{P}(A\cap B)=\mathrm{P}(A)\mathrm{P}(B)\quad(\text{단, }P(A)>0,\ P(B)>0)$$
+
+stem: |
+  다음 그림과 같이 6개의 스위치 1, 2, 3, 4, 5, 6이 있는 전기 회로가 있다. 스위치가 켜져 있을 때만 스위치의 좌우로 전류가 흐른다. 각 스위치가 켜져 있을 확률은 $p\ (0<p<1)$이고, 각 스위치는 독립적으로 작동한다고 할 때 다음 물음에 답하시오.
+  [그림 설명: 왼쪽 화살표(입력)에서 두 갈래로 나뉘는 병렬 회로. 위 줄에 스위치 1, 2, 3이 차례로 직렬로 있고 1과 2 사이의 점을 P로 표시. 아래 줄에 스위치 4, 5, 6이 차례로 직렬로 있고 4와 5 사이의 점을 A, 5와 6 사이의 점을 B로 표시. 두 줄이 오른쪽에서 합쳐져 오른쪽 화살표(출력)로 나간다.]
+
+subparts:
+- id: '1'
+  stem: |
+    위 그림의 왼쪽 끝에서 오른쪽 끝으로 전류가 흐를 확률을 두가지 방법 (a) 확률의 덧셈정리를 이용한 방법과 (b) 여사건의 확률을 이용한 방법으로 각각 구하고, 그 근거를 논술하시오. (13점)
+  points: 13
+  depends_on: []
+  answer: {kind: expression, value: '2p^3-p^6', equivalents: ['1-(1-p^3)^2'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: '위·아래 줄이 각각 연결될 확률 $p^3$, 독립. (a) $p^3+p^3-p^6$, (b) $1-(1-p^3)^2$.'
+    steps:
+    - {id: 1a, content: '$2p^3-p^6$', criteria: [1.M1, 1.M2]}
+    hint_ladder:
+    - 위 줄 전체가 연결될 확률은?
+    - 두 줄이 모두 끊길 확률을 생각하자.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 4-2. [의약학계_수학] 2026 모의논술고사 예시답안및채점기준_fv.pdf p.2
+    steps:
+    - id: 1b-1
+      content: |
+        (a) 확률의 덧셈정리를 이용하면
+        P(위가 연결되거나 아래가 연결됨) $=$ P(위가 연결됨) $+$ P(아래가 연결됨) $-$ P(위, 아래가 모두 연결됨) $=p^3+p^3-p^6=2p^3-p^6$.
+      criteria: [1.M1]
+    - id: 1b-2
+      content: |
+        (b) P(위가 연결 안 됨) $=$ P(아래가 연결 안 됨) $=1-p^3$. 위가 연결 안 되는 사건과 아래가 연결이 안 되는 사건이 독립이므로(제시문 [가]) P(위, 아래가 모두 연결 안 됨) $=(1-p^3)^2$.
+        여사건을 생각하면 P(위가 연결되거나 아래가 연결됨) $=1-(1-p^3)^2=1-(1-2p^3+p^6)=2p^3-p^6$.
+      criteria: [1.M2]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 5
+      evidence: '확률의 덧셈정리를 이용하여 전류가 흐를 확률 $p^3+p^3-p^6=2p^3-p^6$을 구했다.'
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1]
+    - id: 1.M2
+      mark_type: M
+      points: 8
+      evidence: '여사건의 확률(두 줄이 모두 끊길 확률 $(1-p^3)^2$, 독립 근거)을 이용하여 $1-(1-p^3)^2=2p^3-p^6$을 구했다.'
+      depends_on: []
+      implied_ok: false
+      steps: [1b-2]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-PRB-6217}
+  misconceptions:
+  - id: MC-PRB-6217
+    outcome_code: '70'
+    wrong_work: '(a)에서 $\mathrm{P}(\text{위})+\mathrm{P}(\text{아래})=2p^3$으로 끝냄'
+    detect_cue: (a)의 답이 $2p^3$이고 (b)와 다르다
+    feedback: 두 사건은 동시에 일어날 수 있으므로 덧셈정리에서 $\mathrm{P}(\text{위}\cap\text{아래})=p^6$을 빼야 합니다.
+    remedy: [RL-1]
+- id: '2'
+  stem: |
+    위 그림에 전기 회로의 다른 부분에 닿지 않으면서 점 P와 점 A를 추가로 연결할 때 왼쪽에서 오른쪽으로 전류가 흐를 확률을 $f(p)$라 하자. 반면에, 위 그림에 전기 회로의 다른 부분에 닿지 않으면서 점 P와 점 B를 추가로 연결할 때 왼쪽에서 오른쪽으로 전류가 흐를 확률을 $g(p)$라 하자. $f(p)<g(p)$인 $p$의 범위를 구하고, 그 근거를 논술하시오. (15점)
+  points: 15
+  depends_on: ['1']
+  answer: {kind: set, value: '0<p<1', equivalents: ['(0,1) 전체'], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: '$f=(2p-p^2)(2p^2-p^4)$, $g=(p+p^2-p^3)^2$, $f-g=-p^2(1-p)^2<0$.'
+    steps:
+    - {id: 2a, content: '$f(p)-g(p)=-p^2(1-p)^2<0$ ⇒ $0<p<1$ 전체', criteria: [2.M1, 2.M2, 2.A1]}
+    hint_ladder:
+    - 연결선을 넣으면 회로가 왼쪽 부분과 오른쪽 부분으로 나뉜다.
+    - 각 부분은 병렬 회로이다.
+  - id: S2-B
+    audience: B
+    method_no: 1
+    source_flow: 4-2. [의약학계_수학] 2026 모의논술고사 예시답안및채점기준_fv.pdf p.2
+    steps:
+    - id: 2b-1
+      content: |
+        먼저 P와 A가 연결된 경우를 생각하자. 왼쪽 끝부터 선분 PA까지 전류가 흐를 확률은 $2p-p^2$이고(스위치 1, 4 병렬), 선분 PA부터 오른쪽 끝까지 전류가 흐를 확률은 $2p^2-p^4$이다(2·3과 5·6 병렬). 두 사건이 독립이므로 $f(p)=(2p-p^2)(2p^2-p^4)=p^3(2-p)(2-p^2)$.
+      criteria: [2.M1]
+    - id: 2b-2
+      content: |
+        다음으로 P와 B가 연결된 경우를 생각하자. 왼쪽 끝부터 선분 PB까지 전류가 흐를 확률은 $p+p^2-p^3$이고(1과 4·5 병렬), 선분 PB부터 오른쪽 끝까지 전류가 흐를 확률도 $p+p^2-p^3$이다(2·3과 6 병렬). 두 사건이 독립이므로 $g(p)=(p+p^2-p^3)^2=p^2(1+p-p^2)^2$.
+      criteria: [2.M2]
+    - id: 2b-3
+      content: |
+        따라서 $f(p)-g(p)=p^2(-1+2p-p^2)=-p^2(1-p)^2$이다. 그러므로 $0<p<1$에서 $f(p)-g(p)<0$, 즉 $f(p)<g(p)$이다. 답: $0<p<1$.
+      criteria: [2.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 5
+      evidence: '확률의 곱셈정리와 독립을 이용하여 $f(p)=(2p-p^2)(2p^2-p^4)$를 구했다.'
+      depends_on: []
+      implied_ok: false
+      steps: [2b-1]
+    - id: 2.M2
+      mark_type: M
+      points: 5
+      evidence: '확률의 곱셈정리와 독립을 이용하여 $g(p)=(p+p^2-p^3)^2$을 구했다.'
+      depends_on: []
+      implied_ok: false
+      steps: [2b-2]
+    - id: 2.A1
+      mark_type: A
+      points: 5
+      evidence: '$f(p)-g(p)=-p^2(1-p)^2$으로 $f(p)<g(p)$인 $p$의 범위 $0<p<1$을 구했다.'
+      depends_on: [2.M1, 2.M2]
+      steps: [2b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-PRB-6218}
+  misconceptions:
+  - id: MC-PRB-6218
+    outcome_code: '70'
+    wrong_work: 'PA 연결 후에도 전류 경로(1-2-3, 4-5-6, 1-A-5-6, 4-P-2-3)의 확률을 그대로 더해 $f(p)=2p^3+2p^4$ 처럼 계산'
+    detect_cue: $f(p)$가 1을 넘을 수 있는 식이거나 경로 확률의 단순 합이다
+    feedback: 연결선이 생기면 회로는 「왼쪽 병렬부」와 「오른쪽 병렬부」의 직렬입니다. 각 부분의 확률을 구해 곱하세요.
+    remedy: [RL-2]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-PRB-6217}
+  relation: remediation
+  target: {kind: concept, ref: CON-PRB-ADDITION-COMPLEMENT}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-PRB-6218}
+  relation: remediation
+  target: {kind: concept, ref: CON-PRB-ADDITION-COMPLEMENT}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-input-v1, item_version: 1, verdict: pass, date: 2026-11-21, note: 원문 PDF 이미지 판독으로 옮김 · 해설은 경희대 예시답안 흐름}
+
+created: 2026-11-21
+updated: 2026-11-21

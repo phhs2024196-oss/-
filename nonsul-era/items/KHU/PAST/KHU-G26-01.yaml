@@ -1,0 +1,236 @@
+schema_version: '2.0'
+id: KHU-G26-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: KHU
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 일반화
+points: 30
+time_estimate_min: 20
+intent: 매개변수로 나타낸 함수의 미분법으로 도함수와 수열을 얻어 그 극한을 구하고, 평면 위를 움직이는 점의 속력과 움직인 거리를 적분으로 구할 수 있는지 평가한다.
+key_idea: '$u=t^{\frac{2n+1}{2}}$로 두면 $\dfrac{dy}{dx}=\dfrac12\left(u-\dfrac1u\right)$이고, 속력 $\sqrt{x''^2+y''^2}$은 완전제곱 $t^{2n}+\dfrac1t$로 정리된다.'
+stuck: '$\dfrac{dy}{dx}=n$을 $u$에 대한 이차방정식으로 바꾸고 $t\ge1$로 근을 고르는 단계, 근호 안을 완전제곱으로 보는 단계'
+idea_tags: [IDEA-PARAM-DERIV-SUBSTITUTE, IDEA-SPEED-PERFECT-SQUARE]
+tags: [매개변수 미분, 이동 거리, 수열의 극한, 경희 실전]
+elements:
+  materials: [자연수 n 을 포함한 매개변수 곡선 x(t), y(t) (t≥1), 기울기가 n 인 점의 x좌표 수열 a_n, 시각 1 부터 e^(1/(2n+1)) 까지의 움직인 거리]
+  concepts: [매개변수로 나타낸 함수의 미분법, 수열의 극한, 속도와 속력, 움직인 거리(정적분)]
+  tools: [u 치환 후 이차방정식의 근의 공식, t≥1 조건으로 근 선택, 분자·분모를 n 으로 나눈 극한, 근호 안 완전제곱 정리, 다항·로그 적분]
+  conditions:
+  - '$t\ge1$ ⇒ $u=t^{\frac{2n+1}{2}}\ge1>0$이므로 $u=n-\sqrt{n^2+1}<0$ 은 버림'
+  - '$t=b=e^{\frac{1}{2n+1}}$ ⇒ $b^{2n+1}=e$, $\ln b=\dfrac{1}{2n+1}$'
+  stimuli_used: [가, 나]
+  subpart_links: null
+
+curriculum:
+  version: '2015'
+  subjects: [미적분]
+  scope_2028: calc2
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 매개변수로 나타낸 함수를 미분할 수 있다 / 속도와 거리에 대한 문제를 해결할 수 있다(요지)
+    verified: false
+  content_area: 미분법·적분법 – 매개변수 함수의 미분, 평면 운동의 거리
+  behavior_domain: 계산
+  unit_path: [미적분, 미분법, 여러 가지 미분법, 매개변수로 나타낸 함수의 미분]
+  key_concepts: [매개변수로 나타낸 함수의 미분법, 수열의 극한, 속력, 움직인 거리]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 경희대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 경희대학교
+  admission_year: 2026
+  admission_type: 논술(논술우수자전형)
+  track: 자연계열
+  question_no: 1
+  official_url: https://iphak.khu.ac.kr/detail.do?menuurl=89BGs%2bk748ajyySWoWlQPw%3d%3d&board_seq=16903&pageNo=1&categoryid=27&userpwd=
+  retrieved_at: '2026-11-21'
+  original_points: 30
+  rights_notice: 경희대학교 입학처 공개 자료(기출문제·예시답안). 내부 분석용
+  note: '문제 = 3. 2026 논술고사 기출문제(자연계).pdf p.1, 원 번호 [논제 Ⅰ], 해설 = 같은 파일 p.3~5(문항카드: 출제 의도·채점 기준·예시 답안). 제시문 [다]~[마]는 다른 논제용이라 생략. [판독확인] 없음'
+
+verify: verify/KHU-G26.py::p01
+
+stimuli:
+- label: 가
+  body: |
+    $x=f(t)$, $y=g(t)$가 $t$에 대하여 미분가능하고, $f'(t)\neq0$이면 $\dfrac{dy}{dx}=\dfrac{\frac{dy}{dt}}{\frac{dx}{dt}}=\dfrac{g'(t)}{f'(t)}$이다.
+- label: 나
+  body: |
+    좌표평면 위를 움직이는 점 P의 시각 $t$에서의 위치 $(x,y)$가 $x=f(t)$, $y=g(t)$일 때, 시각 $t=a$에서 $t=b$까지 점 P가 움직인 거리 $s$는
+    $$s=\int_a^b\sqrt{\left(\dfrac{dx}{dt}\right)^2+\left(\dfrac{dy}{dt}\right)^2}\,dt=\int_a^b\sqrt{\{f'(t)\}^2+\{g'(t)\}^2}\,dt$$
+
+stem: |
+  자연수 $n$에 대하여 좌표평면 위를 움직이는 점 P의 시각 $t$에서의 위치 $(x,y)$가
+  $$x=\dfrac{4}{2n+1}t^{\frac{2n+1}{2}}-\dfrac{4}{2n+1},\qquad y=\dfrac{1}{2n+1}t^{2n+1}-\ln t-\dfrac{1}{2n+1}$$
+  일 때, 다음 물음에 답하시오. (단, $t\ge1$)
+
+subparts:
+- id: '1'
+  stem: |
+    $\dfrac{dy}{dx}=n$이 되는 점 P의 $x$좌표를 $a_n$이라고 할 때, $\lim\limits_{n\to\infty}a_n$을 구하고, 그 근거를 논술하시오. (15점)
+  points: 15
+  depends_on: []
+  answer: {kind: value, value: '4', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: '$\dfrac{dy}{dx}=\dfrac12(u-u^{-1})$, $u=t^{\frac{2n+1}{2}}$에서 $u=n+\sqrt{n^2+1}$이므로 $a_n=\dfrac{4(n-1+\sqrt{n^2+1})}{2n+1}\to4$.'
+    steps:
+    - {id: 1a, content: '$u^2-2nu-1=0$, $u\ge1$ ⇒ $u=n+\sqrt{n^2+1}$, $a_n=\dfrac{4}{2n+1}(u-1)$', criteria: [1.M1, 1.A1, 1.A2]}
+    hint_ladder:
+    - 제시문 [가]로 $\dfrac{dy}{dx}$를 $t$의 식으로 나타내 보자.
+    - $t^{\frac{2n+1}{2}}$을 한 문자로 두면 어떤 방정식이 되는가?
+    - $t\ge1$이면 그 문자는 양수이다.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 3. 2026 논술고사 기출문제(자연계).pdf 예시 답안 p.4
+    steps:
+    - id: 1b-1
+      content: |
+        $x$와 $y$를 $t$에 대해서 미분하면 $x'(t)=2t^{\frac{2n-1}{2}}$, $y'(t)=t^{2n}-\dfrac1t$이다.
+        따라서 제시문 [가]에 의해 $\dfrac{dy}{dx}=\dfrac{y'(t)}{x'(t)}=\dfrac12\left(t^{\frac{2n+1}{2}}-t^{-\frac{2n+1}{2}}\right)$이다.
+      criteria: [1.M1]
+    - id: 1b-2
+      content: |
+        $u=t^{\frac{2n+1}{2}}$라고 하고 $\dfrac{dy}{dx}=n$일 때를 생각하면 $n=\dfrac12\left(u-\dfrac1u\right)$로부터 $u^2-2nu-1=0$이다.
+        $u=n\pm\sqrt{n^2+1}$에서 $t\ge1$이므로($u\ge1$) $u=n+\sqrt{n^2+1}$을 얻는다.
+        따라서 이때 점 P의 $x$좌표는 $a_n=\dfrac{4}{2n+1}u-\dfrac{4}{2n+1}=\dfrac{4}{2n+1}\left(n-1+\sqrt{n^2+1}\right)$.
+      criteria: [1.A1]
+    - id: 1b-3
+      content: |
+        그러므로 $\lim\limits_{n\to\infty}a_n=\lim\limits_{n\to\infty}\left(\dfrac{4(n-1)}{2n+1}+\dfrac{4\sqrt{n^2+1}}{2n+1}\right)=2+2=4$.
+      criteria: [1.A2]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 6
+      evidence: '$x''(t)$와 $y''(t)$를 이용하여 $\dfrac{dy}{dx}=\dfrac12\left(t^{\frac{2n+1}{2}}-t^{-\frac{2n+1}{2}}\right)$를 구했다.'
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1]
+    - id: 1.A1
+      mark_type: A
+      points: 6
+      evidence: '$a_n=\dfrac{4}{2n+1}\left(n-1+\sqrt{n^2+1}\right)$을 구했다($t\ge1$로 근 선택 포함).'
+      depends_on: [1.M1]
+      steps: [1b-2]
+    - id: 1.A2
+      mark_type: A
+      points: 3
+      evidence: '$\lim\limits_{n\to\infty}a_n=4$를 구했다.'
+      depends_on: [1.M1]
+      steps: [1b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-CAL-6201}
+  misconceptions:
+  - id: MC-CAL-6201
+    outcome_code: '70'
+    wrong_work: '$\dfrac{dy}{dx}=\dfrac{x''(t)}{y''(t)}=\dfrac{2t^{\frac{2n-1}{2}}}{t^{2n}-\frac1t}$로 뒤집어 씀'
+    detect_cue: 도함수 식의 분모에 $t^{2n}-\dfrac1t$가 있다
+    feedback: 제시문 [가]처럼 $\dfrac{dy}{dx}$는 $y$의 변화율을 $x$의 변화율로 나눈 $\dfrac{g'(t)}{f'(t)}$입니다.
+    remedy: [RL-1]
+- id: '2'
+  stem: |
+    시각 $t=1$에서 $t=e^{\frac{1}{2n+1}}$까지 점 P가 움직인 거리를 $l$이라고 하고, 시각 $t=e^{\frac{1}{2n+1}}$에서 점 P의 $y$좌표를 $m$이라고 하자. 이때 $\dfrac{l}{m}$을 구하고, 그 근거를 논술하시오. (15점)
+  points: 15
+  depends_on: []
+  answer: {kind: value, value: '\dfrac{e}{e-2}', equivalents: ['e/(e-2)'], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: '속력 $=t^{2n}+\dfrac1t$(완전제곱), $l=\dfrac{e}{2n+1}$, $m=\dfrac{e-2}{2n+1}$.'
+    steps:
+    - {id: 2a, content: '$x''^2+y''^2=\left(t^{2n}+\dfrac1t\right)^2$ ⇒ $l=\dfrac{e}{2n+1}$, $m=\dfrac{e-2}{2n+1}$', criteria: [2.M1, 2.A1, 2.A2]}
+    hint_ladder:
+    - $x'(t)^2+y'(t)^2$을 전개해 보자.
+    - 근호 안이 완전제곱식이 된다.
+  - id: S2-B
+    audience: B
+    method_no: 1
+    source_flow: 3. 2026 논술고사 기출문제(자연계).pdf 예시 답안 p.4~5
+    steps:
+    - id: 2b-1
+      content: |
+        점 P의 속력은 $\sqrt{x'(t)^2+y'(t)^2}=\sqrt{4t^{2n-1}+t^{4n}-2t^{2n-1}+\dfrac{1}{t^2}}=\sqrt{\left(t^{2n}+\dfrac1t\right)^2}=t^{2n}+\dfrac1t$.
+      criteria: [2.M1]
+    - id: 2b-2
+      content: |
+        $b=e^{\frac{1}{2n+1}}$이라고 할 때, 제시문 [나]에 의해 시각 $t=1$에서 $t=b$까지 점 P가 움직인 거리는
+        $l=\int_1^b\left(t^{2n}+\dfrac1t\right)dt=\dfrac{1}{2n+1}b^{2n+1}+\ln b-\dfrac{1}{2n+1}=\dfrac{e}{2n+1}+\dfrac{1}{2n+1}-\dfrac{1}{2n+1}=\dfrac{e}{2n+1}$.
+      criteria: [2.A1]
+    - id: 2b-3
+      content: |
+        $t=b$일 때의 점 P의 $y$좌표는 $m=\dfrac{1}{2n+1}b^{2n+1}-\ln b-\dfrac{1}{2n+1}=\dfrac{e-2}{2n+1}$이므로 $\dfrac{l}{m}=\dfrac{e}{e-2}$.
+      criteria: [2.A2]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 6
+      evidence: '점 P의 속력 $\sqrt{x''(t)^2+y''(t)^2}=t^{2n}+\dfrac1t$를 구했다.'
+      depends_on: []
+      implied_ok: false
+      steps: [2b-1]
+    - id: 2.A1
+      mark_type: A
+      points: 6
+      evidence: '거리 $l=\dfrac{e}{2n+1}$을 구했다.'
+      depends_on: [2.M1]
+      steps: [2b-2]
+    - id: 2.A2
+      mark_type: A
+      points: 3
+      evidence: '$m=\dfrac{e-2}{2n+1}$을 구해 $\dfrac{l}{m}=\dfrac{e}{e-2}$를 적었다.'
+      depends_on: [2.M1]
+      steps: [2b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-CAL-6202}
+  misconceptions:
+  - id: MC-CAL-6202
+    outcome_code: '70'
+    wrong_work: '$l$을 두 시각의 위치 사이 거리 $\sqrt{(\Delta x)^2+(\Delta y)^2}$ 또는 $y(b)-y(1)$로 계산'
+    detect_cue: 정적분 없이 $l$을 좌표 차로 구했다
+    feedback: 움직인 거리는 속력을 시간에 대해 적분한 값입니다(제시문 [나]). 위치의 변화량(변위)과 구분하세요.
+    remedy: [RL-2]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CAL-6201}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-PARAM-DERIV}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-CAL-6202}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-MOTION-DISTANCE}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-input-v1, item_version: 1, verdict: pass, date: 2026-11-21, note: 원문 PDF 이미지 판독으로 옮김 · 해설은 경희대 예시답안 흐름}
+
+created: 2026-11-21
+updated: 2026-11-21

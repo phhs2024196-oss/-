@@ -1,0 +1,285 @@
+schema_version: '2.0'
+id: KHU-M27D-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: KHU
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 일반화
+points: 27
+time_estimate_min: 30
+intent: 이차방정식의 근의 위치를 판단하고, 유리함수의 이계도함수와 증감·점근선으로 그래프를 파악하여 부등식의 해의 길이를 근과 계수의 관계로 구한 뒤 등비급수의 합으로 연결하는 능력을 본다.
+key_idea: |
+  $0<\alpha<\beta<1$이고, $f''(x)=0\iff\left(\dfrac{x-\alpha}{\beta-x}\right)^3=\left(\dfrac{\alpha}{\beta}\right)^n$; $f(x)>k$의 해는 $(\alpha,a)\cup(\beta,b)$이고 $a+b$를 근과 계수의 관계로 구해 $L_n=\dfrac{\alpha^n+\beta^n}{k}$.
+stuck: (2)에서 교점 $a$, $b$를 직접 구하지 않고 이차방정식의 두 근의 합으로 길이의 총합을 얻는 단계
+idea_tags: [IDEA-QUAD-ROOT-LOCATION, IDEA-VIETA-INTERVAL-LENGTH, IDEA-GEOMETRIC-SERIES-SUM]
+tags: [유리함수, 이계도함수, 근과 계수의 관계, 등비급수, 경희 모의]
+elements:
+  materials: [p²>4q·p−q<1·p<2인 양수 p·q, 이차방정식 x²−px+q=0의 두 근 α<β, 함수 f(x)=αⁿ/(x−α)+βⁿ/(x−β), f''(x)=0인 x=a_n, 부등식 f(x)>k의 해 구간 길이의 총합 L_n]
+  concepts: [이차방정식 근의 위치, 몫의 미분법, 이계도함수, 함수의 증가·감소, 점근선, 근과 계수의 관계, 등비급수]
+  tools: [g(0)>0·g(1)>0·축 위치로 0<α<β<1, 제시문 가로 f'·f'' 계산, 세제곱근 비교로 a_n 닫힌 식, a_n−α·a_n−β 부호로 구간 판정, f'<0과 점근선으로 교점 위치, 근과 계수의 관계로 a+b, 등비급수 합]
+  conditions:
+  - '$p^2>4q$ ⇒ 서로 다른 두 실근, $q>0$·$1-p+q>0$·$0<\frac p2<1$ ⇒ $0<\alpha<\beta<1$'
+  - '$0<\frac{\alpha}{\beta}<1$ ⇒ $\left(\frac{\alpha}{\beta}\right)^{n/3}\to0$'
+  - '$x<\alpha$에서 $f(x)<0$ ⇒ $y=k\ (k>0)$와 만나지 않음'
+  - '$\lvert\alpha\rvert<1$, $\lvert\beta\rvert<1$ ⇒ 등비급수 수렴(제시문 다)'
+  stimuli_used: [가, 나, 다]
+  subpart_links: '(2)는 (1)에서 보인 $0<\alpha<\beta<1$을 등비급수의 수렴 근거로 사용'
+
+curriculum:
+  version: '2015'
+  subjects: [수학, 수학Ⅱ, 미적분]
+  scope_2028: calc2
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 함수의 몫을 미분하고 이계도함수를 이용해 그래프의 개형을 그릴 수 있다(요지)
+    verified: false
+  content_area: 미분법 – 몫의 미분·이계도함수 / 수열의 극한 – 등비급수
+  behavior_domain: 추론
+  unit_path: [미적분, 미분법, 도함수의 활용, 그래프의 개형과 부등식]
+  key_concepts: [이차방정식 근의 위치, 이계도함수, 근과 계수의 관계, 등비급수]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 경희대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 경희대학교
+  admission_year: 2027
+  admission_type: 논술(모의)
+  track: 의·약학계열(수학)
+  question_no: 1
+  official_url: https://iphak.khu.ac.kr/detail.do?menuurl=89BGs%2bk748ajyySWoWlQPw%3d%3d&board_seq=18071&pageNo=1&categoryid=27&userpwd=
+  retrieved_at: '2026-11-21'
+  original_points: 27
+  rights_notice: 경희대학교 입학처 공개 자료(기출문제·예시답안). 내부 분석용
+  note: 문제 = 4-1. [의약학계_수학] 2027 모의논술고사 문제지_fv.pdf p.2, 원 번호 [논제 Ⅰ], 해설 = 4-2. [의약학계_수학] 2027 모의논술고사 예시답안및채점기준_fv.pdf p.1~4. 제시문 [가]~[라]는 시험지 공통(논제 Ⅰ·Ⅱ). 시험지 머리말 '다음 제시문을 읽고 논제에 답하시오. (60점)'. 예시답안 p.3의 그래프 2개(점근선 x=α, x=β, x축; y=k와의 교점 a, b)는 글로 옮김
+
+verify: verify/KHU-M27D.py::p01
+
+stimuli:
+- label: 가
+  body: |
+    함수의 몫의 미분법
+    함수 $f(x)\ (f(x)\neq0)$가 미분가능할 때 $\left\{\dfrac{1}{f(x)}\right\}'=-\dfrac{f'(x)}{f(x)^2}$
+- label: 나
+  body: |
+    함수의 증가와 감소
+    함수 $f(x)$가 어떤 열린구간에서 미분가능할 때 그 열린구간에 속하는 모든 $x$에 대하여
+    (1) $f'(x)>0$이면 $f(x)$는 그 열린구간에서 증가한다.
+    (2) $f'(x)<0$이면 $f(x)$는 그 열린구간에서 감소한다.
+- label: 다
+  body: |
+    등비급수의 수렴과 발산
+    등비급수 $\displaystyle\sum_{n=1}^{\infty}ar^{n-1}\,(a\neq0)$은
+    (1) $\lvert r\rvert<1$일 때, 수렴하고 그 합은 $\dfrac{a}{1-r}$이다.
+    (2) $\lvert r\rvert\ge1$일 때, 발산한다.
+- label: 라
+  body: |
+    이산확률변수의 기댓값(평균)
+    이산확률변수 $X$의 확률질량함수가 $P(X=x_i)=p_i\ (i=1,2,\cdots,n)$일 때, 확률변수 $X$의 기댓값(평균) $E(X)$는
+    $$E(X)=x_1p_1+x_2p_2+\cdots+x_np_n$$
+
+stem: |
+  [논제 Ⅰ] [배점 27점] 양수 $p,q$가 $p^2>4q$, $p-q<1$, $p<2$를 만족할 때, 이차방정식 $x^2-px+q=0$의 두 근을 $\alpha,\beta$라 하자. (단, $\alpha<\beta$) 자연수 $n$에 대해서, 함수 $f(x)$를 $f(x)=\dfrac{\alpha^n}{x-\alpha}+\dfrac{\beta^n}{x-\beta}$라 정의하자.
+
+subparts:
+- id: '1'
+  stem: |
+    $f''(x)=0$이 되는 $x$의 값을 $a_n$이라 하자. 이때 $a_n$의 식을 구하여 구간 $(\alpha,\beta)$에 존재함을 보이고, 극한값 $\displaystyle\lim_{n\to\infty}a_n$의 값을 계산하고, 그 근거를 논술하시오. (12점)
+  points: 12
+  depends_on: []
+  answer:
+    kind: expression
+    value: 'a_n=\dfrac{\alpha+\beta\left(\frac{\alpha}{\beta}\right)^{n/3}}{1+\left(\frac{\alpha}{\beta}\right)^{n/3}},\ \lim_{n\to\infty}a_n=\alpha=\dfrac{p-\sqrt{p^2-4q}}{2}'
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $f''(x)=2\left(\dfrac{\alpha^n}{(x-\alpha)^3}+\dfrac{\beta^n}{(x-\beta)^3}\right)=0$에서 세제곱근을 비교하면 $a_n$은 $\alpha$와 $\beta$의 가중평균이다.
+    steps:
+    - {id: 1a, content: '$\dfrac{x-\alpha}{\beta-x}=\left(\dfrac{\alpha}{\beta}\right)^{n/3}=r$ ⇒ $a_n=\dfrac{\alpha+\beta r}{1+r}\in(\alpha,\beta)$, $r\to0$', criteria: [1.M1, 1.R1, 1.A1]}
+    hint_ladder:
+    - $\alpha$, $\beta$가 어느 범위에 있는지 먼저 확인하자.
+    - $f''(x)=0$을 $\left(\dfrac{x-\alpha}{\beta-x}\right)^3$ 꼴로 정리해 보자.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 예시답안 p.2 (4-2. [의약학계_수학] 예시답안및채점기준 PDF)
+    steps:
+    - id: 1b-1
+      content: |
+        $p^2>4q$이므로 $\alpha,\beta$는 서로 다른 실수이다. 한편, $g(x)=x^2-px+q$라 하면 $g(0)=q>0$, $g(1)=1-p+q>0$이고, 대칭축 $x=\dfrac p2$이 0과 1사이에 있기 때문에, 두 근인 $\alpha,\beta$는 $0<\alpha<\beta<1$을 만족한다. …(*)
+        제시문 [가]를 이용하여 $f(x)$를 미분하여 계산하면
+        $$f'(x)=-\left(\dfrac{\alpha^n}{(x-\alpha)^2}+\dfrac{\beta^n}{(x-\beta)^2}\right),\quad f''(x)=2\left(\dfrac{\alpha^n}{(x-\alpha)^3}+\dfrac{\beta^n}{(x-\beta)^3}\right)$$
+        이 된다. 그러면 $\left(\dfrac{x-\alpha}{\beta-x}\right)^3=\left(\dfrac{\alpha}{\beta}\right)^n$이므로 $\dfrac{x-\alpha}{\beta-x}=\left(\dfrac{\alpha}{\beta}\right)^{n/3}$이다. 이 식을 풀면
+        $$a_n=\dfrac{\alpha+\beta\left(\frac{\alpha}{\beta}\right)^{n/3}}{1+\left(\frac{\alpha}{\beta}\right)^{n/3}}$$
+        이 된다.
+      criteria: [1.M1]
+    - id: 1b-2
+      content: |
+        여기에서 (*)에 의해 $0<\dfrac{\alpha}{\beta}<1$이다. 따라서
+        $a_n-\alpha=\dfrac{(\beta-\alpha)\left(\frac{\alpha}{\beta}\right)^{n/3}}{1+\left(\frac{\alpha}{\beta}\right)^{n/3}}>0$이므로 $a_n>\alpha$이고,
+        $a_n-\beta=\dfrac{\alpha-\beta}{1+\left(\frac{\alpha}{\beta}\right)^{n/3}}<0$이므로 $a_n<\beta$이다. 따라서 $a_n$은 구간 $(\alpha,\beta)$에 존재한다.
+      criteria: [1.R1]
+    - id: 1b-3
+      content: |
+        그리고 (*)에 의해 $0<\dfrac{\alpha}{\beta}<1$이므로 $\displaystyle\lim_{n\to\infty}\left(\dfrac{\alpha}{\beta}\right)^n=0$이 되어, $\displaystyle\lim_{n\to\infty}a_n=\alpha$가 된다. (보충: $\alpha=\dfrac{p-\sqrt{p^2-4q}}{2}$)
+      criteria: [1.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 4
+      evidence: $f''(x)$를 계산하고 $f''(x)=0$이 되는 $x$, 즉 $a_n=\dfrac{\alpha+\beta(\alpha/\beta)^{n/3}}{1+(\alpha/\beta)^{n/3}}$을 구했다.
+      depends_on: []
+      steps: [1b-1]
+    - id: 1.R1
+      mark_type: R
+      points: 4
+      evidence: $0<\alpha<\beta<1$(근의 위치)을 근거로 $a_n-\alpha>0$, $a_n-\beta<0$을 보여 $\alpha<a_n<\beta$를 설명했다.
+      depends_on: []
+      steps: [1b-2]
+    - id: 1.A1
+      mark_type: A
+      points: 4
+      evidence: $0<\dfrac{\alpha}{\beta}<1$을 근거로 극한값 $\lim_{n\to\infty}a_n=\alpha$를 계산했다.
+      depends_on: [1.M1]
+      steps: [1b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-CAL-6112}
+  - {code: '71', misconception: MC-ALG-6113}
+  misconceptions:
+  - id: MC-CAL-6112
+    outcome_code: '70'
+    wrong_work: '$\dfrac{x-\alpha}{x-\beta}=\left(\dfrac{\alpha}{\beta}\right)^{n/3}$로 두어 $a_n=\dfrac{\alpha-\beta r}{1-r}$(구간 밖)을 얻음'
+    detect_cue: $a_n$ 식의 분모가 $1-(\alpha/\beta)^{n/3}$
+    feedback: '$\dfrac{\alpha^n}{(x-\alpha)^3}=-\dfrac{\beta^n}{(x-\beta)^3}=\dfrac{\beta^n}{(\beta-x)^3}$처럼 부호를 분모로 옮긴 뒤 세제곱근을 취하세요.'
+    remedy: [RL-1]
+  - id: MC-ALG-6113
+    outcome_code: '71'
+    wrong_work: '$0<\alpha<\beta<1$(특히 $\alpha>0$)을 밝히지 않고 $\left(\frac{\alpha}{\beta}\right)^n\to0$이라 단정하거나 극한을 $\beta$로 씀'
+    detect_cue: $g(0)$, $g(1)$, 축 조건에 대한 언급이 없다
+    feedback: 주어진 조건 $p-q<1$, $p<2$는 근이 0과 1 사이에 있음을 보이는 데 쓰입니다. $g(0)$, $g(1)$의 부호와 축의 위치를 확인하세요.
+    remedy: [RL-2]
+- id: '2'
+  stem: |
+    양수 $k$에 대해서, $f(x)>k$를 만족하는 실수 $x$의 구간들의 길이의 총합을 $L_n$이라 하자. 이때 급수 $\displaystyle\sum_{n=1}^{\infty}L_n$이 수렴함을 증명하고, 그 합을 $p$, $q$, $k$에 관한 식으로 나타내고, 그 근거를 논술하시오. (15점)
+  points: 15
+  depends_on: ['1']
+  answer: {kind: expression, value: '\dfrac{p-2q}{k(1-p+q)}', equivalents: ['(p-2q)/(k(1-p+q))'], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: $f$는 각 구간에서 감소하고 $x<\alpha$에서 음수이므로 해는 $(\alpha,a)\cup(\beta,b)$, 길이 합은 $a+b-(\alpha+\beta)=\dfrac{\alpha^n+\beta^n}{k}$.
+    steps:
+    - {id: 2a, content: '$\sum L_n=\dfrac1k\left(\dfrac{\alpha}{1-\alpha}+\dfrac{\beta}{1-\beta}\right)=\dfrac{p-2q}{k(1-p+q)}$', criteria: [2.R1, 2.M1, 2.A1]}
+    hint_ladder:
+    - $f'(x)$의 부호와 점근선으로 그래프의 개형을 그려 보자.
+    - 교점의 $x$좌표 $a$, $b$는 어떤 이차방정식의 두 근인가?
+  - id: S2-B
+    audience: B
+    method_no: 1
+    source_flow: 예시답안 p.2~4 (4-2. [의약학계_수학] 예시답안및채점기준 PDF)
+    steps:
+    - id: 2b-1
+      content: |
+        함수 $y=f(x)$는 $x\neq\alpha$, $x\neq\beta$인 모든 $x$에 대하여 연속이다. 또한, $0<\alpha<\beta<1$이므로 $f'(x)=-\left(\dfrac{\alpha^n}{(x-\alpha)^2}+\dfrac{\beta^n}{(x-\beta)^2}\right)<0$이 되어, 제시문 [나]에 의해 모든 구간에서 감소이다. 그리고 $\displaystyle\lim_{x\to+\infty}f(x)=0$, $\displaystyle\lim_{x\to-\infty}f(x)=0$이므로 $x$축이 점근선이 되고, 분모가 0이 되는 $x=\alpha$, $x=\beta$도 점근선이 된다.
+        [그림 설명: $y=f(x)$의 그래프는 $x<\alpha$에서 $x$축 아래(0에서 감소해 $-\infty$로), $\alpha<x<\beta$에서 $+\infty$에서 $-\infty$로 감소, $x>\beta$에서 $+\infty$에서 0으로 감소한다.]
+        위 그림을 보면 구간 $(-\infty,\alpha)$에서는 $f(x)<0$이므로 $y=k$와 만나지 않는다. 따라서 $y=f(x)$와 $y=k$는 구간 $(\alpha,\beta)$와 구간 $(\beta,\infty)$에서 각각 한 번만 만난다. 이때 두 교점의 $x$좌표를 각각 $a$, $b$라 하자.
+      criteria: [2.R1]
+    - id: 2b-2
+      content: |
+        그러면 $f(x)>k$를 만족하는 구간은 $\alpha<x<a$, $\beta<x<b$가 된다. 따라서 $L_n=(a-\alpha)+(b-\beta)=(a+b)-(\alpha+\beta)$이다. 여기에서 $a$와 $b$는 $\alpha^n(x-\beta)+\beta^n(x-\alpha)=k(x-\alpha)(x-\beta)$의 두 근이 된다. 이 식을 정리하면
+        $$kx^2-\{k(\alpha+\beta)+\alpha^n+\beta^n\}x+k\alpha\beta+\alpha^n\beta+\alpha\beta^n=0$$
+        이므로, 이차방정식의 근과 계수의 관계를 이용하면 $a+b=\dfrac{k(\alpha+\beta)+\alpha^n+\beta^n}{k}=\alpha+\beta+\dfrac{\alpha^n+\beta^n}{k}$이다. 따라서 $L_n=(a+b)-(\alpha+\beta)=\dfrac{\alpha^n+\beta^n}{k}$이다.
+      criteria: [2.M1]
+    - id: 2b-3
+      content: |
+        여기에서 $0<\alpha<\beta<1$이므로 제시문 [다]에 의해 급수 $\displaystyle\sum_{n=1}^{\infty}L_n$은 수렴하고, 합은
+        $$\sum_{n=1}^{\infty}L_n=\dfrac1k\left(\dfrac{\alpha}{1-\alpha}+\dfrac{\beta}{1-\beta}\right)=\dfrac{\alpha+\beta-2\alpha\beta}{k(1-\alpha)(1-\beta)}$$
+        이다. $\alpha+\beta=p$, $\alpha\beta=q$이므로 $\displaystyle\sum_{n=1}^{\infty}L_n=\dfrac{p-2q}{k(1-p+q)}$가 된다.
+      criteria: [2.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.R1
+      mark_type: R
+      points: 5
+      evidence: $f'(x)<0$과 점근선을 근거로 $y=f(x)$가 연속인 각 구간에서 감소함을 설명하고, $(-\infty,\alpha)$에서는 $f(x)<0$이라 교점이 없음을 밝혔다.
+      depends_on: []
+      steps: [2b-1]
+    - id: 2.M1
+      mark_type: M
+      points: 5
+      evidence: 해가 $\alpha<x<a$, $\beta<x<b$임을 쓰고 근과 계수의 관계로 $L_n=\dfrac{\alpha^n+\beta^n}{k}$을 계산했다.
+      depends_on: []
+      steps: [2b-2]
+    - id: 2.A1
+      mark_type: A
+      points: 5
+      evidence: $0<\alpha<\beta<1$로 수렴을 밝히고 무한등비급수의 합 $\dfrac{p-2q}{k(1-p+q)}$를 계산했다.
+      depends_on: [2.M1]
+      steps: [2b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '72', misconception: MC-CAL-6114}
+  - {code: '73', misconception: MC-CAL-6115}
+  misconceptions:
+  - id: MC-CAL-6114
+    outcome_code: '72'
+    wrong_work: '$f$가 감소함수이므로 $f(x)>k$의 해를 $x<b$ 한 구간으로 보거나 $(\beta,b)$만 세어 $L_n=b-\beta$로 씀'
+    detect_cue: 해 구간이 하나뿐이거나 점근선 $x=\alpha$, $x=\beta$를 고려하지 않음
+    feedback: 감소는 연속인 각 구간 안에서만 성립합니다. 점근선으로 나뉜 세 구간에서 $f$의 값 범위를 따로 확인하세요.
+    remedy: [RL-3]
+  - id: MC-CAL-6115
+    outcome_code: '73'
+    wrong_work: '$\sum_{n=1}^{\infty}\alpha^n=\dfrac{1}{1-\alpha}$로 첫째항을 1로 잡음'
+    detect_cue: 답의 분자가 $2-p$
+    feedback: '$n=1$부터의 합이므로 첫째항은 $\alpha$입니다. 제시문 [다]의 $a$에 첫째항을 넣으세요.'
+    remedy: [RL-4]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CAL-6112}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-RATIONAL-GRAPH}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-ALG-6113}
+  relation: remediation
+  target: {kind: concept, ref: CON-ALG-QUAD-ROOT-LOCATION}
+  priority: 1
+- id: RL-3
+  trigger: {type: misconception, ref: MC-CAL-6114}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-RATIONAL-GRAPH}
+  priority: 1
+- id: RL-4
+  trigger: {type: misconception, ref: MC-CAL-6115}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-GEOMETRIC-SERIES}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-input-v1, item_version: 1, verdict: pass, date: 2026-11-21, note: 원문 PDF 이미지 판독으로 옮김 · 해설은 경희대 예시답안 흐름}
+
+created: 2026-11-21
+updated: 2026-11-21

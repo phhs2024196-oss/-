@@ -1,0 +1,258 @@
+schema_version: '2.0'
+id: KHU-G21A-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: KHU
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 최적2단
+points: 30
+time_estimate_min: 25
+intent: 직사각형 안에서 두 변에 접하는 두 원이 외접하는 상황을 중심 사이의 직각삼각형으로 바꾸어 넓이를 구하고, 반지름의 합이 일정할 때 넓이 합의 최대·최소를 반지름의 범위와 도함수로 판정하는 능력을 본다.
+key_idea: '두 중심을 잇는 선분을 빗변으로 하는 직각삼각형(가로 $\dfrac{\overline{GH}}{2}$, 세로 $\dfrac{\overline{EF}}{2}=60$)에서 $(100-k)^2=k^2+60^2$로 $r_1+r_2=68$을 얻고, $18\le r_1\le50$에서 $\pi(r_1^2+r_2^2)$를 최적화한다.'
+stuck: 현 $ET$, $FT$의 수직이등분선이 중심을 지난다는 사실로 중심 사이의 세로 거리를 $\dfrac{\overline{EF}}{2}$로 바꾸는 단계, (2)에서 원이 사각형 안에 있을 조건 $r_i\le50$으로 범위를 정하는 단계
+idea_tags: [IDEA-TANGENT-CIRCLES-RIGHT-TRIANGLE, IDEA-FIXED-SUM-SQUARE-MINMAX]
+tags: [직사각형에 내접하는 두 원, 최대·최소, 경희 실전]
+elements:
+  materials: [직사각형 ABCD, 두 변에 접하는 원 S1·S2, 외접점 T, T를 지나 AD에 평행한 직선과 두 원의 교점 E·F]
+  concepts: [원의 현의 수직이등분선, 두 원이 외접할 조건(중심거리 = 반지름의 합), 피타고라스 정리, 닫힌구간에서의 최대·최소, 도함수의 부호와 증가·감소]
+  tools: [중심을 지나 변에 평행한 직선으로 현 이등분, 중심 사이 가로·세로 거리로 직각삼각형 구성, r2=68-r1 대입 후 이차함수 미분, 극값과 끝값 비교]
+  conditions:
+  - '$\overline{AB}=100=r_1+r_2+\dfrac{\overline{GH}}{2}$, $\overline{BC}=r_1+r_2+\dfrac{\overline{EF}}{2}$'
+  - '두 원이 $T$에서 만남 ⇒ $\overline{O_1O_2}=r_1+r_2$'
+  - '두 원이 사각형 내부 ⇒ $0\le r_i\le50$, $r_1+r_2=68$과 합쳐 $18\le r_1\le50$'
+  stimuli_used: [마]
+  subpart_links: (2)는 (1)에서 얻은 $r_1+r_2=68$을 사용
+
+curriculum:
+  version: '2015'
+  subjects: [수학, 수학Ⅱ]
+  scope_2028: common
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 함수의 증가와 감소, 극대와 극소를 판정하고 최댓값과 최솟값을 구할 수 있다(요지)
+    verified: false
+  content_area: 도형의 방정식·미분 – 원과 최대·최소
+  behavior_domain: 문제해결
+  unit_path: [수학Ⅱ, 미분, 도함수의 활용, 최대·최소]
+  key_concepts: [두 원의 위치 관계, 피타고라스 정리, 최댓값과 최솟값]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 경희대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 경희대학교
+  admission_year: 2021
+  admission_type: 논술(논술우수자전형)
+  track: 자연계열
+  question_no: 1
+  official_url: https://iphak.khu.ac.kr/detail.do?menuurl=89BGs%2bk748ajyySWoWlQPw%3d%3d&board_seq=2100&pageNo=1&categoryid=27&userpwd=
+  retrieved_at: '2026-11-21'
+  original_points: 30
+  rights_notice: '경희대학교 입학처 공개 자료(기출문제·예시답안). 내부 분석용'
+  note: |
+    시험 = 2020.12.5.(토) 오전 실시 자연계. 문제 = 4 2021학년도 논술고사 기출문제(자연계)_1205 오전.pdf p.2~3, 원 번호 [논제 I-1] (1)(2), 해설 = 같은 파일 p.10~11(예시답안), p.16(채점 기준), p.18(출제 의도), p.19(문항 해설).
+    [판독확인] [그림 1]은 원문 그림을 글로 옮김(아래 stem). 예시답안 그림의 보조점 $G$, $H$, $O_1$, $O_2$는 예시답안에서 정의한 것.
+    공식 예시답안과 sympy 검산 결과 일치.
+
+verify: verify/KHU-G21A.py::p01
+
+stimuli:
+- label: 가
+  body: |
+    점 $(x_1,y_1)$을 지나고 기울기가 $m$인 직선의 방정식은
+    $$y-y_1=m(x-x_1)$$
+- label: 나
+  body: |
+    함수 $f(x)$가 임의의 세 실수 $a,b,c$를 포함하는 닫힌구간에서 연속일 때,
+    $$\int_a^c f(x)dx+\int_c^b f(x)dx=\int_a^b f(x)dx$$
+- label: 다
+  body: |
+    삼각함수의 도함수
+    $(\sin x)'=\cos x$, $(\cos x)'=-\sin x$, $(\tan x)'=\sec^2x$,
+    $(\csc x)'=-\csc x\cot x$, $(\sec x)'=\sec x\tan x$, $(\cot x)'=-\csc^2x$
+- label: 라
+  body: |
+    삼각함수의 덧셈정리
+    (1) $\sin(\alpha+\beta)=\sin\alpha\cos\beta+\cos\alpha\sin\beta$, $\sin(\alpha-\beta)=\sin\alpha\cos\beta-\cos\alpha\sin\beta$
+    (2) $\cos(\alpha+\beta)=\cos\alpha\cos\beta-\sin\alpha\sin\beta$, $\cos(\alpha-\beta)=\cos\alpha\cos\beta+\sin\alpha\sin\beta$
+    (3) $\tan(\alpha+\beta)=\dfrac{\tan\alpha+\tan\beta}{1-\tan\alpha\tan\beta}$, $\tan(\alpha-\beta)=\dfrac{\tan\alpha-\tan\beta}{1+\tan\alpha\tan\beta}$
+- label: 마
+  body: |
+    함수 $f(x)$가 어떤 구간에 속하는 임의의 두 수 $x_1$, $x_2$에 대하여 $x_1<x_2$일 때 $f(x_1)<f(x_2)$이면 함수 $f(x)$는 그 구간에서 증가한다고 한다. 또, $x_1<x_2$일 때 $f(x_1)>f(x_2)$이면 $f(x)$는 그 구간에서 감소한다고 한다. 함수 $f(x)$가 어떤 열린구간에서 미분가능할 때, 그 열린구간에 속하는 모든 $x$에 대하여
+    (1) $f'(x)>0$이면 $f(x)$는 그 열린구간에서 증가한다.
+    (2) $f'(x)<0$이면 $f(x)$는 그 열린구간에서 감소한다.
+
+stem: |
+  [논제 I] 제시문 [가]~[마]를 읽고 다음 질문에 답하시오.
+  [그림 1 설명: 직사각형 ABCD(A 왼쪽 위, B 오른쪽 위, C 오른쪽 아래, D 왼쪽 아래, 세로가 가로보다 긺). 작은 원은 위쪽 변 AB와 오른쪽 변 BC에 접하고, 큰 원은 아래쪽 변 CD와 왼쪽 변 AD에 접하며 두 원은 점 T에서 만난다. T를 지나는 세로 선분(AD에 평행)이 작은 원과 위쪽에서 E, 큰 원과 아래쪽에서 F에서 만난다.]
+  [논제 I-1]
+  [그림 1]과 같이 직사각형 ABCD의 내부에 원 $S_1$과 원 $S_2$가 있다. 원 $S_1$은 선분 AB와 BC에 동시에 접하고 원 $S_2$는 선분 CD와 AD에 동시에 접하며, 원 $S_1$과 원 $S_2$는 한 점 T에서 만난다. 점 T를 지나고 선분 AD에 평행한 직선이 원 $S_1$, 원 $S_2$와 만나는 T가 아닌 점들을 각각 E, F라 하자. 선분 AB의 길이가 100이고 선분 EF의 길이가 120일 때, 다음 물음에 답하시오.
+
+subparts:
+- id: '1'
+  stem: |
+    (1) 직사각형 ABCD의 넓이를 구하고, 그 근거를 논술하시오. (15점)
+  points: 15
+  depends_on: []
+  answer: {kind: value, value: '12800', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: 중심 $O_1$, $O_2$를 지나 변에 평행한 직선이 현 $ET$, $FT$, $GT$, $HT$를 이등분하므로 중심 사이의 세로 거리는 60, 가로 거리는 $k=\dfrac{\overline{GH}}{2}$이고 $(100-k)^2=k^2+60^2$이다.
+    steps:
+    - {id: 1a, content: '$k=32$, $r_1+r_2=68$, $\overline{BC}=r_1+r_2+60=128$, 넓이 $12800$', criteria: [1.M1, 1.A1]}
+    hint_ladder:
+    - 두 원의 중심을 잇고, 중심에서 변에 평행한 선을 그어 보자.
+    - 이등변삼각형 $O_1ET$에서 $O_1$을 지나는 수평선은 $ET$를 이등분한다.
+    - 중심거리 $=r_1+r_2$를 빗변으로 하는 직각삼각형을 만든다.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 4 2021학년도 논술고사 기출문제(자연계)_1205 오전.pdf 예시답안 p.10
+    steps:
+    - id: 1b-1
+      content: |
+        원 $S_1$, $S_2$의 중심을 $O_1$, $O_2$라 하고, 점 T를 지나고 선분 AB에 평행한 직선이 원 $S_1$, $S_2$와 만나는 점을 각각 G, H라 하자.
+        삼각형 $O_1ET$는 $\overline{O_1E}=\overline{O_1T}$인 이등변삼각형이므로 $O_1$을 지나고 AB에 평행한 직선은 선분 ET를 이등분한다. 마찬가지로 $O_1$을 지나고 BC에 평행한 직선은 GT를, $O_2$를 지나고 AB에 평행한 직선은 FT를, $O_2$를 지나고 BC에 평행한 직선은 HT를 이등분한다.
+      criteria: [1.M1]
+    - id: 1b-2
+      content: |
+        반지름을 $r_1$, $r_2$라 하고 $\dfrac{\overline{GH}}{2}=k$라 하면 $\overline{AB}=r_1+r_2+\dfrac{\overline{GH}}{2}$이므로 $100=r_1+r_2+k$ …… ①,
+        $\overline{BC}=r_1+r_2+\dfrac{\overline{EF}}{2}=r_1+r_2+60$ …… ②.
+      criteria: [1.M1]
+    - id: 1b-3
+      content: |
+        ①에 의해 $\overline{O_1O_2}=r_1+r_2=100-k$이고 $\overline{O_1O_2}^2=\left(\dfrac{\overline{GH}}{2}\right)^2+\left(\dfrac{\overline{EF}}{2}\right)^2$이므로 $(100-k)^2=k^2+60^2$, 따라서 $k=32$ …… ③.
+        ①과 ③에서 $r_1+r_2=68$, ②에 의해 $\overline{BC}=128$. 따라서 사각형 ABCD의 넓이는 $12800$이다.
+      criteria: [1.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 8
+      evidence: 사각형의 변의 길이($\overline{AB}=r_1+r_2+k$, $\overline{BC}=r_1+r_2+\dfrac{\overline{EF}}{2}$)와 선분 EF의 길이, 두 원의 반지름의 합 사이의 관계식을 근거(현의 이등분)와 함께 제시했다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1, 1b-2]
+    - id: 1.A1
+      mark_type: A
+      points: 7
+      evidence: 직각삼각형의 변 사이의 관계 $(100-k)^2=k^2+60^2$로 $k=32$, $r_1+r_2=68$, $\overline{BC}=128$을 얻고 넓이 $12800$을 적었다.
+      depends_on: [1.M1]
+      steps: [1b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-GEO-6801}
+  misconceptions:
+  - id: MC-GEO-6801
+    outcome_code: '70'
+    wrong_work: '중심 사이의 세로 거리를 $\overline{EF}=120$ 그대로 쓰거나 중심거리를 $\lvert r_1-r_2\rvert$로 둠'
+    detect_cue: $(100-k)^2=k^2+120^2$ 또는 $k$가 음수·100 초과로 나옴
+    feedback: 중심에서 변에 평행한 선은 현을 이등분하므로 세로 거리는 $\dfrac{\overline{EF}}{2}$이고, 외접하는 두 원의 중심거리는 반지름의 합입니다.
+    remedy: [RL-1]
+- id: '2'
+  stem: |
+    (2) 두 원의 넓이의 합의 최댓값과 최솟값을 구하시오. 이때 두 원의 반지름의 길이를 각각 구하고, 그 근거를 논술하시오. (15점)
+  points: 15
+  depends_on: ['1']
+  answer: {kind: value, value: '최댓값 2824\pi (반지름 18, 50), 최솟값 2312\pi (반지름 34, 34)', equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: $r_1+r_2=68$, $0\le r_i\le50$에서 $18\le r_1\le50$이고 $\pi(2r_1^2-136r_1+4624)$의 극값과 끝값을 비교한다.
+    steps:
+    - {id: 2a, content: '$r_1=34$에서 최소 $2312\pi$, $r_1=18$ 또는 $50$에서 최대 $2824\pi$', criteria: [2.M1, 2.A1]}
+    hint_ladder:
+    - 원이 사각형 안에 있으려면 지름이 가로 100을 넘을 수 없다.
+    - 넓이의 합을 $r_1$만의 함수로 쓰고 범위의 끝값도 비교하자.
+  - id: S2-B
+    audience: B
+    method_no: 1
+    source_flow: 4 2021학년도 논술고사 기출문제(자연계)_1205 오전.pdf 예시답안 p.10~11
+    steps:
+    - id: 2b-1
+      content: |
+        두 원이 사각형 ABCD의 내부에 있으므로 $0\le r_1\le50$, $0\le r_2\le50$이다. [논제 I-1] (1)에서 $r_1+r_2=68$이므로 $18\le r_1\le50$, $18\le r_2\le50$.
+        두 원의 넓이의 합은 $\pi(r_1^2+r_2^2)=\pi\left[r_1^2+(68-r_1)^2\right]=\pi(2r_1^2-136r_1+4624)$이므로 구하는 값은 $18\le r_1\le50$에서 $f(r_1)=\pi(2r_1^2-136r_1+4624)$의 최댓값과 최솟값이다.
+      criteria: [2.M1]
+    - id: 2b-2
+      content: |
+        $f'(r_1)=\pi(4r_1-136)$이므로 $f'(34)=0$. $18<r_1<34$일 때 $f'(r_1)<0$, $34<r_1<50$일 때 $f'(r_1)>0$이므로(제시문 [마]) $f$는 $r_1=34$에서 최솟값 $f(34)=2312\pi$를 가진다. 이때 두 원의 반지름은 34로 서로 같다.
+      criteria: [2.M2, 2.A1]
+    - id: 2b-3
+      content: |
+        $f(r_1)$은 $f(18)=f(50)=2824\pi$일 때 최대이므로 두 원의 넓이의 합의 최댓값은 $2824\pi$이고, 이때 두 원의 반지름은 각각 18과 50이다.
+      criteria: [2.A2]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 5
+      evidence: 원의 반지름의 범위 $18\le r_1\le50$과 두 원의 넓이의 합 $\pi(2r_1^2-136r_1+4624)$을 정확히 표현했다.
+      depends_on: []
+      ft: {from: [1.A1], max_points: 5}
+      steps: [2b-1]
+    - id: 2.M2
+      mark_type: M
+      points: 4
+      evidence: 도함수 $f'(r_1)=\pi(4r_1-136)$을 구하고 그 부호로 증가·감소를 판정했다.
+      depends_on: []
+      steps: [2b-2]
+    - id: 2.A1
+      mark_type: A
+      points: 3
+      evidence: 최솟값 $2312\pi$와 그때의 반지름 34, 34를 적었다.
+      depends_on: [2.M2]
+      steps: [2b-2]
+    - id: 2.A2
+      mark_type: A
+      points: 3
+      evidence: 끝값 비교로 최댓값 $2824\pi$와 그때의 반지름 18, 50을 적었다.
+      depends_on: [2.M1, 2.M2]
+      steps: [2b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-CAL-6802}
+  misconceptions:
+  - id: MC-CAL-6802
+    outcome_code: '70'
+    wrong_work: '범위를 $0\le r_1\le68$로 잡아 최댓값을 $4624\pi$로 씀'
+    detect_cue: 최댓값이 $4624\pi$이거나 반지름 0, 68이 나옴
+    feedback: 원이 직사각형 안에 있으려면 지름이 가로 100 이하여야 하므로 $r_i\le50$입니다. 범위의 끝값을 비교하세요.
+    remedy: [RL-2]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-GEO-6801}
+  relation: remediation
+  target: {kind: concept, ref: CON-GEO-TANGENT-CIRCLES}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-CAL-6802}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-CLOSED-MINMAX}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-input-v1, item_version: 1, verdict: pass, date: 2026-11-21, note: 원문 PDF 이미지 판독으로 옮김 · 해설은 경희대 예시답안 흐름}
+
+created: 2026-11-21
+updated: 2026-11-21

@@ -1,0 +1,207 @@
+schema_version: '2.0'
+id: KHU-M21D-03
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: KHU
+type: null
+variant_of: null
+replaces: null
+level: L3
+form: 추론
+points: 10
+time_estimate_min: 10
+intent: 직선의 기울기를 탄젠트로 해석하고 삼각함수의 덧셈정리로 두 각의 차의 사인을 매개변수로 나타내는 능력을 본다.
+key_idea: '$\tan\theta_1=t_1$, $\tan\theta_2=t_2$이므로 $\tan(\theta_2-\theta_1)=\dfrac{t_2-t_1}{1+t_1t_2}$이고, 예각이므로 사인으로 바꾼다.'
+stuck: '$\angle OPQ$의 탄젠트가 직선의 기울기 $t$임을 알아채는 단계'
+idea_tags: [IDEA-SLOPE-AS-TANGENT, IDEA-TAN-SUBTRACTION]
+tags: [덧셈정리, 경희 모의, 의학계]
+elements:
+  materials: [단위원, 점 P(-1,0), y축 위의 점 (0,t_1)·(0,t_2), 원 위의 점 Q_1·Q_2, 각 θ_1=∠OPQ_1·θ_2=∠OPQ_2]
+  concepts: [직선의 기울기와 탄젠트, 삼각함수의 덧셈정리, 삼각함수 사이의 관계]
+  tools: [tanθ=t (직각삼각형 O·P·(0,t)), tan의 뺄셈 공식, 1+tan^2=sec^2 으로 sin 변환]
+  conditions:
+  - '$0\le t_1<t_2\le1$ ⇒ $0<\theta_2-\theta_1<\dfrac{\pi}{2}$, 사인·탄젠트 양수'
+  stimuli_used: [라]
+  subpart_links: '[논제 I-1]의 작도(점 $P$와 $(0,t)$를 지나는 직선)를 이용'
+
+curriculum:
+  version: '2015'
+  subjects: [미적분]
+  scope_2028: calc2
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 삼각함수의 덧셈정리를 이해한다(요지)
+    verified: false
+  content_area: 미분법 – 삼각함수의 덧셈정리
+  behavior_domain: 계산
+  unit_path: [미적분, 미분법, 삼각함수, 삼각함수의 덧셈정리]
+  key_concepts: [삼각함수의 덧셈정리, 직선의 기울기]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 경희대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 경희대학교
+  admission_year: 2021
+  admission_type: 논술(모의)
+  track: 의·약학계열(수학)
+  question_no: 3
+  official_url: https://iphak.khu.ac.kr/detail.do?menuurl=89BGs%2bk748ajyySWoWlQPw%3d%3d&board_seq=2102&pageNo=1&categoryid=27&userpwd=
+  retrieved_at: '2026-11-21'
+  original_points: 10
+  rights_notice: '경희대학교 입학처 공개 자료(기출문제·예시답안). 내부 분석용'
+  note: |
+    문제 = 3. 2021 모의논술 문제지(의학계 ).pdf p.2(제시문 p.1), 원 번호 [논제 I-3], 해설 = 3. 예시답안, 출제개요(의학계).pdf p.1, p.2(문항 해설).
+    채점 기준 미공개(모의 자료는 예시답안·문항 해설만 있음) — 논제 배점은 원문, 마크 단위 배점은 자체 배분.
+    [판독확인] [그림 3]: $(0,1)$ 위치의 점에 '$Q_1$'로 표기됨 — $t_n=1$에 대응하는 $Q_n$의 오기로 보임(원문 그대로 그림 설명에 기록).
+    [판독확인] 예시답안 p.1: $\sin(\theta_2-\theta_1)=\dfrac{\tan(\theta_2-\theta_1)}{\sqrt{1+\tan(\theta_2-\theta_1)}}$로 적힘 — 근호 안 $\tan^2$의 오기(최종 결과는 올바름), B 해설에서 바로잡음.
+
+verify: verify/KHU-M21D.py::p03
+
+stimuli:
+- label: 가
+  body: |
+    두 변수 $x,y$사이의 관계를 변수 $t$를 매개로 하여 $\begin{cases}x=f(t)\\y=g(t)\end{cases}$의 꼴로 나타낼 때, 변수 $t$를 매개변수라고 하며, 이 함수를 매개변수로 나타낸 함수라고 한다.
+- label: 나
+  body: |
+    매개변수로 나타낸 두 함수 $x=f(t)$와 $y=g(t)$가 $t$에 대하여 미분가능하고 $f'(t)\ne0$이면, $\dfrac{dy}{dx}=\dfrac{\frac{dy}{dt}}{\frac{dx}{dt}}=\dfrac{g'(t)}{f'(t)}$이다.
+- label: 다
+  body: |
+    두 함수 $f(x),g(x)\ (g(x)\ne0)$가 미분가능할 때,
+    $y=\dfrac{1}{g(x)}$이면 $y'=-\dfrac{g'(x)}{g(x)^2}$이고, $y=\dfrac{f(x)}{g(x)}$이면 $y'=\dfrac{f'(x)g(x)-f(x)g'(x)}{g(x)^2}$이다.
+- label: 라
+  body: |
+    삼각함수의 덧셈정리
+    $\sin(\alpha+\beta)=\sin\alpha\cos\beta+\cos\alpha\sin\beta$, $\sin(\alpha-\beta)=\sin\alpha\cos\beta-\cos\alpha\sin\beta$
+    $\cos(\alpha+\beta)=\cos\alpha\cos\beta-\sin\alpha\sin\beta$, $\cos(\alpha-\beta)=\cos\alpha\cos\beta+\sin\alpha\sin\beta$
+    $\tan(\alpha+\beta)=\dfrac{\tan\alpha+\tan\beta}{1-\tan\alpha\tan\beta}$, $\tan(\alpha-\beta)=\dfrac{\tan\alpha-\tan\beta}{1+\tan\alpha\tan\beta}$
+- label: 마
+  body: |
+    삼각형 $ABC$의 넓이를 $S$라고 하면, $S=\dfrac12\overline{AB}\,\overline{AC}\sin A=\dfrac12\overline{BA}\,\overline{BC}\sin B=\dfrac12\overline{CA}\,\overline{CB}\sin C$ 이다.
+- label: 바
+  body: |
+    두 수열 $\{a_n\}$과 $\{b_n\}$이 수렴하고, $\lim\limits_{n\to\infty}a_n=\alpha$, $\lim\limits_{n\to\infty}b_n=\beta$ ($\alpha,\beta$는 실수) 일 때, 1) 모든 자연수 $n$에 대하여 $a_n\le b_n$ 이면 $\alpha\le\beta$이다. 2) 수열 $\{c_n\}$이 모든 자연수 $n$에 대하여 $a_n\le c_n\le b_n$이고 $\alpha=\beta$이면, 수열 $\{c_n\}$은 수렴하고, $\lim\limits_{n\to\infty}c_n=\alpha$ 이다.
+- label: 사
+  body: |
+    함수 $f(x)$가 닫힌구간 $[a,b]$에서 연속일 때. $\displaystyle\int_a^b f(x)\,dx=\lim_{n\to\infty}\sum_{k=1}^{n}f(x_k)\Delta x$ (단, $\Delta x=\dfrac{b-a}{n}$, $x_k=a+k\Delta x$) 이다.
+
+stem: |
+  Ⅰ. 다음 제시문을 읽고 논제에 답하시오.(60점)
+  [그림 1 설명: 원점 $O$를 중심으로 하는 단위원과 점 $P(-1,0)$. $P$와 $y$축 위의 점 $(0,t)$를 지나는 직선이 원과 제1사분면에서 다시 만나는 점이 $Q$이다.]
+  [그림 2 설명: 같은 단위원에서 $P$를 지나는 두 직선이 $y$축과 각각 $t_1$(아래), $t_2$(위)에서 만나고, 원과 다시 만나는 점이 각각 $Q_1$, $Q_2$이다($Q_2$가 $Q_1$보다 위쪽).]
+  [그림 3 설명: 같은 단위원에서 $P$를 지나는 여러 직선이 원과 $Q_0(1,0)$, …, $Q_{k-1}$, $Q_k$, $Q_{k+1}$, …에서 만나고, 맨 위 직선은 원과 $y$축 위의 점 $(0,1)$에서 만난다(그림에는 이 점에 '$Q_1$'로 표기됨). 원점 부근에 $t_0$가 표기되어 있고, $P$, $Q_k$, $Q_{k+1}$을 잇는 삼각형과 이웃한 점을 잇는 현이 그려져 있다.]
+  [논제 I-3] [그림 2]와 같이 $t_1<t_2$일 때, 각 $\angle OPQ_1$을 $\theta_1$, $\angle OPQ_2$를 $\theta_2$ 라고 하자. 이때 $\sin(\theta_2-\theta_1)$을 $t_1$과 $t_2$에 관한 식으로 나타내시오. (10점)
+  ([논제 I-1]: 실수 $t$가 $0\le t\le1$을 만족한다고 하자. [그림 1]과 같이 좌표평면 위의 점 $P(-1,0)$과 점 $(0,t)$를 지나는 직선이 원점을 중심으로 갖는 단위원과 만나는 다른 한 점을 $Q$라고 하자.)
+
+subparts:
+- id: '1'
+  stem: |
+    $\sin(\theta_2-\theta_1)$을 $t_1$과 $t_2$에 관한 식으로 나타내시오.
+  points: 10
+  depends_on: []
+  answer: {kind: expression, value: '\dfrac{t_2-t_1}{\sqrt{(t_2^2+1)(t_1^2+1)}}', equivalents: ['(t2-t1)/sqrt((t1^2+1)(t2^2+1))'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: 기울기가 곧 $\tan\theta$이므로 탄젠트의 뺄셈 공식 뒤 사인으로 바꾼다.
+    steps:
+    - {id: 1a, content: '$\tan(\theta_2-\theta_1)=\dfrac{t_2-t_1}{1+t_1t_2}$ ⇒ $\sin=\dfrac{t_2-t_1}{\sqrt{(1+t_1t_2)^2+(t_2-t_1)^2}}$', criteria: [1.M1, 1.M2, 1.A1, 1.A2]}
+    hint_ladder:
+    - 직각삼각형 $OP(0,t)$에서 $\angle OPQ$의 탄젠트는 무엇인가?
+    - 제시문 [라]의 탄젠트 뺄셈 공식을 써 보자.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 예시답안(의학계) p.1
+    steps:
+    - id: 1b-1
+      content: |
+        각 $\angle OPQ_1$과 $\angle OPQ_2$를 각각 $\theta_1$과 $\theta_2$라고 하자. 직선 $PQ_k$는 $P(-1,0)$과 $(0,t_k)$를 지나므로 $\overline{OP}=1$, 높이 $t_k$인 직각삼각형에서 $\tan\theta_1=t_1$이고 $\tan\theta_2=t_2$이다.
+      criteria: [1.M1]
+    - id: 1b-2
+      content: |
+        삼각함수의 덧셈정리(제시문 [라])에 의해 $\tan(\theta_2-\theta_1)=\dfrac{t_2-t_1}{1+t_2t_1}$이 된다.
+      criteria: [1.M2]
+    - id: 1b-3
+      content: |
+        $\theta_2-\theta_1$이 $0$과 $\dfrac{\pi}{2}$ 사이에 있으므로, $\sin(\theta_2-\theta_1)=\dfrac{\tan(\theta_2-\theta_1)}{\sqrt{1+\tan^2(\theta_2-\theta_1)}}$이고(공식 예시답안의 $\sqrt{1+\tan(\theta_2-\theta_1)}$는 오기), 이를 정리하면 $(1+t_1t_2)^2+(t_2-t_1)^2=(1+t_1^2)(1+t_2^2)$이므로
+        $\sin(\theta_2-\theta_1)=\dfrac{t_2-t_1}{\sqrt{(t_2^2+1)(t_1^2+1)}}$을 얻는다.
+      criteria: [1.A1, 1.A2]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 3
+      evidence: $\tan\theta_1=t_1$, $\tan\theta_2=t_2$임을 근거와 함께 적었다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1]
+    - id: 1.M2
+      mark_type: M
+      points: 3
+      evidence: 덧셈정리로 $\tan(\theta_2-\theta_1)=\dfrac{t_2-t_1}{1+t_1t_2}$을 얻었다.
+      depends_on: []
+      steps: [1b-2]
+    - id: 1.A1
+      mark_type: A
+      points: 2
+      evidence: $0<\theta_2-\theta_1<\dfrac{\pi}{2}$를 근거로 탄젠트를 사인으로 바꾸는 식(양의 제곱근 선택)을 적었다.
+      depends_on: [1.M2]
+      steps: [1b-3]
+    - id: 1.A2
+      mark_type: A
+      points: 2
+      evidence: $\sin(\theta_2-\theta_1)=\dfrac{t_2-t_1}{\sqrt{(t_2^2+1)(t_1^2+1)}}$(또는 동치식)을 적었다.
+      depends_on: [1.M2]
+      steps: [1b-3]
+    deductions:
+    - code: D1-1
+      condition: 각의 범위 언급 없이 부호를 정함
+      effect: minus
+      value: 1
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-CAL-6910}
+  - {code: '71', misconception: MC-GEO-6911}
+  misconceptions:
+  - id: MC-CAL-6910
+    outcome_code: '70'
+    wrong_work: '$\sin=\dfrac{\tan}{\sqrt{1+\tan}}$로 바꾸어 $\dfrac{t_2-t_1}{\sqrt{(1+t_1t_2)(1+t_1t_2+t_2-t_1)}}$ 같은 식을 얻음'
+    detect_cue: 분모가 $(t_1^2+1)(t_2^2+1)$로 정리되지 않는다
+    feedback: $1+\tan^2x=\dfrac{1}{\cos^2x}$이므로 $\sin x=\dfrac{\tan x}{\sqrt{1+\tan^2x}}$ (예각)입니다.
+    remedy: [RL-1]
+  - id: MC-GEO-6911
+    outcome_code: '71'
+    wrong_work: '$\theta_k$를 중심각 $\angle POQ_k$나 $\angle Q_kOx$로 보고 $\tan\theta_k=\dfrac{2t_k}{1-t_k^2}$로 둠'
+    detect_cue: $\tan\theta_k$ 자리에 $Q_k$의 좌표 비가 들어 있다
+    feedback: $\theta_k$는 꼭짓점이 $P$인 각입니다. 직선 $PQ_k$의 기울기가 곧 $\tan\theta_k$입니다.
+    remedy: [RL-2]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CAL-6910}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-TRIG-ADD}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-GEO-6911}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-TRIG-ADD}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-input-v1, item_version: 1, verdict: pass, date: 2026-11-21, note: 원문 PDF 이미지 판독으로 옮김 · 해설은 경희대 예시답안 흐름}
+
+created: 2026-11-21
+updated: 2026-11-21

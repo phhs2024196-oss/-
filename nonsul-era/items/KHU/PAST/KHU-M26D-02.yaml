@@ -1,0 +1,241 @@
+schema_version: '2.0'
+id: KHU-M26D-02
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: KHU
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 최적2단
+points: 32
+time_estimate_min: 25
+intent: 주어진 조건을 이해하여 함수를 정의하고 함수의 미분과 적분을 확인한다. 영역의 넓이를 변수 θ로 표현하고 극점과 증감표로 최댓값·최솟값을 구하며, 삼각함수의 부정적분으로 정적분 값을 계산할 수 있는지 평가한다.
+key_idea: '$f(\theta)=2\tan\theta-\sin2\theta-2\theta+\dfrac{\pi}{2}$, $f''(\theta)=\dfrac{2(1-2\cos^4\theta)}{\cos^2\theta}$이므로 $\cos^4\beta=\dfrac12$에서 최소, 끝값 비교로 $\alpha=\dfrac{\pi}{4}$.'
+stuck: '$S_2$를 (삼각형 ABC)-(삼각형 AOD)-(부채꼴 BOD)로 보는 단계, 최댓값을 끝값 비교로 정하는 단계'
+idea_tags: [IDEA-AREA-AS-FUNCTION-OF-ANGLE, IDEA-ENDPOINT-COMPARE-MAX]
+tags: [반원, 넓이 함수, 최대·최소, 삼각함수 적분, 경희 모의, 의약학계]
+elements:
+  materials: [중심 O·반지름 1 인 반원(지름 AB), AB ⊥ BC, 선분 AC 와 반원의 교점 D, ∠BAC=θ (π/6≤θ≤π/4), 영역 S1(호 AD 와 현 AD 사이)·S2(BC·CD·호 DB 사이)]
+  concepts: [부채꼴의 넓이, 삼각형의 넓이, 배각 공식(덧셈정리), 도함수와 증감표, 닫힌구간의 최대·최소, tan 의 적분(f'/f 꼴)]
+  tools: [이등변삼각형 AOD 로 중심각 π-2θ·2θ, S1=부채꼴-삼각형, S2=삼각형 ABC-삼각형 AOD-부채꼴 BOD, cos2θ=2cos²θ-1, 1-2cos⁴θ 인수분해, F(θ)=-2ln|cosθ|+½cos2θ]
+  conditions:
+  - '$\dfrac{\pi}{6}\le\theta\le\dfrac{\pi}{4}$ ⇒ $\cos\dfrac{\pi}{6}>\cos\theta_0=\dfrac{1}{\sqrt[4]{2}}>\cos\dfrac{\pi}{4}$'
+  - '$a,b,c$는 유리수'
+  stimuli_used: [나, 다, 라]
+  subpart_links: '(2)는 (1)에서 구한 $f(\theta)$와 $\alpha=\dfrac{\pi}{4}$, $\beta=\theta_0$을 적분 구간으로 사용한다'
+
+curriculum:
+  version: '2015'
+  subjects: [미적분]
+  scope_2028: calc2
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 삼각함수의 덧셈정리를 이해한다 / 함수의 최대·최소를 구한다 / 여러 가지 함수의 적분(요지)
+    verified: false
+  content_area: 미분법·적분법 – 도함수의 활용, 여러 가지 적분법
+  behavior_domain: 문제해결
+  unit_path: [미적분, 미분법, 도함수의 활용, 함수의 최대·최소]
+  key_concepts: [부채꼴의 넓이, 덧셈정리, 최대·최소, 삼각함수의 적분]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 경희대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 경희대학교
+  admission_year: 2026
+  admission_type: 논술(모의)
+  track: 의·약학계열(수학)
+  question_no: 2
+  official_url: https://iphak.khu.ac.kr/detail.do?menuurl=89BGs%2bk748ajyySWoWlQPw%3d%3d&board_seq=15627&pageNo=1&categoryid=27&userpwd=
+  retrieved_at: '2026-11-21'
+  original_points: 32
+  rights_notice: 경희대학교 입학처 공개 자료(기출문제·예시답안). 내부 분석용
+  note: '문제 = 4-1. [의약학계_수학] 2026 모의논술고사 문제지_fv.pdf p.2, 원 번호 [논제 Ⅱ], 해설 = 4-2. [의약학계_수학] 2026 모의논술고사 예시답안및채점기준_fv.pdf p.3~5. 예시답안 증감표의 $f(\theta)$ 행은 비어 있음(감소→증가로 보충). 적분 구간은 $\alpha=\dfrac{\pi}{4}>\beta=\theta_0$이라 위끝이 아래끝보다 작음(원문대로). [판독확인] 없음'
+
+verify: verify/KHU-M26D.py::p02
+
+stimuli:
+- label: 나
+  body: |
+    삼각함수의 덧셈정리
+    1. $\sin(\alpha+\beta)=\sin\alpha\cos\beta+\cos\alpha\sin\beta$, $\sin(\alpha-\beta)=\sin\alpha\cos\beta-\cos\alpha\sin\beta$
+    2. $\cos(\alpha+\beta)=\cos\alpha\cos\beta-\sin\alpha\sin\beta$, $\cos(\alpha-\beta)=\cos\alpha\cos\beta+\sin\alpha\sin\beta$
+    3. $\tan(\alpha+\beta)=\dfrac{\tan\alpha+\tan\beta}{1-\tan\alpha\tan\beta}$, $\tan(\alpha-\beta)=\dfrac{\tan\alpha-\tan\beta}{1+\tan\alpha\tan\beta}$
+- label: 다
+  body: |
+    함수의 증가와 감소의 판정
+    함수 $f(x)$가 어떤 구간에서 미분가능하고, 이 구간의 모든 $x$에 대하여
+    ① $f'(x)>0$이면 $f(x)$는 이 구간에서 증가한다.
+    ② $f'(x)<0$이면 $f(x)$는 이 구간에서 감소한다.
+- label: 라
+  body: |
+    함수 $\dfrac{f'(x)}{f(x)}$의 부정적분
+    $$\int\dfrac{f'(x)}{f(x)}dx=\ln\lvert f(x)\rvert+C$$
+
+stem: |
+  중심이 O이고 지름의 끝점이 각각 $\mathrm{A,B}$이고 반지름의 길이가 1인 반원을 생각하자. 그림과 같이 선분 AB와 선분 BC가 수직이고, 선분 AC와 반원이 만나는 점을 D라 하자. 이때, $\angle\mathrm{BAC}=\theta$라 할 때, 영역 $S_1$과 영역 $S_2$의 넓이의 합을 $f(\theta)$라 하자. $\left(\text{단},\ \dfrac{\pi}{6}\le\theta\le\dfrac{\pi}{4}\text{이다.}\right)$
+  [그림 설명: 지름 AB(가운데 O) 위의 반원, B에서 위로 수직인 직선 위의 점 C, 선분 AC가 반원과 점 D에서 만남, ∠BAC=θ. $S_1$은 호 AD와 선분 AD 사이의 활꼴(노란색), $S_2$는 선분 DC, 선분 CB와 호 DB로 둘러싸인 부분(노란색). B에 직각 표시.]
+
+subparts:
+- id: '1'
+  stem: |
+    $f(\theta)$가 $\dfrac{\pi}{6}\le\theta\le\dfrac{\pi}{4}$에서 최댓값을 갖는 $\theta$의 값을 $\alpha$라 하고, 최솟값을 갖는 $\theta$의 값을 $\beta$라 하자. 이때, $\cos^4\alpha+\sin^2\beta$의 값을 구하고, 그 근거를 논술하시오. (20점)
+  points: 20
+  depends_on: []
+  answer: {kind: value, value: '\dfrac54-\dfrac{\sqrt2}{2}', equivalents: ['5/4-√2/2'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: '$f''=\dfrac{2(1-2\cos^4\theta)}{\cos^2\theta}$, $\cos^4\beta=\dfrac12$에서 최소, $f\left(\dfrac{\pi}{6}\right)<f\left(\dfrac{\pi}{4}\right)=1$이므로 $\alpha=\dfrac{\pi}{4}$.'
+    steps:
+    - {id: 1a, content: '$\cos^4\alpha+\sin^2\beta=\dfrac14+1-\dfrac{1}{\sqrt2}=\dfrac54-\dfrac{\sqrt2}{2}$', criteria: [1.M1, 1.M2, 1.A1]}
+    hint_ladder:
+    - 이등변삼각형 AOD에서 중심각 $\angle\mathrm{AOD}$, $\angle\mathrm{BOD}$를 $\theta$로 나타내자.
+    - $f'(\theta)=0$인 점과 양 끝값을 비교하자.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 4-2. [의약학계_수학] 2026 모의논술고사 예시답안및채점기준_fv.pdf p.4
+    steps:
+    - id: 1b-1
+      content: |
+        $\angle\mathrm{OAD}=\angle\mathrm{ADO}=\theta$이므로 $\angle\mathrm{BOD}=2\theta$이고, $\angle\mathrm{AOD}=\pi-2\theta$이다.
+        영역 $S_1$의 넓이는 (부채꼴 AOD의 넓이)-(삼각형 AOD의 넓이)이므로 $\dfrac12(\pi-2\theta)-\dfrac12\sin(\pi-2\theta)=\dfrac12\pi-\theta-\dfrac12\sin2\theta$.
+        영역 $S_2$의 넓이는 (삼각형 ABC의 넓이)-(삼각형 AOD의 넓이)-(부채꼴 BOD의 넓이)이므로 $\dfrac12\times2\times2\tan\theta-\dfrac12\sin(\pi-2\theta)-\dfrac12\times2\theta=2\tan\theta-\dfrac12\sin2\theta-\theta$.
+        따라서 $f(\theta)=2\tan\theta-\sin2\theta-2\theta+\dfrac12\pi$.
+      criteria: [1.M1]
+    - id: 1b-2
+      content: |
+        이때 $f'(\theta)=2\sec^2\theta-2\cos2\theta-2$가 되는데, 제시문 [나]에 의해 $\cos2\theta=\cos(\theta+\theta)=\cos^2\theta-\sin^2\theta=2\cos^2\theta-1$이므로
+        $f'(\theta)=\dfrac{2}{\cos^2\theta}-4\cos^2\theta=\dfrac{2(1-2\cos^4\theta)}{\cos^2\theta}$.
+        $1-2\cos^4\theta=(1+\sqrt2\cos^2\theta)(1+\sqrt[4]2\cos\theta)(1-\sqrt[4]2\cos\theta)$이므로 $f'(\theta)=0$이 되는 $\theta\ \left(\dfrac{\pi}{6}\le\theta\le\dfrac{\pi}{4}\right)$를 $\theta_0$이라 하면 $\cos\theta_0=\dfrac{1}{\sqrt[4]2}$.
+      criteria: [1.M2]
+    - id: 1b-3
+      content: |
+        $\cos\dfrac{\pi}{6}>\cos\theta_0>\cos\dfrac{\pi}{4}$이므로 $\dfrac{\pi}{6}<\theta_0<\dfrac{\pi}{4}$. 제시문 [다]를 이용하면 $\theta<\theta_0$이면 $f'(\theta)<0$이므로 감소하고, $\theta>\theta_0$이면 $f'(\theta)>0$이므로 증가한다. 증감표($\dfrac{\pi}{6}$: $-$, $\theta_0$: 0, $\dfrac{\pi}{4}$: $+$)에 의해 $f(\theta)$는 $\theta=\theta_0$에서 극솟값을 갖기 때문에 최솟값이 된다.
+        한편 $f\left(\dfrac{\pi}{6}\right)=\dfrac{\sqrt3}{6}+\dfrac{\pi}{6}$이고 $f\left(\dfrac{\pi}{4}\right)=1$이므로 $f\left(\dfrac{\pi}{6}\right)<f\left(\dfrac{\pi}{4}\right)$가 되어 $f(\theta)$는 $\theta=\dfrac{\pi}{4}$에서 최댓값을 갖는다. 따라서 $\alpha=\dfrac{\pi}{4}$이고 $\beta=\theta_0$이 되어
+        $\cos^4\alpha+\sin^2\beta=\left(\dfrac{1}{\sqrt2}\right)^4+1-\cos^2\theta_0=\dfrac14+1-\dfrac{1}{\sqrt2}=\dfrac54-\dfrac{\sqrt2}{2}$.
+      criteria: [1.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 6
+      evidence: '$f(\theta)=2\tan\theta-\sin2\theta-2\theta+\dfrac12\pi$를 $\theta$의 함수로 계산했다.'
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1]
+    - id: 1.M2
+      mark_type: M
+      points: 8
+      evidence: '삼각함수의 덧셈정리를 활용하여 $f''(\theta)=\dfrac{2(1-2\cos^4\theta)}{\cos^2\theta}=0$에서 $\cos\theta_0=\dfrac{1}{\sqrt[4]2}$을 계산했다.'
+      depends_on: [1.M1]
+      steps: [1b-2]
+    - id: 1.A1
+      mark_type: A
+      points: 6
+      evidence: '증감표로 $f(\theta)$가 최솟값($\theta_0$)과 최댓값($\dfrac{\pi}{4}$, 끝값 비교)을 갖는 경우를 밝히고 $\dfrac54-\dfrac{\sqrt2}{2}$을 구했다.'
+      depends_on: [1.M2]
+      steps: [1b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-CAL-6219}
+  misconceptions:
+  - id: MC-CAL-6219
+    outcome_code: '70'
+    wrong_work: '$f''(\theta_0)=0$인 $\theta_0$을 최댓값을 갖는 $\alpha$로 보거나, 끝값 $f\left(\dfrac{\pi}{6}\right)$, $f\left(\dfrac{\pi}{4}\right)$를 비교하지 않고 $\alpha=\dfrac{\pi}{6}$로 답함'
+    detect_cue: 끝값 비교 없이 $\alpha$를 정했거나 $\alpha=\theta_0$이다
+    feedback: 닫힌구간에서 극솟값 하나만 있으면 최댓값은 양 끝값 중 큰 쪽입니다. $f\left(\dfrac{\pi}{6}\right)$와 $f\left(\dfrac{\pi}{4}\right)$를 계산해 비교하세요.
+    remedy: [RL-1]
+- id: '2'
+  stem: |
+    (1)에서 구한 $\alpha,\beta$에 대해서, $\int_\alpha^\beta\left(f(\theta)+2\theta-\dfrac{\pi}{2}\right)d\theta$의 값이 $a\ln2+b\sqrt2+c$ (단, $a,b,c$는 유리수)일 때, $a,b,c$의 값을 구하고, 그 근거를 논술하시오. (12점)
+  points: 12
+  depends_on: ['1']
+  answer: {kind: value, value: 'a=-\dfrac12,\ b=\dfrac12,\ c=-\dfrac12', equivalents: ['(a,b,c)=(-1/2, 1/2, -1/2)'], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: '적분하는 함수는 $2\tan\theta-\sin2\theta$, 부정적분 $F=-2\ln\lvert\cos\theta\rvert+\dfrac12\cos2\theta$, $I=F(\theta_0)-F\left(\dfrac{\pi}{4}\right)$.'
+    steps:
+    - {id: 2a, content: '$I=\left(\dfrac12\ln2+\dfrac{\sqrt2}{2}-\dfrac12\right)-\ln2=-\dfrac12\ln2+\dfrac{\sqrt2}{2}-\dfrac12$', criteria: [2.M1, 2.A1]}
+    hint_ladder:
+    - $f(\theta)+2\theta-\dfrac{\pi}{2}$를 먼저 정리하자.
+    - $\tan\theta=\dfrac{\sin\theta}{\cos\theta}=-\dfrac{(\cos\theta)'}{\cos\theta}$ (제시문 [라]).
+  - id: S2-B
+    audience: B
+    method_no: 1
+    source_flow: 4-2. [의약학계_수학] 2026 모의논술고사 예시답안및채점기준_fv.pdf p.5
+    steps:
+    - id: 2b-1
+      content: |
+        $f(\theta)=2\tan\theta-\sin2\theta-2\theta+\dfrac12\pi$이고 $\alpha=\dfrac{\pi}{4}$, $\beta=\theta_0$이다. 따라서
+        $I=\int_\alpha^\beta\left(f(\theta)+2\theta-\dfrac12\pi\right)d\theta=\int_{\pi/4}^{\theta_0}(2\tan\theta-\sin2\theta)\,d\theta$.
+        이때 제시문 [라]를 이용하면 $\int\tan\theta\,d\theta=\int\dfrac{\sin\theta}{\cos\theta}d\theta=-\int\dfrac{(\cos\theta)'}{\cos\theta}d\theta=-\ln\lvert\cos\theta\rvert+C$가 된다. 따라서 $2\tan\theta-\sin2\theta$의 부정적분이 $F(\theta)=-2\ln\lvert\cos\theta\rvert+\dfrac12\cos2\theta$가 된다.
+      criteria: [2.M1]
+    - id: 2b-2
+      content: |
+        $I=F(\theta_0)-F\left(\dfrac{\pi}{4}\right)$이다. $\cos\theta_0=\dfrac{1}{\sqrt[4]2}$이므로
+        $F(\theta_0)=-2\ln\dfrac{1}{\sqrt[4]2}+\dfrac12\left(2\times\dfrac{1}{\sqrt2}-1\right)=\dfrac12\ln2+\dfrac{\sqrt2}{2}-\dfrac12$,
+        $F\left(\dfrac{\pi}{4}\right)=-2\ln\dfrac{1}{\sqrt2}+0=\ln2$이므로 $I=-\dfrac12\ln2+\dfrac{\sqrt2}{2}-\dfrac12$가 되어 $a=-\dfrac12$, $b=\dfrac12$, $c=-\dfrac12$.
+      criteria: [2.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 6
+      evidence: '제시문 [라]의 식을 이용하여 부정적분 $F(\theta)=-2\ln\lvert\cos\theta\rvert+\dfrac12\cos2\theta$를 계산했다.'
+      depends_on: []
+      implied_ok: false
+      steps: [2b-1]
+    - id: 2.A1
+      mark_type: A
+      points: 6
+      evidence: '정적분 값 $-\dfrac12\ln2+\dfrac{\sqrt2}{2}-\dfrac12$을 정확히 계산해 $a=-\dfrac12$, $b=\dfrac12$, $c=-\dfrac12$을 적었다.'
+      depends_on: [2.M1]
+      ft: {allowed: true, from: [1.A1], max_points: 6}
+      steps: [2b-2]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-CAL-6220}
+  misconceptions:
+  - id: MC-CAL-6220
+    outcome_code: '70'
+    wrong_work: '$\int\tan\theta\,d\theta=\ln\lvert\cos\theta\rvert+C$로 부호를 반대로 써서 $a=\dfrac32$ 등을 얻음'
+    detect_cue: '$\ln2$의 계수가 $-\dfrac12$이 아니다'
+    feedback: '$\tan\theta=-\dfrac{(\cos\theta)''}{\cos\theta}$이므로 부정적분은 $-\ln\lvert\cos\theta\rvert+C$입니다.'
+    remedy: [RL-2]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CAL-6219}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-EXTREMA-ENDPOINT}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-CAL-6220}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-LOG-DERIV-INTEGRAL}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-input-v1, item_version: 1, verdict: pass, date: 2026-11-21, note: 원문 PDF 이미지 판독으로 옮김 · 해설은 경희대 예시답안 흐름}
+
+created: 2026-11-21
+updated: 2026-11-21

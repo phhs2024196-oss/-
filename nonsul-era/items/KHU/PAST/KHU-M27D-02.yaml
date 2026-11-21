@@ -1,0 +1,272 @@
+schema_version: '2.0'
+id: KHU-M27D-02
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: KHU
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 분류
+points: 33
+time_estimate_min: 30
+intent: 순차 선택 상황을 이해하고 기준 카드의 등수(또는 처음 두 카드의 집합)에 따라 경우를 나누어 이산확률변수의 확률질량함수와 기댓값을 구한 뒤, 결과를 해석해 전략을 비교하는 능력을 본다.
+key_idea: |
+  기준 카드보다 좋은 카드들 중 남은 카드에서 먼저 나오는 것은 대칭성에 의해 균등하다. 기준이 1등이면 마지막 카드가 남은 카드 중 균등하게 정해진다.
+stuck: 전략 B·C에서 기준 카드가 1등인 경우(끝까지 선택 못 함) 마지막 카드의 분포를 따로 처리하는 단계
+idea_tags: [IDEA-CONDITION-ON-REFERENCE, IDEA-SYMMETRY-FIRST-APPEARANCE]
+tags: [기댓값, 순차 선택, 대칭성, 경희 모의]
+elements:
+  materials: [서로 다른 양수가 적힌 5장의 카드와 등수 1~5, 무작위 순서, 선택·패스 규칙, 전략 A(첫 카드 선택)·B(첫 카드 기준)·C(처음 두 카드 기준), 받는 카드의 등수 X·Y·Z]
+  concepts: [이산확률변수의 확률질량함수, 기댓값, 조건부확률(경우 분할), 대칭성에 의한 균등 확률, 조합]
+  tools: [첫 카드 등수별 5가지 경우 분류, 처음 두 카드 집합 C(5,2)=10가지 분류, 더 좋은 카드 중 먼저 나올 확률 = 1/(개수), 전확률 합산, 기댓값 정의(제시문 라)]
+  conditions:
+  - '카드는 임의의 순서 ⇒ 첫 카드의 등수는 각 $\frac15$, 처음 두 카드의 집합은 각 $\frac1{10}$'
+  - '기준보다 좋은 카드가 없으면(기준이 1등) 마지막 카드를 받음 ⇒ 남은 카드 중 균등'
+  - '등수는 작을수록 좋음 ⇒ 기댓값이 작을수록 좋은 전략'
+  stimuli_used: [라]
+  subpart_links: '(2)는 (1)에서 구한 $E(X)=3$, $E(Y)=2.1$과 비교'
+
+curriculum:
+  version: '2015'
+  subjects: [확률과통계]
+  scope_2028: common
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 이산확률변수의 기댓값을 구할 수 있다(요지)
+    verified: false
+  content_area: 통계 – 확률분포(이산확률변수의 기댓값)
+  behavior_domain: 문제해결
+  unit_path: [확률과통계, 통계, 확률분포, 이산확률변수의 기댓값]
+  key_concepts: [이산확률변수, 확률질량함수, 기댓값, 대칭성]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 경희대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 경희대학교
+  admission_year: 2027
+  admission_type: 논술(모의)
+  track: 의·약학계열(수학)
+  question_no: 2
+  official_url: https://iphak.khu.ac.kr/detail.do?menuurl=89BGs%2bk748ajyySWoWlQPw%3d%3d&board_seq=18071&pageNo=1&categoryid=27&userpwd=
+  retrieved_at: '2026-11-21'
+  original_points: 33
+  rights_notice: 경희대학교 입학처 공개 자료(기출문제·예시답안). 내부 분석용
+  note: 문제 = 4-1. [의약학계_수학] 2027 모의논술고사 문제지_fv.pdf p.3, 원 번호 [논제 Ⅱ], 해설 = 4-2. [의약학계_수학] 2027 모의논술고사 예시답안및채점기준_fv.pdf p.5~8. 제시문 [가]~[라]는 시험지 공통(논제 Ⅰ·Ⅱ). 예시답안 p.8 'E(Z) = 2,2'는 2.2의 오기(쉼표)로 보아 2.2로 옮김
+
+verify: verify/KHU-M27D.py::p02
+
+stimuli:
+- label: 가
+  body: |
+    함수의 몫의 미분법
+    함수 $f(x)\ (f(x)\neq0)$가 미분가능할 때 $\left\{\dfrac{1}{f(x)}\right\}'=-\dfrac{f'(x)}{f(x)^2}$
+- label: 나
+  body: |
+    함수의 증가와 감소
+    함수 $f(x)$가 어떤 열린구간에서 미분가능할 때 그 열린구간에 속하는 모든 $x$에 대하여
+    (1) $f'(x)>0$이면 $f(x)$는 그 열린구간에서 증가한다.
+    (2) $f'(x)<0$이면 $f(x)$는 그 열린구간에서 감소한다.
+- label: 다
+  body: |
+    등비급수의 수렴과 발산
+    등비급수 $\displaystyle\sum_{n=1}^{\infty}ar^{n-1}\,(a\neq0)$은
+    (1) $\lvert r\rvert<1$일 때, 수렴하고 그 합은 $\dfrac{a}{1-r}$이다.
+    (2) $\lvert r\rvert\ge1$일 때, 발산한다.
+- label: 라
+  body: |
+    이산확률변수의 기댓값(평균)
+    이산확률변수 $X$의 확률질량함수가 $P(X=x_i)=p_i\ (i=1,2,\cdots,n)$일 때, 확률변수 $X$의 기댓값(평균) $E(X)$는
+    $$E(X)=x_1p_1+x_2p_2+\cdots+x_np_n$$
+
+stem: |
+  [논제 Ⅱ] [배점 33점] 5장의 카드가 있고, 각 카드에는 서로 다른 양수가 적혀 있다. 5장의 카드는 큰 양수부터 작은 양수까지 1등, 2등, 3등, 4등, 5등으로 순위를 매길 수 있다. 카드들은 임의의 순서로 놓여 있으며, 참가자는 카드를 한 장씩 순서대로 열어 본다. 단, 참가자는 보지 못한 카드의 절대적인 양수는 알 수 없고, 지금까지 본 카드들 사이의 상대적인 크기만 비교할 수 있다. 카드를 열어 본 후 “선택”하면 그 카드를 갖고, “패스”하면 다음 카드를 본다. 한 번 패스한 카드는 되돌릴 수 없다. 마지막 카드까지 가면 그 카드를 가져야 한다.
+
+subparts:
+- id: '1'
+  stem: |
+    다음 두 전략 $A,B$에 대해, 전략 $A$로 받게 되는 카드의 등수를 $X$, 전략 $B$로 받게 되는 카드의 등수를 $Y$라 할 때, $X,Y$의 기댓값을 각각 구하고, 이를 바탕으로 전략 $A,B$ 중 어떤 전략이 더 좋은지 설명하고, 그 근거를 논술하시오. (19점)
+    전략 $A$: 첫 번째 카드를 무조건 선택한다.
+    전략 $B$: 첫 번째 카드를 무조건 패스하고(참고용으로만 사용), 그 이후 첫 번째 카드보다 큰 양수가 적힌 카드가 처음 나오면 선택한다. 끝까지 나오지 않으면 마지막 카드를 받는다.
+  points: 19
+  depends_on: []
+  answer: {kind: value, value: 'E(X)=3,\ E(Y)=\dfrac{21}{10},\ \text{전략 }B\text{가 더 좋다}', equivalents: ['E(X)=3, E(Y)=2.1, B'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: 첫 카드가 $j$등($j\ge2$)이면 그보다 좋은 $j-1$장 중 먼저 나오는 카드를 각 $\frac{1}{j-1}$로 받고, $j=1$이면 마지막 카드가 나머지 4장 중 균등하다.
+    steps:
+    - {id: 1a, content: '$P(Y=1),\cdots,P(Y=5)=\frac5{12},\frac4{15},\frac16,\frac1{10},\frac1{20}$, $E(Y)=\frac{21}{10}<3=E(X)$', criteria: [1.B1, 1.M1, 1.A1]}
+    hint_ladder:
+    - 첫 번째 카드의 등수에 따라 경우를 나누어 보자.
+    - 첫 카드보다 좋은 카드들 중 어느 것이 먼저 나올 확률은 모두 같다.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 예시답안 p.5~7 (4-2. [의약학계_수학] 예시답안및채점기준 PDF)
+    steps:
+    - id: 1b-1
+      content: |
+        확률변수 $X$(전략 A): 전략 A는 첫 번째 카드를 무조건 선택한다. 첫 번째 카드는 5장 중 무엇이든 동일한 확률 $\frac15$로 1등~5등이 될 수 있다. 따라서 $P(X=x)=\frac15\ (x=1,\cdots,5)$이고
+        $E(X)=1\cdot\frac15+2\cdot\frac15+3\cdot\frac15+4\cdot\frac15+5\cdot\frac15=\frac{1+2+3+4+5}{5}=\frac{15}{5}=3$.
+      criteria: [1.B1]
+    - id: 1b-2
+      content: |
+        확률변수 $Y$(전략 B): 첫 번째 카드의 등수에 따라 경우를 나누어 분석한다.
+        경우1: 첫 번째 카드가 1등인 경우 — 1등보다 좋은 카드는 없으므로 두 번째~네 번째 카드는 선택되지 못한다. 따라서 마지막 카드를 받는다. 나머지 4장 $\{2,3,4,5\}$ 중 어느 것이든 마지막 자리에 올 확률은 각각 $\frac14$이다. (조건부 확률: $Y=1$은 0, $Y=2,3,4,5$는 각 $\frac14$)
+        경우2: 첫 번째 카드가 2등인 경우 — 2등보다 좋은 카드는 1등 뿐이다. 따라서 반드시 1등을 받는다.
+        경우3: 첫 번째 카드가 3등인 경우 — 3등보다 좋은 카드는 1등과 2등이다. 나머지 4장 안에서 1등과 2등 중 먼저 등장하는 카드가 선택된다. 각각이 먼저 나올 확률은 $\frac12$이다.
+        경우4: 첫 번째 카드가 4등인 경우 — 1등, 2등, 3등 중 먼저 등장하는 카드가 선택된다. 각각이 먼저 나올 확률은 $\frac13$이다.
+        경우5: 첫 번째 카드가 5등인 경우 — 1등, 2등, 3등, 4등 중 먼저 등장하는 카드가 선택된다. 각각이 먼저 나올 확률은 $\frac14$이다.
+        전체 확률 합산: 각 경우는 확률 $\frac15$로 발생하므로
+        $P(Y=1)=\frac15\left(0+1+\frac12+\frac13+\frac14\right)=\frac15\cdot\frac{25}{12}=\frac{5}{12}$,
+        $P(Y=2)=\frac15\left(\frac14+0+\frac12+\frac13+\frac14\right)=\frac15\cdot\frac{16}{12}=\frac{4}{15}$,
+        $P(Y=3)=\frac15\left(\frac14+0+0+\frac13+\frac14\right)=\frac15\cdot\frac{10}{12}=\frac16$,
+        $P(Y=4)=\frac15\left(\frac14+0+0+0+\frac14\right)=\frac15\cdot\frac12=\frac1{10}$,
+        $P(Y=5)=\frac15\left(\frac14+0+0+0+0\right)=\frac15\cdot\frac14=\frac1{20}$.
+      criteria: [1.M1]
+    - id: 1b-3
+      content: |
+        $E(Y)=1\cdot\frac5{12}+2\cdot\frac4{15}+3\cdot\frac16+4\cdot\frac1{10}+5\cdot\frac1{20}=\frac{25+32+30+24+15}{60}=\frac{126}{60}=\frac{21}{10}=2.1$.
+        A와 B의 기댓값 비교: 등수는 숫자가 작을수록 좋은 카드이므로 기댓값이 작을수록 평균적으로 더 좋은 등수를 받는 전략이다. $E(Y)=2.1<3=E(X)$이므로 전략 B가 평균적으로 더 좋은 등수를 얻는다.
+      criteria: [1.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.B1
+      mark_type: B
+      points: 5
+      evidence: $X$가 1~5를 각각 $\frac15$로 가짐을 밝히고 $E(X)=3$을 구했다.
+      depends_on: []
+      steps: [1b-1]
+    - id: 1.M1
+      mark_type: M
+      points: 8
+      evidence: 첫 카드의 등수에 따른 경우 분류로 $Y$의 확률질량함수($\frac5{12},\frac4{15},\frac16,\frac1{10},\frac1{20}$)를 구했다.
+      depends_on: []
+      steps: [1b-2]
+    - id: 1.A1
+      mark_type: A
+      points: 6
+      evidence: $E(Y)=\frac{21}{10}$을 구하고, 등수는 작을수록 좋으므로 $E(Y)<E(X)$에서 전략 B가 더 좋다고 비교했다.
+      depends_on: [1.M1]
+      steps: [1b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-PRB-6116}
+  - {code: '71', misconception: MC-PRB-6117}
+  misconceptions:
+  - id: MC-PRB-6116
+    outcome_code: '70'
+    wrong_work: '첫 카드가 1등인 경우 마지막 카드를 1~5등 균등($\frac15$)으로 보거나, $Y$를 2~5 중 균등분포로 처리'
+    detect_cue: $Y$의 확률 합이 1이 아니거나 $P(Y=5)\neq\frac1{20}$
+    feedback: 첫 카드가 1등이면 마지막 카드는 남은 2~5등 4장 중 하나이므로 각 $\frac14$입니다. 첫 카드의 등수별로 조건부 분포를 따로 쓰세요.
+    remedy: [RL-1]
+  - id: MC-PRB-6117
+    outcome_code: '71'
+    wrong_work: '$E(Y)<E(X)$이므로 전략 A가 더 좋다(기댓값이 클수록 좋음)고 결론'
+    detect_cue: 결론이 전략 A
+    feedback: 등수는 숫자가 작을수록 좋습니다. 기댓값이 작은 전략이 평균적으로 더 좋은 카드를 받습니다.
+    remedy: [RL-1]
+- id: '2'
+  stem: |
+    전략 $C$는 처음 두 카드를 무조건 패스하고(참고용), 그 이후 두 카드 중 큰 양수보다 더 큰 양수가 적힌 카드가 처음 나오면 선택한다. 끝까지 나오지 않으면 마지막 카드를 받는다. 전략 $C$로 받게 되는 카드의 등수를 $Z$라 할 때, $Z$의 기댓값을 구하고, 이를 바탕으로 전략 $C$를 전략 $A,B$와 비교하고, 그 근거를 논술하시오. (14점)
+  points: 14
+  depends_on: ['1']
+  answer: {kind: value, value: 'E(Z)=\dfrac{11}{5},\ E(Y)<E(Z)<E(X)\ (B\text{가 가장 좋고 그 다음 }C,\ A)', equivalents: ['E(Z)=2.2'], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: 처음 두 장 중 좋은 쪽이 $m$등이면 그보다 좋은 $m-1$장 중 먼저 나오는 것을 균등하게 받고, $m=1$이면 마지막 카드가 남은 3장 중 균등하다.
+    steps:
+    - {id: 2a, content: '$P(Z)=\frac{13}{30},\frac7{30},\frac2{15},\frac1{10},\frac1{10}$, $E(Z)=\frac{11}{5}$, $E(Y)<E(Z)<E(X)$', criteria: [2.M1, 2.A1]}
+    hint_ladder:
+    - 처음 두 카드의 등수 집합(10가지)에 따라 경우를 나누자.
+    - 그중 가장 좋은 등수만 중요하다.
+  - id: S2-B
+    audience: B
+    method_no: 1
+    source_flow: 예시답안 p.7~8 (4-2. [의약학계_수학] 예시답안및채점기준 PDF)
+    steps:
+    - id: 2b-1
+      content: |
+        전략 C는 처음 두 카드를 무조건 패스하고, 그 이후 두 카드 중 더 좋은 카드(즉, 등수가 더 작은 카드)보다 좋은 카드가 처음 나오면 선택한다. 처음 두 카드의 등수의 집합에 따라 경우를 나눈다. 5장 중 2장을 처음에 놓는 집합의 경우는 ${}_5C_2=10$가지이며, 각 집합은 동일한 확률 $\frac1{10}$로 나타난다.
+        경우1: 처음 두 카드의 집합이 1등을 포함하는 경우(확률 $\frac4{10}=\frac25$) — 1등보다 좋은 카드가 없으므로 이후 어떤 카드도 선택되지 못한다. 따라서 마지막 카드를 받는다. 처음 두 자리에 $\{1,x\}$ $(x\in\{2,3,4,5\})$가 있을 때, 마지막 자리는 처음 두 카드 외 나머지 세 카드 중 하나가 균등하게 등장한다.
+        경우2: 1등을 포함하지 않고 2등을 포함하는 경우(확률 $\frac3{10}$) — 반드시 1등을 받는다.
+        경우3: 1, 2등을 포함하지 않고 3등을 포함하는 경우(확률 $\frac2{10}=\frac15$) — 1등과 2등 중 먼저 나오는 카드를 받는다. 대칭이므로 각각 확률 $\frac12$.
+        경우4: 처음 두 카드의 집합이 $\{4,5\}$인 경우(확률 $\frac1{10}$) — 1, 2, 3등 중 먼저 나오는 카드를 받는다. 대칭이므로 각각 확률 $\frac13$.
+      criteria: [2.M1]
+    - id: 2b-2
+      content: |
+        $Z$의 확률분포 합산: 경우1에서 마지막 카드가 각 등수일 확률을 합산하면 $P(Z=k)=\frac1{10}\ (k=2,3,4,5)$. 경우2: $P(Z=1)$에 $\frac3{10}$ 기여. 경우3: $P(Z=1)$, $P(Z=2)$에 각각 $\frac15\cdot\frac12=\frac1{10}$ 기여. 경우4: $P(Z=1)$, $P(Z=2)$, $P(Z=3)$에 각각 $\frac1{10}\cdot\frac13=\frac1{30}$ 기여.
+        $P(Z=1)=\frac3{10}+\frac1{10}+\frac1{30}=\frac{13}{30}$, $P(Z=2)=\frac1{10}+\frac1{10}+\frac1{30}=\frac7{30}$, $P(Z=3)=\frac1{10}+\frac1{30}=\frac2{15}$, $P(Z=4)=\frac1{10}$, $P(Z=5)=\frac1{10}$.
+      criteria: [2.M1]
+    - id: 2b-3
+      content: |
+        $E(Z)=1\cdot\frac{13}{30}+2\cdot\frac7{30}+3\cdot\frac2{15}+4\cdot\frac1{10}+5\cdot\frac1{10}=\frac{13+14+12+12+15}{30}=\frac{66}{30}=\frac{11}{5}=2.2$.
+        기댓값 기준 A, B, C 비교: $E(Y)<E(Z)<E(X)$. 등수는 작을수록 좋으므로, 기댓값 기준에서 전략 B가 가장 좋고, 그 다음 C, 가장 나쁜 것은 A이다.
+      criteria: [2.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 8
+      evidence: 처음 두 카드의 집합에 따른 경우 분류로 $Z$의 확률질량함수($\frac{13}{30},\frac7{30},\frac2{15},\frac1{10},\frac1{10}$)를 구했다.
+      depends_on: []
+      steps: [2b-1, 2b-2]
+    - id: 2.A1
+      mark_type: A
+      points: 6
+      evidence: $E(Z)=\frac{11}{5}$을 구하고 $E(Y)<E(Z)<E(X)$로 B가 가장 좋고 그 다음 C, A 순임을 비교했다.
+      depends_on: [2.M1]
+      steps: [2b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '72', misconception: MC-PRB-6118}
+  - {code: '73', misconception: MC-PRB-6116}
+  misconceptions:
+  - id: MC-PRB-6118
+    outcome_code: '72'
+    wrong_work: '처음 두 카드를 순서쌍(20가지)과 집합(10가지)으로 섞어 세어, 예를 들어 1등 포함 확률을 $\frac{4}{20}$이나 $\frac15$로 잡음'
+    detect_cue: 경우별 확률의 합이 1이 아니다(경우1~4의 확률이 $\frac25,\frac3{10},\frac15,\frac1{10}$이 아님)
+    feedback: 처음 두 자리에 오는 카드의 집합은 ${}_5C_2=10$가지가 같은 확률입니다. 한 가지 기준으로만 세세요.
+    remedy: [RL-2]
+  - id: MC-PRB-6116
+    outcome_code: '73'
+    wrong_work: '1등을 포함하는 경우 마지막 카드를 2~5등 4장 중 균등($\frac14$)으로 처리'
+    detect_cue: $P(Z=k)\ (k\ge2)$에 $\frac1{10}$이 아닌 값($\frac2{5}\cdot\frac14$)이 나타남
+    feedback: '처음 두 장 $\{1,x\}$를 제외한 나머지 3장 중 하나가 마지막에 오므로 각 $\frac13$이고, $x$에 따라 남는 카드가 다릅니다.'
+    remedy: [RL-2]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-PRB-6116}
+  relation: remediation
+  target: {kind: concept, ref: CON-PRB-SEQUENTIAL-SELECTION}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-PRB-6118}
+  relation: remediation
+  target: {kind: concept, ref: CON-PRB-SEQUENTIAL-SELECTION}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-input-v1, item_version: 1, verdict: pass, date: 2026-11-21, note: 원문 PDF 이미지 판독으로 옮김 · 해설은 경희대 예시답안 흐름}
+
+created: 2026-11-21
+updated: 2026-11-21

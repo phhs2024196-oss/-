@@ -1,0 +1,273 @@
+schema_version: '2.0'
+id: KHU-G22B-03
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: KHU
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 전수
+points: 25
+time_estimate_min: 25
+intent: 승자가 정해지면 멈추는 가위바위보에서 A가 상품을 받는 경우를 실시 횟수별로 빠짐없이 분류해 확률을 구하고, 회전·색 반전을 같은 것으로 보는 띠 모양의 개수를 같은 것이 있는 순열의 수와 대조하며 세는 능력을 본다.
+key_idea: '(1) 2회·3회·4회에 끝나는 경우로 나누면 $1\times\dfrac19+7\times\dfrac1{27}+20\times\dfrac1{81}$. (2) 뒤집으면 B·W 개수가 바뀌므로 B의 개수 $\ge$ W의 개수인 경우만 세고, 각 개수별로 같은 모양끼리 묶어 순열의 수와 맞춘다.'
+stuck: (1) 상품 받을 사람이 결정되는 순간 멈추므로 실시 횟수가 다른 경로의 확률을 따로 계산하는 단계, (2) 위아래로 뒤집기가 색 반전임을 해석하는 단계
+idea_tags: [IDEA-STOPPING-RULE-CASE-SPLIT, IDEA-NECKLACE-ROTATION-COMPLEMENT]
+tags: [가위바위보, 확률, 띠 모양 세기, 같은 것이 있는 순열, 경희 실전]
+elements:
+  materials: [학생 A·B 의 가위바위보(최대 4회), 상품 결정 규칙, 앞면 검정·뒷면 흰 종이 n장 띠, 이어 붙인 무한 띠 모양]
+  concepts: [수학적 확률, 확률의 덧셈정리(배반사건), 독립시행, 같은 것이 있는 순열, 경우의 수의 합의 법칙]
+  tools: [실시 횟수별 경우 분류, 경로별 확률 1/3^k 합산, 색 개수(B의 개수)별 분류, 회전·색 반전 동치류 묶기, 순열의 수로 누락 확인]
+  conditions:
+  - '이긴 횟수가 같으면 A가 상품, 결정되면 즉시 멈춤 ⇒ 1회만으로는 결정 불가'
+  - '옆으로 움직이기 = 회전, 위아래로 뒤집기 = 모든 칸의 색 반전'
+  - '$r$개의 B와 $s$개의 W를 뒤집으면 $s$개의 B와 $r$개의 W ⇒ $r\ge s$만 고려'
+  stimuli_used: [마, 바]
+  subpart_links: 없음((1)과 (2)는 독립된 소재)
+
+curriculum:
+  version: '2015'
+  subjects: [확률과통계]
+  scope_2028: common
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 확률의 덧셈정리를 이해하고 활용할 수 있다 / 같은 것이 있는 순열을 이해하고 그 수를 구할 수 있다(요지)
+    verified: false
+  content_area: 경우의 수·확률 – 수학적 확률, 같은 것이 있는 순열
+  behavior_domain: 문제해결
+  unit_path: [확률과통계, 경우의 수, 여러 가지 순열, 같은 것이 있는 순열]
+  key_concepts: [수학적 확률, 확률의 덧셈정리, 같은 것이 있는 순열]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 경희대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 경희대학교
+  admission_year: 2022
+  admission_type: 논술(논술우수자전형)
+  track: 자연계열
+  question_no: 3
+  official_url: https://iphak.khu.ac.kr/detail.do?menuurl=89BGs%2bk748ajyySWoWlQPw%3d%3d&board_seq=4485&pageNo=1&categoryid=27&userpwd=
+  retrieved_at: '2026-11-21'
+  original_points: 25
+  rights_notice: '경희대학교 입학처 공개 자료(기출문제·예시답안). 내부 분석용'
+  note: |
+    시험 시간대: 11월 21일(일) 오전 자연계.
+    문제 = 5. 2022학년도 논술고사 기출문제(자연계)_11.21 오전.pdf p.1(제시문)·p.3, 원 번호 [논제 III] (1)(2), 해설 = 같은 PDF p.11~14(채점 기준·예시답안 p.13, 예시답안 계속 p.14).
+    예시답안은 주기가 더 짧은 모양(예: $n=4$의 BWBW, BBBB)도 그 $n$의 모양으로 셈 — $a_n$ = 길이 $n$ 이진 배열을 회전·색 반전으로 묶은 동치류 수(2, 4, 4, 8). 원문 해석 그대로 따름.
+    [판독확인] 그림 2~4의 칸 색: 그림 2 = BBW 반복(15칸), 그림 3 = BWB BWB… (그림 2를 한 칸 이동), 그림 4 = WBW WBW…(그림 2를 뒤집고 이동). 문제지 p.3·문항카드 p.11~12 대조.
+
+verify: verify/KHU-G22B.py::p03
+
+stimuli:
+- label: 마
+  body: |
+    표본공간 $S$의 두 사건 $A$, $B$에 대하여
+    ① 사건 $A$ 또는 $B$가 일어날 확률 $\mathrm{P}(A\cup B)$는 $\mathrm{P}(A\cup B)=\mathrm{P}(A)+\mathrm{P}(B)-\mathrm{P}(A\cap B)$
+    ② 두 사건 $A$, $B$가 서로 배반사건이면 $\mathrm{P}(A\cup B)=\mathrm{P}(A)+\mathrm{P}(B)$
+- label: 바
+  body: |
+    $n$개 중에서 서로 같은 것이 각각 $p$개, $q$개, $\cdots$, $r$개 있을 때, $n$개를 일렬로 나열하는 순열의 수는
+    $$\dfrac{n!}{p!\times q!\times\cdots\times r!}\ (\text{단, }p+q+\cdots+r=n)$$
+
+stem: |
+  [논제 III]
+
+subparts:
+- id: '1'
+  stem: |
+    다음과 같이 두 학생 A, B 중에서 상품을 받을 한 명을 결정한다.
+    (ⅰ) 비긴 경우도 포함해서 가위바위보를 최대 4회 실시한다.
+    (ⅱ) A는 B보다 이긴 횟수가 많거나 같을 때 상품을 받는다.
+    (ⅲ) B는 A보다 이긴 횟수가 많을 때만 상품을 받는다.
+    (ⅳ) 가위바위보는 상품을 받을 학생이 결정될 때까지만 한다.
+    예를 들어, A가 먼저 1회 이기고 2회 비긴 경우에는 남은 1회를 실시하지 않고 A가 상품을 받는다. 또한, 4회 모두 비긴 경우에도 A가 상품을 받는다. 이때 A가 상품을 받을 확률을 구하고, 그 근거를 논술하시오. (단, A, B가 가위, 바위, 보를 낼 확률은 각각 $\dfrac13$이다.) (10점)
+  points: 10
+  depends_on: []
+  answer: {kind: value, value: '\dfrac{50}{81}', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: 2회에 끝나는 경우 1가지, 3회 7가지, 4회 20가지.
+    steps:
+    - {id: 1a, content: '$1\times\dfrac19+7\times\dfrac1{27}+20\times\dfrac1{81}=\dfrac{50}{81}$', criteria: [1.M1, 1.A2]}
+    hint_ladder:
+    - 1회만 하고 끝날 수 있는가?
+    - 몇 회째에 끝나는지로 나누고, 그 회차에서 처음 결정되는 경우만 세자.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 5. 2022학년도 논술고사 기출문제(자연계)_11.21 오전.pdf 예시답안 p.13
+    steps:
+    - id: 1b-1
+      content: |
+        가위바위보에서 A가 B를 이길 확률, 비길 확률, 질 확률은 모두 $\dfrac13$이다.
+        (i) 1회만 실시한 뒤, A가 상품을 받는 경우 — 없음(1회에 A가 이긴 경우라도 2회, 3회, 4회에 B가 이기면 B가 상품을 받게 된다. 이처럼 1회만 실시한 뒤에는 상품을 받을 사람이 결정되지 않는다.)
+        (ii) 2회만 실시한 뒤, A가 상품을 받는 경우 — 2승: 승-승
+        (iii) 3회만 실시한 뒤, A가 상품을 받는 경우 — 2승 1패: 승-패-승 / 패-승-승, 2승 1무: 승-무-승 / 무-승-승, 1승 2무: 승-무-무 / 무-승-무 / 무-무-승
+        (iv) 4회 실시한 뒤, A가 상품을 받는 경우 — 2승 2패: 승-패-패-승 / 패-승-패-승 / 패-패-승-승, 2승 1무 1패: 승-무-패-승 / 승-패-무-승 / 무-승-패-승 / 무-패-승-승 / 패-승-무-승 / 패-무-승-승,
+        1승 2무 1패: 승-패-무-무 / 승-무-패-무 / 패-승-무-무 / 패-무-승-무 / 패-무-무-승 / 무-승-패-무 / 무-무-패-승 / 무-패-승-무 / 무-패-무-승, 1승 3무: 무-무-무-승, 4무: 무-무-무-무
+      criteria: [1.M1]
+    - id: 1b-2
+      content: |
+        각 경우는 서로 배반이므로(제시문 [마]) 구하는 확률은 $1\times\dfrac19+7\times\dfrac1{27}+20\times\dfrac1{81}=\dfrac{50}{81}$이다.
+      criteria: [1.A2]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 5
+      evidence: A가 상품을 받는 경우를 실시 횟수(2회·3회·4회)별로 적절하게 분류해 경우의 수 1, 7, 20을 셌다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1]
+    - id: 1.A2
+      mark_type: A
+      points: 5
+      evidence: '각 경우의 확률 $\dfrac19$, $\dfrac1{27}$, $\dfrac1{81}$을 곱해 더한 확률 $\dfrac{50}{81}$을 정확하게 구했다.'
+      depends_on: [1.M1]
+      steps: [1b-2]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-PRB-6717}
+  - {code: '71', misconception: MC-PRB-6718}
+  misconceptions:
+  - id: MC-PRB-6717
+    outcome_code: '70'
+    wrong_work: '이긴 횟수가 같은 경우(무-무-무-무, 승-패-무-무 등)를 A의 상품에서 빼고 셈'
+    detect_cue: 4회 경우의 수가 20보다 작고 4무가 빠짐
+    feedback: 규칙 (ⅱ)에 따라 이긴 횟수가 같아도 A가 상품을 받습니다.
+    remedy: [RL-1]
+  - id: MC-PRB-6718
+    outcome_code: '71'
+    wrong_work: '모든 경우를 4회까지 했다고 보고 $\dfrac{(\text{경우의 수})}{81}$로 계산하되 조기 종료 경로를 1개로만 셈'
+    detect_cue: 2회·3회에 끝난 경로에 $\dfrac19$, $\dfrac1{27}$을 쓰지 않음
+    feedback: 2회에 끝난 경로는 확률 $\dfrac19$입니다(남은 판을 하지 않음). 실시 횟수별 확률을 따로 쓰세요.
+    remedy: [RL-1]
+
+- id: '2'
+  stem: |
+    앞면이 검은색이고 뒷면이 흰색인 종이를 가로로 $n$장 붙여서 띠를 만든다. 이 띠와 같은 띠를 왼쪽과 오른쪽으로 계속 이어 붙여서 만들어지는 모양을 생각하자. 예를 들어 세 장의 종이를 검은색, 검은색, 흰색이 보이도록 순서대로 붙여서 띠를 만든 뒤, 이를 계속 이어 붙이면 <그림 2>와 같은 모양이 된다.
+    [그림 2 설명: …… ■■□■■□■■□■■□■■□ …… (■ 검은색, □ 흰색, BBW 반복)]
+    이때, 옆으로 몇 칸 움직이거나, 위아래로 뒤집은 것들을 같은 모양으로 본다. 예를 들어 <그림 3>과 <그림 4>는 <그림 2>와 같은 모양으로 본다.
+    [그림 3 설명: …… ■□■■□■■□■■□■■□■ …… (BWB 반복)]
+    [그림 4 설명: …… □■□□■□□■□□■□□■□ …… (WBW 반복)]
+    위의 규칙대로 $n$장의 종이로 만든 띠를 이어 붙여서 얻어지는 서로 다른 모양의 개수를 $a_n$이라 하자. 예를 들어 $n=2$일 때 검은색 면이 보이도록 놓인 종이를 B, 흰색 면이 보이도록 놓인 종이를 W로 표시하면, 서로 다른 모양은 BW로 만든 것과 BB로 만든 것뿐이므로 $a_2$는 2이다. 이와 같이 $a_4$, $a_5$, $a_6$을 각각 구하고, 그 근거를 논술하시오. (15점)
+  points: 15
+  depends_on: []
+  answer: {kind: value, value: 'a_4=4,\ a_5=4,\ a_6=8', equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: 'B의 개수가 W 이상인 경우만, 개수별로 회전해서 같은 것끼리 묶고 순열의 수 $\dfrac{n!}{r!s!}$와 맞는지 확인.'
+    steps:
+    - {id: 2a, content: '$a_4=1+1+2$, $a_5=1+1+2$, $a_6=1+1+3+3$', criteria: [2.B1, 2.B2, 2.B3]}
+    hint_ladder:
+    - 위아래로 뒤집으면 검은색과 흰색이 바뀐다.
+    - 'B의 개수별로 나누고, 같은 모양끼리 묶은 개수의 합이 $\dfrac{n!}{r!s!}$이 되는지 확인하자.'
+  - id: S2-B
+    audience: B
+    method_no: 1
+    source_flow: 5. 2022학년도 논술고사 기출문제(자연계)_11.21 오전.pdf 예시답안 p.13~14
+    steps:
+    - id: 2b-1
+      content: |
+        검은색 면이 위로 놓인 경우를 B, 흰색 면이 위로 놓인 경우를 W로 표시하자. $r$개의 B와 $s$개의 W로 이루어진 띠의 위아래를 뒤집으면, $s$개의 B와 $r$개의 W로 이루어진 띠가 되므로, $r$이 $s$보다 크거나 같은 경우만 고려하면 된다.
+        1) $n=4$일 때
+        1-1) B의 개수가 4일 때, BBBB 한 가지 경우 밖에 없다.
+        1-2) B의 개수가 3일 때, BBBW, BBWB, BWBB, WBBB가 같은 모양이므로 한 가지 밖에 없다.
+        1-3) B의 개수가 2일 때, BBWW, BWWB, WWBB, WBBW가 같은 모양이고, BWBW, WBWB가 같은 모양이다. 2개의 B와 2개의 W를 일렬로 나열하는 순열의 수는 $\dfrac{4!}{2!2!}=6$이므로(제시문 [바]), 이 두 가지 말고 다른 모양은 없다.
+        따라서 $a_4=1+1+2=4$이다.
+      criteria: [2.B1]
+    - id: 2b-2
+      content: |
+        2) $n=5$일 때
+        2-1) B의 개수가 5일 때, BBBBB 한 가지 경우 밖에 없다.
+        2-2) B의 개수가 4일 때, BBBBW 한 가지 경우 밖에 없다.
+        2-3) B의 개수가 3일 때, BBBWW와 같은 모양이 되는 순열이 4개가 더 있고, BBWBW와 같은 모양인 순열도 4개가 더 있다. 3개의 B와 2개의 W를 일렬로 나열하는 순열의 수는 $\dfrac{5!}{3!2!}=10$이므로, 이 두 가지 말고 다른 모양은 없다.
+        따라서 $a_5=1+1+2=4$이다.
+      criteria: [2.B2]
+    - id: 2b-3
+      content: |
+        3) $n=6$일 때
+        3-1) B의 개수가 6일 때, BBBBBB 한 가지 경우 밖에 없다.
+        3-2) B의 개수가 5일 때, BBBBBW 한 가지 경우 밖에 없다.
+        3-3) B의 개수가 4일 때, BBBBWW, BBBWBW와 같은 모양이 되는 순열이 각각 5개씩 더 있으며, BBWBBW와 같은 모양이 되는 순열은 2개가 더 있다. 4개의 B와 2개의 W를 일렬로 늘어놓은 경우의 수는 $\dfrac{6!}{4!2!}=15$이므로, 이 세 가지 말고 다른 모양은 없다.
+        3-4) B의 개수가 3일 때, BBBWWW와 같은 모양이 되는 순열이 5개, BBWBWW와 같은 모양이 되는 순열이 11개 더 있으며, BWBWBW와 WBWBWB는 서로 같은 모양이다. 3개의 B와 3개의 W를 일렬로 나열하는 순열의 수는 $\dfrac{6!}{3!3!}=20$이므로, 이 세 가지 말고 다른 모양은 없다.
+        따라서 $a_6=1+1+3+3=8$이다.
+      criteria: [2.B3]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.B1
+      mark_type: B
+      points: 4
+      evidence: B의 개수별로 같은 모양을 묶고 순열의 수 6과 대조하는 등 적절한 방법으로 $a_4=4$를 구했다.
+      depends_on: []
+      steps: [2b-1]
+    - id: 2.B2
+      mark_type: B
+      points: 5
+      evidence: 적절한 방법(개수별 분류, 순열의 수 10과 대조)으로 $a_5=4$를 구했다.
+      depends_on: []
+      steps: [2b-2]
+    - id: 2.B3
+      mark_type: B
+      points: 6
+      evidence: 적절한 방법(B 4개·3개 경우를 묶고 순열의 수 15, 20과 대조)으로 $a_6=8$을 구했다.
+      depends_on: []
+      steps: [2b-3]
+    deductions:
+    - code: D2-1
+      condition: 같은 모양으로 묶은 근거(순열의 수 대조 등) 없이 개수만 적음
+      effect: cap
+      value: 5
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-CNT-6719}
+  - {code: '71', misconception: MC-CNT-6720}
+  misconceptions:
+  - id: MC-CNT-6719
+    outcome_code: '70'
+    wrong_work: '위아래 뒤집기를 좌우 반전(순서 뒤집기)으로 보아 BBBW와 BWWW를 다른 모양으로 셈'
+    detect_cue: '$a_4=6$, $a_6=14$ 등 색 반전 동일시를 안 한 값'
+    feedback: 종이의 앞면이 검은색, 뒷면이 흰색이므로 위아래로 뒤집으면 모든 칸의 색이 바뀝니다.
+    remedy: [RL-2]
+  - id: MC-CNT-6720
+    outcome_code: '71'
+    wrong_work: '회전으로 같아지는 배열을 묶지 않고 $\dfrac{n!}{r!s!}$를 그대로 더하거나, BWBW처럼 주기가 짧은 모양을 빠뜨림'
+    detect_cue: $a_n$이 순열의 수 합에 가깝게 크거나, BWBW·BWBWBW 같은 모양이 목록에서 빠짐
+    feedback: 옆으로 움직여 같아지는 배열은 한 모양입니다. 묶은 개수의 합이 순열의 수와 같은지 확인하세요.
+    remedy: [RL-2]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-PRB-6717}
+  relation: remediation
+  target: {kind: concept, ref: CON-PRB-STOPPING-GAME}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-CNT-6719}
+  relation: remediation
+  target: {kind: concept, ref: CON-CNT-CYCLIC-COLOR-EQUIV}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-input-v1, item_version: 1, verdict: pass, date: 2026-11-21, note: 원문 PDF 이미지 판독으로 옮김 · 해설은 경희대 예시답안 흐름}
+
+created: 2026-11-21
+updated: 2026-11-21

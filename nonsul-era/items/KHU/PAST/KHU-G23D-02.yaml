@@ -1,0 +1,276 @@
+schema_version: '2.0'
+id: KHU-G23D-02
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: KHU
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 전수
+points: 32
+time_estimate_min: 30
+intent: 조건부 확률과 사건의 독립과 종속을 종합적으로 이해하고 응용할 수 있는지, 주어진 상황을 수학적으로 표현하여 논리적으로 해결하는 능력을 본다.
+key_idea: '(1) $X$가 20, 22, 24, 26, 28이 되는 분기 경우를 첫 분기(네 갈래·여섯 갈래)별로 모두 세어 독립시행 확률로 더한다. (2) 같은 분기점 끝점 사이 최소 거리 $2t$와 이웃한 분기점 끝점 사이 최소 거리 $10-2\sqrt3t$ 중 작은 값이 $f(t)$이고, 두 값이 같아지는 $t_0$에서 꺾이고 $f(t_0)=2t_0$이다.'
+stuck: (1) $X=24$가 두 가지 방식(첫 분기 네 갈래 후 6,6,6,6 / 여섯 갈래 후 모두 4)으로 나오는 것을 모두 찾는 전수 조사, (2) 이웃 분기점 끝점 사이 최소 거리가 $10-2\sqrt3t$임을 각도 30°로 찾는 단계
+idea_tags: [IDEA-BRANCHING-COUNT-CONDITIONAL, IDEA-MIN-OF-TWO-LINEAR-KINK]
+tags: [불꽃 분기, 조건부확률, 독립시행, 미분가능성, 경희 2023 실전, 의약학계]
+elements:
+  materials: [수직 20 m 후 네 갈래 또는 여섯 갈래로 갈라지는 불꽃, 첫 번째 분기점에서 10 m 이동한 두 번째 분기점, 두 번째 분기점에서 2t m 이동한 끝점, 갈라지는 각도 60°·30°(그림 2), 끝점 36개의 최소 거리 f(t)]
+  concepts: [독립시행의 확률, 조건부확률, 두 점 사이의 거리, 미분가능성과 좌우 미분계수]
+  tools: [X의 값별 분기 경우 전수 조사, 이항계수로 경우 세기, 정육각형·30° 각을 이용한 거리 계산, 두 일차함수의 최솟값 함수로 f(t) 표현, 좌우 극한 비교]
+  conditions:
+  - '각 분기점에서 네 갈래 확률 $\dfrac12$, 독립 ⇒ 각 경우 확률 $\left(\dfrac12\right)^{1+(\text{첫 분기 갈래 수})}$'
+  - '$20\le X\le28$ ⇒ 첫 분기 네 갈래면 $X\in\{20,22,24\}$, 여섯 갈래면 $X\in\{24,26,28\}$'
+  - '$0<t<\dfrac52$ ⇒ $10-2\sqrt3t>0$, 끝점 집합이 겹치지 않음'
+  stimuli_used: [마, 바]
+  subpart_links: null
+
+curriculum:
+  version: '2015'
+  subjects: [확률과통계, 수학Ⅱ]
+  scope_2028: common
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 조건부확률의 의미를 이해하고, 이를 구할 수 있다(요지)
+    verified: false
+  content_area: 확률 – 조건부확률·독립시행 / 미분 – 미분가능성
+  behavior_domain: 문제해결
+  unit_path: [확률과통계, 확률, 조건부확률, 독립시행의 확률]
+  key_concepts: [조건부확률, 독립시행, 두 점 사이의 거리, 미분가능성]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 경희대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 경희대학교
+  admission_year: 2023
+  admission_type: 논술(논술우수자전형)
+  track: 의·약학계열(수학)
+  question_no: 2
+  official_url: https://iphak.khu.ac.kr/detail.do?menuurl=89BGs%2bk748ajyySWoWlQPw%3d%3d&board_seq=7867&pageNo=1&categoryid=27&userpwd=
+  retrieved_at: '2026-11-21'
+  original_points: 32
+  rights_notice: 경희대학교 입학처 공개 자료(기출문제·예시답안). 내부 분석용
+  note: '11.19(토) 오후 시험. 문제 = 6. 2023학년도 논술고사 기출문제(의약학계)_11.19 오후.pdf p.3(문제지 9-3) · p.14~15(문항카드), 원 번호 [논제 Ⅰ-2], 해설 = 같은 파일 p.15(출제 의도·문항 해설·채점 기준) · p.16(예시답안). 문항카드의 제시문 [마]·[바]만 수록. 자연계 같은 날 [논제 Ⅲ](KHU-G23A-03)과 소재가 같고 (1)의 범위($20\le X\le28$)·배점(16점), (2)에 $f(t)$ 값 요구 추가·배점(16점)이 다름. 예시답안 (2)는 최소 거리 $2t$, $10-2\sqrt3t$를 결과만 제시 — B 해설 2b-1에 근거 보충.'
+
+verify: verify/KHU-G23D.py::p02
+
+stimuli:
+- label: 마
+  body: |
+    사건 $A$가 일어났을 때의 사건 $B$의 조건부확률은
+    $$\mathrm{P}(B\mid A)=\dfrac{\mathrm{P}(A\cap B)}{\mathrm{P}(A)}\ (\text{단, }\mathrm{P}(A)>0)$$
+- label: 바
+  body: |
+    어떤 시행에서 사건 $A$가 일어날 확률이 $p\ (0<p<1)$일 때, 이 시행을 $n$회 반복하는 독립시행에서 사건 $A$가 $r$회 일어날 확률은
+    $${}_n\mathrm{C}_r\,p^r(1-p)^{n-r}\ (\text{단, }r=0,\ 1,\ 2,\ \cdots,\ n)$$
+
+stem: |
+  어느 불꽃놀이에서 불꽃을 쏘아 올리면 불꽃이 지면에서 출발한다. 이 불꽃은 지면에서 수직 방향으로 20 m를 이동한 후 네 갈래 또는 여섯 갈래로 갈라지면서 이동한다. 이 갈라지는 지점을 '첫 번째 분기점'이라고 한다. 첫 번째 분기점에서 갈라진 불꽃들은 각각 10 m씩 이동하여 다시 네 갈래 또는 여섯 갈래로 갈라지면서 이동한다. 두 번째 갈라지는 지점을 '두 번째 분기점'이라고 한다. 두 번째 분기점들에서 갈라진 불꽃들은 각각 $2t$ m씩 이동한 후 사라진다. (단, $0<t<\dfrac52$)
+  <그림 1>은 첫 번째 분기점에서 네 갈래로 갈라지고 두 번째 분기점에서 각각 4, 6, 4, 6 갈래로 갈라진 경우의 예시이다.
+  <그림 2>는 점선을 따라 이동한 불꽃이 분기점에서 네 갈래 또는 여섯 갈래로 갈라지는 모양을 나타낸 것이다. 점선의 화살표 방향을 따라 이동한 불꽃은 <그림 2>와 같은 각도로만 갈라진다.
+  [그림 1 설명: 지면에서 수직으로 20 m 올라간 점이 '분기점'(지면과 직각 표시). ⇒ 그 점에서 수평 왼쪽·오른쪽, 그리고 위쪽으로 두 방향(네 갈래), 각 갈래 길이 10 m. ⇒ 네 개의 두 번째 분기점에서 각각 4, 6, 4, 6 갈래로 짧게(2t m) 갈라진 모양.]
+  [그림 2 설명: 왼쪽(네 갈래) — 아래에서 위로 올라온 점선 화살표가 분기점에서 수평 왼쪽, 수평 오른쪽, 그리고 수평과 각각 60°를 이루는 위쪽 두 방향으로 갈라지며, 위쪽 두 갈래 사이 각도 60°, 진행 방향(점선)과 수평 갈래는 직각. 오른쪽(여섯 갈래) — 같은 방향에서 온 불꽃이 수평 왼쪽·오른쪽, 위쪽 두 방향, 아래쪽 두 방향으로 인접한 갈래끼리 60°씩 갈라지고, 아래쪽 갈래와 들어온 점선 사이 각이 30°.]
+  다음 조건을 만족할 때 아래 물음에 답하시오.
+  (가) 각 분기점에서 불꽃이 갈라지는 시행은 독립시행이다.
+  (나) 각 분기점에서 불꽃이 네 갈래로 갈라질 확률은 $\dfrac12$이다.
+  (다) 불꽃은 한 평면 위에서 움직인다.
+  (라) 불꽃은 동일한 속력으로 움직이고, 직선으로 이동한다. (단, 분기점은 제외한다.)
+
+subparts:
+- id: '1'
+  stem: |
+    두 번째 분기점에서 생기는 불꽃의 개수를 확률변수 $X$라고 하자. $20\le X\le28$인 사건 $A$가 일어났을 때, 첫 번째 분기점에서 불꽃이 여섯 갈래로 갈라진 사건 $B$의 조건부확률 $\mathrm{P}(B\mid A)$를 구하고, 그 근거를 논술하시오. (16점)
+  points: 16
+  depends_on: []
+  answer: {kind: value, value: '\dfrac{1}{3}', equivalents: ['1/3'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: 첫 분기 네 갈래 → $X=16+2m$ ($m$=여섯 갈래 수, $0\le m\le4$), 여섯 갈래 → $X=24+2m$ ($0\le m\le6$). $A$에 드는 경우만 골라 더한다.
+    steps:
+    - {id: 1a, content: '$\mathrm{P}(A)=\dfrac{33}{64}$, $\mathrm{P}(A\cap B)=\dfrac{11}{64}$', criteria: [1.B1, 1.B2, 1.A1]}
+    hint_ladder:
+    - 첫 번째 분기점에서 네 갈래인 경우와 여섯 갈래인 경우를 나누자.
+    - 각 경우 $X$가 될 수 있는 값을 모두 나열하자.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 예시답안 p.16
+    steps:
+    - id: 1b-1
+      content: |
+        $X=20$인 경우: 첫 번째 분기점에서 네 갈래, 두 번째 분기점에서 4, 4, 6, 6 갈래로 갈라지는 경우의 확률은 제시문 [바]에 의해 $\dfrac12\times{}_4\mathrm{C}_2\left(\dfrac12\right)^4=\dfrac3{16}$.
+        $X=22$인 경우: 첫 번째 분기점에서 네 갈래, 두 번째 분기점에서 4, 6, 6, 6 갈래로 갈라지는 경우의 확률은 $\dfrac12\times{}_4\mathrm{C}_1\left(\dfrac12\right)^4=\dfrac18$.
+        $X=24$인 경우 (i): 첫 번째 분기점에서 네 갈래, 두 번째 분기점에서 6, 6, 6, 6 갈래로 갈라지는 경우의 확률은 $\dfrac12\times\left(\dfrac12\right)^4=\dfrac1{32}$.
+      criteria: [1.B1]
+    - id: 1b-2
+      content: |
+        $X=24$인 경우 (ii): 첫 번째 분기점에서 여섯 갈래, 두 번째 분기점에서 4, 4, 4, 4, 4, 4 갈래로 갈라지는 경우의 확률은 $\dfrac12\times\left(\dfrac12\right)^6=\dfrac1{128}$.
+        $X=26$인 경우: 첫 번째 분기점에서 여섯 갈래, 두 번째 분기점에서 4, 4, 4, 4, 4, 6 갈래로 갈라지는 경우의 확률은 $\dfrac12\times{}_6\mathrm{C}_1\left(\dfrac12\right)^6=\dfrac3{64}$.
+        $X=28$인 경우: 첫 번째 분기점에서 여섯 갈래, 두 번째 분기점에서 4, 4, 4, 4, 6, 6 갈래로 갈라지는 경우의 확률은 $\dfrac12\times{}_6\mathrm{C}_2\left(\dfrac12\right)^6=\dfrac{15}{128}$.
+      criteria: [1.B2]
+    - id: 1b-3
+      content: |
+        따라서 $\mathrm{P}(A\cap B)=\dfrac1{128}+\dfrac3{64}+\dfrac{15}{128}=\dfrac{11}{64}$이고 $\mathrm{P}(A)=\dfrac3{16}+\dfrac18+\dfrac1{32}+\dfrac1{128}+\dfrac3{64}+\dfrac{15}{128}=\dfrac{33}{64}$이므로 제시문 [마]에 의해 $\mathrm{P}(B\mid A)=\dfrac{\mathrm{P}(A\cap B)}{\mathrm{P}(A)}=\dfrac13$.
+      criteria: [1.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.B1
+      mark_type: B
+      points: 6
+      evidence: 첫 번째 분기점에서 네 갈래인 경우 $X=20$, $22$, $24$의 확률 $\dfrac3{16}$, $\dfrac18$, $\dfrac1{32}$을 독립시행의 확률로 계산했다.
+      depends_on: []
+      steps: [1b-1]
+    - id: 1.B2
+      mark_type: B
+      points: 6
+      evidence: 첫 번째 분기점에서 여섯 갈래인 경우 $X=24$, $26$, $28$의 확률 $\dfrac1{128}$, $\dfrac3{64}$, $\dfrac{15}{128}$을 독립시행의 확률로 계산했다.
+      depends_on: []
+      steps: [1b-2]
+    - id: 1.A1
+      mark_type: A
+      points: 4
+      evidence: $\mathrm{P}(A)=\dfrac{33}{64}$, $\mathrm{P}(A\cap B)=\dfrac{11}{64}$로 조건부확률 $\dfrac13$을 구했다.
+      depends_on: []
+      implied_ok: true
+      steps: [1b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-PRB-6508}
+  - {code: '71', misconception: MC-PRB-6509}
+  misconceptions:
+  - id: MC-PRB-6508
+    outcome_code: '70'
+    wrong_work: '$X=24$를 첫 분기 네 갈래(6,6,6,6)인 경우만 세어 $\mathrm{P}(A)=\dfrac{65}{128}$, 답 $\dfrac{21}{65}$'
+    detect_cue: 답이 $\dfrac{21}{65}$ 또는 $\mathrm{P}(A)\ne\dfrac{33}{64}$
+    feedback: 같은 $X$라도 첫 분기에서 네 갈래·여섯 갈래 양쪽에서 나올 수 있는지 모두 확인하세요.
+    remedy: [RL-1]
+  - id: MC-PRB-6509
+    outcome_code: '71'
+    wrong_work: '$\mathrm{P}(B\mid A)=\dfrac{\mathrm{P}(A\cap B)}{\mathrm{P}(B)}=\dfrac{11/64}{1/2}=\dfrac{11}{32}$'
+    detect_cue: 답이 $\dfrac{11}{32}$ 또는 $\dfrac{11}{64}$
+    feedback: 조건부확률의 분모는 '이미 일어난 사건' $A$의 확률입니다(제시문 [마]).
+    remedy: [RL-2]
+- id: '2'
+  stem: |
+    <그림 3>과 같이 모든 분기점에서 불꽃이 여섯 갈래로 갈라진 경우를 생각하자. 36개로 갈라진 불꽃의 마지막 위치를 점으로 나타낼 때, 이 점들 사이의 거리의 최솟값을 $f(t)$라고 하자. $0<t<\dfrac52$일 때, 함수 $y=f(t)$가 미분가능하지 않은 $t$의 값과 그 때의 $f(t)$의 값을 구하고, 그 근거를 논술하시오. (16점)
+    [그림 3 설명: 지면에서 수직으로 올라간 점선 끝(첫 번째 분기점)에서 여섯 방향(수평 좌우, 위쪽 두 방향, 아래쪽 두 방향, 인접 60°)으로 점선이 뻗어 정육각형 꼴로 놓인 여섯 개의 두 번째 분기점에 닿고, 각 두 번째 분기점에서 짧은 실선 여섯 갈래(끝점 표시)가 퍼져 있다.]
+  points: 16
+  depends_on: []
+  answer: {kind: set, value: 't=\dfrac{5(\sqrt3-1)}{2},\ f(t)=5(\sqrt3-1)', equivalents: ['t=\dfrac{5}{\sqrt3+1},\ f(t)=5\sqrt3-5'], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: '$f(t)=\min(2t,\ 10-2\sqrt3t)$이고 두 일차식이 같아지는 $t_0$에서 기울기가 2에서 $-2\sqrt3$으로 바뀐다.'
+    steps:
+    - {id: 2a, content: '$2t=10-2\sqrt3t\iff t_0=\dfrac{5(\sqrt3-1)}2$, $f(t_0)=2t_0=5(\sqrt3-1)$', criteria: [2.M1, 2.A2]}
+    hint_ladder:
+    - 같은 분기점에서 나온 두 끝점의 최소 거리는?
+    - 이웃한 두 번째 분기점(거리 10)의 끝점 중 서로를 향하는 것끼리의 거리는?
+  - id: S2-B
+    audience: B
+    method_no: 1
+    source_flow: 예시답안 p.16
+    steps:
+    - id: 2b-1
+      content: |
+        한 분기점에서 갈라지는 두 점 사이의 최소 거리는 $2t$이다(이웃한 두 갈래가 60°를 이루고 길이가 $2t$인 정삼각형).
+        서로 다른 분기점에서 갈라지는 두 점 사이의 최소 거리는 $10-2\sqrt3t$이다. [보충: 두 번째 분기점들은 한 변이 10인 정육각형의 꼭짓점이고, 이웃한 두 분기점에서 서로 쪽으로 각각 선분과 30°를 이루며 뻗은 두 끝점은 선분 방향으로 각각 $2t\cos30^\circ=\sqrt3t$씩 다가가고 수직 방향 성분은 같아, 거리 $10-2\sqrt3t$.]
+      criteria: [2.M1]
+    - id: 2b-2
+      content: |
+        $2t\le10-2\sqrt3t$이면 $2(\sqrt3+1)t\le10$이므로 $t\le\dfrac5{\sqrt3+1}=\dfrac{5(\sqrt3-1)}2$이다. 또한 $2t>10-2\sqrt3t$이면 $t>\dfrac{5(\sqrt3-1)}2$이다.
+        $t_0=\dfrac{5(\sqrt3-1)}2$라고 하면 $f(t)=\begin{cases}2t & (0<t\le t_0)\\ 10-2\sqrt3t & \left(t_0<t<\dfrac52\right)\end{cases}$이다.
+      criteria: [2.A1]
+    - id: 2b-3
+      content: |
+        따라서 $\displaystyle\lim_{t\to t_0-}\dfrac{f(t)-f(t_0)}{t-t_0}=2$, $\displaystyle\lim_{t\to t_0+}\dfrac{f(t)-f(t_0)}{t-t_0}=-2\sqrt3$이므로 $f'(t_0)$가 존재하지 않는다. 즉, 함수 $f(t)$는 $t=t_0=\dfrac{5(\sqrt3-1)}2$에서 미분가능하지 않다. 이때 $f(t_0)=2t_0=5(\sqrt3-1)$이다.
+      criteria: [2.R1, 2.A2]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 5
+      evidence: 같은 분기점 끝점 사이 최소 거리 $2t$와 다른 분기점 끝점 사이 최소 거리 $10-2\sqrt3t$를 구했다.
+      depends_on: []
+      steps: [2b-1]
+    - id: 2.A1
+      mark_type: A
+      points: 3
+      evidence: 두 거리를 비교해 $f(t)$를 $t_0$ 전후의 두 식으로 나타냈다.
+      depends_on: [2.M1]
+      steps: [2b-2]
+    - id: 2.R1
+      mark_type: R
+      points: 4
+      evidence: $t=t_0$에서 좌미분계수 2와 우미분계수 $-2\sqrt3$이 다름을 보였다.
+      depends_on: []
+      steps: [2b-3]
+    - id: 2.A2
+      mark_type: A
+      points: 4
+      evidence: 미분가능하지 않은 $t=\dfrac{5(\sqrt3-1)}2$와 그때의 값 $f(t)=5(\sqrt3-1)$을 답했다.
+      depends_on: [2.R1]
+      steps: [2b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '72', misconception: MC-GEO-6510}
+  - {code: '73', misconception: MC-CAL-6511}
+  misconceptions:
+  - id: MC-GEO-6510
+    outcome_code: '72'
+    wrong_work: '이웃한 분기점 끝점 사이 최소 거리를 $10-4t$로 보고 $t=\dfrac53$을 답함'
+    detect_cue: 답이 $\dfrac53$이거나 거리 식에 $\sqrt3$이 없음
+    feedback: 서로를 향하는 갈래는 두 분기점을 잇는 선분과 30°를 이루므로 다가가는 거리는 $2t\cos30^\circ$씩입니다.
+    remedy: [RL-3]
+  - id: MC-CAL-6511
+    outcome_code: '73'
+    wrong_work: '$f(t)$를 구한 뒤 좌우 미분계수 비교 없이 "식이 바뀌니 미분불가능"이라고만 씀'
+    detect_cue: 좌극한·우극한 계산이 없음
+    feedback: 꺾인 점에서는 좌미분계수와 우미분계수를 계산해 다름을 보여야 합니다.
+    remedy: [RL-4]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-PRB-6508}
+  relation: remediation
+  target: {kind: concept, ref: CON-PRB-INDEP-TRIAL}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-PRB-6509}
+  relation: remediation
+  target: {kind: concept, ref: CON-PRB-COND}
+  priority: 1
+- id: RL-3
+  trigger: {type: misconception, ref: MC-GEO-6510}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-DIFFERENTIABILITY}
+  priority: 1
+- id: RL-4
+  trigger: {type: misconception, ref: MC-CAL-6511}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-DIFFERENTIABILITY}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-input-v1, item_version: 1, verdict: pass, date: 2026-11-21, note: 원문 PDF 이미지 판독으로 옮김 · 해설은 경희대 예시답안 흐름}
+
+created: 2026-11-21
+updated: 2026-11-21

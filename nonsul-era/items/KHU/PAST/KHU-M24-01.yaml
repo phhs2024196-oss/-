@@ -1,0 +1,227 @@
+schema_version: '2.0'
+id: KHU-M24-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: KHU
+type: null
+variant_of: null
+replaces: null
+level: L3
+form: 추론
+points: 30
+time_estimate_min: 15
+intent: 조건부확률의 의미를 이해하는가, 확률변수의 뜻을 알고 이를 이용하여 이산확률변수의 기댓값(평균)을 구할 수 있는가를 묻는다.
+key_idea: '흰 공을 꺼낼 확률을 $p=\dfrac{n}{60}$으로 두고, 3번의 시행 결과를 경우별로 나눠 $P(A)$, $P(A\cap B)$와 $X$의 확률분포를 구한다.'
+stuck: '$X$의 확률분포 $p^3$, $3p^2(1-p)$, $3p(1-p)^2$, $(1-p)^3$을 세워 $E(X)=600p$로 정리하는 단계'
+idea_tags: [IDEA-CONDITIONAL-PROB-COUNT-PATHS, IDEA-EXPECTATION-LINEAR-STEPS]
+tags: [경희 모의, 조건부확률, 기댓값, 복원추출]
+elements:
+  materials: [흰 공 n개·검은 공 60−n개가 든 상자, 복원추출 3번, 흰 공 +100원·검은 공 −100원, 처음 300원]
+  concepts: [조건부확률, 독립시행의 확률, 이산확률변수의 확률분포, 기댓값]
+  tools: [p=n/60 로 놓기, 금액 400원이 되는 경로 나열, P(B|A)=P(A∩B)/P(A), 확률분포표로 기댓값 계산, 방정식 풀이]
+  conditions:
+  - '$1\le n<60$ ⇒ $0<p<1$'
+  - '꺼낸 공을 다시 넣음 ⇒ 매번 흰 공 확률 $p$로 같음'
+  stimuli_used: [가, 나]
+  subpart_links: '(2)는 (1)과 같은 방법으로 3번 시행 후 금액의 확률을 구함'
+
+curriculum:
+  version: '2015'
+  subjects: [확률과통계]
+  scope_2028: common
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 조건부확률의 의미를 이해하고, 이산확률변수의 기댓값을 구할 수 있다(요지)
+    verified: false
+  content_area: 확률과통계 – 조건부확률 / 이산확률변수의 기댓값
+  behavior_domain: 계산
+  unit_path: [확률과통계, 확률, 조건부확률, 조건부확률의 계산]
+  key_concepts: [조건부확률, 독립시행, 기댓값]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 경희대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 경희대학교
+  admission_year: 2024
+  admission_type: 논술(모의)
+  track: 자연계열
+  question_no: 1
+  official_url: https://iphak.khu.ac.kr/detail.do?menuurl=89BGs%2bk748ajyySWoWlQPw%3d%3d&board_seq=9315&pageNo=1&categoryid=27&userpwd=
+  retrieved_at: '2026-11-21'
+  original_points: 30
+  rights_notice: 경희대학교 입학처 공개 자료(기출문제·예시답안). 내부 분석용
+  note: |
+    문제 = 3-1. [자연계] 2024 문제지_최종.pdf p.2(제시문 p.1), 원 번호 [논제 Ⅰ], 해설 = 3-2. [자연계] 2024 예시답안 및 문항해설_최종.pdf p.1(문항 해설 p.3).
+    공식 채점 기준 미공개 → 소문항 배점(10·20)만 원문, 소문항 안 마크 배점은 자체 배분. 원문 '[배점 30점]' 표기, 발문의 '나머지는 공은'은 원문 그대로(오기 추정).
+    [오기] 예시답안 p.1 (2)의 $E[X]$ 식과 그 아래 식에서 $X=200$원 항이 $3p(1-p)$로 적혀 있으나 바로 위 확률분포의 $3p(1-p)^2$가 맞다(오기식은 $p=\frac13$에서 0이 되지 않음 — 검산 p01). B 해설은 $3p(1-p)^2$로 바로잡음.
+
+verify: verify/KHU-M24.py::p01
+
+stimuli:
+- label: 가
+  body: |
+    사건 $A$가 일어났을 때의 사건 $B$의 조건부확률은
+    $P(B\mid A)=\dfrac{P(A\cap B)}{P(A)}$ (단, $P(A)>0$)
+- label: 나
+  body: |
+    이산확률변수 $X$의 기댓값(평균)은
+    $$E(X)=x_1p_1+x_2p_2+x_3p_3+\cdots+x_np_n$$
+
+stem: |
+  상자 안에 총 60개의 공이 들어있다. 그 중 $n\ (1\le n<60)$개의 공은 흰색이고 나머지는 공은 모두 검은색이다. 경희는 상자 안에 있는 공을 하나 임의로 꺼내어 색을 확인하고 다시 상자에 공을 집어넣는 것을 3번 반복한다. 경희는 흰색 공을 꺼낼 때마다 100원을 얻고, 검은색 공을 꺼낼 때마다 100원을 잃는다. 경희는 공을 꺼내기 전에 300원을 가지고 있다고 한다.
+
+subparts:
+- id: '1'
+  stem: |
+    3번째 공을 꺼내고 난 후, 경희가 400원을 가지고 있을 사건을 A, 1번째 공을 꺼내고 난 후, 경희가 400원을 가지고 있을 사건을 B라고 하자. 조건부 확률 $\mathrm{P}(B\mid A)$를 구하고, 그 근거를 논술하시오. (10점)
+  points: 10
+  depends_on: []
+  answer: {kind: value, value: '\dfrac23', equivalents: ['2/3'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: A는 흰 공 2번·검은 공 1번, 그중 첫 번째가 흰 공인 경우는 3가지 중 2가지.
+    steps:
+    - {id: 1a, content: '$\dfrac{2p^2(1-p)}{3p^2(1-p)}=\dfrac23$', criteria: [1.M1, 1.A1]}
+    hint_ladder:
+    - 400원이 되려면 흰 공과 검은 공을 몇 번씩 꺼내야 하는가?
+    - 첫 번째에 흰 공을 꺼내야 B가 일어난다.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 3-2. [자연계] 2024 예시답안 및 문항해설_최종.pdf 예시답안 p.1
+    steps:
+    - id: 1b-1
+      content: |
+        경희가 상자에서 흰 공을 꺼낼 확률을 $p$라고 하면 $p=\dfrac{n}{60}$이다.
+        $$P(A)=p\times p\times(1-p)+p\times(1-p)\times p+(1-p)\times p\times p=3p^2(1-p)$$
+      criteria: [1.M1]
+    - id: 1b-2
+      content: |
+        $$P(A\cap B)=p\times p\times(1-p)+p\times(1-p)\times p=2p^2(1-p)$$
+        따라서, 조건부 확률의 정의로부터(제시문 [가]) $P(B\mid A)=\dfrac23$
+      criteria: [1.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 5
+      evidence: '$p=\dfrac{n}{60}$으로 두고 $P(A)=3p^2(1-p)$를 구했다.'
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1]
+    - id: 1.A1
+      mark_type: A
+      points: 5
+      evidence: '$P(A\cap B)=2p^2(1-p)$와 조건부확률의 정의로 $P(B\mid A)=\dfrac23$을 구했다.'
+      depends_on: [1.M1]
+      steps: [1b-2]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-PRB-6413}
+  misconceptions:
+  - id: MC-PRB-6413
+    outcome_code: '70'
+    wrong_work: '$P(B\mid A)$를 $P(B)=p$로 답하거나 $\dfrac{P(A\cap B)}{P(B)}=2p(1-p)$로 계산'
+    detect_cue: 답에 $p$(또는 $n$)가 남아 있다
+    feedback: 조건이 되는 사건 $A$의 확률로 나누어야 합니다(제시문 [가]).
+    remedy: [RL-1]
+- id: '2'
+  stem: |
+    3번째 공을 꺼내고 난 후 경희가 가지고 있는 금액을 X라고 하자. X의 기댓값이 200원일 때, $n$의 값을 구하고, 그 근거를 논술하시오. (20점)
+  points: 20
+  depends_on: ['1']
+  answer: {kind: value, value: '20', equivalents: ['n=20'], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: '$E(X)=600p$이므로 $p=\dfrac13$.'
+    steps:
+    - {id: 2a, content: '$600p=200\Rightarrow n=60p=20$', criteria: [2.M1, 2.A1, 2.A2]}
+    hint_ladder:
+    - X가 가질 수 있는 값은 600, 400, 200, 0원이다.
+    - 각 값의 확률은 흰 공을 꺼낸 횟수로 정해진다.
+  - id: S2-B
+    audience: B
+    method_no: 1
+    source_flow: 3-2. [자연계] 2024 예시답안 및 문항해설_최종.pdf 예시답안 p.1
+    steps:
+    - id: 2b-1
+      content: |
+        (1)과 비슷하게 3번째 공을 뽑고 난 후, $X=600$원일 확률은 $p^3$, $X=400$원일 확률은 $3p^2(1-p)$, $X=200$원일 확률은 $3p(1-p)^2$, $X=0$원일 확률은 $(1-p)^3$.
+      criteria: [2.M1]
+    - id: 2b-2
+      content: |
+        따라서, 기댓값의 정의로부터(제시문 [나])
+        $$E[X]=600\times p^3+400\times3p^2(1-p)+200\times3p(1-p)^2+0\times(1-p)^3=200.$$
+        즉, $6p^3+12p^2(1-p)+6p(1-p)^2-2=0$. (공식 예시답안은 $200\times3p(1-p)$, $6p(1-p)$로 적었으나 $(1-p)^2$의 오기)
+      criteria: [2.A1]
+    - id: 2b-3
+      content: |
+        이 방정식을 풀면 (좌변 $=6p-2$) $p=\dfrac13$. 따라서 $n=20$이다.
+      criteria: [2.A2]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 8
+      evidence: X의 확률분포($p^3$, $3p^2(1-p)$, $3p(1-p)^2$, $(1-p)^3$)를 구했다.
+      depends_on: []
+      implied_ok: false
+      steps: [2b-1]
+    - id: 2.A1
+      mark_type: A
+      points: 6
+      evidence: 기댓값의 정의로 $E(X)=200$인 방정식을 세웠다.
+      depends_on: [2.M1]
+      steps: [2b-2]
+    - id: 2.A2
+      mark_type: A
+      points: 6
+      evidence: '$p=\dfrac13$, $n=20$을 구했다.'
+      depends_on: [2.M1]
+      steps: [2b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-PRB-6414}
+  misconceptions:
+  - id: MC-PRB-6414
+    outcome_code: '71'
+    wrong_work: '$X=400$, $X=200$의 확률을 $p^2(1-p)$, $p(1-p)^2$로 써서 계수 3을 빠뜨림'
+    detect_cue: 확률의 합이 1이 아니거나 $n\neq20$
+    feedback: 흰 공을 2번 꺼내는 순서는 ${}_3\mathrm{C}_2=3$가지입니다. 확률의 합이 1인지 확인하세요.
+    remedy: [RL-2]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-PRB-6413}
+  relation: remediation
+  target: {kind: concept, ref: CON-PRB-CONDITIONAL}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-PRB-6414}
+  relation: remediation
+  target: {kind: concept, ref: CON-PRB-EXPECTATION-DISCRETE}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-input-v1, item_version: 1, verdict: pass, date: 2026-11-21, note: 원문 PDF 이미지 판독으로 옮김 · 해설은 경희대 예시답안 흐름(오기 1곳 바로잡음)}
+
+created: 2026-11-21
+updated: 2026-11-21

@@ -1,0 +1,302 @@
+schema_version: '2.0'
+id: KHU-G23A-02
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: KHU
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 분류
+points: 33
+time_estimate_min: 30
+intent: 함수의 미분과 적분의 기본 개념을 종합적으로 이해하고 응용할 수 있는지, 주어진 상황을 수학적으로 표현하여 문제해결의 논리적 방향을 제시하고 합리적으로 해결하는 능력을 본다.
+key_idea: '겹치는 부분이 직사각형임을 보고 $t$의 구간($0<t<1$, $1\le t<2$, $2\le t<3$)별로 두 변의 길이를 구한다. (2)는 $f$가 $[1,2]$에서 증가함을 이용해 $S(a)$를 정적분으로 나타내고 미분한다.'
+stuck: 겹침 직사각형의 가로·세로가 바뀌는 경계 $t=1$, $t=2$를 찾는 경우 분류와, (2)에서 $S'(a)=(2a-3)f'(a)$로 정리하는 단계
+idea_tags: [IDEA-MOVING-SQUARE-OVERLAP-PIECEWISE, IDEA-AREA-BETWEEN-CURVE-HLINE-MIN]
+tags: [정사각형 겹침, 구간별 함수, 넓이 최소, 경희 2023 실전]
+elements:
+  materials: [고정된 정사각형 ABCD, 중심이 포물선 y=-t^2+3t 위를 움직이는 한 변 2인 정사각형 PQRS, 겹치는 부분의 넓이 f(t), 구간별 일차함수 g(t), 곡선 y=f(t)와 직선 y=f(a)로 둘러싸인 넓이 S(a)]
+  concepts: [구간별로 정의된 함수, 절댓값을 포함한 함수의 정적분, 정적분의 성질, 정적분으로 정의된 함수의 미분, 함수의 증가와 감소]
+  tools: [꼭짓점 좌표로 겹침 직사각형의 두 변 길이 계산, 인수분해로 f-g의 부호 판정, 구간을 나누어 적분, 미적분의 기본정리로 S(a) 미분, 도함수 부호로 최소 판정]
+  conditions:
+  - '$0<t<3$, $f(0)=f(3)=0$ ⇒ 겹침이 생기는 범위 전체에서 구간별 식'
+  - '$g(t)$는 $t<2$와 $t\ge2$에서 식이 다름 ⇒ 적분 구간 $[0,1]$, $[1,2]$, $[2,3]$'
+  - '(2) $1\le t\le2$에서 $f$ 증가 ⇒ $t<a$에서 $f(t)<f(a)$, $t>a$에서 $f(t)>f(a)$'
+  stimuli_used: [나, 다, 라, 마]
+  subpart_links: '(2)는 (1)에서 구한 $f(t)=t^3-3t^2+4t$ ($1\le t<2$)를 사용'
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅱ]
+  scope_2028: common
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 곡선으로 둘러싸인 도형의 넓이를 구할 수 있다(요지)
+    verified: false
+  content_area: 적분 – 정적분의 활용(넓이)
+  behavior_domain: 문제해결
+  unit_path: [수학Ⅱ, 적분, 정적분의 활용, 넓이]
+  key_concepts: [구간별 함수, 절댓값 정적분, 정적분으로 정의된 함수, 증가와 감소]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 경희대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 경희대학교
+  admission_year: 2023
+  admission_type: 논술(논술우수자전형)
+  track: 자연계열
+  question_no: 2
+  official_url: https://iphak.khu.ac.kr/detail.do?menuurl=89BGs%2bk748ajyySWoWlQPw%3d%3d&board_seq=7867&pageNo=1&categoryid=27&userpwd=
+  retrieved_at: '2026-11-21'
+  original_points: 33
+  rights_notice: 경희대학교 입학처 공개 자료(기출문제·예시답안). 내부 분석용
+  note: '11.19(토) 오후 시험. 문제 = 4. 2023학년도 논술고사 기출문제(자연계)_11.19 오후.pdf p.2(문제지 3-2) · p.6~7(문항카드), 원 번호 [논제 Ⅱ], 해설 = 같은 파일 p.7(출제 의도·문항 해설) · p.8(채점 기준·예시답안) · p.9(예시답안 계속). 문항카드에 실린 제시문 [나]~[마]만 수록. 같은 소재가 의약학계 [논제 Ⅰ-1](KHU-G23D-01)에 (2)의 구간만 바꿔 출제됨.'
+
+verify: verify/KHU-G23A.py::p02
+
+stimuli:
+- label: 나
+  body: |
+    함수 $f(x)$가 어떤 열린구간에서 미분가능하고, 이 구간에 속하는 모든 $x$에서
+    ① $f'(x)>0$이면 $f(x)$는 그 구간에서 증가한다.
+    ② $f'(x)<0$이면 $f(x)$는 그 구간에서 감소한다.
+- label: 다
+  body: |
+    $a>b$일 때, 정적분 $\displaystyle\int_a^b f(x)\,dx$는 다음과 같이 정의한다.
+    $$\int_a^b f(x)\,dx=-\int_b^a f(x)\,dx$$
+- label: 라
+  body: |
+    함수 $f(x)$가 임의의 세 실수 $a$, $b$, $c$를 포함하는 닫힌구간 $[a,\ b]$에서 연속일 때,
+    $$\int_a^b f(x)\,dx=\int_a^c f(x)\,dx+\int_c^b f(x)\,dx$$
+- label: 마
+  body: |
+    함수 $f(t)$가 실수 $a$를 포함하는 구간에서 연속이면 이 구간에 속하는 임의의 $x$에 대하여
+    $$\dfrac{d}{dx}\int_a^x f(t)\,dt=f(x)$$
+
+stem: |
+  네 점 A$(1,\ 1)$, B$(3,\ 1)$, C$(3,\ 3)$, D$(1,\ 3)$을 꼭짓점으로 하는 정사각형 ABCD가 있다. 한 변의 길이가 2이고, 모든 변이 $x$축 또는 $y$축과 평행한 정사각형 PQRS의 두 대각선의 교점 M$(x,\ y)$의 위치는 $x=t$, $y=-t^2+3t$이다.
+  이때 $0<t<3$에서 두 정사각형이 겹치는 부분의 넓이를 $f(t)$라고 하자. (단, $f(0)=f(3)=0$)
+  [그림 설명: 좌표평면에 원점 O를 지나고 $x=3$에서 $x$축과 만나는 위로 볼록한 포물선 $y=-x^2+3x$가 그려져 있다. 정사각형 ABCD는 A(1,1)(왼쪽 아래), B(3,1), C(3,3), D(1,3)이며 $x=1$, $x=3$, $y=1$, $y=3$에 점선 보조선이 있다. 중심 M이 포물선 위(꼭짓점 왼쪽)에 있는 정사각형 PQRS가 P(왼쪽 아래), Q(오른쪽 아래), R(오른쪽 위), S(왼쪽 위) 순으로 그려져 있고, ABCD의 왼쪽 아래 부분과 겹친다.]
+
+subparts:
+- id: '1'
+  stem: |
+    함수 $f(t)$를 구하고, 함수 $g(t)=\begin{cases}2t & (t<2)\\ 12-4t & (t\ge2)\end{cases}$ 에 대하여 $\displaystyle\int_0^3\lvert f(t)-g(t)\rvert\,dt$의 값을 구하고, 그 근거를 논술하시오. (18점)
+  points: 18
+  depends_on: []
+  answer: {kind: value, value: '\dfrac{7}{12}', equivalents: ['7/12'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: 'M의 $y$좌표가 $t=1,2$에서 2, 2를 지나므로 구간별로 겹침 직사각형의 가로·세로가 달라진다. $f-g$는 각 구간에서 $\le0$.'
+    steps:
+    - id: 1a
+      content: |
+        $f(t)=-t^3+3t^2\ (0\le t<1)$, $t^3-3t^2+4t\ (1\le t<2)$, $t^3-7t^2+12t\ (2\le t\le3)$이고 $\int_0^3(g-f)\,dt=\dfrac14+\dfrac14+\dfrac1{12}$
+      criteria: [1.M1, 1.A2]
+    hint_ladder:
+    - 겹치는 부분은 항상 직사각형이다. 가로·세로를 $t$로 나타내 보자.
+    - 가로가 바뀌는 시점과 세로가 바뀌는 시점은 언제인가?
+    - $f(t)-g(t)$를 인수분해해 부호를 확인하자.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 예시답안 p.8~9
+    steps:
+    - id: 1b-1
+      content: |
+        $0<t<3$이면 두 정사각형이 겹치는 부분은 $t$의 값에 따라 다른 크기의 직사각형이 된다. 중심이 $(t,-t^2+3t)$인 정사각형의 꼭짓점은 P$(t-1,-t^2+3t-1)$, Q$(t+1,-t^2+3t-1)$, R$(t+1,-t^2+3t+1)$, S$(t-1,-t^2+3t+1)$이다.
+      criteria: [1.M1]
+    - id: 1b-2
+      content: |
+        [경우 1] $0<t<1$이면 겹치는 부분은 두 변의 길이가 $t$와 $-t^2+3t$인 직사각형이므로 $f(t)=t(-t^2+3t)=-t^3+3t^2$.
+        [경우 2] $1\le t<2$이면 두 변의 길이가 $t$와 $3-(-t^2+3t-1)$이므로 $f(t)=t(t^2-3t+4)=t^3-3t^2+4t$.
+        [경우 3] $2\le t<3$이면 두 변의 길이가 $3-(t-1)$과 $(-t^2+3t+1)-1$이므로 $f(t)=(-t+4)(-t^2+3t)=t^3-7t^2+12t$.
+        따라서 $f(t)=\begin{cases}-t^3+3t^2 & (0\le t<1)\\ t^3-3t^2+4t & (1\le t<2)\\ t^3-7t^2+12t & (2\le t\le3)\end{cases}$
+      criteria: [1.A1]
+    - id: 1b-3
+      content: |
+        [경우 1] $0\le t<1$: $f(t)-g(t)=(-t^3+3t^2)-2t=-t(t-1)(t-2)\le0$.
+        [경우 2] $1\le t<2$: $f(t)-g(t)=t^3-3t^2+2t=t(t-1)(t-2)\le0$.
+        [경우 3] $2\le t\le3$: $f(t)-g(t)=t^3-7t^2+16t-12=(t-2)^2(t-3)\le0$.
+      criteria: [1.M2]
+    - id: 1b-4
+      content: |
+        모든 $0\le t\le3$에서 $f(t)-g(t)\le0$이므로 제시문 [라]에 의해
+        $\displaystyle\int_0^3\lvert f(t)-g(t)\rvert\,dt=\int_0^1(t^3-3t^2+2t)\,dt+\int_1^2(-t^3+3t^2-2t)\,dt+\int_2^3(-t^3+7t^2-16t+12)\,dt=\dfrac14+\dfrac14+\dfrac1{12}=\dfrac7{12}$.
+      criteria: [1.A2]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 4
+      evidence: 정사각형 PQRS의 꼭짓점을 $t$로 나타내고 겹치는 부분이 직사각형임을 이용해 $t$의 구간을 나누었다.
+      depends_on: []
+      steps: [1b-1]
+    - id: 1.A1
+      mark_type: A
+      points: 5
+      evidence: 세 구간의 $f(t)$ 식 $-t^3+3t^2$, $t^3-3t^2+4t$, $t^3-7t^2+12t$를 모두 맞게 적었다.
+      depends_on: [1.M1]
+      steps: [1b-2]
+    - id: 1.M2
+      mark_type: M
+      points: 5
+      evidence: 각 구간에서 $f(t)-g(t)$를 인수분해하여 $f(t)-g(t)\le0$임을 보였다.
+      depends_on: []
+      steps: [1b-3]
+    - id: 1.A2
+      mark_type: A
+      points: 4
+      evidence: 구간별 정적분 $\dfrac14$, $\dfrac14$, $\dfrac1{12}$을 계산해 $\dfrac7{12}$를 얻었다.
+      depends_on: [1.M2]
+      steps: [1b-4]
+    deductions:
+    - code: D1-1
+      condition: 경계 $t=1$, $t=2$를 어느 구간에 넣는지 밝히지 않음(값은 연속이라 결과 불변)
+      effect: minus
+      value: 1
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-CAL-6504}
+  - {code: '71', misconception: MC-CAL-6505}
+  misconceptions:
+  - id: MC-CAL-6504
+    outcome_code: '70'
+    wrong_work: '$f(t)=t(-t^2+3t)$를 $0<t<3$ 전체에 씀'
+    detect_cue: $f(t)$가 한 식이거나 구간이 두 개뿐
+    feedback: 정사각형이 ABCD의 위쪽 변 $y=3$이나 오른쪽 변 $x=3$을 넘는 시점마다 가로·세로 식이 바뀝니다.
+    remedy: [RL-1]
+  - id: MC-CAL-6505
+    outcome_code: '71'
+    wrong_work: '$\displaystyle\int_0^3(f-g)\,dt$를 그대로 계산해 음수 또는 부호가 섞인 값을 답함'
+    detect_cue: 답이 $-\dfrac7{12}$이거나 구간마다 부호가 다른 값을 더함
+    feedback: 절댓값 적분은 먼저 피적분함수의 부호를 구간별로 판정해야 합니다.
+    remedy: [RL-2]
+- id: '2'
+  stem: |
+    상수 $a$에 대하여 곡선 $y=f(t)$ $(1\le t\le2)$, 직선 $y=f(a)$ 및 두 직선 $t=1$, $t=2$로 둘러싸인 부분의 넓이를 $S(a)$라고 하자. $1<a<2$일 때 $S(a)$가 최소가 되는 $a$의 값을 구하고, 그 근거를 논술하시오. (15점)
+  points: 15
+  depends_on: ['1']
+  answer: {kind: value, value: '\dfrac{3}{2}', equivalents: ['3/2', '1.5'], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: $f$가 $[1,2]$에서 증가하므로 $S(a)=(2a-3)f(a)-\int_1^af-\int_2^af$, $S'(a)=(2a-3)f'(a)$.
+    steps:
+    - {id: 2a, content: '$f''(a)>0$이므로 $S''(a)=0\iff a=\dfrac32$, 부호 음→양', criteria: [2.M2, 2.A2]}
+    hint_ladder:
+    - $[1,2]$에서 $f$의 증가·감소를 먼저 확인하자.
+    - $t=a$ 좌우에서 곡선과 직선 중 어느 것이 위에 있는가?
+  - id: S2-B
+    audience: B
+    method_no: 1
+    source_flow: 예시답안 p.9
+    steps:
+    - id: 2b-1
+      content: |
+        $1<t<2$에서 $f'(t)=3t^2-6t+4=3(t-1)^2+1>0$이므로 제시문 [나]에 의해 $f(t)$는 $1\le t\le2$에서 증가한다.
+      criteria: [2.M1]
+    - id: 2b-2
+      content: |
+        따라서 $S(a)=(a-1)f(a)-\displaystyle\int_1^af(x)\,dx+\int_a^2f(x)\,dx-(2-a)f(a)=(2a-3)f(a)-\int_1^af(x)\,dx-\int_2^af(x)\,dx$가 된다(제시문 [다]).
+      criteria: [2.A1]
+    - id: 2b-3
+      content: |
+        제시문 [마]에 의해 $S'(a)=2f(a)+(2a-3)f'(a)-f(a)-f(a)=(2a-3)f'(a)$이다.
+      criteria: [2.M2]
+    - id: 2b-4
+      content: |
+        $1<a<2$에서 $f'(a)>0$이므로 $S'(a)=0$인 $a$는 $\dfrac32$뿐이다. 또한 $1<a<\dfrac32$에서 $S'(a)<0$이고 $\dfrac32<a<2$에서 $S'(a)>0$이므로 $S(a)$는 $a=\dfrac32$에서 최솟값을 갖는다.
+      criteria: [2.A2]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 4
+      evidence: $1\le t\le2$에서 $f'(t)=3(t-1)^2+1>0$으로 $f$가 증가함을 밝혔다.
+      depends_on: []
+      steps: [2b-1]
+    - id: 2.A1
+      mark_type: A
+      points: 4
+      evidence: $S(a)=(2a-3)f(a)-\int_1^af(x)\,dx-\int_2^af(x)\,dx$ 또는 동치인 넓이 식을 세웠다.
+      depends_on: [2.M1]
+      steps: [2b-2]
+    - id: 2.M2
+      mark_type: M
+      points: 3
+      evidence: 미적분의 기본정리로 $S'(a)=(2a-3)f'(a)$를 구했다.
+      depends_on: []
+      steps: [2b-3]
+    - id: 2.A2
+      mark_type: A
+      points: 4
+      evidence: $S'(a)$의 부호 변화(음→양)를 근거로 최소인 $a=\dfrac32$를 답했다.
+      depends_on: [2.M2]
+      steps: [2b-4]
+    deductions:
+    - code: D2-1
+      condition: $S'(a)=0$의 근만 구하고 최소임을 판정하지 않음
+      effect: minus
+      value: 2
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '72', misconception: MC-CAL-6506}
+  - {code: '73', misconception: MC-CAL-6507}
+  misconceptions:
+  - id: MC-CAL-6506
+    outcome_code: '72'
+    wrong_work: '$S(a)=(2a-3)f(a)-\cdots$를 미분할 때 $2f(a)$ 항이나 $-f(a)$ 항을 빠뜨려 $S''(a)=(2a-3)f''(a)+\cdots$가 정리되지 않음'
+    detect_cue: $S'(a)$가 $(2a-3)f'(a)$ 꼴이 아니고 답이 $\dfrac32$가 아님
+    feedback: 곱 $(2a-3)f(a)$는 곱의 미분으로, $\int_1^af$는 제시문 [마]로 미분합니다.
+    remedy: [RL-3]
+  - id: MC-CAL-6507
+    outcome_code: '73'
+    wrong_work: '$f$의 증가를 확인하지 않고 $S(a)=\int_1^2(f(t)-f(a))\,dt$로 둠'
+    detect_cue: $S(a)$가 $a$에 대한 일차식 $\times f(a)$ 꼴 없이 $\int_1^2f-f(a)$
+    feedback: 곡선과 직선의 위아래가 $t=a$에서 바뀌므로 넓이는 두 구간으로 나눠야 합니다.
+    remedy: [RL-4]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CAL-6504}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-PIECEWISE-OVERLAP}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-CAL-6505}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-ABS-INTEGRAL}
+  priority: 1
+- id: RL-3
+  trigger: {type: misconception, ref: MC-CAL-6506}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-FTC-DIFF}
+  priority: 1
+- id: RL-4
+  trigger: {type: misconception, ref: MC-CAL-6507}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-FTC-DIFF}
+  priority: 2
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-input-v1, item_version: 1, verdict: pass, date: 2026-11-21, note: 원문 PDF 이미지 판독으로 옮김 · 해설은 경희대 예시답안 흐름}
+
+created: 2026-11-21
+updated: 2026-11-21

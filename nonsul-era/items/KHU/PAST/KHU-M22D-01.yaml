@@ -1,0 +1,226 @@
+schema_version: '2.0'
+id: KHU-M22D-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: KHU
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 최적2단
+points: 15
+time_estimate_min: 20
+intent: 지수함수를 합성한 함수의 조건에서 계수를 결정해 최솟값의 함수가 최댓값을 갖는지 판정하는 능력을 본다.
+key_idea: $b=12$, $c=-9a$, 극값 조건 $a<-12$를 얻고, 최솟값 $k(a)=\dfrac34a^3-9a$가 $a<-12$에서 증가하므로 최댓값이 없다.
+stuck: 극값 조건으로 얻은 범위 $a<-12$가 끝점을 포함하지 않아 최댓값이 존재하지 않음을 판단하는 단계
+idea_tags: [IDEA-EXP-SUBSTITUTE-POLY, IDEA-OPEN-INTERVAL-NO-MAX]
+tags: [경희 모의, 지수함수의 미분, 극값, 최대·최소]
+elements:
+  materials: ['삼차함수 $f(x)=4x^3+ax^2+bx+c$와 $g(x)=f(e^x)$', '조건 (ㄱ)(ㄴ)(ㄷ)', '$h(x)=g(x)-2(a^2+6)e^x$의 최솟값']
+  concepts: [지수함수의 도함수, 극한, 극대·극소, 함수의 증가·감소, 최대·최소]
+  tools: ['항등식에 $x=1$ 대입으로 계수 결정', '$A=e^x$ 치환으로 이차식의 양근 조건', 'k(a)의 도함수 부호로 증가 판정']
+  conditions:
+  - '(ㄱ) 모든 실수 $x$에서 $g\,''(x)=e^{4x}g\,''(-x)$ ⇒ $b=12$'
+  - '(ㄴ) $\lim_{x\to-\infty}g(x)=-9a$ ⇒ $c=-9a$'
+  - '(ㄷ) 극값이 적어도 하나 ⇒ $6A^2+aA+6$이 중근이 아닌 양의 근을 가짐 ⇒ $a<-12$ (끝점 미포함)'
+  stimuli_used: [가, 나]
+  subpart_links: null
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅱ, 미적분]
+  scope_2028: calc2
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 지수함수와 로그함수를 미분할 수 있다(요지)
+    verified: false
+  content_area: 미분법 – 지수함수의 도함수, 도함수의 활용(극값·최대·최소)
+  behavior_domain: 추론
+  unit_path: [미적분, 미분법, 도함수의 활용, 함수의 최대·최소]
+  key_concepts: [지수함수의 도함수, 극값, 최대·최소]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 경희대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 경희대학교
+  admission_year: 2022
+  admission_type: 논술(모의)
+  track: 의·약학계열(수학)
+  question_no: 1
+  official_url: 'https://iphak.khu.ac.kr/detail.do?menuurl=89BGs%2bk748ajyySWoWlQPw%3d%3d&board_seq=2097&pageNo=1&categoryid=27&userpwd='
+  retrieved_at: '2026-11-21'
+  original_points: 15
+  rights_notice: 경희대학교 입학처 공개 자료(기출문제·예시답안). 내부 분석용
+  note: '문제 = [의학계_수학] 2022학년도 모의논술 문제지_최종.pdf p.2, 원 번호 [논제 I-1], 해설 = [의학계_수학] 2022학년도 모의논술 예시답안 및 문항해설_최종.pdf p.1(예시답안), p.4(문항 해설). 공식 채점 기준 미공개 — 배점(15)은 원문, 마크 배분은 자체. 예시답안은 조건을 ''조건(가)(나)(다)''로 부르나 문제지는 (ㄱ)(ㄴ)(ㄷ). 공식 답은 ''최솟값이 최대가 되는 a는 없다''. 자연계 [논제 1]-(2)(KHU-M22-01)와 같은 문항.'
+
+verify: verify/KHU-M22D.py::p01
+
+stimuli:
+- label: 가
+  body: |
+    미분가능한 함수 $f(x)$에 대하여 $f'(a)=0$이고 $x=a$의 좌우에서
+    (1) $f'(x)$의 부호가 양에서 음으로 바뀌면 $f(x)$는 $x=a$에서 극대이다.
+    (2) $f'(x)$의 부호가 음에서 양으로 바뀌면 $f(x)$는 $x=a$에서 극소이다.
+- label: 나
+  body: |
+    함수 $f(x)$에서 $x$의 값이 음수이면서 그 절댓값이 한없이 커질 때, $f(x)$의 값이 일정한 값 $L$에 한없이 가까워지면 이것을 기호로
+    $$\lim_{x\to-\infty}f(x)=L\quad\text{또는}\quad x\to-\infty\text{일 때 }f(x)\to L$$
+    과 같이 나타낸다.
+- label: 다
+  body: |
+    사인함수와 코사인함수의 도함수
+    (1) $y=\sin x$이면 $y'=\cos x$
+    (2) $y=\cos x$이면 $y'=-\sin x$
+- label: 라
+  body: |
+    서로 다른 $n$개에서 $r\ (0\le r\le n)$개를 택하는 조합의 수는
+    $${}_nC_r=\dfrac{n!}{r!(n-r)!}$$
+
+stem: |
+  Ⅰ. 다음 제시문을 읽고 논제에 답하시오. (60점)
+  [논제 I] 제시문 [가]~[라]를 읽고 다음 질문에 답하시오.
+  [논제 I-1]
+
+subparts:
+- id: '1'
+  stem: |
+    삼차함수 $f(x)=4x^3+ax^2+bx+c$ ($a,b,c$ 상수)에 대하여 함수 $g(x)=f(e^x)$가 다음 조건을 만족시킨다.
+    (ㄱ) 모든 실수 $x$에 대하여 $g'(x)=e^{4x}g'(-x)$이다.
+    (ㄴ) $\displaystyle\lim_{x\to-\infty}g(x)=-9a$이다.
+    (ㄷ) 함수 $g(x)$는 최소한 하나의 극값을 가진다.
+    이러한 모든 함수 $g(x)$에 대하여, 함수 $h(x)=g(x)-2(a^2+6)e^x$의 최솟값이 최대가 되는 $a$의 값을 구하고, 그 근거를 논술하시오. (15점)
+  points: 15
+  depends_on: []
+  answer: {kind: value, value: '존재하지 않는다', equivalents: ['최솟값이 최대가 되는 a는 없다'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $b=12$, $c=-9a$, $a<-12$; $h$의 최솟값 $k(a)=\dfrac34a^3-9a$는 $a<-12$에서 증가하고 끝점이 없으므로 최댓값이 없다.
+    steps:
+    - {id: 1a, content: '$k\,''(a)=\dfrac94(a^2-4)>0$ ($a<-12$) ⇒ 최대가 되는 $a$ 없음', criteria: [1.M1, 1.A1, 1.M2, 1.A2, 1.M3, 1.A3, 1.R1]}
+    hint_ladder:
+    - (ㄱ)의 양변을 $e^x$의 거듭제곱으로 정리해 비교하자.
+    - $A=e^x$로 두면 $g'(x)=0$은 $A$에 대한 이차방정식이 된다.
+    - 최솟값을 $a$의 함수로 보고, $a$의 범위에 끝점이 있는지 살펴보자.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 예시답안 p.1
+    steps:
+    - id: 1b-1
+      content: |
+        $g(x)=4e^{3x}+ae^{2x}+be^x+c$를 미분하면 $g'(x)=12e^{3x}+2ae^{2x}+be^x$이고, 조건 (ㄱ) $g'(x)=e^{4x}g'(-x)$로부터 $12e^{3x}+2ae^{2x}+be^x=e^{4x}(12e^{-3x}+2ae^{-2x}+be^{-x})=12e^x+2ae^{2x}+be^{3x}$. $x=1$을 대입하면 $12e^3+2ae^2+be=12e+2ae^2+be^3$이 되고, $b=12$임을 알 수 있다.
+      criteria: [1.M1]
+    - id: 1b-2
+      content: |
+        그래서 $g(x)=4e^{3x}+ae^{2x}+12e^x+c$이다. $\displaystyle\lim_{x\to-\infty}g(x)=\lim_{x\to-\infty}(4e^{3x}+ae^{2x}+12e^x+c)=c$이므로 조건 (ㄴ)으로부터 $c=-9a$이다(제시문 [나]).
+      criteria: [1.A1]
+    - id: 1b-3
+      content: |
+        조건 (ㄷ) 함수 $g(x)$가 최소한 하나의 극값을 가져야 하기에 도함수 $g'(x)=12e^{3x}+2ae^{2x}+12e^x$가 부호가 바뀌는 근을 가진다(제시문 [가]). $A=e^x$라 하면 $12A^3+2aA^2+12A=2A(6A^2+aA+6)$이 중근이 아닌 양의 근을 가져야 한다. $A>0$이므로 이차함수 $y=6A^2+aA+6$이 중근이 아닌 양의 근을 가져야 한다.
+      criteria: [1.M2]
+    - id: 1b-4
+      content: |
+        판별식 $a^2-4\cdot6\cdot6>0$이므로 $|a|>12$이다. 양의 근을 가지기 위하여 꼭짓점의 $A$좌표가 양수이므로 $a<0$이다. 이로부터 $a<-12$이다.
+      criteria: [1.A2]
+    - id: 1b-5
+      content: |
+        $h(x)=g(x)-2(a^2+6)e^x=4e^{3x}+ae^{2x}-2a^2e^x-9a$이고 $h'(x)=12e^{3x}+2ae^{2x}-2a^2e^x=2e^x(6e^{2x}+ae^x-a^2)=2e^x(3e^x-a)(2e^x+a)$이다. $a<0$이므로 $e^x=-\dfrac{a}{2}$, 즉 $x=\ln\left(-\dfrac{a}{2}\right)$만 근이 된다. $h'(x)$가 이 점에서 음에서 양으로 부호가 바뀌므로 $h(x)$는 $x=\ln\left(-\dfrac a2\right)$에서 최소이고, $h\left(\ln\left(-\dfrac a2\right)\right)=4\left(-\dfrac a2\right)^3+a\left(-\dfrac a2\right)^2-2a^2\left(-\dfrac a2\right)-9a=\dfrac34a^3-9a$가 최솟값이다.
+      criteria: [1.M3, 1.A3]
+    - id: 1b-6
+      content: |
+        함수 $k(a)=\dfrac34a^3-9a$라 하면 $k'(a)=\dfrac94a^2-9=\dfrac94(a^2-4)$이다. $a<-12$에서 $k'(a)$의 부호가 항상 양이므로 $k(a)$는 증가함수이다. $a<-12$에는 끝점이 포함되지 않으므로 $k(a)$는 최댓값을 가지지 않는다. 그래서 함수 $h(x)$의 최솟값이 최대가 되는 $a$는 없다.
+      criteria: [1.R1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 2
+      evidence: 조건 (ㄱ)을 정리해 $b=12$를 구했다.
+      depends_on: []
+      steps: [1b-1]
+    - id: 1.A1
+      mark_type: A
+      points: 2
+      evidence: 조건 (ㄴ)에서 $c=-9a$를 구했다.
+      depends_on: [1.M1]
+      steps: [1b-2]
+    - id: 1.M2
+      mark_type: M
+      points: 2
+      evidence: $A=e^x$ 치환으로 극값 조건을 $6A^2+aA+6$이 중근이 아닌 양의 근을 가질 조건으로 바꾸었다.
+      depends_on: []
+      steps: [1b-3]
+    - id: 1.A2
+      mark_type: A
+      points: 2
+      evidence: 판별식과 꼭짓점 조건으로 $a<-12$를 구했다.
+      depends_on: [1.M2]
+      steps: [1b-4]
+    - id: 1.M3
+      mark_type: M
+      points: 2
+      evidence: $h'(x)=2e^x(3e^x-a)(2e^x+a)$로 인수분해하고 $x=\ln\left(-\dfrac a2\right)$에서 최소임을 부호 변화로 밝혔다.
+      depends_on: []
+      steps: [1b-5]
+    - id: 1.A3
+      mark_type: A
+      points: 2
+      evidence: 최솟값 $\dfrac34a^3-9a$를 구했다.
+      depends_on: [1.M3]
+      steps: [1b-5]
+    - id: 1.R1
+      mark_type: R
+      points: 3
+      evidence: $k(a)=\dfrac34a^3-9a$가 $a<-12$에서 증가하고 끝점이 포함되지 않아 최댓값이 없으므로, 조건을 만족하는 $a$가 없다고 결론지었다.
+      depends_on: [1.A2, 1.A3]
+      steps: [1b-6]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-CAL-6612}
+  - {code: '71', misconception: MC-CAL-6613}
+  misconceptions:
+  - id: MC-CAL-6612
+    outcome_code: '70'
+    wrong_work: '$k(a)$가 증가하므로 $a=-12$에서 최대라고 답함'
+    detect_cue: 답이 $a=-12$
+    feedback: $a<-12$에는 $-12$가 포함되지 않습니다. 끝점이 없는 구간에서 증가함수는 최댓값을 갖지 않습니다.
+    remedy: [RL-2]
+  - id: MC-CAL-6613
+    outcome_code: '71'
+    wrong_work: '판별식 $\ge0$으로 두어 $a\le-12$를 얻고 $a=-12$를 답함'
+    detect_cue: 극값 조건에 등호($a\le-12$)가 있다
+    feedback: 도함수가 중근을 가지면 부호가 바뀌지 않아 극값이 아닙니다. 판별식 $>0$이어야 합니다.
+    remedy: [RL-3]
+
+
+remedy_links:
+- id: RL-2
+  trigger: {type: misconception, ref: MC-CAL-6612}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-MAXMIN-INTERVAL}
+  priority: 1
+- id: RL-3
+  trigger: {type: misconception, ref: MC-CAL-6613}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-EXP-EXTREMA}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-input-v1, item_version: 1, verdict: pass, date: 2026-11-21, note: 원문 PDF 이미지 판독으로 옮김 · 해설은 경희대 예시답안 흐름}
+
+created: 2026-11-21
+updated: 2026-11-21

@@ -1,0 +1,286 @@
+schema_version: '2.0'
+id: KHU-M27-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: KHU
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 분류
+points: 30
+time_estimate_min: 35
+intent: 구간별로 정의된 함수의 미분가능성으로 함수를 결정하고, 영역 내부 격자점 수를 거듭제곱의 합으로 구해 극한을 계산하며, 접선을 이용해 곡선과 직선의 교점 개수를 기울기에 따라 분류하는 능력을 본다.
+key_idea: '$f''(0)=g''(0)$에서 $f(x)=x(x+n)(x-1)$, 격자점 수는 $\sum(f(-k)-1)$, $\sum(-g(k)-1)$이고, 교점 개수는 $-g$에 그은 접선 기울기 $a_1=(3-2\sqrt2)n$과 $f''(-n)=n^2+n$을 경계로 바뀐다.'
+stuck: (2)에서 $(-n,0)$을 지나는 직선이 $y=-g(x)$에 접하는 경계 기울기를 찾고, 구간 $(-n,0)$·$(0,n)$·$x>n$에서의 교점을 빠짐없이 세는 단계
+idea_tags: [IDEA-PIECEWISE-DIFF-MATCH, IDEA-LATTICE-COUNT-SIGMA, IDEA-TANGENT-SLOPE-BOUNDARY]
+tags: [격자점, 거듭제곱의 합, 교점 개수 분류, 경희 모의]
+elements:
+  materials: [최고차항의 계수가 1인 삼차함수 f(x)와 이차함수 g(x), 구간별로 정의된 함수 h(x), y=|h(x)|의 그래프와 x축으로 둘러싸인 두 영역, 영역 내부의 격자점, 점 (-n,0)을 지나는 기울기 양수인 직선]
+  concepts: [미분가능성(이음점에서 미분계수 일치), 자연수 거듭제곱의 합, 수열의 극한(최고차항 비교), 접선의 방정식, 곡선과 직선의 교점 개수]
+  tools: [인수 정리로 f(x)=x(x+n)(x-c) 설정, f'(0)=g'(0)로 c 결정, 세로선 x=-k 위 격자점 f(-k)-1개 합산, 시그마 공식으로 닫힌 식, 최고차항 계수비로 극한, 곡선 밖의 점을 지나는 접선 조건으로 경계 기울기 계산]
+  conditions:
+  - 'h가 원점에서 미분가능 ⇒ $f''(0)=g''(0)$ 이고 $f(0)=g(0)=0$'
+  - '내부 영역(경계 제외) ⇒ $x=-k$ 위에서 $0<y<f(-k)$ 인 정수 $y$의 개수 $f(-k)-1$'
+  - '직선의 기울기 양수 ⇒ $x<-n$ 에서는 교점 없음, $x>n$ 에서는 항상 1개'
+  - '$a=a_1$ 은 $y=-g(x)$에 1사분면에서 접하는 기울기, $a=a_2$ 는 $(-n,0)$에서 $y=f(x)$에 접하는 기울기'
+  stimuli_used: [가, 나]
+  subpart_links: '(2)는 (1)에서 구한 $f(x)=x(x+n)(x-1)$, $g(x)=x(x-n)$을 사용'
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅰ, 수학Ⅱ, 미적분]
+  scope_2028: calc2
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 미분가능성과 접선의 방정식을 활용하여 함수의 그래프와 직선의 위치 관계를 판단할 수 있다(요지)
+    verified: false
+  content_area: 미분 – 미분가능성·접선 / 수열 – 거듭제곱의 합 / 수열의 극한
+  behavior_domain: 문제해결
+  unit_path: [수학Ⅱ, 미분, 도함수의 활용, 접선과 교점 개수]
+  key_concepts: [미분가능성, 자연수 거듭제곱의 합, 수열의 극한, 접선의 방정식]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 경희대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 경희대학교
+  admission_year: 2027
+  admission_type: 논술(모의)
+  track: 자연계열
+  question_no: 1
+  official_url: https://iphak.khu.ac.kr/detail.do?menuurl=89BGs%2bk748ajyySWoWlQPw%3d%3d&board_seq=18071&pageNo=1&categoryid=27&userpwd=
+  retrieved_at: '2026-11-21'
+  original_points: 30
+  rights_notice: 경희대학교 입학처 공개 자료(기출문제·예시답안). 내부 분석용
+  note: 문제 = 3-1. [자연계] 2027 모의논술고사 문제지_fv.pdf p.2, 원 번호 [논제 Ⅰ], 해설 = 3-2. [자연계] 2027 모의논술고사 예시답안및채점기준_fv.pdf p.1~2. 제시문 [가]~[라]는 시험지 공통(논제 Ⅰ~Ⅲ). 공식 예시답안 (2)는 점의 개수 표와 a1·a2 계산만 제시 — 표의 근거(구간별 교점 수)는 보충함
+
+verify: verify/KHU-M27.py::p01
+
+stimuli:
+- label: 가
+  body: |
+    접선의 방정식
+    함수 $f(x)$가 $x=a$에서 미분가능할 때, 곡선 $y=f(x)$ 위의 점 $\mathrm{P}(a,f(a))$에서의 접선의 방정식은
+    $$y-f(a)=f'(a)(x-a)$$
+- label: 나
+  body: |
+    수렴하는 두 수열 $\{a_n\}$, $\{b_n\}$에 대하여 다음 성질이 성립한다.
+    $$\lim_{n\to\infty}(a_n+b_n)=\lim_{n\to\infty}a_n+\lim_{n\to\infty}b_n,\quad \lim_{n\to\infty}\dfrac{a_n}{b_n}=\dfrac{\lim_{n\to\infty}a_n}{\lim_{n\to\infty}b_n}\quad(\text{단, }b_n\neq0,\ \lim_{n\to\infty}b_n\neq0)$$
+- label: 다
+  body: |
+    이산확률변수의 기댓값(평균)
+    이산확률변수 $X$의 확률질량함수가 $\mathrm{P}(X=x_i)=p_i\ (i=1,2,\cdots,n)$일 때, 확률변수 $X$의 기댓값(평균) $\mathrm{E}(X)$는
+    $$\mathrm{E}(X)=x_1p_1+x_2p_2+\cdots+x_np_n$$
+- label: 라
+  body: |
+    평면 $\beta$ 위에 있는 도형의 넓이를 $S$, 이 도형의 평면 $\alpha$ 위로의 정사영의 넓이를 $S'$이라고 할 때, 두 평면 $\alpha,\beta$가 이루는 각의 크기를 $\theta\ (0^\circ\le\theta\le90^\circ)$라고 하면
+    $$S'=S\cos\theta$$
+
+stem: |
+  [논제 Ⅰ] [배점 30점]
+
+subparts:
+- id: '1'
+  stem: |
+    $n$이 자연수일 때, 실수에서 정의된 최고차항의 계수가 각각 1인 삼차함수 $f(x)$와 이차함수 $g(x)$에 대하여 $f(x)=0$의 근이 $0,-n$을 포함하고, $g(x)=0$의 근이 $0,n$이라 하자. 함수 $h(x)=\begin{cases}f(x), & x\le0\\ g(x), & x>0\end{cases}$가 원점에서 미분가능할 때, $y=\lvert h(x)\rvert$의 그래프와 직선 $y=0$으로 둘러싸인 두 영역 중에서 $y$축 왼쪽의 내부 영역(경계 제외)을 $A_n$, $y$축 오른쪽의 내부 영역(경계 제외)을 $B_n$이라 하자. $A_n$ 및 $B_n$의 원소 중에서 $x$좌표와 $y$좌표가 모두 정수인 점의 개수를 각각 $a_n$, $b_n$이라 할 때, $\displaystyle\lim_{n\to\infty}\dfrac{a_n}{nb_n}$의 값을 구하고, 그 근거를 논술하시오. (13점)
+  points: 13
+  depends_on: []
+  answer: {kind: value, value: '\dfrac{1}{2}', equivalents: ['1/2', '0.5'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: 미분가능 조건으로 $f(x)=x(x+n)(x-1)$을 정하고, 세로선마다 격자점을 세어 $a_n\sim\dfrac{n^4}{12}$, $b_n\sim\dfrac{n^3}{6}$을 얻는다.
+    steps:
+    - {id: 1a, content: '$a_n=\sum_{k=1}^{n-1}(f(-k)-1)$, $b_n=\sum_{k=1}^{n-1}(-g(k)-1)$, 최고차항 비 $\dfrac{1/12}{1/6}=\dfrac12$', criteria: [1.M1, 1.M2, 1.A1]}
+    hint_ladder:
+    - $h$가 원점에서 미분가능하려면 $f'(0)$과 $g'(0)$은 어떤 관계여야 하는가?
+    - 직선 $x=-k$ 위에 있는 $A_n$의 격자점은 몇 개인가?
+    - $a_n$, $b_n$은 각각 $n$의 몇 차식인가?
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 예시답안 p.2 (3-2. [자연계] 예시답안및채점기준 PDF)
+    steps:
+    - id: 1b-1
+      content: |
+        $f(x)=0$의 두 근이 $0,-n$이므로 $f(x)=x(x+n)(x-c)$로 놓을 수 있다. $g(x)=x(x-n)$이고, $h(x)$가 원점에서 미분가능하므로 $-cn=f'(0)=g'(0)=-n$, 즉 $c=1$이다. 따라서 $f(x)=x(x+n)(x-1)$.
+        (보충) $-n<x<0$에서 $f(x)>0$, $0<x<n$에서 $g(x)<0$이므로 $A_n$은 $-n<x<0$, $0<y<f(x)$, $B_n$은 $0<x<n$, $0<y<-g(x)$이다.
+      criteria: [1.B1]
+    - id: 1b-2
+      content: |
+        (보충) 직선 $x=-k\ (k=1,\cdots,n-1)$ 위의 $A_n$의 격자점은 $y=1,2,\cdots,f(-k)-1$이므로
+        $$a_n=\sum_{k=1}^{n-1}(f(-k)-1)=\sum_{k=1}^{n-1}(-k^3+(n-1)k^2+nk-1)=-\left(\dfrac{n(n-1)}{2}\right)^2+\dfrac{n(n-1)^2(2n-1)}{6}+\dfrac{n^2(n-1)}{2}-n+1$$
+      criteria: [1.M1]
+    - id: 1b-3
+      content: |
+        $$b_n=\sum_{k=1}^{n-1}(-g(k)-1)=\sum_{k=1}^{n-1}(-k^2+nk-1)=-\dfrac{n(n-1)(2n-1)}{6}+\dfrac{n^2(n-1)}{2}-n+1$$
+      criteria: [1.M2]
+    - id: 1b-4
+      content: |
+        $a_n$의 $n^4$의 계수는 $-\dfrac14+\dfrac13$, $nb_n$의 $n^4$의 계수는 $-\dfrac13+\dfrac12=\dfrac16$이므로 분자·분모를 $n^4$으로 나누고 제시문 [나]를 쓰면
+        $$\lim_{n\to\infty}\dfrac{a_n}{nb_n}=\left(-\dfrac14+\dfrac13\right)\div\dfrac16=\dfrac12$$
+      criteria: [1.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.B1
+      mark_type: B
+      points: 3
+      evidence: $f'(0)=g'(0)$(원점에서의 미분가능성)으로 $c=1$을 얻어 $f(x)=x(x+n)(x-1)$을 구했다.
+      depends_on: []
+      steps: [1b-1]
+    - id: 1.M1
+      mark_type: M
+      points: 4
+      evidence: $a_n=\sum_{k=1}^{n-1}(f(-k)-1)$로 놓고 거듭제곱의 합 공식으로 $a_n$의 값($n$에 관한 식)을 구했다.
+      depends_on: []
+      steps: [1b-2]
+    - id: 1.M2
+      mark_type: M
+      points: 3
+      evidence: $b_n=\sum_{k=1}^{n-1}(-g(k)-1)$로 놓고 $b_n$의 값($n$에 관한 식)을 구했다.
+      depends_on: []
+      steps: [1b-3]
+    - id: 1.A1
+      mark_type: A
+      points: 3
+      evidence: 최고차항의 계수를 비교해 $\lim_{n\to\infty}\dfrac{a_n}{nb_n}=\dfrac12$을 구했다.
+      depends_on: [1.M1, 1.M2]
+      steps: [1b-4]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-CAL-6101}
+  - {code: '71', misconception: MC-CNT-6102}
+  misconceptions:
+  - id: MC-CAL-6101
+    outcome_code: '70'
+    wrong_work: '$f(x)=x(x+n)(x-c)$에서 $c$를 정하지 않거나 $f(x)=x^2(x+n)$ 등으로 임의로 정함'
+    detect_cue: $f'(0)=g'(0)$ 식이 없고 $f(x)$의 셋째 인수가 $x-1$이 아니다
+    feedback: 이음점에서 미분가능하려면 두 식의 함숫값과 미분계수가 모두 같아야 합니다. $f'(0)=g'(0)$을 세워 보세요.
+    remedy: [RL-1]
+  - id: MC-CNT-6102
+    outcome_code: '71'
+    wrong_work: '$x=-k$ 위의 격자점을 $f(-k)$개 또는 $f(-k)+1$개로 세어 $a_n=\sum f(-k)$로 씀'
+    detect_cue: 합의 일반항에 $-1$이 없다(극한값은 같아도 $a_n$ 식이 다름)
+    feedback: 경계를 제외한 내부이므로 $0<y<f(-k)$인 정수 $y$만 셉니다. 개수는 $f(-k)-1$입니다.
+    remedy: [RL-2]
+- id: '2'
+  stem: |
+    점 $(-n,0)$을 지나고 기울기가 양수인 직선이 곡선 $y=\lvert h(x)\rvert$와 만나는 점의 개수를 직선의 기울기에 따라 분류하고, 그 근거를 논술하시오. (17점)
+  points: 17
+  depends_on: ['1']
+  answer: {kind: set, value: '0<a<(3-2\sqrt2)n: 5개, a=(3-2\sqrt2)n: 4개, (3-2\sqrt2)n<a<n^2+n: 3개, a\ge n^2+n: 2개', equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: 교점은 항상 $(-n,0)$과 $x>n$의 1개, $(-n,0)$ 구간에서는 $a<f'(-n)$일 때 1개, $(0,n)$에서는 $-g$의 접선 기울기 $a_1$보다 작을 때 2개이다.
+    steps:
+    - {id: 2a, content: '$a_1=(3-2\sqrt2)n$, $a_2=f''(-n)=n^2+n$을 경계로 5, 4, 3, 2개', criteria: [2.R1, 2.M1, 2.A1, 2.B1]}
+    hint_ladder:
+    - 직선 $y=a(x+n)$이 각 구간 $(-n,0)$, $(0,n)$, $x>n$에서 $\lvert h\rvert$와 몇 번 만나는지 따로 보자.
+    - 기울기가 변하며 교점 수가 바뀌는 순간은 직선이 곡선에 접할 때이다.
+  - id: S2-B
+    audience: B
+    method_no: 1
+    source_flow: 예시답안 p.2 (3-2. [자연계] 예시답안및채점기준 PDF)
+    steps:
+    - id: 2b-1
+      content: |
+        점 $(-n,0)$을 지나는 직선의 방정식은 $y=a(x+n)$이다. 이 직선이 곡선 $y=-g(x)$와 1사분면에서 접할 때 직선의 기울기를 $a_1$, 곡선 $y=f(x)$와 $(-n,0)$에서 접할 때 직선의 기울기를 $a_2$라 하자.
+        (보충) 점 $(-n,0)$은 항상 교점이고, $x<-n$에서는 직선이 음수, $\lvert h\rvert$가 양수라 교점이 없으며, $x>n$에서는 $g(x)-a(x+n)$이 $x=n$에서 음수이고 이차함수이므로 교점이 정확히 1개이다. $-n<x<0$에서는 $f(x)=a(x+n)\iff x^2-x-a=0$이므로 음의 근 $\dfrac{1-\sqrt{1+4a}}{2}$가 $-n$보다 클 때, 즉 $a<a_2$일 때 1개이다. $0<x<n$에서는 $y=-g(x)$(위로 볼록)와 접할 때까지 2개, 접할 때 1개, 그 뒤로 0개이다.
+        $a$값에 따라 직선과 곡선 $y=\lvert h(x)\rvert$가 만나는 점의 개수는 다음과 같다.
+        $0<a<a_1$: 5개, $a=a_1$: 4개, $a_1<a<a_2$: 3개, $a\ge a_2$: 2개.
+      criteria: [2.R1]
+    - id: 2b-2
+      content: |
+        조건으로부터 $a_2=f'(-n)=n^2+n$이다. (제시문 [가]: $(-n,0)$에서의 접선의 기울기)
+      criteria: [2.B1]
+    - id: 2b-3
+      content: |
+        $a=a_1$이면 직선과 곡선 $y=-g(x)$가 1사분면의 한 점에서 접해야 한다. 접점의 $x$좌표를 $\alpha$라 하면 접선의 방정식은 $y=(n-2\alpha)(x-\alpha)-\alpha^2+n\alpha$이다. 이 직선이 점 $(-n,0)$을 지나므로 $\alpha^2+2n\alpha-n^2=0$이다.
+      criteria: [2.M1]
+    - id: 2b-4
+      content: |
+        이 방정식을 풀면 $\alpha>0$이므로 $\alpha=(\sqrt2-1)n$이다. 따라서 $a_1=n-2\alpha=(3-2\sqrt2)n$이다.
+      criteria: [2.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.R1
+      mark_type: R
+      points: 8
+      evidence: 직선의 기울기를 $0<a<a_1$, $a=a_1$, $a_1<a<a_2$, $a\ge a_2$로 분류하고 각각 교점 5, 4, 3, 2개를 근거와 함께 제시했다.
+      depends_on: []
+      steps: [2b-1]
+    - id: 2.M1
+      mark_type: M
+      points: 3
+      evidence: $y=-g(x)$ 위의 접점 $\alpha$에서의 접선이 $(-n,0)$을 지난다는 조건으로 $\alpha^2+2n\alpha-n^2=0$을 세웠다.
+      depends_on: []
+      steps: [2b-3]
+    - id: 2.A1
+      mark_type: A
+      points: 3
+      evidence: $\alpha=(\sqrt2-1)n$, 기울기 $a_1=(3-2\sqrt2)n$을 구했다.
+      depends_on: [2.M1]
+      steps: [2b-4]
+    - id: 2.B1
+      mark_type: B
+      points: 3
+      evidence: 기울기 $a_2=f'(-n)=n^2+n$을 구했다.
+      depends_on: []
+      steps: [2b-2]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '72', misconception: MC-CAL-6103}
+  - {code: '73', misconception: MC-CAL-6104}
+  misconceptions:
+  - id: MC-CAL-6103
+    outcome_code: '72'
+    wrong_work: '점 $(-n,0)$ 또는 $x>n$에서의 교점을 빼고 개수를 3, 2, 1, 0개로 셈'
+    detect_cue: 분류표의 개수가 공식 답보다 1~2 작다
+    feedback: 직선이 지나는 $(-n,0)$도 교점이고, $x>n$에서 이차함수 $g$는 직선을 반드시 한 번 넘어섭니다. 구간별로 따로 세세요.
+    remedy: [RL-3]
+  - id: MC-CAL-6104
+    outcome_code: '73'
+    wrong_work: '경계 기울기 $a_1$을 $-g''(0)=n$이나 $-g$의 꼭짓점을 지나는 기울기로 잡음'
+    detect_cue: $a_1$이 $n$, $\dfrac{n}{6}$ 등 근호 없는 값
+    feedback: 곡선 밖의 점에서 그은 접선은 접점 $(\alpha,-g(\alpha))$을 미지수로 두고 그 접선이 주어진 점을 지나는 조건을 세워 구합니다.
+    remedy: [RL-3]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CAL-6101}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-PIECEWISE-DIFFERENTIABLE}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-CNT-6102}
+  relation: remediation
+  target: {kind: concept, ref: CON-CNT-LATTICE-REGION}
+  priority: 1
+- id: RL-3
+  trigger: {type: misconception, ref: MC-CAL-6103}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-TANGENT-THROUGH-POINT}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-input-v1, item_version: 1, verdict: pass, date: 2026-11-21, note: 원문 PDF 이미지 판독으로 옮김 · 해설은 경희대 예시답안 흐름}
+
+created: 2026-11-21
+updated: 2026-11-21

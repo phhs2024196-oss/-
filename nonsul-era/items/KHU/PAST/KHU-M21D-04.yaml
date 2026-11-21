@@ -1,0 +1,224 @@
+schema_version: '2.0'
+id: KHU-M21D-04
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: KHU
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 추론
+points: 15
+time_estimate_min: 15
+intent: 두 변과 끼인각의 사인으로 삼각형의 넓이를 구하고, 넓이의 합으로 이루어진 수열의 극한을 도형의 넓이로 해석해 추측하는 능력을 본다.
+key_idea: '$\overline{PQ_k}=\dfrac{2}{\sqrt{t_k^2+1}}$와 [논제 I-3]의 사인으로 $a_k$를 구하고, 삼각형들의 합집합이 직각이등변삼각형과 사분원으로 이루어진 영역에 가까워짐을 본다.'
+stuck: '$\overline{PQ_k}=2\cos\theta_k=\dfrac{2}{\sqrt{1+t_k^2}}$를 얻고, 합 $S_n$이 나타내는 영역을 그림으로 해석하는 단계'
+idea_tags: [IDEA-TRI-AREA-SINE-CHORD, IDEA-SUM-AREA-LIMIT-GEOMETRIC]
+tags: [삼각형 넓이의 합, 수열의 극한, 경희 모의, 의학계]
+elements:
+  materials: [단위원, 점 P(-1,0), t_k=k/n 에 대응하는 원 위의 점 Q_k (Q_0=(1,0), Q_n=(0,1)), 삼각형 PQ_kQ_(k+1), 넓이 a_k와 합 S_n]
+  concepts: [삼각형의 넓이(두 변과 끼인각), 삼각함수의 덧셈정리, 수열의 극한, 도형의 넓이]
+  tools: [PQ_k = 2cosθ_k = 2/√(t_k^2+1) (또는 논제 I-1 좌표로 거리), 논제 I-3의 sin(θ_(k+1)-θ_k) 대입, 삼각형 합집합 영역 = 다각형 P·Q_0·…·Q_n → 직각이등변삼각형+사분원]
+  conditions:
+  - '$t_{k+1}-t_k=\dfrac1n$'
+  - '극한은 추측 — 근거는 영역이 직각이등변삼각형 $OP(0,1)$과 제1사분면의 사분원 합에 가까워짐'
+  stimuli_used: [마, 라]
+  subpart_links: '[논제 I-1]의 $Q$ 좌표와 [논제 I-3]의 $\sin(\theta_2-\theta_1)$ 식을 이용, [논제 I-5]가 이 결과를 사용'
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅰ, 미적분]
+  scope_2028: calc2
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 수열의 극한값을 구할 수 있다(요지)
+    verified: false
+  content_area: 수열의 극한 – 넓이의 합의 극한
+  behavior_domain: 추론
+  unit_path: [미적분, 수열의 극한, 급수, 도형과 급수]
+  key_concepts: [삼각형의 넓이, 수열의 극한, 사분원의 넓이]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 경희대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 경희대학교
+  admission_year: 2021
+  admission_type: 논술(모의)
+  track: 의·약학계열(수학)
+  question_no: 4
+  official_url: https://iphak.khu.ac.kr/detail.do?menuurl=89BGs%2bk748ajyySWoWlQPw%3d%3d&board_seq=2102&pageNo=1&categoryid=27&userpwd=
+  retrieved_at: '2026-11-21'
+  original_points: 15
+  rights_notice: '경희대학교 입학처 공개 자료(기출문제·예시답안). 내부 분석용'
+  note: |
+    문제 = 3. 2021 모의논술 문제지(의학계 ).pdf p.2(제시문 p.1), 원 번호 [논제 I-4], 해설 = 3. 예시답안, 출제개요(의학계).pdf p.1, p.2(문항 해설).
+    채점 기준 미공개(모의 자료는 예시답안·문항 해설만 있음) — 논제 배점은 원문, 마크 단위 배점은 자체 배분.
+    [판독확인] [그림 3]: $(0,1)$ 위치의 점에 '$Q_1$'로 표기됨 — $t_n=1$에 대응하는 $Q_n$의 오기로 보임(원문 그대로 그림 설명에 기록).
+    [판독확인] 발문 원문에 '[논제 1-1]과 같은 방법'으로 표기(다른 곳은 [논제 I-1]) — 원문 그대로.
+    극한값은 원문 요구대로 '추측'이며, 엄밀한 값은 [논제 I-5]에서 정적분으로 확정됨.
+
+verify: verify/KHU-M21D.py::p04
+
+stimuli:
+- label: 가
+  body: |
+    두 변수 $x,y$사이의 관계를 변수 $t$를 매개로 하여 $\begin{cases}x=f(t)\\y=g(t)\end{cases}$의 꼴로 나타낼 때, 변수 $t$를 매개변수라고 하며, 이 함수를 매개변수로 나타낸 함수라고 한다.
+- label: 나
+  body: |
+    매개변수로 나타낸 두 함수 $x=f(t)$와 $y=g(t)$가 $t$에 대하여 미분가능하고 $f'(t)\ne0$이면, $\dfrac{dy}{dx}=\dfrac{\frac{dy}{dt}}{\frac{dx}{dt}}=\dfrac{g'(t)}{f'(t)}$이다.
+- label: 다
+  body: |
+    두 함수 $f(x),g(x)\ (g(x)\ne0)$가 미분가능할 때,
+    $y=\dfrac{1}{g(x)}$이면 $y'=-\dfrac{g'(x)}{g(x)^2}$이고, $y=\dfrac{f(x)}{g(x)}$이면 $y'=\dfrac{f'(x)g(x)-f(x)g'(x)}{g(x)^2}$이다.
+- label: 라
+  body: |
+    삼각함수의 덧셈정리
+    $\sin(\alpha+\beta)=\sin\alpha\cos\beta+\cos\alpha\sin\beta$, $\sin(\alpha-\beta)=\sin\alpha\cos\beta-\cos\alpha\sin\beta$
+    $\cos(\alpha+\beta)=\cos\alpha\cos\beta-\sin\alpha\sin\beta$, $\cos(\alpha-\beta)=\cos\alpha\cos\beta+\sin\alpha\sin\beta$
+    $\tan(\alpha+\beta)=\dfrac{\tan\alpha+\tan\beta}{1-\tan\alpha\tan\beta}$, $\tan(\alpha-\beta)=\dfrac{\tan\alpha-\tan\beta}{1+\tan\alpha\tan\beta}$
+- label: 마
+  body: |
+    삼각형 $ABC$의 넓이를 $S$라고 하면, $S=\dfrac12\overline{AB}\,\overline{AC}\sin A=\dfrac12\overline{BA}\,\overline{BC}\sin B=\dfrac12\overline{CA}\,\overline{CB}\sin C$ 이다.
+- label: 바
+  body: |
+    두 수열 $\{a_n\}$과 $\{b_n\}$이 수렴하고, $\lim\limits_{n\to\infty}a_n=\alpha$, $\lim\limits_{n\to\infty}b_n=\beta$ ($\alpha,\beta$는 실수) 일 때, 1) 모든 자연수 $n$에 대하여 $a_n\le b_n$ 이면 $\alpha\le\beta$이다. 2) 수열 $\{c_n\}$이 모든 자연수 $n$에 대하여 $a_n\le c_n\le b_n$이고 $\alpha=\beta$이면, 수열 $\{c_n\}$은 수렴하고, $\lim\limits_{n\to\infty}c_n=\alpha$ 이다.
+- label: 사
+  body: |
+    함수 $f(x)$가 닫힌구간 $[a,b]$에서 연속일 때. $\displaystyle\int_a^b f(x)\,dx=\lim_{n\to\infty}\sum_{k=1}^{n}f(x_k)\Delta x$ (단, $\Delta x=\dfrac{b-a}{n}$, $x_k=a+k\Delta x$) 이다.
+
+stem: |
+  Ⅰ. 다음 제시문을 읽고 논제에 답하시오.(60점)
+  [그림 1 설명: 원점 $O$를 중심으로 하는 단위원과 점 $P(-1,0)$. $P$와 $y$축 위의 점 $(0,t)$를 지나는 직선이 원과 제1사분면에서 다시 만나는 점이 $Q$이다.]
+  [그림 2 설명: 같은 단위원에서 $P$를 지나는 두 직선이 $y$축과 각각 $t_1$(아래), $t_2$(위)에서 만나고, 원과 다시 만나는 점이 각각 $Q_1$, $Q_2$이다($Q_2$가 $Q_1$보다 위쪽).]
+  [그림 3 설명: 같은 단위원에서 $P$를 지나는 여러 직선이 원과 $Q_0(1,0)$, …, $Q_{k-1}$, $Q_k$, $Q_{k+1}$, …에서 만나고, 맨 위 직선은 원과 $y$축 위의 점 $(0,1)$에서 만난다(그림에는 이 점에 '$Q_1$'로 표기됨). 원점 부근에 $t_0$가 표기되어 있고, $P$, $Q_k$, $Q_{k+1}$을 잇는 삼각형과 이웃한 점을 잇는 현이 그려져 있다.]
+  [논제 I-4] 주어진 자연수 $n$과 $0\le k\le n$인 정수 $k$에 대하여 $t_k=\dfrac{k}{n}$라고 하자. 각각의 $t_k$마다 [논제 1-1]과 같은 방법으로 얻어지는 원 위의 점을 $Q_k$라고 하자. [그림 3]의 삼각형 $PQ_kQ_{k+1}$의 넓이 $a_k$를 구하시오. $S_n$을 $\sum\limits_{k=0}^{n-1}a_k$라고 할 때, 극한값 $\lim\limits_{n\to\infty}S_n$을 추측하고, 그 근거를 논하시오 (15점).
+  ([논제 I-1]: 실수 $t$가 $0\le t\le1$을 만족한다고 하자. [그림 1]과 같이 좌표평면 위의 점 $P(-1,0)$과 점 $(0,t)$를 지나는 직선이 원점을 중심으로 갖는 단위원과 만나는 다른 한 점을 $Q$라고 하자. [논제 I-3]: [그림 2]와 같이 $t_1<t_2$일 때, 각 $\angle OPQ_1$을 $\theta_1$, $\angle OPQ_2$를 $\theta_2$ 라고 하자.)
+
+subparts:
+- id: '1'
+  stem: |
+    삼각형 $PQ_kQ_{k+1}$의 넓이 $a_k$를 구하고, $\lim\limits_{n\to\infty}S_n$을 추측하여 그 근거를 논하시오.
+  points: 15
+  depends_on: []
+  answer: {kind: expression, value: 'a_k=\dfrac{\frac2n}{\left(\left(\frac{k+1}{n}\right)^2+1\right)\left(\left(\frac kn\right)^2+1\right)},\ \lim_{n\to\infty}S_n=\dfrac12+\dfrac{\pi}{4}', equivalents: ['a_k=2n^3/((k^2+n^2)((k+1)^2+n^2)), lim S_n = 1/2+pi/4'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $a_k=\dfrac12\overline{PQ_{k+1}}\,\overline{PQ_k}\sin(\theta_{k+1}-\theta_k)$이고, 삼각형들이 채우는 영역은 직각이등변삼각형(넓이 $\dfrac12$)과 사분원(넓이 $\dfrac{\pi}{4}$)에 가까워진다.
+    steps:
+    - {id: 1a, content: '$a_k=\dfrac{2(t_{k+1}-t_k)}{(t_{k+1}^2+1)(t_k^2+1)}$, $\lim S_n=\dfrac12+\dfrac{\pi}{4}$', criteria: [1.M1, 1.M2, 1.A1, 1.R1, 1.A2]}
+    hint_ladder:
+    - 제시문 [마]에서 끼인각은 $\angle Q_kPQ_{k+1}=\theta_{k+1}-\theta_k$이다.
+    - $\overline{PQ_k}$는 [논제 I-1]의 좌표로 계산하거나 지름 위의 원주각으로 구할 수 있다.
+    - 삼각형들을 모두 합치면 어떤 영역이 되는지 그려 보자.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 예시답안(의학계) p.1
+    steps:
+    - id: 1b-1
+      content: |
+        삼각형의 넓이 공식(제시문 [마])에 의하여 $\triangle PQ_{k+1}Q_k$의 넓이는 $\dfrac12\overline{PQ_{k+1}}\,\overline{PQ_k}\sin(\theta_{k+1}-\theta_k)$이 된다(여기서 $\theta_k=\angle OPQ_k$, [논제 I-3]).
+      criteria: [1.M1]
+    - id: 1b-2
+      content: |
+        [논제 I-1]에서 $Q_k\left(\dfrac{1-t_k^2}{1+t_k^2},\dfrac{2t_k}{1+t_k^2}\right)$이므로 $\overline{PQ_k}^2=\left(\dfrac{2}{1+t_k^2}\right)^2+\left(\dfrac{2t_k}{1+t_k^2}\right)^2=\dfrac{4}{1+t_k^2}$, 즉 $\overline{PQ_{k+1}}=\dfrac{2}{\sqrt{t_{k+1}^2+1}}$이고 $\overline{PQ_k}=\dfrac{2}{\sqrt{t_k^2+1}}$이다.
+      criteria: [1.M2]
+    - id: 1b-3
+      content: |
+        [논제 I-3]의 결과 $\sin(\theta_{k+1}-\theta_k)=\dfrac{t_{k+1}-t_k}{\sqrt{(t_{k+1}^2+1)(t_k^2+1)}}$를 대입하면, 원하는 넓이는
+        $a_k=\dfrac{2(t_{k+1}-t_k)}{(t_{k+1}^2+1)(t_k^2+1)}=\dfrac{\frac2n}{\left(\left(\frac{k+1}{n}\right)^2+1\right)\left(\left(\frac kn\right)^2+1\right)}$이 된다. 따라서 $S_n=\sum\limits_{k=0}^{n-1}\dfrac{\frac2n}{\left(\left(\frac{k+1}{n}\right)^2+1\right)\left(\left(\frac kn\right)^2+1\right)}$이다.
+      criteria: [1.A1]
+    - id: 1b-4
+      content: |
+        이때 $S_n$은 삼각형 $PQ_{k+1}Q_k$들의 넓이를 모두 합한 값이고, 이 삼각형들로 이루어진 영역은 점 $O$, $P$ 그리고 $(0,1)$로 이루어진 직각이등변삼각형과 1사분면에 속하는 원의 부분으로 이루어진 영역에 속하게 된다. $n$이 커짐에 따라 삼각형 $PQ_{k+1}Q_k$들로 이루어진 영역이 점점 넓어지면서, 직각이등변삼각형과 사분원으로 이루어진 영역에 매우 가까워지므로,
+      criteria: [1.R1]
+    - id: 1b-5
+      content: |
+        $\lim\limits_{n\to\infty}S_n=\dfrac12+\dfrac{\pi}{4}$가 될 것이다.
+      criteria: [1.A2]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 3
+      evidence: 제시문 [마]로 $a_k=\dfrac12\overline{PQ_{k+1}}\,\overline{PQ_k}\sin(\theta_{k+1}-\theta_k)$을 세웠다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1]
+    - id: 1.M2
+      mark_type: M
+      points: 3
+      evidence: $\overline{PQ_k}=\dfrac{2}{\sqrt{t_k^2+1}}$을 구했다.
+      depends_on: []
+      steps: [1b-2]
+    - id: 1.A1
+      mark_type: A
+      points: 3
+      evidence: 논제 I-3의 결과를 대입해 $a_k=\dfrac{2(t_{k+1}-t_k)}{(t_{k+1}^2+1)(t_k^2+1)}$(또는 $t_k=\frac kn$을 넣은 식)을 적었다.
+      depends_on: [1.M1, 1.M2]
+      steps: [1b-3]
+    - id: 1.R1
+      mark_type: R
+      points: 4
+      evidence: 삼각형들의 합집합이 직각이등변삼각형 $O$, $P$, $(0,1)$과 제1사분면의 사분원으로 이루어진 영역에 가까워진다는 근거를 적었다.
+      depends_on: []
+      steps: [1b-4]
+    - id: 1.A2
+      mark_type: A
+      points: 2
+      evidence: $\lim\limits_{n\to\infty}S_n=\dfrac12+\dfrac{\pi}{4}$를 적었다.
+      depends_on: [1.R1]
+      steps: [1b-5]
+    deductions:
+    - code: D1-1
+      condition: 극한값만 쓰고 근거(영역 해석)가 없음
+      effect: minus
+      value: 4
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-ALG-6912}
+  - {code: '71', misconception: MC-CAL-6913}
+  misconceptions:
+  - id: MC-ALG-6912
+    outcome_code: '70'
+    wrong_work: '$\overline{PQ_k}=\dfrac{2}{1+t_k^2}$($x$좌표 차만 쓰거나 근호 누락)로 두어 $a_k$의 분모 차수가 틀림'
+    detect_cue: $a_k$ 분모가 $(t_{k+1}^2+1)^{3/2}(t_k^2+1)^{3/2}$ 꼴이다
+    feedback: $\overline{PQ_k}^2=\dfrac{4}{1+t_k^2}$입니다. 두 좌표의 차를 모두 넣어 거리를 구하세요.
+    remedy: [RL-1]
+  - id: MC-CAL-6913
+    outcome_code: '71'
+    wrong_work: '삼각형들이 사분원만 채운다고 보고 $\lim S_n=\dfrac{\pi}{4}$로 추측'
+    detect_cue: 극한값이 $\dfrac{\pi}{4}$ 또는 $\dfrac{\pi}{2}$
+    feedback: 삼각형의 꼭짓점은 원점이 아니라 $P(-1,0)$입니다. $P$, $O$, $(0,1)$이 만드는 직각이등변삼각형도 포함됩니다.
+    remedy: [RL-2]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-ALG-6912}
+  relation: remediation
+  target: {kind: concept, ref: CON-ALG-TRI-AREA-SINE}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-CAL-6913}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-SERIES-INTEGRAL}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-input-v1, item_version: 1, verdict: pass, date: 2026-11-21, note: 원문 PDF 이미지 판독으로 옮김 · 해설은 경희대 예시답안 흐름}
+
+created: 2026-11-21
+updated: 2026-11-21

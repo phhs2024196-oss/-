@@ -1,0 +1,269 @@
+schema_version: '2.0'
+id: KHU-M23-02
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: KHU
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 추론
+points: 35
+time_estimate_min: 25
+intent: 직사각형의 닮음으로 꼭짓점·교점 좌표를 구하고, 이를 지나는 타원의 초점과 두 타원의 단축 길이를 비교하는 능력을 본다.
+key_idea: '$\triangle ABC\sim\triangle AOE$, $\triangle ABC\sim\triangle AHB$로 $E$, $B$의 좌표를 $p$로 나타내고 타원 방정식에 대입한다.'
+stuck: 점 B의 좌표를 닮음비로 구하는 단계(수선의 발 H 도입)
+idea_tags: [IDEA-SIMILAR-TRIANGLE-COORD, IDEA-ELLIPSE-THROUGH-POINTS]
+tags: [경희 모의, 타원, 삼각형의 닮음]
+elements:
+  materials: [두 대각선의 교점이 원점인 직사각형 ABCD, 'y축과 변의 교점 E, F', '변의 중점 M, N', 네 점을 지나는 두 타원]
+  concepts: [피타고라스 정리, 삼각형의 닮음, 타원의 방정식과 초점]
+  tools: [닮음비로 길이 구하기, 좌표 대입으로 타원의 a²·b² 결정, 'a²-b²의 부호로 초점의 위치 판정', 제곱 비교로 부등식]
+  conditions:
+  - '$\overline{AB}=2$, $\overline{BC}=2p$, $0<p<1$ ⇒ $\overline{AC}=2\sqrt{1+p^2}$'
+  - 'A, C 가 x축 위, 대각선 교점이 원점 ⇒ $A(\sqrt{1+p^2},0)$'
+  - '$0<p<1$ ⇒ $a^2-b^2=1-p^4>0$ (초점이 x축 위)'
+  stimuli_used: [다]
+  subpart_links: (2)는 (1)에서 구한 $a^2=1+p^2$, $b^2=p^2(1+p^2)$를 사용
+
+curriculum:
+  version: '2015'
+  subjects: [수학, 기하]
+  scope_2028: geom
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 타원의 뜻을 알고, 타원의 방정식을 구할 수 있다(요지)
+    verified: false
+  content_area: 이차곡선 – 타원
+  behavior_domain: 문제해결
+  unit_path: [기하, 이차곡선, 타원, 타원의 방정식과 초점]
+  key_concepts: [삼각형의 닮음, 타원의 방정식, 초점]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 경희대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 경희대학교
+  admission_year: 2023
+  admission_type: 논술(모의)
+  track: 자연계열
+  question_no: 2
+  official_url: 'https://iphak.khu.ac.kr/detail.do?menuurl=89BGs%2bk748ajyySWoWlQPw%3d%3d&board_seq=6225&pageNo=1&categoryid=27&userpwd='
+  retrieved_at: '2026-11-21'
+  original_points: 35
+  rights_notice: 경희대학교 입학처 공개 자료(기출문제·예시답안). 내부 분석용
+  note: '문제 = 3. [자연계] 2023 문제지_공지.pdf p.2, 원 번호 [논제 Ⅱ], 해설 = 3. [자연계] 2023 예시답안 및 문항해설_공지.pdf p.2(예시답안), p.4(문항 해설). 공식 채점 기준 미공개 — 소문항 배점(15·20)은 원문, 마크 배분은 자체.'
+
+verify: verify/KHU-M23.py::p02
+
+stimuli:
+- label: 가
+  body: |
+    함수 $f(x)$가 닫힌구간 $[a,b]$에서 연속일 때, 곡선 $y=f(x)$와 $x$축 및 두 직선 $x=a$, $x=b$로 둘러싸인 도형의 넓이 $S$는
+    $$S=\int_a^b|f(x)|\,dx$$
+    이다.
+- label: 나
+  body: |
+    함수 $f(x)$가 닫힌구간 $[a,b]$에서 연속이고 $f(a)\neq f(b)$이면, $f(a)$와 $f(b)$ 사이의 임의의 값 $k$에 대하여
+    $$f(c)=k$$
+    인 $c$가 열린구간 $(a,b)$에 적어도 하나 존재한다.
+- label: 다
+  body: |
+    두 초점 $\mathrm{F}(c,0)$, $\mathrm{F'}(-c,0)$에서의 거리의 합이 $2a$인 타원의 방정식은
+    $$\dfrac{x^2}{a^2}+\dfrac{y^2}{b^2}=1\ (\text{단, }a>c>0,\ b^2=a^2-c^2)$$
+    두 초점 $\mathrm{F}(0,c)$, $\mathrm{F'}(0,-c)$에서의 거리의 합이 $2b$인 타원의 방정식은
+    $$\dfrac{x^2}{a^2}+\dfrac{y^2}{b^2}=1\ (\text{단, }b>c>0,\ a^2=b^2-c^2)$$
+- label: 라
+  body: |
+    이산확률변수 $X$의 확률질량함수가 $P(X=x_i)=p_i\ (i=1,2,\cdots,n)$일 때, $X$의 기댓값(평균) $E(X)$는
+    $$E(X)=x_1p_1+x_2p_2+\cdots+x_np_n$$
+
+stem: |
+  [논제 Ⅱ] 그림과 같이 직사각형 ABCD는 점 A와 C가 $x$축 위에 있고, 두 대각선의 교점이 원점에 있다. $\overline{\mathrm{AB}}=2$, $\overline{\mathrm{BC}}=2p$이고 $0<p<1$이다. 변 AB, CD와 $y$축의 교점을 각각 E, F라 하고, 변 AB, CD의 중점을 각각 M, N이라 하자. 다음 물음에 답하시오.
+  [그림 설명: 좌표평면에 직사각형 ABCD. A는 x축 양의 부분, C는 x축 음의 부분에 있고, B는 제2사분면, D는 제4사분면에 있다. 대각선 BD(점선)가 원점 O를 지난다. 변 AB는 y축 양의 부분과 점 E에서 만나고, 변 AB 위 E와 A 사이에 중점 M이 있다. 변 CD는 y축 음의 부분과 점 F에서 만나고, 변 CD 위 C와 F 사이에 중점 N이 있다.]
+
+subparts:
+- id: '1'
+  stem: |
+    타원 $\dfrac{x^2}{a^2}+\dfrac{y^2}{b^2}=1\ (a>0,\ b>0)$이 점 A, E, C, F를 지날 때, 이 타원의 두 초점의 좌표를 $p$의 식으로 나타내고, 그 과정을 논술하시오. (15점)
+  points: 15
+  depends_on: []
+  answer: {kind: expression, value: '(\sqrt{1-p^4},\,0),\ (-\sqrt{1-p^4},\,0)', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $A(\sqrt{1+p^2},0)$, 닮음으로 $E(0,p\sqrt{1+p^2})$, $a^2-b^2=1-p^4>0$.
+    steps:
+    - {id: 1a, content: '$a^2=1+p^2$, $b^2=p^2(1+p^2)$, 초점 $(\pm\sqrt{1-p^4},0)$', criteria: [1.M1, 1.A1, 1.A2, 1.R1]}
+    hint_ladder:
+    - 대각선 AC의 길이를 먼저 구하자.
+    - 삼각형 ABC와 삼각형 AOE는 닮음이다.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 예시답안 p.2
+    steps:
+    - id: 1b-1
+      content: |
+        피타고라스 정리에 의하여 $\overline{AC}=2\sqrt{1+p^2}$이므로 A의 좌표는 $(\sqrt{1+p^2},0)$이다.
+      criteria: [1.A1]
+    - id: 1b-2
+      content: |
+        삼각형 ABC와 삼각형 AOE가 닮았으므로 $\overline{AB}:\overline{BC}=\overline{AO}:\overline{OE}$, 즉 $2:2p=\sqrt{1+p^2}:\overline{OE}$에서 $\overline{OE}=p\sqrt{1+p^2}$이고, E의 좌표는 $(0,p\sqrt{1+p^2})$이다.
+      criteria: [1.M1]
+    - id: 1b-3
+      content: |
+        타원에 $(\sqrt{1+p^2},0)$을 대입하면 $\dfrac{1+p^2}{a^2}=1$, $a^2=1+p^2$. $(0,p\sqrt{1+p^2})$을 대입하면 $\dfrac{p^2(1+p^2)}{b^2}=1$, $b^2=p^2(1+p^2)$.
+      criteria: [1.A2]
+    - id: 1b-4
+      content: |
+        $0<p<1$이므로 $a^2-b^2=1+p^2-p^2(1+p^2)=1-p^4>0$이다. 따라서 제시문 [다]에 의해 두 초점은 $x$축 위에 있고, 좌표는 $(\sqrt{1-p^4},0)$, $(-\sqrt{1-p^4},0)$이다.
+      criteria: [1.R1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.A1
+      mark_type: B
+      points: 3
+      evidence: A의 좌표 $(\sqrt{1+p^2},0)$을 구했다.
+      depends_on: []
+      steps: [1b-1]
+    - id: 1.M1
+      mark_type: M
+      points: 4
+      evidence: 삼각형의 닮음으로 $\overline{OE}=p\sqrt{1+p^2}$(E의 좌표)를 구했다.
+      depends_on: []
+      steps: [1b-2]
+    - id: 1.A2
+      mark_type: A
+      points: 4
+      evidence: $a^2=1+p^2$, $b^2=p^2(1+p^2)$를 구했다.
+      depends_on: [1.M1]
+      steps: [1b-3]
+    - id: 1.R1
+      mark_type: R
+      points: 4
+      evidence: $a^2-b^2=1-p^4>0$으로 초점이 $x$축 위에 있음을 밝히고 $(\pm\sqrt{1-p^4},0)$을 답했다.
+      depends_on: [1.A2]
+      steps: [1b-4]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-GEO-6603}
+  misconceptions:
+  - id: MC-GEO-6603
+    outcome_code: '70'
+    wrong_work: '초점을 $(\pm\sqrt{a^2+b^2},0)$ 또는 $(0,\pm\sqrt{1-p^4})$로 씀'
+    detect_cue: 초점 좌표에 $\sqrt{1+2p^2+p^4}$ 꼴이 나오거나 초점이 y축 위에 있다
+    feedback: 타원은 $c^2=a^2-b^2$(장축이 x축일 때)입니다. $a^2$, $b^2$의 대소부터 비교하세요.
+    remedy: [RL-1]
+- id: '2'
+  stem: |
+    타원 $\dfrac{x^2}{m^2}+\dfrac{y^2}{n^2}=1\ (m>0,\ n>0)$이 점 A, M, C, N을 지날 때, (1)의 $b$에 대하여 $n<b$임을 보이고, 그 근거를 논술하시오. (20점)
+  points: 20
+  depends_on: ['1']
+  answer: {kind: proof, value: null, equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: B에서 x축에 수선 BH, 닮음으로 $B\left(-\dfrac{1-p^2}{\sqrt{1+p^2}},\dfrac{2p}{\sqrt{1+p^2}}\right)$, $M$ 대입으로 $n^2=\dfrac{b^2}{1+2p^2}$.
+    steps:
+    - {id: 2a, content: '$n^2=\dfrac{p^2(1+p^2)}{1+2p^2}=\dfrac{b^2}{1+2p^2}<b^2$', criteria: [2.M1, 2.A1, 2.M2, 2.A2, 2.R1]}
+    hint_ladder:
+    - 점 B에서 x축에 수선의 발 H를 내려 보자.
+    - M은 A와 B의 중점이다.
+  - id: S2-B
+    audience: B
+    method_no: 1
+    source_flow: 예시답안 p.2
+    steps:
+    - id: 2b-1
+      content: |
+        점 B에서 $x$축에 내린 수선의 발을 H라 하자. 삼각형 ABC와 삼각형 AHB가 닮았으므로 $\overline{AC}:\overline{AB}=\overline{AB}:\overline{AH}$, $\overline{AC}:\overline{CB}=\overline{AB}:\overline{BH}$. $\overline{AB}=2$, $\overline{BC}=2p$, $\overline{AC}=2\sqrt{1+p^2}$를 이용하면 $\overline{AH}=\dfrac{2}{\sqrt{1+p^2}}$, $\overline{BH}=\dfrac{2p}{\sqrt{1+p^2}}$.
+      criteria: [2.M1]
+    - id: 2b-2
+      content: |
+        B의 좌표는 $\left(\sqrt{1+p^2}-\dfrac{2}{\sqrt{1+p^2}},\dfrac{2p}{\sqrt{1+p^2}}\right)=\left(-\dfrac{1-p^2}{\sqrt{1+p^2}},\dfrac{2p}{\sqrt{1+p^2}}\right)$이고, M의 좌표는 $\left(\dfrac{p^2}{\sqrt{1+p^2}},\dfrac{p}{\sqrt{1+p^2}}\right)$.
+      criteria: [2.A1]
+    - id: 2b-3
+      content: |
+        $(\sqrt{1+p^2},0)$을 대입하면 $m^2=1+p^2$. M을 대입하고 $m^2=1+p^2$을 이용하면 $\dfrac{p^4}{(1+p^2)^2}+\dfrac{p^2}{n^2(1+p^2)}=1$이고, 정리하면 $n^2=\dfrac{p^2(1+p^2)}{1+2p^2}$.
+      criteria: [2.M2, 2.A2]
+    - id: 2b-4
+      content: |
+        $b^2=p^2(1+p^2)$이므로 $n^2=\dfrac{b^2}{1+2p^2}$이고, $0<p<1$에 대하여 $\dfrac{1}{1+2p^2}<1$이므로 $n^2<b^2$, 따라서 $n<b$이다($n$, $b>0$).
+      criteria: [2.R1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 5
+      evidence: 수선 BH와 닮음으로 $\overline{AH}$, $\overline{BH}$를 구했다.
+      depends_on: []
+      steps: [2b-1]
+    - id: 2.A1
+      mark_type: A
+      points: 4
+      evidence: B의 좌표와 M의 좌표 $\left(\dfrac{p^2}{\sqrt{1+p^2}},\dfrac{p}{\sqrt{1+p^2}}\right)$를 구했다.
+      depends_on: [2.M1]
+      steps: [2b-2]
+    - id: 2.M2
+      mark_type: M
+      points: 3
+      evidence: A와 M을 타원에 대입해 $m^2$, $n^2$에 대한 식을 세웠다.
+      depends_on: []
+      steps: [2b-3]
+    - id: 2.A2
+      mark_type: A
+      points: 4
+      evidence: $n^2=\dfrac{p^2(1+p^2)}{1+2p^2}$을 구했다.
+      depends_on: [2.M2]
+      steps: [2b-3]
+    - id: 2.R1
+      mark_type: R
+      points: 4
+      evidence: $n^2=\dfrac{b^2}{1+2p^2}<b^2$와 양수 조건으로 $n<b$를 결론지었다.
+      depends_on: [2.A2]
+      ft: {allowed: true, from: [1.A2], max_points: 4}
+      steps: [2b-4]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-GEO-6604}
+  misconceptions:
+  - id: MC-GEO-6604
+    outcome_code: '71'
+    wrong_work: 'M을 A와 E의 중점 $\left(\dfrac{\sqrt{1+p^2}}{2},\dfrac{p\sqrt{1+p^2}}{2}\right)$으로 잡음'
+    detect_cue: M의 좌표에 $\dfrac{\sqrt{1+p^2}}{2}$가 나온다
+    feedback: M은 변 AB의 중점입니다. 꼭짓점 B의 좌표를 닮음으로 먼저 구하세요.
+    remedy: [RL-2]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-GEO-6603}
+  relation: remediation
+  target: {kind: concept, ref: CON-GEO-ELLIPSE-FOCUS}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-GEO-6604}
+  relation: remediation
+  target: {kind: concept, ref: CON-GEO-SIMILAR}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-input-v1, item_version: 1, verdict: pass, date: 2026-11-21, note: 원문 PDF 이미지 판독으로 옮김 · 해설은 경희대 예시답안 흐름}
+
+created: 2026-11-21
+updated: 2026-11-21

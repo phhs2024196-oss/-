@@ -1,0 +1,242 @@
+schema_version: '2.0'
+id: KHU-G26D-02
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: KHU
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 분류
+points: 32
+time_estimate_min: 25
+intent: 확률밀도함수의 성질을 정확히 이해하고, 조건을 명확히 확인한 뒤 경우에 따라 나누어 적분값의 범위나 확률을 계산할 수 있는지 평가한다.
+key_idea: '넓이 1 조건으로 $a=\dfrac{2}{2b+3}$, $f\ge0$ 조건으로 $b\ge-1$. $\mathrm{P}(0\le X\le1)=\dfrac{b+2}{2b+3}$과 $\dfrac35$의 대소로 $b=1$을 기준으로 $d$의 위치를 나눈다.'
+stuck: '$f(x)\ge0$에서 $b\ge-1$을 끌어내는 단계, $b=1$을 기준으로 $d$가 $(0,1]$ 또는 $(1,2)$에 있음을 나누는 단계'
+idea_tags: [IDEA-PDF-PARAMETER-RANGE, IDEA-QUANTILE-CASE-SPLIT]
+tags: [확률밀도함수, 매개변수 범위, 경우 나누기, 경희 실전, 의약학계]
+elements:
+  materials: ['구간 [0,1]·(1,2] 에서 각각 일차함수인 확률밀도함수 f(x) (상수 a>0, b)', 'c=∫x²f(x)dx', 'P(0≤X≤d)=3/5 인 d=g(b)']
+  concepts: [확률밀도함수의 조건, 연속확률변수의 확률(넓이), 정적분 계산, 분수함수의 범위, 이차방정식의 근]
+  tools: [일차함수이므로 끝점 함숫값으로 f≥0 판정, 사다리꼴·삼각형 넓이, c=-1/(2b+3)+7/6 꼴 변형, b=1 기준 경우 나누기, 오른쪽 꼬리 P(d≤X≤2)=2/5 이용]
+  conditions:
+  - '$a>0$ ⇒ $f(1)=a(1+b)\ge0$에서 $b\ge-1$'
+  - '(2) $b>0$, $d$는 $\mathrm{P}(0\le X\le d)=\dfrac35$'
+  stimuli_used: [나]
+  subpart_links: '(2)는 (1)에서 구한 $a=\dfrac{2}{2b+3}$을 사용한다'
+
+curriculum:
+  version: '2015'
+  subjects: [확률과통계, 수학Ⅱ]
+  scope_2028: common
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 연속확률변수의 뜻을 안다 / 확률밀도함수의 성질을 이용해 확률을 구한다(요지)
+    verified: false
+  content_area: 통계 – 연속확률변수와 확률밀도함수
+  behavior_domain: 추론
+  unit_path: [확률과통계, 통계, 확률분포, 연속확률변수]
+  key_concepts: [확률밀도함수, 정적분, 경우 나누기, 이차방정식]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 경희대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 경희대학교
+  admission_year: 2026
+  admission_type: 논술(논술우수자전형)
+  track: 의·약학계열(수학)
+  question_no: 2
+  official_url: https://iphak.khu.ac.kr/detail.do?menuurl=89BGs%2bk748ajyySWoWlQPw%3d%3d&board_seq=16903&pageNo=1&categoryid=27&userpwd=
+  retrieved_at: '2026-11-21'
+  original_points: 32
+  rights_notice: 경희대학교 입학처 공개 자료(기출문제·예시답안). 내부 분석용
+  note: '문제 = 4. 2026 논술고사 기출문제(의약학계).pdf p.2, 원 번호 [논제 Ⅱ](문항카드 「수학Ⅱ」 문항), 해설 = 같은 파일 p.12~14. 최종값 $2\sqrt{\frac{11}{5}}-\frac{9}{10}=\frac{2\sqrt{55}}{5}-\frac{9}{10}$. [판독확인] 없음'
+
+verify: verify/KHU-G26D.py::p02
+
+stimuli:
+- label: 나
+  body: |
+    연속확률변수 $X$의 확률밀도함수 $f(x)\ (\alpha\le x\le\beta)$에 대하여
+    (1) $f(x)\ge0$
+    (2) $f(x)$의 그래프와 $x$축 및 두 직선 $x=\alpha$, $x=\beta$로 둘러싸인 부분의 넓이는 1이다.
+    (3) 두 상수 $a,b\ (\alpha\le a\le b\le\beta)$에 대하여 $\mathrm{P}(a\le X\le b)$는 $f(x)$의 그래프와 $x$축 및 두 직선 $x=a$, $x=b$로 둘러싸인 부분의 넓이이다.
+
+stem: |
+  제시문 [나]를 참고하여 다음 논제에 답하시오.
+  상수 $a,b$에 대하여 함수 $f(x)=\begin{cases}a(bx+1) & (0\le x\le1)\\ -a(b+1)(x-2) & (1<x\le2)\end{cases}$가 연속확률변수 $X$의 확률밀도함수일 때, 다음 물음에 답하시오. (단, $a>0$)
+
+subparts:
+- id: '1'
+  stem: |
+    $a$를 $b$에 대한 식으로 나타낸 후, 이를 이용하여 $c=\int_0^2x^2f(x)\,dx$의 범위를 구하고, 그 근거를 논술하시오. (16점)
+  points: 16
+  depends_on: []
+  answer: {kind: set, value: 'a=\dfrac{2}{2b+3},\ \dfrac16\le c<\dfrac76', equivalents: ['1/6 ≤ c < 7/6'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: '넓이 $a\dfrac{2b+3}{2}=1$, $f(1)\ge0$에서 $b\ge-1$, $c=\dfrac76-\dfrac{1}{2b+3}$.'
+    steps:
+    - {id: 1a, content: '$2b+3\ge1$ ⇒ $0<\dfrac{1}{2b+3}\le1$ ⇒ $\dfrac16\le c<\dfrac76$', criteria: [1.M1, 1.M2, 1.A1]}
+    hint_ladder:
+    - 각 구간에서 일차함수이므로 끝점의 함숫값만 보면 $f\ge0$을 판정할 수 있다.
+    - $c$를 $\dfrac{1}{2b+3}$에 대한 식으로 정리하자.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 4. 2026 논술고사 기출문제(의약학계).pdf 예시 답안 p.13
+    steps:
+    - id: 1b-1
+      content: |
+        함수 $f(x)$가 확률밀도함수가 되려면 구간 $[0,2]$에서 $f(x)\ge0$이고 $\mathrm{P}(0\le X\le2)=1$이다(제시문 [나]). $f(x)$가 구간 $[0,1]$ 및 $(1,2]$에서 각각 일차함수이므로 첫 번째 조건을 만족하려면 $f(0)=a\ge0$, $f(1)=a(1+b)\ge0$, $f(2)=0\ge0$.
+        그런데 $a>0$이므로 이를 만족하는 $b$의 범위는 $b\ge-1$이다.
+      criteria: [1.M2]
+    - id: 1b-2
+      content: |
+        두 번째 조건을 만족하려면 $\mathrm{P}(0\le X\le2)=\dfrac12\times(a+a(b+1))\times1+\dfrac12\times a(b+1)\times1=a\dfrac{2b+3}{2}=1$. 따라서 $a=\dfrac{2}{2b+3}$이다.
+      criteria: [1.M1]
+    - id: 1b-3
+      content: |
+        한편 $c=\int_0^1a(bx^3+x^2)\,dx+\int_1^2\{-a(b+1)(x^3-2x^2)\}\,dx=\dfrac{a(3b+4)}{12}+\dfrac{11a(b+1)}{12}=\dfrac{14b+15}{12b+18}=-\dfrac{1}{2b+3}+\dfrac76$.
+        따라서 주어진 범위 $b\ge-1$에서 $c$의 값의 범위는 $\dfrac16\le c<\dfrac76$.
+      criteria: [1.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 5
+      evidence: '$a$를 $b$에 대한 식 $a=\dfrac{2}{2b+3}$으로 표현했다.'
+      depends_on: []
+      implied_ok: false
+      steps: [1b-2]
+    - id: 1.M2
+      mark_type: R
+      points: 5
+      evidence: '$f(x)\ge0$ 조건으로 $b$의 범위 $b\ge-1$을 구했다.'
+      depends_on: []
+      steps: [1b-1]
+    - id: 1.A1
+      mark_type: A
+      points: 6
+      evidence: '$b$의 범위를 이용하여 $c$의 범위 $\dfrac16\le c<\dfrac76$을 계산했다.'
+      depends_on: [1.M1, 1.M2]
+      steps: [1b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-PRB-6209}
+  misconceptions:
+  - id: MC-PRB-6209
+    outcome_code: '70'
+    wrong_work: '$f(x)\ge0$ 조건을 쓰지 않고 $2b+3>0$(즉 $b>-\dfrac32$)만으로 $c<\dfrac76$이라 하거나 하한을 구하지 못함'
+    detect_cue: 범위의 하한이 없거나 $b>-\dfrac32$를 사용했다
+    feedback: 확률밀도함수는 모든 $x$에서 $f(x)\ge0$이어야 합니다(제시문 [나] (1)). $f(1)=a(1+b)\ge0$에서 $b\ge-1$입니다.
+    remedy: [RL-1]
+- id: '2'
+  stem: |
+    $b>0$일 때, $\mathrm{P}(0\le X\le d)=\dfrac35$이 되는 $d$를 $b$에 대한 식 $d=g(b)$로 나타낸 후, 이를 이용하여 $g\left(\dfrac12\right)+g(39)$의 값을 구하고, 그 근거를 논술하시오. (16점)
+  points: 16
+  depends_on: ['1']
+  answer: {kind: value, value: '2\sqrt{\dfrac{11}{5}}-\dfrac{9}{10}', equivalents: ['\dfrac{2\sqrt{55}}{5}-\dfrac{9}{10}'], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: '$\mathrm{P}(0\le X\le1)=\dfrac{b+2}{2b+3}$이 $\dfrac35$ 이상 ⇔ $b\le1$. $b\le1$이면 $bd^2+2d-\dfrac{6b+9}{5}=0$, $b>1$이면 $\mathrm{P}(d\le X\le2)=\dfrac25$.'
+    steps:
+    - {id: 2a, content: '$g\left(\dfrac12\right)=2\sqrt{\dfrac{11}{5}}-2$, $g(39)=2-\dfrac{9}{10}$', criteria: [2.M1, 2.M2, 2.A1]}
+    hint_ladder:
+    - 먼저 $\mathrm{P}(0\le X\le1)$을 $b$로 나타내 $\dfrac35$과 비교하자.
+    - $d>1$이면 오른쪽 삼각형 넓이 $\mathrm{P}(d\le X\le2)=\dfrac25$을 쓰는 것이 편하다.
+  - id: S2-B
+    audience: B
+    method_no: 1
+    source_flow: 4. 2026 논술고사 기출문제(의약학계).pdf 예시 답안 p.13~14
+    steps:
+    - id: 2b-0
+      content: |
+        $\mathrm{P}(0\le X\le1)=\dfrac12\times(a+a(b+1))\times1=\dfrac a2(b+2)=\dfrac{b+2}{2b+3}$이므로 $\dfrac{b+2}{2b+3}=\dfrac35$, 즉 $b=1$을 기준으로 구간을 나누어 생각하자.
+      criteria: [2.M1]
+    - id: 2b-1
+      content: |
+        (i) $0<b\le1$인 경우: $\dfrac{b+2}{2b+3}\ge\dfrac35$이므로 $\mathrm{P}(0\le X\le d)=\dfrac35$인 $d$는 구간 $(0,1]$에 존재한다. 이때
+        $\mathrm{P}(0\le X\le d)=\dfrac12\times(a+a(bd+1))\times d=a\left(\dfrac b2d^2+d\right)=\dfrac35$.
+        따라서 $d$는 이차방정식 $bd^2+2d-\dfrac{6b+9}{5}=0$을 만족하며, $d$는 구간 $(0,1]$에 존재해야 하므로 $d=\dfrac1b\left(-1+\sqrt{1+\dfrac{b(6b+9)}{5}}\right)$.
+      criteria: [2.M1]
+    - id: 2b-2
+      content: |
+        (ii) $b>1$인 경우: $\dfrac{b+2}{2b+3}<\dfrac35$이므로 $d$는 구간 $(1,2)$에 존재한다. 이때
+        $\mathrm{P}(d\le X\le2)=\dfrac12\times(2-d)\times a(b+1)(2-d)=\dfrac{b+1}{2b+3}(d^2-4d+4)=\dfrac25$.
+        따라서 $d$는 $d^2-4d+\dfrac{16b+14}{5b+5}=0$을 만족하며, $d\in(1,2)$이므로 $d=2-\sqrt{\dfrac{4b+6}{5b+5}}$.
+        구하는 $g(b)=\begin{cases}\dfrac1b\left(-1+\sqrt{1+\dfrac{b(6b+9)}{5}}\right) & (0<b\le1)\\ 2-\sqrt{\dfrac{4b+6}{5b+5}} & (b>1)\end{cases}$
+      criteria: [2.M2]
+    - id: 2b-3
+      content: |
+        그러므로 $g\left(\dfrac12\right)=2\sqrt{\dfrac{11}{5}}-2$, $g(39)=2-\sqrt{\dfrac{81}{100}}=2-\dfrac{9}{10}$이다. 따라서 $g\left(\dfrac12\right)+g(39)=2\sqrt{\dfrac{11}{5}}-\dfrac{9}{10}$.
+      criteria: [2.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 7
+      evidence: '$0<b\le1$일 때 $d=\dfrac1b\left(-1+\sqrt{1+\dfrac{b(6b+9)}{5}}\right)$을 계산했다($b=1$ 기준 판단 포함).'
+      depends_on: []
+      implied_ok: false
+      ft: {allowed: true, from: [1.M1], max_points: 7}
+      steps: [2b-0, 2b-1]
+    - id: 2.M2
+      mark_type: M
+      points: 7
+      evidence: '$b>1$일 때 $d=2-\sqrt{\dfrac{4b+6}{5b+5}}$을 계산했다.'
+      depends_on: []
+      implied_ok: false
+      steps: [2b-2]
+    - id: 2.A1
+      mark_type: A
+      points: 2
+      evidence: '$g\left(\dfrac12\right)+g(39)=2\sqrt{\dfrac{11}{5}}-\dfrac{9}{10}$을 계산했다.'
+      depends_on: [2.M1, 2.M2]
+      steps: [2b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-PRB-6210}
+  misconceptions:
+  - id: MC-PRB-6210
+    outcome_code: '70'
+    wrong_work: '$b=39$에도 $(0,1]$의 식 $d=\dfrac1b\left(-1+\sqrt{1+\dfrac{b(6b+9)}{5}}\right)$을 그대로 적용'
+    detect_cue: '$g(39)$가 1보다 큰데도 $(0,1]$의 식으로 계산했거나 $b=1$ 기준 분류가 없다'
+    feedback: '$\mathrm{P}(0\le X\le1)$과 $\dfrac35$을 비교해 $d$가 어느 구간에 있는지 먼저 정하세요. $b>1$이면 $d>1$입니다.'
+    remedy: [RL-2]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-PRB-6209}
+  relation: remediation
+  target: {kind: concept, ref: CON-PRB-PDF-CONDITIONS}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-PRB-6210}
+  relation: remediation
+  target: {kind: concept, ref: CON-PRB-PDF-CONDITIONS}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-input-v1, item_version: 1, verdict: pass, date: 2026-11-21, note: 원문 PDF 이미지 판독으로 옮김 · 해설은 경희대 예시답안 흐름}
+
+created: 2026-11-21
+updated: 2026-11-21

@@ -1,0 +1,306 @@
+schema_version: '2.0'
+id: KHU-G21A-02
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: KHU
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 분류
+points: 30
+time_estimate_min: 30
+intent: 반원에 접하는 직선이 정사각형과 만나는 선분의 길이를 접선이 지나는 변에 따라 나누어 θ의 함수로 표현하고, 구간을 나누어 삼각함수를 적분한 뒤 특수한 각의 삼각비로 사인값을 계산하는 능력을 본다.
+key_idea: '좌표를 놓으면 접선은 $y=(\tan\theta)x+\sec\theta$이고, 점 B를 지나는 각 $\alpha$($\sin\alpha=\dfrac35$)를 경계로 $f(\theta)=2\sec\theta$ 또는 $2\csc\theta+\sec\theta-\csc\theta\sec\theta$이다. 적분하면 $J=\alpha-\dfrac{\pi}{4}$가 된다.'
+stuck: (2)에서 접선이 변 BC와 만나는지 변 AB와 만나는지를 (1)의 $\alpha$로 나누는 단계, (3)에서 $0\le\alpha\le\dfrac{\pi}{4}$를 확인하고 적분구간을 $[0,\alpha]$, $[\alpha,\dfrac{\pi}{4}]$로 나누는 단계
+idea_tags: [IDEA-TANGENT-LINE-SEC-FORM, IDEA-PIECEWISE-BY-CONTACT-SIDE, IDEA-INTEGRAL-SPLIT-AT-BREAKPOINT]
+tags: [반원의 접선, 구간별 함수, 경희 실전]
+elements:
+  materials: [넓이 4인 정사각형 ABCD, 변 CD의 중점 O가 중심인 반지름 1인 원, 원 위의 점 T, T에서의 접선 l, 각 θ]
+  concepts: [접선의 방정식, 삼각비(sec·csc), 직각삼각형의 변과 삼각비, 삼각함수의 도함수, 정적분의 구간 분할, 덧셈정리]
+  tools: [좌표 설정 A(-1,2)·B(1,2)·C(1,0)·D(-1,0), 접선의 기울기 각 θ와 x절편 R(-cscθ,0), 직각삼각형으로 선분 길이 표현, 구간별 정적분, sin(α-π/4) 덧셈정리]
+  conditions:
+  - '$0\le\theta<\dfrac{\pi}{2}$, $T$는 사각형 내부의 원 위의 점'
+  - '접선이 B를 지날 때의 각 $\alpha$ ⇒ $0\le\theta\le\alpha$이면 변 BC, $\alpha\le\theta<\dfrac{\pi}{2}$이면 변 AB와 만남'
+  - '$\tan\alpha=\dfrac34<1$ ⇒ $\alpha<\dfrac{\pi}{4}$이므로 적분구간 분할점이 $[0,\dfrac{\pi}{4}]$ 안에 있음'
+  stimuli_used: [가, 나, 다, 라, 마]
+  subpart_links: (2)는 (1)의 $\alpha$로 경우를 나누고, (3)은 (2)의 $f(\theta)$와 (1)의 $\sin\alpha$, $\cos\alpha$를 사용
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅰ, 미적분]
+  scope_2028: calc2
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 여러 가지 함수의 정적분을 구할 수 있다(요지)
+    verified: false
+  content_area: 삼각함수 – 접선과 정적분
+  behavior_domain: 문제해결
+  unit_path: [미적분, 적분법, 정적분, 구간별로 정의된 함수의 정적분]
+  key_concepts: [접선의 방정식, 삼각함수의 도함수, 덧셈정리, 정적분의 성질]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 경희대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 경희대학교
+  admission_year: 2021
+  admission_type: 논술(논술우수자전형)
+  track: 자연계열
+  question_no: 2
+  official_url: https://iphak.khu.ac.kr/detail.do?menuurl=89BGs%2bk748ajyySWoWlQPw%3d%3d&board_seq=2100&pageNo=1&categoryid=27&userpwd=
+  retrieved_at: '2026-11-21'
+  original_points: 30
+  rights_notice: '경희대학교 입학처 공개 자료(기출문제·예시답안). 내부 분석용'
+  note: |
+    시험 = 2020.12.5.(토) 오전 실시 자연계. 문제 = 4 2021학년도 논술고사 기출문제(자연계)_1205 오전.pdf p.2~3, 원 번호 [논제 I-2] (1)(2)(3), 해설 = 같은 파일 p.11~12(예시답안), p.16(채점 기준), p.18(출제 의도), p.19(문항 해설).
+    [판독확인] [그림 2]는 원문 그림을 글로 옮김(아래 stem).
+    [판독확인] 예시답안 p.12의 $f(\theta)$ 둘째 식 '$\csc\theta sec\theta$'(sec 기울임 표기 차이)는 $\csc\theta\sec\theta$로 옮김.
+    예시답안의 $\overline{DR}$에 대한 직각삼각형 RPD 서술과 i)의 삼각형 PQS 서술은 그대로 따름. 공식 답과 sympy 검산 일치.
+
+verify: verify/KHU-G21A.py::p02
+
+stimuli:
+- label: 가
+  body: |
+    점 $(x_1,y_1)$을 지나고 기울기가 $m$인 직선의 방정식은
+    $$y-y_1=m(x-x_1)$$
+- label: 나
+  body: |
+    함수 $f(x)$가 임의의 세 실수 $a,b,c$를 포함하는 닫힌구간에서 연속일 때,
+    $$\int_a^c f(x)dx+\int_c^b f(x)dx=\int_a^b f(x)dx$$
+- label: 다
+  body: |
+    삼각함수의 도함수
+    $(\sin x)'=\cos x$, $(\cos x)'=-\sin x$, $(\tan x)'=\sec^2x$,
+    $(\csc x)'=-\csc x\cot x$, $(\sec x)'=\sec x\tan x$, $(\cot x)'=-\csc^2x$
+- label: 라
+  body: |
+    삼각함수의 덧셈정리
+    (1) $\sin(\alpha+\beta)=\sin\alpha\cos\beta+\cos\alpha\sin\beta$, $\sin(\alpha-\beta)=\sin\alpha\cos\beta-\cos\alpha\sin\beta$
+    (2) $\cos(\alpha+\beta)=\cos\alpha\cos\beta-\sin\alpha\sin\beta$, $\cos(\alpha-\beta)=\cos\alpha\cos\beta+\sin\alpha\sin\beta$
+    (3) $\tan(\alpha+\beta)=\dfrac{\tan\alpha+\tan\beta}{1-\tan\alpha\tan\beta}$, $\tan(\alpha-\beta)=\dfrac{\tan\alpha-\tan\beta}{1+\tan\alpha\tan\beta}$
+- label: 마
+  body: |
+    함수 $f(x)$가 어떤 구간에 속하는 임의의 두 수 $x_1$, $x_2$에 대하여 $x_1<x_2$일 때 $f(x_1)<f(x_2)$이면 함수 $f(x)$는 그 구간에서 증가한다고 한다. 또, $x_1<x_2$일 때 $f(x_1)>f(x_2)$이면 $f(x)$는 그 구간에서 감소한다고 한다. 함수 $f(x)$가 어떤 열린구간에서 미분가능할 때, 그 열린구간에 속하는 모든 $x$에 대하여
+    (1) $f'(x)>0$이면 $f(x)$는 그 열린구간에서 증가한다.
+    (2) $f'(x)<0$이면 $f(x)$는 그 열린구간에서 감소한다.
+
+stem: |
+  [논제 I] 제시문 [가]~[마]를 읽고 다음 질문에 답하시오.
+  [그림 2 설명: 정사각형 ABCD(A 왼쪽 위, B 오른쪽 위, C 오른쪽 아래, D 왼쪽 아래). 변 CD의 중점 O를 중심으로 하는 반지름 1인 원이 그려져 있고 원의 윗부분(반원)이 사각형 안에 있다. 원 위의 점 T(사각형 내부)와 O를 잇는 선분 OT가 O에서 위로 그은 수직선(선분 AB의 중점 방향)과 이루는 각이 θ로 표시되어 있다.]
+  [논제 I-2]
+  넓이가 4인 정사각형 ABCD와 변 CD의 중점 O를 중심으로 하고 반지름의 길이가 1인 원이 있다. [그림 2]와 같이 사각형 ABCD의 내부에 있는 원 위의 한 점을 T라 하자. 점 O에서 시작하고 선분 AB의 중점을 지나는 반직선으로부터 반시계방향으로 선분 OT까지의 각을 $\theta$라 하고, 점 T에서 원에 접하는 직선을 $l$이라 할 때, 다음 물음에 답하시오. $\left(\text{단, }0\le\theta<\dfrac{\pi}{2}\right)$
+
+subparts:
+- id: '1'
+  stem: |
+    (1) 직선 $l$이 점 B를 지날 때, $\sin\theta$, $\cos\theta$, $\tan\theta$를 각각 구하고, 그 근거를 논술하시오. (5점)
+  points: 5
+  depends_on: []
+  answer: {kind: value, value: '\sin\theta=\dfrac35,\ \cos\theta=\dfrac45,\ \tan\theta=\dfrac34', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $T(-\sin\theta,\cos\theta)$에서의 접선 $y=(\tan\theta)x+\sec\theta$가 $B(1,2)$를 지나는 조건 $2\cos\alpha=\sin\alpha+1$을 푼다.
+    steps:
+    - {id: 1a, content: '$2\sqrt{1-\sin^2\alpha}=\sin\alpha+1$ ⇒ $\sin\alpha=\dfrac35$', criteria: [1.B1]}
+    hint_ladder:
+    - O를 원점으로 하는 좌표를 잡아 보자.
+    - 접선과 $x$축의 교점 R에서 $\angle ORT=\theta$이다.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 4 2021학년도 논술고사 기출문제(자연계)_1205 오전.pdf 예시답안 p.11
+    steps:
+    - id: 1b-1
+      content: |
+        좌표평면의 원점에 원의 중심 O가 위치하고 $A(-1,2)$, $B(1,2)$, $C(1,0)$, $D(-1,0)$인 상황을 생각하면 점 T는 $T(-\sin\theta,\cos\theta)$이다.
+        T에서 원에 접하는 직선 $l$이 $x$축과 만나는 점을 R이라 하면 $\angle ROT=\dfrac{\pi}{2}-\theta$이므로 $\angle ORT=\theta$이다. 따라서 (제시문 [가]) $l:\ y=(\tan\theta)x+\sec\theta$ …… ①.
+      criteria: [1.B1]
+    - id: 1b-2
+      content: |
+        직선 $l$이 $B(1,2)$를 지날 때의 $\theta$를 $\alpha\ \left(0\le\alpha<\dfrac{\pi}{2}\right)$라 하면 ①에 의해 $2=\tan\alpha+\sec\alpha$이므로 $2\cos\alpha=\sin\alpha+1$.
+        $2\sqrt{1-\sin^2\alpha}=\sin\alpha+1$에 의해 $\sin\alpha=\dfrac35$, $\cos\alpha=\dfrac45$, $\tan\alpha=\dfrac34$이다.
+      criteria: [1.B1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.B1
+      mark_type: B
+      points: 5
+      evidence: 접선의 방정식 $y=(\tan\theta)x+\sec\theta$를 통해 $\sin\theta=\dfrac35$, $\cos\theta=\dfrac45$, $\tan\theta=\dfrac34$를 정확히 제시했다.
+      depends_on: []
+      steps: [1b-1, 1b-2]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-CAL-6803}
+  misconceptions:
+  - id: MC-CAL-6803
+    outcome_code: '70'
+    wrong_work: '$4(1-\sin^2\alpha)=(\sin\alpha+1)^2$에서 $\sin\alpha=-1$도 답으로 남기거나 $\cos\alpha$의 부호를 정하지 않음'
+    detect_cue: 답에 $\sin\theta=-1$ 또는 $\cos\theta=-\dfrac45$가 함께 있음
+    feedback: $0\le\alpha<\dfrac{\pi}{2}$이므로 $\sin\alpha\ge0$, $\cos\alpha>0$입니다. 제곱해서 생긴 근을 범위로 버리세요.
+    remedy: [RL-1]
+- id: '2'
+  stem: |
+    (2) 직선 $l$이 정사각형 ABCD와 만나는 두 점 사이의 거리를 $\theta$에 관한 함수 $f(\theta)$로 나타내고, 그 근거를 논술하시오. (15점)
+  points: 15
+  depends_on: ['1']
+  answer: {kind: expression, value: 'f(\theta)=2\sec\theta\ (0\le\theta\le\alpha),\ f(\theta)=2\csc\theta+\sec\theta-\csc\theta\sec\theta\ (\alpha\le\theta<\dfrac{\pi}{2}),\ \tan\alpha=\dfrac34', equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: 접선이 변 BC와 만나면 가로 2를 밑변으로 하는 직각삼각형, 변 AB와 만나면 세로 2와 $x$절편 $-\csc\theta$로 길이를 구한다.
+    steps:
+    - {id: 2a, content: '$0\le\theta\le\alpha$: $2\sec\theta$, $\alpha\le\theta<\dfrac{\pi}{2}$: $\overline{QR}-\overline{PR}=2\csc\theta+\sec\theta-\csc\theta\sec\theta$', criteria: [2.B1, 2.B2]}
+    hint_ladder:
+    - (1)의 $\alpha$를 기준으로 접선이 어느 변과 만나는지 나누자.
+    - 접선이 $x$축과 만나는 점 R의 좌표를 이용하자.
+  - id: S2-B
+    audience: B
+    method_no: 1
+    source_flow: 4 2021학년도 논술고사 기출문제(자연계)_1205 오전.pdf 예시답안 p.11~12
+    steps:
+    - id: 2b-1
+      content: |
+        직선 $l$이 정사각형과 만나는 두 점 중 선분 AD와 만나는 점을 P, 나머지 한 점을 Q라 하자.
+        i) 직선 $l$이 선분 BC와 만날 때, (1)의 결과에 의해 $0\le\theta\le\alpha$이다. 점 P를 지나고 AB에 평행한 직선이 BC와 만나는 점을 S라 하면 삼각형 PQS는 $\overline{PS}=2$, $\angle QPS=\theta$, $\angle PSQ=\dfrac{\pi}{2}$인 직각삼각형이다. $\cos\theta=\dfrac{2}{\overline{PQ}}$이므로 $\overline{PQ}=2\sec\theta$.
+      criteria: [2.B1]
+    - id: 2b-2
+      content: |
+        ii) 직선 $l$이 선분 AB와 만날 때, (1)의 결과에 의해 $\alpha\le\theta<\dfrac{\pi}{2}$이다. 접선 $y=(\tan\theta)x+\sec\theta$에 의해 R의 좌표는 $(-\csc\theta,0)$.
+        Q를 지나고 BC에 평행한 직선이 CD와 만나는 점을 S라 하면 삼각형 QRS는 $\overline{QS}=2$, $\angle QRS=\theta$, $\angle QSR=\dfrac{\pi}{2}$인 직각삼각형이므로 $\sin\theta=\dfrac{2}{\overline{QR}}$에서 $\overline{QR}=2\csc\theta$ …… ①.
+        삼각형 RPD는 $\overline{DR}=\csc\theta-1$, $\angle PRD=\theta$, $\angle RDP=\dfrac{\pi}{2}$인 직각삼각형이므로 $\cos\theta=\dfrac{\csc\theta-1}{\overline{PR}}$에서 $\overline{PR}=\csc\theta\sec\theta-\sec\theta$ …… ②.
+        ①, ②에 의해 $\overline{PQ}=\overline{QR}-\overline{PR}=2\csc\theta+\sec\theta-\csc\theta\sec\theta$.
+      criteria: [2.B2]
+    - id: 2b-3
+      content: |
+        i), ii)에 의해
+        $$f(\theta)=\begin{cases}2\sec\theta & (0\le\theta\le\alpha)\\ 2\csc\theta+\sec\theta-\csc\theta\sec\theta & \left(\alpha\le\theta<\dfrac{\pi}{2}\right)\end{cases}$$
+      criteria: [2.B2]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.B1
+      mark_type: B
+      points: 5
+      evidence: 접선이 선분 BC와 만날 때($0\le\theta\le\alpha$) $f(\theta)=2\sec\theta$를 정확히 제시했다.
+      depends_on: []
+      steps: [2b-1]
+    - id: 2.B2
+      mark_type: B
+      points: 10
+      evidence: 접선이 선분 AB와 만날 때($\alpha\le\theta<\dfrac{\pi}{2}$) $f(\theta)=2\csc\theta+\sec\theta-\csc\theta\sec\theta$를 정확히 제시했다.
+      depends_on: []
+      steps: [2b-2, 2b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-CAL-6804}
+  misconceptions:
+  - id: MC-CAL-6804
+    outcome_code: '70'
+    wrong_work: '모든 $\theta$에서 $f(\theta)=2\sec\theta$로 둠(접선이 변 AB와 만나는 경우를 빠뜨림)'
+    detect_cue: $f(\theta)$가 한 식뿐이고 $\alpha$가 등장하지 않음
+    feedback: 접선이 B를 지나는 각 $\alpha$보다 크면 접선은 변 BC가 아니라 변 AB와 만납니다. 경우를 나누세요.
+    remedy: [RL-2]
+- id: '3'
+  stem: |
+    (3) [논제 I-2] (2)에서의 $f(\theta)$에 대하여
+    $$\mathrm{J}=\int_0^{\frac{\pi}{4}}\left(f(\theta)\sin\theta\cos\theta-\cos\theta\right)d\theta$$
+    일 때, $\sin\mathrm{J}$의 값을 계산하고, 그 과정을 논술하시오. (10점)
+  points: 10
+  depends_on: ['1', '2']
+  answer: {kind: value, value: '-\dfrac{\sqrt2}{10}', equivalents: ['-\sqrt2/10'], tolerance: null}
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: $\alpha<\dfrac{\pi}{4}$이므로 $[0,\alpha]$에서 $2\sin\theta-\cos\theta$, $[\alpha,\dfrac{\pi}{4}]$에서 $\cos\theta+\sin\theta-1$을 적분하면 $\mathrm{J}=2-\cos\alpha-2\sin\alpha+\alpha-\dfrac{\pi}{4}=\alpha-\dfrac{\pi}{4}$.
+    steps:
+    - {id: 3a, content: '$\sin\mathrm{J}=\sin\left(\alpha-\dfrac{\pi}{4}\right)=-\dfrac{\sqrt2}{10}$', criteria: [3.M1, 3.A1]}
+    hint_ladder:
+    - $\alpha$와 $\dfrac{\pi}{4}$의 크기를 비교하자.
+    - 각 구간에서 $f(\theta)\sin\theta\cos\theta$를 간단히 하자.
+  - id: S3-B
+    audience: B
+    method_no: 1
+    source_flow: 4 2021학년도 논술고사 기출문제(자연계)_1205 오전.pdf 예시답안 p.12
+    steps:
+    - id: 3b-1
+      content: |
+        $\tan\theta$는 $0\le\theta<\dfrac{\pi}{2}$에서 증가함수이고(제시문 [마]), (1)에 의해 $\tan\alpha=\dfrac34$, $\tan\dfrac{\pi}{4}=1$이므로 $0\le\alpha\le\dfrac{\pi}{4}$이다. 따라서 (제시문 [나])
+        $$\mathrm{J}=\int_0^{\alpha}(f(\theta)\sin\theta\cos\theta-\cos\theta)d\theta+\int_{\alpha}^{\frac{\pi}{4}}(f(\theta)\sin\theta\cos\theta-\cos\theta)d\theta=\int_0^{\alpha}(2\sin\theta-\cos\theta)d\theta+\int_{\alpha}^{\frac{\pi}{4}}(\cos\theta+\sin\theta-1)d\theta$$
+      criteria: [3.M1]
+    - id: 3b-2
+      content: |
+        제시문 [다]로 적분하면 $\mathrm{J}=(2-2\cos\alpha-\sin\alpha)+(\cos\alpha-\sin\alpha+\alpha-\dfrac{\pi}{4})=2-\cos\alpha-2\sin\alpha+\alpha-\dfrac{\pi}{4}$.
+      criteria: [3.M1]
+    - id: 3b-3
+      content: |
+        (1)에서 $\sin\alpha=\dfrac35$, $\cos\alpha=\dfrac45$이므로 $\mathrm{J}=\alpha-\dfrac{\pi}{4}$이고, 제시문 [라]에 의해
+        $\sin\mathrm{J}=\sin\left(\alpha-\dfrac{\pi}{4}\right)=\sin\alpha\cos\dfrac{\pi}{4}-\cos\alpha\sin\dfrac{\pi}{4}=-\dfrac{\sqrt2}{10}$.
+      criteria: [3.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 6
+      evidence: 적분구간을 $[0,\alpha]$와 $[\alpha,\dfrac{\pi}{4}]$로 명시하고 적분을 삼각함수를 이용하여 정확히 표현했다($2-\cos\alpha-2\sin\alpha+\alpha-\dfrac{\pi}{4}$).
+      depends_on: []
+      ft: {from: [2.B1, 2.B2], max_points: 6}
+      steps: [3b-1, 3b-2]
+    - id: 3.A1
+      mark_type: A
+      points: 4
+      evidence: 접선이 점 B를 지날 때의 삼각비를 이용하여 $\sin\mathrm{J}=-\dfrac{\sqrt2}{10}$을 정확히 계산했다.
+      depends_on: [3.M1]
+      steps: [3b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-CAL-6805}
+  misconceptions:
+  - id: MC-CAL-6805
+    outcome_code: '70'
+    wrong_work: '$[0,\dfrac{\pi}{4}]$ 전체에서 $f(\theta)=2\sec\theta$로 적분해 $\mathrm{J}=2-\dfrac{3\sqrt2}{2}$를 얻음'
+    detect_cue: 적분구간이 나뉘지 않았고 $\alpha$가 결과에 없음
+    feedback: $\tan\alpha=\dfrac34<1$이므로 $\alpha<\dfrac{\pi}{4}$입니다. 경계 $\alpha$에서 적분구간을 나누세요.
+    remedy: [RL-3]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CAL-6803}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-TRIG-DERIV}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-CAL-6804}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-PIECEWISE-INTEGRAL}
+  priority: 1
+- id: RL-3
+  trigger: {type: misconception, ref: MC-CAL-6805}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-PIECEWISE-INTEGRAL}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-input-v1, item_version: 1, verdict: pass, date: 2026-11-21, note: 원문 PDF 이미지 판독으로 옮김 · 해설은 경희대 예시답안 흐름}
+
+created: 2026-11-21
+updated: 2026-11-21

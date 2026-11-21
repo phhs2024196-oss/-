@@ -1,0 +1,234 @@
+schema_version: '2.0'
+id: KHU-G22B-04
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: KHU
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 최적2단
+points: 25
+time_estimate_min: 25
+intent: 타원의 접선의 방정식으로 두 교점의 좌표를 구해 직각삼각형의 넓이를 접점 좌표로 나타내고, 접점이 타원 위에 있다는 조건(음함수 미분)을 써서 넓이를 미분해 최댓값을 구하는 능력을 본다.
+key_idea: '$S=\dfrac{(p+aq-a)^2}{2pq}$를 $p$로 미분할 때 $\dfrac{dq}{dp}=-\dfrac{p}{a^2q}$를 쓰면 $\dfrac{dS}{dp}=\dfrac{(p-a)(q-1)(aq-p)}{p^2q^3}$이고, 부호를 바꾸는 인수는 $aq-p$뿐이다.'
+stuck: 넓이를 미분할 때 $q$를 $p$의 함수로 보고 $\dfrac{dq}{dp}$를 넣어 인수분해하는 단계
+idea_tags: [IDEA-ELLIPSE-TANGENT-INTERCEPTS, IDEA-IMPLICIT-DIFF-CONSTRAINED-MAX]
+tags: [타원의 접선, 삼각형 넓이의 최대, 음함수 미분, 경희 실전]
+elements:
+  materials: [타원 x^2/a^2+y^2=1, 제1사분면의 접점 (p,q), 직선 x=a 와의 교점 A, 직선 y=1 과의 교점 B, 점 C(a,1), 직각삼각형 ABC]
+  concepts: [타원의 접선의 방정식, 직각삼각형의 넓이, 음함수의 미분법, 몫의 미분법, 극대와 최대]
+  tools: [접선 px/a^2+qy=1 에 x=a, y=1 대입, AC·BC 로 넓이, dq/dp=-p/(a^2q) 대입 후 인수분해, 부호 변화로 최대 판정]
+  conditions:
+  - '접점이 제1사분면 ⇒ $0<p<a$, $0<q<1$'
+  - '$\dfrac{p^2}{a^2}+q^2=1$ ⇒ $\dfrac{dq}{dp}=-\dfrac{p}{a^2q}$'
+  - '$aq=p$ ⇔ $p=\dfrac{a}{\sqrt2}$, $q=\dfrac{1}{\sqrt2}$'
+  stimuli_used: [다, 사]
+  subpart_links: (2)는 (1)에서 구한 $S=\dfrac{(p+aq-a)^2}{2pq}$를 미분
+
+curriculum:
+  version: '2015'
+  subjects: [기하, 미적분]
+  scope_2028: geom
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 이차곡선의 접선의 방정식을 구할 수 있다 / 함수의 그래프를 이용하여 최대·최소를 구할 수 있다(요지)
+    verified: false
+  content_area: 이차곡선 – 타원의 접선, 도함수의 활용(최대)
+  behavior_domain: 문제해결
+  unit_path: [기하, 이차곡선, 이차곡선과 직선, 타원의 접선의 방정식]
+  key_concepts: [타원의 접선의 방정식, 음함수의 미분법, 최댓값]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 경희대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 경희대학교
+  admission_year: 2022
+  admission_type: 논술(논술우수자전형)
+  track: 자연계열
+  question_no: 4
+  official_url: https://iphak.khu.ac.kr/detail.do?menuurl=89BGs%2bk748ajyySWoWlQPw%3d%3d&board_seq=4485&pageNo=1&categoryid=27&userpwd=
+  retrieved_at: '2026-11-21'
+  original_points: 25
+  rights_notice: '경희대학교 입학처 공개 자료(기출문제·예시답안). 내부 분석용'
+  note: |
+    시험 시간대: 11월 21일(일) 오전 자연계.
+    문제 = 5. 2022학년도 논술고사 기출문제(자연계)_11.21 오전.pdf p.1(제시문)·p.4, 원 번호 [논제 IV] (1)(2), 해설 = 같은 PDF p.15~17(채점 기준·예시답안 p.16, 계속 p.17).
+    예시답안 p.17 의 도함수 중간식 $\dfrac{(p+aq-a)(-2p^2+ap-a^2q+a^2)}{2ap^2q^3}$과 최종식 $\dfrac{(p-a)(q-1)(aq-p)}{p^2q^3}$은 모두 sympy로 원래 도함수와 같음을 확인(수치 대조).
+    예시답안은 $p=\dfrac{a}{\sqrt2}$ 좌우 부호 변화만 언급 — 최대 판정은 그 흐름 그대로.
+
+verify: verify/KHU-G22B.py::p04
+
+stimuli:
+- label: 다
+  body: |
+    미분가능한 함수 $f(x)$에 대하여 $f'(a)=0$이고 $x=a$의 좌우에서
+    ① $f'(x)$의 부호가 양에서 음으로 바뀌면 $f(x)$는 $x=a$에서 극대이다.
+    ② $f'(x)$의 부호가 음에서 양으로 바뀌면 $f(x)$는 $x=a$에서 극소이다.
+- label: 사
+  body: |
+    타원 $\dfrac{x^2}{a^2}+\dfrac{y^2}{b^2}=1$ 위의 점 $(x_1,y_1)$에서의 접선의 방정식은
+    $$\dfrac{x_1x}{a^2}+\dfrac{y_1y}{b^2}=1$$
+
+stem: |
+  [논제 IV]
+  <그림 5>와 같이 타원 $\dfrac{x^2}{a^2}+y^2=1$과 제1사분면에서 접하는 직선이 직선 $x=a$와 점 A에서 만나고, 직선 $y=1$과 점 B에서 만난다. 점 C는 $(a,1)$이다. (단, $a>0$)
+  [그림 5 설명: 원점 O, 꼭짓점 $(0,1)$·$(a,0)$을 잇는 제1사분면의 타원 호, 직사각형 $0\le x\le a$, $0\le y\le1$의 위 변($y=1$)과 오른쪽 변($x=a$). 타원 위의 점 $(p,q)$에서 그은 접선이 위 변과 B에서, 오른쪽 변과 A에서 만나고, 오른쪽 위 꼭짓점이 C.]
+
+subparts:
+- id: '1'
+  stem: |
+    접점의 좌표가 $(p,q)$일 때, 삼각형 ABC의 넓이를 $p$와 $q$의 식으로 나타내고, 그 근거를 논술하시오. (10점)
+  points: 10
+  depends_on: []
+  answer: {kind: expression, value: '\dfrac{(p+aq-a)^2}{2pq}', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: '접선 $\dfrac{px}{a^2}+qy=1$에 $x=a$, $y=1$을 넣어 A, B를 구한다.'
+    steps:
+    - {id: 1a, content: '$\overline{\mathrm{AC}}=\dfrac{p+aq-a}{aq}$, $\overline{\mathrm{BC}}=\dfrac{a(p+aq-a)}{p}$', criteria: [1.M1, 1.A2]}
+    hint_ladder:
+    - 제시문 [사]에서 $b=1$이다.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 5. 2022학년도 논술고사 기출문제(자연계)_11.21 오전.pdf 예시답안 p.16
+    steps:
+    - id: 1b-1
+      content: |
+        접점이 제1사분면에 있으므로 $0<p<a$, $0<q<1$이다. 타원 $\dfrac{x^2}{a^2}+y^2=1$ 위의 점 $(p,q)$에서 접선의 방정식은 제시문 [사]에 의해 $\dfrac{px}{a^2}+qy=1$이다. 접선의 기울기는 $\dfrac{dq}{dp}=-\dfrac{p}{a^2q}$이다.
+        $x=a$일 때, $\dfrac pa+qy=1$이므로 $\mathrm{A}\left(a,\dfrac{-p+a}{aq}\right)$이고, $y=1$일 때, $\dfrac{px}{a^2}+q=1$이므로 $\mathrm{B}\left(\dfrac{a^2(-q+1)}{p},1\right)$이다.
+      criteria: [1.M1]
+    - id: 1b-2
+      content: |
+        삼각형 ABC의 넓이는
+        $$S=\dfrac12\cdot\overline{\mathrm{AC}}\cdot\overline{\mathrm{BC}}=\dfrac12\left(1-\dfrac{-p+a}{aq}\right)\left\{a-\dfrac{a^2(-q+1)}{p}\right\}=\dfrac{(p+aq-a)^2}{2pq}$$
+        이다.
+      criteria: [1.A2]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 7
+      evidence: '접선 $\dfrac{px}{a^2}+qy=1$로 점 $\mathrm{A}\left(a,\dfrac{a-p}{aq}\right)$와 $\mathrm{B}\left(\dfrac{a^2(1-q)}{p},1\right)$의 좌표를 찾았다.'
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1]
+    - id: 1.A2
+      mark_type: A
+      points: 3
+      evidence: '삼각형 ABC의 넓이 $\dfrac{(p+aq-a)^2}{2pq}$를 찾았다.'
+      depends_on: [1.M1]
+      steps: [1b-2]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-GEO-6721}
+  misconceptions:
+  - id: MC-GEO-6721
+    outcome_code: '70'
+    wrong_work: '접선을 $px+qy=1$로 써서 $\mathrm{A}\left(a,\dfrac{1-ap}{q}\right)$를 얻음'
+    detect_cue: 좌표에 $a^2$이 없거나 $ap$ 항이 나타남
+    feedback: '타원 $\dfrac{x^2}{a^2}+y^2=1$의 접선은 $\dfrac{px}{a^2}+qy=1$입니다. 제시문 [사]의 분모를 그대로 두세요.'
+    remedy: [RL-1]
+
+- id: '2'
+  stem: |
+    삼각형 ABC의 넓이의 최댓값을 구하고, 그 근거를 논술하시오. (15점)
+  points: 15
+  depends_on: ['1']
+  answer: {kind: value, value: '(3-2\sqrt2)a', equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: '$\dfrac{dS}{dp}=\dfrac{(p-a)(q-1)(aq-p)}{p^2q^3}$, $(p-a)(q-1)>0$이므로 부호는 $aq-p$가 결정.'
+    steps:
+    - {id: 2a, content: '$p=\dfrac{a}{\sqrt2}$에서 최대 $S=(3-2\sqrt2)a$', criteria: [2.M1, 2.R2, 2.A3]}
+    hint_ladder:
+    - '$q$는 $p$에 따라 정해진다. $\dfrac{dq}{dp}$를 구해 두자.'
+    - 도함수를 인수분해해 부호가 바뀌는 인수를 찾자.
+  - id: S2-B
+    audience: B
+    method_no: 1
+    source_flow: 5. 2022학년도 논술고사 기출문제(자연계)_11.21 오전.pdf 예시답안 p.16~17
+    steps:
+    - id: 2b-1
+      content: |
+        삼각형 ABC의 넓이 $S$를 $p$에 대하여 미분하면(여기서, $\dfrac{p^2}{a^2}+q^2=1$을 이용)
+        $$\dfrac{dS}{dp}=\dfrac{2(p+aq-a)\left(1+a\dfrac{dq}{dp}\right)pq-(p+aq-a)^2\left(q+p\dfrac{dq}{dp}\right)}{2p^2q^2}$$
+        이고, $\dfrac{dq}{dp}=-\dfrac{p}{a^2q}$와 $\dfrac{x^2}{a^2}+y^2=1$을 이용하여 이를 정리하면
+        $$\dfrac{dS}{dp}=\dfrac{(p+aq-a)(-2p^2+ap-a^2q+a^2)}{2ap^2q^3}=\dfrac{(p-a)(q-1)(aq-p)}{p^2q^3}$$
+        이다.
+      criteria: [2.M1]
+    - id: 2b-2
+      content: |
+        $0<p<a$이고 $0<q<1$이므로 $p=\dfrac{a}{\sqrt2}$에서만 $\dfrac{dS}{dp}=0$이고, $p=\dfrac{a}{\sqrt2}$에서 $\dfrac{dS}{dp}$의 부호가 양에서 음으로 바뀐다(제시문 [다]).
+        (보충: $(p-a)(q-1)>0$이고 $aq-p$는 $p<\dfrac a{\sqrt2}$에서 양, $p>\dfrac a{\sqrt2}$에서 음.)
+        따라서, 삼각형 ABC의 넓이는 $p=\dfrac{a}{\sqrt2}$에서 최댓값 $S=(3-2\sqrt2)a$를 가진다.
+      criteria: [2.R2, 2.A3]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 5
+      evidence: '$\dfrac{dq}{dp}=-\dfrac{p}{a^2q}$를 이용해 넓이의 도함수 $\dfrac{dS}{dp}=\dfrac{(p-a)(q-1)(aq-p)}{p^2q^3}$(또는 동치식)를 찾았다.'
+      depends_on: []
+      implied_ok: false
+      ft: {allowed: true, from: [1.A2], max_points: 5}
+      steps: [2b-1]
+    - id: 2.R2
+      mark_type: R
+      points: 5
+      evidence: '$0<p<a$, $0<q<1$에서 $\dfrac{dS}{dp}=0$인 점이 $p=\dfrac a{\sqrt2}$뿐이고 그 좌우에서 부호가 양에서 음으로 바뀜을 밝혔다.'
+      depends_on: [2.M1]
+      steps: [2b-2]
+    - id: 2.A3
+      mark_type: A
+      points: 5
+      evidence: '최댓값 $(3-2\sqrt2)a$를 구했다.'
+      depends_on: [2.M1, 2.R2]
+      steps: [2b-2]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-CAL-6722}
+  misconceptions:
+  - id: MC-CAL-6722
+    outcome_code: '70'
+    wrong_work: '$q$를 상수로 보고 $\dfrac{dS}{dp}$를 구해 $p=a-aq$ 등의 잘못된 임계점을 얻음'
+    detect_cue: 도함수에 $\dfrac{dq}{dp}$ 또는 $\dfrac{p}{a^2q}$ 항이 없다
+    feedback: 접점은 타원 위에 있으므로 $q=\sqrt{1-\dfrac{p^2}{a^2}}$는 $p$의 함수입니다. 음함수 미분으로 $\dfrac{dq}{dp}$를 넣으세요.
+    remedy: [RL-2]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-GEO-6721}
+  relation: remediation
+  target: {kind: concept, ref: CON-GEO-ELLIPSE-TANGENT}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-CAL-6722}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-CONSTRAINED-OPT}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-input-v1, item_version: 1, verdict: pass, date: 2026-11-21, note: 원문 PDF 이미지 판독으로 옮김 · 해설은 경희대 예시답안 흐름}
+
+created: 2026-11-21
+updated: 2026-11-21

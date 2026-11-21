@@ -1,0 +1,270 @@
+schema_version: '2.0'
+id: KHU-G22B-02
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: KHU
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 존재
+points: 25
+time_estimate_min: 30
+intent: 두 점의 속도 차를 적분해 위치 차를 함수로 나타내고, '두 점이 만나지 않는다'를 방정식 $r(t)=c$의 해가 없다는 조건으로 바꿔 그래프의 개형(극값)으로 실수 $a$의 최솟값을 구하는 능력을 본다.
+key_idea: '$h(t)=f(t)-g(t)$로 두면 만남 ⇔ $h(t)=0$ ⇔ $r(t)=c$. 모든 $q_0>a$에서 해가 없으려면 $a$가 $(0,1)$에서 $r(t)$의 최댓값(에 해당하는 값) 이상이어야 한다.'
+stuck: (2)에서 $t\cos4\pi t$를 부분적분해 $r(t)$를 구하고, 극값 $\dfrac{(-1)^k(2k+1)}{32\pi}$ 중 가장 큰 극댓값 $r(t_2)$를 찾는 단계
+idea_tags: [IDEA-RELATIVE-POSITION-INTEGRATE, IDEA-NO-ROOT-VIA-RANGE, IDEA-EXTREMA-TABLE-GLOBAL-MAX]
+tags: [수직선 위의 운동, 위치와 속도, 부분적분, 극값, 경희 실전]
+elements:
+  materials: [수직선 위의 두 점 P·Q, 출발 위치 O와 q_0, 속도 v_1(t)·v_2(t), 조건 'q_0>a 인 모든 q_0 에 대해 0<t<1 에서 만나지 않음']
+  concepts: [속도와 위치, 정적분(부정적분)과 초기 조건, 부분적분법, 극대·극소, 방정식의 실근과 그래프의 교점]
+  tools: [위치 차 h(t) 정의와 적분, h(t)=0 을 r(t)=c 로 분리, 증감표, 극값 비교, 조건을 만족하는 q_0 범위에서 a 의 최솟값 결정]
+  conditions:
+  - '$h(0)=f(0)-g(0)=-q_0$'
+  - '$0<t<1$ 열린구간 ⇒ 끝값 $r(0)$, $r(1)$ 자체는 교점으로 치지 않음'
+  - '모든 $q_0>a$ ⇒ $(a,\infty)$ 전체가 해 없는 범위에 들어가야 함'
+  stimuli_used: [나, 다, 라]
+  subpart_links: (2)는 (1)에서 정의한 $h(t)$와 '$r(t)=c$의 해 존재' 관점을 그대로 사용
+
+curriculum:
+  version: '2015'
+  subjects: [미적분]
+  scope_2028: calc2
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 속도와 거리에 대한 문제를 해결할 수 있다 / 부분적분법을 이해하고 활용할 수 있다(요지)
+    verified: false
+  content_area: 적분법 – 속도와 위치, 부분적분
+  behavior_domain: 문제해결
+  unit_path: [미적분, 적분법, 정적분의 활용, 속도와 거리]
+  key_concepts: [속도와 위치, 부분적분법, 극대·극소, 방정식의 실근]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 경희대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 경희대학교
+  admission_year: 2022
+  admission_type: 논술(논술우수자전형)
+  track: 자연계열
+  question_no: 2
+  official_url: https://iphak.khu.ac.kr/detail.do?menuurl=89BGs%2bk748ajyySWoWlQPw%3d%3d&board_seq=4485&pageNo=1&categoryid=27&userpwd=
+  retrieved_at: '2026-11-21'
+  original_points: 25
+  rights_notice: '경희대학교 입학처 공개 자료(기출문제·예시답안). 내부 분석용'
+  note: |
+    시험 시간대: 11월 21일(일) 오전 자연계.
+    문제 = 5. 2022학년도 논술고사 기출문제(자연계)_11.21 오전.pdf p.1(제시문)·p.2, 원 번호 [논제 II] (1)(2), 해설 = 같은 PDF p.8~10(채점 기준·예시답안 p.9, 예시답안 그래프·(2) p.10).
+    공식 예시답안 오기: p.9 '$c=q_0>h(1)=\dfrac2\pi$' — $h(1)=\dfrac2\pi-q_0$이므로 $r(1)=\dfrac2\pi$의 오기. B 해설에서 $r(1)$로 바로잡음(답 $\dfrac2\pi$는 같음).
+    (1)에서 $q_0=\dfrac2\pi$도 $0<t<1$에서 만나지 않으므로 해 없는 범위는 $q_0\ge\dfrac2\pi$ 또는 $q_0\le0$ — 예시답안의 '$q_0>\dfrac2\pi$'와 최솟값 $a=\dfrac2\pi$는 일치.
+    예시답안 p.10 의 그래프 두 개(왼쪽: $y=r(t)=\dfrac2\pi\sin\dfrac\pi2t$와 수평선 $y=c$, 오른쪽: (2)의 $r(t)$와 $y=c$, $t_2$·$t_3$ 표시)는 증감표로 대신 옮김.
+
+verify: verify/KHU-G22B.py::p02
+
+stimuli:
+- label: 나
+  body: |
+    수직선 위를 움직이는 점 P의 시각 $t$에서의 위치 $x$가 $x=f(t)$일 때, 시각 $t$에서의 점 P의 속도 $v$는 다음과 같다.
+    $$v=\dfrac{dx}{dt}=f'(t)$$
+- label: 다
+  body: |
+    미분가능한 함수 $f(x)$에 대하여 $f'(a)=0$이고 $x=a$의 좌우에서
+    ① $f'(x)$의 부호가 양에서 음으로 바뀌면 $f(x)$는 $x=a$에서 극대이다.
+    ② $f'(x)$의 부호가 음에서 양으로 바뀌면 $f(x)$는 $x=a$에서 극소이다.
+- label: 라
+  body: |
+    두 함수 $f(x)$, $g(x)$가 미분가능하고, $f'(x)$와 $g'(x)$가 닫힌구간 $[a,b]$에서 연속일 때,
+    $$\int_a^bf(x)g'(x)dx=\big[f(x)g(x)\big]_a^b-\int_a^bf'(x)g(x)dx$$
+
+stem: |
+  [논제 II]
+  수직선 위의 두 점 P, Q가 시각 $t=0$일 때 각각 원점 O와 $q_0$에서 출발하여 속도 $v_1(t)$, $v_2(t)$로 움직인다. 다음 조건
+  '$q_0>a$인 모든 실수 $q_0$에 대하여 $0<t<1$에서 두 점 P와 Q는 만나지 않는다.'
+  에 대하여 물음에 답하시오.
+
+subparts:
+- id: '1'
+  stem: |
+    $v_1(t)=v_2(t)+\cos\dfrac\pi2t$일 때, 위 조건을 만족하는 실수 $a$의 최솟값을 구하고, 그 근거를 논술하시오. (10점)
+  points: 10
+  depends_on: []
+  answer: {kind: value, value: '\dfrac{2}{\pi}', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: '$h(t)=\dfrac2\pi\sin\dfrac\pi2t-q_0$. $r(t)=\dfrac2\pi\sin\dfrac\pi2t$는 $(0,1)$에서 $0$에서 $\dfrac2\pi$까지 증가.'
+    steps:
+    - {id: 1a, content: '$q_0\ge\dfrac2\pi$ 또는 $q_0\le0$이면 해 없음 ⇒ $a_{\min}=\dfrac2\pi$', criteria: [1.M2, 1.A3]}
+    hint_ladder:
+    - 두 점의 위치 차를 함수로 두고 속도 차를 적분하자.
+    - 만난다 ⇔ 위치 차가 0. 이것을 $r(t)=q_0$ 꼴로 바꾸자.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 5. 2022학년도 논술고사 기출문제(자연계)_11.21 오전.pdf 예시답안 p.9~10
+    steps:
+    - id: 1b-1
+      content: |
+        시각 $t$에서 두 점 P, Q의 위치를 각각 $f(t)$, $g(t)$라 두면, $f(0)=0$, $g(0)=q_0$이고 제시문 [나]에 의해 $f'(t)=g'(t)+\cos\dfrac\pi2t$이다.
+        $h(t)=f(t)-g(t)$로 두고, 위의 등식을 적분하면 $h(t)=\dfrac2\pi\sin\dfrac\pi2t+h(0)=\dfrac2\pi\sin\dfrac\pi2t-q_0$이다.
+      criteria: [1.M1]
+    - id: 1b-2
+      content: |
+        '$q_0>a$인 모든 $q_0$에 대하여, 두 점 P, Q가 만나지 않는다'는 '$q_0>a$인 모든 $q_0$에 대하여, 시각 $0<t<1$에서 $h(t)=0$인 $t$가 존재하지 않는다'와 같다.
+        따라서, $q_0>a$인 모든 $q_0$에 대하여, 시각 $0<t<1$에서 $h(t)=0$인 $t$가 존재하지 않을 $a$의 최솟값을 찾으면 된다.
+        $r(t)=\dfrac2\pi\sin\dfrac\pi2t$, $c=q_0$라 두면, $h(t)=0$의 해는 $r(t)=c$의 해가 된다.
+      criteria: [1.M2]
+    - id: 1b-3
+      content: |
+        $r(t)$는 $0<t<1$에서 증가하고 $r(0)=0$, $r(1)=\dfrac2\pi$이므로, $y=r(t)$와 $y=c$의 교점이 $0<t<1$에서 존재하지 않기 위해서는 $c=q_0\ge r(1)=\dfrac2\pi$ 혹은 $c=q_0\le0$을 만족하여야 한다(공식 예시답안의 '$h(1)$'은 $r(1)$의 오기).
+        즉, $a\ge\dfrac2\pi$일 때 $q_0>a$를 만족하는 모든 $q_0$에 대하여, 두 점 P, Q가 만나지 않는다. 따라서, $a$의 최솟값은 $\dfrac2\pi$이다.
+      criteria: [1.A3]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 3
+      evidence: '속도 차를 적분해 $h(t)=\dfrac2\pi\sin\dfrac\pi2t-q_0$을 구했다.'
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1]
+    - id: 1.M2
+      mark_type: M
+      points: 4
+      evidence: '만나지 않음을 $h(t)=0$(즉 $r(t)=q_0$)의 해가 $0<t<1$에 없다는 조건으로 바꾸고, $q_0\ge\dfrac2\pi$ 또는 $q_0\le0$이라는 $q_0$의 조건을 찾았다.'
+      depends_on: [1.M1]
+      implied_ok: false
+      steps: [1b-2, 1b-3]
+    - id: 1.A3
+      mark_type: A
+      points: 3
+      evidence: '모든 $q_0>a$에 대해 만나지 않을 $a$의 조건 $a\ge\dfrac2\pi$를 찾아 최솟값 $\dfrac2\pi$를 답했다.'
+      depends_on: [1.M2]
+      steps: [1b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-CAL-6714}
+  misconceptions:
+  - id: MC-CAL-6714
+    outcome_code: '70'
+    wrong_work: '$h(t)$의 최솟값 또는 $r(0)=0$을 기준으로 $a$의 최솟값을 $0$이라 답함'
+    detect_cue: 답이 $0$ 또는 $-\dfrac2\pi$
+    feedback: '$q_0$가 $a$보다 큰 모든 값이어야 하므로, $r(t)$가 취하는 값 중 가장 큰 값 이상에서만 안전합니다.'
+    remedy: [RL-1]
+
+- id: '2'
+  stem: |
+    $v_1(t)=v_2(t)+t\cos4\pi t$일 때, 위 조건을 만족하는 실수 $a$의 최솟값을 구하고, 그 근거를 논술하시오. (15점)
+  points: 15
+  depends_on: ['1']
+  answer: {kind: value, value: '\dfrac{5\pi-2}{32\pi^2}', equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: '$r(t)=\dfrac{1}{4\pi}t\sin4\pi t+\dfrac{1}{(4\pi)^2}\cos4\pi t$, 극값 $r(t_k)=(-1)^k\dfrac{2k+1}{32\pi}$ 중 최대는 $r\left(\dfrac58\right)=\dfrac{5}{32\pi}$.'
+    steps:
+    - {id: 2a, content: '$c=\dfrac{1}{16\pi^2}+q_0>\dfrac{5}{32\pi}$ ⇒ $a_{\min}=\dfrac{5\pi-2}{32\pi^2}$', criteria: [2.M2, 2.A3]}
+    hint_ladder:
+    - '$t\cos4\pi t$의 적분은 부분적분(제시문 [라]).'
+    - 증감표를 만들어 극댓값을 모두 비교하자.
+  - id: S2-B
+    audience: B
+    method_no: 1
+    source_flow: 5. 2022학년도 논술고사 기출문제(자연계)_11.21 오전.pdf 예시답안 p.10
+    steps:
+    - id: 2b-1
+      content: |
+        (1)에서와 같이 $h(t)$를 정의하면, $h(0)=-q_0$이고 $h'(t)=t\cos4\pi t$이므로, 제시문 [라]의 부분적분에 의해
+        $h(t)=\dfrac{1}{4\pi}t\sin4\pi t+\dfrac{1}{(4\pi)^2}\cos4\pi t-\dfrac{1}{(4\pi)^2}-q_0$이다.
+      criteria: [2.M1]
+    - id: 2b-2
+      content: |
+        이때, $r(t)=\dfrac{1}{4\pi}t\sin4\pi t+\dfrac{1}{(4\pi)^2}\cos4\pi t$, $c=\dfrac{1}{(4\pi)^2}+q_0$와 같이 두면, $h(t)=0$의 해는 $r(t)=c$의 해가 된다.
+        $y=r(t)$의 그래프를 그리기 위해 $r(t)$의 극점을 구하면, $r'(t)=t\cos4\pi t=0$에서 $t_k=\dfrac{2k+1}{8}$, $k=0,1,2,3$이 된다.
+        각 $t_k$에서 $r(t_k)=\dfrac{1}{4\pi}t_k\sin\left(k+\dfrac12\right)\pi=\dfrac{t_k}{4\pi}(-1)^k=(-1)^k\dfrac{2k+1}{32\pi}$이다. $r(0)=r(1)=\dfrac{1}{(4\pi)^2}$이므로, 함수의 증감표는 다음과 같다.
+        $t$: $0\nearrow t_0\searrow t_1\nearrow t_2\searrow t_3\nearrow1$, $r$: $\dfrac{1}{(4\pi)^2}$, $\dfrac{1}{32\pi}$(극대), $\dfrac{-3}{32\pi}$(극소), $\dfrac{5}{32\pi}$(극대), $\dfrac{-7}{32\pi}$(극소), $\dfrac{1}{(4\pi)^2}$ (제시문 [다]).
+      criteria: [2.M2]
+    - id: 2b-3
+      content: |
+        함수의 그래프의 개형은 위와 같으며, $c>r(t_2)$ 혹은 $c<r(t_3)$일 때, $r(t)=c$의 해가 없다.
+        $c=\dfrac{1}{(4\pi)^2}+q_0$이므로, $q_0>r(t_2)-\dfrac{1}{(4\pi)^2}\left(=\dfrac{5\pi-2}{32\pi^2}\right)$ 혹은 $q_0<r(t_3)-\dfrac{1}{(4\pi)^2}\left(=\dfrac{-7\pi-2}{32\pi^2}\right)$이면, $r(t)=c$의 해가 없다.
+        즉, $a\ge\dfrac{5\pi-2}{32\pi^2}$일 때, $q_0>a$인 모든 $q_0$에 대하여 $r(t)=c$의 해가 존재하지 않는다.
+        따라서, 두 점 P, Q가 $0<t<1$에서 만나지 않을 $a$의 최솟값은 $\dfrac{5\pi-2}{32\pi^2}$이다.
+      criteria: [2.A3]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 5
+      evidence: '부분적분으로 $h(t)=\dfrac{1}{4\pi}t\sin4\pi t+\dfrac{1}{(4\pi)^2}\cos4\pi t-\dfrac{1}{(4\pi)^2}-q_0$을 구했다.'
+      depends_on: []
+      implied_ok: false
+      steps: [2b-1]
+    - id: 2.M2
+      mark_type: M
+      points: 6
+      evidence: '$r''(t)=0$의 근 $t_k=\dfrac{2k+1}{8}$과 극값 $(-1)^k\dfrac{2k+1}{32\pi}$, 끝값 $\dfrac{1}{(4\pi)^2}$으로 증감표(그래프 개형)를 만들어 $c>r(t_2)$ 또는 $c<r(t_3)$이라는 $q_0$의 조건을 찾았다.'
+      depends_on: [2.M1]
+      implied_ok: false
+      steps: [2b-2, 2b-3]
+    - id: 2.A3
+      mark_type: A
+      points: 4
+      evidence: '$a\ge\dfrac{5\pi-2}{32\pi^2}$을 이끌어 최솟값 $\dfrac{5\pi-2}{32\pi^2}$을 답했다.'
+      depends_on: [2.M2]
+      steps: [2b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-CAL-6715}
+  - {code: '71', misconception: MC-CAL-6716}
+  misconceptions:
+  - id: MC-CAL-6715
+    outcome_code: '70'
+    wrong_work: '첫 극댓값 $r(t_0)=\dfrac{1}{32\pi}$을 최댓값으로 보고 $a=\dfrac{1}{32\pi}-\dfrac{1}{16\pi^2}$이라 답함'
+    detect_cue: 답의 분자가 $\pi-2$
+    feedback: '$t\cos4\pi t$는 진폭이 커지므로 뒤의 극댓값이 더 큽니다. 모든 극댓값을 비교하세요.'
+    remedy: [RL-2]
+  - id: MC-CAL-6716
+    outcome_code: '71'
+    wrong_work: '$\int t\cos4\pi t\,dt=\dfrac{1}{4\pi}t\sin4\pi t-\dfrac{1}{(4\pi)^2}\cos4\pi t$로 부호를 틀리거나 적분상수(초기 조건 $h(0)=-q_0$)를 빠뜨림'
+    detect_cue: $r(0)$이 $-\dfrac{1}{16\pi^2}$이거나 $c$에 $\dfrac{1}{(4\pi)^2}$ 보정이 없음
+    feedback: 부분적분 후 미분해서 $t\cos4\pi t$가 나오는지 확인하고, $t=0$의 값으로 상수를 정하세요.
+    remedy: [RL-3]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CAL-6714}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-ROOT-RANGE}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-CAL-6715}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-ROOT-RANGE}
+  priority: 1
+- id: RL-3
+  trigger: {type: misconception, ref: MC-CAL-6716}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-INT-PARTS}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-input-v1, item_version: 1, verdict: pass, date: 2026-11-21, note: 원문 PDF 이미지 판독으로 옮김 · 해설은 경희대 예시답안 흐름}
+
+created: 2026-11-21
+updated: 2026-11-21

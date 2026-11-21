@@ -1,0 +1,224 @@
+schema_version: '2.0'
+id: KHU-M26-03
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: KHU
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 점화
+points: 37
+time_estimate_min: 30
+intent: 원과 그 접선에 대한 성질을 활용하여 좌표평면 위의 좌표를 구하고, 이를 활용하여 원의 넓이의 합을 구하는 과정을 통해 기하적인 개념에 대한 이해력과 문제해결 능력을 평가한다.
+key_idea: '원의 중심들은 Q에서 나온 각의 이등분선 위에 있고, 닮음과 피타고라스 정리로 $r_1=\dfrac{\sqrt{k^2+1}-1}{\sqrt{k^2+1}+1}$ $\left(k=\dfrac{y_0+1}{x_0}\right)$. 인접한 원의 닮음비가 일정하므로 넓이는 공비 $r_1^2$인 등비급수.'
+stuck: '점 B(중심 R1에서 y축에 내린 수선의 발)를 잡아 삼각형 BR0R1과 P''R0Q의 닮음을 보는 단계, 모든 인접 원의 닮음비가 $r_1$로 같음을 보는 단계'
+idea_tags: [IDEA-TANGENT-CIRCLE-CHAIN-RATIO, IDEA-GEOMETRIC-SERIES-AREA]
+tags: [원의 접선, 접원, 등비급수, 경희 모의]
+elements:
+  materials: [단위원 O0 위의 점 P(x0,y0) (x0>0), P 에서의 접선과 직선 y=-1 의 교점 Q, P'(0,-1), 삼각형 P'PQ 안에서 선분 PQ·직선 y=-1·앞 원에 접하는 원 O1, O2, ...]
+  concepts: [원의 접선의 방정식, 닮음, 피타고라스 정리, 두 원이 외접할 조건, 등비급수]
+  tools: [접선 x0x+y0y=1 과 y=-1 의 교점, 중심 R1 에서 y축에 수선(점 B), 닮음비 P'Q:P'R0, R0R1=1+r1, 닮음 중심 Q 에 대한 닮음비 일정, 등비급수 합 공식]
+  conditions:
+  - '$x_0>0$ ⇒ Q가 존재하고 $x_0$, $y_0+1$은 모두 양수'
+  - '원 $O_{n+1}$은 $O_n$보다 반지름이 작고 삼각형 $\mathrm{P''PQ}$ 내부'
+  - '넓이의 합 $\dfrac{\pi}{8}$ ⇒ $r_1=\dfrac13$'
+  stimuli_used: [라, 마]
+  subpart_links: '(2)는 (1)에서 구한 $r_1$의 식을 사용한다'
+
+curriculum:
+  version: '2015'
+  subjects: [수학, 미적분]
+  scope_2028: calc2
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 원의 접선의 방정식을 구할 수 있다 / 등비급수의 합을 구할 수 있다(요지)
+    verified: false
+  content_area: 도형의 방정식·수열의 극한 – 원의 접선, 등비급수
+  behavior_domain: 문제해결
+  unit_path: [미적분, 수열의 극한, 급수, 등비급수]
+  key_concepts: [원의 접선, 닮음, 등비급수]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 경희대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 경희대학교
+  admission_year: 2026
+  admission_type: 논술(모의)
+  track: 자연계열
+  question_no: 3
+  official_url: https://iphak.khu.ac.kr/detail.do?menuurl=89BGs%2bk748ajyySWoWlQPw%3d%3d&board_seq=15627&pageNo=1&categoryid=27&userpwd=
+  retrieved_at: '2026-11-21'
+  original_points: 37
+  rights_notice: 경희대학교 입학처 공개 자료(기출문제·예시답안). 내부 분석용
+  note: '문제 = 3-1. [자연계] 2026 모의논술고사 문제지_fv.pdf p.3, 원 번호 [논제 Ⅲ], 해설 = 3-2. [자연계] 2026 모의논술고사 예시답안 및 채점기준_fv.pdf p.5~6. 예시답안의 그림 두 개($y_0>0$, $y_0<0$)는 글로 옮김. 예시답안은 「인접한 원들 간의 닮음비는 모두 같으므로」를 근거 없이 씀(해설 B에서 닮음 중심 Q로 보충). [판독확인] 없음'
+
+verify: verify/KHU-M26.py::p03
+
+stimuli:
+- label: 라
+  body: |
+    원 $x^2+y^2=r^2$ 위의 점 $\mathrm{P}(x_1,y_1)$에서 지나는 접선의 방정식은 $x_1x+y_1y=r^2$.
+- label: 마
+  body: |
+    등비급수 $\sum\limits_{n=1}^{\infty}ar^{n-1}=a+ar+ar^2+\cdots+ar^{n-1}+\cdots\ (a\neq0)$은
+    ① $\lvert r\rvert<1$일 때 수렴하고, 그 합은 $\dfrac{a}{1-r}$이다.
+    ② $\lvert r\rvert\ge1$일 때 발산한다.
+
+stem: |
+  원 $O_0:x^2+y^2=1$ 위의 $x$좌표가 양수인 점 $\mathrm{P}(x_0,y_0)$가 있다. 점 P를 지나고 원 $O_0$에 접하는 직선과 직선 $y=-1$이 만나는 점을 Q라고 하자. $(0,-1)$을 $\mathrm{P'}$이라고 하면, 선분 PQ, 직선 $y=-1$, 그리고 원 $O_0$와 동시에 접하는 원들 중에서 $O_0$보다 반지름이 작고 삼각형 $\mathrm{P'PQ}$ 내부에 있는 원을 $O_1$이라고 하자. 같은 방법으로 주어진 원 $O_n\ (n\ge1)$에 대하여 선분 PQ, 직선 $y=-1$, 그리고 원 $O_n$에 동시에 접하고 원 $O_n$보다 반지름이 작으며 삼각형 $\mathrm{P'PQ}$ 내부에 있는 새로운 원을 $O_{n+1}$이라고 할 때, 다음 물음에 답하시오.
+
+subparts:
+- id: '1'
+  stem: |
+    점 Q의 $x$좌표와 원 $O_1$의 반지름의 길이를 각각 점 P의 좌표에 대한 함수로 나타내고, 그 근거를 논술하시오. (20점)
+  points: 20
+  depends_on: []
+  answer: {kind: expression, value: 'Q_x=\dfrac{y_0+1}{x_0},\ r_1=\dfrac{\sqrt{\left(\frac{y_0+1}{x_0}\right)^2+1}-1}{\sqrt{\left(\frac{y_0+1}{x_0}\right)^2+1}+1}', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: '$k=\dfrac{y_0+1}{x_0}$, $\overline{BR_1}=k(1-r_1)$, $\overline{R_0R_1}=1+r_1$ ⇒ $k^2(1-r_1)^2+(1-r_1)^2=(1+r_1)^2$.'
+    steps:
+    - {id: 1a, content: '$(1-r_1)\sqrt{k^2+1}=1+r_1$ ⇒ $r_1=\dfrac{\sqrt{k^2+1}-1}{\sqrt{k^2+1}+1}$', criteria: [1.B1, 1.M1]}
+    hint_ladder:
+    - 제시문 [라]로 P에서의 접선을 쓰고 $y=-1$을 대입하자.
+    - 원 $O_1$의 중심에서 $y$축에 수선을 내려 직각삼각형을 만들자.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 3-2. [자연계] 2026 모의논술고사 예시답안 및 채점기준_fv.pdf p.6
+    steps:
+    - id: 1b-1
+      content: |
+        점 P에서 접선의 방정식은 제시문 [라]에 의해 $x_0x+y_0y=1$. 이 직선과 직선 $y=-1$의 교점은 $\left(\dfrac{y_0+1}{x_0},\ -1\right)$이므로 점 Q의 $x$좌표는 $\dfrac{y_0+1}{x_0}$이다.
+      criteria: [1.B1]
+    - id: 1b-2
+      content: |
+        원 $O_n$의 중심을 $\mathrm{R}_n$이라 하고 반지름을 $r_n$이라 하자($\mathrm{R_0}$은 원점, $r_0=1$). $\mathrm{R_1}$을 지나는 $x$축과 평행한 직선을 그어서 $y$축과 만나는 점을 B라고 하자.
+        $\overline{\mathrm{P'Q}}:\overline{\mathrm{P'R_0}}=\dfrac{y_0+1}{x_0}:1$이다. 삼각형 $\mathrm{BR_0R_1}$과 삼각형 $\mathrm{P'R_0Q}$는 닮음이고(두 원의 중심과 Q는 각의 이등분선 위에 있음), 선분 $\mathrm{BR_0}$의 길이는 $1-r_1$이므로 선분 $\mathrm{BR_1}$의 길이는 $\dfrac{y_0+1}{x_0}(1-r_1)$이다. 선분 $\mathrm{R_0R_1}$의 길이는 두 원의 반지름의 합이므로 $1+r_1$이다.
+      criteria: [1.M1]
+    - id: 1b-3
+      content: |
+        따라서 피타고라스 정리를 이용하면 $\left(\dfrac{y_0+1}{x_0}\right)^2(1-r_1)^2+(1-r_1)^2=(1+r_1)^2$이고
+        $r_1=\dfrac{\sqrt{\left(\frac{y_0+1}{x_0}\right)^2+1}-1}{\sqrt{\left(\frac{y_0+1}{x_0}\right)^2+1}+1}$.
+      criteria: [1.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.B1
+      mark_type: B
+      points: 7
+      evidence: '점 Q의 좌표 $\left(\dfrac{y_0+1}{x_0},\ -1\right)$을 구했다.'
+      depends_on: []
+      steps: [1b-1]
+    - id: 1.M1
+      mark_type: M
+      points: 7
+      evidence: '닮음으로 $\overline{BR_1}=\dfrac{y_0+1}{x_0}(1-r_1)$, $\overline{R_0R_1}=1+r_1$을 세워 피타고라스 정리를 적용했다.'
+      depends_on: []
+      implied_ok: false
+      steps: [1b-2]
+    - id: 1.A1
+      mark_type: A
+      points: 6
+      evidence: '원 $O_1$의 반지름 $r_1=\dfrac{\sqrt{k^2+1}-1}{\sqrt{k^2+1}+1}$ $\left(k=\dfrac{y_0+1}{x_0}\right)$을 구했다.'
+      depends_on: [1.M1]
+      steps: [1b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-GEO-6215}
+  misconceptions:
+  - id: MC-GEO-6215
+    outcome_code: '70'
+    wrong_work: '닮음비를 거꾸로 잡아 $\overline{BR_1}=\dfrac{x_0}{y_0+1}(1-r_1)$로 놓음'
+    detect_cue: 피타고라스 식에 $\dfrac{x_0}{y_0+1}$이 있다
+    feedback: '삼각형 $\mathrm{BR_0R_1}$과 $\mathrm{P''R_0Q}$에서 $\overline{BR_1}$은 $\overline{P''Q}$, $\overline{BR_0}$은 $\overline{P''R_0}$에 대응합니다.'
+    remedy: [RL-1]
+- id: '2'
+  stem: |
+    원들 $O_1,O_2,\cdots$에 대한 넓이들의 합이 $\dfrac{\pi}{8}$일 때, 점 P의 좌표를 구하고, 그 근거를 논술하시오. (17점)
+  points: 17
+  depends_on: ['1']
+  answer: {kind: value, value: '\left(\dfrac{\sqrt3}{2},\ \dfrac12\right)', equivalents: ['(√3/2, 1/2)'], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: '$\dfrac{\pi r_1^2}{1-r_1^2}=\dfrac{\pi}{8}$ ⇒ $r_1=\dfrac13$ ⇒ $k^2=3$ ⇒ $y_0+1=\sqrt3x_0$과 $x_0^2+y_0^2=1$.'
+    steps:
+    - {id: 2a, content: '$r_1=\dfrac13$ ⇒ $\sqrt{k^2+1}=2$ ⇒ $(x_0,y_0)=\left(\dfrac{\sqrt3}{2},\dfrac12\right)$', criteria: [2.M1, 2.A1]}
+    hint_ladder:
+    - 원 $O_n$과 $O_{n+1}$은 점 Q를 중심으로 닮음이다.
+    - 넓이들은 등비수열을 이룬다(제시문 [마]).
+  - id: S2-B
+    audience: B
+    method_no: 1
+    source_flow: 3-2. [자연계] 2026 모의논술고사 예시답안 및 채점기준_fv.pdf p.6
+    steps:
+    - id: 2b-1
+      content: |
+        모든 원 $O_n$은 두 직선 PQ, $y=-1$에 접하므로 점 Q를 중심으로 하는 닮음에 의해 인접한 원들 간의 닮음비는 모두 $\dfrac{r_1}{r_0}=r_1$로 같으므로 원 $O_n$의 넓이는 $\pi r_1^{2n}$이다. 따라서 원 $O_1,O_2,\cdots$의 넓이는 첫째항이 $\pi r_1^2$이고 공비가 $r_1^2$인 등비수열이다. 따라서 이 등비수열의 합은 $\dfrac{\pi r_1^2}{1-r_1^2}$이다(제시문 [마]).
+      criteria: [2.M1]
+    - id: 2b-2
+      content: |
+        급수의 합이 $\dfrac{\pi}{8}$이므로 $r_1=\dfrac13$이다. 이 조건과 (1)의 결과를 이용하여 $\left(\dfrac{y_0+1}{x_0}\right)^2$을 계산하면 3이고, $x_0$와 $y_0+1$은 모두 양수이므로 $y_0+1=\sqrt3x_0$이 성립한다. $(x_0,y_0)$는 원 위의 점이므로 $x_0^2+y_0^2=1$이다. 이 두 식에 의해서 $(x_0,y_0)$의 좌표를 구하면 $\left(\dfrac{\sqrt3}{2},\ \dfrac12\right)$.
+      criteria: [2.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 7
+      evidence: '원 넓이들의 합 $\dfrac{\pi r_1^2}{1-r_1^2}$을 구했다(공비 $r_1^2$).'
+      depends_on: []
+      implied_ok: false
+      steps: [2b-1]
+    - id: 2.A1
+      mark_type: A
+      points: 10
+      evidence: '등비급수 합의 조건($r_1=\dfrac13$)과 원의 방정식을 이용하여 점 P의 좌표 $\left(\dfrac{\sqrt3}{2},\ \dfrac12\right)$을 구했다.'
+      depends_on: [2.M1]
+      ft: {allowed: true, from: [1.A1], max_points: 10}
+      steps: [2b-2]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-CAL-6216}
+  misconceptions:
+  - id: MC-CAL-6216
+    outcome_code: '70'
+    wrong_work: '넓이의 합을 $\dfrac{\pi r_1^2}{1-r_1}$으로 놓아 $r_1$을 잘못 구함'
+    detect_cue: 등비급수 분모가 $1-r_1$이다
+    feedback: 반지름의 비가 $r_1$이면 넓이의 비는 $r_1^2$입니다. 공비를 넓이 기준으로 잡으세요.
+    remedy: [RL-2]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-GEO-6215}
+  relation: remediation
+  target: {kind: concept, ref: CON-GEO-TANGENT-CIRCLE-CHAIN}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-CAL-6216}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-GEOMETRIC-SERIES-SUM}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-input-v1, item_version: 1, verdict: pass, date: 2026-11-21, note: 원문 PDF 이미지 판독으로 옮김 · 해설은 경희대 예시답안 흐름}
+
+created: 2026-11-21
+updated: 2026-11-21

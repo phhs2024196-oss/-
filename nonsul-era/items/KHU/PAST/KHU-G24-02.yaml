@@ -1,0 +1,241 @@
+schema_version: '2.0'
+id: KHU-G24-02
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: KHU
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 분류
+points: 33
+time_estimate_min: 25
+intent: 고등학교 확률과 통계의 경우의 수, 순열, 조합, 중복조합 개념을 이해하여 종합적으로 적용하고, 문제 해결 방법을 수립해 최적의 해결 전략을 고려할 수 있는지를 평가한다.
+key_idea: '뒷면 3개가 만드는 4개의 앞면 묶음 $x_1,x_2,x_3,x_4$로 바꾸고, 양 끝 묶음이 비는지에 따라 네 경우로 나눠 중복조합으로 센다.'
+stuck: 양 끝 묶음 $x_1$, $x_4$는 0이어도 되고 0이 아니면 2 이상이어야 한다는 조건을 경우로 나누는 단계
+idea_tags: [IDEA-GAP-SELECTION-NONADJACENT, IDEA-STARS-BARS-LOWER-BOUND]
+tags: [경희 실전, 동전 배열, 중복조합]
+elements:
+  materials: [동전 19번 던지기, 앞면 16번·뒷면 3번, 뒷면이 연속하지 않는 배열, 앞면이 항상 두 번 이상 연속하는 배열]
+  concepts: [조합, 중복조합, 방정식의 음이 아닌 정수해의 개수, 경우의 분류]
+  tools: [앞면 사이 틈새 17곳에서 뒷면 자리 3곳 고르기(17C3), 뒷면 사이 앞면 개수 x1~x4로 치환, 하한 2를 빼는 치환 y=x−2, 4가지 경우의 합]
+  conditions:
+  - '뒷면이 연속해서 나오지 않음 ⇒ 가운데 묶음 $x_2,x_3\ge1$ (앞면 연속 조건과 합치면 $\ge2$)'
+  - '앞면은 항상 두 번 이상 연속 ⇒ 비어 있지 않은 묶음은 $\ge2$, 양 끝 $x_1,x_4$는 $0$ 허용'
+  stimuli_used: [다, 라]
+  subpart_links: null
+
+curriculum:
+  version: '2015'
+  subjects: [확률과통계]
+  scope_2028: common
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 중복조합을 이해하고, 그 조합의 수를 구할 수 있다(요지)
+    verified: false
+  content_area: 확률과통계 – 경우의 수(조합·중복조합)
+  behavior_domain: 문제해결
+  unit_path: [확률과통계, 경우의 수, 중복조합, 방정식의 정수해의 개수]
+  key_concepts: [조합, 중복조합, 이웃하지 않는 배열]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 경희대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 경희대학교
+  admission_year: 2024
+  admission_type: 논술(논술우수자전형)
+  track: 자연계열
+  question_no: 2
+  official_url: https://iphak.khu.ac.kr/detail.do?menuurl=89BGs%2bk748ajyySWoWlQPw%3d%3d&board_seq=10802&pageNo=1&categoryid=27&userpwd=
+  retrieved_at: '2026-11-21'
+  original_points: 33
+  rights_notice: 경희대학교 입학처 공개 자료(기출문제·예시답안). 내부 분석용
+  note: 문제 = 3. 2024 논술고사 기출문제(자연계).pdf p.2(문항카드 p.6과 대조), 원 번호 [논제 Ⅱ], 해설 = 같은 파일 p.7~8(채점 기준 p.7)
+
+verify: verify/KHU-G24.py::p02
+
+stimuli:
+- label: 다
+  body: |
+    서로 다른 $n$개에서 $r\ (0<r\le n)$개를 택하는 조합의 수는
+    $${}_n\mathrm{C}_r=\dfrac{{}_n\mathrm{P}_r}{r!}=\dfrac{n!}{r!(n-r)!}$$
+- label: 라
+  body: |
+    서로 다른 $n$개에서 $r$개를 택하는 중복조합의 수는
+    $${}_n\mathrm{H}_r={}_{n+r-1}\mathrm{C}_r$$
+
+stem: |
+  동전 한 개를 반복하여 19번 던졌을 때, 앞면이 16번, 뒷면이 3번 나왔다고 한다. 다음 물음에 답하시오.
+
+subparts:
+- id: '1'
+  stem: |
+    뒷면이 연속해서 나오지 않는 경우의 수를 구하고, 그 근거를 논술하시오. (12점)
+  points: 12
+  depends_on: []
+  answer: {kind: value, value: '680', equivalents: ['{}_{17}\mathrm{C}_3'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: 앞면 16개 사이와 양 끝의 17자리 중 3자리에 뒷면을 놓는다.
+    steps:
+    - {id: 1a, content: '${}_{17}\mathrm{C}_3=680$', criteria: [1.M1, 1.A1]}
+    hint_ladder:
+    - 앞면을 먼저 늘어놓아 보자.
+    - 뒷면이 들어갈 수 있는 자리는 몇 곳인가?
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 3. 2024 논술고사 기출문제(자연계).pdf 예시답안 p.7
+    steps:
+    - id: 1b-1
+      content: |
+        앞면을 H, 뒷면을 T라고 하자. 아래와 같이 앞면이 나온 동전 16개를 먼저 배열하고 첫 번째 H의 앞, 이웃한 두 H의 사이, 16번째 H의 뒤에 17개의 O표시를 하자.
+        $$\mathrm{O\ H\ O\ H}\ \cdots\ \mathrm{O\ H\ O}$$
+      criteria: [1.M1]
+    - id: 1b-2
+      content: |
+        뒷면이 연속해서 나오지 않으려면 T는 O자리에 하나씩만 나올 수 있으므로 뒷면이 연속해서 나오지 않는 경우의 수는 ${}_{17}\mathrm{C}_3=680$이다(제시문 [다]).
+      criteria: [1.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 4
+      evidence: 앞면 16개 사이·양 끝 17자리에 뒷면을 하나씩만 놓아야 한다는 상황 설명이 있다(공식 <4점>).
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1]
+    - id: 1.A1
+      mark_type: A
+      points: 8
+      evidence: 경우의 수 ${}_{17}\mathrm{C}_3=680$을 구했다(공식 <8점>).
+      depends_on: [1.M1]
+      steps: [1b-2]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-CNT-6404}
+  misconceptions:
+  - id: MC-CNT-6404
+    outcome_code: '70'
+    wrong_work: '틈새를 앞면 사이 15곳만 세어 ${}_{15}\mathrm{C}_3=455$'
+    detect_cue: 답이 $455$ 또는 ${}_{16}\mathrm{C}_3=560$
+    feedback: 첫 번째 H의 앞과 마지막 H의 뒤도 뒷면이 들어갈 수 있는 자리입니다.
+    remedy: [RL-1]
+- id: '2'
+  stem: |
+    앞면은 항상 두 번 이상 연속해서 나오고 뒷면은 연속해서 나오지 않는 경우의 수를 구하고, 그 근거를 논술하시오. (21점)
+  points: 21
+  depends_on: []
+  answer: {kind: value, value: '310', equivalents: ['66+66+13+165'], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: '$x_1+x_2+x_3+x_4=16$, $x_2,x_3\ge2$, $x_1,x_4\in\{0\}\cup[2,\infty)$로 네 경우를 중복조합으로 센다.'
+    steps:
+    - {id: 2a, content: '${}_3\mathrm{H}_{10}+{}_3\mathrm{H}_{10}+{}_2\mathrm{H}_{12}+{}_4\mathrm{H}_8=66+66+13+165=310$', criteria: [2.M1, 2.A1]}
+    hint_ladder:
+    - 뒷면 3개 사이사이에 앞면이 몇 개씩 들어가는지 변수로 두자.
+    - 양 끝은 비어 있어도 된다.
+    - 하한이 2인 변수는 2를 빼서 음이 아닌 정수로 바꾸자.
+  - id: S2-B
+    audience: B
+    method_no: 1
+    source_flow: 3. 2024 논술고사 기출문제(자연계).pdf 예시답안 p.7~8
+    steps:
+    - id: 2b-1
+      content: |
+        첫 번째 뒷면이 나오기 전에 나온 앞면의 수를 $x_1$, 첫 번째 뒷면과 두 번째 뒷면 사이에 나온 앞면의 수를 $x_2$, 두 번째 뒷면과 세 번째 뒷면 사이에 나온 앞면의 수를 $x_3$, 세 번째 뒷면 후에 나온 앞면의 수를 $x_4$라 하면 $x_1+x_2+x_3+x_4=16$이고,
+        $$x_1\ \mathrm{T}\ x_2\ \mathrm{T}\ x_3\ \mathrm{T}\ x_4$$
+        앞면이 항상 연속해서 두 번 이상 나오면서 뒷면이 연속해서 나오지 않으려면 $x_2\ge2$, $x_3\ge2$이어야 하고, $j=1,4$에 대하여 $x_j\neq0$이면 $x_j\ge2$이어야 한다. 따라서 다음 네 가지 경우가 가능하다.
+        (i) $x_1=0$, $x_2,x_3,x_4\ge2$ (ii) $x_4=0$, $x_1,x_2,x_3\ge2$ (iii) $x_1=x_4=0$, $x_2,x_3\ge2$ (iv) $x_1,x_2,x_3,x_4\ge2$
+      criteria: [2.M1]
+    - id: 2b-2
+      content: |
+        (i) $x_2=y_2+2$, $x_3=y_3+2$, $x_4=y_4+2$라고 하면 $y_2+y_3+y_4=10$을 만족하는 음이 아닌 정수해의 개수를 구하면 된다. 따라서 ${}_3\mathrm{H}_{10}={}_{12}\mathrm{C}_{10}=66$이다(제시문 [라]).
+        (ii) (i)과 같은 방법으로 구하면 $66$이다.
+      criteria: [2.A1]
+    - id: 2b-3
+      content: |
+        (iii) $x_2=y_2+2$, $x_3=y_3+2$라고 하면 $y_2+y_3=12$를 만족하는 음이 아닌 정수해의 개수를 구하면 된다. 따라서 ${}_2\mathrm{H}_{12}={}_{13}\mathrm{C}_{12}=13$이다.
+        (iv) $x_1=y_1+2$, $x_2=y_2+2$, $x_3=y_3+2$, $x_4=y_4+2$라고 하면 $y_1+y_2+y_3+y_4=8$을 만족하는 음이 아닌 정수해의 개수를 구하면 된다. 따라서 ${}_4\mathrm{H}_8={}_{11}\mathrm{C}_8=165$이다.
+      criteria: [2.A1]
+    - id: 2b-4
+      content: |
+        (i)~(iv)에 의하여 앞면은 두 번 이상 연속해서 나오고 뒷면은 연속해서 나오지 않는 경우의 수는 $66+66+13+165=310$이다.
+      criteria: [2.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 6
+      evidence: '$x_1+x_2+x_3+x_4=16$으로 두고 $x_2,x_3\ge2$, 양 끝은 $0$ 또는 $2$ 이상이라는 조건(네 가지 경우)을 설명했다(공식 <6점>).'
+      depends_on: []
+      implied_ok: false
+      steps: [2b-1]
+    - id: 2.A1
+      mark_type: A
+      points: 15
+      evidence: 각 경우를 중복조합으로 세어 $66+66+13+165=310$을 구했다(공식 <15점>).
+      depends_on: [2.M1]
+      steps: [2b-2, 2b-3, 2b-4]
+    deductions:
+    - code: D2-1
+      condition: 네 경우 중 일부를 빠뜨림
+      effect: minus
+      value: 5
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CNT-6405}
+  - {code: '72', misconception: MC-CNT-6406}
+  misconceptions:
+  - id: MC-CNT-6405
+    outcome_code: '71'
+    wrong_work: '모든 $x_j\ge2$로만 두어 ${}_4\mathrm{H}_8=165$만 답함(또는 $x_1,x_4\ge0$을 그대로 허용해 앞면 1개 묶음을 셈)'
+    detect_cue: 답이 $165$ 또는 $310$보다 큰 값
+    feedback: 양 끝 묶음은 비어 있어도 되지만, 비어 있지 않으면 2개 이상이어야 합니다. 경우를 나누세요.
+    remedy: [RL-2]
+  - id: MC-CNT-6406
+    outcome_code: '72'
+    wrong_work: '${}_3\mathrm{H}_{10}$을 ${}_3\mathrm{C}_{10}$ 또는 ${}_{13}\mathrm{C}_{10}$으로 계산'
+    detect_cue: 경우별 값이 $66$, $13$, $165$와 다르다
+    feedback: '${}_n\mathrm{H}_r={}_{n+r-1}\mathrm{C}_r$ (제시문 [라])를 정확히 적용하세요.'
+    remedy: [RL-3]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CNT-6404}
+  relation: remediation
+  target: {kind: concept, ref: CON-CNT-NONADJACENT-GAPS}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-CNT-6405}
+  relation: remediation
+  target: {kind: concept, ref: CON-CNT-H-INTEGER-SOLUTIONS}
+  priority: 1
+- id: RL-3
+  trigger: {type: misconception, ref: MC-CNT-6406}
+  relation: remediation
+  target: {kind: concept, ref: CON-CNT-H-INTEGER-SOLUTIONS}
+  priority: 2
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-input-v1, item_version: 1, verdict: pass, date: 2026-11-21, note: 원문 PDF 이미지 판독으로 옮김 · 해설은 경희대 예시답안 흐름}
+
+created: 2026-11-21
+updated: 2026-11-21

@@ -1,0 +1,240 @@
+schema_version: '2.0'
+id: KHU-G25D-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: KHU
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 일반화
+points: 28
+time_estimate_min: 25
+intent: |
+  이차곡선의 기본 개념들을 종합적으로 이해하고, 수열의 극한에 대한 성질들을 활용할 수 있는지 파악한다. 이차곡선이 좌표평면에서 방정식으로 표현되어 대수적으로 다룰 수 있음을 인식하고, 수열과 그 극한의 성질들을 바르게 이해하여 문제를 논리적으로 해결할 수 있는지 평가한다(경희대 출제 의도 요지).
+key_idea: '원점을 지나고 초점이 $(p,0)$, $(t,0)$인 타원은 중심 $\left(\dfrac{t+p}2,0\right)$, $a=\dfrac{t+p}2$, $b^2=pt$. 접선 기울기는 평행이동으로 원점 중심 타원의 접선 공식에 맡긴다.'
+stuck: 원점이 장축의 한 끝점이라 $a=\dfrac{t+p}{2}$가 되는 것, (2)에서 평행이동한 타원의 접선 기울기를 [나]로 구하는 것
+idea_tags: [IDEA-ELLIPSE-THROUGH-ORIGIN-AXES, IDEA-TRANSLATE-THEN-TANGENT, IDEA-LIMIT-DOMINANT-TERM]
+tags: [경희 실전, 의약학, 타원, 수열의 극한]
+elements:
+  materials: [x축 위에 두 초점이 있고 원점을 지나는 타원, 타원의 네 꼭짓점을 꼭짓점으로 하는 마름모, 초점 (p,0)·(n,0) 인 타원 위 x좌표 k 인 점의 접선 기울기 a_n]
+  concepts: [타원의 정의와 표준형(제시문 가), 타원의 접선의 방정식(제시문 나), 도형의 평행이동(제시문 다), 수열의 극한(제시문 라), 마름모의 닮음]
+  tools: [중심 = 두 초점의 중점, 원점이 꼭짓점이므로 a = 중심의 x좌표, b² = a² - c² = pt, 마름모 닮음 ⇔ 장축·단축 비 같음, 이차방정식 풀기, 원점 중심 타원으로 평행이동 후 접선 공식, 분자·분모 최고차항 비교]
+  conditions:
+  - '$t\neq3p$ ⇒ 두 근 중 $t=\dfrac p3$만 남음'
+  - '$k<p$ ⇒ x좌표 k 인 점이 타원 위에 있고 $a-k>0$'
+  - '$y$좌표가 0보다 큼 ⇒ $m=\dfrac ba\sqrt{2ak-k^2}>0$'
+  stimuli_used: [가, 나, 다, 라]
+  subpart_links: (2)는 (1)에서 구한 a=(t+p)/2, b=√(pt) 를 t=n 으로 사용
+
+curriculum:
+  version: '2015'
+  subjects: [기하, 미적분]
+  scope_2028: geom
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 타원의 뜻을 알고, 타원의 방정식을 구할 수 있다 / 이차곡선의 접선의 방정식을 구할 수 있다(요지)
+    verified: false
+  content_area: 이차곡선 – 타원과 접선, 수열의 극한
+  behavior_domain: 문제해결
+  unit_path: [기하, 이차곡선, 타원, 타원의 접선]
+  key_concepts: [타원의 장축·단축, 타원의 접선, 수열의 극한]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 경희대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 경희대학교
+  admission_year: 2025
+  admission_type: 논술(논술우수자전형)
+  track: 의·약학계열(수학)
+  question_no: 1
+  official_url: https://iphak.khu.ac.kr/detail.do?menuurl=89BGs%2bk748ajyySWoWlQPw%3d%3d&board_seq=13928&pageNo=1&categoryid=27&userpwd=
+  retrieved_at: '2026-11-21'
+  original_points: 28
+  rights_notice: 경희대학교 입학처 공개 자료(기출문제·예시답안). 내부 분석용
+  note: |
+    문제 = 4. 2025 논술고사 기출문제(의약학계).pdf p.2(문제지 [8-2]), 원 번호 [논제 Ⅰ-1], 해설 = 같은 파일 p.10~11(채점 기준·예시 답안). 의·약학계 시험 11월 16일(토) 오후, 수학 Ⅰ 전체 60점.
+    예시 답안 (2)의 $\dfrac{b^2(a-k)}{a^2}\dfrac1m$은 접선 기울기 $-\dfrac{b^2(k-a)}{a^2m}$을 정리한 것(보충).
+
+verify: verify/KHU-G25D.py::p01
+
+stimuli:
+- label: 가
+  body: |
+    두 초점 $\mathrm{F}(c,0)$, $\mathrm{F}'(-c,0)$으로부터의 거리의 합이 $2a(a>c>0)$인 타원의 방정식은
+    $$\dfrac{x^2}{a^2}+\dfrac{y^2}{b^2}=1\ (\text{단, }b^2=a^2-c^2)$$
+- label: 나
+  body: |
+    타원 $\dfrac{x^2}{a^2}+\dfrac{y^2}{b^2}=1$ 위의 점 $\mathrm{P}(x_1,y_1)$에서의 접선의 방정식은
+    $$\dfrac{x_1x}{a^2}+\dfrac{y_1y}{b^2}=1$$
+- label: 다
+  body: |
+    방정식 $f(x,y)=0$이 나타내는 도형을 $x$축 방향으로 $a$만큼, $y$축 방향으로 $b$만큼 평행이동한 도형의 방정식은
+    $$f(x-a,y-b)=0$$
+- label: 라
+  body: |
+    일반적으로 수열 $\{a_n\}$에서 $n$의 값이 한없이 커질 때, $a_n$의 값이 일정한 값 $\alpha$에 가까워지면 수열 $\{a_n\}$은 $\alpha$에 수렴한다고 한다. 이때 $\alpha$를 수열 $\{a_n\}$의 극한값 또는 극한이라 하고, 이것을 기호로 $\displaystyle\lim_{n\to\infty}a_n=\alpha$ 또는 $n\to\infty$일 때 $a_n\to\alpha$와 같이 나타낸다.
+
+stem: |
+  다음 물음에 답하시오.
+
+subparts:
+- id: '1'
+  stem: |
+    서로 다른 양수 $p$와 $t$에 대하여 두 점 $(p,0)$과 $(3p,0)$을 초점으로 하는 타원과, 두 점 $(p,0)$과 $(t,0)$을 초점으로 하는 타원이 모두 원점을 지난다. 각 타원마다 타원의 네 꼭짓점을 꼭짓점으로 하는 마름모를 생각하자. 이때 두 마름모가 서로 닮음이 되는 $t$를 구하고 그 근거를 논술하시오. (단, $t\neq3p$) (12점)
+  points: 12
+  depends_on: []
+  answer: {kind: value, value: 't=\dfrac p3', equivalents: ['p/3'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: 장축 $t+p$, 단축 $2\sqrt{tp}$이고 닮음 ⇔ 단축/장축 비 같음.
+    steps:
+    - {id: 1a, content: '$\dfrac{2\sqrt3p}{4p}=\dfrac{2\sqrt{tp}}{t+p}\Rightarrow3t^2-10pt+3p^2=0$', criteria: [1.M1, 1.A1]}
+    hint_ladder:
+    - 원점은 타원의 어떤 점인가?
+    - 두 마름모가 닮음일 조건은 대각선 길이의 비가 같은 것이다.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 4. 2025 논술고사 기출문제(의약학계).pdf 예시 답안 p.10
+    steps:
+    - id: 1b-1
+      content: |
+        초점이 $(p,0)$과 $(t,0)$인 타원의 장축의 길이를 $2a$, 단축의 길이를 $2b$, 두 초점 사이의 거리를 $2c$라고 하자. 이 타원의 중심은 $(a,0)$이고(원점을 지나므로), 중심은 두 초점의 중점이므로, $a=\dfrac{t+p}{2}$이다. $b^2=a^2-c^2$으로부터 $b^2=\left(\dfrac{t+p}{2}\right)^2-\left(\dfrac{t-p}{2}\right)^2=pt$를 얻는다.
+        주어진 두 타원의 장축과 단축의 길이는 각각 $3p+p=4p$, $2\sqrt{3p\times p}=2\sqrt3p$와 $t+p$, $2\sqrt{tp}$이다.
+      criteria: [1.M1]
+    - id: 1b-2
+      content: |
+        타원의 꼭짓점들로 이루어진 마름모들이 서로 닮음이면 장축과 단축의 비율이 같고, 이 비율이 같으면 서로 닮음이다. 따라서 $\dfrac{2\sqrt3p}{4p}=\dfrac{2\sqrt{tp}}{t+p}$이고, 정리하면 $3t^2-10pt+3p^2=0$을 얻는다. 그러므로 $t=3p$ 또는 $t=\dfrac p3$인데 $t$는 $3p$와 다르므로, $t=\dfrac p3$이다.
+      criteria: [1.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 6
+      evidence: (공식 <6점>) 두 타원의 장축과 단축의 길이 $4p$, $2\sqrt3p$와 $t+p$, $2\sqrt{tp}$를 구했다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1]
+    - id: 1.A1
+      mark_type: A
+      points: 6
+      evidence: (공식 <6점>) 장축·단축의 비가 같다는 조건으로 두 마름모가 서로 닮음이 되는 $t=\dfrac p3$을 구했다.
+      depends_on: [1.M1]
+      steps: [1b-2]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-GEO-6310}
+  misconceptions:
+  - id: MC-GEO-6310
+    outcome_code: '70'
+    wrong_work: '장축의 길이를 두 초점 사이 거리 $|t-p|$ 또는 $2p$로 잡음'
+    detect_cue: 장축이 $t+p$, $4p$가 아니다
+    feedback: 원점이 타원 위에 있고 두 초점이 모두 양의 x축 위에 있으므로 원점은 장축의 한 끝점입니다. 장축의 길이는 원점에서 두 초점까지 거리의 합 $t+p$입니다.
+    remedy: [RL-1]
+- id: '2'
+  stem: |
+    서로 다른 양수 $p$와 자연수 $n$에 대하여 두 점 $(p,0)$과 $(n,0)$을 초점으로 하는 타원이 원점을 지난다. $p$보다 작은 양수 $k$에 대하여 $x$좌표가 $k$이고 $y$좌표가 0보다 큰 타원 위의 점에서의 접선의 기울기를 $a_n$이라고 하자. 이때 $\displaystyle\lim_{n\to\infty}a_n$을 구하고 그 근거를 논술하시오. (16점)
+  points: 16
+  depends_on: ['1']
+  answer: {kind: value, value: '\sqrt{\dfrac pk}', equivalents: ['\sqrt{p/k}'], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: $a=\dfrac{n+p}2$, $b=\sqrt{pn}$인 타원을 $x$축 방향으로 $-a$만큼 옮겨 [나]를 쓰면 $a_n=\dfrac{(a-k)b}{a\sqrt{2ak-k^2}}$.
+    steps:
+    - {id: 2a, content: '$a_n=\dfrac{(n+p-2k)\sqrt{pn}}{(n+p)\sqrt{(n+p)k-k^2}}\to\sqrt{\dfrac pk}$', criteria: [2.M1, 2.A1]}
+    hint_ladder:
+    - (1)의 결과로 $a$, $b$를 $n$, $p$로 나타내 보자.
+    - 평행이동해도 접선의 기울기는 변하지 않는다.
+  - id: S2-B
+    audience: B
+    method_no: 1
+    source_flow: 4. 2025 논술고사 기출문제(의약학계).pdf 예시 답안 p.10~11
+    steps:
+    - id: 2b-1
+      content: |
+        초점이 $x$축의 양의 방향 위에 있고 원점을 지나는 타원의 방정식은 그 장축의 길이가 $2a$, 단축의 길이가 $2b$일 때 $\dfrac{(x-a)^2}{a^2}+\dfrac{y^2}{b^2}=1$이다.
+        이때, (1)에서 살펴본 대로, $a=\dfrac{n+p}{2}$, $b=\sqrt{pn}$이다. $x$좌표가 $k$이고, $y$좌표가 0보다 큰 타원 위의 점을 $(k,m)$이라 하면 $m=\dfrac ba\sqrt{2ak-k^2}$이다.
+      criteria: [2.M1]
+    - id: 2b-2
+      content: |
+        타원 $\dfrac{(x-a)^2}{a^2}+\dfrac{y^2}{b^2}=1$ 위의 점 $(k,m)$에서의 접선의 기울기는 타원 $\dfrac{x^2}{a^2}+\dfrac{y^2}{b^2}=1$ 위의 점 $(k-a,m)$에서의 접선의 기울기와 같다(제시문 [다]). 타원 $\dfrac{x^2}{a^2}+\dfrac{y^2}{b^2}=1$ 위의 점 $(k-a,m)$에서의 접선의 방정식은 $\dfrac{(k-a)x}{a^2}+\dfrac{my}{b^2}=1$이므로(제시문 [나]),
+        $a_n=\dfrac{b^2(a-k)}{a^2}\dfrac1m=\dfrac{b^2(a-k)}{a^2}\dfrac{a}{b\sqrt{2ak-k^2}}=\dfrac{(a-k)b}{a\sqrt{2ak-k^2}}=\dfrac{(n+p-2k)\sqrt{pn}}{(n+p)\sqrt{(n+p)k-k^2}}$이다.
+      criteria: [2.A1]
+    - id: 2b-3
+      content: |
+        따라서 $\displaystyle\lim_{n\to\infty}a_n=\lim_{n\to\infty}\dfrac{(n+p-2k)}{(n+p)}\dfrac{\sqrt{pn}}{\sqrt{kn+pk-k^2}}=\sqrt{\dfrac pk}$이다(제시문 [라]).
+      criteria: [2.A2]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 4
+      evidence: 원점을 지나는 타원을 $\dfrac{(x-a)^2}{a^2}+\dfrac{y^2}{b^2}=1$, $a=\dfrac{n+p}2$, $b=\sqrt{pn}$로 나타내고 접점 $(k,m)$의 $m$을 구했다.
+      depends_on: []
+      implied_ok: false
+      steps: [2b-1]
+    - id: 2.A1
+      mark_type: A
+      points: 6
+      evidence: |
+        (공식 <10점> 타원의 접선의 기울기를 구한다 — M1과 나눔) 평행이동과 접선 공식으로 $a_n=\dfrac{(n+p-2k)\sqrt{pn}}{(n+p)\sqrt{(n+p)k-k^2}}$(또는 동치식)을 구했다.
+      depends_on: [2.M1]
+      steps: [2b-2]
+    - id: 2.A2
+      mark_type: A
+      points: 6
+      evidence: (공식 <6점>) 수열의 극한값 $\sqrt{\dfrac pk}$를 구했다.
+      depends_on: [2.M1]
+      steps: [2b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-GEO-6311}
+  misconceptions:
+  - id: MC-GEO-6311
+    outcome_code: '70'
+    wrong_work: '평행이동하지 않고 $\dfrac{kx}{a^2}+\dfrac{my}{b^2}=1$로 접선을 써서 $a_n=-\dfrac{b^2k}{a^2m}$을 얻음'
+    detect_cue: 기울기 식에 $(a-k)$ 대신 $k$가 있고 극한이 0 또는 음수
+    feedback: 접선 공식 [나]는 중심이 원점인 타원에만 씁니다. 중심 $(a,0)$을 원점으로 옮긴 점 $(k-a,m)$에 적용하세요.
+    remedy: [RL-2]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-GEO-6310}
+  relation: remediation
+  target: {kind: concept, ref: CON-GEO-ELLIPSE}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-GEO-6311}
+  relation: remediation
+  target: {kind: concept, ref: CON-GEO-ELLIPSE-TANGENT}
+  priority: 1
+- id: RL-3
+  trigger: {type: criterion_missed, ref: 2.A2}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-SEQ-LIMIT}
+  priority: 2
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-input-v1, item_version: 1, verdict: pass, date: 2026-11-21, note: 원문 PDF 이미지 판독으로 옮김 · 해설은 경희대 예시답안 흐름}
+
+created: 2026-11-21
+updated: 2026-11-21

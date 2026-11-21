@@ -1,0 +1,256 @@
+schema_version: '2.0'
+id: KHU-M25-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: KHU
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 일반화
+points: 30
+time_estimate_min: 25
+intent: |
+  점과 직선 사이 거리를 이용하여 삼각형의 넓이를 구하고, 넓이의 비에 대한 극한값을 구하여 기하학적인 상황을 잘 이해하고 이를 활용할 수 있는지를 평가한다(경희대 문항 해설 요지).
+key_idea: '$\triangle\mathrm{PQF}=\dfrac12\overline{QF}\times(\text{P 에서 직선 QF 까지 거리})=\dfrac12|x_1y_2-x_2y_1+c(y_1-y_2)|$, (2)는 $x_1\sim\dfrac abt$를 써서 $t\to\infty$ 극한.'
+stuck: 직선 QF 의 방정식과 점-직선 거리로 넓이를 일반 좌표로 정리하는 것, $x_1=\sqrt{a^2+\dfrac{a^2}{b^2}t^2}$의 증가 속도
+idea_tags: [IDEA-AREA-BY-POINT-LINE-DIST, IDEA-LIMIT-RATIO-DOMINANT]
+tags: [경희 모의, 쌍곡선, 넓이의 비 극한]
+elements:
+  materials: [쌍곡선 x²/a²-y²/b²=1, 제1사분면의 점 P(x1,y1), 제2사분면의 점 Q(x2,y2), 초점 F(c,0)·F′(-c,0), 삼각형 QFF′·PQF·PFF′, 넓이의 비 R(t)]
+  concepts: [쌍곡선의 방정식과 초점(제시문 가), 점과 직선 사이의 거리(제시문 나), 삼각형의 넓이, 함수의 극한]
+  tools: [밑변 FF′ 와 높이 y2, 직선 QF 의 방정식, 점과 직선 거리로 높이, 쌍곡선 식에서 x1·x2 를 y 로 표현, 분자·분모를 t 로 나누어 극한]
+  conditions:
+  - 'P 는 제1사분면, Q 는 제2사분면 ⇒ $x_1>0$, $x_2<0$, $y_1,y_2>0$'
+  - '$y_1=t$, $y_2=1$ ⇒ $x_1=\sqrt{a^2+\dfrac{a^2}{b^2}t^2}$, $x_2=-\sqrt{a^2+\dfrac{a^2}{b^2}}$'
+  - '$t>1$이면 절댓값 안이 양수'
+  stimuli_used: [가, 나]
+  subpart_links: (2)는 (1)에서 구한 삼각형 PQF 의 넓이 공식을 사용
+
+curriculum:
+  version: '2015'
+  subjects: [수학, 수학Ⅱ, 기하]
+  scope_2028: geom
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 쌍곡선의 뜻을 알고, 쌍곡선의 방정식을 구할 수 있다 / 점과 직선 사이의 거리를 구할 수 있다(요지)
+    verified: false
+  content_area: 이차곡선 – 쌍곡선, 점과 직선 사이의 거리, 함수의 극한
+  behavior_domain: 문제해결
+  unit_path: [기하, 이차곡선, 쌍곡선, 쌍곡선과 삼각형의 넓이]
+  key_concepts: [쌍곡선, 점과 직선 사이의 거리, 함수의 극한]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 경희대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 경희대학교
+  admission_year: 2025
+  admission_type: 논술(모의)
+  track: 자연계열
+  question_no: 1
+  official_url: https://iphak.khu.ac.kr/detail.do?menuurl=89BGs%2bk748ajyySWoWlQPw%3d%3d&board_seq=12260&pageNo=1&categoryid=27&userpwd=
+  retrieved_at: '2026-11-21'
+  original_points: 30
+  rights_notice: 경희대학교 입학처 공개 자료(기출문제·예시답안). 내부 분석용
+  note: |
+    문제 = 3-1. [자연계] 2025 모의논술고사 문제지_최종.pdf p.2, 원 번호 [논제 Ⅰ], 해설 = 3-2. [자연계] 2025 모의논술고사 예시답안 및 채점기준_최종.pdf p.1(예시답안), p.3(채점 기준), p.4(문항 해설). 온라인 모의논술.
+    (1)의 넓이는 $x_1,y_1,x_2,y_2,c$로 나타낸 식이 답(별도 조건 없음). 채점 기준: 답안에 $c$ 대신 $\sqrt{a^2+b^2}$을 사용해도 정답 인정.
+
+verify: verify/KHU-M25.py::p01
+
+stimuli:
+- label: 가
+  body: |
+    두 초점 $\mathrm{F}(c,0)$, $\mathrm{F}'(-c,0)$으로부터의 거리의 차가 $2a(c>a>0)$인 쌍곡선의 방정식은
+    $$\dfrac{x^2}{a^2}-\dfrac{y^2}{b^2}=1\ (\text{단, }b^2=c^2-a^2)$$
+- label: 나
+  body: |
+    점 $\mathrm{P}(x_1,y_1)$과 직선 $ax+by+c=0$ 사이의 거리 $d$는
+    $$d=\dfrac{\lvert ax_1+by_1+c\rvert}{\sqrt{a^2+b^2}}$$
+
+stem: |
+  쌍곡선 $\dfrac{x^2}{a^2}-\dfrac{y^2}{b^2}=1$ 위의 점 $\mathrm{P}(x_1,y_1)$과 $\mathrm{Q}(x_2,y_2)$에 대하여 다음 물음에 답하시오. (단, 점 P와 Q는 각각 제 1, 2사분면 위에 있다.)
+
+subparts:
+- id: '1'
+  stem: |
+    양수 $c$에 대하여 쌍곡선의 두 초점을 각각 $\mathrm{F}(c,0)$, $\mathrm{F}'(-c,0)$이라 할 때, 삼각형 $\mathrm{QFF'}$과 삼각형 PQF의 넓이를 각각 구하고, 그 근거를 논술하시오. (14점)
+  points: 14
+  depends_on: []
+  answer: {kind: expression, value: '\triangle\mathrm{QFF}^\prime=cy_2,\ \triangle\mathrm{PQF}=\dfrac12\lvert x_1y_2-x_2y_1+c(y_1-y_2)\rvert', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: 삼각형 $\mathrm{QFF'}$은 밑변 $2c$, 높이 $y_2$. 삼각형 PQF 는 밑변 QF, 높이는 P 와 직선 QF 사이 거리.
+    steps:
+    - {id: 1a, content: '$\triangle\mathrm{PQF}=\dfrac12\overline{QF}\cdot\overline{PH}=\dfrac12\lvert x_1y_2-x_2y_1+c(y_1-y_2)\rvert$', criteria: [1.B1, 1.M1, 1.A1]}
+    hint_ladder:
+    - 선분 FF′ 은 x축 위에 있다.
+    - 직선 QF 의 방정식을 세우고 P 까지의 거리를 구하자.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 3-2. [자연계] 2025 모의논술고사 예시답안 및 채점기준_최종.pdf p.1
+    steps:
+    - id: 1b-1
+      content: |
+        삼각형 $\mathrm{QFF'}$의 넓이는 $\dfrac12\times2c\times y_2=cy_2$이다.
+      criteria: [1.B1]
+    - id: 1b-2
+      content: |
+        한편, 점 P에서 선분 QF에 내린 수선의 발을 H라 하면, 삼각형 PQF의 넓이는 $\dfrac12\times\overline{PH}\times\overline{QF}$이다. 그런데, $\overline{QF}=\sqrt{(c-x_2)^2+y_2^2}$이고, 점 Q와 점 F를 지나는 직선의 방정식은 $y=\dfrac{-y_2}{c-x_2}(x-c)$이다. 따라서, 점과 직선사이의 거리공식(제시문 [나])에 의하여
+        $$\overline{PH}=\dfrac{\lvert y_2x_1+(c-x_2)y_1-y_2c\rvert}{\sqrt{y_2^2+(c-x_2)^2}}$$
+      criteria: [1.M1]
+    - id: 1b-3
+      content: |
+        그러므로,
+        $$\triangle\mathrm{PQF}=\dfrac12\times\sqrt{(c-x_2)^2+y_2^2}\times\dfrac{\lvert x_1y_2-x_2y_1+c(y_1-y_2)\rvert}{\sqrt{(c-x_2)^2+y_2^2}}=\dfrac12\lvert x_1y_2-x_2y_1+c(y_1-y_2)\rvert$$
+      criteria: [1.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.B1
+      mark_type: B
+      points: 4
+      evidence: (공식 4점) 삼각형 $\mathrm{QFF'}$의 넓이 $cy_2$를 구했다.
+      depends_on: []
+      steps: [1b-1]
+      not_penalized:
+      - $c$ 대신 $\sqrt{a^2+b^2}$ 사용(공식 채점 기준)
+    - id: 1.M1
+      mark_type: M
+      points: 5
+      evidence: 직선 QF 의 방정식과 점과 직선 사이의 거리로 높이 $\overline{PH}$를 나타냈다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-2]
+    - id: 1.A1
+      mark_type: A
+      points: 5
+      evidence: |
+        (공식 '삼각형 PQF 의 넓이를 구함 (10점)'을 M1·A1로 나눔) $\triangle\mathrm{PQF}=\dfrac12\lvert x_1y_2-x_2y_1+c(y_1-y_2)\rvert$를 구했다.
+      depends_on: [1.M1]
+      steps: [1b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-GEO-6314}
+  misconceptions:
+  - id: MC-GEO-6314
+    outcome_code: '70'
+    wrong_work: '넓이를 $\dfrac12(x_1y_2-x_2y_1+c(y_1-y_2))$처럼 절댓값 없이 쓰거나, 높이를 $y_1$로 잡음'
+    detect_cue: 절댓값이 없거나 $\dfrac12\overline{QF}\,y_1$ 꼴
+    feedback: 삼각형 PQF 의 밑변 QF 는 x축과 평행하지 않습니다. 높이는 P 에서 직선 QF 까지의 거리이고, 거리에는 절댓값이 필요합니다.
+    remedy: [RL-1]
+- id: '2'
+  stem: |
+    $y_1=t$, $y_2=1$이라 하자. 이때, 삼각형 PQF와 삼각형 $\mathrm{PFF'}$의 넓이의 비를 $R(t)=\dfrac{\triangle\mathrm{PQF}}{\triangle\mathrm{PFF'}}$라 하자. 극한값 $\displaystyle\lim_{t\to\infty}R(t)$을 구하고, 그 근거를 논술하시오. (16점)
+  points: 16
+  depends_on: ['1']
+  answer: {kind: expression, value: '\dfrac12+\dfrac{a}{2bc}+\dfrac{a}{2c}\sqrt{1+\dfrac1{b^2}}', equivalents: ['\dfrac{a+a\sqrt{b^2+1}+b\sqrt{a^2+b^2}}{2b\sqrt{a^2+b^2}}'], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: $\triangle\mathrm{PFF'}=ct$, $\triangle\mathrm{PQF}=\dfrac12\left(x_1+\sqrt{a^2+\dfrac{a^2}{b^2}}\,t+c(t-1)\right)$, $\dfrac{x_1}{t}\to\dfrac ab$.
+    steps:
+    - {id: 2a, content: '$\displaystyle\lim_{t\to\infty}R(t)=\dfrac{\dfrac ab+a\sqrt{1+\dfrac1{b^2}}+c}{2c}$', criteria: [2.A2]}
+    hint_ladder:
+    - 쌍곡선의 식에서 $x_1$, $x_2$를 구하자.
+    - 분자와 분모를 $t$로 나누자.
+  - id: S2-B
+    audience: B
+    method_no: 1
+    source_flow: 3-2. [자연계] 2025 모의논술고사 예시답안 및 채점기준_최종.pdf p.1
+    steps:
+    - id: 2b-1
+      content: |
+        $y_1=t$, $y_2=1$이므로, $x_1$과 $x_2$는 각각 $x_1=\sqrt{a^2+\dfrac{a^2}{b^2}t^2}$, $x_2=-\sqrt{a^2+\dfrac{a^2}{b^2}}$.
+        따라서, 삼각형 $\mathrm{PFF'}$의 넓이는 $\dfrac12\times2c\times t=ct$이고,
+      criteria: [2.B1]
+    - id: 2b-2
+      content: |
+        삼각형 PQF의 넓이는 (1)에 의해
+        $$\dfrac12\left\lvert\sqrt{a^2+\dfrac{a^2}{b^2}t^2}+\sqrt{a^2+\dfrac{a^2}{b^2}}\,t+c(t-1)\right\rvert$$
+      criteria: [2.A1]
+    - id: 2b-3
+      content: |
+        그러므로, 특히 $t>1$일 때,
+        $$R(t)=\dfrac{\dfrac12\left(\sqrt{a^2+\dfrac{a^2}{b^2}t^2}+\sqrt{a^2+\dfrac{a^2}{b^2}}\,t+c(t-1)\right)}{ct}=\dfrac{\dfrac12\left(a\sqrt{1+\dfrac{t^2}{b^2}}+a\sqrt{1+\dfrac1{b^2}}\,t+c(t-1)\right)}{ct}$$
+      criteria: [2.M1]
+    - id: 2b-4
+      content: |
+        이고, 따라서
+        $$\lim_{t\to\infty}R(t)=\dfrac{\dfrac12\left(\dfrac ab+a\sqrt{1+\dfrac1{b^2}}+c\right)}{c}=\dfrac12+\dfrac{a}{2bc}+\dfrac{a}{2c}\sqrt{1+\dfrac1{b^2}}$$
+      criteria: [2.A2]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.B1
+      mark_type: B
+      points: 3
+      evidence: (공식 3점) 삼각형 $\mathrm{PFF'}$의 넓이 $ct$를 구했다.
+      depends_on: []
+      steps: [2b-1]
+    - id: 2.A1
+      mark_type: A
+      points: 3
+      evidence: (공식 3점) $x_1$, $x_2$를 구해 (1)의 공식으로 삼각형 PQF 의 넓이를 $t$로 나타냈다.
+      depends_on: []
+      implied_ok: true
+      ft: {allowed: true, from: [1.A1], max_points: 3}
+      steps: [2b-1, 2b-2]
+    - id: 2.M1
+      mark_type: M
+      points: 3
+      evidence: (공식 3점) $R(t)$를 올바르게 구했다($t>1$에서 절댓값을 벗긴 식).
+      depends_on: []
+      steps: [2b-3]
+    - id: 2.A2
+      mark_type: A
+      points: 7
+      evidence: (공식 7점) $\displaystyle\lim_{t\to\infty}R(t)=\dfrac12+\dfrac{a}{2bc}+\dfrac{a}{2c}\sqrt{1+\dfrac1{b^2}}$을 올바르게 구했다.
+      depends_on: [2.M1]
+      steps: [2b-4, 2a]
+      not_penalized:
+      - $c$ 대신 $\sqrt{a^2+b^2}$ 사용(공식 채점 기준)
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-CAL-6315}
+  misconceptions:
+  - id: MC-CAL-6315
+    outcome_code: '70'
+    wrong_work: '$\dfrac{x_1}{t}=\dfrac{\sqrt{a^2+\frac{a^2}{b^2}t^2}}{t}\to a$ 또는 $\dfrac{a^2}{b^2}$로 계산'
+    detect_cue: 극한값에 $\dfrac{a}{2bc}$ 항이 없다
+    feedback: $\dfrac{\sqrt{a^2+\frac{a^2}{b^2}t^2}}{t}=\sqrt{\dfrac{a^2}{t^2}+\dfrac{a^2}{b^2}}\to\dfrac ab$입니다.
+    remedy: [RL-2]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-GEO-6314}
+  relation: remediation
+  target: {kind: concept, ref: CON-GEO-POINT-LINE-DIST}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-CAL-6315}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-LIMIT-INF}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-input-v1, item_version: 1, verdict: pass, date: 2026-11-21, note: 원문 PDF 이미지 판독으로 옮김 · 해설은 경희대 예시답안 흐름}
+
+created: 2026-11-21
+updated: 2026-11-21

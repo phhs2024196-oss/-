@@ -1,0 +1,289 @@
+schema_version: '2.0'
+id: KHU-M22-03
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: KHU
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 일반화
+points: 25
+time_estimate_min: 30
+intent: 합동인 이등변삼각형들의 넓이를 사인법칙·배각 공식으로 나타내 수열의 극한을 구하고, 대각선으로 잘린 작은 삼각형들의 닮음비로 넓이의 합을 시그마로 계산하는 능력을 본다.
+key_idea: '꼭지각 $\theta$에 대해 $\sin\dfrac{\theta}{2}=\dfrac{1}{2n}$, $\sin\theta=\dfrac{\sqrt{4n^2-1}}{2n^2}$이고, (2)는 $\overline{B_iC_i}=\dfrac{n-i}{n-1}a$, $\overline{B_iD_i}=\dfrac{n-i}{n}a$인 삼각형 $B_iC_iD_i$의 넓이를 더한다.'
+stuck: (2)에서 선분 $A_1B_n$ 위쪽 조각이 꼭지각 $\theta$를 공유하는 삼각형 $B_iC_iD_i$임을 보고, 보조점 $B_0$를 잡아 $\overline{B_iD_i}$를 닮음비로 구하는 단계
+idea_tags: [IDEA-SIMILAR-RATIO-SUM, IDEA-SUM-SQUARES-LIMIT]
+tags: [경희 모의, 수열의 극한, 닮음, 사인법칙]
+elements:
+  materials: ['길이 $a$인 선분 $A_1A_{n+1}$ 위의 합동인 이등변삼각형 $n$개($\overline{A_iB_i}=\overline{A_{i+1}B_i}=a$)', '선분 $A_1B_n$으로 자른 위쪽 삼각형 조각들']
+  concepts: [사인법칙, 삼각함수의 배각(덧셈정리), 삼각형의 넓이, 삼각형의 닮음, 자연수의 제곱의 합, 수열의 극한]
+  tools: ['사인법칙으로 $\sin\dfrac{\theta}{2}=\dfrac{1}{2n}$', '$\sin\theta=2\sin\dfrac{\theta}{2}\cos\dfrac{\theta}{2}$', '닮음비로 $\overline{B_iC_i}$, $\overline{B_iD_i}$', '$\sum_{i=1}^{n-1}(n-i)^2=\dfrac{(n-1)n(2n-1)}{6}$']
+  conditions:
+  - '밑변 $\overline{A_iA_{i+1}}=\dfrac{a}{n}$, 두 변 $a$'
+  - '이웃한 삼각형은 한 점 $A_{i+1}$에서만 만남 ⇒ $\overline{B_iB_{i+1}}=\dfrac{a}{n}$, $B_1B_n\parallel A_1A_{n+1}$'
+  - '$i=1,\dots,n-1$에 대해 조각 $B_iC_iD_i$ ($C_1=A_1$)'
+  stimuli_used: [바, 사]
+  subpart_links: (2)는 (1)에서 구한 $\sin\theta=\dfrac{\sqrt{4n^2-1}}{2n^2}$을 사용
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅰ, 미적분]
+  scope_2028: calc2
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 수열의 극한값을 구할 수 있다(요지)
+    verified: false
+  content_area: 수열의 극한, 삼각함수(사인법칙), 수열의 합
+  behavior_domain: 문제해결
+  unit_path: [미적분, 수열의 극한, 수열의 극한, 도형과 수열의 극한]
+  key_concepts: [사인법칙, 배각 공식, 닮음, 시그마, 수열의 극한]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 경희대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 경희대학교
+  admission_year: 2022
+  admission_type: 논술(모의)
+  track: 자연계열
+  question_no: 3
+  official_url: 'https://iphak.khu.ac.kr/detail.do?menuurl=89BGs%2bk748ajyySWoWlQPw%3d%3d&board_seq=2097&pageNo=1&categoryid=27&userpwd='
+  retrieved_at: '2026-11-21'
+  original_points: 25
+  rights_notice: 경희대학교 입학처 공개 자료(기출문제·예시답안). 내부 분석용
+  note: '문제 = [자연계] 2022학년도 모의논술 문제지_최종.pdf p.3, 원 번호 [논제 3], 해설 = [자연계] 2022학년도 모의논술 예시답안 및 문항해설_최종.pdf p.4~5(예시답안, 보조 그림 2개), p.7(문항 해설). 공식 채점 기준 미공개 — 소문항 배점(10·15)은 원문, 마크 배분은 자체. 공식 해설은 R_n 의 넓이를 n 개 삼각형 넓이의 합으로 해석. 예시답안의 ''0<θ≤π/3'' 표기는 그대로 둠(n≥1에서 sin(θ/2)=1/(2n)).'
+
+verify: verify/KHU-M22.py::p03
+
+stimuli:
+- label: 가
+  body: |
+    하나의 다항식을 두 개 이상의 다항식의 곱으로 나타내는 인수분해는 다항식의 전개 과정을 거꾸로 생각한 것이다. 다음 인수분해 공식은 곱셈 공식에서 얻은 것이다.
+    (1) $a^2+2ab+b^2=(a+b)^2$
+    (2) $a^2-2ab+b^2=(a-b)^2$
+    (3) $a^2-b^2=(a+b)(a-b)$
+    (4) $x^2+(a+b)x+ab=(x+a)(x+b)$
+    (5) $acx^2+(ad+bc)x+bd=(ax+b)(cx+d)$
+- label: 나
+  body: |
+    함수 $f(x)$가 어떤 구간에 속하는 임의의 두 수 $x_1$, $x_2$에 대하여 $x_1<x_2$일 때 $f(x_1)<f(x_2)$이면 함수 $f(x)$는 그 구간에서 증가한다고 한다. 또, $x_1<x_2$일 때 $f(x_1)>f(x_2)$이면 $f(x)$는 그 구간에서 감소한다고 한다. 함수 $f(x)$가 어떤 열린구간에서 미분이 가능할 때, 그 열린구간에 속하는 모든 $x$에 대하여
+    (1) $f'(x)>0$이면 $f(x)$는 그 열린구간에서 증가한다.
+    (2) $f'(x)<0$이면 $f(x)$는 그 열린구간에서 감소한다.
+- label: 다
+  body: |
+    미분가능한 함수 $f(x)$에 대하여 $f'(a)=0$이고 $x=a$의 좌우에서
+    (1) $f'(x)$의 부호가 양에서 음으로 바뀌면 $f(x)$는 $x=a$에서 극대이다.
+    (2) $f'(x)$의 부호가 음에서 양으로 바뀌면 $f(x)$는 $x=a$에서 극소이다.
+- label: 라
+  body: |
+    함수 $f(x)$에서 $x$의 값이 음수이면서 그 절댓값이 한없이 커질 때, $f(x)$의 값이 일정한 값 $L$에 한없이 가까워지면 이것을 기호로
+    $$\lim_{x\to-\infty}f(x)=L\quad\text{또는}\quad x\to-\infty\text{일 때 }f(x)\to L$$
+    과 같이 나타낸다.
+- label: 마
+  body: |
+    어떤 시행에서 사건 $A$가 일어날 가능성을 수로 나타낸 것을 사건 $A$의 확률이라 하며, 이것을 기호로 $\mathrm{P}(A)$와 같이 나타낸다. 표본공간이 $S$인 어떤 시행에서 각 근원사건이 일어날 가능성이 모두 같은 정도로 기대될 때, 사건 $A$가 일어날 확률 $\mathrm{P}(A)$를 $\mathrm{P}(A)=\dfrac{n(A)}{n(S)}$로 정의하고, 이것을 표본공간 $S$에서 사건 $A$가 일어날 수학적 확률이라고 한다.
+- label: 바
+  body: |
+    사인법칙
+    삼각형ABC에서 $\angle\mathrm{A}$, $\angle\mathrm{B}$, $\angle\mathrm{C}$의 크기를 $\mathrm{A}$, $\mathrm{B}$, $\mathrm{C}$로 나타내고, 이들의 대변의 길이를 각각 $a$, $b$, $c$로 나타내기로 한다. 이때, 삼각형ABC의 외접원의 반지름의 길이를 $R$라 하면 다음 법칙이 성립한다.
+    $$\dfrac{a}{\sin A}=\dfrac{b}{\sin B}=\dfrac{c}{\sin C}=2R$$
+- label: 사
+  body: |
+    삼각함수의 덧셈정리
+    (1) $\sin(\alpha+\beta)=\sin\alpha\cos\beta+\cos\alpha\sin\beta$, $\sin(\alpha-\beta)=\sin\alpha\cos\beta-\cos\alpha\sin\beta$,
+    (2) $\cos(\alpha+\beta)=\cos\alpha\cos\beta-\sin\alpha\sin\beta$, $\cos(\alpha-\beta)=\cos\alpha\cos\beta+\sin\alpha\sin\beta$,
+    (3) $\tan(\alpha+\beta)=\dfrac{\tan\alpha+\tan\beta}{1-\tan\alpha\tan\beta}$, $\tan(\alpha-\beta)=\dfrac{\tan\alpha-\tan\beta}{1+\tan\alpha\tan\beta}$.
+
+stem: |
+  제시문 [가]~[사]를 읽고 다음 질문에 답하시오.
+  [논제 3]
+  [그림 1-1 설명: 수평선분 위에 왼쪽부터 $A_1, A_2, A_3, A_4, \dots, A_n, A_{n+1}$이 같은 간격으로 놓이고, 각 $A_iA_{i+1}$을 밑변으로 하는 가늘고 높은 이등변삼각형의 꼭짓점 $B_1, B_2, B_3, \dots, B_n$이 같은 높이에 있다. $B_3$과 $B_n$ 사이는 ⋯로 생략.]
+  [그림 1-2 설명: 그림 1-1에 점 $A_1$과 점 $B_n$을 잇는 선분 $A_1B_n$을 그은 그림.]
+  양의 실수 $a$와 자연수 $n$에 대하여, 길이가 $a$인 선분$A_1A_{n+1}$위에 합동인 이등변삼각형 $n$개를 [그림 1-1]과 같이 세워놓았다. 각각의 $i=1,2,\cdots,n$에 대하여, 삼각형$A_iB_iA_{i+1}$는 $\overline{A_iB_i}=\overline{A_{i+1}B_i}=a$인 이등변삼각형이고 선분$A_iA_{i+1}$은 선분$A_1A_{n+1}$위에 있다. 또한 각각의 $i=1,2,\cdots,n-1$에 대하여 삼각형$A_iB_iA_{i+1}$과 삼각형$A_{i+1}B_{i+1}A_{i+2}$는 한 점 $A_{i+1}$에서만 만난다. 삼각형들로 둘러싸인 영역을 $\mathrm{R}_n$이라 할 때 다음 물음에 답하시오.
+
+subparts:
+- id: '1'
+  stem: |
+    $\mathrm{R}_n$의 넓이 $S_n$을 $a$와 $n$에 관하여 표현하고, $\displaystyle\lim_{n\to\infty}S_n$을 구하시오. 그 근거를 논술하시오. (10점)
+  points: 10
+  depends_on: []
+  answer: {kind: expression, value: 'S_n=\dfrac{a^2\sqrt{4n^2-1}}{4n},\ \lim_{n\to\infty}S_n=\dfrac{a^2}{2}', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: 꼭지각 $\theta$에서 $\sin\dfrac{\theta}{2}=\dfrac{1}{2n}$, 한 삼각형 넓이 $\dfrac12a^2\sin\theta$를 $n$배.
+    steps:
+    - {id: 1a, content: '$S_n=n\cdot\dfrac12a^2\cdot\dfrac{\sqrt{4n^2-1}}{2n^2}\to\dfrac{a^2}{2}$', criteria: [1.M1, 1.A1, 1.A2]}
+    hint_ladder:
+    - 한 삼각형의 밑변은 $\dfrac{a}{n}$이다.
+    - 꼭지각의 사인값을 $n$으로 나타내 보자.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 예시답안 p.4
+    steps:
+    - id: 1b-1
+      content: |
+        이등변삼각형들이 서로 합동이므로 $S_n=$ (삼각형 $A_1B_1A_2$의 넓이)$\times n$이다. 삼각형 $A_1B_1A_2$는 $\overline{A_1B_1}=\overline{A_2B_1}=a$이고 $\overline{A_1A_2}=\dfrac{a}{n}$인 이등변삼각형이므로, 각 $A_1B_1A_2$를 $\theta$라 하면 사인법칙(제시문 [바])에 의해 $\dfrac{a/n}{\sin\theta}=\dfrac{a}{\sin\frac{\pi-\theta}{2}}$이고, $\sin\dfrac{\theta}{2}=\dfrac{1}{2n}$이다.
+      criteria: [1.M1]
+    - id: 1b-2
+      content: |
+        또한 선분 $A_1A_{n+1}$의 길이가 $a$이므로 $0<\theta\le\dfrac{\pi}{3}$이고, 제시문 [사]에 의해
+        $\sin\theta=2\sin\dfrac{\theta}{2}\cos\dfrac{\theta}{2}=2\cdot\dfrac{1}{2n}\sqrt{1-\dfrac{1}{4n^2}}=\dfrac{\sqrt{4n^2-1}}{2n^2}$.
+      criteria: [1.A1]
+    - id: 1b-3
+      content: |
+        삼각형 $A_1B_1A_2$의 넓이 $=\dfrac12\overline{A_1B_1}\,\overline{A_2B_1}\sin\theta=a^2\dfrac{\sqrt{4n^2-1}}{4n^2}$이고, 따라서 $S_n=a^2\dfrac{\sqrt{4n^2-1}}{4n}$이다. 그러므로 $\displaystyle\lim_{n\to\infty}S_n=\dfrac{a^2}{2}$이다.
+      criteria: [1.A2]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 3
+      evidence: 사인법칙(또는 직각삼각형)으로 꼭지각 $\theta$에 대해 $\sin\dfrac{\theta}{2}=\dfrac{1}{2n}$을 얻었다.
+      depends_on: []
+      steps: [1b-1]
+    - id: 1.A1
+      mark_type: A
+      points: 3
+      evidence: $\sin\theta=\dfrac{\sqrt{4n^2-1}}{2n^2}$(또는 높이 $\sqrt{a^2-\frac{a^2}{4n^2}}$)를 구했다.
+      depends_on: [1.M1]
+      steps: [1b-2]
+    - id: 1.A2
+      mark_type: A
+      points: 4
+      evidence: $S_n=\dfrac{a^2\sqrt{4n^2-1}}{4n}$과 극한 $\dfrac{a^2}{2}$를 구했다.
+      depends_on: [1.M1, 1.A1]
+      steps: [1b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-CAL-6616}
+  misconceptions:
+  - id: MC-CAL-6616
+    outcome_code: '70'
+    wrong_work: '삼각형의 높이를 $a$로 두어 $S_n=n\cdot\dfrac12\cdot\dfrac an\cdot a=\dfrac{a^2}{2}$(상수)로 씀'
+    detect_cue: $S_n$에 $n$이 없거나 $\sqrt{4n^2-1}$이 나오지 않는다
+    feedback: $a$는 빗변(등변)의 길이입니다. 높이는 $\sqrt{a^2-\left(\frac{a}{2n}\right)^2}$입니다.
+    remedy: [RL-1]
+- id: '2'
+  stem: |
+    [그림 1-2]와 같이 점$A_1$과 점$B_n$을 연결한 선분$A_1B_n$으로 $\mathrm{R}_n$을 자를 때, 선분$A_1B_n$ 위에 있는 삼각형들의 넓이의 합을 $T_n$이라 하자. $T_n$을 $a$와 $n$에 관하여 표현하고, $\displaystyle\lim_{n\to\infty}T_n$을 구하시오. 그 근거를 논술하시오. (15점)
+  points: 15
+  depends_on: ['1']
+  answer: {kind: expression, value: 'T_n=\dfrac{(2n-1)\sqrt{4n^2-1}}{24n^2}a^2,\ \lim_{n\to\infty}T_n=\dfrac{a^2}{6}', equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: 위쪽 조각은 꼭지각 $\theta$를 공유하는 삼각형 $B_iC_iD_i$ ($i=1,\dots,n-1$), 두 변이 $\dfrac{n-i}{n-1}a$, $\dfrac{n-i}{n}a$.
+    steps:
+    - {id: 2a, content: '$T_n=\dfrac{a^2\sqrt{4n^2-1}}{4n^3(n-1)}\sum_{i=1}^{n-1}(n-i)^2\to\dfrac{a^2}{6}$', criteria: [2.M1, 2.A1, 2.M2, 2.A2, 2.M3, 2.A3]}
+    hint_ladder:
+    - 선분 $A_1B_n$ 위쪽에 남는 조각은 어떤 모양인가?
+    - $B_i$에서 두 변까지의 길이를 닮음비로 구해 보자.
+    - $\sum(n-i)^2=\sum i^2$이다.
+  - id: S2-B
+    audience: B
+    method_no: 1
+    source_flow: 예시답안 p.5
+    steps:
+    - id: 2b-1
+      content: |
+        각각의 $i=1,2,\cdots,n-1$에 대하여 선분 $A_1B_n$과 선분 $A_iB_i$가 만나는 점을 $C_i$라 하면(단, $C_1=A_1$) 삼각형 $A_1B_1B_n$과 삼각형 $C_iB_iB_n$은 닮은 삼각형이므로 닮음비에 의하여 $\overline{A_1B_1}:\overline{B_1B_n}=\overline{B_iC_i}:\overline{B_iB_n}$이다. 또한 $\overline{A_1B_1}=a$, $\overline{B_iB_{i+1}}=\dfrac{a}{n}$이므로 $\overline{B_1B_n}=\dfrac{n-1}{n}a$, $\overline{B_iB_n}=\dfrac{n-i}{n}a$이다. 이로부터 $\overline{B_iC_i}=\dfrac{n-i}{n-1}a$이다 $\cdots$(a)
+      criteria: [2.M1, 2.A1]
+    - id: 2b-2
+      content: |
+        $i=1,2,\cdots,n-1$에 대하여 선분 $A_1B_n$과 선분 $A_{i+1}B_i$가 만나는 점을 각각 $D_i$라 하자. 또한 점 $A_1$을 지나고 선분 $A_2B_1$과 평행한 직선이 선분 $B_1B_n$의 연장선과 만나는 점을 $B_0$라 하자. 각 $i$에 대하여 삼각형 $A_1B_0B_n$과 삼각형 $D_iB_iB_n$은 닮은 삼각형이므로 $\overline{A_1B_0}:\overline{B_0B_n}=\overline{B_iD_i}:\overline{B_iB_n}$이다. 또한 삼각형 $A_1B_0B_1$과 삼각형 $A_2B_1B_2$는 합동인 삼각형이므로 $\overline{A_1B_0}=a$이고 $\overline{B_0B_n}=a$이다. $\overline{B_iB_n}=\dfrac{n-i}{n}a$이므로 $\overline{B_iD_i}=\dfrac{n-i}{n}a$이다 $\cdots$(b)
+      criteria: [2.M2, 2.A2]
+    - id: 2b-3
+      content: |
+        한편, [논제 3](1)에서 각 $A_1B_1A_2$를 $\theta$라 하면 $\sin\theta=\dfrac{\sqrt{4n^2-1}}{2n^2}$이므로, (a), (b)에 의하여
+        삼각형 $B_iC_iD_i$의 넓이 $=\dfrac12\overline{B_iC_i}\,\overline{B_iD_i}\sin\theta=\dfrac12\cdot\dfrac{n-i}{n-1}a\times\dfrac{n-i}{n}a\times\dfrac{\sqrt{4n^2-1}}{2n^2}=\dfrac{a^2\sqrt{4n^2-1}}{4n^3(n-1)}(n-i)^2$이다.
+      criteria: [2.M3]
+    - id: 2b-4
+      content: |
+        따라서 $T_n=\displaystyle\sum_{i=1}^{n-1}\dfrac{a^2\sqrt{4n^2-1}}{4n^3(n-1)}(n-i)^2=\dfrac{a^2\sqrt{4n^2-1}}{4n^3(n-1)}\sum_{i=1}^{n-1}i^2=\dfrac{a^2\sqrt{4n^2-1}}{4n^3(n-1)}\cdot\dfrac{(n-1)n(2n-1)}{6}=\dfrac{(2n-1)\sqrt{4n^2-1}}{24n^2}a^2$이고,
+        $\displaystyle\lim_{n\to\infty}T_n=\lim_{n\to\infty}\dfrac{(2n-1)\sqrt{4n^2-1}}{24n^2}a^2=\dfrac{a^2}{6}$이다.
+      criteria: [2.A3]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 2
+      evidence: 교점 $C_i$를 잡고 삼각형 $A_1B_1B_n$과 $C_iB_iB_n$의 닮음을 이용했다.
+      depends_on: []
+      steps: [2b-1]
+    - id: 2.A1
+      mark_type: A
+      points: 2
+      evidence: $\overline{B_iC_i}=\dfrac{n-i}{n-1}a$를 구했다.
+      depends_on: [2.M1]
+      steps: [2b-1]
+    - id: 2.M2
+      mark_type: M
+      points: 3
+      evidence: 교점 $D_i$와 보조점 $B_0$(또는 동등한 닮음)를 이용해 $\overline{B_iD_i}$를 구하는 닮음을 세웠다.
+      depends_on: []
+      steps: [2b-2]
+    - id: 2.A2
+      mark_type: A
+      points: 2
+      evidence: $\overline{B_iD_i}=\dfrac{n-i}{n}a$를 구했다.
+      depends_on: [2.M2]
+      steps: [2b-2]
+    - id: 2.M3
+      mark_type: M
+      points: 3
+      evidence: 삼각형 $B_iC_iD_i$의 넓이를 $\dfrac12\overline{B_iC_i}\,\overline{B_iD_i}\sin\theta$로 나타내 $(n-i)^2$에 비례하는 식을 얻었다.
+      depends_on: []
+      ft: {allowed: true, from: [1.A1], max_points: 3}
+      steps: [2b-3]
+    - id: 2.A3
+      mark_type: A
+      points: 3
+      evidence: $T_n=\dfrac{(2n-1)\sqrt{4n^2-1}}{24n^2}a^2$와 극한 $\dfrac{a^2}{6}$을 구했다.
+      depends_on: [2.M3, 2.A1, 2.A2]
+      steps: [2b-4]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-ALG-6617}
+  misconceptions:
+  - id: MC-ALG-6617
+    outcome_code: '71'
+    wrong_work: '$\overline{B_iC_i}=\dfrac{n-i}{n}a$로 두거나 $\sum_{i=1}^{n}(n-i)^2$로 범위를 잡아 극한을 $\dfrac{a^2}{6}$과 다른 값 또는 다른 $T_n$을 얻음'
+    detect_cue: $T_n$ 식에 $(n-1)$이 약분되지 않거나 분모가 $n^3$만 있다
+    feedback: $C_i$는 $A_1B_1B_n$과의 닮음비 $\dfrac{\overline{B_iB_n}}{\overline{B_1B_n}}=\dfrac{n-i}{n-1}$로 정해집니다. 시그마 범위도 $i=1$부터 $n-1$까지입니다.
+    remedy: [RL-2]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CAL-6616}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-SEQ-LIMIT}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-ALG-6617}
+  relation: remediation
+  target: {kind: concept, ref: CON-ALG-SUM-SQUARES}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-input-v1, item_version: 1, verdict: pass, date: 2026-11-21, note: 원문 PDF 이미지 판독으로 옮김 · 해설은 경희대 예시답안 흐름}
+
+created: 2026-11-21
+updated: 2026-11-21

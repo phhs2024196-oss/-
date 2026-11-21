@@ -1,0 +1,261 @@
+schema_version: '2.0'
+id: KHU-M23-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: KHU
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 존재
+points: 30
+time_estimate_min: 25
+intent: 정적분으로 삼차함수와 x축 사이의 넓이를 구하고, 넓이 조건에서 얻은 사차방정식의 근의 위치를 사잇값 정리와 도함수의 부호로 판정하는 능력을 본다.
+key_idea: '$t=\dfrac{b}{a}$로 두면 $B=2A$는 $t^4+2t^3-4t-2=0$이 되고, 사잇값 정리로 $(1,2)$에 근이 있음과 $t\ge2$, $t\le1$에는 근이 없음을 보인다.'
+stuck: 두 변수 $a$, $b$의 관계식을 비 $\dfrac{b}{a}$ 하나의 방정식으로 바꾸고, 근이 다른 범위에 없음까지 보이는 단계
+idea_tags: [IDEA-RATIO-HOMOGENIZE, IDEA-IVT-ROOT-LOCATION]
+tags: [경희 모의, 정적분과 넓이, 사잇값 정리]
+elements:
+  materials: [삼차함수 $f(x)=x(x+a)(x-b)$, '곡선과 $x$축으로 둘러싸인 두 도형의 넓이 $A$, $B$', 넓이 조건 $B=2A$]
+  concepts: [정적분과 넓이, 사잇값 정리, 도함수와 함수의 증가, 동차식]
+  tools: [구간별 부호 확인 후 정적분, '$t=\dfrac{b}{a}$ 치환으로 사차방정식 만들기', 사잇값 정리로 근의 존재 보이기, 도함수 부호로 근이 없는 범위 보이기]
+  conditions:
+  - '$a>0$, $b>0$ ⇒ $-a\le x\le0$에서 $f(x)\ge0$, $0\le x\le b$에서 $f(x)\le0$'
+  - '$B=2A$ ⇒ $b^3(2a+b)=2a^3(a+2b)$, $a^4$으로 나누어 $\dfrac{b}{a}$의 방정식'
+  - '$a<b<2a$ ⇔ $1<\dfrac{b}{a}<2$ ⇒ 근이 $(1,2)$에만 있음을 보여야 함'
+  stimuli_used: [가, 나]
+  subpart_links: (2)는 (1)에서 구한 $A$, $B$의 식을 사용
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅱ]
+  scope_2028: common
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 곡선으로 둘러싸인 도형의 넓이를 구할 수 있다(요지)
+    verified: false
+  content_area: 적분 – 정적분의 활용(넓이), 함수의 연속(사잇값 정리)
+  behavior_domain: 추론
+  unit_path: [수학Ⅱ, 적분, 정적분의 활용, 곡선과 x축 사이의 넓이]
+  key_concepts: [정적분과 넓이, 사잇값 정리, 함수의 증가]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 경희대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 경희대학교
+  admission_year: 2023
+  admission_type: 논술(모의)
+  track: 자연계열
+  question_no: 1
+  official_url: 'https://iphak.khu.ac.kr/detail.do?menuurl=89BGs%2bk748ajyySWoWlQPw%3d%3d&board_seq=6225&pageNo=1&categoryid=27&userpwd='
+  retrieved_at: '2026-11-21'
+  original_points: 30
+  rights_notice: 경희대학교 입학처 공개 자료(기출문제·예시답안). 내부 분석용
+  note: '문제 = 3. [자연계] 2023 문제지_공지.pdf p.1~2, 원 번호 [논제 Ⅰ], 해설 = 3. [자연계] 2023 예시답안 및 문항해설_공지.pdf p.1(예시답안), p.4(문항 해설). 공식 채점 기준 미공개 — 소문항 배점(10·20)은 원문, 마크 배분은 자체.'
+
+verify: verify/KHU-M23.py::p01
+
+stimuli:
+- label: 가
+  body: |
+    함수 $f(x)$가 닫힌구간 $[a,b]$에서 연속일 때, 곡선 $y=f(x)$와 $x$축 및 두 직선 $x=a$, $x=b$로 둘러싸인 도형의 넓이 $S$는
+    $$S=\int_a^b|f(x)|\,dx$$
+    이다.
+- label: 나
+  body: |
+    함수 $f(x)$가 닫힌구간 $[a,b]$에서 연속이고 $f(a)\neq f(b)$이면, $f(a)$와 $f(b)$ 사이의 임의의 값 $k$에 대하여
+    $$f(c)=k$$
+    인 $c$가 열린구간 $(a,b)$에 적어도 하나 존재한다.
+- label: 다
+  body: |
+    두 초점 $\mathrm{F}(c,0)$, $\mathrm{F'}(-c,0)$에서의 거리의 합이 $2a$인 타원의 방정식은
+    $$\dfrac{x^2}{a^2}+\dfrac{y^2}{b^2}=1\ (\text{단, }a>c>0,\ b^2=a^2-c^2)$$
+    두 초점 $\mathrm{F}(0,c)$, $\mathrm{F'}(0,-c)$에서의 거리의 합이 $2b$인 타원의 방정식은
+    $$\dfrac{x^2}{a^2}+\dfrac{y^2}{b^2}=1\ (\text{단, }b>c>0,\ a^2=b^2-c^2)$$
+- label: 라
+  body: |
+    이산확률변수 $X$의 확률질량함수가 $P(X=x_i)=p_i\ (i=1,2,\cdots,n)$일 때, $X$의 기댓값(평균) $E(X)$는
+    $$E(X)=x_1p_1+x_2p_2+\cdots+x_np_n$$
+
+stem: |
+  [논제 Ⅰ] 양의 실수 $a$와 $b$에 대하여 함수 $f(x)=x(x+a)(x-b)$를 생각하자. 이때 곡선 $y=f(x)\ (-a\le x\le0)$과 $x$축으로 둘러싸인 도형의 넓이를 $A$, 곡선 $y=f(x)\ (0\le x\le b)$와 $x$축으로 둘러싸인 도형의 넓이를 $B$라 하자.
+
+subparts:
+- id: '1'
+  stem: |
+    넓이 $A$와 $B$를 $a$와 $b$에 대한 식으로 표현하고, 그 근거를 논술하시오. (10점)
+  points: 10
+  depends_on: []
+  answer: {kind: expression, value: 'A=\dfrac{a^3}{12}(a+2b),\ B=\dfrac{b^3}{12}(2a+b)', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $[-a,0]$에서 $f\ge0$, $[0,b]$에서 $f\le0$이므로 $A=\int_{-a}^0f\,dx$, $B=-\int_0^bf\,dx$.
+    steps:
+    - {id: 1a, content: '$f(x)=x^3+(a-b)x^2-abx$를 각 구간에서 적분', criteria: [1.M1, 1.A1, 1.A2]}
+    hint_ladder:
+    - 각 구간에서 $f(x)$의 부호를 먼저 확인하자.
+    - 전개한 다항식을 적분하면 된다.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 예시답안 p.1
+    steps:
+    - id: 1b-1
+      content: |
+        $-a\le x\le0$에서 $x\le0$, $x+a\ge0$, $x-b<0$이므로 $f(x)\ge0$이고, $0\le x\le b$에서 $x\ge0$, $x+a>0$, $x-b\le0$이므로 $f(x)\le0$이다. 제시문 [가]에 의해 $A=\int_{-a}^{0}f(x)\,dx$, $B=-\int_{0}^{b}f(x)\,dx$.
+      criteria: [1.M1]
+    - id: 1b-2
+      content: |
+        $f(x)=x^3+(a-b)x^2-abx$이므로
+        $A=\left[\dfrac{x^4}{4}+\dfrac{(a-b)x^3}{3}-\dfrac{abx^2}{2}\right]_{-a}^{0}=-\dfrac{a^4}{4}+\dfrac{(a-b)a^3}{3}+\dfrac{a^3b}{2}=\dfrac{a^3}{12}(a+2b)$.
+      criteria: [1.A1]
+    - id: 1b-3
+      content: |
+        $B=-\left(\dfrac{b^4}{4}+\dfrac{(a-b)b^3}{3}-\dfrac{ab^3}{2}\right)=\dfrac{b^3}{12}(2a+b)$.
+      criteria: [1.A2]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 4
+      evidence: 각 구간에서 $f(x)$의 부호를 밝히고 넓이를 정적분(부호 반영)으로 세웠다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1]
+    - id: 1.A1
+      mark_type: A
+      points: 3
+      evidence: $A=\dfrac{a^3}{12}(a+2b)$를 구했다.
+      depends_on: [1.M1]
+      steps: [1b-2]
+    - id: 1.A2
+      mark_type: A
+      points: 3
+      evidence: $B=\dfrac{b^3}{12}(2a+b)$를 구했다.
+      depends_on: [1.M1]
+      steps: [1b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-CAL-6601}
+  misconceptions:
+  - id: MC-CAL-6601
+    outcome_code: '70'
+    wrong_work: '$B=\int_0^bf(x)\,dx=-\dfrac{b^3}{12}(2a+b)$처럼 음수를 넓이로 씀'
+    detect_cue: $B$의 식 앞에 음의 부호가 남아 있다
+    feedback: 넓이는 $|f(x)|$의 정적분입니다. 구간에서 $f(x)$의 부호부터 확인하세요.
+    remedy: [RL-1]
+- id: '2'
+  stem: |
+    넓이 $A$와 $B$가 $B=2A$를 만족한다고 하자. 이때 $a<b<2a$임을 설명하고, 그 근거를 논술하시오. (20점)
+  points: 20
+  depends_on: ['1']
+  answer: {kind: proof, value: null, equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: $t=\dfrac{b}{a}$가 $g(t)=t^4+2t^3-4t-2=0$의 양의 근이고, $g(1)<0<g(2)$, $t\ge2$에서 $g'>0$, $\dfrac{a}{b}\ge1$ 쪽도 같은 방법으로 근이 없다.
+    steps:
+    - {id: 2a, content: '$b^3(2a+b)=2a^3(a+2b)\iff g(t)=0$; 사잇값 정리 + 도함수 부호', criteria: [2.M1, 2.R1, 2.R2, 2.R3]}
+    hint_ladder:
+    - 양변을 $a^4$으로 나누어 보자.
+    - $t=1$, $t=2$에서의 값의 부호를 비교하자.
+    - $t\ge2$, $t\le1$에 근이 없음은 어떻게 보일까?
+  - id: S2-B
+    audience: B
+    method_no: 1
+    source_flow: 예시답안 p.1
+    steps:
+    - id: 2b-1
+      content: |
+        (1)에 의해 $B=2A\iff b^3(2a+b)=2a^3(a+2b)$. 양변을 $a^4$, $b^4$으로 각각 나누면
+        $\left(\dfrac{b}{a}\right)^4+2\left(\dfrac{b}{a}\right)^3-4\left(\dfrac{b}{a}\right)-2=0$ 또는 $2\left(\dfrac{a}{b}\right)^4+4\left(\dfrac{a}{b}\right)^3-2\left(\dfrac{a}{b}\right)-1=0$.
+      criteria: [2.M1]
+    - id: 2b-2
+      content: |
+        $g(x)=x^4+2x^3-4x-2$라 하면 $g(1)=-3<0$, $g(2)=22>0$이므로 제시문 [나](사잇값 정리)에 의해 $g(c)=0$인 $c$가 $(1,2)$에 적어도 하나 존재한다. 따라서 $1<\dfrac{b}{a}<2$를 만족하는 $a$, $b$가 존재한다.
+      criteria: [2.R1]
+    - id: 2b-3
+      content: |
+        $\dfrac{b}{a}\ge2$인 경우: $g(2)=22>0$이고 $x\ge2$에서 $g'(x)=4x^3+6x^2-4\ge32+24-4=52>0$이므로 $g$는 $x\ge2$에서 $x$축과 만나지 않는다. 따라서 $\dfrac{b}{a}\ge2$인 $a$, $b$는 존재하지 않는다.
+      criteria: [2.R2]
+    - id: 2b-4
+      content: |
+        $\dfrac{a}{b}\ge1$인 경우: $h(x)=2x^4+4x^3-2x-1$이라 하면 $h(1)=3>0$이고 $x\ge1$에서 $h'(x)=8x^3+12x^2-2\ge8+12-2=18>0$이므로 $h(x)=0$은 $x\ge1$에서 근을 갖지 않는다. 따라서 $\dfrac{a}{b}\ge1$인 $a$, $b$는 존재하지 않는다. 결국 $B=2A$이면 $a<b<2a$이다.
+      criteria: [2.R3]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 5
+      evidence: $B=2A$를 $\dfrac{b}{a}$(또는 $\dfrac{a}{b}$)에 대한 사차방정식 $x^4+2x^3-4x-2=0$ 꼴로 정리했다.
+      depends_on: []
+      implied_ok: false
+      ft: {allowed: true, from: [1.A1, 1.A2], max_points: 5}
+      steps: [2b-1]
+    - id: 2.R1
+      mark_type: R
+      points: 5
+      evidence: $g(1)<0<g(2)$와 사잇값 정리로 $(1,2)$에 근이 존재함을 밝혔다.
+      depends_on: [2.M1]
+      steps: [2b-2]
+    - id: 2.R2
+      mark_type: R
+      points: 5
+      evidence: $x\ge2$에서 $g'(x)>0$, $g(2)>0$으로 $\dfrac{b}{a}\ge2$인 근이 없음을 밝혔다.
+      depends_on: [2.M1]
+      steps: [2b-3]
+    - id: 2.R3
+      mark_type: R
+      points: 5
+      evidence: $\dfrac{a}{b}\ge1$(즉 $\dfrac{b}{a}\le1$)인 근이 없음을 보이고 $a<b<2a$로 결론지었다.
+      depends_on: [2.M1]
+      steps: [2b-4]
+    deductions:
+    - code: D2-1
+      condition: 근의 존재만 보이고 다른 범위에 근이 없음을 보이지 않음
+      effect: cap
+      value: 10
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-6602}
+  misconceptions:
+  - id: MC-CAL-6602
+    outcome_code: '71'
+    wrong_work: '$g(1)<0<g(2)$에서 근이 $(1,2)$에 있으므로 끝이라고 결론'
+    detect_cue: $\dfrac{b}{a}\ge2$ 또는 $\dfrac{b}{a}\le1$ 범위에 대한 언급이 없다
+    feedback: 사잇값 정리는 근의 존재만 알려 줍니다. 다른 범위에 근이 없다는 것을 따로 보여야 $a<b<2a$가 됩니다.
+    remedy: [RL-2]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CAL-6601}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-DEFINT-AREA}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-CAL-6602}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-IVT}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-input-v1, item_version: 1, verdict: pass, date: 2026-11-21, note: 원문 PDF 이미지 판독으로 옮김 · 해설은 경희대 예시답안 흐름}
+
+created: 2026-11-21
+updated: 2026-11-21
