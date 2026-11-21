@@ -1,0 +1,269 @@
+# 경기대 2026학년도 논술우수자전형 모의논술 수리 문제 2 — 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: KGU-M26-02
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: KGU
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 점화
+points: 40
+time_estimate_min: 35
+intent: |
+  (자체 요약 — 가이드북에 출제 의도 지면 없음) 함수방정식 $v(t+1)=-\tfrac12v(t)$와 미분가능성 조건(미분계수의 정의)으로 삼차함수를 결정하고, 구간마다 공비 $-\tfrac12$로 줄어드는 속도에서 움직인 거리를 등비수열의 합으로 구하는 능력을 본다.
+key_idea: |
+  $v(t)=t^3+pt^2+qt$로 두고, $t=1$에서의 연속($v(1)=-\tfrac12v(0)=0$)과 미분가능(좌미분계수 $3+2p+q$ = 우미분계수 $-\tfrac12q$)에서 $p=-3$, $q=2$를 얻는다. 구간 $[n,n+1]$에서의 거리는 $\left(\tfrac12\right)^n\cdot\tfrac14$이다.
+stuck: |
+  d)의 「모든 양의 실수에서 미분가능」을 $t=1$에서 좌·우 미분계수가 같다는 식으로 옮기는 단계, 그리고 $t=1$에서의 연속성으로 $v(1)=0$을 끌어내는 단계
+idea_tags: [IDEA-FUNC-EQ-DIFFERENTIABLE-GLUE, IDEA-GEOMETRIC-SUM-SCALED-PIECES]
+tags: [함수방정식, 미분가능성, 등비수열의 합, 움직인 거리]
+elements:
+  materials:
+  - '수직선 위를 움직이는 점 $P$의 속도 $v(t)$'
+  - '$0\le t\le1$에서 최고차항 계수 1인 삼차함수'
+  - '$v(t+1)=-\tfrac12v(t)$ $(t>0)$'
+  concepts:
+  - '미분계수의 정의(좌·우 극한)'
+  - '미분가능하면 연속'
+  - '등비수열과 그 합'
+  - '속도와 움직인 거리 $\int\lvert v(t)\rvert dt$'
+  tools:
+  - '$v(t)=t^3+pt^2+qt$ (a)에서 상수항 0'
+  - '$t=1$에서 좌미분계수 $3+2p+q$, 우미분계수 $-\tfrac12v^{\prime}(0)=-\tfrac12q$'
+  - '$n\le t\le n+1$에서 $v(t)=\left(-\tfrac12\right)^nv(t-n)$'
+  conditions:
+  - 'a) $v(0)=0$'
+  - 'c) $v(t+1)=-\tfrac12v(t)$ (모든 양의 실수 $t$)'
+  - 'd) 모든 양의 실수 $t$에서 $v^{\prime}(t)$ 존재'
+  stimuli_used: [가, 나, 다]
+  subpart_links: '(2)는 (1)의 $v(t)=t(t-1)(t-2)$와 c)를 사용'
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅰ, 수학Ⅱ]
+  scope_2028: common
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 미분계수의 뜻을 알고, 그 값을 구할 수 있다 / 속도와 거리에 대한 문제를 해결할 수 있다 / 등비수열의 뜻을 알고 일반항, 첫째항부터 제n항까지의 합을 구할 수 있다(요지)
+    verified: false
+  content_area: 미분·적분 – 미분가능성, 속도와 거리
+  behavior_domain: 추론
+  unit_path: [수학Ⅱ, 적분, 정적분의 활용, 속도와 거리]
+  key_concepts: [미분계수, 미분가능성과 연속성, 등비수열의 합, 움직인 거리]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 경기대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 경기대학교
+  admission_year: 2026
+  admission_type: 논술우수자전형 모의논술 수리
+  track: 자연
+  question_no: 2
+  official_url: https://cdn013.negagea.net/dgsmidc/omr/seoul/web/univ_info2026/%EA%B2%BD%EA%B8%B0%EB%8C%80%ED%95%99%EA%B5%90/%EA%B2%BD%EA%B8%B0%EB%8C%80%ED%95%99%EA%B5%90_2027%ED%95%99%EB%85%84%EB%8F%84_%EB%85%BC%EC%88%A0%EA%B0%80%EC%9D%B4%EB%93%9C%EB%B6%81.pdf
+  retrieved_at: 2026-11-21
+  original_points: null
+  rights_notice: 경기대학교 「2027학년도 논술 가이드북」 p.63에서 옮김
+
+verify: verify/KGU-M26.py::p02
+
+stimuli:
+- label: 가
+  body: |
+    함수 $y=f(x)$의 $x=a$의 에서의 미분계수 $f\,'(a)$는
+    $$f\,'(a)=\lim_{\Delta x\to0}\dfrac{f(a+\Delta x)-f(a)}{\Delta x}$$
+    『고등학교 수학 Ⅱ』
+- label: 나
+  body: |
+    첫째항부터 차례로 일정한 수를 곱해 만들어지는 수열을 등비수열이라 하고, 그 일정한 수를 공비라 한다.
+    『고등학교 수학 Ⅰ』
+- label: 다
+  body: |
+    수직선 위를 속도 $v(t)$로 움직이는 점 $P$가 시각 $t=a$에서 $t=b$까지 움직인 거리 $s$는
+    $$s=\int_a^b\lvert v(t)\rvert\,dt$$
+    『고등학교 수학 Ⅱ』
+
+stem: |
+  [문제 2] (가), (나) 그리고 (다)에 근거하여 논제에 답하시오.
+
+  [논제 2] 수직선 위를 움직이는 점 $P$의 시간 $t$에서 속도 $v(t)$가 〈보기〉의 조건을 만족한다고 할 때, 아래에 답하시오.
+
+  〈보기〉
+  a) $v(0)=0$이다.
+  b) $0\le t\le1$에서 $v(t)$는 최고차항의 계수가 1인 삼차함수이다.
+  c) 모든 양의 실수 $t$에 대하여 $v(t+1)=-\dfrac12v(t)$이다.
+  d) 모든 양의 실수 $t$에 대하여 미분계수 $v\,'(t)$가 존재한다.
+
+subparts:
+- id: '1'
+  stem: |
+    $0\le t\le1$에서 $t$에 대한 $v(t)$의 식을 구하시오.
+  points: 25
+  depends_on: []
+  answer: {kind: expression, value: 't**3 - 3*t**2 + 2*t', equivalents: ['t*(t-1)*(t-2)'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $v(t)=t^3+pt^2+qt$로 두고 $t=1$에서의 연속성과 미분가능성(좌·우 미분계수 일치)으로 $p$, $q$를 정한다.
+    steps:
+    - {id: 1a, content: '$1+p+q=0$, $3+2p+q=-\tfrac12q\Rightarrow p=-3,\ q=2$', criteria: ['1.M1', '1.M2', '1.M3', '1.A1']}
+    hint_ladder:
+    - a)와 b)로 $v(t)$의 꼴을 정하면 미지수는 몇 개인가?
+    - $t=1$의 오른쪽에서 $v$는 어떤 식인가? 그 식과 $0\le t\le1$의 식이 $t=1$에서 어떻게 이어져야 하는가?
+  - id: S1-B
+    audience: B
+    source_flow: '자체 작성(공식 해설은 영상으로만 공개)'
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        b)와 a)에 의해 $0\le t\le1$에서 $v(t)=t^3+pt^2+qt$ ($p$, $q$는 상수)로 둘 수 있다.
+      criteria: ['1.M1']
+    - id: 1b-2
+      content: |
+        d)에 의해 $v$는 $t=1$에서 미분가능하므로 연속이다. c)에서 $0<h<1$일 때 $v(1+h)=-\dfrac12v(h)$이므로
+        $$v(1)=\lim_{h\to0+}v(1+h)=-\dfrac12\lim_{h\to0+}v(h)=-\dfrac12v(0)=0$$
+        즉 $1+p+q=0$이다.
+      criteria: ['1.M2']
+    - id: 1b-3
+      content: |
+        제시문 (가)로 $t=1$에서의 미분계수를 좌·우로 나누어 구하면
+        좌미분계수: $\displaystyle\lim_{h\to0-}\dfrac{v(1+h)-v(1)}{h}=3+2p+q$,
+        우미분계수: $\displaystyle\lim_{h\to0+}\dfrac{v(1+h)-v(1)}{h}=\lim_{h\to0+}\dfrac{-\frac12v(h)-0}{h}=-\dfrac12\lim_{h\to0+}\dfrac{v(h)-v(0)}{h}=-\dfrac12q$.
+        두 값이 같아야 하므로 $3+2p+q=-\dfrac12q$이다.
+      criteria: ['1.M3']
+    - id: 1b-4
+      content: |
+        $q=-1-p$를 대입하면 $2+p=\dfrac{1+p}{2}$, $p=-3$, $q=2$이다. 따라서 $0\le t\le1$에서
+        $$v(t)=t^3-3t^2+2t=t(t-1)(t-2)$$
+        (보충: 이때 c)로 정해지는 $t>1$의 $v$는 각 정수점 $t=n$에서도 같은 이유로 미분가능하므로 d)를 모두 만족한다.)
+      criteria: ['1.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 5
+      evidence: |
+        a), b)로 $v(t)=t^3+pt^2+qt$ 꼴로 두었다. (자체 구성)
+      depends_on: []
+      implied_ok: true
+      steps: [1b-1]
+    - id: 1.M2
+      mark_type: M
+      points: 7
+      evidence: |
+        $t=1$에서의 연속성(또는 c)의 극한)으로 $v(1)=0$, 즉 $1+p+q=0$을 얻었다. (자체 구성)
+      depends_on: []
+      implied_ok: false
+      steps: [1b-2]
+    - id: 1.M3
+      mark_type: M
+      points: 8
+      evidence: |
+        $t=1$에서 좌미분계수 $3+2p+q$와 우미분계수 $-\dfrac12q$가 같다는 식을 세웠다. (자체 구성)
+      depends_on: []
+      implied_ok: false
+      steps: [1b-3]
+    - id: 1.A1
+      mark_type: A
+      points: 5
+      evidence: |
+        $v(t)=t^3-3t^2+2t$를 얻었다. (자체 구성)
+      depends_on: [1.M2, 1.M3]
+      steps: [1b-4]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+
+- id: '2'
+  stem: |
+    점 $P$가 시각 $t=0$에서 $t=10$까지 움직인 거리를 구하시오.
+  points: 15
+  depends_on: ['1']
+  answer: {kind: value, value: '1023/2048', equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: $[n,n+1]$에서 $\lvert v(t)\rvert=\left(\tfrac12\right)^n\lvert v(t-n)\rvert$이므로 구간별 거리는 첫째항 $\tfrac14$, 공비 $\tfrac12$인 등비수열이다.
+    steps:
+    - {id: 2a, content: '$s=\displaystyle\sum_{n=0}^{9}\tfrac14\left(\tfrac12\right)^n=\tfrac12\left(1-\tfrac{1}{2^{10}}\right)=\tfrac{1023}{2048}$', criteria: ['2.M1', '2.A1', '2.M2', '2.A2']}
+    hint_ladder:
+    - $0\le t\le1$에서 $v(t)$의 부호는?
+    - $[1,2]$, $[2,3]$, … 에서 움직인 거리는 $[0,1]$에서의 거리의 몇 배인가?
+  - id: S2-B
+    audience: B
+    source_flow: '자체 작성(공식 해설은 영상으로만 공개)'
+    method_no: 1
+    steps:
+    - id: 2b-1
+      content: |
+        $0\le t\le1$에서 $v(t)=t(t-1)(t-2)\ge0$이므로 제시문 (다)에 의해
+        $$\int_0^1\lvert v(t)\rvert\,dt=\int_0^1(t^3-3t^2+2t)\,dt=\dfrac14-1+1=\dfrac14$$
+      criteria: ['2.M1', '2.A1']
+    - id: 2b-2
+      content: |
+        c)를 반복하면 자연수 $n$과 $n<t\le n+1$에 대하여 $v(t)=\left(-\dfrac12\right)^nv(t-n)$이므로
+        $$\int_n^{n+1}\lvert v(t)\rvert\,dt=\left(\dfrac12\right)^n\int_0^1\lvert v(t)\rvert\,dt=\dfrac14\left(\dfrac12\right)^n$$
+        즉 구간별 거리는 제시문 (나)의 공비 $\dfrac12$인 등비수열이다.
+      criteria: ['2.M2']
+    - id: 2b-3
+      content: |
+        $$s=\sum_{n=0}^{9}\dfrac14\left(\dfrac12\right)^n=\dfrac14\cdot\dfrac{1-\left(\frac12\right)^{10}}{1-\frac12}=\dfrac12\left(1-\dfrac{1}{1024}\right)=\dfrac{1023}{2048}$$
+      criteria: ['2.A2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 3
+      evidence: |
+        $0\le t\le1$에서 $v(t)\ge0$임을 밝히고 $\displaystyle\int_0^1\lvert v(t)\rvert\,dt$를 세웠다. (자체 구성)
+      depends_on: []
+      implied_ok: false
+      ft: {allowed: true, from: [1.A1], max_points: 3}
+      steps: [2b-1]
+    - id: 2.A1
+      mark_type: A
+      points: 3
+      evidence: |
+        $\displaystyle\int_0^1\lvert v(t)\rvert\,dt=\dfrac14$을 얻었다. (자체 구성)
+      depends_on: [2.M1]
+      steps: [2b-1]
+    - id: 2.M2
+      mark_type: M
+      points: 5
+      evidence: |
+        $[n,n+1]$에서의 거리가 $\dfrac14\left(\dfrac12\right)^n$, 즉 공비 $\dfrac12$인 등비수열임을 보였다(부호가 바뀌어도 절댓값을 취함). (자체 구성)
+      depends_on: []
+      implied_ok: false
+      steps: [2b-2]
+    - id: 2.A2
+      mark_type: A
+      points: 4
+      evidence: |
+        등비수열의 합으로 움직인 거리 $\dfrac{1023}{2048}$을 얻었다. (자체 구성)
+      depends_on: [2.M2, 2.A1]
+      steps: [2b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-transcribe-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

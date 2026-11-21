@@ -1,0 +1,167 @@
+# 경기대 2025학년도 논술우수자전형 모의논술 수리 문항 3 — 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: KGU-M25-03
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: KGU
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 추론
+points: 50
+time_estimate_min: 25
+intent: |
+  (자체 요약, 공식 출제의도 미수록) 전입·전출 인구를 지수로 나타내고, 인구의 증감이 바뀌는 시점을 로그로 표현하여 인구가 가장 적은 해를 추론하는 능력을 본다.
+key_idea: |
+  $n$년 후 전입 $a(1.21)^n=a(1.1)^{2n}$, 전출 $b(1.1)^n$이므로 인구가 줄어드는 해는 $(1.1)^n<\tfrac ba$, 즉 $n<\log_{1.1}\tfrac ba$인 해이다.
+stuck: |
+  $1.21=1.1^2$을 알아차려 비교를 $(1.1)^n$과 $\tfrac ba$의 비교로 바꾸고, 「인구가 가장 적은 해」를 마지막으로 인구가 줄어든 해로 해석하는 것
+idea_tags: [IDEA-EXP-COMPARE-LOG-THRESHOLD]
+tags: [인구, 지수, 로그]
+elements:
+  materials:
+  - 'A시의 연도별 전입·전출 인구'
+  - '2020년 전입 $a$명, 전출 $b$명 ($b>a>0$)'
+  - '전입 매년 21% 증가, 전출 매년 10% 증가'
+  concepts:
+  - '지수의 정의(거듭제곱)'
+  - '로그의 정의'
+  - '지수함수의 증가'
+  tools:
+  - '$1.21=1.1^2$'
+  - '순증가량 부호 = $a(1.1)^{2n}-b(1.1)^n$의 부호'
+  - '$x=\log_{1.1}\tfrac ba$'
+  conditions:
+  - '인구는 전입·전출로만 변화'
+  - '$b>a>0$'
+  stimuli_used: [가, 나]
+  subpart_links: '단일 논제'
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅰ]
+  scope_2028: common
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 지수와 로그의 뜻을 알고, 그 성질을 이해하며, 지수함수와 로그함수를 활용하여 문제를 해결한다(요지)
+    verified: false
+  content_area: 지수함수와 로그함수
+  behavior_domain: 추론
+  unit_path: [수학Ⅰ, 지수함수와 로그함수, 지수와 로그, 로그의 뜻과 성질]
+  key_concepts: [거듭제곱, 로그, 지수함수의 증가]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 경기대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 경기대학교
+  admission_year: 2025
+  admission_type: 논술우수자전형 모의논술 수리
+  track: 자연
+  question_no: 3
+  official_url: https://cdn013.negagea.net/dgsmidc/omr/seoul/web/univ_info2025/%EA%B2%BD%EA%B8%B0%EB%8C%80%ED%95%99%EA%B5%90/%EA%B2%BD%EA%B8%B0%EB%8C%80%ED%95%99%EA%B5%90_2026%ED%95%99%EB%85%84%EB%8F%84_%EB%85%BC%EC%88%A0%EA%B0%80%EC%9D%B4%EB%93%9C%EB%B6%81.pdf
+  retrieved_at: 2026-11-21
+  original_points: null
+  rights_notice: 경기대학교 「2026학년도 논술 가이드북」 p.45에서 옮김(해설은 같은 쪽 QR 해설영상으로만 안내)
+
+verify: verify/KGU-M25.py::p03
+
+stimuli:
+- label: 가
+  body: |
+    실수 $a$와 자연수 $n$에 대하여 $a$를 $n$번 곱한 것을 $a$의 $n$제곱이라 하고, $a^n$으로 나타낸다. 또 $a$, $a^2$, $a^3$, $a^4$, $\cdots$을 통틀어 $a$의 거듭제곱이라 하고, $a^n$에서 $a$를 거듭제곱의 밑, $n$을 거듭제곱의 지수라고 한다.
+    『고등학교 수학 Ⅰ』
+- label: 나
+  body: |
+    일반적으로 $a>0$, $a\ne1$, $N>0$일 때, $a^x=N$을 만족시키는 실수 $x$는 오직 하나만 존재한다. 이 실수 $x$를
+    $$x=\log_aN$$
+    과 같이 나타내고, $a$를 밑으로 하는 $N$의 로그라고 한다.
+    『고등학교 수학 Ⅰ』
+
+stem: |
+  [문항 3] 다음 제시문을 읽고 논제에 답하시오.
+
+  논제 3. A시에서는 매년 인구에 관한 통계를 발표한다. 이 발표자료에 의하면 2020년 한 해 동안 A시의 전입 인구는 $a$명이고 전출 인구는 $b$명이다 (단, $b>a>0$). 2020년 이후부터 연도별 A시의 전입 인구수는 전년 전입 인구수 대비 21%씩 증가하였고, 전출 인구수는 전년 전출 인구수 대비 10%씩 증가하였을 때, 발표자료를 바탕으로 A시의 인구수가 2020년 이후 가장 적은 해는 언제인지 가와 나에 근거하여 설명하여라. 단, A시의 인구는 전입과 전출을 통해서만 변화한다고 가정한다.
+
+subparts:
+- id: '1'
+  stem: |
+    A시의 인구수가 2020년 이후 가장 적은 해를 $a$, $b$로 나타내고 근거를 설명하시오.
+  points: 50
+  depends_on: []
+  answer: {kind: expression, value: '2020 + ceiling(log(b/a, 11/10)) - 1', equivalents: ['2020 + floor(log(b/a, 11/10))'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $(2020+n)$년의 순증가량 $a(1.1)^{2n}-b(1.1)^n=(1.1)^n\{a(1.1)^n-b\}$는 $n<\log_{1.1}\tfrac ba$에서 음수, 그 뒤 양수이므로 마지막으로 음수인 해에 인구가 최소.
+    steps:
+    - {id: 1a, content: '$L=\log_{1.1}\tfrac ba$, 최소인 해 $=2020+\lceil L\rceil-1$ ($L$이 자연수이면 그 해와 다음 해가 같음)', criteria: [1.M1, 1.M2, 1.A1]}
+    hint_ladder:
+    - $n$년 뒤의 전입·전출 인구를 지수로 써 보자. $1.21$은 무엇의 제곱인가?
+    - 인구가 줄어드는 해와 늘어나는 해의 경계를 로그로 나타내 보자.
+  - id: S1-B
+    audience: B
+    source_flow: '자체 작성(공식 해설은 영상으로만 공개)'
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        제시문 가에 따라 $(2020+n)$년 $(n=0,1,2,\cdots)$의 전입 인구는 $a(1.21)^n=a(1.1)^{2n}$, 전출 인구는 $b(1.1)^n$이다. 그 해의 인구 변화량은
+        $$d_n=a(1.1)^{2n}-b(1.1)^n=(1.1)^n\{a(1.1)^n-b\}$$
+      criteria: [1.M1]
+    - id: 1b-2
+      content: |
+        $(1.1)^n>0$이므로 $d_n<0\iff(1.1)^n<\dfrac ba$이다. 제시문 나에 따라 $L=\log_{1.1}\dfrac ba$라 하면 $(1.1)^L=\dfrac ba$이고, $b>a$이므로 $L>0$이다. $y=(1.1)^x$는 증가함수이므로 $n<L$이면 $d_n<0$(인구 감소), $n>L$이면 $d_n>0$(인구 증가), $n=L$이면 $d_n=0$이다.
+      criteria: [1.M2]
+    - id: 1b-3
+      content: |
+        따라서 인구(연말 기준)는 $n<L$인 동안 줄다가 그 뒤로 늘어나므로, $n<L$을 만족하는 가장 큰 정수 $n=\lceil L\rceil-1$인 해, 즉
+        $$2020+\left\lceil\log_{1.1}\frac ba\right\rceil-1\ \text{년}$$
+        에 가장 적다. $\log_{1.1}\dfrac ba$가 자연수가 아니면 이는 $2020+\left[\log_{1.1}\dfrac ba\right]$년이고($[\ ]$는 가우스 기호), 자연수이면 그 해($d_n=0$)와 바로 전 해의 인구가 같아 두 해 모두 가장 적다.
+      criteria: [1.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 15
+      evidence: |
+        $(2020+n)$년의 전입 $a(1.21)^n$, 전출 $b(1.1)^n$을 쓰고 인구 변화량 $a(1.21)^n-b(1.1)^n$을 세웠다. (자체 구성)
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1]
+    - id: 1.M2
+      mark_type: M
+      points: 20
+      evidence: |
+        $1.21=1.1^2$을 써서 감소 조건을 $(1.1)^n<\dfrac ba$로 바꾸고, 경계를 $\log_{1.1}\dfrac ba$로 나타내며 그 전에는 감소·그 뒤에는 증가함을 밝혔다. (자체 구성)
+      depends_on: [1.M1]
+      implied_ok: false
+      steps: [1b-2]
+    - id: 1.A1
+      mark_type: A
+      points: 15
+      evidence: |
+        인구가 가장 적은 해를 $2020+\left\lceil\log_{1.1}\dfrac ba\right\rceil-1$년(자연수가 아니면 $2020+\left[\log_{1.1}\dfrac ba\right]$년)으로 적었다. (자체 구성)
+      depends_on: [1.M2]
+      steps: [1b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-transcribe-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

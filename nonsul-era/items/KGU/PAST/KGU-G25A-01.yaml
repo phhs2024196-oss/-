@@ -1,0 +1,238 @@
+# 경기대 2025학년도 논술우수자전형 수리 A형 문항 1 — 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: KGU-G25A-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: KGU
+type: null
+variant_of: null
+replaces: null
+level: L3
+form: 추론
+points: 35
+time_estimate_min: 35
+intent: |
+  도형(삼각형)의 높이·밑변·넓이에 나타나는 특징을 수열과 연계하여 문제 해결에 적용할 수 있는지 평가한다. 로그함수 연산의 특징을 이용해 등차수열과 등비수열을 구별하고, 수열의 합을 구하는 방법을 알고 있는지 본다.
+key_idea: |
+  $a_n=3^n$이면 $f(a_n)=\log_3 3^n=n$이므로 높이는 등차수열 $n$, 밑변 $a_{n+1}-a_{n-1}=8\times3^{n-1}$은 등비수열이 된다.
+stuck: |
+  꼭짓점 $(a_n,f(a_n))$의 $y$좌표가 곧 높이이고, 로그를 취하면 지수가 내려와 $h_n=n$이 되는 점
+idea_tags: [IDEA-LOG-GEOMETRIC-TO-ARITHMETIC]
+tags: [로그함수, 등비수열, 시그마]
+elements:
+  materials:
+  - '로그함수 $y=\log_3x$ 위의 점 $(a_n,f(a_n))$'
+  - '$x$축 위의 두 점 $(a_{n-1},0)$, $(a_{n+1},0)$을 꼭짓점으로 하는 삼각형 $T_n$'
+  concepts:
+  - '등비수열의 일반항'
+  - '로그의 성질 $\log_a a^n=n$'
+  - '자연수의 거듭제곱의 합 $\sum k^2$'
+  - '등비수열의 합'
+  - '합의 기호 $\sum$의 성질'
+  tools:
+  - '높이 = 꼭짓점의 $y$좌표'
+  - '$\sum_{k=2}^n=\sum_{k=1}^n-(k=1\text{ 항})$'
+  - '삼각형 넓이 $\tfrac12\times$밑변$\times$높이'
+  conditions:
+  - '$a_n=3^n$ (첫째항 3, 공비 3)'
+  - '$n\ge2$'
+  - '밑변은 $x$축 위의 선분 $(a_{n-1},0)$–$(a_{n+1},0)$'
+  stimuli_used: [가, 나]
+  subpart_links: '(2)는 (1)의 높이 $h_n=n$을 넓이 $A_n$에 사용'
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅰ]
+  scope_2028: common
+  scope_confirmed: false
+  standards:
+  - code: 12수학Ⅰ01-07
+    text: 지수함수와 로그함수의 그래프를 그릴 수 있고, 그 성질을 이해한다.
+    verified: true
+  - code: 12수학Ⅰ03-03
+    text: 등비수열의 뜻을 알고, 일반항, 첫째항부터 제n항까지의 합을 구할 수 있다.
+    verified: true
+  - code: 12수학Ⅰ03-04
+    text: ∑의 뜻을 알고, 그 성질을 이해하고, 이를 활용할 수 있다.
+    verified: true
+  - code: 12수학Ⅰ03-05
+    text: 여러 가지 수열의 첫째항부터 제n항까지의 합을 구할 수 있다.
+    verified: true
+  content_area: 지수함수와 로그함수·수열
+  behavior_domain: 계산
+  unit_path: [수학Ⅰ, 수열, 수열의 합, 여러 가지 수열의 합]
+  key_concepts: [로그함수, 등비수열, 수열의 합]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 경기대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 경기대학교
+  admission_year: 2025
+  admission_type: 논술우수자전형 수리 A형
+  track: 자연
+  question_no: 1
+  official_url: https://cdn013.negagea.net/dgsmidc/omr/seoul/web/univ_info2025/%EA%B2%BD%EA%B8%B0%EB%8C%80%ED%95%99%EA%B5%90/%EA%B2%BD%EA%B8%B0%EB%8C%80%ED%95%99%EA%B5%90_2026%ED%95%99%EB%85%84%EB%8F%84_%EB%85%BC%EC%88%A0%EA%B0%80%EC%9D%B4%EB%93%9C%EB%B6%81.pdf
+  retrieved_at: 2026-11-21
+  original_points: [15, 20]
+  rights_notice: 경기대학교 「2026학년도 논술 가이드북」 pp.63–66(문항 p.63, 해설·채점 기준 pp.64–65, 예시 답안 p.66)에서 옮김
+
+verify: verify/KGU-G25A.py::p01
+
+stimuli:
+- label: 가
+  body: |
+    우리 주변에서 일어나는 현상 중 많은 것이 지수함수나 로그함수의 그래프 형태로 나타난다.
+    『고등학교 수학 Ⅰ』
+- label: 나
+  body: |
+    수열 $\{a_n\}$의 첫째항부터 제$n$항까지의 합 $a_1+a_2+a_3+\cdots+a_n$을 합의 기호 $\sum$를 사용하여 다음과 같이 나타낸다.
+    $$a_1+a_2+a_3+\cdots+a_n=\sum_{k=1}^{n}a_k$$
+    『고등학교 수학 Ⅰ』
+
+stem: |
+  [문항 1] 가와 나에 근거하여 논제에 답하시오.
+
+  논제 1. 함수 $f(x)$가 $f(x)=\log_3x$이고, 수열 $\{a_n\}$을 첫째항이 3이고 공비가 3인 등비수열이라 하자. $n$은 $n\ge2$인 자연수이고, 세 점 $(a_n,f(a_n))$, $(a_{n-1},0)$, $(a_{n+1},0)$을 꼭짓점으로 하는 삼각형을 $T_n$이라 하자.
+
+subparts:
+- id: '1'
+  stem: |
+    삼각형 $T_n$의 밑변을 두 점 $(a_{n-1},0)$과 $(a_{n+1},0)$을 잇는 선분으로 선택할 때의 높이를 $h_n$이라 하자. 이때 $\displaystyle\sum_{k=2}^{n}h_k^2$을 구하시오. [15점]
+  points: 15
+  depends_on: []
+  answer: {kind: expression, value: '(2*n**3 + 3*n**2 + n - 6)/6', equivalents: ['n*(n+1)*(2*n+1)/6 - 1'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: 밑변이 $x$축 위에 있으므로 높이는 꼭짓점의 $y$좌표 $f(a_n)=\log_33^n=n$이다.
+    steps:
+    - {id: 1a, content: '$h_k=k$이므로 $\sum_{k=2}^n k^2=\tfrac{n(n+1)(2n+1)}{6}-1$', criteria: [1.B1, 1.B2, 1.B3]}
+    hint_ladder:
+    - 밑변이 $x$축 위에 있으면 높이는 무엇인가?
+    - $f(3^n)$을 계산해 보자.
+  - id: S1-B
+    audience: B
+    source_flow: '2026 논술가이드북 p.66 예시답안'
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        첫째항이 3이고 공비가 3인 등비수열 $a_n$은 $a_n=3^n$이다.
+      criteria: [1.B1]
+    - id: 1b-2
+      content: |
+        $f(a_n)=\log_33^n=n$이다.
+      criteria: [1.B2]
+    - id: 1b-3
+      content: |
+        삼각형 $T_n$의 높이는 $h_n=f(a_n)=n$이므로
+        $$\sum_{k=2}^{n}h_k^2=\sum_{k=2}^{n}k^2=\sum_{k=1}^{n}k^2-1^2=\frac{n(n+1)(2n+1)}{6}-1=\frac{2n^3+3n^2+n-6}{6}$$
+      criteria: [1.B3]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.B1
+      mark_type: B
+      points: 5
+      evidence: |
+        첫째항이 3이고 공비가 3인 등비수열의 일반항 $a_n=3^n$을 적었다.
+      depends_on: []
+      steps: [1b-1]
+    - id: 1.B2
+      mark_type: B
+      points: 5
+      evidence: |
+        $f(a_n)=\log_33^n=n$을 적었다.
+      depends_on: []
+      steps: [1b-2]
+    - id: 1.B3
+      mark_type: B
+      points: 5
+      evidence: |
+        높이 $h_n=f(a_n)=n$을 밝히고 $\sum_{k=2}^{n}h_k^2=\sum_{k=1}^{n}k^2-1^2=\dfrac{2n^3+3n^2+n-6}{6}$을 구했다.
+      depends_on: []
+      steps: [1b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+
+- id: '2'
+  stem: |
+    삼각형 $T_n$의 넓이를 $A_n$이라 할 때, $\displaystyle\sum_{k=2}^{n}\frac{A_k}{k}$을 구하시오. [20점]
+  points: 20
+  depends_on: ['1']
+  answer: {kind: expression, value: '6*(3**(n-1) - 1)', equivalents: ['2*3**n - 6'], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: 밑변 $a_{n+1}-a_{n-1}=8\times3^{n-1}$, 높이 $n$이므로 $\tfrac{A_k}{k}=4\cdot3^{k-1}$은 등비수열이다.
+    steps:
+    - {id: 2a, content: '$\sum_{k=2}^n 4\cdot3^{k-1}=6(3^{n-1}-1)$', criteria: [2.B1, 2.B2, 2.B3]}
+    hint_ladder:
+    - 밑변의 길이를 $3^{n-1}$로 묶어 보자.
+    - $A_k$를 $k$로 나누면 어떤 수열이 남는가?
+  - id: S2-B
+    audience: B
+    source_flow: '2026 논술가이드북 p.66 예시답안'
+    method_no: 1
+    steps:
+    - id: 2b-1
+      content: |
+        삼각형 $T_n$의 밑변의 길이는 $a_{n+1}-a_{n-1}=3^{n+1}-3^{n-1}=8\times3^{n-1}$이다.
+      criteria: [2.B1]
+    - id: 2b-2
+      content: |
+        삼각형의 넓이는
+        $$A_n=\frac12\times n\times(3^{n+1}-3^{n-1})=4\times n\times3^{n-1}$$
+      criteria: [2.B2]
+    - id: 2b-3
+      content: |
+        따라서
+        $$\sum_{k=2}^{n}\frac{A_k}{k}=\sum_{k=2}^{n}4\cdot3^{k-1}=\frac{12(3^{n-1}-1)}{3-1}=6(3^{n-1}-1)$$
+        (보충) 첫째항 $4\cdot3=12$, 공비 3, 항수 $n-1$인 등비수열의 합이다.
+      criteria: [2.B3]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.B1
+      mark_type: B
+      points: 5
+      evidence: |
+        삼각형 $T_n$의 밑변의 길이 $a_{n+1}-a_{n-1}=3^{n+1}-3^{n-1}=8\times3^{n-1}$을 구했다.
+      depends_on: []
+      steps: [2b-1]
+    - id: 2.B2
+      mark_type: B
+      points: 5
+      evidence: |
+        넓이 $A_n=\dfrac12\times n\times(3^{n+1}-3^{n-1})=4\times n\times3^{n-1}$을 구했다.
+      depends_on: []
+      ft: {allowed: true, from: [1.B3], max_points: 5}
+      steps: [2b-2]
+    - id: 2.B3
+      mark_type: B
+      points: 10
+      evidence: |
+        $\sum_{k=2}^{n}\dfrac{A_k}{k}=\sum_{k=2}^{n}4\cdot3^{k-1}=\dfrac{12(3^{n-1}-1)}{3-1}=6(3^{n-1}-1)$을 구했다.
+      depends_on: []
+      steps: [2b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-transcribe-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

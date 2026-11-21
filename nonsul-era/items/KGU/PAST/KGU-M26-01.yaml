@@ -1,0 +1,241 @@
+# 경기대 2026학년도 논술우수자전형 모의논술 수리 문제 1 — 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: KGU-M26-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: KGU
+type: null
+variant_of: null
+replaces: null
+level: L3
+form: 추론
+points: 40
+time_estimate_min: 30
+intent: |
+  (자체 요약 — 가이드북에 출제 의도 지면 없음) 포물선에 내접하는 사다리꼴의 넓이를 한 변수의 함수로 나타내고 도함수로 최댓값을 찾은 뒤, 원의 지름에 대한 원주각의 성질로 선분 길이의 곱을 구하는 능력을 본다.
+key_idea: |
+  포물선은 $y=a^2-x^2$이고, 대칭성으로 $C(t,a^2-t^2)$, $D(-t,a^2-t^2)$ $(0<t<a)$라 두면 넓이 $S(t)=(a+t)(a^2-t^2)$이며 $S'(t)=(a+t)(a-3t)=0$에서 $t=\dfrac a3$이다.
+stuck: |
+  사다리꼴의 평행한 두 변을 $\overline{AB}\parallel\overline{CD}$로 보고 넓이를 $t$ 하나의 함수로 쓰는 단계, 그리고 $E$가 지름 $CD$의 원 위에 있어 $\angle CED=90^\circ$이고 $y$축 위에 있어 $\overline{CE}=\overline{DE}$임을 쓰는 단계
+idea_tags: [IDEA-OPT-ONE-VARIABLE-AREA, IDEA-THALES-RIGHT-ANGLE]
+tags: [포물선, 사다리꼴 넓이 최대, 원주각]
+elements:
+  materials:
+  - '두 점 $A(-a,0)$, $B(a,0)$를 지나고 $y$절편이 $a^2$인 포물선'
+  - '포물선 위의 두 점 $C$, $D$로 만든 사다리꼴 $ABCD$'
+  - '선분 $CD$를 지름으로 하는 원과 $y$축의 교점 $E$'
+  concepts:
+  - '이차함수의 식 결정'
+  - '사다리꼴의 넓이'
+  - '도함수를 이용한 최대·최소'
+  - '최대·최소 정리'
+  - '지름에 대한 원주각(직각)'
+  tools:
+  - '대칭성: $C(t,a^2-t^2)$, $D(-t,a^2-t^2)$'
+  - '$S(t)=(a+t)(a^2-t^2)$, $S^{\prime}(t)=(a+t)(a-3t)$'
+  - '직각이등변삼각형 $CED$'
+  conditions:
+  - '$a>0$'
+  - '$C$, $D$의 $y$좌표는 양수 → $0<t<a$'
+  - '$\overline{AB}\parallel\overline{CD}$'
+  stimuli_used: [가, 나]
+  subpart_links: '(2)는 (1)에서 구한 $C\left(\tfrac a3,\tfrac{8a^2}{9}\right)$, $D\left(-\tfrac a3,\tfrac{8a^2}{9}\right)$를 사용'
+
+curriculum:
+  version: '2015'
+  subjects: [수학, 수학Ⅱ]
+  scope_2028: common
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 함수의 그래프의 개형을 그리고 최댓값과 최솟값을 구할 수 있다(요지)
+    verified: false
+  content_area: 미분 – 도함수의 활용
+  behavior_domain: 문제해결
+  unit_path: [수학Ⅱ, 미분, 도함수의 활용, 최대·최소]
+  key_concepts: [이차함수, 사다리꼴 넓이, 최댓값, 원주각]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 경기대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 경기대학교
+  admission_year: 2026
+  admission_type: 논술우수자전형 모의논술 수리
+  track: 자연
+  question_no: 1
+  official_url: https://cdn013.negagea.net/dgsmidc/omr/seoul/web/univ_info2026/%EA%B2%BD%EA%B8%B0%EB%8C%80%ED%95%99%EA%B5%90/%EA%B2%BD%EA%B8%B0%EB%8C%80%ED%95%99%EA%B5%90_2027%ED%95%99%EB%85%84%EB%8F%84_%EB%85%BC%EC%88%A0%EA%B0%80%EC%9D%B4%EB%93%9C%EB%B6%81.pdf
+  retrieved_at: 2026-11-21
+  original_points: null
+  rights_notice: 경기대학교 「2027학년도 논술 가이드북」 p.62에서 옮김
+
+verify: verify/KGU-M26.py::p01
+
+stimuli:
+- label: 가
+  body: |
+    움직이는 물체의 시간에 따른 위치가 미분가능인 함수로 표현될 때, 도함수를 이용하여 물체의 속도를 알 수 있고 여러 가지 자연의 변화를 이해할 수 있다. 또 도함수는 최대 이익이나 최소 비용 등 사회 현상의 문제를 해결하는 데도 유용하다.
+    『고등학교 수학 Ⅱ』
+- label: 나
+  body: |
+    함수 $f(x)$가 닫힌구간 $[a,b]$에서 연속이면 $f(x)$는 이 구간에서 반드시 최댓값과 최솟값을 가진다.
+    『고등학교 수학 Ⅱ』
+
+stem: |
+  [문제 1] (가)와 (나)에 근거하여 논제에 답하시오.
+
+  [논제 1] $a>0$일 때 좌표평면 위의 두 점 $A(-a,0)$와 $B(a,0)$를 지나고, $y$절편이 $a^2$인 포물선이 있다.
+
+subparts:
+- id: '1'
+  stem: |
+    이 포물선 위의 두 점 $C$와 $D$로 만들어질 수 있는 사다리꼴 $ABCD$중 넓이가 최대일 때 $C$와 $D$의 좌표를 각각 구하시오. 단, $C$와 $D$의 $y$의 좌표는 모두 양수이다.
+  points: 25
+  depends_on: []
+  answer: {kind: expression, value: '((a/3, 8*a**2/9), (-a/3, 8*a**2/9))', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: 포물선 $y=a^2-x^2$ 위에서 $C(t,a^2-t^2)$, $D(-t,a^2-t^2)$로 두고 넓이 $S(t)=(a+t)(a^2-t^2)$를 미분한다.
+    steps:
+    - {id: 1a, content: '$S^{\prime}(t)=(a+t)(a-3t)=0\Rightarrow t=\tfrac a3$, $C\left(\tfrac a3,\tfrac{8a^2}{9}\right)$, $D\left(-\tfrac a3,\tfrac{8a^2}{9}\right)$', criteria: ['1.M1', '1.M2', '1.A1', '1.A2']}
+    hint_ladder:
+    - 포물선의 식을 먼저 정하자. 두 $x$절편과 $y$절편을 알고 있다.
+    - 사다리꼴의 평행한 두 변은 어느 것인가? $C$, $D$는 $y$축에 대하여 어떤 위치인가?
+  - id: S1-B
+    audience: B
+    source_flow: '자체 작성(공식 해설은 영상으로만 공개)'
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        포물선은 $x=\pm a$에서 $x$축과 만나므로 $y=k(x+a)(x-a)$이고, $y$절편이 $-ka^2=a^2$이므로 $k=-1$이다. 따라서 포물선은 $y=a^2-x^2$이다.
+      criteria: ['1.M1']
+    - id: 1b-2
+      content: |
+        사다리꼴 $ABCD$에서 $\overline{AB}\parallel\overline{CD}$이므로 $C$, $D$의 $y$좌표가 같고, 포물선이 $y$축에 대하여 대칭이므로 $C(t,a^2-t^2)$, $D(-t,a^2-t^2)$로 둘 수 있다. $y$좌표가 양수이므로 $0<t<a$이다.
+        넓이는 $S(t)=\dfrac12(2a+2t)(a^2-t^2)=(a+t)(a^2-t^2)$이다.
+      criteria: ['1.M2']
+    - id: 1b-3
+      content: |
+        $S^{\prime}(t)=(a^2-t^2)-2t(a+t)=(a+t)(a-3t)$이므로 $0<t<\dfrac a3$에서 $S^{\prime}(t)>0$, $\dfrac a3<t<a$에서 $S^{\prime}(t)<0$이다. 따라서 $S(t)$는 $t=\dfrac a3$에서 극대이자 최대이고, 최댓값은 $S\left(\dfrac a3\right)=\dfrac{32}{27}a^3$이다. (보충: 제시문 (나)에 의해 $[0,a]$에서 연속인 $S$는 최댓값을 가지며, 양 끝값 $S(0)=a^3$, $S(a)=0$보다 크다.)
+      criteria: ['1.A1']
+    - id: 1b-4
+      content: |
+        따라서 $C\left(\dfrac a3,\dfrac{8a^2}{9}\right)$, $D\left(-\dfrac a3,\dfrac{8a^2}{9}\right)$이다.
+      criteria: ['1.A2']
+  - id: S1-ALT
+    audience: ALT
+    source_flow: '자체 작성(보충)'
+    method_no: 2
+    key_idea: (보충) $\overline{AD}\parallel\overline{BC}$인 경우까지 포함해 포물선 위의 두 점 $C$, $D$로 만든 볼록사각형 $ABCD$ 전체로 넓혀도, 넓이 최대는 네 꼭짓점의 $x$좌표가 $-a,-\tfrac a3,\tfrac a3,a$로 등간격일 때이므로 같은 답이 나온다(검산에서 수치 확인).
+    steps:
+    - id: 1c-1
+      content: |
+        $D(p,a^2-p^2)$, $C(q,a^2-q^2)$ $(-a<p<q<a)$로 두면 사각형 $ABCD$의 넓이는 $\triangle ABD+\triangle BCD$이다. $B$, $D$를 고정하면 $\triangle BCD$의 넓이는 $C$에서의 접선이 직선 $BD$와 평행할 때 최대이고, 기울기 비교 $-2q=\dfrac{(a^2-p^2)-0}{p-a}=-(p+a)$에서 $q=\dfrac{p+a}{2}$이다. 같은 방법으로 $p=\dfrac{q-a}{2}$이고, 연립하면 $p=-\dfrac a3$, $q=\dfrac a3$이다.
+      criteria: ['1.M2', '1.A1', '1.A2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 5
+      evidence: |
+        포물선의 방정식 $y=a^2-x^2$(또는 $y=-(x+a)(x-a)$)을 구했다. (자체 구성)
+      depends_on: []
+      implied_ok: true
+      steps: [1b-1]
+    - id: 1.M2
+      mark_type: M
+      points: 8
+      evidence: |
+        $C(t,a^2-t^2)$, $D(-t,a^2-t^2)$ $(0<t<a)$로 두고 사다리꼴의 넓이를 $S(t)=(a+t)(a^2-t^2)$로 나타냈다. (자체 구성)
+      depends_on: []
+      implied_ok: false
+      steps: [1b-2, 1c-1]
+    - id: 1.A1
+      mark_type: A
+      points: 7
+      evidence: |
+        $S^{\prime}(t)=(a+t)(a-3t)$로부터 증감을 조사해 $t=\dfrac a3$에서 최대임을 밝혔다. (자체 구성)
+      depends_on: [1.M2]
+      steps: [1b-3, 1c-1]
+    - id: 1.A2
+      mark_type: A
+      points: 5
+      evidence: |
+        $C\left(\dfrac a3,\dfrac{8a^2}{9}\right)$, $D\left(-\dfrac a3,\dfrac{8a^2}{9}\right)$를 적었다. (자체 구성)
+      depends_on: [1.M2, 1.A1]
+      accept:
+      - 꼭짓점 순서에 따라 $C$, $D$의 좌표를 서로 바꾼 답(사다리꼴 $ABCD$의 순서가 맞으면)
+      steps: [1b-4, 1c-1]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+
+- id: '2'
+  stem: |
+    (1)에서 구한 $C$와 $D$를 잇는 선분을 하나의 지름으로 갖는 원과 $y$축이 만나는 점을 $E$라 할 때, $\overline{CE}\cdot\overline{DE}$를 $a$의 식으로 나타내시오.
+  points: 15
+  depends_on: ['1']
+  answer: {kind: expression, value: '2*a**2/9', equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: $\angle CED=90^\circ$이고 $E$가 $y$축 위에 있어 $\overline{CE}=\overline{DE}$이므로 $\triangle CED$는 직각이등변삼각형이다.
+    steps:
+    - {id: 2a, content: '$\overline{CE}=\overline{DE}=\tfrac{\sqrt2}{2}\overline{CD}=\tfrac{\sqrt2}{3}a$, $\overline{CE}\cdot\overline{DE}=\tfrac{2a^2}{9}$', criteria: ['2.M1', '2.A1']}
+    hint_ladder:
+    - 지름에 대한 원주각은 몇 도인가?
+    - $E$가 $y$축 위에 있으면 $C$, $D$까지의 거리는 어떤 관계인가?
+  - id: S2-B
+    audience: B
+    source_flow: '자체 작성(공식 해설은 영상으로만 공개)'
+    method_no: 1
+    steps:
+    - id: 2b-1
+      content: |
+        원의 중심은 $\left(0,\dfrac{8a^2}{9}\right)$, 반지름은 $\dfrac a3$이므로 원과 $y$축의 교점은 $E\left(0,\dfrac{8a^2}{9}\pm\dfrac a3\right)$이다. 어느 쪽이든 $E$는 $y$축 위에 있으므로 $\overline{CE}=\overline{DE}$이다.
+      criteria: ['2.M1']
+    - id: 2b-2
+      content: |
+        $\overline{CE}^2=\left(\dfrac a3\right)^2+\left(\dfrac a3\right)^2=\dfrac{2a^2}{9}$이므로 $\overline{CE}\cdot\overline{DE}=\overline{CE}^2=\dfrac{2a^2}{9}$이다. (선분 $CD$가 지름이므로 $\angle CED=90^\circ$이고 $\overline{CE}^2+\overline{DE}^2=\overline{CD}^2=\dfrac{4a^2}{9}$로 확인할 수도 있다.)
+      criteria: ['2.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 7
+      evidence: |
+        원의 중심 $\left(0,\dfrac{8a^2}{9}\right)$과 반지름 $\dfrac a3$으로 $E$의 좌표를 구하거나, $\angle CED=90^\circ$와 $\overline{CE}=\overline{DE}$를 이용했다. (자체 구성)
+      depends_on: []
+      implied_ok: false
+      ft: {allowed: true, from: [1.A2], max_points: 7}
+      steps: [2b-1]
+    - id: 2.A1
+      mark_type: A
+      points: 8
+      evidence: |
+        $\overline{CE}\cdot\overline{DE}=\dfrac{2a^2}{9}$을 얻었다. (자체 구성)
+      depends_on: [2.M1]
+      steps: [2b-2]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-transcribe-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21
