@@ -1,0 +1,347 @@
+# 고려대 2025학년도 수시 논술전형 자연계열(오후) 문제 2 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: KU-G25B-02
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: KU
+type: T01
+variant_of: null
+replaces: null
+level: L5
+form: 추론
+points: 30
+time_estimate_min: 25
+intent: |
+  주어진 조건이 의미하는 바를 정확히 이해하고 미분가능한 조건, 접선의 방정식, 미분의 방정식에의 활용, 치환적분법 등을 종합적으로 활용하여 물음에 대한 답을 논리적으로 설명할 수 있는 능력을 평가한다(문항카드 출제 의도 2).
+key_idea: |
+  (나)에서 연속 조건 $f(0)=2$와 좌·우 미분계수 $2f'(0)=-2$를 얻고, (다)는 $\dfrac{k-2}{a}=-2t^3+2t^2$의 서로 다른 실근 3개 조건 $0<\dfrac{k-2}{a}<\dfrac{8}{27}$로 바뀌어 $a=1$. (2-2)는 $F'(x)=\lvert f(x)\rvert$이므로 $f e^{F}=\pm(e^{F})'$.
+stuck: |
+  $g(x)=xf'(x)+f(x)$의 우미분계수가 $2f'(0)$임을 보는 것, 그리고 (2-2)에서 $f(x)e^{F(x)}$를 구간별로 $\pm F'(x)e^{F(x)}$로 바꾸는 발상
+idea_tags: [IDEA-PIECEWISE-DIFFERENTIABILITY-COEFF, IDEA-TANGENT-COUNT-CUBIC-RANGE, IDEA-INTEGRAL-F-PRIME-EXP-F]
+tags: [미분가능성, 접선의 개수, 치환적분]
+elements:
+  materials:
+  - '최고차항의 계수가 양수인 삼차함수 $f(x)$'
+  - '$x\ge0$에서 $xf''(x)+f(x)$, $x<0$에서 $(1-x)e^{-x}+\cos x$로 정의된 함수 $g(x)$'
+  - '점 $(0,k)$에서 곡선 $y=f(x)$에 그은 접선'
+  - '$F(x)=\displaystyle\int_0^x\lvert f(t)\rvert dt$와 $\displaystyle\int_0^2f(x)e^{F(x)}dx$'
+  concepts:
+  - '변곡점과 이계도함수'
+  - '미분가능성과 연속성'
+  - '좌·우 미분계수와 함수의 극한'
+  - '접선의 방정식'
+  - '삼차방정식의 실근 개수와 극값'
+  - '정적분으로 정의된 함수의 미분'
+  - '치환적분법'
+  tools:
+  - '$f''''\left(\tfrac23\right)=0\Rightarrow b=-2a$'
+  - '$\displaystyle\lim_{h\to0}\dfrac{\cos h-1}{h}=0$, $\displaystyle\lim_{h\to0}\dfrac{e^{-h}-1}{h}=-1$'
+  - '$k=f(t)-tf''(t)=-2at^3+2at^2+2$'
+  - '$\displaystyle\int F''(x)e^{F(x)}dx=e^{F(x)}+C$'
+  conditions:
+  - '(가) 변곡점 $x=\tfrac23$ → $f''''\left(\tfrac23\right)=0$'
+  - '(나) $x=0$에서 미분가능 → 연속($f(0)=2$) + 좌·우 미분계수 일치($f''(0)=-1$)'
+  - '(다) $k$의 범위 $2<k<\tfrac{62}{27}$ → $\tfrac{8a}{27}=\tfrac{8}{27}$, $a=1$'
+  - '$f(x)=(x+1)(x-1)(x-2)$ → $[0,1]$에서 $f\ge0$, $[1,2]$에서 $f\le0$'
+  stimuli_used: [제시문]
+  subpart_links: '(2-2)는 (2-1)에서 구한 $f(x)$를 사용'
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅱ, 미적분]
+  scope_2028: calc2
+  scope_confirmed: true
+  standards:
+  - code: 12수학Ⅱ01-02
+    text: 함수의 극한에 대한 성질을 이해하고, 함수의 극한값을 구할 수 있다.
+    verified: true
+  - code: 12수학Ⅱ02-03
+    text: 미분가능성과 연속성의 관계를 이해한다.
+    verified: true
+  - code: 12수학Ⅱ02-06
+    text: 접선의 방정식을 구할 수 있다.
+    verified: true
+  - code: 12수학Ⅱ02-08
+    text: 함수의 증가와 감소, 극대와 극소를 판정하고 설명할 수 있다.
+    verified: true
+  - code: 12수학Ⅱ02-09
+    text: 함수의 그래프의 개형을 그릴 수 있다.
+    verified: true
+  - code: 12수학Ⅱ02-10
+    text: 방정식과 부등식에 대한 문제를 해결할 수 있다.
+    verified: true
+  - code: 12미적02-11
+    text: 접선의 방정식을 구할 수 있다.
+    verified: true
+  - code: 12미적02-12
+    text: 함수의 그래프의 개형을 그릴 수 있다.
+    verified: true
+  - code: 12미적03-01
+    text: 치환적분법을 이해하고, 이를 활용할 수 있다.
+    verified: true
+  content_area: 미분 – 미분가능성·접선의 개수, 적분법 – 치환적분
+  behavior_domain: 추론
+  unit_path: [수학Ⅱ, 미분, 미분계수와 도함수, 미분가능성과 연속성]
+  key_concepts: [미분가능성, 변곡점, 접선의 개수, 치환적분법]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 고려대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 고려대학교
+  admission_year: 2025
+  admission_type: 논술
+  track: 자연계열
+  question_no: 2
+  official_url: https://oku.korea.ac.kr/oku/cms/FR_CON/index.do?MENU_ID=720
+  retrieved_at: '2026-11-21'
+  original_points: [20, 10]
+  rights_notice: 본 자료에 대한 지적 소유권은 고려대학교에 있습니다. 본교의 허락 없이 무단으로 출판, 게재, 사용할 수 없습니다.
+  note: |
+    원본 report2025.pdf(2025학년도 고려대학교 선행학습 영향평가 자체평가보고서) 문항붙임번호 15, 자연계열(오후) 1~4번. 문항 PDF p.115~116, 출제 의도 p.117, 출제 근거 p.117~119, 문항 해설 p.119, 채점 기준 p.120, 예시 답안 p.122(2-1)·p.123(2-2). 공식 채점 기준에 부분점수가 없어 마크 배점은 자체 배분.
+
+verify: verify/KU-G25B.py::p02
+
+stimuli:
+- label: 제시문
+  body: |
+    최고차항의 계수가 양수인 삼차함수 $f(x)$는 다음 조건을 만족시킨다.
+    (가) 곡선 $y=f(x)$는 $x=\dfrac{2}{3}$에서 변곡점을 갖는다.
+    (나) 다음과 같이 정의된 함수 $g(x)$가 $x=0$에서 미분가능하다.
+    $$g(x)=\begin{cases}xf'(x)+f(x) & (x\ge0)\\(1-x)e^{-x}+\cos x & (x<0)\end{cases}$$
+    (다) 곡선 $y=f(x)$ 위의 서로 다른 세 점에서 점 $(0,k)$를 지나는 접선을 그을 수 있는 $k$ 값의 범위는 $2<k<\dfrac{62}{27}$이다.
+
+stem: |
+  다음 글을 읽고 물음에 답하시오.
+
+subparts:
+- id: '1'
+  stem: |
+    $f(x)$를 구하고, 그 이유를 설명하시오.
+  points: 20
+  depends_on: []
+  answer: {kind: expression, value: 'x**3 - 2*x**2 - x + 2', equivalents: ['(x+1)*(x-1)*(x-2)'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: (가)로 $b=-2a$, (나)로 $f(0)=2$, $f'(0)=-1$, (다)로 $a=1$.
+    steps:
+    - {id: 1a, content: '$f(x)=ax^3-2ax^2-x+2$, $k=-2at^3+2at^2+2$의 세 실근 조건 $2<k<2+\tfrac{8a}{27}$에서 $a=1$', criteria: ['1.M1', '1.M2', '1.M3', '1.A1', '1.M4', '1.A2']}
+    hint_ladder:
+    - 미분가능하려면 먼저 연속이어야 한다.
+    - $xf'(x)+f(x)=\{xf(x)\}'$이다. $x=0$에서의 우미분계수는?
+    - 접점의 $x$좌표 $t$에 대한 방정식이 서로 다른 세 실근을 가질 조건을 극값으로 판정해 보자.
+  - id: S1-B
+    audience: B
+    source_flow: 문항카드 p.122
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        삼차함수 $f(x)=ax^3+bx^2+cx+d$라고 하자 $(a>0)$. 조건 (가)로부터 $f''\left(\dfrac23\right)=6a\times\dfrac23+2b=0$이고, $b=-2a$를 얻는다.
+      criteria: ['1.M1']
+    - id: 1b-2
+      content: |
+        조건 (나)로부터 $g(x)$가 $x=0$에서 미분가능하기 위해서는 $x=0$에서 연속이어야 하므로, $\displaystyle\lim_{x\to0-}\{(1-x)e^{-x}+\cos x\}=2=g(0)=f(0)$에서 $f(0)=2$를 얻는다.
+      criteria: ['1.M2']
+    - id: 1b-3
+      content: |
+        $\displaystyle\lim_{h\to0}\dfrac{g(h)-g(0)}{h}$가 존재하기 위해서는 $\displaystyle\lim_{h\to0+}\dfrac{g(h)-g(0)}{h}$와 $\displaystyle\lim_{h\to0-}\dfrac{g(h)-g(0)}{h}$ 값이 같아야 한다.
+        $$\lim_{h\to0+}\dfrac{g(h)-g(0)}{h}=\lim_{h\to0+}\dfrac{hf'(h)}{h}+\lim_{h\to0+}\dfrac{f(h)-f(0)}{h}=2f'(0),$$
+        $$\lim_{h\to0-}\dfrac{g(h)-g(0)}{h}=\lim_{h\to0-}\dfrac{(1-h)e^{-h}+\cos h-2}{h}=\lim_{h\to0-}\dfrac{\cos h-1}{h}+\lim_{h\to0-}\dfrac{e^{-h}-1}{h}-\lim_{h\to0-}\dfrac{he^{-h}}{h}=-2$$
+      criteria: ['1.M3']
+    - id: 1b-4
+      content: |
+        에서 $f'(0)=-1$을 얻는다. 따라서 위에서 얻어진 조건 $b=-2a$, $f(0)=2$, $f'(0)=-1$로부터 $f(x)=ax^3-2ax^2-x+2$가 된다.
+      criteria: ['1.A1']
+    - id: 1b-5
+      content: |
+        곡선 $y=f(x)$의 한 점 $(t,f(t))$에서의 접선의 방정식은 $y=f'(t)(x-t)+f(t)$가 되고, 이 접선이 $(0,k)$를 지난다는 조건을 활용하면 $k=-2at^3+2at^2+2$를 얻는다. 조건 (다)로부터 $\dfrac{k-2}{a}=-2t^3+2t^2$을 만족시키는 서로 다른 $t$가 세 개 존재하여야 한다. $h(t)=-2t^3+2t^2$은 $h'(t)=-6t^2+4t$에서 $t=0$일 때 극솟값 $0$, $t=\dfrac23$일 때 극댓값 $\dfrac{8}{27}$을 가지므로, 서로 다른 $t$가 세 개 존재하는 $k$의 범위는 $0<\dfrac{k-2}{a}<\dfrac{8}{27}$이 된다.
+      criteria: ['1.M4']
+    - id: 1b-6
+      content: |
+        조건 (다)의 $k$의 범위는 $0<k-2<\dfrac{8}{27}$이므로 $a=1$을 얻는다. 따라서 $f(x)=x^3-2x^2-x+2$를 얻는다.
+      criteria: ['1.A2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 3
+      evidence: |
+        $f''\left(\dfrac23\right)=0$에서 $b=-2a$를 얻었다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1]
+    - id: 1.M2
+      mark_type: M
+      points: 3
+      evidence: |
+        $x=0$에서의 연속 조건으로 $f(0)=2$를 얻었다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-2]
+    - id: 1.M3
+      mark_type: M
+      points: 4
+      evidence: |
+        우미분계수 $2f'(0)$과 좌미분계수 $-2$를 극한으로 계산해 같다고 놓았다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-3]
+    - id: 1.A1
+      mark_type: A
+      points: 2
+      evidence: |
+        $f'(0)=-1$을 얻고 $f(x)=ax^3-2ax^2-x+2$로 정리했다.
+      depends_on: [1.M1, 1.M2, 1.M3]
+      steps: [1b-4]
+    - id: 1.M4
+      mark_type: M
+      points: 5
+      evidence: |
+        $(0,k)$를 지나는 접선 조건 $k=-2at^3+2at^2+2$를 세우고, 서로 다른 실근 3개 조건을 극값으로 판정해 $0<\dfrac{k-2}{a}<\dfrac{8}{27}$을 얻었다.
+      depends_on: [1.A1]
+      implied_ok: false
+      steps: [1b-5]
+    - id: 1.A2
+      mark_type: A
+      points: 3
+      evidence: |
+        (다)의 범위와 비교해 $a=1$, $f(x)=x^3-2x^2-x+2$를 적었다.
+      depends_on: [1.M4]
+      steps: [1b-6]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-7124}
+  - {code: '72', misconception: MC-CAL-7125}
+  misconceptions:
+  - id: MC-CAL-7124
+    outcome_code: '71'
+    wrong_work: '좌·우 미분계수만 비교하고 $f(0)=2$를 쓰지 않아 상수항 $d$를 결정하지 못함'
+    detect_cue: $f(0)$에 대한 식이 없고 $d$가 남아 있거나 임의로 정해져 있다
+    feedback: 미분가능하면 연속입니다. 먼저 $x=0$에서 좌극한과 함숫값이 같다는 조건을 쓰세요.
+    remedy: [RL-1]
+  - id: MC-CAL-7125
+    outcome_code: '72'
+    wrong_work: '$x\ge0$ 부분의 미분계수를 $f''(0)$으로 두어 $f''(0)=-2$를 얻음'
+    detect_cue: $f'(0)=-2$ 또는 $f(x)=ax^3-2ax^2-2x+2$가 보인다
+    feedback: $g(x)=xf'(x)+f(x)$의 도함수는 $f'(x)+xf''(x)+f'(x)$이므로 $x=0$에서 $2f'(0)$입니다.
+    remedy: [RL-1]
+
+- id: '2'
+  stem: |
+    $F(x)=\displaystyle\int_0^x\lvert f(t)\rvert dt$라 할 때, $\displaystyle\int_0^2f(x)e^{F(x)}dx$의 값을 구하고 그 이유를 설명하시오.
+  points: 10
+  depends_on: ['1']
+  answer: {kind: value, value: '2*exp(13/12) - exp(3/2) - 1', equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: $F'(x)=\lvert f(x)\rvert$이고 $[0,1]$에서 $f\ge0$, $[1,2]$에서 $f\le0$이므로 $f e^F=\pm(e^F)'$.
+    steps:
+    - {id: 2a, content: '$[e^F]_0^1-[e^F]_1^2=2e^{F(1)}-e^{F(0)}-e^{F(2)}=2e^{13/12}-e^{3/2}-1$', criteria: ['2.M1', '2.M2', '2.A1', '2.A2']}
+    hint_ladder:
+    - $f(x)$를 인수분해해 $[0,2]$에서 부호를 조사하자.
+    - $F'(x)e^{F(x)}$의 부정적분은?
+  - id: S2-B
+    audience: B
+    source_flow: 문항카드 p.123
+    method_no: 1
+    steps:
+    - id: 2b-1
+      content: |
+        $f(x)=(x+1)(x-1)(x-2)$이므로 $F'(x)=\lvert f(x)\rvert$이고 $\lvert f(x)\rvert=\begin{cases}f(x) & (0\le x<1)\\-f(x) & (1\le x\le2)\end{cases}$이므로
+        $$\int_0^2f(x)e^{F(x)}dx=\int_0^1f(x)e^{F(x)}dx+\int_1^2f(x)e^{F(x)}dx=\int_0^1F'(x)e^{F(x)}dx-\int_1^2F'(x)e^{F(x)}dx$$
+      criteria: ['2.M1']
+    - id: 2b-2
+      content: |
+        $$=\left[e^{F(x)}\right]_0^1-\left[e^{F(x)}\right]_1^2=e^{F(1)}-e^{F(0)}-\left(e^{F(2)}-e^{F(1)}\right)=2e^{F(1)}-e^{F(0)}-e^{F(2)}$$
+      criteria: ['2.M2']
+    - id: 2b-3
+      content: |
+        이때 $F(0)=0$, $F(1)=\displaystyle\int_0^1f(t)dt=\dfrac{13}{12}$, $F(2)=\displaystyle\int_0^1f(t)dt-\int_1^2f(t)dt=\dfrac32$이므로
+      criteria: ['2.A1']
+    - id: 2b-4
+      content: |
+        $2e^{F(1)}-e^{F(0)}-e^{F(2)}=2e^{\frac{13}{12}}-1-e^{\frac32}$이다. $\therefore\displaystyle\int_0^2f(x)e^{F(x)}dx=2e^{\frac{13}{12}}-e^{\frac32}-1$
+      criteria: ['2.A2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 3
+      evidence: |
+        $[0,2]$에서 $f$의 부호를 조사해 적분 구간을 $[0,1]$, $[1,2]$로 나누고 $f=\pm F'$으로 바꿨다.
+      depends_on: []
+      implied_ok: false
+      ft: {allowed: true, from: [1.A2], max_points: 3}
+      steps: [2b-1]
+    - id: 2.M2
+      mark_type: M
+      points: 3
+      evidence: |
+        치환적분으로 $2e^{F(1)}-e^{F(0)}-e^{F(2)}$를 얻었다.
+      depends_on: [2.M1]
+      implied_ok: false
+      steps: [2b-2]
+    - id: 2.A1
+      mark_type: A
+      points: 2
+      evidence: |
+        $F(1)=\dfrac{13}{12}$, $F(2)=\dfrac32$을 계산했다.
+      depends_on: [2.M1]
+      steps: [2b-3]
+    - id: 2.A2
+      mark_type: A
+      points: 2
+      evidence: |
+        $2e^{\frac{13}{12}}-e^{\frac32}-1$을 적었다.
+      depends_on: [2.M2, 2.A1]
+      steps: [2b-4]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '73', misconception: MC-CAL-7126}
+  misconceptions:
+  - id: MC-CAL-7126
+    outcome_code: '73'
+    wrong_work: '$F(x)=\int_0^xf(t)dt$로 보고 $\int_0^2F''e^{F}dx=e^{F(2)}-1$, $F(2)=\tfrac23$으로 계산해 $e^{2/3}-1$을 답함'
+    detect_cue: 구간 $[1,2]$에서 부호를 바꾸지 않았거나 $F(2)=\dfrac23$이 보인다
+    feedback: $F'(x)=\lvert f(x)\rvert$입니다. $f$가 음수인 구간에서는 $f=-F'$이므로 적분을 나눠야 합니다.
+    remedy: [RL-2]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CAL-7124}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-DIFFERENTIABILITY-PIECEWISE}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-CAL-7126}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-ABS-INTEGRAL}
+  priority: 1
+- id: RL-3
+  trigger: {type: misconception, ref: MC-CAL-7125}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-DIFFERENTIABILITY-PIECEWISE}
+  priority: 2
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: ku-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

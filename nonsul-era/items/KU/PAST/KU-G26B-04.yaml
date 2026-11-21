@@ -1,0 +1,255 @@
+# 고려대 2026학년도 수시 논술전형 자연계열(오후) 문제 4 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: KU-G26B-04
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: KU
+type: T06
+variant_of: null
+replaces: null
+level: L4
+form: 분류
+points: 20
+time_estimate_min: 12
+intent: |
+  날짜를 나타내는 8자리 숫자의 각 자리 조건을 정확히 해석하여 경우를 판단하고, 순열을 활용하여 조건을 만족하는 경우의 수를 구하는 과정을 평가한다(문항카드 '출제 의도'·'채점 기준' 요지).
+key_idea: |
+  ⑤는 $0$ 또는 $1$, ⑦은 $0\sim3$이라는 제약이 큰 자리부터 보면 ①$=1$, ⑤$=0$, ⑦$=2$로 고정되고, 나머지 다섯 자리는 $3\sim9$의 일곱 숫자 중 서로 다른 다섯 개를 나열하는 순열 ${}_7\mathrm{P}_5=2520$이다.
+stuck: |
+  ①, ⑤, ⑦ 세 자리가 모두 $\{0,1,2,3\}$ 안의 서로 다른 숫자여야 하고, ⑦$=3$이면 ⑧이 $0$ 또는 $1$이어야 한다는 충돌을 찾아내는 것
+idea_tags: [IDEA-MOST-CONSTRAINED-FIRST, IDEA-PERMUTATION-REMAINING-DIGITS]
+tags: [고려대 2026 오후, 경우의 수, 순열, 날짜]
+elements:
+  materials:
+  - '1년 1월 1일 ~ 2025년 12월 31일의 날짜를 8자리 ①②③④⑤⑥⑦⑧로 표기'
+  - '월별 일수 가정(31일·28일·30일)'
+  - '8개의 숫자가 모두 다른 날짜'
+  concepts:
+  - '경우 나누기'
+  - '순열의 수'
+  tools:
+  - '①∈{0,1,2}, ⑤∈{0,1}, ⑦∈{0,1,2,3} 제약 활용'
+  - '${}_7\mathrm{P}_5=7\times6\times5\times4\times3$'
+  - '사전식 순서(연도 → 월 → 일)로 가장 이른 날짜 찾기'
+  conditions:
+  - '여덟 숫자가 모두 다름 → ①, ⑤, ⑦은 $\{0,1,2,3\}$의 서로 다른 수'
+  - '⑦$=3$이면 일은 30 또는 31 → ⑧은 0 또는 1'
+  - '①$=2$이면 연도가 2000~2025 → ②$=0$, ③$\in\{0,1,2\}$'
+  stimuli_used: []
+  subpart_links: '4-2)는 4-1)의 ①$=1$, ⑤$=0$, ⑦$=2$ 고정을 사용'
+
+curriculum:
+  version: '2015'
+  subjects: [수학]
+  scope_2028: common
+  scope_confirmed: true
+  standards:
+  - code: 10수학05-02
+    text: 순열의 의미를 이해하고, 순열의 수를 구할 수 있다.
+    verified: true
+  content_area: 경우의 수 – 순열
+  behavior_domain: 문제해결
+  unit_path: [수학, 확률과 통계, 순열과 조합, 순열]
+  key_concepts: [경우의 수, 순열]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 고려대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 고려대학교
+  admission_year: 2026
+  admission_type: 논술
+  track: 자연계열
+  question_no: 4
+  official_url: https://oku.korea.ac.kr/oku/cms/FR_CON/index.do?MENU_ID=720
+  retrieved_at: '2026-11-21'
+  original_points: [10, 10]
+  rights_notice: 본 자료에 대한 지적 소유권은 고려대학교에 있습니다. 본교의 허락 없이 무단으로 출판, 게재, 사용할 수 없습니다.
+  note: |
+    report2026.pdf(2026학년도 고려대학교 선행학습 영향평가 자체평가보고서) 수시모집 논술전형 자연계열(오후) 문항카드(문항 붙임번호 15), PDF p.131~132(문항)·p.132(출제 근거)·p.137~138(예시 답안).
+    예시 답안 4-1)의 ①$=2$ 경우는 "⑦은 3이므로 ⑧이 될 수 있는 수가 없다"고 하나, 실제로는 ②$=0$, ③$=1$이면 ⑤($\in\{0,1\}$)부터 올 수 있는 숫자가 없음(결론 동일). 문항카드 '5. 문항 해설'(PDF p.134)의 4번 설명("이산확률변수의 기댓값")은 이 문항과 맞지 않음(원문 오기). 4-2) 발문에는 "그 이유를 설명하시오"가 없음(원문 그대로). 채점 기준은 서술형 지침뿐이라 마크 배점은 자체 배분.
+
+verify: verify/KU-G26B.py::p04
+
+stimuli: []
+
+stem: |
+  다음을 읽고 물음에 답하시오. (20점)
+
+  1년 1월 1일부터 2025년 12월 31일까지의 날짜를 8개의 숫자를 이용하여 ①②③④⑤⑥⑦⑧의 형태로 나타내려 한다. 이때, ①②③④는 연도, ⑤⑥은 월, ⑦⑧은 일을 나타낸다. 예를 들어, 1년 1월 1일은 00010101로 나타낸다. 날짜 계산을 단순화하고자, 1, 3, 5, 7, 8, 10, 12월은 31일, 2월은 28일, 그 외의 달은 30일까지 있다고 가정한다. 참고로, ①, ⑤, ⑦ 위치에 올 수 있는 숫자는 다음과 같다.
+
+  - ①에는 0, 1, 2
+  - ⑤에는 0, 1
+  - ⑦에는 0, 1, 2, 3
+
+subparts:
+- id: '1'
+  stem: |
+    4-1) 1년 1월 1일부터 2025년 12월 31일까지의 날짜를 위와 같이 표현하자. 이때, 8개의 숫자가 모두 다른 경우, ①에 올 수 있는 숫자를 모두 구하고, 그 이유를 설명하시오. (10점)
+  points: 10
+  depends_on: []
+  answer: {kind: set, value: '{1}', equivalents: ['1'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: ①$=0$이면 월이 12, ⑦$=3$이 되어 ⑧이 없고, ①$=2$이면 ②③$=01$이 되어 ⑤가 없다. ①$=1$이면 ⑤$=0$, ⑦$=2$로 가능.
+    steps:
+    - {id: 1a, content: '①$=0$, ①$=2$ 불가, ①$=1$일 때 예: 13450627', criteria: [1.M1, 1.R1, 1.A1]}
+    hint_ladder:
+    - ①, ⑤, ⑦은 모두 0~3 사이의 서로 다른 숫자여야 한다.
+    - ⑦이 3이면 ⑧에는 무엇이 와야 하는가?
+  - id: S1-B
+    audience: B
+    source_flow: 문항카드 p.137~138
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        ①이 $0$인 경우: ⑤는 $1$이므로 ⑤⑥은 $12$이고, ⑦은 $3$이므로 ⑧이 될 수 있는 수가 없다.
+      criteria: [1.M1]
+    - id: 1b-2
+      content: |
+        ①이 $2$인 경우: 연도가 2025 이하이므로 ②는 $0$이고 ③은 $1$이다. 따라서 ⑤에 올 수 있는 $0$, $1$이 이미 쓰였다(예시 답안은 "⑦은 3이므로 ⑧이 될 수 있는 수가 없다"로 서술). 어느 쪽이든 불가능하다.
+      criteria: [1.M1]
+    - id: 1b-3
+      content: |
+        ①이 $1$인 경우: ⑤는 $0$이므로 ⑦은 $2$ 혹은 $3$이다. 그런데 ⑦이 $3$이면 ⑧은 $0$ 혹은 $1$이 되어야 하므로 조건에 맞지 않는다. 따라서 ⑦은 $2$이다.
+      criteria: [1.R1]
+    - id: 1b-4
+      content: |
+        나머지 자리들, 즉 ②, ③, ④, ⑥, ⑧에는 이미 사용된 $0$, $1$, $2$ 이외의 모든 숫자, 즉 $3$, $4$, $5$, $6$, $7$, $8$, $9$가 모두 사용될 수 있다(예: 13450627). 따라서 ①에 올 수 있는 값은 $1$이 유일하다.
+      criteria: [1.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 4
+      evidence: |
+        ①$=0$과 ①$=2$인 경우가 각각 불가능함을 자리 조건의 충돌로 보였다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1, 1b-2]
+    - id: 1.R1
+      mark_type: R
+      points: 3
+      evidence: |
+        ①$=1$일 때 ⑤$=0$, ⑦$=3$이 불가능하여 ⑦$=2$임을 밝혔다.
+      depends_on: []
+      steps: [1b-3]
+    - id: 1.A1
+      mark_type: A
+      points: 3
+      evidence: |
+        ①$=1$인 날짜가 실제로 존재함을 보이고(예시 또는 남은 숫자 3~9) 답 $1$을 적었다.
+      depends_on: [1.M1, 1.R1]
+      steps: [1b-4]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CNT-7170}
+  misconceptions:
+  - id: MC-CNT-7170
+    outcome_code: '71'
+    wrong_work: '①에는 0, 1, 2가 올 수 있으므로 답을 0, 1, 2 또는 1, 2로 씀'
+    detect_cue: ⑤·⑦ 자리와의 충돌 검토 없이 ① 후보를 나열함
+    feedback: 선택지가 적은 ⑤(0, 1)와 ⑦(0~3)을 함께 보면, ①이 0이나 2일 때 남는 숫자가 없습니다.
+    remedy: [RL-1]
+
+- id: '2'
+  stem: |
+    4-2) 1년 1월 1일부터 2025년 12월 31일까지의 날짜를 위와 같이 표현하자. 이때, 8개의 숫자가 모두 다른 날짜의 개수를 구하고, 8개의 숫자가 모두 다른 날짜 중에서 1년 1월 1일로부터 가장 가까운 날짜를 구하시오. (10점)
+  points: 10
+  depends_on: ['1']
+  answer: {kind: value, value: '2520; 1345-06-27', equivalents: ['2520, 1345년 6월 27일'], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: 1②③④0⑥2⑧ 꼴이고 ②③④⑥⑧은 $3\sim9$에서 서로 다른 다섯 개의 순열이므로 $7\times6\times5\times4\times3=2520$, 가장 이른 날은 연도·월·일 순으로 가장 작은 수를 택한 13450627.
+    steps:
+    - {id: 2a, content: '${}_7\mathrm{P}_5=2520$, 1345년 06월 27일', criteria: [2.M1, 2.A1, 2.A2]}
+    hint_ladder:
+    - 4-1)에서 ①, ⑤, ⑦은 어떻게 정해졌는가?
+    - 가장 이른 날짜는 연도부터 작게 정한다.
+  - id: S2-B
+    audience: B
+    source_flow: 문항카드 p.138
+    method_no: 1
+    steps:
+    - id: 2b-1
+      content: |
+        4-1)에 의해 날짜는 1②③④0⑥2⑧ 꼴이다. ⑥은 $3\sim9$이므로 월은 3~9월이고 ⑧도 $3\sim9$이므로 일은 23~29일로 모두 존재하며(2월은 해당 없음), 연도 1②③④도 2025 이하이다.
+      criteria: [2.M1]
+    - id: 2b-2
+      content: |
+        ②, ③, ④, ⑥, ⑧ 다섯 개의 자리에 $3$, $4$, $5$, $6$, $7$, $8$, $9$ 중 서로 다른 숫자를 택해서 채우는 방법의 수이므로, 8개의 수가 모두 다른 날짜는 $7\times6\times5\times4\times3=2520$일이다.
+      criteria: [2.A1]
+    - id: 2b-3
+      content: |
+        1②③④0⑥2⑧로부터, 연도를 가장 작게 하는 ②③④$=345$, 그다음 남은 숫자 중 가장 작은 ⑥$=6$, ⑧$=7$을 택하면 1년 1월 1일로부터 가장 가까운 날은 1345년 06월 27일이다.
+      criteria: [2.A2]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 3
+      evidence: |
+        4-1)의 결과로 날짜가 1②③④0⑥2⑧ 꼴이고 남은 숫자가 $3\sim9$임을 적었다.
+      depends_on: []
+      implied_ok: false
+      ft: {allowed: true, from: [1.A1], max_points: 3}
+      steps: [2b-1]
+    - id: 2.A1
+      mark_type: A
+      points: 4
+      evidence: |
+        $7\times6\times5\times4\times3=2520$을 얻었다.
+      depends_on: [2.M1]
+      steps: [2b-2]
+    - id: 2.A2
+      mark_type: A
+      points: 3
+      evidence: |
+        가장 가까운 날짜 1345년 6월 27일(13450627)을 적었다.
+      depends_on: [2.M1]
+      steps: [2b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CNT-7171}
+  misconceptions:
+  - id: MC-CNT-7171
+    outcome_code: '71'
+    wrong_work: '월·일을 먼저 03월 24일처럼 가장 작게 정한 뒤 연도를 남은 숫자로 채워 1567년 03월 24일 등으로 답함'
+    detect_cue: 답의 연도가 1345가 아니다
+    feedback: 날짜의 선후는 연도가 먼저입니다. 연도를 가장 작게 만든 뒤 남은 숫자로 월, 일을 정하세요.
+    remedy: [RL-2]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CNT-7170}
+  relation: remediation
+  target: {kind: concept, ref: CON-CNT-CASE-SPLIT}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-CNT-7171}
+  relation: remediation
+  target: {kind: concept, ref: CON-CNT-PERMUTATION}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: ku-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

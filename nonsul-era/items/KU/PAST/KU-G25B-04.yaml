@@ -1,0 +1,310 @@
+# 고려대 2025학년도 수시 논술전형 자연계열(오후) 문제 4 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: KU-G25B-04
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: KU
+type: T06
+variant_of: null
+replaces: null
+level: L4
+form: 분류
+points: 20
+time_estimate_min: 15
+intent: |
+  경우의 수를 구하기 위해 중복조합을 활용하고 관련된 급수를 계산할 수 있는 능력을 평가한다(문항카드 출제 의도 4).
+key_idea: |
+  제한 없는 중복조합 ${}_3\mathrm{H}_{2n}$에서 일어날 수 없는 경우(파란색 $n+1$개 이상: ${}_3\mathrm{H}_{n-1}$, 노란색 $2n$개: $1$)를 빼 $a_n=\dfrac{3n^2+5n}{2}$, 이어서 $a_n+8n+15=\dfrac32(n+2)(n+5)$로 망원급수.
+stuck: |
+  상한을 넘는 경우를 '먼저 $n+1$개를 뽑아 둔 뒤 나머지 $n-1$개를 중복조합으로 택하기'로 세는 것, 그리고 간격 $3$인 망원급수에서 남는 세 항을 찾는 것
+idea_tags: [IDEA-BOUNDED-H-COMPLEMENT, IDEA-TELESCOPING-GAP3]
+tags: [중복조합, 여사건, 망원급수]
+elements:
+  materials:
+  - '파란색 $n$개, 노란색 $2n-1$개, 진홍색 $2n+2$개의 공에서 $2n$개 택하기'
+  - '경우의 수 $a_n$'
+  - '급수 $\displaystyle\sum_{n=1}^{\infty}\dfrac{1}{a_n+8n+15}$'
+  concepts:
+  - '중복조합 ${}_n\mathrm{H}_r={}_{n+r-1}\mathrm{C}_r$'
+  - '여사건(전체에서 빼기)'
+  - '부분분수 분해'
+  - '급수의 수렴과 부분합의 극한'
+  tools:
+  - '${}_3\mathrm{H}_{2n}={}_{2n+2}\mathrm{C}_{2n}=(n+1)(2n+1)$'
+  - '${}_3\mathrm{H}_{n-1}={}_{n+1}\mathrm{C}_{n-1}=\tfrac{n(n+1)}{2}$'
+  - '$\dfrac{1}{(n+2)(n+5)}=\dfrac13\left(\dfrac{1}{n+2}-\dfrac{1}{n+5}\right)$'
+  conditions:
+  - '진홍색은 $2n+2>2n$개이므로 제한 없음'
+  - '파란색 $n+1$개 이상과 노란색 $2n$개는 동시에 일어날 수 없음($n+1+2n>2n$)'
+  - '같은 색의 공은 구별하지 않음 → 중복조합'
+  stimuli_used: [제시문]
+  subpart_links: '(4-1)은 (4-2)의 일반항에 $n=2$ 대입으로도 가능, (4-3)은 (4-2)의 $a_n$을 사용'
+
+curriculum:
+  version: '2015'
+  subjects: [확률과통계, 미적분]
+  scope_2028: calc2
+  scope_confirmed: true
+  standards:
+  - code: 12확통01-02
+    text: 중복조합을 이해하고, 중복조합의 수를 구할 수 있다.
+    verified: true
+  - code: 12미적01-04
+    text: 급수의 수렴, 발산의 뜻을 알고, 이를 판별할 수 있다.
+    verified: true
+  content_area: 경우의 수 – 중복조합, 수열의 극한 – 급수
+  behavior_domain: 계산
+  unit_path: [확률과통계, 경우의 수, 순열과 조합, 중복조합]
+  key_concepts: [중복조합, 여사건, 부분분수, 급수]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 고려대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 고려대학교
+  admission_year: 2025
+  admission_type: 논술
+  track: 자연계열
+  question_no: 4
+  official_url: https://oku.korea.ac.kr/oku/cms/FR_CON/index.do?MENU_ID=720
+  retrieved_at: '2026-11-21'
+  original_points: [5, 10, 5]
+  rights_notice: 본 자료에 대한 지적 소유권은 고려대학교에 있습니다. 본교의 허락 없이 무단으로 출판, 게재, 사용할 수 없습니다.
+  note: |
+    원본 report2025.pdf(2025학년도 고려대학교 선행학습 영향평가 자체평가보고서) 문항붙임번호 15, 자연계열(오후) 1~4번. 문항 PDF p.116, 출제 의도 p.117, 출제 근거 p.117~119, 문항 해설 p.119, 채점 기준 p.120, 예시 답안 p.124. 공식 채점 기준에 부분점수가 없어 마크 배점은 자체 배분. 예시 답안 4-1의 「경우는 수는 1이다」는 「경우의 수는 1이다」의 오기(해설에는 바로잡아 씀). 2028 범위: 중복조합은 확률과통계, 급수는 미적분Ⅱ이므로 calc2로 분류.
+
+verify: verify/KU-G25B.py::p04
+
+stimuli:
+- label: 제시문
+  body: |
+    파란색 공이 $n$개, 노란색 공이 $2n-1$개, 진홍색 공이 $2n+2$개 있을 때, $2n$개의 공을 택하는 경우의 수를 $a_n$이라고 하자. (단, $n$은 자연수이고, 같은 색의 공은 서로 구별하지 않는다.)
+
+stem: |
+  다음 글을 읽고 물음에 답하시오.
+
+subparts:
+- id: '1'
+  stem: |
+    $a_2$를 구하고, 그 이유를 설명하시오.
+  points: 5
+  depends_on: []
+  answer: {kind: value, value: '11', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: 제한 없는 ${}_3\mathrm{H}_4=15$에서 불가능한 경우 $3+1$을 뺀다.
+    steps:
+    - {id: 1a, content: '$15-3-1=11$', criteria: ['1.M1', '1.A1']}
+    hint_ladder:
+    - 먼저 개수 제한이 없다고 생각하고 세어 보자.
+    - 파란색 공이 $3$개 이상이거나 노란색 공이 $4$개인 경우는 가능한가?
+  - id: S1-B
+    audience: B
+    source_flow: 문항카드 p.124
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        $n=2$이므로 파란색 공이 $2$개, 노란색 공이 $3$개, 진홍색 공이 $6$개 있을 때, $4$개의 공을 택하는 경우의 수를 구해야 한다. 파란색 공, 노란색 공, 진홍색 공들 중에서 $4$개를 택해야 하므로 전체 경우의 수는 ${}_3\mathrm{H}_4={}_6\mathrm{C}_4={}_6\mathrm{C}_2=15$이다.
+      criteria: ['1.M1']
+    - id: 1b-2
+      content: |
+        이때 파란색 공을 $3$개 이상 택하는 경우와 노란색 공을 $4$개 택하는 경우는 일어날 수 없다. 파란색 공을 $3$개 이상 택하는 경우의 수는 ${}_3\mathrm{H}_1={}_3\mathrm{C}_1=3$이고, 노란색 공을 $4$개 택하는 경우의 수는 $1$이다. 이때 두 경우는 동시에 일어날 수 없으므로 구하는 경우의 수는 $15-3-1=11$이다. 혹은 다음 문제인 4-2)에서 구하는 일반항 $a_n$에 $n=2$를 대입해서 구하면 $a_2=11$이다.
+      criteria: ['1.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 2
+      evidence: |
+        개수 제한이 없을 때의 경우의 수 ${}_3\mathrm{H}_4=15$를 구했다(또는 모든 경우를 분류해 나열했다).
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1]
+    - id: 1.A1
+      mark_type: A
+      points: 3
+      evidence: |
+        불가능한 경우(파란색 $3$개 이상 $3$가지, 노란색 $4$개 $1$가지)를 빼서 $a_2=11$을 적었다.
+      depends_on: [1.M1]
+      steps: [1b-2]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CNT-7129}
+  misconceptions:
+  - id: MC-CNT-7129
+    outcome_code: '71'
+    wrong_work: '개수 제한을 무시하고 $a_2={}_3\mathrm{H}_4=15$로 답함'
+    detect_cue: 답이 $15$이거나 파란색 $3$개 이상인 경우를 빼는 과정이 없다
+    feedback: 파란색 공은 $2$개, 노란색 공은 $3$개뿐입니다. 그보다 많이 택하는 경우를 빼야 합니다.
+    remedy: [RL-1]
+
+- id: '2'
+  stem: |
+    $a_n$을 구하고, 그 이유를 설명하시오.
+  points: 10
+  depends_on: []
+  answer: {kind: expression, value: '(3*n**2 + 5*n)/2', equivalents: ['n*(3*n+5)/2'], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: $a_n={}_3\mathrm{H}_{2n}-{}_3\mathrm{H}_{n-1}-1$.
+    steps:
+    - {id: 2a, content: '$(n+1)(2n+1)-\tfrac{n(n+1)}{2}-1=\tfrac{3n^2+5n}{2}$', criteria: ['2.M1', '2.M2', '2.A1']}
+    hint_ladder:
+    - 진홍색 공은 충분히 많다. 제한에 걸리는 색은 무엇인가?
+    - 파란색 공을 $n+1$개 이상 택하는 경우는 먼저 $n+1$개를 택해 두고 나머지를 세면 된다.
+  - id: S2-B
+    audience: B
+    source_flow: 문항카드 p.124
+    method_no: 1
+    steps:
+    - id: 2b-1
+      content: |
+        파란색 공, 노란색 공, 진홍색 공들 중에 $2n$개를 택하는 중복조합의 수는 ${}_3\mathrm{H}_{2n}$이다.
+      criteria: ['2.M1']
+    - id: 2b-2
+      content: |
+        다만, 파란색 공의 개수는 $n$개이고 노란색 공의 개수는 $2n-1$이므로, 파란색 공이 $n+1$개 이상 뽑히는 경우와 노란색 공이 $2n$개 뽑히는 경우는 일어날 수 없다. 파란색 공이 $n+1$개 이상 뽑히는 경우의 수는 ${}_3\mathrm{H}_{2n-(n+1)}={}_3\mathrm{H}_{n-1}$이고 노란색 공이 $2n$개 뽑히는 경우의 수는 ${}_3\mathrm{H}_{2n-2n}={}_3\mathrm{H}_0=1$이므로, 일반항 $a_n={}_3\mathrm{H}_{2n}-{}_3\mathrm{H}_{n-1}-1$이 된다.
+      criteria: ['2.M2']
+    - id: 2b-3
+      content: |
+        따라서 중복조합의 수를 구하는 공식에 의해
+        $$a_n={}_3\mathrm{H}_{2n}-{}_3\mathrm{H}_{n-1}-1={}_{2n+2}\mathrm{C}_{2n}-{}_{n+1}\mathrm{C}_{n-1}-1=(n+1)(2n+1)-\dfrac12(n+1)n-1$$
+        $$=2n^2+3n+1-\dfrac12n^2-\dfrac12n-1=\dfrac32n^2+\dfrac52n=\dfrac12(3n^2+5n)$$
+      criteria: ['2.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 3
+      evidence: |
+        제한이 없을 때의 경우의 수 ${}_3\mathrm{H}_{2n}$을 적었다.
+      depends_on: []
+      implied_ok: false
+      steps: [2b-1]
+    - id: 2.M2
+      mark_type: M
+      points: 3
+      evidence: |
+        일어날 수 없는 경우(파란색 $n+1$개 이상: ${}_3\mathrm{H}_{n-1}$, 노란색 $2n$개: $1$)를 세고 서로 겹치지 않음을 근거로 뺐다.
+      depends_on: [2.M1]
+      implied_ok: false
+      steps: [2b-2]
+    - id: 2.A1
+      mark_type: A
+      points: 4
+      evidence: |
+        $a_n=\dfrac12(3n^2+5n)$으로 정리했다.
+      depends_on: [2.M2]
+      steps: [2b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '72', misconception: MC-CNT-7130}
+  misconceptions:
+  - id: MC-CNT-7130
+    outcome_code: '72'
+    wrong_work: '파란색 $n+1$개 이상인 경우를 ${}_3\mathrm{H}_{n}$ 또는 ${}_2\mathrm{H}_{n-1}$로 세어 $a_n$을 틀림'
+    detect_cue: 빼는 항이 ${}_3\mathrm{H}_{n-1}=\dfrac{n(n+1)}{2}$이 아니거나 $a_1\ne4$, $a_2\ne11$이다
+    feedback: 파란색 $n+1$개를 먼저 택해 두면 남은 $n-1$개를 세 가지 색에서 자유롭게 택하므로 ${}_3\mathrm{H}_{n-1}$입니다. $n=1,2$를 직접 세어 확인하세요.
+    remedy: [RL-1]
+
+- id: '3'
+  stem: |
+    $\displaystyle\sum_{n=1}^{\infty}\dfrac{1}{a_n+8n+15}$을 구하고, 그 이유를 설명하시오.
+  points: 5
+  depends_on: ['2']
+  answer: {kind: value, value: '47/270', equivalents: [], tolerance: null}
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: $a_n+8n+15=\dfrac32(n+2)(n+5)$로 부분분수 분해하면 $\dfrac29\left(\dfrac13+\dfrac14+\dfrac15\right)$만 남는다.
+    steps:
+    - {id: 3a, content: '$\tfrac29\cdot\tfrac{47}{60}=\tfrac{47}{270}$', criteria: ['3.M1', '3.A1']}
+    hint_ladder:
+    - $a_n+8n+15$를 인수분해해 보자.
+    - 간격이 $3$인 두 분수의 차를 더하면 앞쪽 몇 개의 항이 남는가?
+  - id: S3-B
+    audience: B
+    source_flow: 문항카드 p.124
+    method_no: 1
+    steps:
+    - id: 3b-1
+      content: |
+        $a_n+8n+15=\dfrac12(3n^2+5n+16n+30)=\dfrac32(n^2+7n+10)=\dfrac32(n+2)(n+5)$이므로
+        $$\dfrac{1}{a_n+8n+15}=\dfrac29\left(\dfrac{1}{n+2}-\dfrac{1}{n+5}\right)$$
+      criteria: ['3.M1']
+    - id: 3b-2
+      content: |
+        부분합 $\displaystyle\sum_{n=1}^{N}\dfrac{1}{a_n+8n+15}=\dfrac29\left(\dfrac13+\dfrac14+\dfrac15-\dfrac{1}{N+3}-\dfrac{1}{N+4}-\dfrac{1}{N+5}\right)$에서 $N\to\infty$이면
+        $$\sum_{n=1}^{\infty}\dfrac{1}{a_n+8n+15}=\dfrac29\left(\dfrac13+\dfrac14+\dfrac15\right)=\dfrac29\times\dfrac{20+15+12}{60}=\dfrac{94}{540}=\dfrac{47}{270}$$
+      criteria: ['3.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 3
+      evidence: |
+        $a_n+8n+15=\dfrac32(n+2)(n+5)$로 인수분해하고 $\dfrac29\left(\dfrac{1}{n+2}-\dfrac{1}{n+5}\right)$로 부분분수 분해했다.
+      depends_on: []
+      implied_ok: false
+      ft: {allowed: true, from: [2.A1], max_points: 3}
+      steps: [3b-1]
+    - id: 3.A1
+      mark_type: A
+      points: 2
+      evidence: |
+        남는 항 $\dfrac13+\dfrac14+\dfrac15$를 찾아 $\dfrac{47}{270}$을 적었다.
+      depends_on: [3.M1]
+      steps: [3b-2]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '73', misconception: MC-ALG-7131}
+  misconceptions:
+  - id: MC-ALG-7131
+    outcome_code: '73'
+    wrong_work: '망원급수에서 첫 항 $\dfrac13$만 남겨 $\dfrac29\cdot\dfrac13=\dfrac{2}{27}$로 답함'
+    detect_cue: 답이 $\dfrac{2}{27}$이거나 남는 항이 하나뿐이다
+    feedback: $\dfrac{1}{n+2}-\dfrac{1}{n+5}$은 간격이 $3$이므로 $n=1,2,3$에서 나온 $\dfrac13,\dfrac14,\dfrac15$가 소거되지 않고 남습니다. 부분합을 직접 써 보세요.
+    remedy: [RL-2]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CNT-7129}
+  relation: remediation
+  target: {kind: concept, ref: CON-CNT-H-COMPLEMENT}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-ALG-7131}
+  relation: remediation
+  target: {kind: concept, ref: CON-ALG-TELESCOPING}
+  priority: 1
+- id: RL-3
+  trigger: {type: misconception, ref: MC-CNT-7130}
+  relation: remediation
+  target: {kind: concept, ref: CON-CNT-H-COMPLEMENT}
+  priority: 2
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: ku-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

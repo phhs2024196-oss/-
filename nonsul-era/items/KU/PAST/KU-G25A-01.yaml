@@ -1,0 +1,415 @@
+# 고려대 2025학년도 수시 논술전형 자연계열(오전) 문제 1 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: KU-G25A-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: KU
+type: T03
+variant_of: null
+replaces: null
+level: L5
+form: 추론
+points: 35
+time_estimate_min: 25
+intent: |
+  함수의 그래프 개형을 파악하고 정적분과 급수와의 관계 등을 종합적으로 활용하여 문제를 논리적으로 해결하는 능력을 평가한다(문항카드 출제 의도 1).
+key_idea: |
+  $g'(x)=1-4f(x)$에서 $f\left(\tfrac12\right)=\tfrac14$를 얻고, 조건 (라)의 부분적분과 (마)의 극값으로 $\int_0^{1/2}f=\tfrac{11}{192}$, $\int_{1/2}^1f=\tfrac{53}{192}$을 구한 뒤, 급수를 $\int_0^1\lvert f(t)-f^{-1}(t)\rvert dt$로 바꿔 $y=x$ 대칭으로 계산한다.
+stuck: |
+  (1-3) 급수를 정적분으로 바꾼 뒤 $t=f(x)$로 치환하면 $f^{-1}$이 나타나고, $f(x)\le x$와 $y=x$ 대칭으로 $2\int_0^1(x-f(x))dx$가 된다는 발상
+idea_tags: [IDEA-FTC-EXTREMUM-VALUE, IDEA-ABS-INTEGRAL-SPLIT-BY-MONOTONE, IDEA-RIEMANN-SUBST-INVERSE-SYMMETRY]
+tags: [정적분으로 정의된 함수, 부분적분, 역함수 대칭, 구분구적법]
+elements:
+  materials:
+  - '$[0,1]$에서 증가하고 $f(x)\le x$인 함수 $f$ (구체식 없음, 조건으로만 주어짐)'
+  - '정적분으로 정의된 함수 $g(x)=\int_0^x(1-f(t))dt+3\int_x^1f(t)dt$'
+  - '합성함수 $f(f(x))$와 절댓값이 들어간 급수의 극한'
+  concepts:
+  - '정적분으로 정의된 함수의 미분'
+  - '극값과 미분계수 0'
+  - '부분적분법'
+  - '절댓값을 포함한 함수의 정적분'
+  - '정적분과 급수의 합 사이의 관계'
+  - '치환적분법'
+  - '역함수의 그래프와 직선 $y=x$ 대칭'
+  tools:
+  - '$\dfrac{d}{dx}\int_x^1f(t)dt=-f(x)$'
+  - '부분적분 $\int_0^{1/2}xf^{\prime}(x)dx=\left[xf(x)\right]_0^{1/2}-\int_0^{1/2}f(x)dx$'
+  - '구분구적법 $\lim\tfrac1n\sum F\left(\tfrac kn\right)=\int_0^1F(x)dx$'
+  - '치환 $t=f(x)$, $dt=f^{\prime}(x)dx$'
+  - '$y=x$ 대칭으로 $\int_0^1(f^{-1}(t)-t)dt=\int_0^1(t-f(t))dt$'
+  conditions:
+  - '(가) $f^{\prime}$ 연속 → 정적분·치환적분 가능, 극값에서 $g^{\prime}=0$'
+  - '(나)(다) $f(0)=0$, $f(1)=1$, $f^{\prime}>0$ → $f$는 $[0,1]$에서 $[0,1]$로의 증가 일대일대응, 역함수 존재'
+  - '(다) $f(x)\le x$ → $f^{-1}(t)\ge t$, 절댓값의 부호 결정'
+  - '$f\left(\tfrac12\right)=\tfrac14$ + 증가 → $[0,\tfrac12]$에서 $f\le\tfrac14$, $[\tfrac12,1]$에서 $f\ge\tfrac14$'
+  - '(라) → $A=\int_0^{1/2}f=\tfrac{11}{192}$, (마) 극값 $\tfrac{61}{48}$ → $B=\int_{1/2}^1f=\tfrac{53}{192}$'
+  stimuli_used: [글]
+  subpart_links: '(1-2)는 (1-1)의 $f(1/2)=1/4$를 사용, (1-3)은 (1-2)의 $A+B=\int_0^1f=\tfrac{64}{192}$를 사용'
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅱ, 미적분]
+  scope_2028: calc2
+  scope_confirmed: true
+  standards:
+  - code: 10수학01-16
+    text: 이차부등식과 이차함수의 관계를 이해하고, 이차부등식과 연립이차부등식을 풀 수 있다.
+    verified: true
+  - code: 10수학04-03
+    text: 역함수의 의미를 이해하고, 주어진 함수의 역함수를 구할 수 있다.
+    verified: true
+  - code: 12수학Ⅱ02-08
+    text: 함수의 증가와 감소, 극대와 극소를 판정하고 설명할 수 있다.
+    verified: true
+  - code: 12수학Ⅱ02-09
+    text: 함수의 그래프의 개형을 그릴 수 있다.
+    verified: true
+  - code: 12수학Ⅱ03-03
+    text: 정적분의 뜻을 안다.
+    verified: true
+  - code: 12수학Ⅱ03-04
+    text: 다항함수의 정적분을 구할 수 있다.
+    verified: true
+  - code: 12미적03-01
+    text: 치환적분법을 이해하고, 이를 활용할 수 있다.
+    verified: true
+  - code: 12미적03-02
+    text: 부분적분법을 이해하고, 이를 활용할 수 있다.
+    verified: true
+  - code: 12미적03-04
+    text: 정적분과 급수의 합 사이의 관계를 이해한다.
+    verified: true
+  - code: 교과서
+    text: 수학(교학사·미래엔·좋은책신사고·지학사·천재교과서·천재교육, 2023), 수학Ⅱ·미적분 6종(2018~2023) — 문항카드 p.108 자료 출처표(문제 1,2), 재구성 여부 O
+    verified: true
+  content_area: 적분법 – 정적분으로 정의된 함수·정적분과 급수·치환적분과 부분적분
+  behavior_domain: 문제해결
+  unit_path: [미적분, 적분법, 정적분, 정적분과 급수의 합 사이의 관계]
+  key_concepts: [정적분으로 정의된 함수, 부분적분법, 치환적분법, 구분구적법, 역함수]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 고려대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 고려대학교
+  admission_year: 2025
+  admission_type: 논술
+  track: 자연계열
+  question_no: 1
+  official_url: https://oku.korea.ac.kr/oku/cms/FR_CON/index.do?MENU_ID=720
+  retrieved_at: '2026-11-21'
+  original_points: [5, 15, 15]
+  rights_notice: 본 자료에 대한 지적 소유권은 고려대학교에 있습니다. 본교의 허락 없이 무단으로 출판, 게재, 사용할 수 없습니다.
+  note: |
+    report2025.pdf(2025학년도 고려대학교 선행학습 영향평가 자체평가보고서) 문항카드 14(수시모집 논술전형 자연계열(오전) 1~4번), PDF p.104(문항), p.106(출제 의도), p.107~109(출제 근거), p.110(문항 해설·채점 기준), p.112~113(예시 답안).
+    소문항 id 1·2·3 = 원문 1-1)·1-2)·1-3).
+    원문 오기: 채점 기준(p.110) 1-1에 "함수 $g(x)$가 $x=0$에서 극값을 갖는다는 사실로부터 $g^{\prime}(0)=0$"이라 적혀 있으나 문제 조건은 $x=\tfrac12$에서 극값이다(예시 답안은 $g^{\prime}\left(\tfrac12\right)=0$으로 바르게 씀). 원문 그대로 두고 여기 기록.
+    채점표 부분점수는 자체 배분(공식 채점 기준에 부분점수 없음).
+
+verify: verify/KU-G25A.py::p01
+
+stimuli:
+- label: 글
+  body: |
+    함수 $f(x)$는 다음 조건을 만족시킨다.
+    (가) 함수 $f(x)$의 도함수 $f^{\prime}(x)$가 $[0,1]$에서 연속이다.
+    (나) $f(0)=0,\ f(1)=1$
+    (다) 구간 $[0,1]$에서 $f^{\prime}(x)>0$이고 $f(x)\le x$이다.
+    (라) $\displaystyle\int_0^{\frac12}xf^{\prime}(x)\,dx=\frac{13}{192}$
+    (마) 구간 $[0,1]$에서 함수 $g(x)$를 다음과 같이 정의하자.
+    $$g(x)=\int_0^x(1-f(t))\,dt+3\int_x^1f(t)dt$$
+    이때, 함수 $g(x)$는 $x=\dfrac12$에서 극값 $\dfrac{61}{48}$을 갖는다.
+
+stem: |
+  다음 글을 읽고 물음에 답하시오. (35점)
+
+subparts:
+- id: '1'
+  stem: |
+    $f\left(\dfrac12\right)$의 값을 구하고, 그 이유를 설명하시오. (5점)
+  points: 5
+  depends_on: []
+  answer: {kind: value, value: '1/4', equivalents: ['0.25'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: '$g^{\prime}(x)=1-f(x)-3f(x)=1-4f(x)$이고 극값에서 $g^{\prime}\left(\tfrac12\right)=0$.'
+    steps:
+    - {id: 1a, content: '$g^{\prime}\left(\tfrac12\right)=1-4f\left(\tfrac12\right)=0\Rightarrow f\left(\tfrac12\right)=\tfrac14$', criteria: ['1.M1', '1.A1']}
+    hint_ladder:
+    - 미분가능한 함수가 극값을 가지는 점에서 미분계수는 얼마인가?
+    - $\int_x^1f(t)dt$를 $x$에 대하여 미분하면?
+  - id: S1-B
+    audience: B
+    source_flow: 문항카드 p.112
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        $f$가 연속이므로 $\dfrac{d}{dx}\displaystyle\int_0^x(1-f(t))dt=1-f(x)$, $\dfrac{d}{dx}\displaystyle\int_x^1f(t)dt=-f(x)$이다. 따라서 $g^{\prime}(x)=1-f(x)-3f(x)=1-4f(x)$.
+      criteria: ['1.M1']
+    - id: 1b-2
+      content: |
+        $g$는 미분가능하고 조건 (마)에서 $x=\dfrac12$에서 극값을 가지므로 $g^{\prime}\left(\dfrac12\right)=1-4f\left(\dfrac12\right)=0$, 즉 $f\left(\dfrac12\right)=\dfrac14$이다.
+      criteria: ['1.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 3
+      evidence: |
+        정적분으로 정의된 함수의 미분으로 $g^{\prime}(x)=1-4f(x)$(또는 $1-f(x)-3f(x)$)를 적었다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1]
+    - id: 1.A1
+      mark_type: A
+      points: 2
+      evidence: |
+        극값 조건 $g^{\prime}\left(\tfrac12\right)=0$을 근거로 $f\left(\tfrac12\right)=\tfrac14$를 얻었다.
+      depends_on: [1.M1]
+      steps: [1b-2]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-7101}
+  misconceptions:
+  - id: MC-CAL-7101
+    outcome_code: '71'
+    wrong_work: '$g^{\prime}(x)=1-f(x)+3f(x)=1+2f(x)$로 두어 $f\left(\tfrac12\right)=-\tfrac12$'
+    detect_cue: $\int_x^1f(t)dt$의 도함수를 $+f(x)$로 적었다
+    feedback: 아래끝이 $x$이면 $\int_x^1f(t)dt=-\int_1^xf(t)dt$이므로 도함수는 $-f(x)$입니다.
+    remedy: [RL-1]
+
+- id: '2'
+  stem: |
+    $\displaystyle\int_0^1\left|f(x)-\frac14\right|dx$의 값을 구하고, 그 이유를 설명하시오. (15점)
+  points: 15
+  depends_on: ['1']
+  answer: {kind: value, value: '7/32', equivalents: ['42/192'], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: '$f$ 증가, $f\left(\tfrac12\right)=\tfrac14$로 부호를 나누면 답은 $B-A$. (라)의 부분적분으로 $A$, (마)의 $g\left(\tfrac12\right)$로 $B$.'
+    steps:
+    - {id: 2a, content: '$A=\tfrac18-\tfrac{13}{192}=\tfrac{11}{192}$, $\tfrac12-A+3B=\tfrac{61}{48}\Rightarrow B=\tfrac{53}{192}$, 답 $B-A=\tfrac{7}{32}$', criteria: ['2.R1', '2.M1', '2.A1', '2.M2', '2.A2', '2.A3']}
+    hint_ladder:
+    - $f(x)-\tfrac14$의 부호는 어디서 바뀌는가?
+    - 조건 (라)에 부분적분을 적용해 보자.
+    - $g\left(\tfrac12\right)$를 $A=\int_0^{1/2}f$, $B=\int_{1/2}^1f$로 나타내 보자.
+  - id: S2-B
+    audience: B
+    source_flow: 문항카드 p.112
+    method_no: 1
+    steps:
+    - id: 2b-1
+      content: |
+        조건 (가), (나), (다)로부터 $f$는 $[0,1]$에서 증가하고 $f(0)=0$, $f(1)=1$, $f(x)\le x$이므로 $y=f(x)$의 그래프는 $(0,0)$과 $(1,1)$을 잇고 직선 $y=x$ 아래에 있는 증가 곡선이다. [그림] 원점과 $(1,1)$을 잇는 직선 $y=x$(초록) 아래로 볼록하게 처진 증가 곡선 $y=f(x)$(빨강). 1-1)에서 $f\left(\dfrac12\right)=\dfrac14$이므로 $0\le x\le\dfrac12$에서 $f(x)\le\dfrac14$, $\dfrac12\le x\le1$에서 $f(x)\ge\dfrac14$이다.
+      criteria: ['2.R1']
+    - id: 2b-2
+      content: |
+        $A=\displaystyle\int_0^{\frac12}f(t)dt$, $B=\displaystyle\int_{\frac12}^1f(t)dt$라 놓으면, 조건 (라)로부터 $\displaystyle\int_0^{\frac12}xf^{\prime}(x)dx=\left[xf(x)\right]_0^{\frac12}-\int_0^{\frac12}f(x)dx=\frac{13}{192}$을 얻고
+      criteria: ['2.M1']
+    - id: 2b-3
+      content: |
+        $A=\displaystyle\int_0^{\frac12}f(x)dx=\frac18-\frac{13}{192}=\frac{11}{192}$을 얻는다.
+      criteria: ['2.A1']
+    - id: 2b-4
+      content: |
+        조건 (마)에서 $g\left(\dfrac12\right)=\displaystyle\int_0^{\frac12}(1-f(t))dt+3\int_{\frac12}^1f(t)dt=\frac12-A+3B=\frac{61}{48}$이다.
+      criteria: ['2.M2']
+    - id: 2b-5
+      content: |
+        따라서 $3B=\dfrac{61}{48}-\dfrac12+A=\dfrac{159}{192}$에서 $B=\dfrac{53}{192}$이다.
+      criteria: ['2.A2']
+    - id: 2b-6
+      content: |
+        그림으로부터 $\displaystyle\int_0^1\left|f(x)-\frac14\right|dx=\left(\frac18-A\right)+\left(B-\frac18\right)=B-A=\frac{53}{192}-\frac{11}{192}=\frac{42}{192}=\frac{7}{32}$을 얻는다.
+      criteria: ['2.A3']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.R1
+      mark_type: R
+      points: 4
+      evidence: |
+        $f$가 증가하고 $f\left(\tfrac12\right)=\tfrac14$임을 근거로 $\left[0,\tfrac12\right]$에서 $f\le\tfrac14$, $\left[\tfrac12,1\right]$에서 $f\ge\tfrac14$라고 적어 절댓값을 나눴다.
+      depends_on: []
+      implied_ok: false
+      ft: {allowed: true, from: [1.A1], max_points: 4}
+      steps: [2b-1]
+    - id: 2.M1
+      mark_type: M
+      points: 3
+      evidence: |
+        조건 (라)에 부분적분을 적용한 식 $\left[xf(x)\right]_0^{1/2}-\int_0^{1/2}f(x)dx=\tfrac{13}{192}$을 적었다.
+      depends_on: []
+      implied_ok: false
+      steps: [2b-2]
+    - id: 2.A1
+      mark_type: A
+      points: 2
+      evidence: |
+        $\int_0^{1/2}f(x)dx=\tfrac{11}{192}$을 얻었다.
+      depends_on: [2.M1]
+      steps: [2b-3]
+    - id: 2.M2
+      mark_type: M
+      points: 2
+      evidence: |
+        $g\left(\tfrac12\right)=\tfrac12-A+3B=\tfrac{61}{48}$ 식을 세웠다.
+      depends_on: []
+      implied_ok: false
+      steps: [2b-4]
+    - id: 2.A2
+      mark_type: A
+      points: 2
+      evidence: |
+        $\int_{1/2}^1f(x)dx=\tfrac{53}{192}$을 얻었다.
+      depends_on: [2.M2, 2.A1]
+      steps: [2b-5]
+    - id: 2.A3
+      mark_type: A
+      points: 2
+      evidence: |
+        $\int_0^1\left|f(x)-\tfrac14\right|dx=B-A=\tfrac{7}{32}$을 얻었다.
+      depends_on: [2.R1, 2.A2]
+      steps: [2b-6]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '72', misconception: MC-CAL-7102}
+  misconceptions:
+  - id: MC-CAL-7102
+    outcome_code: '72'
+    wrong_work: '$\int_0^1\left(f(x)-\tfrac14\right)dx=\tfrac{64}{192}-\tfrac14=\tfrac{1}{12}$'
+    detect_cue: 절댓값을 그대로 벗겨 $A+B-\tfrac14$를 답으로 썼다
+    feedback: $f$가 증가하고 $f\left(\tfrac12\right)=\tfrac14$이므로 $x=\tfrac12$에서 $f(x)-\tfrac14$의 부호가 바뀝니다. 구간을 나누세요.
+    remedy: [RL-2]
+
+- id: '3'
+  stem: |
+    $\displaystyle\lim_{n\to\infty}\frac1n\sum_{k=1}^n\left|f\left(f\left(\frac kn\right)\right)-\frac kn\right|f^{\prime}\left(\frac kn\right)$의 값을 구하고, 그 이유를 설명하시오. (15점)
+  points: 15
+  depends_on: ['2']
+  answer: {kind: value, value: '1/3', equivalents: [], tolerance: null}
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: '급수 $=\int_0^1\lvert f(f(x))-x\rvert f^{\prime}(x)dx$, $t=f(x)$로 치환하면 $\int_0^1\lvert f(t)-f^{-1}(t)\rvert dt=2\int_0^1(x-f(x))dx=1-2(A+B)$.'
+    steps:
+    - {id: 3a, content: '$1-2\cdot\tfrac{64}{192}=\tfrac13$', criteria: ['3.M1', '3.M2', '3.R1', '3.A1']}
+    hint_ladder:
+    - $\tfrac1n\sum F\left(\tfrac kn\right)$ 꼴이다. 어떤 정적분인가?
+    - $f^{\prime}(x)dx$가 보이면 무엇으로 치환할까?
+    - $y=f(x)$와 $y=f^{-1}(x)$의 그래프는 어떤 직선에 대해 대칭인가?
+  - id: S3-B
+    audience: B
+    source_flow: 문항카드 p.113
+    method_no: 1
+    steps:
+    - id: 3b-1
+      content: |
+        $F(x)=\lvert f(f(x))-x\rvert f^{\prime}(x)$는 $[0,1]$에서 연속이므로 정적분과 급수의 합 사이의 관계에 의해
+        $\displaystyle\lim_{n\to\infty}\frac1n\sum_{k=1}^n\left|f\left(f\left(\frac kn\right)\right)-\frac kn\right|f^{\prime}\left(\frac kn\right)=\int_0^1\lvert f(f(x))-x\rvert f^{\prime}(x)dx$이다.
+      criteria: ['3.M1']
+    - id: 3b-2
+      content: |
+        $f(x)=t$로 치환하면($f$는 $[0,1]$에서 $[0,1]$로의 증가함수이므로 역함수 $f^{-1}$가 있고 $x=f^{-1}(t)$, $f(0)=0$, $f(1)=1$)
+        $\displaystyle\int_0^1\lvert f(f(x))-x\rvert f^{\prime}(x)dx=\int_0^1\lvert f(t)-f^{-1}(t)\rvert dt$이다.
+      criteria: ['3.M2']
+    - id: 3b-3
+      content: |
+        $y=f^{-1}(x)$의 그래프와 $y=f(x)$의 그래프는 직선 $y=x$에 대하여 대칭이고, $f(x)\le x$이므로 $f^{-1}(x)\ge x$이다. 따라서
+        $\displaystyle\int_0^1\lvert f(t)-f^{-1}(t)\rvert dt=2\int_0^1(x-f(x))dx$.
+      criteria: ['3.R1']
+    - id: 3b-4
+      content: |
+        $\displaystyle=1-2\int_0^1f(x)dx=1-2\left(\frac{64}{192}\right)=\frac13$이다(1-2)의 $A+B=\frac{11}{192}+\frac{53}{192}=\frac{64}{192}$).
+      criteria: ['3.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 4
+      evidence: |
+        급수의 극한을 $\int_0^1\lvert f(f(x))-x\rvert f^{\prime}(x)dx$로 바꿔 적었다.
+      depends_on: []
+      implied_ok: false
+      steps: [3b-1]
+    - id: 3.M2
+      mark_type: M
+      points: 4
+      evidence: |
+        $t=f(x)$로 치환해 $\int_0^1\lvert f(t)-f^{-1}(t)\rvert dt$(적분 구간 $0\to1$ 포함)를 얻었다.
+      depends_on: [3.M1]
+      implied_ok: false
+      steps: [3b-2]
+    - id: 3.R1
+      mark_type: R
+      points: 4
+      evidence: |
+        $y=x$ 대칭과 $f(x)\le x$를 근거로 위 적분이 $2\int_0^1(x-f(x))dx$임을 밝혔다.
+      depends_on: [3.M2]
+      steps: [3b-3]
+    - id: 3.A1
+      mark_type: A
+      points: 3
+      evidence: |
+        $\int_0^1f(x)dx=\tfrac{64}{192}$을 써서 값 $\tfrac13$을 얻었다.
+      depends_on: [3.R1]
+      ft: {allowed: true, from: [2.A1, 2.A2], max_points: 3}
+      steps: [3b-4]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '73', misconception: MC-CAL-7103}
+  misconceptions:
+  - id: MC-CAL-7103
+    outcome_code: '73'
+    wrong_work: '$\int_0^1\lvert f(t)-f^{-1}(t)\rvert dt=\int_0^1(x-f(x))dx=\tfrac16$'
+    detect_cue: 대칭을 쓰면서 2배를 하지 않아 답이 $\tfrac16$이다
+    feedback: $f^{-1}(t)-f(t)=(f^{-1}(t)-t)+(t-f(t))$이고, 두 부분의 넓이가 $y=x$ 대칭으로 같으므로 2배가 됩니다.
+    remedy: [RL-3]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CAL-7101}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-FTC-DERIVATIVE}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-CAL-7102}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-ABS-INTEGRAL}
+  priority: 1
+- id: RL-3
+  trigger: {type: misconception, ref: MC-CAL-7103}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-INVERSE-AREA}
+  priority: 1
+- id: RL-4
+  trigger: {type: criterion_missed, ref: 3.M1}
+  relation: prerequisite
+  target: {kind: concept, ref: CON-CAL-RIEMANN-SUM}
+  priority: 2
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: ku-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

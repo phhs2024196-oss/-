@@ -1,0 +1,363 @@
+# 고려대 2026학년도 수시 논술전형 자연계열(오전) 문제 1 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: KU-G26A-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: KU
+type: T04
+variant_of: null
+replaces: null
+level: L4
+form: 추론
+points: 30
+time_estimate_min: 20
+intent: |
+  주어진 조건(포물선과 직선으로 둘러싸인 넓이, 두 교점 사이의 거리)이 의미하는 바를 이해하고 근과 계수의 관계로 수열의 일반항을 구한 뒤, 수열의 극한을 논리적으로 계산하는 능력을 평가한다(문항카드 '출제 의도': 주어진 조건을 활용하여 답을 논리적으로 설명하는 능력, 수열의 극한 등을 종합적으로 활용하는 능력).
+key_idea: |
+  두 교점의 $x$좌표 $\alpha_n,\beta_n$에 대해 넓이 $=\dfrac16(\beta_n-\alpha_n)^3$, 거리$^2=(\beta_n-\alpha_n)^2\{1+(\alpha_n+\beta_n)^2\}$이고 $(\beta_n-\alpha_n)^2=a_n^2+4$이다.
+stuck: |
+  넓이 조건을 $(\beta_n-\alpha_n)^3=n$으로 정리하는 인수분해, 그리고 $\sqrt[3]{(n+1)^2}-\sqrt[3]{n^2}$를 세제곱 차 공식으로 유리화하는 단계
+idea_tags: [IDEA-VIETA-PARABOLA-AREA, IDEA-CUBE-ROOT-RATIONALIZE, IDEA-VIETA-CHORD-LENGTH]
+tags: [근과 계수의 관계, 수열의 극한, 포물선과 직선]
+elements:
+  materials:
+  - '포물선 $y=x^2$과 $y$절편이 $1$인 직선 $y=a_nx+1$, $y=b_nx+1$'
+  - '둘러싸인 영역의 넓이가 $\dfrac n6$, 두 교점 사이의 거리가 $n$인 두 수열'
+  concepts:
+  - '이차방정식의 근과 계수의 관계'
+  - '정적분과 넓이'
+  - '두 점 사이의 거리'
+  - '수열의 극한(∞/∞ 꼴, ∞×0 꼴)'
+  tools:
+  - '$\int_\alpha^\beta(a x+1-x^2)dx=\dfrac16(\beta-\alpha)^3$ (인수분해)'
+  - '$(\beta-\alpha)^2=(\alpha+\beta)^2-4\alpha\beta$'
+  - '$b-a=(b^{1/3}-a^{1/3})(b^{2/3}+b^{1/3}a^{1/3}+a^{2/3})$'
+  - '최고차항으로 분자·분모 나누기'
+  conditions:
+  - '(가) 넓이 $\dfrac n6$ → $(\beta_n-\alpha_n)^3=n$ → $a_n^2+4=\sqrt[3]{n^2}$'
+  - '(나) 거리 $n$ → $(b_n^2+4)(b_n^2+1)=n^2$'
+  - '모든 항이 양수 → $a_n=(\sqrt[3]{n^2}-4)^{1/2}$로 유일, $n>10$이면 근호 안이 양수'
+  stimuli_used: []
+  subpart_links: '(1-2)는 (1-1)에서 구한 $a_n^2=\sqrt[3]{n^2}-4$를 사용, (1-3)은 (1-1)과 같은 근과 계수 관계를 거리 조건에 적용'
+
+curriculum:
+  version: '2015'
+  subjects: [수학, 수학Ⅱ, 미적분]
+  scope_2028: calc2
+  scope_confirmed: true
+  standards:
+  - code: 10수학01-08
+    text: 이차방정식의 근과 계수의 관계를 이해한다.
+    verified: true
+  - code: 10수학01-09
+    text: 이차방정식과 이차함수의 관계를 이해한다.
+    verified: true
+  - code: 12수학Ⅱ02-03
+    text: 미분가능성과 연속성의 관계를 이해한다.
+    verified: true
+  - code: 12미적01-01
+    text: 수열의 수렴, 발산의 뜻을 알고, 이를 판별할 수 있다.
+    verified: true
+  - code: 12미적01-02
+    text: 수열의 극한에 대한 기본 성질을 이해하고, 이를 이용하여 극한값을 구할 수 있다.
+    verified: true
+  content_area: 수열의 극한 – 근과 계수의 관계·정적분과 넓이
+  behavior_domain: 문제해결
+  unit_path: [미적분, 수열의 극한, 수열의 극한, 수열의 극한값의 계산]
+  key_concepts: [근과 계수의 관계, 정적분과 넓이, 두 점 사이의 거리, 수열의 극한]
+  note: |
+    문항카드 '출제 근거'는 문항 1에 수학(10수학01-08, 01-09), 수학Ⅱ(12수학Ⅱ02-03), 미적분(12미적01-01, 01-02)을 연결함. 넓이 계산에 쓰는 정적분(수학Ⅱ 적분)은 카드 성취기준 표에 없음.
+    교과서 근거(카드 '자료 출처'): 수학 교학사(권오남 외) p.54-58, 61-62, 101-103 / 천재교육(이준열 외) p.52-61, 63-66, 109-111; 수학Ⅱ 비상(김원경 외) p.18-24, 57-58, 71-73, 78-85, 86-89, 129-131 / 금성(배종숙 외) p.23-26, 60-62, 73-75, 87-92, 93-97, 138-139; 미적분 미래엔(황선욱 외) p.11-20, 53-62, 115-116, 137-154 / 좋은책신사고(고성은 외) p.11-21, 49-57, 106-107, 127-144.
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 고려대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 고려대학교
+  admission_year: 2026
+  admission_type: 논술
+  track: 자연계열
+  question_no: 1
+  official_url: https://oku.korea.ac.kr/oku/cms/FR_CON/index.do?MENU_ID=720
+  retrieved_at: '2026-11-21'
+  original_points: [10, 10, 10]
+  rights_notice: 본 자료에 대한 지적 소유권은 고려대학교에 있습니다. 본교의 허락 없이 무단으로 출판, 게재, 사용할 수 없습니다.
+  note: |
+    원본 report2026.pdf(2026학년도 고려대학교 선행학습 영향평가 자체평가보고서) 문항정보 14(수시모집 논술전형 자연계열(오전) 1~4번). 문항 PDF p.120, 출제 의도·근거 p.122-124, 채점 기준 p.124-125, 예시 답안 p.125-126(인쇄 쪽 116, 118-122).
+    채점 기준은 소문항별 서술형 기준만 있고 부분점수가 없어 마크 배분은 자체 배분.
+
+verify: verify/KU-G26A.py::p01
+
+stimuli: []
+
+stem: |
+  다음을 읽고 물음에 답하시오. (30점)
+
+  모든 항이 양수인 두 수열 $a_n$과 $b_n$은 다음 조건을 만족한다.
+
+  (가) $y=x^2$과 $y=a_nx+1$로 둘러싸인 영역의 넓이는 $\dfrac{n}{6}$이다. (단, $n$은 $10$보다 큰 자연수이다.)
+
+  (나) $y=x^2$과 $y=b_nx+1$의 두 교점 사이의 거리는 $n$이다. (단, $n$은 $10$보다 큰 자연수이다.)
+
+subparts:
+- id: '1'
+  stem: |
+    $\displaystyle\lim_{n\to\infty}\dfrac{a_n^2}{\sqrt[3]{n^2}}$을 구하고, 그 이유를 설명하시오. (10점)
+  points: 10
+  depends_on: []
+  answer: {kind: value, value: '1', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: 넓이 $=\dfrac16(\beta_n-\alpha_n)^3=\dfrac n6$이고 $(\beta_n-\alpha_n)^2=a_n^2+4$이므로 $a_n^2=\sqrt[3]{n^2}-4$.
+    steps:
+    - {id: 1a, content: '$(\beta_n-\alpha_n)^3=n$, $a_n^2+4=\sqrt[3]{n^2}$, $\dfrac{a_n^2}{\sqrt[3]{n^2}}=1-\dfrac{4}{\sqrt[3]{n^2}}\to1$', criteria: ['1.M1', '1.A1', '1.A2', '1.A3']}
+    hint_ladder:
+    - 두 교점의 $x$좌표를 이차방정식의 두 근으로 보자.
+    - 포물선과 직선 사이의 넓이를 $\beta_n-\alpha_n$만의 식으로 정리할 수 있는가?
+  - id: S1-B
+    audience: B
+    source_flow: 문항카드 p.125
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        $y=x^2$과 $y=a_nx+1$의 교점의 $x$좌표를 $\alpha_n$과 $\beta_n$이라고 하자(단, $\alpha_n<\beta_n$). $\alpha_n$과 $\beta_n$은 이차방정식 $x^2-a_nx-1=0$의 두 근이므로, 근과 계수의 관계에 의해 $\alpha_n+\beta_n=a_n$와 $\alpha_n\beta_n=-1$을 얻는다.
+      criteria: ['1.M1']
+    - id: 1b-2
+      content: |
+        (가)의 조건으로부터 $\displaystyle\int_{\alpha_n}^{\beta_n}(a_nx+1-x^2)\,dx=\dfrac n6$이므로
+        $\dfrac{a_n}{2}(\beta_n^2-\alpha_n^2)+(\beta_n-\alpha_n)-\dfrac13(\beta_n^3-\alpha_n^3)=\dfrac n6$.
+      criteria: ['1.M1']
+    - id: 1b-3
+      content: |
+        인수분해하면 $\dfrac{a_n}{2}(\beta_n-\alpha_n)(\beta_n+\alpha_n)+(\beta_n-\alpha_n)-\dfrac13(\beta_n-\alpha_n)(\beta_n^2+\beta_n\alpha_n+\alpha_n^2)=\dfrac n6$, 근과 계수의 관계를 대입하면 $\dfrac16(\beta_n-\alpha_n)^3=\dfrac n6$을 얻는다.
+      criteria: ['1.A1']
+    - id: 1b-4
+      content: |
+        $\alpha_n+\beta_n=a_n$과 $\alpha_n\beta_n=-1$을 적용하면 $\beta_n-\alpha_n=\sqrt{a_n^2+4}$이고, $a_n^2+4=\sqrt[3]{n^2}$이 된다. 이를 풀면 $a_n=\left(\sqrt[3]{n^2}-4\right)^{1/2}$을 얻는다($a_n>0$, $n>10$).
+      criteria: ['1.A2']
+    - id: 1b-5
+      content: |
+        $\dfrac{a_n^2}{\sqrt[3]{n^2}}=\dfrac{\sqrt[3]{n^2}-4}{\sqrt[3]{n^2}}=1-\dfrac{4}{\sqrt[3]{n^2}}$이므로 $\displaystyle\lim_{n\to\infty}\dfrac{a_n^2}{\sqrt[3]{n^2}}=1$이다.
+      criteria: ['1.A3']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 3
+      evidence: |
+        교점의 $x$좌표를 $x^2-a_nx-1=0$의 두 근으로 두고 근과 계수의 관계($\alpha_n+\beta_n=a_n$, $\alpha_n\beta_n=-1$)와 넓이 정적분 $\int_{\alpha_n}^{\beta_n}(a_nx+1-x^2)dx=\dfrac n6$을 세웠다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1, 1b-2]
+    - id: 1.A1
+      mark_type: A
+      points: 3
+      evidence: |
+        넓이를 정리해 $\dfrac16(\beta_n-\alpha_n)^3=\dfrac n6$(즉 $\beta_n-\alpha_n=\sqrt[3]n$)을 얻었다.
+      depends_on: [1.M1]
+      steps: [1b-3]
+    - id: 1.A2
+      mark_type: A
+      points: 2
+      evidence: |
+        $\beta_n-\alpha_n=\sqrt{a_n^2+4}$를 이용해 $a_n^2=\sqrt[3]{n^2}-4$(또는 $a_n=(\sqrt[3]{n^2}-4)^{1/2}$)를 구했다.
+      depends_on: [1.M1]
+      steps: [1b-4]
+    - id: 1.A3
+      mark_type: A
+      points: 2
+      evidence: |
+        $\dfrac{a_n^2}{\sqrt[3]{n^2}}=1-\dfrac4{\sqrt[3]{n^2}}$ 등 근거와 함께 극한값 $1$을 적었다.
+      depends_on: [1.M1]
+      steps: [1b-5]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-7141}
+  misconceptions:
+  - id: MC-CAL-7141
+    outcome_code: '71'
+    wrong_work: '넓이를 $\dfrac12(\beta_n-\alpha_n)^2$ 또는 $\dfrac13(\beta_n-\alpha_n)^3$으로 놓아 $a_n^2$을 잘못 구함'
+    detect_cue: 넓이 식이 $\dfrac16(\beta_n-\alpha_n)^3$이 아니다
+    feedback: 이차항 계수가 $1$인 포물선과 직선 사이의 넓이는 $\dfrac16(\beta-\alpha)^3$입니다. 적분 후 $\beta-\alpha$로 인수분해해 확인하세요.
+    remedy: [RL-1]
+
+- id: '2'
+  stem: |
+    $\displaystyle\lim_{n\to\infty}\sqrt[3]{n}\times\left(a_{n+1}^2-a_n^2\right)$을 구하고, 그 이유를 설명하시오. (10점)
+  points: 10
+  depends_on: ['1']
+  answer: {kind: value, value: '2/3', equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: $a_{n+1}^2-a_n^2=\sqrt[3]{(n+1)^2}-\sqrt[3]{n^2}$을 세제곱 차 공식으로 유리화한다.
+    steps:
+    - {id: 2a, content: '$\sqrt[3]n\,(a_{n+1}^2-a_n^2)=\dfrac{\sqrt[3]n(2n+1)}{(n+1)^{4/3}+(n(n+1))^{2/3}+n^{4/3}}\to\dfrac23$', criteria: ['2.M1', '2.A1', '2.A2']}
+    hint_ladder:
+    - $a_{n+1}^2-a_n^2$은 세제곱근의 차이다. $\infty\times0$ 꼴은 어떻게 처리하는가?
+  - id: S2-B
+    audience: B
+    source_flow: 문항카드 p.125-126
+    method_no: 1
+    steps:
+    - id: 2b-1
+      content: |
+        1-1)에서 구한 $a_n=\left(\sqrt[3]{n^2}-4\right)^{1/2}$와 $b-a=(b^{1/3}-a^{1/3})(b^{2/3}+b^{1/3}a^{1/3}+a^{2/3})$을 이용하면
+      criteria: ['2.M1']
+    - id: 2b-2
+      content: |
+        $a_{n+1}^2-a_n^2=\sqrt[3]{(n+1)^2}-\sqrt[3]{n^2}=\dfrac{(n+1)^2-n^2}{(n+1)^{4/3}+(n(n+1))^{2/3}+n^{4/3}}$이 된다.
+      criteria: ['2.A1']
+    - id: 2b-3
+      content: |
+        따라서 $\displaystyle\lim_{n\to\infty}\sqrt[3]n\times\left(a_{n+1}^2-a_n^2\right)=\lim_{n\to\infty}\dfrac{\sqrt[3]n(2n+1)}{(n+1)^{4/3}+(n(n+1))^{2/3}+n^{4/3}}=\dfrac23$.
+        (분자·분모를 $n^{4/3}$으로 나누면 분자 $\to2$, 분모 $\to3$.)
+      criteria: ['2.A2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 4
+      evidence: |
+        $a_{n+1}^2-a_n^2=\sqrt[3]{(n+1)^2}-\sqrt[3]{n^2}$로 쓰고 세제곱 차 공식(또는 동등한 유리화)을 적용하려 했다.
+      depends_on: []
+      implied_ok: false
+      ft: {allowed: true, from: [1.A2], max_points: 4}
+      steps: [2b-1]
+    - id: 2.A1
+      mark_type: A
+      points: 3
+      evidence: |
+        $a_{n+1}^2-a_n^2=\dfrac{2n+1}{(n+1)^{4/3}+(n(n+1))^{2/3}+n^{4/3}}$ 또는 동치식을 얻었다.
+      depends_on: [2.M1]
+      steps: [2b-2]
+    - id: 2.A2
+      mark_type: A
+      points: 3
+      evidence: |
+        최고차항($n^{4/3}$)으로 나누는 등 근거를 밝혀 극한값 $\dfrac23$을 얻었다.
+      depends_on: [2.M1]
+      steps: [2b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '72', misconception: MC-CAL-7142}
+  misconceptions:
+  - id: MC-CAL-7142
+    outcome_code: '72'
+    wrong_work: '$a_{n+1}^2-a_n^2\to0$이므로 곱의 극한도 $0$이라고 답함(또는 $\sqrt[3]n\to\infty$라서 발산이라 답함)'
+    detect_cue: 유리화 없이 $0$ 또는 발산으로 결론
+    feedback: $\infty\times0$ 꼴은 정해진 값이 없습니다. 세제곱근의 차를 $b-a=(b^{1/3}-a^{1/3})(\cdots)$로 유리화한 뒤 최고차항으로 나누세요.
+    remedy: [RL-2]
+
+- id: '3'
+  stem: |
+    $\displaystyle\lim_{n\to\infty}\dfrac{b_n^2}{n}$을 구하고, 그 이유를 설명하시오. (10점)
+  points: 10
+  depends_on: []
+  answer: {kind: value, value: '1', equivalents: [], tolerance: null}
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: 두 교점은 직선 위에 있으므로 거리$^2=(\beta_n-\alpha_n)^2\{1+(\alpha_n+\beta_n)^2\}=(b_n^2+4)(b_n^2+1)=n^2$.
+    steps:
+    - {id: 3a, content: '$(b_n^2+4)(b_n^2+1)=n^2\Rightarrow\left(\dfrac{b_n^2}{n}+\dfrac4n\right)\left(\dfrac{b_n^2}{n}+\dfrac1n\right)=1\Rightarrow\dfrac{b_n^2}{n}\to1$', criteria: ['3.M1', '3.A1', '3.A2']}
+    hint_ladder:
+    - 두 교점의 $y$좌표는 $x$좌표의 제곱이다.
+  - id: S3-B
+    audience: B
+    source_flow: 문항카드 p.126
+    method_no: 1
+    steps:
+    - id: 3b-1
+      content: |
+        $y=x^2$과 $y=b_nx+1$의 교점의 $x$좌표를 $\alpha_n$와 $\beta_n$이라고 하자(단, $\alpha_n<\beta_n$). 그러면 $\alpha_n$과 $\beta_n$은 $x^2-b_nx-1=0$의 두 근이 되므로 근과 계수의 관계에 의해 $\alpha_n+\beta_n=b_n$와 $\alpha_n\beta_n=-1$을 얻는다.
+      criteria: ['3.M1']
+    - id: 3b-2
+      content: |
+        (나)의 조건으로부터 $(\beta_n-\alpha_n)^2+(\beta_n^2-\alpha_n^2)^2=n^2$이므로, 인수분해 공식을 활용하여 $(\beta_n-\alpha_n)^2\{1+(\beta_n+\alpha_n)^2\}=n^2$을 얻는다.
+      criteria: ['3.M1']
+    - id: 3b-3
+      content: |
+        이제 $\alpha_n+\beta_n=b_n$과 $\alpha_n\beta_n=-1$을 대입하면 $(b_n^2+4)(b_n^2+1)=n^2$을 얻을 수 있다.
+      criteria: ['3.A1']
+    - id: 3b-4
+      content: |
+        따라서 $\displaystyle\lim_{n\to\infty}\dfrac{b_n^2}{n}=1$이다.
+        (양변을 $n^2$으로 나누면 $\left(\dfrac{b_n^2}{n}+\dfrac4n\right)\left(\dfrac{b_n^2}{n}+\dfrac1n\right)=1$이고, $\dfrac{b_n^2}{n}<1$이며 $\left(\dfrac{b_n^2}{n}+\dfrac4n\right)^2>1$에서 $1-\dfrac4n<\dfrac{b_n^2}{n}<1$이다.)
+      criteria: ['3.A2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 4
+      evidence: |
+        근과 계수의 관계와 두 점 사이의 거리 공식으로 $(\beta_n-\alpha_n)^2+(\beta_n^2-\alpha_n^2)^2=n^2$(또는 $(\beta_n-\alpha_n)^2\{1+(\alpha_n+\beta_n)^2\}=n^2$)을 세웠다.
+      depends_on: []
+      implied_ok: false
+      steps: [3b-1, 3b-2]
+    - id: 3.A1
+      mark_type: A
+      points: 3
+      evidence: |
+        $(b_n^2+4)(b_n^2+1)=n^2$을 얻었다.
+      depends_on: [3.M1]
+      steps: [3b-3]
+    - id: 3.A2
+      mark_type: A
+      points: 3
+      evidence: |
+        $n^2$으로 나누거나 부등식으로 묶는 등 근거를 밝혀 극한값 $1$을 얻었다.
+      depends_on: [3.M1]
+      steps: [3b-4]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '73', misconception: MC-GEO-7143}
+  misconceptions:
+  - id: MC-GEO-7143
+    outcome_code: '73'
+    wrong_work: '거리를 $\beta_n-\alpha_n=\sqrt{b_n^2+4}=n$으로 놓아 $\dfrac{b_n^2}{n}\to\infty$라고 답함'
+    detect_cue: 거리 식에 $y$좌표 차 $(\beta_n^2-\alpha_n^2)$가 없다
+    feedback: 두 교점은 기울기 $b_n$인 직선 위에 있으므로 거리는 $(\beta_n-\alpha_n)\sqrt{1+b_n^2}$입니다.
+    remedy: [RL-3]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CAL-7141}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-PARABOLA-LINE-AREA}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-CAL-7142}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-LIMIT-RATIONALIZE}
+  priority: 1
+- id: RL-3
+  trigger: {type: misconception, ref: MC-GEO-7143}
+  relation: remediation
+  target: {kind: concept, ref: CON-GEO-CHORD-LENGTH}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: ku-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

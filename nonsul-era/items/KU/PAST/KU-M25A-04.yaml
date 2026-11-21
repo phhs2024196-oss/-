@@ -1,0 +1,227 @@
+# 고려대 2023.8.11 시행 모의논술(2025학년도 논술전형 대비) 자연계 문항 4 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: KU-M25A-04
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: numeric
+origin: mock_exam
+school: KU
+type: T06
+variant_of: null
+replaces: null
+level: L3
+form: 추론
+points: 15
+time_estimate_min: 10
+intent: |
+  조건부확률의 의미를 정확히 이해하고, 독립인 부품 불량 사건으로 회로의 작동 여부 확률과 조건부확률을 구하는 과정을 평가한다(문항카드 '출제 의도'·'문항 해설' 요지).
+key_idea: |
+  작동 사건을 배반사건 $(A\cap C)\cup(A^c\cap B\cap C)$로 나누어 $P(\text{작동 안 함})=\frac{29}{200}$, $P(A^c\cap\text{작동 안 함})=P(A^c)-P(A^c\cap B\cap C)=\frac{13}{200}$을 구해 나눈다.
+stuck: |
+  "부품 A가 불량이고 회로가 작동하지 않는" 사건을 $A^c-(A^c\cap B\cap C)$로 표현하는 것
+idea_tags: [IDEA-CONDITIONAL-COMPLEMENT-EVENT, IDEA-DISJOINT-DECOMPOSITION]
+tags: [고려대 모의논술, 2023.8 모의, 회로 신뢰도]
+elements:
+  materials:
+  - 'A·B 병렬 후 C 직렬로 연결된 회로'
+  - '부품 불량률 A 20%, B 25%, C 10%(서로 독립)'
+  concepts:
+  - '독립사건과 확률의 곱셈정리'
+  - '배반사건과 확률의 덧셈정리'
+  - '여사건'
+  - '조건부확률'
+  tools:
+  - '사건 $A$, $B$, $C$ = 각 부품 정상'
+  - '작동 사건 $=(A\cap C)\cup(A^c\cap B\cap C)$'
+  - '$P(A^c\mid E^c)=\frac{P(A^c\cap E^c)}{P(E^c)}$'
+  conditions:
+  - '작동 ⇔ (A 또는 B 정상) 그리고 C 정상'
+  - '불량 사건이 독립 → 정상 사건도 독립, 확률을 곱함'
+  - '$A^c\cap(\text{작동 안 함})=A^c-(A^c\cap B\cap C)$'
+  stimuli_used: [가]
+  subpart_links: '단일 소문항'
+
+curriculum:
+  version: '2015'
+  subjects: [확률과통계]
+  scope_2028: common
+  scope_confirmed: true
+  standards:
+  - code: 12확통02-05
+    text: 조건부확률의 의미를 이해하고, 이를 구할 수 있다.
+    verified: true
+  - code: 12확통02-06
+    text: 사건의 독립 종속의 의미를 이해하고, 이를 설명할 수 있다.
+    verified: true
+  content_area: 확률 – 조건부확률
+  behavior_domain: 계산
+  unit_path: [확률과통계, 확률, 조건부확률, 조건부확률의 계산]
+  key_concepts: [조건부확률, 독립사건, 배반사건, 여사건]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 고려대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 고려대학교
+  admission_year: 2025
+  admission_type: 논술(모의)
+  track: 자연계열
+  question_no: 4
+  official_url: https://oku.korea.ac.kr/oku/cms/FR_CON/index.do?MENU_ID=720
+  retrieved_at: '2026-11-21'
+  original_points: [15]
+  rights_notice: 본 자료에 대한 지적 소유권은 고려대학교에 있습니다. 본교의 허락 없이 무단으로 출판, 게재, 사용할 수 없습니다.
+  note: |
+    2023.8.11 시행 고려대학교 모의논술(2025학년도 논술전형 대비) 자연계 문항 4. 원본 '2023년 고려대학교 모의논술 출제의도 및 문항해설(자연계).pdf' p.3(문항), p.5(출제 근거), p.8(문항 해설·채점 기준), p.12(예시 답안).
+    교과서 근거(문항카드): 확률과통계(교학사 권오남 외 14인 62-70쪽 등 6종, 2019) — 문항 4.
+    원문 표기: 소문항 4-1)에는 배점 표기가 없음(문항 전체 15점). 불량률 중 A만 수식체($20\%$), B·C는 본문체로 인쇄됨.
+    채점 기준에 부분점수 배분이 없어 마크 배점은 자체 배분.
+
+verify: verify/KU-M25A.py::p04
+
+stimuli:
+- label: 가
+  body: |
+    부품 $\mathrm{A}$, $\mathrm{B}$, $\mathrm{C}$가 아래 그림과 같이 연결되어 작동하는 회로가 있다.
+    [그림] 왼쪽 단자(●)에서 나온 도선이 두 갈래로 나뉘어 위쪽에 부품 $\mathrm{A}$, 아래쪽에 부품 $\mathrm{B}$가 병렬로 연결되고, 두 갈래가 다시 합쳐진 뒤 부품 $\mathrm{C}$를 거쳐 오른쪽 단자(●)에 직렬로 연결된다.
+    이 회로는 부품 $\mathrm{A}$와 $\mathrm{B}$ 중 적어도 하나가 정상이고 부품 $\mathrm{C}$가 정상이면 작동을 한다. 새로 생산된 부품이 불량일 확률은
+    부품 $\mathrm{A}$: $20\%$,　　부품 $\mathrm{B}$: 25%,　　부품 $\mathrm{C}$: 10%
+    이고 부품 $\mathrm{A}$, 부품 $\mathrm{B}$, 부품 $\mathrm{C}$가 불량일 사건은 각각 독립이다.
+
+stem: |
+  다음 글을 읽고 물음에 답하시오. (15점)
+
+subparts:
+- id: '1'
+  stem: |
+    새로 생산된 부품 $\mathrm{A}$, $\mathrm{B}$, $\mathrm{C}$를 연결하였을 때 회로가 작동하지 않았다면 부품 $\mathrm{A}$가 불량일 확률은 얼마인가?
+  points: 15
+  depends_on: []
+  answer: {kind: value, value: '13/29', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: |
+      $P(\text{작동 안 함})=1-\frac{171}{200}=\frac{29}{200}$, $P(A\text{ 불량}\cap\text{작동 안 함})=\frac15-\frac15\cdot\frac34\cdot\frac9{10}=\frac{13}{200}$.
+    steps:
+    - id: 1a
+      content: |
+        $\dfrac{13/200}{29/200}=\dfrac{13}{29}$
+      criteria: ['1.M1', '1.A1', '1.M2', '1.A2', '1.A3']
+    hint_ladder:
+    - 회로가 작동하는 사건을 서로 배반인 두 사건으로 나누어 보자.
+    - A가 불량일 때 회로가 작동하려면 무엇이 필요한가?
+  - id: S1-B
+    audience: B
+    source_flow: 문항카드 p.12
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        부품 A가 정상일 사건을 $A$, 부품 B가 정상일 사건을 $B$, 부품 C가 정상일 사건을 $C$라 하자.
+        ■ 회로가 작동할 사건은 $(A\cap C)\cup(A^c\cap B\cap C)$이고 $(A\cap C)$와 $(A^c\cap B\cap C)$는 배반사건이므로 회로가 작동할 확률은
+        $$P((A\cap C)\cup(A^c\cap B\cap C))=P(A\cap C)+P(A^c\cap B\cap C)=\frac45\times\frac9{10}+\frac15\times\frac34\times\frac9{10}=\frac{171}{200}$$
+      criteria: ['1.M1']
+    - id: 1b-2
+      content: |
+        이다. 따라서 회로가 작동하지 않을 확률은 $\dfrac{29}{200}$이다.
+      criteria: ['1.A1']
+    - id: 1b-3
+      content: |
+        ■ 부품 A가 불량품이고 회로가 작동하지 않을 사건은 $A^c-(A^c\cap B\cap C)$이고 사건 $A^c$가 사건 $A^c\cap B\cap C$를 포함하므로 부품 A가 불량품이고 회로가 작동하지 않을 확률은
+        $$P(A^c-(A^c\cap B\cap C))=P(A^c)-P(A^c\cap B\cap C)$$
+      criteria: ['1.M2']
+    - id: 1b-4
+      content: |
+        $$=\frac15-\frac15\times\frac34\times\frac9{10}=\frac{13}{200}$$
+        이다.
+      criteria: ['1.A2']
+    - id: 1b-5
+      content: |
+        ■ 따라서 회로가 작동하지 않았다면 부품 A가 불량품일 확률은
+        $$P(\text{A가 불량품}\mid\text{회로작동안함})=\frac{P(\text{A가 불량품이고 회로작동안함})}{P(\text{회로작동안함})}=\frac{\frac{13}{200}}{\frac{29}{200}}=\frac{13}{29}$$
+        이다.
+      criteria: ['1.A3']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 4
+      evidence: |
+        회로가 작동하는(또는 작동하지 않는) 사건을 배반사건 또는 여사건으로 나타내고 독립성으로 확률을 곱하는 식을 세웠다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1]
+    - id: 1.A1
+      mark_type: A
+      points: 3
+      evidence: |
+        회로가 작동하지 않을 확률 $\frac{29}{200}$을 얻었다.
+      depends_on: [1.M1]
+      steps: [1b-2]
+    - id: 1.M2
+      mark_type: M
+      points: 3
+      evidence: |
+        "A가 불량이고 회로가 작동하지 않음"을 $A^c-(A^c\cap B\cap C)$ 등으로 나타내 확률식을 세웠다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-3]
+    - id: 1.A2
+      mark_type: A
+      points: 2
+      evidence: |
+        그 확률 $\frac{13}{200}$을 얻었다.
+      depends_on: [1.M2]
+      steps: [1b-4]
+    - id: 1.A3
+      mark_type: A
+      points: 3
+      evidence: |
+        조건부확률의 정의로 $\frac{13}{29}$을 얻었다.
+      depends_on: [1.M1, 1.M2, 1.A1, 1.A2]
+      steps: [1b-5]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-PRB-7190}
+  - {code: '72', misconception: MC-PRB-7191}
+  misconceptions:
+  - id: MC-PRB-7190
+    outcome_code: '71'
+    wrong_work: '$P(A\text{ 불량}\cap\text{작동 안 함})=\frac{13}{200}$을 답하거나 $P(\text{작동 안 함}\mid A\text{ 불량})=\frac{13}{40}$을 답함'
+    detect_cue: 분모가 $P(\text{작동 안 함})=\frac{29}{200}$이 아니다
+    feedback: "\"작동하지 않았다면\"이 조건입니다. 조건이 되는 사건의 확률로 나누세요."
+    remedy: [RL-1]
+  - id: MC-PRB-7191
+    outcome_code: '72'
+    wrong_work: '병렬부 작동 확률을 $\frac45+\frac34$처럼 더함(1을 넘음)'
+    detect_cue: A·B 병렬부 확률 계산에 $\frac45+\frac34$ 또는 1보다 큰 값이 있다
+    feedback: A, B가 정상인 사건은 배반이 아닙니다. $1-\frac15\cdot\frac14$ 또는 배반 분해를 쓰세요.
+    remedy: [RL-2]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-PRB-7190}
+  relation: remediation
+  target: {kind: concept, ref: CON-PRB-CONDITIONAL}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-PRB-7191}
+  relation: remediation
+  target: {kind: concept, ref: CON-PRB-INDEPENDENT}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: ku-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21
