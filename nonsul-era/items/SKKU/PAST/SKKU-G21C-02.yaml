@@ -1,0 +1,376 @@
+# 성균관대 2021학년도 수시 논술우수전형 자연계 3교시 [수학 2] — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: SKKU-G21C-02
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: SKKU
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 분류
+points: 30
+time_estimate_min: 30
+intent: |
+  직선, 포물선 및 유리함수의 그래프와 관련한 기하(포물선의 접선의 방정식, 두 곡선으로 둘러싸인 도형의 넓이)를 이해하는지 평가한다. 포물선이 접선을 가질 때 접선과 포물선의 방정식을 연립해 얻는 이차방정식의 해를 구할 수 있는지, 이를 수열의 극한과 연관시켜 극한의 수렴·발산 개념을 올바르게 이해하는지 평가한다(2021 보고서 문항카드 21 출제 의도 요약). 소문항 배점은 채점기준표 배점.
+key_idea: |
+  $h(x)=\min(f(x),g(x))$는 $x\le-\tfrac32$에서 $x+3$, $-\tfrac32<x\le0$에서 $2x^2+4x+3$, $0<x\le\tfrac{-1+\sqrt5}{2}$에서 $x+3$, 그 뒤 $\tfrac1x+2$이다. $(-3,0)$을 지나는 직선이 포물선 부분에 접하는 기울기 $t=-8+6\sqrt2$를 경계로 교점 수가 $2,3,4$로 바뀐다. 점 $(n,0)$에서의 접선 조건은 $2\alpha^2-4n\alpha-(4n+3)=0$.
+stuck: |
+  $h$의 구간별 식을 정확히 정한 뒤, 직선 $y=t(x+3)$이 오른쪽 유리함수 부분과는 항상 한 번, 왼쪽 직선 부분과는 $x=-3$에서 한 번 만나고 포물선 부분과의 교점 수만 판별식으로 갈린다는 분류
+idea_tags: [IDEA-MIN-FUNCTION-PIECEWISE, IDEA-PENCIL-OF-LINES-COUNT, IDEA-TANGENT-FROM-EXTERNAL-POINT-SEQ, IDEA-RATIONALIZE-LIMIT]
+tags: [구간별 함수, 교점의 개수, 포물선의 접선, 수열의 극한, 넓이]
+elements:
+  materials:
+  - '$f(x)=\begin{cases}2x^2+4x+3&(x\le0)\\\frac1x+2&(x>0)\end{cases}$, $g(x)=x+3$, $h=\min(f,g)$'
+  - '세 교점 $\mathrm{Q}_1$, $\mathrm{Q}_2$, $\mathrm{Q}_3$'
+  - '직선 $y=t(x+3)$ $(0<t<1)$과 $y=h(x)$의 교점의 개수 $k(t)$'
+  - '점 $(n,0)$에서 $y=h(x)$에 그은 접선 $l_n$과 제2사분면의 접점 $\mathrm{P}_n(\alpha_n,\beta_n)$, $\mathrm{T}_n$, $\mathrm{R}_n$, 넓이 $S_n$'
+  concepts:
+  - '이차함수·유리함수의 그래프'
+  - '직선과 포물선의 위치 관계(판별식), 접선의 방정식'
+  - '수열의 극한(분모·분자의 유리화)'
+  - '곡선으로 둘러싸인 도형의 넓이(정적분)'
+  tools:
+  - '연립방정식으로 교점 계산'
+  - '부등식 $f(x)<g(x)$로 $h$의 구간 결정'
+  - '판별식 $D=0$으로 경계 기울기 $t=-8+6\sqrt2$'
+  - '접선식 $(\alpha+1)(x+1)=\tfrac14(y-1+\beta-1)$에 $(n,0)$ 대입'
+  - '$A=4n^2+8n+6$ 치환과 켤레식 곱하기'
+  - '삼각형 $\mathrm{Q_2R_nT_n}$의 넓이 − $\int_{-3/2}^{0}\{(x+3)-(2x^2+4x+3)\}dx$'
+  conditions:
+  - '$0<t<1$'
+  - '$\mathrm{P}_n$은 제2사분면 ⇒ 포물선 부분, $-\tfrac32<\alpha_n<0$'
+  - '$\mathrm{R}_n$은 $l_n$과 제2사분면의 직선 부분 $y=x+3$의 교점'
+  stimuli_used: [S1, S2]
+  subpart_links: '(ⅱ)는 (ⅰ)의 교점으로 $h$를 정하고, (ⅲ)은 (ⅱ)의 $h$ 개형을, (ⅳ)는 (ⅲ)의 접선식과 $\alpha_n$, $\beta_n$의 극한을 사용'
+
+curriculum:
+  version: '2015'
+  subjects: [수학, 수학Ⅱ, 미적분, 기하]
+  scope_2028: geom
+  scope_confirmed: false
+  standards:
+  - code: 12기하01-01
+    text: 포물선의 뜻을 알고, 포물선의 방정식을 구할 수 있다.
+    verified: true
+  - code: 12기하01-04
+    text: 이차곡선과 직선의 위치 관계를 이해하고, 접선의 방정식을 구할 수 있다.
+    verified: true
+  - code: 10수학04-04
+    text: 유리함수 $y=\dfrac{ax+b}{cx+d}$의 그래프를 그릴 수 있고, 그 그래프의 성질을 이해한다.
+    verified: true
+  - code: 12미적03-05
+    text: 곡선으로 둘러싸인 도형의 넓이를 구할 수 있다.
+    verified: true
+  - code: 12미적01-02
+    text: 수열의 극한에 대한 기본 성질을 이해하고, 이를 이용하여 극한값을 구할 수 있다.
+    verified: true
+  - code: 12수학Ⅱ03-05
+    text: 곡선으로 둘러싸인 도형의 넓이를 구할 수 있다.
+    verified: true
+  textbooks:
+  - '수학(류희찬 외, 천재교과서, 2020) 121-125'
+  - '미적분(류희찬 외, 천재교과서, 2020) 18-20'
+  - '수학Ⅱ(이준열 외, 천재교육, 2020) 132-138'
+  - '기하(김원경 외, 비상교육, 2020) 35-42'
+  content_area: 유리함수·포물선의 접선·수열의 극한·정적분의 활용
+  behavior_domain: 문제해결
+  unit_path: [기하, 이차곡선, 이차곡선, 포물선의 접선]
+  key_concepts: [구간별로 정의된 함수, 교점의 개수, 포물선의 접선, 수열의 극한, 넓이]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 성균관대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 성균관대학교
+  admission_year: 2021
+  admission_type: 수시 논술우수전형
+  track: 자연계
+  question_no: 2
+  session: 3교시
+  official_url: https://admission.skku.edu/admission/html/ipsi/notice.html
+  retrieved_at: 2026-11-21
+  original_points: [6, 8, 8, 8]
+  subpart_points_from_rubric: [6, 8, 8, 8]
+  rights_notice: 미기재(2021 선행학습 영향평가 자체평가보고서에 사용 제한 문구 없음)
+  transcribed_from: '2021 선행학습 영향평가 보고서 문항카드 21(자연계 3교시 수학 2), PDF p.257-262(인쇄 쪽 253-258) (이미지 대조 2026-11-21)'
+
+verify: verify/SKKU-G21C.py::p02
+
+stimuli:
+- id: S1
+  label: <제시문1>
+  body: |
+    (ⅰ) 두 함수 $f(x)$와 $g(x)$를 다음과 같이 정의하자.
+    $$f(x)=\begin{cases}2x^2+4x+3 & (x\le0)\\[2pt] \dfrac1x+2 & (x>0)\end{cases}\quad\text{이고,}\quad g(x)=x+3$$
+    (ⅱ) 두 함수 $y=f(x)$와 $y=g(x)$의 그래프를 좌표평면에 그렸을 때 나타나는 세 교점을 왼쪽부터 차례대로 $\mathrm{Q}_1$, $\mathrm{Q}_2$, $\mathrm{Q}_3$이라고 하자.
+    (ⅲ) 함수 $h(x)$를 $h(x)=\begin{cases}f(x) & (f(x)<g(x))\\ g(x) & (f(x)\ge g(x))\end{cases}$로 정의하자. 이때, $0<t<1$인 실수 $t$에 대하여 직선 $y=t\,(x+3)$과 곡선 $y=h(x)$의 교점의 개수를 $t$에 대한 함수 $k(t)$라 하자.
+- id: S2
+  label: <제시문2>
+  body: |
+    (ⅰ) 양의 정수 $n$에 대하여, 점 $(n,\,0)$에서 곡선 $y=h(x)$에 그은 접선 위의 접점 중 제2사분면에 있는 점을 $\mathrm{P_n}(\alpha_\mathrm{n},\beta_\mathrm{n})$이라고 하고 이때의 접선을 $l_n$이라 하자.
+    (ⅱ) 직선 $l_n$이 $y$축과 만나는 점을 $\mathrm{T}_n$이라고 하고, 직선 $l_n$이 접점 $\mathrm{P}_n$을 제외한 곡선 $y=h(x)$와 다시 만나는 점을 $\mathrm{R}_n$이라고 하자.
+    (ⅲ) 직선 $l_n$, $y$축, 곡선 $y=h(x)$로 둘러싸인 영역의 넓이를 $S_n$이라고 하자.
+
+stem: |
+  [수학 2]
+
+subparts:
+- id: '1'
+  stem: |
+    [수학 2 - ⅰ] <제시문1>에서 세 교점 $\mathrm{Q}_1$, $\mathrm{Q}_2$, $\mathrm{Q}_3$의 좌표를 모두 구하고, 그 이유를 논하시오.
+  points: 6
+  depends_on: []
+  answer: {kind: expression, value: 'Q1 = (-3/2, 3/2); Q2 = (0, 3); Q3 = ((-1 + sqrt(5))/2, (5 + sqrt(5))/2)', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $x\le0$과 $x>0$으로 나누어 각각 $g$와 연립.
+    steps:
+    - {id: 1a, content: '$2x^2+3x=0\Rightarrow x=-\tfrac32,0$; $\tfrac1x+2=x+3\Rightarrow x^2+x-1=0$, $x=\tfrac{-1+\sqrt5}{2}$', criteria: ['1.M1', '1.A1']}
+    hint_ladder:
+    - $f$가 구간별로 정의되어 있으니 두 경우로 나누어 연립하자.
+  - id: S1-B
+    audience: B
+    source_flow: 2021 보고서 문항카드 21 예시답안 p.259-260(인쇄 쪽 255-256)
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        (a) $x\le0$: 두 식 $y=2x^2+4x+3$과 $y=x+3$을 연립하여 풀면, 두 교점 $\mathrm{Q}_1\left(-\dfrac32,\dfrac32\right)$과 $\mathrm{Q}_2(0,3)$을 얻는다.
+      criteria: ['1.M1']
+    - id: 1b-2
+      content: |
+        (b) $x>0$: 두 식 $y=\dfrac1x+2$와 $y=x+3$을 연립하여 풀면, 교점 $\mathrm{Q}_3\left(\dfrac{-1+\sqrt5}{2},\dfrac{5+\sqrt5}{2}\right)$를 얻는다.
+
+        답: $\mathrm{Q}_1\left(-\dfrac32,\dfrac32\right)$, $\mathrm{Q}_2(0,3)$, $\mathrm{Q}_3\left(\dfrac{-1+\sqrt5}{2},\dfrac{5+\sqrt5}{2}\right)$
+      criteria: ['1.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 3
+      evidence: |
+        $x\le0$, $x>0$으로 나누어 각각 $g(x)=x+3$과 연립하고 $\mathrm{Q}_1$, $\mathrm{Q}_2$를 구했다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1]
+    - id: 1.A1
+      mark_type: A
+      points: 3
+      evidence: |
+        $\mathrm{Q}_3\left(\dfrac{-1+\sqrt5}{2},\dfrac{5+\sqrt5}{2}\right)$까지 세 교점의 좌표를 모두 구했다(채점기준표 6점 단일 행을 3·3으로 나눔).
+      depends_on: [1.M1]
+      steps: [1b-2]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '2'
+  stem: |
+    [수학 2 - ⅱ] <제시문1>에서 함수 $y=h(x)$의 그래프의 개형을 그리고, $0<t<1$인 실수 $t$의 범위에 따른 함수 $k(t)$의 값을 표로 나타내고, 그 이유를 논하시오.
+  points: 8
+  depends_on: ['1']
+  answer: {kind: expression, value: 't0 = -8 + 6*sqrt(2); k_below = 2; k_at = 3; k_above = 4', equivalents: ['0<t<-8+6√2: k=2, t=-8+6√2: k=3, -8+6√2<t<1: k=4'], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: $y=t(x+3)$은 $x=-3$에서 한 번, 유리함수 부분과 한 번 만나고, 포물선 부분과의 교점 수는 판별식 $t^2+16t-8$의 부호로 정해진다.
+    steps:
+    - {id: 2a, content: '$2x^2+(4-t)x+3-3t=0$의 판별식 $=0\Rightarrow t=-8+6\sqrt2$; $k=2,3,4$', criteria: ['2.M1', '2.A1']}
+    hint_ladder:
+    - $f<g$인 구간을 구해 $h$를 구간별로 쓰자.
+    - $(-3,0)$을 지나는 직선을 돌려 보며 그래프와의 교점을 세어 보자.
+    - 포물선 부분에 접할 때의 기울기를 판별식으로 구하자.
+  - id: S2-B
+    audience: B
+    source_flow: 2021 보고서 문항카드 21 예시답안 p.260-261(인쇄 쪽 256-257)
+    method_no: 1
+    steps:
+    - id: 2b-1
+      content: |
+        (a) $x\le0$: $f(x)<g(x)$인 부분을 살펴보면, 부등식 $2x^2+4x+3<x+3$으로부터 $-\dfrac32<x<0$을 얻는다. 또한 $f(0)=g(0)$이다. 따라서 $x\le0$일 때 $h(x)=\begin{cases}x+3 & \left(x\le-\frac32\right)\\ 2x^2+4x+3 & \left(-\frac32<x\le0\right)\end{cases}$.
+      criteria: ['2.M1']
+    - id: 2b-2
+      content: |
+        (b) $x>0$: $f(x)<g(x)$인 부분을 살펴보면, 부등식 $\dfrac1x+2<x+3$으로부터 $x>\dfrac{-1+\sqrt5}{2}$를 얻는다. 따라서 $x>0$일 때 $h(x)=\begin{cases}x+3 & \left(0<x\le\frac{-1+\sqrt5}{2}\right)\\ \frac1x+2 & \left(x>\frac{-1+\sqrt5}{2}\right)\end{cases}$.
+        이로부터 곡선 $y=h(x)$의 그래프의 개형은 아래와 같다.
+        [그림: $-4\le x\le4$ 범위의 그래프. $x\le-\frac32$에서 기울기 1인 직선 $y=x+3$이 $(-4,-1)$에서 $(-3,0)$을 지나 $\left(-\frac32,\frac32\right)$의 꺾인 점까지 올라가고, 이어서 포물선 $y=2x^2+4x+3$이 내려가 $(-1,1)$에서 최소가 된 뒤 $(0,3)$까지 올라간다. $(0,3)$에서 다시 기울기 1인 직선으로 $\left(\frac{-1+\sqrt5}{2},\frac{5+\sqrt5}{2}\right)$(약 $(0.62,3.62)$)의 뾰족한 점까지 오르고, 그 뒤 $y=\frac1x+2$가 감소하며 $y=2$에 가까워진다($x=4$에서 약 $2.25$).]
+      criteria: ['2.M1']
+    - id: 2b-3
+      content: |
+        이 곡선 위에 $(-3,0)$을 지나고 기울기가 $t$인 직선을 그으면, 아래 그림에 있는 것처럼 2사분면에서 곡선과 접할 때, 3개의 교점을 가짐을 알 수 있다.
+        [그림: 위의 $y=h(x)$ 그래프에 $(-3,0)$을 지나는 직선(기울기 약 $0.49$)을 겹쳐 그린 그림. 직선은 $(-3,0)$에서 그래프와 만나고, $x\approx-1$ 부근에서 포물선 부분에 접하며, $x\approx2$ 부근에서 $y=\frac1x+2$ 부분과 만난다.]
+        위 그림에서 접선의 기울기가 $t$일 때, 이차방정식 $2x^2+4x+3=t(x+3)$이 중근을 가지므로, 판별식은 $0$이 되어, $t=-8+6\sqrt2$를 얻는다.
+      criteria: ['2.A1']
+    - id: 2b-4
+      content: |
+        이로부터 아래와 같은 표를 얻는다.
+
+        | $t$의 범위 | $k(t)$ |
+        |---|---|
+        | $0<t<-8+6\sqrt2$ | 2 |
+        | $t=-8+6\sqrt2$ | 3 |
+        | $-8+6\sqrt2<t<1$ | 4 |
+      criteria: ['2.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 4
+      evidence: |
+        함수 $y=h(x)$의 구간별 식을 정하고 그래프의 개형을 그렸다.
+      depends_on: []
+      implied_ok: false
+      ft: {allowed: true, from: [1.A1], max_points: 4}
+      steps: [2b-1, 2b-2]
+    - id: 2.A1
+      mark_type: A
+      points: 4
+      evidence: |
+        실수 $t$의 범위에 따른 함수 $k(t)$의 값($2$, $3$, $4$; 경계 $t=-8+6\sqrt2$)을 표로 나타냈다.
+      depends_on: [2.M1]
+      steps: [2b-3, 2b-4]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '3'
+  stem: |
+    [수학 2 - ⅲ] <제시문2>에서 $\alpha_n$, $\beta_n$을 각각 $n$에 대한 식으로 나타내고, $\displaystyle\lim_{n\to\infty}\alpha_n$과 $\displaystyle\lim_{n\to\infty}\beta_n$의 값을 구하고 그 이유를 논하시오.
+  points: 8
+  depends_on: ['2']
+  answer: {kind: expression, value: 'alpha_n = n - sqrt(4*n**2 + 8*n + 6)/2; beta_n = 4*n**2 + 8*n + 6 - (2*n + 2)*sqrt(4*n**2 + 8*n + 6); lim_alpha = -1; lim_beta = 1', equivalents: [], tolerance: null}
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: 포물선 부분의 접선이 $(n,0)$을 지날 조건 $2\alpha^2-4n\alpha-(4n+3)=0$에서 작은 근, 극한은 유리화.
+    steps:
+    - {id: 3a, content: '$\alpha_n=n-\tfrac12\sqrt{4n^2+8n+6}\to-1$, $\beta_n=(4n^2+8n+6)-(2n+2)\sqrt{4n^2+8n+6}\to1$', criteria: ['3.M1', '3.A1']}
+    hint_ladder:
+    - 제2사분면의 접점은 어느 부분 위에 있는가?
+    - 접선이 $(n,0)$을 지나는 조건을 $\alpha$에 대한 방정식으로 쓰자.
+    - 극한은 켤레식을 곱해 $\infty-\infty$ 꼴을 없애자.
+  - id: S3-B
+    audience: B
+    source_flow: 2021 보고서 문항카드 21 예시답안 p.261-262(인쇄 쪽 257-258)
+    method_no: 1
+    steps:
+    - id: 3b-1
+      content: |
+        $\mathrm{P}_n(\alpha_n,\beta_n)$에서 편의상 $\alpha=\alpha_n$, $\beta=\beta_n$이라고 표기하자. 접점 $\mathrm{P}_n$이 2사분면 위에 놓여있어야 하므로, $\mathrm{P}_n$은 포물선 $y=2x^2+4x+3$ 위에 놓여있어야 한다. 또한 $\alpha$는 점 $\mathrm{Q}_1$의 $x$좌표인 $-\dfrac32$와 점 $\mathrm{Q}_2$의 $x$좌표인 $0$ 사이에 놓여있게 된다.
+      criteria: ['3.M1']
+    - id: 3b-2
+      content: |
+        포물선 $y=2x^2+4x+3=2(x+1)^2+1$ 위의 점 $\mathrm{P}_n(\alpha,\beta)$에서의 접선의 방정식은 $(\alpha+1)(x+1)=\dfrac14(y-1+\beta-1)$로 주어지고, 이 직선이 점 $(n,0)$을 지나므로 $(\alpha+1)(n+1)=\dfrac14(\beta-2)$를 얻는다. 이 식에 $\beta=2\alpha^2+4\alpha+3$을 대입하고 정리하면, $\alpha$는 2차방정식 $2x^2-4nx-(4n+3)=0$의 근이 됨을 알 수 있다. 근의 공식과 $\alpha$의 범위를 고려하면 $\alpha_n=n-\dfrac12\sqrt{4n^2+8n+6}$을 얻고, $(\alpha+1)(n+1)=\dfrac14(\beta-2)$로부터 $\beta_n=(4n^2+8n+6)-(2n+2)\sqrt{4n^2+8n+6}$을 얻게 된다.
+      criteria: ['3.M1']
+    - id: 3b-3
+      content: |
+        편의상 $4n^2+8n+6$을 $A$로 치환하면 $\alpha=n-\dfrac12\sqrt A$이고, 분모와 분자에 각각 $n+\dfrac12\sqrt A$를 곱해서 정리하면 $\alpha=\dfrac{-2n-\frac32}{n+\frac12\sqrt A}$, 분모와 분자를 각각 $n$으로 나누면 $\alpha=\dfrac{-2-\frac{3}{2n}}{1+\frac{\sqrt{4n^2+8n+6}}{2n}}$이 되어 $\displaystyle\lim_{n\to\infty}\alpha_n=-1$.
+        비슷한 방법으로 $\beta=A-(2n+2)\sqrt A$이고, 분모와 분자에 각각 $A+(2n+2)\sqrt A$를 곱해서 정리하면 $\beta=\dfrac{2A}{A+(2n+2)\sqrt A}$, 분모와 분자를 각각 $A$로 나누면 $\beta=\dfrac{2}{1+\frac{(2n+2)}{\sqrt A}}$이 되어 $\displaystyle\lim_{n\to\infty}\beta_n=1$.
+      criteria: ['3.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 4
+      evidence: |
+        $\alpha_n=n-\dfrac12\sqrt{4n^2+8n+6}$, $\beta_n=(4n^2+8n+6)-(2n+2)\sqrt{4n^2+8n+6}$을 각각 $n$에 대한 식으로 나타냈다.
+      depends_on: []
+      implied_ok: false
+      steps: [3b-1, 3b-2]
+    - id: 3.A1
+      mark_type: A
+      points: 4
+      evidence: |
+        $\displaystyle\lim_{n\to\infty}\alpha_n=-1$과 $\displaystyle\lim_{n\to\infty}\beta_n=1$의 값을 구했다.
+      depends_on: [3.M1]
+      steps: [3b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '4'
+  stem: |
+    [수학 2 - ⅳ] <제시문2>에서 점 $\mathrm{T}_n$의 $y$좌표, 점 $\mathrm{R}_n$의 $x$좌표, 넓이 $S_n$을 각각 $\alpha_n$, $\beta_n$에 대한 식으로 나타낸 후 $\displaystyle\lim_{n\to\infty}S_n$을 구하고, 그 이유를 논하시오.
+  points: 8
+  depends_on: ['3']
+  answer: {kind: expression, value: 'T_y = 4*alpha - beta + 6; R_x = (beta - 4*alpha - 3)/(4*alpha + 3); S = -(beta - 4*alpha - 3)**2/(2*(4*alpha + 3)) - 9/8; lim_S = 7/8', equivalents: [], tolerance: null}
+  solutions:
+  - id: S4-A
+    audience: A
+    method_no: 1
+    key_idea: $S_n=\triangle\mathrm{Q_2R_nT_n}-\tfrac98$, $\triangle=\tfrac12(3-t_n)(-r_n)$.
+    steps:
+    - {id: 4a, content: '$t_n=4\alpha-\beta+6$, $r_n=\tfrac{\beta-4\alpha-3}{4\alpha+3}$, $S_n=-\tfrac12\tfrac{(\beta-4\alpha-3)^2}{4\alpha+3}-\tfrac98\to-\tfrac12\cdot\tfrac{4}{-1}-\tfrac98=\tfrac78$', criteria: ['4.M1', '4.A1']}
+    hint_ladder:
+    - $l_n$은 제2사분면의 직선 부분 $y=x+3$과 다시 만난다.
+    - 영역을 삼각형에서 포물선과 직선 사이의 조각을 뺀 것으로 보자.
+  - id: S4-B
+    audience: B
+    source_flow: 2021 보고서 문항카드 21 예시답안 p.262(인쇄 쪽 258)
+    method_no: 1
+    steps:
+    - id: 4b-1
+      content: |
+        (ⅲ)번의 풀이에서 접선 $l_n$의 방정식은 $(\alpha+1)(x+1)=\dfrac14(y-1+\beta-1)$로 주어지므로, 이 식에 $x=0$을 대입하면 $y=4\alpha-\beta+6$이 되므로, 점 $\mathrm{T}_n$의 $y$좌표는 $4\alpha-\beta+6$과 같다. 또한 접선 $l_n$은 곡선 $y=h(x)$와 2사분면에 있는 직선부분과 만나므로, 두 식 $(\alpha+1)(x+1)=\dfrac14(y-1+\beta-1)$과 $y=x+3$을 연립해서 풀면 $x=\dfrac{\beta-4\alpha-3}{4\alpha+3}$이 되므로, 교점 $\mathrm{R}_n$의 $x$좌표는 $\dfrac{\beta-4\alpha-3}{4\alpha+3}$이 된다.
+      criteria: ['4.M1']
+    - id: 4b-2
+      content: |
+        넓이 $S_n=\triangle\mathrm{Q_2R_nT_n}-\displaystyle\int_{-\frac32}^{0}\left((x+3)-(2x^2+4x+3)\right)dx=\triangle\mathrm{Q_2R_nT_n}-\dfrac98$이고, 여기서 $\triangle\mathrm{Q_2R_nT_n}=\dfrac12(3-t_n)(-r_n)$이 된다. 여기서 $t_n$은 점 $\mathrm{T}_n$의 $y$좌표이며, $r_n$은 점 $\mathrm{R}_n$의 $x$좌표이다.
+      criteria: ['4.A1']
+    - id: 4b-3
+      content: |
+        앞에서 구한 $t_n$과 $r_n$의 식을 대입해서 정리하면 $3-t_n=\beta-4\alpha-3$이므로
+        $$S_n=-\dfrac12\dfrac{(\beta-4\alpha-3)^2}{4\alpha+3}-\dfrac98$$
+        이 되며, (ⅲ)번에서 구한 $\alpha$의 극한값 $-1$과 $\beta$의 극한값 $1$을 적용하면 $S_n$의 극한값은 $-\dfrac12\cdot\dfrac{2^2}{-1}-\dfrac98=\dfrac78$과 같게 된다.
+        [공식 예시답안은 $S_n=-\dfrac12\dfrac{(\beta_n-4\alpha_n+3)^2}{4\alpha_n+3}-\dfrac98$로 인쇄되어 있으나, $3-t_n=\beta_n-4\alpha_n-3$이므로 분자는 $(\beta_n-4\alpha_n-3)^2$이 맞다(인쇄식으로는 극한이 $\tfrac{247}{8}$이 되어 공식 답 $\tfrac78$과 모순). 극한값 $\tfrac78$은 공식 답과 같다.]
+      criteria: ['4.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 4.M1
+      mark_type: M
+      points: 4
+      evidence: |
+        점 $\mathrm{T}_n$의 $y$좌표 $4\alpha_n-\beta_n+6$과 점 $\mathrm{R}_n$의 $x$좌표 $\dfrac{\beta_n-4\alpha_n-3}{4\alpha_n+3}$을 각각 $\alpha_n$, $\beta_n$에 대한 식으로 나타냈다.
+      depends_on: []
+      implied_ok: false
+      ft: {allowed: true, from: [3.M1], max_points: 4}
+      steps: [4b-1]
+    - id: 4.A1
+      mark_type: A
+      points: 4
+      evidence: |
+        넓이 $S_n$을 $\alpha_n$, $\beta_n$에 대한 식으로 나타내고 $\displaystyle\lim_{n\to\infty}S_n=\dfrac78$을 구했다.
+      depends_on: [4.M1]
+      steps: [4b-2, 4b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+remedy_links: []
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

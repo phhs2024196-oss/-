@@ -1,0 +1,357 @@
+# 성균관대 2025학년도 모의논술 논술시험(수리 논술) 문제 3 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: SKKU-M25-03
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: SKKU
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 분류
+points: 40
+time_estimate_min: 40
+intent: |
+  좌표평면 위의 두 점 사이의 거리 공식을 이용하여 주어진 삼각형의 세 선분과 원과의 교점의 개수를 구할 수 있는지 평가한다(해설지 「개요 및 주요 평가항목」 요지). 두 점 사이의 거리 공식, 이차함수의 최대·최소, 다항식의 인수분해, 이차부등식, 삼차함수의 그래프의 개형을 다룬다.
+key_idea: |
+  선분 위의 점과 중심 $\left(a,\frac{a^2}{\sqrt3}\right)$ 사이 거리의 제곱을 그 선분의 매개변수 $x$의 이차함수로 두고, 닫힌 구간에서의 최솟값 $\le\frac43\le$ 최댓값을 교점 존재의 필요충분조건으로 쓴다.
+stuck: |
+  꼭짓점의 위치(구간 안/밖)에 따라 최솟값이 바뀌므로 $a$의 범위를 두 경우로 나누는 것, 그리고 $a^4+3a^2-12a+8=(a-1)(a^3+a^2+4a-8)$ 인수분해
+idea_tags: []
+tags: [원과 선분의 교점, 거리 함수, 이차함수 최대최소, 삼차방정식의 근]
+elements:
+  materials:
+  - '정삼각형 $\mathrm{ABC}$, $\mathrm{A}(0,0)$, $\mathrm{B}(2,0)$, $\mathrm{C}(1,\sqrt3)$'
+  - '중심 $\left(a,\frac{a^2}{\sqrt3}\right)$, 반지름 $\frac{2}{\sqrt3}$인 원 $C_a$ ($a\ge1$)'
+  - '각 변과 원의 교점 개수 $f_1(a),f_2(a),f_3(a)$'
+  concepts:
+  - '두 점 사이의 거리'
+  - '닫힌 구간에서 이차함수의 최대·최소'
+  - '고차다항식의 인수분해와 고차부등식'
+  - '삼차함수의 증가와 사잇값 정리(근의 존재)'
+  tools:
+  - '거리 제곱 함수 $f(x)$, $g(x)$, $h(x)$ 완전제곱식 변형'
+  - '꼭짓점 위치에 따른 경우 분류'
+  - '$k(a)=a^3+a^2+4a-8$의 단조성과 부호 변화'
+  conditions:
+  - '$a\ge1$'
+  - '(ii) $f_1(a)=2$인 $1$보다 큰 $a$ 중 최솟값 $m$'
+  - '(iv) $m$을 이용하여 범위 표현'
+  stimuli_used: [S1, S2]
+  subpart_links: '(ii)는 (i)의 거리함수와 범위를 이용, (iv)는 (ii)의 $m$과 부등식 $\frac43\le(2-a)^2+\frac13a^4$의 해를 재사용'
+
+curriculum:
+  version: '2015'
+  subjects: [수학, 수학Ⅱ]
+  scope_2028: common
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 두 점 사이의 거리를 구할 수 있다(요지, 모의논술 보고서 없음)
+    verified: false
+  - code: 미확인
+    text: 이차함수의 최대·최소를 이해하고 활용할 수 있다(요지)
+    verified: false
+  - code: 미확인
+    text: 간단한 삼차방정식·사차방정식과 부등식을 풀 수 있다(요지)
+    verified: false
+  content_area: 도형의 방정식, 방정식과 부등식
+  behavior_domain: 문제해결
+  unit_path: [수학, 도형의 방정식, 원의 방정식, 원과 직선의 위치 관계]
+  key_concepts: [두 점 사이의 거리, 이차함수의 최대 최소, 인수분해, 삼차함수]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 성균관대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 성균관대학교
+  admission_year: 2025
+  admission_type: 모의논술
+  track: 수리형
+  question_no: 3
+  official_url: https://admission.skku.edu/admission/html/rolling/question.html
+  retrieved_at: 2026-11-21
+  original_points: [10, 10, 10, 10]
+  rights_notice: 미확인(문제지·해설지에 별도 저작권 문구 없음)
+  transcribed_from: m25_q.pdf 문제지 p.4(3/3), 해설지 m25_s.pdf p.10-18(9/17-17/17, 별해 p.17/17) (이미지 대조 2026-11-21)
+
+verify: verify/SKKU-M25.py::p03
+
+stimuli:
+- id: S1
+  label: <제시문 1>
+  body: |
+    좌표 평면 위에 세 점 $\mathrm{A}(0,0)$, $\mathrm{B}(2,0)$, $\mathrm{C}(1,\sqrt3)$을 꼭짓점으로 하는 정삼각형 $\mathrm{ABC}$가 있다. $1$이상의 실수 $a$에 대하여 중심이 $\left(a,\,\dfrac{a^2}{\sqrt3}\right)$이고 반지름이 $\dfrac{2}{\sqrt3}$인 원 $C_a$와 정삼각형 $\mathrm{ABC}$의 교점을 생각하자.
+- id: S2
+  label: <제시문 2>
+  body: |
+    <제시문 1>의 원 $C_a$와 세 점 $\mathrm{A}$, $\mathrm{B}$, $\mathrm{C}$, $1$이상의 실수 $a$에 대하여 함수 $f_1(a)$, $f_2(a)$, $f_3(a)$를 각각 다음과 같이 정의하자.
+    (ⅰ) 원 $C_a$와 선분 $\mathrm{AB}$의 교점의 개수를 $f_1(a)$라고 하자.
+    (ⅱ) 원 $C_a$와 선분 $\mathrm{AC}$의 교점의 개수를 $f_2(a)$라고 하자.
+    (ⅲ) 원 $C_a$와 선분 $\mathrm{BC}$의 교점의 개수를 $f_3(a)$라고 하자.
+
+stem: |
+  다음 <제시문 1>과 <제시문 2>를 읽고 [문제 3-ⅰ] ~ [문제 3-ⅳ]를 문항별로 풀이와 함께 답하시오. (40점)
+
+subparts:
+- id: '1'
+  stem: |
+    <제시문 2>에 주어진 함수 $f_1(a)$에 대하여, $f_1(a)\ge1$이기 위한 $a$의 범위에 대하여 논하시오. (10점)
+  points: 10
+  depends_on: []
+  answer: {kind: set, value: 'Interval(1, sqrt(2))', equivalents: ['1 <= a <= sqrt(2)'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: |
+      $f(x)=(x-a)^2+\frac13a^4$이 $[0,2]$에서 $\frac43$을 지나야 한다. $1\le a\le2$에서는 최솟값 $\frac13a^4\le\frac43$, $a\ge2$에서는 $f(2)\le\frac43$이 불가능.
+    steps:
+    - {id: 1a, content: '$1\le a\le\sqrt2$', criteria: ['1.M1', '1.A1']}
+    hint_ladder:
+    - 선분 $\mathrm{AB}$ 위의 점 $(x,0)$과 중심 사이 거리의 제곱을 $x$의 함수로 쓰라.
+  - id: S1-B
+    audience: B
+    source_flow: 2025 모의논술 해설지 문제3-ⅰ 예시답안 p.10-11/17
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        선분 $\mathrm{AB}$ 위의 임의의 점을 $(x,0)$으로 놓자. 여기서 $0\le x\le2$이다. 원 $C_a$와 선분 $\mathrm{AB}$의 교점이 생길 필요충분조건은 두 점 $(x,0)$과 $\left(a,\frac{a^2}{\sqrt3}\right)$ 사이의 거리가 $\frac2{\sqrt3}$이 되는 $x$가 $0$과 $2$ 사이에 존재한다는 것이다. 두 점 사이의 거리의 제곱을 $f(x)$로 두면, $f(x)=(x-a)^2+\frac13a^4$이므로 $f(x)=\frac43$이 되는 $x$를 닫힌 구간 $[0,2]$에서 찾도록 하자.
+      criteria: ['1.M1']
+    - id: 1b-2
+      content: |
+        (경우1) $1\le a\le2$: 이 경우 닫힌 구간 $[0,2]$에서 $f(x)$의 최솟값은 $f(a)=\frac13a^4$이고 최댓값은 $f(0)=a^2+\frac13a^4$이므로, $f_1(a)\ge1$일 필요충분조건은 $\frac13a^4\le\frac43\le a^2+\frac13a^4$임을 알 수 있다. 여기서 $\frac13a^4\le\frac43$를 풀면, $a^4-4=(a^2+2)(a^2-2)\le0$이므로 $-\sqrt2\le a\le\sqrt2$를 얻는다. 또한 $\frac43\le a^2+\frac13a^4$를 풀면, $a^4+3a^2-4\ge0$이므로 $(a^2-1)(a^2+4)\ge0$이 되어 $a\ge1$ 또는 $a\le-1$을 얻는다. 이제 $1\le a\le2$임을 고려하면, $1\le a\le\sqrt2$이어야 한다.
+      criteria: ['1.A1']
+    - id: 1b-3
+      content: |
+        (경우2) $a\ge2$: 이 경우 닫힌 구간 $[0,2]$에서 $f(x)$의 최솟값은 $f(2)=(2-a)^2+\frac13a^4$이고 최댓값은 $f(0)=a^2+\frac13a^4$이므로, $f_1(a)\ge1$일 필요충분조건은 $(2-a)^2+\frac13a^4\le\frac43\le a^2+\frac13a^4$임을 알 수 있다. 여기서 $(2-a)^2+\frac13a^4\le\frac43$를 풀면, $a^4+3a^2-12a+8=(a-1)(a^3+a^2+4a-8)\le0$이 되는데, 주어진 조건 $a\ge2$로부터 $a-1\ge1$이고, $a^3+a^2+4a-8=a^3-8+a^2+4a=(a-2)(a^2+2a+4)+a(a+4)\ge12$이므로, 이 경우에 부등식 $(2-a)^2+\frac13a^4\le\frac43$를 만족하는 $a$는 존재하지 않는다.
+        따라서 (경우1)과 (경우2)를 종합적으로 고려하면, $f_1(a)\ge1$이기 위한 $a$의 범위는 $1\le a\le\sqrt2$임을 알 수 있다.
+        [그림: $a=1$인 경우와 $a=\sqrt2$인 경우의 그림. 정삼각형 ABC와 빨간 원 $C_a$, 중심 P가 점선 포물선 $y=\frac{1}{\sqrt3}x^2$ 위에 있음. $a=1$이면 원이 A, B, C를 지나는 외접원, $a=\sqrt2$이면 원이 선분 AB에 접함]
+      criteria: ['1.A1']
+  - id: S1-ALT
+    audience: ALT
+    source_flow: 2025 모의논술 해설지 별해 p.17/17
+    method_no: 2
+    key_idea: |
+      원 해설 별해 — 중심이 $y=\frac{1}{\sqrt3}x^2$ 위를 움직이고 반지름이 일정하므로, 중심의 $y$좌표 $\frac{a^2}{\sqrt3}$가 반지름 $\frac2{\sqrt3}$ 이하이어야 한다. 이로부터 $1\le a\le\sqrt2$이고, 이 범위에서 중심에서 $x$축에 내린 수선의 발이 점 B를 넘어서지 않으므로 이 범위가 답이다.
+    steps:
+    - id: 1c-1
+      content: |
+        $\dfrac{a^2}{\sqrt3}\le\dfrac{2}{\sqrt3}\iff a\le\sqrt2$, 수선의 발 $x=a\le\sqrt2<2$이므로 $1\le a\le\sqrt2$.
+      criteria: ['1.M1', '1.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 4
+      evidence: |
+        원 $C_a$와 선분 $\mathrm{AB}$의 교점이 생길 필요충분조건을 거리함수와 관련지어 설정한다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1, 1c-1]
+    - id: 1.A1
+      mark_type: A
+      points: 6
+      evidence: |
+        $a$의 범위를 두 가지 경우로 나누어, 거리함수와 관련지어 설정한 부등식을 해결한다($1\le a\le\sqrt2$).
+      depends_on: [1.M1]
+      steps: [1b-2, 1b-3, 1c-1]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '2'
+  stem: |
+    <제시문 2>에 주어진 함수 $f_1(a)$에 대하여, $f_1(a)=2$인 $1$보다 큰 $a$의 값들 중에서 가장 작은 값을 $m$이라고 두자. $m$을 근으로 하고 최고차항의 계수가 $1$이며 정수 계수를 갖는 삼차다항식을 구하고, 그 이유를 논하시오. (10점)
+  points: 10
+  depends_on: ['1']
+  answer: {kind: expression, value: 'x**3 + x**2 + 4*x - 8', equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: |
+      교점 2개 ⇔ $f(a)<\frac43\le f(2)$ ⇔ $a<\sqrt2$이고 $(a-1)(a^3+a^2+4a-8)\ge0$. $k(a)=a^3+a^2+4a-8$은 증가하고 $k(1)<0<k(\sqrt2)$.
+    steps:
+    - {id: 2a, content: '$m$은 $x^3+x^2+4x-8=0$의 $(1,\sqrt2)$ 안의 유일한 실근', criteria: ['2.M1', '2.A1']}
+    hint_ladder:
+    - 이차함수 그래프와 수평선이 닫힌 구간에서 두 번 만날 조건을 꼭짓점과 끝점 값으로 쓰라.
+  - id: S2-B
+    audience: B
+    source_flow: 2025 모의논술 해설지 문제3-ⅱ 예시답안 p.12/17
+    method_no: 1
+    steps:
+    - id: 2b-1
+      content: |
+        [문제 3-ⅰ]의 풀이로부터 $f_1(a)\ge1$이기 위한 $a$의 범위는 $1\le a\le\sqrt2$이 됨을 알았다. $1\le a\le\sqrt2$일 때, 닫힌 구간 $[0,2]$에서 이차함수 $f(x)=(x-a)^2+\frac13a^4$의 그래프의 개형을 살펴보면, $y=f(x)$와 $y=\frac43$의 교점이 $2$개가 되기 위한 필요충분조건은 $f(a)<\frac43\le f(2)$가 됨을 알 수 있다. 따라서 $f_1(a)=2$일 필요충분조건은 $\frac13a^4<\frac43\le(2-a)^2+\frac13a^4$이 된다.
+      criteria: ['2.M1']
+    - id: 2b-2
+      content: |
+        여기서 $\frac13a^4<\frac43$를 풀면, $a^4-4=(a^2+2)(a^2-2)<0$이므로 $-\sqrt2<a<\sqrt2$를 얻는다. 또한 $\frac43\le(2-a)^2+\frac13a^4$을 풀면, $a^4+3a^2-12a+8=(a-1)(a^3+a^2+4a-8)\ge0$이 되는데, $a$의 범위인 $1\le a\le\sqrt2$를 감안하면, $a^3+a^2+4a-8\ge0$이 되어야 한다.
+      criteria: ['2.M1']
+    - id: 2b-3
+      content: |
+        이제 함수 $k(a)=a^3+a^2+4a-8$이라고 두면, 이것의 도함수는 $3a^2+2a+4$는 항상 양수이므로, 함수 $k(a)$는 증가함수가 됨을 알 수 있다. 또한 $k(1)=-2<0$이고 $k(\sqrt2)=6\sqrt2-6>0$이므로, $k(x)=0$의 실근은 $1$과 $\sqrt2$ 사이에 딱 하나 존재함을 알 수 있다. 이 실근을 $\alpha$라고 두면, $f_1(a)=2$일 필요충분조건은 $a=1$ 또는 $\alpha\le a<\sqrt2$가 된다. 따라서 $f_1(a)=2$인 $1$보다 큰 $a$의 값들 중에서 가장 작은 값을 $m$이라고 두면, $m=\alpha$가 되고, $m$이 만족하는 최고차항의 계수가 $1$인 정수계수 삼차다항식 중 하나는 $x^3+x^2+4x-8$임을 알 수 있다.
+        [그림: $a=m$인 경우의 그림. 정삼각형 ABC와 원 $C_m$, 원이 점 B를 지나고 선분 AB와 두 점에서 만남]
+      criteria: ['2.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 5
+      evidence: |
+        $f_1(a)=2$이기 위해 $a$가 만족해야되는 부등식을 올바로 구한다.
+      depends_on: []
+      implied_ok: false
+      ft: {allowed: true, from: [1.A1], max_points: 5}
+      steps: [2b-1, 2b-2]
+    - id: 2.A1
+      mark_type: A
+      points: 5
+      evidence: |
+        $a$가 만족해야되는 부등식을 풀고, $m$이 만족하는 삼차다항식 $x^3+x^2+4x-8$을 제대로 구한다.
+      depends_on: [2.M1]
+      steps: [2b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '3'
+  stem: |
+    <제시문 2>에 주어진 함수 $f_2(a)$에 대하여, $f_2(a)\ge1$이기 위한 $a$의 범위에 대하여 논하시오. (10점)
+  points: 10
+  depends_on: []
+  answer: {kind: set, value: 'Interval(1, 2)', equivalents: ['1 <= a <= 2'], tolerance: null}
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: |
+      $g(x)=4\left(x-\frac{a+a^2}{4}\right)^2+\frac1{12}a^2(a-3)^2$ ($0\le x\le1$). 꼭짓점이 구간 안($a\le\frac{-1+\sqrt{17}}2$)인지 밖인지로 나눈다.
+    steps:
+    - {id: 3a, content: '경우1 전부 가능, 경우2 $a\le2$ → $1\le a\le2$', criteria: ['3.M1', '3.A1']}
+    hint_ladder:
+    - 선분 $\mathrm{AC}$ 위의 점을 $(x,\sqrt3x)$로 두라.
+  - id: S3-B
+    audience: B
+    source_flow: 2025 모의논술 해설지 문제3-ⅲ 예시답안 p.13-14/17
+    method_no: 1
+    steps:
+    - id: 3b-1
+      content: |
+        선분 $\mathrm{AC}$ 위의 임의의 점을 $(x,\sqrt3x)$로 놓자. 여기서 $0\le x\le1$이다. 두 점 $(x,\sqrt3x)$와 $\left(a,\frac{a^2}{\sqrt3}\right)$ 사이의 거리의 제곱을 $g(x)$로 두면,
+        $g(x)=(x-a)^2+\left(\sqrt3x-\frac1{\sqrt3}a^2\right)^2=4\left(x-\frac{a+a^2}{4}\right)^2+\frac1{12}a^2(a-3)^2$이므로 $g(x)=\frac43$이 되는 $x$를 닫힌 구간 $[0,1]$에서 찾도록 하자. $a\ge1$이므로 $\frac12\le\frac{a+a^2}{4}$이다. 또한 $\frac{a+a^2}{4}=1$이 되는 $a$는 $\frac{-1+\sqrt{17}}2$이므로, 두 가지 경우로 나누어서 생각한다.
+      criteria: ['3.M1']
+    - id: 3b-2
+      content: |
+        (경우1) $1\le a\le\frac{-1+\sqrt{17}}2$: 이 경우 $\frac12\le\frac{a+a^2}4\le1$이므로, 닫힌 구간 $[0,1]$에서 $g(x)$의 최솟값은 $g\left(\frac{a+a^2}4\right)=\frac1{12}a^2(a-3)^2$이고 최댓값은 $g(0)=a^2+\frac13a^4$이 된다. 따라서, $f_2(a)\ge1$일 필요충분조건은 $\frac1{12}a^2(a-3)^2\le\frac43\le a^2+\frac13a^4$임을 알 수 있다. 여기서 $\frac1{12}a^2(a-3)^2\le\frac43$를 풀면, $(a^2-3a+4)(a^2-3a-4)=(a^2-3a+4)(a+1)(a-4)\le0$이고, $a^2-3a+4$는 항상 양수 값을 가지므로 $-1\le a\le4$를 얻는다. 또한 $\frac43\le a^2+\frac13a^4$를 풀면, $a^4+3a^2-4\ge0$이므로 $(a^2-1)(a^2+4)\ge0$이 되어 $a\ge1$ 또는 $a\le-1$을 얻는다. 따라서 $1\le a\le\frac{-1+\sqrt{17}}2$인 모든 $a$에 대하여 $f_2(a)\ge1$임을 알 수 있다.
+      criteria: ['3.A1']
+    - id: 3b-3
+      content: |
+        (경우2) $a\ge\frac{-1+\sqrt{17}}2$: 이 경우 $\frac{a+a^2}4\ge1$이므로, 닫힌 구간 $[0,1]$에서 $g(x)$의 최솟값은 $g(1)=(1-a)^2+\left(\sqrt3-\frac1{\sqrt3}a^2\right)^2$이고 최댓값은 $g(0)=a^2+\frac13a^4$이 된다. 따라서 이 경우에, $f_2(a)\ge1$일 필요충분조건은 $(1-a)^2+\left(\sqrt3-\frac1{\sqrt3}a^2\right)^2\le\frac43\le a^2+\frac13a^4$임을 알 수 있다. 여기서 $(1-a)^2+\left(\sqrt3-\frac1{\sqrt3}a^2\right)^2\le\frac43$를 풀면, $a^4-3a^2-6a+8\le0$이 되어 $(a-1)(a-2)(a^2+3a+4)\le0$이므로, $1\le a\le2$가 된다. 또한 $\frac43\le a^2+\frac13a^4$를 풀면, $a\ge1$ 또는 $a\le-1$을 얻는다. 이제 $a\ge\frac{-1+\sqrt{17}}2$임을 감안하면, $\frac{-1+\sqrt{17}}2\le a\le2$임을 알 수 있다.
+        이제 (경우1)과 (경우2)를 종합적으로 고려하면, $f_2(a)\ge1$이기 위한 $a$의 범위는 $1\le a\le2$가 됨을 알 수 있다.
+      criteria: ['3.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 4
+      evidence: |
+        원 $C_a$와 선분 $\mathrm{AC}$의 교점이 생길 필요충분조건을 거리함수와 관련지어 설정한다.
+      depends_on: []
+      implied_ok: false
+      steps: [3b-1]
+    - id: 3.A1
+      mark_type: A
+      points: 6
+      evidence: |
+        $a$의 범위를 두 가지 경우로 나누어, 거리함수와 관련지어 설정한 부등식을 해결한다($1\le a\le2$).
+      depends_on: [3.M1]
+      steps: [3b-2, 3b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '4'
+  stem: |
+    <제시문 2>에 주어진 함수 $f_3(a)$에 대하여, $f_3(a)\ge1$이기 위한 $a$의 범위를 [문제 3-ⅱ]에서 제시된 $m$을 이용하여 구하고, 그 이유를 논하시오. (10점)
+  points: 10
+  depends_on: ['2']
+  answer: {kind: set, value: 'Union(FiniteSet(1), Interval(m, 2))', equivalents: ['a = 1 or m <= a <= 2'], tolerance: null}
+  solutions:
+  - id: S4-A
+    audience: A
+    method_no: 1
+    key_idea: |
+      $h(x)=4\left(x-\frac{a-a^2+6}{4}\right)^2+\frac1{12}(a^2+3a-6)^2$ ($1\le x\le2$). 최댓값 $h(2)=(2-a)^2+\frac13a^4\ge\frac43$은 (ii)에서 이미 푼 부등식이다.
+    steps:
+    - {id: 4a, content: '$a=1$ 또는 $m\le a\le2$', criteria: ['4.M1', '4.A1']}
+    hint_ladder:
+    - 선분 $\mathrm{BC}$ 위의 점을 $(x,\sqrt3(2-x))$로 두라.
+    - 최댓값 조건은 [문제 3-ⅱ]의 부등식과 같다.
+  - id: S4-B
+    audience: B
+    source_flow: 2025 모의논술 해설지 문제3-ⅳ 예시답안 p.15-16/17
+    method_no: 1
+    steps:
+    - id: 4b-1
+      content: |
+        선분 $\mathrm{BC}$ 위의 임의의 점을 $(x,\sqrt3(2-x))$로 놓자. 여기서 $1\le x\le2$이다. 두 점 사이의 거리의 제곱을 이차함수 $h(x)$로 두면
+        $h(x)=(x-a)^2+\left(\sqrt3(2-x)-\frac1{\sqrt3}a^2\right)^2=4\left(x-\frac{(a-a^2+6)}4\right)^2+\frac1{12}(a^2+3a-6)^2$.
+        이제 $h(x)=\frac43$가 되는 $x$를 닫힌 구간 $[1,2]$에서 찾도록 하자. $a\ge1$이므로 $\frac{a-a^2+6}4\le\frac32$이다. 또한 $\frac{a-a^2+6}4=1$이 되는 $a$는 $2$이므로, 두 가지 경우로 나누어서 생각한다.
+      criteria: ['4.M1']
+    - id: 4b-2
+      content: |
+        (경우1) $1\le a\le2$: 이 경우 $1\le\frac{a-a^2+6}4\le\frac32$이므로, 닫힌 구간 $[1,2]$에서 $h(x)$의 최솟값은 $h\left(\frac{a-a^2+6}4\right)=\frac1{12}(a^2+3a-6)^2$이고 최댓값은 $h(2)=(2-a)^2+\frac13a^4$이 된다. 따라서, $f_3(a)\ge1$일 필요충분조건은 $\frac1{12}(a^2+3a-6)^2\le\frac43\le(2-a)^2+\frac13a^4$임을 알 수 있다. 여기서 $\frac1{12}(a^2+3a-6)^2\le\frac43$를 풀면, $(a^2+3a-10)(a^2+3a-2)=(a-2)(a+5)(a^2+3a-2)\le0$이고, $1\le a\le2$에서 $(a+5)(a^2+3a-2)$는 항상 양수 값을 가지므로 $1\le a\le2$를 얻는다. 또한 $\frac43\le(2-a)^2+\frac13a^4$을 풀면, [문제 3-ⅱ]의 풀이로부터 $a=1$ 또는 $a\ge m$임을 알 수 있다. 따라서 $f_3(a)\ge1$일 필요충분조건은 $a=1$ 또는 $m\le a\le2$이 된다.
+      criteria: ['4.A1']
+    - id: 4b-3
+      content: |
+        (경우2) $a\ge2$: 이 경우 $\frac{a-a^2+6}4\le1$이므로, 닫힌 구간 $[1,2]$에서 $h(x)$의 최솟값은 $h(1)=\frac{a^4}3-a^2-2a+4$이고 최댓값은 $h(2)=(2-a)^2+\frac13a^4$이 된다. 따라서, $f_3(a)\ge1$일 필요충분조건은 $\frac{a^4}3-a^2-2a+4\le\frac43\le(2-a)^2+\frac13a^4$임을 알 수 있다. 여기서 $\frac{a^4}3-a^2-2a+4\le\frac43$를 풀면, $a^4-3a^2-6a+8\le0$이 되어 $(a-1)(a-2)(a^2+3a+4)\le0$이므로, $1\le a\le2$가 된다. $a=2$인 경우에, $\frac43\le(2-a)^2+\frac13a^4$도 만족되므로, 이 경우에 $a=2$만이 $f_3(a)\ge1$이 된다.
+        이제 (경우1)과 (경우2)를 종합적으로 고려하면, $f_3(a)\ge1$이기 위한 $a$의 범위는 $a=1$ 또는 $m\le a\le2$가 된다.
+      criteria: ['4.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 4.M1
+      mark_type: M
+      points: 4
+      evidence: |
+        원 $C_a$와 선분 $\mathrm{BC}$의 교점이 생길 필요충분조건을 거리함수와 관련지어 설정한다.
+      depends_on: []
+      implied_ok: false
+      steps: [4b-1]
+    - id: 4.A1
+      mark_type: A
+      points: 6
+      evidence: |
+        $a$의 범위를 두 가지 경우로 나누어, 거리함수와 관련지어 설정한 부등식을 해결한다($a=1$ 또는 $m\le a\le2$).
+      depends_on: [4.M1]
+      ft: {allowed: true, from: [2.A1], max_points: 6}
+      steps: [4b-2, 4b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+remedy_links: []
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

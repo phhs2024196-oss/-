@@ -1,0 +1,285 @@
+# 성균관대 2027학년도 모의논술 수리형 문제 1 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: SKKU-M27-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: SKKU
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 분류
+points: 30
+time_estimate_min: 30
+intent: |
+  좌표평면에 주어진 서로 다른 직선들의 교점으로부터 생각할 수 있는 삼각형, 특히 정삼각형의 개수를 구하는 문제로 '경우의 수'에서 곱의 법칙을 제대로 활용할 수 있는지를 평가하고, 그 과정에서 '자연수의 거듭제곱의 합'과 '로그함수', '이차부등식'에 대한 이해를 묻는다(해설지 개요 요약).
+key_idea: |
+  직선 $\ell$을 $x$축으로 보면 정삼각형은 기울기 $\sqrt3$인 직선 하나와 $-\sqrt3$인 직선 하나를 고를 때마다 생기므로 개수는 $k(n-k)$이다. $a_n$은 $|k-(n-k)|$가 최소일 때, $b_n$은 차가 두 번째로 작은 경우와 한 직선을 다른 방향으로 둔 경우($a_{n-1}$) 중 큰 값이다.
+stuck: |
+  (ⅱ)에서 '두 번째 최대'의 후보로 $n-1$개만 $\pm\sqrt3$인 경우($a_{n-1}$)를 함께 비교하는 것, (ⅲ)에서 곱이 망원곱으로 정리되는 것
+idea_tags: [IDEA-PRODUCT-RULE-PAIRS, IDEA-BALANCED-SPLIT-MAX, IDEA-TELESCOPING-PRODUCT]
+tags: [곱의 법칙, 정삼각형 세기, 거듭제곱의 합, 로그부등식]
+elements:
+  materials:
+  - '직선 $\ell$과 서로 다른 $n$개의 직선(세 직선이 한 점에서 만나지 않음)'
+  - '한 변이 $\ell$ 위에 있는 정삼각형의 최대 개수 $a_n$과 그 다음 최대 개수 $b_n$'
+  - '$\sum\log_2a_n\le\log_29+\sum\log_2b_n$'
+  concepts:
+  - '곱의 법칙'
+  - '자연수의 거듭제곱의 합'
+  - '로그의 성질'
+  - '이차부등식'
+  tools:
+  - '기울기 $\pm\sqrt3$ 직선 개수 $k$, $n-k$로 매개화'
+  - '$n$의 홀짝에 따른 경우 나누기'
+  - '망원곱'
+  conditions:
+  - '$n\ge3$, 세 직선이 한 점을 지나지 않음'
+  - '$a_3=2$, $b_3=1$'
+  - '$N\ge3$인 자연수'
+  stimuli_used: [S1, S2, S3]
+  subpart_links: '(ⅱ)는 (ⅰ)의 $a_n$을 쓰고, (ⅲ)은 (ⅰ)·(ⅱ)의 $a_n$, $b_n$ 식을 사용'
+
+curriculum:
+  version: '2015'
+  subjects: [확률과통계, 수학Ⅰ]
+  scope_2028: common
+  scope_confirmed: false
+  standards:
+  - code: 12확통01-01
+    text: 원순열, 중복순열… 경우의 수(합의 법칙·곱의 법칙) 관련(요지)
+    verified: false
+  - code: 12수학Ⅰ03-04
+    text: 여러 가지 수열의 첫째항부터 제n항까지의 합을 구할 수 있다.(요지)
+    verified: false
+  content_area: 경우의 수·수열·로그
+  behavior_domain: 추론
+  unit_path: [수학Ⅰ, 수열, 수열의 합, 자연수의 거듭제곱의 합]
+  key_concepts: [곱의 법칙, 거듭제곱의 합, 로그의 성질, 이차부등식]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 성균관대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 성균관대학교
+  admission_year: 2027
+  admission_type: 모의논술
+  track: 수리형
+  question_no: 1
+  official_url: https://admission.skku.edu/admission/html/rolling/question.html
+  retrieved_at: 2026-11-21
+  original_points: [10, 10, 10]
+  rights_notice: 미표기(모의논술 문제지·해설지에 이용 제한 문구 없음)
+  transcribed_from: m27_q.pdf(2027학년도 모의논술 논술시험 수리형) p.3(문제 1/3) + m27_s.pdf(해설지) p.3-6(해설 1-4/20) (이미지 대조 2026-11-21)
+
+verify: verify/SKKU-M27.py::p01
+
+stimuli:
+- id: S1
+  label: <제시문1>
+  body: |
+    사건 $A$가 일어나는 경우의 수가 $m$이고 그 각각에 대하여 사건 $B$가 일어나는 경우의 수가 $n$일 때, 두 사건 $A$, $B$가 동시에 일어나는 경우의 수는 $m\times n$이다.
+- id: S2
+  label: <제시문2>
+  body: |
+    자연수의 거듭제곱의 합은 다음과 같다.
+    $$\sum_{k=1}^{n}k=\frac{n(n+1)}{2}$$
+    $$\sum_{k=1}^{n}k^2=\frac{n(n+1)(2n+1)}{6}$$
+    $$\sum_{k=1}^{n}k^3=\left\{\frac{n(n+1)}{2}\right\}^2$$
+- id: S3
+  label: <제시문3>
+  body: |
+    좌표평면 위에 직선 $\ell$이 놓여있다. 여기에 추가로 $3$ 이상인 자연수 $n$에 대해 서로 다른 $n$개의 직선을 좌표평면 위에 그리자. 단, 이 $n+1$개의 직선 중 어느 $3$개의 직선도 한 개의 점을 동시에 지나지 않는다. 이 $n+1$개의 서로 다른 직선이 만나는 교점을 세 꼭짓점으로 하는 크고 작은 삼각형 여러 개를 만들 수 있다. 이때, 만들 수 있는 크고 작은 삼각형 중에서 한 변이 직선 $\ell$ 위에 놓여 있는 정삼각형의 최대 개수를 $a_n$, 그 다음으로 가능한 최대 개수를 $b_n$이라고 하자. 예를 들어, $n=3$일 때, $a_3=2$이고 $b_3=1$이다.
+
+stem: |
+  다음 <제시문1> ~ <제시문3>을 읽고 [문제1-ⅰ] ~ [문제1-ⅲ]을 문항별로 풀이와 함께 답하시오. (30점)
+
+subparts:
+- id: 'i'
+  stem: |
+    <제시문3>에서 $\displaystyle\sum_{n=3}^{50}a_n$의 값을 구하고, 그 이유를 논하시오. (10점)
+  points: 10
+  depends_on: []
+  answer: {kind: value, value: '10724', equivalents: [], tolerance: null}
+  solutions:
+  - id: Si-A
+    audience: A
+    method_no: 1
+    key_idea: 정삼각형 개수 $k(n-k)$는 $k$와 $n-k$가 가장 가까울 때 최대이다.
+    steps:
+    - {id: ia, content: '$a_{2m}=m^2$, $a_{2m+1}=m(m+1)$, $\sum_{n=3}^{50}a_n=\sum_{m=2}^{25}(2m^2-m)=10724$', criteria: ['i.A1', 'i.A2']}
+    hint_ladder:
+    - 한 변이 $\ell$ 위에 있는 정삼각형의 나머지 두 변은 $\ell$과 몇 도를 이루는가?
+    - 기울기 $\sqrt3$인 직선이 $k$개이면 정삼각형은 몇 개인가?
+  - id: Si-B
+    audience: B
+    source_flow: 2027 모의논술 해설지 [문제1-ⅰ] 예시답안 p.4(해설 2/20)
+    method_no: 1
+    steps:
+    - id: ib-1
+      content: |
+        편의상 직선 $\ell$을 $x$축이라 가정할 때, 정삼각형의 개수가 최대가 되기 위해서는 $n$개의 직선이 $x$축의 양의 방향과 이루는 각의 크기가 $60^\circ$ 혹은 $120^\circ$를 이루어야 한다. 즉, 직선의 기울기가 $\sqrt3$ 혹은 $-\sqrt3$이어야 한다. 기울기가 $\sqrt3$인 직선의 개수를 $k$라 할 때, 기울기가 $-\sqrt3$인 직선의 개수는 $n-k$이다. 이때, 만들어지는 크고 작은 정삼각형의 개수는 $k(n-k)$이고 이 값은 $|k-(n-k)|$이 최소일 때 얻어진다. 따라서, 자연수 $m$에 대해
+        $$a_n=\begin{cases}m^2 & (n=2m\text{일 때},\ m\ge2)\\ m(m+1) & (n=2m+1\text{일 때},\ m\ge1)\end{cases}$$
+        이다.
+      criteria: ['i.A1']
+    - id: ib-2
+      content: |
+        이로부터
+        $$\sum_{n=3}^{50}a_n=\sum_{m=2}^{25}(a_{2m-1}+a_{2m})=\sum_{m=2}^{25}\{m(m-1)+m^2\}=\sum_{m=2}^{25}(2m^2-m)=10724$$
+        이다.
+      criteria: ['i.A2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: i.A1
+      mark_type: A
+      points: 5
+      evidence: |
+        $a_n$을 올바르게 구할 수 있다.
+      depends_on: []
+      steps: [ib-1]
+    - id: i.A2
+      mark_type: A
+      points: 5
+      evidence: |
+        $\displaystyle\sum_{n=3}^{50}a_n$의 값을 올바르게 구할 수 있다.
+      depends_on: [i.A1]
+      steps: [ib-2]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: 'ii'
+  stem: |
+    <제시문3>에서 $\displaystyle\sum_{n=3}^{50}b_n$의 값을 구하고, 그 이유를 논하시오. (10점)
+  points: 10
+  depends_on: ['i']
+  answer: {kind: value, value: '10653', equivalents: [], tolerance: null}
+  solutions:
+  - id: Sii-A
+    audience: A
+    method_no: 1
+    key_idea: 후보는 (a) 두 방향 개수 차가 두 번째로 작은 경우, (b) $n-1$개만 $\pm\sqrt3$인 경우($a_{n-1}$).
+    steps:
+    - {id: iia, content: '$b_{2m}=m^2-1$, $b_{2m+1}=m^2+m-2$ $(m\ge2)$, $b_3=1$, $\sum=25^2+\sum_{m=2}^{24}(2m^2+m-3)=10653$', criteria: ['ii.A1', 'ii.A2']}
+    hint_ladder:
+    - 두 번째로 많은 경우는 두 방향의 개수 차를 조금 늘리거나, 한 직선을 다른 방향으로 바꾸는 경우이다.
+  - id: Sii-B
+    audience: B
+    source_flow: 2027 모의논술 해설지 [문제1-ⅱ] 예시답안 p.5(해설 3/20)
+    method_no: 1
+    steps:
+    - id: iib-1
+      content: |
+        [문제 1-ⅰ]에서와 같은 방법으로 직선 $\ell$을 $x$축이라 가정할 때, 정삼각형의 개수가 다음으로 최대가 되기 위해서는 다음의 두가지 경우 중 하나가 성립해야 한다.
+        (a) $n$개 직선의 기울기가 $\sqrt3$ 혹은 $-\sqrt3$이다.
+        (b) $n$개의 직선 중 오직 $n-1$개 직선만의 기울기가 $\sqrt3$ 혹은 $-\sqrt3$이다.
+      criteria: ['ii.A1']
+    - id: iib-2
+      content: |
+        우선 $n=2m$ $(m\ge2)$이 짝수라고 가정하자. (a)의 경우, 정삼각형의 개수가 두 번째로 최대가 되는 방법은, 기울기가 $\sqrt3$인 직선의 수와 기울기가 $-\sqrt3$인 직선의 수의 차이가 두 번째로 최소인 $2$인 경우이고, 이때 정삼각형의 개수는 $(m+1)(m-1)=m^2-1$이다. (b)의 경우, 정삼각형의 개수는 $a_{n-1}=a_{2m-1}=m(m-1)$이다. 따라서, $b_{2m}=m^2-1$이다.
+        이제, $n=2m+1$ $(m\ge1)$이 홀수라고 가정하자. $m=1$인 경우, $b_3=1$이다. 따라서, $m\ge2$이라고 가정하자. (a)의 경우, 정삼각형의 개수가 두 번째로 최대가 되는 방법은, 기울기가 $\sqrt3$인 직선의 수와 기울기가 $-\sqrt3$인 직선의 수의 차이가 두 번째로 최소인 $3$인 경우이고, 이때 정삼각형의 개수는 $(m+2)(m-1)=m^2+m-2$이다. (b)의 경우, 정삼각형의 개수는 $a_{n-1}=m^2$이다. 따라서, $b_{2m+1}=\begin{cases}m^2+m-2 & (m\ge2)\\ 1 & (m=1)\end{cases}$이다.
+      criteria: ['ii.A1']
+    - id: iib-3
+      content: |
+        이를 정리하면,
+        $$\sum_{n=3}^{50}b_n=b_3+\sum_{m=2}^{24}(b_{2m}+b_{2m+1})+b_{50}=25^2+\sum_{m=2}^{24}(2m^2+m-3)=10653$$
+        이다.
+      criteria: ['ii.A2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: ii.A1
+      mark_type: A
+      points: 5
+      evidence: |
+        $b_n$을 올바르게 구할 수 있다.
+      depends_on: []
+      steps: [iib-1, iib-2]
+    - id: ii.A2
+      mark_type: A
+      points: 5
+      evidence: |
+        $\displaystyle\sum_{n=3}^{50}b_n$의 값을 올바르게 구할 수 있다.
+      depends_on: [ii.A1]
+      steps: [iib-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: 'iii'
+  stem: |
+    <제시문3>에서 $\displaystyle\sum_{n=3}^{N}\log_2a_n\le\log_29+\sum_{n=3}^{N}\log_2b_n$을 만족하는 $3$ 이상인 자연수 $N$의 개수를 구하고, 그 이유를 논하시오. (10점)
+  points: 10
+  depends_on: ['i', 'ii']
+  answer: {kind: value, value: '18', equivalents: [], tolerance: null}
+  solutions:
+  - id: Siii-A
+    audience: A
+    method_no: 1
+    key_idea: 부등식은 $\prod\tfrac{a_n}{b_n}\le9$이고 짝수·홀수 항의 곱이 각각 망원곱이 된다.
+    steps:
+    - {id: iiia, content: '$N=2m$: $\tfrac{12m(m-1)}{(m+1)^2}\le9\Rightarrow m=2,\cdots,10$; $N=2m+1$: $\tfrac{12m^2}{(m+1)(m+2)}\le9\Rightarrow m=1,\cdots,9$; 모두 $18$개', criteria: ['iii.A1', 'iii.A2']}
+    hint_ladder:
+    - 로그를 없애고 곱의 부등식으로 바꾸자.
+    - $\tfrac{a_{2j}}{b_{2j}}=\tfrac{j^2}{(j-1)(j+1)}$를 곱하면 무엇이 약분되는가?
+  - id: Siii-B
+    audience: B
+    source_flow: 2027 모의논술 해설지 [문제1-ⅲ] 예시답안 p.6(해설 4/20)
+    method_no: 1
+    steps:
+    - id: iiib-1
+      content: |
+        주어진 부등식을 정리하면 $\dfrac{a_3\cdot a_4\cdot\cdots\cdot a_N}{b_3\cdot b_4\cdot\cdots\cdot b_N}\le9$이다.
+        먼저 $N=2m$ $(m\ge2)$이 짝수라고 가정하면,
+        $$\frac{a_3\cdot a_4\cdot\cdots\cdot a_N}{b_3\cdot b_4\cdot\cdots\cdot b_N}=\left(\frac{a_4\cdot a_6\cdot\cdots\cdot a_{2m}}{b_4\cdot b_6\cdot\cdots\cdot b_{2m}}\right)\times\left(\frac{a_3\cdot a_5\cdot\cdots\cdot a_{2m-1}}{b_3\cdot b_5\cdot\cdots\cdot b_{2m-1}}\right)=\frac{2m}{m+1}\times\frac{6(m-1)}{m+1}=\frac{12m(m-1)}{(m+1)^2}$$
+        이고, $\dfrac{12m(m-1)}{(m+1)^2}\le9$로부터 $m^2-10m-3\le0$임을 알 수 있다. 따라서, $m=2,3,\cdots,10$으로 $9$개의 짝수가 가능하다.
+      criteria: ['iii.A1']
+    - id: iiib-2
+      content: |
+        이제 $N=2m+1$ $(m\ge1)$이 홀수라고 가정하면,
+        $$\frac{a_3\cdot a_4\cdot\cdots\cdot a_{2m+1}}{b_3\cdot b_4\cdot\cdots\cdot b_{2m+1}}=\left(\frac{2m}{m+1}\right)\times\left(\frac{6m}{m+2}\right)=\frac{12m^2}{(m+1)(m+2)}$$
+        이고, $\dfrac{12m^2}{(m+1)(m+2)}\le9$로부터 $m^2-9m-6\le0$임을 알 수 있다. 따라서, $m=1,2,\cdots,9$으로 $9$개의 홀수가 가능하다.
+        이를 종합하면, 모두 $18$개의 자연수가 가능하다.
+      criteria: ['iii.A2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: iii.A1
+      mark_type: A
+      points: 5
+      evidence: |
+        가능한 짝수 $N$의 개수를 올바르게 구할 수 있다.
+      depends_on: []
+      ft: {allowed: true, from: [i.A1, ii.A1], max_points: 5}
+      steps: [iiib-1]
+    - id: iii.A2
+      mark_type: A
+      points: 5
+      evidence: |
+        가능한 홀수 $N$의 개수를 올바르게 구할 수 있다.
+      depends_on: []
+      ft: {allowed: true, from: [i.A1, ii.A1], max_points: 5}
+      steps: [iiib-2]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+remedy_links: []
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

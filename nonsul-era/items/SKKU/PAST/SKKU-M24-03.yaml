@@ -1,0 +1,276 @@
+# 성균관대 2024학년도 모의논술 논술시험(자연계) 문제 3 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: SKKU-M24-03
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: SKKU
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 추론
+points: 35
+time_estimate_min: 30
+intent: |
+  수열의 정의에 따라 수열의 값을 구할 수 있고, 함수의 미분 불가능한 점의 개념과 함수의 그래프의 평행이동을 제대로 이해하고 있는지 평가한다(해설지 「개요 및 주요 평가항목」 요지). 수열의 정의, 미분 가능·불가능, 그래프의 평행이동, 주기성을 이용한 정적분 계산을 다룬다.
+key_idea: |
+  $\frac{54484}{333333}=0.\dot1\,6345\dot2$이므로 $a_n$은 $1,6,3,4,5,2$가 반복되고 $f(n)=a_n-a_{n+4}$는 $-4,4,2,-2,2,-2$가 반복된다. $h$는 주기 $6$이고, 이음점 $x=m+1$에서 왼쪽 기울기 $-c_m$, 오른쪽 기울기 $c_{m+1}$을 비교한다.
+stuck: |
+  $c\,g(x-m)$의 양 끝 기울기가 $c$, $-c$임을 이용해 이음점의 미분가능성을 계수 부호만으로 판정하는 것, 그리고 $[1,100]$을 주기 16개와 나머지 $[97,100]$으로 나누는 것
+idea_tags: []
+tags: [순환소수, 주기함수, 미분가능성, 평행이동]
+elements:
+  materials:
+  - '$\frac{54484}{333333}$의 소수점 $n$번째 자리 수 $a_n$'
+  - '$f(n)=a_n-a_{n+4}$'
+  - '$g(x)=x-x^2$의 평행이동·실수배를 이어 붙인 함수 $h(x)$ (주기 6)'
+  concepts:
+  - '수열의 뜻(순환마디)'
+  - '함수의 그래프의 평행이동'
+  - '미분가능성과 좌·우미분계수'
+  - '정적분의 성질(구간 나누기)'
+  tools:
+  - '나눗셈으로 순환마디 $163452$ 확인'
+  - '이음점에서 좌·우 기울기 비교'
+  - '주기성 $h(x)=h(x+6)$을 이용한 적분 분할'
+  - '$\int_0^1g(t)dt=\frac16$'
+  conditions:
+  - '$1\le n\le20$ 표'
+  - '구간 $1<x<100$'
+  - '$x\ge7$에서 $h(x)=h(x-6)$'
+  stimuli_used: [S1, S2]
+  subpart_links: '(i)의 $f(n)$ 값과 $h$의 구체적 표현이 (ii)·(iii)의 출발점'
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅰ, 수학Ⅱ]
+  scope_2028: common
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 함수의 미분가능성과 연속성의 관계를 이해한다(요지, 모의논술 보고서 없음)
+    verified: false
+  - code: 미확인
+    text: 정적분의 뜻을 알고 다항함수의 정적분을 구할 수 있다(요지)
+    verified: false
+  content_area: 수열, 미분가능성, 정적분
+  behavior_domain: 추론
+  unit_path: [수학Ⅱ, 미분, 미분계수, 미분가능성과 연속성]
+  key_concepts: [순환소수, 평행이동, 미분가능성, 주기함수의 정적분]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 성균관대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 성균관대학교
+  admission_year: 2024
+  admission_type: 모의논술
+  track: 자연계
+  question_no: 3
+  official_url: https://admission.skku.edu/admission/html/rolling/question.html
+  retrieved_at: 2026-11-21
+  original_points: [10, 10, 15]
+  rights_notice: 미확인(문제지·해설지에 별도 저작권 문구 없음)
+  transcribed_from: m24_q.pdf 문제지 p.4(3/3), 해설지 m24_s.pdf p.10-13(9/12-12/12) (이미지 대조 2026-11-21)
+
+verify: verify/SKKU-M24.py::p03
+
+stimuli:
+- id: S1
+  label: <제시문 1>
+  body: |
+    모든 자연수 $n$에 대하여, $a_n$을 $\dfrac{54484}{333333}$의 소수점 $n$번째 자리의 수로 정의하고, 양의 정수 집합에서 정의되는 함수 $f(n)$을 $f(n)=a_n-a_{n+4}$로 정의하자.
+- id: S2
+  label: <제시문 2>
+  body: |
+    함수 $g(x)$를 $g(x)=x-x^2$으로 정의하고, $1$보다 크거나 같은 실수 $x$에 대하여 함수 $h(x)$를 다음과 같이 정의하자.
+    $$h(x)=\begin{cases}f(1)g(x-1), & 1\le x<2\\ f(2)g(x-2), & 2\le x<3\\ f(3)g(x-3), & 3\le x<4\\ f(4)g(x-4), & 4\le x<5\\ f(5)g(x-5), & 5\le x<6\\ f(6)g(x-6), & 6\le x<7\\ h(x-6), & 7\le x\end{cases}$$
+
+stem: |
+  다음 <제시문 1>과 <제시문 2>를 읽고 [문제 3-ⅰ] ~ [문제 3-ⅲ]을 문항별로 풀이와 함께 답하시오. (35점)
+
+subparts:
+- id: '1'
+  stem: |
+    $1\le n\le20$에 대하여, <제시문 1>의 수열 $a_n$의 값과 $f(n)$의 값을 표로 나타내고, <제시문 2>의 함수 $h(x)$의 그래프의 개형에 대하여 논하여라. (10점)
+  points: 10
+  depends_on: []
+  answer: {kind: expression, value: 'a = [1, 6, 3, 4, 5, 2]; f = [-4, 4, 2, -2, 2, -2]', equivalents: ['a_n, f(n) 모두 주기 6으로 반복'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: |
+      $\frac{54484}{333333}=0.163452163452\cdots$이고 $a_n$, $f(n)$은 주기 $6$. $h$는 $[1,7)$에서 $-4g,4g,2g,-2g,2g,-2g$를 이어 붙인 뒤 주기 $6$으로 반복된다.
+    steps:
+    - {id: 1a, content: '$a_n$: $1,6,3,4,5,2$ 반복, $f(n)$: $-4,4,2,-2,2,-2$ 반복', criteria: ['1.M1', '1.A1']}
+    hint_ladder:
+    - $333333=3\times111111$이고 $\frac{1}{999999}$의 배수로 바꿔 보라.
+  - id: S1-B
+    audience: B
+    source_flow: 2024 모의논술 해설지 문제3-ⅰ 예시답안 p.10/12
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        $1\le n\le20$에 대하여, 수열 $a_n$의 값과 $f(n)$의 값을 표로 나타내면 다음과 같다.
+        $n$: 1, 2, 3, …, 20 / $a_n$: 1, 6, 3, 4, 5, 2, 1, 6, 3, 4, 5, 2, 1, 6, 3, 4, 5, 2, 1, 6 / $f(n)$: $-4$, 4, 2, $-2$, 2, $-2$, $-4$, 4, 2, $-2$, 2, $-2$, $-4$, 4, 2, $-2$, 2, $-2$, $-4$, 4.
+      criteria: ['1.M1']
+    - id: 1b-2
+      content: |
+        한편, $1\le x<7$에 대하여 함수 $h(x)$의 구체적인 표현은
+        $h(x)=-4g(x-1)\ (1\le x<2),\ 4g(x-2)\ (2\le x<3),\ 2g(x-3)\ (3\le x<4),\ -2g(x-4)\ (4\le x<5),\ 2g(x-5)\ (5\le x<6),\ -2g(x-6)\ (6\le x<7)$
+        이다. $g(x-m)$의 그래프는 $g(x)$의 그래프를 $x$축으로 $m$만큼 평행 이동하여 얻어지고, $h(x)=h(x-6)$이므로 함수 $h(x)$의 그래프의 개형은 다음과 같다.
+        [그림: 가로축 $1\sim13$, 세로축 $-1.0\sim1.0$. $x=1$에서 0으로 시작해 $x=1.5$ 부근에서 최솟값 $-1$, $x=2$에서 0, $x=2.5$에서 최댓값 $1$, $x=3$에서 0(뾰족점), $x=3.5$에서 $0.5$, $x=4.5$에서 $-0.5$, $x=5.5$에서 $0.5$, $x=6.5$에서 $-0.5$, $x=7$에서 0(뾰족점) 후 같은 모양이 $x=7\sim13$에서 반복되는 포물선 조각들의 그래프]
+      criteria: ['1.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 5
+      evidence: |
+        수열 $a_n$과 함수 $f(n)$의 정의에 따라 수열의 값과 함수의 값을 구하고, 이를 표로 나타낼 수 있다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1]
+    - id: 1.A1
+      mark_type: A
+      points: 5
+      evidence: |
+        함수 $f(n)$의 값과 함수 $h(x)$의 정의로부터, 함수 $h(x)$의 그래프의 개형을 올바로 그릴 수 있다.
+      depends_on: [1.M1]
+      steps: [1b-2]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '2'
+  stem: |
+    구간 $1<x<100$에서 <제시문 2>의 함수 $h(x)$의 미분불가능한 점의 개수에 대하여 논하여라. (10점)
+  points: 10
+  depends_on: ['1']
+  answer: {kind: value, value: '33', equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: |
+      $c\,g(x-m)$은 $x=m$에서 기울기 $c$, $x=m+1$에서 $-c$. 이음점에서 $-c_m=c_{m+1}$이 깨지는 곳은 $x=3,7$ (주기 6).
+    steps:
+    - {id: 2a, content: '$x=3+6k$ ($k=0,\dots,16$) 17개, $x=7+6k$ ($k=0,\dots,15$) 16개 → 33개', criteria: ['2.R1', '2.A1']}
+    hint_ladder:
+    - 이음점에서 함숫값은 모두 $0$으로 연속이다. 기울기를 비교하라.
+  - id: S2-B
+    audience: B
+    source_flow: 2024 모의논술 해설지 문제3-ⅱ 예시답안 p.11/12
+    method_no: 1
+    steps:
+    - id: 2b-1
+      content: |
+        $y=g(x)$의 $x=0$에서의 기울기는 $1$이고, $x=1$에서의 기울기는 $-1$이다. $g(x-m)$의 그래프는 $g(x)$의 그래프를 $x$축으로 $m$만큼 평행 이동하여 얻어지므로, $y=g(x-m)$의 $x=m$에서의 기울기는 $1$이고, $x=m+1$에서의 기울기는 $-1$이 된다. 또한 $y=c\cdot g(x-m)$의 $x=m$에서의 기울기는 $c$이고, $x=m+1$에서의 기울기는 $-c$가 된다.
+      criteria: ['2.R1']
+    - id: 2b-2
+      content: |
+        이제, 풀이 (i)에 주어진 구간 $1\le x<7$에서의 함수 $h(x)$의 구체적인 표현과 $h(x)=h(x+6)$라는 성질로부터, $h(x)$의 미분불가능한 점은 $x=3+6k$, $x=7+6k$ $(k=0,1,2,\cdots)$에서 발생함을 알 수 있다.
+      criteria: ['2.R1']
+    - id: 2b-3
+      content: |
+        따라서, 구간 $1<x<100$에서 $h(x)$의 미분불가능한 점은 $x=3+6k$ $(k=0,1,2,\cdots,16)$, $x=7+6k$ $(k=0,1,2,\cdots,15)$이므로, 이들의 총 개수는 $17+16=33$개가 된다.
+      criteria: ['2.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.R1
+      mark_type: R
+      points: 8
+      evidence: |
+        함수 $h(x)$의 미분불가능한 점은 $x=3+6k$, $x=7+6k$ $(k=0,1,2,\cdots)$에서 발생함을 보일 수 있다.
+      depends_on: []
+      implied_ok: false
+      ft: {allowed: true, from: [1.M1], max_points: 8}
+      steps: [2b-1, 2b-2]
+    - id: 2.A1
+      mark_type: A
+      points: 2
+      evidence: |
+        구간 $1<x<100$에서 $h(x)$의 미분불가능한 점의 개수가 총 $33$개임을 보일 수 있다.
+      depends_on: [2.R1]
+      steps: [2b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '3'
+  stem: |
+    <제시문 2>의 함수 $h(x)$에 대하여, $\displaystyle\int_1^{100}h(x)\,dx$의 값에 대하여 논하여라. (15점)
+  points: 15
+  depends_on: ['1']
+  answer: {kind: value, value: '1/3', equivalents: [], tolerance: null}
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: |
+      한 주기 적분은 계수 합 $-4+4+2-2+2-2=0$에 $\int_0^1g=\frac16$을 곱한 $0$. 나머지 $[97,100]$은 $[1,4]$와 같아 $(−4+4+2)\cdot\frac16=\frac13$.
+    steps:
+    - {id: 3a, content: '$16\cdot0+\tfrac13=\tfrac13$', criteria: ['3.M1', '3.A1']}
+    hint_ladder:
+    - $\int_1^{100}$을 길이 6인 구간으로 나누면 몇 개와 무엇이 남는가?
+  - id: S3-B
+    audience: B
+    source_flow: 2024 모의논술 해설지 문제3-ⅲ 예시답안 p.12/12
+    method_no: 1
+    steps:
+    - id: 3b-1
+      content: |
+        모든 실수 $x$에 대하여 $h(x)=h(x+6)$이므로 $\displaystyle\int_1^7h(x)dx=\int_{1+6k}^{7+6k}h(x)dx$가 성립한다. 위의 등식으로부터
+        $\displaystyle\int_1^{100}h(x)dx=\int_1^7h(x)dx+\int_7^{13}h(x)dx+\cdots+\int_{91}^{97}h(x)dx+\int_{97}^{100}h(x)dx=16\int_1^7h(x)dx+\int_1^4h(x)dx$.
+      criteria: ['3.M1']
+    - id: 3b-2
+      content: |
+        한편, 풀이 (i)에 주어진 $1\le x<7$일 때 함수 $h(x)$의 구체적인 표현식으로부터
+        $\displaystyle\int_1^7h(x)dx=\{(-4)+4+2+(-2)+2+(-2)\}\int_0^1g(t)dt=0$,
+        $\displaystyle\int_1^4h(x)dx=\{(-4)+4+2\}\int_0^1g(t)dt=2\int_0^1(t-t^2)dt=\dfrac13$.
+        따라서, 정적분 $\displaystyle\int_1^{100}h(x)dx$의 값은 $\dfrac13$이 된다.
+      criteria: ['3.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 5
+      evidence: |
+        $\int_1^{100}h(x)dx$의 값이 $16\int_1^7h(x)dx+\int_1^4h(x)dx$와 같음을 보일 수 있다.
+      depends_on: []
+      implied_ok: false
+      steps: [3b-1]
+    - id: 3.A1
+      mark_type: A
+      points: 10
+      evidence: |
+        $16\int_1^7h(x)dx+\int_1^4h(x)dx$의 값 $\frac13$을 제대로 계산할 수 있다.
+      depends_on: [3.M1]
+      steps: [3b-2]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+remedy_links: []
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

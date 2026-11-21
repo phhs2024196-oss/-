@@ -1,0 +1,290 @@
+# 성균관대 2025학년도 모의논술 논술시험(수리 논술) 문제 2 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: SKKU-M25-02
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: SKKU
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 추론
+points: 30
+time_estimate_min: 30
+intent: |
+  이차함수의 그래프와 직선의 위치 관계로부터 파생되는 다양한 점의 좌표와 직선의 방정식을 구할 수 있는지와 이차방정식의 근과 계수의 관계를 올바르게 이해하고 있는지, 그리고 정적분을 올바르게 구할 수 있는지를 평가한다(해설지 「개요 및 주요 평가항목」 요지). 방정식과 부등식, 직선의 방정식, 정적분을 다룬다.
+key_idea: |
+  교점의 $x$좌표는 $(1-k^2)x^2-2kx-2=0$의 근이므로 근과 계수의 관계로 중점 $\left(\frac{k}{1-k^2},\frac{1}{1-k^2}\right)$을 얻는다. 판별식 $D/4=k^2+2(1-k^2)=2-k^2$로 교점 개수를 정한다.
+stuck: |
+  중점의 $y$좌표를 $kx+1$에 대입해 $\frac{1}{1-k^2}$로 정리하는 것, (ii)에서 $c=\frac{2}{-2k^2-k+2}$의 분모가 $0$을 지나므로 치역이 두 조각으로 나뉜다는 것
+idea_tags: []
+tags: [근과 계수의 관계, 중점, 판별식, 포물선과 삼각형 넓이]
+elements:
+  materials:
+  - '이차함수 $y=\frac{1-k^2}{2}x^2$과 직선 $y=kx+1$의 교점 $\mathrm{P}_1$, $\mathrm{P}_2$'
+  - '중점과 점 $\mathrm{Q}(2,0)$을 잇는 직선의 $y$절편 $\mathrm{R}(0,c)$'
+  - '접할 때의 접점 $\mathrm{P}_1$, 수직선과의 교점 $\mathrm{T}$, $\mathrm{T}$에서의 접선과의 교점 $\mathrm{B}$'
+  concepts:
+  - '이차방정식의 판별식'
+  - '근과 계수의 관계'
+  - '직선의 방정식과 수직 조건'
+  - '두 곡선 사이의 넓이(정적분)'
+  tools:
+  - '중점 좌표를 근의 합으로 표현'
+  - '$c$를 $k$의 함수로 두고 분모의 범위 조사'
+  - '수직 기울기 $-\frac1{\sqrt2}$와 접선 기울기 $-x$'
+  - '포물선과 현 사이 넓이 정적분'
+  conditions:
+  - '$k\ne\pm1$'
+  - '(i) 교점 2개, 직선이 $y$축과 만나지 않음'
+  - '(ii) $0<x_1<x_2$'
+  - '(iii) 교점 1개이고 $x_1=x_2<0$'
+  stimuli_used: [S1, S2, S3]
+  subpart_links: '(i)·(ii) 모두 판별식과 중점 좌표를 공유; (iii)은 (ii)와의 대칭성으로 $k=\sqrt2$ 결정'
+
+curriculum:
+  version: '2015'
+  subjects: [수학, 수학Ⅱ]
+  scope_2028: common
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 이차방정식의 판별식, 근과 계수의 관계를 이해한다(요지, 모의논술 보고서 없음)
+    verified: false
+  - code: 미확인
+    text: 곡선으로 둘러싸인 도형의 넓이를 구할 수 있다(요지)
+    verified: false
+  content_area: 방정식과 부등식, 직선의 방정식, 정적분
+  behavior_domain: 문제해결
+  unit_path: [수학, 방정식과 부등식, 이차방정식과 이차함수, 이차함수의 그래프와 직선의 위치 관계]
+  key_concepts: [판별식, 근과 계수의 관계, 중점, 정적분과 넓이]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 성균관대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 성균관대학교
+  admission_year: 2025
+  admission_type: 모의논술
+  track: 수리형
+  question_no: 2
+  official_url: https://admission.skku.edu/admission/html/rolling/question.html
+  retrieved_at: 2026-11-21
+  original_points: [10, 10, 10]
+  rights_notice: 미확인(문제지·해설지에 별도 저작권 문구 없음)
+  transcribed_from: m25_q.pdf 문제지 p.3(2/3), 해설지 m25_s.pdf p.6-9(5/17-8/17) (이미지 대조 2026-11-21)
+
+verify: verify/SKKU-M25.py::p02
+
+stimuli:
+- id: S1
+  label: <제시문 1>
+  body: |
+    이차방정식 $ax^2+bx+c=0$에서 $D=b^2-4ac$라고 하면, ($a,\,b,\,c$는 실수)
+    (ⅰ) $D>0$ : 서로 다른 두 실근을 갖는다.
+    (ⅱ) $D=0$ : 중근(서로 같은 두 실근)을 갖는다.
+    (ⅲ) $D<0$ : 서로 다른 두 허근을 갖는다.
+- id: S2
+  label: <제시문 2>
+  body: |
+    두 함수 $f(x)$, $g(x)$가 닫힌구간 $[a,\,b]$에서 연속일 때, 두 곡선 $y=f(x)$, $y=g(x)$ 및 두 직선 $x=a$, $x=b$로 둘러싸인 도형의 넓이 $S$는 다음과 같다.
+    $$S=\int_a^b|f(x)-g(x)|\,dx$$
+- id: S3
+  label: <제시문 3>
+  body: |
+    실수 $k\,(\ne\pm1)$에 대하여 이차함수 $y=\left(\dfrac{1-k^2}{2}\right)x^2$과 직선 $y=kx+1$의 교점의 개수가 $2$일 때, 두 교점을 $\mathrm{P}_1(x_1,\,y_1)$과 $\mathrm{P}_2(x_2,\,y_2)$로 나타낸다 (단, $x_1<x_2$). 만약, 교점의 개수가 $1$이라면, $\mathrm{P}_1=\mathrm{P}_2$라고 하자 (즉, $x_1=x_2$).
+
+stem: |
+  다음 <제시문 1> ~ <제시문 3>을 읽고 [문제 2-ⅰ] ~ [문제 2-ⅲ]을 문항별로 풀이와 함께 답하시오. (30점)
+
+subparts:
+- id: '1'
+  stem: |
+    <제시문 3>에서 교점의 개수가 $2$라고 가정하자. 두 점 $\mathrm{P}_1$, $\mathrm{P}_2$의 중점과 점 $\mathrm{Q}(2,0)$을 잇는 직선이 $y$축과 만나지 않는다고 할 때, 가능한 $k$의 값을 모두 구하고 그 이유를 논하시오. (10점)
+  points: 10
+  depends_on: []
+  answer: {kind: set, value: '{(-1+sqrt(17))/4, (-1-sqrt(17))/4}', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: |
+      직선이 $y$축과 만나지 않으려면 중점의 $x$좌표가 $2$여야 한다.
+    steps:
+    - {id: 1a, content: '$-\sqrt2<k<\sqrt2$, $\tfrac{k}{1-k^2}=2$ → $k=\tfrac{-1\pm\sqrt{17}}{4}$', criteria: ['1.M1', '1.A1']}
+    hint_ladder:
+    - $y$축과 만나지 않는 직선은 어떤 직선인가?
+  - id: S1-B
+    audience: B
+    source_flow: 2025 모의논술 해설지 문제2-ⅰ 예시답안 p.6/17
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        이차방정식 $(1-k^2)x^2-2kx-2=0$이 두 개의 서로 다른 실근을 가져야 하므로 $D=k^2+2(1-k^2)>0$이 성립한다. 따라서, $-\sqrt2<k<\sqrt2$이고 $k\ne\pm1$이다.
+      criteria: ['1.M1']
+    - id: 1b-2
+      content: |
+        $x_1+x_2=\dfrac{2k}{1-k^2}$이므로, 두 점 $\mathrm{P}_1,\mathrm{P}_2$의 중점의 $x$좌표는 $\dfrac{k}{1-k^2}$이다.
+        문제의 직선이 $y$축과 만나지 않기 위해서는 $\dfrac{k}{1-k^2}=2$, 즉 $2k^2+k-2=0$이 성립해야 하고 $k=\dfrac{-1\pm\sqrt{17}}{4}$이다. 이 두 개의 $k$의 값 모두 위에서 구한 부등식을 만족한다.
+      criteria: ['1.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 5
+      evidence: |
+        이차방정식이 서로 다른 두 실근을 가질 조건을 $k$에 대한 조건으로 표현할 수 있다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1]
+    - id: 1.A1
+      mark_type: A
+      points: 5
+      evidence: |
+        가능한 $k$의 값 $\frac{-1\pm\sqrt{17}}4$를 모두 구할 수 있다.
+      depends_on: [1.M1]
+      steps: [1b-2]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '2'
+  stem: |
+    <제시문 3>에서 교점의 개수가 $2$이고 $0<x_1<x_2$라 가정하자. 두 점 $\mathrm{P}_1$, $\mathrm{P}_2$의 중점과 점 $\mathrm{Q}(2,0)$을 잇는 직선이 $y$축과 만날 때, 그 교점을 $\mathrm{R}(0,c)$라고 하자. $y$축 위의 점 중에서 교점 $\mathrm{R}(0,c)$이 될 수 없는 점들의 집합이 이루는 선분의 길이를 구하고, 그 이유를 논하시오. (10점)
+  points: 10
+  depends_on: []
+  answer: {kind: value, value: '4 + sqrt(2)', equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: |
+      두 양근 조건으로 $-\sqrt2<k<-1$. $c=\frac{2}{-2k^2-k+2}$에서 분모가 $(-2+\sqrt2,1)$을 지나므로 $c<-2-\sqrt2$ 또는 $c>2$.
+    steps:
+    - {id: 2a, content: '불가능한 $c$: $[-2-\sqrt2,\,2]$, 길이 $4+\sqrt2$', criteria: ['2.M1', '2.A1']}
+    hint_ladder:
+    - 두 근이 모두 양수일 조건 세 가지를 쓰라.
+  - id: S2-B
+    audience: B
+    source_flow: 2025 모의논술 해설지 문제2-ⅱ 예시답안 p.7/17
+    method_no: 1
+    steps:
+    - id: 2b-1
+      content: |
+        이차방정식 $(1-k^2)x^2-2kx-2=0$이 두 개의 서로 다른 양의 실근을 가져야 하므로,
+        $x_1+x_2=\dfrac{2k}{1-k^2}>0$, $x_1x_2=\dfrac{-2}{1-k^2}>0$, $D=k^2+2(1-k^2)>0$
+        이 성립한다. 따라서, $-\sqrt2<k<-1$이다.
+      criteria: ['2.M1']
+    - id: 2b-2
+      content: |
+        이때, 두 점 $\mathrm{P}_1,\mathrm{P}_2$의 중점의 좌표는 $\left(\dfrac{k}{1-k^2},\dfrac{1}{1-k^2}\right)$이므로, $\dfrac{\frac{1}{1-k^2}}{\frac{k}{1-k^2}-2}=\dfrac{c}{-2}$를 얻게 되어 $c=\dfrac{2}{-2k^2-k+2}$가 성립한다.
+      criteria: ['2.A1']
+    - id: 2b-3
+      content: |
+        $-\sqrt2<k<-1$에 대해 $-2+\sqrt2<-2k^2-k+2<1$이므로, $c<-2-\sqrt2$ 혹은 $c>2$이다. 따라서, 문제의 선분은 점 $(0,-2-\sqrt2)$와 점 $(0,2)$를 연결하므로, 그 길이는 $4+\sqrt2$이다.
+      criteria: ['2.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 5
+      evidence: |
+        가능한 $k$값의 범위 $-\sqrt2<k<-1$을 구할 수 있다.
+      depends_on: []
+      implied_ok: false
+      steps: [2b-1]
+    - id: 2.A1
+      mark_type: A
+      points: 5
+      evidence: |
+        선분의 길이 $4+\sqrt2$를 구할 수 있다.
+      depends_on: [2.M1]
+      steps: [2b-2, 2b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '3'
+  stem: |
+    <제시문 3>에서 교점의 개수가 $1$이고 $x_1=x_2<0$일 때, 직선 $y=kx+1$에 수직이고 점 $\mathrm{P}_1$을 지나는 직선이 이차곡선 $y=\left(\dfrac{1-k^2}{2}\right)x^2$과 만나는 또 다른 한 점을 $\mathrm{T}$라고 하자. 그리고, 점 $\mathrm{T}$에서 이차곡선 $y=\left(\dfrac{1-k^2}{2}\right)x^2$에 그은 접선이 직선 $y=kx+1$과 만나는 교점을 $\mathrm{B}$라 하자. 이차곡선 $y=\left(\dfrac{1-k^2}{2}\right)x^2$에 의해 삼각형 $\mathrm{P_1TB}$는 두 영역으로 나뉘게 되는데, 두 영역의 넓이의 비를 구하고 그 이유를 논하시오. (10점)
+  points: 10
+  depends_on: []
+  answer: {kind: value, value: '2:1', equivalents: ['9*sqrt(2)/2 : 9*sqrt(2)/4'], tolerance: null}
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: |
+      $D=0$이고 $x_1=-k<0$이므로 $k=\sqrt2$, 포물선 $y=-\frac12x^2$, $\mathrm{P}_1(-\sqrt2,-1)$. 수직선·접선으로 $\mathrm{T}$, $\mathrm{B}$를 구하고 현 아래 넓이를 적분한다.
+    steps:
+    - {id: 3a, content: '삼각형 $\tfrac{27}{4}\sqrt2$, 아래 영역 $\tfrac92\sqrt2$, 나머지 $\tfrac94\sqrt2$ → $2:1$', criteria: ['3.M1', '3.M2', '3.A1']}
+    hint_ladder:
+    - 중근 조건과 $x_1<0$에서 $k$의 부호를 정하라.
+  - id: S3-B
+    audience: B
+    source_flow: 2025 모의논술 해설지 문제2-ⅲ 예시답안 p.8/17
+    method_no: 1
+    steps:
+    - id: 3b-1
+      content: |
+        [문제 2-ⅱ]와 대칭성으로부터 $k=\sqrt2$이다. 즉, 문제에서 주어진 직선의 방정식은 $y=\sqrt2x+1$, 이차함수는 $y=-\dfrac12x^2$이고, 점 $\mathrm{P}_1$의 좌표는 $\mathrm{P}_1(-\sqrt2,-1)$이다.
+        따라서, 직선 $\mathrm{P_1T}$의 방정식은 $y=-\dfrac1{\sqrt2}x-2$이고 $\mathrm{T}(2\sqrt2,-4)$이다. 이로부터 직선 $\mathrm{TB}$의 방정식은 $y=-2\sqrt2x+4$가 되어 $\mathrm{B}\left(\dfrac1{\sqrt2},2\right)$이다.
+      criteria: ['3.M1']
+    - id: 3b-2
+      content: |
+        이로부터 직각삼각형 $\mathrm{P_1TB}$에서 $\overline{\mathrm{P_1T}}=3\sqrt3$, $\overline{\mathrm{P_1B}}=\dfrac32\sqrt6$이므로, 그 넓이는 $\dfrac{27}{4}\sqrt2$이다.
+      criteria: ['3.M2']
+    - id: 3b-3
+      content: |
+        이제 두 영역 중에서 아래에 놓인 부분의 넓이는 $\displaystyle\int_{-\sqrt2}^{2\sqrt2}\left(-\dfrac12x^2+\dfrac1{\sqrt2}x+2\right)dx=\dfrac92\sqrt2$이므로 나머지 영역의 넓이는 $\dfrac94\sqrt2$이고, 두 영역의 넓이의 비는 $2:1$이다.
+      criteria: ['3.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 3
+      evidence: |
+        점 $\mathrm{P}_1,\mathrm{T},\mathrm{B}$의 좌표를 구할 수 있다.
+      depends_on: []
+      implied_ok: false
+      steps: [3b-1]
+    - id: 3.M2
+      mark_type: M
+      points: 2
+      evidence: |
+        삼각형의 넓이 $\frac{27}{4}\sqrt2$를 구할 수 있다.
+      depends_on: [3.M1]
+      steps: [3b-2]
+    - id: 3.A1
+      mark_type: A
+      points: 5
+      evidence: |
+        정적분을 이용하여 각 영역의 넓이를 구할 수 있다(비 $2:1$).
+      depends_on: [3.M1]
+      steps: [3b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+remedy_links: []
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

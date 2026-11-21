@@ -1,0 +1,303 @@
+# 성균관대 2023학년도 수시 논술우수전형 자연계 2교시 문제 2 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: SKKU-G23B-02
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: SKKU
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 분류
+points: 30
+time_estimate_min: 35
+intent: |
+  $\cos\left(x+\dfrac{n\pi}{2}\right)$이 $n$을 4로 나눈 나머지에 따라 $\cos x,-\sin x,-\cos x,\sin x$가 됨을 이용해 방정식을 경우별로 분류하고, $0<x<\dfrac\pi4$에서의 $\sin x,\cos x$의 범위로 해의 존재를 판정하는 능력을 본다(공식 출제 의도 자료 없음, 문제지로부터 요약). [배점추정] 소문항 배점이 문제지에 없어 10·10·10으로 균등 배분.
+key_idea: |
+  $0<x<\dfrac\pi4$에서 $0<\sin x<\dfrac{\sqrt2}{2}<\cos x<1$. 각 방정식을 $n\bmod4$(와 $m$의 홀짝)로 나누어 $\sin x$ 또는 $\cos x$의 방정식으로 바꾸고 근이 해당 범위에 있는지 본다.
+stuck: |
+  (ⅲ)에서 4차식 $F(u)=8u^4-7u^2+3u-1$의 근을 직접 구하지 않고, $|u|\le\dfrac{\sqrt2}{2}$에서 $F(u)\le-3u^2+3u-1<0$ 같은 부등식 평가와 사잇값 정리로 존재 여부만 판정하는 발상
+idea_tags: [IDEA-MOD4-TRIG-SHIFT, IDEA-IVT-EXISTENCE-BY-SIGN]
+tags: [삼각함수, 방정식의 해, 경우 분류, 사잇값 정리]
+elements:
+  materials:
+  - '$4\cos\left(x+\dfrac{n\pi}{2}\right)=1$'
+  - '$6\cos^2\left(x+\dfrac{m\pi}{2}\right)+\cos\left(x+\dfrac{n\pi}{2}\right)=5$ ($m,n\le23$)'
+  - '$8\cos^4\left(x+\dfrac{n\pi}{2}\right)-7\cos^2\left(x+\dfrac{n\pi}{2}\right)+3\cos\left(x+\dfrac{n\pi}{2}\right)=1$'
+  concepts:
+  - '삼각함수의 성질($x+\dfrac\pi2$, $x+\pi$ 변환)'
+  - '$\sin^2x+\cos^2x=1$'
+  - '삼각방정식'
+  - '이차방정식의 인수분해'
+  - '사잇값 정리'
+  tools:
+  - '$n\bmod4$에 따른 치환 $\cos\left(x+\tfrac{n\pi}{2}\right)\in\{\cos x,-\sin x,-\cos x,\sin x\}$'
+  - '$m$의 홀짝에 따른 $\cos^2\left(x+\tfrac{m\pi}{2}\right)\in\{\cos^2x,\sin^2x\}$'
+  - '구간 $\left(0,\tfrac\pi4\right)$에서 $\sin x\in\left(0,\tfrac{\sqrt2}{2}\right)$, $\cos x\in\left(\tfrac{\sqrt2}{2},1\right)$'
+  - '부등식 평가 $8u^4\le4u^2$ ($u^2\le\tfrac12$)'
+  conditions:
+  - '열린구간 $0<x<\dfrac{\pi}{4}$'
+  - '(ⅰ)·(ⅲ) $n$은 2023 이하 자연수, (ⅱ) $m,n$은 23 이하 자연수'
+  stimuli_used: [S1, S2]
+  subpart_links: '세 소문항 모두 <제시문1>의 $n\bmod4$ 분류를 공통으로 사용하며, (ⅱ)는 $m$의 홀짝 분류를 추가, (ⅲ)은 같은 분류에서 4차방정식의 해 존재 판정'
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅰ, 수학Ⅱ]
+  scope_2028: common
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 삼각함수의 성질을 이해하고 삼각방정식을 풀 수 있다; 사잇값 정리를 이해한다(요지)
+    verified: false
+  content_area: 삼각함수·함수의 연속
+  behavior_domain: 문제해결
+  unit_path: [수학Ⅰ, 삼각함수, 삼각함수의 그래프, 삼각방정식]
+  key_concepts: [삼각함수의 성질, 삼각방정식, 사잇값 정리]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 성균관대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 성균관대학교
+  admission_year: 2023
+  admission_type: 수시 논술우수전형
+  track: 자연계
+  question_no: 2
+  session: 2교시
+  official_url: https://admission.skku.edu/admission/html/rolling/question.html
+  retrieved_at: 2026-11-21
+  original_points: [30]
+  rights_notice: 문제지에 이용 제한 문구 없음(원본 확인)
+  transcribed_from: 'e23_2.pdf p.3(문제지 자연 2교시 문제 2, 인쇄 쪽 2/3) (이미지 대조 2026-11-21)'
+
+verify: verify/SKKU-G23B.py::p02
+
+stimuli:
+- id: S1
+  label: <제시문1>
+  body: |
+    모든 실수 $x$에 대하여 다음이 성립한다.
+    $$\cos\left(x+\frac{\pi}{2}\right)=-\sin x$$
+    $$\cos(x+\pi)=-\cos x$$
+    $$\cos\left(x+\frac{3\pi}{2}\right)=\sin x$$
+    $$\cos(x+2\pi)=\cos x$$
+- id: S2
+  label: <제시문2>
+  body: |
+    모든 실수 $x$에 대하여 다음이 성립한다.
+    $$\cos^2x+\sin^2x=1$$
+
+stem: |
+  다음 <제시문1>과 <제시문2>를 읽고 [문제 2-ⅰ] ~ [문제 2-ⅲ]을 문항별로 풀이와 함께 답하시오. (30점)
+
+subparts:
+- id: '1'
+  stem: |
+    [문제 2-ⅰ] 방정식 $4\cos\left(x+\dfrac{n\pi}{2}\right)=1$ 이 $0<x<\dfrac{\pi}{4}$에서 해를 갖도록 하는 2023 이하의 자연수 $n$의 개수를 구하고 그 이유를 논하시오.
+  points: 10
+  depends_on: []
+  answer: {kind: value, value: '506', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $n\equiv3\pmod4$일 때만 $\sin x=\dfrac14\in\left(0,\dfrac{\sqrt2}{2}\right)$로 해가 있다.
+    steps:
+    - {id: 1a, content: '$n=3,7,\dots,2023$: $506$개', criteria: ['1.M1', '1.A1']}
+    hint_ladder:
+    - $n$을 4로 나눈 나머지로 나누어 보자.
+    - $0<x<\dfrac\pi4$에서 $\sin x$, $\cos x$의 범위는?
+  - id: S1-B
+    audience: B
+    source_flow: 공식 해설 없음(자체 작성)
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        <제시문1>에 의해 $n\equiv0,1,2,3\pmod4$일 때 방정식은 각각 $\cos x=\dfrac14$, $-\sin x=\dfrac14$, $-\cos x=\dfrac14$, $\sin x=\dfrac14$이다.
+      criteria: ['1.M1']
+    - id: 1b-2
+      content: |
+        $0<x<\dfrac\pi4$에서 $\dfrac{\sqrt2}{2}<\cos x<1$, $0<\sin x<\dfrac{\sqrt2}{2}$이므로 앞의 세 경우는 해가 없고, $\sin x=\dfrac14$는 $\sin x$가 연속·증가하며 $0<\dfrac14<\dfrac{\sqrt2}{2}$이므로 해가 하나 있다.
+      criteria: ['1.M1']
+    - id: 1b-3
+      content: |
+        $n\equiv3\pmod4$, $n\le2023$: $n=3,7,\dots,2023$의 $\dfrac{2023-3}{4}+1=506$개.
+      criteria: ['1.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 6
+      evidence: |
+        $n\bmod4$로 분류하고 $\sin x,\cos x$의 범위로 해가 있는 경우가 $n\equiv3$뿐임을 밝혔다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1, 1b-2]
+    - id: 1.A1
+      mark_type: A
+      points: 4
+      evidence: |
+        $506$을 얻었다.
+      depends_on: [1.M1]
+      steps: [1b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '2'
+  stem: |
+    [문제 2-ⅱ] 방정식 $6\cos^2\left(x+\dfrac{m\pi}{2}\right)+\cos\left(x+\dfrac{n\pi}{2}\right)=5$ 가 $0<x<\dfrac{\pi}{4}$에서 해를 갖도록 하는 순서쌍 $(m,n)$의 개수를 구하고 그 이유를 논하시오. (단, $m,n$은 23 이하인 자연수이다.)
+  points: 10
+  depends_on: []
+  answer: {kind: value, value: '187', equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: $m$ 짝수이면 $6\cos^2x+\{\cos x,-\sin x,\sin x\}=5$가 각각 $\cos x=\tfrac56$, $\sin x=\tfrac13$, $\sin x=\tfrac12$로 해가 있고 $-\cos x$는 불가. $m$ 홀수이면 네 경우 모두 불가.
+    steps:
+    - {id: 2a, content: '$m\in\{2,\dots,22\}$ 11개 × $n\not\equiv2\pmod4$ 17개 $=187$', criteria: ['2.M1', '2.M2', '2.A1']}
+    hint_ladder:
+    - $\cos^2\left(x+\dfrac{m\pi}{2}\right)$은 $m$의 홀짝에 따라 $\cos^2x$ 또는 $\sin^2x$이다.
+    - 각 경우를 $\sin x$ 또는 $\cos x$의 이차방정식으로 바꾸어 인수분해하자.
+  - id: S2-B
+    audience: B
+    source_flow: 공식 해설 없음(자체 작성)
+    method_no: 1
+    steps:
+    - id: 2b-1
+      content: |
+        $c=\cos x\in\left(\tfrac{\sqrt2}{2},1\right)$, $s=\sin x\in\left(0,\tfrac{\sqrt2}{2}\right)$라 하자. $m$이 짝수이면 $\cos^2\left(x+\tfrac{m\pi}{2}\right)=c^2$, 홀수이면 $s^2$이다.
+      criteria: ['2.M1']
+    - id: 2b-2
+      content: |
+        $m$ 짝수: $n\equiv0$: $6c^2+c-5=(6c-5)(c+1)=0$, $c=\tfrac56$ 가능. $n\equiv1$: $6(1-s^2)-s=5\Rightarrow(3s-1)(2s+1)=0$, $s=\tfrac13$ 가능. $n\equiv2$: $6c^2-c-5=(6c+5)(c-1)=0$, $c=1$ 불가. $n\equiv3$: $6s^2-s-1=(3s+1)(2s-1)=0$, $s=\tfrac12$ 가능.
+      criteria: ['2.M2']
+    - id: 2b-3
+      content: |
+        $m$ 홀수: $n\equiv0$: $6c^2-c-1=0$, $c=\tfrac12$ 불가. $n\equiv1$: $6s^2-s-5=(6s+5)(s-1)=0$, $s=1$ 불가. $n\equiv2$: $6c^2+c-1=(3c-1)(2c+1)=0$, $c=\tfrac13$ 불가. $n\equiv3$: $6s^2+s-5=(6s-5)(s+1)=0$, $s=\tfrac56>\tfrac{\sqrt2}{2}$ 불가.
+      criteria: ['2.M2']
+    - id: 2b-4
+      content: |
+        $m$ 짝수($2,4,\dots,22$)는 11개, $n\le23$ 중 $n\equiv0$은 5개, $n\equiv1$은 6개, $n\equiv3$은 6개로 17개. 따라서 $11\times17=187$개.
+      criteria: ['2.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 2
+      evidence: |
+        $m$의 홀짝, $n\bmod4$로 경우를 나누었다.
+      depends_on: []
+      implied_ok: false
+      steps: [2b-1]
+    - id: 2.M2
+      mark_type: M
+      points: 5
+      evidence: |
+        8가지 경우 각각의 해 존재 여부를 범위로 판정했다.
+      depends_on: [2.M1]
+      steps: [2b-2, 2b-3]
+    - id: 2.A1
+      mark_type: A
+      points: 3
+      evidence: |
+        $187$을 얻었다.
+      depends_on: [2.M2]
+      steps: [2b-4]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '3'
+  stem: |
+    [문제 2-ⅲ] 방정식 $8\cos^4\left(x+\dfrac{n\pi}{2}\right)-7\cos^2\left(x+\dfrac{n\pi}{2}\right)+3\cos\left(x+\dfrac{n\pi}{2}\right)=1$ 이 $0<x<\dfrac{\pi}{4}$에서 해를 갖도록 하는 2023 이하의 자연수 $n$의 개수를 구하고 그 이유를 논하시오.
+  points: 10
+  depends_on: []
+  answer: {kind: value, value: '505', equivalents: [], tolerance: null}
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: $F(u)=8u^4-7u^2+3u-1$. $|u|<\tfrac{\sqrt2}{2}$이면 $F(u)\le-3u^2+3u-1<0$, $-1<u<-\tfrac{\sqrt2}{2}$이면 $F(u)<u^2+3u-1<0$, $\tfrac{\sqrt2}{2}<u<1$에서는 $F(\tfrac{\sqrt2}{2})<0<F(1)$.
+    steps:
+    - {id: 3a, content: '$n\equiv0\pmod4$만 가능, $n=4,\dots,2020$: $505$개', criteria: ['3.M1', '3.M2', '3.A1']}
+    hint_ladder:
+    - $u=\cos\left(x+\dfrac{n\pi}{2}\right)$의 범위를 $n\bmod4$별로 정리하자.
+    - 4차식의 근을 구하기 어렵다면 각 범위에서 부호만 판정해 보자.
+  - id: S3-B
+    audience: B
+    source_flow: 공식 해설 없음(자체 작성)
+    method_no: 1
+    steps:
+    - id: 3b-1
+      content: |
+        $u=\cos\left(x+\dfrac{n\pi}{2}\right)$, $F(u)=8u^4-7u^2+3u-1$이라 하면 방정식은 $F(u)=0$. $0<x<\dfrac\pi4$에서 $u$의 범위는 $n\equiv0$: $u=\cos x\in\left(\tfrac{\sqrt2}{2},1\right)$, $n\equiv1$: $u=-\sin x\in\left(-\tfrac{\sqrt2}{2},0\right)$, $n\equiv2$: $u=-\cos x\in\left(-1,-\tfrac{\sqrt2}{2}\right)$, $n\equiv3$: $u=\sin x\in\left(0,\tfrac{\sqrt2}{2}\right)$.
+      criteria: ['3.M1']
+    - id: 3b-2
+      content: |
+        $n\equiv1,3$: $u^2<\tfrac12$이므로 $8u^4<4u^2$, $F(u)<-3u^2+3u-1=-3\left(u-\tfrac12\right)^2-\tfrac14<0$. 해 없음.
+      criteria: ['3.M2']
+    - id: 3b-3
+      content: |
+        $n\equiv2$: $u^2<1$이므로 $8u^4<8u^2$, $F(u)<u^2+3u-1$. $-1<u<-\tfrac{\sqrt2}{2}$에서 $u^2+3u-1<1-3\cdot\tfrac{\sqrt2}{2}-1<0$ ($u^2<1$, $3u<-\tfrac{3\sqrt2}{2}$). 해 없음.
+      criteria: ['3.M2']
+    - id: 3b-4
+      content: |
+        $n\equiv0$: $F\left(\tfrac{\sqrt2}{2}\right)=2-\tfrac72+\tfrac{3\sqrt2}{2}-1=\tfrac{3\sqrt2-5}{2}<0$, $F(1)=3>0$이고 $F$는 연속이므로 사잇값 정리에 의해 $F(u_0)=0$인 $u_0\in\left(\tfrac{\sqrt2}{2},1\right)$가 있고, $\cos x_0=u_0$인 $x_0\in\left(0,\tfrac\pi4\right)$가 존재한다.
+      criteria: ['3.M2']
+    - id: 3b-5
+      content: |
+        $n\equiv0\pmod4$, $n\le2023$: $n=4,8,\dots,2020$의 505개.
+      criteria: ['3.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 2
+      evidence: |
+        $n\bmod4$별로 $u$의 범위를 정리했다.
+      depends_on: []
+      implied_ok: false
+      steps: [3b-1]
+    - id: 3.M2
+      mark_type: M
+      points: 5
+      evidence: |
+        각 범위에서 $F(u)=0$의 해 존재 여부를 부등식 평가·사잇값 정리로 판정했다.
+      depends_on: [3.M1]
+      steps: [3b-2, 3b-3, 3b-4]
+    - id: 3.A1
+      mark_type: A
+      points: 3
+      evidence: |
+        $505$를 얻었다.
+      depends_on: [3.M2]
+      steps: [3b-5]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+remedy_links: []
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

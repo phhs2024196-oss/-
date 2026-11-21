@@ -1,0 +1,283 @@
+# 성균관대 2024학년도 모의논술 논술시험(자연계) 문제 1 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: SKKU-M24-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: SKKU
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 추론
+points: 30
+time_estimate_min: 30
+intent: |
+  곡선 위의 한 점에서 그은 접선의 방정식을 미분을 활용하여 구하고, 곡선 또는 직선으로 둘러싸인 도형의 넓이를 적분을 활용하여 구할 수 있는 능력을 평가한다(해설지 「개요 및 주요 평가항목」 요지). 마지막에는 $k=\frac1n$일 때 넓이 $B\left(\frac1n\right)$이 무리수 꼴 $C+D\sqrt{n^2-2n+2}$로 표현되고 $D>0$임을 논하게 한다.
+key_idea: |
+  접선 $\ell: y=(1-2k)(x-k)+k-k^2$과 $y=x^2-x$의 교점 중 양수인 $x$좌표가 $\alpha=1-k+\sqrt{1-2k+2k^2}>1$이므로 $B(k)=\displaystyle\int_1^\alpha\{\ell(x)-(x^2-x)\}dx$를 $k,\alpha$의 다항식으로 쓴다.
+stuck: |
+  $\alpha>1$임을 확인해야 적분 구간이 $[1,\alpha]$로 정해진다는 점, 그리고 $\alpha$를 대입한 뒤 $\sqrt{n^2-2n+2}$의 계수만 모아 $D$를 정리하는 계산
+idea_tags: []
+tags: [접선, 넓이, 무리수 표현]
+elements:
+  materials:
+  - '곡선 $y=x-x^2$ 위의 점 $\mathrm{P}(k,k-k^2)$에서의 접선 $\ell$'
+  - '곡선 $y=x^2-x$와 직선 $\ell$의 제1사분면 교점 $\mathrm{Q}(\alpha,\beta)$'
+  - '넓이 함수 $A(k)$, $B(k)$'
+  - '$k=\frac1n$ ($n\ge2$ 정수)일 때의 $B\left(\frac1n\right)$'
+  concepts:
+  - '미분계수와 접선의 방정식'
+  - '이차방정식의 근(근의 공식)'
+  - '두 곡선 사이의 넓이(정적분)'
+  - '유리수·무리수의 구분'
+  tools:
+  - '접선 기울기 $1-2k$'
+  - '연립방정식의 양수 근 선택'
+  - '$\sqrt{(1-k)^2+k^2}>\sqrt{k^2}$ 비교로 $\alpha>1$ 확인'
+  - '$\alpha$에 대한 다항식 정리 후 대입'
+  conditions:
+  - '$0\le k<1$'
+  - 'Q는 제1사분면 점(양의 근)'
+  - '$B(k)$는 $x=1$의 오른쪽 부분의 넓이'
+  - '$n\ge2$ 정수, $C,D$ 유리수'
+  stimuli_used: [S1, S2]
+  subpart_links: '(ii)의 $B(k)$ 식과 $\alpha$를 (iii)에 $k=\frac1n$으로 대입; (i)은 (ii)의 $k=0$ 특수 경우'
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅱ, 수학]
+  scope_2028: common
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 미분계수의 기하적 의미를 이해하고 접선의 방정식을 구할 수 있다(요지, 모의논술 보고서 없음)
+    verified: false
+  - code: 미확인
+    text: 곡선으로 둘러싸인 도형의 넓이를 구할 수 있다(요지)
+    verified: false
+  content_area: 미분·적분의 활용
+  behavior_domain: 문제해결
+  unit_path: [수학Ⅱ, 적분, 정적분의 활용, 곡선으로 둘러싸인 도형의 넓이]
+  key_concepts: [접선의 방정식, 정적분, 넓이, 무리수]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 성균관대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 성균관대학교
+  admission_year: 2024
+  admission_type: 모의논술
+  track: 자연계
+  question_no: 1
+  official_url: https://admission.skku.edu/admission/html/rolling/question.html
+  retrieved_at: 2026-11-21
+  original_points: [10, 10, 10]
+  rights_notice: 미확인(문제지·해설지에 별도 저작권 문구 없음)
+  transcribed_from: m24_q.pdf 문제지 p.2(1/3), 해설지 m24_s.pdf p.2-5(1/12-4/12) (이미지 대조 2026-11-21)
+
+verify: verify/SKKU-M24.py::p01
+
+stimuli:
+- id: S1
+  label: <제시문 1>
+  body: |
+    $0\le k<1$일 때, 곡선 $y=x-x^2$ 위의 점 $\mathrm{P}(k,\,k-k^2)$에서 이 곡선에 접하는 접선을 $\ell$이라 하고, 직선 $\ell$이 곡선 $y=x^2-x$와 제1사분면에서 만나는 점을 $\mathrm{Q}(\alpha,\,\beta)$라고 하자.
+- id: S2
+  label: <제시문 2>
+  body: |
+    곡선 $y=x-x^2$, 선분 $\mathrm{PQ}$, 직선 $x=1$로 둘러싸인 도형의 넓이를 $A(k)$라고 놓고, 곡선 $y=x^2-x$와 직선 $\ell$로 둘러싸인 영역 중에서 직선 $x=1$의 오른쪽에 있는 부분의 넓이를 $B(k)$라고 놓자.
+
+stem: |
+  다음 <제시문 1>과 <제시문 2>를 읽고 [문제 1-ⅰ] ~ [문제 1-ⅲ]을 문항별로 풀이와 함께 답하시오. (30점)
+
+subparts:
+- id: '1'
+  stem: |
+    <제시문 1>에서 주어진 $k$의 값이 $0$일 때, <제시문 2>에서 정의된 $A(0)$과 $B(0)$에 대하여, 이들의 비 $A(0):B(0)$이 어떻게 되는지 논하여라. (10점)
+  points: 10
+  depends_on: []
+  answer: {kind: value, value: '1:2', equivalents: ['A(0)=1/3, B(0)=2/3'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: |
+      $k=0$이면 $\ell: y=x$, $\mathrm{Q}(2,2)$이므로 $A(0)=\int_0^1x^2dx$, $B(0)=\int_1^2(2x-x^2)dx$.
+    steps:
+    - {id: 1a, content: '$A(0)=\tfrac13$, $B(0)=\tfrac23$, 비는 $1:2$', criteria: ['1.M1', '1.M2']}
+    hint_ladder:
+    - $k=0$일 때 접선은 원점을 지나고 기울기가 얼마인가?
+    - 직선 $y=x$와 $y=x^2-x$의 제1사분면 교점을 구해 보라.
+  - id: S1-B
+    audience: B
+    source_flow: 2024 모의논술 해설지 문제1-ⅰ 예시답안 p.2/12
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        $k=0$일 때 직선 $\ell$은 점 $(0,0)$을 지나고 기울기가 $1$이므로 $\ell: y=x$이다. $A(0)$은 곡선 $y=x-x^2$, 직선 $y=x$, 직선 $x=1$로 둘러싸인 도형의 넓이이므로
+        $A(0)=\displaystyle\int_0^1\{x-(x-x^2)\}dx=\dfrac13$.
+      criteria: ['1.M1']
+    - id: 1b-2
+      content: |
+        $k=0$일 때 직선 $\ell$과 곡선 $y=x^2-x$가 만나는 점 중 제1사분면의 점은 $(2,2)$이다. 따라서
+        $B(0)=\displaystyle\int_1^2\{x-(x^2-x)\}dx=\dfrac23$이고 $A(0):B(0)=1:2$이다.
+      criteria: ['1.M2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 5
+      evidence: |
+        도형의 넓이 $A(0)$을 적분을 통해 구할 수 있다($A(0)=\tfrac13$).
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1]
+    - id: 1.M2
+      mark_type: M
+      points: 5
+      evidence: |
+        도형의 넓이 $B(0)$을 적분을 통해 구할 수 있다($B(0)=\tfrac23$, 비 $1:2$).
+      depends_on: []
+      implied_ok: false
+      steps: [1b-2]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '2'
+  stem: |
+    <제시문 2>의 함수 $B(k)$를 $k$와 $\alpha$에 대한 다항식의 형태로 나타내어라. (10점)
+  points: 10
+  depends_on: []
+  answer: {kind: expression, value: 'k**2*(alpha - 1) + (1 - k)*(alpha**2 - 1) - (alpha**3 - 1)/3', equivalents: ['(alpha-1)*(k**2 - k*(alpha+1) - (alpha**2-2*alpha-2)/3)'], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: |
+      $\ell(x)-(x^2-x)=k^2+2x-2kx-x^2$를 $1$부터 $\alpha$까지 적분한다($\alpha>1$ 확인 필수).
+    steps:
+    - {id: 2a, content: '$B(k)=k^2(\alpha-1)+(1-k)(\alpha^2-1)-\tfrac13(\alpha^3-1)$', criteria: ['2.M1', '2.A1']}
+    hint_ladder:
+    - 접선의 기울기는 $f'(k)=1-2k$이다.
+    - 교점의 $x$좌표 $\alpha$가 $1$보다 큰지 먼저 확인하라.
+  - id: S2-B
+    audience: B
+    source_flow: 2024 모의논술 해설지 문제1-ⅱ 예시답안 p.3/12
+    method_no: 1
+    steps:
+    - id: 2b-1
+      content: |
+        직선 $\ell$은 점 $(k,k-k^2)$를 지나고 기울기가 $1-2k$이므로 $\ell: y=(1-2k)(x-k)+k-k^2$이다.
+      criteria: ['2.M1']
+    - id: 2b-2
+      content: |
+        $\ell$과 $y=x^2-x$를 연립하여 두 해의 $x$좌표 중 양수인 것을 택하면 $\alpha=1-k+\sqrt{1-2k+2k^2}$이고,
+        $1-k+\sqrt{(1-k)^2+k^2}>1-k+\sqrt{k^2}=1$이므로 $\alpha$는 항상 $1$보다 크다.
+      criteria: ['2.A1']
+    - id: 2b-3
+      content: |
+        따라서 $B(k)=\displaystyle\int_1^\alpha\{(1-2k)(x-k)+k-k^2-(x^2-x)\}dx=\int_1^\alpha(k^2+2x-2kx-x^2)dx$
+        $=k^2(\alpha-1)+(1-k)(\alpha^2-1)-\dfrac13(\alpha^3-1)=(\alpha-1)\left\{k^2-k(\alpha+1)-\dfrac13(\alpha^2-2\alpha-2)\right\}$로 $k$와 $\alpha$의 다항식이다.
+      criteria: ['2.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 2
+      evidence: |
+        직선 $\ell$의 방정식을 제대로 구할 수 있다.
+      depends_on: []
+      implied_ok: false
+      steps: [2b-1]
+    - id: 2.A1
+      mark_type: A
+      points: 8
+      evidence: |
+        도형의 넓이 $B(k)$를 $k$와 $\alpha$에 대한 다항식의 형태로 올바르게 표현할 수 있다($\alpha>1$ 확인 포함).
+      depends_on: [2.M1]
+      steps: [2b-2, 2b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '3'
+  stem: |
+    <제시문 2>의 함수 $B(k)$와 $2$보다 크거나 같은 정수 $n$에 대하여, $B\left(\dfrac1n\right)$의 값이 $C+D\sqrt{n^2-2n+2}$ ($C$와 $D$는 유리수) 형태로 표시됨을 보이고, $D$는 항상 양수가 됨을 논하여라. (10점)
+  points: 10
+  depends_on: ['2']
+  answer: {kind: proof, value: 'D = 2*(n**2 - 2*n + 2)/(3*n**3)', equivalents: ['2*((n-1)**2+1)/(3*n**3)'], tolerance: null}
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: |
+      $\alpha=1-\frac1n+\frac1n\sqrt{n^2-2n+2}$를 (ii)의 다항식에 대입하면 $\sqrt{\ }$의 짝수 거듭제곱은 유리수가 되어 $C+D\sqrt{\ }$ 꼴이 된다.
+    steps:
+    - {id: 3a, content: '$D=\tfrac{2}{3n^3}(n^2-2n+2)=\tfrac{2}{3n^3}\{(n-1)^2+1\}>0$', criteria: ['3.R1', '3.R2']}
+    hint_ladder:
+    - $\sqrt{s}$의 세제곱은 $s\sqrt{s}$이다.
+    - $\sqrt{n^2-2n+2}$가 곱해진 항만 모아라.
+  - id: S3-B
+    audience: B
+    source_flow: 2024 모의논술 해설지 문제1-ⅲ 예시답안 p.4/12
+    method_no: 1
+    steps:
+    - id: 3b-1
+      content: |
+        [문제 1-ⅱ]의 풀이로부터 $\alpha=1-k+\sqrt{1-2k+2k^2}$이고 $B(k)=k^2(\alpha-1)+(1-k)(\alpha^2-1)-\dfrac13(\alpha^3-1)$이다.
+        $k=\dfrac1n$을 대입하면 $\alpha=1-\dfrac1n+\dfrac1n\sqrt{n^2-2n+2}$이고, $B\left(\dfrac1n\right)$을 $\alpha$에 대한 다항식으로 정리하면
+        $B\left(\dfrac1n\right)=-\dfrac13\alpha^3+\left(1-\dfrac1n\right)\alpha^2+\dfrac1{n^2}\alpha-\dfrac23+\dfrac1n-\dfrac1{n^2}$.
+      criteria: ['3.R1']
+    - id: 3b-2
+      content: |
+        여기에 $\alpha=1-\dfrac1n+\dfrac1n\sqrt{n^2-2n+2}$를 대입해 정리하면 $B\left(\dfrac1n\right)=C+D\sqrt{n^2-2n+2}$ ($C$와 $D$는 각각 유리수)의 형태가 된다.
+      criteria: ['3.R1']
+    - id: 3b-3
+      content: |
+        구체적으로 $D=\dfrac{2}{3n}-\dfrac{4}{3n^2}+\dfrac{4}{3n^3}=\dfrac{2}{3n^3}(n^2-2n+2)=\dfrac{2}{3n^3}\{(n-1)^2+1\}>0$이므로 $D$는 항상 양수이다.
+      criteria: ['3.R2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 3.R1
+      mark_type: R
+      points: 5
+      evidence: |
+        $B\left(\frac1n\right)$을 $C+D\sqrt{n^2-2n+2}$ 형태로 표현하고, $C$와 $D$는 각각 유리수임을 올바르게 논할 수 있다.
+      depends_on: []
+      implied_ok: false
+      ft: {allowed: true, from: [2.A1], max_points: 5}
+      steps: [3b-1, 3b-2]
+    - id: 3.R2
+      mark_type: R
+      points: 5
+      evidence: |
+        유리수 $D$에 대한 구체적인 표현 $D=\frac{2}{3n^3}(n^2-2n+2)$를 구하고, 항상 양수가 됨을 제대로 논할 수 있다.
+      depends_on: [3.R1]
+      steps: [3b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+remedy_links: []
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

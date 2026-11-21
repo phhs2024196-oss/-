@@ -1,0 +1,283 @@
+# 성균관대 2023학년도 모의논술 자연계 문제 1 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: SKKU-M23-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: SKKU
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 귀납구조
+points: 30
+time_estimate_min: 30
+intent: |
+  이차방정식의 근과 계수의 관계를 통해 귀납적으로 특정 수열을 정의한 뒤, 이 수열로부터 파생되는 다양한 주제의 문제를 해결할 수 있는 능력을 평가한다. 수학적 귀납법, 경우의 수, 이차방정식의 근과 계수의 관계를 이해하면 해결할 수 있으며 합의 기호를 포함한다(2023 모의논술 해설지 개요 및 주요 평가항목 요약).
+key_idea: |
+  $\alpha+\beta=-a$, $\alpha\beta=-b$이므로 $-af_{n+1}+bf_n=(\alpha+\beta)f_{n+1}-\alpha\beta f_n=f_{n+2}$. 명제를 "$f_n$과 $f_{n+1}$이 정수"로 잡아 두 항씩 귀납한다.
+stuck: |
+  (ⅱ)에서 한 항만이 아니라 연속한 두 항 $f_n,f_{n+1}$을 함께 명제로 설정해야 점화식으로 귀납 단계가 이어진다는 점
+idea_tags: [IDEA-VIETA-RECURRENCE, IDEA-STRONG-INDUCTION-TWO-TERMS]
+tags: [근과 계수의 관계, 점화식, 수학적 귀납법, 경우의 수]
+elements:
+  materials:
+  - '정수 $a,b$에 대한 $x^2+ax-b=0$의 두 근 $\alpha\le\beta$'
+  - '$f_n=\sum_{k=0}^{n}\alpha^{n-k}\beta^k$'
+  - '동전을 5번 던져 앞면 $a$번, 뒷면 $b$번'
+  concepts:
+  - '이차방정식의 근과 계수의 관계'
+  - '합의 기호 $\sum$'
+  - '수학적 귀납법'
+  - '합의 법칙'
+  - '조합(경우의 수)'
+  tools:
+  - '$\sum$의 첨자 이동으로 $f_{n+2}=(\alpha+\beta)f_{n+1}-\alpha\beta f_n$'
+  - '두 항을 묶은 명제 $p(n)$: $f_n,f_{n+1}$이 정수'
+  - '$(a,b)$ 6가지에 대해 점화식으로 $f_5$ 표 작성'
+  - '$\binom54+\binom55$'
+  conditions:
+  - '$a,b$는 정수, $\alpha\le\beta$'
+  - '(ⅲ) $a+b=5$, $a,b\ge0$, $|f_5|>1000$'
+  stimuli_used: [S1, S2, S3]
+  subpart_links: '(ⅱ)·(ⅲ)은 (ⅰ)의 점화식 $f_{n+2}=-af_{n+1}+bf_n$을 사용'
+
+curriculum:
+  version: '2015'
+  subjects: [수학, 수학Ⅰ]
+  scope_2028: common
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 이차방정식의 근과 계수의 관계; 수학적 귀납법; 합의 법칙(요지)
+    verified: false
+  content_area: 수열·수학적 귀납법·경우의 수
+  behavior_domain: 추론
+  unit_path: [수학Ⅰ, 수열, 수학적 귀납법, 수열의 귀납적 정의]
+  key_concepts: [근과 계수의 관계, 점화식, 수학적 귀납법, 경우의 수]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 성균관대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 성균관대학교
+  admission_year: 2023
+  admission_type: 모의논술
+  track: 자연계
+  question_no: 1
+  official_url: https://admission.skku.edu/admission/html/rolling/question.html
+  retrieved_at: 2026-11-21
+  original_points: [10, 10, 10]
+  rights_notice: 문제지·해설지에 이용 제한 문구 없음(원본 확인)
+  transcribed_from: 'm23_q.pdf p.2(문제지 인쇄 쪽 1/4) + m23_s.pdf p.2-4(해설지 인쇄 쪽 1/9-3/9) (이미지 대조 2026-11-21)'
+
+verify: verify/SKKU-M23.py::p01
+
+stimuli:
+- id: S1
+  label: <제시문 1>
+  body: |
+    자연수 $n$에 대한 명제 $p(n)$이 모든 자연수 $n$에 대하여 성립함을 증명하려면 다음 두 가지를 보이면 된다.
+    (a) $n=1$일 때 명제 $p(n)$이 성립한다.
+    (b) $n=k$일 때 명제 $p(n)$이 성립한다고 가정하면 $n=k+1$일 때에도 명제 $p(n)$이 성립한다.
+- id: S2
+  label: <제시문 2>
+  body: |
+    두 사건 $A,B$가 동시에 일어나지 않을 때, 사건 $A$와 사건 $B$가 일어나는 경우의 수를 각각 $m,n$이라고 하면 사건 $A$ 또는 사건 $B$가 일어나는 경우의 수는 $m+n$이다.
+- id: S3
+  label: <제시문 3>
+  body: |
+    두 정수 $a$와 $b$에 대하여 이차방정식 $x^2+ax-b=0$의 두 근을 $\alpha$와 $\beta$라고 할 때(단, $\alpha\le\beta$), 모든 자연수 $n$에 대하여
+    $$f_n=\sum_{k=0}^{n}\alpha^{n-k}\beta^k=\alpha^n+\alpha^{n-1}\beta+\cdots+\alpha\beta^{n-1}+\beta^n$$
+    을 정의하자.
+
+stem: |
+  다음 <제시문 1> ~ <제시문 3>을 읽고 [문제 1-ⅰ] ~ [문제 1-ⅲ]을 문항별로 풀이와 함께 답하시오.
+
+subparts:
+- id: '1'
+  stem: |
+    [문제 1-ⅰ] <제시문 3>에서 정의된 수열 $\{f_n\}$에 대하여,
+    $$f_{n+2}=-af_{n+1}+bf_n$$
+    이 모든 자연수 $n$에 대해 성립함을 보이시오. (10점)
+  points: 10
+  depends_on: []
+  answer: {kind: proof, value: 'alpha+beta=-a, alpha*beta=-b 이므로 -a f_{n+1} + b f_n = (alpha+beta) f_{n+1} - alpha*beta f_n = f_{n+2}', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $(\alpha+\beta)f_{n+1}$을 전개하면 $f_{n+2}-\beta^{n+2}$와 $\alpha\beta f_n+\beta^{n+2}$의 합이 된다.
+    steps:
+    - {id: 1a, content: '$(\alpha+\beta)f_{n+1}-\alpha\beta f_n=f_{n+2}$, 근과 계수의 관계 대입', criteria: ['1.B1', '1.M1']}
+    hint_ladder:
+    - 근과 계수의 관계로 $-a$, $b$를 $\alpha,\beta$로 바꾸자.
+    - $\alpha\cdot f_{n+1}$과 $\beta\cdot f_{n+1}$을 따로 전개해 보자.
+  - id: S1-B
+    audience: B
+    source_flow: 2023 모의논술 해설지 문제 1-ⅰ 예시답안 p.2(인쇄 쪽 1/9)
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        근과 계수의 관계로부터 $\alpha+\beta=-a$, $\alpha\beta=-b$이다.
+      criteria: ['1.B1']
+    - id: 1b-2
+      content: |
+        $-af_{n+1}+bf_n=(\alpha+\beta)\left(\displaystyle\sum_{k=0}^{n+1}\alpha^{n+1-k}\beta^k\right)-(\alpha\beta)\left(\sum_{k=0}^{n}\alpha^{n-k}\beta^k\right)$
+        $=\left(\displaystyle\sum_{k=0}^{n+1}\alpha^{n+2-k}\beta^k\right)+\left(\sum_{k=0}^{n+1}\alpha^{n+1-k}\beta^{k+1}\right)-\left(\sum_{k=0}^{n}\alpha^{n+1-k}\beta^{k+1}\right)$
+      criteria: ['1.M1']
+    - id: 1b-3
+      content: |
+        $=\left(\displaystyle\sum_{k=0}^{n+1}\alpha^{n+2-k}\beta^k\right)+\beta^{n+2}=f_{n+2}$가 성립한다.
+      criteria: ['1.M1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.B1
+      mark_type: B
+      points: 2
+      evidence: |
+        근과 계수의 관계로부터 $\alpha+\beta=-a$와 $\alpha\beta=-b$를 구할 수 있다.
+      depends_on: []
+      steps: [1b-1]
+    - id: 1.M1
+      mark_type: M
+      points: 8
+      evidence: |
+        $f_{n+2}=-af_{n+1}+bf_n$을 보일 수 있다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-2, 1b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '2'
+  stem: |
+    [문제 1-ⅱ] <제시문 1>의 수학적 귀납법을 이용하여 <제시문 3>에서 정의된 수열 $\{f_n\}$의 모든 항이 정수라는 사실을 보이시오. (10점)
+  points: 10
+  depends_on: ['1']
+  answer: {kind: proof, value: 'p(n): f_n, f_{n+1} 이 정수. f_1=-a, f_2=a^2+b 정수; f_{k+2}=-a f_{k+1}+b f_k 로 귀납', equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: 명제 $p(n)$은 "$f_n$과 $f_{n+1}$이 정수", $f_1=-a$, $f_2=a^2+b$와 (ⅰ)의 점화식.
+    steps:
+    - {id: 2a, content: '$p(1)$ 참, $p(k)\Rightarrow f_{k+2}=-af_{k+1}+bf_k$ 정수 $\Rightarrow p(k+1)$', criteria: ['2.M1', '2.R1']}
+    hint_ladder:
+    - 점화식은 두 항으로 다음 항을 정한다. 명제에 항 몇 개를 담아야 할까?
+  - id: S2-B
+    audience: B
+    source_flow: 2023 모의논술 해설지 문제 1-ⅱ 예시답안 p.3(인쇄 쪽 2/9)
+    method_no: 1
+    steps:
+    - id: 2b-1
+      content: |
+        자연수 $n$에 대하여 명제 $p(n)$을 "$f_n$과 $f_{n+1}$이 정수이다"로 설정하자.
+      criteria: ['2.M1']
+    - id: 2b-2
+      content: |
+        $f_1=\alpha+\beta=-a$이고, $f_2=\alpha^2+\alpha\beta+\beta^2=a^2+b$이므로 두 수 모두 정수이다. 따라서 명제 $p(n)$은 $n=1$일 때 참이다.
+      criteria: ['2.R1']
+    - id: 2b-3
+      content: |
+        명제 $p(n)$이 $n=k$일 때 참이라고 가정하면, $f_k$와 $f_{k+1}$이 정수이다. 이때 $f_{k+2}=-af_{k+1}+bf_k$이므로 $f_{k+2}$도 정수이다. 즉, $f_{k+1}$과 $f_{k+2}$가 정수이므로 명제 $p(n)$이 $n=k+1$일 때 참이다. 따라서 수열 $\{f_n\}$의 모든 항이 정수이다.
+      criteria: ['2.R1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 5
+      evidence: |
+        명제 $p(n)$을 올바르게 설정할 수 있다.
+      depends_on: []
+      implied_ok: false
+      steps: [2b-1]
+    - id: 2.R1
+      mark_type: R
+      points: 5
+      evidence: |
+        수학적 귀납법을 사용하여 수열 $\{f_n\}$의 모든 항이 정수임을 보일 수 있다.
+      depends_on: [2.M1]
+      ft: {allowed: true, from: [1.M1], max_points: 5}
+      steps: [2b-2, 2b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '3'
+  stem: |
+    [문제 1-ⅲ] 동전을 5번 던져 앞면이 $a$번 나오고 뒷면이 $b$번 나왔다고 할 때, 절댓값 $|f_5|$의 값이 1000보다 클 경우의 수를 구하고, 그 이유를 논하시오. (10점)
+  points: 10
+  depends_on: ['1']
+  answer: {kind: value, value: '6', equivalents: [], tolerance: null}
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: $(a,b)$ 6가지에 점화식을 적용하면 $|f_5|>1000$은 $(4,1)$($f_5=-1292$), $(5,0)$($f_5=-3125$)뿐.
+    steps:
+    - {id: 3a, content: '앞면 4번 이상: $\binom54+\binom55=6$', criteria: ['3.M1', '3.A1']}
+    hint_ladder:
+    - 가능한 $(a,b)$는 6가지뿐이다. 각각 $f_5$를 점화식으로 계산하자.
+    - 구하는 것은 동전 던지기 결과(앞·뒤의 순서)의 경우의 수이다.
+  - id: S3-B
+    audience: B
+    source_flow: 2023 모의논술 해설지 문제 1-ⅲ 예시답안 p.3-4(인쇄 쪽 2/9-3/9)
+    method_no: 1
+    steps:
+    - id: 3b-1
+      content: |
+        동전을 5번 던져 나올 수 있는 $(a,b)$는 $(0,5),(1,4),(2,3),(3,2),(4,1),(5,0)$의 여섯 가지이다.
+      criteria: ['3.M1']
+    - id: 3b-2
+      content: |
+        각각에 대해 [문제 1-ⅰ]의 결과를 적용하면 $(f_1,f_2,f_3,f_4,f_5)$는 $(0,5)$: $5f_n$, $(0,5,0,25,0)$; $(1,4)$: $-f_{n+1}+4f_n$, $(-1,5,-9,29,-65)$; $(2,3)$: $-2f_{n+1}+3f_n$, $(-2,7,-20,61,-182)$; $(3,2)$: $-3f_{n+1}+2f_n$, $(-3,11,-39,139,-495)$; $(4,1)$: $-4f_{n+1}+f_n$, $(-4,17,-72,305,-1292)$; $(5,0)$: $-5f_{n+1}$, $(-5,25,-125,625,-3125)$.
+      criteria: ['3.M1']
+    - id: 3b-3
+      content: |
+        $|f_5|>1000$인 경우는 $(a,b)$가 $(4,1)$ 또는 $(5,0)$, 즉 앞면이 4번 이상 나오는 경우이다. 앞면이 4번 나오는 경우는 5가지, 5번 나오는 경우는 1가지이므로 모두 6가지이다.
+      criteria: ['3.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 7
+      evidence: |
+        가능한 $f_5$의 값을 모두 구할 수 있다.
+      depends_on: []
+      implied_ok: false
+      ft: {allowed: true, from: [1.M1], max_points: 7}
+      steps: [3b-1, 3b-2]
+    - id: 3.A1
+      mark_type: A
+      points: 3
+      evidence: |
+        경우의 수를 올바르게 구할 수 있다.
+      depends_on: [3.M1]
+      steps: [3b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+remedy_links: []
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

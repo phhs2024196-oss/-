@@ -1,0 +1,297 @@
+# 성균관대 2026학년도 수시 논술위주전형 수리형 2교시 문제 1 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: SKKU-G26B-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: SKKU
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 추론
+points: 30
+time_estimate_min: 30
+intent: |
+  두 점을 잇는 직선의 방정식을 이용하여 어떤 점들이 주어진 선분에 속할 수 있는지 판별하는 문제이다. 계수와 사잇값 정리 등으로 삼차방정식의 근을 구하는지, 사차함수의 증가·감소를 미분계수로 판별해 사차방정식이 주어진 구간에서 근을 갖는 조건을 알아내는지, 다항함수가 아닌 주어진 함수가 감소하지 않는 함수임을 이용해 효율적으로 순서쌍을 찾는지 평가한다(보고서 출제 의도 요약).
+key_idea: |
+  점 $(x_0,y_0)$가 선분 $\mathrm{PQ}$ 위에 있을 조건은 $y_0=(f(t)-t)x_0+t$를 만족하는 $t\in[0,1]$가 존재하는 것이다. 이 식을 $t$의 함수로 보고 증가(감소하지 않음)를 이용해 값의 범위를 구한다.
+stuck: |
+  선분 위의 점 조건을 $t$에 대한 방정식으로 바꾸고, 그 방정식이 $[0,1]$에서 해를 갖는 조건을 $t$의 함수의 단조성과 양 끝값으로 판정하는 것
+idea_tags: [IDEA-SEGMENT-PARAM-EQUATION, IDEA-MONOTONE-RANGE-IVT]
+tags: [선분 위의 점, 직선의 방정식, 단조성]
+elements:
+  materials:
+  - '$\mathrm P(0,t)$, $\mathrm Q(1,f(t))$를 잇는 선분 $\mathrm{PQ}$들의 모임'
+  - '$f(x)=-x^3+1$, $f(x)=-x^4+1$, 구간별로 정의된 함수'
+  - '점 $\left(\tfrac1p,\tfrac1q\right)$, $p,q\in\{3,4,5,6\}$'
+  concepts:
+  - '직선의 방정식'
+  - '삼차방정식의 인수분해'
+  - '도함수를 이용한 함수의 증가·감소'
+  - '연속함수의 성질(사잇값 정리)'
+  - '이차함수의 그래프와 직선의 위치 관계'
+  tools:
+  - '선분 위 점 조건을 $t$의 방정식으로 변환'
+  - '인수정리로 삼차식 인수분해'
+  - '증가함수의 치역 = 양 끝값 사이'
+  - '자연수 순서쌍 전수 확인'
+  conditions:
+  - '$0\le t\le1$'
+  - '(ⅰ) 점 $\left(\tfrac13,\tfrac{44}{81}\right)$'
+  - '(ⅱ) 점 $\left(\tfrac15,b\right)$'
+  - '(ⅲ) 서로 다른 $p,q\in\{3,4,5,6\}$'
+  stimuli_used: [S1, S2]
+  subpart_links: '세 소문항 모두 같은 선분 조건식 $y_0=(f(t)-t)x_0+t$를 사용하며 (ⅱ)·(ⅲ)은 단조성으로 범위를 구한다'
+
+curriculum:
+  version: '2015'
+  subjects: [수학, 수학Ⅱ]
+  scope_2028: common
+  scope_confirmed: false
+  standards:
+  - code: 10수학02-03
+    text: 직선의 방정식을 구할 수 있다.
+    verified: true
+  - code: 12수학Ⅱ02-09
+    text: 함수의 그래프의 개형을 그릴 수 있다.
+    verified: true
+  - code: 10수학01-10
+    text: 이차함수의 그래프와 직선의 위치관계를 이해한다.
+    verified: true
+  - code: 12수학Ⅱ01-04
+    text: 연속함수의 성질을 이해하고, 이를 활용할 수 있다.
+    verified: true
+  content_area: 미분 – 도함수의 활용
+  behavior_domain: 추론
+  unit_path: [수학Ⅱ, 미분, 도함수의 활용, 함수의 증가·감소]
+  key_concepts: [직선의 방정식]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 성균관대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 성균관대학교
+  admission_year: 2026
+  admission_type: 수시 논술위주전형
+  track: 수리형
+  question_no: 1
+  official_url: https://admission.skku.edu/admission/html/rolling/question.html
+  retrieved_at: 2026-11-21
+  original_points: [8, 11, 11]
+  rights_notice: 이 문서는 상업적인 목적으로 사용할 수 없으며, 문서의 변형 및 발췌를 금지합니다.
+  transcribed_from: e26.pdf(2026 수시 논술 문제지) 수리형 2교시 p.19 + 2026 선행학습 영향평가 보고서 문항카드 10, p.177-180(인쇄 쪽 173-176) (이미지 대조 2026-11-21)
+
+verify: verify/SKKU-G26B.py::p01
+
+stimuli:
+- id: S1
+  label: <제시문1>
+  body: |
+    좌표평면 위에서 점 $(a,b)$를 지나고 기울기가 $m$인 직선의 방정식은 $y=m(x-a)+b$이다.
+- id: S2
+  label: <제시문2>
+  body: |
+    닫힌구간 $[0,1]$에서 정의된 함수 $f(x)$와 실수 $t\,(0\le t\le1)$에 대하여 좌표평면 위의 두 점 $\mathrm P(0,t)$와 $\mathrm Q(1,f(t))$라고 하자. 예를 들어, $f(x)=1-x$이고 $t=\dfrac13$인 경우, 점 $\mathrm P$는 $\left(0,\dfrac13\right)$, 점 $\mathrm Q$는 $\left(1,\dfrac23\right)$이다.
+
+stem: |
+  다음 <제시문1>과 <제시문2>를 읽고 [문제1-ⅰ] ~ [문제1-ⅲ]을 문항별로 풀이와 함께 답하시오. (30점)
+
+subparts:
+- id: 'i'
+  stem: |
+    <제시문2>에서 $f(x)=-x^3+1$일 때, 점 $\left(\dfrac13,\dfrac{44}{81}\right)$가 선분 $\mathrm{PQ}$ 위의 점이 되도록 하는 실수 $t\,(0\le t\le1)$를 구하고 그 이유를 논하시오.
+  points: 8
+  depends_on: []
+  answer: {kind: value, value: '1/3', equivalents: [], tolerance: null}
+  solutions:
+  - id: Si-A
+    audience: A
+    method_no: 1
+    key_idea: $\tfrac{44}{81}=(f(t)-t)\tfrac13+t$를 정리하면 $(3t-1)(9t^2+3t-17)=0$.
+    steps:
+    - {id: ia, content: '$27t^3-54t+17=(3t-1)(9t^2+3t-17)=0$, 이차식의 근 $\tfrac{-1\pm\sqrt{69}}{6}\notin[0,1]$ → $t=\tfrac13$', criteria: ['i.M1', 'i.A1']}
+    hint_ladder:
+    - 선분 $\mathrm{PQ}$ 위에서 $x=\tfrac13$인 점의 $y$좌표를 $t$로 나타내 보자.
+  - id: Si-B
+    audience: B
+    source_flow: 2026 보고서 문항카드 10 예시답안 p.179(인쇄 175)
+    method_no: 1
+    steps:
+    - id: ib-1
+      content: |
+        $f(x)=-x^3+1$이므로, 어떤 $t\,(0\le t\le1)$에 대하여 <제시문2>의 두 점 $\mathrm P$와 $\mathrm Q$는 각각 $\mathrm P(0,t)$ 그리고 $\mathrm Q(1,f(t))$이다. 따라서 점 $\left(\dfrac13,\dfrac{44}{81}\right)$가 어떤 $t$에 대하여 선분 $\mathrm{PQ}$ 위에 놓이는지 찾으려면, 다음 방정식을 만족하는 어떤 $t\,(0\le t\le1)$가 존재하는지 찾아야 한다.
+        $$\dfrac{44}{81}=(-t^3+1-t)\dfrac13+t\iff27t^3-54t+17=(3t-1)(9t^2+3t-17)=0$$
+      criteria: ['i.M1']
+    - id: ib-2
+      content: |
+        $9t^2+3t-17=0$의 근은 $\dfrac{-1\pm\sqrt{69}}{6}$이므로 $0\le t\le1$의 범위 안에 들어가지 않는다. 따라서 정답은 $t=\dfrac13$.
+      criteria: ['i.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: i.M1
+      mark_type: M
+      points: 4
+      evidence: |
+        선분 위 조건을 $\dfrac{44}{81}=(-t^3+1-t)\dfrac13+t$, 즉 $27t^3-54t+17=0$으로 나타냈다.
+      depends_on: []
+      implied_ok: false
+      steps: [ib-1]
+    - id: i.A1
+      mark_type: A
+      points: 4
+      evidence: |
+        $(3t-1)(9t^2+3t-17)=0$으로 인수분해하고 나머지 근이 $[0,1]$ 밖임을 보여 $t=\dfrac13$을 얻었다.
+      depends_on: [i.M1]
+      steps: [ib-2]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: 'ii'
+  stem: |
+    <제시문2>에서 $f(x)=-x^4+1$이라 하자. 이때 점 $\left(\dfrac15,b\right)$가 적어도 하나의 선분 $\mathrm{PQ}$ 위에 놓이기 위한 실수 $b$의 범위를 구하고 그 이유를 논하시오.
+  points: 11
+  depends_on: []
+  answer: {kind: set, value: 'Interval(1/5, 4/5)', equivalents: ['1/5 <= b <= 4/5'], tolerance: null}
+  solutions:
+  - id: Sii-A
+    audience: A
+    method_no: 1
+    key_idea: $5b=-t^4+4t+1=g(t)$이고 $g'(t)=-4(t-1)(t^2+t+1)\ge0$이므로 $g$는 $[0,1]$에서 증가, 치역 $[1,4]$.
+    steps:
+    - {id: iia, content: '$1\le5b\le4\iff\tfrac15\le b\le\tfrac45$', criteria: ['ii.M1', 'ii.M2', 'ii.A1']}
+    hint_ladder:
+    - $x=\tfrac15$에서 선분의 높이를 $t$의 함수로 쓰자.
+    - 그 함수가 $[0,1]$에서 증가하면 가능한 값의 범위는?
+  - id: Sii-B
+    audience: B
+    source_flow: 2026 보고서 문항카드 10 예시답안 p.180(인쇄 176)
+    method_no: 1
+    steps:
+    - id: iib-1
+      content: |
+        $f(x)=-x^4+1$이므로, 점 $\left(\dfrac15,b\right)$가 어떤 $t$에 대하여 선분 $\mathrm{PQ}$ 위에 놓이려면, 방정식 $b=(-t^4+1-t)\dfrac15+t\iff5b=-t^4+4t+1$을 만족하는 근이 0과 1 사이에 있어야만 한다.
+      criteria: ['ii.M1']
+    - id: iib-2
+      content: |
+        함수 $g(x)$를 $g(x)=-x^4+4x+1$이라 정의할 때, 어떤 $t\,(0\le t\le1)$가 $g(t)=5b$를 만족시키는지 찾아야 한다. $g'(x)=-4x^3+4=-4(x-1)(x^2+x+1)$이므로 $g(x)$는 닫힌구간 $[0,1]$ 위에서 증가함수이다.
+      criteria: ['ii.M2']
+    - id: iib-3
+      content: |
+        또한, $g(0)=1$, $g(1)=4$이므로 $1\le5b\le4\iff\dfrac15\le b\le\dfrac45$일 때 항상 $g(t)=5b$를 만족시키는 어떤 $t\,(0\le t\le1)$가 존재하게 된다. 따라서 정답은 $\dfrac15\le b\le\dfrac45$.
+      criteria: ['ii.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: ii.M1
+      mark_type: M
+      points: 3
+      evidence: |
+        조건을 $5b=-t^4+4t+1$이 $[0,1]$에서 근을 갖는 것으로 바꿨다.
+      depends_on: []
+      implied_ok: false
+      steps: [iib-1]
+    - id: ii.M2
+      mark_type: M
+      points: 4
+      evidence: |
+        $g'(x)=-4(x-1)(x^2+x+1)$로 $g$가 $[0,1]$에서 증가함을 보였다.
+      depends_on: [ii.M1]
+      implied_ok: false
+      steps: [iib-2]
+    - id: ii.A1
+      mark_type: A
+      points: 4
+      evidence: |
+        $g(0)=1$, $g(1)=4$와 연속성(사잇값)으로 $\dfrac15\le b\le\dfrac45$를 얻었다.
+      depends_on: [ii.M2]
+      steps: [iib-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: 'iii'
+  stem: |
+    <제시문2>에서 $f(x)=\begin{cases}1 & \left(0\le x<\dfrac12\right)\\ -2x+2 & \left(\dfrac12\le x\le1\right)\end{cases}$이라 하자. 서로 다른 두 자연수 $p,q\in\{3,4,5,6\}$에 대하여 점 $\left(\dfrac1p,\dfrac1q\right)$이 적어도 하나의 선분 $\mathrm{PQ}$ 위에 놓이도록 하는 순서쌍 $(p,q)$의 개수를 구하고 그 이유를 논하시오.
+  points: 11
+  depends_on: []
+  answer: {kind: value, value: '6', equivalents: [], tolerance: null}
+  solutions:
+  - id: Siii-A
+    audience: A
+    method_no: 1
+    key_idea: $a\le\tfrac13$이면 $b=(f(t)-t)a+t$는 $t$에 대해 감소하지 않으므로 가능한 $b$는 $[a,1-a]$. 따라서 $\tfrac{p}{p-1}\le q\le p$.
+    steps:
+    - {id: iiia, content: '$p=4:q=3$; $p=5:q=3,4$; $p=6:q=3,4,5$ → 6개', criteria: ['iii.M1', 'iii.M2', 'iii.A1']}
+    hint_ladder:
+    - 점을 $(a,b)$로 두고 $b$를 $t$의 함수로 쓰자.
+    - $a\le\tfrac13$일 때 그 함수는 증가하는가?
+  - id: Siii-B
+    audience: B
+    source_flow: 2026 보고서 문항카드 10 예시답안 p.180(인쇄 176)
+    method_no: 1
+    steps:
+    - id: iiib-1
+      content: |
+        $(a,b)$가 한 선분 $\mathrm{PQ}$ 위에 있기 위한 필요충분조건은 어떤 $t\,(0\le t\le1)$에서 다음 방정식이 성립하는 것이다.
+        $$b=(f(t)-t)a+t=\begin{cases}(1-a)t+a & \left(0\le t\le\dfrac12\right)\\ (1-3a)t+2a & \left(\dfrac12\le t\le1\right)\end{cases}$$
+      criteria: ['iii.M1']
+    - id: iiib-2
+      content: |
+        이때 $a\le\dfrac13$인 $a$에 대하여 $(f(t)-t)a+t$가 항상 $t$에 대하여 감소하지 않는 함수이므로, $(a,b)$가 한 선분 $\mathrm{PQ}$ 위에 있기 위한 필요충분조건은 $a\le b\le1-a$이다(보고서 원문 표기는 $a=f(0)\le b\le f(1)=1-a$로, $t=0$, $t=1$에서의 값을 $f(0)$, $f(1)$로 적었다).
+      criteria: ['iii.M2']
+    - id: iiib-3
+      content: |
+        $p$가 3 이상일 때 $\dfrac1p\le\dfrac13$을 만족하므로, $(p,q)$가 어떤 선분 위의 점이려면 $\dfrac1p\le\dfrac1q\le1-\dfrac1p\iff\dfrac{p}{p-1}\le q\le p$를 만족해야 한다. 이를 이용하여 $q$를 찾으면 다음과 같다.
+        $p=3$일 때, 서로 다른 $q$는 존재하지 않는다. $p=4$일 때, $q=3$. $p=5$일 때, $q=3,4$. $p=6$일 때, $q=3,4,5$.
+        따라서 정답은 6개이다.
+      criteria: ['iii.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: iii.M1
+      mark_type: M
+      points: 3
+      evidence: |
+        $b=(f(t)-t)a+t$를 $t$의 구간별 일차식으로 나타냈다.
+      depends_on: []
+      implied_ok: false
+      steps: [iiib-1]
+    - id: iii.M2
+      mark_type: M
+      points: 4
+      evidence: |
+        $a\le\dfrac13$에서 이 함수가 감소하지 않음을 이용해 조건 $a\le b\le1-a$를 얻었다.
+      depends_on: [iii.M1]
+      implied_ok: false
+      steps: [iiib-2]
+    - id: iii.A1
+      mark_type: A
+      points: 4
+      evidence: |
+        $\dfrac{p}{p-1}\le q\le p$로 순서쌍을 나열해 6개를 얻었다.
+      depends_on: [iii.M2]
+      steps: [iiib-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+remedy_links: []
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

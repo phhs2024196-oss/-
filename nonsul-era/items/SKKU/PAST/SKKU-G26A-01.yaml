@@ -1,0 +1,336 @@
+# 성균관대 2026학년도 수시 논술위주전형 수리형 1교시 문제 1 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: SKKU-G26A-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: SKKU
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 분류
+points: 30
+time_estimate_min: 30
+intent: |
+  주어진 함수의 정보(접선으로 이어 붙인 연속함수)를 이해하고 이를 이용하여 정적분을 계산하고 기하학적 정보를 도출할 수 있는지 평가한다. 조건에 맞게 곡선·직선의 방정식을 유도하여 점들의 위치를 수식화하고, 이차함수 그래프의 기하학적 의미와 정적분의 넓이로서의 해석을 이용해 정확히 계산할 수 있는지 본다(보고서 출제 의도 요약).
+key_idea: |
+  $g$는 $[-1,1]$에서 $f$, 바깥에서는 $x=\pm1$에서의 접선이다. (ⅱ)는 $f'(\pm1)$ 조건으로 $f$의 계수를 정하고 남은 상수항 $c$가 가장 작을 때 넓이가 최소, (ⅲ)은 $g(-2)=5c$가 2를 넘는지로 $c$의 범위를 나눈다.
+stuck: |
+  (ⅱ)에서 넓이가 상수항 $c$에 대해 증가함을 보고 $c$의 최솟값을 조건 (1)에서 찾는 것, (ⅲ)에서 $G$가 잘리는 구간 $c>\tfrac25$를 나누는 것
+idea_tags: [IDEA-TANGENT-EXTENSION-PIECEWISE, IDEA-AREA-MONOTONE-IN-PARAMETER]
+tags: [접선으로 연장한 함수, 정적분과 넓이, 경우 나누기]
+elements:
+  materials:
+  - '$[-1,1]$에서는 $f$, 양 끝에서는 접선으로 연장한 연속함수 $g$'
+  - '이차함수 $f(x)=-2x^2+1$, 조건부 이차함수, $f(x)=cx(x-1)$'
+  - '$\min(g,2)$로 자른 함수 $G$'
+  concepts:
+  - '접선의 방정식'
+  - '함수의 연속'
+  - '정적분의 계산(미적분의 기본정리)'
+  - '곡선으로 둘러싸인 도형의 넓이'
+  - '우함수의 정적분'
+  tools:
+  - '구간별 적분'
+  - '사다리꼴 넓이 공식'
+  - '미분계수 조건 연립으로 계수 결정'
+  - '매개변수 범위에 따른 경우 나누기'
+  conditions:
+  - '$f(1),f(-1)\in[-1,1]$'
+  - '$f''(1)=\tfrac13$, $f''(-1)=-\tfrac12$'
+  - '$\int_{-2}^{2}(G(x)+2)dx=\tfrac{109}{10}$, $0<c\le1$'
+  stimuli_used: [S1, S2]
+  subpart_links: '세 소문항 모두 <제시문2>의 $g$ 정의를 공유하며 서로 독립적으로 풀린다'
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅱ]
+  scope_2028: common
+  scope_confirmed: false
+  standards:
+  - code: 12수학Ⅱ03-03
+    text: 정적분의 뜻을 안다. / 다항함수의 정적분을 구할 수 있다.
+    verified: true
+  - code: 12수학Ⅱ01-03
+    text: 함수의 연속의 뜻을 안다.
+    verified: true
+  - code: 12수학Ⅱ02-06
+    text: 접선의 방정식을 구할 수 있다.
+    verified: true
+  - code: 12수학Ⅱ03-05
+    text: 곡선으로 둘러싸인 도형의 넓이를 구할 수 있다.
+    verified: true
+  content_area: 적분 – 정적분의 활용
+  behavior_domain: 문제해결
+  unit_path: [수학Ⅱ, 적분, 정적분의 활용, 곡선으로 둘러싸인 도형의 넓이]
+  key_concepts: [직선의 방정식, 이차함수, 접선의 방정식, 정적분과 넓이]   # 카드 핵심개념 표기는 「삼차함수」(문항은 이차함수)
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 성균관대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 성균관대학교
+  admission_year: 2026
+  admission_type: 수시 논술위주전형
+  track: 수리형
+  question_no: 1
+  official_url: https://admission.skku.edu/admission/html/rolling/question.html
+  retrieved_at: 2026-11-21
+  original_points: [6, 12, 12]
+  rights_notice: 이 문서는 상업적인 목적으로 사용할 수 없으며, 문서의 변형 및 발췌를 금지합니다.
+  transcribed_from: e26.pdf(2026 수시 논술 문제지) 수리형 1교시 p.15 + 2026 선행학습 영향평가 보고서 문항카드 7, p.163-166(인쇄 쪽 159-162) (이미지 대조 2026-11-21)
+
+verify: verify/SKKU-G26A.py::p01
+
+stimuli:
+- id: S1
+  label: <제시문1>
+  body: |
+    닫힌구간 $[a,b]$에서 연속인 함수 $h(x)$의 한 부정적분을 $H(x)$라고 하면
+    $$\int_a^b h(x)\,dx=H(b)-H(a)$$
+    이다.
+- id: S2
+  label: <제시문2>
+  body: |
+    미분가능한 함수 $f(x)$가 주어졌을 때, 닫힌구간 $[-2,2]$ 위에서 정의되는 연속함수 $g(x)$는 다음과 같다.
+    $$g(x)=\begin{cases}f'(-1)(x+1)+f(-1) & (-2\le x\le-1)\\ f(x) & (-1\le x\le1)\\ f'(1)(x-1)+f(1) & (1\le x\le2)\end{cases}$$
+
+stem: |
+  다음 <제시문1>과 <제시문2>를 읽고 [문제1-ⅰ] ~ [문제1-ⅲ]을 문항별로 풀이와 함께 답하시오. (30점)
+
+subparts:
+- id: 'i'
+  stem: |
+    <제시문2>에서 $f(x)=-2x^2+1$일 때, 정적분 $\displaystyle\int_{-2}^{2}g(x)\,dx$의 값을 구하고 그 이유를 논하시오.
+  points: 6
+  depends_on: []
+  answer: {kind: value, value: '-16/3', equivalents: [], tolerance: null}
+  solutions:
+  - id: Si-A
+    audience: A
+    method_no: 1
+    key_idea: $g$는 우함수이고 $[1,2]$에서 $-4x+3$이다.
+    steps:
+    - {id: ia, content: '$\int_{-2}^{2}g\,dx=2\left(\int_0^1(-2x^2+1)dx+\int_1^2(-4x+3)dx\right)=-\tfrac{16}{3}$', criteria: ['i.M1', 'i.A1']}
+    hint_ladder:
+    - $f(\pm1)$과 $f'(\pm1)$을 먼저 구해 $g$를 구간별로 적어 보자.
+    - $g$의 그래프는 $y$축에 대해 대칭인가?
+  - id: Si-B
+    audience: B
+    source_flow: 2026 보고서 문항카드 7 예시답안 p.165(인쇄 161)
+    method_no: 1
+    steps:
+    - id: ib-1
+      content: |
+        $f(x)=-2x^2+1$이면 $f(\pm1)=-1$, $f'(x)=-4x$에서 $f'(-1)=4$, $f'(1)=-4$이므로
+        $$g(x)=\begin{cases}4x+3 & (-2\le x\le-1)\\ -2x^2+1 & (-1<x<1)\\ -4x+3 & (1<x\le2)\end{cases}$$
+      criteria: ['i.M1']
+    - id: ib-2
+      content: |
+        $g$는 우함수이므로 <제시문1>에 의해
+        $$\int_{-2}^{2}g(x)dx=2\int_0^2g(x)dx=2\left(\int_0^1(-2x^2+1)dx+\int_1^2(-4x+3)dx\right)=2\left(\tfrac13-3\right)=-\tfrac{16}{3}.$$
+      criteria: ['i.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: i.M1
+      mark_type: M
+      points: 3
+      evidence: |
+        $g(x)$를 구간별로 $4x+3$, $-2x^2+1$, $-4x+3$으로 정확히 적었다.
+      depends_on: []
+      implied_ok: false
+      steps: [ib-1]
+    - id: i.A1
+      mark_type: A
+      points: 3
+      evidence: |
+        구간별 정적분을 계산해 $-\dfrac{16}{3}$을 얻었다.
+      depends_on: [i.M1]
+      steps: [ib-2]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: 'ii'
+  stem: |
+    <제시문2>에서 $f(x)$는 다음의 두 조건을 모두 만족하는 이차함수이다.
+
+    (1) $f(1),\,f(-1)\in[-1,1]$
+
+    (2) $f'(1)=\dfrac13,\ f'(-1)=-\dfrac12$
+
+    이때 $y=g(x)$, $y=-2$ 및 $x=-2$, $x=2$로 둘러싸인 도형의 가능한 넓이 중에서 최솟값을 구하고 그 이유를 논하시오.
+  points: 12
+  depends_on: []
+  answer: {kind: value, value: '161/36', equivalents: [], tolerance: null}
+  solutions:
+  - id: Sii-A
+    audience: A
+    method_no: 1
+    key_idea: 계수 $a,b$는 (2)로 결정되고 남은 상수항 $c$가 클수록 넓이가 크므로 (1)이 허용하는 최소 $c=-\tfrac98$에서 넓이를 계산한다.
+    steps:
+    - {id: iia, content: '$f=\tfrac{5}{24}x^2-\tfrac1{12}x+c$, $-\tfrac98\le c\le\tfrac{17}{24}$, 최소 넓이 $=\tfrac{17}{12}+\tfrac{17}{9}+\tfrac76=\tfrac{161}{36}$', criteria: ['ii.M1', 'ii.A1', 'ii.M2', 'ii.A2']}
+    hint_ladder:
+    - 조건 (2)로 이차함수의 어떤 계수들이 정해지는가?
+    - 그래프가 $y=-2$보다 항상 위에 있으면 넓이는 $c$에 대해 어떻게 변하는가?
+  - id: Sii-B
+    audience: B
+    source_flow: 2026 보고서 문항카드 7 예시답안 p.165-166(인쇄 161-162)
+    method_no: 1
+    steps:
+    - id: iib-1
+      content: |
+        $f(x)=ax^2+bx+c\ (a\ne0)$라 하면 $f'(x)=2ax+b$이고, 조건 (2)에서 $f'(1)=2a+b=\dfrac13$, $f'(-1)=-2a+b=-\dfrac12$이므로 $a=\dfrac{5}{24}$, $b=-\dfrac1{12}$이다.
+      criteria: ['ii.M1']
+    - id: iib-2
+      content: |
+        $f(x)=\dfrac{5}{24}x^2-\dfrac1{12}x+c$이므로 조건 (1)에서
+        $-1\le f(1)=\dfrac18+c\le1\iff-\dfrac98\le c\le\dfrac78$, $-1\le f(-1)=\dfrac{7}{24}+c\le1\iff-\dfrac{31}{24}\le c\le\dfrac{17}{24}$.
+        종합하면 $-\dfrac98\le c\le\dfrac{17}{24}$이다.
+      criteria: ['ii.A1']
+    - id: iib-3
+      content: |
+        이 범위에서 $f(x)\ge c-\dfrac1{120}>-2$이므로(접선 부분도 $-2$보다 위), $y=g(x)$, $y=-2$, $x=-2$, $x=2$로 둘러싸인 도형의 넓이는 $c$가 가장 작을 때, 즉 $c=-\dfrac98$일 때 최솟값을 가진다. 이때 $f(x)=\dfrac{5}{24}x^2-\dfrac1{12}x-\dfrac98$이다.
+      criteria: ['ii.M2']
+    - id: iib-4
+      content: |
+        도형은 세 부분으로 이루어진다.
+        $A$: $\left(-1,-\dfrac56\right)$, $\left(-2,-\dfrac13\right)$, $(-2,-2)$, $(-1,-2)$를 꼭짓점으로 갖는 사다리꼴, 넓이 $\left(\dfrac76+\dfrac53\right)\times1\times\dfrac12=\dfrac{17}{12}$.
+        $B$: $y=f(x)$, $y=-2$, $x=-1$, $x=1$로 둘러싸인 도형, 넓이 $\displaystyle\int_{-1}^{1}\left(\dfrac{5}{24}x^2-\dfrac1{12}x-\dfrac98+2\right)dx=\dfrac{17}{9}$.
+        $C$: $\left(2,-\dfrac23\right)$, $(1,-1)$, $(1,-2)$, $(2,-2)$를 꼭짓점으로 갖는 사다리꼴, 넓이 $\left(1+\dfrac43\right)\times1\times\dfrac12=\dfrac76$.
+        따라서 최솟값은 $\dfrac{17}{12}+\dfrac{17}{9}+\dfrac76=\dfrac{161}{36}$이다.
+      criteria: ['ii.A2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: ii.M1
+      mark_type: M
+      points: 3
+      evidence: |
+        조건 (2)로 $a=\dfrac{5}{24}$, $b=-\dfrac1{12}$을 구했다.
+      depends_on: []
+      implied_ok: false
+      steps: [iib-1]
+    - id: ii.A1
+      mark_type: A
+      points: 3
+      evidence: |
+        조건 (1)에서 $-\dfrac98\le c\le\dfrac{17}{24}$을 얻었다.
+      depends_on: [ii.M1]
+      steps: [iib-2]
+    - id: ii.M2
+      mark_type: M
+      points: 2
+      evidence: |
+        그래프가 $y=-2$ 위에 있어 넓이가 $c$에 대해 증가하므로 $c=-\dfrac98$일 때 최소임을 밝혔다.
+      depends_on: [ii.A1]
+      implied_ok: false
+      steps: [iib-3]
+    - id: ii.A2
+      mark_type: A
+      points: 4
+      evidence: |
+        세 부분의 넓이를 구해 최솟값 $\dfrac{161}{36}$을 얻었다.
+      depends_on: [ii.M2]
+      steps: [iib-4]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: 'iii'
+  stem: |
+    상수 $c$에 대하여 <제시문2>에서 $f(x)=cx(x-1)$이라 하자. 이때 연속함수 $G(x)$를 다음과 같이 정의한다. $g(x)\le2$이면 $G(x)=g(x)$이고, $g(x)>2$이면 $G(x)=2$이다. 정적분 $\displaystyle\int_{-2}^{2}(G(x)+2)\,dx$의 값이 $\dfrac{109}{10}$가 되도록 하는 $c$를 구하고 그 이유를 논하시오. (단, $0<c\le1$)
+  points: 12
+  depends_on: []
+  answer: {kind: value, value: '4/5', equivalents: [], tolerance: null}
+  solutions:
+  - id: Siii-A
+    audience: A
+    method_no: 1
+    key_idea: $g$의 최댓값은 $g(-2)=5c$이므로 $c\le\tfrac25$이면 $G=g$, $c>\tfrac25$이면 $x=-2$ 근처가 2로 잘린다.
+    steps:
+    - {id: iiia, content: '$c\le\tfrac25$: $\tfrac{14}{3}c+8\le\tfrac{148}{15}<\tfrac{109}{10}$; $c>\tfrac25$: $\tfrac{34}3+\tfrac12c-\tfrac2{3c}=\tfrac{109}{10}\Rightarrow c=\tfrac45$', criteria: ['iii.M1', 'iii.A1', 'iii.M2', 'iii.A2']}
+    hint_ladder:
+    - $g$를 구간별로 구하고 $[-2,2]$에서의 최댓값을 찾아보자.
+    - 최댓값이 2를 넘는 경우와 넘지 않는 경우로 나누자.
+  - id: Siii-B
+    audience: B
+    source_flow: 2026 보고서 문항카드 7 예시답안 p.166(인쇄 162)
+    method_no: 1
+    steps:
+    - id: iiib-1
+      content: |
+        $f(x)=cx^2-cx$이므로 $f'(x)=2cx-c$이고 $f(1)=0$, $f(-1)=2c$, $f'(1)=c$, $f'(-1)=-3c$이다. 따라서
+        $$g(x)=\begin{cases}-3cx-c & (-2\le x\le-1)\\ cx^2-cx & (-1<x<1)\\ cx-c & (1<x\le2)\end{cases}$$
+        이고 $y=g(x)$의 그래프는 점 $(-2,5c)$를 지난다.
+      criteria: ['iii.M1']
+    - id: iiib-2
+      content: |
+        (1) $c\in\left(0,\dfrac25\right]$인 경우: $G(x)=g(x)$이다. 따라서 $\displaystyle\int_{-2}^{2}(G(x)+2)dx=\dfrac{14}{3}c+8$이며, $\left(0,\dfrac25\right]$ 안에 있으면서 $\dfrac{14}{3}c+8=\dfrac{109}{10}$이 되도록 하는 $c$는 존재하지 않는다.
+      criteria: ['iii.A1']
+    - id: iiib-3
+      content: |
+        (2) $c\in\left(\dfrac25,1\right]$인 경우:
+        $$G(x)=\begin{cases}2 & \left(-2\le x\le-\dfrac13-\dfrac{2}{3c}\right)\\ -3cx-c & \left(-\dfrac13-\dfrac2{3c}<x\le-1\right)\\ cx^2-cx & (-1<x<1)\\ cx-c & (1<x\le2)\end{cases}$$
+        이다.
+      criteria: ['iii.M2']
+    - id: iiib-4
+      content: |
+        따라서 $\displaystyle\int_{-2}^{2}(G(x)+2)dx=\dfrac{34}{3}+\dfrac12c-\dfrac{2}{3c}$이며, $c=\dfrac45$일 때 그 값이 $\dfrac{109}{10}$가 된다. 따라서 정답은 $c=\dfrac45$이다.
+      criteria: ['iii.A2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: iii.M1
+      mark_type: M
+      points: 3
+      evidence: |
+        $g(x)$를 구간별로 구하고 $g(-2)=5c$가 최댓값임을 적었다.
+      depends_on: []
+      implied_ok: false
+      steps: [iiib-1]
+    - id: iii.A1
+      mark_type: A
+      points: 3
+      evidence: |
+        $0<c\le\dfrac25$에서 적분값 $\dfrac{14}{3}c+8$을 구하고 해가 없음을 보였다.
+      depends_on: [iii.M1]
+      steps: [iiib-2]
+    - id: iii.M2
+      mark_type: M
+      points: 3
+      evidence: |
+        $c>\dfrac25$에서 $G=2$가 되는 구간 $\left[-2,-\dfrac13-\dfrac2{3c}\right]$를 구해 $G$를 구간별로 적었다.
+      depends_on: [iii.M1]
+      implied_ok: false
+      steps: [iiib-3]
+    - id: iii.A2
+      mark_type: A
+      points: 3
+      evidence: |
+        적분값 $\dfrac{34}{3}+\dfrac12c-\dfrac2{3c}$를 구하고 $c=\dfrac45$를 얻었다.
+      depends_on: [iii.M2]
+      steps: [iiib-4]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+remedy_links: []
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

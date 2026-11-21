@@ -1,0 +1,334 @@
+# 성균관대 2027학년도 모의논술 수리형 문제 3 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: SKKU-M27-03
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: SKKU
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 분류
+points: 30
+time_estimate_min: 30
+intent: |
+  수직선의 0 이상인 부분을 길이가 1/3인 구간들로 나누고 각 구간에 1번부터 6번까지의 번호를 반복하여 부여한 상황을 바탕으로, 수열 $\sqrt{n^2+kn}$의 각 항이 어느 번호의 구간에 속하는지를 판단하는 문제이다. 완전제곱식을 활용하여 수열을 $n+\tfrac{k}{2}$와 비교하고, 두 값의 차이를 추정함으로써 각 항이 들어가는 구간을 판별하거나 조건을 만족하는 항의 개수를 구하는 능력을 평가한다(해설지 개요 요약).
+key_idea: |
+  $d_n=n+\tfrac{k}{2}-\sqrt{n^2+kn}=\dfrac{k^2/4}{n+\tfrac{k}{2}+\sqrt{n^2+kn}}$은 $n\ge500$, $k\le43$이면 $0<d_n<\tfrac12$이다. 번호는 길이 $2$를 주기로 반복되므로 $\sqrt{n^2+kn}$에서 짝수를 빼어 $[0,2)$로 옮긴 값으로 번호를 판정한다.
+stuck: |
+  번호 배열이 길이 $2$ 주기라는 점과 $n$의 홀짝에 따라 빼는 짝수($n+20$, $n+19$ 등)를 고르는 것
+idea_tags: [IDEA-COMPLETE-SQUARE-ESTIMATE, IDEA-PERIODIC-LABEL-MOD2, IDEA-PARITY-CASE-SPLIT]
+tags: [완전제곱식, 무리수 근사, 구간 번호, 홀짝 분류, 개수 세기]
+elements:
+  materials:
+  - '길이 $\tfrac13$인 구간에 $1$~$6$번을 반복해 붙인 수직선'
+  - '수열 $a_n=\sqrt{n^2+kn}$ $(500\le n\le2027)$'
+  - '$3$번 구간에 들어가는 항의 개수 $A_k$'
+  concepts:
+  - '완전제곱식'
+  - '분모의 유리화'
+  - '부등식의 성질'
+  - '수열의 합'
+  tools:
+  - '$d_n=n+\tfrac{k}{2}-\sqrt{n^2+kn}$의 범위 추정'
+  - '길이 $2$ 주기로 번호 판정(짝수 평행이동)'
+  - '$n$, $k$의 홀짝·$k\bmod4$에 따른 경우 나누기'
+  conditions:
+  - '$500\le n\le2027$'
+  - '$k=21$, $k=41$, $k=4m+1,4m+2,4m+3$ $(5\le m\le10)$'
+  stimuli_used: [S1, S2]
+  subpart_links: '(ⅲ)은 (ⅱ)에서 얻은 $0<d_n<\tfrac12$ 추정($k\le43$)과 주기 $2$ 논법을 사용'
+
+curriculum:
+  version: '2015'
+  subjects: [수학, 수학Ⅰ]
+  scope_2028: common
+  scope_confirmed: false
+  standards:
+  - code: 10수학01-03
+    text: 다항식의 연산·인수분해(완전제곱식) 관련(요지)
+    verified: false
+  - code: 12수학Ⅰ03-04
+    text: 여러 가지 수열의 첫째항부터 제n항까지의 합을 구할 수 있다.(요지)
+    verified: false
+  content_area: 수와 식·수열
+  behavior_domain: 추론
+  unit_path: [수학, 문자와 식, 다항식의 연산, 완전제곱식]
+  key_concepts: [완전제곱식, 무리식의 대소, 홀짝 분류, 개수 세기]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 성균관대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 성균관대학교
+  admission_year: 2027
+  admission_type: 모의논술
+  track: 수리형
+  question_no: 3
+  official_url: https://admission.skku.edu/admission/html/rolling/question.html
+  retrieved_at: 2026-11-21
+  original_points: [10, 10, 10]
+  rights_notice: 미표기(모의논술 문제지·해설지에 이용 제한 문구 없음)
+  transcribed_from: m27_q.pdf(2027학년도 모의논술 논술시험 수리형) p.5(문제 3/3) + m27_s.pdf(해설지) p.15-22(해설 13-20/20, 별해 p.20-22) (이미지 대조 2026-11-21). 원문은 구간 번호를 네모 안 숫자(예 네모 1)로 표기 → $\boxed{1}$로 옮김
+
+verify: verify/SKKU-M27.py::p03
+
+stimuli:
+- id: S1
+  label: <제시문1>
+  body: |
+    수직선에서 $0$ 이상인 부분을 길이가 $\dfrac13$인 구간들로 다음과 같이 나눈다.
+    $$\left[0,\frac13\right),\ \left[\frac13,\frac23\right),\ \left[\frac23,1\right),\ \left[1,\frac43\right),\ \left[\frac43,\frac53\right),\ \left[\frac53,2\right),\ \cdots$$
+    처음 $6$개의 구간에 차례로 $\boxed{1}$번부터 $\boxed{6}$번까지 번호를 붙이고, 그 이후에도 같은 순서로 번호를 반복하여 붙인다. 즉, $\boxed{6}$번 다음 구간에는 다시 $\boxed{1}$번을 붙이고, 그 다음 구간에는 $\boxed{2}$번을 붙이는 식으로 계속한다.
+- id: S2
+  label: <제시문2>
+  body: |
+    자연수 $k$에 대하여 다음과 같이 수열을 정의하자.
+    $$a_n=\sqrt{n^2+kn},\ (500\le n\le2027)$$
+
+stem: |
+  다음 <제시문1>과 <제시문2>를 읽고 [문제3-ⅰ] ~ [문제3-ⅲ]을 문항별로 풀이와 함께 답하시오. (30점)
+
+subparts:
+- id: 'i'
+  stem: |
+    $k=21$일 때 <제시문2>의 수열 $a_n=\sqrt{n^2+21n}$을 생각하자. $a_{500}$과 $a_{2027}$이 각각 <제시문1>의 $6$개의 구간 $\boxed{1}$번부터 $\boxed{6}$번 중에서 몇 번 구간에 들어가는지 구하고 그 이유를 논하시오. (10점)
+  points: 10
+  depends_on: []
+  answer: {kind: value, value: 'a500: 2; a2027: 5', equivalents: [], tolerance: null}
+  solutions:
+  - id: Si-A
+    audience: A
+    method_no: 1
+    key_idea: $a_n=n+\tfrac{21}{2}-d_n$, $0<d_n<\tfrac16$.
+    steps:
+    - {id: ia, content: '$a_{500}\in\left(510+\tfrac13,510+\tfrac12\right)$ → $\boxed{2}$번, $a_{2027}\in\left(2036+\tfrac43,2036+\tfrac32\right)$ → $\boxed{5}$번', criteria: ['i.M1', 'i.A1']}
+    hint_ladder:
+    - $\sqrt{n^2+21n}$과 $n+\tfrac{21}{2}$의 차를 유리화해 보자.
+    - 번호는 길이 $2$마다 반복된다.
+  - id: Si-B
+    audience: B
+    source_flow: 2027 모의논술 해설지 [문제3-ⅰ] 예시답안 p.16(해설 14/20)
+    method_no: 1
+    steps:
+    - id: ib-1
+      content: |
+        $k=21$에 대하여 완전제곱식을 이용하면
+        $$\sqrt{n^2+21n}<\sqrt{n^2+21n+\left(\frac{21}{2}\right)^2}=\sqrt{\left(n+\frac{21}{2}\right)^2}=n+\frac{21}{2}$$
+        이므로,
+        $$d_n=n+\frac{21}{2}-\sqrt{n^2+21n}=\frac{\frac{441}{4}}{n+\frac{21}{2}+\sqrt{n^2+21n}}$$
+        이라 하자. 이 경우 $a_n=n+\dfrac{21}{2}-d_n$이 성립한다. 즉
+        $$a_{500}=510+\left(\frac12-d_{500}\right),\quad a_{2027}=2036+\left(\frac32-d_{2027}\right)$$
+        이다. $n\ge500$이면 $0<d_n\le\dfrac{441}{8n}\le\dfrac{441}{4000}<\dfrac16$이므로
+        $$\frac13<\frac12-d_n<\frac12,\quad \frac43<\frac32-d_n<\frac32$$
+        이 성립한다.
+      criteria: ['i.M1']
+    - id: ib-2
+      content: |
+        따라서
+        $$a_{500}\in\left(510+\frac13,510+\frac12\right),\quad a_{2027}\in\left(2036+\frac43,2036+\frac32\right)$$
+        이다. 그러므로 $a_{500}$는 $\boxed{2}$번 구간에, $a_{2027}$은 $\boxed{5}$번 구간에 들어간다.
+      criteria: ['i.A1']
+  - id: Si-ALT
+    audience: ALT
+    source_flow: 2027 모의논술 해설지 별해 [문제3-ⅰ] p.20(해설 18/20)
+    method_no: 2
+    key_idea: 원 해설 별해 — $n+10<a_n<n+11$에서 $a_n-(n+10)<\tfrac13$이 아니라 양 끝과의 거리 비교로 $n+10+\tfrac13<a_n<n+10+\tfrac23$.
+    steps:
+    - id: ic-1
+      content: |
+        $n\ge500$일 경우 $n+10<a_n<n+11$이다. $a_n-(n+10)<\dfrac13$이고 $(n+11)-a_n<\dfrac13$이므로 $n+10+\dfrac13<a_n<n+10+\dfrac23$ [원문 오기 의심: 결론과 맞으려면 두 부등식 모두 $>\frac13$이어야 함 — 해설지 인쇄 그대로 옮김]이 성립한다. 따라서,
+        $$510+\frac13<a_{500}<510+\frac23\ \Rightarrow\ a_{500}:\boxed{2}\text{번 구간}$$
+        $$2036+\frac43<a_{2027}<2036+\frac53\ \Rightarrow\ a_{2027}:\boxed{5}\text{번 구간}$$
+      criteria: ['i.M1', 'i.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: i.M1
+      mark_type: M
+      points: 5
+      evidence: |
+        $a_{500}=510+\left(\dfrac12-d_{500}\right)$, $a_{2027}=2036+\left(\dfrac32-d_{2027}\right)$의 꼴로 놓고, $0<d_n<\dfrac16$을 보이거나, 이에 준하는 방법으로 $\dfrac13<\dfrac12-d_n<\dfrac12$, $\dfrac43<\dfrac32-d_n<\dfrac32$을 올바르게 구할 수 있다(별해: $n+10+\dfrac13<a_n<n+10+\dfrac23$임을 올바르게 구할 수 있다).
+      depends_on: []
+      implied_ok: false
+      steps: [ib-1, ic-1]
+    - id: i.A1
+      mark_type: A
+      points: 5
+      evidence: |
+        이를 이용하여 $a_{500}$이 $\boxed{2}$번 구간에, $a_{2027}$이 $\boxed{5}$번 구간에 들어감을 결론낼 수 있다.
+      depends_on: [i.M1]
+      steps: [ib-2, ic-1]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: 'ii'
+  stem: |
+    $k=41$일 때 <제시문2>의 수열 $a_n=\sqrt{n^2+41n}$의 항 중에서 <제시문1>의 $\boxed{5}$번 구간들에 들어가는 항의 개수를 구하고 그 이유를 논하시오. (단, $500\le n\le2027$) (10점)
+  points: 10
+  depends_on: []
+  answer: {kind: value, value: '394', equivalents: [], tolerance: null}
+  solutions:
+  - id: Sii-A
+    audience: A
+    method_no: 1
+    key_idea: 짝수 $n$은 $a_n-(n+20)\in(0,\tfrac12)$이라 불가능, 홀수 $n$은 $a_n-(n+19)=\tfrac32-d_n\in\left[\tfrac43,\tfrac53\right)$이어야 한다.
+    steps:
+    - {id: iia, content: '$d_n\le\tfrac16\iff n\ge\tfrac{3721}{3}$, 홀수 $n=1241,\cdots,2027$: $394$개', criteria: ['ii.M1', 'ii.A1']}
+    hint_ladder:
+    - $n$이 짝수일 때와 홀수일 때 $\sqrt{n^2+41n}$에서 빼는 짝수를 각각 정하자.
+  - id: Sii-B
+    audience: B
+    source_flow: 2027 모의논술 해설지 [문제3-ⅱ] 예시답안 p.17(해설 15/20)
+    method_no: 1
+    steps:
+    - id: iib-1
+      content: |
+        자연수 $k$에 대하여
+        $$d_n=n+\frac{k}{2}-\sqrt{n^2+kn}=\frac{\frac{k^2}{4}}{n+\frac{k}{2}+\sqrt{n^2+kn}}$$
+        이라 하자. $n\ge500$이면 $d_n<\dfrac{k^2}{8n}\le\dfrac{k^2}{4000}$이므로 $k\le43$일 경우 $0<d_n<\dfrac12$이 성립한다.
+        번호 배열은 길이가 $2$를 주기로 반복되므로, $\sqrt{n^2+41n}$이 $\boxed{5}$번 구간에 들어가면 모든 정수 $l$에 대해 $\sqrt{n^2+41n}-2l$이 $\boxed{5}$번 구간들에 들어간다.
+      criteria: ['ii.M1']
+    - id: iib-2
+      content: |
+        만약 $n$이 짝수이면 $\sqrt{n^2+41n}-(n+20)=\dfrac12-d_n$이고, $n+20$이 짝수이므로 $a_n$이 들어가는 구간은 $\dfrac12-d_n$이 어느 구간에 들어가는지에 따라 결정된다. 그런데 $0<\dfrac12-d_n<\dfrac12$이므로 $a_n$은 $\boxed{1}$번 또는 $\boxed{2}$번 구간에만 들어갈 수 있다. 즉, $n$이 짝수일 경우 $a_n$은 $\boxed{5}$번 구간에 들어갈 수 없다.
+      criteria: ['ii.M1']
+    - id: iib-3
+      content: |
+        $n$이 홀수이면 $\sqrt{n^2+41n}-(n+19)=\dfrac32-d_n$이고, $n+19$가 짝수이므로 $a_n$이 들어가는 구간은 $\dfrac32-d_n$이 어느 구간에 들어가는지에 따라 결정된다. $1<\dfrac32-d_n<\dfrac32$이므로 $a_n$이 $\boxed{5}$번 구간에 들어가기 위해선 $\dfrac43\le\dfrac32-d_n<\dfrac53$이 성립해야 하고, 즉 $0<d_n\le\dfrac16$이 만족되어야 한다. 이 부등식을 $n$에 관해 정리하면 $\dfrac{3721}{3}\le n$이 되므로, 이를 만족하는 $500\le n\le2027$인 홀수 $n$의 개수는 $394$가 된다.
+        따라서 $\boxed{5}$번 구간에 들어가는 $a_n$의 개수는 $394$개가 된다.
+      criteria: ['ii.A1']
+  - id: Sii-ALT
+    audience: ALT
+    source_flow: 2027 모의논술 해설지 별해 [문제3-ⅱ] p.21(해설 19/20)
+    method_no: 2
+    key_idea: 원 해설 별해 — $n+20<a_n<n+21$이므로 짝수 $n$은 불가능, 홀수 $n$은 $\tfrac13\le a_n-(n+20)<\tfrac23$.
+    steps:
+    - id: iic-1
+      content: |
+        $n\ge500$일 경우 $n+20<a_n<n+21$이므로 $0<a_n-(n+20)<1$이다. 즉, $n$이 짝수이면 $a_n$이 $\boxed{5}$번 구간에 들어갈 수 없다. 홀수인 $n$에 대하여 $a_n$이 $\boxed{5}$번 구간에 들어가려면
+        $$\frac13\le a_n-(n+20)<\frac23\ \Rightarrow\ \frac{3721}{3}\le n$$
+        이 성립한다. 이를 만족하는 $500\le n\le2027$인 홀수 $n$의 개수는 $394$이다.
+      criteria: ['ii.M1', 'ii.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: ii.M1
+      mark_type: M
+      points: 4
+      evidence: |
+        $n$이 짝수이면 $a_n$은 $\boxed{5}$번 구간에 들어갈 수 없음을 올바르게 설명할 수 있다.
+      depends_on: []
+      implied_ok: false
+      steps: [iib-1, iib-2, iic-1]
+    - id: ii.A1
+      mark_type: A
+      points: 6
+      evidence: |
+        $n$이 홀수일 때 $a_n$이 $\boxed{5}$번 구간에 들어가기 위한 조건이 $0<d_n\le\dfrac16$(별해: $\dfrac{3721}{3}\le n$)임을 구하고, 이를 $n$에 대한 조건으로 바꾸어 해당 $n$의 개수가 정확히 $394$개 임을 설명할 수 있다.
+      depends_on: []
+      steps: [iib-3, iic-1]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: 'iii'
+  stem: |
+    자연수 $k$에 대하여 <제시문2>의 수열 $a_n=\sqrt{n^2+kn}$의 항 중에서 <제시문1>의 $\boxed{3}$번 구간들에 들어가는 항의 개수를 $A_k$라 할 때,
+    $$\sum_{m=5}^{10}\left(A_{4m+1}+A_{4m+2}+A_{4m+3}\right)$$
+    의 값을 구하고 그 이유를 논하시오. (단, $500\le n\le2027$) (10점)
+  points: 10
+  depends_on: ['ii']
+  answer: {kind: value, value: '4501', equivalents: [], tolerance: null}
+  solutions:
+  - id: Siii-A
+    audience: A
+    method_no: 1
+    key_idea: $k=4m+1,4m+3$이면 $A_k=0$, $k=4m+2$이면 짝수 $n\ge6m^2+4m+\tfrac23$만 가능.
+    steps:
+    - {id: iiia, content: '$A_{22}=A_{26}=A_{30}=A_{34}=764$, $A_{38}=752$, $A_{42}=693$, 합 $4501$', criteria: ['iii.M1', 'iii.M2', 'iii.A1']}
+    hint_ladder:
+    - $k$를 $4$로 나눈 나머지와 $n$의 홀짝에 따라 $a_n$을 $[0,2)$로 옮긴 값을 적어 보자.
+  - id: Siii-B
+    audience: B
+    source_flow: 2027 모의논술 해설지 [문제3-ⅲ] 예시답안 p.18-19(해설 16-17/20)
+    method_no: 1
+    steps:
+    - id: iiib-1
+      content: |
+        [문제 3-ⅱ]의 답안에서 $21\le k\le43$일 경우 $0<d_n<\dfrac12$이 됨을 확인하였다. $\sqrt{n^2+kn}$이 $\boxed{3}$번 구간에 들어가면 모든 정수 $l$에 대해 $\sqrt{n^2+kn}-2l$이 $\boxed{3}$번 구간들에 들어간다.
+        만약 $n$이 홀수이면 $\sqrt{n^2+kn}-(n-1)=\sqrt{n^2+kn}-\left(n+\dfrac{k}{2}\right)+\dfrac{k}{2}+1=\dfrac{k}{2}+1-d_n$이고 $n-1$이 짝수이므로 $\sqrt{n^2+kn}$이 $\boxed{3}$번 구간에 들어가려면, $\dfrac{k}{2}+1-d_n$이 $\boxed{3}$번 구간에 들어가야 한다. 즉, $k$가 $4m+1$, $4m+2$, $4m+3$일 경우 각각 $\dfrac32-d_n$, $2-d_n$, $\dfrac12-d_n$이 구간 $\left[\dfrac23,1\right)$에 들어가야 하는데 $0<d_n<\dfrac12$이므로 불가능하다.
+      criteria: ['iii.M1']
+    - id: iiib-2
+      content: |
+        이제 $500\le n\le2027$인 짝수만 고려하자. 이 경우
+        $$\sqrt{n^2+kn}-n=\sqrt{n^2+kn}-\left(n+\frac{k}{2}\right)+\frac{k}{2}=\frac{k}{2}-d_n$$
+        이고 $n$이 짝수이므로 $\sqrt{n^2+kn}$이 $\boxed{3}$번 구간에 들어가려면, $\dfrac{k}{2}-d_n$이 $\boxed{3}$번 구간에 들어가야 한다. $0<d_n<\dfrac12$이므로, $k$가 홀수이면 $\dfrac12-d_n$ 또는 $\dfrac32-d_n$이 구간 $\left[\dfrac23,1\right)$에 들어가야 하는데 이는 $0<d_n<\dfrac12$임을 고려하면 불가능하다. 즉, $21\le k\le43$인 $k=4m+1$, $4m+3$에 대해 $A_k=0$이 되어 $\displaystyle\sum_{m=5}^{10}A_{4m+1}=\sum_{m=5}^{10}A_{4m+3}=0$이다.
+      criteria: ['iii.M2']
+    - id: iiib-3
+      content: |
+        그리고 $k=4m+2$인 경우에는 $1-d_n$이 구간 $\left[\dfrac23,1\right)$에 들어가야 하므로 $0<d_n\le\dfrac13$이 만족되어야 한다. 즉 $6m^2+4m+\dfrac23\le n$이 성립되어야 한다. 이는 각각의 고정된 $5\le m\le10$에 대하여 $500\le n\le2026$인 짝수 중 $6m^2+4m+1\le n$을 만족하는 $n$의 개수가 $A_{4m+2}$가 된다. $m=5,6,7,8$인 경우 $6m^2+4m+1<500$이므로 $A_{22}=A_{26}=A_{30}=A_{34}=764$이고, $9\le m\le10$인 경우 $6m^2+4m+1\ge500$이므로 $A_{4m+2}=1013-3m^2-2m$이고, 따라서 $A_{38}=752$, $A_{42}=693$이다. 그러므로
+        $$\sum_{m=5}^{10}\left(A_{4m+1}+A_{4m+2}+A_{4m+3}\right)=\sum_{m=5}^{10}A_{4m+2}=4501$$
+        이다.
+      criteria: ['iii.A1']
+  - id: Siii-ALT
+    audience: ALT
+    source_flow: 2027 모의논술 해설지 별해 [문제3-ⅲ] p.22(해설 20/20)
+    method_no: 2
+    key_idea: 원 해설 별해 — $k=4m+1,4m+2$이면 $n+2m<a_n<n+2m+1$, $k=4m+3$이면 $n+2m+1<a_n<n+2m+2$로 정수 사이에 가두고 위쪽 정수와의 거리 $\le\tfrac13$ 조건을 본다.
+    steps:
+    - id: iiic-1
+      content: |
+        $a_n=\sqrt{n^2+(4m+1)n}$ $(n\ge500,\ 5\le m\le10)$이면 $n+2m<a_n<n+2m+1$이다. 따라서 $\boxed{3}$번 구간에 들어가려면 $n$은 짝수이고, $(n+2m+1)-a_n\le\dfrac13$이어야 한다. 조건을 만족하는 $n$은 존재하지 않는다. 따라서 $\displaystyle\sum_{m=5}^{10}A_{4m+1}=0$이다.
+        $a_n=\sqrt{n^2+(4m+3)n}$ $(n\ge500,\ 5\le m\le10)$이면 $n+2m+1<a_n<n+2m+2$이다. 따라서 $\boxed{3}$번 구간에 들어가려면 $n$은 홀수이고, $(n+2m+2)-a_n\le\dfrac13$이어야 한다. 조건을 만족하는 $n$은 존재하지 않는다. 따라서 $\displaystyle\sum_{m=5}^{10}A_{4m+3}=0$이다.
+        $a_n=\sqrt{n^2+(4m+2)n}$ $(n\ge500,\ 5\le m\le10)$이면 $n+2m<a_n<n+2m+1$이다. 따라서 $\boxed{3}$번 구간에 들어가려면 $n$은 짝수이고, $(n+2m+1)-a_n\le\dfrac13$이어야 한다. 따라서 $n\ge6m^2+4m+\dfrac23$인 짝수이다. (이후 예시답안과 동일)
+      criteria: ['iii.M1', 'iii.M2', 'iii.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: iii.M1
+      mark_type: M
+      points: 3
+      evidence: |
+        $n$이 홀수이면 $a_n$이 $\boxed{3}$번 구간에 들어갈 수 없음을 올바르게 설명할 수 있다.
+      depends_on: []
+      implied_ok: false
+      steps: [iiib-1, iiic-1]
+    - id: iii.M2
+      mark_type: M
+      points: 3
+      evidence: |
+        $\displaystyle\sum_{m=5}^{10}A_{4m+1}=\sum_{m=5}^{10}A_{4m+3}=0$임을 구할 수 있다.
+      depends_on: []
+      implied_ok: false
+      steps: [iiib-2, iiic-1]
+    - id: iii.A1
+      mark_type: A
+      points: 4
+      evidence: |
+        $A_{22}=A_{26}=A_{30}=A_{34}=764$, $A_{38}=752$, $A_{42}=693$을 올바르게 구하여, 이를 이용하여 최종값이 $4501$임을 도출할 수 있다.
+      depends_on: [iii.M1, iii.M2]
+      steps: [iiib-3, iiic-1]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+remedy_links: []
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

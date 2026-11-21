@@ -1,0 +1,302 @@
+# 성균관대 2023학년도 수시 논술우수전형 자연계 1교시 문제 3 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: SKKU-G23A-03
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: SKKU
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 귀납구조
+points: 30
+time_estimate_min: 35
+intent: |
+  직각삼각형 안에 이어 붙인 정사각형의 닮음비로 등비수열을 세우고, 홀수·짝수 번째 항의 부분합 사이 관계를 이용해 비의 값을 계산한 뒤, 평균의 대소를 수학적 귀납법으로 증명하는 능력을 본다(공식 출제 의도 자료 없음, 문제지로부터 요약). [배점추정] 소문항 배점이 문제지에 없어 10·10·10으로 균등 배분.
+key_idea: |
+  한 변이 $\ell$인 정사각형 왼쪽 위 꼭짓점이 빗변 위에 있으므로 다음 정사각형의 한 변은 $\dfrac{\ell}{1+t}$, 넓이 공비는 $q=\dfrac{1}{(1+t)^2}$. 또 $P_{2n+1}=1+qQ_{2n+1}$.
+stuck: |
+  (ⅲ)에서 $n$에 관한 명제 "$nP_{2n+1}>(n+1)Q_{2n+1}$"를 세우고, 차이 $A_{n+1}-A_n=(1-q)\left(\sum_{k=0}^{n}q^{2k}-(n+1)q^{2n+1}\right)>0$을 보이는 귀납 단계
+idea_tags: [IDEA-SIMILAR-SQUARES-GEOMETRIC, IDEA-INDUCTION-ON-DIFFERENCE]
+tags: [등비수열, 닮음, 수학적 귀납법, 평균 비교]
+elements:
+  materials:
+  - '$\angle\mathrm{ACB}=90^\circ$, $\angle\mathrm{ABC}=\theta$인 직각삼각형 내부의 정사각형 $\mathrm{R}_1,\mathrm{R}_2,\dots$ ($\mathrm{R}_1$의 한 변 1)'
+  - '정사각형 $\mathrm{R}_n$의 넓이 $s_n$, 홀수 번째 넓이 합 $P_n$, 짝수 번째 넓이 합 $Q_n$'
+  concepts:
+  - '탄젠트의 정의'
+  - '등비수열의 일반항과 합'
+  - '수학적 귀납법'
+  tools:
+  - '빗변 위 꼭짓점 조건 $\ell_n=tx_n$에서 $\ell_{n+1}(1+t)=\ell_n$'
+  - '$P_{2n+1}=1+qQ_{2n+1}$, $Q_{2n+1}=qP_{2n-1}$ 부분합 관계'
+  - '귀납법으로 $A_n=nP_{2n+1}-(n+1)Q_{2n+1}>0$ 증명'
+  conditions:
+  - '$t=\tan\theta>0$이므로 $0<q<1$'
+  - '(ⅱ) $\theta=\dfrac{\pi}{3}$'
+  - '(ⅲ) $\mathrm{R}_1,\dots,\mathrm{R}_{2023}$: 홀수 번째 1012개, 짝수 번째 1011개'
+  stimuli_used: [S1, S2, S3]
+  subpart_links: '(ⅱ)·(ⅲ)은 (ⅰ)의 $s_n=(1+t)^{-2(n-1)}$을 사용하고, (ⅲ)은 (ⅱ)에서 쓴 부분합 관계 $P_{2n+1}=1+qQ_{2n+1}$을 사용'
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅰ]
+  scope_2028: common
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 등비수열의 뜻을 알고 일반항과 합을 구할 수 있다; 수학적 귀납법의 원리를 이해한다(요지)
+    verified: false
+  content_area: 삼각함수·수열·수학적 귀납법
+  behavior_domain: 추론
+  unit_path: [수학Ⅰ, 수열, 수학적 귀납법, 수학적 귀납법을 이용한 부등식 증명]
+  key_concepts: [탄젠트, 등비수열, 등비수열의 합, 수학적 귀납법]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 성균관대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 성균관대학교
+  admission_year: 2023
+  admission_type: 수시 논술우수전형
+  track: 자연계
+  question_no: 3
+  session: 1교시
+  official_url: https://admission.skku.edu/admission/html/rolling/question.html
+  retrieved_at: 2026-11-21
+  original_points: [30]
+  rights_notice: 문제지에 이용 제한 문구 없음(원본 확인)
+  transcribed_from: 'e23_1.pdf p.4(문제지 자연 1교시 문제 3, 인쇄 쪽 3/3) (이미지 대조 2026-11-21)'
+
+verify: verify/SKKU-G23A.py::p03
+
+stimuli:
+- id: S1
+  label: <제시문1>
+  body: |
+    자연수 $n$에 대한 명제 $p(n)$이 모든 자연수 $n$에 대하여 성립함을 증명하려면 다음 두 가지를 보이면 된다.
+    (a) $n=1$일 때 명제 $p(n)$이 성립한다.
+    (b) $n=k$일 때 명제 $p(n)$이 성립한다고 가정하면 $n=k+1$일 때에도 명제 $p(n)$이 성립한다.
+- id: S2
+  label: <제시문2>
+  body: |
+    삼각함수 사이에는 다음의 관계가 성립한다.
+    $$\tan\theta=\frac{\sin\theta}{\cos\theta},\qquad \sin^2\theta+\cos^2\theta=1$$
+- id: S3
+  label: <제시문3>
+  body: |
+    삼각형 $\mathrm{ABC}$는 $\angle\mathrm{ACB}=90^\circ$이고 $\angle\mathrm{ABC}=\theta$인 직각삼각형이다. 오른쪽 그림과 같이 삼각형 $\mathrm{ABC}$의 내부에 정사각형 $\mathrm{R}_1,\mathrm{R}_2,\mathrm{R}_3,\cdots$을 계속해서 만들어 나간다. 이때, 정사각형 $\mathrm{R}_n$의 넓이를 $s_n$이라고 하자. 이와 같이 정의된 정사각형 $\mathrm{R}_1,\mathrm{R}_2,\cdots,\mathrm{R}_n$ 중에서, 모든 홀수 번째 정사각형의 넓이의 합을 $P_n$이라 하고 모든 짝수 번째 정사각형의 넓이의 합을 $Q_n$이라 하자. (단, 정사각형 $\mathrm{R}_1$의 한 변의 길이는 1이다.)
+
+    [그림: 왼쪽 꼭짓점 $\mathrm{B}$(각 $\theta$ 표시), 오른쪽 아래 꼭짓점 $\mathrm{C}$(직각), 오른쪽 위 꼭짓점 $\mathrm{A}$인 직각삼각형. 변 $\mathrm{BC}$ 위에 정사각형들이 오른쪽부터 왼쪽으로 놓여 있다. $\mathrm{R}_1$은 꼭짓점 $\mathrm{C}$에 붙어 오른쪽 변이 $\mathrm{AC}$ 위에, 왼쪽 위 꼭짓점이 빗변 $\mathrm{AB}$ 위에 있다. $\mathrm{R}_2$는 $\mathrm{R}_1$의 왼쪽에 붙어 있고 왼쪽 위 꼭짓점이 빗변 위에 있으며, 그 왼쪽으로 "…"가 표시되어 있다.]
+
+stem: |
+  다음 <제시문1> ~ <제시문3>을 읽고 [문제 3-ⅰ] ~ [문제 3-ⅲ]을 문항별로 풀이와 함께 답하시오. (30점)
+
+subparts:
+- id: '1'
+  stem: |
+    [문제 3-ⅰ] <제시문3>에서 정의된 수열 $\{s_n\}$과 $t=\tan\theta$에 대해, 일반항 $s_n$을 $n$과 $t$에 대한 식으로 표현하고 그 이유를 논하시오.
+  points: 10
+  depends_on: []
+  answer: {kind: expression, value: '(1+t)**(-2*(n-1))', equivalents: ['1/(1+t)**(2*n-2)'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $\mathrm{R}_{n+1}$의 왼쪽 위 꼭짓점이 빗변 위에 있으므로 한 변 $\ell_{n+1}$은 $\ell_{n+1}=t(x_n-\ell_{n+1})$, $tx_n=\ell_n$에서 $\ell_{n+1}=\dfrac{\ell_n}{1+t}$.
+    steps:
+    - {id: 1a, content: '$\ell_n=(1+t)^{-(n-1)}$, $s_n=(1+t)^{-2(n-1)}$', criteria: ['1.M1', '1.A1']}
+    hint_ladder:
+    - 점 $\mathrm{B}$로부터 수평 거리 $x$인 곳에서 빗변의 높이는 $x\tan\theta$이다.
+    - 이웃한 두 정사각형의 한 변 사이의 관계를 구하자.
+  - id: S1-B
+    audience: B
+    source_flow: 공식 해설 없음(자체 작성)
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        $\mathrm{R}_n$의 한 변을 $\ell_n$, $\mathrm{B}$에서 $\mathrm{R}_n$의 왼쪽 변까지의 거리를 $x_n$이라 하자. $\mathrm{R}_n$의 왼쪽 위 꼭짓점이 빗변 위에 있으므로 $\ell_n=x_n\tan\theta=tx_n$.
+      criteria: ['1.M1']
+    - id: 1b-2
+      content: |
+        $\mathrm{R}_{n+1}$은 $\mathrm{R}_n$의 왼쪽에 붙어 있으므로 $x_{n+1}=x_n-\ell_{n+1}$이고 $\ell_{n+1}=tx_{n+1}=t x_n-t\ell_{n+1}=\ell_n-t\ell_{n+1}$. 따라서 $\ell_{n+1}=\dfrac{\ell_n}{1+t}$.
+      criteria: ['1.M1']
+    - id: 1b-3
+      content: |
+        $\ell_1=1$이므로 $\ell_n=\left(\dfrac{1}{1+t}\right)^{n-1}$, $s_n=\ell_n^2=\dfrac{1}{(1+t)^{2(n-1)}}$.
+      criteria: ['1.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 6
+      evidence: |
+        빗변 위 꼭짓점 조건으로 $\ell_{n+1}=\dfrac{\ell_n}{1+t}$(또는 닮음비)를 얻었다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1, 1b-2]
+    - id: 1.A1
+      mark_type: A
+      points: 4
+      evidence: |
+        $s_n=(1+t)^{-2(n-1)}$을 얻었다.
+      depends_on: [1.M1]
+      steps: [1b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '2'
+  stem: |
+    [문제 3-ⅱ] <제시문3>에서 $\theta=\dfrac{\pi}{3}$일 때, $\dfrac{P_{2023}}{Q_{2023}}+\dfrac{Q_{2021}}{P_{2021}}$의 값을 구하고 그 이유를 논하시오.
+  points: 10
+  depends_on: ['1']
+  answer: {kind: value, value: '5+3*sqrt(3)/2', equivalents: ['(10+3*sqrt(3))/2'], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: $q=s_2$에 대해 $P_{2023}=1+qQ_{2023}$, $Q_{2023}=qP_{2021}$, $P_{2021}=1+qQ_{2021}$이면 값은 $q+\dfrac1q$.
+    steps:
+    - {id: 2a, content: '$q=\tfrac{1}{(1+\sqrt3)^2}=1-\tfrac{\sqrt3}{2}$, 값 $=q+\tfrac1q=5+\tfrac{3\sqrt3}{2}$', criteria: ['2.M1', '2.M2', '2.A1']}
+    hint_ladder:
+    - 짝수 번째 항들에 $q$를 곱하면 무엇이 되는가?
+    - $P_{2023}$, $Q_{2023}$을 $P_{2021}$, $Q_{2021}$로 나타내 보자.
+  - id: S2-B
+    audience: B
+    source_flow: 공식 해설 없음(자체 작성)
+    method_no: 1
+    steps:
+    - id: 2b-1
+      content: |
+        $t=\tan\dfrac{\pi}{3}=\sqrt3$이고 $q=\dfrac{1}{(1+\sqrt3)^2}=\dfrac{1}{4+2\sqrt3}=1-\dfrac{\sqrt3}{2}$라 하면 $s_n=q^{n-1}$이다.
+      criteria: ['2.M1']
+    - id: 2b-2
+      content: |
+        $s_{n+1}=qs_n$이므로 짝수 번째 항은 바로 앞 홀수 번째 항의 $q$배, 홀수 번째 항(첫째 항 제외)은 바로 앞 짝수 번째 항의 $q$배이다. 따라서 $Q_{2023}=s_2+\cdots+s_{2022}=q(s_1+\cdots+s_{2021})_{\text{홀수}}=qP_{2021}$, $P_{2023}=1+qQ_{2023}$, $P_{2021}=1+qQ_{2021}$.
+      criteria: ['2.M2']
+    - id: 2b-3
+      content: |
+        $\dfrac{P_{2023}}{Q_{2023}}+\dfrac{Q_{2021}}{P_{2021}}=\dfrac{1+qQ_{2023}}{Q_{2023}}+\dfrac{(P_{2021}-1)/q}{P_{2021}}=\dfrac{1}{Q_{2023}}+q+\dfrac1q-\dfrac{1}{qP_{2021}}=q+\dfrac1q$ (마지막에 $Q_{2023}=qP_{2021}$ 사용).
+      criteria: ['2.M2']
+    - id: 2b-4
+      content: |
+        $q+\dfrac1q=\left(1-\dfrac{\sqrt3}{2}\right)+(4+2\sqrt3)=5+\dfrac{3\sqrt3}{2}$.
+      criteria: ['2.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 2
+      evidence: |
+        $\theta=\dfrac\pi3$에서 공비 $q=\dfrac{1}{(1+\sqrt3)^2}$을 구했다.
+      depends_on: []
+      implied_ok: false
+      ft: {allowed: true, from: [1.A1], max_points: 2}
+      steps: [2b-1]
+    - id: 2.M2
+      mark_type: M
+      points: 5
+      evidence: |
+        부분합 관계(또는 등비수열의 합 공식)로 식을 $q+\dfrac1q$로 정리했다.
+      depends_on: [2.M1]
+      steps: [2b-2, 2b-3]
+    - id: 2.A1
+      mark_type: A
+      points: 3
+      evidence: |
+        $5+\dfrac{3\sqrt3}{2}$를 얻었다.
+      depends_on: [2.M2]
+      steps: [2b-4]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '3'
+  stem: |
+    [문제 3-ⅲ] <제시문3>에서 정의된 2023개의 정사각형 $\mathrm{R}_1,\mathrm{R}_2,\cdots,\mathrm{R}_{2023}$ 중에서, 1012개의 홀수 번째 정사각형의 넓이의 평균값 $\dfrac{P_{2023}}{1012}$과 1011개의 짝수 번째 정사각형의 넓이의 평균값 $\dfrac{Q_{2023}}{1011}$의 대소관계를 <제시문1>의 수학적 귀납법과 [문제 3-ⅱ]를 이용하여 판단하고, 그 이유를 논하시오.
+  points: 10
+  depends_on: ['1', '2']
+  answer: {kind: proof, value: 'P_2023/1012 > Q_2023/1011', equivalents: [], tolerance: null}
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: $A_n=nP_{2n+1}-(n+1)Q_{2n+1}$로 두면 $A_1=(1-q)^2>0$, $A_{n+1}-A_n=(1-q)\left(\sum_{k=0}^{n}q^{2k}-(n+1)q^{2n+1}\right)>0$.
+    steps:
+    - {id: 3a, content: '귀납법으로 모든 $n$에 $A_n>0$, $n=1011$에서 $\tfrac{P_{2023}}{1012}>\tfrac{Q_{2023}}{1011}$', criteria: ['3.M1', '3.R1', '3.A1']}
+    hint_ladder:
+    - 2023을 $2n+1$로 보고 일반적인 $n$에 대한 명제로 바꾸자.
+    - $A_{n+1}-A_n$을 계산해 부호를 보자.
+  - id: S3-B
+    audience: B
+    source_flow: 공식 해설 없음(자체 작성)
+    method_no: 1
+    steps:
+    - id: 3b-1
+      content: |
+        $q=\dfrac{1}{(1+t)^2}$ ($0<q<1$)라 하면 $P_{2n+1}=\sum_{k=0}^{n}q^{2k}$, $Q_{2n+1}=\sum_{k=1}^{n}q^{2k-1}$이고 ([문제 3-ⅱ]의 관계) $P_{2n+1}=1+qQ_{2n+1}$이다. 명제 $p(n)$: $A_n=nP_{2n+1}-(n+1)Q_{2n+1}>0$ (즉 $\dfrac{P_{2n+1}}{n+1}>\dfrac{Q_{2n+1}}{n}$)을 세운다.
+      criteria: ['3.M1']
+    - id: 3b-2
+      content: |
+        (a) $n=1$: $A_1=(1+q^2)-2q=(1-q)^2>0$.
+      criteria: ['3.R1']
+    - id: 3b-3
+      content: |
+        (b) $p(k)$가 성립한다고 하면 $A_{k+1}-A_k=P_{2k+1}+(k+1)q^{2k+2}-Q_{2k+1}-(k+2)q^{2k+1}=\sum_{j=0}^{k}\left(q^{2j}-q^{2j+1}\right)-(k+1)q^{2k+1}(1-q)=(1-q)\left(\sum_{j=0}^{k}q^{2j}-(k+1)q^{2k+1}\right)$. $0<q<1$이므로 각 $q^{2j}>q^{2k+1}$이고 괄호 안은 양수, 따라서 $A_{k+1}>A_k>0$.
+      criteria: ['3.R1']
+    - id: 3b-4
+      content: |
+        수학적 귀납법에 의해 모든 자연수 $n$에 대해 $A_n>0$. $n=1011$이면 $1011P_{2023}>1012Q_{2023}$, 즉 $\dfrac{P_{2023}}{1012}>\dfrac{Q_{2023}}{1011}$ ($\theta$에 관계없이 성립, 특히 $\theta=\dfrac\pi3$에서도).
+      criteria: ['3.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 3
+      evidence: |
+        일반 $n$에 대한 명제($nP_{2n+1}>(n+1)Q_{2n+1}$ 또는 동치)를 세웠다.
+      depends_on: []
+      implied_ok: false
+      ft: {allowed: true, from: [1.A1, 2.M2], max_points: 3}
+      steps: [3b-1]
+    - id: 3.R1
+      mark_type: R
+      points: 5
+      evidence: |
+        $n=1$ 확인과 귀납 단계($A_{k+1}-A_k>0$)를 근거와 함께 보였다.
+      depends_on: [3.M1]
+      steps: [3b-2, 3b-3]
+    - id: 3.A1
+      mark_type: A
+      points: 2
+      evidence: |
+        $\dfrac{P_{2023}}{1012}>\dfrac{Q_{2023}}{1011}$을 결론지었다.
+      depends_on: [3.R1]
+      steps: [3b-4]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+remedy_links: []
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

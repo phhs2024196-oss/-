@@ -1,0 +1,401 @@
+# 성균관대 2024학년도 수시 논술우수전형 자연계 2교시 문제 1 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: SKKU-G24B-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: SKKU
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 추론
+points: 40
+time_estimate_min: 40
+intent: |
+  다항함수들 사이에 놓인 미지의 미분가능한 함수에 대해, 둘러싼 다항함수의 분석으로 두 미지 함수의 대소 관계를 논리적으로 밝히고, 그 정보로 특정 점에서의 미분계수를 구하며, 극한값이 존재하기 위한 조건을 앞 문제의 결과로 구하는 능력을 본다. 하위 문제들이 유기적으로 연결되어 점차 심화된다(2024 보고서 문항카드 10 출제 의도 요약).
+key_idea: |
+  끼인 함수 $f$가 경계 함수와 한 점에서 만나면 차 $f-A\ge0$이 그 점에서 최솟값(극소) $0$을 가지므로 $f^{\prime}=A^{\prime}$이다. $A-D=(x-2)^2(x+2)$, $B-C$의 최댓값 $22$($x=1,3$)가 접점을 결정한다.
+stuck: |
+  극한이 존재하려면 분자 $\to0$이어야 하고, 그 조건 $f(a)=g(a)$ 또는 $f(b)-g(b)=22$가 경계 함수들의 접점에서만 가능하다는 연결
+idea_tags: [IDEA-SQUEEZE-TANGENT-DERIVATIVE, IDEA-LIMIT-EXISTENCE-ZERO-NUMERATOR]
+tags: [끼인 함수의 미분계수, 미분계수의 정의, 극한 존재 조건]
+elements:
+  materials:
+  - '$A(x)=x^3-3x^2+2x+8$, $B(x)=-x^4+8x^3-22x^2+25x+13$, $C(x)=x$, $D(x)=-x^2+6x$'
+  - '$0<x<3.5$에서 $A\le f\le B$, $C\le g\le D$인 미분가능한 함수 $f,g$'
+  - '극한 $\lim_{h\to0}\frac{f(a+3h)-g(a+5h)}{h}$, $\lim_{h\to0}\frac{f(b+4h)-g(b-3h)-22}{h}$'
+  concepts:
+  - '미분계수의 정의'
+  - '극대·극소와 도함수(극값에서 $f^{\prime}=0$)'
+  - '함수의 최대와 최소'
+  - '함수의 극한의 성질'
+  - '다항식의 인수분해'
+  tools:
+  - '$h(x)=A(x)-D(x)=(x-2)^2(x+2)\ge0$'
+  - '$k(x)=f(x)-A(x)\ge0$, $k(1)=0$이면 극소 → $k^{\prime}(1)=0$'
+  - '$p(x)=B(x)-C(x)$, $p^{\prime}(x)=-4(x-1)(x-2)(x-3)$'
+  - '분자를 $f(a+3h)-f(a)$, $g(a+5h)-g(a)$로 나누어 미분계수로 변형'
+  conditions:
+  - '구간 $0<x<3.5$(열린구간)에서만 부등식 성립'
+  - '극한 존재 → 분자의 극한 $0$'
+  stimuli_used: [S1, S2]
+  subpart_links: '(ⅲ)은 (ⅰ)의 등호 조건 $x=2$와 (ⅱ)의 접점 미분 논리를, (ⅳ)는 (ⅱ)의 논리를 $B-C$의 최댓값에 적용'
+
+curriculum:
+  version: '2015'
+  subjects: [수학, 수학Ⅱ]
+  scope_2028: common
+  scope_confirmed: false
+  standards:
+  - code: 12수학Ⅱ02-08
+    text: 함수의 증가와 감소, 극대와 극소를 판정하고 설명할 수 있다.
+    verified: true
+  - code: 10수학01-16
+    text: 이차부등식과 이차함수의 관계를 이해하고, 이차부등식과 연립이차부등식을 풀 수 있다.
+    verified: true
+  - code: 12수학Ⅱ02-09
+    text: 함수의 그래프의 개형을 그릴 수 있다.
+    verified: true
+  - code: 12수학Ⅱ02-10
+    text: 방정식과 부등식에 대한 문제를 해결할 수 있다.
+    verified: true
+  - code: 12수학Ⅱ01-02
+    text: 함수의 극한에 대한 성질을 이해하고, 함수의 극한값을 구할 수 있다.
+    verified: true
+  - code: 12수학Ⅱ02-01
+    text: 미분계수의 뜻을 알고, 그 값을 구할 수 있다.
+    verified: true
+  - code: 10수학01-04
+    text: 다항식의 인수분해를 할 수 있다.
+    verified: true
+  textbooks:
+  - '수학(황선욱 외, 미래엔, 2020) 34-37, 95-98'
+  - '수학Ⅱ(류희찬 외, 천재교과서, 2021) 21-28, 52-59, 78-97'
+  content_area: 미분계수·도함수의 활용·함수의 극한
+  behavior_domain: 추론
+  unit_path: [수학Ⅱ, 미분, 도함수의 활용, 함수의 극대와 극소]
+  key_concepts: [미분계수, 극값, 함수의 대소, 극한의 존재]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 성균관대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 성균관대학교
+  admission_year: 2024
+  admission_type: 수시 논술우수전형
+  track: 자연계
+  question_no: 1
+  session: 2교시
+  official_url: https://admission.skku.edu/admission/html/rolling/question.html
+  retrieved_at: 2026-11-21
+  original_points: [40]
+  subpart_points_from_rubric: [6, 8, 12, 14]
+  rights_notice: 이 문서는 상업적인 목적으로 사용할 수 없으며, 문서의 변형 및 발췌를 금지합니다.
+  transcribed_from: 'e24.pdf p.18(문제지 자연 2 문제 1) + 2024 선행학습 영향평가 보고서 문항카드 10, PDF p.155-158(인쇄 쪽 152-155) (이미지 대조 2026-11-21)'
+
+verify: verify/SKKU-G24B.py::p01
+
+stimuli:
+- id: S1
+  label: <제시문1>
+  body: |
+    미분가능한 함수 $f(x)$가 $x=a$에서 극값을 가지면 $f^{\prime}(a)=0$이다.
+- id: S2
+  label: <제시문2>
+  body: |
+    함수 $A(x)$, $B(x)$, $C(x)$, $D(x)$가 다음과 같이 정의된다.
+    $$A(x)=x^3-3x^2+2x+8$$
+    $$B(x)=-x^4+8x^3-22x^2+25x+13$$
+    $$C(x)=x$$
+    $$D(x)=-x^2+6x$$
+    두 함수 $f(x)$와 $g(x)$는 실수 전체의 집합에서 미분가능하고, $0<x<3.5$인 모든 $x$에 대해 다음 부등식을 만족한다.
+    $$A(x)\le f(x)\le B(x)$$
+    $$C(x)\le g(x)\le D(x)$$
+
+stem: |
+  다음 <제시문1>과 <제시문2>를 읽고 [문제 1-ⅰ] ~ [문제 1-ⅳ]를 문항별로 풀이와 함께 답하시오. (40점)
+
+subparts:
+- id: '1'
+  stem: |
+    [문제 1-ⅰ] <제시문2>에서 $0<x<3.5$인 모든 $x$에 대해 부등식 $g(x)\le f(x)$가 성립하는 이유를 논하시오.
+  points: 6
+  depends_on: []
+  answer: {kind: proof, value: null, equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $A(x)-D(x)=x^3-2x^2-4x+8=(x-2)^2(x+2)\ge0$이므로 $g\le D\le A\le f$.
+    steps:
+    - id: 1a
+      content: |
+        $h=A-D$, $h^{\prime}=(3x+2)(x-2)$, 최솟값 $h(2)=0$ → $g\le D\le A\le f$
+      criteria: ['1.M1', '1.R1']
+    hint_ladder:
+    - $f$와 $g$ 사이에 있는 두 다항함수 $D$, $A$를 비교하자.
+  - id: S1-B
+    audience: B
+    source_flow: 2024 보고서 문항카드 10 예시답안 PDF p.157(인쇄 쪽 154)
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        [그림: $0<x<3.5$에서 네 함수의 그래프 개형. 위에서부터 $B(x)$(약 13에서 시작해 23~25 부근을 오르내림), $A(x)$(8 부근에서 시작해 $x=2$에서 $D$와 접한 뒤 급증), $D(x)$(원점에서 시작하는 위로 볼록한 포물선, $x=2$에서 $A$와 접함), $C(x)=x$(맨 아래 직선)]
+        $h(x)=A(x)-D(x)$라 했을 때 $h(x)\ge0$임을 보이면 된다.
+      criteria: ['1.M1']
+    - id: 1b-2
+      content: |
+        $h^{\prime}(x)=(3x+2)(x-2)$이므로 $h(x)$는 구간 $(0,3.5)$에서 $x=2$일 때 최소가 된다. $h(2)=0$이므로 구간 $(0,3.5)$에서 $h(x)\ge0$을 얻는다. 즉 $D(x)\le A(x)$이므로, <제시문2>의 조건에 의해 $g(x)\le D(x)\le A(x)\le f(x)$가 되어 $g(x)\le f(x)$가 성립한다.
+      criteria: ['1.R1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 3
+      evidence: |
+        $h(x)=A(x)-D(x)$를 두고 $h\ge0$을 보이면 됨을 밝혔다. (공식 채점기준 1-ⅰ 6점 중 세부 배분은 자체 설정)
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1]
+    - id: 1.R1
+      mark_type: R
+      points: 3
+      evidence: |
+        $h^{\prime}$으로 최솟값 $h(2)=0$을 구해 $g\le D\le A\le f$로 결론지었다.
+      depends_on: [1.M1]
+      steps: [1b-2]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '2'
+  stem: |
+    [문제 1-ⅱ] <제시문2>에서 $f(1)=8$일 때, $f^{\prime}(1)$의 값을 구하고 그 이유를 논하시오.
+  points: 8
+  depends_on: []
+  answer: {kind: value, value: '-1', equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: $k=f-A\ge0$이고 $k(1)=8-8=0$이므로 $x=1$에서 극소, $f^{\prime}(1)=A^{\prime}(1)=-1$.
+    steps:
+    - id: 2a
+      content: |
+        $k^{\prime}(1)=0\Rightarrow f^{\prime}(1)=A^{\prime}(1)=3-6+2=-1$
+      criteria: ['2.M1', '2.A1']
+    hint_ladder:
+    - $A(1)$의 값을 계산해 보자.
+    - $f(x)-A(x)$는 $x=1$에서 어떤 값을 갖는가?
+  - id: S2-B
+    audience: B
+    source_flow: 2024 보고서 문항카드 10 예시답안 PDF p.158(인쇄 쪽 155)
+    method_no: 1
+    steps:
+    - id: 2b-1
+      content: |
+        모든 $x$에 대해 $f(x)\ge A(x)$이므로, 함수 $k(x)=f(x)-A(x)$는 모든 $x$에 대해 $k(x)\ge0$이다. 한편 $k(1)=f(1)-A(1)=8-8=0$이므로 $k(1)$은 $y=k(x)$의 최솟값이다.
+      criteria: ['2.M1']
+    - id: 2b-2
+      content: |
+        $y=k(x)$가 열린구간 $(0,3.5)$에서 미분가능한 함수이므로 $y=k(x)$는 $x=1$일 때 극솟값을 가진다. 따라서 <제시문1>에 의해 $k^{\prime}(1)=f^{\prime}(1)-A^{\prime}(1)=0$이므로 $f^{\prime}(1)=-1$이다.
+      criteria: ['2.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 4
+      evidence: |
+        $k=f-A\ge0$, $k(1)=0$에서 $x=1$이 최소(극소)점임을 밝혔다. (공식 채점기준 1-ⅱ 8점 중 세부 배분은 자체 설정)
+      depends_on: []
+      implied_ok: false
+      steps: [2b-1]
+    - id: 2.A1
+      mark_type: A
+      points: 4
+      evidence: |
+        <제시문1>로 $k^{\prime}(1)=0$, $f^{\prime}(1)=A^{\prime}(1)=-1$을 얻었다.
+      depends_on: [2.M1]
+      steps: [2b-2]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '3'
+  stem: |
+    [문제 1-ⅲ] 실수 $a$와 <제시문2>의 함수 $f(x),g(x)$에 대하여 다음의 극한값
+    $$\lim_{h\to0}\frac{f(a+3h)-g(a+5h)}{h}$$
+    이 존재한다고 하자. 이때, $a$의 값과 극한값을 구하고 그 이유를 논하시오. (단, $0<a<3.5$)
+  points: 12
+  depends_on: ['1', '2']
+  answer: {kind: expression, value: 'a=2; limit=-4', equivalents: [], tolerance: null}
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: 분자 $\to f(a)-g(a)=0$이므로 (ⅰ)의 등호 조건에서 $a=2$, $f^{\prime}(2)=A^{\prime}(2)=2$, $g^{\prime}(2)=D^{\prime}(2)=2$.
+    steps:
+    - id: 3a
+      content: |
+        $a=2$, 극한 $=3f^{\prime}(2)-5g^{\prime}(2)=6-10=-4$
+      criteria: ['3.M1', '3.A1', '3.M2', '3.A2']
+    hint_ladder:
+    - 분모 $\to0$일 때 극한이 존재하려면 분자도 $0$으로 가야 한다.
+    - $f(a)=g(a)$가 되는 곳은 (ⅰ)에서 어디인가?
+  - id: S3-B
+    audience: B
+    source_flow: 2024 보고서 문항카드 10 예시답안 PDF p.158(인쇄 쪽 155)
+    method_no: 1
+    steps:
+    - id: 3b-1
+      content: |
+        극한값이 존재하려면 $\displaystyle\lim_{h\to0}(f(a+3h)-g(a+5h))=f(a)-g(a)=0$이 되어야 한다. 따라서 $f(a)=g(a)$이고 [문제 1-ⅰ]의 풀이에 의해 $a=2$가 된다.
+      criteria: ['3.M1', '3.A1']
+    - id: 3b-2
+      content: |
+        이때, $f(2)=A(2)=D(2)=g(2)$이고 항상 $f(x)\ge A(x)$이므로 $f^{\prime}(2)=A^{\prime}(2)=2$이다. 같은 방법으로 $g^{\prime}(2)=D^{\prime}(2)=2$이다. 따라서 $f^{\prime}(2)=\displaystyle\lim_{h\to0}\frac{f(2+h)-f(2)}{h}=2$, $g^{\prime}(2)=\displaystyle\lim_{h\to0}\frac{g(2+h)-g(2)}{h}=2$이다.
+      criteria: ['3.M2']
+    - id: 3b-3
+      content: |
+        그러면 구해야 하는 극한값은
+        $$\lim_{h\to0}\frac{f(2+3h)-g(2+5h)}{h}=\lim_{h\to0}\left(3\times\frac{f(2+3h)-f(2)}{3h}-5\times\frac{g(2+5h)-g(2)}{5h}\right)=3f^{\prime}(2)-5g^{\prime}(2)=6-10=-4.$$
+      criteria: ['3.A2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 3
+      evidence: |
+        극한 존재 조건으로 $f(a)=g(a)$를 이끌었다. (공식 채점기준 1-ⅲ 12점 중 세부 배분은 자체 설정)
+      depends_on: []
+      implied_ok: false
+      steps: [3b-1]
+    - id: 3.A1
+      mark_type: A
+      points: 3
+      evidence: |
+        (ⅰ)의 등호 조건으로 $a=2$를 얻었다.
+      depends_on: [3.M1]
+      ft: {allowed: true, from: [1.R1], max_points: 3}
+      steps: [3b-1]
+    - id: 3.M2
+      mark_type: M
+      points: 3
+      evidence: |
+        (ⅱ)의 논리로 $f^{\prime}(2)=A^{\prime}(2)=2$, $g^{\prime}(2)=D^{\prime}(2)=2$를 구했다.
+      depends_on: [3.A1]
+      steps: [3b-2]
+    - id: 3.A2
+      mark_type: A
+      points: 3
+      evidence: |
+        미분계수의 정의로 변형해 극한값 $-4$를 얻었다.
+      depends_on: [3.M2]
+      steps: [3b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '4'
+  stem: |
+    [문제 1-ⅳ] 실수 $b$와 <제시문2>의 함수 $f(x),g(x)$에 대하여 다음의 극한값
+    $$\lim_{h\to0}\frac{f(b+4h)-g(b-3h)-22}{h}$$
+    이 존재한다고 하자. 이때, 가능한 $b$의 값과 극한값을 모두 구하고 그 이유를 논하시오. (단, $0<b<3.5$)
+  points: 14
+  depends_on: ['2']
+  answer: {kind: set, value: '{(1, 7), (3, 7)}', equivalents: ['b=1 또는 b=3, 극한값은 모두 7'], tolerance: null}
+  solutions:
+  - id: S4-A
+    audience: A
+    method_no: 1
+    key_idea: $f(b)-g(b)=22$이고 $f-g\le B-C=p$, $p$의 최댓값 $22$는 $x=1,3$에서. 그 점에서 $f^{\prime}=B^{\prime}=1$, $g^{\prime}=C^{\prime}=1$.
+    steps:
+    - id: 4a
+      content: |
+        $b\in\{1,3\}$, 극한 $=4f^{\prime}(b)+3g^{\prime}(b)=7$
+      criteria: ['4.M1', '4.A1', '4.M2', '4.A2']
+    hint_ladder:
+    - 분자의 극한이 $0$이려면 $f(b)-g(b)=22$이어야 한다.
+    - $f(x)-g(x)$의 상한 $B(x)-C(x)$의 최댓값을 구해 보자.
+  - id: S4-B
+    audience: B
+    source_flow: 2024 보고서 문항카드 10 예시답안 PDF p.158(인쇄 쪽 155)
+    method_no: 1
+    steps:
+    - id: 4b-1
+      content: |
+        극한값이 존재하려면 $\displaystyle\lim_{h\to0}(f(b+4h)-g(b-3h)-22)=f(b)-g(b)-22=0$이 되어야 한다. 따라서 $f(b)-g(b)=22$가 된다. 조건에 의해 $f(x)-g(x)\le B(x)-C(x)$이다.
+      criteria: ['4.M1']
+    - id: 4b-2
+      content: |
+        이제 함수 $p(x)=B(x)-C(x)$를 생각하자. $p^{\prime}(x)=-4(x-1)(x-2)(x-3)$이므로 구간 $(0,3.5)$에서 $p(x)$의 최댓값은 $x=1$ 또는 $x=3$에서 얻어진다. 그런데 $p(1)=p(3)=22$이므로 $b=1$ 또는 $b=3$을 얻는다.
+      criteria: ['4.A1']
+    - id: 4b-3
+      content: |
+        여기서 $f(b)=B(b)$이고 $g(b)=C(b)$이고 항상 $f(x)\le B(x)$와 $g(x)\ge C(x)$이 성립하므로 $f^{\prime}(b)=B^{\prime}(b)$와 $g^{\prime}(b)=C^{\prime}(b)$을 얻는다. 그런데 $B^{\prime}(1)=B^{\prime}(3)=1$와 $C^{\prime}(1)=C^{\prime}(3)=1$이므로 $b=1$과 $b=3$일 때 모두 $f^{\prime}(b)=g^{\prime}(b)=1$이 된다.
+      criteria: ['4.M2']
+    - id: 4b-4
+      content: |
+        따라서 구해야 하는 극한값은
+        $$\lim_{h\to0}\frac{f(b+4h)-g(b-3h)-22}{h}=\lim_{h\to0}\left(4\times\frac{f(b+4h)-f(b)}{4h}-(-3)\times\frac{g(b-3h)-g(b)}{-3h}\right)=4f^{\prime}(b)+3g^{\prime}(b)=7.$$
+      criteria: ['4.A2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 4.M1
+      mark_type: M
+      points: 3
+      evidence: |
+        극한 존재 조건으로 $f(b)-g(b)=22$와 $f-g\le B-C$를 이끌었다. (공식 채점기준 1-ⅳ 14점 중 세부 배분은 자체 설정)
+      depends_on: []
+      implied_ok: false
+      steps: [4b-1]
+    - id: 4.A1
+      mark_type: A
+      points: 4
+      evidence: |
+        $p^{\prime}(x)=-4(x-1)(x-2)(x-3)$과 $p(1)=p(3)=22$로 $b=1$, $b=3$을 모두 구했다.
+      depends_on: [4.M1]
+      steps: [4b-2]
+    - id: 4.M2
+      mark_type: M
+      points: 3
+      evidence: |
+        접점에서 $f^{\prime}(b)=B^{\prime}(b)=1$, $g^{\prime}(b)=C^{\prime}(b)=1$임을 밝혔다.
+      depends_on: [4.A1]
+      ft: {allowed: true, from: [2.A1], max_points: 3}
+      steps: [4b-3]
+    - id: 4.A2
+      mark_type: A
+      points: 4
+      evidence: |
+        두 경우 모두 극한값 $7$을 얻었다.
+      depends_on: [4.M2]
+      steps: [4b-4]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+remedy_links: []
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

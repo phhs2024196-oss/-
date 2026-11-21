@@ -1,0 +1,284 @@
+# 성균관대 2023학년도 모의논술 자연계 문제 3 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: SKKU-M23-03
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: SKKU
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 분류
+points: 35
+time_estimate_min: 30
+intent: |
+  절댓값이 포함된 합성함수의 극대, 극소와 정적분 계산을, 적절한 대칭성을 활용하여 구할 수 있는 능력을 평가한다. 도형의 이동, 함수의 극대와 극소, 다항함수의 정적분을 이해하면 해결할 수 있으며 절댓값과 합성함수에 대한 기본적인 내용을 포함한다(2023 모의논술 해설지 개요 및 주요 평가항목 요약).
+key_idea: |
+  $f$는 기함수, $g$는 우함수이므로 $h=g\circ f$는 우함수. $x\ge0$에서 $f$는 $[0,1]$에서 $x$, $[1,2]$에서 $-x+2$, $[2,\infty)$에서 $x-2$이므로 $h$는 $g$의 $[0,1]$ 부분을 $x=1$ 대칭·평행이동한 것.
+stuck: |
+  $h(-x)=g(-f(x))=g(f(x))$로 우함수임을 보고, $[0,2]$에서 $x=1$에 대한 대칭까지 찾아 극점과 적분을 $[0,1]$로 환원하는 발상
+idea_tags: [IDEA-ODD-EVEN-COMPOSITION-SYMMETRY, IDEA-PIECEWISE-ABS-LINEAR]
+tags: [절댓값 함수, 합성함수, 극대·극소, 대칭성, 정적분]
+elements:
+  materials:
+  - '$f(x)=x-|x+2|+|x+1|-|x-1|+|x-2|$'
+  - '$g(x)=|x|^3-x^2$'
+  - '$h(x)=(g\circ f)(x)=g(f(x))$'
+  concepts:
+  - '절댓값의 뜻'
+  - '함수의 극대·극소의 정의'
+  - '합성함수'
+  - '그래프의 대칭이동·평행이동'
+  - '다항함수의 정적분'
+  tools:
+  - '$f(-x)=-f(x)$, $g(-x)=g(x)$'
+  - '구간별 식 $f(x)=x,\ -x+2,\ x-2$ ($x\ge0$)'
+  - '$g''(x)=3x^2-2x=0$에서 $x=\tfrac23$'
+  - '대칭으로 $\int_{-2}^{2}h=4\int_0^1h$'
+  conditions:
+  - '극대·극소는 <제시문 2>의 정의(열린구간에서 $\le$, $\ge$)'
+  stimuli_used: [S1, S2, S3]
+  subpart_links: '(ⅱ)·(ⅲ)은 (ⅰ)의 $f$의 구간별 식과 대칭성을 사용하고, (ⅲ)은 (ⅱ)의 $h$의 대칭을 사용'
+
+curriculum:
+  version: '2015'
+  subjects: [수학, 수학Ⅱ]
+  scope_2028: common
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 함수의 극대·극소를 이해한다; 다항함수의 정적분을 구할 수 있다; 합성함수와 도형의 이동(요지)
+    verified: false
+  content_area: 함수·미분·적분
+  behavior_domain: 이해
+  unit_path: [수학Ⅱ, 미분, 도함수의 활용, 함수의 극대·극소]
+  key_concepts: [절댓값, 합성함수, 극대·극소, 대칭이동, 정적분]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 성균관대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 성균관대학교
+  admission_year: 2023
+  admission_type: 모의논술
+  track: 자연계
+  question_no: 3
+  official_url: https://admission.skku.edu/admission/html/rolling/question.html
+  retrieved_at: 2026-11-21
+  original_points: [10, 15, 10]
+  rights_notice: 문제지·해설지에 이용 제한 문구 없음(원본 확인)
+  transcribed_from: 'm23_q.pdf p.4-5(문제지 인쇄 쪽 3/4-4/4) + m23_s.pdf p.8-10(해설지 인쇄 쪽 7/9-9/9) (이미지 대조 2026-11-21)'
+
+verify: verify/SKKU-M23.py::p03
+
+stimuli:
+- id: S1
+  label: <제시문 1>
+  body: |
+    실수 $x$의 절댓값 $|x|$는 수직선 위에서 실수 $x$를 나타내는 점과 원점 사이의 거리를 나타낸다. 예를 들어, $|x|=5$이면 $x=5$ 또는 $x=-5$이다.
+- id: S2
+  label: <제시문 2>
+  body: |
+    함수 $f(x)$에서 $x=a$를 포함하는 어떤 열린구간에 속하는 모든 $x$에 대하여 $f(x)\le f(a)$일 때, 함수 $f(x)$는 $x=a$에서 극대라 하며, $f(a)$를 극댓값이라고 한다. 또, $x=a$를 포함하는 어떤 열린구간에 속하는 모든 $x$에 대하여 $f(x)\ge f(a)$일 때, 함수 $f(x)$는 $x=a$에서 극소라 하며, $f(a)$를 극솟값이라고 한다. 극댓값과 극솟값을 통틀어 극값이라고 한다.
+- id: S3
+  label: <제시문 3>
+  body: |
+    <제시문 1>을 이용하여 실수 전체에서 정의되는 두 함수 $f(x)$와 $g(x)$를 다음과 같이 정의하자.
+    $$\begin{cases}f(x)=x-|x+2|+|x+1|-|x-1|+|x-2|\\[4pt] g(x)=|x|^3-x^2\end{cases}$$
+    그리고, 이 두 함수의 합성함수를 $h(x)=(g\circ f)(x)=g(f(x))$라고 하자.
+
+stem: |
+  다음 <제시문 1> ~ <제시문 3>을 읽고 [문제 3-ⅰ] ~ [문제 3-ⅲ]을 문항별로 풀이와 함께 답하시오.
+
+subparts:
+- id: '1'
+  stem: |
+    [문제 3-ⅰ] <제시문 3>에서 함수 $f(x)$가 $x=a$에서 극대일 때, 가능한 $a$의 값을 모두 구하고 그 이유를 논하시오. (10점)
+  points: 10
+  depends_on: []
+  answer: {kind: set, value: '{-2, 1}', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $f$는 원점 대칭이고 $x\ge0$에서 $x\ (0\le x\le1)$, $-x+2\ (1\le x\le2)$, $x-2\ (x\ge2)$.
+    steps:
+    - {id: 1a, content: '$x\ge0$에서 극대 $x=1$, 극소 $x=2$; 대칭으로 극대 $x=-2$', criteria: ['1.M1', '1.A1']}
+    hint_ladder:
+    - $f(-x)$를 계산해 보자.
+    - 절댓값 안이 0이 되는 점으로 구간을 나누자.
+  - id: S1-B
+    audience: B
+    source_flow: 2023 모의논술 해설지 문제 3-ⅰ 예시답안 p.8(인쇄 쪽 7/9)
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        $f(-x)=-x-|-x+2|+|-x+1|-|-x-1|+|-x-2|=-x-|x-2|+|x-1|-|x+1|+|x+2|=-f(x)$이므로, $y=f(x)$는 원점에 대해 대칭이다.
+      criteria: ['1.M1']
+    - id: 1b-2
+      content: |
+        닫힌구간 $[0,1]$에서 $f(x)=x$이다. 닫힌구간 $[1,2]$에서 $f(x)=-x+2$이다. 구간 $[2,\infty)$에서 $f(x)=x-2$이다.
+      criteria: ['1.M1']
+    - id: 1b-3
+      content: |
+        따라서 $x\ge0$에서 $f$는 $x=1$에서 증가→감소(극대), $x=2$에서 감소→증가(극소)이고, 원점 대칭에 의해 $x=-1$에서 극소, $x=-2$에서 극대이다. 따라서, $x=a$에서 극댓값을 가지기 위한 $a$의 값은 $-2,1$이다.
+      criteria: ['1.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 7
+      evidence: |
+        $y=f(x)$의 식을 구할 수 있다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1, 1b-2]
+    - id: 1.A1
+      mark_type: A
+      points: 3
+      evidence: |
+        극댓값을 가지는 $x=a$의 값을 구할 수 있다.
+      depends_on: [1.M1]
+      steps: [1b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '2'
+  stem: |
+    [문제 3-ⅱ] <제시문 3>에서 정의된 함수 $h(x)$가 $x=a$에서 극대이기 위한 $a$의 절댓값의 합과 $x=b$에서 극소이기 위한 $b$의 절댓값의 합을 각각 구하고, 그 이유를 논하시오. (15점)
+  points: 15
+  depends_on: ['1']
+  answer: {kind: expression, value: 'max_abs_sum=6; min_abs_sum=28/3', equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: $h$는 우함수, $[0,1]$에서 $x^3-x^2$, $[1,2]$는 그 $x=1$ 대칭, $[2,\infty)$는 $g$를 2만큼 평행이동.
+    steps:
+    - {id: 2a, content: '극대 $x=0,\pm1,\pm2$ → 합 $6$; 극소 $x=\pm\tfrac23,\pm\tfrac43,\pm\tfrac83$ → 합 $\tfrac{28}{3}$', criteria: ['2.M1', '2.A1', '2.A2']}
+    hint_ladder:
+    - $g$의 대칭성과 $f$의 대칭성을 합성하면 $h$는 어떤 대칭을 갖는가?
+    - $x\ge0$에서 $f(x)$의 구간별 식을 $g$에 대입하자.
+  - id: S2-B
+    audience: B
+    source_flow: 2023 모의논술 해설지 문제 3-ⅱ 예시답안 p.9(인쇄 쪽 8/9)
+    method_no: 1
+    steps:
+    - id: 2b-1
+      content: |
+        $g(-x)=|-x|^3-(-x)^2=|x|^3-x^2=g(x)$이므로, 함수 $y=g(x)$는 $y$축에 대해 대칭이다. 따라서, $h(-x)=g(f(-x))=g(-f(x))=g(f(x))=h(x)$이므로 함수 $y=h(x)$도 $y$축에 대해 대칭이다. 이제 $x\ge0$일 때, 함수 $y=h(x)$를 살펴보자.
+      criteria: ['2.M1']
+    - id: 2b-2
+      content: |
+        닫힌구간 $[0,1]$에서 $h(x)=g(x)=x^3-x^2$이다. 닫힌구간 $[1,2]$에서 $h(x)=g(-x+2)=(x-2)^2(1-x)$이므로, 닫힌구간 $[0,1]$에서의 함수 $h(x)=g(x)=x^3-x^2$를 직선 $x=1$에 대해 대칭이동시킨 것이다. 구간 $[2,\infty)$에서 $h(x)=g(x-2)$이므로, 구간 $[0,\infty)$에서의 함수 $g(x)=x^3-x^2$를 $x$축 방향으로 2만큼 평행이동 시킨 것이다.
+      criteria: ['2.M1']
+    - id: 2b-3
+      content: |
+        따라서, $x=0,1,2$에서 극댓값을 가진다. $g'(x)=3x^2-2x=0$으로부터 $x=\dfrac23,\dfrac43,\dfrac83$에서 극솟값을 가진다. 대칭성에 의해, $x=-2,-1$에서도 극댓값을 가지고, $x=-\dfrac23,-\dfrac43,-\dfrac83$에서도 극솟값을 가진다.
+      criteria: ['2.A1', '2.A2']
+    - id: 2b-4
+      content: |
+        따라서, 극댓값을 가지는 $x=a$의 절댓값의 합은 $0+2(1+2)=6$이고, 극솟값을 가지는 $x=b$의 절댓값의 합은 $2\left(\dfrac23+\dfrac43+\dfrac83\right)=\dfrac{28}{3}$이다.
+      criteria: ['2.A1', '2.A2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 5
+      evidence: |
+        함수 $h(x)$를 구할 수 있다.
+      depends_on: []
+      implied_ok: false
+      ft: {allowed: true, from: [1.M1], max_points: 5}
+      steps: [2b-1, 2b-2]
+    - id: 2.A1
+      mark_type: A
+      points: 5
+      evidence: |
+        함수 $h(x)$의 극댓값을 가지는 점 $x=a$를 모두 구할 수 있다.
+      depends_on: [2.M1]
+      steps: [2b-3, 2b-4]
+    - id: 2.A2
+      mark_type: A
+      points: 5
+      evidence: |
+        함수 $h(x)$의 극솟값을 가지는 점 $x=b$를 모두 구할 수 있다.
+      depends_on: [2.M1]
+      steps: [2b-3, 2b-4]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '3'
+  stem: |
+    [문제 3-ⅲ] <제시문 3>에서 정의된 함수 $h(x)$에 대하여 정적분 $\displaystyle\int_{-2}^{2}h(x)\,dx$의 값을 구하고, 그 이유를 논하시오. (10점)
+  points: 10
+  depends_on: ['2']
+  answer: {kind: value, value: '-1/3', equivalents: [], tolerance: null}
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: $y$축 대칭과 $[0,2]$에서의 $x=1$ 대칭으로 $\int_{-2}^{2}h=4\int_0^1(x^3-x^2)dx$.
+    steps:
+    - {id: 3a, content: '$4\left(\tfrac14-\tfrac13\right)=-\tfrac13$', criteria: ['3.M1', '3.A1']}
+    hint_ladder:
+    - (ⅱ)에서 찾은 두 가지 대칭을 적분에 적용하자.
+  - id: S3-B
+    audience: B
+    source_flow: 2023 모의논술 해설지 문제 3-ⅲ 예시답안 p.10(인쇄 쪽 9/9)
+    method_no: 1
+    steps:
+    - id: 3b-1
+      content: |
+        함수 $h(x)$는 $y$축에 대해 대칭이므로 $\displaystyle\int_{-2}^{2}h(x)\,dx=2\int_0^2h(x)dx$이다. 닫힌구간 $[0,2]$에서 함수 $h(x)$는 직선 $x=1$에 대해서 대칭이므로 $\displaystyle\int_0^2h(x)dx=2\int_0^1h(x)dx$이다.
+      criteria: ['3.M1']
+    - id: 3b-2
+      content: |
+        따라서, $\displaystyle\int_{-2}^{2}h(x)dx=4\int_0^1h(x)dx=4\int_0^1(x^3-x^2)dx=-\dfrac13$이다.
+      criteria: ['3.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 8
+      evidence: |
+        $\displaystyle\int_{-2}^{2}h(x)dx=4\int_0^1h(x)dx=4\int_0^1(x^3-x^2)dx$을 유도할 수 있다.
+      depends_on: []
+      implied_ok: false
+      ft: {allowed: true, from: [2.M1], max_points: 8}
+      steps: [3b-1, 3b-2]
+    - id: 3.A1
+      mark_type: A
+      points: 2
+      evidence: |
+        적분값을 구할 수 있다.
+      depends_on: [3.M1]
+      steps: [3b-2]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+remedy_links: []
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

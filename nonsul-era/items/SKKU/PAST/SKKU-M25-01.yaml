@@ -1,0 +1,287 @@
+# 성균관대 2025학년도 모의논술 논술시험(수리 논술) 문제 1 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: SKKU-M25-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: SKKU
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 분류
+points: 30
+time_estimate_min: 30
+intent: |
+  서로 다른 $n$개의 숫자에서 2개를 선택하여 만들어 낼 수 있는 ${}_n\mathrm{C}_2$개의 숫자들이 언제 등차수열의 항을 이루는지를 확인하는 문제로, 등차수열의 기본적인 개념과 간단한 경우에서의 조합의 의미를 이해하고 있는지 평가한다(해설지 「개요 및 주요 평가항목」 요지). 고교 과정 중 경우의 수(조합)와 등차수열을 다룬다.
+key_idea: |
+  두 원소의 합을 크기순으로 늘어놓으면 처음 두 항은 $a_1+a_2<a_1+a_3$, 마지막 두 항은 $a_{n-2}+a_n<a_{n-1}+a_n$로 고정된다. 공차 $d=a_3-a_2=a_{n-1}-a_{n-2}$에서 서로 다른 두 쌍의 합이 같아지는 모순을 끌어낸다.
+stuck: |
+  $n=4$에서 세 번째 항이 $a_1+a_4$인지 $a_2+a_3$인지로 경우를 나누는 것, $n=5$에서 $a_1+a_5$의 위치(4번째 또는 7번째)를 정하는 것
+idea_tags: []
+tags: [두 원소의 합, 등차수열, 경우 분류, 귀류]
+elements:
+  materials:
+  - '서로 다른 양의 정수 $n$개로 이루어진 집합 $S$'
+  - '두 원소의 합 ${}_n\mathrm{C}_2$개가 모두 다르고 크기순으로 등차수열'
+  - '등차수열의 합 $600$ ($n=3$), $2025$ ($n=4$)'
+  concepts:
+  - '등차수열의 일반항과 합'
+  - '조합의 수 ${}_n\mathrm{C}_2$'
+  - '일차부정방정식의 양의 정수해 개수'
+  tools:
+  - '합의 크기 순서 결정(가장 작은 두 항, 가장 큰 두 항)'
+  - '공차 비교로 원소 간격 결정'
+  - '귀류법(서로 다른 쌍의 합이 같아지는 모순)'
+  conditions:
+  - '$a_1<a_2<\cdots<a_n$, 양의 정수'
+  - '${}_n\mathrm{C}_2$개의 합이 모두 다름'
+  stimuli_used: [S1, S2, S3]
+  subpart_links: '(i)·(ii)는 $n=3,4$에서 집합 구조를 결정해 개수를 세고, (iii)은 같은 순서 논법을 일반 $n\ge5$로 확장'
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅰ, 수학]
+  scope_2028: common
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 등차수열의 뜻을 알고 일반항, 첫째항부터 제n항까지의 합을 구할 수 있다(요지, 모의논술 보고서 없음)
+    verified: false
+  - code: 미확인
+    text: 조합의 의미를 이해하고 조합의 수를 구할 수 있다(요지)
+    verified: false
+  content_area: 수열, 경우의 수
+  behavior_domain: 추론
+  unit_path: [수학Ⅰ, 수열, 등차수열과 등비수열, 등차수열의 합]
+  key_concepts: [등차수열, 조합, 귀류법]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 성균관대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 성균관대학교
+  admission_year: 2025
+  admission_type: 모의논술
+  track: 수리형
+  question_no: 1
+  official_url: https://admission.skku.edu/admission/html/rolling/question.html
+  retrieved_at: 2026-11-21
+  original_points: [10, 10, 10]
+  rights_notice: 미확인(문제지·해설지에 별도 저작권 문구 없음)
+  transcribed_from: m25_q.pdf 문제지 p.2(1/3), 해설지 m25_s.pdf p.2-5(1/17-4/17) (이미지 대조 2026-11-21)
+
+verify: verify/SKKU-M25.py::p01
+
+stimuli:
+- id: S1
+  label: <제시문 1>
+  body: |
+    첫째항이 $a$, 공차가 $d$인 등차수열 $\{a_n\}$의 일반항은
+    $$a_n=a+(n-1)d\qquad(n=1,\,2,\,3,\,\cdots)$$
+    이고, 첫째항부터 제$n$항까지의 합 $S_n$은 다음과 같다.
+    $$S_n=\frac{n\{2a+(n-1)d\}}{2}$$
+- id: S2
+  label: <제시문 2>
+  body: |
+    서로 다른 $n$개에서 $r$개를 택하는 조합의 수는 다음과 같다.
+    $${}_n\mathrm{C}_r=\frac{{}_n\mathrm{P}_r}{r!}=\frac{n!}{r!(n-r)!}\qquad(\text{단, }0\le r\le n)$$
+- id: S3
+  label: <제시문 3>
+  body: |
+    양의 정수 $n$에 대하여, $n$개의 서로 다른 양의 정수로 이루어진 집합 $S=\{a_1,\,a_2,\,\cdots,\,a_n\}$를 생각하자. (단, $a_1<a_2<\cdots<a_n$이라고 가정하자.) 집합 $S$에서 서로 다른 두 개의 원소를 뽑아 더한 ${}_n\mathrm{C}_2$개의 수가 모두 다르고, 이 수들을 크기가 작은 것부터 나열했을 때 등차수열을 이룬다고 가정하자. 예를 들어, $n=3$일 때 집합 $S=\{1,\,2,\,3\}$이라고 하면, 등차수열 $3,\,4,\,5$를 얻을 수 있다.
+
+stem: |
+  다음 <제시문 1> ~ <제시문 3>을 읽고 [문제 1-ⅰ] ~ [문제 1-ⅲ]을 문항별로 풀이와 함께 답하시오. (30점)
+
+subparts:
+- id: '1'
+  stem: |
+    <제시문 3>에서 $n=3$일 때, 집합 $S$로부터 얻은 등차수열의 합이 $600$이 되는 가능한 모든 집합 $S$의 개수를 구하고, 그 이유를 논하시오. (10점)
+  points: 10
+  depends_on: []
+  answer: {kind: value, value: '99', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: |
+      $S=\{a,a+d,a+2d\}$이면 합들은 $2a+d,2a+2d,2a+3d$이고 합 $6(a+d)=600$.
+    steps:
+    - {id: 1a, content: '$a+d=100$, $a,d\ge1$ → $99$개', criteria: ['1.M1', '1.A1']}
+    hint_ladder:
+    - $n=3$이면 합은 세 개뿐이다. 크기 순서를 정해 보라.
+  - id: S1-B
+    audience: B
+    source_flow: 2025 모의논술 해설지 문제1-ⅰ 예시답안 p.2/17
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        집합 $S=\{a=a_1,a_2,a_3\}$로부터 얻은 등차수열은 $a_1+a_2<a_1+a_3<a_2+a_3$이고, 공차를 $d$라고 하면 $d=a_2-a_1=a_3-a_2$가 된다. 따라서 등차수열은 $2a+d,\ 2a+2d,\ 2a+3d$가 된다.
+      criteria: ['1.M1']
+    - id: 1b-2
+      content: |
+        이 세 수의 합은 $6(a+d)=600$이 되어 $a+d=100$을 얻게 된다. $a,d\ge1$이므로 만족하는 순서쌍 $(a,d)=(1,99),(2,98),\cdots,(99,1)$이고 가능한 모든 집합 $S$의 개수는 $99$이다.
+      criteria: ['1.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 5
+      evidence: |
+        집합 $S$의 원소들이 만족해야되는 조건을 수식화 할 수 있다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1]
+    - id: 1.A1
+      mark_type: A
+      points: 5
+      evidence: |
+        가능한 집합 $S$의 개수 $99$를 올바르게 구할 수 있다.
+      depends_on: [1.M1]
+      steps: [1b-2]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '2'
+  stem: |
+    <제시문 3>에서 $n=4$일 때, 집합 $S$로부터 얻은 등차수열의 합이 $2025$가 되는 가능한 모든 집합 $S$의 개수를 구하고, 그 이유를 논하시오. (10점)
+  points: 10
+  depends_on: []
+  answer: {kind: value, value: '42', equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: |
+      세 번째 항이 $a_1+a_4$이면 $S=\{a,a+2d,a+3d,a+4d\}$, $a_2+a_3$이면 $S=\{a,a+d,a+2d,a+4d\}$.
+    steps:
+    - {id: 2a, content: '$4a+9d=675$ 18개, $4a+7d=675$ 24개 → 42개', criteria: ['2.M1', '2.A1', '2.A2']}
+    hint_ladder:
+    - 세 번째로 작은 합은 $a_1+a_4$와 $a_2+a_3$ 중 하나이다.
+  - id: S2-B
+    audience: B
+    source_flow: 2025 모의논술 해설지 문제1-ⅱ 예시답안 p.3/17
+    method_no: 1
+    steps:
+    - id: 2b-1
+      content: |
+        집합 $S=\{a=a_1,a_2,a_3,a_4\}$로부터 얻은 등차수열의 처음 세 개의 항은 $a_1+a_2<a_1+a_3<a_1+a_4$ 혹은 $a_1+a_2<a_1+a_3<a_2+a_3$이다.
+      criteria: ['2.M1']
+    - id: 2b-2
+      content: |
+        먼저, $a_1+a_2<a_1+a_3<a_1+a_4$라고 가정하자. 이때, 등차수열은 $a_1+a_2<a_1+a_3<a_1+a_4<a_2+a_3<a_2+a_4<a_3+a_4$가 되고, 공차를 $d$라고 하면 $d=a_3-a_2=a_4-a_3$이 된다. 이로부터, $d=(a_2+a_3)-(a_1+a_4)=a_2-a_1-d$를 얻게 되어, $a_2-a_1=2d$이다. 따라서 $S=\{a,a+2d,a+3d,a+4d\}$가 되고, 집합 $S$의 원소들로 만들어진 등차수열은 첫째항이 $2a+2d$이고 공차가 $d$인 등차수열이므로 $\dfrac{6(4a+9d)}{2}=2025$, 즉 $4a+9d=675$이고 이를 만족하는 양의 정수의 쌍 $(a,d)$는 $(162,3),(153,7),\cdots,(9,71)$으로 총 $18$개다.
+      criteria: ['2.A1']
+    - id: 2b-3
+      content: |
+        이제, $a_1+a_2<a_1+a_3<a_2+a_3$라고 가정하자. 이때, 등차수열은 $a_1+a_2<a_1+a_3<a_2+a_3<a_1+a_4<a_2+a_4<a_3+a_4$이 되고, 위와 같은 방법으로(혹은 대칭성에 의해) $S=\{a,a+d,a+2d,a+4d\}$이고 집합 $S$의 원소들로 만들어진 등차수열은 첫째항이 $2a+d$이고 공차가 $d$인 등차수열이므로 $\dfrac{6(4a+7d)}{2}=2025$, 즉 $4a+7d=675$가 된다. 이를 만족하는 양의 정수의 쌍 $(a,d)$는 $(167,1),(160,5),\cdots,(6,93)$으로 총 $24$개다. 따라서, 가능한 집합 $S$의 개수는 $42$개다.
+      criteria: ['2.A2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 2
+      evidence: |
+        가능한 집합 $S$를 두 가지로 나눌 수 있다.
+      depends_on: []
+      implied_ok: false
+      steps: [2b-1]
+    - id: 2.A1
+      mark_type: A
+      points: 4
+      evidence: |
+        첫 번째 경우의 개수($18$개)를 구할 수 있다.
+      depends_on: [2.M1]
+      steps: [2b-2]
+    - id: 2.A2
+      mark_type: A
+      points: 4
+      evidence: |
+        두 번째 경우의 개수($24$개)를 구할 수 있다.
+      depends_on: [2.M1]
+      steps: [2b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '3'
+  stem: |
+    $n\ge5$일 때, <제시문 3>의 조건을 만족하는 집합 $S$가 존재하지 않음을 보이고, 그 이유를 논하시오. (10점)
+  points: 10
+  depends_on: []
+  answer: {kind: proof, value: 'none', equivalents: [], tolerance: null}
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: |
+      $d=a_3-a_2=a_{n-1}-a_{n-2}$이면 $a_2+a_{n-1}=a_3+a_{n-2}$ (서로 다른 쌍, $n\ge6$) → 모순. $n=5$는 $a_1+a_5$가 4번째·7번째인 경우 각각 $a_2+a_5=a_3+a_4$ 등의 모순.
+    steps:
+    - {id: 3a, content: '$n\ge6$, $n=5$ 각각 두 쌍의 합이 같아져 모순', criteria: ['3.R1', '3.R2']}
+    hint_ladder:
+    - 가장 작은 두 합과 가장 큰 두 합의 차이는 각각 무엇인가?
+  - id: S3-B
+    audience: B
+    source_flow: 2025 모의논술 해설지 문제1-ⅲ 예시답안 p.4/17
+    method_no: 1
+    steps:
+    - id: 3b-1
+      content: |
+        집합 $S=\{a_1,\cdots,a_n\}$로부터 얻은 등차수열은 $a_1+a_2<a_1+a_3<\cdots<a_{n-2}+a_n<a_{n-1}+a_n$이다. 공차를 $d$라 하면, $d=a_3-a_2=a_{n-1}-a_{n-2}$를 얻을 수 있다. 이로부터 $a_2+a_{n-1}=(a_3-d)+(a_{n-2}+d)=a_3+a_{n-2}$가 되어, 만약 $n\ge6$이라면 <제시문 3>의 조건에 모순이다.
+      criteria: ['3.R1']
+    - id: 3b-2
+      content: |
+        이제 $n=5$라고 가정하면, $a_1+a_2<a_1+a_3<\cdots<a_3+a_5<a_4+a_5$를 얻는다. 이로부터, $d=a_3-a_2=a_4-a_3$을 얻게 되고, $(a_1+a_3)+d=a_1+(a_3+d)=a_1+a_4$가 되어, $a_1+a_4$가 3번째 항이 된다. 마찬가지로 $a_2+a_5$는 8번째 항이 된다.
+        또한, $a_2+a_3<a_2+a_4<a_3+a_4$도 각 항의 차이가 $d$이므로 $a_1+a_5$는 4번째 항이거나 7번째 항이 된다.
+      criteria: ['3.R2']
+    - id: 3b-3
+      content: |
+        먼저, $a_1+a_5$가 4번째 항이라고 가정하자. 그러면 등차수열은
+        $a_1+a_2<a_1+a_3<a_1+a_4<a_1+a_5<a_2+a_3<a_2+a_4<a_3+a_4<a_2+a_5<a_3+a_5<a_4+a_5$
+        이 된다. 이때, $a_5-a_4=(a_1+a_5)-(a_1+a_4)=d=(a_1+a_3)-(a_1+a_2)=a_3-a_2$이다. 이로부터 $a_2+a_5=a_3+a_4$가 되어, <제시문 3>의 조건에 모순이다.
+        마찬가지로 $a_1+a_5$가 7번째 항인 경우에도 비슷한 방식으로 모순을 이끌어낼 수 있다.
+      criteria: ['3.R2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 3.R1
+      mark_type: R
+      points: 4
+      evidence: |
+        $n\ge6$인 경우 존재하지 않음을 보인다.
+      depends_on: []
+      implied_ok: false
+      steps: [3b-1]
+    - id: 3.R2
+      mark_type: R
+      points: 6
+      evidence: |
+        $n=5$인 경우 존재하지 않음을 보인다.
+      depends_on: []
+      implied_ok: false
+      steps: [3b-2, 3b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+remedy_links: []
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

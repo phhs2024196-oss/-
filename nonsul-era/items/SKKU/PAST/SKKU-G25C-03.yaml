@@ -1,0 +1,354 @@
+# 성균관대 2025학년도 수시 논술우수전형 수리형 3교시 문제 3 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: SKKU-G25C-03
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: SKKU
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 분류
+points: 30
+time_estimate_min: 30
+intent: |
+  주어진 실수에 가장 가까운 정수를 이용해 올바른 부등식을 설정하고, 그 부등식을 정수의 성질로 더 활용도가 높은 형태로 변형할 수 있는지 평가한다. 조건을 만족하는 수열의 규칙을 찾아 합을 구하고, 이를 일반화해 일반화 전의 수열과 공통적인 규칙으로 복잡해 보이는 상황을 단순화할 수 있는지 본다(2025 보고서 문항카드 15 출제 의도 요약).
+key_idea: |
+  $b_n=M\iff M-\tfrac12\le A_n<M+\tfrac12\iff 4M^3-6M^2+3M-\left(\tfrac12+(-1)^n4a_n\right)\le n<4M^3+6M^2+3M+\left(\tfrac12-(-1)^n4a_n\right)$이고, $n\ge5$에서는 $\lvert4a_n\rvert<\tfrac12$이므로 정수 조건 $4M^3-6M^2+3M\le n\le4M^3+6M^2+3M$로 단순화된다.
+stuck: |
+  세제곱근에 가장 가까운 정수 조건을 세제곱해 $n$에 대한 정수 부등식으로 바꾸고, 작은 오차항 $(-1)^n4a_n$을 정수성으로 없애는 것; $n\le4$는 따로 직접 계산해야 한다는 것
+idea_tags: [IDEA-NEAREST-INTEGER-CUBE-BOUNDS, IDEA-INTEGER-ABSORB-SMALL-ERROR, IDEA-SMALL-CASES-SEPARATE]
+tags: [가장 가까운 정수, 세제곱근, 등비수열, 수열의 합, 경우 분류]
+elements:
+  materials:
+  - '$a_n=r\times\left(\tfrac12\right)^{n-1}$, $A_n=\sqrt[3]{\tfrac n4+(-1)^na_n}$'
+  - '$A_n$에 가장 가까운 정수 $b_n$(두 개면 더 큰 수)'
+  - '(i)(ii) $r=\tfrac43$, (iii) $1<\lvert r\rvert<2$'
+  concepts:
+  - '거듭제곱근의 뜻과 성질(실수인 세제곱근의 유일성, 단조성)'
+  - '곱셈 공식 $(a\pm b)^3$'
+  - '등비수열의 일반항'
+  - '수열의 합, $\Sigma$의 성질'
+  - '정수의 성질을 이용한 부등식 변형'
+  tools:
+  - '$M-\tfrac12\le A_n<M+\tfrac12$를 세제곱'
+  - '$n\ge5$에서 $\lvert4a_n\rvert<\tfrac12$이므로 오차항 제거'
+  - '$M=1,2,3$에 대한 $n$의 범위 $[5,13],[14,62],[63,171]$'
+  - '$n=1,2,3,4$ 직접 계산, (iii)은 $r$의 부호로 경우 분류'
+  conditions:
+  - '가장 가까운 정수가 두 개이면 더 큰 수'
+  - '$n\ge5$이면 $\lvert4a_n\rvert<\tfrac12$($r=\tfrac43$이면 $\le\tfrac13$)'
+  stimuli_used: [S1, S2, S3]
+  subpart_links: '(ii)는 (i)의 $b_1$을, (iii)은 (ii)의 부등식 (*)·(**)와 $\sum_{k=5}^{150}b_k=371$을 그대로 사용'
+
+curriculum:
+  version: '2015'
+  subjects: [수학, 수학Ⅰ]
+  scope_2028: common
+  scope_confirmed: false
+  standards:
+  - code: 12수학Ⅰ01-01
+    text: 거듭제곱과 거듭제곱근의 뜻을 알고, 그 성질을 이해한다.
+    verified: true
+  - code: 10수학01-01
+    text: 다항식의 사칙연산을 할 수 있다.
+    verified: true
+  - code: 12수학Ⅰ03-03
+    text: 등비수열의 뜻을 알고, 일반항, 첫째항부터 제n항까지의 합을 구할 수 있다.
+    verified: true
+  - code: 12수학Ⅰ03-06
+    text: 수열의 귀납적 정의를 이해한다.
+    verified: true
+  - code: 12수학Ⅰ01-07
+    text: 지수함수와 로그함수의 그래프를 그릴 수 있고, 그 성질을 이해한다.
+    verified: true
+  - code: 12수학Ⅰ03-04
+    text: $\Sigma$의 뜻을 알고, 그 성질을 이해하고 이를 활용할 수 있다.
+    verified: true
+  - code: 12수학Ⅰ03-05
+    text: 여러 가지 수열의 첫째항부터 제n항까지의 합을 구할 수 있다.
+    verified: true
+  textbooks:
+  - '수학(고성은 외 6인, 좋은책신사고, 2020) 13-15'
+  - '수학(권오남 외 14인, 교학사, 2020) 13-15'
+  - '수학Ⅰ(고성은 외 6인, 좋은책신사고, 2021) 40-42, 123-145'
+  - '수학Ⅰ(류희찬 외 10인, 천재교과서, 2021) 42-45, 133-150'
+  content_area: 지수(거듭제곱근)·수열
+  behavior_domain: 추론
+  unit_path: [수학Ⅰ, 수열, 수열의 합, 여러 가지 수열의 합]
+  key_concepts: [세제곱근, 등비수열, 수열의 합, 가장 가까운 정수]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 성균관대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 성균관대학교
+  admission_year: 2025
+  admission_type: 수시 논술우수전형
+  track: 수리형
+  question_no: 3
+  session: 3교시
+  official_url: https://admission.skku.edu/admission/html/rolling/question.html
+  retrieved_at: 2026-11-21
+  original_points: [30]
+  subpart_points_from_rubric: [5, 10, 15]
+  rights_notice: 이 문서는 상업적인 목적으로 사용할 수 없으며, 문서의 변형 및 발췌를 금지합니다.
+  transcribed_from: 'e25.pdf p.24(문제지 수리형 3교시 문제 3) + 2025 선행학습 영향평가 보고서 문항카드 15, PDF p.204-208(인쇄 쪽 200-204) (이미지 대조 2026-11-21)'
+  notes: '공식 예시답안은 앞 소문항을 "[문제 1-ⅰ]", "[문제 1-ⅱ]"로 적었으나 [문제 3-ⅰ], [문제 3-ⅱ]의 오기로 보고 해설 B에서 바로잡음.'
+
+verify: verify/SKKU-G25C.py::p03
+
+stimuli:
+- id: S1
+  label: <제시문1>
+  body: |
+    세제곱하여 실수 $a$가 되는 수, 즉 방정식 $x^3=a$를 만족시키는 수 $x$를 $a$의 세제곱근이라 한다. 실수 $a$의 세제곱근 중에서 실수인 것은 하나뿐이고, 이것을 $\sqrt[3]{a}$로 나타낸다.
+- id: S2
+  label: <제시문2>
+  body: |
+    실수 $a,b$에 대하여 다음과 같은 다항식의 곱셈 공식이 성립한다
+    • $(a+b)^3=a^3+3a^2b+3ab^2+b^3$
+    • $(a-b)^3=a^3-3a^2b+3ab^2-b^3$
+- id: S3
+  label: <제시문3>
+  body: |
+    주어진 실수 $r$에 대하여 수열 $\{a_n\}$을 $a_n=r\times\left(\dfrac12\right)^{n-1}$으로 정의하고, $A_n=\sqrt[3]{\dfrac n4+(-1)^na_n}$에 가장 가까운 정수를 $b_n$이라 하자. 만약 $A_n$에 가장 가까운 정수가 두 개 존재하면 두 수 중에서 더 큰 수를 $b_n$이라 한다.
+
+stem: |
+  다음 <제시문1> ~ <제시문3>을 읽고 [문제 3-ⅰ] ~ [문제 3-ⅲ]을 문항별로 풀이와 함께 답하시오. (30점)
+
+subparts:
+- id: '1'
+  stem: |
+    [문제 3-ⅰ] <제시문3>의 수열 $\{b_n\}$에 대하여 $r=\dfrac43$일 때, $b_1$을 구하고 그 이유를 논하시오.
+  points: 5
+  depends_on: []
+  answer: {kind: value, value: '-1', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $A_1=\sqrt[3]{\tfrac14-\tfrac43}=-\sqrt[3]{\tfrac{13}{12}}$이고 $1<\tfrac{13}{12}<\tfrac{27}{8}$.
+    steps:
+    - {id: 1a, content: '$-\tfrac32<-\sqrt[3]{\tfrac{13}{12}}<-1$이므로 $b_1=-1$', criteria: ['1.M1', '1.A1']}
+    hint_ladder:
+    - $n=1$이면 $(-1)^n=-1$이다.
+    - $\left(\tfrac32\right)^3=\tfrac{27}{8}$과 비교하자.
+  - id: S1-B
+    audience: B
+    source_flow: 2025 보고서 문항카드 15 예시답안 p.206(인쇄 쪽 202)
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        수열 $\{a_n\}$의 첫째항이 $a_1=r=\dfrac43$이므로 $A_1=\sqrt[3]{-\dfrac{13}{12}}=-\sqrt[3]{\dfrac{13}{12}}$이다.
+      criteria: ['1.M1']
+    - id: 1b-2
+      content: |
+        $-\dfrac32<-\sqrt[3]{\dfrac{13}{12}}<-1$이므로 답은 $b_1=-1$이다.
+      criteria: ['1.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 2
+      evidence: |
+        $A_1=\sqrt[3]{\tfrac14-\tfrac43}=-\sqrt[3]{\tfrac{13}{12}}$을 구했다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1]
+    - id: 1.A1
+      mark_type: A
+      points: 3
+      evidence: |
+        $-\tfrac32<A_1<-1$(세제곱 비교)을 근거로 $b_1=-1$을 얻었다.
+      depends_on: [1.M1]
+      steps: [1b-2]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '2'
+  stem: |
+    [문제 3-ⅱ] <제시문3>의 수열 $\{b_n\}$에 대하여 $r=\dfrac43$일 때, $\displaystyle\sum_{k=1}^{150}b_k=b_1+b_2+\cdots+b_{150}$의 값을 구하고 그 이유를 논하시오.
+  points: 10
+  depends_on: ['1']
+  answer: {kind: value, value: '373', equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: $n\ge5$에서 $b_n=M\iff4M^3-6M^2+3M\le n\le4M^3+6M^2+3M$, 즉 $M=1:[5,13]$, $M=2:[14,62]$, $M=3:[63,171]$.
+    steps:
+    - {id: 2a, content: '$\sum_{k=5}^{150}b_k=1\cdot9+2\cdot49+3\cdot88=371$, $b_1+\cdots+b_4=-1+1+1+1=2$ → $373$', criteria: ['2.M1', '2.A1', '2.A2', '2.A3']}
+    hint_ladder:
+    - $b_n=M$은 $M-\tfrac12\le A_n<M+\tfrac12$와 같다. 세제곱해 보자.
+    - $n$이 충분히 크면 $(-1)^na_n$은 아주 작다. $n$이 정수임을 이용해 없앨 수 있다.
+  - id: S2-B
+    audience: B
+    source_flow: 2025 보고서 문항카드 15 예시답안 p.206-207(인쇄 쪽 202-203)
+    method_no: 1
+    steps:
+    - id: 2b-1
+      content: |
+        수열 $\{a_n\}$의 일반항은 $a_n=\dfrac43\left(\dfrac12\right)^{n-1}$이다. 우선 $b_n=M$이라고 할 때 $M\ge1$인 경우를 살펴보자. 조건 $b_n=M$은 부등식 $M-\dfrac12\le A_n<M+\dfrac12$의 필요충분조건이고 부등식의 세 항이 모두 양수이다. 이 부등식을 세제곱하여 정리하면 아래 부등식이 된다.
+        $$(*)\quad4M^3-6M^2+3M-\left(\dfrac12+(-1)^n4a_n\right)\le n<4M^3+6M^2+3M+\left(\dfrac12-(-1)^n4a_n\right)$$
+      criteria: ['2.M1']
+    - id: 2b-2
+      content: |
+        만약 $n\ge5$이면 $0<4a_n\le\dfrac13$이므로 두 부등식 $0<\dfrac12+(-1)^n4a_n<1$, $0<\dfrac12-(-1)^n4a_n<1$이 성립하고, 결국 다음 부등식이 ($n$, $M$ 둘 다 자연수이므로) 부등식 (*)의 필요충분조건으로 성립한다.
+        $$(**)\quad4M^3-6M^2+3M\le n\le4M^3+6M^2+3M$$
+      criteria: ['2.A1']
+    - id: 2b-3
+      content: |
+        이를 통해 $M=1$이면 $1\le n\le13$이고, $n\ge5$인 경우만 고려하고 있으므로 $5\le n\le13$이다. 이와 비슷하게 $M=2$이면 $14\le n\le62$, $M=3$이면 $63\le n\le171$이 성립한다. 즉 $b_5=b_6=\cdots=b_{13}=1$, $b_{14}=b_{15}=\cdots=b_{62}=2$, $b_{63}=b_{64}=\cdots=b_{150}=3$이다. 따라서
+        $$(***)\quad\sum_{k=5}^{150}b_k=1\cdot9+2\cdot49+3\cdot88=9+98+264=371$$
+        이 성립한다.
+      criteria: ['2.A2']
+    - id: 2b-4
+      content: |
+        이제 $1\le n\le4$인 경우를 생각하자. 우선 [문제 3-ⅰ]에서 $b_1=-1$임을 보였다. 그리고 $a_2=\dfrac23$이므로 $1<A_2=\sqrt[3]{\dfrac76}<\dfrac32$이 성립하고 $b_2=1$이다. 비슷하게 $a_3=\dfrac13$, $a_4=\dfrac16$이므로 $\dfrac12<A_3=\sqrt[3]{\dfrac{5}{12}}<1$, $1<A_4=\sqrt[3]{\dfrac76}<\dfrac32$이 성립하여 $b_3=b_4=1$이다. 그러므로 $\displaystyle\sum_{k=1}^{4}b_k=-1+1+1+1=2$이고 (***)를 고려하면 답은 $\displaystyle\sum_{k=1}^{150}b_k=2+371=373$이다.
+      criteria: ['2.A3']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 3
+      evidence: |
+        $b_n=M\iff M-\tfrac12\le A_n<M+\tfrac12$를 세제곱해 $n$에 대한 부등식 (*)을 세웠다.
+      depends_on: []
+      implied_ok: false
+      steps: [2b-1]
+    - id: 2.A1
+      mark_type: A
+      points: 2
+      evidence: |
+        $n\ge5$에서 $\lvert4a_n\rvert$가 작음과 정수성으로 (**) $4M^3-6M^2+3M\le n\le4M^3+6M^2+3M$을 얻었다.
+      depends_on: [2.M1]
+      steps: [2b-2]
+    - id: 2.A2
+      mark_type: A
+      points: 3
+      evidence: |
+        $M=1,2,3$의 범위에서 항의 개수 $9,49,88$을 세어 $\sum_{k=5}^{150}b_k=371$을 구했다.
+      depends_on: [2.M1, 2.A1]
+      steps: [2b-3]
+    - id: 2.A3
+      mark_type: A
+      points: 2
+      evidence: |
+        $b_1,\dots,b_4=-1,1,1,1$을 직접 구해 합 $373$을 얻었다.
+      depends_on: [2.M1, 2.A2]
+      ft: {allowed: true, from: [1.A1], max_points: 2}
+      steps: [2b-4]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '3'
+  stem: |
+    [문제 3-ⅲ] <제시문3>의 수열 $\{b_n\}$에 대하여 실수 $r$이 $1<\lvert r\rvert<2$일 때, 가능한 $\displaystyle\sum_{k=1}^{150}b_k=b_1+b_2+\cdots+b_{150}$의 값을 모두 구하고 그 이유를 논하시오.
+  points: 15
+  depends_on: ['2']
+  answer: {kind: set, value: '{373, 374}', equivalents: [], tolerance: null}
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: $n\ge5$에서는 $\lvert4a_n\rvert<\tfrac12$이므로 (ii)와 같이 $\sum_{k=5}^{150}b_k=371$. $n\le4$만 $r$의 부호로 나누면 $1<r<2$에서 $\sum_{k=1}^4b_k=2$, $-2<r<-1$에서 $b_2\in\{-1,0\}$이라 $2$ 또는 $3$.
+    steps:
+    - {id: 3a, content: '가능한 합은 $373$, $374$', criteria: ['3.M1', '3.A1', '3.A2', '3.R1', '3.A3']}
+    hint_ladder:
+    - (ii)의 부등식 (**)가 $n\ge5$에서 그대로 성립하는지 확인하자.
+    - $r>0$과 $r<0$으로 나누어 $A_1,\dots,A_4$의 범위를 구하자.
+    - $r=-t$일 때 $A_2=\sqrt[3]{\tfrac12-\tfrac t2}$가 $-\tfrac12$보다 큰 경우와 작은 경우가 모두 있다.
+  - id: S3-B
+    audience: B
+    source_flow: 2025 보고서 문항카드 15 예시답안 p.207-208(인쇄 쪽 203-204)
+    method_no: 1
+    steps:
+    - id: 3b-1
+      content: |
+        $b_n=M$이고 $M\ge1$이면 [문제 3-ⅱ]에서 부등식 (*)는 조건 $b_n=M$의 필요충분조건임을 확인하였다. 실수 $r$이 $1<\lvert r\rvert<2$를 만족하므로 $2^3\left(\dfrac12\right)^n<\lvert4a_n\rvert<2^4\left(\dfrac12\right)^n$이다. 따라서 만약 $n\ge5$이면 $0<\lvert4a_n\rvert<\dfrac12$이 성립하여 [문제 3-ⅱ]의 경우와 비슷하게 부등식 $0<\dfrac12+(-1)^n4a_n<1$, $0<\dfrac12-(-1)^n4a_n<1$이 성립한다. 따라서 부등식 (*)는 부등식 (**)이 된다. 이 경우 식 (***)에서 $\displaystyle\sum_{k=5}^{150}b_k=371$이 됨을 보였다.
+      criteria: ['3.M1', '3.A1']
+    - id: 3b-2
+      content: |
+        이제 $\displaystyle\sum_{k=1}^{4}b_k$가 가능한 값을 모두 구하면 된다. 두 가지 경우로 나누어 생각하자.
+        우선 $1<r<2$라 가정하자. 이 경우 $-\dfrac32<-\sqrt[3]{\dfrac74}<A_1=\sqrt[3]{\dfrac14-r}<-\sqrt[3]{\dfrac34}<-\dfrac12$이므로 $b_1=-1$이다. 나머지 경우도
+        $1<A_2=\sqrt[3]{\dfrac12+\dfrac r2}<\sqrt[3]{\dfrac32}<\dfrac32$, $\dfrac12<\sqrt[3]{\dfrac14}<A_3=\sqrt[3]{\dfrac34-\dfrac r4}<\sqrt[3]{\dfrac12}<1$, $1<\sqrt[3]{\dfrac98}<A_4=\sqrt[3]{1+\dfrac r8}<\sqrt[3]{\dfrac54}<\dfrac32$
+        이 성립하여 $b_2=b_3=b_4=1$이 된다. 그러므로 $1<r<2$이면 $\displaystyle\sum_{k=1}^{4}b_k=2$이다.
+      criteria: ['3.A2']
+    - id: 3b-3
+      content: |
+        이제 $r=-t$라 놓고 $1<t<2$라 가정하자. 이 경우 $a_1=-t$, $a_2=-\dfrac t2$, $a_3=-\dfrac t4$, $a_4=-\dfrac t8$이 되어 $1<t<2$인 범위에서
+        $1<\sqrt[3]{\dfrac54}<A_1=\sqrt[3]{\dfrac14+t}<\sqrt[3]{\dfrac94}<\dfrac32$, $-\sqrt[3]{\dfrac12}<A_2=\sqrt[3]{\dfrac12-\dfrac t2}<0$, $1<A_3=\sqrt[3]{\dfrac34+\dfrac t4}<\sqrt[3]{\dfrac54}<\dfrac32$, $\dfrac12<\sqrt[3]{\dfrac34}<A_4=\sqrt[3]{1-\dfrac t8}<\sqrt[3]{\dfrac78}<1$
+        이 성립한다. 이를 통해 $b_1=b_3=b_4=1$이고, $-1<-\sqrt[3]{\dfrac12}<-\dfrac12$이므로 $b_2=-1,\ 0$이 모두 가능하다. 따라서 $\displaystyle\sum_{k=1}^{4}b_k=2$ 또는 $\displaystyle\sum_{k=1}^{4}b_k=3$이 가능하다.
+      criteria: ['3.R1']
+    - id: 3b-4
+      content: |
+        최종적으로 $1<\lvert r\rvert<2$인 경우 $\displaystyle\sum_{k=1}^{4}b_k=2$ 또는 $\displaystyle\sum_{k=1}^{4}b_k=3$이 가능하므로 가능한 $\displaystyle\sum_{k=1}^{150}b_k$의 값은 $373$ 또는 $374$이다.
+      criteria: ['3.A3']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 3
+      evidence: |
+        $1<\lvert r\rvert<2$에서 $n\ge5$이면 $\lvert4a_n\rvert<\tfrac12$임을 보이고 (ii)의 (**)를 적용했다.
+      depends_on: []
+      implied_ok: false
+      ft: {allowed: true, from: [2.A1, 2.A2], max_points: 3}
+      steps: [3b-1]
+    - id: 3.A1
+      mark_type: A
+      points: 2
+      evidence: |
+        $\sum_{k=5}^{150}b_k=371$이 그대로 성립함을 밝혔다.
+      depends_on: [3.M1]
+      steps: [3b-1]
+    - id: 3.A2
+      mark_type: A
+      points: 4
+      evidence: |
+        $1<r<2$에서 $A_1,\dots,A_4$의 범위로 $b_1=-1$, $b_2=b_3=b_4=1$, 합 $2$를 얻었다.
+      depends_on: [3.M1]
+      steps: [3b-2]
+    - id: 3.R1
+      mark_type: R
+      points: 4
+      evidence: |
+        $-2<r<-1$에서 $b_1=b_3=b_4=1$이고 $A_2\in\left(-\sqrt[3]{\tfrac12},0\right)$이므로 $b_2$가 $-1$, $0$ 둘 다 가능함을 밝혔다.
+      depends_on: [3.M1]
+      steps: [3b-3]
+    - id: 3.A3
+      mark_type: A
+      points: 2
+      evidence: |
+        가능한 값 $373$, $374$를 모두 답했다.
+      depends_on: [3.A2, 3.R1]
+      steps: [3b-4]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+remedy_links: []
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

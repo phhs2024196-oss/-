@@ -1,0 +1,294 @@
+# 성균관대 2026학년도 모의논술 수리형 문제 3 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: SKKU-M26-03
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: SKKU
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 추론
+points: 35
+time_estimate_min: 35
+intent: |
+  이차함수의 그래프 위의 두 점을 잇는 선분과 그래프 사이의 도형의 넓이를 구하는 문제이다. 내분점의 개념, 미분을 이용한 함수의 증가와 감소 판단, 접선의 방정식, 정적분을 이용한 도형의 넓이 계산 능력을 평가한다(해설지 개요 요약).
+key_idea: |
+  (ⅰ) $\mathrm{M}$이 $y$축 위이므로 $\mathrm{P}_1(-t,t^2)$, $\mathrm{P}_2(2t,4t^2)$. (ⅱ) $\tfrac{n}{m}=\tfrac{\overline{\mathrm{PM}_2}}{\overline{\mathrm{P}_1\mathrm{M}}}$은 거리 함수 $f(x)=\overline{\mathrm{PM}}^2$의 증감으로 범위가 정해진다. (ⅲ) 중점이 $y=x^2+\tfrac14$ 위에 있고 선분은 그 곡선의 접선의 일부이다.
+stuck: |
+  (ⅲ)에서 $x_2-x_1=1$인 현이 모두 $y=x^2+\tfrac14$에 접한다는 사실을 발견해 휩쓴 영역의 위쪽 경계를 구하는 것
+idea_tags: [IDEA-CHORD-ENVELOPE-PARABOLA, IDEA-DISTANCE-SQUARED-MONOTONE]
+tags: [내분점, 포물선의 현, 정적분과 넓이, 포락선]
+elements:
+  materials:
+  - '포물선 $y=x^2$ 위의 두 점을 잇는 선분 $\mathrm{P}_1\mathrm{P}_2$'
+  - '선분의 내분점 $\mathrm{M}$'
+  - '$x_2-x_1=1$인 현들이 휩쓰는 도형'
+  concepts:
+  - '내분점의 좌표'
+  - '두 점 사이의 거리'
+  - '곡선과 직선으로 둘러싸인 도형의 넓이'
+  - '도함수를 이용한 증가·감소'
+  - '접선의 방정식'
+  tools:
+  - '거리의 제곱 함수 $\overline{\mathrm{PM}}^2$ 미분'
+  - '중점 궤적 $y=x^2+\tfrac14$'
+  - '구간을 나누어 정적분'
+  conditions:
+  - '$m=1,n=2$, $\overline{\mathrm{P}_1\mathrm{P}_2}=3\sqrt6$, $\mathrm{M}$이 $y$축 위'
+  - '$\mathrm{M}(1,2)$, $0\le k\le\tfrac12$'
+  - '$x_2-x_1=1$, $-\tfrac12\le x_1\le1$'
+  stimuli_used: [S1, S2, S3]
+  subpart_links: '세 소문항은 <제시문3>의 설정을 공유하며 서로 독립적으로 풀린다'
+
+curriculum:
+  version: '2015'
+  subjects: [수학, 수학Ⅱ]
+  scope_2028: common
+  scope_confirmed: false
+  standards:
+  - code: 12수학Ⅱ03-05
+    text: 곡선으로 둘러싸인 도형의 넓이를 구할 수 있다.(요지)
+    verified: false
+  - code: 12수학Ⅱ02-06
+    text: 접선의 방정식을 구할 수 있다.(요지)
+    verified: false
+  - code: 10수학02-02
+    text: 선분의 내분과 외분을 이해하고, 내분점과 외분점의 좌표를 구할 수 있다.(요지)
+    verified: false
+  content_area: 미분·적분·도형의 방정식
+  behavior_domain: 문제해결
+  unit_path: [수학Ⅱ, 적분, 정적분의 활용, 곡선과 직선 사이의 넓이]
+  key_concepts: [내분점, 접선의 방정식, 함수의 증가와 감소, 정적분과 넓이]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 성균관대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 성균관대학교
+  admission_year: 2026
+  admission_type: 모의논술
+  track: 수리형
+  question_no: 3
+  official_url: https://admission.skku.edu/admission/html/rolling/question.html
+  retrieved_at: 2026-11-21
+  original_points: [10, 10, 15]
+  rights_notice: 미표기(모의논술 문제지·해설지에 이용 제한 문구 없음)
+  transcribed_from: m26_q.pdf(2026학년도 모의논술 논술시험 수리형) p.5(문제 3/3) + m26_s.pdf(해설지) p.12-15(해설 10-13/13) (이미지 대조 2026-11-21)
+
+verify: verify/SKKU-M26.py::p03
+
+stimuli:
+- id: S1
+  label: <제시문1>
+  body: |
+    좌표평면 위의 두 점 $\mathrm{A}(x_1,y_1)$, $\mathrm{B}(x_2,y_2)$를 이은 선분 $\mathrm{AB}$를 $m:n$ $(m>0,\ n>0)$으로 내분하는 점 $\mathrm{M}$의 좌표는 다음과 같다.
+    $$\left(\frac{mx_2+nx_1}{m+n},\ \frac{my_2+ny_1}{m+n}\right)$$
+- id: S2
+  label: <제시문2>
+  body: |
+    두 함수 $f(x)$, $g(x)$가 닫힌구간 $[a,b]$에서 연속일 때, 두 곡선 $y=f(x)$, $y=g(x)$ 및 두 직선 $x=a$, $x=b$로 둘러싸인 도형의 넓이 $S$는 다음과 같다.
+    $$S=\int_a^b|f(x)-g(x)|dx$$
+- id: S3
+  label: <제시문3>
+  body: |
+    이차함수 $y=x^2$ 위의 두 점 $\mathrm{P}_1(x_1,y_1)$과 $\mathrm{P}_2(x_2,y_2)$를 잇는 선분 $\mathrm{P}_1\mathrm{P}_2$를 생각하고, 이 선분을 $m:n$으로 내분하는 점을 $\mathrm{M}$이라 하자. (단, $x_1<x_2$)
+
+stem: |
+  다음 <제시문1> ~ <제시문3>을 읽고 [문제3-ⅰ] ~ [문제3-ⅲ]을 문항별로 풀이와 함께 답하시오. (35점)
+
+subparts:
+- id: 'i'
+  stem: |
+    <제시문3>에서 $m=1,n=2$이고 $\overline{\mathrm{P}_1\mathrm{P}_2}=3\sqrt6$라고 하자. 점 $\mathrm{M}$이 $y$축 위의 점일 때, 선분 $\mathrm{P}_1\mathrm{P}_2$와 이차함수 $y=x^2$으로 둘러싸인 도형의 넓이를 구하고 그 이유를 논하시오. (10점)
+  points: 10
+  depends_on: []
+  answer: {kind: value, value: '9*sqrt(2)', equivalents: [], tolerance: null}
+  solutions:
+  - id: Si-A
+    audience: A
+    method_no: 1
+    key_idea: $\mathrm{M}$의 $x$좌표 $\tfrac{x_2+2x_1}{3}=0$에서 $x_2=-2x_1$.
+    steps:
+    - {id: ia, content: '$\mathrm{P}_1(-\sqrt2,2)$, $\mathrm{P}_2(2\sqrt2,8)$, $\int_{-\sqrt2}^{2\sqrt2}(\sqrt2x+4-x^2)dx=9\sqrt2$', criteria: ['i.A1', 'i.A2']}
+    hint_ladder:
+    - 내분점의 $x$좌표가 $0$이라는 조건을 식으로 쓰자.
+  - id: Si-B
+    audience: B
+    source_flow: 2026 모의논술 해설지 [문제3-ⅰ] 예시답안 p.13(해설 11/13)
+    method_no: 1
+    steps:
+    - id: ib-1
+      content: |
+        점 $\mathrm{P}_1$의 좌표를 $(-t,t^2)$라고 하면, 점 $\mathrm{P}_2$의 좌표는 $(2t,4t^2)$이다. $\overline{\mathrm{P}_1\mathrm{P}_2}=3\sqrt6$로부터 $9t^2+9t^4=54$를 얻고, $(t^2-2)(t^2+3)=0$이다. 따라서, $t^2=2$이고 $t=\sqrt2$이다. 이로부터 $\mathrm{P}_1(-\sqrt2,2)$과 $\mathrm{P}_2(2\sqrt2,8)$을 얻을 수 있고,
+      criteria: ['i.A1']
+    - id: ib-2
+      content: |
+        이 두 점을 잇는 직선의 방정식은 $y=\sqrt2x+4$이다. 따라서, 도형의 넓이는
+        $$\int_{-\sqrt2}^{2\sqrt2}(\sqrt2x+4-x^2)dx=9\sqrt2$$
+        이다.
+      criteria: ['i.A2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: i.A1
+      mark_type: A
+      points: 5
+      evidence: |
+        두 점 $\mathrm{P}_1$과 $\mathrm{P}_2$의 좌표를 구할 수 있다.
+      depends_on: []
+      steps: [ib-1]
+    - id: i.A2
+      mark_type: A
+      points: 5
+      evidence: |
+        도형의 넓이를 구할 수 있다.
+      depends_on: [i.A1]
+      steps: [ib-2]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: 'ii'
+  stem: |
+    <제시문3>에서 점 $\mathrm{M}$의 좌표가 $(1,2)$라고 하자. 직선 $\mathrm{P}_1\mathrm{P}_2$의 기울기 $k$가 $0\le k\le\dfrac12$을 만족할 때, $\dfrac{n}{m}$이 가질 수 있는 값의 범위를 구하고 그 이유를 논하시오. (10점)
+  points: 10
+  depends_on: []
+  answer: {kind: set, value: '[3-2*sqrt(2), 1/4]', equivalents: [], tolerance: null}
+  solutions:
+  - id: Sii-A
+    audience: A
+    method_no: 1
+    key_idea: $\tfrac{n}{m}=\tfrac{\overline{\mathrm{MP}_2}}{\overline{\mathrm{P}_1\mathrm{M}}}$이고 $k$의 양 끝에서 값을 구한 뒤 거리 함수의 증감으로 연속적으로 변함을 보인다.
+    steps:
+    - {id: iia, content: '$k=0$: $3-2\sqrt2$, $k=\tfrac12$: $\tfrac14$, 사이에서 증가하므로 $3-2\sqrt2\le\tfrac{n}{m}\le\tfrac14$', criteria: ['ii.M1', 'ii.A1']}
+    hint_ladder:
+    - $k=0$과 $k=\tfrac12$일 때 $\mathrm{P}_1$, $\mathrm{P}_2$를 먼저 구하자.
+    - $k$가 변할 때 $\overline{\mathrm{PM}}$은 어떻게 변하는가?
+  - id: Sii-B
+    audience: B
+    source_flow: 2026 모의논술 해설지 [문제3-ⅱ] 예시답안 p.14(해설 12/13)
+    method_no: 1
+    steps:
+    - id: iib-1
+      content: |
+        $k=0$일 때, $\mathrm{P}_1(-\sqrt2,2)$과 $\mathrm{P}_2(\sqrt2,2)$이므로 $\dfrac{n}{m}=\dfrac{\sqrt2-1}{\sqrt2+1}=3-2\sqrt2$이다.
+        $k=\dfrac12$일 때, $\mathrm{P}_1(-1,1)$과 $\mathrm{P}_2\left(\dfrac32,\dfrac94\right)$이므로, $\dfrac{n}{m}=\dfrac14$이다.
+      criteria: ['ii.A1']
+    - id: iib-2
+      content: |
+        이차곡선 $y=x^2$ 위의 점 $\mathrm{P}(x,x^2)$에 대하여
+        $$f(x)=\overline{\mathrm{PM}}^2=(x-1)^2+(x^2-2)^2=x^4-3x^2-2x+5$$
+        라고 하면, $f'(x)=2(x+1)(2x^2-2x-1)=0$의 해는 $x=-1,\dfrac{1-\sqrt3}{2},\dfrac{1+\sqrt3}{2}$가 된다. 따라서, 함수 $f(x)$는 $[-\sqrt2,-1]$에서는 감소하고, $\left[\sqrt2,\dfrac32\right]$에서는 증가한다.
+      criteria: ['ii.M1']
+    - id: iib-3
+      content: |
+        이로부터 비율 $\dfrac{n}{m}$의 값은 $3-2\sqrt2$부터 $\dfrac14$까지 증가하게 된다. 즉, $3-2\sqrt2\le\dfrac{n}{m}\le\dfrac14$이다.
+      criteria: ['ii.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: ii.A1
+      mark_type: A
+      points: 5
+      evidence: |
+        비율 $\dfrac{n}{m}$의 값의 범위를 구할 수 있다.
+      depends_on: []
+      steps: [iib-1, iib-3]
+    - id: ii.M1
+      mark_type: M
+      points: 5
+      evidence: |
+        함수의 증가와 감소를 올바르게 판단할 수 있다.
+      depends_on: []
+      implied_ok: false
+      steps: [iib-2]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: 'iii'
+  stem: |
+    <제시문3>에서 $x_2-x_1=1$이고 $-\dfrac12\le x_1\le1$일 때, 선분 $\mathrm{P}_1\mathrm{P}_2$ 위의 점들로 이루어진 도형의 넓이를 구하고, 그 이유를 논하시오. (15점)
+  points: 15
+  depends_on: []
+  answer: {kind: value, value: '13/24', equivalents: [], tolerance: null}
+  solutions:
+  - id: Siii-A
+    audience: A
+    method_no: 1
+    key_idea: 현 $\mathrm{P}_1\mathrm{P}_2$는 $y=x^2+\tfrac14$의 접선의 일부이므로 위쪽 경계는 처음 선분 $y=\tfrac14$, 곡선 $y=x^2+\tfrac14$, 마지막 선분 $y=3x-2$이다.
+    steps:
+    - {id: iiia, content: '$\int_{-1/2}^{0}(\tfrac14-x^2)dx+\int_0^{3/2}\tfrac14dx+\int_{3/2}^{2}(3x-2-x^2)dx=\tfrac{13}{24}$', criteria: ['iii.M1', 'iii.M2', 'iii.A1']}
+    hint_ladder:
+    - 선분의 중점은 어떤 곡선 위를 움직이는가?
+    - 선분은 그 곡선과 어떤 관계인가?
+  - id: Siii-B
+    audience: B
+    source_flow: 2026 모의논술 해설지 [문제3-ⅲ] 예시답안 p.15(해설 13/13)
+    method_no: 1
+    steps:
+    - id: iiib-1
+      content: |
+        선분 $\mathrm{P}_1\mathrm{P}_2$를 $1:1$로 내분하는 점을 $\mathrm{M}$이라 하면, 점 $\mathrm{M}$의 좌표는 $\left(\dfrac{x_1+x_2}{2},\dfrac{x_1^2+x_2^2}{2}\right)$이다. 이때, $a=\dfrac{x_1+x_2}{2}$라고 두면, $\dfrac{x_1^2+x_2^2}{2}=a^2+\dfrac14$가 된다. 따라서, 점 $\mathrm{M}$은 이차곡선 $y=x^2+\dfrac14$ 위에 있다.
+      criteria: ['iii.M1']
+    - id: iiib-2
+      content: |
+        역으로, 이차곡선 $y=x^2+\dfrac14$ 위의 한 점 $\left(a,a^2+\dfrac14\right)$에서의 접선의 방정식은 $y=2ax-a^2+\dfrac14$이고, 접선과 곡선 $y=x^2$이 만나는 두 점의 $x$좌표 $x_1,x_2$ $(x_1<x_2)$는
+        $$x^2=y=2ax-a^2+\frac14$$
+        의 해가 되어, $x_2-x_1=1$을 만족하게 된다. 즉, 문제에 주어진 선분 $\mathrm{P}_1\mathrm{P}_2$는 이차곡선 $y=x^2+\dfrac14$의 접선의 일부이다.
+      criteria: ['iii.M2']
+    - id: iiib-3
+      content: |
+        $x_1=1$일 때, 직선 $\mathrm{P}_1\mathrm{P}_2$의 방정식은 $y=3x-2$이고 $\mathrm{M}\left(\dfrac32,\dfrac52\right)$이므로, 도형의 넓이는
+        $$\int_{-\frac12}^{0}\left(\frac14-x^2\right)dx+\int_0^{\frac32}\left(\left(x^2+\frac14\right)-x^2\right)dx+\int_{\frac32}^{2}(3x-2-x^2)dx=\frac{13}{24}$$
+        이다.
+      criteria: ['iii.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: iii.M1
+      mark_type: M
+      points: 5
+      evidence: |
+        점 $\mathrm{M}$을 포함하는 함수를 구할 수 있다.
+      depends_on: []
+      implied_ok: false
+      steps: [iiib-1]
+    - id: iii.M2
+      mark_type: M
+      points: 5
+      evidence: |
+        접선의 방정식을 구할 수 있다.
+      depends_on: [iii.M1]
+      implied_ok: false
+      steps: [iiib-2]
+    - id: iii.A1
+      mark_type: A
+      points: 5
+      evidence: |
+        도형의 넓이를 구할 수 있다.
+      depends_on: [iii.M2]
+      steps: [iiib-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+remedy_links: []
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

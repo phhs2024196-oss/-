@@ -1,0 +1,288 @@
+# 성균관대 2023학년도 모의논술 자연계 문제 2 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: SKKU-M23-02
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: SKKU
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 추론
+points: 35
+time_estimate_min: 30
+intent: |
+  특정한 정수의 곱과 합으로 정의되는 집합의 원소들을 등차수열의 항으로 이해한 다음, 다양한 종류의 합과 이와 관련한 현상들을 탐구하는 능력을 평가한다. 집합과 명제, 등차수열과 여러 가지 수열의 합을 이해하면 해결할 수 있으며 자연수에 대한 기본적인 이해와 등차수열의 합을 포함한다(2023 모의논술 해설지 개요 및 주요 평가항목 요약).
+key_idea: |
+  $3x+2=5(3a-5b)$이므로 $x=5k+1$이고, $3k+1$ 꼴의 수는 $(a,b)=(2,1)$의 배수 조합으로 언제나 $3a-5b$ 꼴이 되므로 $S=\{1,6,11,\dots\}$, $a_n=5n-4$.
+stuck: |
+  (ⅰ)에서 $5k+1$ 꼴의 모든 음이 아닌 정수가 실제로 $S$에 속함(음이 아닌 $a,b$로 $3a-5b=3k+1$을 만들 수 있음)을 확인하는 단계
+idea_tags: [IDEA-LINEAR-DIOPHANTINE-RESIDUE, IDEA-RATIO-CONSTANT-IDENTITY-IN-N]
+tags: [등차수열, 일차부정방정식, 거듭제곱의 합, 항등식]
+elements:
+  materials:
+  - '음이 아닌 정수 $a,b$에 대해 $3x=15a-25b-2$를 만족하는 음이 아닌 정수 $x$의 집합 $S$'
+  - '$S$의 원소를 작은 순으로 나열한 수열 $\{a_n\}$'
+  - '$b_n=a_n-c(n-1)$과 그 부분합 $T_n$'
+  concepts:
+  - '배수와 나머지'
+  - '등차수열의 일반항과 합'
+  - '자연수의 거듭제곱의 합'
+  - '$\sum$의 성질'
+  - '항등식'
+  tools:
+  - '$3x+2=5(3a-5b)$에서 $x\equiv1\pmod5$'
+  - '$\sum_{n=1}^{m}(5n-4)^2=\dfrac{m(50m^2-45m+1)}{6}$'
+  - '$\sum_{11}^{20}=\sum_{1}^{20}-\sum_{1}^{10}$'
+  - '$(4-k)pn=(k-2)(2-p)$가 모든 $n$에 대해 성립할 조건'
+  conditions:
+  - '$x,a,b$는 음이 아닌 정수'
+  - '(ⅲ) 비 $T_n:T_{2n}$이 $n$에 관계없이 일정'
+  stimuli_used: [S1, S2, S3]
+  subpart_links: '(ⅱ)·(ⅲ)은 (ⅰ)의 일반항 $a_n=5n-4$를 사용'
+
+curriculum:
+  version: '2015'
+  subjects: [수학, 수학Ⅰ]
+  scope_2028: common
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 등차수열의 뜻을 알고 일반항과 합을 구할 수 있다; ∑의 성질과 자연수의 거듭제곱의 합(요지)
+    verified: false
+  content_area: 수열
+  behavior_domain: 문제해결
+  unit_path: [수학Ⅰ, 수열, 수열의 합, 여러 가지 수열의 합]
+  key_concepts: [등차수열, 등차수열의 합, 거듭제곱의 합, 항등식]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 성균관대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 성균관대학교
+  admission_year: 2023
+  admission_type: 모의논술
+  track: 자연계
+  question_no: 2
+  official_url: https://admission.skku.edu/admission/html/rolling/question.html
+  retrieved_at: 2026-11-21
+  original_points: [10, 10, 15]
+  rights_notice: 문제지·해설지에 이용 제한 문구 없음(원본 확인)
+  transcribed_from: 'm23_q.pdf p.3(문제지 인쇄 쪽 2/4) + m23_s.pdf p.5-7(해설지 인쇄 쪽 4/9-6/9) (이미지 대조 2026-11-21)'
+
+verify: verify/SKKU-M23.py::p02
+
+stimuli:
+- id: S1
+  label: <제시문 1>
+  body: |
+    자연수의 거듭제곱의 합은 다음과 같다.
+    $$\sum_{k=1}^{n}k=\frac{n(n+1)}{2}$$
+    $$\sum_{k=1}^{n}k^2=\frac{n(n+1)(2n+1)}{6}$$
+    $$\sum_{k=1}^{n}k^3=\left\{\frac{n(n+1)}{2}\right\}^2$$
+- id: S2
+  label: <제시문 2>
+  body: |
+    첫째항이 $a$, 공차가 $d$인 등차수열의 제$n$항을 $l$이라 하고, 첫째항부터 제$n$항까지의 합을 $S_n$이라고 하면
+    $$S_n=\frac{n(a+l)}{2}=\frac{n\{2a+(n-1)d\}}{2}$$
+    이다.
+- id: S3
+  label: <제시문 3>
+  body: |
+    음이 아닌 정수 $x$가, 음이 아닌 정수 $a$와 $b$에 대해 $3x=15a-25b-2$를 만족할 때, 이러한 모든 $x$의 집합을 $S$라고 하자. 그리고, 집합 $S$의 원소를 작은 수부터 차례대로 $a_1,a_2,a_3,\cdots$로 나타내자.
+
+stem: |
+  다음 <제시문 1> ~ <제시문 3>을 읽고 [문제 2-ⅰ] ~ [문제 2-ⅲ]을 문항별로 풀이와 함께 답하시오.
+
+subparts:
+- id: '1'
+  stem: |
+    [문제 2-ⅰ] <제시문 3>에서 정의된 수열 $\{a_n\}$에 대하여, $a_{100}$의 값을 구하고 그 이유를 논하시오. (10점)
+  points: 10
+  depends_on: []
+  answer: {kind: value, value: '496', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $3x+2$가 5의 배수이므로 $x=5k+1$, 역으로 $3k+1=3a-5b$는 $(a,b)=(2,1)$을 이용해 항상 가능 → $a_n=5n-4$.
+    steps:
+    - {id: 1a, content: '$a_n=5n-4$, $a_{100}=496$', criteria: ['1.M1', '1.A1']}
+    hint_ladder:
+    - $3x+2$를 인수분해해 보자.
+    - $5k+1$ 꼴의 수가 모두 $S$에 속하는지 확인하자.
+  - id: S1-B
+    audience: B
+    source_flow: 2023 모의논술 해설지 문제 2-ⅰ 예시답안 p.5(인쇄 쪽 4/9)
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        $3x+2=15a-25b=5(3a-5b)$이므로, $3x+2$는 5의 배수이다. 따라서, $x=5k+1$의 꼴이다. 이를 다시 대입하면, $3k+1=3a-5b$를 얻게 된다. 여기서, $x$는 음이 아닌 정수이므로, $k$도 음이 아닌 정수이다.
+      criteria: ['1.M1']
+    - id: 1b-2
+      content: |
+        $(a,b)=(2,1)$을 대입하면, $3a-5b=1$을 얻게 되므로, $3k+1$꼴의 음이 아닌 정수는 항상 $3a-5b$의 형태로 쓰여지게 된다(예: $a=2(3k+1)$, $b=3k+1$).
+      criteria: ['1.M1']
+    - id: 1b-3
+      content: |
+        이로부터 집합 $S$는 $5k+1$꼴의 음이 아닌 정수들의 집합이고, $a_n=5n-4$임을 알 수 있다. 즉, 수열 $\{a_n\}$은 첫째항이 1이고 공차가 5인 등차수열이다. 따라서, $a_{100}=496$이다.
+      criteria: ['1.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 8
+      evidence: |
+        수열 $\{a_n\}$의 일반항을 구할 수 있다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1, 1b-2, 1b-3]
+    - id: 1.A1
+      mark_type: A
+      points: 2
+      evidence: |
+        수열의 100번째 항을 구할 수 있다.
+      depends_on: [1.M1]
+      steps: [1b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '2'
+  stem: |
+    [문제 2-ⅱ] <제시문 3>에서 정의된 수열 $\{a_n\}$에 대하여, $\displaystyle\sum_{n=11}^{20}a_n^2=a_{11}^2+a_{12}^2+\cdots+a_{20}^2$의 값을 구하고, 그 이유를 논하시오. (10점)
+  points: 10
+  depends_on: ['1']
+  answer: {kind: value, value: '56085', equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: $\sum_{n=1}^{m}(5n-4)^2=\dfrac{m(50m^2-45m+1)}{6}$에서 $m=20$과 $m=10$의 차.
+    steps:
+    - {id: 2a, content: '$\tfrac{20\cdot18101}{6}-\tfrac{10\cdot4551}{6}=56085$', criteria: ['2.M1', '2.A1']}
+    hint_ladder:
+    - $\sum_{11}^{20}$을 $\sum_{1}^{20}-\sum_{1}^{10}$으로 바꾸자.
+  - id: S2-B
+    audience: B
+    source_flow: 2023 모의논술 해설지 문제 2-ⅱ 예시답안 p.6(인쇄 쪽 5/9)
+    method_no: 1
+    steps:
+    - id: 2b-1
+      content: |
+        제시문을 이용하여 $\displaystyle\sum_{n=1}^{m}a_n^2=\sum_{n=1}^{m}(5n-4)^2=25\left(\sum_{n=1}^{m}n^2\right)-40\left(\sum_{n=1}^{m}n\right)+16\left(\sum_{n=1}^{m}1\right)=\dfrac{25m(m+1)(2m+1)}{6}-20m(m+1)+16m=\dfrac{m(50m^2-45m+1)}{6}$을 얻게 된다.
+      criteria: ['2.A1']
+    - id: 2b-2
+      content: |
+        소문항의 식은 $\displaystyle\sum_{n=1}^{20}a_n^2-\sum_{n=1}^{10}a_n^2$이므로, $m=10,20$일 때 계산한 다음, 빼주면 된다.
+      criteria: ['2.M1']
+    - id: 2b-3
+      content: |
+        즉, $\dfrac{20(50\times20^2-45\times20+1)}{6}-\dfrac{10(50\times10^2-45\times10+1)}{6}=56085$이다.
+      criteria: ['2.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 3
+      evidence: |
+        $\displaystyle\sum_{n=1}^{20}a_n^2-\sum_{n=1}^{10}a_n^2$을 고려할 수 있다.
+      depends_on: []
+      implied_ok: false
+      ft: {allowed: true, from: [1.M1], max_points: 3}
+      steps: [2b-2]
+    - id: 2.A1
+      mark_type: A
+      points: 7
+      evidence: |
+        거듭제곱의 합을 올바르게 구할 수 있다.
+      depends_on: [2.M1]
+      steps: [2b-1, 2b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '3'
+  stem: |
+    [문제 2-ⅲ] <제시문 3>에서 정의된 수열 $\{a_n\}$과 상수 $c$에 대하여, 일반항이 $b_n=a_n-c(n-1)$인 수열 $\{b_n\}$을 정의하고, 이 수열 $\{b_n\}$의 첫째항부터 제$n$항까지의 합을 $T_n$이라고 하자. 비 $T_n:T_{2n}$이 $n$의 값에 관계없이 일정하기 위한 $c$의 값을 모두 구하고, 그 이유를 논하시오. (15점)
+  points: 15
+  depends_on: ['1']
+  answer: {kind: set, value: '{3, 5}', equivalents: [], tolerance: null}
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: $b_n$은 첫째항 1, 공차 $p=5-c$인 등차수열. $T_{2n}=kT_n$이 모든 $n$에서 성립 ⇔ $(4-k)pn=(k-2)(2-p)$가 $n$에 대한 항등식.
+    steps:
+    - {id: 3a, content: '$(4-k)p=0$, $(k-2)(2-p)=0$ ⇒ $(k,p)=(4,2)$ 또는 $(2,0)$ ⇒ $c=3$ 또는 $5$', criteria: ['3.M1', '3.M2', '3.A1']}
+    hint_ladder:
+    - $b_n$은 어떤 수열인가? 첫째항과 공차를 구하자.
+    - 비가 일정하다는 것을 $n$에 대한 항등식으로 바꾸자.
+  - id: S3-B
+    audience: B
+    source_flow: 2023 모의논술 해설지 문제 2-ⅲ 예시답안 p.6-7(인쇄 쪽 5/9-6/9)
+    method_no: 1
+    steps:
+    - id: 3b-1
+      content: |
+        수열 $\{b_n\}$은 첫째항이 1이고 공차가 $p=5-c$인 등차수열이다. 따라서, $T_n=\dfrac{n\{2+(n-1)p\}}{2}$이다.
+      criteria: ['3.M1']
+    - id: 3b-2
+      content: |
+        비 $\dfrac{T_{2n}}{T_n}=k$가 일정하다면, $\dfrac{2n\{2+(2n-1)p\}}{2}=\dfrac{kn\{2+(n-1)p\}}{2}$가 성립한다. 양변을 $n$으로 나눈 다음 정리하면, $(4-k)pn=(k-2)(2-p)$을 얻게 된다.
+      criteria: ['3.M2']
+    - id: 3b-3
+      content: |
+        따라서 $(4-k)p=0$이므로, $k=4$ 또는 $p=0$이고 이로부터 $k=4$일 때, $p=2$이고 $p=0$일 때, $k=2$이다. 따라서 이로부터 $c=5$ 또는 $3$이다.
+      criteria: ['3.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 3
+      evidence: |
+        $T_n$을 식으로 표현할 수 있다.
+      depends_on: []
+      implied_ok: false
+      ft: {allowed: true, from: [1.M1], max_points: 3}
+      steps: [3b-1]
+    - id: 3.M2
+      mark_type: M
+      points: 9
+      evidence: |
+        식 $(4-k)pn=(k-2)(2-p)$을 유도할 수 있다.
+      depends_on: [3.M1]
+      steps: [3b-2]
+    - id: 3.A1
+      mark_type: A
+      points: 3
+      evidence: |
+        $c$의 값을 모두 구할 수 있다.
+      depends_on: [3.M2]
+      steps: [3b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+remedy_links: []
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

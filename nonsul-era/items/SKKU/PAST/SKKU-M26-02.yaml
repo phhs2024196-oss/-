@@ -1,0 +1,284 @@
+# 성균관대 2026학년도 모의논술 수리형 문제 2 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: SKKU-M26-02
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: SKKU
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 추론
+points: 35
+time_estimate_min: 35
+intent: |
+  좌표평면 위 네 점을 꼭짓점으로 갖는 사각형 종이를 접는 상황에서 삼각형의 합동, 도형의 넓이, 호의 길이를 연관 짓는 문제를 해결할 수 있는지 평가한다. 도형의 넓이, 미분을 활용한 함수의 최대와 최소, 호도법, 삼각함수의 개념을 이해하고 있으면 풀 수 있다(해설지 개요 요약).
+key_idea: |
+  접기에 의해 $\triangle\mathrm{FBG}\equiv\triangle\mathrm{FEG}$이므로 $\overline{\mathrm{EF}}=\overline{\mathrm{BF}}=a$, $\overline{\mathrm{EG}}=b$이다. 넓이 등식으로 $b$를 $a$로 나타내고, $\mathrm{G}$가 움직일 때 $\mathrm{E}$는 중심 $\mathrm{F}$, 반지름 $a$인 원 위를 움직인다.
+stuck: |
+  (ⅲ)에서 $\angle\mathrm{EFB}=2\angle\mathrm{GFB}$임을 보고 양 끝 위치의 각 $\tfrac{\pi}{3}$, $2\theta$를 찾는 것
+idea_tags: [IDEA-FOLDING-CONGRUENCE, IDEA-AREA-DECOMPOSITION, IDEA-LOCUS-CIRCLE-ARC]
+tags: [종이 접기, 합동, 넓이의 최대, 호의 길이]
+elements:
+  materials:
+  - '사각형 $\mathrm{ABCD}$ 모양의 종이와 접는 선 $\mathrm{FG}$'
+  - '점 $\mathrm{B}$를 접어 옮긴 점 $\mathrm{E}$'
+  - '사각형 $\mathrm{ABGH}$와 네 삼각형의 넓이'
+  - '$\mathrm{G}$가 움직일 때 $\mathrm{E}$가 그리는 원호'
+  concepts:
+  - '삼각형의 합동'
+  - '삼각형·사각형의 넓이'
+  - '피타고라스 정리'
+  - '도함수를 이용한 최댓값'
+  - '호도법과 부채꼴의 호의 길이'
+  - '탄젠트'
+  tools:
+  - '넓이 분할 등식'
+  - '넓이의 제곱을 함수로 두고 미분'
+  - '각의 2배 관계(접기 대칭)'
+  conditions:
+  - '$0<a\le9$, $0<b\le17$'
+  - '$\mathrm{E}$가 선분 $\mathrm{AD}$ 위: $\tfrac92<a<9$'
+  - '$\tan\theta=\tfrac{17}{a}$, $\mathrm{G}$는 $\left(\tfrac{a}{\sqrt3},-9\right)$에서 $\mathrm{C}$까지'
+  stimuli_used: [S1]
+  subpart_links: '(ⅱ)는 (ⅰ)에서 구한 $b=\tfrac{3a}{\sqrt{2a-9}}$와 $a$의 범위를 조건으로 사용'
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅰ, 수학Ⅱ]
+  scope_2028: common
+  scope_confirmed: false
+  standards:
+  - code: 12수학Ⅱ02-09
+    text: 함수의 그래프의 개형을 그릴 수 있다. / 최댓값과 최솟값(요지)
+    verified: false
+  - code: 12수학Ⅰ02-01
+    text: 일반각과 호도법의 뜻을 안다.(요지)
+    verified: false
+  content_area: 미분·삼각함수·도형
+  behavior_domain: 문제해결
+  unit_path: [수학Ⅱ, 미분, 도함수의 활용, 함수의 최대와 최소]
+  key_concepts: [삼각형의 합동, 함수의 최대와 최소, 호도법, 탄젠트]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 성균관대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 성균관대학교
+  admission_year: 2026
+  admission_type: 모의논술
+  track: 수리형
+  question_no: 2
+  official_url: https://admission.skku.edu/admission/html/rolling/question.html
+  retrieved_at: 2026-11-21
+  original_points: [10, 10, 15]
+  rights_notice: 미표기(모의논술 문제지·해설지에 이용 제한 문구 없음)
+  transcribed_from: m26_q.pdf(2026학년도 모의논술 논술시험 수리형) p.4(문제 2/3) + m26_s.pdf(해설지) p.7-11(해설 5-9/13) (이미지 대조 2026-11-21)
+
+verify: verify/SKKU-M26.py::p02
+
+stimuli:
+- id: S1
+  label: <제시문>
+  body: |
+    좌표평면 위에 네 점 $\mathrm{A}(0,0)$, $\mathrm{B}(0,-9)$, $\mathrm{C}(17,-9)$, $\mathrm{D}(20,0)$을 꼭짓점으로 갖는 사각형 모양의 종이를 생각하자. $0<a\le9$이고 $0<b\le17$인 두 양수 $a$와 $b$에 대하여, 선분 $\mathrm{AB}$에 놓인 한 점을 $\mathrm{F}(0,a-9)$, 선분 $\mathrm{BC}$에 놓인 한 점을 $\mathrm{G}(b,-9)$, 선분 $\mathrm{AD}$에 놓인 한 점을 $\mathrm{H}(b,0)$이라 하자. 이때 선분 $\mathrm{FG}$를 접는 선으로 하여 종이를 안쪽으로 접어서 점 $\mathrm{B}$를 이동시킬 때, 점 $\mathrm{B}$가 이동한 점을 점 $\mathrm{E}$라고 하자. $a=6$, $b=13$일 때, 제시된 상황을 그림으로 나타내면 아래와 같다.
+
+    [그림: 사각형 $\mathrm{ABCD}$(왼쪽 위 $\mathrm{A}$, 왼쪽 아래 $\mathrm{B}$, 오른쪽 아래 $\mathrm{C}$, 오른쪽 위 $\mathrm{D}$; 변 $\mathrm{CD}$는 오른쪽 위로 기울어짐). 변 $\mathrm{AB}$ 위의 점 $\mathrm{F}$와 변 $\mathrm{BC}$ 위의 점 $\mathrm{G}$를 잇는 실선 $\mathrm{FG}$, 접혀 올라간 점 $\mathrm{E}$는 변 $\mathrm{AD}$ 바로 위(선분 $\mathrm{AD}$ 근처)에 있고 실선 $\mathrm{FE}$, $\mathrm{EG}$로 연결됨. 접히기 전 부분 $\mathrm{FB}$, $\mathrm{BG}$는 점선. 변 $\mathrm{AD}$ 위에 점 $\mathrm{H}$(점 $\mathrm{G}$ 바로 위)가 찍혀 있음.]
+
+stem: |
+  다음 <제시문>을 읽고 [문제2-ⅰ] ~ [문제2-ⅲ]을 문항별로 풀이와 함께 답하시오. (35점)
+
+subparts:
+- id: 'i'
+  stem: |
+    <제시문>에 주어진 점 $\mathrm{A}$, $\mathrm{B}$, $\mathrm{D}$, $\mathrm{E}$, $\mathrm{F}$, $\mathrm{G}$, $\mathrm{H}$와 두 실수 $a$, $b$에 대하여, 점 $\mathrm{E}$가 선분 $\mathrm{AD}$ 위의 점이라고 하자. 이때, 사각형 $\mathrm{ABGH}$의 넓이를 네 삼각형 (삼각형 $\mathrm{AFE}$, 삼각형 $\mathrm{EGH}$, 삼각형 $\mathrm{FBG}$, 삼각형 $\mathrm{EFG}$)의 넓이의 합으로 표현한 후, 이를 이용하여 $b$를 $a$에 대한 식으로 나타내고, 그 이유를 논하시오. (10점)
+  points: 10
+  depends_on: []
+  answer: {kind: expression, value: '3*a/sqrt(2*a-9)', equivalents: [], tolerance: null}
+  solutions:
+  - id: Si-A
+    audience: A
+    method_no: 1
+    key_idea: $\overline{\mathrm{EF}}=a$, $\overline{\mathrm{AF}}=9-a$에서 $\overline{\mathrm{AE}}=\sqrt{9(2a-9)}$, $\overline{\mathrm{AE}}+\overline{\mathrm{EH}}=b$.
+    steps:
+    - {id: ia, content: '$9b=ab+\tfrac{9b}{2}-\tfrac{a\sqrt{9(2a-9)}}{2}\Rightarrow b=\tfrac{3a}{\sqrt{2a-9}}$', criteria: ['i.M1', 'i.A1']}
+    hint_ladder:
+    - 접은 삼각형 $\mathrm{FEG}$는 어떤 삼각형과 합동인가?
+    - $\triangle\mathrm{AFE}$와 $\triangle\mathrm{EGH}$를 합치면 높이 $9$인 삼각형에서 무엇을 뺀 것인가?
+  - id: Si-B
+    audience: B
+    source_flow: 2026 모의논술 해설지 [문제2-ⅰ] 예시답안 p.8(해설 6/13)
+    method_no: 1
+    steps:
+    - id: ib-1
+      content: |
+        삼각형 $\mathrm{FBG}$와 삼각형 $\mathrm{FEG}$는 서로 합동이므로, 사각형 $\mathrm{ABGH}$의 넓이를 네 삼각형(삼각형 $\mathrm{AFE}$, 삼각형 $\mathrm{EGH}$, 삼각형 $\mathrm{FBG}$, 삼각형 $\mathrm{EFG}$)의 넓이의 합으로 표현하면 다음과 같다.
+        $$9b=2\triangle\mathrm{FBG}+(\triangle\mathrm{AFE}+\triangle\mathrm{EGH})=2\left(\frac12ab\right)+\frac12(9-a)\overline{\mathrm{AE}}+\frac12\cdot9\cdot\overline{\mathrm{EH}}$$
+        $$=ab+\frac12\cdot9(\overline{\mathrm{AE}}+\overline{\mathrm{EH}})-\frac12\cdot a\cdot\overline{\mathrm{AE}}=ab+\frac12\cdot9\cdot b-\frac12\cdot a\cdot\sqrt{a^2-(9-a)^2}=ab+\frac{9b}{2}-\frac{a\sqrt{9(2a-9)}}{2}$$
+      criteria: ['i.M1']
+    - id: ib-2
+      content: |
+        삼각형 $\mathrm{AEF}$는 빗변의 길이가 $\overline{\mathrm{EF}}=a$이고 $\overline{\mathrm{AF}}=9-a$인 직각삼각형이다. 따라서 $a$는 부등식 $\dfrac92<a<9$를 만족해야하므로, $2a-9$는 양수임을 알 수 있다. 이제 위에서 구한 식으로부터 $b$를 $a$에 관하여 풀면, $b=\dfrac{3a}{\sqrt{2a-9}}$를 얻는다.
+      criteria: ['i.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: i.M1
+      mark_type: M
+      points: 7
+      evidence: |
+        삼각형의 합동을 이용하여, 사각형 $\mathrm{ABGH}$의 넓이를 네 삼각형(삼각형 $\mathrm{AFE}$, 삼각형 $\mathrm{EGH}$, 삼각형 $\mathrm{FBG}$, 삼각형 $\mathrm{EFG}$)의 넓이의 합으로 표시하고, 이를 $a$와 $b$에 관한 식으로 표현한다.
+      depends_on: []
+      implied_ok: false
+      steps: [ib-1]
+    - id: i.A1
+      mark_type: A
+      points: 3
+      evidence: |
+        $b$를 $a$에 관한 식으로 제대로 나타낸다.
+      depends_on: [i.M1]
+      steps: [ib-2]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: 'ii'
+  stem: |
+    <제시문>에 주어진 점 $\mathrm{A}$, $\mathrm{D}$, $\mathrm{E}$, $\mathrm{F}$에 대하여, 점 $\mathrm{E}$가 선분 $\mathrm{AD}$ 위의 점일 때, 삼각형 $\mathrm{AEF}$의 넓이의 최댓값을 구하고, 그 이유를 논하시오. (10점)
+  points: 10
+  depends_on: ['i']
+  answer: {kind: value, value: '9*sqrt(3)/2', equivalents: [], tolerance: null}
+  solutions:
+  - id: Sii-A
+    audience: A
+    method_no: 1
+    key_idea: 넓이의 제곱 $f(a)=\tfrac94(9-a)^2(2a-9)$를 미분한다.
+    steps:
+    - {id: iia, content: '$f''(a)=\tfrac92(9-a)(18-3a)$, $a=6$에서 최대 $f(6)=\tfrac{243}{4}$, $b=6\sqrt3\le17$, 최댓값 $\tfrac{9\sqrt3}{2}$', criteria: ['ii.M1', 'ii.A1']}
+    hint_ladder:
+    - 넓이 대신 넓이의 제곱을 $a$의 다항함수로 두어 보자.
+    - 최대가 되는 $a$에서 $b\le17$도 만족하는지 확인하자.
+  - id: Sii-B
+    audience: B
+    source_flow: 2026 모의논술 해설지 [문제2-ⅱ] 예시답안 p.9(해설 7/13)
+    method_no: 1
+    steps:
+    - id: iib-1
+      content: |
+        [문제 2-ⅰ]의 예시답안에서, $a$는 부등식 $\dfrac92<a<9$를 만족해야함을 알고 있다. 또한 $a$와 $b$는 [문제 2-ⅰ]의 답에서 구한 조건, 즉, $b=\dfrac{3a}{\sqrt{2a-9}}\le17$을 추가로 만족해야한다. 함수 $f(a)$를 삼각형 $\mathrm{AEF}$의 넓이의 제곱으로 두자. 그러면,
+        $$f(a)=\frac14(9-a)^2\left(a^2-(9-a)^2\right)=\frac94(9-a)^2(2a-9)$$
+        이 된다.
+      criteria: ['ii.M1']
+    - id: iib-2
+      content: |
+        $f(a)$의 도함수 $f'(a)$를 계산하여 정리하면, $f'(a)=\dfrac92(9-a)(18-3a)$이고, $a=6$일 때 함수 $f(a)$는 극댓값 $f(6)=\dfrac{243}{4}$을 갖게 되는데, 위에서 구한 조건으로부터 $b=6\sqrt3$이 얻어지고, $(a,b)=(6,6\sqrt3)$은 $b\le17$을 만족함을 알 수 있다. 또한 $\dfrac92<a<9$일 때, 함수 $f(a)$의 증감을 살펴보면, 극댓값 $f(6)=\dfrac{243}{4}$이 최댓값이 됨을 알 수 있다. 따라서 삼각형 $\mathrm{AEF}$ 넓이의 최댓값은 $\dfrac{9\sqrt3}{2}$이 된다.
+      criteria: ['ii.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: ii.M1
+      mark_type: M
+      points: 5
+      evidence: |
+        삼각형 $\mathrm{AEF}$의 넓이의 제곱을 $a$에 관한 식으로 표현한다.
+      depends_on: []
+      implied_ok: false
+      steps: [iib-1]
+    - id: ii.A1
+      mark_type: A
+      points: 5
+      evidence: |
+        도함수를 활용하여 삼각형 $\mathrm{AEF}$의 넓이의 최댓값을 구한다.
+      depends_on: [ii.M1]
+      steps: [iib-2]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: 'iii'
+  stem: |
+    <제시문>에 주어진 실수 $a$에 대하여, $\theta$를 $\tan\theta=\dfrac{17}{a}$인 예각으로 놓자. 또한 <제시문>에 주어진 점 $\mathrm{B}$, $\mathrm{C}$, $\mathrm{E}$, $\mathrm{F}$, $\mathrm{G}$에 대하여, 점 $\mathrm{F}$를 고정하고, 점 $\mathrm{G}$가 점 $\left(\dfrac{a}{\sqrt3},-9\right)$를 출발하여 선분 $\mathrm{BC}$를 따라 점 $\mathrm{C}$까지 움직인다고 하자, 이때 점 $\mathrm{E}$가 그리는 곡선의 길이를 $\theta$에 관한 식으로 표현하고, 그 이유를 논하시오. (15점)
+  points: 15
+  depends_on: []
+  answer: {kind: expression, value: '17/tan(theta)*(2*theta-pi/3)', equivalents: [], tolerance: null}
+  solutions:
+  - id: Siii-A
+    audience: A
+    method_no: 1
+    key_idea: $\mathrm{E}$는 중심 $\mathrm{F}$, 반지름 $a$인 원 위에 있고 $\angle\mathrm{EFB}=2\angle\mathrm{GFB}$가 $\tfrac{\pi}{3}$에서 $2\theta$까지 변한다.
+    steps:
+    - {id: iiia, content: '호의 길이 $=a\left(2\theta-\tfrac{\pi}{3}\right)=\tfrac{17}{\tan\theta}\left(2\theta-\tfrac{\pi}{3}\right)$', criteria: ['iii.M1', 'iii.M2', 'iii.A1']}
+    hint_ladder:
+    - $\overline{\mathrm{FE}}=\overline{\mathrm{FB}}$는 $\mathrm{G}$에 관계없이 일정하다.
+    - 출발점과 도착점에서 $\angle\mathrm{GFB}$를 각각 구하자.
+  - id: Siii-B
+    audience: B
+    source_flow: 2026 모의논술 해설지 [문제2-ⅲ] 예시답안 p.10-11(해설 8-9/13)
+    method_no: 1
+    steps:
+    - id: iiib-1
+      content: |
+        점 $\mathrm{G}_0$와 점 $\mathrm{G}_1$을 $\mathrm{G}_0=\left(\dfrac{a}{\sqrt3},-9\right)$, $\mathrm{G}_1=\mathrm{C}$로 두자. 또한 $\mathrm{G}=\mathrm{G}_0$일 때, 점 $\mathrm{E}$를 $\mathrm{E}_0$, $\mathrm{G}=\mathrm{G}_1$일 때, 점 $\mathrm{E}$를 $\mathrm{E}_1$으로 표기하자.
+        [그림: 사각형 $\mathrm{ABCD}$에서 $\mathrm{G}_0$일 때 접힌 점 $\mathrm{E}_0$(사각형 안쪽, $\angle\mathrm{BFG}_0=\pi/6$ 표시)와 $\mathrm{G}_1=\mathrm{C}$일 때 접힌 점 $\mathrm{E}_1$(변 $\mathrm{AD}$ 위쪽 바깥), $\angle\mathrm{E}_1\mathrm{FG}_1=\theta$ 표시]
+        점 $\mathrm{G}$가 점 $\mathrm{G}_0$을 출발하여 선분 $\mathrm{BC}$를 따라 점 $\mathrm{G}_1$까지 움직일 때, 점 $\mathrm{E}$가 그리는 곡선은 중심이 $\mathrm{F}$이고 반지름이 $\overline{\mathrm{EF}}=a$인 원의 일부이다. 또한 삼각형 $\mathrm{EFG}$는 삼각형 $\mathrm{BFG}$와 서로 합동인 직각삼각형임을 주목하자.
+      criteria: ['iii.M1']
+    - id: iiib-2
+      content: |
+        따라서 점 $\mathrm{G}$가 점 $\mathrm{G}_0$일 때, $\overline{\mathrm{BG}_0}=\overline{\mathrm{E}_0\mathrm{G}_0}=\dfrac{1}{\sqrt3}a$이다. 또한 삼각형 $\mathrm{E}_0\mathrm{FG}_0$는 $\overline{\mathrm{E}_0\mathrm{F}}=a$, $\overline{\mathrm{E}_0\mathrm{G}_0}=\dfrac{1}{\sqrt3}a$인 직각삼각형이고, $\angle\mathrm{E}_0\mathrm{FB}=\dfrac{\pi}{3}$임을 알 수 있다.
+      criteria: ['iii.M1']
+    - id: iiib-3
+      content: |
+        한편 점 $\mathrm{G}$가 점 $\mathrm{G}_1$일 때, 삼각형 $\mathrm{E}_1\mathrm{FG}_1$는 $\overline{\mathrm{E}_1\mathrm{F}}=a$, $\overline{\mathrm{E}_1\mathrm{G}_1}=17$인 직각삼각형이 된다. 이때 $\tan(\angle\mathrm{E}_1\mathrm{FG}_1)=\dfrac{17}{a}$이므로, $\angle\mathrm{E}_1\mathrm{FG}_1=\theta$이고, $\angle\mathrm{E}_1\mathrm{FB}=2\theta$임을 알 수 있다.
+      criteria: ['iii.M2']
+    - id: iiib-4
+      content: |
+        따라서 점 $\mathrm{E}$가 될 수 있는 점들의 집합이 이루는 호에 대한 중심각은 $2\theta-\dfrac{\pi}{3}$가 되고, $\overline{\mathrm{EF}}=a=\dfrac{17}{\tan\theta}$이므로, 이 호의 길이는 $\dfrac{17}{\tan\theta}\left(2\theta-\dfrac{\pi}{3}\right)$임을 알 수 있다.
+      criteria: ['iii.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: iii.M1
+      mark_type: M
+      points: 5
+      evidence: |
+        점 $\mathrm{G}$가 점 $\mathrm{G}_0$일 때, $\angle\mathrm{E}_0\mathrm{FB}$를 구한다.
+      depends_on: []
+      implied_ok: false
+      steps: [iiib-1, iiib-2]
+    - id: iii.M2
+      mark_type: M
+      points: 5
+      evidence: |
+        점 $\mathrm{G}$가 점 $\mathrm{G}_1$일 때, $\angle\mathrm{E}_1\mathrm{FB}$를 구한다.
+      depends_on: []
+      implied_ok: false
+      steps: [iiib-3]
+    - id: iii.A1
+      mark_type: A
+      points: 5
+      evidence: |
+        점 $\mathrm{E}$가 될 수 있는 점들의 집합이 이루는 호에 대한 중심각을 구하고, 이 호의 길이를 $\theta$에 관한 식으로 표현한다.
+      depends_on: [iii.M1, iii.M2]
+      steps: [iiib-4]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+remedy_links: []
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21
