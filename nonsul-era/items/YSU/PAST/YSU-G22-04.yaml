@@ -1,0 +1,305 @@
+# 연세대 2022학년도 수시 논술 자연계열(수학) 문제 4 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: YSU-G22-04
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: proof
+origin: past_exam
+school: YSU
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 이중세기
+points: 18
+time_estimate_min: 25
+intent: |
+  「기하」에서 평면벡터에 관한 기본 개념과 원리를 묻는다. 주어진 조건과 상황을 정확히 분석해 내부 꼭짓점에서의 방향벡터 조합을 분류하고, 벡터의 합을 두 가지로 세어 경계벡터의 합과 변별 다각형 개수의 관계를 논증하는 능력을 본다.
+key_idea: |
+  내부 꼭짓점마다 세 방향벡터의 합이 $\vec0$이므로 이를 모두 더한 $\overrightarrow{u_{total}}=\vec0$이고, 내부끼리 잇는 선분의 두 벡터는 상쇄되어 $\overrightarrow{u_{total}}$은 경계벡터의 합과 같다. 경계벡터는 각 변에 수직인 $(0,-1)$, $(-1,0)$, $(1,1)$뿐이다.
+stuck: |
+  모든 내부 꼭짓점의 벡터를 한꺼번에 더하고, 내부 선분의 양 끝 벡터가 상쇄됨을 보는 것(이중세기)
+idea_tags: [IDEA-DOUBLE-COUNT-EDGE-VECTORS, IDEA-CASE-SPLIT-DIRECTIONS]
+tags: [평면 분할, 벡터의 합, 경계벡터]
+elements:
+  materials:
+  - '직각이등변삼각형 $\mathrm{OAB}$ ($\mathrm{A}(2022,0)$, $\mathrm{B}(0,2022)$)'
+  - '삼각형을 나누는 볼록 다각형들'
+  - '내부 꼭짓점의 세 방향벡터 $\overrightarrow{u_1},\overrightarrow{u_2},\overrightarrow{u_3}$'
+  - '경계벡터'
+  concepts:
+  - '벡터의 덧셈과 실수배'
+  - '영벡터'
+  - '평면벡터의 성분'
+  - '볼록 다각형의 내각'
+  tools:
+  - '방향 8가지 중 축 평행 2개 + 대각선 1개 경우 분류'
+  - '모든 내부 꼭짓점 벡터 합 $\overrightarrow{u_{total}}$(이중세기)'
+  - '변에 수직인 경계벡터의 성분 비교'
+  conditions:
+  - '(가) 변은 $x$축, $y$축, $y=x$, $y=-x$ 중 하나와 평행'
+  - '(나) 내각 $<180^\circ$'
+  - '(다) 다각형의 변과 삼각형의 변은 수직으로 만남'
+  - '(라) 내부 꼭짓점은 세 선분의 끝점, 그중 둘은 좌표축과 평행'
+  stimuli_used: []
+  subpart_links: '(4-2)는 (4-1)의 $\overrightarrow{u_1}+\overrightarrow{u_2}+\overrightarrow{u_3}=\vec0$을, (4-3)은 (4-2)의 경계벡터 합 $\vec0$을 사용'
+
+curriculum:
+  version: '2015'
+  subjects: [기하]
+  scope_2028: geom
+  scope_confirmed: false
+  standards:
+  - code: 12기하02-02
+    text: 벡터의 덧셈, 뺄셈, 실수배를 할 수 있다.
+    verified: true
+  - code: 12기하02-03
+    text: 위치벡터의 뜻을 알고, 평면벡터와 좌표의 대응을 이해한다.
+    verified: true
+  content_area: 평면벡터 – 벡터의 연산과 성분
+  behavior_domain: 추론
+  unit_path: [기하, 평면벡터, 벡터의 연산, 평면벡터의 성분]
+  key_concepts: [벡터의 덧셈, 영벡터, 평면벡터의 성분]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 연세대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 연세대학교
+  admission_year: 2022
+  admission_type: 수시 논술전형
+  track: 자연계열
+  question_no: 4
+  official_url: https://admission.yonsei.ac.kr/seoul/admission/html/counsel/dataView.asp?BBS_NO=2862
+  retrieved_at: 2026-11-21
+  original_points: [5, 7, 6]
+  rights_notice: 미확인
+  transcribed_from: 2022학년도 연세대학교 선행학습 영향평가 결과보고서 별책(기출문제) p.10 (이미지 대조 2026-11-21)
+
+verify: verify/YSU-G22.py::p04
+
+stimuli: []
+
+stem: |
+  세 점 $\mathrm{O}(0,0)$, $\mathrm{A}(2022,0)$, $\mathrm{B}(0,2022)$를 꼭짓점으로 하는 직각이등변삼각형 $\mathrm{OAB}$의 내부 및 둘레에 다음 조건을 만족하도록 여러 개의 선분을 그어 그 선분을 변으로 하는 유한 개의 다각형을 만든다고 할 때, 다음 물음에 답하시오. (단, 양 끝점 중 적어도 한 개의 점이 삼각형 $\mathrm{OAB}$의 내부에 있는 선분은 두 다각형의 변이 되고, 두 끝점이 모두 삼각형 $\mathrm{OAB}$의 둘레에 있는 선분은 오직 한 다각형의 변이 된다.)
+
+  (가) 다각형의 모든 변은 $x$축, $y$축, 직선 $y=x$, 직선 $y=-x$ 중 하나와 평행하다.
+
+  (나) 다각형의 모든 내각의 크기는 $180^\circ$보다 작다.
+
+  (다) 다각형의 변과 삼각형 $\mathrm{OAB}$의 변이 한 점에서 만날 때, 두 선분은 서로 수직이다.
+
+  (라) 다각형의 꼭짓점이 삼각형 $\mathrm{OAB}$의 내부에 있을 때, 이 꼭짓점은 서로 다른 세 선분의 끝점이고 세 선분 중 두 개는 좌표축과 평행하다.
+
+subparts:
+- id: '1'
+  stem: |
+    <그림 2>와 같이 다각형의 꼭짓점 $\mathrm{V}$가 삼각형 $\mathrm{OAB}$의 내부에 있을 때, 점 $\mathrm{V}$에서 점 $\mathrm{V}$와 선분으로 연결된 세 점으로 향하는 벡터와 방향이 같은 세 개의 벡터 $\overrightarrow{u_1}$, $\overrightarrow{u_2}$, $\overrightarrow{u_3}$가 있다. 가능한 모든 세 개의 벡터에 대하여 $\overrightarrow{u_1}+\overrightarrow{u_2}+\overrightarrow{u_3}=\vec{0}$임을 보이시오. (단, 세 벡터 $\overrightarrow{u_1}$, $\overrightarrow{u_2}$, $\overrightarrow{u_3}$의 성분은 $-1$ 또는 $0$ 또는 $1$이다.)
+
+    [그림] <그림 2>: 삼각형 $\mathrm{OAB}$ 내부가 좌표축 평행 선분과 기울기 $\pm1$ 선분으로 여러 볼록 다각형(사각형·오각형·팔각형 등)으로 나뉘어 있고, 선분 $\mathrm{OA}$, $\mathrm{OB}$, $\mathrm{AB}$ 각각과 만나는 다각형은 5개이다. 확대 원 안의 내부 꼭짓점 $\mathrm{V}$에서 $\overrightarrow{u_1}$은 오른쪽(+$x$), $\overrightarrow{u_2}$는 위쪽(+$y$), $\overrightarrow{u_3}$는 왼쪽 아래(기울기 $1$ 방향)를 향한다.
+  points: 5
+  depends_on: []
+  answer: {kind: proof, value: null, equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: 이웃한 두 선분의 각은 $45^\circ,90^\circ,135^\circ$ 중 하나이고 축 평행 2개 + 대각선 1개이므로 조합은 4가지뿐이며 각각 합이 $\vec0$.
+    steps:
+    - {id: 1a, content: '$\{(-1,-1),(1,0),(0,1)\}$, $\{(1,-1),(0,1),(-1,0)\}$, $\{(1,1),(-1,0),(0,-1)\}$, $\{(-1,1),(0,-1),(1,0)\}$', criteria: ['1.M1', '1.R1', '1.A1']}
+    hint_ladder:
+    - 세 선분이 이루는 각이 모두 $180^\circ$보다 작으려면 대각선 방향 선분은 어디를 향해야 하는가?
+  - id: S1-B
+    audience: B
+    source_flow: 2022학년도 선행학습 영향평가 결과보고서 문항카드 6 문항 해설
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        다각형의 변이 $x$축, $y$축, 직선 $y=x$, 또는 직선 $y=-x$와 평행하므로, 꼭짓점 $\mathrm{V}$에서 만나는 세 선분이 서로 이룰 수 있는 각 중 $180^\circ$보다 작은 각은 $45^\circ$, $90^\circ$, $135^\circ$ 중 하나이다.
+      criteria: ['1.M1']
+    - id: 1b-2
+      content: |
+        조건 (라)에 의하여 두 개의 선분이 좌표축과 평행하므로 남은 하나의 선분은 직선 $y=x$ 또는 직선 $y=-x$와 평행해야 한다. 조건 (나)에 의해 이웃한 두 선분 사이의 각이 모두 $180^\circ$보다 작아야 하므로, 두 축 방향은 서로 수직이고 대각선 방향은 그 두 축 방향의 반대쪽 사분면을 향한다. 따라서 점 $\mathrm{V}$에서 연결된 세 점으로 향하는 벡터 방향의 조합은 다음 4가지이다.
+        [그림] (1) 위·오른쪽·왼쪽 아래 (2) 위·왼쪽·오른쪽 아래 (3) 왼쪽·아래·오른쪽 위 (4) 오른쪽·아래·왼쪽 위
+      criteria: ['1.R1']
+    - id: 1b-3
+      content: |
+        각각의 경우 성분이 $0,1,-1$ 중 하나로 이루어진 벡터들의 집합 $\{\overrightarrow{u_1},\overrightarrow{u_2},\overrightarrow{u_3}\}$은
+        $\{(-1,-1),(1,0),(0,1)\}$, $\{(1,-1),(0,1),(-1,0)\}$, $\{(1,1),(-1,0),(0,-1)\}$, $\{(-1,1),(0,-1),(1,0)\}$
+        이다. 따라서 네 가지 경우 모두 $\overrightarrow{u_1}+\overrightarrow{u_2}+\overrightarrow{u_3}=\vec0$이다. ■
+      criteria: ['1.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 1
+      evidence: |
+        조건 (가)로 선분 방향이 8방향 중 하나이고 이웃 선분 사이 각이 $45^\circ$의 배수임을 적었다.
+      depends_on: []
+      implied_ok: true
+      steps: [1b-1]
+    - id: 1.R1
+      mark_type: R
+      points: 2
+      evidence: |
+        조건 (나)·(라)를 근거로 가능한 방향 조합이 4가지뿐임을 밝혔다(대각선이 두 축 방향의 반대 사분면을 향함).
+      depends_on: [1.M1]
+      steps: [1b-2]
+    - id: 1.A1
+      mark_type: A
+      points: 2
+      evidence: |
+        네 경우의 벡터 성분을 모두 쓰고 각각 합이 $\vec0$임을 확인했다.
+      depends_on: [1.R1]
+      steps: [1b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '2'
+  stem: |
+    다각형의 꼭짓점 $\mathrm{P}$가 삼각형 $\mathrm{OAB}$의 둘레에 있고 점 $\mathrm{P}$와 선분으로 연결된 점 $\mathrm{Q}$가 삼각형 $\mathrm{OAB}$의 내부에 있을 때, 벡터 $\overrightarrow{\mathrm{QP}}$와 방향이 같은 벡터 $\vec u$를 점 $\mathrm{P}$에 대한 **경계벡터**라 하자. 모든 경계벡터의 합이 $\vec0$임을 보이시오. (단, 경계벡터 $\vec u$의 성분은 $-1$ 또는 $0$ 또는 $1$이다.)
+  points: 7
+  depends_on: ['1']
+  answer: {kind: proof, value: null, equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: 모든 내부 꼭짓점의 세 벡터를 더한 $\overrightarrow{u_{total}}=\vec0$이고, 내부–내부 선분의 두 벡터는 상쇄되므로 남는 것은 경계벡터의 합이다.
+    steps:
+    - {id: 2a, content: '$\vec0=\overrightarrow{u_{total}}=$ (경계벡터의 합)', criteria: ['2.M1', '2.R1', '2.R2']}
+    hint_ladder:
+    - (4-1)의 벡터를 모든 내부 꼭짓점에 대해 다 더하면?
+    - 내부 꼭짓점 두 개를 잇는 선분에서 나오는 두 벡터는 어떤 관계인가?
+  - id: S2-B
+    audience: B
+    source_flow: 2022학년도 선행학습 영향평가 결과보고서 문항카드 6 문항 해설
+    method_no: 1
+    steps:
+    - id: 2b-1
+      content: |
+        삼각형 $\mathrm{OAB}$의 내부에 있는 모든 꼭짓점 $\mathrm{V}$에서 [문제 4-1]에서의 세 벡터 $\overrightarrow{u_1},\overrightarrow{u_2},\overrightarrow{u_3}$를 중복을 허락하여 모아서 이들을 더하여 얻은 벡터를 $\overrightarrow{u_{total}}$이라 하자. 이때, 각 $\mathrm{V}$에 대해 $\overrightarrow{u_1}+\overrightarrow{u_2}+\overrightarrow{u_3}=\vec0$이므로 $\overrightarrow{u_{total}}=\vec0$이다.
+      criteria: ['2.M1']
+    - id: 2b-2
+      content: |
+        삼각형 $\mathrm{OAB}$의 둘레와 만나지 않는 선분의 양 끝점 $\mathrm{V}$, $\mathrm{W}$를 생각해 보자. 위에 모은 벡터 중 $\mathrm{V}$에서 $\mathrm{W}$로, $\mathrm{W}$에서 $\mathrm{V}$로 향하는 두 벡터는 크기(성분 $-1,0,1$ 규약)가 같고 방향이 반대이므로 합은 $\vec0$이다.
+        [그림] 세로 선분의 위 끝 $\mathrm{V}$에서 아래로, 아래 끝 $\mathrm{W}$에서 위로 향하는 두 화살표.
+      criteria: ['2.R1']
+    - id: 2b-3
+      content: |
+        이렇게 삼각형 $\mathrm{OAB}$의 둘레와 만나지 않는 모든 선분을 고려하면, 남는 벡터는 내부 꼭짓점 $\mathrm{Q}$에서 둘레 위의 점 $\mathrm{P}$로 향하는 벡터, 즉 $\mathrm{P}$에 대한 경계벡터뿐이므로 $\overrightarrow{u_{total}}$의 값은 모든 경계벡터의 합과 같다. 따라서 모든 경계벡터의 합은 $\vec0$이다. ■
+      criteria: ['2.R2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 2
+      evidence: |
+        모든 내부 꼭짓점의 세 벡터를 더한 $\overrightarrow{u_{total}}$을 정의하고 (4-1)에 의해 $\vec0$임을 적었다.
+      depends_on: []
+      implied_ok: false
+      ft: {allowed: true, from: [1.A1], max_points: 2}
+      steps: [2b-1]
+    - id: 2.R1
+      mark_type: R
+      points: 3
+      evidence: |
+        두 끝점이 모두 내부에 있는 선분에서 나오는 두 벡터가 서로 반대라 상쇄됨을 밝혔다.
+      depends_on: [2.M1]
+      steps: [2b-2]
+    - id: 2.R2
+      mark_type: R
+      points: 2
+      evidence: |
+        남는 벡터가 정확히 경계벡터들임($\mathrm{Q}$에서 $\mathrm{P}$로 향하는 벡터 $=\overrightarrow{\mathrm{QP}}$ 방향)을 밝히고 그 합이 $\vec0$이라고 결론지었다.
+      depends_on: [2.R1]
+      steps: [2b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '3'
+  stem: |
+    선분 $\mathrm{OA}$, 선분 $\mathrm{OB}$, 선분 $\mathrm{AB}$와 각각 만나는 다각형의 개수가 모두 같음을 보이시오. (예를 들어, <그림 2>에서 선분 $\mathrm{OA}$, 선분 $\mathrm{OB}$, 선분 $\mathrm{AB}$와 각각 만나는 다각형의 개수는 모두 $5$이다.)
+  points: 6
+  depends_on: ['2']
+  answer: {kind: proof, value: null, equivalents: [], tolerance: null}
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: 경계벡터는 변마다 $(0,-1)$, $(-1,0)$, $(1,1)$로 정해지므로 개수를 $l,m,n$이라 하면 합 $(n-m,n-l)=\vec0$에서 $l=m=n$.
+    steps:
+    - {id: 3a, content: '$l(0,-1)+m(-1,0)+n(1,1)=\vec0\Rightarrow l=m=n$, 다각형 수 $l+1=m+1=n+1$', criteria: ['3.M1', '3.A1', '3.R1']}
+    hint_ladder:
+    - 조건 (다)에 의해 변 $\mathrm{OA}$ 위의 점에 대한 경계벡터는 무엇인가?
+    - 한 변과 만나는 다각형 수는 그 변 위의 경계점 개수와 어떤 관계인가?
+  - id: S3-B
+    audience: B
+    source_flow: 2022학년도 선행학습 영향평가 결과보고서 문항카드 6 문항 해설
+    method_no: 1
+    steps:
+    - id: 3b-1
+      content: |
+        조건 (다)에 의해 경계벡터는 삼각형 $\mathrm{OAB}$의 한 변에 수직이므로 선분 $\mathrm{OA}$에 수직인 경계벡터는 $(0,-1)$, 선분 $\mathrm{OB}$에 수직인 경계벡터는 $(-1,0)$, 선분 $\mathrm{AB}$에 수직인 경계벡터는 $(1,1)$이다.
+      criteria: ['3.M1']
+    - id: 3b-2
+      content: |
+        이들의 개수를 각각 $l$, $m$, $n$이라 하면, [문제 4-2]에 의해
+        $$\overrightarrow{u_{total}}=l(0,-1)+m(-1,0)+n(1,1)=(n-m,\,n-l)=\vec0$$
+        이므로 $l=m=n$이다.
+      criteria: ['3.A1']
+    - id: 3b-3
+      content: |
+        선분 $\mathrm{OA}$, 선분 $\mathrm{OB}$, 선분 $\mathrm{AB}$와 각각 만나는 다각형의 개수는 (각 변이 그 위의 경계점들에 의해 나뉜 조각 수이므로) $l+1$, $m+1$, $n+1$이므로, 다각형의 개수가 모두 같다. ■
+      criteria: ['3.R1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 2
+      evidence: |
+        조건 (다)로 세 변 위의 경계벡터가 각각 $(0,-1)$, $(-1,0)$, $(1,1)$임을 적었다.
+      depends_on: []
+      implied_ok: false
+      steps: [3b-1]
+    - id: 3.A1
+      mark_type: A
+      points: 2
+      evidence: |
+        개수 $l,m,n$에 대해 $(n-m,n-l)=\vec0$을 세워 $l=m=n$을 얻었다.
+      depends_on: [3.M1]
+      ft: {allowed: true, from: [2.R2], max_points: 2}
+      steps: [3b-2]
+    - id: 3.R1
+      mark_type: R
+      points: 2
+      evidence: |
+        각 변과 만나는 다각형의 개수가 그 변 위 경계점 개수 $+1$임을 밝히고 결론을 적었다.
+      depends_on: [3.A1]
+      steps: [3b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+remedy_links: []
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

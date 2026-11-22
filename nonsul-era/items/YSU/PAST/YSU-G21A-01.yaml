@@ -1,0 +1,162 @@
+# 연세대 2021학년도 수시 논술 자연계열 오전(자연1) 수학 [문제 1] — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: YSU-G21A-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: short_answer
+origin: past_exam
+school: YSU
+type: null
+variant_of: null
+replaces: null
+level: L3
+form: 추론
+points: 10
+time_estimate_min: 10
+intent: |
+  「수학」 조합의 기본 개념과 원리를 묻는다. 조합의 수로 경우의 수 $f(k)$를 세우고, 이웃한 항의 비를 비교해 최대가 되는 $k$를 찾는 논리적 사고력을 평가한다(문항카드 출제 의도 요지).
+key_idea: |
+  $f(k)={}_{100}\mathrm{C}_k\times{}_k\mathrm{C}_2\times{}_{k-2}\mathrm{C}_5=\dfrac{100!}{2!\,5!\,(100-k)!\,(k-7)!}$의 연속한 항의 비 $\dfrac{f(k)}{f(k+1)}=\dfrac{k-6}{100-k}$를 1과 비교한다.
+stuck: |
+  계승이 얽힌 식을 그대로 비교하지 않고 이웃한 항의 비로 바꾸는 발상, 그리고 비가 정확히 1이 되는 경우 최댓값이 두 곳에서 나온다는 점
+idea_tags: []
+tags: [조합, 이웃 항의 비]
+elements:
+  materials:
+  - '100명 중 $k$명 선정 후 회장 2명·부회장 5명·나머지 위원 임명'
+  concepts:
+  - '조합의 수 ${}_n\mathrm{C}_r$'
+  - '곱의 법칙'
+  - '계승의 약분'
+  tools:
+  - '이웃한 항의 비 $\dfrac{f(k)}{f(k+1)}$와 1의 비교'
+  conditions:
+  - '$10\le k\le100$'
+  - '최대 조건 $f(n+1)\le f(n)$이고 $f(n-1)\le f(n)$'
+  stimuli_used: []
+  subpart_links: ''
+
+curriculum:
+  version: '2015'
+  subjects: [수학]
+  scope_2028: common
+  scope_confirmed: false
+  standards:
+  - code: 10수학05-03
+    text: 조합의 의미를 이해하고, 조합의 수를 구할 수 있다.
+    verified: true
+  content_area: 경우의 수 – 순열과 조합
+  behavior_domain: 문제해결
+  unit_path: [수학, 경우의 수, 순열과 조합, 조합의 수의 최대]
+  key_concepts: [조합, 곱의 법칙, 계승]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 연세대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 연세대학교
+  admission_year: 2021
+  admission_type: 수시 논술전형
+  track: 자연계열 오전(자연1)
+  question_no: 1
+  official_url: https://admission.yonsei.ac.kr/seoul/admission/html/counsel/dataView.asp?BBS_NO=2688
+  retrieved_at: 2026-11-21
+  original_points: [10]
+  rights_notice: 미확인
+  transcribed_from: 2021학년도 연세대학교 선행학습 영향평가 결과보고서 별책(기출문제) p.11 (이미지 대조 2026-11-21)
+
+verify: verify/YSU-G21A.py::p01
+
+stimuli: []
+
+stem: |
+  $100$명의 학생 중 $k$명을 선정하여, 두 명을 회장, 다른 다섯 명을 부회장, 나머지는 위원으로 임명하는 경우의 수가 최대가 되도록 하는 모든 $k$의 값을 구하시오. (단, $10\le k\le 100$) [10점]
+
+subparts:
+- id: '1'
+  stem: |
+    위 물음에 답하시오.
+  points: 10
+  depends_on: []
+  answer: {kind: set, value: '{53, 54}', equivalents: ['53, 54'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: 경우의 수 $f(k)$의 이웃한 항의 비를 1과 비교해 $53\le k\le54$를 얻고, $f(53)=f(54)$이다.
+    steps:
+    - {id: 1a, content: '$\dfrac{f(n)}{f(n+1)}=\dfrac{n-6}{100-n}\ge1\iff n\ge53$, $\dfrac{f(n-1)}{f(n)}=\dfrac{n-7}{101-n}\le1\iff n\le54$', criteria: [1.M1, 1.M2, 1.A1]}
+    hint_ladder:
+    - 경우의 수를 $k$에 대한 식 $f(k)$로 써 보자.
+    - $f(k)$와 $f(k+1)$의 크기는 어떻게 비교하면 편한가?
+  - id: S1-B
+    audience: B
+    source_flow: 2021 선행학습 영향평가 결과보고서 문항카드 5 문항 해설
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        이 경우의 수를 $f(k)$라 하면
+        $f(k)={}_{100}\mathrm{C}_k\times{}_k\mathrm{C}_2\times{}_{k-2}\mathrm{C}_5=\dfrac{100!}{k!(100-k)!}\times\dfrac{k!}{2!(k-2)!}\times\dfrac{(k-2)!}{(k-7)!5!}=\dfrac{100!}{2!5!(100-k)!(k-7)!}$
+      criteria: [1.M1]
+    - id: 1b-2
+      content: |
+        $f(k)$가 $k=n$에서 최대라면 $f(n+1)\le f(n)$과 $f(n-1)\le f(n)$을 만족한다.
+      criteria: [1.M2]
+    - id: 1b-3
+      content: |
+        $\dfrac{f(n)}{f(n+1)}\ge1\Rightarrow\dfrac{n-6}{100-n}\ge1\Rightarrow n\ge53$,
+        $\dfrac{f(n-1)}{f(n)}\le1\Rightarrow\dfrac{n-7}{101-n}\le1\Rightarrow n\le54$.
+      criteria: [1.M2]
+    - id: 1b-4
+      content: |
+        $f(53)=f(54)$이므로 $f(k)$가 최대가 되도록 하는 모든 $k$의 값은 $53$과 $54$가 된다.
+      criteria: [1.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 3
+      evidence: |
+        경우의 수를 ${}_{100}\mathrm{C}_k\times{}_k\mathrm{C}_2\times{}_{k-2}\mathrm{C}_5$ 또는 동치식으로 세웠다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1]
+    - id: 1.M2
+      mark_type: M
+      points: 4
+      evidence: |
+        이웃한 항의 비(또는 차)를 비교해 $n\ge53$과 $n\le54$를 얻었다.
+      depends_on: [1.M1]
+      implied_ok: false
+      steps: [1b-2, 1b-3]
+    - id: 1.A1
+      mark_type: A
+      points: 3
+      evidence: |
+        $f(53)=f(54)$임을 밝히고 $k=53,\ 54$를 모두 답했다.
+      depends_on: [1.M2]
+      steps: [1b-4]
+    deductions:
+    - code: D1-1
+      condition: 53과 54 중 하나만 답함
+      effect: minus
+      value: 3
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+remedy_links: []
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

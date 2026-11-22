@@ -1,0 +1,274 @@
+# 연세대 2022학년도 수시 논술 자연계열(수학) 문제 2 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: YSU-G22-02
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: YSU
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 추론
+points: 17
+time_estimate_min: 25
+intent: |
+  「수학Ⅰ」·「수학Ⅱ」·「미적분」·「기하」에서 수열, 연속함수의 성질, 로그함수, 쌍곡선에 관한 기본 개념과 원리를 묻는다. 주어진 조건과 상황을 정확히 분석해 사잇값 정리로 교점의 위치를 판정하고 수열의 극한을 구하는 능력을 본다.
+key_idea: |
+  $f(x)=\ln(1+x)-\dfrac{1}{a_{n+1}}\sqrt{x^2-(a_{n+1})^2}$의 부호를 $x=a_{n+1}$, $x=a_n$에서 비교해 사잇값 정리를 쓰고, (2-2)는 제시문 2로 (2-1)의 조건을 확인한 뒤 $b_n$을 $a_{n+1}$, $a_n$ 사이에 끼운다.
+stuck: |
+  교점의 $x$좌표 $b_n$을 두 곡선의 차 $f(x)$의 영점으로 보고, $f(a_n)<0$을 제시문 1과 주어진 부등식으로 보이는 것
+idea_tags: [IDEA-IVT-SIGN-CHANGE, IDEA-SQUEEZE-SEQUENCE]
+tags: [쌍곡선, 사잇값 정리, 조임 정리]
+elements:
+  materials:
+  - '쌍곡선 $\tfrac{x^2}{(a_{n+1})^2}-y^2=1$ $(x\ge a_{n+1})$'
+  - '곡선 $y=\ln(1+x)$'
+  - '교점의 $x$좌표 $b_n$'
+  - '수열 $a_n=\tfrac{1}{\sqrt n}\left(1+\tfrac1n\right)^{-n/2}$'
+  concepts:
+  - '쌍곡선의 방정식'
+  - '로그함수의 그래프와 성질'
+  - '연속함수의 성질(사잇값 정리)'
+  - '수열의 극한의 대소 관계'
+  - '자연상수 $e$의 정의 $\lim(1+\tfrac1n)^n=e$'
+  - '$\lim_{x\to0}\tfrac{\ln(1+x)}{x}=1$'
+  tools:
+  - '두 곡선의 차로 만든 보조함수 $f(x)$'
+  - '사잇값 정리'
+  - '제시문 1 $\ln(1+x)<x$'
+  - '제시문 2 $(1+\tfrac1n)^n\le(1+\tfrac1{n+1})^{n+1}$'
+  - '수열의 극한의 대소 관계(조임)'
+  conditions:
+  - '$1+\tfrac{1}{(a_n)^2}\le\tfrac{1}{(a_{n+1})^2}$ ⇒ $a_n>a_{n+1}$'
+  - '두 그래프는 한 점에서만 만난다'
+  stimuli_used: ['1', '2']
+  subpart_links: '(2-2)는 제시문 2로 (2-1)의 조건을 확인하고 (2-1)의 결론 $a_{n+1}<b_n<a_n$을 사용'
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅰ, 수학Ⅱ, 미적분, 기하]
+  scope_2028: calc2
+  scope_confirmed: false
+  standards:
+  - code: 12수학Ⅰ01-07
+    text: 지수함수와 로그함수의 그래프를 그릴 수 있고, 그 성질을 이해한다.
+    verified: true
+  - code: 12수학Ⅱ01-04
+    text: 연속함수의 성질을 이해하고, 이를 활용할 수 있다.
+    verified: true
+  - code: 12미적01-02
+    text: 수열의 극한에 대한 기본 성질을 이해하고, 이를 활용하여 극한값을 구할 수 있다.
+    verified: true
+  - code: 12기하01-03
+    text: 쌍곡선의 뜻을 알고, 쌍곡선의 방정식을 구할 수 있다.
+    verified: true
+  content_area: 함수의 연속 · 수열의 극한
+  behavior_domain: 추론
+  unit_path: [미적분, 수열의 극한, 수열의 극한, 극한의 대소 관계]
+  key_concepts: [사잇값 정리, 쌍곡선, 로그함수, 수열의 극한, 자연상수 e]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 연세대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 연세대학교
+  admission_year: 2022
+  admission_type: 수시 논술전형
+  track: 자연계열
+  question_no: 2
+  official_url: https://admission.yonsei.ac.kr/seoul/admission/html/counsel/dataView.asp?BBS_NO=2862
+  retrieved_at: 2026-11-21
+  original_points: [10, 7]
+  rights_notice: 미확인
+  transcribed_from: 2022학년도 연세대학교 선행학습 영향평가 결과보고서 별책(기출문제) p.9 (이미지 대조 2026-11-21)
+
+verify: verify/YSU-G22.py::p02
+
+stimuli:
+- label: '1'
+  body: |
+    제시문 1. $x>0$인 실수 $x$에 대하여 $\ln(1+x)<x$가 성립한다.
+- label: '2'
+  body: |
+    제시문 2. 자연수 $n$에 대하여 $\left(1+\dfrac1n\right)^{n}\le\left(1+\dfrac{1}{n+1}\right)^{n+1}$이 성립한다.
+
+stem: |
+  <그림 1>과 같이 모든 항이 양수인 수열 $\{a_n\}$에 대하여 쌍곡선 $\dfrac{x^2}{(a_{n+1})^2}-y^2=1$ $(x\ge a_{n+1})$과 함수 $y=\ln(1+x)$의 그래프는 한 점에서 만난다. 이 점의 $x$좌표를 $b_n$이라 할 때, 아래 제시문을 참고하여 다음 물음에 답하시오.
+
+  [그림] <그림 1>: 원점 O를 지나는 증가 곡선 $y=\ln(1+x)$와 꼭짓점이 $(a_{n+1},0)$인 쌍곡선 $\dfrac{x^2}{(a_{n+1})^2}-y^2=1$의 오른쪽 가지가 제1사분면의 한 점에서 만나고, 그 점에서 $x$축에 내린 점선의 발이 $b_n$이다($x$축 위에 $a_{n+1}<b_n$ 순으로 표시).
+
+subparts:
+- id: '1'
+  stem: |
+    수열 $\{a_n\}$이 $1+\dfrac{1}{(a_n)^2}\le\dfrac{1}{(a_{n+1})^2}$을 만족시킬 때, $a_{n+1}<b_n<a_n$이 성립함을 보이시오.
+  points: 10
+  depends_on: []
+  answer: {kind: proof, value: null, equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $f(x)=\ln(1+x)-\tfrac{1}{a_{n+1}}\sqrt{x^2-a_{n+1}^2}$에 대해 $f(a_{n+1})>0>f(a_n)$이고 사잇값 정리.
+    steps:
+    - {id: 1a, content: '$f(a_n)<a_n-\sqrt{\tfrac{a_n^2}{a_{n+1}^2}-1}\le0$ (제시문 1과 가정)', criteria: ['1.M1', '1.M2', '1.A1', '1.R1', '1.R2']}
+    hint_ladder:
+    - 교점의 $x$좌표는 어떤 함수의 영점인가?
+    - $x=a_n$에서 그 함수의 부호를 제시문 1로 판정해 보자.
+  - id: S1-B
+    audience: B
+    source_flow: 2022학년도 선행학습 영향평가 결과보고서 문항카드 4 문항 해설
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        가정에 의해 $\dfrac{1}{(a_n)^2}<1+\dfrac{1}{(a_n)^2}\le\dfrac{1}{(a_{n+1})^2}$이므로 $a_n>a_{n+1}$이다.
+      criteria: ['1.M1']
+    - id: 1b-2
+      content: |
+        $f(x)=\ln(1+x)-\dfrac{1}{a_{n+1}}\sqrt{x^2-(a_{n+1})^2}$이라 하면 $f(a_{n+1})=\ln(1+a_{n+1})>0$이다.
+      criteria: ['1.M2', '1.A1']
+    - id: 1b-3
+      content: |
+        제시문 1에 의해
+        $$f(a_n)=\ln(1+a_n)-\dfrac{1}{a_{n+1}}\sqrt{(a_n)^2-(a_{n+1})^2}<a_n-\sqrt{\dfrac{(a_n)^2}{(a_{n+1})^2}-1}\le0$$
+        이다. 마지막 부등식은 $1+\dfrac{1}{(a_n)^2}\le\dfrac{1}{(a_{n+1})^2}$의 양변에 $(a_n)^2$을 곱한 $(a_n)^2\le\dfrac{(a_n)^2}{(a_{n+1})^2}-1$에서 나온다.
+      criteria: ['1.R1']
+    - id: 1b-4
+      content: |
+        함수 $f(x)$는 닫힌구간 $[a_{n+1},a_n]$에서 연속이고 $f(a_n)<0<f(a_{n+1})$이므로 사잇값 정리와 <그림 1>(두 그래프는 한 점에서만 만남)에 의하여 $f(x)=0$의 한 근 $b_n$이 열린구간 $(a_{n+1},a_n)$에 존재한다. 따라서 $a_{n+1}<b_n<a_n$이다. ■
+      criteria: ['1.R2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 2
+      evidence: |
+        가정으로부터 $a_n>a_{n+1}$을 밝혔다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1]
+    - id: 1.M2
+      mark_type: M
+      points: 2
+      evidence: |
+        교점 조건을 함수 $f(x)=\ln(1+x)-\dfrac{1}{a_{n+1}}\sqrt{x^2-(a_{n+1})^2}$(또는 동치인 차 함수)의 영점으로 나타냈다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-2]
+    - id: 1.A1
+      mark_type: A
+      points: 1
+      evidence: |
+        $f(a_{n+1})=\ln(1+a_{n+1})>0$을 적었다.
+      depends_on: [1.M2]
+      steps: [1b-2]
+    - id: 1.R1
+      mark_type: R
+      points: 3
+      evidence: |
+        제시문 1과 가정의 부등식을 근거로 $f(a_n)<0$을 보였다.
+      depends_on: [1.M2]
+      steps: [1b-3]
+    - id: 1.R2
+      mark_type: R
+      points: 2
+      evidence: |
+        $[a_{n+1},a_n]$에서의 연속성과 부호 변화로 사잇값 정리를 적용하고, 교점이 하나뿐이므로 그 근이 $b_n$임을 밝혀 $a_{n+1}<b_n<a_n$을 결론지었다.
+      depends_on: [1.A1, 1.R1]
+      steps: [1b-4]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '2'
+  stem: |
+    $a_n=\dfrac{1}{\sqrt n}\left(1+\dfrac1n\right)^{-\frac n2}$일 때, $\displaystyle\lim_{n\to\infty}\sqrt n\ln(1+b_n)$의 값을 구하시오.
+  points: 7
+  depends_on: ['1']
+  answer: {kind: value, value: 'exp(-1/2)', equivalents: ['1/sqrt(E)', 'sqrt(E)/E'], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: 제시문 2로 (2-1)의 조건을 확인하면 $a_{n+1}<b_n<a_n$이고 $\sqrt n\,a_n\to\tfrac{1}{\sqrt e}$이므로 $\sqrt n\,b_n\to\tfrac1{\sqrt e}$.
+    steps:
+    - {id: 2a, content: '$\lim\sqrt n\ln(1+b_n)=\lim\sqrt n\,b_n\cdot\tfrac{\ln(1+b_n)}{b_n}=\tfrac{1}{\sqrt e}$', criteria: ['2.M1', '2.A1', '2.M2', '2.A2']}
+    hint_ladder:
+    - $\dfrac{1}{(a_n)^2}$을 계산하고 제시문 2를 써 보자.
+    - $b_n$을 두 수 사이에 끼울 수 있는가?
+  - id: S2-B
+    audience: B
+    source_flow: 2022학년도 선행학습 영향평가 결과보고서 문항카드 4 문항 해설
+    method_no: 1
+    steps:
+    - id: 2b-1
+      content: |
+        제시문 2에 의해
+        $$1+\dfrac{1}{(a_n)^2}=1+n\left(1+\dfrac1n\right)^n\le1+n\left(1+\dfrac{1}{n+1}\right)^{n+1}=1+(n+1)\left(1+\dfrac{1}{n+1}\right)^{n+1}-\left(1+\dfrac{1}{n+1}\right)^{n+1}$$
+        $$=1+\dfrac{1}{(a_{n+1})^2}-\left(1+\dfrac{1}{n+1}\right)^{n+1}<\dfrac{1}{(a_{n+1})^2}$$
+        이므로 수열 $\{a_n\}$은 [문제 2-1]의 조건을 만족한다. 따라서 [문제 2-1]에 의해 $a_{n+1}<b_n<a_n$이다.
+      criteria: ['2.M1', '2.A1']
+    - id: 2b-2
+      content: |
+        $\displaystyle\lim_{n\to\infty}\left(1+\dfrac1n\right)^{-\frac n2}=\dfrac{1}{\sqrt e}$이므로 $\displaystyle\lim_{n\to\infty}a_n=0$, $\displaystyle\lim_{n\to\infty}\sqrt n\,a_n=\dfrac{1}{\sqrt e}$이고, 수열의 극한의 성질에 의해 $\displaystyle\lim_{n\to\infty}b_n=0$, $\displaystyle\lim_{n\to\infty}\sqrt n\,b_n=\dfrac{1}{\sqrt e}$이다.
+      criteria: ['2.M2']
+    - id: 2b-3
+      content: |
+        따라서 $\displaystyle\lim_{n\to\infty}\sqrt n\ln(1+b_n)=\lim_{n\to\infty}\sqrt n\,b_n\times\dfrac{\ln(1+b_n)}{b_n}=\dfrac{1}{\sqrt e}$ (단, $e$는 자연상수)이다.
+      criteria: ['2.A2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 2
+      evidence: |
+        $\dfrac{1}{(a_n)^2}=n\left(1+\dfrac1n\right)^n$을 쓰고 제시문 2로 [문제 2-1]의 조건을 확인하는 식을 세웠다.
+      depends_on: []
+      implied_ok: false
+      steps: [2b-1]
+    - id: 2.A1
+      mark_type: A
+      points: 1
+      evidence: |
+        조건 성립을 결론짓고 $a_{n+1}<b_n<a_n$을 적었다.
+      depends_on: [2.M1]
+      steps: [2b-1]
+    - id: 2.M2
+      mark_type: M
+      points: 2
+      evidence: |
+        $\sqrt n\,a_n\to\dfrac{1}{\sqrt e}$(및 $\sqrt n\,a_{n+1}\to\dfrac1{\sqrt e}$)을 구하고 극한의 대소 관계로 $\sqrt n\,b_n\to\dfrac{1}{\sqrt e}$, $b_n\to0$을 이끌었다.
+      depends_on: []
+      implied_ok: false
+      ft: {allowed: true, from: [1.R2], max_points: 2}
+      steps: [2b-2]
+    - id: 2.A2
+      mark_type: A
+      points: 2
+      evidence: |
+        $\dfrac{\ln(1+b_n)}{b_n}\to1$을 써서 극한값 $\dfrac{1}{\sqrt e}$을 얻었다.
+      depends_on: [2.M2]
+      steps: [2b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+remedy_links: []
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

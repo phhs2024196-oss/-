@@ -1,0 +1,271 @@
+# 연세대 2021학년도 수시 논술 자연계열 오후(자연2) 수학 [문제 4] — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: YSU-G21B-04
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: YSU
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 추론
+points: 18
+time_estimate_min: 25
+intent: |
+  수열의 극한에 관한 기본 개념과 원리를 바탕으로 제시된 조건과 상황을 정확히 분석하여 논리적 사고력과 창의적 문제 해결 능력을 평가한다.
+key_idea: |
+  격자 정사각형 개수를 넓이·둘레 길이와 부등식으로 묶어 $4^{-n}f(n)\to A$, $2^{-n}g(n)\to L$을 얻고, $b_n=\ln\left(f(n)e^{\alpha n}\right)$이 수렴하려면 $4e^{\alpha}=1$, $c_n$은 $2e^{\beta}=1$이어야 한다.
+stuck: |
+  개수 $f(n)$, $g(n)$을 직접 세지 않고 $4^{-n}f(n)$, $2^{-n}g(n)$의 극한을 넓이 $A$와 (대각선 변은 $\tfrac{1}{\sqrt2}$배로 보정한) 둘레 $L$로 끼워 구하는 것
+idea_tags: [IDEA-GRID-COUNT-AREA-LIMIT, IDEA-SQUEEZE-BOUNDARY-COUNT, IDEA-LOG-GROWTH-RATE]
+tags: [격자 정사각형, 수열의 극한, 샌드위치 정리]
+elements:
+  materials:
+  - '네 직선 $x=-\tfrac13$, $x+y=2$, $y=\tfrac15$, $y=\tfrac43$로 둘러싸인 사각형 $D$'
+  - '한 변 $\tfrac1{2^n}$인 격자 정사각형의 집합 $S_n$'
+  - '$b_n=\alpha n+\ln f(n)$, $c_n=\beta n+\ln g(n)$'
+  concepts:
+  - '수열의 극한'
+  - '수열의 극한의 대소 관계(샌드위치)'
+  - '로그함수의 연속성'
+  - '사다리꼴의 넓이'
+  tools:
+  - '$4^{-n}f(n)\le A\le4^{-n}h(n)$'
+  - '경계와 만나는 정사각형 개수의 $2^n\times$(길이) 평가'
+  - '$\ln$ 안으로 묶기 $b_n=\ln\{f(n)e^{\alpha n}\}$'
+  conditions:
+  - '$D$의 넓이 $A=\tfrac{799}{450}$'
+  - '변의 길이 $\tfrac{32}{15},\tfrac{17}{15},1,\tfrac{17}{15}\sqrt2$'
+  - '$g(n)$은 둘레와 두 점 이상에서 만나는 정사각형(꼭짓점 한 점만 닿는 것 제외)'
+  stimuli_used: []
+  subpart_links: '(4-1)·(4-2)는 같은 제시문의 D와 S_n 을 사용, 풀이 구조(로그로 묶어 수렴 조건 도출)가 같음'
+
+curriculum:
+  version: '2015'
+  subjects: [미적분]
+  scope_2028: calc2
+  scope_confirmed: false
+  standards:
+  - code: 12미적01-01
+    text: 수열의 수렴, 발산의 뜻을 알고, 이를 판별할 수 있다.
+    verified: true
+  content_area: 수열의 극한
+  behavior_domain: 추론
+  unit_path: [미적분, 수열의 극한, 수열의 극한, 극한의 대소 관계]
+  key_concepts: [수열의 극한, 샌드위치 정리, 격자점·넓이 근사]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 연세대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 연세대학교
+  admission_year: 2021
+  admission_type: 수시 논술전형
+  track: 자연계열 오후(자연2)
+  question_no: 4
+  official_url: https://admission.yonsei.ac.kr/seoul/admission/html/counsel/dataView.asp?BBS_NO=2688
+  retrieved_at: 2026-11-21
+  original_points: [8, 10]
+  rights_notice: 미확인
+  transcribed_from: 2021학년도 연세대학교 선행학습 영향평가 결과보고서 별책(기출문제) p.12 (이미지 대조 2026-11-21)
+
+verify: verify/YSU-G21B.py::p04
+
+stimuli:
+- label: 제시문
+  body: |
+    좌표평면에서 네 직선 $x=-\dfrac13,\ x+y=2,\ y=\dfrac15,\ y=\dfrac43$로 이루어지는 사각형을 $D$라 하자. 자연수 $n$에 대하여, 네 변이 좌표축에 평행한 정사각형 중에서 한 변의 길이가 $\dfrac1{2^n}$이고 각 꼭짓점의 $x$좌표와 $y$좌표에 $2^n$을 곱하여 각각 정수가 되는 정사각형들의 모임을 집합 $S_n$이라 하자. 다음 물음에 답하시오.
+
+stem: |
+  [제시문]의 사각형 $D$와 집합 $S_n$에 대하여 다음 물음에 답하시오.
+
+subparts:
+- id: '1'
+  stem: |
+    [문제 4-1] $S_n$의 원소 중에서 사각형 $D$의 둘레 및 내부에 포함되는 모든 정사각형의 개수를 $f(n)$이라 하고, 실수 $\alpha$에 대하여 수열 $\{b_n\}$을 $b_n=\alpha n+\ln f(n)$이라 하자. 수열 $\{b_n\}$이 수렴하도록 하는 $\alpha$의 값을 구하고, 이때 극한값 $\displaystyle\lim_{n\to\infty}b_n$을 구하시오. [8점]
+  points: 8
+  depends_on: []
+  answer: {kind: expression, value: 'alpha = -log(4); limit = log(799/450)', equivalents: ['alpha = -2*log(2); limit = log(799/450)'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $4^{-n}f(n)\to A=\dfrac{799}{450}$이므로 $f(n)e^{\alpha n}$이 양수로 수렴하려면 $e^{\alpha}=\dfrac14$.
+    steps:
+    - {id: 1a, content: '$\alpha=-\ln4$, $\lim b_n=\ln A=\ln\tfrac{799}{450}$', criteria: ['1.M1', '1.R1', '1.M2', '1.A1']}
+    hint_ladder:
+    - $f(n)$은 대략 $D$의 넓이를 정사각형 하나의 넓이로 나눈 값이다.
+    - $b_n=\ln\{f(n)e^{\alpha n}\}$으로 묶어 보자.
+  - id: S1-B
+    audience: B
+    source_flow: 2021 선행학습 영향평가 결과보고서 문항카드 12 문항 해설 [문제 4-1]
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        $S_n$의 원소 중에서 $D$의 둘레 및 내부와 만나는 모든 정사각형의 개수를 $h(n)$이라 하고, $D$의 넓이를 $A$라 하면 $f(n)$과 $h(n)$의 정의에 따라
+        $$4^{-n}f(n)\le A\le4^{-n}h(n)\quad\cdots\text{식1}$$
+      criteria: ['1.M1']
+    - id: 1b-2
+      content: |
+        사각형 $D$의 네 변의 길이는 $\dfrac{32}{15},\ \dfrac{17}{15},\ 1,\ \dfrac{17}{15}\sqrt2$이다.
+        $2^{-n}\left(h(n)-f(n)\right)\le\dfrac{32}{15}+\dfrac{17}{15}+1+\dfrac{17\sqrt2}{15}\times\dfrac1{\sqrt2}+4<10$이므로
+        $$4^{-n}\left(h(n)-f(n)\right)<10\times2^{-n}\quad\cdots\text{식2}$$
+      criteria: ['1.R1']
+    - id: 1b-3
+      content: |
+        식1, 식2와 수열의 극한에 대한 성질에 의해 $0\le\displaystyle\lim_{n\to\infty}\{A-4^{-n}f(n)\}\le\lim_{n\to\infty}\dfrac{10}{2^n}=0$이므로 $\displaystyle\lim_{n\to\infty}4^{-n}f(n)=A$이다.
+      criteria: ['1.R1']
+    - id: 1b-4
+      content: |
+        $b_n=\alpha n+\ln f(n)=\ln\{f(n)e^{\alpha n}\}$이 수렴하려면 $f(n)e^{\alpha n}$은 $0$이 아닌 양의 실수 $m$으로 수렴해야 한다.
+        $\displaystyle\lim_{n\to\infty}\dfrac{4^{-n}f(n)}{f(n)e^{\alpha n}}=\lim_{n\to\infty}\left(\dfrac1{4e^{\alpha}}\right)^n=\dfrac Am\ \left(\dfrac Am\ne0\right)$이므로 $\dfrac Am=1$이고, $4e^{\alpha}=1$, $\alpha=-\ln4$이다.
+      criteria: ['1.M2']
+    - id: 1b-5
+      content: |
+        이때 수열 $\{b_n\}$의 극한값은 $\ln A$이고 $A=\dfrac{799}{450}$이므로 $\displaystyle\lim_{n\to\infty}b_n=\ln\dfrac{799}{450}$이다.
+        ($D$는 꼭짓점 $\left(-\tfrac13,\tfrac15\right),\left(-\tfrac13,\tfrac43\right),\left(\tfrac23,\tfrac43\right),\left(\tfrac95,\tfrac15\right)$인 사다리꼴로 $A=\dfrac12\left(1+\dfrac{32}{15}\right)\cdot\dfrac{17}{15}=\dfrac{799}{450}$.)
+      criteria: ['1.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 2
+      evidence: |
+        넓이 $A$를 $4^{-n}f(n)$과 $4^{-n}h(n)$ 사이에 끼우는 부등식(또는 같은 취지의 근사 근거)을 적었다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1]
+    - id: 1.R1
+      mark_type: R
+      points: 2
+      evidence: |
+        경계와 만나는 정사각형 수가 $2^n\times$(상수) 이하임을 근거로 $\displaystyle\lim_{n\to\infty}4^{-n}f(n)=A$를 이끌었다.
+      depends_on: [1.M1]
+      steps: [1b-2, 1b-3]
+    - id: 1.M2
+      mark_type: M
+      points: 2
+      evidence: |
+        $b_n=\ln\{f(n)e^{\alpha n}\}$으로 묶고 수렴 조건에서 $4e^{\alpha}=1$, 즉 $\alpha=-\ln4$를 얻었다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-4]
+    - id: 1.A1
+      mark_type: A
+      points: 2
+      evidence: |
+        $A=\dfrac{799}{450}$을 계산하여 극한값 $\ln\dfrac{799}{450}$을 얻었다.
+      depends_on: [1.M2, 1.R1]
+      steps: [1b-5]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '2'
+  stem: |
+    [문제 4-2] $S_n$의 원소 중에서 사각형 $D$의 둘레와 두 점 이상에서 만나는 모든 정사각형의 개수를 $g(n)$이라 하고, 실수 $\beta$에 대하여 수열 $\{c_n\}$을 $c_n=\beta n+\ln g(n)$이라 하자. 수열 $\{c_n\}$이 수렴하도록 하는 $\beta$의 값을 구하고, 이때 극한값 $\displaystyle\lim_{n\to\infty}c_n$을 구하시오. [10점]
+  points: 10
+  depends_on: []
+  answer: {kind: expression, value: 'beta = -log(2); limit = log(81/15)', equivalents: ['beta = -log(2); limit = log(27/5)'], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: 축에 평행한 세 변은 길이만큼, 기울기 $-1$인 변(격자 꼭짓점을 지남)은 $\tfrac{1}{\sqrt2}$배 길이만큼 정사각형을 지나므로 $2^{-n}g(n)\to L=\dfrac{81}{15}$.
+    steps:
+    - {id: 2a, content: '$\beta=-\ln2$, $\lim c_n=\ln\tfrac{81}{15}$', criteria: ['2.M1', '2.M2', '2.R1', '2.A1', '2.A2']}
+    hint_ladder:
+    - 한 변이 $\tfrac1{2^n}$인 정사각형들이 길이 $\ell$인 수평 선분과 만나는 개수는 대략 얼마인가?
+    - 직선 $x+y=2$는 격자 꼭짓점을 지난다. 이 직선과 두 점 이상에서 만나는 정사각형은 어떤 것인가?
+  - id: S2-B
+    audience: B
+    source_flow: 2021 선행학습 영향평가 결과보고서 문항카드 12 문항 해설 [문제 4-2]
+    method_no: 1
+    steps:
+    - id: 2b-1
+      content: |
+        사각형 $D$의 네 변의 길이는 $\dfrac{32}{15},\ \dfrac{17}{15},\ 1,\ \dfrac{17}{15}\sqrt2$이다.
+        $L_1=1+\dfrac{32}{15}+\dfrac{17}{15}=\dfrac{64}{15}$, $L_2=\dfrac{17}{15}\sqrt2$, $L=L_1+\dfrac{L_2}{\sqrt2}=\dfrac{81}{15}$라고 하자.
+      criteria: ['2.M1']
+    - id: 2b-2
+      content: |
+        사각형 $D$의 $x$축 또는 $y$축과 평행한 세 변과 만나는 $S_n$의 원소의 개수를 $g_1(n)$, 비스듬한 변과 만나는 $S_n$의 원소의 개수를 $g_2(n)$이라 하면 $L_1\le2^{-n}\left(g_1(n)+2\right)$, $\dfrac{L_2}{\sqrt2}\le2^{-n}g_2(n)$이고 $L_1+\dfrac{L_2}{\sqrt2}-2^{-n+1}\le2^{-n}\left(g_1(n)+g_2(n)\right)$을 만족한다.
+        $2^{-n}\left(g_1(n)-4\right)\le L_1$, $2^{-n}\left(g_2(n)-2\right)\le\dfrac{L_2}{\sqrt2}$이므로 $2^{-n}\left(g_1(n)+g_2(n)\right)\le L_1+\dfrac{L_2}{\sqrt2}+6\times2^{-n}$이다.
+      criteria: ['2.M2']
+    - id: 2b-3
+      content: |
+        수열의 극한의 성질에 의해 $\displaystyle\lim_{n\to\infty}2^{-n}\left(g_1(n)+g_2(n)\right)=L_1+\dfrac{L_2}{\sqrt2}=L$.
+        그리고 $g(n),g_1(n),g_2(n)$의 정의에 의해 $g_1(n)+g_2(n)-4\le g(n)\le g_1(n)+g_2(n)$이고 $2^{-n}\left(g_1(n)+g_2(n)-4\right)\le2^{-n}g(n)\le2^{-n}\left(g_1(n)+g_2(n)\right)$이다.
+        수열의 극한의 성질에 의해 $\displaystyle\lim_{n\to\infty}2^{-n}g(n)=\lim_{n\to\infty}2^{-n}\left(g_1(n)+g_2(n)\right)=L$이다.
+      criteria: ['2.R1']
+    - id: 2b-4
+      content: |
+        $c_n=\beta n+\ln g(n)=\ln\{g(n)e^{\beta n}\}$이 수렴하려면 $g(n)e^{\beta n}$은 $0$이 아닌 양의 실수 $c$로 수렴해야 한다.
+        $\displaystyle\lim_{n\to\infty}\dfrac{2^{-n}g(n)}{g(n)e^{\beta n}}=\lim_{n\to\infty}\left(\dfrac1{2e^{\beta}}\right)^n=\dfrac Lc\ \left(\dfrac Lc\ne0\right)$이므로 $\dfrac Lc=1$이고, $2e^{\beta}=1$, $\beta=-\ln2$이다.
+      criteria: ['2.A1']
+    - id: 2b-5
+      content: |
+        이때 수열 $\{c_n\}$의 극한값은 $\ln L$이므로 $\displaystyle\lim_{n\to\infty}c_n=\ln\dfrac{81}{15}$이다.
+      criteria: ['2.A2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 2
+      evidence: |
+        네 변의 길이를 구하고 비스듬한 변은 $\dfrac{1}{\sqrt2}$배로 보정한 $L=\dfrac{81}{15}$(또는 $L_1$, $L_2$)를 세웠다.
+      depends_on: []
+      implied_ok: false
+      steps: [2b-1]
+    - id: 2.M2
+      mark_type: M
+      points: 3
+      evidence: |
+        변과 만나는 정사각형 개수 $g_1(n)$, $g_2(n)$을 $2^n\times$(길이) $\pm$ 상수로 위아래에서 평가하는 부등식을 적었다.
+      depends_on: [2.M1]
+      steps: [2b-2]
+    - id: 2.R1
+      mark_type: R
+      points: 2
+      evidence: |
+        꼭짓점 근처 중복(최대 4개)을 고려해 $\displaystyle\lim_{n\to\infty}2^{-n}g(n)=L$을 샌드위치로 이끌었다.
+      depends_on: [2.M2]
+      steps: [2b-3]
+    - id: 2.A1
+      mark_type: A
+      points: 1
+      evidence: |
+        $c_n=\ln\{g(n)e^{\beta n}\}$의 수렴 조건에서 $\beta=-\ln2$를 얻었다.
+      depends_on: [2.R1]
+      steps: [2b-4]
+    - id: 2.A2
+      mark_type: A
+      points: 2
+      evidence: |
+        극한값 $\ln\dfrac{81}{15}$ $\left(=\ln\dfrac{27}{5}\right)$을 얻었다.
+      depends_on: [2.R1, 2.A1]
+      steps: [2b-5]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+remedy_links: []
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

@@ -1,0 +1,235 @@
+# 연세대 2024학년도 수시 논술 자연계열(수학) [문제 1] — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: YSU-G24-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: YSU
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 최적2단
+points: 15
+time_estimate_min: 15
+intent: |
+  중복조합을 이해하고 적용할 수 있는지를 묻고, 미분을 통해 도함수를 이용하여 문제를 해결할 수 있는지를 평가한다.
+key_idea: |
+  방향 전환 5번이면 가로 이동 3구간·세로 이동 3구간이 각각 양의 정수 합 21이 되고, 멈춘 점 $(x,y)$는 $x^2+y^2=58^2$ 위에서 한 좌표가 정수이므로 $f(x)=x+\sqrt{58^2-x^2}$의 정수점 최대를 찾는다.
+stuck: |
+  (1-2)에서 멈춘 점의 한 좌표가 반드시 정수라는 제약을 찾아 연속 최댓값 $x=29\sqrt2$ 근처의 정수 $41$, $42$를 비교하는 단계
+idea_tags: [IDEA-LATTICE-PATH-TURNS-HCOMB, IDEA-INTEGER-CONSTRAINT-NEAR-CONT-MAX]
+tags: [격자 경로, 중복조합, 정수 조건 최적화]
+elements:
+  materials:
+  - '오른쪽·위쪽으로만 움직이고 격자점에서만 방향을 바꾸는 로봇'
+  - '원점에서 점 $(21,21)$까지의 경로'
+  - '반지름 $58$인 원 모양 테두리'
+  concepts:
+  - '중복조합 ${}_n\mathrm{H}_r$'
+  - '방정식의 양의 정수해의 개수'
+  - '무리함수의 도함수'
+  - '함수의 증가·감소와 최댓값'
+  tools:
+  - '구간 길이 $x_1,y_1,\dots$를 변수로 두기'
+  - '양의 정수해 → 음이 아닌 정수해 치환(${}_3\mathrm{H}_{18}={}_{20}\mathrm{C}_2$)'
+  - '$f(x)=x+\sqrt{58^2-x^2}$의 증감표'
+  - '대칭성으로 $x$좌표가 정수인 경우만 고려'
+  conditions:
+  - '원점에서는 방향 전환 없음, 첫 이동은 오른쪽'
+  - '방향 전환 정확히 5번 → 가로 3구간, 세로 3구간'
+  - '멈춘 점은 테두리 위, 마지막 방향 전환이 격자점이므로 한 좌표가 정수'
+  stimuli_used: []
+  subpart_links: '(1-1)과 (1-2)는 같은 로봇 설정을 공유하지만 계산은 독립'
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅱ, 미적분, 확률과통계]
+  scope_2028: calc2
+  scope_confirmed: false
+  standards:
+  - code: 12수학Ⅱ02-08
+    text: 함수의 증가와 감소, 극대와 극소를 판정하고 설명할 수 있다.
+    verified: true
+  - code: 12미적02-12
+    text: 함수의 그래프의 개형을 그릴 수 있다.
+    verified: true
+  - code: 12확통01-02
+    text: 중복조합을 이해하고, 중복조합의 수를 구할 수 있다.
+    verified: true
+  content_area: 경우의 수 – 중복조합 / 미분법 – 도함수의 활용
+  behavior_domain: 문제해결
+  unit_path: [확률과통계, 경우의 수, 순열과 조합, 중복조합]
+  key_concepts: [중복조합, 함수의 최댓값과 최솟값]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 연세대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 연세대학교
+  admission_year: 2024
+  admission_type: 수시 논술전형
+  track: 자연계열
+  question_no: 1
+  official_url: https://admission.yonsei.ac.kr/seoul/admission/html/counsel/dataView.asp?BBS_NO=3217
+  retrieved_at: 2026-11-21
+  original_points: [5, 10]
+  rights_notice: 미확인
+  transcribed_from: 2024학년도 연세대학교 선행학습 영향평가 결과보고서 별책(기출문제) p.9 (이미지 대조 2026-11-21)
+
+verify: verify/YSU-G24.py::p01
+
+stimuli: []
+
+stem: |
+  좌표평면에서 오른쪽($x$축 양의 방향) 또는 위쪽($y$축 양의 방향)으로만 움직이며 $x$좌표와 $y$좌표가 모두 음이 아닌 정수로 이루어진 점에서만 방향 전환을 하는 로봇이 있다. 다음 물음에 답하시오.
+
+subparts:
+- id: '1'
+  stem: |
+    [문제 1-1] 로봇이 원점에서 오른쪽으로 출발하여 점 $(21,\,21)$까지 움직일 때, 방향 전환을 정확히 $5$번 거쳐 갈 수 있는 경로의 수를 구하시오. 단, 원점에서는 방향 전환이 일어나지 않는다고 가정한다. [5점]
+  points: 5
+  depends_on: []
+  answer: {kind: value, value: '36100', equivalents: ['(binomial(20,2))**2'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: 가로 구간 3개, 세로 구간 3개의 길이가 각각 합 21인 양의 정수이므로 $({}_3\mathrm{H}_{18})^2$.
+    steps:
+    - {id: 1a, content: '$x_1+x_2+x_3=21$, $y_1+y_2+y_3=21$ (양의 정수) → $({}_3\mathrm{H}_{18})^2=({}_{20}\mathrm{C}_2)^2=36100$', criteria: [1.M1, 1.A1]}
+    hint_ladder:
+    - 오른쪽으로 출발해 방향을 5번 바꾸면 이동 구간은 몇 개이고 어떤 순서인가?
+    - 각 구간의 길이를 변수로 두면 어떤 방정식이 생기는가?
+  - id: S1-B
+    audience: B
+    source_flow: 2024 선행학습 영향평가 결과보고서 문항카드 3 문항 해설 [문제 1-1]
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        점 $(21,21)$까지 가려면 $x$축 방향으로 $21$, $y$축 방향으로 $21$만큼 이동해야 한다. 첫 방향 전환 전 $x$축 방향 이동을 $x_1$, 첫 번째와 두 번째 방향 전환 사이 $y$축 방향 이동을 $y_1$이라 하고, 같은 방식으로 $x_2,y_2,x_3,y_3$을 정한다. 방향 전환이 5번이므로
+        $$x_1+x_2+x_3=21,\quad y_1+y_2+y_3=21$$
+        이고 $x_1,y_1,x_2,y_2,x_3,y_3$은 모두 양의 정수이다.
+      criteria: [1.M1]
+    - id: 1b-2
+      content: |
+        각 방정식의 양의 정수해의 개수는 ${}_3\mathrm{H}_{18}={}_{20}\mathrm{C}_2=190$이므로 구하는 경로의 수는 $({}_3\mathrm{H}_{18})^2=({}_{20}\mathrm{C}_2)^2=36100$이다.
+      criteria: [1.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 3
+      evidence: |
+        경로를 가로 3구간·세로 3구간으로 나누어 $x_1+x_2+x_3=21$, $y_1+y_2+y_3=21$(양의 정수)을 세웠다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1]
+    - id: 1.A1
+      mark_type: A
+      points: 2
+      evidence: |
+        중복조합으로 각 해의 개수 $190$을 구하고 경로의 수 $36100$을 얻었다.
+      depends_on: [1.M1]
+      steps: [1b-2]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '2'
+  stem: |
+    [문제 1-2] 원점을 중심으로 하고 반지름이 $58$인 원 모양 테두리를 설정하자. 로봇은 원점을 출발하여 테두리에 닿는 즉시 멈춘다. 로봇이 멈출 때까지 움직인 거리의 최댓값을 구하시오. 단, 로봇은 한 점으로 간주한다. [10점]
+  points: 10
+  depends_on: []
+  answer: {kind: value, value: '41+3*sqrt(187)', equivalents: ['41+sqrt(1683)'], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: 이동 거리 $=x+y=f(x)=x+\sqrt{58^2-x^2}$이고, 멈춘 점의 한 좌표는 정수이므로 극대점 $29\sqrt2$ 양옆의 정수 $41$, $42$를 비교한다.
+    steps:
+    - {id: 2a, content: '$f(41)=41+3\sqrt{187}>f(42)=82$', criteria: [2.M1, 2.M2, 2.R1, 2.A1]}
+    hint_ladder:
+    - 로봇이 점 $(x,y)$에서 멈췄다면 움직인 거리는 얼마인가?
+    - 멈춘 점의 좌표 중 반드시 정수인 것이 있는가?
+  - id: S2-B
+    audience: B
+    source_flow: 2024 선행학습 영향평가 결과보고서 문항카드 3 문항 해설 [문제 1-2]
+    method_no: 1
+    steps:
+    - id: 2b-1
+      content: |
+        $0\le x\le58$, $0\le y\le58$인 두 실수 $x,y$에 대하여 로봇이 점 $(x,y)$에서 멈추었다고 하면 $x^2+y^2=58^2$이고, 그때까지 움직인 거리는 $x+y=x+\sqrt{58^2-x^2}$이다.
+      criteria: [2.M1]
+    - id: 2b-2
+      content: |
+        $f(x)=x+\sqrt{58^2-x^2}\ (0\le x\le58)$라 하면 $f'(x)=1-\dfrac{x}{\sqrt{58^2-x^2}}$이므로 $f(x)$는 열린구간 $(0,\,29\sqrt2)$에서 증가하고 열린구간 $(29\sqrt2,\,58)$에서 감소한다.
+      criteria: [2.M2]
+    - id: 2b-3
+      content: |
+        로봇은 $x$좌표와 $y$좌표가 모두 음이 아닌 정수인 점에서만 방향을 전환하므로 멈췄을 때 $x$좌표 또는 $y$좌표가 정수이다. 대칭성에 의해 $x$좌표가 정수인 경우만 고려해도 충분하다.
+      criteria: [2.R1]
+    - id: 2b-4
+      content: |
+        $41<29\sqrt2<42$이고 $f(41)=41+3\sqrt{187}$, $f(42)=82$이므로 $f(42)<f(41)$. 따라서 구하는 거리의 최댓값은 $f(41)=41+3\sqrt{187}$이다.
+      criteria: [2.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 2
+      evidence: |
+        멈춘 점 $(x,y)$가 $x^2+y^2=58^2$ 위에 있고 이동 거리가 $x+y$임을 식으로 적었다.
+      depends_on: []
+      implied_ok: false
+      steps: [2b-1]
+    - id: 2.M2
+      mark_type: M
+      points: 3
+      evidence: |
+        $f'(x)=1-\dfrac{x}{\sqrt{58^2-x^2}}$를 구하고 $x=29\sqrt2$를 경계로 증가·감소를 판정했다.
+      depends_on: [2.M1]
+      implied_ok: false
+      steps: [2b-2]
+    - id: 2.R1
+      mark_type: R
+      points: 3
+      evidence: |
+        방향 전환이 격자점에서만 일어나므로 멈춘 점의 $x$좌표 또는 $y$좌표가 정수임을 밝혔다(대칭성 언급 포함).
+      depends_on: []
+      implied_ok: false
+      steps: [2b-3]
+    - id: 2.A1
+      mark_type: A
+      points: 2
+      evidence: |
+        $f(41)$과 $f(42)$를 비교해 최댓값 $41+3\sqrt{187}$을 얻었다.
+      depends_on: [2.M2, 2.R1]
+      steps: [2b-4]
+    deductions:
+    - code: D2-1
+      condition: 정수 조건을 무시하고 연속 최댓값 $58\sqrt2$를 답으로 씀
+      effect: cap
+      value: 5
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+remedy_links: []
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

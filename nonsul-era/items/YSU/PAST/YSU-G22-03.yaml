@@ -1,0 +1,257 @@
+# 연세대 2022학년도 수시 논술 자연계열(수학) 문제 3 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: YSU-G22-03
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: YSU
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 이중세기
+points: 17
+time_estimate_min: 30
+intent: |
+  「수학Ⅰ」에서 등차수열과 수열의 합에 관한 기본 개념과 원리를 묻는다. 주어진 조건과 상황을 정확히 분석해 첫째항의 범위를 나머지로 표현하고, 합의 순서를 바꾸어 $\sum f(N)$을 계산하는 능력을 본다.
+key_idea: |
+  첫째항 $a$, 공차 $1$인 등차수열의 첫 $m$항의 합은 $am+\dfrac{m(m-1)}{2}$이므로 $a\le\dfrac{N-r}{m}-\dfrac{m-1}{2}$이고, $\displaystyle\sum_{N=1}^{200}f(N)=\sum_{m\ \text{홀수}}m\,g_{200}(m)$이다.
+stuck: |
+  $\sum_{N}f(N)$을 $N$별로 세지 않고 홀수 $m$별로 바꾸어 $m\times g_{200}(m)$의 합으로 보는 것
+idea_tags: [IDEA-DOUBLE-COUNT-SWAP-SUM, IDEA-FLOOR-BY-REMAINDER]
+tags: [연속한 자연수의 합, 합의 순서 교환]
+elements:
+  materials:
+  - '공차 1인 등차수열(연속한 자연수)의 합'
+  - '홀수 항의 개수 $m$'
+  - '$f(N)$: $N$을 홀수 개의 연속 자연수 합으로 나타내는 $m$의 합'
+  - '$g_N(m)$: 합이 $N$ 이하가 되는 첫째항의 개수'
+  concepts:
+  - '등차수열의 합'
+  - '$\sum$의 성질'
+  - '자연수의 거듭제곱의 합'
+  - '나눗셈의 나머지'
+  tools:
+  - '첫째항에 대한 부등식 $am+\tfrac{m(m-1)}2\le N$'
+  - '나머지 $r$로 바닥값 표현'
+  - '합의 순서 교환(이중세기)'
+  - '$\sum k$, $\sum k^2$ 공식'
+  conditions:
+  - '$m$은 홀수, 첫째항은 자연수'
+  - '$\tfrac{m(m+1)}2\le200$ ⇒ $m\le19$'
+  stimuli_used: []
+  subpart_links: '(3-2)는 (3-1)의 $g_N(m)$ 식을 $N=200$에 적용'
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅰ]
+  scope_2028: common
+  scope_confirmed: false
+  standards:
+  - code: 12수학Ⅰ03-02
+    text: 등차수열의 뜻을 알고, 일반항, 첫째항부터 제n항까지의 합을 구할 수 있다.
+    verified: true
+  - code: 12수학Ⅰ03-04
+    text: ∑의 뜻을 알고, 그 성질을 이해하고, 이를 활용할 수 있다.
+    verified: true
+  - code: 12수학Ⅰ03-05
+    text: 여러 가지 수열의 첫째항부터 제n항까지의 합을 구할 수 있다.
+    verified: true
+  content_area: 수열 – 등차수열과 수열의 합
+  behavior_domain: 문제해결
+  unit_path: [수학Ⅰ, 수열, 수열의 합, 여러 가지 수열의 합]
+  key_concepts: [등차수열의 합, 시그마의 성질, 나머지]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 연세대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 연세대학교
+  admission_year: 2022
+  admission_type: 수시 논술전형
+  track: 자연계열
+  question_no: 3
+  official_url: https://admission.yonsei.ac.kr/seoul/admission/html/counsel/dataView.asp?BBS_NO=2862
+  retrieved_at: 2026-11-21
+  original_points: [7, 10]
+  rights_notice: 미확인
+  transcribed_from: 2022학년도 연세대학교 선행학습 영향평가 결과보고서 별책(기출문제) p.9 (이미지 대조 2026-11-21)
+
+verify: verify/YSU-G22.py::p03
+
+stimuli: []
+
+stem: |
+  자연수 $N$에 대하여 다음 조건을 만족시키는 모든 홀수 $m$의 값의 합을 $f(N)$이라 하자.
+
+  (가) 등차수열 $\{a_n\}$은 첫째항이 자연수이고 공차가 $1$이다.
+
+  (나1) $\displaystyle\sum_{k=1}^{m}a_k=N$이다.
+
+  예를 들어, $N=21$인 경우에 아래의 두 가지만 가능하므로 $f(21)=1+3=4$이다.
+  $$21=21=\sum_{k=1}^{1}(20+k),\qquad 21=6+7+8=\sum_{k=1}^{3}(5+k)$$
+
+  자연수 $N$과 홀수 $m$에 대하여 다음 조건을 만족시키는 수열 $\{a_n\}$의 첫째항이 될 수 있는 자연수의 개수를 $g_N(m)$이라 할 때, 다음 물음에 답하시오.
+
+  (가) 등차수열 $\{a_n\}$은 첫째항이 자연수이고 공차가 $1$이다.
+
+  (나2) $\displaystyle\sum_{k=1}^{m}a_k\le N$이다.
+
+subparts:
+- id: '1'
+  stem: |
+    $N$을 $m$으로 나눈 나머지가 $r$일 때, $g_N(m)$을 $N$, $m$, $r$를 이용하여 나타내시오.
+  points: 7
+  depends_on: []
+  answer: {kind: expression, value: '(N - r)/m - (m - 1)/2', equivalents: ['Max(0, (N - r)/m - (m - 1)/2)'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $am+\tfrac{m(m-1)}2\le N\iff a\le\tfrac Nm-\tfrac{m-1}2$, 그리고 $\tfrac{m-1}2$은 정수이므로 최대 자연수는 $\tfrac{N-r}m-\tfrac{m-1}2$.
+    steps:
+    - {id: 1a, content: '$g_N(m)=\tfrac{N-r}{m}-\tfrac{m-1}{2}$', criteria: ['1.M1', '1.M2', '1.A1']}
+    hint_ladder:
+    - 첫째항을 $a$라 하고 합을 $a$, $m$으로 나타내 보자.
+    - $m$이 홀수이면 $\tfrac{m-1}{2}$은 어떤 수인가?
+  - id: S1-B
+    audience: B
+    source_flow: 2022학년도 선행학습 영향평가 결과보고서 문항카드 5 문항 해설
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        첫째항이 $a$이고 공차가 $1$인 수열 $\{a_n\}$에 대하여 $\displaystyle\sum_{k=1}^{m}a_k=\sum_{k=1}^{m}(a+k-1)=am+\dfrac{m(m-1)}{2}$이고, 이 합이 $N$보다 작거나 같아야 하므로 $am+\dfrac{m(m-1)}{2}\le N$이다.
+      criteria: ['1.M1']
+    - id: 1b-2
+      content: |
+        따라서 $a\le\dfrac Nm-\dfrac{m-1}{2}$을 만족시켜야 하고, $a$는 $\dfrac Nm-\dfrac{m-1}{2}$보다 작거나 같은 자연수가 될 수 있다.
+      criteria: ['1.M2']
+    - id: 1b-3
+      content: |
+        $N$을 $m$으로 나눈 나머지는 $r$이고 $m$은 홀수이므로($\dfrac{m-1}{2}$은 정수), $\dfrac Nm-\dfrac{m-1}{2}$보다 작거나 같은 최대의 자연수는 $\dfrac{N-r}{m}-\dfrac{m-1}{2}$이다. 따라서 $g_N(m)=\dfrac{N-r}{m}-\dfrac{m-1}{2}$이다.
+        (참고: 공식 해설에는 없으나, 이 값이 음수가 되는 경우(예: $N<\tfrac{m(m-1)}{2}$)에는 $g_N(m)=0$이다.)
+      criteria: ['1.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 2
+      evidence: |
+        첫 $m$항의 합을 $am+\dfrac{m(m-1)}{2}$로 나타내고 $\le N$인 부등식을 세웠다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1]
+    - id: 1.M2
+      mark_type: M
+      points: 2
+      evidence: |
+        $a\le\dfrac Nm-\dfrac{m-1}{2}$로 첫째항의 범위를 구했다.
+      depends_on: [1.M1]
+      steps: [1b-2]
+    - id: 1.A1
+      mark_type: A
+      points: 3
+      evidence: |
+        $m$이 홀수라 $\dfrac{m-1}{2}$이 정수임과 나머지 $r$을 이용해 $g_N(m)=\dfrac{N-r}{m}-\dfrac{m-1}{2}$을 얻었다.
+      depends_on: [1.M2]
+      steps: [1b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '2'
+  stem: |
+    $\displaystyle\sum_{N=1}^{200}f(N)$의 값을 구하시오.
+  points: 10
+  depends_on: ['1']
+  answer: {kind: value, value: '1342', equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: 홀수 $m$마다 $f(N)$에 $m$이 더해지는 $N\le200$의 개수는 $g_{200}(m)$이므로 $\sum f(N)=\sum_{m\le19}m\,g_{200}(m)$.
+    steps:
+    - {id: 2a, content: '$\sum_{k=1}^{10}(2k-1)g_{200}(2k-1)=1990-770+165-43=1342$', criteria: ['2.M1', '2.M2', '2.A1', '2.A2']}
+    hint_ladder:
+    - 홀수 $m$을 고정하면, $f(N)$에 $m$이 들어가는 $N$은 몇 개인가?
+  - id: S2-B
+    audience: B
+    source_flow: 2022학년도 선행학습 영향평가 결과보고서 문항카드 5 문항 해설
+    method_no: 1
+    steps:
+    - id: 2b-1
+      content: |
+        $1$부터 홀수 $m$까지의 자연수의 합이 $200$ 이하가 되려면 $1+2+\cdots+m=\dfrac{m(m+1)}{2}\le200$이므로 $m\le19$이다.
+      criteria: ['2.M1']
+    - id: 2b-2
+      content: |
+        따라서 $\displaystyle\sum_{N=1}^{200}f(N)$은 $19$ 이하인 홀수 $m$에 대해 각각 $g_{200}(m)$을 구하여 $m\times g_{200}(m)$을 모두 더한 값과 같으므로
+        $$\sum_{N=1}^{200}f(N)=\sum_{k=1}^{10}\{(2k-1)\times g_{200}(2k-1)\}$$
+      criteria: ['2.M2']
+    - id: 2b-3
+      content: |
+        $200$을 $m$으로 나눈 나머지를 $r_m$이라 두면
+        $$\sum_{k=1}^{10}\{(2k-1)\times g_{200}(2k-1)\}=\sum_{k=1}^{10}\{200-r_{2k-1}-(k-1)(2k-1)\}=1990-\sum_{k=1}^{10}r_{2k-1}-2\sum_{k=1}^{10}k^2+3\sum_{k=1}^{10}k$$
+      criteria: ['2.A1']
+    - id: 2b-4
+      content: |
+        $200$을 $19$ 이하의 홀수 $m=1,3,5,\ldots,19$로 나눈 나머지 $r_m$은 차례로 $0,2,0,4,2,2,5,5,13,10$이고, 이들의 합은 $43$이다. 따라서
+        $$\sum_{k=1}^{10}(2k-1)\times g_{200}(2k-1)=1990-\dfrac{10\times11\times21}{3}+3\times55-43=1342$$
+        이다.
+      criteria: ['2.A2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 2
+      evidence: |
+        $\dfrac{m(m+1)}{2}\le200$에서 가능한 홀수 $m$이 $19$ 이하임을 밝혔다.
+      depends_on: []
+      implied_ok: false
+      steps: [2b-1]
+    - id: 2.M2
+      mark_type: M
+      points: 3
+      evidence: |
+        합의 순서를 바꾸어 $\displaystyle\sum_{N=1}^{200}f(N)=\sum_{m}m\times g_{200}(m)$으로 나타냈다.
+      depends_on: []
+      implied_ok: false
+      steps: [2b-2]
+    - id: 2.A1
+      mark_type: A
+      points: 2
+      evidence: |
+        (3-1)의 식을 대입해 $\sum\{200-r_{2k-1}-(k-1)(2k-1)\}$ 꼴로 정리했다.
+      depends_on: [2.M2]
+      ft: {allowed: true, from: [1.A1], max_points: 2}
+      steps: [2b-3]
+    - id: 2.A2
+      mark_type: A
+      points: 3
+      evidence: |
+        나머지의 합 $43$을 구하고 최종값 $1342$를 얻었다.
+      depends_on: [2.M2, 2.A1]
+      steps: [2b-4]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+remedy_links: []
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

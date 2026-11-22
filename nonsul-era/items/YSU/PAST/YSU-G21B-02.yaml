@@ -1,0 +1,165 @@
+# 연세대 2021학년도 수시 논술 자연계열 오후(자연2) 수학 [문제 2] — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: YSU-G21B-02
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: YSU
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 이중세기
+points: 12
+time_estimate_min: 25
+intent: |
+  중복조합에 관한 기본 개념과 원리를 바탕으로 제시된 조건과 상황을 정확히 분석하여 논리적 사고력과 창의적 문제 해결 능력을 평가한다.
+key_idea: |
+  표 전체에서 $r$이 나오는 횟수를 열별로 센다: $x_1=r$인 해의 개수는 ${}_{k-1}\mathrm{H}_{n-r-k+1}$이고, 대칭성으로 모든 열이 같으므로 $k$배.
+stuck: |
+  「행마다 $r$의 개수」가 아니라 「열마다 $x_i=r$인 해의 개수」로 세는 방향 전환(이중세기)
+idea_tags: [IDEA-DOUBLE-COUNT-COLUMNS, IDEA-STARS-BARS-SHIFT]
+tags: [중복조합, 양의 정수해]
+elements:
+  materials:
+  - '방정식 $x_1+x_2+\cdots+x_k=n$의 양의 정수해를 나열한 표'
+  - '<표 1> 예시: $k=3,\ n=5$에서 숫자 2가 6번'
+  concepts:
+  - '중복조합'
+  - '양의 정수해의 개수'
+  - '이항계수 ${}_n\mathrm{C}_r$'
+  tools:
+  - '변수 치환 $x_i{}''=x_i-1$'
+  - '열별로 세기(대칭성)'
+  - '${}_n\mathrm{H}_r={}_{n+r-1}\mathrm{C}_r$'
+  conditions:
+  - '$1\le r\le n-k+1$'
+  - '$2\le k\le n$'
+  stimuli_used: []
+  subpart_links: '단일 논제'
+
+curriculum:
+  version: '2015'
+  subjects: [확률과통계]
+  scope_2028: common
+  scope_confirmed: false
+  standards:
+  - code: 12확통01-02
+    text: 중복조합을 이해하고, 중복조합의 수를 구할 수 있다.
+    verified: true
+  content_area: 경우의 수 – 중복조합
+  behavior_domain: 추론
+  unit_path: [확률과통계, 경우의 수, 중복조합, 방정식의 정수해의 개수]
+  key_concepts: [중복조합, 양의 정수해, 이중세기]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 연세대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 연세대학교
+  admission_year: 2021
+  admission_type: 수시 논술전형
+  track: 자연계열 오후(자연2)
+  question_no: 2
+  official_url: https://admission.yonsei.ac.kr/seoul/admission/html/counsel/dataView.asp?BBS_NO=2688
+  retrieved_at: 2026-11-21
+  original_points: [12]
+  rights_notice: 미확인
+  transcribed_from: 2021학년도 연세대학교 선행학습 영향평가 결과보고서 별책(기출문제) p.12 (이미지 대조 2026-11-21)
+
+verify: verify/YSU-G21B.py::p02
+
+stimuli: []
+
+stem: |
+  방정식 $x_1+x_2+x_3=5$를 만족시키는 양의 정수해를 <표 1>과 같이 나타냈을 때, 숫자 $2$가 나오는 횟수는 $6$이다. 자연수 $n$에 대하여 방정식 $x_1+x_2+\cdots+x_k=n$을 만족시키는 양의 정수해를 <표 2>와 같이 나열하였을 때, 자연수 $r\ (1\le r\le n-k+1)$가 나오는 횟수를 $n,k,r$를 이용하여 나타내시오. (단, $k$는 $2\le k\le n$인 자연수이다.) [12점]
+
+  [그림] <표 1>: 열 머리 $x_1,x_2,x_3$, 행은 차례로 $(3,1,1)$, $(1,3,1)$, $(1,1,3)$, $(2,2,1)$, $(2,1,2)$, $(1,2,2)$이며 숫자 $2$가 적힌 칸(6칸)이 회색으로 칠해져 있다. <표 2>: 열 머리 $x_1,x_2,x_3,\cdots,x_k$인 빈 표(6행).
+
+subparts:
+- id: '1'
+  stem: |
+    자연수 $r$가 나오는 횟수를 $n,k,r$로 나타내시오.
+  points: 12
+  depends_on: []
+  answer: {kind: expression, value: 'k*binomial(n - r - 1, k - 2)', equivalents: ['k*factorial(n - r - 1)/(factorial(k - 2)*factorial(n - r - k + 1))', 'k*binomial(n - r - 1, n - r - k + 1)'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $x_1=r$인 해는 $x_2+\cdots+x_k=n-r$의 양의 정수해이므로 ${}_{k-1}\mathrm{H}_{n-r-k+1}$개, 열이 $k$개이므로 $k$배.
+    steps:
+    - {id: 1a, content: '$k\times{}_{k-1}\mathrm{H}_{n-r-k+1}=k\times{}_{n-r-1}\mathrm{C}_{k-2}$', criteria: ['1.M1', '1.A1', '1.R1', '1.A2']}
+    hint_ladder:
+    - 표의 한 열, 예컨대 $x_1$ 열에서 $r$은 몇 번 나오는가?
+    - 그 개수는 열마다 다른가?
+  - id: S1-B
+    audience: B
+    source_flow: 2021 선행학습 영향평가 결과보고서 문항카드 10 문항 해설
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        $x_1=r$이 되는 양의 정수해의 개수는 $x_2+x_3+\cdots+x_k=n-r$를 만족하는 양의 정수해의 개수이다.
+      criteria: ['1.M1']
+    - id: 1b-2
+      content: |
+        $x_2{}'=x_2-1,\ x_3{}'=x_3-1,\ \cdots,\ x_k{}'=x_k-1$이라 하면 $x_2{}'+x_3{}'+\cdots+x_k{}'=n-r-k+1$이고 이 방정식의 (음이 아닌 정수)해의 개수는 ${}_{k-1}\mathrm{H}_{n-r-k+1}$이다. 따라서 $x_1$ 중 $r$이 나오는 횟수는 ${}_{k-1}\mathrm{H}_{n-r-k+1}$이다.
+      criteria: ['1.A1']
+    - id: 1b-3
+      content: |
+        이는 $x_2,x_3,\cdots,x_k$의 경우에도 마찬가지이므로 자연수 $r$이 나오는 횟수는
+        $$k\times{}_{k-1}\mathrm{H}_{n-r-k+1}=k\times{}_{n-r-1}\mathrm{C}_{n-r-k+1}=k\times{}_{n-r-1}\mathrm{C}_{k-2}=\dfrac{k\times(n-r-1)!}{(k-2)!\,(n-r-k+1)!}$$
+        이다.
+      criteria: ['1.R1', '1.A2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 4
+      evidence: |
+        한 열(예: $x_1=r$)을 고정해 $x_2+\cdots+x_k=n-r$의 양의 정수해 개수로 바꾸었다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1]
+    - id: 1.A1
+      mark_type: A
+      points: 4
+      evidence: |
+        치환으로 개수를 ${}_{k-1}\mathrm{H}_{n-r-k+1}$(또는 ${}_{n-r-1}\mathrm{C}_{k-2}$)로 구했다.
+      depends_on: [1.M1]
+      steps: [1b-2]
+    - id: 1.R1
+      mark_type: R
+      points: 2
+      evidence: |
+        다른 열 $x_2,\cdots,x_k$에서도 개수가 같음(대칭성)을 밝혀 $k$배 하였다.
+      depends_on: [1.M1]
+      steps: [1b-3]
+    - id: 1.A2
+      mark_type: A
+      points: 2
+      evidence: |
+        최종 식 $k\times{}_{n-r-1}\mathrm{C}_{k-2}$ 또는 동치식을 적었다.
+      depends_on: [1.A1, 1.R1]
+      steps: [1b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+remedy_links: []
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

@@ -1,0 +1,256 @@
+# 연세대 2021학년도 수시 논술 자연계열 오전(자연1) 수학 [문제 2] — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: YSU-G21A-02
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: YSU
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 추론
+points: 18
+time_estimate_min: 20
+intent: |
+  「수학Ⅰ」·「미적분」의 사인함수·코사인함수, 주기, 치환적분법의 기본 개념과 원리를 묻는다. 함수방정식에 적절한 값을 대입해 주기성과 $g(x)$의 꼴을 이끌어 내는 논리적 사고력을 평가한다(문항카드 출제 의도 요지).
+key_idea: |
+  $b=\tfrac12$를 대입하면 $g(a+1)=-g(a)$로 주기 2, 따라서 $g(0)=g(2020)=1$. $a=0$, $b=x$에서 $g(x)+g(-x)=2\cos\pi x$, 세 대입식을 조합하면 $g(x)=\cos\pi x+g\!\left(\tfrac12\right)\sin\pi x$.
+stuck: |
+  조건 (가)의 $g(2020)$을 $g(0)$으로 옮기는 주기성 발견, 그리고 (2-2)에서 세 대입식을 조합해 $g(x)$를 결정하는 발상
+idea_tags: []
+tags: [함수방정식, 주기함수, 우함수 부분]
+elements:
+  materials:
+  - '함수방정식 $g(a+b)+g(a-b)=2g(a)\cos b\pi$'
+  - '$g(2020)=1$'
+  concepts:
+  - '코사인함수·사인함수의 값과 주기'
+  - '주기함수'
+  - '치환적분법'
+  - '정적분의 계산'
+  tools:
+  - '특수값 대입($b=\tfrac12$, $a=0$, $a=x+\tfrac12$ 등)'
+  - '$-x=t$ 치환으로 $\int g(-x)dx=\int g(t)dt$'
+  - '대입식의 일차결합'
+  conditions:
+  - '(가) $g(2020)=1$'
+  - '(나) 임의의 실수 $a$, $b$에 대한 함수방정식'
+  - '$g$는 실수 전체에서 연속'
+  stimuli_used: []
+  subpart_links: '(2-2)는 (2-1)에서 얻은 $g(x)+g(-x)=2\cos\pi x$와 $g(x+1)+g(x)=0$을 다시 사용'
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅰ, 미적분]
+  scope_2028: calc2
+  scope_confirmed: false
+  standards:
+  - code: 12수학Ⅰ02-02
+    text: 삼각함수의 뜻을 알고, 사인함수, 코사인함수, 탄젠트함수의 그래프를 그릴 수 있다.
+    verified: true
+  - code: 12미적03-01
+    text: 치환적분법을 이해하고, 이를 활용할 수 있다.
+    verified: true
+  content_area: 삼각함수 – 함수방정식, 적분법 – 치환적분
+  behavior_domain: 추론
+  unit_path: [미적분, 적분법, 치환적분법, 함수방정식과 정적분]
+  key_concepts: [주기함수, 삼각함수, 치환적분법]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 연세대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 연세대학교
+  admission_year: 2021
+  admission_type: 수시 논술전형
+  track: 자연계열 오전(자연1)
+  question_no: 2
+  official_url: https://admission.yonsei.ac.kr/seoul/admission/html/counsel/dataView.asp?BBS_NO=2688
+  retrieved_at: 2026-11-21
+  original_points: [8, 10]
+  rights_notice: 미확인
+  transcribed_from: 2021학년도 연세대학교 선행학습 영향평가 결과보고서 별책(기출문제) p.11 (이미지 대조 2026-11-21)
+
+verify: verify/YSU-G21A.py::p02
+
+stimuli:
+- label: 제시문
+  body: |
+    실수 전체의 집합에서 정의된 연속함수 $g(x)$가 다음 조건을 만족시킬 때, 다음 물음에 답하시오.
+
+    (가) $g(2020)=1$
+
+    (나) 임의의 실수 $a$, $b$에 대하여 $g(a+b)+g(a-b)=2g(a)\cos b\pi$ 이다.
+
+stem: |
+  [제시문]의 조건을 만족시키는 연속함수 $g(x)$에 대하여 다음 물음에 답하시오.
+
+subparts:
+- id: '1'
+  stem: |
+    [문제 2-1] $\displaystyle\int_{-\frac12}^{\frac12}g(x)dx$ 의 값을 구하시오. [8점]
+  points: 8
+  depends_on: []
+  answer: {kind: value, value: '2/pi', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: 주기성으로 $g(0)=1$, $a=0$ 대입으로 $g(x)+g(-x)=2\cos\pi x$를 얻어 대칭 구간에서 적분한다.
+    steps:
+    - {id: 1a, content: '$2\displaystyle\int_{-\frac12}^{\frac12}g(x)dx=\int_{-\frac12}^{\frac12}2\cos\pi x\,dx=\dfrac4\pi$', criteria: [1.M1, 1.M2, 1.A1]}
+    hint_ladder:
+    - $b=\tfrac12$을 넣으면 $\cos$ 값이 어떻게 되는가?
+    - $g(2020)$은 $g(0)$과 어떤 관계인가?
+  - id: S1-B
+    audience: B
+    source_flow: 2021 선행학습 영향평가 결과보고서 문항카드 6 문항 해설 [문제 2-1]
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        주어진 식에 $b=\dfrac12$을 대입하면 $g\!\left(a+\dfrac12\right)+g\!\left(a-\dfrac12\right)=2g(a)\cos\dfrac\pi2=0$, 즉 $g\!\left(a+\dfrac12\right)=-g\!\left(a-\dfrac12\right)$.
+        $a$에 $a+\dfrac12$를 대입하면 $g(a+1)=-g(a)$이고 $g(a+2)=-g(a+1)=g(a)$.
+      criteria: [1.M1]
+    - id: 1b-2
+      content: |
+        따라서 $g(0)=g(2)=\cdots=g(2020)=1$.
+      criteria: [1.M1]
+    - id: 1b-3
+      content: |
+        주어진 식에 $a=0$, $b=x$를 대입하면 $g(x)+g(-x)=2g(0)\cos\pi x=2\cos\pi x$.
+      criteria: [1.M2]
+    - id: 1b-4
+      content: |
+        위 식을 $\left[-\dfrac12,\dfrac12\right]$에서 적분하면
+        $\displaystyle\int_{-\frac12}^{\frac12}g(x)dx+\int_{-\frac12}^{\frac12}g(-x)dx=2\int_{-\frac12}^{\frac12}\cos\pi x\,dx=\dfrac4\pi$.
+        $-x=t$로 치환적분법을 이용하면 $\displaystyle\int_{-\frac12}^{\frac12}g(-x)dx=\int_{-\frac12}^{\frac12}g(t)dt$.
+        따라서 $\displaystyle\int_{-\frac12}^{\frac12}g(x)dx=\dfrac2\pi$가 된다.
+      criteria: [1.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 3
+      evidence: |
+        $g(a+1)=-g(a)$(주기 2)를 이끌어 $g(0)=1$을 얻었다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1, 1b-2]
+    - id: 1.M2
+      mark_type: M
+      points: 2
+      evidence: |
+        $a=0$, $b=x$를 대입해 $g(x)+g(-x)=2\cos\pi x$를 얻었다.
+      depends_on: [1.M1]
+      implied_ok: false
+      steps: [1b-3]
+    - id: 1.A1
+      mark_type: A
+      points: 3
+      evidence: |
+        치환으로 $\int g(-x)dx=\int g(x)dx$임을 밝히고 $\dfrac2\pi$를 얻었다.
+      depends_on: [1.M2]
+      steps: [1b-4]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '2'
+  stem: |
+    [문제 2-2] $g\!\left(\dfrac13\right)g\!\left(-\dfrac13\right)=\dfrac{1}{10}$ 일 때, $\left\{g\!\left(\dfrac12\right)\right\}^2$ 의 값을 구하시오. [10점]
+  points: 10
+  depends_on: ['1']
+  answer: {kind: value, value: '1/5', equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: 세 대입식을 조합하면 $g(x)=\cos\pi x+g\!\left(\tfrac12\right)\sin\pi x$이고, $x=\pm\tfrac13$을 넣어 곱한다.
+    steps:
+    - {id: 2a, content: '$g\!\left(\tfrac13\right)g\!\left(-\tfrac13\right)=\tfrac14-\tfrac34\left\{g\!\left(\tfrac12\right)\right\}^2=\tfrac1{10}$', criteria: [2.M1, 2.A1, 2.A2]}
+    hint_ladder:
+    - $a=\tfrac12$, $b=x+\tfrac12$을 대입해 보자.
+    - 지금까지 얻은 세 식을 더하고 빼서 $g(x)$만 남겨 보자.
+  - id: S2-B
+    audience: B
+    source_flow: 2021 선행학습 영향평가 결과보고서 문항카드 6 문항 해설 [문제 2-2]
+    method_no: 1
+    steps:
+    - id: 2b-1
+      content: |
+        $a=0$, $b=x$를 대입하면 $g(x)+g(-x)=2\cos\pi x$ … ①
+        $a=x+\dfrac12$, $b=\dfrac12$을 대입하면 $g(x+1)+g(x)=0$ … ②
+        $a=\dfrac12$, $b=x+\dfrac12$을 대입하면 $g(x+1)+g(-x)=2g\!\left(\dfrac12\right)\cos\pi\!\left(x+\dfrac12\right)=-2g\!\left(\dfrac12\right)\sin\pi x$ … ③
+      criteria: [2.M1]
+    - id: 2b-2
+      content: |
+        ①과 ②를 더한 식에 ③을 빼면 $g(x)=\cos\pi x+g\!\left(\dfrac12\right)\sin\pi x$.
+      criteria: [2.A1]
+    - id: 2b-3
+      content: |
+        $x$에 각각 $\dfrac13$, $-\dfrac13$을 대입하면
+        $g\!\left(\dfrac13\right)=\cos\dfrac\pi3+g\!\left(\dfrac12\right)\sin\dfrac\pi3=\dfrac12+\dfrac{\sqrt3}{2}g\!\left(\dfrac12\right)$,
+        $g\!\left(-\dfrac13\right)=\cos\!\left(-\dfrac\pi3\right)+g\!\left(\dfrac12\right)\sin\!\left(-\dfrac\pi3\right)=\dfrac12-\dfrac{\sqrt3}{2}g\!\left(\dfrac12\right)$.
+      criteria: [2.M2]
+    - id: 2b-4
+      content: |
+        $g\!\left(\dfrac13\right)g\!\left(-\dfrac13\right)=\dfrac14-\dfrac34\left\{g\!\left(\dfrac12\right)\right\}^2=\dfrac1{10}$.
+        따라서 $\left\{g\!\left(\dfrac12\right)\right\}^2=\dfrac15$이다.
+      criteria: [2.A2]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 3
+      evidence: |
+        ①·②·③에 해당하는 대입식(특히 $a=\tfrac12$, $b=x+\tfrac12$ 대입)을 세웠다.
+      depends_on: []
+      implied_ok: false
+      ft: {allowed: true, from: [1.M1, 1.M2], max_points: 3}
+      steps: [2b-1]
+    - id: 2.A1
+      mark_type: A
+      points: 3
+      evidence: |
+        $g(x)=\cos\pi x+g\!\left(\tfrac12\right)\sin\pi x$를 얻었다.
+      depends_on: [2.M1]
+      steps: [2b-2]
+    - id: 2.M2
+      mark_type: M
+      points: 2
+      evidence: |
+        $x=\pm\tfrac13$을 대입해 $g\!\left(\pm\tfrac13\right)$을 $g\!\left(\tfrac12\right)$로 나타냈다.
+      depends_on: [2.A1]
+      implied_ok: true
+      steps: [2b-3]
+    - id: 2.A2
+      mark_type: A
+      points: 2
+      evidence: |
+        $\left\{g\!\left(\tfrac12\right)\right\}^2=\tfrac15$을 얻었다.
+      depends_on: [2.M2]
+      steps: [2b-4]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+remedy_links: []
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

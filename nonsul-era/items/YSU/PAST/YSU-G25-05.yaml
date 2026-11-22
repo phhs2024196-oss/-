@@ -1,0 +1,256 @@
+# 연세대 2025학년도 수시 논술(자연계열 수학, 본시험 2024.10) 문제 5 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: YSU-G25-05
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: YSU
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 점화
+points: 20
+time_estimate_min: 20
+intent: |
+  접선의 방정식을 구하여 등비급수와 관련된 문제를 해결하는 과정 및 정적분과 급수의 합 사이의 관계를 이해하여 극한값을 구할 수 있는지 평가한다. [문제 5-1] 접선의 방정식을 구하고 등비급수를 구하는 문제이다. [문제 5-2] 정적분과 급수의 합 사이의 관계를 이해하여 극한값을 구하는 문제이다.
+key_idea: |
+  접선의 $x$절편 점화식 $x_{n+1}=\frac12x_n$으로 $a_k=2k$를 얻고, 법선의 $x$절편 $b_k=16k^3+2k$에서 $b_m-a_m=16m^3$. 곱의 로그를 취하면 구분구적법 $\int_0^14x^2\ln\left(\frac{x^3}{2}+1\right)dx$가 된다.
+stuck: |
+  곱의 극한에 로그를 취해 $\sum\frac{4k^2}{m^3}\ln\left\{\frac12\left(\frac km\right)^3+1\right\}$을 정적분으로 바꾸는 발상
+idea_tags: [IDEA-TANGENT-INTERCEPT-RECURRENCE, IDEA-LOG-PRODUCT-RIEMANN-SUM]
+tags: [접선, 법선, 등비급수, 구분구적법]
+elements:
+  materials:
+  - '$x_1=k$, $x_{n+1}$은 $y=x^2$ 위의 점 $(x_n,x_n^2)$에서의 접선의 $x$절편'
+  - '$a_k=\sum_{n=1}^\infty x_n$'
+  - '점 $(a_k,a_k^2)$에서의 접선 $l$에 수직인 직선(법선)의 $x$절편 $b_k$'
+  - '곱 $\prod_{k=1}^m\left(\frac{a_k^3}{b_m-a_m}+1\right)^{a_k^2/m^3}$'
+  concepts:
+  - '접선의 방정식'
+  - '등비급수'
+  - '정적분과 급수의 합 사이의 관계(구분구적법)'
+  - '로그함수의 성질'
+  tools:
+  - '$x_{n+1}=x_n-\frac{f(x_n)}{f^{\prime}(x_n)}$'
+  - '수직인 직선의 기울기 $-\frac{1}{4k}$'
+  - '양변에 자연로그'
+  - '$\lim\sum\frac1m g\left(\frac km\right)=\int_0^1g(x)dx$'
+  - '치환 $u=x^3$ 또는 부분적분'
+  conditions:
+  - '$k$는 자연수'
+  - '공비 $\frac12$이므로 급수 수렴'
+  stimuli_used: []
+  subpart_links: '5-2는 5-1의 $a_k=2k$를 사용'
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅱ, 미적분]
+  scope_2028: calc2
+  scope_confirmed: false
+  standards:
+  - code: 12수학Ⅱ02-06
+    text: 접선의 방정식을 구할 수 있다.
+    verified: true
+  - code: 12미적01-05
+    text: 등비급수의 뜻을 알고, 그 합을 구할 수 있다.
+    verified: true
+  - code: 12미적03-04
+    text: 정적분과 급수의 합 사이의 관계를 이해한다.
+    verified: true
+  content_area: 미적분 – 등비급수, 정적분과 급수의 합
+  behavior_domain: 문제해결
+  unit_path: [미적분, 적분법, 정적분의 활용, 정적분과 급수의 합 사이의 관계]
+  key_concepts: [접선의 방정식, 등비급수, 구분구적법, 로그의 성질]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 연세대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 연세대학교
+  admission_year: 2025
+  admission_type: 수시 논술전형
+  track: 자연계열
+  question_no: 5
+  official_url: https://admission.yonsei.ac.kr/seoul/admission/html/counsel/dataView.asp?BBS_NO=3356
+  retrieved_at: 2026-11-21
+  original_points: [5, 15]
+  rights_notice: 미확인
+  transcribed_from: 2025학년도 연세대학교 선행학습 영향평가 결과보고서 별책(기출문제) p.10 (이미지 대조 2026-11-21)
+
+verify: verify/YSU-G25.py::p05
+
+stimuli: []
+
+stem: |
+  [문제 5, 서술형] 수열 $\{x_n\}$이 다음 조건을 만족시킬 때, 물음에 답하시오.
+
+  (Ⅰ) $x_1=k$(단, $k$는 자연수)
+  (Ⅱ) 모든 자연수 $n$에 대하여 $x_{n+1}$은 곡선 $y=x^2$ 위의 점 $(x_n,\ x_n^{\,2})$에서의 접선의 $x$절편이다.
+
+subparts:
+- id: '1'
+  stem: |
+    [문제 5-1] $a_k=\displaystyle\sum_{n=1}^{\infty}x_n$이라고 할 때, $a_{2025}$의 값을 구하시오.
+  points: 5
+  depends_on: []
+  answer: {kind: value, value: '4050', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: 접선의 $x$절편은 $x_{n+1}=\frac12x_n$이므로 $a_k=\dfrac{k}{1-\frac12}=2k$.
+    steps:
+    - {id: 1a, content: '$a_{2025}=2\times2025=4050$', criteria: ['1.M1', '1.A1', '1.A2']}
+    hint_ladder:
+    - 접선의 방정식에 $y=0$을 넣어 보자.
+  - id: S1-B
+    audience: B
+    source_flow: 2025 선행학습 영향평가 결과보고서 문항카드 07 문항 해설 [문제 5-1]
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        $f(x)=x^2$이라 하자. $(x_n,x_n^{\,2})$에서 곡선 $y=x^2$에 접하는 직선의 방정식은 $y-f(x_n)=f'(x_n)(x-x_n)$이다.
+      criteria: ['1.M1']
+    - id: 1b-2
+      content: |
+        $f'(x)=2x$이므로 $x_{n+1}=-\dfrac{f(x_n)}{f'(x_n)}+x_n$에서 $x_{n+1}=\dfrac12x_n$이다. 수열 $\{x_n\}$은 첫째항이 $k$이고 공비가 $\dfrac12$인 등비수열이다.
+      criteria: ['1.A1']
+    - id: 1b-3
+      content: |
+        $a_k=\displaystyle\sum_{n=1}^{\infty}x_n=\sum_{n=1}^{\infty}k\times\left(\dfrac12\right)^{n-1}=\dfrac{k}{1-\frac12}=2k$이다. 따라서 $a_{2025}=4050$.
+      criteria: ['1.A2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 2
+      evidence: |
+        점 $(x_n,x_n^2)$에서의 접선의 방정식을 세웠다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1]
+    - id: 1.A1
+      mark_type: A
+      points: 1
+      evidence: |
+        $x_{n+1}=\dfrac12x_n$을 얻었다.
+      depends_on: [1.M1]
+      steps: [1b-2]
+    - id: 1.A2
+      mark_type: A
+      points: 2
+      evidence: |
+        등비급수 합 $a_k=2k$와 $a_{2025}=4050$을 얻었다.
+      depends_on: [1.M1, 1.A1]
+      steps: [1b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+- id: '2'
+  stem: |
+    [문제 5-2] [문제 5-1] 에서 주어진 $a_k$에 대하여 곡선 $y=x^2$ 위의 점 $(a_k,\ a_k^{\,2})$에서의 접선을 $l$이라 하자. 점 $(a_k,\ a_k^{\,2})$을 지나고 직선 $l$에 수직인 직선의 $x$절편을 $b_k$라고 할 때, 다음 극한값을 구하시오.
+    $$\lim_{m\to\infty}\left\{\left(\dfrac{a_1^{\,3}}{b_m-a_m}+1\right)^{\frac{a_1^{\,2}}{m^3}}\times\left(\dfrac{a_2^{\,3}}{b_m-a_m}+1\right)^{\frac{a_2^{\,2}}{m^3}}\times\cdots\times\left(\dfrac{a_m^{\,3}}{b_m-a_m}+1\right)^{\frac{a_m^{\,2}}{m^3}}\right\}$$
+  points: 15
+  depends_on: ['1']
+  answer: {kind: expression, value: '81*exp(-4/3)/16', equivalents: ['exp(4*log(3/2) - 4/3)'], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: $b_m-a_m=16m^3$이므로 로그를 취하면 $\sum_{k=1}^m\frac{4k^2}{m^3}\ln\left\{\frac12\left(\frac km\right)^3+1\right\}\to\int_0^14x^2\ln\left(\frac{x^3}{2}+1\right)dx=4\ln\frac32-\frac43$.
+    steps:
+    - {id: 2a, content: '극한값 $=e^{4\ln\frac32-\frac43}=\dfrac{81}{16}e^{-\frac43}$', criteria: ['2.M1', '2.A1', '2.M2', '2.A2', '2.A3']}
+    hint_ladder:
+    - $b_m-a_m$을 $m$으로 나타내 보자.
+    - 곱의 극한은 로그를 취하면 합의 극한이 된다.
+  - id: S2-B
+    audience: B
+    source_flow: 2025 선행학습 영향평가 결과보고서 문항카드 07 문항 해설 [문제 5-2]
+    method_no: 1
+    steps:
+    - id: 2b-1
+      content: |
+        $a_k=2k$이고 접선 $l$의 기울기는 $4k$이므로 주어진 $l$에 수직인 직선의 방정식은 $y=-\dfrac{1}{4k}(x-2k)+4k^2$이고 $b_k=16k^3+2k$이다.
+      criteria: ['2.M1']
+    - id: 2b-2
+      content: |
+        $c_m=\left(\dfrac{a_1^{\,3}}{b_m-a_m}+1\right)^{\frac{a_1^{\,2}}{m^3}}\times\cdots\times\left(\dfrac{a_m^{\,3}}{b_m-a_m}+1\right)^{\frac{a_m^{\,2}}{m^3}}$이라 하자. $b_m-a_m=16m^3$이므로
+        $c_m=\left(\dfrac{1^3}{2\times m^3}+1\right)^{\frac{4\times1^2}{m^3}}\times\left(\dfrac{2^3}{2\times m^3}+1\right)^{\frac{4\times2^2}{m^3}}\times\cdots\times\left(\dfrac{m^3}{2\times m^3}+1\right)^{\frac{4\times m^2}{m^3}}$.
+      criteria: ['2.A1']
+    - id: 2b-3
+      content: |
+        $\displaystyle\lim_{m\to\infty}c_m=\alpha$라 하자. $\ln c_m=\sum_{k=1}^{m}\dfrac{4k^2}{m^3}\ln\left\{\dfrac12\left(\dfrac km\right)^3+1\right\}$이므로
+        $\displaystyle\lim_{m\to\infty}\ln c_m=\lim_{m\to\infty}\sum_{k=1}^{m}\dfrac{4k^2}{m^3}\ln\left\{\dfrac12\left(\dfrac km\right)^3+1\right\}=\int_0^1 4x^2\ln\left(\dfrac{x^3}{2}+1\right)dx$.
+      criteria: ['2.M2']
+    - id: 2b-4
+      content: |
+        $\displaystyle\int_0^1 4x^2\ln\left(\dfrac{x^3}{2}+1\right)dx=4\ln\dfrac32-\dfrac43$.
+      criteria: ['2.A2']
+    - id: 2b-5
+      content: |
+        $\ln\alpha=4\ln\dfrac32-\dfrac43$이므로 $\alpha=e^{4\ln\frac32-\frac43}=\dfrac{81}{16}e^{-\frac43}$.
+      criteria: ['2.A3']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 3
+      evidence: |
+        $l$에 수직인 직선의 방정식을 세워 $b_k=16k^3+2k$를 구했다.
+      depends_on: []
+      implied_ok: false
+      ft: {allowed: true, from: [1.A2], max_points: 3}
+      steps: [2b-1]
+    - id: 2.A1
+      mark_type: A
+      points: 2
+      evidence: |
+        $b_m-a_m=16m^3$을 대입해 각 인수를 $\dfrac{k^3}{2m^3}+1$, 지수를 $\dfrac{4k^2}{m^3}$으로 정리했다.
+      depends_on: [2.M1]
+      steps: [2b-2]
+    - id: 2.M2
+      mark_type: M
+      points: 4
+      evidence: |
+        로그를 취해 합으로 바꾸고 정적분 $\displaystyle\int_0^14x^2\ln\left(\dfrac{x^3}{2}+1\right)dx$로 나타냈다.
+      depends_on: []
+      implied_ok: false
+      steps: [2b-3]
+    - id: 2.A2
+      mark_type: A
+      points: 4
+      evidence: |
+        정적분 값 $4\ln\dfrac32-\dfrac43$을 구했다.
+      depends_on: [2.M2]
+      steps: [2b-4]
+    - id: 2.A3
+      mark_type: A
+      points: 2
+      evidence: |
+        극한값 $\dfrac{81}{16}e^{-\frac43}$을 얻었다.
+      depends_on: [2.M2, 2.A2]
+      steps: [2b-5]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+remedy_links: []
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21
