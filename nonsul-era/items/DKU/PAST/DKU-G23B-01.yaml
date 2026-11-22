@@ -1,0 +1,432 @@
+# 단국대학교 2023학년도 논술 자연계열(오후) [문제 1] — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: DKU-G23B-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: DKU
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 점화
+points: 55
+time_estimate_min: 65
+intent: |
+  극값의 개념(접선의 기울기와 선분의 기울기)을 이해하는지(논제 1), 최대·최소의 개념을 확장해 적용할 수 있는지(논제 2), 정적분과 급수의 합 사이의 관계를 이해하는지(논제 3)를 본다. 두 곡선 $y=\pm3(x+\frac23)(1-3x)$로 둘러싸인 도형에서 밑변 $\mathrm{AB}_n$이 같을 때 높이가 가장 큰 점이 접선의 기울기가 선분의 기울기와 같은 점임을 이용해 $a_{n+1}=-\frac12a_n$을 얻고, $b_n$을 구분구적법으로 정적분으로 바꾼다.
+key_idea: |
+  $\triangle\mathrm{AB}_n\mathrm B_{n+1}$의 넓이가 최대이면 $\mathrm B_{n+1}$은 현 $\mathrm{AB}_n$에서 가장 먼 점이므로 접선의 기울기 $=$ 현의 기울기: $3(1-3a_n)=18a_{n+1}+3$, $a_{n+1}=-\frac12a_n$. 1은 $a_2=-\frac19$, $a_1=\frac29$. 2는 극한의 세 꼭짓점 $\mathrm A,(0,g(0)),(0,f(0))$, 넓이 $\frac43$. 3은 $b_n=-\frac1{\ln2}\sum_{k=n}^{2n-1}\frac1{k+1}\to-\frac1{\ln2}\int_0^1\frac{dx}{x+1}=-1$.
+stuck: 1에서 "넓이 최대 삼각형의 꼭짓점은 밑변에서 가장 먼 점 = 접선의 기울기가 밑변의 기울기와 같은 점"이라는 번역, 3에서 $\sum_{k=n}^{2n-1}\frac1{k+1}$를 $\frac1n\sum\frac1{1+k/n}$ 꼴로 바꾸는 것
+idea_tags:
+- IDEA-FARTHEST-POINT-TANGENT-SLOPE
+- IDEA-GEOMETRIC-RECURRENCE
+- IDEA-RIEMANN-SUM-TO-INTEGRAL
+tags:
+- 접선의 기울기
+- 최대 넓이 삼각형
+- 등비수열
+- 구분구적법
+- 정적분과 급수
+elements:
+  materials:
+  - $f(x)=3\left(x+\frac23\right)(1-3x)$와 $g(x)=-f(x)$로 둘러싸인 도형 $R$, 둘레 $S$
+  - $\mathrm A\left(-\frac23,0\right)$, $\mathrm B(a,g(a))$에서 시작해 반복해 얻는 점열 $\mathrm B_n$, $x$좌표 $a_n$
+  - $a=-\frac12$일 때 $b_n=\sum_{k=n}^{2n-1}\frac1{\ln\lvert a_k\rvert}$
+  concepts:
+  - 접선의 방정식
+  - 최대·최소(밑변이 같은 삼각형의 높이)
+  - 위로(아래로) 볼록한 포물선
+  - 등비수열
+  - 정적분과 급수의 합
+  - 로그
+  tools:
+  - $f'(x)=-18x-3$, $g'(x)=18x+3$
+  - 현의 기울기 $=$ 접선의 기울기
+  - 등비수열의 일반항 $a_n=ar^{n-1}$
+  - $\int_0^1f(x)dx=\lim\sum f(x_k)\Delta x$
+  conditions:
+  - $-\frac23<a<\frac13$
+  - $\mathrm A$와 $\mathrm B_n$을 꼭짓점으로 하고 $R$에 포함되는 삼각형 중 넓이가 최대인 삼각형의 꼭짓점이 $\mathrm A,\mathrm B_n,\mathrm B_{n+1}$
+  - $a=-\frac12$이면 $a_1=\frac14$이고 공비 $-\frac12$
+  stimuli_used:
+  - 가
+  - 나
+  - 다
+  - 라
+  subpart_links: null
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학Ⅰ
+  - 수학Ⅱ
+  - 미적분
+  scope_2028: calc2
+  scope_confirmed: false
+  standards:
+  - code: 12수학Ⅰ03-03
+    text: 등비수열의 뜻을 알고, 일반항, 첫째항부터 제n항까지의 합을 구할 수 있다.
+    verified: true
+  - code: 12수학Ⅱ02-06
+    text: 접선의 방정식을 구할 수 있다.
+    verified: true
+  - code: 12수학Ⅱ02-08
+    text: 함수의 증가와 감소, 극대와 극소를 판정하고 설명할 수 있다.
+    verified: true
+  - code: 12미적03-04
+    text: 정적분과 급수의 합 사이의 관계를 이해한다.
+    verified: true
+  content_area: 접선·최대 넓이·등비수열·정적분과 급수
+  behavior_domain: 문제해결
+  unit_path:
+  - 수학Ⅰ
+  - 수열
+  - 등차수열과 등비수열
+  - 등비수열
+  key_concepts:
+  - 접선의 방정식
+  - 최대·최소(밑변이 같은 삼각형의 높이)
+  - 위로(아래로) 볼록한 포물선
+  - 등비수열
+  - 정적분과 급수의 합
+  - 로그
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 단국대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 단국대학교
+  admission_year: 2023
+  admission_type: 수시 논술
+  track: 자연계열(오후)
+  question_no: 1
+  official_url: https://ipsi.dankook.ac.kr/jukjeon/doumi/previous_list.html?bbsid=juk_sunhang&mode=view&bltn_seq=42489
+  retrieved_at: '2026-11-22'
+  original_points:
+  - 15
+  - 20
+  - 20
+  rights_notice: 단국대학교 입학처 공개 자료(내부 분석용)
+  transcribed_from: 'R23.pdf 문항카드 9 p.91~98 (오후 문제1: 문제 p.91~92, 성취기준 p.93~94, 채점기준 p.95~96, 예시답안 p.97~98) (이미지 대조 2026-11-22)'
+verify: verify/DKU-G23B.py::p01
+stimuli:
+- label: 가
+  body: |
+    함수 $f(x)$가 $x=c$에서 미분가능할 때, 곡선 $y=f(x)$ 위의 점 $\mathrm{P}(c,f(c))$에서의 접선의 방정식은 $y-f(c)=f'(c)(x-c)$
+- label: 나
+  body: |
+    열린구간 $(a,b)$에서 미분가능한 함수 $f(x)$가 $x=c$에서 최댓값을 가질 때 $f'(c)=0$ (단, $a<c<b$)
+- label: 다
+  body: |
+    첫째항부터 차례대로 일정한 수를 곱하여 만든 수열을 등비수열이라 하고, 곱하는 일정한 수를 공비라고 한다. 즉, 공비 $r$인 등비수열 $\{a_n\}$에 대하여
+    $$a_{n+1}=ra_n\quad(\text{단, }n=1,2,3,\cdots)$$
+    또한 첫째항이 $a$, 공비가 $r\ (r\ne0)$인 등비수열 $\{a_n\}$의 일반항은 $a_n=ar^{n-1}$
+- label: 라
+  body: |
+    함수 $f(x)$가 닫힌구간 $[a,b]$에서 연속일 때,
+    $$\int_a^bf(x)dx=\lim_{n\to\infty}\sum_{k=1}^nf(x_k)\Delta x\qquad\left(\text{단, }\Delta x=\frac{b-a}{n},\ x_k=a+k\Delta x\right)$$
+stem: |
+  [문제1] 다음 제시문을 읽고 질문에 답하시오. (55점)
+
+  함수 $f(x)=3\left(x+\dfrac23\right)(1-3x)$의 그래프와 $g(x)=-f(x)$의 그래프로 둘러싸인 도형을 $R$이라 하고 $R$의 둘레를 $S$라 하자.
+  $-\dfrac23<a<\dfrac13$에 대하여 $S$ 위의 두 점 $\mathrm{A}\left(-\dfrac23,0\right)$과 $\mathrm{B}(a,g(a))$를 꼭짓점으로 하고 $R$에 포함되는 삼각형 중에서 넓이가 최대인 삼각형의 꼭짓점을 $\mathrm{A},\mathrm{B},\mathrm{B}_1$이라 하고, 다시 두 점 $\mathrm{A}$와 $\mathrm{B}_1$을 꼭짓점으로 하고 $R$에 포함되는 삼각형 중에서 넓이가 최대인 삼각형의 꼭짓점을 $\mathrm{A},\mathrm{B}_1,\mathrm{B}_2$라 하자. 이 과정을 계속 반복하여 자연수 $n$에 대하여 두 점 $\mathrm{A}$와 $\mathrm{B}_n$을 꼭짓점으로 하고 $R$에 포함되는 삼각형 중에서 넓이가 최대인 삼각형의 꼭짓점을 $\mathrm{A},\mathrm{B}_n,\mathrm{B}_{n+1}$이라 하자. 또한 점 $\mathrm{B}_n$의 $x$좌표를 $a_n$이라 하자.
+  [그림: 위로 볼록한 곡선 $y=f(x)$와 아래로 볼록한 곡선 $y=g(x)$가 두 점 $\mathrm A\left(-\frac23,0\right)$, $\left(\frac13,0\right)$에서 만나 둘러싸는 도형 $R$. $\mathrm A$에서 $\mathrm B_{n-1},\mathrm B_n,\mathrm B_{n+1}$로 선분이 그어져 있고 $\mathrm B_n$의 $x$좌표 $a_n$이 표시되어 있다.]
+subparts:
+- id: '1'
+  stem: |
+    [논제 1] $\mathrm{B}_3\left(\dfrac1{18},f\left(\dfrac1{18}\right)\right)$일 때 $a_1$의 값을 구하시오. (15점)
+  points: 15
+  depends_on: []
+  answer:
+    kind: value
+    value: 2/9
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: |
+      $\mathrm B_3$은 $y=f$ 위에서 현 $\mathrm{AB}_2$에서 가장 먼 점이므로 $\mathrm{AB}_2$의 기울기 $3(3a_2-1)=f'\left(\frac1{18}\right)=-4$, $a_2=-\frac19$. 같은 방법으로 $\mathrm{AB}_1$의 기울기 $3(1-3a_1)=g'\left(-\frac19\right)=1$, $a_1=\frac29$.
+    steps:
+    - id: 1a
+      content: '현의 기울기 $=$ 접선의 기울기: $a_2=-\frac19$, $a_1=\frac29$'
+      criteria:
+      - 1.M1
+      - 1.A1
+      - 1.A2
+    hint_ladder:
+    - 넓이가 최대인 삼각형의 세 번째 꼭짓점은 밑변에서 어떤 위치인가?
+    - 그 점에서 접선의 기울기와 밑변의 기울기는 어떤 관계인가?
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 2023 선행학습 영향평가 보고서 R23.pdf p.97 예시답안 [논제 1]
+    steps:
+    - id: 1b-1
+      content: |
+        삼각형 $\triangle\mathrm{AB}_2\mathrm B_3$은 두 점 $\mathrm A$와 $\mathrm B_2$가 꼭짓점이고 $R$에 포함되는 삼각형 중에서 넓이가 최대인 삼각형이므로 점 $\mathrm B_3$은 곡선 $y=f(x)$ 위의 점 중에서 선분 $\overline{\mathrm{AB}_2}$에서 가장 멀리 있는 점이다. 그런데 제시문 (나)에 의해서 선분 $\overline{\mathrm{AB}_2}$와 $\mathrm B_3$이 가장 멀리 있을 때에는 선분 $\overline{\mathrm{AB}_2}$의 기울기와 $\mathrm B_3$에서의 접선의 기울기가 같으므로, 선분 $\overline{\mathrm{AB}_2}$의 기울기는
+        $\dfrac{3\left(a_2+\frac23\right)(3a_2-1)}{a_2+\frac23}$
+      criteria:
+      - 1.M1
+    - id: 1b-2
+      content: |
+        이고 $f'\left(\dfrac1{18}\right)=-4$이므로 $a_2=-\dfrac19$을 얻는다.
+      criteria:
+      - 1.A1
+    - id: 1b-3
+      content: |
+        마찬가지로 선분 $\overline{\mathrm{AB}_1}$의 기울기는 $3(1-3a_1)$이고 $g'\left(-\dfrac19\right)=1$이므로 $a_1=\dfrac29$
+      criteria:
+      - 1.A2
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 8
+      evidence: |
+        선분 $\mathrm{AB}_2$의 기울기와 $\mathrm B_3$에서의 접선의 기울기가 일치할 때 $\mathrm B_3$이 가장 멀리 있음을 제시했다(공식 채점기준 15점 중 8점).
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 1b-1
+      - 1a
+    - id: 1.A1
+      mark_type: A
+      points: 3
+      evidence: |
+        $a_2=-\frac19$을 제시했다(공식 3점).
+      depends_on:
+      - 1.M1
+      steps:
+      - 1b-2
+      - 1a
+    - id: 1.A2
+      mark_type: A
+      points: 4
+      evidence: |
+        $a_1=\frac29$를 구했다(공식 4점).
+      depends_on:
+      - 1.M1
+      - 1.A1
+      steps:
+      - 1b-3
+      - 1a
+    deductions: []
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+- id: '2'
+  stem: |
+    [논제 2] 수열 $\{a_n\}$이 등비수열임을 참고하여 $\mathrm{A}$가 꼭짓점이고 $R$에 포함되는 삼각형의 넓이의 최댓값을 구하시오. (20점)
+  points: 20
+  depends_on: []
+  answer:
+    kind: value
+    value: 4/3
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: |
+      $a_{n+1}=-\frac12a_n$이므로 $\mathrm B_n\to(0,\pm2)$, 넓이가 점점 커져 세 꼭짓점 $\mathrm A,(0,g(0)),(0,f(0))$일 때 최대: $\frac12\cdot\frac23\cdot\{2-(-2)\}=\frac43$.
+    steps:
+    - id: 2a
+      content: $a_{n+1}=-\frac12a_n$ → 넓이 단조증가의 극한 → 최대 넓이 $\frac43$
+      criteria:
+      - 2.M1
+      - 2.M2
+      - 2.A1
+    hint_ladder:
+    - $\mathrm{AB}_n$의 기울기와 $g'(a_{n+1})$ 사이의 관계식을 세워 $a_{n+1}$을 $a_n$으로 나타내 보자.
+  - id: S2-B
+    audience: B
+    method_no: 1
+    source_flow: 2023 선행학습 영향평가 보고서 R23.pdf p.97 예시답안 [논제 2]
+    steps:
+    - id: 2b-1
+      content: |
+        $R$에 내접하는($S$에 내접하는) 임의의 삼각형 $\triangle\mathrm{ABC}$가 있다. 당연히 $\triangle\mathrm{ABC}$의 넓이보다 점 $\mathrm A,\mathrm B$가 꼭짓점이고 넓이가 최대인 삼각형 $\triangle\mathrm{ABB}_1$의 넓이가 크거나 같고, 다시 삼각형 $\triangle\mathrm{ABB}_1$의 넓이보다 삼각형 $\triangle\mathrm{AB}_1\mathrm B_2$의 넓이가 더 크거나 같다. 이 과정을 반복해서 얻은 삼각형 $\triangle\mathrm{AB}_n\mathrm B_{n+1}$의 넓이는 삼각형 $\triangle\mathrm{AB}_{n-1}\mathrm B_n$의 넓이보다 같거나 크다.
+      criteria:
+      - 2.M2
+    - id: 2b-2
+      content: |
+        한편 수열 $\{a_n\}$을 살펴보기 위해서 [논제 1]과 같이 접선의 기울기와 선분의 기울기의 관계를 이용하자. 점 $\mathrm B_n$이 $\mathrm B_n(a_n,f(a_n))$과 $\mathrm B_n(a_n,g(a_n))$인 두 가지 경우가 있으므로 각 경우를 나누어 생각하자. 먼저 $\mathrm B_n(a_n,f(a_n))$이라면 $\triangle\mathrm{AB}_n\mathrm B_{n+1}$이 두 점 $\mathrm A,\mathrm B_n$을 꼭짓점으로 하는 삼각형 중 넓이가 최대가 되기 위해서는 선분 $\overline{\mathrm{AB}_n}$의 기울기는 $y=g(x)$의 $x=a_{n+1}$에서의 접선의 기울기와 같아야 한다. 선분 $\overline{\mathrm{AB}_n}$의 기울기는 $\dfrac{3\left(a_n+\frac23\right)(1-3a_n)}{a_n+\frac23}$이고 곡선 $y=g(x)$의 $x=a_{n+1}$에서의 접선의 기울기는 $g'(a_{n+1})=18a_{n+1}+3$이므로 $a_{n+1}=-\dfrac12a_n$을 얻는다. 마찬가지로 $\mathrm B_n(a_n,g(a_n))$인 경우에는 선분 $\overline{\mathrm{AB}_n}$의 기울기가 $3(3a_n-1)$이고 이것이 $f'(a_{n+1})=-18a_{n+1}-3$과 같아야 하므로 역시 $a_{n+1}=-\dfrac12a_n$을 얻는다.
+      criteria:
+      - 2.M1
+    - id: 2b-3
+      content: |
+        따라서 수열 $\{a_n\}$은 공비가 $-\dfrac12$인 등비수열이고, $a_1\ne0$이라면 삼각형 $\triangle\mathrm{AB}_n\mathrm B_{n+1}$의 넓이는 $n$이 증가할 때 점점 커지기 때문에 세 꼭짓점이 $\mathrm A$, $(0,g(0))$, $(0,f(0))$일 때 삼각형의 넓이가 가장 크다(※ $\displaystyle\lim_{n\to\infty}a_n=0$).
+      criteria:
+      - 2.M2
+    - id: 2b-4
+      content: |
+        그러므로 구하는 삼각형의 넓이의 최댓값은 $\dfrac12\cdot\dfrac23\{2-(-2)\}=\dfrac43$이다.
+      criteria:
+      - 2.A1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 7
+      evidence: |
+        접선의 기울기와 선분의 기울기가 같다는 관계식 $3(3a_n-1)=f'(a_{n+1})$(및 대칭 경우)를 제시했다(공식 채점기준 20점 중 7점).
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 2b-2
+      - 2a
+    - id: 2.M2
+      mark_type: M
+      points: 7
+      evidence: |
+        넓이가 단조증가하므로 세 꼭짓점이 $\mathrm A$, $(0,g(0))$, $(0,f(0))$일 때 넓이가 가장 큼을 제시했다(공식 7점).
+      depends_on:
+      - 2.M1
+      implied_ok: false
+      steps:
+      - 2b-1
+      - 2b-3
+      - 2a
+    - id: 2.A1
+      mark_type: A
+      points: 6
+      evidence: |
+        넓이의 최댓값 $\frac43$를 구했다(공식 6점).
+      depends_on:
+      - 2.M2
+      steps:
+      - 2b-4
+      - 2a
+    deductions: []
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+- id: '3'
+  stem: |
+    [논제 3] $a=-\dfrac12$일 때 수열 $\{a_n\}$에 대하여
+    $$b_n=\frac1{\ln\lvert a_n\rvert}+\frac1{\ln\lvert a_{n+1}\rvert}+\cdots+\frac1{\ln\lvert a_{2n-1}\rvert}=\sum_{k=n}^{2n-1}\frac1{\ln\lvert a_k\rvert}$$
+    이라 하자. 제시문 (다), (라)를 이용하여 $\displaystyle\lim_{n\to\infty}b_n$의 값을 구하시오. (20점)
+  points: 20
+  depends_on: []
+  answer:
+    kind: value
+    value: '-1'
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: |
+      $a_1=\frac14$, 공비 $-\frac12$이므로 $\ln\lvert a_k\rvert=-(k+1)\ln2$, $b_n=-\frac1{\ln2}\sum_{k=n}^{2n-1}\frac1{k+1}$. 구분구적법으로 $\to-\frac1{\ln2}\int_0^1\frac{dx}{x+1}=-1$.
+    steps:
+    - id: 3a
+      content: $b_n=-\frac1{\ln2}\sum\frac1{k+1}$ → 구분구적법 → $-\frac1{\ln2}\ln2=-1$
+      criteria:
+      - 3.M1
+      - 3.M2
+      - 3.A1
+    hint_ladder:
+    - $a_k$를 $2$의 거듭제곱으로 나타내 $\ln\lvert a_k\rvert$를 구해 보자.
+    - $\sum_{k=n}^{2n-1}\frac1{k+1}$을 $\frac1n\sum\frac1{1+k/n}$ 꼴로 바꾸자.
+  - id: S3-B
+    audience: B
+    method_no: 1
+    source_flow: 2023 선행학습 영향평가 보고서 R23.pdf p.98 예시답안 [논제 3]
+    steps:
+    - id: 3b-1
+      content: |
+        [논제 2]에 의하여 수열 $\{a_n\}$은 첫째항 $a_1=\dfrac14$이고 공비 $-\dfrac12$인 등비수열이므로
+        $b_n=\dfrac1{\ln2}\displaystyle\sum_{k=n}^{2n-1}\frac1{\log_2\lvert a_k\rvert}=-\frac1{\ln2}\sum_{k=n}^{2n-1}\frac1{k+1}$
+      criteria:
+      - 3.M1
+    - id: 3b-2
+      content: |
+        이다. 따라서 제시문 (라)에 의해서
+        $\displaystyle\lim_{n\to\infty}b_n=-\frac1{\ln2}\lim_{n\to\infty}\sum_{\ell=n}^{2n-1}\frac1{\ell+1}=-\frac1{\ln2}\lim_{n\to\infty}\sum_{k=1}^n\frac1{\frac kn+1}\cdot\frac1n$
+      criteria:
+      - 3.M2
+    - id: 3b-3
+      content: |
+        $=-\dfrac1{\ln2}\displaystyle\int_0^1\frac1{x+1}\,dx=-1$이다.
+      criteria:
+      - 3.A1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 6
+      evidence: |
+        $b_n=-\frac1{\ln2}\sum_{k=n}^{2n-1}\frac1{k+1}$을 제시했다(공식 채점기준 20점 중 6점).
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 3b-1
+      - 3a
+    - id: 3.M2
+      mark_type: M
+      points: 8
+      evidence: |
+        구분구적법으로 $\lim b_n=-\frac1{\ln2}\int_0^1\frac1{x+1}dx$를 제시했다(공식 8점).
+      depends_on:
+      - 3.M1
+      implied_ok: false
+      steps:
+      - 3b-2
+      - 3a
+    - id: 3.A1
+      mark_type: A
+      points: 6
+      evidence: |
+        $\lim_{n\to\infty}b_n=-1$을 구했다(공식 6점).
+      depends_on:
+      - 3.M2
+      steps:
+      - 3b-3
+      - 3a
+    deductions: []
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: p3-past-v1
+  item_version: 1
+  verdict: pass
+  date: '2026-11-22'
+created: '2026-11-22'
+updated: '2026-11-22'

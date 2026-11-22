@@ -1,0 +1,370 @@
+# 단국대학교 2023학년도 논술 자연계열(오후) [문제 2] — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: DKU-G23B-02
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: DKU
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 추론
+points: 45
+time_estimate_min: 55
+intent: |
+  역함수의 정적분과 함수의 정적분의 관계를 이해하고 주어진 함수의 성질로 정적분을 구하는지(논제 1), 미분을 활용해 접선의 방정식을 구하고 그로부터 유도된 방정식이 실근을 단 하나만 갖는 조건을 찾는지(논제 2)를 본다. 논제 1은 $f(k)=k$, 원점대칭성 $f(x)+f(-x)=0$ 등으로 $\int_{-1}^4f$를 구한 뒤 $\int f+\int f^{-1}=$ 직사각형 관계를 쓴다. 논제 2는 $\mathrm P(u,g(u))$의 법선이 $(t,0)$을 지난다는 조건으로 $t=u+g(u)g'(u)$를 얻고 $h(u)$가 일대일 대응이 되기 위한 $h'(u)\ge0$ 조건을 푼다.
+key_idea: |
+  1은 $f(k)=k$, $\int_{-1}^4f+\int_{-1}^4f^{-1}=16-1=15$, $\int_{-1}^4f=-\frac58+2\left(\frac58+\frac{11}8\right)+4=\frac{59}8$. 2는 $t=u+ae^u(ae^u+b)=:h(u)$가 일대일대응 $\iff h'(u)=1+2a^2e^{2u}+abe^u\ge0$이므로 $b\ge-2\sqrt2$.
+stuck: 1에서 조건 (1),(2)로 $f$가 원점대칭($f(x)+f(-x)=0$)이고 $f(k)=k$임을 끌어내는 것, 2에서 "원 $O$와 곡선이 $\mathrm P$에서 공통접선" $\Rightarrow$ 법선이 중심을 지남, $t$에 대한 $\mathrm P$의 유일성을 $h$의 일대일대응으로 바꾸는 것
+idea_tags:
+- IDEA-INVERSE-INTEGRAL-RECTANGLE
+- IDEA-PERIODIC-ODD-SYMMETRY
+- IDEA-NORMAL-THROUGH-CENTER-MONOTONE
+tags:
+- 역함수의 정적분
+- 원점대칭
+- 접선과 법선
+- 일대일대응
+- 정적분의 성질
+- 지수함수
+elements:
+  materials:
+  - '연속·증가 함수 $f$: $f(x+2)=f(x)+2$, $f(x)+f(2-x)=2$ ($0\le x\le2$), $\int_0^1f-\int_{-1}^0f=\frac54$'
+  - $g(x)=ae^x+b$ ($a>0$)와 중심이 $(t,0)$인 원 $O$가 점 $\mathrm P$에서 공통접선을 가짐
+  concepts:
+  - 정적분의 성질
+  - 역함수와 정적분
+  - 치환적분
+  - 접선·법선
+  - 미분을 이용한 단조성
+  - 이차식의 최솟값
+  tools:
+  - $\int_a^bf+\int_{f(a)}^{f(b)}f^{-1}=bf(b)-af(a)$
+  - $\int_2^4f=\int_0^2f(x+2)dx$
+  - 법선의 방정식 $0=-\frac1{g'(u)}(t-u)+g(u)$
+  - 완전제곱으로 $h'(u)\ge0$ 판정
+  conditions:
+  - $f(x+2)=f(x)+2$이므로 $f(k)=k$
+  - $f(x)+f(-x)=0$ ($-2\le x\le2$)
+  - $g(t)\ne0$인 각 $t$마다 점 $\mathrm P$가 단 하나
+  stimuli_used:
+  - 가
+  - 나
+  - 다
+  subpart_links: null
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학
+  - 수학Ⅱ
+  - 미적분
+  scope_2028: calc2
+  scope_confirmed: false
+  standards:
+  - code: 10수학02-07
+    text: 좌표평면에서 원과 직선의 위치 관계를 이해한다.
+    verified: true
+  - code: 12수학Ⅱ03-04
+    text: 다항함수의 정적분을 구할 수 있다.
+    verified: true
+  - code: 12미적03-01
+    text: 치환적분법을 이해하고, 이를 활용할 수 있다.
+    verified: true
+  - code: 12수학Ⅱ02-06
+    text: 접선의 방정식을 구할 수 있다.
+    verified: true
+  - code: 12수학Ⅱ02-08
+    text: 함수의 증가와 감소, 극대와 극소를 판정하고 설명할 수 있다.
+    verified: true
+  - code: 12수학Ⅱ02-09
+    text: 함수의 그래프의 개형을 그릴 수 있다.
+    verified: true
+  content_area: 역함수의 정적분·접선과 법선·일대일대응
+  behavior_domain: 문제해결
+  unit_path:
+  - 수학Ⅱ
+  - 적분
+  - 정적분
+  - 정적분의 성질
+  key_concepts:
+  - 정적분의 성질
+  - 역함수와 정적분
+  - 치환적분
+  - 접선·법선
+  - 미분을 이용한 단조성
+  - 이차식의 최솟값
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 단국대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 단국대학교
+  admission_year: 2023
+  admission_type: 수시 논술
+  track: 자연계열(오후)
+  question_no: 2
+  official_url: https://ipsi.dankook.ac.kr/jukjeon/doumi/previous_list.html?bbsid=juk_sunhang&mode=view&bltn_seq=42489
+  retrieved_at: '2026-11-22'
+  original_points:
+  - 20
+  - 25
+  rights_notice: 단국대학교 입학처 공개 자료(내부 분석용)
+  transcribed_from: 'R23.pdf 문항카드 10 p.99~104 (오후 문제2: 문제 p.99~100, 성취기준 p.100~101, 채점기준 p.102, 예시답안 p.103~104) (이미지 대조 2026-11-22)'
+verify: verify/DKU-G23B.py::p02
+stimuli:
+- label: 가
+  body: |
+    함수 $f(x)$가 임의의 세 실수 $a,b,c$를 포함하는 닫힌구간에서 연속일 때,
+    $$\int_a^cf(x)dx+\int_c^bf(x)dx=\int_a^bf(x)dx$$
+- label: 나
+  body: |
+    미분가능한 함수 $g(t)$에 대하여 $x=g(t)$로 놓으면
+    $$\int f(x)\,dx=\int f(g(t))g'(t)\,dt$$
+- label: 다
+  body: |
+    함수 $f(x)$가 어떤 구간에서 미분가능하고, 이 구간의 모든 $x$에 대하여
+    • $f'(x)>0$이면 $f(x)$는 증가
+    • $f'(x)<0$이면 $f(x)$는 감소
+stem: |
+  [문제2] 다음 제시문을 읽고 질문에 답하시오. (45점)
+
+  실수 전체의 집합에서 연속이고 증가하는 함수 $f(x)$는 다음 조건을 만족시킨다.
+
+  (1) 모든 실수 $x$에 대하여 $f(x+2)=f(x)+2$
+  (2) $0\le x\le2$인 모든 $x$에 대하여 $f(x)+f(2-x)=2$
+  (3) $\displaystyle\int_0^1f(x)dx-\int_{-1}^0f(x)dx=\frac54$
+
+  함수 $g(x)$를 $g(x)=ae^x+b$라 하자. (단, $a,b$는 상수이고 $a>0$)
+subparts:
+- id: '1'
+  stem: |
+    [논제 1] 정적분 $\displaystyle\int_{-1}^4f^{-1}(x)\,dx$의 값을 구하시오. (20점)
+  points: 20
+  depends_on: []
+  answer:
+    kind: value
+    value: 61/8
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: |
+      $f(k)=k$이므로 $\int_{-1}^4f+\int_{-1}^4f^{-1}=16-1=15$. $\int_{-1}^4f=\int_{-1}^0f+2\int_0^2f+4$, 원점대칭으로 $\int_0^1f=\frac58$, $\int_1^2f=\frac{11}8$, $\int_{-1}^4f=\frac{59}8$. 따라서 $15-\frac{59}8=\frac{61}8$.
+    steps:
+    - id: 1a
+      content: $f(k)=k$ → 직사각형 관계 $15$ → $\int_{-1}^4f=\frac{59}8$ → $\frac{61}8$
+      criteria:
+      - 1.M1
+      - 1.M2
+      - 1.M3
+      - 1.A1
+    hint_ladder:
+    - 조건 (1),(2)에 $x=0,1$을 대입해 $f(0),f(1),f(2)$를 구해 보자.
+    - $f$와 $f^{-1}$의 정적분의 합은 어떤 도형의 넓이인가?
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 2023 선행학습 영향평가 보고서 R23.pdf p.103 예시답안 [논제 1]
+    steps:
+    - id: 1b-1
+      content: |
+        $x=0$일 때 조건 (1)에서 $f(2)=f(0)+2$이고 조건 (2)에서 $f(0)+f(2)=2$이므로 $f(0)=0$, $f(2)=2$이다. 또, $x=1$일 때 조건 (2)에서 $f(1)=1$이다. 따라서 조건 (1)에서 모든 정수 $k$에 대하여 $f(k)=k$이다. $f(x)$가 역함수를 가지므로 $f^{-1}(-1)=-1$이고 $f^{-1}(4)=4$이다. 따라서 $\displaystyle\int_{-1}^4f(x)dx+\int_{-1}^4f^{-1}(x)dx=16-1=15$이므로 $\displaystyle\int_{-1}^4f^{-1}(x)dx=15-\int_{-1}^4f(x)dx$이다.
+      criteria:
+      - 1.M1
+    - id: 1b-2
+      content: |
+        그러므로 $\displaystyle\int_{-1}^4f(x)dx$의 값을 구하면 된다. 조건 (1)에서 $\displaystyle\int_2^4f(x)dx=\int_0^2f(x+2)dx=\int_0^2\{f(x)+2\}dx=\int_0^2f(x)dx+4$이므로
+        $\displaystyle\int_{-1}^4f(x)dx=\int_{-1}^0f(x)dx+2\int_0^2f(x)dx+4\ \cdots(\star)$이다.
+      criteria:
+      - 1.M2
+    - id: 1b-3
+      content: |
+        한편, 조건 (1)에서 $f(2-x)=f(-x)+2$이고 조건 (2)에서 $0\le x\le2$일 때 $f(2-x)=2-f(x)$이므로 $-2\le x\le2$일 때 $f(x)+f(-x)=0$, 즉 원점에 대칭이다. 따라서 $\displaystyle\int_{-1}^1f(x)dx=0$이고 조건 (3)에서 $\displaystyle\int_0^1f(x)dx=-\int_{-1}^0f(x)dx=\dfrac58\ \cdots(\star\star)$이다.
+      criteria:
+      - 1.M3
+    - id: 1b-4
+      content: |
+        또한, 조건 (1)에서 $\displaystyle\int_1^2f(x)dx=\int_{-1}^0f(x+2)dx=\int_{-1}^0\{f(x)+2\}dx=-\dfrac58+2=\dfrac{11}8$이다.
+      criteria:
+      - 1.M3
+    - id: 1b-5
+      content: |
+        그러므로 $(\star)$과 $(\star\star)$에서 $\displaystyle\int_{-1}^4f(x)dx=-\dfrac58+2\left(\dfrac58+\dfrac{11}8\right)+4=\dfrac{59}8$이다. 따라서 $\displaystyle\int_{-1}^4f^{-1}(x)dx=15-\dfrac{59}8=\dfrac{61}8$이다.
+      criteria:
+      - 1.A1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 7
+      evidence: |
+        $f(k)=k$를 보이고 $\int f$와 $\int f^{-1}$의 관계($\int_{-1}^4f+\int_{-1}^4f^{-1}=15$)를 제시했다(공식 채점기준 20점 중 7점).
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 1b-1
+      - 1a
+    - id: 1.M2
+      mark_type: M
+      points: 4
+      evidence: |
+        $\int_2^4f(x)dx=\int_0^2f(x)dx+4$를 제시했다(공식 4점).
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 1b-2
+      - 1a
+    - id: 1.M3
+      mark_type: M
+      points: 4
+      evidence: |
+        원점대칭으로 $\int_0^1f(x)dx=\frac58$을 제시했다(공식 4점).
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 1b-3
+      - 1b-4
+      - 1a
+    - id: 1.A1
+      mark_type: A
+      points: 5
+      evidence: |
+        $\int_{-1}^4f=\frac{59}8$을 구해 $\int_{-1}^4f^{-1}=\frac{61}8$을 얻었다(공식 5점).
+      depends_on:
+      - 1.M1
+      - 1.M2
+      - 1.M3
+      steps:
+      - 1b-5
+      - 1a
+    deductions: []
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+- id: '2'
+  stem: |
+    [논제 2] $g(t)\ne0$인 각각의 실수 $t$마다 다음 조건을 만족시키는 점 $\mathrm{P}$가 단 하나씩 존재할 때 실수 $b$의 최솟값을 구하시오. (25점)
+
+    [조건] 곡선 $y=g(x)$와 중심이 $(t,0)$인 어떤 원 $O$가 점 $\mathrm{P}$에서 만나고
+    점 $\mathrm{P}$에서 곡선 $y=g(x)$와 원 $O$는 동시에 접하는 접선을 갖는다.
+
+    [그림: 지수함수 모양의 곡선 $y=g(x)$와 중심 $(t,0)$인 원 $O$가 점 $\mathrm P$에서 접하며, $\mathrm P$에서의 공통 접선(빨간 직선)이 그려져 있다.]
+  points: 25
+  depends_on: []
+  answer:
+    kind: value
+    value: -2*sqrt(2)
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: |
+      $\mathrm P(u,g(u))$에서 법선이 $(t,0)$을 지나므로 $t=u+g(u)g'(u)=u+ae^u(ae^u+b)=:h(u)$. $t$마다 $u$가 하나이려면 $h$가 일대일대응이어야 하므로 $h'(u)=1+2a^2e^{2u}+abe^u\ge0$. $b<0$이면 $h'=1+2\left(ae^u+\frac b4\right)^2-\frac{b^2}8\ge0\iff b\ge-2\sqrt2$.
+    steps:
+    - id: 2a
+      content: $t=h(u)$, $h'\ge0$ → $b\ge-2\sqrt2$, 최솟값 $-2\sqrt2$
+      criteria:
+      - 2.M1
+      - 2.M2
+      - 2.A1
+    hint_ladder:
+    - 공통접선에 수직인 직선(법선)은 원의 중심을 지난다.
+    - $t$마다 $u$가 하나라는 것은 $h$가 일대일대응이라는 뜻이다.
+  - id: S2-B
+    audience: B
+    method_no: 1
+    source_flow: 2023 선행학습 영향평가 보고서 R23.pdf p.103~104 예시답안 [논제 2]
+    steps:
+    - id: 2b-1
+      content: |
+        점 $\mathrm P(u,g(u))$에서 원 $O$의 접선이 점 $\mathrm P(u,g(u))$에서 곡선 $y=g(x)$의 접선과 일치하므로 접선의 방정식은 $y-g(u)=g'(u)(x-u)$이다. 또한 점 $\mathrm P$를 지나고 접선에 수직인 직선이 원 $O$의 중심 $(t,0)$을 지나므로 $0=-\dfrac1{g'(u)}(t-u)+g(u)$이고, $g(x)=ae^x+b$이므로 이를 정리하면 $u+ae^u(ae^u+b)=t$이다.
+      criteria:
+      - 2.M1
+    - id: 2b-2
+      content: |
+        문제에서 요구하는 $b$의 최솟값을 구하기 위하여 $h(u)=u+ae^u(ae^u+b)$가 실수 전체의 집합에서 실수 전체의 집합으로 가는 일대일대응이 되도록 하는 $b$를 모두 찾으면 충분하다. 먼저 $\displaystyle\lim_{u\to\infty}h(u)=\infty$, $\displaystyle\lim_{u\to-\infty}h(u)=-\infty$이고 $h(u)$는 연속함수이므로 $g(t)\ne0$인 각각의 $t$에 대하여 방정식 $h(u)=t$가 하나 이상의 해를 가진다. 또한, $h(u)$는 상수인 구간이 없으므로 $h(u)$가 일대일함수이기 위한 필요충분조건은 $h'(u)\ge0$이다.
+      criteria:
+      - 2.M2
+    - id: 2b-3
+      content: |
+        $h'(u)=1+2a^2e^{2u}+abe^u$이므로 $h'(u)\ge0$이기 위해서는
+        1) $b\ge0$일 때는 모든 실수 $u$에 대하여 $h'(u)\ge0$,
+        2) $b<0$일 때는 $h'(u)=1+2\left(ae^u+\dfrac b4\right)^2-\dfrac{b^2}8$에서 $b\ge-2\sqrt2$는 $h'(u)\ge0$이기 위한 필요충분조건이다.
+        그러므로 $b$의 최솟값은 $-2\sqrt2$이다.
+      criteria:
+      - 2.A1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 10
+      evidence: |
+        점 $\mathrm P$의 $x$좌표 $u$와 $t$의 관계식 $u+ae^u(ae^u+b)=t$를 제시했다(공식 채점기준 25점 중 10점).
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 2b-1
+      - 2a
+    - id: 2.M2
+      mark_type: M
+      points: 10
+      evidence: |
+        $h(u)$가 일대일대응이기 위한 조건 $h'(u)\ge0$을 제시했다(공식 10점).
+      depends_on:
+      - 2.M1
+      implied_ok: false
+      steps:
+      - 2b-2
+      - 2a
+    - id: 2.A1
+      mark_type: A
+      points: 5
+      evidence: |
+        $h'(u)\ge0$을 풀어 $b$의 최솟값 $-2\sqrt2$를 구했다(공식 5점).
+      depends_on:
+      - 2.M2
+      steps:
+      - 2b-3
+      - 2a
+    deductions: []
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: p3-past-v1
+  item_version: 1
+  verdict: pass
+  date: '2026-11-22'
+created: '2026-11-22'
+updated: '2026-11-22'

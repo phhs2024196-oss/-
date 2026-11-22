@@ -1,0 +1,471 @@
+# 단국대학교 2023학년도 논술 자연계열(오전) [문제 1] — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: DKU-G23A-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: DKU
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 분류
+points: 55
+time_estimate_min: 65
+intent: |
+  구간별로 다르게 정의된 연속함수의 상황을 이해하고 그래프를 활용해 최댓값·최솟값을 판정할 수 있는지(논제 1), 조건을 해석해 그래프의 모양을 파악할 수 있는지(논제 2), 치환적분·부분적분과 급수의 합을 이해하고 있는지(논제 3)를 본다. 연속함수 $f$가 세 식 $3,\ -3,\ \frac12x(x-a)(x+a)$ 중 하나의 값을 가진다는 조건에서 출발해 $f$의 그래프의 가능한 형태를 정하고 양 끝의 극한, 접점, 미분가능성을 따진다.
+key_idea: |
+  $f(x)\in\{3,-3,f_0(x)\}$ ($f_0=\frac12x(x-a)(x+a)$). 1은 $f_0$의 극댓값 $\frac{\sqrt3}9a^3$가 최댓값, 최솟값 $-3$이므로 $\frac{\sqrt3}9a^3-3=24$. 2는 $g(k)$의 양 끝 극한 분류로 $\lim_{x\to-\infty}f=-3$, (4)로 $f_0(-3)=-3\Rightarrow a=\sqrt7$, $f(-2a)+f(-\frac a2)+f(2a)=-3+3+21\sqrt7$. 3은 $x=t^4$ 치환과 부분적분으로 $a_n=-n(-1)^n-1$, 등비급수 $\frac2{15}$.
+stuck: 1에서 세 식 중 연속이 되도록 고르는 경우의 수를 줄이는 것(실근 1개 + 최대·최소의 합이 양수), 2에서 $g(k)$의 두 극한을 $f$의 양 끝 극한으로 분류하는 것, 3에서 $x=t^4$ 치환 후 $\int t\sin t\,dt$
+idea_tags:
+- IDEA-PIECEWISE-BRANCH-CONTINUITY
+- IDEA-LINE-INTERSECTION-END-LIMITS
+- IDEA-SUBSTITUTION-FOURTH-ROOT
+tags:
+- 연속함수
+- 삼차함수의 극값
+- 그래프의 개형
+- 교점의 개수
+- 치환적분
+- 부분적분
+- 등비급수
+elements:
+  materials:
+  - $(f(x)-3)(f(x)+3)(2f(x)-x^3+a^2x)=0$을 만족시키는 실수 전체에서 연속인 $f$
+  - 직선 $y=a^2(x-k)$와 $y=f(x)$의 교점의 개수 $g(k)$
+  - $a_n=\frac1{4\pi}\int_{\pi^4}^{n^4\pi^4}\frac{\sin\sqrt[4]x}{\sqrt x}dx$, $\sum\frac{2^{a_{2n}}}{2^{a_{2n-1}}}$
+  concepts:
+  - 연속함수
+  - 삼차함수의 극값
+  - 그래프의 개형
+  - 극한과 교점의 개수
+  - 치환적분법
+  - 부분적분법
+  - 등비급수
+  tools:
+  - $f_0(x)=\frac12x(x-a)(x+a)$의 극댓값 $f_0\left(-\frac a{\sqrt3}\right)=\frac{\sqrt3}9a^3$
+  - $g(k)$의 $k\to\pm\infty$ 극한 표
+  - $x=t^4$ 치환, $\int x\sin x\,dx=-x\cos x+\sin x$
+  - 등비급수의 합 $\frac{a}{1-r}$
+  conditions:
+  - $f$는 실수 전체에서 연속
+  - $f(x)=0$의 실근이 $1$개, 최댓값과 최솟값의 합이 $24$(논제 1)
+  - $\lim g(k)$ 차 $=2$, $g(-a)=3$, 열린구간 $(0,a)$에서 $f(t)+f(-t)<0$, 미분불가점 중 최소 $x=-3$(논제 2)
+  stimuli_used:
+  - 가
+  - 나
+  - 다
+  - 라
+  subpart_links: null
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학Ⅱ
+  - 미적분
+  scope_2028: calc2
+  scope_confirmed: false
+  standards:
+  - code: 12수학Ⅱ02-08
+    text: 함수의 증가와 감소, 극대와 극소를 판정하고 설명할 수 있다.
+    verified: true
+  - code: 12수학Ⅱ02-09
+    text: 함수의 그래프의 개형을 그릴 수 있다.
+    verified: true
+  - code: 12수학Ⅱ01-04
+    text: 연속함수의 성질을 이해하고, 이를 활용할 수 있다.
+    verified: true
+  - code: 12수학Ⅱ02-06
+    text: 접선의 방정식을 구할 수 있다.
+    verified: true
+  - code: 12미적02-07
+    text: 합성함수를 미분할 수 있다.
+    verified: true
+  - code: 12미적02-13
+    text: 방정식과 부등식에 대한 문제를 해결할 수 있다.
+    verified: true
+  - code: 12미적01-05
+    text: 등비급수의 뜻을 알고, 그 합을 구할 수 있다.
+    verified: true
+  - code: 12미적03-01
+    text: 치환적분법을 이해하고, 이를 활용할 수 있다.
+    verified: true
+  - code: 12미적03-02
+    text: 부분적분법을 이해하고, 이를 활용할 수 있다.
+    verified: true
+  content_area: 연속함수의 그래프·삼차함수·치환/부분적분과 등비급수
+  behavior_domain: 문제해결
+  unit_path:
+  - 수학Ⅱ
+  - 미분
+  - 도함수의 활용
+  - 함수의 극대와 극소
+  key_concepts:
+  - 연속함수
+  - 삼차함수의 극값
+  - 그래프의 개형
+  - 극한과 교점의 개수
+  - 치환적분법
+  - 부분적분법
+  - 등비급수
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 단국대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 단국대학교
+  admission_year: 2023
+  admission_type: 수시 논술
+  track: 자연계열(오전)
+  question_no: 1
+  official_url: https://ipsi.dankook.ac.kr/jukjeon/doumi/previous_list.html?bbsid=juk_sunhang&mode=view&bltn_seq=42489
+  retrieved_at: '2026-11-22'
+  original_points:
+  - 15
+  - 20
+  - 20
+  rights_notice: 단국대학교 입학처 공개 자료(내부 분석용)
+  transcribed_from: 'R23.pdf 문항카드 7 p.78~84 (오전 문제1: 문제 p.78~79, 성취기준 p.79~81, 채점기준 p.82, 예시답안 p.83~84) (이미지 대조 2026-11-22)'
+verify: verify/DKU-G23A.py::p01
+stimuli:
+- label: 가
+  body: |
+    미분가능한 함수 $f(x)$에 대하여 $f'(a)=0$이고, $x=a$의 좌우에서
+    • $f'(x)$의 부호가 양에서 음으로 바뀌면 $f(x)$는 $x=a$에서 극대
+    • $f'(x)$의 부호가 음에서 양으로 바뀌면 $f(x)$는 $x=a$에서 극소
+- label: 나
+  body: |
+    등비급수 $\displaystyle\sum_{n=1}^{\infty}ar^{n-1}=a+ar+ar^2+\cdots+ar^{n-1}+\cdots\ (a\ne0)$은
+    $\lvert r\rvert<1$일 때 수렴하고, 그 합은 $\dfrac{a}{1-r}$
+- label: 다
+  body: |
+    미분가능한 함수 $t=g(x)$의 도함수 $g'(x)$가 닫힌구간 $[a,b]$에서 연속이고,
+    $g(a)=\alpha$, $g(b)=\beta$에 대하여 함수 $f(t)$가 $\alpha$와 $\beta$를 양 끝으로 하는 닫힌구간에서 연속일 때
+    $$\int_a^bf(g(x))g'(x)\,dx=\int_\alpha^\beta f(t)\,dt$$
+- label: 라
+  body: |
+    미분가능한 두 함수 $f(x)$, $g(x)$에 대하여
+    $$\int f(x)g'(x)\,dx=f(x)g(x)-\int f'(x)g(x)\,dx$$
+stem: |
+  [문제1] 다음 제시문을 읽고 질문에 답하시오. (55점)
+
+  [논제 1]과 [논제 2]에서 함수 $f(x)$는 실수 전체의 집합에서 연속이고 다음 조건을 만족시킨다.
+
+  모든 실수 $x$에 대하여 $(f(x)-3)(f(x)+3)(2f(x)-x^3+a^2x)=0$ (단, $a>0$는 상수)
+subparts:
+- id: '1'
+  stem: |
+    [논제 1] 방정식 $f(x)=0$의 실근이 $1$개이고 함수 $f(x)$의 최댓값과 최솟값의 합이 $24$일 때, $a$의 값을 구하시오. (15점)
+  points: 15
+  depends_on: []
+  answer:
+    kind: value
+    value: 3*sqrt(3)
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: |
+      $f(x)\in\{3,-3,f_0(x)\}$, $f_0=\frac12x(x-a)(x+a)$의 극댓값 $\frac{\sqrt3}9a^3$. 실근 1개, 최대+최소$>0$이면 최댓값은 $f_0$의 극댓값, 최솟값 $-3$: $\frac{\sqrt3}9a^3-3=24$, $a=3\sqrt3$.
+    steps:
+    - id: 1a
+      content: 최댓값 $=\frac{\sqrt3}9a^3$, 최솟값 $=-3$ → $a=3\sqrt3$
+      criteria:
+      - 1.M1
+      - 1.A1
+    hint_ladder:
+    - 각 $x$에서 $f(x)$가 될 수 있는 세 값을 식으로 써 보자.
+    - $f_0$의 극댓값은 어디에서 생기는가?
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 2023 선행학습 영향평가 보고서 R23.pdf p.83 예시답안 [논제 1]
+    steps:
+    - id: 1b-1
+      content: |
+        조건 $(f(x)-3)(f(x)+3)(2f(x)-x^3+a^2x)=0$에서 각각의 실수 $x$에 대하여 $f(x)=3$ 또는 $f(x)=-3$ 또는 $f(x)=\dfrac12x(x-a)(x+a)$이다. $f_0(x)=\dfrac12x(x-a)(x+a)$라 하자.
+      criteria:
+      - 1.M1
+    - id: 1b-2
+      content: |
+        함수 $f(x)$의 그래프가 $x$축과 만나는 점이 $1$개이고 함수 $f(x)$의 최댓값과 최솟값의 합이 양수이므로
+        1) $\displaystyle\lim_{x\to-\infty}f(x)=-3$, $\displaystyle\lim_{x\to\infty}f(x)=3$이고 $f_0(x)$의 극댓값이 $3$보다 크거나
+        2) $\displaystyle\lim_{x\to-\infty}f(x)=3$, $\displaystyle\lim_{x\to\infty}f(x)=-3$이고 $f_0(x)$의 극댓값이 $3$보다 커야 한다.
+      criteria:
+      - 1.M1
+    - id: 1b-3
+      content: |
+        $f_0(x)$는 극댓값 $f_0\!\left(-\dfrac a{\sqrt3}\right)=\dfrac{\sqrt3}9a^3$을 갖고 위의 1)과 2)에 의하여 함수 $f(x)$의 최댓값은 $f_0(x)$의 극댓값인 $\dfrac{\sqrt3}9a^3$이다. 이때 함수 $f(x)$의 최솟값은 $-3$이므로 $\dfrac{\sqrt3}9a^3+(-3)=24$이고, $a=3\sqrt3$이다.
+      criteria:
+      - 1.A1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 8
+      evidence: |
+        $f(x)\in\{3,-3,f_0(x)\}$로 $f(x)$의 그래프(식)의 가능한 형태를 제시했다(공식 채점기준 15점 중 8점).
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 1b-1
+      - 1b-2
+      - 1a
+    - id: 1.A1
+      mark_type: A
+      points: 7
+      evidence: |
+        최댓값 $\frac{\sqrt3}9a^3$, 최솟값 $-3$으로 $a=3\sqrt3$을 구했다(공식 7점).
+      depends_on:
+      - 1.M1
+      steps:
+      - 1b-3
+      - 1a
+    deductions: []
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+- id: '2'
+  stem: |
+    [논제 2] 실수 $k$에 대하여 직선 $y=a^2(x-k)$와 함수 $f(x)$의 그래프가 만나는 서로 다른 점의 개수를 $g(k)$라 하자. 함수 $f(x)$가 다음 조건을 만족시킬 때,
+    $f(-2a)+f\left(-\dfrac a2\right)+f(2a)$의 값을 구하시오. (20점)
+
+    (1) $\displaystyle\lim_{k\to-\infty}g(k)-\lim_{k\to\infty}g(k)=2$
+    (2) $g(-a)=3$
+    (3) $f(t)+f(-t)<0$인 실수 $t$가 열린구간 $(0,a)$에 존재한다.
+    (4) $f(x)$가 미분가능하지 않은 모든 점의 $x$좌표 중 가장 작은 값은 $-3$
+  points: 20
+  depends_on: []
+  answer:
+    kind: value
+    value: 21*sqrt(7)
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: |
+      $g(k)$의 양 끝 극한과 조건 (1),(2)로 $\lim_{x\to-\infty}f=-3$, $\lim_{x\to\infty}f=\infty$. (4): $f_0(-3)=-3\Rightarrow a=\sqrt7$. $f(-2a)=-3$, $f\left(-\frac a2\right)=3$, $f(2a)=21\sqrt7$, 합 $21\sqrt7$.
+    steps:
+    - id: 2a
+      content: $f$의 좌우 극한 분류 → $a=\sqrt7$ → $f(x)$ 구간별 → $21\sqrt7$
+      criteria:
+      - 2.M1
+      - 2.A1
+      - 2.A2
+    hint_ladder:
+    - $f$의 양 끝 극한이 $\pm3$인지 $\pm\infty$인지에 따라 $\lim g(k)$를 따져 보자.
+    - $f$가 미분가능하지 않은 점은 상수 구간과 $f_0$가 만나는 곳이다.
+  - id: S2-B
+    audience: B
+    method_no: 1
+    source_flow: 2023 선행학습 영향평가 보고서 R23.pdf p.83~84 예시답안 [논제 2]
+    steps:
+    - id: 2b-1
+      content: |
+        함수 $f(x)$에 따른 $g(k)$의 값을 살펴보면,
+        1) $\displaystyle\lim_{x\to-\infty}f(x)=-\infty$, $\displaystyle\lim_{x\to\infty}f(x)=\infty$일 때 : $\displaystyle\lim_{k\to-\infty}g(k)=\lim_{k\to\infty}g(k)=1$
+        2) $\displaystyle\lim_{x\to-\infty}f(x)=-\infty$, $\displaystyle\lim_{x\to\infty}f(x)=\pm3$일 때 : $\displaystyle\lim_{k\to-\infty}g(k)=0$, $\displaystyle\lim_{k\to\infty}g(k)=2$
+        3) $\displaystyle\lim_{x\to-\infty}f(x)=\pm3$, $\displaystyle\lim_{x\to\infty}f(x)=\pm3$일 때 : $\displaystyle\lim_{k\to-\infty}g(k)=\lim_{k\to\infty}g(k)=1$
+        4) $\displaystyle\lim_{x\to-\infty}f(x)=\pm3$, $\displaystyle\lim_{x\to\infty}f(x)=\infty$일 때 : $\displaystyle\lim_{k\to-\infty}g(k)=2$, $\displaystyle\lim_{k\to\infty}g(k)=0$
+        조건 (1)에 의해 가능한 경우는 위의 4)뿐이다.
+      criteria:
+      - 2.M1
+    - id: 2b-2
+      content: |
+        $\displaystyle\lim_{x\to-\infty}f(x)=3$인 경우 $g(-a)=2$, $\displaystyle\lim_{x\to-\infty}f(x)=-3$인 경우 $g(-a)=3$이므로 조건 (2)에 의해 $\displaystyle\lim_{x\to-\infty}f(x)=-3$이다. 위의 사실과 조건 (3)에 의해 함수 $f(x)$의 그래프는 $x\to-\infty$에서 직선 $y=-3$을 따르다가 $y=\dfrac12x(x-a)(x+a)$ 곡선으로 이어지고, 중간에 $y=3$인 구간을 거친 뒤 다시 곡선을 따라 증가하는 모양이다.
+      criteria:
+      - 2.M1
+    - id: 2b-3
+      content: |
+        조건 (4)로부터 점 $(-3,-3)$은 직선 $y=-3$과 곡선 $y=\dfrac12x(x-a)(x+a)$의 교점이다. $-3=\dfrac12(-3)(-3-a)(-3+a)$로부터 $a=\sqrt7$이다.
+      criteria:
+      - 2.A1
+    - id: 2b-4
+      content: |
+        따라서 $f(x)=\begin{cases}-3&(x<-3)\\\dfrac12x(x-\sqrt7)(x+\sqrt7)&(-3\le x<-2)\\3&(-2\le x<-1)\\\dfrac12x(x-\sqrt7)(x+\sqrt7)&(x\ge-1)\end{cases}$이다.
+      criteria:
+      - 2.M1
+    - id: 2b-5
+      content: |
+        이므로 $f(-2a)+f\!\left(-\dfrac a2\right)+f(2a)=21\sqrt7$이다.
+      criteria:
+      - 2.A2
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 5
+      evidence: |
+        $g(k)$의 극한 분류와 조건으로 $f(x)$의 그래프 또는 식의 구조를 제시했다(공식 채점기준 20점 중 5점).
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 2b-1
+      - 2b-2
+      - 2b-4
+      - 2a
+    - id: 2.A1
+      mark_type: A
+      points: 5
+      evidence: |
+        조건 (4)로 $a=\sqrt7$을 제시했다(공식 5점).
+      depends_on:
+      - 2.M1
+      steps:
+      - 2b-3
+      - 2a
+    - id: 2.A2
+      mark_type: A
+      points: 10
+      evidence: |
+        $f(-2a)+f\left(-\frac a2\right)+f(2a)=21\sqrt7$을 구했다(공식 10점).
+      depends_on:
+      - 2.M1
+      - 2.A1
+      steps:
+      - 2b-5
+      - 2a
+    deductions: []
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+- id: '3'
+  stem: |
+    [논제 3] 자연수 $n$에 대하여
+    $$a_n=\frac{1}{4\pi}\int_{\pi^4}^{n^4\pi^4}\frac{\sin\sqrt[4]{x}}{\sqrt{x}}\,dx$$
+    일 때, 급수 $\displaystyle\sum_{n=1}^{\infty}\frac{2^{a_{2n}}}{2^{a_{2n-1}}}$의 합을 구하시오. (20점)
+  points: 20
+  depends_on: []
+  answer:
+    kind: value
+    value: 2/15
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: |
+      $x=t^4$로 치환하면 $a_n=\frac1\pi\int_\pi^{n\pi}x\sin x\,dx=-n(-1)^n-1$. $a_{2n-1}=2n-2$, $a_{2n}=-2n-1$이므로 $\sum2^{-4n+1}=\frac{1/8}{1-1/16}=\frac2{15}$.
+    steps:
+    - id: 3a
+      content: $x=t^4$ 치환 + 부분적분 → $a_n=-n(-1)^n-1$ → 등비급수 $\frac2{15}$
+      criteria:
+      - 3.M1
+      - 3.M2
+      - 3.A1
+    hint_ladder:
+    - $\sqrt[4]x=t$로 치환하면 피적분함수는?
+    - $a_n$의 홀·짝 항을 따로 써 보자.
+  - id: S3-B
+    audience: B
+    method_no: 1
+    source_flow: 2023 선행학습 영향평가 보고서 R23.pdf p.84 예시답안 [논제 3]
+    steps:
+    - id: 3b-1
+      content: |
+        $x=t^4$이라고 하면 $\sin\sqrt[4]x=\sin t$, $\sqrt x=t^2$, $dx=4t^3dt$이다. 치환적분을 이용하면 $\displaystyle\int\frac{\sin\sqrt[4]x}{4\sqrt x}\,dx=\int t\sin t\,dt$이다.
+      criteria:
+      - 3.M1
+    - id: 3b-2
+      content: |
+        한편 부분적분을 이용하면 $\displaystyle\int x\sin x\,dx=-x\cos x+\sin x+C$ ($C$는 적분상수)이다.
+      criteria:
+      - 3.M2
+    - id: 3b-3
+      content: |
+        이므로 $a_n=\dfrac1{4\pi}\displaystyle\int_{\pi^4}^{n^4\pi^4}\frac{\sin\sqrt[4]u}{\sqrt u}\,du=\dfrac1\pi\int_\pi^{n\pi}x\sin x\,dx=\dfrac1\pi\Big[-x\cos x+\sin x\Big]_\pi^{n\pi}=-n(-1)^n-1$이다.
+      criteria:
+      - 3.M2
+    - id: 3b-4
+      content: |
+        따라서 $a_{2n-1}=2n-2$이고 $a_{2n}=-2n-1$이므로 $\dfrac{2^{a_{2n}}}{2^{a_{2n-1}}}=2^{-4n+1}$이다.
+      criteria:
+      - 3.A1
+    - id: 3b-5
+      content: |
+        $\displaystyle\sum_{n=1}^{\infty}\frac{2^{a_{2n}}}{2^{a_{2n-1}}}=\sum_{n=1}^{\infty}2^{-4n+1}=\sum_{n=1}^\infty\frac18\left(\frac1{16}\right)^{n-1}=\dfrac{\frac18}{1-\frac1{16}}=\dfrac2{15}$이다.
+      criteria:
+      - 3.A1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 7
+      evidence: |
+        $\int\frac{\sin\sqrt[4]x}{4\sqrt x}dx=\int t\sin t\,dt$를 제시했다(공식 채점기준 20점 중 7점).
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 3b-1
+      - 3a
+    - id: 3.M2
+      mark_type: M
+      points: 8
+      evidence: |
+        부분적분으로 $a_n=-n(-1)^n-1$을 제시했다(공식 8점).
+      depends_on:
+      - 3.M1
+      implied_ok: false
+      steps:
+      - 3b-2
+      - 3b-3
+      - 3a
+    - id: 3.A1
+      mark_type: A
+      points: 5
+      evidence: |
+        등비급수의 합 $\frac2{15}$를 구했다(공식 5점).
+      depends_on:
+      - 3.M2
+      steps:
+      - 3b-4
+      - 3b-5
+      - 3a
+    deductions: []
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: p3-past-v1
+  item_version: 1
+  verdict: pass
+  date: '2026-11-22'
+created: '2026-11-22'
+updated: '2026-11-22'

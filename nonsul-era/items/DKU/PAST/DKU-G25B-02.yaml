@@ -1,0 +1,309 @@
+# 단국대 2025학년도 논술 자연계열(오후) [문제 2] — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: DKU-G25B-02
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: DKU
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 분류
+points: 45
+time_estimate_min: 25
+intent: 삼각함수가 포함된 방정식의 해를 정적분을 이용해 구할 수 있는지, 정적분의 개념을 이해하여 삼각함수 문제에 활용할 수 있는지를 본다. $2(n-1)\le x<2n$에서 $f(x)=\sin(n\pi x)$인 구간별 정의 함수의 정적분 $\int_0^tf$가 특정 값이 되는 $t$의 최댓값과 $\int_0^kf=0$인 $k$의 개수가 $18$이 되는 $m$의 범위를 구한다.
+key_idea: 각 구간 $[2(n-1),2n)$에서 정적분 $\int_{2(n-1)}^{2n}\sin(n\pi x)dx=0$이므로 $\int_0^kf$는 그 구간에서 $\frac{1-\cos(n\pi k)}{n\pi}$로 쓰인다. [논제 1] $[4,6]$에서 $\cos3\pi t=\frac12$의 최대근. [논제 2] $0\le k<10$에서 근이 $1+2+3+4+5=15$개이므로 $10\le k\le m$에서 $3$개가 되어야 한다.
+stuck: '[논제 1]에서 $\int_0^4f=0$을 쓰고 $[4,6]$에서만 보면 되는 것, [논제 2]에서 구간 $[2(n-1),2n)$마다 근의 개수가 $n$임을 세고 $n=6$ 구간($10\le k<12$)의 근을 나열하는 것'
+idea_tags:
+- IDEA-PERIODIC-BLOCKS-ZERO-INTEGRAL
+- IDEA-COUNT-ROOTS-BY-INTERVAL
+tags:
+- 정적분
+- 삼각함수
+- 구간별 함수
+- 방정식의 근의 개수
+- 주기
+elements:
+  materials:
+  - $f(x)=\sin(n\pi x)$ ($2(n-1)\le x<2n$)
+  - $\int_0^tf(x)dx=\frac1{6\pi}$
+  - $\int_0^kf(x)dx=0$인 $k$의 개수 $18$
+  concepts:
+  - 정적분의 뜻
+  - 삼각함수의 주기
+  - 구간별 정의 함수
+  - 방정식의 해의 개수
+  tools:
+  - $\int_{2(n-1)}^{2n}\sin(n\pi x)dx=0$
+  - $\Big[-\frac1{3\pi}\cos(3\pi x)\Big]_4^t$
+  - 구간 $[2(n-1),2n)$의 근의 개수 $n$
+  conditions:
+  - $0\le t\le6$
+  - $0\le k\le m$
+  - $\int_0^kf(x)dx=0$인 실수 $k$의 개수가 $18$
+  stimuli_used:
+  - 가
+  - 나
+  subpart_links: null
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학Ⅰ
+  - 수학Ⅱ
+  - 미적분
+  scope_2028: calc2
+  scope_confirmed: false
+  standards:
+  - code: 12수학Ⅰ02-02
+    text: 삼각함수의 뜻을 알고, 사인함수, 코사인함수, 탄젠트함수의 그래프를 그릴 수 있다.
+    verified: true
+  - code: 12수학Ⅱ03-03
+    text: 정적분의 뜻을 안다.
+    verified: true
+  - code: 12미적03-03
+    text: 여러 가지 함수의 부정적분과 정적분을 구할 수 있다.
+    verified: true
+  content_area: 삼각함수·정적분
+  behavior_domain: 문제해결
+  unit_path:
+  - 수학Ⅱ
+  - 적분
+  - 정적분
+  key_concepts:
+  - 정적분의 뜻
+  - 삼각함수의 주기성
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 단국대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 단국대학교
+  admission_year: 2025
+  admission_type: 수시 논술
+  track: 자연계열(오후)
+  question_no: 2
+  official_url: https://ipsi.dankook.ac.kr/jukjeon/doumi/previous_list.html?bbsid=juk_sunhang&mode=view&bltn_seq=47700
+  retrieved_at: '2026-11-22'
+  original_points:
+  - 20
+  - 25
+  rights_notice: 단국대학교 입학처 공개 자료(내부 분석용)
+  transcribed_from: R25.pdf p.91~94 문항카드 10 (이미지 대조 2026-11-22; PDF 쪽번호)
+verify: verify/DKU-G25B.py::p02
+stimuli:
+- label: 가
+  body: |-
+    함수 $y=f(x)$의 정의역에 속하는 모든 $x$에 대하여
+    $$f(x+p)=f(x)$$
+    를 만족시키는 $0$이 아닌 상수 $p$가 존재할 때, 함수 $y=f(x)$를 주기함수라 하고 상수 $p$ 중에서 최소인 양수를 그 함수의 주기라고 한다.
+- label: 나
+  body: |-
+    함수 $f(x)$가 $a,b$를 포함하는 열린구간에서 연속이고, $f(x)$의 한 부정적분을 $F(x)$라 하면 $f(x)$의 $a$에서 $b$까지의 정적분은
+    $$\int_a^bf(x)\,dx=\Big[F(x)\Big]_a^b=F(b)-F(a)$$
+stem: |-
+  [문제 2] 다음 제시문을 읽고 질문에 답하시오. (45점)
+
+  자연수 $n$에 대하여 $2(n-1)\le x<2n$일 때
+  $$f(x)=\sin(n\pi x)$$
+  라 하자.
+subparts:
+- id: '1'
+  stem: '[논제 1] $\displaystyle\int_0^tf(x)\,dx=\dfrac1{6\pi}$을 만족시키는 실수 $t$의 최댓값을 구하시오. (단, $0\le t\le6$)'
+  points: 20
+  depends_on: []
+  answer:
+    kind: value
+    value: 53/9
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $\int_0^4f=0$이므로 $[4,6]$에서 $\int_4^t\sin3\pi x\,dx=\frac1{6\pi}$을 풀면 $\cos3\pi t=\frac12$.
+    steps:
+    - id: 1a
+      content: $[4,6]$에서 $t=\frac{37}9,\frac{41}9,\frac{43}9,\frac{47}9,\frac{49}9,\frac{53}9$ 중 최대 $\frac{53}9$
+      criteria:
+      - 1.M1
+      - 1.M2
+      - 1.A1
+    hint_ladder:
+    - 어느 구간에서 보면 되는가?
+    - $\cos3\pi t=\frac12$의 해는?
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: R25.pdf p.94 예시답안 [논제 1]
+    steps:
+    - id: 1b-1
+      content: 먼저 닫힌구간 $[4,6]$에서 주어진 조건을 만족하는 $t$를 찾아보자. $\displaystyle\int_0^4f(x)\,dx=0$이므로 $$\frac1{6\pi}=\int_0^tf(x)\,dx=\int_4^t\sin(3\pi x)\,dx=\Big[-\frac1{3\pi}\cos(3\pi x)\Big]_4^t$$ 이다.
+      criteria:
+      - 1.M1
+    - id: 1b-2
+      content: 즉 닫힌구간 $[4,6]$에서 $\cos3\pi t=\dfrac12$을 만족시키는 $t$의 값은 $\dfrac{37}9,\ \dfrac{41}9,\ \dfrac{43}9,\ \dfrac{47}9,\ \dfrac{49}9,\ \dfrac{53}9$이다.
+      criteria:
+      - 1.M2
+    - id: 1b-3
+      content: 그러므로 닫힌구간 $[0,6]$에서 주어진 조건을 만족시키는 $t$의 최댓값은 $\dfrac{53}9$이다.
+      criteria:
+      - 1.A1
+  # 채점기준 공식 공개 — R25.pdf p.93, 원 배점 분할 그대로
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 7
+      evidence: $\frac1{6\pi}=\Big[-\frac1{3\pi}\cos(3\pi x)\Big]_4^t$임을 제시했다.
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 1b-1
+      - 1a
+    - id: 1.M2
+      mark_type: M
+      points: 3
+      evidence: $\cos3\pi t=\frac12$임을 제시했다.
+      depends_on:
+      - 1.M1
+      implied_ok: false
+      steps:
+      - 1b-2
+      - 1a
+    - id: 1.A1
+      mark_type: A
+      points: 10
+      evidence: $t$의 최댓값 $\frac{53}9$를 제시했다.
+      depends_on:
+      - 1.M2
+      steps:
+      - 1b-3
+      - 1a
+    deductions: []
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+- id: '2'
+  stem: |-
+    [논제 2] 다음 조건을 만족시키는 실수 $m$의 값의 범위를 구하시오.
+
+    $0\le k\le m$이고 $\displaystyle\int_0^kf(x)\,dx=0$인 실수 $k$의 개수가 $18$이다.
+  points: 25
+  depends_on: []
+  answer:
+    kind: expression
+    value: 32/3 <= m < 11
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: $0\le k<10$에서 근은 $1+2+3+4+5=15$개이므로 $10\le k\le m$에서 $\int_{10}^k\sin6\pi x\,dx=0$인 $k$가 $3$개이어야 한다.
+    steps:
+    - id: 2a
+      content: $10\le k<12$의 근 $10,10+\frac13,10+\frac23,11,\dots$에서 $3$개이려면 $\frac{32}3\le m<11$
+      criteria:
+      - 2.M1
+      - 2.M2
+      - 2.A1
+    hint_ladder:
+    - 각 구간 $[2(n-1),2n)$의 근의 개수는?
+    - $n=6$ 구간의 근은?
+  - id: S2-B
+    audience: B
+    method_no: 1
+    source_flow: R25.pdf p.94 예시답안 [논제 2]
+    steps:
+    - id: 2b-1
+      content: $0\le k<2$이고 $\int_0^kf(x)dx=\int_0^k\sin(\pi x)dx=0$인 $k$의 개수는 $1$, $2\le k<4$이고 $\int_0^kf(x)dx=\int_2^k\sin(2\pi x)dx=0$인 $k$의 개수는 $2$, $4\le k<6$일 때 $\int_4^k\sin(3\pi x)dx=0$인 $k$의 개수는 $3$, $6\le k<8$일 때 $4$, $8\le k<10$일 때 $\int_8^k\sin(5\pi x)dx=0$인 $k$의 개수는 $5$이므로 구간 $0\le k<10$에서 $\int_0^kf(x)dx=0$인 실수 $k$의 개수는 $15$이다.
+      criteria:
+      - 2.M1
+    - id: 2b-2
+      content: 따라서 $10\le k\le m$일 때 $\displaystyle\int_0^kf(x)\,dx=\int_{10}^kf(x)\,dx=0$을 만족시키는 $k$의 개수가 $3$이어야 한다.
+      criteria:
+      - 2.M1
+    - id: 2b-3
+      content: $0=\displaystyle\int_{10}^kf(x)\,dx=\int_{10}^k\sin6\pi x\,dx=-\frac1{6\pi}\Big[\cos6\pi x\Big]_{10}^k$이므로 $10\le k<12$일 때 $\cos6\pi k=1$을 만족시키는 $k$의 값을 모두 구하면 $10,\ 10+\dfrac13,\ 10+\dfrac23,\ 11,\ 11+\dfrac13,\ 11+\dfrac23$이다.
+      criteria:
+      - 2.M2
+    - id: 2b-4
+      content: 따라서 구간 $10\le k\le m$인 $k$가 $3$개뿐이기 위한 $m$의 값의 범위는 $\dfrac{32}3\le m<11$이다.
+      criteria:
+      - 2.A1
+  # 채점기준 공식 공개 — R25.pdf p.93, 원 배점 분할 그대로
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 10
+      evidence: 구간 $0\le k<10$에서 $\int_0^kf(x)dx=0$인 실수 $k$의 개수가 $15$임을 제시했다.
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 2b-1
+      - 2b-2
+      - 2a
+    - id: 2.M2
+      mark_type: M
+      points: 5
+      evidence: $10\le k<12$일 때 $\cos6\pi k=1$임을 제시했다.
+      depends_on:
+      - 2.M1
+      implied_ok: false
+      steps:
+      - 2b-3
+      - 2a
+    - id: 2.A1
+      mark_type: A
+      points: 10
+      evidence: $m$의 값의 범위 $\frac{32}3\le m<11$을 제시했다.
+      depends_on:
+      - 2.M2
+      steps:
+      - 2b-4
+      - 2a
+    deductions: []
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: p3-past-v1
+  item_version: 1
+  verdict: pass
+  date: '2026-11-22'
+- stage: verify
+  actor_type: system
+  actor_id: verify/DKU-G25B.py
+  item_version: 1
+  verdict: pass
+  date: '2026-11-22'
+created: '2026-11-22'
+updated: '2026-11-22'

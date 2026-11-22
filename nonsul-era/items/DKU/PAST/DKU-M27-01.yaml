@@ -1,0 +1,407 @@
+# 단국대 2027학년도 모의논술 자연계열 [문제 1] — 기출·모의 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: DKU-M27-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: DKU
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 추론
+points: 55
+time_estimate_min: 50
+intent: 함수의 극한에 대한 성질을 이해하고 있는지, 정적분을 활용하여 곡선으로 둘러싸인 도형의 넓이를 구할 수 있는지, 함수의 극값과 도함수의 성질을 이해하고 있는지를 본다. 극한이 유한한 0 아닌 값이 되도록 차수를 비교해 $\alpha,\beta,\gamma$를 정하고, 접선과 삼차곡선이 만드는 도형의 넓이로 $p$를 구하며, 선분 길이의 제곱의 도함수가 $m=2$에서 $0$이 될 조건으로 $a$를 구한다.
+key_idea: 1은 극한이 $0$이 아닌 유한값 ⇒ 분자·분모 차수 일치. 2는 접선과 곡선의 교점 $x=-3$(중근), $3$과 $f-\ell=-(x+3)^2(x-3)\ge0$. 3은 $\{g(m)\}^2$을 미분해 $h'(2)=0$.
+stuck: '[논제 1]에서 두 극한에 나타난 $\beta$가 같다는 점을 이용해 $\alpha=3$, $\beta=6$을 순서대로 정하는 것, [논제 3]에서 $g(m)$ 대신 $\{g(m)\}^2$을 미분하고 최솟값 여부를 확인하는 것'
+idea_tags:
+- IDEA-DEGREE-COMPARE-LIMIT
+- IDEA-TANGENT-AREA
+- IDEA-SQUARE-DISTANCE-DERIVATIVE
+tags:
+- 극한
+- 접선
+- 넓이
+- 극값
+- 도함수
+elements:
+  materials:
+  - $f(x)=-x^3-3x^2$
+  - $\lim\frac{f(\beta x)}{(2x)^\alpha}=\lim\frac{f(-x)f(\alpha x)}{x^\beta}=\gamma$
+  - 접선과 곡선으로 둘러싸인 넓이 $S=\int_{-3}^3\{f-p\}dx$
+  - 기울기 $m$인 직선의 $x$절편·$y$절편 사이 거리 $g(m)$
+  concepts:
+  - 함수의 극한
+  - 다항함수의 극한(차수 비교)
+  - 접선의 방정식
+  - 정적분과 넓이
+  - 극값과 도함수
+  tools:
+  - 차수 비교
+  - $y-f(a)=f'(a)(x-a)$
+  - $f-\ell=-(x+3)^2(x-3)$
+  - $h=\{g(m)\}^2$, $h'(2)=0$
+  conditions:
+  - $\alpha,\beta,\gamma\ne0$
+  - $m>0$
+  - $a>0$
+  - $g(m)$이 $m=2$에서 최솟값
+  stimuli_used:
+  - 가
+  - 나
+  - 다
+  subpart_links: null
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학Ⅱ
+  scope_2028: common
+  scope_confirmed: false
+  standards:
+  - code: 12수학Ⅱ01-02
+    text: 함수의 극한에 대한 성질을 이해하고, 극한값을 구할 수 있다.
+    verified: false
+  - code: 12수학Ⅱ02-05
+    text: 접선의 방정식을 구할 수 있다.
+    verified: false
+  - code: 12수학Ⅱ03-06
+    text: 정적분을 활용하여 곡선으로 둘러싸인 도형의 넓이를 구할 수 있다.
+    verified: false
+  - code: 12수학Ⅱ02-07
+    text: 함수의 증가와 감소, 극대와 극소를 판정하고 설명할 수 있다.
+    verified: false
+  content_area: 다항함수의 극한·접선·미분
+  behavior_domain: 문제해결
+  unit_path:
+  - 수학Ⅱ
+  - 미분
+  - 접선의 방정식
+  key_concepts:
+  - 극한
+  - 접선
+  - 넓이
+  - 최솟값
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 단국대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 단국대학교
+  admission_year: 2027
+  admission_type: 수시 모의논술
+  track: 자연계열
+  question_no: 1
+  official_url: https://ipsi.dankook.ac.kr/jukjeon/doumi/nonsul_list.html?bbsid=juk_pds09&mode=view&bltn_seq=51777
+  retrieved_at: '2026-11-22'
+  original_points:
+  - 15
+  - 20
+  - 20
+  rights_notice: 단국대학교 입학처 공개 자료(내부 분석용)
+  transcribed_from: M27_Q.pdf p.2, 해설 근거 M27_S.pdf p.2~3 (이미지 대조 2026-11-22)
+verify: verify/DKU-M27.py::p01
+stimuli:
+- label: 가
+  body: |
+    함수 $f(x)$가 $x=a$에서 미분가능할 때, 곡선 $y=f(x)$ 위의 점 $\mathrm{P}(a,f(a))$에서의 접선의 방정식은
+    $$y-f(a)=f'(a)(x-a)$$
+- label: 나
+  body: |
+    두 함수 $f(x)$, $g(x)$가 닫힌구간 $[a,b]$에서 연속일 때, 두 곡선 $y=f(x)$, $y=g(x)$ 및 두 직선 $x=a$, $x=b$로 둘러싸인 도형의 넓이 $S$는
+    $$S=\int_a^b\lvert f(x)-g(x)\rvert\,dx$$
+- label: 다
+  body: 미분가능한 함수 $f(x)$가 $x=a$에서 극값을 가지면 $f'(a)=0$이다.
+stem: |
+  [문제 1] 다음 제시문을 읽고 질문에 답하시오. (55점)
+
+  삼차함수 $f(x)=-x^3-3x^2$에 대하여 다음 물음에 답하시오.
+subparts:
+- id: '1'
+  stem: |
+    [논제 1] 다음을 만족시키는 $0$이 아닌 실수 $\alpha$, $\beta$, $\gamma$의 값을 구하시오.
+    $$\lim_{x\to\infty}\frac{f(\beta x)}{(2x)^{\alpha}}=\lim_{x\to\infty}\frac{f(-x)f(\alpha x)}{x^{\beta}}=\gamma$$
+  points: 15
+  depends_on: []
+  answer:
+    kind: value
+    value: '[3, 6, -27]'
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: 분자가 $3$차식이고 극한이 $0$이 아니므로 분모도 $3$차, $\alpha=3$. $f(-x)f(3x)$는 $6$차이므로 $\beta=6$, $\gamma=\lim\frac{f(6x)}{(2x)^3}=-27$.
+    steps:
+    - id: 1a
+      content: $\alpha=3$ (분자 $3$차), $\beta=6$ ($f(-x)f(\alpha x)$가 $6$차), $\gamma=\frac{-216}{8}=-27$
+      criteria:
+      - 1.M1
+      - 1.M2
+      - 1.A1
+    hint_ladder:
+    - 극한값이 $0$이 아닌 유한값이면 분자·분모의 차수는?
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: M27_S.pdf p.3 예시답안 [논제 1]
+    steps:
+    - id: 1b-1
+      content: $\displaystyle\lim_{x\to\infty}\frac{f(\beta x)}{(2x)^\alpha}=\gamma\ne0$에서 분자가 $3$차식이므로 분모도 $3$차식이다. 따라서 $\alpha=3$이다.
+      criteria:
+      - 1.M1
+    - id: 1b-2
+      content: 마찬가지로 $\displaystyle\lim_{x\to\infty}\frac{f(-x)f(\alpha x)}{x^\beta}=\gamma\ne0$에서 분자 $f(-x)f(3x)$가 $6$차식이므로 $\beta=6$이다.
+      criteria:
+      - 1.M2
+    - id: 1b-3
+      content: $\gamma=\displaystyle\lim_{x\to\infty}\frac{f(6x)}{(2x)^3}=\lim_{x\to\infty}\frac{-216x^3-108x^2}{8x^3}=-27$이다.
+      criteria:
+      - 1.A1
+  # 채점기준 미공개 — 단계별 추정
+  rubric:
+    rules: &id001
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 5
+      evidence: 극한값이 $0$이 아닌 유한값임을 이용해 차수를 비교하여 $\alpha=3$을 구했다.
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 1b-1
+      - 1a
+    - id: 1.M2
+      mark_type: M
+      points: 5
+      evidence: $f(-x)f(\alpha x)$가 $6$차식임을 이용해 $\beta=6$을 구했다.
+      depends_on:
+      - 1.M1
+      implied_ok: false
+      steps:
+      - 1b-2
+      - 1a
+    - id: 1.A1
+      mark_type: A
+      points: 5
+      evidence: $\gamma=-27$을 제시했다.
+      depends_on:
+      - 1.M1
+      - 1.M2
+      steps:
+      - 1b-3
+      - 1a
+    deductions: []
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+- id: '2'
+  stem: |
+    [논제 2] 곡선 $y=f(x)$ 위의 점 $\mathrm{P}(-3,f(-3))$에서의 접선과 곡선 $y=f(x)$로 둘러싸인 도형의 넓이를 $S$라 할 때,
+    $$S=\int_{-3}^{3}\{f(x)-p\}\,dx$$
+    를 만족한다. 상수 $p$의 값을 구하시오.
+  points: 20
+  depends_on: []
+  answer:
+    kind: value
+    value: '-27'
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: $f'(-3)=-9$, 접선 $y=-9x-27$, 교점 $x=-3,3$이고 $[-3,3]$에서 $f-\ell=-(x+3)^2(x-3)\ge0$이므로 $S=\int(f-\ell)$. $\int_{-3}^3(-p)dx=\int_{-3}^3(9x+27)dx$에서 $p=-27$.
+    steps:
+    - id: 2a
+      content: 접선 $y=-9x-27$, $f-\ell=-(x+3)^2(x-3)\ge0$, $\int_{-3}^3(-p)\,dx=\int_{-3}^3 27\,dx\Rightarrow p=-27$
+      criteria:
+      - 2.M1
+      - 2.M2
+      - 2.A1
+    hint_ladder:
+    - 접선의 방정식은?
+    - $[-3,3]$에서 $f(x)-\ell(x)$의 부호는?
+  - id: S2-B
+    audience: B
+    method_no: 1
+    source_flow: M27_S.pdf p.3 예시답안 [논제 2]
+    steps:
+    - id: 2b-1
+      content: $f'(-3)=-9$이므로 곡선 $y=f(x)$ 위의 점 $\mathrm{P}$에서의 접선 $y=\ell(x)$는 $y=-9(x+3)+f(-3)=-9x-27$이다.
+      criteria:
+      - 2.M1
+    - id: 2b-2
+      content: |
+        직선 $y=\ell(x)$와 곡선 $y=f(x)$의 교점의 $x$좌표는 $-x^3-3x^2=-9x-27$에서 $x=-3,\ x=3$이다. 모든 $x\in[-3,3]$에 대하여 $f(x)-\ell(x)=-x^3-3x^2+9x+27=-(x+3)^2(x-3)\ge0$이므로
+        $$S=\int_{-3}^3\{f(x)-\ell(x)\}\,dx=\int_{-3}^3\{f(x)-p\}\,dx$$
+      criteria:
+      - 2.M2
+    - id: 2b-3
+      content: 따라서 $\displaystyle\int_{-3}^3(-p)\,dx=\int_{-3}^3(9x+27)\,dx=\int_{-3}^3 27\,dx$에서 $p=-27$이다.
+      criteria:
+      - 2.A1
+  # 채점기준 미공개 — 단계별 추정
+  rubric:
+    rules: *id001
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 5
+      evidence: $f'(-3)=-9$로 접선 $y=-9x-27$을 구했다.
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 2b-1
+      - 2a
+    - id: 2.M2
+      mark_type: M
+      points: 8
+      evidence: 교점 $x=-3,\ 3$과 $[-3,3]$에서 $f-\ell\ge0$임을 보여 $S=\int(f-\ell)dx$로 나타냈다.
+      depends_on:
+      - 2.M1
+      implied_ok: false
+      steps:
+      - 2b-2
+      - 2a
+    - id: 2.A1
+      mark_type: A
+      points: 7
+      evidence: $\int_{-3}^3(-p)dx=\int_{-3}^3(9x+27)dx$를 풀어 $p=-27$을 제시했다.
+      depends_on:
+      - 2.M2
+      steps:
+      - 2b-3
+      - 2a
+    deductions: []
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+- id: '3'
+  stem: |
+    [논제 3] 다음을 만족시키는 양의 실수 $a$의 값을 구하시오.
+
+    > 점 $\mathrm{Q}(a,f(a))$를 지나고 기울기가 $m$ ($m>0$)인 직선이 $x$축, $y$축과 만나는 점을 각각 $\mathrm{A},\mathrm{B}$라 하고 $\overline{\mathrm{AB}}=g(m)$이라 하면,
+    >
+    > $g(m)$은 $m=2$에서 최솟값을 갖는다.
+  points: 20
+  depends_on: []
+  answer:
+    kind: value
+    value: (-3 + sqrt(41))/2
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: $\{g(m)\}^2=\left(a-\frac{f(a)}m\right)^2+(f(a)-am)^2$이 $m=2$에서 최소이므로 $h'(2)=0$. $h'(2)=\frac{a^2}4(2+a^2+3a)(-a^2-3a+8)$이고 $a>0$이므로 $a=\frac{-3+\sqrt{41}}2$.
+    steps:
+    - id: 3a
+      content: $h(m)=\{g(m)\}^2$, $h'(m)=2\{am-f(a)\}\left\{\frac{f(a)}{m^3}+a\right\}$, $h'(2)=0\Rightarrow-a^2-3a+8=0\Rightarrow a=\frac{-3+\sqrt{41}}2$
+      criteria:
+      - 3.M1
+      - 3.M2
+      - 3.A1
+    hint_ladder:
+    - 직선과 두 좌표축의 교점 $\mathrm{A},\mathrm{B}$의 좌표를 $a,m$으로 나타내 보자.
+    - $g(m)$ 대신 $\{g(m)\}^2$을 미분하면 편하다.
+  - id: S3-B
+    audience: B
+    method_no: 1
+    source_flow: M27_S.pdf p.3 예시답안 [논제 3]
+    steps:
+    - id: 3b-1
+      content: |
+        점 $\mathrm{Q}(a,f(a))$를 지나고 기울기가 $m$인 직선의 방정식은 $y-f(a)=m(x-a)$이고, 이 직선이 $x$축, $y$축과 만나는 점은 각각 $\mathrm{A}\!\left(a-\dfrac{f(a)}m,\,0\right)$, $\mathrm{B}(0,\,f(a)-am)$이다. 따라서
+        $$\{g(m)\}^2=\left\{a-\frac{f(a)}m\right\}^2+\{f(a)-am\}^2$$
+      criteria:
+      - 3.M1
+    - id: 3b-2
+      content: |
+        $h(m)=\{g(m)\}^2$은 $m=2$에서 최소이므로 제시문 (다)에 의하여 $h'(2)=0$이다.
+        $$h'(m)=2\left\{a-\frac{f(a)}m\right\}\frac{f(a)}{m^2}-2a\{f(a)-am\}=2\{am-f(a)\}\left\{\frac{f(a)}{m^3}+a\right\}\ \cdots\cdots(*)$$
+      criteria:
+      - 3.M2
+    - id: 3b-3
+      content: |
+        이므로
+        $$0=h'(2)=\frac14\{2a-f(a)\}\{f(a)+8a\}=\frac{a^2}4(2+a^2+3a)(-a^2-3a+8)$$
+        $a>0$이므로 $a=\dfrac{-3+\sqrt{41}}2$이다.
+      criteria:
+      - 3.A1
+    - id: 3b-4
+      content: ※ $(*)$로부터 방정식 $h'(m)=0$을 만족시키는 양수 $m$은 $\sqrt[3]{\dfrac{f(a)}{-a}}$뿐이고 $\displaystyle\lim_{m\to0+}g(m)=\infty=\lim_{m\to\infty}g(m)$이므로 $g(2)$는 $g(m)$의 최솟값이다.
+      criteria:
+      - 3.A1
+  # 채점기준 미공개 — 단계별 추정
+  rubric:
+    rules: *id001
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 6
+      evidence: $\mathrm{A}$, $\mathrm{B}$의 좌표를 구하고 $\{g(m)\}^2$을 $a,m$으로 나타냈다.
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 3b-1
+      - 3a
+    - id: 3.M2
+      mark_type: M
+      points: 7
+      evidence: $h(m)=\{g(m)\}^2$을 미분해 $h'(m)$을 구하고 $h'(2)=0$ 조건을 세웠다.
+      depends_on:
+      - 3.M1
+      implied_ok: false
+      steps:
+      - 3b-2
+      - 3a
+    - id: 3.A1
+      mark_type: A
+      points: 7
+      evidence: $h'(2)=0$에서 $a=\frac{-3+\sqrt{41}}2$를 구하고 $m=2$에서 최솟값임을 확인했다.
+      depends_on:
+      - 3.M2
+      steps:
+      - 3b-3
+      - 3b-4
+      - 3a
+    deductions: []
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: p3-past-v1
+  item_version: 1
+  verdict: pass
+  date: '2026-11-22'
+- stage: verify
+  actor_type: system
+  actor_id: verify/DKU-M27.py
+  item_version: 1
+  verdict: pass
+  date: '2026-11-22'
+created: '2026-11-22'
+updated: '2026-11-22'

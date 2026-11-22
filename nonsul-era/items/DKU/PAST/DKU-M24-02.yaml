@@ -1,0 +1,361 @@
+# 단국대 2024학년도 모의논술 자연계열 [문제 2] — 기출·모의 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: DKU-M24-02
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: DKU
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 분류
+points: 45
+time_estimate_min: 50
+intent: 함수의 연속 개념을 이해하고 문제를 해결할 수 있는지, 함수의 극값을 이해하고 정적분의 성질(우함수·주기성)을 활용하여 문제를 해결할 수 있는지를 본다. 한쪽 극한으로 $g(x)g(x+k)$의 연속 조건을 $g(k)=g(-k)=0$으로 바꾸어 $k$를 구하고, 극값 위치 조건으로 $m=2$를 정한 뒤 주기 $4$인 우함수의 적분을 구한다.
+key_idea: $g(x)g(x+k)$의 불연속 후보는 $x=0$, $x=-k$뿐이고 $g(0^-)=-5$, $g(0)=5$이므로 $g(k)=g(-k)=0$. 극값 조건으로 $m=2$, 적분은 우함수·주기 $4$로 $\int_0^{33}h=8\int_0^4h+\int_0^1h$.
+stuck: '[논제 1]에서 $k=0$인 경우를 따로 보는 것과 $x=-k$에서의 조건 $g(-k)=0$을 빠뜨리지 않는 것, [논제 2]에서 $33=4\times8+1$로 구간을 나누고 $\int_2^4h=\int_0^2h$를 보이는 것'
+idea_tags:
+- IDEA-CONT-ONESIDED-LIMIT
+- IDEA-PERIODIC-EVEN-INTEGRAL
+- IDEA-CASE-SPLIT
+tags:
+- 연속
+- 곱함수의 연속
+- 극값
+- 우함수
+- 주기함수
+- 정적분
+elements:
+  materials:
+  - $f(x)=x^3-3x^2-3mx+5$ ($m$은 자연수)
+  - $m=1$에서 구간별로 정의된 $g(x)$와 $g(x)g(x+k)$의 연속
+  - $0\le x\le2$에서 $h=2f$, 우함수, 주기 $4$인 $h$와 $\int_0^{33}h$
+  concepts:
+  - 함수의 연속
+  - 좌극한·우극한
+  - 극값
+  - 삼차함수
+  - 정적분
+  - 우함수
+  - 주기함수
+  tools:
+  - $x=0$, $x=-k$에서 좌우극한과 함숫값 비교
+  - $f'(x)=0$의 근 $1\pm\sqrt{1+m}$
+  - $\int_2^4h=\int_{-2}^0h=\int_0^2h$
+  - $\int_0^{33}=8\int_0^4+\int_0^1$
+  conditions:
+  - $g(0^-)=-5$, $g(0)=g(0^+)=5$
+  - $-2<a<-\frac12$, $1<b<3$
+  - $h(-x)=h(x)$, $h(x+4)=h(x)$
+  stimuli_used:
+  - 가
+  - 나
+  - 다
+  subpart_links: null
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학Ⅱ
+  scope_2028: common
+  scope_confirmed: false
+  standards:
+  - code: 12수학Ⅱ01-03
+    text: 함수의 연속의 뜻을 안다.
+    verified: false
+  - code: 12수학Ⅱ01-04
+    text: 연속함수의 성질을 이해하고, 이를 활용하여 문제를 해결할 수 있다.
+    verified: false
+  - code: 12수학Ⅱ02-07
+    text: 함수의 증가와 감소, 극대와 극소를 판정하고 설명할 수 있다.
+    verified: false
+  - code: 12수학Ⅱ03-04
+    text: 다항함수의 정적분을 구할 수 있다.
+    verified: false
+  content_area: 함수의 연속·극값·정적분
+  behavior_domain: 문제해결
+  unit_path:
+  - 수학Ⅱ
+  - 함수의 극한과 연속
+  - 함수의 연속
+  key_concepts:
+  - 연속
+  - 극값
+  - 정적분
+  - 주기함수
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 단국대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 단국대학교
+  admission_year: 2024
+  admission_type: 수시 모의논술
+  track: 자연계열
+  question_no: 2
+  official_url: https://ipsi.dankook.ac.kr/jukjeon/doumi/nonsul_list.html?bbsid=juk_pds09&mode=view&bltn_seq=42796
+  retrieved_at: '2026-11-22'
+  original_points:
+  - 20
+  - 25
+  rights_notice: 단국대학교 입학처 공개 자료(내부 분석용)
+  transcribed_from: M24_Q.pdf p.3, 해설 근거 M24_S.pdf p.4~5 (이미지 대조 2026-11-22)
+verify: verify/DKU-M24.py::p02
+stimuli:
+- label: 가
+  body: |
+    함수 $f(x)$가 실수 $a$에 대하여 다음 조건을 모두 만족시킬 때, 함수 $f(x)$는 $x=a$에서 연속이라 한다.
+    (ⅰ) 함수 $f(x)$는 $x=a$에서 정의되어 있다.
+    (ⅱ) 극한값 $\displaystyle\lim_{x\to a}f(x)$가 존재한다.
+    (ⅲ) $\displaystyle\lim_{x\to a}f(x)=f(a)$
+    함수 $f(x)$가 위의 세 조건 중에서 어느 하나라도 만족시키지 않으면 $f(x)$는 $x=a$에서 불연속이라 한다.
+- label: 나
+  body: |
+    함수 $f(x)$에서 $x=a$를 포함하는 어떤 열린구간에 속하는 모든 $x$에 대하여
+    (ⅰ) $f(x)\le f(a)$일 때, 함수 $f(x)$는 $x=a$에서 극대가 된다고 하고, $f(a)$를 극댓값이라 한다.
+    (ⅱ) $f(x)\ge f(a)$일 때, 함수 $f(x)$는 $x=a$에서 극소가 된다고 하고, $f(a)$를 극솟값이라 한다.
+- label: 다
+  body: |
+    함수 $f(x)$가 $a$, $b$를 포함하는 열린구간에서 연속이고, $f(x)$의 한 부정적분을 $F(x)$라 하면 $f(x)$의 $a$에서 $b$까지의 정적분은
+    $$\int_a^bf(x)\,dx=\Big[F(x)\Big]_a^b=F(b)-F(a)$$
+stem: |
+  [문제 2] 다음 제시문을 읽고 질문에 답하시오. (45점)
+
+  • 함수 $f(x)=x^3-3x^2-3mx+5$라 하자. (단, $m$은 자연수)
+subparts:
+- id: '1'
+  stem: |
+    [논제 1] $m=1$일 때, 함수 $g(x)$는
+    $$g(x)=\begin{cases}-\dfrac12(x^3-9x+10)&(x<0)\\[2mm] f(x)\,e^x&(x\ge0)\end{cases}$$
+    모든 실수 $x$에 대하여 함수 $g(x)g(x+k)$가 연속이 되도록 하는 실수 $k$의 값을 모두 구하시오.
+  points: 20
+  depends_on: []
+  answer:
+    kind: set
+    value: '{-1 - sqrt(6), 0, 1 + sqrt(6)}'
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $g(x)g(x+k)$의 불연속 후보는 $x=0$, $x=-k$뿐. $k=0$이면 $\{g(x)\}^2$이 연속. $k\ne0$이면 $g(0^\pm)=\mp5$ 이므로 $g(k)=0$, $g(-k)=0$이어야 하고 $k=\pm(1+\sqrt6)$.
+    steps:
+    - id: 1a
+      content: '$k=0$: $\{g\}^2$ 연속. $k\ne0$: $x=0$에서 $g(k)=0$, $x=-k$에서 $g(-k)=0$ ⇒ $k=-1-\sqrt6,\,1+\sqrt6$'
+      criteria:
+      - 1.M1
+      - 1.M2
+      - 1.M3
+      - 1.A1
+    hint_ladder:
+    - $g(x)$가 불연속인 점은 어디인가?
+    - $g(x)g(x+k)$가 불연속일 수 있는 $x$는?
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: M24_S.pdf p.4~5 예시답안 [논제 1]
+    steps:
+    - id: 1b-1
+      content: |
+        $g(x)g(x+k)$의 연속성은 $x=0$과 $x=-k$에서만 살펴보면 된다.
+        (1) $k=0$일 때: $g(x)g(x+0)=\{g(x)\}^2$은 $\displaystyle\lim_{x\to0-}\{g(x)\}^2=\lim_{x\to0+}\{g(x)\}^2=\{g(0)\}^2=25$이므로 $x=0$에서 연속이다.
+      criteria:
+      - 1.M1
+    - id: 1b-2
+      content: |
+        (2) $k\ne0$일 때:
+        (ⅰ) $x=0$에서의 연속성: $\displaystyle\lim_{x\to0-}g(x)g(x+k)=-5g(k)$, $\displaystyle\lim_{x\to0+}g(x)g(x+k)=5g(k)$, $g(0)g(0+k)=5g(k)$이므로 $g(k)=0$이어야 한다.
+      criteria:
+      - 1.M2
+    - id: 1b-3
+      content: '(ⅱ) $x=-k$에서의 연속성: $\displaystyle\lim_{x\to-k-}g(x)g(x+k)=-5g(-k)$, $\displaystyle\lim_{x\to-k+}g(x)g(x+k)=5g(-k)$, $g(-k)g(-k+k)=5g(-k)$이므로 $g(-k)=0$이어야 한다.'
+      criteria:
+      - 1.M3
+    - id: 1b-4
+      content: (ⅰ)과 (ⅱ)에 의해 $g(k)=0=g(-k)$인 $k$의 값을 구한다. $x<0$에서 $x^3-9x+10=(x-2)(x^2+2x-5)$, $x\ge0$에서 $f(x)=(x-1)(x^2-2x-5)$이고 $e^x>0$이므로 $g$의 영점은 $-1-\sqrt6,\ 1,\ 1+\sqrt6$이다. 이 중 $g(k)=0=g(-k)$인 $k$는 $k=-1-\sqrt6,\ 1+\sqrt6$이다. 따라서 (1)과 (2)로부터 $k=-1-\sqrt6,\ 0,\ 1+\sqrt6$이다.
+      criteria:
+      - 1.A1
+  # 채점기준: M24_S.pdf 평가기준 배점 그대로
+  rubric:
+    rules: &id001
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 4
+      evidence: $k=0$일 때 $\{g(x)\}^2$의 좌우극한과 함숫값이 $25$로 같음을 보였다.
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 1b-1
+      - 1a
+    - id: 1.M2
+      mark_type: M
+      points: 6
+      evidence: $k\ne0$, $x=0$에서 좌우극한 $\mp5g(k)$와 함숫값 $5g(k)$로부터 $g(k)=0$을 얻었다(공식 $k\ne0$ 12점 → 6+6 분할 추정).
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 1b-2
+      - 1a
+    - id: 1.M3
+      mark_type: M
+      points: 6
+      evidence: $k\ne0$, $x=-k$에서 $g(-k)=0$을 얻었다.
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 1b-3
+      - 1a
+    - id: 1.A1
+      mark_type: A
+      points: 4
+      evidence: $g(k)=0=g(-k)$인 $k=-1-\sqrt6,\ 1+\sqrt6$과 $k=0$을 제시했다.
+      depends_on:
+      - 1.M2
+      - 1.M3
+      steps:
+      - 1b-4
+      - 1a
+    deductions: []
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+- id: '2'
+  stem: |
+    [논제 2] 함수 $f(x)$는 $x=a$와 $x=b$에서 극값을 갖는다. (단, $-2<a<-\dfrac12$이고 $1<b<3$)
+
+    실수 전체의 집합에서 정의된 함수 $h(x)$는 다음 조건을 만족시킨다.
+
+    > (1) $0\le x\le2$에서 $h(x)=2f(x)$
+    >
+    > (2) 모든 실수 $x$에 대하여 $h(-x)=h(x)$
+    >
+    > (3) 모든 실수 $x$에 대하여 $h(x+4)=h(x)$
+
+    정적분 $\displaystyle\int_0^{33}h(x)\,dx$의 값을 구하시오.
+  points: 25
+  depends_on: []
+  answer:
+    kind: value
+    value: -379/2
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: $f'(x)=3x^2-6x-3m=0$의 근 $1\pm\sqrt{1+m}$의 범위로 $m=2$. $h$는 우함수이고 주기 $4$이므로 $\int_0^4h=-24$, $\int_0^{33}h=8\int_0^4h+\int_0^1h$.
+    steps:
+    - id: 2a
+      content: $m=2$, $\int_0^2h=-12$, $\int_0^4h=-24$, $\int_0^{33}h=8(-24)+\frac52=-\frac{379}2$
+      criteria:
+      - 2.M1
+      - 2.M2
+      - 2.M3
+      - 2.A1
+    hint_ladder:
+    - 극값의 위치 $a,b$를 $m$으로 나타내 보자.
+    - $\int_2^4h$를 $\int_{-2}^0h$로 바꿀 수 있는가?
+  - id: S2-B
+    audience: B
+    method_no: 1
+    source_flow: M24_S.pdf p.5 예시답안 [논제 2]
+    steps:
+    - id: 2b-1
+      content: $f(x)=x^3-3x^2-3mx+5$는 극댓값과 극솟값을 모두 가지므로 $f'(x)=3x^2-6x-3m=0$은 서로 다른 두 실근 $x=1\pm\sqrt{1+m}$을 가진다. $-2<1-\sqrt{1+m}<-\frac12$이므로 $\frac54<m<8$이고, $1<1+\sqrt{1+m}<3$이므로 $-1<m<3$이다. 따라서 $\frac54<m<3$이다. 그러므로 $m=2$이고 $f(x)=x^3-3x^2-6x+5$이다.
+      criteria:
+      - 2.M1
+    - id: 2b-2
+      content: 조건 (1)에 의해 $0\le x\le2$일 때 $h(x)=2x^3-6x^2-12x+10$이므로 $\displaystyle\int_0^2h(x)\,dx=-12$이다.
+      criteria:
+      - 2.M2
+    - id: 2b-3
+      content: 조건 (3)과 (2)에 의해 $\displaystyle\int_2^4h(x)\,dx=\int_{-2}^0h(x)\,dx=\int_0^2h(x)\,dx=-12$이므로 $\displaystyle\int_0^4h(x)\,dx=-24$이다.
+      criteria:
+      - 2.M3
+    - id: 2b-4
+      content: |
+        따라서
+        $$\int_0^{33}h(x)\,dx=\int_0^{32}h(x)\,dx+\int_{32}^{33}h(x)\,dx=8\int_0^4h(x)\,dx+\int_0^1h(x)\,dx=-\frac{379}2$$
+        이다. ($\int_0^1h(x)\,dx=2\int_0^1f(x)\,dx=2\cdot\frac54=\frac52$이므로 $8\times(-24)+\frac52=-\frac{379}2$)
+      criteria:
+      - 2.A1
+  # 채점기준: M24_S.pdf 평가기준 배점 그대로
+  rubric:
+    rules: *id001
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 5
+      evidence: 극값 조건으로 $\frac54<m<3$을 구해 $m=2$를 제시했다.
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 2b-1
+      - 2a
+    - id: 2.M2
+      mark_type: M
+      points: 5
+      evidence: $\int_0^2h(x)\,dx=-12$를 제시했다.
+      depends_on:
+      - 2.M1
+      implied_ok: false
+      steps:
+      - 2b-2
+      - 2a
+    - id: 2.M3
+      mark_type: M
+      points: 9
+      evidence: 우함수성과 주기성으로 $\int_0^4h(x)\,dx=-24$를 제시했다.
+      depends_on:
+      - 2.M2
+      implied_ok: false
+      steps:
+      - 2b-3
+      - 2a
+    - id: 2.A1
+      mark_type: A
+      points: 6
+      evidence: $\int_0^{33}h(x)\,dx=-\frac{379}2$를 제시했다.
+      depends_on:
+      - 2.M3
+      steps:
+      - 2b-4
+      - 2a
+    deductions: []
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: p3-past-v1
+  item_version: 1
+  verdict: pass
+  date: '2026-11-22'
+- stage: verify
+  actor_type: system
+  actor_id: verify/DKU-M24.py
+  item_version: 1
+  verdict: pass
+  date: '2026-11-22'
+created: '2026-11-22'
+updated: '2026-11-22'

@@ -1,0 +1,342 @@
+# 단국대 2026학년도 모의논술 자연계열 [문제 2] — 기출·모의 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: DKU-M26-02
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: DKU
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 분류
+points: 45
+time_estimate_min: 50
+intent: 함수의 미분가능성을 이해하고 있는지, 함수의 연속성을 이해하고 그래프의 개형을 그릴 수 있는지를 본다. 정의역을 구간별로 나누어 각 구간의 최솟값을 구해 $g(t)$를 얻고 꺾임점에서 미분가능성을 판단하며, $g$의 그래프를 이용해 극한으로 정의된 $h$의 불연속점의 개수를 세어 $k$의 범위를 구한다.
+key_idea: $t$의 구간으로 나누어 $g(t)=\min$ 을 구하면 $x<\alpha$에서 $e^x-\frac e2$, $x\ge\alpha$에서 $1-e^x$ ($\alpha=\ln\frac{2+e}4$). $h$의 불연속점은 $g=k\pm1$인 점이므로 그래프와 두 직선의 교점 개수로 $k$의 범위를 구한다.
+stuck: 절댓값을 포함한 $f$를 $x$와 $t/2$의 대소로 나누는 것, 두 후보 최솟값의 대소 비교로 $\alpha$를 구하는 것, [논제 2]에서 $\lvert g-k\rvert=1$인 점이 모두 불연속점이고 교점 개수를 직선 높이별로 세는 것
+idea_tags:
+- IDEA-PIECEWISE-MIN
+- IDEA-LIMIT-STEP-FUNCTION
+- IDEA-GRAPH-INTERSECTION-COUNT
+tags:
+- 절댓값
+- 최솟값
+- 미분가능성
+- 극한함수
+- 불연속
+- 그래프 개형
+- 지수함수
+elements:
+  materials:
+  - $f(x)=xe^{2x}-\lvert e^{2x}-e^t\rvert$의 $[0,1]$에서의 최솟값 $g(t)$
+  - $h(t)=\lim_{n\to\infty}\frac1{1+\{g(t)-k\}^{2n}}$
+  concepts:
+  - 도함수와 증감
+  - 최솟값
+  - 미분가능성
+  - 수열의 극한과 극한함수
+  - 불연속
+  - 그래프의 개형
+  - 지수함수의 미분
+  tools:
+  - $f'(x)=e^{2x}(2x-1)$, $e^{2x}(2x+3)$
+  - $e^t-\frac e2$와 $1-e^t$의 대소 비교
+  - 좌우미분계수 $e^\alpha$, $-e^\alpha$
+  - $\lvert g-k\rvert$와 $1$의 대소로 $h$ 구간별 값
+  conditions:
+  - $t<0$, $0\le t<2$, $t\ge2$로 구간 분할
+  - $h$의 불연속점이 $3$개
+  stimuli_used:
+  - 가
+  - 나
+  - 다
+  - 라
+  subpart_links: null
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학Ⅱ
+  - 미적분
+  scope_2028: common
+  scope_confirmed: false
+  standards:
+  - code: 12수학Ⅱ02-08
+    text: 함수의 그래프의 개형을 그릴 수 있다.
+    verified: false
+  - code: 12수학Ⅱ02-02
+    text: 함수의 미분가능성과 연속성의 관계를 이해한다.
+    verified: false
+  - code: 12수학Ⅱ02-07
+    text: 함수의 증가와 감소, 극대와 극소를 판정하고 설명할 수 있다.
+    verified: false
+  - code: 12수학Ⅱ01-03
+    text: 함수의 연속의 뜻을 안다.
+    verified: false
+  - code: 12미적02-04
+    text: 지수함수와 로그함수를 미분할 수 있다.
+    verified: false
+  content_area: 함수의 최솟값·미분가능성·연속
+  behavior_domain: 문제해결
+  unit_path:
+  - 수학Ⅱ
+  - 미분
+  - 미분가능성
+  - 함수의 연속
+  key_concepts:
+  - 최솟값
+  - 미분가능
+  - 불연속
+  - 극한함수
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 단국대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 단국대학교
+  admission_year: 2026
+  admission_type: 수시 모의논술
+  track: 자연계열
+  question_no: 2
+  official_url: https://ipsi.dankook.ac.kr/jukjeon/doumi/nonsul_list.html?bbsid=juk_pds09&mode=view&bltn_seq=48047
+  retrieved_at: '2026-11-22'
+  original_points:
+  - 20
+  - 25
+  rights_notice: 단국대학교 입학처 공개 자료(내부 분석용)
+  transcribed_from: M26_Q.pdf p.3, 해설 근거 M26_S.pdf p.4~6 (이미지 대조 2026-11-22)
+verify: verify/DKU-M26.py::p02
+stimuli:
+- label: 가
+  body: |
+    함수 $f(x)$의 그래프의 개형은 다음을 고려하여 그린다.
+    • 함수의 정의역과 치역　　• 대칭성과 주기
+    • 좌표축과의 교점　　　　• 함수의 증가와 감소, 극대와 극소
+    • 곡선의 오목과 볼록, 변곡점　　• 점근선
+- label: 나
+  body: |
+    함수 $f(x)$에 대하여 평균변화율의 극한값
+    $$\lim_{\Delta x\to0}\frac{f(a+\Delta x)-f(a)}{\Delta x}$$
+    가 존재하면 $f(x)$는 $x=a$에서 미분가능하다고 한다.
+- label: 다
+  body: |
+    함수 $f(x)$가 실수 $a$에 대하여 다음 세 조건을 모두 만족시킬 때, $f(x)$는 $x=a$에서 연속이다.
+    (ⅰ) 함수 $f(x)$가 $x=a$에서 정의되어 있다.
+    (ⅱ) 극한값 $\displaystyle\lim_{n\to a}f(x)$가 존재한다. [판독확인: 원문 인쇄가 $x\to a$가 아닌 $n\to a$로 되어 있음]
+    (ⅲ) $\displaystyle\lim_{n\to a}f(x)=f(a)$ [판독확인: 원문 인쇄가 $n\to a$]
+    한편, 함수 $f(x)$가 $x=a$에서 연속이 아닐 때, $f(x)$는 $x=a$에서 불연속이라고 한다.
+- label: 라
+  body: $e=\displaystyle\lim_{x\to0}(1+x)^{\frac1x}=2.718\cdots$
+stem: |
+  [문제2] 다음 제시문을 읽고 질문에 답하시오. (45점)
+
+  실수 $t$에 대하여, 닫힌구간 $[0,1]$에서 함수
+  $$f(x)=xe^{2x}-\lvert e^{2x}-e^{t}\rvert$$
+  의 최솟값을 $g(t)$라 하고
+  $$h(t)=\lim_{n\to\infty}\frac{1}{1+\{g(t)-k\}^{2n}}$$
+  라 하자. (단, $k$는 상수)
+subparts:
+- id: '1'
+  stem: |
+    [논제 1] 다음 조건을 만족시키는 실수 $a$의 값을 구하시오.
+
+    > 실수 전체의 집합에서 정의된 함수 $g(x)$는 $x=a$에서 미분가능하지 않다.
+  points: 20
+  depends_on: []
+  answer:
+    kind: expression
+    value: log((2 + E)/4)
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $t<0$이면 $x=\frac12$에서 최소 $e^t-\frac e2$, $t\ge2$이면 $x=0$에서 최소 $1-e^t$, $0\le t<2$이면 두 값 중 작은 쪽. $e^t-\frac e2=1-e^t$인 $t=\ln\frac{2+e}4$에서 좌우 미분계수 $e^\alpha,-e^\alpha$.
+    steps:
+    - id: 1a
+      content: $g(x)=e^x-\frac e2\ (x<\alpha),\ 1-e^x\ (x\ge\alpha)$, $\alpha=\ln\frac{2+e}{4}$, 좌우 미분계수 $e^\alpha\ne-e^\alpha$
+      criteria:
+      - 1.M1
+      - 1.M2
+      - 1.A1
+    hint_ladder:
+    - $\lvert e^{2x}-e^t\rvert$의 절댓값을 $x$와 $t$의 대소로 나누어 보자.
+    - 각 구간에서 $f'$의 부호는?
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: M26_S.pdf p.5 예시답안 [논제 1]
+    steps:
+    - id: 1b-1
+      content: |
+        실수 $t$의 구간을 $t<0$, $t\ge2$, $0\le t<2$의 경우로 나누어 $g(t)$를 구하자.
+        (ⅰ) $t<0$일 때, $f(x)=xe^{2x}-e^{2x}+e^t$이고 $f'(x)=e^{2x}+2xe^{2x}-2e^{2x}=e^{2x}(2x-1)$이다. 따라서 $f(x)$는 $x=\frac12$에서 최솟값 $g(t)=e^t-\frac12e$를 갖는다.
+        (ⅱ) $t\ge2$일 때, $f(x)=xe^{2x}+e^{2x}-e^t$이고 $f'(x)=e^{2x}+2xe^{2x}+2e^{2x}=e^{2x}(2x+3)$이다. 따라서 $f(x)$는 $x=0$에서 최솟값 $g(t)=1-e^t$을 갖는다.
+      criteria:
+      - 1.M1
+    - id: 1b-2
+      content: |
+        (ⅲ) $0\le t<2$일 때, 구간 $\frac t2\le x\le1$에서 $f(x)$는 경우 (ⅰ)과 같이 최솟값 $e^t-\frac12e$를 갖고, 구간 $0\le x<\frac t2$에서 $f(x)$는 경우 (ⅱ)와 같이 최솟값 $1-e^t$을 갖는다. [보충: $t>1$이면 $[\frac t2,1]$에서 $f$가 증가하여 이 구간의 최솟값은 $f(\frac t2)=\frac t2e^t>0$이나, 이는 $1-e^t<0$보다 크므로 $g(t)=1-e^t$로 결과는 같다.]
+        $e^t-\frac12e$와 $1-e^t$의 크기를 비교해 보자. $e^t-\frac12e\ge1-e^t$의 필요충분조건은 $t\ge\ln\left(\frac{2+e}{4}\right)$이므로, $\alpha=\ln\left(\frac{2+e}{4}\right)$라 할 때 $0\le t<\alpha$이면 $g(t)=e^t-\frac12e$이고 $\alpha\le t<2$이면 $g(t)=1-e^t$이다.
+        그러므로 (ⅰ), (ⅱ), (ⅲ)에 의하여
+        $$g(x)=\begin{cases}e^x-\dfrac12e&(x<\alpha)\\[2mm]1-e^x&(x\ge\alpha)\end{cases}$$
+      criteria:
+      - 1.M2
+    - id: 1b-3
+      content: |
+        따라서
+        $$\lim_{\Delta x\to0-}\frac{g(\alpha+\Delta x)-g(\alpha)}{\Delta x}=e^\alpha,\qquad\lim_{\Delta x\to0+}\frac{g(\alpha+\Delta x)-g(\alpha)}{\Delta x}=-e^\alpha$$
+        로부터 함수 $g(x)$는 $x=\ln\left(\frac{2+e}{4}\right)$에서 미분가능하지 않다. 구하는 값: $a=\ln\left(\dfrac{2+e}{4}\right)$.
+      criteria:
+      - 1.A1
+  # 채점기준 미공개 — 단계별 추정
+  rubric:
+    rules: &id001
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 8
+      evidence: $t<0$, $t\ge2$에서 $f$의 증감으로 $g(t)=e^t-\frac e2$, $1-e^t$를 구했다.
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 1b-1
+      - 1a
+    - id: 1.M2
+      mark_type: M
+      points: 6
+      evidence: $0\le t<2$에서 두 값을 비교해 $g(x)$를 $\alpha=\ln\frac{2+e}4$ 기준으로 구간별로 제시했다.
+      depends_on:
+      - 1.M1
+      implied_ok: false
+      steps:
+      - 1b-2
+      - 1a
+    - id: 1.A1
+      mark_type: A
+      points: 6
+      evidence: $x=\alpha$에서 좌우 미분계수 $e^\alpha$, $-e^\alpha$를 비교해 $a=\ln\frac{2+e}4$를 제시했다.
+      depends_on:
+      - 1.M2
+      steps:
+      - 1b-3
+      - 1a
+    deductions: []
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+- id: '2'
+  stem: |
+    [논제 2] 다음 조건을 만족시키는 실수 $k$의 값의 범위를 구하시오.
+
+    > 실수 전체의 집합에서 정의된 함수 $h(x)$가 불연속이 되는 $x$의 값은 $3$개이다.
+  points: 25
+  depends_on: []
+  answer:
+    kind: expression
+    value: -1 - E/2 < k < -1/2 - E/4
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: $g$는 $x<\alpha$에서 증가(치역 $(-\frac e2,\frac12-\frac e4)$), $x\ge\alpha$에서 감소. $h$의 불연속점은 $g(x)=k\pm1$인 점. 개수가 $3$이려면 직선 $y=k+1$이 $y=\frac12-\frac e4$ 아래, $y=-\frac e2$ 위.
+    steps:
+    - id: 2a
+      content: $h=0,\frac12,1$ ($\lvert g-k\rvert>1,=1,<1$), 불연속점은 $g=k\pm1$인 점; $-\frac e2<k+1<\frac12-\frac e4\Rightarrow-1-\frac e2<k<-\frac12-\frac e4$
+      criteria:
+      - 2.M1
+      - 2.M2
+      - 2.A1
+    hint_ladder:
+    - $y=g(x)$의 그래프를 그려 보자.
+    - $h(x)$의 값이 바뀌는 곳은?
+  - id: S2-B
+    audience: B
+    method_no: 1
+    source_flow: M26_S.pdf p.5~6 예시답안 [논제 2]
+    steps:
+    - id: 2b-1
+      content: '$y=g(x)$의 그래프를 그린다: $x<\alpha$에서 $g(x)=e^x-\frac e2$는 증가하고 $x\to-\infty$일 때 $-\frac e2$에 가까워지며, $x\ge\alpha$에서 $g(x)=1-e^x$는 감소한다. 최댓값은 $g(\alpha)=\frac{2+e}{4}-\frac e2=\frac12-\frac e4$이다(그래프: $y=\frac12-\frac e4$, $y=k+1$, $y=-\frac e2$, $y=k-1$과 곡선 $y=g(x)$).'
+      criteria:
+      - 2.M1
+    - id: 2b-2
+      content: |
+        $$h(x)=\lim_{n\to\infty}\frac{1}{1+\{g(x)-k\}^{2n}}=\begin{cases}0&(\lvert g(x)-k\rvert>1)\\ \dfrac12&(\lvert g(x)-k\rvert=1)\\ 1&(\lvert g(x)-k\rvert<1)\end{cases}$$
+        이므로 $h(x)$가 불연속이 되는 $x$좌표는 곡선 $y=g(x)$와 직선 $y=k+1$과의 교점의 $x$좌표나 곡선 $y=g(x)$와 직선 $y=k-1$과의 교점의 $x$좌표와 같다.
+      criteria:
+      - 2.M2
+    - id: 2b-3
+      content: 따라서 $h(x)$가 불연속이 되는 $x$의 값이 $3$개인 경우는, 그림에서와 같이, 직선 $y=k+1$이 직선 $y=g\!\left(\ln\frac{2+e}4\right)$의 아래와 직선 $y=-\frac e2$의 위에 있을 때이다(이때 $y=k+1$과는 교점 $2$개, $y=k-1$과는 $1$개). $g\!\left(\ln\frac{2+e}4\right)=\frac12-\frac e4$이므로 구하는 $k$의 값의 범위는 $-1-\dfrac e2<k<-\dfrac12-\dfrac e4$이다.
+      criteria:
+      - 2.A1
+  # 채점기준 미공개 — 단계별 추정
+  rubric:
+    rules: *id001
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 10
+      evidence: $y=g(x)$의 그래프(증가·감소, 최댓값 $\frac12-\frac e4$, 점근선 $y=-\frac e2$)를 제시했다.
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 2b-1
+      - 2a
+    - id: 2.M2
+      mark_type: M
+      points: 8
+      evidence: $h(x)$를 $\lvert g-k\rvert$의 크기로 구분해 불연속점이 $g(x)=k\pm1$인 점임을 보였다.
+      depends_on:
+      - 2.M1
+      implied_ok: false
+      steps:
+      - 2b-2
+      - 2a
+    - id: 2.A1
+      mark_type: A
+      points: 7
+      evidence: 교점 개수가 $3$인 조건에서 $-1-\frac e2<k<-\frac12-\frac e4$를 제시했다.
+      depends_on:
+      - 2.M2
+      steps:
+      - 2b-3
+      - 2a
+    deductions: []
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: p3-past-v1
+  item_version: 1
+  verdict: pass
+  date: '2026-11-22'
+- stage: verify
+  actor_type: system
+  actor_id: verify/DKU-M26.py
+  item_version: 1
+  verdict: pass
+  date: '2026-11-22'
+created: '2026-11-22'
+updated: '2026-11-22'

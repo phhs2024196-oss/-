@@ -1,0 +1,283 @@
+# 단국대 2021~2023 실전 자연계열 흔한 오답 후보(제안). 공용 카탈로그 미수정.
+- id: MC-CAL-1121
+  name: F(x)에서 -F0(a)를 빠뜨림
+  concepts:
+  - 정적분함수
+  - 극대극소
+  - 교점의 수
+  used_in: DKU-G21A-01#2
+  outcome_code: '71'
+  wrong_work: 정적분 함수 F(x)=∫_a^x f 의 하한 a 를 0 으로 놓고 F(x)=0 의 근만 센다 (F0 를 정의하지 않고 F(x)=0 을 곧바로 F0(x)=0 으로 바꿈)
+  detect_cue: F0(x)=F0(a) 형태가 없다
+  feedback: F(x)=F0(x)-F0(a) 이므로 y=F0(x) 와 수평선 y=F0(a) 의 교점 수로 바꿔야 한다.
+- id: MC-CAL-1122
+  name: 접하는 경우만 고려
+  concepts:
+  - 극값
+  - 그래프 개형
+  used_in: DKU-G21A-01#2
+  outcome_code: '71'
+  wrong_work: 수평선이 극값에서 만나 한 점이 되는 a(=±√2/2)만 보고 끝점 조건(F0(±3))과 비교하지 않는다 (극값을 구한 뒤 F0(3) 과 극댓값의 대소를 비교하지 않음)
+  detect_cue: 극댓값과 F0(3) 비교 서술이 없다
+  feedback: 극값 위의 a 에서도 단조 구간 끝값이 수평선과 다시 만나는지 확인해야 한다.
+- id: MC-CAL-1123
+  name: 같은 직선 t 하나만 답함
+  concepts:
+  - 접선
+  - 방정식의 실근 개수
+  used_in: DKU-G21A-01#3
+  outcome_code: '71'
+  wrong_work: tangency 기울기 40-16√6 에서 접점 t=2√6 만 구하고 같은 값을 갖는 첫 구간의 t 를 빠뜨린다 (h(t)/t 의 값이 같은 t 가 두 개 생기는 것을 놓침)
+  detect_cue: 답이 t 하나뿐
+  feedback: h(x)/x=h(t)/t 의 해 개수를 구간별로 세어 같은 값의 t 를 모두 찾는다.
+- id: MC-PRB-1124
+  name: 확률이 아닌 값으로 최대를 판단
+  concepts:
+  - 이항분포
+  - 확률의 비
+  used_in: DKU-G21A-02#2
+  outcome_code: '71'
+  wrong_work: P(X=x) 의 최대를 x=np 부근에서 확률 자체를 비교한다고 하고 비 P(x+1)/P(x) 를 쓰지 않는다 (최댓값 x 를 np=80 으로 단정)
+  detect_cue: 비 1 과의 비교 없음
+  feedback: P(X=x+1)/P(X=x)=(100-x)/(x+1)·4 와 1 을 비교해 증감 구간을 정해야 한다.
+- id: MC-PRB-1125
+  name: p 와 q 의 순서 뒤바뀜
+  concepts:
+  - 독립시행
+  - 조합
+  used_in: DKU-G21A-02#1
+  outcome_code: '71'
+  wrong_work: 왼쪽 이동 확률 1/5 를 오른쪽 번호에 잘못 대응시켜 비를 뒤집는다 (P(87)/P(88)=13/22 로 답함)
+  detect_cue: 비가 1 보다 작게 나옴
+  feedback: x번은 오른쪽 이동 x 번이므로 q^x p^(100-x) 의 비를 구해야 한다.
+- id: MC-PRB-1126
+  name: 직렬·병렬 사건 합 오류
+  concepts:
+  - 전확률
+  - 독립사건
+  used_in: DKU-G21B-01#2
+  outcome_code: '71'
+  wrong_work: S_E 닫힘/열림으로 경우를 나누지 않고 직렬 확률 곱과 병렬 합을 한 번에 적용한다 (P=1-(1-AB)(1-CD) 로 S_E 효과를 무시)
+  detect_cue: p 항이 없다
+  feedback: P(켜짐)=P(S_E 닫힘)P(켜짐|닫힘)+P(S_E 열림)P(켜짐|열림) 으로 나눈다.
+- id: MC-PRB-1127
+  name: 조건부확률 부등식 방향 오류
+  concepts:
+  - 조건부확률
+  - 부등식
+  used_in: DKU-G21B-01#3
+  outcome_code: '71'
+  wrong_work: P(S_E 열림|켜짐)≥1/3 를 P(S_E 닫힘|켜짐)≤2/3 로 바꾸지 않고 한쪽 조건만 사용 (p 범위가 한쪽만 구해짐)
+  detect_cue: 최솟값과 최댓값 중 하나만 구함
+  feedback: 두 조건을 합쳐 1/2≤P(닫힘|켜짐)≤2/3 로 정리해 p 범위를 구한다.
+- id: MC-CAL-1128
+  name: A(t) 를 f 의 적분으로만 계산
+  concepts:
+  - 역함수
+  - 부분적분
+  used_in: DKU-G21B-02#1
+  outcome_code: '71'
+  wrong_work: 역함수 영역의 넓이를 ∫g 로 따로 적분해 f(1)=2 의 대칭 관계를 사용하지 않는다 (∫0^1 f 를 구하지 못해 막힘)
+  detect_cue: 역함수 부분적분 미사용
+  feedback: ∫_0^2 x g'(x)dx 를 부분적분해 ∫_0^2 g 를 얻고 f 의 적분과 연결한다.
+- id: MC-CAL-1129
+  name: f(2) 의 두 값 중 하나를 걸러내지 않음
+  concepts:
+  - 평균값정리
+  - 역함수
+  used_in: DKU-G21B-02#2
+  outcome_code: '71'
+  wrong_work: f(2)^2-4f(2)+3=0 에서 f(2)=1 도 후보로 남긴다 (교점 개수를 f(2)=1 로 계산)
+  detect_cue: f(2)=1 과 3 이 모두 등장
+  feedback: f'>1, f(0)=0 에서 f(2)>2 이므로 f(2)=3 만 가능하다.
+- id: MC-CAL-1131
+  name: 합성함수 미분에서 f'(f(x)) 누락
+  concepts:
+  - 합성함수미분
+  - 극값
+  used_in: DKU-G22A-01#1
+  outcome_code: '71'
+  wrong_work: g'(x)=f'(x) 만으로 근을 센다 (극값 두 개만 구해 n 을 잘못 정함)
+  detect_cue: f(x)=2 방정식 없음
+  feedback: g'=f'(f(x))f'(x)=0 → f'(x)=0 또는 f(x)∈{0,2}.
+- id: MC-CAL-1132
+  name: 점화 조건에서 적분 구간 변환 오류
+  concepts:
+  - 치환적분
+  - 점화식
+  used_in: DKU-G22A-01#2
+  outcome_code: '71'
+  wrong_work: ∫_{3^n}^{3^{n+1}} h(x)dx 를 치환할 때 3배 계수를 놓친다 (I_1=9+6 처럼 계산)
+  detect_cue: I_n 점화식에서 3I_{n-1} 이 없다
+  feedback: x=3u 치환으로 I_n=3I_{n-1}+2·3^n.
+- id: MC-CAL-1133
+  name: 적분 상한 변환 후 S 로 치환하지 않음
+  concepts:
+  - 치환적분
+  - 정적분함수
+  used_in: DKU-G22A-01#3
+  outcome_code: '71'
+  wrong_work: k(x)dx=dS 인 치환을 하지 못해 직접 적분하려 한다 (적분을 못 구함)
+  detect_cue: S 에 대한 식이 없다
+  feedback: S=S(x) 로 치환하면 ∫ S e^S/(S+1)^2 dS = e^S/(S+1).
+- id: MC-CAL-1134
+  name: 절댓값 방정식 경우 나누기 누락
+  concepts:
+  - 절댓값
+  - 그래프의 교점
+  used_in: DKU-G22A-02#1
+  outcome_code: '71'
+  wrong_work: '|x^2-ex| 를 부호로 나누지 않고 제곱해 근을 잘못 센다 (실근 2개로 답함)'
+  detect_cue: 부호 구간 분할 없음
+  feedback: x^2-ex 의 부호로 나누고 각 구간에서 e^x 와 비교한다.
+- id: MC-CAL-1135
+  name: 미분 불가능 점 판정 오류
+  concepts:
+  - 절댓값 함수의 미분가능성
+  used_in: DKU-G22A-02#2
+  outcome_code: '71'
+  wrong_work: f(x)-x 의 중근 x=1 도 미분 불가능 점으로 본다 (p=1 또는 두 값으로 답함)
+  detect_cue: 부호 변화 확인 없음
+  feedback: 중근에서는 부호가 안 바뀌어 미분가능, 단근에서만 꺾인다.
+- id: MC-CAL-1136
+  name: 역함수 극한에서 f'(p)=0 조건 놓침
+  concepts:
+  - 역함수의 미분
+  - 극한
+  used_in: DKU-G22B-01#1
+  outcome_code: '71'
+  wrong_work: L≠0 을 위해 f'(p)=0 이 필요함을 못 보고 a 를 임의로 정한다 (a 를 정하지 못함)
+  detect_cue: f''(p)=0 사용 없음
+  feedback: 역함수가 존재하려면 f'≥0, L≠0 이므로 f'(p)=f''(p)=0.
+- id: MC-CAL-1137
+  name: '|x| 합성 극한의 존재 조건 오해'
+  concepts:
+  - 극한
+  - 절댓값
+  used_in: DKU-G22B-01#2
+  outcome_code: '71'
+  wrong_work: h(|x|) 의 극한 불가 조건을 c=r 만으로 보고 c=-r 을 놓친다 (g(2c) 를 잘못 계산)
+  detect_cue: c 부호 고찰 없음
+  feedback: '|x| 가 극한점에서 방향이 바뀌므로 c=-r 도 후보로 놓고 g(c)=18c 로 판별한다.'
+- id: MC-CAL-1138
+  name: 극대·극소 판정 시 k^{-1} 의 정의역 혼동
+  concepts:
+  - 역함수
+  - 정적분 미분
+  used_in: DKU-G22B-01#3
+  outcome_code: '71'
+  wrong_work: θ=k^{-1}(πt) 와 t 의 대응을 무시하고 t 로 직접 cos 를 본다 (α, β 를 t 에서 직접 구함)
+  detect_cue: θ 와 t 구분 없음
+  feedback: F'(t)=π cos(k^{-1}(πt)) 이므로 θ=π/2+jπ 가 되는 t 를 구한다.
+- id: MC-CAL-1139
+  name: 사각형 넓이 A(t) 공식 오류
+  concepts:
+  - 삼각함수
+  - 좌표평면
+  used_in: DKU-G22B-02#1
+  outcome_code: '71'
+  wrong_work: P_i 를 원 위의 점 좌표로 잘못 두거나 A(t) 를 다각형 대신 대각선 곱으로 구한다 (극값의 개수를 잘못 셈)
+  detect_cue: A(t) 식이 없다
+  feedback: A(t)=10+8cos t 로 두고 0<t<a 에서 kπ 의 개수를 세어야 한다.
+- id: MC-CAL-1140
+  name: Q 의 위치 구간별 표현 누락
+  concepts:
+  - 정적분
+  - 구간별 함수
+  used_in: DKU-G22B-02#2
+  outcome_code: '71'
+  wrong_work: 정사각형 둘레 위 이동을 한 식으로 쓴다 (f(t) 가 한 식으로 나옴)
+  detect_cue: 구간별 정의 없음
+  feedback: Q 의 x 좌표를 [π/2,π] 등 구간별 일차식으로 쓴다.
+- id: MC-CAL-1141
+  name: 경우 나누기 누락(f 의 연속 선택)
+  concepts:
+  - 연속함수
+  - 삼차함수의 그래프
+  used_in: DKU-G23A-01#1
+  outcome_code: '71'
+  wrong_work: f 가 f0 를 택하는 구간을 정하지 않고 최대+최소를 계산한다 (a 를 한 값으로 단정)
+  detect_cue: f0 의 극값 a^3/(3√3) 비교 없음
+  feedback: f0=±3 이 되는 점에서만 가지가 바뀜을 이용해 경우를 나눈다.
+- id: MC-CAL-1142
+  name: g(k) 의 극한 계산 오류
+  concepts:
+  - 교점의 수
+  - 극한
+  used_in: DKU-G23A-01#2
+  outcome_code: '71'
+  wrong_work: k→±∞ 에서 직선이 만나는 점 개수를 꼬리 가지로 세지 않는다 (조건 (1) 을 해석하지 못함)
+  detect_cue: 꼬리 가지 서술 없음
+  feedback: 각 꼬리가 상수인지 f0 인지에 따라 g(±∞) 를 센다.
+- id: MC-CAL-1143
+  name: 치환 후 부분적분 부호 오류
+  concepts:
+  - 치환적분
+  - 부분적분
+  - 급수
+  used_in: DKU-G23A-01#3
+  outcome_code: '71'
+  wrong_work: x=u^4 치환 후 4u sin u 의 부분적분에서 부호나 경계를 틀린다 (a_n 을 n(-1)^n - 1 로 답함)
+  detect_cue: a_n=-n(-1)^n-1 아님
+  feedback: a_n=(1/π)[-u cos u+sin u]_π^{nπ} 로 계산한다.
+- id: MC-CAL-1144
+  name: 합성함수 증가 구간 측도 계산 오류
+  concepts:
+  - 합성함수 미분
+  - 삼각함수
+  used_in: DKU-G23A-02#1
+  outcome_code: '71'
+  wrong_work: g=sin2x 의 주기를 π 로 보지 않고 2π 로 가정 (n 을 2.5 등으로 구함)
+  detect_cue: 주기 판단 없음
+  feedback: f'(g)g'>0 인 부분의 길이가 한 주기 π 당 π/2.
+- id: MC-CAL-1145
+  name: h 와 f 의 관계(h'=f) 활용 못함
+  concepts:
+  - 부분적분
+  - 정적분
+  used_in: DKU-G23A-02#2
+  outcome_code: '71'
+  wrong_work: 피적분 식을 직접 적분하려 한다 (적분 불가로 막힘)
+  detect_cue: h'=f 사용 없음
+  feedback: (h·(−cos x...)) 형태로 묶어 부분적분하고 f 의 적분 조건 (4) 를 쓴다.
+- id: MC-CAL-1146
+  name: 최대 삼각형의 꼭짓점 위치 오해
+  concepts:
+  - 접선
+  - 이차함수
+  used_in: DKU-G23B-01#1
+  outcome_code: '71'
+  wrong_work: B1 을 항상 같은 곡선 위로 두거나 접선 조건을 쓰지 않는다 (a_1 을 2/9 가 아닌 값으로 구함)
+  detect_cue: 곡선이 번갈아 바뀌는 점 없음
+  feedback: B_n 이 f, g 위를 번갈아 놓이고 접선 기울기 = AB_n 기울기 인 점이 최대.
+- id: MC-CAL-1147
+  name: 리만합으로 바꾸지 못하고 극한을 직접 계산
+  concepts:
+  - 급수
+  - 정적분의 정의
+  used_in: DKU-G23B-01#3
+  outcome_code: '71'
+  wrong_work: b_n 을 조화급수로 두고 값을 모름 (발산한다고 답함)
+  detect_cue: ∑1/(k+1) 의 극한 서술 없음
+  feedback: ln|a_k| 가 선형이므로 1/n Σ 1/(1+k/n) 의 정적분으로 바꾼다.
+- id: MC-CAL-1148
+  name: 주기·대칭 조건으로 f(0),f(1) 못 구함
+  concepts:
+  - 함수의 대칭
+  - 역함수
+  used_in: DKU-G23B-02#1
+  outcome_code: '71'
+  wrong_work: f(0)=0, f(1)=1 을 도출하지 않고 ∫_{-1}^0 f 와 ∫_0^1 f 를 독립으로 둔다 (적분 불가)
+  detect_cue: 관계식 없음
+  feedback: f(x+2)=f(x)+2 와 f(x)+f(2-x)=2 에서 ∫_{-1}^0 f=-∫_0^1 f.
+- id: MC-CAL-1149
+  name: 원과 곡선의 접선 조건 대신 연립 방정식 사용
+  concepts:
+  - 접선
+  - 최솟값
+  - 매개변수
+  used_in: DKU-G23B-02#2
+  outcome_code: '71'
+  wrong_work: 접점에서 법선이 (t,0) 을 지난다는 조건 t=u+g g' 를 쓰지 않는다 (b 의 범위를 못 구함)
+  detect_cue: φ(u) 단조성 없음
+  feedback: φ(u)=u+g(u)g'(u), φ'=1+2w^2+bw≥0 으로 b≥-2√2.

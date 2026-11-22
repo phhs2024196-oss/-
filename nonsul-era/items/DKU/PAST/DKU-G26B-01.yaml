@@ -1,0 +1,434 @@
+# 단국대 2026학년도 논술 자연계열(오후) [문제 1] — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: DKU-G26B-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: DKU
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 추론
+points: 55
+time_estimate_min: 30
+intent: 미분계수의 개념(정적분의 평균변화율의 극한), 접선의 개념, 곡선으로 둘러싸인 도형의 넓이를 구할 수 있는지를 본다. $f(x)=\cos x-\sin x$, $g=fe^{-x}$에 대하여 $K'(1)$으로 극한 조건에서 $a$, 두 곡선이 접하는 조건에서 $b+p_2$, 연속한 영점 사이의 넓이 $A_k$의 비를 구한다.
+key_idea: '[논제 1] $K(x)=\int_1^xk(t)dt$로 두면 극한은 $K''(1)=k(1)=e^{-a^2}f(a)$. [논제 2] $g(p)=h(p)$, $g''(p)=h''(p)$에서 $\cos p-\sin p=b$, $2\cos p=b$. [논제 3] $g$의 영점은 $\frac\pi4+k\pi$이고 $A_{k+2}=A_ke^{-2\pi}$ 꼴의 등비 관계.'
+stuck: '[논제 1]에서 $\frac1x\int_1^{x+1}$을 $K''(1)$로 읽는 것, [논제 2]에서 ''만나는 모든 점에서 접선 일치''를 $g=h$, $g''=h''$ 두 식으로 쓰는 것, [논제 3]에서 $x\to x+2\pi$ 이동으로 $A_k$ 사이의 관계를 얻는 것'
+idea_tags:
+- IDEA-DERIVATIVE-OF-INTEGRAL-LIMIT
+- IDEA-TANGENCY-CONDITIONS
+- IDEA-PERIODIC-DAMPING-AREAS
+tags:
+- 미분계수
+- 정적분
+- 접선
+- 삼각함수
+- 지수함수
+- 부분적분
+- 넓이
+elements:
+  materials:
+  - $f(x)=\cos x-\sin x$ ($[0,10\pi]$), $g(x)=f(x)e^{-x}$
+  - $h(x)=be^{-x}$ ($b>0$)
+  - '$x_k$: $g(x)=0$의 양의 해, $A_k$: $[x_k,x_{k+1}]$에서의 넓이'
+  concepts:
+  - 미분계수의 정의
+  - 정적분과 미분
+  - 접선의 일치
+  - 삼각함수의 합성
+  - 부분적분법
+  - 넓이
+  tools:
+  - $K'(1)=k(1)$
+  - $g'(x)=e^{-x}(f'(x)-f(x))$
+  - $\int(\cos x-\sin x)e^{-x}dx=-e^{-x}\sin x$
+  - $A_{k+2}=A_ke^{-2\pi}$
+  conditions:
+  - $\lim_{x\to0}\frac1x\int_1^{x+1}e^{-(at)^2}f(at)dt=0$
+  - 두 곡선이 만나는 모든 점에서 접선 일치
+  - $x_1<x_2<\cdots$
+  stimuli_used:
+  - 가
+  - 나
+  - 다
+  subpart_links: null
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학Ⅱ
+  - 미적분
+  scope_2028: calc2
+  scope_confirmed: false
+  standards:
+  - code: 12수학Ⅱ02-01
+    text: 미분계수의 뜻을 알고, 그 값을 구할 수 있다.
+    verified: true
+  - code: 12미적02-11
+    text: 접선의 방정식을 구할 수 있다.
+    verified: true
+  - code: 12미적03-02
+    text: 부분적분법을 이해하고, 이를 활용할 수 있다.
+    verified: true
+  - code: 12미적03-05
+    text: 곡선으로 둘러싸인 도형의 넓이를 구할 수 있다.
+    verified: true
+  content_area: 미분계수·접선·넓이
+  behavior_domain: 문제해결
+  unit_path:
+  - 미적분
+  - 적분법
+  - 정적분의 활용
+  key_concepts:
+  - 정적분의 미분
+  - 접선의 일치
+  - 도형의 넓이
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 단국대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 단국대학교
+  admission_year: 2026
+  admission_type: 수시 논술
+  track: 자연계열(오후)
+  question_no: 1
+  official_url: https://ipsi.dankook.ac.kr/jukjeon/doumi/nonsul_list.html?bbsid=juk_pds09&mode=view&bltn_seq=51143
+  retrieved_at: '2026-11-22'
+  original_points:
+  - 15
+  - 20
+  - 20
+  rights_notice: 단국대학교 입학처 공개 자료(내부 분석용)
+  transcribed_from: book27.pdf p.109~111 (예시답안), R26.pdf p.74~77 (성취기준·채점기준) (이미지 대조 2026-11-22; PDF 쪽번호)
+verify: verify/DKU-G26B.py::p01
+stimuli:
+- label: 가
+  body: |-
+    함수 $f(x)$가 $x=a$에서 미분가능할 때, 곡선 $y=f(x)$ 위의 점 $(a,f(a))$에서의 접선의 방정식은
+    $$y-f(a)=f'(a)(x-a)$$
+- label: 나
+  body: |-
+    두 함수 $f(x)$, $g(x)$가 미분가능하고 $f'(x)$, $g'(x)$가 닫힌구간 $[a,b]$에서 연속일 때,
+    $$\int_a^bf(x)g'(x)\,dx=\Big[f(x)g(x)\Big]_a^b-\int_a^bf'(x)g(x)\,dx$$
+- label: 다
+  body: |-
+    함수 $f(x)$가 닫힌구간 $[a,b]$에서 연속일 때, 곡선 $y=f(x)$와 $x$축 및 두 직선 $x=a$, $x=b$로 둘러싸인 도형의 넓이 $S$는
+    $$S=\int_a^b\lvert f(x)\rvert\,dx$$
+stem: |-
+  [문제 1] 다음 제시문을 읽고 질문에 답하시오. (55점)
+
+  닫힌구간 $[0,10\pi]$에서 정의된 함수 $f(x)=\cos x-\sin x$에 대하여 $g(x)=f(x)e^{-x}$라 하자.
+subparts:
+- id: '1'
+  stem: '[논제 1] $\displaystyle\lim_{x\to0}\frac1x\int_1^{x+1}e^{-(at)^2}f(at)\,dt=0$을 만족시키는 양수 $a$의 최솟값을 구하시오.'
+  points: 15
+  depends_on: []
+  answer:
+    kind: expression
+    value: pi/4
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $k(t)=e^{-(at)^2}f(at)$, $K(x)=\int_1^xk$로 두면 극한은 $K'(1)=k(1)$.
+    steps:
+    - id: 1a
+      content: $e^{-a^2}f(a)=0\Rightarrow\cos a=\sin a$, 최소 양수 $a=\frac\pi4$
+      criteria:
+      - 1.M1
+      - 1.M2
+      - 1.A1
+    hint_ladder:
+    - 극한을 미분계수의 정의로 읽으면?
+    - $f(a)=0$인 최소 양수는?
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: book27.pdf p.110 예시답안 [논제 1]
+    steps:
+    - id: 1b-1
+      content: $k(t)=e^{-(at)^2}f(at)$, $K(x)=\displaystyle\int_1^xk(t)dt$라 하자. $$\lim_{x\to0}\frac1x\int_1^{x+1}e^{-(at)^2}f(at)dt=\lim_{x\to0}\frac{K(x+1)-K(1)}x=K'(1)=k(1)=e^{-a^2}f(a)=0$$
+      criteria:
+      - 1.M1
+    - id: 1b-2
+      content: 따라서 $f(a)=0$에서 $\cos a=\sin a$이다.
+      criteria:
+      - 1.M2
+    - id: 1b-3
+      content: 이로부터 $a$의 최솟값은 $\dfrac\pi4$이다.
+      criteria:
+      - 1.A1
+  # 채점기준 공식 공개 — R26.pdf p.77, 원 배점 분할 그대로
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 5
+      evidence: $e^{-a^2}f(a)=0$을 제시했다.
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 1b-1
+      - 1a
+    - id: 1.M2
+      mark_type: M
+      points: 5
+      evidence: $\cos a=\sin a$를 제시했다.
+      depends_on:
+      - 1.M1
+      implied_ok: false
+      steps:
+      - 1b-2
+      - 1a
+    - id: 1.A1
+      mark_type: A
+      points: 5
+      evidence: 정답 $\frac\pi4$를 제시했다.
+      depends_on:
+      - 1.M2
+      steps:
+      - 1b-3
+      - 1a
+    deductions: []
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+- id: '2'
+  stem: |-
+    [논제 2] 닫힌구간 $[0,10\pi]$에서 정의된 두 함수 $g(x)=f(x)e^{-x}$와 $h(x)=be^{-x}$는 다음 조건을 만족시킨다. (단, $b$는 양수)
+
+    두 곡선 $y=g(x)$와 $y=h(x)$가 만나고, 만나는 모든 점에서 곡선 $y=g(x)$에 접하는 직선과 곡선 $y=h(x)$에 접하는 직선이 일치한다.
+
+    두 곡선 $y=g(x)$와 $y=h(x)$가 만나는 점의 $x$좌표를 작은 수부터 크기순으로 나열할 때 두 번째 수를 $p_2$라 하자. $b+p_2$의 값을 구하시오.
+  points: 20
+  depends_on: []
+  answer:
+    kind: expression
+    value: sqrt(2) + 15*pi/4
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: '만나는 점 $p$에서 $g(p)=h(p)$, $g''(p)=h''(p)$: $\cos p-\sin p=b$, $2\cos p=b$.'
+    steps:
+    - id: 2a
+      content: $\tan p=-1$, $b>0\Rightarrow p=\frac{7\pi}4+2j\pi$, $b=\sqrt2$, $p_2=\frac{15\pi}4$
+      criteria:
+      - 2.M1
+      - 2.M2
+      - 2.M3
+      - 2.A1
+    hint_ladder:
+    - $g'(x)$와 $h'(x)$를 구하자.
+    - 두 식에서 $\tan p$는?
+  - id: S2-B
+    audience: B
+    method_no: 1
+    source_flow: book27.pdf p.111 예시답안 [논제 2]
+    steps:
+    - id: 2b-1
+      content: 교점의 $x$좌표를 $p$라 하면, $g(p)=h(p)$로부터 $$\cos p-\sin p=b\ \cdots\cdots\ (1)$$
+      criteria:
+      - 2.M1
+    - id: 2b-2
+      content: 또한 $g'(x)=e^{-x}(f'(x)-f(x))$, $h'(x)=-be^{-x}$이고, $g'(p)=h'(p)$이므로 $$2\cos p=b\ \cdots\cdots\ (2)$$
+      criteria:
+      - 2.M2
+    - id: 2b-3
+      content: (1)과 (2)에 의해 $\cos p=-\sin p$에서 $\tan p=-1$이다. $b$는 양의 실수이므로 $p_2=\dfrac{15\pi}4$이다.
+      criteria:
+      - 2.A1
+    - id: 2b-4
+      content: (2)에 의해 $b=\sqrt2$이므로 $b+p_2=\sqrt2+\dfrac{15\pi}4$
+      criteria:
+      - 2.M3
+      - 2.A1
+  # 채점기준 공식 공개 — R26.pdf p.77, 원 배점 분할 그대로
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 4
+      evidence: $\cos p-\sin p=b$를 제시했다.
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 2b-1
+      - 2a
+    - id: 2.M2
+      mark_type: M
+      points: 4
+      evidence: $2\cos p=b$를 제시했다.
+      depends_on:
+      - 2.M1
+      implied_ok: false
+      steps:
+      - 2b-2
+      - 2a
+    - id: 2.M3
+      mark_type: M
+      points: 6
+      evidence: $b=\sqrt2$를 제시했다.
+      depends_on:
+      - 2.M2
+      implied_ok: false
+      steps:
+      - 2b-4
+      - 2a
+    - id: 2.A1
+      mark_type: A
+      points: 6
+      evidence: 정답 $b+p_2=\sqrt2+\frac{15\pi}4$를 제시했다.
+      depends_on:
+      - 2.M3
+      steps:
+      - 2b-3
+      - 2b-4
+      - 2a
+    deductions: []
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+- id: '3'
+  stem: '[논제 3] 방정식 $g(x)=0$을 만족시키는 양수 $x$를 작은 수부터 크기순으로 나열할 때 $k$번째 수를 $x_k$라 하자. $x_k\le x\le x_{k+1}$에서 곡선 $y=g(x)$와 $x$축으로 둘러싸인 도형의 넓이를 $A_k$라 하자. $A_1+\dfrac{A_6}{A_3}$의 값을 구하시오.'
+  points: 20
+  depends_on: []
+  answer:
+    kind: expression
+    value: sqrt(2)/2*(exp(-5*pi/4) + exp(-pi/4)) + exp(-3*pi)
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: 영점은 $\frac\pi4+(k-1)\pi$. $A_1$을 부분적분으로 구하고 $x\to x+2\pi$ 이동으로 $A_3=A_1e^{-2\pi}$, $A_6=A_1e^{-5\pi}$.
+    steps:
+    - id: 3a
+      content: $A_1+\frac{A_6}{A_3}=A_1+e^{-3\pi}=\frac{\sqrt2}2(e^{-5\pi/4}+e^{-\pi/4})+e^{-3\pi}$
+      criteria:
+      - 3.M1
+      - 3.M2
+      - 3.M3
+      - 3.A1
+    hint_ladder:
+    - $g(x)=0$의 해는?
+    - $A_3$과 $A_1$의 관계는?
+  - id: S3-B
+    audience: B
+    method_no: 1
+    source_flow: book27.pdf p.111 예시답안 [논제 3]
+    steps:
+    - id: 3b-1
+      content: '방정식 $g(x)=0$을 만족시키는 양수 $x$를 작은 수부터 $7$개 구하면 $x=\dfrac\pi4,\ \dfrac\pi4+\pi,\ \dfrac\pi4+2\pi,\ \dfrac\pi4+3\pi,\ \dfrac\pi4+4\pi,\ \dfrac\pi4+5\pi,\ \dfrac\pi4+6\pi$이다. 도형의 넓이 $A_1$은 $\dfrac\pi4\le x\le\dfrac{5\pi}4$에서 $g(x)\le0$이므로 부분적분법에 의하여 $$A_1=-\int_{\frac\pi4}^{\frac{5\pi}4}(\cos x-\sin x)e^{-x}dx=-\Big[e^{-x}\sin x\Big]_{\frac\pi4}^{\frac{5\pi}4}=\frac{\sqrt2}2\left(e^{-\frac{5\pi}4}+e^{-\frac\pi4}\right)$$ 이다. (보충: $\frac{d}{dx}\left(e^{-x}\sin x\right)=(\cos x-\sin x)e^{-x}$)'
+      criteria:
+      - 3.M1
+    - id: 3b-2
+      content: 또한 $$A_3=-\int_{\frac\pi4+2\pi}^{\frac{5\pi}4+2\pi}(\cos x-\sin x)e^{-x}dx=-\int_{\frac\pi4}^{\frac{5\pi}4}(\cos(x+2\pi)-\sin(x+2\pi))e^{-(x+2\pi)}dx=A_1e^{-2\pi}$$ 이다.
+      criteria:
+      - 3.M2
+    - id: 3b-3
+      content: 도형의 넓이 $A_6$은 $\dfrac{21\pi}4\le x\le\dfrac{25\pi}4$에서 $g(x)\ge0$이므로 $$A_6=\int_{\frac\pi4+5\pi}^{\frac{5\pi}4+5\pi}(\cos x-\sin x)e^{-x}dx=\int_{\frac\pi4}^{\frac{5\pi}4}(\cos(x+5\pi)-\sin(x+5\pi))e^{-(x+5\pi)}dx=-e^{-5\pi}\int_{\frac\pi4}^{\frac{5\pi}4}(\cos x-\sin x)e^{-x}dx=A_1e^{-5\pi}$$ 이다.
+      criteria:
+      - 3.M3
+    - id: 3b-4
+      content: 따라서 $A_1+\dfrac{A_6}{A_3}=\dfrac{\sqrt2}2\left(e^{-\frac{5\pi}4}+e^{-\frac\pi4}\right)+e^{-3\pi}$이다.
+      criteria:
+      - 3.A1
+  # 채점기준 공식 공개 — R26.pdf p.77, 원 배점 분할 그대로
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 5
+      evidence: $A_1$을 제시했다.
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 3b-1
+      - 3a
+    - id: 3.M2
+      mark_type: M
+      points: 5
+      evidence: $A_3=A_1e^{-2\pi}$를 제시했다.
+      depends_on:
+      - 3.M1
+      implied_ok: false
+      steps:
+      - 3b-2
+      - 3a
+    - id: 3.M3
+      mark_type: M
+      points: 5
+      evidence: $A_6=A_1e^{-5\pi}$를 제시했다.
+      depends_on:
+      - 3.M1
+      implied_ok: false
+      steps:
+      - 3b-3
+      - 3a
+    - id: 3.A1
+      mark_type: A
+      points: 5
+      evidence: 정답 $A_1+\frac{A_6}{A_3}=\frac{\sqrt2}2\left(e^{-5\pi/4}+e^{-\pi/4}\right)+e^{-3\pi}$를 제시했다.
+      depends_on:
+      - 3.M2
+      - 3.M3
+      steps:
+      - 3b-4
+      - 3a
+    deductions: []
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: p3-past-v1
+  item_version: 1
+  verdict: pass
+  date: '2026-11-22'
+- stage: verify
+  actor_type: system
+  actor_id: verify/DKU-G26B.py
+  item_version: 1
+  verdict: pass
+  date: '2026-11-22'
+created: '2026-11-22'
+updated: '2026-11-22'

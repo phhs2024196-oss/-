@@ -1,0 +1,467 @@
+# 단국대학교 2022학년도 논술 자연계열(오후) [문제 1] — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: DKU-G22B-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: DKU
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 추론
+points: 55
+time_estimate_min: 75
+intent: |
+  함수의 극한 개념과 역함수의 미분법을 활용할 수 있는지(논제 1), 함수의 성질과 극한 개념을 활용할 수 있는지(논제 2), 역함수의 미분법과 치환적분으로 극값을 판정하고 정적분을 구할 수 있는지(논제 3)를 본다. 논제 1은 $x\to1$을 $y=f^{-1}(x)\to p$로 바꾸어 수렴 조건 $f'(p)=0$과 역함수 존재 조건 $f'\ge0$으로 $a,b,L$을 구하고, 논제 2는 $(x-2)\frac{g'}{g}\to2$로 $g$의 인수를 정하며, 논제 3은 $F'(t)=\pi\cos(k^{-1}(\pi t))$로 극값의 위치를 찾고 치환 $y=k(x)$로 $F(\beta)-F(\alpha)$를 계산한다.
+key_idea: |
+  1은 $f'(p)=0$이고 $f'$의 최솟값이므로 $f''(p)=0$, $p=\frac12$, $a=-4$, $b=\frac52+\ln2$, $L=\frac12$. 2는 $g=(x-2)^2(x+r)$, $h(\lvert x\rvert)$의 분모가 $0$이 되는 $c=r<0$, $g(r)=18r$에서 $r=-1$. 3은 $k^{-1}(\pi t)=\frac\pi2,\frac{3\pi}2,\dots,\frac{15\pi}2$에서 극값, $\alpha=\frac{13}2+\frac1\pi$, $\beta=\frac{15}2-\frac1\pi$, $y=x+\sin x$ 치환.
+stuck: 1에서 극한이 $0$이 아닌 값으로 수렴하려면 $f'(p)=0$이어야 하고 그때 $f'$가 최솟값이라는 연결, 2에서 $(x-2)g'/g$의 극한이 인수의 중복도를 준다는 것, 3에서 $F'$의 부호 변화를 $k^{-1}(\pi t)$의 값으로 읽고 치환 $y=k(x)$로 적분 구간을 바꾸는 것
+idea_tags:
+- IDEA-INVERSE-DERIVATIVE-LIMIT
+- IDEA-LOG-DERIV-MULTIPLICITY
+- IDEA-INVERSE-SUBSTITUTION-INTEGRAL
+tags:
+- 역함수의 미분
+- 함수의 극한
+- 극값
+- 치환적분
+- 삼차함수의 중근
+elements:
+  materials:
+  - $f(x)=\ln x+2x^2+ax+b$가 역함수를 갖고 $\lim_{x\to1}(f^{-1})'(x)\{\ln\frac{f^{-1}(x)}{f^{-1}(1)}\}^2=L\ne0$
+  - $h(x)=\frac{(x-2)g'(x)}{g(x)}$, $\lim_{x\to2}h=2$, $\lim_{x\to c}h(\lvert x\rvert)$가 존재하지 않음, $g(c)=18c$
+  - $k(x)=x+\sin x$, $F(t)=\int_0^{\pi t}\cos(k^{-1}(y))dy$
+  concepts:
+  - 역함수의 미분법
+  - 함수의 극한
+  - 로그미분과 인수의 중복도
+  - 극대·극소 판정
+  - 치환적분법
+  - 삼각함수의 정적분
+  tools:
+  - $(f^{-1})'(x)=\frac1{f'(f^{-1}(x))}$
+  - $y=f^{-1}(x)$ 치환으로 극한 변환
+  - $f'$의 최솟값 $\Rightarrow f''=0$
+  - $y=k(x)$ 치환, $dy=(1+\cos x)dx$
+  conditions:
+  - $f$가 역함수를 가지므로 $f'\ge0$
+  - $\lim_{x\to2}h(x)=2\Rightarrow g(x)=(x-2)^2(x+r)$
+  - $0<t<8\Rightarrow0<k^{-1}(\pi t)<8\pi$
+  stimuli_used:
+  - 가
+  - 나
+  - 다
+  subpart_links: null
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학Ⅱ
+  - 미적분
+  scope_2028: calc2
+  scope_confirmed: false
+  standards:
+  - code: 12수학Ⅱ01-01
+    text: 함수의 극한의 뜻을 안다.
+    verified: true
+  - code: 12미적02-09
+    text: 음함수와 역함수를 미분할 수 있다.
+    verified: true
+  - code: 12미적03-01
+    text: 치환적분법을 이해하고, 이를 활용할 수 있다.
+    verified: true
+  - code: 12수학Ⅱ02-04
+    text: 함수 $y=x^n$($n$은 양의 정수)의 도함수를 구할 수 있다.
+    verified: true
+  - code: 12수학Ⅱ02-05
+    text: 함수의 실수배, 합, 차, 곱의 미분법을 알고, 다항함수의 도함수를 구할 수 있다.
+    verified: true
+  - code: 12수학Ⅱ02-08
+    text: 함수의 증가와 감소, 극대와 극소를 판정하고 설명할 수 있다.
+    verified: true
+  content_area: 역함수의 미분·함수의 극한·극값 판정과 치환적분
+  behavior_domain: 문제해결
+  unit_path:
+  - 미적분
+  - 미분법
+  - 여러 가지 미분법
+  - 음함수와 역함수의 미분법
+  key_concepts:
+  - 역함수의 미분법
+  - 함수의 극한
+  - 로그미분과 인수의 중복도
+  - 극대·극소 판정
+  - 치환적분법
+  - 삼각함수의 정적분
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 단국대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 단국대학교
+  admission_year: 2022
+  admission_type: 수시 논술
+  track: 자연계열(오후)
+  question_no: 1
+  official_url: https://ipsi.dankook.ac.kr/jukjeon/doumi/previous_list.html?bbsid=juk_sunhang&mode=view&bltn_seq=40090
+  retrieved_at: '2026-11-22'
+  original_points:
+  - 15
+  - 20
+  - 20
+  rights_notice: 단국대학교 입학처 공개 자료(내부 분석용)
+  transcribed_from: 'R22.pdf 문항카드 9 p.99~106 (오후 문제1: 문제 p.99~100, 성취기준 p.100~102, 채점기준 p.102~103, 예시답안 p.104~106) (이미지 대조 2026-11-22)'
+verify: verify/DKU-G22B.py::p01
+stimuli:
+- label: 가
+  body: |
+    미분가능한 함수 $f(x)$의 역함수 $f^{-1}(x)$가 존재하고 이 역함수가 미분가능할 때,
+    $$(f^{-1})'(x)=\frac{1}{f'(f^{-1}(x))}$$
+- label: 나
+  body: |
+    함수 $f(x)$에서 $x$의 값이 $a$가 아니면서 $a$에 한없이 가까워질 때, $f(x)$의 값이 일정한 값 $L$에 한없이 가까워지면 함수 $f(x)$는 $L$에 수렴한다고 한다. 이때 $L$을 $x=a$에서의 함수 $f(x)$의 극한값 또는 극한이라 하고, 이것을 기호로
+    $$\lim_{x\to a}f(x)=L\qquad\text{또는}\qquad x\to a\text{일 때 }f(x)\to L$$
+    과 같이 나타낸다.
+- label: 다
+  body: |
+    함수 $f(x)$가 닫힌구간 $[a,b]$에서 연속이고 미분가능한 함수 $x=g(t)$에 대하여 $a=g(\alpha)$, $b=g(\beta)$일 때 도함수 $g'(t)$가 $\alpha,\beta$를 포함하는 구간에서 연속이면
+    $$\int_a^bf(x)dx=\int_\alpha^\beta f(g(t))g'(t)\,dt$$
+stem: |
+  [문제 1] 다음 제시문을 읽고 질문에 답하시오. (55점)
+subparts:
+- id: '1'
+  stem: |
+    [논제 1] 양의 실수 전체의 집합에서 정의된 함수 $f(x)=\ln x+2x^2+ax+b$가 역함수를 갖고,
+    $0$이 아닌 실수 $L$에 대하여
+    $$\lim_{x\to1}\left((f^{-1})'(x)\times\left\{\ln\frac{f^{-1}(x)}{f^{-1}(1)}\right\}^2\right)=L$$
+    일 때, $a+b+L$의 값을 구하시오. (단, $a,b$는 상수) (15점)
+  points: 15
+  depends_on: []
+  answer:
+    kind: value
+    value: -1 + log(2)
+    equivalents:
+    - log(2) - 1
+    tolerance: null
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: |
+      $f^{-1}(1)=p$라 하면 $f'(p)=0$, $f'$의 최솟값이므로 $f''(p)=0$에서 $p=\frac12$, $a=-4$, $b=\frac52+\ln2$, $L=\lim\frac{(\ln y-\ln\frac12)^2}{4(y-\frac12)^2/y}=\frac12$. 합 $-1+\ln2$.
+    steps:
+    - id: 1a
+      content: 수렴 조건 $f'(p)=0$ → $p=\frac12$, $a=-4$, $b=\frac52+\ln2$, $L=\frac12$ → $-1+\ln2$
+      criteria:
+      - 1.M1
+      - 1.A1
+      - 1.A2
+    hint_ladder:
+    - 극한이 $0$이 아닌 값이 되려면 $\frac1{f'(y)}$는 어떻게 되어야 하는가?
+    - 역함수가 존재하면 $f'$의 부호는 일정하다.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 2022 선행학습 영향평가 보고서 R22.pdf p.104 예시답안 [논제 1]
+    steps:
+    - id: 1b-1
+      content: |
+        $f^{-1}(x)=y$라 하면 $f(p)=1$인 양의 실수 $p$가 존재하여
+        $\displaystyle\lim_{x\to1}\left((f^{-1})'(x)\times\left\{\ln\frac{f^{-1}(x)}{f^{-1}(1)}\right\}^2\right)=\lim_{y\to p}\left\{\frac1{f'(y)}\times\left(\ln\frac yp\right)^2\right\}=L\ne0$
+        을 만족시킨다. $\displaystyle\lim_{y\to p}\ln\frac yp=0$이므로 주어진 극한이 $0$이 아닌 값으로 수렴하기 위해서는 $\displaystyle\lim_{y\to p}f'(y)=f'(p)=0$이다.
+      criteria:
+      - 1.M1
+    - id: 1b-2
+      content: |
+        함수 $f(x)$가 역함수를 가지려면 모든 양수 $x$에서 $f'(x)\ge0$이거나 모든 양수 $x$에서 $f'(x)\le0$이어야 한다. 그런데 $f'(x)=\dfrac1x+4x+a$에서 $\displaystyle\lim_{x\to\infty}f'(x)=\infty$이므로 모든 양수 $x$에서 $f'(x)\ge0$이어야 한다. $f'(p)=0$이므로 $f'(p)$는 $f'(x)$의 최솟값이다. 따라서 $f''(p)=-\dfrac1{p^2}+4=0$이므로 $p=\dfrac12$이다. $f'\left(\dfrac12\right)=2+2+a=0$이므로 $a=-4$이다.
+      criteria:
+      - 1.M1
+    - id: 1b-3
+      content: |
+        또한 $f\left(\dfrac12\right)=\ln\dfrac12+\dfrac12-2+b=1$이므로 $b=\dfrac52+\ln2$이다.
+      criteria:
+      - 1.A1
+    - id: 1b-4
+      content: |
+        $L=\displaystyle\lim_{y\to\frac12}\left\{\frac1{f'(y)}\times\left(\ln\frac yp\right)^2\right\}=\lim_{y\to\frac12}\frac{\left(\ln y-\ln\frac12\right)^2}{\frac1y+4y-4}=\lim_{y\to\frac12}\left\{\left(\frac{\ln y-\ln\frac12}{y-\frac12}\right)^2\times\frac y4\right\}=\frac12$
+      criteria:
+      - 1.A2
+    - id: 1b-5
+      content: |
+        이므로 $a+b+L=-1+\ln2$이다.
+      criteria:
+      - 1.A2
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 5
+      evidence: |
+        수렴 조건 $f'(p)=0$, $f''(p)=0$, $p=\frac12$로 $a=-4$를 제시했다(공식 채점기준 15점 중 5점).
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 1b-1
+      - 1b-2
+      - 1a
+    - id: 1.A1
+      mark_type: A
+      points: 5
+      evidence: |
+        $f\left(\frac12\right)=1$로 $b=\frac52+\ln2$를 제시했다(공식 5점).
+      depends_on:
+      - 1.M1
+      steps:
+      - 1b-3
+      - 1a
+    - id: 1.A2
+      mark_type: A
+      points: 5
+      evidence: |
+        $L=\frac12$을 구해 $a+b+L=-1+\ln2$를 제시했다(공식 5점).
+      depends_on:
+      - 1.M1
+      - 1.A1
+      steps:
+      - 1b-4
+      - 1b-5
+      - 1a
+    deductions: []
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+- id: '2'
+  stem: |
+    [논제 2] 최고차항의 계수가 $1$인 삼차함수 $g(x)$에 대하여 함수 $h(x)=\dfrac{(x-2)g'(x)}{g(x)}$와
+    $0$이 아닌 실수 $c$가 다음 조건을 만족시킨다.
+
+    (1) $\displaystyle\lim_{x\to2}h(x)=2$
+    (2) $\displaystyle\lim_{x\to c}h(\lvert x\rvert)$가 존재하지 않는다.
+    (3) $g(c)=18c$
+
+    $g(2c)$의 값을 구하시오. (20점)
+  points: 20
+  depends_on: []
+  answer:
+    kind: value
+    value: '-48'
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: |
+      (1)에서 $g(2)=0$이고 $\lim(x-2)\frac{g'}{g}$가 $2$이므로 $g=(x-2)^2(x+r)$. $h(\lvert x\rvert)=\frac{3\lvert x\rvert+2r-2}{\lvert x\rvert+r}$의 분모가 $0$이어야 하므로 $c=\pm r$($r<0$). $c=-r$이면 $g(c)=0$이라 모순, $c=r$이고 $g(r)=18r$에서 $r=-1$. $g(-2)=-48$.
+    steps:
+    - id: 2a
+      content: $g=(x-2)^2(x+r)$ → $c=r=-1$ → $g(2c)=g(-2)=-48$
+      criteria:
+      - 2.M1
+      - 2.A1
+      - 2.A2
+    hint_ladder:
+    - $g(x)=(x-2)^kp(x)$로 놓고 $\lim(x-2)\frac{g'}{g}$를 계산하면?
+    - $\lim h(\lvert x\rvert)$가 존재하지 않는 경우는 분모가 $0$이 되는 점이다.
+  - id: S2-B
+    audience: B
+    method_no: 1
+    source_flow: 2022 선행학습 영향평가 보고서 R22.pdf p.104~105 예시답안 [논제 2]
+    steps:
+    - id: 2b-1
+      content: |
+        조건 (1)에서 $\displaystyle\lim_{x\to2}(x-2)\frac{g'(x)}{g(x)}=2$이므로 $g(2)=0$이다. 따라서 $1\le k\le3$인 자연수 $k$와 $p(2)\ne0$인 $(3-k)$차 다항식 $p(x)$에 대하여 $g(x)=(x-2)^kp(x)$이고 $g'(x)=k(x-2)^{k-1}p(x)+(x-2)^kp'(x)$로부터
+        $\displaystyle\lim_{x\to2}\left\{(x-2)\frac{g'(x)}{g(x)}\right\}=\lim_{x\to2}\frac{kp(x)+(x-2)p'(x)}{p(x)}=k$이고 $k=2$이다. 따라서 상수 $r$ ($r\ne-2$)에 대하여 $g(x)=(x-2)^2(x+r)\ \cdots(\star)$이다.
+      criteria:
+      - 2.M1
+    - id: 2b-2
+      content: |
+        그러므로 $h(\lvert x\rvert)=\dfrac{3\lvert x\rvert+2r-2}{\lvert x\rvert+r}=\begin{cases}\dfrac{3x+2r-2}{x+r}&(x\ge0)\\[4pt]\dfrac{-3x+2r-2}{-x+r}&(x<0)\end{cases}$이고 조건 (2)에 의하여 $c=r\ (c<0)$ 또는 $c=-r\ (c>0)$이어야 한다. 따라서 $r<0$이어야 한다.
+      criteria:
+      - 2.A1
+    - id: 2b-3
+      content: |
+        그런데 $c=-r$이면 $g(c)=0$이 되므로 조건 (3)에 모순이다. 따라서 $c=r$ ($r<0,\ r\ne-2$)이다. $g(c)=g(r)=(r-2)^2(2r)=18r$로부터 $c=r=-1$이고 $g(x)=(x-2)^2(x-1)$이다.
+      criteria:
+      - 2.A1
+    - id: 2b-4
+      content: |
+        그러므로 $g(2c)=g(-2)=-48$이다.
+      criteria:
+      - 2.A2
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 5
+      evidence: |
+        $g(x)=(x-2)^2(x+r)$를 제시했다(공식 채점기준 20점 중 5점).
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 2b-1
+      - 2a
+    - id: 2.A1
+      mark_type: A
+      points: 10
+      evidence: |
+        조건 (2),(3)으로 $c=r=-1$을 제시했다(공식 10점).
+      depends_on:
+      - 2.M1
+      steps:
+      - 2b-2
+      - 2b-3
+      - 2a
+    - id: 2.A2
+      mark_type: A
+      points: 5
+      evidence: |
+        $g(2c)=g(-2)=-48$을 구했다(공식 5점).
+      depends_on:
+      - 2.M1
+      - 2.A1
+      steps:
+      - 2b-4
+      - 2a
+    deductions: []
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+- id: '3'
+  stem: |
+    [논제 3] 함수 $k(x)=x+\sin x$에 대하여 함수 $F(t)$와 상수 $\alpha,\beta$를 다음과 같이 정의하자.
+
+    (1) $F(t)=\displaystyle\int_0^{\pi t}\cos(k^{-1}(y))\,dy$
+    (2) $\alpha$는 $0<t<8$에서 $F(t)$가 극댓값인 $t$의 값 중 가장 큰 값
+    (3) $\beta$는 $0<t<8$에서 $F(t)$가 극솟값인 $t$의 값 중 가장 큰 값
+
+    $F(\beta)-F(\alpha)$의 값을 구하시오. (20점)
+  points: 20
+  depends_on: []
+  answer:
+    kind: value
+    value: pi/2 - 2
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: |
+      $F'(t)=\pi\cos(k^{-1}(\pi t))$, $k^{-1}(\pi t)=\frac\pi2,\frac{3\pi}2,\dots,\frac{15\pi}2$에서 $F'=0$이고 $F''=-\frac{\pi^2\sin x}{1+\cos x}$로 극대(sin=1)·극소(sin=-1) 판정. $\alpha=\frac{13}2+\frac1\pi$, $\beta=\frac{15}2-\frac1\pi$. $y=x+\sin x$ 치환으로 $\int_{13\pi/2}^{15\pi/2}\cos x(1+\cos x)dx=\frac\pi2-2$.
+    steps:
+    - id: 3a
+      content: $F'=0$인 $k^{-1}(\pi t)$와 $F''$로 $\alpha,\beta$ → 치환 $y=k(x)$ → $\frac\pi2-2$
+      criteria:
+      - 3.M1
+      - 3.A1
+      - 3.A2
+    hint_ladder:
+    - $F'(t)$를 구하고 $F'(t)=0$일 조건을 $k^{-1}(\pi t)$에 대해 써 보자.
+    - $\pi t=x+\sin x$로 놓으면 $\frac{dt}{dx}$는?
+  - id: S3-B
+    audience: B
+    method_no: 1
+    source_flow: 2022 선행학습 영향평가 보고서 R22.pdf p.105~106 예시답안 [논제 3]
+    steps:
+    - id: 3b-1
+      content: |
+        함수 $F(t)$를 미분하면 $F'(t)=\pi\cos(k^{-1}(\pi t))\ \cdots(\ast\ast)$이다. 그런데 $k'(x)=1+\cos x\ge0$이므로 함수 $k(x)$는 증가함수이고 $k^{-1}(x)$도 증가함수이다. 따라서 $t\in(0,8)$이면 $k^{-1}(\pi t)\in(0,8\pi)$이므로 $(\ast\ast)$에서
+        $k^{-1}(\pi t)=\dfrac\pi2,\dfrac{3\pi}2,\dfrac{5\pi}2,\dfrac{7\pi}2,\dfrac{9\pi}2,\dfrac{11\pi}2,\dfrac{13\pi}2,\dfrac{15\pi}2\ \cdots(\ast\ast\ast)$일 때 $F'(t)=0$이다.
+      criteria:
+      - 3.M1
+    - id: 3b-2
+      content: |
+        또한 $F''(t)=-\pi\sin(k^{-1}(\pi t))\dfrac{d}{dt}k^{-1}(\pi t)$이다. 여기에서 $k^{-1}(\pi t)=x$라 하면 $\pi t=k(x)=x+\sin x$, 즉 $\dfrac{dt}{dx}=\dfrac1\pi(1+\cos x)$이므로 $\dfrac d{dt}k^{-1}(\pi t)=\dfrac\pi{1+\cos(k^{-1}(\pi t))}$이다. 따라서 $F''(t)=-\dfrac{\pi^2\sin(k^{-1}(\pi t))}{1+\cos(k^{-1}(\pi t))}$이다.
+        $(\ast\ast\ast)$를 만족시키는 $t$에서는 $\cos(k^{-1}(\pi t))=0$이고 $\sin(k^{-1}(\pi t))=1\ (k^{-1}(\pi t)=\frac\pi2,\frac{5\pi}2,\frac{9\pi}2,\frac{13\pi}2)$, $-1\ (k^{-1}(\pi t)=\frac{3\pi}2,\frac{7\pi}2,\frac{11\pi}2,\frac{15\pi}2)$이다. 여기에서 $k^{-1}(\pi t)=\dfrac\pi2,\dfrac{5\pi}2,\dfrac{9\pi}2,\dfrac{13\pi}2$이면 $F''(t)<0$이므로 함수 $F(t)$는 극댓값을 갖고, $k^{-1}(\pi t)=\dfrac{3\pi}2,\dfrac{7\pi}2,\dfrac{11\pi}2,\dfrac{15\pi}2$이면 $F''(t)>0$이므로 함수 $F(t)$는 극솟값을 갖는다.
+      criteria:
+      - 3.M1
+    - id: 3b-3
+      content: |
+        그런데 $k^{-1}(\pi t)$는 $t$의 증가함수이므로 $\alpha=\dfrac1\pi k\!\left(\dfrac{13\pi}2\right)=\dfrac{13}2+\dfrac1\pi$, $\beta=\dfrac1\pi k\!\left(\dfrac{15\pi}2\right)=\dfrac{15}2-\dfrac1\pi$이다.
+      criteria:
+      - 3.A1
+    - id: 3b-4
+      content: |
+        따라서 $F(\beta)-F(\alpha)=F\!\left(\dfrac{15}2-\dfrac1\pi\right)-F\!\left(\dfrac{13}2+\dfrac1\pi\right)=\displaystyle\int_{\frac{13}2\pi+1}^{\frac{15}2\pi-1}\cos(k^{-1}(y))\,dy$이다. 여기에서 $k^{-1}(y)=x$로 치환하면 $y=k(x)=x+\sin x$이므로 $k\!\left(\dfrac{13}2\pi\right)=\dfrac{13}2\pi+1$, $k\!\left(\dfrac{15}2\pi\right)=\dfrac{15}2\pi-1$, $dy=(1+\cos x)dx$에서
+        $F(\beta)-F(\alpha)=\displaystyle\int_{\frac{13}2\pi}^{\frac{15}2\pi}\cos x\,(1+\cos x)dx=\int_{\frac{13}2\pi}^{\frac{15}2\pi}\left(\cos x+\frac{\cos(2x)+1}2\right)dx=\frac\pi2-2$이다.
+      criteria:
+      - 3.A2
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 5
+      evidence: |
+        극값을 갖는 $k^{-1}(\pi t)$의 값($\frac\pi2,\dots,\frac{15\pi}2$)과 극대·극소 판정을 제시했다(공식 채점기준 20점 중 5점).
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 3b-1
+      - 3b-2
+      - 3a
+    - id: 3.A1
+      mark_type: A
+      points: 5
+      evidence: |
+        $\alpha=\frac{13}2+\frac1\pi$, $\beta=\frac{15}2-\frac1\pi$를 제시했다(공식 5점).
+      depends_on:
+      - 3.M1
+      steps:
+      - 3b-3
+      - 3a
+    - id: 3.A2
+      mark_type: A
+      points: 10
+      evidence: |
+        치환적분으로 $F(\beta)-F(\alpha)=\frac\pi2-2$를 구했다(공식 10점).
+      depends_on:
+      - 3.M1
+      - 3.A1
+      steps:
+      - 3b-4
+      - 3a
+    deductions: []
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: p3-past-v1
+  item_version: 1
+  verdict: pass
+  date: '2026-11-22'
+created: '2026-11-22'
+updated: '2026-11-22'
