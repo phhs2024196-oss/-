@@ -1,0 +1,157 @@
+# 홍익대 2025학년도 수시 논술 자연계열(세종) 문제 4 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: HIU-G25S-04
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: short_answer
+origin: past_exam
+school: HIU
+type: null
+variant_of: null
+replaces: null
+level: L3
+form: 추론
+points: 10
+time_estimate_min: 8
+intent: |
+  연속함수의 성질을 이해하고, 이를 활용하여 문제를 해결할 수 있는지를 평가한다.
+key_idea: |
+  $x=1$에서 $\lim_{x\to1-}\{f(x)+1\}^2=4$와 $\{f(1)+1\}^2=(a+2)^2$가 같아야 한다.
+stuck: |
+  $f$ 자체는 불연속이어도 제곱한 함수는 연속일 수 있으므로 $a+2=\pm2$ 두 경우가 모두 답이 된다는 점
+idea_tags: []
+tags: [연속, 구간별 함수]
+elements:
+  materials:
+  - '구간별로 정의된 함수 $f(x)$'
+  - '$\{f(x)+1\}^2$'
+  concepts:
+  - '함수의 연속'
+  - '연속함수의 성질'
+  - '좌극한·우극한'
+  tools:
+  - '$\lim_{x\to1-}\{f(x)+1\}^2=\{f(1)+1\}^2$'
+  conditions:
+  - '$x<1$에서 $-x+2$, $x\ge1$에서 $ax+1$'
+  - '실수 전체의 집합에서 연속'
+  stimuli_used: []
+  subpart_links: '단일 논제'
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅱ]
+  scope_2028: common
+  scope_confirmed: false
+  standards:
+  - code: 12수학Ⅱ01-04
+    text: 연속함수의 성질을 이해하고, 이를 활용할 수 있다.
+    verified: true
+  content_area: 함수의 극한과 연속 – 연속
+  behavior_domain: 계산
+  unit_path: [수학Ⅱ, 함수의 극한과 연속, 함수의 연속, 연속함수의 성질]
+  key_concepts: [연속함수의 성질]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 홍익대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 홍익대학교
+  admission_year: 2025
+  admission_type: 수시 논술
+  track: 자연계열 세종
+  question_no: 4
+  official_url: https://www.hongik.ac.kr/kr/admission/previous-question.do?mode=view&articleNo=134052
+  retrieved_at: 2026-11-21
+  original_points: [10]
+  transcribed_from: G25_sejong.pdf p.7–8(인쇄 쪽 99–100, 문항카드 11) — 원본 PDF 이미지 대조 완료 2026-11-21
+
+verify: verify/HIU-G25S.py::p04
+
+stimuli: []
+
+stem: |
+  함수
+  $$f(x)=\begin{cases}-x+2&(x<1)\\ax+1&(x\ge1)\end{cases}$$
+  에 대하여, 함수 $\{f(x)+1\}^2$이 실수 전체의 집합에서 연속이 되도록 하는 모든 실수 $a$값의 합을 구하시오.
+
+subparts:
+- id: '1'
+  stem: |
+    함수 $\{f(x)+1\}^2$이 실수 전체의 집합에서 연속이 되도록 하는 모든 실수 $a$값의 합을 구하시오.
+  points: 10
+  depends_on: []
+  answer: {kind: value, value: '-4', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: |
+      $(a+2)^2=4$에서 $a=0$ 또는 $a=-4$.
+    steps:
+    - id: 1a
+      content: |
+        $\lim_{x\to1-}\{f(x)+1\}^2=4=(a+2)^2$, $a=-4,0$, 합 $-4$
+      criteria: ['1.M1', '1.A1', '1.A2']
+    hint_ladder:
+    - $x\ne1$에서는 다항함수이므로 연속이다. $x=1$만 보면 된다.
+  - id: S1-B
+    audience: B
+    source_flow: G25_sejong.pdf p.8(인쇄 쪽 100) 예시 답안
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        함수 $\{f(x)+1\}^2$가 $x=1$에서 연속이므로 $\displaystyle\lim_{x\to1-}\{f(x)+1\}^2=\{f(1)+1\}^2$이다.
+      criteria: ['1.M1']
+    - id: 1b-2
+      content: |
+        $\displaystyle\lim_{x\to1-}\{f(x)+1\}^2=\left\{\lim_{x\to1-}f(x)+1\right\}^2=(1+1)^2=4$이고 $\{f(1)+1\}^2=(a+2)^2$이다.
+      criteria: ['1.A1']
+    - id: 1b-3
+      content: |
+        $(a+2)^2=4$에서 $a=-4,\ 0$이다. 따라서 문제의 조건을 만족하는 모든 실수 $a$의 값의 합은 $-4+0=-4$이다.
+      criteria: ['1.A2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 5
+      evidence: |
+        $x=1$에서 연속조건으로 $\lim_{x\to1-}\{f(x)+1\}^2=\{f(1)+1\}^2$을 명시함.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1]
+    - id: 1.A1
+      mark_type: A
+      points: 3
+      evidence: |
+        식 $\lim_{x\to1-}\{f(x)+1\}^2=4$, $\{f(1)+1\}^2=(a+2)^2$를 옳게 얻음.
+      depends_on: [1.M1]
+      steps: [1b-2]
+    - id: 1.A2
+      mark_type: A
+      points: 2
+      evidence: |
+        $(a+2)^2=4$로부터 $a=-4,\ 0$을 얻어 답 $-4+0=-4$를 얻음.
+      depends_on: [1.M1]
+      steps: [1b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+remedy_links: []
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+- {stage: verify, actor_type: system, actor_id: sympy, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

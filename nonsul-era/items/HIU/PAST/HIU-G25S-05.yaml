@@ -1,0 +1,160 @@
+# 홍익대 2025학년도 수시 논술 자연계열(세종) 문제 5 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: HIU-G25S-05
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: short_answer
+origin: past_exam
+school: HIU
+type: null
+variant_of: null
+replaces: null
+level: L3
+form: 추론
+points: 10
+time_estimate_min: 8
+intent: |
+  함수의 증가와 감소, 극대와 극소를 이용하여 함수의 그래프의 개형을 그릴 수 있다는 것과 이를 활용하여 방정식의 실근의 개수 문제를 해결할 수 있는지를 확인한다.
+key_idea: |
+  $h(x)=f(x)-g(x)+k=x^3+2x^2-4x+3$으로 정수를 분리하면 $h(x)=k$의 실근 3개 ⟺ 극솟값 $<k<$ 극댓값.
+stuck: |
+  $k$를 분리하여 $y=h(x)$와 $y=k$의 교점 개수로 바꾸는 것
+idea_tags: []
+tags: [실근의 개수, 극대·극소]
+elements:
+  materials:
+  - '$f(x)=x^3+3x^2+3$'
+  - '$g(x)=x^2+4x+k$'
+  concepts:
+  - '함수의 증가·감소'
+  - '극대와 극소'
+  - '방정식의 실근의 개수'
+  tools:
+  - '정수 분리 $h(x)=k$'
+  - '증감표'
+  conditions:
+  - '두 그래프가 만나는 점의 개수가 3'
+  - '$k$는 정수'
+  stimuli_used: []
+  subpart_links: '단일 논제'
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅱ]
+  scope_2028: common
+  scope_confirmed: false
+  standards:
+  - code: 12수학Ⅱ02-09
+    text: 함수의 그래프의 개형을 그릴 수 있다.
+    verified: true
+  - code: 12수학Ⅱ02-10
+    text: 방정식과 부등식에 대한 문제를 해결할 수 있다.
+    verified: true
+  content_area: 미분 – 도함수의 활용
+  behavior_domain: 계산
+  unit_path: [수학Ⅱ, 미분, 도함수의 활용, 방정식의 실근의 개수]
+  key_concepts: [다항함수의 미분법, 도함수의 활용]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 홍익대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 홍익대학교
+  admission_year: 2025
+  admission_type: 수시 논술
+  track: 자연계열 세종
+  question_no: 5
+  official_url: https://www.hongik.ac.kr/kr/admission/previous-question.do?mode=view&articleNo=134052
+  retrieved_at: 2026-11-21
+  original_points: [10]
+  transcribed_from: G25_sejong.pdf p.9–10(인쇄 쪽 101–102, 문항카드 12) — 원본 PDF 이미지 대조 완료 2026-11-21
+
+verify: verify/HIU-G25S.py::p05
+
+stimuli: []
+
+stem: |
+  두 함수 $f(x)=x^3+3x^2+3$, $g(x)=x^2+4x+k$의 그래프가 만나는 점의 개수가 3이 되도록 하는 정수 $k$의 개수를 구하시오.
+
+subparts:
+- id: '1'
+  stem: |
+    두 그래프가 만나는 점의 개수가 3이 되도록 하는 정수 $k$의 개수를 구하시오.
+  points: 10
+  depends_on: []
+  answer: {kind: value, value: '9', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: |
+      극댓값 $h(-2)=11$, 극솟값 $h\left(\tfrac23\right)=\tfrac{41}{27}$이므로 $\tfrac{41}{27}<k<11$.
+    steps:
+    - id: 1a
+      content: |
+        정수 $k=2,3,\dots,10$, 9개
+      criteria: ['1.M1', '1.M2', '1.A1']
+    hint_ladder:
+    - $f(x)=g(x)$에서 $k$만 한쪽으로 보내 보자.
+  - id: S1-B
+    audience: B
+    source_flow: G25_sejong.pdf p.10(인쇄 쪽 102) 예시 답안
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        $h(x)=x^3+3x^2+3-(x^2+4x)=x^3+2x^2-4x+3$이라 하자. $f(x)=g(x)$의 근은 $h(x)=k$의 근과 같으므로 $h(x)$의 그래프를 이용하여 $k$의 범위를 구한다. $h'(x)=3x^2+4x-4=(x+2)(3x-2)$.
+      criteria: ['1.M1']
+    - id: 1b-2
+      content: |
+        함수의 증가와 감소를 표로 나타내면 $x<-2$에서 증가, $x=-2$에서 극댓값 $11$, $-2<x<\dfrac23$에서 감소, $x=\dfrac23$에서 극솟값 $\dfrac{41}{27}$, $x>\dfrac23$에서 증가이다.
+      criteria: ['1.M2']
+    - id: 1b-3
+      content: |
+        곡선 $y=h(x)$와 직선 $y=k$가 서로 다른 세 실근을 가지려면 교점의 개수가 세 개가 되어야 한다. 그러므로 상수 $k$의 값의 범위는 $\dfrac{41}{27}<k<11$이다. 이 범위 내의 정수는 $k=2,3,\dots,10$이므로 정수인 $k$의 개수는 9개이다.
+      criteria: ['1.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 2
+      evidence: |
+        $f(x)-g(x)$에서 미지수 $k$를 제외한 함수를 $h(x)$라고 정의하고 도함수를 구함.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1]
+    - id: 1.M2
+      mark_type: M
+      points: 4
+      evidence: |
+        함수의 증가 감소표를 이용하여 $h(x)$의 증가 감소를 구하고 이를 이용하여 그래프 개형을 확인함.
+      depends_on: [1.M1]
+      implied_ok: false
+      steps: [1b-2]
+    - id: 1.A1
+      mark_type: A
+      points: 4
+      evidence: |
+        서로 다른 세 실근을 갖는 $k$의 범위 $\dfrac{41}{27}<k<11$을 구하고 정수 $k$의 개수 9를 구함.
+      depends_on: [1.M2]
+      steps: [1b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+remedy_links: []
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+- {stage: verify, actor_type: system, actor_id: sympy, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

@@ -1,0 +1,203 @@
+# 홍익대 2024학년도 수시 논술(자연계열 세종) 문제 7 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: HIU-G24S-07
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: HIU
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 추론
+points: 15
+time_estimate_min: 15
+intent: |
+  정적분의 뜻을 알고, 다항함수의 정적분을 구할 수 있는지를 확인한다. 정적분의 값이 상수임을 이해하고, 상수부터 $x$까지의 정적분을 함수로 다룰 수 있는지를 확인한다.
+key_idea: '$a=\displaystyle\int_{-1}^1f(t)dt$, $b=\displaystyle\int_{-1}^1tf(t)dt$를 상수로 두고 차수 비교로 $f$가 이차함수임을 밝힌 뒤 계수비교한다.'
+stuck: |
+  양변을 미분하거나 차수를 비교해 $f(x)$의 차수와 최고차항 계수($3$)를 정하는 단계
+idea_tags: []
+tags: [정적분으로 정의된 함수, 계수비교]
+elements:
+  materials:
+  - '$f(x)+\displaystyle\int_0^xf(t)dt=x^3+2x^2+x\int_{-1}^1f(t)dt+3\int_{-1}^1tf(t)dt$'
+  concepts:
+  - '정적분의 뜻(정적분의 값은 상수)'
+  - '$\dfrac{d}{dx}\displaystyle\int_0^xf(t)dt=f(x)$'
+  - '다항함수의 정적분'
+  tools:
+  - '차수 비교'
+  - '계수비교'
+  - '$\displaystyle\int_{-1}^1$ 대칭 구간의 적분'
+  conditions:
+  - '$f$는 다항함수'
+  - '$B+C=a$, $C=3b$'
+  stimuli_used: []
+  subpart_links: '단일 논제'
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅱ]
+  scope_2028: common
+  scope_confirmed: false
+  standards:
+  - code: 12수학Ⅱ03-03
+    text: 정적분의 뜻을 안다.
+    verified: true
+  - code: 12수학Ⅱ03-04
+    text: 다항함수의 정적분을 구할 수 있다.
+    verified: true
+  content_area: 적분 – 정적분
+  behavior_domain: 계산
+  unit_path: [수학Ⅱ, 적분, 정적분, 정적분으로 정의된 함수]
+  key_concepts: [정적분, 다항함수의 적분]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 홍익대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 홍익대학교
+  admission_year: 2024
+  admission_type: 수시 논술
+  track: 자연계열 세종
+  question_no: 7
+  official_url: https://www.hongik.ac.kr/kr/admission/previous-question.do?mode=view&articleNo=93219
+  retrieved_at: 2026-11-21
+  original_points: [15]
+  transcribed_from: G24_sejong.pdf p.17-19(인쇄 쪽 102-104, 문항카드 14) (원본 PDF 이미지 대조 완료 2026-11-21)
+
+verify: verify/HIU-G24S.py::p07
+
+stimuli: []
+
+stem: |
+  다항함수 $f(x)$가
+  $$f(x)+\int_0^xf(t)dt=x^3+2x^2+x\int_{-1}^1f(t)dt+3\int_{-1}^1tf(t)dt$$
+  를 만족시킬 때, $\displaystyle\int_1^2f(x)dx$의 값을 구하시오.
+
+subparts:
+- id: '1'
+  stem: |
+    다항함수 $f(x)$가
+    $$f(x)+\int_0^xf(t)dt=x^3+2x^2+x\int_{-1}^1f(t)dt+3\int_{-1}^1tf(t)dt$$
+    를 만족시킬 때, $\displaystyle\int_1^2f(x)dx$의 값을 구하시오.
+  points: 15
+  depends_on: []
+  answer: {kind: value, value: '0', equivalents: [], tolerance: null}
+  solutions:
+  - id: S7-A
+    audience: A
+    method_no: 1
+    key_idea: $f(x)=3x^2+Bx+C$로 두고 계수비교하면 $B=-2$, $C=-4$.
+    steps:
+    - {id: 1a, content: '$f(x)=3x^2-2x-4$, $\displaystyle\int_1^2f(x)dx=0$', criteria: ['1.M1', '1.A1', '1.A2', '1.A3', '1.A4']}
+    hint_ladder:
+    - $\displaystyle\int_{-1}^1f(t)dt$와 $\displaystyle\int_{-1}^1tf(t)dt$는 $x$에 무관한 상수이다.
+    - 양변을 미분하면 $f$의 차수는 무엇이어야 하는가?
+  - id: S7-B
+    audience: B
+    source_flow: G24_sejong.pdf p.18-19
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        $a=\displaystyle\int_{-1}^1f(t)dt$, $b=\displaystyle\int_{-1}^1tf(t)dt$라 하자. 준식은 다음과 같다.
+        $$f(x)+\int_0^xf(t)dt=x^3+2x^2+ax+3b\quad\cdots\cdots ㉠$$
+        양변을 $x$에 대하여 미분하면 $f'(x)+f(x)=3x^2+4x+a$이다. $f'(x)$는 $f(x)$의 차수보다 $1$이 작은 차수를 가지는 다항함수이므로, $f(x)$는 최고차항의 계수가 $3$인 이차함수이다. $f(x)=3x^2+Bx+C$로 두자.
+      criteria: ['1.M1']
+    - id: 1b-2
+      content: |
+        그러면 $f(x)+\displaystyle\int_0^xf(t)dt=x^3+\left(3+\dfrac{B}{2}\right)x^2+(B+C)x+C$이다. 식 ㉠과 계수를 비교하면, $3+\dfrac{B}{2}=2$, $B+C=a$, $C=3b$이다. $3+\dfrac{B}{2}=2$로부터 $B=-2$이고,
+      criteria: ['1.A1', '1.A2']
+    - id: 1b-3
+      content: |
+        $B+C=a$로부터 $-2+C=\displaystyle\int_{-1}^1(3t^2-2t+C)dt=\left[t^3-t^2+Ct\right]_{-1}^1=2+2C$이다. 따라서 $C=-4$이다. 그러므로 $f(x)=3x^2-2x-4$이다.
+      criteria: ['1.A3']
+    - id: 1b-4
+      content: |
+        그러므로 $\displaystyle\int_1^2f(x)dx=\int_1^2(3x^2-2x-4)dx=\left[x^3-x^2-4x\right]_1^2=8-4-8-1+1+4=0$이다.
+      criteria: ['1.A4']
+  - id: S7-ALT
+    audience: ALT
+    source_flow: G24_sejong.pdf p.19 (다른 풀이)
+    method_no: 2
+    key_idea: 원 해설 다른 풀이 — 미분 대신 차수 비교로 $f(x)=Ax^2+Bx+C$를 정한다.
+    steps:
+    - id: 1c-1
+      content: |
+        $f(x)$는 다항함수이므로 $\displaystyle\int_0^xf(t)dt$는 $f(x)$보다 차수가 $1$ 더 큰 차수의 다항함수이다. 식 ㉠과 비교하면 $\displaystyle\int_0^xf(t)dt$는 삼차함수이고, 따라서 $f(x)$는 이차함수이다. $f(x)=Ax^2+Bx+C$로 두자.
+      criteria: ['1.M1']
+    - id: 1c-2
+      content: |
+        $f(x)+\displaystyle\int_0^xf(t)dt=\dfrac{Ax^3}{3}+\left(A+\dfrac{B}{2}\right)x^2+(B+C)x+C$이므로 식 ㉠과 비교하면 $\dfrac{A}{3}=1$, $A+\dfrac{B}{2}=2$, $B+C=a$, $C=3b$이고, $A=3$, $B=-2$, $-2+C=a$이다. $-2+C=\displaystyle\int_{-1}^1(3t^2-2t+C)dt=\left[t^3-t^2+Ct\right]_{-1}^1=2+2C$이므로, $C=-4$이다. 따라서 $f(x)=3x^2-2x-4$이고 $\displaystyle\int_1^2f(x)dx=0$이다.
+      criteria: ['1.A1', '1.A2', '1.A3', '1.A4']
+  - id: S7-ALT2
+    audience: ALT
+    source_flow: G24_sejong.pdf p.19 (상수항 부분 다른 풀이)
+    method_no: 3
+    key_idea: 원 해설 상수항 부분 다른 풀이 — $C=3b$로 상수항을 구한다.
+    steps:
+    - id: 1d-1
+      content: |
+        $f(x)$의 상수항 $C$에 대하여 $f(t)=3t^2-2t+C$와 $C=3b$로부터 $C=3\displaystyle\int_{-1}^1(3t^3-2t^2+Ct)dt=3\left[\dfrac{3t^4}{4}-\dfrac{2t^3}{3}+\dfrac{Ct^2}{2}\right]_{-1}^1=-4$
+      criteria: ['1.A3']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 3
+      evidence: |
+        $a=\displaystyle\int_{-1}^1f(t)dt$, $b=\displaystyle\int_{-1}^1tf(t)dt$가 상수임을 알고, $f(x)$가 이차함수임을 명시했다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1, 1c-1, 1a]
+    - id: 1.A1
+      mark_type: A
+      points: 3
+      evidence: |
+        $f(x)$의 $x^2$의 계수 $3$을 구했다.
+      depends_on: [1.M1]
+      steps: [1b-2, 1c-2, 1a]
+    - id: 1.A2
+      mark_type: A
+      points: 3
+      evidence: |
+        $f(x)$의 $x$의 계수 $-2$를 구했다.
+      depends_on: [1.M1]
+      steps: [1b-2, 1c-2, 1a]
+    - id: 1.A3
+      mark_type: A
+      points: 3
+      evidence: |
+        $f(x)$의 상수항 $-4$를 구했다.
+      depends_on: [1.M1]
+      steps: [1b-3, 1c-2, 1d-1, 1a]
+    - id: 1.A4
+      mark_type: A
+      points: 3
+      evidence: |
+        적분 $\displaystyle\int_1^2f(x)dx=0$을 계산했다.
+      depends_on: [1.M1]
+      steps: [1b-4, 1c-2, 1a]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+remedy_links: []
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+- {stage: verify, actor_type: system, actor_id: sympy, item_version: 1, verdict: pass, date: 2026-11-22}
+
+created: 2026-11-21
+updated: 2026-11-21

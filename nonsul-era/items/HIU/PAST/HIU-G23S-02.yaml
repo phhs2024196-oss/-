@@ -1,0 +1,175 @@
+# 홍익대 2023학년도 수시 논술(자연계열 세종) 문제 2 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: HIU-G23S-02
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: HIU
+type: null
+variant_of: null
+replaces: null
+level: L3
+form: 분류
+points: 10
+time_estimate_min: 8
+intent: |
+  함수의 증가와 감소, 극대와 극소를 이용하여 함수의 그래프의 개형을 그릴 수 있다는 것과 이를 활용하여 방정식의 실근 개수의 문제를 해결할 수 있는지를 확인한다.
+key_idea: '상수 $a$를 분리해 $x^3+3x^2-1=-a$로 놓고 곡선과 수평선의 교점 개수로 본다.'
+stuck: |
+  미지수 $a$를 분리하여 $y=f(x)$와 $y=-a$의 교점 문제로 바꾸는 발상
+idea_tags: []
+tags: [실근의 개수, 정상분리]
+elements:
+  materials:
+  - '삼차방정식 $x^3+3x^2-1+a=0$'
+  - '곡선 $y=x^3+3x^2-1$과 직선 $y=-a$'
+  concepts:
+  - '도함수와 증가·감소'
+  - '극대·극소'
+  - '방정식의 실근과 그래프의 교점'
+  tools:
+  - '$f^{\prime}(x)=3x(x+2)$'
+  - '증감표'
+  conditions:
+  - '서로 다른 세 실근 ⇔ (극솟값)$<-a<$(극댓값)'
+  stimuli_used: []
+  subpart_links: '단일 논제'
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅱ]
+  scope_2028: common
+  scope_confirmed: false
+  standards:
+  - code: 12수학Ⅱ02-09
+    text: 함수의 그래프의 개형을 그릴 수 있다.
+    verified: true
+  - code: 12수학Ⅱ02-10
+    text: 방정식과 부등식에 대한 문제를 해결할 수 있다.
+    verified: true
+  content_area: 미분 – 도함수의 활용
+  behavior_domain: 문제해결
+  unit_path: [수학Ⅱ, 미분, 도함수의 활용, 방정식의 실근의 개수]
+  key_concepts: [다항함수의 미분법, 도함수의 활용]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 홍익대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 홍익대학교
+  admission_year: 2023
+  admission_type: 수시 논술
+  track: 자연계열 세종
+  question_no: 2
+  official_url: https://www.hongik.ac.kr/kr/admission/previous-question.do?mode=view&articleNo=28122
+  retrieved_at: 2026-11-21
+  original_points: [10]
+  transcribed_from: G23_sejong.pdf p.4-5 (문항카드 2) 원본 PDF 이미지 대조 완료 2026-11-21
+
+verify: verify/HIU-G23S.py::p02
+
+stimuli: []
+
+stem: |
+  방정식 $x^3+3x^2-1+a=0$이 서로 다른 세 실근을 갖도록 하는 실수 $a$의 값의 범위를 구하시오.
+
+subparts:
+- id: '1'
+  stem: |
+    방정식 $x^3+3x^2-1+a=0$이 서로 다른 세 실근을 갖도록 하는 실수 $a$의 값의 범위를 구하시오.
+  points: 10
+  depends_on: []
+  answer: {kind: set, value: '-3 < a < 1', equivalents: ['(-3, 1)'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $f(x)=x^3+3x^2-1$의 극댓값 $f(-2)=3$, 극솟값 $f(0)=-1$이므로 $-1<-a<3$.
+    steps:
+    - {id: 1a, content: '$-1<-a<3\iff-3<a<1$', criteria: ['1.M1', '1.A1', '1.A2', '1.M2', '1.A3']}
+    hint_ladder:
+    - $a$를 우변으로 넘겨 곡선과 수평선의 교점으로 생각해 보자.
+  - id: S1-B
+    audience: B
+    source_flow: G23_sejong.pdf p.5
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        $f(x)=x^3+3x^2-1$, $g(x)=-a$라고 놓자.
+      criteria: ['1.M1']
+    - id: 1b-2
+      content: |
+        $f^{\prime}(x)=3x^2+6x=3x(x+2)$이므로 $x=0$ 또는 $x=-2$에서 $f^{\prime}(x)=0$이다.
+      criteria: ['1.A1']
+    - id: 1b-3
+      content: |
+        함수의 증가와 감소를 표로 나타내면 다음과 같다.
+        [표: $x<-2$에서 $f^{\prime}(x)>0$ 증가, $x=-2$에서 $f^{\prime}=0$·$f=3$, $-2<x<0$에서 $f^{\prime}<0$ 감소, $x=0$에서 $f^{\prime}=0$·$f=-1$, $x>0$에서 $f^{\prime}>0$ 증가]
+        함수 $f(x)$는 $x=-2$에서 극댓값 $3$을 갖고 $x=0$에서 극솟값 $-1$을 갖는다.
+      criteria: ['1.A2']
+    - id: 1b-4
+      content: |
+        $y=f(x)$와 $y=-a$의 교점의 개수가 실근의 개수이므로 곡선 $y=f(x)$와 직선 $y=-a$가 서로 다른 세 실근을 가지려면 교점의 개수가 세 개가 되어야 한다. 그러므로, 상수 $-a$의 값의 범위는 $-1<-a<3$이다.
+      criteria: ['1.M2']
+    - id: 1b-5
+      content: |
+        따라서 $-3<a<1$이다.
+      criteria: ['1.A3']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 2
+      evidence: |
+        미지수 $a$를 제외한 함수 $f(x)=x^3+3x^2-1$을 정의했다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1]
+    - id: 1.A1
+      mark_type: A
+      points: 3
+      evidence: |
+        도함수 $f^{\prime}(x)=3x(x+2)$를 구하고 $f^{\prime}(x)=0$의 해 $x=0,-2$를 구했다.
+      depends_on: [1.M1]
+      steps: [1b-2]
+    - id: 1.A2
+      mark_type: A
+      points: 2
+      evidence: |
+        증감표로 $f(x)$의 증가·감소(극댓값 $3$, 극솟값 $-1$)를 이용하여 그래프 개형을 확인했다.
+      depends_on: [1.M1]
+      steps: [1b-3]
+    - id: 1.M2
+      mark_type: M
+      points: 2
+      evidence: |
+        두 그래프의 교점이 실근임을 이용하여 서로 다른 세 근을 갖는 $-a$의 범위 $-1<-a<3$을 적었다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-4]
+    - id: 1.A3
+      mark_type: A
+      points: 1
+      evidence: |
+        (4)에서 구한 부등식으로부터 $-3<a<1$을 적었다.
+      depends_on: [1.M2]
+      steps: [1b-5]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+- {stage: verify, actor_type: system, actor_id: sympy, item_version: 1, verdict: pass, date: 2026-11-21}
+created: 2026-11-21
+updated: 2026-11-21

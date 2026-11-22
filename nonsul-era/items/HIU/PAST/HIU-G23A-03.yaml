@@ -1,0 +1,356 @@
+# 홍익대 2023학년도 수시 논술(자연계열 서울 오전) 문제 3 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: HIU-G23A-03
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: HIU
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 이중세기
+points: 20
+time_estimate_min: 40
+intent: |
+  $\Sigma$의 뜻을 알고, 그 성질을 이해하고 이를 활용할 수 있는지 평가한다.
+  수열의 극한에 대한 성질을 이해하고, 극한값을 구할 수 있는지 평가한다.
+  정적분과 급수의 합 사이의 관계를 이해하는지 평가한다.
+key_idea: |
+  $k$번째 소구간 위에서 그래프와 만나는 정사각형은 밑변 높이가 $\tfrac{[nm_k]}{n}$부터 $\tfrac{[nM_k]}{n}$까지이므로 $s(n)=\sum([nM_k]-[nm_k]+1)$, $t(n)=\sum[nm_k]$이고, 가우스 기호 합은 망원(상쇄)·짝짓기로 계산한다.
+stuck: |
+  "$c$를 넘지 않는 가장 큰 분모 $n$ 분수"를 $\tfrac{[nc]}{n}$로 표현해 칸의 개수를 가우스 기호로 세는 것, 그리고 $\sum[\tfrac{-k+5n}{2}]$처럼 반정수가 섞인 가우스 기호 합을 두 항씩 묶어 계산하는 것
+idea_tags: []
+tags: [가우스 기호, 픽셀 세기, 구분구적법, 곡선의 길이]
+elements:
+  materials:
+  - '한 변의 길이가 $\tfrac1n$인 모눈종이와 그래프가 지나는 칸'
+  - '구간별 일차함수 $f(x)=2x$ $(0\le x<1)$, $-\tfrac x2+\tfrac52$ $(1\le x\le3)$'
+  - '$s(n)$(그래프와 만나는 칸 수), $t(n)$(그래프 아래 칸 수)'
+  concepts:
+  - '가우스 기호와 부등식'
+  - '수열의 합 $\Sigma$'
+  - '수열의 극한'
+  - '정적분과 급수의 합의 관계'
+  - '넓이와 길이'
+  tools:
+  - '$m\le nc<m+1\iff m=[nc]$'
+  - '소구간에서 증가(감소)함수의 최대·최소는 양 끝점'
+  - '망원 합(연이은 항의 상쇄)'
+  - '$\sum k=\tfrac{n(n+1)}{2}$'
+  conditions:
+  - '정사각형 영역은 옆쪽과 아래쪽 경계선을 포함하고 위쪽 경계선은 포함하지 않음'
+  - '$a,b$는 정수, 구간 $[a,b]$를 넘는 정사각형은 제외'
+  - '$k$번째 소구간 $\left[\tfrac{k-1}{n},\tfrac kn\right]$ $(k=1,\cdots,3n)$'
+  stimuli_used: [가, 나]
+  subpart_links: '(2)는 (1)의 표현을 사용, (3)은 (2)의 공식에 대입, (4)는 (3)의 $s(n),t(n)$으로 극한'
+
+curriculum:
+  version: '2015'
+  subjects: [수학, 수학Ⅰ, 미적분]
+  scope_2028: unknown
+  scope_confirmed: false
+  standards:
+  - code: 12미적03-04
+    text: 정적분과 급수의 합 사이의 관계를 이해한다.
+    verified: true
+  - code: 12미적03-05
+    text: 곡선으로 둘러싸인 도형의 넓이를 구할 수 있다.
+    verified: true
+  - code: 10수학01-14
+    text: 미지수가 1개인 연립일차부등식을 풀 수 있다.
+    verified: true
+  - code: 12미적01-02
+    text: 수열의 극한에 대한 기본 성질을 이해하고, 이를 이용하여 극한값을 구할 수 있다.
+    verified: true
+  content_area: 수열의 합·수열의 극한·정적분의 활용
+  behavior_domain: 추론
+  unit_path: [미적분, 적분법, 정적분의 활용, 정적분과 급수의 합의 관계]
+  key_concepts: [부등식, 수열의 합, 수열의 극한, 정적분의 활용]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 홍익대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 홍익대학교
+  admission_year: 2023
+  admission_type: 수시 논술
+  track: 자연계열 서울 오전
+  question_no: 3
+  official_url: https://www.hongik.ac.kr/kr/admission/previous-question.do?mode=view&articleNo=28122
+  retrieved_at: 2026-11-21
+  original_points: [2, 7, 7, 4]
+  transcribed_from: G23_seoul_am.pdf p.10-15 (문항카드 오전 3, 원본 PDF 이미지 대조 완료 2026-11-21)
+
+verify: verify/HIU-G23A.py::p03
+
+stimuli:
+- label: 가
+  body: |
+    홍익이는 컴퓨터 화면에 그려진 함수의 그래프를 보고, 확대하면 작은 픽셀들로 그림이 그려지는 것을 확인하였다. 곡선을 그리는 픽셀들을 보고, 픽셀의 개수를 셈으로써 곡선의 길이, 그리고 곡선으로 둘러싸인 영역의 넓이를 구할 수 있는지 궁금하였다.
+
+    픽셀들을 더 작게 하여 촘촘하게 하면서, 해당되는 픽셀의 개수와 픽셀의 넓이의 곱, 또는 해당되는 픽셀의 개수와 픽셀의 한 변의 길이의 곱 등의 극한을 취하면 영역의 넓이 또는 곡선의 길이와 관련이 있으리라 예상하였고, 아래 (나)와 같은 설정으로 시작하여 수식으로 확인하고자 하였다.
+
+    [그림: 모눈 위에 구간 $[a,b]$에서 정의된 곡선 $y=f(x)$(올라갔다 내려갔다 다시 조금 올라가는 모양)가 그려져 있고, 곡선이 지나는 칸은 진한 회색, 곡선 아래와 $x$축 사이의 칸은 연한 회색으로 칠해져 있다. 범례: 진한 칸의 개수 : $s(n)$, 연한 칸의 개수 : $t(n)$]
+- label: 나
+  body: |
+    자연수 $n$에 대해, 좌표평면을 한 변의 길이가 $\dfrac1n$인 정사각형으로 이루어진 모눈종이(격자)로 생각하자. 이때 $x$축과 $y$축을 모눈의 경계선 중에 포함한다. 여기에서는, 각 정사각형 영역은 옆쪽과 아래쪽 경계선은 포함하고 위쪽 경계선은 포함하지 않는다고 하자(밑줄 원문). 또한, 정사각형 영역이 곡선의 점을 하나라도 포함하는 경우 그 곡선을 만난다고 하자. 구간 $[a,b]$에서 정의되는 음이 아닌 값을 갖는 연속 함수 $f(x)$에 대해, $y=f(x)$의 그래프 곡선과 만나는 정사각형들의 개수를 $s(n)$이라 하고, $x$축과 곡선 사이에서 $x$축과는 만나도 되지만 그래프 곡선과는 만나지 않는 정사각형들의 개수를 $t(n)$이라 하자. 단, $a,b$는 정수만 고려하고, 구간 $[a,b]$를 넘어서는 정사각형은 고려하지 않는다.
+
+    예를 들어, 아래의 그림과 같이 구간 $[0,1]$에서의 함수 $f(x)=x$에 대해, $s(2)=4$, $t(2)=1$이고, $s(3)=6$, $t(3)=3$이다.
+
+    [그림: 왼쪽은 $n=2$인 모눈($y$축 눈금 $\tfrac12,1,\tfrac32,2$)에 $y=x$를 그리고 만나는 칸 4개를 진하게, 아래 칸 1개를 연하게 칠한 그림. 오른쪽은 $n=3$인 모눈($y$축 눈금 $\tfrac13,\cdots,2$)에 만나는 칸 6개를 진하게, 아래 칸 3개를 연하게 칠한 그림]
+
+stem: |
+  제시문 (가), (나)를 읽고 다음 물음에 답하시오. [편집 주: 원문에는 별도의 공통 발문이 없다]
+
+subparts:
+- id: '1'
+  stem: |
+    실수 $c$에 대해 가우스 기호 $[c]$는 $c$를 넘지 않는 최대 정수를 나타낸다. 즉 $c$에 대해 $m\le c<m+1$인 정수 $m$이 $[c]$의 값이다. 임의의 실수 $c$에 대해, 분모가 자연수 $n$이고 분자가 정수인 분수 중에서 $c$를 넘지 않는 가장 큰 분수를 가우스 기호를 이용하여 표시하시오.
+  points: 2
+  depends_on: []
+  answer: {kind: expression, value: 'floor(n*c)/n', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $\tfrac mn\le c<\tfrac{m+1}{n}\iff m\le nc<m+1$.
+    steps:
+    - {id: 1a, content: '$m=[nc]$, 구하는 분수는 $\tfrac{[nc]}{n}$', criteria: ['1.R1', '1.B1']}
+    hint_ladder:
+    - 구하는 분수를 $\tfrac mn$이라 두고 $c$와의 대소 관계를 부등식으로 써 보라.
+  - id: S1-B
+    audience: B
+    source_flow: G23_seoul_am.pdf p.14
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        $\dfrac mn$이 문제에서 구하는 분수라면 $\dfrac mn\le c<\dfrac{m+1}{n}$이다. 즉, $m\le nc<m+1$이므로
+      criteria: ['1.R1']
+    - id: 1b-2
+      content: |
+        $m=[nc]$이고, $\dfrac mn=\dfrac{[nc]}{n}$이 된다.
+      criteria: ['1.B1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.B1
+      mark_type: B
+      points: 1
+      evidence: |
+        답 $\dfrac{[nc]}{n}$을 적었다(설명 없이 맞는 답만 있으면 이 1점만).
+      steps: [1b-2, 1a]
+    - id: 1.R1
+      mark_type: R
+      points: 1
+      evidence: |
+        $\dfrac mn\le c<\dfrac{m+1}{n}$에서 $m\le nc<m+1$로 바꾸어 가우스 기호의 정의로 $m=[nc]$임을 설명했다.
+      depends_on: []
+      steps: [1b-1, 1a]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '2'
+  stem: |
+    닫힌 구간 $[a,b]$를 길이 $\dfrac1n$인 구간들로 분할하였을 때, $k$번째 구간에서의 $f(x)$의 최솟값을 $m_k$, 최댓값을 $M_k$라 하자. $s(n)$과 $t(n)$의 식을 가우스 기호와 $\sum$ 기호를 이용하여 나타내시오.
+  points: 7
+  depends_on: ['1']
+  answer: {kind: expression, value: 's = Sum(floor(n*M(k)) - floor(n*m(k)) + 1, (k, 1, n*(b - a))); t = Sum(floor(n*m(k)), (k, 1, n*(b - a)))', equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: $k$번째 열에서 만나는 칸의 밑변 높이는 $\tfrac{[nm_k]}{n}$부터 $\tfrac{[nM_k]}{n}$까지.
+    steps:
+    - {id: 2a, content: '$s(n)=\displaystyle\sum_{k=1}^{n(b-a)}([nM_k]-[nm_k]+1)$, $t(n)=\displaystyle\sum_{k=1}^{n(b-a)}[nm_k]$', criteria: ['2.B1', '2.B2']}
+    hint_ladder:
+    - 한 열(소구간) 안에서 그래프가 지나는 높이의 범위는 $[m_k,M_k]$이다.
+  - id: S2-B
+    audience: B
+    source_flow: G23_seoul_am.pdf p.14
+    method_no: 1
+    steps:
+    - id: 2b-1
+      content: |
+        줄간격이 $\dfrac1n$인 모눈종이에 함수의 그래프를 그렸다고 생각하자. $x$축상의 두 점 $a,b$ 사이에는 길이 $\dfrac1n$인 작은 구간이 $n(b-a)$개 있다.
+      criteria: ['2.B1', '2.B2']
+    - id: 2b-2
+      content: |
+        $k$번째 소구간 위쪽의 정사각형 중 그래프와 만나는 가장 아래쪽의 정사각형은 (1)에 의해 밑변의 높이($y$좌표)가 $\dfrac{[nm_k]}{n}$이고, 가장 위쪽의 정사각형은 밑변의 높이가 $\dfrac{[nM_k]}{n}$이 되어 그래프와 만나는 정사각형의 개수는 $[nM_k]-[nm_k]+1$이다.
+      criteria: ['2.B1']
+    - id: 2b-3
+      content: |
+        $k$번째 소구간 위쪽의 정사각형들 중 그래프와 만나지 않고 그 아래쪽에 있는 것들은 밑변의 높이가 $\dfrac{[nm_k]}{n}$인 정사각형 아래쪽의 정사각형들이므로 개수는 $[nm_k]$이다.
+      criteria: ['2.B2']
+    - id: 2b-4
+      content: |
+        따라서 $s(n)=\displaystyle\sum_{k=1}^{n(b-a)}([nM_k]-[nm_k]+1)$, $t(n)=\displaystyle\sum_{k=1}^{n(b-a)}[nm_k]$이다.
+      criteria: ['2.B1', '2.B2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.B1
+      mark_type: B
+      points: 4
+      evidence: |
+        $s(n)=\displaystyle\sum_{k=1}^{n(b-a)}([nM_k]-[nm_k]+1)$을 정확히 구했다.
+      steps: [2b-1, 2b-2, 2b-4, 2a]
+    - id: 2.B2
+      mark_type: B
+      points: 3
+      evidence: |
+        $t(n)=\displaystyle\sum_{k=1}^{n(b-a)}[nm_k]$을 정확히 구했다.
+      steps: [2b-1, 2b-3, 2b-4, 2a]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '3'
+  stem: |
+    구간 $[0,3]$에서 정의된 함수 $f(x)$의 식이 다음과 같다고 한다.
+    $$f(x)=\begin{cases}2x & (0\le x<1)\\ -\dfrac12(x-1)+2=-\dfrac x2+\dfrac52 & (1\le x\le3)\end{cases}$$
+    [그림: $(0,0)$에서 $(1,2)$까지 올라가는 선분과 $(1,2)$에서 $(3,1)$까지 내려가는 선분으로 이루어진 꺾은선 그래프]
+
+    주어진 $f(x)$에 대하여 $s(n)$와 $t(n)$을 자연수 $n$에 관한 다항식으로 나타내시오.
+  points: 7
+  depends_on: ['2']
+  answer: {kind: expression, value: 's = 6*n; t = 4*n**2 - 2*n', equivalents: [], tolerance: null}
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: 증가 구간은 $[nM_k]-[nm_k]=2$, 감소 구간은 망원 합, $t$는 같은 값이 두 번씩 나타남을 이용한다.
+    steps:
+    - {id: 3a, content: '$s(n)=3n+n+2n=6n$, $t(n)=(n^2-n)+(3n^2-n)=4n^2-2n$', criteria: ['3.B1', '3.B2']}
+    hint_ladder:
+    - $1\le k\le n$에서 $M_k=\tfrac{2k}{n}$, $m_k=\tfrac{2(k-1)}{n}$이다.
+    - $n+1\le k\le3n$에서 $[nM_k]=\left[\tfrac{-k+1+5n}{2}\right]$, $[nm_k]=\left[\tfrac{-k+5n}{2}\right]$이다.
+  - id: S3-B
+    audience: B
+    source_flow: G23_seoul_am.pdf p.14-15
+    method_no: 1
+    steps:
+    - id: 3b-1
+      content: |
+        소구간에서 증가하는 함수는 최솟값을 왼쪽 끝점에서, 최댓값을 오른쪽 끝점에서 가진다(감소할 때는 반대). $k$번째 소구간은 $\left[\dfrac{k-1}{n},\dfrac kn\right]$ $(k=1,2,\cdots,3n)$이므로
+        $$M_k=\begin{cases}\dfrac{2k}{n} & 1\le k\le n\\ -\dfrac{k-1}{2n}+\dfrac52 & n+1\le k\le3n\end{cases},\quad [nM_k]=\begin{cases}2k & 1\le k\le n\\ \left[\dfrac{-k+1+5n}{2}\right] & n+1\le k\le3n\end{cases}$$
+        $$m_k=\begin{cases}\dfrac{2(k-1)}{n} & 1\le k\le n\\ -\dfrac{k}{2n}+\dfrac52 & n+1\le k\le3n\end{cases},\quad [nm_k]=\begin{cases}2(k-1) & 1\le k\le n\\ \left[\dfrac{-k+5n}{2}\right] & n+1\le k\le3n\end{cases}$$
+      criteria: ['3.B1', '3.B2']
+    - id: 3b-2
+      content: |
+        (2)에 의해
+        $$s(n)=\sum_{k=1}^{3n}([nM_k]-[nm_k]+1)=\sum_{k=1}^{n}3+\sum_{k=n+1}^{3n}\left(\left[\frac{-k+1+5n}{2}\right]-\left[\frac{-k+5n}{2}\right]\right)+\sum_{k=n+1}^{3n}1$$
+        이다. $\sum_{k=1}^{n}3=3n$, $\sum_{k=n+1}^{3n}1=2n$이고, 가운데 합은
+        $$\left(\left[\tfrac{4n}{2}\right]-\left[\tfrac{4n-1}{2}\right]\right)+\left(\left[\tfrac{4n-1}{2}\right]-\left[\tfrac{4n-2}{2}\right]\right)+\cdots+\left(\left[\tfrac{2n+1}{2}\right]-\left[\tfrac{2n}{2}\right]\right)=\left[\tfrac{4n}{2}\right]-\left[\tfrac{2n}{2}\right]=2n-n=n$$
+        이다(중간의 항들은 연이은 두 항씩 서로 상쇄되어 첫 항과 마지막 항만 남는다). 따라서 $s(n)=6n$이다.
+      criteria: ['3.B1']
+    - id: 3b-3
+      content: |
+        마찬가지로 (2)에 의해 $t(n)=\displaystyle\sum_{k=1}^{3n}[nm_k]=\sum_{k=1}^{n}2(k-1)+\sum_{k=n+1}^{3n}\left[\frac{-k+5n}{2}\right]$이다.
+        $$\sum_{k=n+1}^{3n}\left[\frac{-k+5n}{2}\right]=\left[\tfrac{4n-1}{2}\right]+\left[\tfrac{4n-2}{2}\right]+\cdots+\left[\tfrac{2n}{2}\right]=(2n-1)+(2n-1)+(2n-2)+(2n-2)+\cdots+n=\sum_{k=1}^{n}2(2n-k)$$
+        (항은 $2n$개이며 가우스 기호 안의 값은 $\tfrac12$씩 줄어들어 $2n-1,2n-2,\cdots,n$이 연달아 두 번씩 나타난다.)
+      criteria: ['3.B2']
+    - id: 3b-4
+      content: |
+        $\sum_{k=1}^{n}2(k-1)=n(n+1)-2n=n^2-n$이고, $\sum_{k=1}^{n}2(2n-k)=4n^2-n(n+1)=3n^2-n$이므로, 정리하면 $t(n)=4n^2-2n$이다.
+      criteria: ['3.B2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 3.B1
+      mark_type: B
+      points: 3
+      evidence: |
+        합을 이용하여 $s(n)=6n$을 정확히 구했다.
+      steps: [3b-1, 3b-2, 3a]
+    - id: 3.B2
+      mark_type: B
+      points: 4
+      evidence: |
+        합을 이용하여 $t(n)=4n^2-2n$을 정확히 구했다.
+      steps: [3b-1, 3b-3, 3b-4, 3a]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '4'
+  stem: |
+    문항 (3)의 $f(x)$와 이에 대한 $s(n)$, $t(n)$에 대하여 $\displaystyle\lim_{n\to\infty}\frac{s(n)}{n^2}$, $\displaystyle\lim_{n\to\infty}\frac{t(n)}{n^2}$, $\displaystyle\lim_{n\to\infty}\frac{s(n)}{n}$을 구하시오. 이 중에서 문항 (3)의 $y=f(x)$의 그래프와 $x$축 사이 영역의 넓이와 같은 것은 무엇인가? $\displaystyle\lim_{n\to\infty}\frac{s(n)}{n}$은 $y=f(x)$의 그래프의 길이를 나타내는가?
+  points: 4
+  depends_on: ['3']
+  answer: {kind: expression, value: 'lim_s_n2 = 0; lim_t_n2 = 4; lim_s_n = 6; area = 4; length = 2*sqrt(5)', equivalents: [], tolerance: null}
+  solutions:
+  - id: S4-A
+    audience: A
+    method_no: 1
+    key_idea: $\tfrac{t(n)}{n^2}$은 그래프 아래 칸들의 넓이의 합(구분구적), 길이는 두 선분의 길이 합 $2\sqrt5\ne6$.
+    steps:
+    - {id: 4a, content: '극한 $0,4,6$; 넓이 $=\lim\tfrac{t(n)}{n^2}=4$; 길이 $2\sqrt5\ne6$이므로 나타내지 않음', criteria: ['4.B1', '4.R1', '4.R2']}
+    hint_ladder:
+    - $\tfrac1{n^2}$은 칸 하나의 넓이이다.
+  - id: S4-B
+    audience: B
+    source_flow: G23_seoul_am.pdf p.15
+    method_no: 1
+    steps:
+    - id: 4b-1
+      content: |
+        $\displaystyle\lim_{n\to\infty}\frac{s(n)}{n^2}=\lim_{n\to\infty}\frac{6n}{n^2}=0$, $\displaystyle\lim_{n\to\infty}\frac{t(n)}{n^2}=\lim_{n\to\infty}\frac{4n^2-2n}{n^2}=4$, $\displaystyle\lim_{n\to\infty}\frac{s(n)}{n}=\lim_{n\to\infty}\frac{6n}{n}=6$이다.
+      criteria: ['4.B1']
+    - id: 4b-2
+      content: |
+        $t(n)$은 그래프의 아래 $x$축 위쪽의 정사각형들의 개수이고, $\dfrac1{n^2}$는 각 정사각형의 넓이이므로 $\dfrac{t(n)}{n^2}$는 이 정사각형들의 넓이의 합이다. 그 극한 $\displaystyle\lim_{n\to\infty}\frac{t(n)}{n^2}$은 그래프와 $x$축 사이의 넓이이다. 실제로 넓이를 계산하면(삼각형과 사다리꼴의 넓이의 합) $\dfrac12\times1\times2+2\times\dfrac{(2+1)}{2}=4$이다.
+      criteria: ['4.R1']
+    - id: 4b-3
+      content: |
+        주어진 함수 그래프의 길이는 $(0,0)$과 $(1,2)$를 잇는 선분의 길이와 $(1,2)$와 $(3,1)$을 잇는 선분의 길이의 합이므로 $\sqrt{1+4}+\sqrt{4+1}=2\sqrt5$이고 $\displaystyle\lim_{n\to\infty}\frac{s(n)}{n}$은 그래프의 길이를 나타내지 않는다.
+      criteria: ['4.R2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 4.B1
+      mark_type: B
+      points: 2
+      evidence: |
+        (3)의 식을 이용하여 세 극한 $0$, $4$, $6$을 구했다.
+      ft: {allowed: true, from: [3.B1, 3.B2], max_points: 2}
+      steps: [4b-1, 4a]
+    - id: 4.R1
+      mark_type: R
+      points: 1
+      evidence: |
+        넓이(값 $4$와 비교 또는 정적분과 급수의 합의 관계)를 근거로 넓이와 같은 것이 $\displaystyle\lim_{n\to\infty}\frac{t(n)}{n^2}$임을 설명했다.
+      depends_on: []
+      steps: [4b-2, 4a]
+    - id: 4.R2
+      mark_type: R
+      points: 1
+      evidence: |
+        그래프의 길이 $2\sqrt5$를 제시하고 $\displaystyle\lim_{n\to\infty}\frac{s(n)}{n}=6$과 같지 않음을 설명했다.
+      depends_on: []
+      steps: [4b-3, 4a]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+remedy_links: []
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+- {stage: verify, actor_type: system, actor_id: sympy, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

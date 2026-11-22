@@ -1,0 +1,165 @@
+# 홍익대 2025학년도 수시 논술 자연계열(세종) 문제 2 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: HIU-G25S-02
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: short_answer
+origin: past_exam
+school: HIU
+type: null
+variant_of: null
+replaces: null
+level: L3
+form: 추론
+points: 10
+time_estimate_min: 8
+intent: |
+  귀납적으로 정의된 등차수열의 일반항을 구하고, 여러 가지 수열의 합을 구할 수 있는지를 확인한다.
+key_idea: |
+  $2a_{n+1}=a_n+a_{n+2}$이므로 등차수열, $a_n=5n-4$이고 부분분수로 망원합.
+stuck: |
+  $\dfrac1{(5n-4)(5n+1)}=\dfrac15\left(\dfrac1{5n-4}-\dfrac1{5n+1}\right)$의 계수 $\tfrac15$
+idea_tags: []
+tags: [등차수열, 부분분수, 망원합]
+elements:
+  materials:
+  - '점화식 $2a_{n+1}=a_n+a_{n+2}$'
+  - '$a_1=1$, $a_2=6$'
+  - '$\sum_{n=1}^{20}\frac1{a_na_{n+1}}$'
+  concepts:
+  - '등차중항'
+  - '등차수열의 일반항'
+  - '여러 가지 수열의 합'
+  tools:
+  - '부분분수 분해'
+  - '망원합(소거)'
+  conditions:
+  - '모든 자연수 $n$에 대하여 점화식 성립'
+  stimuli_used: []
+  subpart_links: '단일 논제'
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅰ]
+  scope_2028: common
+  scope_confirmed: false
+  standards:
+  - code: 12수학Ⅰ03-02
+    text: 등차수열의 뜻을 알고, 일반항, 첫째항부터 제$n$항까지의 합을 구할 수 있다.
+    verified: true
+  - code: 12수학Ⅰ03-05
+    text: 여러 가지 수열의 첫째항부터 제$n$항까지의 합을 구할 수 있다.
+    verified: true
+  content_area: 수열 – 수열의 합
+  behavior_domain: 계산
+  unit_path: [수학Ⅰ, 수열, 수열의 합, 부분분수를 이용한 합]
+  key_concepts: [등차수열, 여러가지 수열의 합]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 홍익대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 홍익대학교
+  admission_year: 2025
+  admission_type: 수시 논술
+  track: 자연계열 세종
+  question_no: 2
+  official_url: https://www.hongik.ac.kr/kr/admission/previous-question.do?mode=view&articleNo=134052
+  retrieved_at: 2026-11-21
+  original_points: [10]
+  transcribed_from: G25_sejong.pdf p.3–4(인쇄 쪽 95–96, 문항카드 9) — 원본 PDF 이미지 대조 완료 2026-11-21
+
+verify: verify/HIU-G25S.py::p02
+
+stimuli: []
+
+stem: |
+  수열 $\{a_n\}$이 모든 자연수 $n$에 대하여
+  $$2a_{n+1}=a_n+a_{n+2}$$
+  를 만족시킨다.
+  $$a_1=1,\ a_2=6$$
+  일 때, $\displaystyle\sum_{n=1}^{20}\frac1{a_na_{n+1}}$의 값을 구하시오.
+
+subparts:
+- id: '1'
+  stem: |
+    $\displaystyle\sum_{n=1}^{20}\frac1{a_na_{n+1}}$의 값을 구하시오.
+  points: 10
+  depends_on: []
+  answer: {kind: value, value: '20/101', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: |
+      등차수열 $a_n=5n-4$, 부분분수로 소거하면 $\frac15\left(1-\frac1{101}\right)$.
+    steps:
+    - id: 1a
+      content: |
+        $\sum_{n=1}^{20}\frac15\left(\frac1{5n-4}-\frac1{5n+1}\right)=\frac15\cdot\frac{100}{101}=\frac{20}{101}$
+      criteria: ['1.M1', '1.M2', '1.A1']
+    hint_ladder:
+    - $2a_{n+1}=a_n+a_{n+2}$는 무엇을 뜻하는가?
+    - 분모가 두 일차식의 곱이면 어떻게 분리하는가?
+  - id: S1-B
+    audience: B
+    source_flow: G25_sejong.pdf p.4(인쇄 쪽 96) 예시 답안
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        주어진 귀납적 정의로부터 수열 $\{a_n\}$은 등차수열임을 알 수 있고, $a_1=1$, $a_2=6$이므로 일반항 $a_n=5n-4$이다.
+      criteria: ['1.M1']
+    - id: 1b-2
+      content: |
+        $\dfrac1{a_na_{n+1}}$의 합을 구하기 위해 유리식을 두 개의 항으로 분리하면 $\dfrac1{a_na_{n+1}}=\dfrac1{(5n-4)(5n+1)}=\dfrac15\left(\dfrac1{5n-4}-\dfrac1{5n+1}\right)$이다.
+      criteria: ['1.M2']
+    - id: 1b-3
+      content: |
+        그러므로 $\displaystyle\sum_{n=1}^{20}\frac1{a_na_{n+1}}=\frac15\left[\left(1-\frac16\right)+\left(\frac16-\frac1{11}\right)+\dots+\left(\frac1{96}-\frac1{101}\right)\right]=\frac{20}{101}$이다.
+      criteria: ['1.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 5
+      evidence: |
+        귀납적 정의로부터 수열 $\{a_n\}$은 등차수열임을 알고 일반항 $a_n=5n-4$를 구함.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1]
+    - id: 1.M2
+      mark_type: M
+      points: 3
+      evidence: |
+        분모가 서로 다른 두 일차식의 곱으로 나타내어진 유리식을 두 개의 항으로 분리함.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-2]
+    - id: 1.A1
+      mark_type: A
+      points: 2
+      evidence: |
+        $\sum$ 기호의 의미를 알고 합 $\dfrac{20}{101}$을 구함.
+      depends_on: [1.M2]
+      steps: [1b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+remedy_links: []
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+- {stage: verify, actor_type: system, actor_id: sympy, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

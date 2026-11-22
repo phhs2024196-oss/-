@@ -1,0 +1,315 @@
+# 홍익대 2023학년도 수시 논술(자연계열 서울 오후) 문제 1 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: HIU-G23B-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: HIU
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 최적2단
+points: 20
+time_estimate_min: 40
+intent: |
+  실생활에서 고등학교 수학 교육과정에서 배운 개념들을 활용하여 주어진 조건에서 해를 찾는 문제에 적용하고 해결할 수 있는지를 평가한다. 또한, 좌표평면과 벡터의 성질을 이해하고 활용할 수 있는지 평가한다.
+  (1) 위치벡터의 개념을 이해하고 평면벡터와 좌표의 대응을 활용할 수 있는지 평가한다.
+  (2) 평면벡터의 크기와 좌표상의 거리의 개념, 원의 성질을 활용하여 문제의 조건에 맞는 함수를 찾을 수 있는지 평가한다.
+  (3) 이차함수의 최솟값을 구할 수 있는지 평가한다.
+key_idea: |
+  점에서 원까지의 최단 거리는 $\lvert\,\lvert\vec{x_i}-\vec c\rvert-r\rvert$이므로 $S_n$은 $r$에 대한 이차함수가 되어 $r=\dfrac1n\sum\lvert\vec{x_i}-\vec c\rvert$(거리의 평균)에서 최소이고, $M_4$는 가장 가까운 거리와 가장 먼 거리의 평균에서 최소이다.
+stuck: |
+  점과 원 사이 최단 거리를 중심까지의 거리와 반지름의 차로 바꾸는 것, (2)에서 최댓값 함수 $M_4$가 $d_2$, $d_3$ 두 개만으로 결정됨을 파악하는 것
+idea_tags: []
+tags: [트램 노선, 최소제곱, 최대 거리 최소화]
+elements:
+  materials:
+  - '네 건물의 위치벡터 $(4,4)$, $(5,0)$, $(2,3)$, $(1,1)$'
+  - '무게중심을 중심으로 하는 반지름 $r$인 원(트램 노선)'
+  - '최단 거리 제곱의 합 $S_4$, 최대 거리 $M_4$'
+  concepts:
+  - '위치벡터와 좌표'
+  - '벡터의 크기(두 점 사이 거리)'
+  - '점과 원 사이의 최단 거리'
+  - '이차함수의 최대·최소'
+  - '절댓값 함수'
+  - '$\Sigma$의 성질'
+  tools:
+  - '$d_i=\lvert\,\lvert\vec{x_i}-\vec c\rvert-r\rvert$'
+  - '완전제곱식 또는 $\tfrac{d}{dr}S=0$'
+  - '최댓값 함수의 그래프(두 일차함수의 교점)'
+  conditions:
+  - '$\vec c=(3,2)$'
+  - '중심까지 거리 $\sqrt5$, $2\sqrt2$, $\sqrt2$, $\sqrt5$'
+  - '$r>0$'
+  stimuli_used: [가, 나, 다, 라, 마]
+  subpart_links: '(3)은 (1)의 방법을 $n$개 건물로 일반화'
+
+curriculum:
+  version: '2015'
+  subjects: [수학, 수학Ⅰ, 기하]
+  scope_2028: unknown
+  scope_confirmed: false
+  standards:
+  - code: 12기하02-03
+    text: 위치벡터의 뜻을 알고, 평면벡터와 좌표의 대응을 이해한다.
+    verified: true
+  - code: 10수학01-11
+    text: 이차함수의 최대, 최소를 이해하고, 이를 활용하여 문제를 해결할 수 있다.
+    verified: true
+  - code: 10수학01-15
+    text: 절댓값을 포함한 일차부등식을 풀 수 있다.
+    verified: true
+  - code: 12수학Ⅰ03-04
+    text: ∑의 뜻을 알고, 그 성질을 이해하고, 이를 활용할 수 있다.
+    verified: true
+  content_area: 평면벡터·이차함수의 최대와 최소
+  behavior_domain: 문제해결
+  unit_path: [기하, 평면벡터, 평면벡터의 성분과 내적, 위치벡터]
+  key_concepts: [벡터, 이차함수]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 홍익대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 홍익대학교
+  admission_year: 2023
+  admission_type: 수시 논술
+  track: 자연계열 서울 오후
+  question_no: 1
+  official_url: https://www.hongik.ac.kr/kr/admission/previous-question.do?mode=view&articleNo=28122
+  retrieved_at: 2026-11-21
+  original_points: [6, 6, 8]
+  transcribed_from: G23_seoul_pm.pdf p.1-5 (문항카드 오후 1, 원본 PDF 이미지 대조 완료 2026-11-21)
+
+verify: verify/HIU-G23B.py::p01
+
+stimuli:
+- label: 도입
+  body: |
+    홍익대학교에는 문헌관, 공학관, 와우관, 홍문관이라 부르는 네 건물이 있다. 학생들의 편의를 위해 <그림 1>과 같이 캠퍼스를 원형으로 순환하는 트램을 설치하고자 한다. 트램 노선에서 건물까지의 거리를 고려하여 트램 노선의 반지름 $r$를 정하고자 한다. (단, 트램 노선의 너비와 건물의 크기는 무시한다.)
+- label: 가
+  body: |
+    원점 O에 대한 네 건물의 위치벡터는 각각 다음과 같다.
+    $$\overrightarrow{x_1}=(4,4),\quad\overrightarrow{x_2}=(5,0),\quad\overrightarrow{x_3}=(2,3),\quad\overrightarrow{x_4}=(1,1)$$
+- label: 나
+  body: |
+    트램의 노선은 반지름이 $r$인 원 모양이며, 원점 O에 대한 그 원의 중심의 위치벡터 $\vec c$는 다음과 같다.
+    $$\vec c=\frac14\left(\overrightarrow{x_1}+\overrightarrow{x_2}+\overrightarrow{x_3}+\overrightarrow{x_4}\right)$$
+- label: 다
+  body: |
+    각 건물의 위치로부터 트램 노선까지의 최단 거리를 각각 $d_1,d_2,d_3,d_4$라고 하자.
+- label: 라
+  body: |
+    각 건물의 위치로부터 트램 노선까지의 최단 거리의 제곱의 합 $S_4$를 $d_1^2+d_2^2+d_3^2+d_4^2$으로 정의하자.
+- label: 마
+  body: |
+    각 건물의 위치로부터 트램 노선까지의 최단 거리 중 최대 거리 $M_4$를 $d_1,d_2,d_3,d_4$ 중 최댓값으로 정의하자.
+
+    [그림 1: 중심 $\vec c$, 반지름 $r$인 원형 트램 노선과 네 건물. 문헌관 $\overrightarrow{x_1}=(4,4)$와 공학관 $\overrightarrow{x_2}=(5,0)$, 홍문관 $\overrightarrow{x_4}=(1,1)$은 원 밖, 와우관 $\overrightarrow{x_3}=(2,3)$은 원 안에 있고 각 건물에서 노선까지 거리 $d_1,d_2,d_3,d_4$가 점선으로 표시됨]
+
+stem: |
+  제시문을 읽고 다음 물음에 답하시오. [편집 주: 원문에는 별도의 공통 발문이 없다]
+
+subparts:
+- id: '1'
+  stem: |
+    제시문의 (라)에서 정의된 $S_4$가 최솟값을 가질 때 반지름 $r$를 구하시오.
+  points: 6
+  depends_on: []
+  answer: {kind: value, value: '(3*sqrt(2) + 2*sqrt(5))/4', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $S_4=\sum(\lvert\vec{x_i}-\vec c\rvert-r)^2$는 $r$의 이차함수, 꼭짓점은 거리의 평균.
+    steps:
+    - {id: 1a, content: '$S_4=4r^2-(6\sqrt2+4\sqrt5)r+20$, $r=\tfrac{3\sqrt2+2\sqrt5}{4}$', criteria: ['1.M1', '1.A1', '1.A2']}
+    hint_ladder:
+    - 원 밖(안)의 점에서 원까지의 최단 거리는 중심까지의 거리와 반지름의 차이다.
+  - id: S1-B
+    audience: B
+    source_flow: G23_seoul_pm.pdf p.4
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        트램 노선의 중심의 위치벡터는 $\vec c=\dfrac14\left(\overrightarrow{x_1}+\overrightarrow{x_2}+\overrightarrow{x_3}+\overrightarrow{x_4}\right)=(3,2)$이다. 노선의 중심으로부터 각 건물까지의 거리는 각각 $\lvert\overrightarrow{x_1}-\vec c\rvert=\lvert(1,2)\rvert=\sqrt5$, $\lvert\overrightarrow{x_2}-\vec c\rvert=\lvert(2,-2)\rvert=2\sqrt2$, $\lvert\overrightarrow{x_3}-\vec c\rvert=\lvert(-1,1)\rvert=\sqrt2$, $\lvert\overrightarrow{x_4}-\vec c\rvert=\lvert(-2,-1)\rvert=\sqrt5$이다.
+      criteria: ['1.M1']
+    - id: 1b-2
+      content: |
+        따라서 각 건물로부터 트램 노선까지의 최단 거리는 각각 $d_1=\lvert\sqrt5-r\rvert$, $d_2=\lvert2\sqrt2-r\rvert$, $d_3=\lvert\sqrt2-r\rvert$, $d_4=\lvert\sqrt5-r\rvert$이다.
+      criteria: ['1.M1']
+    - id: 1b-3
+      content: |
+        $S_4=(\sqrt5-r)^2+(2\sqrt2-r)^2+(\sqrt2-r)^2+(\sqrt5-r)^2=4r^2-(6\sqrt2+4\sqrt5)r+20$이다.
+      criteria: ['1.A1']
+    - id: 1b-4
+      content: |
+        $S_4$는 $r$에 대한 이차함수이고 그래프가 아래로 볼록인 포물선이므로 $\dfrac{d}{dr}S_4=0$인 $r=\dfrac{3\sqrt2+2\sqrt5}{4}$에서 최소이다. (또는 $S_4=4\left(r-\dfrac{3\sqrt2+2\sqrt5}{4}\right)^2+\dfrac{21-6\sqrt{10}}{2}$와 같이 정리하여 최소가 되는 $r$을 구한다.)
+      criteria: ['1.A2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 2
+      evidence: |
+        각 건물로부터 트램 노선까지의 최단 거리 $d_i=\lvert\,\lvert\overrightarrow{x_i}-\vec c\rvert-r\rvert$를 구했다($\sqrt5,2\sqrt2,\sqrt2,\sqrt5$ 사용).
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1, 1b-2, 1a]
+    - id: 1.A1
+      mark_type: A
+      points: 2
+      evidence: |
+        $S_4=4r^2-(6\sqrt2+4\sqrt5)r+20$(또는 동치)의 이차함수로 나타냈다.
+      depends_on: [1.M1]
+      steps: [1b-3, 1a]
+    - id: 1.A2
+      mark_type: A
+      points: 2
+      evidence: |
+        최솟값을 갖는 $r=\dfrac{3\sqrt2+2\sqrt5}{4}$를 구했다.
+      depends_on: [1.M1]
+      steps: [1b-4, 1a]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '2'
+  stem: |
+    제시문의 (마)에서 정의된 $M_4$가 최솟값을 가질 때 반지름 $r$를 구하시오.
+  points: 6
+  depends_on: ['1']
+  answer: {kind: value, value: '3*sqrt(2)/2', equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: 가장 가까운 거리 $\sqrt2$와 가장 먼 거리 $2\sqrt2$의 평균에서 $d_2=d_3$.
+    steps:
+    - {id: 2a, content: '$M_4=\max(2\sqrt2-r,\ r-\sqrt2)$ 최소 $\Rightarrow r=\tfrac32\sqrt2$', criteria: ['2.R1', '2.A1']}
+    hint_ladder:
+    - $M_4$가 될 수 있는 것은 중심에서 가장 가까운 건물과 가장 먼 건물까지의 거리뿐이다.
+  - id: S2-B
+    audience: B
+    source_flow: G23_seoul_pm.pdf p.5
+    method_no: 1
+    steps:
+    - id: 2b-1
+      content: |
+        트램 노선의 중심으로부터 가장 가까운 건물과 먼 건물은 각각 와우관, 공학관이며, 중심으로부터의 거리는 각각 $\sqrt2$, $2\sqrt2$이다. 이 두 거리의 평균인 $r=\dfrac32\sqrt2$을 기준으로 나눈다.
+      criteria: ['2.R1']
+    - id: 2b-2
+      content: |
+        $r\le\dfrac32\sqrt2$인 경우, (1)에서 구한 $d_1,d_2,d_3$ 중 $d_2=\lvert2\sqrt2-r\rvert$가 최대이다. 즉, 이 경우 $M_4=d_2=2\sqrt2-r$이다.
+        $r\ge\dfrac32\sqrt2$인 경우, $d_3=\lvert\sqrt2-r\rvert$가 최대가 된다. 즉, 이 경우 $M_4=d_3=r-\sqrt2$이다.
+      criteria: ['2.R1', '2.A1']
+    - id: 2b-3
+      content: |
+        그래프를 그려보면 $M_4$는 $r=\dfrac32\sqrt2$에서 최솟값을 가진다. [원문: "그래프를 그려보면 $r=\frac32\sqrt2$ 는 에서 최솟값을 가진다." — 어순 오기, 의미는 위와 같음]
+      criteria: ['2.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.R1
+      mark_type: R
+      points: 3
+      evidence: |
+        $d_1,d_2,d_3,d_4$ 중 최대 거리가 될 수 있는 것은 $d_2$와 $d_3$임을 확인했다.
+      depends_on: []
+      steps: [2b-1, 2b-2, 2a]
+    - id: 2.A1
+      mark_type: A
+      points: 3
+      evidence: |
+        $r$의 범위에 따라 $M_4$를 구하고 $M_4$가 최소인 $r=\dfrac32\sqrt2$를 구했다.
+      depends_on: [2.R1]
+      steps: [2b-2, 2b-3, 2a]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '3'
+  stem: |
+    건물이 $n$개가 있다고 가정하고 제시문과 같이 원 모양의 트램 노선을 설치하려고 한다. 각 건물의 위치벡터 $\overrightarrow{x_1},\overrightarrow{x_2},\overrightarrow{x_3},\cdots,\overrightarrow{x_n}$과 트램 노선의 중심의 위치벡터 $\vec c=\dfrac1n\displaystyle\sum_{i=1}^{n}\overrightarrow{x_i}$가 주어졌을 때, 각 건물의 위치로부터 트램 노선까지의 최단 거리의 제곱의 합 $S_n=\displaystyle\sum_{i=1}^{n}d_i^2$이 최솟값을 가질 때 반지름 $r$를 $\overrightarrow{x_1},\overrightarrow{x_2},\overrightarrow{x_3},\cdots,\overrightarrow{x_n}$과 $\vec c$에 대한 식으로 나타내시오.
+  points: 8
+  depends_on: ['1']
+  answer: {kind: expression, value: 'Sum(D(i), (i, 1, n))/n  [D(i) = |x_i - c|]', equivalents: [], tolerance: null}
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: $S_n=nr^2-2r\sum\lvert\vec{x_i}-\vec c\rvert+\sum\lvert\vec{x_i}-\vec c\rvert^2$의 꼭짓점.
+    steps:
+    - {id: 3a, content: '$r=\dfrac1n\displaystyle\sum_{i=1}^{n}\lvert\overrightarrow{x_i}-\vec c\rvert$', criteria: ['3.M1', '3.A1', '3.A2']}
+    hint_ladder:
+    - (1)과 같은 방법으로 $S_n$을 $r$에 대한 이차함수로 정리하라.
+  - id: S3-B
+    audience: B
+    source_flow: G23_seoul_pm.pdf p.5
+    method_no: 1
+    steps:
+    - id: 3b-1
+      content: |
+        각 건물의 위치 $\overrightarrow{x_1},\cdots,\overrightarrow{x_n}$로부터 트램노선의 중심 $\vec c$까지의 거리는 $\lvert\overrightarrow{x_i}-\vec c\rvert$이고, 각 건물에서 노선까지의 최단 거리는 $d_i=\lvert\,\lvert\overrightarrow{x_i}-\vec c\rvert-r\rvert$이다 $(i=1,2,\cdots,n)$.
+      criteria: ['3.M1']
+    - id: 3b-2
+      content: |
+        최단 거리의 제곱의 합은
+        $$S_n=\sum_{i=1}^{n}d_i^2=\sum_{i=1}^{n}\left(\lvert\overrightarrow{x_i}-\vec c\rvert-r\right)^2=nr^2-2r\sum_{i=1}^{n}\lvert\overrightarrow{x_i}-\vec c\rvert+\sum_{i=1}^{n}\lvert\overrightarrow{x_i}-\vec c\rvert^2$$
+        이다.
+      criteria: ['3.A1']
+    - id: 3b-3
+      content: |
+        $S_n$은 $r$에 대한 이차함수이고 그래프가 아래로 볼록인 포물선이므로 $\dfrac{d}{dr}S_n=0$인 $r=\dfrac1n\displaystyle\sum_{i=1}^{n}\lvert\overrightarrow{x_i}-\vec c\rvert$에서 최소이다. (또는 $S_n=n\left(r-\dfrac1n\displaystyle\sum_{i=1}^{n}\lvert\overrightarrow{x_i}-\vec c\rvert\right)^2+\sum_{i=1}^{n}\lvert\overrightarrow{x_i}-\vec c\rvert^2-\dfrac1n\left(\sum_{i=1}^{n}\lvert\overrightarrow{x_i}-\vec c\rvert\right)^2$와 같이 정리하여 구한다.)
+      criteria: ['3.A2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 2
+      evidence: |
+        $\overrightarrow{x_i}$와 $\vec c$를 이용하여 최단 거리 $d_i=\lvert\,\lvert\overrightarrow{x_i}-\vec c\rvert-r\rvert$를 구했다.
+      depends_on: []
+      implied_ok: false
+      steps: [3b-1, 3a]
+    - id: 3.A1
+      mark_type: A
+      points: 3
+      evidence: |
+        $S_n=nr^2-2r\sum\lvert\overrightarrow{x_i}-\vec c\rvert+\sum\lvert\overrightarrow{x_i}-\vec c\rvert^2$의 이차함수로 나타냈다.
+      depends_on: [3.M1]
+      steps: [3b-2, 3a]
+    - id: 3.A2
+      mark_type: A
+      points: 3
+      evidence: |
+        최솟값을 갖는 $r=\dfrac1n\displaystyle\sum_{i=1}^{n}\lvert\overrightarrow{x_i}-\vec c\rvert$를 구했다.
+      depends_on: [3.M1]
+      steps: [3b-3, 3a]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+remedy_links: []
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+- {stage: verify, actor_type: system, actor_id: sympy, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

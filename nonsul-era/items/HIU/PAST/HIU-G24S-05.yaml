@@ -1,0 +1,174 @@
+# 홍익대 2024학년도 수시 논술(자연계열 세종) 문제 5 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: HIU-G24S-05
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: HIU
+type: null
+variant_of: null
+replaces: null
+level: L3
+form: 추론
+points: 10
+time_estimate_min: 8
+intent: |
+  다항함수를 미분할 수 있는지와 접선의 방정식을 구할 수 있는지를 확인한다.
+key_idea: '접선 $y=-2tx+10+t^2$의 두 절편으로 $h(t)=\dfrac12(10+t^2)^2$을 만든 뒤 미분한다.'
+stuck: |
+  $tf(t)=\dfrac{10+t^2}{2}$로 약분되어 $h(t)$가 다항함수가 됨을 보는 것
+idea_tags: []
+tags: [접선의 절편, 다항함수의 미분]
+elements:
+  materials:
+  - '곡선 $y=10-x^2$ 위의 점 $(t,10-t^2)$에서의 접선'
+  - '$h(t)=tf(t)g(t)$'
+  concepts:
+  - '접선의 방정식'
+  - '다항함수의 도함수'
+  tools:
+  - '$y=-2t(x-t)+10-t^2$'
+  - '$f(t)=\dfrac{10+t^2}{2t}$, $g(t)=10+t^2$'
+  conditions:
+  - '$t>0$'
+  stimuli_used: []
+  subpart_links: '단일 논제'
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅱ]
+  scope_2028: common
+  scope_confirmed: false
+  standards:
+  - code: 12수학Ⅱ02-05
+    text: 함수의 실수배, 합, 차, 곱의 미분법을 알고, 다항함수의 도함수를 구할 수 있다.
+    verified: true
+  - code: 12수학Ⅱ02-06
+    text: 접선의 방정식을 구할 수 있다.
+    verified: true
+  content_area: 미분 – 도함수
+  behavior_domain: 계산
+  unit_path: [수학Ⅱ, 미분, 도함수의 활용, 접선의 방정식]
+  key_concepts: [접선의 방정식, 다항함수의 도함수]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 홍익대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 홍익대학교
+  admission_year: 2024
+  admission_type: 수시 논술
+  track: 자연계열 세종
+  question_no: 5
+  official_url: https://www.hongik.ac.kr/kr/admission/previous-question.do?mode=view&articleNo=93219
+  retrieved_at: 2026-11-21
+  original_points: [10]
+  transcribed_from: G24_sejong.pdf p.12-13(인쇄 쪽 97-98, 문항카드 12) (원본 PDF 이미지 대조 완료 2026-11-21)
+
+verify: verify/HIU-G24S.py::p05
+
+stimuli: []
+
+stem: |
+  곡선 $y=10-x^2$ 위의 점 $(t,10-t^2)$에서의 접선의 $x$절편을 $f(t)$, $y$절편을 $g(t)$라 하자. 함수 $h(t)=tf(t)g(t)$에 대하여 $h'(1)$을 구하시오. (단, $t>0$)
+
+subparts:
+- id: '1'
+  stem: |
+    곡선 $y=10-x^2$ 위의 점 $(t,10-t^2)$에서의 접선의 $x$절편을 $f(t)$, $y$절편을 $g(t)$라 하자. 함수 $h(t)=tf(t)g(t)$에 대하여 $h'(1)$을 구하시오. (단, $t>0$)
+  points: 10
+  depends_on: []
+  answer: {kind: value, value: '22', equivalents: [], tolerance: null}
+  solutions:
+  - id: S5-A
+    audience: A
+    method_no: 1
+    key_idea: $h(t)=\dfrac12(t^4+20t^2+100)$, $h'(t)=2t^3+20t$.
+    steps:
+    - {id: 1a, content: '$h''(1)=2+20=22$', criteria: ['1.M1', '1.A1', '1.A2', '1.A3', '1.A4']}
+    hint_ladder:
+    - 접선의 방정식을 먼저 쓰고 $y=0$, $x=0$을 대입해 보자.
+  - id: S5-B
+    audience: B
+    source_flow: G24_sejong.pdf p.13
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        곡선 $y=10-x^2$의 점 $(t,10-t^2)$에서의 접선의 기울기는 $-2t$이므로, 곡선 위의 점 $(t,10-t^2)$에서의 곡선의 접선의 방정식은 $y=-2t(x-t)+10-t^2=-2tx+10+t^2$이다.
+      criteria: ['1.M1']
+    - id: 1b-2
+      content: |
+        접선의 $x$절편은 $0=-2tx+10+t^2$으로부터 $x=\dfrac{10+t^2}{2t}$ $(t>0)$이므로 $f(t)=\dfrac{10+t^2}{2t}$이다.
+      criteria: ['1.A1']
+    - id: 1b-3
+      content: |
+        $y$절편은 $10+t^2$이므로 $g(t)=10+t^2$이다.
+      criteria: ['1.A2']
+    - id: 1b-4
+      content: |
+        따라서 $h(t)=tf(t)g(t)=\dfrac12(10+t^2)(10+t^2)=\dfrac12(t^4+20t^2+100)$이다.
+      criteria: ['1.A3']
+    - id: 1b-5
+      content: |
+        그러므로, $h'(t)=2t^3+20t$이고, $h'(1)=22$이다.
+      criteria: ['1.A4']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 2
+      evidence: |
+        곡선의 접선의 방정식 $y=-2tx+10+t^2$을 구했다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1, 1a]
+    - id: 1.A1
+      mark_type: A
+      points: 2
+      evidence: |
+        접선의 $x$절편 $f(t)=\dfrac{10+t^2}{2t}$를 $t$에 대한 식으로 구했다.
+      depends_on: [1.M1]
+      steps: [1b-2, 1a]
+    - id: 1.A2
+      mark_type: A
+      points: 2
+      evidence: |
+        접선의 $y$절편 $g(t)=10+t^2$를 $t$에 대한 식으로 구했다.
+      depends_on: [1.M1]
+      steps: [1b-3, 1a]
+    - id: 1.A3
+      mark_type: A
+      points: 2
+      evidence: |
+        $h(t)=\dfrac12(t^4+20t^2+100)$의 식을 구했다.
+      depends_on: [1.M1]
+      steps: [1b-4, 1a]
+    - id: 1.A4
+      mark_type: A
+      points: 2
+      evidence: |
+        $h'(1)=22$의 값을 구했다.
+      depends_on: [1.M1]
+      steps: [1b-5, 1a]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+remedy_links: []
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+- {stage: verify, actor_type: system, actor_id: sympy, item_version: 1, verdict: pass, date: 2026-11-22}
+
+created: 2026-11-21
+updated: 2026-11-21

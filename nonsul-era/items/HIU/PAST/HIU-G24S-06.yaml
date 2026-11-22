@@ -1,0 +1,182 @@
+# 홍익대 2024학년도 수시 논술(자연계열 세종) 문제 6 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: HIU-G24S-06
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: HIU
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 추론
+points: 15
+time_estimate_min: 15
+intent: |
+  로그의 성질을 이해하고 로그의 정의를 이용하여 로그를 지수로 나타낼 수 있는지와, 이차방정식의 풀이법을 이용하여 주어진 조건에 맞는 해를 구할 수 있는지 확인한다.
+key_idea: '$\log_3k=s$로 두면 $\alpha+\beta=2+s$, $\alpha\beta=2s$이고 $(2+s)^2-4s=13$에서 $s^2=9$, 두 근이 양수이므로 $s=3$.'
+stuck: |
+  $s=-3$을 버리는 근거(두 근이 양수 → $\alpha\beta=2s>0$)를 밝히는 단계
+idea_tags: []
+tags: [로그의 성질, 근과 계수의 관계]
+elements:
+  materials:
+  - '이차방정식 $x^2-x\log_3(9k)+\log_3(k^2)=0$'
+  - '두 양의 실근 $\alpha$, $\beta$, $\alpha^2+\beta^2=13$'
+  concepts:
+  - '로그의 성질'
+  - '이차방정식의 근과 계수의 관계'
+  - '인수분해'
+  tools:
+  - '$\log_39k=2+\log_3k$, $\log_3k^2=2\log_3k$'
+  - '$\alpha^2+\beta^2=(\alpha+\beta)^2-2\alpha\beta$'
+  - '$(x-2)(x-\log_3k)=0$'
+  conditions:
+  - '두 근이 양수 → $\alpha+\beta>0$, $\alpha\beta>0$'
+  stimuli_used: []
+  subpart_links: '단일 논제'
+
+curriculum:
+  version: '2015'
+  subjects: [수학, 수학Ⅰ]
+  scope_2028: common
+  scope_confirmed: false
+  standards:
+  - code: 12수학Ⅰ01-04
+    text: 로그의 뜻을 알고, 그 성질을 이해한다.
+    verified: true
+  - code: 10수학01-04
+    text: 다항식의 인수분해를 할 수 있다.
+    verified: true
+  content_area: 지수함수와 로그함수 – 지수와 로그
+  behavior_domain: 계산
+  unit_path: [수학Ⅰ, 지수함수와 로그함수, 지수와 로그, 로그의 성질]
+  key_concepts: [로그의 뜻과 성질]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 홍익대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 홍익대학교
+  admission_year: 2024
+  admission_type: 수시 논술
+  track: 자연계열 세종
+  question_no: 6
+  official_url: https://www.hongik.ac.kr/kr/admission/previous-question.do?mode=view&articleNo=93219
+  retrieved_at: 2026-11-21
+  original_points: [15]
+  transcribed_from: G24_sejong.pdf p.14-16(인쇄 쪽 99-101, 문항카드 13) (원본 PDF 이미지 대조 완료 2026-11-21)
+
+verify: verify/HIU-G24S.py::p06
+
+stimuli: []
+
+stem: |
+  $x$에 대한 방정식 $x^2-x\log_3(9k)+\log_3(k^2)=0$의 두 실근 $\alpha,\beta$가 양수이고 $\alpha^2+\beta^2=13$을 만족시킬 때, $k$의 값을 구하시오.
+
+subparts:
+- id: '1'
+  stem: |
+    $x$에 대한 방정식 $x^2-x\log_3(9k)+\log_3(k^2)=0$의 두 실근 $\alpha,\beta$가 양수이고 $\alpha^2+\beta^2=13$을 만족시킬 때, $k$의 값을 구하시오.
+  points: 15
+  depends_on: []
+  answer: {kind: value, value: '27', equivalents: [], tolerance: null}
+  solutions:
+  - id: S6-A
+    audience: A
+    method_no: 1
+    key_idea: 두 근은 $2$와 $\log_3k$이므로 $4+(\log_3k)^2=13$, 양수 조건으로 $\log_3k=3$.
+    steps:
+    - {id: 1a, content: '$\log_3k=3\Rightarrow k=27$', criteria: ['1.M1', '1.M2', '1.A1', '1.A2']}
+    hint_ladder:
+    - $\log_3(9k)$와 $\log_3(k^2)$을 $\log_3k$로 나타내 보자.
+  - id: S6-B
+    audience: B
+    source_flow: G24_sejong.pdf p.15 (풀이 1)
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        방정식 $x^2-x\log_39k+\log_3k^2=0$의 두 실근 $\alpha,\beta$는 이차방정식의 근과 계수의 관계에 의하여 $\alpha+\beta=\log_39k=\log_39+\log_3k=2+\log_3k$,
+      criteria: ['1.M1']
+    - id: 1b-2
+      content: |
+        $\alpha\beta=\log_3k^2=2\log_3k$를 만족한다.
+      criteria: ['1.M2']
+    - id: 1b-3
+      content: |
+        $\alpha^2+\beta^2=(\alpha+\beta)^2-2\alpha\beta=(2+\log_3k)^2-2(2\log_3k)=13$이므로 $(\log_3k)^2-9=(\log_3k-3)(\log_3k+3)=0$이다. 한편, 두 실근은 양수이므로 $\alpha+\beta=2+\log_3k>0$, $\alpha\beta=2\log_3k>0$이어야 한다. 그러므로 $\log_3k=-3$은 가능하지 않고, $\log_3k=3$이다.
+      criteria: ['1.A1']
+    - id: 1b-4
+      content: |
+        즉 $k=3^3=27$이다.
+      criteria: ['1.A2']
+  - id: S6-ALT
+    audience: ALT
+    source_flow: G24_sejong.pdf p.16 (풀이 2, 별첨)
+    method_no: 2
+    key_idea: 원 해설 풀이 2 — 인수분해 $(x-2)(x-\log_3k)=0$로 두 근을 직접 구한다.
+    steps:
+    - id: 1c-1
+      content: |
+        $x^2-x\log_39k+\log_3k^2=0$은 $x^2-(2+\log_3k)x+2\log_3k=0$으로 표현되고 인수분해 또는 근의 공식에 의해 두 실근 $\alpha,\beta$를 구하면 $2,\log_3k$이다.
+        (별첨) 인수분해: $(x-2)(x-\log_3k)=0$
+        근의 공식: $x=\dfrac{2+\log_3k\pm\sqrt{(2+\log_3k)^2-8\log_3k}}{2}=\dfrac{2+\log_3k\pm(2-\log_3k)}{2}=\begin{cases}2\\\log_3k\end{cases}$
+      criteria: ['1.M1', '1.M2']
+    - id: 1c-2
+      content: |
+        두 양의 실근 $\alpha,\beta$는 $\alpha^2+\beta^2=13$을 만족하고, 두 근 중 한 근이 $2$이므로 나머지 한 근은 $3$이다. 따라서 $\log_3k=3$이다. 그러므로 $k=3^3=27$이다.
+      criteria: ['1.A1', '1.A2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 3
+      evidence: |
+        $\log_39k=2+\log_3k$로 변형했다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1, 1c-1, 1a]
+    - id: 1.M2
+      mark_type: M
+      points: 3
+      evidence: |
+        $\log_3k^2=2\log_3k$로 변형했다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-2, 1c-1, 1a]
+    - id: 1.A1
+      mark_type: A
+      points: 6
+      evidence: |
+        $\alpha^2+\beta^2=13$을 이용하여 $\log_3k=3$의 값을 구했다.
+      depends_on: [1.M1, 1.M2]
+      steps: [1b-3, 1c-2, 1a]
+    - id: 1.A2
+      mark_type: A
+      points: 3
+      evidence: |
+        $\log_3k=3$으로부터 $k=27$의 값을 구했다.
+      depends_on: [1.M1]
+      steps: [1b-4, 1c-2, 1a]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+remedy_links: []
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+- {stage: verify, actor_type: system, actor_id: sympy, item_version: 1, verdict: pass, date: 2026-11-22}
+
+created: 2026-11-21
+updated: 2026-11-21

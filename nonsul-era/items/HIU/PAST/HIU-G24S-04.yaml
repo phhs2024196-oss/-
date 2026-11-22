@@ -1,0 +1,174 @@
+# 홍익대 2024학년도 수시 논술(자연계열 세종) 문제 4 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: HIU-G24S-04
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: HIU
+type: null
+variant_of: null
+replaces: null
+level: L3
+form: 추론
+points: 10
+time_estimate_min: 8
+intent: |
+  함수의 연속의 개념과 함수의 최솟값을 구하는 방식을 이해하여 주어진 문제를 해결할 수 있는지를 확인한다.
+key_idea: '$|7-C|=5$에서 $C_1=2$, $C_2=12$이고, $g(x)=x^3-12x+2$의 극값과 양 끝값을 비교한다.'
+stuck: |
+  $|f(x)|$의 연속 조건이 $f$의 좌·우극한의 절댓값이 같을 것($|7-C|=5$)임을 읽어 두 값을 얻는 단계
+idea_tags: []
+tags: [절댓값 함수의 연속, 닫힌구간 최솟값]
+elements:
+  materials:
+  - '$f(x)=\begin{cases}2x+3&(x<1)\\7x-C&(x\ge1)\end{cases}$'
+  - '$g(x)=x^3-C_2x+C_1$, 닫힌구간 $[-3,3]$'
+  concepts:
+  - '함수의 연속'
+  - '함수의 극대와 극소'
+  - '닫힌구간에서의 최댓값·최솟값'
+  tools:
+  - '$\displaystyle\lim_{x\to1+}|f(x)|=\lim_{x\to1-}|f(x)|$'
+  - '$g''(x)=3x^2-12=0\Rightarrow x=\pm2$'
+  conditions:
+  - '$C_1<C_2$'
+  - '최솟값 후보: 극값과 양 끝값'
+  stimuli_used: []
+  subpart_links: '단일 논제'
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅱ]
+  scope_2028: common
+  scope_confirmed: false
+  standards:
+  - code: 12수학Ⅱ01-03
+    text: 함수의 연속의 뜻을 안다.
+    verified: true
+  - code: 12수학Ⅱ02-08
+    text: 함수의 증가와 감소, 극대와 극소를 판정하고 설명할 수 있다.
+    verified: true
+  content_area: 함수의 극한과 연속·미분
+  behavior_domain: 계산
+  unit_path: [수학Ⅱ, 미분, 도함수의 활용, 최댓값과 최솟값]
+  key_concepts: [함수의 연속, 함수의 극대와 극소]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 홍익대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 홍익대학교
+  admission_year: 2024
+  admission_type: 수시 논술
+  track: 자연계열 세종
+  question_no: 4
+  official_url: https://www.hongik.ac.kr/kr/admission/previous-question.do?mode=view&articleNo=93219
+  retrieved_at: 2026-11-21
+  original_points: [10]
+  transcribed_from: G24_sejong.pdf p.9-11(인쇄 쪽 94-96, 문항카드 11) (원본 PDF 이미지 대조 완료 2026-11-21)
+
+verify: verify/HIU-G24S.py::p04
+
+stimuli: []
+
+stem: |
+  함수 $f(x)=\begin{cases}2x+3&(x<1)\\7x-C&(x\ge1)\end{cases}$에 대하여 $|f(x)|$가 실수 전체의 집합에서 연속이 되도록 하는 $C$의 두 값 중 작은 값을 $C_1$, 큰 값을 $C_2$라고 하자. 닫힌구간 $[-3,3]$에서 함수 $g(x)=x^3-C_2x+C_1$의 최솟값을 구하시오.
+
+subparts:
+- id: '1'
+  stem: |
+    함수 $f(x)=\begin{cases}2x+3&(x<1)\\7x-C&(x\ge1)\end{cases}$에 대하여 $|f(x)|$가 실수 전체의 집합에서 연속이 되도록 하는 $C$의 두 값 중 작은 값을 $C_1$, 큰 값을 $C_2$라고 하자. 닫힌구간 $[-3,3]$에서 함수 $g(x)=x^3-C_2x+C_1$의 최솟값을 구하시오.
+  points: 10
+  depends_on: []
+  answer: {kind: value, value: '-14', equivalents: [], tolerance: null}
+  solutions:
+  - id: S4-A
+    audience: A
+    method_no: 1
+    key_idea: $|7-C|=5$에서 $C_1=2$, $C_2=12$, $g(x)=x^3-12x+2$의 최솟값은 $\min\{g(-3),g(2)\}=-14$.
+    steps:
+    - {id: 1a, content: '$g(-3)=11$, $g(-2)=18$, $g(2)=-14$, $g(3)=-7$ → 최솟값 $-14$', criteria: ['1.A1', '1.A2', '1.M1', '1.A3']}
+    hint_ladder:
+    - $x=1$에서 $|f(x)|$의 좌극한과 우극한을 비교해 보자.
+  - id: S4-B
+    audience: B
+    source_flow: G24_sejong.pdf p.10-11
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        함수 $|f(x)|$가 $x=1$에서 연속이면 $\displaystyle\lim_{x\to1+}|f(x)|=\lim_{x\to1-}|f(x)|$이어야 한다. $\displaystyle\lim_{x\to1+}|7x-C|=|7-C|$이며 $\displaystyle\lim_{x\to1-}|2x+3|=5$이므로 $|7-C|=5$, 즉 $C=2$ 또는 $C=12$이다. 그러므로 $C_1=2$이고 $C_2=12$이다.
+      criteria: ['1.A1', '1.A2']
+    - id: 1b-2
+      content: |
+        주어진 삼차방정식은 $g(x)=x^3-12x+2$가 되고, 이 방정식의 극값을 구하기 위하여 양변을 $x$로 미분하면 $g'(x)=3x^2-12$가 된다. 도함수가 $0$이 되는 $x$는 $\pm2$이며,
+      criteria: ['1.M1']
+    - id: 1b-3
+      content: |
+        함수 $g(x)$의 극값, 그리고 주어진 구간의 양 끝점을 대입한 값들은 각각 $g(-3)=-27+36+2=11$, $g(-2)=-8+24+2=18$, $g(2)=8-24+2=-14$, $g(3)=27-36+2=-7$이므로 이 중 가장 작은 $g(2)=-14$가 최솟값이다.
+      criteria: ['1.A3']
+  - id: S4-ALT
+    audience: ALT
+    source_flow: G24_sejong.pdf p.11 (다른 풀이)
+    method_no: 2
+    key_idea: 원 해설 다른 풀이 — 개형으로 후보를 $g(-3)$, $g(2)$ 둘로 줄인다.
+    steps:
+    - id: 1c-1
+      content: |
+        삼차방정식 $g(x)$의 그래프 개형을 $g'(x)$의 개형 또는 $g'(x)$의 부호 변화를 이용하여 파악하면 $g(-2)$는 극대값이고 $g(x)$는 $x>2$에서 증가함수이므로 $g(2)<g(3)$이다. $g(-2)$와 $g(3)$는 최솟값이 될 수 없으므로 $g(-3)$과 $g(2)$의 두 값만 비교하여 최솟값을 찾을 수 있다. $g(-3)=-27+36+2=11$, $g(2)=8-24+2=-14$이므로 이 중 가장 작은 $g(2)=-14$가 최솟값이다.
+      criteria: ['1.M1', '1.A3']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.A1
+      mark_type: A
+      points: 2
+      evidence: |
+        $|f(x)|$가 연속이 되는 $C$의 값 $C_1=2$를 구했다(원문 채점기준 표기는 '$f(x)$가 연속이 되는 $C$의 두 값을 구한다', 각 2점).
+      depends_on: []
+      implied_ok: true
+      steps: [1b-1, 1a]
+    - id: 1.A2
+      mark_type: A
+      points: 2
+      evidence: |
+        $|f(x)|$가 연속이 되는 $C$의 값 $C_2=12$를 구했다.
+      depends_on: []
+      implied_ok: true
+      steps: [1b-1, 1a]
+    - id: 1.M1
+      mark_type: M
+      points: 3
+      evidence: |
+        함수 $g(x)$를 미분하여 도함수의 값이 $0$이 되는 $x=\pm2$를 구했다.
+      depends_on: []
+      implied_ok: false
+      ft: {allowed: false}
+      steps: [1b-2, 1c-1, 1a]
+    - id: 1.A3
+      mark_type: A
+      points: 3
+      evidence: |
+        양 끝값과 극값을 비교하여 최솟값 $-14$를 구했다.
+      depends_on: [1.M1]
+      steps: [1b-3, 1c-1, 1a]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+remedy_links: []
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+- {stage: verify, actor_type: system, actor_id: sympy, item_version: 1, verdict: pass, date: 2026-11-22}
+
+created: 2026-11-21
+updated: 2026-11-21

@@ -1,0 +1,179 @@
+# 홍익대 2023학년도 수시 논술(자연계열 세종) 문제 6 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: HIU-G23S-06
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: HIU
+type: null
+variant_of: null
+replaces: null
+level: L3
+form: 최적2단
+points: 15
+time_estimate_min: 8
+intent: |
+  지수함수와 이차함수의 성질을 활용하여 주어진 범위에서 함수의 최댓값과 최솟값을 구할 수 있는지 평가한다.
+key_idea: '$3^{-x}=t$로 치환하면 $f=-(t-\tfrac12)^2-\tfrac34+2a$이고, $x\ge-1$에서 $0<t\le3$이다.'
+stuck: |
+  치환한 $t$의 범위가 $0<t\le3$ ($0$ 제외)임을 지수함수의 그래프로 확정하는 것
+idea_tags: []
+tags: [지수함수 치환, 제한된 범위의 이차함수]
+elements:
+  materials:
+  - '정의역 $\{x\mid x\ge-1\}$에서 $f(x)=-(3^{-x}+1)^2+3^{-x+1}+2a$'
+  concepts:
+  - '지수법칙'
+  - '지수함수의 그래프(감소함수, 치역)'
+  - '이차함수의 최대·최소'
+  tools:
+  - '$3^{-x+1}=3\cdot3^{-x}$'
+  - '치환 $t=3^{-x}$'
+  - '완전제곱식'
+  conditions:
+  - '$x\ge-1\Rightarrow0<t\le3$'
+  - '최댓값 $=1$'
+  stimuli_used: []
+  subpart_links: '단일 논제'
+
+curriculum:
+  version: '2015'
+  subjects: [수학, 수학Ⅰ]
+  scope_2028: common
+  scope_confirmed: false
+  standards:
+  - code: 10수학01-11
+    text: 이차함수의 최대, 최소를 이해하고, 이를 활용하여 문제를 해결할 수 있다.
+    verified: true
+  - code: 12수학Ⅰ01-03
+    text: 지수법칙을 이해하고, 이를 이용하여 식을 간단히 나타낼 수 있다.
+    verified: true
+  - code: 12수학Ⅰ01-08
+    text: 지수함수와 로그함수를 활용하여 문제를 해결할 수 있다.
+    verified: true
+  content_area: 지수함수와 로그함수 – 지수함수의 활용
+  behavior_domain: 문제해결
+  unit_path: [수학Ⅰ, 지수함수와 로그함수, 지수함수와 로그함수, 지수함수의 최대·최소]
+  key_concepts: [지수함수, 지수함수의 그래프, 이차함수의 최댓값과 최솟값]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 홍익대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 홍익대학교
+  admission_year: 2023
+  admission_type: 수시 논술
+  track: 자연계열 세종
+  question_no: 6
+  official_url: https://www.hongik.ac.kr/kr/admission/previous-question.do?mode=view&articleNo=28122
+  retrieved_at: 2026-11-21
+  original_points: [15]
+  transcribed_from: G23_sejong.pdf p.13-15 (문항카드 6) 원본 PDF 이미지 대조 완료 2026-11-21
+
+verify: verify/HIU-G23S.py::p06
+
+stimuli: []
+
+stem: |
+  실수 $a$에 대하여 정의역이 $\{x\mid x\ge-1\}$인 함수 $f(x)=-(3^{-x}+1)^2+3^{-x+1}+2a$ 의 최댓값이 1일 때, 함수 $f(x)$의 최솟값을 구하시오.
+
+subparts:
+- id: '1'
+  stem: |
+    실수 $a$에 대하여 정의역이 $\{x\mid x\ge-1\}$인 함수 $f(x)=-(3^{-x}+1)^2+3^{-x+1}+2a$ 의 최댓값이 1일 때, 함수 $f(x)$의 최솟값을 구하시오.
+  points: 15
+  depends_on: []
+  answer: {kind: value, value: '-21/4', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $t=3^{-x}\in(0,3]$에서 $f=-(t-\tfrac12)^2-\tfrac34+2a$; 최댓값 $2a-\tfrac34=1$, 최솟값 $f|_{t=3}=2a-7=-\tfrac{21}{4}$.
+    steps:
+    - {id: 1a, content: '$2a=\tfrac74$, 최솟값 $2a-7=-\tfrac{21}{4}$', criteria: ['1.M1', '1.M2', '1.B1', '1.A1', '1.A2']}
+    hint_ladder:
+    - $3^{-x+1}$을 $3^{-x}$로 나타내 보자.
+    - $x\ge-1$일 때 $3^{-x}$가 가질 수 있는 값의 범위는?
+  - id: S1-B
+    audience: B
+    source_flow: G23_sejong.pdf p.15
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        $3^{-x}=t$이라 하고, $3^{-x+1}=3\cdot3^{-x}$을 이용하여
+      criteria: ['1.M1']
+    - id: 1b-2
+      content: |
+        $f(x)=-(t+1)^2+3t+2a=-t^2+t-1+2a=-\left(t-\dfrac{1}{2}\right)^2-\dfrac{3}{4}+2a$로 정리할 수 있다.
+      criteria: ['1.M2']
+    - id: 1b-3
+      content: |
+        $x\ge-1$에서 $0<t\le3$이고,
+      criteria: ['1.B1']
+    - id: 1b-4
+      content: |
+        이 범위에서 위의 $t$에 대한 이차함수는 $t=\dfrac{1}{2}$일 때 최댓값 $2a-\dfrac{3}{4}$을 가지고 $t=3$일 때, 최솟값 $2a-7$을 가진다.
+        최댓값이 1이므로 $2a=\dfrac{7}{4}$ (또는 $a=\dfrac{7}{8}$)이다.
+      criteria: ['1.A1']
+    - id: 1b-5
+      content: |
+        이를 이용하면 최솟값은 $2a-7=-\dfrac{21}{4}$이다.
+      criteria: ['1.A2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 2
+      evidence: |
+        지수 연산 $3^{-x+1}=3\cdot3^{-x}$로 변형했다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1]
+    - id: 1.M2
+      mark_type: M
+      points: 4
+      evidence: |
+        $3^{-x}=t$로 치환하여(굳이 치환하지 않더라도) 주어진 함수식을 완전제곱 형태 $-\left(t-\frac12\right)^2-\frac34+2a$로 재변형했다.
+      depends_on: [1.M1]
+      implied_ok: false
+      steps: [1b-2]
+    - id: 1.B1
+      mark_type: B
+      points: 2
+      evidence: |
+        $0<t\le3$의 범위를 구했다($t$의 범위에 $0$이 포함되지 않음).
+      depends_on: []
+      steps: [1b-3]
+    - id: 1.A1
+      mark_type: A
+      points: 4
+      evidence: |
+        새롭게 정의된 이차함수에서 최댓값이 1임을 이용해 $a=\dfrac78$ (또는 $2a=\dfrac74$)을 구했다.
+      depends_on: [1.M2]
+      steps: [1b-4]
+    - id: 1.A2
+      mark_type: A
+      points: 3
+      evidence: |
+        $a$값을 이용하여 최솟값 $-\dfrac{21}{4}$을 구했다.
+      depends_on: [1.M2, 1.B1]
+      steps: [1b-5]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+- {stage: verify, actor_type: system, actor_id: sympy, item_version: 1, verdict: pass, date: 2026-11-21}
+created: 2026-11-21
+updated: 2026-11-21

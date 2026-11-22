@@ -1,0 +1,176 @@
+# 홍익대 2027학년도 모의논술(세종캠퍼스 자연계열) 문제 2 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: HIU-M27S-02
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: short_answer
+origin: mock_exam
+school: HIU
+type: null
+variant_of: null
+replaces: null
+level: L3
+form: 분류
+points: 10
+time_estimate_min: 10
+intent: |
+  로그방정식을 풀기 위해 가장 먼저 로그의 밑과 진수 조건을 정확히 파악하여 해의 범위를 설정할 수 있는지를 평가한다. 또한, 밑 변환 공식을 이용하여 복잡한 로그방정식을 간단한 형태로 변형하고, 이를 통해 논리적으로 해를 추론하는 능력을 확인하고자 한다.
+key_idea: |
+  $\log_4x^2=\log_2\lvert x\rvert$이므로 $x+2=\lvert x\rvert$ ($x>-2$, $x\ne0$)를 부호로 나누어 푼다.
+stuck: |
+  $\log_4x^2=\log_2x$로 잘못 바꾸면 $x<0$인 해 $x=-1$을 놓친다($\sqrt{x^2}=\lvert x\rvert$)
+idea_tags: []
+tags: [로그방정식, 진수 조건, 절댓값]
+elements:
+  materials:
+  - '$\log_2(x+2)=\log_4x^2$'
+  concepts:
+  - '로그의 뜻과 진수 조건'
+  - '로그의 밑의 변환'
+  - '$\sqrt{x^2}=\lvert x\rvert$'
+  tools:
+  - '$\log_4x^2=\dfrac{\log_ax^2}{2\log_a2}=\dfrac{\log_a\lvert x\rvert}{\log_a2}$'
+  - '$-2<x<0$, $x>0$ 경우 나누기'
+  conditions:
+  - '$x+2>0$, $x^2>0$, 즉 $x>-2$이고 $x\ne0$'
+  stimuli_used: []
+  subpart_links: '단일 논제'
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅰ]
+  scope_2028: common
+  scope_confirmed: false
+  standards:
+  - code: 12수학Ⅰ01-08
+    text: 지수함수와 로그함수를 활용하여 문제를 해결할 수 있다.
+    verified: true
+  content_area: 지수함수와 로그함수
+  behavior_domain: 계산
+  unit_path: [수학Ⅰ, 지수함수와 로그함수, 로그함수, 로그방정식]
+  key_concepts: [로그의 뜻과 성질, 로그의 밑의 변환, 로그방정식]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 홍익대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 홍익대학교
+  admission_year: 2027
+  admission_type: 수시 모의논술
+  track: 자연계열 세종
+  question_no: 2
+  official_url: https://www.hongik.ac.kr/kr/admission/previous-question.do?mode=view&articleNo=154971
+  retrieved_at: 2026-11-21
+  original_points: [10]
+  rights_notice: 미확인(대학 원본 PDF 에 별도 저작권 문구 없음)
+  transcribed_from: 문제지_세종_자연.pdf p.2, 해설지_세종_자연.pdf p.3-5 (원본 PDF 이미지 대조 완료 2026-11-21)
+
+verify: verify/HIU-M27S.py::p02
+
+stimuli: []
+
+stem: |
+  로그방정식 $\log_2(x+2)=\log_4x^2$을 만족하는 실수 $x$의 값을 구하여라.
+
+subparts:
+- id: '1'
+  stem: |
+    로그방정식 $\log_2(x+2)=\log_4x^2$을 만족하는 실수 $x$의 값을 구하여라.
+  points: 10
+  depends_on: []
+  answer: {kind: value, value: '-1', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: 진수 조건 아래 $\log_4x^2=\log_2\lvert x\rvert$로 바꾸면 $x+2=\lvert x\rvert$.
+    steps:
+    - {id: 1a, content: '$x>-2$, $x\ne0$; $x+2=\lvert x\rvert$에서 $-2<x<0$이면 $x=-1$, $x>0$이면 해 없음', criteria: ['1.B1', '1.M1', '1.A1', '1.A2']}
+    hint_ladder:
+    - 진수 $x^2$이 양수일 조건은 무엇인가?
+    - $\log_4x^2$를 밑이 2인 로그로 바꾸면 $\log_2x$인가, $\log_2\lvert x\rvert$인가?
+  - id: S1-B
+    audience: B
+    source_flow: 해설지_세종_자연.pdf p.4-5
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        로그 $\log_ab$에서 $a$를 로그의 밑이라 하고, $b$를 로그의 진수라 부른다.
+        (가) 로그의 진수는 양수이어야 하므로 아래의 요건을 갖는다. $x+2>0$, $x^2>0$. 다시 말하면, $x>-2$이고 동시에 $x\ne0$이어야 한다.
+      criteria: ['1.B1']
+    - id: 1b-2
+      content: |
+        (나) (방법1) 로그의 성질을 이용하여 $\log_2(x+2)=\dfrac{\log_a(x+2)}{\log_a2}$,
+        $$\log_4x^2=\frac{\log_ax^2}{\log_a4}=\frac{\log_ax^2}{2\log_a2}=\frac{\log_a\sqrt{x^2}}{\log_a2}=\frac{\log_a\lvert x\rvert}{\log_a2}$$
+        (여기서 로그의 밑인 $a$는 2, 3, 4, …, 10 또는 $e$ 등, 양수이면서 1이 아니기만 하면 된다.) 따라서 $\dfrac{\log_a(x+2)}{\log_a2}=\dfrac{\log_a\lvert x\rvert}{\log_a2}$ 또는 $x+2=\lvert x\rvert$ ($x>-2$, $x\ne0$) ---- (1)
+      criteria: ['1.M1']
+    - id: 1b-3
+      content: |
+        (다) ① 먼저, $-2<x<0$이라 하면, 식 (1)은 $x+2=-x$가 되어, 이로부터 $x=-1$을 얻는다.
+        ② 이제, $x>0$이라 하면, 식 (1)은 $x+2=x$가 되며, 이것의 해는 존재하지 않는다.
+      criteria: ['1.A1']
+    - id: 1b-4
+      content: |
+        (라) 따라서 정답은 $x=-1$이다.
+      criteria: ['1.A2']
+  - id: S1-ALT
+    audience: ALT
+    source_flow: 해설지_세종_자연.pdf p.5 (방법2)
+    method_no: 2
+    key_idea: 해설지 방법2 — 밑 4를 밑이 2인 로그로 바꾼다.
+    steps:
+    - id: 1c-1
+      content: |
+        $\log_2(x+2)=\log_4x^2=\log_{2^2}\lvert x\rvert^2=\log_2\lvert x\rvert$이므로 $x+2=\lvert x\rvert$ ($x>-2$, $x\ne0$)
+      criteria: ['1.M1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.B1
+      mark_type: B
+      points: 2
+      evidence: |
+        진수 조건 $x+2>0$, $x^2>0$에서 $x>-2$, $x\ne0$을 구했다. (공식 2점)
+      steps: [1b-1, 1a]
+    - id: 1.M1
+      mark_type: M
+      points: 4
+      evidence: |
+        밑 변환 공식으로 양변의 밑을 통일하여 진수끼리의 방정식($x+2=\lvert x\rvert$ 또는 $(x+2)^2=x^2$)을 유도했다. (공식 4점)
+      depends_on: []
+      implied_ok: false
+      steps: [1b-2, 1c-1, 1a]
+    - id: 1.A1
+      mark_type: A
+      points: 2
+      evidence: |
+        유도된 방정식을 풀어 $x$의 후보 값을 모두 찾았다. (공식 2점)
+      depends_on: [1.M1]
+      steps: [1b-3, 1a]
+    - id: 1.A2
+      mark_type: A
+      points: 2
+      evidence: |
+        진수 조건을 고려하여 최종 해 $x=-1$을 결정했다. (공식 2점)
+      depends_on: [1.M1, 1.B1]
+      steps: [1b-4, 1a]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+remedy_links: []
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+- {stage: verify, actor_type: system, actor_id: sympy, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

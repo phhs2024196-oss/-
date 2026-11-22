@@ -1,0 +1,336 @@
+# 홍익대 2024학년도 수시 논술 자연계열(서울) 문제 2 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: HIU-G24-02
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: HIU
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 최적2단
+points: 20
+time_estimate_min: 40
+intent: |
+  고등학교 『확률과 통계』 교과서에서 다루는 경우의 수와 확률의 의미를 이해하고 이를 활용할 수 있는지 평가한다.
+  (1) 이산확률변수의 기댓값을 구할 수 있는지 평가한다.
+  (2) 경우의 수로부터 확률을 구하고 그 의미를 이해하는지 평가한다.
+  (3) 이항분포의 평균과 표준편차를 알고, 정규 근사하여 확률을 구할 수 있는지 평가한다.
+  (4) 확률과 경우의 수를 활용하여 주어진 상황을 분석하고 논리적으로 해결할 수 있는지 평가한다.
+key_idea: |
+  엄마의 한 면 $n$이 이기는 경우의 수는 $n$보다 작은 상대 눈의 개수이므로, $p_1-p_2=\dfrac{1}{36}\sum(f(a_i)-g(a_i))$로 면마다 독립적인 점수의 합이 된다.
+stuck: |
+  $p_1-p_2$를 엄마 주사위 각 면의 기여 $f(n)-g(n)$의 합으로 분해하고, 구간별 값표로 최댓값을 찾는 발상
+idea_tags: []
+tags: [비추이적 주사위, 이항분포의 정규근사, 경우의 수 최적화]
+elements:
+  materials:
+  - '면에 서로 다른 자연수가 쓰인 세 개의 정육면체 주사위'
+  - '홍익이 주사위 $\{2,4,23,25,29,31\}$, 아빠 주사위 $\{5,7,11,13,35,37\}$'
+  - '405일간 반복한 주사위 놀이'
+  concepts:
+  - '이산확률변수의 기댓값'
+  - '수학적 확률'
+  - '이항분포의 평균과 표준편차'
+  - '정규분포 근사와 표준화'
+  tools:
+  - '$6\times6$ 승패표'
+  - '$\mathrm{B}(n,p)$의 평균 $np$, 표준편차 $\sqrt{np(1-p)}$'
+  - '$Z=\dfrac{W-m}{\sigma}$'
+  - '$f(n)$, $g(n)$: $n$보다 작은 $A$, $B$ 원소의 개수'
+  conditions:
+  - '18개의 면에 모두 다른 자연수 → 무승부 없음'
+  - '엄마 주사위의 면은 $A\cup B$에 속하지 않는 서로 다른 6개의 자연수'
+  stimuli_used: []
+  subpart_links: '(3)은 (2)의 승리 확률 4/9를 사용, (4)는 (2)의 승패 계산 방식을 일반화'
+
+curriculum:
+  version: '2015'
+  subjects: [확률과통계]
+  scope_2028: common
+  scope_confirmed: false
+  standards:
+  - code: 12확통02-01
+    text: 통계적 확률과 수학적 확률의 의미를 이해한다.
+    verified: true
+  - code: 12확통03-02
+    text: 이산확률변수의 기댓값(평균)과 표준편차를 구할 수 있다.
+    verified: true
+  - code: 12확통03-03
+    text: 이항분포의 뜻을 알고, 평균과 표준편차를 구할 수 있다.
+    verified: true
+  - code: 12확통03-04
+    text: 정규분포의 뜻을 알고, 그 성질을 이해한다.
+    verified: true
+  content_area: 확률·확률분포
+  behavior_domain: 문제해결
+  unit_path: [확률과통계, 확률, 확률의 뜻과 활용, 수학적 확률]
+  key_concepts: [확률, 확률변수, 기댓값, 정규분포]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 홍익대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 홍익대학교
+  admission_year: 2024
+  admission_type: 수시 논술
+  track: 자연계열 서울
+  question_no: 2
+  official_url: https://www.hongik.ac.kr/kr/admission/previous-question.do?mode=view&articleNo=93219
+  retrieved_at: 2026-11-21
+  original_points: [2, 3, 3, 12]
+  transcribed_from: G24_seoul.pdf p.47-51(인쇄 쪽 74-78, 문항카드 6) (원본 PDF 이미지 대조 완료 2026-11-21)
+
+verify: verify/HIU-G24.py::p02
+
+stimuli: []
+
+stem: |
+  홍익이는 아빠, 엄마와 함께 다음의 방식으로 주사위 놀이를 한다. 주사위는 정육면체이며, 주사위를 던졌을 때 각 면이 나올 확률은 모두 같다. 세 사람은 각자의 주사위를 가지고 있으며, 주사위의 각 면에는 서로 다른 자연수가 쓰여 있다. 주사위 놀이에서는 두 사람이 자신의 주사위를 동시에 한 번 던져 더 큰 수가 나온 사람이 승리한다. 홍익이, 아빠, 엄마의 주사위에 있는 총 18개의 면에는 모두 다른 자연수가 쓰여 있어 이 놀이에서 무승부는 나오지 않는다. 홍익이와 아빠의 주사위에 쓰인 숫자는 각각 다음과 같다.
+
+  홍익이의 주사위: $2,4,23,25,29,31$
+  아빠의 주사위: $5,7,11,13,35,37$
+
+subparts:
+- id: '1'
+  stem: |
+    홍익이의 주사위를 한 번 던져 나오는 수를 확률변수 $X$, 아빠의 주사위를 한 번 던져 나오는 수를 확률변수 $Y$라 하자. $X$와 $Y$의 기댓값 $\mathrm{E}(X)$와 $\mathrm{E}(Y)$를 구하시오.
+  points: 2
+  depends_on: []
+  answer: {kind: value, value: 'EX = 19; EY = 18', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: 각 면의 확률이 $\dfrac16$이므로 기댓값은 여섯 수의 평균이다.
+    steps:
+    - {id: 1a, content: '$\mathrm{E}(X)=19$, $\mathrm{E}(Y)=18$', criteria: ['1.B1', '1.B2']}
+    hint_ladder:
+    - 각 면이 나올 확률은 얼마인가?
+  - id: S1-B
+    audience: B
+    source_flow: G24_seoul.pdf p.50
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        $\mathrm{E}(X)=\dfrac{2+4+23+25+29+31}{6}=19$
+      criteria: ['1.B1']
+    - id: 1b-2
+      content: |
+        $\mathrm{E}(Y)=\dfrac{5+7+11+13+35+37}{6}=18$
+      criteria: ['1.B2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.B1
+      mark_type: B
+      points: 1
+      evidence: |
+        기댓값 $\mathrm{E}(X)=19$를 구했다.
+      depends_on: []
+      steps: [1b-1, 1a]
+    - id: 1.B2
+      mark_type: B
+      points: 1
+      evidence: |
+        기댓값 $\mathrm{E}(Y)=18$을 구했다.
+      depends_on: []
+      steps: [1b-2, 1a]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '2'
+  stem: |
+    홍익이와 아빠가 주사위 놀이를 한다면 둘 중 누가 더 유리한지 설명하시오.
+  points: 3
+  depends_on: []
+  answer: {kind: value, value: 'p_hong = 4/9; p_dad = 5/9; advantage = dad', equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: 36가지 결과 중 홍익이가 이기는 경우는 $4\times4=16$가지이다. 기댓값이 큰 쪽이 유리한 것은 아니다.
+    steps:
+    - {id: 2a, content: '홍익이 승 $\dfrac{16}{36}=\dfrac49$, 아빠 승 $\dfrac59$ → 아빠가 유리', criteria: ['2.M1', '2.A1']}
+    hint_ladder:
+    - 두 주사위의 눈을 가로·세로로 놓은 표를 만들어 보자.
+  - id: S2-B
+    audience: B
+    source_flow: G24_seoul.pdf p.50
+    method_no: 1
+    steps:
+    - id: 2b-1
+      content: |
+        홍익이와 아빠 두 사람이 동시에 주사위를 던졌을 때 홍익이가 승리할 경우의 수를 나타내는 다음의 표(행: 아빠의 눈, 열: 홍익이의 눈, ○: 홍익이 승리)에서
+        $$\begin{array}{c|cccccc} & 2 & 4 & 23 & 25 & 29 & 31\\ \hline 5 & \times & \times & ○ & ○ & ○ & ○\\ 7 & \times & \times & ○ & ○ & ○ & ○\\ 11 & \times & \times & ○ & ○ & ○ & ○\\ 13 & \times & \times & ○ & ○ & ○ & ○\\ 35 & \times & \times & \times & \times & \times & \times\\ 37 & \times & \times & \times & \times & \times & \times \end{array}$$
+        홍익이가 승리할 확률은 $\dfrac49$이며, 아빠가 승리할 확률은 $\dfrac59$이다.
+      criteria: ['2.M1']
+    - id: 2b-2
+      content: |
+        $\dfrac49<\dfrac59$이므로 아빠가 더 유리하다.
+      criteria: ['2.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 2
+      evidence: |
+        홍익이 또는 아빠가 주사위 놀이에서 승리할 확률($\dfrac49$ 또는 $\dfrac59$)을 구했다.
+      depends_on: []
+      implied_ok: false
+      steps: [2b-1, 2a]
+    - id: 2.A1
+      mark_type: A
+      points: 1
+      evidence: |
+        두 확률을 비교하여 아빠가 유리함을 판단했다.
+      depends_on: [2.M1]
+      steps: [2b-2, 2a]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '3'
+  stem: |
+    홍익이와 아빠는 매일 한 번씩 총 $405$일간 주사위 놀이를 하였다. 홍익이가 승리한 날이 총 $200$일 이상이 될 확률을 아래의 표준정규분포표를 사용하여 구하시오.
+    $$\begin{array}{c|c} z & \mathrm{P}(0\le Z\le z)\\ \hline 0.5 & 0.1915\\ 1.0 & 0.3413\\ 2.0 & 0.4772\\ 3.0 & 0.4987 \end{array}$$
+  points: 3
+  depends_on: ['2']
+  answer: {kind: value, value: '0.0228', equivalents: [], tolerance: null}
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: $W\sim\mathrm{B}\left(405,\dfrac49\right)$, $m=180$, $\sigma=10$이므로 $\mathrm{P}(Z\ge2)$.
+    steps:
+    - {id: 3a, content: '$\mathrm{P}(W\ge200)\approx\mathrm{P}(Z\ge2)=0.0228$', criteria: ['3.B1', '3.M1']}
+    hint_ladder:
+    - 승리한 날의 수는 어떤 분포를 따르는가?
+  - id: S3-B
+    audience: B
+    source_flow: G24_seoul.pdf p.50-51
+    method_no: 1
+    steps:
+    - id: 3b-1
+      content: |
+        홍익이가 승리한 날의 수를 확률변수 $W$라 하면, $W$는 이항분포 $\mathrm{B}\left(405,\dfrac49\right)$를 따르며, 평균 $m$과 표준편차 $\sigma$는 각각 $m=405\times\dfrac49=180$, $\sigma=\sqrt{405\times\dfrac49\times\dfrac59}=\sqrt{100}=10$ 이다.
+      criteria: ['3.B1']
+    - id: 3b-2
+      content: |
+        확률변수 $W$는 근사적으로 정규분포 $\mathrm{N}(180,10^2)$을 따르므로 구하는 확률은
+        $$\mathrm{P}(200\le W)=\mathrm{P}\left(\dfrac{200-180}{10}\le Z\right)=\mathrm{P}(2\le Z)=\dfrac12-\mathrm{P}(0\le Z\le2)=0.5-0.4772=0.0228$$
+        이다.
+      criteria: ['3.M1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 3.B1
+      mark_type: B
+      points: 1
+      evidence: |
+        홍익이가 승리한 날을 나타내는 확률변수가 이항분포 $\mathrm{B}\left(405,\dfrac49\right)$를 따름을 서술했다.
+      depends_on: []
+      ft: {allowed: true, from: [2.M1], max_points: 1}
+      steps: [3b-1, 3a]
+    - id: 3.M1
+      mark_type: M
+      points: 2
+      evidence: |
+        이항분포를 정규분포 $\mathrm{N}(180,10^2)$으로 근사하고, 표준정규분포표를 사용하여 확률 $0.0228$을 계산했다.
+      depends_on: [3.B1]
+      implied_ok: false
+      steps: [3b-2, 3a]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '4'
+  stem: |
+    엄마의 주사위는 각 면의 자연수를 엄마가 임의로 선택하여 만들 수 있다. 단, 제시문의 설명과 같이, 홍익이, 아빠, 엄마의 주사위에 있는 총 $18$개의 면에는 모두 다른 자연수가 쓰여야 한다. 엄마는 이 주사위를 홍익이와 주사위 놀이를 할 때 사용하고, 같은 주사위를 아빠와 주사위 놀이를 할 때도 사용한다. 엄마가 홍익이와 주사위 놀이를 하여 엄마가 승리할 확률을 $p_1$이라 하고, 엄마가 아빠와 주사위 놀이를 하여 엄마가 승리할 확률을 $p_2$라 하자. 엄마가 $p_1-p_2$가 최대가 되도록 주사위 각 면의 자연수를 선택한다고 할 때, $p_1-p_2$의 최댓값은 무엇인지 설명하시오.
+  points: 12
+  depends_on: ['2']
+  answer: {kind: value, value: '1/4', equivalents: [], tolerance: null}
+  solutions:
+  - id: S4-A
+    audience: A
+    method_no: 1
+    key_idea: 면 $n$의 기여는 $f(n)-g(n)$이고, 그 최댓값 $2$는 $32,33,34$에서만, 그다음 값 $1$은 $3,6,30,36$에서 나온다.
+    steps:
+    - {id: 4a, content: '$p_1-p_2\le\dfrac{3\times2+3\times1}{36}=\dfrac14$, 등호는 $\{32,33,34\}$와 $\{3,6,30,36\}$ 중 셋', criteria: ['4.M1', '4.A1', '4.R1']}
+    hint_ladder:
+    - 엄마의 면 하나가 홍익이(아빠)에게 이기는 경우의 수는 그 수보다 작은 상대 눈의 개수이다.
+    - 엄마의 각 면이 $p_1-p_2$에 독립적으로 더해지는 양을 구간별로 표로 만들어 보자.
+  - id: S4-B
+    audience: B
+    source_flow: G24_seoul.pdf p.51
+    method_no: 1
+    steps:
+    - id: 4b-1
+      content: |
+        $A$를 홍익이의 주사위에 쓰인 자연수들의 집합이라 하고, $B$를 아빠의 주사위에 쓰인 자연수들의 집합이라 하자. $A$ 또는 $B$에 속하지 않는 자연수 $n$에 대해 $f(n)$을 $n$보다 작은 $A$의 원소의 개수라 하고, $g(n)$을 $n$보다 작은 $B$의 원소의 개수라 하자. 만약 $a_i$를 엄마의 주사위에 쓰인 $i$번째 자연수라 하면, $\displaystyle\sum_{i=1}^{6}f(a_i)$는 엄마와 홍익이의 주사위 놀이로 나오는 $36$개의 결과 중 엄마가 승리하는 경우의 수이므로 $p_1=\dfrac{1}{36}\displaystyle\sum_{i=1}^{6}f(a_i)$이다. 같은 이유로 $p_2=\dfrac{1}{36}\displaystyle\sum_{i=1}^{6}g(a_i)$ 이며 $p_1-p_2=\dfrac{1}{36}\displaystyle\sum_{i=1}^{6}(f(a_i)-g(a_i))$ 이 성립한다.
+      criteria: ['4.M1']
+    - id: 4b-2
+      content: |
+        다음의 표는 $A$ 또는 $B$에 속하지 않는 자연수 $n$에 대해, 그 자연수가 속한 구간에 따른 $f$, $g$, $f-g$의 값을 나타낸다.
+        $$\begin{array}{c|ccccccccccccc} n & 1 & 3 & 6 & 8\sim10 & 12 & 14\sim22 & 24 & 26\sim28 & 30 & 32\sim34 & 36 & 38\text{ 이상}\\ \hline f & 0 & 1 & 2 & 2 & 2 & 2 & 3 & 4 & 5 & 6 & 6 & 6\\ g & 0 & 0 & 1 & 2 & 3 & 4 & 4 & 4 & 4 & 4 & 5 & 6\\ f-g & 0 & 1 & 1 & 0 & -1 & -2 & -1 & 0 & 1 & 2 & 1 & 0 \end{array}$$
+      criteria: ['4.M1']
+    - id: 4b-3
+      content: |
+        따라서 $p_1-p_2=\dfrac{1}{36}\displaystyle\sum_{i=1}^{6}(f(a_i)-g(a_i))$의 값이 최대가 되는 경우는 엄마가 $f-g$의 값이 $2$인 $31$과 $35$ 사이의 세 자연수 $32,33,34$를 모두 선택하고, $f-g$의 값이 $1$인 $3,6,30,36$ 중 임의로 나머지 세 자연수를 선택하는 경우이다.
+      criteria: ['4.R1']
+    - id: 4b-4
+      content: |
+        그러므로 $p_1-p_2$의 최댓값은 $p_1-p_2=\dfrac{3\times2+3\times1}{36}=\dfrac{9}{36}=\dfrac14$ 이다.
+      criteria: ['4.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 4.M1
+      mark_type: M
+      points: 2
+      evidence: |
+        제시문의 조건(18개 면이 모두 다른 자연수)이 엄마의 숫자 선택에 미치는 영향을 고려하고, 엄마의 선택에 따라 $p_1$과 $p_2$가 어떻게 변하는지(면별 승리 경우의 수 $f(n)$, $g(n)$ 등)를 분석했다.
+      depends_on: []
+      implied_ok: false
+      steps: [4b-1, 4b-2, 4a]
+    - id: 4.A1
+      mark_type: A
+      points: 4
+      evidence: |
+        $p_1-p_2$의 최댓값 $\dfrac14$을 구했다.
+      depends_on: [4.M1]
+      steps: [4b-4, 4a]
+    - id: 4.R1
+      mark_type: R
+      points: 6
+      evidence: |
+        구한 값이 $p_1-p_2$의 최댓값임을 논리적으로 증명했다(면별 기여 $f-g$의 최댓값 $2$를 주는 수가 $32,33,34$ 세 개뿐이고 나머지 세 면의 기여는 최대 $1$임을 근거로 제시).
+      depends_on: [4.M1]
+      steps: [4b-3, 4a]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+remedy_links: []
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+- {stage: verify, actor_type: system, actor_id: sympy, item_version: 1, verdict: pass, date: 2026-11-22}
+
+created: 2026-11-21
+updated: 2026-11-21

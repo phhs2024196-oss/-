@@ -1,0 +1,422 @@
+# 홍익대 2025학년도 수시 논술 자연계열(서울) 문제 1 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: HIU-G25-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: HIU
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 추론
+points: 30
+time_estimate_min: 40
+intent: |
+  함수 및 합성함수의 개념은 고등학교 수학 교육과정에서 중요한 개념이며, 합성함수는 큰 자연수를 나타내는 편리한 방법을 제시한다. 이 문제에서는 거듭제곱 연산을 합성하여 만들어진 수의 크기를 비교하는 과정에서 함수의 합성과 지수법칙을 이해하고 사용할 수 있는지 평가한다.
+key_idea: |
+  $g(n)$은 $f(n)=2^n$을 $n$번 합성한 것이므로 맨 위 지수 $n$ 아래에 2가 $n$개 쌓인 지수탑이고, 크기 비교는 지수법칙($10^{100}<2^{400}$ 등)으로 한다.
+stuck: |
+  $g(n)$을 '2가 $n$개 쌓이고 맨 위에 $n$이 있는 지수탑'으로 일반화하고, $h(2)=g(16)$에서 맨 위의 16도 $2^{2^2}$로 바꿔 2의 개수에 더해야 한다는 점
+idea_tags: []
+tags: [지수탑, 합성함수, 큰 수 비교]
+elements:
+  materials:
+  - '$f(n)=2^n$의 반복 합성으로 정의한 $g(n)$, $h(n)$'
+  - '구골 $10^{100}$'
+  - '2를 $10^{100}$개 쌓은 지수탑("홍익수")'
+  concepts:
+  - '합성함수'
+  - '거듭제곱과 지수법칙'
+  - '지수의 크기 비교'
+  tools:
+  - '$f(f(\cdots))$의 안쪽부터 계산'
+  - '$10^{100}=2^{100}5^{100}$, $5>2^2$, $10<2^4$'
+  - '지수탑에서 2의 개수 세기'
+  conditions:
+  - '지수는 가장 위의 지수 연산부터 순서대로 계산'
+  - '$g(n)$은 $f$를 $n$번 합성하여 $n$을 넣은 값'
+  - '$h(n)$은 $g$를 $n$번 합성하여 $n$을 넣은 값'
+  stimuli_used: []
+  subpart_links: '(3)은 (2)의 $g(3)=2^{256}$, (4)·(5)는 $g(n)$의 지수탑 꼴을 사용'
+
+curriculum:
+  version: '2015'
+  subjects: [수학, 수학Ⅰ]
+  scope_2028: common
+  scope_confirmed: false
+  standards:
+  - code: 12수학Ⅰ01-01
+    text: 거듭제곱과 거듭제곱근의 뜻을 알고, 그 성질을 이해한다.
+    verified: true
+  - code: 12수학Ⅰ01-03
+    text: 지수법칙을 이해하고, 이를 이용하여 식을 간단히 나타낼 수 있다.
+    verified: true
+  - code: 10수학04-02
+    text: 함수의 합성을 이해하고, 합성함수를 구할 수 있다.
+    verified: true
+  - code: 12수학Ⅰ01-06
+    text: 지수함수와 로그함수의 뜻을 안다.
+    verified: true
+  - code: 12수학Ⅰ01-07
+    text: 지수함수와 로그함수의 그래프를 그릴 수 있고, 그 성질을 이해한다.
+    verified: true
+  - code: 12수학Ⅰ01-08
+    text: 지수함수와 로그함수를 활용하여 문제를 해결할 수 있다.
+    verified: true
+  content_area: 지수와 로그 – 합성함수
+  behavior_domain: 추론
+  unit_path: [수학Ⅰ, 지수함수와 로그함수, 지수와 로그, 지수법칙]
+  key_concepts: [거듭제곱, 지수, 지수법칙, 합성함수]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 홍익대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 홍익대학교
+  admission_year: 2025
+  admission_type: 수시 논술
+  track: 자연계열 서울
+  question_no: 1
+  official_url: https://www.hongik.ac.kr/kr/admission/previous-question.do?mode=view&articleNo=134052
+  retrieved_at: 2026-11-21
+  original_points: [6, 6, 6, 6, 6]
+  transcribed_from: G25_seoul.pdf p.49–53(인쇄 쪽 76–80, 문항카드 5) — 원본 PDF 이미지 대조 완료 2026-11-21
+
+verify: verify/HIU-G25.py::p01
+
+stimuli: []
+
+stem: |
+  "1000000000 ⋯ 000"
+
+  홍익이는 어릴 때 큰 수를 좋아해서 공책 한 페이지를 하나의 수를 적는 데 사용하기도 했다. 이후 홍익이는 지수를 사용하면 아주 큰 수도 간단히 나타낼 수 있다는 것을 알게 되었다. 예를 들어, 관측 가능한 우주에는 대략 $10^{82}$개의 원자가 있다고 추측된다. $10^{100}$은 "구골(googol)"이라고 불리며, IT 기업 구글(google)의 회사명은 이 수의 이름에서 유래했다고 알려져 있다.
+
+  이보다 더 큰 수를 표현하고 싶었던 홍익이는 다음의 두 가지 방법을 생각하였다.
+
+  첫째, 지수를 여러 번 반복한다. 이때 가장 위의 지수 연산부터 순서대로 한다.
+
+  예를 들어, $a^{b^{c^d}}=a^{\left(b^{\left(c^d\right)}\right)}$이며, 따라서 $2^{2^{2^2}}=2^{2^4}=2^{16}=65536$이다.
+
+  둘째, 함수의 합성을 이용한다. 홍익이는 자연수의 집합을 정의역 및 공역으로 갖는 세 함수 $f,g,h$를 다음과 같이 정의하였다.
+
+  $f(n)=2^n$
+
+  $g(n)=(\underbrace{f\circ f\circ\cdots\circ f}_{n\text{개}})(n)$
+
+  $h(n)=(\underbrace{g\circ g\circ\cdots\circ g}_{n\text{개}})(n)$
+
+  즉, $g(1)=f(1)$, $g(2)=f(f(2))$, $g(3)=f(f(f(3)))$, $\cdots$, $h(1)=g(1)$, $h(2)=g(g(2))$, $h(3)=g(g(g(3)))$, $\cdots$ 이다.
+
+subparts:
+- id: '1'
+  stem: |
+    $g(2)$의 값을 구하시오.
+  points: 6
+  depends_on: []
+  answer: {kind: value, value: '16', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: 안쪽부터 $f(2)=4$, $f(4)=16$.
+    steps:
+    - {id: 1a, content: '$g(2)=f(f(2))=f(4)=16$', criteria: ['1.M1', '1.A1']}
+    hint_ladder:
+    - $g(2)$는 $f$를 몇 번 합성한 것인가?
+  - id: S1-B
+    audience: B
+    source_flow: G25_seoul.pdf p.52(인쇄 쪽 79) 예시 답안
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        정의에 따라 $g(2)=f(f(2))$이고, 안쪽부터 계산하면 $f(2)=2^2$이다.
+      criteria: ['1.M1']
+    - id: 1b-2
+      content: |
+        $g(2)=f(f(2))=f(2^2)=f(4)=2^4=16$.
+      criteria: ['1.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 4
+      evidence: |
+        풀이 과정을 적절히 서술함: $g(2)=f(f(2))=f(2^2)$처럼 합성을 안쪽부터 계산한 과정이 적혀 있다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1]
+    - id: 1.A1
+      mark_type: A
+      points: 2
+      evidence: |
+        정답 $16$을 제시함.
+      depends_on: [1.M1]
+      steps: [1b-2]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '2'
+  stem: |
+    $g(3)=2^m$을 만족시키는 자연수 $m$의 값을 구하시오.
+  points: 6
+  depends_on: []
+  answer: {kind: value, value: '256', equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: $f(3)=8$, $f(8)=256$, $f(256)=2^{256}$.
+    steps:
+    - {id: 2a, content: '$g(3)=f(f(f(3)))=f(f(8))=f(256)=2^{256}$, $m=256$', criteria: ['2.M1', '2.A1']}
+    hint_ladder:
+    - 가장 안쪽 $f(3)$부터 차례로 계산해 보자.
+  - id: S2-B
+    audience: B
+    source_flow: G25_seoul.pdf p.52(인쇄 쪽 79) 예시 답안
+    method_no: 1
+    steps:
+    - id: 2b-1
+      content: |
+        $g(3)=f(f(f(3)))=f(f(2^3))=f(f(8))=f(2^8)=f(256)$.
+      criteria: ['2.M1']
+    - id: 2b-2
+      content: |
+        $f(256)=2^{256}$이므로 $m=256$.
+      criteria: ['2.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 4
+      evidence: |
+        풀이 과정을 적절히 서술함: $f(3)=8$, $f(8)=256$을 거쳐 $g(3)=f(256)$을 얻는 과정이 적혀 있다.
+      depends_on: []
+      implied_ok: false
+      steps: [2b-1]
+    - id: 2.A1
+      mark_type: A
+      points: 2
+      evidence: |
+        정답 $m=256$을 제시함.
+      depends_on: [2.M1]
+      steps: [2b-2]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '3'
+  stem: |
+    $g(3)$과 "구골"($10^{100}$) 중 더 큰 수는 무엇인지 고르고 그 이유를 설명하시오.
+  points: 6
+  depends_on: ['2']
+  answer: {kind: choice, value: '구골', equivalents: ['10**100 > g(3)'], tolerance: null}
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: $5>2^2$이므로 $10^{100}=2^{100}5^{100}>2^{300}>2^{256}$.
+    steps:
+    - {id: 3a, content: '$10^{100}>2^{300}>2^{256}=g(3)$', criteria: ['3.M1', '3.R1']}
+    hint_ladder:
+    - $10=2\times5$로 나누고 $5$를 2의 거듭제곱과 비교해 보자.
+  - id: S3-B
+    audience: B
+    source_flow: G25_seoul.pdf p.53(인쇄 쪽 80) 예시 답안
+    method_no: 1
+    steps:
+    - id: 3b-1
+      content: |
+        (2)에서 $g(3)=2^{256}$이므로 $2^{256}$과 $10^{100}$의 크기를 비교하면 된다.
+      criteria: ['3.M1']
+    - id: 3b-2
+      content: |
+        $10^{100}=2^{100}5^{100}>2^{100}(2^2)^{100}=2^{300}>2^{256}$이므로 $10^{100}>g(3)$이다. 따라서 "구골"이 더 크다.
+      criteria: ['3.R1']
+  - id: S3-ALT
+    audience: ALT
+    source_flow: G25_seoul.pdf p.52 채점 기준(로그 근사 인정)
+    method_no: 2
+    key_idea: 채점 기준이 인정하는 방법 — 양변에 상용로그를 취하면 $\log g(3)=256\log2\approx77.06<100=\log10^{100}$.
+    steps:
+    - id: 3c-1
+      content: |
+        $\log2\approx0.3010$이므로 $\log 2^{256}=256\log2\approx77.06<100$, 따라서 $2^{256}<10^{100}$.
+      criteria: ['3.R1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 1
+      evidence: |
+        $2^{256}$과 $10^{100}$의 크기를 비교하는 문제임을 서술함.
+      depends_on: []
+      implied_ok: false
+      ft: {allowed: true, from: [2.A1], max_points: 1}
+      steps: [3b-1]
+    - id: 3.R1
+      mark_type: R
+      points: 5
+      evidence: |
+        지수법칙을 바르게 사용하여 $10^{100}>2^{256}$의 결론을 얻음(양변에 로그를 취하고 $\log2$의 근삿값을 이용하는 경우도 인정, 풀이 과정이 없으면 불인정).
+      depends_on: []
+      implied_ok: false
+      steps: [3b-2, 3c-1]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '4'
+  stem: |
+    $h(2)$를 오직 숫자 2만 사용하여 $h(2)=2^{2^{2^{\cdot^{\cdot^{\cdot^{2}}}}}}$로 표현할 때, 우변에 나타나는 숫자 2의 개수를 구하시오. (예를 들어, $2^{2^2}$에는 숫자 2의 개수가 3이다.)
+  points: 6
+  depends_on: ['1']
+  answer: {kind: value, value: '19', equivalents: [], tolerance: null}
+  solutions:
+  - id: S4-A
+    audience: A
+    method_no: 1
+    key_idea: $h(2)=g(16)$은 2가 16개 쌓이고 맨 위가 16인 탑이며, $16=2^{2^2}$이 2를 3개 더한다.
+    steps:
+    - {id: 4a, content: '$h(2)=g(16)$, 2의 개수 $16+3=19$', criteria: ['4.M1', '4.M2', '4.A1']}
+    hint_ladder:
+    - $g(1)=2^1$, $g(2)=2^{2^2}$, $g(3)=2^{2^{2^3}}$의 꼴을 비교해 보자.
+    - 맨 위에 남는 수 16도 2만으로 나타내야 한다.
+  - id: S4-B
+    audience: B
+    source_flow: G25_seoul.pdf p.53(인쇄 쪽 80) 예시 답안
+    method_no: 1
+    steps:
+    - id: 4b-1
+      content: |
+        $h(2)=g(g(2))=g(16)$이다.
+      criteria: ['4.M1']
+    - id: 4b-2
+      content: |
+        $g(n)$은 함수 $f(n)=2^n$을 $n$번 합성하여 $n$을 넣은 값이므로 $g(n)=2^{2^{\cdot^{\cdot^{2^n}}}}$이며, 이때 가장 위의 지수 $n$ 아래의 숫자 2의 개수도 $n$이다. 따라서 $g(16)=2^{2^{\cdot^{\cdot^{2^{16}}}}}$이며, 이때 2의 개수는 16이다.
+      criteria: ['4.M2']
+    - id: 4b-3
+      content: |
+        $16=2^{2^2}$이므로 $h(2)=2^{2^{2^{\cdot^{\cdot^{\cdot^{2}}}}}}$의 2의 개수는 $16+3=19$이다.
+      criteria: ['4.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 4.M1
+      mark_type: M
+      points: 1
+      evidence: |
+        $h(2)=g(16)$임을 서술함.
+      depends_on: []
+      implied_ok: false
+      ft: {allowed: true, from: [1.A1], max_points: 1}
+      steps: [4b-1]
+    - id: 4.M2
+      mark_type: M
+      points: 2
+      evidence: |
+        $g(16)$ 또는 $g(n)$을 표현하는 식(맨 위 지수 $n$ 아래에 2가 $n$개)을 정확히 구함.
+      depends_on: []
+      implied_ok: false
+      steps: [4b-2]
+    - id: 4.A1
+      mark_type: A
+      points: 3
+      evidence: |
+        $h(2)$의 지수표현에서 숫자 2의 개수 $19$를 풀이 과정과 함께 정확히 구함.
+      depends_on: [4.M1, 4.M2]
+      steps: [4b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '5'
+  stem: |
+    홍익이는 숫자 2를 "구골"($10^{100}$)번 사용하여 나타낸 수 $2^{2^{2^{\cdot^{\cdot^{\cdot^{2}}}}}}$ (숫자 2의 개수가 $10^{100}$)을 "홍익수"라고 하였다. "홍익수"와 $h(3)$ 중 더 큰 수는 무엇인지 고르고 그 이유를 설명하시오.
+  points: 6
+  depends_on: ['2', '4']
+  answer: {kind: choice, value: 'h(3)', equivalents: [], tolerance: null}
+  solutions:
+  - id: S5-A
+    audience: A
+    method_no: 1
+    key_idea: $a=g(2^{256})$은 2가 $2^{256}$개 이상 쌓인 탑이라 $10^{100}$보다 크고, $h(3)=g(a)$는 2가 $a$개 쌓인 탑이다.
+    steps:
+    - {id: 5a, content: '$a=g(2^{256})>10^{100}$이므로 $h(3)=g(a)$에는 2가 $10^{100}$개보다 많다', criteria: ['5.M1', '5.R1', '5.R2']}
+    hint_ladder:
+    - $h(3)=g(g(g(3)))$에서 $g(3)$은 이미 구했다.
+    - 2를 더 많이 쌓은 탑이 더 크다.
+  - id: S5-B
+    audience: B
+    source_flow: G25_seoul.pdf p.53(인쇄 쪽 80) 예시 답안
+    method_no: 1
+    steps:
+    - id: 5b-1
+      content: |
+        $h(3)=g(g(g(3)))=g(g(2^{256}))$이다. $a=g(2^{256})$이라 하자.
+      criteria: ['5.M1']
+    - id: 5b-2
+      content: |
+        $a=2^{2^{\cdot^{\cdot^{2^{256}}}}}$이며 이때 가장 위 $2^{256}$의 아래 숫자 2의 개수가 $2^{256}$이다. $10^{100}<(2^4)^{100}=2^{400}$이므로, $10^{100}$보다 $a$가 더 크다.
+      criteria: ['5.R1']
+    - id: 5b-3
+      content: |
+        $h(3)=g(a)$이므로, $h(3)=2^{2^{\cdot^{\cdot^{2^a}}}}$이며 이때 $a$의 아래 숫자 2가 $a$개이므로, 2를 $10^{100}$개 사용한 "홍익수"보다 $h(3)$이 더 크다.
+      criteria: ['5.R2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 5.M1
+      mark_type: M
+      points: 1
+      evidence: |
+        $h(3)=g(g(2^{256}))$임을 서술함.
+      depends_on: []
+      implied_ok: false
+      ft: {allowed: true, from: [2.A1], max_points: 1}
+      steps: [5b-1]
+    - id: 5.R1
+      mark_type: R
+      points: 3
+      evidence: |
+        $g(2^{256})>10^{100}$임을 보임(풀이 과정이 없으면 불인정).
+      depends_on: [5.M1]
+      implied_ok: false
+      steps: [5b-2]
+    - id: 5.R2
+      mark_type: R
+      points: 2
+      evidence: |
+        $h(3)>$"홍익수"임을 보임(풀이 과정이 없으면 불인정).
+      depends_on: [5.R1]
+      implied_ok: false
+      steps: [5b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+remedy_links: []
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+- {stage: verify, actor_type: system, actor_id: sympy, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

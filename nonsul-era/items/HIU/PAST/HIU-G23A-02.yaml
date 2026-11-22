@@ -1,0 +1,299 @@
+# 홍익대 2023학년도 수시 논술(자연계열 서울 오전) 문제 2 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: HIU-G23A-02
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: HIU
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 전수
+points: 20
+time_estimate_min: 40
+intent: |
+  사건의 독립과 종속의 의미를 이해하고 이를 설명할 수 있는지 평가한다.
+  확률의 곱셈정리를 이해하고 이를 활용할 수 있는지 평가한다.
+  독립시행의 확률을 이해하고 활용할 수 있는지 평가한다.
+  이항분포를 이해하고 활용할 수 있는지 평가한다.
+key_idea: |
+  $m$개의 비트 중 바뀐 비트의 개수 $X$는 이항분포 $\mathrm{B}(m,p)$를 따르고, $m=2n+1$일 때 최종결정오류는 $X\ge n+1$인 사건이다.
+stuck: |
+  "더 많이 받은 비트로 결정"을 "과반수가 바뀌면 오류"로 바꾸는 것, 그리고 (3)에서 주어진 거듭제곱 표로 각 항을 어림해 $0.028$과 비교하는 것
+idea_tags: []
+tags: [반복 코드, 이항분포, 어림 비교]
+elements:
+  materials:
+  - '$n$-반복 코드(홀수 번 반복 전송, 다수결 복호)'
+  - '비트가 바뀔 확률 $p=0.1$, $p=0.2$'
+  - '거듭제곱 값 표'
+  concepts:
+  - '독립시행의 확률'
+  - '이항분포'
+  - '확률의 곱셈정리'
+  - '사건의 독립'
+  tools:
+  - '$\mathrm{P}(X=k)=\binom{m}{k}p^k(1-p)^{m-k}$'
+  - '첫 항만으로 하한, 나머지 항 상한으로 어림'
+  conditions:
+  - '$m$은 홀수, $m=2n+1$이면 오류는 $X\ge n+1$'
+  - '(3)의 기준값은 (1)의 $0.028$'
+  stimuli_used: []
+  subpart_links: '(2)는 (1)의 값과 비를 구하고, (3)은 (1)의 값을 기준으로 $m$을 찾는다'
+
+curriculum:
+  version: '2015'
+  subjects: [확률과통계]
+  scope_2028: unknown
+  scope_confirmed: false
+  standards:
+  - code: 12확통02-06
+    text: 사건의 독립과 종속의 의미를 이해하고, 이를 설명할 수 있다.
+    verified: true
+  - code: 12확통02-07
+    text: 확률의 곱셈정리를 이해하고, 이를 활용할 수 있다.
+    verified: true
+  content_area: 확률 – 조건부확률(독립시행)
+  behavior_domain: 문제해결
+  unit_path: [확률과통계, 확률, 조건부확률, 독립시행의 확률]
+  key_concepts: [확률, 조건부확률, 독립과 종속의 의미 이해]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 홍익대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 홍익대학교
+  admission_year: 2023
+  admission_type: 수시 논술
+  track: 자연계열 서울 오전
+  question_no: 2
+  official_url: https://www.hongik.ac.kr/kr/admission/previous-question.do?mode=view&articleNo=28122
+  retrieved_at: 2026-11-21
+  original_points: [5, 5, 10]
+  transcribed_from: G23_seoul_am.pdf p.5-9 (문항카드 오전 2, 원본 PDF 이미지 대조 완료 2026-11-21)
+
+verify: verify/HIU-G23A.py::p02
+
+stimuli: []
+
+stem: |
+  디지털 통신에서 송신기가 1비트(bit) 0 또는 1을 전송하는 상황을 생각하자. 송신기가 1을 보내었어도 다른 신호에 의한 간섭 때문에 수신기는 0을 받을 수도 있다. 또는, 송신기가 0을 보내었어도 수신기는 1을 받을 수 있다.
+
+  이러한 간섭의 효과를 줄이기 위해 현대 통신에서 송신기는 하나의 비트를 한 번 보내는 대신 동일한 비트를 연속으로 $n$번(이때 $n$은 홀수인 자연수) 반복하여 보낸다. 이러한 반복을 통해 간섭에 의한 최종 오류를 줄일 수 있는데, 이를 $n$-반복 코드($n$-repetition code)라고 한다. 수신기에서 받은 $n$개의 비트들을 기준으로 송신기가 보낸 비트가 무엇인지를 결정하게 되며, 이때 수신기는 더 많이 받은 비트를 송신기가 보내었다고 결정한다.
+
+  예시: $n=5$인 5-반복 코드의 경우, 1을 보내는 대신, 송신기는 1을 5개 붙여서 11111을 송신한다. 이때, 간섭에 의해 각각의 비트는 변화할 수 있다. 수신기가 10011을 받았다면 0이 두 개이고 1이 세 개이므로 수신기는 송신기가 보낸 비트는 1이라고 최종결정한다. 혹은, 수신기가 10000을 받았다면 수신기는 송신기가 보낸 비트가 0이라고 최종결정하게 된다. 이처럼 수신기가 최종결정한 비트가 송신기가 보낸 비트와 서로 다른 경우 ‘최종결정오류’가 발생했다고 하자.
+
+  아래와 같은 가정을 하자, $n$-반복 코드 내에서 각각의 비트는 독립적으로 간섭에 노출되어 바뀌고 그 확률은 $p$이다.
+
+  즉,
+  - 0을 보낼 때, 간섭에 의해 수신기가 1을 받을 확률은 $p$이다.
+  - 1을 보낼 때, 간섭에 의해 수신기가 0을 받을 확률은 $p$이다.
+  - 간섭에 의한 영향을 받지 않아 0 또는 1이 바뀌지 않고 수신기가 그대로 받을 확률은 $1-p$이다.
+subparts:
+- id: '1'
+  stem: |
+    보통의 경우, 각각의 비트가 간섭에 의해 바뀔 확률 $p$를 0.1이라 하자. 이때, 3-반복 코드 수신기의 최종결정 비트와 송신기가 보낸 비트가 서로 달라 최종결정오류가 발생할 확률을 구하시오.
+  points: 5
+  depends_on: []
+  answer: {kind: value, value: '0.028', equivalents: ['7/250'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: 3개 중 2개 이상이 바뀌면 오류.
+    steps:
+    - {id: 1a, content: '$\binom32(0.1)^2(0.9)+\binom33(0.1)^3=0.028$', criteria: ['1.M1', '1.A1']}
+    hint_ladder:
+    - 몇 개의 비트가 바뀌면 다수결 결과가 뒤집히는가?
+  - id: S1-B
+    audience: B
+    source_flow: G23_seoul_am.pdf p.8
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        $m$개의 비트를 송신했을 때 간섭에 의해 변화하는 비트의 개수는 이항분포 $\mathrm{B}(m,p)$를 따른다. 즉, $X$를 이항분포 $\mathrm{B}(m,p)$를 따르는 확률변수라 하면 $k$개의 비트가 변화할 확률은 $\mathrm{P}(X=k)=\binom{m}{k}p^k(1-p)^{m-k}$이다.
+      criteria: ['1.M1']
+    - id: 1b-2
+      content: |
+        $m$번 반복해서 보낸 비트를 수신기가 잘못 최종결정할 경우는 $m$개의 비트 중 $n+1$개 이상의 비트가 간섭에 의해 변화한 경우이다($m=2n+1$). 따라서 최종결정 오류 확률은
+        $$\mathrm{P}(X\ge n+1)=\binom{m}{n+1}p^{n+1}(1-p)^{m-(n+1)}+\cdots+\binom{m}{m}p^m(1-p)^0$$
+      criteria: ['1.M1']
+    - id: 1b-3
+      content: |
+        $m=3$, $p=0.1$인 경우: $\binom32\times0.1^2\times0.9+\binom33\times0.1^3=0.028$이다.
+      criteria: ['1.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 2
+      evidence: |
+        최종결정오류가 발생할 확률의 식 $\binom32p^2(1-p)+\binom33p^3$(또는 동치)을 세웠다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1, 1b-2, 1a]
+    - id: 1.A1
+      mark_type: A
+      points: 3
+      evidence: |
+        확률값 $0.028$을 계산했다.
+      depends_on: [1.M1]
+      steps: [1b-3, 1a]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '2'
+  stem: |
+    갑작스런 태양의 활동으로 각각의 비트가 바뀔 확률 $p$가 0.1에서 0.2로 늘어났다고 하자. 이때, 동일하게 구성된 3-반복 코드 수신기의 최종결정오류 확률을 구하시오. 그리고, 이 값이 문항 (1)에서 구한 확률의 몇 배인지 소수점 둘째 자리에서 반올림하여 구하시오.
+  points: 5
+  depends_on: ['1']
+  answer: {kind: value, value: 'prob = 0.104; ratio = 3.7', equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: 같은 식에 $p=0.2$를 대입하고 비를 구한다.
+    steps:
+    - {id: 2a, content: '$3(0.2)^2(0.8)+(0.2)^3=0.104$, $\tfrac{0.104}{0.028}=3.714\cdots\approx3.7$', criteria: ['2.M1', '2.A1', '2.A2']}
+    hint_ladder:
+    - (1)의 식에서 $p$만 바꾸면 된다.
+  - id: S2-B
+    audience: B
+    source_flow: G23_seoul_am.pdf p.8
+    method_no: 1
+    steps:
+    - id: 2b-1
+      content: |
+        $m=3$, $p=0.2$인 경우이다. 최종 결정 오류가 발생할 확률은 $\binom32\times0.2^2\times0.8+\binom33\times0.2^3$
+      criteria: ['2.M1']
+    - id: 2b-2
+      content: |
+        $=0.104$이다.
+      criteria: ['2.A1']
+    - id: 2b-3
+      content: |
+        (1)에서 구한 확률과의 비는 $\dfrac{0.104}{0.028}=3.7142\cdots$이고 소수점 둘째 자리에서 반올림하면 $3.7$이다.
+      criteria: ['2.A2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 2
+      evidence: |
+        $p=0.2$일 때 최종결정오류 확률의 식을 세웠다.
+      depends_on: []
+      implied_ok: false
+      steps: [2b-1, 2a]
+    - id: 2.A1
+      mark_type: A
+      points: 2
+      evidence: |
+        확률값 $0.104$를 계산했다.
+      depends_on: [2.M1]
+      steps: [2b-2, 2a]
+    - id: 2.A2
+      mark_type: A
+      points: 1
+      evidence: |
+        (1)의 값과의 비를 반올림하여 $3.7$로 적었다.
+      depends_on: [2.M1]
+      ft: {allowed: true, from: [1.A1], max_points: 1}
+      steps: [2b-3, 2a]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '3'
+  stem: |
+    문항 (2)와 같이 태양 활동이 활발한 경우($p=0.2$), 수신기의 최종결정오류를 줄이기 위해 송신기의 비트를 $m$번 반복하는 $m$-반복 코드를 설계하려고 한다. 단, $m$-반복 코드 수신기의 최종결정오류 확률값이, 문항 (1)에서 구한 $p=0.1$일 때의 3-반복 코드의 최종결정오류 확률값보다 더 작도록 설계하고 싶다. 필요한 $m$의 최솟값을 아래의 표를 참고하여 구하시오.
+
+    | $2^{10}=1024$ | $2^{11}=2048$ | $2^{12}=4096$ | $2^{13}=8192$ | $2^{14}=16384$ |
+    |---|---|---|---|---|
+    | $2^{15}=32768$ | $2^{16}=65536$ | $2^{17}=131072$ | $2^{18}=262144$ | $2^{19}=524288$ |
+    | $63\times2^{18}=16515072$ | $21\times2^{17}=2752512$ | $9\times2^{17}=1179648$ | $9\times2^{15}=294912$ | $35\times2^{13}=286720$ |
+  points: 10
+  depends_on: ['1']
+  answer: {kind: value, value: '9', equivalents: [], tolerance: null}
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: $m=5,7$은 첫 항만으로도 $0.028$보다 크고, $m=9$는 전체가 $0.028$보다 작다.
+    steps:
+    - {id: 3a, content: '$m=5$: $\binom53(0.2)^3(0.8)^2=0.0512$, $m=7$: $\binom74(0.2)^4(0.8)^3=0.028672$, $m=9$: 합 $<0.020$', criteria: ['3.B1', '3.B2', '3.B3']}
+    hint_ladder:
+    - $m$은 홀수이다. $m=5,7,9,\cdots$를 차례로 확인하라.
+    - 합 전체를 계산하지 않고 첫 항만으로 비교할 수 있는 경우가 있다.
+  - id: S3-B
+    audience: B
+    source_flow: G23_seoul_am.pdf p.8-9
+    method_no: 1
+    steps:
+    - id: 3b-1
+      content: |
+        $p=0.2$, $m=5,7,9$인 각 경우 최종 결정 오류가 발생할 확률을 문제에서 주어진 표를 이용하여 대략 구하여 (1)에서 구한 값 $0.028$과 비교한다.
+      criteria: ['3.B1', '3.B2', '3.B3']
+    - id: 3b-2
+      content: |
+        $m=5$: 확률은 $\binom53\times0.2^3\times0.8^2+\binom54\times0.2^4\times0.8^1+\binom55\times0.2^5\times0.8^0$이다. $\binom53\times0.2^3\times0.8^2=0.0512>0.028$이므로 이 확률값은 $0.028$보다 크다.
+      criteria: ['3.B1']
+    - id: 3b-3
+      content: |
+        $m=7$: 확률은 $\binom74\times0.2^4\times0.8^3+\binom75\times0.2^5\times0.8^2+\binom76\times0.2^6\times0.8^1+\binom77\times0.2^7\times0.8^0$인데, $\binom74\times0.2^4\times0.8^3=0.028672>0.028$이므로 이 확률값은 $0.028$보다 크다.
+      criteria: ['3.B2']
+    - id: 3b-4
+      content: |
+        $m=9$: 확률은 $\binom95\times0.2^5\times0.8^4+\binom96\times0.2^6\times0.8^3+\binom97\times0.2^7\times0.8^2+\binom98\times0.2^8\times0.8^1+\binom99\times0.2^9\times0.8^0$이다. 표를 이용하면 $\binom95\times0.2^5\times0.8^4+\binom96\times0.2^6\times0.8^3=0.019\cdots$이고, $\binom97\times0.2^7\times0.8^2=2.95\cdots\times10^{-4}$이며 마지막 두 항은 이 값보다도 작으므로 확률은 $0.019\cdots+3\times(3\times10^{-4})<0.020\cdots$보다 작다.
+      criteria: ['3.B3']
+    - id: 3b-5
+      content: |
+        따라서 (1)에서 구한 값 $0.028$보다 작아지는 $m$의 최솟값은 $m=9$이다.
+      criteria: ['3.B3']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 3.B1
+      mark_type: B
+      points: 3
+      evidence: |
+        $p=0.2$, $m=5$인 경우 최종결정오류 확률의 식을 쓰고 값(또는 첫 항 $0.0512$)을 구해 $0.028$과 비교했다.
+      steps: [3b-1, 3b-2, 3a]
+    - id: 3.B2
+      mark_type: B
+      points: 3
+      evidence: |
+        $p=0.2$, $m=7$인 경우 식을 쓰고 값(또는 첫 항 $0.028672$)을 구해 $0.028$보다 큼을 보였다.
+      steps: [3b-1, 3b-3, 3a]
+    - id: 3.B3
+      mark_type: B
+      points: 4
+      evidence: |
+        $p=0.2$, $m=9$인 경우 식을 쓰고 확률이 $0.028$보다 작음을 보여 $m=9$를 결론지었다.
+      steps: [3b-1, 3b-4, 3b-5, 3a]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+remedy_links: []
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+- {stage: verify, actor_type: system, actor_id: sympy, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21
