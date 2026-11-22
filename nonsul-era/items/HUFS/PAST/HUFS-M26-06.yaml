@@ -1,0 +1,192 @@
+# 한국외대 2026학년도 논술전형(자연계) 모의 문제 6 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: HUFS-M26-06
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: numeric
+origin: mock_exam
+school: HUFS
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 최적2단
+points: 17
+time_estimate_min: 18
+intent: 다항함수의 극한으로 차수와 최고차항을 정하고, 정적분의 구간 분할 성질로 두 적분이 0이 됨을 끌어내어 계수를 매개변수 $a$로 나타낸 뒤, $f(-1)$을 $a$의 이차함수로 최대화하는 능력을 본다.
+key_idea: '$\int_{-a}^{2a}=\int_0^{2a}+\int_{-a}^0$이므로 세 적분이 같으면 $\int_0^{2a}f=\int_{-a}^0f=0$. $f=x^2+bx+c$에서 $b=-\dfrac23a$, $c=-\dfrac23a^2$, $f(-1)=-\dfrac23\left(a-\dfrac12\right)^2+\dfrac76$, 최댓값 $\dfrac76$.'
+stuck: 적분 구간의 덧셈으로 「세 적분이 같다」를 「두 적분이 모두 0」으로 바꾸는 단계와, 계수를 $a$로 표현한 뒤 $f(-1)$을 다시 $a$의 함수로 보는 2단 최적화
+idea_tags: [IDEA-INTEGRAL-SPLIT-ZERO, IDEA-PARAM-QUADRATIC-MAX]
+tags: [정적분, 다항함수의 극한, 이차함수의 최대]
+elements:
+  materials: ['$\lim_{x\to\infty}\dfrac{f(x)}{x^2}=1$인 다항함수', '구간 $[-a,0]$, $[0,2a]$, $[-a,2a]$에서의 정적분']
+  concepts: [다항함수의 극한, 정적분의 성질, 정적분의 계산, 이차함수의 최대]
+  tools: ['$\int_{-a}^{2a}=\int_{-a}^0+\int_0^{2a}$', '연립방정식으로 $b$, $c$를 $a$로 표현', '완전제곱식']
+  conditions:
+  - '극한 조건 → $f(x)=x^2+bx+c$'
+  - '세 적분이 같음 → $\int_0^{2a}f(x)dx=\int_{-a}^0f(x)dx=0$'
+  - '$a>0$에서 $f(-1)$의 최댓값 → $a=\dfrac12$'
+  stimuli_used: []
+  subpart_links: null
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅱ]
+  scope_2028: common
+  scope_confirmed: true
+  standards:
+  - code: 미확인
+    text: 정적분의 뜻을 알고, 다항함수의 정적분을 구할 수 있다(요지)
+    verified: false
+  content_area: 적분 – 정적분
+  behavior_domain: 문제해결
+  unit_path: [수학Ⅱ, 적분, 정적분, 정적분의 성질]
+  key_concepts: [정적분의 성질, 다항함수의 극한, 이차함수의 최대]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 한국외국어대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 한국외국어대학교
+  admission_year: 2026
+  admission_type: 논술전형 모의논술
+  track: 자연계
+  question_no: 6
+  official_url: https://adms.hufs.ac.kr/ajaxfile/FileCpnt/fileView.do?gbn=b02&SITE_NO=2&BOARD_SEQ=6&BBS_SEQ=70
+  retrieved_at: 2026-11-21
+  original_points: 17
+  rights_notice: 미확인(입학처 공개 자료)
+  transcribed_from: 「2026학년도 논술가이드북」 05. 모의논술고사 문제 3. 자연계 p.44(PDF p.46), 문항해설·채점기준 p.51(PDF p.53) — 원본 이미지 대조 2026-11-21
+
+verify: verify/HUFS-M26.py::p06
+
+stimuli: []
+
+stem: |
+  [문제 6] 다음 조건을 만족시키는 모든 다항함수 $f(x)$에 대하여 $f(-1)$의 최댓값을 구하시오. (17점)
+
+  $\displaystyle\lim_{x\to\infty}\frac{f(x)}{x^2}=1$이고, 어떤 양수 $a$에 대하여 $\displaystyle\int_{-a}^{2a}f(x)dx=\int_0^{2a}f(x)dx=\int_{-a}^0f(x)dx$이다.
+
+subparts:
+- id: '1'
+  stem: |
+    $f(-1)$의 최댓값을 구하시오.
+  points: 17
+  depends_on: []
+  answer: {kind: value, value: 7/6, equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $f=x^2+bx+c$, $\int_0^{2a}f=\int_{-a}^0f=0$에서 $b=-\dfrac23a$, $c=-\dfrac23a^2$. $f(-1)=-\dfrac23a^2+\dfrac23a+1$의 최댓값은 $a=\dfrac12$에서 $\dfrac76$.
+    steps:
+    - {id: 1a, content: '$b=-\dfrac23a$, $c=-\dfrac23a^2$, $f(-1)=-\dfrac23\left(a-\dfrac12\right)^2+\dfrac76\le\dfrac76$', criteria: [1.R1, 1.M1, 1.R2, 1.M2, 1.B1, 1.M3, 1.A1]}
+    hint_ladder:
+    - 극한 조건에서 $f$의 차수와 최고차항의 계수는?
+    - $\int_{-a}^{2a}$를 두 구간으로 나누면 세 적분 사이에 어떤 관계가 생기는가?
+    - $f(-1)$을 $a$의 식으로 쓰면 어떤 함수인가?
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 2026학년도 논술가이드북 p.51(PDF p.53) 문항 해설
+    steps:
+    - id: 1b-1
+      content: |
+        (i) 조건 $\displaystyle\lim_{x\to\infty}\frac{f(x)}{x^2}=1$에 의해 $f(x)$는 최고차항의 계수가 $1$인 이차함수이다.
+      criteria: [1.R1]
+    - id: 1b-2
+      content: |
+        따라서 $f(x)$를 $f(x)=x^2+bx+c$라 하자.
+      criteria: [1.M1]
+    - id: 1b-3
+      content: |
+        (ii) 어떤 양수 $a$에 대하여 주어진 조건에 의해
+        $$\int_{-a}^{2a}f(x)dx=\int_0^{2a}f(x)dx+\int_{-a}^0f(x)dx=\int_0^{2a}f(x)dx=\int_{-a}^0f(x)dx$$
+        이므로 $\displaystyle\int_0^{2a}f(x)dx=\int_{-a}^0f(x)dx=0$이다.
+      criteria: [1.R2]
+    - id: 1b-4
+      content: |
+        따라서 다음과 같이 두 개의 방정식을 얻을 수 있다.
+        $$\int_0^{2a}(x^2+bx+c)dx=\frac83a^3+2a^2b+2ac=0\ \text{즉},\ \frac83a^2+2ab+2c=0\quad\cdots(1)$$
+        $$\int_{-a}^0(x^2+bx+c)dx=\frac13a^3-\frac12a^2b+ac=0\ \text{즉},\ \frac13a^2-\frac12ab+c=0\quad\cdots(2)$$
+      criteria: [1.M2]
+    - id: 1b-5
+      content: |
+        (2)로부터 $c=-\dfrac13a^2+\dfrac12ab\quad\cdots(3)$이고, (3)을 (1)에 대입하면 $2a^2+3ab=0$ 즉, $2a+3b=0$이므로 $b=-\dfrac23a\quad\cdots(4)$이다. 또한 (4)를 (3)에 대입하면 $c=-\dfrac23a^2$이 된다.
+      criteria: [1.B1]
+    - id: 1b-6
+      content: |
+        (iii) 따라서
+        $$f(-1)=1-b+c=-\frac23a^2+\frac23a+1=-\frac23\left(a-\frac12\right)^2+\frac76$$
+        이므로,
+      criteria: [1.M3]
+    - id: 1b-7
+      content: |
+        $f(-1)$은 $a=\dfrac12$에서 최댓값 $\dfrac76$을 갖는다.
+      criteria: [1.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 1, isw: true}
+    criteria:
+    - id: 1.R1
+      mark_type: R
+      points: 3
+      evidence: 극한 조건에서 $f(x)$가 최고차항의 계수가 1인 이차함수임을 적었다.
+      steps: [1b-1]
+    - id: 1.M1
+      mark_type: M
+      points: 1
+      evidence: $f(x)=x^2+bx+c$로 놓았다. (채점기준 도입 4점 = 3+1)
+      steps: [1b-2]
+    - id: 1.R2
+      mark_type: R
+      points: 3
+      evidence: 적분 구간의 분할로 $\int_0^{2a}f(x)dx=\int_{-a}^0f(x)dx=0$임을 보였다.
+      steps: [1b-3]
+    - id: 1.M2
+      mark_type: M
+      points: 4
+      evidence: 두 적분을 계산해 방정식 (1) $\dfrac83a^2+2ab+2c=0$, (2) $\dfrac13a^2-\dfrac12ab+c=0$을 얻었다.
+      steps: [1b-4]
+    - id: 1.B1
+      mark_type: B
+      points: 2
+      evidence: $b=-\dfrac23a$, $c=-\dfrac23a^2$을 구했다. (채점기준 전개 9점 = 3+4+2)
+      steps: [1b-5]
+    - id: 1.M3
+      mark_type: M
+      points: 3
+      evidence: $f(-1)=-\dfrac23\left(a-\dfrac12\right)^2+\dfrac76$으로 $a$의 이차함수임을 보였다.
+      steps: [1b-6]
+    - id: 1.A1
+      mark_type: A
+      points: 1
+      evidence: $a=\dfrac12$에서 최댓값 $\dfrac76$. (채점기준 결론 4점 = 3+1)
+      depends_on: [1.M3]
+      cao: true
+      steps: [1b-7]
+    deductions:
+    - code: D1-1
+      condition: 단순한 계산 실수와 같은 사소한 실수(건당)
+      effect: minus
+      value: 1
+    - code: D1-2
+      condition: 타당한 설명이 없이 답만 기술
+      effect: zero
+      value: 0
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+remedy_links: []
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

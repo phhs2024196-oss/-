@@ -1,0 +1,151 @@
+# 한국외대 2022학년도 논술전형(자연계) 문제 2 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: HUFS-G22-02
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: numeric
+origin: past_exam
+school: HUFS
+type: null
+variant_of: null
+replaces: null
+level: L3
+form: 추론
+points: 9
+time_estimate_min: 6
+intent: 곡선과 직선의 교점을 구하고 위아래 관계에 맞게 정적분식을 세워 넓이를 계산하는 능력을 본다.
+key_idea: '$f(x)-g(x)=x^3-4x=x(x+2)(x-2)$, 원점대칭이므로 $S=2\displaystyle\int_0^2(4x-x^3)\,dx=8$.'
+stuck: 구간 $[-2,0]$과 $[0,2]$에서 두 그래프의 위아래가 바뀌는 것을 반영하는 단계
+idea_tags: [IDEA-AREA-BETWEEN-CURVES-SYMMETRY]
+tags: [정적분의 활용, 넓이, '행동영역 원문: 계산능력, 이해능력', '교과서: 수학Ⅱ 박교식 외 동아출판 2021 p.142 재구성']
+elements:
+  materials: ['삼차곡선 $y=x^3-x$', '직선 $y=3x$']
+  concepts: [다항함수의 정적분, 곡선으로 둘러싸인 도형의 넓이, 원점대칭 함수]
+  tools: ['$f-g$ 인수분해로 교점', '구간별 위아래 판정', '기함수 대칭으로 $2\displaystyle\int_0^2$']
+  conditions:
+  - '교점 $x=-2,0,2$ → 두 영역, $[-2,0]$에서 $f\ge g$, $[0,2]$에서 $g\ge f$'
+  stimuli_used: []
+  subpart_links: null
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅱ]
+  scope_2028: common
+  scope_confirmed: true
+  standards:
+  - code: '[12수학Ⅱ03-04]'
+    text: 다항함수의 정적분을 구할 수 있다.
+    verified: true
+  - code: '[12수학Ⅱ03-05]'
+    text: 곡선으로 둘러싸인 도형의 넓이를 구할 수 있다.
+    verified: true
+  content_area: 정적분의 활용
+  behavior_domain: 계산
+  unit_path: [수학Ⅱ, 적분, 정적분의 활용, 두 곡선 사이의 넓이]
+  key_concepts: [정적분, 넓이, 대칭성]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 한국외국어대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  inspired_by: 수학Ⅱ(박교식 외, 동아출판, 2021) p.142 재구성
+  institution: 한국외국어대학교
+  admission_year: 2022
+  admission_type: 논술전형
+  track: 자연계
+  question_no: 2
+  official_url: https://adms.hufs.ac.kr/cms/FrBbsCon/BoardView.do?MENU_ID=50&CONTENTS_NO=1&SITE_NO=2&BOARD_SEQ=1&BBS_SEQ=20650
+  retrieved_at: 2026-11-21
+  original_points: 9
+  rights_notice: 미확인(입학처 공개 자료)
+  transcribed_from: 2022학년도 선행학습 영향평가 자체평가보고서 문항카드 5 p.76~77(PDF p.78~79) — 원본 이미지 대조 2026-11-21
+
+verify: verify/HUFS-G22.py::p02
+
+stimuli: []
+
+stem: |
+  곡선 $y=x^3-x$와 직선 $y=3x$로 둘러싸인 영역의 넓이를 구하시오. (9점)
+
+subparts:
+- id: '1'
+  stem: |
+    둘러싸인 영역의 넓이를 구하시오.
+  points: 9
+  depends_on: []
+  answer: {kind: value, value: '8', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: 교점 $x=-2,0,2$, 위아래가 바뀌는 두 영역을 원점대칭으로 합쳐 $2\displaystyle\int_0^2(4x-x^3)\,dx$.
+    steps:
+    - {id: 1a, content: '$x^3-4x=x(x+2)(x-2)$, $S=2\displaystyle\int_0^2(4x-x^3)dx=2\left[2x^2-\dfrac{x^4}4\right]_0^2=8$', criteria: [1.B1, 1.M1, 1.A1]}
+    hint_ladder:
+    - 두 그래프의 교점의 $x$좌표부터 구하자.
+    - 각 구간에서 어느 그래프가 위에 있는가?
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 선행학습 영향평가 자체평가보고서 p.76~77
+    steps:
+    - id: 1b-1
+      content: |
+        (i) $f(x)=x^3-x$, $g(x)=3x$로 두면 $f(x)-g(x)=x^3-4x=x(x+2)(x-2)$이다. 따라서 두 함수의 그래프의 교점의 $x$좌표는 $-2$, $0$, $2$이다. (3점)
+      criteria: [1.B1]
+    - id: 1b-2
+      content: |
+        (ii) 좌표평면에 두 함수의 그래프를 그리면 [그림: $y=x^3-x$와 $y=3x$가 $x=-2,0,2$에서 만나고, $-2\le x\le0$에서는 곡선이 직선 위, $0\le x\le2$에서는 직선이 곡선 위에 있는 두 영역이 색칠됨] 다음과 같다. 따라서 함수 $f(x)$의 그래프와 함수 $g(x)$의 그래프로 둘러싸인 영역의 넓이 $S$는
+        $$S=\int_{-2}^{0}(f(x)-g(x))\,dx+\int_{0}^{2}(g(x)-f(x))\,dx$$
+        이다. (3점)
+      criteria: [1.M1]
+    - id: 1b-3
+      content: |
+        (iii) 함수 $f(x)-g(x)=x^3-4x$의 그래프는 원점대칭이므로 $S$는 다음과 같이 계산할 수 있다.
+        $$S=2\int_0^2(g(x)-f(x))\,dx=2\int_0^2(4x-x^3)\,dx=2\left[2x^2-\dfrac{x^4}{4}\right]_0^2=8\ (3점)$$
+      criteria: [1.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 1, isw: true}
+    criteria:
+    - id: 1.B1
+      mark_type: B
+      points: 3
+      evidence: 방정식 $f(x)-g(x)=0$을 풀어 교점의 $x$좌표 $-2,0,2$를 구했다(채점기준 도입).
+      steps: [1b-1]
+    - id: 1.M1
+      mark_type: M
+      points: 3
+      evidence: 구간별 위아래를 반영한 넓이 정적분식을 세웠다(채점기준 전개).
+      not_penalized:
+      - 그래프를 그리지 않음(채점 유의사항 3)
+      - 원점대칭을 이용하지 않음(채점 유의사항 4)
+      steps: [1b-2]
+    - id: 1.A1
+      mark_type: A
+      points: 3
+      evidence: 정적분 값 $8$을 구했다(채점기준 결론).
+      depends_on: [1.M1]
+      cao: true
+      steps: [1b-3]
+    deductions:
+    - code: D1-1
+      condition: 단순 계산 실수 등 사소한 실수(건당)
+      effect: minus
+      value: 1
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+remedy_links: []
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

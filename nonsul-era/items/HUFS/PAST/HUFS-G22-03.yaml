@@ -1,0 +1,169 @@
+# 한국외대 2022학년도 논술전형(자연계) 문제 3 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: HUFS-G22-03
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: numeric
+origin: past_exam
+school: HUFS
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 추론
+points: 9
+time_estimate_min: 8
+intent: 원 위의 점과 직선 사이 거리의 최대·최소를 중심과 직선 사이의 거리로 표현하고, 그 비의 극한을 계산하는 능력을 본다.
+key_idea: '$d=\dfrac{2r}{\sqrt{r^2+1}}$일 때 $M(r)=d+r$, $m(r)=d-r$이므로 $\dfrac{M}{m}=\dfrac{2+\sqrt{r^2+1}}{2-\sqrt{r^2+1}}\to3$.'
+stuck: 최댓값·최솟값을 중심에서 직선까지의 거리 $\pm$반지름으로 바꾸는 단계
+idea_tags: [IDEA-CIRCLE-LINE-DIST-PM-RADIUS, IDEA-LIMIT-RATIO-CANCEL-R]
+tags: [함수의 극한, 점과 직선 사이의 거리, '행동영역 원문: 이해능력, 추론능력', '교과서: 수학Ⅱ 류희찬 외 천재교과서 2021 p.19 재구성']
+elements:
+  materials: ['원 $x^2+y^2=r^2$', '직선 $y=-rx+2r$', '$0<r<\sqrt3$']
+  concepts: [점과 직선 사이의 거리, 원과 직선의 위치 관계, 함수의 극한]
+  tools: ['중심을 지나고 직선에 수직인 직선 $\ell^\prime$', '$M=d+r$, $m=d-r$', '분자·분모를 $r$로 나누어 극한']
+  conditions:
+  - '$0<r<\sqrt3$ ⟺ $d=\dfrac{2r}{\sqrt{r^2+1}}>r$ — 직선이 원과 만나지 않아 $m(r)=d-r>0$'
+  - '$r\to0+$ 에서 $M$, $m$ 모두 0으로 가는 $\dfrac00$ 꼴'
+  stimuli_used: []
+  subpart_links: null
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅱ]
+  scope_2028: common
+  scope_confirmed: true
+  standards:
+  - code: '[12수학Ⅱ01-01]'
+    text: 함수의 극한의 뜻을 안다.
+    verified: true
+  - code: '[12수학Ⅱ01-02]'
+    text: 함수의 극한에 대한 성질을 이해하고, 함수의 극한값을 구할 수 있다.
+    verified: true
+  content_area: 함수의 극한
+  behavior_domain: 이해
+  unit_path: [수학Ⅱ, 함수의 극한과 연속, 함수의 극한, 함수의 극한값의 계산]
+  key_concepts: [함수의 극한, 점과 직선 사이의 거리]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 한국외국어대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  inspired_by: 수학Ⅱ(류희찬 외, 천재교과서, 2021) p.19 재구성
+  institution: 한국외국어대학교
+  admission_year: 2022
+  admission_type: 논술전형
+  track: 자연계
+  question_no: 3
+  official_url: https://adms.hufs.ac.kr/cms/FrBbsCon/BoardView.do?MENU_ID=50&CONTENTS_NO=1&SITE_NO=2&BOARD_SEQ=1&BBS_SEQ=20650
+  retrieved_at: 2026-11-21
+  original_points: 9
+  rights_notice: 미확인(입학처 공개 자료)
+  transcribed_from: 2022학년도 선행학습 영향평가 자체평가보고서 문항카드 5 p.77~78(PDF p.79~80) — 원본 이미지 대조 2026-11-21
+
+verify: verify/HUFS-G22.py::p03
+
+stimuli: []
+
+stem: |
+  원 $x^2+y^2=r^2$ 위의 점과 직선 $y=-rx+2r$ 사이의 거리의 최댓값과 최솟값을 각각 $M(r)$과 $m(r)$이라고 할 때, $\displaystyle\lim_{r\to0+}\dfrac{M(r)}{m(r)}$의 값을 구하시오. (단, $0<r<\sqrt3$이다.) (9점)
+
+subparts:
+- id: '1'
+  stem: |
+    $\displaystyle\lim_{r\to0+}\dfrac{M(r)}{m(r)}$의 값을 구하시오.
+  points: 9
+  depends_on: []
+  answer: {kind: value, value: '3', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: 중심과 직선 사이 거리 $d$에 대해 $M=d+r$, $m=d-r$.
+    steps:
+    - {id: 1a, content: '$d=\dfrac{2r}{\sqrt{r^2+1}}$, $\dfrac{M}{m}=\dfrac{2+\sqrt{r^2+1}}{2-\sqrt{r^2+1}}\to\dfrac{2+1}{2-1}=3$', criteria: [1.M1, 1.B1, 1.B2, 1.M2, 1.A1]}
+    hint_ladder:
+    - 원 위의 점에서 직선까지의 거리가 가장 먼 점과 가장 가까운 점은 어디에 있는가?
+    - 중심에서 직선까지의 거리 $d$로 $M$, $m$을 나타내 보자.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 선행학습 영향평가 자체평가보고서 p.77~78
+    steps:
+    - id: 1b-1
+      content: |
+        (i) 원의 중심을 지나고 직선 $\ell:y=-rx+2r$에 수직인 직선을 $\ell^\prime$이라고 하자. 두 직선 $\ell$과 $\ell^\prime$의 교점을 $\mathrm{A}$라 하고, 직선 $\ell^\prime$과 원의 두 교점 중 점 $\mathrm{A}$에 더 가까운 점을 $\mathrm{B}$, 나머지 점을 $\mathrm{C}$라고 하자. 그러면 $M(r)$은 선분 $\mathrm{AC}$의 길이이고, $m(r)$은 선분 $\mathrm{AB}$의 길이이다. (2점)
+      criteria: [1.M1]
+    - id: 1b-2
+      content: |
+        (ii) 원의 중심 $\mathrm{O}(0,0)$과 직선 $\ell:rx+y-2r=0$ 사이의 거리를 $d$라고 하면
+        $$M(r)=d+r,\quad m(r)=d-r$$
+        이다. (1점)
+      criteria: [1.B1]
+    - id: 1b-3
+      content: |
+        (iii) 한편, 점과 직선 사이의 거리 공식에 의해
+        $$d=\dfrac{\lvert-2r\rvert}{\sqrt{r^2+1}}=\dfrac{2r}{\sqrt{r^2+1}}$$
+        이다. (2점)
+      criteria: [1.B2]
+    - id: 1b-4
+      content: |
+        (iv) (ii)와 (iii)에 의해 구하려는 극한값은 다음과 같다. [그림: 원 $x^2+y^2=r^2$, 직선 $y=-rx+2r$($y$절편 $2r$, $x$절편 $2$), 원점을 지나는 수직 점선 위의 점 $\mathrm{A}$(직선 위), $\mathrm{B}$, $\mathrm{C}$(원 위)]
+        $$\lim_{r\to0+}\dfrac{M(r)}{m(r)}=\lim_{r\to0+}\dfrac{\dfrac{2r}{\sqrt{r^2+1}}+r}{\dfrac{2r}{\sqrt{r^2+1}}-r}=\lim_{r\to0+}\dfrac{2r+r\sqrt{r^2+1}}{2r-r\sqrt{r^2+1}}=\lim_{r\to0+}\dfrac{2+\sqrt{r^2+1}}{2-\sqrt{r^2+1}}\ (2점)$$
+      criteria: [1.M2]
+    - id: 1b-5
+      content: |
+        $$=\dfrac{2+1}{2-1}=3\ (2점)$$
+      criteria: [1.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 1, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 2
+      evidence: 중심을 지나 직선에 수직인 직선으로 최대·최소 거리가 되는 점을 정해 $M(r)$, $m(r)$을 선분 길이로 나타냈다.
+      steps: [1b-1]
+    - id: 1.B1
+      mark_type: B
+      points: 1
+      evidence: $M(r)=d+r$, $m(r)=d-r$을 적었다(채점기준 도입 = (i)+(ii) 3점).
+      steps: [1b-2]
+    - id: 1.B2
+      mark_type: B
+      points: 2
+      evidence: 점과 직선 사이의 거리 공식으로 $d=\dfrac{2r}{\sqrt{r^2+1}}$을 구했다(채점기준 전개 2점).
+      steps: [1b-3]
+    - id: 1.M2
+      mark_type: M
+      points: 2
+      evidence: 분자·분모를 $r$로 약분해 $\dfrac{2+\sqrt{r^2+1}}{2-\sqrt{r^2+1}}$ 꼴로 정리했다.
+      steps: [1b-4]
+    - id: 1.A1
+      mark_type: A
+      points: 2
+      evidence: 극한값 $3$(채점기준 결론 = (iv) 4점).
+      depends_on: [1.M2]
+      cao: true
+      steps: [1b-5]
+    deductions:
+    - code: D1-1
+      condition: 단순 계산 실수 등 사소한 실수(건당)
+      effect: minus
+      value: 1
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+remedy_links: []
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

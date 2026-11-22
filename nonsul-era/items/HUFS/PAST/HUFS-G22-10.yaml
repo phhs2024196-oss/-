@@ -1,0 +1,177 @@
+# 한국외대 2022학년도 논술전형(자연계) 문제 10 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: HUFS-G22-10
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: numeric
+origin: past_exam
+school: HUFS
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 추론
+points: 12
+time_estimate_min: 12
+intent: 실생활 상황(주기적 백신 접종과 면역력 반감)을 지수함수와 등비수열의 합으로 모델링하고, 그래프에서 최솟값이 되는 시점을 읽어 부등식으로 바꾸는 능력을 본다.
+key_idea: '$n$차 접종 직전 총 면역력 $a_n=\displaystyle\sum_{k=1}^{n-1}A\left(\dfrac12\right)^{n-k}=A\left\{1-\left(\dfrac12\right)^{n-1}\right\}$, $n$회 접종 후 최저점은 $a_{n+1}$이므로 $1-\left(\dfrac12\right)^n\ge0.8$의 최소 $n=3$.'
+stuck: 그래프에서 $n$회 접종 이후 총 면역력의 최솟값이 다음 접종 직전 값 $a_{n+1}$임을 읽어 조건을 $a_{n+1}\ge0.8A$로 바꾸는 단계
+idea_tags: [IDEA-GEOMETRIC-SUM-DECAY-MODEL, IDEA-SAWTOOTH-MIN-AT-BEFORE-JUMP]
+tags: [등비수열의 합, 지수함수, 실생활 모델링, '행동영역 원문: 이해능력, 추론능력, 문제해결능력', '교과서: 수학Ⅰ 고성은 외 좋은책 신사고 2021 p.125 재구성']
+elements:
+  materials: ['1년 주기 백신 접종', '접종 후 $t$년에 면역력 $A\times\left(\dfrac12\right)^t$', '접종 직전·직후 총 면역력 수열 $\{a_n\}$, $\{b_n\}$', '톱니 모양 그래프']
+  concepts: [지수함수, 등비수열의 합, 수열의 단조성, 부등식]
+  tools: ['$k$차 접종 백신의 면역력을 합산', '등비수열의 합 공식', '$\left(\dfrac12\right)^n\le0.2$ 최소 자연수']
+  conditions:
+  - '(가) $a_1=0$, (다) $b_n=a_n+A$'
+  - '(라)(마) $a_n=\displaystyle\sum_{k=1}^{n-1}A\left(\dfrac12\right)^{n-k}$'
+  - '그래프: 각 구간에서 총 면역력은 감소 → 최솟값은 다음 접종 직전 $a_{n+1}$, $a_n$은 증가하므로 한 번 넘으면 계속 유지'
+  stimuli_used: [그림]
+  subpart_links: null
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅰ]
+  scope_2028: common
+  scope_confirmed: true
+  standards:
+  - code: '[12수학Ⅰ01-07]'
+    text: 지수함수와 로그함수의 그래프를 그릴 수 있고, 그 성질을 이해한다.
+    verified: true
+  - code: '[12수학Ⅰ01-08]'
+    text: 지수함수와 로그함수를 활용하여 문제를 해결할 수 있다.
+    verified: true
+  - code: '[12수학Ⅰ03-03]'
+    text: 등비수열의 뜻을 알고, 일반항, 첫째항부터 제$n$항까지의 합을 구할 수 있다.
+    verified: true
+  content_area: 등차수열과 등비수열
+  behavior_domain: 문제해결
+  unit_path: [수학Ⅰ, 수열, 등차수열과 등비수열, 등비수열의 합의 활용]
+  key_concepts: [등비수열의 합, 지수함수의 활용]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 한국외국어대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  inspired_by: 수학Ⅰ(고성은 외, 좋은책 신사고, 2021) p.125 재구성
+  institution: 한국외국어대학교
+  admission_year: 2022
+  admission_type: 논술전형
+  track: 자연계
+  question_no: 10
+  official_url: https://adms.hufs.ac.kr/cms/FrBbsCon/BoardView.do?MENU_ID=50&CONTENTS_NO=1&SITE_NO=2&BOARD_SEQ=1&BBS_SEQ=20650
+  retrieved_at: 2026-11-21
+  original_points: 12
+  rights_notice: 미확인(입학처 공개 자료)
+  transcribed_from: 2022학년도 선행학습 영향평가 자체평가보고서 문항카드 5 p.86~87(PDF p.88~89) — 원본 이미지 대조 2026-11-21
+
+verify: verify/HUFS-G22.py::p10
+
+stimuli:
+- label: 그림
+  body: |
+    [그림] 가로축은 「첫 접종 이후 경과시간(단위: 년)」, 세로축은 「총 면역력」. 세로축 위에 높이 $A$인 수평 점선이 있다.
+    점 $(0,a_1)$은 원점(빈 원), $(0,b_1)$은 높이 $A$(채운 점)이다. 각 정수 시점 $x=n-1$에서 아래쪽 빈 원 $(n-1,a_n)$과 위쪽 채운 점 $(n-1,b_n)$이 세로 점선으로 이어지고, 채운 점 $(n-1,b_n)$에서 다음 시점의 빈 원 $(n,a_{n+1})$까지 아래로 볼록하게 감소하는 곡선이 그려져 있다($(0,b_1)\to(1,a_2)\to$, $(1,b_2)\to(2,a_3)\to\cdots\to(6,b_7)\to$).
+    $a_2$, $a_3$은 높이 $A$보다 아래, $a_4$부터는 높이 $A$ 근처(점선에 거의 닿음)에 그려져 있고, $b_2<b_3<\cdots<b_7$로 점점 높아진다.
+
+stem: |
+  다음은 신종 바이러스에 대처하기 위해 개발된 백신에 대한 설명이다.
+
+  (가) 최초 백신 접종 전 이 신종 바이러스에 대한 면역력은 $0$이다.
+
+  (나) 최초 백신 접종 후 $1$년마다 $1$회씩 주기적으로 접종한다.
+
+  (다) 새롭게 백신을 접종하는 즉시 면역력은 $A$만큼 증가한다. (단, $A>0$이다.)
+
+  (라) 새롭게 접종한 백신에 의한 면역력은 접종 후 $t$년이 경과한 시점에 $A\times\left(\dfrac{1}{2}\right)^t$이 된다. (단, $t>0$이다.)
+
+  (마) 백신을 여러 차례 접종한 경우, 총 면역력은 그간 접종한 각 백신에 의한 면역력을 모두 더한 값이다.
+
+  다음 그림에서 수열 $\{a_n\}$과 $\{b_n\}$은 각각 $n$차 접종 직전의 총 면역력과 접종 직후의 총 면역력이다. 이 백신을 몇 회 접종한 이후부터 총 면역력이 $A\times0.8$ 이상으로 계속 유지되는지 밝히시오. (12점)
+
+  [그림]
+
+subparts:
+- id: '1'
+  stem: |
+    이 백신을 몇 회 접종한 이후부터 총 면역력이 $A\times0.8$ 이상으로 계속 유지되는지 밝히시오.
+  points: 12
+  depends_on: []
+  answer: {kind: value, value: '3', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $a_n=A\left\{1-\left(\dfrac12\right)^{n-1}\right\}$, 최저점 $a_{n+1}\ge0.8A$.
+    steps:
+    - {id: 1a, content: '$1-\left(\dfrac12\right)^n\ge0.8\iff2^n\ge5\iff n\ge3$', criteria: [1.B1, 1.M1]}
+    hint_ladder:
+    - $n$차 접종 직전에 $k$차 접종 백신은 몇 년이 지났는가?
+    - $n$회 접종한 뒤 총 면역력이 가장 낮아지는 때는 언제인가?
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 선행학습 영향평가 자체평가보고서 p.87 [풀이 1]
+    steps:
+    - id: 1b-1
+      content: |
+        (i) $a_1=0$이다. 그리고 $n\ge2$일 때
+        $$a_n=\sum_{k=1}^{n-1}(k\text{차 접종 백신의 면역력})=\sum_{k=1}^{n-1}\left\{A\times\left(\dfrac12\right)^{n-k}\right\}=\sum_{k=1}^{n-1}\left\{A\times\left(\dfrac12\right)^{k}\right\}=A\left\{1-\left(\dfrac12\right)^{n-1}\right\}$$
+        이다. (6점)
+      criteria: [1.B1]
+    - id: 1b-2
+      content: |
+        (ii) 제시된 그래프로부터 $n$회 접종 이후부터 면역력이 $A\times0.8$ 이상으로 유지된다는 것은 $n$이 부등식
+        $$a_{n+1}=A\left\{1-\left(\dfrac12\right)^n\right\}\ge A\times0.8\qquad\cdots\cdots(1)$$
+        을 만족하는 가장 작은 자연수라는 것과 동치이다. 식 (1)을 만족하는 가장 작은 자연수 $n$은 $3$이다. 따라서 $3$회 접종 이후부터 총 면역력이 $A\times0.8$ 이상으로 유지된다. (6점)
+      criteria: [1.M1]
+  - id: S1-ALT
+    audience: ALT
+    method_no: 2
+    source_flow: 선행학습 영향평가 자체평가보고서 p.87 [풀이 2]
+    key_idea: 공식 풀이 2 — $a_n$을 차례로 계산해 처음으로 $0.8A$ 이상이 되는 $a_{n+1}$을 찾는다.
+    steps:
+    - id: 1c-1
+      content: |
+        (i) $a_1=0$, $a_2=\dfrac{A}{2}$, $a_3=\dfrac{A}{4}+\dfrac{A}{2}=\dfrac34A$, $a_4=\dfrac{A}{2}+\dfrac{A}{4}+\dfrac{A}{8}=\dfrac78A,\ \dots$을 계산한다. (6점)
+      criteria: [1.B1]
+    - id: 1c-2
+      content: |
+        (ii) $a_{n+1}\ge A\times0.8$를 만족하는 $n$의 최솟값을 찾으면 $n=3$이다. 따라서 제시된 그래프에 의해 $3$회 접종 이후 총 면역력이 $A\times0.8$ 이상으로 유지된다. (6점)
+      criteria: [1.M1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 1, isw: true}
+    criteria:
+    - id: 1.B1
+      mark_type: B
+      points: 6
+      evidence: $a_n=A\left\{1-\left(\dfrac12\right)^{n-1}\right\}$을 구했다(또는 $a_2,a_3,a_4,\dots$를 차례로 계산 — 채점기준 도입).
+      steps: [1b-1, 1c-1]
+    - id: 1.M1
+      mark_type: M
+      points: 6
+      evidence: 조건을 $a_{n+1}\ge A\times0.8$로 바꾸어 최소 $n=3$을 구하고, 3회 접종 이후 총 면역력이 $A\times0.8$ 이상으로 유지됨을 밝혔다(채점기준 전개·결론).
+      depends_on: [1.B1]
+      steps: [1b-2, 1c-2]
+    deductions:
+    - code: D1-1
+      condition: 단순 계산 실수 등 사소한 실수(건당)
+      effect: minus
+      value: 1
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+remedy_links: []
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

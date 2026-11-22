@@ -1,0 +1,182 @@
+# 한국외대 2026학년도 논술전형(자연계) 모의 문제 1 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: HUFS-M26-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: numeric
+origin: mock_exam
+school: HUFS
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 추론
+points: 10
+time_estimate_min: 10
+intent: 등차수열의 합과 일반항 사이의 관계로 $b_{n+1}-b_n=a_{n+2}$를 유도하고, 자연수 조건과 증가 조건으로 $a_3$, $a_4$를 결정하는 능력을 본다.
+key_idea: '$b_{n+1}-b_n=(S_{n+3}-S_{n+2})-(a_{n+2}-a_{n+1})=a_{n+3}-d=a_{n+2}$이므로 조건 (나)는 $a_3a_4=70$. 자연수·증가 조건에서 $a_3=7$, $a_4=10$.'
+stuck: $b_{n+1}-b_n$을 $S_{n+3}-S_{n+2}=a_{n+3}$과 공차로 정리해 $a_{n+2}$ 하나로 바꾸는 단계, 그리고 $a_2>0$ 조건으로 후보를 거르는 단계
+idea_tags: [IDEA-SUM-DIFF-TO-TERM, IDEA-FACTOR-PAIR-NATURAL]
+tags: [등차수열, 수열의 합, 약수 쌍, 문항해설 단계 도입·전개·결론]
+elements:
+  materials: [등차수열, 수열의 합 $S_n$, '$b_n=S_{n+2}-a_{n+1}$로 정의된 수열', 70의 약수 쌍]
+  concepts: [등차수열의 일반항, 등차수열의 합, '$S_{n+1}-S_n=a_{n+1}$', 자연수의 약수]
+  tools: ['계차 $b_{n+1}-b_n$ 계산', '약수 쌍 나열', '공차 $d=a_4-a_3$로 $a_2$ 부호 판정']
+  conditions:
+  - '(가) 모든 항이 자연수 → 첫째항 $a$, 공차 $d$ 자연수, $a_n<a_{n+1}$'
+  - '(나) $(b_2-b_1)(b_3-b_2)=a_3a_4=70$'
+  - '$a_2=2a_3-a_4>0$ → $a_3=7$, $a_4=10$만 가능'
+  stimuli_used: []
+  subpart_links: null
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅰ]
+  scope_2028: common
+  scope_confirmed: true
+  standards:
+  - code: 미확인
+    text: 등차수열의 뜻을 알고, 일반항과 첫째항부터 제n항까지의 합을 구할 수 있다(요지)
+    verified: false
+  content_area: 수열 – 등차수열과 등비수열
+  behavior_domain: 추론
+  unit_path: [수학Ⅰ, 수열, 등차수열과 등비수열, 수열의 합과 일반항의 관계]
+  key_concepts: [등차수열, 수열의 합, 약수]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 한국외국어대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 한국외국어대학교
+  admission_year: 2026
+  admission_type: 논술전형 모의논술
+  track: 자연계
+  question_no: 1
+  official_url: https://adms.hufs.ac.kr/ajaxfile/FileCpnt/fileView.do?gbn=b02&SITE_NO=2&BOARD_SEQ=6&BBS_SEQ=70
+  retrieved_at: 2026-11-21
+  original_points: 10
+  rights_notice: 미확인(입학처 공개 자료)
+  transcribed_from: 「2026학년도 논술가이드북」 05. 모의논술고사 문제 3. 자연계 p.42(PDF p.44), 문항해설·채점기준 p.46(PDF p.48) — 원본 이미지 대조 2026-11-21
+
+verify: verify/HUFS-M26.py::p01
+
+stimuli: []
+
+stem: |
+  ※ 다음 물음에 답하시오. 답안지에 반드시 풀이과정 또는 증명과정을 제시하시오.
+
+  [문제 1] 등차수열 $\{a_n\}$의 첫째항부터 제 $n$항까지의 합을 $S_n$이라 하고, 수열 $\{b_n\}$을 $b_n=S_{n+2}-a_{n+1}$이라 할 때, 수열 $\{a_n\}$과 $\{b_n\}$은 다음 조건을 만족한다.
+
+  (가) 모든 $n$에 대하여 $a_n$은 자연수이다.
+
+  (나) $(b_2-b_1)(b_3-b_2)=70$
+
+  이때 $b_5$의 값을 구하시오. (10점)
+
+subparts:
+- id: '1'
+  stem: |
+    $b_5$의 값을 구하시오.
+  points: 10
+  depends_on: []
+  answer: {kind: value, value: '54', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $b_{n+1}-b_n=a_{n+2}$이므로 $a_3a_4=70$, 증가하는 자연수 등차수열이고 $a_2>0$이어야 하므로 $a_3=7$, $a_4=10$, $a_n=3n-2$, $b_5=S_7-a_6=70-16=54$.
+    steps:
+    - {id: 1a, content: '$b_{n+1}-b_n=a_{n+2}$, $a_3a_4=70$, $(a_3,a_4)=(7,10)$, $a=1$, $d=3$, $b_5=54$', criteria: [1.R1, 1.M1, 1.B1, 1.B2, 1.A1]}
+    hint_ladder:
+    - $b_{n+1}-b_n$을 $S$끼리, $a$끼리 묶어 정리해 보라.
+    - 조건 (나)는 수열 $\{a_n\}$의 어떤 두 항의 곱인가?
+    - 70의 약수 쌍 중 $a_2=2a_3-a_4$가 자연수가 되는 것은?
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 2026학년도 논술가이드북 p.46(PDF p.48) 문항 해설
+    steps:
+    - id: 1b-1
+      content: |
+        (i) 등차수열 $\{a_n\}$의 첫째항을 $a$, 공차를 $d$라 할 때, 조건 (가)에 의해 모든 $n$에 대하여 $a_n$은 자연수이므로 $a$와 $d$도 모두 자연수이며,
+        $$a_n<a_{n+1}\quad\cdots(1)$$
+        가 된다.
+      criteria: [1.R1]
+    - id: 1b-2
+      content: |
+        (ii) 수열 $\{b_n\}$의 정의가 $b_n=S_{n+2}-a_{n+1}$이므로
+        $$b_{n+1}-b_n=(S_{n+3}-a_{n+2})-(S_{n+2}-a_{n+1})=(S_{n+3}-S_{n+2})-(a_{n+2}-a_{n+1})=a_{n+3}-d=a_{n+2}\quad\cdots(2)$$
+        이다. 한편, 조건 (나)에 (2)를 적용하면
+        $$(b_2-b_1)(b_3-b_2)=a_3\times a_4=70\quad\cdots(3)$$
+        이 된다.
+      criteria: [1.M1]
+    - id: 1b-3
+      content: |
+        이제 (1), (3)을 만족하는 $a_3$과 $a_4$를 찾으면 $(a_3,a_4)=(1,70),\ (2,35),\ (5,14),\ (7,10)$이다. $a_3$의 값이 $1,2,5$인 경우는 $a_2$의 값이 모두 음수가 되므로 조건 (가)가 성립되지 않는다. 따라서
+        $$a_3=7,\ a_4=10\quad\cdots(4)$$
+        이 된다.
+      criteria: [1.B1]
+    - id: 1b-4
+      content: |
+        그러므로 (4)로부터 수열 $\{a_n\}$은 첫째항 $a$가 $1$이고 공차 $d$가 $3$인 등차수열이다. $\cdots(5)$
+      criteria: [1.B2]
+    - id: 1b-5
+      content: |
+        (iii) (5)로부터 $b_5=S_7-a_6=\dfrac{7(2\times1+6\times3)}{2}-(1+3\times5)=70-16=54$이다.
+      criteria: [1.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 1, isw: true}
+    criteria:
+    - id: 1.R1
+      mark_type: R
+      points: 2
+      evidence: 조건 (가)에서 첫째항 $a$와 공차 $d$가 자연수이고 $a_n<a_{n+1}$임을 적었다. (채점기준 도입 2점)
+      steps: [1b-1]
+    - id: 1.M1
+      mark_type: M
+      points: 2
+      evidence: $b_{n+1}-b_n=a_{n+2}$를 유도하고 조건 (나)를 $a_3a_4=70$으로 바꾸었다.
+      steps: [1b-2]
+    - id: 1.B1
+      mark_type: B
+      points: 3
+      evidence: 70의 약수 쌍 중 $a_2>0$(조건 (가))을 만족하는 $a_3=7$, $a_4=10$만 남김을 근거와 함께 적었다.
+      steps: [1b-3]
+    - id: 1.B2
+      mark_type: B
+      points: 1
+      evidence: 첫째항 1, 공차 3을 구했다. (채점기준 전개 6점 = 2+3+1)
+      steps: [1b-4]
+    - id: 1.A1
+      mark_type: A
+      points: 2
+      evidence: $b_5=S_7-a_6=70-16=54$. (채점기준 결론 2점)
+      depends_on: [1.M1]
+      cao: true
+      steps: [1b-5]
+    deductions:
+    - code: D1-1
+      condition: 단순한 계산 실수와 같은 사소한 실수(건당)
+      effect: minus
+      value: 1
+    - code: D1-2
+      condition: 타당한 설명이 없이 답만 기술
+      effect: zero
+      value: 0
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+remedy_links: []
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

@@ -1,0 +1,177 @@
+# 한국외대 2025학년도 논술전형(자연계) 모의 문제 5 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: HUFS-M25-05
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: proof
+origin: mock_exam
+school: HUFS
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 귀납구조
+points: 16
+time_estimate_min: 15
+intent: |
+  두 제곱의 차 꼴의 곱이 다시 두 제곱의 차 꼴이 된다는 항등식을 찾아 수학적 귀납법의 귀납 단계를 구성하는 능력을 본다.
+key_idea: |
+  $(x-2k-1)(x-2k-2)=p^2-q^2$ ($p=x-(2k+\frac32)$, $q=\frac12$)이고 $(f^2-g^2)(p^2-q^2)=(fp+gq)^2-(fq+gp)^2$.
+stuck: |
+  두 제곱의 차의 곱을 다시 두 제곱의 차로 묶는 항등식 $(f^2-g^2)(p^2-q^2)=(fp+gq)^2-(fq+gp)^2$를 찾는 단계
+idea_tags: [IDEA-INDUCTION-STEP-CONSTRUCT, IDEA-PRODUCT-OF-DIFF-OF-SQUARES]
+tags: [수학적 귀납법, 다항식 항등식, '원문 단계: 도입5·전개3·결론8', '채점 유의: 수학적 귀납법 외 증명 불인정']
+elements:
+  materials: ['$(x-1)(x-2)\cdots(x-2n)=f(x)^2-g(x)^2$', '연속한 두 일차식의 곱']
+  concepts: [수학적 귀납법, 완전제곱식, 다항식의 곱셈]
+  tools: ['$x^2-3x+2=(x-\frac32)^2-(\frac12)^2$', '두 제곱의 차의 곱 항등식']
+  conditions:
+  - '모든 자연수 $n$ → $n=1$ 확인 + $n=k\Rightarrow n=k+1$'
+  - '$f$, $g$는 다항식(존재성)'
+  stimuli_used: []
+  subpart_links: null
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅰ]
+  scope_2028: common
+  scope_confirmed: true
+  standards:
+  - code: 미확인
+    text: 수학적 귀납법의 원리를 이해하고, 이를 이용하여 명제를 증명할 수 있다(요지, 가이드북에 문항카드 없음)
+    verified: false
+  content_area: 수열 – 수학적 귀납법
+  behavior_domain: 추론
+  unit_path: [수학Ⅰ, 수열, 수학적 귀납법, 다항식 존재 명제의 귀납 증명]
+  key_concepts: [수학적 귀납법, 두 제곱의 차]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 한국외국어대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 한국외국어대학교
+  admission_year: 2025
+  admission_type: 논술전형 모의논술
+  track: 자연계
+  question_no: 5
+  official_url: https://adms.hufs.ac.kr/ajaxfile/FileCpnt/fileView.do?gbn=b02&SITE_NO=2&BOARD_SEQ=6&BBS_SEQ=57
+  retrieved_at: 2026-11-21
+  original_points: 16
+  rights_notice: 미확인(입학처 공개 자료)
+  transcribed_from: 2025학년도 논술가이드북 「3. 자연계」 문제지 p.43(PDF p.23), 해설 p.47(PDF p.25), 채점 기준 p.51(PDF p.27) — 원본 이미지 대조 2026-11-21
+
+verify: verify/HUFS-M25.py::p05
+
+stimuli: []
+
+stem: |
+  모든 자연수 $n$에 대하여 다음 명제가 성립함을 수학적 귀납법으로 증명하시오. (16점)
+
+  등식
+  $(x-1)\times(x-2)\times(x-3)\times\cdots\times(x-2n)=f(x)^2-g(x)^2$
+  이 성립하게 하는 두 다항식 $f(x)$, $g(x)$가 존재한다.
+
+subparts:
+- id: '1'
+  stem: |
+    위 명제가 모든 자연수 $n$에 대하여 성립함을 수학적 귀납법으로 증명하시오.
+  points: 16
+  depends_on: []
+  answer: {kind: proof, value: null, equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $n=1$은 $(x-\frac32)^2-(\frac12)^2$. 귀납 단계는 새 두 인수도 $p^2-q^2$ 꼴로 쓰고 $(f^2-g^2)(p^2-q^2)=(fp+gq)^2-(fq+gp)^2$.
+    steps:
+    - {id: 1a, content: '$n=k+1$: $f_{k+1}=fp+gq$, $g_{k+1}=fq+gp$', criteria: [1.B1, 1.R1, 1.M1, 1.B2, 1.A1]}
+    hint_ladder:
+    - $n=1$일 때 $x^2-3x+2$를 완전제곱식을 써서 나타내 보자.
+    - 새로 붙는 두 인수 $(x-2k-1)(x-2k-2)$도 같은 꼴로 쓸 수 있는가?
+    - $(f^2-g^2)(p^2-q^2)$를 전개해 두 제곱의 차로 다시 묶어 보자.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 2025학년도 논술가이드북 p.47
+    steps:
+    - id: 1b-1
+      content: |
+        $(x-1)(x-2)=x^2-3x+2=\left(x-\dfrac32\right)^2-\left(\dfrac12\right)^2$이므로 $n=1$일 때 명제가 성립한다. (5점)
+      criteria: [1.B1]
+    - id: 1b-2
+      content: |
+        $n=k$일 때 명제가 성립한다고 가정하자. 그러면 $(x-1)(x-2)(x-3)\cdots(x-2k)=f(x)^2-g(x)^2$ …… (1)을 만족시키는 두 다항식 $f(x)$, $g(x)$가 존재한다. (3점)
+      criteria: [1.R1]
+    - id: 1b-3
+      content: |
+        $n=k+1$일 때를 고려하자. 우선 $(x-1)(x-2)(x-3)\cdots(x-2(k+1))=\{(x-1)(x-2)(x-3)\cdots(x-2k)\}\times\{(x-(2k+1))(x-(2k+2))\}$ …… (2)임을 주목한다. (1점)
+      criteria: [1.M1]
+    - id: 1b-4
+      content: |
+        과정 (i)과 유사하게 $p(x)=x-\left(2k+\dfrac32\right)$, $q(x)=\dfrac12$이라고 하면 $(x-(2k+1))(x-(2k+2))=p(x)^2-q(x)^2$ …… (3)이 된다. (3점)
+      criteria: [1.B2]
+    - id: 1b-5
+      content: |
+        이제 (1), (2), (3)을 이용하여 다음을 유도한다.
+        $$\begin{aligned}(x-1)(x-2)\cdots(x-2(k+1))&=\{(x-1)\cdots(x-2k)\}\times\{(x-(2k+1))(x-(2k+2))\}\\&=(f(x)^2-g(x)^2)(p(x)^2-q(x)^2)\\&=f(x)^2p(x)^2+g(x)^2q(x)^2-(f(x)^2q(x)^2+g(x)^2p(x)^2)\\&=(f(x)p(x)+g(x)q(x))^2-(f(x)q(x)+g(x)p(x))^2\end{aligned}$$
+        따라서 $n=k+1$일 때도 명제가 성립한다. (4점)
+      criteria: [1.A1]
+    - id: 1b-6
+      content: |
+        수학적 귀납법으로부터 모든 자연수 $n$에 대하여 주어진 명제가 성립한다. (채점 유의사항 2: 이 단계는 작성하지 않아도 된다.)
+      criteria: []
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 1, isw: true}
+    criteria:
+    - id: 1.B1
+      mark_type: B
+      points: 5
+      evidence: $(x-1)(x-2)=\left(x-\frac32\right)^2-\left(\frac12\right)^2$으로 $n=1$일 때 성립을 보였다.
+      steps: [1b-1]
+    - id: 1.R1
+      mark_type: R
+      points: 3
+      evidence: $n=k$일 때 성립을 가정하고 식 (1)을 만족시키는 다항식 $f$, $g$를 두었다.
+      steps: [1b-2]
+    - id: 1.M1
+      mark_type: M
+      points: 1
+      evidence: $n=k+1$일 때의 곱을 $n=k$의 곱과 $(x-(2k+1))(x-(2k+2))$의 곱으로 나누었다.
+      steps: [1b-3]
+    - id: 1.B2
+      mark_type: B
+      points: 3
+      evidence: $(x-(2k+1))(x-(2k+2))=p(x)^2-q(x)^2$ ($p=x-(2k+\frac32)$, $q=\frac12$)로 나타냈다.
+      steps: [1b-4]
+    - id: 1.A1
+      mark_type: A
+      points: 4
+      evidence: $(f^2-g^2)(p^2-q^2)=(fp+gq)^2-(fq+gp)^2$를 유도해 $n=k+1$일 때 성립을 결론지었다.
+      depends_on: [1.M1, 1.B2]
+      steps: [1b-5]
+    deductions:
+    - code: D1-1
+      condition: 단순한 계산 실수 등 사소한 실수(채점 유의사항 3)
+      effect: minus
+      value: 1
+    - code: D1-2
+      condition: 수학적 귀납법이 아닌 다른 증명(채점 유의사항 1)
+      effect: zero
+      value: 0
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+remedy_links: []
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

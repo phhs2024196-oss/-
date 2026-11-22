@@ -1,0 +1,175 @@
+# 한국외대 2026학년도 논술전형(자연계) 모의 문제 7 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: HUFS-M26-07
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: proof
+origin: mock_exam
+school: HUFS
+type: null
+variant_of: null
+replaces: null
+level: L3
+form: 귀납구조
+points: 18
+time_estimate_min: 12
+intent: 수학적 귀납법의 두 단계를 갖추어 쓰고, 귀납 단계에서 $a_{k+1}-a_k$를 $20\times(\text{짝수})$ 꼴로 정리해 40의 배수임을 보이는 능력을 본다.
+key_idea: '$a_n=21^n+5^n+14$라 하면 $a_1=40$이고 $a_{k+1}-a_k=20\times21^k+20\times5^{k-1}=20(21^k+5^{k-1})$. $21^k$, $5^{k-1}$이 모두 홀수이므로 괄호 안이 짝수여서 차가 40의 배수.'
+stuck: $5^{k+1}-5^k=4\times5^k=20\times5^{k-1}$로 써서 공통인수 20을 만드는 단계와, 남은 인수 $21^k+5^{k-1}$이 짝수임(홀수+홀수)을 보이는 단계
+idea_tags: [IDEA-INDUCTION-DIFFERENCE-DIVISIBILITY, IDEA-PARITY-ODD-SUM]
+tags: [수학적 귀납법, 배수 증명, 홀짝성]
+elements:
+  materials: ['$21^n+5^n+14$', 40의 배수]
+  concepts: [수학적 귀납법, 지수법칙, 배수와 약수, 홀수와 짝수]
+  tools: ['$a_{k+1}-a_k$ 계산', '공통인수 20으로 묶기', '홀수+홀수=짝수']
+  conditions:
+  - '$n=1$: $21+5+14=40$'
+  - '$n=k$에서 성립 가정 → $n=k+1$에서 $a_{k+1}=a_k+20(21^k+5^{k-1})$'
+  - '반드시 수학적 귀납법으로 증명(다른 증명 불인정)'
+  stimuli_used: []
+  subpart_links: null
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅰ]
+  scope_2028: common
+  scope_confirmed: true
+  standards:
+  - code: 미확인
+    text: 수학적 귀납법을 이용하여 명제를 증명할 수 있다(요지)
+    verified: false
+  content_area: 수열 – 수학적 귀납법
+  behavior_domain: 추론
+  unit_path: [수학Ⅰ, 수열, 수학적 귀납법, 배수에 관한 명제의 증명]
+  key_concepts: [수학적 귀납법, 배수, 홀짝성]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 한국외국어대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 한국외국어대학교
+  admission_year: 2026
+  admission_type: 논술전형 모의논술
+  track: 자연계
+  question_no: 7
+  official_url: https://adms.hufs.ac.kr/ajaxfile/FileCpnt/fileView.do?gbn=b02&SITE_NO=2&BOARD_SEQ=6&BBS_SEQ=70
+  retrieved_at: 2026-11-21
+  original_points: 18
+  rights_notice: 미확인(입학처 공개 자료)
+  transcribed_from: 「2026학년도 논술가이드북」 05. 모의논술고사 문제 3. 자연계 p.45(PDF p.47), 문항해설·채점기준 p.52(PDF p.54) — 원본 이미지 대조 2026-11-21
+
+verify: verify/HUFS-M26.py::p07
+
+stimuli: []
+
+stem: |
+  [문제 7] 모든 자연수 $n$에 대하여 다음 명제가 성립함을 수학적 귀납법으로 증명하시오. (18점)
+
+  $21^n+5^n+14$는 $40$의 배수이다.
+
+subparts:
+- id: '1'
+  stem: |
+    위 명제가 성립함을 수학적 귀납법으로 증명하시오.
+  points: 18
+  depends_on: []
+  answer: {kind: proof, value: null, equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $a_1=40$. $a_k$가 40의 배수라 가정하면 $a_{k+1}=a_k+20(21^k+5^{k-1})$이고 $21^k+5^{k-1}$은 홀수의 합이라 짝수이므로 $a_{k+1}$도 40의 배수.
+    steps:
+    - {id: 1a, content: '$a_1=40$; $a_{k+1}-a_k=20(21^k+5^{k-1})=20\times(\text{짝수})$ → $a_{k+1}$은 40의 배수', criteria: [1.B1, 1.R1, 1.M1, 1.R2, 1.R3]}
+    hint_ladder:
+    - $a_{k+1}$과 $a_k$의 차를 계산해 보라.
+    - $5^{k+1}-5^k$를 $20\times(\ )$ 꼴로 쓸 수 있는가?
+    - $21^k$와 $5^{k-1}$은 홀수인가 짝수인가?
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 2026학년도 논술가이드북 p.52(PDF p.54) 문항 해설
+    steps:
+    - id: 1b-1
+      content: |
+        $a_n=21^n+5^n+14\ (n\ge1)$라 하자.
+
+        (i) $n=1$일 때, $a_1=21+5+14=40$이므로 $40$의 배수이다.
+      criteria: [1.B1]
+    - id: 1b-2
+      content: |
+        (ii) $n=k$일 때, $a_k=21^k+5^k+14$가 $40$의 배수라 하자. $\cdots(1)$
+      criteria: [1.R1]
+    - id: 1b-3
+      content: |
+        (iii) $n=k+1$일 때, $a_{k+1}=21^{k+1}+5^{k+1}+14$에서
+        $$a_{k+1}-a_k=(21^{k+1}+5^{k+1}+14)-(21^k+5^k+14)=(21\times21^k+5^2\times5^{k-1})-(21^k+5\times5^{k-1})=20\times21^k+20\times5^{k-1}=20\times(21^k+5^{k-1})\quad\cdots(2)$$
+        이 된다.
+      criteria: [1.M1]
+    - id: 1b-4
+      content: |
+        이때, $21^k$, $5^{k-1}$은 모두 홀수이므로 $21^k+5^{k-1}$은 짝수이다.
+      criteria: [1.R2]
+    - id: 1b-5
+      content: |
+        따라서, (2)에서 $a_{k+1}-a_k=20\times(21^k+5^{k-1})=20\times(\text{짝수})$가 되므로 $40$의 배수이고, (1)에 의해 $a_{k+1}$도 $40$의 배수이다. 그러므로 $n=k+1$일 때도 주어진 명제가 성립한다.
+      criteria: [1.R3]
+    - id: 1b-6
+      content: |
+        (iv) 수학적 귀납법으로부터 모든 자연수 $n$에 대하여 주어진 명제가 성립한다. (채점 유의사항: 이 문장은 작성하지 않아도 된다.)
+      criteria: []
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 1, isw: true}
+    criteria:
+    - id: 1.B1
+      mark_type: B
+      points: 4
+      evidence: $n=1$일 때 $21+5+14=40$으로 명제가 성립함을 보였다. (채점기준 도입 4점)
+      steps: [1b-1]
+    - id: 1.R1
+      mark_type: R
+      points: 3
+      evidence: $n=k$일 때 $21^k+5^k+14$가 40의 배수라고 가정했다. (채점기준 전개 3점)
+      steps: [1b-2]
+    - id: 1.M1
+      mark_type: M
+      points: 5
+      evidence: $a_{k+1}-a_k=20\times(21^k+5^{k-1})$을 유도했다.
+      steps: [1b-3]
+    - id: 1.R2
+      mark_type: R
+      points: 3
+      evidence: $21^k$, $5^{k-1}$이 홀수이므로 $21^k+5^{k-1}$이 짝수임을 적었다.
+      steps: [1b-4]
+    - id: 1.R3
+      mark_type: R
+      points: 3
+      evidence: 차가 40의 배수이고 가정 (1)에 의해 $a_{k+1}$도 40의 배수, 곧 $n=k+1$일 때 성립함을 결론지었다. (채점기준 결론 11점 = 5+3+3)
+      depends_on: [1.M1, 1.R1]
+      steps: [1b-5]
+    deductions:
+    - code: D1-1
+      condition: 수학적 귀납법이 아닌 다른 증명
+      effect: zero
+      value: 0
+    - code: D1-2
+      condition: 단순한 계산 실수와 같은 사소한 실수(건당)
+      effect: minus
+      value: 1
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+remedy_links: []
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

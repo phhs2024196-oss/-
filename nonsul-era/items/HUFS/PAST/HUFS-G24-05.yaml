@@ -1,0 +1,226 @@
+# 한국외대 2024학년도 논술전형(자연계) 문제 5 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: HUFS-G24-05
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: numeric
+origin: past_exam
+school: HUFS
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 분류
+points: 16
+time_estimate_min: 20
+intent: |
+  로그의 밑 변환으로 두 조건을 한 변수 $t=\log_xy$의 식으로 바꾸고, 등비수열의 합으로 $t$의 범위를 잡아 자연수 조건의 후보를 나열한 뒤, $t$의 유리성으로 후보를 하나로 좁히는 능력을 본다.
+key_idea: |
+  $t=\log_xy$이면 $3\left(t-\dfrac2t\right)$는 자연수이고 $2\le t<3$이므로 그 값은 $3,4,5,6$. (나)에서 $t$는 유리수이므로 $t=\dfrac{k+\sqrt{k^2+72}}{6}$이 유리수인 $k=3$, $t=2$. 그러면 $a_n=0$, $b_1=1$, 나머지 $b_n=0$으로 합은 $1$.
+stuck: |
+  조건 (나)의 우변이 유한 합이므로 $t$가 유리수라는 사실로 $k=3,4,5,6$ 중 하나를 고르는 단계
+idea_tags: [IDEA-LOG-RECIPROCAL-SUBST, IDEA-BOUND-THEN-INTEGER-CANDIDATES, IDEA-RATIONALITY-FILTER, IDEA-BINARY-EXPANSION-UNIQUE]
+tags: [로그의 성질, 등비수열의 합, 이진법 전개, '행동영역(원문): 계산능력, 문제해결력', '채점기준(원문): 도입 7 / 전개 6 / 결론 3']
+elements:
+  materials:
+  - '1보다 큰 자연수 $x$, $y$와 $\log_xy$, $\log_yx$'
+  - '0 또는 1을 계수로 하는 $\sum\dfrac{a_n}{2^n}$ 꼴 유한 합(이진 소수)'
+  - '이차방정식 $3t^2-kt-6=0$'
+  concepts:
+  - '로그의 밑 변환 $\log_yx=\dfrac{1}{\log_xy}$'
+  - '로그의 성질 $\log_yx^2=2\log_yx$'
+  - '등비수열의 합'
+  - '$\sum$의 성질'
+  - '유리수·무리수 판정(근호 안이 완전제곱수인가)'
+  tools:
+  - '$t=\log_xy$ 치환'
+  - '각 $a_n$을 0 또는 1로 두어 합의 최솟값·최댓값 잡기'
+  - '$t-\dfrac2t$의 증가성으로 범위 구하기'
+  - '근의 공식'
+  - '이진 전개의 유일성(0 또는 1 계수)'
+  conditions:
+  - '(가) $3\left(t-\dfrac2t\right)$ 자연수'
+  - '(나) $2\le t\le3-\dfrac{1}{2^{100}}<3$, $t$는 유리수'
+  - '$t>0$ → $t=\dfrac{k+\sqrt{k^2+72}}{6}$, $k\in\{3,4,5,6\}$ 중 $k=3$만 유리수'
+  - '$t=2$ → (나) $a_n=0$, (다) $\log_yx=\dfrac12$ → $b_1=1$, 나머지 $0$'
+  stimuli_used: []
+  subpart_links: null
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅰ]
+  scope_2028: common
+  scope_confirmed: true
+  standards:
+  - code: '[12수학Ⅰ01-04]'
+    text: 로그의 뜻을 알고, 그 성질을 이해한다.
+    verified: true
+  - code: '[12수학Ⅰ01-05]'
+    text: 상용로그를 이해하고, 이를 활용할 수 있다.
+    verified: true
+  - code: '[12수학Ⅰ03-04]'
+    text: $\Sigma$의 뜻을 알고, 그 성질을 이해하고, 이를 활용할 수 있다.
+    verified: true
+  content_area: 로그, 수열
+  behavior_domain: 문제해결
+  unit_path: [수학Ⅰ, 지수함수와 로그함수, 로그, 로그의 성질과 자연수 조건]
+  key_concepts: [로그의 밑 변환, 등비수열의 합, 유리수 조건]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 한국외국어대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  inspired_by: 수학Ⅰ(홍성복 외, 지학사, 2018) p.27, p.137 제시문 재구성
+  institution: 한국외국어대학교
+  admission_year: 2024
+  admission_type: 논술전형
+  track: 자연계
+  question_no: 5
+  official_url: https://adms.hufs.ac.kr/cms/FrBbsCon/BoardView.do?MENU_ID=50&CONTENTS_NO=1&SITE_NO=2&BOARD_SEQ=1&BBS_SEQ=20688
+  retrieved_at: 2026-11-21
+  original_points: 16
+  rights_notice: 미확인(입학처 공개 자료)
+  transcribed_from: 2024학년도 선행학습 영향평가 자체평가보고서 문항카드 5 p.137~139(PDF p.139~141) — 원본 이미지 대조 2026-11-21
+
+verify: verify/HUFS-G24.py::p05
+
+stimuli: []
+
+stem: |
+  $1$보다 큰 두 자연수 $x$와 $y$가 다음 조건을 만족시킨다.
+
+  (가) $3(\log_xy-\log_yx^2)$의 값은 자연수이다.
+
+  (나) $0$ 또는 $1$의 값을 가지는 어떤 $100$개의 수 $a_1,\ a_2,\ a_3,\ \cdots,\ a_{100}$에 대해
+  $$\log_xy=2+\dfrac{a_1}{2}+\dfrac{a_2}{2^2}+\dfrac{a_3}{2^3}+\cdots+\dfrac{a_{100}}{2^{100}}$$
+
+  (다) $0$ 또는 $1$의 값을 가지는 어떤 $100$개의 수 $b_1,\ b_2,\ b_3,\ \cdots,\ b_{100}$에 대해
+  $$\log_yx=\dfrac{b_1}{2}+\dfrac{b_2}{2^2}+\dfrac{b_3}{2^3}+\cdots+\dfrac{b_{100}}{2^{100}}$$
+
+  이 때, $\displaystyle\sum_{n=1}^{100}(a_n+b_n)$의 값을 구하시오.
+
+subparts:
+- id: '1'
+  stem: |
+    $\displaystyle\sum_{n=1}^{100}(a_n+b_n)$의 값을 구하시오.
+  points: 16
+  depends_on: []
+  answer: {kind: value, value: '1', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $t=\log_xy$로 두면 $3\left(t-\dfrac2t\right)\in\{3,4,5,6\}$, $t$가 유리수이므로 $t=2$. 따라서 $a_n$은 모두 $0$, $b_1=1$이고 나머지 $b_n=0$.
+    steps:
+    - {id: 1a, content: '$2\le t<3\Rightarrow3\le3\left(t-\dfrac2t\right)<7$, $t=\dfrac{k+\sqrt{k^2+72}}{6}$ 유리수 $\Rightarrow k=3$, $t=2$ $\Rightarrow\sum(a_n+b_n)=1$', criteria: [1.M1, 1.M2, 1.B1, 1.M3, 1.A1, 1.A2]}
+    hint_ladder:
+    - $\log_yx$와 $\log_yx^2$을 $\log_xy$로 나타내 보자.
+    - (나)의 우변이 가질 수 있는 가장 작은 값과 가장 큰 값은?
+    - (나)의 우변은 유리수이다. 그러면 $t$는?
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 2024학년도 선행학습 영향평가 자체평가보고서 p.137~138(PDF p.139~140) 문항 해설 (i)~(iii)
+    steps:
+    - id: 1b-1
+      content: |
+        (i) $t=\log_xy$라고 하면 $\log_yx=\dfrac{1}{\log_xy}=\dfrac1t$이므로 조건 (가)에 의해 $3\left(t-\dfrac2t\right)$는 자연수이다. (2점)
+      criteria: [1.M1]
+    - id: 1b-2
+      content: |
+        조건 (나)에서 $a_1,\ a_2,\ a_3,\ \cdots,\ a_{100}$은 $0$ 또는 $1$이므로 부등식
+        $$2\le t\le2+\dfrac12+\dfrac1{2^2}+\dfrac1{2^3}+\cdots+\dfrac1{2^{100}}=2+\dfrac{\frac12\left\{1-\left(\frac12\right)^{100}\right\}}{1-\frac12}=3-\dfrac1{2^{100}}<3$$
+        을 찾는다. $2\le t<3$이므로 $\dfrac13<\dfrac1t\le\dfrac12$이고 $-1\le-\dfrac2t<-\dfrac23$이다. 따라서 $1\le t-\dfrac2t<\dfrac73$이고
+        $$3\le3\left(t-\dfrac2t\right)<7$$
+        을 얻는다. 이때 $3\left(t-\dfrac2t\right)$는 자연수이므로 될 수 있는 값은
+        $$3\left(t-\dfrac2t\right)=3,\ 4,\ 5,\ 6\qquad\cdots\cdots(1)$$
+        이다. (5점)
+      criteria: [1.M2]
+    - id: 1b-3
+      content: |
+        (ii) 조건 (나)에 의해 $t$가 유리수임을 주목한다. (1점)
+      criteria: [1.B1]
+    - id: 1b-4
+      content: |
+        $k=3\left(t-\dfrac2t\right)$라고 하면 $3t^2-kt-6=0$인데, $t$는 양수이므로 $t=\dfrac{k+\sqrt{k^2+72}}{6}$이다. (1)에 의해 $k$는 $3,\ 4,\ 5,\ 6$이 될 수 있고 각각의 경우 $\dfrac{k+\sqrt{k^2+72}}{6}$을 계산하면 차례대로
+        $$\dfrac{3+\sqrt{81}}{6},\quad\dfrac{4+\sqrt{88}}{6},\quad\dfrac{5+\sqrt{97}}{6},\quad\dfrac{6+\sqrt{108}}{6}$$
+        이다. 이 값이 유리수가 되는 경우는 $k=3$일 때이다. 따라서
+        $$t=\dfrac{3+\sqrt{81}}{6}=2\qquad\cdots\cdots(2)$$
+        이다. (5점)
+      criteria: [1.M3]
+    - id: 1b-5
+      content: |
+        (iii) 조건 (나)와 (2)로부터 $2=2+\dfrac{a_1}{2}+\dfrac{a_2}{2^2}+\dfrac{a_3}{2^3}+\cdots+\dfrac{a_{100}}{2^{100}}$이 성립하는데, $a_1,\ a_2,\ a_3,\ \cdots,\ a_{100}$은 $0$ 또는 $1$이므로
+        $$a_1=a_2=a_3=\cdots=a_{100}=0\qquad\cdots\cdots(3)$$
+        을 찾는다. 또한 조건 (다)와 (2)로부터 $\dfrac12=\dfrac{b_1}{2}+\dfrac{b_2}{2^2}+\dfrac{b_3}{2^3}+\cdots+\dfrac{b_{100}}{2^{100}}$이 성립하는데, $b_1,\ b_2,\ b_3,\ \cdots,\ b_{100}$은 $0$ 또는 $1$이므로
+        $$b_1=1,\quad b_2=b_3=\cdots=b_{100}=0\qquad\cdots\cdots(4)$$
+        을 찾는다. (2점)
+      criteria: [1.A1]
+    - id: 1b-6
+      content: |
+        따라서 (3)과 (4)로부터 $\displaystyle\sum_{n=1}^{100}(a_n+b_n)=1$이다. (1점)
+      criteria: [1.A2]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 1, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 2
+      evidence: $t=\log_xy$로 두고 $\log_yx=\dfrac1t$을 써서 (가)를 「$3\left(t-\dfrac2t\right)$는 자연수」로 바꾸었다.
+      steps: [1b-1]
+    - id: 1.M2
+      mark_type: M
+      points: 5
+      evidence: (나)와 등비수열의 합으로 $2\le t<3$을 얻고 $3\left(t-\dfrac2t\right)$가 될 수 있는 값이 $3,4,5,6$임을 보였다.
+      depends_on: [1.M1]
+      steps: [1b-2]
+    - id: 1.B1
+      mark_type: B
+      points: 1
+      evidence: 조건 (나)에서 $t$가 유리수임을 적었다.
+      steps: [1b-3]
+    - id: 1.M3
+      mark_type: M
+      points: 5
+      evidence: $3t^2-kt-6=0$의 양근 $t=\dfrac{k+\sqrt{k^2+72}}{6}$을 $k=3,4,5,6$에 대해 계산해 유리수인 경우 $k=3$, $t=2$를 얻었다.
+      depends_on: [1.M2, 1.B1]
+      steps: [1b-4]
+    - id: 1.A1
+      mark_type: A
+      points: 2
+      evidence: $t=2$에서 $a_1=\cdots=a_{100}=0$이고 $b_1=1$, $b_2=\cdots=b_{100}=0$임을 유도했다.
+      depends_on: [1.M3]
+      steps: [1b-5]
+    - id: 1.A2
+      mark_type: A
+      points: 1
+      evidence: $\displaystyle\sum_{n=1}^{100}(a_n+b_n)=1$.
+      depends_on: [1.M3]
+      cao: true
+      steps: [1b-6]
+    deductions:
+    - code: D1-1
+      condition: 단순한 계산 실수와 같은 사소한 실수(건당)
+      effect: minus
+      value: 1
+    - code: D1-2
+      condition: 타당한 설명 없이 답만 기술
+      effect: zero
+      value: 0
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+remedy_links: []
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

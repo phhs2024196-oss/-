@@ -1,0 +1,148 @@
+# 한국외대 2023학년도 논술전형(자연계) 모의 문제 4 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: HUFS-M23-04
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: numeric
+origin: mock_exam
+school: HUFS
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 추론
+points: 9
+time_estimate_min: 10
+intent: 사차함수의 도함수로 최솟값 후보를 찾고, 모든 실수에서 음이 아닐 조건을 최솟값 조건으로 바꾸어 매개변수의 범위를 구하는 능력을 본다.
+key_idea: '$f^{\prime}(x)=4x^2(x-3c)$이므로 최솟값은 $f(0)$ 또는 $f(3c)$. $f(3c)=-27c^4+3\ge0$에서 $c^4\le\frac19$, 최댓값 $\frac{\sqrt3}{3}$.'
+stuck: '$x=0$은 중근이라 극값이 아니지만 최솟값 후보에 넣어 판정해도 된다는 점과 $f(3c)$ 계산'
+idea_tags: [IDEA-NONNEG-POLY-MIN-CONDITION]
+tags: [사차함수, 부등식이 항상 성립할 조건, 「도입·전개·결론」 채점]
+elements:
+  materials: ['$f(x)=x^4-4cx^3+3$', '모든 실수 $x$에 대해 $f(x)\ge0$']
+  concepts: [도함수의 활용, 함수의 최솟값, 부등식의 증명]
+  tools: [인수분해된 도함수, 최솟값 후보 비교, 사차부등식 $c^4\le\frac19$]
+  conditions:
+  - '모든 $x$에서 $f(x)\ge0$ ⟺ 최솟값 $\ge0$ ⟺ $f(0)\ge0$이고 $f(3c)\ge0$'
+  - '$f(3c)=-27c^4+3$'
+  stimuli_used: []
+  subpart_links: null
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅱ]
+  scope_2028: common
+  scope_confirmed: true
+  standards:
+  - code: 미확인
+    text: 방정식과 부등식에 대한 문제를 해결할 수 있다(도함수의 활용, 요지)
+    verified: false
+  content_area: 미분 – 도함수의 활용
+  behavior_domain: 추론
+  unit_path: [수학Ⅱ, 미분, 도함수의 활용, 부등식이 항상 성립할 조건]
+  key_concepts: [도함수, 최솟값, 사차함수 그래프의 개형]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 한국외국어대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 한국외국어대학교
+  admission_year: 2023
+  admission_type: 논술전형 모의논술
+  track: 자연계
+  question_no: 4
+  official_url: https://adms.hufs.ac.kr/ajaxfile/FileCpnt/fileView.do?gbn=b02&SITE_NO=2&BOARD_SEQ=6&BBS_SEQ=31
+  retrieved_at: 2026-11-21
+  original_points: 9
+  rights_notice: 미확인(입학처 공개 자료)
+  transcribed_from: 2023 논술가이드북 p.89(PDF p.91) — 원본 이미지 대조 2026-11-21
+
+verify: verify/HUFS-M23.py::p04
+
+stimuli: []
+
+stem: |
+  ※ 다음 물음에 답하시오. 답안지에 반드시 풀이과정 또는 증명과정을 제시하시오.
+
+  [문제 4] 사차함수 $f(x)=x^4-4cx^3+3$이 모든 실수 $x$에 대해 $f(x)\ge0$를 만족할 때, 상수 $c$의 최댓값을 구하시오. (9점)
+
+subparts:
+- id: '1'
+  stem: |
+    상수 $c$의 최댓값을 구하시오.
+  points: 9
+  depends_on: []
+  answer: {kind: value, value: 'sqrt(3)/3', equivalents: ['\dfrac{\sqrt3}{3}', '\dfrac{1}{\sqrt3}'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: '최솟값 후보 $f(0)=3$, $f(3c)=-27c^4+3$ → $c^4\le\frac19$ → $c\le\frac{\sqrt3}{3}$.'
+    steps:
+    - {id: 1a, content: '$f(3c)\ge0\iff c^4\le\frac19$, 최댓값 $\frac{\sqrt3}{3}$', criteria: [1.R1, 1.M1, 1.A1]}
+    hint_ladder:
+    - $f^{\prime}(x)$를 인수분해해 보자.
+    - 모든 실수에서 $f(x)\ge0$은 최솟값에 대한 조건으로 바꿀 수 있다.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 2023 논술가이드북 p.92
+    steps:
+    - id: 1b-1
+      content: |
+        사차함수 $f(x)=x^4-4cx^3+3$의 도함수는 $f^{\prime}(x)=4x^3-12cx^2=4x^2(x-3c)$이다. 최고차항의 계수가 양수인 사차함수 그래프의 개형으로부터 함수 $f(x)$는 반드시 $x=0$ 또는 $x=3c$에서 최솟값을 갖게 된다.
+        따라서 모든 실수 $x$에 대해 $f(x)\ge0$가 성립하려면 $f(0)\ge0$이고 $f(3c)\ge0$이어야 한다.
+      criteria: [1.R1]
+    - id: 1b-2
+      content: |
+        한편, $f(0)=3$이고 $f(3c)=81c^4-4c\times27c^3+3=-27c^4+3$이므로 모든 실수 $x$에 대해 $f(x)\ge0$가 성립하려면, $-27c^4+3\ge0$, 즉 $c^4\le\dfrac19$이어야 한다.
+      criteria: [1.M1]
+    - id: 1b-3
+      content: |
+        따라서 상수 $c$가 될 수 있는 최댓값은 $\dfrac{\sqrt3}{3}$이다.
+      criteria: [1.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 1, isw: true}
+    criteria:
+    - id: 1.R1
+      mark_type: R
+      points: 4
+      evidence: (도입) 모든 실수 $x$에 대해 $f(x)\ge0$가 성립하려면 $f(0)\ge0$이고 $f(3c)\ge0$이어야 함을 설명한다.
+      steps: [1b-1]
+    - id: 1.M1
+      mark_type: M
+      points: 3
+      evidence: (전개) $f(0)\ge0$이고 $f(3c)\ge0$인 것은 $c^4\le\dfrac19$라는 것임을 보인다.
+      steps: [1b-2]
+    - id: 1.A1
+      mark_type: A
+      points: 2
+      evidence: (결론) 상수 $c$가 될 수 있는 최댓값은 $\dfrac{\sqrt3}{3}$이라는 결론을 내린다.
+      depends_on: [1.M1]
+      steps: [1b-3]
+    deductions:
+    - code: D1-1
+      condition: 단순한 계산 실수와 같은 사소한 실수(건당)
+      effect: minus
+      value: 1
+    - code: D1-2
+      condition: 타당한 설명이 없이 답만 쓴 경우
+      effect: zero
+      value: 0
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+remedy_links: []
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

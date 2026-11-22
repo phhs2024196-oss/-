@@ -1,0 +1,175 @@
+# 한국외대 2026학년도 논술전형(자연계) 모의 문제 2 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: HUFS-M26-02
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: numeric
+origin: mock_exam
+school: HUFS
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 추론
+points: 12
+time_estimate_min: 12
+intent: 이차방정식의 근과 계수의 관계를 로그의 밑 변환과 결합하여 $\log_ab$, $\log_ba$의 값을 정하고 $a$, $b$의 관계식을 얻는 능력을 본다.
+key_idea: '두 근의 곱 $\log_ab\cdot\log_ba=1=2\log_ba$에서 $\log_ab=2$, 두 근의 합 $\dfrac52=5\log_a\dfrac b2$에서 $b=2a^{\frac12}$. $b=a^2$과 연립해 $a^3=4$, $b^3=16$.'
+stuck: 두 근의 곱이 항상 1임을 이용해 $\log_ba=\dfrac12$를 바로 얻는 단계와, 계수 $\dfrac{5(\log b-\log2)}{\log a}$를 $5\log_a\dfrac b2$로 바꾸는 단계
+idea_tags: [IDEA-VIETA-LOG-RECIPROCAL, IDEA-LOG-BASE-CHANGE]
+tags: [로그, 근과 계수의 관계, 밑 변환]
+elements:
+  materials: ['계수에 로그가 들어 있는 이차방정식', '두 근 $\log_ab$, $\log_ba$']
+  concepts: [이차방정식의 근과 계수의 관계, 로그의 밑 변환 공식, 로그의 성질, 지수법칙]
+  tools: ['$\log_ab\cdot\log_ba=1$', '$\dfrac{\log b-\log2}{\log a}=\log_a\dfrac b2$', '$\log_ab=2\Leftrightarrow b=a^2$']
+  conditions:
+  - '$a>1$, $b>1$ → 로그의 밑·진수 조건 성립, $\log a\ne0$, $\log b\ne0$'
+  - '두 근의 곱 $=\dfrac{2\log a}{\log b}=2\log_ba$'
+  - '두 근의 합 $=5\log_a\dfrac b2$'
+  stimuli_used: []
+  subpart_links: null
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅰ]
+  scope_2028: common
+  scope_confirmed: true
+  standards:
+  - code: 미확인
+    text: 로그의 뜻을 알고, 그 성질을 이해한다(요지)
+    verified: false
+  content_area: 지수함수와 로그함수 – 지수와 로그
+  behavior_domain: 계산
+  unit_path: [수학Ⅰ, 지수함수와 로그함수, 지수와 로그, 로그의 성질과 밑 변환]
+  key_concepts: [로그의 밑 변환, 근과 계수의 관계, 지수법칙]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 한국외국어대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 한국외국어대학교
+  admission_year: 2026
+  admission_type: 논술전형 모의논술
+  track: 자연계
+  question_no: 2
+  official_url: https://adms.hufs.ac.kr/ajaxfile/FileCpnt/fileView.do?gbn=b02&SITE_NO=2&BOARD_SEQ=6&BBS_SEQ=70
+  retrieved_at: 2026-11-21
+  original_points: 12
+  rights_notice: 미확인(입학처 공개 자료)
+  transcribed_from: 「2026학년도 논술가이드북」 05. 모의논술고사 문제 3. 자연계 p.42(PDF p.44), 문항해설·채점기준 p.47(PDF p.49) — 원본 이미지 대조 2026-11-21
+
+verify: verify/HUFS-M26.py::p02
+
+stimuli: []
+
+stem: |
+  [문제 2] 1보다 큰 두 상수 $a$, $b$[판독확인: 원본은 $a$와 $b$ 사이 쉼표가 공백으로 보임]에 대하여 $x$에 대한 이차방정식
+  $$x^2-\frac{5(\log b-\log2)}{\log a}x+\frac{2\log a}{\log b}=0$$
+  의 두 근이 $\log_ab$, $\log_ba$일 때, $a^3+b^3$의 값을 구하시오. (12점)
+
+subparts:
+- id: '1'
+  stem: |
+    $a^3+b^3$의 값을 구하시오.
+  points: 12
+  depends_on: []
+  answer: {kind: value, value: '20', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: 곱 $1=2\log_ba$에서 $\log_ab=2$, 합 $\dfrac52=5\log_a\dfrac b2$에서 $b=2\sqrt a$. $a^2=2\sqrt a$이므로 $a^3=4$, $b^3=a^6=16$, 합 20.
+    steps:
+    - {id: 1a, content: '$\log_ab=2$, $\log_ba=\dfrac12$, $b=a^2=2a^{\frac12}$, $a^3=4$, $b^3=16$, $a^3+b^3=20$', criteria: [1.M1, 1.B1, 1.B2, 1.B3, 1.A1]}
+    hint_ladder:
+    - 두 근 $\log_ab$, $\log_ba$의 곱은 항상 얼마인가?
+    - 두 근의 곱을 이차방정식의 계수로 쓰면?
+    - $\dfrac{\log b-\log2}{\log a}$를 하나의 로그로 쓰면?
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 2026학년도 논술가이드북 p.47(PDF p.49) 문항 해설
+    steps:
+    - id: 1b-1
+      content: |
+        (i) 이차방정식의 근과 계수의 관계로부터
+        $$\log_ab+\log_ba=\frac{5(\log b-\log2)}{\log a}=5\log_a\frac b2\quad\cdots(1)$$
+        $$\log_ab\times\log_ba=\frac{2\log a}{\log b}=2\log_ba\quad\cdots(2)$$
+        이다.
+      criteria: [1.M1]
+    - id: 1b-2
+      content: |
+        (ii) (2)에 의해 $\log_ab=2$이므로 이차방정식의 두 근 $\log_ab$, $\log_ba$는
+        $$\log_ab=2,\quad\log_ba=\frac{1}{\log_ab}=\frac12$$
+        이 된다.
+      criteria: [1.B1]
+    - id: 1b-3
+      content: |
+        따라서 (1)에서 $5\log_a\dfrac b2=2+\dfrac12=\dfrac52$ 즉, $\log_a\dfrac b2=\dfrac12$이므로 $b=2a^{\frac12}$이다. 또한 $\log_ab=2$로부터 $b=a^2$이므로
+        $$b=a^2=2a^{\frac12}\quad\cdots(3)$$
+        이다.
+      criteria: [1.B2]
+    - id: 1b-4
+      content: |
+        (iii) (3)에서 $a^2=2a^{\frac12}$으로부터 $a^4=4a$이므로 $a^3=4$이고, $b=a^2$으로부터 $b^3=a^6=(a^3)^2=16$이다.
+      criteria: [1.B3]
+    - id: 1b-5
+      content: |
+        그러므로 $a^3+b^3=4+16=20$이다.
+      criteria: [1.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 1, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 3
+      evidence: 근과 계수의 관계로 $\log_ab+\log_ba=5\log_a\dfrac b2$, $\log_ab\times\log_ba=2\log_ba$의 두 식을 적었다. (채점기준 도입 3점)
+      steps: [1b-1]
+    - id: 1.B1
+      mark_type: B
+      points: 3
+      evidence: $\log_ab=2$, $\log_ba=\dfrac12$을 구했다.
+      steps: [1b-2]
+    - id: 1.B2
+      mark_type: B
+      points: 3
+      evidence: $b=2a^{\frac12}$과 $b=a^2$에서 관계식 $b=a^2=2a^{\frac12}$을 얻었다. (채점기준 전개 6점 = 3+3)
+      steps: [1b-3]
+    - id: 1.B3
+      mark_type: B
+      points: 2
+      evidence: $a^3=4$, $b^3=16$을 각각 구했다.
+      steps: [1b-4]
+    - id: 1.A1
+      mark_type: A
+      points: 1
+      evidence: $a^3+b^3=20$. (채점기준 결론 3점 = 2+1)
+      depends_on: [1.M1]
+      cao: true
+      steps: [1b-5]
+    deductions:
+    - code: D1-1
+      condition: 단순한 계산 실수와 같은 사소한 실수(건당)
+      effect: minus
+      value: 1
+    - code: D1-2
+      condition: 타당한 설명이 없이 답만 기술
+      effect: zero
+      value: 0
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+remedy_links: []
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

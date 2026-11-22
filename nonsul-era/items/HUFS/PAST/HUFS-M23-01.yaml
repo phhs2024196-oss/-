@@ -1,0 +1,156 @@
+# 한국외대 2023학년도 논술전형(자연계) 모의 문제 1 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: HUFS-M23-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: numeric
+origin: mock_exam
+school: HUFS
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 분류
+points: 9
+time_estimate_min: 8
+intent: 거듭제곱근 중 음의 실수가 존재할 조건을 밑의 부호와 지수의 홀짝으로 나누어 판정하는 능력을 본다.
+key_idea: '$-n^2+7n-10=-(n-2)(n-5)$의 부호로 나누면, 양수이면 $n$이 짝수, 음수이면 $n$이 홀수일 때 음의 $n$제곱근(실수)이 존재한다.'
+stuck: 양수의 짝수 제곱근에도 음의 실수가 있다는 점(±)과, 음수의 홀수 제곱근이 음의 실수라는 점을 함께 고려하는 단계
+idea_tags: [IDEA-NTH-ROOT-SIGN-PARITY]
+tags: [거듭제곱근, 경우 분류, 「도입·전개·결론」 채점]
+elements:
+  materials: ['$-n^2+7n-10$의 $n$제곱근', '$2\le n\le10$인 자연수 $n$']
+  concepts: [거듭제곱근, 실수인 $n$제곱근의 개수, 이차식의 부호]
+  tools: [인수분해, 부호에 따른 경우 분류, 홀짝 판정]
+  conditions:
+  - '$2<n<5$: 밑이 양수 → $n$ 짝수이면 $-\sqrt[n]{\ }$ 존재 → $n=4$'
+  - '$n>5$: 밑이 음수 → $n$ 홀수이면 음의 실근 존재 → $n=7,9$'
+  - '$n=2,5$: 밑이 0 → 해당 없음'
+  stimuli_used: []
+  subpart_links: null
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅰ]
+  scope_2028: common
+  scope_confirmed: true
+  standards:
+  - code: 미확인
+    text: 거듭제곱과 거듭제곱근의 뜻을 알고, 그 성질을 이해한다(요지)
+    verified: false
+  content_area: 지수함수와 로그함수 – 지수와 로그
+  behavior_domain: 이해
+  unit_path: [수학Ⅰ, 지수함수와 로그함수, 지수, 거듭제곱근]
+  key_concepts: [거듭제곱근, 이차식의 부호]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 한국외국어대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 한국외국어대학교
+  admission_year: 2023
+  admission_type: 논술전형 모의논술
+  track: 자연계
+  question_no: 1
+  official_url: https://adms.hufs.ac.kr/ajaxfile/FileCpnt/fileView.do?gbn=b02&SITE_NO=2&BOARD_SEQ=6&BBS_SEQ=31
+  retrieved_at: 2026-11-21
+  original_points: 9
+  rights_notice: 미확인(입학처 공개 자료)
+  transcribed_from: 2023 논술가이드북 p.89(PDF p.91) — 원본 이미지 대조 2026-11-21
+
+verify: verify/HUFS-M23.py::p01
+
+stimuli: []
+
+stem: |
+  ※ 다음 물음에 답하시오. 답안지에 반드시 풀이과정 또는 증명과정을 제시하시오.
+
+  [문제 1] 자연수 $n$이 $2\le n\le10$일 때, $-n^2+7n-10$의 $n$제곱근 중에서 음의 실수가 존재하도록 하는 모든 $n$의 값의 합을 구하시오. (9점)
+
+subparts:
+- id: '1'
+  stem: |
+    조건을 만족시키는 모든 $n$의 값의 합을 구하시오.
+  points: 9
+  depends_on: []
+  answer: {kind: value, value: '20', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: '$-(n-2)(n-5)>0$이면 $n$ 짝수($n=4$), $<0$이면 $n$ 홀수($n=7,9$), 합 $20$.'
+    steps:
+    - {id: 1a, content: '부호로 세 경우 → $n=4,7,9$ → $4+7+9=20$', criteria: [1.M1, 1.M2, 1.A1]}
+    hint_ladder:
+    - $-n^2+7n-10$을 인수분해해 부호를 조사해 보자.
+    - 양수의 $n$제곱근 중 음의 실수는 언제 있는가? 음수일 때는?
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 2023 논술가이드북 p.91
+    steps:
+    - id: 1b-1
+      content: |
+        $-n^2+7n-10=-(n-2)(n-5)$의 부호에 따라 세 가지 경우로 나눌 수 있다.
+      criteria: [1.M1]
+    - id: 1b-2
+      content: |
+        경우 1. $-n^2+7n-10>0$인 경우, 즉, $2<n<5$일 때를 생각하자. 이 경우 $-n^2+7n-10$의 $n$제곱근 중에서 음의 실수가 존재하려면 $n$은 짝수여야 한다. 게다가 조건 $2\le n\le10$가 성립하므로 이 경우 가능한 $n$은 $4$ 하나이다.
+      criteria: [1.M2]
+    - id: 1b-3
+      content: |
+        경우 2. $-n^2+7n-10<0$인 경우, 즉, $n<2$이거나 $n>5$일 때를 생각하자. 이 경우 $-n^2+7n-10$의 $n$제곱근 중에서 음의 실수가 존재하려면 $n$은 홀수여야 한다. 게다가 조건 $2\le n\le10$가 성립하므로 이 경우 가능한 $n$은 $7$과 $9$ 두 개이다.
+      criteria: [1.M2]
+    - id: 1b-4
+      content: |
+        경우 3. $-n^2+7n-10=0$인 경우는 해당 사항이 없다.
+      criteria: [1.M2]
+    - id: 1b-5
+      content: |
+        따라서 $-n^2+7n-10$의 $n$제곱근 중에서 음의 실수가 존재하도록 하는 모든 $n$의 합은 $4+7+9=20$이다.
+      criteria: [1.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 1, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 2
+      evidence: (도입) $-n^2+7n-10$의 부호에 따라 세 가지 경우로 나눈다.
+      steps: [1b-1]
+    - id: 1.M2
+      mark_type: M
+      points: 6
+      evidence: (전개) 각 경우에 있어 $-n^2+7n-10$의 $n$제곱근 중에서 음의 실수가 존재하도록 하는 $n$을 찾는다.
+      steps: [1b-2, 1b-3, 1b-4]
+    - id: 1.A1
+      mark_type: A
+      points: 1
+      evidence: (결론) 모든 가능한 $n$의 합을 구한다.
+      depends_on: [1.M2]
+      steps: [1b-5]
+    deductions:
+    - code: D1-1
+      condition: 단순한 계산 실수와 같은 사소한 실수(건당)
+      effect: minus
+      value: 1
+    - code: D1-2
+      condition: 타당한 설명이 없이 답만 쓴 경우
+      effect: zero
+      value: 0
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+remedy_links: []
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

@@ -1,0 +1,200 @@
+# 한국외대 2026학년도 논술전형(자연계) 문제 5 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: HUFS-G26-05
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: numeric
+origin: past_exam
+school: HUFS
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 분류
+points: 16
+time_estimate_min: 20
+intent: |
+  극한값의 존재·부호 조건과 무한대에서의 극한 조건으로 다항함수의 인수와 차수·최고차항을 결정하고, 남은 이차식의 근의 위치를 최고차항 계수의 부호로 나누어 정수 조건과 결합하는 능력을 본다.
+key_idea: |
+  $f(x)=(x+1)(x-2)Q(x)$, $Q$는 최고차항 계수 $\pm1$인 이차식이고 $Q(-1)<0<Q(2)$. 계수 $1$이면 $\alpha<-1<\beta<2$로 $\alpha+\beta=3$인 정수 없음, 계수 $-1$이면 $-1<\alpha<2<\beta$에서 $\alpha=0$, $\beta=3$. 실근 $-1,0,2,3$의 곱은 $0$.
+stuck: |
+  $\lvert f(x)\rvert$의 극한에서 최고차항 계수가 $-1$일 수도 있음을 놓치지 않고, $Q(-1)<0<Q(2)$로부터 근의 위치를 계수의 부호별로 나누는 단계
+idea_tags: [IDEA-LIMIT-EXISTS-FACTOR, IDEA-IVT-ROOT-LOCATION-SIGN-SPLIT]
+tags: [함수의 극한, 다항함수의 결정, 정수근, '행동영역 원문: 이해능력, 추론능력', '교과서: 수학Ⅱ 금성출판사(배종숙 외, 2022) p.24, 25']
+elements:
+  materials:
+  - '다항함수 $f(x)$'
+  - '$\lim_{x\to-1}\dfrac{f(x)}{x+1}>0$, $\lim_{x\to2}\dfrac{f(x)}{x-2}>0$'
+  - '$\lim_{x\to\infty}\dfrac{\lvert f(x)\rvert}{x^4}=1$'
+  - '모든 실근이 정수, 실근의 합 $4$'
+  concepts:
+  - 함수의 극한의 뜻과 성질
+  - 다항함수의 인수정리
+  - 이차함수의 그래프와 근의 위치
+  tools:
+  - '극한값 존재 → 분자 $\to0$ → $f(-1)=f(2)=0$'
+  - '$\lvert f\rvert/x^4\to1$ → 사차, 최고차항 계수 $\pm1$'
+  - '$Q(-1)<0<Q(2)$ → 최고차항 계수 부호별 근의 위치'
+  conditions:
+  - '(가)(나) 극한값이 양수 → $-3Q(-1)>0$, $3Q(2)>0$'
+  - '(다) 절댓값 → 최고차항 계수 $1$ 또는 $-1$ 두 경우'
+  - '실근이 정수이고 합 $4$ → $\alpha+\beta=3$'
+  stimuli_used: [조건]
+  subpart_links: null
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅱ]
+  scope_2028: common
+  scope_confirmed: true
+  standards:
+  - code: '[12수학Ⅱ01-01]'
+    text: 함수의 극한의 뜻을 안다.
+    verified: true
+  - code: '[12수학Ⅱ01-02]'
+    text: 함수의 극한에 대한 성질을 이해하고, 함수의 극한값을 구할 수 있다.
+    verified: true
+  content_area: 함수의 극한
+  behavior_domain: 추론
+  unit_path: [수학Ⅱ, 함수의 극한과 연속, 함수의 극한, 극한 조건으로 다항함수 결정]
+  key_concepts: [함수의 극한, 인수정리, 근의 위치]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 한국외국어대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  inspired_by: 수학Ⅱ 금성출판사(배종숙 외, 2022) p.24·25 제시문(재구성)
+  institution: 한국외국어대학교
+  admission_year: 2026
+  admission_type: 논술전형
+  track: 자연계
+  question_no: 5
+  official_url: https://adms.hufs.ac.kr/cms/FrBbsCon/BoardView.do?MENU_ID=50&CONTENTS_NO=1&SITE_NO=2&BOARD_SEQ=1&BBS_SEQ=20716
+  retrieved_at: 2026-11-21
+  original_points: 16
+  rights_notice: 미확인(입학처 공개 자료)
+  transcribed_from: 2026학년도 선행학습 영향평가 자체평가보고서 문항카드 5 p.171~172(PDF p.173~174) — 원본 이미지 대조 2026-11-21, 2027 논술가이드북 p.53(PDF p.55) 문제지 대조
+
+verify: verify/HUFS-G26.py::p05
+
+stimuli:
+- label: 조건
+  body: |
+    (가) 극한값 $\displaystyle\lim_{x\to-1}\dfrac{f(x)}{x+1}$가 존재하고, 그 값은 양수이다.
+
+    (나) 극한값 $\displaystyle\lim_{x\to2}\dfrac{f(x)}{x-2}$가 존재하고, 그 값은 양수이다.
+
+    (다) $\displaystyle\lim_{x\to\infty}\dfrac{\lvert f(x)\rvert}{x^4}=1$
+
+stem: |
+  다항함수 $f(x)$가 다음 조건을 만족시킨다.
+
+  [조건 (가)~(다)]
+
+  방정식 $f(x)=0$의 모든 실근이 정수이고 모든 실근의 합이 $4$일 때, 모든 실근의 곱을 구하시오. (16점)
+
+subparts:
+- id: '1'
+  stem: |
+    방정식 $f(x)=0$의 모든 실근의 곱을 구하시오.
+  points: 16
+  depends_on: []
+  answer: {kind: value, value: '0', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $f(x)=(x+1)(x-2)Q(x)$, $Q(-1)<0<Q(2)$에서 $Q$의 최고차항 계수 부호로 근의 위치를 나눈다.
+    steps:
+    - {id: 1a, content: '계수 $1$: $\alpha<-1<\beta<2$ 불가, 계수 $-1$: $-1<\alpha<2<\beta$, $\alpha+\beta=3$ → $\alpha=0$, $\beta=3$, 곱 $0$', criteria: [1.M1, 1.R1, 1.M2, 1.A1]}
+    hint_ladder:
+    - 극한값이 존재하려면 $f(-1)$, $f(2)$는 얼마여야 하는가?
+    - 조건 (다)에서 $f$의 차수와 최고차항의 계수는?
+    - $Q(-1)$, $Q(2)$의 부호는 $Q$의 근의 위치에 대해 무엇을 알려 주는가?
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 2026학년도 선행학습 영향평가 자체평가보고서 p.172 문항 해설(i)~(iv)
+    steps:
+    - id: 1b-1
+      content: |
+        (i) 조건 (가)에 의해 $f(-1)=0$이고, 조건 (나)에 의해 $f(2)=0$이다. 또한 조건 (다)에 의해 $f(x)$는 최고차항의 계수가 $1$ 또는 $-1$인 사차함수이다.
+        따라서 $f(x)$를
+        $$f(x)=(x+1)(x-2)Q(x)\ \cdots(1)$$
+        라 두면 $Q(x)$는 최고차항의 계수가 $1$ 또는 $-1$인 이차함수이다. (5점)
+      criteria: [1.M1]
+    - id: 1b-2
+      content: |
+        (ii) 조건 (가)에 의해 $\displaystyle\lim_{x\to-1}\dfrac{f(x)}{x+1}=\lim_{x\to-1}(x-2)Q(x)=-3Q(-1)>0$이고, 조건 (나)에 의해 $\displaystyle\lim_{x\to2}\dfrac{f(x)}{x-2}=\lim_{x\to2}(x+1)Q(x)=3Q(2)>0$이므로,
+        $$Q(-1)<0,\quad Q(2)>0\ \cdots(2)$$
+        이다. (3점)
+      criteria: [1.R1]
+    - id: 1b-3
+      content: |
+        (iii) 방정식 $Q(x)=0$은 (2)에 의해 서로 다른 두 실근 $\alpha$, $\beta$ $(\alpha<\beta)$를 가진다. (1)에 의해 방정식 $f(x)=0$의 실근은 $-1$, $2$, $\alpha$, $\beta$이고, 모든 실근의 합이 $4$이므로
+        $$\alpha+\beta=3\ (\text{단, }\alpha,\ \beta\text{는 정수})\ \cdots(3)$$
+        이어야 한다. (3점)
+      criteria: [1.M2]
+    - id: 1b-4
+      content: |
+        (iv) 이차함수 $Q(x)$의 최고차항의 계수가 $1$ 또는 $-1$인지에 따라 (2)와 (3)을 만족하는 $\alpha$, $\beta$를 구해보자.
+        $Q(x)$의 최고차항의 계수가 $1$인 경우, (2)에 의해 $\alpha<-1<\beta<2$이고, 이때 (3)을 만족하는 정수 $\alpha$, $\beta$는 존재하지 않는다.
+        $Q(x)$의 최고차항의 계수가 $-1$인 경우, (2)에 의해 $-1<\alpha<2<\beta$이고, 이때 (3)을 만족하는 정수 $\alpha$, $\beta$는 $\alpha=0$, $\beta=3$이다.
+        따라서 방정식 $f(x)=0$의 모든 실근은 $-1$, $0$, $2$, $3$이고, 이들의 곱은 $0$이다. (5점)
+      criteria: [1.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 1, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 5
+      evidence: |
+        조건 (가), (나), (다)에 의해 $f(x)=(x+1)(x-2)Q(x)$ ($Q$는 최고차항의 계수가 $\pm1$인 이차함수)로 나타냈다(채점기준 도입).
+      steps: [1b-1]
+    - id: 1.R1
+      mark_type: R
+      points: 3
+      evidence: |
+        조건 (가), (나)의 극한값을 계산해 $Q(-1)<0$, $Q(2)>0$임을 설명했다(채점기준 전개).
+      depends_on: [1.M1]
+      steps: [1b-2]
+    - id: 1.M2
+      mark_type: M
+      points: 3
+      evidence: |
+        $Q(x)=0$의 두 실근 $\alpha$, $\beta$에 대해 실근의 합 조건에서 $\alpha+\beta=3$을 세웠다(채점기준 결론 8점 중 3점, 해설 (iii)).
+      depends_on: [1.R1]
+      steps: [1b-3]
+    - id: 1.A1
+      mark_type: A
+      points: 5
+      evidence: |
+        최고차항의 계수가 $1$, $-1$인 두 경우를 나누어 $\alpha=0$, $\beta=3$을 찾고 모든 실근의 곱 $0$을 구했다(채점기준 결론 8점 중 5점, 해설 (iv)).
+      depends_on: [1.M2]
+      steps: [1b-4]
+    deductions:
+    - code: D1-1
+      condition: 단순한 계산 실수와 같은 사소한 실수(건당)
+      effect: minus
+      value: 1
+    - code: D1-2
+      condition: 타당한 설명 없이 답만 기술
+      effect: zero
+      value: 0
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+remedy_links: []
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

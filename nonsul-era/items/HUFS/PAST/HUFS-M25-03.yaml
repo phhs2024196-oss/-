@@ -1,0 +1,176 @@
+# 한국외대 2025학년도 논술전형(자연계) 모의 문제 3 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: HUFS-M25-03
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: numeric
+origin: mock_exam
+school: HUFS
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 최적2단
+points: 13
+time_estimate_min: 12
+intent: |
+  지름에 대한 원주각이 직각임을 이용해 두 변수를 한 변수로 줄이고, 그 변수의 범위에서 사차함수의 최솟값을 미분으로 구하는 능력을 본다.
+key_idea: |
+  $\angle\mathrm{ACB}=90^\circ$이므로 $a^2+b^2=4$. 식은 $b^4+2b^3-b^2-8b+4$ ($0\le b\le2$)가 되고 $f'(x)=2(x-1)(2x^2+5x+4)$에서 $x=1$일 때 최솟값 $-2$.
+stuck: |
+  $a^2=4-b^2$로 소거한 뒤 $b$의 범위 $0\le b\le2$를 잡고, 점 C가 A 또는 B와 일치할 때도 식이 성립함을 확인하는 단계
+idea_tags: [IDEA-THALES-RIGHT-ANGLE, IDEA-ONE-VAR-REDUCTION-OPTIMIZE]
+tags: [원주각, 사차함수의 최솟값, '원문 단계: 도입5·전개7·결론1']
+elements:
+  materials: ['단위원 위의 점 $\mathrm{C}$', '$\mathrm{A}(-1,0)$, $\mathrm{B}(1,0)$', '$b^4-2ba^2+a^2$']
+  concepts: [지름에 대한 원주각, 피타고라스 정리, 도함수를 이용한 최댓값·최솟값]
+  tools: ['$a^2=4-b^2$ 대입', '도함수 인수분해', '사차함수 그래프 개형']
+  conditions:
+  - 'C가 A, B와 다를 때 직각삼각형 → $a^2+b^2=4$, C=A 또는 C=B일 때도 성립'
+  - '$b$의 범위 $0\le b\le2$'
+  stimuli_used: []
+  subpart_links: null
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅱ]
+  scope_2028: common
+  scope_confirmed: true
+  standards:
+  - code: 미확인
+    text: 함수의 그래프의 개형을 그릴 수 있고 최댓값과 최솟값을 구할 수 있다(요지, 가이드북에 문항카드 없음)
+    verified: false
+  content_area: 미분 – 도함수의 활용
+  behavior_domain: 문제해결
+  unit_path: [수학Ⅱ, 미분, 도함수의 활용, 닫힌구간에서 최솟값]
+  key_concepts: [원주각, 피타고라스 정리, 최솟값]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 한국외국어대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 한국외국어대학교
+  admission_year: 2025
+  admission_type: 논술전형 모의논술
+  track: 자연계
+  question_no: 3
+  official_url: https://adms.hufs.ac.kr/ajaxfile/FileCpnt/fileView.do?gbn=b02&SITE_NO=2&BOARD_SEQ=6&BBS_SEQ=57
+  retrieved_at: 2026-11-21
+  original_points: 13
+  rights_notice: 미확인(입학처 공개 자료)
+  transcribed_from: 2025학년도 논술가이드북 「3. 자연계」 문제지 p.42(PDF p.23), 해설 p.46(PDF p.25), 채점 기준 p.50(PDF p.27) — 원본 이미지 대조 2026-11-21
+
+verify: verify/HUFS-M25.py::p03
+
+stimuli: []
+
+stem: |
+  원점을 중심으로 하고 반지름의 길이가 $1$인 원 위에 두 점 $\mathrm{A}(-1,0)$, $\mathrm{B}(1,0)$이 있다. 이 원 위를 움직이는 점 $\mathrm{C}$에 대하여 두 점 $\mathrm{A}$, $\mathrm{C}$사이의 거리를 $b$라고 하고, 두 점 $\mathrm{B}$, $\mathrm{C}$사이의 거리를 $a$라고 하자. 이때 $b^4-2ba^2+a^2$의 최솟값을 구하시오. (13점)
+
+subparts:
+- id: '1'
+  stem: |
+    $b^4-2ba^2+a^2$의 최솟값을 구하시오.
+  points: 13
+  depends_on: []
+  answer: {kind: value, value: '-2', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $a^2+b^2=4$로 소거하면 $f(b)=b^4+2b^3-b^2-8b+4$ ($0\le b\le2$), $f'(x)=2(x-1)(2x^2+5x+4)$이므로 최솟값 $f(1)=-2$.
+    steps:
+    - {id: 1a, content: '$f(1)=1+2-1-8+4=-2$', criteria: [1.B1, 1.R1, 1.B2, 1.M1, 1.R2, 1.A1]}
+    hint_ladder:
+    - 선분 AB는 원의 지름이다. $\angle\mathrm{ACB}$는?
+    - $a^2$을 $b$로 나타내면 식은 $b$만의 함수가 된다. $b$의 범위는?
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 2025학년도 논술가이드북 p.46
+    steps:
+    - id: 1b-1
+      content: |
+        점 $\mathrm{C}$가 두 점 $\mathrm{A}$, $\mathrm{B}$와 다를 때 삼각형 $\mathrm{ACB}$는 직각삼각형이므로 피타고라스 정리에 의해 $b^2+a^2=4$가 된다. (2점)
+      criteria: [1.B1]
+    - id: 1b-2
+      content: |
+        이 식은 점 $\mathrm{C}$가 점 $\mathrm{A}$ 또는 점 $\mathrm{B}$와 일치할 때도 성립한다. (1점)
+      criteria: [1.R1]
+    - id: 1b-3
+      content: |
+        따라서 $b^4-2ba^2+a^2=b^4+(-2b+1)(4-b^2)=b^4+2b^3-b^2-8b+4$이다. 여기서 $b$의 범위는 $0\le b\le2$이다. (2점)
+      criteria: [1.B2]
+    - id: 1b-4
+      content: |
+        함수 $f(x)=x^4+2x^3-x^2-8x+4$의 도함수는 $f'(x)=4x^3+6x^2-2x-8=2(x-1)(2x^2+5x+4)$이고, $f'(x)=0$을 만족하는 실수 $x$는 $x=1$뿐이다. (4점)
+      criteria: [1.M1]
+    - id: 1b-5
+      content: |
+        최고차항의 계수가 양수인 사차함수의 그래프의 개형을 고려해 볼 때 함수 $f(x)$는 $x=1$에서 최솟값 $f(1)=-2$를 갖는다. (3점)
+      criteria: [1.R2]
+    - id: 1b-6
+      content: |
+        $b$의 범위는 $0\le b\le2$이므로 $b^4-2ba^2+a^2$의 최솟값은 $f(x)$의 최솟값과 같은 $-2$이다. (1점)
+      criteria: [1.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 1, isw: true}
+    criteria:
+    - id: 1.B1
+      mark_type: B
+      points: 2
+      evidence: 직각삼각형과 피타고라스 정리로 $a^2+b^2=4$를 얻었다.
+      steps: [1b-1]
+    - id: 1.R1
+      mark_type: R
+      points: 1
+      evidence: C가 A 또는 B와 일치할 때도 $a^2+b^2=4$가 성립함을 언급했다.
+      steps: [1b-2]
+    - id: 1.B2
+      mark_type: B
+      points: 2
+      evidence: 식을 $b^4+2b^3-b^2-8b+4$로 바꾸고 $0\le b\le2$를 적었다.
+      steps: [1b-3]
+    - id: 1.M1
+      mark_type: M
+      points: 4
+      evidence: $f'(x)=2(x-1)(2x^2+5x+4)$를 구하고 $f'(x)=0$의 실근이 $x=1$뿐임을 밝혔다.
+      steps: [1b-4]
+    - id: 1.R2
+      mark_type: R
+      points: 3
+      evidence: 그래프 개형(증감)으로 $x=1$에서 최솟값 $f(1)=-2$임을 판단했다.
+      steps: [1b-5]
+    - id: 1.A1
+      mark_type: A
+      points: 1
+      evidence: $1$이 $b$의 범위 안에 있으므로 구하는 최솟값이 $-2$라고 결론지었다.
+      depends_on: [1.M1]
+      cao: true
+      steps: [1b-6]
+    deductions:
+    - code: D1-1
+      condition: 단순한 계산 실수 등 사소한 실수(채점 유의사항 2)
+      effect: minus
+      value: 1
+    - code: D1-2
+      condition: 타당한 설명 없이 답만 기술(채점 유의사항 3)
+      effect: zero
+      value: 0
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+remedy_links: []
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

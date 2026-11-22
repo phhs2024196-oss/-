@@ -1,0 +1,203 @@
+# 한국외대 2024학년도 논술전형(자연계) 문제 4 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: HUFS-G24-04
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: numeric
+origin: past_exam
+school: HUFS
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 최적2단
+points: 14
+time_estimate_min: 20
+intent: |
+  부호 조건으로 삼차함수의 미정 근의 범위를 정하고, 근의 위치에 따라 경우를 나누어 정적분으로 넓이를 구한 뒤, 넓이를 매개변수의 사차함수로 보고 미분해 최솟값을 구하는 능력을 본다.
+key_idea: |
+  $f(x)=12x(x-2)(x-\alpha)$, $0\le\alpha\le2$. $\alpha=0,2$이면 넓이 $16$, $0<\alpha<2$이면 $S=-2\alpha^4+8\alpha^3-16\alpha+16$이고 $S'=-8(\alpha-1)(\alpha^2-2\alpha-2)$에서 $\alpha=1$일 때 최솟값 $6$.
+stuck: |
+  넓이를 $\alpha$의 사차함수로 정리한 뒤 구간 $(0,2)$에서 극값을 판정하는 두 번째 최적화 단계
+idea_tags: [IDEA-AREA-AS-PARAM-FUNCTION, IDEA-SIGN-CONDITION-ROOT-RANGE]
+tags: [정적분과 넓이, 넓이의 최솟값, 삼차함수, '행동영역(원문): 계산능력, 추론능력', '채점기준(원문): 도입 2 / 전개 11 / 결론 1', '채점 유의: 그래프는 그리지 않아도 됨']
+elements:
+  materials:
+  - '최고차항의 계수 12, $f(0)=f(2)=0$인 삼차함수'
+  - '부호 조건 $x<0\Rightarrow f(x)<0$, $x>2\Rightarrow f(x)>0$'
+  - '넓이를 나타내는 $\alpha$의 사차함수 $g(\alpha)=-2\alpha^4+8\alpha^3-16\alpha+16$'
+  concepts:
+  - '인수정리'
+  - '곡선과 $x$축 사이의 넓이'
+  - '다항함수의 정적분'
+  - '도함수를 이용한 최댓값·최솟값'
+  tools:
+  - '근의 위치에 따른 경우 나누기($\alpha=0$, $\alpha=2$, $0<\alpha<2$)'
+  - '부호가 바뀌는 점에서 적분 구간 나누기'
+  - '$g''(x)=-8(x-1)(x^2-2x-2)$ 인수분해'
+  conditions:
+  - '(가)(나) → $f(x)=12x(x-2)(x-\alpha)$'
+  - '(다)(라) → $0\le\alpha\le2$'
+  - '$\alpha=0$ 또는 $2$: 중근, 넓이 $16$'
+  - '$0<\alpha<2$: $(0,\alpha)$에서 $f>0$, $(\alpha,2)$에서 $f<0$'
+  stimuli_used: []
+  subpart_links: null
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅱ]
+  scope_2028: common
+  scope_confirmed: true
+  standards:
+  - code: '[12수학Ⅱ03-04]'
+    text: 다항함수의 정적분을 구할 수 있다.
+    verified: true
+  - code: '[12수학Ⅱ03-05]'
+    text: 곡선으로 둘러싸인 도형의 넓이를 구할 수 있다.
+    verified: true
+  content_area: 정적분의 활용
+  behavior_domain: 추론
+  unit_path: [수학Ⅱ, 적분, 정적분의 활용, 넓이의 최솟값]
+  key_concepts: [곡선과 x축 사이의 넓이, 다항함수의 정적분, 사차함수의 최솟값]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 한국외국어대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  inspired_by: 수학Ⅱ(류희찬 외, 천재교과서, 2018) p.133 제시문 재구성
+  institution: 한국외국어대학교
+  admission_year: 2024
+  admission_type: 논술전형
+  track: 자연계
+  question_no: 4
+  official_url: https://adms.hufs.ac.kr/cms/FrBbsCon/BoardView.do?MENU_ID=50&CONTENTS_NO=1&SITE_NO=2&BOARD_SEQ=1&BBS_SEQ=20688
+  retrieved_at: 2026-11-21
+  original_points: 14
+  rights_notice: 미확인(입학처 공개 자료)
+  transcribed_from: 2024학년도 선행학습 영향평가 자체평가보고서 문항카드 5 p.135~137(PDF p.137~139) — 원본 이미지 대조 2026-11-21
+
+verify: verify/HUFS-G24.py::p04
+
+stimuli: []
+
+stem: |
+  삼차함수 $f(x)$가 다음 조건을 만족시킬 때, $f(x)$의 그래프와 $x$축으로 둘러싸인 도형의 넓이의 최솟값을 구하시오.
+
+  (가) $f(x)$의 최고차항의 계수는 $12$이다.
+
+  (나) $f(0)=f(2)=0$
+
+  (다) $x<0$이면 $f(x)<0$
+
+  (라) $x>2$이면 $f(x)>0$
+
+subparts:
+- id: '1'
+  stem: |
+    $f(x)$의 그래프와 $x$축으로 둘러싸인 도형의 넓이의 최솟값을 구하시오.
+  points: 14
+  depends_on: []
+  answer: {kind: value, value: '6', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $f(x)=12x(x-2)(x-\alpha)$, $0\le\alpha\le2$. 양 끝 $\alpha=0,2$에서 넓이 $16$, $0<\alpha<2$에서 $S(\alpha)=-2\alpha^4+8\alpha^3-16\alpha+16$의 최솟값 $S(1)=6$.
+    steps:
+    - {id: 1a, content: '$S(\alpha)=-2\alpha^4+8\alpha^3-16\alpha+16$, $S''(\alpha)=-8(\alpha-1)(\alpha^2-2\alpha-2)$, $S(1)=6<16$', criteria: [1.B1, 1.M1, 1.M2, 1.M3, 1.A1]}
+    hint_ladder:
+    - 세 번째 근을 $\alpha$로 두면 (다)(라)에서 $\alpha$의 범위는?
+    - $0<\alpha<2$일 때 $f$의 부호는 어느 구간에서 바뀌는가?
+    - 넓이를 $\alpha$에 대한 함수로 보고 미분하자.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 2024학년도 선행학습 영향평가 자체평가보고서 p.135~136(PDF p.137~138) 문항 해설 (i)~(iv)
+    steps:
+    - id: 1b-1
+      content: |
+        (i) 조건 (가)와 (나)에 의해 삼차함수 $f(x)$는 다음과 같다.
+        $$f(x)=12x(x-2)(x-\alpha)=12\{x^3-(2+\alpha)x^2+2\alpha x\}\quad(\text{단, }\alpha\text{는 상수})$$
+        게다가 조건 (다)와 (라)에 의해 $0\le\alpha\le2$임을 알 수 있다. (2점)
+
+        함수 $f(x)$의 그래프의 개형은 아래와 같다. [그림] (해설 그림 3개: $\alpha=0$일 때 원점에서 $x$축에 접하고 $0<x<2$에서 $x$축 아래로 내려갔다가 $x=2$에서 올라가는 곡선, $\alpha=2$일 때 $0<x<2$에서 $x$축 위로 올라갔다가 $x=2$에서 $x$축에 접하는 곡선, $0<\alpha<2$일 때 $(0,\alpha)$에서 $x$축 위, $(\alpha,2)$에서 $x$축 아래에 있는 곡선. 둘러싸인 부분은 음영 표시)
+      criteria: [1.B1]
+    - id: 1b-2
+      content: |
+        (ii) 함수 $f(x)$의 그래프와 $x$축으로 둘러싸인 도형의 넓이를 $S$라고 하자. $\alpha=0$인 경우
+        $$S=-\int_0^2f(x)\,dx=-\int_0^2 12(x^3-2x^2)\,dx=-\left[3x^4-8x^3\right]_0^2=16$$
+        이고, $\alpha=2$인 경우
+        $$S=\int_0^2f(x)\,dx=\int_0^2 12(x^3-4x^2+4x)\,dx=\left[3x^4-16x^3+24x^2\right]_0^2=16$$
+        이다. (2점)
+      criteria: [1.M1]
+    - id: 1b-3
+      content: |
+        $0<\alpha<2$인 경우
+        $$\begin{aligned}S&=\int_0^\alpha f(x)\,dx-\int_\alpha^2 f(x)\,dx\\&=\int_0^\alpha 12\{x^3-(2+\alpha)x^2+2\alpha x\}\,dx-\int_\alpha^2 12\{x^3-(2+\alpha)x^2+2\alpha x\}\,dx\\&=\left[3x^4-4(2+\alpha)x^3+12\alpha x^2\right]_0^\alpha-\left[3x^4-4(2+\alpha)x^3+12\alpha x^2\right]_\alpha^2\\&=-2\alpha^4+8\alpha^3-16\alpha+16\end{aligned}$$
+        이다. (4점)
+      criteria: [1.M2]
+    - id: 1b-4
+      content: |
+        (iii) 함수 $g(x)=-2x^4+8x^3-16x+16$을 미분하면
+        $$g'(x)=-8x^3+24x^2-16=-8(x-1)(x^2-2x-2)$$
+        이므로 $g'(x)=0$을 만족하는 $x$는 $x=1,\ 1+\sqrt3,\ 1-\sqrt3$이다. 따라서 사차함수 $g(x)$는 총 세 개의 극값을 갖는다. 또한 최고차항의 계수가 음수인 사차함수 그래프의 개형을 고려해 볼 때 $0<x<2$의 범위에서 $g(x)$의 최솟값은 $x=1$일 때 $g(1)=6$이다. (5점)
+
+        [그림] (해설 그림: $x=1-\sqrt3$, $1+\sqrt3$에서 극대, $x=1$에서 극소값 $6$을 갖는 $y=g(x)$의 그래프)
+      criteria: [1.M3]
+    - id: 1b-5
+      content: |
+        (iv) 따라서 $0<\alpha<2$인 경우 $S$는 $\alpha=1$일 때 최솟값 $6$을 가지게 되고, 과정 (ii)에 의해 $f(x)$의 그래프와 $x$축으로 둘러싸인 도형의 넓이의 최솟값은 $6$이다. (1점)
+      criteria: [1.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 1, isw: true}
+    criteria:
+    - id: 1.B1
+      mark_type: B
+      points: 2
+      evidence: $f(x)=12x(x-2)(x-\alpha)$ ($0\le\alpha\le2$)임을 적었다.
+      steps: [1b-1]
+    - id: 1.M1
+      mark_type: M
+      points: 2
+      evidence: $\alpha=0$, $\alpha=2$인 경우 넓이가 각각 $16$임을 정적분으로 구했다.
+      steps: [1b-2]
+    - id: 1.M2
+      mark_type: M
+      points: 4
+      evidence: $0<\alpha<2$인 경우 $S=\int_0^\alpha f(x)\,dx-\int_\alpha^2 f(x)\,dx=-2\alpha^4+8\alpha^3-16\alpha+16$을 구했다.
+      steps: [1b-3]
+    - id: 1.M3
+      mark_type: M
+      points: 5
+      evidence: $g'(x)=-8(x-1)(x^2-2x-2)$에서 $0<x<2$의 최솟값이 $g(1)=6$임을 근거와 함께 구했다.
+      depends_on: [1.M2]
+      steps: [1b-4]
+    - id: 1.A1
+      mark_type: A
+      points: 1
+      evidence: 경우 (ii)의 $16$과 비교해 넓이의 최솟값이 $6$이라고 결론 내렸다.
+      depends_on: [1.M1, 1.M3]
+      cao: true
+      steps: [1b-5]
+    deductions:
+    - code: D1-1
+      condition: 타당한 설명 없이 답만 기술
+      effect: zero
+      value: 0
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+remedy_links: []
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

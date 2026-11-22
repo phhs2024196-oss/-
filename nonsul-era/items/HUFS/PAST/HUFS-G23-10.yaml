@@ -1,0 +1,164 @@
+# 한국외대 2023학년도 논술전형(자연계) 문제 10 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: HUFS-G23-10
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: proof
+origin: past_exam
+school: HUFS
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 귀납구조
+points: 12
+time_estimate_min: 15
+intent: 귀납적으로 정의된 수열에서 $a_{k+1}^2+2$를 $a_k^2+2=3^kb$로 다시 써서 $3^{k+1}$의 배수임을 보이는 수학적 귀납법 증명 능력을 본다.
+key_idea: '$a_{k+1}^2+2=a_k^2(a_k^2+3)^2+2=(3^kb-2)(3^kb+1)^2+2=3^{k+1}(3^{2k-1}b^3-b)$.'
+stuck: '$a_{k+1}^2+2$를 $a_k^2$만의 식으로 쓰고 $a_k^2=3^kb-2$를 대입해 전개하면 $3^{k+1}$이 묶여 나오는 단계'
+idea_tags: [IDEA-INDUCTION-DIVISIBILITY-SUBSTITUTE, IDEA-RECURSIVE-SEQUENCE-SQUARE]
+tags: [수학적 귀납법, 귀납적으로 정의된 수열, 배수 증명, '행동영역(원문): 추론능력, 문제해결능력', '교과서 출처: 수학Ⅰ(고성은 외, 좋은책신사고, 2021) p.152 문항 재구성', '채점 유의: 수학적 귀납법이 아닌 다른 증명은 인정하지 않음, 해설 (iv)는 쓰지 않아도 됨', '문항카드 정답란: 문항 해설 참고']
+elements:
+  materials: ['$a_1=1$, $a_{n+1}=a_n^3+3a_n$', '$a_n^2+2$가 $3^n$의 배수']
+  concepts: [수열의 귀납적 정의, 수학적 귀납법, 배수]
+  tools: ['$a_{k+1}^2=a_k^2(a_k^2+3)^2$', '귀납 가정 $a_k^2+2=3^kb$ 대입 후 전개', '$3^{k+1}$로 묶기']
+  conditions:
+  - '「수학적 귀납법으로」 → $n=1$ 확인 + $n=k$ 가정에서 $n=k+1$ 유도'
+  - '$3^{2k-1}b^3-b=b(3^{2k-1}b^2-1)$이 정수(자연수)임을 밝혀야 배수 결론'
+  stimuli_used: []
+  subpart_links: null
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅰ]
+  scope_2028: common
+  scope_confirmed: true
+  standards:
+  - code: '[12수학Ⅰ03-06]'
+    text: 수열의 귀납적 정의를 이해한다.
+    verified: true
+  - code: '[12수학Ⅰ03-07]'
+    text: 수학적 귀납법의 원리를 이해한다.
+    verified: true
+  - code: '[12수학Ⅰ03-08]'
+    text: 수학적 귀납법을 이용하여 명제를 증명할 수 있다.
+    verified: true
+  content_area: 수열
+  behavior_domain: 추론
+  unit_path: [수학Ⅰ, 수열, 수학적 귀납법, 배수 명제의 증명]
+  key_concepts: [수학적 귀납법, 수열의 귀납적 정의]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 한국외국어대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  inspired_by: 수학Ⅰ(고성은 외, 좋은책신사고, 2021) p.152 문항을 재구성(문항카드)
+  institution: 한국외국어대학교
+  admission_year: 2023
+  admission_type: 논술전형
+  track: 자연계
+  question_no: 10
+  official_url: https://adms.hufs.ac.kr/cms/FrBbsCon/BoardView.do?MENU_ID=50&CONTENTS_NO=1&SITE_NO=2&BOARD_SEQ=1&BBS_SEQ=20663
+  retrieved_at: 2026-11-21
+  original_points: 12
+  rights_notice: 미확인(입학처 공개 자료)
+  transcribed_from: 2023학년도 선행학습 영향평가 자체평가보고서 문항카드 5 p.81~82(PDF p.83~84) — 원본 이미지 대조 2026-11-21 (2024 논술가이드북 p.53·57과 대조)
+
+verify: verify/HUFS-G23.py::p10
+
+stimuli: []
+
+stem: |
+  수열 $\{a_n\}$은 다음과 같이 귀납적으로 정의된다.
+  $$a_1=1,\qquad a_{n+1}=a_n^{\,3}+3a_n\ (n=1,2,3,\ldots)$$
+  모든 자연수 $n$에 대하여 정수 $a_n^{\,2}+2$는 $3^n$의 배수임을 수학적 귀납법으로 증명하시오. (12점)
+
+subparts:
+- id: '1'
+  stem: |
+    모든 자연수 $n$에 대하여 $a_n^{\,2}+2$가 $3^n$의 배수임을 수학적 귀납법으로 증명하시오.
+  points: 12
+  depends_on: []
+  answer: {kind: proof, value: null, equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: 귀납 가정 $a_k^2=3^kb-2$를 $a_{k+1}^2+2=a_k^2(a_k^2+3)^2+2$에 대입하면 $3^{k+1}(3^{2k-1}b^3-b)$.
+    steps:
+    - {id: 1a, content: '$n=1$: $3$은 $3^1$의 배수. $a_k^2+2=3^kb\Rightarrow a_{k+1}^2+2=(3^kb-2)(3^kb+1)^2+2=3^{k+1}(3^{2k-1}b^3-b)$', criteria: [1.B1, 1.M1, 1.R1]}
+    hint_ladder:
+    - $a_{k+1}^2$을 $a_k^2$만으로 나타내 보자.
+    - 귀납 가정을 $a_k^2=3^kb-2$ 꼴로 써서 대입해 보자.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 2023 선행학습 영향평가 보고서 문항카드 p.81~82(문항 해설·채점 기준)
+    steps:
+    - id: 1b-1
+      content: |
+        $n=1$일 때, $a_1^{\,2}+2=1^2+2=3$이고 $3^1=3$이므로 $a_1^{\,2}+2$는 $3^1$의 배수이다. 따라서 $n=1$인 경우에 $a_n^{\,2}+2$는 $3^n$의 배수이다. (2점)
+      criteria: [1.B1]
+    - id: 1b-2
+      content: |
+        $n=k\ (k\ge1)$일 때, $a_n^{\,2}+2$가 $3^n$의 배수임을 가정하자. 그러면 $a_n^{\,2}+2\ge2$이므로
+        $$a_k^{\,2}+2=3^kb\quad\cdots\cdots(1)$$
+        를 만족시키는 자연수 $b$가 존재한다. (3점)
+      criteria: [1.M1]
+    - id: 1b-3
+      content: |
+        다음을 유도한다.
+        $$\begin{aligned}a_{k+1}^{\,2}+2&=(a_k^{\,3}+3a_k)^2+2\quad(\text{수열 }\{a_n\}\text{의 귀납적 정의에 의해})\\&=a_k^{\,2}(a_k^{\,2}+3)^2+2\\&=(3^kb-2)(3^kb+1)^2+2\quad((1)\text{에 의해})\\&=(3^kb-2)(3^{2k}b^2+2\times3^kb+1)+2\\&=(3^{3k}b^3+2\times3^{2k}b^2+3^kb-2\times3^{2k}b^2-4\times3^kb-2)+2\\&=3^{3k}b^3-3^{k+1}b\\&=3^{k+1}(3^{2k-1}b^3-b)\end{aligned}$$
+        이때 $b$는 자연수이고 $3^{2k-1}$은 $3$ 이상인 자연수이므로 $3^{2k-1}b^3-b=b(3^{2k-1}b^2-1)$도 자연수이다. 즉 $a_{k+1}^{\,2}+2$은 $3^{k+1}$의 배수이다. 따라서 $n=k+1$일 때도 $a_n^{\,2}+2$는 $3^n$의 배수이다. (7점)
+      criteria: [1.R1]
+    - id: 1b-4
+      content: |
+        수학적 귀납법으로부터 모든 자연수 $n$에 대하여 $a_n^{\,2}+2$는 $3^n$의 배수이다.
+      criteria: [1.R1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 1, isw: true}
+    criteria:
+    - id: 1.B1
+      mark_type: B
+      points: 2
+      evidence: (도입) $n=1$일 때 $a_1^2+2=3$이 $3^1$의 배수임을 보였다.
+      steps: [1b-1]
+    - id: 1.M1
+      mark_type: M
+      points: 3
+      evidence: (전개) $n=k$일 때 명제가 참임을 가정하고 $a_k^2+2=3^kb$로 표현했다.
+      steps: [1b-2]
+    - id: 1.R1
+      mark_type: R
+      points: 7
+      evidence: (결론) 귀납적 정의와 가정을 대입해 $a_{k+1}^2+2=3^{k+1}(3^{2k-1}b^3-b)$를 유도하고 $n=k+1$일 때도 명제가 참임을 밝혔다.
+      depends_on: [1.M1]
+      not_penalized:
+      - 문항 해설 (iv)의 최종 결론 문장을 쓰지 않음
+      steps: [1b-3, 1b-4]
+    deductions:
+    - code: D1-1
+      condition: 단순한 계산 실수와 같은 사소한 실수(건당)
+      effect: minus
+      value: 1
+    - code: D1-2
+      condition: 수학적 귀납법이 아닌 다른 증명
+      effect: zero
+      value: 0
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+remedy_links: []
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

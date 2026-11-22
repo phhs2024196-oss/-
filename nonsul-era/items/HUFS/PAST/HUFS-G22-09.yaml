@@ -1,0 +1,174 @@
+# 한국외대 2022학년도 논술전형(자연계) 문제 9 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: HUFS-G22-09
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: numeric
+origin: past_exam
+school: HUFS
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 최적2단
+points: 12
+time_estimate_min: 12
+intent: 밑변을 고정하고 높이를 점과 직선 사이의 거리로 나타낸 뒤, 그 함수의 최댓값을 미분으로 구해 삼각형 넓이의 최댓값을 구하는 능력을 본다.
+key_idea: '밑변 $\overline{\mathrm{OA}}=\sqrt{153}$ 고정, 높이 $\overline{\mathrm{BC}}=\dfrac{\lvert t^3-3t^2\rvert}{\sqrt{17}}=\dfrac{-t^3+3t^2}{\sqrt{17}}$의 최댓값 $\dfrac4{\sqrt{17}}$($t=2$), 넓이 최댓값 $6$.'
+stuck: 밑변 OA를 고정해 넓이 최대를 높이(점 B와 직선 OA 사이의 거리) 최대로 바꾸는 단계
+idea_tags: [IDEA-TRIANGLE-AREA-FIXED-BASE-HEIGHT, IDEA-CUBIC-MAX-ON-INTERVAL]
+tags: [도함수의 활용, 최댓값, 점과 직선 사이의 거리, '행동영역 원문: 추론능력, 문제해결능력', '교과서: 수학Ⅱ 홍성복 외 지학사 2021 p.92 재구성']
+elements:
+  materials: ['곡선 $f(x)=x^3-3x^2-4x$', '삼각형 OAB, O$(0,0)$, A$(3,-12)$, B$(t,f(t))$']
+  concepts: [점과 직선 사이의 거리, 함수의 증가와 감소, 극대와 극소, 닫힌·열린구간에서의 최댓값]
+  tools: ['직선 OA: $4x+y=0$', '높이 $=\dfrac{\lvert t^3-3t^2\rvert}{\sqrt{17}}$', '$g(t)=-t^3+3t^2$ 미분 → $t=2$']
+  conditions:
+  - '$0<t<3$ → $t^3-3t^2=t^2(t-3)<0$ → 절댓값 제거 $-t^3+3t^2$'
+  - '열린구간 $(0,3)$에서 극댓값 $g(2)=4$가 최댓값'
+  stimuli_used: []
+  subpart_links: null
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅱ]
+  scope_2028: common
+  scope_confirmed: true
+  standards:
+  - code: '[12수학Ⅱ02-08]'
+    text: 함수의 증가와 감소, 극대와 극소를 판정하고 설명할 수 있다.
+    verified: true
+  - code: '[12수학Ⅱ02-09]'
+    text: 함수의 그래프의 개형을 그릴 수 있다.
+    verified: true
+  content_area: 도함수의 활용
+  behavior_domain: 문제해결
+  unit_path: [수학Ⅱ, 미분, 도함수의 활용, 함수의 최대·최소]
+  key_concepts: [극대와 극소, 최댓값, 점과 직선 사이의 거리]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 한국외국어대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  inspired_by: 수학Ⅱ(홍성복 외, 지학사, 2021) p.92 재구성
+  institution: 한국외국어대학교
+  admission_year: 2022
+  admission_type: 논술전형
+  track: 자연계
+  question_no: 9
+  official_url: https://adms.hufs.ac.kr/cms/FrBbsCon/BoardView.do?MENU_ID=50&CONTENTS_NO=1&SITE_NO=2&BOARD_SEQ=1&BBS_SEQ=20650
+  retrieved_at: 2026-11-21
+  original_points: 12
+  rights_notice: 미확인(입학처 공개 자료)
+  transcribed_from: 2022학년도 선행학습 영향평가 자체평가보고서 문항카드 5 p.85(PDF p.87) — 원본 이미지 대조 2026-11-21
+
+verify: verify/HUFS-G22.py::p09
+
+stimuli: []
+
+stem: |
+  함수 $f(x)=x^3-3x^2-4x$의 그래프 위의 세 점 $\mathrm{O}(0,0)$, $\mathrm{A}(3,-12)$, $\mathrm{B}(t,f(t))$를 꼭짓점으로 하는 삼각형 $\mathrm{OAB}$의 넓이의 최댓값을 구하시오. (단, $0<t<3$이다.) (12점)
+
+subparts:
+- id: '1'
+  stem: |
+    삼각형 $\mathrm{OAB}$의 넓이의 최댓값을 구하시오.
+  points: 12
+  depends_on: []
+  answer: {kind: value, value: '6', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: 밑변 OA 고정 → 높이 $\dfrac{-t^3+3t^2}{\sqrt{17}}$ 최대.
+    steps:
+    - {id: 1a, content: '$g(t)=-t^3+3t^2$, $g^\prime(t)=-3t(t-2)$, 최댓값 $g(2)=4$, 넓이 $\dfrac12\times\sqrt{153}\times\dfrac4{\sqrt{17}}=6$', criteria: [1.B1, 1.B2, 1.R1, 1.M1, 1.A1]}
+    hint_ladder:
+    - 세 꼭짓점 중 움직이는 점은 하나뿐이다. 밑변을 무엇으로 잡을까?
+    - 점 B에서 직선 OA까지의 거리를 $t$로 나타내 보자.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 선행학습 영향평가 자체평가보고서 p.85
+    steps:
+    - id: 1b-1
+      content: |
+        (i) 점 $\mathrm{O}$와 $\mathrm{A}$를 지나는 직선 $\ell$의 식은 $y=-4x$, 즉 $4x+y=0$이다. (1점)
+      criteria: [1.B1]
+    - id: 1b-2
+      content: |
+        (ii) 점 $\mathrm{B}(t,t^3-3t^2-4t)$에서 직선 $\ell$에 내린 수선의 발을 $\mathrm{C}$라고 하면 선분 $\mathrm{BC}$의 길이는 점과 직선 사이의 거리 공식에 의해
+        $$\dfrac{\lvert4t+(t^3-3t^2-4t)\rvert}{\sqrt{16+1}}=\dfrac{\lvert t^3-3t^2\rvert}{\sqrt{17}}$$
+        이다. (2점) [그림: $y=x^3-3x^2-4x$의 그래프와 직선 $4x+y=0$, 점 $\mathrm{O}$, $\mathrm{A}(3,-12)$, 곡선 위의 점 $\mathrm{B}(t,f(t))$, $\mathrm{B}$에서 직선 $\mathrm{OA}$에 내린 수선의 발 $\mathrm{C}$, 삼각형 $\mathrm{OAB}$ 색칠]
+      criteria: [1.B2]
+    - id: 1b-3
+      content: |
+        (iii) 삼각형 $\mathrm{OAB}$의 밑변의 길이를 선분 $\mathrm{OA}$의 길이로, 높이를 선분 $\mathrm{BC}$의 길이로 생각하자. 그러면 선분 $\mathrm{BC}$의 길이가 최대일 때 삼각형 $\mathrm{OAB}$의 넓이가 최대가 된다. (2점)
+      criteria: [1.R1]
+    - id: 1b-4
+      content: |
+        (iv) $t^3-3t^2=t^2(t-3)$이므로 $0<t<3$일 때 $\lvert t^3-3t^2\rvert=-t^3+3t^2$이다. 실수전체의 집합에서 정의된 $t$에 대한 함수 $g(t)=-t^3+3t^2$을 미분하면
+        $$g^\prime(t)=-3t^2+6t=-3t(t-2)$$
+        이고, $g^\prime(t)=0$이 되는 $t$는 $0$과 $2$이다. $g^\prime(t)=-3t(t-2)$의 부호를 따져 그래프의 개형을 생각해볼 때 $g(t)$는 $t=0$에서 극솟값 $g(0)=0$을 갖고, $t=2$에서 극댓값 $g(2)=4$를 갖는다. 열린구간 $(0,3)$에서 함수 $g(t)$의 최댓값은 $g(2)=4$이다. 따라서 (ii)에 의해 선분 $\mathrm{BC}$의 길이의 최댓값은 $\dfrac{4}{\sqrt{17}}$이다. (5점)
+      criteria: [1.M1]
+    - id: 1b-5
+      content: |
+        (v) 삼각형 $\mathrm{OAB}$의 넓이는 $\dfrac12\times\overline{\mathrm{OA}}\times\overline{\mathrm{BC}}=\dfrac12\times\sqrt{153}\times\overline{\mathrm{BC}}$이므로, 최댓값은 $\dfrac12\times\sqrt{153}\times\dfrac{4}{\sqrt{17}}=6$이다. (2점)
+      criteria: [1.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 1, isw: true}
+    criteria:
+    - id: 1.B1
+      mark_type: B
+      points: 1
+      evidence: 직선 OA의 방정식 $4x+y=0$을 구했다.
+      steps: [1b-1]
+    - id: 1.B2
+      mark_type: B
+      points: 2
+      evidence: 높이 $\overline{\mathrm{BC}}=\dfrac{\lvert t^3-3t^2\rvert}{\sqrt{17}}$을 구했다.
+      steps: [1b-2]
+    - id: 1.R1
+      mark_type: R
+      points: 2
+      evidence: 밑변 OA가 고정이므로 $\overline{\mathrm{BC}}$가 최대일 때 넓이가 최대임을 설명했다(채점기준 도입 = 1+2+2점).
+      not_penalized:
+      - 그림을 그리지 않음(채점 유의사항 2)
+      steps: [1b-3]
+    - id: 1.M1
+      mark_type: M
+      points: 5
+      evidence: 절댓값을 정리한 $g(t)=-t^3+3t^2$를 미분해 증감을 따져 $(0,3)$에서 최댓값 $g(2)=4$, $\overline{\mathrm{BC}}$의 최댓값 $\dfrac4{\sqrt{17}}$을 구했다(채점기준 전개).
+      steps: [1b-4]
+    - id: 1.A1
+      mark_type: A
+      points: 2
+      evidence: 넓이의 최댓값 $6$(채점기준 결론).
+      depends_on: [1.M1]
+      cao: true
+      steps: [1b-5]
+    deductions:
+    - code: D1-1
+      condition: 점 B에서의 접선이 직선 OA와 평행할 때 넓이가 최대라고 타당한 설명 없이 주장(채점 유의사항 3)
+      effect: minus
+      value: 2
+    - code: D1-2
+      condition: 단순 계산 실수 등 사소한 실수(건당)
+      effect: minus
+      value: 1
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+remedy_links: []
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

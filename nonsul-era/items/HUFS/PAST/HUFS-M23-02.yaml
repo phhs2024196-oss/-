@@ -1,0 +1,147 @@
+# 한국외대 2023학년도 논술전형(자연계) 모의 문제 2 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: HUFS-M23-02
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: numeric
+origin: mock_exam
+school: HUFS
+type: null
+variant_of: null
+replaces: null
+level: L3
+form: 추론
+points: 9
+time_estimate_min: 6
+intent: 진수인 이차함수의 치역을 구하고 밑이 1보다 작은 로그함수의 감소성으로 합성함수의 최솟값을 구하는 능력을 본다.
+key_idea: '$x^2-2x+8=(x-1)^2+7$은 $[0,4]$에서 $7$ 이상 $16$ 이하이고, $\log_{\frac12}$는 감소하므로 최솟값은 $\log_{\frac12}16=-4$.'
+stuck: 밑이 $\frac12$이므로 진수가 최대일 때 함숫값이 최소가 된다는 점
+idea_tags: [IDEA-LOG-DECREASING-COMPOSITE-EXTREMUM]
+tags: [로그함수, 최대·최소, 「도입·전개·결론」 채점]
+elements:
+  materials: ['$y=\log_{\frac12}(x^2-2x+8)$', '정의역 $0\le x\le4$']
+  concepts: [로그함수의 증가·감소, 이차함수의 최대·최소, 합성함수]
+  tools: [완전제곱식, 닫힌구간에서 이차함수의 치역, 감소함수의 대소 역전]
+  conditions:
+  - '정의역 $0\le x\le4$ → 진수 $7\le f(x)\le16$'
+  - '밑 $\frac12<1$ → 진수가 최대인 $x=4$에서 최솟값'
+  stimuli_used: []
+  subpart_links: null
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅰ]
+  scope_2028: common
+  scope_confirmed: true
+  standards:
+  - code: 미확인
+    text: 지수함수와 로그함수의 뜻을 알고, 그 그래프를 그릴 수 있다(요지)
+    verified: false
+  content_area: 지수함수와 로그함수 – 로그함수의 최대·최소
+  behavior_domain: 계산
+  unit_path: [수학Ⅰ, 지수함수와 로그함수, 로그함수, 로그함수의 최대·최소]
+  key_concepts: [로그함수의 감소성, 이차함수의 치역]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 한국외국어대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 한국외국어대학교
+  admission_year: 2023
+  admission_type: 논술전형 모의논술
+  track: 자연계
+  question_no: 2
+  official_url: https://adms.hufs.ac.kr/ajaxfile/FileCpnt/fileView.do?gbn=b02&SITE_NO=2&BOARD_SEQ=6&BBS_SEQ=31
+  retrieved_at: 2026-11-21
+  original_points: 9
+  rights_notice: 미확인(입학처 공개 자료)
+  transcribed_from: 2023 논술가이드북 p.89(PDF p.91) — 원본 이미지 대조 2026-11-21
+
+verify: verify/HUFS-M23.py::p02
+
+stimuli: []
+
+stem: |
+  ※ 다음 물음에 답하시오. 답안지에 반드시 풀이과정 또는 증명과정을 제시하시오.
+
+  [문제 2] 정의역이 $\{x\mid0\le x\le4\}$인 함수 $y=\log_{\frac12}(x^2-2x+8)$의 최솟값을 구하시오. (9점)
+
+subparts:
+- id: '1'
+  stem: |
+    함수 $y=\log_{\frac12}(x^2-2x+8)$의 최솟값을 구하시오.
+  points: 9
+  depends_on: []
+  answer: {kind: value, value: '-4', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: '진수 $(x-1)^2+7$의 범위 $[7,16]$, 감소하는 로그이므로 최솟값 $\log_{\frac12}16=-4$.'
+    steps:
+    - {id: 1a, content: '$7\le f(x)\le16$ → $\log_{\frac12}16=-4$', criteria: [1.M1, 1.M2, 1.A1]}
+    hint_ladder:
+    - 진수를 완전제곱식으로 바꾸어 범위를 구해 보자.
+    - 밑이 $\frac12$인 로그함수는 증가하는가, 감소하는가?
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 2023 논술가이드북 p.91
+    steps:
+    - id: 1b-1
+      content: |
+        정의역이 $\{x\mid0\le x\le4\}$인 함수 $f(x)=x^2-2x+8$은 $f(x)=(x-1)^2+7$로 쓸 수 있고,
+      criteria: [1.M1]
+    - id: 1b-2
+      content: |
+        이차함수 그래프의 개형으로부터 $7\le f(x)\le16$임을 알 수 있다. [그래프: $x=1$에서 최솟값 $7$, $x=0$에서 $8$, $x=4$에서 $16$]
+      criteria: [1.M2]
+    - id: 1b-3
+      content: |
+        게다가 로그함수 $y=\log_{\frac12}x$는 감소함수이므로 함수 $y=\log_{\frac12}f(x)$의 최솟값은 $\log_{\frac12}16=-4$이다.
+      criteria: [1.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 1, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 2
+      evidence: (도입) 함수 $f(x)=x^2-2x+8$을 $f(x)=(x-1)^2+7$로 변형한다.
+      steps: [1b-1]
+    - id: 1.M2
+      mark_type: M
+      points: 3
+      evidence: (전개) $0\le x\le4$일 때 $7\le f(x)\le16$임을 찾는다.
+      steps: [1b-2]
+    - id: 1.A1
+      mark_type: A
+      points: 4
+      evidence: (결론) $y=\log_{\frac12}x$가 감소함수임을 파악하여 함수 $y=\log_{\frac12}f(x)$의 최솟값 $-4$를 얻는다.
+      depends_on: [1.M2]
+      steps: [1b-3]
+    deductions:
+    - code: D1-1
+      condition: 단순한 계산 실수와 같은 사소한 실수(건당)
+      effect: minus
+      value: 1
+    - code: D1-2
+      condition: 타당한 설명이 없이 답만 쓴 경우
+      effect: zero
+      value: 0
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+remedy_links: []
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

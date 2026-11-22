@@ -1,0 +1,184 @@
+# 한국외대 2025학년도 논술전형(자연계) 모의 문제 6 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: HUFS-M25-06
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: numeric
+origin: mock_exam
+school: HUFS
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 추론
+points: 17
+time_estimate_min: 15
+intent: |
+  로그의 성질과 진수 조건, 밑 변환으로 로그부등식을 정리하고, 소인수 조건과 범위를 결합해 자연수를 결정하는 능력을 본다.
+key_idea: |
+  $ab=2025^2=3^8\times5^4$, $\log_{\sqrt{2025}}\sqrt{50-a}=\log_{2025}(50-a)$이므로 $(a-2)(a-40)>0$, 진수 조건 $a<50$, (가)로 $40<a<50$. 소인수가 3, 5뿐인 $a=45$.
+stuck: |
+  $\log_{\sqrt{2025}}\sqrt{50-a}$를 밑이 2025인 로그로 바꾸고, $40<a<50$에서 $3^p5^q$ 꼴을 찾는 단계
+idea_tags: [IDEA-LOG-BASE-CHANGE-INEQUALITY, IDEA-PRIME-FACTOR-RANGE-SEARCH]
+tags: [로그부등식, 소인수분해, '원문 단계: 도입9·전개6·결론2', '채점 유의: a=45 진수조건 (2) 확인 지적 필수']
+elements:
+  materials: ['$\log_{2025}a+\log_{2025}b=2$', '$\log_{2025}(a^2-43a+130)>\log_{\sqrt{2025}}\sqrt{50-a}$', '$2025=3^4\times5^2$']
+  concepts: [로그의 성질, 로그의 진수 조건, 로그함수의 증가, 소인수분해]
+  tools: ['$\log_{a^m}b^m=\log_ab$', 이차부등식, 소인수 조건으로 후보 좁히기]
+  conditions:
+  - '(가) $a>1$ → $a\ge2$'
+  - '(나) $ab=3^8\times5^4$ → $a$의 소인수는 3 또는 5'
+  - '(다) 진수 조건 $a^2-43a+130>0$, $50-a>0$ 및 $(a-2)(a-40)>0$'
+  stimuli_used: []
+  subpart_links: null
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅰ]
+  scope_2028: common
+  scope_confirmed: true
+  standards:
+  - code: 미확인
+    text: 로그의 뜻과 성질을 이해하고, 로그함수의 그래프를 이용하여 로그부등식을 풀 수 있다(요지, 가이드북에 문항카드 없음)
+    verified: false
+  content_area: 지수함수와 로그함수 – 로그·로그부등식
+  behavior_domain: 문제해결
+  unit_path: [수학Ⅰ, 지수함수와 로그함수, 로그함수, 로그부등식과 자연수 조건]
+  key_concepts: [로그의 성질, 진수 조건, 로그부등식]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 한국외국어대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 한국외국어대학교
+  admission_year: 2025
+  admission_type: 논술전형 모의논술
+  track: 자연계
+  question_no: 6
+  official_url: https://adms.hufs.ac.kr/ajaxfile/FileCpnt/fileView.do?gbn=b02&SITE_NO=2&BOARD_SEQ=6&BBS_SEQ=57
+  retrieved_at: 2026-11-21
+  original_points: 17
+  rights_notice: 미확인(입학처 공개 자료)
+  transcribed_from: 2025학년도 논술가이드북 「3. 자연계」 문제지 p.43(PDF p.23), 해설 p.48(PDF p.26), 채점 기준 p.51(PDF p.27) — 원본 이미지 대조 2026-11-21
+
+verify: verify/HUFS-M25.py::p06
+
+stimuli: []
+
+stem: |
+  두 자연수 $a$, $b$가 다음 조건을 모두 만족시킬 때, $\dfrac{b}{3a^2}$의 값을 구하시오. (17점)
+
+  (가) $a>1$
+
+  (나) $\log_{2025}a+\log_{2025}b=2$
+
+  (다) $\log_{2025}(a^2-43a+130)>\log_{\sqrt{2025}}\sqrt{50-a}$
+
+subparts:
+- id: '1'
+  stem: |
+    $\dfrac{b}{3a^2}$의 값을 구하시오.
+  points: 17
+  depends_on: []
+  answer: {kind: value, value: '15', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $ab=3^8\times5^4$, 진수 조건과 $(a-2)(a-40)>0$에서 $40<a<50$, 소인수가 3·5뿐이므로 $a=45$, $b=3^6\times5^3$.
+    steps:
+    - {id: 1a, content: '$\dfrac{3^6\times5^3}{3\times(3^2\times5)^2}=15$', criteria: [1.B1, 1.B2, 1.M1, 1.M2, 1.R1, 1.A1]}
+    hint_ladder:
+    - (나)에서 $ab$는?
+    - $\log_{\sqrt{2025}}\sqrt{50-a}$를 밑이 2025인 로그로 바꾸어 보자.
+    - $40<a<50$에서 소인수가 3과 5뿐인 자연수는?
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 2025학년도 논술가이드북 p.48
+    steps:
+    - id: 1b-1
+      content: |
+        조건 (나)에 의해 $\log_{2025}ab=2$이므로 $ab=2025^2=3^8\times5^4$ …… (1)이다. (3점)
+      criteria: [1.B1]
+    - id: 1b-2
+      content: |
+        조건 (다)에서 우선 로그의 진수조건을 따져주면 $a^2-43a+130>0$ …… (2), $50-a>0$ …… (3)이다. (2점)
+      criteria: [1.B2]
+    - id: 1b-3
+      content: |
+        그리고 조건 (다)에 의해 부등식 $a^2-43a+130>50-a$ 즉, $(a-2)(a-40)>0$이 성립해야 한다. 조건 (가)에 의해 자연수 $a$는 2 이상이므로 $a>40$ …… (4)여야 한다. (4점)
+      criteria: [1.M1]
+    - id: 1b-4
+      content: |
+        이제 (1), (2), (3), (4)를 모두 만족시키는 $a$와 $b$를 찾는다. 부등식 (3)과 (4)에 의해 $40<a<50$인데 (1)에 의해 자연수 $a$의 소인수는 3 또는 5뿐이므로 가능한 $a$, $b$는 $a=45=3^2\times5$, $b=\dfrac{3^8\times5^4}{3^2\times5}=3^6\times5^3$이다. (5점)
+      criteria: [1.M2]
+    - id: 1b-5
+      content: |
+        이때 $a=45$는 로그의 진수조건 (2) 역시 만족시킨다는 것을 확인할 수 있다. (1점)
+      criteria: [1.R1]
+    - id: 1b-6
+      content: |
+        따라서 $\dfrac{b}{3a^2}=\dfrac{3^6\times5^3}{3\times(3^2\times5)^2}=3\times5=15$가 된다. (2점)
+      criteria: [1.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 1, isw: true}
+    criteria:
+    - id: 1.B1
+      mark_type: B
+      points: 3
+      evidence: $ab=2025^2=3^8\times5^4$를 얻었다.
+      steps: [1b-1]
+    - id: 1.B2
+      mark_type: B
+      points: 2
+      evidence: 진수 조건 $a^2-43a+130>0$, $50-a>0$을 적었다.
+      steps: [1b-2]
+    - id: 1.M1
+      mark_type: M
+      points: 4
+      evidence: (다)를 $a^2-43a+130>50-a$, 즉 $(a-2)(a-40)>0$으로 바꾸고 (가)와 함께 $a>40$을 얻었다.
+      steps: [1b-3]
+    - id: 1.M2
+      mark_type: M
+      points: 5
+      evidence: $40<a<50$과 소인수 조건에서 $a=45$, $b=3^6\times5^3$을 찾았다.
+      steps: [1b-4]
+    - id: 1.R1
+      mark_type: R
+      points: 1
+      evidence: $a=45$가 진수 조건 (2)를 만족함을 확인했다(채점 유의사항 1, 반드시 확인).
+      steps: [1b-5]
+    - id: 1.A1
+      mark_type: A
+      points: 2
+      evidence: $\dfrac{b}{3a^2}=15$를 계산했다.
+      depends_on: [1.M2]
+      cao: true
+      steps: [1b-6]
+    deductions:
+    - code: D1-1
+      condition: 단순한 계산 실수 등 사소한 실수(채점 유의사항 2)
+      effect: minus
+      value: 1
+    - code: D1-2
+      condition: 타당한 설명 없이 답만 기술(채점 유의사항 3)
+      effect: zero
+      value: 0
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+remedy_links: []
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

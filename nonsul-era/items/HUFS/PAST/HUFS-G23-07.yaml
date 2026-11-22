@@ -1,0 +1,153 @@
+# 한국외대 2023학년도 논술전형(자연계) 문제 7 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: HUFS-G23-07
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: numeric
+origin: past_exam
+school: HUFS
+type: null
+variant_of: null
+replaces: null
+level: L3
+form: 분류
+points: 10
+time_estimate_min: 12
+intent: 삼차함수와 절댓값을 포함한 꺾인 직선의 교점을 구하고, 두 그래프의 위아래 관계에 따라 적분 구간을 나누어 넓이를 계산하는 능력을 본다.
+key_idea: '교점 $x=-3,1,3$과 꺾인 점 $x=0$으로 구간을 $[-3,0],[0,1],[1,3]$으로 나누면 $153+23+32=208$.'
+stuck: '$\lvert x\rvert$ 때문에 $x=0$에서도 적분 구간을 나누고, 제1사분면 교점 $x=1$을 찾는 단계'
+idea_tags: [IDEA-AREA-SPLIT-BY-INTERSECTION, IDEA-ABS-PIECEWISE-INTEGRAL]
+tags: [넓이, 정적분, 절댓값 함수, '행동영역(원문): 계산능력, 이해능력', '교과서 출처: 수학Ⅱ(황선욱 외, 동아출판, 2021) p.128 제시문 재구성', '채점 유의: 그래프는 그리지 않아도 됨']
+elements:
+  materials: ['삼차함수 $f(x)=-4x(x+3)(x-3)$', '$g(x)=-16\lvert x\rvert+48$']
+  concepts: [두 곡선 사이의 넓이, 다항함수의 정적분, 절댓값 함수의 구간별 표현]
+  tools: ['교점 방정식 $(x-3)(x+4)(x-1)=0$', '구간 분할 정적분']
+  conditions:
+  - '$x<0$에서 $g(x)=16x+48$, $x\ge0$에서 $g(x)=-16x+48$'
+  - '두 그래프는 $x=-3$, $x=3$에서 만나고, 제1사분면에서 $x=1$에서 만난다'
+  stimuli_used: []
+  subpart_links: null
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅱ]
+  scope_2028: common
+  scope_confirmed: true
+  standards:
+  - code: '[12수학Ⅱ03-04]'
+    text: 다항함수의 정적분을 구할 수 있다.
+    verified: true
+  - code: '[12수학Ⅱ03-05]'
+    text: 곡선으로 둘러싸인 도형의 넓이를 구할 수 있다.
+    verified: true
+  content_area: 적분
+  behavior_domain: 계산
+  unit_path: [수학Ⅱ, 적분, 정적분의 활용, 두 곡선 사이의 넓이]
+  key_concepts: [두 곡선 사이의 넓이, 정적분]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 한국외국어대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  inspired_by: 수학Ⅱ(황선욱 외, 동아출판, 2021) p.128 제시문을 재구성(문항카드)
+  institution: 한국외국어대학교
+  admission_year: 2023
+  admission_type: 논술전형
+  track: 자연계
+  question_no: 7
+  official_url: https://adms.hufs.ac.kr/cms/FrBbsCon/BoardView.do?MENU_ID=50&CONTENTS_NO=1&SITE_NO=2&BOARD_SEQ=1&BBS_SEQ=20663
+  retrieved_at: 2026-11-21
+  original_points: 10
+  rights_notice: 미확인(입학처 공개 자료)
+  transcribed_from: 2023학년도 선행학습 영향평가 자체평가보고서 문항카드 5 p.78(PDF p.80) — 원본 이미지 대조 2026-11-21 (2024 논술가이드북 문제지와 대조)
+
+verify: verify/HUFS-G23.py::p07
+
+stimuli: []
+
+stem: |
+  두 함수
+  $$f(x)=-4x(x+3)(x-3),\qquad g(x)=-16\lvert x\rvert+48$$
+  의 그래프로 둘러싸인 도형의 넓이를 구하시오. (10점)
+
+subparts:
+- id: '1'
+  stem: |
+    두 그래프로 둘러싸인 도형의 넓이를 구하시오.
+  points: 10
+  depends_on: []
+  answer: {kind: value, value: '208', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: 교점 $x=-3,1,3$, 꺾인 점 $x=0$으로 나누어 위아래를 정해 적분한다.
+    steps:
+    - {id: 1a, content: '$\int_{-3}^0(g-f)dx+\int_0^1(g-f)dx+\int_1^3(f-g)dx=153+23+32=208$', criteria: [1.B1, 1.M1, 1.A1]}
+    hint_ladder:
+    - $x\ge0$에서 $f(x)=g(x)$를 풀어 보자.
+    - $\lvert x\rvert$가 있으므로 $x=0$에서도 구간을 나눈다.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 2023 선행학습 영향평가 보고서 문항카드 p.78(문항 해설·채점 기준)
+    steps:
+    - id: 1b-1
+      content: |
+        두 함수 $f(x)$와 $g(x)$의 그래프는 아래 그림과 같다. 제1사분면에 존재하는 교점 $\mathrm{P}$의 $x$좌표는 양수이다. 식 $f(x)=g(x)$를 세우면
+        $$-4x(x+3)(x-3)=-16x+48$$
+        즉 $(x-3)(x+4)(x-1)=0$이다. 따라서 점 $\mathrm{P}$의 $x$좌표는 $1$이다. (3점)
+
+        [그림] 문항카드 해설의 그래프: $y=f(x)$(검은 곡선)는 $x=-3,0,3$에서 $x$축과 만나고 $x<0$ 쪽에서 아래로 볼록하게 내려갔다가 $x>0$ 쪽에서 위로 솟는다. $y=g(x)$(붉은 꺾은선)는 $(-3,0)$, $(0,48)$, $(3,0)$을 잇는 산 모양이며, 두 그래프는 $x=-3$, 제1사분면의 점 $\mathrm{P}$($x=1$), $x=3$에서 만나고 그 사이 영역이 색칠되어 있다.
+      criteria: [1.B1]
+    - id: 1b-2
+      content: |
+        두 함수 $f(x)$와 $g(x)$의 그래프로 둘러싸인 도형의 넓이는 다음과 같다.
+        $$\begin{aligned}&\int_{-3}^{0}\{g(x)-f(x)\}dx+\int_{0}^{1}\{g(x)-f(x)\}dx+\int_{1}^{3}\{f(x)-g(x)\}dx\\&=\int_{-3}^{0}\{(16x+48)-(-4x^3+36x)\}dx+\int_{0}^{1}\{(-16x+48)-(-4x^3+36x)\}dx+\int_{1}^{3}\{(-4x^3+36x)-(-16x+48)\}dx\\&=\int_{-3}^{0}(4x^3-20x+48)dx+\int_{0}^{1}(4x^3-52x+48)dx+\int_{1}^{3}(-4x^3+52x-48)dx\\&=\Big[x^4-10x^2+48x\Big]_{-3}^{0}+\Big[x^4-26x^2+48x\Big]_{0}^{1}+\Big[-x^4+26x^2-48x\Big]_{1}^{3}\\&=153+23+32\\&=208\end{aligned}$$
+        (7점)
+      criteria: [1.M1, 1.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 1, isw: true}
+    criteria:
+    - id: 1.B1
+      mark_type: B
+      points: 3
+      evidence: (도입) 두 함수의 그래프의 제1사분면에서의 교점의 $x$좌표 $1$을 찾았다.
+      steps: [1b-1]
+    - id: 1.M1
+      mark_type: M
+      points: 4
+      evidence: (전개) 두 함수의 크기관계를 고려하여 적분구간을 $[-3,0]$, $[0,1]$, $[1,3]$으로 나눠 정적분 식을 세웠다.
+      steps: [1b-2]
+    - id: 1.A1
+      mark_type: A
+      points: 3
+      evidence: (결론) 정적분을 계산해 넓이 $153+23+32=208$을 얻었다.
+      depends_on: [1.M1]
+      steps: [1b-2]
+    deductions:
+    - code: D1-1
+      condition: 단순한 계산 실수와 같은 사소한 실수(건당)
+      effect: minus
+      value: 1
+    - code: D1-2
+      condition: 타당한 설명 없이 답만 기술
+      effect: zero
+      value: 0
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+remedy_links: []
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

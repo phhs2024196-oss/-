@@ -1,0 +1,191 @@
+# 한국외대 2026학년도 논술전형(자연계) 모의 문제 3 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: HUFS-M26-03
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: numeric
+origin: mock_exam
+school: HUFS
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 분류
+points: 13
+time_estimate_min: 12
+intent: 삼각함수 사이의 관계로 $\sin^2x$, $\sin^2y$에 관한 합·곱 조건을 만들고, 근과 계수의 관계로 값을 정한 뒤 범위 안의 모든 $(x,y)$를 빠짐없이 찾아 $\tan(x+y)$의 최댓값을 구하는 능력을 본다.
+key_idea: '$\sin^2x+\sin^2y=\dfrac12$, $\sin^2x\sin^2y=\dfrac1{16}$이므로 $\sin^2x$, $\sin^2y$는 $\left(t-\dfrac14\right)^2=0$의 근, 곧 $\sin x=\sin y=\dfrac12$. $x+y\in\left\{\pi,\dfrac\pi3,\dfrac{5\pi}3\right\}$에서 최댓값 $\sqrt3$.'
+stuck: $\sin^2x$, $\sin^2y$를 두 근으로 하는 이차방정식을 세우는 단계와, $\sin x=\dfrac12$인 $x$가 $[0,\pi]$에 두 개임을 놓치지 않고 네 쌍을 모두 나열하는 단계
+idea_tags: [IDEA-VIETA-SYMMETRIC-SYSTEM, IDEA-TRIG-ENUMERATE-RANGE]
+tags: [삼각함수, 근과 계수의 관계, 경우 나열]
+elements:
+  materials: ['$\cos^2x+\cos^2y$, $\sin x\sin y$ 조건', '$\tan(x+y)$']
+  concepts: ['$\sin^2\theta+\cos^2\theta=1$', 이차방정식의 근과 계수의 관계, 삼각방정식, 탄젠트함수의 값]
+  tools: ['합·곱으로 이차방정식 세우기', '$[0,\pi]$에서 $\sin x=\dfrac12$의 해 $\dfrac\pi6$, $\dfrac{5\pi}6$']
+  conditions:
+  - '(가) $0\le x\le\pi$, $0\le y\le\pi$ → $\sin x\ge0$, $\sin y\ge0$이므로 $\sin x=\sin y=\dfrac12$'
+  - '(나) → $\sin^2x+\sin^2y=\dfrac12$'
+  - '(다) 제곱 → $\sin^2x\sin^2y=\dfrac1{16}$'
+  stimuli_used: []
+  subpart_links: null
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅰ]
+  scope_2028: common
+  scope_confirmed: true
+  standards:
+  - code: 미확인
+    text: 삼각함수를 활용하여 간단한 방정식을 풀 수 있다(요지)
+    verified: false
+  content_area: 삼각함수 – 삼각함수의 뜻과 그래프, 삼각방정식
+  behavior_domain: 문제해결
+  unit_path: [수학Ⅰ, 삼각함수, 삼각함수의 활용, 삼각방정식]
+  key_concepts: [삼각함수 사이의 관계, 근과 계수의 관계, 삼각방정식]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 한국외국어대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 한국외국어대학교
+  admission_year: 2026
+  admission_type: 논술전형 모의논술
+  track: 자연계
+  question_no: 3
+  official_url: https://adms.hufs.ac.kr/ajaxfile/FileCpnt/fileView.do?gbn=b02&SITE_NO=2&BOARD_SEQ=6&BBS_SEQ=70
+  retrieved_at: 2026-11-21
+  original_points: 13
+  rights_notice: 미확인(입학처 공개 자료)
+  transcribed_from: 「2026학년도 논술가이드북」 05. 모의논술고사 문제 3. 자연계 p.43(PDF p.45), 문항해설·채점기준 p.48(PDF p.50) — 원본 이미지 대조 2026-11-21
+
+verify: verify/HUFS-M26.py::p03
+
+stimuli: []
+
+stem: |
+  [문제 3] 두 실수 $x$, $y$가 다음 조건을 만족시킬 때, $\tan(x+y)$의 최댓값을 구하시오. (13점)
+
+  (가) $0\le x\le\pi$, $0\le y\le\pi$
+
+  (나) $\cos^2x+\cos^2y=\dfrac32$
+
+  (다) $\sin x\sin y=\dfrac14$
+
+subparts:
+- id: '1'
+  stem: |
+    $\tan(x+y)$의 최댓값을 구하시오.
+  points: 13
+  depends_on: []
+  answer: {kind: value, value: sqrt(3), equivalents: ['3**(1/2)'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $\sin^2x+\sin^2y=\dfrac12$, $\sin^2x\sin^2y=\dfrac1{16}$에서 $\sin^2x=\sin^2y=\dfrac14$, 범위에서 $\sin x=\sin y=\dfrac12$. $x,y\in\left\{\dfrac\pi6,\dfrac{5\pi}6\right\}$이므로 $\tan(x+y)\in\{0,\sqrt3,-\sqrt3\}$, 최댓값 $\sqrt3$.
+    steps:
+    - {id: 1a, content: '$\sin x=\sin y=\dfrac12$, $x+y=\pi,\ \dfrac\pi3,\ \dfrac{5\pi}3$, 최댓값 $\tan\dfrac\pi3=\sqrt3$', criteria: [1.M1, 1.M2, 1.B1, 1.B2, 1.B3, 1.A1]}
+    hint_ladder:
+    - 조건 (나)를 $\sin$으로 바꾸면?
+    - $\sin^2x$와 $\sin^2y$의 합과 곱을 알면 무엇을 세울 수 있는가?
+    - $[0,\pi]$에서 $\sin x=\dfrac12$인 $x$는 몇 개인가?
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 2026학년도 논술가이드북 p.48(PDF p.50) 문항 해설
+    steps:
+    - id: 1b-1
+      content: |
+        (i) 조건 (나)에 의해 $\cos^2x+\cos^2y=(1-\sin^2x)+(1-\sin^2y)=\dfrac32$이므로
+        $$\sin^2x+\sin^2y=\frac12\quad\cdots(1)$$
+        이 된다. 조건 (다)에 주어진 식의 양변을 제곱하면
+        $$\sin^2x\sin^2y=\frac1{16}\quad\cdots(2)$$
+        이다.
+      criteria: [1.M1]
+    - id: 1b-2
+      content: |
+        (ii) $\sin^2x=a$, $\sin^2y=b$라 하면, (1), (2)로부터 $a+b=\dfrac12$, $ab=\dfrac1{16}$이고, 이차방정식의 근과 계수의 관계로부터 $a$, $b$는 $t$에 대한 이차방정식
+        $$t^2-\frac12t+\frac1{16}=\left(t-\frac14\right)^2=0\quad\cdots(3)$$
+        의 두 근임을 알 수 있다.
+      criteria: [1.M2]
+    - id: 1b-3
+      content: |
+        따라서 (3)으로부터 $a=b=\dfrac14$이므로, $\sin^2x=\sin^2y=\dfrac14$이 된다. 조건 (가)에 의해 $0\le x\le\pi$, $0\le y\le\pi$이므로
+        $$\sin x=\sin y=\frac12\quad\cdots(4)$$
+        이다.
+      criteria: [1.B1]
+    - id: 1b-4
+      content: |
+        (iii) 이제 (4)를 만족시키는 $x$, $y$를 모두 찾으면
+        $$\left(x,y\right)=\left(\frac\pi6,\frac{5\pi}6\right),\ \left(\frac{5\pi}6,\frac\pi6\right),\ \left(\frac\pi6,\frac\pi6\right),\ \left(\frac{5\pi}6,\frac{5\pi}6\right)$$
+        이다.
+      criteria: [1.B2]
+    - id: 1b-5
+      content: |
+        따라서 가능한 $x+y$의 값은 $\pi$, $\dfrac\pi3$, $\dfrac{5\pi}3$이고, $\tan(x+y)$의 값은 $0$, $\sqrt3$, $-\sqrt3$이 된다.
+      criteria: [1.B3]
+    - id: 1b-6
+      content: |
+        그러므로 $\tan(x+y)$의 최댓값은 $\sqrt3$이다.
+      criteria: [1.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 1, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 3
+      evidence: (나), (다)에서 $\sin^2x+\sin^2y=\dfrac12$, $\sin^2x\sin^2y=\dfrac1{16}$의 두 방정식을 얻었다. (채점기준 도입 3점)
+      steps: [1b-1]
+    - id: 1.M2
+      mark_type: M
+      points: 2
+      evidence: $\sin^2x$, $\sin^2y$를 두 근으로 하는 이차방정식 $t^2-\dfrac12t+\dfrac1{16}=0$을 세웠다.
+      steps: [1b-2]
+    - id: 1.B1
+      mark_type: B
+      points: 2
+      evidence: $\sin^2x=\sin^2y=\dfrac14$와 범위 (가)에서 $\sin x=\sin y=\dfrac12$을 얻었다. (채점기준 전개 4점 = 2+2)
+      steps: [1b-3]
+    - id: 1.B2
+      mark_type: B
+      points: 3
+      evidence: (가)를 만족하는 $(x,y)$ 네 쌍을 모두 찾았다.
+      steps: [1b-4]
+    - id: 1.B3
+      mark_type: B
+      points: 2
+      evidence: $x+y=\pi,\ \dfrac\pi3,\ \dfrac{5\pi}3$과 $\tan(x+y)=0,\ \sqrt3,\ -\sqrt3$을 구했다.
+      steps: [1b-5]
+    - id: 1.A1
+      mark_type: A
+      points: 1
+      evidence: 최댓값 $\sqrt3$. (채점기준 결론 6점 = 3+2+1)
+      depends_on: [1.M1]
+      cao: true
+      steps: [1b-6]
+    deductions:
+    - code: D1-1
+      condition: 단순한 계산 실수와 같은 사소한 실수(건당)
+      effect: minus
+      value: 1
+    - code: D1-2
+      condition: 타당한 설명이 없이 답만 기술
+      effect: zero
+      value: 0
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+remedy_links: []
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

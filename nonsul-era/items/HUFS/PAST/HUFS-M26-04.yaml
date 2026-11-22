@@ -1,0 +1,205 @@
+# 한국외대 2026학년도 논술전형(자연계) 모의 문제 4 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: HUFS-M26-04
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: numeric
+origin: mock_exam
+school: HUFS
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 분류
+points: 14
+time_estimate_min: 15
+intent: $\lvert f(x)\rvert$의 극솟값 조건을 그래프 개형으로 해석하여 삼차함수가 $x=\alpha$ 또는 $x=1$에서 중근을 가져야 함을 찾고, 두 경우로 나누어 미분 조건으로 $\alpha$를 결정하는 능력을 본다.
+key_idea: '$\lvert f\rvert$의 극솟값이 $x=\alpha$, $x=1$에서만 나오고 모두 0이므로 $f(\alpha)=f(1)=0$이고 나머지 근이 없어야 하므로 중근. $f=(x-\alpha)^2(x-1)$이면 $\alpha^2+2\alpha=15$, $f=(x-1)^2(x-\alpha)$이면 $2\alpha+1=15$. $\alpha=-5,3,7$, 합 5.'
+stuck: $\lvert f\rvert$의 극소점이 두 개뿐이라는 조건을 「세 번째 근이 없다 → 중근」으로 바꾸는 단계와, 중근이 $\alpha$인 경우와 $1$인 경우를 모두 고려하는 단계
+idea_tags: [IDEA-ABS-GRAPH-LOCAL-MIN, IDEA-CUBIC-DOUBLE-ROOT-CASES]
+tags: [삼차함수, 절댓값 함수의 그래프, 극값, 경우 분류]
+elements:
+  materials: ['최고차항의 계수가 1인 삼차함수', '$y=\lvert f(x)\rvert$의 그래프', "$f'(0)=15$"]
+  concepts: [삼차함수의 그래프 개형, 극값, 다항함수의 미분, 인수정리]
+  tools:
+  - '$\lvert f\rvert$ 그래프 개형으로 근의 구조 파악'
+  - |-
+    중근 ⇔ $f(p)=0$이고 $f'(p)=0$
+  - 곱의 미분법
+  conditions:
+  - '(가) 최고차항의 계수 1 → $f=(x-\alpha)^2(x-1)$ 또는 $(x-1)^2(x-\alpha)$로 확정'
+  - |-
+    (나) 극솟값은 $x=\alpha$, $x=1$에서만, 모두 0 → $f(\alpha)=f(1)=0$, 그리고 $f'(\alpha)=0$ 또는 $f'(1)=0$
+  - |-
+    (다) $f'(0)=15$ → 각 경우의 $\alpha$ 결정
+  - '단서 $\alpha\ne1$'
+  stimuli_used: []
+  subpart_links: null
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅱ]
+  scope_2028: common
+  scope_confirmed: true
+  standards:
+  - code: 미확인
+    text: 함수의 그래프의 개형을 그릴 수 있다(요지)
+    verified: false
+  content_area: 미분 – 도함수의 활용
+  behavior_domain: 추론
+  unit_path: [수학Ⅱ, 미분, 도함수의 활용, 함수의 그래프와 극값]
+  key_concepts: [삼차함수의 그래프, 극값, 절댓값 함수]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 한국외국어대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 한국외국어대학교
+  admission_year: 2026
+  admission_type: 논술전형 모의논술
+  track: 자연계
+  question_no: 4
+  official_url: https://adms.hufs.ac.kr/ajaxfile/FileCpnt/fileView.do?gbn=b02&SITE_NO=2&BOARD_SEQ=6&BBS_SEQ=70
+  retrieved_at: 2026-11-21
+  original_points: 14
+  rights_notice: 미확인(입학처 공개 자료)
+  transcribed_from: 「2026학년도 논술가이드북」 05. 모의논술고사 문제 3. 자연계 p.43(PDF p.45), 문항해설·채점기준 p.49(PDF p.51) — 원본 이미지 대조 2026-11-21
+
+verify: verify/HUFS-M26.py::p04
+
+stimuli: []
+
+stem: |
+  [문제 4] 삼차함수 $f(x)$에 대하여 다음 조건을 만족시키는 모든 실수 $\alpha$값의 합을 구하시오. (단, $\alpha\ne1$) (14점)
+
+  (가) 최고차항의 계수가 $1$이다.
+
+  (나) 함수 $\lvert f(x)\rvert$는 $x=\alpha$와 $x=1$에서만 극솟값을 갖고, 극솟값은 모두 $0$이다.
+
+  (다) $f'(0)=15$
+
+subparts:
+- id: '1'
+  stem: |
+    조건을 만족시키는 모든 실수 $\alpha$값의 합을 구하시오.
+  points: 14
+  depends_on: []
+  answer: {kind: value, value: '5', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $f(\alpha)=f(1)=0$이고 세 번째 근이 있으면 그곳도 $\lvert f\rvert$의 극소점이 되므로 중근. $f=(x-\alpha)^2(x-1)$에서 $\alpha=-5,3$, $f=(x-1)^2(x-\alpha)$에서 $\alpha=7$. 합 $5$.
+    steps:
+    - {id: 1a, content: "중근이 $\\alpha$: $f'(0)=\\alpha^2+2\\alpha=15$, $\\alpha=-5,3$. 중근이 1: $f'(0)=2\\alpha+1=15$, $\\alpha=7$. 합 $5$", criteria: [1.R1, 1.M1, 1.M2, 1.B1, 1.M3, 1.B2, 1.A1]}
+    hint_ladder:
+    - $\lvert f(x)\rvert$의 극솟값이 $0$인 점은 $f$의 어떤 점인가?
+    - $f$가 서로 다른 세 실근을 가지면 $\lvert f\rvert$의 극소점은 몇 개인가?
+    - 중근이 $\alpha$인 경우만 생각하지 않았는가?
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 2026학년도 논술가이드북 p.49(PDF p.51) 문항 해설
+    steps:
+    - id: 1b-1
+      content: |
+        (i) 조건 (나)에 의해 함수 $\lvert f(x)\rvert$는 $x=\alpha\ (\alpha\ne1)$와 $x=1$에서만 극솟값을 가지므로 함수 $\lvert f(x)\rvert$의 그래프의 개형은 다음 그림과 같이 두 가지 경우만 있다.
+
+        [그림] 두 그래프 모두 $y=\lvert f(x)\rvert$(실선)와 $y=f(x)$(점선)를 함께 그린 것이다. 왼쪽: 왼쪽 근에서 $x$축에 닿아 꺾이고 위로 볼록한 봉우리를 지나 오른쪽 점에서 $x$축에 접한 뒤 다시 올라가는 개형(오른쪽 점이 중근). 오른쪽: 왼쪽 점에서 $x$축에 접하고(중근) 봉우리를 지나 오른쪽 근에서 $x$축에 닿아 꺾인 뒤 올라가는 개형으로, 그 사이 $f(x)$(점선)는 $x$축 아래로 내려갔다 올라온다.
+      criteria: [1.R1]
+    - id: 1b-2
+      content: |
+        따라서
+        $$f(\alpha)=0,\quad f(1)=0\quad\cdots(1)$$
+        이고, $f'(\alpha)=0$ 또는 $f'(1)=0$임을 유추할 수 있다.
+      criteria: [1.M1]
+    - id: 1b-3
+      content: |
+        (ii) $f'(\alpha)=0$인 경우, 조건 (가)와 (1)에 의해
+        $$f(x)=(x-\alpha)^2(x-1)=(x^2-2\alpha x+\alpha^2)(x-1),\quad f'(x)=(2x-2\alpha)(x-1)+(x^2-2\alpha x+\alpha^2)\quad\cdots(2)$$
+        이다.
+      criteria: [1.M2]
+    - id: 1b-4
+      content: |
+        조건 (다)에서 $f'(0)=15$이므로 (2)에 의해 $f'(0)=\alpha^2+2\alpha=15$가 된다. 즉, $\alpha^2+2\alpha-15=(\alpha+5)(\alpha-3)=0$이므로 $\alpha=-5$ 또는 $\alpha=3$이다.
+      criteria: [1.B1]
+    - id: 1b-5
+      content: |
+        (iii) $f'(1)=0$인 경우, 조건 (가)와 (1)에 의해
+        $$f(x)=(x-1)^2(x-\alpha)=(x^2-2x+1)(x-\alpha),\quad f'(x)=(2x-2)(x-\alpha)+(x^2-2x+1)\quad\cdots(3)$$
+        이고,
+      criteria: [1.M3]
+    - id: 1b-6
+      content: |
+        (3)에 $f'(0)=2\alpha+1=15$에 의해 $\alpha=7$이 된다.
+      criteria: [1.B2]
+    - id: 1b-7
+      content: |
+        (iv) 따라서 모든 조건을 만족시키는 실수 $\alpha$의 값은 $-5,\ 3,\ 7$이고, 이들의 합은 $5$이다.
+      criteria: [1.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 1, isw: true}
+    criteria:
+    - id: 1.R1
+      mark_type: R
+      points: 2
+      evidence: 조건 (나)를 만족하는 $\lvert f(x)\rvert$의 그래프 개형이 두 가지뿐임을 그림 또는 설명으로 제시했다.
+      steps: [1b-1]
+    - id: 1.M1
+      mark_type: M
+      points: 3
+      evidence: $f(\alpha)=f(1)=0$이고 $f'(\alpha)=0$ 또는 $f'(1)=0$임을 적었다. (채점기준 도입 5점 = 2+3)
+      steps: [1b-2]
+    - id: 1.M2
+      mark_type: M
+      points: 2
+      evidence: $f'(\alpha)=0$인 경우 $f(x)=(x-\alpha)^2(x-1)$과 $f'(x)$를 적었다.
+      steps: [1b-3]
+    - id: 1.B1
+      mark_type: B
+      points: 2
+      evidence: $\alpha^2+2\alpha=15$에서 $\alpha=-5$ 또는 $3$을 구했다.
+      steps: [1b-4]
+    - id: 1.M3
+      mark_type: M
+      points: 2
+      evidence: $f'(1)=0$인 경우 $f(x)=(x-1)^2(x-\alpha)$와 $f'(x)$를 적었다.
+      steps: [1b-5]
+    - id: 1.B2
+      mark_type: B
+      points: 2
+      evidence: $2\alpha+1=15$에서 $\alpha=7$을 구했다. (채점기준 전개 8점 = 2+2+2+2)
+      steps: [1b-6]
+    - id: 1.A1
+      mark_type: A
+      points: 1
+      evidence: 모든 $\alpha$의 합 $-5+3+7=5$. (채점기준 결론 1점)
+      depends_on: [1.M2, 1.M3]
+      cao: true
+      steps: [1b-7]
+    deductions:
+    - code: D1-1
+      condition: 단순한 계산 실수와 같은 사소한 실수(건당)
+      effect: minus
+      value: 1
+    - code: D1-2
+      condition: 타당한 설명이 없이 답만 기술
+      effect: zero
+      value: 0
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+remedy_links: []
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

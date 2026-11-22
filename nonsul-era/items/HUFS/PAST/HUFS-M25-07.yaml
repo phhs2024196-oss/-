@@ -1,0 +1,174 @@
+# 한국외대 2025학년도 논술전형(자연계) 모의 문제 7 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: HUFS-M25-07
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: numeric
+origin: mock_exam
+school: HUFS
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 추론
+points: 18
+time_estimate_min: 15
+intent: |
+  이등변삼각형의 대칭성으로 내접원의 중심을 정하고 점과 직선 사이의 거리로 반지름을 매개변수의 식으로 나타낸 뒤, 무리식의 유리화로 $\frac00$ 꼴 극한을 계산하는 능력을 본다.
+key_idea: |
+  중심 $\mathrm{S}(r,0)$에서 직선 $\mathrm{PQ}$까지 거리 $=r$ → $a^2r^2+2a(10-a)^2r-(10-a)^2a^2=0$ → $r=\frac{-(10-a)^2+\sqrt{(10-a)^4+a^2(10-a)^2}}{a}$, 분자 유리화로 $\lim\frac ra=\frac12$.
+stuck: |
+  내접원의 중심이 $x$축 위이고 $y$축에 접하므로 $\mathrm{S}(r,0)$으로 둘 수 있다는 것, 그리고 $\frac00$ 꼴을 분자 유리화로 푸는 단계
+idea_tags: [IDEA-INCIRCLE-CENTER-SYMMETRY, IDEA-POINT-LINE-DISTANCE-RADIUS, IDEA-RATIONALIZE-LIMIT]
+tags: [내접원, 점과 직선 사이의 거리, 무리식의 극한, '원문 단계: 도입3·전개9·결론6']
+elements:
+  materials: ['삼각형 $\mathrm{P}(a,0)$, $\mathrm{Q}(0,10-a)$, $\mathrm{R}(0,a-10)$', '내접원 반지름 $r$']
+  concepts: [이등변삼각형의 대칭, 내접원, 점과 직선 사이의 거리, 함수의 극한]
+  tools: [직선의 방정식, '점과 직선 사이의 거리 공식', 근의 공식, 분자의 유리화]
+  conditions:
+  - '$0<a<10$, $a\to0+$'
+  - '이등변삼각형 → 내접원 중심은 $x$축 위, $y$축(QR)에 접하므로 $\mathrm{S}(r,0)$'
+  - '$a>0$, $r>0$이므로 이차방정식의 양의 근 선택'
+  stimuli_used: [그림]
+  subpart_links: null
+
+curriculum:
+  version: '2015'
+  subjects: [수학, 수학Ⅱ]
+  scope_2028: common
+  scope_confirmed: true
+  standards:
+  - code: 미확인
+    text: 점과 직선 사이의 거리를 구할 수 있고, 함수의 극한값을 구할 수 있다(요지, 가이드북에 문항카드 없음)
+    verified: false
+  content_area: 도형의 방정식 – 점과 직선 사이의 거리 / 함수의 극한
+  behavior_domain: 문제해결
+  unit_path: [수학Ⅱ, 함수의 극한과 연속, 함수의 극한, 도형에서 정한 길이의 극한]
+  key_concepts: [내접원, 점과 직선 사이의 거리, 무리식의 극한]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 한국외국어대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 한국외국어대학교
+  admission_year: 2025
+  admission_type: 논술전형 모의논술
+  track: 자연계
+  question_no: 7
+  official_url: https://adms.hufs.ac.kr/ajaxfile/FileCpnt/fileView.do?gbn=b02&SITE_NO=2&BOARD_SEQ=6&BBS_SEQ=57
+  retrieved_at: 2026-11-21
+  original_points: 18
+  rights_notice: 미확인(입학처 공개 자료)
+  transcribed_from: 2025학년도 논술가이드북 「3. 자연계」 문제지 p.44(PDF p.24), 해설 p.49(PDF p.26), 채점 기준 p.52(PDF p.28) — 원본 이미지 대조 2026-11-21
+
+verify: verify/HUFS-M25.py::p07
+
+stimuli:
+- label: 그림
+  body: |
+    [그림] 좌표평면에 $x$축, $y$축과 원점 O가 있다. $x$축 위의 점 $\mathrm{P}(a,0)$, $y$축 위의 점 $\mathrm{Q}(0,10-a)$와 $\mathrm{R}(0,a-10)$을 잇는 삼각형 PQR가 그려져 있고, 삼각형 안에 세 변에 접하는 원(내접원)이 있다. 원은 $y$축(변 QR)에 원점 O에서 접하는 것처럼 그려져 있고, 중심은 $x$축 위에 있다.
+
+stem: |
+  오른쪽 그림과 같이 세 점 $\mathrm{P}(a,0)$, $\mathrm{Q}(0,10-a)$, $\mathrm{R}(0,a-10)$을 꼭짓점으로 하는 삼각형 $\mathrm{PQR}$이 있다. 이 삼각형에 내접하는 원의 반지름의 길이를 $r$이라고 할 때, $\displaystyle\lim_{a\to0+}\dfrac{r}{a}$의 값을 구하시오. (단, $0<a<10$) (18점)
+
+subparts:
+- id: '1'
+  stem: |
+    $\displaystyle\lim_{a\to0+}\dfrac{r}{a}$의 값을 구하시오.
+  points: 18
+  depends_on: []
+  answer: {kind: value, value: '1/2', equivalents: ['0.5'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: 중심 $\mathrm{S}(r,0)$과 직선 PQ의 거리 $=r$에서 $r$을 $a$로 나타내고 분자를 유리화하면 $\frac{(10-a)^2}{(10-a)^2+\sqrt{(10-a)^4+a^2(10-a)^2}}\to\frac12$.
+    steps:
+    - {id: 1a, content: '$\dfrac{10^2}{10^2+\sqrt{10^4}}=\dfrac12$', criteria: [1.R1, 1.M1, 1.B1, 1.A1]}
+    hint_ladder:
+    - 이등변삼각형의 내접원 중심은 어디에 있는가? 변 QR는 $y$축 위에 있다.
+    - 중심에서 직선 PQ까지의 거리가 반지름이다.
+    - $\frac00$ 꼴이면 분자를 유리화해 보자.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 2025학년도 논술가이드북 p.49
+    steps:
+    - id: 1b-1
+      content: |
+        삼각형 $\mathrm{PQR}$은 이등변삼각형이므로 내접원의 중심은 밑변 $\mathrm{QR}$의 수직이등분선인 $x$축 위에 있다. 따라서 내접원의 중심은 $\mathrm{S}(r,0)$이다. (3점)
+      criteria: [1.R1]
+    - id: 1b-2
+      content: |
+        두 점 $\mathrm{P}$, $\mathrm{Q}$를 지나는 직선의 방정식은 $y=\dfrac{a-10}{a}(x-a)$ 즉, $(10-a)x+ay-(10-a)a=0$이다. 원의 중심 $\mathrm{S}(r,0)$과 직선 사이의 거리는 원의 반지름의 길이인 $r$이므로 $\dfrac{\lvert(10-a)r-(10-a)a\rvert}{\sqrt{(10-a)^2+a^2}}=r$이 성립한다. (5점)
+      criteria: [1.M1]
+    - id: 1b-3
+      content: |
+        위 식의 양변을 제곱하고 정리하면 $a^2r^2+2a(10-a)^2r-(10-a)^2a^2=0$을 얻게 되고, $a$와 $r$은 양수이므로 $r=\dfrac{-(10-a)^2+\sqrt{(10-a)^4+a^2(10-a)^2}}{a}$이 된다. (4점)
+      criteria: [1.B1]
+    - id: 1b-4
+      content: |
+        따라서
+        $$\begin{aligned}\lim_{a\to0+}\dfrac ra&=\lim_{a\to0+}\dfrac{-(10-a)^2+\sqrt{(10-a)^4+a^2(10-a)^2}}{a^2}\\&=\lim_{a\to0+}\dfrac{\left(-(10-a)^2+\sqrt{(10-a)^4+a^2(10-a)^2}\right)\times\left((10-a)^2+\sqrt{(10-a)^4+a^2(10-a)^2}\right)}{a^2\times\left((10-a)^2+\sqrt{(10-a)^4+a^2(10-a)^2}\right)}\\&=\lim_{a\to0+}\dfrac{(10-a)^2}{(10-a)^2+\sqrt{(10-a)^4+a^2(10-a)^2}}=\dfrac{10^2}{10^2+\sqrt{10^4}}=\dfrac12\end{aligned}$$
+        을 찾는다. (6점)
+      criteria: [1.A1]
+  - id: S1-ALT
+    audience: ALT
+    method_no: 2
+    key_idea: 넓이 $=$ 반둘레 $\times r$ 이용(공식 해설 아님, 내 풀이).
+    steps:
+    - id: 2-1
+      content: |
+        넓이 $\frac12\cdot2(10-a)\cdot a=a(10-a)$, 둘레의 절반 $\sqrt{a^2+(10-a)^2}+(10-a)$이므로 $r=\dfrac{a(10-a)}{\sqrt{a^2+(10-a)^2}+(10-a)}$, $\dfrac ra\to\dfrac{10}{10+10}=\dfrac12$.
+      criteria: []
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 1, isw: true}
+    criteria:
+    - id: 1.R1
+      mark_type: R
+      points: 3
+      evidence: 이등변삼각형의 대칭으로 내접원의 중심이 $\mathrm{S}(r,0)$임을 밝혔다.
+      steps: [1b-1]
+    - id: 1.M1
+      mark_type: M
+      points: 5
+      evidence: 직선 PQ의 방정식을 세우고 중심과 직선 사이의 거리가 $r$이라는 식을 세웠다.
+      steps: [1b-2]
+    - id: 1.B1
+      mark_type: B
+      points: 4
+      evidence: 이차방정식을 풀어 양수 조건으로 $r$을 $a$에 대한 식으로 나타냈다.
+      steps: [1b-3]
+    - id: 1.A1
+      mark_type: A
+      points: 6
+      evidence: 분자 유리화 등으로 $\lim_{a\to0+}\frac ra=\frac12$를 계산했다.
+      depends_on: [1.M1]
+      cao: true
+      steps: [1b-4]
+    deductions:
+    - code: D1-1
+      condition: 단순한 계산 실수 등 사소한 실수(채점 유의사항 2)
+      effect: minus
+      value: 1
+    - code: D1-2
+      condition: 타당한 설명 없이 답만 기술(채점 유의사항 3)
+      effect: zero
+      value: 0
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+remedy_links: []
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

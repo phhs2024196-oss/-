@@ -1,0 +1,190 @@
+# 한국외대 2024학년도 논술전형(자연계) 문제 3 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: HUFS-G24-03
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: numeric
+origin: past_exam
+school: HUFS
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 전수
+points: 14
+time_estimate_min: 15
+intent: |
+  사인함수의 치역으로 이차방정식의 근을 걸러내고, 사인함수의 주기성으로 방정식의 일반해를 구한 뒤 $y=x^2-1$의 그래프와 수평선의 교점 개수로 바꾸어 세는 능력을 본다.
+key_idea: |
+  $\sin(t^2-1)=\dfrac{-1+\sqrt5}{2}$이고, $\sin\alpha=\dfrac{-1+\sqrt5}{2}$ ($0<\alpha<\dfrac\pi2$)에 대해 $t^2-1=\alpha+2n\pi$ 또는 $(\pi-\alpha)+2n\pi$. $-1\le t^2-1\le35$이고 $11\pi<35<12\pi$이므로 $n=0,1,\cdots,5$의 12개 직선이 각각 두 점에서 만나 $24$개.
+stuck: |
+  $t^2-1$의 범위 $[-1,35]$를 $\pi$의 배수와 비교해 해당하는 $n$의 범위를 정하는 단계
+idea_tags: [IDEA-TRIG-QUADRATIC-RANGE-FILTER, IDEA-COUNT-INTERSECTIONS-HORIZONTAL-LINES]
+tags: [삼각방정식, 해의 개수, 그래프의 교점, '행동영역(원문): 이해능력, 문제해결력', '채점기준(원문): 도입 4 / 전개 4 / 결론 6']
+elements:
+  materials:
+  - '$\sin$에 대한 이차방정식 $\sin^2u+\sin u-1=0$'
+  - '$u=t^2-1$ 합성'
+  - '$y=x^2-1\ (-6\le x\le6)$의 그래프와 수평선'
+  concepts:
+  - '사인함수의 치역 $-1\le\sin x\le1$'
+  - '사인함수의 주기성'
+  - '삼각방정식의 일반해'
+  - '그래프의 교점 개수와 방정식의 실근 개수'
+  tools:
+  - '근의 공식'
+  - '$[0,2\pi]$에서 $\alpha$, $\pi-\alpha$ 두 해'
+  - '$11\pi<35<12\pi$, $-\pi<-1$ 범위 비교'
+  - '$y$축 대칭에 의한 교점 2개'
+  conditions:
+  - '(나) $\sin(t^2-1)=\dfrac{-1-\sqrt5}{2}<-1$은 불가능 → $\sin(t^2-1)=\dfrac{-1+\sqrt5}{2}$'
+  - '(가) $-6\le t\le6$ → $-1\le t^2-1\le35$'
+  - '$y=\alpha+2n\pi$, $(\pi-\alpha)+2n\pi$ ($n=0,\cdots,5$)는 모두 $-1$보다 크고 $35$보다 작아 각각 교점 2개'
+  stimuli_used: []
+  subpart_links: null
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅰ]
+  scope_2028: common
+  scope_confirmed: true
+  standards:
+  - code: '[12수학Ⅰ02-01]'
+    text: 일반각과 호도법의 뜻을 안다.
+    verified: true
+  - code: '[12수학Ⅰ02-02]'
+    text: 삼각함수의 뜻을 알고, 사인함수, 코사인함수, 탄젠트함수의 그래프를 그릴 수 있다.
+    verified: true
+  content_area: 삼각함수
+  behavior_domain: 문제해결
+  unit_path: [수학Ⅰ, 삼각함수, 삼각함수의 그래프, 삼각방정식의 해의 개수]
+  key_concepts: [사인함수의 치역, 사인함수의 주기, 삼각방정식의 일반해]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 한국외국어대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  inspired_by: 수학Ⅰ(고성은 외, 좋은책 신사고, 2018) p.85 제시문 재구성
+  institution: 한국외국어대학교
+  admission_year: 2024
+  admission_type: 논술전형
+  track: 자연계
+  question_no: 3
+  official_url: https://adms.hufs.ac.kr/cms/FrBbsCon/BoardView.do?MENU_ID=50&CONTENTS_NO=1&SITE_NO=2&BOARD_SEQ=1&BBS_SEQ=20688
+  retrieved_at: 2026-11-21
+  original_points: 14
+  rights_notice: 미확인(입학처 공개 자료)
+  transcribed_from: 2024학년도 선행학습 영향평가 자체평가보고서 문항카드 5 p.134~135(PDF p.136~137) — 원본 이미지 대조 2026-11-21
+
+verify: verify/HUFS-G24.py::p03
+
+stimuli: []
+
+stem: |
+  다음 조건을 만족시키는 실수 $t$의 개수를 구하시오.
+
+  (가) $-6\le t\le6$
+
+  (나) $\sin^2(t^2-1)+\sin(t^2-1)-1=0$
+
+subparts:
+- id: '1'
+  stem: |
+    조건을 만족시키는 실수 $t$의 개수를 구하시오.
+  points: 14
+  depends_on: []
+  answer: {kind: value, value: '24', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $\sin(t^2-1)=\dfrac{-1+\sqrt5}{2}$만 가능. $t^2-1=\alpha+2n\pi$, $(\pi-\alpha)+2n\pi$이고 $-1\le t^2-1\le35$에서 $n=0,\cdots,5$의 12개 값이 각각 $t$ 2개를 주어 $24$.
+    steps:
+    - {id: 1a, content: '$2\times6=12$개의 직선, 각각 교점 2개 → $12\times2=24$', criteria: [1.M1, 1.M2, 1.M3, 1.A1]}
+    hint_ladder:
+    - $\sin(t^2-1)=X$로 두면 $X$의 범위는?
+    - $\sin x=\dfrac{-1+\sqrt5}{2}$의 해를 모두 나타내면?
+    - $t^2-1$은 어느 범위의 값을 가지는가? $35$는 $\pi$의 몇 배 사이인가?
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 2024학년도 선행학습 영향평가 자체평가보고서 p.134(PDF p.136) 문항 해설 (i)~(iii)
+    steps:
+    - id: 1b-1
+      content: |
+        (i) 이차방정식 $x^2+x-1=0$의 근은 $x=\dfrac{-1\pm\sqrt5}{2}$이고 $-1\le\sin(t^2-1)\le1$ ($t$는 실수)이므로, 실수 $t$가 조건 (나)를 만족한다는 것은
+        $$\sin(t^2-1)=\dfrac{-1+\sqrt5}{2}$$
+        뿐이다. (4점)
+      criteria: [1.M1]
+    - id: 1b-2
+      content: |
+        (ii) 함수 $y=\sin x$의 그래프의 개형을 고려해볼 때 다음 두 조건을 만족하는 실수 $\alpha$는 유일하게 존재한다.
+        $$\sin\alpha=\dfrac{-1+\sqrt5}{2},\qquad0<\alpha<\dfrac\pi2$$
+        또한, 닫힌구간 $[0,2\pi]$에서 $\sin x=\dfrac{-1+\sqrt5}{2}$를 만족하는 실수 $x$는 열린구간 $(0,\pi)$에 속하는 $\alpha$와 $\pi-\alpha$ 둘 뿐이다. 따라서 $\sin x=\dfrac{-1+\sqrt5}{2}$가 되는 실수 $x$는
+        $$\alpha+2n\pi,\quad(\pi-\alpha)+2n\pi\quad(n\text{은 정수})$$
+        이다. (4점)
+      criteria: [1.M2]
+    - id: 1b-3
+      content: |
+        (iii) 과정 (i)과 (ii)에 의해 조건 (가)와 (나)를 만족시키는 실수 $t$의 개수는 함수 $y=x^2-1\ (-6\le x\le6)$의 그래프와 직선들
+        $$y=\alpha+2n\pi,\quad y=(\pi-\alpha)+2n\pi\ (n\text{은 정수})\qquad\cdots\cdots(1)$$
+        의 교점의 개수이다. (2점)
+      criteria: [1.M3]
+    - id: 1b-4
+      content: |
+        함수 $y=x^2-1\ (-6\le x\le6)$의 그래프는 $y$축 대칭이고, 함수의 최솟값과 최댓값인 $-1$과 $35$는 다음을 만족한다.
+        $$-\pi<-1,\qquad11\pi<35<12\pi$$
+        따라서 (1)에서 주어진 직선들 중 함수 $y=x^2-1\ (-6\le x\le6)$의 그래프와 교점을 가지는 것은
+        $$y=\alpha+2n\pi,\quad y=(\pi-\alpha)+2n\pi\ (n=0,1,2,3,4,5)$$
+        총 $2\times6=12$개이고, 각각 두 개씩 교점을 갖는다. 그러므로 조건 (가)와 (나)를 만족시키는 실수 $t$는 총 $12\times2=24$개이다. (4점)
+      criteria: [1.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 1, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 4
+      evidence: 근 $\dfrac{-1\pm\sqrt5}{2}$ 중 사인함수의 치역 $[-1,1]$에 드는 것만 남겨 $\sin(t^2-1)=\dfrac{-1+\sqrt5}{2}$임을 설명했다.
+      steps: [1b-1]
+    - id: 1.M2
+      mark_type: M
+      points: 4
+      evidence: $\sin x=\dfrac{-1+\sqrt5}{2}$의 모든 해를 $\alpha+2n\pi$, $(\pi-\alpha)+2n\pi$ ($0<\alpha<\dfrac\pi2$, $n$은 정수)로 나타냈다.
+      steps: [1b-2]
+    - id: 1.M3
+      mark_type: M
+      points: 2
+      evidence: $t$의 개수를 $y=x^2-1\ (-6\le x\le6)$의 그래프와 직선 $y=\alpha+2n\pi$, $y=(\pi-\alpha)+2n\pi$의 교점 개수로 바꾸었다.
+      steps: [1b-3]
+    - id: 1.A1
+      mark_type: A
+      points: 4
+      evidence: $-\pi<-1$, $11\pi<35<12\pi$에서 $n=0,\cdots,5$의 12개 직선이 각각 교점 2개를 가져 $24$개임을 구했다.
+      depends_on: [1.M2, 1.M3]
+      steps: [1b-4]
+    deductions:
+    - code: D1-1
+      condition: 단순한 계산 실수와 같은 사소한 실수(건당)
+      effect: minus
+      value: 1
+    - code: D1-2
+      condition: 타당한 설명 없이 답만 기술
+      effect: zero
+      value: 0
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+remedy_links: []
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

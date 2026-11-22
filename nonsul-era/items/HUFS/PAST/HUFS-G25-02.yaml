@@ -1,0 +1,180 @@
+# 한국외대 2025학년도 논술전형(자연계) 문제 2 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: HUFS-G25-02
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: numeric
+origin: past_exam
+school: HUFS
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 추론
+points: 12
+time_estimate_min: 12
+intent: 구간별로 정의된 지수함수의 그래프와 점근선을 해석하여 $y$좌표가 정수인 점의 개수를 세고, 개수 조건을 점근선의 위치에 대한 부등식으로 바꾸어 정수 $a$를 결정하는 능력을 본다.
+key_idea: '$y$좌표가 $0$ 이상의 정수인 점은 $7+9=16$개로 고정되므로 음의 정수인 점이 $16$개, 즉 점근선 $y=-\left(\frac15\right)^{3+a}+8$이 $[-17,-16)$에 있어야 하고 $24<5^{-(3+a)}\le25$에서 $a=-5$.'
+stuck: $y$좌표가 음의 정수인 점의 개수를 점근선의 위치에 대한 부등식($-17\le$ 점근선 $<-16$)으로 옮기는 단계(등호 위치 포함)
+idea_tags: [IDEA-ASYMPTOTE-INTEGER-COUNT]
+tags: [지수함수, 점근선, 정수 조건, '행동영역 원문: 이해능력, 추론능력', '교과서: 수학Ⅰ(금성출판사, 배종숙 외, 2020) pp.41-55', '교과서: 수학Ⅰ(비상교육, 김원경 외, 2021) pp.38-55']
+elements:
+  materials:
+  - '구간별로 정의된 함수 $f(x)=2^x\ (x<3)$, $\left(\frac15\right)^{x+a}-\left(\frac15\right)^{3+a}+8\ (x\ge3)$'
+  - $y$좌표가 정수인 곡선 위의 점
+  concepts: [지수함수의 그래프, 점근선, 지수함수의 증가·감소]
+  tools:
+  - '$x<3$: 치역 $(0,8)$ → 정수 $1\sim7$의 7개'
+  - '$x\ge3$: $f(3)=8$에서 감소, 점근선 $y=-\left(\frac15\right)^{3+a}+8$ → $0$ 이상 정수 $8,7,\cdots,0$의 9개'
+  - '음의 정수 점 16개 ⟺ $-17\le-\left(\frac15\right)^{3+a}+8<-16$ ⟺ $24<5^{-(3+a)}\le25$'
+  conditions:
+  - $y$좌표가 정수인 점의 개수가 32
+  - $a$는 정수
+  - '$x\ge3$ 부분은 연속·감소이므로 각 정수 값을 한 번씩만 가짐'
+  stimuli_used: []
+  subpart_links: null
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅰ]
+  scope_2028: common
+  scope_confirmed: true
+  standards:
+  - code: '[12수학Ⅰ01-06]'
+    text: 지수함수와 로그함수의 뜻을 안다.
+    verified: true
+  - code: '[12수학Ⅰ01-07]'
+    text: 지수함수와 로그함수의 그래프를 그릴 수 있고, 그 성질을 이해한다.
+    verified: true
+  content_area: 지수함수
+  behavior_domain: 추론
+  unit_path: [수학Ⅰ, 지수함수와 로그함수, 지수함수, 지수함수의 그래프와 점근선]
+  key_concepts: [지수함수의 그래프, 점근선, 지수함수의 증가·감소]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 한국외국어대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  inspired_by: 수학Ⅰ(금성출판사, 배종숙 외, 2020) pp.41-55; 수학Ⅰ(비상교육, 김원경 외, 2021) pp.38-55 — 문항카드 자료 출처(제시문, 재구성)
+  institution: 한국외국어대학교
+  admission_year: 2025
+  admission_type: 논술전형
+  track: 자연계
+  question_no: 2
+  official_url: https://adms.hufs.ac.kr/cms/FrBbsCon/BoardView.do?MENU_ID=50&CONTENTS_NO=1&SITE_NO=2&BOARD_SEQ=1&BBS_SEQ=20704
+  retrieved_at: 2026-11-21
+  original_points: 12
+  rights_notice: 미확인(입학처 공개 자료)
+  transcribed_from: 2025학년도 선행학습 영향평가 자체평가보고서 문항카드 5(논술전형 자연 T4) p.151-152(PDF p.153-154) — 원본 이미지 대조 2026-11-21
+
+verify: verify/HUFS-G25.py::p02
+
+stimuli: []
+
+stem: |
+  함수
+  $$f(x)=\begin{cases}2^x & (x<3)\\ \left(\dfrac15\right)^{x+a}-\left(\dfrac15\right)^{3+a}+8 & (x\ge3)\end{cases}$$
+  에 대하여 곡선 $y=f(x)$ 위의 점 중에서 $y$좌표가 정수인 점의 개수가 $32$일 때, 정수 $a$의 값을 구하시오.
+
+subparts:
+- id: '1'
+  stem: |
+    정수 $a$의 값을 구하시오.
+  points: 12
+  depends_on: []
+  answer: {kind: value, value: '-5', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $y\ge0$인 정수 점은 $7+9=16$개로 고정. 나머지 $16$개가 음의 정수이려면 점근선이 $[-17,-16)$ 안, 즉 $24<5^{-(3+a)}\le25$에서 $a=-5$.
+    steps:
+    - {id: 1a, content: '$16+16=32$, $-17\le8-5^{-(3+a)}<-16\Rightarrow-(3+a)=2\Rightarrow a=-5$', criteria: [1.B1, 1.M1, 1.A1]}
+    hint_ladder:
+    - $x<3$에서 $2^x$가 가지는 정수 값은 몇 개인가?
+    - $x\ge3$인 부분의 그래프는 $y=8$에서 출발해 어떤 직선으로 다가가는가?
+    - 음의 정수 $-1,-2,\cdots,-16$만 가지려면 점근선은 어디에 있어야 하는가?
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 2025학년도 선행학습 영향평가 자체평가보고서 p.151-152 문항 해설
+    steps:
+    - id: 1b-1
+      content: |
+        함수 $f(x)$의 그래프는 [그림]과 같다. $x<3$일 때 그래프의 점근선은 $y=0$, $x\ge3$일 때 그래프의 점근선은 $y=-\left(\dfrac15\right)^{3+a}+8$이다.
+
+        [그림] 해설 그림: $x<3$에서 $y=2^x$가 점 $(0,1)$을 지나 $(3,8)$ 직전까지 증가하고, $x\ge3$에서 $(3,8)$에서 급격히 감소하여 점선 점근선 $y=-\left(\frac15\right)^{3+a}+8$에 가까워지는 곡선.
+
+        곡선 $y=f(x)$ 위의 점 중에서 $y$좌표가 $0$ 이상의 정수인 점은
+
+        (i) $x<3$일 때 $y$좌표가 각각 $1,2,3,\cdots,7$인 점 $7$개
+
+        (ii) $x\ge3$일 때 $y$좌표가 각각 $8,7,6,\cdots,1,0$인 점 $9$개
+
+        이므로 개수는 $7+9=16$이다. (5점)
+      criteria: [1.B1]
+    - id: 1b-2
+      content: |
+        곡선 $y=f(x)$ 위의 점 중에서 $y$좌표가 정수인 점의 개수는 $32$이므로 곡선 $y=f(x)$ 위의 점 중에서 $y$좌표가 음의 정수인 점의 개수는 $32-16=16\ \cdots(1)$이다. 앞에 주어진 함수 $f(x)$의 그래프를 참고하면 곡선
+        $$y=\left(\frac15\right)^{x+a}-\left(\frac15\right)^{3+a}+8=\left(\frac15\right)^{a}\times\left(\frac15\right)^{x}-\left\{\left(\frac15\right)^{3+a}-8\right\}$$
+        은 $x$의 값이 증가하면 $y$의 값은 감소하는 함수이고 점근선은 직선 $y=-\left(\dfrac15\right)^{3+a}+8$이다. (1)에 의해
+        $$-17\le-\left(\frac15\right)^{3+a}+8<-16\quad\text{즉,}\quad24<5^{-(3+a)}\le25\qquad\cdots(2)$$
+        가 된다. (5점)
+      criteria: [1.M1]
+    - id: 1b-3
+      content: |
+        지수함수 $y=5^x$은 $x$의 값이 증가하면 $y$의 값도 증가하는 함수이고 $a$는 정수이므로 (2)에 의해
+        $$-(3+a)=2\quad\text{즉,}\quad a=-5$$
+        이다. (2점)
+      criteria: [1.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.B1
+      mark_type: B
+      points: 5
+      evidence: |
+        [도입] 곡선 $y=f(x)$ 위의 점 중에서 $y$좌표가 $0$ 이상의 정수인 점의 개수가 $7+9=16$임을 구간별로 확인했다.
+      steps: [1b-1]
+    - id: 1.M1
+      mark_type: M
+      points: 5
+      evidence: |
+        [전개] $y$좌표가 음의 정수인 점이 $16$개가 될 조건을 $-17\le-\left(\frac15\right)^{3+a}+8<-16$ (또는 $24<5^{-(3+a)}\le25$)으로 찾았다.
+      steps: [1b-2]
+    - id: 1.A1
+      mark_type: A
+      points: 2
+      evidence: |
+        [결론] $5^x$의 증가와 $a$가 정수임을 써서 $a=-5$를 구했다.
+      depends_on: [1.M1]
+      steps: [1b-3]
+    deductions:
+    - code: D1-1
+      condition: 타당한 설명이 없이 답만 기술(채점 유의사항 4)
+      effect: zero
+      value: 0
+    - code: D1-2
+      condition: 단순한 계산 실수와 같은 사소한 실수(건당, 채점 유의사항 3)
+      effect: minus
+      value: 1
+    not_penalized:
+    - 함수 $f(x)$의 그래프는 그리지 않아도 된다(채점 유의사항 2)
+    - 타당한 설명을 통해 온전히 답을 얻었다면 다른 방법이라도 정답으로 인정(채점 유의사항 1)
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+remedy_links: []
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

@@ -1,0 +1,155 @@
+# 한국외대 2023학년도 논술전형(자연계) 문제 1 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: HUFS-G23-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: numeric
+origin: past_exam
+school: HUFS
+type: null
+variant_of: null
+replaces: null
+level: L3
+form: 추론
+points: 9
+time_estimate_min: 8
+intent: 모든 실수에서 성립하는 이차부등식을 판별식 조건으로 바꾸고, 코사인함수의 그래프로 각의 범위를 구하는 능력을 본다.
+key_idea: '$D=16\cos^2\theta-4\le0\iff-\dfrac12\le\cos\theta\le\dfrac12\iff\dfrac{\pi}{3}\le\theta\le\dfrac{2\pi}{3}$'
+stuck: 이차부등식이 모든 실수 $x$에서 성립할 조건을 판별식 $D\le0$으로 바꾸는 단계
+idea_tags: [IDEA-QUAD-ALWAYS-NONNEG-DISCRIMINANT, IDEA-TRIG-GRAPH-RANGE]
+tags: [이차부등식, 판별식, 삼각함수의 그래프, '행동영역(원문): 계산능력, 이해능력', '교과서 출처: 수학Ⅰ(고성은 외, 좋은책신사고, 2021) p.90 문항 재구성', '시험: 2022.11.26(토) 10:00~11:30, 90분']
+elements:
+  materials: ['이차부등식 $x^2-(4\cos\theta)x+1\ge0$', '닫힌구간 $[0,\pi]$의 각 $\theta$']
+  concepts: [이차부등식이 항상 성립할 조건, 판별식, 코사인함수의 그래프]
+  tools: ['판별식 $D\le0$', '$y=\cos\theta$의 그래프와 직선 $y=\pm\frac12$의 비교']
+  conditions:
+  - '「모든 실수 $x$에 대하여」 → 이차항 계수 $1>0$이므로 $D\le0$'
+  - '단서 $0\le\theta\le\pi$ → $\cos\theta$가 감소하므로 범위가 한 구간 $[\alpha,\beta]$'
+  stimuli_used: []
+  subpart_links: null
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅰ]
+  scope_2028: common
+  scope_confirmed: true
+  standards:
+  - code: '[12수학Ⅰ02-01]'
+    text: 일반각과 호도법의 뜻을 안다.
+    verified: true
+  - code: '[12수학Ⅰ02-02]'
+    text: 삼각함수의 뜻을 알고, 사인함수, 코사인함수, 탄젠트함수의 그래프를 그릴 수 있다.
+    verified: true
+  content_area: 삼각함수
+  behavior_domain: 계산
+  unit_path: [수학Ⅰ, 삼각함수, 삼각함수의 그래프, 삼각함수를 포함한 부등식]
+  key_concepts: [판별식, 코사인함수의 그래프]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 한국외국어대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  inspired_by: 수학Ⅰ(고성은 외, 좋은책신사고, 2021) p.90 문항을 재구성(문항카드)
+  institution: 한국외국어대학교
+  admission_year: 2023
+  admission_type: 논술전형
+  track: 자연계
+  question_no: 1
+  official_url: https://adms.hufs.ac.kr/cms/FrBbsCon/BoardView.do?MENU_ID=50&CONTENTS_NO=1&SITE_NO=2&BOARD_SEQ=1&BBS_SEQ=20663
+  retrieved_at: 2026-11-21
+  original_points: 9
+  rights_notice: 미확인(입학처 공개 자료)
+  transcribed_from: 2023학년도 선행학습 영향평가 자체평가보고서 문항카드 5 p.71~72(PDF p.73~74) — 원본 이미지 대조 2026-11-21 (2024 논술가이드북 p.51 문제지와 대조)
+
+verify: verify/HUFS-G23.py::p01
+
+stimuli: []
+
+stem: |
+  모든 실수 $x$에 대하여 이차부등식
+  $$x^2-(4\cos\theta)x+1\ge0$$
+  이 성립하도록 하는 $\theta$의 값의 범위가 $\alpha\le\theta\le\beta$일 때, $\alpha+\beta$의 값을 구하시오. (단, $0\le\theta\le\pi$) (9점)
+
+subparts:
+- id: '1'
+  stem: |
+    $\alpha+\beta$의 값을 구하시오.
+  points: 9
+  depends_on: []
+  answer: {kind: value, value: 'pi', equivalents: ['\pi'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: 판별식 $D\le0$에서 $\lvert\cos\theta\rvert\le\frac12$, 즉 $\frac{\pi}{3}\le\theta\le\frac{2\pi}{3}$.
+    steps:
+    - {id: 1a, content: '$D=16\cos^2\theta-4\le0\Rightarrow-\frac12\le\cos\theta\le\frac12\Rightarrow\alpha+\beta=\frac{\pi}{3}+\frac{2\pi}{3}=\pi$', criteria: [1.M1, 1.B1, 1.A1]}
+    hint_ladder:
+    - 이차함수 $y=x^2-(4\cos\theta)x+1$의 그래프가 $x$축 아래로 내려가지 않을 조건은?
+    - $\cos\theta$의 범위를 $0\le\theta\le\pi$에서 그래프로 읽어 보자.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 2023 선행학습 영향평가 보고서 문항카드 p.71~72(문항 해설·채점 기준)
+    steps:
+    - id: 1b-1
+      content: |
+        모든 실수 $x$에 대해 부등식 $x^2-(4\cos\theta)x+1\ge0$이 성립하려면 이차방정식 $x^2-(4\cos\theta)x+1=0$의 판별식 $D$가 $D\le0$를 만족해야 한다. (3점)
+      criteria: [1.M1]
+    - id: 1b-2
+      content: |
+        즉, $D=16\cos^2\theta-4\le0$이어야 하고, 이로부터
+        $$-\frac12\le\cos\theta\le\frac12\quad\cdots\cdots(1)$$
+        를 얻는다. (3점)
+      criteria: [1.B1]
+    - id: 1b-3
+      content: |
+        $0\le\theta\le\pi$에서 함수 $y=\cos\theta$의 그래프를 고려해 볼 때, 부등식 (1)이 성립하는 $\theta$의 범위는 $\dfrac{\pi}{3}\le\theta\le\dfrac{2\pi}{3}$이다. 따라서 $\alpha=\dfrac{\pi}{3}$, $\beta=\dfrac{2\pi}{3}$이고, $\alpha+\beta=\pi$이다. (3점)
+      criteria: [1.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 1, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 3
+      evidence: (도입) 이차부등식이 모든 실수 $x$에서 성립할 조건이 판별식 $D\le0$임을 적었다.
+      steps: [1b-1]
+    - id: 1.B1
+      mark_type: B
+      points: 3
+      evidence: (전개) $D=16\cos^2\theta-4\le0$으로부터 $-\frac12\le\cos\theta\le\frac12$를 얻었다.
+      steps: [1b-2]
+    - id: 1.A1
+      mark_type: A
+      points: 3
+      evidence: (결론) $\frac{\pi}{3}\le\theta\le\frac{2\pi}{3}$임을 언급하고 $\alpha+\beta=\pi$라는 결론을 냈다.
+      depends_on: [1.M1]
+      not_penalized:
+      - 함수 $y=\cos\theta$의 그래프를 그리지 않음
+      steps: [1b-3]
+    deductions:
+    - code: D1-1
+      condition: 단순한 계산 실수와 같은 사소한 실수(건당)
+      effect: minus
+      value: 1
+    - code: D1-2
+      condition: 타당한 설명 없이 답만 기술
+      effect: zero
+      value: 0
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+remedy_links: []
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

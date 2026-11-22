@@ -1,0 +1,167 @@
+# 한국외대 2023학년도 논술전형(자연계) 문제 3 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: HUFS-G23-03
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: numeric
+origin: past_exam
+school: HUFS
+type: null
+variant_of: null
+replaces: null
+level: L3
+form: 최적2단
+points: 9
+time_estimate_min: 10
+intent: 거리의 최대·최소를 거리의 제곱인 사차 다항함수의 닫힌구간 최대·최소로 바꾸어 도함수로 구하는 능력을 본다.
+key_idea: '$f(x)=\overline{\mathrm{PQ}}^2=\dfrac{x^4}{16}-\dfrac{x^2}{2}+9$의 $[-1,3]$에서 최댓값 $\dfrac{153}{16}$, 최솟값 $8$.'
+stuck: 근호가 있는 거리 대신 거리의 제곱을 다항함수로 두고 끝점과 임계점을 모두 비교하는 단계
+idea_tags: [IDEA-DIST-SQUARED-POLY, IDEA-CLOSED-INTERVAL-EXTREMA]
+tags: [거리의 최대·최소, 닫힌구간의 최대·최소, '행동영역(원문): 문제해결력', '교과서 출처: 수학Ⅱ(배종숙 외, 금성출판사, 2022) p.87 제시문 재구성', '채점 유의: 수학Ⅱ 범위 밖 합성함수·제곱근의 미분도 풀이로 인정']
+elements:
+  materials: ['점 $\mathrm{P}(0,3)$', '곡선 $y=\dfrac{x^2}{4}\ (-1\le x\le3)$ 위의 점 $\mathrm{Q}$']
+  concepts: [두 점 사이의 거리, 다항함수의 도함수, 닫힌구간에서의 최댓값과 최솟값]
+  tools: ['거리의 제곱 $f(x)=\overline{\mathrm{PQ}}^2$', '$f^{\prime}(x)=\dfrac{x}{4}(x-2)(x+2)$', '끝점·임계점 함숫값 비교']
+  conditions:
+  - '$-1\le x\le3$ → 임계점 중 $x=-2$는 제외, $x=0,2$만'
+  - '$\overline{\mathrm{PQ}}=\sqrt{f(x)}$ → $a^2$, $b^2$는 $f$의 최댓값·최솟값'
+  stimuli_used: []
+  subpart_links: null
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅱ]
+  scope_2028: common
+  scope_confirmed: true
+  standards:
+  - code: '[12수학Ⅱ02-04]'
+    text: 함수 $y=x^n$($n$은 양의 정수)의 도함수를 구할 수 있다.
+    verified: true
+  - code: '[12수학Ⅱ02-05]'
+    text: 함수의 실수배, 합, 차, 곱의 미분법을 알고, 다항함수의 도함수를 구할 수 있다.
+    verified: true
+  - code: '[12수학Ⅱ02-09]'
+    text: 함수의 그래프의 개형을 그릴 수 있다.
+    verified: true
+  content_area: 미분
+  behavior_domain: 문제해결
+  unit_path: [수학Ⅱ, 미분, 도함수의 활용, 최댓값과 최솟값]
+  key_concepts: [두 점 사이의 거리, 최댓값과 최솟값]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 한국외국어대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  inspired_by: 수학Ⅱ(배종숙 외, 금성출판사, 2022) p.87 제시문을 재구성(문항카드)
+  institution: 한국외국어대학교
+  admission_year: 2023
+  admission_type: 논술전형
+  track: 자연계
+  question_no: 3
+  official_url: https://adms.hufs.ac.kr/cms/FrBbsCon/BoardView.do?MENU_ID=50&CONTENTS_NO=1&SITE_NO=2&BOARD_SEQ=1&BBS_SEQ=20663
+  retrieved_at: 2026-11-21
+  original_points: 9
+  rights_notice: 미확인(입학처 공개 자료)
+  transcribed_from: 2023학년도 선행학습 영향평가 자체평가보고서 문항카드 5 p.73~74(PDF p.75~76) — 원본 이미지 대조 2026-11-21 (2024 논술가이드북 p.51 문제지와 대조)
+
+verify: verify/HUFS-G23.py::p03
+
+stimuli: []
+
+stem: |
+  좌표평면 위의 점 $\mathrm{P}(0,3)$과 곡선 $y=\dfrac{x^2}{4}\ (-1\le x\le3)$ 위의 점 $\mathrm{Q}$에 대해 $\overline{\mathrm{PQ}}$의 최댓값을 $a$, 최솟값을 $b$라고 하자. 이 때, $a^2\times b^2$의 값을 구하시오. (9점)
+
+subparts:
+- id: '1'
+  stem: |
+    $a^2\times b^2$의 값을 구하시오.
+  points: 9
+  depends_on: []
+  answer: {kind: value, value: '153/2', equivalents: ['76.5'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $\overline{\mathrm{PQ}}^2$를 사차함수로 두고 $[-1,3]$에서 끝점·임계점 $0,2$를 비교한다.
+    steps:
+    - {id: 1a, content: '$f(-1)=\frac{137}{16}$, $f(0)=9$, $f(2)=8$, $f(3)=\frac{153}{16}$이므로 $a^2b^2=\frac{153}{16}\cdot8=\frac{153}{2}$', criteria: [1.M1, 1.M2, 1.B1, 1.A1]}
+    hint_ladder:
+    - 거리 대신 거리의 제곱을 함수로 두자.
+    - 닫힌구간에서는 끝점의 함숫값도 후보이다.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 2023 선행학습 영향평가 보고서 문항카드 p.73~74(문항 해설·채점 기준)
+    steps:
+    - id: 1b-1
+      content: |
+        점 $\mathrm{P}(0,3)$과 곡선 위의 점 $\mathrm{Q}\left(x,\dfrac{x^2}{4}\right)$ (단, $-1\le x\le3$)에 대해 $f(x)=\overline{\mathrm{PQ}}^2$이라고 하면
+        $$f(x)=(x-0)^2+\left(\frac{x^2}{4}-3\right)^2=\frac{x^4}{16}-\frac{x^2}{2}+9$$
+        이다. (1점)
+      criteria: [1.M1]
+    - id: 1b-2
+      content: |
+        $f(x)$를 $x$에 대해 미분하면 $f^{\prime}(x)=\dfrac{x^3}{4}-x=\dfrac{x}{4}(x-2)(x+2)$이고, $-1<x<3$에서 $f^{\prime}(x)=0$인 $x$는 $0$, $2$이다. (3점)
+      criteria: [1.M2]
+    - id: 1b-3
+      content: |
+        따라서 $-1\le x\le3$의 범위에서 $f(x)$의 최댓값과 최솟값은 다음 값들 중에서 찾으면 된다.
+        $$f(-1)=\frac{137}{16},\ f(0)=9,\ f(2)=8,\ f(3)=\frac{153}{16}$$
+        즉, $f(x)$의 최댓값은 $\dfrac{153}{16}$이고, 최솟값은 $8$이다. (3점)
+      criteria: [1.B1]
+    - id: 1b-4
+      content: |
+        $\overline{\mathrm{PQ}}=\sqrt{f(x)}$이므로 $\overline{\mathrm{PQ}}$의 최댓값 $a$와 최솟값 $b$는 $a^2=\dfrac{153}{16}$, $b^2=8$를 만족한다. 결국
+        $$a^2\times b^2=\frac{153}{16}\times8=\frac{153}{2}$$
+        이다. (2점)
+      criteria: [1.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 1, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 1
+      evidence: (도입) 점 $\mathrm{Q}\left(x,\frac{x^2}{4}\right)$에 대해 $f(x)=\overline{\mathrm{PQ}}^2=\frac{x^4}{16}-\frac{x^2}{2}+9$의 식을 썼다.
+      steps: [1b-1]
+    - id: 1.M2
+      mark_type: M
+      points: 3
+      evidence: (도입) $f^{\prime}(x)=\frac{x}{4}(x-2)(x+2)$를 구하고 $-1<x<3$에서 $f^{\prime}(x)=0$인 $x=0,2$를 찾았다.
+      steps: [1b-2]
+    - id: 1.B1
+      mark_type: B
+      points: 3
+      evidence: (전개) 임계점과 끝점의 함숫값 $f(-1),f(0),f(2),f(3)$을 계산해 최댓값 $\frac{153}{16}$, 최솟값 $8$을 찾았다.
+      steps: [1b-3]
+    - id: 1.A1
+      mark_type: A
+      points: 2
+      evidence: (결론) $a^2\times b^2=\frac{153}{2}$을 계산했다.
+      depends_on: [1.M1, 1.M2]
+      steps: [1b-4]
+    deductions:
+    - code: D1-1
+      condition: 단순한 계산 실수와 같은 사소한 실수(건당)
+      effect: minus
+      value: 1
+    - code: D1-2
+      condition: 타당한 설명 없이 답만 기술
+      effect: zero
+      value: 0
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+remedy_links: []
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

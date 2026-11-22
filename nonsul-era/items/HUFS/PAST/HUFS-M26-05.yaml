@@ -1,0 +1,174 @@
+# 한국외대 2026학년도 논술전형(자연계) 모의 문제 5 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: HUFS-M26-05
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: numeric
+origin: mock_exam
+school: HUFS
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 분류
+points: 16
+time_estimate_min: 15
+intent: 불연속인 구간별 함수의 평행이동과 곱으로 만든 함수의 연속성을 좌극한·우극한·함숫값 비교로 판정하고, $a=0$과 $a\ne0$을 나누어 조건을 찾는 능력을 본다.
+key_idea: '$f$는 $x=0$에서만 불연속($f(0+)=-5$, $f(0)=f(0-)=-2$)이므로 $f(x-a)$는 $x=a$에서 불연속. $a=0$이면 $25\ne4$로 불연속, $a\ne0$이면 $-5f(a)=-2f(a)$에서 $f(a)=0$, $a=-1,10$. 합 $9$.'
+stuck: $a=0$일 때 두 인수가 동시에 불연속이 되어 따로 확인해야 하는 단계와, $a\ne0$일 때 연속 조건이 $f(a)=0$으로 줄어드는 단계
+idea_tags: [IDEA-PRODUCT-CONTINUITY-ZERO-FACTOR, IDEA-ONESIDED-LIMIT-COMPARE]
+tags: [함수의 연속, 구간별로 정의된 함수, 경우 분류]
+elements:
+  materials: ['구간별로 정의된 일차함수 $f(x)$', '$g(x)=f(x)f(x-a)$']
+  concepts: [함수의 연속, 좌극한과 우극한, 함수의 극한의 성질, 평행이동]
+  tools: ['한쪽 극한 계산', '극한의 곱', '$f(a)=0$인 $a$ 구하기']
+  conditions:
+  - '$f(0+)=-5$, $f(0-)=f(0)=-2$ → $f$는 $x=0$에서 불연속, $f(x-a)$는 $x=a$에서 불연속'
+  - '$a=0$: $g=\{f(x)\}^2$의 우극한 25, 좌극한 4 → 불연속'
+  - '$a\ne0$: 우극한 $-5f(a)$, 좌극한·함숫값 $-2f(a)$ → $f(a)=0$'
+  stimuli_used: []
+  subpart_links: null
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅱ]
+  scope_2028: common
+  scope_confirmed: true
+  standards:
+  - code: 미확인
+    text: 함수의 연속의 뜻을 안다(요지)
+    verified: false
+  content_area: 함수의 극한과 연속 – 함수의 연속
+  behavior_domain: 추론
+  unit_path: [수학Ⅱ, 함수의 극한과 연속, 함수의 연속, 곱으로 만든 함수의 연속]
+  key_concepts: [함수의 연속, 좌극한, 우극한]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 한국외국어대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 한국외국어대학교
+  admission_year: 2026
+  admission_type: 논술전형 모의논술
+  track: 자연계
+  question_no: 5
+  official_url: https://adms.hufs.ac.kr/ajaxfile/FileCpnt/fileView.do?gbn=b02&SITE_NO=2&BOARD_SEQ=6&BBS_SEQ=70
+  retrieved_at: 2026-11-21
+  original_points: 16
+  rights_notice: 미확인(입학처 공개 자료)
+  transcribed_from: 「2026학년도 논술가이드북」 05. 모의논술고사 문제 3. 자연계 p.44(PDF p.46), 문항해설·채점기준 p.50(PDF p.52) — 원본 이미지 대조 2026-11-21
+
+verify: verify/HUFS-M26.py::p05
+
+stimuli: []
+
+stem: |
+  [문제 5] 함수 $f(x)=\begin{cases}-2(x+1) & (x\le0)\\ \dfrac12x-5 & (x>0)\end{cases}$에 대하여 다음 조건을 만족시키는 모든 실수 $a$의 값의 합을 구하시오. (16점)
+
+  함수 $g(x)=f(x)f(x-a)$는 $x=a$에서 연속이다.
+
+subparts:
+- id: '1'
+  stem: |
+    조건을 만족시키는 모든 실수 $a$의 값의 합을 구하시오.
+  points: 16
+  depends_on: []
+  answer: {kind: value, value: '9', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $a=0$이면 좌우극한 $4\ne25$로 불연속. $a\ne0$이면 $x=a$에서 $f(x)$는 연속이고 $f(x-a)$만 끊기므로 $f(a)\cdot(-5)=f(a)\cdot(-2)$, 곧 $f(a)=0$. $a=-1$, $10$, 합 $9$.
+    steps:
+    - {id: 1a, content: '$a=0$ 제외, $a\ne0$에서 $f(a)=0$ → $a=-1,\ 10$, 합 $9$', criteria: [1.R1, 1.B1, 1.M1, 1.M2, 1.A1]}
+    hint_ladder:
+    - $f(x)$는 어디에서 불연속인가? 그렇다면 $f(x-a)$는?
+    - $a=0$인 경우와 아닌 경우의 차이는?
+    - 불연속인 인수에 곱해진 다른 인수의 값이 $0$이면?
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 2026학년도 논술가이드북 p.50(PDF p.52) 문항 해설
+    steps:
+    - id: 1b-1
+      content: |
+        (i) 함수 $f(x)$는 $x=0$에서 불연속이므로 함수 $f(x-a)$는 $x=a$에서 불연속이다. ([그림] $y=f(x)$의 그래프: $x\le0$에서 $(0,-2)$까지의 직선, $x>0$에서 $(0,-5)$에서 시작하는 직선)
+      criteria: [1.R1]
+    - id: 1b-2
+      content: |
+        (ii) $a=0$일 때, $g(x)=\{f(x)\}^2$이 되고,
+        $$\lim_{x\to a+}g(x)=\lim_{x\to0+}\{f(x)\}^2=25,\qquad\lim_{x\to a-}g(x)=\lim_{x\to0-}\{f(x)\}^2=4$$
+        즉, $\displaystyle\lim_{x\to a+}g(x)\ne\lim_{x\to a-}g(x)$이므로 $a=0$일 때 함수 $g(x)$는 $x=a$에서 불연속이다.
+      criteria: [1.B1]
+    - id: 1b-3
+      content: |
+        (iii) $a\ne0$일 때, $f(x)$는 $x=a$에서 연속이므로
+        $$\lim_{x\to a+}g(x)=\lim_{x\to a+}f(x)f(x-a)=-5f(a),\qquad\lim_{x\to a-}g(x)=\lim_{x\to a-}f(x)f(x-a)=-2f(a),\qquad g(a)=f(a)f(0)=-2f(a)$$
+        이다.
+      criteria: [1.M1]
+    - id: 1b-4
+      content: |
+        따라서 함수 $g(x)$가 $x=a$에서 연속이 되기 위해서는
+        $$-5f(a)=-2f(a)\ \text{즉},\ f(a)=0\quad\cdots(1)$$
+        이어야 한다.
+      criteria: [1.M2]
+    - id: 1b-5
+      content: |
+        (iv) (1)을 만족시키는 $a$의 값은 $-1$과 $10$이 되고, 이러한 모든 실수 $a$의 값의 합은 $-1+10=9$이다.
+      criteria: [1.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 1, isw: true}
+    criteria:
+    - id: 1.R1
+      mark_type: R
+      points: 3
+      evidence: $f(x)$가 $x=0$에서 불연속이고 $f(x-a)$가 $x=a$에서 불연속임을 적었다(그래프는 그리지 않아도 됨). (채점기준 도입 3점)
+      steps: [1b-1]
+    - id: 1.B1
+      mark_type: B
+      points: 3
+      evidence: $a=0$일 때 우극한 25, 좌극한 4로 $g$가 불연속임을 보였다.
+      steps: [1b-2]
+    - id: 1.M1
+      mark_type: M
+      points: 3
+      evidence: $a\ne0$일 때 우극한 $-5f(a)$, 좌극한 $-2f(a)$, 함숫값 $-2f(a)$를 구했다.
+      steps: [1b-3]
+    - id: 1.M2
+      mark_type: M
+      points: 3
+      evidence: 연속 조건을 $f(a)=0$으로 정리했다. (채점기준 전개 9점 = 3+3+3)
+      steps: [1b-4]
+    - id: 1.A1
+      mark_type: A
+      points: 4
+      evidence: $f(a)=0$에서 $a=-1$, $10$을 찾고 합 $9$를 구했다. (채점기준 결론 4점)
+      depends_on: [1.M2]
+      cao: true
+      steps: [1b-5]
+    deductions:
+    - code: D1-1
+      condition: 단순한 계산 실수와 같은 사소한 실수(건당)
+      effect: minus
+      value: 1
+    - code: D1-2
+      condition: 타당한 설명이 없이 답만 기술
+      effect: zero
+      value: 0
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+remedy_links: []
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

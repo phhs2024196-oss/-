@@ -1,0 +1,154 @@
+# 한국외대 2023학년도 논술전형(자연계) 모의 문제 10 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: HUFS-M23-10
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: numeric
+origin: mock_exam
+school: HUFS
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 추론
+points: 12
+time_estimate_min: 15
+intent: 함수방정식과 미분계수의 정의를 결합해, 한 점의 미분계수를 다른 점의 미분계수로 옮겨 구하는 능력을 본다.
+key_idea: '$f(3+h)=f\!\left(3\left(1+\frac h3\right)\right)=f(3)+f\!\left(1+\frac h3\right)-3$, $f(1)=3$이므로 $f^{\prime}(3)=\frac13f^{\prime}(1)=1$.'
+stuck: '$3+h$를 $3\left(1+\frac h3\right)$로 곱의 꼴로 바꾸어 조건 (가)를 적용하는 단계와 $a=b=1$ 대입으로 $f(1)=3$을 얻는 단계'
+idea_tags: [IDEA-FUNC-EQ-DERIV-DEFINITION]
+tags: [미분계수의 정의, 함수방정식, 「도입·전개·결론」 채점]
+elements:
+  materials: ['$f(ab)=f(a)+f(b)-3$ ($a,b>0$)', '$f^{\prime}(1)=3$']
+  concepts: [미분계수의 정의, 함수방정식, 함수의 극한]
+  tools: ['$3+h=3\left(1+\frac h3\right)$ 변형', '$a=b=1$ 대입', '$\frac h3$로 치환한 극한']
+  conditions:
+  - '(가) 곱 → 합 변환, $a=b=1$에서 $f(1)=3$'
+  - '(나) $f^{\prime}(1)=3$'
+  stimuli_used: [조건 (가), 조건 (나)]
+  subpart_links: null
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅱ]
+  scope_2028: common
+  scope_confirmed: true
+  standards:
+  - code: 미확인
+    text: 미분계수의 뜻을 알고, 그 값을 구할 수 있다(요지)
+    verified: false
+  content_area: 미분 – 미분계수
+  behavior_domain: 추론
+  unit_path: [수학Ⅱ, 미분, 미분계수와 도함수, 함수방정식과 미분계수]
+  key_concepts: [미분계수의 정의, 함수방정식]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 한국외국어대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 한국외국어대학교
+  admission_year: 2023
+  admission_type: 논술전형 모의논술
+  track: 자연계
+  question_no: 10
+  official_url: https://adms.hufs.ac.kr/ajaxfile/FileCpnt/fileView.do?gbn=b02&SITE_NO=2&BOARD_SEQ=6&BBS_SEQ=31
+  retrieved_at: 2026-11-21
+  original_points: 12
+  rights_notice: 미확인(입학처 공개 자료)
+  transcribed_from: 2023 논술가이드북 p.90(PDF p.92) — 원본 이미지 대조 2026-11-21
+
+verify: verify/HUFS-M23.py::p10
+
+stimuli:
+- label: 조건
+  body: |
+    (가) 임의의 양의 실수 $a$와 $b$에 대해 $f(ab)=f(a)+f(b)-3$이다.
+
+    (나) $f^{\prime}(1)=3$
+
+stem: |
+  ※ 다음 물음에 답하시오. 답안지에 반드시 풀이과정 또는 증명과정을 제시하시오.
+
+  [문제 10] 양의 실수 전체의 집합에서 미분가능한 함수 $f(x)$가 다음 조건을 모두 만족시킬 때, $x=3$에서의 미분계수를 구하시오. (12점)
+
+subparts:
+- id: '1'
+  stem: |
+    $x=3$에서의 미분계수를 구하시오.
+  points: 12
+  depends_on: []
+  answer: {kind: value, value: '1', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: '$f^{\prime}(3)=\lim_{h\to0}\frac{f(1+\frac h3)-3}{h}=\frac13f^{\prime}(1)=1$ ($f(1)=3$).'
+    steps:
+    - {id: 1a, content: '$f^{\prime}(3)=\frac13\times3=1$', criteria: [1.M1, 1.B1, 1.A1]}
+    hint_ladder:
+    - $f(3+h)$에서 $3+h$를 $3$과 어떤 수의 곱으로 써 보자.
+    - 조건 (가)에 $a=b=1$을 넣으면?
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 2023 논술가이드북 p.94
+    steps:
+    - id: 1b-1
+      content: |
+        미분계수의 정의와 조건 (가)를 이용해서 다음을 유도한다.
+        $$\begin{aligned}(1)\quad f^{\prime}(3)&=\lim_{h\to0}\frac{f(3+h)-f(3)}{h}=\lim_{h\to0}\frac{f\!\left(3\left(1+\frac h3\right)\right)-f(3)}{h}\\&=\lim_{h\to0}\frac{\left\{f(3)+f\!\left(1+\frac h3\right)-3\right\}-f(3)}{h}=\lim_{h\to0}\frac{f\!\left(1+\frac h3\right)-3}{h}\end{aligned}$$
+      criteria: [1.M1]
+    - id: 1b-2
+      content: |
+        한편, 조건 (가)의 식에 $a=b=1$을 대입하면 $f(1)=f(1)+f(1)-3$이므로 $f(1)=3$이다.
+      criteria: [1.B1]
+    - id: 1b-3
+      content: |
+        따라서 (1)과 조건 (나)를 이용하면
+        $$f^{\prime}(3)=\lim_{h\to0}\frac{f\!\left(1+\frac h3\right)-f(1)}{h}=\frac13\lim_{h\to0}\left\{\frac{f\!\left(1+\frac h3\right)-f(1)}{\frac h3}\right\}=\frac13f^{\prime}(1)=\frac13\times3=1$$ 이다.
+      criteria: [1.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 1, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 6
+      evidence: (도입) 조건 (가)를 이용해서 $f^{\prime}(3)=\displaystyle\lim_{h\to0}\frac{f\!\left(1+\frac h3\right)-3}{h}$을 유도한다.
+      steps: [1b-1]
+    - id: 1.B1
+      mark_type: B
+      points: 2
+      evidence: (전개) 조건 (가)의 식에 $a=b=1$을 대입해서 $f(1)=3$을 찾는다.
+      steps: [1b-2]
+    - id: 1.A1
+      mark_type: A
+      points: 4
+      evidence: (결론) 도입부에서 유도한 식과 조건 (나)를 이용해서 $f^{\prime}(3)=1$을 구한다.
+      depends_on: [1.M1, 1.B1]
+      steps: [1b-3]
+    deductions:
+    - code: D1-1
+      condition: 단순한 계산 실수와 같은 사소한 실수(건당)
+      effect: minus
+      value: 1
+    - code: D1-2
+      condition: 타당한 설명이 없이 답만 쓴 경우
+      effect: zero
+      value: 0
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+remedy_links: []
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21
