@@ -1,0 +1,233 @@
+# 국민대 2026학년도 수시 논술(자연계, 오후2) 수학 1번 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+# 배점 단위: 원 배점이 소수(4.3점 등)라 0.1점 단위 정수로 저장(points 120 = 12.0점). 원 배점은 source.original_points.
+schema_version: '2.0'
+id: KMU-G26C-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: short_answer
+origin: past_exam
+school: KMU
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 점화
+points: 120
+time_estimate_min: 12
+intent: |
+  등비수열의 뜻을 알고 주어진 수열로부터 일반항을 구할 수 있는지를 평가함. 또한 수열의 합 $S_n$에서 $S_k$를 뺀 값의 의미 즉, 예를 들어 $S_{18}-S_{15}=a_{16}+a_{17}+a_{18}$를 이해하는지에 대한 평가임.
+key_idea: |
+  $S_{n+2}=\sqrt3S_n$은 짝수 번째 합끼리, 홀수 번째 합끼리 공비 $\sqrt3$인 등비수열을 이룬다는 뜻이다. $S_2=1$, $S_1=3$에서 출발하면 $S_{2n}=(\sqrt3)^{n-1}$, $S_{2n+1}=3(\sqrt3)^n$이고, 연속한 항의 합은 $S_{18}-S_{15}$로 구한다.
+stuck: |
+  $S_{n+2}=\sqrt3S_n$을 $a_n$의 점화식으로 착각해 일반항 $a_n$을 직접 구하려는 단계(합 $S_n$을 홀짝으로 나누어 등비수열로 보아야 한다)
+idea_tags: [IDEA-SUM-RECURRENCE-PARITY-SPLIT, IDEA-PARTIAL-SUM-DIFFERENCE]
+tags: [등비수열, 수열의 합과 일반항, 홀짝 분리]
+elements:
+  materials:
+  - '$a_1=3$, $a_2=-2$인 수열 $\{a_n\}$과 그 부분합 $S_n=\sum_{k=1}^{n}a_k$'
+  - '부분합 사이의 관계식 $S_{n+2}=\sqrt3S_n$'
+  - '지수 꼴로 쓴 부분합 $S_{2n}=3^{f(n)}$, $S_{2n+1}=3^{g(n)}$'
+  concepts:
+  - '등비수열의 일반항'
+  - '수열의 합과 일반항의 관계 $a_n=S_n-S_{n-1}$'
+  - '지수법칙 $(\sqrt3)^k=3^{k/2}$'
+  tools:
+  - '$S_{n+2}=\sqrt3S_n$을 $n$의 홀짝으로 나누어 두 개의 등비수열로 보기'
+  - '$a_{16}+a_{17}+a_{18}=S_{18}-S_{15}$'
+  conditions:
+  - '$S_1=a_1=3$, $S_2=a_1+a_2=1$ → 두 등비수열의 첫째항'
+  - '모든 자연수 $n$에 대해 $S_{n+2}=\sqrt3S_n$ → 공비 $\sqrt3$'
+  stimuli_used: []
+  subpart_links: '(1)은 짝수 번째 합, (2)는 홀수 번째 합의 일반항이고, (3)은 (1)의 $S_{18}$과 (2)의 $S_{15}$를 사용'
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅰ]
+  scope_2028: unknown
+  scope_confirmed: false
+  standards:
+  - code: 12수학Ⅰ03-03
+    text: 등비수열의 뜻을 알고, 일반항, 첫째항부터 제$n$항까지의 합을 구할 수 있다.
+    verified: true
+  - code: 12수학Ⅰ03-04
+    text: $\sum$의 뜻을 알고, 그 성질을 이해하고, 이를 활용할 수 있다.
+    verified: true
+  content_area: 수열
+  behavior_domain: 이해
+  unit_path: [수학Ⅰ, 수열, 등차수열과 등비수열, 등비수열]
+  key_concepts: [등비수열, 수열의 합과 일반항의 관계]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 국민대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 국민대학교
+  admission_year: 2026
+  admission_type: 수시 논술전형(2025.11.30 시행)
+  track: 자연계(수학) 오후2
+  question_no: 1
+  official_url: https://admission.kookmin.ac.kr/nonschedule/notice.php?ctype=view&no=1062
+  retrieved_at: 2026-11-21
+  original_points: [4.3, 4.3, 3.4]
+  rights_notice: 문항카드 각 쪽 '무단 복제 및 전재, 재배포 금지' 워터마크
+  transcribed_from: 국민대 「2026학년도 선행학습 영향평가 자체평가 보고서」 문항카드 수학(자연_오후2) A형 1번 / B형 2번, pp.205~206(PDF 207~208쪽) — 이미지 대조 2026-11-21
+
+verify: verify/KMU-G26C.py::p01
+
+stimuli: []
+
+stem: |
+  수열 $\{a_n\}$이 $a_1=3$, $a_2=-2$이고, 모든 자연수 $n$에 대해 $S_n=\displaystyle\sum_{k=1}^{n}a_k$일 때, $S_{n+2}=\sqrt3S_n$을 만족한다.
+
+subparts:
+- id: '1'
+  stem: |
+    $S_{2n}=3^{f(n)}$일 때, $f(n)$을 구하시오.
+  points: 43
+  depends_on: []
+  answer: {kind: expression, value: '(n-1)/2', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $S_2=1$이고 짝수 번째 합은 공비 $\sqrt3$인 등비수열이므로 $S_{2n}=(\sqrt3)^{n-1}=3^{\frac{n-1}{2}}$.
+    steps:
+    - {id: 1a, content: '$S_{2n}=1\cdot(\sqrt3)^{n-1}=3^{\frac{n-1}{2}}$, $f(n)=\tfrac{n-1}{2}$', criteria: ['1.B1']}
+    hint_ladder:
+    - $S_2$, $S_4$, $S_6$, …을 차례로 계산해 보아라.
+    - $S_{n+2}=\sqrt3S_n$에서 $n$이 짝수인 경우만 모아라.
+  - id: S1-B
+    audience: B
+    source_flow: 선행학습 영향평가 보고서 문항 해설 p.206
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        $S_1=a_1=3$, $S_2=a_1+a_2=3-2=1$
+      criteria: ['1.B1']
+    - id: 1b-2
+      content: |
+        $S_2=1$, $\dfrac{S_{n+2}}{S_n}=\sqrt3$이므로 $S_2=1$, $S_4=\sqrt3$, $S_6=(\sqrt3)^2$, $S_8=(\sqrt3)^3$, $S_{10}=(\sqrt3)^4$, $\cdots$ 따라서 $S_{2n}=(\sqrt3)^{n-1}$, $f(n)=\dfrac{n-1}{2}$(1번 답)이 된다.
+      criteria: ['1.B1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: false, a_requires_m: false, misread_penalty: 0, isw: true}
+    criteria:
+    - id: 1.B1
+      mark_type: B
+      points: 43
+      evidence: |
+        정답 $f(n)=\dfrac{n-1}{2}$을 정확히 기재했다(약술형: 정답만 채점).
+      depends_on: []
+      implied_ok: false
+      cao: true
+      steps: [1b-1, 1b-2, 1a]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '2'
+  stem: |
+    $S_{2n+1}=3^{g(n)}$일 때, $g(n)$을 구하시오.
+  points: 43
+  depends_on: []
+  answer: {kind: expression, value: '1+n/2', equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: $S_1=3$이고 홀수 번째 합도 공비 $\sqrt3$인 등비수열이므로 $S_{2n+1}=3(\sqrt3)^n=3^{1+\frac{n}{2}}$.
+    steps:
+    - {id: 2a, content: '$S_{2n+1}=3\cdot(\sqrt3)^{n}=3^{1+\frac{n}{2}}$, $g(n)=1+\tfrac{n}{2}$', criteria: ['2.B1']}
+    hint_ladder:
+    - $S_1$, $S_3$, $S_5$, …을 차례로 계산해 보아라.
+  - id: S2-B
+    audience: B
+    source_flow: 선행학습 영향평가 보고서 문항 해설 p.206
+    method_no: 1
+    steps:
+    - id: 2b-1
+      content: |
+        또한 $S_1=3$, $\dfrac{S_{n+2}}{S_n}=\sqrt3$이므로 즉, $S_1=3$, $S_3=3\sqrt3$, $S_5=3(\sqrt3)^2$, $S_7=3(\sqrt3)^3$, $\cdots$
+      criteria: ['2.B1']
+    - id: 2b-2
+      content: |
+        따라서 $S_{2n+1}=3(\sqrt3)^n=3^{1+\frac{n}{2}}$, $g(n)=1+\dfrac{n}{2}$(2번 답)이 된다.
+      criteria: ['2.B1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: false, a_requires_m: false, misread_penalty: 0, isw: true}
+    criteria:
+    - id: 2.B1
+      mark_type: B
+      points: 43
+      evidence: |
+        정답 $g(n)=1+\dfrac{n}{2}$을 정확히 기재했다.
+      depends_on: []
+      implied_ok: false
+      cao: true
+      steps: [2b-1, 2b-2, 2a]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '3'
+  stem: |
+    $a_{16}+a_{17}+a_{18}$의 값을 구하시오.
+  points: 34
+  depends_on: ['1', '2']
+  answer: {kind: value, value: '81-81*sqrt(3)', equivalents: [], tolerance: null}
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: 연속한 세 항의 합은 부분합의 차 $S_{18}-S_{15}$이고, (1)(2)에서 $S_{18}=(\sqrt3)^8$, $S_{15}=3(\sqrt3)^7$.
+    steps:
+    - {id: 3a, content: '$a_{16}+a_{17}+a_{18}=S_{18}-S_{15}=81-81\sqrt3$', criteria: ['3.B1']}
+    hint_ladder:
+    - $a_{16}+a_{17}+a_{18}$을 두 부분합의 차로 써 보아라.
+  - id: S3-B
+    audience: B
+    source_flow: 선행학습 영향평가 보고서 문항 해설 p.206
+    method_no: 1
+    steps:
+    - id: 3b-1
+      content: |
+        그러므로 3번 답은 $a_{16}+a_{17}+a_{18}=S_{18}-S_{15}=(\sqrt3)^8-3(\sqrt3)^7=81-81\sqrt3$
+      criteria: ['3.B1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: false, a_requires_m: false, misread_penalty: 0, isw: true}
+    criteria:
+    - id: 3.B1
+      mark_type: B
+      points: 34
+      evidence: |
+        정답 $81-81\sqrt3$을 정확히 기재했다.
+      depends_on: []
+      implied_ok: false
+      cao: true
+      steps: [3b-1, 3a]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+remedy_links: []
+
+memo: |
+  - 공식 채점 기준: 하위 문항별 "정답을 정확히 기재하면 4.3점 / 4.3점 / 3.4점"(약술형, 부분 점수 없음).
+  - 자료 출처(문항카드): 수학Ⅰ 이준열 외 9인(천재교육, 2025) 131·142쪽, 수학Ⅰ 박교식 외 19인(동아출판, 2025) 115·127쪽.
+  - 문항카드 핵심개념: 등비수열, 수열의 합과 일반항의 관계. 예상 소요 시간 12분.
+  - 2027 논술가이드북(2026 자연계 문제 1~8)에는 이 문항이 수록되지 않음.
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

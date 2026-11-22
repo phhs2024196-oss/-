@@ -1,0 +1,250 @@
+# 국민대 2026학년도 수시 논술(자연계, 오후1) 수학 5번 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+# 배점 단위: 원 배점이 소수(4.3점 등)라 0.1점 단위 정수로 저장(points 100 = 10.0점). 원 배점은 source.original_points.
+schema_version: '2.0'
+id: KMU-G26B-05
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: short_answer
+origin: past_exam
+school: KMU
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 분류
+points: 100
+time_estimate_min: 9
+intent: |
+  등차수열의 뜻을 알고 있는지와 등차수열의 합의 공식을 이해하고 이를 이용해 문제를 해결할 수 있는지를 평가함.
+key_idea: |
+  공차가 양수이고 $a_k=0$이므로 $a_1,\dots,a_{k-1}<0$, $a_{k+1},\dots>0$. 절댓값 합과 그냥 합의 차가 $-2(a_1+\cdots+a_{k-1})$이므로 $144-120=-2(a_1+\cdots+a_{k-1})$.
+stuck: |
+  $a_1=0$ 또는 $a_m\le0$이면 절댓값 합이 합의 절댓값과 같아져 나)·다)가 동시에 성립할 수 없음을 보고 $1<k<m$, 음수항이 $a_1\sim a_{k-1}$임을 확정하는 단계
+idea_tags: [IDEA-ABS-SUM-MINUS-SUM, IDEA-ARITHMETIC-SIGN-CHANGE-INDEX]
+tags: [등차수열, 절댓값의 합, 부호가 바뀌는 항]
+elements:
+  materials:
+  - '공차가 $2$인 등차수열 $\{a_n\}$'
+  - '가) $a_k=0$ ($k\ge2$인 자연수)'
+  - '나) $a_1+\cdots+a_m=120$, 다) $\lvert a_1\rvert+\cdots+\lvert a_m\rvert=144$'
+  concepts:
+  - '등차수열의 일반항'
+  - '등차수열의 합 $\tfrac{n(a_1+a_n)}{2}$'
+  - '절댓값의 성질'
+  tools:
+  - '(다)$-$(나) $=-2(a_1+\cdots+a_{k-1})=24$'
+  - '$a_k=0$, $a_{k-1}=-2$로 합 공식 $\tfrac{(k-1)(a_1+a_{k-1})}{2}$에 대입'
+  - '$k^2-k-12=0$, $m^2-7m-120=0$의 자연수 해'
+  conditions:
+  - '공차 $2>0$ → $a_l<0$ $(l\le k-1)$, $a_l>0$ $(l\ge k+1)$'
+  - '나)와 다)가 달라야 함 → $a_1\ne0$, $a_m>0$ → $1<k<m$'
+  - '$a_1=Ak+2$ 꼴 → $a_1=2-2k$'
+  stimuli_used: []
+  subpart_links: '(1)의 합 $-12$와 (2)의 $a_1=2-2k$를 합 공식에 넣어 $k=4$, $a_1=-6$을 얻고 (3)의 $m$을 구한다'
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅰ]
+  scope_2028: unknown
+  scope_confirmed: false
+  standards:
+  - code: 12수학Ⅰ03-01
+    text: 수열의 뜻을 안다.
+    verified: true
+  - code: 12수학Ⅰ03-02
+    text: 등차수열의 뜻을 알고, 일반항, 첫째항부터 제n항까지의 합을 구할 수 있다.
+    verified: true
+  content_area: 수열
+  behavior_domain: 추론
+  unit_path: [수학Ⅰ, 수열, 등차수열과 등비수열, 등차수열의 합]
+  key_concepts: [등차수열, 등차수열의 합, 절댓값]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 국민대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 국민대학교
+  admission_year: 2026
+  admission_type: 수시 논술전형(2025.11.30 시행)
+  track: 자연계(수학) 오후1
+  question_no: 5
+  official_url: https://admission.kookmin.ac.kr/nonschedule/notice.php?ctype=view&no=1062
+  retrieved_at: 2026-11-21
+  original_points: [4.3, 3.2, 2.5]
+  rights_notice: 문항카드 각 쪽 '무단 복제 및 전재, 재배포 금지' 워터마크
+  transcribed_from: 국민대 「2026학년도 선행학습 영향평가 자체평가 보고서」 문항카드 수학(자연_오후1) A형 5번 / B형 4번, pp.197~198(PDF 199~200쪽) — 이미지 대조 2026-11-21
+
+verify: verify/KMU-G26B.py::p05
+
+stimuli: []
+
+stem: |
+  공차가 $2$인 등차수열 $\{a_n\}$이 아래 조건을 만족한다. 다음 물음에 답하시오. (단, $k\ge2$인 자연수)
+
+  가) $a_k=0$
+
+  나) $a_1+a_2+a_3+\cdots+a_m=120$
+
+  다) $\lvert a_1\rvert+\lvert a_2\rvert+\lvert a_3\rvert+\cdots+\lvert a_m\rvert=144$
+
+subparts:
+- id: '1'
+  stem: |
+    $a_1+a_2+\cdots+a_{k-1}$의 값을 구하시오.
+  points: 43
+  depends_on: []
+  answer: {kind: value, value: '-12', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: 음수항은 $a_1\sim a_{k-1}$뿐이므로 (다)$-$(나)$=-2(a_1+\cdots+a_{k-1})=24$.
+    steps:
+    - {id: 1a, content: '$a_1+\cdots+a_{k-1}=-12$', criteria: ['1.B1']}
+    hint_ladder:
+    - 모든 항의 부호가 같다면 나)와 다)는 어떤 관계인가?
+    - 공차가 양수이고 $a_k=0$이면 어떤 항이 음수인가?
+  - id: S1-B
+    audience: B
+    source_flow: 선행학습 영향평가 보고서 문항 해설 p.198
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        $a_1=0$ 또는 $a_m\le0$이면 $\lvert a_1\rvert+\lvert a_2\rvert+\lvert a_3\rvert+\cdots+\lvert a_m\rvert=\lvert a_1+a_2+a_3+\cdots+a_m\rvert$이므로 두 조건 나), 다)를 동시에 만족시킬 수 없다.
+      criteria: ['1.B1']
+    - id: 1b-2
+      content: |
+        따라서 $a_1\ne0$, $a_m>0$이므로 조건 가)에서 $1<k<m$이다. $a_k=0$이고 공차 $2$가 양수이므로 $a_l<0$ $(l=1,2,3,\cdots,k-1)$ …… ① 이어야 한다.
+      criteria: ['1.B1']
+    - id: 1b-3
+      content: |
+        $\lvert a_1\rvert+\lvert a_2\rvert+\lvert a_3\rvert+\cdots+\lvert a_m\rvert=(-a_1)+(-a_2)+\cdots+(-a_{k-1})+a_k+a_{k+1}+\cdots+a_m=144$ …… ②이고 조건 나)에서 ②를 빼면 $2(a_1+a_2+\cdots+a_{k-1})=-24$가 되고 따라서 $a_1+a_2+\cdots+a_{k-1}=-12$ ((1)번 답)을 얻는다.
+      criteria: ['1.B1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: false, a_requires_m: false, misread_penalty: 0, isw: true}
+    criteria:
+    - id: 1.B1
+      mark_type: B
+      points: 43
+      evidence: |
+        정답 $-12$를 정확히 기재했다(약술형: 정답만 채점).
+      depends_on: []
+      implied_ok: false
+      cao: true
+      steps: [1b-1, 1b-2, 1b-3, 1a]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '2'
+  stem: |
+    $a_1=Ak+2$일 때, 상수 $A$의 값을 구하시오.
+  points: 32
+  depends_on: []
+  answer: {kind: value, value: '-2', equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: $a_k=a_1+2(k-1)=0$.
+    steps:
+    - {id: 2a, content: '$a_1=2-2k$이므로 $A=-2$', criteria: ['2.B1']}
+    hint_ladder:
+    - 일반항 $a_n=a_1+2(n-1)$에 $n=k$를 넣어라.
+  - id: S2-B
+    audience: B
+    source_flow: 선행학습 영향평가 보고서 문항 해설 p.198
+    method_no: 1
+    steps:
+    - id: 2b-1
+      content: |
+        $a_n=a_1+(n-1)\cdot2=2n-2+a_1$이고 $a_k=2k-2+a_1=0$이므로 $a_1=2-2k$이다. 따라서 (2)번 답은 $-2$이다.
+      criteria: ['2.B1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: false, a_requires_m: false, misread_penalty: 0, isw: true}
+    criteria:
+    - id: 2.B1
+      mark_type: B
+      points: 32
+      evidence: |
+        정답 $-2$를 정확히 기재했다.
+      depends_on: []
+      implied_ok: false
+      cao: true
+      steps: [2b-1, 2a]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '3'
+  stem: |
+    $m$의 값을 구하시오.
+  points: 25
+  depends_on: ['1', '2']
+  answer: {kind: value, value: '15', equivalents: [], tolerance: null}
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: $a_{k-1}=-2$, $\tfrac{(k-1)(a_1+a_{k-1})}{2}=-12$에 $a_1=2-2k$를 넣으면 $k=4$, $a_1=-6$.
+    steps:
+    - {id: 3a, content: '$\tfrac{m(-12+2(m-1))}{2}=120\Rightarrow m^2-7m-120=0\Rightarrow m=15$', criteria: ['3.B1']}
+    hint_ladder:
+    - (1)의 합을 등차수열의 합 공식으로 써서 $k$를 구하라.
+  - id: S3-B
+    audience: B
+    source_flow: 선행학습 영향평가 보고서 문항 해설 p.198
+    method_no: 1
+    steps:
+    - id: 3b-1
+      content: |
+        또한 $a_1+a_2+\cdots+a_{k-1}=\dfrac{(k-1)(a_1+a_{k-1})}{2}=-12$ …… ③ 한 편, $a_k=0$이고 공차가 $2$이므로 $a_{k-1}=-2$
+      criteria: ['3.B1']
+    - id: 3b-2
+      content: |
+        $\dfrac{(k-1)(2-2k-2)}{2}=-12$이고, 이 식을 풀어 $(k-1)(-k)=-12$를 얻는다. $k^2-k-12=0$이고, $(k-4)(k+3)=0$이다. $k$는 자연수이므로 $k=4$ 따라서 $a_1=2-2k$이므로 $a_1=-6$이 된다.
+      criteria: ['3.B1']
+    - id: 3b-3
+      content: |
+        $a_1+a_2+\cdots+a_m=120$이므로 $\dfrac{m(2a_1+2(m-1))}{2}=120$, $m^2-7m-120=0$ $\therefore m=15$
+      criteria: ['3.B1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: false, a_requires_m: false, misread_penalty: 0, isw: true}
+    criteria:
+    - id: 3.B1
+      mark_type: B
+      points: 25
+      evidence: |
+        정답 $15$를 정확히 기재했다.
+      depends_on: []
+      implied_ok: false
+      cao: true
+      steps: [3b-1, 3b-2, 3b-3, 3a]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+remedy_links: []
+
+memo: |
+  - 공식 채점 기준: 하위 문항별 "정답을 정확히 기재하면 4.3점 / 3.2점 / 2.5점"(약술형, 부분 점수 없음).
+  - 자료 출처(문항카드): 수학Ⅰ 박교식 외 19인(동아출판, 2025) 107쪽, 수학Ⅰ 배종숙 외 6인(금성출판사, 2024) 129쪽.
+  - 예상 소요 시간 9분.
+  - 원문 해설은 소문항별 구분 없이 한 덩어리로 서술됨 → (1)(2)(3) 답이 나오는 지점을 기준으로 S1-B/S2-B/S3-B 로 나눔.
+  - 2027 논술가이드북 문제 5(p.47~48, PDF 54~55쪽) 수록, 배점/표현 차이: 배점 동일(10점: 4.3/3.2/2.5), 발문·해설·정답 동일. 다른 풀이 없음.
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

@@ -1,0 +1,251 @@
+# 국민대 2026학년도 수시 논술(자연계, 오후1) 수학 3번 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+# 배점 단위: 원 배점이 소수(3.9점 등)라 0.1점 단위 정수로 저장(points 100 = 10.0점). 원 배점은 source.original_points.
+schema_version: '2.0'
+id: KMU-G26B-03
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: short_answer
+origin: past_exam
+school: KMU
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 추론
+points: 100
+time_estimate_min: 9
+intent: |
+  정적분을 활용하여 곡선으로 둘러싸인 도형의 넓이를 구하고, 도형의 넓이를 임의의 독립변수에 대한 함수로 이해하여 함수의 극한을 계산할 수 있음을 확인한다. 또한 정적분과 급수의 합 사이의 관계를 이해하고 있음을 평가한다.
+key_idea: |
+  $A(k)=\int_1^k\left(x^{-4}-k^{-4}\right)dx$이고, (3)의 합은 $\sum_{k=1}^n k(f_k-f_{k+1})=\sum_{k=1}^n f_k-nf_{n+1}$로 정리되어 $\int_1^2f(x)\,dx-f(2)=A(2)$가 된다.
+stuck: |
+  (3)에서 $\{f(1+\tfrac kn)-f(1+\tfrac{k+1}{n})\}\tfrac kn$의 합을 풀어 써서 $\sum f(1+\tfrac kn)\tfrac1n-f(2+\tfrac1n)$로 바꾸고, 그 극한이 (1)의 넓이 $A(2)$임을 알아보는 단계
+idea_tags: [IDEA-SUMMATION-BY-PARTS-TELESCOPE, IDEA-RIEMANN-SUM-TO-INTEGRAL]
+tags: [곡선과 직선 사이의 넓이, 넓이 함수의 극한, 정적분과 급수의 합, 합의 재배열]
+elements:
+  materials:
+  - '곡선 $f(x)=\dfrac{1}{x^4}$와 두 직선 $y=f(k)$, $x=1$로 둘러싸인 영역의 넓이 $A(k)$ ($k>1$)'
+  - '$A(k)=\dfrac1B+\dfrac{1}{k^B}\left(\dfrac1k+C\right)$ 꼴(상수 $B$, $C$)'
+  - '급수 $\sum_{k=1}^{n}\left\{f\left(1+\tfrac kn\right)-f\left(1+\tfrac{k+1}{n}\right)\right\}\tfrac kn$'
+  concepts:
+  - '곡선과 직선 사이의 넓이(정적분)'
+  - '함수의 극한($k\to\infty$)'
+  - '정적분과 급수의 합 사이의 관계'
+  - '합의 재배열(망원 구조)'
+  tools:
+  - '$A(k)=\int_1^k\left[\left(\tfrac1x\right)^4-\left(\tfrac1k\right)^4\right]dx=\tfrac13+\tfrac{1}{k^3}\left(\tfrac1k-\tfrac43\right)$'
+  - '$\sum_{k=1}^n k(f_k-f_{k+1})=\sum_{k=1}^n f_k-nf_{n+1}$'
+  - '$\lim\sum f(1+\tfrac kn)\tfrac1n=\int_1^2f(x)\,dx$'
+  - '$\int_1^2(f(x)-f(2))\,dx=A(2)$로 (1) 재사용'
+  conditions:
+  - '$k>1$ → 영역은 $1\le x\le k$에서 곡선 아래·직선 $y=f(k)$ 위'
+  - '$B$, $C$는 $k$와 무관한 상수 → $B=3$, $C=-\tfrac43$'
+  stimuli_used: []
+  subpart_links: '(2)는 (1)의 $A(k)$ 식을 쓰고, (3)은 극한값을 $A(2)$로 바꾸어 (1)의 식에 $k=2$를 대입'
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅱ, 미적분]
+  scope_2028: unknown
+  scope_confirmed: false
+  standards:
+  - code: 12수학Ⅱ03-05
+    text: 곡선으로 둘러싸인 도형의 넓이를 구할 수 있다.
+    verified: true
+  - code: 12수학Ⅱ01-01
+    text: 함수의 극한의 뜻을 안다.
+    verified: true
+  - code: 12수학Ⅱ01-02
+    text: 함수의 극한에 대한 성질을 이해하고, 함수의 극한값을 구할 수 있다.
+    verified: true
+  - code: 12미적03-04
+    text: 정적분과 급수의 합 사이의 관계를 이해한다.
+    verified: true
+  content_area: 적분법·함수의 극한
+  behavior_domain: 추론
+  unit_path: [미적분, 적분법, 정적분의 활용, 정적분과 급수의 합 사이의 관계]
+  key_concepts: [곡선으로 둘러싸인 도형의 넓이, 함수의 극한, 정적분과 급수의 합]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 국민대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 국민대학교
+  admission_year: 2026
+  admission_type: 수시 논술전형(2025.11.30 시행)
+  track: 자연계(수학) 오후1
+  question_no: 3
+  official_url: https://admission.kookmin.ac.kr/nonschedule/notice.php?ctype=view&no=1062
+  retrieved_at: 2026-11-21
+  original_points: [3.9, 2.5, 3.6]
+  rights_notice: 문항카드 각 쪽 '무단 복제 및 전재, 재배포 금지' 워터마크
+  transcribed_from: 국민대 「2026학년도 선행학습 영향평가 자체평가 보고서」 문항카드 수학(자연_오후1) A형 3번 / B형 6번, pp.191~193(PDF 193~195쪽) — 이미지 대조 2026-11-21
+
+verify: verify/KMU-G26B.py::p03
+
+stimuli: []
+
+stem: |
+  곡선 $f(x)=\dfrac{1}{x^4}$과 두 직선 $y=f(k)$, $x=1$로 둘러싸인 영역의 넓이를 $A(k)$이라 할 때, 다음 물음에 답하시오. (단, $k>1$)
+
+subparts:
+- id: '1'
+  stem: |
+    넓이가 $A(k)=\dfrac1B+\dfrac{1}{k^B}\left(\dfrac1k+C\right)$일 때, $BC$의 값을 구하시오. (단, $B$, $C$는 상수)
+  points: 39
+  depends_on: []
+  answer: {kind: value, value: '-4', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $A(k)=\int_1^k(x^{-4}-k^{-4})dx=\tfrac13-\tfrac{1}{3k^3}-\tfrac{k-1}{k^4}=\tfrac13+\tfrac{1}{k^3}\left(\tfrac1k-\tfrac43\right)$.
+    steps:
+    - {id: 1a, content: '$B=3$, $C=-\tfrac43$, $BC=-4$', criteria: ['1.B1']}
+    hint_ladder:
+    - 영역은 $1\le x\le k$에서 곡선과 직선 $y=f(k)$ 사이이다.
+  - id: S1-B
+    audience: B
+    source_flow: 선행학습 영향평가 보고서 문항 해설 p.192
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        곡선 $f(x)=\dfrac{1}{x^4}$과 두 직선 $y=f(k)$, $x=1$로 둘러싸인 영역의 넓이 $A(k)$를 구하는 식은 아래와 같다.
+        $$A(k)=\int_1^k\left[\left(\dfrac1x\right)^4-\left(\dfrac1k\right)^4\right]dx=\dfrac13+\dfrac{1}{k^3}\left(\dfrac1k-\dfrac43\right)$$
+      criteria: ['1.B1']
+    - id: 1b-2
+      content: |
+        이므로 문제에서 요구하는 답의 형태인 $\dfrac1B+\dfrac{1}{k^B}\left(\dfrac1k+C\right)$로 정리하면 $B=3$, $C=-\dfrac43$이다. 따라서 $BC=-4$이다.
+      criteria: ['1.B1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: false, a_requires_m: false, misread_penalty: 0, isw: true}
+    criteria:
+    - id: 1.B1
+      mark_type: B
+      points: 39
+      evidence: |
+        정답 $-4$를 정확히 기재했다(약술형: 정답만 채점).
+      depends_on: []
+      implied_ok: false
+      cao: true
+      steps: [1b-1, 1b-2, 1a]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '2'
+  stem: |
+    $\displaystyle\lim_{k\to\infty}A(k)$의 값을 구하시오.
+  points: 25
+  depends_on: ['1']
+  answer: {kind: value, value: '1/3', equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: $\tfrac{1}{k^3}\left(\tfrac1k-\tfrac43\right)\to0$.
+    steps:
+    - {id: 2a, content: '$\lim_{k\to\infty}A(k)=\tfrac13$', criteria: ['2.B1']}
+    hint_ladder:
+    - (1)의 식에서 $k\to\infty$로 보내라.
+  - id: S2-B
+    audience: B
+    source_flow: 선행학습 영향평가 보고서 문항 해설 p.192
+    method_no: 1
+    steps:
+    - id: 2b-1
+      content: |
+        문제(1)에서 $A(k)=\dfrac13+\dfrac{1}{k^3}\left(\dfrac1k-\dfrac43\right)$이므로 $k>1$인 경우, $\displaystyle\lim_{k\to\infty}A(k)=\lim_{k\to\infty}\left\{\dfrac13+\dfrac{1}{k^3}\left(\dfrac1k-\dfrac43\right)\right\}=\dfrac13$이므로 $\displaystyle\lim_{k\to\infty}A(k)=\dfrac13$이다.
+      criteria: ['2.B1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: false, a_requires_m: false, misread_penalty: 0, isw: true}
+    criteria:
+    - id: 2.B1
+      mark_type: B
+      points: 25
+      evidence: |
+        정답 $\dfrac13$을 정확히 기재했다.
+      depends_on: []
+      implied_ok: false
+      cao: true
+      steps: [2b-1, 2a]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '3'
+  stem: |
+    $\displaystyle\lim_{n\to\infty}\sum_{k=1}^{n}\left\{f\left(1+\dfrac kn\right)-f\left(1+\dfrac{k+1}{n}\right)\right\}\dfrac kn$의 값을 구하시오.
+  points: 36
+  depends_on: ['1']
+  answer: {kind: value, value: '11/48', equivalents: [], tolerance: null}
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: 합 $=\sum f(1+\tfrac kn)\tfrac1n-f(2+\tfrac1n)\to\int_1^2f(x)\,dx-f(2)=\int_1^2(f(x)-f(2))\,dx=A(2)$.
+    steps:
+    - {id: 3a, content: '$A(2)=\tfrac13+\tfrac18\left(\tfrac12-\tfrac43\right)=\tfrac{11}{48}$', criteria: ['3.B1']}
+    hint_ladder:
+    - 합을 $k=1,2,3,\dots$ 순서로 풀어 써 보아라.
+    - $\int_1^2f(x)\,dx-f(2)$는 어떤 영역의 넓이인가?
+  - id: S3-B
+    audience: B
+    source_flow: 선행학습 영향평가 보고서 문항 해설 p.192
+    method_no: 1
+    steps:
+    - id: 3b-1
+      content: |
+        문제에 주어진 급수를 정리하면
+        $$\lim_{n\to\infty}\sum_{k=1}^{n}\left\{f\left(1+\dfrac kn\right)-f\left(1+\dfrac{k+1}{n}\right)\right\}\dfrac kn$$
+        $$=\lim_{n\to\infty}\left\{f\left(1+\dfrac1n\right)\dfrac1n+f\left(1+\dfrac2n\right)\dfrac1n+f\left(1+\dfrac3n\right)\dfrac1n+\cdots+f(2)\dfrac1n-f\left(2+\dfrac1n\right)\right\}$$
+        $$=\lim_{n\to\infty}\left\{\sum_{k=1}^{n}f\left(1+\dfrac kn\right)\dfrac1n-f\left(2+\dfrac1n\right)\right\}=\lim_{n\to\infty}\sum_{k=1}^{n}f\left(1+\dfrac kn\right)\dfrac1n-\lim_{n\to\infty}f\left(2+\dfrac1n\right)=\lim_{n\to\infty}\sum_{k=1}^{n}f\left(1+\dfrac kn\right)\dfrac1n-f(2)$$
+      criteria: ['3.B1']
+    - id: 3b-2
+      content: |
+        이고, $\displaystyle\lim_{n\to\infty}\sum_{k=1}^{n}f\left(1+\dfrac kn\right)\dfrac1n-f(2)$는 정적분과 급수의 합 사이의 관계를 이용하면, $\displaystyle\lim_{n\to\infty}\sum_{k=1}^{n}f\left(1+\dfrac kn\right)\dfrac1n-f(2)=\int_1^2f(x)\,dx-f(2)$이다.
+      criteria: ['3.B1']
+    - id: 3b-3
+      content: |
+        그리고 $\displaystyle\int_1^2f(x)\,dx-f(2)=\int_1^2(f(x)-f(2))\,dx=\int_1^2\left[\left(\dfrac1x\right)^4-\left(\dfrac12\right)^4\right]dx$이므로 $k=2$인 경우의 넓이 $A(2)$와 같다. 따라서 $A(2)=\dfrac13+\dfrac{1}{2^3}\left(\dfrac12-\dfrac43\right)=\dfrac{11}{48}$이다.
+      criteria: ['3.B1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: false, a_requires_m: false, misread_penalty: 0, isw: true}
+    criteria:
+    - id: 3.B1
+      mark_type: B
+      points: 36
+      evidence: |
+        정답 $\dfrac{11}{48}$을 정확히 기재했다.
+      depends_on: []
+      implied_ok: false
+      cao: true
+      steps: [3b-1, 3b-2, 3b-3, 3a]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+remedy_links: []
+
+memo: |
+  - 공식 채점 기준: 하위 문항별 "정답을 정확히 기재하면 3.9점 / 2.5점 / 3.6점"(약술형, 부분 점수 없음).
+  - 자료 출처(문항카드): 수학Ⅱ 홍성복 외(지학사, 2025) 12·145쪽, 수학Ⅱ 박교식 외(동아출판, 2025) 12·141쪽, 미적분 김원경 외(비상, 2025) 143쪽, 미적분 고성은 외(좋은책신사고, 2025) 127쪽, 미적분 박교식 외(동아출판, 2025) 153쪽.
+  - 예상 소요 시간 9분.
+  - 원문 해설 오식: p.192 (3) 둘째 줄 극한 기호가 "$\lim_{n\to0}$"으로 인쇄됨 → S3-B 에서 $n\to\infty$로 옮김(가이드북 p.42 에도 같은 오식).
+  - 2027 논술가이드북 문제 3(p.41~43, PDF 48~50쪽) 수록, 배점/표현 차이: 배점 동일(10점: 3.9/2.5/3.6), 발문·해설·정답 동일. 다른 풀이 없음.
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

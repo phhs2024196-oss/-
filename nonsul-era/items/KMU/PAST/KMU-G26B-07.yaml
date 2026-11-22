@@ -1,0 +1,246 @@
+# 국민대 2026학년도 수시 논술(자연계, 오후1) 수학 7번 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+# 배점 단위: 원 배점이 소수(2.6점 등)라 0.1점 단위 정수로 저장(points 80 = 8.0점). 원 배점은 source.original_points.
+schema_version: '2.0'
+id: KMU-G26B-07
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: short_answer
+origin: past_exam
+school: KMU
+type: null
+variant_of: null
+replaces: null
+level: L3
+form: 추론
+points: 80
+time_estimate_min: 5
+intent: |
+  수직선 위를 움직이는 점의 속도와 가속도 그리고 변위량를 이용하여 거리를 구할 수 있는지 평가함
+key_idea: |
+  $a(1)=v\prime(1)=0$과 $\int_1^3v(t)\,dt=0$(변위 $0$)의 연립으로 $A$, $B$를 구하고, $[0,1]$에서 $v\ge0$이므로 거리는 $\int_0^1v(t)\,dt$.
+stuck: |
+  "$t=1$일 때와 $t=3$일 때 위치가 같다"를 $\int_1^3v(t)\,dt=0$으로 바꾸는 단계
+idea_tags: [IDEA-SAME-POSITION-ZERO-DISPLACEMENT, IDEA-DISTANCE-ABS-VELOCITY]
+tags: [속도와 가속도, 변위와 거리, 정적분]
+elements:
+  materials:
+  - '원점을 출발하는 수직선 위의 점 P의 속도 $v(t)=t^3-At^2+Bt$'
+  - '나) $t=1$일 때 가속도 $0$'
+  - '다) $t=1$일 때와 $t=3$일 때 위치가 같음'
+  concepts:
+  - '속도와 가속도($a(t)=v\prime(t)$)'
+  - '변위 $=\int v(t)\,dt$'
+  - '움직인 거리 $=\int\lvert v(t)\rvert\,dt$'
+  tools:
+  - '$a(1)=3-2A+B=0$'
+  - '$\int_1^3v(t)\,dt=20-\tfrac{26A}{3}+4B=0$'
+  - '$0\le t\le1$에서 $t^2-12t+21\ge0$ 확인 후 절댓값 제거'
+  conditions:
+  - '나) → $2A-B=3$'
+  - '다) → $13A-6B=30$'
+  stimuli_used: []
+  subpart_links: '(1)(2)는 조건 나)·다)의 연립으로 함께 결정되고, (3)은 (1)(2)의 $A$, $B$를 사용'
+
+curriculum:
+  version: '2015'
+  subjects: [미적분]
+  scope_2028: unknown
+  scope_confirmed: false
+  standards:
+  - code: 12수학Ⅱ02-11
+    text: 속도와 가속도에 대한 문제를 해결할 수 있다.
+    verified: true
+  - code: 12수학Ⅱ03-06
+    text: 속도와 거리에 대한 문제를 해결할 수 있다.
+    verified: true
+  content_area: 미분법·적분법
+  behavior_domain: 계산
+  unit_path: [수학Ⅱ, 적분, 정적분의 활용, 속도와 거리]
+  key_concepts: [속도와 가속도, 변위, 움직인 거리]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 국민대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 국민대학교
+  admission_year: 2026
+  admission_type: 수시 논술전형(2025.11.30 시행)
+  track: 자연계(수학) 오후1
+  question_no: 7
+  official_url: https://admission.kookmin.ac.kr/nonschedule/notice.php?ctype=view&no=1062
+  retrieved_at: 2026-11-21
+  original_points: [2.6, 2.6, 2.8]
+  rights_notice: 문항카드 각 쪽 '무단 복제 및 전재, 재배포 금지' 워터마크
+  transcribed_from: 국민대 「2026학년도 선행학습 영향평가 자체평가 보고서」 문항카드 수학(자연_오후1) A형 7번 / B형 8번, pp.201~202(PDF 203~204쪽) — 이미지 대조 2026-11-21
+
+verify: verify/KMU-G26B.py::p07
+
+stimuli: []
+
+stem: |
+  원점을 출발하여 수직선 위를 움직이는 점 $\mathrm{P}$의 시각 $t$에서 속도 $v(t)$가 아래 조건을 만족할 때, 다음 물음에 답하시오.
+
+  가) $v(t)=t^3-At^2+Bt$이다.
+
+  나) $t=1$일 때, 가속도는 $0$이다.
+
+  다) $t=1$일 때와 $t=3$일 때, 점 $\mathrm{P}$의 위치가 같다.
+
+subparts:
+- id: '1'
+  stem: |
+    상수 $A$의 값을 구하시오.
+  points: 26
+  depends_on: []
+  answer: {kind: value, value: '12', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $3-2A+B=0$, $20-\tfrac{26A}{3}+4B=0$ 연립.
+    steps:
+    - {id: 1a, content: '$2A-B=3$, $13A-6B=30$에서 $A=12$', criteria: ['1.B1']}
+    hint_ladder:
+    - 두 시각의 위치가 같다는 것은 그 사이 변위가 얼마라는 뜻인가?
+  - id: S1-B
+    audience: B
+    source_flow: 선행학습 영향평가 보고서 문항 해설 p.202
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        가속도 함수 $a(t)=v\prime(t)=3t^2-2At+B$이므로 $a(1)=3-2A+B=0$이고,
+      criteria: ['1.B1']
+    - id: 1b-2
+      content: |
+        $t=1$와 $t=3$의 위치가 같기 때문에 변위량이 $0$이다. 즉
+        $$\text{변위량}=\int_1^3v(t)\,dt=\int_1^3t^3-At^2+Bt\,dt=\left[\dfrac14t^4-\dfrac13At^3+\dfrac12Bt^2\right]_1^3=20-\dfrac{26A}{3}+4B=0$$
+        이다.
+      criteria: ['1.B1']
+    - id: 1b-3
+      content: |
+        따라서 $2A-B=3$과 $13A-6B=30$을 모두 만족해야 하므로 $A=12$이고, $B=21$이다. (1) $A=12$
+      criteria: ['1.B1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: false, a_requires_m: false, misread_penalty: 0, isw: true}
+    criteria:
+    - id: 1.B1
+      mark_type: B
+      points: 26
+      evidence: |
+        정답 $12$를 정확히 기재했다(약술형: 정답만 채점).
+      depends_on: []
+      implied_ok: false
+      cao: true
+      steps: [1b-1, 1b-2, 1b-3, 1a]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '2'
+  stem: |
+    상수 $B$의 값을 구하시오.
+  points: 26
+  depends_on: []
+  answer: {kind: value, value: '21', equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: (1)과 같은 연립에서 $B=2A-3$.
+    steps:
+    - {id: 2a, content: '$B=2\cdot12-3=21$', criteria: ['2.B1']}
+    hint_ladder:
+    - 가속도 조건 $a(1)=0$을 $A$, $B$의 관계식으로 써라.
+  - id: S2-B
+    audience: B
+    source_flow: 선행학습 영향평가 보고서 문항 해설 p.202
+    method_no: 1
+    steps:
+    - id: 2b-1
+      content: |
+        위 (1)의 해설과 같이 $2A-B=3$과 $13A-6B=30$을 모두 만족해야 하므로 $A=12$이고, $B=21$이다. (2) $B=21$
+      criteria: ['2.B1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: false, a_requires_m: false, misread_penalty: 0, isw: true}
+    criteria:
+    - id: 2.B1
+      mark_type: B
+      points: 26
+      evidence: |
+        정답 $21$을 정확히 기재했다.
+      depends_on: []
+      implied_ok: false
+      cao: true
+      steps: [2b-1, 2a]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '3'
+  stem: |
+    $t=0$에서 $t=1$까지 점 $\mathrm{P}$가 움직인 거리를 구하시오.
+  points: 28
+  depends_on: ['1', '2']
+  answer: {kind: value, value: '27/4', equivalents: ['6.75'], tolerance: null}
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: $v(t)=t(t^2-12t+21)$이고 $[0,1]$에서 $t^2-12t+21\ge10>0$이므로 $\lvert v\rvert=v$.
+    steps:
+    - {id: 3a, content: '$\int_0^1(t^3-12t^2+21t)\,dt=\tfrac14-4+\tfrac{21}{2}=\tfrac{27}{4}$', criteria: ['3.B1']}
+    hint_ladder:
+    - 거리는 $\int\lvert v(t)\rvert\,dt$이다. $[0,1]$에서 $v$의 부호는?
+  - id: S3-B
+    audience: B
+    source_flow: 선행학습 영향평가 보고서 문항 해설 p.202
+    method_no: 1
+    steps:
+    - id: 3b-1
+      content: |
+        시각 $t=0$에서 시각 $t=1$까지 원점에서 출발하여 움직이는 거리식은
+        $$s=\int_0^1\lvert v(t)\rvert\,dt=\int_0^1t(t^2-12t+21)\,dt\quad(0\le t\le1\text{에서 }t^2-12t+21\ge0\text{이므로})$$
+        $$=\int_0^1(t^3-12t^2+21t)\,dt=\dfrac{27}{4}$$
+        이다.
+      criteria: ['3.B1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: false, a_requires_m: false, misread_penalty: 0, isw: true}
+    criteria:
+    - id: 3.B1
+      mark_type: B
+      points: 28
+      evidence: |
+        정답 $\dfrac{27}{4}$를 정확히 기재했다.
+      depends_on: []
+      implied_ok: false
+      cao: true
+      steps: [3b-1, 3a]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+remedy_links: []
+
+memo: |
+  - 공식 채점 기준: 하위 문항별 "정답을 정확히 기재하면 2.6점 / 2.6점 / 2.8점"(약술형, 부분 점수 없음).
+  - 자료 출처(문항카드): 미적분 이준열 외(천재교과서, 2025) 122·176쪽, 미적분 류희찬 외(비상, 2025) 106·153쪽.
+  - 예상 소요 시간 5분.
+  - 문항카드 과목명은 "미적분"이나 성취기준 코드는 12수학Ⅱ02-11·12수학Ⅱ03-06(수학Ⅱ)임 — curriculum.subjects 는 카드 표기(미적분) 그대로, 실제 내용 범위는 수학Ⅱ.
+  - 원문 해설은 (1)(2)를 한 번에 풀이함 → S2-B 는 같은 연립 결과를 인용.
+  - 2027 논술가이드북 문제 7(p.51~52, PDF 58~59쪽) 수록, 배점/표현 차이: 배점 동일(8.0점: 2.6/2.6/2.8), 발문·해설·정답 동일. 다른 풀이 없음.
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

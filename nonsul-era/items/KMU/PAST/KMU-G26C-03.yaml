@@ -1,0 +1,243 @@
+# 국민대 2026학년도 수시 논술(자연계, 오후2) 수학 3번 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+# 배점 단위: 원 배점이 소수(2.4점 등)라 0.1점 단위 정수로 저장(points 100 = 10.0점). 원 배점은 source.original_points.
+schema_version: '2.0'
+id: KMU-G26C-03
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: short_answer
+origin: past_exam
+school: KMU
+type: null
+variant_of: null
+replaces: null
+level: L3
+form: 일반화
+points: 100
+time_estimate_min: 9
+intent: |
+  조합의 의미를 이해하고, 조합의 수를 구할 수 있는지 평가한다.
+key_idea: |
+  원에 내접하는 삼각형이 직각삼각형일 필요충분조건은 한 변이 지름인 것(원주각의 성질)이다. $2n$개의 점이 등간격이므로 지름은 $n$개, 각 지름마다 나머지 $2n-2$개 점 중 하나를 고르면 직각삼각형이고, 이를 전체 ${}_{2n}\mathrm{C}_3$에서 뺀다.
+stuck: |
+  (3)에서 전체 삼각형 수 ${}_{2k}\mathrm{C}_3$에서 직각삼각형 수 $k(2k-2)$를 뺀 식을 $k$에 대한 삼차식으로 정리해 계수를 비교하는 단계
+idea_tags: [IDEA-INSCRIBED-RIGHT-ANGLE-DIAMETER, IDEA-COMPLEMENT-COUNT]
+tags: [조합, 원주각, 여사건으로 세기]
+elements:
+  materials:
+  - '중심이 원점 O이고 반지름이 $r$인 원 위의 $2n$개의 점 $\mathrm{A}_1,\dots,\mathrm{A}_{2n}$'
+  - '$\angle\mathrm{A}_i\mathrm{O}\mathrm{A}_{i+1}=\tfrac{\pi}{n}$ (등간격 배치)'
+  - '세 점을 이어 만든 삼각형 중 직각삼각형이 아닌 것의 개수'
+  concepts:
+  - '조합 ${}_n\mathrm{C}_r$'
+  - '원주각의 성질(지름에 대한 원주각은 직각)'
+  - '여사건(전체에서 빼기)'
+  - '다항식의 계수 비교'
+  tools:
+  - '전체 삼각형 수 ${}_{2n}\mathrm{C}_3$'
+  - '직각삼각형 수 $=$ (지름 수 $n$)$\times$(나머지 점 $2n-2$)'
+  - '${}_{2k}\mathrm{C}_3-k(2k-2)$를 전개해 계수 비교'
+  conditions:
+  - '$\angle\mathrm{A}_i\mathrm{O}\mathrm{A}_{i+1}=\tfrac{\pi}{n}$ → $\mathrm{A}_i$와 $\mathrm{A}_{i+n}$이 지름의 양 끝'
+  - '$n\ge2$, 점은 서로 다름'
+  - '(3) $A,B,C,D$는 실수, 식이 모든 자연수 $k$에서 성립'
+  stimuli_used: []
+  subpart_links: '(1) $n=5$, (2) $n=10$에서 같은 셈법을 적용하고 (3)은 이를 일반 $n=k$로 일반화'
+
+curriculum:
+  version: '2015'
+  subjects: [수학]
+  scope_2028: unknown
+  scope_confirmed: false
+  standards:
+  - code: 10수학05-03
+    text: 조합의 의미를 이해하고, 조합의 수를 구할 수 있다.
+    verified: true
+  content_area: 경우의 수
+  behavior_domain: 계산
+  unit_path: [수학, 경우의 수, 순열과 조합, 조합]
+  key_concepts: [조합]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 국민대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 국민대학교
+  admission_year: 2026
+  admission_type: 수시 논술전형(2025.11.30 시행)
+  track: 자연계(수학) 오후2
+  question_no: 3
+  official_url: https://admission.kookmin.ac.kr/nonschedule/notice.php?ctype=view&no=1062
+  retrieved_at: 2026-11-21
+  original_points: [2.0, 2.4, 5.6]
+  rights_notice: 문항카드 각 쪽 '무단 복제 및 전재, 재배포 금지' 워터마크
+  transcribed_from: 국민대 「2026학년도 선행학습 영향평가 자체평가 보고서」 문항카드 수학(자연_오후2) A형 3번 / B형 6번, pp.210~212(PDF 212~214쪽) — 이미지 대조 2026-11-21
+
+verify: verify/KMU-G26C.py::p03
+
+stimuli: []
+
+stem: |
+  오른쪽 그림과 같이 중심이 원점 $\mathrm{O}$이고 반지름이 $r$인 원의 둘레 위에 서로 다른 $2n$개의 점 $\mathrm{A}_1$, $\mathrm{A}_2$, $\cdots$, $\mathrm{A}_{2n-1}$, $\mathrm{A}_{2n}$이 있다. $n\ge2$이고 $\angle\mathrm{A}_i\mathrm{O}\mathrm{A}_{i+1}=\dfrac{\pi}{n}$ $(i=1,2,\cdots,2n-1)$을 만족할 때, 다음 물음에 답하시오.
+
+  [그림] 원점 $\mathrm{O}$를 중심으로 하는 원(점선) 위에 12개의 점이 같은 간격으로 찍혀 있고, 이웃한 두 점 $\mathrm{A}_i$, $\mathrm{A}_{i+1}$을 $\mathrm{O}$와 이은 두 반지름 사이의 각에 $\dfrac{\pi}{n}$이 표시되어 있다.
+
+subparts:
+- id: '1'
+  stem: |
+    $n=5$일 때, 원 위의 서로 다른 세 점을 이어서 만들 수 있는 삼각형 중 직각삼각형이 아닌 것들의 개수를 구하시오.
+  points: 20
+  depends_on: []
+  answer: {kind: value, value: '80', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: 전체 ${}_{10}\mathrm{C}_3=120$, 직각삼각형은 지름 $5$개 $\times$ 나머지 $8$점 $=40$.
+    steps:
+    - {id: 1a, content: '$120-5\times8=80$', criteria: ['1.B1']}
+    hint_ladder:
+    - 원에 내접하는 삼각형이 직각삼각형이 되는 조건은?
+  - id: S1-B
+    audience: B
+    source_flow: 선행학습 영향평가 보고서 문항 해설 p.211
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        $n=5$일 때, 점의 개수는 $10$개이므로 만들 수 있는 삼각형의 개수는 ${}_{10}\mathrm{C}_3=\dfrac{10!}{3!7!}=\dfrac{10\cdot9\cdot8}{3\cdot2\cdot1}=120$.
+      criteria: ['1.B1']
+    - id: 1b-2
+      content: |
+        원주각의 성질에 의해 직각삼각형이 되기 위해서는 삼각형의 한 변이 원의 지름이어야 하므로 원의 지름을 결정하는 두 점을 고르는 경우의 수$=5$가지이고 나머지 $8$개의 점 중에서 $1$개를 고르는 경우의 수는 ${}_8\mathrm{C}_1=8$가지이므로 직각삼각형을 고르는 경우의 수는 $40$가지. 따라서, 직각삼각형이 아닌 삼각형의 개수는 $120-40=80$가지.
+      criteria: ['1.B1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: false, a_requires_m: false, misread_penalty: 0, isw: true}
+    criteria:
+    - id: 1.B1
+      mark_type: B
+      points: 20
+      evidence: |
+        정답 $80$을 정확히 기재했다(약술형: 정답만 채점).
+      depends_on: []
+      implied_ok: false
+      cao: true
+      steps: [1b-1, 1b-2, 1a]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '2'
+  stem: |
+    $n=10$일 때, 원 위의 서로 다른 세 점을 이어서 만들 수 있는 삼각형 중 직각삼각형이 아닌 것들의 개수를 구하시오.
+  points: 24
+  depends_on: []
+  answer: {kind: value, value: '960', equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: 전체 ${}_{20}\mathrm{C}_3=1140$, 직각삼각형 $10\times18=180$.
+    steps:
+    - {id: 2a, content: '$1140-180=960$', criteria: ['2.B1']}
+    hint_ladder:
+    - (1)과 같은 방법으로 세어라.
+  - id: S2-B
+    audience: B
+    source_flow: 선행학습 영향평가 보고서 문항 해설 p.211
+    method_no: 1
+    steps:
+    - id: 2b-1
+      content: |
+        $n=10$일 때, 점의 개수는 $20$개이므로 만들 수 있는 삼각형의 개수는 ${}_{20}\mathrm{C}_3=\dfrac{20!}{3!17!}=\dfrac{20\cdot19\cdot18}{3\cdot2\cdot1}=1140$.
+      criteria: ['2.B1']
+    - id: 2b-2
+      content: |
+        원주각의 성질에 의해 직각삼각형이 되기 위해서는 삼각형의 한 변이 원의 지름이어야 하므로 원의 지름을 결정하는 두 점을 고르는 경우의 수$=10$가지이고 나머지 $18$개의 점 중에서 $1$개를 고르는 경우의 수는 ${}_{18}\mathrm{C}_1=18$가지이므로 직각삼각형을 고르는 경우의 수는 $180$가지. 따라서, 직각삼각형이 아닌 삼각형의 개수는 $1140-180=960$가지.
+      criteria: ['2.B1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: false, a_requires_m: false, misread_penalty: 0, isw: true}
+    criteria:
+    - id: 2.B1
+      mark_type: B
+      points: 24
+      evidence: |
+        정답 $960$을 정확히 기재했다.
+      depends_on: []
+      implied_ok: false
+      cao: true
+      steps: [2b-1, 2b-2, 2a]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '3'
+  stem: |
+    자연수 $k$에 대하여 $n=k$일 때, 원 위의 서로 다른 세 점을 이어서 만들 수 있는 삼각형 중 직각삼각형이 아닌 것들의 개수는 $\dfrac13(Ak^3+Bk^2+Ck+D)$이다. 이때, $A-B+C-D$의 값을 구하시오. (단, $A,B,C,D$는 실수)
+  points: 56
+  depends_on: []
+  answer: {kind: value, value: '24', equivalents: [], tolerance: null}
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: ${}_{2k}\mathrm{C}_3-k(2k-2)=\tfrac13(4k^3-12k^2+8k)$이므로 $(A,B,C,D)=(4,-12,8,0)$.
+    steps:
+    - {id: 3a, content: '$A-B+C-D=4+12+8-0=24$', criteria: ['3.B1']}
+    hint_ladder:
+    - (1)(2)의 셈을 $n=k$로 일반화해 $k$의 다항식으로 정리하라.
+  - id: S3-B
+    audience: B
+    source_flow: 선행학습 영향평가 보고서 문항 해설 p.211
+    method_no: 1
+    steps:
+    - id: 3b-1
+      content: |
+        $n=k$일 때, 점의 개수는 $2k$개이므로 만들 수 있는 삼각형의 개수는 ${}_{2k}\mathrm{C}_3=\dfrac{(2k)!}{3!(2k-3)!}=\dfrac{2k(2k-1)(2k-2)}{6}$.
+      criteria: ['3.B1']
+    - id: 3b-2
+      content: |
+        원주각의 성질에 의해 직각삼각형이 되기 위해서는 삼각형의 한 변이 원의 지름이어야 하므로 원의 지름을 결정하는 두 점을 고르는 경우의 수$=k$가지이고 나머지 $2k-2$개의 점 중에서 $1$개를 고르는 경우의 수는 ${}_{2k-2}\mathrm{C}_1=2k-2$가지이므로 직각삼각형을 고르는 경우의 수는 $k(2k-2)$가지.
+      criteria: ['3.B1']
+    - id: 3b-3
+      content: |
+        따라서, 직각삼각형이 아닌 삼각형의 개수는 $\dfrac{2k(2k-1)(2k-2)}{6}-k(2k-2)=\dfrac13(4k^3-12k^2+8k)$이므로 $A=4$, $B=-12$, $C=8$, $D=0$이 되어 $A-B+C-D=4-(-12)+8=24$.
+      criteria: ['3.B1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: false, a_requires_m: false, misread_penalty: 0, isw: true}
+    criteria:
+    - id: 3.B1
+      mark_type: B
+      points: 56
+      evidence: |
+        정답 $24$를 정확히 기재했다.
+      depends_on: []
+      implied_ok: false
+      cao: true
+      steps: [3b-1, 3b-2, 3b-3, 3a]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+remedy_links: []
+
+memo: |
+  - 공식 채점 기준: 하위 문항별 "정답을 정확하게 기재하면 2점 / 2.4점 / 5.6점"(약술형, 부분 점수 없음).
+  - 자료 출처(문항카드): 수학 류희찬 외(천재교과서, 2025) 270쪽, 수학 이준열 외(천재교육, 2025) 275쪽.
+  - 문항카드 성취기준 칸은 3개(성취기준1~3) 모두 10수학05-03으로 같아 하나만 기록.
+  - 문항카드 핵심개념: 조합. 예상 소요 시간 9분.
+  - 2027 논술가이드북(2026 자연계 문제 1~8)에는 이 문항이 수록되지 않음.
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

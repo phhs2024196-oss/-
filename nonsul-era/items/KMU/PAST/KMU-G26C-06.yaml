@@ -1,0 +1,235 @@
+# 국민대 2026학년도 수시 논술(자연계, 오후2) 수학 6번 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+# 배점 단위: 원 배점이 소수(2.5점 등)라 0.1점 단위 정수로 저장(points 100 = 10.0점). 원 배점은 source.original_points.
+schema_version: '2.0'
+id: KMU-G26C-06
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: short_answer
+origin: past_exam
+school: KMU
+type: null
+variant_of: null
+replaces: null
+level: L3
+form: 일반화
+points: 100
+time_estimate_min: 9
+intent: |
+  합의 법칙을 이해하고, 이를 이용하여 경우의 수를 구할 수 있는지 평가함.
+key_idea: |
+  $A<B$, $A+B=2n$이면 $A<n$이므로 $A=1,\dots,n-1$, 즉 $a_n=n-1$. $\sum_{n=1}^{2026}(n-1)=1013\cdot2025=3^4\times5^2\times1013$로 소인수분해한다.
+stuck: |
+  (3)에서 합 $1013\cdot2025$를 소인수분해해 $2025=3^4\cdot5^2$, $1013$이 소수임을 확인하는 단계
+idea_tags: [IDEA-ORDERED-PAIR-SUM-COUNT, IDEA-PRIME-FACTORIZATION-MATCH]
+tags: [합의 법칙, 순서쌍의 개수, 수열의 합, 소인수분해]
+elements:
+  materials:
+  - '$A<B$를 만족하는 두 자연수 $A$, $B$'
+  - '$A+B=100$, $A+B=2026$, $A+B=2n$을 만족하는 순서쌍 $(A,B)$의 개수'
+  - '$\sum_{n=1}^{2026}a_n=p^4\times q^2\times r$ ($p,q,r$은 서로 다른 세 소수)'
+  concepts:
+  - '합의 법칙'
+  - '자연수의 합 $\sum k$'
+  - '소인수분해'
+  tools:
+  - '$A<B=S-A$ → $A<\tfrac{S}{2}$'
+  - '$a_n=n-1$, $\sum_{n=1}^{2026}(n-1)=\tfrac{2026\cdot2027}{2}-2026$'
+  - '$2025=3^4\times5^2$'
+  conditions:
+  - '$A$, $B$는 자연수 → $A\ge1$'
+  - '$A<B$ → $A=B$인 경우 제외'
+  - '$p$, $q$, $r$은 서로 다른 소수이고 지수가 $4,2,1$ → 소인수분해의 지수로 대응'
+  stimuli_used: []
+  subpart_links: '(1)(2)의 셈을 $A+B=2n$으로 일반화해 (3)의 $a_n$을 얻음'
+
+curriculum:
+  version: '2015'
+  subjects: [수학, 수학Ⅰ]
+  scope_2028: unknown
+  scope_confirmed: false
+  standards:
+  - code: 10수학05-01
+    text: 합의 법칙과 곱의 법칙을 이해하고, 이를 이용하여 경우의 수를 구할 수 있다.
+    verified: true
+  - code: 12수학Ⅰ03-05
+    text: 여러 가지 수열의 첫째항부터 제n항 까지의 합을 구할 수 있다.
+    verified: true
+  content_area: 경우의 수·수열
+  behavior_domain: 계산
+  unit_path: [수학, 경우의 수, 경우의 수, 합의 법칙과 곱의 법칙]
+  key_concepts: [경우의 수, 수열의 합]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 국민대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 국민대학교
+  admission_year: 2026
+  admission_type: 수시 논술전형(2025.11.30 시행)
+  track: 자연계(수학) 오후2
+  question_no: 6
+  official_url: https://admission.kookmin.ac.kr/nonschedule/notice.php?ctype=view&no=1062
+  retrieved_at: 2026-11-21
+  original_points: [2.0, 2.5, 5.5]
+  rights_notice: 문항카드 각 쪽 '무단 복제 및 전재, 재배포 금지' 워터마크
+  transcribed_from: 국민대 「2026학년도 선행학습 영향평가 자체평가 보고서」 문항카드 수학(자연_오후2) A형 6번 / B형 5번, pp.218~219(PDF 220~221쪽) — 이미지 대조 2026-11-21
+
+verify: verify/KMU-G26C.py::p06
+
+stimuli: []
+
+stem: |
+  두 자연수 $A$, $B$가 $A<B$를 만족할 때, 다음 물음에 답하시오.
+
+subparts:
+- id: '1'
+  stem: |
+    $A+B=100$을 만족하는 순서쌍 $(A,B)$의 개수를 구하시오.
+  points: 20
+  depends_on: []
+  answer: {kind: value, value: '49', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $A<100-A$에서 $A<50$이므로 $A=1,\dots,49$.
+    steps:
+    - {id: 1a, content: '순서쌍 $49$개', criteria: ['1.B1']}
+    hint_ladder:
+    - $B=100-A$를 $A<B$에 대입하라.
+  - id: S1-B
+    audience: B
+    source_flow: 선행학습 영향평가 보고서 문항 해설 p.219
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        $A$는 자연수이므로 $A\ge1$이고 $A<B=100-A$에서 $A<50$이 되어 $A=1,2,\cdots,49$이다. 따라서 순서쌍은 $(1,99),(2,98),\cdots,(48,52),(49,51)$이 되어 $49$개가 된다.
+      criteria: ['1.B1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: false, a_requires_m: false, misread_penalty: 0, isw: true}
+    criteria:
+    - id: 1.B1
+      mark_type: B
+      points: 20
+      evidence: |
+        정답 $49$(개)를 정확히 기재했다(약술형: 정답만 채점).
+      depends_on: []
+      implied_ok: false
+      cao: true
+      steps: [1b-1, 1a]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '2'
+  stem: |
+    $A+B=2026$을 만족하는 순서쌍 $(A,B)$의 개수를 구하시오.
+  points: 25
+  depends_on: []
+  answer: {kind: value, value: '1012', equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: $A<2026-A$에서 $A<1013$이므로 $A=1,\dots,1012$.
+    steps:
+    - {id: 2a, content: '순서쌍 $1012$개', criteria: ['2.B1']}
+    hint_ladder:
+    - (1)과 같은 방법으로 $A$의 범위를 구하라.
+  - id: S2-B
+    audience: B
+    source_flow: 선행학습 영향평가 보고서 문항 해설 p.219
+    method_no: 1
+    steps:
+    - id: 2b-1
+      content: |
+        $A$는 자연수이므로 $A\ge1$이고 $A<B=2026-A$에서 $A<1013$이 되어 $A=1,2,\cdots,1012$이다. 따라서 순서쌍은 $(1,2025),(2,2024),\cdots,(1011,1015),(1012,1014)$이 되어 $1012$개가 된다.
+      criteria: ['2.B1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: false, a_requires_m: false, misread_penalty: 0, isw: true}
+    criteria:
+    - id: 2.B1
+      mark_type: B
+      points: 25
+      evidence: |
+        정답 $1012$(개)를 정확히 기재했다.
+      depends_on: []
+      implied_ok: false
+      cao: true
+      steps: [2b-1, 2a]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '3'
+  stem: |
+    자연수 $n$에 대하여 $A+B=2n$을 만족하는 순서쌍 $(A,B)$의 개수를 $a_n$이라고 할 때, 서로 다른 세 소수 $p$, $q$, $r$에 대하여 $\displaystyle\sum_{n=1}^{2026}a_n=p^4\times q^2\times r$이다. 이때, $p+q+r$의 값을 구하시오.
+  points: 55
+  depends_on: []
+  answer: {kind: value, value: '1021', equivalents: [], tolerance: null}
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: $a_n=n-1$이고 $\sum_{n=1}^{2026}(n-1)=\tfrac{2025\cdot2026}{2}=1013\cdot2025=3^4\cdot5^2\cdot1013$.
+    steps:
+    - {id: 3a, content: '$p=3$, $q=5$, $r=1013$, $p+q+r=1021$', criteria: ['3.B1']}
+    hint_ladder:
+    - (1)(2)를 일반화해 $a_n$을 $n$으로 나타내라.
+    - $2025$를 소인수분해하라.
+  - id: S3-B
+    audience: B
+    source_flow: 선행학습 영향평가 보고서 문항 해설 p.219
+    method_no: 1
+    steps:
+    - id: 3b-1
+      content: |
+        $A$는 자연수이므로 $A\ge1$이고 $A<B=2n-A$에서 $A<n$이 되어 $A=1,2,\cdots,n-1$이다. 따라서 순서쌍은 $(1,n-1),(2,n-2),\cdots,(n-2,n-1),(n-1,n)$이 되어 $n-1$개가 된다. [원문 표기 그대로 — 실제 순서쌍은 $(1,2n-1),(2,2n-2),\cdots,(n-1,n+1)$]
+      criteria: ['3.B1']
+    - id: 3b-2
+      content: |
+        $a_n=n-1$이므로
+        $$\sum_{n=1}^{2026}(n-1)=\dfrac{2026\cdot2027}{2}-2026=\dfrac{2026\cdot(2027-2)}{2}=1013\cdot2025=3^4\times5^2\times1013$$
+        이 되어 $p+q+r=1021$.
+      criteria: ['3.B1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: false, a_requires_m: false, misread_penalty: 0, isw: true}
+    criteria:
+    - id: 3.B1
+      mark_type: B
+      points: 55
+      evidence: |
+        정답 $1021$을 정확히 기재했다.
+      depends_on: []
+      implied_ok: false
+      cao: true
+      steps: [3b-1, 3b-2, 3a]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+remedy_links: []
+
+memo: |
+  - 공식 채점 기준: 하위 문항별 "정답을 정확하게 기재하면 2점 / 2.5점 / 5.5점"(약술형, 부분 점수 없음). 공식 정답 표기 "(1) 49개 (2) 1012개 (3) 1021".
+  - 자료 출처(문항카드): 수학 류준열 외(천재교과서, 2025) 259쪽(저자명 원문 표기 그대로), 수학 권오남 외(교학사, 2025) 256쪽, 수학Ⅰ 고성은 외(좋은책 신사고, 2025) 137쪽, 수학Ⅰ 배종숙 외(금성출판사, 2025) 148쪽.
+  - 문항카드 성취기준 칸 1~3에 10수학05-01이 반복되고 3번 칸에 12수학Ⅰ03-05가 추가됨.
+  - 공식 해설 (3)의 순서쌍 나열 "$(1,n-1),\cdots,(n-1,n)$"은 원문 오기(합이 $2n$이 아님). 개수 $n-1$과 정답에는 영향 없음.
+  - 문항카드 핵심개념: 경우의 수, 수열의 합. 예상 소요 시간 9분.
+  - 2027 논술가이드북(2026 자연계 문제 1~8)에는 이 문항이 수록되지 않음.
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21
