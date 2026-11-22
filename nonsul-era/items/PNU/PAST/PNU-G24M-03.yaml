@@ -1,0 +1,261 @@
+# 부산대 2024학년도 수시 지역인재전형(논술) 의·약학계 문항 3 — 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: PNU-G24M-03
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: PNU
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 추론
+points: 35
+time_estimate_min: 40
+intent: |
+  삼각기둥에서 선분들의 길이를 찾고 코사인법칙으로 주어진 길이를 구하며, 공간의 삼각형 넓이 조건을 만족하는 점들을 정사영으로 분석해 반원환(두 원 사이 영역)임을 찾고, 두 평면이 이루는 각의 코사인을 구해 도형의 넓이를 구하는 능력을 본다(공식 출제 의도 요지).
+key_idea: |
+  $\mathrm{PQ}$가 밑면에 수직이므로 그 정사영 $\mathrm{P'}$은 $\mathrm{BG'}$과 $\mathrm{AH}$의 교점이다. $T=\dfrac12\cdot\dfrac{26}{7}\cdot r$ ($r$: R에서 직선 PQ까지 거리)이므로 $1\le r\le\dfrac{\sqrt7}{2}$, 정사영은 중심 $\mathrm{P'}$인 반원환이다.
+stuck: |
+  [3-1]에서 $\mathrm{P'}$의 내분비를 코사인법칙으로 구하는 단계, [3-2]에서 넓이 조건을 직선 PQ까지의 거리 조건으로 바꾸고 그 정사영이 반원환임(삼각형 ABG' 안에 다 들어감)을 확인하는 단계
+idea_tags: [IDEA-PROJECTION-AREA-COS, IDEA-DIST-TO-VERTICAL-LINE-CYLINDER]
+tags: [삼각기둥, 정사영, 이면각]
+elements:
+  materials:
+  - '한 변 4인 정삼각형을 밑면으로 하고 높이 8인 삼각기둥 DEF−ABC'
+  - '$\overline{\mathrm{FG}}=1$인 점 G, BC의 중점 H, AD 위의 점 I'
+  - '밑면에 수직인 선분 PQ ($\overline{\mathrm{PQ}}=\tfrac{26}{7}$)'
+  - '삼각형 EGI 내부의 점 R과 삼각형 PQR의 넓이'
+  concepts:
+  - '코사인법칙'
+  - '삼각형의 닮음'
+  - '정사영과 정사영의 넓이'
+  - '두 평면이 이루는 각'
+  - '점과 직선 사이의 거리(공간)'
+  tools:
+  - '수선의 발 $\mathrm{G''}$, $\mathrm{P''}$ 설정'
+  - '내분비 $t:1$, $m:1$을 미지수로 둔 코사인 비교'
+  - '닮음비로 $\overline{\mathrm{PP''}}$, $\overline{\mathrm{QP''}}$ 계산'
+  - '$S''=S\cos\theta$'
+  conditions:
+  - 'PQ가 밑면에 수직 ⇒ P, Q의 정사영이 같은 점 $\mathrm{P''}$'
+  - '$\tfrac{13}{7}\le T\le\tfrac{13\sqrt7}{14}\iff1\le r\le\tfrac{\sqrt7}{2}$'
+  - '$\mathrm{P''}$에서 AB, AC까지 거리 $\tfrac{6\sqrt3}{7}>\tfrac{\sqrt7}{2}$ ⇒ 반원환 전체가 삼각형 안'
+  stimuli_used: [가, 나]
+  subpart_links: '(3-2)는 (3-1)의 $\mathrm{P''}$ 위치($\mathrm{AP''}:\mathrm{P''H}=6:1$)와 $\overline{\mathrm{AI}}=6$을 사용'
+
+curriculum:
+  version: '2015'
+  subjects: [기하, 수학Ⅰ]
+  scope_2028: geom
+  scope_confirmed: true
+  content_area: 공간도형과 공간좌표 – 정사영 / 삼각함수 – 코사인법칙
+  behavior_domain: 문제해결
+  unit_path: [기하, 공간도형과 공간좌표, 공간도형, 정사영]
+  key_concepts: [코사인법칙, 정사영의 넓이, 두 평면이 이루는 각, 닮음]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 부산대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 부산대학교
+  admission_year: 2024
+  admission_type: 수시 지역인재전형(논술) 의·약학계
+  track: 의약
+  question_no: 3
+  official_url: https://go.pusan.ac.kr/college_2016/pages/index.asp?p=7&b=B_1_3&ct=1
+  retrieved_at: 2026-11-21
+  original_points: [10, 25]
+  rights_notice: 부산대학교 「2025 논술가이드북(2026학년도 대비)」 p.107~111 (문항·출제 의도·채점 기준·예시 답안)에서 옮김
+
+verify: verify/PNU-G24M.py::p03
+
+stimuli:
+- label: 가
+  body: |
+    삼각형 $\mathrm{ABC}$의 세 변의 길이가 $a$, $b$, $c$일 때 다음이 성립한다.
+    $$a^2=b^2+c^2-2bc\cos A$$
+    $$b^2=c^2+a^2-2ca\cos B$$
+    $$c^2=a^2+b^2-2ab\cos C$$
+    [그림: 꼭짓점 A(위), B(왼쪽 아래), C(오른쪽 아래)인 삼각형에 변 BC $=a$, CA $=b$, AB $=c$가 표시된 그림]
+- label: 나
+  body: |
+    평면 $\beta$ 위의 도형의 넓이를 $S$, 이 도형의 평면 $\alpha$ 위로의 정사영의 넓이를 $S'$이라 할 때, 두 평면 $\alpha$, $\beta$가 이루는 각의 크기를 $\theta\ (0^\circ\le\theta\le90^\circ)$라 하면 $S'=S\cos\theta$이다.
+
+stem: |
+  【문항 3】 다음 제시문을 읽고 아래 논제의 풀이 과정과 답을 논리적으로 서술하시오.
+
+  두 밑면은 한 변의 길이가 $4$인 정삼각형이고 옆면은 모두 직사각형인 삼각기둥 $\mathrm{DEF}-\mathrm{ABC}$가 있다. 이 삼각기둥의 높이는 $8$이다. 선분 $\mathrm{DF}$ 위에 점 $\mathrm{G}$를 $\overline{\mathrm{FG}}=1$이 되도록 잡고, 선분 $\mathrm{BC}$의 중점을 $\mathrm{H}$, 선분 $\mathrm{AD}$ 위의 한 점을 $\mathrm{I}$라 하자. 선분 $\mathrm{BG}$ 위의 한 점 $\mathrm{P}$와 선분 $\mathrm{HI}$ 위의 한 점 $\mathrm{Q}$에 대하여 직선 $\mathrm{PQ}$는 밑면과 수직이고, $\overline{\mathrm{PQ}}=\dfrac{26}{7}$이다. 다음 물음에 답하시오.
+
+  [그림: 아래 밑면 ABC(A 왼쪽, B 앞쪽 아래, C 오른쪽), 위 밑면 DEF(D는 A 위, E는 B 위, F는 C 위)인 세워진 삼각기둥. 모서리 DF 위 F 가까이에 G, 모서리 AD 위쪽에 I, BC 위에 H가 있고, 선분 BG·HI·GI·EI·EG가 점선/실선으로 그려져 있으며, BG 위의 점 P와 HI 위의 점 Q를 잇는 연직 선분 PQ가 표시된 그림]
+subparts:
+- id: '1'
+  stem: |
+    [3-1] 선분 $\mathrm{AI}$의 길이를 구하시오. (10점)
+  points: 10
+  depends_on: []
+  answer: {kind: value, value: '6', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $\mathrm{P'}=\mathrm{BG'}\cap\mathrm{AH}$. 코사인법칙으로 $\mathrm{AP'}:\mathrm{P'H}=6:1$, $\mathrm{G'P'}:\mathrm{P'B}=3:4$를 얻고 닮음으로 $\overline{\mathrm{PQ}}=\tfrac17(32-\overline{\mathrm{AI}})$.
+    steps:
+    - {id: 1a, content: '$\overline{\mathrm{PP''}}=\tfrac{32}{7}$, $\overline{\mathrm{QP''}}=\tfrac17\overline{\mathrm{AI}}$, $\tfrac17(32-\overline{\mathrm{AI}})=\tfrac{26}{7}\Rightarrow\overline{\mathrm{AI}}=6$', criteria: [1.R1, 1.M1, 1.A1]}
+    hint_ladder:
+    - P와 Q를 밑면 ABC에 정사영하면 각각 어느 선분 위에 놓이는가?
+    - $\mathrm{P'}$이 $\mathrm{AH}$와 $\mathrm{BG'}$을 각각 어떤 비로 나누는지 구하자.
+  - id: S1-B
+    audience: B
+    source_flow: '2025 논술가이드북 p.109~110 예시답안'
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        점 $\mathrm{G}$에서 평면 $\mathrm{ABC}$에 내린 수선의 발을 $\mathrm{G'}$이라 하자. 점 $\mathrm{G'}$은 선분 $\mathrm{AC}$ 위의 점이고 선분 $\mathrm{BG}$의 평면 $\mathrm{ABC}$ 위로의 정사영은 선분 $\mathrm{BG'}$이므로 점 $\mathrm{P}$에서 평면 $\mathrm{ABC}$에 내린 수선의 발을 $\mathrm{P'}$이라 하면 $\mathrm{P'}$은 선분 $\mathrm{BG'}$ 위의 점이다. 선분 $\mathrm{HI}$의 정사영은 선분 $\mathrm{AH}$이고 점 $\mathrm{Q}$에서 내린 수선의 발도 $\mathrm{P'}$이므로 $\mathrm{P'}$은 선분 $\mathrm{AH}$ 위의 점이다. 즉 $\mathrm{P'}$은 선분 $\mathrm{BG'}$과 선분 $\mathrm{AH}$의 교점이다.
+      criteria: [1.R1]
+    - id: 1b-2
+      content: |
+        삼각형 $\mathrm{BCG'}$에서 코사인법칙에 의해 $\overline{\mathrm{BG'}}^2=4^2+1^2-2\times4\times1\times\cos60^\circ=13$이므로 $\overline{\mathrm{BG'}}=\sqrt{13}$. $\overline{\mathrm{AP'}}:\overline{\mathrm{P'H}}=t:1\ (t>0)$, $\overline{\mathrm{G'P'}}:\overline{\mathrm{P'B}}=m:1\ (m>0)$이라 하면 $\overline{\mathrm{AH}}=2\sqrt3$이므로 $\overline{\mathrm{P'H}}=\dfrac{2\sqrt3}{t+1}$, $\overline{\mathrm{P'B}}=\dfrac{\sqrt{13}}{m+1}$.
+      criteria: [1.M1]
+    - id: 1b-3
+      content: |
+        삼각형 $\mathrm{BHP'}$은 $\angle\mathrm{BHP'}=90^\circ$인 직각삼각형이므로 $\cos(\angle\mathrm{P'BH})=\dfrac{2}{\overline{\mathrm{P'B}}}=\dfrac{2\sqrt{13}(m+1)}{13}$. 삼각형 $\mathrm{BCG'}$에서 코사인법칙에 의해 $\cos(\angle\mathrm{G'BC})=\dfrac{(\sqrt{13})^2+4^2-1^2}{2\times\sqrt{13}\times4}=\dfrac{7\sqrt{13}}{26}$. 두 값이 같으므로 $m=\dfrac34$이고 $\sin(\angle\mathrm{P'BH})=\sqrt{1-\left(\dfrac{7\sqrt{13}}{26}\right)^2}=\dfrac{\sqrt{39}}{26}$.
+      criteria: [1.M1]
+    - id: 1b-4
+      content: |
+        $\sin(\angle\mathrm{P'BH})=\dfrac{\overline{\mathrm{P'H}}}{\overline{\mathrm{P'B}}}=\dfrac{\frac{2\sqrt3}{t+1}}{\frac{4\sqrt{13}}{7}}=\dfrac{7\sqrt{39}}{26(t+1)}$이므로 $\dfrac{\sqrt{39}}{26}=\dfrac{7\sqrt{39}}{26(t+1)}$에서 $t=6$이다.
+      criteria: [1.M1]
+    - id: 1b-5
+      content: |
+        삼각형 $\mathrm{PBP'}$과 삼각형 $\mathrm{GBG'}$은 서로 닮음이고 닮음비는 $4:7$이므로 $\overline{\mathrm{PP'}}=8\times\dfrac47=\dfrac{32}{7}$이고, 삼각형 $\mathrm{QHP'}$과 삼각형 $\mathrm{IHA}$는 서로 닮음이고 닮음비는 $1:7$이므로 $\overline{\mathrm{QP'}}=\dfrac17\overline{\mathrm{AI}}$이다. $\overline{\mathrm{PQ}}=\overline{\mathrm{PP'}}-\overline{\mathrm{QP'}}=\dfrac17(32-\overline{\mathrm{AI}})=\dfrac{26}{7}$이므로 $\overline{\mathrm{AI}}=6$이다.
+      criteria: [1.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.R1
+      mark_type: R
+      points: 2
+      evidence: |
+        점 G, P에서 평면 ABC에 내린 수선의 발을 각각 $\mathrm{G'}$, $\mathrm{P'}$이라 할 때, $\mathrm{P'}$이 선분 $\mathrm{BG'}$과 선분 $\mathrm{AH}$의 교점임을 보였다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1]
+    - id: 1.M1
+      mark_type: M
+      points: 4
+      evidence: |
+        삼각형 ABC에서 $\overline{\mathrm{AP'}}$ 또는 $\overline{\mathrm{P'H}}$의 길이를 구했다($\overline{\mathrm{AP'}}:\overline{\mathrm{P'H}}=6:1$ 등).
+      depends_on: [1.R1]
+      steps: [1b-2, 1b-3, 1b-4]
+    - id: 1.A1
+      mark_type: A
+      points: 4
+      evidence: |
+        선분 AI의 길이 $6$을 구했다.
+      depends_on: [1.M1]
+      steps: [1b-5]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '2'
+  stem: |
+    [3-2] 삼각형 $\mathrm{EGI}$와 그 내부의 점 $\mathrm{R}$에 대하여 삼각형 $\mathrm{PQR}$의 넓이를 $T$라 할 때, $\dfrac{13}{7}\le T\le\dfrac{13\sqrt7}{14}$을 만족시키는 모든 점 $\mathrm{R}$가 나타내는 영역의 넓이를 구하시오. (25점)
+  points: 25
+  depends_on: ['1']
+  answer: {kind: value, value: 'sqrt(30)*pi/12', equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: $T=\tfrac{13}{7}r$이므로 $1\le r\le\tfrac{\sqrt7}{2}$. 정사영은 중심 $\mathrm{P'}$의 반원환(넓이 $\tfrac38\pi$), $\cos\theta=\tfrac{3\sqrt3}{2\sqrt{10}}$.
+    steps:
+    - {id: 2a, content: '$S\cos\theta=\tfrac{\pi}{2}\left\{\left(\tfrac{\sqrt7}{2}\right)^2-1\right\}=\tfrac38\pi$, $\cos\theta=\tfrac{3\sqrt{30}}{20}$, $S=\tfrac{\sqrt{30}}{12}\pi$', criteria: [2.M1, 2.M2, 2.M3, 2.A1]}
+    hint_ladder:
+    - 밑변 PQ가 고정되어 있으면 삼각형 PQR의 넓이는 무엇으로 결정되는가?
+    - 직선 PQ까지의 거리가 일정한 점들을 밑면 ABC에 정사영하면?
+    - 삼각형 EGI의 넓이와 그 정사영의 넓이로 $\cos\theta$를 구하자.
+  - id: S2-B
+    audience: B
+    source_flow: '2025 논술가이드북 p.110~111 예시답안'
+    method_no: 1
+    steps:
+    - id: 2b-1
+      content: |
+        직선 $\mathrm{PQ}$와 평면 $\mathrm{EGI}$의 교점을 $\mathrm{K}$라 하면 점 $\mathrm{K}$는 직선 $\mathrm{EG}$ 위에 있으므로 삼각형 $\mathrm{EGI}$와 그 내부의 점 중 점 $\mathrm{K}$가 아닌 점들은 직선 $\mathrm{PQ}$ 위의 점이 아니다. 점 $\mathrm{K}$가 아닌 삼각형 $\mathrm{EGI}$와 그 내부의 점 $\mathrm{R}$에서 직선 $\mathrm{PQ}$까지의 거리를 $r\ (r>0)$이라 하면 삼각형 $\mathrm{PQR}$는 밑변의 길이가 $\overline{\mathrm{PQ}}=\dfrac{26}{7}$이고 높이가 $r$인 삼각형이다. 즉 $T=\dfrac{26}{7}\times r\times\dfrac12=\dfrac{13}{7}r$이고 $\dfrac{13}{7}\le\dfrac{13}{7}r\le\dfrac{13\sqrt7}{14}$에서 $1\le r\le\dfrac{\sqrt7}{2}$.
+      criteria: [2.M1]
+    - id: 2b-2
+      content: |
+        점 R가 나타내는 영역은 삼각형 EGI와 그 내부의 점 중에서 직선 PQ까지의 거리 $r$가 $1\le r\le\dfrac{\sqrt7}{2}$인 점들이 나타내는 영역이다.
+        [그림: 삼각기둥 위쪽에서 삼각형 EGI 위에 직선 PQ를 축으로 하는 반원환 모양 영역을 색칠한 그림과 그 확대 그림(안쪽 반지름 1, 바깥 반지름 $\tfrac{\sqrt7}{2}$ 표시)]
+      criteria: [2.M1]
+    - id: 2b-3
+      content: |
+        한편 $\overline{\mathrm{AP'}}:\overline{\mathrm{P'H}}=6:1$이므로 $\overline{\mathrm{AP'}}=\dfrac67\times2\sqrt3=\dfrac{12\sqrt3}{7}$이다. 점 $\mathrm{P'}$에서 직선 $\mathrm{AC}$에 내린 수선의 발을 $\mathrm{J}$라 하면 $\angle\mathrm{P'AJ}=30^\circ$이고 직선 $\mathrm{AP'}$은 $\angle\mathrm{CAB}$의 이등분선이므로 점 $\mathrm{P'}$에서 두 직선 $\mathrm{AB}$, $\mathrm{AC}$까지의 거리는 모두 선분 $\mathrm{P'J}$의 길이와 같다. $\overline{\mathrm{P'J}}=\overline{\mathrm{AP'}}\times\sin30^\circ=\dfrac{6\sqrt3}{7}$이고 $\dfrac{6\sqrt3}{7}=\dfrac{\sqrt{432}}{14}>\dfrac{\sqrt{343}}{14}=\dfrac{\sqrt7}{2}$이므로, 조건을 만족시키는 모든 점 R가 나타내는 영역의 평면 ABC 위로의 정사영은 평면 ABC에서 중심이 $\mathrm{P'}$이고 반지름의 길이가 각각 $1$과 $\dfrac{\sqrt7}{2}$인 두 원으로 둘러싸인 영역 중 삼각형 $\mathrm{ABG'}$ 내부에 있는 영역이다.
+        [그림: 정삼각형 ABC에서 선분 $\mathrm{BG'}$ 위의 점 $\mathrm{P'}$을 중심으로 하는 반지름 1과 $\tfrac{\sqrt7}{2}$의 반원환(A 쪽)이 색칠된 그림]
+      criteria: [2.M2]
+    - id: 2b-4
+      content: |
+        도형 $D$의 넓이를 $S$라 하고, 평면 EGI와 평면 ABC가 이루는 각의 크기를 $\theta\ (0^\circ\le\theta\le90^\circ)$라 하면 제시문 (나)에 의해 $S\times\cos\theta=\dfrac{\pi}{2}\left\{\left(\dfrac{\sqrt7}{2}\right)^2-1^2\right\}=\dfrac38\pi$이다.
+      criteria: [2.M2]
+    - id: 2b-5
+      content: |
+        삼각형 EGI에서 $\overline{\mathrm{GI}}=\sqrt{\overline{\mathrm{DG}}^2+\overline{\mathrm{DI}}^2}=\sqrt{3^2+2^2}=\sqrt{13}$, $\overline{\mathrm{EI}}=\sqrt{\overline{\mathrm{DE}}^2+\overline{\mathrm{DI}}^2}=\sqrt{4^2+2^2}=2\sqrt5$, $\overline{\mathrm{GE}}=\sqrt{13}$이므로 삼각형 EGI는 $\overline{\mathrm{GI}}=\overline{\mathrm{GE}}=\sqrt{13}$인 이등변삼각형이고, 선분 EI를 밑변이라 하면 높이는 $\sqrt{(\sqrt{13})^2-(\sqrt5)^2}=2\sqrt2$이므로 삼각형 EGI의 넓이는 $2\sqrt5\times2\sqrt2\times\dfrac12=2\sqrt{10}$이다. 삼각형 EGI의 평면 ABC 위로의 정사영은 삼각형 $\mathrm{BG'A}$이고 그 넓이는 $\dfrac{\sqrt3}{4}\times4^2\times\dfrac34=3\sqrt3$이므로 $2\sqrt{10}\times\cos\theta=3\sqrt3$에서 $\cos\theta=\dfrac{3\sqrt{30}}{20}$이다.
+      criteria: [2.M3]
+    - id: 2b-6
+      content: |
+        따라서 $S\times\dfrac{3\sqrt{30}}{20}=\dfrac38\pi$에서 $S=\dfrac{\sqrt{30}}{12}\pi$이다.
+      criteria: [2.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 6
+      evidence: |
+        넓이 조건으로부터 점 R가 삼각기둥 $\mathrm{DEG}-\mathrm{ABG'}$에서 위치할 수 있는 영역(직선 PQ까지의 거리 $1\le r\le\dfrac{\sqrt7}{2}$)을 나타냈다.
+      depends_on: []
+      implied_ok: false
+      ft: {allowed: true, from: [1.A1], max_points: 6}
+      steps: [2b-1, 2b-2]
+    - id: 2.M2
+      mark_type: M
+      points: 6
+      evidence: |
+        점 R가 나타내는 도형의 평면 ABC 위로의 정사영이 평면 ABC에서 중심이 $\mathrm{P'}$이고 반지름의 길이가 각각 $1$과 $\dfrac{\sqrt7}{2}$인 두 원으로 둘러싸인 영역 중 삼각형 $\mathrm{ABG'}$ 내부에 있는 영역임을 밝혔다.
+      depends_on: [2.M1]
+      steps: [2b-3, 2b-4]
+    - id: 2.M3
+      mark_type: M
+      points: 8
+      evidence: |
+        평면 ABC와 평면 EGI가 이루는 이면각의 크기 $\theta$에 대한 $\cos\theta=\dfrac{3\sqrt{30}}{20}$을 구했다.
+      depends_on: []
+      ft: {allowed: true, from: [1.A1], max_points: 8}
+      steps: [2b-5]
+    - id: 2.A1
+      mark_type: A
+      points: 5
+      evidence: |
+        정사영을 이용하여 도형의 넓이 $\dfrac{\sqrt{30}}{12}\pi$를 구했다.
+      depends_on: [2.M2, 2.M3]
+      steps: [2b-6]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-transcribe-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

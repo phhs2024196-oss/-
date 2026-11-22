@@ -1,0 +1,308 @@
+# 부산대 2026학년도 수시 논술전형 자연계 문항 1 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: PNU-G26-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: PNU
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 분류
+points: 30
+time_estimate_min: 25
+intent: |
+  경우의 수 단원의 핵심 개념인 합의 법칙과 곱의 법칙, 조합을 이해하고 적용하여 다양한 문제 상황에서 경우의 수를 구할 수 있는지 평가한다. [1-1]은 적절한 전략을 탐색하고 조합을 활용해 조건을 만족시키는 경우의 수를 찾고 그 과정을 논리적으로 설명하는지, [1-2]는 조건을 만족시키는 경우를 모두 고려하고 분석하여 복잡한 상황에서 조합을 활용하는지 본다(공식 출제 의도 요약).
+key_idea: |
+  특정 학생(B 또는 C·D)의 조를 먼저 정해 경우를 나누고, 남은 자리를 조합의 곱으로 센다. 조건 「서로 다른 조」는 여사건(같은 조인 경우)을 빼서 처리한다.
+stuck: |
+  [1-1]에서 (가)의 「B 또는 C와 같은 조」와 (나)를 함께 다루려면 B·C의 조를 먼저 고정해야 한다는 것, [1-2]에서 C·D가 같은 조인 경우를 빠짐없이 빼는 단계
+idea_tags: [IDEA-CASE-FIX-SPECIAL, IDEA-COMPLEMENT-COUNT]
+tags: [조 편성, 조합, 여사건]
+elements:
+  materials:
+  - '10명을 연구조 4명·발표조 3명·지원조 3명으로 나누는 배정'
+  - '특정 학생 A, B, C, D의 같은 조·다른 조 조건'
+  concepts:
+  - '합의 법칙'
+  - '곱의 법칙'
+  - '조합 ${}_n\mathrm{C}_r$'
+  - '여사건(전체에서 빼기)'
+  tools:
+  - 'B(또는 B·C)의 조를 기준으로 한 경우 나누기'
+  - '남은 인원을 각 조에 차례로 택하는 조합의 곱'
+  - '「같은 조인 경우」를 빼는 여사건 계산'
+  - '포함배제(다른 풀이(2))'
+  conditions:
+  - '각 조의 정원 4·3·3이 고정'
+  - '[1-1] A는 B 또는 C와 같은 조, B와 C는 다른 조'
+  - '[1-2] A는 발표조, B는 연구조 또는 지원조, C와 D는 다른 조'
+  stimuli_used: [제시문]
+  subpart_links: '(1-1)과 (1-2)는 독립. 둘 다 특정 학생의 조를 고정한 뒤 조합의 곱으로 센다'
+
+curriculum:
+  version: '2015'
+  subjects: [확률과통계]
+  scope_2028: common
+  scope_confirmed: true
+  standards:
+  - code: 미확인
+    text: 조합의 의미를 이해하고, 조합의 수를 구할 수 있다(요지 — 가이드북에 성취기준 원문 없음)
+    verified: false
+  content_area: 경우의 수 – 순열과 조합
+  behavior_domain: 문제해결
+  unit_path: [확률과통계, 경우의 수, 순열과 조합, 조 나누기와 조건부 배정]
+  key_concepts: [합의 법칙, 곱의 법칙, 조합, 여사건]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 부산대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 부산대학교
+  admission_year: 2026
+  admission_type: 수시 논술전형 자연계
+  track: 자연
+  question_no: 1
+  official_url: https://go.pusan.ac.kr/college_2016/pages/index.asp?p=7&b=B_1_3&ct=1
+  retrieved_at: 2026-11-21
+  original_points: [10, 20]
+  rights_notice: |
+    부산대학교 「2026 논술가이드북(2027학년도 대비)」 PDF p.38~41(인쇄 쪽 36~39) 및 「2026학년도 수시모집 논술고사 채점 기준 및 예시 답안(자연계)」 p.2~4에서 옮김. 문제는 2026학년도 논술고사(자연계) 문제지 p.1과 대조.
+
+verify: verify/PNU-G26.py::p01
+
+stimuli:
+- label: 제시문
+  body: |
+    서로 다른 $n$개에서 $r$개를 택하는 조합의 수는
+    $$ {}_n\mathrm{C}_r=\dfrac{n!}{r!(n-r)!}\quad(\text{단, }0\le r\le n) $$
+
+stem: |
+  네 학생 $\mathrm{A}$, $\mathrm{B}$, $\mathrm{C}$, $\mathrm{D}$를 포함한 $10$명의 학생이 연구조, 발표조, 지원조로 한 팀을 구성하여 어느 프로젝트 대회에 참가하려고 한다. 이 $10$명의 학생 모두를 연구조에 $4$명, 발표조에 $3$명, 지원조에 $3$명 배정하려고 할 때, 다음 물음에 답하시오.
+
+subparts:
+- id: '1'
+  stem: |
+    다음 조건을 만족시키는 경우의 수를 구하시오. (10점)
+
+    (가) $\mathrm{A}$는 $\mathrm{B}$ 또는 $\mathrm{C}$와 같은 조에 배정한다.
+
+    (나) $\mathrm{B}$와 $\mathrm{C}$는 서로 다른 조에 배정한다.
+  points: 10
+  depends_on: []
+  answer: {kind: value, value: '1820', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: B·C의 조를 먼저 정하면(6가지) A는 그 두 조 중 하나에 들어가고, 나머지 7명을 남은 자리에 조합으로 배정한다.
+    steps:
+    - {id: 1a, content: '(B 연구, C 발표) 등 B·C가 연구조를 포함하는 4가지는 각 $350$, 연구조를 포함하지 않는 2가지는 각 $210$ → $350\times4+210\times2=1820$', criteria: ['1.B1', '1.B2', '1.B3']}
+    hint_ladder:
+    - B와 C가 어느 조에 있는지부터 정해 보자. 가능한 배치는 몇 가지인가?
+    - B·C의 조가 정해지면 A가 들어갈 수 있는 조는 두 개뿐이다. 남은 7명은 남은 자리에 조합으로 배정한다.
+  - id: S1-B
+    audience: B
+    source_flow: '2026 논술가이드북(2027학년도 대비) p.37(인쇄) 예시답안 — 채점기준 및 예시답안 p.3'
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        $\mathrm{B}$가 연구조인 경우. $\mathrm{C}$가 발표조이면 $\mathrm{A}$를 연구조 또는 발표조에 배정해야 하므로
+        ${}_7\mathrm{C}_2\times{}_5\mathrm{C}_2\times{}_3\mathrm{C}_3+{}_7\mathrm{C}_3\times{}_4\mathrm{C}_1\times{}_3\mathrm{C}_3=210+140=350\ \cdots ①$.
+        $\mathrm{C}$가 지원조이면 $\mathrm{A}$를 연구조 또는 지원조에 배정해야 하고, 그 경우의 수는 ①과 같으므로 $350$.
+      criteria: ['1.B1']
+    - id: 1b-2
+      content: |
+        $\mathrm{B}$가 발표조인 경우. $\mathrm{C}$가 연구조이면 $\mathrm{A}$를 발표조 또는 연구조에 배정해야 하고, 그 경우의 수는 ①과 같으므로 $350$.
+        $\mathrm{C}$가 지원조이면 $\mathrm{A}$를 발표조 또는 지원조에 배정해야 하므로
+        ${}_7\mathrm{C}_1\times{}_6\mathrm{C}_2\times{}_4\mathrm{C}_4+{}_7\mathrm{C}_1\times{}_6\mathrm{C}_2\times{}_4\mathrm{C}_4=105+105=210\ \cdots ②$.
+      criteria: ['1.B2']
+    - id: 1b-3
+      content: |
+        $\mathrm{B}$가 지원조인 경우. $\mathrm{C}$가 연구조이면 $\mathrm{A}$를 지원조 또는 연구조에 배정해야 하고 그 경우의 수는 ①과 같으므로 $350$, $\mathrm{C}$가 발표조이면 $\mathrm{A}$를 지원조 또는 발표조에 배정해야 하고 그 경우의 수는 ②와 같으므로 $210$.
+        따라서 구하는 경우의 수는 $350\times4+210\times2=1820$이다.
+      criteria: ['1.B3']
+  - id: S1-ALT1
+    audience: ALT
+    source_flow: '2026 논술가이드북(2027학년도 대비) p.38(인쇄) 다른 풀이(1)'
+    method_no: 2
+    key_idea: A·B가 같은 조인 경우(C는 다른 조)를 세고, A·C가 같은 조인 경우도 같으므로 2배 한다.
+    steps:
+    - id: 1c-1
+      content: |
+        $\mathrm{A},\mathrm{B}$가 연구조: 연구조에 $\mathrm{C}$를 제외한 2명을 배정하면 ${}_7\mathrm{C}_2\times{}_6\mathrm{C}_3\times{}_3\mathrm{C}_3=21\times20\times1=420$.
+        $\mathrm{A},\mathrm{B}$가 발표조: 발표조에 $\mathrm{C}$를 제외한 1명을 배정하면 ${}_7\mathrm{C}_1\times{}_7\mathrm{C}_4\times{}_3\mathrm{C}_3=7\times35\times1=245$. 지원조도 같은 방법으로 $245$.
+      criteria: ['1.B1', '1.B2', '1.B3']
+    - id: 1c-2
+      content: |
+        $\mathrm{A},\mathrm{C}$가 같은 조인 경우의 수도 위와 같으므로 구하는 경우의 수는 $2\times(420+245\times2)=1820$이다.
+      criteria: ['1.B1', '1.B2', '1.B3']
+  - id: S1-ALT2
+    audience: ALT
+    source_flow: '2026 논술가이드북(2027학년도 대비) p.38(인쇄) 다른 풀이(2)'
+    method_no: 3
+    key_idea: 전체 $4200$에서 (가) 또는 (나)를 만족시키지 못하는 경우를 포함배제로 빼낸다.
+    steps:
+    - id: 1d-1
+      content: |
+        전체 경우의 수는 ${}_{10}\mathrm{C}_4\times{}_6\mathrm{C}_3\times{}_3\mathrm{C}_3=4200$.
+        (ⅰ) (가)를 만족시키지 못하는 경우: A가 연구조이면서 B, C와 다른 조 ${}_7\mathrm{C}_3\times{}_6\mathrm{C}_3\times{}_3\mathrm{C}_3=700$, A가 발표조 ${}_7\mathrm{C}_2\times{}_7\mathrm{C}_3\times{}_4\mathrm{C}_4=735$, A가 지원조 $735$ → $2170$.
+        (ⅱ) (나)를 만족시키지 못하는 경우: B, C가 연구조 ${}_8\mathrm{C}_2\times{}_6\mathrm{C}_3\times{}_3\mathrm{C}_3=560$, 발표조 ${}_8\mathrm{C}_4\times{}_4\mathrm{C}_1\times{}_3\mathrm{C}_3=280$, 지원조 $280$ → $1120$.
+      criteria: ['1.B1', '1.B2', '1.B3']
+    - id: 1d-2
+      content: |
+        (ⅲ) (가), (나)를 모두 만족시키지 못하는 경우: B, C가 연구조이고 A는 다른 조 ${}_7\mathrm{C}_2\times{}_6\mathrm{C}_3\times{}_3\mathrm{C}_3=420$, 발표조 ${}_7\mathrm{C}_1\times{}_7\mathrm{C}_3\times{}_4\mathrm{C}_4=245$, 지원조 $245$ → $910$.
+        (가) 또는 (나)를 만족시키지 못하는 경우의 수는 $2170+1120-910=2380$이므로 구하는 경우의 수는 $4200-2380=1820$이다.
+      criteria: ['1.B1', '1.B2', '1.B3']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.B1
+      mark_type: B
+      points: 4
+      evidence: |
+        B를 연구조에 배정하고 C를 발표조 또는 지원조에 배정하는 경우의 수($350+350$)를 구했다(공식 채점기준 1행).
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1, 1c-1, 1c-2, 1d-1, 1d-2]
+    - id: 1.B2
+      mark_type: B
+      points: 3
+      evidence: |
+        B를 발표조에 배정하고 C를 연구조 또는 지원조에 배정하는 경우의 수($350+210$)를 구했다(공식 채점기준 2행).
+      depends_on: []
+      implied_ok: false
+      steps: [1b-2, 1c-1, 1c-2, 1d-1, 1d-2]
+    - id: 1.B3
+      mark_type: B
+      points: 3
+      evidence: |
+        B를 지원조에 배정하고 C를 연구조 또는 발표조에 배정하는 경우의 수($350+210$)를 구하고 합 $1820$을 적었다(공식 채점기준 3행).
+      depends_on: []
+      implied_ok: false
+      steps: [1b-3, 1c-1, 1c-2, 1d-1, 1d-2]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '2'
+  stem: |
+    다음 조건을 만족시키는 경우의 수를 구하시오. (20점)
+
+    (가) $\mathrm{A}$는 발표조에 배정한다.
+
+    (나) $\mathrm{B}$는 연구조 또는 지원조에 배정한다.
+
+    (다) $\mathrm{C}$와 $\mathrm{D}$는 서로 다른 조에 배정한다.
+  points: 20
+  depends_on: []
+  answer: {kind: value, value: '720', equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: B가 연구조인 경우와 지원조인 경우로 나누고, 각각 전체에서 C·D가 같은 조인 경우를 뺀다.
+    steps:
+    - {id: 2a, content: '(B 연구) $560-140=420$, (B 지원) $420-120=300$ → $720$', criteria: ['2.B1', '2.B2', '2.B3', '2.B4']}
+    hint_ladder:
+    - A와 B의 조를 먼저 고정하면 나머지 8명을 남은 자리에 배정하는 문제가 된다.
+    - 「C와 D가 다른 조」는 「같은 조인 경우」를 빼는 편이 쉽다. C·D가 같이 들어갈 수 있는 조를 하나씩 따져 보자.
+  - id: S2-B
+    audience: B
+    source_flow: '2026 논술가이드북(2027학년도 대비) p.39(인쇄) 예시답안 — 채점기준 및 예시답안 p.4'
+    method_no: 1
+    steps:
+    - id: 2b-1
+      content: |
+        (ⅰ) $\mathrm{B}$를 연구조에 배정하는 경우. $\mathrm{A}$를 발표조, $\mathrm{B}$를 연구조에 배정하는 경우의 수는 ${}_8\mathrm{C}_3\times{}_5\mathrm{C}_2\times{}_3\mathrm{C}_3=560$이다.
+      criteria: ['2.B1']
+    - id: 2b-2
+      content: |
+        이 중에서 $\mathrm{C}$, $\mathrm{D}$를 서로 같은 조에 배정하는 경우의 수는
+        ${}_6\mathrm{C}_1\times{}_5\mathrm{C}_2\times{}_3\mathrm{C}_3+{}_6\mathrm{C}_3\times{}_3\mathrm{C}_3+{}_6\mathrm{C}_3\times{}_3\mathrm{C}_2\times{}_1\mathrm{C}_1=60+20+60=140$
+        이므로 구하는 경우의 수는 $560-140=420$이다.
+      criteria: ['2.B2']
+    - id: 2b-3
+      content: |
+        (ⅱ) $\mathrm{B}$를 지원조에 배정하는 경우. $\mathrm{A}$를 발표조, $\mathrm{B}$를 지원조에 배정하는 경우의 수는 ${}_8\mathrm{C}_4\times{}_4\mathrm{C}_2\times{}_2\mathrm{C}_2=420$이다.
+      criteria: ['2.B3']
+    - id: 2b-4
+      content: |
+        이 중에서 $\mathrm{C}$, $\mathrm{D}$를 서로 같은 조에 배정하는 경우의 수는
+        ${}_6\mathrm{C}_2\times{}_4\mathrm{C}_2\times{}_2\mathrm{C}_2+{}_6\mathrm{C}_4\times{}_2\mathrm{C}_2+{}_6\mathrm{C}_4\times{}_2\mathrm{C}_2=90+15+15=120$
+        이므로 구하는 경우의 수는 $420-120=300$이다. (ⅰ), (ⅱ)에 의하여 구하는 경우의 수는 $420+300=720$이다.
+      criteria: ['2.B4']
+  - id: S2-ALT
+    audience: ALT
+    source_flow: '2026 논술가이드북(2027학년도 대비) p.39(인쇄) 다른 풀이'
+    method_no: 2
+    key_idea: C·D 중 누가 발표조에 있는지로 세 경우를 나눈다.
+    steps:
+    - id: 2c-1
+      content: |
+        (ⅰ) C를 발표조, D를 발표조 이외의 조에 배정: A와 C는 발표조, B와 D는 발표조 이외의 조에 배정해야 하므로 ${}_6\mathrm{C}_1\times{}_7\mathrm{C}_4\times{}_3\mathrm{C}_3=210$.
+        (ⅱ) D를 발표조, C를 발표조 이외의 조에 배정: (ⅰ)과 같으므로 $210$.
+      criteria: ['2.B1', '2.B3']
+    - id: 2c-2
+      content: |
+        (ⅲ) C와 D를 모두 발표조 이외의 조에 배정: 발표조를 배정하는 경우의 수 ${}_6\mathrm{C}_2=15$, 발표조에 배정되지 않은 7명 중 4명을 연구조, 3명을 지원조에 배정하는 경우의 수 ${}_7\mathrm{C}_4\times{}_3\mathrm{C}_3=35$.
+        이 중 (다)를 만족시키지 못하는 경우는 C, D가 모두 연구조 ${}_5\mathrm{C}_2\times{}_3\mathrm{C}_3=10$, 모두 지원조 ${}_5\mathrm{C}_4\times{}_1\mathrm{C}_1=5$이므로 $15\times(35-10-5)=300$.
+        따라서 $210+210+300=720$이다.
+      criteria: ['2.B2', '2.B4']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.B1
+      mark_type: B
+      points: 3
+      evidence: |
+        A를 발표조, B를 연구조에 배정하는 경우의 수 $560$을 구했다(공식 채점기준).
+      depends_on: []
+      implied_ok: false
+      steps: [2b-1, 2c-1]
+    - id: 2.B2
+      mark_type: B
+      points: 7
+      evidence: |
+        A가 발표조, B가 연구조에 배정된 하에서 C와 D를 서로 다른 조에 배정하는 경우의 수 $420$을 구했다(같은 조인 경우 $140$을 빼는 등).
+      depends_on: []
+      implied_ok: false
+      steps: [2b-2, 2c-2]
+    - id: 2.B3
+      mark_type: B
+      points: 3
+      evidence: |
+        A를 발표조, B를 지원조에 배정하는 경우의 수 $420$을 구했다.
+      depends_on: []
+      implied_ok: false
+      steps: [2b-3, 2c-1]
+    - id: 2.B4
+      mark_type: B
+      points: 7
+      evidence: |
+        A가 발표조, B가 지원조에 배정된 하에서 C와 D를 서로 다른 조에 배정하는 경우의 수 $300$을 구하고 합 $720$을 적었다.
+      depends_on: []
+      implied_ok: false
+      steps: [2b-4, 2c-2]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+remedy_links: []
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-transcribe-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

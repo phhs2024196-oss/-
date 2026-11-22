@@ -1,0 +1,272 @@
+# 부산대 2026학년도 수시 논술전형 자연계 문항 2 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: PNU-G26-02
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: PNU
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 추론
+points: 35
+time_estimate_min: 35
+intent: |
+  주어진 조건을 만족시키는 함수(법선의 $x$절편 $g(t)$)를 찾고, $n(A_k)=2$라는 조건이 $g$가 극값을 가질 때임을 파악하는지 평가한다. [2-1]은 극값을 가질 조건과 특정 조건에서의 극값, 삼차함수와 직선의 교점을 찾는지, [2-2]는 방정식의 두 근의 제곱의 합을 이차방정식의 근과 계수의 관계로 나타내고 그 범위를 구하는지 본다(공식 출제 의도 요약).
+key_idea: |
+  법선의 $x$절편은 $g(t)=t+f(t)f'(t)$인 삼차함수이고, $A_k$는 방정식 $g(t)=g(k)$의 실근의 집합이다. $n(A_k)=2$는 수평선 $y=g(k)$가 극값에서 접할 때, $m_k<k<M_k$는 $g(t)=g(k)$를 $(t-k)$로 나눈 이차식 $h(t)$에 대해 $h(k)<0$일 때이다.
+stuck: |
+  $n(A_k)=2 \iff g(k)$가 극값이라는 해석, 그리고 [2-2]에서 $m_k,M_k$가 이차방정식 $h(t)=0$의 두 근이 되는 조건을 $h(k)<0$으로 바꾸는 단계
+idea_tags: [IDEA-NORMAL-X-INTERCEPT, IDEA-CUBIC-LEVEL-SET-ROOTS, IDEA-VIETA-SUM-SQUARES]
+tags: [법선, 삼차함수 극값, 근과 계수의 관계]
+elements:
+  materials:
+  - '이차함수 위의 점에서 접선에 수직인 직선(법선)의 $x$절편 $g(t)$'
+  - '집합 $A_k=\{t\mid g(t)=g(k)\}$의 원소의 개수·최댓값·최솟값'
+  concepts:
+  - '접선의 방정식과 수직인 직선의 기울기'
+  - '삼차함수의 극대·극소'
+  - '삼차방정식의 실근과 그래프의 교점'
+  - '집합의 원소의 개수 $n(A)$'
+  - '이차방정식의 근과 계수의 관계'
+  tools:
+  - '$g(t)=t+f(t)f''(t)$ 유도($t=-\tfrac p2$에서 따로 확인)'
+  - '$g''(t)=0$의 판별식 $D>0$'
+  - '$g(t)-g(k)=(t-k)h(t)$ 인수분해'
+  - '$h(k)<0$이면 두 근이 $k$의 양쪽'
+  - '$M_k^2+m_k^2=(M_k+m_k)^2-2M_km_k$'
+  conditions:
+  - 'p는 자연수(최솟값 $p_1$)'
+  - '$n(A_k)=2 \iff g(k)$가 극댓값 또는 극솟값'
+  - '$m_k<k<M_k$'
+  stimuli_used: [Ⅰ, Ⅱ, Ⅲ]
+  subpart_links: '(2-1)·(2-2) 모두 공통 설정의 $g(t)=t+f(t)f''(t)$를 쓰며, 서로의 결과는 쓰지 않는다'
+
+curriculum:
+  version: '2015'
+  subjects: [수학, 수학Ⅱ]
+  scope_2028: common
+  scope_confirmed: true
+  standards:
+  - code: 미확인
+    text: 함수의 증가와 감소, 극대와 극소를 판정하고 설명할 수 있다(요지 — 가이드북에 성취기준 원문 없음)
+    verified: false
+  content_area: 미분 – 도함수의 활용
+  behavior_domain: 문제해결
+  unit_path: [수학Ⅱ, 미분, 도함수의 활용, 삼차함수의 극값과 방정식의 실근]
+  key_concepts: [접선의 방정식, 극대와 극소, 삼차방정식의 실근, 근과 계수의 관계]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 부산대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 부산대학교
+  admission_year: 2026
+  admission_type: 수시 논술전형 자연계
+  track: 자연
+  question_no: 2
+  official_url: https://go.pusan.ac.kr/college_2016/pages/index.asp?p=7&b=B_1_3&ct=1
+  retrieved_at: 2026-11-21
+  original_points: [15, 20]
+  rights_notice: |
+    부산대학교 「2026 논술가이드북(2027학년도 대비)」 PDF p.42~45(인쇄 쪽 40~43) 및 「2026학년도 수시모집 논술고사 채점 기준 및 예시 답안(자연계)」 p.5~7에서 옮김. 문제는 2026학년도 논술고사(자연계) 문제지 p.2와 대조.
+
+verify: verify/PNU-G26.py::p02
+
+stimuli:
+- label: Ⅰ
+  body: |
+    함수 $f(x)$가 $x=a$에서 미분가능할 때, 곡선 $y=f(x)$ 위의 점 $(a,\,f(a))$에서의 접선의 방정식은
+    $$ y-f(a)=f'(a)(x-a) $$
+- label: Ⅱ
+  body: |
+    집합 $A$의 원소가 유한개일 때, 집합 $A$의 원소의 개수를 기호로 $n(A)$와 같이 나타낸다.
+- label: Ⅲ
+  body: |
+    함수 $f(x)$가 미분가능하고 $f'(a)=0$일 때, $x=a$의 좌우에서 $f'(x)$의 부호가
+
+    (ⅰ) 양$(+)$에서 음$(-)$으로 바뀌면 $f(x)$는 $x=a$에서 극대이고 극댓값 $f(a)$를 갖는다.
+
+    (ⅱ) 음$(-)$에서 양$(+)$으로 바뀌면 $f(x)$는 $x=a$에서 극소이고 극솟값 $f(a)$를 갖는다.
+
+stem: |
+  이차함수 $f(x)$에 대하여 곡선 $y=f(x)$ 위의 점 $\mathrm{P}(t,\,f(t))$에서의 접선과 수직이고, 점 $\mathrm{P}$를 지나는 직선의 $x$절편을 $g(t)$라 하자. 실수 $k$에 대하여 집합 $A_k$를 $A_k=\{t\mid g(t)=g(k)\}$라 할 때, 다음 물음에 답하시오.
+
+subparts:
+- id: '1'
+  stem: |
+    $f(x)=x^2+px+\dfrac12p-\dfrac12$에 대하여 $n(A_k)=2$를 만족시키는 $k$가 존재하도록 하는 자연수 $p$의 최솟값을 $p_1$이라 하자. 이때 $p_1$을 구하고, $f(x)=x^2+p_1x+\dfrac12p_1-\dfrac12$에 대하여 $n(A_k)=2$를 만족시키는 모든 $k$의 값의 합을 구하시오. (15점)
+  points: 15
+  depends_on: []
+  answer: {kind: expression, value: 'p1 = 3; sum = -6', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $g(t)=t+f(t)f'(t)$는 최고차항 계수가 양수인 삼차함수이므로 $n(A_k)=2$는 $g(k)$가 극값일 때뿐이다.
+    steps:
+    - {id: 1a, content: '$g''(t)=6t^2+6pt+p^2+p$, $\tfrac D4=3p(p-2)>0\Rightarrow p_1=3$; $g(t)=2t^3+9t^2+12t+3$의 극값 $-2,-1$ → $k\in\{-\tfrac52,-2,-1,-\tfrac12\}$, 합 $-6$', criteria: ['1.M1', '1.A1', '1.A2']}
+    hint_ladder:
+    - 법선의 $x$절편을 $t$에 대한 식으로 쓰면 어떤 함수가 되는가?
+    - 삼차함수 $y=g(t)$와 수평선 $y=g(k)$가 정확히 두 점에서 만나려면 $g(k)$는 어떤 값이어야 하는가?
+    - $g(t)=$(극값)을 풀 때 극값을 주는 $t$가 중근이라는 사실을 쓰자.
+  - id: S1-B
+    audience: B
+    source_flow: '2026 논술가이드북(2027학년도 대비) p.42(인쇄) 예시답안 — 채점기준 및 예시답안 p.5~6'
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        곡선 $y=f(x)$ 위의 점 $\mathrm{P}(t,f(t))$를 지나고 $\mathrm{P}$에서의 접선과 수직인 직선의 방정식은
+        $t=-\dfrac p2$일 때 $x=-\dfrac p2$이고 이때 $g(t)=-\dfrac p2$이다.
+        $t\ne-\dfrac p2$일 때 $y=-\dfrac{1}{2t+p}(x-t)+t^2+pt+\dfrac12p-\dfrac12$이고 이때
+        $g(t)=t+(2t+p)\left(t^2+pt+\dfrac12p-\dfrac12\right)=2t^3+3pt^2+(p^2+p)t+\dfrac12p^2-\dfrac12p$이다.
+        그러므로 모든 실수 $t$에 대하여 $g(t)=2t^3+3pt^2+(p^2+p)t+\dfrac12p^2-\dfrac12p$이다.
+      criteria: ['1.M1']
+    - id: 1b-2
+      content: |
+        $n(A_k)=2$를 만족시키는 $k$가 존재하기 위해서는 $g(t)$가 극값을 가져야 하고, $g(k)$가 극값이 될 때 $n(A_k)=2$가 된다.
+        $g'(t)=6t^2+6pt+p^2+p$이고, $g(t)$가 극값을 갖기 위해서는 $g'(t)=0$이 서로 다른 두 실근을 가져야 한다.
+        $\dfrac D4=9p^2-6(p^2+p)>0$, $3p(p-2)>0$, $p<0$ 또는 $p>2$. $p$는 자연수이므로 $p>2$이고 최소의 자연수 $p_1$은 $3$이다.
+      criteria: ['1.A1']
+    - id: 1b-3
+      content: |
+        $p=3$일 때 $g(t)=2t^3+9t^2+12t+3$이고 $g'(t)=6t^2+18t+12=6(t+1)(t+2)$이므로 극값은 $t=-1$일 때 $g(-1)=-2$, $t=-2$일 때 $g(-2)=-1$이다.
+        [그림: $y=g(t)$의 그래프. $t=-2$에서 극댓값 $-1$, $t=-1$에서 극솟값 $-2$. 수평선 $y=-1$은 $t=-2$(접점)와 $t=-\tfrac12$에서, $y=-2$는 $t=-\tfrac52$와 $t=-1$(접점)에서 그래프와 만난다.]
+      criteria: ['1.A2']
+    - id: 1b-4
+      content: |
+        $g(t)=-2$에서 $2t^3+9t^2+12t+5=0$, $(t+1)^2(2t+5)=0$이므로 $t=-1$ 또는 $t=-\dfrac52$.
+        $g(t)=-1$에서 $2t^3+9t^2+12t+4=0$, $(t+2)^2(2t+1)=0$이므로 $t=-2$ 또는 $t=-\dfrac12$.
+        따라서 구하는 모든 $k$의 값은 $-\dfrac52,\,-2,\,-1,\,-\dfrac12$이고, 그 합은 $-6$이다.
+      criteria: ['1.A2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 4
+      evidence: |
+        함수 $g(t)=2t^3+3pt^2+(p^2+p)t+\dfrac12p^2-\dfrac12p$의 식을 구했다($t=-\tfrac p2$인 경우 포함).
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1]
+    - id: 1.A1
+      mark_type: A
+      points: 6
+      evidence: |
+        $g$가 극값을 가져야 함($g'(t)=0$이 서로 다른 두 실근)을 밝히고 $p_1=3$을 구했다.
+      depends_on: [1.M1]
+      steps: [1b-2]
+    - id: 1.A2
+      mark_type: A
+      points: 5
+      evidence: |
+        극값 $-2,-1$에 대해 $g(t)=-2,\ g(t)=-1$을 풀어 $k=-\dfrac52,-2,-1,-\dfrac12$와 그 합 $-6$을 구했다.
+      depends_on: [1.M1, 1.A1]
+      steps: [1b-3, 1b-4]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '2'
+  stem: |
+    $f(x)=x^2+x-7$에 대하여 집합 $A_k$의 원소 중 최댓값을 $M_k$, 최솟값을 $m_k$라 하자. $m_k<k<M_k$를 만족시키는 $k$에 대하여 $M_k^{\,2}+m_k^{\,2}$의 최댓값을 구하시오. (20점)
+  points: 20
+  depends_on: []
+  answer: {kind: value, value: '57/4', equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: $g(t)-g(k)=(t-k)h(t)$로 인수분해하면 $m_k,M_k$는 $h(t)=0$의 두 근이고, $m_k<k<M_k\iff h(k)<0$.
+    steps:
+    - {id: 2a, content: '$h(k)=6(k+2)(k-1)<0\Rightarrow-2<k<1$, $M_k^2+m_k^2=\tfrac14(-4k^2+57)\le\tfrac{57}{4}$ ($k=0$)', criteria: ['2.M1', '2.M2', '2.A1']}
+    hint_ladder:
+    - $g(t)=g(k)$는 $t=k$를 근으로 가진다. $(t-k)$로 묶어 보자.
+    - 남은 이차식의 두 근 사이에 $k$가 있을 조건은 이차함수의 그래프로 생각하면 무엇인가?
+  - id: S2-B
+    audience: B
+    source_flow: '2026 논술가이드북(2027학년도 대비) p.43(인쇄) 예시답안 — 채점기준 및 예시답안 p.6~7'
+    method_no: 1
+    steps:
+    - id: 2b-1
+      content: |
+        함수 $f(x)=x^2+x-7$에 대하여 $g(t)=2t^3+3t^2-12t-7$이다.
+        $g(t)=g(k)$에서 $2(t^3-k^3)+3(t^2-k^2)-12(t-k)=0$, 즉
+        $(t-k)\{2t^2+(2k+3)t+2k^2+3k-12\}=0$.
+        $h(t)=2t^2+(2k+3)t+2k^2+3k-12$라 두면, [그림: 아래로 볼록한 $y=h(t)$가 $t$축과 $m_k$, $M_k$에서 만나고 그 사이의 $t=k$에서 $h(k)<0$] 그림과 같이 $h(k)<0$이 되어야 한다.
+      criteria: ['2.M1']
+    - id: 2b-2
+      content: |
+        $h(k)=2k^2+2k^2+3k+2k^2+3k-12=6k^2+6k-12=6(k+2)(k-1)<0$
+        그러므로 $m_k<k<M_k$를 만족시키는 $k$의 값의 범위는 $-2<k<1$이다.
+      criteria: ['2.M1']
+    - id: 2b-3
+      content: |
+        또한 $M_k$와 $m_k$는 $h(t)=0$의 서로 다른 두 근이 된다. 이차방정식의 근과 계수의 관계에 의하여
+        $M_k+m_k=-\dfrac{2k+3}{2}$, $M_km_k=\dfrac{2k^2+3k-12}{2}$이므로
+        $M_k^{\,2}+m_k^{\,2}=\dfrac{(2k+3)^2}{4}-2\times\dfrac{2k^2+3k-12}{2}=\dfrac14(-4k^2+57)$이다.
+      criteria: ['2.M2']
+    - id: 2b-4
+      content: |
+        따라서 $-2<k<1$에서 $M_k^{\,2}+m_k^{\,2}$의 최댓값은 $k=0$일 때 $\dfrac{57}{4}$이다.
+      criteria: ['2.A1']
+  - id: S2-ALT
+    audience: ALT
+    source_flow: '2026 논술가이드북(2027학년도 대비) p.43(인쇄) 다른 풀이 — k의 값의 범위를 찾는 풀이'
+    method_no: 2
+    key_idea: $m_k<k<M_k$인 $k$가 존재하려면 $k$가 $g$의 극값을 주는 두 $t$의 값 사이에 있으면 된다.
+    steps:
+    - id: 2c-1
+      content: |
+        $g'(t)=6t^2+6t-12=6(t+2)(t-1)$이므로 극값은 $t=1$일 때와 $t=-2$일 때 존재한다. 따라서 $m_k<k<M_k$를 만족시키는 $k$의 값의 범위는 $-2<k<1$이다.
+        [그림: $y=g(t)$의 그래프에서 $t=-2$(극대)와 $t=1$(극소) 사이의 감소 구간을 굵게 표시하고, 그 위의 $t=k$에서 그은 수평선이 그래프와 세 점에서 만남]
+      criteria: ['2.M1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 8
+      evidence: |
+        $m_k<k<M_k$를 만족시키는 $k$의 값의 범위 $-2<k<1$을 구했다($h(k)<0$ 또는 극값을 주는 $t$ 사이).
+      depends_on: []
+      implied_ok: false
+      steps: [2b-1, 2b-2, 2c-1]
+    - id: 2.M2
+      mark_type: M
+      points: 9
+      evidence: |
+        근과 계수의 관계로 $M_k^{\,2}+m_k^{\,2}=\dfrac14(-4k^2+57)$처럼 $k$에 대한 식으로 표현했다.
+      depends_on: []
+      implied_ok: false
+      steps: [2b-3]
+    - id: 2.A1
+      mark_type: A
+      points: 3
+      evidence: |
+        $-2<k<1$에서 최댓값 $\dfrac{57}{4}$($k=0$)을 구했다.
+      depends_on: [2.M1, 2.M2]
+      steps: [2b-4]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+remedy_links: []
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-transcribe-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21
