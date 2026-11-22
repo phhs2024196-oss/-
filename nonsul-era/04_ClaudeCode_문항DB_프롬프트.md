@@ -137,7 +137,7 @@ books/〈SSU-YUYU-2028〉.yaml 의 문항으로 A4 인쇄용 PDF 를 만들어�
 ```text
 이번 주 문항 DB 점검 보고서를 써줘.
 1. git log --since="7 days ago" 요약, build_db.py --stats.
-2. 학교·유형별 verified 수와 목표(〈파일럿 3개교 716문항, 2027-03-31〉) 대비 진도율, 이 속도로 목표일까지 끝나는지.
+2. 학교·유형별 verified 수와 목표(〈파일럿 3개교 564문항, 2027-03-31〉) 대비 진도율, 이 속도로 목표일까지 끝나는지.
 3. 이번 주 단계별 탈락률(reviews 의 fail 비율). 30% 넘는 단계가 있으면 원인 추정과 지침 수정안.
 4. scope_confirmed: false 남은 수, retired 수, errata open 수.
 5. reports/weekly/〈YYYY-MM-DD〉.md 로 저장하고 커밋(build/ 는 커밋되지 않으므로 쓰지 말 것).
