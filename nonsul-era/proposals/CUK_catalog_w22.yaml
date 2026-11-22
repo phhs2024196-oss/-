@@ -1,0 +1,96 @@
+- id: MC-CAL-12201
+  name: $x\to0$ 극한에서 최고차항을 비교
+  concepts: 함수의 극한; 다항함수의 차수 비교
+  used_in: CUK-G22A-01#1
+  outcome_code: '71'
+  wrong_work: $\lim_{x\to0}\frac{xg(x)}{f(x)}$에서 분자·분모의 최고차항 $x^{n+1}$, $ax^{m+1}$만 비교하여 $n+1=m+1$, $a=\frac14$로 둠
+  detect_cue: $x\to0$ 극한인데 차수가 높은 항을 남기고 $l$, $b$ 조건 없이 $a$만 구했다
+  feedback: $x\to0$에서는 차수가 가장 낮은 항이 극한을 결정하므로 $x^{l+1}$과 $bx^m$을 비교해 $l+1=m$, $\frac1b=\frac14$를 얻는다. ($x\to\infty$에서만 최고차항을 비교한다.)
+- id: MC-ALG-12202
+  name: $\frac00$ 꼴 극한에서 인수분해 없이 판단
+  concepts: 함수의 극한; 인수분해
+  used_in: CUK-G22A-01#2
+  outcome_code: '71'
+  wrong_work: $x=-1$을 바로 대입해 분모 $0$이므로 극한이 존재하지 않는다고 결론
+  detect_cue: $g(-1)=0$, $f(-1)=0$을 확인하지 않고 분모만 $0$이라고 판단했다
+  feedback: 분자 $x^4+x$와 분모 $4(x^3+x^2)$가 모두 $x+1$을 인수로 가지므로 약분한 뒤 극한을 구한다.
+- id: MC-PRB-12203
+  name: 4의 배수 조건에서 $(m,n)$ 가능성 누락
+  concepts: 합의 법칙; 조합
+  used_in: CUK-G22A-02#1
+  outcome_code: '71'
+  wrong_work: $3m+2n$이 4의 배수인 경우로 $(4,4)$만 찾고 $(0,8)$, $(8,0)$을 빠뜨려 $a={}_8\mathrm C_4=70$
+  detect_cue: 총 이동거리의 범위 $16\le3m+2n\le24$를 쓰지 않고 가운데 값만 고려했다
+  feedback: $m+n=8$이므로 $3m+2n=16+m$이고 $16\le3m+2n\le24$에서 4의 배수는 $16$, $20$, $24$ 세 경우이다. 각 경우의 수를 더한다.
+- id: MC-PRB-12204
+  name: 세 종류 횟수 배분을 조합 한 번으로 계산
+  concepts: 조합; 곱의 법칙
+  used_in: CUK-G22A-02#2
+  outcome_code: '71'
+  wrong_work: $(l,m,n)=(3,2,3)$인 경우의 수를 ${}_8\mathrm C_3$ 또는 $3!$ 등 한 번의 조합으로 세어 $1107$보다 작은 값을 얻음
+  detect_cue: ${}_8\mathrm C_3\times{}_5\mathrm C_2$ 꼴의 두 번 선택이 보이지 않는다
+  feedback: 8회 중 빨강이 나올 회, 남은 회 중 노랑이 나올 회, 나머지는 파랑이므로 ${}_8\mathrm C_l\times{}_{8-l}\mathrm C_m$로 센다.
+- id: MC-CAL-12205
+  name: 극값 $3$을 극솟값으로 가정
+  concepts: 삼차함수의 극값; 극대와 극소
+  used_in: CUK-G22A-03#1
+  outcome_code: '71'
+  wrong_work: $f(c)=-2c^3+1=3$으로 두어 $c^3=-1$, $c=-1$($c>0$ 모순)로 방향을 잃음
+  detect_cue: 극댓값 $f(-c)=2c^3+1>1$, 극솟값 $f(c)=-2c^3+1<1$의 대소를 비교하지 않았다
+  feedback: $f(0)=1$이므로 극댓값은 $1$보다 크고 극솟값은 $1$보다 작다. 극값 $3$은 극댓값 $f(-c)=2c^3+1$이다.
+- id: MC-CAL-12206
+  name: $\beta-\alpha$의 제곱을 최대·최소로 착각
+  concepts: 근과 계수의 관계; 이차함수의 최대최소
+  used_in: CUK-G22A-03#2
+  outcome_code: '71'
+  wrong_work: $(\beta-\alpha)^2=-3t^2+12$의 최댓값 $12$, 최솟값 $9$를 $M$, $m$으로 두어 $\frac Mm=\frac43$
+  detect_cue: 제곱근을 취하지 않고 $(\beta-\alpha)^2$의 값을 그대로 $M$, $m$이라 썼다
+  feedback: $\beta-\alpha>0$이므로 $M=\sqrt{12}=2\sqrt3$, $m=\sqrt9=3$이고 $\frac Mm=\frac{2\sqrt3}{3}$이다.
+- id: MC-PRB-12207
+  name: 비복원추출에서 남은 공 수 미반영
+  concepts: 조건부확률; 비복원추출
+  used_in: CUK-G22B-01#1
+  outcome_code: '71'
+  wrong_work: 첫 번째에 상자 A에서 흰 공을 뽑은 뒤 두 번째 시행에서 상자 A의 검은 공 확률을 $\frac15$로 계산
+  detect_cue: 같은 상자를 다시 고를 때 분모가 $5$ 그대로이고 흰 공이 줄었다는 언급이 없다
+  feedback: 같은 상자에서 흰 공을 뽑았으면 남은 공이 한 개 줄어든다. 상자 A는 검은 공 1, 흰 공 3으로 $\frac14$, 상자 B는 검은 공 3, 흰 공 1로 $\frac34$이다.
+- id: MC-PRB-12208
+  name: 주사위 눈의 차 경우의 수 중복·누락
+  concepts: 경우의 수; 곱의 법칙
+  used_in: CUK-G22B-01#1
+  outcome_code: '71'
+  wrong_work: 최대·최소가 $1$, $3$인 경우를 $(1,1,3)$, $(1,2,3)$, $(1,3,3)$ 3가지(순서 무시)로만 세어 $48$을 얻지 못함
+  detect_cue: 주사위가 서로 다르다는 조건에서 순서를 구분하는 $3+6+3$ 계산이 없다
+  feedback: 서로 다른 주사위이므로 $(1,1,3)$은 3가지, $(1,2,3)$은 6가지, $(1,3,3)$은 3가지로 $12$이고 최대·최소가 $(1,3),(2,4),(3,5),(4,6)$인 경우를 모두 합쳐 $48$이다.
+- id: MC-PRB-12209
+  name: 이웃하는 원순열에서 자리 바꿈 누락
+  concepts: 원순열; 조합
+  used_in: CUK-G22B-03#1
+  outcome_code: '71'
+  wrong_work: $a_k={}_k\mathrm C_3\times3!$으로 두어 $a_k=k(k-1)(k-2)$
+  detect_cue: 이웃한 $A$, $B$를 한 묶음으로 본 뒤 두 학생이 서로 자리를 바꾸는 $2$를 곱하지 않았다
+  feedback: 4명(묶음 포함)의 원순열 $(4-1)!=3!$에 묶음 안에서 $A$, $B$의 순서 $2$를 곱해 $a_k=\frac{k(k-1)(k-2)}{3!}\times3!\times2$이다.
+- id: MC-ALG-12210
+  name: $b_k$를 $\frac{a_k}{p}+1$로 둠
+  concepts: 올림; 자연수 최소 원소
+  used_in: CUK-G22B-03#1
+  outcome_code: '71'
+  wrong_work: $b_k=\frac{a_k}{p}+1$로 두고 $L=\sum\frac{a_k}{p}+(p-3)$을 계산
+  detect_cue: $\frac{a_k}{p}$가 자연수가 아님을 보이지 않고 $b_k-\frac{a_k}{p}=1$로 단정했다
+  feedback: $b_k-\frac{a_k}{p}=c_k$는 $0<c_k<1$이며 $k$마다 다르다. $c_k+c_{p+2-k}$가 정수임을 이용해 짝지어 $\sum c_k=\frac{p-3}{2}$를 얻는다.
+- id: MC-PRB-12211
+  name: 사잇값 정리만으로 근이 한 개라고 결론
+  concepts: 사잇값 정리; 함수의 증가와 감소
+  used_in: CUK-G22B-04#1
+  outcome_code: '71'
+  wrong_work: $h(\alpha)<0<h(\beta)$이므로 열린구간 $(\alpha,\beta)$에서 $h(t)=0$인 근이 정확히 한 개라고 서술
+  detect_cue: 사잇값 정리로는 '적어도 하나'만 보장되는데 $h$의 단조성 언급이 없다
+  feedback: 사잇값 정리는 근의 존재만 보인다. $g(t)$와 $f(t)$가 구간에서 감소하므로 $h$가 증가하여 근이 하나뿐임을 별도로 보여야 한다.
+- id: MC-CAL-12212
+  name: 방정식 $f(x-f(x))=f(x)$의 자명한 근 누락
+  concepts: 방정식의 근; 합성함수
+  used_in: CUK-G22B-04#1
+  outcome_code: '71'
+  wrong_work: $x-f(x)=x$인 경우를 따지지 않아 $f(x)=0$의 근 $x=\frac{3\alpha-\beta}{2}$, $x=\beta$를 빠뜨리고 $a=\alpha$, $c$를 잘못 설정하여 $m$이 달라짐
+  detect_cue: $a$, $c$를 근의 배치로 정하는 과정에서 $f(x)=0$의 근을 다루지 않았다
+  feedback: $f(x)=0$이면 $x-f(x)=x$이므로 $x=\frac{3\alpha-\beta}{2}$, $x=\beta$는 항상 근이다. 이들이 각각 가장 작은 근 $a$와 $c=\beta$이다.

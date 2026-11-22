@@ -1,0 +1,112 @@
+- id: MC-ALG-12501
+  name: 평균 극값에서 제외하는 원소 반대로 선택
+  concepts: 등차수열의 평균; 최대·최소
+  used_in: CUK-G25A-01#1
+  outcome_code: '71'
+  wrong_work: $m$을 $a_{100}$이 아니라 $a_1$을 제외한 평균으로 계산하여 $m=353$, $M=346$으로 뒤바뀜
+  detect_cue: $m>M$이 되었다
+  feedback: 나머지 원소들의 평균은 가장 큰 수를 뺄 때 가장 작고, 가장 작은 수를 뺄 때 가장 크다.
+- id: MC-ALG-12502
+  name: 정수 조건 누락으로 N 확정 못함
+  concepts: 연립부등식의 정수해; 평균의 정수 조건
+  used_in: CUK-G25A-01#2
+  outcome_code: '71'
+  wrong_work: $N=27$ 또는 $28$ 두 값을 모두 답으로 남기거나 $N=27$로 $p$를 구함
+  detect_cue: $(97+\frac19)(N-1)$이 정수인지 확인하지 않았다
+  feedback: 나머지 원소의 합 $(97+\frac19)(N-1)$은 정수여야 하므로 $N-1$이 $9$의 배수, 즉 $N=28$이다.
+- id: MC-ALG-12503
+  name: 삼중근·중근 위치 한 경우만 고려
+  concepts: 삼차방정식의 중근; 경우 분류
+  used_in: CUK-G25A-02#2
+  outcome_code: '71'
+  wrong_work: $h(x)=-\frac12(x-t)^2(x-2)$ 한 경우만 계산하여 $c=-4$로 답함
+  detect_cue: $t$가 중근인 경우만 있고 $2$가 중근인 경우가 없다
+  feedback: $t$, $2$ 중 어느 쪽이 중근인지 두 경우 모두 계산하고 $k>0$으로 가려야 합니다.
+- id: MC-CAL-12504
+  name: 극값 위치와 α,β 조건 해석 오류
+  concepts: 삼차함수의 극값; 접선
+  used_in: CUK-G25A-02#1
+  outcome_code: '71'
+  wrong_work: $g'(\alpha)=0$, $g'(\beta)=0$이라 두고 극점 $x$좌표를 $\alpha,\beta$로 놓아 풀이를 진행
+  detect_cue: 극점을 $x=\pm1$이 아니라 $\alpha$, $\beta$로 둔다
+  feedback: 접하는 점의 $x$좌표는 $1$, $-1$이고, $\alpha$, $\beta$는 다른 교점이다.
+- id: MC-CAL-12505
+  name: 공비 범위 오판으로 최댓값 오류
+  concepts: 등비급수의 수렴; 함수의 최대
+  used_in: CUK-G25A-03#1
+  outcome_code: '71'
+  wrong_work: $r=\frac{t}{e^t}$의 범위를 $0<r\le\frac1e$로만 보거나 최댓값을 $r=\frac{r}{1-r}$ 대신 $\frac1e$로 답함
+  detect_cue: $M=\frac1e$ 또는 $\frac{1}{e-1}$ 대신 다른 값
+  feedback: 합은 $\frac{r}{1-r}$이므로 $r=\frac1e$일 때의 값 $\frac{1}{e-1}$이 최댓값입니다.
+- id: MC-CAL-12506
+  name: 넓이를 부호 구분 없이 적분
+  concepts: 정적분과 넓이; 절댓값
+  used_in: CUK-G25A-03#2
+  outcome_code: '71'
+  wrong_work: $S=\int_0^{2\pi}q(x)\,dx$로 계산하여 $0$
+  detect_cue: $\lvert q\rvert$ 없이 전구간 적분하였다
+  feedback: 넓이는 $\int\lvert q\rvert$이므로 $q$의 부호가 바뀌는 $\frac\pi4$, $\frac{5\pi}{4}$에서 구간을 나눠야 합니다.
+- id: MC-PRB-12507
+  name: 사건 U(공을 꺼내지 않는 사건)의 위치를 누락
+  concepts: 조건부확률; 경우의 수
+  used_in: CUK-G25B-01#1
+  outcome_code: '71'
+  wrong_work: $X=4$일 확률을 $(1)$의 확률 $\frac1{20}$만으로 계산하거나 $U$가 앞에 오는 경우 $\frac13$을 곱하지 않음
+  detect_cue: $p=\frac{13}{252}+\frac1{12}$ 등 $\frac13\times\frac1{20}$ 항이 없다
+  feedback: $X=4$에는 $U$가 한 번 나온 뒤 (1)의 조합이 나오는 경우($UWBA$ 등)도 포함됩니다.
+- id: MC-PRB-12508
+  name: 정지 조건을 무시하고 순서 조합 모두 세기
+  concepts: 곱셈정리; 확률변수
+  used_in: CUK-G25B-01#1
+  outcome_code: '71'
+  wrong_work: (2)에서 $BAWB$, $BWAB$, $WBAB$를 제외하지 않고 $4$가지 조합을 모두 더함
+  detect_cue: 세 번째 시행 후 이미 멈추는 조합이 포함되었다
+  feedback: $a_3=3$이고 $b_3$가 정지 조건을 만족하면 그 시점에 멈추므로 그 조합은 $X=4$가 될 수 없습니다.
+- id: MC-CAL-12509
+  name: 한 경우만 고려
+  concepts: 경우 분류; 합성함수
+  used_in: CUK-G25B-02#1
+  outcome_code: '71'
+  wrong_work: $\alpha<f(\alpha)$인 경우만 계산하여 $\alpha=\frac{25}{3}$만 답함
+  detect_cue: $\lvert\alpha-f(\alpha)\rvert=4$에서 $f(\alpha)=\alpha-4$인 경우가 없다
+  feedback: 절댓값 조건은 $f(\alpha)=\alpha\pm4$ 두 경우로 나누어야 합니다.
+- id: MC-CAL-12510
+  name: 치환 적분 구간 방향 오류
+  concepts: 치환적분; 정적분의 부호
+  used_in: CUK-G25B-02#1
+  outcome_code: '71'
+  wrong_work: $\alpha>f(\alpha)$일 때 $\int_p^{f(\alpha)}f$의 구간이 $[\alpha-4,\alpha-2]$ 방향이라 생각해 부호를 바꿈
+  detect_cue: $\alpha=-\frac{41}{3}$ 대신 $\alpha=\frac{17}{3}$ 등이 나온다
+  feedback: 적분 구간 $[p,f(\alpha)]=[\alpha-2,\alpha-4]$는 아래끝이 위끝보다 크므로 $\int_0^{-2}g$는 음의 방향입니다.
+- id: MC-CAL-12511
+  name: p<−1에서 미분계수 불연속 무시
+  concepts: 우미분계수; 사잇값의 정리
+  used_in: CUK-G25B-03#1
+  outcome_code: '71'
+  wrong_work: $p<-1$인 모든 $p$에 대하여 $f'$가 증가하므로 $A$에 속한다고 결론
+  detect_cue: $x=-1$에서 $f'$의 점프($-\frac83\to\frac12$)를 다루지 않았다
+  feedback: $x=-1$에서 우미분계수가 $-\frac83$에서 $\frac12$로 뛰므로 $-\frac83$ 미만의 기울기는 $r<-1$ 구간에서 다시 나타날 수 있습니다.
+- id: MC-CAL-12512
+  name: p>2 경계에서 평균값 정리 적용 오판
+  concepts: 평균값의 정리; 접선
+  used_in: CUK-G25B-03#1
+  outcome_code: '71'
+  wrong_work: $p>1$ 전체를 $A$에 속한다고 하거나 $p\le1$ 범위로 $A$를 잡음
+  detect_cue: 접점 $t=2$를 구하지 않고 $f'$ 증가만으로 결론
+  feedback: 점 $(1,f(1))$에서의 접점이 $t=2$이므로 $p>2$이면 선분이 곡선과 한 번 더 만나 평균값 정리의 $r$이 생깁니다.
+- id: MC-ALG-12513
+  name: g=I(항등)만 가능하다고 결론
+  concepts: 일대일함수; 인수분해
+  used_in: CUK-G25B-04#1
+  outcome_code: '71'
+  wrong_work: $f(g(t))=f(t)$에서 $g(t)=t$만 택해 (다)와 모순을 인지하지 못함
+  detect_cue: $g(t)=t$로 두고 극한을 $0$으로 계산
+  feedback: 삼차함수는 일대일이 아니므로 $f(s)=f(t)$의 다른 두 근 $\alpha(t)$, $\beta(t)$도 후보입니다.
+- id: MC-GEO-12514
+  name: 구간별 연속 선택 개수 누락
+  concepts: 연속함수; 경우의 수
+  used_in: CUK-G25B-04#1
+  outcome_code: '71'
+  wrong_work: $[3,4]$에서 $g=I$와 $g=\beta$ 두 가능성 중 하나만 택해 $n=1$이라 답함
+  detect_cue: $n=1$, $M=m$
+  feedback: $x=3$에서 $\beta(3)=I(3)=3$이므로 $[3,4]$에서 $I$로 갈아타는 것도 연속입니다. $g_1$, $g_2$ 둘 다 조건을 만족합니다.

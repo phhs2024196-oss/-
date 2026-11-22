@@ -1,0 +1,255 @@
+# 가톨릭대 2026학년도 모의논술 자연·공학 계열/간호학과 문항 3 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+# 배점 구분은 가이드북 예시답안 표의 점수(10/10/10, 10)를 그대로 사용
+schema_version: '2.0'
+id: CUK-M26A-03
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: CUK
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 귀류
+points: 40
+time_estimate_min: null
+intent: 수학적인 사고를 확인하기 위한 문제이다. 수열의 부분 합과 일반항, 다항식의 계산을 이해하고 이를 활용할 수 있는지 평가한다. 팩토리얼 합 $a_n$으로 이루어진 점화 관계가 모든 $n\ge3$에서 성립하도록 하는 계수를 찾고, 이를 이용해 부분분수 꼴 합을 계산할 수 있는지 평가한다.
+key_idea: $a_{n+1}=n!(n+1)!+a_n$, $a_{n+2}=n!(n+1)!(1+(n+1)(n+2))+a_n$을 점화식에 대입해 정리하면 $(3-a)n!(n+1)!=(a+b)a_n$이 모든 $n\ge3$에서 성립해야 한다. $a\ne3$이면 $\frac{a+b}{3-a}=\frac{n!(n+1)!}{a_n}>n+1$이 되어 $n$이 충분히 클 때 모순이므로 $a=3$, $b=-3$. 그러면 $\frac{f(n)+g(n)}{g(n)}=-\frac1{(n+1)(n+2)}$로 망원급수 $A=-\frac{23}{108}$.
+stuck: 점화식에 $a_{n+1},a_{n+2}$를 $a_n$으로 나타내 대입하는 단계 / $a\ne3$일 때 $a_n<n!\,n!$로 항등식이 불가능함을 보이는 부등식 단계
+idea_tags: []
+tags:
+- 수열의 합
+- 팩토리얼
+- 점화식
+- 항등식
+- 부분분수
+- 귀류법
+elements:
+  materials:
+  - $f(x)=x^2+ax+3$, $g(x)=-x^2+bx-2$
+  - $a_n=\displaystyle\sum_{k=2}^{n}(k-1)!k!$ ($n\ge3$)
+  - $a_{n+2}=f(n)a_{n+1}+g(n)a_n$ ($n\ge3$)
+  - $A=\displaystyle\sum_{n=3}^{25}\dfrac{f(n)+g(n)}{g(n)}$
+  concepts:
+  - 수열의 합과 일반항의 관계
+  - 팩토리얼
+  - 모든 $n$에 대해 성립하는 등식(항등식)
+  - 부분분수와 급수의 합
+  tools:
+  - $a_{n+1}=n!(n+1)!+a_n$, $a_{n+2}=n!(n+1)!(1+(n+1)(n+2))+a_n$
+  - $(3-a)n!(n+1)!=(a+b)a_n$
+  - $a_n<(n-1)(n-1)!n!<n!n!$ 부등식으로 $a\ne3$ 배제
+  - $\dfrac{-1}{(n+1)(n+2)}=\dfrac1{n+2}-\dfrac1{n+1}$
+  conditions:
+  - $n\ge3$인 자연수
+  - $\dfrac{a+b}{3-a}$보다 큰 $n$ 존재
+  stimuli_used:
+  - (ㄱ)
+  - (ㄴ)
+  - (ㄷ)
+  - (ㄹ)
+  subpart_links: 논제 2는 논제 1의 $f(n)=n^2+3n+3$, $g(n)=-n^2-3n-2$를 사용
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학Ⅰ
+  scope_2028: unknown
+  scope_confirmed: false
+  standards: []
+  content_area: 수열 – 합의 기호 $\Sigma$ / 수열의 합과 일반항
+  behavior_domain: 문제해결
+  unit_path:
+  - 수학Ⅰ
+  - 수열
+  - 수열의 합
+  - 점화식과 항등식
+  key_concepts:
+  - 수열의 합
+  - 팩토리얼
+  - 항등식
+  - 부분분수
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 가톨릭대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 가톨릭대학교
+  admission_year: 2026
+  admission_type: 수시 모의논술
+  track: 자연·공학 계열 / 간호학과
+  question_no: 3
+  official_url: https://ipsi.catholic.ac.kr/detail.do?menuurl=1HQVVMcjyX0%2FK4Lre9qaHA%3D%3D&board_seq=36212
+  retrieved_at: '2026-11-22'
+  original_points:
+  - 30
+  - 10
+  rights_notice: 가톨릭대학교 입학처 공개 자료(내부 분석용)
+  transcribed_from: 36212_0aa7.pdf p.24 문제 / p.29 예시답안 / p.25 출제원칙 (이미지 대조 2026-11-22)
+verify: verify/CUK-M26A.py::p03
+stimuli:
+- label: ㄱ
+  body: |
+    실수 $a$, $b$에 대하여 함수 $f(x)$, $g(x)$는 다음과 같다.
+
+    $$f(x)=x^2+ax+3,\ g(x)=-x^2+bx-2$$
+- label: ㄴ
+  body: |
+    3보다 크거나 같은 자연수 $n$에 대하여 $a_n$은 다음과 같다.
+
+    $$a_n=\sum_{k=2}^{n}(k-1)!k!=1!2!+2!3!+\cdots+(n-1)!n!$$
+- label: ㄷ
+  body: |
+    제시문 (ㄱ)의 함수 $f(x)$, $g(x)$와 제시문 (ㄴ)의 $a_n$은 다음을 만족시킨다.
+
+    $$a_{n+2}=f(n)a_{n+1}+g(n)a_n\quad(n\ge3)$$
+- label: ㄹ
+  body: |
+    제시문 (ㄷ)의 함수 $f(x)$, $g(x)$에 대하여 $A$는 다음과 같다.
+
+    $$A=\sum_{n=3}^{25}\dfrac{f(n)+g(n)}{g(n)}$$
+stem: |
+  제시문 (ㄱ)~(ㄹ)을 읽고 문제(논제 1, 논제 2)에 답하시오. (40점)
+subparts:
+- id: '1'
+  stem: |
+    [논제 1] (30점) 제시문 (ㄷ)의 함수 $f(x)$, $g(x)$를 구하고 그 근거를 논술하시오.
+  points: 30
+  depends_on: []
+  answer:
+    kind: value
+    value: f(x) = x**2 + 3*x + 3; g(x) = -x**2 - 3*x - 2
+    equivalents:
+    - a=3, b=-3
+    tolerance: null
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $a_{n+1},a_{n+2}$를 $a_n$으로 나타내 점화식에 대입하면 $(3-a)n!(n+1)!=(a+b)a_n$. $a\ne3$이면 $\frac{a+b}{3-a}>n+1$이 되어 모순, $a=3$이면 $b=-3$.
+    steps:
+    - id: 1a
+      content: $a=3$, $b=-3$, $f(x)=x^2+3x+3$, $g(x)=-x^2-3x-2$
+      criteria:
+      - 1.M1
+      - 1.M2
+      - 1.A1
+  - id: S1-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: '제시문 (ㄴ)의 조건으로부터 $a_{n+1}=n!(n+1)!+a_n$, $a_{n+2}=n!(n+1)!(1+(n+1)(n+2))+a_n$이다. 따라서 제시문 (ㄷ)의 식은 다음과 같다. $a_n+(n^2+3n+3)n!(n+1)!=(n^2+an+3)(n!(n+1)!+a_n)+(-n^2+bn-2)a_n=(n^2+an+3)n!(n+1)!+a_n((a+b)n+1)$ 즉, 3보다 크거나 같은 자연수 $n$에 대하여 $(3-a)n!(n+1)!=(a+b)a_n$이 항상 성립하는 실수 $a$, $b$를 찾아야 한다. [판독확인: 원문 예시답안에는 첫 줄의 $bn$이 $b_n$ (아래첨자)으로 인쇄되어 있음; 이어지는 식에서 $bn$으로 쓰임]'
+      source_flow: 36212_0aa7.pdf p.29 예시답안 [논제 1]
+      criteria:
+      - 1.M1
+    - id: 1b-2
+      content: 1) $a\ne3$인 경우 3보다 크거나 같은 자연수 $n$에 대하여 $\dfrac{a+b}{3-a}=\dfrac{n!(n+1)!}{a_n}$이다. 한편, $a_n=1!2!+2!3!+\cdots+(n-1)!n!<(n-1)!n!+\cdots+(n-1)!n!=(n-1)(n-1)!n!<n!n!$이므로 $\dfrac{a+b}{3-a}=\dfrac{n!(n+1)!}{a_n}>n+1$이다. 이 때, $n\ge3$인 자연수 $n$ 중에 $\dfrac{a+b}{3-a}$보다 큰 $n$을 생각하면 부등식 $\dfrac{a+b}{3-a}>n+1$이 성립하지 않는다. 따라서 $a\ne3$ 경우, $\dfrac{a+b}{3-a}=\dfrac{n!(n+1)!}{a_n}$이 항상 성립할 수는 없다.
+      source_flow: 36212_0aa7.pdf p.29 예시답안 [논제 1]
+      criteria:
+      - 1.M2
+    - id: 1b-3
+      content: '2) $a=3$인 경우 $b=-3$일 때만 $n\ge3$인 자연수 $n$에 대하여 $(3-a)n!(n+1)!=(a+b)a_n$이 성립한다. 따라서 $a=3$, $b=-3$이고 제시문 (ㄷ)의 $f(x)$, $g(x)$는 다음과 같다. $f(n)=x^2+3x+3$, $g(x)=-x^2-3x-2$ [판독확인: 원문에 $f(n)=x^2+3x+3$으로 인쇄됨(변수 표기 오기로 보임)]'
+      source_flow: 36212_0aa7.pdf p.29 예시답안 [논제 1]
+      criteria:
+      - 1.A1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 10
+      evidence: $a_{n+1},a_{n+2}$를 $a_n$으로 나타내 점화식에 대입하고 $(3-a)n!(n+1)!=(a+b)a_n$을 얻었다.
+      steps:
+      - 1b-1
+    - id: 1.M2
+      mark_type: M
+      points: 10
+      evidence: $a\ne3$이면 $\dfrac{a+b}{3-a}=\dfrac{n!(n+1)!}{a_n}>n+1$이 되어 모든 $n$에서 성립할 수 없음을 보였다.
+      depends_on:
+      - 1.M1
+      steps:
+      - 1b-2
+    - id: 1.A1
+      mark_type: A
+      points: 10
+      evidence: $a=3$이면 $b=-3$임을 보이고 $f(x)$, $g(x)$를 구하였다.
+      depends_on:
+      - 1.M2
+      steps:
+      - 1b-3
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+- id: '2'
+  stem: |
+    [논제 2] (10점) 제시문 (ㄹ)의 $A$의 값을 구하고 그 근거를 논술하시오.
+  points: 10
+  depends_on: []
+  answer:
+    kind: value
+    value: -23/108
+    equivalents:
+    - A=-23/108
+    tolerance: null
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: $\frac{f(n)+g(n)}{g(n)}=-\frac1{(n+1)(n+2)}=\frac1{n+2}-\frac1{n+1}$이므로 $A=\frac1{27}-\frac14=-\frac{23}{108}$.
+    steps:
+    - id: 2a
+      content: $A=\displaystyle\sum_{n=3}^{25}\left(\dfrac1{n+2}-\dfrac1{n+1}\right)=\dfrac1{27}-\dfrac14=-\dfrac{23}{108}$
+      criteria:
+      - 2.M1
+  - id: S2-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 2b-1
+      content: 논제 1에 의해서 $f(n)=n^2+3n+3$, $g(n)=-n^2-3n-2$이다. 따라서 제시문 (ㄹ)의 $A$는 다음과 같다. $A=\displaystyle\sum_{n=3}^{25}\dfrac{f(n)+g(n)}{g(n)}=\sum_{n=3}^{25}\dfrac{-1}{(n+1)(n+2)}=\sum_{n=3}^{25}\left(\dfrac1{n+2}-\dfrac1{n+1}\right)=\dfrac1{27}-\dfrac14=-\dfrac{23}{108}$
+      source_flow: 36212_0aa7.pdf p.29 예시답안 [논제 2]
+      criteria:
+      - 2.M1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 10
+      evidence: $\dfrac{f(n)+g(n)}{g(n)}=-\dfrac1{(n+1)(n+2)}$를 부분분수로 나누어 합 $A=-\dfrac{23}{108}$을 구하였다.
+      steps:
+      - 2b-1
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: p3-past-v1
+  item_version: 1
+  verdict: pass
+  date: '2026-11-22'
+created: '2026-11-22'
+updated: '2026-11-22'

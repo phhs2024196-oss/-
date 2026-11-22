@@ -1,0 +1,239 @@
+# 가톨릭대 2023학년도 모의논술 자연공학계열·간호학과 문항 2 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: CUK-M23A-02
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: CUK
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 추론
+points: 30
+time_estimate_min: null
+intent: 함수의 극값을 구하고 이를 평가할 수 있도록 하였다. 또한 수열의 일반항과 합을 구할 수 있는지를 평가할 수 있도록 하였다.
+key_idea: $f'(x)=3(-1)^n(x-(1-2n^2))(x-(1+2n^2))$에서 $n$이 홀수이면 $f$는 $x=1+2n^2$에서, 짝수이면 $x=1-2n^2$에서 극대이므로 $a_n=1-2(-1)^nn^2$. $S=10+2\sum_{k=1}^{5}(-4k+1)=-100$.
+stuck: 최고차항 계수의 부호가 $(-1)^n$으로 바뀌므로 $n$의 홀짝에 따라 극대 위치가 달라짐을 판단하는 단계 / 홀수항·짝수항을 묶어 합을 계산하는 단계
+idea_tags: []
+tags:
+- 삼차함수의 극대
+- 도함수
+- 수열의 일반항
+- 시그마
+- 홀수·짝수 분류
+elements:
+  materials:
+  - $f(x)=(-1)^n(x^3-3x^2+3x-12n^4x+2)$
+  - 극대가 되는 $x=a_n$
+  - $S=\sum_{n=1}^{10}a_n$
+  concepts:
+  - 삼차함수의 극대와 극소
+  - 도함수와 인수분해
+  - 수열의 일반항
+  - 시그마의 계산
+  tools:
+  - $f'(x)=3(-1)^n(x-(1-2n^2))(x-(1+2n^2))$
+  - $(-1)^n$의 부호로 극대 위치 판정
+  - $\sum_{k=1}^{5}\left((2k-1)^2-(2k)^2\right)$로 합 계산
+  conditions:
+  - $n$은 자연수
+  - $f$는 $x=a_n$에서 극대
+  - 첫째항부터 제$10$항까지의 합
+  stimuli_used:
+  - (ㄱ)
+  - (ㄴ)
+  subpart_links: 논제 2는 논제 1의 일반항 $a_n$을 사용
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학Ⅱ
+  - 수학Ⅰ
+  scope_2028: unknown
+  scope_confirmed: false
+  standards: []
+  content_area: 미분법·수열 – 극값과 수열의 합
+  behavior_domain: 문제해결
+  unit_path:
+  - 수학Ⅱ
+  - 미분
+  - 도함수의 활용
+  - 극대·극소
+  key_concepts:
+  - 삼차함수의 극값
+  - 일반항
+  - 시그마
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 가톨릭대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 가톨릭대학교
+  admission_year: 2023
+  admission_type: 수시 모의논술
+  track: 자연공학계열·간호학과
+  question_no: 2
+  official_url: https://ipsi.catholic.ac.kr/detail.do?menuurl=1HQVVMcjyX0%2FK4Lre9qaHA%3D%3D&board_seq=17901
+  retrieved_at: '2026-11-22'
+  original_points:
+  - 15
+  - 15
+  rights_notice: 가톨릭대학교 입학처 공개 자료(내부 분석용)
+  transcribed_from: 17901_89a0.pdf p.26 문제 / p.31 예시답안 (이미지 대조 2026-11-22)
+verify: verify/CUK-M23A.py::p02
+stimuli:
+- label: ㄱ
+  body: |
+    수열 $\{a_n\}$의 일반항 $a_n$은 다음을 만족한다. (단, $n$은 자연수)
+
+    함수 $f(x)=(-1)^n(x^3-3x^2+3x-12n^4x+2)$는 $x=a_n$에서 극대이다.
+- label: ㄴ
+  body: |
+    수열 $\{a_n\}$의 첫째항부터 제10항까지의 합을 $S$라고 하자.
+
+    $$S=\sum_{n=1}^{10}a_n$$
+stem: |
+  제시문 (ㄱ)~(ㄴ)을 읽고 문제(논제 1, 논제 2)에 답하시오. (30점)
+subparts:
+- id: '1'
+  stem: '[논제 1] (15점) 제시문 (ㄱ)의 수열 $\{a_n\}$의 일반항을 구하고 그 근거를 논술하시오.'
+  points: 15
+  depends_on: []
+  answer:
+    kind: expression
+    value: 1-2*(-1)**n*n**2
+    equivalents:
+    - a_n=1-2(-1)^nn^2
+    tolerance: null
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $f'(x)=3(-1)^n(x-(1-2n^2))(x-(1+2n^2))$이고 $n$의 홀짝에 따라 최고차항의 부호가 달라지므로 $a_n=1-2(-1)^nn^2$.
+    steps:
+    - id: 1a
+      content: $n$ 홀수 $a_n=1+2n^2$, $n$ 짝수 $a_n=1-2n^2$ → $a_n=1-2(-1)^nn^2$
+      criteria:
+      - 1.M1
+      - 1.A1
+  - id: S1-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: 제시문 (ㄱ)에서 주어진 함수 $f(x)$의 도함수는 $f'(x)=(-1)^n(3x^2-6x+3-12n^4)$이고 인수분해하면 $f'(x)=3(-1)^n(x-(1-2n^2))(x-(1+2n^2))$이다.
+      source_flow: 17901_89a0.pdf p.31 예시답안 [논제 1]
+      criteria:
+      - 1.M1
+    - id: 1b-2
+      content: 이 때 $1-2n^2<1+2n^2$이므로, $n$이 홀수이면 최고차항이 음수가 되어 $f(x)$는 $x=1+2n^2$에서 극대이고, $n$이 짝수이면 최고차항이 양수가 되어 $f(x)$는 $x=1-2n^2$에서 극대이다. 그러므로 일반항은 $a_n=1-2(-1)^nn^2$이다.
+      source_flow: 17901_89a0.pdf p.31 예시답안 [논제 1]
+      criteria:
+      - 1.A1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 7
+      evidence: $f'(x)$를 구해 $3(-1)^n(x-(1-2n^2))(x-(1+2n^2))$로 인수분해하였다.
+      steps:
+      - 1b-1
+    - id: 1.A1
+      mark_type: A
+      points: 8
+      evidence: $n$의 홀짝에 따라 극대가 되는 $x$를 판정해 $a_n=1-2(-1)^nn^2$을 구하였다.
+      depends_on:
+      - 1.M1
+      steps:
+      - 1b-2
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+- id: '2'
+  stem: '[논제 2] (15점) 제시문 (ㄴ)의 $S$의 값을 구하고 그 근거를 논술하시오.'
+  points: 15
+  depends_on:
+  - '1'
+  answer:
+    kind: value
+    value: '-100'
+    equivalents:
+    - S=-100
+    tolerance: null
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: $a_n$이 홀수 번째에서 $1+2n^2$, 짝수 번째에서 $1-2n^2$이므로 $S=10+2\sum_{k=1}^{5}(-4k+1)=-100$.
+    steps:
+    - id: 2a
+      content: $S=10+2\sum_{k=1}^{5}(-4k+1)=-100$
+      criteria:
+      - 2.M1
+      - 2.A1
+  - id: S2-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 2b-1
+      content: $a_n$은 $n$이 홀수일 때 $1+2n^2$이고 $n$이 짝수일 때 $1-2n^2$이므로
+      source_flow: 17901_89a0.pdf p.31 예시답안 [논제 2]
+      criteria:
+      - 2.M1
+    - id: 2b-2
+      content: $S$는 다음과 같이 계산할 수 있다. $S=\sum_{n=1}^{10}(1-2(-1)^nn^2)=10+2\sum_{k=1}^{5}\left((2k-1)^2-(2k)^2\right)=10+2\sum_{k=1}^{5}(-4k+1)=20-8\times\dfrac{5\times6}{2}=-100$
+      source_flow: 17901_89a0.pdf p.31 예시답안 [논제 2]
+      criteria:
+      - 2.A1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 5
+      evidence: $a_n$을 홀수·짝수 항으로 나누어 표현하였다.
+      steps:
+      - 2b-1
+    - id: 2.A1
+      mark_type: A
+      points: 10
+      evidence: 홀짝 항을 묶어 시그마로 바꾸어 $S=-100$을 구하였다.
+      depends_on:
+      - 2.M1
+      steps:
+      - 2b-2
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: p3-past-v1
+  item_version: 1
+  verdict: pass
+  date: '2026-11-22'
+created: '2026-11-22'
+updated: '2026-11-22'

@@ -1,0 +1,247 @@
+# 가톨릭대 2021학년도 수시 논술 의예과 문항 4 — 기출 원문은 내부 분석용(allowed_use: internal_only) / 의예과 논술전형 문제 (약학과 별도 문항 없음)
+schema_version: '2.0'
+id: CUK-G21B-04
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: CUK
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 구성
+points: 180
+time_estimate_min: null
+intent: 정적분의 치환적분법을 활용할 수 있는지, 삼각함수의 덧셈정리를 이용하여 식을 분리할 수 있는지, 삼각함수의 극한을 활용하여 급수의 합을 구할 수 있는지 확인한다.
+key_idea: 치환적분으로 $f(x)=\tan^2x+1=\frac{1}{\cos^2x}$을 구해 $a_n=\frac{1}{4^n\cos^2\frac{\pi}{2^{n+2}}}$을 얻고, 사인함수의 배각 공식으로 $\frac{1}{4^{n-1}\sin^2\frac{\pi}{2^{n+1}}}=\frac{1}{4^n\sin^2\frac{\pi}{2^{n+2}}}+a_n$을 이용해 부분합 $\sum_{k=1}^{n}a_k=\frac{1}{\sin^2\frac{\pi}{4}}-\frac{1}{4^n\sin^2\frac{\pi}{2^{n+2}}}$을 구한 뒤 $\lim_{x\to0}\frac{\sin x}{x}=1$로 $S=2-\frac{16}{\pi^2}$을 구한다.
+stuck: $\tan\theta\sec^2\theta$를 $\tan\theta(\tan\theta)'$로 보고 치환하는 단계, $\frac{1}{4^n\cos^2}$ 꼴 항이 $\frac{1}{4^{n-1}\sin^2}$의 차로 소거(망원)되도록 배각 공식을 쓰는 단계
+idea_tags: []
+tags:
+- 정적분
+- 치환적분
+- 배각 공식
+- 망원급수
+- 삼각함수의 극한
+elements:
+  materials:
+  - $f(x)=2\int_0^x\tan\theta\sec^2\theta\,d\theta+1$ ($0\le x\le\frac\pi4$)
+  - $a_n=\frac{1}{4^n}f\left(\frac{\pi}{2^{n+2}}\right)$
+  - $S=\sum_{n=1}^{\infty}a_n$
+  - 사인함수의 덧셈정리와 배각 공식
+  concepts: &id001
+  - 치환적분법
+  - 삼각함수의 덧셈정리
+  - 급수의 부분합
+  - 삼각함수의 극한
+  tools:
+  - $\int\tan\theta(\tan\theta)'d\theta=\frac12\tan^2\theta$ (치환 $u=\tan\theta$)
+  - $\sin2\alpha=2\sin\alpha\cos\alpha$로 $\frac{1}{\sin^2\alpha}=\frac{1}{4\sin^2\frac\alpha2}+\frac{1}{4\cos^2\frac\alpha2}$
+  - 부분합의 소거
+  - $\lim_{x\to0}\frac{\sin x}{x}=1$
+  conditions:
+  - $f$의 정의역은 $\left[0,\frac\pi4\right]$
+  stimuli_used:
+  - ㄱ
+  - ㄴ
+  - ㄷ
+  - ㄹ
+  subpart_links: (ㄱ)에서 구한 $f(x)=\frac{1}{\cos^2x}$으로 (ㄴ)의 $a_n$을 정하고 (ㄹ)의 덧셈정리로 (ㄷ)의 급수 $S$를 구한다
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학
+  - 수학Ⅰ
+  - 미적분
+  scope_2028: unknown
+  scope_confirmed: false
+  standards: []
+  content_area: 미적분 – 급수 / 치환적분 / 삼각함수의 덧셈정리
+  behavior_domain: 문제해결
+  unit_path:
+  - 미적분
+  - 급수
+  - 수열의 극한
+  key_concepts: *id001
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 가톨릭대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 가톨릭대학교
+  admission_year: 2021
+  admission_type: 수시 논술
+  track: 의예과
+  question_no: 4
+  official_url: https://ipsi.catholic.ac.kr/detail.do?menuurl=1HQVVMcjyX0%2FK4Lre9qaHA%3D%3D&board_seq=16381
+  retrieved_at: '2026-11-22'
+  original_points:
+  - 180
+  rights_notice: 가톨릭대학교 입학처 공개 자료(내부 분석용)
+  transcribed_from: 16381_ad45.pdf p.54~56 (이미지 대조 2026-11-22)
+verify: verify/CUK-G21B.py::p04
+stimuli:
+- label: ㄱ
+  body: |
+    닫힌구간 $\left[0,\frac\pi4\right]$에서 정의된 함수 $f(x)$는 다음과 같다.
+
+    $$f(x)=2\int_0^x\tan\theta\sec^2\theta\,d\theta+1$$
+- label: ㄴ
+  body: |
+    제시문 (ㄱ)의 함수 $f(x)$에 대하여 수열 $\{a_n\}$의 일반항은 다음과 같다.
+
+    $$a_n=\frac{1}{4^n}f\left(\frac{\pi}{2^{n+2}}\right)$$
+- label: ㄷ
+  body: |
+    제시문 (ㄴ)의 수열 $\{a_n\}$에 대하여 $S$는 다음과 같다.
+
+    $$S=\sum_{n=1}^{\infty}a_n$$
+- label: ㄹ
+  body: |
+    [사인함수의 덧셈정리]
+
+    1) $\sin(\alpha+\beta)=\sin\alpha\cos\beta+\cos\alpha\sin\beta$
+
+    2) $\alpha=\beta$일 때, $\sin2\alpha=2\sin\alpha\cos\alpha$
+stem: 제시문 (ㄱ)~(ㄹ)을 읽고 논제에 답하시오. (180점)
+subparts:
+- id: '1'
+  stem: 제시문 (ㄷ)의 $S$의 값을 구하고 그 근거를 논술하시오. (180점)
+  points: 180
+  depends_on: []
+  answer:
+    kind: expression
+    value: 2-16/pi**2
+    equivalents:
+    - S=2-\frac{16}{\pi^2}
+    tolerance: null
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: 치환적분으로 $f(x)=\frac{1}{\cos^2x}$를 구하고, 배각 공식으로 $a_n=\frac{1}{4^{n-1}\sin^2(\pi/2^{n+1})}-\frac{1}{4^n\sin^2(\pi/2^{n+2})}$ 꼴의 차로 쓴 뒤 부분합을 소거하고 극한을 취한다.
+    steps:
+    - id: 1a-1
+      content: $f(x)=\frac{1}{\cos^2x}$, $\sum_{k=1}^na_k=2-\frac{1}{4^n\sin^2\frac{\pi}{2^{n+2}}}$, $S=2-\frac{16}{\pi^2}$
+      criteria:
+      - 1.M1
+      - 1.A1
+      - 1.A2
+      - 1.A3
+      - 1.A4
+      - 1.A5
+  - id: S1-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: 치환적분법에 의해서 제시문 (ㄱ)의 함수 $f(x)$는 다음과 같다. $$f(x)=2\int_0^x\tan\theta(\tan\theta)'d\theta+1=\left[\tan^2\theta\right]_0^x+1=\tan^2x+1=\frac{1}{\cos^2x}$$
+      source_flow: 16381_ad45.pdf p.55 예시답안 [논제]
+      criteria:
+      - 1.M1
+    - id: 1b-2
+      content: 따라서 제시문 (ㄴ)의 수열 $\{a_n\}$의 일반항은 다음과 같다. $$a_n=\frac{1}{4^n\cos^2\left(\frac{\pi}{2^{n+2}}\right)}$$
+      source_flow: 16381_ad45.pdf p.55 예시답안 [논제]
+      criteria:
+      - 1.A1
+    - id: 1b-3
+      content: 사인함수의 덧셈정리에 의해서 $$\frac{1}{\sin^2\left(\frac{\pi}{2^2}\right)}=\frac{1}{4\sin^2\left(\frac{\pi}{2^{1+2}}\right)\times\cos^2\left(\frac{\pi}{2^{1+2}}\right)}=\frac{1}{4\sin^2\left(\frac{\pi}{2^{1+2}}\right)}+\frac{1}{4\cos^2\left(\frac{\pi}{2^{1+2}}\right)}=\frac{1}{4\sin^2\left(\frac{\pi}{2^{1+2}}\right)}+a_1$$ $$\frac{1}{4\sin^2\left(\frac{\pi}{2^{1+2}}\right)}=\frac{1}{4^2\sin^2\left(\frac{\pi}{2^{2+2}}\right)}+\frac{1}{4^2\cos^2\left(\frac{\pi}{2^{2+2}}\right)}=\frac{1}{4^2\sin^2\left(\frac{\pi}{2^{2+2}}\right)}+a_2$$ $$\vdots$$ $$\frac{1}{4^{n-2}\sin^2\left(\frac{\pi}{2^{n-2+2}}\right)}=\frac{1}{4^{n-1}\sin^2\left(\frac{\pi}{2^{n-1+2}}\right)}+\frac{1}{4^{n-1}\cos^2\left(\frac{\pi}{2^{n-1+2}}\right)}=\frac{1}{4^{n-1}\sin^2\left(\frac{\pi}{2^{n-1+2}}\right)}+a_{n-1}$$ $$\frac{1}{4^{n-1}\sin^2\left(\frac{\pi}{2^{n-1+2}}\right)}=\frac{1}{4^n\sin^2\left(\frac{\pi}{2^{n+2}}\right)}+\frac{1}{4^n\cos^2\left(\frac{\pi}{2^{n+2}}\right)}=\frac{1}{4^n\sin^2\left(\frac{\pi}{2^{n+2}}\right)}+a_n$$
+      source_flow: 16381_ad45.pdf p.56 예시답안 [논제]
+      criteria:
+      - 1.A2
+    - id: 1b-4
+      content: 모두 더하면 $$\sum_{k=1}^{n}a_k=\frac{1}{\sin^2\left(\frac{\pi}{2^2}\right)}-\frac{1}{4^n\sin^2\left(\frac{\pi}{2^{n+2}}\right)}$$
+      source_flow: 16381_ad45.pdf p.56 예시답안 [논제]
+      criteria:
+      - 1.A3
+    - id: 1b-5
+      content: 한편, $\lim_{x\to0}\frac{\sin x}{x}=1$이므로 $$\lim_{n\to\infty}\frac{1}{4^n\sin^2\left(\frac{\pi}{2^{n+2}}\right)}=\frac{16}{\pi^2}\lim_{n\to\infty}\left(\frac{\frac{\pi}{2^{n+2}}}{\sin\left(\frac{\pi}{2^{n+2}}\right)}\right)^2=\frac{16}{\pi^2}$$
+      source_flow: 16381_ad45.pdf p.56 예시답안 [논제]
+      criteria:
+      - 1.A4
+    - id: 1b-6
+      content: 따라서 제시문 (ㄷ)의 $S$ 값은 다음과 같다. $$S=\lim_{n\to\infty}\left(\sum_{k=1}^{n}a_k\right)=\frac{1}{\sin^2\left(\frac{\pi}{2^2}\right)}-\lim_{n\to\infty}\frac{1}{4^n\sin^2\left(\frac{\pi}{2^{n+2}}\right)}=2-\frac{16}{\pi^2}$$
+      source_flow: 16381_ad45.pdf p.56 예시답안 [논제]
+      criteria:
+      - 1.A5
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 30
+      evidence: 치환적분으로 $f(x)=\tan^2x+1=\frac{1}{\cos^2x}$을 구했다.
+      steps:
+      - 1b-1
+    - id: 1.A1
+      mark_type: A
+      points: 10
+      evidence: $a_n=\frac{1}{4^n\cos^2\left(\frac{\pi}{2^{n+2}}\right)}$을 구했다.
+      depends_on:
+      - 1.M1
+      steps:
+      - 1b-2
+    - id: 1.A2
+      mark_type: A
+      points: 60
+      evidence: 사인함수의 배각 공식으로 $\frac{1}{4^{k-1}\sin^2\frac{\pi}{2^{k+1}}}=\frac{1}{4^k\sin^2\frac{\pi}{2^{k+2}}}+a_k$ ($k=1,2,\cdots,n$)를 얻었다.
+      depends_on:
+      - 1.M1
+      - 1.A1
+      steps:
+      - 1b-3
+    - id: 1.A3
+      mark_type: A
+      points: 20
+      evidence: 위 식을 모두 더해 부분합 $\sum_{k=1}^{n}a_k=\frac{1}{\sin^2\left(\frac{\pi}{2^2}\right)}-\frac{1}{4^n\sin^2\left(\frac{\pi}{2^{n+2}}\right)}$을 구했다.
+      depends_on:
+      - 1.M1
+      - 1.A2
+      steps:
+      - 1b-4
+    - id: 1.A4
+      mark_type: A
+      points: 40
+      evidence: $\lim_{x\to0}\frac{\sin x}{x}=1$을 이용해 $\lim_{n\to\infty}\frac{1}{4^n\sin^2\frac{\pi}{2^{n+2}}}=\frac{16}{\pi^2}$을 구했다.
+      depends_on:
+      - 1.M1
+      - 1.A3
+      steps:
+      - 1b-5
+    - id: 1.A5
+      mark_type: A
+      points: 20
+      evidence: $S=\lim_{n\to\infty}\sum_{k=1}^{n}a_k=2-\frac{16}{\pi^2}$을 구했다.
+      depends_on:
+      - 1.M1
+      - 1.A3
+      - 1.A4
+      steps:
+      - 1b-6
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: p3-past-v1
+  item_version: 1
+  verdict: pass
+  date: '2026-11-22'
+created: '2026-11-22'
+updated: '2026-11-22'

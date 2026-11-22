@@ -1,0 +1,120 @@
+- id: MC-GEO-12401
+  name: 내접원 접선 길이 관계를 놓치고 변을 임의로 설정
+  concepts: 삼각형의 내접원; 내분
+  used_in: CUK-G24A-01#2
+  outcome_code: '71'
+  wrong_work: $\overline{AP}=mx$, $\overline{PB}=nx$만 두고 $\overline{BC}$, $\overline{AC}$를 $nx$, $mx$로 착각해 $a=nx$, $b=mx$로 둠
+  detect_cue: $a=nx+2$가 아니라 $a=nx$로 쓰고 반지름 $2$가 변의 길이에 안 들어갔다
+  feedback: 꼭짓점에서 내접원까지의 접선 길이는 같으므로 $\overline{BC}=\overline{BP}+2=nx+2$, $\overline{AC}=mx+2$이다.
+- id: MC-ALG-12402
+  name: 판별식 제곱수 조건 없이 $x$를 무리수로 허용
+  concepts: 이차방정식의 판별식; 자연수 조건
+  used_in: CUK-G24A-01#2
+  outcome_code: '71'
+  wrong_work: $mnx^2-2(m+n)x-4=0$에서 $(m,n)$ 모두의 경우 $a=nx+2$를 계산하여 $a$의 값을 여러 개 나열
+  detect_cue: $x$가 유리수여야 한다는 점(세 변이 자연수)을 쓰지 않았다
+  feedback: $a$, $b$, $c$가 자연수이면 $x=\frac{a-2}{n}$이 유리수이므로 판별식 $\frac D4$가 완전제곱수여야 한다.
+- id: MC-CAL-12403
+  name: $A(k)$ 경우 중 조건 (가)를 확인하지 않음
+  concepts: 방정식의 실근의 개수; 경우 분류
+  used_in: CUK-G24A-02#2
+  outcome_code: '71'
+  wrong_work: $A(20)=2$, $A(0)=3$, $A(18)=1$이 조건 (나)만 만족하는데도 채택하여 극솟값·극댓값 조건을 잘못 세움
+  detect_cue: $A(0)\ge A(18)\ge A(20)$ 확인이 없다
+  feedback: (가), (나)를 모두 만족하는 조합은 $(A(0),A(18),A(20))=(2,1,1)$, $(3,2,1)$뿐이다.
+- id: MC-CAL-12404
+  name: 극값 위치를 $2$ 기준으로 비교하지 않고 $c$ 한 값만 구함
+  concepts: 삼차함수의 극값; 경우 분류
+  used_in: CUK-G24A-02#2
+  outcome_code: '71'
+  wrong_work: 극솟값이 $0$인 경우($c=3$)만 계산하여 $I=6$ 하나만 답함
+  detect_cue: 극댓값이 $18$이 되는 경우($c=12$)가 없다
+  feedback: 극솟값은 항상 $2$보다 작고 극댓값은 항상 $2$보다 크므로 극솟값 $0$ 또는 극댓값 $18$ 두 경우 모두 확인해야 한다.
+- id: MC-ALG-12405
+  name: $l$의 최댓값을 최소값으로 착각
+  concepts: 등차수열; 경우의 수
+  used_in: CUK-G24A-03#1
+  outcome_code: '71'
+  wrong_work: 순서쌍이 한 개 또는 두 개인 $l$ 중 $l=1$을 택하거나 $b$의 최솟값 $-2a$를 $d$로 답함
+  detect_cue: $b=-\frac{2a}l$에서 $b$가 가장 크려면 $l$이 가장 커야 함을 놓쳤다
+  feedback: $b$는 음수이므로 $\lvert b\rvert$가 작을수록, 즉 $l$이 클수록 크다. $l=4$까지 순서쌍이 두 개 이하이다.
+- id: MC-ALG-12406
+  name: $\lvert b_k\rvert$를 한 가지 식으로 처리
+  concepts: 수열의 합; 절댓값
+  used_in: CUK-G24A-03#2
+  outcome_code: '71'
+  wrong_work: $\lvert b_k\rvert=\frac a2(3-k)$를 $k=1$부터 $52$까지 그대로 사용하여 부호가 틀린 합을 구함
+  detect_cue: $k\ge3$에서 $b_k\le0$인데 절댓값을 벗기지 않았다
+  feedback: $k\le3$이면 $\lvert b_k\rvert=\frac a2(3-k)$, $k\ge3$이면 $\frac a2(k-3)$로 나눈다.
+- id: MC-CAL-12407
+  name: 속력이 아니라 속도를 적분하여 이동 거리 계산
+  concepts: 속도와 거리; 절댓값 적분
+  used_in: CUK-G24B-01#1
+  outcome_code: '71'
+  wrong_work: $d=\int_0^\pi(2t-\pi)\sin t\,dt$처럼 절댓값 없이 계산하여 $d=-2\pi+4$ 등 부호가 틀린 값을 얻음
+  detect_cue: $t=\frac\pi2$ 전후의 부호 변화 처리가 없다
+  feedback: 이동 거리는 $\int\lvert v(t)\rvert dt$이므로 부호가 바뀌는 시각에서 구간을 나눈다.
+- id: MC-CAL-12408
+  name: $\mathrm R$의 첫 속도 영점을 방향 전환으로 판단
+  concepts: 속도의 부호 변화; 운동 방향
+  used_in: CUK-G24B-01#1
+  outcome_code: '71'
+  wrong_work: $u(t)=(2t-\pi)\cos t$의 영점 $t=\frac\pi2$를 방향 전환으로 세어 $c=\frac{3}{2}\pi$로 답함
+  detect_cue: $t=\frac\pi2$에서 두 인수가 동시에 $0$이 되어 부호가 바뀌지 않음을 놓쳤다
+  feedback: $t=\frac\pi2$는 중근이므로 부호가 바뀌지 않는다. 방향 전환은 $\frac32\pi$, $\frac52\pi$이고 두 번째는 $c=\frac52\pi$이다.
+- id: MC-CAL-12409
+  name: 미분가능 조건을 $g_1=0$의 근으로 해석
+  concepts: 절댓값 함수의 미분가능성; 극값
+  used_in: CUK-G24B-02#1
+  outcome_code: '71'
+  wrong_work: $g_1(x)=0$의 해가 존재하지 않도록 $k$를 잡아 $m(t)$를 구함
+  detect_cue: 절댓값 안의 극솟값이 $0$이면 접하여 미분가능함을 놓쳤다
+  feedback: $\lvert g_1\rvert$는 $g_1\ge0$이면 미분가능이므로 극솟값 $\ge0$이 조건이고, $m(t)$는 극솟값이 정확히 $0$이 되는 $k$이다.
+- id: MC-CAL-12410
+  name: $h$의 영점 위치를 하나만 구하고 구간 판단 누락
+  concepts: 함수의 대칭성; 정적분의 최소
+  used_in: CUK-G24B-02#1
+  outcome_code: '71'
+  wrong_work: $h(q)=0$인 양수 $q$만 구해 $\alpha=0$, $\beta=q$ 등으로 답함
+  detect_cue: $h(-t)=h(t)$로 $-q$도 영점임을 놓쳤다
+  feedback: $h$는 우함수이므로 영점이 $\pm q$이고 $(t-1)^2h(t)<0$인 구간은 $(-q,q)$이다.
+- id: MC-CAL-12411
+  name: $n$ 변화에 따른 합의 증감을 개별 항으로 비교
+  concepts: 삼각함수의 대칭성; 합의 증감
+  used_in: CUK-G24B-03#1
+  outcome_code: '71'
+  wrong_work: 마지막 항 $\sin\frac{n+100}{100}$이 최대가 되는 $n\approx57$을 $m$으로 답함
+  detect_cue: $q-p=\sin\frac{k+101}{100}-\sin\frac{k+1}{100}$의 부호 판정이 없다
+  feedback: 합 전체의 증감은 양 끝 $\sin$ 값의 차의 부호로 판정해야 하며 $\lvert x-\frac\pi2\rvert$ 비교로 $k=107$을 얻는다.
+- id: MC-CAL-12412
+  name: $b$의 범위를 쌍으로 묶지 않고 대략값으로 판단
+  concepts: 삼각함수의 값 비교; 부등식
+  used_in: CUK-G24B-03#1
+  outcome_code: '71'
+  wrong_work: $b$를 근사 계산으로 $-0.4$ 정도라 쓰고 $A$의 최댓값을 $-1$로 답함(근거 부재)
+  detect_cue: $\cos x+\cos y$ 쌍과 $\cos(2.07)>\cos\frac23\pi$를 이용한 부등식 증명이 없다
+  feedback: $-\frac12<b<0$을 대칭 쌍의 부호와 $2.07<\frac23\pi$로 엄밀히 보여야 한다.
+- id: MC-CAL-12413
+  name: 최댓값 후보에서 $f(-k)$ 또는 $f(k)$ 한쪽만 사용
+  concepts: 닫힌구간에서의 최댓값; 증가·감소
+  used_in: CUK-G24B-04#1
+  outcome_code: '71'
+  wrong_work: $g(a)=f(k)$만으로 계산하여 $g_1$을 쓰지 않음
+  detect_cue: $x<0$에서 기울기가 $-(a+4)^2\le0$이어서 $f(-k)$가 후보임을 놓쳤다
+  feedback: $[-k,k]$에서 최댓값은 $f(-k)$와 $f(k)$ 중 큰 값이고 $g=\max(g_1,g_2)$이다.
+- id: MC-CAL-12414
+  name: $g_2$가 일차인 경우 $k=2$를 빠뜨림
+  concepts: 이차함수의 최솟값; 경우 분류
+  used_in: CUK-G24B-04#1
+  outcome_code: '71'
+  wrong_work: $g_2$가 위로 볼록인 경우만 풀어 $k=4$만 답함
+  detect_cue: $k=2$에서 $g_2\equiv8$이 $a^2$ 계수 $0$인 경우임을 놓쳤다
+  feedback: $g_2(a)$의 이차항 계수 $2-k$가 $0$인 $k=2$에서 $g_2$는 상수이므로 최솟값을 갖는 $a$가 구간 전체에 존재한다.
+- id: MC-CAL-12415
+  name: $g_1-g_2$ 근이 없는 경우를 $k\notin A$로 오판
+  concepts: 함수의 최솟값; 이차함수
+  used_in: CUK-G24B-04#1
+  outcome_code: '71'
+  wrong_work: 근이 없거나 중근이면 최솟값을 갖는 $a$가 여러 개일 것이라 가정하여 $A$를 잘못 구함
+  detect_cue: $g=g_1$이면 최솟값은 꼭짓점 $a=v$ 하나뿐이다
+  feedback: $g_1\ge g_2$가 항상 성립하면 $g=g_1$이므로 $g(a)=m$인 $a$는 $v$ 하나이고 $k\in A$이다.
