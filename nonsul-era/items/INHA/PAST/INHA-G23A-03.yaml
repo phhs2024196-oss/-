@@ -1,0 +1,317 @@
+schema_version: '2.0'
+id: INHA-G23A-03
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: INHA
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 분류
+points: 35
+time_estimate_min: 40
+intent: 이 문항은 함수의 증가와 감소, 좌극한/우극한, 평균값 정리 등을 잘 이해하고 관련된 교과 내용을 이해하고 사고할 수 있는지 평가한다.
+key_idea: '$g(t)=\lim_{x\to t+}f^{\prime}(x)$는 $t<0$에서 $\tfrac t2$, $t\ge0$에서 $4-2t$로 $t=0$에서 끊긴다. 평균변화율이 $g$의 값으로 실현되지 않는 것은 그 값이 $g$의 치역의 틈 $[0,2)$ 근처에 떨어질 때뿐이다.'
+stuck: (3-3)에서 평균변화율이 $\dfrac{f(b)}{b}$와 $\dfrac{f(a)}{a}$ 사이 값임을 이용해 $0\le\dfrac{f(b)-f(a)}{b-a}\le-2b+4$로 조건을 바꾸는 단계
+idea_tags: [IDEA-RIGHT-DERIVATIVE-GAP, IDEA-MVT-FAILS-AT-CORNER]
+tags: [구간별 함수, 우극한, 평균값 정리, 최솟값의 존재, 인하대 기출]
+elements:
+  materials:
+  - '구간별로 정의된 함수 $f(x)=-x^2+4x\ (x\ge0)$, $\dfrac{x^2}{4}\ (x<0)$'
+  - '우미분계수 함수 $g(t)=\lim_{x\to t+}f^{\prime}(x)$'
+  - '$\lvert g(x)-k\rvert$의 최솟값 존재'
+  - '평균변화율 = 우미분계수가 되는 $c$의 비존재'
+  concepts: [함수의 증가와 감소, 그래프의 개형, 좌극한·우극한, 최댓값·최솟값의 존재, 평균값 정리]
+  tools:
+  - 그래프 개형으로 단조 구간 판정
+  - '값 비교($f(a)$와 $f(0)$, $f(2)$)'
+  - 우극한으로 g 구하기
+  - '직선 $y=k$와 그래프 위 점의 거리'
+  - '평균값 정리를 두 구간 $[a,0]$, $[0,b]$에 적용'
+  - 정수 전수 확인
+  conditions:
+  - '$s<a<t$인 모든 $s,t$에 대해 $f(s)>f(a)>f(t)$ ⇒ $a$를 포함한 구간에서 감소 + $f(a)$가 왼쪽 모든 값보다 작고 오른쪽 모든 값보다 큼'
+  - '$\lvert g(x)-k\rvert$가 $[-1,1]$에서 최솟값을 갖지 않음 ⇒ $y=k$에 가장 가까운 점이 빈 점 $(0,0)$ 하나뿐'
+  - '$a<b\le0$ 또는 $0\le a<b$ ⇒ $f$가 미분가능하므로 평균값 정리로 $c$ 존재 ⇒ $a<0<b$ 필요'
+  stimuli_used: [평균값 정리]
+  subpart_links: '(3-3)은 (3-2)의 $g(x)$ 그래프를 사용'
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅱ]
+  scope_2028: common
+  scope_confirmed: true
+  standards:
+  - code: 12수학Ⅱ02-09
+    text: 함수의 그래프의 개형을 그릴 수 있다.
+    verified: true
+  - code: 12수학Ⅱ02-07
+    text: 함수에 대한 평균값 정리를 이해한다.
+    verified: true
+  content_area: 미분 – 도함수의 활용(증가·감소, 평균값 정리)
+  behavior_domain: 추론
+  unit_path: [수학Ⅱ, 미분, 도함수의 활용, 평균값 정리와 함수의 증감]
+  key_concepts: [우극한, 함수의 증가와 감소, 최솟값, 평균값 정리]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 인하대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 인하대학교
+  admission_year: 2023
+  admission_type: 논술(오전)
+  track: 자연계열
+  question_no: 3
+  official_url: https://admission.inha.ac.kr/cms/FR_BBS_CON/BoardView.do?MENU_ID=250&SITE_NO=2&BOARD_SEQ=2&BBS_SEQ=165
+  retrieved_at: '2026-11-21'
+  original_points: 35
+  note: 문제 = 165__(자연-오전)_2023학년도_인하대학교_논술고사_문제지.pdf p.5(3/8), 해설·문항카드 = 165__(자연-오전)_..._해설.pdf p.7~9. 일반(의예과 외) 전용 문항.
+
+verify: verify/INHA-G23A.py::p03
+
+stimuli:
+- label: 평균값 정리
+  body: |
+    [평균값 정리] 함수 $f(x)$가 닫힌구간 $[a,b]$에서 연속이고 열린구간 $(a,b)$에서 미분가능할 때, $\dfrac{f(b)-f(a)}{b-a}=f'(c)$인 $c$가 열린구간 $(a,b)$에 적어도 하나 존재한다.
+
+stem: |
+  [문제 3] (35점) 다음 제시문을 읽고 물음에 답하시오.
+  (※) 함수
+  $$f(x)=\begin{cases}-x^2+4x & (x\ge0)\\ \dfrac{x^2}{4} & (x<0)\end{cases}$$
+  에 대하여 다음 질문에 답하시오.
+
+subparts:
+- id: '1'
+  stem: |
+    다음 조건을 만족하는 실수 $a$의 값의 범위를 구하시오. [10점]
+    [조건 상자] $s<a<t$ 인 모든 실수 $s,t$에 대하여 $f(s)>f(a)>f(t)$이다.
+  points: 10
+  depends_on: []
+  answer: {kind: set, value: 'a<-4\ \text{또는}\ a>4', equivalents: ['(-\infty,-4)\cup(4,\infty)'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: '$a<0$ 또는 $a>2$에서 감소하고, 추가로 $f(a)$가 반대쪽 봉우리 $f(2)=4$, 바닥 $f(0)=0$을 넘지 않아야 한다.'
+    steps:
+    - {id: 1a, content: '$-4\le a<0$이면 $f(a)\le4=f(2)$, $2<a\le4$이면 $f(a)\ge0=f(0)$ ⇒ 제외', criteria: [1.M1, 1.A1]}
+    hint_ladder:
+    - $y=f(x)$의 그래프를 그려 보자.
+    - 조건은 $f(a)$가 $a$ 왼쪽의 모든 값보다 작고 오른쪽의 모든 값보다 크다는 뜻이다.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 2023 자연오전 해설(문항카드) p.8 예시답안 (3-1)
+    steps:
+    - id: 1b-1
+      content: |
+        함수 $y=f(x)$의 그래프는 다음과 같다.
+        [그림: $x<0$에서 $y=\dfrac{x^2}{4}$(감소하며 원점으로), $x\ge0$에서 $y=-x^2+4x$(원점에서 증가해 $(2,4)$에서 최대, $(4,0)$을 지나 감소)인 그래프]
+        조건을 만족시키려면 $f(x)$는 $a$를 포함한 구간에서 감소해야 하므로 $a<0$ 또는 $a>2$이어야 한다.
+      criteria: [1.M1]
+    - id: 1b-2
+      content: |
+        그런데 $-4\le a<0$이면 $f(a)\le f(2)$이고, $2<a\le4$이면 $f(0)\le f(a)$이므로 조건을 만족하지 않는다.
+        한편 $a<-4$ 또는 $a>4$이면 문제의 조건을 만족하므로 구하려는 범위는 $a<-4$ 또는 $a>4$이다.
+      criteria: [1.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 0, isw: true}
+    note: '공식 채점기준(해설 p.8): $f(x)$의 그래프의 개형을 파악하면 5점, $a<-4$ 또는 $a>4$임을 정확히 구하면 5점.'
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 5
+      evidence: '$f(x)$의 그래프 개형(증감 구간, $f(0)=0$, 극댓값 $f(2)=4$)을 그리거나 적었다.'
+      depends_on: []
+      steps: [1b-1, 1a]
+    - id: 1.A1
+      mark_type: A
+      points: 5
+      evidence: '$a<-4$ 또는 $a>4$를 적었다.'
+      depends_on: [1.M1]
+      steps: [1b-2, 1a]
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-CAL-5107}
+  misconceptions:
+  - id: MC-CAL-5107
+    outcome_code: '70'
+    wrong_work: '"$a$ 근처에서 감소"만 확인해 $a<0$ 또는 $a>2$를 답으로 씀'
+    detect_cue: 답이 $a<0$ 또는 $a>2$
+    feedback: 조건은 모든 $s<a<t$에 대한 것이므로 국소적 감소만으로는 부족합니다. 그래프 전체의 값과 $f(a)$를 비교하세요.
+    remedy: [RL-1]
+
+- id: '2'
+  stem: |
+    실수 전체의 집합에서 정의된 함수 $g(x)$가 모든 실수 $t$에 대하여 $g(t)=\lim_{x\to t+}f'(x)$를 만족한다. 다음 조건을 만족하는 실수 $k$의 값의 범위를 구하시오. [10점]
+    [조건 상자] 함수 $\lvert g(x)-k\rvert$는 닫힌구간 $[-1,1]$에서 최솟값을 갖지 않는다.
+  points: 10
+  depends_on: []
+  answer: {kind: set, value: '0\le k<1', equivalents: ['[0,1)'], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: '$[-1,1]$에서 $g$의 값은 $[-\tfrac12,0)\cup[2,4]$. $0$에 가장 가깝고 $0$이 달성되지 않을 때만 최솟값이 없다.'
+    steps:
+    - {id: 2a, content: '$\lvert k\rvert<$ 다른 모든 값까지 거리 $\iff 0\le k<1$', criteria: [2.M1, 2.M2, 2.A1]}
+    hint_ladder:
+    - $g(x)$의 그래프를 그리면 $x=0$에서 끊긴다.
+    - 직선 $y=k$에 가장 가까운 점이 빈 점이 되는 경우를 찾자.
+  - id: S2-B
+    audience: B
+    method_no: 1
+    source_flow: 2023 자연오전 해설 p.8~9 예시답안 (3-2)
+    steps:
+    - id: 2b-1
+      content: |
+        $g(x)=\dfrac x2\ (x<0)$, $g(x)=-2x+4\ (x\ge0)$이고 함수 $y=g(x)$의 그래프는 다음과 같다.
+        [그림: $x<0$에서 기울기 $\dfrac12$인 반직선(원점은 빈 점), $x\ge0$에서 $(0,4)$(채운 점)에서 시작해 $(2,0)$을 지나는 기울기 $-2$인 반직선]
+      criteria: [2.M1]
+    - id: 2b-2
+      content: |
+        문제의 조건을 만족하려면 구간 $[-1,1]$에서 함수 $g(x)$의 그래프 위의 점 또는 점 $(0,0)$ 중에서 직선 $y=k$에 가장 가까운 점이 $(0,0)$ 하나여야 한다. 따라서 구하려는 범위는 $0\le k<1$이다. 예를 들어 $k=\dfrac12$이면 $\lvert g(x)-k\rvert$의 그래프는 다음과 같은 모양이다.
+        [그림: $[-1,0)$에서 $(-1,1)$부터 $(0,\tfrac12)$(빈 점)까지 감소하는 선분, $[0,1]$에서 $(0,\tfrac72)$부터 $(1,\tfrac32)$까지 감소하는 선분]
+      criteria: [2.M2, 2.A1]
+    - id: 2b-3
+      content: |
+        $k$가 이 범위 안에 있지 않다면 구간 $[-1,1]$에서 $\lvert g(x)-k\rvert$의 최솟값은 $k<-\dfrac12$이면 $-\dfrac12-k$이고, $-\dfrac12<k<0$이면 $0$, $1\le k\le2$이면 $2-k$, $2<k\le4$이면 $0$, $k>4$이면 $k-4$이다.
+      criteria: [2.M2]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 0, isw: true}
+    note: '공식 채점기준(해설 p.8): $g(x)$의 그래프의 개형을 파악하면 3점, $k$의 범위에 따라 $\lvert g(x)-k\rvert$의 특징을 파악하면 3점, $0\le k<1$임을 구하면 4점. 참고: 해설 p.9 경우 나열에 $k=-\tfrac12$인 경우가 빠져 있음(이때 최솟값 0, 결론에는 영향 없음).'
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 3
+      evidence: '$g(x)=\tfrac x2\ (x<0)$, $-2x+4\ (x\ge0)$와 그 그래프(원점이 빈 점, $(0,4)$가 채운 점)를 적었다.'
+      depends_on: []
+      steps: [2b-1, 2a]
+    - id: 2.M2
+      mark_type: M
+      points: 3
+      evidence: '$k$의 범위별로 $\lvert g(x)-k\rvert$의 최솟값 존재 여부(가장 가까운 점)를 따졌다.'
+      depends_on: []
+      steps: [2b-2, 2b-3, 2a]
+    - id: 2.A1
+      mark_type: A
+      points: 4
+      evidence: '$0\le k<1$을 적었다.'
+      depends_on: [2.M1, 2.M2]
+      steps: [2b-2, 2a]
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-CAL-5108}
+  - {code: '71', misconception: MC-CAL-5109}
+  misconceptions:
+  - id: MC-CAL-5108
+    outcome_code: '70'
+    wrong_work: '$g(0)$를 좌극한 $0$으로 보거나 $f^{\prime}(0)$이 존재한다고 보아 $g(0)=0$으로 둠'
+    detect_cue: '$g(0)=0$ 또는 $g$를 연속함수로 그림'
+    feedback: '$g(t)$는 우극한으로 정의되므로 $g(0)=\lim_{x\to0+}(-2x+4)=4$입니다.'
+    remedy: [RL-2]
+  - id: MC-CAL-5109
+    outcome_code: '71'
+    wrong_work: '$k=1$일 때도 최솟값이 없다고 보거나 $k=0$을 제외해 $0<k\le1$ 등으로 끝점을 틀림'
+    detect_cue: '답의 끝점 등호가 $0\le k<1$과 다름'
+    feedback: '$k=1$이면 $\lvert g(1)-1\rvert=1$로 거리 1이 달성되고, $k=0$이면 $0$에 한없이 가까워지지만 0은 되지 않습니다.'
+    remedy: [RL-2]
+
+- id: '3'
+  stem: |
+    다음 조건을 만족하는 두 정수 $a,b\ (a<b)$의 순서쌍 $(a,b)$를 모두 구하시오. [15점]
+    [조건 상자] $\dfrac{f(b)-f(a)}{b-a}=\lim_{x\to c+}f'(x)$이고 $a<c<b$인 실수 $c$가 존재하지 않는다.
+  points: 15
+  depends_on: ['2']
+  answer: {kind: set, value: '(-4,2),\ (-3,1),\ (-2,1),\ (-1,1)', equivalents: [], tolerance: null}
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: '$a<0<b$이어야 하고, 평균변화율은 $g(c_1)$, $g(c_2)$ 사이 값이므로 $g$의 치역 틈에 떨어지는 경우만 남는다: $0\le\dfrac{f(b)-f(a)}{b-a}\le-2b+4$.'
+    steps:
+    - {id: 3a, content: '$b=1$: $a=-1,-2,-3$, $b=2$: $a=-4$', criteria: [3.M1, 3.M2, 3.A1]}
+    hint_ladder:
+    - 한쪽 구간에만 있으면 평균값 정리가 성립한다.
+    - $a<0<b$일 때 평균변화율은 $\tfrac{f(b)}{b}$와 $\tfrac{f(a)}{a}$ 사이의 값이다.
+  - id: S3-B
+    audience: B
+    method_no: 1
+    source_flow: 2023 자연오전 해설 p.9 예시답안 (3-3)
+    steps:
+    - id: 3b-1
+      content: |
+        $a<b\le0$ 또는 $0\le a<b$이면 평균값 정리에 의하여 문제의 조건은 성립하지 않는다. 따라서 문제의 조건을 만족하려면 $a<0$, $b>0$이어야 한다.
+      criteria: [3.M1]
+    - id: 3b-2
+      content: |
+        $a<0$, $b>2$이면 기울기 $\dfrac{f(b)-f(a)}{b-a}$는 두 실수 $\dfrac{f(b)-f(0)}{b-0}=\dfrac{f(b)}{b}$와 $\dfrac{f(0)-f(a)}{0-a}=\dfrac{f(a)}{a}$ 사이의 값이다(또는 두 값이 같은 경우 두 값과 같다). 평균값 정리에 의하여 두 실수는 각각 $g(c_1)$, $g(c_2)$인 $a<c_1<0$, $0<c_2<b$와 같은데, (3-2)의 함수 $y=g(x)$의 그래프로부터 이 두 실수 $g(c_1)$, $g(c_2)$ 사이에 있는 어떠한 값도 어떤 $g(c)\ (a<c<b)$의 값과 같다.
+      criteria: [3.M2]
+    - id: 3b-3
+      content: |
+        따라서 (3-2)의 함수 $y=g(x)$의 그래프로부터 문제의 조건을 만족하려면 $0<b\le2$, $a<0$이고 $0\le\dfrac{f(b)-f(a)}{b-a}\le-2b+4$이어야 한다. $b=1$인 경우 $a=-1,-2,-3$이 가능하고, $b=2$인 경우 $a=-4$이다.
+        따라서 구하려는 순서쌍은 $(-4,2)$, $(-3,1)$, $(-2,1)$, $(-1,1)$이다.
+      criteria: [3.M2, 3.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 0, isw: true}
+    note: '공식 채점기준(해설 p.8): 평균값의 정리를 이용하여 $a<0,b>0$이어야 한다는 사실을 파악하면 5점, 직선의 기울기의 성질과 $g(x)$의 그래프를 이용하여 $b=1,2$임을 파악하면 5점, $(-4,2),(-3,1),(-2,1),(-1,1)$을 구하면 5점.'
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 5
+      evidence: '평균값 정리로 $a<b\le0$, $0\le a<b$인 경우를 제외해 $a<0<b$이어야 함을 적었다.'
+      depends_on: []
+      steps: [3b-1, 3a]
+    - id: 3.M2
+      mark_type: M
+      points: 5
+      evidence: '평균변화율이 $\tfrac{f(b)}{b}$와 $\tfrac{f(a)}{a}$ 사이 값임과 $g$의 그래프를 이용해 $b=1,2$로 좁혔다.'
+      depends_on: []
+      steps: [3b-2, 3b-3, 3a]
+    - id: 3.A1
+      mark_type: A
+      points: 5
+      evidence: '$(-4,2),(-3,1),(-2,1),(-1,1)$을 모두 적었다.'
+      depends_on: [3.M1, 3.M2]
+      steps: [3b-3, 3a]
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-CAL-5110}
+  misconceptions:
+  - id: MC-CAL-5110
+    outcome_code: '70'
+    wrong_work: '$f$가 $x=0$에서 미분가능하지 않으므로 $a<0<b$인 모든 정수 쌍이 조건을 만족한다고 답함'
+    detect_cue: 순서쌍을 무한히 많다고 하거나 $b\ge3$인 쌍을 포함
+    feedback: 평균값 정리의 가정이 깨져도 결론이 성립할 수 있습니다. 평균변화율이 $g$의 값으로 실제로 실현되는지 따져야 합니다.
+    remedy: [RL-3]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CAL-5107}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-MONOTONE-GLOBAL-I1}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-CAL-5108}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-ONESIDED-LIMIT-MIN-I1}
+  priority: 1
+- id: RL-3
+  trigger: {type: misconception, ref: MC-CAL-5110}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-MVT-I1}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-input-v1, item_version: 1, verdict: pass, date: 2026-11-21, note: 원문 PDF 이미지 판독으로 옮김 · 해설 B는 공식 해설 흐름}
+
+created: 2026-11-21
+updated: 2026-11-21

@@ -1,0 +1,335 @@
+schema_version: '2.0'
+id: INHA-G24B-02
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: INHA
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 최적2단
+points: 35
+time_estimate_min: 40
+intent: 거리를 나타내는 함수의 최솟값을 구할 수 있는지를 평가하며, 음함수의 미분을 활용할 수 있는지 평가한다.
+key_idea: '최근접점 $Q(a,a^2)$에서 $PQ$는 접선과 수직이므로 $P(x,y)$와 $a$ 사이에 $2a^3-(2y-1)a-x=0$이 성립하고, 이를 음함수 미분해 $a''(s)$를 얻는다. (2-3)은 $P$, $Q$, 원의 중심 $S$가 한 직선 위에 있을 때 $PQ+PR=QS-1$.'
+stuck: (2-2)에서 $Q$가 $s$에 따라 움직이므로 $a$를 $s$의 함수로 보고 음함수 미분하는 단계, (2-3)에서 세 점이 일직선이어야 함을 귀류로 보이는 단계
+idea_tags: [IDEA-NORMAL-LINE-NEAREST-POINT, IDEA-IMPLICIT-DIFF-FOOT-PARAM, IDEA-COLLINEAR-TRIANGLE-INEQ]
+tags: [최단거리, 수직 조건, 음함수 미분, 삼각부등식, 인하대 기출]
+elements:
+  materials:
+  - '포물선 $y=x^2$과 점 $(-5,-1)$'
+  - '매개변수 곡선 $x=2t+3$, $y=-t-6+\cos\pi t$ 위의 점 $P$와 최근접점 $Q$'
+  - '원 $(x-3)^2+y^2=1$과 제1사분면의 점 $P$'
+  concepts: [두 점 사이의 거리, 두 직선의 수직 조건, 음함수의 미분법, 매개변수로 나타낸 함수의 미분, 함수의 최솟값]
+  tools:
+  - '거리 제곱 $f(t)$를 미분해 인수분해'
+  - '법선 조건으로 $P$와 $a$의 관계식'
+  - '음함수 미분으로 $a''(s)$'
+  - '$\{d(s)\}^2$의 미분'
+  - '삼각부등식·귀류로 일직선 조건'
+  conditions:
+  - '$Q$가 $P$에 가장 가까움 ⇒ $Q$에서의 접선 ⊥ $PQ$ ⇒ 기울기 곱 $-1$'
+  - '$s=-4$ ⇒ $P(-5,-1)$ ⇒ (2-1)에서 $a=-1$'
+  - '$R$은 원 위 최근접점 ⇒ $PR$은 중심 $S(3,0)$을 지나고 $PR=\lvert PS-1\rvert$'
+  stimuli_used: [가, 나]
+  subpart_links: '(2-2)는 (2-1)의 최근접점 $(-1,1)$ 사용, (2-3)은 (2-1)의 거리 제곱 최소화 방법을 $S(3,0)$에 적용'
+
+curriculum:
+  version: '2015'
+  subjects: [수학, 수학Ⅱ, 미적분]
+  scope_2028: calc2
+  scope_confirmed: true
+  standards:
+  - code: 10수학02-04
+    text: 두 직선의 평행 조건과 수직 조건을 이해한다.
+    verified: true
+  - code: 10수학02-01
+    text: 두 점 사이의 거리를 구할 수 있다.
+    verified: true
+  - code: 12미적02-09
+    text: 음함수와 역함수를 미분할 수 있다.
+    verified: true
+  - code: 12미적02-11
+    text: 접선의 방정식을 구할 수 있다.
+    verified: true
+  content_area: 미분법 – 음함수·매개변수 함수의 미분, 거리의 최솟값
+  behavior_domain: 문제해결
+  unit_path: [미적분, 미분법, 여러 가지 미분법, 음함수의 미분과 최단거리]
+  key_concepts: [수직 조건, 최솟값, 음함수 미분, 삼각부등식]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 인하대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 인하대학교
+  admission_year: 2024
+  admission_type: 논술(오후)
+  track: 자연계열
+  question_no: 2
+  official_url: https://admission.inha.ac.kr/cms/FR_BBS_CON/BoardView.do?MENU_ID=250&SITE_NO=2&BOARD_SEQ=2&BBS_SEQ=179
+  retrieved_at: '2026-11-21'
+  original_points: 35
+  note: 문제 = 179__(자연-오후)_2024학년도_인하대학교_논술고사_문제.pdf p.4(시험지 2/8), 해설·문항카드 = 179__(자연-오후)_…_해설.pdf p.4~6, 영향평가 보고서(1138__) PDF p.75~78.
+
+verify: verify/INHA-G24B.py::p02
+
+stimuli:
+- label: 가
+  body: |
+    (두 직선의 수직 조건)
+    두 직선 $y=mx+n$과 $y=m'x+n'$에서
+    (i) 두 직선이 서로 수직이면 $mm'=-1$이다.
+    (ii) $mm'=-1$이면 두 직선은 서로 수직이다.
+- label: 나
+  body: |
+    (음함수의 미분법)
+    방정식 $f(x,y)=0$에서 $y$를 $x$의 함수로 보고 각 항을 $x$에 대하여 미분하여 $\dfrac{dy}{dx}$를 구한다.
+
+stem: |
+  [문제 2] (35점) 다음 제시문을 읽고 물음에 답하시오.
+
+subparts:
+- id: '1'
+  stem: |
+    (2-1) 곡선 $y=x^2$ 위의 점 중에서 점 $(-5,-1)$과의 거리가 최소인 점의 좌표를 구하시오. (10점)
+  points: 10
+  depends_on: []
+  answer: {kind: value, value: '(-1,1)', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: '$f(t)=(t+5)^2+(t^2+1)^2$, $f''(t)=2(t+1)(2t^2-2t+5)$.'
+    steps:
+    - {id: 1a, content: '$2t^2-2t+5>0$이므로 $f''(t)=0\iff t=-1$, 최소점 $(-1,1)$', criteria: [1.M1, 1.R1, 1.A1]}
+    hint_ladder:
+    - 거리 대신 거리의 제곱을 최소화하자.
+    - 도함수를 인수분해하면 실근이 하나뿐이다.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 2024 자연오후 해설(문항카드) p.5 예시답안 (2-1), 채점기준 p.5, 영향평가 보고서 PDF p.77
+    steps:
+    - id: 1b-1
+      content: |
+        곡선 $y=x^2$ 위의 점 $(t,t^2)$과 점 $(-5,-1)$ 사이의 거리의 제곱 함수는 $f(t)=(t+5)^2+(t^2+1)^2=t^4+3t^2+10t+26$이다.
+      criteria: [1.M1]
+    - id: 1b-2
+      content: |
+        $f'(t)=4t^3+6t+10=2(t+1)(2t^2-2t+5)$이다. $t=-1$일 때만 $f'(t)=0$이고 그 좌우에서 부호가 음에서 양으로 바뀌므로 $t=-1$에서 최솟값을 갖는다.
+      criteria: [1.R1]
+    - id: 1b-3
+      content: |
+        따라서 가장 가까운 점의 좌표는 $(-1,1)$이다.
+      criteria: [1.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 0, isw: true}
+    note: '공식 채점기준(해설 p.5): 거리를 식으로 나타내면 3점, 미분계수가 0이 되는 점에서 최솟값을 가짐을 서술하면 2점, $(-1,1)$ 5점.'
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 3
+      evidence: '곡선 위의 점 $(t,t^2)$과 $(-5,-1)$ 사이의 거리(또는 거리 제곱)를 식으로 나타냈다.'
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1, 1a]
+    - id: 1.R1
+      mark_type: R
+      points: 2
+      evidence: '미분계수가 0이 되는 점($t=-1$, 유일)에서 최솟값을 가짐을 서술했다.'
+      depends_on: [1.M1]
+      steps: [1b-2, 1a]
+    - id: 1.A1
+      mark_type: A
+      points: 5
+      evidence: '점 $(-1,1)$을 구했다.'
+      depends_on: [1.M1]
+      steps: [1b-3, 1a]
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-CAL-5218}
+  misconceptions:
+  - id: MC-CAL-5218
+    outcome_code: '70'
+    wrong_work: '$\sqrt{(t+5)^2+(t^2+1)^2}$을 직접 미분하다 분자 계산을 틀려 다른 $t$를 얻음'
+    detect_cue: 답이 $(-1,1)$이 아니고 근호 미분 흔적
+    feedback: 거리와 거리의 제곱은 같은 점에서 최소입니다. 제곱을 미분하고 인수분해하세요.
+    remedy: [RL-1]
+- id: '2'
+  stem: |
+    (2-2) 매개변수 $t$로 나타낸 곡선 $x=2t+3$, $y=-t-6+\cos\pi t$가 있다. $t=s$일 때 이 곡선 위의 점 $P$에 대하여 곡선 $y=x^2$ 위의 점 중 $P$와 거리가 최소인 점을 $Q$라 하자. 선분 $PQ$의 길이를 $d(s)$라 할 때, $d'(-4)$의 값을 구하시오. (15점)
+  points: 15
+  depends_on: ['1']
+  answer: {kind: value, value: '-\dfrac{3\sqrt5}{5}', equivalents: ['-\dfrac{12}{4\sqrt5}'], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: '$Q(a,a^2)$에서 수직 조건 $2a^3-(2y-1)a-x=0$을 $s$로 미분, $s=-4$에서 $a=-1$, $a''=\dfrac49$.'
+    steps:
+    - {id: 2a, content: '$2d\,d''=2(a-x)(a''-x'')+2(a^2-y)(2aa''-y'')$, $s=-4$: $2\cdot2\sqrt5\,d''(-4)=-12$', criteria: [2.M1, 2.M2, 2.M3, 2.A1]}
+    hint_ladder:
+    - $Q$의 $x$좌표 $a$는 $s$에 따라 변한다.
+    - 수직 조건을 $P(x,y)$와 $a$의 관계식으로 쓰고 $s$에 대해 미분하자.
+    - $s=-4$일 때 $P=(-5,-1)$이다. (2-1)을 쓰자.
+  - id: S2-B
+    audience: B
+    method_no: 1
+    source_flow: 2024 자연오후 해설(문항카드) p.5~6 예시답안 (2-2), 채점기준 p.5, 영향평가 보고서 PDF p.77
+    steps:
+    - id: 2b-1
+      content: |
+        점 $P$와 가장 가까운 점 $Q$의 좌표를 $(a,a^2)$이라 하면 점 $Q$에서의 접선과 직선 $PQ$는 서로 수직이다(제시문 (가)).
+      criteria: [2.M1]
+    - id: 2b-2
+      content: |
+        따라서 직선 $PQ$의 방정식은 $y=-\dfrac{1}{2a}(x-a)+a^2$이고, 점 $P$의 좌표 $(x,y)$는 $2a^3-(2y-1)a-x=0$을 만족한다.
+      criteria: [2.M2]
+    - id: 2b-3
+      content: |
+        제시문 (나)의 음함수 미분법에 의하여 $6a^2a'-(2y-1)a'-2y'a-x'=0$이다. 한편 $x'=2$, $y'=-1-\pi\sin(\pi s)$이고, $s=-4$일 때 $x'=2$, $y'=-1$이다. 또한 $s=-4$일 때 $x=-5$, $y=-1$이므로 (2-1)에 의해 $a=-1$이다. 따라서 $s=-4$일 때 $6a'-(-3)a'-4=0$이고 $a'=\dfrac49$이다.
+        한편 $\{d(s)\}^2=\overline{PQ}^2=(a-x)^2+(a^2-y)^2$이므로
+        $$2d(s)\cdot d'(s)=\dfrac{d}{ds}\left(d(s)^2\right)=2(a-x)(a'-x')+2(a^2-y)(2a\cdot a'-y')$$
+        이고
+        $$2d(-4)\cdot d'(-4)=2(-1+5)\left(\dfrac49-2\right)+2(1-(-1))\left(\left(-2\cdot\dfrac49\right)+1\right)=-\dfrac{112}{9}+\dfrac49=-12$$
+      criteria: [2.M3]
+    - id: 2b-4
+      content: |
+        그리고 $d(-4)=2\sqrt5$이므로 $d'(-4)=-\dfrac{12}{4\sqrt5}=-\dfrac{3\sqrt5}{5}$이다.
+      criteria: [2.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 0, isw: true}
+    note: '공식 채점기준(해설 p.5): 거리가 최소가 되는 조건 서술 2점, 점 $P$, $Q$의 좌표의 관계 3점, 음함수의 미분을 활용하여 관련된 미분계수의 값들 6점, $d''(-4)=-\dfrac{3\sqrt5}{5}$ 4점.'
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 2
+      evidence: '최근접점 $Q$에서 접선과 $PQ$가 수직이라는 조건을 서술했다.'
+      depends_on: []
+      implied_ok: false
+      steps: [2b-1, 2a]
+    - id: 2.M2
+      mark_type: M
+      points: 3
+      evidence: '$P(x,y)$와 $a$의 관계식 $2a^3-(2y-1)a-x=0$(또는 동치식)을 찾았다.'
+      depends_on: []
+      steps: [2b-2, 2a]
+    - id: 2.M3
+      mark_type: M
+      points: 6
+      evidence: '음함수 미분으로 $a''=\dfrac49$ 등 $s=-4$에서의 미분계수와 $2d\,d''=-12$를 구했다.'
+      depends_on: []
+      steps: [2b-3, 2a]
+    - id: 2.A1
+      mark_type: A
+      points: 4
+      evidence: '$d''(-4)=-\dfrac{3\sqrt5}{5}$를 구했다.'
+      depends_on: [2.M3]
+      steps: [2b-4, 2a]
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-CAL-5219}
+  misconceptions:
+  - id: MC-CAL-5219
+    outcome_code: '70'
+    wrong_work: '$Q=(-1,1)$로 고정하고 $d(s)=\sqrt{(2s+4)^2+(-s-7+\cos\pi s)^2}$를 미분해 $d''(-4)=-\dfrac{2\sqrt5}{5}\cdot\cdots$ 꼴의 다른 값을 얻음'
+    detect_cue: '$a''(s)$를 구하는 과정이 없다'
+    feedback: '$P$가 움직이면 최근접점 $Q$도 움직입니다. $a$를 $s$의 함수로 보고 수직 조건을 음함수 미분하세요(포락선 성질로 결과가 같아지는지도 확인해 볼 수 있습니다).'
+    remedy: [RL-2]
+- id: '3'
+  stem: |
+    (2-3) 점 $P$는 제1사분면 위의 점으로 곡선 $y=x^2$ 위에 있지 않고 원 $(x-3)^2+y^2=1$ 위에도 있지 않다. 곡선 $y=x^2$ 위의 점 중 $P$와 거리가 최소인 점을 $Q$라 하고, 원 $(x-3)^2+y^2=1$ 위의 점 중 $P$와 거리가 최소인 점을 $R$이라 하자. $\overline{PQ}+\overline{PR}$의 최솟값을 구하시오. (10점)
+  points: 10
+  depends_on: ['1']
+  answer: {kind: value, value: '\sqrt5-1', equivalents: [], tolerance: null}
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: '$PR=\lvert PS-1\rvert$, $PQ\ge QS-PS$ ⇒ $PQ+PR\ge QS-1\ge\sqrt5-1$, 등호는 $Q(1,1)$, $S$를 잇는 선분 위 원 밖의 $P$.'
+    steps:
+    - {id: 3a, content: '$\min QS=\sqrt5$ ($b=1$), $P=\left(\dfrac32,\dfrac34\right)$에서 $\sqrt5-1$', criteria: [3.M1, 3.R1, 3.A1]}
+    hint_ladder:
+    - 원 위의 최근접점 $R$은 $P$와 중심 $S(3,0)$을 잇는 직선 위에 있다.
+    - $P$, $Q$, $S$가 일직선이 아니면 더 줄일 수 있다.
+  - id: S3-B
+    audience: B
+    method_no: 1
+    source_flow: 2024 자연오후 해설(문항카드) p.6 예시답안 (2-3), 채점기준 p.5, 영향평가 보고서 PDF p.77~78
+    steps:
+    - id: 3b-1
+      content: |
+        최소가 되는 점 $P$, $Q$, $R$이 있다고 하자. 원 $(x-3)^2+y^2=1$의 중심을 $S$라 하자. 직선 $PR$은 점 $R$에서 원의 접선과 수직이므로 점 $S$를 지나야 한다. 따라서 직선 $PR$은 점 $P$와 $S$를 잇는 직선이고, 선분 $PR$의 길이는 $\overline{PS}-1$이다.
+      criteria: [3.M1]
+    - id: 3b-2
+      content: |
+        만약 점 $S$, $P$, $Q$가 한 직선 위에 있지 않으면 $\overline{QS}-1<\overline{PQ}+\overline{PS}-1$이다. 따라서 직선 $QS$ 위에 있는 점 중 원 바깥에 있는 점 $T$를 잡으면 $\overline{QT}+\overline{RT}=\overline{QS}-1<\overline{PQ}+\overline{PS}-1=\overline{PQ}+\overline{PR}$이 되어 모순이다. 따라서 점 $S$, $P$, $Q$는 일직선상에 있어야 하고 $\overline{PQ}+\overline{PR}=\overline{QS}-1$이다. 그러므로 $\overline{QS}$가 최소가 되는 점 $Q$에 대하여 $\overline{QS}-1$의 값이 최솟값이 된다.
+      criteria: [3.R1]
+    - id: 3b-3
+      content: |
+        곡선 $y=x^2$ 위의 점 $(b,b^2)$과 $(3,0)$ 사이의 거리의 제곱은 $b^4+b^2-6b+9$이고 이를 미분하면 $4b^3+2b-6=2(b-1)(2b^2+2b+3)$이므로 $b=1$에서 거리의 제곱이 최소이다. 즉 점 $(1,1)$과 $(3,0)$을 잇는 선분 위의 점 중 원 밖의 한 점을 $P$로 잡으면 $\overline{PQ}+\overline{PR}$이 최소이다. 예를 들면 점 $P$로 $\left(\dfrac32,\dfrac34\right)$을 선택할 수 있다. 이때 $\overline{PQ}+\overline{PR}=\overline{QS}-1=\sqrt5-1$이다.
+      criteria: [3.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 0, isw: true}
+    note: '공식 채점기준(해설 p.5): 직선 $PR$이 원의 중심을 지난다는 사실 서술 3점, 세 점 $P$, $Q$, $R$이 한 직선 위에 있음을 설명 4점, $\sqrt5-1$ 3점.'
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 3
+      evidence: '직선 $PR$이 원의 중심 $S(3,0)$을 지난다는 사실(따라서 $PR=PS-1$)을 서술했다.'
+      depends_on: []
+      implied_ok: false
+      steps: [3b-1, 3a]
+    - id: 3.R1
+      mark_type: R
+      points: 4
+      evidence: '최소일 때 $P$, $Q$, $R$($S$)이 한 직선 위에 있음을 설명했다(삼각부등식·귀류 등).'
+      depends_on: [3.M1]
+      steps: [3b-2, 3a]
+    - id: 3.A1
+      mark_type: A
+      points: 3
+      evidence: '$\sqrt5-1$을 구했다.'
+      depends_on: [3.R1]
+      steps: [3b-3, 3a]
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-CAL-5220}
+  misconceptions:
+  - id: MC-CAL-5220
+    outcome_code: '70'
+    wrong_work: '포물선과 원 사이의 최단거리를 직관적으로 $\sqrt5-1$이라 쓰고 $P$의 위치(세 점 일직선)와 $PR=PS-1$ 근거를 생략'
+    detect_cue: 답은 맞지만 $S$를 지난다는 서술·일직선 논증이 없다
+    feedback: 최근접점의 성질(법선이 중심을 지남)과 삼각부등식으로 $PQ+PR\ge QS-1$을 먼저 보이세요.
+    remedy: [RL-3]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CAL-5218}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-NORMAL-MIN-DIST-I2}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-CAL-5219}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-IMPLICIT-DIFF-I2}
+  priority: 1
+- id: RL-3
+  trigger: {type: misconception, ref: MC-CAL-5220}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-NORMAL-MIN-DIST-I2}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-input-v1, item_version: 1, verdict: pass, date: 2026-11-21, note: 원문 PDF 이미지 판독으로 옮김 · 해설 B는 공식 해설 흐름}
+
+created: 2026-11-21
+updated: 2026-11-21

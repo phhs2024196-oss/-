@@ -1,0 +1,300 @@
+schema_version: '2.0'
+id: INHA-G23B-02
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: INHA
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 추론
+points: 35
+time_estimate_min: 40
+intent: 두 곡선 사이의 관계를 방정식으로 이해하고, 다시 방정식의 해를 함수와 상수함수의 관계로 해석할 수 있는지를 평가한다. 또한 항등식의 성질을 이용하여 두 교점의 위치를 알 때, 나머지 교점의 위치를 확인하고 극한을 계산할 수 있는지를 평가한다.
+key_idea: '$x^3-3(x-p)^2-q=0$의 세 근의 합은 항상 3. 접점(중근) $t=1+\sqrt{1-2p}$를 알면 나머지 근은 $3-2t$, 넓이는 (다)의 $\dfrac{(\alpha-\beta)^4}{12}$.'
+stuck: (2-2)(a)에서 공통접선 조건을 중근으로 보고 근과 계수의 관계(세 근의 합 3)로 나머지 근을 구하는 단계
+idea_tags: [IDEA-CUBIC-DOUBLE-ROOT-VIETA-SUM, IDEA-CONSTANT-LINE-INTERSECTION-COUNT]
+tags: [삼차방정식, 공통접선, 근과 계수의 관계, 넓이, 극한, 인하대 기출]
+elements:
+  materials:
+  - '곡선 $y=3(x+4)^2+q$와 $y=x^3$의 교점 개수'
+  - '곡선 $y=3(x-p)^2+q$와 $y=x^3$이 $x>1$인 점에서 공통접선을 가짐'
+  - '두 곡선으로 둘러싸인 넓이 $A$와 $\lim_{p\to-\infty}\dfrac qA$'
+  concepts: [극댓값과 극솟값, 삼차방정식의 실근 개수, 삼차방정식의 근과 계수의 관계(항등식), 곡선으로 둘러싸인 넓이, 함수의 극한]
+  tools: [y=q 와 y=x^3-3(x+4)^2 의 교점 개수로 바꾸기, 공통접선 ⇒ 도함수 같음 + 중근, 세 근의 합·곱으로 나머지 근과 q 구하기, 제시문 (다)의 넓이 공식, 최고차항 비교로 극한]
+  conditions:
+  - '한 점에서만 만남 ⇒ $q$가 극댓값보다 크거나 극솟값보다 작음'
+  - '공통 접선, 교점 $x>1$ ⇒ $3t^2=6(t-p)$, $t=1+\sqrt{1-2p}$ ($p<\tfrac12$)'
+  - '$p\to-\infty$ ⇒ $q\sim-3p^2$, $A\sim27p^2$'
+  stimuli_used: [가, 나, 다]
+  subpart_links: '(2-2)(a)는 (2-1)의 방법(방정식으로 보기)을 사용, (2-2)(b)는 (a)의 두 근으로 $q$와 $A$를 구함'
+
+curriculum:
+  version: '2015'
+  subjects: [수학, 수학Ⅱ]
+  scope_2028: common
+  scope_confirmed: true
+  standards:
+  - code: 10수학01-04
+    text: 다항식의 인수분해를 할 수 있다.
+    verified: true
+  - code: 10수학01-02
+    text: 항등식의 성질을 이해한다.
+    verified: true
+  - code: 10수학01-01
+    text: 다항식의 사칙연산을 할 수 있다.
+    verified: true
+  - code: 12수학Ⅱ03-05
+    text: 곡선으로 둘러싸인 도형의 넓이를 구할 수 있다.
+    verified: true
+  content_area: 미분·적분 – 극값과 방정식의 실근, 넓이, 극한
+  behavior_domain: 문제해결
+  unit_path: [수학Ⅱ, 미분, 도함수의 활용, 방정식의 실근과 공통접선]
+  key_concepts: [극댓값·극솟값, 삼차방정식의 근과 계수의 관계, 넓이, 극한]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 인하대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 인하대학교
+  admission_year: 2023
+  admission_type: 논술(오후)
+  track: 자연계열
+  question_no: 2
+  official_url: https://admission.inha.ac.kr/cms/FR_BBS_CON/BoardView.do?MENU_ID=250&SITE_NO=2&BOARD_SEQ=2&BBS_SEQ=165
+  retrieved_at: '2026-11-21'
+  original_points: 35
+  note: 문제 = 165__(자연-오후)_2023학년도_인하대학교_논술고사_문제지.pdf p.4(2/8), 해설·문항카드 = 165__(자연-오후)_..._해설.pdf p.4~6.
+
+verify: verify/INHA-G23B.py::p02
+
+stimuli:
+- label: 가
+  body: |
+    계수가 실수인 삼차다항식 $x^3+ax^2+bx+c$가 실수 $\alpha,\beta,\gamma$에 대해 $(x-\alpha)(x-\beta)(x-\gamma)$로 인수분해 되는 경우, 삼차방정식 $x^3+ax^2+bx+c=0$은 세 실근 $\alpha,\beta,\gamma$를 갖는다고 한다. (단, $\alpha,\beta,\gamma$의 값이 서로 다를 필요는 없다.)
+- label: 나
+  body: |
+    계수가 실수인 삼차방정식 $x^3+ax^2+bx+c=0$이 세 실근 $\alpha,\beta,\gamma$를 가지면, 등식
+    $$x^3+ax^2+bx+c=(x-\alpha)(x-\beta)(x-\gamma)$$
+    $$=x^3-(\alpha+\beta+\gamma)x^2+(\alpha\beta+\beta\gamma+\gamma\alpha)x-\alpha\beta\gamma$$
+    가 성립하므로 근과 계수 사이에는 다음과 같은 관계가 성립한다.
+    $$\alpha+\beta+\gamma=-a,\quad \alpha\beta+\beta\gamma+\gamma\alpha=b,\quad \alpha\beta\gamma=-c$$
+- label: 다
+  body: |
+    함수 $y=(x-\alpha)^2(x-\beta)\ (\alpha\neq\beta)$의 그래프와 $x$축으로 둘러싸인 영역의 넓이는 $\dfrac{(\alpha-\beta)^4}{12}$이다.
+
+stem: |
+  [문제 2] (35점) 다음 제시문을 읽고 물음에 답하시오.
+
+subparts:
+- id: '1'
+  stem: |
+    (2-1) 곡선 $y=3(x+4)^2+q$와 곡선 $y=x^3$이 한 점에서만 만나도록 하는 실수 $q$의 값의 범위를 구하시오. [10점]
+  points: 10
+  depends_on: []
+  answer: {kind: set, value: 'q<-128\ \text{또는}\ q>-20', equivalents: ['(-\infty,-128)\cup(-20,\infty)'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: '$y=x^3-3(x+4)^2$와 $y=q$의 교점이 하나 ⇔ $q$가 극댓값 $-20$보다 크거나 극솟값 $-128$보다 작음.'
+    steps:
+    - {id: 1a, content: '$y^{\prime}=3(x-4)(x+2)$ ⇒ 극대 $-20$, 극소 $-128$', criteria: [1.M1, 1.A1]}
+    hint_ladder:
+    - $q$를 분리해 $q=x^3-3(x+4)^2$로 보자.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 2023 자연오후 해설(문항카드) p.5~6 예시답안 (2-1)
+    steps:
+    - id: 1b-1
+      content: |
+        두 함수의 그래프가 한 교점에서 만나는 경우는 방정식 $x^3-3(x+4)^2-q=0$이 한 실근만을 갖는 경우와 동치이다. 또한 이는 상수함수 $y=q$의 그래프와 함수 $y=x^3-3(x+4)^2$의 그래프가 한 점에서 만나는 경우와 같다. 즉, 실수 $q$의 값은 함수 $y=x^3-3(x+4)^2$의 극댓값보다 크거나 극솟값보다 작아야 한다.
+        $y'=3(x^2-2x-8)=3(x-4)(x+2)=0$이므로 함수 $y=x^3-3(x+4)^2$는 $x=-2$에서 극댓값 $-20$, $x=4$에서 극솟값 $-128$을 각각 갖는다.
+      criteria: [1.M1]
+    - id: 1b-2
+      content: |
+        따라서 구하고자 하는 $q$의 값의 범위는 $q<-128$ 또는 $q>-20$이다.
+      criteria: [1.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 0, isw: true}
+    note: '공식 채점기준(해설 p.5): $x^3-3(x+4)^2$이 $x=-2$에서 극댓값 $-20$, $x=4$에서 극솟값 $-128$을 가지는 것을 확인하면 7점, $q$의 범위 $q>-20$, $q<-128$을 구하면 3점.'
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 7
+      evidence: '$x^3-3(x+4)^2$이 $x=-2$에서 극댓값 $-20$, $x=4$에서 극솟값 $-128$을 가짐을 적었다.'
+      depends_on: []
+      steps: [1b-1, 1a]
+    - id: 1.A1
+      mark_type: A
+      points: 3
+      evidence: '$q<-128$ 또는 $q>-20$을 적었다.'
+      depends_on: [1.M1]
+      steps: [1b-2, 1a]
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-CAL-5121}
+  misconceptions:
+  - id: MC-CAL-5121
+    outcome_code: '70'
+    wrong_work: '등호를 포함해 $q\le-128$ 또는 $q\ge-20$으로 답하거나, 극값 사이 $-128<q<-20$을 답함'
+    detect_cue: 범위에 $-20$, $-128$이 포함되거나 부등호 방향이 반대
+    feedback: '$q$가 극값과 같으면 접점이 생겨 교점이 2개가 됩니다. 수평선 $y=q$와 그래프의 교점 개수를 그림으로 확인하세요.'
+    remedy: [RL-1]
+
+- id: 2a
+  stem: |
+    (2-2) 실수 $p,q$에 대하여 곡선 $y=3(x-p)^2+q$와 곡선 $y=x^3$이 $x$좌표가 1보다 큰 점에서 만나고, 그 교점에서 공통의 접선을 갖는다.
+    (a) 두 곡선의 모든 교점의 $x$좌표를 $p$의 식으로 나타내시오. [10점]
+  points: 10
+  depends_on: ['1']
+  answer: {kind: set, value: '1+\sqrt{1-2p},\ 1-2\sqrt{1-2p}', equivalents: [], tolerance: null}
+  solutions:
+  - id: S2a-A
+    audience: A
+    method_no: 1
+    key_idea: '접점 $t$: $3t^2=6(t-p)$, 세 근의 합 $=3$.'
+    steps:
+    - {id: 2aa, content: '$t=1+\sqrt{1-2p}$, 나머지 근 $3-2t=1-2\sqrt{1-2p}$', criteria: [2a.B1, 2a.A1]}
+    hint_ladder:
+    - 공통 접선을 갖는 교점은 $x^3-3(x-p)^2-q=0$의 중근이다.
+  - id: S2a-B
+    audience: B
+    method_no: 1
+    source_flow: 2023 자연오후 해설 p.6 예시답안 (2-2)(a)
+    steps:
+    - id: 2ab-1
+      content: |
+        (2-1)에서와 같이 두 그래프가 $x=t$에서 동일한 접선을 갖는 경우, $3t^2=6(t-p)$을 만족하고 $t>1$이므로 $t=1+\sqrt{1-2p}$이다.
+      criteria: [2a.B1]
+    - id: 2ab-2
+      content: |
+        제시문 (가), (나)로부터 세 근의 합은 반드시 3이어야 한다. 중근이 $1+\sqrt{1-2p}$이므로 나머지 한 근은 $1-2\sqrt{1-2p}$이다. 따라서 교점의 $x$좌표는 $1+\sqrt{1-2p}$, $1-2\sqrt{1-2p}$가 된다.
+      criteria: [2a.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 0, isw: true}
+    note: '공식 채점기준(해설 p.5): 1보다 큰 근 $1+\sqrt{1-2p}$를 구하면 5점, 나머지 근 $1-2\sqrt{1-2p}$를 구하면 5점.'
+    criteria:
+    - id: 2a.B1
+      mark_type: B
+      points: 5
+      evidence: '$3t^2=6(t-p)$와 $t>1$에서 $t=1+\sqrt{1-2p}$를 구했다.'
+      depends_on: []
+      steps: [2ab-1, 2aa]
+    - id: 2a.A1
+      mark_type: B
+      points: 5
+      evidence: '세 근의 합이 3임을 이용해 나머지 근 $1-2\sqrt{1-2p}$를 구했다.'
+      depends_on: []
+      steps: [2ab-2, 2aa]
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-ALG-5122}
+  misconceptions:
+  - id: MC-ALG-5122
+    outcome_code: '70'
+    wrong_work: '접점을 한 번만 세어 세 근의 합에 $t$를 한 번만 넣어 나머지 근을 $3-t=2-\sqrt{1-2p}$로 구함'
+    detect_cue: '답에 $2-\sqrt{1-2p}$'
+    feedback: '공통 접선을 갖는 교점은 중근이므로 세 근의 합에 두 번 들어갑니다.'
+    remedy: [RL-2]
+
+- id: 2b
+  stem: |
+    (b) 두 곡선으로 둘러싸인 영역의 넓이를 $A$라 할 때, $\displaystyle\lim_{p\to-\infty}\dfrac qA$의 값을 구하시오. [15점]
+  points: 15
+  depends_on: [2a]
+  answer: {kind: value, value: '-\dfrac19', equivalents: ['-1/9'], tolerance: null}
+  solutions:
+  - id: S2b-A
+    audience: A
+    method_no: 1
+    key_idea: '$\alpha^2\beta=q+3p^2$, $A=\dfrac{(3\sqrt{1-2p})^4}{12}=\dfrac{27}{4}(1-2p)^2$.'
+    steps:
+    - {id: 2ba, content: '$q\sim-3p^2$, $A\sim27p^2$ ⇒ $-\dfrac19$', criteria: [2b.B1, 2b.B2, 2b.A1]}
+    hint_ladder:
+    - 세 근의 곱에서 $q$를 $p$로 나타내자.
+    - 두 근의 차는 $3\sqrt{1-2p}$이다.
+  - id: S2b-B
+    audience: B
+    method_no: 1
+    source_flow: 2023 자연오후 해설 p.6 예시답안 (2-2)(b)
+    steps:
+    - id: 2bb-1
+      content: |
+        제시문 (나)로부터 $(1+\sqrt{1-2p})^2(1-2\sqrt{1-2p})=q+3p^2$이므로 $q=(1+\sqrt{1-2p})^2(1-2\sqrt{1-2p})-3p^2$이다.
+      criteria: [2b.B1]
+    - id: 2bb-2
+      content: |
+        또한 두 근의 $p$에 관한 식으로부터 제시문 (다)에 의해
+        $$A=\dfrac{\left(1+\sqrt{1-2p}-(1-2\sqrt{1-2p})\right)^4}{12}=\dfrac{27(1-2p)^2}{4}$$
+        을 얻는다.
+      criteria: [2b.B2]
+    - id: 2bb-3
+      content: |
+        따라서
+        $$\lim_{p\to-\infty}\dfrac qA=\lim_{p\to-\infty}\dfrac{4\{(1+\sqrt{1-2p})^2(1-2\sqrt{1-2p})-3p^2\}}{27(1-2p)^2}=\dfrac{4\cdot(-3)}{27\cdot4}=-\dfrac19.$$
+      criteria: [2b.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 0, isw: true}
+    note: '공식 채점기준(해설 p.5): $q=-3p^2+(1+\sqrt{1-2p})^2(1-2\sqrt{1-2p})$를 구하면 5점, $A=\dfrac{27}{4}(1-2p)^2$을 구하면 5점, 극한값이 $-\dfrac19$임을 구하면 5점.'
+    criteria:
+    - id: 2b.B1
+      mark_type: M
+      points: 5
+      evidence: '세 근의 곱으로 $q=(1+\sqrt{1-2p})^2(1-2\sqrt{1-2p})-3p^2$를 적었다.'
+      depends_on: []
+      steps: [2bb-1, 2ba]
+    - id: 2b.B2
+      mark_type: M
+      points: 5
+      evidence: '제시문 (다)로 $A=\dfrac{27}{4}(1-2p)^2$을 적었다.'
+      depends_on: []
+      steps: [2bb-2, 2ba]
+    - id: 2b.A1
+      mark_type: A
+      points: 5
+      evidence: '극한값 $-\dfrac19$를 적었다.'
+      depends_on: [2b.B1, 2b.B2]
+      steps: [2bb-3, 2ba]
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-CAL-5123}
+  misconceptions:
+  - id: MC-CAL-5123
+    outcome_code: '70'
+    wrong_work: '$(1+\sqrt{1-2p})^2(1-2\sqrt{1-2p})$의 차수를 $p^2$으로 보아 극한에 포함시키거나, $(1-2p)^2$의 최고차 계수 4를 빠뜨려 $-\tfrac49$ 등으로 답함'
+    detect_cue: '답이 $-\tfrac49$, $-\tfrac{1}{36}$, $0$ 등'
+    feedback: '$\sqrt{1-2p}^{\,3}$은 $\lvert p\rvert^{3/2}$ 차수라 $p^2$보다 느리게 커집니다. 각 항의 차수를 비교하세요.'
+    remedy: [RL-3]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CAL-5121}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-ROOT-COUNT-HLINE-I1}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-ALG-5122}
+  relation: remediation
+  target: {kind: concept, ref: CON-ALG-CUBIC-VIETA-I1}
+  priority: 1
+- id: RL-3
+  trigger: {type: misconception, ref: MC-CAL-5123}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-LIMIT-DOMINANT-TERM-I1}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-input-v1, item_version: 1, verdict: pass, date: 2026-11-21, note: 원문 PDF 이미지 판독으로 옮김 · 해설 B는 공식 해설 흐름}
+
+created: 2026-11-21
+updated: 2026-11-21

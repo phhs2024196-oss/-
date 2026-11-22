@@ -1,0 +1,298 @@
+schema_version: '2.0'
+id: INHA-M26-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: INHA
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 추론
+points: 35
+time_estimate_min: 35
+intent: 기본적인 다항식의 미분, 도함수의 활용, 함수와 역함수의 관계 및 합성함수의 미분법을 평가한다.
+key_idea: '$h(t)$의 정의를 $\dfrac{f(h(t))-f(0)}{h(t)}=f''(t)$로 바꾼 뒤 양변을 $t$(또는 $s$)로 미분한다.'
+stuck: 교점의 $x$좌표 $h(t)$를 명시적으로 구하지 않고 관계식 $f(h(t))-f(0)=f'(t)h(t)$를 미분하는 발상
+idea_tags: [IDEA-IMPLICIT-RELATION-DIFFERENTIATE, IDEA-INVERSE-DERIV-VIA-RELATION]
+tags: [인하대 모의, 접선, 역함수 미분]
+elements:
+  materials: ['사차함수 $f(x)=x^4+17x^2+3$', '점 $(0,3)$을 지나고 접선에 평행한 직선', '교점의 $x$좌표로 정의된 함수 $h(t)$와 그 역함수']
+  concepts: [접선의 방정식, 함수의 증가와 감소, 합성함수의 미분법, 역함수의 미분]
+  tools: [인수분해로 삼차방정식 풀기, 관계식 양변 미분, 도함수 부호 판정, 역함수 대입 후 합성함수 미분]
+  conditions:
+  - '점 $(0,3)=(0,f(0))$을 지나고 기울기 $f''(t)$ ⇒ $\dfrac{f(h(t))-f(0)}{h(t)}=f''(t)$'
+  - '교점 중 $x$좌표가 $t$보다 큰 점 ⇒ $h(t)>t>0$'
+  - '$f''''(x)=12x^2+34>0$ ⇒ $f''$이 증가, $f''(h(t))-f''(t)>0$'
+  - '$a=h(3)$ ⇒ (1-1)에서 $a=5$, $h^{-1}(5)=3$'
+  stimuli_used: [가, 나]
+  subpart_links: '(1-2)는 (1-1)의 직선 설정을 $t$로 일반화, (1-3)은 (1-2)의 관계식과 (1-1)의 $h(3)=5$ 사용'
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅱ, 미적분]
+  scope_2028: calc2
+  scope_confirmed: false
+  standards:
+  - code: 12수학Ⅱ02-02
+    text: 미분계수의 기하적 의미를 이해한다.
+    verified: true
+  - code: 12수학Ⅱ02-08
+    text: 함수의 증가와 감소, 극대와 극소를 판정하고 설명할 수 있다.
+    verified: true
+  - code: 12미적02-07
+    text: 합성함수를 미분할 수 있다.
+    verified: true
+  content_area: 미분법 – 합성함수·역함수의 미분
+  behavior_domain: 추론
+  unit_path: [미적분, 미분법, 여러 가지 미분법, 합성함수와 역함수의 미분]
+  key_concepts: [접선의 방정식, 함수의 증가와 감소, 합성함수의 미분법, 역함수의 미분]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 인하대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 인하대학교
+  admission_year: 2026
+  admission_type: 논술(모의)
+  track: 자연계열
+  question_no: 1
+  official_url: https://admission.inha.ac.kr/cms/FR_BBS_CON/BoardView.do?MENU_ID=250&SITE_NO=2&BOARD_SEQ=2&BBS_SEQ=199
+  retrieved_at: '2026-11-21'
+  original_points: 35
+  note: 문제 = 199__(자연)_2026학년도_논술_모의고사_문제지.pdf p.3(일반 1/8), 해설·채점기준 = 같은 번호 해설지.pdf p.1~3 [문항1]
+
+verify: verify/INHA-M26.py::p01
+
+stimuli:
+- label: 가
+  body: |
+    (접선의 방정식) 곡선 $y=f(x)$ 위의 점 $(a,f(a))$에서의 접선의 방정식은
+    $$y-f(a)=f'(a)(x-a)$$
+- label: 나
+  body: |
+    (함수의 증가와 감소) 어떤 열린구간에서 미분가능할 때, 그 열린구간에 속하는 모든 $x$에 대하여
+    (1) $f'(x)>0$이면 $f(x)$는 그 열린구간에서 증가한다.
+    (2) $f'(x)<0$이면 $f(x)$는 그 열린구간에서 감소한다.
+
+stem: |
+  (※) 함수 $f(x)=x^4+17x^2+3$이 있다.
+
+subparts:
+- id: '1'
+  stem: |
+    (1-1) 곡선 $y=f(x)$ 위의 점 $(3,f(3))$에서의 접선에 평행하며 점 $(0,3)$을 지나는 직선과 곡선 $y=f(x)$의 교점 중 $x$좌표가 $3$보다 큰 점의 $x$좌표를 구하시오. [10점]
+  points: 10
+  depends_on: []
+  answer: {kind: value, value: '5', equivalents: ['x=5'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: 기울기 $f'(3)=210$인 직선 $y=210x+3$과 연립하면 $x(x^3+17x-210)=0$이고 $x=5$가 근이다.
+    steps:
+    - {id: 1a, content: '$x^3+17x-210=(x-5)(x^2+5x+42)$', criteria: [1.A1, 1.A2]}
+    hint_ladder:
+    - 직선의 기울기는 $f'(3)$이다.
+    - 연립한 방정식에서 $x=0$을 빼면 삼차방정식이 남는다.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 2026 자연 모의 해설지 p.2 예시 답안 (1-1), 채점기준 p.2
+    steps:
+    - id: 1b-1
+      content: |
+        $f'(x)=4x^3+34x$이므로 $f'(3)=4\cdot3^3+34\cdot3=210$이다. 따라서 직선의 방정식은 $y=210x+3$이다.
+      criteria: [1.A1]
+    - id: 1b-2
+      content: |
+        교점을 구하는 방정식을 정리하면 $x^4+17x^2-210x=0$이고 구하고자 하는 $x$좌표는 $3$보다 크므로 $x^3+17x-210=0$이다. $210$의 약수 중 $x=5$가 방정식을 만족하고 $x^3+17x-210=(x-5)(x^2+5x+42)$이므로 $x=5$가 구하고자 하는 교점의 $x$좌표이다.
+      criteria: [1.A2]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.A1
+      mark_type: A
+      points: 5
+      evidence: 직선의 방정식 $y=210x+3$을 구했다.
+      implied_ok: true
+      steps: [1b-1]
+    - id: 1.A2
+      mark_type: A
+      points: 5
+      evidence: 연립방정식을 인수분해해 교점의 $x$좌표 $5$를 구했다.
+      depends_on: []
+      implied_ok: true
+      steps: [1b-2]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-CAL-5501}
+  misconceptions:
+  - id: MC-CAL-5501
+    outcome_code: '70'
+    wrong_work: '접선 $y=210(x-3)+f(3)$ 자체와 곡선의 교점을 구함'
+    detect_cue: 직선의 $y$절편이 $3$이 아니다
+    feedback: 접선에 평행하고 점 $(0,3)$을 지나는 직선이므로 기울기만 $f'(3)$이고 $y$절편은 $3$입니다.
+    remedy: [RL-1]
+- id: '2'
+  stem: |
+    (1-2) 양수 $t$에 대하여, 곡선 $y=f(x)$ 위의 점 $(t,f(t))$에서의 접선에 평행하며 점 $(0,3)$을 지나는 직선과 곡선 $y=f(x)$의 교점 중 $x$좌표가 $t$보다 큰 점의 $x$좌표를 $h(t)$라고 하면 함수 $h(t)$는 양의 실수의 집합에서 미분가능하다. 함수 $h(t)$가 열린구간 $(0,\infty)$에서 증가함을 증명하시오. [10점]
+  points: 10
+  depends_on: ['1']
+  answer: {kind: proof, value: null, equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: '$f(h(t))-f(0)=f''(t)h(t)$를 $t$로 미분하면 $h''(t)=\dfrac{f''''(t)h(t)}{f''(h(t))-f''(t)}>0$.'
+    steps:
+    - {id: 2a, content: '$f''''>0$이므로 $f''$ 증가, $h(t)>t$에서 분모 양수', criteria: [2.R1]}
+    hint_ladder:
+    - $h(t)$를 직접 구하지 말고 $h(t)$가 만족하는 식을 세우자.
+    - 그 식의 양변을 $t$로 미분하자.
+  - id: S2-B
+    audience: B
+    method_no: 1
+    source_flow: 2026 자연 모의 해설지 p.3 예시 답안 (1-2), 채점기준 p.2
+    steps:
+    - id: 2b-1
+      content: |
+        $h(t)$에 대한 식은 $\dfrac{f(h(t))-f(0)}{h(t)}=f'(t)$이다. 주어진 조건에 의하여 모든 양수 $t$에 대하여 $h(t)>t>0$이므로 $h(t)$는 항상 양수이고 $f(h(t))-f(0)=f'(t)h(t)$가 성립한다.
+      criteria: [2.M1]
+    - id: 2b-2
+      content: |
+        양변을 $t$에 대하여 미분하면 $h'(t)f'(h(t))=f''(t)h(t)+f'(t)h'(t)$이다.
+      criteria: [2.M2]
+    - id: 2b-3
+      content: |
+        모든 양수 $t$에 대해 $f''(t)=12t^2+34>0$이고 $h(t)>t$이므로 제시문 (나)에 의해 $f'(h(t))-f'(t)>0$이고 $h'(t)=\dfrac{f''(t)h(t)}{f'(h(t))-f'(t)}$로 표현할 수 있고 $h'(t)>0$임을 알 수 있다. 제시문 (나)에 의하여 $h(t)$는 구간 $(0,\infty)$에서 증가한다.
+      criteria: [2.R1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 3
+      evidence: '$t$와 $h(t)$에 대한 식 $\dfrac{f(h(t))-f(0)}{h(t)}=f''(t)$(또는 동치식)을 세웠다.'
+      depends_on: []
+      steps: [2b-1]
+    - id: 2.M2
+      mark_type: M
+      points: 4
+      evidence: '합성함수의 미분법으로 $h''(t)f''(h(t))=f''''(t)h(t)+f''(t)h''(t)$를 구했다.'
+      depends_on: [2.M1]
+      steps: [2b-2]
+    - id: 2.R1
+      mark_type: R
+      points: 3
+      evidence: '$f''''>0$, $h(t)>t$를 근거로 $h''(t)>0$을 정확히 판별하고 증가함을 결론지었다.'
+      depends_on: [2.M2]
+      steps: [2b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-5502}
+  misconceptions:
+  - id: MC-CAL-5502
+    outcome_code: '71'
+    wrong_work: '$\dfrac{d}{dt}f(h(t))=f''(h(t))$로 써서 $h''(t)$를 빠뜨림'
+    detect_cue: 미분한 식에 $h'(t)$가 한쪽에만 있거나 없다
+    feedback: $f(h(t))$의 미분은 $f'(h(t))\,h'(t)$입니다. 안쪽 함수의 도함수를 곱하세요.
+    remedy: [RL-2]
+- id: '3'
+  stem: |
+    (1-3) (1-2)에서 구한 함수 $s=h(t)$의 역함수 $t=h^{-1}(s)$도 미분가능하다. $a=h(3)$일 때, 미분계수 $(h^{-1})'(a)$를 구하시오. [15점]
+  points: 15
+  depends_on: ['1', '2']
+  answer: {kind: value, value: '\dfrac{46}{71}', equivalents: ['46/71'], tolerance: null}
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: '$f(s)-f(0)=sf''(h^{-1}(s))$를 $s$로 미분하고 $s=5$, $h^{-1}(5)=3$을 대입한다.'
+    steps:
+    - {id: 3a, content: '$(h^{-1})''(5)=\dfrac{f''(5)-f''(3)}{5f''''(3)}=\dfrac{670-210}{710}$', criteria: [3.M2, 3.A1]}
+    hint_ladder:
+    - (1-2)의 식에 $t=h^{-1}(s)$를 대입해 보자.
+    - (1-1)에서 $h(3)=5$이다.
+  - id: S3-B
+    audience: B
+    method_no: 1
+    source_flow: 2026 자연 모의 해설지 p.3 예시 답안 (1-3), 채점기준 p.2
+    steps:
+    - id: 3b-1
+      content: |
+        (1-2)에서와 같이 $h(t)$에 대한 식은 $\dfrac{f(h(t))-f(0)}{h(t)}=f'(t)$이다. 주어진 식에 대해서 $t=h^{-1}(s)$를 대입하면 $f(s)-f(0)=sf'(h^{-1}(s))$이 된다.
+      criteria: [3.M1]
+    - id: 3b-2
+      content: |
+        $s$에 대하여 합성함수 미분을 적용하면 $f'(s)=f'(h^{-1}(s))+sf''(h^{-1}(s))(h^{-1})'(s)$가 된다.
+      criteria: [3.M2]
+    - id: 3b-3
+      content: |
+        (1-1)에서 $s=5$임을 알 수 있고, $h^{-1}(5)=3$이고, $f'(x)=4x^3+34x$, $f''(x)=12x^2+34$이다. 이를 모두 대입하면 $670=210+5\cdot142\cdot(h^{-1})'(5)$이므로 $(h^{-1})'(5)=\dfrac{46}{71}$이다.
+      criteria: [3.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 4
+      evidence: '$s$와 $h^{-1}(s)$에 대한 식 $f(s)-f(0)=sf''(h^{-1}(s))$를 세웠다.'
+      depends_on: []
+      steps: [3b-1]
+    - id: 3.M2
+      mark_type: M
+      points: 8
+      evidence: '합성함수의 미분법을 적용해 $(h^{-1})''(s)$를 포함한 식 $f''(s)=f''(h^{-1}(s))+sf''''(h^{-1}(s))(h^{-1})''(s)$를 구했다.'
+      depends_on: [3.M1]
+      steps: [3b-2]
+    - id: 3.A1
+      mark_type: A
+      points: 3
+      evidence: '$s=5$, $h^{-1}(5)=3$을 대입해 $(h^{-1})''(5)=\dfrac{46}{71}$을 구했다.'
+      depends_on: [3.M2]
+      ft: {allowed: true, from: [1.A2], max_points: 3}
+      steps: [3b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '72', misconception: MC-CAL-5503}
+  misconceptions:
+  - id: MC-CAL-5503
+    outcome_code: '72'
+    wrong_work: '$(h^{-1})''(5)$를 $\dfrac{1}{h''(5)}$로 계산하거나 $f$의 값을 $x=5$와 $x=3$에서 뒤바꿔 대입'
+    detect_cue: '$h^{-1}(5)=3$을 쓰지 않았거나 답이 $\dfrac{46}{71}$의 역수 꼴'
+    feedback: 역함수의 미분계수는 대응점 $t=h^{-1}(5)=3$에서의 원함수 정보로 계산합니다.
+    remedy: [RL-3]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CAL-5501}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-TANGENT-LINE-I5}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-CAL-5502}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-CHAIN-RULE-I5}
+  priority: 1
+- id: RL-3
+  trigger: {type: misconception, ref: MC-CAL-5503}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-INVERSE-DERIV-I5}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-input-v1, item_version: 1, verdict: pass, date: 2026-11-21, note: 원문 PDF 이미지 판독으로 옮김 · 해설 B는 공식 해설 흐름}
+
+created: 2026-11-21
+updated: 2026-11-21

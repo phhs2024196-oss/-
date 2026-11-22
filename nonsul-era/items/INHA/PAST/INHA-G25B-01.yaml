@@ -1,0 +1,306 @@
+schema_version: '2.0'
+id: INHA-G25B-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: INHA
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 분류
+points: 30
+time_estimate_min: 30
+intent: |
+  삼각함수의 성질을 이용하여 삼각형의 넓이를 함수로 나타내고, 함수의 미분을 이용하여 함수의 극대, 극소, 최대, 최소를 구할 수 있는지 평가한다. (1-1) 삼각함수의 성질을 이용하여 삼각형의 넓이를 함수로 나타낼 수 있는지, (1-2) 함수의 미분을 이용하여 함수의 극대, 극소를 판정할 수 있는지, (1-3) 함수의 최대, 최소를 구할 수 있는지 평가한다.
+key_idea: '$P$, $Q$가 어느 변 위에 있는지에 따라 $x$를 $\left[0,\frac{\pi}{12}\right]$, $\left[\frac{\pi}{12},\frac{\pi}{4}\right]$, $\left[\frac{\pi}{4},\frac{\pi}{3}\right]$로 나누고 $S=\frac12\overline{AP}\cdot\overline{AQ}\sin\frac{\pi}{6}$을 쓰면, 분모 미분이 $\sin(2x\pm\cdot)$, $\cos(2x-\cdot)$ 꼴로 정리된다.'
+stuck: 구간 경계 $x=\dfrac{\pi}{12}$, $\dfrac{\pi}{4}$에서 $S$가 미분가능하지 않지만 제시문 (나)의 정의로 극대임을 판정하는 단계
+idea_tags: [IDEA-PIECEWISE-BY-POSITION, IDEA-PRODUCT-TO-SUM-DERIV, IDEA-EXTREMUM-AT-KINK]
+tags: [인하대 기출, 2025 자연 오후, 삼각형의 넓이, 극대·극소, 최대·최소, 구간별 함수]
+elements:
+  materials: [한 변이 10인 정사각형 $ABCD$, '$\angle PAQ=\frac{\pi}{6}$인 두 점 $P$, $Q$(변 $BC$ 또는 $CD$ 위)', 삼각형 $APQ$의 넓이 $S(x)$]
+  concepts: [삼각형의 넓이(사인 이용), 삼각함수의 덧셈정리, 몫의 미분법, 극대·극소의 정의와 판정, 닫힌구간에서의 최대·최소]
+  tools: [점의 위치에 따른 3구간 분할, '$\overline{AP}=\frac{10}{\cos x}$ 등 직각삼각형 길이', 분모의 곱을 미분해 합차 공식으로 정리, 도함수 부호표, 극값과 양 끝값 비교]
+  conditions:
+  - '$\angle BAQ=x+\frac{\pi}{6}\le\frac{\pi}{4}$ ⇔ $Q$가 변 $BC$ 위 ⇒ $0\le x\le\frac{\pi}{12}$'
+  - '$x\ge\frac{\pi}{4}$ ⇔ $P$가 변 $CD$ 위'
+  - '경계에서 미분불가능 ⇒ 제시문 (나)의 정의(근방에서 $f(x)\le f(a)$)로 극대 판정'
+  stimuli_used: [가, 나]
+  subpart_links: (1-2)는 (1-1)의 구간별 $S(x)$ 사용, (1-3)은 (1-2)의 극값과 양 끝값 비교
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅰ, 수학Ⅱ, 미적분]
+  scope_2028: calc2
+  scope_confirmed: true
+  standards:
+  - code: 12수학Ⅰ02-03
+    text: 사인법칙과 코사인법칙을 이해하고, 이를 활용할 수 있다.
+    verified: true
+  - code: 12수학Ⅱ02-08
+    text: 함수의 증가와 감소, 극대와 극소를 판정하고 설명할 수 있다.
+    verified: true
+  content_area: 미분법 – 도함수의 활용(극대·극소, 최대·최소)
+  behavior_domain: 문제해결
+  unit_path: [미적분, 미분법, 도함수의 활용, 함수의 극대와 극소]
+  key_concepts: [삼각형의 넓이, 함수의 극대·극소, 최대·최소]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 인하대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 인하대학교
+  admission_year: 2025
+  admission_type: 논술(오후)
+  track: 자연계열
+  question_no: 1
+  official_url: https://admission.inha.ac.kr/cms/FR_BBS_CON/BoardView.do?MENU_ID=250&SITE_NO=2&BOARD_SEQ=2&BBS_SEQ=189
+  retrieved_at: '2026-11-21'
+  original_points: 30
+  note: 문제 = 189__(자연_오후)_2025학년도_인하대학교_논술고사_문제.pdf p.3(시험지 1/8), 해설·채점기준 = 189__(자연_오후)_…_해설.pdf(문항카드) p.1~4, 1228__2025 영향평가 보고서 p.71~75(문항카드 5). 공식 예시답안 (1-1)(i)에 "제시문 (나)에 의해 S(x)=…"로 적혀 있으나 넓이 공식은 제시문 (가) — 해설 오기로 판단, 해설 B에서는 (가)로 적음. scope_2028 은 삼각함수 미분(미적분Ⅱ) 필요로 calc2.
+
+verify: verify/INHA-G25B.py::p01
+
+stimuli:
+- label: 가
+  body: |
+    (삼각형의 넓이) 삼각형 $ABC$에 대하여 $\overline{CA}=b$, $\overline{AB}=c$라 할 때, 삼각형 $ABC$의 넓이는 $S=\dfrac12bc\sin A$이다.
+- label: 나
+  body: |
+    (극대와 극소) 함수 $f(x)$에서 $x=a$를 포함하는 어떤 열린구간에 속하는 모든 $x$에 대하여 $f(x)\le f(a)$일 때 $x=a$에서 극대라고 하며, $f(a)$를 극댓값이라고 한다. 또, $x=a$를 포함하는 어떤 열린구간에 속하는 모든 $x$에 대하여 $f(x)\ge f(a)$일 때 $x=a$에서 극소라고 하며, $f(a)$를 극솟값이라고 한다. 극댓값과 극솟값을 통틀어 극값이라고 한다.
+
+stem: |
+  다음 제시문을 읽고 물음에 답하시오.
+  (※) 한 변의 길이가 $10$인 정사각형 $ABCD$에서 두 점 $P$, $Q$는 변 $BC$ 또는 변 $CD$ 위에 있으며 $\angle PAQ=\dfrac{\pi}{6}$이다. (단, $\angle BAP<\angle BAQ$이고, 두 점 $P$, $Q$는 모두 변 $BC$ 위에 있을 수도 있고 모두 변 $CD$ 위에 있을 수도 있다.)
+  $\angle BAP=x$일 때, 삼각형 $APQ$의 넓이를 $S(x)$라 하자.
+  [그림: 정사각형 $ABCD$(왼쪽 아래 $A$, 오른쪽 아래 $B$, 오른쪽 위 $C$, 왼쪽 위 $D$). 점 $P$는 변 $BC$ 위, 점 $Q$는 변 $CD$ 위에 있고, 선분 $AP$, $AQ$, $PQ$가 그려져 있다. $\angle BAP=x$, $\angle PAQ=\frac{\pi}{6}$로 표시.]
+
+subparts:
+- id: '1'
+  stem: |
+    (1-1) $0\le x\le\dfrac{\pi}{3}$일 때, $S(x)$를 $x$의 범위에 따라 $x$의 식으로 나타내시오. (10점)
+  points: 10
+  depends_on: []
+  answer: {kind: expression, value: 'S(x)=\dfrac{25}{\cos x\cos(x+\frac{\pi}{6})}\ (0\le x\le\frac{\pi}{12}),\ \dfrac{25}{\cos x\cos(\frac{\pi}{3}-x)}\ (\frac{\pi}{12}\le x\le\frac{\pi}{4}),\ \dfrac{25}{\sin x\cos(\frac{\pi}{3}-x)}\ (\frac{\pi}{4}\le x\le\frac{\pi}{3})', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: '$S=\frac12\cdot\overline{AP}\cdot\overline{AQ}\cdot\frac12$이고 각 변 위 점까지의 거리는 $\frac{10}{\cos(\text{그 변과 이루는 각})}$.'
+    steps:
+    - {id: 1a, content: '$\overline{AP}=\frac{10}{\cos x}$ 또는 $\frac{10}{\sin x}$, $\overline{AQ}=\frac{10}{\cos(x+\frac{\pi}{6})}$ 또는 $\frac{10}{\cos(\frac{\pi}{3}-x)}$', criteria: [1.M1, 1.M2, 1.A1]}
+    hint_ladder:
+    - $Q$가 점 $C$에 올 때와 $P$가 점 $C$에 올 때의 $x$를 구하자.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 2025 자연오후 해설(문항카드) p.3~4 예시답안 (1-1), 채점기준 p.3
+    steps:
+    - id: 1b-1
+      content: |
+        다음 세 가지 경우로 나눌 수 있다.
+        (i) $P$, $Q$가 모두 변 $BC$ 위에 있을 때 $\left(0\le x\le\dfrac{\pi}{12}\right)$, (ii) $P$는 변 $BC$ 위에 있고 $Q$는 변 $CD$ 위에 있을 때 $\left(\dfrac{\pi}{12}\le x\le\dfrac{\pi}{4}\right)$, (iii) $P$, $Q$가 모두 변 $CD$ 위에 있을 때 $\left(\dfrac{\pi}{4}\le x\le\dfrac{\pi}{3}\right)$.
+      criteria: [1.M1]
+    - id: 1b-2
+      content: |
+        (i) $\overline{AP}=\dfrac{10}{\cos x}$이고 $\overline{AQ}=\dfrac{10}{\cos\left(x+\frac{\pi}{6}\right)}$이다.
+        (ii) $\overline{AP}=\dfrac{10}{\cos x}$이고 $\overline{AQ}=\dfrac{10}{\cos\left(\frac{\pi}{3}-x\right)}$이다.
+        (iii) $\overline{AP}=\dfrac{10}{\cos\left(\frac{\pi}{2}-x\right)}=\dfrac{10}{\sin x}$, $\overline{AQ}=\dfrac{10}{\cos\left(\frac{\pi}{3}-x\right)}$이다.
+      criteria: [1.M2]
+    - id: 1b-3
+      content: |
+        제시문 (가)에 의해 $S(x)=\dfrac12\cdot\overline{AP}\cdot\overline{AQ}\cdot\sin\dfrac{\pi}{6}$이므로, 결론적으로
+        $$S(x)=\begin{cases}\dfrac{25}{\cos x\cos\left(x+\frac{\pi}{6}\right)} & \left(0\le x\le\frac{\pi}{12}\right)\\[2mm] \dfrac{25}{\cos x\cos\left(\frac{\pi}{3}-x\right)} & \left(\frac{\pi}{12}\le x\le\frac{\pi}{4}\right)\\[2mm] \dfrac{25}{\sin x\cos\left(\frac{\pi}{3}-x\right)} & \left(\frac{\pi}{4}\le x\le\frac{\pi}{3}\right)\end{cases}$$
+        이다. (공식 예시답안에는 "제시문 (나)에 의해"로 적혀 있음 — 해설 오기)
+      criteria: [1.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 2
+      evidence: $x$의 범위를 $\left[0,\frac{\pi}{12}\right]$, $\left[\frac{\pi}{12},\frac{\pi}{4}\right]$, $\left[\frac{\pi}{4},\frac{\pi}{3}\right]$의 3가지 경우로 올바르게 나눴다.
+      depends_on: []
+      steps: [1b-1]
+    - id: 1.M2
+      mark_type: M
+      points: 3
+      evidence: 3가지 경우에 대하여 각각 $\overline{AP}$, $\overline{AQ}$를 구했다.
+      depends_on: []
+      steps: [1b-2]
+    - id: 1.A1
+      mark_type: A
+      points: 5
+      evidence: 3가지 경우에 대하여 각각 $S(x)$를 구했다.
+      depends_on: [1.M1, 1.M2]
+      steps: [1b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-GEO-5301}
+  misconceptions:
+  - id: MC-GEO-5301
+    outcome_code: '70'
+    wrong_work: '$Q$가 변 $CD$ 위에 있을 때도 $\overline{AQ}=\dfrac{10}{\cos(x+\frac{\pi}{6})}$를 그대로 써서 한 식으로 답함'
+    detect_cue: 구간 분할이 없거나 두 구간뿐
+    feedback: 점이 변 $CD$ 위로 넘어가면 기준이 되는 변이 $AD$로 바뀌어 $\overline{AQ}=\frac{10}{\cos(\frac{\pi}{2}-\angle BAQ)}$가 됩니다. $P$, $Q$가 꼭짓점 $C$를 지나는 순간을 경계로 나누세요.
+    remedy: [RL-1]
+- id: '2'
+  stem: |
+    (1-2) 열린구간 $\left(0,\dfrac{\pi}{3}\right)$에서 함수 $S(x)$가 극값을 가지는 $x$의 값을 모두 구하시오. (10점)
+  points: 10
+  depends_on: ['1']
+  answer: {kind: set, value: '극대 $x=\dfrac{\pi}{12},\ \dfrac{\pi}{4}$, 극소 $x=\dfrac{\pi}{6}$', equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: 구간별 $S'$의 분자가 $\sin\left(2x+\frac{\pi}{6}\right)$, $\sin\left(2x-\frac{\pi}{3}\right)$, $-\cos\left(2x-\frac{\pi}{3}\right)$이라 부호가 $+,-,+,-$.
+    steps:
+    - {id: 2a, content: '증가 → ($\frac{\pi}{12}$) 감소 → ($\frac{\pi}{6}$) 증가 → ($\frac{\pi}{4}$) 감소', criteria: [2.M1, 2.M2, 2.A1]}
+    hint_ladder:
+    - $\cos x\cos(x+\frac{\pi}{6})$을 미분하면 어떤 한 개의 삼각함수가 될까?
+    - 미분가능하지 않은 점도 극값이 될 수 있다(제시문 (나)).
+  - id: S2-B
+    audience: B
+    method_no: 1
+    source_flow: 2025 자연오후 해설(문항카드) p.4 예시답안 (1-2), 채점기준 p.3
+    steps:
+    - id: 2b-1
+      content: |
+        $S'(x)$를 각 구간에서 계산하면
+        $$S'(x)=\begin{cases}\dfrac{25\sin\left(2x+\frac{\pi}{6}\right)}{\cos^2x\cos^2\left(x+\frac{\pi}{6}\right)} & \left(0\le x<\frac{\pi}{12}\right)\\[2mm] \dfrac{25\sin\left(2x-\frac{\pi}{3}\right)}{\cos^2x\cos^2\left(\frac{\pi}{3}-x\right)} & \left(\frac{\pi}{12}<x<\frac{\pi}{4}\right)\\[2mm] \dfrac{-25\cos\left(2x-\frac{\pi}{3}\right)}{\sin^2x\cos^2\left(\frac{\pi}{3}-x\right)} & \left(\frac{\pi}{4}<x\le\frac{\pi}{3}\right)\end{cases}$$
+        이다.
+      criteria: [2.M1]
+    - id: 2b-2
+      content: |
+        $S'(x)$를 살펴보면, (i) $0\le x<\dfrac{\pi}{12}$일 때 $S'(x)>0$이므로 $S(x)$는 증가한다. (ii) $\dfrac{\pi}{12}<x<\dfrac{\pi}{4}$일 때 $S'\left(\dfrac{\pi}{6}\right)=0$이며, $\dfrac{\pi}{12}<x<\dfrac{\pi}{6}$일 때 $S'(x)<0$이고 $\dfrac{\pi}{6}<x<\dfrac{\pi}{4}$일 때 $S'(x)>0$이므로 $S(x)$는 $x=\dfrac{\pi}{6}$일 때 극솟값을 갖는다. (iii) $\dfrac{\pi}{4}<x\le\dfrac{\pi}{3}$일 때 $S'(x)<0$이므로 $S(x)$는 감소한다.
+      criteria: [2.M2]
+    - id: 2b-3
+      content: |
+        이것으로부터 $x=\dfrac{\pi}{12}$일 때와 대칭적으로 $x=\dfrac{\pi}{4}$일 때 극댓값을 갖는다는 것을 알 수 있다(제시문 (나)). 따라서 극값을 가지는 $x$는 $\dfrac{\pi}{12}$, $\dfrac{\pi}{6}$, $\dfrac{\pi}{4}$이다.
+      criteria: [2.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 4
+      evidence: 3가지 경우에 대하여 각각 $S'(x)$를 구했다.
+      depends_on: []
+      ft: {allowed: true, from: [1.A1], max_points: 4}
+      steps: [2b-1]
+    - id: 2.M2
+      mark_type: M
+      points: 3
+      evidence: $S'(x)$가 양수 또는 음수가 되는 구간을 찾았다.
+      depends_on: [2.M1]
+      steps: [2b-2]
+    - id: 2.A1
+      mark_type: A
+      points: 3
+      evidence: 극대 $x=\dfrac{\pi}{12},\ \dfrac{\pi}{4}$, 극소 $x=\dfrac{\pi}{6}$을 구했다.
+      depends_on: [2.M2]
+      steps: [2b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-CAL-5308}
+  misconceptions:
+  - id: MC-CAL-5308
+    outcome_code: '70'
+    wrong_work: '$S''(x)=0$인 점만 극값 후보로 보아 $x=\dfrac{\pi}{6}$ 하나만 답함'
+    detect_cue: 답에 $\frac{\pi}{12}$, $\frac{\pi}{4}$가 없다
+    feedback: 극값의 정의(제시문 (나))는 미분가능성을 요구하지 않습니다. 구간 경계에서 증가→감소로 바뀌면 극대입니다.
+    remedy: [RL-2]
+- id: '3'
+  stem: |
+    (1-3) 닫힌구간 $\left[0,\dfrac{\pi}{3}\right]$에서 함수 $S(x)$가 최댓값을 가질 때와 최솟값을 가질 때의 $x$의 값을 구하시오. (10점)
+  points: 10
+  depends_on: ['2']
+  answer: {kind: set, value: '최댓값 $x=\dfrac{\pi}{12},\ \dfrac{\pi}{4}$, 최솟값 $x=0,\ \dfrac{\pi}{3}$', equivalents: [], tolerance: null}
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: $S\left(\frac{\pi}{6}\right)=\frac{100}{3}$과 $S(0)=S\left(\frac{\pi}{3}\right)=\frac{50}{\sqrt3}$을 비교.
+    steps:
+    - {id: 3a, content: '$\frac{100}{3}>\frac{50}{\sqrt3}$이므로 극소는 최소 아님', criteria: [3.B1, 3.A1, 3.A2]}
+    hint_ladder:
+    - 극솟값과 양 끝값을 비교하자.
+  - id: S3-B
+    audience: B
+    method_no: 1
+    source_flow: 2025 자연오후 해설(문항카드) p.4 예시답안 (1-3), 채점기준 p.3
+    steps:
+    - id: 3b-1
+      content: |
+        (1-2)에서 살펴본 대로 $x=\dfrac{\pi}{12}$일 때와 $x=\dfrac{\pi}{4}$일 때 $S(x)$가 최댓값을 갖는다는 것을 알 수 있다.
+      criteria: [3.A2]
+    - id: 3b-2
+      content: |
+        한편 $S(x)$는 $x=\dfrac{\pi}{6}$일 때 극솟값을 갖지만 $S\left(\dfrac{\pi}{6}\right)=\dfrac{100}{3}$이고 $S(0)=S\left(\dfrac{\pi}{3}\right)=\dfrac{50}{\sqrt3}$인데, $\dfrac{100}{3}>\dfrac{50}{\sqrt3}$이므로 $x=0$일 때와 $x=\dfrac{\pi}{3}$일 때 $S(x)$가 최솟값을 갖는다.
+      criteria: [3.B1, 3.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 3.B1
+      mark_type: B
+      points: 3
+      evidence: 극솟값 $S\left(\frac{\pi}{6}\right)=\frac{100}{3}$이 최솟값이 아님을 (양 끝값 $\frac{50}{\sqrt3}$과 비교해) 밝혔다.
+      depends_on: []
+      steps: [3b-2]
+    - id: 3.A1
+      mark_type: A
+      points: 3
+      evidence: 최솟값을 가질 때의 $x$의 값 $0$, $\dfrac{\pi}{3}$을 구했다.
+      depends_on: [3.B1]
+      implied_ok: true
+      steps: [3b-2]
+    - id: 3.A2
+      mark_type: A
+      points: 4
+      evidence: 최댓값을 가질 때의 $x$의 값 $\dfrac{\pi}{12}$, $\dfrac{\pi}{4}$를 구했다.
+      depends_on: [2.M2]
+      steps: [3b-1]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-CAL-5309}
+  misconceptions:
+  - id: MC-CAL-5309
+    outcome_code: '70'
+    wrong_work: '극솟값 $S\left(\frac{\pi}{6}\right)$을 그대로 최솟값으로 답함'
+    detect_cue: 최솟값의 $x$가 $\frac{\pi}{6}$
+    feedback: 닫힌구간의 최솟값은 극솟값과 양 끝값 중 가장 작은 값입니다. $S(0)$, $S\left(\frac{\pi}{3}\right)$을 계산해 비교하세요.
+    remedy: [RL-3]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-GEO-5301}
+  relation: remediation
+  target: {kind: concept, ref: CON-GEO-TRIANGLE-AREA-SINE-I3}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-CAL-5308}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-EXTREMUM-SIGN-I3}
+  priority: 1
+- id: RL-3
+  trigger: {type: misconception, ref: MC-CAL-5309}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-EXTREMUM-SIGN-I3}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-input-v1, item_version: 1, verdict: pass, date: 2026-11-22, note: 원문 PDF 이미지 판독으로 옮김 · 해설 B는 공식 해설 흐름}
+
+created: 2026-11-22
+updated: 2026-11-22

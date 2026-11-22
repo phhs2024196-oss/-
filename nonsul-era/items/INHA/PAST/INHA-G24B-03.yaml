@@ -1,0 +1,308 @@
+schema_version: '2.0'
+id: INHA-G24B-03
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: proof
+origin: past_exam
+school: INHA
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 귀류
+points: 35
+time_estimate_min: 40
+intent: 평균값 정리를 이해하고 그것을 문제에 적용할 수 있는지 평가한다. 증가함수의 수학적 정의를 이해하고 미분값과 함수의 증감의 관계를 이해하는지 평가한다. 논리적인 서술 능력을 평가한다.
+key_idea: '$f''''>0$이면 할선 기울기가 오른쪽으로 갈수록 커진다((3-1)). $f''(\alpha)>1$이면 어떤 $\beta>\alpha$ 이후로 $f$가 기울기 $k>1$인 직선보다 위에 있게 되어 결국 $f(x)>x$ — 귀류.'
+stuck: (3-2)에서 $f'(\alpha)>1$을 가정한 뒤 (3-1)로 $x>\beta$에서 $f(x)>f(\beta)+k(x-\beta)$를 얻고, 이 직선이 $y=x$를 넘어서는 $x$를 잡는 단계
+idea_tags: [IDEA-SECANT-SLOPE-MONOTONE-CONVEX, IDEA-CONTRADICTION-LINEAR-GROWTH, IDEA-PIECEWISE-MATCH-VALUE-DERIV]
+tags: [평균값 정리, 아래로 볼록, 귀류법, 구간별 함수, 인하대 기출]
+elements:
+  materials:
+  - '이계도함수가 양수인 함수 $f(x)\ (x>0)$'
+  - '부등식 $f(x)\le x$와 $f''(x)\le1$'
+  - '구간별 함수 $g(x)=px^2\ (0<x\le2)$, $x-\ln x+q\ (x>2)$'
+  concepts: [평균값 정리, 함수의 증가와 감소, 이계도함수, 귀류법, 미분가능성]
+  tools: ['두 구간 $(a,b)$, $(b,c)$에서 평균값 정리', '$f''$의 증가로 기울기 비교', '귀류: $f''(\alpha)>1$ 가정', '$x=2$에서 함숫값·미분계수 일치']
+  conditions:
+  - '$f''''(x)>0$ ⇒ $f''$ 증가(제시문 (다)) ⇒ $d<e$이면 $f''(d)<f''(e)$'
+  - '$f''(\alpha)>1$ ⇒ $\beta>\alpha$에서 할선 기울기 $k\ge f''(\alpha)>1$ ⇒ $x>\dfrac{k\beta-f(\beta)}{k-1}$에서 $f(x)>x$'
+  - '$g''''$ 존재 ⇒ $x=2$에서 $g$, $g''$ 연속(이계도함수도 일치하는지 확인)'
+  stimuli_used: [가, 나, 다]
+  subpart_links: '(3-2)는 (3-1)의 할선 기울기 부등식 사용, (3-3)은 (3-2)의 조건을 만족하는 함수의 예'
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅱ]
+  scope_2028: common
+  scope_confirmed: true
+  standards:
+  - code: 12수학Ⅱ02-07
+    text: 함수에 대한 평균값 정리를 이해한다.
+    verified: true
+  - code: 12수학Ⅱ02-08
+    text: 함수의 증가와 감소, 극대와 극소를 판정하고 설명할 수 있다.
+    verified: true
+  content_area: 미분 – 평균값 정리, 함수의 증가와 감소
+  behavior_domain: 추론
+  unit_path: [수학Ⅱ, 미분, 도함수의 활용, 평균값 정리와 부등식 증명]
+  key_concepts: [평균값 정리, 증가함수, 귀류법, 미분가능성]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 인하대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 인하대학교
+  admission_year: 2024
+  admission_type: 논술(오후)
+  track: 자연계열
+  question_no: 3
+  official_url: https://admission.inha.ac.kr/cms/FR_BBS_CON/BoardView.do?MENU_ID=250&SITE_NO=2&BOARD_SEQ=2&BBS_SEQ=179
+  retrieved_at: '2026-11-21'
+  original_points: 35
+  note: 문제 = 179__(자연-오후)_2024학년도_인하대학교_논술고사_문제.pdf p.5(시험지 3/8), 해설·문항카드 = 179__(자연-오후)_…_해설.pdf p.7~9, 영향평가 보고서(1138__) PDF p.79~82. 이계도함수 개념은 2015 수학Ⅱ 밖(미적분)이나 문항카드는 수학Ⅱ로 분류.
+
+verify: verify/INHA-G24B.py::p03
+
+stimuli:
+- label: 가
+  body: |
+    (평균값 정리)
+    함수 $f(x)$가 닫힌구간 $[a,b]$에서 연속이고 열린구간 $(a,b)$에서 미분가능할 때,
+    $$\dfrac{f(b)-f(a)}{b-a}=f'(c)$$
+    인 $c$가 열린구간 $(a,b)$에 적어도 하나 존재한다.
+- label: 나
+  body: |
+    함수 $f(x)$가 어떤 구간에 속하는 임의의 두 수 $x_1$, $x_2$에 대하여
+    (i) $x_1<x_2$일 때 $f(x_1)<f(x_2)$이면 함수 $f(x)$는 이 구간에서 증가한다고 한다.
+    (ii) $x_1<x_2$일 때 $f(x_1)>f(x_2)$이면 함수 $f(x)$는 이 구간에서 감소한다고 한다.
+- label: 다
+  body: |
+    함수 $f(x)$가 어떤 열린구간에서 미분가능하고, 이 구간의 모든 $x$에 대하여
+    (i) $f'(x)>0$이면 $f(x)$는 이 구간에서 증가한다.
+    (ii) $f'(x)<0$이면 $f(x)$는 이 구간에서 감소한다.
+
+stem: |
+  [문제 3] (35점) 다음 제시문을 읽고 물음에 답하시오.
+  (※) 함수 $f(x)$는 정의역이 양의 실수 전체의 집합이고 이계도함수 $f''(x)$를 갖는다고 하자.
+
+subparts:
+- id: '1'
+  stem: |
+    (3-1) 모든 양의 실수 $x$에 대하여 $f''(x)>0$이면 $0<a<b<c$인 임의의 실수 $a,b,c$에 대하여
+    $$\dfrac{f(b)-f(a)}{b-a}<\dfrac{f(c)-f(b)}{c-b}$$
+    임을 보이시오. (7점)
+  points: 7
+  depends_on: []
+  answer: {kind: proof, value: null, equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: 두 구간에 평균값 정리, $d<e$와 $f'$의 증가.
+    steps:
+    - {id: 1a, content: '$\dfrac{f(b)-f(a)}{b-a}=f''(d)<f''(e)=\dfrac{f(c)-f(b)}{c-b}$ ($a<d<b<e<c$)', criteria: [1.M1, 1.R1]}
+    hint_ladder:
+    - 두 할선 기울기를 각각 어떤 점의 미분계수로 바꿀 수 있는가?
+    - $f''>0$이면 $f'$은 어떤 함수인가?
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 2024 자연오후 해설(문항카드) p.9 예시답안 (3-1), 채점기준 p.8, 영향평가 보고서 PDF p.81
+    steps:
+    - id: 1b-1
+      content: |
+        구간 $(a,b)$와 $(b,c)$에서 함수 $f(x)$에 제시문 (가)의 평균값 정리를 적용하면 $\dfrac{f(b)-f(a)}{b-a}=f'(d)$인 $d\in(a,b)$와 $\dfrac{f(c)-f(b)}{c-b}=f'(e)$인 $e\in(b,c)$가 존재한다.
+      criteria: [1.M1]
+    - id: 1b-2
+      content: |
+        이때 $d<e$이고 $f''(x)>0$이므로 제시문 (다)에 의해 $f'$은 증가하고 $f'(d)<f'(e)$이다. 따라서 주어진 부등식이 성립한다.
+      criteria: [1.R1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 0, isw: true}
+    note: '공식 채점기준(해설 p.8): 두 구간 $(a,b)$, $(b,c)$에서 평균값 정리를 제대로 적용하면 2점, $f''(x)$가 증가함수임을 이용하여 부등식이 성립함을 보이면 5점.'
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 2
+      evidence: '두 구간 $(a,b)$, $(b,c)$에 평균값 정리를 적용해 $f''(d)$, $f''(e)$로 나타냈다.'
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1, 1a]
+    - id: 1.R1
+      mark_type: R
+      points: 5
+      evidence: '$d<e$와 $f''$의 증가($f''''>0$)를 근거로 $f''(d)<f''(e)$를 이끌었다.'
+      depends_on: [1.M1]
+      steps: [1b-2, 1a]
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-CAL-5221}
+  misconceptions:
+  - id: MC-CAL-5221
+    outcome_code: '70'
+    wrong_work: '두 구간에 같은 $c$를 쓰거나 $d$, $e$의 대소를 밝히지 않고 "$f''$이 증가하므로 성립"이라고만 씀'
+    detect_cue: '$d\in(a,b)$, $e\in(b,c)$의 범위 서술이 없다'
+    feedback: '평균값 정리로 얻는 두 점이 서로 다른 구간에 있어 $d<e$임을 밝혀야 증가성을 쓸 수 있습니다.'
+    remedy: [RL-1]
+- id: '2'
+  stem: |
+    (3-2) 모든 양의 실수 $x$에 대하여 $f(x)\le x$이고 $f''(x)>0$이면, 모든 양의 실수 $x$에 대하여 $f'(x)\le1$임을 보이시오. (20점)
+  points: 20
+  depends_on: ['1']
+  answer: {kind: proof, value: null, equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: '$f''(\alpha)>1$이라 가정 ⇒ (3-1)로 $f(x)>f(\beta)+k(x-\beta)$ ($k>1$) ⇒ 큰 $x$에서 $f(x)>x$ 모순.'
+    steps:
+    - {id: 2a, content: '$x>\dfrac{k\beta-f(\beta)}{k-1}$이면 $f(x)>f(\beta)+k(x-\beta)>x$', criteria: [2.M1, 2.M2, 2.R1]}
+    hint_ladder:
+    - 결론을 부정해 $f'(\alpha)>1$인 $\alpha$가 있다고 하자.
+    - $\beta>\alpha$에 대해 $\dfrac{f(\beta)-f(\alpha)}{\beta-\alpha}$와 1을 비교하자.
+    - 기울기가 1보다 큰 직선은 언젠가 $y=x$를 넘는다.
+  - id: S2-B
+    audience: B
+    method_no: 1
+    source_flow: 2024 자연오후 해설(문항카드) p.9 예시답안 (3-2), 채점기준 p.8, 영향평가 보고서 PDF p.81
+    steps:
+    - id: 2b-1
+      content: |
+        어떤 양의 실수 $\alpha$에 대하여 $f'(\alpha)>1$이 성립한다고 가정하자.
+      criteria: [2.M1]
+    - id: 2b-2
+      content: |
+        $f'(x)$는 증가하므로 제시문 (가)의 평균값 정리에 의해 $\beta>\alpha$인 모든 $\beta$에 대하여 $\dfrac{f(\beta)-f(\alpha)}{\beta-\alpha}=k\ge f'(\alpha)>1$이다. (3-1)에 의해 $x>\beta$인 임의의 $x$에 대하여 $\dfrac{f(x)-f(\beta)}{x-\beta}>\dfrac{f(\beta)-f(\alpha)}{\beta-\alpha}=k>1$이고 $f(x)>f(\beta)+k(x-\beta)$이다.
+      criteria: [2.M2]
+    - id: 2b-3
+      content: |
+        따라서 $x>\dfrac{k\beta-f(\beta)}{k-1}$인 $x$에 대하여 $f(x)>f(\beta)+k(x-\beta)>x$이므로 $f(x)\le x$에 모순이다. 그러므로 모든 $x>0$에 대하여 $f'(x)\le1$이다.
+      criteria: [2.R1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 0, isw: true}
+    note: '공식 채점기준(해설 p.8): 어떤 양의 실수 $\alpha$에 대하여 $f''(\alpha)>1$이라 가정하고 귀류법 증명을 시도하면 3점, 어떤 $\beta>\alpha$에 대하여 $\dfrac{f(\beta)-f(\alpha)}{\beta-\alpha}=k>1$이고 $x>\beta$인 임의의 $x$에 대하여 (3-1)의 결과를 이용하면 10점, 증명을 완결하면 7점.'
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 3
+      evidence: '어떤 $\alpha>0$에 대하여 $f''(\alpha)>1$이라 가정하고 귀류법을 시도했다.'
+      depends_on: []
+      implied_ok: false
+      steps: [2b-1, 2a]
+    - id: 2.M2
+      mark_type: M
+      points: 10
+      evidence: '$\beta>\alpha$에서 $\dfrac{f(\beta)-f(\alpha)}{\beta-\alpha}=k>1$을 얻고 (3-1)로 $x>\beta$에서 $f(x)>f(\beta)+k(x-\beta)$를 이끌었다.'
+      depends_on: [2.M1]
+      steps: [2b-2, 2a]
+    - id: 2.R1
+      mark_type: R
+      points: 7
+      evidence: '$f(\beta)+k(x-\beta)>x$가 되는 $x$(예: $x>\dfrac{k\beta-f(\beta)}{k-1}$)를 잡아 $f(x)\le x$와의 모순으로 증명을 완결했다.'
+      depends_on: [2.M2]
+      steps: [2b-3, 2a]
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-CAL-5222}
+  misconceptions:
+  - id: MC-CAL-5222
+    outcome_code: '70'
+    wrong_work: '$f(x)\le x$의 양변을 미분해 $f''(x)\le1$이라 결론'
+    detect_cue: 부등식을 그대로 미분한 한 줄 증명
+    feedback: '부등식은 미분해도 유지되지 않습니다(예: $\sin x\le1$). 결론을 부정하고 평균값 정리로 모순을 이끄세요.'
+    remedy: [RL-2]
+- id: '3'
+  stem: |
+    (3-3) 함수 $g(x)=\begin{cases}px^2 & (0<x\le2)\\ x-\ln x+q & (x>2)\end{cases}$ 가 모든 양의 실수 $x$에 대하여 $g(x)\le x$이고 $g''(x)$가 존재하며 $g''(x)>0$을 만족하도록 하는 상수 $p$, $q$의 값을 구하시오. (8점)
+  points: 8
+  depends_on: ['2']
+  answer: {kind: value, value: 'p=\dfrac18,\ q=\ln2-\dfrac32', equivalents: [], tolerance: null}
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: '$x=2$에서 미분계수 일치 $4p=\dfrac12$, 함숫값 일치 $\dfrac12=2-\ln2+q$.'
+    steps:
+    - {id: 3a, content: '$p=\dfrac18$, $q=\ln2-\dfrac32$, $g''''(2)=\dfrac14$ (양쪽 일치)', criteria: [3.B1, 3.B2, 3.R1]}
+    hint_ladder:
+    - $g''$이 존재하려면 $g$와 $g'$이 $x=2$에서 이어져야 한다.
+    - 구한 값에서 $g''$이 양쪽에서 같은지 확인하자.
+  - id: S3-B
+    audience: B
+    method_no: 1
+    source_flow: 2024 자연오후 해설(문항카드) p.9 예시답안 (3-3), 채점기준 p.8, 영향평가 보고서 PDF p.81
+    steps:
+    - id: 3b-1
+      content: |
+        $x=2$일 때 미분값이 같아야 하는데 $g(x)=px^2$의 도함수는 $g'(x)=2px$이고 $g(x)=x-\ln x+q$의 도함수는 $g'(x)=1-\dfrac1x$이므로 $g'(2)=4p=1-\dfrac12$이어야 한다. 즉 $p=\dfrac18$이다.
+      criteria: [3.B1]
+    - id: 3b-2
+      content: |
+        한편 $x=2$일 때 함숫값이 같아야 하므로 $g(2)=\dfrac12=2-\ln2+q$이어야 한다. 따라서 $q=\ln2-\dfrac32$이다.
+      criteria: [3.B2]
+    - id: 3b-3
+      content: |
+        그러면 $x=2$에서 $g'(2)=\dfrac12$인 도함수와 $g''(2)=\dfrac14$인 이계도함수가 존재하고($2p=\dfrac14=\dfrac{1}{x^2}\Big|_{x=2}$), 모든 $x>0$에 대하여 $g(x)\le x$이고 $g''(x)>0$이다. 그러므로 $p=\dfrac18$, $q=\ln2-\dfrac32$일 때 $g(x)$는 (3-2)의 조건을 만족하는 함수이다.
+      criteria: [3.R1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 0, isw: true}
+    note: '공식 채점기준(해설 p.8): $p=\dfrac18$ 3점, $q=\ln2-\dfrac32$ 3점, $x=2$에서 $g''(2)=\dfrac12$인 도함수와 $g''''(2)=\dfrac14$인 이계도함수가 존재함을 서술하면 2점.'
+    criteria:
+    - id: 3.B1
+      mark_type: B
+      points: 3
+      evidence: '$x=2$에서 미분계수 일치로 $p=\dfrac18$을 구했다.'
+      depends_on: []
+      steps: [3b-1, 3a]
+    - id: 3.B2
+      mark_type: B
+      points: 3
+      evidence: '$x=2$에서 함숫값 일치로 $q=\ln2-\dfrac32$를 구했다.'
+      depends_on: []
+      steps: [3b-2, 3a]
+    - id: 3.R1
+      mark_type: R
+      points: 2
+      evidence: '$g''(2)=\dfrac12$, $g''''(2)=\dfrac14$로 이계도함수가 존재함을 서술했다.'
+      depends_on: []
+      steps: [3b-3, 3a]
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-CAL-5223}
+  misconceptions:
+  - id: MC-CAL-5223
+    outcome_code: '70'
+    wrong_work: '함숫값 연속 $4p=2-\ln2+q$ 하나만 쓰고 $p$, $q$를 정하지 못하거나 $g(x)\le x$에서 $p\le\dfrac12$ 등 범위로 답함'
+    detect_cue: 미분계수 일치 식이 없다
+    feedback: '$g''''$이 존재하려면 $g$가 미분가능해야 하므로 $x=2$에서 미분계수도 같아야 합니다.'
+    remedy: [RL-3]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CAL-5221}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-MVT-SLOPE-I2}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-CAL-5222}
+  relation: remediation
+  target: {kind: concept, ref: CON-PRF-CONTRADICTION-I2}
+  priority: 1
+- id: RL-3
+  trigger: {type: misconception, ref: MC-CAL-5223}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-PIECEWISE-SMOOTH-I2}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-input-v1, item_version: 1, verdict: pass, date: 2026-11-21, note: 원문 PDF 이미지 판독으로 옮김 · 해설 B는 공식 해설 흐름}
+
+created: 2026-11-21
+updated: 2026-11-21

@@ -1,0 +1,317 @@
+schema_version: '2.0'
+id: INHA-G25A-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: proof
+origin: past_exam
+school: INHA
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 추론
+points: 35
+time_estimate_min: 40
+intent: |
+  정적분의 성질에 대한 이해와 정적분의 계산 능력을 평가한다. 특히 주어진 적분 형태에 대해서 부분적분법을 적절히 적용할 수 있는지를 평가한다. (1-1) 삼각함수의 성질을 활용하여 식을 적절히 변형하여 활용할 수 있는지, (1-2) 정적분의 부분적분법과 삼각함수의 성질을 활용하여 주어진 정적분 값을 계산할 수 있는지, (1-3) 정적분의 부분적분법과 삼각함수의 성질을 활용하여 주어진 부등식을 증명할 수 있는지 평가한다.
+key_idea: '$f''(x)=\dfrac18g(x)$이므로 $\displaystyle\int_0^\pi e^xf(x)g(x)\,dx=8\int_0^\pi e^xf(x)f''(x)\,dx$를 부분적분하면 $f(0)=f(\pi)=0$에 의해 $-4\displaystyle\int_0^\pi e^x\{f(x)\}^2dx$가 된다.'
+stuck: (1-3)에서 $g$가 $f$의 도함수의 8배임을 알아보고, 부분적분 결과에 같은 적분이 다시 나타나는 것을 이항해 정리하는 단계
+idea_tags: [IDEA-INTEG-PARTS-SELF-RETURN, IDEA-TRIG-SUM-COFUNCTION-PAIR, IDEA-INTEG-POSITIVE-SQUARE]
+tags: [인하대 기출, 2025 자연 오전, 부분적분, 삼각함수의 합]
+elements:
+  materials: ['$\sin^2\dfrac{n\pi}{16}$의 합', '$e^x\sin\dfrac{x}{4}\cos\dfrac{x}{4}$의 정적분', '사인·코사인 16개 항의 합으로 정의된 $f(x)$, $g(x)$']
+  concepts: [삼각함수의 성질(여각 관계), 삼각함수의 덧셈정리(배각), 정적분의 부분적분법, 정적분과 넓이(연속함수의 정적분의 부호)]
+  tools: [합의 항을 짝지어 $\sin^2x+\cos^2x=1$ 적용, 배각 공식으로 피적분함수 단순화, 부분적분 두 번 후 같은 적분 이항, '$f''=\dfrac18g$ 확인 후 부분적분', '양끝값 $f(0)=f(\pi)=0$ 계산']
+  conditions:
+  - '$\sin\dfrac{(8-n)\pi}{16}=\cos\dfrac{n\pi}{16}$ ⇒ $n$과 $8-n$ 항을 짝지어 1로 묶음'
+  - '$f''(x)=\dfrac18g(x)$ ⇒ $e^xfg=8e^xff''$로 바꿔 부분적분'
+  - '$e^x\{f(x)\}^2\ge0$이고 상수함수가 아님 ⇒ 제시문 (나)로 적분값이 양수'
+  stimuli_used: [가, 나]
+  subpart_links: (1-2)와 (1-3)은 같은 꼴 $\int_0^\pi e^x(\cdots)dx$의 부분적분 사용, (1-1)과 (1-3)은 사인값 짝짓기 발상 공유
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅰ, 수학Ⅱ, 미적분]
+  scope_2028: calc2
+  scope_confirmed: true
+  standards:
+  - code: 12미적03-03
+    text: 부분적분법을 이해하고, 이를 활용할 수 있다.
+    verified: true
+  - code: 12수학Ⅱ03-05
+    text: 곡선으로 둘러싸인 도형의 넓이를 구할 수 있다.
+    verified: true
+  - code: 12수학Ⅰ02-02
+    text: 삼각함수의 뜻을 알고, 사인함수, 코사인함수, 탄젠트함수의 그래프를 그릴 수 있다
+    verified: true
+  - code: 12미적02-03
+    text: 삼각함수의 덧셈정리를 이해한다.
+    verified: true
+  content_area: 적분법 – 여러 가지 적분법(부분적분법)
+  behavior_domain: 추론
+  unit_path: [미적분, 적분법, 여러 가지 적분법, 부분적분법]
+  key_concepts: [정적분의 성질, 부분적분법, 삼각함수의 성질, 삼각함수의 덧셈정리]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 인하대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 인하대학교
+  admission_year: 2025
+  admission_type: 논술(오전)
+  track: 자연계열
+  question_no: 1
+  official_url: https://admission.inha.ac.kr/cms/FR_BBS_CON/BoardView.do?MENU_ID=250&SITE_NO=2&BOARD_SEQ=2&BBS_SEQ=189
+  retrieved_at: '2026-11-21'
+  original_points: 35
+  note: 문제 = 189__(자연_오전)_2025학년도_인하대학교_논술고사_문제.pdf p.5(시험지 1/8), 해설·채점기준 = 189__(자연_오전)_…_해설.pdf(문항카드) p.1~4, 1228__2025 영향평가 보고서 p.57~60(문항카드 2)
+
+verify: verify/INHA-G25A.py::p01
+
+stimuli:
+- label: 가
+  body: |
+    (정적분의 부분적분법) 두 함수 $f(x)$, $g(x)$가 미분가능하고 $f'(x)$, $g'(x)$가 연속일 때,
+    $$\int_a^b f(x)g'(x)\,dx=\big[f(x)g(x)\big]_a^b-\int_a^b f'(x)g(x)\,dx$$
+- label: 나
+  body: |
+    $f(x)$는 닫힌구간 $[a,b]$에서 정의된 상수함수가 아닌 연속함수이고, 이 구간의 모든 실수 $x$에 대하여 $f(x)\ge0$이면 $\displaystyle\int_a^b f(x)dx$는 도형의 넓이이므로 $\displaystyle\int_a^b f(x)\,dx>0$이다.
+
+stem: |
+  다음 제시문을 읽고 물음에 답하시오.
+
+subparts:
+- id: '1'
+  stem: |
+    $\displaystyle\sum_{n=1}^{8}\sin^2\dfrac{n\pi}{16}$의 값을 구하시오. (10점)
+  points: 10
+  depends_on: []
+  answer: {kind: value, value: '\dfrac{9}{2}', equivalents: ['9/2', '4.5'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $n$과 $8-n$ 항을 짝지으면 $\sin^2\theta+\cos^2\theta=1$이 세 쌍 생긴다.
+    steps:
+    - {id: 1a, content: '$3\times1+\sin^2\dfrac{\pi}{4}+\sin^2\dfrac{\pi}{2}=3+\dfrac12+1=\dfrac92$', criteria: [1.M1, 1.M2, 1.A1]}
+    hint_ladder:
+    - $\sin\left(\dfrac{\pi}{2}-x\right)=\cos x$를 떠올려 보자.
+    - $\dfrac{7\pi}{16}=\dfrac{\pi}{2}-\dfrac{\pi}{16}$이다.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 2025 자연오전 해설(문항카드) p.3 예시답안 (1-1), 채점기준 p.3
+    steps:
+    - id: 1b-1
+      content: |
+        삼각함수의 성질 $\sin\left(\dfrac{\pi}{2}-x\right)=\cos x$에 의해 $\sin\dfrac{7\pi}{16}=\cos\dfrac{\pi}{16}$, $\sin\dfrac{6\pi}{16}=\cos\dfrac{2\pi}{16}$, $\sin\dfrac{5\pi}{16}=\cos\dfrac{3\pi}{16}$이므로
+        $$\sum_{n=1}^{8}\sin^2\frac{n\pi}{16}=\left(\sin^2\frac{\pi}{16}+\cos^2\frac{\pi}{16}\right)+\left(\sin^2\frac{2\pi}{16}+\cos^2\frac{2\pi}{16}\right)+\left(\sin^2\frac{3\pi}{16}+\cos^2\frac{3\pi}{16}\right)+\sin^2\frac{4\pi}{16}+\sin^2\frac{8\pi}{16}$$
+      criteria: [1.M2]
+    - id: 1b-2
+      content: |
+        $\sin^2x+\cos^2x=1$을 쓰면 $=1+1+1+\dfrac12+1=\dfrac92$이다.
+      criteria: [1.M1, 1.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 3
+      evidence: 삼각함수 공식 $\sin^2x+\cos^2x=1$을 사용한 식이 있다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-2]
+    - id: 1.M2
+      mark_type: M
+      points: 3
+      evidence: 삼각함수 공식 $\sin\left(\dfrac{\pi}{2}-x\right)=\cos x$를 사용해 항을 바꾼 식이 있다.
+      depends_on: []
+      steps: [1b-1]
+    - id: 1.A1
+      mark_type: A
+      points: 4
+      evidence: 값 $\dfrac92$를 구했다.
+      depends_on: [1.M1, 1.M2]
+      steps: [1b-2]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-ALG-5301}
+  misconceptions:
+  - id: MC-ALG-5301
+    outcome_code: '70'
+    wrong_work: '$n=4$, $n=8$ 항을 빼먹고 네 쌍을 짝지어 $4$ 또는 $\dfrac72$로 답함'
+    detect_cue: 답이 $4$, $\dfrac72$, $5$ 중 하나
+    feedback: 짝이 없는 $\sin^2\dfrac{4\pi}{16}=\dfrac12$, $\sin^2\dfrac{8\pi}{16}=1$을 따로 더해야 합니다. 항이 몇 개인지 먼저 세어 보세요.
+    remedy: [RL-1]
+- id: '2'
+  stem: |
+    정적분 $\displaystyle\int_0^{\pi}e^x\sin\dfrac{x}{4}\cos\dfrac{x}{4}\,dx$의 값을 구하시오. (10점)
+  points: 10
+  depends_on: []
+  answer: {kind: value, value: '\dfrac{2}{5}e^{\pi}+\dfrac{1}{5}', equivalents: ['(2e^\pi+1)/5'], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: 배각으로 $\dfrac12\int_0^\pi e^x\sin\dfrac x2dx$로 바꾼 뒤 부분적분을 두 번 하면 같은 적분이 돌아온다.
+    steps:
+    - {id: 2a, content: '$I=\int_0^\pi e^x\sin\dfrac x2dx$에 대해 $I=e^\pi-\dfrac12\left(-1+\dfrac12I\right)$, $I=\dfrac45\left(e^\pi+\dfrac12\right)$, 답 $\dfrac12I$', criteria: [2.M1, 2.A1]}
+    hint_ladder:
+    - $\sin\dfrac x4\cos\dfrac x4$를 한 개의 사인으로 바꿔 보자.
+    - 부분적분을 두 번 하면 처음 적분이 다시 나온다.
+  - id: S2-B
+    audience: B
+    method_no: 1
+    source_flow: 2025 자연오전 해설(문항카드) p.3 예시답안 (1-2), 채점기준 p.3
+    steps:
+    - id: 2b-1
+      content: |
+        삼각함수의 덧셈정리에 의하여 $\sin\dfrac x4\cos\dfrac x4=\dfrac12\sin\dfrac x2$이므로 $\displaystyle\int_0^\pi e^x\sin\frac x4\cos\frac x4\,dx=\frac12\int_0^\pi e^x\sin\frac x2\,dx$이다.
+      criteria: [2.M1]
+    - id: 2b-2
+      content: |
+        제시문 (가)에 의하여
+        $$\int_0^\pi e^x\sin\frac x2\,dx=\left[e^x\sin\frac x2\right]_0^\pi-\frac12\int_0^\pi e^x\cos\frac x2\,dx=e^\pi-\frac12\left(\left[e^x\cos\frac x2\right]_0^\pi+\frac12\int_0^\pi e^x\sin\frac x2\,dx\right)=e^\pi-\frac12\left(-1+\frac12\int_0^\pi e^x\sin\frac x2\,dx\right)$$
+        이다. 정리하면 $\dfrac54\displaystyle\int_0^\pi e^x\sin\frac x2\,dx=e^\pi+\frac12$이므로 구하는 정적분 값은 $\dfrac25e^\pi+\dfrac15$이다.
+      criteria: [2.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 3
+      evidence: 삼각함수의 덧셈정리로 $\sin\dfrac x4\cos\dfrac x4=\dfrac12\sin\dfrac x2$로 바꾼 식이 있다.
+      depends_on: []
+      steps: [2b-1]
+    - id: 2.A1
+      mark_type: A
+      points: 7
+      evidence: 부분적분법을 (두 번) 사용해 정적분 값 $\dfrac25e^\pi+\dfrac15$를 구했다.
+      depends_on: [2.M1]
+      implied_ok: true
+      steps: [2b-2]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-CAL-5301}
+  misconceptions:
+  - id: MC-CAL-5301
+    outcome_code: '70'
+    wrong_work: '부분적분에서 $\left(\sin\dfrac x2\right)''=\cos\dfrac x2$로 써서 계수 $\dfrac12$를 빠뜨림'
+    detect_cue: 정리 단계에서 $2\int e^x\sin\dfrac x2dx=\cdots$ 꼴이 나오거나 답에 $\dfrac14$, $\dfrac12$ 계수가 남음
+    feedback: 합성함수 $\sin\dfrac x2$를 미분하면 속미분 $\dfrac12$가 곱해집니다. 부분적분 각 단계에서 계수를 확인하세요.
+    remedy: [RL-2]
+- id: '3'
+  stem: |
+    $f(x)=\displaystyle\sum_{n=1}^{16}\sin\dfrac{nx}{8}$, $g(x)=\displaystyle\sum_{n=1}^{16}n\cos\dfrac{nx}{8}$일 때, 다음 부등식이 성립함을 보이시오. (15점)
+    $$\int_0^{\pi}e^xf(x)g(x)\,dx<0$$
+  points: 15
+  depends_on: []
+  answer: {kind: proof, value: null, equivalents: [], tolerance: null}
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: $g=8f'$이고 $f(0)=f(\pi)=0$이므로 부분적분하면 $\int_0^\pi e^xfg\,dx=-4\int_0^\pi e^xf^2dx<0$.
+    steps:
+    - {id: 3a, content: '$2\int_0^\pi e^xff''dx=\big[e^xf^2\big]_0^\pi-\int_0^\pi e^xf^2dx=-\int_0^\pi e^xf^2dx$', criteria: [3.M1, 3.B1, 3.R1]}
+    hint_ladder:
+    - $f(x)$를 미분해 $g(x)$와 비교해 보자.
+    - $f(\pi)$는 몇일까? $\sin\dfrac{n\pi}{8}$과 $\sin\dfrac{(16-n)\pi}{8}$을 짝지어 보자.
+    - $\int e^xff'dx$를 부분적분하면 같은 적분이 다시 나온다.
+  - id: S3-B
+    audience: B
+    method_no: 1
+    source_flow: 2025 자연오전 해설(문항카드) p.3~4 예시답안 (1-3), 채점기준 p.3
+    steps:
+    - id: 3b-1
+      content: |
+        $f(0)=0$이고, 삼각함수의 성질 $\sin x=-\sin(2\pi-x)$에 의하여
+        $$f(\pi)=\sum_{n=1}^{16}\sin\frac{n\pi}{8}=\left(\sin\frac{\pi}{8}+\sin\frac{15\pi}{8}\right)+\left(\sin\frac{2\pi}{8}+\sin\frac{14\pi}{8}\right)+\cdots+\left(\sin\frac{7\pi}{8}+\sin\frac{9\pi}{8}\right)+\sin\frac{8\pi}{8}+\sin\frac{16\pi}{8}=0$$
+        이다.
+      criteria: [3.B1]
+    - id: 3b-2
+      content: |
+        또한 $f'(x)=\displaystyle\sum_{n=1}^{16}\frac n8\cos\frac{nx}{8}=\frac18g(x)$이다.
+      criteria: [3.M1]
+    - id: 3b-3
+      content: |
+        제시문 (가)에 의하여
+        $$\int_0^\pi e^xf(x)g(x)\,dx=8\int_0^\pi e^xf(x)f'(x)\,dx=8\big[e^x\{f(x)\}^2\big]_0^\pi-8\int_0^\pi e^xf(x)f'(x)\,dx-8\int_0^\pi e^x\{f(x)\}^2dx$$
+        이고, $f(0)=f(\pi)=0$이므로 $\displaystyle\int_0^\pi e^xf(x)g(x)\,dx=-4\int_0^\pi e^x\{f(x)\}^2dx$이다.
+      criteria: [3.R1]
+    - id: 3b-4
+      content: |
+        이때 함수 $e^x\{f(x)\}^2\ge0$이고 상수함수가 아니므로, 제시문 (나)에 의하여 $\displaystyle\int_0^\pi e^x\{f(x)\}^2dx>0$이고, 주어진 부등식이 성립한다. ■
+      criteria: [3.R1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 3
+      evidence: $f'(x)=\dfrac18g(x)$ 등 $f'(x)$와 $g(x)$의 연관성을 식으로 적었다.
+      depends_on: []
+      steps: [3b-2]
+    - id: 3.B1
+      mark_type: B
+      points: 5
+      evidence: $f(0)=0$, $f(\pi)=0$을 근거(항 짝짓기 등)와 함께 보였다.
+      depends_on: []
+      steps: [3b-1]
+    - id: 3.R1
+      mark_type: R
+      points: 7
+      evidence: 부분적분법으로 $\int_0^\pi e^xfg\,dx=-4\int_0^\pi e^xf^2dx$를 이끌고, 제시문 (나)로 $\int_0^\pi e^xf^2dx>0$을 밝혀 부등식을 증명했다.
+      depends_on: [3.M1]
+      steps: [3b-3, 3b-4]
+    deductions:
+    - code: D3-1
+      condition: $\int_0^\pi e^xf^2dx>0$의 근거(상수함수가 아님, 제시문 (나)) 없이 결론
+      effect: minus
+      value: 2
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-CAL-5302}
+  misconceptions:
+  - id: MC-CAL-5302
+    outcome_code: '70'
+    wrong_work: '$\int_0^\pi e^xff''dx=\dfrac12\big[e^xf^2\big]_0^\pi=0$이라 쓰고 결론을 0으로 냄($e^x$의 미분을 무시)'
+    detect_cue: $e^x$를 상수처럼 취급해 $(f^2)'=2ff'$만으로 적분하거나, 결론이 $=0$
+    feedback: 피적분함수에 $e^x$가 곱해져 있으므로 $\left(e^xf^2\right)'=e^xf^2+2e^xff'$입니다. 부분적분 후 남는 $\int e^xf^2dx$의 부호를 판단하세요.
+    remedy: [RL-3]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-ALG-5301}
+  relation: remediation
+  target: {kind: concept, ref: CON-ALG-TRIG-COFUNCTION-I3}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-CAL-5301}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-INTEG-BY-PARTS-I3}
+  priority: 1
+- id: RL-3
+  trigger: {type: misconception, ref: MC-CAL-5302}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-INTEG-BY-PARTS-I3}
+  priority: 1
+- id: RL-4
+  trigger: {type: criterion_missed, ref: 3.R1}
+  relation: prerequisite
+  target: {kind: concept, ref: CON-CAL-INTEG-POSITIVITY-I3}
+  priority: 2
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-input-v1, item_version: 1, verdict: pass, date: 2026-11-21, note: 원문 PDF 이미지 판독으로 옮김 · 해설 B는 공식 해설 흐름}
+
+created: 2026-11-21
+updated: 2026-11-21

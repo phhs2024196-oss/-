@@ -1,0 +1,291 @@
+schema_version: '2.0'
+id: INHA-G24A-02
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: INHA
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 추론
+points: 35
+time_estimate_min: 40
+intent: 점과 직선 사이의 거리를 구할 수 있는지를 평가한다. 극값을 활용하여 함수의 최댓값을 구할 수 있는지를 평가한다.
+key_idea: '최소 거리 점은 직선 $y=tx$와 평행한 접선의 접점 $P(\ln t,t)$, $r(t)$의 최대점 $a$는 $\ln a=-a^2$를 만족하고, 이를 원의 방정식에 넣으면 상수항이 0이 된다.'
+stuck: (2-2)에서 $r'(a)=0$의 조건 $\ln a=-a^2$를 원 $C_a$의 방정식에 대입해 원점 통과를 확인하는 단계, (2-3)에서 $\angle AOB$가 직각이라 $AB$가 지름임을 보는 단계
+idea_tags: [IDEA-PARALLEL-TANGENT-MIN-DIST, IDEA-CRITICAL-EQ-SUBSTITUTE, IDEA-RIGHT-ANGLE-DIAMETER]
+tags: [점과 직선 사이의 거리, 극대, 원의 넓이, 인하대 기출]
+elements:
+  materials:
+  - '곡선 $y=e^x$와 직선 $y=tx\ (0<t<e)$'
+  - '거리 최소점 $P$를 중심, 반지름 $r(t)$인 원 $C_t$'
+  - '원 $C_a$와 좌표축으로 둘러싸인 부분'
+  concepts: [점과 직선 사이의 거리, 극대와 극소의 판정, 원의 방정식, 원주각과 지름]
+  tools: [평행한 접선의 접점으로 최소 거리점 찾기(또는 거리 함수 미분), 몫의 미분, 'r′(t)=0의 조건식 대입', 반원+삼각형으로 넓이 분해]
+  conditions:
+  - '$0<t<e$ ⇒ 모든 점에서 $e^x>tx$, 거리 $\dfrac{e^x-tx}{\sqrt{t^2+1}}$ (절댓값 제거)'
+  - '$r(t)$가 $t=a$에서 최대 ⇒ $r''(a)=0$ ⇒ $\ln a=-a^2$'
+  - '$C_a$가 원점을 지남 ⇒ 좌표축과의 교점 $O$, $A(0,2a)$, $B(-2a^2,0)$, $\angle AOB=90^\circ$ ⇒ $AB$는 지름'
+  stimuli_used: [가, 나]
+  subpart_links: '(2-2)는 (2-1)의 $P$, $r(t)$ 사용, (2-3)은 (2-2)의 원 $C_a$의 방정식과 $\ln a=-a^2$ 사용'
+
+curriculum:
+  version: '2015'
+  subjects: [수학, 수학Ⅱ, 미적분]
+  scope_2028: calc2
+  scope_confirmed: true
+  standards:
+  - code: 10수학02-05
+    text: 점과 직선 사이의 거리를 구할 수 있다.
+    verified: true
+  - code: 12수학Ⅱ02-08
+    text: 함수의 증가와 감소, 극대와 극소를 판정하고 설명할 수 있다.
+    verified: true
+  content_area: 미분법 – 도함수의 활용(최대·최소), 도형의 방정식
+  behavior_domain: 문제해결
+  unit_path: [미적분, 미분법, 도함수의 활용, 거리의 최대·최소]
+  key_concepts: [점과 직선 사이의 거리, 극댓값, 원의 방정식, 넓이]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 인하대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 인하대학교
+  admission_year: 2024
+  admission_type: 논술(오전)
+  track: 자연계열
+  question_no: 2
+  official_url: https://admission.inha.ac.kr/cms/FR_BBS_CON/BoardView.do?MENU_ID=250&SITE_NO=2&BOARD_SEQ=2&BBS_SEQ=179
+  retrieved_at: '2026-11-21'
+  original_points: 35
+  note: 문제 = 179__(자연-오전)_2024학년도_인하대학교_논술고사_문제.pdf p.4(시험지 2/8), 해설·문항카드 = 179__(자연-오전)_2024학년도_인하대학교_논술고사_해설.pdf p.4~6, 영향평가 보고서(1138__) PDF p.64~67. 문항카드의 출제 과목은 '수학, 수학II'로 표기(지수·로그함수 미분은 미적분). 일반(의예과 외) 전용 문항.
+
+verify: verify/INHA-G24A.py::p02
+
+stimuli:
+- label: 가
+  body: |
+    (점과 직선 사이의 거리)
+    좌표평면 위의 점 $P(x_1,y_1)$과 직선 $ax+by+c=0$ 사이의 거리 $d$는
+    $$d=\dfrac{\lvert ax_1+by_1+c\rvert}{\sqrt{a^2+b^2}}$$
+- label: 나
+  body: |
+    (극대와 극소의 판정)
+    미분가능한 함수 $f(x)$에 대하여 $f'(a)=0$일 때, $x=a$의 좌우에서
+    (i) $f'(x)$의 부호가 양에서 음으로 바뀌면 $f(x)$는 $x=a$에서 극대이고, 극댓값 $f(a)$를 갖는다.
+    (ii) $f'(x)$의 부호가 음에서 양으로 바뀌면 $f(x)$는 $x=a$에서 극소이고, 극솟값 $f(a)$를 갖는다.
+
+stem: |
+  [문제 2] (35점) 다음 제시문을 읽고 물음에 답하시오.
+  (※) $0<t<e$인 실수 $t$에 대하여 곡선 $y=e^x$ 위의 점 중에서 직선 $y=tx$와의 거리가 최소인 점을 $P$라 하고 이때 점 $P$와 직선 $y=tx$ 사이의 거리를 $r(t)$라 하자. 점 $P$를 중심으로 하고 반지름의 길이가 $r(t)$인 원을 $C_t$라 하자.
+
+subparts:
+- id: '1'
+  stem: |
+    (2-1) 점 $P$의 좌표와 $r(t)$를 각각 $t$의 식으로 나타내시오. (8점)
+  points: 8
+  depends_on: []
+  answer: {kind: expression, value: 'P(\ln t,\ t),\ r(t)=\dfrac{t-t\ln t}{\sqrt{t^2+1}}', equivalents: ['r(t)=\dfrac{t(1-\ln t)}{\sqrt{t^2+1}}'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: '기울기 $t$인 접선의 접점 $e^x=t$, $x=\ln t$.'
+    steps:
+    - {id: 1a, content: '$P(\ln t,t)$, $r(t)=\dfrac{\lvert t\ln t-t\rvert}{\sqrt{t^2+1}}=\dfrac{t(1-\ln t)}{\sqrt{t^2+1}}$ ($0<t<e$)', criteria: [1.B1, 1.A1]}
+    hint_ladder:
+    - 거리가 최소인 점에서의 접선은 직선 $y=tx$와 어떤 관계인가?
+    - $0<t<e$이면 $1-\ln t>0$이다.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 2024 자연오전 해설(문항카드) p.5 예시답안 (2-1), 채점기준 p.5, 영향평가 보고서 PDF p.66
+    steps:
+    - id: 1b-1
+      content: |
+        거리가 최소가 되는 점은 직선 $y=tx$와 평행한 접선을 갖는 곡선 $y=e^x$ 위의 점이므로 $e^x=t$에서 $x=\ln t$, 즉 $P(\ln t,t)$이다.
+      criteria: [1.B1]
+    - id: 1b-2
+      content: |
+        $r(t)$는 점 $P$와 직선 $tx-y=0$ 사이의 거리이므로 제시문 (가)에 의해 $r(t)=\dfrac{\lvert t\ln t-t\rvert}{\sqrt{t^2+1}}=\dfrac{t-t\ln t}{\sqrt{t^2+1}}=\dfrac{t(1-\ln t)}{\sqrt{t^2+1}}\ (0<t<e)$이다.
+      criteria: [1.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 0, isw: true}
+    note: '공식 채점기준(해설 p.5): 점 $P(\ln t,t)$ 4점, $r(t)$ 4점(부호 틀리면 2점 감점).'
+    criteria:
+    - id: 1.B1
+      mark_type: B
+      points: 4
+      evidence: '점 $P(\ln t,t)$를 구했다.'
+      depends_on: []
+      steps: [1b-1, 1a]
+    - id: 1.A1
+      mark_type: A
+      points: 4
+      evidence: '$r(t)=\dfrac{t-t\ln t}{\sqrt{t^2+1}}$을 부호까지 옳게 적었다.'
+      depends_on: [1.B1]
+      implied_ok: true
+      steps: [1b-2, 1a]
+    deductions:
+    - code: D1-1
+      condition: '$r(t)$의 부호가 틀림(예: $\dfrac{t\ln t-t}{\sqrt{t^2+1}}$)'
+      effect: minus
+      value: 2
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-CAL-5203}
+  misconceptions:
+  - id: MC-CAL-5203
+    outcome_code: '70'
+    wrong_work: '$r(t)=\dfrac{t\ln t-t}{\sqrt{t^2+1}}$로 절댓값을 그대로 벗김'
+    detect_cue: $r(t)$가 $0<t<e$에서 음수가 되는 식
+    feedback: 거리는 양수입니다. $0<t<e$에서 $\ln t<1$이므로 절댓값 안의 부호를 판단해 벗기세요.
+    remedy: [RL-1]
+- id: '2'
+  stem: |
+    (2-2) $r(t)$가 $t=a$에서 최댓값을 가질 때, 원 $C_a$가 원점을 지남을 보이시오. (15점)
+  points: 15
+  depends_on: ['1']
+  answer: {kind: proof, value: null, equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: '$r''(t)=0\iff\ln t=-t^2$; 이를 쓰면 $C_a: x^2+2a^2x+y^2-2ay=0$.'
+    steps:
+    - {id: 2a, content: '$r''(t)=\dfrac{-\ln t-t^2}{(t^2+1)\sqrt{t^2+1}}$, $\ln a=-a^2$, 중심 $(-a^2,a)$, $r(a)^2=a^2(a^2+1)=\lvert OP\rvert^2$', criteria: [2.M1, 2.R1, 2.A1]}
+    hint_ladder:
+    - $r'(t)$의 분자 부호를 조사하자.
+    - 최대점 $a$에서 성립하는 식 $\ln a=-a^2$를 중심 좌표와 반지름에 넣어 보자.
+  - id: S2-B
+    audience: B
+    method_no: 1
+    source_flow: 2024 자연오전 해설(문항카드) p.5 예시답안 (2-2), 채점기준 p.5, 영향평가 보고서 PDF p.66
+    steps:
+    - id: 2b-1
+      content: |
+        $r(t)=\dfrac{t-t\ln t}{\sqrt{t^2+1}}$을 미분하면 $r'(t)=\dfrac{-\ln t-t^2}{(t^2+1)\sqrt{t^2+1}}$이다.
+      criteria: [2.M1]
+    - id: 2b-2
+      content: |
+        $r'(t)=0$에서 $\ln t=-t^2$을 얻고 이때의 $t$를 $a$라 하자. $0<t<a$에서 $-t^2>\ln t$이므로 $r'(t)>0$이고 $a<t<e$에서 $-t^2<\ln t$이므로 $r'(t)<0$이다. 그러므로 제시문 (나)에 의해 $t=a$에서 $r(t)$는 최댓값 $a\sqrt{a^2+1}$을 갖는다. (즉 $\ln a=-a^2$)
+      criteria: [2.R1]
+    - id: 2b-3
+      content: |
+        $\ln a=-a^2$이므로 중심은 $P(-a^2,a)$, 반지름은 $r(a)=\dfrac{a(1+a^2)}{\sqrt{a^2+1}}=a\sqrt{a^2+1}$이다. 원 $C_a$의 방정식은 $(x+a^2)^2+(y-a)^2=a^2(a^2+1)$, 즉 $x^2+2a^2x+y^2-2ay=0$이므로 원점을 지난다.
+      criteria: [2.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 0, isw: true}
+    note: '공식 채점기준(해설 p.5): $r''(t)$ 5점, $\ln a=-a^2$임을 보이면 3점, 원 $C_a$가 원점을 지남을 보이면 7점.'
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 5
+      evidence: '$r''(t)=\dfrac{-\ln t-t^2}{(t^2+1)\sqrt{t^2+1}}$(또는 동치식)을 구했다.'
+      depends_on: []
+      implied_ok: false
+      steps: [2b-1, 2a]
+    - id: 2.R1
+      mark_type: R
+      points: 3
+      evidence: '최대점 $a$에서 $\ln a=-a^2$임을 (부호 변화와 함께) 밝혔다.'
+      depends_on: [2.M1]
+      steps: [2b-2, 2a]
+    - id: 2.A1
+      mark_type: A
+      points: 7
+      evidence: '$\ln a=-a^2$를 대입해 원 $C_a$의 방정식이 $x^2+2a^2x+y^2-2ay=0$(또는 $OP=r(a)$)임을 보여 원점을 지남을 결론지었다.'
+      depends_on: [2.R1]
+      steps: [2b-3, 2a]
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-CAL-5204}
+  misconceptions:
+  - id: MC-CAL-5204
+    outcome_code: '70'
+    wrong_work: '$r''(a)=0$만 쓰고 부호 변화 없이 최대라 하며, $a$의 값을 근삿값으로 구해 원점과의 거리를 수치로 비교'
+    detect_cue: 부호표가 없거나 $a\approx0.65$ 같은 근삿값으로 결론
+    feedback: '$a$는 닫힌 꼴로 구해지지 않습니다. $\ln a=-a^2$라는 관계 자체를 원의 방정식에 대입해 정확히 보이세요.'
+    remedy: [RL-2]
+- id: '3'
+  stem: |
+    (2-3) 원 $C_a$, $x$축, $y$축으로 둘러싸인 부분 중 원 $C_a$의 중심을 포함하는 부분의 넓이를 $a$의 식으로 나타내시오. (12점)
+  points: 12
+  depends_on: ['2']
+  answer: {kind: expression, value: '\dfrac{\pi}{2}a^4+2a^3+\dfrac{\pi}{2}a^2', equivalents: ['a^2\left(\dfrac{\pi}{2}a^2+2a+\dfrac{\pi}{2}\right)', '\dfrac12\pi a^2(a^2+1)+2a^3'], tolerance: null}
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: '$\angle AOB=90^\circ$이므로 $AB$는 지름 ⇒ 반원 + 삼각형 $ABO$.'
+    steps:
+    - {id: 3a, content: '$O(0,0)$, $A(0,2a)$, $B(-2a^2,0)$, 넓이 $=\dfrac12\pi a^2(a^2+1)+\dfrac12\cdot2a\cdot2a^2$', criteria: [3.B1]}
+    hint_ladder:
+    - 원과 좌표축의 교점을 구하자.
+    - 세 교점이 이루는 각 $\angle AOB$는 직각이다.
+  - id: S3-B
+    audience: B
+    method_no: 1
+    source_flow: 2024 자연오전 해설(문항카드) p.5~6 예시답안 (2-3), 채점기준 p.5, 영향평가 보고서 PDF p.66~67
+    steps:
+    - id: 3b-1
+      content: |
+        원 $C_a$의 방정식이 $x^2+2a^2x+y^2-2ay=0$이므로 좌표축과 만나는 점은 $O(0,0)$, $A(0,2a)$, $B(-2a^2,0)$이다. [그림: 제2사분면에 중심 $P$가 있는 원 $C_a$가 원점 $O$, $y$축 위의 점 $A(0,2a)$, $x$축 위의 점 $B(-2a^2,0)$을 지나고, 직선 $y=ax$가 원점에서 원에 접하며 곡선 $y=e^x$가 $P$를 지남]
+      criteria: [3.B1]
+    - id: 3b-2
+      content: |
+        $\angle AOB=90^\circ$이므로 $AB$는 지름이고, 구하는 부분은 반원과 $\triangle ABO$로 이루어진다. 따라서 넓이는
+        $$\dfrac12\pi r^2+\triangle ABO=\dfrac12\pi a^2(a^2+1)+2a^3=\dfrac{\pi}{2}a^4+2a^3+\dfrac{\pi}{2}a^2=a^2\left(\dfrac{\pi}{2}a^2+2a+\dfrac{\pi}{2}\right)$$
+        이다. (단, $a$는 $\ln a=-a^2$인 상수)
+      criteria: [3.B1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 0, isw: true}
+    note: '공식 채점기준(해설 p.5): 넓이 $\dfrac12\pi a^2(a^2+1)+2a^3$을 구하면 12점(단일 기준). 부분점수 세분은 없음.'
+    criteria:
+    - id: 3.B1
+      mark_type: B
+      points: 12
+      evidence: '넓이 $\dfrac12\pi a^2(a^2+1)+2a^3$(또는 동치식)을 구했다.'
+      depends_on: []
+      steps: [3b-1, 3b-2, 3a]
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-CAL-5205}
+  misconceptions:
+  - id: MC-CAL-5205
+    outcome_code: '70'
+    wrong_work: '원 전체 넓이 $\pi a^2(a^2+1)$에서 제1·3사분면 쪽 활꼴을 빼려다 부채꼴 중심각을 구하지 못하거나, 반원만 답함'
+    detect_cue: 답에 $2a^3$ 항이 없다
+    feedback: '$\angle AOB=90^\circ$인 원주각이므로 $AB$가 지름입니다. 반원과 삼각형으로 나누세요.'
+    remedy: [RL-3]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CAL-5203}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-CURVE-LINE-DIST-I2}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-CAL-5204}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-CURVE-LINE-DIST-I2}
+  priority: 1
+- id: RL-3
+  trigger: {type: misconception, ref: MC-CAL-5205}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-CURVE-LINE-DIST-I2}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-input-v1, item_version: 1, verdict: pass, date: 2026-11-21, note: 원문 PDF 이미지 판독으로 옮김 · 해설 B는 공식 해설 흐름}
+
+created: 2026-11-21
+updated: 2026-11-21

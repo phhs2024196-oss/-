@@ -1,0 +1,336 @@
+schema_version: '2.0'
+id: INHA-M27-03
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: INHA
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 분류
+points: 35
+time_estimate_min: 35
+intent: '(3-1) 미분을 활용하여 함수의 그래프를 그릴 수 있는지 평가한다. (3-2) 구간별로 다항함수로 표현되는 함수의 미분계수를 계산하고 미분가능성을 판단할 수 있는지 평가한다. (3-3) 주어진 점에서 미분가능하지 않은 함수와 구간별로 다항함수로 표현되는 함수의 합의 미분가능성을 판단할 수 있는지 평가한다.'
+key_idea: '$x=0$에서 평균변화율의 좌극한은 $-f''(a)$(또는 $-f''(a)-16$), 우극한은 $f''(a)$(또는 $f''(a)+8$)이므로 두 값을 같게 놓아 $f''(a)=0$ 또는 $f''(a)=-12$.'
+stuck: '$f(\lvert x\rvert+a)$의 $x=0$에서 좌·우 평균변화율 극한을 $f''(a)$로 표현하는 단계'
+idea_tags: [IDEA-ABS-COMPOSITE-ONE-SIDED-DERIV, IDEA-CANCEL-KINK-WITH-KINK]
+tags: [인하대 모의, 의예과 공통, 미분가능성, 절댓값 함수]
+elements:
+  materials: ['삼차함수 $f(x)=2x^3+3x^2-12x+1$', '꺾인 일차함수 $g(x)=-8x\ (x\ge0)$, $16x\ (x<0)$', '$f(\lvert x\rvert-3)$, $f(\lvert x\rvert+a)$, $f(\lvert x\rvert+a)-g(x)$']
+  concepts: [미분계수의 정의, 평행이동과 대칭이동, 함수의 그래프 개형, 좌·우 미분계수]
+  tools: [극값 계산, 평행이동 후 y축 대칭, 평균변화율의 좌·우극한 비교]
+  conditions:
+  - '$x\neq0$에서는 다항식 ⇒ 미분가능, $x=0$만 확인'
+  - '$x<0$에서 $f(\lvert x\rvert+a)=f(-x+a)$ ⇒ 좌극한 $-f''(a)$, $x>0$에서 우극한 $f''(a)$'
+  - '$g$의 $x=0$ 좌·우 기울기 $16$, $-8$ ⇒ 좌극한 $-f''(a)-16$, 우극한 $f''(a)+8$'
+  stimuli_used: [제시문]
+  subpart_links: '(3-3)은 (3-2)의 좌·우극한 계산을 그대로 확장'
+
+curriculum:
+  version: '2015'
+  subjects: [수학, 수학Ⅱ]
+  scope_2028: common
+  scope_confirmed: false
+  standards:
+  - code: 12수학Ⅱ02-01
+    text: 미분계수의 뜻을 알고, 그 값을 구할 수 있다.
+    verified: true
+  - code: 10수학02-08
+    text: 평행이동의 의미를 이해한다.
+    verified: true
+  - code: 10수학02-09
+    text: 원점, x축, y축, 직선 y=x에 대한 대칭이동의 의미를 이해한다.
+    verified: true
+  - code: 12수학Ⅱ02-09
+    text: 함수의 그래프의 개형을 그릴 수 있다.
+    verified: true
+  content_area: 미분 – 미분계수와 미분가능성
+  behavior_domain: 이해
+  unit_path: [수학Ⅱ, 미분, 미분계수, 미분가능성]
+  key_concepts: [미분계수의 정의, 대칭이동, 그래프 개형, 미분가능성]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 인하대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 인하대학교
+  admission_year: 2027
+  admission_type: 논술(모의)
+  track: 자연계열
+  question_no: 3
+  official_url: https://admission.inha.ac.kr/cms/FR_BBS_CON/BoardView.do?MENU_ID=250&SITE_NO=2&BOARD_SEQ=2&BBS_SEQ=210
+  retrieved_at: '2026-11-21'
+  original_points: 35
+  note: 의예과 [문제 1]과 동일(제시문·소문항·배점 같음, 의예 번호 (1-1)~(1-3)). 문제 = 210__(인하대)_2027학년도_자연계열_논술_모의고사_문제지.pdf p.5(일반 3/8)·p.7(의예 4/8), 해설(문항카드) = 같은 번호 해설지_20260728.pdf p.8~10 [자연 일반 3번(의예 1번)], (3-3) 해설은 정정본 '일반_3-3(의예과_1-3)문항_해설_수정.pdf' p.1 우선(빨간 글씨 수정 — 우극한 $f'(a)+8$, $6a^2+6a=0$, $a=-1$ — 열람한 해설지_20260728 본문도 이미 같은 내용)
+
+verify: verify/INHA-M27.py::p03
+
+stimuli:
+- label: 가
+  body: |
+    [제시문 표기 없음 — 문제지에는 제시문 하나가 기호 없이 상자로 제시됨]
+    함수 $y=f(x)$에서 $x$의 값이 $a$에서 $a+\Delta x$까지 변할 때의 평균변화율은
+    $$\frac{\Delta y}{\Delta x}=\frac{f(a+\Delta x)-f(a)}{\Delta x}$$
+    이다. 여기서 $\Delta x\to0$일 때, 평균변화율의 극한값
+    $$\lim_{\Delta x\to0}\frac{\Delta y}{\Delta x}=\lim_{\Delta x\to0}\frac{f(a+\Delta x)-f(a)}{\Delta x}$$
+    가 존재하면 함수 $y=f(x)$는 $x=a$에서 미분가능하다고 한다.
+
+stem: |
+  (※) 두 함수 $f(x)$, $g(x)$는 다음과 같이 정의된다.
+  $$f(x)=2x^3+3x^2-12x+1$$
+  $$g(x)=\begin{cases}-8x & (x\ge0)\\ 16x & (x<0)\end{cases}$$
+
+subparts:
+- id: '1'
+  stem: |
+    (3-1) 함수 $y=f(\lvert x\rvert-3)$의 그래프의 개형을 그리시오. [10점]
+  points: 10
+  depends_on: []
+  answer: {kind: expression, value: 'y축 대칭, $x\ge0$에서 $y=f(x-3)$: $x=1$에서 극대 21, $x=4$에서 극소 $-6$, $y$절편 10($x=0$에서 뾰족)', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: '$f$의 극대 $(-2,21)$, 극소 $(1,-6)$을 오른쪽으로 3 옮긴 뒤 $x\ge0$ 부분을 $y$축 대칭.'
+    steps:
+    - {id: 1a, content: '극대 $(\pm1,21)$, 극소 $(\pm4,-6)$, $y$절편 $f(-3)=10$', criteria: [1.A1, 1.A2]}
+    hint_ladder:
+    - '$x\ge0$에서 $f(\lvert x\rvert-3)=f(x-3)$이다.'
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 2027 자연 모의 해설지(문항카드) p.10 예시 답안 (3-1), 채점기준 p.9
+    steps:
+    - id: 1b-1
+      content: |
+        $f(x)=2x^3+3x^2-12x+1$는 $f'(x)=6x^2+6x-12$이므로 $x=-2$에서 극댓값 $21$을 갖고, $x=1$에서 극솟값 $-6$을 갖는다.
+      criteria: [1.M1]
+    - id: 1b-2
+      content: |
+        함수 $y=f(\lvert x\rvert-3)$의 그래프는 함수 $y=f(x)$의 그래프를 $x$축 방향으로 $3$만큼 이동시킨 후 $y$축의 오른편을 $y$축을 중심으로 대칭시킨 곡선이고 $f(-3)=10$이므로 $y$절편은 $10$이다. 따라서 개형은 다음과 같다.
+      criteria: [1.A1]
+    - id: 1b-3
+      content: |
+        [그림: 해설지 p.10 — $y$축에 대칭인 W자 모양 곡선. $x=\pm1$에서 극대 $21$, $x=\pm4$에서 극소 $-6$, $x=0$에서 $y=10$으로 뾰족하게 꺾임, 양 끝은 위로 증가]
+      criteria: [1.A2]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 4
+      evidence: '$f''(x)=0$인 점 $x=-2$, $1$과 극값 $21$, $-6$을 구했다.'
+      depends_on: []
+      steps: [1b-1]
+    - id: 1.A1
+      mark_type: A
+      points: 3
+      evidence: 구간별로 함수의 증감을 결정했다(평행이동한 곡선의 극대·극소 위치 $x=1$, $4$).
+      depends_on: [1.M1]
+      steps: [1b-2]
+    - id: 1.A2
+      mark_type: A
+      points: 3
+      evidence: '$y$축 대칭성을 이용해 그래프를 정확히 그렸다($y$절편 10 표시).'
+      depends_on: [1.M1]
+      steps: [1b-3]
+    deductions:
+    - code: D1-1
+      condition: $y$절편을 정확히 표시하지 않은 경우(공식 채점기준)
+      effect: minus
+      value: 2
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-CAL-5518}
+  misconceptions:
+  - id: MC-CAL-5518
+    outcome_code: '70'
+    wrong_work: '$f(\lvert x\rvert-3)$을 $f(x)$를 왼쪽으로 3 옮긴 뒤 대칭하거나, $x<0$ 부분을 대칭해 그림'
+    detect_cue: '극값 위치가 $x=\pm1$, $\pm4$가 아니거나 $y$절편이 10이 아님'
+    feedback: '$f(x-3)$은 오른쪽으로 3 이동이고, $f(\lvert x\rvert)$ 꼴은 $x\ge0$ 부분을 $y$축 대칭합니다.'
+    remedy: [RL-1]
+- id: '2'
+  stem: |
+    (3-2) 함수 $y=f(\lvert x\rvert+a)$가 실수 전체의 집합에서 미분가능하도록 하는 상수 $a$의 값을 모두 구하시오. [10점]
+  points: 10
+  depends_on: []
+  answer: {kind: set, value: 'a=1,\ a=-2', equivalents: ['1, -2'], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: '좌극한 $-f''(a)$ = 우극한 $f''(a)$ ⇔ $f''(a)=0$.'
+    steps:
+    - {id: 2a, content: '$6a^2+6a-12=0$', criteria: [2.R1, 2.A3]}
+    hint_ladder:
+    - '$x=0$ 말고는 다항식이다.'
+    - '$x<0$에서 $\lvert x\rvert=-x$이다.'
+  - id: S2-B
+    audience: B
+    method_no: 1
+    source_flow: 2027 자연 모의 해설지(문항카드) p.10 예시 답안 (3-2), 채점기준 p.9
+    steps:
+    - id: 2b-1
+      content: |
+        $x>0$ 또는 $x<0$일 때에는 $f(\lvert x\rvert+a)$가 $x$에 대한 다항식으로 표현될 수 있으므로 미분가능하다. 따라서 주어진 함수가 실수 전체의 집합에서 미분가능하기 위해서는 $x=0$에서 미분계수가 존재하여야 한다. $x<0$인 경우에는 $f(\lvert x\rvert+a)=f(-x+a)$이므로 평균변화율의 좌극한은
+        $$\lim_{x\to0-}\frac{f(\lvert x\rvert+a)-f(a)}{x}=\lim_{x\to0-}\frac{f(-x+a)-f(a)}{x}=-\lim_{x\to0-}\frac{f(-x+a)-f(a)}{-x}=-f'(a)$$
+      criteria: [2.A2]
+    - id: 2b-2
+      content: |
+        이다. $x>0$인 경우에는 $f(\lvert x\rvert+a)=f(x+a)$이므로 평균변화율의 우극한은
+        $$\lim_{x\to0+}\frac{f(\lvert x\rvert+a)-f(a)}{x}=\lim_{x\to0+}\frac{f(x+a)-f(a)}{x}=f'(a)$$
+      criteria: [2.A1]
+    - id: 2b-3
+      content: |
+        이며 제시문에 따라 미분가능하기 위해서는 좌극한과 우극한이 같아야 한다. 따라서 $f'(a)=0$이어야 하고, $6a^2+6a-12=0$이므로 $a=1$ 또는 $a=-2$이다.
+      criteria: [2.R1, 2.A3]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.A1
+      mark_type: B
+      points: 2
+      evidence: '평균변화율의 우극한 $f''(a)$를 정확히 구했다.'
+      depends_on: []
+      steps: [2b-2]
+    - id: 2.A2
+      mark_type: B
+      points: 2
+      evidence: '평균변화율의 좌극한 $-f''(a)$를 정확히 구했다.'
+      depends_on: []
+      steps: [2b-1]
+    - id: 2.R1
+      mark_type: R
+      points: 3
+      evidence: '미분가능할 조건(좌극한 = 우극한, 즉 $f''(a)=0$)을 찾았다.'
+      depends_on: []
+      steps: [2b-3]
+    - id: 2.A3
+      mark_type: A
+      points: 3
+      evidence: '$a=1$, $a=-2$를 모두 구했다.'
+      depends_on: [2.R1]
+      steps: [2b-3]
+    deductions:
+    - code: D2-1
+      condition: 미분의 정의가 아닌 도함수의 연속성을 가정하고 계산하는 경우 최대(공식 채점기준)
+      effect: minus
+      value: 3
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-5504}
+  misconceptions:
+  - id: MC-CAL-5504
+    outcome_code: '71'
+    wrong_work: '$x<0$에서 $f(-x+a)$의 미분을 $f''(-x+a)$로 써서 좌미분계수를 $f''(a)$로 둠 → 항상 미분가능하다고 결론'
+    detect_cue: '좌극한에 음의 부호가 없다'
+    feedback: '$f(-x+a)$를 $x$로 미분하면 $-f''(-x+a)$입니다. 좌·우 미분계수를 정의대로 비교하세요.'
+    remedy: [RL-2]
+- id: '3'
+  stem: |
+    (3-3) 함수 $y=f(\lvert x\rvert+a)-g(x)$가 실수 전체의 집합에서 미분가능하도록 하는 상수 $a$의 값을 모두 구하시오. [15점]
+  points: 15
+  depends_on: ['2']
+  answer: {kind: set, value: 'a=0,\ a=-1', equivalents: ['0, -1'], tolerance: null}
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: '좌극한 $-f''(a)-16$ = 우극한 $f''(a)+8$ ⇔ $f''(a)=-12$.'
+    steps:
+    - {id: 3a, content: '$6a^2+6a=0$', criteria: [3.R1, 3.A3]}
+    hint_ladder:
+    - '$g$의 $x=0$ 좌·우 기울기를 (3-2)의 결과에 더해 보자.'
+  - id: S3-B
+    audience: B
+    method_no: 1
+    source_flow: 2027 자연 모의 해설 수정본(일반 3-3(의예과 1-3)문항 해설 수정) p.1, 채점기준 = 해설지 p.9
+    steps:
+    - id: 3b-1
+      content: |
+        $x>0$ 또는 $x<0$일 때에는 $f(\lvert x\rvert+a)-g(x)$가 $x$에 대한 다항식으로 표현될 수 있으므로 미분가능하다. 따라서 주어진 함수가 실수 전체의 집합에서 미분가능하기 위해서는 $x=0$에서 미분계수가 존재하여야 한다.
+        (3-2)에서와 같이 평균변화율의 좌극한을 구하면 $g(x)$의 정의에 따라
+        $$\lim_{x\to0-}\frac{(f(\lvert x\rvert+a)-g(x))-(f(a)-g(0))}{x}=\lim_{x\to0-}\frac{(f(-x+a)-16x)-f(a)}{x}=\lim_{x\to0-}\frac{f(-x+a)-f(a)}{x}-16=-f'(a)-16$$
+      criteria: [3.A2]
+    - id: 3b-2
+      content: |
+        이다. 마찬가지로 평균변화율의 우극한을 구하면
+        $$\lim_{x\to0+}\frac{(f(\lvert x\rvert+a)-g(x))-(f(a)-g(0))}{x}=\lim_{x\to0+}\frac{(f(x+a)-(-8x))-f(a)}{x}=\lim_{x\to0+}\frac{f(x+a)-f(a)}{x}+8=f'(a)+8$$
+      criteria: [3.A1]
+    - id: 3b-3
+      content: |
+        이다. (3-2)에서와 마찬가지로 좌극한과 우극한이 같아야 하므로 $f'(a)=-12$이고 $6a^2+6a=0$이므로 $a=0$ 또는 $a=-1$이다.
+      criteria: [3.R1, 3.A3]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 3.A1
+      mark_type: B
+      points: 4
+      evidence: '평균변화율의 우극한 $f''(a)+8$을 정확히 구했다.'
+      depends_on: []
+      steps: [3b-2]
+    - id: 3.A2
+      mark_type: B
+      points: 4
+      evidence: '평균변화율의 좌극한 $-f''(a)-16$을 정확히 구했다.'
+      depends_on: []
+      steps: [3b-1]
+    - id: 3.R1
+      mark_type: R
+      points: 3
+      evidence: '미분가능할 조건 $-f''(a)-16=f''(a)+8$, 즉 $f''(a)=-12$를 찾았다.'
+      depends_on: []
+      steps: [3b-3]
+    - id: 3.A3
+      mark_type: A
+      points: 4
+      evidence: '$a=0$, $a=-1$을 모두 구했다.'
+      depends_on: [3.R1]
+      steps: [3b-3]
+    deductions:
+    - code: D3-1
+      condition: 미분의 정의가 아닌 도함수의 연속성을 가정하고 계산하는 경우 최대(공식 채점기준)
+      effect: minus
+      value: 5
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '72', misconception: MC-CAL-5519}
+  misconceptions:
+  - id: MC-CAL-5519
+    outcome_code: '72'
+    wrong_work: '$-g(x)$의 부호를 놓쳐 우극한을 $f''(a)-8$로 계산($6a^2+6a-16=0$ 꼴)'
+    detect_cue: '$a$가 무리수로 나오거나 $f''(a)=-4$ 등'
+    feedback: '$x>0$에서 $-g(x)=+8x$이므로 우극한에 $+8$이 더해집니다. 부호를 차근차근 확인하세요.'
+    remedy: [RL-3]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CAL-5518}
+  relation: remediation
+  target: {kind: concept, ref: CON-ALG-TRANSLATE-REFLECT-I5}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-CAL-5504}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-PIECEWISE-DIFF-I5}
+  priority: 1
+- id: RL-3
+  trigger: {type: misconception, ref: MC-CAL-5519}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-PIECEWISE-DIFF-I5}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-input-v1, item_version: 1, verdict: pass, date: 2026-11-21, note: 원문 PDF 이미지 판독으로 옮김 · 해설 B는 공식 해설 흐름}
+
+created: 2026-11-21
+updated: 2026-11-21

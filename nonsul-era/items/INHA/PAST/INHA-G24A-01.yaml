@@ -1,0 +1,343 @@
+schema_version: '2.0'
+id: INHA-G24A-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: INHA
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 최적2단
+points: 35
+time_estimate_min: 40
+intent: 아래로 볼록인 함수의 특성을 이해하고 그것을 부등식에 활용할 수 있는지를 평가한다.
+key_idea: '$ax+b\le e^x$이 항상 성립하는 직선 중 $2a+b=f(2)$가 최대인 것은 곡선(들)에 접하는 직선이다. (1-3)은 두 곡선 $y=e^x$, $y=e^{x-3}+6$의 공통접선.'
+stuck: (1-2)에서 $2a+b$를 직선 $y=ax+b$의 $x=2$에서의 함숫값으로 보는 발상, (1-3)에서 두 곡선에 동시에 접하는 직선이 최대임을 파악하는 단계
+idea_tags: [IDEA-CONVEX-TANGENT-BELOW, IDEA-LINEAR-COMBO-AS-VALUE, IDEA-COMMON-TANGENT-OPT]
+tags: [아래로 볼록, 접선, 공통접선, 인하대 기출]
+elements:
+  materials:
+  - '곡선 $y=e^x$와 그 아래에 놓이는 직선 $y=ax+b$'
+  - '평행이동한 곡선 $y=e^{x-3}+6$'
+  - '일차식 값 $2a+b$'
+  concepts: [접선의 방정식, 곡선의 오목과 볼록, 직선과 곡선의 위치 관계, 최대·최소]
+  tools: [기울기가 주어진 접선의 접점 구하기, '$2a+b=f(2)$ ($f(x)=ax+b$)로 해석', 접점을 매개변수 $t$로 둔 함수의 최대(별해), 두 곡선의 공통접선 조건]
+  conditions:
+  - '모든 실수 $x$에서 $ax+b\le e^x$ ⇒ 직선이 아래로 볼록인 곡선 아래 ⇒ 같은 기울기의 접선보다 아래($b\le a-a\ln a$)'
+  - '$2a+b$ 최대 ⇒ 직선의 $x=2$에서의 값 최대 ⇒ $x=2$에서의 접선'
+  - '두 부등식 동시 ⇒ 두 곡선 모두의 아래 ⇒ 두 곡선에 동시에 접하는 직선에서 최대'
+  stimuli_used: [가, 나]
+  subpart_links: '(1-2)는 (1-1)의 접선 조건을 일반 기울기로 확장, (1-3)은 (1-2)의 $f(2)$ 해석을 두 곡선으로 확장'
+
+curriculum:
+  version: '2015'
+  subjects: [미적분]
+  scope_2028: calc2
+  scope_confirmed: true
+  standards:
+  - code: 12미적02-11
+    text: 접선의 방정식을 구할 수 있다.
+    verified: true
+  - code: 12미적02-12
+    text: 함수의 그래프의 개형을 그릴 수 있다.
+    verified: true
+  - code: 12미적02-13
+    text: 방정식과 부등식에 대한 문제를 해결할 수 있다.
+    verified: true
+  content_area: 미분법 – 도함수의 활용(접선, 오목·볼록, 부등식)
+  behavior_domain: 문제해결
+  unit_path: [미적분, 미분법, 도함수의 활용, 접선과 부등식]
+  key_concepts: [아래로 볼록, 접선, 공통접선, 최댓값]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 인하대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 인하대학교
+  admission_year: 2024
+  admission_type: 논술(오전)
+  track: 자연계열
+  question_no: 1
+  official_url: https://admission.inha.ac.kr/cms/FR_BBS_CON/BoardView.do?MENU_ID=250&SITE_NO=2&BOARD_SEQ=2&BBS_SEQ=179
+  retrieved_at: '2026-11-21'
+  original_points: 35
+  note: 문제 = 179__(자연-오전)_2024학년도_인하대학교_논술고사_문제.pdf p.3(시험지 1/8), 해설·문항카드 = 179__(자연-오전)_2024학년도_인하대학교_논술고사_해설.pdf p.1~3, 영향평가 보고서(1138__) PDF p.60~63. 일반(의예과 외) 전용 문항.
+
+verify: verify/INHA-G24A.py::p01
+
+stimuli:
+- label: 가
+  body: |
+    (접선의 방정식)
+    곡선 $y=f(x)$ 위의 점 $(a,f(a))$에서의 접선의 방정식은
+    $$y-f(a)=f'(a)(x-a)$$
+- label: 나
+  body: |
+    (곡선의 오목과 볼록)
+    함수 $f(x)$가 어떤 구간에서
+    (i) $f''(x)>0$이면 곡선 $y=f(x)$는 이 구간에서 아래로 볼록하다.
+    (ii) $f''(x)<0$이면 곡선 $y=f(x)$는 이 구간에서 위로 볼록하다.
+
+stem: |
+  [문제 1] (35점) 다음 제시문을 읽고 물음에 답하시오.
+
+subparts:
+- id: '1'
+  stem: |
+    (1-1) 모든 실수 $x$에 대하여 부등식
+    $$3x+b\le e^x$$
+    을 만족하는 실수 $b$의 최댓값을 구하시오. (8점)
+  points: 8
+  depends_on: []
+  answer: {kind: value, value: '3(1-\ln3)', equivalents: ['3-3\ln3'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: 기울기가 3인 접선의 접점은 $x=\ln3$, 그때의 $y$절편이 $b$의 최댓값.
+    steps:
+    - {id: 1a, content: '$e^x=3\Rightarrow x=\ln3$, 접선 $y=3x+3(1-\ln3)$, $b_{\max}=3(1-\ln3)$', criteria: [1.M1, 1.A1]}
+    hint_ladder:
+    - 직선 $y=3x+b$가 곡선 $y=e^x$보다 항상 아래에 있어야 한다.
+    - 아래로 볼록인 곡선 아래에 있는 같은 기울기의 직선 중 가장 높은 것은 접선이다.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 2024 자연오전 해설(문항카드) p.2 예시답안 (1-1), 채점기준 p.2, 영향평가 보고서 PDF p.61~62
+    steps:
+    - id: 1b-1
+      content: |
+        부등식이 성립하려면 직선 $y=3x+b$가 곡선 $y=e^x$보다 아래에 위치해야 한다. 제시문 (나)에 의해 $(e^x)''=e^x>0$이므로 $y=e^x$는 아래로 볼록하고, $b$가 최대인 경우는 직선이 곡선에 접하는 경우이다.
+      criteria: [1.M1]
+    - id: 1b-2
+      content: |
+        기울기가 3인 접점의 $x$좌표는 $e^x=3$에서 $\ln3$이다. 제시문 (가)에 의해 접선의 방정식은 $y=3x+3(1-\ln3)$이고, 따라서 $b$의 최댓값은 $3(1-\ln3)$이다.
+      criteria: [1.M1, 1.A1]
+  - id: S1-ALT
+    audience: ALT
+    method_no: 2
+    source_flow: 2024 자연오전 해설 p.3 (별해)
+    steps:
+    - id: 1c-1
+      content: |
+        $f(x)=e^x-3x-b$라 하면 $f(x)$의 최솟값이 0 이상이면 된다. $f'(x)=e^x-3$, $f'(\ln3)=0$이고 $x<\ln3$에서 $f'(x)<0$, $x>\ln3$에서 $f'(x)>0$이므로 $f$는 $\ln3$에서 최솟값을 갖는다. $f(\ln3)=3-3\ln3-b\ge0$이므로 $b$의 최댓값은 $3-3\ln3$이다.
+      criteria: [1.M1, 1.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 0, isw: true}
+    note: '공식 채점기준(해설 p.2): 접점의 $x$좌표와 접선의 방정식 5점, $3(1-\ln3)$ 3점.'
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 5
+      evidence: '기울기 3인 접점의 $x$좌표 $\ln3$과 접선의 방정식 $y=3x+3(1-\ln3)$(또는 별해의 최솟값 조건 $f(\ln3)\ge0$)을 구했다.'
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1, 1b-2, 1a, 1c-1]
+    - id: 1.A1
+      mark_type: A
+      points: 3
+      evidence: '$b$의 최댓값 $3(1-\ln3)$을 적었다.'
+      depends_on: [1.M1]
+      steps: [1b-2, 1a, 1c-1]
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-CAL-5201}
+  misconceptions:
+  - id: MC-CAL-5201
+    outcome_code: '70'
+    wrong_work: '$x=0$에서 $b\le1$이므로 $b$의 최댓값을 1로 답함'
+    detect_cue: 답이 1이거나 특정 $x$값 하나만 대입한 흔적
+    feedback: 모든 $x$에서 성립해야 하므로 직선이 곡선 아래에 머무는 조건, 즉 접선 조건을 써야 합니다.
+    remedy: [RL-1]
+- id: '2'
+  stem: |
+    (1-2) 실수 $a$, $b$는 모든 실수 $x$에 대하여 부등식
+    $$ax+b\le e^x$$
+    을 만족한다. $2a+b$의 값이 최대일 때, $b$의 값을 구하시오. (12점)
+  points: 12
+  depends_on: ['1']
+  answer: {kind: value, value: '-e^2', equivalents: ['-e^{2}'], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: '$2a+b=f(2)$이므로 $x=2$에서의 접선 $y=e^2(x-2)+e^2$일 때 최대.'
+    steps:
+    - {id: 2a, content: '$f(x)=ax+b$, $f(2)=2a+b\le e^2$, 등호는 $x=2$에서의 접선 ⇒ $b=-e^2$', criteria: [2.M1, 2.M2, 2.A1]}
+    hint_ladder:
+    - $2a+b$를 직선 $y=ax+b$ 위의 어떤 점의 $y$좌표로 볼 수 있는가?
+    - 직선이 곡선 아래에 있으면 $x=2$에서의 값은 $e^2$ 이하이다.
+  - id: S2-B
+    audience: B
+    method_no: 1
+    source_flow: 2024 자연오전 해설(문항카드) p.2 예시답안 (1-2), 채점기준 p.2, 영향평가 보고서 PDF p.61~62
+    steps:
+    - id: 2b-1
+      content: |
+        $f(x)=ax+b$라 하면 $f(2)=2a+b$이므로 $2a+b$가 최대인 경우는 $x=2$에서의 함숫값이 최대인 직선일 때이다.
+      criteria: [2.M1]
+    - id: 2b-2
+      content: |
+        (1-1)과 마찬가지로 제시문 (나)에 의해 $y=e^x$가 아래로 볼록하므로 $x=2$에서의 접선일 때 $2a+b$가 최대이다. 따라서 기울기는 $e^2$이고 접선은 $f(x)=e^2(x-2)+e^2$이다.
+      criteria: [2.M2]
+    - id: 2b-3
+      content: |
+        $f(x)=e^2x-e^2$이므로 $b=-e^2$이다.
+      criteria: [2.A1]
+  - id: S2-ALT
+    audience: ALT
+    method_no: 2
+    source_flow: 2024 자연오전 해설 p.3 (별해) (1-2)
+    steps:
+    - id: 2c-1
+      content: |
+        (1-1)에 의해 기울기가 $a$인 직선 $ax+b$는 $y=e^x$에 접할 때 $b$가 최대이다. 접점의 $x$좌표를 $t$라 하면 $e^t=a$, $b=(1-t)e^t$이고 $g(t)=2a+b=(3-t)e^t$. $g'(t)=(2-t)e^t$이므로 $t=2$에서 최대이고 $b=-e^2$.
+      criteria: [2.M1, 2.M2, 2.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 0, isw: true}
+    note: '공식 채점기준(해설 p.2): $2a+b=f(2)$ 관찰 4점, $x=2$에서의 접선 4점, $b=-e^2$ 4점.'
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 4
+      evidence: '$2a+b$가 $f(x)=ax+b$의 $f(2)$임을 적었다(또는 별해에서 $2a+b$를 접점 $t$의 함수로 나타냄).'
+      depends_on: []
+      implied_ok: false
+      steps: [2b-1, 2a, 2c-1]
+    - id: 2.M2
+      mark_type: M
+      points: 4
+      evidence: '$x=2$에서 곡선 $y=e^x$의 접선 $y=e^2(x-2)+e^2$를 구했다.'
+      depends_on: []
+      steps: [2b-2, 2a, 2c-1]
+    - id: 2.A1
+      mark_type: A
+      points: 4
+      evidence: '$b=-e^2$을 적었다.'
+      depends_on: [2.M2]
+      steps: [2b-3, 2a, 2c-1]
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-CAL-5201}
+  misconceptions:
+  - id: MC-CAL-5201
+    outcome_code: '70'
+    wrong_work: '$a=3$인 (1-1)의 직선을 그대로 써서 $b=3(1-\ln3)$이라 답함'
+    detect_cue: 답에 $\ln3$이 들어 있다
+    feedback: 기울기 $a$도 변수입니다. $2a+b$를 $x=2$에서의 함숫값으로 보고 접점을 다시 정하세요.
+    remedy: [RL-1]
+- id: '3'
+  stem: |
+    (1-3) 실수 $a$, $b$는 모든 실수 $x$에 대하여 두 부등식
+    $$ax+b\le e^x,\quad ax+b\le e^{x-3}+6$$
+    을 만족한다. $2a+b$의 최댓값을 구하시오. (15점)
+  points: 15
+  depends_on: ['2']
+  answer: {kind: value, value: '6-2\ln2', equivalents: ['2(3-\ln2)'], tolerance: null}
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: '두 곡선의 공통접선(기울기 2, 접점 $p=\ln2$, $q=p+3$)일 때 $2a+b$ 최대.'
+    steps:
+    - {id: 3a, content: '$e^p=e^{q-3}=\dfrac{e^p-(e^{q-3}+6)}{p-q}\Rightarrow e^p=2$, 직선 $y=2(x-\ln2)+2$, $2a+b=6-2\ln2$', criteria: [3.M1, 3.M2, 3.M3, 3.A1]}
+    hint_ladder:
+    - (1-2)처럼 $2a+b=f(2)$로 보자.
+    - 직선은 두 곡선 모두의 아래에 있어야 한다. $x=2$에서 가장 높은 직선은 어떤 직선인가?
+    - 두 곡선에 동시에 접하는 직선을 구하자.
+  - id: S3-B
+    audience: B
+    method_no: 1
+    source_flow: 2024 자연오전 해설(문항카드) p.2 예시답안 (1-3), 채점기준 p.2, 영향평가 보고서 PDF p.61~62
+    steps:
+    - id: 3b-1
+      content: |
+        (1-2)와 마찬가지로 $f(x)=ax+b$라 하면 $f(2)=2a+b$이므로 $x=2$에서의 함숫값이 최대인 직선일 때 $2a+b$가 최대이다. 부등식을 만족하려면 직선 $y=ax+b$가 두 곡선 $y=e^x$, $y=e^{x-3}+6$보다 아래에 위치해야 한다.
+      criteria: [3.M1]
+    - id: 3b-2
+      content: |
+        제시문 (나)에 의해 그래프의 개형으로부터 두 곡선에 동시에 접할 때 $2a+b$가 최대가 된다. $y=e^x$에서의 접점을 $(p,e^p)$, $y=e^{x-3}+6$에서의 접점을 $(q,e^{q-3}+6)$이라 하면 두 점을 잇는 직선의 기울기가 각 점에서의 미분계수와 같으므로
+        $$e^p=e^{q-3}=\dfrac{e^p-(e^{q-3}+6)}{p-q}$$
+      criteria: [3.M2]
+    - id: 3b-3
+      content: |
+        $p=q-3$이므로 $e^p=\dfrac{-6}{-3}=2$, $p=\ln2$. 즉 $y=2(x-\ln2)+2$일 때 $2a+b$가 최대이다.
+      criteria: [3.M3]
+    - id: 3b-4
+      content: |
+        $2a+b=2(2-\ln2)+2=6-2\ln2$이다.
+      criteria: [3.A1]
+  - id: S3-ALT
+    audience: ALT
+    method_no: 2
+    source_flow: 2024 자연오전 해설 p.3 (별해) (1-3)
+    steps:
+    - id: 3c-1
+      content: |
+        (1-2)를 이용하면 $ax+b\le e^x$에서 $2a+b\le3a-a\ln a$, $ax+b\le e^{x-3}+6$에서 $2a+b\le6-a\ln a$. 따라서 $2a+b\le g(a)$, $g(a)=6-a\ln a\ (a>2)$, $g(a)=3a-a\ln a\ (0<a\le2)$. $0<a<2$에서 $g'(a)>0$, $a>2$에서 $g'(a)<0$이므로 최댓값은 $g(2)=6-2\ln2$.
+      criteria: [3.M1, 3.M2, 3.M3, 3.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 0, isw: true}
+    note: '공식 채점기준(해설 p.2): $f(2)$ 관찰(최대 조건) 6점, $e^p=e^{q-3}=\dfrac{e^p-(e^{q-3}+6)}{p-q}$ 3점, 최댓값을 만족하는 직선 4점, $6-2\ln2$ 2점. (원문 채점표의 $b=6-2\ln2$ 표기는 $2a+b=6-2\ln2$의 뜻)'
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 6
+      evidence: '$2a+b=f(2)$이고 직선이 두 곡선 모두의 아래에 있어야 함(최대 조건)을 적었다.'
+      depends_on: []
+      implied_ok: false
+      steps: [3b-1, 3a, 3c-1]
+    - id: 3.M2
+      mark_type: M
+      points: 3
+      evidence: '공통접선 조건 $e^p=e^{q-3}=\dfrac{e^p-(e^{q-3}+6)}{p-q}$(또는 별해의 두 상계 $3a-a\ln a$, $6-a\ln a$)를 세웠다.'
+      depends_on: []
+      steps: [3b-2, 3a, 3c-1]
+    - id: 3.M3
+      mark_type: M
+      points: 4
+      evidence: '최댓값을 주는 직선 $y=2(x-\ln2)+2$(또는 $a=2$)를 구했다.'
+      depends_on: []
+      steps: [3b-3, 3a, 3c-1]
+    - id: 3.A1
+      mark_type: A
+      points: 2
+      evidence: '최댓값 $6-2\ln2$를 적었다.'
+      depends_on: [3.M3]
+      steps: [3b-4, 3a, 3c-1]
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-CAL-5202}
+  misconceptions:
+  - id: MC-CAL-5202
+    outcome_code: '70'
+    wrong_work: '첫 부등식만으로 (1-2)의 값 $e^2$을 최댓값으로 답하거나, 둘째 곡선만의 최대를 따로 구해 큰 값을 답함'
+    detect_cue: 답이 $e^2$ 또는 $e^{-1}+6$ 등 한 곡선만 쓴 값
+    feedback: 직선은 두 곡선 모두의 아래에 있어야 합니다. 두 상계 중 작은 쪽을 최대화하세요(공통접선).
+    remedy: [RL-2]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CAL-5201}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-CONVEX-TANGENT-BOUND-I2}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-CAL-5202}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-CONVEX-TANGENT-BOUND-I2}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-input-v1, item_version: 1, verdict: pass, date: 2026-11-21, note: 원문 PDF 이미지 판독으로 옮김 · 해설 B는 공식 해설 흐름}
+
+created: 2026-11-21
+updated: 2026-11-21

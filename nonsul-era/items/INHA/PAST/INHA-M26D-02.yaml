@@ -1,0 +1,312 @@
+schema_version: '2.0'
+id: INHA-M26D-02
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: INHA
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 분류
+points: 35
+time_estimate_min: 35
+intent: 이차함수의 그래프의 개형을 이해하고, 이를 바탕으로 직선과의 교점 개수를 판별할 수 있는지, 함수의 우극한과 좌극한의 개념을 이해하고 적용할 수 있는지 평가한다.
+key_idea: '원점을 지나는 접선의 기울기는 $k+1-2\sqrt k$(왼쪽 포물선), $a(k+16-8\sqrt k)$(오른쪽 포물선)이고, 극한 조건은 직선 $y=sx$가 두 포물선에 동시에 접함을 뜻한다.'
+stuck: '$\lim_{t\to s+}g(t)=0$, $\lim_{t\to s-}g(t)=4$를 "두 곡선에 동시에 접함"으로 해석하고, 두 기울기가 같다는 식에서 $a$가 유리수일 조건을 유리화로 찾는 단계'
+idea_tags: [IDEA-TANGENT-FROM-ORIGIN, IDEA-INTERSECTION-COUNT-JUMP, IDEA-RATIONALIZE-SQRT-RATIONALITY]
+tags: [인하대 모의, 의예과, 교점 개수, 좌극한·우극한]
+elements:
+  materials: ['구간별 이차함수 $f(x)=-(x-1)(x-k)\ (1\le x\le k)$, $-a(x-k)(x-16)\ (k\le x\le16)$', '원점을 지나는 직선 $y=tx$', '교점 개수 함수 $g(t)$']
+  concepts: [접선의 방정식, 직선과 포물선의 교점 개수, 우극한과 좌극한, 무리수의 유리화]
+  tools: ['접점 $(p,f(p))$에서의 접선이 원점을 지날 조건', 그래프 개형 비교, 분모의 유리화]
+  conditions:
+  - '포물선 조각과 직선의 관계 ⇒ 만나지 않음·접함·두 점에서 만남뿐 ⇒ $g(t)$가 홀수이면 어느 한 조각에 접함'
+  - '$\lim_{t\to s+}g(t)=0$ ⇒ $t>s$에서 교점 없음, $\lim_{t\to s-}g(t)=4$ ⇒ $t<s$ 근처에서 각 조각과 2개씩 ⇒ $y=sx$가 두 곡선에 모두 접함'
+  - '$a$ 유리수, $k$ 자연수 ⇒ $(6k-24)\sqrt k$ 유리수 ⇒ $k=4,9$'
+  stimuli_used: [가, 나]
+  subpart_links: '(2-2)·(2-3)은 (2-1)의 원점 접선 기울기 $k+1-2\sqrt k$ 사용'
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅱ]
+  scope_2028: common
+  scope_confirmed: false
+  standards:
+  - code: 12수학Ⅱ02-06
+    text: 접선의 방정식을 구할 수 있다.
+    verified: true
+  - code: 12수학Ⅱ01-01
+    text: 함수의 극한의 뜻을 안다.
+    verified: true
+  content_area: 미분 – 도함수의 활용(접선), 함수의 극한
+  behavior_domain: 문제해결
+  unit_path: [수학Ⅱ, 미분, 도함수의 활용, 접선의 방정식]
+  key_concepts: [접선의 방정식, 교점의 개수, 좌극한과 우극한]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 인하대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 인하대학교
+  admission_year: 2026
+  admission_type: 논술(모의)
+  track: 의예과
+  question_no: 2
+  official_url: https://admission.inha.ac.kr/cms/FR_BBS_CON/BoardView.do?MENU_ID=250&SITE_NO=2&BOARD_SEQ=2&BBS_SEQ=199
+  retrieved_at: '2026-11-21'
+  original_points: 35
+  note: 문제 = 199__(자연)_2026학년도_논술_모의고사_문제지.pdf p.8(의예 5/8), 해설·채점기준 = 같은 번호 해설지.pdf p.9~12 [의예과 문항 2]
+
+verify: verify/INHA-M26D.py::p02
+
+stimuli:
+- label: 가
+  body: |
+    (접선의 방정식) 곡선 $y=f(x)$ 위의 점 $(a,f(a))$에서의 접선의 방정식은
+    $$y-f(a)=f'(a)(x-a)$$
+- label: 나
+  body: |
+    함수 $f(x)$에서 $x$의 값이 $a$보다 크면서 $a$에 한없이 가까워질 때, $f(x)$의 값이 일정한 값 $M$에 한없이 가까워지면 $M$을 $x=a$에서의 함수 $f(x)$의 우극한이라고 하며, 기호로 $\displaystyle\lim_{x\to a+}f(x)=M$과 같이 나타낸다. $x$의 값이 $a$보다 작으면서 $a$에 한없이 가까워질 때, $f(x)$의 값이 일정한 값 $L$에 한없이 가까워지면 $L$을 $x=a$에서의 함수 $f(x)$의 좌극한이라고 하며, 이것을 기호로 $\displaystyle\lim_{x\to a-}f(x)=L$과 같이 나타낸다.
+
+stem: |
+  (※) 양의 실수 $a$와 실수 $k$ $(1<k<16)$에 대하여 닫힌구간 $[1,16]$에서 정의된 함수 $f(x)$가
+  $$f(x)=\begin{cases}-(x-1)(x-k) & (1\le x\le k)\\ -a(x-k)(x-16) & (k\le x\le16)\end{cases}$$
+  라 하자. 양의 실수 $t$에 대하여 $g(t)$는 $y=tx$와 $y=f(x)$의 교점의 개수라 하자.
+
+subparts:
+- id: '1'
+  stem: |
+    (2-1) 원점을 지나며 곡선 $y=-(x-1)(x-k)$ $(x>0)$에 접하는 직선의 방정식을 구하시오. [10점]
+  points: 10
+  depends_on: []
+  answer: {kind: expression, value: 'y=(k+1-2\sqrt k)x', equivalents: ['y=(√k-1)^2 x'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: '접점 $(p,-(p-1)(p-k))$의 접선이 원점을 지날 조건은 $p^2=k$.'
+    steps:
+    - {id: 1a, content: '$p=\sqrt k$, 기울기 $-(2\sqrt k-k-1)=k+1-2\sqrt k$', criteria: [1.M1, 1.A1]}
+    hint_ladder:
+    - 접점의 $x$좌표를 미지수로 두고 접선의 방정식을 쓰자.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 2026 자연 모의 해설지 p.11 예시 답안 (2-1), 채점기준 p.10
+    steps:
+    - id: 1b-1
+      content: |
+        제시문 (가)에 의하여 곡선 위의 점 $(t,-(t-1)(t-k))$에서 접선의 방정식은
+        $$y=-(2t-k-1)(x-t)-(t-1)(t-k)$$
+        이다.
+      criteria: [1.M1]
+    - id: 1b-2
+      content: |
+        이 직선이 원점을 지날 때는 $t^2=k$, 즉 $t=\sqrt k$이다. 그러므로 문제의 조건을 만족하는 직선의 방정식은 $y=(k+1-2\sqrt k)x$이다.
+      criteria: [1.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 3
+      evidence: '곡선 위의 점 $(t,-(t-1)(t-k))$에서의 접선의 기울기 $-(2t-k-1)$을 구했다.'
+      depends_on: []
+      steps: [1b-1]
+    - id: 1.A1
+      mark_type: A
+      points: 7
+      evidence: '원점을 지날 조건 $t=\sqrt k$로 접선의 방정식 $y=(k+1-2\sqrt k)x$를 구했다.'
+      depends_on: [1.M1]
+      steps: [1b-2]
+    deductions:
+    - code: D1-1
+      condition: 풀이는 맞았는데 사소한 계산 실수가 있는 경우(공식 채점기준)
+      effect: minus
+      value: 3
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-CAL-5501}
+  misconceptions:
+  - id: MC-CAL-5501
+    outcome_code: '70'
+    wrong_work: '접점 대신 원점에서의 미분계수 $f''(0)$을 기울기로 써서 $y=(k+1)x$로 답함'
+    detect_cue: '답에 $\sqrt k$가 없다'
+    feedback: 원점은 곡선 위의 점이 아닙니다. 접점을 미지수로 두고 그 접선이 원점을 지나게 하세요.
+    remedy: [RL-1]
+- id: '2'
+  stem: |
+    (2-2) $a=\dfrac14$, $k=3$일 때, $g(t)=3$인 $t$의 값을 구하시오. [10점]
+  points: 10
+  depends_on: ['1']
+  answer: {kind: value, value: '4-2\sqrt3', equivalents: ['4-2√3'], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: '$g(t)=3$이면 한 포물선에 접하고 다른 포물선과 두 점에서 만나야 한다. 후보 $4-2\sqrt3$, $\dfrac{19}{4}-2\sqrt3$ 중 앞의 것만 성립.'
+    steps:
+    - {id: 2a, content: '$t=\dfrac{19}{4}-2\sqrt3$이면 왼쪽 포물선과 만나지 않음', criteria: [2.A1]}
+    hint_ladder:
+    - 직선과 포물선의 교점은 0, 1(접함), 2개뿐이다.
+    - 두 포물선에 각각 접하는 원점 직선의 기울기를 비교하자.
+  - id: S2-B
+    audience: B
+    method_no: 1
+    source_flow: 2026 자연 모의 해설지 p.11 예시 답안 (2-2), 채점기준 p.10
+    steps:
+    - id: 2b-1
+      content: |
+        직선과 이차함수의 관계는 만나지 않는 경우, 접하는 경우, 두 점에서 만나는 경우뿐이다. 따라서 $g(t)=3$이기 위해서 $y=tx$는 곡선 $y=-(x-1)(x-3)$에 접하고 $y=-\dfrac14(x-3)(x-16)$과 두 점에서 만나거나 곡선 $y=-(x-1)(x-3)$과 두 점에서 만나고 $y=-\dfrac14(x-3)(x-16)$에 접해야 한다.
+      criteria: [2.M1]
+    - id: 2b-2
+      content: |
+        곡선 $y=-(x-1)(x-3)$에 접하는 경우, $t=4-2\sqrt3$이고 곡선 $y=-\dfrac14(x-3)(x-16)$에 접하는 경우 $t=\dfrac{19}{4}-2\sqrt3$이다.
+      criteria: [2.M2]
+    - id: 2b-3
+      content: |
+        그런데 후자의 경우 직선 $y=tx$는 곡선 $y=-(x-1)(x-3)$과 만나지 않는다. 따라서 $t=4-2\sqrt3$이다.
+        [그림: 해설지 p.11 — $y=f(x)$($a=\frac14$, $k=3$)와 두 직선 $y=\left(\frac{19}{4}-2\sqrt3\right)x$(오른쪽 포물선에 접함, 왼쪽 포물선 위로 지나감), $y=(4-2\sqrt3)x$(왼쪽 포물선에 접하고 오른쪽 포물선과 두 점에서 만남)]
+      criteria: [2.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 3
+      evidence: '직선 $y=tx$가 두 곡선 $y=-(x-1)(x-3)$, $y=-\dfrac14(x-3)(x-16)$ 중 하나에 접해야 한다는 것을 보였다.'
+      depends_on: []
+      steps: [2b-1]
+    - id: 2.M2
+      mark_type: M
+      points: 4
+      evidence: '두 곡선에 접하는 직선의 방정식 $y=(4-2\sqrt3)x$, $y=\left(\dfrac{19}{4}-2\sqrt3\right)x$를 각각 구했다.'
+      depends_on: []
+      steps: [2b-2]
+    - id: 2.A1
+      mark_type: A
+      points: 3
+      evidence: '두 직선 중 $y=(4-2\sqrt3)x$만 답이 될 수 있다는 것을 보였다.'
+      depends_on: [2.M1, 2.M2]
+      steps: [2b-3]
+    deductions:
+    - code: D2-1
+      condition: 풀이는 맞았는데 사소한 계산 실수가 있는 경우(공식 채점기준)
+      effect: minus
+      value: 3
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-5509}
+  misconceptions:
+  - id: MC-CAL-5509
+    outcome_code: '71'
+    wrong_work: '두 접선 기울기 $4-2\sqrt3$, $\dfrac{19}{4}-2\sqrt3$를 모두 답으로 씀'
+    detect_cue: 답이 두 개이고 각 직선이 다른 조각과 만나는지 확인이 없다
+    feedback: 접하는 조각 외의 다른 조각과 몇 번 만나는지 확인해야 교점의 총개수를 알 수 있습니다.
+    remedy: [RL-2]
+- id: '3'
+  stem: |
+    (2-3) 다음 조건을 만족하는 양의 유리수 $a$와 자연수 $k$ $(1<k<16)$의 순서쌍 $(a,k)$를 모두 구하시오. [15점]
+    [조건] $\displaystyle\lim_{t\to s+}g(t)=0$, $\displaystyle\lim_{t\to s-}g(t)=4$인 양의 실수 $s$가 존재한다.
+  points: 15
+  depends_on: ['1']
+  answer: {kind: set, value: '\left(\dfrac14,4\right),\ (4,9)', equivalents: ['(1/4,4), (4,9)'], tolerance: null}
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: '$k+1-2\sqrt k=a(k+16-8\sqrt k)$, 즉 $a=\dfrac{(\sqrt k-1)^2}{(\sqrt k-4)^2}$이 유리수 ⇔ $\sqrt k$ 유리수.'
+    steps:
+    - {id: 3a, content: '$k=4\Rightarrow a=\dfrac14$, $k=9\Rightarrow a=4$', criteria: [3.A1]}
+    hint_ladder:
+    - $t$가 $s$보다 조금 크면 교점이 없고 조금 작으면 4개이다. $t=s$에서는?
+    - 두 포물선에 동시에 접하는 원점 직선의 기울기를 같게 놓자.
+  - id: S3-B
+    audience: B
+    method_no: 1
+    source_flow: 2026 자연 모의 해설지 p.11~12 예시 답안 (2-3), 채점기준 p.10
+    steps:
+    - id: 3b-1
+      content: |
+        $\displaystyle\lim_{t\to s+}g(t)=0$에서 $t>s$이면 $y=f(x)$와 $y=tx$의 교점이 없다는 것을 알 수 있다. 한편, $\displaystyle\lim_{t\to s-}g(t)=4$이므로 $s$보다 작지만 $s$에 가까운 실수 $t$에 대하여 직선 $y=tx$와 곡선 $y=-(x-1)(x-k)$, $y=-a(x-k)(x-16)$의 교점의 개수는 각각 2개라는 것을 알 수 있다. 즉, 곡선 $y=sx$는 두 곡선 $y=-(x-1)(x-k)$와 $y=-a(x-k)(x-16)$에 모두 접한다.
+        [그림: 해설지 p.11 — 직선 $y=sx$가 왼쪽 작은 포물선과 오른쪽 큰 포물선에 동시에 접하는 그림]
+      criteria: [3.M1]
+    - id: 3b-2
+      content: |
+        곡선 $y=-(x-1)(x-k)$에 접할 때, $t=(k+1)-2\sqrt k$이고 곡선 $y=-a(x-k)(x-16)$에 접할 때 $t=a(k+16-8\sqrt k)$이다. 두 값이 같아야 하므로 $a=\dfrac{k+1-2\sqrt k}{k+16-8\sqrt k}$를 만족해야 한다.
+      criteria: [3.M2]
+    - id: 3b-3
+      content: |
+        $a$가 유리수이므로 $\dfrac{k+1-2\sqrt k}{k+16-8\sqrt k}$의 값이 유리수가 되는 $k$를 모두 찾으면 된다. 분모와 분자에 모두 $k+16+8\sqrt k$를 곱하여 유리화를 하면 분자는 $(k+1-2\sqrt k)(k+16+8\sqrt k)=(k+1)(k+16)-16k+(6k-24)\sqrt k$가 된다. 즉, $(6k-24)\sqrt k$가 유리수가 되어야 한다. 이러한 $k$는 $4$와 $9$ 뿐이다. 그리고 이때 $a$는 각각 $\dfrac14$과 $4$이다. 그러므로 답은 $\left(\dfrac14,4\right)$, $(4,9)$이다.
+      criteria: [3.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 5
+      evidence: '직선 $y=tx$($t=s$)가 $y=f(x)$와 두 점에서 접해야 한다(두 곡선에 모두 접함)는 것을 보였다.'
+      depends_on: []
+      steps: [3b-1]
+    - id: 3.M2
+      mark_type: M
+      points: 5
+      evidence: '$y=tx$가 두 곡선에 접하는 $t$의 값 $k+1-2\sqrt k$, $a(k+16-8\sqrt k)$를 각각 구했다.'
+      depends_on: []
+      steps: [3b-2]
+    - id: 3.A1
+      mark_type: A
+      points: 5
+      evidence: '유리화로 $(6k-24)\sqrt k$가 유리수일 조건을 밝혀 $\left(\dfrac14,4\right)$, $(4,9)$를 모두 구했다.'
+      depends_on: [3.M1, 3.M2]
+      steps: [3b-3]
+    deductions:
+    - code: D3-1
+      condition: 풀이는 맞았는데 사소한 계산 실수가 있는 경우(공식 채점기준)
+      effect: minus
+      value: 3
+    - code: D3-2
+      condition: $a$와 $k$를 구하는 과정에 설명이 미흡한 경우(공식 채점기준)
+      effect: minus
+      value: 2
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '72', misconception: MC-ALG-5510}
+  misconceptions:
+  - id: MC-ALG-5510
+    outcome_code: '72'
+    wrong_work: '$k$가 제곱수일 때만 확인하고 $k=4$만 찾거나, $6k-24=0$인 $k=4$만 답함'
+    detect_cue: '순서쌍이 하나뿐이거나 $k=9$ 누락'
+    feedback: '유리화한 뒤 $(6k-24)\sqrt k$가 유리수일 조건을 $k=4$와 $\sqrt k$ 유리수인 경우로 빠짐없이 나누세요.'
+    remedy: [RL-3]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CAL-5501}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-TANGENT-LINE-I5}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-CAL-5509}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-LINE-PARABOLA-COUNT-I5}
+  priority: 1
+- id: RL-3
+  trigger: {type: misconception, ref: MC-ALG-5510}
+  relation: remediation
+  target: {kind: concept, ref: CON-ALG-IRRATIONAL-RATIONALIZE-I5}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-input-v1, item_version: 1, verdict: pass, date: 2026-11-21, note: 원문 PDF 이미지 판독으로 옮김 · 해설 B는 공식 해설 흐름}
+
+created: 2026-11-21
+updated: 2026-11-21

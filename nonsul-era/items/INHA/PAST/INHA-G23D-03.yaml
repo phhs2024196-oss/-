@@ -1,0 +1,363 @@
+schema_version: '2.0'
+id: INHA-G23D-03
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: proof
+origin: past_exam
+school: INHA
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 귀류
+points: 35
+time_estimate_min: 40
+intent: 지문에서 주어진 상황을 논리적으로 해석하고 분석하는 능력을 평가한다. 문제에서 주어진 조건으로부터 문제 해결에 필요한 핵심 아이디어를 찾고 활용하는 능력을 평가한다. 또한, 수의 기본적인 성질(정수의 짝수, 홀수, 약수, 배수 관계 등)을 다루는 능력과 귀류법을 이용하여 문제를 해결하는 능력을 평가한다.
+key_idea: '동전 $R_i$가 $P_k$로 가면 $i+f(i)-k$는 $n$의 배수. 공평하면 $k$가 $1,\ldots,n$을 한 번씩 지나므로 합 $\sum(i+f(i)-k)=\sum f(i)$가 $n$의 배수여야 하는데, $f$가 일대일대응이면 $\tfrac{n(n+1)}{2}$이고 $n$이 짝수이면 $n$의 배수가 아니다.'
+stuck: (3-2)(b)에서 (a)를 반복 적용해 $b=9$로 정규화한 뒤 $a$만큼 옮기는 동전들의 연쇄를 추적하는 단계, (3-3)에서 위치를 $n$으로 나눈 나머지로 보는 발상
+idea_tags: [IDEA-SUM-OF-DISPLACEMENTS-MOD-N, IDEA-NORMALIZE-BY-SHIFT]
+tags: [경우의 수, 일대일대응, 나머지, 귀류법, 인하대 기출, 의예과]
+elements:
+  materials:
+  - '한 변의 길이가 1인 정$n$각형 $P_1P_2\cdots P_n$과 각 꼭짓점의 동전 $R_i$'
+  - '함수 $f:\{1,\ldots,n\}\to\{1,\ldots,n\}$에 따라 시계 방향으로 $f(i)$만큼 옮기는 시행'
+  - '공평한 함수(시행 후 각 꼭짓점에 동전이 정확히 하나)'
+  concepts: [곱의 법칙, 일대일대응, 합의 기호 Σ, 정수의 나머지(배수·약수), 귀류법]
+  tools: [f(1)부터 차례로 값 정하기(곱의 법칙), 전체 회전(모든 동전 1칸 추가 이동), (a) 반복으로 치역 평행이동, 동전 이동 연쇄 추적, 이동 거리 합을 n으로 나눈 나머지 비교]
+  conditions:
+  - '공평 ⇔ $i+f(i)$를 $n$으로 나눈 나머지가 모두 다름'
+  - '$f(k)\le n-1$ ⇒ $g=f+1$도 공역 $\{1,\ldots,n\}$ 안'
+  - '치역 $\{a,b\}$, $b-a\ge5$, $n=9$ ⇒ (a)로 $b=9$로 옮겨 $a\in\{1,2,3,4\}$만 조사'
+  - '$n$ 짝수 ⇒ $\tfrac{n(n+1)}{2}\equiv\tfrac n2\pmod n$'
+  stimuli_used: [가, 나, 다]
+  subpart_links: '(3-2)(b)는 (3-2)(a)의 평행이동을 반복 사용, (3-3)은 제시문 (나)의 합 공식과 (다)의 귀류법 사용'
+
+curriculum:
+  version: '2015'
+  subjects: [수학, 수학Ⅰ]
+  scope_2028: common
+  scope_confirmed: true
+  standards:
+  - code: 10수학05-01
+    text: 합의 법칙과 곱의 법칙을 이해하고, 이를 이용하여 경우의 수를 구할 수 있다.
+    verified: true
+  - code: 12수학Ⅰ03-04
+    text: $\sum$의 뜻을 알고, 그 성질을 이해하고, 이를 활용할 수 있다.
+    verified: true
+  - code: 10수학03-07
+    text: 대우를 이용한 증명법과 귀류법을 이해한다.
+    verified: true
+  content_area: 경우의 수·함수·귀류법(정수의 나머지)
+  behavior_domain: 추론
+  unit_path: [수학, 경우의 수, 순열과 함수, 공평한 함수와 귀류법]
+  key_concepts: [곱의 법칙, 일대일대응, 나머지, 귀류법]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 인하대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 인하대학교
+  admission_year: 2023
+  admission_type: 논술(의예과)
+  track: 의예과
+  question_no: 3
+  official_url: https://admission.inha.ac.kr/cms/FR_BBS_CON/BoardView.do?MENU_ID=250&SITE_NO=2&BOARD_SEQ=2&BBS_SEQ=165
+  retrieved_at: '2026-11-21'
+  original_points: 35
+  note: 문제 = 165__(자연-오전)_2023학년도_인하대학교_논술고사_문제지.pdf p.9(의예 6/8), 해설·문항카드 = 165__(자연-오전)_..._해설.pdf p.13~15. 의예과 [문제 1]은 일반 [문제 2](INHA-G23A-02)와 동일하여 G23D-01은 만들지 않음.
+
+verify: verify/INHA-G23D.py::p03
+
+stimuli:
+- label: 가
+  body: |
+    [곱의 법칙] 두 사건 A, B에서 사건 A가 일어나는 경우의 수가 $m$이고, 그 각각의 경우에 대하여 사건 B가 일어나는 경우의 수가 $n$일 때, 사건 A에 잇달아 사건 B가 일어나는 경우의 수는 $m\times n$이다.
+- label: 나
+  body: |
+    일대일대응 $f:\{1,2,\cdots,n\}\to\{1,2,\cdots,n\}$에 대하여 $\displaystyle\sum_{i=1}^nf(i)=\dfrac{n(n+1)}{2}$이다.
+- label: 다
+  body: |
+    어떤 명제가 참임을 증명할 때, 명제의 결론을 부정하여 가정한 사실 또는 이미 알려진 사실에 모순이 생김을 보이면 된다. 이처럼 증명하는 방법을 귀류법이라 한다.
+
+stem: |
+  [문제 3] (35점) 다음 제시문을 읽고 물음에 답하시오.
+  (※) $n$은 3 이상의 정수이다. 한 변의 길이가 1인 정$n$각형 $P_1P_2\cdots P_n$의 각 꼭짓점 $P_i$ 위에 동전 $R_i$가 놓여있다. 함수 $f:\{1,2,\cdots,n\}\to\{1,2,\cdots,n\}$에 대하여 다음의 시행을 한다.
+  [시행 상자] 모든 $1\le i\le n$에 대하여 동전 $R_i$를 정$n$각형 $P_1P_2\cdots P_n$의 둘레를 따라 시계 방향으로 $f(i)$만큼 옮긴다.
+  예를 들어, $n=4$일 때, $f(1)=3,f(2)=4,f(3)=1,f(4)=1$이면 동전 $R_1,R_2,R_3,R_4$는 시행 후 각각 $P_4,P_2,P_4,P_1$로 이동한다.
+  함수 $f:\{1,2,\cdots,n\}\to\{1,2,\cdots,n\}$이 다음 조건을 만족하면 $f$를 '공평한 함수'라 하자.
+  [조건 상자] (조건) 시행 후 정$n$각형 $P_1P_2\cdots P_n$의 각 꼭짓점에는 정확히 하나의 동전이 놓인다.
+  예를 들어, $n=4$일 때, $f(1)=2,f(2)=4,f(3)=1,f(4)=1$이면 동전 $R_1,R_2,R_3,R_4$는 시행 후 각각 $P_3,P_2,P_4,P_1$로 이동하므로 $f$는 공평한 함수이다
+  [판독확인: 원문 문장 끝 마침표 없음, 원문 표기 그대로]
+
+subparts:
+- id: '1'
+  stem: |
+    (3-1) 공평한 함수의 개수를 $n$의 식으로 나타내시오. [10점]
+  points: 10
+  depends_on: []
+  answer: {kind: expression, value: 'n!', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: '$f(1),f(2),\ldots$를 차례로 정하면 선택지가 $n,n-1,\ldots,1$개.'
+    steps:
+    - {id: 1a, content: '$n\times(n-1)\times\cdots\times1=n!$', criteria: [1.M1, 1.A1]}
+    hint_ladder:
+    - $f(1)$의 값으로 가능한 것은 몇 가지인가?
+    - $f(2)$는 $R_2$가 $R_1$과 겹치지 않게 정해야 한다.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 2023 자연오전 해설(문항카드) p.14~15 예시답안 (3-1)
+    steps:
+    - id: 1b-1
+      content: |
+        함수 $f$가 공평한 함수가 되도록 $f(1)$부터 $f(n)$까지 값을 차례대로 정하자. $f(1)$의 값으로 가능한 것은 1부터 $n$까지 $n$가지 경우가 있다. $f(1)$의 값을 정한 후에, $f(2)$의 값은, 시행 후 $R_2$가 $R_1$과 겹치지 않아야 하므로 $n-1$가지 경우가 있다. 같은 방법으로 $f(3)$의 값은, 시행 후 $R_3$가 $R_1$ 또는 $R_2$와 겹치지 않아야 하므로 $n-2$가지 경우가 있고, $\cdots$, $f(n)$의 값은 시행 후 $R_n$이 $R_1,R_2,\ldots,R_{n-1}$과 겹치지 않아야 하므로 1가지 경우가 있다.
+      criteria: [1.M1]
+    - id: 1b-2
+      content: |
+        따라서 곱의 법칙에 의하여 공평한 함수 $f$의 개수는 $n!$이다.
+      criteria: [1.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 0, isw: true}
+    note: '공식 채점기준(해설 p.14): 공평한 함수의 개수를 구하는 타당한 방법을 제시하면 3점, 공평한 함수의 개수가 $n!$임을 보이면 7점.'
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 3
+      evidence: '$f(1),f(2),\ldots$를 차례로 정하며 각 단계의 경우의 수(겹치지 않는 위치 수)를 따지는 등 타당한 세기 방법을 적었다.'
+      depends_on: []
+      steps: [1b-1, 1a]
+    - id: 1.A1
+      mark_type: A
+      points: 7
+      evidence: '곱의 법칙으로 개수가 $n!$임을 보였다.'
+      depends_on: [1.M1]
+      steps: [1b-2, 1a]
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-CNT-5114}
+  misconceptions:
+  - id: MC-CNT-5114
+    outcome_code: '70'
+    wrong_work: '공평한 함수를 일대일대응 $f$와 같은 것으로 보아 "일대일대응의 개수 $n!$"이라고만 쓰고 근거를 대지 않음(또는 $n^n$)'
+    detect_cue: '$f$ 자체의 일대일 여부로 공평함을 판정'
+    feedback: '공평함은 $f$가 아니라 도착 위치 $i+f(i)$(나머지)가 서로 다른지의 문제입니다. 예시 $f(3)=f(4)=1$도 공평합니다.'
+    remedy: [RL-1]
+
+- id: 2a
+  stem: |
+    (3-2) (a) $f:\{1,2,\cdots,n\}\to\{1,2,\cdots,n\}$이 공평한 함수이고, 모든 $k=1,2,\cdots,n$에 대하여 $f(k)\le n-1$일 때, $g(x)=f(x)+1$로 정의된 함수 $g:\{1,2,\cdots,n\}\to\{1,2,\cdots,n\}$도 공평한 함수임을 보이시오. [5점]
+  points: 5
+  depends_on: []
+  answer: {kind: proof, value: null, equivalents: [], tolerance: null}
+  solutions:
+  - id: S2a-A
+    audience: A
+    method_no: 1
+    key_idea: $g$에 의한 시행 = $f$에 의한 시행 후 모든 동전을 1칸 더 회전.
+    steps:
+    - {id: 2aa, content: '회전은 꼭짓점 사이의 일대일대응이므로 공평성 유지', criteria: [2a.R1]}
+    hint_ladder:
+    - $g$로 옮긴 결과를 $f$로 옮긴 결과와 비교해 보자.
+  - id: S2a-B
+    audience: B
+    method_no: 1
+    source_flow: 2023 자연오전 해설 p.15 예시답안 (3-2)(a)
+    steps:
+    - id: 2ab-1
+      content: |
+        함수 $g$로 시행을 하여 동전을 옮기면, 함수 $f$로 시행을 하여 동전을 옮긴 후 시계 방향으로 1만큼씩 더 옮긴 것과 같다. 동전은 모두 다른 꼭짓점 위로 옮겨지므로 $g$는 공평한 함수이다.
+      criteria: [2a.R1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 0, isw: true}
+    note: '공식 채점기준(해설 p.14): $g(x)$가 공평한 함수임을 보이면 5점.'
+    criteria:
+    - id: 2a.R1
+      mark_type: R
+      points: 5
+      evidence: '$g$의 시행이 $f$의 시행 후 모두 1칸 더 옮긴 것과 같아 동전이 서로 다른 꼭짓점에 놓임을 적었다($g$의 공역 조건 $f(k)+1\le n$ 포함).'
+      depends_on: []
+      steps: [2ab-1, 2aa]
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-PRF-5115}
+  misconceptions:
+  - id: MC-PRF-5115
+    outcome_code: '70'
+    wrong_work: '$n=4$ 등 특정 예에서 $g$가 공평함을 확인하고 일반적으로 성립한다고 결론'
+    detect_cue: 구체적 $n$, $f$ 하나만 다룸
+    feedback: 예시 확인은 증명이 아닙니다. 모든 동전이 똑같이 1칸 더 회전한다는 일반적 관찰을 쓰세요.
+    remedy: [RL-2]
+
+- id: 2b
+  stem: |
+    (3-2) (b) 공평한 함수 $f:\{1,2,\cdots,9\}\to\{1,2,\cdots,9\}$의 치역이 $\{a,b\}\ (1\le a<b\le9)$라 하자. 5 이상의 자연수 중 $b-a$의 값으로 가능한 것을 모두 찾으시오. [10점]
+  points: 10
+  depends_on: [2a]
+  answer: {kind: set, value: '6', equivalents: ['\{6\}', 'b-a=6'], tolerance: null}
+  solutions:
+  - id: S2b-A
+    audience: A
+    method_no: 1
+    key_idea: '(a)로 $b=9$(움직이지 않음)로 옮기면, $a$만큼 옮기는 동전들은 $a$ 간격의 연쇄를 이루며 $9$의 약수 $a=3$일 때만 닫힌다.'
+    steps:
+    - {id: 2ba, content: '$a=1,2,4$이면 연쇄가 $P_9$에서 충돌, $a=3$이면 공평 ⇒ $b-a=6$', criteria: [2b.R1, 2b.B1]}
+    hint_ladder:
+    - (a)를 여러 번 써서 $b=9$로 만들 수 있다.
+    - 9만큼 옮기는 동전은 움직이지 않은 것과 같다.
+  - id: S2b-B
+    audience: B
+    method_no: 1
+    source_flow: 2023 자연오전 해설 p.15 예시답안 (3-2)(b)
+    steps:
+    - id: 2bb-1
+      content: |
+        치역이 $\{a,b\}$인 공평한 함수가 존재하면, (3-2) (a)에 의하여 치역이 $\{a-b+9,9\}$인 공평한 함수가 존재한다. 이때, 치역의 두 원소의 차는 변화가 없으므로 $b=9$이고, $9-a\ge5$, 즉 $a=1,2,3,4$인 경우만 고려하면 된다.
+        정9각형 위에 있는 9개의 동전 중 일부는 시계 방향으로 9만큼 옮기고, 나머지는 시계 방향으로 $a$만큼 옮긴다. 9만큼 옮기면 원래 있던 꼭짓점으로 돌아오므로, 움직이지 않는 것으로 간주할 수 있다. 시행을 할 때, 옮기지 않는 동전과 $a$만큼 옮기는 동전이 각각 적어도 하나씩 존재하므로, 정9각형 위에는 $R$은 옮기지 않고, $R'$은 시계 방향으로 $a$만큼 옮기는 시계 방향으로 연속하여 위치한 두 동전 $R,R'$이 존재한다.
+      criteria: [2b.R1]
+    - id: 2bb-2
+      content: |
+        정$n$각형을 적당히 회전하여 $R=R_9$, $R'=R_1$, 즉 $f(9)=9$, $f(1)=a$라고 가정할 수 있다. 이때 시행 후 동전 $R_9$는 $P_9$ 위에 그대로 남아있고, $R_1$은 $P_{1+a}$로 이동한다. 시행 후 동전의 위치가 겹치지 않으므로 원래 $P_{1+a}$ 위에 있던 동전 $R_{1+a}$는 이동해야 한다. 따라서 $f(1+a)=a$이고, $R_{1+a}$는 $P_{1+2a}$로 이동한다. 그러면 $P_{1+2a}$ 위에 있던 동전 $R_{1+2a}$도 이동해야 하고, $f(1+2a)=a$이다. 이와 같은 방법으로 시행 후 동전의 위치를 보면 다음과 같다.
+        $a=1$인 경우, $R_1$은 $P_2$, $R_2$는 $P_3$, $\cdots$, $R_8$은 $P_9$로 이동한다.
+        $a=2$인 경우, $R_1$은 $P_3$로, $R_3$는 $P_5$로, $R_5$는 $P_7$로, $R_7$은 $P_9$로 이동한다.
+        $a=4$인 경우, $R_1$은 $P_5$로, $R_5$는 $P_9$로 이동한다.
+        위의 세 가지 경우에는 $P_9$ 위에 적어도 두 개의 동전이 위치하게 되어 공평한 함수가 될 수 없다. 따라서, $a=1,2,4$인 공평한 함수는 존재하지 않는다.
+      criteria: [2b.R1]
+    - id: 2bb-3
+      content: |
+        $a=3$인 경우에는,
+        $$f(k)=\begin{cases}3 & k=1,4,7\\ 9 & k=2,3,5,6,8,9\end{cases}$$
+        로 정의하면 공평한 함수가 된다. 이때 $b-a$의 값은 6이다.
+        따라서 5 이상의 자연수 중 $b-a$의 값으로 가능한 것은 6뿐이다.
+      criteria: [2b.B1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 0, isw: true}
+    note: '공식 채점기준(해설 p.14): $b-a$가 5,7,8인 경우에 불가능함을 명확하게 보이면 6점, $b-a$가 6인 공평한 함수를 하나 찾으면 4점.'
+    criteria:
+    - id: 2b.R1
+      mark_type: R
+      points: 6
+      evidence: '$b-a=5,7,8$(즉 정규화 후 $a=4,2,1$)인 경우 동전이 한 꼭짓점에 겹쳐 공평할 수 없음을 명확히 보였다.'
+      depends_on: []
+      steps: [2bb-1, 2bb-2, 2ba]
+    - id: 2b.B1
+      mark_type: B
+      points: 4
+      evidence: '$b-a=6$인 공평한 함수의 예(예: $f(k)=3\ (k=1,4,7)$, $9$ (그 외))를 제시했다.'
+      depends_on: []
+      steps: [2bb-3, 2ba]
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-CNT-5116}
+  misconceptions:
+  - id: MC-CNT-5116
+    outcome_code: '70'
+    wrong_work: '예 하나($b-a=6$)만 찾고 5, 7, 8이 불가능한 이유를 보이지 않거나, 몇 개 시도 실패를 근거로 불가능하다고 씀'
+    detect_cue: 불가능성 논증 없이 "6"만 답함
+    feedback: '"모두 찾으시오"는 가능한 값의 예와 나머지 값이 불가능하다는 증명을 함께 요구합니다.'
+    remedy: [RL-3]
+
+- id: '3'
+  stem: |
+    (3-3) $n$이 짝수일 때 공평한 일대일대응 $f$가 존재하지 않음을 보이시오. [10점]
+  points: 10
+  depends_on: []
+  answer: {kind: proof, value: null, equivalents: [], tolerance: null}
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: '$\sum(i+f(i)-k)=\sum f(i)=\tfrac{n(n+1)}2\equiv\tfrac n2\pmod n$인데 각 항은 $n$의 배수.'
+    steps:
+    - {id: 3a, content: '$n\mid\sum f(i)=\tfrac{n(n+1)}{2}=\tfrac n2\cdot n+\tfrac n2$ 모순', criteria: [3.M1, 3.M2, 3.R1]}
+    hint_ladder:
+    - 동전 $R_i$가 $P_k$로 가면 $i+f(i)$와 $k$의 관계는?
+    - 모든 동전에 대해 더해 보자.
+  - id: S3-B
+    audience: B
+    method_no: 1
+    source_flow: 2023 자연오전 해설 p.15 예시답안 (3-3)
+    steps:
+    - id: 3b-1
+      content: |
+        귀류법으로 공평한 일대일대응이 존재하지 않음을 보이자. 공평한 일대일대응 $f$가 존재한다고 가정하자.
+        각각의 $i$에 대하여, 시행 후 동전 $R_i$의 위치를 $P_k$라 하면, $i+f(i)=k$이거나 $i+f(i)=n+k$이다. 즉, $i+f(i)-k$는 $n$의 배수이다.
+      criteria: [3.M1]
+    - id: 3b-2
+      content: |
+        따라서 모든 동전 $R_i$에 대하여 $(i+f(i)-k)$의 값을 모두 더하면 그 값은 $n$의 배수가 된다. 또한 공평한 함수의 정의에 의하여 시행 후에는 각각의 $1\le k\le n$에 대하여 $P_k$에 정확히 하나의 동전이 놓인다. 따라서 모든 동전 $R_i$에 대하여 $(i+f(i)-k)$의 값을 더한 것은 $\displaystyle\sum_{i=1}^n(i+f(i))-\sum_{k=1}^nk$와 같고, $f$는 일대일 대응이므로 제시문 (나)에 의하여
+        $$\sum_{i=1}^n(i+f(i))-\sum_{k=1}^nk=\sum_{i=1}^nf(i)=1+2+\cdots+n=\dfrac{n(n+1)}{2}$$
+        이다.
+      criteria: [3.M2]
+    - id: 3b-3
+      content: |
+        그런데 $n$이 짝수이므로 $\dfrac{n(n+1)}{2}=\dfrac n2\cdot n+\dfrac n2$은 $n$으로 나눈 나머지가 $\dfrac n2$으로 $n$의 배수가 될 수 없다. 이는 모순이다. 따라서 공평한 일대일대응은 존재하지 않는다.
+      criteria: [3.R1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 0, isw: true}
+    note: '공식 채점기준(해설 p.14): 동전 $R_i$가 점 $P_k$로 이동할 때 $i+f(i)-k$가 $n$의 배수임을 보이면 4점, 동전이 이동한 거리의 합이 $\tfrac{n(n+1)}{2}$임을 보이면 3점, $n$이 짝수일 때 $\tfrac{n(n+1)}{2}$이 $n$의 배수가 아님을 이용하여 공평한 함수가 존재하지 않음을 보이면 3점.'
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 4
+      evidence: '동전 $R_i$가 $P_k$로 이동할 때 $i+f(i)-k$가 $n$의 배수임을 적었다.'
+      depends_on: []
+      steps: [3b-1, 3a]
+    - id: 3.M2
+      mark_type: M
+      points: 3
+      evidence: '$k$가 $1,\ldots,n$을 한 번씩 지남과 제시문 (나)를 써서 합(이동 거리의 합)이 $\tfrac{n(n+1)}{2}$임을 보였다.'
+      depends_on: []
+      steps: [3b-2, 3a]
+    - id: 3.R1
+      mark_type: R
+      points: 3
+      evidence: '$n$이 짝수이면 $\tfrac{n(n+1)}{2}$이 $n$의 배수가 아님을 보여 모순으로 결론지었다.'
+      depends_on: [3.M1, 3.M2]
+      steps: [3b-3, 3a]
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-PRF-5117}
+  misconceptions:
+  - id: MC-PRF-5117
+    outcome_code: '70'
+    wrong_work: '$n=4$(또는 작은 짝수)에서 모든 일대일대응을 조사해 성립하지 않음을 보이고 일반 짝수로 확장'
+    detect_cue: 특정 $n$에 대한 사례 조사만 있음
+    feedback: '일반 $n$에 대해서는 불변량(이동 거리 합의 $n$에 대한 나머지)을 찾아 귀류법으로 보여야 합니다.'
+    remedy: [RL-4]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CNT-5114}
+  relation: remediation
+  target: {kind: concept, ref: CON-CNT-PRODUCT-RULE-SEQ-I1}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-PRF-5115}
+  relation: remediation
+  target: {kind: concept, ref: CON-PRF-GENERAL-ARGUMENT-I1}
+  priority: 1
+- id: RL-3
+  trigger: {type: misconception, ref: MC-CNT-5116}
+  relation: remediation
+  target: {kind: concept, ref: CON-CNT-MOD-POSITION-I1}
+  priority: 1
+- id: RL-4
+  trigger: {type: misconception, ref: MC-PRF-5117}
+  relation: remediation
+  target: {kind: concept, ref: CON-PRF-CONTRADICTION-INVARIANT-I1}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-input-v1, item_version: 1, verdict: pass, date: 2026-11-21, note: 원문 PDF 이미지 판독으로 옮김 · 해설 B는 공식 해설 흐름}
+
+created: 2026-11-21
+updated: 2026-11-21

@@ -1,0 +1,329 @@
+schema_version: '2.0'
+id: INHA-M26D-03
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: essay
+origin: mock_exam
+school: INHA
+type: null
+variant_of: null
+replaces: null
+level: L6
+form: 구성
+points: 35
+time_estimate_min: 35
+intent: 최대, 최소를 포함한 수학적인 기술로 함수가 주어졌을 때, 함수의 연속성 등을 포함한 성질을 파악할 수 있는지 평가한다.
+key_idea: '$g(x)$는 $[0,x]$에서 최댓값을 주는 가장 큰 위치, $h(x)$는 최솟값을 주는 가장 큰 위치이다. $g-h$의 기울기(0, $\pm1$)로부터 각 구간에서 $f$가 새 최대·새 최소를 갱신하는지 거꾸로 읽어낸다.'
+stuck: '(3-3)에서 $g-h$의 기울기 조건을 구간마다 "$g=x$이고 $h$ 상수"/"$h=x$이고 $g$ 상수"/"둘 다 상수"로 번역하고, 적분 최대·최소가 되게 기울기를 고르는 단계'
+idea_tags: [IDEA-RUNNING-ARGMAX-FUNCTION, IDEA-REVERSE-ENGINEER-FROM-DERIVED-FUNCTION]
+tags: [인하대 모의, 의예과, 연속·불연속, 그래프 개형]
+elements:
+  materials: ['구간 $[n-1,n]$마다 선분인 연속함수 $f$, $f(0)=0$', '$g(x)$: $[0,x]$에서 $f$의 최댓값을 주는 $\alpha$의 최댓값', '$h(x)$: $[0,x]$에서 $f$의 최솟값을 주는 $\alpha$의 최댓값']
+  concepts: [함수의 극한, 좌극한·우극한, 함수의 연속·불연속, 함수의 최대·최소]
+  tools: [그래프 개형 그리기, 구간별 경우 나누기, 일차함수 구간의 값 비교, 사다리꼴 넓이로 정적분]
+  conditions:
+  - '$f$ 증가 ⇒ $g(x)=x$, $h(x)=0$'
+  - '$f(n)=(-2)^{n-1}$ ⇒ 진동 폭이 커져 짝수 구간에서 새 최댓값을 넘는 점 $a_n=2n+\dfrac12$에서 $g$가 점프'
+  - '$g-h$ 기울기 0 ⇒ $g$, $h$ 모두 상수(또는 둘 다 $x$); 기울기 1 ⇒ $g=x$, $h$ 상수; 기울기 $-1$ ⇒ $h=x$, $g$ 상수'
+  - '각 구간 기울기 $\in\{0,\pm1,\pm2\}$ ⇒ 조건을 만족하는 $f$ 중 $\int_0^8f$ 최대·최소 선택'
+  stimuli_used: [가, 나]
+  subpart_links: '(3-2)·(3-3)은 (3-1)의 $g$, $h$ 정의 해석을 사용'
+
+curriculum:
+  version: '2015'
+  subjects: [수학, 수학Ⅱ]
+  scope_2028: common
+  scope_confirmed: false
+  standards:
+  - code: 12수학Ⅱ01-01
+    text: 함수의 극한의 뜻을 안다.
+    verified: true
+  - code: 12수학Ⅱ01-03
+    text: 함수의 연속의 뜻을 안다.
+    verified: true
+  - code: 10수학04-01
+    text: 함수의 개념을 이해하고, 그 그래프를 이해한다.
+    verified: true
+  - code: 12수학Ⅱ01-04
+    text: 연속함수의 성질을 이해하고, 이를 활용할 수 있다.
+    verified: true
+  content_area: 함수의 극한과 연속 – 연속·불연속
+  behavior_domain: 추론
+  unit_path: [수학Ⅱ, 함수의 극한과 연속, 함수의 연속, 연속함수의 성질]
+  key_concepts: [함수의 극한, 연속·불연속, 최댓값·최솟값의 위치]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 인하대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 인하대학교
+  admission_year: 2026
+  admission_type: 논술(모의)
+  track: 의예과
+  question_no: 3
+  official_url: https://admission.inha.ac.kr/cms/FR_BBS_CON/BoardView.do?MENU_ID=250&SITE_NO=2&BOARD_SEQ=2&BBS_SEQ=199
+  retrieved_at: '2026-11-21'
+  original_points: 35
+  note: 문제 = 199__(자연)_2026학년도_논술_모의고사_문제지.pdf p.9(의예 6/8), 해설·채점기준 = 같은 번호 해설지.pdf p.12~15 [의예과 문항 3]. (3-3)은 (a)(b) 각 8점 → 소문항 '3' 16점으로 합쳐 입력
+
+verify: verify/INHA-M26D.py::p03
+
+stimuli:
+- label: 가
+  body: |
+    함수 $f(x)$의 $x=a$에서의 우극한과 좌극한이 모두 존재하고, 그 값이 모두 $L$이면 $\displaystyle\lim_{x\to a}f(x)=L$이다. 즉 다음이 성립한다.
+    $$\lim_{x\to a}f(x)=L\iff\lim_{x\to a+}f(x)=\lim_{x\to a-}f(x)=L$$
+- label: 나
+  body: |
+    함수 $f(x)$가 실수 $a$에 대하여 다음 조건을 모두 만족시킬 때, 함수 $f(x)$는 $x=a$에서 연속이라고 한다.
+    (i) 함수 $f(x)$는 $x=a$에서 정의되어 있다.
+    (ii) 극한값 $\displaystyle\lim_{x\to a}f(x)$가 존재한다.
+    (iii) $\displaystyle\lim_{x\to a}f(x)=f(a)$
+    함수 $f(x)$가 $x=a$에서 연속이 아닐 때, 함수 $f(x)$는 $x=a$에서 불연속이라고 한다.
+
+stem: |
+  (※) 구간 $[0,\infty)$에서 연속인 함수 $f(x)$는 모든 양의 정수 $n$에 대하여 닫힌구간 $[n-1,n]$에서 그래프가 선분이고, $f(0)=0$을 만족한다. 임의의 음이 아닌 실수 $x$에 대하여 $0\le t\le x$인 모든 실수 $t$에 대하여 $f(t)\le f(\alpha)$가 되도록 하는 $\alpha$의 최댓값을 $g(x)$라고 하자. 또한 임의의 음이 아닌 실수 $x$에 대하여 $0\le t\le x$인 모든 실수 $t$에 대하여 $f(t)\ge f(\alpha)$가 되도록 하는 $\alpha$의 최댓값을 $h(x)$라고 하자. (단, $0\le\alpha\le x$)
+
+subparts:
+- id: '1'
+  stem: |
+    (3-1) $f(x)=2x$일 때, 함수 $g(x)$와 $h(x)$의 값을 $x$ $(x\ge0)$의 식으로 나타내시오. [6점]
+  points: 6
+  depends_on: []
+  answer: {kind: expression, value: 'g(x)=x,\ h(x)=0', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: 증가함수이므로 최댓값은 오른쪽 끝, 최솟값은 왼쪽 끝에서만 얻는다.
+    steps:
+    - {id: 1a, content: '$g(x)=x$, $h(x)=0$', criteria: [1.A1, 1.A2]}
+    hint_ladder:
+    - '$[0,x]$에서 $2t$의 최댓값과 최솟값은 어디서 생기는가?'
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 2026 자연 모의 해설지 p.14 예시 답안 (3-1), 채점기준 p.13
+    steps:
+    - id: 1b-1
+      content: |
+        함수 $f(x)=2x$는 정의역 $[0,\infty)$에서 증가함수이다. $x\ge0$일 때, 구간 $[0,x]$에서 함수 $f(t)$의 최댓값은 $t=x$일 때 $2x$이고, 최솟값은 $t=0$일 때 $0$이다.
+      criteria: [1.A1, 1.A2]
+    - id: 1b-2
+      content: |
+        $g(x)$와 $h(x)$의 정의에 의하여 $g(x)=x$, $h(x)=0$이다.
+      criteria: [1.A1, 1.A2]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.A1
+      mark_type: B
+      points: 3
+      evidence: '$g(x)=x$를 구했다.'
+      depends_on: []
+      steps: [1b-1, 1b-2]
+    - id: 1.A2
+      mark_type: B
+      points: 3
+      evidence: '$h(x)=0$을 구했다.'
+      depends_on: []
+      steps: [1b-1, 1b-2]
+    deductions:
+    - code: D1-1
+      condition: 위 식들이 구해진 이유를 논리적으로 서술하지 않은 경우(공식 채점기준)
+      effect: minus
+      value: 4
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-CAL-5511}
+  misconceptions:
+  - id: MC-CAL-5511
+    outcome_code: '70'
+    wrong_work: '$g(x)=2x$, $h(x)=0$처럼 최댓값(함숫값)을 답으로 씀'
+    detect_cue: '$g(x)$에 $2x$가 나온다'
+    feedback: '$g(x)$는 최댓값이 아니라 최댓값을 주는 위치 $\alpha$입니다.'
+    remedy: [RL-1]
+- id: '2'
+  stem: |
+    (3-2) 모든 양의 정수 $n$에 대하여 $f(n)=(-2)^{n-1}$일 때, 함수 $y=g(x)$가 $x=a$에서 불연속이 되도록 하는 양의 실수 $a$ 중에서 $a<10$인 것을 모두 구하시오. [13점]
+  points: 13
+  depends_on: ['1']
+  answer: {kind: set, value: '\dfrac52,\ \dfrac92,\ \dfrac{13}{2},\ \dfrac{17}{2}', equivalents: ['2.5, 4.5, 6.5, 8.5'], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: '홀수점 $2n-1$에서 찍힌 최댓값 $2^{2(n-1)}$을 다음 상승 구간 $[2n,2n+1]$에서 넘어서는 순간 $a_n=2n+\dfrac12$에 $g$가 $2n-1$에서 $a_n$으로 점프한다.'
+    steps:
+    - {id: 2a, content: '$(4+2)(a_n-2n)-2=1\Rightarrow a_n=2n+\dfrac12$', criteria: [2.M2, 2.A1]}
+    hint_ladder:
+    - $f$의 그래프를 0부터 10까지 그려 보자.
+    - 새로운 최댓값이 처음 생기는 위치에서 $g$는 어떻게 바뀌는가?
+  - id: S2-B
+    audience: B
+    method_no: 1
+    source_flow: 2026 자연 모의 해설지 p.14 예시 답안 (3-2), 채점기준 p.13
+    steps:
+    - id: 2b-1
+      content: |
+        함수 $y=f(x)$의 그래프의 개형은 $0\le x\le10$일 때 대략 다음과 같다. ($y$축 방향으로 축소해서 그림)
+        [그림: 해설지 p.14 — $(0,0)$에서 출발해 $f(1)=1$, $f(2)=-2$, $f(3)=4$, $f(4)=-8$, … 정수점마다 부호가 바뀌며 진폭이 2배씩 커지는 꺾은선]
+      criteria: [2.M1]
+    - id: 2b-2
+      content: |
+        $n=1,2,3,4$에 대하여 구간 $[2n,2n+1]$의 값 중 $f(t)=f(2n-1)=2^{2(n-1)}$을 만족하는 $t$의 값을 $a_n$이라고 하자. $x\in[2n,2n+1]$일 때 $f(x)=(2^{2n}+2^{2n-1})(x-2n)-2^{2n-1}$이므로 $(2^{2n}+2^{2n-1})(a_n-2n)-2^{2n-1}=2^{2(n-1)}$, 즉 $(4+2)(a_n-2n)-2=1$이다. 따라서 $a_n=2n+\dfrac12$이다.
+        이때 함수 $g(x)$는 구간별로 다음식을 만족한다.
+        $0\le x\le1$일 때 $g(x)=x$
+        $2n-1<x<a_n$ 일 때 $g(x)=2n-1$ $(n=1,2,3,4)$
+        $a_n\le x\le2n+1$ 일 때 $g(x)=x$ $(n=1,2,3,4)$
+        $9<x\le10$이면 $g(x)=9$
+      criteria: [2.M2]
+    - id: 2b-3
+      content: |
+        따라서 $g(x)$는 $x=a_1,a_2,a_3,a_4$일 때 불연속이다. 그러므로, 구하려는 $a$의 값은 $2.5$, $4.5$, $6.5$, $8.5$이다.
+      criteria: [2.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 3
+      evidence: '$y=f(x)$의 그래프의 개형(정수점에서 $(-2)^{n-1}$, 선분 연결)을 파악했다.'
+      depends_on: []
+      steps: [2b-1]
+    - id: 2.M2
+      mark_type: M
+      points: 6
+      evidence: '구간별로 $g(x)$의 식($x$ 또는 상수 $2n-1$, 경계 $a_n=2n+\dfrac12$)을 구했다.'
+      depends_on: [2.M1]
+      steps: [2b-2]
+    - id: 2.A1
+      mark_type: A
+      points: 4
+      evidence: '불연속점 $\dfrac52$, $\dfrac92$, $\dfrac{13}{2}$, $\dfrac{17}{2}$를 모두 구했다.'
+      depends_on: [2.M2]
+      steps: [2b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-5513}
+  misconceptions:
+  - id: MC-CAL-5513
+    outcome_code: '71'
+    wrong_work: '$f$의 극댓점 $x=3,5,7,9$를 불연속점으로 답함'
+    detect_cue: 답이 정수
+    feedback: '$g$는 새로운 최댓값이 이전 최댓값을 처음 넘는 순간(상승 구간 도중)에 점프합니다. $f(t)=f(2n-1)$인 $t$를 구하세요.'
+    remedy: [RL-2]
+- id: '3'
+  stem: |
+    (3-3) $n$이 8 이하의 홀수일 때 열린구간 $(n-1,n)$에서 함수 $y=g(x)-h(x)$의 그래프는 기울기가 $0$인 직선의 일부이고, $n$이 8 이하의 짝수일 때는 열린구간 $(n-1,n)$에서 $y=g(x)-h(x)$의 그래프는 기울기가 $(-1)^{\frac n2+1}$인 직선의 일부이다. $n$이 $1\le n\le8$인 정수일 때 각각의 구간 $[n-1,n]$에서 $f(x)$의 그래프는 기울기가 $0$, $\pm1$, $\pm2$ 중 하나인 선분이다.
+    (a) $\displaystyle\int_0^8f(x)dx$의 값이 최대가 되도록 하는 함수 $y=f(x)$ $(0\le x\le8)$의 그래프의 개형을 그리시오. [8점]
+    (b) $\displaystyle\int_0^8f(x)dx$의 값이 최소가 되도록 하는 함수 $y=f(x)$ $(0\le x\le8)$의 그래프의 개형을 그리시오. [8점]
+  points: 16
+  depends_on: ['1']
+  answer:
+    kind: expression
+    value: '(a) 기울기 $(0,2,-2,0,2,0,-2,0)$: $(0,0)\to(1,0)\to(2,2)\to(3,0)\to(4,0)\to(5,2)\to(6,2)\to(7,0)\to(8,0)$, 적분값 6 / (b) 기울기 $(0,1,-1,-1,2,0,-2,-2)$: $(0,0)\to(1,0)\to(2,1)\to(3,0)\to(4,-1)\to(5,1)\to(6,1)\to(7,-1)\to(8,-3)$, 적분값 $-\dfrac12$'
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: '기울기 조건을 구간별로 "새 최대 갱신(구간 2·6)", "새 최소 갱신(구간 4·8)", "갱신 없음(홀수 구간)"으로 번역한 뒤 기울기 크기를 적분 목적에 맞게 고른다.'
+    steps:
+    - {id: 3a, content: '(a) 꼭짓점 $(0,0),(1,0),(2,2),(3,0),(4,0),(5,2),(6,2),(7,0),(8,0)$ / (b) $(0,0),(1,0),(2,1),(3,0),(4,-1),(5,1),(6,1),(7,-1),(8,-3)$', criteria: [3.A1]}
+    hint_ladder:
+    - '$g-h$의 기울기가 1이면 $g$와 $h$는 각각 어떤 꼴인가?'
+    - '첫 구간에서 $f$가 증가하거나 감소하면 $g-h$의 기울기는?'
+  - id: S3-B
+    audience: B
+    method_no: 1
+    source_flow: 2026 자연 모의 해설지 p.14~15 예시 답안 (3-3), 채점기준 p.13
+    steps:
+    - id: 3b-1
+      content: |
+        $0<x<1$일 때 $f(x)=0$이면 $g(x)=h(x)=x$, $f(x)$가 구간 $[0,1]$에서 증가이면 $g(x)=x$, $h(x)=0$이고, $f(x)$가 구간 $[0,1]$에서 감소이면 $g(x)=0$, $h(x)=x$이다. 따라서 문제의 조건에서 $f(x)=0$이다.
+        $1<x<2$일 때 $g(x)-h(x)$의 그래프는 기울기가 $1$인 직선의 일부이므로 $g(x)=x$이고 $h(x)$는 상수이므로 $f(x)$는 상수함수 또는 증가함수이다. 그런데, $f(x)$가 이 구간에서 상수라면 $f(x)=0$이 되어야 하므로 $h(x)=x$를 의미하고 이는 문제의 조건을 만족하지 않는다. 따라서 이 구간에서 $f(x)=x+b$ 또는 $f(x)=2x+b$이다. (단, $b$는 상수)
+      criteria: [3.M1, 3.M2]
+    - id: 3b-2
+      content: |
+        $2<x<3$일 때 $g(x)$와 $h(x)$ 모두 상수이므로 함수 $f(x)$의 구간 $(0,3)$에서의 최댓값과 최솟값은 모두 구간 $[0,2]$의 값일 때 얻어진다.
+        $3<x<4$일 때 $g(x)$는 상수이고, $h(x)=x$이므로, $f(3)$은 $f(x)$의 구간 $[0,3]$에서의 최솟값이고, $f(x)$는 이 구간에서 감소함수이거나 상수함수이어야 한다.
+        $4<x<5$일 때 $g(x)$와 $h(x)$ 모두 상수이므로 함수 $f(x)$의 구간 $(0,5)$에서의 최댓값과 최솟값은 모두 구간 $[0,4]$의 값일 때 얻어진다.
+        $5<x<6$일 때 $g(x)=x$이고 $h(x)$는 상수이므로 $f(x)$는 상수함수 또는 증가함수이고, $f(5)$는 함수 $f(x)$의 구간 $[0,5]$에서의 최댓값이어야 한다.
+        $6<x<7$일 때 $g(x)$와 $h(x)$ 모두 상수이므로 함수 $f(x)$의 구간 $(0,7)$에서의 최댓값과 최솟값은 모두 구간 $[0,6]$의 값일 때 얻어진다.
+        $7<x<8$일 때 $g(x)$는 상수이고, $h(x)=x$이므로, $f(7)$은 $f(x)$의 구간 $[0,7]$에서의 최솟값이고, $f(x)$는 이 구간에서 감소함수이거나 상수함수이어야 한다.
+      criteria: [3.M1, 3.M2]
+    - id: 3b-3
+      content: |
+        이 사실들을 고려하면 함수 $y=f(x)$ $(0\le x\le8)$의 그래프의 개형은 각각의 경우 다음과 같다.
+        [그림: 해설지 p.15 (a) — 꺾은선 $(0,0)\to(1,0)\to(2,2)\to(3,0)\to(4,0)\to(5,2)\to(6,2)\to(7,0)\to(8,0)$]
+        [그림: 해설지 p.15 (b) — 꺾은선 $(0,0)\to(1,0)\to(2,1)\to(3,0)\to(4,-1)\to(5,1)\to(6,1)\to(7,-1)\to(8,-3)$]
+        (참고: 이때 $\displaystyle\int_0^8f(x)dx$의 값은 (a) $6$, (b) $-\dfrac12$)
+      criteria: [3.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 4
+      evidence: '각각의 구간에서 $g(x)$와 $h(x)$가 만족해야 하는 성질($x$인지 상수인지)을 밝혔다.'
+      depends_on: []
+      steps: [3b-1, 3b-2]
+    - id: 3.M2
+      mark_type: M
+      points: 4
+      evidence: '각각의 구간에서 $f(x)$가 만족해야 하는 성질(증가·감소·상수, 최대·최솟값 위치)을 밝혔다.'
+      depends_on: [3.M1]
+      steps: [3b-1, 3b-2]
+    - id: 3.A1
+      mark_type: A
+      points: 8
+      evidence: '(a), (b) 각각의 경우 함수 $y=f(x)$의 그래프의 개형을 정확히 그렸다(각 4점).'
+      depends_on: [3.M2]
+      steps: [3b-3]
+    deductions:
+    - code: D3-1
+      condition: 함수의 개형이 구간별로 틀린 부분이 있는 경우 구간 당(공식 채점기준)
+      effect: minus
+      value: 2
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '72', misconception: MC-CAL-5512}
+  misconceptions:
+  - id: MC-CAL-5512
+    outcome_code: '72'
+    wrong_work: '구간 $(5,6)$에서 $f$를 상수 2로 두면 $g$가 상수(최댓값 위치 5)라고 보고 기울기 2로 올림'
+    detect_cue: '(a)에서 $f(6)>2$이거나 $(5,6)$ 구간을 증가로 그림'
+    feedback: '최댓값을 주는 $\alpha$가 여러 개면 가장 큰 것이 $g(x)$입니다. $f$가 최댓값에서 머물면 $g(x)=x$가 됩니다.'
+    remedy: [RL-1]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CAL-5511}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-RUNNING-MAX-I5}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-CAL-5513}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-CONTINUITY-I5}
+  priority: 1
+- id: RL-3
+  trigger: {type: misconception, ref: MC-CAL-5512}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-RUNNING-MAX-I5}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-input-v1, item_version: 1, verdict: pass, date: 2026-11-21, note: 원문 PDF 이미지 판독으로 옮김 · 해설 B는 공식 해설 흐름}
+
+created: 2026-11-21
+updated: 2026-11-21

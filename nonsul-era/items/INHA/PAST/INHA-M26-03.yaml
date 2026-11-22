@@ -1,0 +1,318 @@
+schema_version: '2.0'
+id: INHA-M26-03
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: INHA
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 추론
+points: 30
+time_estimate_min: 30
+intent: 삼각함수의 도함수를 구할 수 있는지, 정적분의 치환적분법과 삼각함수의 덧셈정리를 이해하고 정적분의 값을 올바르게 계산할 수 있는지 평가한다.
+key_idea: '$f(\theta)=\dfrac{\sec^2\theta}{1+\tan\theta}$이고, $x=\tan\theta$ 치환 후 $\ln(1+\tan\theta)+\ln\left(1+\tan\left(\dfrac\pi4-\theta\right)\right)=\ln2$를 이용한다.'
+stuck: '(3-3)에서 $x=\tan\theta$로 치환한 뒤 $\theta\to\dfrac\pi4-\theta$ 대칭으로 적분을 자기 자신과 연결하는 발상'
+idea_tags: [IDEA-TAN-SUBSTITUTION, IDEA-SYMMETRIC-SUBSTITUTION-SELF-REFERENCE]
+tags: [인하대 모의, 정적분, 치환적분, 의예과 공통]
+elements:
+  materials: ['$f(\theta)=\dfrac{1}{\cos\theta(\sin\theta+\cos\theta)}$ on $\left[0,\dfrac\pi4\right]$', '$\displaystyle\int_0^1\frac{\ln(1+x)}{1+x^2}dx$']
+  concepts: [탄젠트함수의 도함수, 정적분의 치환적분법, 탄젠트 덧셈정리]
+  tools: ['분모·분자를 $\cos^2\theta$로 나누기', '$x=\tan\theta$ 치환', '$\dfrac\pi4-\theta$ 대칭 치환', 부분적분(별해)]
+  conditions:
+  - '$\tan\left(\dfrac\pi4-\theta\right)=\dfrac{1-\tan\theta}{1+\tan\theta}$ ⇒ $1+\tan\left(\dfrac\pi4-\theta\right)=\dfrac{2}{1+\tan\theta}$'
+  - '$x=\tan\theta$ ⇒ $dx=\sec^2\theta\,d\theta$, 구간 $[0,1]\to\left[0,\dfrac\pi4\right]$'
+  stimuli_used: [가, 나, 다]
+  subpart_links: '(3-2)의 $F(\theta)=\ln(1+\tan\theta)$ 관계를 (3-3)에서 사용(별해는 (3-1)·(3-2) 결과 사용)'
+
+curriculum:
+  version: '2015'
+  subjects: [미적분]
+  scope_2028: calc2
+  scope_confirmed: false
+  standards:
+  - code: 12미적02-05
+    text: 사인함수와 코사인함수를 미분할 수 있다.
+    verified: true
+  - code: 12미적03-01
+    text: 치환적분법을 이해하고, 이를 활용할 수 있다.
+    verified: true
+  - code: 12미적02-03
+    text: 삼각함수의 덧셈정리를 이해한다.
+    verified: true
+  content_area: 적분법 – 치환적분
+  behavior_domain: 문제해결
+  unit_path: [미적분, 적분법, 여러 가지 적분법, 치환적분법]
+  key_concepts: [탄젠트함수의 도함수, 치환적분법, 탄젠트 덧셈정리]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 인하대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 인하대학교
+  admission_year: 2026
+  admission_type: 논술(모의)
+  track: 자연계열
+  question_no: 3
+  official_url: https://admission.inha.ac.kr/cms/FR_BBS_CON/BoardView.do?MENU_ID=250&SITE_NO=2&BOARD_SEQ=2&BBS_SEQ=199
+  retrieved_at: '2026-11-21'
+  original_points: 30
+  note: 의예과 [문제 1]과 동일(제시문·소문항·배점 같음, 의예 번호 (1-1)~(1-3)). 문제 = 199__(자연)_2026학년도_논술_모의고사_문제지.pdf p.5(일반 3/8)·p.7(의예 4/8), 해설·채점기준 = 같은 번호 해설지.pdf p.6~9 [문항3(의예과 문항 1)]
+
+verify: verify/INHA-M26.py::p03
+
+stimuli:
+- label: 가
+  body: |
+    (삼각함수의 도함수) $y=\tan x$이면 $y'=\sec^2x$
+- label: 나
+  body: |
+    (정적분의 치환적분법) 미분가능한 함수 $g(x)$의 도함수 $g'(x)$가 닫힌구간 $[a,b]$를 포함하는 열린구간에서 연속이고, $g(a)=\alpha$, $g(b)=\beta$에 대하여 함수 $f(x)$가 $\alpha$와 $\beta$를 양 끝으로 하는 닫힌구간에서 연속일 때
+    $$\int_a^bf(g(x))g'(x)dx=\int_\alpha^\beta f(t)dt$$
+- label: 다
+  body: |
+    (탄젠트함수의 덧셈정리)
+    $$\tan(\alpha+\beta)=\frac{\tan\alpha+\tan\beta}{1-\tan\alpha\tan\beta},\quad \tan(\alpha-\beta)=\frac{\tan\alpha-\tan\beta}{1+\tan\alpha\tan\beta}$$
+
+stem: |
+  (※) 함수 $f(\theta)$를 닫힌구간 $[0,\dfrac\pi4]$에서 다음과 같이 정의하자.
+  $$f(\theta)=\frac{1}{\cos\theta(\sin\theta+\cos\theta)}$$
+
+subparts:
+- id: '1'
+  stem: |
+    (3-1) 정적분 $\displaystyle\int_0^{\frac\pi4}f(\theta)d\theta$의 값을 구하시오. [10점]
+  points: 10
+  depends_on: []
+  answer: {kind: value, value: '\ln2', equivalents: ['ln 2'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: '$f(\theta)=\dfrac{\sec^2\theta}{1+\tan\theta}=\dfrac{(1+\tan\theta)''}{1+\tan\theta}$'
+    steps:
+    - {id: 1a, content: '$\left[\ln\lvert1+\tan\theta\rvert\right]_0^{\pi/4}=\ln2$', criteria: [1.M1, 1.A1]}
+    hint_ladder:
+    - 분모와 분자를 $\cos^2\theta$로 나누어 보자.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 2026 자연 모의 해설지 p.8 예시 답안 (3-1), 채점기준 p.7
+    steps:
+    - id: 1b-1
+      content: |
+        $f(\theta)$의 분모와 분자를 $\cos^2\theta$로 나누면 $f(\theta)=\dfrac{1/\cos^2\theta}{1+\sin\theta/\cos\theta}=\dfrac{\sec^2\theta}{1+\tan\theta}$가 된다.
+      criteria: [1.M1]
+    - id: 1b-2
+      content: |
+        따라서 제시문 (가)에 의하여 $\displaystyle\int_0^{\frac\pi4}f(\theta)d\theta=\int_0^{\frac\pi4}\frac{\sec^2\theta}{1+\tan\theta}d\theta=\left[\ln\lvert1+\tan\theta\rvert\right]_0^{\frac\pi4}=\ln2$이다.
+      criteria: [1.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 5
+      evidence: '$f(\theta)$를 $\dfrac{\sec^2\theta}{1+\tan\theta}$ 등 적분가능한 형태로 변형했다.'
+      depends_on: []
+      steps: [1b-1]
+    - id: 1.A1
+      mark_type: A
+      points: 5
+      evidence: 정적분의 값 $\ln2$를 올바르게 구했다.
+      depends_on: [1.M1]
+      steps: [1b-2]
+    deductions:
+    - code: D1-1
+      condition: 풀이는 맞았는데 사소한 계산 실수가 있는 경우(공식 채점기준 (3-3) 주석 준용)
+      effect: minus
+      value: 3
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-CAL-5506}
+  misconceptions:
+  - id: MC-CAL-5506
+    outcome_code: '70'
+    wrong_work: '$u=1+\tan\theta$로 치환하고 적분 구간을 $[0,\dfrac\pi4]$ 그대로 둠'
+    detect_cue: '$\ln\left(1+\dfrac\pi4\right)$ 같은 값이 나온다'
+    feedback: 치환하면 적분 구간도 새 변수의 값으로 바꾸어야 합니다.
+    remedy: [RL-1]
+- id: '2'
+  stem: |
+    (3-2) 닫힌구간 $[0,\dfrac\pi4]$에 속하는 모든 $\theta$에 대해서, $f(\theta)=f(\dfrac\pi4-\theta)$가 성립함을 보이시오. [10점]
+  points: 10
+  depends_on: []
+  answer: {kind: proof, value: null, equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: '$F(\theta)=\ln(1+\tan\theta)$에 대해 $F\left(\dfrac\pi4-\theta\right)=\ln2-F(\theta)$이고, 양변 미분.'
+    steps:
+    - {id: 2a, content: '$1+\tan\left(\dfrac\pi4-\theta\right)=\dfrac{2}{1+\tan\theta}$', criteria: [2.M1]}
+    hint_ladder:
+    - (3-1)에서 $f$는 어떤 함수의 도함수였는가?
+    - 탄젠트 덧셈정리로 $\tan\left(\dfrac\pi4-\theta\right)$를 정리하자.
+  - id: S2-B
+    audience: B
+    method_no: 1
+    source_flow: 2026 자연 모의 해설지 p.8 예시 답안 (3-2), 채점기준 p.7
+    steps:
+    - id: 2b-1
+      content: |
+        $F(\theta)=\ln(1+\tan\theta)$라고 하면, 제시문 (다)에 의하여
+        $F\left(\dfrac\pi4-\theta\right)=\ln\left(1+\dfrac{1-\tan\theta}{1+\tan\theta}\right)=\ln\left(\dfrac{2}{1+\tan\theta}\right)=\ln2-\ln(1+\tan\theta)=\ln2-F(\theta)$이다.
+      criteria: [2.M1]
+    - id: 2b-2
+      content: |
+        여기서 양변을 $\theta$에 대해 미분하면 $-F'\left(\dfrac\pi4-\theta\right)=-F'(\theta)$이고, (3-1)에서 $F'(\theta)=f(\theta)$이므로 $f\left(\dfrac\pi4-\theta\right)=f(\theta)$이다.
+      criteria: [2.R1]
+  - id: S2-ALT1
+    audience: ALT
+    method_no: 2
+    source_flow: 2026 자연 모의 해설지 p.8 (별해1)·(별해2)
+    steps:
+    - id: 2c-1
+      content: |
+        (별해1) 제시문 (다)에 의하여 $\tan\left(\dfrac\pi4-\theta\right)=\dfrac{1-\tan\theta}{1+\tan\theta}$이고, $\sec^2\left(\dfrac\pi4-\theta\right)=1+\tan^2\left(\dfrac\pi4-\theta\right)=\dfrac{2(1+\tan^2\theta)}{(1+\tan\theta)^2}$이다. 따라서 $f\left(\dfrac\pi4-\theta\right)=\dfrac{\sec^2\left(\frac\pi4-\theta\right)}{1+\tan\left(\frac\pi4-\theta\right)}=\dfrac{2(1+\tan^2\theta)/(1+\tan\theta)^2}{1+(1-\tan\theta)/(1+\tan\theta)}=\dfrac{\sec^2\theta}{1+\tan\theta}=f(\theta)$이다.
+      criteria: [2.M1, 2.R1]
+    - id: 2c-2
+      content: |
+        (별해2) 삼각함수의 덧셈정리에 의하여 $\sin\theta+\cos\theta=\sqrt2\cos\left(\dfrac\pi4-\theta\right)$이다. 따라서 $f(\theta)=\dfrac{1}{\cos\theta(\sin\theta+\cos\theta)}=\dfrac{1}{\sqrt2\cos\theta\cos\left(\frac\pi4-\theta\right)}=f\left(\dfrac\pi4-\theta\right)$이다.
+      criteria: [2.M1, 2.R1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 3
+      evidence: 삼각함수의 덧셈정리를 사용한 식이 있다.
+      depends_on: []
+      steps: [2b-1, 2c-1, 2c-2]
+    - id: 2.R1
+      mark_type: R
+      points: 7
+      evidence: '주어진 항등식 $f(\theta)=f\left(\dfrac\pi4-\theta\right)$를 논리적으로 빠짐없이 증명했다.'
+      depends_on: [2.M1]
+      steps: [2b-2, 2c-1, 2c-2]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-5508}
+  misconceptions:
+  - id: MC-CAL-5508
+    outcome_code: '71'
+    wrong_work: '$\tan\left(\dfrac\pi4-\theta\right)=\dfrac{1+\tan\theta}{1-\tan\theta}$로 부호를 뒤바꿈'
+    detect_cue: 정리한 식에 $1-\tan\theta$가 분모에 온다
+    feedback: '$\tan(\alpha-\beta)$의 분자는 $\tan\alpha-\tan\beta$, 분모는 $1+\tan\alpha\tan\beta$입니다.'
+    remedy: [RL-2]
+- id: '3'
+  stem: |
+    (3-3) 정적분 $\displaystyle\int_0^1\frac{\ln(1+x)}{1+x^2}dx$의 값을 구하시오. [10점]
+  points: 10
+  depends_on: ['2']
+  answer: {kind: value, value: '\dfrac\pi8\ln2', equivalents: ['(π/8)ln2'], tolerance: null}
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: '$x=\tan\theta$로 $\int_0^{\pi/4}F(\theta)d\theta$, $F(\theta)+F\left(\dfrac\pi4-\theta\right)=\ln2$.'
+    steps:
+    - {id: 3a, content: '$2I=\dfrac\pi4\ln2$', criteria: [3.A1]}
+    hint_ladder:
+    - '$1+x^2$가 보이면 $x=\tan\theta$를 떠올리자.'
+    - (3-2)의 관계를 적분해 보자.
+  - id: S3-B
+    audience: B
+    method_no: 1
+    source_flow: 2026 자연 모의 해설지 p.8 예시 답안 (3-3), 채점기준 p.8
+    steps:
+    - id: 3b-1
+      content: |
+        주어진 정적분에서 변수를 $x=\tan\theta$로 치환하면, 제시문 (나)에 의하여
+      criteria: [3.M1]
+    - id: 3b-2
+      content: |
+        $\displaystyle\int_0^1\frac{\ln(1+x)}{1+x^2}dx=\int_0^{\frac\pi4}\frac{\ln(1+\tan\theta)}{1+\tan^2\theta}\sec^2\theta d\theta=\int_0^{\frac\pi4}\ln(1+\tan\theta)d\theta$이다.
+      criteria: [3.M2]
+    - id: 3b-3
+      content: |
+        여기서 $F(\theta)=\ln(1+\tan\theta)$라고 하면
+        $\displaystyle\int_0^{\frac\pi4}F(\theta)d\theta=\int_0^{\frac\pi4}F\left(\frac\pi4-\theta\right)d\theta=\int_0^{\frac\pi4}(\ln2-F(\theta))d\theta=\frac\pi4\ln2-\int_0^{\frac\pi4}F(\theta)d\theta$이므로 $\displaystyle\int_0^{\frac\pi4}F(\theta)d\theta=\frac\pi8\ln2$이다.
+      criteria: [3.A1]
+  - id: S3-ALT1
+    audience: ALT
+    method_no: 2
+    source_flow: 2026 자연 모의 해설지 p.8~9 (별해)
+    steps:
+    - id: 3c-1
+      content: |
+        $x=\tan\theta$로 치환하고 부분적분하면 $\displaystyle\int_0^{\frac\pi4}\ln(1+\tan\theta)d\theta=\frac\pi4\ln2-\int_0^{\frac\pi4}\frac{\theta\sec^2\theta}{1+\tan\theta}d\theta$이다. $I=\displaystyle\int_0^{\frac\pi4}\theta f(\theta)d\theta$라 하면 (3-1)과 (3-2)에 의하여 $I=\displaystyle\int_0^{\frac\pi4}\left(\frac\pi4-\theta\right)f\left(\frac\pi4-\theta\right)d\theta=\frac\pi4\int_0^{\frac\pi4}f(\theta)d\theta-I=\frac\pi4\ln2-I$이다. 따라서 $I=\dfrac\pi8\ln2$이고, $\displaystyle\int_0^1\frac{\ln(1+x)}{1+x^2}dx=\frac\pi4\ln2-\frac\pi8\ln2=\frac\pi8\ln2$이다.
+      criteria: [3.M1, 3.M2, 3.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 2
+      evidence: '$x=\tan\theta$로 치환했다.'
+      depends_on: []
+      steps: [3b-1, 3c-1]
+    - id: 3.M2
+      mark_type: M
+      points: 3
+      evidence: '$\displaystyle\int_0^1\frac{\ln(1+x)}{1+x^2}dx=\int_0^{\frac\pi4}\ln(1+\tan\theta)d\theta$임을 보였다.'
+      depends_on: [3.M1]
+      steps: [3b-2, 3c-1]
+    - id: 3.A1
+      mark_type: A
+      points: 5
+      evidence: '$\displaystyle\int_0^{\frac\pi4}\ln(1+\tan\theta)d\theta=\frac\pi8\ln2$를 올바르게 구했다.'
+      depends_on: [3.M2]
+      steps: [3b-3, 3c-1]
+    deductions:
+    - code: D3-1
+      condition: 풀이는 맞았는데 사소한 계산 실수가 있는 경우(공식 채점기준)
+      effect: minus
+      value: 3
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '72', misconception: MC-CAL-5507}
+  misconceptions:
+  - id: MC-CAL-5507
+    outcome_code: '72'
+    wrong_work: '$\ln(1+\tan\theta)$의 원시함수를 직접 구하려다 멈추거나 수치 근사로 답함'
+    detect_cue: 대칭 치환 $\theta\to\dfrac\pi4-\theta$가 없고 답이 근삿값
+    feedback: '원시함수 대신 $\theta\to\dfrac\pi4-\theta$ 치환으로 같은 적분을 다시 만들어 방정식을 세우세요.'
+    remedy: [RL-3]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CAL-5506}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-SUBST-INTEGRAL-I5}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-CAL-5508}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-TRIG-ADD-I5}
+  priority: 1
+- id: RL-3
+  trigger: {type: misconception, ref: MC-CAL-5507}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-SYMMETRY-INTEGRAL-I5}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-input-v1, item_version: 1, verdict: pass, date: 2026-11-21, note: 원문 PDF 이미지 판독으로 옮김 · 해설 B는 공식 해설 흐름}
+
+created: 2026-11-21
+updated: 2026-11-21

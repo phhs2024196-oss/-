@@ -1,0 +1,306 @@
+schema_version: '2.0'
+id: INHA-M27D-02
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: INHA
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 추론
+points: 35
+time_estimate_min: 35
+intent: '(2-1) 정적분과 도형의 넓이를 이해하며 이를 활용할 수 있는지 평가한다. (2-2) 수열의 대소 관계를 이용하여 수열의 극한값을 구할 수 있는지 평가한다. (2-3) 식을 변형하여 극한값을 구할 수 있는지 평가한다.'
+key_idea: '$y=\dfrac1x$ 아래 넓이와 직사각형 넓이 합을 비교해 $\ln3<a_n<\ln\dfrac{3n-1}{n-1}$을 얻고, $b_k=a_{k+1}-a_k$로 망원합을 만든다.'
+stuck: '$b_k$가 $a_{k+1}-a_k$임을 알아보는 단계'
+idea_tags: [IDEA-INTEGRAL-BOUNDS-HARMONIC-SUM, IDEA-TELESCOPING-DIFFERENCE]
+tags: [인하대 모의, 의예과, 정적분과 넓이, 망원합]
+elements:
+  materials: ['$a_n=\dfrac1n+\dfrac{1}{n+1}+\cdots+\dfrac{1}{3n-1}$', '$b_k=\dfrac{1}{3k}+\dfrac{1}{3k+1}+\dfrac{1}{3k+2}-\dfrac1k$', '곡선 $y=\dfrac1x$']
+  concepts: [정적분과 넓이, 수열의 극한의 대소 관계, 급수의 부분합]
+  tools: [직사각형 넓이와 적분 비교(상합·하합), 샌드위치, 망원합]
+  conditions:
+  - '$y=\dfrac1x$ 감소 ⇒ $\displaystyle\int_k^{k+1}\frac1x dx<\frac1k<\int_{k-1}^{k}\frac1x dx$'
+  - '$a_{k+1}-a_k=\dfrac{1}{3k}+\dfrac{1}{3k+1}+\dfrac{1}{3k+2}-\dfrac1k$ ⇒ $\sum b_k=a_{n+1}-a_1$'
+  stimuli_used: [가, 나]
+  subpart_links: '(2-2)는 (2-1)의 하계를 사용, (2-3)은 (2-2)의 극한 $\ln3$ 사용'
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅱ, 미적분]
+  scope_2028: calc2
+  scope_confirmed: false
+  standards:
+  - code: 12수학Ⅱ03-05
+    text: 곡선으로 둘러싸인 도형의 넓이를 구할 수 있다.
+    verified: true
+  - code: 12미적03-03
+    text: 여러 가지 함수의 부정적분과 정적분을 구할 수 있다.
+    verified: true
+  - code: 12미적01-02
+    text: 수열의 극한에 대한 기본 성질을 이해하고, 이를 이용하여 극한값을 구할 수 있다.
+    verified: true
+  content_area: 적분 – 정적분과 넓이, 수열의 극한
+  behavior_domain: 추론
+  unit_path: [미적분, 수열의 극한, 수열의 극한, 극한의 대소 관계]
+  key_concepts: [정적분과 넓이, 수열의 극한, 망원합]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 인하대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 인하대학교
+  admission_year: 2027
+  admission_type: 논술(모의)
+  track: 의예과
+  question_no: 2
+  official_url: https://admission.inha.ac.kr/cms/FR_BBS_CON/BoardView.do?MENU_ID=250&SITE_NO=2&BOARD_SEQ=2&BBS_SEQ=210
+  retrieved_at: '2026-11-21'
+  original_points: 35
+  note: 문제 = 210__(인하대)_2027학년도_자연계열_논술_모의고사_문제지.pdf p.8(의예 5/8), 해설(문항카드) = 같은 번호 해설지_20260728.pdf p.11~13 [자연 의예 2번]
+
+verify: verify/INHA-M27D.py::p02
+
+stimuli:
+- label: 가
+  body: |
+    (정적분과 넓이)
+    함수 $f(x)$가 닫힌구간 $[a,b]$에서 연속이고 $f(x)\ge0$일 때, 곡선 $y=f(x)$와 두 직선 $x=a$, $x=b$ 및 $x$축으로 둘러싸인 도형의 넓이 $S$는
+    $$S=\int_a^bf(x)dx$$
+- label: 나
+  body: |
+    (수열의 극한의 대소 관계)
+    두 수열 $\{a_n\}$, $\{b_n\}$이 각각 수렴하고 $\displaystyle\lim_{n\to\infty}a_n=\alpha$, $\displaystyle\lim_{n\to\infty}b_n=\beta$일 때,
+    수열 $\{c_n\}$이 모든 자연수 $n$에 대하여 $a_n\le c_n\le b_n$이고 $\alpha=\beta$이면 $\displaystyle\lim_{n\to\infty}c_n=\alpha$이다.
+
+stem: |
+  (※) 자연수 $n$에 대하여 $a_n=\dfrac1n+\dfrac{1}{n+1}+\dfrac{1}{n+2}+\cdots+\dfrac{1}{3n-1}$이다.
+
+subparts:
+- id: '1'
+  stem: |
+    (2-1) $a_n>\ln3$임을 증명하시오. [10점]
+  points: 10
+  depends_on: []
+  answer: {kind: proof, value: null, equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: '$\dfrac1k>\displaystyle\int_k^{k+1}\frac1xdx$를 $k=n,\dots,3n-1$까지 더한다.'
+    steps:
+    - {id: 1a, content: '$a_n>\displaystyle\int_n^{3n}\frac1xdx=\ln3$', criteria: [1.R1, 1.A1]}
+    hint_ladder:
+    - 각 항 $\dfrac1k$를 폭 1인 직사각형의 넓이로 보자.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 2027 자연 모의 해설지(문항카드) p.13 예시 답안 (2-1), 채점기준 p.12
+    steps:
+    - id: 1b-1
+      content: |
+        양의 실수 $a,b$ $(a<b)$에 대하여, 제시문 (가)에 의하여 정적분 $\displaystyle\int_a^b\frac1xdx$의 값은 곡선 $y=\dfrac1x$과 $x$축 및 두 직선 $x=a$, $x=b$로 둘러싸인 도형의 넓이이다. 자연수 $k$에 대하여 네 꼭짓점이 $(k,0)$, $(k+1,0)$, $\left(k,\dfrac1k\right)$, $\left(k+1,\dfrac1k\right)$인 직사각형의 넓이를 $R_k$라 하면, $x$가 양의 실수일 때 $y=\dfrac1x$는 감소함수이므로
+        $$\int_n^{3n}\frac1xdx<R_n+R_{n+1}+\cdots+R_{3n-1}$$
+        이 성립한다.
+      criteria: [1.R1]
+    - id: 1b-2
+      content: |
+        한편, $\displaystyle\int_n^{3n}\frac1xdx=\ln3n-\ln n=\ln3$이고 $R_n+\cdots+R_{3n-1}=a_n$이므로 $a_n>\ln3$을 얻는다.
+      criteria: [1.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.R1
+      mark_type: R
+      points: 7
+      evidence: '직사각형 넓이와 비교해 $a_n>\displaystyle\int_n^{3n}\frac1xdx$임을 보였다.'
+      depends_on: []
+      steps: [1b-1]
+    - id: 1.A1
+      mark_type: A
+      points: 3
+      evidence: '$\displaystyle\int_n^{3n}\frac1xdx=\ln3$임을 계산하여 부등식을 증명했다.'
+      depends_on: [1.R1]
+      steps: [1b-2]
+    deductions:
+    - code: D1-1
+      condition: 풀이는 맞았는데 사소한 계산 실수가 있는 경우 최대(공식 채점기준)
+      effect: minus
+      value: 3
+    - code: D1-2
+      condition: 적분 구간에 사소한 실수가 있는 경우 최대(공식 채점기준)
+      effect: minus
+      value: 4
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-CAL-5520}
+  misconceptions:
+  - id: MC-CAL-5520
+    outcome_code: '70'
+    wrong_work: '직사각형을 $[k-1,k]$ 위에 높이 $\dfrac1k$로 놓아 $a_n<\int$ 쪽 부등식을 얻거나 적분 구간을 $[n,3n-1]$로 잡음'
+    detect_cue: '부등식 방향이 반대이거나 $\ln\dfrac{3n-1}{n}$이 등장'
+    feedback: '감소함수에서 왼쪽 끝 높이로 만든 직사각형은 곡선 위로 나옵니다. 항 개수($2n$개)와 구간 길이를 맞추세요.'
+    remedy: [RL-1]
+- id: '2'
+  stem: |
+    (2-2) $\displaystyle\lim_{n\to\infty}a_n$의 값을 구하시오. [15점]
+  points: 15
+  depends_on: ['1']
+  answer: {kind: value, value: '\ln3', equivalents: ['ln 3'], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: '$\dfrac1k<\displaystyle\int_{k-1}^k\frac1xdx$로 $a_n<\ln\dfrac{3n-1}{n-1}$ $(n\ge2)$.'
+    steps:
+    - {id: 2a, content: '$\ln3<a_n<\ln\dfrac{3n-1}{n-1}\to\ln3$', criteria: [2.R1, 2.A1]}
+    hint_ladder:
+    - 이번에는 직사각형을 곡선 아래에 두자.
+  - id: S2-B
+    audience: B
+    method_no: 1
+    source_flow: 2027 자연 모의 해설지(문항카드) p.13 예시 답안 (2-2), 채점기준 p.12
+    steps:
+    - id: 2b-1
+      content: |
+        (2-1)과 같은 방법으로 네 꼭짓점이 $(k-1,0)$, $(k,0)$, $\left(k-1,\dfrac1k\right)$, $\left(k,\dfrac1k\right)$인 직사각형의 넓이를 $r_k$라 하면
+        $$\int_{n-1}^{3n-1}\frac1xdx>r_n+r_{n+1}+\cdots+r_{3n-1}$$
+        이 성립한다. $2$ 이상인 자연수 $n$에 대하여 $\displaystyle\int_{n-1}^{3n-1}\frac1xdx=\ln(3n-1)-\ln(n-1)=\ln\frac{3n-1}{n-1}$이고 $a_n=r_n+r_{n+1}+\cdots+r_{3n-1}$이므로 부등식 $\ln3<a_n<\ln\dfrac{3n-1}{n-1}$이 성립한다.
+      criteria: [2.R1]
+    - id: 2b-2
+      content: |
+        한편, 제시문 (나)에 의하여
+        $$\ln3=\lim_{n\to\infty}\ln3\le\lim_{n\to\infty}a_n\le\lim_{n\to\infty}\ln\frac{3n-1}{n-1}=\ln3$$
+        이므로 $\displaystyle\lim_{n\to\infty}a_n=\ln3$이다.
+      criteria: [2.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.R1
+      mark_type: R
+      points: 7
+      evidence: '(2-1)과 같은 방법으로 $a_n<\ln\dfrac{3n-1}{n-1}$을 보였다.'
+      depends_on: []
+      steps: [2b-1]
+    - id: 2.A1
+      mark_type: A
+      points: 8
+      evidence: '제시문 (나)를 이용하여 $\displaystyle\lim_{n\to\infty}a_n=\ln3$임을 보였다.'
+      depends_on: [2.R1]
+      steps: [2b-2]
+    deductions:
+    - code: D2-1
+      condition: 풀이는 맞았는데 사소한 계산 실수가 있는 경우 최대(공식 채점기준)
+      effect: minus
+      value: 5
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-5516}
+  misconceptions:
+  - id: MC-CAL-5516
+    outcome_code: '71'
+    wrong_work: '$a_n=\dfrac1n\sum\dfrac{1}{1+k/n}$을 $\displaystyle\int_0^1\frac{1}{1+x}dx=\ln2$로 대응(구간 길이 2를 1로 착각)'
+    detect_cue: '답이 $\ln2$'
+    feedback: '항이 $2n$개이므로 $x_k=\dfrac kn$은 $[0,2]$를 나눕니다. 구간을 다시 확인하세요.'
+    remedy: [RL-2]
+- id: '3'
+  stem: |
+    (2-3) 자연수 $k$에 대하여 $b_k=\dfrac{1}{3k}+\dfrac{1}{3k+1}+\dfrac{1}{3k+2}-\dfrac1k$일 때, $\displaystyle\lim_{n\to\infty}\sum_{k=1}^nb_k$의 값을 구하시오. [10점]
+  points: 10
+  depends_on: ['2']
+  answer: {kind: value, value: '\ln3-\dfrac32', equivalents: ['ln3-3/2'], tolerance: null}
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: '$b_k=a_{k+1}-a_k$, 망원합 $a_{n+1}-a_1$.'
+    steps:
+    - {id: 3a, content: '$\ln3-a_1=\ln3-\dfrac32$', criteria: [3.A2]}
+    hint_ladder:
+    - '$a_{k+1}$과 $a_k$의 항을 나란히 적어 비교해 보자.'
+  - id: S3-B
+    audience: B
+    method_no: 1
+    source_flow: 2027 자연 모의 해설지(문항카드) p.13 예시 답안 (2-3), 채점기준 p.13
+    steps:
+    - id: 3b-1
+      content: |
+        $$a_{k+1}-a_k=\left(\frac{1}{3k+2}+\frac{1}{3k+1}+\cdots+\frac{1}{k+2}+\frac{1}{k+1}\right)-\left(\frac{1}{3k-1}+\cdots+\frac{1}{k+1}+\frac1k\right)=\frac{1}{3k+2}+\frac{1}{3k+1}+\frac{1}{3k}-\frac1k=b_k$$
+        이다.
+      criteria: [3.M1]
+    - id: 3b-2
+      content: |
+        따라서 $\displaystyle\sum_{k=1}^nb_k=\sum_{k=1}^n(a_{k+1}-a_k)=a_{n+1}-a_1=a_{n+1}-\frac32$이다.
+      criteria: [3.A1]
+    - id: 3b-3
+      content: |
+        그러므로 $\displaystyle\lim_{n\to\infty}\sum_{k=1}^nb_k=\lim_{n\to\infty}\left(a_{n+1}-\frac32\right)=\ln3-\frac32$.
+      criteria: [3.A2]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 5
+      evidence: '$b_k=a_{k+1}-a_k$임을 보였다.'
+      depends_on: []
+      steps: [3b-1]
+    - id: 3.A1
+      mark_type: A
+      points: 3
+      evidence: '$\displaystyle\sum_{k=1}^nb_k=a_{n+1}-\frac32$임을 보였다.'
+      depends_on: [3.M1]
+      steps: [3b-2]
+    - id: 3.A2
+      mark_type: A
+      points: 2
+      evidence: '(2-2)를 이용하여 $\displaystyle\lim_{n\to\infty}\sum_{k=1}^nb_k=\ln3-\frac32$를 구했다.'
+      depends_on: [3.M1]
+      ft: {allowed: true, from: [2.A1], max_points: 2}
+      steps: [3b-3]
+    deductions:
+    - code: D3-1
+      condition: 풀이는 맞았는데 사소한 계산 실수가 있는 경우 최대(공식 채점기준)
+      effect: minus
+      value: 3
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '72', misconception: MC-ALG-5521}
+  misconceptions:
+  - id: MC-ALG-5521
+    outcome_code: '72'
+    wrong_work: '망원합을 $a_{n+1}-a_0$ 또는 $a_n-a_1$로 써서 $a_1=\dfrac32$를 빼지 않거나 $1$을 뺌'
+    detect_cue: '답이 $\ln3$ 또는 $\ln3-1$'
+    feedback: '$\sum_{k=1}^n(a_{k+1}-a_k)=a_{n+1}-a_1$이고 $a_1=1+\dfrac12$입니다.'
+    remedy: [RL-3]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CAL-5520}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-INTEGRAL-SUM-BOUND-I5}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-CAL-5516}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-RIEMANN-SUM-I5}
+  priority: 1
+- id: RL-3
+  trigger: {type: misconception, ref: MC-ALG-5521}
+  relation: remediation
+  target: {kind: concept, ref: CON-ALG-TELESCOPING-I5}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-input-v1, item_version: 1, verdict: pass, date: 2026-11-21, note: 원문 PDF 이미지 판독으로 옮김 · 해설 B는 공식 해설 흐름}
+
+created: 2026-11-21
+updated: 2026-11-21

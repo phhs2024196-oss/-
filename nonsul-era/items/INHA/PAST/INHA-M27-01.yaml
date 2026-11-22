@@ -1,0 +1,242 @@
+schema_version: '2.0'
+id: INHA-M27-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: INHA
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 최적2단
+points: 30
+time_estimate_min: 30
+intent: '(1-1) 함수의 도함수를 구하고, 접선의 방정식을 계산할 수 있는지 평가한다. (1-2) 함수의 극값을 구하고, 증감을 파악하여 최솟값을 계산할 수 있는지 평가한다.'
+key_idea: '접선의 $x$절편으로 $\overline{AB}=\dfrac{f(t)}{f''(t)}$, $\overline{PB}=f(t)$를 얻어 $S(t)=\dfrac{(t^4+1)^2}{2(3t^4-1)}$을 만들고, $u=t^4$로 치환해 최소를 구한다.'
+stuck: '$S(t)$를 $u=t^4$의 함수로 바꿔 몫의 미분으로 증감표를 그리는 단계'
+idea_tags: [IDEA-TANGENT-TRIANGLE-AREA, IDEA-SUBSTITUTE-POWER-THEN-OPTIMIZE]
+tags: [인하대 모의, 접선, 최솟값]
+elements:
+  materials: ['$f(x)=x^3+\dfrac1x\ (x>0)$', '접선의 $x$절편 $A$, 수선의 발 $B$, 삼각형 $APB$']
+  concepts: [접선의 방정식, 몫의 미분법, 함수의 증가와 감소, 최솟값]
+  tools: [접선의 x절편 공식, 삼각형 넓이, '$u=t^4$ 치환', 증감표]
+  conditions:
+  - '$t>\dfrac{1}{\sqrt[4]3}$ ⇒ $f''(t)=\dfrac{3t^4-1}{t^2}>0$, 접선이 $x$축과 만남'
+  - '$u=t^4>\dfrac13$ ⇒ $T''(u)$의 부호는 $3u-5$의 부호'
+  stimuli_used: [가, 나]
+  subpart_links: '(1-2)는 (1-1)의 $S(t)$ 사용'
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅱ, 미적분]
+  scope_2028: calc2
+  scope_confirmed: false
+  standards:
+  - code: 12수학Ⅱ02-06
+    text: 접선의 방정식을 구할 수 있다.
+    verified: true
+  - code: 12수학Ⅱ02-08
+    text: 함수의 증가와 감소, 극대와 극소를 판정하고 설명할 수 있다.
+    verified: true
+  - code: 12미적02-06
+    text: 함수의 몫을 미분할 수 있다.
+    verified: true
+  content_area: 미분 – 도함수의 활용(접선, 최대·최소)
+  behavior_domain: 문제해결
+  unit_path: [수학Ⅱ, 미분, 도함수의 활용, 최대·최소]
+  key_concepts: [접선의 방정식, 몫의 미분법, 증가와 감소, 최솟값]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 인하대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 인하대학교
+  admission_year: 2027
+  admission_type: 논술(모의)
+  track: 자연계열
+  question_no: 1
+  official_url: https://admission.inha.ac.kr/cms/FR_BBS_CON/BoardView.do?MENU_ID=250&SITE_NO=2&BOARD_SEQ=2&BBS_SEQ=210
+  retrieved_at: '2026-11-21'
+  original_points: 30
+  note: 문제 = 210__(인하대)_2027학년도_자연계열_논술_모의고사_문제지.pdf p.3(일반 1/8), 해설(문항카드) = 같은 번호 해설지_20260728.pdf p.1~3 [자연 일반 1번]
+
+verify: verify/INHA-M27.py::p01
+
+stimuli:
+- label: 가
+  body: |
+    (접선의 방정식)
+    곡선 $y=f(x)$ 위의 점 $(a,f(a))$에서의 접선의 방정식은
+    $$y-f(a)=f'(a)(x-a)$$
+- label: 나
+  body: |
+    (함수의 증가와 감소)
+    함수 $f(x)$가 닫힌구간 $[a,b]$에서 연속이고 열린구간 $(a,b)$에서 미분가능할 때, $(a,b)$의 모든 $x$에 대하여
+    (i) $f'(x)>0$이면 $f(x)$는 $[a,b]$에서 증가한다.
+    (ii) $f'(x)<0$이면 $f(x)$는 $[a,b]$에서 감소한다.
+
+stem: |
+  (※) 함수
+  $$f(x)=x^3+\frac1x\quad(x>0)$$
+  의 그래프 위의 점 $P(t,f(t))$에서의 접선이 $x$축과 만나는 점을 $A$, 점 $P$에서 $x$축에 내린 수선의 발을 $B$라 할 때, 삼각형 $APB$의 넓이를 $S(t)$라 하자. (단, $t>\dfrac{1}{\sqrt[4]3}$이다.)
+
+subparts:
+- id: '1'
+  stem: |
+    (1-1) $S(t)$를 $t$에 관한 식으로 나타내시오. [15점]
+  points: 15
+  depends_on: []
+  answer: {kind: expression, value: 'S(t)=\dfrac{(t^4+1)^2}{2(3t^4-1)}', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: '$\overline{AB}=\dfrac{f(t)}{f''(t)}$, $\overline{PB}=f(t)$, $S=\dfrac{f(t)^2}{2f''(t)}$.'
+    steps:
+    - {id: 1a, content: '$f(t)=\dfrac{t^4+1}{t}$, $f''(t)=\dfrac{3t^4-1}{t^2}$', criteria: [1.A2]}
+    hint_ladder:
+    - 접선의 방정식에 $y=0$을 넣어 $A$의 $x$좌표를 구하자.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 2027 자연 모의 해설지(문항카드) p.3 예시 답안 (1-1), 채점기준 p.2
+    steps:
+    - id: 1b-1
+      content: |
+        점 $P(t,f(t))$에서의 접선의 방정식은 $y=f'(t)(x-t)+f(t)$이고,
+      criteria: [1.M1]
+    - id: 1b-2
+      content: |
+        이 접선이 $x$축과 만나는 점 $A$의 좌표는 $\left(t-\dfrac{f(t)}{f'(t)},0\right)$이다. 여기서 $f'(t)=\dfrac{3t^4-1}{t^2}$이므로, $t>\dfrac{1}{\sqrt[4]3}$일 때 $f'(t)\neq0$이다. 이제 $\dfrac{f(t)}{f'(t)}=\dfrac{\frac{t^4+1}{t}}{\frac{3t^4-1}{t^2}}=\dfrac{t(t^4+1)}{3t^4-1}$이고,
+      criteria: [1.A1]
+    - id: 1b-3
+      content: |
+        $\overline{AB}=t-\left(t-\dfrac{t(t^4+1)}{3t^4-1}\right)=\dfrac{t(t^4+1)}{3t^4-1}$이다. 또한 $\overline{PB}=f(t)=\dfrac{t^4+1}{t}$이다. 따라서
+        $$S(t)=\frac12\times\overline{AB}\times\overline{PB}=\frac12\times\frac{t(t^4+1)}{3t^4-1}\times\frac{t^4+1}{t}=\frac{(t^4+1)^2}{2(3t^4-1)}$$
+        이다.
+      criteria: [1.A2]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 5
+      evidence: '점 $P(t,f(t))$에서의 접선의 방정식 $y=f''(t)(x-t)+f(t)$를 구했다.'
+      depends_on: []
+      steps: [1b-1]
+    - id: 1.A1
+      mark_type: A
+      points: 5
+      evidence: '접선의 $x$절편 $t-\dfrac{f(t)}{f''(t)}=t-\dfrac{t(t^4+1)}{3t^4-1}$을 구했다.'
+      depends_on: [1.M1]
+      steps: [1b-2]
+    - id: 1.A2
+      mark_type: A
+      points: 5
+      evidence: '넓이 $S(t)=\dfrac{(t^4+1)^2}{2(3t^4-1)}$을 구했다.'
+      depends_on: [1.M1]
+      steps: [1b-3]
+    deductions:
+    - code: D1-1
+      condition: 풀이는 맞았는데 사소한 계산 실수가 있는 경우 최대(공식 채점기준)
+      effect: minus
+      value: 5
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-CAL-5501}
+  misconceptions:
+  - id: MC-CAL-5501
+    outcome_code: '70'
+    wrong_work: '$f''(t)=3t^2+\dfrac{1}{t^2}$로 부호를 틀려 $x$절편을 잘못 구함'
+    detect_cue: '$S(t)$ 분모가 $3t^4+1$'
+    feedback: '$\left(\dfrac1x\right)''=-\dfrac{1}{x^2}$입니다. 접선의 기울기부터 다시 확인하세요.'
+    remedy: [RL-1]
+- id: '2'
+  stem: |
+    (1-2) $S(t)$의 최솟값을 구하시오. [15점]
+  points: 15
+  depends_on: ['1']
+  answer: {kind: value, value: '\dfrac89', equivalents: ['8/9'], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: '$u=t^4$, $T(u)=\dfrac{(u+1)^2}{2(3u-1)}$, $T''(u)=\dfrac{(u+1)(3u-5)}{2(3u-1)^2}$.'
+    steps:
+    - {id: 2a, content: '$u=\dfrac53$에서 최소 $T=\dfrac89$', criteria: [2.A1]}
+    hint_ladder:
+    - '$t^4$을 한 문자로 두자.'
+    - 극값이 최솟값인지 증감으로 확인하자.
+  - id: S2-B
+    audience: B
+    method_no: 1
+    source_flow: 2027 자연 모의 해설지(문항카드) p.3 예시 답안 (1-2), 채점기준 p.2
+    steps:
+    - id: 2b-1
+      content: |
+        $u=t^4$이라 하고 $T(u)=S(t)=S(\sqrt[4]u)=\dfrac{(u+1)^2}{2(3u-1)}$라 하자. $t>\dfrac{1}{\sqrt[4]3}$이므로 $u>\dfrac13$이다. $T'(u)=\dfrac{(u+1)(3u-5)}{2(3u-1)^2}$이고 $u>\dfrac13$이므로, $u=\dfrac53$일 때 함수 $T(u)$는 극값을 갖는다.
+      criteria: [2.M1]
+    - id: 2b-2
+      content: |
+        $\dfrac13<u<\dfrac53$일 때는 $T'(u)<0$이므로 함수 $T(u)$가 감소하고, $u>\dfrac53$일 때는 $T'(u)>0$이므로 함수 $T(u)$가 증가한다. 따라서 함수 $T(u)$는 $u=\dfrac53$일 때 최솟값 $\dfrac89$를 갖는다. 따라서 $t>\dfrac{1}{\sqrt[4]3}$일 때 함수 $S(t)$의 최솟값은 $\dfrac89$이다.
+      criteria: [2.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 8
+      evidence: '넓이를 나타내는 함수를 미분해 $T''(u)=\dfrac{(u+1)(3u-5)}{2(3u-1)^2}$(또는 $S''(t)$의 동치식)을 구했다.'
+      depends_on: []
+      steps: [2b-1]
+    - id: 2.A1
+      mark_type: A
+      points: 7
+      evidence: '함수의 증가와 감소를 파악하여 최솟값 $\dfrac89$를 계산했다.'
+      depends_on: [2.M1]
+      ft: {allowed: true, from: [1.A2], max_points: 7}
+      steps: [2b-2]
+    deductions:
+    - code: D2-1
+      condition: 풀이는 맞았는데 사소한 계산 실수가 있는 경우 최대(공식 채점기준)
+      effect: minus
+      value: 5
+    - code: D2-2
+      condition: 함수의 증가와 감소를 파악하지 않고 극값을 바로 최솟값으로 결론 내린 경우(공식 채점기준)
+      effect: minus
+      value: 3
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-5514}
+  misconceptions:
+  - id: MC-CAL-5514
+    outcome_code: '71'
+    wrong_work: '$T''(u)=0$인 $u=\dfrac53$에서 값을 구하고 증감 확인 없이 최솟값이라 결론'
+    detect_cue: 증감표나 도함수 부호 변화 서술이 없다
+    feedback: 극값이 최솟값임을 보이려면 정의역 전체에서의 증가·감소를 밝혀야 합니다.
+    remedy: [RL-2]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CAL-5501}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-TANGENT-LINE-I5}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-CAL-5514}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-EXTREMUM-TO-MINIMUM-I5}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-input-v1, item_version: 1, verdict: pass, date: 2026-11-21, note: 원문 PDF 이미지 판독으로 옮김 · 해설 B는 공식 해설 흐름}
+
+created: 2026-11-21
+updated: 2026-11-21

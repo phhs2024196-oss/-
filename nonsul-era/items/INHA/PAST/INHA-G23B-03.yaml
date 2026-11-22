@@ -1,0 +1,315 @@
+schema_version: '2.0'
+id: INHA-G23B-03
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: INHA
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 최적2단
+points: 35
+time_estimate_min: 40
+intent: 함수의 그래프로 주어지는 부분의 넓이가 최대가 되는 경우를 부분적분법에 의해 계산할 수 있는지를 평가한다.
+key_idea: '$f$는 원점–$(t,t\sin t)$–$(\pi,0)$을 잇는 꺾은선. 원점에서 그은 접선의 접점 $x=\tfrac\pi2$를 기준으로 근의 개수가 바뀌고, $t>\tfrac\pi2$인 경우는 같은 꺾은선 모양의 $t_2<\tfrac\pi2$로 바꿔 넓이를 늘릴 수 있다.'
+stuck: (3-3)에서 $t>\tfrac\pi2$인 경우를 $0\le t\le\tfrac\pi2$인 경우와 비교해 최대 후보 구간을 좁히는 단계
+idea_tags: [IDEA-POLYLINE-VS-CURVE-AREA, IDEA-TANGENT-FROM-ORIGIN-THRESHOLD]
+tags: [부분적분, 곡선의 볼록, 꺾은선, 넓이 최대, 인하대 기출]
+elements:
+  materials:
+  - '곡선 $y=x\sin x\ (0\le x\le\pi)$'
+  - '원점, $(t,t\sin t)$, $(\pi,0)$을 잇는 꺾은선 $y=f(x)$'
+  - '$S=\int_0^\pi\lvert f(x)-x\sin x\rvert dx$'
+  concepts: [곡선의 오목·볼록과 변곡점, 원점을 지나는 접선, 방정식의 해의 개수, 부분적분법, 도함수를 이용한 최댓값]
+  tools: [y', y'' 부호로 그래프 개형, 원점을 지나는 접선의 접점 구하기, 부분적분으로 x sin x 적분, 구간을 나눠 절댓값 적분, S(t) 미분 후 부호 판정, 두 꼭짓점 위치 비교]
+  conditions:
+  - '$g(t)=4$ ⇒ $0$, $t$, $\pi$ 외에 해가 하나 더 ⇒ $\sin x=\sin t$의 해 $x=\pi-t<t$ ⇒ $t>\tfrac\pi2$'
+  - '$t=\tfrac\pi4$ ⇒ $[0,\tfrac\pi4]$에서 $f\ge x\sin x$, $[\tfrac\pi4,\pi]$에서 $f\le x\sin x$'
+  - '$t>\tfrac\pi2$ ⇒ 같은 꺾은선 모양을 주는 $t_2<\tfrac\pi2$가 존재해 넓이가 더 큼'
+  stimuli_used: [가, 나]
+  subpart_links: '(3-3)은 (3-1)의 그래프 개형(원점에서의 접선, $\tfrac\pi2$ 경계)과 (3-2)의 부정적분 $-x\cos x+\sin x$를 사용'
+
+curriculum:
+  version: '2015'
+  subjects: [미적분]
+  scope_2028: calc2
+  scope_confirmed: true
+  standards:
+  - code: 12미적03-02
+    text: 부분적분법을 이해하고, 이를 활용할 수 있다.
+    verified: true
+  - code: 12미적02-12
+    text: 함수의 그래프의 개형을 그릴 수 있다.
+    verified: true
+  content_area: 미분법·적분법 – 곡선의 볼록, 부분적분, 넓이의 최대
+  behavior_domain: 문제해결
+  unit_path: [미적분, 적분법, 정적분의 활용, 꺾은선과 곡선 사이 넓이의 최대]
+  key_concepts: [곡선의 볼록, 부분적분법, 넓이의 최대]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 인하대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 인하대학교
+  admission_year: 2023
+  admission_type: 논술(오후)
+  track: 자연계열
+  question_no: 3
+  official_url: https://admission.inha.ac.kr/cms/FR_BBS_CON/BoardView.do?MENU_ID=250&SITE_NO=2&BOARD_SEQ=2&BBS_SEQ=165
+  retrieved_at: '2026-11-21'
+  original_points: 35
+  note: 문제 = 165__(자연-오후)_2023학년도_인하대학교_논술고사_문제지.pdf p.5(3/8), 해설·문항카드 = 165__(자연-오후)_..._해설.pdf p.7~10.
+
+verify: verify/INHA-G23B.py::p03
+
+stimuli:
+- label: 가
+  body: |
+    [부분적분법] 두 함수 $f(x)$, $g(x)$가 미분가능할 때
+    $$\int f(x)g'(x)dx=f(x)g(x)-\int f'(x)g(x)dx$$
+    이다.
+- label: 나
+  body: |
+    두 번 미분가능한 함수 $f(x)$가 어떤 구간에서
+    $f''(x)>0$이면 곡선 $y=f(x)$는 그 구간에서 아래로 볼록하고,
+    $f''(x)<0$이면 곡선 $y=f(x)$는 그 구간에서 위로 볼록하다.
+
+stem: |
+  [문제 3] (35점) 다음 제시문을 읽고 물음에 답하시오.
+  (※) $0\le t<\pi$인 실수 $t$에 대하여 함수 $f(x)$를
+  $$f(x)=\begin{cases}(\sin t)x & (0\le x\le t)\\ \dfrac{t\sin t}{t-\pi}(x-\pi) & (t<x\le\pi)\end{cases}$$
+  로 정의할 때, $S=\displaystyle\int_0^\pi\lvert f(x)-x\sin x\rvert dx$라 하자.
+
+subparts:
+- id: '1'
+  stem: |
+    (3-1) 닫힌구간 $[0,\pi]$에서 $x$에 대한 방정식 $f(x)-x\sin x=0$의 서로 다른 해의 개수를 $g(t)$라 할 때, $g(t)=4$를 만족하는 $t$의 값의 범위를 구하시오. [10점]
+  points: 10
+  depends_on: []
+  answer: {kind: set, value: '\dfrac\pi2<t<\pi', equivalents: ['(\pi/2,\pi)'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: '원점에서 곡선 $y=x\sin x$에 그은 접선의 접점은 $x=\tfrac\pi2$. 꼭짓점이 그 오른쪽이면 첫 선분이 곡선을 한 번 더 자른다.'
+    steps:
+    - {id: 1a, content: '접선 조건 $t^2\cos t=0$ ⇒ $t=\tfrac\pi2$, 따라서 $\tfrac\pi2<t<\pi$', criteria: [1.M1, 1.A1]}
+    hint_ladder:
+    - $y=x\sin x$의 그래프를 $y'$, $y''$로 그려 보자.
+    - 원점을 지나는 접선을 구하자.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 2023 자연오후 해설(문항카드) p.8~9 예시답안 (3-1)
+    steps:
+    - id: 1b-1
+      content: |
+        $y=x\sin x$일 때, $y'=\sin x+x\cos x$이다. $y'=0$이면 $\tan x=-x$이므로 $\sin\alpha+\alpha\cos\alpha=0$인 $\alpha\in\left(\dfrac\pi2,\pi\right)$가 존재한다.
+        마찬가지로 $y''=2\cos x-x\sin x$이고 $2\cos\beta-\beta\sin\beta=0$인 $\beta\in\left(0,\dfrac\pi2\right)$가 존재한다. 따라서 그래프의 개형은 다음과 같다.
+        [그림: $[0,\pi]$에서 $y=x\sin x$의 그래프. 원점에서 시작해 아래로 볼록하게 증가하다가 변곡점 뒤 위로 볼록, $\tfrac\pi2$와 $\pi$ 사이에서 최댓값(약 1.8) 후 $(\pi,0)$으로 감소]
+      criteria: [1.M1]
+    - id: 1b-2
+      content: |
+        점 $(0,0)$을 지나고 곡선 $y=x\sin x$에 접하는 직선을 구해보자. 곡선 $y=x\sin x$의 $x=t$에서의 접선은 $y-t\sin t=(\sin t+t\cos t)(x-t)$이고, $(0,0)$을 지나므로 $t^2\cos t=0$이고 $t=0,\ \dfrac\pi2,\ \dfrac{3\pi}{2},\cdots$이다.
+      criteria: [1.M1]
+    - id: 1b-3
+      content: |
+        따라서 그래프의 개형으로부터 $g(t)=4$인 $t$의 범위는 $\dfrac\pi2<t<\pi$이다.
+        [그림: 곡선 $y=x\sin x$와 두 꺾은선. 검은 꺾은선은 꼭짓점이 $x=\tfrac\pi2$(원점에서의 접선), 파란 꺾은선은 꼭짓점이 $\tfrac\pi2$보다 오른쪽에 있어 첫 선분이 곡선과 한 번 더 만난다]
+      criteria: [1.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 0, isw: true}
+    note: '공식 채점기준(해설 p.8): $x=\tfrac\pi2$일 때 곡선 $y=x\sin x$에 접하는 직선이 원점을 지나는 것을 확인하면 5점, $t$의 범위가 $\tfrac\pi2<t<\pi$임을 보이면 5점.'
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 5
+      evidence: '$x=\tfrac\pi2$에서 곡선 $y=x\sin x$에 접하는 직선이 원점을 지남(접선식에 원점 대입 $t^2\cos t=0$)을 적었다.'
+      depends_on: []
+      steps: [1b-1, 1b-2, 1a]
+    - id: 1.A1
+      mark_type: A
+      points: 5
+      evidence: '그래프 개형을 근거로 $\tfrac\pi2<t<\pi$를 적었다.'
+      depends_on: [1.M1]
+      steps: [1b-3, 1a]
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-CAL-5124}
+  misconceptions:
+  - id: MC-CAL-5124
+    outcome_code: '70'
+    wrong_work: '변곡점 $\beta$ 또는 최댓점 $\alpha$를 경계로 잡아 $\beta<t<\pi$ 또는 $\alpha<t<\pi$로 답함'
+    detect_cue: 경계가 $\tfrac\pi2$가 아님
+    feedback: '첫 선분이 곡선과 다시 만나는지는 원점에서 그은 접선의 접점($x=\tfrac\pi2$)과 비교해야 합니다.'
+    remedy: [RL-1]
+
+- id: '2'
+  stem: |
+    (3-2) $t=\dfrac\pi4$일 때 $S$의 값을 구하시오. [10점]
+  points: 10
+  depends_on: []
+  answer: {kind: value, value: '-\dfrac{\sqrt2}{32}\pi^2+\left(\dfrac{\sqrt2}{4}+1\right)\pi-\sqrt2', equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: '$\int x\sin x\,dx=-x\cos x+\sin x+C$, 구간 $[0,\tfrac\pi4]$와 $[\tfrac\pi4,\pi]$로 나눔.'
+    steps:
+    - {id: 2a, content: '$S=-\dfrac{\sqrt2}{32}\pi^2+\left(\dfrac{\sqrt2}{4}+1\right)\pi-\sqrt2$', criteria: [2.M1, 2.A1]}
+    hint_ladder:
+    - 두 번째 선분의 식은 $y=-\tfrac{\sqrt2}{6}(x-\pi)$이다.
+  - id: S2-B
+    audience: B
+    method_no: 1
+    source_flow: 2023 자연오후 해설 p.9 예시답안 (3-2)
+    steps:
+    - id: 2b-1
+      content: |
+        제시문 (가)에 의해 $\displaystyle\int x\sin x\,dx=-x\cos x+\sin x+C$이므로
+      criteria: [2.M1]
+    - id: 2b-2
+      content: |
+        $$S=\int_0^{\frac\pi4}\left(\dfrac{\sqrt2}{2}x-x\sin x\right)dx+\int_{\frac\pi4}^{\pi}\left\{x\sin x+\dfrac{\sqrt2}{6}(x-\pi)\right\}dx$$
+        $$=\left[\dfrac{\sqrt2}{4}x^2+x\cos x-\sin x\right]_0^{\frac\pi4}+\left[-x\cos x+\sin x+\dfrac{\sqrt2}{12}(x-\pi)^2\right]_{\frac\pi4}^{\pi}$$
+        $$=-\dfrac{\sqrt2}{32}\pi^2+\left(\dfrac{\sqrt2}{4}+1\right)\pi-\sqrt2$$
+        이다.
+      criteria: [2.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 0, isw: true}
+    note: '공식 채점기준(해설 p.8): $\int x\sin x\,dx=-x\cos x+\sin x+C$를 구하면 5점, $S=-\tfrac{\sqrt2}{32}\pi^2+(\tfrac{\sqrt2}{4}+1)\pi-\sqrt2$를 구하면 5점.'
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 5
+      evidence: '$\displaystyle\int x\sin x\,dx=-x\cos x+\sin x+C$를 적었다.'
+      depends_on: []
+      steps: [2b-1, 2a]
+    - id: 2.A1
+      mark_type: A
+      points: 5
+      evidence: '$S=-\dfrac{\sqrt2}{32}\pi^2+\left(\dfrac{\sqrt2}{4}+1\right)\pi-\sqrt2$를 적었다.'
+      depends_on: [2.M1]
+      steps: [2b-2, 2a]
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-CAL-5125}
+  misconceptions:
+  - id: MC-CAL-5125
+    outcome_code: '70'
+    wrong_work: '절댓값을 풀지 않고 $\int_0^\pi(f(x)-x\sin x)dx$를 한 번에 계산'
+    detect_cue: '구간을 $\tfrac\pi4$에서 나누지 않음, 답이 음수이거나 $\pi$와 크게 다름'
+    feedback: '구간마다 $f$와 $x\sin x$ 중 어느 쪽이 위인지 확인해 절댓값을 푸세요.'
+    remedy: [RL-2]
+
+- id: '3'
+  stem: |
+    (3-3) $S$의 최댓값을 구하시오. [15점]
+  points: 15
+  depends_on: ['1', '2']
+  answer: {kind: value, value: '\pi', equivalents: [], tolerance: null}
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: '$t>\tfrac\pi2$는 같은 선분을 공유하는 $t_2<\tfrac\pi2$로 바꾸면 $S$가 커지고, $0\le t\le\tfrac\pi2$에서 $S^{\prime}(t)<0$.'
+    steps:
+    - {id: 3a, content: '$S(t)=t^2\sin t+2t\cos t-\tfrac{\pi t}{2}\sin t-2\sin t+\pi$, $S(0)=\pi$', criteria: [3.R1, 3.M1, 3.A1]}
+    hint_ladder:
+    - $t>\tfrac\pi2$일 때 꺾은선과 곡선의 다른 교점을 꼭짓점으로 삼아 보자.
+    - $0\le t\le\tfrac\pi2$에서 $S$를 $t$의 식으로 나타내 미분하자.
+  - id: S3-B
+    audience: B
+    method_no: 1
+    source_flow: 2023 자연오후 해설 p.9~10 예시답안 (3-3)
+    steps:
+    - id: 3b-1
+      content: |
+        $t=t_1>\dfrac\pi2$이면 함수 $y=f(x)$의 그래프는 곡선 $y=x\sin x$와 $x=t_2\ \left(0<t_2<\dfrac\pi2\right)$일 때 만난다. 그래프에 의해 $t=t_2$일 때의 $S$는 $t=t_1$일 때의 $S$보다 크다. 그러므로 $S$는 $0\le t\le\dfrac\pi2$일 때 최댓값을 갖는다.
+        [그림: 곡선 $y=x\sin x$ 위의 $x=t_1>\tfrac\pi2$를 꼭짓점으로 하는 꺾은선과, 첫 선분이 곡선과 만나는 $x=t_2<\tfrac\pi2$를 꼭짓점으로 하는 꺾은선을 함께 그린 그림]
+      criteria: [3.R1]
+    - id: 3b-2
+      content: |
+        $0\le t\le\dfrac\pi2$이면 $S$는
+        $$S=\int_0^t\{(\sin t)x-x\sin x\}dx+\int_t^\pi\left\{x\sin x-\dfrac{t\sin t}{t-\pi}(x-\pi)\right\}dx=t^2\sin t+2t\cos t-\dfrac{\pi t}{2}\sin t-2\sin t+\pi$$
+        이므로, $0<t<\dfrac\pi2$일 때 $\dfrac{dS}{dt}=t\left(t-\dfrac\pi2\right)\cos t-\dfrac\pi2\sin t<0$이다.
+      criteria: [3.M1]
+    - id: 3b-3
+      content: |
+        따라서 $S$는 $t=0$일 때 최댓값 $\pi$를 갖는다.
+      criteria: [3.A1]
+  - id: S3-ALT
+    audience: ALT
+    method_no: 2
+    source_flow: 2023 자연오후 해설 p.10 [별해]
+    steps:
+    - id: 3c-1
+      content: |
+        $t=t_1>\dfrac\pi2$이면 위와 같이 $S$는 $0\le t\le\dfrac\pi2$일 때 최댓값을 갖는다. $0<t\le\dfrac\pi2$라고 하고, $S_0=\displaystyle\int_0^\pi x\sin x\,dx=\pi$라고 하자.
+        두 점 $(t,0)$, $(t,t\sin t)$을 각각 $P$, $P_0$이라고 하고, 원점을 $O$, 점 $(\pi,0)$을 $Q$라고 하면, 그래프의 개형으로부터
+        $$S_0-S>\int_t^\pi x\sin x\,dx-S>\text{삼각형 }P_0PQ\text{의 넓이}-\text{삼각형 }OP_0P\text{의 넓이}\ge0$$
+        이므로 $S$는 $t=0$일 때 최댓값 $S_0=\pi$를 갖는다.
+      criteria: [3.R1, 3.M1, 3.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 0, isw: true}
+    note: '공식 채점기준(해설 p.8): $S$는 $0\le t\le\tfrac\pi2$일 때 최댓값을 갖는 것을 보이면 5점, $\tfrac{dS}{dt}=t(t-\tfrac\pi2)\cos t-\tfrac\pi2\sin t<0$임을 보이면 5점, $S$의 최댓값 $\pi$를 구하면 5점.'
+    criteria:
+    - id: 3.R1
+      mark_type: R
+      points: 5
+      evidence: '$t>\tfrac\pi2$인 경우를 $t_2<\tfrac\pi2$인 경우와 비교해 $S$가 $0\le t\le\tfrac\pi2$에서 최댓값을 가짐을 보였다.'
+      depends_on: []
+      steps: [3b-1, 3a, 3c-1]
+    - id: 3.M1
+      mark_type: M
+      points: 5
+      evidence: '$0\le t\le\tfrac\pi2$에서 $S(t)$를 구하고 $\tfrac{dS}{dt}=t(t-\tfrac\pi2)\cos t-\tfrac\pi2\sin t<0$임을 보였다.'
+      depends_on: []
+      steps: [3b-2, 3a, 3c-1]
+    - id: 3.A1
+      mark_type: A
+      points: 5
+      evidence: '$S$의 최댓값 $\pi$($t=0$)를 적었다.'
+      depends_on: [3.R1, 3.M1]
+      steps: [3b-3, 3a, 3c-1]
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-CAL-5126}
+  misconceptions:
+  - id: MC-CAL-5126
+    outcome_code: '70'
+    wrong_work: '$0\le t\le\tfrac\pi2$에서 구한 $S(t)$ 식을 $t>\tfrac\pi2$에도 그대로 써서 $S^{\prime}(t)=0$인 점을 최대로 답함'
+    detect_cue: '최댓값 후보가 $t>\tfrac\pi2$이거나 답이 $\pi$가 아님'
+    feedback: '$t>\tfrac\pi2$이면 첫 선분이 곡선을 가로질러 절댓값 안의 부호가 바뀌므로 같은 식을 쓸 수 없습니다.'
+    remedy: [RL-3]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CAL-5124}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-TANGENT-THROUGH-POINT-I1}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-CAL-5125}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-ABS-INTEGRAL-SPLIT-I1}
+  priority: 1
+- id: RL-3
+  trigger: {type: misconception, ref: MC-CAL-5126}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-ABS-INTEGRAL-SPLIT-I1}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-input-v1, item_version: 1, verdict: pass, date: 2026-11-21, note: 원문 PDF 이미지 판독으로 옮김 · 해설 B는 공식 해설 흐름}
+
+created: 2026-11-21
+updated: 2026-11-21

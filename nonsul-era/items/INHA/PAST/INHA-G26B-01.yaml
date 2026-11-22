@@ -1,0 +1,256 @@
+schema_version: '2.0'
+id: INHA-G26B-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: INHA
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 추론
+points: 30
+time_estimate_min: 30
+intent: |
+  함수의 극값을 이해하고, 삼각함수의 도함수를 구할 수 있는지 평가한다. 수열의 극한값을 구할 수 있는지 평가한다.
+  (1-1) 함수의 극값을 이해하고, 삼각함수의 도함수와 함수의 곱의 미분법을 활용하여 주어진 함수를 미분할 수 있는지 평가한다. 수열의 극한값을 구할 수 있는지 평가한다.
+  (1-2) 무리수 $e$의 정의를 활용하여 수열의 극한값을 구할 수 있는지 평가한다.
+key_idea: '$f''(x)=\sin^{n-1}x\{(n+1)\cos^2x-1\}$에서 $\cos^2a_n=\frac1{n+1}$, $\tan a_n=\sqrt n$; $b_n$은 $\left(1+\frac1n\right)^{-n/2}$ 꼴로 정리한다.'
+stuck: '$(1+\sqrt n)b_n$을 $\left\{\left(1+\frac1n\right)^n\right\}^{-1/2}$과 나머지의 곱으로 바꾸는 단계'
+idea_tags: [IDEA-TRIG-CRITICAL-POINT-SEQUENCE, IDEA-E-LIMIT-REWRITE]
+tags: [삼각함수의 극값, 수열의 극한, 무리수 e, 인하 실전]
+elements:
+  materials: ['$f(x)=\sin^nx\cos x$ ($0\le x\le\frac\pi2$)', '극값 위치 $a_n$과 극값 $b_n$이 만드는 수열']
+  concepts: [곱의 미분법, 삼각함수의 도함수, 극대·극소 판정, 탄젠트의 덧셈정리(배각), 무리수 e의 정의, 수열의 극한]
+  tools: ['$f''$ 인수분해 후 $\cos^2t=\frac1{n+1}$', '$\tan2a_n=\frac{2\tan a_n}{1-\tan^2a_n}$', '$\left(\frac{n}{n+1}\right)^{n/2}=\left\{\left(1+\frac1n\right)^n\right\}^{-1/2}$']
+  conditions:
+  - '$0<a_n<\frac\pi2$ ⇒ $\cos a_n=\frac1{\sqrt{n+1}}>0$, $\tan a_n=\sqrt n$'
+  - '극값 ⇒ $f''$의 부호 변화 확인 필요(채점 감점 항목)'
+  stimuli_used: [가, 나]
+  subpart_links: '(1-2)는 (1-1)의 $\cos a_n$, $\sin a_n$ 사용'
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅱ, 미적분]
+  scope_2028: calc2
+  scope_confirmed: true
+  standards:
+  - code: 12수학Ⅱ02-08
+    text: 함수의 증가와 감소, 극대와 극소를 판정하고 설명할 수 있다.
+    verified: true
+  - code: 12수학Ⅱ02-05
+    text: 함수의 실수배, 합, 차, 곱의 미분법을 알고, 다항함수의 도함수를 구할 수 있다.
+    verified: true
+  - code: 12미적02-03
+    text: 삼각함수의 덧셈정리를 이해한다.
+    verified: true
+  - code: 12미적01-02
+    text: 수열의 극한에 대한 기본 성질을 이해하고, 이를 이용하여 극한값을 구할 수 있다.
+    verified: true
+  - code: 12미적02-01
+    text: 지수함수와 로그함수의 극한을 구할 수 있다.
+    verified: true
+  content_area: 미분법 – 삼각함수의 극값과 수열의 극한
+  behavior_domain: 계산
+  unit_path: [미적분, 미분법, 여러 가지 함수의 미분, 극값이 만드는 수열의 극한]
+  key_concepts: [삼각함수의 도함수, 극값, 배각 공식, 무리수 e]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 인하대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 인하대학교
+  admission_year: 2026
+  admission_type: 논술(오후)
+  track: 자연계열
+  question_no: 1
+  official_url: https://admission.inha.ac.kr/cms/FR_BBS_CON/BoardView.do?MENU_ID=250&SITE_NO=2&BOARD_SEQ=2&BBS_SEQ=204
+  retrieved_at: '2026-11-21'
+  original_points: 30
+  note: 문제 = 204__3._…(자연오후_및_의예과)_논술고사_문제.pdf p.3(1/8, 일반), 해설·채점기준·성취기준 = 204__3-2._…_문항카드.pdf p.1~3
+
+verify: verify/INHA-G26B.py::p01
+
+stimuli:
+- label: 가
+  body: |
+    (가) (함수의 곱의 미분법)
+    두 함수 $f(x)$, $g(x)$가 미분가능할 때,
+    $$(f(x)g(x))'=f'(x)g(x)+f(x)g'(x)$$
+- label: 나
+  body: |
+    (나) (무리수 $e$)
+    $$\lim_{x\to0}(1+x)^{\frac1x}=e$$
+
+stem: |
+  [문제 1] (30점) 다음 제시문을 읽고 물음에 답하시오.
+  (※) 자연수 $n$에 대하여 닫힌구간 $\left[0,\dfrac{\pi}{2}\right]$에서 정의된 함수
+  $$f(x)=\sin^nx\cos x$$
+  는 $x=a_n$ $\left(0<a_n<\dfrac{\pi}{2}\right)$에서 극값 $b_n$을 갖는다.
+
+subparts:
+- id: '1'
+  stem: |
+    (1-1) 극한 $\displaystyle\lim_{n\to\infty}\sqrt n\tan(2a_n)$의 값을 구하시오. [15점]
+  points: 15
+  depends_on: []
+  answer: {kind: value, value: '-2', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: '$\tan a_n=\sqrt n$이므로 $\sqrt n\tan2a_n=\frac{2n}{1-n}\to-2$.'
+    steps:
+    - {id: 1a, content: '$\cos^2a_n=\frac1{n+1}$ ⇒ $\tan a_n=\sqrt n$ ⇒ $-2$', criteria: [1.M1, 1.M2, 1.A1]}
+    hint_ladder:
+    - $f'(x)$를 $\sin^{n-1}x$로 묶어 보자.
+    - '$\tan a_n$을 먼저 구하고 배각 공식을 쓰자.'
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 2026 자연오후 문항카드 p.3 예시답안(1-1), 채점기준 p.3
+    steps:
+    - id: 1b-1
+      content: |
+        제시문 (가)에 의하여, $0<x<\dfrac\pi2$인 실수 $x$에 대하여
+        $f'(x)=n\sin^{n-1}x\cos^2x-\sin^{n+1}x=\sin^{n-1}x(n\cos^2x-\sin^2x)=\sin^{n-1}x\{(n+1)\cos^2x-1\}$
+        이다.
+      criteria: [1.M1]
+    - id: 1b-2
+      content: |
+        $f'(t)=0$이라 하면, $0<t<\dfrac\pi2$이므로 $\cos^2t=\dfrac{1}{n+1}$이다. 또한 $0<x<t$, $t<x<\dfrac\pi2$에서 $f'(x)$의 부호가 반대이므로, $f(x)$는 $x=t$에서 극값을 가지고 $a_n=t$이다.
+      criteria: [1.M2]
+    - id: 1b-3
+      content: |
+        또한 $0<a_n<\dfrac\pi2$이므로 $\cos a_n=\dfrac{1}{\sqrt{n+1}}$이고 $\tan a_n=\dfrac{\sin a_n}{\cos a_n}=\dfrac{\sqrt{1-\cos^2a_n}}{\cos a_n}=\sqrt n$이다. 삼각함수의 덧셈정리에 의하여
+        $\displaystyle\lim_{n\to\infty}\sqrt n\tan(2a_n)=\lim_{n\to\infty}\sqrt n\dfrac{2\tan a_n}{1-\tan^2a_n}=\lim_{n\to\infty}\dfrac{2n}{1-n}=-2$
+        이다.
+      criteria: [1.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 5
+      evidence: (공식) 함수 $f(x)$의 도함수를 계산하였다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1]
+    - id: 1.M2
+      mark_type: M
+      points: 5
+      evidence: (공식) 수열 $a_n$을 구하였다($\cos^2a_n=\frac1{n+1}$).
+      depends_on: [1.M1]
+      steps: [1b-2]
+    - id: 1.A1
+      mark_type: A
+      points: 5
+      evidence: (공식) 주어진 극한값 $-2$를 구하였다.
+      depends_on: [1.M2]
+      steps: [1b-3]
+    deductions:
+    - code: D1-1
+      condition: $f(x)$의 증가, 감소를 확인하여 $x=a_n$에서 극값을 갖는다는 것을 보이지 않음(공식 채점기준)
+      effect: minus
+      value: 2
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-CAL-5409}
+  misconceptions:
+  - id: MC-CAL-5409
+    outcome_code: '70'
+    wrong_work: '$\tan2a_n\approx2\tan a_n$으로 보고 극한을 $\infty$ 또는 $2n$ 꼴로 계산'
+    detect_cue: 답이 양수이거나 발산
+    feedback: '$a_n\to\frac\pi2$이므로 $2a_n\to\pi$입니다. 배각 공식 $\frac{2\tan a}{1-\tan^2a}$를 정확히 쓰세요.'
+    remedy: [RL-1]
+- id: '2'
+  stem: |
+    (1-2) 극한 $\displaystyle\lim_{n\to\infty}(1+\sqrt n)b_n$의 값을 구하시오. [15점]
+  points: 15
+  depends_on: ['1']
+  answer: {kind: value, value: '\dfrac{1}{\sqrt e}', equivalents: ['e^{-1/2}'], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: '$b_n=\left(\frac{n}{n+1}\right)^{n/2}\frac1{\sqrt{n+1}}$, $(1+\sqrt n)b_n=\left\{\left(1+\frac1n\right)^n\right\}^{-1/2}\frac{1+\sqrt n}{\sqrt{n+1}}$.'
+    steps:
+    - {id: 2a, content: '$\to e^{-1/2}\cdot1$', criteria: [2.R1, 2.A1]}
+    hint_ladder:
+    - '$\sin a_n=\sqrt{\frac{n}{n+1}}$이다.'
+  - id: S2-B
+    audience: B
+    method_no: 1
+    source_flow: 2026 자연오후 문항카드 p.3 예시답안(1-2), 채점기준 p.3
+    steps:
+    - id: 2b-1
+      content: |
+        $b_n=f(a_n)=\sin^na_n\cos a_n=\left(\sqrt{\dfrac{n}{n+1}}\right)^n\dfrac{1}{\sqrt{n+1}}$이다.
+      criteria: [2.B1]
+    - id: 2b-2
+      content: |
+        $(1+\sqrt n)b_n=\left(\sqrt{\dfrac{n}{n+1}}\right)^n\times\dfrac{1+\sqrt n}{\sqrt{n+1}}=\left(\dfrac{n+1}{n}\right)^{-\frac n2}\times\dfrac{1+\sqrt n}{\sqrt{n+1}}=\left\{\left(1+\dfrac1n\right)^n\right\}^{-\frac12}\times\dfrac{1+\sqrt n}{\sqrt{n+1}}$
+      criteria: [2.R1]
+    - id: 2b-3
+      content: |
+        이므로, 제시문 (나)에 의하여
+        $\displaystyle\lim_{n\to\infty}(1+\sqrt n)b_n=\lim_{n\to\infty}\left\{\left(1+\dfrac1n\right)^n\right\}^{-\frac12}\times\lim_{n\to\infty}\dfrac{1+\sqrt n}{\sqrt{n+1}}=\dfrac{1}{\sqrt e}$
+        이다.
+      criteria: [2.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.B1
+      mark_type: B
+      points: 3
+      evidence: (공식) 수열 $b_n$을 구하였다.
+      depends_on: []
+      steps: [2b-1]
+    - id: 2.R1
+      mark_type: M
+      points: 6
+      evidence: (공식) 수열 $(1+\sqrt n)b_n$의 극한을 무리수 $e$의 정의와 연관 지었다.
+      depends_on: []
+      implied_ok: false
+      steps: [2b-2]
+    - id: 2.A1
+      mark_type: A
+      points: 6
+      evidence: (공식) 수열 $(1+\sqrt n)b_n$의 극한값 $\frac1{\sqrt e}$를 구하였다.
+      depends_on: [2.R1]
+      steps: [2b-3]
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-CAL-5410}
+  misconceptions:
+  - id: MC-CAL-5410
+    outcome_code: '70'
+    wrong_work: '$\left(\frac{n}{n+1}\right)^{n/2}\to1$로 보고 극한을 1로 답함'
+    detect_cue: 답이 1
+    feedback: '$1^\infty$ 꼴은 1이 아닙니다. $\left(1+\frac1n\right)^n\to e$ 꼴로 바꿔 보세요.'
+    remedy: [RL-2]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CAL-5409}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-TRIG-CRITICAL-SEQ-I4}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-CAL-5410}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-E-LIMIT-FORM-I4}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-input-v1, item_version: 1, verdict: pass, date: 2026-11-21, note: 원문 PDF 이미지 판독으로 옮김 · 해설 B는 공식 해설 흐름}
+
+created: 2026-11-21
+updated: 2026-11-21

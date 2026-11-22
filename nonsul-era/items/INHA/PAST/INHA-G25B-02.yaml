@@ -1,0 +1,295 @@
+schema_version: '2.0'
+id: INHA-G25B-02
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: proof
+origin: past_exam
+school: INHA
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 불변량
+points: 35
+time_estimate_min: 40
+intent: |
+  곡선의 접선의 식을 구할 수 있는지 평가한다. 두 곡선 사이의 도형의 넓이를 구할 수 있는지 평가한다. (2-1) 두 곡선이 한 점에서 만나는 조건과 접선의 기울기가 같다는 조건을 이해하는지, (2-2) 곡선의 접선의 식을 구할 수 있는지, (2-3) 두 곡선 사이의 도형의 넓이를 구할 수 있는지 평가한다.
+key_idea: '접점 조건 $\frac a3x^2+1=b\sqrt x$, $\frac{2a}{3}x=\frac{b}{2\sqrt x}$에서 $x=\frac{1}{\sqrt a}$, $b=\frac43a^{\frac14}$. 공통접선은 $y=\frac{2\sqrt a}{3}x+\frac23$이고, 접선 위·아래 두 넓이가 모두 $\frac{1}{9\sqrt a}$이다.'
+stuck: (2-1)에서 두 조건식에서 $b$를 소거해 $ax^2=1$을 얻는 단계, (2-3)에서 $b\sqrt x=\frac43a^{\frac14}\sqrt x$의 적분 계산
+idea_tags: [IDEA-COMMON-TANGENT-TWO-CONDITIONS, IDEA-PARAMETER-FAMILY-FIXED-POINT, IDEA-AREA-RATIO-INVARIANT]
+tags: [인하대 기출, 2025 자연 오후, 공통접선, 정적분과 넓이, 매개변수에 무관]
+elements:
+  materials: ['포물선 $y=\frac a3x^2+1$과 곡선 $y=b\sqrt x$', 접점 $P$에서의 공통접선, 두 곡선과 $y$축으로 둘러싸인 도형 $A$]
+  concepts: [접선의 방정식, 두 곡선이 접할 조건, 곡선으로 둘러싸인 도형의 넓이(정적분)]
+  tools: [함숫값·미분계수 일치 조건 연립, 접선 방정식의 $y$절편 확인, 접선 위·아래 넓이를 각각 정적분]
+  conditions:
+  - '한 점 $P$에서만 만나고 접선 일치 ⇒ $P$에서 함숫값과 미분계수가 같음'
+  - '접선의 $y$절편이 $a$와 무관 ⇒ 고정점 $\left(0,\frac23\right)$'
+  - '$y$축과 접선, 두 곡선 ⇒ 접선 위 도형(포물선과 접선 사이), 아래 도형(접선과 $y=b\sqrt x$ 사이), 구간 $\left[0,\frac{1}{\sqrt a}\right]$'
+  stimuli_used: [가, 나]
+  subpart_links: (2-2)는 (2-1)의 $P$ 좌표 사용, (2-3)은 (2-1)의 $b$와 (2-2)의 접선 사용
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅱ, 미적분]
+  scope_2028: calc2
+  scope_confirmed: true
+  standards:
+  - code: 12수학Ⅱ02-06
+    text: 접선의 방정식을 구할 수 있다.
+    verified: true
+  - code: 12수학Ⅱ03-05
+    text: 곡선으로 둘러싸인 도형의 넓이를 구할 수 있다.
+    verified: true
+  content_area: 미분 – 접선의 방정식, 적분 – 정적분의 활용(넓이)
+  behavior_domain: 계산
+  unit_path: [수학Ⅱ, 적분, 정적분의 활용, 두 곡선 사이의 넓이]
+  key_concepts: [접선의 방정식, 정적분의 활용]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 인하대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 인하대학교
+  admission_year: 2025
+  admission_type: 논술(오후)
+  track: 자연계열
+  question_no: 2
+  official_url: https://admission.inha.ac.kr/cms/FR_BBS_CON/BoardView.do?MENU_ID=250&SITE_NO=2&BOARD_SEQ=2&BBS_SEQ=189
+  retrieved_at: '2026-11-21'
+  original_points: 35
+  note: 문제 = 189__(자연_오후)_2025학년도_인하대학교_논술고사_문제.pdf p.4(시험지 2/8), 해설·채점기준 = 189__(자연_오후)_…_해설.pdf(문항카드) p.5~7, 1228__2025 영향평가 보고서 p.76~79(문항카드 6). 공식 예시답안 (2-3) 아랫도형 부정적분이 "$-4a^{\frac14}\frac23x^{\frac32}$"로 적혀 있으나 바른 식은 $-\frac43a^{\frac14}\cdot\frac23x^{\frac32}$(최종값 $\frac{1}{9\sqrt a}$은 맞음) — 해설 오기로 판단, 해설 B에서는 바른 식으로 적음. $y=b\sqrt x$ 의 미분($x^{\frac12}$)이 미적분Ⅱ 범위라 scope calc2(공식 과목 표기 수학Ⅱ·미적분).
+
+verify: verify/INHA-G25B.py::p02
+
+stimuli:
+- label: 가
+  body: |
+    (접선의 방정식) 곡선 $y=f(x)$ 위의 점 $(a,f(a))$에서의 접선의 방정식은
+    $$y-f(a)=f'(a)(x-a)$$
+- label: 나
+  body: |
+    두 함수 $f(x)$, $g(x)$가 닫힌구간 $[a,b]$에서 연속일 때, 두 곡선 $y=f(x)$와 $y=g(x)$ 및 두 직선 $x=a$, $x=b$로 둘러싸인 도형의 넓이 $S$는
+    $$S=\int_a^b\lvert f(x)-g(x)\rvert dx$$
+
+stem: |
+  다음 제시문을 읽고 물음에 답하시오.
+  (※) 양의 실수 $a$, $b$에 대하여 두 곡선 $y=\dfrac a3x^2+1$과 $y=b\sqrt x$가 한 점 $P$에서만 만나고, 점 $P$에서의 곡선 $y=\dfrac a3x^2+1$의 접선과 곡선 $y=b\sqrt x$의 접선이 서로 일치한다고 하자.
+
+subparts:
+- id: '1'
+  stem: |
+    (2-1) $b$를 $a$의 식으로 나타내시오. (10점)
+  points: 10
+  depends_on: []
+  answer: {kind: expression, value: 'b=\dfrac43a^{\frac14}', equivalents: ['(4/3)a^(1/4)'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: 함숫값·미분계수 일치에서 $b=\frac{4a}{3}x^{\frac32}$를 대입하면 $ax^2=1$.
+    steps:
+    - {id: 1a, content: '$x=a^{-\frac12}$, $b=\frac43a\cdot a^{-\frac34}=\frac43a^{\frac14}$', criteria: [1.M1, 1.A1]}
+    hint_ladder:
+    - 접하는 점에서는 함숫값과 미분계수가 모두 같다.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 2025 자연오후 해설(문항카드) p.7 예시답안 (2-1), 채점기준 p.7
+    steps:
+    - id: 1b-1
+      content: |
+        점 $P$에서는 두 함수의 함숫값이 같고 미분계수도 같다. 따라서 이 점에서는 두 개의 등식 $\dfrac a3x^2+1=b\sqrt x$와 $\dfrac{2a}{3}x=\dfrac{b}{2\sqrt x}$가 성립한다.
+      criteria: [1.M1]
+    - id: 1b-2
+      content: |
+        먼저, $\dfrac{2a}{3}x=\dfrac{b}{2\sqrt x}$로부터 $b=\dfrac{4a}{3}x^{\frac32}$을 얻는다. 이것을 $\dfrac a3x^2+1=b\sqrt x$에 대입하면 $x=\dfrac{1}{\sqrt a}=a^{-\frac12}$이다. 따라서 $b=\dfrac43a^{\frac14}$이 된다.
+      criteria: [1.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 4
+      evidence: 두 곡선이 한 점에서 만나는 조건과 그 점에서의 미분계수가 같다는 조건을 식으로 썼다.
+      depends_on: []
+      steps: [1b-1]
+    - id: 1.A1
+      mark_type: A
+      points: 6
+      evidence: 관계식 $b=\dfrac43a^{\frac14}$을 구했다.
+      depends_on: [1.M1]
+      steps: [1b-2]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-CAL-5310}
+  misconceptions:
+  - id: MC-CAL-5310
+    outcome_code: '70'
+    wrong_work: '$\dfrac a3x^2+1=b\sqrt x$의 판별식 등 교점 조건 하나만 쓰고 미분계수 일치 조건을 빠뜨림'
+    detect_cue: 조건식이 하나뿐이거나 $b$에 $x$가 남는다
+    feedback: 두 곡선이 한 점에서 접하려면 함숫값과 미분계수가 모두 같아야 합니다. 두 식을 연립해 접점의 $x$좌표부터 구하세요.
+    remedy: [RL-1]
+- id: '2'
+  stem: |
+    (2-2) 점 $P$에서의 곡선 $y=\dfrac a3x^2+1$의 접선이 $a$의 값에 관계없이 좌표평면의 일정한 점을 지남을 보이시오. (10점)
+  points: 10
+  depends_on: ['1']
+  answer: {kind: proof, value: null, equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: 접선 $y=\frac{2\sqrt a}{3}x+\frac23$의 $y$절편이 $a$와 무관.
+    steps:
+    - {id: 2a, content: '$P=\left(\frac{1}{\sqrt a},\frac43\right)$, 기울기 $\frac{2\sqrt a}{3}$, 고정점 $\left(0,\frac23\right)$', criteria: [2.B1, 2.M1, 2.A1]}
+    hint_ladder:
+    - $P$의 $y$좌표는 $a$에 관계없다.
+  - id: S2-B
+    audience: B
+    method_no: 1
+    source_flow: 2025 자연오후 해설(문항카드) p.7 예시답안 (2-2), 채점기준 p.7
+    steps:
+    - id: 2b-1
+      content: |
+        점 $P$의 $x$좌표는 $x=\dfrac{1}{\sqrt a}$이므로 $P=\left(\dfrac{1}{\sqrt a},\dfrac43\right)$이다.
+      criteria: [2.B1]
+    - id: 2b-2
+      content: |
+        이 점에서의 접선의 기울기, 즉 미분계수는 $\dfrac{2\sqrt a}{3}$이다. 따라서 제시문 (가)에 의해 접선의 방정식은 $y-\dfrac43=\dfrac{2\sqrt a}{3}\left(x-\dfrac{1}{\sqrt a}\right)$이고 이것을 정리하면 $y=\dfrac{2\sqrt a}{3}x+\dfrac23$이다.
+      criteria: [2.M1]
+    - id: 2b-3
+      content: |
+        그러므로 $a$의 값에 관계없이 접선이 $y$축 위의 점 $\left(0,\dfrac23\right)$을 지난다. ■
+      criteria: [2.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.B1
+      mark_type: B
+      points: 3
+      evidence: $P$의 좌표 $\left(\dfrac{1}{\sqrt a},\dfrac43\right)$를 구했다.
+      depends_on: []
+      ft: {allowed: true, from: [1.A1], max_points: 3}
+      steps: [2b-1]
+    - id: 2.M1
+      mark_type: M
+      points: 4
+      evidence: 접선의 방정식 $y=\dfrac{2\sqrt a}{3}x+\dfrac23$을 구했다.
+      depends_on: []
+      steps: [2b-2]
+    - id: 2.A1
+      mark_type: A
+      points: 3
+      evidence: 접선이 항상 $\left(0,\dfrac23\right)$을 지남을 밝혔다.
+      depends_on: [2.M1]
+      steps: [2b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-CAL-5311}
+  misconceptions:
+  - id: MC-CAL-5311
+    outcome_code: '70'
+    wrong_work: '특정 $a$ 값 두세 개로 접선을 그려 교점을 찾고 일반 증명 없이 결론'
+    detect_cue: 접선 방정식이 $a$에 대한 일반식으로 적혀 있지 않다
+    feedback: $a$에 관계없음을 보이려면 접선을 $a$에 대한 식으로 쓰고, $a$를 포함하지 않는 점을 찾아야 합니다.
+    remedy: [RL-2]
+- id: '3'
+  stem: |
+    (2-3) 두 곡선 $y=\dfrac a3x^2+1$, $y=b\sqrt x$ 및 $y$축으로 둘러싸인 도형을 $A$라 하자. 점 $P$에서의 곡선 $y=\dfrac a3x^2+1$의 접선에 의해 도형 $A$가 두 개의 도형으로 나누어진다. 이때 이 두 도형의 넓이의 비는 $a$의 값에 관계없이 일정함을 보이시오. (15점)
+  points: 15
+  depends_on: ['1', '2']
+  answer: {kind: proof, value: null, equivalents: ['넓이의 비 1:1'], tolerance: null}
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: 두 넓이가 모두 $\frac{1}{9\sqrt a}$이라 비는 항상 $1:1$.
+    steps:
+    - {id: 3a, content: '윗도형 $\frac{a}{9}a^{-\frac32}-\frac{\sqrt a}{3}a^{-1}+\frac{1}{3\sqrt a}$, 아랫도형 $\frac{1}{3\sqrt a}+\frac{2}{3\sqrt a}-\frac89a^{\frac14}a^{-\frac34}$', criteria: [3.M1, 3.M2, 3.A1]}
+    hint_ladder:
+    - 구간 $\left[0,\frac{1}{\sqrt a}\right]$에서 접선과 각 곡선 사이의 넓이를 각각 적분하자.
+  - id: S3-B
+    audience: B
+    method_no: 1
+    source_flow: 2025 자연오후 해설(문항카드) p.7 예시답안 (2-3), 채점기준 p.7
+    steps:
+    - id: 3b-1
+      content: |
+        제시문 (나)에 의해 접선 $y=\dfrac{2\sqrt a}{3}x+\dfrac23$에 의해 생긴 두 도형 중 윗도형의 넓이는
+        $$\int_0^{\frac{1}{\sqrt a}}\left(\frac a3x^2+1-\frac{2\sqrt a}{3}x-\frac23\right)dx=\left[\frac a9x^3-\frac{\sqrt a}{3}x^2+\frac x3\right]_0^{\frac{1}{\sqrt a}}=\frac{1}{9\sqrt a}$$
+        이다.
+      criteria: [3.M1]
+    - id: 3b-2
+      content: |
+        아랫도형의 넓이는
+        $$\int_0^{\frac{1}{\sqrt a}}\left(\frac{2\sqrt a}{3}x+\frac23-\frac43a^{\frac14}\sqrt x\right)dx=\left[\frac13\sqrt a\,x^2+\frac23x-\frac43a^{\frac14}\cdot\frac23x^{\frac32}\right]_0^{\frac{1}{\sqrt a}}=\frac{1}{9\sqrt a}$$
+        이다. (공식 해설지의 부정적분 표기 "$4a^{\frac14}\frac23x^{\frac32}$"는 오기)
+      criteria: [3.M2]
+    - id: 3b-3
+      content: |
+        따라서 이 접선은 도형 $A$를 $a$의 값에 관계없이 항상 $1:1$의 비율로 나눈다. ■
+      criteria: [3.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 6
+      evidence: 윗도형(포물선과 접선 사이)의 넓이 $\dfrac{1}{9\sqrt a}$을 정적분으로 구했다.
+      depends_on: []
+      steps: [3b-1]
+    - id: 3.M2
+      mark_type: M
+      points: 6
+      evidence: 아랫도형(접선과 $y=b\sqrt x$ 사이)의 넓이 $\dfrac{1}{9\sqrt a}$을 정적분으로 구했다.
+      depends_on: []
+      steps: [3b-2]
+    - id: 3.A1
+      mark_type: A
+      points: 3
+      evidence: 두 도형의 넓이가 항상 같음(비 $1:1$, $a$와 무관)을 서술했다.
+      depends_on: [3.M1, 3.M2]
+      steps: [3b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-CAL-5312}
+  misconceptions:
+  - id: MC-CAL-5312
+    outcome_code: '70'
+    wrong_work: '아랫도형을 접선과 $x$축 사이 넓이로 잡거나 적분 구간을 $y$축까지가 아닌 교점까지로 잘못 잡음'
+    detect_cue: 아랫도형 넓이에 $b\sqrt x$의 적분 항이 없거나 구간 끝이 $\frac{1}{\sqrt a}$이 아님
+    feedback: 도형 $A$는 두 곡선과 $y$축으로 둘러싸인 부분입니다. 접선 아래쪽 도형은 접선과 $y=b\sqrt x$ 사이, 구간 $\left[0,\frac{1}{\sqrt a}\right]$입니다.
+    remedy: [RL-3]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CAL-5310}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-TANGENT-COMMON-I3}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-CAL-5311}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-TANGENT-COMMON-I3}
+  priority: 1
+- id: RL-3
+  trigger: {type: misconception, ref: MC-CAL-5312}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-AREA-BETWEEN-I3}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-input-v1, item_version: 1, verdict: pass, date: 2026-11-22, note: 원문 PDF 이미지 판독으로 옮김 · 해설 B는 공식 해설 흐름}
+
+created: 2026-11-22
+updated: 2026-11-22

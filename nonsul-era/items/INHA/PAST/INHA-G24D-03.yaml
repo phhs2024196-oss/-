@@ -1,0 +1,423 @@
+schema_version: '2.0'
+id: INHA-G24D-03
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: proof
+origin: past_exam
+school: INHA
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 귀류
+points: 35
+time_estimate_min: 40
+intent: 지문에서 주어진 상황을 논리적으로 해석하는 능력을 평가한다. 수학적 귀납법과 귀류법을 이용하여 명제를 증명할 수 있는지 평가한다. 순열의 수, 곱의 법칙 등을 이용하여 경우의 수를 구할 수 있는지 평가한다.
+key_idea: '부호가 교대로 바뀌는 수열의 홀짝 성질((3-1))로 $N=0$이 불가능함을 보이고, $N=1$이면 $b_i$의 부호가 한 곳을 빼고 교대하므로 $\sum\lvert b_i\rvert=2(a_2+a_4+\cdots+a_{98})-2(a_3+a_5+\cdots+a_{99})$로 정리된다.'
+stuck: (3-3)에서 $N=1$일 때 일반성을 잃지 않고 $b_{99}b_1>0$, $b_{99}>0$으로 두고 $\sum\lvert b_i\rvert$를 짝수·홀수 번째 항의 합으로 바꾸는 단계
+idea_tags: [IDEA-SIGN-ALTERNATION-PARITY, IDEA-ABS-SUM-TELESCOPE-BY-SIGN, IDEA-WLOG-ROTATION-COUNT]
+tags: [수학적 귀납법, 귀류법, 재배열, 경우의 수, 인하대 기출, 의예과]
+elements:
+  materials:
+  - '1부터 99까지의 재배열 $a_1,\cdots,a_{99}$와 순환 차 $b_i$'
+  - '이웃한 곱 $b_ib_{i+1}$ 중 양수인 것의 개수 $N$'
+  - '$\sum_{i=1}^{99}\lvert b_i\rvert$의 최댓값 $M$과 그 재배열의 개수'
+  concepts: [수학적 귀납법, 귀류법, 합의 법칙과 곱의 법칙, 순열]
+  tools: [홀짝으로 나눈 귀납 단계, 'N=0 가정 후 (3-1)로 $b_1$과 $b_{99}$의 부호 비교', 부호가 교대하는 재배열 구성, 부호에 따라 절댓값을 벗겨 합 정리, 큰 수·작은 수 배치의 순열 수와 회전·부호의 곱]
+  conditions:
+  - '$x_ix_{i+1}<0$ ⇒ 부호가 교대 ⇒ $n$ 홀수면 $x_1$, $x_n$ 같은 부호'
+  - '$b_1+\cdots+b_{99}=0$ ⇒ $b_i$ 중 양수·음수가 모두 존재(순환)'
+  - '$N=1$ ⇒ 한 쌍만 같은 부호, 나머지는 교대 ⇒ 위치 $j$(99가지)와 부호(2가지)'
+  - '$\sum\lvert b_i\rvert$ 최대 ⇒ 짝수 번째 49개가 51~99, 홀수 번째(3~99) 49개가 1~49, $a_1=50$'
+  stimuli_used: [가, 나]
+  subpart_links: '(3-2)(a)는 (3-1)의 결과 사용, (3-3)(a)는 (3-1)과 (3-2)(b)의 재배열 사용, (3-3)(b)는 (3-3)(a)의 등호 조건 사용'
+
+curriculum:
+  version: '2015'
+  subjects: [수학, 수학Ⅰ]
+  scope_2028: common
+  scope_confirmed: true
+  standards:
+  - code: 12수학Ⅰ03-08
+    text: 수학적 귀납법을 이용하여 명제를 증명할 수 있다.
+    verified: true
+  - code: 10수학03-07
+    text: 대우를 이용한 증명법과 귀류법을 이해한다.
+    verified: true
+  - code: 10수학05-01
+    text: 합의 법칙과 곱의 법칙을 이해하고, 이를 이용하여 경우의 수를 구할 수 있다.
+    verified: true
+  content_area: 수열 – 수학적 귀납법, 명제 – 귀류법, 경우의 수
+  behavior_domain: 추론
+  unit_path: [수학Ⅰ, 수열, 수학적 귀납법, 재배열과 부호 교대]
+  key_concepts: [수학적 귀납법, 귀류법, 순열, 곱의 법칙]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 인하대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 인하대학교
+  admission_year: 2024
+  admission_type: 논술(의예과)
+  track: 의예과
+  question_no: 3
+  official_url: https://admission.inha.ac.kr/cms/FR_BBS_CON/BoardView.do?MENU_ID=250&SITE_NO=2&BOARD_SEQ=2&BBS_SEQ=179
+  retrieved_at: '2026-11-21'
+  original_points: 35
+  note: 문제 = 179__(자연-오전)_2024학년도_인하대학교_논술고사_문제.pdf p.10(의예과 시험지 6/8), 해설·문항카드 = 179__(자연-오전)_…_해설.pdf p.16~18, 영향평가 보고서(1138__) PDF p.91~94. 의예과 전용 문항. 소문항 (3-2)(a)(b)는 id 2a·2b, (3-3)(a)(b)는 3a·3b. 공식 예시답안 (3-3)(b)의 '$a_3,a_5,\cdots,a_{99}\ge49$'는 '$\le49$'의 오기로 보임(해설 p.18, 보고서도 동일).
+
+verify: verify/INHA-G24D.py::p03
+
+stimuli:
+- label: 가
+  body: |
+    (수학적 귀납법)
+    자연수 $n$에 대한 명제 $p(n)$이 모든 자연수 $n$에 대하여 성립함을 증명하려면 다음 두 가지를 보이면 된다.
+    (1) $n=1$일 때, 명제 $p(n)$이 성립한다.
+    (2) $n=k\ (k\ge1)$일 때 명제 $p(n)$이 성립한다고 가정하면, $n=k+1$일 때에도 명제 $p(n)$이 성립한다.
+- label: 나
+  body: |
+    (귀류법)
+    어떤 명제가 참임을 증명할 때, 명제의 결론을 부정하여 가정한 사실 또는 이미 알려진 사실에 모순이 생김을 보이면 된다. 이처럼 증명하는 방법을 귀류법이라 한다.
+
+stem: |
+  [문제 3] (35점) 다음 제시문을 읽고 물음에 답하시오.
+  (※) $a_1,a_2,\cdots,a_{99}$는 자연수 $1,2,\cdots,99$의 재배열이다. 즉, $\{a_1,a_2,\cdots,a_{99}\}=\{1,2,\cdots,99\}$이다.
+  $$b_1=a_2-a_1,\ b_2=a_3-a_2,\ \cdots,\ b_{98}=a_{99}-a_{98},\ b_{99}=a_1-a_{99}$$
+  라 하고 $b_1b_2,\ b_2b_3,\ b_3b_4,\ \cdots,\ b_{98}b_{99},\ b_{99}b_1$ 중에 양수인 것의 개수를 $N$이라 하자.
+
+subparts:
+- id: '1'
+  stem: |
+    (3-1) 2 이상의 자연수 $n$에 대하여 실수 $x_1,x_2,\cdots,x_n$이 다음 조건을 만족한다.
+    [조건 상자] 모든 $i=1,2,\cdots,n-1$에 대하여 $x_ix_{i+1}<0$ 이다.
+    수학적 귀납법을 이용하여 $n$이 홀수이면 $x_n$과 $x_1$은 부호가 서로 같고, $n$이 짝수이면 $x_n$과 $x_1$은 부호가 서로 다름을 보이시오. (5점)
+  points: 5
+  depends_on: []
+  answer: {kind: proof, value: null, equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: '$x_{k-1}x_k<0$이므로 $x_k$의 부호는 $x_{k-1}$과 반대; $n=k-1$의 결과를 홀짝으로 넘긴다.'
+    steps:
+    - {id: 1a, content: '기초 $n=2,3$; $n=k-1$ 가정 → $k$ 짝수/홀수 경우 분리', criteria: [1.R1]}
+    hint_ladder:
+    - $n=2$, $n=3$에서 먼저 확인하자.
+    - $x_{k-1}$과 $x_k$의 부호는 항상 반대이다.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 2024 자연오전(의예과) 해설(문항카드) p.18 예시답안 (3-1), 채점기준 p.17, 영향평가 보고서 PDF p.93
+    steps:
+    - id: 1b-1
+      content: |
+        $n=2$이면 $x_n=x_2$이고 $x_1x_2<0$이므로 $x_1$과 $x_n$의 부호는 서로 다르다. $n=3$이면 $x_n=x_3$이다. $x_1x_2<0$이므로 $x_1$과 $x_2$는 부호가 다르고, $x_2x_3<0$이므로 $x_2$와 $x_3$은 부호가 다르다. 따라서 $x_1$과 $x_3$은 부호가 서로 같다.
+      criteria: [1.R1]
+    - id: 1b-2
+      content: |
+        $k\ge4$에 대하여 $n=k-1$일 때 성립한다고 가정하고 $n=k$일 때 성립함을 보이자.
+        $k$가 짝수이면 $k-1$은 홀수이다. 따라서 $x_{k-1}$은 $x_1$과 부호가 같다. 또한 $x_{k-1}x_k<0$이므로 $x_{k-1}$과 $x_k$는 부호가 다르다. 즉 $x_1$과 $x_k$는 부호가 서로 다르다.
+        $k$가 홀수이면 $k-1$은 짝수이다. 따라서 $x_1$과 $x_{k-1}$은 부호가 다르고, $x_{k-1}x_k<0$이므로 $x_{k-1}$과 $x_k$는 부호가 다르므로 $x_1$과 $x_k$는 부호가 서로 같다.
+        따라서 수학적 귀납법에 의하여 2 이상인 모든 자연수 $n$에 대하여 명제가 성립한다.
+      criteria: [1.R1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 0, isw: true}
+    note: '공식 채점기준(해설 p.17): 수학적 귀납법을 이용하여 명제를 증명하면 5점(단일 기준).'
+    criteria:
+    - id: 1.R1
+      mark_type: R
+      points: 5
+      evidence: '기초 단계와, $n=k-1$ 가정에서 $k$의 홀짝 두 경우로 $n=k$를 보이는 귀납 단계를 모두 적었다.'
+      depends_on: []
+      steps: [1b-1, 1b-2, 1a]
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-PRF-5212}
+  misconceptions:
+  - id: MC-PRF-5212
+    outcome_code: '70'
+    wrong_work: '$x_1>0$이면 $x_2<0,\ x_3>0,\cdots$ 처럼 나열만 하고 "따라서 성립"으로 끝냄'
+    detect_cue: '$n=k$ 가정을 쓰는 문장이나 홀짝 경우 분리가 없다'
+    feedback: 수학적 귀납법을 쓰라는 조건입니다. 가정한 $n=k-1$의 결론과 $x_{k-1}x_k<0$을 연결해 홀짝 두 경우를 모두 보이세요.
+    remedy: [RL-1]
+- id: 2a
+  stem: |
+    (3-2) (a) 모든 재배열 $a_1,a_2,\cdots,a_{99}$에 대하여 $N\ge1$임을 보이시오. (5점)
+  points: 5
+  depends_on: ['1']
+  answer: {kind: proof, value: null, equivalents: [], tolerance: null}
+  solutions:
+  - id: S2a-A
+    audience: A
+    method_no: 1
+    key_idea: '$N=0$이면 $b_1,\cdots,b_{99}$가 교대 ⇒ (3-1)에서 $b_1$, $b_{99}$ 같은 부호 ⇒ $b_{99}b_1>0$ 모순.'
+    steps:
+    - {id: 2aa, content: '$N=0$ 가정 ⇒ $b_ib_{i+1}<0\ (i\le98)$ ⇒ (3-1), $n=99$ 홀수 ⇒ $b_{99}b_1>0$ ⇒ $N\ge1$ 모순', criteria: [2a.R1]}
+    hint_ladder:
+    - 결론을 부정해 $N=0$이라 가정하자.
+    - (3-1)을 $x_i=b_i$, $n=99$에 적용하자.
+  - id: S2a-B
+    audience: B
+    method_no: 1
+    source_flow: 2024 자연오전(의예과) 해설(문항카드) p.18 예시답안 (3-2)(a), 채점기준 p.17, 영향평가 보고서 PDF p.93~94
+    steps:
+    - id: 2ab-1
+      content: |
+        귀류법으로 증명하자. $N=0$인 재배열 $a_1,a_2,\cdots,a_{99}$가 존재한다고 가정하자. 그러면 각각의 $i=1,2,\cdots,98$에 대하여 $b_ib_{i+1}<0$이다. (3-1)에 의하여 $b_1$과 $b_{99}$의 부호는 같고 $b_{99}b_1>0$이므로 $N=0$이라는 것에 모순이다. 따라서 $N\ge1$이다. (각 $b_i\neq0$이므로 곱은 0이 아니다.)
+      criteria: [2a.R1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 0, isw: true}
+    note: '공식 채점기준(해설 p.17): $N=0$인 재배열이 존재하지 않음을 증명하면 5점.'
+    criteria:
+    - id: 2a.R1
+      mark_type: R
+      points: 5
+      evidence: '$N=0$을 가정하고 (3-1)로 $b_{99}b_1>0$을 이끌어 모순을 보였다.'
+      depends_on: []
+      steps: [2ab-1, 2aa]
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-PRF-5213}
+  misconceptions:
+  - id: MC-PRF-5213
+    outcome_code: '70'
+    wrong_work: '$b_1+b_2+\cdots+b_{99}=0$이므로 양수와 음수가 있다는 것만으로 $N\ge1$이라 결론'
+    detect_cue: (3-1)을 쓰지 않고 이웃한 곱의 부호를 다루지 않음
+    feedback: 양수·음수가 섞여 있어도 교대로 나오면 이웃 곱은 모두 음수일 수 있습니다. 순환의 마지막 곱 $b_{99}b_1$을 (3-1)로 확인하세요.
+    remedy: [RL-2]
+- id: 2b
+  stem: |
+    (b) $N=1$인 재배열 $a_1,a_2,\cdots,a_{99}$가 존재함을 보이시오. (5점)
+  points: 5
+  depends_on: []
+  answer: {kind: proof, value: null, equivalents: [], tolerance: null}
+  solutions:
+  - id: S2b-A
+    audience: A
+    method_no: 1
+    key_idea: '$a_1=50$, 짝수 번째에 51 이상, 홀수 번째에 50 이하를 놓으면 $b$가 교대하고 $b_{99}b_1$만 양수.'
+    steps:
+    - {id: 2ba, content: '$a_1=50$, $a_{2k}=50+k$, $a_{2k+1}=k\ (k=1,\cdots,49)$', criteria: [2b.B1, 2b.R1]}
+    hint_ladder:
+    - 큰 수와 작은 수를 번갈아 놓아 보자.
+    - $b_{99}$와 $b_1$만 같은 부호가 되게 맞추자.
+  - id: S2b-B
+    audience: B
+    method_no: 1
+    source_flow: 2024 자연오전(의예과) 해설(문항카드) p.18 예시답안 (3-2)(b), 채점기준 p.17, 영향평가 보고서 PDF p.94
+    steps:
+    - id: 2bb-1
+      content: |
+        $n$이 짝수일 때 $a_n$은 51 이상이고 $n$이 홀수일 때 $a_n$은 50 이하인 아래 재배열에 대하여 $N=1$임을 보이자.
+        $$a_1=50,\quad k=1,2,\cdots,49\text{에 대하여 }a_{2k}=50+k,\ a_{2k+1}=k\qquad(*)$$
+      criteria: [2b.B1]
+    - id: 2bb-2
+      content: |
+        $k=1,\cdots,49$에 대하여 $b_{2k}=a_{2k+1}-a_{2k}\le50-51<0$, $b_{2k-1}=a_{2k}-a_{2k-1}\ge51-50>0$이고 $b_{99}=a_1-a_{99}=50-49>0$이다. 즉 $b_1,b_2,\cdots,b_{99}$에는 양수와 음수가 교대로 나온다. 따라서 $b_1b_2,b_2b_3,\cdots,b_{98}b_{99}$는 모두 음수이고 $b_{99}b_1$은 양수이다. 그러므로 이 재배열에서 $N=1$이다.
+      criteria: [2b.R1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 0, isw: true}
+    note: '공식 채점기준(해설 p.17): $N=1$인 재배열을 찾으면 3점, 그 재배열에 대하여 $N=1$인 이유를 설명하면 2점.'
+    criteria:
+    - id: 2b.B1
+      mark_type: B
+      points: 3
+      evidence: '$N=1$인 재배열을 구체적으로 제시했다.'
+      depends_on: []
+      steps: [2bb-1, 2ba]
+    - id: 2b.R1
+      mark_type: R
+      points: 2
+      evidence: '제시한 재배열에서 $b_i$의 부호를 확인해 $N=1$인 이유를 설명했다.'
+      depends_on: [2b.B1]
+      steps: [2bb-2, 2ba]
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-PRF-5214}
+  misconceptions:
+  - id: MC-PRF-5214
+    outcome_code: '70'
+    wrong_work: '$1,2,\cdots,99$ 순서 그대로를 예로 들거나, 예시만 쓰고 부호 확인 없음'
+    detect_cue: '항등 배열(그때 $N=97$)이거나 $b_i$의 부호 서술이 없다'
+    feedback: 존재 증명은 예시와 함께 그 예시가 조건을 만족하는 이유(각 $b_i$의 부호)를 적어야 합니다.
+    remedy: [RL-3]
+- id: 3a
+  stem: |
+    (3-3) $N=1$일 때, $\displaystyle\sum_{i=1}^{99}\lvert b_i\rvert$이 가질 수 있는 값 중 가장 큰 값을 $M$이라 하자.
+    (a) $M$의 값을 구하시오. (10점)
+  points: 10
+  depends_on: ['1', 2b]
+  answer: {kind: value, value: '4900', equivalents: [], tolerance: null}
+  solutions:
+  - id: S3a-A
+    audience: A
+    method_no: 1
+    key_idea: '$\sum\lvert b_i\rvert=2(a_2+\cdots+a_{98})-2(a_3+\cdots+a_{99})\le2(3675-1225)$.'
+    steps:
+    - {id: 3aa, content: '$\le2\{(51+\cdots+99)-(1+\cdots+49)\}=4900$, 등호는 $(*)$에서', criteria: [3a.M1, 3a.M2, 3a.A1, 3a.B1]}
+    hint_ladder:
+    - $N=1$이면 어느 한 곳만 빼고 $b_i$의 부호가 교대한다. 그곳을 $b_{99}b_1$로 두자.
+    - 부호에 맞춰 절댓값을 벗기면 $a_1$이 사라진다.
+  - id: S3a-B
+    audience: B
+    method_no: 1
+    source_flow: 2024 자연오전(의예과) 해설(문항카드) p.18 예시답안 (3-3)(a), 채점기준 p.17, 영향평가 보고서 PDF p.94
+    steps:
+    - id: 3ab-1
+      content: |
+        $N=1$이므로 어떤 $j=1,2,\cdots,99$에 대하여 $b_jb_{j+1}>0$이고(단, $b_{100}=b_1$) $j$가 아닌 $i$에 대하여 $b_ib_{i+1}<0$이다. 일반성을 잃지 않고 $j=99$, 즉 $b_{99}b_1>0$이고 $b_1b_2,\cdots,b_{98}b_{99}<0$이라 하자. 또한 일반성을 잃지 않고 $b_{99}>0$이라 하자. 이때 $b_1>0$이다. (3-1)에 의하여 $b_1,b_3,\cdots,b_{99}$는 모두 양수, $b_2,b_4,\cdots,b_{98}$은 모두 음수이다.
+      criteria: [3a.M1]
+    - id: 3ab-2
+      content: |
+        따라서 $\lvert b_{2k-1}\rvert=a_{2k}-a_{2k-1}$, $\lvert b_{2k}\rvert=a_{2k}-a_{2k+1}$이고
+        $$\sum_{i=1}^{99}\lvert b_i\rvert=\sum_{k=1}^{50}\lvert b_{2k-1}\rvert+\sum_{k=1}^{49}\lvert b_{2k}\rvert=2(a_2+a_4+\cdots+a_{98})-2(a_3+a_5+\cdots+a_{99})$$
+        이다.
+      criteria: [3a.M2]
+    - id: 3ab-3
+      content: |
+        $a_2+a_4+\cdots+a_{98}\le51+52+\cdots+99=49\cdot75=3675$이고 $a_3+a_5+\cdots+a_{99}\ge1+2+\cdots+49=49\cdot25=1225$이므로 $\displaystyle\sum_{i=1}^{99}\lvert b_i\rvert\le2(3675-1225)=4900$이다.
+      criteria: [3a.A1]
+    - id: 3ab-4
+      content: |
+        또한 (3-2)(b)에서 구한 재배열 $(*)$에서 $\displaystyle\sum_{i=1}^{99}\lvert b_i\rvert=4900$이므로 $M=4900$이다.
+      criteria: [3a.B1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 0, isw: true}
+    note: '공식 채점기준(해설 p.17): $b_i$의 부호 파악 2점, $\sum\lvert b_i\rvert$를 $a_3+a_5+\cdots+a_{99}$와 $a_2+a_4+\cdots+a_{98}$로 나타내면 3점, $M\le4900$ 3점, 4900인 예 2점.'
+    criteria:
+    - id: 3a.M1
+      mark_type: M
+      points: 2
+      evidence: '$N=1$일 때 $b_1,\cdots,b_{99}$의 부호(한 곳만 같은 부호, 나머지 교대)를 파악했다.'
+      depends_on: []
+      implied_ok: false
+      steps: [3ab-1, 3aa]
+    - id: 3a.M2
+      mark_type: M
+      points: 3
+      evidence: '$\sum\lvert b_i\rvert=2(a_2+\cdots+a_{98})-2(a_3+\cdots+a_{99})$로 나타냈다.'
+      depends_on: []
+      steps: [3ab-2, 3aa]
+    - id: 3a.A1
+      mark_type: A
+      points: 3
+      evidence: '$M\le4900$임을 보였다.'
+      depends_on: [3a.M2]
+      steps: [3ab-3, 3aa]
+    - id: 3a.B1
+      mark_type: B
+      points: 2
+      evidence: '$\sum\lvert b_i\rvert=4900$인 재배열의 예를 제시했다.'
+      depends_on: []
+      steps: [3ab-4, 3aa]
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-PRF-5214}
+  misconceptions:
+  - id: MC-PRF-5214
+    outcome_code: '70'
+    wrong_work: '예 $(*)$에서 4900을 계산하고 상계 증명 없이 $M=4900$이라 함'
+    detect_cue: '$M\le4900$의 근거(짝수·홀수 번째 합의 범위)가 없다'
+    feedback: 최댓값은 상계 증명과 등호 예시가 모두 필요합니다.
+    remedy: [RL-3]
+- id: 3b
+  stem: |
+    (b) $N=1$일 때, $\displaystyle\sum_{i=1}^{99}\lvert b_i\rvert=M$인 재배열 $a_1,a_2,\cdots,a_{99}$의 개수를 구하시오. (10점)
+  points: 10
+  depends_on: [3a]
+  answer: {kind: value, value: '198\cdot(49!)^2', equivalents: ['2\cdot99\cdot(49!)^2'], tolerance: null}
+  solutions:
+  - id: S3b-A
+    audience: A
+    method_no: 1
+    key_idea: '$j=99$, $b_{99}>0$인 경우 큰 수 49개·작은 수 49개 배치 $(49!)^2$, 위치 $j$ 99가지·부호 2가지.'
+    steps:
+    - {id: 3ba, content: '$99\cdot2\cdot(49!)^2=198\cdot(49!)^2$', criteria: [3b.M1, 3b.R1, 3b.A1]}
+    hint_ladder:
+    - (a)의 부등식에서 등호가 성립할 조건을 적어 보자.
+    - 같은 부호 쌍의 위치 $j$와 $b_j$의 부호를 바꾸는 경우도 센다.
+  - id: S3b-B
+    audience: B
+    method_no: 1
+    source_flow: 2024 자연오전(의예과) 해설(문항카드) p.18 예시답안 (3-3)(b), 채점기준 p.17, 영향평가 보고서 PDF p.94
+    steps:
+    - id: 3bb-1
+      content: |
+        (a)에서 $j=99$이고 $b_{99}>0$인 경우에 $\displaystyle\sum_{i=1}^{99}\lvert b_i\rvert=4900$이기 위해서는 $a_2,a_4,\cdots,a_{98}\ge51$이고 $a_3,a_5,\cdots,a_{99}\le49$이어야 한다(따라서 $a_1=50$). [판독확인: 공식 예시답안은 '$a_3,a_5,\cdots,a_{99}\ge49$'로 표기 — 오기로 보아 $\le49$로 적음]
+      criteria: [3b.M1]
+    - id: 3bb-2
+      content: |
+        역으로 이 조건을 만족하면 $b_{2k-1}>0$, $b_{2k}<0$, $b_{99}=50-a_{99}>0$이므로 $N=1$이고 (a)의 식에 의해 $\displaystyle\sum\lvert b_i\rvert=2(3675-1225)=4900$이다.
+      criteria: [3b.R1]
+    - id: 3bb-3
+      content: |
+        이러한 재배열의 개수는 $(49!)^2$이다. 그런데 $j$는 $1,2,\cdots,99$ 모두 가능하고 $b_{99}$가 음수인 경우도 있으므로 재배열의 총 개수는 $99\cdot2\cdot(49!)^2=198\cdot(49!)^2$이다.
+      criteria: [3b.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 0, isw: true}
+    note: '공식 채점기준(해설 p.17): $\sum\lvert b_i\rvert=4900$이기 위한 조건 설명 3점, 그 조건을 만족하면 4900임을 보이면 3점, 개수 4점.'
+    criteria:
+    - id: 3b.M1
+      mark_type: M
+      points: 3
+      evidence: '$\sum\lvert b_i\rvert=4900$이기 위한 조건(짝수 번째 51 이상, 홀수 번째 49 이하, $a_1=50$ 등)을 설명했다.'
+      depends_on: []
+      implied_ok: false
+      steps: [3bb-1, 3ba]
+    - id: 3b.R1
+      mark_type: R
+      points: 3
+      evidence: '그 조건을 만족하는 재배열에서 $N=1$이고 $\sum\lvert b_i\rvert=4900$임을 보였다.'
+      depends_on: [3b.M1]
+      steps: [3bb-2, 3ba]
+    - id: 3b.A1
+      mark_type: A
+      points: 4
+      evidence: '개수 $198\cdot(49!)^2$을 구했다.'
+      depends_on: [3b.M1]
+      steps: [3bb-3, 3ba]
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-CNT-5215}
+  misconceptions:
+  - id: MC-CNT-5215
+    outcome_code: '70'
+    wrong_work: '$j=99$, $b_{99}>0$인 경우만 세어 $(49!)^2$ 또는 $2(49!)^2$을 답함'
+    detect_cue: 답에 99가 곱해지지 않음
+    feedback: 같은 부호가 되는 이웃 쌍의 위치 $j$는 99가지, 그 부호는 2가지입니다. 일반성을 잃지 않고 고정한 것을 마지막에 되돌려 세세요.
+    remedy: [RL-4]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-PRF-5212}
+  relation: remediation
+  target: {kind: concept, ref: CON-PRF-INDUCTION-I2}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-PRF-5213}
+  relation: remediation
+  target: {kind: concept, ref: CON-PRF-CONTRADICTION-I2}
+  priority: 1
+- id: RL-3
+  trigger: {type: misconception, ref: MC-PRF-5214}
+  relation: remediation
+  target: {kind: concept, ref: CON-PRF-CONTRADICTION-I2}
+  priority: 1
+- id: RL-4
+  trigger: {type: misconception, ref: MC-CNT-5215}
+  relation: remediation
+  target: {kind: concept, ref: CON-CNT-PERM-PRODUCT-I2}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-input-v1, item_version: 1, verdict: pass, date: 2026-11-21, note: 원문 PDF 이미지 판독으로 옮김 · 해설 B는 공식 해설 흐름}
+
+created: 2026-11-21
+updated: 2026-11-21

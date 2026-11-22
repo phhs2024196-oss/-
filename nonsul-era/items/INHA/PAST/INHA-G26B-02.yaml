@@ -1,0 +1,299 @@
+schema_version: '2.0'
+id: INHA-G26B-02
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: INHA
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 최적2단
+points: 35
+time_estimate_min: 35
+intent: |
+  (2-1) 도형의 길이, 넓이 등을 좌표평면을 활용하여 계산하고 분석할 수 있는지 평가한다.
+  (2-2) (2-1)에서 구한 결과에 넓이가 1이라는 조건을 반영하여 정사각형의 넓이를 함수로 표현할 수 있는지 평가한다. 또한, 함수의 극댓값을 계산할 수 있는지 평가한다.
+  (2-3) 도형의 닮음을 이용하여 넓이를 구하고, 식 변형을 통하여 극댓값을 간단히 구할 수 있는지 평가한다.
+key_idea: '내접 정사각형 한 변 $\frac{a(b+c)}{a+b+c}$에 $a=\frac2x$ ($x=BC$)를 넣으면 $\frac{2x}{x^2+2}$, 닮음비로 작은 정사각형 한 변을 구하고 $y=x^2$으로 치환해 최대화한다.'
+stuck: (2-3)에서 삼각형 $APQ$가 $ABC$와 닮음이고 그 안의 정사각형 $XYZW$가 같은 비율로 줄어든다는 관찰
+idea_tags: [IDEA-INSCRIBED-SQUARE-COORD, IDEA-SIMILARITY-RATIO-NESTED, IDEA-SUBSTITUTE-SQUARE-OPTIMIZE]
+tags: [내접 정사각형, 닮음, 유리함수 최대, 인하 실전]
+elements:
+  materials: ['삼각형 $ABC$와 변 $BC$ 위에 한 변이 놓인 내접 정사각형 $PQRS$', '삼각형 $APQ$에 같은 방식으로 내접한 정사각형 $XYZW$', '넓이 1 조건']
+  concepts: [직선의 방정식, 정사각형의 조건, 닮음비, 몫의 미분법, 극대·극소 판정, 산술평균과 기하평균]
+  tools: ['$R(r,0)$, $S(s,0)$으로 놓고 $\overline{PS}=\overline{QR}=\overline{SR}$', '넓이 1 ⇒ $a=\frac{2}{b+c}$', '닮음비 $\frac{PQ}{BC}$', '$y=x^2$ 치환 후 미분']
+  conditions:
+  - '$PQRS$가 정사각형 ⇒ $P$, $Q$의 $y$좌표 같음, 그 값이 $r-s$와 같음'
+  - '넓이 1 ⇒ $\frac12(b+c)a=1$'
+  - '$XYZW$는 삼각형 $APQ$의 내접 정사각형 ⇒ 한 변 $=\overline{PQ}\cdot\frac{\overline{PQ}}{\overline{BC}}$'
+  stimuli_used: [가, 나]
+  subpart_links: '(2-2)는 (2-1)의 넓이 식, (2-3)은 (2-2)의 $\overline{PQ}=\frac{2x}{x^2+2}$ 사용'
+
+curriculum:
+  version: '2015'
+  subjects: [수학, 수학Ⅱ, 미적분]
+  scope_2028: calc2
+  scope_confirmed: true
+  standards:
+  - code: 10수학02-03
+    text: 직선의 방정식을 구할 수 있다.
+    verified: true
+  - code: 12수학Ⅱ02-08
+    text: 함수의 증가와 감소, 극대와 극소를 판정하고 설명할 수 있다.
+    verified: true
+  - code: 12미적02-06
+    text: 함수의 몫을 미분할 수 있다.
+    verified: true
+  content_area: 도함수의 활용 – 도형의 최대
+  behavior_domain: 문제해결
+  unit_path: [미적분, 미분법, 도함수의 활용, 도형의 넓이 최대]
+  key_concepts: [직선의 방정식, 닮음, 몫의 미분법, 극댓값]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 인하대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 인하대학교
+  admission_year: 2026
+  admission_type: 논술(오후)
+  track: 자연계열
+  question_no: 2
+  official_url: https://admission.inha.ac.kr/cms/FR_BBS_CON/BoardView.do?MENU_ID=250&SITE_NO=2&BOARD_SEQ=2&BBS_SEQ=204
+  retrieved_at: '2026-11-21'
+  original_points: 35
+  note: 문제 = 204__3._…(자연오후_및_의예과)_논술고사_문제.pdf p.4(2/8, 일반), 해설·채점기준·성취기준 = 204__3-2._…_문항카드.pdf p.4~7
+
+verify: verify/INHA-G26B.py::p02
+
+stimuli:
+- label: 가
+  body: |
+    (가) $x_1\ne x_2$일 때, 두 점 $(x_1,y_1)$, $(x_2,y_2)$를 지나는 직선의 방정식은
+    $$y-y_1=\dfrac{y_2-y_1}{x_2-x_1}(x-x_1)$$
+- label: 나
+  body: |
+    (나) 미분가능한 함수 $f(x)$에 대하여 $f'(\alpha)=0$일 때, $x=\alpha$의 좌우에서 $f'(x)$의 부호가 양에서 음으로 바뀌면 $f(x)$는 $x=\alpha$에서 극대이고, 극댓값 $f(\alpha)$를 갖는다.
+
+stem: |
+  [문제 2] (35점) 다음 제시문을 읽고 물음에 답하시오.
+  (※) 그림과 같이 삼각형 $ABC$의 변 $AB$, $AC$ 위에 각각 점 $P$, $Q$가 있고, 변 $BC$ 위에 두 점 $R$, $S$가 있고, 사각형 $PQRS$는 정사각형을 이룬다. (단, 두 각 $B$와 $C$는 예각이다.)
+  [그림: 밑변 $BC$가 수평인 삼각형 $ABC$(꼭짓점 $A$는 위쪽, $B$ 쪽으로 치우침). 변 $AB$ 위의 점 $P$와 변 $AC$ 위의 점 $Q$를 잇는 수평 선분 $PQ$, $P$와 $Q$에서 $BC$에 내린 수직선의 발이 각각 $S$, $R$이며 밑변 위 순서는 $B, S, R, C$. 정사각형 $PQRS$가 삼각형에 내접.]
+
+subparts:
+- id: '1'
+  stem: |
+    (2-1) 양의 실수 $a$, $b$, $c$에 대하여 삼각형 $ABC$의 세 꼭짓점의 좌표를 각각
+    $$A(0,a),\ B(-b,0),\ C(c,0)$$
+    이라 할 때, 정사각형 $PQRS$의 넓이를 $a$, $b$, $c$의 식으로 나타내시오. [10점]
+  points: 10
+  depends_on: []
+  answer: {kind: expression, value: '\dfrac{a^2(b+c)^2}{(a+b+c)^2}', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: '닮음: 정사각형 한 변 $k$에 대해 $\frac{k}{b+c}=\frac{a-k}{a}$ ⇒ $k=\frac{a(b+c)}{a+b+c}$.'
+    steps:
+    - {id: 1a, content: '넓이 $\frac{a^2(b+c)^2}{(a+b+c)^2}$', criteria: [1.M1, 1.A1]}
+    hint_ladder:
+    - $P$, $Q$의 $y$좌표가 같고 그것이 한 변의 길이이다.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 2026 자연오후 문항카드 p.6 예시답안(2-1), 채점기준 p.6
+    steps:
+    - id: 1b-1
+      content: |
+        두 점 $A$와 $C$를 지나는 직선의 방정식은 $y=-\dfrac{a}{c}x+a$이고 두 점 $A$와 $B$를 지나는 직선의 방정식은 $y=\dfrac{a}{b}x+a$이다.
+      criteria: [1.M1]
+    - id: 1b-2
+      content: |
+        $R$과 $S$의 $x$좌표를 각각 $r$, $s$라 하면 $P\left(s,\dfrac abs+a\right)$, $Q\left(r,-\dfrac acr+a\right)$이다. $\overline{PS}=\overline{QR}$이므로 $\dfrac abs+a=-\dfrac acr+a$, 따라서 $cs+br=0$.
+        또한 $\overline{QR}=\overline{SR}$이므로 $-\dfrac acr+a=r-s=r+\dfrac{br}{c}$이다.
+      criteria: [1.A1]
+    - id: 1b-3
+      content: |
+        따라서 $r=\dfrac{ac}{a+b+c}$, $s=-\dfrac{ab}{a+b+c}$이고 정사각형 $PQRS$의 변의 길이는 $\dfrac{a(b+c)}{a+b+c}$이다. 따라서 넓이는 $\dfrac{a^2(b+c)^2}{(a+b+c)^2}$이다.
+      criteria: [1.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 3
+      evidence: (공식) 직선 $AB$와 $AC$의 직선의 방정식을 구하였다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1]
+    - id: 1.A1
+      mark_type: A
+      points: 7
+      evidence: (공식) 정사각형 $PQRS$의 넓이 $\frac{a^2(b+c)^2}{(a+b+c)^2}$를 구하였다.
+      depends_on: [1.M1]
+      steps: [1b-2, 1b-3]
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-GEO-5411}
+  misconceptions:
+  - id: MC-GEO-5411
+    outcome_code: '70'
+    wrong_work: '정사각형 조건 중 $\overline{PS}=\overline{QR}$만 쓰고 $\overline{QR}=\overline{SR}$를 빠뜨려 넓이를 $r,s$가 남은 식으로 씀'
+    detect_cue: 답에 $a,b,c$ 외의 문자가 남거나 한 변을 $r-s$로만 둠
+    feedback: 정사각형은 이웃한 두 변의 길이도 같아야 합니다. 세로($y$좌표)와 가로($r-s$)를 같게 놓으세요.
+    remedy: [RL-1]
+- id: '2'
+  stem: |
+    (2-2) 삼각형 $ABC$의 넓이가 1이다. 정사각형 $PQRS$의 넓이가 최대일 때, 변 $BC$의 길이를 구하시오. [10점]
+  points: 10
+  depends_on: ['1']
+  answer: {kind: value, value: '\sqrt2', equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: '$BC=x$, $a=\frac2x$ ⇒ 한 변 $\frac{2x}{x^2+2}\le\frac1{\sqrt2}$ (산술·기하), 등호 $x=\sqrt2$.'
+    steps:
+    - {id: 2a, content: '$x=\sqrt2$', criteria: [2.M1, 2.A1]}
+    hint_ladder:
+    - 넓이 1에서 높이를 밑변으로 나타내자.
+  - id: S2-B
+    audience: B
+    method_no: 1
+    source_flow: 2026 자연오후 문항카드 p.6 예시답안(2-2), 채점기준 p.6
+    steps:
+    - id: 2b-1
+      content: |
+        삼각형 $ABC$의 변 $BC$의 길이를 $x$라 하자. 그러면 (2-1)에서 $\overline{BC}=b+c=x$이고 삼각형 $ABC$의 넓이가 1이므로 $a=\dfrac2x$이다. 이를 (2-1)에서 구한 정사각형 $PQRS$의 넓이에 대입하면 $\left(\dfrac{2x}{x^2+2}\right)^2$이 된다.
+      criteria: [2.M1]
+    - id: 2b-2
+      content: |
+        넓이가 최대가 되는 $x$를 구하기 위해서 $f(x)=\dfrac{2x}{x^2+2}$가 최대가 되는 $x$를 구하면 된다. (단, $x>0$) $f'(x)=\dfrac{-2x^2+4}{(x^2+2)^2}$이므로 $f'(x)=0$의 해는 $x=\pm\sqrt2$이다. $x>0$이므로 증감 관계를 확인하면 $f(x)$는 $x=\sqrt2$에서 극댓값 $\dfrac{\sqrt2}{2}$를 갖는다. 따라서 $\overline{BC}=\sqrt2$.
+      criteria: [2.A1]
+  - id: S2-ALT
+    audience: ALT
+    method_no: 2
+    source_flow: 2026 자연오후 문항카드 p.6 (별해)
+    steps:
+    - id: 2c-1
+      content: |
+        $f(x)=\dfrac{2x}{x^2+2}$에서 $x$가 양수이므로 산술평균과 기하평균의 관계를 이용하여 $f(x)$의 최댓값을 구할 수 있다. $x^2+2\ge2\sqrt2x$이므로 $f(x)\le\dfrac{1}{\sqrt2}$이다. 등호는 $x^2=2$일 때 성립하므로, $x=\sqrt2$일 때 최댓값을 갖는다.
+      criteria: [2.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 5
+      evidence: (공식) 정사각형 $PQRS$의 넓이를 변 $BC$의 길이의 식으로 표현하였다(또는 $(b+c)$의 식, 또는 $a$의 식으로 표현).
+      depends_on: []
+      implied_ok: false
+      steps: [2b-1]
+    - id: 2.A1
+      mark_type: A
+      points: 5
+      evidence: (공식) 정사각형 $PQRS$의 넓이가 최대가 될 때 변 $BC$의 길이 $\sqrt2$를 구하였다.
+      depends_on: [2.M1]
+      steps: [2b-2, 2c-1]
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '21', meaning: 만점(별해 — 산술·기하평균)}
+  - {code: '70', misconception: MC-CAL-5412}
+  misconceptions:
+  - id: MC-CAL-5412
+    outcome_code: '70'
+    wrong_work: '넓이 1 조건을 쓰지 않고 $b+c$와 $a$를 독립 변수로 두어 최대가 없다고 판단'
+    detect_cue: '$a=\frac{2}{b+c}$ 대입이 없다'
+    feedback: 넓이 조건으로 변수 하나를 없애 한 변수 함수로 만든 뒤 극댓값을 구하세요.
+    remedy: [RL-2]
+- id: '3'
+  stem: |
+    (2-3) 삼각형 $ABC$의 넓이가 1이다. 선분 $AP$ 위의 점 $X$에서 선분 $PQ$ 위에 내린 수선의 발을 $W$, 선분 $AQ$ 위의 점 $Y$에서 선분 $PQ$ 위에 내린 수선의 발을 $Z$라 할 때, 사각형 $XYZW$는 정사각형을 이룬다. 정사각형 $PQRS$와 정사각형 $XYZW$의 넓이의 차가 최대일 때, 변 $BC$의 길이를 $d$라 하자. $d^2$의 값을 구하시오. [15점]
+  points: 15
+  depends_on: ['2']
+  answer: {kind: value, value: '-1+\sqrt{17}', equivalents: ['\sqrt{17}-1'], tolerance: null}
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: '$XY=\overline{PQ}^2/\overline{BC}=\frac{4x}{(x^2+2)^2}$, 차 $h(y)=\frac{4(y^3+4y^2)}{(y+2)^4}$ ($y=x^2$) 최대.'
+    steps:
+    - {id: 3a, content: '$h''(y)=\frac{-4y(y^2+2y-16)}{(y+2)^5}$ ⇒ $y=-1+\sqrt{17}$', criteria: [3.M1, 3.A1]}
+    hint_ladder:
+    - 삼각형 $APQ$와 $ABC$는 닮음이다. 닮음비는?
+    - '$x^2=y$로 치환하면 식이 간단해진다.'
+  - id: S3-B
+    audience: B
+    method_no: 1
+    source_flow: 2026 자연오후 문항카드 p.7 예시답안(2-3), 채점기준 p.6
+    steps:
+    - id: 3b-1
+      content: |
+        (2-2)에서 선분 $BC$의 길이를 $x$라 할 때, $\overline{PQ}=\dfrac{2x}{x^2+2}$이다. 삼각형 $ABC$와 삼각형 $APQ$는 서로 닮음이고 닮음비가 $x:\dfrac{2x}{x^2+2}$이다. 따라서 $XY$의 길이는 $\overline{PQ}\cdot\dfrac{\overline{PQ}}{\overline{BC}}=\dfrac{4x}{(x^2+2)^2}$이고 사각형 $XYZW$의 넓이는 $\dfrac{16x^2}{(x^2+2)^4}$이다.
+      criteria: [3.M1]
+    - id: 3b-2
+      content: |
+        그러므로 정사각형 $PQRS$와 $XYZW$의 넓이의 차는 $g(x)=\left(\dfrac{2x}{x^2+2}\right)^2-\dfrac{16x^2}{(x^2+2)^4}$이고, 이 값이 최대가 되는 $x$의 값이 $d$가 된다. $x^2=y$라 하면
+        $h(y)=\dfrac{4y}{(y+2)^2}-\dfrac{16y}{(y+2)^4}=\dfrac{4(y^3+4y^2)}{(y+2)^4}$ $(y>0)$
+        이고 함수 $h(y)$가 최대가 되는 $y$의 값이 $d^2$이다.
+      criteria: [3.A1]
+    - id: 3b-3
+      content: |
+        $h'(y)=\dfrac{-4y(y^2+2y-16)}{(y+2)^5}$ $(y>0)$이므로 $h(y)$는 $y=-1+\sqrt{17}$에서 극값을 갖고, $y<-1+\sqrt{17}$이면 $h'(y)>0$이고 $y>-1+\sqrt{17}$이면 $h'(y)<0$이므로 $h(y)$는 $y=-1+\sqrt{17}$에서 최댓값을 갖는다. 그러므로 $d^2=-1+\sqrt{17}$이다.
+      criteria: [3.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 5
+      evidence: (공식) 정사각형 $XYZW$의 한 변의 길이 $\frac{4x}{(x^2+2)^2}$, 또는 넓이를 구하였다.
+      depends_on: []
+      implied_ok: false
+      steps: [3b-1]
+    - id: 3.A1
+      mark_type: A
+      points: 10
+      evidence: (공식) 넓이의 차가 최대가 될 때 $d^2=-1+\sqrt{17}$을 구하였다.
+      depends_on: [3.M1]
+      steps: [3b-2, 3b-3]
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-GEO-5413}
+  misconceptions:
+  - id: MC-GEO-5413
+    outcome_code: '70'
+    wrong_work: '작은 정사각형의 한 변을 $\overline{PQ}$의 (2-1) 공식에 다시 $a,b,c$를 넣어 구하면서 높이를 $a$ 그대로 사용'
+    detect_cue: '$XY$ 식에 $\frac{\overline{PQ}}{\overline{BC}}$ 비율이 없다'
+    feedback: 삼각형 $APQ$는 $ABC$를 $\frac{PQ}{BC}$배로 줄인 닮은 도형이므로 내접 정사각형도 같은 비율로 줄어듭니다.
+    remedy: [RL-3]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-GEO-5411}
+  relation: remediation
+  target: {kind: concept, ref: CON-GEO-INSCRIBED-SQUARE-I4}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-CAL-5412}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-CONSTRAINT-ONE-VAR-MAX-I4}
+  priority: 1
+- id: RL-3
+  trigger: {type: misconception, ref: MC-GEO-5413}
+  relation: remediation
+  target: {kind: concept, ref: CON-GEO-INSCRIBED-SQUARE-I4}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-input-v1, item_version: 1, verdict: pass, date: 2026-11-21, note: 원문 PDF 이미지 판독으로 옮김 · 해설 B는 공식 해설 흐름}
+
+created: 2026-11-21
+updated: 2026-11-21

@@ -1,0 +1,306 @@
+schema_version: '2.0'
+id: INHA-M26-02
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: INHA
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 추론
+points: 35
+time_estimate_min: 35
+intent: 주어진 함수가 미분가능한 함수가 되는 조건과 역함수를 가지는 조건을 이해하고, 사인함수의 미분과 역함수의 미분법으로 역함수의 미분계수를 구할 수 있는지 평가한다.
+key_idea: '미분가능 조건 $1+a\pi=2+2b\pi$와 증가 조건 $\lvert a\rvert\le\dfrac1\pi$, $\lvert b\rvert\le\dfrac1\pi$를 결합하고, 정수 $n$에서 $f(n)=n$, $f\left(\dfrac m2\right)=m$을 이용해 $g''$을 구한다.'
+stuck: '역함수 존재 ⇔ 증가함수(감소 불가)임을 밝히고 $f''(x)\ge0$ 조건을 $a$, $b$의 범위로 바꾸는 단계'
+idea_tags: [IDEA-PIECEWISE-DIFFERENTIABLE-MATCH, IDEA-INVERSE-EXISTS-MONOTONE, IDEA-INVERSE-DERIV-AT-PREIMAGE]
+tags: [인하대 모의, 구간별 함수, 역함수 미분]
+elements:
+  materials: ['구간별 함수 $f(x)=x+a\sin(\pi x)\ (x\ge0)$, $2x+b\sin(2\pi x)\ (x<0)$', '역함수 $g(x)$']
+  concepts: [미분계수의 정의, 사인함수의 도함수, 역함수를 가질 조건, 역함수의 미분법]
+  tools: [좌·우 미분계수 비교, '$\lvert\cos\rvert\le1$로 도함수 부호 조건', 이차식 완전제곱으로 최소, 역상 찾기 후 역함수 미분]
+  conditions:
+  - '$x=0$에서 미분가능 ⇒ $1+a\pi=2+2b\pi$, 즉 $a-2b=\dfrac1\pi$'
+  - '역함수를 가짐 ⇒ 증가함수(또는 감소함수); 큰 $\lvert x\rvert$에서 증가 ⇒ 모든 $x$에서 $f''(x)\ge0$'
+  - '$g''(n)$ ⇒ $f(x)=n$인 $x$를 찾아 $\dfrac{1}{f''(x)}$'
+  stimuli_used: [가, 나]
+  subpart_links: '(2-2)는 (2-1)의 조건 $a-2b=\dfrac1\pi$ 사용, (2-3)은 (2-2)의 $a$, $b$ 사용'
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅱ, 미적분]
+  scope_2028: calc2
+  scope_confirmed: false
+  standards:
+  - code: 12수학Ⅱ02-01
+    text: 미분계수의 뜻을 알고, 그 값을 구할 수 있다.
+    verified: true
+  - code: 12미적02-05
+    text: 사인함수와 코사인함수를 미분할 수 있다.
+    verified: true
+  - code: 12미적02-09
+    text: 음함수와 역함수를 미분할 수 있다.
+    verified: true
+  content_area: 미분법 – 역함수의 미분
+  behavior_domain: 추론
+  unit_path: [미적분, 미분법, 여러 가지 미분법, 역함수의 미분법]
+  key_concepts: [미분가능성, 사인함수의 도함수, 역함수 존재 조건, 역함수의 미분법]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 인하대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 인하대학교
+  admission_year: 2026
+  admission_type: 논술(모의)
+  track: 자연계열
+  question_no: 2
+  official_url: https://admission.inha.ac.kr/cms/FR_BBS_CON/BoardView.do?MENU_ID=250&SITE_NO=2&BOARD_SEQ=2&BBS_SEQ=199
+  retrieved_at: '2026-11-21'
+  original_points: 35
+  note: 문제 = 199__(자연)_2026학년도_논술_모의고사_문제지.pdf p.4(일반 2/8), 해설·채점기준 = 같은 번호 해설지.pdf p.3~6 [문항2]
+
+verify: verify/INHA-M26.py::p02
+
+stimuli:
+- label: 가
+  body: |
+    함수 $y=f(x)$에서 $x$의 값이 $a$에서 $a+\Delta x$ 까지 변할 때의 평균변화율 $\dfrac{\Delta y}{\Delta x}=\dfrac{f(a+\Delta x)-f(a)}{\Delta x}$에 대하여 $\Delta x\to0$ 일 때 평균변화율의 극한값
+    $$\lim_{\Delta x\to0}\frac{\Delta y}{\Delta x}=\lim_{\Delta x\to0}\frac{f(a+\Delta x)-f(a)}{\Delta x}$$
+    가 존재하면, 함수 $y=f(x)$는 $x=a$에서 미분가능하다고 한다.
+- label: 나
+  body: |
+    미분가능한 함수 $f(x)$의 역함수 $y=f^{-1}(x)$가 존재하고 미분가능할 때, $(f^{-1})'(x)=\dfrac{1}{f'(y)}$ 를 만족한다. (단, $f'(y)\neq0$)
+
+stem: |
+  (※) 실수 $a$, $b$에 대하여 실수 전체 집합에서 연속인 함수 $f(x)$가 다음과 같다.
+  $$f(x)=\begin{cases}x+a\sin(\pi x) & (x\ge0)\\ 2x+b\sin(2\pi x) & (x<0)\end{cases}$$
+
+subparts:
+- id: '1'
+  stem: |
+    (2-1) $a=\dfrac14$일 때, 함수 $f(x)$가 실수 전체의 집합에서 미분가능한 함수가 되도록 하는 $b$의 값을 구하시오. [10점]
+  points: 10
+  depends_on: []
+  answer: {kind: value, value: '\dfrac18-\dfrac{1}{2\pi}', equivalents: ['1/8-1/(2π)', '(π-4)/(8π)'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: '$x=0$에서 좌·우 미분계수 $2+2b\pi$와 $1+a\pi$가 같아야 한다.'
+    steps:
+    - {id: 1a, content: '$a-2b=\dfrac1\pi$에 $a=\dfrac14$ 대입', criteria: [1.A1]}
+    hint_ladder:
+    - 각 구간의 도함수를 구해 $x=0$에서 비교하자.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 2026 자연 모의 해설지 p.5 예시 답안 (2-1), 채점기준 p.4
+    steps:
+    - id: 1b-1
+      content: |
+        각 구간에 대하여 $f'(x)$를 구하면 $f'(x)=1+a\pi\cos(\pi x)\ (x>0)$, $f'(x)=2+2b\pi\cos(2\pi x)\ (x<0)$이다.
+      criteria: [1.M1]
+    - id: 1b-2
+      content: |
+        $f(x)$가 미분가능한 함수가 되려면 제시문 (가)에 의해 $x=0$에서 좌극한과 우극한이 같아야 하므로 $1+a\pi=2+2b\pi$가 되어야 한다. 따라서 $a-2b=\dfrac1\pi$이므로 $a=\dfrac14$인 경우, $b=\dfrac18-\dfrac{1}{2\pi}$가 된다.
+      criteria: [1.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 4
+      evidence: 구간별로 정의된 함수의 도함수 $1+a\pi\cos(\pi x)$, $2+2b\pi\cos(2\pi x)$를 정확히 구했다.
+      depends_on: []
+      steps: [1b-1]
+    - id: 1.A1
+      mark_type: A
+      points: 6
+      evidence: '$x=0$에서 좌·우 미분계수를 같게 놓아 $b=\dfrac18-\dfrac{1}{2\pi}$를 구했다.'
+      depends_on: [1.M1]
+      steps: [1b-2]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-CAL-5504}
+  misconceptions:
+  - id: MC-CAL-5504
+    outcome_code: '70'
+    wrong_work: '연속 조건 $f(0^-)=f(0^+)$만 확인하고 $b$를 임의로 둠(또는 $\cos$ 미분 계수 $\pi$, $2\pi$ 누락으로 $1+a=2+2b$)'
+    detect_cue: '답에 $\pi$가 없거나 $b$를 결정하지 못함'
+    feedback: 미분가능하려면 $x=0$에서 좌·우 미분계수가 같아야 합니다. $\sin(k\pi x)$의 미분에는 $k\pi$가 곱해집니다.
+    remedy: [RL-1]
+- id: '2'
+  stem: |
+    (2-2) 함수 $f(x)$가 실수 전체의 집합에서 미분가능하고 역함수를 갖도록 하는 실수 $a$, $b$ 중에서, $a^2+b^2$의 값이 최소가 되는 $a$, $b$의 값을 구하시오. [10점]
+  points: 10
+  depends_on: ['1']
+  answer: {kind: value, value: 'a=\dfrac{1}{5\pi},\ b=-\dfrac{2}{5\pi}', equivalents: ['a=1/(5π), b=-2/(5π)'], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: '역함수 ⇒ 증가 ⇒ $\lvert a\rvert,\lvert b\rvert\le\dfrac1\pi$; $a=2b+\dfrac1\pi$를 대입한 이차식의 최소.'
+    steps:
+    - {id: 2a, content: '$a^2+b^2=5\left(b+\dfrac{2}{5\pi}\right)^2+\dfrac{1}{5\pi^2}$', criteria: [2.M2, 2.A1]}
+    hint_ladder:
+    - 연속함수가 역함수를 가지려면 증가 또는 감소해야 한다. 어느 쪽인가?
+    - '$\cos$의 값이 $\pm1$일 때 도함수가 음이 되지 않을 조건을 쓰자.'
+  - id: S2-B
+    audience: B
+    method_no: 1
+    source_flow: 2026 자연 모의 해설지 p.5 예시 답안 (2-2), 채점기준 p.5
+    steps:
+    - id: 2b-1
+      content: |
+        실수 전체에서 정의된 연속인 함수가 역함수를 가지려면 함수가 증가함수이거나 감소함수이어야 한다. 그런데 $x<0$에서 $f'(x)=2+2b\pi\cos(2\pi x)$이고 $2-2\lvert b\rvert\pi\le f'(x)\le 2+2\lvert b\rvert\pi$이므로 적당한 $x$에 대하여 $0$보다 큰 경우가 존재한다. 즉 증가함수인 경우만 가능하다. 따라서 모든 $x$에 대하여 $f'(x)\ge0$인 경우만 가능하다.
+        [판독확인: 해설지 원문은 $2-2\lvert b\rvert\le2+2b\cos(\pi x)\le2+2\lvert b\rvert$로 표기(π 누락·$\cos(2\pi x)$ 오기) — 의미대로 옮김]
+      criteria: [2.M1]
+    - id: 2b-2
+      content: |
+        모든 실수 $x$에 대하여 $\lvert\cos x\rvert\le1$이므로, $1-a\pi\ge0$, $1+a\pi\ge0$, $2+2b\pi\ge0$, $2-2b\pi\ge0$인 경우 역함수를 가질 수 있으며, 실제로 이 조건들을 만족하는 경우 $f(x)$는 증가함수가 되어 역함수를 갖는다. 따라서 역함수를 가지는 것은 $-\dfrac1\pi\le a\le\dfrac1\pi$이고, $-\dfrac1\pi\le b\le\dfrac1\pi$임과 동치이다.
+      criteria: [2.M1]
+    - id: 2b-3
+      content: |
+        (2-1)에서 $f(x)$가 미분가능한 함수가 되는 조건이 $a-2b=\dfrac1\pi$임을 구했으므로, 미분가능하고 역함수를 갖도록 하는 조건은 $a-2b=\dfrac1\pi$이고 $-\dfrac1\pi\le a\le\dfrac1\pi$인 구간이 된다. 이제 $a^2+b^2$가 최소가 되는 경우를 찾자.
+        $$a^2+b^2=\left(2b+\frac1\pi\right)^2+b^2=5b^2+\frac4\pi b+\frac{1}{\pi^2}=5\left(b+\frac{2}{5\pi}\right)^2+\frac{1}{5\pi^2}$$
+      criteria: [2.M2]
+    - id: 2b-4
+      content: |
+        이므로, 이 값은 $b=-\dfrac{2}{5\pi}$일 때 최소가 되며, 이때 $a=\dfrac{1}{5\pi}$이므로 $-\dfrac1\pi\le a\le\dfrac1\pi$를 만족한다. 그러므로 구하고자 하는 $a$, $b$의 값은 $a=\dfrac{1}{5\pi}$, $b=-\dfrac{2}{5\pi}$이다.
+        [판독확인: 해설지 원문은 "이때 $a=\dfrac15\pi$"로 표기(오기, $\dfrac{1}{5\pi}$가 맞음)]
+      criteria: [2.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 4
+      evidence: '$f(x)$가 증가함수가 되는 조건 $-\dfrac1\pi\le a\le\dfrac1\pi$, $-\dfrac1\pi\le b\le\dfrac1\pi$를 정확히 구했다.'
+      depends_on: []
+      steps: [2b-1, 2b-2]
+    - id: 2.M2
+      mark_type: M
+      points: 3
+      evidence: '$a-2b=\dfrac1\pi$를 대입해 $a^2+b^2$를 한 변수 이차식으로 정리하는 등 최소가 되는 경우를 구하는 방법을 올바르게 설명했다.'
+      depends_on: []
+      steps: [2b-3]
+    - id: 2.A1
+      mark_type: A
+      points: 3
+      evidence: '$a=\dfrac{1}{5\pi}$, $b=-\dfrac{2}{5\pi}$를 구했다(범위 만족 확인 포함).'
+      depends_on: [2.M1, 2.M2]
+      steps: [2b-4]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-5505}
+  misconceptions:
+  - id: MC-CAL-5505
+    outcome_code: '71'
+    wrong_work: '증가 조건을 쓰지 않고 $a-2b=\dfrac1\pi$ 위에서 원점까지의 최단거리만 구함(결과는 같으나 역함수 조건 미검토)'
+    detect_cue: '$f''(x)\ge0$ 또는 $\lvert a\rvert\le\dfrac1\pi$에 대한 언급이 없다'
+    feedback: 역함수를 가질 조건(증가함수)을 먼저 $a$, $b$의 범위로 나타내고 최소점이 그 범위 안에 있는지 확인하세요.
+    remedy: [RL-2]
+- id: '3'
+  stem: |
+    (2-3) (2-2)에서 구한 $a$, $b$에 대하여, 함수 $f(x)$의 역함수를 $g(x)$라 하면 $g(x)$는 실수 전체의 집합에서 미분가능한 함수가 된다. 이때, $g'(-5)$, $g'(-2)$, $g'(1)$의 값을 각각 구하시오. [15점]
+  points: 15
+  depends_on: ['2']
+  answer: {kind: value, value: 'g''(-5)=\dfrac{5}{14},\ g''(-2)=\dfrac56,\ g''(1)=\dfrac54', equivalents: ['5/14, 5/6, 5/4'], tolerance: null}
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: '$f(1)=1$, $f(-1)=-2$, $f\left(-\dfrac52\right)=-5$이고 그 점에서 $f''$은 각각 $\dfrac45$, $\dfrac65$, $\dfrac{14}{5}$.'
+    steps:
+    - {id: 3a, content: '$g''(n)=\dfrac{1}{f''(x_n)}$', criteria: [3.M1, 3.M2, 3.A1]}
+    hint_ladder:
+    - 정수 $n\ge0$이면 $f(n)=n$이다. 음수 쪽에서는?
+    - '$x<0$에서 $f\left(\dfrac m2\right)=m$이다.'
+  - id: S3-B
+    audience: B
+    method_no: 1
+    source_flow: 2026 자연 모의 해설지 p.5~6 예시 답안 (2-3), 채점기준 p.5
+    steps:
+    - id: 3b-1
+      content: |
+        $f(x)=x+a\sin(\pi x)\ (x\ge0)$, $2x+b\sin(2\pi x)\ (x<0)$, $f'(x)=1+a\pi\cos(\pi x)\ (x\ge0)$, $2+2b\pi\cos(2\pi x)\ (x<0)$이므로, $0$이상의 정수 $n$에 대하여 $f(n)=n$이고
+        $n=2k$ ($k$는 정수) 꼴이면 $f'(n)=1+a\pi=\dfrac65$이며 제시문 (나)에 의해 $g'(n)=\dfrac56$이고,
+        $n=2k+1$ ($k$는 정수) 꼴이면 $f'(n)=1-a\pi=\dfrac45$이며 제시문 (나)에 의해 $g'(n)=\dfrac54$이다.
+      criteria: [3.M1]
+    - id: 3b-2
+      content: |
+        음의 정수 $m$에 대하여 $f\left(\dfrac m2\right)=m$이고,
+        $m=2k$ ($k$는 정수) 꼴이면 $f'\left(\dfrac m2\right)=2+2b\pi=\dfrac65$이며 제시문 (나)에 의해 $g'(m)=\dfrac56$이고,
+        $m=2k+1$ ($k$는 정수) 꼴이면 $f'\left(\dfrac m2\right)=2-2b\pi=\dfrac{14}{5}$이며 제시문 (나)에 의해 $g'(m)=\dfrac{5}{14}$이다.
+      criteria: [3.M2]
+    - id: 3b-3
+      content: |
+        따라서 $g'(-5)=\dfrac{5}{14}$, $g'(-2)=\dfrac56$, $g'(1)=\dfrac54$이다.
+      criteria: [3.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 6
+      evidence: '양의 정수 $n$에 대하여 $f(n)=n$과 $f''(n)$을 이용해 $g''(n)$을 구하는 방법을 올바르게 설명했다.'
+      depends_on: []
+      steps: [3b-1]
+    - id: 3.M2
+      mark_type: M
+      points: 6
+      evidence: '음의 정수 $m$에 대하여 $f\left(\dfrac m2\right)=m$과 $f''\left(\dfrac m2\right)$를 이용해 $g''(m)$을 구하는 방법을 올바르게 설명했다.'
+      depends_on: []
+      steps: [3b-2]
+    - id: 3.A1
+      mark_type: A
+      points: 3
+      evidence: '$g''(-5)=\dfrac{5}{14}$, $g''(-2)=\dfrac56$, $g''(1)=\dfrac54$를 구했다.'
+      depends_on: [3.M1, 3.M2]
+      ft: {allowed: true, from: [2.A1], max_points: 3}
+      steps: [3b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '72', misconception: MC-CAL-5503}
+  misconceptions:
+  - id: MC-CAL-5503
+    outcome_code: '72'
+    wrong_work: '$g''(-5)=\dfrac{1}{f''(-5)}$처럼 $f$의 도함수를 같은 수 $-5$에서 계산'
+    detect_cue: '$f(x)=-5$인 $x=-\dfrac52$를 찾는 과정이 없다'
+    feedback: '$g''(c)=\dfrac{1}{f''(x)}$에서 $x$는 $f(x)=c$를 만족하는 점입니다.'
+    remedy: [RL-3]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CAL-5504}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-PIECEWISE-DIFF-I5}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-CAL-5505}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-MONOTONE-INVERSE-I5}
+  priority: 1
+- id: RL-3
+  trigger: {type: misconception, ref: MC-CAL-5503}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-INVERSE-DERIV-I5}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-input-v1, item_version: 1, verdict: pass, date: 2026-11-21, note: 원문 PDF 이미지 판독으로 옮김 · 해설 B는 공식 해설 흐름}
+
+created: 2026-11-21
+updated: 2026-11-21

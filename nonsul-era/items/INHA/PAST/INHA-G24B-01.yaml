@@ -1,0 +1,288 @@
+schema_version: '2.0'
+id: INHA-G24B-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: INHA
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 추론
+points: 30
+time_estimate_min: 40
+intent: 정적분의 계산 능력을 평가한다. 특히 주어진 적분 형태에 대해서 적절한 치환적분법을 적용할 수 있는지를 평가한다.
+key_idea: '$u=\pi-x$ 치환으로 $\displaystyle\int_0^\pi xf(\sin x)\,dx=\dfrac{\pi}{2}\int_0^\pi f(\sin x)\,dx$를 얻고, (1-3)은 기함수 부분을 지운 뒤 이 등식과 $u=\cos x$ 치환, 부분분수로 계산한다.'
+stuck: (1-3)에서 $\dfrac{\sin^3x}{2-\cos^2x}$가 기함수, $\dfrac{x\sin^3x}{2-\cos^2x}$가 우함수임을 보고 (1-2)를 적용할 수 있는 꼴로 바꾸는 단계
+idea_tags: [IDEA-KING-SUBSTITUTION, IDEA-ODD-EVEN-INTEGRAL, IDEA-COS-SUBST-PARTIAL-FRACTION]
+tags: [치환적분, 대칭성, 부분분수, 인하대 기출]
+elements:
+  materials:
+  - '다항식과 $\sin^3x$의 정적분'
+  - '$\displaystyle\int_0^\pi xf(\sin x)\,dx$ 꼴'
+  - '$\dfrac{(x+1)\sin^3x}{2-\cos^2x}$의 $[-\pi,\pi]$ 정적분'
+  concepts: [정적분의 치환적분법, 삼각함수의 성질, 기함수·우함수의 정적분, 로그함수의 적분]
+  tools: ['$u=\pi-x$ 치환', '$y=\cos u$ 치환', '기함수 적분 0, 우함수 적분 2배', '$\dfrac{1}{2-u^2}$의 부분분수 분해']
+  conditions:
+  - '$\sin(\pi-u)=\sin u$ ⇒ $f(\sin x)$는 $x\mapsto\pi-x$에 대해 불변'
+  - '$\dfrac{\sin^3x}{2-\cos^2x}$는 기함수, $\dfrac{x\sin^3x}{2-\cos^2x}$는 우함수 ⇒ $[-\pi,\pi]$ 적분 정리'
+  stimuli_used: [가, 나]
+  subpart_links: '(1-3)은 (1-2)의 등식 사용, (1-1)의 $u=\pi-x$와 $y=\cos u$ 치환을 (1-2)·(1-3)에서 반복'
+
+curriculum:
+  version: '2015'
+  subjects: [미적분]
+  scope_2028: calc2
+  scope_confirmed: true
+  standards:
+  - code: 12미적03-01
+    text: 치환적분법을 이해하고, 이를 활용할 수 있다.
+    verified: true
+  - code: 12미적03-03
+    text: 여러 가지 함수의 부정적분과 정적분을 구할 수 있다.
+    verified: true
+  content_area: 적분법 – 치환적분법, 여러 가지 함수의 정적분
+  behavior_domain: 계산
+  unit_path: [미적분, 적분법, 치환적분법, 대칭성을 이용한 정적분]
+  key_concepts: [치환적분, 기함수·우함수, 부분분수, 로그 적분]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 인하대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 인하대학교
+  admission_year: 2024
+  admission_type: 논술(오후)
+  track: 자연계열
+  question_no: 1
+  official_url: https://admission.inha.ac.kr/cms/FR_BBS_CON/BoardView.do?MENU_ID=250&SITE_NO=2&BOARD_SEQ=2&BBS_SEQ=179
+  retrieved_at: '2026-11-21'
+  original_points: 30
+  note: 문제 = 179__(자연-오후)_2024학년도_인하대학교_논술고사_문제.pdf p.3(시험지 1/8), 해설·문항카드 = 179__(자연-오후)_2024학년도_인하대학교_논술고사_해설.pdf p.1~3, 영향평가 보고서(1138__) PDF p.72~74. 오후는 의예과 문항 없음.
+
+verify: verify/INHA-G24B.py::p01
+
+stimuli:
+- label: 가
+  body: |
+    (정적분의 치환적분법)
+    함수 $f(x)$가 닫힌구간 $[a,b]$에서 연속이고 미분가능한 함수 $x=g(t)$에 대하여 $a=g(\alpha)$, $b=g(\beta)$일 때 도함수 $g'(t)$가 $\alpha$, $\beta$를 포함하는 구간에서 연속이면
+    $$\int_a^bf(x)\,dx=\int_\alpha^\beta f(g(t))g'(t)\,dt$$
+- label: 나
+  body: |
+    ($\displaystyle\int\dfrac{f'(x)}{f(x)}dx$ 꼴의 부정적분)
+    $$\int\dfrac{f'(x)}{f(x)}\,dx=\ln\lvert f(x)\rvert+C$$
+
+stem: |
+  [문제 1] (30점) 다음 제시문을 읽고 물음에 답하시오.
+
+subparts:
+- id: '1'
+  stem: |
+    (1-1) 정적분 $\displaystyle\int_0^\pi\left((\pi-x)^8+(\pi-x)^2+\sin^3x\right)dx$의 값을 구하시오. (5점)
+  points: 5
+  depends_on: []
+  answer: {kind: value, value: '\dfrac{\pi^9}{9}+\dfrac{\pi^3}{3}+\dfrac43', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: '$u=\pi-x$, $\sin^3u=(1-\cos^2u)\sin u$, $y=\cos u$.'
+    steps:
+    - {id: 1a, content: '$\displaystyle\int_0^\pi(u^8+u^2+\sin u)\,du-\int_{-1}^1y^2\,dy=\dfrac{\pi^9}{9}+\dfrac{\pi^3}{3}+2-\dfrac23$', criteria: [1.B1]}
+    hint_ladder:
+    - $\pi-x$를 새 변수로 두자.
+    - $\sin^3u=(1-\cos^2u)\sin u$로 바꾸면 $\cos u$ 치환이 된다.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 2024 자연오후 해설(문항카드) p.2 예시답안 (1-1), 채점기준 p.2, 영향평가 보고서 PDF p.73~74
+    steps:
+    - id: 1b-1
+      content: |
+        $u=\pi-x$라 하면 제시문 (가)를 이용하여 치환적분법을 적용하고 삼각함수의 성질을 활용하면
+        $$\int_0^\pi\left((x-\pi)^8+(x-\pi)^2+\sin^3x\right)dx=-\int_\pi^0\left(u^8+u^2+\sin^3(\pi-u)\right)du=\int_0^\pi\left(u^8+u^2+(1-\cos^2u)\sin u\right)du$$
+        $$=\int_0^\pi(u^8+u^2+\sin u)\,du-\int_0^\pi\sin u\cos^2u\,du$$
+      criteria: [1.B1]
+    - id: 1b-2
+      content: |
+        변수 $y=\cos u$에 대해서 제시문 (가)의 치환적분법을 적용하면 $\displaystyle\int_0^\pi\sin u\cos^2u\,du=\int_{-1}^1y^2\,dy$가 된다. 따라서 주어진 적분값은
+        $$\left[\dfrac{u^9}{9}+\dfrac{u^3}{3}-\cos u\right]_0^\pi-\left[\dfrac{y^3}{3}\right]_{-1}^1=\dfrac{\pi^9}{9}+\dfrac{\pi^3}{3}+\dfrac43$$
+      criteria: [1.B1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 0, isw: true}
+    note: '공식 채점기준(해설 p.2): 정적분의 값을 정확하게 계산하면 5점(단일 기준).'
+    criteria:
+    - id: 1.B1
+      mark_type: B
+      points: 5
+      evidence: '적분값 $\dfrac{\pi^9}{9}+\dfrac{\pi^3}{3}+\dfrac43$을 과정과 함께 구했다.'
+      depends_on: []
+      steps: [1b-1, 1b-2, 1a]
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-CAL-5216}
+  misconceptions:
+  - id: MC-CAL-5216
+    outcome_code: '70'
+    wrong_work: '$\displaystyle\int_0^\pi\sin^3x\,dx$를 $\left[-\dfrac{\cos^4x}{4}\right]$ 등으로 잘못 적분하거나 0으로 둠'
+    detect_cue: '답의 상수항이 $\dfrac43$이 아님'
+    feedback: '$\sin^3x=(1-\cos^2x)\sin x$로 바꾸고 $\cos x$로 치환하세요.'
+    remedy: [RL-1]
+- id: '2'
+  stem: |
+    (1-2) 닫힌구간 $[0,\pi]$에서 연속인 함수 $f(x)$에 대하여 $\displaystyle\int_0^\pi xf(\sin x)\,dx=\dfrac{\pi}{2}\int_0^\pi f(\sin x)\,dx$가 성립함을 보이시오. (10점)
+  points: 10
+  depends_on: []
+  answer: {kind: proof, value: null, equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: '$I=\displaystyle\int_0^\pi xf(\sin x)dx$에 $u=\pi-x$ ⇒ $I=\pi\int_0^\pi f(\sin u)du-I$.'
+    steps:
+    - {id: 2a, content: '$I=\pi\displaystyle\int_0^\pi f(\sin u)\,du-I$ ⇒ $2I=\pi\int_0^\pi f(\sin x)\,dx$', criteria: [2.M1, 2.R1]}
+    hint_ladder:
+    - $\sin(\pi-u)=\sin u$를 이용하자.
+    - 치환한 결과에 원래 적분 $I$가 다시 나타난다.
+  - id: S2-B
+    audience: B
+    method_no: 1
+    source_flow: 2024 자연오후 해설(문항카드) p.2 예시답안 (1-2), 채점기준 p.2, 영향평가 보고서 PDF p.73~74
+    steps:
+    - id: 2b-1
+      content: |
+        $u=\pi-x$라 하면 제시문 (가)의 치환적분법에 의해
+        $$\int_0^\pi xf(\sin x)\,dx=\int_0^\pi(\pi-u)f(\sin(\pi-u))\,du=\pi\int_0^\pi f(\sin u)\,du-\int_0^\pi uf(\sin u)\,du$$
+      criteria: [2.M1]
+    - id: 2b-2
+      content: |
+        우변의 마지막 적분은 좌변과 같으므로 이항하면 $2\displaystyle\int_0^\pi xf(\sin x)\,dx=\pi\int_0^\pi f(\sin x)\,dx$, 즉 $\displaystyle\int_0^\pi xf(\sin x)\,dx=\dfrac{\pi}{2}\int_0^\pi f(\sin x)\,dx$를 얻는다.
+      criteria: [2.R1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 0, isw: true}
+    note: '공식 채점기준(해설 p.2): $u=\pi-x$로 치환하여 식을 변형하면 3점, 주어진 등식을 증명하면 7점.'
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 3
+      evidence: '$u=\pi-x$로 치환해 $\displaystyle\int_0^\pi(\pi-u)f(\sin(\pi-u))\,du$로 변형했다.'
+      depends_on: []
+      implied_ok: false
+      steps: [2b-1, 2a]
+    - id: 2.R1
+      mark_type: R
+      points: 7
+      evidence: '$\sin(\pi-u)=\sin u$를 써서 원래 적분이 다시 나타남을 밝히고 이항해 등식을 완성했다.'
+      depends_on: [2.M1]
+      steps: [2b-2, 2a]
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-CAL-5216}
+  misconceptions:
+  - id: MC-CAL-5216
+    outcome_code: '70'
+    wrong_work: '치환 후 적분 구간을 $\pi\to0$으로 바꾸고 부호를 처리하지 않아 $I=-\pi\int f+I$처럼 모순된 식을 얻음'
+    detect_cue: 구간 뒤집기에 따른 $-$ 부호 처리 누락
+    feedback: '$dx=-du$이고 구간이 $\pi\to0$으로 바뀌므로 두 부호가 상쇄됩니다.'
+    remedy: [RL-1]
+- id: '3'
+  stem: |
+    (1-3) 정적분 $\displaystyle\int_{-\pi}^\pi\dfrac{(x+1)\sin^3x}{2-\cos^2x}\,dx$의 값을 구하시오. (15점)
+  points: 15
+  depends_on: ['2']
+  answer: {kind: value, value: '2\pi-\dfrac{\pi}{\sqrt2}\ln(3+2\sqrt2)', equivalents: ['2\pi-\sqrt2\pi\ln(1+\sqrt2)'], tolerance: null}
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: '기함수 부분 소거 → $2\displaystyle\int_0^\pi\dfrac{x\sin^3x}{2-\cos^2x}dx=\pi\int_{-1}^1\dfrac{1-u^2}{2-u^2}du$.'
+    steps:
+    - {id: 3a, content: '$\pi\displaystyle\int_{-1}^1\left(1-\dfrac{1}{2-u^2}\right)du=2\pi-\dfrac{\pi}{2\sqrt2}\left[\ln\dfrac{\sqrt2+u}{\sqrt2-u}\right]_{-1}^1$', criteria: [3.M1, 3.A1]}
+    hint_ladder:
+    - $\dfrac{\sin^3x}{2-\cos^2x}$는 기함수인가 우함수인가?
+    - (1-2)에서 $f(s)=\dfrac{s^3}{1+s^2}$으로 볼 수 있다($2-\cos^2x=1+\sin^2x$).
+    - $u=\cos x$로 치환한 뒤 부분분수로 나누자.
+  - id: S3-B
+    audience: B
+    method_no: 1
+    source_flow: 2024 자연오후 해설(문항카드) p.2~3 예시답안 (1-3), 채점기준 p.2, 영향평가 보고서 PDF p.73~74
+    steps:
+    - id: 3b-1
+      content: |
+        닫힌구간 $[-\pi,\pi]$에서 함수의 대칭성을 이용하면
+        $$\int_{-\pi}^\pi\dfrac{(x+1)\sin^3x}{2-\cos^2x}\,dx=\int_{-\pi}^\pi\dfrac{x\sin^3x}{2-\cos^2x}\,dx+\int_{-\pi}^\pi\dfrac{\sin^3x}{2-\cos^2x}\,dx=2\int_0^\pi\dfrac{x\sin^3x}{2-\cos^2x}\,dx$$
+        이다.
+      criteria: [3.M1]
+    - id: 3b-2
+      content: |
+        (1-2)에서 증명한 식과 제시문 (가)의 치환적분법($u=\cos x$)을 이용하면
+        $$2\int_0^\pi\dfrac{x\sin^3x}{2-\cos^2x}\,dx=\pi\int_0^\pi\dfrac{\sin^3x}{2-\cos^2x}\,dx=\pi\int_0^\pi\dfrac{1-\cos^2x}{2-\cos^2x}\sin x\,dx=\pi\int_{-1}^1\dfrac{1-u^2}{2-u^2}\,du$$
+        $$=\pi\int_{-1}^1\left(1-\dfrac{1}{2-u^2}\right)du=2\pi-\pi\int_{-1}^1\dfrac{1}{(\sqrt2+u)(\sqrt2-u)}\,du=2\pi-\dfrac{\pi}{2\sqrt2}\int_{-1}^1\left(\dfrac{1}{\sqrt2+u}+\dfrac{1}{\sqrt2-u}\right)du$$
+        을 얻는다.
+      criteria: [3.A1]
+    - id: 3b-3
+      content: |
+        여기서 제시문 (나)에 의해
+        $$2\pi-\dfrac{\pi}{2\sqrt2}\Big[\ln\lvert\sqrt2+u\rvert-\ln\lvert\sqrt2-u\rvert\Big]_{-1}^1=2\pi-\dfrac{\pi}{\sqrt2}\ln(3+2\sqrt2)$$
+        이다.
+      criteria: [3.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 0, isw: true}
+    note: '공식 채점기준(해설 p.2): (1-2)와 대칭성을 이용하여 적분 형태를 단순화하면 5점, 주어진 정적분의 값을 정확하게 계산하면 10점.'
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 5
+      evidence: '대칭성(기함수 부분 0)과 (1-2)를 써서 $\pi\displaystyle\int_0^\pi\dfrac{\sin^3x}{2-\cos^2x}\,dx$ 꼴로 단순화했다.'
+      depends_on: []
+      implied_ok: false
+      steps: [3b-1, 3a]
+    - id: 3.A1
+      mark_type: A
+      points: 10
+      evidence: '$u=\cos x$ 치환, 부분분수, 로그 적분으로 $2\pi-\dfrac{\pi}{\sqrt2}\ln(3+2\sqrt2)$를 구했다.'
+      depends_on: [3.M1]
+      steps: [3b-2, 3b-3, 3a]
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-CAL-5217}
+  - {code: '71', misconception: MC-CAL-5216}
+  misconceptions:
+  - id: MC-CAL-5217
+    outcome_code: '70'
+    wrong_work: '$\displaystyle\int_{-1}^1\dfrac{du}{2-u^2}=\left[\ln\lvert2-u^2\rvert\right]$처럼 제시문 (나)를 잘못 적용하거나 계수 $\dfrac{1}{2\sqrt2}$를 빠뜨림'
+    detect_cue: '답이 $2\pi$이거나 로그 앞 계수가 $\dfrac{\pi}{\sqrt2}$가 아님'
+    feedback: '$\dfrac{1}{2-u^2}=\dfrac{1}{2\sqrt2}\left(\dfrac{1}{\sqrt2+u}+\dfrac{1}{\sqrt2-u}\right)$로 나눈 뒤 각각 (나)를 적용하세요.'
+    remedy: [RL-2]
+  - id: MC-CAL-5216
+    outcome_code: '71'
+    wrong_work: '$\dfrac{x\sin^3x}{2-\cos^2x}$도 기함수로 보고 0으로 지워 $\displaystyle\int_{-\pi}^\pi\dfrac{\sin^3x}{2-\cos^2x}dx$만 남김(결과 0)'
+    detect_cue: 답이 0
+    feedback: '$x$(기함수)와 $\sin^3x$(기함수)의 곱은 우함수입니다. 남는 쪽은 $x\sin^3x$ 항입니다.'
+    remedy: [RL-1]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CAL-5216}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-SYMMETRY-INTEGRAL-I2}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-CAL-5217}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-SUBST-INTEGRAL-I2}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-input-v1, item_version: 1, verdict: pass, date: 2026-11-21, note: 원문 PDF 이미지 판독으로 옮김 · 해설 B는 공식 해설 흐름}
+
+created: 2026-11-21
+updated: 2026-11-21
