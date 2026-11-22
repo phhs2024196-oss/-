@@ -1,0 +1,180 @@
+# 가천대 2026학년도 수시 논술(실전) 자연계열 F세트 [문제 9] — 문항카드 84 / 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: GCU-G26F-09
+legacy_id: null
+version: 1
+status: draft
+exam_family: yaksul
+item_type: short_answer
+origin: past_exam
+school: GCU
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 점화
+points: 11
+time_estimate_min: 5
+intent: |
+  수열의 귀납적 정의에 대해 이해하고, 이를 이용해 값을 구할 수 있는지 확인한다(문항카드 출제 의도 원문). $a_6=11$에서 거꾸로 두 경우를 따져 정수 조건과 경우 조건에 맞는 항만 남기고, $a_7$부터는 앞으로 계산한다.
+key_idea: |
+  역추적: $a_5=11$, $a_4=10$, $a_3=8$, $a_2=5$, $a_1=1$; 순방향: $a_7=10$, $a_8=8$, $a_9=5$, $a_{10}=1$.
+stuck: |
+  각 단계에서 두 가지 식 중 정수 조건·범위 조건을 모두 만족하는 것만 고르는 단계.
+idea_tags: [IDEA-PIECEWISE-RECUR-BACKTRACK]
+tags: [수열의 귀납적 정의, 역추적, 정수 조건, 2026실전, 자연F]
+elements:
+  materials:
+  - '모든 항이 정수'
+  - '$a_{n+1}=\begin{cases}-2a_n+7 & (a_n<4\text{인 경우})\\ a_n-n+5 & (a_n\ge4\text{인 경우})\end{cases}$'
+  - '$a_6=11$'
+  concepts:
+  - '수열의 귀납적 정의'
+  - '정수 조건'
+  tools:
+  - '경우 나누기'
+  - '역방향 계산'
+  conditions:
+  - '모든 항이 정수'
+  - '모든 자연수 $n$'
+  stimuli_used: []
+  subpart_links: '단일 논제'
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅰ]
+  scope_2028: common
+  scope_confirmed: false
+  standards:
+  - code: '12수학Ⅰ03-06'
+    text: '수열의 귀납적 정의를 이해한다.'
+    verified: false
+  content_area: '수열'
+  behavior_domain: 계산
+  unit_path: [수학Ⅰ, 수열, 수학적 귀납법, 수열의 귀납적 정의]
+  key_concepts: [귀납적 정의]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 가천대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 가천대학교
+  admission_year: 2026
+  admission_type: 수시 논술전형(실전)
+  track: '자연계열(보고서 F세트, 수학 문항카드 82~90)'
+  question_no: 9
+  official_url: https://admission.gachon.ac.kr/admission/html/counsel/noticeView.asp?BOARD_IDX=29874&s_cate=BBS0401
+  retrieved_at: 2026-11-21
+  original_points: [11]
+  rights_notice: 미확인(대학 원본 표지 문구 확인 필요)
+  transcribed_from: '「2026학년도 대학별고사 선행학습 영향평가 자체평가보고서[공개용].pdf」 문항카드 84(264~265쪽) 이미지 렌더링(150dpi) 판독 — 문항·출제 의도·해설·채점 기준'
+  textbook_basis: '문항카드 자료 출처: 고등학교 교과서 수학Ⅰ(이준열, 천재교육, 2024) 156~160쪽; 수학Ⅰ(류희찬, 천재교과서, 2023) 148~151쪽'
+
+verify: verify/GCU-G26F.py::p09
+
+stimuli: []
+
+stem: |
+  모든 항이 정수인 수열 $\{a_n\}$이 모든 자연수 $n$에 대하여
+  $$a_{n+1}=\begin{cases}-2a_n+7 & (a_n<4\text{인 경우})\\ a_n-n+5 & (a_n\ge4\text{인 경우})\end{cases}$$
+  를 만족시킨다. $a_6=11$일 때, $a_1$, $a_4$, $\displaystyle\sum_{k=1}^{10}a_k$의 값을 모두 구하는 과정을 서술하시오.
+
+subparts:
+- id: '1'
+  stem: |
+    $a_1$, $a_4$, $\displaystyle\sum_{k=1}^{10}a_k$의 값을 모두 구하는 과정을 서술하시오.
+  points: 11
+  depends_on: []
+  answer: {kind: value, value: '$a_1=1$, $a_4=10$, $\sum_{k=1}^{10}a_k=70$', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: |
+      $a_6=11\Rightarrow a_5=11\Rightarrow a_4=10\Rightarrow a_3=8\Rightarrow a_2=5\Rightarrow a_1=1$
+    steps:
+    - id: 1a
+      content: |
+        $1+5+8+10+11+11+10+8+5+1=70$
+      criteria: ['1.M1', '1.A1', '1.A2']
+    hint_ladder:
+    - '$a_6=11$이 되는 $a_5$의 후보를 두 식에서 각각 구해 보자.'
+    - '후보가 해당 경우의 조건을 만족하는지 확인하자.'
+  - id: S1-B
+    audience: B
+    source_flow: '2026학년도 대학별고사 선행학습 영향평가 자체평가보고서 문항카드 84 5. 문항 해설 · 6. 채점 기준'
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        ① $a_6=11=-2a_5+7$이면 $a_5=-2$이나 이때 $a_4$가 조건을 만족하지 않는다.
+        ② $a_6=11=a_5-5+5$이면 $a_5=11$
+         i) $a_5=11=-2a_4+7$이면 $a_4=-2$이나 이때 $a_3$가 조건을 만족하지 않는다.
+         ii) $a_5=11=a_4-4+5$이면 $a_4=10$
+      criteria: ['1.M1']
+    - id: 1b-2
+      content: |
+        $a_4=10=-2a_3+7$ 또는 $a_4=10=a_3-3+5$인데 $a_3$은 정수이므로 $a_3=8$
+        $a_3=8$이면 $a_2=5$, $a_1=1$
+      criteria: ['1.A1']
+    - id: 1b-3
+      content: |
+        $a_7=10$, $a_8=8$, $a_9=5$, $a_{10}=1$
+        그러므로 $\displaystyle\sum_{k=1}^{10}a_k=1+5+8+10+11+11+10+8+5+1=70$
+      criteria: ['1.A2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 0, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 4
+      evidence: |
+        $a_4=10$(채점기준 4점).
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1]
+    - id: 1.A1
+      mark_type: A
+      points: 3
+      evidence: |
+        $a_1=1$(채점기준 3점).
+      depends_on: [1.M1]
+      steps: [1b-2]
+    - id: 1.A2
+      mark_type: A
+      points: 4
+      evidence: |
+        $\displaystyle\sum_{k=1}^{10}a_k=70$(채점기준 4점). [보고서 채점기준 합계 3+4+4=11점 — 다른 문항(10점)과 다름, 보고서 표기 그대로]
+      depends_on: [1.M1, 1.A1]
+      steps: [1b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-ALG-8715}
+  misconceptions:
+  - id: MC-ALG-8715
+    outcome_code: '71'
+    wrong_work: |
+      $a_5=-2$를 그대로 채택해 다른 수열을 만듦
+    detect_cue: |
+      이전 항이 정수가 아니거나 경우 조건과 모순되는 값을 사용
+    feedback: |
+      역으로 구한 값이 어떤 식(경우)에서 나왔는지, 그 경우의 조건과 정수 조건을 함께 확인하세요.
+    remedy: [RL-1]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-ALG-8715}
+  relation: remediation
+  target: {kind: concept, ref: CON-ALG-PIECEWISE-RECUR-BACKWARD}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

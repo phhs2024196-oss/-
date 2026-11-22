@@ -1,0 +1,192 @@
+# 가천대 2024학년도 수시 논술(자연C) [문제 9] — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: GCU-G24C-09
+legacy_id: null
+version: 1
+status: draft
+exam_family: yaksul
+item_type: short_answer
+origin: past_exam
+school: GCU
+type: null
+variant_of: null
+replaces: null
+level: L3
+form: 추론
+points: 10
+time_estimate_min: 3
+intent: |
+  제시문의 상황에서 부정적분을 이용하여 문제를 해결할 수 있는지를 평가한다(문항카드 출제 의도 원문). 부정적분의 정의 $G'=2(x+1)f$와 주어진 등식의 미분을 비교해 $f'(x)$를 얻고 적분상수를 $G(0)$으로 정한다.
+key_idea: |
+  $G'(x)=2(x+1)f(x)$를 주어진 등식의 양변 미분과 비교하면 $(x+1)^2f'(x)=4(x+1)^3$이 된다.
+stuck: |
+  부정적분의 정의를 미분 등식으로 바꾸는 것, 그리고 $G(0)=f(0)$으로 적분상수를 정하는 것.
+idea_tags: [IDEA-ANTIDERIV-DIFF-BOTH]
+tags: ['부정적분', '미분', '적분상수']
+elements:
+  materials:
+  - '$2(x+1)f(x)$의 한 부정적분 $G(x)$'
+  - '$G(x)=(x+1)^2f(x)-x^4-4x^3-6x^2-4x$'
+  - '$G(0)=-2$'
+  concepts:
+  - '부정적분의 뜻 $G''(x)=2(x+1)f(x)$'
+  - '곱의 미분법'
+  - '다항함수의 부정적분과 적분상수'
+  tools:
+  - '양변 미분'
+  - '$4x^3+12x^2+12x+4=4(x+1)^3$ 인수분해'
+  - '$G(0)=f(0)$으로 적분상수 결정'
+  conditions:
+  - '$f(x)$는 다항함수'
+  - '모든 실수 $x$에 대하여 등식 성립'
+  - '$G(0)=-2$'
+  stimuli_used: []
+  subpart_links: '단일 논제'
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅱ]
+  scope_2028: common
+  scope_confirmed: false
+  standards:
+  - code: '12수학Ⅱ03-01'
+    text: '부정적분의 뜻을 안다.'
+    verified: false
+  content_area: '다항함수의 적분법'
+  behavior_domain: 계산
+  unit_path: ['수학Ⅱ', '다항함수의 적분법', '부정적분', '부정적분과 미분의 관계']
+  key_concepts: ['부정적분', '적분상수']
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 가천대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 가천대학교
+  admission_year: 2024
+  admission_type: 수시 논술전형
+  track: 자연C
+  question_no: 9
+  official_url: https://admission.gachon.ac.kr/admission/html/counsel/noticeView.asp?BOARD_IDX=17792&s_cate=BBS0401
+  retrieved_at: 2026-11-21
+  original_points: [10]
+  rights_notice: 미확인(대학 원본 표지 문구 확인 필요)
+  transcribed_from: '「2024학년도 가천대학교 대학별 고사 선행학습 영향평가 자체평가 보고서(공개용).pdf」 문항카드 [C 9](PDF 284~285쪽, 인쇄쪽 281~282) 렌더링(150dpi) 판독 — 문항·해설·채점기준'
+  textbook_basis: '고등학교 교과서 수학Ⅱ(미래엔, 황선욱 외 8, 2020) 116쪽; 수학Ⅱ(천재교육, 이준열 외 9, 2020) 116쪽'   # 문항카드 출제 근거
+
+verify: verify/GCU-G24C.py::p09
+
+stimuli: []
+
+stem: |
+  다항함수 $f(x)$에 대하여 $2(x+1)f(x)$의 한 부정적분을 $G(x)$라 할 때, 함수 $G(x)$는 모든 실수 $x$에 대하여
+  $$G(x)=(x+1)^2f(x)-x^4-4x^3-6x^2-4x$$
+  를 만족시킨다. $G(0)=-2$일 때, $f(1)$의 값을 구하는 과정을 서술하시오.
+
+subparts:
+- id: '1'
+  stem: |
+    $f(1)$의 값을 구하는 과정을 서술하시오.
+  points: 10
+  depends_on: []
+  answer: {kind: value, value: '4', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: |
+      양변을 미분해 $G'=2(x+1)f$와 비교하면 $f'(x)=4(x+1)$, $f(x)=2x^2+4x+C$, $G(0)=f(0)=-2$.
+    steps:
+    - id: 1a
+      content: |
+        $(x+1)^2f'(x)=4(x+1)^3\Rightarrow f'(x)=4(x+1)\Rightarrow f(x)=2x^2+4x-2\Rightarrow f(1)=4$
+      criteria: ['1.M1', '1.A1', '1.A2', '1.A3']
+    hint_ladder:
+    - '$G(x)$가 $2(x+1)f(x)$의 부정적분이라는 것을 미분 등식으로 써 보자.'
+    - '주어진 등식을 미분하면 $2(x+1)f(x)$가 양변에 나타난다.'
+  - id: S1-B
+    audience: B
+    source_flow: '선행학습 보고서 문항카드 [C 9] 5. 문항 해설(PDF 284~285쪽)'
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        $2(x+1)f(x)$의 한 부정적분이 $G(x)$이므로, $G'(x)=2(x+1)f(x)$
+      criteria: ['1.M1']
+    - id: 1b-2
+      content: |
+        $G(x)=(x+1)^2f(x)-x^4-4x^3-6x^2-4x$의 양변을 $x$에 대해 미분하면
+        $G'(x)=2(x+1)f(x)+(x+1)^2f'(x)-4x^3-12x^2-12x-4$
+        따라서 $(x+1)^2f'(x)=4x^3+12x^2+12x+4=4(x+1)^3$
+        $f(x)$는 다항함수이므로 $f'(x)=4(x+1)$이고, $f(x)=2x^2+4x+C$
+      criteria: ['1.A1']
+    - id: 1b-3
+      content: |
+        $G(0)=f(0)=-2$이므로 $f(x)=2x^2+4x-2$
+      criteria: ['1.A2']
+    - id: 1b-4
+      content: |
+        $f(1)=4$이다. [참고] $G(x)=x^4+4x^3+2x^2-4x-2$
+      criteria: ['1.A3']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 0, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 3
+      evidence: |
+        $G'(x)=2(x+1)f(x)$(채점기준 3점).
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1]
+    - id: 1.A1
+      mark_type: A
+      points: 4
+      evidence: |
+        $f'(x)=4(x+1)$(채점기준 4점).
+      depends_on: [1.M1]
+      implied_ok: false
+      steps: [1b-2]
+    - id: 1.A2
+      mark_type: A
+      points: 2
+      evidence: |
+        $f(x)=2x^2+4x-2$(채점기준 2점).
+      depends_on: [1.M1, 1.A1]
+      implied_ok: false
+      steps: [1b-3]
+    - id: 1.A3
+      mark_type: A
+      points: 1
+      evidence: |
+        $f(1)=4$(채점기준 1점).
+      depends_on: [1.M1, 1.A2]
+      implied_ok: false
+      steps: [1b-4]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-8403}
+  misconceptions:
+  - id: MC-CAL-8403
+    outcome_code: '71'
+    wrong_work: '$G(0)=-2$를 $f(0)=-2-0$이 아닌 $f(0)=0$ 또는 적분상수를 0으로 두어 $f(x)=2x^2+4x$, $f(1)=6$'
+    detect_cue: '답이 $6$이거나 적분상수를 정하지 않았다'
+    feedback: '$G(0)=(0+1)^2f(0)-0=f(0)$이므로 $f(0)=-2$로 적분상수를 정하세요.'
+    remedy: [RL-1]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CAL-8403}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-ANTIDERIV-CONST}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

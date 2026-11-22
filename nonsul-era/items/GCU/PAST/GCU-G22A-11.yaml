@@ -1,0 +1,157 @@
+# 가천대 2022학년도 수시 논술고사 자연계 A형 [문제 11] — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: GCU-G22A-11
+legacy_id: null
+version: 1
+status: draft
+exam_family: yaksul
+item_type: short_answer
+origin: past_exam
+school: GCU
+type: null
+variant_of: null
+replaces: null
+level: L3
+form: 추론
+points: 10
+time_estimate_min: 3
+intent: |
+  제시문의 상황에서 수열의 합과 일반항 사이의 관계를 이용하여 문제를 해결할 수 있는지를 평가한다(보고서 문항카드 출제 의도 원문; 답안지 카드: 수열의 합과 일반항 사이의 관계를 이용하여 일반항을 구하는 능력을 확인). $a_1=S_1$, $a_n=S_n-S_{n-1}\ (n\ge2)$로 $a_{100}$을 계산한다.
+key_idea: |
+  $a_n=S_n-S_{n-1}=\dfrac19(4n^3+6n^2-1)\ (n\ge2)$, $a_1=S_1=1$.
+stuck: |
+  $n^2(n+2)^2-(n-1)^2(n+1)^2$의 전개를 정확히 하는 것.
+idea_tags: [IDEA-SN-DIFFERENCE-TERM]
+tags: ['수열의 합과 일반항']
+elements:
+  materials:
+  - '$S_n=\dfrac{n^2(n+2)^2}{9}$'
+  - '$a_1+a_{100}$'
+  concepts:
+  - '수열의 합과 일반항의 관계'
+  tools:
+  - '$a_n=S_n-S_{n-1}$ 전개'
+  - '$a_1=S_1$'
+  conditions:
+  - '$n\ge2$에서만 $a_n=S_n-S_{n-1}$'
+  stimuli_used: []
+  subpart_links: '단일 논제'
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅰ]
+  scope_2028: common
+  scope_confirmed: false
+  standards:
+  - code: '12수학Ⅰ03-03'
+    text: '등비수열의 뜻을 알고, 일반항, 첫째항부터 제$n$항까지의 합을 구할 수 있다(보고서 카드 표기 그대로).'
+    verified: false
+  content_area: '수열'
+  behavior_domain: 계산
+  unit_path: ['수학Ⅰ', '수열', '수열의 합', '합과 일반항의 관계']
+  key_concepts: ['수열의 합', '일반항']
+difficulty: {rater: author, p_value: null, n: 0}
+source:
+  rights_holder: '가천대학교'
+  license: 'all_rights_reserved'
+  permission_status: 'not_requested'
+  allowed_use: 'internal_only'
+  derivative_level: 'verbatim'
+  institution: '가천대학교'
+  admission_year: 2022
+  admission_type: '수시 논술전형'
+  track: '자연계 A형'
+  question_no: 11
+  official_url: https://admission.gachon.ac.kr/admission/html/counsel/noticeView.asp?BOARD_IDX=12506&s_cate=BBS0401
+  retrieved_at: 2026-11-21
+  original_points: [10]
+  rights_notice: '미확인(대학 원본 표지 문구 확인 필요)'
+  transcribed_from: '「2022학년도 논술고사 문제(자연).hwp」 수식 스크립트 직접 추출(gcu_txt) + 「2022학년도 논술고사(자연) 답안지.hwp」 문항카드(문항 해설·채점 기준) + 「2022학년도 가천대학교 대학별 고사 선행학습 영향평가 자체평가 보고서」 자연A 문제11 문항카드(PDF 278~279쪽: 출제 의도·성취기준·교과서 근거) 대조'
+  textbook_basis: 'EBS 수능완성 나형(2021) 37쪽(답안지 카드); 교과서 수학Ⅰ 미래엔 129쪽·천재교육 150쪽(보고서 카드)'
+verify: verify/GCU-G22A.py::p11
+stimuli: []
+stem: |
+  수열 $\{a_n\}$의 첫째항부터 제$n$항까지의 합 $S_n$이 $S_n=\dfrac{n^2(n+2)^2}{9}$일 때, $a_1+a_{100}$의 값을 구하는 과정을 서술하시오.
+subparts:
+- id: '1'
+  stem: |
+    $a_1+a_{100}$의 값을 구하는 과정을 서술하시오.
+  points: 10
+  depends_on: []
+  answer: {kind: value, value: '451112', equivalents: [], tolerance: null}
+  solutions:
+  - id: 'S1-A'
+    audience: A
+    method_no: 1
+    key_idea: |
+      $a_n=\frac19(4n^3+6n^2-1)\ (n\ge2)$에서 $a_{100}=451111$, $a_1=S_1=1$.
+    steps:
+    - id: '1a'
+      content: |
+        $a_1=1$, $a_{100}=\frac19(4000000+60000-1)=451111$, 합 $451112$
+      criteria: ['1.M1', '1.B2', '1.A1']
+    hint_ladder:
+    - '$n\ge2$일 때 $a_n=S_n-S_{n-1}$입니다.'
+    - '$a_1$은 $S_1$으로 따로 구하세요.'
+  - id: 'S1-B'
+    audience: B
+    source_flow: '답안지(자연).hwp [자연 11] 문항카드 5. 문항 해설·6. 채점 기준 + 보고서 자연A 문제11 카드(PDF 278~279쪽)'
+    method_no: 1
+    steps:
+    - id: '1b-1'
+      content: |
+        $a_n=S_n-S_{n-1}=\dfrac19\left\{n^2(n+2)^2-(n-1)^2(n+1)^2\right\}=\dfrac19(n^4+4n^3+4n^2-n^4+2n^2-1)=\dfrac19(4n^3+6n^2-1)$이고, $\therefore\ a_1=S_1=1$
+      criteria: ['1.M1']
+    - id: '1b-2'
+      content: |
+        $\therefore\ a_{100}=\dfrac19(4000000+60000-1)=451111$
+      criteria: ['1.B2']
+    - id: '1b-3'
+      content: |
+        $\therefore\ a_1+a_{100}=451112$
+      criteria: ['1.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 0, isw: true}
+    criteria:
+    - id: '1.M1'
+      mark_type: 'M'
+      points: 3
+      evidence: |
+        $\therefore\ a_1=S_1=1$(채점기준 3점).
+      depends_on: []
+      implied_ok: false
+      steps: ['1b-1']
+    - id: '1.B2'
+      mark_type: 'B'
+      points: 6
+      evidence: |
+        $\therefore\ a_{100}=451111$(채점기준 6점).
+      depends_on: []
+      steps: ['1b-2']
+    - id: '1.A1'
+      mark_type: 'A'
+      points: 1
+      evidence: |
+        $\therefore\ a_1+a_{100}=451112$(채점기준 1점).
+      depends_on: ['1.M1', '1.B2']
+      steps: ['1b-3']
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-ALG-8105}
+  misconceptions:
+  - id: MC-ALG-8105
+    outcome_code: '71'
+    wrong_work: '$a_{100}=S_{101}-S_{100}$처럼 첨자를 한 칸 밀어 계산'
+    detect_cue: '$a_{100}$ 자리에 $\frac19(4\cdot101^3+6\cdot101^2-1)$에 해당하는 값이 들어 있다'
+    feedback: '$S_n-S_{n-1}$은 제$n$항입니다. 첨자를 맞춰 $S_{100}-S_{99}$를 계산하세요.'
+    remedy: [RL-1]
+remedy_links:
+- id: 'RL-1'
+  trigger: {type: misconception, ref: MC-ALG-8105}
+  relation: remediation
+  target: {kind: concept, ref: CON-ALG-SUM-TERM}
+  priority: 1
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+created: 2026-11-21
+updated: 2026-11-21

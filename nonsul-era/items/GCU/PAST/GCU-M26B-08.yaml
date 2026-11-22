@@ -1,0 +1,184 @@
+# 가천대 2026학년도 논술 모의고사 B형(인문·자연 공통) [문제 8] — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: GCU-M26B-08
+legacy_id: null
+version: 1
+status: draft
+exam_family: yaksul
+item_type: short_answer
+origin: mock_exam
+school: GCU
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 전수
+points: 10
+time_estimate_min: 3
+intent: |
+  수열의 귀납적 정의에 대하여 이해한다(문항카드 출제 의도 원문). $a_7=15$에서 거꾸로 각 경우의 정수 조건과 범위 조건을 확인하며 $a_1$을 모두 찾는다.
+key_idea: |
+  역추적: $a_{n+1}=-3a_n+8$ ($a_n<5$) 또는 $a_n-n+3$ ($a_n\ge5$). 각 단계에서 정수 조건과 경우 조건(부등식)을 모두 확인한다. $a_6=18$, $a_5=20$, $a_4=21$ ($-4$는 $a_2$가 없어 탈락), $a_3=21$, $a_2=20$, $a_1=-4$ 또는 $18$.
+stuck: |
+  역으로 구한 값이 그 경우의 조건($a_n<5$ 또는 $a_n\ge5$)을 만족하는지 확인하지 않거나, 막다른 가지($a_4=-4$)를 끝까지 따라가지 않으면 틀린다.
+idea_tags: [IDEA-RECUR-BACKTRACK]
+tags: [수열의 귀납적 정의, 역추적, 보기 판정]
+elements:
+  materials:
+  - 모든 항이 정수인 수열 $\{a_n\}$
+  - $a_{n+1}=-3a_n+8$ ($a_n<5$), $a_n-n+3$ ($a_n\ge5$)
+  - $a_7=15$
+  concepts:
+  - 수열의 귀납적 정의
+  - 정수 조건
+  tools:
+  - 뒤에서부터 역추적
+  - 경우별 조건 확인
+  conditions:
+  - 모든 항이 정수
+  - $a_7=15$
+  stimuli_used: []
+  subpart_links: 단일 논제
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅰ]
+  scope_2028: common
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 수열의 귀납적 정의를 이해한다(요지)
+    verified: false
+  content_area: 수열
+  behavior_domain: 추론
+  unit_path: [수학Ⅰ, 수열, 수학적 귀납법, 수열의 귀납적 정의]
+  key_concepts: [귀납적 정의]
+difficulty: {rater: author, p_value: null, n: 0}
+source:
+  rights_holder: 가천대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 가천대학교
+  admission_year: 2026
+  admission_type: 수시 논술 모의고사
+  track: 인문·자연 공통(B형)
+  question_no: 8
+  official_url: https://admission.gachon.ac.kr/admission/html/counsel/noticeView.asp?BOARD_IDX=24228&s_cate=BBS0401
+  retrieved_at: &id001 2026-11-21
+  original_points: [10]
+  rights_notice: 미확인(대학 원본 표지 문구 확인 필요)
+  transcribed_from: 「2026학년도 논술 모의고사_B형.hwp」 수식 스크립트 직접 추출 + PDF 대조, 해설·채점기준 「2026학년도 논술 모의고사 해설지_B형」 문항카드
+  textbook_basis: EBS 수능특강(2025) 93쪽
+verify: verify/GCU-M26B.py::p08
+stimuli: []
+stem: |
+  모든 항이 정수인 수열 $\{a_n\}$이 모든 자연수 $n$에 대하여
+
+  $$a_{n+1}=\begin{cases}-3a_n+8 & (a_n<5\text{인 경우})\\ a_n-n+3 & (a_n\ge5\text{인 경우})\end{cases}$$
+
+  를 만족시킨다. $a_7=15$가 되도록 하는 모든 $a_1$의 값의 합을 구할 때, < 보기 > 에서 옳은 것만을 있는 대로 고르는 과정을 서술하시오.
+
+  < 보기 >
+
+  ㄱ. $a_4=-4$를 가질 수 있다.
+
+  ㄴ. $a_7=15$가 되도록 하는 모든 $a_1$의 값의 합은 $14$이다.
+subparts:
+- id: '1'
+  stem: |
+    < 보기 > 에서 옳은 것만을 있는 대로 고르는 과정을 서술하시오.
+  points: 10
+  depends_on: []
+  answer: {kind: choice, value: ㄴ, equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $a_7$부터 거꾸로, 정수·범위 조건을 확인하며 가지를 친다.
+    steps:
+    - {id: 1a, content: '$a_6=18,a_5=20,a_4\in\{-4,21\}$; $a_4=-4$는 $a_2$ 없음(ㄱ 거짓); $a_1\in\{-4,18\}$, 합 14(ㄴ 참)', criteria: [1.M1, 1.A1, 1.A2, 1.A3]}
+    hint_ladder:
+    - $-3a_6+8=15$를 만족하는 정수 $a_6$이 있는가?
+    - $a_4=-4$에서 $a_3$, $a_2$를 끝까지 따라가 보자.
+  - id: S1-B
+    audience: B
+    source_flow: 해설지_B형 문항카드(수학 모의고사 B형 8번) 5. 문항 해설
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        $a_7=15$에서 $-3a_6+8=15$이면 $a_6$이 정수가 아니므로 $a_6-6+3=15$, $a_6=18$. 마찬가지 방법으로 $a_5=20$. $a_5=20$에서 $-3a_4+8=20$ 또는 $a_4-4+3=20$이므로 $a_4=-4$ 또는 $21$.
+      criteria: [1.M1]
+    - id: 1b-2
+      content: |
+        $a_4=-4$일 때 $a_3=4$를 가질 수 있으나 주어진 조건을 만족하는 $a_2$가 존재하지 않으므로 $a_4=-4$가 성립하지 않는다. ㄱ은 거짓.
+      criteria: [1.M1]
+    - id: 1b-3
+      content: |
+        $a_4=21$일 때 $a_3=21$, $a_2=20$. $a_2=20$에서 $-3a_1+8=20$이면 $a_1=-4$ ($a_1<5$), $a_1-1+3=20$이면 $a_1=18$ ($a_1\ge5$).
+      criteria: [1.A1]
+    - id: 1b-4
+      content: |
+        따라서 가질 수 있는 모든 $a_1$의 값은 $-4$, $18$이므로 모든 $a_1$의 값의 합은 $14$이다.
+      criteria: [1.A2]
+    - id: 1b-5
+      content: |
+        ㄴ은 참. 옳은 것은 ㄴ.
+      criteria: [1.A3]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 0, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 2
+      evidence: |
+        ㄱ은 거짓(또는 ㄱ은 옳지 않다) (채점기준 2점).
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1, 1b-2]
+    - id: 1.A1
+      mark_type: A
+      points: 2
+      evidence: |
+        $a_1=-4$ 또는 $a_1=18$ 중 하나를 구함 (채점기준 '하나만 썼을 때' 2점).
+      depends_on: [1.M1]
+      implied_ok: false
+      steps: [1b-3]
+    - id: 1.A2
+      mark_type: A
+      points: 5
+      evidence: |
+        두 값 $a_1=-4$, $18$을 모두 구하고 합 $14$ (채점기준 '두 개 다 썼을 때' 5점). 채점기준 표의 2점(하나)·5점(둘)은 누적으로 해석해 총점 10점을 맞춤.
+      depends_on: [1.M1, 1.A1]
+      implied_ok: false
+      steps: [1b-4]
+    - id: 1.A3
+      mark_type: A
+      points: 1
+      evidence: |
+        ㄴ은 참(또는 ㄴ은 옳다) (채점기준 1점).
+      depends_on: [1.M1, 1.A2]
+      implied_ok: false
+      steps: [1b-5]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-ALG-8807}
+  misconceptions:
+  - id: MC-ALG-8807
+    outcome_code: '71'
+    wrong_work: $a_4=-4$에서 $a_3=4$를 얻은 뒤 더 따라가지 않고 ㄱ을 참으로 판단
+    detect_cue: ㄱ, ㄴ 모두 고른다
+    feedback: $a_3=4$가 되는 정수 $a_2$가 있는지까지 확인해야 합니다($-3a_2+8=4$, $a_2-2+3=4$ 모두 조건 불만족).
+    remedy: [RL-1]
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-ALG-8807}
+  relation: remediation
+  target: {kind: concept, ref: CON-ALG-RECUR-BACKTRACK}
+  priority: 1
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: *id001}
+created: *id001
+updated: *id001

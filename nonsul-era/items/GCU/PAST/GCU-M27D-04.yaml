@@ -1,0 +1,167 @@
+# 가천대 2027학년도 의약학 논술 모의고사(의예) [문제 4] — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: GCU-M27D-04
+legacy_id: null
+version: 1
+status: draft
+exam_family: yaksul
+item_type: short_answer
+origin: mock_exam
+school: GCU
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 분류
+points: 20
+time_estimate_min: 8
+intent: |
+  극한의 성질 및 두 곡선 사이의 넓이(문항카드 출제 의도 원문). 극한 존재 조건으로 실근이 $x=2$ 하나뿐임을 보이고, 교점 조건과 정수 조건으로 $f$를 결정해 넓이를 구한다.
+key_idea: |
+  $f(\beta)=0$이면 $f(2\beta-2)=0$, $f(4\beta-6)=0$, … → $\beta\ne2$이면 근이 너무 많음 → 실근은 $2$뿐. $f(x)-x=(x-a)^2(x-b)$ 또는 $(x-a)(x-b)^2$, $f(2)=0$.
+stuck: |
+  극한 존재 조건을 '근이 근을 낳는' 반복으로 해석하는 것이 고비. 두 후보 중 실근이 2 하나인 것만 고르는 확인도 필요.
+idea_tags: [IDEA-LIMIT-ROOT-PROPAGATE, IDEA-TANGENT-FACTOR]
+tags: [함수의 극한, 삼차함수, 정적분과 넓이]
+elements:
+  materials:
+  - 최고차항 계수 1인 삼차함수 $f$
+  - (가) 모든 $\alpha$에 대해 $\lim_{x\to\alpha}\frac{f(2x-2)}{f(x)}$ 존재
+  - (나) $y=f(x)$와 $y=x$의 교점 2개, $x$좌표 정수
+  concepts:
+  - 극한값 존재 조건
+  - 삼차방정식의 근과 인수정리
+  - 두 곡선 사이의 넓이
+  tools:
+  - 근의 전파 $\beta\to2\beta-2$
+  - 접하는 교점 → 중근 인수
+  - 정수 조건 경우 분류
+  conditions:
+  - 교점의 $x$좌표는 모두 정수
+  stimuli_used: []
+  subpart_links: 단일 논제
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅱ]
+  scope_2028: common
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 곡선으로 둘러싸인 도형의 넓이를 구할 수 있다 / 함수의 극한(요지)
+    verified: false
+  content_area: 적분
+  behavior_domain: 추론
+  unit_path: [수학Ⅱ, 적분, 정적분의 활용, 넓이]
+  key_concepts: [극한, 넓이]
+difficulty: {rater: author, p_value: null, n: 0}
+source:
+  rights_holder: 가천대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 가천대학교
+  admission_year: 2027
+  admission_type: 수시 의약학 논술 모의고사(의예)
+  track: 의예(의약학 모의)
+  question_no: 4
+  official_url: https://admission.gachon.ac.kr/admission/html/counsel/noticeView.asp?BOARD_IDX=32290&s_cate=BBS0401
+  retrieved_at: &id001 2026-11-21
+  original_points: [20]
+  rights_notice: 미확인(대학 원본 표지 문구 확인 필요)
+  transcribed_from: 「2027학년도 의약학 논술 모의고사_의예(업로드).hwp」 수식 스크립트 직접 추출 + PDF 렌더링 대조, 해설·채점기준 「2027학년도 의약학 논술 모의고사_의예_해설(업로드).hwp」 문항카드
+  textbook_basis: EBS 수능특강(2026) 17쪽 문제, 93쪽 유제 3
+verify: verify/GCU-M27D.py::p04
+stimuli: []
+stem: |
+  최고차항의 계수가 $1$인 삼차함수 $f(x)$가 다음 조건을 만족시킬 때, 곡선 $y=f(x)$와 직선 $y=x$로 둘러싸인 영역의 넓이를 구하는 과정을 서술하시오.
+
+  (가) 모든 실수 $\alpha$에 대하여 $\displaystyle\lim_{x\to\alpha}\frac{f(2x-2)}{f(x)}$의 값이 존재한다.
+
+  (나) 곡선 $y=f(x)$와 직선 $y=x$의 교점은 $2$개이고 교점의 $x$좌표는 모두 정수이다.
+subparts:
+- id: '1'
+  stem: |
+    곡선 $y=f(x)$와 직선 $y=x$로 둘러싸인 영역의 넓이를 구하는 과정을 서술하시오.
+  points: 20
+  depends_on: []
+  answer: {kind: value, value: '\frac{1}{12}', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: 실근이 $x=2$뿐 → $f(2)=0$; $(2-a)^2(2-b)=-2$ 등의 정수해.
+    steps:
+    - {id: 1a, content: '$f(x)=(x-3)^2(x-4)+x$, $\int_3^4|f(x)-x|dx=\frac1{12}$', criteria: [1.M1, 1.A1, 1.A2]}
+    hint_ladder:
+    - $f(\beta)=0$이면 $f(2\beta-2)$는?
+    - 교점이 2개인 삼차식 $f(x)-x$는 중근을 가진다.
+  - id: S1-B
+    audience: B
+    source_flow: 의예_해설 문항카드 4(의약학 모의 문제 4) 5. 문항 해설
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        삼차함수는 적어도 하나의 실근을 가지므로 $f(\beta)=0$이라 하자. $\displaystyle\lim_{x\to\beta}\frac{f(2x-2)}{f(x)}$가 존재하고 $f(\beta)=0$이므로 $f(2\beta-2)=0$이다. 같은 이유로 $f(2(2\beta-2)-2)=f(4\beta-6)=0$이다. 결국 $\beta\ne2\beta-2$, 즉 $\beta\ne2$이면 $\beta$, $2\beta-2$, $4\beta-6$, $8\beta-14$가 삼차방정식 $f(x)=0$의 근이 되어 모순이다. 따라서 $\beta=2$이고 방정식 $f(x)=0$의 실근은 $x=2$가 유일하다.
+      criteria: [1.M1]
+    - id: 1b-2
+      content: |
+        조건 (나)로부터 교점을 $(a,a)$, $(b,b)$라 하면 $f(x)=(x-a)^2(x-b)+x$ 또는 $f(x)=(x-a)(x-b)^2+x$이다. 따라서 $(2-a)^2(2-b)=-2$ 또는 $(2-a)(2-b)^2=-2$이고, $2-a$, $2-b$가 정수이므로
+        case 1: $(2-a)^2=1$, $2-b=-2$ → $a=1,b=4$ 또는 $a=3,b=4$
+        case 2: $2-a=-2$, $(2-b)^2=1$ → $a=4,b=1$ 또는 $a=4,b=3$.
+        가능한 삼차함수는 ① $f(x)=(x-3)^2(x-4)+x=(x-2)(x^2-8x+18)$, ② $f(x)=(x-1)^2(x-4)+x=(x-2)(x-(2+\sqrt2))(x-(2-\sqrt2))$이다. 실근은 $x=2$뿐이어야 하므로 ②는 불가능하고, $x^2-8x+18$의 판별식 $D/4=16-18<0$이므로 ①이 맞다.
+      criteria: [1.A1]
+    - id: 1b-3
+      content: |
+        결국 $f(x)=x^3-10x^2+34x-36$이고 $y=x$와의 교점은 $(3,3)$, $(4,4)$이다. 넓이는
+        $$\int_3^4|f(x)-x|dx=\int_3^4(-x^3+10x^2-33x+36)dx=\left[-\frac{x^4}{4}+\frac{10x^3}{3}-\frac{33x^2}{2}+36x\right]_3^4=\frac{1}{12}.$$
+      criteria: [1.A2]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 0, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 6
+      evidence: |
+        $f(2)=0$ (채점기준 6점).
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1]
+    - id: 1.A1
+      mark_type: A
+      points: 9
+      evidence: |
+        $y=f(x)$와 $y=x$의 교점은 $(3,3)$과 $(4,4)$ (또는 $f(x)=(x-3)^2(x-4)+x$, 또는 $f(x)=x^3-10x^2+34x-36$, 또는 적분 구간 끝이 3과 4) (채점기준 9점).
+      depends_on: [1.M1]
+      implied_ok: false
+      steps: [1b-2]
+    - id: 1.A2
+      mark_type: A
+      points: 5
+      evidence: |
+        넓이 $\displaystyle\int_3^4|f(x)-x|dx=\frac1{12}$ (채점기준 5점).
+      depends_on: [1.M1, 1.A1]
+      implied_ok: false
+      steps: [1b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-8823}
+  misconceptions:
+  - id: MC-CAL-8823
+    outcome_code: '71'
+    wrong_work: 후보 ② $f(x)=(x-1)^2(x-4)+x$를 배제하지 않고 넓이 $\int_1^4$를 계산
+    detect_cue: 넓이가 $\frac{27}{4}$ 등 큰 값
+    feedback: ②는 $f(x)=0$의 실근이 세 개라 (가)를 만족시키지 못합니다. $f(2\beta-2)$도 근이어야 함을 확인하세요.
+    remedy: [RL-1]
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CAL-8823}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-LIMIT-ZERO-NUM}
+  priority: 1
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: *id001}
+created: *id001
+updated: *id001

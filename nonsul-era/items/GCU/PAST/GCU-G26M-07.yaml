@@ -1,0 +1,184 @@
+# 가천대 2026학년도 수시 논술(실전) 의예 [문제 7] — 문항카드 97 / 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: GCU-G26M-07
+legacy_id: null
+version: 1
+status: draft
+exam_family: yaksul
+item_type: short_answer
+origin: past_exam
+school: GCU
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 점화
+points: 20
+time_estimate_min: 8
+intent: |
+  귀납적으로 정의된 수열을 이해하여 문제를 해결할 수 있는지 확인한다(문항카드 출제 의도 원문). $b_{n+1}=(b_n)^2$, $d_{n+1}=d_1d_n$을 보이고, $x\mapsto\frac{x-\sqrt2}{x+\sqrt2}$의 일대일 대응으로 $a_8=c_m$을 $b_8=d_m$으로 바꾼다.
+key_idea: |
+  $b_8=(b_1)^{128}$, $d_n=(d_1)^n$, $d_1=b_1$ → $m=128$.
+stuck: |
+  $b_{n+1}$을 $b_n$으로 나타내는 분수식 정리와 $a_8=c_m$을 $b$, $d$로 옮기는 발상.
+idea_tags: [IDEA-MOBIUS-SUBSTITUTION-POWER]
+tags: [귀납적 정의, 치환, 거듭제곱, 2026실전, 의예]
+elements:
+  materials:
+  - '$a_{n+1}=\frac{a_n^2+2}{2a_n}$, $b_n=\frac{a_n-\sqrt2}{a_n+\sqrt2}$'
+  - '$c_{n+1}=\frac{c_n+2}{c_n+1}$, $d_n=\frac{c_n-\sqrt2}{c_n+\sqrt2}$'
+  - '$b_8=(b_1)^p$, $d_8=(d_1)^q$, $a_8=c_m$'
+  - '$a_1=c_1=1$'
+  concepts:
+  - '수열의 귀납적 정의'
+  - '등비수열'
+  - '지수법칙'
+  tools:
+  - '치환'
+  - '분수식 정리'
+  conditions:
+  - '$a_1=c_1=1$'
+  stimuli_used: []
+  subpart_links: '단일 논제'
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅰ]
+  scope_2028: common
+  scope_confirmed: false
+  standards:
+  - code: '12수학Ⅰ03-06'
+    text: '수열의 귀납적 정의를 이해한다.'
+    verified: false
+  content_area: '수열'
+  behavior_domain: 계산
+  unit_path: [수학Ⅰ, 수열, 수학적 귀납법, 수열의 귀납적 정의]
+  key_concepts: [귀납적 정의]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 가천대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 가천대학교
+  admission_year: 2026
+  admission_type: 수시 논술전형(실전)
+  track: '의예(보고서 표기 G)'
+  question_no: 7
+  official_url: https://admission.gachon.ac.kr/admission/html/counsel/noticeView.asp?BOARD_IDX=29874&s_cate=BBS0401
+  retrieved_at: 2026-11-21
+  original_points: [20]
+  rights_notice: 미확인(대학 원본 표지 문구 확인 필요)
+  transcribed_from: '「2026학년도 대학별고사 선행학습 영향평가 자체평가보고서[공개용].pdf」 문항카드 97(294~296쪽) 이미지 렌더링(150dpi) 판독 — 문항·출제 의도·해설·채점 기준'
+  textbook_basis: '문항카드 자료 출처: 고등학교 교과서 수학Ⅰ(배종숙, 금성출판사, 2024) 153쪽; 수학Ⅰ(홍성복, 지학사, 2024) 150, 151쪽'
+
+verify: verify/GCU-G26M.py::p07
+
+stimuli: []
+
+stem: |
+  네 수열 $\{a_n\}$, $\{b_n\}$, $\{c_n\}$, $\{d_n\}$이 모든 자연수 $n$에 대하여
+  $$a_{n+1}=\frac{{a_n}^2+2}{2a_n},\quad b_n=\frac{a_n-\sqrt2}{a_n+\sqrt2},\quad c_{n+1}=\frac{c_n+2}{c_n+1},\quad d_n=\frac{c_n-\sqrt2}{c_n+\sqrt2}$$
+  을 만족시킨다. $b_8=(b_1)^p$, $d_8=(d_1)^q$, $a_8=c_m$일 때, 자연수 $p$, $q$, $m$의 값을 모두 구하는 과정을 서술하시오. (단, $a_1=c_1=1$)
+
+subparts:
+- id: '1'
+  stem: |
+    자연수 $p$, $q$, $m$의 값을 모두 구하는 과정을 서술하시오.
+  points: 20
+  depends_on: []
+  answer: {kind: value, value: '$p=128$, $q=8$, $m=128$', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: |
+      $b_{n+1}=(b_n)^2$, $d_{n+1}=d_1d_n$, $b_1=d_1=2\sqrt2-3$.
+    steps:
+    - id: 1a
+      content: |
+        $b_8=(b_1)^{128}$, $d_8=(d_1)^8$, $a_8=c_m\iff b_8=d_m\iff m=128$
+      criteria: ['1.M1', '1.M2', '1.A1']
+    hint_ladder:
+    - '$b_{n+1}=\frac{a_{n+1}-\sqrt2}{a_{n+1}+\sqrt2}$에 $a_{n+1}$을 대입해 정리하자.'
+    - '$d_1$과 $b_1$을 비교하자.'
+  - id: S1-B
+    audience: B
+    source_flow: '2026학년도 대학별고사 선행학습 영향평가 자체평가보고서 문항카드 97 5. 문항 해설 · 6. 채점 기준'
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        $b_1=\dfrac{a_1-\sqrt2}{a_1+\sqrt2}=\dfrac{1-\sqrt2}{1+\sqrt2}=-(1-\sqrt2)^2=2\sqrt2-3$
+        $d_1=\dfrac{c_1-\sqrt2}{c_1+\sqrt2}=\dfrac{1-\sqrt2}{1+\sqrt2}=b_1$이다.
+        $b_{n+1}=\dfrac{a_{n+1}-\sqrt2}{a_{n+1}+\sqrt2}=\dfrac{\frac{{a_n}^2+2}{2a_n}-\sqrt2}{\frac{{a_n}^2+2}{2a_n}+\sqrt2}=\dfrac{{a_n}^2-2\sqrt2a_n+2}{{a_n}^2+2\sqrt2a_n+2}=\left(\dfrac{a_n-\sqrt2}{a_n+\sqrt2}\right)^2=(b_n)^2$
+        이다. 즉, 모든 자연수 $n$에 대하여 $b_{n+1}=(b_n)^2$이 성립한다. 따라서 $b_8=(b_7)^2=(b_6)^4=(b_5)^8=\cdots=(b_1)^{128}$
+        이므로 $p=128$.
+      criteria: ['1.M1']
+    - id: 1b-2
+      content: |
+        $d_{n+1}=\dfrac{c_{n+1}-\sqrt2}{c_{n+1}+\sqrt2}=\dfrac{\frac{c_n+2}{c_n+1}-\sqrt2}{\frac{c_n+2}{c_n+1}+\sqrt2}=\dfrac{c_n+2-\sqrt2c_n-\sqrt2}{c_n+2+\sqrt2c_n+\sqrt2}=\dfrac{(1-\sqrt2)(c_n-\sqrt2)}{(1+\sqrt2)(c_n+\sqrt2)}=d_1d_n$
+        이다. 즉, 모든 자연수 $n$에 대하여 $d_{n+1}=d_1d_n$이 성립한다. 따라서 $d_8=d_1d_7=(d_1)^2d_6=(d_1)^3d_5=\cdots=(d_1)^7d_1=(d_1)^8$
+        이므로 $q=8$.
+      criteria: ['1.M2']
+    - id: 1b-3
+      content: |
+        또한, $d_{2^7}=(d_1)^{2^7}=b_8=\dfrac{a_8-\sqrt2}{a_8+\sqrt2}=1+\dfrac{-2\sqrt2}{a_8+\sqrt2}$이고,
+        $d_{2^7}=\dfrac{c_{2^7}-\sqrt2}{c_{2^7}+\sqrt2}=1+\dfrac{-2\sqrt2}{c_{2^7}+\sqrt2}$이므로 $a_8=c_{2^7}$. 따라서 $a_8=c_{128}$이므로 $m=128$
+      criteria: ['1.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 0, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 7
+      evidence: |
+        $p=128$(채점기준 7점).
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1]
+    - id: 1.M2
+      mark_type: M
+      points: 7
+      evidence: |
+        $q=8$(채점기준 7점).
+      depends_on: []
+      implied_ok: false
+      steps: [1b-2]
+    - id: 1.A1
+      mark_type: A
+      points: 6
+      evidence: |
+        $m=128$(채점기준 6점).
+      depends_on: [1.M1, 1.M2]
+      steps: [1b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-ALG-8721}
+  misconceptions:
+  - id: MC-ALG-8721
+    outcome_code: '71'
+    wrong_work: |
+      $b_8=(b_1)^{14}$ 또는 $(b_1)^{16}$으로 계산
+    detect_cue: |
+      $p$가 $128$이 아님
+    feedback: |
+      제곱을 7번 반복하므로 지수는 $2^7=128$입니다.
+    remedy: [RL-1]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-ALG-8721}
+  relation: remediation
+  target: {kind: concept, ref: CON-ALG-MOBIUS-RECUR}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

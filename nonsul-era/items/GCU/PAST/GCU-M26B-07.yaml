@@ -1,0 +1,168 @@
+# 가천대 2026학년도 논술 모의고사 B형(인문·자연 공통) [문제 7] — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: GCU-M26B-07
+legacy_id: null
+version: 1
+status: draft
+exam_family: yaksul
+item_type: short_answer
+origin: mock_exam
+school: GCU
+type: null
+variant_of: null
+replaces: null
+level: L3
+form: 추론
+points: 10
+time_estimate_min: 3
+intent: |
+  적분의 성질 이해(문항카드 출제 의도 원문). 대칭 구간 적분으로 짝수차항 계수를 없애고, 정적분으로 정의된 함수의 극한을 미분계수로 바꾼다.
+key_idea: |
+  (가) $\int_{-x}^{x}f(t)dt=2\left(\frac a3x^3+cx\right)=0$ → $a=c=0$. (나) $\frac{1}{x^2-4}\int_2^x(3x-t)f(t)dt$를 $\frac{3x}{x+2}\cdot\frac1{x-2}\int_2^xf-\frac1{x+2}\cdot\frac1{x-2}\int_2^xtf$로 나눠 $f(2)$를 얻는다.
+stuck: |
+  (나)에서 피적분함수의 $x$를 적분 밖으로 빼내지 않으면 극한을 처리하지 못한다.
+idea_tags: [IDEA-INT-ODD-EVEN, IDEA-INT-LIMIT-DERIV]
+tags: [정적분의 성질, 정적분으로 정의된 함수, 미분계수]
+elements:
+  materials:
+  - $f(x)=x^3+ax^2+bx+c$
+  - (가) $\int_{-x}^{x}f(t)dt=0$
+  - (나) $\lim_{x\to2}\frac{1}{x^2-4}\int_2^x(3x-t)f(t)dt=12$
+  concepts:
+  - 정적분의 성질(우함수·기함수)
+  - 정적분으로 정의된 함수의 미분
+  - 미분계수의 정의
+  tools:
+  - 짝수차항만 남기는 대칭 적분
+  - 피적분함수의 $x$ 분리
+  - $\lim_{x\to2}\frac1{x-2}\int_2^xg(t)dt=g(2)$
+  conditions:
+  - $a$, $b$, $c$는 상수
+  - (가)는 모든 실수 $x$에 대하여 성립
+  stimuli_used: []
+  subpart_links: 단일 논제
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅱ]
+  scope_2028: common
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 정적분의 뜻을 알고 성질을 이해한다(요지)
+    verified: false
+  content_area: 적분
+  behavior_domain: 계산
+  unit_path: [수학Ⅱ, 적분, 정적분]
+  key_concepts: [정적분, 미분계수]
+difficulty: {rater: author, p_value: null, n: 0}
+source:
+  rights_holder: 가천대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 가천대학교
+  admission_year: 2026
+  admission_type: 수시 논술 모의고사
+  track: 인문·자연 공통(B형)
+  question_no: 7
+  official_url: https://admission.gachon.ac.kr/admission/html/counsel/noticeView.asp?BOARD_IDX=24228&s_cate=BBS0401
+  retrieved_at: &id001 2026-11-21
+  original_points: [10]
+  rights_notice: 미확인(대학 원본 표지 문구 확인 필요)
+  transcribed_from: 「2026학년도 논술 모의고사_B형.hwp」 수식 스크립트 직접 추출 + PDF 대조, 해설·채점기준 「2026학년도 논술 모의고사 해설지_B형」 문항카드
+  textbook_basis: EBS 수능특강 수학영역 Ⅱ(2025) 74, 80쪽
+verify: verify/GCU-M26B.py::p07
+stimuli: []
+stem: |
+  함수 $f(x)=x^{3}+ax^{2}+bx+c$가 다음 조건을 만족시킬 때, $\displaystyle\int_{a}^{b}f(x)\,dx$의 값을 구하는 과정을 서술하시오. (단, $a$, $b$, $c$는 상수이다.)
+
+  (가) 모든 실수 $x$에 대하여 $\displaystyle\int_{-x}^{x}f(t)\,dt=0$
+
+  (나) $\displaystyle\lim_{x\to2}\frac{1}{x^{2}-4}\int_{2}^{x}(3x-t)f(t)\,dt=12$
+subparts:
+- id: '1'
+  stem: |
+    $\displaystyle\int_{a}^{b}f(x)\,dx$의 값을 구하는 과정을 서술하시오.
+  points: 10
+  depends_on: []
+  answer: {kind: value, value: '8', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: (가)로 $a=c=0$, (나)의 극한이 $f(2)$임을 보여 $b=2$.
+    steps:
+    - {id: 1a, content: '$f(x)=x^3+2x$, $\int_0^2(x^3+2x)dx=8$', criteria: [1.M1, 1.A1, 1.A2]}
+    hint_ladder:
+    - $x^3$, $x$는 기함수, $x^2$, 상수는 우함수.
+    - $(3x-t)f(t)$에서 $3x$는 적분변수와 무관하다.
+  - id: S1-B
+    audience: B
+    source_flow: 해설지_B형 문항카드(수학 모의고사 B형 7번) 5. 문항 해설
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        모든 실수 $x$에 대하여 $\displaystyle\int_{-x}^{x}f(t)\,dt=2\int_0^x(at^2+c)\,dt=2\left(\frac a3x^3+cx\right)=0$이므로 $a=c=0$, $f(x)=x^3+bx$.
+      criteria: [1.M1]
+    - id: 1b-2
+      content: |
+        $\displaystyle\lim_{x\to2}\frac{1}{x^{2}-4}\int_{2}^{x}(3x-t)f(t)\,dt=\lim_{x\to2}\left\{\frac{3x}{x+2}\times\frac{1}{x-2}\int_2^xf(t)\,dt\right\}-\lim_{x\to2}\left\{\frac{1}{x+2}\times\frac1{x-2}\int_2^xtf(t)\,dt\right\}=\frac64\times f(2)-\frac14\times2f(2)=f(2)$.
+      criteria: [1.M1]
+    - id: 1b-3
+      content: |
+        $f(2)=8+2b=12$, $b=2$, $f(x)=x^3+2x$.
+      criteria: [1.A1]
+    - id: 1b-4
+      content: |
+        $\displaystyle\int_a^bf(x)\,dx=\int_0^2f(x)\,dx=\int_0^2(x^3+2x)\,dx=\left[\frac{x^4}{4}+x^2\right]_0^2=8$.
+      criteria: [1.A2]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 0, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 8
+      evidence: |
+        $a=c=0$ (또는 $f(x)=x^3+bx$) (채점기준 3.5점) 및 $\displaystyle\lim_{x\to2}\frac{1}{x^{2}-4}\int_{2}^{x}(3x-t)f(t)\,dt=f(2)$ (또는 $=8+2b$) (채점기준 4.5점). 학교 배점 3.5+4.5 를 정수 마크로 합침.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1, 1b-2]
+    - id: 1.A1
+      mark_type: A
+      points: 1
+      evidence: |
+        $b=2$ (또는 $f(x)=x^3+2x$) (채점기준 1점).
+      depends_on: [1.M1]
+      implied_ok: false
+      steps: [1b-3]
+    - id: 1.A2
+      mark_type: A
+      points: 1
+      evidence: |
+        $\displaystyle\int_a^bf(x)\,dx=8$ (채점기준 1점).
+      depends_on: [1.M1, 1.A1]
+      implied_ok: false
+      steps: [1b-4]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-8806}
+  misconceptions:
+  - id: MC-CAL-8806
+    outcome_code: '71'
+    wrong_work: (나)에서 $3x$를 적분 밖으로 꺼내지 않고 $(3x-t)f(t)$의 $t=2$ 값 $4f(2)$를 그대로 극한값으로 씀(분모 $x+2$ 무시)
+    detect_cue: 극한값을 $4f(2)$ 또는 $f(2)$가 아닌 식으로 두어 $b\ne2$
+    feedback: $x$는 적분변수가 아니므로 먼저 적분 밖으로 꺼낸 뒤 $\frac1{x-2}\int_2^x g(t)dt\to g(2)$를 쓰세요.
+    remedy: [RL-1]
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CAL-8806}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-INT-FUNC-LIMIT}
+  priority: 1
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: *id001}
+created: *id001
+updated: *id001

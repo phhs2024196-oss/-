@@ -1,0 +1,172 @@
+# 가천대 2026학년도 수시 논술(실전) 자연계열 E세트 [문제 8] — 문항카드 74 / 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: GCU-G26E-08
+legacy_id: null
+version: 1
+status: draft
+exam_family: yaksul
+item_type: short_answer
+origin: past_exam
+school: GCU
+type: null
+variant_of: null
+replaces: null
+level: L3
+form: 점화
+points: 10
+time_estimate_min: 4
+intent: |
+  수열의 합과 일반항 사이의 관계를 이용하여 문제를 해결할 수 있는지 확인한다(문항카드 출제 의도 원문). 점화식으로 $S_7$까지 차례로 구하고 $a_6=S_6-S_5$를 이용한다.
+key_idea: |
+  $S_{n+1}=3S_n+2$를 반복 적용, $a_6=S_6-S_5$.
+stuck: |
+  $a_6$을 $S_6$으로 착각하거나 $S_n$을 차례로 구할 때 계산 실수.
+idea_tags: [IDEA-SUM-RECUR-DIFF-TERM]
+tags: [수열의 합, 귀납적 정의, 로그, 2026실전, 자연E]
+elements:
+  materials:
+  - '$S_1=3$, $S_{n+1}=3S_n+2$'
+  - '$\log_3\frac{8}{a_6}$, $S_7$'
+  concepts:
+  - '수열의 합과 일반항의 관계'
+  - '수열의 귀납적 정의'
+  - '로그의 성질'
+  tools:
+  - '$a_n=S_n-S_{n-1}$'
+  - '점화식 반복 계산'
+  conditions:
+  - '모든 자연수 $n$'
+  stimuli_used: []
+  subpart_links: '단일 논제'
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅰ]
+  scope_2028: common
+  scope_confirmed: false
+  standards:
+  - code: '12수학Ⅰ03-06'
+    text: '수열의 귀납적 정의를 이해한다.'
+    verified: false
+  content_area: '수열'
+  behavior_domain: 계산
+  unit_path: [수학Ⅰ, 수열, 수열의 합, 합과 일반항의 관계]
+  key_concepts: [수열의 합, 귀납적 정의]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 가천대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 가천대학교
+  admission_year: 2026
+  admission_type: 수시 논술전형(실전)
+  track: '자연계열(보고서 E세트, 수학 문항카드 73~81)'
+  question_no: 8
+  official_url: https://admission.gachon.ac.kr/admission/html/counsel/noticeView.asp?BOARD_IDX=29874&s_cate=BBS0401
+  retrieved_at: 2026-11-21
+  original_points: [10]
+  rights_notice: 미확인(대학 원본 표지 문구 확인 필요)
+  transcribed_from: '「2026학년도 대학별고사 선행학습 영향평가 자체평가보고서[공개용].pdf」 문항카드 74(244~245쪽) 이미지 렌더링(150dpi) 판독 — 문항·출제 의도·해설·채점 기준'
+  textbook_basis: '문항카드 자료 출처: 고등학교 교과서 수학Ⅰ(배종숙, 금성출판사, 2024) 153~155쪽; 수학Ⅰ(고성은, 좋은책신사고, 2023) 144~145쪽'
+
+verify: verify/GCU-G26E.py::p08
+
+stimuli: []
+
+stem: |
+  수열 $\{a_n\}$에 대하여 첫째항부터 제$n$항까지의 합을 $S_n$이라 하자. $S_1=3$이고 모든 자연수 $n$에 대하여 $S_{n+1}=3S_n+2$를 만족시킬 때, $\log_3\dfrac{8}{a_6}$의 값과 $S_7$의 값을 모두 구하는 과정을 서술하시오.
+
+subparts:
+- id: '1'
+  stem: |
+    $\log_3\dfrac{8}{a_6}$의 값과 $S_7$의 값을 모두 구하는 과정을 서술하시오.
+  points: 10
+  depends_on: []
+  answer: {kind: value, value: '$\log_3\frac{8}{a_6}=-4$, $S_7=2915$', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: |
+      $S_n$: $3,11,35,107,323,971,2915$
+    steps:
+    - id: 1a
+      content: |
+        $a_6=971-323=648=8\times3^4$, $\log_3\frac{8}{a_6}=-4$, $S_7=2915$
+      criteria: ['1.M1', '1.A1', '1.A2']
+    hint_ladder:
+    - '$S_2, S_3, \ldots$를 차례로 구해 보자.'
+    - '$a_6$은 $S_6$과 $S_5$로 어떻게 나타나는가?'
+  - id: S1-B
+    audience: B
+    source_flow: '2026학년도 대학별고사 선행학습 영향평가 자체평가보고서 문항카드 74 5. 문항 해설 · 6. 채점 기준'
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        $S_1=3$, $S_2=11$, $S_3=35$, $S_4=107$, $S_5=323$, $S_6=971$, $S_7=2915$이다.
+      criteria: ['1.M1']
+    - id: 1b-2
+      content: |
+        따라서 $a_6=S_6-S_5=648$이므로
+      criteria: ['1.A1']
+    - id: 1b-3
+      content: |
+        $\log_3\dfrac{8}{a_6}=\log_3\dfrac{8}{8\times3^4}=-4$이다.
+      criteria: ['1.A2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 0, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 5
+      evidence: |
+        $S_7=2915$(채점기준 5점).
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1]
+    - id: 1.A1
+      mark_type: A
+      points: 4
+      evidence: |
+        $a_6=648$(채점기준 4점).
+      depends_on: [1.M1]
+      steps: [1b-2]
+    - id: 1.A2
+      mark_type: A
+      points: 1
+      evidence: |
+        $\log_3\dfrac{8}{a_6}=-4$(채점기준 1점).
+      depends_on: [1.M1, 1.A1]
+      steps: [1b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-ALG-8711}
+  misconceptions:
+  - id: MC-ALG-8711
+    outcome_code: '71'
+    wrong_work: |
+      $a_6=S_6=971$로 두고 로그를 계산
+    detect_cue: |
+      $\log_3\frac{8}{971}$처럼 정리되지 않는 값
+    feedback: |
+      $a_6=S_6-S_5$입니다. 합과 일반항을 구분하세요.
+    remedy: [RL-1]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-ALG-8711}
+  relation: remediation
+  target: {kind: concept, ref: CON-ALG-SEQ-SUM-TERM}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

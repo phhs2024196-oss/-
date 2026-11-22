@@ -1,0 +1,207 @@
+# 가천대 2023학년도 논술전형 자연E [문제 13] — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: GCU-G23E-13
+legacy_id: null
+version: 1
+status: draft
+exam_family: yaksul
+item_type: short_answer
+origin: past_exam
+school: GCU
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 추론
+points: 10
+time_estimate_min: 5
+intent: |
+  제시문의 상황에서 함수의 극한에 대한 성질을 이용하여 문제를 해결할 수 있는지를 평가한다(문항카드 출제 의도 원문). 극한값이 존재할 조건으로 사차함수의 인수를 결정한다.
+key_idea: |
+  통분한 $\dfrac{2(x-a)^2-5f(x)}{(x-a)^2f(x)}$의 극한이 존재하려면 $f(x)=(x-a)^2g(x)$이고 $2-5g(x)$가 $(x-a)^2$를 인수로 가져야 한다.
+stuck: |
+  두 단계에 걸친 '분모$\to0$이면 분자$\to0$' 적용.
+idea_tags:
+- IDEA-LIMIT-EXISTS-FACTOR
+tags:
+- 함수의 극한
+- 사차함수
+- 미정계수
+elements:
+  materials:
+  - 사차함수 $f(x)$
+  - $f(1)=-\dfrac{24}{5}$
+  - $\lim_{x\to a}\left\{\dfrac{2}{f(x)}-\dfrac{5}{(x-a)^2}\right\}=5$
+  concepts:
+  - 함수의 극한의 성질
+  - 극한값이 존재할 조건
+  - 다항식의 인수
+  tools:
+  - 통분
+  - 인수 $(x-a)^2$ 추출
+  - 이차방정식으로 $a$ 결정
+  conditions:
+  - $a>0$
+  stimuli_used: []
+  subpart_links: 단일 논제
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학Ⅱ
+  scope_2028: common
+  scope_confirmed: false
+  standards:
+  - code: 12수학Ⅱ01-02
+    text: 함수의 극한에 대한 성질을 이해하고, 함수의 극한값을 구할 수 있다.
+    verified: false
+  content_area: 함수의 극한과 연속
+  behavior_domain: 추론
+  unit_path:
+  - 수학Ⅱ
+  - 함수의 극한과 연속
+  - 함수의 극한
+  - 극한을 이용한 미정계수
+  key_concepts:
+  - 함수의 극한
+  - 미정계수
+difficulty: {rater: author, p_value: null, n: 0}
+source:
+  rights_holder: 가천대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 가천대학교
+  admission_year: 2023
+  admission_type: 수시 논술전형(실전)
+  track: 자연E
+  question_no: 13
+  official_url: https://admission.gachon.ac.kr/admission/html/counsel/noticeView.asp?BOARD_IDX=11903&s_cate=BBS0401
+  retrieved_at: 2026-11-21
+  original_points:
+  - 10
+  rights_notice: 미확인(대학 원본 표지 문구 확인 필요)
+  transcribed_from: 「★2023학년도 가천대학교 대학별 고사 선행학습 영향평가 자체평가 보고서.pdf」 문항카드 [E 13] PDF 269~271쪽 — 이미지 렌더링(150dpi) 판독(문항 원문·출제 의도·출제 근거·문항 해설). 문제지 원본 미확보, 채점기준 미수록
+  textbook_basis: 고교 교과서 수학Ⅱ 19쪽(미래엔, 황선욱 외) / 수학Ⅱ 20쪽(천재교육, 이준열 외) — 문항카드 출제 근거
+verify: verify/G23E.py::p13
+stimuli: []
+stem: |
+  양의 실수 $a$에 대하여 사차함수 $f(x)$가 다음 조건을 만족시킨다.
+
+  (가) $f(1)=-\dfrac{24}{5}$
+
+  (나) $\displaystyle\lim_{x\to a}\left\{\frac{2}{f(x)}-\frac{5}{(x-a)^2}\right\}=5$
+
+  $f(8)$의 값을 구하는 과정을 서술하시오.
+subparts:
+- id: '1'
+  stem: |
+    $f(8)$의 값을 구하는 과정을 서술하시오.
+  points: 10
+  depends_on: []
+  answer: {kind: value, value: '-240', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $f=(x-a)^2g$, $2-5g=p(x-a)^2$, $p=2$로 $f=\frac25\{-(x-a)^4+(x-a)^2\}$.
+    steps:
+    - id: 1a
+      content: $a=3$, $f(8)=-240$
+      criteria:
+      - 1.M1
+      - 1.M2
+      - 1.A1
+      - 1.A2
+    hint_ladder:
+    - 두 분수를 통분해 보자.
+    - 분모가 $0$으로 가면 분자도 $0$으로 가야 한다.
+    - $g(a)$와 $p$의 관계를 극한값 $5$로 얻자.
+  - id: S1-B
+    audience: B
+    source_flow: 선행학습 영향평가 자체평가 보고서(2023) 문항카드 [E 13] 5. 문항 해설
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        $\displaystyle\lim_{x\to a}\frac{2(x-a)^2-5f(x)}{(x-a)^2f(x)}$가 존재하므로 $f(x)=(x-a)^2g(x)$, $g(x)$는 이차함수.
+      criteria:
+      - 1.M1
+    - id: 1b-2
+      content: |
+        따라서 $\displaystyle\lim_{x\to a}\frac{2(x-a)^2-5f(x)}{(x-a)^2f(x)}$가 존재하므로 실수 $p$에 대해 $2-5g(x)=p(x-a)^2$, $2-5g(a)=0$.
+      criteria:
+      - 1.M2
+    - id: 1b-3
+      content: |
+        따라서 $g(a)=\dfrac25$. $\displaystyle\lim_{x\to a}\frac{2-5g(x)}{(x-a)^2g(x)}=\lim_{x\to a}\frac{p(x-a)^2}{(x-a)^2g(x)}=5$이므로 $\dfrac{p}{g(a)}=5$. 결국 $p=2$이고 $5g(x)=2-2(x-a)^2$이므로 $f(x)=(x-a)^2\dfrac{2-2(x-a)^2}{5}=\dfrac25\left(-(x-a)^4+(x-a)^2\right)$.
+      criteria:
+      - 1.A1
+    - id: 1b-4
+      content: |
+        조건 (가)로부터 $f(1)=\dfrac25\left(-(1-a)^4+(1-a)^2\right)=-\dfrac{24}{5}$을 풀면 $a=3$. 결국 $f(x)=\dfrac25\left(-(x-3)^4+(x-3)^2\right)$이고, $f(8)=-240$.
+      criteria:
+      - 1.A2
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 0, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 3
+      evidence: |
+        통분한 식의 극한 존재에서 $f(x)=(x-a)^2g(x)$(학교 채점기준 미수록: 문항카드 해설 단계로 배분).
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 1b-1
+    - id: 1.M2
+      mark_type: M
+      points: 3
+      evidence: |
+        $2-5g(x)=p(x-a)^2$, $g(a)=\dfrac25$(학교 채점기준 미수록: 문항카드 해설 단계로 배분).
+      depends_on:
+      - 1.M1
+      implied_ok: false
+      steps:
+      - 1b-2
+    - id: 1.A1
+      mark_type: A
+      points: 2
+      evidence: |
+        $p=2$, $f(x)=\dfrac25\left(-(x-a)^4+(x-a)^2\right)$(학교 채점기준 미수록: 문항카드 해설 단계로 배분).
+      depends_on:
+      - 1.M2
+      steps:
+      - 1b-3
+    - id: 1.A2
+      mark_type: A
+      points: 2
+      evidence: |
+        $a=3$ (양수 조건으로 $a=-1$ 제외), $f(8)=-240$(학교 채점기준 미수록: 문항카드 해설 단계로 배분).
+      depends_on:
+      - 1.M2
+      - 1.A1
+      steps:
+      - 1b-4
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-8307}
+  misconceptions:
+  - id: MC-CAL-8307
+    outcome_code: '71'
+    wrong_work: $(1-a)^2=4$에서 $a=-1$도 함께 써서 $f(8)$ 값을 두 개 제시
+    detect_cue: $a=-1$이 남아 있거나 $f(8)=-2592$
+    feedback: 문제에서 $a$는 양의 실수입니다. 조건을 다시 확인하세요.
+    remedy:
+    - RL-1
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CAL-8307}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-LIMIT-FACTOR}
+  priority: 1
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+created: 2026-11-21
+updated: 2026-11-21

@@ -1,0 +1,186 @@
+# 가천대 2026학년도 의예 논술 모의고사 [문제 4] — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: GCU-M26D-04
+legacy_id: null
+version: 1
+status: draft
+exam_family: yaksul
+item_type: short_answer
+origin: mock_exam
+school: GCU
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 추론
+points: 20
+time_estimate_min: 10
+intent: |
+  역함수의 그래프가 직선 $y=x$에 대칭임을 활용해서 영역의 넓이를 정적분으로 구하기(문항카드 출제 의도 원문). $f^{-1}$을 삼차함수로 구하고 평행이동·반사한 곡선과 $x=|y|$ 사이 넓이로 바꾼다.
+key_idea: |
+  $f^{-1}\left(\frac x2+1\right)=g(x)$에서 $f^{-1}(t)=8a(t-1)^3+2b(t-1)+1$. $(-1,-1)$ 평행이동 후 $y=x$ 대칭으로 보면 곡선 $y=8ax^3+2bx$와 $x=|y|$ 사이의 넓이.
+stuck: |
+  $f$를 직접 구하려 하면 막힌다. 역함수 쪽(삼차함수)에서 넓이를 계산하고 $y=|x|$도 함께 반사해야 한다.
+idea_tags: [IDEA-INVERSE-REFLECT-AREA]
+tags: [역함수, 정적분과 넓이, 평행이동]
+elements:
+  materials:
+  - $f$는 일대일대응
+  - $g(x)=ax^3+bx+1$ 감소, $2b+1=\frac1e$
+  - $(f\circ g)(x)=\frac x2+1$
+  - $A=\frac{1}{160e^2}$
+  concepts:
+  - 역함수와 그 그래프의 대칭성
+  - 정적분과 넓이
+  - 평행이동
+  tools:
+  - $f^{-1}(t)=g(2(t-1))$
+  - $y=x$에 대한 대칭으로 넓이 보존
+  - 교점 $x=\sqrt{-\frac{2b+1}{8a}}$
+  conditions:
+  - $g$는 실수 전체에서 감소함수
+  - $2.5<e<3$
+  stimuli_used: []
+  subpart_links: 단일 논제
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅱ]
+  scope_2028: common
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 곡선으로 둘러싸인 도형의 넓이를 구할 수 있다(요지)
+    verified: false
+  content_area: 적분
+  behavior_domain: 문제해결
+  unit_path: [수학Ⅱ, 적분, 정적분의 활용, 넓이]
+  key_concepts: [역함수, 넓이]
+difficulty: {rater: author, p_value: null, n: 0}
+source:
+  rights_holder: 가천대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 가천대학교
+  admission_year: 2026
+  admission_type: 수시 논술 모의고사(의예)
+  track: 의예
+  question_no: 4
+  official_url: https://admission.gachon.ac.kr/admission/html/counsel/noticeView.asp?BOARD_IDX=24228&s_cate=BBS0401
+  retrieved_at: &id001 2026-11-21
+  original_points: [null]
+  rights_notice: 미확인(대학 원본 표지 문구 확인 필요)
+  transcribed_from: 「2026학년도 논술 모의고사_의예.hwp」 수식 스크립트 직접 추출 + 「2026학년도 논술 모의고사_의예.pdf」 렌더링 대조, 해설 「2026학년도 논술 모의고사 해설지_의예과」 문항카드(채점기준 없음)
+  textbook_basis: EBS 수능특강 수학Ⅱ(2025) 93쪽 1번
+verify: verify/GCU-M26D.py::p04
+stimuli: []
+stem: |
+  다음 조건을 만족시키는 함수 $f(x)$의 그래프를 $x$축의 방향으로 $-1$, $y$축의 방향으로 $-1$만큼 평행이동해서 얻은 곡선과 곡선 $y=|x|$로 둘러싸인 부분의 넓이를 $A$라 하자.
+
+  (가) $f(x)$는 실수 전체의 집합에서 일대일대응이다.
+
+  (나) 삼차 함수 $g(x)=ax^{3}+bx+1$는 실수 전체의 집합에서 감소함수이고 $2b+1=\dfrac{1}{e}$이다. (단, 자연지수 $e$는 $2.5<e<3$이다.)
+
+  (다) 모든 실수 $x$에 대하여 $(f\circ g)(x)=\dfrac{x}{2}+1$을 만족시킨다.
+
+  $A=\dfrac{1}{160e^{2}}$일 때, $a$의 값을 구하는 과정을 서술하시오.
+subparts:
+- id: '1'
+  stem: |
+    $a$의 값을 구하는 과정을 서술하시오.
+  points: 20
+  depends_on: []
+  answer: {kind: value, value: '-5', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: 역함수를 구해 $y=8ax^3+2bx$와 $x=|y|$의 넓이 $-\frac{1}{32ae^2}$를 계산한다.
+    steps:
+    - {id: 1a, content: '$A=\int_0^\alpha\{(8ax^3+2bx)+x\}dx=-\frac{1}{32ae^2}=\frac1{160e^2}\Rightarrow a=-5$', criteria: [1.M1, 1.M2, 1.A1, 1.A2]}
+    hint_ladder:
+    - $f^{-1}$을 양변에 합성해 보자.
+    - 그래프를 $y=x$에 대해 뒤집어도 넓이는 같다.
+  - id: S1-B
+    audience: B
+    source_flow: 해설지_의예과 문항카드 4(의예 모의 문제 4) 5. 문항 해설
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        $f(x)$가 실수 전체의 집합에서 일대일대응이므로 역함수가 존재하고 $(f^{-1}\circ f)(ax^3+bx+1)=ax^3+bx+1=g(x)=f^{-1}\left(\dfrac x2+1\right)$. $\dfrac x2+1=t$로 놓으면 $x=2(t-1)$이므로 $f^{-1}(t)=8a(t-1)^3+2b(t-1)+1$. 따라서 $f^{-1}$는 감소하는 삼차 함수이다.
+      criteria: [1.M1]
+    - id: 1b-2
+      content: |
+        $f(x)$의 그래프를 $(-1,-1)$만큼 평행이동한 곡선과 $y=|x|$로 둘러싸인 부분의 넓이는 $f^{-1}(x)$의 그래프를 같은 방법으로 평행이동한 곡선 $y=8ax^3+2bx$와 곡선 $x=|y|$로 둘러싸인 부분의 넓이와 같다. 두 곡선의 교점은 $x=0$과 $x=\sqrt{-\dfrac{2b+1}{8a}}$이다.
+      criteria: [1.M2]
+    - id: 1b-3
+      content: |
+        $0<x<\sqrt{-\dfrac{2b+1}{8a}}$일 때 $0>\dfrac1e-1>8ax^2+2b>-1$이므로 $0>8ax^3+2bx=x(8ax^2+2b)>-x$이다. [그림: 제4사분면에서 곡선 $y=8ax^3+2bx$가 직선 $y=-x$보다 위, $x$축보다 아래에 있고 두 곡선이 원점과 $x=\alpha$에서 만나는 개형]
+      criteria: [1.M2]
+    - id: 1b-4
+      content: |
+        $\alpha=\sqrt{-\dfrac{2b+1}{8a}}=\sqrt{-\dfrac{1}{8ae}}$라 놓으면
+        $$A=\int_0^{\alpha}\{(8ax^3+2bx)-(-x)\}dx=\left[2ax^4+\frac{1}{2e}x^2\right]_0^{\alpha}=-\frac{1}{32ae^2}.$$
+      criteria: [1.A1]
+    - id: 1b-5
+      content: |
+        $A=\dfrac{1}{160e^2}$을 만족시키는 $a$는 $a=-5$.
+      criteria: [1.A2]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 0, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 5
+      evidence: |
+        $f^{-1}(t)=8a(t-1)^3+2b(t-1)+1$. 학교 채점기준 미공개(해설지_의예과에 6. 채점 기준 없음) — 문항 해설 흐름에 따라 작성한 자체 배점.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1]
+    - id: 1.M2
+      mark_type: M
+      points: 5
+      evidence: |
+        넓이를 곡선 $y=8ax^3+2bx$와 $x=|y|$로 둘러싸인 넓이로 바꾸고 교점 $x=0$, $x=\sqrt{-\frac{2b+1}{8a}}$를 구함.
+      depends_on: [1.M1]
+      implied_ok: false
+      steps: [1b-2, 1b-3]
+    - id: 1.A1
+      mark_type: A
+      points: 6
+      evidence: |
+        $A=-\dfrac{1}{32ae^2}$.
+      depends_on: [1.M2]
+      implied_ok: false
+      steps: [1b-4]
+    - id: 1.A2
+      mark_type: A
+      points: 4
+      evidence: |
+        $a=-5$.
+      depends_on: [1.M2, 1.A1]
+      implied_ok: false
+      steps: [1b-5]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-8811}
+  misconceptions:
+  - id: MC-CAL-8811
+    outcome_code: '71'
+    wrong_work: 역함수 쪽 곡선 $y=8ax^3+2bx$와 $y=|x|$(반사하지 않은 채) 사이 넓이를 계산
+    detect_cue: 교점 조건을 $8ax^2+2b=1$ 등으로 세워 실근이 없거나 다른 넓이가 나온다
+    feedback: 그래프를 $y=x$에 대해 반사하면 $y=|x|$도 $x=|y|$로 바뀝니다.
+    remedy: [RL-1]
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CAL-8811}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-INVERSE-AREA}
+  priority: 1
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: *id001}
+created: *id001
+updated: *id001

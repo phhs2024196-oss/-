@@ -1,0 +1,203 @@
+# 가천대 2023학년도 논술전형 자연F [문제 14] — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: GCU-G23F-14
+legacy_id: null
+version: 1
+status: draft
+exam_family: yaksul
+item_type: short_answer
+origin: past_exam
+school: GCU
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 추론
+points: 10
+time_estimate_min: 3
+intent: |
+  제시문의 상황에서 미분과 적분과의 관계를 이용하여 문제를 해결할 수 있는지를 평가한다(문항카드 출제 의도 원문). 적분으로 정의된 함수를 미분해 결정하고, 원점에서 그은 접선으로 교점 개수를 판정한다.
+key_idea: |
+  $g'(x)=(1-x)f'(x)$에서 $g(x)=-2(x-1)^2(x-4)$이고, 세 점에서 만나는 순간은 원점을 지나는 직선이 $x>0$의 볼록한 부분에 접할 때다.
+stuck: |
+  $y=\lvert g(x)\rvert$의 개형에서 접선의 위치($t>0$)를 고르는 판단.
+idea_tags:
+- IDEA-INTEGRAL-DEFINED-FUNCTION
+- IDEA-TANGENT-FROM-ORIGIN
+tags:
+- 정적분으로 정의된 함수
+- 절댓값 그래프
+- 원점을 지나는 접선
+elements:
+  materials:
+  - 최고차항 계수 3인 이차함수 $f(x)$, $x=3$에서 극값
+  - $g(x)=(1-x)f(x)+\int_1^xf(t)dt$
+  - $y=\lvert g(x)\rvert$와 $y=kx$의 교점 3개
+  concepts:
+  - 미분과 적분의 관계
+  - 접선의 방정식
+  - 절댓값 함수의 그래프
+  tools:
+  - $g'(x)$ 계산
+  - $g(1)=0$으로 적분상수 결정
+  - 원점을 지나는 접선 조건
+  conditions:
+  - 교점이 서로 다른 세 점
+  stimuli_used: []
+  subpart_links: 단일 논제
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학Ⅱ
+  scope_2028: common
+  scope_confirmed: false
+  standards:
+  - code: 12수학Ⅱ03-03
+    text: 정적분의 뜻을 안다.
+    verified: false
+  content_area: 적분 – 정적분으로 정의된 함수
+  behavior_domain: 문제해결
+  unit_path:
+  - 수학Ⅱ
+  - 적분
+  - 정적분
+  - 정적분으로 정의된 함수
+  key_concepts:
+  - 미분과 적분의 관계
+  - 접선
+difficulty: {rater: author, p_value: null, n: 0}
+source:
+  rights_holder: 가천대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 가천대학교
+  admission_year: 2023
+  admission_type: 수시 논술전형(실전)
+  track: 자연F
+  question_no: 14
+  official_url: https://admission.gachon.ac.kr/admission/html/counsel/noticeView.asp?BOARD_IDX=11903&s_cate=BBS0401
+  retrieved_at: 2026-11-21
+  original_points:
+  - 10
+  rights_notice: 미확인(대학 원본 표지 문구 확인 필요)
+  transcribed_from: 「★2023학년도 가천대학교 대학별 고사 선행학습 영향평가 자체평가 보고서.pdf」 문항카드 [F 14] PDF 282~283쪽 — 이미지 렌더링(150dpi) 판독(문항 원문·출제 의도·출제 근거·문항 해설). 문제지 원본 미확보, 채점기준 미수록
+  textbook_basis: 고교 교과서 수학Ⅱ 127쪽(미래엔, 황선욱 외) / 수학Ⅱ 123쪽(천재교육, 이준열 외) — 문항카드 출제 근거
+verify: verify/G23F.py::p14
+stimuli: []
+stem: |
+  최고차항의 계수가 3인 이차함수 $f(x)$는 $x=3$에서 극값을 갖고, 모든 실수 $x$에 대하여
+  $$g(x)=(1-x)f(x)+\int_1^xf(t)dt$$
+  를 만족시킨다. 곡선 $y=\lvert g(x)\rvert$와 직선 $y=kx$가 서로 다른 세 점에서 만나도록 하는 실수 $k$의 값을 구하는 과정을 서술하시오.
+subparts:
+- id: '1'
+  stem: |
+    실수 $k$의 값을 구하는 과정을 서술하시오.
+  points: 10
+  depends_on: []
+  answer: {kind: value, value: '12\sqrt{3}-18', equivalents: ['-18+12\sqrt{3}'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $g(x)=-2x^3+12x^2-18x+8=-2(x-1)^2(x-4)$, 원점 접선 $t=1+\sqrt3$.
+    steps:
+    - id: 1a
+      content: $k=g'(1+\sqrt3)=-18+12\sqrt3$
+      criteria:
+      - 1.M1
+      - 1.A1
+      - 1.M2
+      - 1.A2
+    hint_ladder:
+    - $g'(x)$를 계산하면 $\int$ 부분이 정리된다.
+    - $g(1)$의 값은?
+    - $\lvert g\rvert$의 그래프를 그려 원점에서 직선을 돌려 보자.
+  - id: S1-B
+    audience: B
+    source_flow: 선행학습 영향평가 자체평가 보고서(2023) 문항카드 [F 14] 5. 문항 해설
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        이차함수의 최고차항이 3이고, $x=3$에서 극값을 갖기 때문에 $f'(x)=6(x-3)$.
+      criteria:
+      - 1.M1
+    - id: 1b-2
+      content: |
+        $g'(x)=(1-x)f'(x)$이므로 $g'(x)=-6(x-1)(x-3)$. $g(x)=-2x^3+12x^2-18x+C$이고 $g(1)=0$이므로 $C=8$.
+      criteria:
+      - 1.A1
+    - id: 1b-3
+      content: |
+        곡선 $y=g(x)$ 위 점 $(t,g(t))$ $(t>0)$에서의 접선의 방정식은 $y-g(t)=g'(t)(x-t)$. 원점을 지나므로 $-g(t)=g'(t)(-t)$ 즉 $2t^3-12t^2+18t-8=6t^3-24t^2+18t$, 이 식은 $4(t-1)(t^2-2t-2)=0$이고 $t=1,1+\sqrt3$를 만족하지만, 세 점을 지나기 위해서는 $t=1+\sqrt3$이다.
+      criteria:
+      - 1.M2
+    - id: 1b-4
+      content: |
+        $t=1+\sqrt3$에서의 직선의 기울기는 $g'(1+\sqrt3)$이므로 $g'(1+\sqrt3)=-18+12\sqrt3$.
+      criteria:
+      - 1.A2
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 0, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 2
+      evidence: |
+        $f'(x)=6(x-3)$(학교 채점기준 미수록: 문항카드 해설 단계로 배분).
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 1b-1
+    - id: 1.A1
+      mark_type: A
+      points: 2
+      evidence: |
+        $g'(x)=-6(x-1)(x-3)$, $g(x)=-2x^3+12x^2-18x+8$(학교 채점기준 미수록: 문항카드 해설 단계로 배분).
+      depends_on:
+      - 1.M1
+      steps:
+      - 1b-2
+    - id: 1.M2
+      mark_type: M
+      points: 3
+      evidence: |
+        원점을 지나는 접선 조건 $4(t-1)(t^2-2t-2)=0$에서 $t=1+\sqrt3$ 선택(학교 채점기준 미수록: 문항카드 해설 단계로 배분).
+      depends_on:
+      - 1.A1
+      implied_ok: false
+      steps:
+      - 1b-3
+    - id: 1.A2
+      mark_type: A
+      points: 3
+      evidence: |
+        $k=-18+12\sqrt3$(학교 채점기준 미수록: 문항카드 해설 단계로 배분).
+      depends_on:
+      - 1.M2
+      steps:
+      - 1b-4
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-8317}
+  misconceptions:
+  - id: MC-CAL-8317
+    outcome_code: '71'
+    wrong_work: 근 $t=1$도 채택해 $k=g'(1)=0$을 답에 포함
+    detect_cue: 답에 $k=0$이 함께 있다
+    feedback: $k=0$이면 $y=0$과 $\lvert g\rvert$는 $x=1$, $x=4$의 두 점에서만 만납니다. 교점 수를 직접 세어 보세요.
+    remedy:
+    - RL-1
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CAL-8317}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-TANGENT-THROUGH-POINT}
+  priority: 1
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+created: 2026-11-21
+updated: 2026-11-21

@@ -1,0 +1,215 @@
+# 가천대 2023학년도 논술전형 자연F [문제 11] — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: GCU-G23F-11
+legacy_id: null
+version: 1
+status: draft
+exam_family: yaksul
+item_type: short_answer
+origin: past_exam
+school: GCU
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 분류
+points: 10
+time_estimate_min: 2
+intent: |
+  제시문의 상황에서 주어진 수열의 귀납적 정의와 조건을 이용하여 문제를 해결할 수 있는지를 평가한다(문항카드 출제 의도 원문). 귀납적 정의로 $a_3$, $a_4$를 구하고 정수 조건으로 순서쌍을 전수 확인한다.
+key_idea: |
+  $a_3=30+9p+2q$, $a_4=30+18p+3q$에서 $-15-\dfrac92p<q<-10-6p$를 만족하는 정수 $q$가 있어야 한다.
+stuck: |
+  정수 $q$가 존재하도록 $p$의 범위를 좁히는 단계.
+idea_tags:
+- IDEA-RECURSION-UNROLL
+- IDEA-INTEGER-INTERVAL
+tags:
+- 귀납적 정의
+- 정수해
+- 부등식
+elements:
+  materials:
+  - $a_1=30$, $a_{n+1}=a_n+3pn+q$
+  - $p>0$, $q<0$인 정수
+  - $a_3>0$, $a_4<0$
+  concepts:
+  - 수열의 귀납적 정의
+  - 연립일차부등식
+  - 정수해
+  tools:
+  - 항 차례로 구하기
+  - 구간 길이로 $p$ 제한
+  - 전수 확인
+  conditions:
+  - $p>0$, $q<0$
+  - $p,q$는 정수
+  stimuli_used: []
+  subpart_links: 단일 논제
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학Ⅰ
+  scope_2028: common
+  scope_confirmed: false
+  standards:
+  - code: 12수학Ⅰ03-06
+    text: 수열의 귀납적 정의를 이해한다.
+    verified: false
+  content_area: 수열 – 수학적 귀납법
+  behavior_domain: 추론
+  unit_path:
+  - 수학Ⅰ
+  - 수열
+  - 수학적 귀납법
+  - 수열의 귀납적 정의
+  key_concepts:
+  - 귀납적 정의
+difficulty: {rater: author, p_value: null, n: 0}
+source:
+  rights_holder: 가천대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 가천대학교
+  admission_year: 2023
+  admission_type: 수시 논술전형(실전)
+  track: 자연F
+  question_no: 11
+  official_url: https://admission.gachon.ac.kr/admission/html/counsel/noticeView.asp?BOARD_IDX=11903&s_cate=BBS0401
+  retrieved_at: 2026-11-21
+  original_points:
+  - 10
+  rights_notice: 미확인(대학 원본 표지 문구 확인 필요)
+  transcribed_from: 「★2023학년도 가천대학교 대학별 고사 선행학습 영향평가 자체평가 보고서.pdf」 문항카드 [F 11] PDF 278~279쪽 — 이미지 렌더링(150dpi) 판독(문항 원문·출제 의도·출제 근거·문항 해설). 문제지 원본 미확보, 채점기준 미수록
+  textbook_basis: 고교 교과서 수학Ⅰ 156쪽(미래엔, 황선욱 외) / 수학Ⅰ 157쪽(천재교육, 이준열 외) — 문항카드 출제 근거
+verify: verify/G23F.py::p11
+stimuli: []
+stem: |
+  $p>0$, $q<0$인 두 정수 $p,q$와 모든 자연수 $n$에 대하여 수열 $\{a_n\}$이 $a_1=30$, $a_{n+1}=a_n+3pn+q$를 만족시킨다. 두 부등식 $a_3>0$, $a_4<0$을 만족시키는 정수 $p,q$의 순서쌍 $(p,q)$를 모두 구하는 과정을 서술하시오.
+subparts:
+- id: '1'
+  stem: |
+    순서쌍 $(p,q)$를 모두 구하는 과정을 서술하시오.
+  points: 10
+  depends_on: []
+  answer: {kind: set, value: '(1,-19),\ (1,-18),\ (1,-17),\ (2,-23)', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $-15-\tfrac92p<q<-10-6p$가 정수 $q$를 가지려면 $p\le2$.
+    steps:
+    - id: 1a
+      content: $(1,-19),(1,-18),(1,-17),(2,-23)$
+      criteria:
+      - 1.M1
+      - 1.A1
+      - 1.M2
+      - 1.A2
+      - 1.A3
+    hint_ladder:
+    - $a_2$, $a_3$, $a_4$를 차례로 써 보자.
+    - $q$의 범위의 길이를 $p$로 나타내 보자.
+  - id: S1-B
+    audience: B
+    source_flow: 선행학습 영향평가 자체평가 보고서(2023) 문항카드 [F 11] 5. 문항 해설 ('구간 길이 $\ge2$' 서술은 엄밀한 필요조건이 아니므로 $p\ge3$은 직접 확인 권장)
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        $a_1=30$, $a_2=30+3p+q$, $a_3=30+9p+2q$, $a_4=30+18p+3q$이다.
+      criteria:
+      - 1.M1
+    - id: 1b-2
+      content: |
+        $a_3=30+9p+2q>0$이므로 $q>-15-\dfrac92p$이고, $a_4=30+18p+3q<0$이므로 $q<-10-6p$이다. 따라서 $-15-\dfrac92p<q<-10-6p$
+      criteria:
+      - 1.A1
+    - id: 1b-3
+      content: |
+        $-10-6p-\left(-15-\dfrac92p\right)\ge2$가 되어야 한다. 따라서 $p\le2$이므로 가능한 $p=1,2$이다. (참고: $p=3$이면 $-28.5<q<-28$, $p\ge4$이면 구간이 비어 정수 $q$가 없다.)
+      criteria:
+      - 1.M2
+    - id: 1b-4
+      content: |
+        1) $p=1$일 때, $-\dfrac{39}{2}<q<-16$이므로 $q=-19,-18,-17$이다.
+      criteria:
+      - 1.A2
+    - id: 1b-5
+      content: |
+        2) $p=2$일 때, $-24<q<-22$이므로 $q=-23$이다. 따라서 $(1,-19),(1,-18),(1,-17),(2,-23)$
+      criteria:
+      - 1.A3
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 0, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 2
+      evidence: |
+        $a_3=30+9p+2q$, $a_4=30+18p+3q$(학교 채점기준 미수록: 문항카드 해설 단계로 배분).
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 1b-1
+    - id: 1.A1
+      mark_type: A
+      points: 2
+      evidence: |
+        $-15-\dfrac92p<q<-10-6p$(학교 채점기준 미수록: 문항카드 해설 단계로 배분).
+      depends_on:
+      - 1.M1
+      steps:
+      - 1b-2
+    - id: 1.M2
+      mark_type: M
+      points: 2
+      evidence: |
+        정수 $q$가 존재하는 $p$를 $1,2$로 제한했다(학교 채점기준 미수록: 문항카드 해설 단계로 배분).
+      depends_on:
+      - 1.A1
+      implied_ok: false
+      steps:
+      - 1b-3
+    - id: 1.A2
+      mark_type: A
+      points: 2
+      evidence: |
+        $p=1$일 때 $q=-19,-18,-17$(학교 채점기준 미수록: 문항카드 해설 단계로 배분).
+      depends_on:
+      - 1.M2
+      steps:
+      - 1b-4
+    - id: 1.A3
+      mark_type: A
+      points: 2
+      evidence: |
+        $p=2$일 때 $q=-23$, 순서쌍 4개 제시(학교 채점기준 미수록: 문항카드 해설 단계로 배분).
+      depends_on:
+      - 1.M2
+      steps:
+      - 1b-5
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-ALG-8314}
+  misconceptions:
+  - id: MC-ALG-8314
+    outcome_code: '71'
+    wrong_work: $a_{n+1}=a_n+3p+q$처럼 $n$을 빼고 등차수열로 계산해 $a_3=30+6p+2q$
+    detect_cue: $a_3$에 $6p$, $a_4$에 $9p$가 보인다
+    feedback: $a_{n+1}-a_n=3pn+q$는 $n$에 따라 달라집니다. $n=1,2,3$을 차례로 대입하세요.
+    remedy:
+    - RL-1
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-ALG-8314}
+  relation: remediation
+  target: {kind: concept, ref: CON-ALG-RECUR-SEQ}
+  priority: 1
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+created: 2026-11-21
+updated: 2026-11-21

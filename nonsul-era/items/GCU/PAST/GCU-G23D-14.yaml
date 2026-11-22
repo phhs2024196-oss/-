@@ -1,0 +1,207 @@
+# 가천대 2023학년도 수시 논술(실전) 자연D [문제 14] — 기출 원문은 내부 분석용(allowed_use: internal_only)
+# 학교 해설 '302<n<2023 일 때는 4개'는 n>1552 이면 x=1552 도 불연속이라 5개 — 답(344)에는 영향 없음. 또 344가 최댓값인 근거(345 이상에서 23개 불가)는 해설에 생략됨 — verify 에서 n=1..2022 전수 확인
+schema_version: '2.0'
+id: GCU-G23D-14
+legacy_id: null
+version: 1
+status: draft
+exam_family: yaksul
+item_type: short_answer
+origin: past_exam
+school: GCU
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 분류
+points: 10
+time_estimate_min: 7
+intent: |
+  제시문의 상황에서 새롭게 정의된 함수의 그래프와 연속의 성질을 이용하여 문제를 해결할 수 있는지를 평가한다(문항카드 출제 의도 원문). 한 주기 안의 계단 위치를 구해 주기 $n$에 따라 불연속점의 개수를 분류하고 $(0,2023)$에서 세어 최대 $n$을 찾는다.
+key_idea: |
+  $0<x\le n$에서 $f(x)=[\log_{5}(2x+21)]$은 $x=2,52,302,1552$에서 값이 바뀌고, 주기 경계 $x=n$에서도 $f(n)\ne f(0+)=1$이라 불연속이다.
+stuck: |
+  주기 경계점 $x=n,2n,\cdots$도 불연속점이라는 것과, 23개가 되도록 $n$을 조절하는 셈.
+idea_tags: [IDEA-PERIODIC-STEP-DISCONT-COUNT]
+tags: ['함수의 연속', '주기함수', '로그', '불연속점 개수']
+elements:
+  materials:
+  - '$m\le\log_{5}(2x+21)<m+1$이면 $f(x)=m$'
+  - '$f(x+n)=f(x)$'
+  - '열린구간 $(0,2023)$에서 불연속점 $23$개'
+  concepts:
+  - '함수의 연속과 불연속'
+  - '로그의 뜻'
+  - '주기함수'
+  tools:
+  - '계단이 바뀌는 점 계산($5^{m}$)'
+  - '주기별 개수 세기'
+  - '경우 분류'
+  conditions:
+  - '정의역은 양의 실수 전체'
+  - '$n$은 자연수'
+  - '최댓값'
+  stimuli_used: []
+  subpart_links: '단일 논제'
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅱ]
+  scope_2028: common
+  scope_confirmed: false
+  standards:
+  - code: 12수학Ⅱ01-04
+    text: 연속함수의 성질을 이해하고, 이를 활용할 수 있다.
+    verified: true
+  content_area: 함수의 극한과 연속
+  behavior_domain: 문제해결
+  unit_path: [수학Ⅱ, 함수의 극한과 연속, 함수의 연속, 불연속점의 개수]
+  key_concepts: [불연속점, 주기함수]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 가천대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 가천대학교
+  admission_year: 2023
+  admission_type: 수시 논술전형(실전)
+  track: 자연D
+  question_no: 14
+  official_url: https://admission.gachon.ac.kr/admission/html/counsel/noticeView.asp?BOARD_IDX=11903&s_cate=BBS0401
+  retrieved_at: 2026-11-21
+  original_points: [10]
+  rights_notice: 미확인(대학 원본 표지 문구 확인 필요)
+  transcribed_from: 「★2023학년도 가천대학교 대학별 고사 선행학습 영향평가 자체평가 보고서.pdf」 PDF 260–261쪽(보고서 쪽번호 257–258) 문항카드 [D 14] 150dpi 렌더링 이미지 판독 — 문항·출제 의도·출제 근거·문항 해설. 이 보고서의 실전 수학 문항카드에는 채점 기준 항목이 없어 rubric 배점은 문항 해설 단계에 따라 작성자가 배분함
+  textbook_basis: 고등학교 교과서 수학Ⅱ 황선욱 외 8(미래엔, 2020) 32쪽 / 이준열 외 9(천재교육, 2020) 31쪽   # 문항카드 출제 근거(자료 출처)
+
+verify: verify/GCU-G23D.py::p14
+
+stimuli: []
+
+stem: |
+  정의역이 양의 실수 전체의 집합인 함수 $f(x)$가 자연수 $n$에 대하여 다음 조건을 만족시킨다.
+
+  (가) $0<x\le n$일 때, 어떤 정수 $m$에 대하여
+  $m\le\log_{5}(2x+21)<m+1$이면 $f(x)=m$이다.
+  (나) 모든 양의 실수 $x$에 대하여 $f(x+n)=f(x)$이다.
+
+  열린구간 $(0,2023)$에서 함수 $f(x)$가 $23$개의 불연속인 점을 갖도록 하는 자연수 $n$의 최댓값을 구하는 과정을 서술하시오.
+
+subparts:
+- id: '1'
+  stem: |
+    자연수 $n$의 최댓값을 구하는 과정을 서술하시오.
+  points: 10
+  depends_on: []
+  answer: {kind: value, value: '344', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: |
+      한 주기 $(0,n]$의 불연속점은 $302<n<1552$에서 $x=2,52,302,n$의 $4$개.
+    steps:
+    - id: 1a
+      content: |
+        $n=344$: $(0,1720]$에 $20$개, $1722,1772,2022$에서 $3$개, 합 $23$
+      criteria: ['1.M1', '1.A1', '1.M2', '1.A2']
+    hint_ladder:
+    - |
+      $\log_{5}(2x+21)$이 정수가 되는 $x$를 구하자.
+    - |
+      $x=n$에서 $f(n)$과 $f(n+)$을 비교하자.
+  - id: S1-B
+    audience: B
+    source_flow: 「2023학년도 선행학습 영향평가 자체평가 보고서」 문항카드 [D 14] 5. 문항 해설(PDF 260–261쪽)
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        $5^{2}=25$, $5^{3}=125$, $5^{4}=625$, $5^{5}=3125$이므로,
+        구간 $(0,2)$에서 $f(x)=1$,
+        구간 $[2,52)$에서 $f(x)=2$,
+        구간 $[52,302)$에서 $f(x)=3$,
+        구간 $[302,1552)$에서 $f(x)=4$.
+      criteria: ['1.M1']
+    - id: 1b-2
+      content: |
+        구간 $(0,n)$에서 $f$의 불연속인 점의 개수는
+        $n=2$일 때는 $1$개,
+        $2<n\le52$일 때는 $2$개,
+        $52<n\le302$일 때는 $3$개,
+        $302<n<2023$일 때는 $4$개다.
+      criteria: ['1.A1']
+    - id: 1b-3
+      content: |
+        따라서 구간 $(0,344]$에서 불연속인 점의 개수는 $4$이므로,
+        구간 $(0,1720]$에서 $f(x)$의 불연속인 점의 개수는 $4\times5=20$.
+      criteria: ['1.M2']
+    - id: 1b-4
+      content: |
+        또한, $x=1722$, $x=1772$, $x=2022$에서 $f(x)$는 불연속이므로,
+        불연속인 점의 개수가 $23$이 되도록 하는 자연수 $n$의 최댓값은 $344$.
+      criteria: ['1.A2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 0, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 3
+      evidence: |
+        $\log_{5}(2x+21)$이 정수가 되는 점으로 $f$의 값이 바뀌는 구간($x=2,52,302$ 등) 결정(채점기준 미공개 — 해설 단계 기준 3점 배분)
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1]
+    - id: 1.A1
+      mark_type: A
+      points: 2
+      evidence: |
+        한 주기 안 불연속점 개수를 $n$의 범위별로 분류(경계 $x=n$ 포함)(채점기준 미공개 — 해설 단계 기준 2점 배분)
+      depends_on: [1.M1]
+      steps: [1b-2]
+    - id: 1.M2
+      mark_type: M
+      points: 3
+      evidence: |
+        $n=344$일 때 $(0,1720]$의 $5$주기에 $20$개를 셈(채점기준 미공개 — 해설 단계 기준 3점 배분)
+      depends_on: []
+      implied_ok: false
+      steps: [1b-3]
+    - id: 1.A2
+      mark_type: A
+      points: 2
+      evidence: |
+        $1722,1772,2022$의 $3$개를 더해 $23$, 최댓값 $n=344$(채점기준 미공개 — 해설 단계 기준 2점 배분)
+      depends_on: [1.M2]
+      steps: [1b-4]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-8217}
+  misconceptions:
+  - id: MC-CAL-8217
+    outcome_code: '71'
+    wrong_work: |
+      주기 경계 $x=n,2n,\cdots$에서의 불연속(값이 $1$로 떨어짐)을 세지 않아 한 주기당 $3$개로 계산
+    detect_cue: |
+      한 주기당 불연속점을 $3$개($x=2,52,302$)로만 센다
+    feedback: |
+      $f(n)\ge2$이지만 $x=n$의 바로 오른쪽은 $f(0+)=1$이므로 $x=n$도 불연속점입니다.
+    remedy: [RL-1]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CAL-8217}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-STEP-DISCONT}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

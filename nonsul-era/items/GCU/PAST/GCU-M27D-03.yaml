@@ -1,0 +1,181 @@
+# 가천대 2027학년도 의약학 논술 모의고사(의예) [문제 3] — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: GCU-M27D-03
+legacy_id: null
+version: 1
+status: draft
+exam_family: yaksul
+item_type: short_answer
+origin: mock_exam
+school: GCU
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 분류
+points: 20
+time_estimate_min: 8
+intent: |
+  역함수의 미분법, 여러가지 함수의 미분법(문항카드 출제 의도 원문). 연속·미분가능 조건으로 $f(a)$, $a$를 정하고, $x=a$에서 좌·우 미분계수를 비교해 $c(k+5)$를 구한다.
+key_idea: |
+  연속에서 $\log(1+f(a)^2)=1$, $f(a)^2=9$. $f(a)=-3$이면 $a=g(3)=5>k$ 모순 → $f(a)=3$, $a=g(-3)=-5$. 좌미분 $\frac{1}{2\ln10}$, 우미분 $-\frac{3c(k+5)}{10\ln10}$.
+stuck: |
+  우미분계수 $\lim\frac{\log(1+f^2)-1}{(x+5)^2}$를 $\frac{f^2-9}{10}$ 치환으로 계산하는 단계가 고비.
+idea_tags: [IDEA-PIECEWISE-DIFF-MATCH, IDEA-INVERSE-DERIV]
+tags: [역함수의 미분, 미분가능성, 삼차함수, 로그함수의 극한]
+elements:
+  materials:
+  - 최고차항 계수 음수인 삼차함수 $f$, $x=a$ 극소, $x=k$ 극대($k$ 음의 정수)
+  - $g(x)=2x+\sin\frac\pi2x$의 역함수 $g^{-1}$
+  - '$h(x)$: $x\le a$에서 $\frac{f(x)+g^{-1}(x)}{\ln10}$, $x>a$에서 $\frac{\log(1+f(x)^2)-1}{x-a}$'
+  concepts:
+  - 역함수의 미분법
+  - 로그함수의 미분과 극한
+  - 미분가능성과 연속
+  - 삼차함수의 극값
+  tools:
+  - 연속 조건 → $f(a)^2=9$
+  - $f'(a)=0$
+  - $(g^{-1})'(-5)=\frac{1}{g'(-3)}=\frac12$
+  - $f'(x)=c(x+5)(x-k)$ 적분
+  conditions:
+  - $h$는 실수 전체에서 미분가능
+  - $k$는 음의 정수
+  - 최고차항 계수 음수
+  stimuli_used: []
+  subpart_links: 단일 논제
+curriculum:
+  version: '2015'
+  subjects: [미적분]
+  scope_2028: calc2
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 역함수의 미분법을 이해한다(요지)
+    verified: false
+  content_area: 미분법
+  behavior_domain: 추론
+  unit_path: [미적분, 미분법, 역함수의 미분법]
+  key_concepts: [역함수의 미분, 미분가능성]
+difficulty: {rater: author, p_value: null, n: 0}
+source:
+  rights_holder: 가천대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 가천대학교
+  admission_year: 2027
+  admission_type: 수시 의약학 논술 모의고사(의예)
+  track: 의예(의약학 모의)
+  question_no: 3
+  official_url: https://admission.gachon.ac.kr/admission/html/counsel/noticeView.asp?BOARD_IDX=32290&s_cate=BBS0401
+  retrieved_at: &id001 2026-11-21
+  original_points: [20]
+  rights_notice: 미확인(대학 원본 표지 문구 확인 필요)
+  transcribed_from: 「2027학년도 의약학 논술 모의고사_의예(업로드).hwp」 수식 스크립트 직접 추출 + PDF 렌더링 대조, 해설·채점기준 「2027학년도 의약학 논술 모의고사_의예_해설(업로드).hwp」 문항카드
+  textbook_basis: EBS 수능특강 미적분(2026) 54쪽
+verify: verify/GCU-M27D.py::p03
+stimuli: []
+stem: |
+  최고차항의 계수가 음수인 삼차함수 $f(x)$가 $x=a$에서 극솟값을 가지고, $x=k$에서 극댓값을 가진다. 함수 $g(x)=2x+\sin\dfrac{\pi}{2}x$의 역함수 $g^{-1}(x)$에 대하여 함수
+
+  $$h(x)=\begin{cases}\dfrac{f(x)+g^{-1}(x)}{\ln10} & (x\le a)\\[2mm] \dfrac{\log(1+f(x)^{2})-1}{x-a} & (x>a)\end{cases}$$
+
+  이 실수 전체의 집합에서 미분가능할 때, 가능한 $f(x)$의 모든 극댓값들의 합을 구하는 과정을 서술하시오. (단, $k$는 음의 정수이다.)
+subparts:
+- id: '1'
+  stem: |
+    가능한 $f(x)$의 모든 극댓값들의 합을 구하는 과정을 서술하시오.
+  points: 20
+  depends_on: []
+  answer: {kind: value, value: '\frac{61}{3}', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $a=-5$, $f(-5)=3$; 미분계수 일치로 $c(k+5)=-\frac53$; $f(k)=\frac5{18}(k+5)^2+3$.
+    steps:
+    - {id: 1a, content: '$k=-1,-2,-3,-4$: $\frac{67}9+\frac{11}2+\frac{37}9+\frac{59}{18}=\frac{61}3$', criteria: [1.M1, 1.A1, 1.A2]}
+    hint_ladder:
+    - $x=a$에서 연속이려면 오른쪽 식의 분자가 0으로 가야 한다.
+    - $g(-3)$을 계산해 보자.
+  - id: S1-B
+    audience: B
+    source_flow: 의예_해설 문항카드 3(의약학 모의 문제 3) 5. 문항 해설
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        함수 $h(x)$가 $x=a$에서 연속이므로 $\displaystyle\lim_{x\to a+}\frac{\log(1+f(x)^2)-1}{x-a}$가 존재하고, 그 값은 $h(a)=\dfrac{f(a)+g^{-1}(a)}{\ln10}$와 같다. 따라서 $f(a)^2=9$이다. 삼차함수 $f(x)$가 $x=a$에서 극솟값을 가지므로 $f'(a)=0$이고,
+        $$h(a)=\frac{f(a)+g^{-1}(a)}{\ln10}=\lim_{x\to a+}\frac{\log(1+f(x)^2)-\log(1+f(a)^2)}{x-a}=\frac{2f(a)f'(a)}{\ln10(1+f(a)^2)}=0$$
+      criteria: [1.M1]
+    - id: 1b-2
+      content: |
+        (1) $f(a)=-3$인 경우 $g^{-1}(a)=3$이고 $a=g(3)=5$이다. 함수 $f(x)$의 최고차항의 계수가 음수이므로 $a<k$인데, $k$가 음의 정수이므로 모순이 발생한다.
+        (2) $f(a)=3$인 경우 $g^{-1}(a)=-3$이고 $a=g(-3)=-5$이다.
+      criteria: [1.M1]
+    - id: 1b-3
+      content: |
+        $f'(x)=c(x+5)(x-k)$라 하면 $c<0$이고, $k$가 음의 정수이므로 가능한 $k$의 값은 $k=-1$, $-2$, $-3$, $-4$이다. 또한, $f'(x)$를 적분하여 $f(x)=\dfrac c2(x+5)^2(x-k)-\dfrac c6(x+5)^3+3$을 얻을 수 있다.
+      criteria: [1.A1]
+    - id: 1b-4
+      content: |
+        함수 $h(x)$가 $x=-5$에서 미분가능하므로
+        $$\lim_{x\to-5-}\frac{h(x)-h(-5)}{x+5}=\frac{1}{\ln10}\left(f'(-5)+\frac{1}{g'(g^{-1}(-5))}\right)=\frac{1}{2\ln10}$$
+        이고, 따라서
+        $$\frac{1}{2\ln10}=\lim_{x\to-5+}\frac{h(x)}{x+5}=\lim_{x\to-5+}\frac{\log(1+f(x)^2)-1}{(x+5)^2}=\lim_{x\to-5+}\frac{\frac{10}{f(x)^2-9}\log\left(1+\frac{f(x)^2-9}{10}\right)}{\frac{10(x+5)^2}{f(x)^2-9}}=-\frac{3c(k+5)}{10\ln10}$$
+        이며, $c(k+5)=-\dfrac53$이다.
+      criteria: [1.A2]
+    - id: 1b-5
+      content: |
+        $f(k)=-\dfrac c6(k+5)^3+3=\dfrac{5}{18}(k+5)^2+3$이므로 가능한 극댓값들은 $\dfrac{67}{9}$, $\dfrac{11}{2}$, $\dfrac{37}{9}$, $\dfrac{59}{18}$이고, 총합은 $\dfrac{61}{3}$이다.
+      criteria: [1.A2]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 0, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 7
+      evidence: |
+        $a=-5$ (채점기준 7점).
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1, 1b-2]
+    - id: 1.A1
+      mark_type: A
+      points: 5
+      evidence: |
+        가능한 $k$의 값은 $k=-1$, $-2$, $-3$, $-4$ (채점기준 5점).
+      depends_on: [1.M1]
+      implied_ok: false
+      steps: [1b-3]
+    - id: 1.A2
+      mark_type: A
+      points: 8
+      evidence: |
+        총합 $\dfrac{61}{3}$ (채점기준 8점).
+      depends_on: [1.M1, 1.A1]
+      implied_ok: false
+      steps: [1b-4, 1b-5]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-8822}
+  misconceptions:
+  - id: MC-CAL-8822
+    outcome_code: '71'
+    wrong_work: $(g^{-1})'(-5)=\frac{1}{g'(-5)}$로 계산
+    detect_cue: 좌미분계수가 $\frac{1}{2\ln10}$이 아닌 값
+    feedback: $(g^{-1})'(a)=\frac{1}{g'(g^{-1}(a))}$입니다. $g^{-1}(-5)=-3$에서의 $g'$을 쓰세요.
+    remedy: [RL-1]
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CAL-8822}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-INVERSE-DERIV}
+  priority: 1
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: *id001}
+created: *id001
+updated: *id001

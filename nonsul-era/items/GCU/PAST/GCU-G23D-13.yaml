@@ -1,0 +1,204 @@
+# 가천대 2023학년도 수시 논술(실전) 자연D [문제 13] — 기출 원문은 내부 분석용(allowed_use: internal_only)
+# 출제오류 의심: 조건에서 Σ_{k=1}^{10}a_k=30, Σ_{k=1}^{10}a_k^2=32 가 나오는데 코시-슈바르츠로 Σa_k^2 ≥ 30^2/10 = 90 이어야 하므로 세 조건을 모두 만족하는 실수열은 존재하지 않음(형식적 계산의 답 31 은 학교 해설과 일치) — verify/GCU-G23D.py::p13 에서 확인
+schema_version: '2.0'
+id: GCU-G23D-13
+legacy_id: null
+version: 1
+status: draft
+exam_family: yaksul
+item_type: short_answer
+origin: past_exam
+school: GCU
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 추론
+points: 10
+time_estimate_min: 3
+intent: |
+  제시문의 상황에서 수열의 합인 $\Sigma$의 성질을 이용하여 문제를 해결할 수 있는지를 평가한다(문항카드 출제 의도 원문). 세 조건을 $\Sigma$의 성질로 전개해 $\sum_{k=1}^{10}a_{k}$와 $\sum_{k=1}^{11}a_{k}$에 대한 연립방정식을 세운다.
+key_idea: |
+  (가)−(나)로 $\sum a_{k}^{2}$을 소거하고, (다)는 $\sum_{k=1}^{10}a_{k}-10a_{11}=20$으로 정리한다.
+stuck: |
+  $\sum_{k=1}^{10}k(a_{k}-a_{k+1})=(a_{1}+\cdots+a_{10})-10a_{11}$로 펼치는 단계.
+idea_tags: [IDEA-SIGMA-TELESCOPE-WEIGHTED]
+tags: ['Σ의 성질', '연립방정식', '출제오류의심']
+elements:
+  materials:
+  - '(가) $\sum_{k=1}^{10}(a_{k}+2)^{2}=192$'
+  - '(나) $\sum_{k=1}^{10}a_{k}(a_{k}+1)=\sum_{k=1}^{11}2a_{k}$'
+  - '(다) $\sum_{k=1}^{10}k(a_{k}-a_{k+1})=20$'
+  concepts:
+  - '$\Sigma$의 성질'
+  - '수열의 합'
+  tools:
+  - '전개 후 소거'
+  - '가중 합의 전개(망원)'
+  - '연립일차방정식'
+  conditions:
+  - '세 조건을 동시에 만족'
+  stimuli_used: []
+  subpart_links: '단일 논제'
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅰ]
+  scope_2028: common
+  scope_confirmed: false
+  standards:
+  - code: 12수학Ⅰ03-04
+    text: $\Sigma$의 뜻을 알고, 그 성질을 이해하고, 이를 활용할 수 있다.
+    verified: true
+  content_area: 수열
+  behavior_domain: 계산
+  unit_path: [수학Ⅰ, 수열, 수열의 합, Σ의 성질]
+  key_concepts: [Σ의 성질]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 가천대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 가천대학교
+  admission_year: 2023
+  admission_type: 수시 논술전형(실전)
+  track: 자연D
+  question_no: 13
+  official_url: https://admission.gachon.ac.kr/admission/html/counsel/noticeView.asp?BOARD_IDX=11903&s_cate=BBS0401
+  retrieved_at: 2026-11-21
+  original_points: [10]
+  rights_notice: 미확인(대학 원본 표지 문구 확인 필요)
+  transcribed_from: 「★2023학년도 가천대학교 대학별 고사 선행학습 영향평가 자체평가 보고서.pdf」 PDF 258–260쪽(보고서 쪽번호 255–257) 문항카드 [D 13] 150dpi 렌더링 이미지 판독 — 문항·출제 의도·출제 근거·문항 해설. 이 보고서의 실전 수학 문항카드에는 채점 기준 항목이 없어 rubric 배점은 문항 해설 단계에 따라 작성자가 배분함
+  textbook_basis: 고등학교 교과서 수학Ⅰ 황선욱 외 8(미래엔, 2020) 145쪽 / 이준열 외 9(천재교육, 2020) 144쪽   # 문항카드 출제 근거(자료 출처)
+
+verify: verify/GCU-G23D.py::p13
+
+stimuli: []
+
+stem: |
+  수열 $\{a_{n}\}$이 모든 자연수 $n$에 대하여 다음 조건을 만족시킨다.
+
+  (가) $\displaystyle\sum_{k=1}^{10}(a_{k}+2)^{2}=192$
+  (나) $\displaystyle\sum_{k=1}^{10}a_{k}(a_{k}+1)=\sum_{k=1}^{11}2a_{k}$
+  (다) $\displaystyle\sum_{k=1}^{10}k(a_{k}-a_{k+1})=20$
+
+  이때 $\displaystyle\sum_{k=1}^{11}a_{k}$의 값을 구하는 과정을 서술하시오.
+
+subparts:
+- id: '1'
+  stem: |
+    $\sum_{k=1}^{11}a_{k}$의 값을 구하는 과정을 서술하시오.
+  points: 10
+  depends_on: []
+  answer: {kind: value, value: '31', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: |
+      $S_{10}=\sum_{k=1}^{10}a_{k}$, $S_{11}=\sum_{k=1}^{11}a_{k}$로 두면 $3S_{10}=152-2S_{11}$, $S_{10}=20+10(S_{11}-S_{10})$.
+    steps:
+    - id: 1a
+      content: |
+        연립하면 $S_{10}=30$, $S_{11}=31$
+      criteria: ['1.M1', '1.A1', '1.M2', '1.A2', '1.A3']
+    hint_ladder:
+    - |
+      (가)와 (나)를 전개해 $\sum a_{k}^{2}$을 소거하자.
+    - |
+      (다)를 항별로 펼쳐 보자.
+  - id: S1-B
+    audience: B
+    source_flow: 「2023학년도 선행학습 영향평가 자체평가 보고서」 문항카드 [D 13] 5. 문항 해설(PDF 258–260쪽)
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        $\displaystyle\sum_{k=1}^{10}(a_{k}^{2}+4a_{k})+40=192$, $\displaystyle\sum_{k=1}^{10}(a_{k}^{2}+a_{k})=\sum_{k=1}^{11}2a_{k}$을 연립하여 풀면,
+        $\displaystyle\sum_{k=1}^{10}3a_{k}=152-\sum_{k=1}^{11}2a_{k}$이다 (식-1).
+      criteria: ['1.M1', '1.A1']
+    - id: 1b-2
+      content: |
+        $\displaystyle\sum_{k=1}^{10}k(a_{k}-a_{k+1})=(a_{1}-a_{2})+2(a_{2}-a_{3})+\cdots+10(a_{10}-a_{11})=20$이고,
+        $(a_{1}+a_{2}+a_{3}+\cdots+a_{10})-10a_{11}=20$, $\displaystyle\sum_{k=1}^{10}a_{k}=20+10a_{11}$이고,
+      criteria: ['1.M2']
+    - id: 1b-3
+      content: |
+        $\displaystyle\sum_{k=1}^{10}a_{k}=20+10\left(\sum_{k=1}^{11}a_{k}-\sum_{k=1}^{10}a_{k}\right)$이다. (식-2).
+      criteria: ['1.A2']
+    - id: 1b-4
+      content: |
+        (식-1), (식-2)를 연립하여 풀면,
+        $\displaystyle\sum_{k=1}^{11}a_{k}=31$이다.
+      criteria: ['1.A3']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 0, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 3
+      evidence: |
+        (가)·(나)를 전개해 $\sum a_{k}^{2}$을 소거하는 식(채점기준 미공개 — 해설 단계 기준 3점 배분)
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1]
+    - id: 1.A1
+      mark_type: A
+      points: 1
+      evidence: |
+        (식-1) $3\sum_{k=1}^{10}a_{k}=152-2\sum_{k=1}^{11}a_{k}$(채점기준 미공개 — 해설 단계 기준 1점 배분)
+      depends_on: [1.M1]
+      steps: [1b-1]
+    - id: 1.M2
+      mark_type: M
+      points: 3
+      evidence: |
+        (다)를 펼쳐 $\sum_{k=1}^{10}a_{k}-10a_{11}=20$(채점기준 미공개 — 해설 단계 기준 3점 배분)
+      depends_on: []
+      implied_ok: false
+      steps: [1b-2]
+    - id: 1.A2
+      mark_type: A
+      points: 1
+      evidence: |
+        (식-2) $a_{11}=\sum_{k=1}^{11}a_{k}-\sum_{k=1}^{10}a_{k}$를 대입한 식(채점기준 미공개 — 해설 단계 기준 1점 배분)
+      depends_on: [1.M2]
+      steps: [1b-3]
+    - id: 1.A3
+      mark_type: A
+      points: 2
+      evidence: |
+        연립하여 $\sum_{k=1}^{11}a_{k}=31$(채점기준 미공개 — 해설 단계 기준 2점 배분)
+      depends_on: [1.M1, 1.M2]
+      steps: [1b-4]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-ALG-8216}
+  misconceptions:
+  - id: MC-ALG-8216
+    outcome_code: '71'
+    wrong_work: |
+      (다)를 $a_{1}-a_{11}$ 또는 $\sum_{k=1}^{10}a_{k}-a_{11}=20$으로 잘못 펼쳐 계수 $10$을 놓침
+    detect_cue: |
+      (식-2)에 $10a_{11}$ 대신 $a_{11}$이 있다
+    feedback: |
+      $k(a_{k}-a_{k+1})$을 $k=1$부터 $10$까지 쓰면 $a_{2},\cdots,a_{10}$의 계수는 $1$, $a_{11}$의 계수는 $-10$이 됩니다.
+    remedy: [RL-1]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-ALG-8216}
+  relation: remediation
+  target: {kind: concept, ref: CON-ALG-SIGMA-PROP}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

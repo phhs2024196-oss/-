@@ -1,0 +1,178 @@
+# 가천대 2027학년도 논술 모의고사 A형(인문·자연 공통) [문제 8] — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: GCU-M27A-08
+legacy_id: null
+version: 1
+status: draft
+exam_family: yaksul
+item_type: short_answer
+origin: mock_exam
+school: GCU
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 추론
+points: 10
+time_estimate_min: 5
+intent: |
+  다항함수의 미분법(문항카드 출제 의도 원문). 극한 조건을 미분계수 관계로 바꾸고, 곱의 미분으로 $g(1)$을 정한 뒤 두 이차함수를 결정한다.
+key_idea: |
+  (가) $f(1)=-g(1)$, $f'(1)+g'(1)=3g'(1)$ → $f'(1)=2g'(1)$. (나) $\frac{f^2-g^2}{x-1}=\frac{f+g}{x-1}(f-g)\to3g'(1)\cdot(-2g(1))=6g(1)$. $g(1)\ne0$이므로 $g'(1)=-1$.
+stuck: |
+  (나)를 $(f+g)(f-g)$로 인수분해해 (가)의 결과를 재사용하는 것을 놓치면 막힌다. $g(1)=0$인 경우를 (다)로 배제해야 한다.
+idea_tags: [IDEA-LIMIT-DERIV-REUSE]
+tags: [미분계수, 곱의 미분, 이차함수 결정]
+elements:
+  materials:
+  - 최고차항 계수 1인 이차함수 $f$, $g$
+  - (가) $\lim_{x\to1}\frac{f(x)+g(x)}{x-1}=3g'(1)$
+  - (나) $\lim_{x\to1}\frac{\{f(x)\}^2-\{g(x)\}^2}{x-1}=6g(1)$
+  - (다) $f(x)g(x)$의 $x=1$에서의 미분계수 3
+  concepts:
+  - 미분계수의 정의
+  - 곱의 미분법
+  - 극한값 존재 조건
+  tools:
+  - 분모→0이면 분자→0
+  - $(f+g)(f-g)$ 인수분해
+  - $g(1)=0$ 경우 배제
+  conditions:
+  - $f$, $g$는 최고차항의 계수가 1인 이차함수
+  stimuli_used: []
+  subpart_links: 단일 논제
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅱ]
+  scope_2028: common
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 함수의 곱을 미분할 수 있다(요지)
+    verified: false
+  content_area: 미분
+  behavior_domain: 계산
+  unit_path: [수학Ⅱ, 미분, 도함수]
+  key_concepts: [미분계수, 곱의 미분]
+difficulty: {rater: author, p_value: null, n: 0}
+source:
+  rights_holder: 가천대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 가천대학교
+  admission_year: 2027
+  admission_type: 수시 논술 모의고사
+  track: 인문·자연 공통(A형)
+  question_no: 8
+  official_url: https://admission.gachon.ac.kr/admission/html/counsel/noticeView.asp?BOARD_IDX=32292&s_cate=BBS0401
+  retrieved_at: &id001 2026-11-21
+  original_points: [10]
+  rights_notice: 미확인(대학 원본 표지 문구 확인 필요)
+  transcribed_from: 「2027학년도 논술 모의고사_A형_인문자연(업로드).pdf」 8~10쪽 렌더링 판독(PDF만 있음), 해설·채점기준 「2027학년도 논술 모의고사_A형_해설_수학.pdf」 문항카드 렌더링 판독
+  textbook_basis: EBS 수능특강(2026) 33쪽 유제 2, 43쪽 문제 6
+verify: verify/GCU-M27A.py::p08
+stimuli: []
+stem: |
+  최고차항의 계수가 $1$인 두 이차함수 $f(x)$와 $g(x)$가 다음 조건을 만족시킬 때, $f(1)$, $f'(1)$, $f(0)+g(0)$, $f'(0)+g'(0)$의 값을 모두 구하는 과정을 서술하시오.
+
+  (가) $\displaystyle\lim_{x\to1}\frac{f(x)+g(x)}{x-1}=3g'(1)$
+
+  (나) $\displaystyle\lim_{x\to1}\frac{\{f(x)\}^2-\{g(x)\}^2}{x-1}=6g(1)$
+
+  (다) 함수 $f(x)g(x)$의 $x=1$에서의 미분 계수는 $3$이다.
+subparts:
+- id: '1'
+  stem: |
+    $f(1)$, $f'(1)$, $f(0)+g(0)$, $f'(0)+g'(0)$의 값을 모두 구하는 과정을 서술하시오.
+  points: 10
+  depends_on: []
+  answer: {kind: expression, value: 'f(1)=3,\ f''(1)=-2,\ f(0)+g(0)=5,\ f''(0)+g''(0)=-7', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: (가)(나)(다)를 $f(1),g(1),f'(1),g'(1)$의 방정식으로 바꾼다.
+    steps:
+    - {id: 1a, content: '$g''(1)=-1$, $f''(1)=-2$, $g(1)=-3$, $f(1)=3$; $f=x^2-4x+6$, $g=x^2-3x-1$', criteria: [1.M1, 1.A1, 1.A2, 1.A3]}
+    hint_ladder:
+    - (가)에서 $f(1)+g(1)=0$.
+    - (나)의 분자를 인수분해하자.
+  - id: S1-B
+    audience: B
+    source_flow: A형_해설_수학 문항카드 [A8] 5. 문항 해설(PDF 8쪽)
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        (가) 극한 $\displaystyle\lim_{x\to1}\frac{f(x)+g(x)}{x-1}$이 존재하므로 $f(1)=-g(1)$이다. $\displaystyle\lim_{x\to1}\frac{f(x)+g(x)}{x-1}=\lim_{x\to1}\left\{\frac{f(x)-f(1)}{x-1}+\frac{g(x)-g(1)}{x-1}\right\}=f'(1)+g'(1)=3g'(1)$이므로 $f'(1)=2g'(1)$이다.
+      criteria: [1.M1]
+    - id: 1b-2
+      content: |
+        $\displaystyle\lim_{x\to1}\frac{\{f(x)\}^2-\{g(x)\}^2}{x-1}=\lim_{x\to1}\frac{f(x)+g(x)}{x-1}(f(x)-g(x))=-6g'(1)g(1)$이므로 (나)로부터 $-6g'(1)g(1)=6g(1)$이다. $g(1)=0$이면 $f'(1)g(1)+f(1)g'(1)=0$이므로 (다)에 모순이다. 따라서 $g(1)\ne0$이고 $g'(1)=-1$, $f'(1)=2g'(1)=-2$이다.
+      criteria: [1.M1]
+    - id: 1b-3
+      content: |
+        (다)로부터 $f'(1)g(1)+f(1)g'(1)=-2g(1)+g(1)=3$. $g(1)=-3$, $f(1)=3$.
+      criteria: [1.A1]
+    - id: 1b-4
+      content: |
+        $f(x)=x^2+ax+b$, $g(x)=x^2+px+q$라 하면 $f'(1)=2+a=-2\Rightarrow a=-4$, $f(1)=1-4+b=3\Rightarrow b=6$. $g'(1)=2+p=-1\Rightarrow p=-3$, $g(1)=1-3+q=-3\Rightarrow q=-1$. 결국 $f(x)=x^2-4x+6$, $g(x)=x^2-3x-1$이고 $f(0)+g(0)=5$, $f'(0)+g'(0)=-7$이다.
+      criteria: [1.A2, 1.A3]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 0, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 4
+      evidence: |
+        $f'(1)=-2$ (또는 $g'(1)=-1$) (채점기준 4점).
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1, 1b-2]
+    - id: 1.A1
+      mark_type: A
+      points: 4
+      evidence: |
+        $f(1)=3$ (또는 $g(1)=-3$) (채점기준 4점).
+      depends_on: [1.M1]
+      implied_ok: false
+      steps: [1b-3]
+    - id: 1.A2
+      mark_type: A
+      points: 1
+      evidence: |
+        $f(0)+g(0)=5$ (채점기준 1점).
+      depends_on: [1.M1, 1.A1]
+      implied_ok: false
+      steps: [1b-4]
+    - id: 1.A3
+      mark_type: A
+      points: 1
+      evidence: |
+        $f'(0)+g'(0)=-7$ (채점기준 1점).
+      depends_on: [1.M1, 1.A1]
+      implied_ok: false
+      steps: [1b-4]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-8815}
+  misconceptions:
+  - id: MC-CAL-8815
+    outcome_code: '71'
+    wrong_work: (가)에서 $f(1)+g(1)=0$을 쓰지 않고 극한을 $\frac{f(1)+g(1)}{0}$ 꼴로 방치하거나 $g(1)=0$ 경우를 배제하지 않음
+    detect_cue: $g(1)=0$을 해로 두거나 $g'(1)$을 결정하지 못한다
+    feedback: 분모가 0으로 가는데 극한이 존재하면 분자도 0으로 갑니다. 또 $-6g'(1)g(1)=6g(1)$에서 $g(1)=0$ 가능성은 (다)로 배제하세요.
+    remedy: [RL-1]
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CAL-8815}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-LIMIT-ZERO-NUM}
+  priority: 1
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: *id001}
+created: *id001
+updated: *id001

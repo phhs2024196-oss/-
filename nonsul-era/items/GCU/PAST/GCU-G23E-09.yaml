@@ -1,0 +1,199 @@
+# 가천대 2023학년도 논술전형 자연E [문제 9] — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: GCU-G23E-09
+legacy_id: null
+version: 1
+status: draft
+exam_family: yaksul
+item_type: short_answer
+origin: past_exam
+school: GCU
+type: null
+variant_of: null
+replaces: null
+level: L3
+form: 추론
+points: 10
+time_estimate_min: 2
+intent: |
+  제시문의 상황에서 수열의 합인 Σ의 성질을 이용하여 문제를 해결할 수 있는지를 평가한다(문항카드 출제 의도 원문). 부분분수로 분해해 망원합을 계산하고 첫째항을 결정한다.
+key_idea: |
+  $\dfrac{1}{a_ka_{k+1}}=\dfrac{1}{d}\left(\dfrac{1}{a_k}-\dfrac{1}{a_{k+1}}\right)$ (공차 $d=2a$)로 합이 첫 항과 끝 항만 남는다.
+stuck: |
+  부분분수 분해에서 $\dfrac{1}{d}$ 계수를 빠뜨리기 쉽다.
+idea_tags:
+- IDEA-TELESCOPE-PARTIAL-FRACTION
+tags:
+- 등차수열
+- 부분분수
+- 망원합
+elements:
+  materials:
+  - 첫째항 $a$, 공차 $2a$인 등차수열
+  - $\sum_{k=1}^{10}\dfrac{3}{a_ka_{k+1}}=\dfrac57$
+  concepts:
+  - 등차수열의 일반항
+  - Σ의 성질
+  - 부분분수로 나타낸 수열의 합
+  tools:
+  - 부분분수 분해
+  - 망원합(소거)
+  conditions:
+  - $a>0$
+  stimuli_used: []
+  subpart_links: 단일 논제
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학Ⅰ
+  scope_2028: common
+  scope_confirmed: false
+  standards:
+  - code: 12수학Ⅰ03-04
+    text: Σ의 뜻을 알고, 그 성질을 이해하고, 이를 활용할 수 있다.
+    verified: false
+  content_area: 수열 – 수열의 합
+  behavior_domain: 계산
+  unit_path:
+  - 수학Ⅰ
+  - 수열
+  - 수열의 합
+  - 여러 가지 수열의 합
+  key_concepts:
+  - 등차수열
+  - 부분분수
+  - Σ
+difficulty: {rater: author, p_value: null, n: 0}
+source:
+  rights_holder: 가천대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 가천대학교
+  admission_year: 2023
+  admission_type: 수시 논술전형(실전)
+  track: 자연E
+  question_no: 9
+  official_url: https://admission.gachon.ac.kr/admission/html/counsel/noticeView.asp?BOARD_IDX=11903&s_cate=BBS0401
+  retrieved_at: 2026-11-21
+  original_points:
+  - 10
+  rights_notice: 미확인(대학 원본 표지 문구 확인 필요)
+  transcribed_from: 「★2023학년도 가천대학교 대학별 고사 선행학습 영향평가 자체평가 보고서.pdf」 문항카드 [E 9] PDF 265~266쪽 — 이미지 렌더링(150dpi) 판독(문항 원문·출제 의도·출제 근거·문항 해설). 문제지 원본 미확보, 채점기준 미수록
+  textbook_basis: 고교 교과서 수학Ⅰ 145쪽(미래엔, 황선욱 외) / 수학Ⅰ 144쪽(천재교육, 이준열 외) — 문항카드 출제 근거
+verify: verify/G23E.py::p09
+stimuli: []
+stem: |
+  첫째항이 $a$이고 공차가 $2a$인 등차수열 $\{a_n\}$에 대하여 $\displaystyle\sum_{k=1}^{10}\frac{3}{a_ka_{k+1}}=\frac{5}{7}$일 때, $a_3$의 값을 구하는 과정을 서술하시오. (단, $a>0$)
+subparts:
+- id: '1'
+  stem: |
+    $a_3$의 값을 구하는 과정을 서술하시오.
+  points: 10
+  depends_on: []
+  answer: {kind: value, value: '5\sqrt{2}', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: 부분분수로 소거하면 $\dfrac{3}{2a}\left(\dfrac1a-\dfrac1{21a}\right)=\dfrac{10}{7a^2}$.
+    steps:
+    - id: 1a
+      content: $\dfrac{10}{7a^2}=\dfrac57\Rightarrow a=\sqrt2,\ a_3=5a=5\sqrt2$
+      criteria:
+      - 1.M1
+      - 1.A1
+      - 1.A2
+      - 1.A3
+    hint_ladder:
+    - $a_{k+1}-a_k=2a$임을 이용해 분수를 둘로 쪼개 보자.
+    - 소거 후 남는 항은 $\dfrac{1}{a_1}$과 $\dfrac{1}{a_{11}}$이다.
+  - id: S1-B
+    audience: B
+    source_flow: 선행학습 영향평가 자체평가 보고서(2023) 문항카드 [E 9] 5. 문항 해설 (해설 마지막 줄 '$=\dfrac{5a^2}{7}$'은 '$\dfrac{10a^2}{7}$'의 오기로 보여 바로잡음)
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        $\displaystyle\sum_{k=1}^{10}\frac{3}{a_ka_{k+1}}=\sum_{k=1}^{10}\frac{3}{a_{k+1}-a_k}\left(\frac{1}{a_k}-\frac{1}{a_{k+1}}\right)=\frac{3}{d}\left(\frac{1}{a_1}-\frac{1}{a_2}+\frac{1}{a_2}-\frac{1}{a_3}+\cdots-\frac{1}{a_{11}}\right)$
+      criteria:
+      - 1.M1
+    - id: 1b-2
+      content: |
+        $=\dfrac{3}{2a}\left(\dfrac{1}{a_1}-\dfrac{1}{a_{11}}\right)=\dfrac{3}{2a}\left(\dfrac{1}{a}-\dfrac{1}{a+20a}\right)=\dfrac{5}{7}$
+      criteria:
+      - 1.A1
+    - id: 1b-3
+      content: |
+        $\therefore\ 3\left(1-\dfrac{1}{21}\right)=\dfrac{20}{7}=\dfrac{10a^2}{7}$, $a=\sqrt{2}$ (학교 해설 표기는 $\dfrac{5a^2}{7}$)
+      criteria:
+      - 1.A2
+    - id: 1b-4
+      content: |
+        $\therefore\ a_3=\sqrt{2}+2\times2\sqrt{2}=5\sqrt{2}$
+      criteria:
+      - 1.A3
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 0, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 3
+      evidence: |
+        $\dfrac{1}{a_ka_{k+1}}=\dfrac{1}{d}\left(\dfrac{1}{a_k}-\dfrac{1}{a_{k+1}}\right)$로 분해해 소거했다(학교 채점기준 미수록: 문항카드 해설 단계로 배분).
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 1b-1
+    - id: 1.A1
+      mark_type: A
+      points: 3
+      evidence: |
+        합을 $\dfrac{3}{2a}\left(\dfrac1a-\dfrac{1}{21a}\right)$로 나타냈다(학교 채점기준 미수록: 문항카드 해설 단계로 배분).
+      depends_on:
+      - 1.M1
+      steps:
+      - 1b-2
+    - id: 1.A2
+      mark_type: A
+      points: 2
+      evidence: |
+        $a=\sqrt2$(학교 채점기준 미수록: 문항카드 해설 단계로 배분).
+      depends_on:
+      - 1.M1
+      - 1.A1
+      steps:
+      - 1b-3
+    - id: 1.A3
+      mark_type: A
+      points: 2
+      evidence: |
+        $a_3=5\sqrt2$(학교 채점기준 미수록: 문항카드 해설 단계로 배분).
+      depends_on:
+      - 1.M1
+      - 1.A2
+      steps:
+      - 1b-4
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-ALG-8303}
+  misconceptions:
+  - id: MC-ALG-8303
+    outcome_code: '71'
+    wrong_work: 부분분수에서 $\dfrac1d$를 빠뜨려 $3\left(\dfrac1a-\dfrac1{21a}\right)=\dfrac57$, $a=4$, $a_3=20$
+    detect_cue: $a$ 값이 $4$ 또는 $a_3=20$
+    feedback: $\dfrac{1}{a_ka_{k+1}}$을 두 분수의 차로 쓰면 공차로 나눈 값이 됩니다. 통분해서 확인해 보세요.
+    remedy:
+    - RL-1
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-ALG-8303}
+  relation: remediation
+  target: {kind: concept, ref: CON-ALG-TELESCOPE}
+  priority: 1
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+created: 2026-11-21
+updated: 2026-11-21

@@ -1,0 +1,201 @@
+# 가천대 2023학년도 수시 논술(실전) 자연C [문제 14] — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: GCU-G23C-14
+legacy_id: null
+version: 1
+status: draft
+exam_family: yaksul
+item_type: short_answer
+origin: past_exam
+school: GCU
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 추론
+points: 10
+time_estimate_min: 3
+intent: |
+  제시문의 상황에서 미분과 적분과의 관계를 이용하여 문제를 해결할 수 있는지를 평가한다(문항카드 출제 의도 원문). 적분으로 정의된 함수를 곱의 미분법과 미적분의 기본정리로 미분하고, 극솟값 조건 두 개로 일차함수를 결정한다.
+key_idea: |
+  $g'(x)=\displaystyle\int_{0}^{x}(tf(t)-11)\,dt-11x$이고, $g'(2)=0$, $g(2)=-20$의 두 조건으로 $f(x)=ax+b$의 $a,b$를 구한다.
+stuck: |
+  $x\displaystyle\int_{0}^{x}(\cdots)\,dt$를 곱의 미분법으로 미분해 $x^{2}f(x)$ 항이 소거됨을 보는 단계.
+idea_tags: [IDEA-INTEGRAL-FUNCTION-PRODUCT-DIFF]
+tags: ['정적분으로 정의된 함수', '극솟값', '곱의 미분법']
+elements:
+  materials:
+  - '일차함수 $f(x)$'
+  - '$g(x)=x\int_{0}^{x}(tf(t)-11)\,dt-\int_{0}^{x}t^{2}f(t)\,dt$'
+  - '$x=2$에서 극솟값 $-20$'
+  - '또 다른 극소점 $x=k$'
+  concepts:
+  - '미분과 적분의 관계'
+  - '곱의 미분법'
+  - '극대와 극소'
+  tools:
+  - '$\dfrac{d}{dx}\int_{0}^{x}h(t)\,dt=h(x)$'
+  - '연립일차방정식'
+  - '도함수의 인수분해와 부호 변화'
+  conditions:
+  - '$g''(2)=0$, $g(2)=-20$'
+  - '$k\neq2$'
+  stimuli_used: []
+  subpart_links: '단일 논제'
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅱ]
+  scope_2028: common
+  scope_confirmed: false
+  standards:
+  - code: 12수학Ⅱ03-03
+    text: 정적분의 뜻을 안다.
+    verified: true
+  content_area: 적분 – 정적분
+  behavior_domain: 문제해결
+  unit_path: [수학Ⅱ, 적분, 정적분, 정적분으로 정의된 함수]
+  key_concepts: [정적분으로 정의된 함수, 극솟값]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 가천대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 가천대학교
+  admission_year: 2023
+  admission_type: 수시 논술전형(실전)
+  track: 자연C
+  question_no: 14
+  official_url: https://admission.gachon.ac.kr/admission/html/counsel/noticeView.asp?BOARD_IDX=11903&s_cate=BBS0401
+  retrieved_at: 2026-11-21
+  original_points: [10]
+  rights_notice: 미확인(대학 원본 표지 문구 확인 필요)
+  transcribed_from: 「★2023학년도 가천대학교 대학별 고사 선행학습 영향평가 자체평가 보고서.pdf」 PDF 248–249쪽(보고서 쪽번호 245–246) 문항카드 [C 14] 150dpi 렌더링 이미지 판독 — 문항·출제 의도·출제 근거·문항 해설. 이 보고서의 실전 수학 문항카드에는 채점 기준 항목이 없어 rubric 배점은 문항 해설 단계에 따라 작성자가 배분함
+  textbook_basis: 고등학교 교과서 수학Ⅱ 황선욱 외 8(미래엔, 2020) 127쪽 / 이준열 외 9(천재교육, 2020) 123쪽   # 문항카드 출제 근거(자료 출처)
+
+verify: verify/GCU-G23C.py::p14
+
+stimuli: []
+
+stem: |
+  일차함수 $f(x)$에 대하여 함수 $g(x)$를
+  $$g(x)=x\int_{0}^{x}(tf(t)-11)\,dt-\int_{0}^{x}t^{2}f(t)\,dt$$
+  라 할 때, 함수 $g(x)$는 $x=2$에서 극솟값 $-20$을 갖는다. 함수 $g(x)$가 $x=k$에서 또 다른 극솟값을 가질 때, $k$의 값을 구하는 과정을 서술하시오. (단, $k\neq2$)
+
+subparts:
+- id: '1'
+  stem: |
+    $k$의 값을 구하는 과정을 서술하시오.
+  points: 10
+  depends_on: []
+  answer: {kind: value, value: '-11/4', equivalents: ['$-\frac{11}{4}$'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: |
+      $g'(x)=\int_{0}^{x}(tf(t)-11)\,dt-11x$; $g'(2)=0$, $g(2)=-20$에서 $f(x)=12x+6$.
+    steps:
+    - id: 1a
+      content: |
+        $g'(x)=4x^{3}+3x^{2}-22x=x(4x+11)(x-2)$, $k=-\dfrac{11}{4}$
+      criteria: ['1.M1', '1.A1', '1.M2', '1.A2', '1.A3']
+    hint_ladder:
+    - |
+      $x\int_{0}^{x}(\cdots)\,dt$는 곱의 미분법으로 미분한다.
+    - |
+      극솟값 조건은 $g'(2)=0$과 $g(2)=-20$ 두 개이다.
+  - id: S1-B
+    audience: B
+    source_flow: 「2023학년도 선행학습 영향평가 자체평가 보고서」 문항카드 [C 14] 5. 문항 해설(PDF 248–249쪽)
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        함수 $g(2)=-20$ 그리고 $g'(2)=0$이다.
+        $g'(x)=\displaystyle\int_{0}^{x}(tf(t)-11)\,dt-11x$, 따라서, $\displaystyle\int_{0}^{2}(tf(t)-11)\,dt-22=0$
+      criteria: ['1.M1']
+    - id: 1b-2
+      content: |
+        $f(x)=ax+b$라 하자. $\displaystyle\int_{0}^{2}(t(at+b)-11)\,dt-22=0$에서 $\dfrac{8}{3}a+2b=44$
+      criteria: ['1.A1']
+    - id: 1b-3
+      content: |
+        $g(2)=-20$에서, $g(2)=2\displaystyle\int_{0}^{2}(tf(t)-11)\,dt-\int_{0}^{2}t^{2}f(t)\,dt=-20$
+        즉, $\displaystyle\int_{0}^{2}t^{2}f(t)\,dt=64$ 따라서, $4a+\dfrac{8}{3}b=64$, $a=12$, $b=6$, $f(x)=12x+6$
+      criteria: ['1.M2', '1.A2']
+    - id: 1b-4
+      content: |
+        $g'(x)=4x^{3}+3x^{2}-22x=x(4x+11)(x-2)$, 따라서 $k=-\dfrac{11}{4}$
+      criteria: ['1.A3']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 0, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 3
+      evidence: |
+        곱의 미분법으로 $g'(x)=\int_{0}^{x}(tf(t)-11)\,dt-11x$를 구하고 $g'(2)=0$을 적용(채점기준 미공개 — 해설 단계 기준 3점 배분)
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1]
+    - id: 1.A1
+      mark_type: A
+      points: 2
+      evidence: |
+        $f(x)=ax+b$로 놓아 $\dfrac{8}{3}a+2b=44$(채점기준 미공개 — 해설 단계 기준 2점 배분)
+      depends_on: [1.M1]
+      steps: [1b-2]
+    - id: 1.M2
+      mark_type: M
+      points: 2
+      evidence: |
+        $g(2)=-20$을 적용해 $\int_{0}^{2}t^{2}f(t)\,dt=64$ 또는 $4a+\dfrac83b=64$(채점기준 미공개 — 해설 단계 기준 2점 배분)
+      depends_on: []
+      implied_ok: false
+      steps: [1b-3]
+    - id: 1.A2
+      mark_type: A
+      points: 1
+      evidence: |
+        $a=12$, $b=6$ ($f(x)=12x+6$)(채점기준 미공개 — 해설 단계 기준 1점 배분)
+      depends_on: [1.M1, 1.M2]
+      steps: [1b-3]
+    - id: 1.A3
+      mark_type: A
+      points: 2
+      evidence: |
+        $g'(x)=x(4x+11)(x-2)$에서 또 다른 극소점 $k=-\dfrac{11}{4}$(채점기준 미공개 — 해설 단계 기준 2점 배분)
+      depends_on: [1.M1]
+      steps: [1b-4]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-8208}
+  misconceptions:
+  - id: MC-CAL-8208
+    outcome_code: '71'
+    wrong_work: |
+      $x\int_{0}^{x}(tf(t)-11)\,dt$를 미분할 때 곱의 미분법을 빠뜨려 $g'(x)=x(xf(x)-11)-x^{2}f(x)=-11x$
+    detect_cue: |
+      $g'(x)=-11x$처럼 $f$가 사라진 도함수가 나오고 진행이 막힌다
+    feedback: |
+      $x$와 $\int_{0}^{x}(\cdots)\,dt$의 곱이므로 $(uv)'=u'v+uv'$로 미분해야 합니다.
+    remedy: [RL-1]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CAL-8208}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-INT-DEFINED-FUNC}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

@@ -1,0 +1,202 @@
+# 가천대 2023학년도 논술전형 자연F [문제 10] — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: GCU-G23F-10
+legacy_id: null
+version: 1
+status: draft
+exam_family: yaksul
+item_type: short_answer
+origin: past_exam
+school: GCU
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 분류
+points: 10
+time_estimate_min: 3
+intent: |
+  제시문의 상황에서 곱으로 이루어진 함수의 연속에 대한 성질을 이용하여 문제를 해결할 수 있는지를 평가한다(문항카드 출제 의도 원문). 합성된 구간별 함수를 $x=0$ 근방에서 식으로 정리해 연속 조건을 세운다.
+key_idea: |
+  $x^2\ge0>-1$이므로 $f(x^2)$는 한 식, $f(2x-1)$은 $x=0$에서 식이 바뀐다.
+stuck: |
+  $(2a+1)$로 양변을 나누어 $a=-\dfrac12$를 잃는 실수.
+idea_tags:
+- IDEA-PRODUCT-CONTINUITY
+- IDEA-COMPOSITE-PIECEWISE
+tags:
+- 연속
+- 구간별 함수
+- 곱의 연속
+elements:
+  materials:
+  - $f(x)=\begin{cases}2x+a^2 & (x\le-1)\\ -x+2a+1 & (x>-1)\end{cases}$
+  - $f(x^2)f(2x-1)$의 $x=0$에서의 연속
+  concepts:
+  - 함수의 연속
+  - 합성된 함수의 식 정리
+  - 이차방정식의 근과 계수의 관계
+  tools:
+  - $x\le0$, $x>0$ 경우 나누기
+  - 우극한과 함숫값 비교
+  - 인수분해
+  conditions:
+  - $a$는 실수
+  stimuli_used: []
+  subpart_links: 단일 논제
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학Ⅱ
+  scope_2028: common
+  scope_confirmed: false
+  standards:
+  - code: 12수학Ⅱ01-04
+    text: 연속함수의 성질을 이해하고, 이를 활용할 수 있다.
+    verified: false
+  content_area: 함수의 극한과 연속 – 연속
+  behavior_domain: 계산
+  unit_path:
+  - 수학Ⅱ
+  - 함수의 극한과 연속
+  - 함수의 연속
+  - 연속함수의 성질
+  key_concepts:
+  - 연속
+  - 곱의 연속
+difficulty: {rater: author, p_value: null, n: 0}
+source:
+  rights_holder: 가천대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 가천대학교
+  admission_year: 2023
+  admission_type: 수시 논술전형(실전)
+  track: 자연F
+  question_no: 10
+  official_url: https://admission.gachon.ac.kr/admission/html/counsel/noticeView.asp?BOARD_IDX=11903&s_cate=BBS0401
+  retrieved_at: 2026-11-21
+  original_points:
+  - 10
+  rights_notice: 미확인(대학 원본 표지 문구 확인 필요)
+  transcribed_from: 「★2023학년도 가천대학교 대학별 고사 선행학습 영향평가 자체평가 보고서.pdf」 문항카드 [F 10] PDF 277~278쪽 — 이미지 렌더링(150dpi) 판독(문항 원문·출제 의도·출제 근거·문항 해설). 문제지 원본 미확보, 채점기준 미수록
+  textbook_basis: 고교 교과서 수학Ⅱ 35쪽(미래엔, 황선욱 외) / 수학Ⅱ 35쪽(천재교육, 이준열 외) — 문항카드 출제 근거
+verify: verify/G23F.py::p10
+stimuli: []
+stem: |
+  함수 $f(x)=\begin{cases}2x+a^2 & (x\le-1)\\ -x+2a+1 & (x>-1)\end{cases}$
+  에 대하여 함수 $f(x^2)f(2x-1)$이 $x=0$에서 연속이 되도록 하는 실수 $a$의 값의 합을 구하는 과정을 서술하시오
+subparts:
+- id: '1'
+  stem: |
+    실수 $a$의 값의 합을 구하는 과정을 서술하시오.
+  points: 10
+  depends_on: []
+  answer: {kind: value, value: '\frac{3}{2}', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $g(x)=f(x^2)f(2x-1)$의 우극한 $(2a+1)(2+2a)$와 $g(0)=(2a+1)(a^2-2)$ 비교.
+    steps:
+    - id: 1a
+      content: $(2a+1)(a^2-2a-4)=0$, 합 $-\tfrac12+2=\tfrac32$
+      criteria:
+      - 1.M1
+      - 1.M2
+      - 1.A1
+      - 1.A2
+    hint_ladder:
+    - $x^2$은 항상 $-1$보다 크다.
+    - $2x-1\le-1$이 되는 $x$의 범위는?
+    - $(2a+1)$을 약분하지 말고 인수로 두자.
+  - id: S1-B
+    audience: B
+    source_flow: 선행학습 영향평가 자체평가 보고서(2023) 문항카드 [F 10] 5. 문항 해설
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        $f(x^2)=-x^2+2a+1$, $f(2x-1)=\begin{cases}4x-2+a^2 & (x\le0)\\ -2x+2+2a & (x>0)\end{cases}$.
+      criteria:
+      - 1.M1
+    - id: 1b-2
+      content: |
+        $g(x)=f(x^2)f(2x-1)$라 하면 $g(x)=\begin{cases}(-x^2+2a+1)(4x-2+a^2) & (x\le0)\\ (-x^2+2a+1)(-2x+2+2a) & (x>0)\end{cases}$
+      criteria:
+      - 1.M2
+    - id: 1b-3
+      content: |
+        $\lim_{x\to0+}g(x)=(2a+1)(2+2a)$와 $g(0)=(2a+1)(-2+a^2)$가 같을 때 $x=0$에서 연속이다.
+      criteria:
+      - 1.A1
+    - id: 1b-4
+      content: |
+        즉, $(2a+1)(a^2-2a-4)=0$. 따라서 $a$의 값의 합은 $-\dfrac12+2=\dfrac32$.
+      criteria:
+      - 1.A2
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 0, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 2
+      evidence: |
+        $f(x^2)=-x^2+2a+1$, $f(2x-1)$을 $x\le0$, $x>0$으로 나눠 나타냈다(학교 채점기준 미수록: 문항카드 해설 단계로 배분).
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 1b-1
+    - id: 1.M2
+      mark_type: M
+      points: 2
+      evidence: |
+        $g(x)$를 구간별 식으로 정리했다(학교 채점기준 미수록: 문항카드 해설 단계로 배분).
+      depends_on:
+      - 1.M1
+      implied_ok: false
+      steps:
+      - 1b-2
+    - id: 1.A1
+      mark_type: A
+      points: 3
+      evidence: |
+        $\lim_{x\to0+}g(x)=(2a+1)(2+2a)$, $g(0)=(2a+1)(a^2-2)$(학교 채점기준 미수록: 문항카드 해설 단계로 배분).
+      depends_on:
+      - 1.M2
+      steps:
+      - 1b-3
+    - id: 1.A2
+      mark_type: A
+      points: 3
+      evidence: |
+        $(2a+1)(a^2-2a-4)=0$에서 합 $\dfrac32$(학교 채점기준 미수록: 문항카드 해설 단계로 배분).
+      depends_on:
+      - 1.M2
+      - 1.A1
+      steps:
+      - 1b-4
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-8313}
+  misconceptions:
+  - id: MC-CAL-8313
+    outcome_code: '71'
+    wrong_work: 양변을 $2a+1$로 나눠 $a^2-2a-4=0$만 풀어 합 $2$
+    detect_cue: 답이 $2$
+    feedback: $2a+1=0$인 경우도 연속 조건을 만족합니다. 나누지 말고 인수로 정리하세요.
+    remedy:
+    - RL-1
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CAL-8313}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-CONTINUITY}
+  priority: 1
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+created: 2026-11-21
+updated: 2026-11-21

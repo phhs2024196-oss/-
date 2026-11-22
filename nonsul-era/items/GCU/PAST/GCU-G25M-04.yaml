@@ -1,0 +1,240 @@
+# 가천대 2025학년도 논술고사 의예과 수학 [문제 4] — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: GCU-G25M-04
+legacy_id: null
+version: 1
+status: draft
+exam_family: yaksul
+item_type: short_answer
+origin: past_exam
+school: GCU
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 분류
+points: 20
+time_estimate_min: 10
+intent: |
+  함수의 그래프를 이용하여 연속 또는 불연속을 판정하는 방법의 이해 확인(문항카드 출제 의도 원문). $f$의 계단이 바뀌는 점 $x=2,16,114,800$과 주기 $n$의 반복을 세어 불연속점 개수가 $k$인 최대 $n$을 구한다.
+key_idea: |
+  $3x+1=7^m$인 $x=2,16,114,800$에서 값이 바뀌고, 주기 $n$의 경계 $x=n,2n,\cdots$에서도 불연속.
+stuck: |
+  $k$가 주어졌을 때 반복 횟수와 남는 구간의 불연속점을 조합해 $n$을 최대로 하는 배치를 찾는 것.
+idea_tags:
+- IDEA-PERIODIC-STEP-DISCONTINUITY-COUNT
+tags:
+- 불연속점
+- 로그
+- 주기 함수
+- 의예
+elements:
+  materials:
+  - |
+    (가) $0<x\le n$에서 $m\le\log_7(3x+1)<m+1\Rightarrow f(x)=m$
+  - |
+    (나) $f(x+n)=f(x)$
+  - |
+    열린구간 $(0,2025)$의 불연속점 개수 $k$
+  - |
+    $a_k$: 개수가 $k$인 $n$의 최댓값
+  concepts:
+  - 함수의 연속
+  - 로그의 값과 거듭제곱
+  - 주기
+  tools:
+  - 값이 바뀌는 점 찾기
+  - 구간별 개수 세기
+  - 최대 배치 탐색
+  conditions:
+  - |
+    $n$은 자연수
+  - |
+    $x>0$에서 정의
+  stimuli_used: []
+  subpart_links: 단일 논제
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학Ⅱ
+  scope_2028: common
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 불연속점의 개수(요지)
+    verified: false
+  content_area: 함수의 극한과 연속
+  behavior_domain: 계산
+  unit_path:
+  - 수학Ⅱ
+  - 함수의 극한과 연속
+  - 함수의 연속
+  - 불연속점의 개수
+  key_concepts:
+  - 함수의 연속
+  - 로그
+  - 주기적 확장
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 가천대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 가천대학교
+  admission_year: 2025
+  admission_type: 수시 논술(실전) 의예과
+  track: 의예과(실전 의예 세트, 세션 문자 M)
+  question_no: 4
+  official_url: https://admission.gachon.ac.kr/admission/html/counsel/noticeView.asp?BOARD_IDX=24228&s_cate=BBS0401
+  retrieved_at: '2026-11-21'
+  original_points:
+  - 20
+  rights_notice: 미확인(대학 원본 표지 문구 확인 필요)
+  transcribed_from: 「2025학년도 논술고사 기출문제_의예.hwp」 수식 스크립트 직접 추출(PDF 대조), 해설 「2025학년도 논술고사 기출문제 해설_의예.hwp」 문항카드(채점기준 없음), 채점기준은 선행학습 영향평가 보고서(2025) 문항카드 91~98 '6. 채점 기준' 렌더링 판독(PDF 282~304쪽)
+  textbook_basis: EBS 수능특강(2024) 18쪽
+verify: verify/GCU-G25M.py::p04
+stimuli: []
+stem: |
+  자연수 $n$에 대하여 양의 실수 전체의 집합에서 정의된 함수 $f(x)$가 다음 조건을 만족시킨다.
+
+  (가) $0<x\le n$일 때, 어떤 정수 $m$에 대하여 $m\le\log_{7}(3x+1)<m+1$이면 $f(x)=m$이다.
+  (나) 모든 양의 실수 $x$에 대하여 $f(x+n)=f(x)$이다.
+
+  열린구간 $(0,2025)$에 속하는 $x=c$에서 함수 $f(x)$가 불연속일 때, $c$의 개수가 $k$가 되도록 하는 모든 자연수 $n$ 중 최댓값을 $a_k$라 하자. $a_7$, $a_{13}$, $a_{19}$, $a_{25}$의 값을 구하는 과정을 서술하시오. [20점]
+subparts:
+- id: '1'
+  stem: |
+    $a_7$, $a_{13}$, $a_{19}$, $a_{25}$의 값을 구하는 과정을 서술하시오.
+  points: 20
+  depends_on: []
+  answer:
+    kind: value
+    value: |
+      a_7=2008,\ a_{13}=955,\ a_{19}=477,\ a_{25}=337
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: |
+      $(0,n)$의 불연속점: $n\le2$에서 0개, $2<n\le16$에서 1개, …, $800<n$에서 4개; 경계점 포함해 반복 수를 센다.
+    steps:
+    - id: 1a
+      content: |
+        $a_7=2008$, $a_{13}=955$, $a_{19}=477$, $a_{25}=337$
+      criteria:
+      - 1.M1
+      - 1.A2
+      - 1.A3
+    hint_ladder:
+    - |
+      $\log_7(3x+1)$이 정수가 되는 $x$는?
+    - |
+      $n$이 크면 몇 번 반복되는가?
+  - id: S1-B
+    audience: B
+    source_flow: 해설_의예.hwp 문항카드(수학 의예 4번) 5. 문항 해설 + 선행학습 보고서(2025) 문항카드 94 6. 채점 기준(PDF 291~292쪽)
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        $7^2=49$, $7^3=343$, $7^4=2401$이므로, 구간 $(0,2)$에서 $f(x)=0$, $[2,16)$에서 $f(x)=1$, $[16,114)$에서 $f(x)=2$, $[114,800)$에서 $f(x)=3$, $[800,2025)$에서 $f(x)=4$.
+        구간 $(0,n)$에서 $f$의 불연속인 점의 개수는 $n=2$일 때 $0$개, $2<n\le16$일 때 $1$개, $16<n\le114$일 때 $2$개, $114<n\le800$일 때 $3$개, $800<n\le2025$일 때 $4$개다.
+      criteria:
+      - 1.M1
+    - id: 1b-2
+      content: |
+        불연속인 점의 개수가 $7$개일 때, $800<n\le2025$인 $n$에 대하여 $(0,n)$의 그래프가 한 번 반복되고 $(n,2025)$에서 불연속인 점이 $2$개($x=2010$, $x=2024$)가 있어야 한다. 따라서 $a_7=2008$.
+        불연속인 점의 개수가 $13$개일 때, $800<n\le2025$인 $n$에 대하여 (해설 원문 그대로) $(0,n)$의 그래프가 두 번 반복되고 $(2n,2025)$에서 불연속점이 $3$개($x=1912$, $1926$, $2024$) 존재하면 최댓값인 $n$을 찾을 수 있다. 따라서 $a_{13}=955$.
+      criteria:
+      - 1.M1
+    - id: 1b-3
+      content: |
+        불연속인 점의 개수가 $19$개일 때, $114<n\le800$인 $n$에 대하여 $(0,n)$의 그래프가 네 번 반복되고 $(4n,2025)$에서 불연속인 점이 $3$개($x=1910$, $1924$, $2022$) 존재하면 된다. 따라서 $a_{19}=477$.
+      criteria:
+      - 1.A2
+    - id: 1b-4
+      content: |
+        불연속인 점의 개수가 $25$개일 때, $114<n\le800$인 $n$에 대하여 $(0,n)$의 그래프가 여섯 번 반복되고 $(6n,2025)$에서 불연속인 점이 $1$개($x=2024$) 존재하면 된다. 따라서 $a_{25}=337$.
+      criteria:
+      - 1.A3
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 0
+      isw: true
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 8
+      evidence: |
+        $a_7=2008$ (원 채점기준 3.5점) + $a_{13}=955$ (원 4.5점) — 정수 배점 규칙상 인접 두 마크를 합침.
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 1b-1
+      - 1b-2
+    - id: 1.A2
+      mark_type: A
+      points: 5
+      evidence: |
+        $a_{19}=477$(채점기준 5점).
+      depends_on:
+      - 1.M1
+      implied_ok: false
+      steps:
+      - 1b-3
+    - id: 1.A3
+      mark_type: A
+      points: 7
+      evidence: |
+        $a_{25}=337$(채점기준 7점).
+      depends_on:
+      - 1.M1
+      implied_ok: false
+      steps:
+      - 1b-4
+    deductions: []
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  - code: '71'
+    misconception: MC-CAL-8623
+  misconceptions:
+  - id: MC-CAL-8623
+    outcome_code: '71'
+    wrong_work: |
+      주기의 경계 $x=n,2n,\cdots$에서의 불연속(값 $f(n)\neq0=f(0^+)$)을 세지 않음
+    detect_cue: |
+      불연속점 개수를 계단 점만으로 세어 $a_k$가 크게 나온다
+    feedback: |
+      $f(n)$과 $x=n$ 오른쪽의 값 $f(0^+)=0$을 비교해 보세요.
+    remedy:
+    - RL-MC-CAL-8623
+remedy_links:
+- id: RL-MC-CAL-8623
+  trigger:
+    type: misconception
+    ref: MC-CAL-8623
+  relation: remediation
+  target:
+    kind: concept
+    ref: CON-CAL-CONTINUITY
+  priority: 1
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: opus
+  prompt_version: p3-past-v1
+  item_version: 1
+  verdict: pass
+  date: '2026-11-21'
+created: '2026-11-21'
+updated: '2026-11-21'

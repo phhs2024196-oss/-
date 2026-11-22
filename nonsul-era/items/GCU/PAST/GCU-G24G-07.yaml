@@ -1,0 +1,198 @@
+# 가천대 2024학년도 논술전형 자연G [문제 7] — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: 'GCU-G24G-07'
+legacy_id: null
+version: 1
+status: draft
+exam_family: yaksul
+item_type: short_answer
+origin: past_exam
+school: GCU
+type: null
+variant_of: null
+replaces: null
+level: L3
+form: 추론
+points: 10
+time_estimate_min: 2
+intent: 제시문의 상황에서 로그의 정의를 이용하여 문제를 해결할 수 있는지를 평가한다(문항카드 출제 의도 원문). 밑 조건과 진수 조건을 동시에 만족하는 정수를 찾는다.
+key_idea: '밑 조건 $-x>0$, $-x\neq1$과 진수 조건 $-2x^2-7x+15>0$을 연립한다.'
+stuck: '밑 조건 중 $-x\neq1$(즉 $x\neq-1$)을 빠뜨리기 쉽다.'
+idea_tags:
+- 'IDEA-LOG-BASE-ARG-CONDITION'
+tags:
+- 로그의 정의
+- 밑 조건
+- 진수 조건
+- 이차부등식
+elements:
+  materials:
+  - '$\log_{(-x)}(-2x^2-7x+15)$'
+  concepts:
+  - 로그의 정의(밑과 진수의 조건)
+  - 이차부등식
+  tools:
+  - '밑 조건 $-x>0$, $-x\neq1$'
+  - 진수 조건과 인수분해
+  conditions:
+  - '$x$는 정수'
+  - 로그가 정의됨
+  stimuli_used: []
+  subpart_links: 단일 논제
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학Ⅰ
+  scope_2028: common
+  scope_confirmed: false
+  standards:
+  - code: '12수학Ⅰ01-04'
+    text: '로그의 뜻을 알고, 그 성질을 이해한다.'
+    verified: false
+  content_area: 지수함수와 로그함수
+  behavior_domain: 계산
+  unit_path:
+  - 수학Ⅰ
+  - 지수함수와 로그함수
+  - 로그
+  - 로그의 정의
+  key_concepts:
+  - 로그의 정의
+  - 이차부등식
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 가천대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 가천대학교
+  admission_year: 2024
+  admission_type: 수시 논술전형
+  track: 자연계열(자연G)
+  question_no: 7
+  official_url: |
+    https://admission.gachon.ac.kr/admission/html/counsel/noticeView.asp?BOARD_IDX=17792&s_cate=BBS0401
+  retrieved_at: &id001 2026-11-21
+  original_points:
+  - 10
+  rights_notice: 미확인(대학 원본 표지 문구 확인 필요)
+  transcribed_from: |
+    「2024학년도 가천대학교 대학별 고사 선행학습 영향평가 자체평가 보고서(공개용).pdf」 문항카드 [G 7] PDF 352쪽 렌더링 이미지(150dpi) 판독(자연G 문제지 HWP 원본 미공개 — 18445 게시물 문제지는 다른 세션)
+  textbook_basis: '고등학교 교과서 수학Ⅰ(미래엔, 황선욱 외, 2020) 24쪽; 수학Ⅰ(천재교육, 이준열 외, 2020) 27쪽'
+verify: 'verify/GCU-G24G.py::p07'
+stimuli: []
+stem: |
+  $\log_{(-x)}(-2x^2-7x+15)$가 정의되기 위한 모든 정수 $x$의 값의 합을 구하는 과정을 서술하시오.
+subparts:
+- id: '1'
+  stem: '모든 정수 $x$의 값의 합을 구하는 과정을 서술하시오.'
+  points: 10
+  depends_on: []
+  answer:
+    kind: value
+    value: '-9'
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: 'S1-A'
+    audience: A
+    method_no: 1
+    key_idea: '밑: $x<0$, $x\neq-1$; 진수: $-5<x<\frac32$.'
+    steps:
+    - id: 1a
+      content: '$x=-4,-3,-2$이므로 합은 $-9$'
+      criteria:
+      - 1.M1
+      - 1.M2
+      - 1.A1
+    hint_ladder:
+    - '로그의 밑이 만족해야 할 조건 두 가지는?'
+    - '$-2x^2-7x+15$를 인수분해해 보자.'
+  - id: 'S1-B'
+    audience: B
+    source_flow: '선행학습 보고서 문항카드 [G 7](PDF 352쪽~) 5. 문항 해설·6. 채점 기준'
+    method_no: 1
+    steps:
+    - id: '1b-1'
+      content: '$\log_{(-x)}(-2x^2-7x+15)$에서 밑 $-x>0$, $-x\neq1$이므로 $x<0$, $x\neq-1$.'
+      criteria:
+      - 1.M1
+    - id: '1b-2'
+      content: '$-2x^2-7x+15>0\ \Rightarrow\ (2x-3)(-x-5)>0$이므로 $-5<x<\dfrac32$.'
+      criteria:
+      - 1.M2
+    - id: '1b-3'
+      content: '이 두 가지를 모두 만족시키는 $x=-4,-3,-2$이므로 모든 정수 $x$의 값의 합은 $-9$.'
+      criteria:
+      - 1.A1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 0
+      isw: true
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 4
+      evidence: '$x<0$, $x\neq-1$(채점기준 4점).'
+      depends_on: []
+      implied_ok: false
+      steps:
+      - '1b-1'
+    - id: 1.M2
+      mark_type: M
+      points: 2
+      evidence: '$(2x-3)(-x-5)>0$ (또는 $(2x-3)(x+5)<0$, 또는 $-5<x<\frac32$)(채점기준 2점).'
+      depends_on: []
+      implied_ok: false
+      steps:
+      - '1b-2'
+    - id: 1.A1
+      mark_type: A
+      points: 4
+      evidence: '$-9$(채점기준 4점).'
+      depends_on:
+      - 1.M1
+      - 1.M2
+      steps:
+      - '1b-3'
+    deductions: []
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  - code: '71'
+    misconception: 'MC-ALG-8510'
+  misconceptions:
+  - id: 'MC-ALG-8510'
+    outcome_code: '71'
+    wrong_work: '밑 조건 $-x\neq1$을 빠뜨려 $x=-1$까지 포함해 합을 $-10$으로 답함'
+    detect_cue: '답이 $-10$'
+    feedback: '로그의 밑은 양수이고 1이 아니어야 합니다. $-x=1$인 $x=-1$은 제외하세요.'
+    remedy:
+    - 'RL-1'
+remedy_links:
+- id: 'RL-1'
+  trigger:
+    type: misconception
+    ref: 'MC-ALG-8510'
+  relation: remediation
+  target:
+    kind: concept
+    ref: 'CON-ALG-LOG-DEF'
+  priority: 1
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: opus
+  prompt_version: 'p3-past-v1'
+  item_version: 1
+  verdict: pass
+  date: *id001
+created: *id001
+updated: *id001

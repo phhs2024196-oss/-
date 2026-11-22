@@ -1,0 +1,170 @@
+# 가천대 2022학년도 수시 논술고사 자연계 C형 [문제 10] — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: GCU-G22C-10
+legacy_id: null
+version: 1
+status: draft
+exam_family: yaksul
+item_type: short_answer
+origin: past_exam
+school: GCU
+type: null
+variant_of: null
+replaces: null
+level: L3
+form: 추론
+points: 10
+time_estimate_min: 3
+intent: |
+  제시문의 상황에서 삼각함수의 그래프를 이용하여 문제를 해결할 수 있는지를 평가한다(문항카드 출제 의도 원문). 삼각함수 사이의 관계로 $\sin x$의 이차방정식을 만들고, $\tan x$가 정의되지 않는 해를 제외한다.
+key_idea: |
+  $\cos x\tan x=\sin x$, $\cos^2x=1-\sin^2x$로 $2\sin^2x+3\sin x+1=0$; $\sin x=-1$이면 $\tan x$ 정의 안 됨.
+stuck: |
+  $x=\frac32\pi$를 해에서 빼는 것.
+idea_tags: [IDEA-TRIG-QUADRATIC-DOMAIN-CHECK]
+tags: ['삼각방정식', '정의역', '삼각함수 사이의 관계']
+elements:
+  materials:
+  - '$3+3\cos x\tan x=2\cos^2x$'
+  - '$0\le x<2\pi$'
+  concepts:
+  - '삼각함수 사이의 관계'
+  - '삼각방정식'
+  - '탄젠트함수의 정의역'
+  tools:
+  - '$\sin x$에 대한 이차방정식 인수분해'
+  conditions:
+  - '$0\le x<2\pi$'
+  - '$\tan x$가 정의되어야 함'
+  stimuli_used: []
+  subpart_links: '단일 논제'
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅰ]
+  scope_2028: common
+  scope_confirmed: false
+  standards:
+  - code: '12수학Ⅰ02-02'
+    text: '삼각함수의 뜻을 알고, 사인함수, 코사인함수, 탄젠트함수의 그래프를 그릴 수 있다.'
+    verified: false
+  content_area: '삼각함수'
+  behavior_domain: 계산
+  unit_path: ['수학Ⅰ', '삼각함수', '삼각함수의 활용', '삼각방정식']
+  key_concepts: ['삼각방정식', '탄젠트함수']
+difficulty: {rater: author, p_value: null, n: 0}
+source:
+  rights_holder: '가천대학교'
+  license: 'all_rights_reserved'
+  permission_status: 'not_requested'
+  allowed_use: 'internal_only'
+  derivative_level: 'verbatim'
+  institution: '가천대학교'
+  admission_year: 2022
+  admission_type: '수시 논술전형'
+  track: '자연계 C형'
+  question_no: 10
+  official_url: https://admission.gachon.ac.kr/admission/html/counsel/noticeView.asp?BOARD_IDX=6664&s_cate=BBS0401
+  retrieved_at: 2026-11-21
+  original_points: [10]
+  rights_notice: '미확인(대학 원본 표지 문구 확인 필요)'
+  transcribed_from: '「2022학년도 가천대학교 대학별 고사 선행학습 영향평가 자체평가 보고서[업로드용].pdf」 자연C 문제10 문항카드(PDF 317~318쪽, 인쇄 314~315쪽) 렌더링 판독 — 문항·출제 의도·출제 근거·채점 기준·예시 답안'
+  textbook_basis: '교과서 수학Ⅰ 미래엔(황선욱 외 8, 2020) 78·90쪽·천재교육(이준열 외 9, 2020) 79·91쪽(보고서 카드 자료 출처)'
+verify: verify/GCU-G22C.py::p10
+stimuli: []
+stem: |
+  $0\le x<2\pi$에서 방정식 $3+3\cos x\tan x=2\cos^2x$의 모든 실근의 합을 구하는 과정을 서술하시오.
+subparts:
+- id: '1'
+  stem: |
+    모든 실근의 합을 구하는 과정을 서술하시오.
+  points: 10
+  depends_on: []
+  answer: {kind: value, value: '3π', equivalents: [], tolerance: null}
+  solutions:
+  - id: 'S1-A'
+    audience: A
+    method_no: 1
+    key_idea: |
+      $(2\sin x+1)(\sin x+1)=0$; $\sin x=-\frac12$의 두 해만 남는다.
+    steps:
+    - id: '1a'
+      content: |
+        $x=\frac76\pi,\ \frac{11}6\pi$ ($x=\frac32\pi$ 제외), 합 $3\pi$
+      criteria: ['1.M1', '1.A1', '1.A2', '1.A3']
+    hint_ladder:
+    - '$\cos x\tan x=\sin x$, $\cos^2x=1-\sin^2x$로 바꾸세요.'
+    - '$\tan x$가 정의되지 않는 $x$가 해에 섞여 있지 않은지 확인하세요.'
+  - id: 'S1-B'
+    audience: B
+    source_flow: '보고서 자연C 문제10 문항카드 6. 채점 기준·7. 예시 답안 혹은 정답(PDF 317~318쪽)'
+    method_no: 1
+    steps:
+    - id: '1b-1'
+      content: |
+        삼각함수의 관계식 $\tan x=\dfrac{\sin x}{\cos x}$과 $\cos^2x=1-\sin^2x$을 식에 대입하여 정리하면 $2\sin^2x+3\sin x+1=0$의 식을 얻는다. $(2\sin x+1)(\sin x+1)=0$으로 인수분해 되어 $\sin x=-\dfrac12$ 또는 $\sin x=-1$을 만족하는 해를 구한다.
+      criteria: ['1.M1']
+    - id: '1b-2'
+      content: |
+        $0\le x<2\pi$에서 (1) $\sin x=-\dfrac12$이므로 $x=\dfrac76\pi,\ \dfrac{11}6\pi$이다.
+      criteria: ['1.A1']
+    - id: '1b-3'
+      content: |
+        (2) $\sin x=-1$이므로 $x=\dfrac32\pi$를 만족하지만 이 경우 $\cos\dfrac32\pi=0$이므로 $\tan x$가 정의되지 않으므로 해가 되지 않는다.
+      criteria: ['1.A2']
+    - id: '1b-4'
+      content: |
+        따라서 모든 실근은 $x=\dfrac76\pi,\ \dfrac{11}6\pi$이고 합은 $\dfrac76\pi+\dfrac{11}6\pi=3\pi$이다.
+      criteria: ['1.A3']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 0, isw: true}
+    criteria:
+    - id: '1.M1'
+      mark_type: 'M'
+      points: 3
+      evidence: |
+        $2\sin^2x+3\sin x+1=0$ 또는 $(2\sin x+1)(\sin x+1)=0$(채점기준 3점).
+      depends_on: []
+      implied_ok: false
+      steps: ['1b-1']
+    - id: '1.A1'
+      mark_type: 'A'
+      points: 2
+      evidence: |
+        $\sin x=-\frac12$이므로 $x=\frac76\pi,\ \frac{11}6\pi$(채점기준 2점).
+      depends_on: ['1.M1']
+      steps: ['1b-2']
+    - id: '1.A2'
+      mark_type: 'A'
+      points: 3
+      evidence: |
+        $\sin x=-1$이므로 $x=\frac32\pi$를 만족하지만 이 경우 $\cos\frac32\pi=0$이므로 $\tan x$가 정의되지 않으므로 해가 되지 않는다(채점기준 3점).
+      depends_on: ['1.M1']
+      steps: ['1b-3']
+    - id: '1.A3'
+      mark_type: 'A'
+      points: 2
+      evidence: |
+        $3\pi$(채점기준 2점).
+      depends_on: ['1.M1', '1.A1', '1.A2']
+      steps: ['1b-4']
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-ALG-8122}
+  misconceptions:
+  - id: MC-ALG-8122
+    outcome_code: '71'
+    wrong_work: '$x=\frac32\pi$를 해에 포함해 합을 $\frac92\pi$로 답함'
+    detect_cue: '답이 $\frac92\pi$이다'
+    feedback: '$\cos x=0$이면 $\tan x$가 정의되지 않습니다. 원래 방정식에 대입할 수 있는 해인지 확인하세요.'
+    remedy: [RL-1]
+remedy_links:
+- id: 'RL-1'
+  trigger: {type: misconception, ref: MC-ALG-8122}
+  relation: remediation
+  target: {kind: concept, ref: CON-ALG-TRIG-EQ-DOMAIN}
+  priority: 1
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+created: 2026-11-21
+updated: 2026-11-21

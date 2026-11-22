@@ -1,0 +1,177 @@
+# 가천대 2022학년도 수시 논술고사 자연계 B형 [문제 8] — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: GCU-G22B-08
+legacy_id: null
+version: 1
+status: draft
+exam_family: yaksul
+item_type: short_answer
+origin: past_exam
+school: GCU
+type: null
+variant_of: null
+replaces: null
+level: L3
+form: 추론
+points: 10
+time_estimate_min: 2
+intent: |
+  제시문의 상황에서 두 그래프로 둘러싸인 부분의 넓이를 정적분을 이용하여 문제를 해결할 수 있는지를 평가한다(문항카드 출제 의도 원문). 절댓값을 기준으로 구간을 나눠 교점과 넓이를 구한다.
+key_idea: |
+  $x<2$에서 $g=2x+1$, $x\ge2$에서 $g=-2x+9$; 교점 $x=0$, $x=4$; 넓이는 두 구간 정적분의 합 $\frac{40}3$.
+stuck: |
+  절댓값 함수 $g$를 $x=2$ 기준으로 나누는 것.
+idea_tags: [IDEA-ABS-SPLIT-AREA]
+tags: ['두 곡선 사이의 넓이', '절댓값 함수', '빈칸 완성형']
+elements:
+  materials:
+  - '$f(x)=\frac12x^2-2x+1$'
+  - '$g(x)=5-2|x-2|$'
+  - '두 그래프로 둘러싸인 부분의 넓이 $S$'
+  concepts:
+  - '두 곡선 사이의 넓이'
+  - '절댓값이 있는 함수'
+  tools:
+  - '$x=2$ 기준 구간 나누기'
+  - '정적분 계산(대칭 이용 가능)'
+  conditions:
+  - '$x<2$, $x\ge2$로 구분'
+  stimuli_used: []
+  subpart_links: '단일 논제'
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅱ]
+  scope_2028: common
+  scope_confirmed: false
+  standards:
+  - code: '12수학Ⅱ03-05'
+    text: '곡선으로 둘러싸인 도형의 넓이를 구할 수 있다.'
+    verified: false
+  content_area: '적분 – 정적분의 활용'
+  behavior_domain: 계산
+  unit_path: ['수학Ⅱ', '적분', '정적분의 활용', '두 곡선 사이의 넓이']
+  key_concepts: ['넓이', '절댓값']
+difficulty: {rater: author, p_value: null, n: 0}
+source:
+  rights_holder: '가천대학교'
+  license: 'all_rights_reserved'
+  permission_status: 'not_requested'
+  allowed_use: 'internal_only'
+  derivative_level: 'verbatim'
+  institution: '가천대학교'
+  admission_year: 2022
+  admission_type: '수시 논술전형'
+  track: '자연계 B형'
+  question_no: 8
+  official_url: https://admission.gachon.ac.kr/admission/html/counsel/noticeView.asp?BOARD_IDX=6664&s_cate=BBS0401
+  retrieved_at: 2026-11-21
+  original_points: [10]
+  rights_notice: '미확인(대학 원본 표지 문구 확인 필요)'
+  transcribed_from: '「2022학년도 가천대학교 대학별 고사 선행학습 영향평가 자체평가 보고서[업로드용].pdf」 자연B 문제8 문항카드(PDF 291~293쪽, 인쇄 288~290쪽) 렌더링 판독 — 문항·출제 의도·출제 근거·채점 기준·예시 답안'
+  textbook_basis: '교과서 수학Ⅱ 미래엔(황선욱 외 8, 2020) 140쪽·천재교육(이준열 외 9, 2020) 137쪽(보고서 카드 자료 출처)'
+  note: '카드 7. 예시 답안은 $S$의 첫 번째 식만 쓰고 계산값 $\frac{40}{3}$으로 끝남. 채점 기준 ③은 동치인 네 식을 모두 인정.'
+verify: verify/GCU-G22B.py::p08
+stimuli: []
+stem: |
+  두 함수 $f(x)=\dfrac{1}{2}x^2-2x+1$, $g(x)=5-2|x-2|$의 그래프로 둘러싸인 부분의 넓이 $S$를 구하는 다음의 풀이 과정을 완성하시오.
+
+  [풀이 과정] $x<2$일 때, 두 그래프의 교점은 $f(x)=g(x)$에서 $x=$ ( ① )이다.
+  $x\ge2$일 때, 두 그래프의 교점은 $f(x)=g(x)$에서 $x=$ ( ② )이다.
+  따라서 넓이를 정적분의 식으로 나타내면 $S=$ ( ③ )이고,
+  이 정적분의 값을 구하면 $S=$ ( ④ ) 이다.
+subparts:
+- id: '1'
+  stem: |
+    빈칸 ①~④를 채워 풀이 과정을 완성하시오.
+  points: 10
+  depends_on: []
+  answer: {kind: value, value: '① 0  ② 4  ③ ∫_0^2{(2x+1)-f}dx+∫_2^4{(-2x+9)-f}dx  ④ 40/3', equivalents: [], tolerance: null}
+  solutions:
+  - id: 'S1-A'
+    audience: A
+    method_no: 1
+    key_idea: |
+      교점 $x=0,4$; $S=\int_0^2\left(4x-\frac12x^2\right)dx+\int_2^4\left(8-\frac12x^2\right)dx=\frac{40}3$.
+    steps:
+    - id: '1a'
+      content: |
+        ① $0$ ② $4$ ③ 두 구간 정적분 ④ $\frac{40}3$
+      criteria: ['1.B1', '1.B2', '1.M1', '1.A1']
+    hint_ladder:
+    - '$x<2$이면 $|x-2|=2-x$입니다.'
+    - '넓이는 (위 그래프)−(아래 그래프)를 구간별로 적분합니다.'
+  - id: 'S1-B'
+    audience: B
+    source_flow: '보고서 자연B 문제8 문항카드 6. 채점 기준·7. 예시 답안 혹은 정답(PDF 291~293쪽)'
+    method_no: 1
+    steps:
+    - id: '1b-1'
+      content: |
+        $x<2$일 때 $g(x)=2x+1$이므로 $\dfrac12x^2-2x+1=2x+1$에서 교점은 $x=0$이다.
+      criteria: ['1.B1']
+    - id: '1b-2'
+      content: |
+        $x\ge2$일 때 $g(x)=-2x+9$이므로 $\dfrac12x^2-2x+1=-2x+9$에서 교점은 $x=4$이다.
+      criteria: ['1.B2']
+    - id: '1b-3'
+      content: |
+        따라서 넓이는
+        $$S=\int_0^2(2x+1)-\left(\frac12x^2-2x+1\right)dx+\int_2^4(-2x+9)-\left(\frac12x^2-2x+1\right)dx$$
+      criteria: ['1.M1']
+    - id: '1b-4'
+      content: |
+        $$=\left[2x^2-\frac16x^3\right]_0^2+\left[-\frac16x^3+8x\right]_2^4=\frac{40}{3}$$이다.
+      criteria: ['1.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 0, isw: true}
+    criteria:
+    - id: '1.B1'
+      mark_type: 'B'
+      points: 2
+      evidence: |
+        ① $x<2$일 때 교점은 $x=0$(채점기준 2점).
+      depends_on: ['1.B1']
+      steps: ['1b-1']
+    - id: '1.B2'
+      mark_type: 'B'
+      points: 2
+      evidence: |
+        ② $x\ge2$일 때 교점은 $x=4$(채점기준 2점).
+      depends_on: []
+      steps: ['1b-2']
+    - id: '1.M1'
+      mark_type: 'M'
+      points: 3
+      evidence: |
+        ③ $S=\int_0^2(2x+1)-\left(\frac12x^2-2x+1\right)dx+\int_2^4(-2x+9)-\left(\frac12x^2-2x+1\right)dx$ 또는 $S=\int_0^24x-\frac12x^2\,dx+\int_2^48-\frac12x^2\,dx$ 또는 $S=2\int_0^2(2x+1)-\left(\frac12x^2-2x+1\right)dx$ 또는 $S=2\int_0^24x-\frac12x^2\,dx$(채점기준 3점).
+      depends_on: []
+      implied_ok: false
+      steps: ['1b-3']
+    - id: '1.A1'
+      mark_type: 'A'
+      points: 3
+      evidence: |
+        ④ 넓이 $S=\frac{40}3$(채점기준 3점).
+      depends_on: ['1.M1']
+      steps: ['1b-4']
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-8111}
+  misconceptions:
+  - id: MC-CAL-8111
+    outcome_code: '71'
+    wrong_work: '$g(x)=5-2(x-2)$로 절댓값을 그대로 풀어 한 식으로 적분'
+    detect_cue: '교점이 하나만 나오거나 넓이가 $\frac{40}3$이 아니다(예: $x<2$에서도 $-2x+9$ 사용)'
+    feedback: '$|x-2|$는 $x<2$일 때 $2-x$입니다. 구간을 나눠 $g$의 식을 먼저 정하세요.'
+    remedy: [RL-1]
+remedy_links:
+- id: 'RL-1'
+  trigger: {type: misconception, ref: MC-CAL-8111}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-AREA-BETWEEN}
+  priority: 1
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+created: 2026-11-21
+updated: 2026-11-21
