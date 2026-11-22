@@ -1,0 +1,254 @@
+# 상명대 2026학년도 수시 논술(자연) 문제 3 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+# 배점 단위: 원 배점이 소수(4.7점 등)라 0.1점 단위 정수로 저장(points 100 = 10.0점). 원 배점은 source.original_points.
+schema_version: '2.0'
+id: SMU-G26N-03
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: short_answer
+origin: past_exam
+school: SMU
+type: null
+variant_of: null
+replaces: null
+level: L3
+form: 추론
+points: 100
+time_estimate_min: 8
+intent: |
+  등비수열의 정의를 활용하여 일반항을 구할 수 있다. 등비수열의 첫째항부터 제 $n$항까지의 합의 공식을 활용하여 문제를 해결할 수 있다.
+key_idea: |
+  $a_1=\frac1r$이므로 $a_n=r^{n-2}$, $b_n=r^{3n-3}$은 첫째항 $1$, 공비 $r^3$인 등비수열이다.
+idea_tags: []
+tags:
+- 약술형
+- 공식 정답 비공개(자체 풀이·sympy 검산)
+- 배점 0.1점 단위 정수 저장
+- 자연 논술고사 3번
+elements:
+  materials:
+  - 첫째항과 공비의 곱이 1인 증가 등비수열
+  - $b_n=a_{3n-1}$
+  concepts:
+  - 등비수열의 일반항
+  - 등비수열의 합
+  tools:
+  - $r^9-1=(r^3-1)(r^6+r^3+1)$ 인수분해
+  - 지수부등식
+  conditions:
+  - $a_n<a_{n+1}$ → $r>1$
+  - $2A_9=7B_3$
+  stimuli_used: []
+  subpart_links: (2)(3)은 (1)의 공비 $2$를 사용
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학Ⅰ
+  scope_2028: unknown
+  scope_confirmed: false
+  standards:
+  - code: 12수학Ⅰ03-03
+    text: 등비수열의 뜻을 알고, 일반항, 첫째항부터 제 $n$항까지의 합을 구할 수 있다.
+    verified: true
+  content_area: 수열
+  behavior_domain: 계산
+  unit_path:
+  - 수학Ⅰ
+  - 수열
+  - 등비수열
+  key_concepts:
+  - 등비수열
+  - 등비수열의 합
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 상명대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 상명대학교(서울캠퍼스)
+  admission_year: 2026
+  admission_type: 수시 논술전형
+  track: 자연 논술고사(국어·수학 약술형 10문항 중 수학)
+  question_no: 3
+  official_url: https://admission.smu.ac.kr/_seoul/board/bbs.html?bbsid=seoul_dataroom&ctg_cd=susi&mode=view&bltn_seq=61691
+  retrieved_at: '2026-11-22'
+  original_points:
+  - 5.1
+  - 3.0
+  - 1.9
+  rights_notice: 가이드북 '문항해설 및 정답은 공개하지 않습니다' — 출제범위·의도·근거만 공개
+  transcribed_from: 「2027학년도 수시모집 논술전형 논술가이드북」(상명대 서울캠퍼스 입학처, guidebook.pdf) [자연] 문제 3, 가이드북 PDF 33쪽(인쇄 쪽번호 30) — 이미지 판독 전사 2026-11-22
+verify: verify/SMU-G26N.py::p03
+stimuli: []
+stem: |
+  모든 자연수 $n$에 대하여 $a_n<a_{n+1}$이고, 첫째항 $a_1$과 공비의 곱이 1인 등비수열 $\{a_n\}$에 대하여 수열 $\{b_n\}$을 $b_n=a_{3n-1}$이라 하자. 수열 $\{a_n\}$의 첫째항에서 제$n$항까지의 합을 $A_n$, 수열 $\{b_n\}$의 첫째항에서 제$n$항까지의 합을 $B_n$이라 할 때, $2A_9=7B_3$을 만족시킨다. 다음 물음에 답하시오.
+
+  (1) 등비수열 $\{a_n\}$의 공비를 구하시오.
+
+  (2) $\dfrac{b_n}{a_n}>1024$를 만족시키는 가장 작은 자연수 $n$을 구하시오.
+
+  (3) $\log_{b_3}a_5$의 값을 구하시오.
+subparts:
+- id: '1'
+  stem: |
+    ① 등비수열 $\{a_n\}$의 공비를 구하는 과정을 서술하시오. (5.1점)
+  points: 51
+  depends_on: []
+  answer:
+    kind: value
+    value: '2'
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 공식 해설·정답 비공개(가이드북 명시) — 출제 의도(가이드북 PDF 33쪽(인쇄 쪽번호 30)) 흐름에 따른 자체 풀이, sympy 검산
+    steps:
+    - id: 1b-1
+      content: |
+        공비를 $r$라 하면 $a_1=\dfrac1r$, $a_n=r^{n-2}$이고 $b_n=a_{3n-1}=r^{3n-3}$은 첫째항 $1$, 공비 $r^3$인 등비수열이다.
+      criteria:
+      - 1.M1
+    - id: 1b-2
+      content: |
+        $A_9=\dfrac{r^9-1}{r(r-1)}$, $B_3=\dfrac{r^9-1}{r^3-1}$이므로 $2A_9=7B_3$에서 $\dfrac{2}{r(r-1)}=\dfrac{7}{r^3-1}$, $2(r^2+r+1)=7r$, $2r^2-5r+2=0$, $r=2$ 또는 $r=\dfrac12$.
+      criteria:
+      - 1.M1
+    - id: 1b-3
+      content: |
+        $a_n<a_{n+1}$이고 $a_1=\dfrac1r>0$이므로 $r>1$, 공비는 $2$이다.
+      criteria:
+      - 1.M1
+      - 1.A1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 0
+      isw: true
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 31
+      evidence: '풀이 과정(핵심 조건을 식으로 세우고 논리적으로 전개)을 서술했다. # 채점기준 미공개 — 과정 60%/답 40% 추정'
+      implied_ok: false
+      steps:
+      - 1b-1
+      - 1b-2
+    - id: 1.A1
+      mark_type: A
+      points: 20
+      evidence: '최종 답을 정확히 구했다. # 채점기준 미공개 — 추정'
+      depends_on:
+      - 1.M1
+      implied_ok: false
+      steps:
+      - 1b-3
+    deductions: []
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+- id: '2'
+  stem: |
+    ② $n$ = ______ (3.0점)
+  points: 30
+  depends_on: []
+  answer:
+    kind: value
+    value: '6'
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S2-B
+    audience: B
+    method_no: 1
+    source_flow: 공식 해설·정답 비공개(가이드북 명시) — 출제 의도(가이드북 PDF 33쪽(인쇄 쪽번호 30)) 흐름에 따른 자체 풀이, sympy 검산
+    steps:
+    - id: 2b-1
+      content: |
+        $\dfrac{b_n}{a_n}=\dfrac{2^{3n-3}}{2^{n-2}}=2^{2n-1}>2^{10}$에서 $n>\dfrac{11}2$, 가장 작은 자연수는 $6$.
+      criteria:
+      - 2.B1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: false
+      a_requires_m: false
+      misread_penalty: 0
+      isw: true
+    criteria:
+    - id: 2.B1
+      mark_type: B
+      points: 30
+      evidence: '정답을 정확히 기재했다(약술형 빈칸: 정답만 채점). # 공식 채점기준 미공개'
+      depends_on: []
+      cao: true
+      steps:
+      - 2b-1
+    deductions: []
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+- id: '3'
+  stem: |
+    ③ $\log_{b_3}a_5$ = ______ (1.9점)
+  points: 19
+  depends_on: []
+  answer:
+    kind: value
+    value: 1/2
+    equivalents:
+    - $\dfrac12$
+    tolerance: null
+  solutions:
+  - id: S3-B
+    audience: B
+    method_no: 1
+    source_flow: 공식 해설·정답 비공개(가이드북 명시) — 출제 의도(가이드북 PDF 33쪽(인쇄 쪽번호 30)) 흐름에 따른 자체 풀이, sympy 검산
+    steps:
+    - id: 3b-1
+      content: |
+        $b_3=2^6$, $a_5=2^3$이므로 $\log_{2^6}2^3=\dfrac12$.
+      criteria:
+      - 3.B1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: false
+      a_requires_m: false
+      misread_penalty: 0
+      isw: true
+    criteria:
+    - id: 3.B1
+      mark_type: B
+      points: 19
+      evidence: '정답을 정확히 기재했다(약술형 빈칸: 정답만 채점). # 공식 채점기준 미공개'
+      depends_on: []
+      cao: true
+      steps:
+      - 3b-1
+    deductions: []
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: opus
+  prompt_version: past-v2-lean
+  item_version: 1
+  verdict: pass
+  date: '2026-11-22'
+created: '2026-11-22'
+updated: '2026-11-22'
