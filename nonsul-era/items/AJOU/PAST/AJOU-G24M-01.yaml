@@ -1,0 +1,470 @@
+# 아주대 2024학년도 논술고사 자연계열(의학과) 문항 1(수학) — 기출 원문은 내부 분석용(allowed_use: internal_only)
+# 문항 2는 생명과학이라 DB 대상 아님. 소문항 id: 'k-j' = [문제 1-k]의 (j). 배점 단위는 공식 채점기준을 따름
+schema_version: '2.0'
+id: AJOU-G24M-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: AJOU
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 분류
+points: 50
+time_estimate_min: 60
+intent: |
+  두 포물선으로 둘러싸인 도형의 넓이와 그 안의 정수점 개수를 경우를 나누어 세고, 구간 $[0,1)$의 함수를 주기 $1$로 반복한 '반복함수'의 정수점·미분가능성·직선과의 교점 개수를 분석하는 능력을 본다.
+key_idea: |
+  정수점은 $y=0,1,2$ 위에만 있고 $y=1$ 위의 개수는 $x^2\le n$으로 정해진다. 반복함수의 미분가능성은 $f(0)=f(1)$, $f'(0)=f'(1)$이며, $y=ax$와의 교점은 각 주기 구간에서 1개씩이고 경계 구간에서만 0·1·2개로 갈린다.
+stuck: |
+  [문제 1-1](2)에서 $\sqrt{2n}$이 정수인지에 따라 $(p,2)$꼴 정수점 유무가 갈린다는 것, [문제 1-2](3)에서 $-2024<x<-2023$ 구간의 접함·두 점 교차 경우를 찾는 것
+idea_tags: [IDEA-LATTICE-COUNT-BY-ROW, IDEA-PERIODIC-EXTENSION-SMOOTH-GLUE, IDEA-LINE-PERIODIC-INTERSECTION-COUNT]
+tags: [정수점, 주기함수, 교점의 개수]
+elements:
+  materials:
+  - '두 곡선 $y=\dfrac{x^2}{n}$, $y=\dfrac{x^2}{2n}+1$로 둘러싸인 도형 $A_n$'
+  - '정수점(격자점)'
+  - '$[0,1)$의 함수를 주기 1로 반복한 반복함수 $g$'
+  - '$\log_2(x+p)$, 최고차항 계수 1인 삼차함수, $\cos\pi x$'
+  concepts:
+  - '정적분과 두 곡선 사이의 넓이'
+  - '격자점 세기'
+  - '로그와 등비수열의 합'
+  - '미분가능성(연결점에서 함숫값·미분계수 일치)'
+  - '극대·극소와 최댓값'
+  - '함수의 그래프와 직선의 교점 개수'
+  tools:
+  - '대칭성으로 제1사분면만 세기'
+  - '$y$좌표별(행별) 세기'
+  - '$f(0)=f(1)$, $f''(0)=f''(1)$ 연립'
+  - '구간별 교점 수 합산'
+  conditions:
+  - '$\sqrt{2n}$이 정수인지에 따른 경우 분류, $n\ne32$'
+  - '양수 $p$, $\lvert\log_2p\rvert\le20$인 정수'
+  - '$-\dfrac{1}{2023}<a\le-\dfrac{1}{2024}$ 경계 포함 여부'
+  stimuli_used: ['1-1: 가', '1-2: 가', '2-1: 나', '2-2: 나', '2-3: 나']
+  subpart_links: '[문제 1-1]은 (가), [문제 1-2]는 (나)의 반복함수 정의를 쓰며 서로 독립'
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅰ, 수학Ⅱ, 미적분]
+  scope_2028: calc2
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 정적분으로 넓이를 구하고 함수의 미분가능성과 그래프를 이용해 방정식의 실근 개수를 판단할 수 있다(요지)
+    verified: false
+  content_area: 적분법·미분법·수열
+  behavior_domain: 문제해결
+  unit_path: [수학Ⅱ, 적분, 정적분의 활용, 두 곡선 사이의 넓이]
+  key_concepts: [두 곡선 사이의 넓이, 격자점, 등비수열의 합, 미분가능성, 극값, 교점의 개수]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 아주대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 아주대학교
+  admission_year: 2024
+  admission_type: 수시 논술우수자
+  track: 자연계열(의학과)
+  question_no: 1
+  official_url: https://www.iajou.ac.kr/pasttest/view.php?bn=75175&m_type=SUSI
+  retrieved_at: 2026-11-21
+  original_points: [8, 12, 8, 10, 12]
+  rights_notice: 미확인
+  transcribed_from: '아주대 입학처 공식 PDF「2024학년도 논술고사 자연계열(의학과)」p.2–3(문제), p.8–9(모범답안), p.11(채점기준) (이미지 대조 2026-11-21)'
+
+verify: verify/AJOU-G24M.py::p01
+
+stimuli:
+- label: 가
+  body: |
+    좌표평면 위의 점 $\mathrm{P}$의 $x$좌표와 $y$좌표가 모두 정수일 때 점 $\mathrm{P}$를 '정수점'이라 하자. 자연수 $n$에 대하여 두 곡선 $y=\dfrac{x^2}{n}$과 $y=\dfrac{x^2}{2n}+1$로 둘러싸인 도형을 $A_n$이라 하자. [그림 1]은 도형 $A_2$를 나타낸 것이며 $A_2$의 내부 또는 경계 위에 있는 정수점의 개수는 $6$이다.
+    [그림 1: $y=\dfrac{x^2}{2}$와 $y=\dfrac{x^2}{4}+1$로 둘러싸인 색칠된 도형 $A_2$. 두 곡선은 $(-2,2)$, $(2,2)$에서 만나고, 정수점 $(-2,2),(2,2),(-1,1),(0,1),(1,1),(0,0)$이 점으로 표시됨]
+- label: 나
+  body: |
+    함수 $f$에 대하여 다음 <조건>을 만족시키는 함수 $g$를 $f$의 '반복함수'라 하자.
+    <조건>
+    ① $0\le x<1$이면 $g(x)=f(x)$이다.
+    ② 모든 실수 $x$에 대하여 $g(x)=g(x+1)$이다.
+    예를 들어 $f(x)=2x+1$일 때 $f(x)$의 반복함수 $y=g(x)$의 그래프는 [그림 2]와 같다.
+    [그림 2: 각 구간 $[k,k+1)$에서 점 $(k,1)$(채운 점)에서 출발해 $(k+1,3)$(빈 점) 직전까지 올라가는 선분이 반복되는 톱니 모양 그래프. $x$축에 $-2,-1,\mathrm{O},1,2,3$, $y$축에 $1,2,3$ 표시]
+
+stem: |
+  다음 제시문을 읽고 문제에 답하시오.
+
+subparts:
+- id: '1-1'
+  stem: |
+    [문제 1-1] 제시문 (가)를 읽고 물음에 답하시오.
+    (1) $A_n$의 넓이가 $100$ 이하이도록 하는 자연수 $n$의 최댓값을 구하시오.
+  points: 8
+  depends_on: []
+  answer: {kind: value, value: '2812', equivalents: [], tolerance: null}
+  solutions:
+  - id: S11-A
+    audience: A
+    method_no: 1
+    key_idea: 교점 $x=\pm\sqrt{2n}$, 넓이 $\tfrac{4\sqrt{2n}}{3}\le100$.
+    steps:
+    - {id: 11a, content: '$\sqrt{2n}\le75\Rightarrow n\le2812.5$', criteria: ['1-1.M1', '1-1.M2', '1-1.A1', '1-1.A2']}
+    hint_ladder:
+    - 두 곡선의 교점을 먼저 구하자.
+  - id: S11-B
+    audience: B
+    source_flow: 모범답안 p.1 (PDF p.8)
+    method_no: 1
+    steps:
+    - id: 11b-1
+      content: |
+        $A_n$의 넓이를 $S_n$이라 하자. $\dfrac{x^2}{n}=\dfrac{x^2}{2n}+1$에서 $x=\pm\sqrt{2n}$이다.
+      criteria: ['1-1.M1']
+    - id: 11b-2
+      content: |
+        $$S_n=\int_{-\sqrt{2n}}^{\sqrt{2n}}\left(\frac{x^2}{2n}+1-\frac{x^2}{n}\right)dx$$
+      criteria: ['1-1.M2']
+    - id: 11b-3
+      content: |
+        $$S_n=\left[-\frac{x^3}{6n}+x\right]_{-\sqrt{2n}}^{\sqrt{2n}}=\frac{4\sqrt{2n}}{3}$$
+        이다.
+      criteria: ['1-1.A1']
+    - id: 11b-4
+      content: |
+        따라서 $S_n=\dfrac{4\sqrt{2n}}{3}\le100$에서 $n\le\dfrac{90000}{32}=2812.5$이므로 구하는 자연수 $n$의 최댓값은 $2812$이다.
+      criteria: ['1-1.A2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1-1.M1
+      mark_type: M
+      points: 2
+      evidence: |
+        교점의 $x$좌표 $\pm\sqrt{2n}$을 구했다.
+      depends_on: []
+      implied_ok: false
+      steps: [11b-1]
+    - id: 1-1.M2
+      mark_type: M
+      points: 2
+      evidence: |
+        넓이를 구하는 정적분의 식을 적었다.
+      depends_on: [1-1.M1]
+      steps: [11b-2]
+    - id: 1-1.A1
+      mark_type: A
+      points: 2
+      evidence: |
+        정적분을 계산해 $\dfrac{4\sqrt{2n}}{3}$을 얻었다.
+      depends_on: [1-1.M2]
+      steps: [11b-3]
+    - id: 1-1.A2
+      mark_type: A
+      points: 2
+      evidence: |
+        부등식을 풀어 $n$의 최댓값 $2812$를 구했다.
+      depends_on: [1-1.M2, 1-1.A1]
+      steps: [11b-4]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '1-2'
+  stem: |
+    (2) $A_n$의 내부 또는 경계 위에 있는 정수점의 개수가 $12$이도록 하는 자연수 $n$의 값을 모두 구하시오.
+  points: 12
+  depends_on: []
+  answer: {kind: set, value: '[18, 25, 26, 27, 28, 29, 30, 31, 33, 34, 35]', equivalents: [], tolerance: null}
+  solutions:
+  - id: S12-A
+    audience: A
+    method_no: 1
+    key_idea: 정수점은 $(0,0),(0,1)$과 대칭인 제1사분면 5개. $y=1$ 위는 $x^2\le n$, $y=2$ 위는 $\sqrt{2n}$이 정수일 때만.
+    steps:
+    - {id: 12a, content: '$\sqrt{2n}$ 정수: $16\le n<25\Rightarrow n=18$ / 아니면 $25\le n<36$, $n\ne32$', criteria: ['1-2.M1', '1-2.A1', '1-2.A2', '1-2.A3']}
+    hint_ladder:
+    - $A_n$ 안의 점의 $y$좌표는 $0\le y\le2$이다.
+    - $y=1$ 위의 정수점은 몇 개인가?
+  - id: S12-B
+    audience: B
+    source_flow: 모범답안 p.1 (PDF p.8)
+    method_no: 1
+    steps:
+    - id: 12b-1
+      content: |
+        두 점 $(0,0)$과 $(0,1)$은 항상 $A_n$의 내부 또는 경계 위에 있는 $y$축 위의 정수점이다. 두 곡선 $y=\dfrac{x^2}{n}$과 $y=\dfrac{x^2}{2n}+1$이 $y$축에 대하여 대칭이고, $A_n$의 내부 또는 경계 위에 있는 정수점의 개수가 $12$이므로, 제1사분면 위의 정수점의 개수는 $5$이다. 두 곡선의 교점의 좌표는 $(\pm\sqrt{2n},2)$이다. 따라서 점 $(p,q)$가 $A_n$의 내부 또는 경계 위에 있는 제1사분면 위의 정수점일 때 $p$는 자연수이고, $q=1$ 또는 $q=2$이다.
+        $y=1$일 때 제1사분면의 $A_n$의 경계 위에 있는 점의 $x$좌표는 $x^2=n$을 만족한다(즉 $(p,1)$꼴 정수점은 $p^2\le n$).
+      criteria: ['1-2.M1']
+    - id: 12b-2
+      content: |
+        (i) $\sqrt{2n}$이 정수인 경우: 두 곡선의 교점 $(\sqrt{2n},2)$는 $A_n$의 경계 위에 있는 제1사분면의 정수점이므로 $(p,1)$꼴의 정수점의 개수가 $4$이다. 따라서 $(p,1)$꼴의 정수점의 개수가 $4$가 되려면 $16\le n<25$를 만족해야 한다. 또한 $\sqrt{2n}$이 정수이므로 $n=18$이다.
+      criteria: ['1-2.A1']
+    - id: 12b-3
+      content: |
+        (ii) $\sqrt{2n}$이 정수가 아닌 경우: $(p,2)$꼴의 정수점은 존재하지 않으므로 $(p,1)$꼴의 정수점의 개수가 $5$이다. (i)과 마찬가지로 이 경우에는 $25\le n<36$을 만족해야 한다. 또한 $\sqrt{2n}$이 정수가 아니므로 $25\le n<36$이고 $n\ne32$이다.
+      criteria: ['1-2.A2']
+    - id: 12b-4
+      content: |
+        (i), (ii)에 의하여 구하는 모든 자연수 $n$의 값은 $18,25,26,27,28,29,30,31,33,34,35$이다.
+      criteria: ['1-2.A3']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1-2.M1
+      mark_type: M
+      points: 4
+      evidence: |
+        $y$좌표가 $1$인 경우와 $2$인 경우 정수점이 만족하는 성질($p^2\le n$, $p=\sqrt{2n}$)을 적었다.
+      depends_on: []
+      implied_ok: false
+      steps: [12b-1]
+    - id: 1-2.A1
+      mark_type: A
+      points: 2
+      evidence: |
+        $\sqrt{2n}$이 정수인 경우에서 $n=18$을 구했다.
+      depends_on: [1-2.M1]
+      steps: [12b-2]
+    - id: 1-2.A2
+      mark_type: A
+      points: 2
+      evidence: |
+        $n\ne32$임을 관찰했다.
+      depends_on: [1-2.M1]
+      steps: [12b-3]
+    - id: 1-2.A3
+      mark_type: A
+      points: 4
+      evidence: |
+        조건을 만족하는 자연수 $n$을 모두 구했다.
+      depends_on: [1-2.M1, 1-2.A1, 1-2.A2]
+      steps: [12b-4]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '2-1'
+  stem: |
+    [문제 1-2] 제시문 (가)와 (나)를 읽고 물음에 답하시오.
+    (1) 함수 $f(x)=\log_2(x+p)$의 반복함수의 그래프 위의 정수점 중 $y$좌표의 절댓값이 $20$ 이하인 것이 무수히 많이 존재하도록 하는 모든 양수 $p$의 값의 합을 구하시오.
+  points: 8
+  depends_on: []
+  answer: {kind: value, value: '2**21 - 2**(-20)', equivalents: [], tolerance: null}
+  solutions:
+  - id: S21-A
+    audience: A
+    method_no: 1
+    key_idea: 반복함수 위 정수점의 $x$좌표는 정수 $k$이고 $g(k)=f(0)=\log_2p$이므로 $\log_2p\in\{-20,\dots,20\}$.
+    steps:
+    - {id: 21a, content: '$\sum_{k=-20}^{20}2^k=2^{21}-2^{-20}$', criteria: ['2-1.M1', '2-1.A1', '2-1.A2']}
+    hint_ladder:
+    - 정수점의 $x$좌표가 정수이면 $g(x)$는 어떤 값과 같은가?
+  - id: S21-B
+    audience: B
+    source_flow: 모범답안 p.1 (PDF p.8)
+    method_no: 1
+    steps:
+    - id: 21b-1
+      content: |
+        함수 $f(x)=\log_2(x+p)$의 반복함수의 그래프 위에 정수점이 존재하려면 $f(0)$의 값이 정수이어야 하고 이때 정수점은 무수히 많다. (보충: 정수 $k$에 대해 $g(k)=g(0)=f(0)$.)
+      criteria: ['2-1.M1']
+    - id: 21b-2
+      content: |
+        따라서 $\lvert f(0)\rvert=\lvert\log_2p\rvert$의 값은 $20$ 이하의 정수이므로 $p=2^{-20},2^{-19},2^{-18},\cdots,2^{19},2^{20}$이다.
+      criteria: ['2-1.A1']
+    - id: 21b-3
+      content: |
+        따라서 구하는 모든 양수 $p$의 값의 합은 등비수열의 합에 의하여 $\dfrac{2^{-20}(2^{41}-1)}{2-1}=2^{21}-2^{-20}$이다.
+      criteria: ['2-1.A2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2-1.M1
+      mark_type: M
+      points: 3
+      evidence: |
+        정수점이 존재하려면 $f(0)$이 정수여야 한다는 사실을 적었다.
+      depends_on: []
+      implied_ok: false
+      steps: [21b-1]
+    - id: 2-1.A1
+      mark_type: A
+      points: 2
+      evidence: |
+        $f(0)=\log_2p$가 절댓값 $20$ 이하인 정수임을 적었다($p=2^{-20},\cdots,2^{20}$).
+      depends_on: [2-1.M1]
+      steps: [21b-2]
+    - id: 2-1.A2
+      mark_type: A
+      points: 3
+      evidence: |
+        등비수열의 합으로 $2^{21}-2^{-20}$을 구했다.
+      depends_on: [2-1.M1, 2-1.A1]
+      steps: [21b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '2-2'
+  stem: |
+    (2) 최고차항의 계수가 $1$인 삼차함수 $f(x)$의 반복함수를 $g(x)$라 하자. 함수 $g(x)$가 모든 실수 $x$에서 미분가능하고 $g(3)=\sqrt3$일 때, $g(x)$의 최댓값을 구하시오.
+  points: 10
+  depends_on: []
+  answer: {kind: value, value: '37*sqrt(3)/36', equivalents: [], tolerance: null}
+  solutions:
+  - id: S22-A
+    audience: A
+    method_no: 1
+    key_idea: $f(0)=f(1)=\sqrt3$, $f'(0)=f'(1)$로 $f(x)=x(x-\tfrac12)(x-1)+\sqrt3$를 정하고 $[0,1)$의 극댓값을 구한다.
+    steps:
+    - {id: 22a, content: '$f\left(\tfrac{3-\sqrt3}{6}\right)=\tfrac{37\sqrt3}{36}$', criteria: ['2-2.M1', '2-2.M2', '2-2.A1']}
+    hint_ladder:
+    - $x=1$에서 이어 붙일 때 미분가능하려면 무엇이 같아야 하는가?
+  - id: S22-B
+    audience: B
+    source_flow: 모범답안 p.1–2 (PDF p.8–9)
+    method_no: 1
+    steps:
+    - id: 22b-1
+      content: |
+        $g(x)$가 모든 실수 $x$에서 미분가능하므로 $f'(0)=f'(1)$, $f(0)=f(1)$이다. 또한 $\sqrt3=g(3)=g(0)=f(0)=f(1)$이므로 상수 $a$에 대하여 $f(x)=x(x-1)(x-a)+\sqrt3$이다. $f'(0)=a$, $f'(1)=1-a$이므로 $a=\dfrac12$이다. 따라서
+        $$f(x)=x\left(x-\frac12\right)(x-1)+\sqrt3=x^3-\frac32x^2+\frac12x+\sqrt3$$
+        이다.
+      criteria: ['2-2.M1']
+    - id: 22b-2
+      content: |
+        $0\le x<1$에서 함수 $y=f(x)$의 그래프의 개형을 살펴보면 함수 $g(x)$의 최댓값은 함수 $f(x)$의 극댓값임을 알 수 있다.
+      criteria: ['2-2.M2']
+    - id: 22b-3
+      content: |
+        $f'(x)=3x^2-3x+\dfrac12=0$에서 $x=\dfrac{3\pm\sqrt3}{6}$이므로 $f(x)$는 $x=\dfrac{3-\sqrt3}{6}$에서 극대이다. 따라서 구하는 $g(x)$의 최댓값은 $f\left(\dfrac{3-\sqrt3}{6}\right)=\dfrac{37\sqrt3}{36}$이다.
+      criteria: ['2-2.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2-2.M1
+      mark_type: M
+      points: 4
+      evidence: |
+        $f(x)=x^3-\dfrac32x^2+\dfrac12x+\sqrt3$를 바르게 구했다.
+      depends_on: []
+      implied_ok: false
+      steps: [22b-1]
+    - id: 2-2.M2
+      mark_type: R
+      points: 3
+      evidence: |
+        $y=g(x)$의 최댓값이 $y=f(x)$의 극댓값임을 적었다.
+      depends_on: [2-2.M1]
+      steps: [22b-2]
+    - id: 2-2.A1
+      mark_type: A
+      points: 3
+      evidence: |
+        극댓값 $\dfrac{37\sqrt3}{36}$을 구했다.
+      depends_on: [2-2.M2]
+      steps: [22b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '2-3'
+  stem: |
+    (3) 함수 $f(x)=\cos\pi x$의 반복함수를 $g(x)$라 하자. $-\dfrac{1}{2023}<a\le-\dfrac{1}{2024}$일 때, 직선 $y=ax$와 함수 $y=g(x)$의 그래프의 교점의 개수로 가능한 수를 모두 구하시오.
+  points: 12
+  depends_on: []
+  answer: {kind: set, value: '[4046, 4048, 4049, 4050]', equivalents: [], tolerance: null}
+  solutions:
+  - id: S23-A
+    audience: A
+    method_no: 1
+    key_idea: 직선이 $-1<ax\le1$ 범위에 있는 각 주기 구간에서 교점이 하나씩 생기고, 직선이 높이 $1$ 근처를 지나는 $-2024<x<-2023$ 구간에서만 교점 수가 0·1·2로 갈린다.
+    steps:
+    - {id: 23a, content: '$a=-\tfrac{1}{2024}$: $2025+2024=4049$ / 그 밖: $4046,4048,4050$', criteria: ['2-3.A1', '2-3.A2', '2-3.A3', '2-3.A4']}
+    hint_ladder:
+    - $y=g(x)$의 그래프를 그리고 직선 $y=ax$가 $y=1$, $y=-1$과 만나는 $x$를 보자.
+    - $x=-2024$ 근처에서 직선과 곡선의 위치 관계는 어떻게 되는가?
+  - id: S23-B
+    audience: B
+    source_flow: 모범답안 p.2 (PDF p.9)
+    method_no: 1
+    steps:
+    - id: 23b-1
+      content: |
+        함수 $y=g(x)$의 그래프는 각 구간 $[k,k+1)$($k$는 정수)에서 점 $(k,1)$(포함)에서 $(k+1,-1)$(제외) 직전까지 감소하는 $\cos$ 곡선이 반복되는 모양이다. [원 해설 그림: $-5\le x\le5$에서 $y=g(x)$의 그래프]
+        함수 $y=g(x)$의 그래프와 직선 $y=ax$의 교점의 개수를 $p$라 하자.
+        (i) $a=-\dfrac{1}{2024}$인 경우: 제2사분면에 $2025$개의 교점이 있고, 제4사분면에 $2024$개의 교점이 있다. 즉, $p=4049$이다.
+      criteria: ['2-3.A1']
+    - id: 23b-2
+      content: |
+        (ii) $-\dfrac{1}{2023}<a<-\dfrac{1}{2024}$인 경우:
+        • $-2024<x<-2023$에서 함수 $y=g(x)$의 그래프와 직선 $y=ax$가 만나지 않는 경우 제2사분면에 $2023$개의 교점이 있고 제4사분면에 $2023$개의 교점이 있다. 즉, $p=4046$이다.
+      criteria: ['2-3.A2']
+    - id: 23b-3
+      content: |
+        • $-2024<x<-2023$인 한 점에서 함수 $y=g(x)$의 그래프와 직선 $y=ax$가 접하는 경우 제2사분면에 $2024$개의 교점이 있고 제4사분면에 $2024$개의 교점이 있다. 즉, $p=4048$이다.
+      criteria: ['2-3.A3']
+    - id: 23b-4
+      content: |
+        • $-2024<x<-2023$에서 함수 $y=g(x)$의 그래프와 직선 $y=ax$가 두 점에서 만나는 경우 제2사분면에 $2025$개의 교점이 있고 제4사분면에 $2025$개의 교점이 있다. 즉, $p=4050$이다.
+        (i)~(ii)에 의하여 구하는 교점의 개수로 가능한 수는 $4046$, $4048$, $4049$, $4050$이다.
+        (보충: 정수가 아닌 $x$에서 $g(-x)=-g(x)$이고 직선도 원점 대칭이므로, 정수점에서 만나지 않는 (ii)에서는 제4사분면의 교점 수가 제2사분면과 같다.)
+      criteria: ['2-3.A4']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2-3.A1
+      mark_type: B
+      points: 3
+      evidence: |
+        $a=-\dfrac{1}{2024}$일 때 직선과 그래프의 관계를 밝혀 교점의 수 $4049$를 구했다.
+      depends_on: []
+      implied_ok: false
+      steps: [23b-1]
+    - id: 2-3.A2
+      mark_type: B
+      points: 3
+      evidence: |
+        $-\dfrac{1}{2023}<a<-\dfrac{1}{2024}$이고 $-2024<x<-2023$에서 만나지 않는 경우 교점의 수 $4046$을 구했다.
+      depends_on: []
+      implied_ok: false
+      steps: [23b-2]
+    - id: 2-3.A3
+      mark_type: B
+      points: 3
+      evidence: |
+        $-2024<x<-2023$에서 접하는 경우 교점의 수 $4048$을 구했다.
+      depends_on: []
+      implied_ok: false
+      steps: [23b-3]
+    - id: 2-3.A4
+      mark_type: B
+      points: 3
+      evidence: |
+        $-2024<x<-2023$에서 두 점에서 만나는 경우 교점의 수 $4050$을 구했다.
+      depends_on: []
+      implied_ok: false
+      steps: [23b-4]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+remedy_links: []
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

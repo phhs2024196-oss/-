@@ -1,0 +1,411 @@
+# 아주대 2023학년도 모의논술고사 자연계열 문항 2 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: AJOU-M23-02
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: AJOU
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 구성
+points: 50
+intent: |
+  조건을 만족하는 함수의 개수 $g(n)$을 곱의 법칙과 인수정리로 다항식으로 나타내고, 합성함수의 경우의 수를 집합의 크기로 분류하며, 계수 수열의 부등식(로그 오목성)을 등차수열과 반례 판정에 쓰는 능력을 본다.
+key_idea: |
+  $g(n)$은 최고차항 계수 1인 $k$차 다항식이므로 몇 개의 함숫값($g(0)$, $g(1)$, …)으로 결정되고, 그 계수 절댓값 수열이 (*)를 만족하지 않으면 그런 $S$는 있을 수 없다.
+stuck: |
+  (1-2)에서 $n-2$가 두 번 인수로 나오려면 4가 두 원소와 짝지어져야 함을 보고 $S$를 구성하는 것, (1-3)에서 $A=\{x\mid f_1(x)=1\}$의 크기가 정확히 2임을 두 조건에서 끌어내는 것
+idea_tags: [IDEA-CHROMATIC-POLYNOMIAL-COUNT, IDEA-POLYNOMIAL-FROM-VALUES, IDEA-COMPOSITION-PREIMAGE-SET, IDEA-LOG-CONCAVE-COEFFICIENT]
+tags: [필즈상 소재, 함수의 개수, 다항식 결정]
+elements:
+  materials:
+  - '양의 정수의 집합 $P_n$, 순서쌍 집합 $S$와 조건 「$(a,b)\in S$이면 $f(a)\ne f(b)$」를 만족하는 함수 $f:P_k\to P_n$의 개수 $g(n)$'
+  - '허준이 교수의 업적(계수 절댓값 수열 $c_m$의 부등식 $c_{m-1}c_{m+1}\le c_m^2$)'
+  - '합성함수 $F=f_1\circ f_2:P_4\to P_4$'
+  concepts:
+  - '곱의 법칙과 함수의 개수'
+  - '인수정리, 다항식의 결정'
+  - '자연수의 거듭제곱의 합 $\sum k^3$'
+  - '합성함수와 치역'
+  - '등차수열의 일반항'
+  tools:
+  - '$S$가 공집합이면 $g(n)=n^k$'
+  - '$g(n)$의 근($0,1,2,\dots$)으로 인수 추론'
+  - '$A=\{x\mid f_1(x)=1\}$의 크기로 경우 분류'
+  - '$c_m^2-c_{m-1}c_{m+1}=d^2$'
+  - '$g(0)=g(1)=0$으로 $g(n)=n(n-1)(n^2+an+b)$'
+  conditions:
+  - '$1\le a<b\le k$'
+  - '(1-3) $S_1$은 경로 $1-2-3-4$, $S_2$는 순환 $1-2-3-4-1$'
+  - '(2-2) 고등학생이 주장한 값 $g(2)=24$, $g(3)=120$'
+  stimuli_used: [가, 나]
+  subpart_links: '(1-1)~(1-3)은 제시문 (가)의 $g(n)$ 정의, (2-1)·(2-2)는 (나)의 부등식 (*)를 사용; (2-2)는 (가)의 「$g(n)$은 최고차항 계수 1인 $k$차 다항식」을 써서 다항식을 결정'
+
+curriculum:
+  version: '2015'
+  subjects: [수학, 수학Ⅰ]
+  scope_2028: common
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 경우의 수와 함수의 개수를 구하고, 다항식의 인수정리와 수열의 합을 활용할 수 있다(요지)
+    verified: false
+  content_area: 경우의 수·함수·다항식·수열
+  behavior_domain: 추론
+  unit_path: [수학, 경우의 수, 함수의 개수, 조건을 만족하는 함수의 개수]
+  key_concepts: [곱의 법칙, 합성함수, 인수정리, 등차수열, 수열의 합]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 아주대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 아주대학교
+  admission_year: 2023
+  admission_type: 수시 모의논술
+  track: 자연계열
+  question_no: 2
+  official_url: https://www.iajou.ac.kr/pasttest/view.php?bn=69050&m_type=SUSI
+  retrieved_at: 2026-11-21
+  original_points: [10, 10, 10, 10, 10]
+  rights_notice: 미확인
+  transcribed_from: '아주대 입학처 공식 PDF「2023학년도 모의논술고사 자연계열」 문제 p.3–4, 「자연계열 예시답안 및 채점기준」 p.5 (이미지 대조 2026-11-21)'
+  # 문제지 배점: [문제 2-1] 30점, [문제 2-2] 20점; 예시답안에 소문항별 10점 표기
+
+verify: verify/AJOU-M23.py::p02
+
+stimuli:
+- label: 가
+  body: |
+    음이 아닌 정수 $n$에 대하여 $n$이하의 양의 정수의 집합을 $P_n$이라 하자. 어떤 양의 정수 $k$에 대하여 $P_k$의 원소로 이루어진 순서쌍 $(a,b)$ (단, $1\le a<b\le k$) 중 일부를 원소로 갖는 집합을 $S$라 할 때, 다음 <조건>을 만족하는 함수 $f:P_k\to P_n$의 개수를 $g(n)$이라 하자.
+
+    < 조 건 >
+    $(a,b)\in S$이면 $f(a)\ne f(b)$이다.
+
+    예를 들어 $k=3$이고 $S=\{(1,2),(2,3)\}$이라면 $f(1)$이 될 수 있는 값은 $n$개, $f(2)$가 될 수 있는 값은 $f(1)\ne f(2)$이므로 $n-1$개, $f(3)$이 될 수 있는 값은 $f(2)\ne f(3)$이므로 $n-1$개이고, 따라서 $g(n)=n(n-1)^2$이다.
+    일반적으로 $g(n)$은 $S$와 상관없이 $n$에 대한 $k$차 다항식이 되고 최고차항의 계수가 1이라는 사실이 알려져 있다. 이 정보는 $g(n)$을 구할 때 유용하게 쓸 수 있는데, 위의 예에서 $g(0)=g(1)=0$이고, $g(2)=2$이므로 이를 이용하여 $g(n)$을 구할 수 있다.
+- label: 나
+  body: |
+    필즈메달은 국제수학연맹이 4년마다 개최하는 세계 수학자 대회에서 수여하는 상으로 수학계의 가장 권위 있는 상으로 여겨진다. 2022년 열린 세계 수학자 대회에서는 허준이 교수가 한국계 최초로 이 상을 수상하였다. 허 교수는 여러 분야를 아우르는 이론을 제시하였고, 특히 이산수학의 여러 미해결 난제를 해결하였다.
+    허 교수의 주요 업적 중 하나는 위 제시문 (가)에서 얻어지는 $k$차 다항식 $g(n)$의 $m$차 항의 계수의 절댓값을 $c_m$ (단, $m\le k$)라고 할 때, 다음 부등식이 항상 성립하는 것을 증명한 것이다.
+    $$\text{모든 }0<m<k\text{에 대하여 }c_{m-1}c_{m+1}\le c_m^2\qquad\cdots\ (*)$$
+
+stem: |
+  [문항 2] (50점) 다음 제시문을 읽고 논제에 답하라.
+
+subparts:
+- id: '1-1'
+  stem: |
+    [문제 2-1] (30점) 제시문 (가)를 읽고 물음에 답하여라.
+    (1) $k=3$이고 $S$가 공집합일 때, $g(1)+g(2)+g(3)+g(4)+\cdots+g(24)$를 구하여라.
+  points: 10
+  depends_on: []
+  answer: {kind: value, value: '90000', equivalents: [], tolerance: null}
+  solutions:
+  - id: S11-A
+    audience: A
+    method_no: 1
+    key_idea: 제한이 없으므로 $g(n)=n^3$, $\sum_{n=1}^{24}n^3=\left(\tfrac{24\cdot25}{2}\right)^2$.
+    steps:
+    - {id: 11a, content: '$300^2=90000$', criteria: ['1-1.M1', '1-1.A1']}
+    hint_ladder:
+    - $S$가 공집합이면 함수에 어떤 제한이 있는가?
+  - id: S11-B
+    audience: B
+    source_flow: 예시답안 p.5
+    method_no: 1
+    steps:
+    - id: 11b-1
+      content: |
+        $S$가 공집합이므로 $f(1)$, $f(2)$, $f(3)$은 각각 $n$가지씩 가능하여 $g(n)=n^3$이다.
+      criteria: ['1-1.M1']
+    - id: 11b-2
+      content: |
+        $g(n)=n^3$이므로 $g(1)+\cdots+g(24)=\left(\dfrac{24\cdot25}{2}\right)^2=300^2=90000$
+      criteria: ['1-1.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    # 채점기준 미공개 — 단계별 추정
+    criteria:
+    - id: 1-1.M1
+      mark_type: M
+      points: 5
+      evidence: |
+        $g(n)=n^3$임을 적었다.
+      depends_on: []
+      implied_ok: false
+      steps: [11b-1]
+    - id: 1-1.A1
+      mark_type: A
+      points: 5
+      evidence: |
+        $\left(\dfrac{24\cdot25}{2}\right)^2=90000$을 계산했다.
+      depends_on: [1-1.M1]
+      steps: [11b-2]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '1-2'
+  stem: |
+    [문제 2-1] (2) $k=4$이고 $g(n)=n(n-1)(n-2)^2$이 되도록 하는 $S$를 하나 제시하고 그 이유를 설명하여라.
+  points: 10
+  depends_on: []
+  answer: {kind: expression, value: 'S = {(1,2),(2,3),(1,3),(1,4),(2,4)}', equivalents: ['원소가 5개인 임의의 S'], tolerance: null}
+  solutions:
+  - id: S12-A
+    audience: A
+    method_no: 1
+    key_idea: 인수 $n$, $n-1$, $n-2$ → 1, 2, 3이 서로 달라야 하고, $f(4)$의 선택지가 $n-2$개 → 4는 서로 다른 값을 갖는 두 원소와 짝지어진다.
+    steps:
+    - {id: 12a, content: '$S=\{(1,2),(2,3),(1,3),(1,4),(2,4)\}$', criteria: ['1-2.M1', '1-2.A1']}
+    hint_ladder:
+    - $f(1),f(2),f(3)$이 모두 달라야 $n(n-1)(n-2)$가 나온다.
+    - $f(4)$가 될 수 있는 값이 $n-2$개이려면?
+  - id: S12-B
+    audience: B
+    source_flow: 예시답안 p.5
+    method_no: 1
+    steps:
+    - id: 12b-1
+      content: |
+        $g(n)$이 $n$, $n-1$, $n-2$를 인수로 가지므로 집합 $S$가 $(1,2)$, $(2,3)$, $(1,3)$을 원소로 갖고 있는 경우를 생각할 수 있다.
+      criteria: ['1-2.M1']
+    - id: 12b-2
+      content: |
+        $f(4)$가 될 수 있는 값이 $n-2$개가 되어야 하므로 4를 포함하는 $S$의 순서쌍이 두 개 있어야 한다. 따라서 $S=\{(1,2),(2,3),(1,3),(1,4),(2,4)\}$가 하나의 예가 된다.
+        *참고. $S$의 원소의 개수가 다섯 개면 정답.
+      criteria: ['1-2.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    # 채점기준 미공개 — 단계별 추정(예시답안의 「참고: 원소 5개면 정답」 반영)
+    criteria:
+    - id: 1-2.M1
+      mark_type: M
+      points: 4
+      evidence: |
+        $g(n)$의 인수 $n$, $n-1$, $n-2$로부터 $(1,2)$, $(2,3)$, $(1,3)$(또는 서로 다른 세 원소가 모두 짝지어진 구조)을 포함해야 함을 설명했다.
+      depends_on: []
+      implied_ok: false
+      steps: [12b-1]
+    - id: 1-2.A1
+      mark_type: A
+      points: 6
+      evidence: |
+        $f(4)$의 선택지가 $n-2$개가 되도록 4를 포함한 순서쌍 2개를 넣어 원소가 5개인 $S$를 제시했다.
+      depends_on: [1-2.M1]
+      steps: [12b-2]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '1-3'
+  stem: |
+    [문제 2-1] (3) 집합 $S$가 $\{(1,2),(2,3),(3,4)\}$일 때 <조건>을 만족하는 함수 $f_1:P_4\to P_4$와 집합 $S$가 $\{(1,2),(2,3),(3,4),(1,4)\}$일 때 <조건>을 만족하는 함수 $f_2:P_4\to P_4$가 있다. 합성함수 $F=f_1\circ f_2:P_4\to P_4$가 $F(1)=F(2)=F(3)=F(4)=1$을 만족하는 순서쌍 $(f_1,f_2)$의 개수를 구하여라.
+  points: 10
+  depends_on: []
+  answer: {kind: value, value: '48', equivalents: [], tolerance: null}
+  solutions:
+  - id: S13-A
+    audience: A
+    method_no: 1
+    key_idea: $A=\{x\mid f_1(x)=1\}$이면 $f_2$의 치역 $\subset A$; $S_1$에서 $n(A)\le2$(이웃 불가), $S_2$에서 $n(A)>1$이므로 $n(A)=2$, $A\in\{\{1,3\},\{1,4\},\{2,4\}\}$.
+    steps:
+    - {id: 13a, content: '$18+12+18=48$', criteria: ['1-3.M1', '1-3.R1', '1-3.A1', '1-3.A2']}
+    hint_ladder:
+    - $F$의 값이 모두 1이면 $f_2$의 값은 어떤 집합 안에 있어야 하는가?
+  - id: S13-B
+    audience: B
+    source_flow: 예시답안 p.5
+    method_no: 1
+    steps:
+    - id: 13b-1
+      content: |
+        합성함수 $F=f_1\circ f_2$의 모든 값이 1이 되어야 하므로, 집합 $A=\{x\mid f_1(x)=1\}$을 생각한다. $S_1=\{(1,2),(2,3),(3,4)\}$라 두고 $S_2=\{(1,2),(2,3),(3,4),(1,4)\}$라 두자.
+      criteria: ['1-3.M1']
+    - id: 13b-2
+      content: |
+        집합 $S_1$의 조건으로부터 이웃한 두 자연수의 $f_1$값이 동시에 1일 수 없으므로 $n(A)\le2$임을 알 수 있다. 한편, 함수 $f_2$의 값은 항상 $A$에 포함되어야 하므로 집합 $S_2$의 조건을 사용하면 $n(A)>1$을 얻는다. 따라서 $n(A)=2$이며 가능한 경우는 $A=\{1,3\},\{1,4\},\{2,4\}$의 세 경우뿐이다. 또한 집합 $S_2$의 조건을 사용하면 함수 $f_2$는 1에서의 값으로 완전히 결정됨을 알 수 있어, 가능한 $f_2$의 개수는 집합 $A$와는 관계없이 항상 2개가 된다.
+      criteria: ['1-3.R1']
+    - id: 13b-3
+      content: |
+        ① $A=\{1,3\}$인 경우, $f_1(2)$와 $f_1(4)$의 값이 $2,3,4$ 중 하나이므로 총 $3^2\cdot2=18$개의 순서쌍 $(f_1,f_2)$를 얻는다.
+        ② $A=\{1,4\}$인 경우, $f_1(2)$와 $f_1(3)$의 값이 $2,3,4$ 중 하나이면서 서로 같지 않아야 하므로 총 $3\cdot2\cdot2=12$개의 순서쌍을 얻는다.
+        ③ $A=\{2,4\}$인 경우, ①번 경우와 같은 이유로 18개의 순서쌍을 얻는다.
+      criteria: ['1-3.A1']
+    - id: 13b-4
+      content: |
+        모든 경우의 수를 더하면 $18+12+18=48$이다.
+      criteria: ['1-3.A2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    # 채점기준 미공개 — 단계별 추정
+    criteria:
+    - id: 1-3.M1
+      mark_type: M
+      points: 2
+      evidence: |
+        집합 $A=\{x\mid f_1(x)=1\}$을 두고 $f_2$의 값이 $A$에 포함되어야 함을 적었다.
+      depends_on: []
+      implied_ok: false
+      steps: [13b-1]
+    - id: 1-3.R1
+      mark_type: R
+      points: 3
+      evidence: |
+        $n(A)=2$이고 $A=\{1,3\},\{1,4\},\{2,4\}$뿐이며 각 경우 $f_2$가 2개임을 보였다.
+      depends_on: [1-3.M1]
+      steps: [13b-2]
+    - id: 1-3.A1
+      mark_type: A
+      points: 3
+      evidence: |
+        세 경우의 개수 18, 12, 18을 구했다.
+      depends_on: [1-3.R1]
+      steps: [13b-3]
+    - id: 1-3.A2
+      mark_type: A
+      points: 2
+      evidence: |
+        답 48을 얻었다.
+      depends_on: [1-3.R1]
+      steps: [13b-4]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '2-1'
+  stem: |
+    [문제 2-2] (20점) 제시문 (가)와 (나)를 읽고 물음에 답하여라.
+    (1) 초항이 $a$이고 공차가 $d$인 등차수열 $\{c_n\}$은 부등식 (*)를 만족함을 증명하여라.
+  points: 10
+  depends_on: []
+  answer: {kind: proof, value: null, equivalents: [], tolerance: null}
+  solutions:
+  - id: S21-A
+    audience: A
+    method_no: 1
+    key_idea: $c_m^2-c_{m-1}c_{m+1}=d^2\ge0$.
+    steps:
+    - {id: 21a, content: '$c_m=a+(m-1)d$ 대입 → 차 $=d^2$', criteria: ['2-1.M1', '2-1.R1']}
+    hint_ladder:
+    - $c_{m-1}=c_m-d$, $c_{m+1}=c_m+d$로 써 보자.
+  - id: S21-B
+    audience: B
+    source_flow: 예시답안 p.5
+    method_no: 1
+    steps:
+    - id: 21b-1
+      content: |
+        $c_m=a+(m-1)d$이므로
+      criteria: ['2-1.M1']
+    - id: 21b-2
+      content: |
+        $c_m^2-c_{m-1}c_{m+1}=d^2\ge0$이다. [보충: $c_{m-1}c_{m+1}=(c_m-d)(c_m+d)=c_m^2-d^2$] ■
+      criteria: ['2-1.R1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    # 채점기준 미공개 — 단계별 추정
+    criteria:
+    - id: 2-1.M1
+      mark_type: M
+      points: 4
+      evidence: |
+        일반항 $c_m=a+(m-1)d$(또는 $c_{m\pm1}=c_m\pm d$)를 적었다.
+      depends_on: []
+      implied_ok: false
+      steps: [21b-1]
+    - id: 2-1.R1
+      mark_type: R
+      points: 6
+      evidence: |
+        $c_m^2-c_{m-1}c_{m+1}=d^2\ge0$을 계산하여 (*)를 보였다.
+      depends_on: [2-1.M1]
+      steps: [21b-2]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '2-2'
+  stem: |
+    [문제 2-2] (2) 한 고등학생이 주어진 $S$와 $k=4$에 대하여 함수 $g(n)$을 구한 다음 $g(0)=g(1)=0$, $g(2)=24$, $g(3)=120$이라고 주장하였다. 이 이야기를 들은 고등학생 아주는 이 학생의 계산이 잘못되었다고 예상하였다. 아주는 어떻게 이런 결론을 내릴 수 있었을까?
+  points: 10
+  depends_on: []
+  answer: {kind: expression, value: 'g(n) = n**4 + 2*n**3 - n**2 - 2*n; c2**2 = 1 < c1*c3 = 4', equivalents: [], tolerance: null}
+  solutions:
+  - id: S22-A
+    audience: A
+    method_no: 1
+    key_idea: 주장대로라면 $g(n)=n^4+2n^3-n^2-2n$이고 $c_2^2=1<c_1c_3=4$로 (*)에 어긋난다.
+    steps:
+    - {id: 22a, content: '$g(n)=n(n-1)(n^2+3n+2)$, $c_2^2<c_1c_3$', criteria: ['2-2.M1', '2-2.A1', '2-2.R1']}
+    hint_ladder:
+    - $g(0)=g(1)=0$과 최고차항 계수 1을 이용해 $g(n)$의 꼴을 정해 보자.
+  - id: S22-B
+    audience: B
+    source_flow: 예시답안 p.5
+    method_no: 1
+    steps:
+    - id: 22b-1
+      content: |
+        제시문 (나)에 의하여 $g(n)$은 4차 함수이며, 제시된 조건 $g(0)=g(1)=0$으로부터 $g(n)=n(n-1)(n^2+an+b)$라 둘 수 있다.
+        [판독확인: 원 예시답안은 「제시문 (나)에 의하여」라고 적었으나, $g(n)$이 최고차항 계수 1인 $k$차 다항식이라는 사실은 제시문 (가)에 있음 — 원문 유지]
+      criteria: ['2-2.M1']
+    - id: 22b-2
+      content: |
+        $g(2)=24$, $g(3)=120$이므로 이를 풀어보면 $a=3$, $b=2$를 얻는다. 따라서 $g(n)=n^4+2n^3-n^2-2n$이 된다.
+      criteria: ['2-2.A1']
+    - id: 22b-3
+      content: |
+        한편 $c_2^2=1<c_1c_3=4$이므로 부등식 (*)를 만족하지 않는다. 따라서 이러한 $S$는 존재할 수 없다.
+      criteria: ['2-2.R1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    # 채점기준 미공개 — 단계별 추정
+    criteria:
+    - id: 2-2.M1
+      mark_type: M
+      points: 3
+      evidence: |
+        $g(n)$이 최고차항 계수 1인 4차식이고 $g(n)=n(n-1)(n^2+an+b)$로 둘 수 있음을 적었다.
+      depends_on: []
+      implied_ok: false
+      steps: [22b-1]
+    - id: 2-2.A1
+      mark_type: A
+      points: 3
+      evidence: |
+        $a=3$, $b=2$를 구해 $g(n)=n^4+2n^3-n^2-2n$을 얻었다.
+      depends_on: [2-2.M1]
+      steps: [22b-2]
+    - id: 2-2.R1
+      mark_type: R
+      points: 4
+      evidence: |
+        $c_2^2=1<c_1c_3=4$로 (*)가 성립하지 않음을 보이고 계산이 잘못되었다고 결론지었다.
+      depends_on: [2-2.A1]
+      steps: [22b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+remedy_links: []
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

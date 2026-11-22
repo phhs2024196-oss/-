@@ -1,0 +1,428 @@
+# 아주대 2024학년도 논술고사 자연계열(오후) 문항 2 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+# 소문항 id: 'k-j' = [문제 2-k]의 (j). 배점 단위는 공식 채점기준을 따름
+schema_version: '2.0'
+id: AJOU-G24B-02
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: AJOU
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 전수
+points: 50
+time_estimate_min: 50
+intent: |
+  카드 배열을 순열·조합·곱의 법칙으로 세고, 가위바위보 승패 관계와 함수 $f$로 정한 <규칙>을 해석해 조건을 만족하는 배열과 함수를 빠짐없이 찾는 능력을 본다.
+key_idea: |
+  1번 자리 카드를 이기는 카드는 2번 또는 3번 자리에 있으므로 $f(1)$이 그 자리 번호 이상이어야 하고, 반례 배열 하나씩으로 $h(1)=h(2)=3$, $h(3)\ne1$을 강제한다.
+stuck: |
+  [문제 2-2]에서 '이기는 카드의 자리 번호가 $f(k)$ 이하'를 각 자리별 부등식으로 옮기고, 명제가 거짓이 되는 반례 배열을 고르는 것
+idea_tags: [IDEA-RULE-AS-INEQUALITY, IDEA-COUNTEREXAMPLE-FORCES-VALUE]
+tags: [순열, 조합, 가위바위보, 전수조사]
+elements:
+  materials:
+  - '1번~n번 자리에 가위·바위·보 카드 세 장을 놓는 카드배열'
+  - '이웃한다(자리 번호 차가 1)'
+  - '함수 $f:\{1,2,3\}\to\{1,2,3\}$로 정한 f-카드배열 <규칙>'
+  concepts:
+  - '순열 ${}_n\mathrm{P}_r$'
+  - '조합 ${}_n\mathrm{C}_r$'
+  - '곱의 법칙'
+  - '함수'
+  - '명제와 반례'
+  tools:
+  - '자리 선택 후 배열'
+  - '이웃한 자리 쌍 세기'
+  - '귀류(모순)'
+  - '반례 배열로 함숫값 강제'
+  conditions:
+  - '자리 번호 순서가 정해지면 조합'
+  - '가위>보>바위>가위 승패 순환'
+  - '$n=3$에서 1번 카드를 이기는 카드는 2번 또는 3번 자리'
+  stimuli_used: ['1-1: 가', '1-2: 가', '1-3: 가', '2-1: 가, 나', '2-2: 가, 나', '2-3: 가, 나']
+  subpart_links: '[문제 2-1]은 세기, [문제 2-2]는 f-카드배열 정의 해석으로 (1)→(2)→(3) 같은 판정법을 반복'
+
+curriculum:
+  version: '2015'
+  subjects: [수학, 확률과통계]
+  scope_2028: common
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 순열과 조합을 이해하고 경우의 수를 구할 수 있다(요지)
+    verified: false
+  content_area: 경우의 수·함수
+  behavior_domain: 추론
+  unit_path: [확률과통계, 경우의 수, 순열과 조합, 순열과 조합의 활용]
+  key_concepts: [순열, 조합, 곱의 법칙, 함수, 반례]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 아주대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 아주대학교
+  admission_year: 2024
+  admission_type: 수시 논술우수자
+  track: 자연계열(오후)
+  question_no: 2
+  official_url: https://www.iajou.ac.kr/pasttest/view.php?bn=75175&m_type=SUSI
+  retrieved_at: 2026-11-21
+  original_points: [5, 5, 5, 10, 12, 13]
+  rights_notice: 미확인
+  transcribed_from: '아주대 입학처 공식 PDF「2024학년도 논술고사 자연계열(오후)」p.4–5(문제), p.8–9(모범답안), p.12(채점기준) (이미지 대조 2026-11-21)'
+
+verify: verify/AJOU-G24B.py::p02
+
+stimuli:
+- label: 가
+  body: |
+    서로 다른 세 장의 카드 '가위카드', '바위카드', '보카드'와 1번에서 $n$번$(n\ge3)$까지 차례대로 번호가 적혀있는 $n$개의 자리가 있다. 이 카드 세 장을 서로 다른 자리에 한 장씩 놓는 것을 '카드배열'이라 하고 어떤 두 카드의 자리 번호의 차가 $1$이면 두 카드는 '이웃한다'고 하자. 예를 들어 $n=4$일 때, [그림 2]와 [그림 3]의 카드배열은 서로 다른 배열이다. [그림 2]의 카드배열에서 보카드와 바위카드는 이웃하고 가위카드와 보카드는 이웃하지 않는다.
+    [그림 2: 자리 1 가위, 자리 2 빈자리, 자리 3 보, 자리 4 바위]  [그림 3: 자리 1 빈자리, 자리 2 가위, 자리 3 보, 자리 4 바위]
+- label: 나
+  body: |
+    $n=3$일 때, 카드의 이름을 차례로 써서 카드배열을 나타내자. 예를 들어 [그림 4]의 카드배열은 (가위/바위/보)로 나타낸다.
+    [그림 4: 자리 1 가위, 자리 2 바위, 자리 3 보]
+    $n=3$이고 정의역과 공역이 모두 $\{1,2,3\}$인 함수 $f$가 주어졌을 때, 다음 <규칙>을 따르는 카드배열을 '$f$-카드배열'이라 하자. 가위카드는 보카드를 이기고 보카드는 바위카드를 이기며 바위카드는 가위카드를 이긴다.
+    <규칙>
+    ① 1번 자리에 놓인 카드를 이기는 카드는 자리 번호가 $f(1)$ 이하이다.
+    ② 2번 자리에 놓인 카드를 이기는 카드는 자리 번호가 $f(2)$ 이하이다.
+    ③ 3번 자리에 놓인 카드를 이기는 카드는 자리 번호가 $f(3)$ 이하이다.
+    예를 들어 함수 $f:\{1,2,3\}\to\{1,2,3\}$에 대하여 $f(1)=2$, $f(2)=3$, $f(3)=2$이면 (바위/보/가위)는 $f$-카드배열이다. (가위/보/바위)는 가위카드가 놓인 자리 번호가 $1$이므로 바위카드의 자리 번호는 $f(1)=2$ 이하이어야 하는데 그렇지 않으므로 $f$-카드배열이 아니다.
+
+stem: |
+  다음 제시문을 읽고 문제에 답하시오.
+
+subparts:
+- id: '1-1'
+  stem: |
+    [문제 2-1] 제시문 (가)를 읽고 물음에 답하시오.
+    (1) $n=7$일 때, 카드배열의 개수를 구하시오.
+  points: 5
+  depends_on: []
+  answer: {kind: value, value: '210', equivalents: [], tolerance: null}
+  solutions:
+  - id: S11-A
+    audience: A
+    method_no: 1
+    key_idea: 서로 다른 7개 자리에서 3개를 골라 카드 3장을 일렬로 놓는 순열.
+    steps:
+    - {id: 11a, content: '${}_7\mathrm{P}_3=210$', criteria: ['1-1.A1']}
+    hint_ladder:
+    - 카드가 서로 다르므로 순서가 중요하다.
+  - id: S11-B
+    audience: B
+    source_flow: 모범답안 p.2 (PDF p.8)
+    method_no: 1
+    steps:
+    - id: 11b-1
+      content: |
+        일곱 개의 자리에서 세 자리를 고른 후에 카드 세 장을 차례로 나열하는 경우의 수이므로 ${}_7\mathrm{P}_3=210$이다.
+      criteria: ['1-1.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1-1.A1
+      mark_type: B
+      points: 5
+      evidence: |
+        순열임을 밝히고 ${}_7\mathrm{P}_3=210$을 구했다.
+      depends_on: []
+      implied_ok: false
+      steps: [11b-1]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '1-2'
+  stem: |
+    (2) $n=9$일 때, 다음을 만족시키는 카드배열의 개수를 구하시오.
+    (가위카드의 자리 번호) $<$ (바위카드의 자리 번호) $<$ (보카드의 자리 번호)
+  points: 5
+  depends_on: []
+  answer: {kind: value, value: '84', equivalents: [], tolerance: null}
+  solutions:
+  - id: S12-A
+    audience: A
+    method_no: 1
+    key_idea: 자리 세 개를 고르면 카드 순서는 하나로 정해진다.
+    steps:
+    - {id: 12a, content: '${}_9\mathrm{C}_3=84$', criteria: ['1-2.A1']}
+    hint_ladder:
+    - 세 자리를 고른 뒤 카드를 놓는 방법은 몇 가지인가?
+  - id: S12-B
+    audience: B
+    source_flow: 모범답안 p.2 (PDF p.8)
+    method_no: 1
+    steps:
+    - id: 12b-1
+      content: |
+        아홉 개의 자리에서 세 자리를 고르는 경우의 수와 같으므로 ${}_9\mathrm{C}_3=84$이다.
+      criteria: ['1-2.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1-2.A1
+      mark_type: B
+      points: 5
+      evidence: |
+        조합임을 밝히고 ${}_9\mathrm{C}_3=84$를 구했다.
+      depends_on: []
+      implied_ok: false
+      steps: [12b-1]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '1-3'
+  stem: |
+    (3) $n=11$일 때, 가위카드와 보카드가 이웃하는 카드배열의 개수를 구하시오.
+  points: 5
+  depends_on: []
+  answer: {kind: value, value: '180', equivalents: [], tolerance: null}
+  solutions:
+  - id: S13-A
+    audience: A
+    method_no: 1
+    key_idea: 이웃한 자리 쌍 10가지 × 순서 2 × 바위 자리 9.
+    steps:
+    - {id: 13a, content: '$10\times2\times9=180$', criteria: ['1-3.M1', '1-3.A1']}
+    hint_ladder:
+    - 이웃한 두 자리의 쌍은 몇 개인가?
+  - id: S13-B
+    audience: B
+    source_flow: 모범답안 p.2 (PDF p.8)
+    method_no: 1
+    steps:
+    - id: 13b-1
+      content: |
+        두 카드가 이웃하기 위해서는 두 카드의 자리 번호는 $1$과 $2$, $2$와 $3$, $\cdots$, $10$과 $11$ 이렇게 열 가지 중 하나이어야 한다.
+      criteria: ['1-3.M1']
+    - id: 13b-2
+      content: |
+        가위/보 또는 보/가위를 배치한 후에 '바위'를 남은 아홉 자리 중 한 자리에 배치하면 된다. 따라서 답은 $10\times2\times9=180$이다.
+      criteria: ['1-3.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1-3.M1
+      mark_type: M
+      points: 2
+      evidence: |
+        이웃하는 자리 쌍이 $10$가지임을 적었다(이웃하는 카드가 있는 경우에 대한 의미있는 관찰).
+      depends_on: []
+      implied_ok: false
+      steps: [13b-1]
+    - id: 1-3.A1
+      mark_type: A
+      points: 3
+      evidence: |
+        곱의 법칙으로 $10\times2\times9=180$을 구했다.
+      depends_on: [1-3.M1]
+      steps: [13b-2]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '2-1'
+  stem: |
+    [문제 2-2] 제시문 (가)와 (나)를 읽고 물음에 답하시오.
+    (1) 함수 $f:\{1,2,3\}\to\{1,2,3\}$에 대하여 $f(1)=2$, $f(2)=3$, $f(3)=3$일 때, $f$-카드배열을 모두 구하시오.
+  points: 10
+  depends_on: []
+  answer: {kind: set, value: '가위/바위/보; 바위/보/가위; 보/가위/바위', equivalents: [], tolerance: null}
+  solutions:
+  - id: S21-A
+    audience: A
+    method_no: 1
+    key_idea: ①에서 1번 카드를 이기는 카드가 2번 자리, 그러면 ②③은 자동으로 만족한다.
+    steps:
+    - {id: 21a, content: '(가위/바위/보), (바위/보/가위), (보/가위/바위)', criteria: ['2-1.M1', '2-1.A1']}
+    hint_ladder:
+    - 1번 자리 카드를 이기는 카드는 어디에 있어야 하는가?
+  - id: S21-B
+    audience: B
+    source_flow: 모범답안 p.2 (PDF p.8)
+    method_no: 1
+    steps:
+    - id: 21b-1
+      content: |
+        1번 자리에 임의의 카드 한 장을 놓으면 그 카드를 이기는 카드는 반드시 2번 자리에 놓아야 하고($f(1)=2$, 1번 자리에는 이미 다른 카드), $f(2)=3$이므로 2번 자리의 카드를 이기는 카드는 남은 3번 자리에 놓으면 $f(3)=3$이므로 $f$-카드배열이다.
+      criteria: ['2-1.M1']
+    - id: 21b-2
+      content: |
+        따라서 (가위/바위/보), (바위/보/가위), (보/가위/바위) 이렇게 $3$개의 $f$-카드배열이 있다.
+      criteria: ['2-1.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2-1.M1
+      mark_type: M
+      points: 6
+      evidence: |
+        정의를 이용하여 1번 자리 카드를 이기는 카드가 2번 자리에 있어야 한다는 등 $f$-카드배열이 되는 조건을 적었다.
+      depends_on: []
+      implied_ok: false
+      steps: [21b-1]
+    - id: 2-1.A1
+      mark_type: A
+      points: 4
+      evidence: |
+        세 배열 (가위/바위/보), (바위/보/가위), (보/가위/바위)를 모두 적었다.
+      depends_on: [2-1.M1]
+      steps: [21b-2]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '2-2'
+  stem: |
+    (2) $g(1)=2$이고 $g$-카드배열이 존재하도록 하는 함수 $g:\{1,2,3\}\to\{1,2,3\}$을 모두 구하시오.
+  points: 12
+  depends_on: []
+  answer: {kind: set, value: '(2,3,1); (2,3,2); (2,3,3)', equivalents: [], tolerance: null}
+  solutions:
+  - id: S22-A
+    audience: A
+    method_no: 1
+    key_idea: $g(2)\ne3$이면 1번·2번 카드가 서로를 이겨야 해 모순, $g(2)=3$이면 (가위/바위/보)가 항상 $g$-카드배열.
+    steps:
+    - {id: 22a, content: '$g(1)=2$, $g(2)=3$, $g(3)\in\{1,2,3\}$', criteria: ['2-2.M1', '2-2.M2', '2-2.A1']}
+    hint_ladder:
+    - $g(2)\le2$이면 2번 자리 카드를 이기는 카드는 어디에 있어야 하는가?
+  - id: S22-B
+    audience: B
+    source_flow: 모범답안 p.2 (PDF p.8)
+    method_no: 1
+    steps:
+    - id: 22b-1
+      content: |
+        $g(2)\ne3$일 때 $g$-카드배열 $(A/B/C)$가 존재한다고 하자. $g(2)\ne3$이므로 $B$를 이기는 카드는 $A$이다. $g(1)=2$이므로 $A$를 이기는 카드는 $B$가 되어 모순이다. 따라서 $g(2)\ne3$일 때 $g$-카드배열은 존재하지 않는다.
+      criteria: ['2-2.M1']
+    - id: 22b-2
+      content: |
+        $g(2)=3$이면 $g(3)$의 값에 관계없이 (가위/바위/보)는 $g$-카드배열이다. (보충: 1번 가위를 이기는 바위는 2번($\le2$), 2번 바위를 이기는 보는 3번($\le3$), 3번 보를 이기는 가위는 1번($\le g(3)$).)
+      criteria: ['2-2.M2']
+    - id: 22b-3
+      content: |
+        따라서 답은
+        • $g(1)=2$, $g(2)=3$, $g(3)=1$
+        • $g(1)=2$, $g(2)=3$, $g(3)=2$
+        • $g(1)=2$, $g(2)=3$, $g(3)=3$
+        이다.
+      criteria: ['2-2.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2-2.M1
+      mark_type: R
+      points: 4
+      evidence: |
+        $g(2)\ne3$이면 $g$-카드배열이 존재하지 않음을 근거와 함께 적었다.
+      depends_on: []
+      implied_ok: false
+      steps: [22b-1]
+    - id: 2-2.M2
+      mark_type: R
+      points: 4
+      evidence: |
+        $g(2)=3$이면 (가위/바위/보) 등 $g$-카드배열이 존재함을 보였다.
+      depends_on: []
+      implied_ok: false
+      steps: [22b-2]
+    - id: 2-2.A1
+      mark_type: A
+      points: 4
+      evidence: |
+        세 함수를 모두 적었다.
+      depends_on: [2-2.M1, 2-2.M2]
+      steps: [22b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '2-3'
+  stem: |
+    (3) 명제 '모든 카드배열이 $h$-카드배열이다.'가 참이 되도록 하는 함수 $h:\{1,2,3\}\to\{1,2,3\}$을 모두 구하시오. (단, $n=3$)
+  points: 13
+  depends_on: []
+  answer: {kind: set, value: '(3,3,2); (3,3,3)', equivalents: [], tolerance: null}
+  solutions:
+  - id: S23-A
+    audience: A
+    method_no: 1
+    key_idea: 반례 배열로 $h(1)=3$, $h(2)=3$, $h(3)\ne1$을 강제하고, 남은 두 함수는 모든 배열에서 규칙을 만족함을 확인.
+    steps:
+    - {id: 23a, content: '$(h(1),h(2),h(3))=(3,3,2),(3,3,3)$', criteria: ['2-3.R1', '2-3.R2', '2-3.A1']}
+    hint_ladder:
+    - 1번 자리 카드를 이기는 카드가 3번 자리에 있는 배열을 생각하자.
+  - id: S23-B
+    audience: B
+    source_flow: 모범답안 p.2–3 (PDF p.8–9)
+    method_no: 1
+    steps:
+    - id: 23b-1
+      content: |
+        $h(1)\ne3$이면 (가위/보/바위)가 $h$-카드배열이 아니다. 그러므로 $h(1)=3$이다.
+      criteria: ['2-3.R1']
+    - id: 23b-2
+      content: |
+        $h(2)\ne3$이면 (보/가위/바위)가 $h$-카드배열이 아니다. 그러므로 $h(2)=3$이다. $h(3)=1$이면 (보/바위/가위)가 $h$-카드배열이 아니다. 따라서 $h(1)=3$, $h(2)=3$이고 $h(3)=2$ 또는 $h(3)=3$이다.
+      criteria: ['2-3.R2']
+    - id: 23b-3
+      content: |
+        (i) $h(1)=3$, $h(2)=3$, $h(3)=2$이면 임의의 카드배열을 생각하자. $h(1)=3$, $h(2)=3$이므로 규칙 ①, ②를 따른다. 3번 자리의 이기는 카드는 이미 1번 또는 2번 자리에 있고 $h(3)=2$이므로 규칙 ③도 따른다. 따라서 모든 카드배열이 $h$-카드배열이다.
+        (ii) $h(1)=3$, $h(2)=3$, $h(3)=3$은 어떤 제약 조건도 없으므로 모든 카드배열이 $h$-카드배열이다.
+        따라서 답은 $h(1)=3$, $h(2)=3$, $h(3)=3$과 $h(1)=3$, $h(2)=3$, $h(3)=2$이다.
+      criteria: ['2-3.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2-3.R1
+      mark_type: R
+      points: 4
+      evidence: |
+        반례 배열을 들어 $h(1)=3$임을 보였다.
+      depends_on: []
+      implied_ok: false
+      steps: [23b-1]
+    - id: 2-3.R2
+      mark_type: R
+      points: 4
+      evidence: |
+        반례 배열을 들어 $h(2)=3$임을 보였다.
+      depends_on: []
+      implied_ok: false
+      steps: [23b-2]
+    - id: 2-3.A1
+      mark_type: A
+      points: 5
+      evidence: |
+        $h(3)=2$ 또는 $h(3)=3$일 때 명제가 참임을 보이고 두 함수를 답했다.
+      depends_on: [2-3.R1, 2-3.R2]
+      steps: [23b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+remedy_links: []
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

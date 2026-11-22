@@ -1,0 +1,391 @@
+# 아주대 2022학년도 수시 모의논술 자연계열 문항 1 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+# 의학과 모의논술 문항 1(수학)은 이 문항과 완전히 같아 별도 파일을 만들지 않음(M22_med_Q 대조 2026-11-21)
+schema_version: '2.0'
+id: AJOU-M22-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: AJOU
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 구성
+points: 50
+time_estimate_min: 40
+intent: |
+  연분수형 점화식 $b_k=a_k-\dfrac{1}{b_{k-1}}$로 정의된 수열을 계산·귀납 증명하고, 주어진 끝항으로부터 기본수열을 거꾸로 구성하며 그 과정이 유한번에 끝남을 논증하는 능력을 본다.
+key_idea: |
+  $b_n=\dfrac{s}{t}$에서 $d_n=\left\lceil\dfrac{s}{t}\right\rceil$로 두면 $b_{n-1}=\dfrac{t}{td_n-s}$의 분자가 줄어들므로 역추적이 유한번에 끝난다.
+stuck: |
+  (1-4)에서 $a_n$을 $\dfrac{s}{t}\le d_n<\dfrac{s}{t}+1$로 고르는 이유($b_{n-1}>1$ 유지)와 분자가 감소한다는 종료 논증
+idea_tags: [IDEA-CONTINUED-FRACTION-BACKTRACK, IDEA-DESCENT-TERMINATION]
+tags: [연분수, 역추적, 수학적 귀납법]
+elements:
+  materials:
+  - '1보다 큰 자연수로 이루어진 기본수열 $a_k$'
+  - '제1유도수열 $b_k=a_k-\tfrac{1}{b_{k-1}}$'
+  - '분자만 모은 제2유도수열 $c_k$'
+  concepts:
+  - '수열의 귀납적 정의'
+  - '수학적 귀납법'
+  - '기약분수와 서로소'
+  - '홀수·짝수'
+  tools:
+  - '처음 몇 항 계산 후 일반항 추측'
+  - '$b_k=\tfrac{2k+1}{2k-1}$ 형태 관찰'
+  - '역연산 $b_{k-1}=\tfrac{1}{a_k-b_k}$'
+  - '천장값 $d_n$ 선택과 분자 감소(무한강하 금지)'
+  conditions:
+  - '$a_k>1$인 자연수이므로 모든 $b_k>1$'
+  - '[문제 1-1]은 $n\ge4$'
+  - '$s$, $t$ 서로소, $s>t$'
+  stimuli_used: [제시문]
+  subpart_links: '(1-3)은 (1-4)의 역추적 절차의 구체적 사례, (1-1)(1-2)는 순방향 계산'
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅰ]
+  scope_2028: common
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 수열의 귀납적 정의를 이해하고 수학적 귀납법으로 명제를 증명할 수 있다(요지)
+    verified: false
+  content_area: 수열 – 수학적 귀납법
+  behavior_domain: 추론
+  unit_path: [수학Ⅰ, 수열, 수학적 귀납법, 수열의 귀납적 정의]
+  key_concepts: [수열의 귀납적 정의, 수학적 귀납법, 기약분수]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 아주대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 아주대학교
+  admission_year: 2022
+  admission_type: 수시 모의논술
+  track: 자연계열
+  question_no: 1
+  official_url: https://www.iajou.ac.kr/pasttest/view.php?bn=69045&m_type=SUSI
+  retrieved_at: 2026-11-21
+  original_points: [10, 15, 10, 15]
+  rights_notice: 미확인
+  transcribed_from: '아주대 입학처 공식 HWP「2022학년도 모의논술고사 자연계열 문제지」·「예시답안 및 채점기준」의 텍스트 변환본(수식 스크립트를 LaTeX로 옮김, 2026-11-21) [판독확인: HWP 원본 이미지 대조 미실시]'
+
+verify: verify/AJOU-M22.py::p01
+
+stimuli:
+- label: 제시문
+  body: |
+    $1$보다 큰 자연수 $n$개로 이루어진 수열 $a_1,a_2,\cdots,a_n$을 기본수열이라 하자. 주어진 기본수열에 대해, 다음과 같이 수열 $b_1,b_2,\cdots,b_n$을 귀납적으로 정의한다.
+
+    > [수열 $b_1,b_2,\cdots,b_n$의 귀납적 정의]
+    > (a) $b_1=a_1$
+    > (b) $1<k\le n$인 자연수 $k$에 대해, $b_k=a_k-\dfrac{1}{b_{k-1}}$
+
+    주어진 기본수열로부터 위와 같이 귀납적으로 정의된 수열 $b_1,b_2,\cdots,b_n$을 제1유도수열이라 하자. 제1유도수열의 각 항은 양의 유리수임을 알 수 있다. 제1유도수열의 각 항을 기약분수로 나타내고 그 분자를 순서대로 나열하면 자연수로 이루어진 새로운 수열 $c_1,c_2,\cdots,c_n$을 얻을 수 있고 이를 제2유도수열이라 하자.
+
+    따라서 제1유도수열과 제2유도수열은 모두 $n$개의 항으로 이루어진 수열이고, 이때 제$n$항을 끝항이라 하자. 즉, 제1유도수열의 끝항은 $b_n$이고, 제2유도수열의 끝항은 $c_n$이다.
+
+    예를 들어, 기본수열 $a_1=4$, $a_2=2$, $a_3=3$에 대해, 제1유도수열은
+    $$b_1=4,\quad b_2=2-\frac14=\frac74,\quad b_3=3-\frac{1}{\frac74}=\frac{17}{7}$$
+    이고, 끝항은 $b_3=\dfrac{17}{7}$이다. 이때 제2유도수열은
+    $$c_1=4,\quad c_2=7,\quad c_3=17$$
+    이고, 끝항은 $c_3=17$이다.
+
+stem: |
+  [문항 1] (50점) 다음 제시문을 읽고 논제에 답하라.
+
+subparts:
+- id: '1'
+  stem: |
+    [문제 1-1] (10점) 기본수열 $a_1=3$, $a_2=2$, $a_3=2$, $\cdots$, $a_{n-1}=2$, $a_n=3$에 대해, 제2유도수열의 끝항은 짝수이고 끝항을 제외한 모든 항은 홀수임을 보여라. (단, $n\ge4$)
+  points: 10
+  depends_on: []
+  answer: {kind: proof, value: null, equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: '$b_k=\tfrac{2k+1}{2k-1}$($k\le n-1$), $b_n=\tfrac{4n}{2n-1}$이고 모두 기약분수.'
+    steps:
+    - {id: 1a, content: '$c_k=2k+1$(홀수, $k\le n-1$), $c_n=4n$(짝수)', criteria: ['1.M1', '1.A1', '1.A2', '1.A3']}
+    hint_ladder:
+    - $b_1$, $b_2$, $b_3$을 직접 계산해 규칙을 찾아보자.
+  - id: S1-B
+    audience: B
+    source_flow: 예시답안 [문제 1-1]
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        제1유도수열은 $b_1=3$, $b_2=\dfrac53$, $b_3=\dfrac75$, $\cdots$
+      criteria: ['1.M1']
+    - id: 1b-2
+      content: |
+        $$b_{n-1}=\frac{2(n-1)+1}{2(n-1)-1}=\frac{2n-1}{2n-3}$$
+        (보충: $b_{k}=2-\dfrac{2k-3}{2k-1}=\dfrac{2k+1}{2k-1}$이 $k=2,\dots,n-1$에서 차례로 성립)
+      criteria: ['1.A1']
+    - id: 1b-3
+      content: |
+        $$b_n=3-\frac{1}{\frac{2n-1}{2n-3}}=\frac{4n}{2n-1}$$
+        이고 각 항이 기약분수이므로 (보충: 연속한 두 홀수 $2k+1$, $2k-1$은 서로소이고, $4n$과 홀수 $2n-1$도 $4n=2(2n-1)+2$에서 $\gcd(4n,2n-1)=\gcd(2,2n-1)=1$로 서로소)
+      criteria: ['1.A2']
+    - id: 1b-4
+      content: |
+        제2유도수열은
+        $$c_1=3,\ c_2=5,\ \cdots,\ c_{n-1}=2n-1,\ c_n=4n$$
+        이다. 따라서 끝항 $c_n=4n$은 짝수이고 나머지 항 $2k+1$은 모두 홀수이다.
+      criteria: ['1.A3']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 5
+      evidence: |
+        제1유도수열의 처음 몇 항($3,\tfrac53,\tfrac75,\dots$)을 구했다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1]
+    - id: 1.A1
+      mark_type: A
+      points: 2
+      evidence: |
+        제1유도수열의 제$(n-1)$항 $\dfrac{2n-1}{2n-3}$을 구했다.
+      depends_on: [1.M1]
+      steps: [1b-2]
+    - id: 1.A2
+      mark_type: A
+      points: 1
+      evidence: |
+        끝항 $b_n=\dfrac{4n}{2n-1}$까지 제1유도수열을 모두 구했다.
+      depends_on: [1.M1]
+      steps: [1b-3]
+    - id: 1.A3
+      mark_type: A
+      points: 2
+      evidence: |
+        제2유도수열 $c_k=2k+1$($k\le n-1$), $c_n=4n$을 구했다.
+      depends_on: [1.M1]
+      steps: [1b-4]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '2'
+  stem: |
+    [문제 1-2] (15점) 기본수열 $a_1=2$, $a_2=2$, $\cdots$, $a_n=2$에 대해, 기약분수로 나타낸 제1유도수열의 제$k$항 $b_k$를 $k$에 대한 식으로 구하고, 이 식이 성립함을 수학적 귀납법으로 증명하라.
+  points: 15
+  depends_on: []
+  answer: {kind: expression, value: '(k+1)/k', equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: '$b_k=\tfrac{k+1}{k}$이고 $2-\tfrac{k-1}{k}=\tfrac{k+1}{k}$.'
+    steps:
+    - {id: 2a, content: '$b_1=2$, $b_{k-1}=\tfrac{k}{k-1}\Rightarrow b_k=\tfrac{k+1}{k}$', criteria: ['2.B1', '2.B2', '2.R1']}
+    hint_ladder:
+    - $b_2$, $b_3$을 계산해 보자.
+  - id: S2-B
+    audience: B
+    source_flow: 예시답안 [문제 1-2]
+    method_no: 1
+    steps:
+    - id: 2b-1
+      content: |
+        제1유도수열의 일반항은 $b_k=\dfrac{k+1}{k}$이다.
+      criteria: ['2.B1']
+    - id: 2b-2
+      content: |
+        해당 식이 성립함을 수학적 귀납법으로 증명하자. 먼저, $k=1$이면, $b_1=2$이므로 해당 식이 성립한다.
+      criteria: ['2.B2']
+    - id: 2b-3
+      content: |
+        제1유도수열의 제$k-1$항이 $b_{k-1}=\dfrac{k}{k-1}$이라고 가정하자. 그러면, $b_k=2-\dfrac{1}{\frac{k}{k-1}}=\dfrac{k+1}{k}$이다. 따라서 수학적 귀납법에 의해 해당 식이 성립한다. (보충: $k+1$과 $k$는 서로소이므로 기약분수)
+      criteria: ['2.R1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    # 예시답안 머리글은 [문제 1-2] (10점)이나 문제지·채점기준 합(8+2+5)은 15점 — 문제지 배점을 따름
+    criteria:
+    - id: 2.B1
+      mark_type: B
+      points: 8
+      evidence: |
+        일반항 $b_k=\dfrac{k+1}{k}$을 명시했다.
+      depends_on: []
+      implied_ok: false
+      steps: [2b-1]
+    - id: 2.B2
+      mark_type: B
+      points: 2
+      evidence: |
+        $k=1$인 경우($b_1=2$)를 확인했다.
+      depends_on: []
+      steps: [2b-2]
+    - id: 2.R1
+      mark_type: R
+      points: 5
+      evidence: |
+        $b_{k-1}=\dfrac{k}{k-1}$ 가정에서 $b_k=\dfrac{k+1}{k}$을 이끌어 귀납 논증을 완결했다.
+      depends_on: []
+      steps: [2b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '3'
+  stem: |
+    [문제 1-3] (10점) 제1유도수열의 끝항이 $\dfrac{25}{4}$인 기본수열을 구하라.
+  points: 10
+  depends_on: []
+  answer: {kind: expression, value: '(2, 2, 2, 7)', equivalents: [], tolerance: null}
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: '끝항에서 거꾸로: $\tfrac{25}{4}=7-\tfrac{1}{4/3}$, $\tfrac43=2-\tfrac{1}{3/2}$, $\tfrac32=2-\tfrac12$.'
+    steps:
+    - {id: 3a, content: '$a_1=2,a_2=2,a_3=2,a_4=7$', criteria: ['3.B1', '3.B2', '3.B3', '3.B4']}
+    hint_ladder:
+    - 모든 $b_k$는 1보다 크므로 $\dfrac{1}{b_{k-1}}$은 0과 1 사이이다.
+  - id: S3-B
+    audience: B
+    source_flow: 예시답안 [문제 1-3]
+    method_no: 1
+    steps:
+    - id: 3b-1
+      content: |
+        $\dfrac{25}{4}=7-\dfrac{1}{\frac43}$이고 $\dfrac43=2-\dfrac{1}{\frac32}$이며 $\dfrac32=2-\dfrac12$이다.
+        따라서, $a_1=2$, $a_2=2$, $a_3=2$, $a_4=7$이다.
+      criteria: ['3.B1', '3.B2', '3.B3', '3.B4']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    # 예시답안 머리글은 [문제 1-3] (15점)이나 문제지·채점기준 합(5+2+1+2)은 10점 — 문제지 배점을 따름
+    criteria:
+    - id: 3.B1
+      mark_type: B
+      points: 5
+      evidence: |
+        $a_1=2$를 구했다.
+      depends_on: []
+      implied_ok: false
+      steps: [3b-1]
+    - id: 3.B2
+      mark_type: B
+      points: 2
+      evidence: |
+        $a_2=2$까지 구했다.
+      depends_on: []
+      steps: [3b-1]
+    - id: 3.B3
+      mark_type: B
+      points: 1
+      evidence: |
+        $a_3=2$까지 구했다.
+      depends_on: []
+      steps: [3b-1]
+    - id: 3.B4
+      mark_type: B
+      points: 2
+      evidence: |
+        $a_4=7$까지 구했다.
+      depends_on: []
+      steps: [3b-1]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '4'
+  stem: |
+    [문제 1-4] (15점) $s$와 $t$가 서로 소인 두 자연수이고 $s>t$이다. 제1유도수열의 끝항이 $\dfrac{s}{t}$인 기본수열이 항상 존재한다는 것을 증명하라.
+  points: 15
+  depends_on: []
+  answer: {kind: proof, value: null, equivalents: [], tolerance: null}
+  solutions:
+  - id: S4-A
+    audience: A
+    method_no: 1
+    key_idea: '$d_n$을 $\tfrac{s}{t}\le d_n<\tfrac{s}{t}+1$인 자연수로 두면 $b_{n-1}=\tfrac{t}{td_n-s}>1$이고 분자가 $s$보다 작아지므로 반복이 유한번에 끝난다.'
+    steps:
+    - {id: 4a, content: '$d_n$ 유일 존재 → $b_{n-1}=\tfrac{t}{td_n-s}$ → 분자 감소 → 정수가 되면 종료', criteria: ['4.M1', '4.M2', '4.R1', '4.R2']}
+    hint_ladder:
+    - $b_n=a_n-\dfrac{1}{b_{n-1}}$에서 $0<\dfrac{1}{b_{n-1}}<1$이면 $a_n$은 어떻게 정해지는가?
+    - 거꾸로 구한 $b_{n-1}$의 분자는 $s$와 비교해 어떤가?
+  - id: S4-B
+    audience: B
+    source_flow: 예시답안 [문제 1-4]
+    method_no: 1
+    steps:
+    - id: 4b-1
+      content: |
+        구하려는 기본수열의 제1유도수열의 끝항을 $b_n$이라 하면, $b_n=\dfrac{s}{t}>1$인 유리수이다. 이때, $1<b_n=\dfrac{s}{t}\le d_n<\dfrac{s}{t}+1$을 만족하는 1보다 큰 자연수 $d_n$이 유일하게 존재한다.
+      criteria: ['4.M1']
+    - id: 4b-2
+      content: |
+        (1) 만약 $\dfrac{s}{t}$가 자연수라면, $n=1$이고 구하려는 기본수열은 $a_1=b_1$이다.
+        (2) 만약 $\dfrac{s}{t}$가 자연수가 아닌 유리수라면,
+        $$b_{n-1}=\frac{t}{td_n-s}$$
+        라고 두었을 때,
+        $$b_n=d_n-\frac{1}{b_{n-1}}$$
+        이고 $b_{n-1}$은 1보다 큰 유리수이므로 기약분수 $b_{n-1}=\dfrac{s'}{t'}$로 나타낼 수 있고 $s'\le t<s$이다. (보충: $\tfrac{s}{t}<d_n<\tfrac{s}{t}+1$에서 $0<td_n-s<t$)
+      criteria: ['4.M2', '4.R1']
+    - id: 4b-3
+      content: |
+        위의 과정을 반복하여 $b_{n-1}$, $b_{n-2}$, $\cdots$, $b_1$을 얻을 수 있고, 이들을 기약분수로 표현했을 때 각 분자는 감소하는 자연수이므로 이 과정은 유한번 안에 끝난다는 것을 알 수 있다. 또한, 위의 과정에서 1보다 큰 자연수로 구성된 수열 $d_2$, $d_3$, $\cdots$, $d_n$도 얻게 된다. 즉, 제시문에 있는 제1유도수열의 정의에 의하여, 구하려는 기본수열은 $a_1=b_1$, $a_2=d_2$, $\cdots$, $a_n=d_n$이다.
+      criteria: ['4.R2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 4.M1
+      mark_type: M
+      points: 5
+      evidence: |
+        $1<\dfrac{s}{t}\le d_n<\dfrac{s}{t}+1$을 만족하는 1보다 큰 자연수 $d_n$이 유일하게 존재함을 서술했다.
+      depends_on: []
+      implied_ok: false
+      steps: [4b-1]
+    - id: 4.M2
+      mark_type: M
+      points: 5
+      evidence: |
+        $b_n$으로부터 $b_{n-1}=\dfrac{t}{td_n-s}$를 구하는 과정을 서술했다.
+      depends_on: [4.M1]
+      steps: [4b-2]
+    - id: 4.R1
+      mark_type: R
+      points: 3
+      evidence: |
+        $\dfrac{s}{t}$가 자연수인 경우를 고려했다(또는 과정이 끝나는 경우를 고려).
+      depends_on: []
+      steps: [4b-2]
+    - id: 4.R2
+      mark_type: R
+      points: 2
+      evidence: |
+        분자가 감소하므로 과정이 유한 번 안에 끝남을 언급했다.
+      depends_on: [4.M2]
+      steps: [4b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+remedy_links: []
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

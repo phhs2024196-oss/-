@@ -1,0 +1,450 @@
+# 아주대 2023학년도 논술고사 자연계열(오전) 문항 1 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: AJOU-G23A-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: AJOU
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 전수
+points: 50
+intent: |
+  등차수열·등비수열의 정의와 합, 로그함수·삼각함수의 함숫값, 사잇값 정리를 '등차등비표'라는 새 정의 안에서 조합해 쓰는 능력을 본다.
+key_idea: |
+  행·열이 각각 등차 또는 등비라는 조건을 칸 하나씩 연립·분류하고, 변환 $f(x)$를 거친 표의 수열 성질(로그 → 등차↔등비, 사인 주기성)을 이용한다.
+stuck: |
+  (1-2)에서 첫 행·첫 열이 등차가 될 수 없음을 홀짝으로 판정하고 남은 칸 $z$의 홀짝으로 셋째 열을 등비로 확정하는 분류, (2-2)에서 $a=-1$ 배제와 $x<0$ 구간의 사잇값 정리
+idea_tags: [IDEA-AP-GP-TABLE, IDEA-PARITY-CASE-SPLIT, IDEA-LOG-AP-TO-GP, IDEA-IVT-ROOT-COUNT]
+tags: [새 정의, 등차등비표, 전수 세기]
+elements:
+  materials:
+  - '$n\times n$ 표의 가로수열·세로수열이 모두 등차 또는 등비인 $n$-등차등비표'
+  - '함수 $f(x)$로 표의 각 칸을 변환한 표'
+  - '$f(x)=\log_2x$, $f(x)=\sin\dfrac{\pi}{2}x$, $g(x)=x^3+ax^2+b$'
+  concepts:
+  - '등차수열·등비수열의 정의(등차중항·등비중항)'
+  - '등차수열의 합·등비수열의 합'
+  - '이차방정식의 근과 계수의 관계, 판별식'
+  - '로그의 성질'
+  - '삼각함수의 값과 주기'
+  - '합성함수'
+  - '사잇값 정리'
+  tools:
+  - '등차중항 $2b=a+c$, 등비중항 $b^2=ac$ 연립'
+  - '홀짝(패리티)에 의한 경우 분류'
+  - '행별 합 $\dfrac{n(a_k+b_k)}{2}$의 총합'
+  - '그래프 개형과 사잇값 정리로 교점 개수 세기'
+  conditions:
+  - '등비수열은 0인 항을 가질 수 없음($c=20$이면 $d=0$이 되어 모순)'
+  - '(1-2) 각 칸은 9 이하의 자연수'
+  - '(1-3) $\alpha$, $\beta$가 서로 다른 두 실근 → 판별식 $>0$'
+  - '(2-2) $a=-1$이면 첫 가로수열이 $b,b,b-2$로 모순'
+  stimuli_used: [가, 나]
+  subpart_links: '(1-1)~(1-3)은 제시문 (가)만, (2-1)·(2-2)는 (가)의 표 정의와 (나)의 변환을 함께 사용'
+
+curriculum:
+  version: '2015'
+  subjects: [수학, 수학Ⅰ, 수학Ⅱ]
+  scope_2028: common
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 등차수열·등비수열의 뜻을 알고 일반항과 합을 구할 수 있다(요지)
+    verified: false
+  content_area: 수열·지수로그·삼각함수·함수의 연속
+  behavior_domain: 문제해결
+  unit_path: [수학Ⅰ, 수열, 등차수열과 등비수열, 등차등비표]
+  key_concepts: [등차수열, 등비수열, 로그함수, 삼각함수, 사잇값 정리]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 아주대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 아주대학교
+  admission_year: 2023
+  admission_type: 수시 논술우수자
+  track: 자연계열(오전)
+  question_no: 1
+  official_url: https://www.iajou.ac.kr/pasttest/view.php?bn=69053&m_type=SUSI
+  retrieved_at: 2026-11-21
+  original_points: [10, 10, 10, 10, 10]
+  rights_notice: 미확인
+  transcribed_from: '아주대 입학처 공식 PDF「2023학년도 논술고사 자연계열(오전)」 문제 p.2–3, 모범답안 p.7–8, 채점기준 p.12 (이미지 대조 2026-11-21)'
+  # 문제지에는 [문제 1-1]·[문제 1-2]별 배점 표기가 없음 — original_points 는 채점기준표(각 (1)(2)(3) 10점)에서 옮김
+
+verify: verify/AJOU-G23A.py::p01
+
+stimuli:
+- label: 가
+  body: |
+    자연수 $n\,(n\ge3)$에 대하여, 각 가로줄과 세로줄이 $n$개의 칸으로 이루어진 정사각형 모양의 표가 있다. [그림 1]은 $n=3$인 경우와 $n=4$인 경우를 표현한 것이다.
+
+    [그림 1: 왼쪽은 $3\times3$ 빈 표(「$n=3$인 경우」), 오른쪽은 $4\times4$ 빈 표(「$n=4$인 경우」)]
+
+    이 표의 각 칸에 실수를 하나씩 적어, 위에서부터 $k$번째 가로줄에 적힌 $n$개의 수를 왼쪽에서 오른쪽으로 읽어 얻은 수열을 **$k$번째 가로수열**, 왼쪽에서부터 $k$번째 세로줄에 적힌 $n$개의 수를 위에서 아래로 읽어 얻은 수열을 **$k$번째 세로수열**이라 한다. 각 가로수열과 세로수열이 등차수열 또는 등비수열인 표를 **$n$-등차등비표**라 하자.
+    [그림 2]의 표는 각 가로수열과 세로수열이 등차수열 또는 등비수열이므로 모두 3-등차등비표이다.
+
+    [그림 2: 두 개의 $3\times3$ 표. 왼쪽 표의 가로줄은 위에서부터 (1, 2, 3), (4, 5, 6), (7, 8, 9). 오른쪽 표의 가로줄은 위에서부터 (4, 6, 9), (2, 5, 8), (1, 4, 7)]
+- label: 나
+  body: |
+    함수 $f(x)$에 대하여, $n$-등차등비표의 각 칸마다 그 칸에 적힌 수 $x$ 대신 $f(x)$를 적어 만든 표를 **$f(x)$에 의해 변환한 표**라 하자. 예를 들어 [그림 2]의 두 3-등차등비표를 $f(x)=2x$에 의해 변환한 표는 [그림 3]과 같다.
+
+    [그림 3: 두 개의 $3\times3$ 표. 왼쪽 표의 가로줄은 위에서부터 (2, 4, 6), (8, 10, 12), (14, 16, 18). 오른쪽 표의 가로줄은 위에서부터 (8, 12, 18), (4, 10, 16), (2, 8, 14)]
+
+stem: |
+  [문항 1] (50점) 다음 제시문을 읽고 논제에 답하라.
+
+subparts:
+- id: '1-1'
+  stem: |
+    [문제 1-1] 제시문 (가)를 읽고 물음에 답하라.
+    (1) 아래의 3-등차등비표에서 두 번째 가로수열과 두 번째 세로수열은 등차수열이며, 그 외 가로수열과 세로수열은 모두 등비수열일 때, $a+b+c+d+e$의 값을 구하라.
+
+    [표: $3\times3$ 표의 가로줄은 위에서부터 $(10,\ a,\ b)$, $(c,\ 10,\ d)$, $(40,\ e,\ 10)$]
+  points: 10
+  depends_on: []
+  answer: {kind: value, value: '200', equivalents: [], tolerance: null}
+  solutions:
+  - id: S11-A
+    audience: A
+    method_no: 1
+    key_idea: 등차인 둘째 행·열에서 $a+e=c+d=20$, 첫째 세로수열에서 $c=\pm20$이고 $c=20$이면 $d=0$이라 셋째 가로수열이 등비가 될 수 없다.
+    steps:
+    - {id: 11a, content: '$a+e=c+d=20$, $c=-20$, $d=40$, $b=160$ → $a+b+c+d+e=200$', criteria: ['1-1.M1', '1-1.A1', '1-1.A2']}
+    hint_ladder:
+    - 등차수열인 둘째 행과 둘째 열에서 바로 얻는 식은?
+    - 첫째 세로수열 $10,c,40$이 등비이면 $c$는? 두 값 중 하나는 모순이 생긴다.
+  - id: S11-B
+    audience: B
+    source_flow: 모범답안 p.7
+    method_no: 1
+    steps:
+    - id: 11b-1
+      content: |
+        두 번째 가로수열과 두 번째 세로수열이 등차수열이므로 $a+e=c+d=20$이다. 이로부터 $a+c+d+e=40$을 얻는다.
+      criteria: ['1-1.M1']
+    - id: 11b-2
+      content: |
+        첫 번째 세로수열 $10,c,40$은 등비수열이므로 $c^2=400$이고 $c=\pm20$이다. 만약 $c=20$이면 $d=0$이 되어 세 번째 세로수열 $b,d,10$이 등비수열을 이룬다는 조건에 모순이다. 따라서 $c=-20$이고 $d=40$이다.
+      criteria: ['1-1.A1']
+    - id: 11b-3
+      content: |
+        세 번째 세로수열이 등비수열이라는 조건 $d^2=10b$에서 $b=160$이다. 처음 얻은 식과 종합하면 $a+b+c+d+e=40+160=200$이다. (완성된 표의 가로줄: $(10,40,160)$, $(-20,10,40)$, $(40,-20,10)$)
+      criteria: ['1-1.A2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1-1.M1
+      mark_type: M
+      points: 3
+      evidence: |
+        $a+e=c+d=20$임을 적었다.
+      depends_on: []
+      implied_ok: false
+      steps: [11b-1]
+    - id: 1-1.A1
+      mark_type: A
+      points: 3
+      evidence: |
+        $c=-20$, $d=40$을 구했다($c=20$ 배제 근거 포함).
+      depends_on: [1-1.M1]
+      steps: [11b-2]
+    - id: 1-1.A2
+      mark_type: A
+      points: 4
+      evidence: |
+        $b=160$을 구하여 답 $200$을 얻었다.
+      depends_on: [1-1.M1]
+      steps: [11b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '1-2'
+  stem: |
+    [문제 1-1] (2) 다음 <조건>을 만족하는 3-등차등비표의 개수를 구하라.
+
+    < 조 건 >
+    ① 각 칸에 적힌 수는 9 이하의 자연수이다.
+    ② 첫 번째 가로수열은 첫째항만 홀수이고 나머지 항은 짝수이다.
+    ③ 첫 번째 세로수열은 둘째항만 짝수이고 나머지 항은 홀수이다.
+
+    [표: 홀짝 배치 예시 — 첫째 가로줄 (홀, 짝, 짝), 첫째 세로줄 (홀, 짝, 홀), 나머지 네 칸은 빈칸]
+  points: 10
+  depends_on: []
+  answer: {kind: value, value: '8', equivalents: [], tolerance: null}
+  solutions:
+  - id: S12-A
+    audience: A
+    method_no: 1
+    key_idea: 홀짝 때문에 첫 행은 등비($1,2,4$ 또는 $9,6,4$), 첫 열은 등차($d=\pm1,\pm3$)로 4가지; $z$가 홀수여야 해서 셋째 열은 $4,2,1$ 또는 $4,6,9$, 나머지는 유일하다.
+    steps:
+    - {id: 12a, content: '4가지 테두리 × 셋째 세로수열 2가지 = 8', criteria: ['1-2.M1', '1-2.A1', '1-2.A2']}
+    hint_ladder:
+    - 홀, 짝, 짝은 등차수열이 될 수 있는가?
+    - 오른쪽 아래 칸 $z$가 짝수이면 셋째 가로수열은 어떻게 되는가?
+  - id: S12-B
+    audience: B
+    source_flow: 모범답안 p.7
+    method_no: 1
+    steps:
+    - id: 12b-1
+      content: |
+        ②에 의하여 첫 번째 가로수열은 등차수열이 될 수 없으므로 공비가 1이 아닌 등비수열이다. 첫째항을 $a$, 공비를 $r$이라 하면 $a$는 홀수, $ar$과 $ar^2$은 짝수이고, ①에서 $ar^2\le9$이므로 $a=1,\ r=2$이거나 $a=9,\ r=\dfrac32$이다.
+      criteria: ['1-2.M1']
+    - id: 12b-2
+      content: |
+        ③에 의하여 첫 번째 세로수열은 등비수열이 될 수 없으므로 공차가 0이 아닌 등차수열이다. 공차를 $d$라 하면 $d$는 홀수이고 $a+2d\le9$이므로 $a=1$일 때 $d=1$ 또는 $3$, $a=9$일 때 $d=-1$ 또는 $-3$이다. 총 4가지 경우이며 나머지 칸을 $\begin{smallmatrix}x&w\\y&z\end{smallmatrix}$처럼 $x,w,y,z$라 둔다(가운데 행 $x,w$, 아래 행 $y,z$).
+      criteria: ['1-2.M1']
+    - id: 12b-3
+      content: |
+        만약 $z$가 짝수이면 세 번째 가로수열($3,y,z$ 또는 $7,y,z$)은 홀수로 시작하여 짝수로 끝나므로 등차수열일 수 없고, $z$가 9 이하의 짝수라는 조건 때문에 등비수열도 될 수 없어 모순이다. 따라서 $z$는 홀수이고, 세 번째 세로수열 $4,w,z$는 등차수열이 될 수 없으므로 등비수열 $4,2,1$ 또는 $4,6,9$이다.
+      criteria: ['1-2.A1']
+    - id: 12b-4
+      content: |
+        각 경우마다 $x$와 $y$를 결정하는 방법이 유일하므로 총 $4\times2=8$개이다. (완성 표의 가로줄: $(1,2,4),(2,2,2),(3,2,1)$ / $(1,2,4),(2,4,6),(3,6,9)$ / $(1,2,4),(4,3,2),(7,4,1)$ / $(1,2,4),(4,5,6),(7,8,9)$ / $(9,6,4),(8,5,2),(7,4,1)$ / $(9,6,4),(8,7,6),(7,8,9)$ / $(9,6,4),(6,4,2),(3,2,1)$ / $(9,6,4),(6,6,6),(3,6,9)$)
+      criteria: ['1-2.A2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1-2.M1
+      mark_type: M
+      points: 4
+      evidence: |
+        첫 번째 가로수열이 $1,2,4$임을 찾고 3-등차등비표를 2개 이상 4개 이하 찾았다.
+      depends_on: []
+      implied_ok: false
+      steps: [12b-1, 12b-2]
+    - id: 1-2.A1
+      mark_type: A
+      points: 3
+      evidence: |
+        3-등차등비표를 5개 이상 7개 이하 찾았다.
+      depends_on: [1-2.M1]
+      steps: [12b-3]
+    - id: 1-2.A2
+      mark_type: A
+      points: 3
+      evidence: |
+        모든 경우를 다 찾아서 답 8을 얻었다.
+      depends_on: [1-2.M1]
+      steps: [12b-4]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '1-3'
+  stem: |
+    [문제 1-1] (3) 자연수 $n\,(n\ge3)$에 대하여, $n$-등차등비표에 적힌 모든 수의 합이 20이고 각 가로수열이 등차수열이라 하자. 이 $n$-등차등비표의 첫 번째 세로수열의 합을 $\alpha$라 하고 $n$번째 세로수열의 합을 $\beta$라 하자. $\alpha$와 $\beta$가 이차방정식 $x^2-5x+p=0$의 서로 다른 두 실근일 때, $n$의 값을 구하고 실수 $p$의 범위를 구하라.
+  points: 10
+  depends_on: []
+  answer: {kind: expression, value: 'n = 8; p < 25/4', equivalents: [], tolerance: null}
+  solutions:
+  - id: S13-A
+    audience: A
+    method_no: 1
+    key_idea: 각 행의 합 $\tfrac{n(a_k+b_k)}{2}$를 모두 더하면 $\tfrac{n(\alpha+\beta)}{2}=20$이고 $\alpha+\beta=5$이다.
+    steps:
+    - {id: 13a, content: '$n(\alpha+\beta)=40$, $\alpha+\beta=5\Rightarrow n=8$; 판별식 $25-4p>0$', criteria: ['1-3.M1', '1-3.A1', '1-3.A2']}
+    hint_ladder:
+    - 등차수열인 가로수열 하나의 합을 첫째항과 끝항으로 쓰면?
+  - id: S13-B
+    audience: B
+    source_flow: 모범답안 p.7
+    method_no: 1
+    steps:
+    - id: 13b-1
+      content: |
+        $k$번째 가로수열의 첫째항을 $a_k$, 제$n$항을 $b_k$라 하자. 모든 칸에 적힌 수의 총합이 20이라는 조건으로부터 $\displaystyle\sum_{k=1}^{n}\dfrac{n(a_k+b_k)}{2}=20$을 얻는다. 또한 $\alpha=\displaystyle\sum_{k=1}^{n}a_k$이고 $\beta=\displaystyle\sum_{k=1}^{n}b_k$이기 때문에 $n(\alpha+\beta)=40$이 된다.
+      criteria: ['1-3.M1']
+    - id: 13b-2
+      content: |
+        $\alpha$와 $\beta$가 이차방정식 $x^2-5x+p=0$의 서로 다른 두 실근이므로 근과 계수의 관계에 의하여 $\alpha+\beta=5$이고 $\alpha\beta=p$이다. 따라서 $n=8$이다.
+      criteria: ['1-3.A1']
+    - id: 13b-3
+      content: |
+        또한 $x^2-5x+p=0$이 서로 다른 두 실근을 가져야 하므로 판별식에 의해 $25-4p>0$, 즉 $p<\dfrac{25}{4}$를 얻는다.
+      criteria: ['1-3.A2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1-3.M1
+      mark_type: M
+      points: 3
+      evidence: |
+        $n(\alpha+\beta)=40$임을 적었다.
+      depends_on: []
+      implied_ok: false
+      steps: [13b-1]
+    - id: 1-3.A1
+      mark_type: A
+      points: 4
+      evidence: |
+        $n=8$을 얻었다.
+      depends_on: [1-3.M1]
+      steps: [13b-2]
+    - id: 1-3.A2
+      mark_type: B
+      points: 3
+      evidence: |
+        $p<\dfrac{25}{4}$를 얻었다.
+      depends_on: []
+      steps: [13b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '2-1'
+  stem: |
+    [문제 1-2] 제시문 (가)와 (나)를 읽고 물음에 답하라.
+    (1) 10-등차등비표를 $f(x)=\log_2x$에 의해 변환한 표의 첫 번째 가로수열은 등차수열이며, 이 가로수열의 첫째항이 4이고 제10항이 40이라 하자. 변환하기 이전의 표에서 첫 번째 가로수열의 합을 구하라.
+  points: 10
+  depends_on: []
+  answer: {kind: value, value: '16*(2**40 - 1)/15', equivalents: ['2**4*(2**40 - 1)/(2**4 - 1)'], tolerance: null}
+  solutions:
+  - id: S21-A
+    audience: A
+    method_no: 1
+    key_idea: $\log_2$ 값이 공차 4인 등차수열이면 원래 수는 첫째항 $2^4$, 공비 $2^4$인 등비수열이다.
+    steps:
+    - {id: 21a, content: '$2^4\cdot\dfrac{2^{40}-1}{2^4-1}=\dfrac{16}{15}(2^{40}-1)$', criteria: ['2-1.M1', '2-1.A1', '2-1.A2']}
+    hint_ladder:
+    - $\log_2x_{k+1}-\log_2x_k$가 일정하면 $\dfrac{x_{k+1}}{x_k}$는?
+  - id: S21-B
+    audience: B
+    source_flow: 모범답안 p.8
+    method_no: 1
+    steps:
+    - id: 21b-1
+      content: |
+        첫째항이 4이고 제10항이 40인 등차수열의 공차는 4이다. 이 등차수열은 함수 $f(x)=\log_2x$에 의하여 변환된 수열이므로, 변환하기 이전의 표에서는 첫째항이 $2^4$, 공비가 $2^4$인 등비수열이 된다.
+      criteria: ['2-1.M1', '2-1.A1']
+    - id: 21b-2
+      content: |
+        이 등비수열의 합은 $2^4\times\dfrac{2^{40}-1}{2^4-1}=\dfrac{16}{15}(2^{40}-1)$이다.
+      criteria: ['2-1.A2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2-1.M1
+      mark_type: M
+      points: 3
+      evidence: |
+        변환 이전의 첫 번째 가로수열이 등비수열임을 적었다.
+      depends_on: []
+      implied_ok: false
+      steps: [21b-1]
+    - id: 2-1.A1
+      mark_type: A
+      points: 2
+      evidence: |
+        공비가 $2^4$임을 얻었다.
+      depends_on: [2-1.M1]
+      steps: [21b-1]
+    - id: 2-1.A2
+      mark_type: A
+      points: 5
+      evidence: |
+        등비수열의 합 $2^4\times\dfrac{2^{40}-1}{2^4-1}=\dfrac{16}{15}(2^{40}-1)$을 얻었다.
+      depends_on: [2-1.M1]
+      steps: [21b-2]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '2-2'
+  stem: |
+    [문제 1-2] (2) 두 함수 $f(x)=\sin\dfrac{\pi}{2}x$와 $g(x)=x^3+ax^2+b$에 대하여 아래 3-등차등비표를 합성함수 $(g\circ f)(x)$에 의해 변환한 표가 3-등차등비표일 때, $y=f(x)$와 $y=g(x)$의 그래프의 교점의 개수를 구하라. (단, $\sqrt3>1.7$)
+
+    [표: $3\times3$ 표의 가로줄은 위에서부터 $(1,2,3)$, $(4,5,6)$, $(7,8,9)$]
+  points: 10
+  depends_on: []
+  answer: {kind: value, value: '3', equivalents: [], tolerance: null}
+  solutions:
+  - id: S22-A
+    audience: A
+    method_no: 1
+    key_idea: $f(1),\dots,f(9)=1,0,-1,0,1,0,-1,0,1$이라 변환표는 $a+b+1$, $b$, $a+b-1$ 세 값만 가진다. 둘째 행 조건과 첫째 행 등차 조건으로 $g(x)=x^3-\tfrac12$를 얻는다.
+    steps:
+    - {id: 22a, content: '$a=0$, $b=-\tfrac12$; $x>0$에서 1개, $x\le0$에서 $h(-1)<0<h(-\tfrac23)$, $h(0)<0$으로 2개 → 3', criteria: ['2-2.M1', '2-2.A1', '2-2.A2']}
+    hint_ladder:
+    - $f(1),f(2),\dots,f(9)$의 값을 먼저 적어 보자.
+    - $x\le0$에서는 $h(x)=g(x)-f(x)$의 부호를 몇 점에서 확인하면 되는가?
+  - id: S22-B
+    audience: B
+    source_flow: 모범답안 p.8
+    method_no: 1
+    steps:
+    - id: 22b-1
+      content: |
+        함숫값 $f(1),f(2),\dots,f(9)$는 각각 $1,0,-1,0,1,0,-1,0,1$이므로 합성함수 $(g\circ f)(x)$에 의해 변환된 표의 가로줄은 위에서부터 $(a+b+1,\ b,\ a+b-1)$, $(b,\ a+b+1,\ b)$, $(a+b-1,\ b,\ a+b+1)$이다.
+      criteria: ['2-2.M1']
+    - id: 22b-2
+      content: |
+        두 번째 가로수열이 등차수열이거나 등비수열이므로 $a=-1$ 또는 $(a+b+1)^2=b^2$이 성립한다. $a=-1$인 경우는 첫 번째 가로수열이 $b,b,b-2$가 되어 모순이다. 따라서 $a+b+1=-b$이고 $a=-2b-1$이다.
+      criteria: ['2-2.M1']
+    - id: 22b-3
+      content: |
+        이를 대입하면 첫 번째 가로수열이 $-b,\ b,\ -b-2$이다. 항상 $-b\ne-b-2$이므로 등비수열이 될 수 없다. 첫 번째 가로수열이 등차수열인 조건을 사용하면 $b=-\dfrac12$이고 $a=0$이므로 $g(x)=x^3-\dfrac12$이다. (변환표의 가로줄: $(\tfrac12,-\tfrac12,-\tfrac32)$, $(-\tfrac12,\tfrac12,-\tfrac12)$, $(-\tfrac32,-\tfrac12,\tfrac12)$)
+      criteria: ['2-2.A1']
+    - id: 22b-4
+      content: |
+        이제 구간을 나누어서 교점의 개수를 구하자. [그림: $y=\sin\dfrac{\pi}{2}x$와 $y=x^3-\dfrac12$의 그래프] $x>0$일 때, $g(0)<f(0)$이고 $f(2)<g(2)$이므로 그래프 개형에 의하면 한 개의 교점을 가진다.
+      criteria: ['2-2.A2']
+    - id: 22b-5
+      content: |
+        $x\le0$일 때, 그래프 개형을 생각하면 교점은 많아야 두 개를 가짐을 알 수 있다. 교점의 개수는 $h(x)=g(x)-f(x)=x^3-\dfrac12-\sin\dfrac{\pi}{2}x=0$의 실근의 개수와 같다. 한편 $h(0)=h(-1)=-\dfrac12<0$이고 $\sqrt3>1.7$이므로
+        $$h\left(-\dfrac23\right)=-\dfrac{8}{27}-\dfrac12-\sin\left(-\dfrac{\pi}{3}\right)=-\dfrac{43}{54}+\dfrac{\sqrt3}{2}>0$$
+        이므로 사잇값 정리로부터 $h(x)=0$은 열린구간 $\left(-1,-\dfrac23\right)$과 $\left(-\dfrac23,0\right)$에 실근을 가진다. 즉 이 경우 교점의 개수는 2이다. 따라서 전체 교점의 개수는 3이다.
+      criteria: ['2-2.A2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2-2.M1
+      mark_type: M
+      points: 2
+      evidence: |
+        $a\ne-1$임을 적었다(변환표의 두 번째 가로수열 조건에서 $a=-1$ 배제).
+      depends_on: []
+      implied_ok: false
+      steps: [22b-1, 22b-2]
+    - id: 2-2.A1
+      mark_type: A
+      points: 3
+      evidence: |
+        등차등비표의 성질을 이용하여 $g(x)=x^3-\dfrac12$를 찾았다.
+      depends_on: [2-2.M1]
+      steps: [22b-3]
+    - id: 2-2.A2
+      mark_type: B
+      points: 5
+      evidence: |
+        그래프의 개형과 $x<0$인 영역에서 사잇값 정리를 활용해 교점의 개수가 3임을 구했다.
+      depends_on: []
+      steps: [22b-4, 22b-5]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+remedy_links: []
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

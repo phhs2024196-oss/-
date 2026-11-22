@@ -1,0 +1,449 @@
+# 아주대 2027학년도 모의논술고사(자연계열) 문항 2 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+# 수정사항(M27_nat_errata.pdf, 2026.10.15.) 반영 확인:
+#   <문제지> [문제 2-1](2) '최소가 되도록' ⇒ '최대가 되도록' — 게시된 문제지 PDF 가 이미 '최대가 되도록'(수정본), 그대로 옮김
+#   <채점기준> [문제 2-1](1) 별해 'x=3,9,11,16' ⇒ 'x=3,9,11,17' — 채점기준 PDF p.6 이 이미 '17'(수정본)
+#   <채점기준> [문제 2-1](2) 풀이에 수정 부분 반영·설명 추가 — 채점기준 PDF p.6 이 '최대' 기준 풀이(수정본)
+schema_version: '2.0'
+id: AJOU-M27-02
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: AJOU
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 분류
+points: 50
+time_estimate_min: 50
+intent: |
+  절댓값 형태로 접힌 이차함수의 그래프를 해석해 격자점 개수를 구간별로 세고, 평행이동에 따른 개수 변화를 판단하며, 꺾은선 함수 아래 격자 정사각형 개수를 세어 그 극한을 정적분과 급수의 합의 관계로 구하는 능력을 본다.
+key_idea: |
+  $a_k$는 $k$가 $g(x)$의 값들 사이 어느 구간에 있는지로만 결정되므로 함숫값을 정렬해 구간별로 센다. 덮개 정사각형 개수는 각 칸 $[i,i+1]$에서 $39-\min h$이고, $\ell=\frac1n$으로 줄이면 리만 합이 되어 $\int(39-h)\,dx$로 수렴한다.
+stuck: |
+  $\sum a_k$가 최대가 되려면 $0\le x\le20$의 모든 정수점에서 $g(x)>30$이어야 함을 알아차리는 것, 그리고 칸마다 포함되는 정사각형 개수가 증가 구간은 왼쪽 끝, 감소 구간은 오른쪽 끝 함숫값으로 결정된다는 관찰
+idea_tags: [IDEA-LATTICE-COUNT-BY-LEVEL, IDEA-RIEMANN-SUM-LIMIT]
+tags: [격자점, 평행이동, 꺾은선 함수, 정적분과 급수]
+elements:
+  materials:
+  - '$f(x)=(x-p)^2-25$를 $(p-5,p+5)$에서 뒤집은 함수 $g(x)\ge0$'
+  - '직선 $y=k$ 위 $x$좌표 $0\sim20$ 정수점 21개의 $g(x)>k$ / $g(x)\le k$ 개수 차 $a_k$'
+  - '점 A·B·C·D·E를 잇는 꺾은선 함수 $h(x)$와 $y=39$로 둘러싸인 도형 $S$'
+  - '모눈종이 정사각형으로 만든 $S$의 덮개'
+  concepts:
+  - '이차함수의 그래프와 평행이동'
+  - '부등식의 정수해 개수'
+  - '수열의 합 $\sum$'
+  - '직선의 방정식(두 점을 지나는 직선)'
+  - '정적분과 급수의 합의 관계'
+  tools:
+  - '$x=0,\cdots,20$에서 $g(x)$ 값 표 작성 후 정렬'
+  - '여사건 세기: $\sum a_k=630-2M$ (별해)'
+  - '$g(20)\ge30$ 조건으로 $p$ 결정'
+  - '$c_{30}\ge11\iff x=10$이 $[p-\sqrt{55},p+\sqrt{55}]$에 포함'
+  - '칸별 미포함 정사각형 수 $=\min(h(i),h(i+1))$'
+  - '$\lim\sum\left(39-h\left(\tfrac{i-1}{n}\right)\right)\tfrac1n=\int_0^1(39-h)\,dx$'
+  conditions:
+  - '$g(x)>k$이면 $b_k$, $g(x)\le k$이면 $c_k$ (등호는 $c_k$ 쪽)'
+  - '$p$는 음이 아닌 정수'
+  - '제1사분면의 정사각형만 색칠, 변·꼭짓점만 겹치면 제외'
+  - '$a_{30}<0\iff c_{30}\ge11$'
+  stimuli_used: ['1-1~1-2: 가', '2-1~2-3: 가, 나']
+  subpart_links: '(2-2)·(2-3)은 (2-1)에서 구한 p의 최솟값 3을 사용, (2-3)은 (2-2)의 칸별 세기를 1/n 격자로 일반화'
+
+curriculum:
+  version: '2015'
+  subjects: [수학, 수학Ⅰ, 미적분]
+  scope_2028: calc2
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 정적분과 급수의 합 사이의 관계를 이해한다(요지)
+    verified: false
+  content_area: 이차함수·수열의 합·정적분과 급수
+  behavior_domain: 문제해결
+  unit_path: [미적분, 적분법, 정적분의 활용, 정적분과 급수의 합 사이의 관계]
+  key_concepts: [이차함수의 그래프, 수열의 합, 정적분과 급수의 합]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 아주대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 아주대학교
+  admission_year: 2027
+  admission_type: 수시 모의논술
+  track: 자연계열
+  question_no: 2
+  official_url: https://www.iajou.ac.kr/pasttest/view.php?bn=78689&m_type=SUSI
+  retrieved_at: 2026-11-21
+  original_points: [10, 10, 8, 10, 12]
+  rights_notice: 미확인
+  transcribed_from: '아주대 입학처 공식 PDF「2027학년도 모의논술고사 자연계열」p.4~5, 「자연계열 채점기준」p.6~9, 「자연계열 수정사항」p.1 (이미지 대조 2026-11-21)'
+
+verify: verify/AJOU-M27.py::p02
+
+stimuli:
+- label: 가
+  body: |
+    음이 아닌 정수 $p$에 대해 함수 $f(x)=(x-p)^2-25$를 생각하자. 함수 $y=g(x)$를 다음과 같이 정의하면,
+    $$g(x)=\begin{cases}-f(x) & (p-5<x<p+5)\\ f(x) & (x\le p-5\ \text{또는}\ x\ge p+5),\end{cases}$$
+    모든 $x$에 대해 $g(x)\ge0$이다.
+
+    자연수 $k$에 대해 직선 $y=k$ 위의 점 중에서 $x$좌표가 $0$ 이상 $20$ 이하의 정수인 점들을 생각하자. 이때 $g(x)>k$인 점의 개수를 $b_k$, $g(x)\le k$인 점의 개수를 $c_k$라 하고, $a_k=b_k-c_k$라 하자. [그림 2]는 $p=10$, $k=10$인 경우를 나타낸다. 여기서 $a_{10}=13$, $b_{10}=17$, $c_{10}=4$이다.
+
+    [그림 2: $p=10$일 때 $y=g(x)$의 그래프. $x=5$, $x=15$에서 $x$축에 닿고(값 $0$), $5<x<15$에서는 위로 볼록한 포물선으로 $x=10$에서 최댓값 $25$, 바깥쪽은 위로 올라가는 포물선. 직선 $y=10$이 점선으로 그려져 있다. 축 눈금: $x$는 $5,10,15,20$, $y$는 $5$부터 $40$까지 $5$ 간격.]
+- label: 나
+  body: |
+    모눈종이에는 일정한 간격으로 여러 개의 가로줄과 세로줄이 서로 직각이 되도록 그려져 있어서 바둑판과 같은 격자를 이루고 있다. 가로줄과 세로줄이 만나는 점을 격자점이라 하고, 한 격자점과 바로 옆의 격자점 사이의 거리를 $\ell$이라 하자. 모눈종이의 한 격자점을 원점으로 하고 원점을 지나는 가로줄과 세로줄을 따라 $x$축과 $y$축을 나타내면, 좌표평면 위의 함수의 그래프를 쉽게 그릴 수 있다.
+
+    (가)에서 정의한 함수 $y=g(x)$의 그래프와 직선 $y=39$의 그래프의 교점을 $x$좌표의 값이 작은 순서대로 각각 점 $\mathrm{A}$, $\mathrm{E}$라 하자. 점 $\mathrm{B}(p-5,0)$, $\mathrm{C}(p,25)$, $\mathrm{D}(p+5,0)$라 하고 [그림 3]과 같이 점 $\mathrm{A}$, $\mathrm{B}$, $\mathrm{C}$, $\mathrm{D}$, $\mathrm{E}$를 지나면서 열린구간 $(-\infty,p-5)$, $(p-5,p)$, $(p,p+5)$, $(p+5,\infty)$에서 각각 직선인 함수를 $y=h(x)$라 하자.
+
+    모눈종이 위에 그린 좌표평면에 함수 $y=h(x)$와 $y=39$로 둘러싸인 도형을 $S$라 하고, $S$와 모눈종이의 정사각형이 겹치면 그 정사각형을 색칠하자. (단, 제1사분면에 있는 정사각형만 색칠하고, 정사각형의 변이나 꼭짓점만 겹치는 경우는 색칠하지 않는다.) 이렇게 색칠된 영역을 '$S$의 덮개'라고 하자. [그림 3]은 $\ell=1$, $p=10$일 때, 함수 $y=h(x)$와 직선 $y=39$에 대한 '$S$의 덮개'를 나타낸 것이다. 이때 '$S$의 덮개'에는 한 변의 길이가 $\ell$인 정사각형이 모두 $446$개 포함되어 있음을 알 수 있다.
+
+    [그림 3: $\ell=1$ 모눈 위에 $p=10$인 꺾은선 $y=h(x)$($\mathrm{A}(2,39)$ → $\mathrm{B}(5,0)$ → $\mathrm{C}(10,25)$ → $\mathrm{D}(15,0)$ → $\mathrm{E}(18,39)$)와 직선 $y=39$를 그리고, $S$와 겹치는 정사각형을 회색으로 칠한 그림. 축 눈금: $x$는 $5,10,15,20$, $y$는 $5$부터 $40$까지 $5$ 간격.]
+
+stem: |
+  [문항 2] 【제시문】을 읽고 물음에 답하시오.
+
+subparts:
+- id: '1-1'
+  stem: |
+    [문제 2-1] (20점) 제시문 (가)를 읽고 물음에 답하시오.
+
+    (1) (10점) $p=10$에 대하여, 다음 합을 구하시오.
+    $$\sum_{k=1}^{30}a_k$$
+  points: 10
+  depends_on: []
+  answer: {kind: value, value: '174', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-1-A
+    audience: A
+    method_no: 1
+    key_idea: $a_k$는 $k=g(x)$에서만 변하므로 $g(0),\cdots,g(20)$을 정렬해 구간별 $a_k$를 센다.
+    steps:
+    - {id: 1-1a, content: '$8\times17+2\times13+5\times9+5\times5+3\times1+1\times(-7)+6\times(-9)=174$', criteria: ['1-1.M1', '1-1.A1']}
+    hint_ladder:
+    - $k$가 변할 때 $a_k$가 바뀌는 순간은 언제인가?
+    - $g(0),g(1),\cdots,g(20)$을 모두 계산해 크기순으로 늘어놓아 보자.
+  - id: S1-1-B
+    audience: B
+    source_flow: 채점기준 p.6
+    method_no: 1
+    steps:
+    - id: 1-1b-1
+      content: |
+        [그림 2]에 의해 자연수 $k$와 $0\le x\le20$인 정수 $x$에 대해 점 $(x,k)$는 $g(x)>k$이면 $b_k$에, $g(x)\le k$이면 $c_k$에 포함되므로 $k=g(x)$일 때 $a_k$의 값이 변한다. 각 $x$에 대한 $g(x)$는
+
+        | $x$ | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16 | 17 | 18 | 19 | 20 |
+        |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+        | $g(x)$ | 75 | 56 | 39 | 24 | 11 | 0 | 9 | 16 | 21 | 24 | 25 | 24 | 21 | 16 | 9 | 0 | 11 | 24 | 39 | 56 | 75 |
+
+        함숫값을 작은 값부터 나열하면 $0,9,11,16,21,24,25,39,56,75$이므로 $1\le k\le30$에서 $a_k$는 $1\le k<9$, $9\le k<11$, $11\le k<16$, $16\le k<21$, $21\le k<24$, $24\le k<25$, $25\le k\le30$의 각 구간에서 같은 값을 가진다.
+      criteria: ['1-1.M1']
+    - id: 1-1b-2
+      content: |
+        각 구간에서
+
+        | $k$ | $1\le k<9$ | $9\le k<11$ | $11\le k<16$ | $16\le k<21$ | $21\le k<24$ | $24\le k<25$ | $25\le k\le30$ |
+        |---|---|---|---|---|---|---|---|
+        | $a_k$ | 17 | 13 | 9 | 5 | 1 | $-7$ | $-9$ |
+        | $b_k$ | 19 | 17 | 15 | 13 | 11 | 7 | 6 |
+        | $c_k$ | 2 | 4 | 6 | 8 | 10 | 14 | 15 |
+      criteria: ['1-1.M1']
+    - id: 1-1b-3
+      content: |
+        따라서 $\displaystyle\sum_{k=1}^{30}a_k=8\times17+2\times13+5\times9+5\times5+3\times1+1\times(-7)+6\times(-9)=174$.
+      criteria: ['1-1.A1']
+  - id: S1-1-ALT
+    audience: ALT
+    source_flow: 채점기준 p.6 별해(수정사항 반영본)
+    method_no: 2
+    key_idea: 원 해설 별해 — $y=30$과 $y=g(x)$로 둘러싸인 도형(경계 포함)의 정수 점 개수 $M$을 세어 $630-2M$.
+    steps:
+    - id: 1-1c-1
+      content: |
+        $y=30$과 $y=g(x)$로 둘러싸인 도형(경계 포함)의 정수 점 개수를 $M$이라 하면 전체 점의 개수 $21\times30=630$에서 $2M$을 빼면 된다. $x=3,9,11,17$일 때 $7$개, $x=10$일 때 $6$개, $x=4,16$일 때 $20$개, $x=5,15$일 때 $30$개, $x=6,14$일 때 $22$개, $x=7,13$일 때 $15$개, $x=8,12$일 때 $10$개이므로 $M=228$이고 $\displaystyle\sum_{k=1}^{30}a_k=630-2\times228=174$.
+      criteria: ['1-1.M1', '1-1.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1-1.M1
+      mark_type: M
+      points: 6
+      evidence: |
+        구간별 $a_k$의 값을 올바르게 계산했다.
+      depends_on: []
+      implied_ok: false
+      steps: [1-1b-1, 1-1b-2, 1-1c-1]
+    - id: 1-1.A1
+      mark_type: A
+      points: 4
+      evidence: |
+        $\displaystyle\sum_{k=1}^{30}a_k=174$를 올바르게 계산했다.
+      depends_on: [1-1.M1]
+      steps: [1-1b-3, 1-1c-1]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '1-2'
+  stem: |
+    (2) (10점) $\displaystyle\sum_{k=1}^{30}a_k$가 최대가 되도록 하는 정수 $p$의 최솟값을 구하시오.
+  points: 10
+  depends_on: []
+  answer: {kind: value, value: '28', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-2-A
+    audience: A
+    method_no: 1
+    key_idea: 최대는 모든 $k$에서 $b_k=21$, $c_k=0$일 때이고, 그러려면 $p>25$이며 $g(20)\ge30$.
+    steps:
+    - {id: 1-2a, content: '$(20-p)^2\ge55\Rightarrow p\ge20+\sqrt{55}\Rightarrow p_{\min}=28$', criteria: ['1-2.M1', '1-2.A1']}
+    hint_ladder:
+    - $a_k$가 가질 수 있는 가장 큰 값은?
+    - 그래프를 오른쪽으로 얼마나 옮겨야 $0\le x\le20$의 모든 점이 직선 $y=30$ 위로 올라가는가?
+  - id: S1-2-B
+    audience: B
+    source_flow: 채점기준 p.6
+    method_no: 1
+    steps:
+    - id: 1-2b-1
+      content: |
+        음이 아닌 정수 $p$가 증가하면 [그림 2]의 $g(x)$의 그래프는 $x$축의 방향으로 평행이동하며, 이에 따라 $b_k$와 $c_k$의 값이 변한다. $\displaystyle\sum_{k=1}^{30}a_k$가 최대가 되려면 $1\le k\le30$인 모든 자연수 $k$에 대하여 $b_k=21$, $c_k=0$이어야 한다. 이를 만족하려면 $g(x)$의 그래프를 $x$축의 방향으로 충분히 평행이동시키면 된다. 따라서 $p>25$이고 $g(20)\ge30$이어야 한다.
+      criteria: ['1-2.M1']
+    - id: 1-2b-2
+      content: |
+        $g(20)=(20-p)^2-25\ge30\Rightarrow(20-p)^2\ge55\Rightarrow p\ge20+\sqrt{55}$이다. $7<\sqrt{55}<8$이므로 $\displaystyle\sum_{k=1}^{30}a_k$가 최대가 되도록 하는 $p$의 최솟값은 $28$이다.
+      criteria: ['1-2.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1-2.M1
+      mark_type: M
+      points: 5
+      evidence: |
+        $\displaystyle\sum_{k=1}^{30}a_k$가 최대가 되는 상황($b_k=21$, $c_k=0$, 즉 $p>25$이고 $g(20)\ge30$)을 관찰했다.
+      depends_on: []
+      implied_ok: false
+      steps: [1-2b-1]
+    - id: 1-2.A1
+      mark_type: A
+      points: 5
+      evidence: |
+        $p$의 최솟값 $28$을 올바르게 계산했다.
+      depends_on: [1-2.M1]
+      steps: [1-2b-2]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '2-1'
+  stem: |
+    [문제 2-2] (30점) 제시문 (가)와 (나)에 대한 다음 물음에 답하시오.
+
+    (1) (8점) $a_{30}<0$이 되는 정수 $p$의 개수를 구하시오.
+  points: 8
+  depends_on: []
+  answer: {kind: value, value: '15', equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-1-A
+    audience: A
+    method_no: 1
+    key_idea: $a_{30}<0\iff c_{30}\ge11$; $g\le30$인 구간 $[p-\sqrt{55},p+\sqrt{55}]$의 길이가 $14$ 초과이므로 $x=10$을 포함하면 충분.
+    steps:
+    - {id: 2-1a, content: '$10-\sqrt{55}\le p\le10+\sqrt{55}\Rightarrow3\le p\le17$, $15$개', criteria: ['2-1.M1', '2-1.A1']}
+    hint_ladder:
+    - $a_{30}<0$을 $c_{30}$에 대한 조건으로 바꾸자.
+    - $g(x)\le30$인 $x$의 범위는 길이가 얼마인 구간인가?
+  - id: S2-1-B
+    audience: B
+    source_flow: 채점기준 p.6
+    method_no: 1
+    steps:
+    - id: 2-1b-1
+      content: |
+        $g(x)=30$을 만족하는 $x$의 값은 $p\pm\sqrt{55}$이고 열린구간 $(p-5,p+5)$에서 $y=g(x)$의 최댓값은 $25$이므로, $g(x)\le30$을 만족하는 구간은 $p-\sqrt{55}\le x\le p+\sqrt{55}$이다. $a_{30}<0$이 되려면 직선 $y=30$ 위에서 $x$좌표가 이 구간에 포함되는 점의 개수($c_{30}$)가 $11$ 이상이어야 한다. 이 구간의 길이가 $2\sqrt{55}\ (>14)$이므로 $c_{30}\ge11$인 필요충분조건은 $x=10$이 이 구간에 포함되는 것이다.
+      criteria: ['2-1.M1']
+    - id: 2-1b-2
+      content: |
+        따라서 $p-\sqrt{55}\le10$ 그리고 $10\le p+\sqrt{55}$, 즉 $10-\sqrt{55}\le p\le10+\sqrt{55}$이다. 이 조건을 만족하는 정수 $p$는 $3\le p\le17$이므로 정수 $p$의 개수는 $15$이다.
+      criteria: ['2-1.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2-1.M1
+      mark_type: M
+      points: 4
+      evidence: |
+        $a_{30}<0$을 만족하는 상황($c_{30}\ge11$, $x=10$이 $[p-\sqrt{55},p+\sqrt{55}]$에 포함)을 관찰했다.
+      depends_on: []
+      implied_ok: false
+      steps: [2-1b-1]
+    - id: 2-1.A1
+      mark_type: A
+      points: 4
+      evidence: |
+        정수 $p$의 개수 $15$를 올바르게 계산했다.
+      depends_on: [2-1.M1]
+      steps: [2-1b-2]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '2-2'
+  stem: |
+    (2) (10점) [문제 2-2]의 (1)을 만족하는 정수 $p$의 최솟값에 대하여, $\ell=1$일 때 '$S$의 덮개'에 포함되는 한 변의 길이가 $\ell$인 정사각형의 개수를 구하시오.
+  points: 10
+  depends_on: ['2-1']
+  answer: {kind: value, value: '295', equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-2-A
+    audience: A
+    method_no: 1
+    key_idea: $p=3$, $h$를 구한 뒤 칸 $[i,i+1]$마다 $39-\min(h(i),h(i+1))$개를 더한다.
+    steps:
+    - {id: 2-2a, content: '$11\times39-(10+15+20+20+15+10+5+0+0+13+26)=295$', criteria: ['2-2.M1', '2-2.M2', '2-2.A1']}
+    hint_ladder:
+    - 먼저 $p=3$일 때 점 A, E의 좌표와 $h(x)$를 구하자.
+    - 폭 1인 세로 띠 하나에 덮개 정사각형이 몇 개 있는가?
+  - id: S2-2-B
+    audience: B
+    source_flow: 채점기준 p.7
+    method_no: 1
+    steps:
+    - id: 2-2b-1
+      content: |
+        [문제 2-2]의 (1)을 만족하는 정수 $p$의 최솟값은 $3$이므로
+        $$g(x)=\begin{cases}-(x-3)^2+25 & (-2<x<8)\\ (x-3)^2-25 & (x\le-2\ \text{또는}\ x\ge8)\end{cases}$$
+        이다. $g(x)=39$를 만족하는 $x$의 값은 $-5$와 $11$이므로 함수 $y=h(x)$는
+        $$h(x)=\begin{cases}-13x-26 & (x<-2)\\ 5x+10 & (-2\le x<3)\\ -5x+40 & (3\le x<8)\\ 13x-104 & (x\ge8)\end{cases}$$
+        이다.
+      criteria: ['2-2.M1']
+    - id: 2-2b-2
+      content: |
+        '$S$의 덮개'는 제1사분면에 있는 경우를 고려하므로 $0\le x\le11$인 경우를 생각하자. $\ell=1$이므로 각 닫힌구간 $[i,i+1]$ $(i=0,1,\cdots,10)$에서 '$S$의 덮개'에 포함되는 정사각형의 개수를 세면 된다. $0\le x\le11$에서 $h(x)\le39$이므로 닫힌구간 $[i,i+1]$에서 덮개에 포함되는 정사각형의 개수는 $39$에서 덮개에 포함되지 않는 정사각형의 개수를 빼는 것과 같다. 덮개에 포함되지 않는 정사각형의 개수는 $h(i)$와 $h(i+1)$ 중 더 작은 값과 같다. 즉, 함수 $y=g(x)$가 감소하는 구간에서는 구간의 오른쪽 끝에서의 함숫값, 증가하는 구간에서는 왼쪽 끝에서의 함숫값과 같다.
+      criteria: ['2-2.M2']
+    - id: 2-2b-3
+      content: |
+        그러므로 개수 $=(39-h(0))+(39-h(1))+(39-h(2))+(39-h(4))+(39-h(5))+(39-h(6))+(39-h(7))+(39-h(8))+(39-h(8))+(39-h(9))+(39-h(10))=295$이다.
+        (참고: $h(0),h(1),h(2),h(4),h(5),h(6),h(7),h(8),h(8),h(9),h(10)=10,15,20,20,15,10,5,0,0,13,26$, 합 $134$, $429-134=295$.)
+      criteria: ['2-2.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2-2.M1
+      mark_type: M
+      points: 3
+      evidence: |
+        함수 $h(x)$를 올바르게 구했다.
+      depends_on: []
+      implied_ok: false
+      ft: {allowed: true, from: [2-1.A1], max_points: 3}
+      steps: [2-2b-1]
+    - id: 2-2.M2
+      mark_type: M
+      points: 4
+      evidence: |
+        증가하는 구간과 감소하는 구간에 대해 '$S$의 덮개'에 포함되는 정사각형의 개수(칸마다 $39-\min(h(i),h(i+1))$)를 관찰했다.
+      depends_on: []
+      implied_ok: false
+      steps: [2-2b-2]
+    - id: 2-2.A1
+      mark_type: A
+      points: 3
+      evidence: |
+        '$S$의 덮개'에 포함되는 정사각형의 개수 $295$를 올바르게 계산했다.
+      depends_on: [2-2.M1, 2-2.M2]
+      steps: [2-2b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '2-3'
+  stem: |
+    (3) (12점) [문제 2-2]의 (1)을 만족하는 정수 $p$의 최솟값에 대하여, $\ell=\dfrac1n$일 때 '$S$의 덮개'에 포함되는 한 변의 길이가 $\ell$인 정사각형의 개수를 $d_n$이라 하자. 극한 $\displaystyle\lim_{n\to\infty}\frac{d_n}{n^2}$을 조사하시오. (단, $n$은 자연수)
+  points: 12
+  depends_on: ['2-2']
+  answer: {kind: value, value: '511/2', equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-3-A
+    audience: A
+    method_no: 1
+    key_idea: 칸 폭 $\frac1n$의 세로 띠별 개수를 $n^2$으로 나누면 리만 합 → $\int_0^{11}(39-h(x))\,dx$.
+    steps:
+    - {id: 2-3a, content: '$\displaystyle\lim_{n\to\infty}\frac{d_n}{n^2}=\int_0^{11}(39-h(x))\,dx=\frac{511}{2}$', criteria: ['2-3.M1', '2-3.M2', '2-3.A1']}
+    hint_ladder:
+    - 폭 $\frac1n$인 띠 하나에 들어가는 정사각형 개수를 $h$로 나타내 보자.
+    - $\dfrac{d_n}{n^2}$은 어떤 정적분의 근사인가?
+  - id: S2-3-B
+    audience: B
+    source_flow: 채점기준 p.7~8
+    method_no: 1
+    steps:
+    - id: 2-3b-1
+      content: |
+        닫힌구간 $\left[\dfrac{i-1}{n},\dfrac in\right]$에서 '$S$의 덮개'에 포함되는 정사각형의 개수는 함수 $y=h(x)$가 증가할 때 $\left(39-h\left(\dfrac{i-1}{n}\right)\right)\times n$개이고, 감소할 때 $\left(39-h\left(\dfrac in\right)\right)\times n$개다.
+      criteria: ['2-3.M1']
+    - id: 2-3b-2
+      content: |
+        닫힌구간 $[0,1]$에서 함수 $y=h(x)$는 증가하므로, 이 구간에서 덮개에 포함되는 정사각형의 개수를 $d_n$이라 하면
+        $$\frac{d_n}{n^2}=\frac1{n^2}\sum_{i=1}^{n}\left(39-h\left(\frac{i-1}{n}\right)\right)\times n=\sum_{i=1}^{n}\left(39-h\left(\frac{i-1}{n}\right)\right)\frac1n$$
+        이다. 따라서 정적분과 급수와의 관계를 이용하면
+        $$\lim_{n\to\infty}\sum_{i=1}^{n}\left(39-h\left(\frac{i-1}{n}\right)\right)\frac1n=\int_0^1(39-h(x))\,dx$$
+        이다.
+      criteria: ['2-3.M2']
+    - id: 2-3b-3
+      content: |
+        같은 방식으로 닫힌구간 $[1,2]$, $[2,3]$, $\cdots$, $[10,11]$에서 정적분과 급수와의 관계를 이용하면
+        $$\lim_{n\to\infty}\frac{d_n}{n^2}=\int_0^{11}(39-h(x))\,dx=\frac{511}{2}$$
+        이다. (보충: $\int_0^3(29-5x)\,dx=\frac{129}{2}$, $\int_3^8(5x-1)\,dx=\frac{265}{2}$, $\int_8^{11}(143-13x)\,dx=\frac{117}{2}$, 합 $\frac{511}{2}$.)
+      criteria: ['2-3.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2-3.M1
+      mark_type: M
+      points: 4
+      evidence: |
+        증가하는 구간과 감소하는 구간에 대해 '$S$의 덮개'에 포함되는 정사각형의 개수를 관찰했다.
+      depends_on: []
+      implied_ok: false
+      ft: {allowed: true, from: [2-2.M1], max_points: 4}
+      steps: [2-3b-1]
+    - id: 2-3.M2
+      mark_type: M
+      points: 4
+      evidence: |
+        각 구간에서 $\dfrac{d_n}{n^2}$을 리만 합 꼴로 올바르게 계산했다.
+      depends_on: [2-3.M1]
+      steps: [2-3b-2]
+    - id: 2-3.A1
+      mark_type: A
+      points: 4
+      evidence: |
+        정적분과 급수와의 관계를 이용하여 극한 $\dfrac{511}{2}$을 올바르게 조사했다.
+      depends_on: [2-3.M2]
+      steps: [2-3b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+remedy_links: []
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

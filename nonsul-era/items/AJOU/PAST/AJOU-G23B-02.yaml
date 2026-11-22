@@ -1,0 +1,480 @@
+# 아주대 2023학년도 논술고사 자연계열(오후) 문항 2 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: AJOU-G23B-02
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: AJOU
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 분류
+points: 50
+intent: |
+  극값과 양 끝 함숫값의 비교로 삼차함수의 근의 개수와 절댓값의 최댓값을 판정하고, 복이차식을 $t=x^2$ 치환과 근과 계수의 관계, 대칭 정적분으로 다루는 능력을 본다.
+key_idea: |
+  $x^3-3ax+b$는 $x=\pm\sqrt a$의 극값과 $x=\pm2$의 끝값만 비교하면 되고, 사차식 $x^4+ax^2+b$는 $t=x^2$로 이차식이 되어 근 $\pm r,\pm s$의 대칭을 쓴다.
+stuck: |
+  (1-2)에서 $a$의 범위에 따라 나누어 $a=1$일 때만 최댓값 4가 되는 것을 보이는 분류, (2-3)에서 $G(x)$를 $(x-m)^4+a(x-m)^2+b+L(x)$로 맞추는 계수 비교
+idea_tags: [IDEA-EXTREMA-ENDPOINT-COMPARE, IDEA-MINIMAX-CASE-SPLIT, IDEA-BIQUADRATIC-SUBSTITUTION, IDEA-EVEN-FUNCTION-SYMMETRIC-INTEGRAL]
+tags: [삼차함수 근의 개수, 복이차식]
+elements:
+  materials:
+  - '삼차함수 $x^3-3ax+b$와 닫힌구간 $[-2,2]$'
+  - '사차함수 $F(x)=x^4+ax^2+b$와 이차함수 $f(t)=t^2+at+b$'
+  - '$G(x)=x^4-4x^3+9x-\dfrac{11}{2}$의 평행이동 분해'
+  concepts:
+  - '도함수와 극값'
+  - '닫힌구간에서의 최대·최소'
+  - '방정식의 실근의 개수와 그래프'
+  - '이차방정식의 근과 계수의 관계'
+  - '우함수의 정적분'
+  - '다항식의 항등식(계수 비교)'
+  tools:
+  - '극값의 곱 $f(-\sqrt a)f(\sqrt a)<0$'
+  - '$a$의 범위에 따른 경우 분류'
+  - '$t=x^2$ 치환, 근 $r^2$, $s^2$'
+  - '$\int_{-s}^{s}$ 우함수 적분'
+  - '계수 비교와 연립'
+  conditions:
+  - '(1-1) 닫힌구간이므로 끝점 $x=-2$가 근이어도 됨($f(-2)\le0$)'
+  - '(2-1) 모든 실근의 절댓값이 $A$보다 큼'
+  - '(2-2) $p<q<r<s$, $s=-p$, $r=-q$'
+  - '(2-3) $t$는 가장 큰 실근, $m$은 상수'
+  stimuli_used: [가, 나]
+  subpart_links: '(1-1)·(1-2)는 제시문 (가)의 극값·끝값 비교, (2-1)~(2-3)은 (나)의 $t=x^2$ 치환; (2-3)은 (2-2)와 같은 「근의 대칭 + 정적분 0」 구조를 평행이동해 사용'
+
+curriculum:
+  version: '2015'
+  subjects: [수학, 수학Ⅱ]
+  scope_2028: common
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 함수의 그래프의 개형을 그리고 방정식의 실근의 개수와 최대·최소를 구할 수 있다(요지)
+    verified: false
+  content_area: 미분 – 도함수의 활용, 적분 – 정적분
+  behavior_domain: 문제해결
+  unit_path: [수학Ⅱ, 미분, 도함수의 활용, 방정식의 실근의 개수]
+  key_concepts: [극값, 최대·최소, 근과 계수의 관계, 정적분]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 아주대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 아주대학교
+  admission_year: 2023
+  admission_type: 수시 논술우수자
+  track: 자연계열(오후)
+  question_no: 2
+  official_url: https://www.iajou.ac.kr/pasttest/view.php?bn=69053&m_type=SUSI
+  retrieved_at: 2026-11-21
+  original_points: [10, 10, 10, 10, 10]
+  rights_notice: 미확인
+  transcribed_from: '아주대 입학처 공식 PDF「2023학년도 논술고사 자연계열(오후)」 문제 p.4–5, 모범답안 p.8, 채점기준 p.11 (이미지 대조 2026-11-21)'
+  # 문제지 배점: [문제 2-1] 20점, [문제 2-2] 30점. 소문항 분할은 채점기준표(각 10점)
+
+verify: verify/AJOU-G23B.py::p02
+
+stimuli:
+- label: 가
+  body: |
+    닫힌구간에서 연속인 함수 $f(x)$의 최댓값 또는 최솟값을 구하거나 방정식 $f(x)=0$의 실근의 개수를 구할 때, 극값이나 양 끝 값 등 특정 함숫값을 비교하는 것으로 충분할 수 있다. 가령 삼차함수 $f(x)=x^3-3ax+b$에 대하여 닫힌구간 $[-2,2]$에서 $\lvert f(x)\rvert$의 최댓값을 구하는 문제를 생각해 보자. $0<a<4$인 경우 $f(x)$는 $x=\pm\sqrt a$에서 극값을 가지므로 $\lvert f(-2)\rvert$, $\lvert f(-\sqrt a)\rvert$, $\lvert f(\sqrt a)\rvert$, $\lvert f(2)\rvert$를 비교해서 $\lvert f(x)\rvert$의 최댓값을 구할 수 있고, 그렇지 않으면 $\lvert f(-2)\rvert$와 $\lvert f(2)\rvert$를 비교해서 $\lvert f(x)\rvert$의 최댓값을 구할 수 있다.
+- label: 나
+  body: |
+    실수 $a$, $b$에 대하여 함수 $F(x)=x^4+ax^2+b$에서 $t=x^2$으로 치환하여 얻은 이차함수 $f(t)=t^2+at+b$를 생각하자. 실수 $\alpha$에 대하여 $F(\alpha)=0$이면 $f(\alpha^2)=0$을 만족한다. 따라서 방정식 $f(t)=0$이 서로 다른 두 양의 실근을 가지는 것은 방정식 $F(x)=0$이 서로 다른 네 실근을 가지기 위한 필요충분조건이다.
+
+stem: |
+  [문항 2] (50점) 다음 제시문을 읽고 논제에 답하라.
+
+subparts:
+- id: '1-1'
+  stem: |
+    [문제 2-1] (20점) 제시문 (가)를 읽고 물음에 답하라.
+    (1) 함수 $f(x)=x^3-3ax+a$에 대하여 방정식 $f(x)=0$이 닫힌구간 $[-2,2]$에서 서로 다른 세 실근을 가지도록 하는 실수 $a$의 값의 범위를 구하라.
+  points: 10
+  depends_on: []
+  answer: {kind: expression, value: '1/4 < a <= 8/7', equivalents: [], tolerance: null}
+  solutions:
+  - id: S11-A
+    audience: A
+    method_no: 1
+    key_idea: 극값 두 개가 $[-2,2]$ 안에 있고 부호가 반대여야 하며, 왼쪽 끝 $f(-2)\le0$이어야 한다.
+    steps:
+    - {id: 11a, content: '$0<a<4$, $a(1-2\sqrt a)<0\Rightarrow a>\tfrac14$, $f(-2)=-8+7a\le0\Rightarrow a\le\tfrac87$', criteria: ['1-1.M1', '1-1.A1', '1-1.A2', '1-1.A3']}
+    hint_ladder:
+    - 세 실근이 구간 안에 있으려면 극값은 어디에 있어야 하는가?
+    - 극솟값·극댓값의 부호 말고 양 끝점에서 확인할 것은?
+  - id: S11-B
+    audience: B
+    source_flow: 모범답안 p.8
+    method_no: 1
+    steps:
+    - id: 11b-1
+      content: |
+        문제의 조건에 의해, 닫힌구간 $[-2,2]$에서 $y=f(x)$의 그래프가 $x$축과 서로 다른 세 점에서 만나야 하므로 함수 $f(x)$는 이 구간에서 극댓값과 극솟값을 모두 갖는다. 따라서 $f'(x)=3(x^2-a)=0$이 $[-2,2]$에서 두 실근을 가지므로 $0<a<4$이다.
+      criteria: ['1-1.M1']
+    - id: 11b-2
+      content: |
+        또 $f(-\sqrt a)f(\sqrt a)<0$이어야 한다. 이때 $f(-\sqrt a)=a(1+2\sqrt a)>0$이므로 $f(\sqrt a)=a(1-2\sqrt a)<0$이다. 따라서 $a>\dfrac14$이다.
+      criteria: ['1-1.A1']
+    - id: 11b-3
+      content: |
+        또한 $f(-2)=-8+7a\le0$이므로 $a\le\dfrac87$이다. 따라서 실수 $a$의 값의 범위는 $\dfrac14<a\le\dfrac87$이다.
+      criteria: ['1-1.A2', '1-1.A3']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1-1.M1
+      mark_type: M
+      points: 2
+      evidence: |
+        $0<a<4$임을 구했다.
+      depends_on: []
+      implied_ok: false
+      steps: [11b-1]
+    - id: 1-1.A1
+      mark_type: A
+      points: 3
+      evidence: |
+        $a>\dfrac14$임을 구했다.
+      depends_on: [1-1.M1]
+      steps: [11b-2]
+    - id: 1-1.A2
+      mark_type: A
+      points: 3
+      evidence: |
+        $a\le\dfrac87$임을 구했다.
+      depends_on: [1-1.M1]
+      steps: [11b-3]
+    - id: 1-1.A3
+      mark_type: A
+      points: 2
+      evidence: |
+        $\dfrac14<a\le\dfrac87$임을 구했다.
+      depends_on: [1-1.M1]
+      steps: [11b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '1-2'
+  stem: |
+    [문제 2-1] (2) 함수 $f(x)=x^3-3ax+2$에 대하여 닫힌구간 $[-2,2]$에서 $\lvert f(x)\rvert$의 최댓값이 가장 작아지도록 하는 실수 $a$의 값과 그때의 $\lvert f(x)\rvert$의 최댓값을 구하라.
+  points: 10
+  depends_on: []
+  answer: {kind: expression, value: 'a = 1; max = 4', equivalents: [], tolerance: null}
+  solutions:
+  - id: S12-A
+    audience: A
+    method_no: 1
+    key_idea: $a=1$이면 네 값이 $0,4,0,4$로 최댓값 4이고, 다른 $a$에서는 어느 한 값이 4를 넘는다.
+    steps:
+    - {id: 12a, content: '$a\le0$·$a\ge4$·$0<a<1$·$1<a<4$ 분류 → $a=1$, 최댓값 4', criteria: ['1-2.M1', '1-2.A1', '1-2.A2', '1-2.A3', '1-2.A4', '1-2.A5']}
+    hint_ladder:
+    - $a=1$일 때 $f(-2)$, $f(\pm1)$, $f(2)$를 계산해 보자.
+    - $a<1$이면 $f(2)$, $a>1$이면 $f(-\sqrt a)$를 보자.
+  - id: S12-B
+    audience: B
+    source_flow: 모범답안 p.8
+    method_no: 1
+    steps:
+    - id: 12b-1
+      content: |
+        $a=1$일 때 $f(-2)=f(\sqrt a)=0$, $f(-\sqrt a)=f(2)=4$이므로 $\lvert f(x)\rvert$의 최댓값은 4이다.
+      criteria: ['1-2.M1', '1-2.A1']
+    - id: 12b-2
+      content: |
+        $a<1$이면 $f(2)=10-6a>4$, $a\ge4$이면 $f(-2)=6a-6>4$이므로 $\lvert f(x)\rvert$의 최댓값은 4보다 크다.
+      criteria: ['1-2.A2']
+    - id: 12b-3
+      content: |
+        $1<a<4$이면 $f(-\sqrt a)=2(a\sqrt a+1)>4$이다. 따라서 $a\ne1$일 때 $\lvert f(x)\rvert$의 최댓값은 4보다 크다.
+      criteria: ['1-2.A3']
+    - id: 12b-4
+      content: |
+        따라서 $a=1$일 때 $\lvert f(x)\rvert$의 최댓값이 가장 작고, 그때의 $\lvert f(x)\rvert$의 최댓값은 4이다.
+      criteria: ['1-2.A4', '1-2.A5']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1-2.M1
+      mark_type: M
+      points: 1
+      evidence: |
+        $a$값의 범위에 따라 구간을 나누었다.
+      depends_on: []
+      implied_ok: true
+      steps: [12b-1]
+    - id: 1-2.A1
+      mark_type: A
+      points: 1
+      evidence: |
+        $\lvert f(-2)\rvert$, $\lvert f(-\sqrt a)\rvert$, $\lvert f(\sqrt a)\rvert$, $\lvert f(2)\rvert$를 정확하게 계산했다.
+      depends_on: [1-2.M1]
+      steps: [12b-1]
+    - id: 1-2.A2
+      mark_type: A
+      points: 2
+      evidence: |
+        $a<0$이거나 $a\ge4$일 때 $\lvert f(x)\rvert$의 값이 4보다 크다는 것을 적었다.
+      depends_on: [1-2.M1]
+      steps: [12b-2]
+    - id: 1-2.A3
+      mark_type: A
+      points: 3
+      evidence: |
+        $0<a<4$이고 $a\ne1$일 때 $\lvert f(x)\rvert$의 값이 4보다 크다는 것을 적었다.
+      depends_on: [1-2.M1]
+      steps: [12b-3]
+    - id: 1-2.A4
+      mark_type: A
+      points: 2
+      evidence: |
+        $a=1$일 때 $\lvert f(x)\rvert$의 최댓값이 가장 작음을 적었다.
+      depends_on: [1-2.M1]
+      steps: [12b-4]
+    - id: 1-2.A5
+      mark_type: A
+      points: 1
+      evidence: |
+        $a=1$일 때 $\lvert f(x)\rvert$의 최댓값이 4임을 적었다.
+      depends_on: [1-2.M1]
+      steps: [12b-4]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '2-1'
+  stem: |
+    [문제 2-2] (30점) 제시문 (나)를 읽고 물음에 답하라.
+    (1) 함수 $F(x)=x^4+ax^2+b$에 대하여 방정식 $F(x)=0$은 서로 다른 네 실근을 가지고 모든 실근의 절댓값이 양수 $A$보다 크다고 하자. 방정식 $F'(x)=0$의 0이 아닌 실근의 절댓값이 $A$보다 크다는 것을 증명하라. (단, $a$, $b$는 상수)
+  points: 10
+  depends_on: []
+  answer: {kind: proof, value: null, equivalents: [], tolerance: null}
+  solutions:
+  - id: S21-A
+    audience: A
+    method_no: 1
+    key_idea: $f(t)=t^2+at+b=0$의 두 근이 모두 $A^2$보다 크므로 $-a>2A^2$이고, $F'(x)=0$의 0 아닌 근의 절댓값은 $\sqrt{-\tfrac a2}$이다.
+    steps:
+    - {id: 21a, content: '$-a=t_1+t_2>2A^2\Rightarrow\sqrt{-\tfrac a2}>A$', criteria: ['2-1.M1', '2-1.A1', '2-1.R1']}
+    hint_ladder:
+    - $F(x)=0$의 근의 제곱은 $f(t)=0$의 무엇인가?
+  - id: S21-B
+    audience: B
+    source_flow: 모범답안 p.8
+    method_no: 1
+    steps:
+    - id: 21b-1
+      content: |
+        문제의 조건으로부터, 이차방정식 $f(t)=t^2+at+b=0$의 두 실근은 모두 양수이고 $A^2$보다 크다.
+      criteria: ['2-1.M1']
+    - id: 21b-2
+      content: |
+        이때, 이차방정식의 근과 계수와의 관계로부터 $-a>2A^2$이다.
+      criteria: ['2-1.A1']
+    - id: 21b-3
+      content: |
+        $F'(x)=2x(2x^2+a)$이므로 방정식 $F'(x)=0$의 실근은 $x=0$ 또는 $\pm\sqrt{-\dfrac a2}$이다. 즉 0이 아닌 실근의 절댓값은 $\sqrt{-\dfrac a2}$이고 이 값은 $A$보다 크다. ■
+      criteria: ['2-1.R1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2-1.M1
+      mark_type: M
+      points: 2
+      evidence: |
+        이차방정식 $f(t)=t^2+at+b=0$의 두 근이 $A^2$보다 크다는 것을 적었다.
+      depends_on: []
+      implied_ok: false
+      steps: [21b-1]
+    - id: 2-1.A1
+      mark_type: A
+      points: 3
+      evidence: |
+        $-a>2A^2$임을 적었다.
+      depends_on: [2-1.M1]
+      steps: [21b-2]
+    - id: 2-1.R1
+      mark_type: R
+      points: 5
+      evidence: |
+        $F'(x)=0$의 0이 아닌 실근의 절댓값이 $\sqrt{-\dfrac a2}$이고 $A$보다 크다는 것을 적었다.
+      depends_on: [2-1.A1]
+      steps: [21b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '2-2'
+  stem: |
+    [문제 2-2] (2) 함수 $F(x)=x^4-x^2+c$에 대하여, 방정식 $F(x)=0$이 서로 다른 네 실근 $p$, $q$, $r$, $s$ $(p<q<r<s)$를 가지고 $\displaystyle\int_p^sF(x)\,dx=0$을 만족할 때, 상수 $c$를 구하라.
+  points: 10
+  depends_on: []
+  answer: {kind: value, value: '5/36', equivalents: [], tolerance: null}
+  solutions:
+  - id: S22-A
+    audience: A
+    method_no: 1
+    key_idea: 근은 $\pm r,\pm s$이고 $r^2+s^2=1$, $r^2s^2=c$; 우함수 적분 $2\left(\tfrac15s^5-\tfrac13s^3+cs\right)=0$.
+    steps:
+    - {id: 22a, content: '$c=s^2(1-s^2)$ 대입 → $s^2=\tfrac56$, $c=\tfrac{5}{36}$', criteria: ['2-2.M1', '2-2.M2', '2-2.A1', '2-2.A2']}
+    hint_ladder:
+    - $F$는 우함수이다. 네 근 사이의 관계는?
+  - id: S22-B
+    audience: B
+    source_flow: 모범답안 p.8
+    method_no: 1
+    steps:
+    - id: 22b-1
+      content: |
+        이차함수 $f(x)=x^2-x+c$라 두자. 방정식 $f(x)=0$은 서로 다른 두 양의 실근을 가지므로 $s=-p$, $r=-q>0$이다. 따라서 이차방정식 $f(x)=0$의 서로 다른 두 실근은 $r^2$, $s^2$이다. 이차방정식의 근과 계수의 관계로부터 $r^2+s^2=1$, $r^2s^2=c$를 만족한다.
+      criteria: ['2-2.M1']
+    - id: 22b-2
+      content: |
+        한편 $0=\displaystyle\int_{-s}^{s}(x^4-x^2+c)\,dx=2\left(\dfrac15s^5-\dfrac13s^3+cs\right)$이다.
+      criteria: ['2-2.M2']
+    - id: 22b-3
+      content: |
+        이므로 $c=s^2(1-s^2)$를 대입하여 풀면 $s^2=\dfrac56$이므로 $c=\dfrac{5}{36}$이다.
+      criteria: ['2-2.A1', '2-2.A2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2-2.M1
+      mark_type: M
+      points: 2
+      evidence: |
+        이차방정식 $f(x)=x^2-x+c=0$의 서로 다른 두 실근이 $r^2$, $s^2$임을 적었다.
+      depends_on: []
+      implied_ok: false
+      steps: [22b-1]
+    - id: 2-2.M2
+      mark_type: M
+      points: 3
+      evidence: |
+        $\displaystyle\int_{-s}^{s}(x^4-x^2+c)\,dx=0$의 적분을 풀어 식을 얻었다.
+      depends_on: []
+      implied_ok: false
+      steps: [22b-2]
+    - id: 2-2.A1
+      mark_type: A
+      points: 3
+      evidence: |
+        $s^2=\dfrac56$을 구했다.
+      depends_on: [2-2.M1, 2-2.M2]
+      steps: [22b-3]
+    - id: 2-2.A2
+      mark_type: A
+      points: 2
+      evidence: |
+        $c=\dfrac{5}{36}$로 답을 구했다.
+      depends_on: [2-2.M1, 2-2.M2]
+      steps: [22b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '2-3'
+  stem: |
+    [문제 2-2] (3) 함수 $G(x)=x^4-4x^3+9x-\dfrac{11}{2}$에 대하여, 다음 <조건>을 만족하는 일차함수 $L(x)$를 구하라.
+
+    < 조 건 >
+    ① $F(x)=x^4+ax^2+b$ (단, $a$, $b$는 상수)
+    ② $G(x)=F(x-m)+L(x)$ (단, $m$은 상수)
+    ③ 방정식 $G(x)-L(x)=0$이 서로 다른 네 실근을 가지고, 가장 큰 실근 $t$에 대하여
+    $$\int_m^t(G(x)-L(x))\,dx=0$$
+  points: 10
+  depends_on: []
+  answer: {kind: expression, value: 'x - 11/2', equivalents: [], tolerance: null}
+  solutions:
+  - id: S23-A
+    audience: A
+    method_no: 1
+    key_idea: 계수 비교로 $m=1$, $a=-6$, $L$의 기울기 1을 얻고, $F(x)=x^4-6x^2+b$의 가장 큰 근 $s=t-1$에서 $F(s)=0$, $\int_0^sF=0$을 연립한다.
+    steps:
+    - {id: 23a, content: '$m=1$, $a=-6$, $t=1+\sqrt5$, $b=5$, $L(x)=x-\tfrac{11}{2}$', criteria: ['2-3.A1', '2-3.A2', '2-3.M1', '2-3.A3']}
+    hint_ladder:
+    - $x^4-4x^3$에서 $(x-m)^4$의 $m$은?
+    - $L(x)$의 상수항은 $b$에 따라 달라진다. 조건 ③으로 $b$를 정하자.
+  - id: S23-B
+    audience: B
+    source_flow: 모범답안 p.8
+    method_no: 1
+    steps:
+    - id: 23b-1
+      content: |
+        $L(x)=c(x-m)+d$라 두면 $G(x)=x^4-4x^3+9x-\dfrac{11}{2}=(x-m)^4+a(x-m)^2+b+c(x-m)+d$이다. 양변의 계수를 비교하면 $m=1$, $a=-6$, $c=1$이고 $b+d=\dfrac12$이다. 따라서
+        $$G(x)=(x-1)^4-6(x-1)^2+(x-1)+\dfrac12=F(x-1)+L(x)$$
+      criteria: ['2-3.A1', '2-3.A2']
+    - id: 23b-2
+      content: |
+        이므로 구하는 $F(x)$와 $L(x)$는 모든 실수 $b$에 대하여 $F(x)=x^4-6x^2+b$, $L(x)=(x-1)+\dfrac12-b=x-\dfrac12-b$이다.
+      criteria: ['2-3.M1']
+    - id: 23b-3
+      content: |
+        한편, 방정식 $G(x)-L(x)=0$이 서로 다른 네 실근을 가지면 방정식 $F(x)=0$도 서로 다른 네 실근을 갖는다. 조건으로부터 방정식 $F(x)=0$의 가장 큰 실근은 $t-m=t-1>0$이다. ③으로부터
+        $$0=\int_1^tF(x-1)\,dx=\int_0^{t-1}F(x)\,dx=\int_0^{t-1}(x^4-6x^2+b)\,dx=\dfrac{(t-1)^5}{5}-2(t-1)^3+b(t-1)$$
+        이고 $0=F(t-1)=(t-1)^4-6(t-1)^2+b$이다.
+      criteria: ['2-3.M1']
+    - id: 23b-4
+      content: |
+        이 두 방정식을 연립하여 풀면 $t=1+\sqrt5$이고 $b=5$이므로 구하는 일차함수는 $L(x)=x-\dfrac{11}{2}$이다.
+      criteria: ['2-3.A3']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2-3.A1
+      mark_type: B
+      points: 2
+      evidence: |
+        $m=1$을 구했다.
+      depends_on: []
+      steps: [23b-1]
+    - id: 2-3.A2
+      mark_type: B
+      points: 1
+      evidence: |
+        $a=-6$과 $L(x)$의 일차항의 계수가 1임을 구했다.
+      depends_on: []
+      steps: [23b-1]
+    - id: 2-3.M1
+      mark_type: M
+      points: 5
+      evidence: |
+        $b=5$ 혹은 $t=1+\sqrt5$를 구했다.
+      depends_on: []
+      implied_ok: false
+      steps: [23b-2, 23b-3]
+    - id: 2-3.A3
+      mark_type: A
+      points: 2
+      evidence: |
+        일차함수 $L(x)=x-\dfrac{11}{2}$임을 구했다.
+      depends_on: [2-3.M1]
+      steps: [23b-4]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+remedy_links: []
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

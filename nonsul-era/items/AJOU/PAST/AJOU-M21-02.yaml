@@ -1,0 +1,466 @@
+# 아주대 2021학년도 모의논술(자연계열) 문항 2 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+# 채점기준 미공개 — 단계별 추정 (자료집 풀이에는 소문항 배점만 있음: 2-1 (7·9·9), 2-2 (12·13))
+schema_version: '2.0'
+id: AJOU-M21-02
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: AJOU
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 분류
+points: 50
+time_estimate_min: 50
+intent: |
+  색 결정 규칙을 해석해 순서가 있는 비닐커버 배열을 경우로 나누어 확률·조건부확률을 구하고, '처음으로 초록이 되는 시점' 조건을 곱의 법칙으로 세어 로그 합과 이항정리로 정리하는 능력을 본다.
+key_idea: |
+  전구 색은 덮인 색의 집합으로만 정해진다(노·파가 모두 있으면 초록). 처음 초록이 되는 시점이 $k$번째이려면 앞 $k-1$장은 한 가지 유채색과 흰색만이고 그 유채색이 적어도 한 번 나오며, $k$번째는 다른 유채색이다. 합은 $\sum{}_n\mathrm{C}_k(2^k-2)3^{n-k}$를 이항정리로 묶는다.
+stuck: |
+  조건부확률에서 바깥쪽 커버를 벗기면 안쪽 커버의 색이 남는다는 것, 그리고 $F_k$에서 '노란색이 적어도 한 번'을 $2^{k-1}-1$로 세고 노→초록·파→초록 두 경우를 곱하는 것
+idea_tags: [IDEA-CASE-ORDERED-PAIRS, IDEA-FIRST-HITTING-TIME-COUNT, IDEA-BINOMIAL-THEOREM-SUM]
+tags: [확률, 조건부확률, 경우의 수, 이항정리, 로그]
+elements:
+  materials:
+  - '노란색·파란색·흰색 비닐커버(각 확률 $\tfrac13$)와 전구 색 규칙(노+파=초록, 흰색은 영향 없음, 같은 색 중복 무시)'
+  - '안쪽부터 씌우고 바깥쪽부터 벗기는 순서'
+  - '전구 A(노란색), B(파란색)에서 벗긴 커버로 만든 전구 C'
+  - '$10$장 중 $k$번째에 처음 초록이 되는 경우의 수 $E_k$'
+  - '$n$개 전구 중 $k$개가 같은 색상 순서인 경우의 수 $F_k$'
+  concepts:
+  - '수학적 확률, 합의 법칙·곱의 법칙'
+  - '조건부확률'
+  - '중복순열'
+  - '로그의 성질'
+  - '이항정리'
+  tools:
+  - '순서쌍(안쪽, 바깥쪽)으로 경우 나열'
+  - '$3\times3$ 표로 전구 C 색 정리 / 여사건'
+  - '$E_k=2^{k-2}\times3^{10-k}$, $\log_{10}E_k=(k-2)a+(10-k)b$'
+  - '$F_k={}_n\mathrm{C}_k\times(2^{k-1}-1)\times3^{n-k}\times2$'
+  - '$\sum{}_n\mathrm{C}_k2^k3^{n-k}=5^n$, $\sum{}_n\mathrm{C}_k3^{n-k}=4^n$'
+  conditions:
+  - '비닐커버 순서는 색에 영향 없음, 벗길 때는 바깥쪽부터'
+  - '<조건> 첫 번째 커버는 노란색, $k$번째에 처음으로 초록'
+  - '$F_0=F_1=0$'
+  - '나머지 $n-k$개 전구는 끝까지 흰색 → 모두 흰색 커버'
+  stimuli_used: ['1-1~1-3: 제시문', '2-1~2-2: 제시문']
+  subpart_links: '(1-2)는 (1-1)의 세 경우를 조건부확률로 사용, (1-3)은 (1-2)처럼 바깥쪽 커버를 벗긴 결과를 표로 정리. (2-2)는 (2-1)의 처음-초록 세기를 일반화'
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅰ, 확률과통계]
+  scope_2028: common
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 조건부확률을 이해하고 구할 수 있으며, 이항정리를 이해하고 활용할 수 있다(요지)
+    verified: false
+  content_area: 경우의 수·확률·이항정리
+  behavior_domain: 문제해결
+  unit_path: [확률과통계, 확률, 조건부확률, 조건부확률의 계산]
+  key_concepts: [조건부확률, 곱의 법칙, 이항정리, 로그의 성질]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 아주대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 아주대학교
+  admission_year: 2021
+  admission_type: 수시 모의논술
+  track: 자연계열
+  question_no: 2
+  official_url: https://www.iajou.ac.kr/pasttest/view.php?bn=69039&m_type=SUSI
+  retrieved_at: 2026-11-21
+  original_points: [7, 9, 9, 12, 13]
+  rights_notice: 미확인
+  transcribed_from: '아주대 입학처 공식 PDF「2021학년도 논술자료집」p.18~19(문제), p.23~24(풀이) (이미지 대조 2026-11-21, HWP 변환본 수식 대조; 자료집 게시물 bn=69041)'
+
+verify: verify/AJOU-M21.py::p02
+
+stimuli:
+- label: 제시문
+  body: |
+    전구에 색이 있는 반투명 비닐커버를 씌운다고 하자. 비닐커버는 노란색, 파란색, 흰색 중 하나이며, 비닐커버를 임의로 골랐을 때 각 색을 가질 확률은 항상 $\dfrac13$로 서로 같다. 전구에 비닐커버 한 장을 씌우면 전구는 비닐커버와 같은 색으로 보인다.
+
+    [그림: 노란색·파란색·흰색 비닐커버를 각각 한 장 씌우면 전구가 그 색으로 보이는 세 쌍의 그림]
+
+    전구에는 여러 장의 비닐커버를 겹치도록 씌울 수 있다. 안쪽부터 바깥쪽까지 차례대로 씌우며, 벗길 때는 바깥쪽부터 안쪽 순서대로 벗긴다. 여러 장의 비닐커버를 동시에 겹쳐서 씌우면 다음 규칙에 따라 전구의 색이 노란색, 파란색, 흰색, 초록색 중 하나로 결정된다.
+
+    <비닐커버 색에 따른 전구의 색 규칙>
+    (1) 비닐커버의 순서는 전구의 색에 영향을 주지 않는다.
+    (2) 특정 색의 비닐커버와 흰색 비닐커버를 겹쳐 씌우면 전구는 특정색으로 보인다.
+    [그림: 흰색+노란색 커버 → 노란색 전구]
+    (3) 노란색 비닐커버와 파란색 비닐커버를 겹쳐 씌우면 전구의 색은 초록색이다.
+    [그림: 파란색+노란색 커버 → 초록색 전구]
+    (4) 같은 색의 비닐커버를 여러 장 겹쳐 씌울 때, 전구의 색은 그 색이 한 장이 있는 것과 같다.
+    [그림: 파란색 2장+노란색 커버 → 초록색 전구]
+
+    예를 들어 노란색 비닐커버 2장, 파란색 비닐커버 2장, 흰색 비닐커버 1장을 겹쳐서 씌우면 씌우는 순서에 상관없이 전구의 색은 초록색이다.
+
+stem: |
+  [문항 2] (50점) 다음 제시문을 읽고 논제에 답하라.
+
+subparts:
+- id: '1-1'
+  stem: |
+    [문제 2-1] (25점) 제시문을 읽고 다음의 물음에 답하여라.
+
+    (1) 두 장의 비닐커버를 임의로 골라 하나의 전구에 씌웠을 때 전구의 색이 노란색일 확률을 구하여라.
+  points: 7
+  depends_on: []
+  answer: {kind: value, value: '1/3', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-1-A
+    audience: A
+    method_no: 1
+    key_idea: (안쪽, 바깥쪽)이 (노,노), (노,흰), (흰,노)인 세 경우, 각 $\tfrac19$.
+    steps:
+    - {id: 1-1a, content: '$3\times\tfrac19=\tfrac13$', criteria: ['1-1.M1', '1-1.A1']}
+    hint_ladder:
+    - 노란색으로 보이려면 두 장의 색 구성이 어때야 하는가? 순서도 생각하자.
+  - id: S1-1-B
+    audience: B
+    source_flow: 자료집 풀이 p.23
+    method_no: 1
+    steps:
+    - id: 1-1b-1
+      content: |
+        전구의 색이 노란색이기 위해서는 두 장의 비닐커버가 모두 노란색이거나 노란색+흰색이어야 한다. 이때 비닐커버를 씌우는 순서를 고려하면 세 가지 경우가 생긴다: 노란색+노란색 $=P_{yy}=\dfrac19$, 노란색+흰색 $=P_{yw}=\dfrac19$, 흰색+노란색 $=P_{wy}=\dfrac19$. (단, $c_1$색 + $c_2$색은 안쪽 비닐커버의 색이 $c_1$, 바깥쪽 비닐커버의 색이 $c_2$라는 의미)
+      criteria: ['1-1.M1']
+    - id: 1-1b-2
+      content: |
+        따라서 합의 법칙에 의해 전구의 색이 노란색일 확률은 $\dfrac13$이다. (참고: 파란색일 확률 역시 $\dfrac13$, 흰색일 확률은 $\dfrac19$, 초록색일 확률은 $\dfrac29$이다.)
+      criteria: ['1-1.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    # 채점기준 미공개 — 단계별 추정
+    criteria:
+    - id: 1-1.M1
+      mark_type: M
+      points: 4
+      evidence: |
+        순서를 고려한 세 경우(노+노, 노+흰, 흰+노)와 각 확률 $\dfrac19$을 제시했다.
+      depends_on: []
+      implied_ok: false
+      steps: [1-1b-1]
+    - id: 1-1.A1
+      mark_type: A
+      points: 3
+      evidence: |
+        확률 $\dfrac13$을 구했다.
+      depends_on: [1-1.M1]
+      steps: [1-1b-2]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '1-2'
+  stem: |
+    (2) 두 장의 비닐커버를 임의로 골라 하나의 전구에 씌웠더니 이 전구의 색이 노란색이 되었다. 이 전구의 바깥쪽 비닐커버를 한 장 벗겼을 때 전구의 색이 여전히 노란색일 확률을 구하여라.
+  points: 9
+  depends_on: ['1-1']
+  answer: {kind: value, value: '2/3', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-2-A
+    audience: A
+    method_no: 1
+    key_idea: 벗긴 뒤 남는 것은 안쪽 커버; 노란색 세 경우 중 안쪽이 노란색인 것은 2개.
+    steps:
+    - {id: 1-2a, content: '$\dfrac{P_{yy}+P_{yw}}{P_{yy}+P_{yw}+P_{wy}}=\dfrac23$', criteria: ['1-2.M1', '1-2.A1']}
+    hint_ladder:
+    - 바깥쪽을 벗기면 어떤 커버가 남는가?
+  - id: S1-2-B
+    audience: B
+    source_flow: 자료집 풀이 p.23
+    method_no: 1
+    steps:
+    - id: 1-2b-1
+      content: |
+        전구가 노란색일 때에는 (1)의 풀이와 같은 세 가지 경우($P_{yy}$, $P_{yw}$, $P_{wy}$) 중 하나이고, 이 중 바깥쪽 비닐커버를 벗겨내도 여전히 노란색이 되기 위해서는 안쪽 비닐커버가 노란색이 되어야 하므로 노란색+노란색 혹은 노란색+흰색의 경우($P_{yy}$, $P_{yw}$)가 된다.
+      criteria: ['1-2.M1']
+    - id: 1-2b-2
+      content: |
+        따라서 조건부확률을 계산하면 $\dfrac{P_{yy}+P_{yw}}{P_{yy}+P_{yw}+P_{wy}}=\dfrac23$이다.
+      criteria: ['1-2.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    # 채점기준 미공개 — 단계별 추정
+    criteria:
+    - id: 1-2.M1
+      mark_type: M
+      points: 5
+      evidence: |
+        바깥쪽을 벗기면 안쪽 커버의 색이 남으므로 안쪽이 노란색인 경우($P_{yy}$, $P_{yw}$)를 골라냈다.
+      depends_on: []
+      implied_ok: false
+      ft: {allowed: true, from: [1-1.M1], max_points: 5}
+      steps: [1-2b-1]
+    - id: 1-2.A1
+      mark_type: A
+      points: 4
+      evidence: |
+        조건부확률 $\dfrac23$을 구했다.
+      depends_on: [1-2.M1]
+      steps: [1-2b-2]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '1-3'
+  stem: |
+    (3) 두 개의 전구 A, B에 각각 임의로 고른 두 장의 비닐커버가 씌어져 있다. 전구 A의 색은 노란색이고 전구 B의 색은 파란색이다. 전구 A의 바깥쪽 비닐커버 한 장과 전구 B의 바깥쪽 비닐커버 한 장을 벗겨낸 다음, 벗겨낸 두 장의 비닐커버를 비닐커버가 한 장도 씌어져 있지 않던 전구 C에 겹쳐 씌운다. 이때 세 전구 A, B, C의 색이 모두 다를 확률을 구하여라.
+  points: 9
+  depends_on: ['1-1']
+  answer: {kind: value, value: '2/3', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-3-A
+    audience: A
+    method_no: 1
+    key_idea: A, B 각각 동등한 3경우 → 9칸 표; 같은 색이 생기는 경우 3개를 빼면 $1-\tfrac39$.
+    steps:
+    - {id: 1-3a, content: '$\dfrac69=\dfrac23$', criteria: ['1-3.M1', '1-3.M2', '1-3.A1']}
+    hint_ladder:
+    - A는 (노,노),(노,흰),(흰,노), B는 (파,파),(파,흰),(흰,파) 중 하나로 모두 같은 확률이다.
+    - 벗긴 뒤 A, B에 남는 색과 C의 색을 표로 정리하자.
+  - id: S1-3-B
+    audience: B
+    source_flow: 자료집 풀이 p.23
+    method_no: 1
+    steps:
+    - id: 1-3b-1
+      content: |
+        전구 A와 전구 B의 상태에 따라 전구 C의 색을 표로 나타내면 다음과 같다(행: 전구 B, 열: 전구 A; 전구 A·B는 바깥쪽 커버를 벗겼을 때의 색, 전구 C는 두 장의 커버를 씌웠을 때의 색).
+
+        | B \ A | 노란색+노란색 (A: 노) | 노란색+흰색 (A: 노) | 흰색+노란색 (A: 흰) |
+        |---|---|---|---|
+        | 파란색+파란색 (B: 파) | C: 초록색 | C: 파란색 | C: 초록색 |
+        | 파란색+흰색 (B: 파) | C: 노란색 | C: 흰색 | C: 노란색 |
+        | 흰색+파란색 (B: 흰) | C: 초록색 | C: 파란색 | C: 초록색 |
+      criteria: ['1-3.M1']
+    - id: 1-3b-2
+      content: |
+        전구 C를 나타내는 모든 칸이 나타날 확률은 같으므로 각각 $\dfrac19$이다.
+      criteria: ['1-3.M2']
+    - id: 1-3b-3
+      content: |
+        이 중 전구 A, B, C의 색이 모두 다른 경우는 6가지이므로 전체 확률은 $\dfrac23$이다.
+      criteria: ['1-3.A1']
+  - id: S1-3-ALT
+    audience: ALT
+    source_flow: 자료집 풀이 p.24 별해
+    method_no: 2
+    key_idea: 원 해설 별해 — 9가지 경우 중 A, B, C 중 같은 색이 있는 경우의 수 3을 빼서 $1-\tfrac39$.
+    steps:
+    - id: 1-3c-1
+      content: |
+        전구 A, B를 구성하는 방법은 총 9가지이고 모두 확률이 같다. A, B, C가 모두 같은 색인 것은 불가능하고, 셋 중 두 개가 같은 색이 되는 경우들 역시 각각 유일하므로 같은 색이 있는 경우의 수는 3이다. 따라서 구하고자 하는 확률은 $1-\dfrac39=\dfrac23$이다.
+      criteria: ['1-3.M2', '1-3.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    # 채점기준 미공개 — 단계별 추정
+    criteria:
+    - id: 1-3.M1
+      mark_type: M
+      points: 4
+      evidence: |
+        A, B 각각의 세 경우에 대해 벗긴 뒤의 A, B 색과 C의 색을 표 등으로 정리했다.
+      depends_on: []
+      implied_ok: false
+      steps: [1-3b-1]
+    - id: 1-3.M2
+      mark_type: M
+      points: 2
+      evidence: |
+        9가지 경우가 모두 같은 확률 $\dfrac19$임을 밝혔다.
+      depends_on: []
+      implied_ok: true
+      steps: [1-3b-2, 1-3c-1]
+    - id: 1-3.A1
+      mark_type: A
+      points: 3
+      evidence: |
+        모두 다른 경우 6가지(또는 같은 색이 있는 경우 3가지)를 세어 $\dfrac23$을 구했다.
+      depends_on: [1-3.M1, 1-3.M2]
+      steps: [1-3b-3, 1-3c-1]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '2-1'
+  stem: |
+    [문제 2-2] (25점) 제시문을 읽고 다음의 물음에 답하여라.
+
+    (1) 한 개의 전구에 $10$장의 비닐커버를 겹쳐 씌울 때, 다음 <조건>을 만족하는 경우의 수를 $E_k$라 하자. (단, $k$는 $2\le k\le10$인 정수이다.)
+
+    <조 건>
+    첫 번째 비닐커버를 씌웠을 때 전구 색은 노란색이었고, $k$ 번째 비닐커버를 씌웠을 때 전구의 색은 처음으로 초록색이 되었다.
+
+    $c=\log_{10}6$라 할 때, $\displaystyle\sum_{k=2}^{10}\log_{10}E_k$의 값을 $c$에 대한 식으로 나타내어라.
+  points: 12
+  depends_on: []
+  answer: {kind: expression, value: '36*c', equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-1-A
+    audience: A
+    method_no: 1
+    key_idea: 2~$(k-1)$번째는 노·흰 중 하나, $k$번째는 파랑, 이후 자유 → $E_k=2^{k-2}3^{10-k}$.
+    steps:
+    - {id: 2-1a, content: '$\sum\log_{10}E_k=36\log_{10}2+36\log_{10}3=36c$', criteria: ['2-1.M1', '2-1.A1', '2-1.A2']}
+    hint_ladder:
+    - $k$번째 전에 파란색이 나오면 안 되는 이유는?
+    - $\log_{10}E_k$를 $\log_{10}2$, $\log_{10}3$으로 나누어 쓰자.
+  - id: S2-1-B
+    audience: B
+    source_flow: 자료집 풀이 p.24
+    method_no: 1
+    steps:
+    - id: 2-1b-1
+      content: |
+        <조건>을 만족하기 위해서는 첫 번째 비닐커버의 색은 노란색이어야 하고, $k$번째 비닐커버를 씌우기 이전에는 노란색, 흰색 비닐커버만 씌워야 한다. 그리고 $k$번째는 반드시 파란색이 나와야 하고, 그 이후에는 어떤 것이 나와도 상관없다.
+      criteria: ['2-1.M1']
+    - id: 2-1b-2
+      content: |
+        따라서 <조건>을 만족하는 경우의 수는 $E_k=2^{k-2}\times3^{10-k}$이다.
+      criteria: ['2-1.A1']
+    - id: 2-1b-3
+      content: |
+        $a=\log_{10}2$, $b=\log_{10}3$이라 두면 $\log_{10}E_k=(k-2)a+(10-k)b$이므로
+        $$\sum_{k=2}^{10}\log_{10}E_k=a\sum_{k=2}^{10}(k-2)+b\sum_{k=2}^{10}(10-k)=a(0+1+\cdots+7+8)+b(8+7+\cdots+1+0)=(a+b)\frac{8\times9}{2}$$
+        이다. 한편 $c=a+b$이므로 원하는 답은 $36c$이다.
+      criteria: ['2-1.A2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    # 채점기준 미공개 — 단계별 추정
+    criteria:
+    - id: 2-1.M1
+      mark_type: M
+      points: 4
+      evidence: |
+        첫 장은 노란색, $k$번째 전에는 노란색·흰색만, $k$번째는 파란색, 이후는 자유라는 조건을 밝혔다.
+      depends_on: []
+      implied_ok: false
+      steps: [2-1b-1]
+    - id: 2-1.A1
+      mark_type: A
+      points: 4
+      evidence: |
+        $E_k=2^{k-2}\times3^{10-k}$을 구했다.
+      depends_on: [2-1.M1]
+      steps: [2-1b-2]
+    - id: 2-1.A2
+      mark_type: A
+      points: 4
+      evidence: |
+        로그의 성질과 합 공식으로 $36c$를 구했다.
+      depends_on: [2-1.M1, 2-1.A1]
+      steps: [2-1b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '2-2'
+  stem: |
+    (2) 양의 정수 $n$에 대하여 $n$개의 전구가 한 줄로 정렬되어 차례대로 놓여 있고, 각 전구 마다 $n$장의 비닐커버를 겹쳐 씌운다. 전구를 이동하지 않으며 비닐커버를 씌운 뒤 색이 같더라도 전구는 놓인 위치에 따라 구별가능하다. 이때 다음 <조건>을 만족하는 경우의 수를 $F_k$라 하자. (단, $k$는 $0\le k\le n$인 정수이다.)
+
+    <조 건>
+    (가) 정확히 $k$개의 전구에는 동일한 색상 순서로 비닐 커버를 씌우고, $k$ 번째 비닐커버를 씌웠을 때 전구의 색은 처음으로 초록색이 된다.
+    (나) 나머지 $n-k$개의 전구는 $n$장의 비닐커버를 씌운 후에도 흰색이다.
+
+    이때, $\displaystyle\sum_{k=0}^{n}F_k$의 값을 $n$에 대한 식으로 나타내어라.
+  points: 13
+  depends_on: ['2-1']
+  answer: {kind: expression, value: '5**n + 3**n - 2**(2*n + 1)', equivalents: ['5**n - 2*4**n + 3**n'], tolerance: null}
+  solutions:
+  - id: S2-2-A
+    audience: A
+    method_no: 1
+    key_idea: $F_k={}_n\mathrm{C}_k(2^k-2)3^{n-k}$ ($k\ge2$), $k=0$ 항을 보정해 이항정리.
+    steps:
+    - {id: 2-2a, content: '$\sum F_k=(2+3)^n-2(1+3)^n+3^n=5^n+3^n-2^{2n+1}$', criteria: ['2-2.M1', '2-2.A1', '2-2.M2', '2-2.A2']}
+    hint_ladder:
+    - 먼저 색이 변하는 $k$개의 전구를 고르자.
+    - 앞 $k-1$장에서 노란색이 적어도 한 번 나오는 경우의 수는?
+    - $\sum{}_n\mathrm{C}_kx^k3^{n-k}=(x+3)^n$을 쓰려면 빠진 $k=0,1$ 항을 어떻게 처리할까?
+  - id: S2-2-B
+    audience: B
+    source_flow: 자료집 풀이 p.24
+    method_no: 1
+    steps:
+    - id: 2-2b-1
+      content: |
+        먼저 $F_0=F_1=0$임을 확인하자. $k\ge2$일 때 $F_k$를 구하기 위해 먼저 색이 변하는 $k$개의 전구를 고른다(${}_n\mathrm{C}_k$가지의 경우).
+      criteria: ['2-2.M1']
+    - id: 2-2b-2
+      content: |
+        전구에 $k$번째 비닐커버를 씌우면서 노란색에서 초록색으로 변한다고 가정하자. 처음 $k-1$번째 비닐커버를 겹쳐 씌울 동안 노란색 비닐커버가 반드시 한 번은 나오도록 씌우는 경우의 수는 노란색과 흰색 비닐커버를 임의로 $k-1$개 고르는 경우의 수에서 흰색 비닐커버만 씌우는 경우를 제외하면 된다($2^{k-1}-1$). $k$번째 비닐커버는 반드시 파란색이어야 하며, 나머지 $n-k$개의 비닐커버의 경우는 제약이 없으므로 가능한 경우의 수는 $3^{n-k}$이다. 따라서 곱의 법칙에 의하여 가능한 경우의 수는 ${}_n\mathrm{C}_k\times(2^{k-1}-1)\times3^{n-k}$이다.
+        전구에 $k$번째 비닐커버를 씌우면서 파란색에서 초록색으로 변하는 경우 역시 같은 방법으로 계산할 수 있으므로 $F_0=F_1=0$, $F_k={}_n\mathrm{C}_k\times(2^{k-1}-1)\times3^{n-k}\times2$ (단, $k\ge2$)이다.
+      criteria: ['2-2.A1']
+    - id: 2-2b-3
+      content: |
+        따라서 이항정리에 의해
+        $$\sum_{k=0}^{n}F_k=\left(\sum_{k=2}^{n}{}_n\mathrm{C}_k2^k3^{n-k}-2\sum_{k=2}^{n}{}_n\mathrm{C}_k3^{n-k}\right)=\left(\sum_{k=0}^{n}{}_n\mathrm{C}_k2^k3^{n-k}-2\sum_{k=0}^{n}{}_n\mathrm{C}_k3^{n-k}\right)+3^n$$
+      criteria: ['2-2.M2']
+    - id: 2-2b-4
+      content: |
+        $$=(2+3)^n-2(1+3)^n+3^n=5^n+3^n-2^{2n+1}$$
+        이다. (보충: $k=1$ 항은 $n(2-2)3^{n-1}=0$, $k=0$ 항은 $(1-2)3^n=-3^n$이므로 범위를 $k=0$부터로 늘리면 $3^n$을 더해 준다.)
+      criteria: ['2-2.A2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    # 채점기준 미공개 — 단계별 추정
+    criteria:
+    - id: 2-2.M1
+      mark_type: M
+      points: 2
+      evidence: |
+        $F_0=F_1=0$을 확인하고 색이 변하는 $k$개의 전구를 ${}_n\mathrm{C}_k$가지로 골랐다.
+      depends_on: []
+      implied_ok: false
+      steps: [2-2b-1]
+    - id: 2-2.A1
+      mark_type: A
+      points: 5
+      evidence: |
+        $F_k={}_n\mathrm{C}_k\times(2^{k-1}-1)\times3^{n-k}\times2$ ($k\ge2$)를 근거와 함께 구했다.
+      depends_on: [2-2.M1]
+      steps: [2-2b-2]
+    - id: 2-2.M2
+      mark_type: M
+      points: 3
+      evidence: |
+        합의 범위를 $k=0$부터로 맞추어 이항정리를 적용할 수 있는 꼴로 정리했다.
+      depends_on: []
+      implied_ok: false
+      steps: [2-2b-3]
+    - id: 2-2.A2
+      mark_type: A
+      points: 3
+      evidence: |
+        $\displaystyle\sum_{k=0}^nF_k=5^n+3^n-2^{2n+1}$을 구했다.
+      depends_on: [2-2.A1, 2-2.M2]
+      steps: [2-2b-4]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+remedy_links: []
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

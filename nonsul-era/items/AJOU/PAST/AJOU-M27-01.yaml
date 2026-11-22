@@ -1,0 +1,557 @@
+# 아주대 2027학년도 모의논술고사(자연계열) 문항 1 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+# 수정사항(M27_nat_errata.pdf, 2026.10.15.) 확인: 채점기준 [문제 1-1](2) S_n 표현식 오타 수정 → 게시된 채점기준 PDF 가 이미 수정본
+#   (S_n=½(f(a_n)+2f(c_n)+f(b_n))√n, c_n-a_n=b_n-c_n=√n 과 일치). 문항 1 문제지에는 수정사항 없음.
+schema_version: '2.0'
+id: AJOU-M27-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: AJOU
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 추론
+points: 50
+time_estimate_min: 50
+intent: |
+  지수함수가 곱해진 함수의 도함수·이계도함수로 변곡점과 최댓값을 찾고, 볼록성으로 곡선 아래 넓이를 다각형 넓이로 아래에서 어림해 수열의 발산을 판정하는 능력, 그리고 조합으로 센 경우의 수의 비를 1보다 작은 분수의 곱으로 정리해 부등식으로 묶고 $e$의 정의로 극한을 구하는 능력을 본다.
+key_idea: |
+  위로 볼록한 구간에서 할선(현)은 곡선 아래, 아래로 볼록한 구간에서 접선은 곡선 아래에 있으므로 넓이를 오각형·삼각형 넓이로 아래에서 누른다. $\dfrac{p_n}{q_n}$은 $2l$개의 분수의 곱이므로 가장 작은·큰 인수의 거듭제곱으로 샌드위치한다.
+stuck: |
+  $S_n\ge f(c_n)\sqrt n=\left(\dfrac ne\right)^n\sqrt n$처럼 한 항만 남겨 발산을 보이는 발상, 그리고 $\dfrac{p_n}{q_n}$을 $\dfrac{a+1-b}{a+1}\ge\dfrac{a-b}{a}$로 묶어 $\left(1\pm\dfrac1l\right)^{2l}$ 꼴로 만드는 단계
+idea_tags: [IDEA-CONCAVE-CHORD-BELOW, IDEA-CONVEX-TANGENT-BELOW, IDEA-PRODUCT-SQUEEZE-E-LIMIT]
+tags: [변곡점, 볼록성, 수열의 발산, 이항계수 비, e의 정의]
+elements:
+  materials:
+  - '함수 $f(x)=x^ne^{-x}\ (x\ge0)$의 두 변곡점과 최댓값'
+  - '변곡점·최댓점을 잇는 선분과 $x$축으로 둘러싸인 오각형'
+  - '변곡점에서의 접선과 $x$축이 만드는 삼각형'
+  - '1 또는 $-1$을 적은 $n$칸의 기록과 그 합(기록값)'
+  - '이차방정식 $x^2+mx+n=0$의 판별식'
+  concepts:
+  - '곱의 미분법, 지수함수의 미분'
+  - '이계도함수와 곡선의 오목·볼록, 변곡점'
+  - '접선의 방정식'
+  - '정적분과 넓이'
+  - '수열의 발산'
+  - '조합 $_n\mathrm{C}_k$'
+  - '수 $e$의 정의 $\lim_{x\to0}(1+x)^{\frac1x}=e$'
+  - '수열의 극한의 대소 관계'
+  tools:
+  - '$f^{\prime}(x)=(n-x)x^{n-1}e^{-x}$, $f^{\prime\prime}(x)=(x^2-2nx+n(n-1))x^{n-2}e^{-x}$'
+  - '사다리꼴 넓이 합으로 $S_n$ 계산'
+  - '$a_n=\left(\sqrt n-\tfrac12\right)^2-\tfrac14$의 단조성'
+  - '$d_n=a_n-\dfrac{f(a_n)}{f^{\prime}(a_n)}$'
+  - '$\dfrac{a+1-b}{a+1}\ge\dfrac{a-b}{a}$로 곱을 위아래에서 묶기'
+  conditions:
+  - '제시문: $(a_n,b_n)$에서 위로 볼록, $(0,a_n)$·$(b_n,\infty)$에서 아래로 볼록'
+  - '$c_n-a_n=b_n-c_n=\sqrt n$'
+  - '(3)은 $n\ge3$에서만 $a_n\ge1$'
+  - '$n$이 짝수의 제곱 $n=4l^2$일 때 $\lvert m\rvert\le\sqrt{4n}=4l$'
+  - '$n$이 짝수이므로 $m=0$이 가능한 기록값'
+  stimuli_used: ['1-1~1-5: 가', '2-1~2-2: 나']
+  subpart_links: '(1-2)는 (1-1)의 a_n·b_n·c_n과 증감표, (1-5)는 (1-3)의 a_n≥1과 (1-4)의 d_n을 사용. (2-2)는 (2-1)의 개수 공식을 사용'
+
+curriculum:
+  version: '2015'
+  subjects: [미적분, 확률과통계]
+  scope_2028: calc2
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 함수의 그래프의 개형을 그릴 수 있고, 수열의 극한과 수 e의 정의를 이용해 극한값을 구할 수 있다(요지)
+    verified: false
+  content_area: 미분법(변곡점·오목볼록) · 수열의 극한 · 조합
+  behavior_domain: 추론
+  unit_path: [미적분, 미분법, 도함수의 활용, 곡선의 오목·볼록과 변곡점]
+  key_concepts: [변곡점, 곡선의 오목·볼록, 수열의 발산, 조합, 수 e의 정의]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 아주대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 아주대학교
+  admission_year: 2027
+  admission_type: 수시 모의논술
+  track: 자연계열
+  question_no: 1
+  official_url: https://www.iajou.ac.kr/pasttest/view.php?bn=78689&m_type=SUSI
+  retrieved_at: 2026-11-21
+  original_points: [5, 8, 4, 5, 8, 6, 14]
+  rights_notice: 미확인
+  transcribed_from: '아주대 입학처 공식 PDF「2027학년도 모의논술고사 자연계열」p.2~3, 「자연계열 채점기준」p.2~6, 「자연계열 수정사항」p.1 (이미지 대조 2026-11-21)'
+
+verify: verify/AJOU-M27.py::p01
+
+stimuli:
+- label: 가
+  body: |
+    $n\ge2$인 자연수에 대하여 함수 $f(x)=x^ne^{-x}\ (x\ge0)$를 생각하자. [그림 1]은 $n=2$와 $n=3$인 경우의 곡선 $y=f(x)$를 나타낸다.
+
+    [그림 1: 왼쪽은 $n=2$, 오른쪽은 $n=3$인 곡선 $y=f(x)$. 가로축 눈금 $1\sim6$, 세로축 눈금 $1$. 두 곡선 모두 원점에서 출발해 $n=2$는 $x=2$ 부근(높이 약 $0.5$), $n=3$은 $x=3$ 부근(높이 약 $1.3$)에서 가장 높고 이후 $x$축에 가까워진다.]
+
+    곡선 $y=f(x)$는 두 개의 변곡점을 가진다. 이때 두 변곡점의 $x$좌표를 $a_n$, $b_n$(단, $a_n<b_n$)이라고 하자. 곡선 $y=f(x)$는 열린구간 $(a_n,b_n)$에서 위로 볼록이고, 열린구간 $(0,a_n)$과 $(b_n,\infty)$에서 아래로 볼록이다.
+- label: 나
+  body: |
+    자연수 $n$에 대하여 아래와 같은 $n$개의 칸에 각각 $1$ 또는 $-1$을 적은 것을 '기록'이라 하자.
+
+    [표: 한 줄로 놓인 $n$개의 칸 ①, ②, ③, ④, $\cdots$, ⓝ]
+
+    이때 만들 수 있는 서로 다른 '기록'의 개수는 $2^n$이다. 하나의 '기록'을 구성하는 숫자들의 합을 '기록값'이라고 정의하고, 이 값을 $m$으로 표시하자. 예를 들어 $n=5$일 때 아래의 '기록값'은
+
+    [표: $1$, $-1$, $1$, $1$, $-1$]
+
+    $m=1+(-1)+1+1+(-1)=1$이다.
+
+stem: |
+  [문항 1] 【제시문】을 읽고 물음에 답하시오.
+
+subparts:
+- id: '1-1'
+  stem: |
+    [문제 1-1] (30점) 제시문 (가)에 대한 다음 물음에 답하시오.
+
+    (1) (5점) 곡선 $y=f(x)$의 두 변곡점 $\mathrm{A},\mathrm{B}$의 $x$좌표 $a_n,b_n$과 함수 $f(x)$의 최댓값을 $y$좌표로 가지는 곡선 위의 점 $\mathrm{C}$의 $x$좌표 $c_n$을 구하시오.
+  points: 5
+  depends_on: []
+  answer: {kind: expression, value: 'c_n=n; a_n=n-sqrt(n); b_n=n+sqrt(n)', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-1-A
+    audience: A
+    method_no: 1
+    key_idea: $f^{\prime}=0$에서 $c_n$, $f^{\prime\prime}=0$의 두 양근에서 $a_n,b_n$을 얻는다.
+    steps:
+    - {id: 1-1a, content: '$f^{\prime}(x)=(n-x)x^{n-1}e^{-x}$, $f^{\prime\prime}(x)=(x^2-2nx+n(n-1))x^{n-2}e^{-x}\Rightarrow c_n=n$, $a_n,b_n=n\mp\sqrt n$', criteria: ['1-1.M1', '1-1.A1']}
+    hint_ladder:
+    - 최댓값은 어디에서 생기는가? 변곡점은 어떤 식의 근인가?
+    - $e^{-x}$와 $x^{n-2}$를 묶어 내면 남는 이차식은?
+  - id: S1-1-B
+    audience: B
+    source_flow: 채점기준 p.2
+    method_no: 1
+    steps:
+    - id: 1-1b-1
+      content: |
+        $x>0$에서 $f^{\prime}(x)=(nx^{n-1}-x^n)e^{-x}=(n-x)x^{n-1}e^{-x}$,
+        $f^{\prime\prime}(x)=(n(n-1)x^{n-2}-2nx^{n-1}+x^n)e^{-x}=(n(n-1)-2nx+x^2)x^{n-2}e^{-x}$.
+      criteria: ['1-1.M1']
+    - id: 1-1b-2
+      content: |
+        $f^{\prime}(x)=0$을 만족하는 양수는 $x=n$이고 그 좌우에서 $f^{\prime}$의 부호가 $+$에서 $-$로 바뀌므로 최댓점의 $x$좌표는 $c_n=n$.
+        $x^2-2nx+n(n-1)=0$에서 $x=n\pm\sqrt{n^2-n(n-1)}=n\pm\sqrt n$이므로 $a_n=n-\sqrt n$, $b_n=n+\sqrt n$.
+      criteria: ['1-1.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1-1.M1
+      mark_type: M
+      points: 2
+      evidence: |
+        함수 $f(x)$의 도함수와 이계도함수를 바르게 구했다.
+      depends_on: []
+      implied_ok: false
+      steps: [1-1b-1]
+    - id: 1-1.A1
+      mark_type: A
+      points: 3
+      evidence: |
+        $c_n=n$, $a_n=n-\sqrt n$, $b_n=n+\sqrt n$을 바르게 구했다.
+      depends_on: [1-1.M1]
+      steps: [1-1b-2]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '1-2'
+  stem: |
+    (2) (8점) [문제 1-1]의 (1)과 제시문을 이용하여, 곡선 $y=f(x)$와 $x$축 및 두 직선 $x=a_n$, $x=b_n$으로 둘러싸인 도형의 넓이가 선분 $\mathrm{AC}$, 선분 $\mathrm{CB}$와 $x$축 및 두 직선 $x=a_n$, $x=b_n$으로 둘러싸인 도형의 넓이 $S_n$보다 큼을 보이고, $n$의 값이 한없이 커질 때 수열 $\{S_n\}$의 수렴과 발산을 조사하시오.
+  points: 8
+  depends_on: ['1-1']
+  answer: {kind: value, value: 'oo', equivalents: ['발산(양의 무한대)'], tolerance: null}
+  solutions:
+  - id: S1-2-A
+    audience: A
+    method_no: 1
+    key_idea: $(a_n,b_n)$에서 위로 볼록이므로 현 $\mathrm{AC}$, $\mathrm{CB}$는 곡선 아래. $S_n\ge f(c_n)\sqrt n=\left(\tfrac ne\right)^n\sqrt n\to\infty$.
+    steps:
+    - {id: 1-2a, content: '$S_n=\tfrac12(f(a_n)+2f(c_n)+f(b_n))\sqrt n\ge\left(\tfrac ne\right)^n\sqrt n\ge\left(\tfrac43\right)^n\ (n\ge4)$', criteria: ['1-2.R1', '1-2.A1', '1-2.R2']}
+    hint_ladder:
+    - 위로 볼록한 곡선과 그 현은 어떤 위치 관계인가?
+    - $S_n$의 세 항 중 하나만 남겨도 충분히 크지 않은가?
+  - id: S1-2-B
+    audience: B
+    source_flow: 채점기준 p.2
+    method_no: 1
+    steps:
+    - id: 1-2b-1
+      content: |
+        (1)의 풀이로부터 증감·오목볼록 표를 얻는다: $0<x<c_n$에서 $f^{\prime}>0$(증가), $x=c_n$에서 극대, $x>c_n$에서 $f^{\prime}<0$(감소); $f^{\prime\prime}$은 $x<a_n$에서 $+$, $a_n<x<b_n$에서 $-$, $x>b_n$에서 $+$.
+        제시문처럼 곡선은 $(a_n,b_n)$에서 위로 볼록이므로 선분 $\mathrm{AC}$와 선분 $\mathrm{CB}$는 곡선의 아래에 있다. 따라서 곡선과 $x$축 및 $x=a_n$, $x=b_n$으로 둘러싸인 도형의 넓이는 오각형 도형의 넓이 $S_n$보다 크다.
+      criteria: ['1-2.R1']
+    - id: 1-2b-2
+      content: |
+        두 사다리꼴의 넓이의 합으로
+        $$S_n=\frac12(f(a_n)+f(c_n))(c_n-a_n)+\frac12(f(c_n)+f(b_n))(b_n-c_n)=\frac12(f(a_n)+2f(c_n)+f(b_n))\sqrt n.$$
+      criteria: ['1-2.A1']
+    - id: 1-2b-3
+      content: |
+        $f(a_n),f(b_n)>0$이므로 $n\ge4$인 자연수에 대하여 $S_n\ge f(c_n)\sqrt n=\left(\dfrac ne\right)^n\sqrt n\ge\left(\dfrac43\right)^n$이다($\dfrac ne\ge\dfrac4e>\dfrac43$, $\sqrt n\ge1$). $\left(\dfrac43\right)^n\to\infty$이므로 수열 $\{S_n\}$은 발산한다.
+      criteria: ['1-2.R2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1-2.R1
+      mark_type: R
+      points: 2
+      evidence: |
+        $(a_n,b_n)$에서 위로 볼록이므로 선분 $\mathrm{AC}$, $\mathrm{CB}$가 곡선 아래에 있어 넓이가 $S_n$보다 큼을 밝혔다.
+      depends_on: []
+      implied_ok: false
+      steps: [1-2b-1]
+    - id: 1-2.A1
+      mark_type: A
+      points: 2
+      evidence: |
+        $S_n=\dfrac12(f(a_n)+2f(c_n)+f(b_n))\sqrt n$ 또는 동치식을 바르게 썼다.
+      depends_on: [1-2.R1]
+      implied_ok: true
+      ft: {allowed: true, from: [1-1.A1], max_points: 2}
+      steps: [1-2b-2]
+    - id: 1-2.R2
+      mark_type: R
+      points: 4
+      evidence: |
+        $S_n\ge f(c_n)\sqrt n=\left(\dfrac ne\right)^n\sqrt n$ 등 발산하는 수열로 아래에서 눌러 $\{S_n\}$이 발산함을 논리적으로 서술했다.
+      depends_on: [1-2.A1]
+      steps: [1-2b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '1-3'
+  stem: |
+    (3) (4점) $n\ge3$인 자연수에 대하여 $a_n\ge1$이 성립함을 보이시오.
+  points: 4
+  depends_on: ['1-1']
+  answer: {kind: proof, value: null, equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-3-A
+    audience: A
+    method_no: 1
+    key_idea: $a_n=\left(\sqrt n-\tfrac12\right)^2-\tfrac14$은 $\sqrt n>\tfrac12$에서 증가하므로 $a_n\ge a_3$.
+    steps:
+    - {id: 1-3a, content: '$a_n\ge a_3=3-\sqrt3\ge3-2=1$', criteria: ['1-3.R1', '1-3.A1']}
+    hint_ladder:
+    - $a_n=n-\sqrt n$을 $\sqrt n$에 대한 이차식으로 보자.
+  - id: S1-3-B
+    audience: B
+    source_flow: 채점기준 p.2
+    method_no: 1
+    steps:
+    - id: 1-3b-1
+      content: |
+        $a_n=n-\sqrt n=\left(\sqrt n-\dfrac12\right)^2-\dfrac14$이다. 이차함수 $g(x)=\left(x-\dfrac12\right)^2-\dfrac14$가 열린구간 $\left(\dfrac12,\infty\right)$에서 증가하고 $n\ge3$인 자연수에 대하여 $\sqrt n>\dfrac12$이므로 $a_n$은 $n$이 커지면서 증가한다.
+      criteria: ['1-3.R1']
+    - id: 1-3b-2
+      content: |
+        따라서 $a_n\ge a_3=3-\sqrt3\ge3-2=1$이다. ■
+      criteria: ['1-3.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1-3.R1
+      mark_type: R
+      points: 3
+      evidence: |
+        $a_n$이 $n$이 커지면서 증가함을 근거(완전제곱식과 이차함수의 증가 구간 등)와 함께 보였다.
+      depends_on: []
+      implied_ok: false
+      ft: {allowed: true, from: [1-1.A1], max_points: 3}
+      steps: [1-3b-1]
+    - id: 1-3.A1
+      mark_type: A
+      points: 1
+      evidence: |
+        $a_n\ge a_3=3-\sqrt3\ge1$로 $n\ge3$에서 $a_n\ge1$을 보였다.
+      depends_on: [1-3.R1]
+      steps: [1-3b-2]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '1-4'
+  stem: |
+    (4) (5점) 곡선 $y=f(x)$ 위의 점 $\mathrm{A}$에서의 접선이 $x$축과 만나는 점의 $x$좌표 $d_n$을 구하시오.
+  points: 5
+  depends_on: ['1-1']
+  answer: {kind: expression, value: 'n-2*sqrt(n)+1', equivalents: ['(sqrt(n)-1)**2'], tolerance: null}
+  solutions:
+  - id: S1-4-A
+    audience: A
+    method_no: 1
+    key_idea: $d_n=a_n-\dfrac{f(a_n)}{f^{\prime}(a_n)}=a_n-\dfrac{a_n}{n-a_n}$.
+    steps:
+    - {id: 1-4a, content: '$d_n=(n-\sqrt n)-\dfrac{n-\sqrt n}{\sqrt n}=n-2\sqrt n+1$', criteria: ['1-4.M1', '1-4.A1']}
+    hint_ladder:
+    - 접선의 방정식에 $y=0$을 넣어 보자.
+  - id: S1-4-B
+    audience: B
+    source_flow: 채점기준 p.2
+    method_no: 1
+    steps:
+    - id: 1-4b-1
+      content: |
+        점 $\mathrm{A}(a_n,f(a_n))$에서의 접선은 $y-f(a_n)=f^{\prime}(a_n)(x-a_n)$이므로 $x$절편은 $d_n=a_n-\dfrac{f(a_n)}{f^{\prime}(a_n)}$.
+      criteria: ['1-4.M1']
+    - id: 1-4b-2
+      content: |
+        $$d_n=a_n-\frac{a_n^ne^{-a_n}}{(n-a_n)a_n^{n-1}e^{-a_n}}=a_n-\frac{a_n}{n-a_n}=(n-\sqrt n)-\frac{n-\sqrt n}{\sqrt n}=n-2\sqrt n+1$$
+        또는 $(\sqrt n-1)^2$이다.
+      criteria: ['1-4.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1-4.M1
+      mark_type: M
+      points: 2
+      evidence: |
+        접선의 식을 바르게 쓰고 $d_n=a_n-\dfrac{f(a_n)}{f^{\prime}(a_n)}$ 꼴의 공식을 얻었다.
+      depends_on: []
+      implied_ok: false
+      steps: [1-4b-1]
+    - id: 1-4.A1
+      mark_type: A
+      points: 3
+      evidence: |
+        $d_n=n-2\sqrt n+1$ 또는 $(\sqrt n-1)^2$을 논리적으로 정확히 구했다.
+      depends_on: [1-4.M1]
+      ft: {allowed: true, from: [1-1.A1], max_points: 3}
+      steps: [1-4b-2]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '1-5'
+  stem: |
+    (5) (8점) [문제 1-1]의 (3), (4)와 제시문을 이용하여, 곡선 $y=f(x)$와 $x$축 및 직선 $x=a_n$으로 둘러싸인 도형의 넓이가 곡선 $y=f(x)$ 위의 점 $\mathrm{A}$에서의 접선과 $x$축 및 직선 $x=a_n$으로 둘러싸인 도형의 넓이 $T_n$보다 큼을 보이고, $n$의 값이 한없이 커질 때 수열 $\{T_n\}$의 수렴과 발산을 조사하시오.
+  points: 8
+  depends_on: ['1-3', '1-4']
+  answer: {kind: value, value: 'oo', equivalents: ['발산(양의 무한대)'], tolerance: null}
+  solutions:
+  - id: S1-5-A
+    audience: A
+    method_no: 1
+    key_idea: $(0,a_n)$에서 아래로 볼록이므로 접선은 곡선 아래. $T_n=\tfrac12f(a_n)(a_n-d_n)\ge\tfrac12f(1)(\sqrt n-1)\to\infty$.
+    steps:
+    - {id: 1-5a, content: '$a_n-d_n=\sqrt n-1$, $f(a_n)\ge f(1)=e^{-1}$이므로 $T_n\ge\tfrac{1}{2e}(\sqrt n-1)$', criteria: ['1-5.R1', '1-5.A1', '1-5.R2']}
+    hint_ladder:
+    - 아래로 볼록한 곡선과 그 접선의 위치 관계는?
+    - $f(a_n)$을 $n$과 무관한 양수로 아래에서 누를 수 있는가? (3)을 보라.
+  - id: S1-5-B
+    audience: B
+    source_flow: 채점기준 p.2~3
+    method_no: 1
+    steps:
+    - id: 1-5b-1
+      content: |
+        [문제 1-1] (2)의 표에서 보듯이 제시문처럼 곡선 $y=f(x)$는 $(0,a_n)$에서 아래로 볼록이다. 따라서 점 $\mathrm{A}$에서의 접선은 곡선의 아래에 있고, 곡선과 $x$축 및 직선 $x=a_n$으로 둘러싸인 도형의 넓이는 $T_n$보다 크다.
+      criteria: ['1-5.R1']
+    - id: 1-5b-2
+      content: |
+        $T_n$은 밑변 $a_n-d_n$, 높이 $f(a_n)$인 삼각형의 넓이이므로 $T_n=\dfrac12f(a_n)(a_n-d_n)$이다.
+      criteria: ['1-5.A1']
+    - id: 1-5b-3
+      content: |
+        함수 $f(x)$가 열린구간 $(0,c_n)$에서 증가하고 (3)에서 $1\le a_n<c_n$이며, (4)에서 $a_n-d_n=(n-\sqrt n)-(n-2\sqrt n+1)=\sqrt n-1$이므로
+        $$T_n\ge\frac12f(1)(\sqrt n-1)=\frac12\,1^ne^{-1}(\sqrt n-1)$$
+        이고 $n$의 값이 한없이 커질 때 수열 $\{T_n\}$은 발산한다.
+      criteria: ['1-5.R2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1-5.R1
+      mark_type: R
+      points: 2
+      evidence: |
+        $(0,a_n)$에서 아래로 볼록이므로 접선이 곡선 아래에 있어 넓이가 $T_n$보다 큼을 바르게 보였다.
+      depends_on: []
+      implied_ok: false
+      steps: [1-5b-1]
+    - id: 1-5.A1
+      mark_type: A
+      points: 1
+      evidence: |
+        $T_n=\dfrac12f(a_n)(a_n-d_n)$을 바르게 썼다.
+      depends_on: [1-5.R1]
+      implied_ok: true
+      ft: {allowed: true, from: [1-4.A1], max_points: 1}
+      steps: [1-5b-2]
+    - id: 1-5.R2
+      mark_type: R
+      points: 5
+      evidence: |
+        (3)의 $a_n\ge1$과 $f$의 증가성으로 $T_n\ge\dfrac12f(1)(\sqrt n-1)$ 등을 이끌어 $\{T_n\}$이 발산함을 논리적으로 보였다.
+      depends_on: [1-5.A1]
+      ft: {allowed: true, from: [1-3.A1, 1-4.A1], max_points: 5}
+      steps: [1-5b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '2-1'
+  stem: |
+    [문제 1-2] (20점) 제시문 (나)에 대한 다음 물음에 답하시오.
+
+    (1) (6점) 자연수 $n$에 대하여, 가능한 '기록값' $m$을 모두 구하시오. 또한 각 $m$을 '기록값'으로 가지는 서로 다른 '기록'의 개수를 $m$, $n$만을 이용하여 나타내시오.
+  points: 6
+  depends_on: []
+  answer: {kind: expression, value: 'm in {-n,-n+2,...,n-2,n}; N(m)=factorial(n)/(factorial((n+m)/2)*factorial((n-m)/2))', equivalents: ['m=2k-n (k=0,1,...,n)'], tolerance: null}
+  solutions:
+  - id: S2-1-A
+    audience: A
+    method_no: 1
+    key_idea: 1이 $k$칸이면 $m=2k-n$이고, 개수는 $_n\mathrm{C}_k$, $k=\tfrac{n+m}{2}$.
+    steps:
+    - {id: 2-1a, content: '$m=2k-n\ (0\le k\le n)$, 개수 $=\dfrac{n!}{\left(\frac{n+m}{2}\right)!\left(\frac{n-m}{2}\right)!}$', criteria: ['2-1.M1', '2-1.A1']}
+    hint_ladder:
+    - 1이 적힌 칸의 개수를 $k$라 두자.
+  - id: S2-1-B
+    audience: B
+    source_flow: 채점기준 p.3
+    method_no: 1
+    steps:
+    - id: 2-1b-1
+      content: |
+        하나의 '기록'에서 $n$개의 칸 중 1이 적힌 칸의 개수 $k$는 0과 $n$ 이하의 자연수 중 하나이다. 나머지 $n-k$개의 칸에는 $-1$이 적혀 있으므로 $m=k+(-1)(n-k)=2k-n$ (단, $0\le k\le n$), 즉 $-n$에서 2씩 더해 나간 $n+1$개의 값이다. 특히 $n$이 짝수이면 $m=0$도 가능한 기록값이다.
+      criteria: ['2-1.M1']
+    - id: 2-1b-2
+      content: |
+        각 $m=2k-n$을 기록값으로 가지는 기록의 개수는 $n$개의 칸에서 $k$개를 고르는 조합의 수 $_n\mathrm{C}_k=\dfrac{n!}{k!(n-k)!}$이고 $k=\dfrac{n+m}{2}$이므로
+        $$\frac{n!}{\left(\frac{n+m}{2}\right)!\left(\frac{n-m}{2}\right)!}$$
+        이다.
+      criteria: ['2-1.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2-1.M1
+      mark_type: M
+      points: 3
+      evidence: |
+        $m=2k-n\ (0\le k\le n)$, 즉 $-n,-n+2,\cdots,n$을 논리적으로 찾아냈다.
+      depends_on: []
+      implied_ok: false
+      steps: [2-1b-1]
+    - id: 2-1.A1
+      mark_type: A
+      points: 3
+      evidence: |
+        개수를 $\dfrac{n!}{\left(\frac{n+m}{2}\right)!\left(\frac{n-m}{2}\right)!}$처럼 $m$, $n$만의 식으로 논리적으로 나타냈다.
+      depends_on: [2-1.M1]
+      steps: [2-1b-2]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '2-2'
+  stem: |
+    (2) (14점) $n$이 어떤 짝수의 제곱이라고 하자. 이때 이차방정식 $x^2+mx+n=0$의 근이 중근 또는 서로 다른 두 허근이 되는 $m$ 중에서 가장 큰 $m$을 '기록값'으로 가지는 서로 다른 '기록'의 개수를 $p_n$, 절댓값이 가장 작은 $m$을 '기록값'으로 가지는 서로 다른 '기록'의 개수를 $q_n$이라고 하자. $n$이 짝수의 제곱으로써 한없이 커질 때 수열 $\left\{\dfrac{p_n}{q_n}\right\}$의 수렴과 발산을 조사하시오.
+  points: 14
+  depends_on: ['2-1']
+  answer: {kind: value, value: 'exp(-2)', equivalents: ['1/e**2'], tolerance: null}
+  solutions:
+  - id: S2-2-A
+    audience: A
+    method_no: 1
+    key_idea: $n=4l^2$, $p_n={}_n\mathrm{C}_{2l^2+2l}$, $q_n={}_n\mathrm{C}_{2l^2}$; 비를 $2l$개 분수의 곱으로 써서 $\left(1-\tfrac1l\right)^{2l}\le\tfrac{p_n}{q_n}\le\left(1+\tfrac1l\right)^{-2l}$.
+    steps:
+    - {id: 2-2a, content: '샌드위치의 양 끝이 모두 $e^{-2}$로 수렴하므로 $\dfrac{p_n}{q_n}\to e^{-2}$', criteria: ['2-2.B1', '2-2.M1', '2-2.R1', '2-2.A1']}
+    hint_ladder:
+    - $n=4l^2$로 두면 판별식 조건은 $\lvert m\rvert\le4l$.
+    - 두 계승의 비를 같은 개수의 분수 곱으로 써 보자.
+    - 각 분수는 $\dfrac{2l^2+j-2l}{2l^2+j}$ 꼴이다. 가장 작은 것과 가장 큰 것은?
+  - id: S2-2-B
+    audience: B
+    source_flow: 채점기준 p.3~4
+    method_no: 1
+    steps:
+    - id: 2-2b-1
+      content: |
+        $n$이 짝수의 제곱이므로 $n=4l^2$ ($l$은 자연수)로 쓸 수 있다. $x^2+mx+n=0$의 근이 중근 또는 서로 다른 두 허근이 되려면 $m^2-4n\le0$, 즉 $\lvert m\rvert\le4l$이어야 한다.
+      criteria: ['2-2.B1']
+    - id: 2-2b-2
+      content: |
+        가장 큰 $m=4l$에 대해 (1)로부터 $p_n=\dfrac{(4l^2)!}{(2l^2+2l)!(2l^2-2l)!}$. $n$이 짝수이므로 절댓값이 가장 작은 $m$은 $0$이고 $q_n=\dfrac{(4l^2)!}{(2l^2)!(2l^2)!}$. 그러므로
+        $$\frac{p_n}{q_n}=\frac{(2l^2)!(2l^2)!}{(2l^2+2l)!(2l^2-2l)!}.$$
+      criteria: ['2-2.M1']
+    - id: 2-2b-3
+      content: |
+        계승의 정의에 의하여
+        $$\frac{p_n}{q_n}=\frac{(2l^2)(2l^2-1)\cdots(2l^2-2l+1)}{(2l^2+2l)(2l^2+2l-1)\cdots(2l^2+1)}=\frac{2l^2+2l-2l}{2l^2+2l}\times\frac{2l^2+2l-1-2l}{2l^2+2l-1}\times\cdots\times\frac{2l^2+1-2l}{2l^2+1}$$
+        과 같이 1보다 작은 분수 $2l$개의 곱이다. 부등식 $\dfrac{a+1-b}{a+1}\ge\dfrac{a-b}{a}$ (단, $a>0$, $b>0$)를 이용하면
+        $$\left(\frac{2l^2+1-2l}{2l^2+1}\right)^{2l}\le\frac{p_n}{q_n}\le\left(\frac{2l^2+2l-2l}{2l^2+2l}\right)^{2l}.$$
+        또한 $\left(\dfrac{2l^2+1-2l}{2l^2+1}\right)^{2l}=\left(1-\dfrac{2l}{2l^2+1}\right)^{2l}\ge\left(1-\dfrac{2l}{2l^2}\right)^{2l}=\left(1-\dfrac1l\right)^{2l}$, $\left(\dfrac{2l^2+2l-2l}{2l^2+2l}\right)^{2l}=\left(\dfrac{l}{l+1}\right)^{2l}=\dfrac{1}{\left(1+\frac1l\right)^{2l}}$이므로
+        $$\left(1-\frac1l\right)^{2l}\le\frac{p_n}{q_n}\le\frac{1}{\left(1+\frac1l\right)^{2l}}.$$
+      criteria: ['2-2.R1']
+    - id: 2-2b-4
+      content: |
+        $\displaystyle\lim_{x\to0}(1+ax)^{\frac bx}=e^{ab}$ (단, $a\ne0$, $b\ne0$)를 이용하면 $\displaystyle\lim_{l\to\infty}\left(1-\frac1l\right)^{2l}=e^{-2}$, $\displaystyle\lim_{l\to\infty}\left(1+\frac1l\right)^{2l}=e^2$이므로, $n$이 짝수의 제곱으로써 한없이 커질 때 수열 $\left\{\dfrac{p_n}{q_n}\right\}$은 $e^{-2}$로 수렴한다.
+      criteria: ['2-2.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2-2.B1
+      mark_type: B
+      points: 1
+      evidence: |
+        $n=4l^2$으로 표현했다.
+      depends_on: []
+      steps: [2-2b-1]
+    - id: 2-2.M1
+      mark_type: M
+      points: 2
+      evidence: |
+        $\dfrac{p_n}{q_n}=\dfrac{(2l^2)!(2l^2)!}{(2l^2+2l)!(2l^2-2l)!}$처럼 $l$만의 표현식을 구했다.
+      depends_on: []
+      implied_ok: false
+      ft: {allowed: true, from: [2-1.A1], max_points: 2}
+      steps: [2-2b-2]
+    - id: 2-2.R1
+      mark_type: R
+      points: 8
+      evidence: |
+        $\left(1-\dfrac1l\right)^{2l}\le\dfrac{p_n}{q_n}\le\dfrac{1}{\left(1+\frac1l\right)^{2l}}$의 부등식을 논리적으로 유도했다.
+      depends_on: [2-2.M1]
+      steps: [2-2b-3]
+    - id: 2-2.A1
+      mark_type: A
+      points: 3
+      evidence: |
+        양 끝의 극한 $e^{-2}$를 구해 $\left\{\dfrac{p_n}{q_n}\right\}$이 $e^{-2}$로 수렴함을 보였다.
+      depends_on: [2-2.R1]
+      steps: [2-2b-4]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+remedy_links: []
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

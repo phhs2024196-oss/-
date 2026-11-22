@@ -1,0 +1,433 @@
+# 아주대 2023학년도 논술고사 자연계열(오전) 문항 2 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: AJOU-G23A-02
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: AJOU
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 추론
+points: 50
+intent: |
+  두 직선과 좌표축에 접하는 원들의 반지름을 반각의 탄젠트로 나타내고 덧셈정리·삼각함수의 극한·시그마로 계산하며, 그래프의 대칭성을 근의 합과 정적분 계산에 활용하는 능력을 본다.
+key_idea: |
+  원점에서 각 원의 접점까지 거리가 1이므로 $r_k=\tan\dfrac{\theta_k}{2}$이고, 직선 $x=p$ 대칭이면 $\displaystyle\int_0^{2p}xf(x)\,dx=p\int_0^{2p}f(x)\,dx$이다.
+stuck: |
+  (1-2)에서 각 원과 직선의 접점이 원점에서 거리 1임을 알아차리는 것, (1-3)에서 $\theta_k$를 기울기의 각 차로 보고 탄젠트 덧셈정리를 쓰는 것, (2-1)에서 실근 2의 존재를 홀짝 논리로 끌어내는 것
+idea_tags: [IDEA-HALF-ANGLE-TANGENT-RADIUS, IDEA-TAN-DIFFERENCE-TELESCOPE, IDEA-SYMMETRY-ROOT-SUM, IDEA-KING-PROPERTY-INTEGRAL]
+tags: [접원, 대칭 적분]
+elements:
+  materials:
+  - 'x축(또는 y축)과 직선 $y=p_kx$에 동시에 접하는 원들의 사슬 $\mathrm{C}_1,\dots,\mathrm{C}_{n+1}$'
+  - '직선들이 이루는 예각 $\theta_k$와 반지름 $r_k$'
+  - '$f(2+x)=f(2-x)$를 만족하는 함수의 실근'
+  - '$f(x)=\dfrac{\lvert\cos x\rvert}{3+\cos^2x}$의 정적분'
+  concepts:
+  - '탄젠트함수의 정의와 직선의 기울기'
+  - '삼각함수의 덧셈정리'
+  - '산술평균과 기하평균의 관계'
+  - '$\lim_{x\to0}\dfrac{\tan x}{x}=1$'
+  - '자연수의 거듭제곱의 합'
+  - '그래프의 대칭과 방정식의 근'
+  - '치환적분법, 부분분수'
+  tools:
+  - '$r_k=\tan\dfrac{\theta_k}{2}$ (원점~접점 거리 1)'
+  - '$\tan\theta_k=\dfrac{p_k-p_{k-1}}{1+p_kp_{k-1}}$'
+  - '$(1+r_1)+\dfrac{2}{1+r_1}\ge2\sqrt2$'
+  - '$x=2p-t$ 치환으로 $\int xf=p\int f$'
+  - '$\sin x=t$ 치환'
+  conditions:
+  - '(1-1) $\sqrt2>1.4$ 단서'
+  - '(1-2) $\sum_{i=1}^{n+1}\theta_i=\dfrac{\pi}{2}$'
+  - '(2-1) 근의 합 34가 4의 배수가 아님 → 2가 근'
+  - '(2-2) $\lvert\cos x\rvert$의 절댓값 때문에 대칭으로 $[0,\tfrac{\pi}{2}]$로 줄임'
+  stimuli_used: [가, 나]
+  subpart_links: '(1-1)~(1-3)은 제시문 (가)의 원 사슬, (2-1)·(2-2)는 제시문 (나)의 대칭 성질을 사용(소문항 간 결과 이월 없음)'
+
+curriculum:
+  version: '2015'
+  subjects: [수학, 수학Ⅰ, 미적분]
+  scope_2028: calc2
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 삼각함수의 덧셈정리와 치환적분법을 이해하고 활용할 수 있다(요지)
+    verified: false
+  content_area: 삼각함수의 덧셈정리·극한·적분법
+  behavior_domain: 문제해결
+  unit_path: [미적분, 미분법, 삼각함수의 덧셈정리, 접원 사슬의 반지름]
+  key_concepts: [삼각함수의 덧셈정리, 삼각함수의 극한, 수열의 합, 치환적분법]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 아주대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 아주대학교
+  admission_year: 2023
+  admission_type: 수시 논술우수자
+  track: 자연계열(오전)
+  question_no: 2
+  official_url: https://www.iajou.ac.kr/pasttest/view.php?bn=69053&m_type=SUSI
+  retrieved_at: 2026-11-21
+  original_points: [10, 10, 10, 10, 10]
+  rights_notice: 미확인
+  transcribed_from: '아주대 입학처 공식 PDF「2023학년도 논술고사 자연계열(오전)」 문제 p.4–5, 모범답안 p.9–10, 채점기준 p.13 (이미지 대조 2026-11-21)'
+  # 문제지에는 소문항 배점 표기가 없음 — original_points 는 채점기준표(각 10점)에서 옮김
+
+verify: verify/AJOU-G23A.py::p02
+
+stimuli:
+- label: 가
+  body: |
+    자연수 $n$에 대하여, $0<p_1<\cdots<p_n$을 만족하는 $n$개의 실수 $p_1,\dots,p_n$이 있다. $x$축과 직선 $y=p_1x$에 동시에 접하면서 점 $(1,0)$을 지나며 중심이 제1사분면에 있는 원을 $\mathrm{C}_1$이라 하자. $y$축과 직선 $y=p_nx$에 동시에 접하면서 점 $(0,1)$을 지나며 중심이 제1사분면에 있는 원을 $\mathrm{C}_{n+1}$이라 하자. $n\ge2$일 때, $2\le k\le n$인 자연수 $k$에 대하여, 두 직선 $y=p_{k-1}x$, $y=p_kx$와 원 $\mathrm{C}_{k-1}$에 동시에 접하고 중심이 제1사분면에 있는 원을 $\mathrm{C}_k$라 하자. $x$축과 직선 $y=p_1x$가 이루는 예각을 $\theta_1$, 직선 $y=p_nx$와 $y$축이 이루는 예각을 $\theta_{n+1}$이라 하자. $n\ge2$일 때, $2\le k\le n$인 자연수 $k$에 대하여 두 직선 $y=p_{k-1}x$와 $y=p_kx$가 이루는 예각을 $\theta_k$라 하자. $n+1$이하인 자연수 $k$에 대하여, 원 $\mathrm{C}_k$의 반지름을 $r_k$라 하자.
+    [그림 4]는 $n=1$인 경우와 $n=2$인 경우를 표현한 것이다.
+
+    [그림 4: 왼쪽($n=1$) — 원점에서 나가는 직선 $y=p_1x$, 점 $(1,0)$에서 $x$축에 접하고 직선에 접하는 큰 원 $\mathrm{C}_1$(반지름 $r_1$), 점 $(0,1)$에서 $y$축에 접하고 직선에 접하는 작은 원 $\mathrm{C}_2$(반지름 $r_2$), 두 원은 직선 위 한 점에서 서로 접함; 각 $\theta_1$은 $x$축과 직선 사이, $\theta_2$는 직선과 $y$축 사이. 오른쪽($n=2$) — 직선 $y=p_1x$, $y=p_2x$, 원 $\mathrm{C}_1$(점 $(1,0)$에서 접함), $\mathrm{C}_2$(두 직선 사이), $\mathrm{C}_3$(점 $(0,1)$에서 $y$축에 접함)이 차례로 접하고, 각 $\theta_1,\theta_2,\theta_3$ 표시]
+
+    한편 $n=1$인 경우, $r_1=\tan\dfrac{\theta_1}{2}$이고 $r_2=\tan\left(\dfrac{\pi}{4}-\dfrac{\theta_1}{2}\right)$이므로, 삼각함수의 덧셈정리에 의해 $r_2=\dfrac{1-\tan\dfrac{\theta_1}{2}}{1+\tan\dfrac{\theta_1}{2}}=\dfrac{1-r_1}{1+r_1}$이다.
+- label: 나
+  body: |
+    모든 실수 $x$에 대하여 $f(x)=f(2p-x)$를 만족하는 실수 $p$가 존재하는 함수 $f(x)$를 생각하자. 함수 $y=f(x)$의 그래프는 직선 $x=p$에 대하여 대칭이다. 따라서 $f(\alpha)=0$이면 $x=2p-\alpha$가 방정식 $f(x)=0$의 실근이 된다. 한편 $\displaystyle\int_0^{2p}xf(x)\,dx$를 계산할 때, $x=2p-t$로 치환하면 다음을 얻는다.
+    $$\int_0^{2p}xf(x)\,dx=\int_0^{2p}(2p-t)f(2p-t)\,dt=\int_0^{2p}(2p-x)f(x)\,dx$$
+
+stem: |
+  [문항 2] (50점) 다음 제시문을 읽고 논제에 답하라.
+
+subparts:
+- id: '1-1'
+  stem: |
+    [문제 2-1] 제시문 (가)를 읽고 물음에 답하라.
+    (1) $n=1$일 때, $5(r_1+r_2)>4$임을 증명하라. (단, $\sqrt2>1.4$)
+  points: 10
+  depends_on: []
+  answer: {kind: proof, value: null, equivalents: [], tolerance: null}
+  solutions:
+  - id: S11-A
+    audience: A
+    method_no: 1
+    key_idea: $r_1+r_2=(1+r_1)+\dfrac{2}{1+r_1}-2$로 바꿔 산술·기하평균 부등식을 쓴다.
+    steps:
+    - {id: 11a, content: '$r_1+r_2\ge2\sqrt2-2>0.8$', criteria: ['1-1.M1', '1-1.A1']}
+    hint_ladder:
+    - $r_2=\dfrac{1-r_1}{1+r_1}$을 $1+r_1$에 관한 식으로 바꿔 보자.
+  - id: S11-B
+    audience: B
+    source_flow: 모범답안 p.9
+    method_no: 1
+    steps:
+    - id: 11b-1
+      content: |
+        제시문 (가)에서 $r_2=\dfrac{1-r_1}{1+r_1}$이므로 $r_1+r_2=r_1+\dfrac{1-r_1}{1+r_1}=(1+r_1)+\dfrac{2}{1+r_1}-2$이다.
+      criteria: ['1-1.M1']
+    - id: 11b-2
+      content: |
+        $r_1+1$이 양수이므로 산술평균과 기하평균의 관계에 의해
+        $$r_1+r_2=(1+r_1)+\dfrac{2}{1+r_1}-2\ge2\sqrt2-2>0.8$$
+        이다($\sqrt2>1.4$). 즉 $5(r_1+r_2)>4$가 성립한다. ■
+      criteria: ['1-1.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1-1.M1
+      mark_type: M
+      points: 5
+      evidence: |
+        $r_1+r_2=r_1+\dfrac{1-r_1}{1+r_1}=(1+r_1)+\dfrac{2}{1+r_1}-2$임을 보였다.
+      depends_on: []
+      implied_ok: false
+      steps: [11b-1]
+    - id: 1-1.A1
+      mark_type: R
+      points: 5
+      evidence: |
+        $(1+r_1)+\dfrac{2}{1+r_1}-2\ge2\sqrt2-2>0.8$임을 보였다.
+      depends_on: [1-1.M1]
+      steps: [11b-2]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '1-2'
+  stem: |
+    [문제 2-1] (2) $n$이하인 자연수 $k$에 대하여 $p_k=\tan\dfrac{k\pi}{2(n+1)}$일 때, $\displaystyle\lim_{n\to\infty}\dfrac1n\sum_{k=1}^{n+1}(k-1)r_k$를 구하라.
+  points: 10
+  depends_on: []
+  answer: {kind: value, value: 'pi/8', equivalents: [], tolerance: null}
+  solutions:
+  - id: S12-A
+    audience: A
+    method_no: 1
+    key_idea: 모든 $\theta_k=\dfrac{\pi}{2(n+1)}$이고 원점~접점 거리가 1이라 $r_k=\tan\dfrac{\pi}{4(n+1)}$로 일정하다.
+    steps:
+    - {id: 12a, content: '$\dfrac{n(n+1)}{2n}\tan\dfrac{\pi}{4(n+1)}\to\dfrac{\pi}{8}$', criteria: ['1-2.M1', '1-2.A1', '1-2.A2']}
+    hint_ladder:
+    - 원점에서 각 원과 직선의 접점까지의 거리는 얼마인가?
+  - id: S12-B
+    audience: B
+    source_flow: 모범답안 p.9
+    method_no: 1
+    steps:
+    - id: 12b-1
+      content: |
+        직선의 기울기와 탄젠트함수의 정의로부터 $\theta_1=\cdots=\theta_n=\dfrac{\pi}{2(n+1)}$이다. 또한 $\displaystyle\sum_{i=1}^{n+1}\theta_i=\dfrac{\pi}{2}$이므로 $\theta_{n+1}=\dfrac{\pi}{2(n+1)}$이다. $n+1$이하인 자연수 $k$에 대하여 원점과 원 $\mathrm{C}_k$가 접하는 접점 사이의 거리가 1이므로 $r_k=\tan\dfrac{\theta_k}{2}=\tan\dfrac{\pi}{4(n+1)}$이다.
+      criteria: ['1-2.M1']
+    - id: 12b-2
+      content: |
+        $\displaystyle\sum_{k=1}^{n+1}(k-1)r_k=\tan\dfrac{\pi}{4(n+1)}\sum_{k=1}^{n+1}(k-1)=\dfrac{n(n+1)}{2}\cdot\tan\dfrac{\pi}{4(n+1)}$이다.
+      criteria: ['1-2.A1']
+    - id: 12b-3
+      content: |
+        이제 $\displaystyle\lim_{x\to0}\dfrac{\tan x}{x}=1$을 사용하여
+        $$\lim_{n\to\infty}\dfrac1n\sum_{k=1}^{n+1}(k-1)r_k=\lim_{n\to\infty}\dfrac{n(n+1)}{2n}\tan\dfrac{\pi}{4(n+1)}=\lim_{n\to\infty}\dfrac{\pi}{8}\cdot\dfrac{\tan\dfrac{\pi}{4(n+1)}}{\dfrac{\pi}{4(n+1)}}=\dfrac{\pi}{8}$$
+        을 얻는다.
+      criteria: ['1-2.A2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1-2.M1
+      mark_type: M
+      points: 3
+      evidence: |
+        $r_k=\tan\dfrac{\pi}{4(n+1)}$임을 보였다.
+      depends_on: []
+      implied_ok: false
+      steps: [12b-1]
+    - id: 1-2.A1
+      mark_type: A
+      points: 3
+      evidence: |
+        $\displaystyle\sum_{k=1}^{n+1}(k-1)r_k=\dfrac{n(n+1)}{2}\cdot\tan\dfrac{\pi}{4(n+1)}$임을 보였다.
+      depends_on: [1-2.M1]
+      steps: [12b-2]
+    - id: 1-2.A2
+      mark_type: A
+      points: 4
+      evidence: |
+        $\displaystyle\lim_{n\to\infty}\dfrac{n(n+1)}{2n}\tan\dfrac{\pi}{4(n+1)}=\dfrac{\pi}{8}$임을 보였다.
+      depends_on: [1-2.M1]
+      steps: [12b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '1-3'
+  stem: |
+    [문제 2-1] (3) $n$이하인 자연수 $k$에 대하여 $p_k=k$이고 $\displaystyle\sum_{k=1}^{n+1}\dfrac{1}{\tan\theta_k}=82$일 때, $n$의 값을 구하라.
+  points: 10
+  depends_on: []
+  answer: {kind: value, value: '6', equivalents: [], tolerance: null}
+  solutions:
+  - id: S13-A
+    audience: A
+    method_no: 1
+    key_idea: 양 끝은 $\tan\theta_1=1$, $\tan\theta_{n+1}=\dfrac1n$이고 중간은 덧셈정리로 $\tan\theta_k=\dfrac{1}{1+k^2-k}$.
+    steps:
+    - {id: 13a, content: '$1+\sum_{k=2}^{n}(k^2-k+1)+n=\dfrac{n(n^2+5)}{3}=82\Rightarrow n=6$', criteria: ['1-3.B1', '1-3.B2', '1-3.M1', '1-3.A1']}
+    hint_ladder:
+    - $\theta_k$는 두 직선의 기울기각의 차이다.
+  - id: S13-B
+    audience: B
+    source_flow: 모범답안 p.9
+    method_no: 1
+    steps:
+    - id: 13b-1
+      content: |
+        $k=1$인 경우는 $\tan\theta_1=p_1=1$이고, $k=n+1$인 경우는 $\tan\theta_{n+1}=\dfrac{1}{p_n}=\dfrac1n$이다.
+      criteria: ['1-3.B1', '1-3.B2']
+    - id: 13b-2
+      content: |
+        $2\le k\le n$인 경우, $p_k=\tan\left(\displaystyle\sum_{i=1}^{k}\theta_i\right)$이므로
+        $$\tan\theta_k=\tan\left(\sum_{i=1}^{k}\theta_i-\sum_{i=1}^{k-1}\theta_i\right)=\dfrac{p_k-p_{k-1}}{1+p_kp_{k-1}}=\dfrac{1}{1+k^2-k}$$
+        이다.
+      criteria: ['1-3.M1']
+    - id: 13b-3
+      content: |
+        따라서
+        $$\sum_{k=1}^{n+1}\dfrac{1}{\tan\theta_k}=1+\sum_{k=2}^{n}(k^2-k+1)+n=\sum_{k=1}^{n}(k^2-k+1)+n=\dfrac{n(n+1)(2n+1)}{6}-\dfrac{n(n+1)}{2}+2n=\dfrac{n(n^2+5)}{3}=82$$
+        이를 정리하면 $n^3+5n-246=(n-6)(n^2+6n+41)=0$이므로 $n=6$이다.
+      criteria: ['1-3.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1-3.B1
+      mark_type: B
+      points: 1
+      evidence: |
+        $k=1$일 때 $\tan\theta_1=p_1=1$임을 보였다.
+      depends_on: []
+      steps: [13b-1]
+    - id: 1-3.B2
+      mark_type: B
+      points: 2
+      evidence: |
+        $k=n+1$일 때 $\tan\theta_{n+1}=\dfrac{1}{p_n}=\dfrac1n$임을 보였다.
+      depends_on: []
+      steps: [13b-1]
+    - id: 1-3.M1
+      mark_type: M
+      points: 4
+      evidence: |
+        $2\le k\le n$일 때 $\tan\theta_k=\dfrac{1}{1+k^2-k}$임을 보였다.
+      depends_on: []
+      implied_ok: false
+      steps: [13b-2]
+    - id: 1-3.A1
+      mark_type: A
+      points: 3
+      evidence: |
+        $n=6$임을 보였다.
+      depends_on: [1-3.M1]
+      steps: [13b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '2-1'
+  stem: |
+    [문제 2-2] 제시문 (나)를 읽고 물음에 답하라.
+    (1) 모든 실수 $x$에 대하여 $f(2+x)=f(2-x)$를 만족하는 함수 $f(x)$를 생각하자. 방정식 $f(x)=0$의 서로 다른 실근을 모두 더하면 34일 때, 방정식 $f(x)=0$의 서로 다른 실근의 개수를 구하라.
+  points: 10
+  depends_on: []
+  answer: {kind: value, value: '17', equivalents: [], tolerance: null}
+  solutions:
+  - id: S21-A
+    audience: A
+    method_no: 1
+    key_idea: 2가 아닌 근은 $2\pm\alpha$ 쌍으로 합이 4씩; 34가 4의 배수가 아니므로 2도 근이다.
+    steps:
+    - {id: 21a, content: '$4m+2=34\Rightarrow m=8$, 근의 개수 $2\cdot8+1=17$', criteria: ['2-1.M1', '2-1.R1', '2-1.A1']}
+    hint_ladder:
+    - 근 $2+\alpha$가 있으면 어떤 수도 근인가?
+  - id: S21-B
+    audience: B
+    source_flow: 모범답안 p.9
+    method_no: 1
+    steps:
+    - id: 21b-1
+      content: |
+        방정식 $f(x)=0$의 서로 다른 실근 중 2보다 큰 것의 개수를 $m$이라 하자. 그러한 $m$개의 실근을 $2+\alpha_1,\dots,2+\alpha_m\ (\alpha_i>0)$이라 하면 $2-\alpha_1,\dots,2-\alpha_m$도 방정식 $f(x)=0$의 근이 된다. 따라서 방정식 $f(x)=0$의 2가 아닌 서로 다른 실근을 모두 더한 값은 $4m$이 된다.
+      criteria: ['2-1.M1']
+    - id: 21b-2
+      content: |
+        서로 다른 실근의 합인 34가 4의 배수가 아니므로, 2가 방정식 $f(x)=0$의 실근이 되어야 하고 $4m+2=34$를 얻는다.
+      criteria: ['2-1.R1']
+    - id: 21b-3
+      content: |
+        즉 $m=8$이므로 방정식 $f(x)=0$의 서로 다른 실근의 개수는 $2\times8+1=17$이다.
+      criteria: ['2-1.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2-1.M1
+      mark_type: M
+      points: 4
+      evidence: |
+        방정식의 근을 $2+\alpha$, $2-\alpha$의 꼴로 나타내고 두 근의 합이 4임을 설명했다.
+      depends_on: []
+      implied_ok: false
+      steps: [21b-1]
+    - id: 2-1.R1
+      mark_type: R
+      points: 3
+      evidence: |
+        방정식의 한 근이 2인 경우가 있음을 설명했다(34가 4의 배수가 아님).
+      depends_on: [2-1.M1]
+      steps: [21b-2]
+    - id: 2-1.A1
+      mark_type: A
+      points: 3
+      evidence: |
+        방정식의 실근의 개수가 17임을 보였다.
+      depends_on: [2-1.M1, 2-1.R1]
+      steps: [21b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '2-2'
+  stem: |
+    [문제 2-2] (2) 함수 $f(x)=\dfrac{\lvert\cos x\rvert}{3+\cos^2x}$에 대하여 $\displaystyle\int_0^{\pi}xf(x)\,dx$의 값을 구하라.
+  points: 10
+  depends_on: []
+  answer: {kind: value, value: 'pi*log(3)/4', equivalents: [], tolerance: null}
+  solutions:
+  - id: S22-A
+    audience: A
+    method_no: 1
+    key_idea: $f(\pi-x)=f(x)$이므로 $\int_0^\pi xf=\dfrac{\pi}{2}\int_0^\pi f=\pi\int_0^{\pi/2}f$, 이후 $\sin x=t$ 치환.
+    steps:
+    - {id: 22a, content: '$\pi\int_0^1\dfrac{dt}{4-t^2}=\dfrac{\pi}{4}\ln3$', criteria: ['2-2.M1', '2-2.M2', '2-2.A1']}
+    hint_ladder:
+    - 제시문 (나)에서 $p$는 얼마로 잡으면 되는가?
+    - $3+\cos^2x$를 $\sin x$로 나타내 보자.
+  - id: S22-B
+    audience: B
+    source_flow: 모범답안 p.9–10
+    method_no: 1
+    steps:
+    - id: 22b-1
+      content: |
+        $\cos(\pi-x)=-\cos x$이므로 $f(\pi-x)=f(x)$이고, $y=f(x)$의 그래프는 직선 $x=\dfrac{\pi}{2}$에 대칭이다. 제시문 (나)에 의해 $\displaystyle\int_0^\pi xf(x)\,dx=\int_0^\pi(\pi-x)f(x)\,dx$이므로 $2\displaystyle\int_0^\pi xf(x)\,dx=\pi\int_0^\pi f(x)\,dx$이다.
+      criteria: ['2-2.M1']
+    - id: 22b-2
+      content: |
+        그래프의 대칭성으로부터
+        $$\int_0^\pi xf(x)\,dx=\dfrac{\pi}{2}\int_0^\pi f(x)\,dx=\pi\int_0^{\frac{\pi}{2}}f(x)\,dx=\pi\int_0^{\frac{\pi}{2}}\dfrac{\cos x}{3+\cos^2x}\,dx$$
+        이다. 여기서 $\sin x=t$로 치환하면 $\pi\displaystyle\int_0^{\frac{\pi}{2}}\dfrac{\cos x}{3+\cos^2x}\,dx=\pi\int_0^1\dfrac{1}{4-t^2}\,dt$이다.
+      criteria: ['2-2.M2']
+    - id: 22b-3
+      content: |
+        $$\pi\int_0^1\dfrac{1}{4-t^2}\,dt=\dfrac{\pi}{4}\int_0^1\left(\dfrac{1}{2-t}+\dfrac{1}{2+t}\right)dt=\dfrac{\pi}{4}\Big[-\ln(2-t)+\ln(2+t)\Big]_0^1=\dfrac{\pi}{4}\ln3$$
+      criteria: ['2-2.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2-2.M1
+      mark_type: M
+      points: 3
+      evidence: |
+        $\displaystyle\int_0^\pi xf(x)\,dx=\dfrac{\pi}{2}\int_0^\pi f(x)\,dx$임을 보였다.
+      depends_on: []
+      implied_ok: false
+      steps: [22b-1]
+    - id: 2-2.M2
+      mark_type: M
+      points: 4
+      evidence: |
+        $\dfrac{\pi}{2}\displaystyle\int_0^\pi f(x)\,dx=\pi\int_0^1\dfrac{1}{4-t^2}\,dt$임을 보였다.
+      depends_on: [2-2.M1]
+      implied_ok: false
+      steps: [22b-2]
+    - id: 2-2.A1
+      mark_type: A
+      points: 3
+      evidence: |
+        $\displaystyle\int_0^\pi xf(x)\,dx$가 $\dfrac{\pi}{4}\ln3$임을 보였다.
+      depends_on: [2-2.M2]
+      steps: [22b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+remedy_links: []
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

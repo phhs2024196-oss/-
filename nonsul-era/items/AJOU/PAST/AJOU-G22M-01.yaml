@@ -1,0 +1,409 @@
+# 아주대 2022학년도 수시 논술우수자 자연계열(의학과) 문항 1(수학) — 기출 원문은 내부 분석용(allowed_use: internal_only)
+# 의학과 문항 2(생명과학, 문제 2-1~2-8)는 수리논술 대상이 아니라 제외
+schema_version: '2.0'
+id: AJOU-G22M-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: AJOU
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 분류
+points: 50
+time_estimate_min: 45
+intent: |
+  주사위 눈으로 정해지는 $\dfrac{n}{l}$에 대해 삼각함수 제곱의 정적분과 현수선 위 점의 이동거리(곡선의 길이)를 구하고, $\dfrac{n}{l}$의 범위에 따라 경우를 나누어 부등식을 만족하는 순서쌍을 찾는 능력을 본다.
+key_idea: |
+  $E=\left(\dfrac{n}{l}\right)^2\pi+\dfrac{n}{4l}\sin\dfrac{4n\pi}{l}$, 이동거리는 $x=\sin\left(\dfrac{n}{l}t\right)$가 $\pm1$ 사이를 왕복하는 횟수 $k=\left\lfloor\dfrac{4n}{l}\right\rfloor$로 정리된다.
+stuck: |
+  (1-2)(1)에서 점 Q가 A–B, A–C 구간을 「온전히」 지나는 횟수 $k$와 마지막 위치($k$를 4로 나눈 나머지)에 따른 분류
+idea_tags: [IDEA-DOUBLE-ANGLE-INTEGRAL, IDEA-ARC-LENGTH-CATENARY, IDEA-OSCILLATION-COUNT]
+tags: [현수선, 곡선의 길이, 주사위]
+elements:
+  materials:
+  - '주사위 두 번의 눈 $n$, $l$'
+  - '$g(t)=\sin\left(\tfrac{n}{l}t\right)$, $0\le t\le2\pi$'
+  - '$f(x)=\tfrac{e^x+e^{-x}}{2}$ 위를 움직이는 점 $\mathrm{Q}(x,f(x))$'
+  concepts:
+  - '삼각함수의 미분'
+  - '배각 공식(반각 공식)'
+  - '삼각함수의 정적분'
+  - '곡선의 길이'
+  - '지수함수의 미분과 적분'
+  tools:
+  - '$\cos^2\theta=\tfrac{1+\cos2\theta}{2}$'
+  - '$\sin\le1$, $\sin\ge-1$로 $E$ 어림'
+  - '$h(t)=t^2+\tfrac14t$의 증가성'
+  - '$1+f''(x)^2=f(x)^2$'
+  - '$k=\lfloor4n/l\rfloor$와 $k$를 4로 나눈 나머지 분류'
+  conditions:
+  - '$n,l\in\{1,\dots,6\}$'
+  - '$\tfrac{n}{l}<1$ 최대는 $\tfrac56$'
+  - '$\sin\tfrac{4n\pi}{l}=0$ ⇔ $\tfrac{n}{l}$이 $\tfrac{a}{2}$ 또는 $\tfrac{a}{4}$ 꼴'
+  stimuli_used: [가, 나]
+  subpart_links: '(1-1)(2)는 (1-1)(1)의 $E$ 식, (1-2)(2)는 (1-2)(1)의 $L$ 식과 단조성 사용'
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅰ, 미적분, 확률과통계]
+  scope_2028: calc2
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 여러 가지 함수의 정적분을 구하고 곡선의 길이를 구할 수 있다(요지)
+    verified: false
+  content_area: 미적분 – 정적분의 활용(곡선의 길이)
+  behavior_domain: 문제해결
+  unit_path: [미적분, 적분법, 정적분의 활용, 곡선의 길이]
+  key_concepts: [삼각함수의 정적분, 배각 공식, 곡선의 길이, 경우 분류]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 아주대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 아주대학교
+  admission_year: 2022
+  admission_type: 수시 논술우수자
+  track: 자연계열(의학과)
+  question_no: 1
+  official_url: https://www.iajou.ac.kr/pasttest/view.php?bn=69049&m_type=SUSI
+  retrieved_at: 2026-11-21
+  original_points: [10, 15, 15, 10]
+  rights_notice: 미확인
+  transcribed_from: '아주대 입학처 공식 PDF「2022학년도 논술고사 자연계열(의학과)」p.2(문제), p.7~9(모범답안), p.15~17(채점기준) (이미지 대조 2026-11-21)'
+
+verify: verify/AJOU-G22M.py::p01
+
+stimuli:
+- label: 가
+  body: |
+    정육면체의 주사위를 차례로 2번 던져 나오는 눈의 수를 순서대로 $n$, $l$이라고 하자. 함수 $x=g(t)$를 다음과 같이 정의한다.
+    $$g(t)=\sin\left(\frac{n}{l}t\right),\qquad0\le t\le2\pi$$
+- label: 나
+  body: |
+    $f(x)=\dfrac{e^x+e^{-x}}{2}$이다. 제시문 (가)에서 정의된 $x$에 대하여 점 $\mathrm{Q}(x,f(x))$는 함수 $f(x)$의 그래프 위를 움직인다. 예를 들어 $\dfrac{n}{l}=1$인 경우, 점 $\mathrm{Q}$는 함수 $f(x)$의 그래프 위의 점 $\mathrm{A}(0,1)$에서 출발하여 점 $\mathrm{B}(1,f(1))$, 점 $\mathrm{A}(0,1)$, 점 $\mathrm{C}(-1,f(-1))$를 차례대로 거쳐 점 $\mathrm{A}(0,1)$로 돌아온다.
+
+    [그림: 아래로 볼록한 곡선 $y=f(x)$. $y$축 위의 최저점 $\mathrm{A}(0,1)$, $x=1$ 위의 점 $\mathrm{B}$, $x=-1$ 위의 점 $\mathrm{C}$가 표시되고 $\mathrm{B}$, $\mathrm{C}$에서 $x$축에 점선 수선]
+
+stem: |
+  [문항 1] (50점) 다음 제시문을 읽고 논제에 답하라.
+
+subparts:
+- id: '1-1'
+  stem: |
+    [문제 1-1] (25점) 제시문을 읽고 다음 물음에 답하라.
+    (1) $E=\displaystyle\int_0^{2\pi}\lvert g'(t)\rvert^2dt$이라 하자. 주어진 $n$, $l$에 대하여 $E$의 값을 $n$, $l$을 이용하여 표현하라.
+  points: 10
+  depends_on: []
+  answer: {kind: expression, value: '(n/l)**2*pi + n/(4*l)*sin(4*n*pi/l)', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-1-A
+    audience: A
+    method_no: 1
+    key_idea: '$\lvert g''(t)\rvert^2=\tfrac12\left(\tfrac{n}{l}\right)^2\left(1+\cos\tfrac{2n}{l}t\right)$을 적분.'
+    steps:
+    - {id: 1-1a, content: '$E=\left(\tfrac{n}{l}\right)^2\pi+\tfrac{n}{4l}\sin\tfrac{4n\pi}{l}$', criteria: ['1-1.M1', '1-1.A1', '1-1.M2', '1-1.A2']}
+    hint_ladder:
+    - $\cos^2$의 적분은 배각 공식으로 차수를 낮춘다.
+  - id: S1-1-B
+    audience: B
+    source_flow: 모범답안 p.7 (채점기준 p.15)
+    method_no: 1
+    steps:
+    - id: 1-1b-1
+      content: |
+        $g(t)=\sin\left(\dfrac{n}{l}t\right)$를 미분하면 $g'(t)=\dfrac{n}{l}\cos\left(\dfrac{n}{l}t\right)$를 얻는다.
+      criteria: ['1-1.M1']
+    - id: 1-1b-2
+      content: |
+        이것을 제곱하고 $\cos^2\theta=\dfrac{1+\cos(2\theta)}{2}$를 이용하면
+        $$\lvert g'(t)\rvert^2=\frac12\left(\frac{n}{l}\right)^2\left(1+\cos\left(\frac{2n}{l}t\right)\right)$$
+        이다.
+      criteria: ['1-1.A1']
+    - id: 1-1b-3
+      content: |
+        따라서
+        $$E=\int_0^{2\pi}\lvert g'(t)\rvert^2dt$$
+      criteria: ['1-1.M2']
+    - id: 1-1b-4
+      content: |
+        $$=\frac12\left(\frac{n}{l}\right)^2\left\{2\pi+\frac{l}{2n}\sin\left(\frac{2n}{l}2\pi\right)\right\}=\left(\frac{n}{l}\right)^2\pi+\frac{n}{4l}\sin\left(\frac{4n\pi}{l}\right)$$
+        이다.
+      criteria: ['1-1.A2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    # 원문 채점기준: g'(t) 2점, |g'|^2 3점, 「E=∫|g'|²dt (2점)」, 최종 5점. (2점)은 마지막 5점에 포함된 것으로 보아 2+3으로 나눔 [판독확인: 배점 해석 — 2+3+2+5=12≠10]
+    criteria:
+    - id: 1-1.M1
+      mark_type: M
+      points: 2
+      evidence: |
+        $g'(t)=\dfrac{n}{l}\cos\left(\dfrac{n}{l}t\right)$를 구했다.
+      depends_on: []
+      implied_ok: false
+      steps: [1-1b-1]
+    - id: 1-1.A1
+      mark_type: A
+      points: 3
+      evidence: |
+        배각 공식으로 $\lvert g'(t)\rvert^2=\dfrac12\left(\dfrac{n}{l}\right)^2\left(1+\cos\dfrac{2n}{l}t\right)$을 얻었다.
+      depends_on: [1-1.M1]
+      steps: [1-1b-2]
+    - id: 1-1.M2
+      mark_type: M
+      points: 2
+      evidence: |
+        $E=\displaystyle\int_0^{2\pi}\lvert g'(t)\rvert^2dt$에 위 식을 넣어 적분식을 세웠다.
+      depends_on: []
+      implied_ok: true
+      steps: [1-1b-3]
+    - id: 1-1.A2
+      mark_type: A
+      points: 3
+      evidence: |
+        $E=\left(\dfrac{n}{l}\right)^2\pi+\dfrac{n}{4l}\sin\left(\dfrac{4n\pi}{l}\right)$을 얻었다.
+      depends_on: [1-1.M2, 1-1.A1]
+      steps: [1-1b-4]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '1-2'
+  stem: |
+    (2) $E\ge\pi$를 만족하는 순서쌍 $(n,l)$을 모두 구하라.
+  points: 15
+  depends_on: ['1-1']
+  answer: {kind: set, value: 'n >= l', equivalents: ['n/l >= 1 인 모든 (n,l) (n,l은 1~6)'], tolerance: null}
+  solutions:
+  - id: S1-2-A
+    audience: A
+    method_no: 1
+    key_idea: '$\tfrac{n}{l}<1$이면 $E<h\left(\tfrac{n}{l}\right)\pi\le h\left(\tfrac56\right)\pi<\pi$; $\tfrac{n}{l}\ge1$이면 사인 항이 0이거나 $(4,3),(5,3),(6,5)$ 세 경우만 직접 확인.'
+    steps:
+    - {id: 1-2a, content: '답: $n\ge l$인 모든 순서쌍', criteria: ['1-2.R1', '1-2.R2', '1-2.R3']}
+    hint_ladder:
+    - $\sin\le1$을 쓰면 $E$의 위쪽 어림을 얻는다.
+    - $\dfrac{n}{l}\ge1$이면서 $\sin\dfrac{4n\pi}{l}\ne0$인 경우는 몇 개뿐인가?
+  - id: S1-2-B
+    audience: B
+    source_flow: 모범답안 p.7~8 (채점기준 p.15~16)
+    method_no: 1
+    steps:
+    - id: 1-2b-1
+      content: |
+        다음과 같은 세 가지 경우를 고려하면 된다.
+        1) $\dfrac{n}{l}<1$: $\sin\theta\le1$을 이용하면
+        $$E=\left(\frac{n}{l}\right)^2\pi+\frac{n}{4l}\sin\left(\frac{4n\pi}{l}\right)\le\left(\frac{n}{l}\right)^2\pi+\frac{n}{4l}<\left\{\left(\frac{n}{l}\right)^2+\frac14\frac{n}{l}\right\}\pi$$
+        를 관찰할 수 있다. 이와 관련하여 함수 $h(t)=t^2+\dfrac14t$를 정의하자. $h(t)$는 모든 $t>0$에 대하여 증가함수이다. $\dfrac{n}{l}<1$을 만족하는 순서쌍 중에서 $\dfrac{n}{l}$값이 최대가 되는 경우는 $(n,l)=(5,6)$인 경우이다. $h\left(\dfrac56\right)<1$이므로, $\dfrac{n}{l}<1$인 모든 순서쌍 $(n,l)$에 대하여 $E<\pi$이다.
+      criteria: ['1-2.R1']
+    - id: 1-2b-2
+      content: |
+        2) $\dfrac{n}{l}\ge1$이고, $\dfrac{n}{l}$이 자연수이거나 기약분수로 표현했을 때 $\dfrac{a}{2}$ 또는 $\dfrac{a}{4}$ 꼴인 경우 $\sin\left(\dfrac{4n\pi}{l}\right)=0$이기 때문에 부등식
+        $$E=\left(\frac{n}{l}\right)^2\pi+\frac{n}{4l}\sin\frac{4n\pi}{l}=\left(\frac{n}{l}\right)^2\pi\ge\pi$$
+        이 성립한다.
+      criteria: ['1-2.R2']
+    - id: 1-2b-3
+      content: |
+        3) $\dfrac{n}{l}\ge1$이고, $\dfrac{n}{l}$을 기약분수로 표현했을 때 $\dfrac{a}{3}$ 또는 $\dfrac{a}{5}$ 꼴인 경우: 이 경우에는 가능한 순서쌍이 다음 세 가지뿐이다.
+        $$(n,l)=(4,3),(5,3),(6,5)$$
+        $-1\le\sin\theta$를 이용하면, 위의 각 경우에 대해 해당하는 $E$에 대한 다음 부등식을 관찰할 수 있다.
+        $(n,l)=(4,3)$: $E=\left(\dfrac43\right)^2\pi+\dfrac13\sin\dfrac{16\pi}{3}>\dfrac{16}{9}\pi-\dfrac13=\pi+\dfrac79\pi-\dfrac13>\pi$
+        $(n,l)=(5,3)$: $E=\left(\dfrac53\right)^2\pi+\dfrac{5}{12}\sin\dfrac{20\pi}{3}>\dfrac{25}{9}\pi-\dfrac{5}{12}=\pi+\dfrac{16}{9}\pi-\dfrac{5}{12}>\pi$
+        $(n,l)=(6,5)$: $E=\left(\dfrac65\right)^2\pi+\dfrac{3}{10}\sin\dfrac{24\pi}{5}>\dfrac{36}{25}\pi-\dfrac{3}{10}=\pi+\dfrac{11}{25}\pi-\dfrac{3}{10}>\pi$
+        그러므로 답은 $\dfrac{n}{l}\ge1$을 만족하는 모든 순서쌍 $(n,l)$이다.
+      criteria: ['1-2.R3']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1-2.R1
+      mark_type: R
+      points: 5
+      evidence: |
+        $\dfrac{n}{l}<1$이면 $h\left(\dfrac56\right)<1$ 등을 근거로 $E<\pi$임을 보였다.
+      depends_on: []
+      implied_ok: false
+      ft: {allowed: true, from: ['1-1.A2'], max_points: 5}
+      steps: [1-2b-1]
+    - id: 1-2.R2
+      mark_type: R
+      points: 5
+      evidence: |
+        $\dfrac{n}{l}\ge1$이고 $\sin\dfrac{4n\pi}{l}=0$인 경우 $E=\left(\dfrac{n}{l}\right)^2\pi\ge\pi$임을 보였다.
+      depends_on: []
+      steps: [1-2b-2]
+    - id: 1-2.R3
+      mark_type: R
+      points: 5
+      evidence: |
+        남은 $(4,3)$, $(5,3)$, $(6,5)$에서 $E>\pi$를 확인하고 답 「$\dfrac{n}{l}\ge1$인 모든 순서쌍」을 적었다.
+      depends_on: []
+      steps: [1-2b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '2-1'
+  stem: |
+    [문제 1-2] (25점) 제시문을 읽고 다음 물음에 답하라.
+    (1) 주어진 $n$, $l$에 대하여 점 $\mathrm{Q}$의 총 이동거리를 $L$이라 하자. $L$을 $n$, $l$을 이용하여 표현하라.
+  points: 15
+  depends_on: []
+  answer: {kind: expression, value: 'even=(E-exp(-1))/2*k+(-1)**(k/2)*(exp(sin(2*n*pi/l))-exp(-sin(2*n*pi/l)))/2; odd=(E-exp(-1))/2*(k+1)+(-1)**((k+1)/2)*(exp(sin(2*n*pi/l))-exp(-sin(2*n*pi/l)))/2; k=floor(4*n/l)', equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-1-A
+    audience: A
+    method_no: 1
+    key_idea: '$A$에서 $(s,f(s))$까지 곡선의 길이는 $\tfrac{e^{\lvert s\rvert}-e^{-\lvert s\rvert}}{2}$; $\tfrac{n}{l}t$가 $\tfrac{\pi}{2}$ 변할 때마다 한 구간(길이 $\tfrac{e-e^{-1}}{2}$)을 지나므로 $k=\lfloor4n/l\rfloor$구간 + 나머지.'
+    steps:
+    - {id: 2-1a, content: '$k$ 짝수: $L=\tfrac{e-e^{-1}}{2}k+(-1)^{k/2}\tfrac{e^{\sigma}-e^{-\sigma}}{2}$, $k$ 홀수: $L=\tfrac{e-e^{-1}}{2}(k+1)+(-1)^{(k+1)/2}\tfrac{e^{\sigma}-e^{-\sigma}}{2}$ ($\sigma=\sin\tfrac{2n\pi}{l}$)', criteria: ['2-1.M1', '2-1.M2', '2-1.B1', '2-1.A1']}
+    hint_ladder:
+    - $1+f'(x)^2$을 정리하면 완전제곱이 된다.
+    - $x=\sin\left(\dfrac{n}{l}t\right)$는 $\dfrac{n}{l}t$가 $\dfrac{\pi}{2}$ 변할 때마다 $0$과 $\pm1$ 사이를 한 번 지난다.
+  - id: S2-1-B
+    audience: B
+    source_flow: 모범답안 p.8~9 (채점기준 p.16~17)
+    method_no: 1
+    steps:
+    - id: 2-1b-1
+      content: |
+        $\mathrm{A}(0,f(0))$부터 점 $(s,f(s))$ 사이의 곡선의 길이를 $G(s)$라 하면, $s\ge0$일 때
+        $$G(s)=\int_0^s\sqrt{1+f'(x)^2}dx=\int_0^s\sqrt{1+\left(\frac{e^x-e^{-x}}{2}\right)^2}dx=\int_0^s\frac{e^x+e^{-x}}{2}dx=\frac{e^s-e^{-s}}{2}$$
+        이고, $s\le0$이면 $G(s)=\dfrac{e^{-s}-e^s}{2}$이다. 특히 $\mathrm{A}(0,f(0))$부터 $\mathrm{B}(1,f(1))$까지 곡선의 길이와 $\mathrm{A}(0,f(0))$부터 $\mathrm{C}(-1,f(-1))$까지 곡선의 길이는 모두 $\dfrac{e-e^{-1}}{2}$이다.
+      criteria: ['2-1.M1']
+    - id: 2-1b-2
+      content: |
+        $0\le t\le2\pi$일 때, $0\le\dfrac{n}{l}t\le\dfrac{2n\pi}{l}$이며 $\dfrac{n}{l}t$가 0부터 시작하여 $\dfrac{\pi}{2}$만큼 변할 때마다 점 $\mathrm{Q}$는 A와 B 사이 또는 A와 C 사이의 곡선을 지난다. $\dfrac{\frac{n}{l}2\pi}{\frac{\pi}{2}}=\dfrac{4n}{l}$이기 때문에, $k\le\dfrac{4n}{l}<k+1$인 정수 $k$에 대하여, $k$는 점 Q가 A와 B 사이 또는 A와 C 사이의 곡선을 온전하게 이동하는 총 횟수를 의미한다. $k$를 4로 나눈 나머지를 $a$라 하자.
+        - $a=0$인 경우: Q는 점 A에 있거나 점 A에서 점 B로 가던 중 멈춘다. 따라서 $L=\dfrac{e-e^{-1}}{2}k+\dfrac{e^{\sin\frac{2n\pi}{l}}-e^{-\sin\frac{2n\pi}{l}}}{2}$.
+        - $a=1$인 경우: Q는 점 B에 있거나 점 B에서 점 A로 가던 중 멈춘다. $L=\dfrac{e-e^{-1}}{2}k+\dfrac{e-e^{-1}}{2}-\dfrac{e^{\sin\frac{2n\pi}{l}}-e^{-\sin\frac{2n\pi}{l}}}{2}=\dfrac{e-e^{-1}}{2}(k+1)-\dfrac{e^{\sin\frac{2n\pi}{l}}-e^{-\sin\frac{2n\pi}{l}}}{2}$.
+        - $a=2$인 경우: Q는 점 A에 있거나 점 A에서 점 C로 가던 중 멈춘다. $L=\dfrac{e-e^{-1}}{2}k+\dfrac{e^{-\sin\frac{2n\pi}{l}}-e^{\sin\frac{2n\pi}{l}}}{2}=\dfrac{e-e^{-1}}{2}k-\dfrac{e^{\sin\frac{2n\pi}{l}}-e^{-\sin\frac{2n\pi}{l}}}{2}$.
+        - $a=3$인 경우: Q는 점 C에 있거나 점 C에서 A로 가던 중 멈춘다. $L=\dfrac{e-e^{-1}}{2}k+\dfrac{e-e^{-1}}{2}-\dfrac{e^{-\sin\frac{2n\pi}{l}}-e^{\sin\frac{2n\pi}{l}}}{2}=\dfrac{e-e^{-1}}{2}(k+1)+\dfrac{e^{\sin\frac{2n\pi}{l}}-e^{-\sin\frac{2n\pi}{l}}}{2}$.
+      criteria: ['2-1.M2']
+    - id: 2-1b-3
+      content: |
+        한편 $n$, $l$은 주사위의 눈의 수이므로 나올 수 있는 $k$값은 관찰을 통해
+        $$k=0,1,2,3,4,5,6,8,10,12,16,20,24$$
+        임을 알 수 있다.
+      criteria: ['2-1.B1']
+    - id: 2-1b-4
+      content: |
+        따라서 답은 다음과 같다.
+        $$L=\begin{cases}\dfrac{e-e^{-1}}{2}k+(-1)^{\frac{k}{2}}\dfrac{e^{\sin\frac{2n\pi}{l}}-e^{-\sin\frac{2n\pi}{l}}}{2}&(k=0,2,4,6,8,10,12,16,20,24)\\[2mm]\dfrac{e-e^{-1}}{2}(k+1)+(-1)^{\frac{k+1}{2}}\dfrac{e^{\sin\frac{2n\pi}{l}}-e^{-\sin\frac{2n\pi}{l}}}{2}&(k=1,3,5)\end{cases}$$
+      criteria: ['2-1.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2-1.M1
+      mark_type: M
+      points: 5
+      evidence: |
+        곡선의 길이 공식으로 $G(s)=\dfrac{e^{\lvert s\rvert}-e^{-\lvert s\rvert}}{2}$ 꼴과 A–B, A–C 구간의 길이 $\dfrac{e-e^{-1}}{2}$를 구했다.
+      depends_on: []
+      implied_ok: false
+      steps: [2-1b-1]
+    - id: 2-1.M2
+      mark_type: M
+      points: 5
+      evidence: |
+        $k\le\dfrac{4n}{l}<k+1$로 온전한 구간 수 $k$를 정의하고, $k$를 4로 나눈 나머지에 따라 마지막 위치를 나누어 $L$을 적었다.
+      depends_on: [2-1.M1]
+      steps: [2-1b-2]
+    - id: 2-1.B1
+      mark_type: B
+      points: 2
+      evidence: |
+        가능한 $k$값 $0,1,2,3,4,5,6,8,10,12,16,20,24$를 찾았다.
+      depends_on: []
+      steps: [2-1b-3]
+    - id: 2-1.A1
+      mark_type: A
+      points: 3
+      evidence: |
+        $k$의 짝·홀에 따라 정리한 $L$의 최종식을 적었다.
+      depends_on: [2-1.M2]
+      steps: [2-1b-4]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '2-2'
+  stem: |
+    (2) $L\ge e-e^{-1}$을 만족하는 순서쌍 $(n,l)$을 모두 구하라.
+  points: 10
+  depends_on: ['2-1']
+  answer: {kind: set, value: '2*n >= l', equivalents: ['n/l >= 1/2 인 모든 (n,l) (n,l은 1~6)'], tolerance: null}
+  solutions:
+  - id: S2-2-A
+    audience: A
+    method_no: 1
+    key_idea: '$L$은 $\tfrac{n}{l}$에 대해 증가하고 $\tfrac{n}{l}=\tfrac12$일 때 A→B→A로 정확히 $e-e^{-1}$.'
+    steps:
+    - {id: 2-2a, content: '답: $2n\ge l$', criteria: ['2-2.R1', '2-2.B1', '2-2.A1']}
+    hint_ladder:
+    - $\dfrac{n}{l}$이 클수록 이동량은 어떻게 되는가?
+  - id: S2-2-B
+    audience: B
+    source_flow: 모범답안 p.9 (채점기준 p.17)
+    method_no: 1
+    steps:
+    - id: 2-2b-1
+      content: |
+        $\dfrac{n}{l}$이 클수록 점 Q의 이동량과 $L$이 증가한다. (보충: $L=\displaystyle\int_0^{2\pi}f(g(t))\lvert g'(t)\rvert dt$에서 $u=\tfrac{n}{l}t$로 치환하면 $L=\displaystyle\int_0^{2\pi n/l}\cosh(\sin u)\lvert\cos u\rvert du$이고 피적분함수가 $0$ 이상이므로 위끝 $\tfrac{2\pi n}{l}$에 대해 증가)
+      criteria: ['2-2.R1']
+    - id: 2-2b-2
+      content: |
+        $\dfrac{n}{l}=\dfrac12$일 때 점 Q는 점 $\mathrm{A}(0,1)$에서 출발하여 점 $\mathrm{B}(1,f(1))$를 거쳐 점 $\mathrm{A}(0,1)$로 되돌아 오면서 이동을 끝낸다. 이때 $L=e-e^{-1}$이다.
+      criteria: ['2-2.B1']
+    - id: 2-2b-3
+      content: |
+        따라서, $L\ge e-e^{-1}$을 만족하는 순서쌍 $(n,l)$은 $2n\ge l$을 만족하는 모든 순서쌍 $(n,l)$이다.
+      criteria: ['2-2.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2-2.R1
+      mark_type: R
+      points: 5
+      evidence: |
+        $\dfrac{n}{l}$이 클수록 이동거리 $L$이 증가함을 밝혔다.
+      depends_on: []
+      implied_ok: false
+      ft: {allowed: true, from: ['2-1.A1'], max_points: 5}
+      steps: [2-2b-1]
+    - id: 2-2.B1
+      mark_type: B
+      points: 3
+      evidence: |
+        $\dfrac{n}{l}=\dfrac12$일 때 $L=e-e^{-1}$임을 보였다.
+      depends_on: []
+      steps: [2-2b-2]
+    - id: 2-2.A1
+      mark_type: A
+      points: 2
+      evidence: |
+        답 「$2n\ge l$인 모든 순서쌍」을 적었다.
+      depends_on: [2-2.R1]
+      steps: [2-2b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+remedy_links: []
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

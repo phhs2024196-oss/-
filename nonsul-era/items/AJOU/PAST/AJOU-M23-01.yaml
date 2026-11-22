@@ -1,0 +1,472 @@
+# 아주대 2023학년도 모의논술고사 자연계열 문항 1 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: AJOU-M23-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: AJOU
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 분류
+points: 50
+intent: |
+  닫힌구간에서 최댓값·최솟값을 극값과 끝값 비교로 구하고, 접선의 방정식이 주어진 점을 지날 조건을 접점에 대한 방정식으로 바꾸어 접선의 개수·넓이를 다루며, 평균값 정리로 삼차함수의 접선 성질을 증명하는 능력을 본다.
+key_idea: |
+  외부 점을 지나는 접선의 개수는 접점 $t$에 대한 방정식 $y_0-f(t)=f'(t)(x_0-t)$의 실근의 개수와 같고, 삼차함수에서는 접선 하나가 접점 하나에만 대응한다(평균값 정리 + 이차함수 $f'$).
+stuck: |
+  (1-1)에서 꼭짓점이 구간 안·왼쪽·오른쪽인 세 경우 분류, (2-2)에서 $f'(p)=f'(c)=f'(q)$로 이차함수가 세 점에서 같은 값을 가질 수 없음을 끌어내는 것, (2-3)에서 $g(t)$가 서로 다른 부호의 극값을 가질 조건
+idea_tags: [IDEA-VERTEX-POSITION-CASE-SPLIT, IDEA-EXTREMA-ENDPOINT-COMPARE, IDEA-TANGENT-THROUGH-POINT-EQUATION, IDEA-MVT-CUBIC-UNIQUE-TANGENT, IDEA-CUBIC-THREE-ROOTS-EXTREMA-SIGN]
+tags: [접선의 개수, 평균값 정리]
+elements:
+  materials:
+  - '닫힌구간 $[a-2,a+2]$에서 이차함수 $2x^2-4x+a$'
+  - '$f(x)=x+\sin4x-1$, $\left[0,\tfrac{\pi}{2}\right]$'
+  - '곡선 $y=2x^2-3x-5$에 점 $(-1,-2)$에서 그은 두 접선'
+  - '삼차함수의 접선, 곡선 $y=x^3-3x^2-2$와 점 $(x_0,y_0)$'
+  concepts:
+  - '이차함수의 최대·최소'
+  - '삼각함수의 미분, 증가·감소'
+  - '접선의 방정식'
+  - '정적분과 넓이'
+  - '평균값 정리'
+  - '삼차방정식의 실근의 개수와 극값'
+  tools:
+  - '꼭짓점 $x=1$의 위치에 따른 경우 분류'
+  - '$\cos4x=-\tfrac14$인 $\theta_1,\theta_2$와 증감표, $\sin4\theta_2<-\tfrac{\sqrt3}{2}$로 $\theta_2>\tfrac{\pi}{3}$'
+  - '접점 $t$에 대한 방정식 세우기'
+  - '구간을 나눈 정적분'
+  - '$g(t)=2t^3-(3+3x_0)t^2+6x_0t+(y_0+2)$의 극값 부호'
+  conditions:
+  - '(1-1) 구간이 $a$에 따라 움직임'
+  - '(1-2) 최솟값은 $f(0)$과 $f(\theta_2)$ 비교'
+  - '(2-2) $a\ne0$'
+  - '(2-3) $x_0$, $y_0$는 자연수, 서로 다른 세 접선'
+  stimuli_used: [가, 나, 다]
+  subpart_links: '(2-3)은 (2-2)의 결과(삼차함수의 접선은 접점 하나에만 대응)를 사용해 접선 3개 ⇔ $g(t)=0$의 서로 다른 세 실근으로 바꾼다'
+
+curriculum:
+  version: '2015'
+  subjects: [수학, 수학Ⅱ, 미적분]
+  scope_2028: calc2
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 접선의 방정식을 구하고, 함수의 그래프의 개형과 평균값 정리를 활용할 수 있다(요지)
+    verified: false
+  content_area: 미분 – 도함수의 활용
+  behavior_domain: 문제해결
+  unit_path: [수학Ⅱ, 미분, 도함수의 활용, 접선의 방정식]
+  key_concepts: [최대·최소, 접선의 방정식, 평균값 정리, 삼차방정식의 근]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 아주대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 아주대학교
+  admission_year: 2023
+  admission_type: 수시 모의논술
+  track: 자연계열
+  question_no: 1
+  official_url: https://www.iajou.ac.kr/pasttest/view.php?bn=69050&m_type=SUSI
+  retrieved_at: 2026-11-21
+  original_points: [10, 10, 10, 10, 10]
+  rights_notice: 미확인
+  transcribed_from: '아주대 입학처 공식 PDF「2023학년도 모의논술고사 자연계열」 문제 p.2, 「자연계열 예시답안 및 채점기준」 p.2–4 (이미지 대조 2026-11-21)'
+  # 문제지 배점: [문제 1-1] 20점, [문제 1-2] 30점; 예시답안에 소문항별 10점 표기
+
+verify: verify/AJOU-M23.py::p01
+
+stimuli:
+- label: 가
+  body: |
+    함수 $y=f(x)$의 그래프의 개형을 그려보면 $f(x)$의 최댓값 또는 최솟값을 구할 수 있다. 특히 함수 $f(x)$가 미분가능하면, 도함수 $f'(x)$를 이용하여 $y=f(x)$의 그래프의 개형을 알 수 있다. 함수 $f(x)$가 닫힌구간 $[p,q]$에서 연속이면 이 구간에서 반드시 최댓값과 최솟값을 가지며, 이는 극솟값, 극댓값, $f(p)$, $f(q)$의 값을 비교하여 구할 수 있다.
+- label: 나
+  body: |
+    미분가능한 함수 $f(x)$에 대하여, 곡선 $y=f(x)$ 위의 점 $(t,f(t))$에서 접선의 방정식은 $y-f(t)=f'(t)(x-t)$이다. 이 접선이 점 $(x_0,y_0)$를 지나면 다음을 만족한다.
+    $$(y_0-f(t))=f'(t)(x_0-t)$$
+- label: 다
+  body: |
+    미분가능한 함수 $f(x)$에 대하여, 곡선 $y=f(x)$ 위의 서로 다른 두 점 $(p,f(p))$와 $(q,f(q))$를 각 접점으로 가지는 두 접선이 일치하는 경우, 그 접선의 기울기를 생각하여 보면 다음의 식을 얻을 수 있다.
+    $$f'(p)=f'(q)=\dfrac{f(q)-f(p)}{q-p}$$
+
+stem: |
+  [문항 1] (50점) 다음 제시문을 읽고 논제에 답하라.
+
+subparts:
+- id: '1-1'
+  stem: |
+    [문제 1-1] (20점) 제시문 (가)를 읽고 물음에 답하여라.
+    (1) 닫힌구간 $[a-2,a+2]$에서 이차함수 $y=2x^2-4x+a$가 최솟값 20을 갖도록 하는 실수 $a$의 값을 모두 구하여라.
+  points: 10
+  depends_on: []
+  answer: {kind: set, value: '(-5 - sqrt(185))/4, (11 + 3*sqrt(17))/4', equivalents: [], tolerance: null}
+  solutions:
+  - id: S11-A
+    audience: A
+    method_no: 1
+    key_idea: 꼭짓점 $x=1$이 구간 안이면 최솟값은 $a-2$, 구간 왼쪽이면 $x=a-2$, 오른쪽이면 $x=a+2$에서 최솟값.
+    steps:
+    - {id: 11a, content: '$-1\le a\le3$: $a=22$ 모순; $a<-1$: $a=\tfrac{-5-\sqrt{185}}{4}$; $a>3$: $a=\tfrac{11+3\sqrt{17}}{4}$', criteria: ['1-1.M1', '1-1.A1', '1-1.A2', '1-1.A3']}
+    hint_ladder:
+    - 꼭짓점의 $x$좌표 1이 구간 $[a-2,a+2]$에 들어가는 조건은?
+  - id: S11-B
+    audience: B
+    source_flow: 예시답안 p.2
+    method_no: 1
+    steps:
+    - id: 11b-1
+      content: |
+        $y=2x^2-4x+a=2(x-1)^2+a-2$이므로, 꼭짓점의 $x$좌표는 1이고 이것이 구간 $[a-2,a+2]$에 포함되는지에 따라 최솟값을 아래와 같이 구할 수 있다.
+        ① $-1\le a\le3$인 경우: 구간 $[a-2,a+2]$에 꼭짓점의 $x$좌표 1이 포함되므로 $x=1$일 때 최솟값 $a-2=20$을 갖는다. 이때, $a=22$이므로 $-1\le a\le3$에 모순이다.
+      criteria: ['1-1.M1', '1-1.A1']
+    - id: 11b-2
+      content: |
+        ② $a<-1$인 경우: $a+2<1$이므로 구간 $[a-2,a+2]$에서 주어진 함수는 감소하고, $x=a+2$일 때 최솟값 $2(a+1)^2+a-2=20$을 갖는다. $2a^2+5a=20$이므로 근의 공식에 의해 $a=\dfrac{-5\pm\sqrt{185}}{4}$이고, $a<-1$이므로 $a=\dfrac{-5-\sqrt{185}}{4}$이다.
+      criteria: ['1-1.A2']
+    - id: 11b-3
+      content: |
+        ③ $a>3$인 경우: $a-2>1$이므로 구간 $[a-2,a+2]$에서 주어진 함수는 증가하고, $x=a-2$일 때 최솟값 $2(a-3)^2+a-2=20$을 갖는다. $2a^2-11a+16=20$이고 근의 공식에 의해 $a=\dfrac{11\pm3\sqrt{17}}{4}$이고, $a>3$이므로 $a=\dfrac{11+3\sqrt{17}}{4}$이다.
+        따라서, $a=\dfrac{-5-\sqrt{185}}{4}$ 또는 $a=\dfrac{11+3\sqrt{17}}{4}$이다.
+      criteria: ['1-1.A3']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    # 채점기준 미공개 — 단계별 추정(예시답안에는 소문항 배점 10점만 표기)
+    criteria:
+    - id: 1-1.M1
+      mark_type: M
+      points: 2
+      evidence: |
+        꼭짓점 $x=1$이 구간에 포함되는지에 따라 경우를 나누었다.
+      depends_on: []
+      implied_ok: false
+      steps: [11b-1]
+    - id: 1-1.A1
+      mark_type: A
+      points: 2
+      evidence: |
+        $-1\le a\le3$인 경우 $a=22$가 되어 모순임을 적었다.
+      depends_on: [1-1.M1]
+      steps: [11b-1]
+    - id: 1-1.A2
+      mark_type: A
+      points: 3
+      evidence: |
+        $a<-1$인 경우 $a=\dfrac{-5-\sqrt{185}}{4}$를 구했다.
+      depends_on: [1-1.M1]
+      steps: [11b-2]
+    - id: 1-1.A3
+      mark_type: A
+      points: 3
+      evidence: |
+        $a>3$인 경우 $a=\dfrac{11+3\sqrt{17}}{4}$를 구했다.
+      depends_on: [1-1.M1]
+      steps: [11b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '1-2'
+  stem: |
+    [문제 1-1] (2) 닫힌구간 $\left[0,\dfrac{\pi}{2}\right]$에서 함수 $f(x)=x+\sin4x-1$의 최솟값을 구하여라.
+  points: 10
+  depends_on: []
+  answer: {kind: value, value: '-1', equivalents: [], tolerance: null}
+  solutions:
+  - id: S12-A
+    audience: A
+    method_no: 1
+    key_idea: 극솟점 $\theta_2$에서 $\sin4\theta_2=-\tfrac{\sqrt{15}}{4}<-\tfrac{\sqrt3}{2}$이므로 $\theta_2>\tfrac{\pi}{3}$, 그래서 $f(\theta_2)>-1=f(0)$.
+    steps:
+    - {id: 12a, content: '$f(\theta_2)>\tfrac{\pi}{3}-\tfrac{\sqrt{15}}{4}-1>-1$ → 최솟값 $f(0)=-1$', criteria: ['1-2.M1', '1-2.A1', '1-2.R1', '1-2.A2']}
+    hint_ladder:
+    - $f'(x)=0$인 점에서 $\sin4x$의 값은?
+    - $\theta_2$가 $\tfrac{\pi}{3}$보다 큰지 작은지 비교해 보자.
+  - id: S12-B
+    audience: B
+    source_flow: 예시답안 p.2
+    method_no: 1
+    steps:
+    - id: 12b-1
+      content: |
+        $f'(x)=1+4\cos4x$이므로, $0<x<\dfrac{\pi}{2}$에서 $\cos4x=-\dfrac14$를 만족하는 $x$를 $\theta_1,\theta_2$ $(\theta_1<\theta_2)$라 두자. 이때, 닫힌구간 $\left[0,\dfrac{\pi}{2}\right]$에서 함수 $f(x)$의 증가와 감소를 표로 나타내면 다음과 같다.
+        [표: $x$: $0$, $\cdots$, $\theta_1$, $\cdots$, $\theta_2$, $\cdots$, $\tfrac{\pi}{2}$ / $f'(x)$: (빈칸), $+$, $0$, $-$, $0$, $+$, (빈칸) / $f(x)$: $-1$, ↗, 극댓값, ↘, 극솟값, ↗, $\tfrac{\pi}{2}$]
+      criteria: ['1-2.M1']
+    - id: 12b-2
+      content: |
+        $x=\theta_2$일 때 $f(x)=x+\sin4x-1$이 극솟값을 가지므로 $f(0)$과 $f(\theta_2)$ 중 작은 값이 최솟값이 된다.
+      criteria: ['1-2.A1']
+    - id: 12b-3
+      content: |
+        한편, $\dfrac{\pi}{4}<\theta_2<\dfrac{\pi}{2}$이고 $\cos4\theta_2=-\dfrac14$이므로 $\sin4\theta_2=-\dfrac{\sqrt{15}}{4}$이며, $\sin4\theta_2=-\dfrac{\sqrt{15}}{4}<-\dfrac{\sqrt3}{2}=\sin\dfrac{4\pi}{3}$이므로 $\theta_2>\dfrac{\pi}{3}$임을 알 수 있다.
+      criteria: ['1-2.R1']
+    - id: 12b-4
+      content: |
+        따라서, $f(\theta_2)=\theta_2+\sin4\theta_2-1>\dfrac{\pi}{3}-\dfrac{\sqrt{15}}{4}-1>-1=f(0)$이므로 닫힌구간 $\left[0,\dfrac{\pi}{2}\right]$에서 함수 $f(x)$의 최솟값은 $f(0)=-1$이다.
+      criteria: ['1-2.A2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    # 채점기준 미공개 — 단계별 추정
+    criteria:
+    - id: 1-2.M1
+      mark_type: M
+      points: 3
+      evidence: |
+        $f'(x)=1+4\cos4x$를 구하고 $\cos4x=-\dfrac14$인 $\theta_1,\theta_2$로 증감표를 작성했다.
+      depends_on: []
+      implied_ok: false
+      steps: [12b-1]
+    - id: 1-2.A1
+      mark_type: A
+      points: 2
+      evidence: |
+        최솟값이 $f(0)$과 $f(\theta_2)$ 중 작은 값임을 적었다.
+      depends_on: [1-2.M1]
+      steps: [12b-2]
+    - id: 1-2.R1
+      mark_type: R
+      points: 3
+      evidence: |
+        $\sin4\theta_2=-\dfrac{\sqrt{15}}{4}<-\dfrac{\sqrt3}{2}$에서 $\theta_2>\dfrac{\pi}{3}$임을 보였다.
+      depends_on: [1-2.M1]
+      steps: [12b-3]
+    - id: 1-2.A2
+      mark_type: A
+      points: 2
+      evidence: |
+        $f(\theta_2)>-1=f(0)$을 보이고 최솟값 $-1$을 얻었다.
+      depends_on: [1-2.R1]
+      steps: [12b-4]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '2-1'
+  stem: |
+    [문제 1-2] (30점) 제시문 (나)와 (다)를 읽고 물음에 답하여라.
+    (1) 곡선 $y=2x^2-3x-5$에 대한 서로 다른 두 접선이 모두 점 $(-1,-2)$를 지날 때, 이 곡선과 두 접선으로 둘러싸인 영역의 넓이를 구하여라.
+  points: 10
+  depends_on: []
+  answer: {kind: value, value: '4/3', equivalents: [], tolerance: null}
+  solutions:
+  - id: S21-A
+    audience: A
+    method_no: 1
+    key_idea: 접점 $t$에 대해 $-2-(2t^2-3t-5)=(4t-3)(-1-t)$에서 $t=0,-2$; 넓이는 $x=-1$에서 나누어 적분.
+    steps:
+    - {id: 21a, content: '접선 $y=-3x-5$, $y=-11x-13$; 넓이 $\tfrac43$', criteria: ['2-1.M1', '2-1.A1', '2-1.M2', '2-1.A2']}
+    hint_ladder:
+    - 접점을 $(t,2t^2-3t-5)$로 두고 제시문 (나)의 식에 대입하자.
+  - id: S21-B
+    audience: B
+    source_flow: 예시답안 p.3
+    method_no: 1
+    steps:
+    - id: 21b-1
+      content: |
+        제시문 (나)에 의해, 주어진 곡선 위의 점 $(t,2t^2-3t-5)$가 접점인 접선의 방정식이 점 $(-1,-2)$를 지나면 $-2-(2t^2-3t-5)=(4t-3)(-1-t)$를 만족한다. 이것을 풀면 $t=0,-2$이므로, $t=0$일 때 접점 $(0,-5)$에서의 접선의 방정식은 $y=-3x-5$이고, $t=-2$일 때 접점 $(-2,9)$에서의 접선의 방정식은 $y=-11x-13$이다.
+      criteria: ['2-1.M1', '2-1.A1']
+    - id: 21b-2
+      content: |
+        따라서, 구하고자 하는 영역은 곡선과 두 접선 사이의 영역이다. [그림: 포물선 $y=2x^2-3x-5$, 접선 $y=-3x-5$(접점 $(0,-5)$), 접선 $y=-11x-13$(접점 $(-2,9)$), 두 접선의 교점 $(-1,-2)$; 세 선으로 둘러싸인 영역이 색칠됨] 색칠된 영역의 넓이를 적분으로 나타내고 계산하면,
+        $$\int_{-2}^{-1}\{(2x^2-3x-5)-(-11x-13)\}\,dx+\int_{-1}^{0}\{(2x^2-3x-5)-(-3x-5)\}\,dx=\dfrac43$$
+        이므로 구하고자 하는 영역의 넓이는 $\dfrac43$이다.
+      criteria: ['2-1.M2', '2-1.A2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    # 채점기준 미공개 — 단계별 추정
+    criteria:
+    - id: 2-1.M1
+      mark_type: M
+      points: 3
+      evidence: |
+        접점 $t$에 대한 방정식 $-2-(2t^2-3t-5)=(4t-3)(-1-t)$를 세웠다.
+      depends_on: []
+      implied_ok: false
+      steps: [21b-1]
+    - id: 2-1.A1
+      mark_type: A
+      points: 2
+      evidence: |
+        두 접선 $y=-3x-5$, $y=-11x-13$을 구했다.
+      depends_on: [2-1.M1]
+      steps: [21b-1]
+    - id: 2-1.M2
+      mark_type: M
+      points: 3
+      evidence: |
+        $x=-1$을 경계로 구간을 나누어 넓이를 정적분으로 나타냈다.
+      depends_on: []
+      implied_ok: false
+      steps: [21b-2]
+    - id: 2-1.A2
+      mark_type: A
+      points: 2
+      evidence: |
+        넓이 $\dfrac43$을 얻었다.
+      depends_on: [2-1.M2]
+      steps: [21b-2]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '2-2'
+  stem: |
+    [문제 1-2] (2) 삼차함수 $f(x)=ax^3+bx^2+cx+d$ $(a\ne0)$라 할 때, 곡선 $y=f(x)$ 위의 서로 다른 두 점에서의 접선은 일치할 수 없음을 보여라.
+  points: 10
+  depends_on: []
+  answer: {kind: proof, value: null, equivalents: [], tolerance: null}
+  solutions:
+  - id: S22-A
+    audience: A
+    method_no: 1
+    key_idea: 귀류법 — 두 접선이 일치하면 (다)와 평균값 정리로 $f'(p)=f'(c)=f'(q)$ ($p<c<q$)인데 이차함수 $f'$은 같은 값을 세 번 가질 수 없다.
+    steps:
+    - {id: 22a, content: '$f''(p)=f''(c)=f''(q)$, $p<c<q$ → 이차함수 모순', criteria: ['2-2.M1', '2-2.R1', '2-2.R2']}
+    hint_ladder:
+    - 두 접선이 일치한다고 가정하자. 제시문 (다)의 식에서 평균값 정리를 떠올려 보자.
+  - id: S22-B
+    audience: B
+    source_flow: 예시답안 p.3–4
+    method_no: 1
+    steps:
+    - id: 22b-1
+      content: |
+        주어진 삼차함수 $f(x)$에 대하여, 제시문 (다)에서와 같이 곡선 $y=f(x)$ 위의 서로 다른 두 점 $(p,f(p))$와 $(q,f(q))$에서의 두 접선이 일치한다고 가정하자. 따라서 $f'(p)=f'(q)=\dfrac{f(q)-f(p)}{q-p}$를 만족한다. 이때, $p$와 $q$는 서로 다르므로 $p<q$라 하자.
+      criteria: ['2-2.M1']
+    - id: 22b-2
+      content: |
+        삼차함수 $f(x)$는 닫힌구간 $[p,q]$에서 연속이고 열린구간 $(p,q)$에서 미분가능하므로, 평균값 정리에 의해 $\dfrac{f(q)-f(p)}{q-p}=f'(c)$이고 $p<c<q$인 $c$가 적어도 하나 존재한다. 따라서, 제시문 (다)와 평균값 정리에 의해 $p<c<q$인 어떤 $c$에 대하여 $f'(p)=f'(c)=f'(q)$가 성립한다.
+      criteria: ['2-2.R1']
+    - id: 22b-3
+      content: |
+        한편, $f'(x)$는 이차함수이고 $f'(p)=f'(c)=f'(q)$을 만족하는 서로 다른 세 실수 $p$, $c$, $q$가 존재할 수 없으므로, 삼차함수 $f(x)$에 대하여 곡선 $y=f(x)$위의 서로 다른 두 점에서의 접선이 일치한다는 가정에 모순이다. ■
+      criteria: ['2-2.R2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    # 채점기준 미공개 — 단계별 추정
+    criteria:
+    - id: 2-2.M1
+      mark_type: M
+      points: 3
+      evidence: |
+        두 접선이 일치한다고 가정하고 $f'(p)=f'(q)=\dfrac{f(q)-f(p)}{q-p}$를 적었다.
+      depends_on: []
+      implied_ok: false
+      steps: [22b-1]
+    - id: 2-2.R1
+      mark_type: R
+      points: 4
+      evidence: |
+        평균값 정리로 $f'(p)=f'(c)=f'(q)$인 $c\in(p,q)$가 존재함을 보였다.
+      depends_on: [2-2.M1]
+      steps: [22b-2]
+    - id: 2-2.R2
+      mark_type: R
+      points: 3
+      evidence: |
+        이차함수 $f'(x)$가 서로 다른 세 점에서 같은 값을 가질 수 없음을 근거로 모순을 이끌었다.
+      depends_on: [2-2.R1]
+      steps: [22b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '2-3'
+  stem: |
+    [문제 1-2] (3) 곡선 $y=x^3-3x^2-2$에 대한 서로 다른 세 접선이 모두 점 $(x_0,y_0)$를 지난다. 자연수 $x_0$, $y_0$에 대하여, $x_0+y_0$의 최솟값을 구하여라.
+  points: 10
+  depends_on: ['2-2']
+  answer: {kind: value, value: '5', equivalents: [], tolerance: null}
+  solutions:
+  - id: S23-A
+    audience: A
+    method_no: 1
+    key_idea: (2)에 의해 접선 3개 ⇔ $g(t)=2t^3-(3+3x_0)t^2+6x_0t+(y_0+2)=0$의 서로 다른 세 실근 ⇔ $g(1)>0>g(x_0)$.
+    steps:
+    - {id: 23a, content: '$g(1)=3x_0+y_0+1>0$, $g(x_0)=-x_0^3+3x_0^2+2+y_0<0$ → $x_0\ge4$ → 최솟값 5', criteria: ['2-3.M1', '2-3.M2', '2-3.A1', '2-3.A2']}
+    hint_ladder:
+    - 앞 문항 (2)에 의해 접선의 개수는 접점의 개수와 같다.
+    - $g'(t)=(6t-6)(t-x_0)$이다. 극값의 부호를 보자.
+  - id: S23-B
+    audience: B
+    source_flow: 예시답안 p.4
+    method_no: 1
+    steps:
+    - id: 23b-1
+      content: |
+        곡선 $y=x^3-3x^2-2$에 대한 접선이 점 $(t,t^3-3t^2-2)$에서 접하며 점 $(x_0,y_0)$를 지난다고 하자. 제시문 (나)에 의해, $y_0-t^3+3t^2+2=(3t^2-6t)(x_0-t)$이므로 이를 $t$에 대해 정리하면 $2t^3-(3+3x_0)t^2+6x_0t+(y_0+2)=0$이다. $g(t)=2t^3-(3+3x_0)t^2+6x_0t+(y_0+2)$라 두자.
+      criteria: ['2-3.M1']
+    - id: 23b-2
+      content: |
+        앞의 문항 (2)의 결과로부터 삼차함수의 그래프에 대한 각 접선은 정확히 하나의 접점만을 가져야 하므로, $t$에 대한 방정식 $g(t)=0$이 서로 다른 세 실근을 갖도록 하는 자연수 $x_0$, $y_0$를 구하면 된다.
+      criteria: ['2-3.M2']
+    - id: 23b-3
+      content: |
+        $g'(t)=6t^2-(6+6x_0)t+6x_0=(6t-6)(t-x_0)$이므로 함수 $g(t)$는 $t=1,x_0$일 때 극값을 갖는다. 또한 $x_0$, $y_0$는 자연수이므로, $g(1)=3x_0+y_0+1>0$이다. 함수 $g(t)$는 서로 다른 부호의 극값을 가져야 하므로, $g(x_0)=2x_0^3-(3+3x_0)x_0^2+6x_0^2+(y_0+2)=-x_0^3+3x_0^2+2+y_0<0$이다.
+      criteria: ['2-3.A1']
+    - id: 23b-4
+      content: |
+        이때, $x_0=3$이면 $g(x_0)=-x_0^3+3x_0^2+2+y_0=2+y_0>0$이므로, $x_0\ge4$이다. 따라서, $x_0+y_0\ge5$이므로 구하고자 하는 답은 5이다.
+        [보충(원 해설 생략분): $x_0=1$이면 $g'(t)=6(t-1)^2\ge0$이라 극값이 없고, $x_0=2$이면 $g(2)=6+y_0>0$이다. $x_0=4$, $y_0=1$이면 $g(4)=-13<0$이므로 등호가 성립한다.]
+        [그림: $y=x^3-3x^2-2$의 그래프 — $x=0$에서 극댓값 $-2$, $x=2$에서 극솟값 $-6$, $x\approx3.2$에서 $x$축과 만남]
+      criteria: ['2-3.A2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    # 채점기준 미공개 — 단계별 추정
+    criteria:
+    - id: 2-3.M1
+      mark_type: M
+      points: 2
+      evidence: |
+        접점 $t$에 대한 방정식 $g(t)=2t^3-(3+3x_0)t^2+6x_0t+(y_0+2)=0$을 세웠다.
+      depends_on: []
+      implied_ok: false
+      steps: [23b-1]
+    - id: 2-3.M2
+      mark_type: M
+      points: 2
+      evidence: |
+        (2)의 결과로 서로 다른 세 접선 ⇔ $g(t)=0$의 서로 다른 세 실근임을 적었다.
+      depends_on: []
+      implied_ok: false
+      ft: {allowed: true, from: [2-2.R2], max_points: 2}
+      steps: [23b-2]
+    - id: 2-3.A1
+      mark_type: A
+      points: 3
+      evidence: |
+        $g(1)>0$, $g(x_0)=-x_0^3+3x_0^2+2+y_0<0$을 얻었다.
+      depends_on: [2-3.M1, 2-3.M2]
+      steps: [23b-3]
+    - id: 2-3.A2
+      mark_type: A
+      points: 3
+      evidence: |
+        $x_0\le3$이 불가능함을 보이고 $x_0\ge4$에서 최솟값 5를 얻었다.
+      depends_on: [2-3.M1]
+      steps: [23b-4]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+remedy_links: []
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21
