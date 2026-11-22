@@ -1,0 +1,325 @@
+# 한양대 2026학년도 논술 자연계열(오전) [문제 2] — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: HYU-G26A-02
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: HYU
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 추론
+points: 50
+time_estimate_min: 45
+intent: |
+  고등학교 수학 과정의 지식을 적절히 활용해 논리적으로 결론에 도달하는지 본다. 지수·삼각함수의 미분과 성질로 $F(x)=\int_0^xf(t)dt$의 그래프 개형을 파악해 $\lvert\int_a^xf\rvert$가 미분가능한 $a$를 모두 구하고, 원과 직선의 위치 관계와 함수의 극한의 대소 관계로 두 현 사이 넓이의 극한을 구하며, 합성함수의 미분법·이계도함수·속도와 가속도로 삼차함수 $f$를 결정한다.
+key_idea: |
+  1은 $h(x)=F(x)-F(a)$가 $h(a)=0$이므로 $y=F(a)$와 $y=F(x)$의 모든 교점에서 $f=0$이어야 함. 2는 넓이를 두 직사각형 사이에 끼워 넣음. 3은 $h=f\circ g$를 두 번 미분하고 속력 최대 조건 $g'(1)g''(1)=0$을 쓴다.
+stuck: |
+  1에서 $F(2\pi)>0=F(0)$임을 $(e^t-\cos t)^{2026}$의 증가성과 $\sin(t+\pi)=-\sin t$로 보이는 것, 2에서 넓이를 직사각형으로 위아래 평가하는 것, 3에서 점 P가 $x$축 위($g=0$)이고 $g\ge0$이므로 $g'(\frac14)=0$임을 읽는 것
+idea_tags: [IDEA-ABS-INTEGRAL-DIFFERENTIABLE, IDEA-SQUEEZE-AREA-RECTANGLE, IDEA-CHAIN-RULE-MOTION]
+tags: [미분가능성, 정적분으로 정의된 함수, 원과 직선, 조임정리, 합성함수 미분, 속도와 가속도, 배점환산]
+elements:
+  materials:
+  - '$f(x)=-(e^x-\cos x)^{2026}\sin x\ (0\le x\le2\pi)$, $x-2\pi\ (x>2\pi)$, 기함수 확장'
+  - '$g(x)=\left\lvert\int_a^xf(t)dt\right\rvert$'
+  - '원 $x^2+y^2=1$과 평행한 두 직선 $y=a(x-1)$, $y=a(x-1)+k$로 둘러싸인 넓이 $S(k)$'
+  - '점 $\mathrm{P}(t,g(t))$의 운동, $h(t)=f(g(t))$, 최고차항 계수 1인 삼차함수 $f$'
+  concepts: [정적분으로 정의된 함수, 미분가능성, 함수의 그래프 개형, 점과 직선 사이의 거리, 함수의 극한의 대소 관계, 합성함수의 미분법, 이계도함수, 속도와 가속도]
+  tools:
+  - '$F(x)=\int_0^xf$의 증감표와 우함수성 $F(-x)=F(x)$'
+  - '$s(t)=e^t-\cos t$의 증가성, 평행이동 $t\to t+\pi$'
+  - '직사각형 $\mathrm{PBCQ}\subset$ 영역 $\subset\mathrm{ARSD}$, 조임정리'
+  - '$h''=f''''(g)(g'')^2+f''(g)g''''$ 연립'
+  conditions:
+  - '$\lvert h\rvert$는 $h(x_0)=0$인 점에서 $h''(x_0)=0$일 때만 미분가능'
+  - '점 P의 $x$좌표 > 점 Q의 $x$좌표, R > S, 호의 길이 $<\pi$'
+  - '$t=\frac14$에서 $g=0$, 가속도 $(0,1)$ ⇒ $g''(\frac14)=1$; $g\ge0$ ⇒ $g''(\frac14)=0$'
+  - '$x\ge0$에서 $f''(x)>0$, $g(1)\ge0$로 해 선택'
+  stimuli_used: []
+  subpart_links: null
+
+curriculum:
+  version: '2015'
+  subjects: [수학, 수학Ⅰ, 수학Ⅱ, 미적분]
+  scope_2028: calc2
+  scope_confirmed: false
+  standards:
+  - code: 12수학Ⅱ03-03
+    text: 정적분의 뜻을 안다.
+    verified: true
+  - code: 12미적02-12
+    text: 함수의 그래프의 개형을 그릴 수 있다.
+    verified: true
+  - code: 12미적03-01
+    text: 치환적분법을 이해하고, 이를 활용할 수 있다.
+    verified: true
+  - code: 10수학02-05
+    text: 점과 직선 사이의 거리를 구할 수 있다.
+    verified: true
+  - code: 12수학Ⅱ01-02
+    text: 함수의 극한에 대한 성질을 이해하고, 함수의 극한값을 구할 수 있다.
+    verified: true
+  - code: 12미적02-07
+    text: 합성함수를 미분할 수 있다.
+    verified: true
+  - code: 12미적02-10
+    text: 이계도함수를 구할 수 있다.
+    verified: true
+  - code: 12미적02-14
+    text: 속도와 가속도에 대한 문제를 해결할 수 있다.
+    verified: true
+  content_area: 정적분으로 정의된 함수·도형의 넓이의 극한·합성함수의 미분
+  behavior_domain: 추론
+  unit_path: [미적분, 미분법, 도함수의 활용, 속도와 가속도]
+  key_concepts: [정적분으로 정의된 함수, 미분가능성, 함수의 그래프 개형, 점과 직선 사이의 거리, 함수의 극한의 대소 관계, 합성함수의 미분법, 이계도함수, 속도와 가속도]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 한양대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 한양대학교
+  admission_year: 2026
+  admission_type: 수시 논술
+  track: 자연계열(오전)
+  question_no: 2
+  official_url: https://go.hanyang.ac.kr/web/pds/pds_view.do?m_type=SUSI&bn=20601
+  retrieved_at: 2026-11-21
+  original_points: [15, 15, 20]
+  rights_notice: 한양대학교 입학처 공개 기출(내부 분석용)
+  transcribed_from: 2026학년도 자연계열 논술(오전) 문제지 p.3, 해설 근거 2026학년도 선행학습 영향평가 자체평가보고서 문항카드6 p.95~101 (원본 PDF 이미지 대조 2026-11-21). 채점기준 배점(30·30·40, 100점 기준)을 1/2로 환산
+
+verify: verify/HYU-G26A.py::p02
+
+stimuli: []
+
+stem: |
+  [문제 2] 다음 물음에 답하시오. (50점)
+
+subparts:
+- id: '1'
+  stem: |
+    실수 전체의 집합에서 정의된 함수 $f(x)$가 다음 조건을 만족시킨다.
+
+    (1) $f(x)=\begin{cases}-(e^x-\cos x)^{2026}\sin x & (0\le x\le2\pi)\\ x-2\pi & (x>2\pi)\end{cases}$
+    (2) $x<0$일 때 $f(x)=-f(-x)$
+
+    함수 $g(x)=\left\lvert\displaystyle\int_a^xf(t)\,dt\right\rvert$가 실수 전체의 집합에서 미분가능하도록 하는 실수 $a$의 값을 모두 구하시오.
+  points: 15
+  depends_on: []
+  answer: {kind: set, value: '{-2*pi, -pi, pi, 2*pi}', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $F(x)=\int_0^xf$는 우함수, $[0,\pi]$에서 감소, $[\pi,\infty)$에서 증가, $F(2\pi)>0$. 직선 $y=F(a)$와의 교점이 모두 $f$의 영점인 $a$는 $\pm\pi,\pm2\pi$.
+    steps:
+    - {id: 1a, content: '$F(\pi)<0=F(0)<F(2\pi)$, $a\in\{-2\pi,-\pi,\pi,2\pi\}$', criteria: ['1.M1', '1.A1']}
+    hint_ladder:
+    - $\int_a^xf=F(x)-F(a)$로 쓰면 그래프가 어떻게 바뀌는가?
+    - $\lvert h\rvert$가 $h=0$인 점에서 미분가능할 조건은?
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 2026 선행학습 영향평가 보고서 문항카드6 p.99 예시답안 1
+    steps:
+    - id: 1b-1
+      content: |
+        [그림: $y=f(x)$의 그래프 — $(0,\pi)$에서 $x$축 아래 얕은 골, $(\pi,2\pi)$에서 높은 봉우리, $x>2\pi$에서 직선 $y=x-2\pi$, 원점 대칭]
+        $s(t)=e^t-\cos t$라 하면 $(0,2\pi)$에서 $s(t)\ge0$, $s'(t)=e^t+\sin t>0$이므로 $(s(t))^{2026}$은 증가한다.
+      criteria: ['1.M1']
+    - id: 1b-2
+      content: |
+        $F(x)=\int_0^xf(t)dt$라 하자. $(0,\pi)$에서 $(s(t+\pi))^{2026}>(s(t))^{2026}$이고 $\sin(t+\pi)=-\sin t$이므로
+        $F(2\pi)=\displaystyle\int_\pi^{2\pi}f+\int_0^\pi f=\int_0^\pi\left[(s(t+\pi))^{2026}-(s(t))^{2026}\right]\sin t\,dt>0=F(0)$.
+        $x<0$이면 $F(x)=\displaystyle\int_0^{-x}\{-f(-s)\}(-ds)=\int_0^{-x}f(s)ds=F(-x)$이다.
+      criteria: ['1.A1']
+    - id: 1b-3
+      content: |
+        [그림: $y=F(x)$ — 우함수, $x=\pm\pi$에서 최솟값(음수), $x=0$에서 극대 $0$, $x=\pm2\pi$에서 변곡하며 증가]
+        $h(x)=\int_a^xf(t)dt=F(x)-F(a)$이고 $h(a)=0$이다. $h$의 그래프는 $F$의 그래프를 $y$축 방향으로 평행이동한 것이므로 $g=\lvert h\rvert$가 실수 전체에서 미분가능하려면 곡선 $y=F(x)$와 직선 $y=F(a)$의 모든 교점에서 $F$의 미분계수가 $0$이어야 한다.
+      criteria: ['1.A1']
+    - id: 1b-4
+      content: |
+        $F$의 그래프에 의하면 이를 만족하는 $a$는 $-2\pi,\,-\pi,\,\pi,\,2\pi$이다($a=0$이면 $y=0$이 $(\pi,2\pi)$에서 $F$와 $f\ne0$인 점에서 만남).
+      criteria: ['1.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 5
+      evidence: |
+        함수 $f(x)$의 그래프 개형(구간별 부호·기함수 대칭)을 제시했다(공식 10점 → 5).
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1, 1a]
+    - id: 1.A1
+      mark_type: A
+      points: 10
+      evidence: |
+        $F(x)=\int_0^xf$의 개형($F(2\pi)>0$, 우함수)을 파악하고 $a=\pm\pi,\pm2\pi$를 모두 구했다(공식 20점 → 10).
+      depends_on: [1.M1]
+      steps: [1b-2, 1b-3, 1b-4, 1a]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '2'
+  stem: |
+    원 $x^2+y^2=1$과 직선 $y=a(x-1)\ (a>1)$이 서로 다른 두 점 $\mathrm{P}$, $\mathrm{Q}$에서 만나고, 원 $x^2+y^2=1$과 직선 $y=a(x-1)+k$ ($k$는 양의 실수)가 서로 다른 두 점 $\mathrm{R}$, $\mathrm{S}$에서 만난다. 두 선분 $\mathrm{PQ}$, $\mathrm{RS}$와 길이가 $\pi$보다 작은 두 호 $\mathrm{PR}$, $\mathrm{QS}$로 둘러싸인 부분의 넓이를 $S(k)$라 하자. 극한값 $\displaystyle\lim_{k\to0+}\frac{S(k)}{k}$를 구하시오.
+    (단, 점 $\mathrm{P}$의 $x$좌표는 점 $\mathrm{Q}$의 $x$좌표보다 크고, 점 $\mathrm{R}$의 $x$좌표는 점 $\mathrm{S}$의 $x$좌표보다 크다.)
+  points: 15
+  depends_on: []
+  answer: {kind: expression, value: '2/(1 + a**2)', equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: 넓이를 직사각형 $\mathrm{PBCQ}$($\frac{2k}{a^2+1}$)와 $\mathrm{ARSD}$ 사이에 끼우고 $k\to0+$.
+    steps:
+    - {id: 2a, content: '$\frac{2}{a^2+1}\le\frac{S(k)}{k}\le\frac{2\sqrt{1+a^2-(a-k)^2}}{1+a^2}\to\frac{2}{1+a^2}$', criteria: ['2.M1', '2.A1']}
+    hint_ladder:
+    - 두 평행선 사이의 거리는?
+    - 영역을 안쪽과 바깥쪽 직사각형으로 감싸 보자.
+  - id: S2-B
+    audience: B
+    method_no: 1
+    source_flow: 2026 선행학습 영향평가 보고서 문항카드6 p.99~100 예시답안 2
+    steps:
+    - id: 2b-1
+      content: |
+        연립방정식을 풀면 $\mathrm{P}=(1,0)$, $\mathrm{Q}=\left(\dfrac{a^2-1}{a^2+1},-\dfrac{2a}{a^2+1}\right)$이고, $\mathrm{R}$, $\mathrm{S}$의 $x$좌표는 $\dfrac{a^2-ak\pm\sqrt{1+a^2-(a-k)^2}}{1+a^2}$이다.
+      criteria: ['2.M1']
+    - id: 2b-2
+      content: |
+        직선 $y=a(x-1)$을 $L$, $y=a(x-1)+k$를 $L'$이라 하고, $\mathrm{P}$, $\mathrm{Q}$에서 $L'$에 내린 수선의 발을 $\mathrm{B}$, $\mathrm{C}$, $\mathrm{R}$, $\mathrm{S}$에서 $L$에 내린 수선의 발을 $\mathrm{A}$, $\mathrm{D}$라 하자. 점 $\mathrm{P}$와 $L'$ 사이의 거리는 $\frac{k}{\sqrt{a^2+1}}$이므로 직사각형 $\mathrm{PBCQ}$의 넓이는 $\frac{k}{\sqrt{a^2+1}}\overline{\mathrm{PQ}}=\frac{2k}{a^2+1}$이다.
+      criteria: ['2.A1']
+    - id: 2b-3
+      content: |
+        $d=\dfrac{2\sqrt{1+a^2-(a-k)^2}}{1+a^2}$라 하면 $\overline{\mathrm{RS}}=d\sqrt{1+a^2}$이므로 직사각형 $\mathrm{ARSD}$의 넓이는 $k\cdot\dfrac{2\sqrt{1+a^2-(a-k)^2}}{1+a^2}$이다.
+      criteria: ['2.A1']
+    - id: 2b-4
+      content: |
+        $0<k\le a$이면 영역은 $\mathrm{ARSD}$ 내부에 있고 $\mathrm{PBCQ}$를 포함하므로 $\dfrac{2}{a^2+1}\le\dfrac{S(k)}{k}\le\dfrac{2\sqrt{1+a^2-(a-k)^2}}{1+a^2}$이다. 우변의 극한이 $\dfrac{2}{1+a^2}$이므로 $\displaystyle\lim_{k\to0+}\frac{S(k)}{k}=\frac{2}{1+a^2}$이다.
+        (참고: $\mathrm{R}$, $\mathrm{S}$의 $x$좌표를 직접 구하지 않고 근과 계수의 관계로 $x^2+(ax-a+k)^2=1$의 두 근의 차를 구해도 된다.)
+      criteria: ['2.A1']
+  - id: S2-ALT
+    audience: ALT
+    method_no: 2
+    source_flow: 검산용 대체 풀이(공식 해설 아님)
+    key_idea: 원점에서 법선 방향 거리 $c$ 이상인 원판 부분(활꼴)의 넓이 $A(c)=\arccos c-c\sqrt{1-c^2}$로 $S(k)=A\left(\frac{a-k}{\sqrt{1+a^2}}\right)-A\left(\frac{a}{\sqrt{1+a^2}}\right)$이고, $S'(0)=\frac{2\sqrt{1-c_0^2}}{\sqrt{1+a^2}}=\frac{2}{1+a^2}$.
+    steps:
+    - id: 2c-1
+      content: |
+        $A'(c)=-2\sqrt{1-c^2}$이므로 $\displaystyle\lim_{k\to0+}\frac{S(k)}{k}=2\sqrt{1-\frac{a^2}{1+a^2}}\cdot\frac{1}{\sqrt{1+a^2}}=\frac{2}{1+a^2}$.
+      criteria: ['2.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 5
+      evidence: |
+        점 $\mathrm{P}$, $\mathrm{Q}$, $\mathrm{R}$, $\mathrm{S}$의 좌표를 구했다(공식 10점 → 5).
+      depends_on: []
+      implied_ok: false
+      steps: [2b-1, 2a]
+    - id: 2.A1
+      mark_type: A
+      points: 10
+      evidence: |
+        넓이를 평가해 극한값 $\frac{2}{1+a^2}$을 구했다(공식 20점 → 10).
+      depends_on: [2.M1]
+      steps: [2b-2, 2b-3, 2b-4, 2a, 2c-1]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '3'
+  stem: |
+    모든 실수 $t$에 대하여 함수 $g(t)$가 $g(t)\ge0$이고 이계도함수를 갖는다.
+    좌표평면 위를 움직이는 점 $\mathrm{P}$의 시각 $t\ (0\le t\le4)$에서의 위치를 $(t,g(t))$라 하자.
+    점 $\mathrm{P}$, 함수 $f(x)$와 함수 $h(t)=f(g(t))\ (0\le t\le4)$는 다음 조건을 만족시킨다.
+
+    (1) $t=\frac14$일 때 점 $\mathrm{P}$는 $x$축 위에 있고 가속도는 $(0,1)$이다.
+    (2) $t=1$일 때 점 $\mathrm{P}$의 속력이 최대가 되고, 이때 속력은 $\sqrt2$이다.
+    (3) 함수 $f(x)$는 최고차항의 계수가 $1$인 삼차함수이고, $x\ge0$인 모든 실수 $x$에 대하여 $f'(x)>0$이다.
+    (4) $h\left(\frac14\right)=0$, $h'(1)=\frac94$, $h''\left(\frac14\right)=4$, $h''(1)=-2$
+
+    $f(3)$의 값을 구하시오.
+  points: 20
+  depends_on: []
+  answer: {kind: value, value: '33/2', equivalents: [], tolerance: null}
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: $g(\frac14)=g'(\frac14)=0$, $g''(\frac14)=1$로 $f(0)=0$, $f'(0)=4$; $g'(1)=1$, $g''(1)=0$로 $f'(b)=\frac94$, $f''(b)=-2$ ($b=g(1)\ge0$).
+    steps:
+    - {id: 3a, content: '$f(x)=x^3+ax^2+4x$, $3b^2+2ab+\frac74=0$, $3b+a=-1$ ⇒ $a=-\frac52$, $b=\frac12$, $f(3)=\frac{33}{2}$', criteria: ['3.M1', '3.A1']}
+    hint_ladder:
+    - 점 $\mathrm{P}$의 속도와 가속도를 $g$로 나타내 보자.
+    - $f(g(t))=h(t)$를 두 번 미분하자.
+  - id: S3-B
+    audience: B
+    method_no: 1
+    source_flow: 2026 선행학습 영향평가 보고서 문항카드6 p.100~101 예시답안 3
+    steps:
+    - id: 3b-1
+      content: |
+        $f(g(t))=h(t)$의 양변을 미분하면 $f'(g(t))g'(t)=h'(t)$, $f''(g(t))\{g'(t)\}^2+f'(g(t))g''(t)=h''(t)$ …… ㉠
+      criteria: ['3.M1']
+    - id: 3b-2
+      content: |
+        조건 (2)에 의해 $t=1$일 때 속력 $\sqrt{1+\{g'(t)\}^2}$이 최대이므로 $\{g'(t)\}^2$도 최대이고 $2g'(1)g''(1)=0$. 또 $\sqrt{1+\{g'(1)\}^2}=\sqrt2$에서 $g'(1)=\pm1$. 조건 (3), (4)에 의해 $f'(g(1))g'(1)=\frac94$이고 $f'(g(1))>0$이므로 $g'(1)>0$. 따라서 $g'(1)=1$, $g''(1)=0$이고 ㉠에서 $f'(g(1))=\frac94$, $f''(g(1))=-2$ …… ㉡
+      criteria: ['3.M1']
+    - id: 3b-3
+      content: |
+        조건 (1)에 의해 $g\left(\frac14\right)=0$, $g''\left(\frac14\right)=1$. 따라서 $f(0)=f\left(g\left(\frac14\right)\right)=h\left(\frac14\right)=0$ …… ㉢. 또 $g(t)\ge0=g\left(\frac14\right)$이므로 $g'\left(\frac14\right)=0$이고 ㉠에서 $f'(0)=f'\left(g\left(\frac14\right)\right)g''\left(\frac14\right)=h''\left(\frac14\right)=4$ …… ㉣
+      criteria: ['3.M1']
+    - id: 3b-4
+      content: |
+        ㉢, ㉣에서 $f(x)=x^3+ax^2+4x$ ($a$는 실수). $g(1)=b\ge0$이라 하면 ㉡에서 $3b^2+2ab+\frac74=0$, $3b+a=-1$. 연립하면 $a=\frac52$, $b=-\frac76<0$ 또는 $a=-\frac52$, $b=\frac12\ge0$. 따라서 $f(x)=x^3-\frac52x^2+4x$이고 $f(3)=\frac{33}{2}$이다.
+      criteria: ['3.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 15
+      evidence: |
+        조건으로 $g$에 대한 식($g(\frac14)=g'(\frac14)=0$, $g''(\frac14)=1$, $g'(1)=1$, $g''(1)=0$)을 얻고 삼차함수 $f(x)=x^3-\frac52x^2+4x$를 구했다(공식 30점 → 15).
+      depends_on: []
+      implied_ok: false
+      steps: [3b-1, 3b-2, 3b-3, 3a]
+    - id: 3.A1
+      mark_type: A
+      points: 5
+      evidence: |
+        $f(3)=\frac{33}{2}$을 구했다(공식 10점 → 5).
+      depends_on: [3.M1]
+      steps: [3b-4, 3a]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+remedy_links: []
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: hyu-past-v1, item_version: 1, verdict: pass, date: 2026-11-22}
+- {stage: verify, actor_type: system, actor_id: verify/HYU-G26A.py, item_version: 1, verdict: pass, date: 2026-11-22}
+
+created: 2026-11-22
+updated: 2026-11-22

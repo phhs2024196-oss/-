@@ -1,0 +1,355 @@
+# 한양대학교 2022학년도 논술전형 자연계열(의예과) [문제 2] — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: HYU-G22D-02
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: HYU
+type: null
+variant_of: null
+replaces: null
+level: L6
+form: 분류
+points: 50
+time_estimate_min: 45
+intent: |
+  로그함수의 성질과 합성함수의 미분법으로 다항식의 이계도함수 값을 구하고(1), 최대·최소 정리와 정적분의 대소, 극한의 대소 관계, 부분적분법으로 극한값을 구하며(2), 포물선 위의 점을 대입해 만든 사차함수의 그래프 개형을 도함수로 파악해 교점 개수가 바뀌는 $k_0$을 구하는(3) 능력을 본다.
+key_idea: |
+  3.에서 $x=\dfrac{y^2}{4}$을 대입한 $r(y)=y^4+2(8-k^2)y^2-32ky+8(k^2-2)$는 $r'(y)=4(y-k)(y^2+ky+8)$이고, 왼쪽 극솟값 $r(c)=-2h\left(\tfrac{k}{\sqrt2}\right)$의 부호가 제시문 <라>에 의해 $k=5\sqrt2$에서 바뀐다.
+stuck: |
+  1.에서 곱을 직접 전개하지 않고 $\ln p(x)$를 두 번 미분하는 발상, 2.에서 $c_n$을 부분적분해 $q(1)$을 떼어내고 나머지를 <가>·<나>·<다>로 0에 보내는 것, 3.에서 $r(c)$를 $c^2+kc+8=0$으로 차수를 낮춰 <라>의 $h\left(\tfrac{k}{\sqrt2}\right)$와 연결하는 것
+idea_tags: [IDEA-LOG-DIFF-PRODUCT, IDEA-PARTS-XN-ENDPOINT-LIMIT, IDEA-QUARTIC-EXTREMUM-SIGN-ROOT-COUNT]
+tags: [기출, 한양대, 의예과, 로그미분, 부분적분, 조임정리, 포물선과 원, 사차함수 개형, 배점환산]
+elements:
+  materials:
+  - '$p(x)=(1+x)(1+2x)\cdots(1+nx)$와 $p''''(0)$'
+  - '$c_n=(n-2022)\displaystyle\int_0^1x^n\{e^x+x\ln(x+1)+x^2\cos^{2022}\pi x\}dx$'
+  - '포물선 $y^2=4x$ 위의 점 $\mathrm{A}\left(\tfrac{k^2}{4},k\right)$를 중심으로 하고 $\mathrm{F}(1,0)$, $\mathrm{B}(-1,k)$를 지나는 원 $C$'
+  - '<라>의 함수 $h(x)=x(x^2-16)(x+\sqrt{x^2-16})-8(2x^2-5)$'
+  concepts:
+  - '지수함수와 로그함수의 미분'
+  - '합성함수의 미분법'
+  - '연속함수의 최대·최소 정리'
+  - '정적분의 대소 관계'
+  - '수열의 극한의 대소 관계'
+  - '부분적분법'
+  - '포물선의 정의'
+  - '함수의 그래프의 개형'
+  tools:
+  - '$\ln p(x)=\sum\ln(1+kx)$ 두 번 미분, $\sum k=\tfrac{n(n+1)}{2}$, $\sum k^2=\tfrac{n(n+1)(2n+1)}{6}$'
+  - '$q(x)$로 두고 $\int_0^1x^nq\,dx$ 부분적분'
+  - '$m\le q''(x)\le M$에서 $\dfrac{m}{n+2}\le\int_0^1x^{n+1}q''dx\le\dfrac{M}{n+2}$'
+  - '$r''(y)$ 인수분해와 증감표'
+  - '$c^2+kc+8=0$으로 $r(c)$ 차수 낮추기'
+  conditions:
+  - '$x>-\tfrac1n$에서 $p(x)>0$이라 $\ln p(x)$를 쓸 수 있음'
+  - '$q''$는 $[0,1]$에서 연속 → 최댓값 $M$, 최솟값 $m$ 존재(<가>)'
+  - '$\cos^{2022}\pi=1$'
+  - '원과 포물선의 교점 개수 = $r(y)=0$의 서로 다른 실근 개수($x=\tfrac{y^2}{4}$가 $y$마다 하나)'
+  - '$k^2<32$이면 $y^2+ky+8>0$, $k=4\sqrt2$, $k>4\sqrt2$로 경우 분류'
+  - '<라>: $h$는 $(4,\infty)$에서 증가, $h(x)=0\iff x=5$ → $\tfrac{k}{\sqrt2}=5$'
+  stimuli_used: [가, 나, 다, 라]
+  subpart_links: null
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅰ, 수학Ⅱ, 미적분, 기하]
+  scope_2028: geom
+  scope_confirmed: false
+  standards:
+  - code: 12미적02-02
+    text: 지수함수와 로그함수를 미분할 수 있다.
+    verified: false
+  - code: 12미적02-07
+    text: 합성함수를 미분할 수 있다.
+    verified: false
+  - code: 12수학Ⅱ01-04
+    text: 연속함수의 성질을 이해하고, 이를 활용할 수 있다.
+    verified: false
+  - code: 12미적01-02
+    text: 수열의 극한에 대한 기본 성질을 이해하고, 이를 이용하여 극한값을 구할 수 있다.
+    verified: false
+  - code: 12미적03-02
+    text: 부분적분법을 이해하고, 이를 활용할 수 있다.
+    verified: false
+  - code: 12기하01-01
+    text: 포물선의 뜻을 알고, 포물선의 방정식을 구할 수 있다.
+    verified: false
+  - code: 12미적02-12
+    text: 함수의 그래프의 개형을 그릴 수 있다.
+    verified: false
+  content_area: 미적분 – 미분법·적분법 / 기하 – 포물선
+  behavior_domain: 문제해결
+  unit_path: [미적분, 미분법, 도함수의 활용, 함수의 그래프의 개형]
+  key_concepts: [지수함수와 로그함수의 미분, 합성함수의 미분법, 연속함수의 최대·최소 정리, 정적분의 대소 관계, 수열의 극한의 대소 관계, 부분적분법, 포물선의 정의, 함수의 그래프의 개형]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 한양대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 한양대학교
+  admission_year: 2022
+  admission_type: 수시 논술
+  track: 자연계열(의예과)
+  question_no: 2
+  official_url: https://go.hanyang.ac.kr/web/pds/pds_view.do?m_type=SUSI&bn=5066
+  retrieved_at: 2026-11-21
+  original_points: [15, 15, 20]
+  rights_notice: 한양대학교 입학처 공개 기출(내부 분석용)
+  transcribed_from: |
+    2022학년도 논술전형 자연계열(의예과) 문제지 p.3(문제 1은 인문 논술이라 제외), 해설 근거 2022학년도 선행학습 영향평가 자체평가보고서 문항카드6(PDF p.75~80, 인쇄 쪽 73~78) (원본 PDF 이미지 대조 2026-11-22). 문항카드 채점기준은 소문항 30·30·40(합 100) 기준이므로 1/2로 환산함.
+
+verify: verify/HYU-G22D.py::p02
+
+stimuli:
+- label: 가
+  body: |
+    함수 $f(x)$가 닫힌구간 $[a,b]$에서 연속이면 함수 $f(x)$는 이 구간에서 최댓값과 최솟값을 갖는다.
+- label: 나
+  body: |
+    연속함수 $f(x)$, $g(x)$가 닫힌구간 $[a,b]$에서 $f(x)\le g(x)$를 만족시키면
+    $$\int_a^bf(x)dx\le\int_a^bg(x)dx$$
+    가 성립한다.
+- label: 다
+  body: |
+    수렴하는 두 수열 $\{\alpha_n\}$, $\{\beta_n\}$에 대하여 $\displaystyle\lim_{n\to\infty}\alpha_n=\lim_{n\to\infty}\beta_n=L$일 때, 수열 $\{\gamma_n\}$이 모든 자연수 $n$에 대하여 $\alpha_n\le\gamma_n\le\beta_n$이면, 수열 $\{\gamma_n\}$은 수렴하고 $\displaystyle\lim_{n\to\infty}\gamma_n=L$이다.
+- label: 라
+  body: |
+    함수 $h(x)=x(x^2-16)\left(x+\sqrt{x^2-16}\right)-8(2x^2-5)$ (단, $x\ge4$)는 열린구간 $(4,\infty)$에서 증가하고, $h(x)=0$이면 $x=5$이다.
+
+stem: |
+  [문제 2] 다음 제시문을 읽고 물음에 답하시오. (50점)
+
+subparts:
+- id: '1'
+  stem: |
+    다항함수 $p(x)$를 다음과 같이 일차식 $n$개의 곱으로 정의한다.
+    $$p(x)=(1+x)(1+2x)\cdots(1+nx)$$
+    이때 $p''(0)$을 $n$에 대한 식으로 표현하시오.
+  points: 15
+  depends_on: []
+  answer: {kind: expression, value: 'n*(n+1)*(n-1)*(3*n+2)/12', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: |
+      $\dfrac{p'}{p}=\sum\dfrac{k}{1+kx}$를 한 번 더 미분하면 $p''(0)=\{p'(0)\}^2-\sum k^2$.
+    steps:
+    - id: 1a
+      content: |
+        $p''(0)=\dfrac{n^2(n+1)^2}{4}-\dfrac{n(n+1)(2n+1)}{6}=\dfrac{n(n+1)(n-1)(3n+2)}{12}$
+      criteria: [1.M1, 1.A1]
+    hint_ladder:
+    - 곱의 미분이 번거로우면 로그를 취해 보자.
+    - $p(0)=1$, $p'(0)$을 먼저 구하자.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: '2022 선행학습 영향평가 자체평가보고서 문항카드6 예시답안 1 (PDF p.77~78, 인쇄 p.75~76)'
+    steps:
+    - id: 1b-1
+      content: |
+        먼저 $p(0)=1$임과 $x>-\dfrac1n$의 범위에서 $p(x)$가 양수임은 쉽게 알 수 있다. $x=0$을 포함하는 $x>-\dfrac1n$의 범위로 $p(x)$의 정의역을 제한하면 아무 문제없이 $\ln p(x)$를 생각할 수 있고, $\ln p(x)=\displaystyle\sum_{k=1}^{n}\ln(1+kx)$를 얻는다.
+      criteria: [1.M1]
+    - id: 1b-2
+      content: |
+        양변을 미분하면 $\dfrac{p'(x)}{p(x)}=\displaystyle\sum_{k=1}^{n}\dfrac{k}{1+kx}$이므로 $p'(0)=\displaystyle\sum_{k=1}^{n}k=\dfrac{n(n+1)}{2}$를 얻는다.
+      criteria: [1.M1]
+    - id: 1b-3
+      content: |
+        다시 한 번 위 식에서 양변을 미분하면 $\dfrac{p''(x)}{p(x)}-\dfrac{\{p'(x)\}^2}{\{p(x)\}^2}=-\displaystyle\sum_{k=1}^{n}\dfrac{k^2}{(1+kx)^2}$이므로 $p''(0)=\{p'(0)\}^2-\displaystyle\sum_{k=1}^{n}k^2$을 얻는다.
+      criteria: [1.M1]
+    - id: 1b-4
+      content: |
+        따라서 $p''(0)=\dfrac{n^2(n+1)^2}{4}-\dfrac{n(n+1)(2n+1)}{6}=\dfrac{n(n+1)(n-1)(3n+2)}{12}$이다.
+      criteria: [1.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 10
+      evidence: |
+        로그함수와 미분법을 활용하여 $p''(0)$를 $p(0)$, $p'(0)$과 적절히 연관지었다. [카드 배점 20 → 10]
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1, 1b-2, 1b-3]
+    - id: 1.A1
+      mark_type: A
+      points: 5
+      evidence: |
+        $p''(0)=\dfrac{n(n+1)(n-1)(3n+2)}{12}$을 $n$에 대한 다항식으로 정확하게 나타내었다. [카드 배점 10 → 5]
+      depends_on: [1.M1]
+      steps: [1b-4]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '2'
+  stem: |
+    자연수 $n$에 대하여
+    $$c_n=(n-2022)\int_0^1x^n\left\{e^x+x\ln(x+1)+x^2\cos^{2022}\pi x\right\}dx$$
+    일 때, 극한값 $\displaystyle\lim_{n\to\infty}c_n$을 구하시오.
+  points: 15
+  depends_on: []
+  answer: {kind: value, value: 'E + log(2) + 1', equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: |
+      $q(x)=e^x+x\ln(x+1)+x^2\cos^{2022}\pi x$라 하면 부분적분으로 $c_n=\dfrac{n-2022}{n+1}\left(q(1)-\displaystyle\int_0^1x^{n+1}q'(x)dx\right)$이고 뒤의 적분은 $O\left(\tfrac1n\right)$.
+    steps:
+    - id: 2a
+      content: |
+        $\displaystyle\lim_{n\to\infty}c_n=q(1)=e+\ln2+\cos^{2022}\pi=e+\ln2+1$
+      criteria: [2.M1, 2.A1]
+    hint_ladder:
+    - $x^n$을 적분할 쪽으로 두고 부분적분해 보자.
+    - $q'(x)$는 $[0,1]$에서 유계이다(<가>).
+  - id: S2-B
+    audience: B
+    method_no: 1
+    source_flow: '2022 선행학습 영향평가 자체평가보고서 문항카드6 예시답안 2 (PDF p.78~79, 인쇄 p.76~77)'
+    steps:
+    - id: 2b-1
+      content: |
+        $q(x)=e^x+x\ln(x+1)+x^2\cos^{2022}\pi x$라 하면, 함수 $q(x)$는 닫힌구간 $[0,1]$을 포함하는 열린구간에서 연속인 도함수 $q'(x)$를 갖는다. 제시문 <가>에 의하여 $q'(x)$는 닫힌구간 $[0,1]$에서 최댓값과 최솟값을 갖는다. 이 최댓값을 $M$, 최솟값을 $m$이라고 하면 닫힌구간 $[0,1]$에서 $m\le q'(x)\le M$ $\cdots$ ㉠이다.
+      criteria: [2.M1]
+    - id: 2b-2
+      content: |
+        한편 부분적분법을 적용하면
+        $c_n=(n-2022)\displaystyle\int_0^1x^nq(x)dx=\dfrac{n-2022}{n+1}\left(\Big[x^{n+1}q(x)\Big]_0^1-\int_0^1x^{n+1}q'(x)dx\right)=\dfrac{n-2022}{n+1}\left(q(1)-\int_0^1x^{n+1}q'(x)dx\right)$이다.
+      criteria: [2.M1]
+    - id: 2b-3
+      content: |
+        ㉠과 제시문 <나>에 의하여 $\dfrac{m}{n+2}=m\displaystyle\int_0^1x^{n+1}dx\le\int_0^1x^{n+1}q'(x)dx\le M\int_0^1x^{n+1}dx=\dfrac{M}{n+2}$이다. 따라서 $\dfrac{(n-2022)m}{(n+1)(n+2)}\le\dfrac{n-2022}{n+1}\displaystyle\int_0^1x^{n+1}q'(x)dx\le\dfrac{(n-2022)M}{(n+1)(n+2)}$이고 제시문 <다>에 의하여 $\displaystyle\lim_{n\to\infty}\dfrac{n-2022}{n+1}\int_0^1x^{n+1}q'(x)dx=0$이다.
+      criteria: [2.A1]
+    - id: 2b-4
+      content: |
+        그러므로 $\displaystyle\lim_{n\to\infty}c_n=q(1)=e+\ln2+\cos^{2022}\pi=e+\ln2+1$이다.
+      criteria: [2.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 5
+      evidence: |
+        부분적분법을 적용하여 $c_n=\dfrac{n-2022}{n+1}\left(q(1)-\displaystyle\int_0^1x^{n+1}q'(x)dx\right)$로 나타내었다. [카드 배점 10 → 5]
+      depends_on: []
+      implied_ok: false
+      steps: [2b-1, 2b-2]
+    - id: 2.A1
+      mark_type: A
+      points: 10
+      evidence: |
+        제시문 <가>·<나>·<다>를 근거로 나머지 항이 0으로 수렴함을 보이고 극한값 $e+\ln2+1$을 적절히 구했다. [카드 배점 20 → 10]
+      depends_on: [2.M1]
+      steps: [2b-3, 2b-4]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '3'
+  stem: |
+    포물선 $y^2=4x$ 위의 점 $\mathrm{A}\left(\dfrac{k^2}{4},k\right)$를 중심으로 하고 점 $\mathrm{F}(1,0)$과 점 $\mathrm{B}(-1,k)$를 지나는 원을 $C$라 하자.
+    어떤 양수 $k_0$에 대하여 $0\le k<k_0$이면 원 $C$와 포물선 $y^2=4x$는 서로 다른 두 점에서 만나고,
+    $k>k_0$이면 원 $C$와 포물선 $y^2=4x$는 서로 다른 네 점에서 만난다. 이때 $k_0$의 값을 구하시오.
+  points: 20
+  depends_on: []
+  answer: {kind: value, value: '5*sqrt(2)', equivalents: [], tolerance: null}
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: |
+      $r'(y)=4(y-k)(y^2+ky+8)$; $k>4\sqrt2$일 때 왼쪽 극솟값 $r(c)=-2h\left(\tfrac{k}{\sqrt2}\right)$의 부호로 근의 개수가 결정되고 <라>에서 $\tfrac{k}{\sqrt2}=5$.
+    steps:
+    - id: 3a
+      content: |
+        $r(y)=y^4+2(8-k^2)y^2-32ky+8(k^2-2)$, $r(k)=-(k^2+4)^2<0$, $r(c)<0\iff h\left(\tfrac{k}{\sqrt2}\right)>0\iff k>5\sqrt2$이므로 $k_0=5\sqrt2$
+      criteria: [3.M1, 3.M2, 3.A1]
+    hint_ladder:
+    - 원의 반지름은 얼마인가? (점 $\mathrm{A}$는 포물선 위의 점이다.)
+    - $x=\dfrac{y^2}{4}$를 원의 방정식에 대입해 $y$에 관한 사차식을 만들고 도함수를 인수분해하자.
+    - 극솟값 $r(c)$에서 $c^2+kc+8=0$을 이용해 차수를 낮추면 <라>의 $h$가 보인다.
+  - id: S3-B
+    audience: B
+    method_no: 1
+    source_flow: '2022 선행학습 영향평가 자체평가보고서 문항카드6 예시답안 3 (PDF p.79~80, 인쇄 p.77~78)'
+    steps:
+    - id: 3b-1
+      content: |
+        원 $C$의 방정식 $\left(x-\dfrac{k^2}{4}\right)^2+(y-k)^2=\left(\dfrac{k^2}{4}+1\right)^2$에 $x=\dfrac{y^2}{4}$를 대입하여 정리하면 $y^4+2(8-k^2)y^2-32ky+8(k^2-2)=0$이다. $r(y)=y^4+2(8-k^2)y^2-32ky+8(k^2-2)$라 하자.
+      criteria: [3.M1]
+    - id: 3b-2
+      content: |
+        $r'(y)=4y^3+4(8-k^2)y-32k=4(y-k)(y^2+ky+8)$ $\cdots$ ㉡이다.
+        경우 1) $0\le k<4\sqrt2$: $(-\infty,\infty)$에서 $y^2+ky+8>0$이므로 $r$은 $y=k$에서만 극소이고 $r(k)=-(k^2+4)^2<0$이다. 따라서 $r(y)=0$은 서로 다른 두 근을 갖는다.
+        경우 2) $k=4\sqrt2$: $r'(y)=4(y-4\sqrt2)(y+2\sqrt2)^2$이므로 $r$은 $y=-2\sqrt2$까지 감소, $y=4\sqrt2$에서 극소 $-1296<0$이고 그 뒤 증가한다. 따라서 $r(y)=0$은 서로 다른 두 근을 갖는다.
+      criteria: [3.M2]
+    - id: 3b-3
+      content: |
+        경우 3) $k>4\sqrt2$: ㉡으로부터 $r'(y)=0$이면 $y=k$, $\dfrac12\left(-k\pm\sqrt{k^2-32}\right)$이다. $c=\dfrac12\left(-k-\sqrt{k^2-32}\right)$, $d=\dfrac12\left(-k+\sqrt{k^2-32}\right)<0$이라 하면 $r$은 $c$에서 극소, $d$에서 극대($r(d)>r(0)=8(k^2-2)>0$), $k$에서 극소($-(k^2+4)^2<0$)이다.
+        [증감표: $y<c$ 감소, $c<y<d$ 증가, $d<y<k$ 감소, $y>k$ 증가]
+      criteria: [3.M2]
+    - id: 3b-4
+      content: |
+        또한 ㉡으로부터 $c^2+kc+8=0$, $c^3=8k-(8-k^2)c$이므로 제시문 <라>를 이용하면
+        $r(c)=8kc-(8-k^2)(kc+8)-32kc+8(k^2-2)=k(k^2-32)c+16(k^2-5)=-2h\left(\dfrac{k}{\sqrt2}\right)$이다.
+      criteria: [3.A1]
+    - id: 3b-5
+      content: |
+        $r(c)>0$, 즉 $h\left(\dfrac{k}{\sqrt2}\right)<0$이면 $r(y)=0$은 서로 다른 두 개의 근을 갖고, $r(c)<0$, 즉 $h\left(\dfrac{k}{\sqrt2}\right)>0$이면 서로 다른 네 개의 근을 갖는다. 제시문 <라>에 의하여 $k<5\sqrt2$이면 두 개, $k>5\sqrt2$이면 네 개의 근을 갖는다.
+        원 $C$와 포물선의 서로 다른 교점의 개수는 방정식 $r(y)=0$의 서로 다른 근의 개수와 같으므로 구하는 양수 $k_0$은 $5\sqrt2$이다.
+      criteria: [3.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 5
+      evidence: |
+        원 $C$의 방정식에 $x=\dfrac{y^2}{4}$를 대입하여 $y$에 대한 다항식 $r(y)$를 구했다. [카드 배점 10 → 5]
+      depends_on: []
+      implied_ok: false
+      steps: [3b-1]
+    - id: 3.M2
+      mark_type: M
+      points: 5
+      evidence: |
+        도함수 $r'(y)=4(y-k)(y^2+ky+8)$를 활용하여 $k$의 범위별로 그래프의 개형을 파악하였다. [카드 배점 10 → 5]
+      depends_on: [3.M1]
+      implied_ok: false
+      steps: [3b-2, 3b-3]
+    - id: 3.A1
+      mark_type: A
+      points: 10
+      evidence: |
+        $r(c)=-2h\left(\tfrac{k}{\sqrt2}\right)$와 <라>를 이용해 양수 $k_0=5\sqrt2$를 적절히 구했다. [카드 배점 20 → 10]
+      depends_on: [3.M2]
+      steps: [3b-4, 3b-5]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+remedy_links: []
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: hyu-past-v1, item_version: 1, verdict: pass, date: 2026-11-22}
+- {stage: verify, actor_type: system, actor_id: verify/HYU-G22D.py, item_version: 1, verdict: pass, date: 2026-11-22}
+
+created: 2026-11-22
+updated: 2026-11-22

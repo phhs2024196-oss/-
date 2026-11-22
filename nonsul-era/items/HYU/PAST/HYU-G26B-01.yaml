@@ -1,0 +1,308 @@
+# 한양대 2026학년도 논술 자연계열(오후1) [문제 1] — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: HYU-G26B-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: HYU
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 분류
+points: 50
+time_estimate_min: 45
+intent: |
+  수학Ⅰ·수학Ⅱ·미적분의 지수함수와 로그함수, 수열, 미분, 적분 단원의 기본 내용을 바탕으로 논리적으로 결론에 도달하는지 본다. 지수·로그의 관계로 점의 $x$좌표를 구해 지수함수의 정적분으로 넓이를 구하고, $y_k$와 $y_{k+1}$ 사이의 귀납적 관계식으로 $y_1$을 구하며, 그래프와 삼각함수의 덧셈정리·적분으로 $\int_0^{2026\pi}\lvert f'(x)\rvert dx$의 최솟값을 구한다.
+key_idea: |
+  1은 $2^{s_1-3}+35=2^{s_1-1}$에서 $2^{s_1}=\frac{280}{3}$. 2는 $y_{k+1}=2^{\log_2y_k-3}+35=\frac18y_k+35$. 3은 $f'(t)=g(t)=a\sin t+b\lvert\sin2t\rvert$의 부호가 $(0,\pi)$, $(\pi,2\pi)$에서 각각 일정할 조건 $\lvert a\rvert\ge2\lvert b\rvert$ ($a\ne0$)와 $\int_0^{2\pi}\lvert g\rvert=4\lvert a\rvert$.
+stuck: |
+  3에서 단조 조건을 $g(t)=f'(t)$의 부호 조건으로 바꾸고, $a\sin t\le2b\sin t\cos t$를 $\sin t$의 부호로 나누어 $a\ge2b\cos t$ ⇒ $a\ge2b$로 정리하는 것
+idea_tags: [IDEA-EXP-LOG-INVERSE-POINTS, IDEA-RECURRENCE-AFFINE, IDEA-MONOTONE-SIGN-CONDITION]
+tags: [지수함수, 로그함수, 귀납적 정의, 등비수열의 합, 절댓값 적분, 경우 나누기, 배점환산]
+elements:
+  materials:
+  - '곡선 $y=2^x$ 위의 점 $\mathrm{A}_1$($x\ge6$)에서 $x$축 수선과 $y=2^{x-3}+35$, $y$축 수선과 $y=2^x$를 번갈아 만나는 점열 $\mathrm{A}_n$'
+  - '$y_k$ = 점 $\mathrm{A}_{2k-1}$의 $y$좌표, $y_5=\frac{10725}{256}$'
+  - '$f(x)=\int_0^x(a\sin t+b\lvert\sin2t\rvert)dt$, $a^2+b^2=1$, $(0,\pi)$·$(\pi,2\pi)$에서 각각 단조'
+  concepts: [지수함수와 로그함수의 관계, 지수함수의 정적분, 수열의 귀납적 정의, 등비수열의 합, 함수의 증가와 감소, 삼각함수의 덧셈정리, 주기함수의 적분]
+  tools:
+  - '$s_2=\log_2(2^{s_1-3}+35)=s_1-1$'
+  - '$\int_{s_2}^{s_1}2^xdx=\frac{2^{s_1}-2^{s_2}}{\ln2}$에서 직사각형 넓이 빼기'
+  - '$y_{k+1}=\frac18y_k+35$ 반복, $8^4$ 곱하기'
+  - '$g=f''$ 부호 조건, $\sin2t=2\sin t\cos t$'
+  - '$\sin(x+\pi)=-\sin x$, $\lvert\sin2x\rvert$ 주기 $\frac\pi2$'
+  conditions:
+  - '$\mathrm{A}_1$의 $x$좌표 $\ge6$'
+  - '$\overline{\mathrm{A_2A_3}}=1$'
+  - '단조 ⇔ 구간에서 $g\ge0$ 또는 $g\le0$'
+  - '$a\ne0$이면 $\lvert a\rvert\ge2\lvert b\rvert$, $a^2+b^2=1$ ⇒ $\frac{2}{\sqrt5}\le\lvert a\rvert\le1$'
+  stimuli_used: [가, 나]
+  subpart_links: '1·2는 제시문 <가>, 3은 제시문 <나>를 사용'
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅰ, 수학Ⅱ, 미적분]
+  scope_2028: calc2
+  scope_confirmed: false
+  standards:
+  - code: 12수학Ⅰ01-07
+    text: 지수함수와 로그함수의 그래프를 그릴 수 있고, 그 성질을 이해한다.
+    verified: true
+  - code: 12미적03-03
+    text: 여러 가지 함수의 부정적분과 정적분을 구할 수 있다.
+    verified: true
+  - code: 12수학Ⅰ01-08
+    text: 지수함수와 로그함수를 활용하여 문제를 해결할 수 있다.
+    verified: true
+  - code: 12수학Ⅰ03-06
+    text: 수열의 귀납적 정의를 이해한다.
+    verified: true
+  - code: 12수학Ⅱ02-08
+    text: 함수의 증가와 감소, 극대와 극소를 판정하고 설명할 수 있다.
+    verified: true
+  - code: 12미적02-03
+    text: 삼각함수의 덧셈정리를 이해한다.
+    verified: true
+  content_area: 지수·로그함수·수열의 귀납적 정의·도함수의 활용·정적분
+  behavior_domain: 문제해결
+  unit_path: [미적분, 적분법, 정적분의 활용, 넓이]
+  key_concepts: [지수함수와 로그함수의 관계, 지수함수의 정적분, 수열의 귀납적 정의, 등비수열의 합, 함수의 증가와 감소, 삼각함수의 덧셈정리, 주기함수의 적분]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 한양대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 한양대학교
+  admission_year: 2026
+  admission_type: 수시 논술
+  track: 자연계열(오후1)
+  question_no: 1
+  official_url: https://go.hanyang.ac.kr/web/pds/pds_view.do?m_type=SUSI&bn=20601
+  retrieved_at: 2026-11-21
+  original_points: [15, 15, 20]
+  rights_notice: 한양대학교 입학처 공개 기출(내부 분석용)
+  transcribed_from: 2026학년도 자연계열 논술(오후1) 문제지 p.2, 해설 근거 2026학년도 선행학습 영향평가 자체평가보고서 문항카드7 p.102~108 (원본 PDF 이미지 대조 2026-11-21). 채점기준 배점(30·30·40, 100점 기준)을 1/2로 환산
+
+verify: verify/HYU-G26B.py::p01
+
+stimuli:
+- label: 가
+  body: |
+    곡선 $y=2^x$ 위에 $x$좌표가 $6$ 이상인 점 $\mathrm{A}_1$이 있다. 자연수 $n$에 대하여
+    $n$이 홀수이면 점 $\mathrm{A}_{n+1}$은 점 $\mathrm{A}_n$에서 $x$축에 내린 수선과 곡선 $y=2^{x-3}+35$가 만나는 점이고,
+    $n$이 짝수이면 점 $\mathrm{A}_{n+1}$은 점 $\mathrm{A}_n$에서 $y$축에 내린 수선과 곡선 $y=2^x$이 만나는 점이다.
+    자연수 $k$에 대하여 점 $\mathrm{A}_{2k-1}$의 $y$좌표를 $y_k$라 하자.
+- label: 나
+  body: |
+    $a^2+b^2=1$인 두 실수 $a$, $b$에 대하여 함수 $f(x)=\displaystyle\int_0^x\left(a\sin t+b\lvert\sin(2t)\rvert\right)dt$가 다음 조건을 만족시킨다.
+    (1) 함수 $f(x)$가 구간 $(0,\pi)$에서 증가하거나 구간 $(0,\pi)$에서 감소한다.
+    (2) 함수 $f(x)$가 구간 $(\pi,2\pi)$에서 증가하거나 구간 $(\pi,2\pi)$에서 감소한다.
+
+stem: |
+  [문제 1] 다음 제시문을 읽고 물음에 답하시오. (50점)
+
+subparts:
+- id: '1'
+  stem: |
+    $\overline{\mathrm{A_2A_3}}=1$일 때 두 선분 $\mathrm{A_1A_2}$, $\mathrm{A_2A_3}$과 곡선 $y=2^x$으로 둘러싸인 도형의 넓이를 구하시오.
+  points: 15
+  depends_on: []
+  answer: {kind: value, value: '140/(3*log(2)) - 140/3', equivalents: ['140/3*(1/log(2) - 1)'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $2^{s_1-1}=2^{s_1-3}+35$에서 $2^{s_1}=\frac{280}{3}$, 넓이 $=\int_{s_1-1}^{s_1}2^xdx-\frac{140}{3}$.
+    steps:
+    - {id: 1a, content: '$\frac{1}{\ln2}\left(\frac{280}{3}-\frac{140}{3}\right)-\frac{140}{3}=\frac{140}{3}\left(\frac{1}{\ln2}-1\right)$', criteria: ['1.M1', '1.A1']}
+    hint_ladder:
+    - $\mathrm{A}_2$와 $\mathrm{A}_3$의 $y$좌표는 같다.
+    - $\mathrm{A}_3$의 $x$좌표를 $\mathrm{A}_1$의 $x$좌표로 나타내 보자.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 2026 선행학습 영향평가 보고서 문항카드7 p.105 예시답안 1
+    steps:
+    - id: 1b-1
+      content: |
+        $\mathrm{A}_1$의 $x$좌표를 $s_1$, $\mathrm{A}_3$의 $x$좌표를 $s_2$라 하면 조건에 의해 $s_1=s_2+1$이다. $\mathrm{A}_2$의 $y$좌표는 $2^{s_1-3}+35$이므로 $s_2=\log_2(2^{s_1-3}+35)=s_1-1$이고 $2^{s_1-3}+35=2^{s_1-1}$, $2^{s_1}=\dfrac{280}{3}$, $s_1=\log_2\dfrac{280}{3}$, $s_2=\log_2\dfrac{140}{3}$이다.
+      criteria: ['1.M1']
+    - id: 1b-2
+      content: |
+        $\mathrm{A}_1$, $\mathrm{A}_3$에서 $x$축에 내린 수선의 발을 $\mathrm{B}$, $\mathrm{C}$라 하면 곡선 $y=2^x$와 선분 $\mathrm{A_1B}$, $\mathrm{BC}$, $\mathrm{CA_3}$으로 둘러싸인 영역의 넓이는 $\displaystyle\int_{s_2}^{s_1}2^xdx=\frac{1}{\ln2}\left(\frac{280}{3}-\frac{140}{3}\right)=\frac{140}{3\ln2}$이다. (공식 예시답안의 「곡선 $y=f(x)$」는 곡선 $y=2^x$의 오기로 보아 고쳐 적음)
+      criteria: ['1.A1']
+    - id: 1b-3
+      content: |
+        구하는 넓이는 직사각형 $\mathrm{A_2BCA_3}$의 넓이 $1\times\frac{140}{3}$을 빼서 $\dfrac{140}{3\ln2}-\dfrac{140}{3}=\dfrac{140}{3}\left(\dfrac{1}{\ln2}-1\right)$이다.
+      criteria: ['1.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 8
+      evidence: |
+        $\mathrm{A}_1$과 $\mathrm{A}_3$(또는 $\mathrm{A}_2$)의 $x$좌표를 $\log_2\frac{280}{3}$, $\log_2\frac{140}{3}$로 표현했다(공식 15점 → 8).
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1, 1a]
+    - id: 1.A1
+      mark_type: A
+      points: 7
+      evidence: |
+        지수함수의 적분으로 넓이 $\frac{140}{3}\left(\frac{1}{\ln2}-1\right)$을 구했다(공식 15점 → 7).
+      depends_on: [1.M1]
+      steps: [1b-2, 1b-3, 1a]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '2'
+  stem: |
+    $y_5=\dfrac{10725}{256}$일 때 $y_1$의 값을 구하시오.
+  points: 15
+  depends_on: []
+  answer: {kind: value, value: '7800', equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: $y_{k+1}=\frac18y_k+35$이므로 $y_5=\frac{1}{8^4}y_1+35\left(1+\frac18+\frac1{8^2}+\frac1{8^3}\right)$.
+    steps:
+    - {id: 2a, content: '$y_1+40\times63\times65=5\times33\times65\times2^4\Rightarrow y_1=7800$', criteria: ['2.M1', '2.A1']}
+    hint_ladder:
+    - $\mathrm{A}_{2k-1}$의 $x$좌표를 $y_k$로 나타내 보자.
+  - id: S2-B
+    audience: B
+    method_no: 1
+    source_flow: 2026 선행학습 영향평가 보고서 문항카드7 p.105 예시답안 2
+    steps:
+    - id: 2b-1
+      content: |
+        $\mathrm{A}_{2k-1}$의 $y$좌표가 $y_k$이므로 $x$좌표는 $\log_2y_k$이다. 따라서 $\mathrm{A}_{2k+1}$의 $y$좌표는 $y_{k+1}=2^{\log_2y_k-3}+35=\dfrac18y_k+35$이다.
+      criteria: ['2.M1']
+    - id: 2b-2
+      content: |
+        이를 반복하면 $y_2=\frac18y_1+35$, $y_3=\frac1{8^2}y_1+35\left(1+\frac18\right)$, $y_4=\frac1{8^3}y_1+35\left(1+\frac18+\frac1{8^2}\right)$, $y_5=\frac1{8^4}y_1+35\left(1+\frac18+\frac1{8^2}+\frac1{8^3}\right)=\frac{10725}{256}$.
+      criteria: ['2.A1']
+    - id: 2b-3
+      content: |
+        양변에 $8^4$을 곱하면 $y_1+35(8^4+8^3+8^2+8)=y_1+35\cdot\dfrac{8(8^4-1)}{8-1}=y_1+40\times63\times65=5\times33\times65\times2^4$이므로 $y_1=40\times65\times(2\times33-63)=7800$이다.
+      criteria: ['2.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 8
+      evidence: |
+        두 항 사이의 관계식 $y_{k+1}=\frac18y_k+35$를 구했다(공식 15점 → 8).
+      depends_on: []
+      implied_ok: false
+      steps: [2b-1, 2a]
+    - id: 2.A1
+      mark_type: A
+      points: 7
+      evidence: |
+        $y_5=\frac{10725}{256}$에서 $y_1=7800$을 구했다(공식 15점 → 7).
+      depends_on: [2.M1]
+      steps: [2b-2, 2b-3, 2a]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '3'
+  stem: |
+    정적분 $\displaystyle\int_0^{2026\pi}\lvert f'(x)\rvert dx$의 값이 최소가 되도록 하는 모든 순서쌍 $(a,b)$와 그 최솟값을 구하시오.
+  points: 20
+  depends_on: []
+  answer: {kind: expression, value: 'min = 8104*sqrt(5)/5; pairs = [(2/sqrt(5), 1/sqrt(5)), (2/sqrt(5), -1/sqrt(5)), (-2/sqrt(5), 1/sqrt(5)), (-2/sqrt(5), -1/sqrt(5))]', equivalents: [], tolerance: null}
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: $a=0$이면 값은 $4052$. $a\ne0$이면 조건이 $\lvert a\rvert\ge2\lvert b\rvert$이고 값은 $4052\lvert a\rvert\ge\frac{8104}{\sqrt5}$.
+    steps:
+    - {id: 3a, content: '$\int_0^{2\pi}\lvert g\rvert=4\lvert a\rvert$, $\frac{2}{\sqrt5}\le\lvert a\rvert\le1$ ⇒ 최솟값 $\frac{8104}{\sqrt5}$, $(a,b)=\left(\pm\frac{2}{\sqrt5},\pm\frac{1}{\sqrt5}\right)$', criteria: ['3.M1', '3.M2', '3.A1']}
+    hint_ladder:
+    - $f'(t)$는 무엇인가? 증가 또는 감소는 $f'$의 부호와 어떤 관계인가?
+    - $a$와 $b$의 부호에 따라 $g(t)$의 그래프를 그려 보자.
+  - id: S3-B
+    audience: B
+    method_no: 1
+    source_flow: 2026 선행학습 영향평가 보고서 문항카드7 p.106~108 예시답안 3
+    steps:
+    - id: 3b-1
+      content: |
+        $g(t)=a\sin t+b\lvert\sin(2t)\rvert$라 하자. $g(t)=\displaystyle\lim_{h\to0+}\frac{f(t+h)-f(t)}{h}$이므로 조건 (1)에 의해 $(0,\pi)$에서 $g\ge0$이거나 $g\le0$이고, 조건 (2)에 의해 $(\pi,2\pi)$에서 $g\ge0$이거나 $g\le0$이다.
+      criteria: ['3.M1']
+    - id: 3b-2
+      content: |
+        (i) $a=0$일 때: $(a,b)=(0,\pm1)$이고 $\lvert f'(x)\rvert=\lvert\sin2x\rvert$, 주기가 $\frac\pi2$이므로 $\displaystyle\int_0^{2026\pi}\lvert f'(x)\rvert dx=4052\int_0^{\pi/2}\lvert\sin2x\rvert dx=4052$.
+      criteria: ['3.M2']
+    - id: 3b-3
+      content: |
+        (ii) ① $a>0$, $b\ge0$: $g\left(\frac32\pi\right)=-a<0$이므로 $(\pi,2\pi)$에서 $g\le0$, 즉 $a\sin t\le b\sin2t=2b\sin t\cos t$. $(\pi,2\pi)$에서 $\sin t<0$이므로 $a\ge2b\cos t$이고 $-1\le\cos t\le1$이므로 $a\ge2b$. $a^2+b^2=1$이므로 $\frac{2}{\sqrt5}\le a\le1$.
+        [그림: $y=a\sin x$와 $y=b\lvert\sin2x\rvert$의 그래프 ($0\le x\le2\pi$)]
+        $(0,\pi)$에서 $g\ge0$, $(\pi,2\pi)$에서 $g\le0$이고 $\sin(x+\pi)=-\sin x$, $\sin2x=\sin2(x+\pi)$이므로 $\displaystyle\int_0^{2\pi}\lvert g\rvert dx=\int_0^\pi g\,dx-\int_\pi^{2\pi}g\,dx=2a\int_0^\pi\sin x\,dx=4a$. $\lvert g\rvert$의 주기가 $2\pi$이므로 $\int_0^{2026\pi}\lvert g\rvert=4052a$이고 최솟값 $\frac{8104}{\sqrt5}$, $(a,b)=\left(\frac{2}{\sqrt5},\frac{1}{\sqrt5}\right)$.
+      criteria: ['3.M1', '3.M2']
+    - id: 3b-4
+      content: |
+        ② $a>0$, $b<0$: $g\left(\frac\pi2\right)=a>0$이고 $(0,\pi)$에서 $g\ge0$이므로 $a\ge-2b\lvert\cos t\rvert$ 꼴에서 $a\ge-2b$, 즉 $\frac{2}{\sqrt5}\le a\le1$, 값 $4052a$, 최소일 때 $\left(\frac{2}{\sqrt5},-\frac{1}{\sqrt5}\right)$.
+        ③ $a<0$, $b\ge0$: $g\left(\frac\pi2\right)=a<0$, $-a\ge2b$, $\int_0^{2\pi}\lvert g\rvert=-4a$, 값 $-4052a$, 최소일 때 $\left(-\frac{2}{\sqrt5},\frac{1}{\sqrt5}\right)$.
+        ④ $a<0$, $b<0$: $g\left(\frac32\pi\right)=-a>0$, $-a\ge-2b$, 값 $-4052a$, 최소일 때 $\left(-\frac{2}{\sqrt5},-\frac{1}{\sqrt5}\right)$.
+        (공식 예시답안 ②의 「$a\ge2b$」는 $b<0$에서 자명하므로 $a\ge-2b=2\lvert b\rvert$의 오기로 보아 고쳐 적음. 네 경우 모두 $\lvert a\rvert\ge2\lvert b\rvert$)
+      criteria: ['3.M2']
+    - id: 3b-5
+      content: |
+        (i), (ii)에 의해 $\displaystyle\int_0^{2026\pi}\lvert f'(x)\rvert dx$의 최솟값은 $\dfrac{8104}{\sqrt5}$이고 순서쌍은 $\left(\frac{2}{\sqrt5},\frac{1}{\sqrt5}\right)$, $\left(\frac{2}{\sqrt5},-\frac{1}{\sqrt5}\right)$, $\left(-\frac{2}{\sqrt5},\frac{1}{\sqrt5}\right)$, $\left(-\frac{2}{\sqrt5},-\frac{1}{\sqrt5}\right)$이다.
+      criteria: ['3.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 5
+      evidence: |
+        $a\ne0$일 때 조건 (1)(2)의 필요충분조건이 $\lvert a\rvert\ge2\lvert b\rvert$임을 구했다(공식 10점 → 5).
+      depends_on: []
+      implied_ok: false
+      steps: [3b-1, 3b-3, 3a]
+    - id: 3.M2
+      mark_type: M
+      points: 10
+      evidence: |
+        $a$와 $b$의 부호로 경우를 나누고 각 경우 정적분의 최솟값($4052$ 또는 $4052\lvert a\rvert$의 최솟값)을 구했다(공식 20점 → 10).
+      depends_on: []
+      implied_ok: false
+      steps: [3b-2, 3b-3, 3b-4, 3a]
+    - id: 3.A1
+      mark_type: A
+      points: 5
+      evidence: |
+        순서쌍 $\left(\pm\frac{2}{\sqrt5},\pm\frac{1}{\sqrt5}\right)$ 네 개와 최솟값 $\frac{8104}{\sqrt5}$을 구했다(공식 10점 → 5).
+      depends_on: [3.M1, 3.M2]
+      steps: [3b-5, 3a]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+remedy_links: []
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: hyu-past-v1, item_version: 1, verdict: pass, date: 2026-11-22}
+- {stage: verify, actor_type: system, actor_id: verify/HYU-G26B.py, item_version: 1, verdict: pass, date: 2026-11-22}
+
+created: 2026-11-22
+updated: 2026-11-22

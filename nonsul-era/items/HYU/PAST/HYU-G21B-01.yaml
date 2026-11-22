@@ -1,0 +1,281 @@
+# 한양대 2021학년도 논술전형 자연계열(오후1) [문제 1] — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: HYU-G21B-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: HYU
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 전수
+points: 50
+time_estimate_min: 45
+intent: |
+  확률과 통계의 이항분포와 표준정규분포의 관계, 경우의 수, 같은 것이 있는 순열, 확률의 덧셈·곱셈정리를 종합적으로 이해하여 논리적으로 문제를 해결할 수 있는지를 본다(문항카드7 출제 의도 요지).
+key_idea: |
+  (1) $\mathrm{B}(50,\frac13)\approx\mathrm{N}\!\left(\frac{50}{3},(\frac{10}{3})^2\right)$로 표준화, (2)(3) 점수 합이 되는 득점 조합을 빠짐없이 나열하고 같은 것이 있는 순열로 경우의 수를 센다.
+stuck: |
+  (2) 7점 이상이 되는 득점 조합(2,2,2,2,2 / 2,2,2,2,1 / … / 2,2,1,1,1) 여섯 가지를 빠짐없이 찾는 것, (3) A의 점수별로 B가 더 높은 점수를 얻는 경우를 정리하는 것.
+idea_tags: [IDEA-BINOMIAL-NORMAL-APPROX, IDEA-SCORE-PARTITION-ENUM]
+tags: [기출, 한양대, 확률, 이항분포, 정규분포, 배점환산]
+elements:
+  materials:
+  - '야구방망이 놀이: 50m 이상 2점, 50m 미만 1점, 못 치면 0점'
+  - '학생 A·B의 득점 확률표(A: $\frac16,\frac13,\frac12$, B: $\frac14,\frac1{12},\frac23$)'
+  - '표준정규분포표 $z=0.5,1.0,1.5,2.0,2.5$'
+  concepts:
+  - '이항분포'
+  - '정규분포와 표준화'
+  - '같은 것이 있는 순열'
+  - '확률의 덧셈정리'
+  - '확률의 곱셈정리(독립시행)'
+  tools:
+  - '$np$, $nq>5$ 확인 후 정규근사'
+  - '$Z=\dfrac{Y-m}{\sigma}$ 표준화와 대칭성 $P(-2\le Z\le0)=P(0\le Z\le2)$'
+  - '득점 조합 표 작성과 $\dfrac{5!}{p!q!r!}$'
+  - 'A의 점수별 조건부 합 $\sum P(A=i)P(B>i)$'
+  conditions:
+  - 'B가 공을 칠 확률 $\frac14+\frac1{12}=\frac13$'
+  - '5회 점수 합 $\ge7$'
+  - 'A와 B의 시행은 서로 독립'
+  stimuli_used: [가, 나]
+  subpart_links: '세 소문항은 같은 제시문 <가>를 쓰되 계산은 서로 독립'
+
+curriculum:
+  version: '2015'
+  subjects: [확률과통계]
+  scope_2028: unknown
+  scope_confirmed: false
+  standards:
+  - code: 12확통03-04
+    text: 정규분포의 뜻을 알고, 그 성질을 이해한다.
+    verified: false
+  - code: 12확통02-03
+    text: 확률의 덧셈정리를 이해하고, 이를 활용할 수 있다.
+    verified: false
+  - code: 12확통02-07
+    text: 확률의 곱셈정리를 이해하고, 이를 활용할 수 있다.
+    verified: false
+  content_area: 확률 – 확률의 뜻과 활용·조건부확률, 통계 – 확률분포
+  behavior_domain: 문제해결
+  unit_path: [확률과통계, 확률, 확률의 뜻과 활용, 독립시행의 확률]
+  key_concepts: [이항분포, 정규분포와 표준화, 같은 것이 있는 순열, 확률의 덧셈정리, 확률의 곱셈정리(독립시행)]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 한양대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 한양대학교
+  admission_year: 2021
+  admission_type: 수시 논술
+  track: 자연계열(오후1)
+  question_no: 1
+  official_url: https://go.hanyang.ac.kr/web/pds/pds_view.do?m_type=SUSI&bn=703
+  retrieved_at: 2026-11-21
+  original_points: [10, 20, 20]
+  rights_notice: 한양대학교 입학처 공개 기출(내부 분석용)
+  transcribed_from: 2021학년도 한양대 논술전형 자연계열(오후1) 문제지 p.2, 해설 근거 2021학년도 선행학습 영향평가 자체평가보고서 문항카드7(보고서 PDF p.62–66, 인쇄 쪽 60–64) (원본 PDF 이미지 대조 2026-11-21)
+
+verify: verify/HYU-G21B.py::p01
+
+stimuli:
+- label: 가
+  body: |
+    학생 $\mathrm{A}$와 $\mathrm{B}$가 다음과 같이 야구방망이를 휘둘러서 공을 치는 놀이를 한다.
+    (1) 공을 쳐서 날아간 거리가 $50\,\mathrm{m}$ 이상인 경우 $2$점, 공을 쳐서 날아간 거리가 $50\,\mathrm{m}$ 미만인 경우 $1$점, 공을 치지 못한 경우 $0$점을 얻는다.
+    (2) 학생 $\mathrm{A}$와 $\mathrm{B}$가 다음과 같은 확률로 공을 친다.
+    [표: 공을 쳐서 날아간 거리가 $50\,\mathrm{m}$ 이상일 확률 — 학생 $\mathrm{A}$: $\frac16$, 학생 $\mathrm{B}$: $\frac14$ / 공을 쳐서 날아간 거리가 $50\,\mathrm{m}$ 미만일 확률 — 학생 $\mathrm{A}$: $\frac13$, 학생 $\mathrm{B}$: $\frac{1}{12}$ / 공을 치지 못할 확률 — 학생 $\mathrm{A}$: $\frac12$, 학생 $\mathrm{B}$: $\frac23$]
+- label: 나
+  body: |
+    [표: 표준정규분포표 — $z$와 $\mathrm{P}(0\le Z\le z)$: $0.5$ → $0.1915$, $1.0$ → $0.3413$, $1.5$ → $0.4332$, $2.0$ → $0.4772$, $2.5$ → $0.4938$]
+
+stem: |
+  [문제 1] 다음 제시문을 읽고 물음에 답하시오. (50점)
+
+subparts:
+- id: '1'
+  stem: |
+    학생 $\mathrm{B}$가 야구방망이를 휘두르는 시행을 $50$회 반복했을 때 공을 친 횟수가 $10$ 이상이고 $20$ 이하일 확률을 표준정규분포표를 이용하여 구하시오.
+  points: 10
+  depends_on: []
+  answer: {kind: value, value: '0.8185', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: |
+      $Y\sim\mathrm{B}(50,\frac13)\approx\mathrm{N}\!\left(\frac{50}{3},(\frac{10}{3})^2\right)$이고 $10$, $20$은 각각 $z=-2$, $1$이다.
+    steps:
+    - {id: 1a, content: '$P(-2\le Z\le1)=0.4772+0.3413=0.8185$', criteria: ['1.M1', '1.A1']}
+    hint_ladder:
+    - B가 공을 칠 확률은 두 칸의 합이다.
+    - 평균과 표준편차를 구해 표준화하자.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: '선행학습 영향평가 자체평가보고서 2021 문항카드7 p.64(인쇄 62쪽 예시 답안 1)'
+    steps:
+    - id: 1b-1
+      content: |
+        학생 $\mathrm{B}$가 $50$번의 기회 중에 공을 친 횟수를 확률변수 $Y$라 하자. 학생 $\mathrm{B}$가 공을 칠 확률은 $\frac14+\frac1{12}=\frac13$이므로 $Y$는 이항분포 $\mathrm{B}\left(50,\frac13\right)$을 따른다. 이때 $\dfrac{50}{3}$, $\dfrac{50\times2}{3}>5$이므로 $\mathrm{B}\left(50,\frac13\right)$은 근사적으로 정규분포 $\mathrm{N}\!\left(\dfrac{50}{3},\left(\dfrac{10}{3}\right)^2\right)$을 따른다.
+      criteria: ['1.M1']
+    - id: 1b-2
+      content: |
+        $\mathrm{P}(10\le Y\le20)=\mathrm{P}\left(\dfrac{10-\frac{50}{3}}{\frac{10}{3}}\le Z\le\dfrac{20-\frac{50}{3}}{\frac{10}{3}}\right)=\mathrm{P}(-2\le Z\le1)=\mathrm{P}(0\le Z\le2)+\mathrm{P}(0\le Z\le1)=0.4772+0.3413=0.8185$.
+      criteria: ['1.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 5
+      evidence: |
+        $Y\sim\mathrm{B}(50,\frac13)$에서 근사적으로 $\mathrm{N}\!\left(\frac{50}{3},(\frac{10}{3})^2\right)$을 이끌어 냈다(공식 10/100점 → 5점 환산).
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1]
+    - id: 1.A1
+      mark_type: A
+      points: 5
+      evidence: |
+        표준화 후 표준정규분포표로 $0.8185$를 구했다(공식 10/100점 → 5점 환산).
+      depends_on: [1.M1]
+      steps: [1b-2]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '2'
+  stem: |
+    학생 $\mathrm{A}$가 야구방망이를 휘두르는 시행을 $5$회 반복했을 때 얻은 점수가 $7$점 이상일 확률을 구하시오.
+  points: 20
+  depends_on: []
+  answer: {kind: value, value: '133/3888', equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: |
+      7~10점이 되는 득점 조합 6가지를 나열하고 같은 것이 있는 순열로 센다.
+    steps:
+    - {id: 2a, content: '$\frac{1}{6^5}(1+10+15+40+120+80)=\frac{266}{6^5}=\frac{133}{3888}$', criteria: ['2.M1', '2.A1']}
+    hint_ladder:
+    - 다섯 번의 득점(0·1·2점)으로 합이 7 이상이 되는 조합을 모두 적어 보자.
+  - id: S2-B
+    audience: B
+    method_no: 1
+    source_flow: '선행학습 영향평가 자체평가보고서 2021 문항카드7 p.64–65(인쇄 62–63쪽 예시 답안 2)'
+    steps:
+    - id: 2b-1
+      content: |
+        다섯 번의 차례를 통해 7점 이상을 얻을 때 가능한 득점과 경우의 수, 각 경우의 확률은 다음과 같다.
+        10점: (2,2,2,2,2) $1$가지, $\left(\frac16\right)^5$ / 9점: (2,2,2,2,1) $\frac{5!}{4!1!}=5$, $\left(\frac16\right)^4\left(\frac13\right)$ /
+        8점: (2,2,2,2,0) $5$, $\left(\frac16\right)^4\left(\frac12\right)$; (2,2,2,1,1) $\frac{5!}{3!2!}=10$, $\left(\frac16\right)^3\left(\frac13\right)^2$ /
+        7점: (2,2,2,1,0) $\frac{5!}{3!1!1!}=20$, $\left(\frac16\right)^3\left(\frac13\right)\left(\frac12\right)$; (2,2,1,1,1) $\frac{5!}{2!3!}=10$, $\left(\frac16\right)^2\left(\frac13\right)^3$.
+      criteria: ['2.M1']
+    - id: 2b-2
+      content: |
+        따라서 구하는 확률은
+        $1\times\left(\frac16\right)^5+5\times\left(\frac16\right)^4\left(\frac13\right)+5\times\left(\frac16\right)^4\left(\frac12\right)+10\times\left(\frac16\right)^3\left(\frac13\right)^2+20\times\left(\frac16\right)^3\left(\frac13\right)\left(\frac12\right)+10\times\left(\frac16\right)^2\left(\frac13\right)^3=\dfrac{1}{6^5}(1+10+15+40+120+80)=\dfrac{266}{6^5}=\dfrac{133}{3888}$이다.
+      criteria: ['2.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 10
+      evidence: |
+        7점 이상이 되는 득점 조합 6가지와 각 경우의 수($1,5,5,10,20,10$)를 정확히 파악했다(공식 20/100점 → 10점 환산).
+      depends_on: []
+      implied_ok: false
+      steps: [2b-1]
+    - id: 2.A1
+      mark_type: A
+      points: 10
+      evidence: |
+        각 경우의 확률을 더해 $\dfrac{133}{3888}$을 구했다(공식 20/100점 → 10점 환산).
+      depends_on: [2.M1]
+      steps: [2b-2]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '3'
+  stem: |
+    학생 $\mathrm{A}$와 $\mathrm{B}$가 야구방망이를 휘두르는 시행을 각각 $2$회 반복했을 때 학생 $\mathrm{B}$가 학생 $\mathrm{A}$보다 높은 점수를 얻을 확률을 구하시오.
+  points: 20
+  depends_on: []
+  answer: {kind: value, value: '31/96', equivalents: [], tolerance: null}
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: |
+      두 번 합계 점수(0~4점)의 분포를 A·B 각각 구하고 $\sum_i P(A=i)P(B>i)$를 계산한다.
+    steps:
+    - {id: 3a, content: '$\frac{5}{2^2\cdot3^2}+\frac{2^2}{3^3}+\frac{5^2}{2^5\cdot3^3}+\frac{1}{2^4\cdot3^2}=\frac{31}{96}$', criteria: ['3.M1', '3.A1']}
+    hint_ladder:
+    - 두 번 휘두른 점수의 합이 $0,1,2,3,4$가 될 확률표를 만들자.
+  - id: S3-B
+    audience: B
+    method_no: 1
+    source_flow: '선행학습 영향평가 자체평가보고서 2021 문항카드7 p.65–66(인쇄 63–64쪽 예시 답안 3)'
+    steps:
+    - id: 3b-1
+      content: |
+        두 차례에 받을 수 있는 점수별 확률은 다음과 같다(점수: A의 확률, B의 확률).
+        0점 (0,0): $\left(\frac12\right)^2$, $\left(\frac23\right)^2$ / 1점 (0,1) 2가지: $2\times\frac12\times\frac13$, $2\times\frac23\times\frac1{12}$ /
+        2점 (2,0) 2가지: $2\times\frac16\times\frac12$, $2\times\frac14\times\frac23$; (1,1): $\left(\frac13\right)^2$, $\left(\frac1{12}\right)^2$ /
+        3점 (2,1) 2가지: $2\times\frac16\times\frac13$, $2\times\frac14\times\frac1{12}$ / 4점 (2,2): $\left(\frac16\right)^2$, $\left(\frac14\right)^2$.
+        B가 A보다 높으려면 A가 $0$점이면 B는 $1\sim4$점, A가 $1$점이면 $2\sim4$점, A가 $2$점이면 $3\sim4$점, A가 $3$점이면 $4$점이어야 한다.
+      criteria: ['3.M1']
+    - id: 3b-2
+      content: |
+        (A 0점)×(B 1~4점) $=\left(\frac12\right)^2\cdot\dfrac{16+48+1+6+9}{12^2}=\dfrac{5}{2^2\times3^2}$,
+        (A 1점)×(B 2~4점) $=\left(\frac13\right)\cdot\dfrac{48+1+6+9}{12^2}=\dfrac{2^2}{3^3}$,
+        (A 2점)×(B 3~4점) $=\left(\frac{5}{18}\right)\cdot\dfrac{2+3}{48}=\dfrac{5^2}{2^5\times3^3}$,
+        (A 3점)×(B 4점) $=\left(2\times\frac1{18}\right)\left(\frac14\right)^2=\dfrac{1}{2^4\times3^2}$.
+        따라서 구하는 확률은 $\dfrac{120+128+25+6}{2^5\times3^3}=\dfrac{279}{2^5\times3^3}=\dfrac{31}{96}$이다.
+      criteria: ['3.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 10
+      evidence: |
+        두 학생의 점수별 경우의 수·확률표와 B가 더 높은 점수가 되는 경우를 정확히 파악했다(공식 20/100점 → 10점 환산).
+      depends_on: []
+      implied_ok: false
+      steps: [3b-1]
+    - id: 3.A1
+      mark_type: A
+      points: 10
+      evidence: |
+        각 경우의 확률을 합하여 $\dfrac{31}{96}$을 구했다(공식 20/100점 → 10점 환산).
+      depends_on: [3.M1]
+      steps: [3b-2]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+remedy_links: []
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: hyu-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+- {stage: verify, actor_type: system, actor_id: verify/HYU-G21B.py, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

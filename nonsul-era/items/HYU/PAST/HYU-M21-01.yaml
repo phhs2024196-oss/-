@@ -1,0 +1,265 @@
+# 한양대 2021학년도 수시 모의논술 자연계열 [문제 1] — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: HYU-M21-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: HYU
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 추론
+points: 50
+time_estimate_min: 25
+intent: |
+  삼각함수를 주제로 함수의 증감, 함수의 대칭성(우함수·기함수)에 따른 정적분 값, 부분적분법을 기초 지식으로 하여 주어진 상황에 적용할 수 있는지를 본다.
+key_idea: |
+  $\cos x$의 부호로 $x-\cos x$와 $x$의 대소를 정하고 $\sin x$의 증감을 적용한다. 적분은 피적분함수를 우함수·기함수로 나누어 기함수 부분을 지운다.
+stuck: |
+  1.에서 $x=\tfrac{\pi}{2}$ 앞뒤로 $\sin x$의 증감이 바뀌는 것과 $x-\cos x$가 $x$보다 작거나 큰 것이 맞물려 두 구간 모두 $\sin(x-\cos x)<\sin x$가 되는 점, 3.에서 두 적분을 더하면 기함수 부분이 사라지고 남는 적분만 계산하면 된다는 점
+idea_tags: [IDEA-SIGN-CASE-MONOTONE, IDEA-ODD-EVEN-INTEGRAL]
+tags: [삼각함수, 대칭 정적분, 부분적분, 배점환산]
+elements:
+  materials:
+  - '$\sin(x-\cos x)$와 $\sin x$의 대소 비교($[0,\pi]$)'
+  - '$\int_{-\pi/2}^{\pi/2}\{x\cos^2x+x^3\cos x+\sin x\}\,dx$'
+  - '$f(x)=2x\cos2x-\sin x$로 만든 두 정적분의 합'
+  concepts:
+  - 삼각함수의 그래프와 증감
+  - 평균값 정리
+  - 우함수·기함수의 정적분
+  - 부분적분법
+  tools:
+  - '$\cos x$의 부호에 따른 구간 나누기($x=\tfrac{\pi}{2}$ 기준)'
+  - '$\sin x$의 단조성($[0,\tfrac{\pi}{2})$ 증가, $(\tfrac{\pi}{2},\pi]$ 감소)'
+  - '기함수 적분 $=0$, 우함수 적분 $=2\int_0^{a}$'
+  - '부분적분 반복($x^2\cos2x$, $x\sin x$)'
+  conditions:
+  - '$x-\cos x$의 값이 $\sin x$의 증가·감소 구간 안에 머무는지 확인($x-\cos x\ge -1$, $\le\pi+1$)'
+  - '$2xf(x)-\cos2x$는 우함수, $2x\{2xf(x)-\cos2x\}-f(x)$는 기함수'
+  stimuli_used: []
+  subpart_links: null
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅰ, 수학Ⅱ, 미적분]
+  scope_2028: unknown
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 삼각함수의 그래프, 평균값 정리, 정적분의 성질, 부분적분법(출제 근거 — 수학Ⅰ 지학사 p81~84, 수학Ⅱ 비상 p74~77·p125~128, 미적분 좋은책신사고 p137~139)
+    verified: false
+  content_area: 삼각함수·적분법
+  behavior_domain: 이해
+  unit_path: [미적분, 적분법, 여러 가지 적분법, 부분적분법]
+  key_concepts: [삼각함수의 그래프와 증감, 평균값 정리, 우함수·기함수의 정적분, 부분적분법]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 한양대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 한양대학교
+  admission_year: 2021
+  admission_type: 수시 모의논술
+  track: 자연계열
+  question_no: 1
+  official_url: https://go.hanyang.ac.kr/web/pds/pds_view.do?m_type=SUSI&bn=910
+  retrieved_at: 2026-11-21
+  original_points: [20, 10, 20]
+  rights_notice: 한양대학교 입학처 공개 기출(내부 분석용)
+  transcribed_from: 2021 모의논술 자연계열 문제지 p.1, 해설 근거 출제의도 및 평가지침 1번(p.1)·모의논술 예시답안 1번(p.1) (원본 PDF 이미지 대조 2026-11-21). 평가지침 세부 배점(40·20·40, 100점 기준)을 문제 배점 50점에 맞춰 1/2로 환산
+
+verify: verify/HYU-M21.py::p01
+
+stimuli: []
+
+stem: |
+  다음 물음에 답하시오. (50점)
+
+subparts:
+- id: '1'
+  stem: |
+    닫힌구간 $[0,\pi]$에서 $\sin(x-\cos x)$와 $\sin x$의 크기를 비교하시오.
+  points: 20
+  depends_on: []
+  answer: {kind: expression, value: 'equal_at = pi/2; otherwise = sin(x - cos(x)) < sin(x)', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $x=\tfrac{\pi}{2}$에서는 같고, 그 앞에서는 $x-\cos x<x$와 $\sin$의 증가, 그 뒤에서는 $x-\cos x>x$와 $\sin$의 감소로 모두 $\sin(x-\cos x)<\sin x$.
+    steps:
+    - {id: 1a, content: '$\cos x$의 부호로 $[0,\tfrac{\pi}{2})$, $\{\tfrac{\pi}{2}\}$, $(\tfrac{\pi}{2},\pi]$로 나누어 비교', criteria: ['1.M1', '1.A1']}
+    hint_ladder:
+    - $\cos x$의 부호가 바뀌는 곳은 어디인가?
+    - $\sin x$가 증가하는 구간과 감소하는 구간에서 각각 $x-\cos x$와 $x$의 크기를 비교해 보자.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 2021 모의논술 예시답안 1번 p.1 문항 1
+    steps:
+    - id: 1b-1
+      content: |
+        (i) $x=\dfrac{\pi}{2}$: $\sin\left(\dfrac{\pi}{2}-\cos\dfrac{\pi}{2}\right)=\sin\dfrac{\pi}{2}$이므로 $\sin(x-\cos x)=\sin x$.
+      criteria: ['1.M1']
+    - id: 1b-2
+      content: |
+        (ii) $0\le x<\dfrac{\pi}{2}$: $\cos x>0$이므로 $x-\cos x<x$이고 $\sin x$는 $0\le x<\dfrac{\pi}{2}$에서 단조증가함수이므로 $\sin(x-\cos x)<\sin x$. (이때 $x-\cos x\ge -1>-\dfrac{\pi}{2}$이므로 $x-\cos x$도 $\sin$의 증가 구간 $\left[-\dfrac{\pi}{2},\dfrac{\pi}{2}\right]$ 안에 있다.)
+      criteria: ['1.M1']
+    - id: 1b-3
+      content: |
+        (iii) $\dfrac{\pi}{2}<x\le\pi$: $\cos x<0$이므로 $x-\cos x>x$이고 $\sin x$는 $\dfrac{\pi}{2}<x\le\pi$에서 단조감소함수이므로 $\sin(x-\cos x)<\sin x$. (이때 $x-\cos x\le\pi+1<\dfrac{3\pi}{2}$이므로 $\sin$의 감소 구간 안에 있다.)
+      criteria: ['1.M1']
+    - id: 1b-4
+      content: |
+        따라서 $x=\dfrac{\pi}{2}$일 때 $\sin(x-\cos x)=\sin x$이고, $[0,\pi]$의 나머지 $x$에서는 $\sin(x-\cos x)<\sin x$이다.
+      criteria: ['1.A1']
+  - id: S1-ALT
+    audience: ALT
+    method_no: 2
+    source_flow: 2021 모의논술 예시답안 1번 p.1 〈별해〉(평균값 정리)
+    key_idea: 평균값 정리로 $\sin x-\sin(x-\cos x)=\cos\alpha\cos x$를 만들고 $\cos\alpha$와 $\cos x$의 부호가 같음을 보인다.
+    steps:
+    - id: 1c-1
+      content: |
+        $0\le x<\dfrac{\pi}{2}$: $x-\cos x<x$이고 $[x-\cos x,x]$에서 평균값 정리를 적용하면 $\sin x-\sin(x-\cos x)=\cos\alpha\,(x-(x-\cos x))=\cos\alpha\cos x$인 $\alpha\in(x-\cos x,x)$가 존재한다. $x-\cos x\ge x-1\ge -1$이므로 $\cos\alpha>0$이고 $\sin x>\sin(x-\cos x)$.
+      criteria: ['1.M1']
+    - id: 1c-2
+      content: |
+        $\dfrac{\pi}{2}<x\le\pi$: $x-\cos x>x$이고 $[x,x-\cos x]$에서 평균값 정리로 $\sin(x-\cos x)-\sin x=\cos\alpha\,(-\cos x)$인 $\alpha\in(x,x-\cos x)$가 존재한다. $x-\cos x\le x+1\le\pi+1$이므로 $\cos\alpha<0$이고 $\sin x>\sin(x-\cos x)$. $x=\dfrac{\pi}{2}$에서는 두 값이 같다.
+      criteria: ['1.M1', '1.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 10
+      evidence: |
+        각 구간별로 $x-\cos x$의 값의 범위($x$보다 작은지 큰지)와 $\sin x$의 증감을 파악했다(평가지침 20/40).
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1, 1b-2, 1b-3, 1c-1, 1c-2]
+    - id: 1.A1
+      mark_type: A
+      points: 10
+      evidence: |
+        $x=\tfrac{\pi}{2}$에서 같고 나머지에서 $\sin(x-\cos x)<\sin x$라는 정리된 결론을 올바르게 제시했다(평가지침 20/40).
+      depends_on: ['1.M1']
+      steps: [1b-4, 1c-2]
+    deductions: []
+
+- id: '2'
+  stem: |
+    $\displaystyle\int_{-\frac{\pi}{2}}^{\frac{\pi}{2}}\left\{x\cos^2x+x^3\cos x+\sin x\right\}dx$의 값을 구하시오.
+  points: 10
+  depends_on: []
+  answer: {kind: value, value: '0', equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: 피적분함수가 기함수이므로 대칭 구간 적분값은 0.
+    steps:
+    - {id: 2a, content: '$g(-x)=-g(x)$ 확인 후 $\int_{-a}^{a}g=0$', criteria: ['2.M1']}
+    hint_ladder:
+    - 적분 구간이 원점에 대칭이다.
+  - id: S2-B
+    audience: B
+    method_no: 1
+    source_flow: 2021 모의논술 예시답안 1번 p.1 문항 2
+    steps:
+    - id: 2b-1
+      content: |
+        $g(x)=x\cos^2x+x^3\cos x+\sin x$라 하면 $x\cos^2x$, $x^3\cos x$, $\sin x$가 모두 기함수이므로 $g(-x)=-g(x)$, 즉 주어진 함수는 원점에 대칭인 함수이다. 따라서 $\left[-\dfrac{\pi}{2},\dfrac{\pi}{2}\right]$에서의 정적분 값은 $0$이다.
+      criteria: ['2.M1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 10
+      evidence: |
+        $y$축 대칭·원점 대칭 함수의 정적분 성질을 이용해(피적분함수가 기함수임을 밝히고) 답 $0$을 구했다(평가지침 20/20).
+      depends_on: []
+      implied_ok: false
+      steps: [2b-1]
+    deductions: []
+
+- id: '3'
+  stem: |
+    $f(x)=2x\cos2x-\sin x$일 때,
+    $$\int_{-\frac{\pi}{2}}^{\frac{\pi}{2}}\{2xf(x)-\cos2x\}\,dx+\int_{-\frac{\pi}{2}}^{\frac{\pi}{2}}\left[\,2x\{2xf(x)-\cos2x\}-f(x)\,\right]dx$$
+    의 값을 구하시오.
+  points: 20
+  depends_on: []
+  answer: {kind: value, value: '-2*pi - 4', equivalents: [], tolerance: null}
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: 첫째 피적분함수는 우함수, 둘째는 기함수이므로 $2\int_0^{\pi/2}\{4x^2\cos2x-2x\sin x-\cos2x\}dx$만 부분적분으로 계산.
+    steps:
+    - {id: 3a, content: '$=2\int_0^{\pi/2}\{4x^2\cos2x-2x\sin x-\cos2x\}dx=-2\pi-4+0$', criteria: ['3.M1', '3.A1']}
+    hint_ladder:
+    - 두 피적분함수를 전개해 각 항의 대칭성을 살펴보자.
+    - 남는 적분은 $x^2\cos2x$, $x\sin x$의 부분적분이다.
+  - id: S3-B
+    audience: B
+    method_no: 1
+    source_flow: 2021 모의논술 예시답안 1번 p.1 문항 3
+    steps:
+    - id: 3b-1
+      content: |
+        (1) $2xf(x)-\cos2x=4x^2\cos2x-2x\sin x-\cos2x$
+        (2) $2x\{2xf(x)-\cos2x\}=8x^3\cos2x-4x^2\sin x-4x\cos2x+\sin x$ 이므로 둘째 피적분함수는 $2x\{2xf(x)-\cos2x\}-f(x)=8x^3\cos2x-4x^2\sin x-6x\cos2x+2\sin x$.
+      criteria: ['3.M1']
+    - id: 3b-2
+      content: |
+        (1)의 함수는 $y$축에 대칭인 함수, (2)의 함수는 원점에 대칭인 함수이다. 그러므로
+        $$(\text{주어진 식})=2\int_0^{\frac{\pi}{2}}\{2xf(x)-\cos2x\}dx=2\int_0^{\frac{\pi}{2}}\{4x^2\cos2x-2x\sin x-\cos2x\}dx.$$
+      criteria: ['3.M1']
+    - id: 3b-3
+      content: |
+        부분적분으로
+        $2\displaystyle\int_0^{\frac{\pi}{2}}4x^2\cos2x\,dx=2\Big[2x^2\sin2x+2x\cos2x-\sin2x\Big]_0^{\frac{\pi}{2}}=-2\pi$,
+        $-2\displaystyle\int_0^{\frac{\pi}{2}}2x\sin x\,dx=\Big[4x\cos x-4\sin x\Big]_0^{\frac{\pi}{2}}=-4$,
+        $-2\displaystyle\int_0^{\frac{\pi}{2}}\cos2x\,dx=0$.
+      criteria: ['3.A1']
+    - id: 3b-4
+      content: |
+        따라서 구하는 값은 $-2\pi-4$이다.
+      criteria: ['3.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 10
+      evidence: |
+        대칭성으로 둘째 적분이 $0$이고 실제로 계산해야 하는 정적분이 $2\int_0^{\pi/2}\{4x^2\cos2x-2x\sin x-\cos2x\}dx$임을 파악했다(평가지침 20/40).
+      depends_on: []
+      implied_ok: false
+      steps: [3b-1, 3b-2]
+    - id: 3.A1
+      mark_type: A
+      points: 10
+      evidence: |
+        부분적분 등을 활용하여 정확한 값 $-2\pi-4$를 구했다(평가지침 20/40).
+      depends_on: ['3.M1']
+      steps: [3b-3, 3b-4]
+    deductions: []
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: hyu-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+- {stage: verify, actor_type: system, actor_id: verify/HYU-M21.py, item_version: 1, verdict: pass, date: 2026-11-22}
+
+created: 2026-11-21
+updated: 2026-11-21

@@ -1,0 +1,276 @@
+# 한양대 2021학년도 논술전형 자연계열(오후2) [문제 1] — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: HYU-G21C-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: HYU
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 분류
+points: 50
+time_estimate_min: 45
+intent: |
+  귀납적으로 정의된 수열에서 첨자 $k$의 형태(이진 구조)에 따라 항의 값을 분류하고, 조건을 만족하는 $k$의 개수를 세어 수열의 합과 정적분의 관계(구분구적법)로 극한을 구할 수 있는지를 본다(문항카드9 채점 기준·예시 답안 기준 요지, 출제 의도 쪽은 미판독).
+key_idea: |
+  $a_k$의 값은 $2021$, $2019$, $2^{2020}$보다 큰 수 셋뿐이다: $2021\xrightarrow{\text{ㄴ}}2021$, $2021\xrightarrow{\text{ㄷ}}2019$, $2019\xrightarrow{\text{ㄴ}}2019$, $2019\xrightarrow{\text{ㄷ}}3^{2020}+2018$, 큰 수는 계속 큰 수. 따라서 $k=2^m$, $2^m+1$, $2^l(2^m+1)$ 꼴만 작다.
+stuck: |
+  $k$를 $2^l(2^m+1)$처럼 'ㄴ·ㄷ을 적용한 순서'로 분해해 보는 발상, 그리고 $c_n=\frac{n(n-1)}{2}$를 얻은 뒤 $S_n=\frac1n\sum\frac{2}{1+t/n}$을 정적분으로 바꾸는 것.
+idea_tags: [IDEA-BINARY-INDEX-RECURSION, IDEA-STATE-CLASSIFICATION, IDEA-RIEMANN-SUM-LIMIT]
+tags: [기출, 한양대, 귀납적 정의, 수열, 구분구적법, 배점환산, 배점추정]
+elements:
+  materials:
+  - '$a_1=2021$, $a_{2k}=(a_k-2020)^{2021}+2020$, $a_{2k+1}=(a_k-2022)^{2020}+2018$로 정의된 수열'
+  - '$a_k<2^{2020}$이고 $k\le2^{100}$인 $k$의 개수'
+  - '$S_n=\sum_{t=1}^{n}\frac{2(n-1)}{2c_n+t(n-1)}$의 극한'
+  concepts:
+  - '수열의 귀납적 정의'
+  - '자연수의 거듭제곱 꼴 분해'
+  - '경우의 수(순서쌍 세기)'
+  - '시그마의 성질'
+  - '정적분과 급수의 합(구분구적법)'
+  tools:
+  - '첨자를 $36\to18\to9\to4\to2\to1$처럼 거꾸로 추적'
+  - '$k$의 형태 분류: $2^m$, $2^m+1$, $2^l(2^m+1)$, $2^l(2^m+1)+1$, 나머지'
+  - '$x\ge2022$ 근방에서 두 점화 함수가 증가함을 이용한 큰 값 유지'
+  - '$\sum_{l=1}^{n-2}(n-l-1)=\frac{(n-2)(n-1)}{2}$'
+  - '$\lim\frac1n\sum f(\frac tn)=\int_0^1f(x)dx$'
+  conditions:
+  - '$k\le2^{100}$ (2), $k\le2^n$, $n>2$ (3)'
+  - '$\alpha=2019$ (가장 작은 항)'
+  stimuli_used: [ㄱ, ㄴ, ㄷ]
+  subpart_links: '(2)의 형태 분류를 (3)의 $c_n$ 세기에 그대로 사용'
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅰ, 미적분]
+  scope_2028: unknown
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 수열의 귀납적 정의, 정적분과 급수의 합의 관계(요지, 문항카드9 성취기준 쪽 미판독)
+    verified: false
+  content_area: 수열 – 수학적 귀납법, 적분법 – 정적분의 활용
+  behavior_domain: 추론
+  unit_path: [수학Ⅰ, 수열, 수학적 귀납법, 수열의 귀납적 정의]
+  key_concepts: [수열의 귀납적 정의, 자연수의 거듭제곱 꼴 분해, 경우의 수(순서쌍 세기), 시그마의 성질, 정적분과 급수의 합(구분구적법)]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 한양대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 한양대학교
+  admission_year: 2021
+  admission_type: 수시 논술
+  track: 자연계열(오후2)
+  question_no: 1
+  official_url: https://go.hanyang.ac.kr/web/pds/pds_view.do?m_type=SUSI&bn=706
+  retrieved_at: 2026-11-21
+  original_points: [10, 20, 20]
+  rights_notice: 한양대학교 입학처 공개 기출(내부 분석용)
+  transcribed_from: 2021학년도 한양대 논술전형 자연계열(오후2) 문제지 p.2, 해설 근거 2021학년도 선행학습 영향평가 자체평가보고서 문항카드9(보고서 PDF p.74–75, 인쇄 쪽 72–73 채점 기준·예시 답안) (원본 PDF 이미지 대조 2026-11-21)
+
+verify: verify/HYU-G21C.py::p01
+
+stimuli:
+- label: 제시문
+  body: |
+    수열 $\{a_k\}$는 모든 자연수 $k$에 대하여 다음을 만족시킨다.
+    ㄱ. $a_1=2021$
+    ㄴ. $a_{2k}=(a_k-2020)^{2021}+2020$
+    ㄷ. $a_{2k+1}=(a_k-2022)^{2020}+2018$
+
+stem: |
+  [문제 1] 다음 제시문을 읽고 물음에 답하시오. (50점)
+
+subparts:
+- id: '1'
+  stem: |
+    $a_{36}$의 값을 구하시오.
+  points: 10
+  depends_on: []
+  answer: {kind: value, value: '2019', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: |
+      $36=2^2(2\cdot2^2+1)$이므로 $a_1\to a_2\to a_4\to a_9\to a_{18}\to a_{36}$ 순서로 ㄴ·ㄷ을 적용한다.
+    steps:
+    - {id: 1a, content: '$a_2=a_4=2021$, $a_9=a_{18}=a_{36}=2019$', criteria: ['1.M1', '1.A1']}
+    hint_ladder:
+    - $36$에서 거꾸로 $18$, $9$, $4$, …로 내려가 보자.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: '선행학습 영향평가 자체평가보고서 2021 문항카드9 p.74(인쇄 72쪽 예시 답안 [1-1])'
+    steps:
+    - id: 1b-1
+      content: |
+        $36=2^2\left(2(2^2)+1\right)$이므로
+        $a_2=(a_1-2020)^{2021}+2020=2021$, $a_4=(a_2-2020)^{2021}+2020=2021$, $a_9=(a_4-2022)^{2020}+2018=2019$,
+      criteria: ['1.M1']
+    - id: 1b-2
+      content: |
+        $a_{18}=(a_9-2020)^{2021}+2020=2019$, $a_{36}=(a_{18}-2020)^{2021}+2020=2019$이다.
+      criteria: ['1.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 5
+      evidence: |
+        $36\to18\to9\to4\to2\to1$의 첨자 관계를 찾아 ㄴ·ㄷ을 올바른 순서로 적용했다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1]
+    - id: 1.A1
+      mark_type: A
+      points: 5
+      evidence: |
+        $a_{36}=2019$를 얻었다.
+      depends_on: [1.M1]
+      steps: [1b-2]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '2'
+  stem: |
+    $a_k<2^{2020}$이고 $k\le2^{100}$인 자연수 $k$의 개수를 구하시오.
+  points: 20
+  depends_on: ['1']
+  answer: {kind: value, value: '5051', equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: |
+      $a_k<2^{2020}$인 $k$는 $2^m$ ($a_k=2021$), $2^m+1$, $2^l(2^m+1)$ ($a_k=2019$) 꼴뿐이다.
+    steps:
+    - {id: 2a, content: '$101+99+\frac{98\cdot99}{2}=5051$', criteria: ['2.M1', '2.R1']}
+    hint_ladder:
+    - $a_k$가 될 수 있는 작은 값은 무엇무엇인가?
+    - $2019$에 ㄷ을 적용하면 얼마나 커지는가?
+  - id: S2-B
+    audience: B
+    method_no: 1
+    source_flow: '선행학습 영향평가 자체평가보고서 2021 문항카드9 p.74–75(인쇄 72–73쪽 예시 답안 [1-2])'
+    steps:
+    - id: 2b-1
+      content: |
+        $k$의 형태에 따라 조건 $a_k<2^{2020}$을 만족하는지 확인하자.
+        [형태 1. $k=2^m\,(m\ge0)$] $a_1=2021$, $a_{2^m}=(a_{2^{m-1}}-2020)^{2021}+2020=2021$이므로 $a_k=2021$이다.
+        [형태 2. $k=2^m+1\,(m\ge1)$] $a_{2^m+1}=(a_{2^{m-1}}-2022)^{2020}+2018=2019$이다.
+        [형태 3. $k=2^l(2^m+1)\,(m,l\ge1)$] $a_{2^m+1}=2019$이고 ㄴ에 의해 $a_{2(2^m+1)}=(2019-2020)^{2021}+2020=2019$, …, $a_{2^l(2^m+1)}=2019$이다.
+      criteria: ['2.M1']
+    - id: 2b-2
+      content: |
+        [형태 4. $k=2^l(2^m+1)+1\,(m,l\ge1)$] $l=1$이면 ㄷ에 의해 $a_{2(2^m+1)+1}=(a_{2^m+1}-2022)^{2020}+2018>2^{2020}$, $l>1$이면 ㄴ에 의해 $a_{2^{l-1}(2^m+1)}=2019$이고 ㄷ에 의해 $a_{2^l(2^m+1)+1}=(2019-2022)^{2020}+2018=3^{2020}+2018>2^{2020}$이다.
+        [형태 5. 나머지] $k$는 항상 $\cdots2^r\left(2^l(2^m+1)+1\right)\cdots$ 꼴로 쓸 수 있고(형태 4에 의해 그 단계의 항은 $2^{2020}$보다 크다), ㄴ·ㄷ은 $2022$보다 큰 수에 대해 증가하므로 $a_k>2^{2020}$이다.
+      criteria: ['2.R1']
+    - id: 2b-3
+      content: |
+        $a_k<2^{2020}$인 경우는 형태 1, 2, 3이 전부이다. 이 중 $k\le2^{100}$인 것은 형태 1의 $101$가지 ($m=0,1,\dots,100$), 형태 2의 $99$가지 ($m=1,\dots,99$), 형태 3의 $\dfrac{98\cdot99}{2}=4851$가지 ($(l,m)=(1,1),\dots,(1,98),(2,1),\dots,(2,97),\dots,(98,1)$)이다.
+        총 $101+99+4851=5051$.
+      criteria: ['2.M1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 10
+      evidence: |
+        $a_k=2021$ ($k=2^m$)과 $a_k=2019$ ($k=2^m+1$, $2^l(2^m+1)$)인 $k$를 찾아 $k\le2^{100}$에서 $101+99+4851=5051$개로 셌다(공식 '$a_k=2021$ 개수' 10/100점 + '$a_k=2019$ 개수' 20/100점을 묶어 환산 — [배점추정]).
+      depends_on: []
+      implied_ok: false
+      steps: [2b-1, 2b-3]
+    - id: 2.R1
+      mark_type: R
+      points: 10
+      evidence: |
+        나머지 $k$에 대해 $a_k>2^{2020}$이 되는 이유(ㄷ을 2019에 적용하면 $3^{2020}+2018$, 이후 증가)를 설명했다(공식 20/100점 → 10점 환산).
+      depends_on: []
+      steps: [2b-2]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '3'
+  stem: |
+    $a_1$, $a_2$, $a_3$, $\cdots$ 중 가장 작은 수를 $\alpha$라 하자. $n>2$인 자연수 $n$에 대하여 $a_k=\alpha$이고 $k\le2^n$인 자연수 $k$의 개수를 $c_n$이라 하자.
+    $S_n=\displaystyle\sum_{t=1}^{n}\frac{2(n-1)}{2c_n+t(n-1)}$이라 할 때, $\displaystyle\lim_{n\to\infty}S_n$의 값을 구하시오.
+  points: 20
+  depends_on: ['2']
+  answer: {kind: value, value: '2*log(2)', equivalents: [], tolerance: null}
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: |
+      $\alpha=2019$, $c_n=(n-1)+\frac{(n-2)(n-1)}{2}=\frac{n(n-1)}{2}$이므로 $S_n=\sum_{t=1}^{n}\frac{2}{n+t}\to\int_0^1\frac{2}{1+x}dx$.
+    steps:
+    - {id: 3a, content: '$\lim S_n=2\ln2$', criteria: ['3.M1', '3.A1']}
+    hint_ladder:
+    - (2)의 형태 2, 3 중 $k\le2^n$인 것을 세자.
+    - $\frac{2}{n+t}=\frac1n\cdot\frac{2}{1+\frac tn}$.
+  - id: S3-B
+    audience: B
+    method_no: 1
+    source_flow: '선행학습 영향평가 자체평가보고서 2021 문항카드9 p.75(인쇄 73쪽 예시 답안 [1-3])'
+    steps:
+    - id: 3b-1
+      content: |
+        $\alpha=2019$이다. $a_k=2019$는 (2)의 형태 2와 형태 3의 $k$만 가능하다.
+        형태 2는 $m=1,2,\dots,n-1$인 경우에만 $2^m+1\le2^n$을 만족하므로 $n-1$개, 형태 3은 $l=1,\dots,n-2$일 때 $m=1,2,\dots,n-l-1$인 경우에만 $2^l(2^m+1)\le2^n$을 만족하므로 $\displaystyle\sum_{l=1}^{n-2}(n-l-1)=(n-1)(n-2)-\frac{(n-2)(n-1)}{2}=\frac{(n-2)(n-1)}{2}$개이다.
+        따라서 $c_n=\dfrac{(n-2)(n-1)}{2}+(n-1)=\dfrac{n(n-1)}{2}$이다.
+      criteria: ['3.M1']
+    - id: 3b-2
+      content: |
+        $S_n=\displaystyle\sum_{t=1}^{n}\frac{2(n-1)}{2c_n+t(n-1)}=\sum_{t=1}^{n}\frac{2}{n+t}=\frac1n\sum_{t=1}^{n}\frac{2}{1+\frac tn}$이므로
+        $\displaystyle\lim_{n\to\infty}S_n=\int_0^1\frac{2}{1+x}dx=\Big[2\ln(1+x)\Big]_0^1=2\ln2$이다.
+      criteria: ['3.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 10
+      evidence: |
+        $\alpha=2019$와 $c_n=\dfrac{n(n-1)}{2}$를 구했다(공식 20/100점 → 10점 환산).
+      depends_on: []
+      implied_ok: false
+      ft: {allowed: true, from: [2.M1], max_points: 10}
+      steps: [3b-1]
+    - id: 3.A1
+      mark_type: A
+      points: 10
+      evidence: |
+        $S_n=\frac1n\sum\frac{2}{1+t/n}$을 정적분으로 바꾸어 $2\ln2$를 구했다(공식 20/100점 → 10점 환산).
+      depends_on: [3.M1]
+      steps: [3b-2]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+remedy_links: []
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: hyu-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+- {stage: verify, actor_type: system, actor_id: verify/HYU-G21C.py, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

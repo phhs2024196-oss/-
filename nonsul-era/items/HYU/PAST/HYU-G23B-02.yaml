@@ -1,0 +1,322 @@
+# 한양대학교 2023학년도 논술전형 자연계열(오후1) [문제 2] — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: HYU-G23B-02
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: HYU
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 분류
+points: 50
+time_estimate_min: 45
+intent: |
+  공간도형과 코사인법칙·정사영으로 넓이를 구하고, 수열의 귀납적 정의와 $\sum$의 성질로 경우의 수 증가분을 분석하며, 이항정리와 함수의 최솟값을 연결해 이항계수 합의 부등식을 증명하는 능력을 본다(문항카드8 출제 의도 요지).
+key_idea: |
+  (1) $\overline{\mathrm{AP}}=t$로 두면 $\triangle\mathrm{PBH}=\sqrt{\tfrac{t^2-t+1}{2}}$, 정사영 넓이 $=\tfrac12\overline{\mathrm{PD}}$. (2) $A_{n+1}-A_n$은 적어도 하나가 $n+1$인 삼각형 순서쌍의 수. (3) $\sum_{k\ge2n/3}{}_n\mathrm{C}_k\le\sum{}_n\mathrm{C}_kx^{k-2n/3}=f(x)^n$.
+stuck: |
+  (2) $A_{n+1}-A_n$의 의미(새로 생기는 순서쌍)를 파악해 $n+1$이 몇 개인지로 경우를 나누는 것, (3) $x>1$에서 $x^{k-2n/3}\ge1$을 곱해 $\left(\frac{1+x}{x^{2/3}}\right)^n$으로 누르는 발상
+idea_tags: [IDEA-CUBE-PROJECTION-AREA, IDEA-COUNT-INCREMENT-CASEWORK, IDEA-BINOMIAL-WEIGHT-BOUND-MIN]
+tags: [정육면체, 정사영, 삼각형 순서쌍, 이항계수 부등식, 한양 실전, 배점환산]
+elements:
+  materials:
+  - '한 모서리의 길이가 1인 정육면체 ABCD-EFGH와 모서리 AD 위의 점 P($\overline{\mathrm{AP}}\le\overline{\mathrm{PD}}$)'
+  - '삼각형 PBH와 평면 EFGH 위로의 정사영'
+  - '1부터 $n$까지 적힌 공이 든 바구니 X, Y, Z에서 꺼낸 $(x,y,z)$가 삼각형의 세 변이 되는 경우의 수 $A_n$'
+  - '$f(x)=x^{-\frac23}(x+1)$과 $\sum_{k=0}^{n/3}{}_n\mathrm{C}_k<1.9^n$'
+  concepts:
+  - 코사인법칙
+  - 정사영
+  - 수열의 귀납적 정의
+  - 합의 기호 시그마
+  - 삼각형의 결정 조건
+  - 이항정리
+  - 이항계수의 대칭성
+  - 함수의 최솟값
+  tools:
+  - '피타고라스 정리로 $\overline{\mathrm{PB}}$, $\overline{\mathrm{PH}}$'
+  - '$\cos\alpha$에서 $\sin\alpha$로 넓이 $\tfrac12ab\sin\alpha$'
+  - '정사영 삼각형의 밑변 $\overline{\mathrm{PD}}$, 높이 1'
+  - '$n+1$이 1개·2개·3개인 경우로 분류'
+  - '${}_n\mathrm{C}_k={}_n\mathrm{C}_{n-k}$'
+  - '$x>1$, $k\ge\tfrac{2n}{3}$이면 $x^{k-2n/3}\ge1$'
+  conditions:
+  - '$0\le t\le\tfrac12$로 근 선택'
+  - '삼각형 조건: 가장 긴 변 < 나머지 두 변의 합'
+  - '$n$은 3의 배수'
+  - '$f$의 $x>1$에서의 최솟값이 1.9보다 작음(문제에서 제공)'
+  stimuli_used: []
+  subpart_links: null
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅰ, 미적분, 확률과통계, 기하]
+  scope_2028: unknown
+  scope_confirmed: false
+  standards:
+  - code: 12수학Ⅰ02-03
+    text: 사인법칙과 코사인법칙을 이해하고, 이를 활용할 수 있다.
+    verified: false
+  - code: 12기하03-03
+    text: 정사영의 뜻을 알고, 이를 구할 수 있다.
+    verified: false
+  - code: 12수학Ⅰ03-04
+    text: $\sum$의 뜻을 알고, 그 성질을 이해하고, 이를 활용할 수 있다.
+    verified: false
+  - code: 12수학Ⅰ03-06
+    text: 수열의 귀납적 정의를 이해한다.
+    verified: false
+  - code: 12미적02-12
+    text: 함수의 그래프의 개형을 그릴 수 있다.
+    verified: false
+  - code: 12확통01-03
+    text: 이항정리를 이해하고 이를 이용하여 문제를 해결할 수 있다.
+    verified: false
+  content_area: 공간도형·수열·이항정리
+  behavior_domain: 추론
+  unit_path: [확률과통계, 경우의 수, 이항정리, 이항계수의 성질]
+  key_concepts: [코사인법칙, 정사영, 수열의 귀납적 정의, 합의 기호 시그마, 삼각형의 결정 조건, 이항정리, 이항계수의 대칭성, 함수의 최솟값]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 한양대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 한양대학교
+  admission_year: 2023
+  admission_type: 수시 논술
+  track: 자연계열(오후1)
+  question_no: 2
+  official_url: https://go.hanyang.ac.kr/web/pds/pds_view.do?m_type=SUSI&bn=9632
+  retrieved_at: 2026-11-21
+  original_points: [30, 30, 40]
+  rights_notice: 한양대학교 입학처 공개 기출(내부 분석용)
+  transcribed_from: |
+    2023학년도 논술전형 자연계열(오후 1) 문제지 p.3, 해설 근거 선행학습 영향평가 자체평가보고서 2023 문항카드8(보고서 인쇄 쪽 73~76) (원본 PDF 이미지 대조 2026-11-21). original_points 는 문항카드 채점기준(100점 척도) 값이며 50점 만점에 맞춰 소문항 배점을 1/2로 환산함.
+
+verify: verify/HYU-G23B.py::p02
+
+stimuli: []
+
+stem: |
+  [문제 2] 다음 물음에 답하시오. (50점)
+
+subparts:
+- id: '1'
+  stem: |
+    오른쪽 그림과 같이 한 모서리의 길이가 $1$인 정육면체의 모서리 $\mathrm{AD}$ 위에 $\overline{\mathrm{AP}}\le\overline{\mathrm{PD}}$를 만족시키는 점 $\mathrm{P}$가 있다. 삼각형 $\mathrm{PBH}$의 넓이가 $\dfrac{\sqrt7}{4}$일 때, 삼각형 $\mathrm{PBH}$의 평면 $\mathrm{EFGH}$ 위로의 정사영의 넓이를 구하시오.
+
+    [그림: 윗면 ABCD(A 뒤 왼쪽, D 뒤 오른쪽, B 앞 왼쪽, C 앞 오른쪽), 아랫면 EFGH(E는 A 아래, F는 B 아래, G는 C 아래, H는 D 아래)인 정육면체. 모서리 BF 옆에 길이 1 표시. 모서리 AD 위의 점 P와 B, H를 잇는 삼각형 PBH가 그려져 있음]
+  points: 15
+  depends_on: []
+  answer: {kind: value, value: '(2 + sqrt(2))/8', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $\overline{\mathrm{AP}}=t$이면 넓이 $\sqrt{\tfrac{t^2-t+1}{2}}=\tfrac{\sqrt7}{4}$에서 $t=\tfrac{2-\sqrt2}{4}$, 정사영은 밑변 $\overline{\mathrm{PD}}$·높이 1인 삼각형.
+    steps:
+    - id: 1a
+      content: |
+        $t^2-t+\tfrac18=0$, $t=\dfrac{2-\sqrt2}{4}$, 정사영 넓이 $\dfrac12(1-t)=\dfrac{2+\sqrt2}{8}$.
+      criteria: ['1.M1', '1.A1']
+    hint_ladder:
+    - $\overline{\mathrm{AP}}=t$로 두고 세 변의 길이를 $t$로 나타내자.
+    - P, B, H의 평면 EFGH 위로의 정사영은 어떤 삼각형인가?
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: '선행학습 영향평가 보고서 2023 문항카드8 예시답안 p.75~76'
+    steps:
+    - id: 1b-1
+      content: |
+        $\overline{\mathrm{AP}}=t\ \left(0\le t\le\dfrac12\right)$라 하면 $\overline{\mathrm{PB}}=\sqrt{t^2+1}$, $\overline{\mathrm{PH}}=\sqrt{(1-t)^2+1}=\sqrt{t^2-2t+2}$이고 $\overline{\mathrm{BH}}=\sqrt3$이다.
+      criteria: ['1.M1']
+    - id: 1b-2
+      content: |
+        $\angle\mathrm{BPH}=\alpha$라 하면 코사인법칙 $\overline{\mathrm{BH}}^2=\overline{\mathrm{PB}}^2+\overline{\mathrm{PH}}^2-2\,\overline{\mathrm{PB}}\times\overline{\mathrm{PH}}\cos\alpha$를 정리하여 $\cos\alpha=\dfrac{t^2-t}{\sqrt{t^2+1}\sqrt{t^2-2t+2}}$이다.
+      criteria: ['1.M1']
+    - id: 1b-3
+      content: |
+        $$\frac{\sqrt7}{4}=\frac12\,\overline{\mathrm{PB}}\times\overline{\mathrm{PH}}\sin\alpha=\frac12\sqrt{t^2+1}\sqrt{t^2-2t+2}\sqrt{1-\cos^2\alpha}=\sqrt{\frac{t^2-t+1}{2}}$$
+        이고, 이로부터 $t=\dfrac{2-\sqrt2}{4}\ \left(0\le t\le\dfrac12\right)$를 구한다.
+      criteria: ['1.M1']
+    - id: 1b-4
+      content: |
+        [그림: 정사각형 EFGH 위에 P의 정사영(EH 위의 점), F, H를 꼭짓점으로 하는 삼각형이 색칠되어 있고 윗변에 $\overline{\mathrm{PD}}$ 길이가 표시됨]
+        정사영은 밑변의 길이가 $\overline{\mathrm{PD}}=1-t$, 높이가 $1$인 삼각형이므로 넓이는 $\dfrac12\times1\times\overline{\mathrm{PD}}=\dfrac{2+\sqrt2}{8}$이다.
+      criteria: ['1.A1']
+  - id: S1-ALT
+    audience: ALT
+    method_no: 2
+    key_idea: 좌표 $\mathrm{F}(0,0,0)$, $\mathrm{B}(0,0,1)$, $\mathrm{H}(1,1,0)$, $\mathrm{P}(t,1,1)$에서 $\overrightarrow{\mathrm{PB}}\times\overrightarrow{\mathrm{PH}}=(1,-t,1-t)$이므로 넓이는 $\tfrac12\sqrt{2t^2-2t+2}$(기하 벡터 — 교과 외 외적은 참고용).
+    steps:
+    - id: 1c-1
+      content: |
+        또는 정사영 넓이 = 원래 넓이 $\times\cos\theta$, $\cos\theta=\dfrac{1-t}{\sqrt{2t^2-2t+2}}$로 계산해도 $\dfrac{2+\sqrt2}{8}$이다.
+      criteria: ['1.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 10
+      evidence: |
+        삼각형 BPH의 넓이 $\dfrac{\sqrt7}{4}$를 $\overline{\mathrm{AP}}$(또는 $\overline{\mathrm{PD}}$)에 대한 식 $\sqrt{\tfrac{t^2-t+1}{2}}$ 등으로 나타냈다. (문항카드 20/30)
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1, 1b-2, 1b-3]
+    - id: 1.A1
+      mark_type: A
+      points: 5
+      evidence: |
+        $t=\dfrac{2-\sqrt2}{4}$를 골라 정사영의 넓이 $\dfrac{2+\sqrt2}{8}$를 구했다. (문항카드 10/30)
+      depends_on: [1.M1]
+      steps: [1b-4, 1c-1]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '2'
+  stem: |
+    $3$개의 바구니 $\mathrm{X}$, $\mathrm{Y}$, $\mathrm{Z}$ 각각에 $1$부터 $n$까지 자연수가 각각 하나씩 적힌 공 $n$개가 들어 있다. 각 바구니에서 공을 하나씩 꺼냈을 때, $\mathrm{X}$, $\mathrm{Y}$, $\mathrm{Z}$에서 나온 공에 적힌 세 수를 각각 $x$, $y$, $z$라 하자. $x$, $y$, $z$가 삼각형의 세 변의 길이가 되는 모든 순서쌍 $(x,y,z)$의 개수를 $A_n$이라 할 때, $A_{n+1}-A_n$을 $n$에 대한 식으로 나타내시오.
+  points: 15
+  depends_on: []
+  answer: {kind: expression, value: '(3*n**2 + 3*n + 2)/2', equivalents: ['3*n*(n+1)/2 + 1'], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: 적어도 하나가 $n+1$인 순서쌍을 $n+1$의 개수(1개·2개·3개)로 나눠 센다.
+    steps:
+    - id: 2a
+      content: |
+        $3\cdot\dfrac{n(n-1)}{2}+3n+1=\dfrac{3n^2+3n+2}{2}$.
+      criteria: ['2.M1', '2.A1']
+    hint_ladder:
+    - $A_{n+1}$에는 있고 $A_n$에는 없는 순서쌍은 어떤 것인가?
+    - $x=n+1$이고 $y,z\le n$이면 $y+z>n+1$이어야 한다.
+  - id: S2-B
+    audience: B
+    method_no: 1
+    source_flow: '선행학습 영향평가 보고서 2023 문항카드8 예시답안 p.76'
+    steps:
+    - id: 2b-1
+      content: |
+        $A_{n+1}-A_n$은 $x,y,z$가 삼각형의 세 변의 길이가 되면서 그중 적어도 하나가 $n+1$인 경우의 수와 같다.
+      criteria: ['2.M1']
+    - id: 2b-2
+      content: |
+        먼저 $x=n+1$이고 $y\le n$, $z\le n$이라 하자. $y=1$이면 조건을 만족하는 $z$가 없고, $a>1$인 각 $y=a$마다 $z$를 $a-1$개의 수 $n-a+2,\ n-a+3,\ \cdots,\ n$ 중에서 고르면 된다. 따라서 이 경우는 $\displaystyle\sum_{a=2}^{n}(a-1)=\sum_{a=1}^{n-1}a=\frac{n(n-1)}{2}$가지이고, 대칭적으로 $y$만 $n+1$이거나 $z$만 $n+1$인 경우의 수도 이와 같다.
+      criteria: ['2.M1']
+    - id: 2b-3
+      content: |
+        두 수 $x,y$가 모두 $n+1$이고 $z\le n$이면 $z$는 $1$부터 $n$ 중 어느 수여도 삼각형이 되므로, 대칭인 경우까지 합쳐 $3n$가지이다. 마지막으로 $x=y=z=n+1$인 경우 $1$가지를 더하면
+        $$A_{n+1}-A_n=\frac{3n(n-1)}{2}+3n+1=\frac{3n(n+1)}{2}+1=\frac{3n^2+3n+2}{2}$$
+        를 얻는다.
+      criteria: ['2.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 10
+      evidence: |
+        $A_{n+1}-A_n$이 적어도 하나가 $n+1$인 삼각형 순서쌍의 수임을 밝히고, $n+1$의 개수에 따라 경우를 나누어 하나가 $n+1$인 경우 $\dfrac{n(n-1)}{2}$가지씩을 셌다. (문항카드 20/30)
+      depends_on: []
+      implied_ok: false
+      steps: [2b-1, 2b-2]
+    - id: 2.A1
+      mark_type: A
+      points: 5
+      evidence: |
+        모든 경우를 합쳐 $A_{n+1}-A_n=\dfrac{3n^2+3n+2}{2}$를 얻었다. (문항카드 10/30)
+      depends_on: [2.M1]
+      steps: [2b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '3'
+  stem: |
+    함수 $f(x)=x^{-\frac23}(x+1)$은 $x>1$인 범위에서 $1.9$보다 작은 최솟값을 갖는다. 이를 이용하여 $3$의 배수인 자연수 $n$에 대해 $\displaystyle\sum_{k=0}^{\frac n3}{}_n\mathrm{C}_k<1.9^n$이 성립함을 보이시오.
+  points: 20
+  depends_on: []
+  answer: {kind: proof, value: null, equivalents: [], tolerance: null}
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: 대칭성으로 $\sum_{k=0}^{n/3}{}_n\mathrm{C}_k=\sum_{k=2n/3}^{n}{}_n\mathrm{C}_k$로 바꾸고, $x>1$에서 각 항에 $x^{k-2n/3}\ge1$을 곱해 $f(x)^n$으로 누른 뒤 최솟값을 쓴다.
+    steps:
+    - id: 3a
+      content: |
+        $\displaystyle\sum_{k=0}^{n/3}{}_n\mathrm{C}_k\le\left(\frac{1+x}{x^{2/3}}\right)^n=f(x)^n$ $(x>1)$이므로 $\le(\min f)^n<1.9^n$.
+      criteria: ['3.M1', '3.R1']
+    hint_ladder:
+    - ${}_n\mathrm{C}_k={}_n\mathrm{C}_{n-k}$를 써서 합의 범위를 바꾸자.
+    - $(1+x)^n=\sum{}_n\mathrm{C}_kx^k$를 $x^{2n/3}$으로 나눈 것과 비교하자.
+  - id: S3-B
+    audience: B
+    method_no: 1
+    source_flow: '선행학습 영향평가 보고서 2023 문항카드8 예시답안 p.76'
+    steps:
+    - id: 3b-1
+      content: |
+        대칭성에 의해 $\displaystyle\sum_{k=0}^{n/3}{}_n\mathrm{C}_k=\sum_{k=0}^{n/3}{}_n\mathrm{C}_{n-k}=\sum_{k=2n/3}^{n}{}_n\mathrm{C}_k$이다.
+      criteria: ['3.M1']
+    - id: 3b-2
+      content: |
+        모든 $x>1$에 대해 $k\ge\dfrac{2n}{3}$이면 $x^{k-2n/3}\ge1$이므로 $\displaystyle\sum_{k=2n/3}^{n}{}_n\mathrm{C}_k\le\sum_{k=2n/3}^{n}{}_n\mathrm{C}_kx^{k-2n/3}$이고,
+        $$\sum_{k=2n/3}^{n}{}_n\mathrm{C}_k\le\sum_{k=2n/3}^{n}{}_n\mathrm{C}_kx^{k-2n/3}\le\sum_{k=0}^{n}{}_n\mathrm{C}_kx^{k-2n/3}=x^{-2n/3}\sum_{k=0}^{n}{}_n\mathrm{C}_kx^k=\left(\frac{1+x}{x^{2/3}}\right)^n$$
+        을 얻는다.
+      criteria: ['3.M1']
+    - id: 3b-3
+      content: |
+        $A=\left(\displaystyle\sum_{k=0}^{n/3}{}_n\mathrm{C}_k\right)^{1/n}$이라 하자. 위 식에서 $x>1$인 모든 $x$에 대해 $A\le f(x)$이다. [그림: $y=\dfrac{x+1}{x^{2/3}}$의 그래프가 $x=2$에서 1.9보다 작은 최솟값을 갖고, 높이 $A$의 수평선은 그 아래에 있음] $f(x)$는 $x=2$에서 $1.9$보다 작은 최솟값을 가지므로 $A\le f(2)<1.9$이다.
+      criteria: ['3.R1']
+    - id: 3b-4
+      content: |
+        그러므로 $\displaystyle\sum_{k=0}^{n/3}{}_n\mathrm{C}_k=A^n<1.9^n$이다. ■
+      criteria: ['3.R1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 10
+      evidence: |
+        이항계수의 대칭성과 이항정리로 $\sum_{k=0}^{n/3}{}_n\mathrm{C}_k\le\left(\frac{1+x}{x^{2/3}}\right)^n=f(x)^n$ $(x>1)$의 관계를 세웠다. (문항카드 20/40)
+      depends_on: []
+      implied_ok: false
+      steps: [3b-1, 3b-2]
+    - id: 3.R1
+      mark_type: R
+      points: 10
+      evidence: |
+        $f$의 최솟값(1.9보다 작음)을 이용해 $\sum_{k=0}^{n/3}{}_n\mathrm{C}_k<1.9^n$을 결론지었다. (문항카드 20/40)
+      depends_on: [3.M1]
+      steps: [3b-3, 3b-4]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+remedy_links: []
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: hyu-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+- {stage: verify, actor_type: system, actor_id: verify/HYU-G23B.py, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

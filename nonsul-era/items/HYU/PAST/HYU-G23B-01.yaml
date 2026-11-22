@@ -1,0 +1,351 @@
+# 한양대학교 2023학년도 논술전형 자연계열(오후1) [문제 1] — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: HYU-G23B-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: HYU
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 추론
+points: 50
+time_estimate_min: 45
+intent: |
+  적분으로 정의된 함수의 이계도함수로 곡선의 오목·볼록과 변곡점을 조사하고, 부분적분법으로 함수를 구해 접선과 곡선으로 둘러싸인 넓이를 계산하며, 미분과 적분의 관계로 함수를 구한 뒤 삼각함수의 최댓값을 이용해 부등식을 보이는 능력을 본다(문항카드7 출제 의도 요지).
+key_idea: |
+  $s=x-t$로 치환하면 $f(x)=\int_0^x(x-s)se^s\,ds$, $f'(x)=\int_0^x se^s\,ds$, $f''(x)=xe^x$이다. <나>는 양변을 미분하면 $e^{-x}\int_0^xg'(t)\,dt=\sin(2\pi x)+2\pi x\cos(2\pi x)$가 된다.
+stuck: |
+  피적분함수에 $x$가 섞인 정적분을 치환으로 정리한 뒤 미분하는 단계, 그리고 (3)에서 $g$를 구한 뒤 $\sin\le1$, $\cos\le1$로 위에서 누르는 발상
+idea_tags: [IDEA-INTEGRAL-DEFINED-FUNCTION-SUBST, IDEA-TANGENT-REGION-TRIANGLE-SUBTRACT, IDEA-TRIG-BOUND-INTEGRAL-INEQUALITY]
+tags: [적분으로 정의된 함수, 변곡점, 접선과 넓이, 부분적분, 적분 부등식, 한양 실전, 배점환산]
+elements:
+  materials:
+  - '$f(x)=\int_0^x(xt-t^2)e^{x-t}\,dt$'
+  - '$g(0)=0$, $e^{-x}\int_0^xg''(t)\,dt=\int_0^xe^{-t}g''(t)\,dt-x\sin(2\pi x)$를 만족하는 $g$'
+  - '곡선 $y=f(x)$ 위의 $(0,f(0))$, $(2,f(2))$에서의 접선 $\ell_1$, $\ell_2$'
+  - '부등식 $\int_0^{2023}g(x)\,dx<4046\pi e^{2023}$'
+  concepts:
+  - 이계도함수
+  - 곡선의 오목과 볼록, 변곡점
+  - 부분적분법
+  - 치환적분법
+  - 접선의 방정식
+  - 곡선으로 둘러싸인 도형의 넓이
+  - 미분과 적분의 관계
+  - 삼각함수의 최댓값
+  tools:
+  - '치환 $s=x-t$로 $x$를 적분 밖으로 꺼냄'
+  - '$\dfrac{d}{dx}\int_0^xh(s)\,ds=h(x)$'
+  - '부분적분 $\int te^{-t}dt$, $\int t^2e^{-t}dt$'
+  - '$f(x)-\ell_2(x)=(x-2)(e^x-e^2)\ge0$'
+  - '넓이 = $\int_0^2f\,dx$ − 삼각형 $S_2$'
+  - '$\sin(2\pi x)+2\pi x\cos(2\pi x)\le1+2\pi x$ $(x\ge0)$'
+  conditions:
+  - '$f''''(x)$의 부호가 $x=0$ 좌우에서 바뀜'
+  - '$f(0)=0$, $f''(0)=0$이므로 $\ell_1$은 $y=0$'
+  - '$(1-2\pi)(e^{2023}-1)<0$이 엄격한 부등호의 근거'
+  stimuli_used: [가, 나]
+  subpart_links: '2는 1의 f를 닫힌 꼴로 구해 사용, 3은 제시문 <나>만 사용'
+
+curriculum:
+  version: '2015'
+  subjects: [미적분]
+  scope_2028: calc2
+  scope_confirmed: false
+  standards:
+  - code: 12미적02-10
+    text: 이계도함수를 구할 수 있다.
+    verified: false
+  - code: 12미적03-02
+    text: 부분적분법을 이해하고, 이를 활용할 수 있다.
+    verified: false
+  - code: 12미적02-11
+    text: 접선의 방정식을 구할 수 있다.
+    verified: false
+  - code: 12미적02-12
+    text: 함수의 그래프의 개형을 그릴 수 있다.
+    verified: false
+  - code: 12미적03-05
+    text: 곡선으로 둘러싸인 도형의 넓이를 구할 수 있다.
+    verified: false
+  - code: 12미적03-03
+    text: 여러 가지 함수의 부정적분과 정적분을 구할 수 있다.
+    verified: false
+  content_area: 미분법·적분법
+  behavior_domain: 추론
+  unit_path: [미적분, 적분법, 정적분의 활용, 곡선으로 둘러싸인 도형의 넓이]
+  key_concepts: [이계도함수, 변곡점, 부분적분법, 치환적분법, 접선의 방정식, 곡선으로 둘러싸인 도형의 넓이, 미분과 적분의 관계, 삼각함수의 최댓값]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 한양대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 한양대학교
+  admission_year: 2023
+  admission_type: 수시 논술
+  track: 자연계열(오후1)
+  question_no: 1
+  official_url: https://go.hanyang.ac.kr/web/pds/pds_view.do?m_type=SUSI&bn=9632
+  retrieved_at: 2026-11-21
+  original_points: [20, 40, 40]
+  rights_notice: 한양대학교 입학처 공개 기출(내부 분석용)
+  transcribed_from: |
+    2023학년도 논술전형 자연계열(오후 1) 문제지 p.2, 해설 근거 선행학습 영향평가 자체평가보고서 2023 문항카드7(보고서 인쇄 쪽 68~72) (원본 PDF 이미지 대조 2026-11-21). original_points 는 문항카드 채점기준(100점 척도) 값이며 50점 만점에 맞춰 소문항 배점을 1/2로 환산함.
+
+verify: verify/HYU-G23B.py::p01
+
+stimuli:
+- label: 가
+  body: |
+    <가> 함수 $f(x)$는 다음 조건을 만족시킨다.
+    $$f(x)=\int_0^x(xt-t^2)e^{x-t}dt$$
+- label: 나
+  body: |
+    <나> 함수 $g(x)$는 다음 조건을 만족시킨다.
+
+    (1) $g(0)=0$
+
+    (2) $e^{-x}\displaystyle\int_0^xg'(t)dt=\int_0^xe^{-t}g'(t)dt-x\sin(2\pi x)$
+
+stem: |
+  [문제 1] 다음 제시문을 읽고 물음에 답하시오. (50점)
+
+subparts:
+- id: '1'
+  stem: |
+    제시문 <가>에서 주어진 곡선 $y=f(x)$의 오목과 볼록을 조사하고 변곡점의 좌표를 구하시오.
+  points: 10
+  depends_on: []
+  answer: {kind: expression, value: '(0, 0)', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $f''(x)=xe^x$이므로 $(-\infty,0)$에서 위로 볼록, $(0,\infty)$에서 아래로 볼록, 변곡점 $(0,0)$.
+    steps:
+    - id: 1a
+      content: |
+        $s=x-t$로 $f(x)=x\int_0^xse^sds-\int_0^xs^2e^sds$, $f'(x)=\int_0^xse^sds$, $f''(x)=xe^x$.
+      criteria: ['1.M1', '1.A1']
+    hint_ladder:
+    - 적분 변수가 아닌 $x$를 적분 기호 밖으로 꺼낼 수 있도록 치환해 보자.
+    - $f''(x)$의 부호를 조사하자.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: '선행학습 영향평가 보고서 2023 문항카드7 예시답안 p.70'
+    steps:
+    - id: 1b-1
+      content: |
+        $f(0)=0$이다. $s=x-t$라 놓으면 $\dfrac{ds}{dt}=-1$이고
+        $$f(x)=\int_x^0(x-s)se^s(-1)\,ds=\int_0^x(x-s)se^s\,ds=\int_0^xxse^s\,ds-\int_0^xs^2e^s\,ds$$
+        이다.
+      criteria: ['1.M1']
+    - id: 1b-2
+      content: |
+        $f'(x)=\dfrac{d}{dx}\left[x\int_0^xse^sds-\int_0^xs^2e^sds\right]=\int_0^xse^sds+x^2e^x-x^2e^x=\int_0^xse^sds$이고 $f'(0)=0$이다. 한 번 더 미분하면 $f''(x)=xe^x$이고 $f''(0)=0$이다.
+      criteria: ['1.M1']
+    - id: 1b-3
+      content: |
+        $x<0$일 때 $f''(x)<0$, $x>0$일 때 $f''(x)>0$이므로 열린구간 $(-\infty,0)$에서 위로 볼록하고 열린구간 $(0,\infty)$에서 아래로 볼록하다. $f''(0)=0$이고 $x=0$ 좌우에서 $f''(x)$의 부호가 바뀌므로 점 $(0,f(0))=(0,0)$은 변곡점이다.
+      criteria: ['1.A1']
+  - id: S1-ALT
+    audience: ALT
+    method_no: 2
+    key_idea: 먼저 부분적분으로 $f(x)=xe^x-2e^x+x+2$를 구하고(소문항 2의 계산) 두 번 미분한다.
+    steps:
+    - id: 1c-1
+      content: |
+        $f'(x)=xe^x-e^x+1$, $f''(x)=xe^x$이므로 같은 결론을 얻는다.
+      criteria: ['1.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 5
+      evidence: |
+        이계도함수 $f''(x)=xe^x$를 구했다. (문항카드 10/20)
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1, 1b-2]
+    - id: 1.A1
+      mark_type: A
+      points: 5
+      evidence: |
+        $f''$의 부호로 $(-\infty,0)$ 위로 볼록, $(0,\infty)$ 아래로 볼록을 밝히고 변곡점 $(0,0)$을 구했다. (문항카드 10/20)
+      depends_on: [1.M1]
+      steps: [1b-3, 1c-1]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '2'
+  stem: |
+    제시문 <가>에서 주어진 곡선 $y=f(x)$ 위의 점 $(0,f(0))$에서의 접선을 $\ell_1$, 점 $(2,f(2))$에서의 접선을 $\ell_2$라고 하자. 곡선 $y=f(x)$와 두 직선 $\ell_1$, $\ell_2$로 둘러싸인 도형의 넓이를 구하시오.
+  points: 20
+  depends_on: ['1']
+  answer: {kind: value, value: '(-exp(4) + 8*exp(2) + 1)/(exp(2) + 1)', equivalents: ['9 - exp(2) - 8/(exp(2) + 1)'], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: $f(x)=xe^x-2e^x+x+2$, $\ell_1:y=0$, $\ell_2:y=(e^2+1)x-2(e^2-1)$이고 구하는 넓이는 $\int_0^2f\,dx$에서 삼각형 $S_2$를 뺀 것이다.
+    steps:
+    - id: 2a
+      content: |
+        $(9-e^2)-\left(4-\dfrac{4(e^2-1)}{e^2+1}\right)=\dfrac{-e^4+8e^2+1}{e^2+1}$.
+      criteria: ['2.M1', '2.R1', '2.A1']
+    hint_ladder:
+    - 부분적분으로 $f(x)$를 닫힌 꼴로 구하자.
+    - 곡선이 $\ell_2$보다 항상 위에 있는지 $f(x)-\ell_2(x)$를 인수분해해 확인하자.
+  - id: S2-B
+    audience: B
+    method_no: 1
+    source_flow: '선행학습 영향평가 보고서 2023 문항카드7 예시답안 p.71~72'
+    steps:
+    - id: 2b-1
+      content: |
+        $f(x)=xe^x\int_0^xte^{-t}dt-e^x\int_0^xt^2e^{-t}dt$이다. 부분적분법으로
+        $A=xe^x\int_0^xte^{-t}dt=xe^x\left[-xe^{-x}-e^{-x}+1\right]=-x^2-x+xe^x$,
+        $B=e^x\int_0^xt^2e^{-t}dt=e^x\left[-x^2e^{-x}+2(-xe^{-x}-e^{-x}+1)\right]=-x^2-2x-2+2e^x$
+        이므로 $f(x)=A-B=xe^x-2e^x+x+2$, $f'(x)=xe^x-e^x+1$이다.
+      criteria: ['2.M1']
+    - id: 2b-2
+      content: |
+        점 $(0,0)$에서의 접선의 기울기는 $f'(0)=0$이므로 $\ell_1:y=0$이다. 점 $(2,4)$에서의 접선의 기울기는 $f'(2)=e^2+1$이므로 $\ell_2:y=(e^2+1)x-2(e^2-1)$이다.
+      criteria: ['2.M1']
+    - id: 2b-3
+      content: |
+        $f(x)-\{(e^2+1)x-2(e^2-1)\}=xe^x-2e^x+x+2-(e^2+1)x+2(e^2-1)=(x-2)(e^x-e^2)\ge0$이므로 곡선 $y=f(x)$는 접선 $\ell_2$보다 항상 위에 있다.
+      criteria: ['2.R1']
+    - id: 2b-4
+      content: |
+        [그림: $x\ge0$에서 곡선은 $x$축($\ell_1$) 위에 있고, $\ell_2$는 $x$절편 $\dfrac{2(e^2-1)}{e^2+1}$에서 $x$축과 만나 점 $(2,4)$에서 곡선에 접함. 곡선·$x$축·$\ell_2$로 둘러싸인 영역 $S_1$과, $\ell_2$·$x$축·직선 $x=2$로 둘러싸인 삼각형 $S_2$]
+        $S_1+S_2=\displaystyle\int_0^2f(x)dx=\left[xe^x-3e^x+\frac12x^2+2x\right]_0^2=9-e^2$이다.
+      criteria: ['2.A1']
+    - id: 2b-5
+      content: |
+        삼각형 $S_2$의 넓이는 $\left(2-\dfrac{2(e^2-1)}{e^2+1}\right)\times4\times\dfrac12=4-\dfrac{4(e^2-1)}{e^2+1}$이다. 따라서 구하는 넓이는
+        $$(S_1+S_2)-S_2=5-e^2+\frac{4(e^2-1)}{e^2+1}=9-e^2-\frac{8}{e^2+1}=\frac{-e^4+8e^2+1}{e^2+1}$$
+        이다.
+      criteria: ['2.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 5
+      evidence: |
+        $f(x)=xe^x-2e^x+x+2$를 바탕으로 접선 $\ell_1:y=0$, $\ell_2:y=(e^2+1)x-2(e^2-1)$을 구했다. (문항카드 10/40)
+      depends_on: []
+      implied_ok: false
+      steps: [2b-1, 2b-2]
+    - id: 2.R1
+      mark_type: R
+      points: 5
+      evidence: |
+        $f(x)-\ell_2(x)=(x-2)(e^x-e^2)\ge0$ 등으로 곡선이 접선 $\ell_2$보다 항상 위에 있음을 밝혔다. (문항카드 10/40)
+      depends_on: [2.M1]
+      steps: [2b-3]
+    - id: 2.A1
+      mark_type: A
+      points: 10
+      evidence: |
+        정적분으로 넓이 $\dfrac{-e^4+8e^2+1}{e^2+1}$(동치식 허용)을 구했다. (문항카드 20/40)
+      depends_on: [2.M1, 2.R1]
+      steps: [2b-4, 2b-5]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '3'
+  stem: |
+    제시문 <나>에서 주어진 함수 $g(x)$에 대하여, $\displaystyle\int_0^{2023}g(x)dx<4046\pi e^{2023}$이 성립함을 보이시오.
+  points: 20
+  depends_on: []
+  answer: {kind: proof, value: null, equivalents: [], tolerance: null}
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: 양변을 미분해 $g(x)=e^x\{\sin(2\pi x)+2\pi x\cos(2\pi x)\}$를 구하고 $g(x)\le e^x(1+2\pi x)$로 누른다.
+    steps:
+    - id: 3a
+      content: |
+        $\int_0^{2023}e^x(1+2\pi x)dx=4046\pi e^{2023}+(1-2\pi)(e^{2023}-1)<4046\pi e^{2023}$.
+      criteria: ['3.M1', '3.R1']
+    hint_ladder:
+    - 조건 (2)의 양변을 $x$에 대하여 미분해 보자.
+    - $\sin$, $\cos$는 $1$을 넘지 않는다.
+  - id: S3-B
+    audience: B
+    method_no: 1
+    source_flow: '선행학습 영향평가 보고서 2023 문항카드7 예시답안 p.72'
+    steps:
+    - id: 3b-1
+      content: |
+        조건 (2)의 양변을 $x$에 대해 미분하면
+        $$-e^{-x}\int_0^xg'(t)dt+e^{-x}g'(x)=e^{-x}g'(x)-\sin(2\pi x)-2\pi x\cos(2\pi x)$$
+        이므로 $e^{-x}\int_0^xg'(t)dt=\sin(2\pi x)+2\pi x\cos(2\pi x)$이다.
+      criteria: ['3.M1']
+    - id: 3b-2
+      content: |
+        $g(0)=0$이고 $g(x)-g(0)=e^x\{\sin(2\pi x)+2\pi x\cos(2\pi x)\}$이므로 $g(x)=e^x\{\sin(2\pi x)+2\pi x\cos(2\pi x)\}$이다.
+      criteria: ['3.M1']
+    - id: 3b-3
+      content: |
+        모든 양의 실수 $x$에 대해 $\sin(2\pi x)\le1$, $\cos(2\pi x)\le1$이므로 $\sin(2\pi x)+2\pi x\cos(2\pi x)\le1+2\pi x$이고, 따라서 $g(x)\le e^x(1+2\pi x)$이다.
+      criteria: ['3.R1']
+    - id: 3b-4
+      content: |
+        $$\int_0^{2023}g(x)dx\le\int_0^{2023}e^x(1+2\pi x)dx=\left[e^x\right]_0^{2023}+2\pi\left(\left[xe^x\right]_0^{2023}-\int_0^{2023}e^xdx\right)$$
+        $$=e^{2023}-1+2\pi(2023e^{2023}-e^{2023}+1)=4046\pi e^{2023}+(1-2\pi)(e^{2023}-1)$$
+        이다.
+      criteria: ['3.R1']
+    - id: 3b-5
+      content: |
+        $(1-2\pi)(e^{2023}-1)<0$이므로 $\displaystyle\int_0^{2023}g(x)dx\le4046\pi e^{2023}+(1-2\pi)(e^{2023}-1)<4046\pi e^{2023}$이다. ■
+      criteria: ['3.R1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 10
+      evidence: |
+        조건 (2)를 미분하여 $g(x)=e^x\{\sin(2\pi x)+2\pi x\cos(2\pi x)\}$를 구했다. (문항카드 20/40)
+      depends_on: []
+      implied_ok: false
+      steps: [3b-1, 3b-2]
+    - id: 3.R1
+      mark_type: R
+      points: 10
+      evidence: |
+        $\sin$, $\cos$의 최댓값 1로 $g(x)\le e^x(1+2\pi x)$를 세우고, 부분적분 결과 $4046\pi e^{2023}+(1-2\pi)(e^{2023}-1)$과 $(1-2\pi)(e^{2023}-1)<0$으로 엄격한 부등식을 결론지었다. (문항카드 20/40)
+      depends_on: [3.M1]
+      steps: [3b-3, 3b-4, 3b-5]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+remedy_links: []
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: hyu-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+- {stage: verify, actor_type: system, actor_id: verify/HYU-G23B.py, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

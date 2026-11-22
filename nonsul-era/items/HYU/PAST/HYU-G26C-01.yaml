@@ -1,0 +1,308 @@
+# 한양대 2026학년도 논술 자연계열(오후2) [문제 1] — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: HYU-G26C-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: HYU
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 추론
+points: 50
+time_estimate_min: 45
+intent: |
+  수학의 도형의 방정식(점과 직선 사이의 거리)과 경우의 수, 미적분의 등비급수와 삼각함수의 덧셈정리, 기하의 직선과 평면의 위치 관계와 정사영을 바탕으로 논리적 사고를 통해 답을 구할 수 있는지 본다. 거리 공식으로 조건을 만족하는 경우를 세고, 삼각형의 닮음과 덧셈정리로 등비급수의 공비를 계산해 합을 구하며, 직선과 평면의 위치 관계와 도형의 넓이·정사영 넓이의 관계로 두 평면이 이루는 각을 구한다.
+key_idea: |
+  1은 $\lvert2a+b-30\rvert\le30$. 2는 $\triangle\mathrm{B_2C_2F_1}\sim\triangle\mathrm{G_1C_2D_2}$에서 $r^2=a(\sqrt2-a)$, 사인법칙으로 $r=\frac{\sqrt2}{2}a(1+\cot\theta)$. 3은 $\mathrm{BP}\parallel\mathrm{MN}$에서 $\mathrm{EP'}\parallel\mathrm{MN}\perp\mathrm{QR}$, 닮음으로 $t=2$, $\cos\theta=\frac{\triangle\mathrm{P'QR}}{\triangle\mathrm{PQR}}$.
+stuck: |
+  2에서 $\angle\mathrm{B_1F_1E_1}=\theta$(원주각 $\frac\pi4$ 이용)를 찾아 닮음 삼각형 두 개를 세우는 것, 3에서 두 직선 $\mathrm{BM}$, $\mathrm{PN}$이 정하는 평면이 두 평행 평면과 만나는 교선 $\mathrm{BP}\parallel\mathrm{MN}$을 알아채는 것
+idea_tags: [IDEA-POINT-LINE-DISTANCE-COUNT, IDEA-SELF-SIMILAR-GEOMETRIC-SERIES, IDEA-DIHEDRAL-BY-PROJECTION-AREA]
+tags: [무게중심, 점과 직선 사이의 거리, 등비급수, 덧셈정리, 삼각기둥, 정사영, 배점환산]
+elements:
+  materials:
+  - '다섯 점 $\mathrm{P}_1(-6,-3)$, $\mathrm{P}_2(-6,3)$, $\mathrm{P}_3(-3,6)$, $\mathrm{P}_4(6,3)$, $\mathrm{P}_5(6,-3)$ 중 세 점으로 만든 삼각형의 무게중심과 직선 $y=-2x+30$'
+  - '한 변 2인 정사각형, 내접원 위의 점 $\mathrm{E}_1$, $\angle\mathrm{E_1G_1F_1}=\theta$로 반복되는 내접 정사각형 넓이 $S_n$'
+  - '$\overline{\mathrm{AB}}=\overline{\mathrm{BC}}=3$, $\angle\mathrm{ABC}=\frac\pi2$, $\overline{\mathrm{AD}}=6$인 삼각기둥과 평면 $\mathrm{PQR}$'
+  concepts: [무게중심, 점과 직선 사이의 거리, 합의 법칙, 원주각, 닮음, 사인법칙, 삼각함수의 덧셈정리, 등비급수, 직선과 평면의 위치 관계, 정사영의 넓이]
+  tools:
+  - '거리 $\frac{\lvert2a+b-30\rvert}{\sqrt5}\le6\sqrt5$ ⇔ $\lvert2a+b-30\rvert\le30$, 10가지 표'
+  - '닮음비 $r:(\sqrt2-a)=a:r$, $\sin\left(\theta+\frac\pi4\right)$ 전개'
+  - '$\cot\theta=\frac12$ ⇒ $r=\frac{12}{17}$, 공비 $\frac{r^2}{4}$'
+  - '평행한 두 평면과 한 평면의 교선은 평행'
+  - '코사인법칙으로 $\triangle\mathrm{PQR}$ 넓이, 정사영 $\triangle\mathrm{P''QR}$'
+  conditions:
+  - '$\frac\pi4<\theta<\frac\pi2$, $\cos\theta=\frac{\sqrt5}{5}$'
+  - '$\mathrm{B_2C_2}\parallel\mathrm{B_1C_1}$, $\mathrm{C_2D_2}\parallel\mathrm{C_1D_1}$, $\mathrm{A_2B_2C_2D_2}$ 정사각형'
+  - '$\overline{\mathrm{EQ}}=t$, $\overline{\mathrm{ER}}=3-t$ $(0<t<3)$, $\overline{\mathrm{BS}}:\overline{\mathrm{SM}}=2:1$, $\mathrm{MN}\perp\mathrm{QR}$'
+  stimuli_used: []
+  subpart_links: null
+
+curriculum:
+  version: '2015'
+  subjects: [수학, 수학Ⅰ, 미적분, 기하]
+  scope_2028: geom
+  scope_confirmed: false
+  standards:
+  - code: 10수학02-02
+    text: 선분의 내분과 외분을 이해하고, 내분점과 외분점의 좌표를 구할 수 있다.
+    verified: true
+  - code: 10수학02-05
+    text: 점과 직선 사이의 거리를 구할 수 있다.
+    verified: true
+  - code: 10수학05-01
+    text: 합의 법칙과 곱의 법칙을 이해하고, 이를 이용하여 경우의 수를 구할 수 있다.
+    verified: true
+  - code: 12수학Ⅰ02-03
+    text: 사인법칙과 코사인법칙을 이해하고, 이를 활용할 수 있다.
+    verified: true
+  - code: 12미적02-03
+    text: 삼각함수의 덧셈정리를 이해한다.
+    verified: true
+  - code: 12미적01-06
+    text: 등비급수를 활용하여 여러 가지 문제를 해결할 수 있다.
+    verified: true
+  - code: 12기하03-01
+    text: 직선과 직선, 직선과 평면, 평면과 평면의 위치 관계에 대한 간단한 증명을 할 수 있다.
+    verified: true
+  - code: 12기하03-03
+    text: 정사영의 뜻을 알고, 이를 구할 수 있다.
+    verified: true
+  content_area: 점과 직선 사이의 거리·등비급수·공간도형의 정사영
+  behavior_domain: 문제해결
+  unit_path: [기하, 공간도형과 공간좌표, 공간도형, 정사영]
+  key_concepts: [무게중심, 점과 직선 사이의 거리, 합의 법칙, 원주각, 닮음, 사인법칙, 삼각함수의 덧셈정리, 등비급수, 직선과 평면의 위치 관계, 정사영의 넓이]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 한양대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 한양대학교
+  admission_year: 2026
+  admission_type: 수시 논술
+  track: 자연계열(오후2)
+  question_no: 1
+  official_url: https://go.hanyang.ac.kr/web/pds/pds_view.do?m_type=SUSI&bn=20601
+  retrieved_at: 2026-11-21
+  original_points: [10, 20, 20]
+  rights_notice: 한양대학교 입학처 공개 기출(내부 분석용)
+  transcribed_from: 2026학년도 자연계열 논술(오후2) 문제지 p.2, 해설 근거 2026학년도 선행학습 영향평가 자체평가보고서 문항카드9 p.114~118 (원본 PDF 이미지 대조 2026-11-21). 채점기준 배점(20·40·40, 100점 기준)을 1/2로 환산
+
+verify: verify/HYU-G26C.py::p01
+
+stimuli: []
+
+stem: |
+  [문제 1] 다음 물음에 답하시오. (50점)
+
+subparts:
+- id: '1'
+  stem: |
+    좌표평면 위에 있는 $5$개의 점 $\mathrm{P}_1(-6,-3)$, $\mathrm{P}_2(-6,3)$, $\mathrm{P}_3(-3,6)$, $\mathrm{P}_4(6,3)$, $\mathrm{P}_5(6,-3)$ 중에서 서로 다른 $3$개를 선택하여 그 점들을 꼭짓점으로 하는 삼각형을 만들 때, 그 삼각형의 무게중심과 직선 $y=-2x+30$ 사이의 거리가 $6\sqrt5$ 이하가 되는 경우의 수를 구하시오.
+  points: 10
+  depends_on: []
+  answer: {kind: value, value: '6', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: 무게중심 $(a,b)$에 대해 조건은 $\lvert2a+b-30\rvert\le30$. 10가지 중 값이 $30,30,28,27,25,22$인 6가지.
+    steps:
+    - {id: 1a, content: '$\lvert2a+b-30\rvert\le30$을 만족하는 경우 $6$가지', criteria: ['1.M1', '1.A1']}
+    hint_ladder:
+    - 무게중심 $(a,b)$와 직선 $2x+y-30=0$ 사이의 거리를 식으로 쓰자.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 2026 선행학습 영향평가 보고서 문항카드9 p.117 예시답안 1
+    steps:
+    - id: 1b-1
+      content: |
+        무게중심이 $(a,b)$일 때 직선 $2x+y-30=0$까지의 거리는 $\dfrac{\lvert2a+b-30\rvert}{\sqrt{2^2+1^2}}$이고, 이것이 $6\sqrt5$ 이하일 필요충분조건은 $\lvert2a+b-30\rvert\le30$이다.
+      criteria: ['1.M1']
+    - id: 1b-2
+      content: |
+        세 점과 무게중심, $\lvert2a+b-30\rvert$는 다음과 같다.
+        $\mathrm{P_1P_2P_3}$: $(-5,2)$, $38$; $\mathrm{P_1P_2P_5}$: $(-2,-1)$, $35$; $\mathrm{P_1P_2P_4}$: $(-2,1)$, $33$; $\mathrm{P_1P_3P_5}$: $(-1,0)$, $32$; $\mathrm{P_1P_3P_4}$: $(-1,2)$, $30$; $\mathrm{P_1P_5P_4}$: $(2,-1)$, $27$; $\mathrm{P_2P_3P_5}$: $(-1,2)$, $30$; $\mathrm{P_2P_3P_4}$: $(-1,4)$, $28$; $\mathrm{P_2P_5P_4}$: $(2,1)$, $25$; $\mathrm{P_3P_5P_4}$: $(3,2)$, $22$.
+      criteria: ['1.M1']
+    - id: 1b-3
+      content: |
+        그러므로 $\lvert2a+b-30\rvert\le30$을 만족하는 경우의 수는 $6$이다.
+      criteria: ['1.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 5
+      evidence: |
+        세 점으로 만든 삼각형의 무게중심 좌표를 모두 구했다(공식 10점 → 5).
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1, 1b-2, 1a]
+    - id: 1.A1
+      mark_type: A
+      points: 5
+      evidence: |
+        거리 조건 $\lvert2a+b-30\rvert\le30$으로 경우의 수 $6$을 구했다(공식 10점 → 5).
+      depends_on: [1.M1]
+      steps: [1b-3, 1a]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '2'
+  stem: |
+    [그림: 정사각형 $\mathrm{A_1B_1C_1D_1}$(왼쪽 위 $\mathrm{A}_1$, 왼쪽 아래 $\mathrm{B}_1$, 오른쪽 아래 $\mathrm{C}_1$, 오른쪽 위 $\mathrm{D}_1$)과 내접원, 원 위의 점 $\mathrm{E}_1$(왼쪽 위), 아랫변 중점 $\mathrm{F}_1$, 오른쪽 변 중점 $\mathrm{G}_1$로 만든 삼각형 $\mathrm{E_1F_1G_1}$, $\mathrm{G}_1$에서의 각 $\theta$, 그 안의 정사각형 $\mathrm{A_2B_2C_2D_2}$와 내접원, 같은 방식의 점 $\mathrm{E_2}$, $\mathrm{F_2}$, $\mathrm{G_2}$]
+    오른쪽 그림과 같이 한 변의 길이가 $2$인 정사각형 $\mathrm{A_1B_1C_1D_1}$에 대하여 선분 $\mathrm{B_1C_1}$의 중점을 $\mathrm{F}_1$, 선분 $\mathrm{C_1D_1}$의 중점을 $\mathrm{G}_1$이라 하자.
+    정사각형 $\mathrm{A_1B_1C_1D_1}$에 내접하는 원 위의 점 $\mathrm{E}_1$에 대하여 $\theta=\angle\mathrm{E_1G_1F_1}$이라 할 때, $\dfrac\pi4<\theta<\dfrac\pi2$를 만족시킨다.
+    세 점 $\mathrm{B}_2$, $\mathrm{C}_2$, $\mathrm{D}_2$는 각각 선분 $\mathrm{E_1F_1}$, $\mathrm{F_1G_1}$, $\mathrm{E_1G_1}$ 위의 점이며, 두 직선 $\mathrm{B_1C_1}$과 $\mathrm{B_2C_2}$가 서로 평행하고 두 직선 $\mathrm{C_1D_1}$과 $\mathrm{C_2D_2}$가 서로 평행하며, 사각형 $\mathrm{A_2B_2C_2D_2}$는 정사각형이다.
+    정사각형 $\mathrm{A_2B_2C_2D_2}$에도 같은 방법을 적용하여, 선분 $\mathrm{B_2C_2}$의 중점을 $\mathrm{F}_2$, 선분 $\mathrm{C_2D_2}$의 중점을 $\mathrm{G}_2$라 하자.
+    정사각형 $\mathrm{A_2B_2C_2D_2}$에 내접하는 원 위의 점 $\mathrm{E}_2$는 $\angle\mathrm{E_1G_1F_1}=\angle\mathrm{E_2G_2F_2}$를 만족시킨다.
+    이와 같은 과정을 반복하여 정사각형 $\mathrm{A}_n\mathrm{B}_n\mathrm{C}_n\mathrm{D}_n$과 세 점 $\mathrm{E}_n$, $\mathrm{F}_n$, $\mathrm{G}_n\ (n\ge3)$을 얻을 수 있다.
+    모든 자연수 $n$에 대하여 정사각형 $\mathrm{A}_n\mathrm{B}_n\mathrm{C}_n\mathrm{D}_n$의 넓이를 $S_n$이라 하자.
+    $\cos\theta=\dfrac{\sqrt5}{5}$일 때 급수 $\displaystyle\sum_{n=1}^{\infty}S_n$의 합을 구하시오.
+  points: 20
+  depends_on: []
+  answer: {kind: value, value: '1156/253', equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: $\overline{\mathrm{C_2F_1}}=a$, 한 변 $r$이면 $r^2=a(\sqrt2-a)$, $r=\frac{\sqrt2}{2}a(1+\cot\theta)$이므로 $r=\frac{2(1+\cot\theta)}{(1+\cot\theta)^2+2}=\frac{12}{17}$.
+    steps:
+    - {id: 2a, content: '$\sum S_n=\dfrac{4}{1-r^2/4}=\dfrac{1156}{253}$', criteria: ['2.M1', '2.A1']}
+    hint_ladder:
+    - $\angle\mathrm{F_1E_1G_1}$은 어떤 호에 대한 원주각인가?
+    - 삼각형 $\mathrm{B_2C_2F_1}$과 $\mathrm{G_1C_2D_2}$를 비교해 보자.
+  - id: S2-B
+    audience: B
+    method_no: 1
+    source_flow: 2026 선행학습 영향평가 보고서 문항카드9 p.117~118 예시답안 2
+    steps:
+    - id: 2b-1
+      content: |
+        각 $\mathrm{F_1E_1G_1}$은 호 $\mathrm{F_1G_1}$에 대한 원주각이므로 $\angle\mathrm{F_1E_1G_1}=\frac\pi4$이다. 삼각형 $\mathrm{E_1F_1G_1}$에서 $\angle\mathrm{E_1F_1G_1}=\frac{3\pi}{4}-\theta$이고, 삼각형 $\mathrm{C_1F_1G_1}$에서 $\overline{\mathrm{C_1F_1}}=\overline{\mathrm{C_1G_1}}$이므로 $\angle\mathrm{C_1F_1G_1}=\frac\pi4$. 그러므로 $\angle\mathrm{B_1F_1E_1}=\theta$이다.
+      criteria: ['2.M1']
+    - id: 2b-2
+      content: |
+        $\mathrm{B_1C_1}\parallel\mathrm{B_2C_2}$이므로 $\angle\mathrm{C_2B_2F_1}=\angle\mathrm{B_1F_1E_1}=\theta$, $\angle\mathrm{B_2C_2F_1}=\angle\mathrm{C_1F_1C_2}=\frac\pi4$. 또 $\mathrm{C_1D_1}\parallel\mathrm{C_2D_2}$이므로 $\angle\mathrm{D_2C_2G_1}=\angle\mathrm{C_1G_1C_2}=\frac\pi4$. 그러므로 두 삼각형 $\mathrm{B_2C_2F_1}$과 $\mathrm{G_1C_2D_2}$는 닮음이다.
+      criteria: ['2.M1']
+    - id: 2b-3
+      content: |
+        $\overline{\mathrm{C_2F_1}}=a$라 하면 $\overline{\mathrm{C_2G_1}}=\sqrt2-a$이고, 정사각형 $\mathrm{A_2B_2C_2D_2}$의 한 변을 $r$이라 하면 닮음에서 $r:(\sqrt2-a)=a:r$, 즉 $r^2=a(\sqrt2-a)$이다.
+      criteria: ['2.A1']
+    - id: 2b-4
+      content: |
+        삼각형 $\mathrm{B_2C_2F_1}$에서 사인법칙에 의해 $\dfrac{a}{\sin\theta}=\dfrac{r}{\sin\left(\frac{3\pi}{4}-\theta\right)}$이고 덧셈정리에 의해 $r=a\dfrac{\sin\left(\theta+\frac\pi4\right)}{\sin\theta}=\dfrac{\sqrt2}{2}a(1+\cot\theta)$이다.
+      criteria: ['2.A1']
+    - id: 2b-5
+      content: |
+        두 식에서 $a=\dfrac{2\sqrt2}{(1+\cot\theta)^2+2}$, $r=\dfrac{2(1+\cot\theta)}{(1+\cot\theta)^2+2}$. $\cos\theta=\frac{\sqrt5}{5}$이므로 $\cot\theta=\frac12$, $r=\frac{12}{17}$. $\sum S_n$은 첫째항 $4$, 공비 $\frac{r^2}{4}$인 등비급수이므로 $\displaystyle\sum_{n=1}^\infty S_n=\frac{4}{1-\frac{r^2}{4}}=\frac{1156}{253}$이다.
+      criteria: ['2.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 8
+      evidence: |
+        삼각형 $\mathrm{B_2C_2F_1}$과 $\mathrm{G_1C_2D_2}$가 닮음임을 각의 크기로 보였다(공식 15점 → 8).
+      depends_on: []
+      implied_ok: false
+      steps: [2b-1, 2b-2, 2a]
+    - id: 2.A1
+      mark_type: A
+      points: 12
+      evidence: |
+        정사각형 $\mathrm{A_2B_2C_2D_2}$의 한 변 $\frac{12}{17}$과 급수의 합 $\frac{1156}{253}$을 구했다(공식 25점 → 12).
+      depends_on: [2.M1]
+      steps: [2b-3, 2b-4, 2b-5, 2a]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '3'
+  stem: |
+    [그림: 삼각기둥 $\mathrm{ABC-DEF}$ — 위 밑면 $\mathrm{ABC}$, 아래 밑면 $\mathrm{DEF}$, 변 $\mathrm{AC}$ 위의 점 $\mathrm{P}$, 선분 $\mathrm{BE}$ 근처의 점 $\mathrm{S}$, $\mathrm{DF}$의 중점 $\mathrm{M}$, $\mathrm{DE}$ 위의 $\mathrm{Q}$, $\mathrm{EF}$ 위의 $\mathrm{R}$, $\mathrm{QR}$ 위의 점 $\mathrm{N}$, 점선 $\mathrm{PQ}$, $\mathrm{PR}$, $\mathrm{PN}$, $\mathrm{BM}$]
+    $\overline{\mathrm{AB}}=\overline{\mathrm{BC}}=\overline{\mathrm{DE}}=\overline{\mathrm{EF}}=3$, $\angle\mathrm{ABC}=\angle\mathrm{DEF}=\dfrac\pi2$, $\overline{\mathrm{AD}}=6$인 삼각기둥 $\mathrm{ABC-DEF}$가 있다. 점 $\mathrm{P}$는 선분 $\mathrm{AC}$를 $2:1$로 내분하는 점이고, 점 $\mathrm{M}$은 선분 $\mathrm{DF}$의 중점이다. 선분 $\mathrm{DE}$ 위의 점 $\mathrm{Q}$는 $\overline{\mathrm{EQ}}=t\ (0<t<3)$, 선분 $\mathrm{EF}$ 위의 점 $\mathrm{R}$은 $\overline{\mathrm{ER}}=3-t$를 만족시킨다.
+    직선 $\mathrm{BM}$이 평면 $\mathrm{PQR}$과 만나는 점을 $\mathrm{S}$라 할 때, $\overline{\mathrm{BS}}:\overline{\mathrm{SM}}=2:1$이다. 점 $\mathrm{N}$은 직선 $\mathrm{PS}$와 직선 $\mathrm{QR}$의 교점이다. 직선 $\mathrm{MN}$과 직선 $\mathrm{QR}$이 서로 수직일 때, 평면 $\mathrm{PQR}$이 평면 $\mathrm{DEF}$와 이루는 예각의 크기 $\theta$에 대하여 $\cos\theta$의 값을 구하시오.
+  points: 20
+  depends_on: []
+  answer: {kind: value, value: 'sqrt(21)/21', equivalents: ['1/sqrt(21)'], tolerance: null}
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: $\mathrm{BP}\parallel\mathrm{MN}$, $\mathrm{EP'}\parallel\mathrm{MN}\perp\mathrm{QR}$에서 $\triangle\mathrm{P'EH}\sim\triangle\mathrm{RQE}$로 $t=2$; $\triangle\mathrm{PQR}=\frac{3\sqrt{21}}{2}$, $\triangle\mathrm{P'QR}=\frac32$.
+    steps:
+    - {id: 3a, content: '$t=2$, $\cos\theta=\dfrac{3/2}{3\sqrt{21}/2}=\dfrac{\sqrt{21}}{21}$', criteria: ['3.M1', '3.A1']}
+    hint_ladder:
+    - 두 직선 $\mathrm{BM}$과 $\mathrm{PN}$이 만나므로 한 평면을 결정한다. 이 평면이 두 밑면과 만나는 교선은?
+    - 점 $\mathrm{P}$에서 평면 $\mathrm{DEF}$에 내린 수선의 발 $\mathrm{P'}$을 생각하자.
+  - id: S3-B
+    audience: B
+    method_no: 1
+    source_flow: 2026 선행학습 영향평가 보고서 문항카드9 p.118 예시답안 3
+    steps:
+    - id: 3b-1
+      content: |
+        두 직선 $\mathrm{BM}$과 $\mathrm{PN}$은 점 $\mathrm{S}$에서 만나므로 하나의 평면을 결정한다. 두 직선 $\mathrm{BP}$와 $\mathrm{MN}$은 이 평면 위에 있으면서 서로 평행한 두 평면 $\mathrm{ABC}$와 $\mathrm{DEF}$에 각각 포함되므로 서로 평행하다. 점 $\mathrm{P}$에서 평면 $\mathrm{DEF}$에 내린 수선의 발을 $\mathrm{P'}$이라 하면 $\mathrm{EP'}\parallel\mathrm{MN}$이고 $\mathrm{EP'}\perp\mathrm{QR}$이다.
+      criteria: ['3.M1']
+    - id: 3b-2
+      content: |
+        $\mathrm{P'}$에서 선분 $\mathrm{EF}$에 내린 수선의 발을 $\mathrm{H}$라 하면 두 삼각형 $\mathrm{P'EH}$와 $\mathrm{RQE}$는 닮음이다. $\mathrm{P'}$은 선분 $\mathrm{DF}$를 $2:1$로 내분하므로 $\overline{\mathrm{P'F}}=\sqrt2$, $\overline{\mathrm{P'H}}=\overline{\mathrm{HF}}=1$, $\overline{\mathrm{EH}}=2$이다. 그러므로 $\overline{\mathrm{EQ}}:\overline{\mathrm{ER}}=\overline{\mathrm{EH}}:\overline{\mathrm{P'H}}$, 즉 $t:(3-t)=2:1$이고 $t=2$이다.
+      criteria: ['3.M1']
+    - id: 3b-3
+      content: |
+        $\overline{\mathrm{ER}}=1$이므로 $\overline{\mathrm{RH}}=1$, $\overline{\mathrm{P'R}}=\sqrt2$, $\overline{\mathrm{PR}}=\sqrt{\overline{\mathrm{PP'}}^2+\overline{\mathrm{P'R}}^2}=\sqrt{38}$. $\mathrm{P'}$에서 선분 $\mathrm{EQ}$에 내린 수선의 발은 $\mathrm{EQ}$의 중점이므로 $\overline{\mathrm{P'Q}}=\overline{\mathrm{P'E}}=\sqrt5$, $\overline{\mathrm{PQ}}=\sqrt{41}$.
+      criteria: ['3.A1']
+    - id: 3b-4
+      content: |
+        삼각형 $\mathrm{PQR}$에서 코사인법칙에 의해 $\cos\angle\mathrm{QPR}=\dfrac{41+38-5}{2\sqrt{41}\sqrt{38}}=\dfrac{37}{\sqrt{1558}}$, $\sin\angle\mathrm{QPR}=\dfrac{3\sqrt{21}}{\sqrt{1558}}$이므로 넓이는 $\frac12\times\overline{\mathrm{PQ}}\times\overline{\mathrm{PR}}\times\sin\angle\mathrm{QPR}=\dfrac{3\sqrt{21}}{2}$이다.
+      criteria: ['3.A1']
+    - id: 3b-5
+      content: |
+        삼각형 $\mathrm{PQR}$의 평면 $\mathrm{DEF}$ 위로의 정사영은 삼각형 $\mathrm{P'QR}$이고 그 넓이는 $\triangle\mathrm{DEF}-\triangle\mathrm{DQP'}-\triangle\mathrm{QER}-\triangle\mathrm{P'RF}=\frac92-1-1-1=\frac32$이다. 따라서 $\cos\theta=\dfrac{\sqrt{21}}{21}$이다.
+      criteria: ['3.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 10
+      evidence: |
+        평행 관계와 닮음으로 조건을 만족하는 $t=2$를 구했다(공식 20점 → 10).
+      depends_on: []
+      implied_ok: false
+      steps: [3b-1, 3b-2, 3a]
+    - id: 3.A1
+      mark_type: A
+      points: 10
+      evidence: |
+        $\triangle\mathrm{PQR}=\frac{3\sqrt{21}}{2}$와 정사영 넓이 $\frac32$로 $\cos\theta=\frac{\sqrt{21}}{21}$을 구했다(공식 20점 → 10).
+      depends_on: [3.M1]
+      steps: [3b-3, 3b-4, 3b-5, 3a]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+remedy_links: []
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: hyu-past-v1, item_version: 1, verdict: pass, date: 2026-11-22}
+- {stage: verify, actor_type: system, actor_id: verify/HYU-G26C.py, item_version: 1, verdict: pass, date: 2026-11-22}
+
+created: 2026-11-22
+updated: 2026-11-22

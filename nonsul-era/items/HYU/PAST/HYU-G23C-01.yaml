@@ -1,0 +1,285 @@
+# 한양대학교 2023학년도 논술전형 자연계열(오후2) [문제 1] — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: HYU-G23C-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: HYU
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 점화
+points: 50
+time_estimate_min: 45
+intent: |
+  이항계수의 성질(파스칼 관계)과 대칭성, $\sum$의 성질, 등비수열의 합을 이용해 3의 배수 번째 이항계수의 합에 관한 관계식을 분석하고 정확한 논증으로 값을 도출하는 능력을 본다(문항카드9 출제 의도 요지).
+key_idea: |
+  파스칼 관계를 세 번 적용해 ${}_{3n+3}\mathrm{C}_{3k}$를 ${}_{3n}\mathrm{C}$ 네 항으로 펼치고, 합하면 $a_n+a_{n+1}=3\cdot2^{3n}$. 이 점화식을 부호를 바꿔 더하면 $a_{100}$이 나오고, 대칭성으로 ${}_{300}\mathrm{C}_{3k-1}$과 ${}_{300}\mathrm{C}_{3k-2}$의 합이 같다.
+stuck: |
+  (2) 펼친 항들 ${}_{3n}\mathrm{C}_{3k-3}$, ${}_{3n}\mathrm{C}_{3k}$가 각각 $a_n-1$을 이룬다는 것을 보고 $3\sum{}_{3n}\mathrm{C}_j$로 묶는 단계, (3) 교대합으로 $a_{100}$을 구하고 나머지 두 잉여류의 합을 대칭성으로 반분하는 발상
+idea_tags: [IDEA-PASCAL-TRIPLE-EXPANSION, IDEA-ALTERNATING-SUM-RECURRENCE, IDEA-BINOMIAL-RESIDUE-CLASS-SYMMETRY]
+tags: [이항계수, 파스칼 삼각형, 점화식, 등비수열의 합, 한양 실전, 배점환산]
+elements:
+  materials:
+  - '$a_n=\sum_{k=0}^{n}{}_{3n}\mathrm{C}_{3k}$'
+  - '파스칼 관계 ${}_n\mathrm{C}_k+{}_n\mathrm{C}_{k+1}={}_{n+1}\mathrm{C}_{k+1}$'
+  - '$\sum_{k=1}^{100}{}_{300}\mathrm{C}_{3k-1}$'
+  concepts:
+  - 이항정리
+  - 이항계수의 성질
+  - 합의 기호 시그마
+  - 등비수열의 합
+  - 이항계수의 대칭성
+  tools:
+  - '파스칼 관계를 3단계 반복 적용'
+  - '$\sum_{j=0}^{3n}{}_{3n}\mathrm{C}_j=2^{3n}$'
+  - '$a_1+a_{100}=\sum_{k=1}^{99}(-1)^{k+1}(a_k+a_{k+1})$ 교대합'
+  - '${}_{300}\mathrm{C}_{3k-1}={}_{300}\mathrm{C}_{300-(3k-1)}$'
+  conditions:
+  - '$1\le k\le n$에서 첨자 $3k-3\ge0$, $3k\le3n$'
+  - '$a_{n+1}=2+\sum_{k=1}^n{}_{3n+3}\mathrm{C}_{3k}$ (양 끝 항 ${}_{3n+3}\mathrm{C}_0={}_{3n+3}\mathrm{C}_{3n+3}=1$)'
+  - '$a_1=2$'
+  stimuli_used: [가, 나]
+  subpart_links: '2는 1의 전개식을 사용, 3은 2의 점화식으로 $a_{100}$을 구해 사용'
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅰ, 확률과통계]
+  scope_2028: unknown
+  scope_confirmed: false
+  standards:
+  - code: 12확통01-03
+    text: 이항정리를 이해하고 이를 이용하여 문제를 해결할 수 있다.
+    verified: false
+  - code: 12수학Ⅰ03-04
+    text: $\sum$의 뜻을 알고, 그 성질을 이해하고, 이를 활용할 수 있다.
+    verified: false
+  - code: 12수학Ⅰ03-03
+    text: 등비수열의 뜻을 알고, 일반항, 첫째항부터 제$n$항까지의 합을 구할 수 있다.
+    verified: false
+  content_area: 경우의 수·수열
+  behavior_domain: 추론
+  unit_path: [확률과통계, 경우의 수, 이항정리, 이항계수의 성질]
+  key_concepts: [이항정리, 이항계수의 성질, 합의 기호 시그마, 등비수열의 합, 이항계수의 대칭성]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 한양대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 한양대학교
+  admission_year: 2023
+  admission_type: 수시 논술
+  track: 자연계열(오후2)
+  question_no: 1
+  official_url: https://go.hanyang.ac.kr/web/pds/pds_view.do?m_type=SUSI&bn=9633
+  retrieved_at: 2026-11-21
+  original_points: [20, 40, 40]
+  rights_notice: 한양대학교 입학처 공개 기출(내부 분석용)
+  transcribed_from: |
+    2023학년도 논술전형 자연계열(오후 2) 문제지 p.2, 해설 근거 선행학습 영향평가 자체평가보고서 2023 문항카드9(보고서 인쇄 쪽 77~80) (원본 PDF 이미지 대조 2026-11-21). original_points 는 문항카드 채점기준(100점 척도) 값이며 50점 만점에 맞춰 소문항 배점을 1/2로 환산함.
+
+verify: verify/HYU-G23C.py::p01
+
+stimuli:
+- label: 가
+  body: |
+    <가> 자연수 $n$에 대하여 $a_n=\displaystyle\sum_{k=0}^{n}{}_{3n}\mathrm{C}_{3k}$이다.
+- label: 나
+  body: |
+    <나> 정수 $n$과 $k$가 $0\le k<n$을 만족시킬 때, ${}_n\mathrm{C}_k+{}_n\mathrm{C}_{k+1}={}_{n+1}\mathrm{C}_{k+1}$이 성립한다.
+
+stem: |
+  [문제 1] 다음 제시문을 읽고 물음에 답하시오. (50점)
+
+subparts:
+- id: '1'
+  stem: |
+    정수 $n$과 $k$가 $1\le k\le n$을 만족시킬 때, 제시문 <나>를 이용하여 ${}_{3n+3}\mathrm{C}_{3k}={}_{3n}\mathrm{C}_{3k-3}+3\times{}_{3n}\mathrm{C}_{3k-2}+3\times{}_{3n}\mathrm{C}_{3k-1}+{}_{3n}\mathrm{C}_{3k}$가 성립함을 보이시오.
+  points: 10
+  depends_on: []
+  answer: {kind: proof, value: null, equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: <나>를 $3n+2$, $3n+1$, $3n$ 단계에서 차례로 적용하면 계수가 $1,2,1$ → $1,3,3,1$이 된다.
+    steps:
+    - id: 1a
+      content: |
+        ${}_{3n+3}\mathrm{C}_{3k}={}_{3n+2}\mathrm{C}_{3k-1}+{}_{3n+2}\mathrm{C}_{3k}={}_{3n+1}\mathrm{C}_{3k-2}+2\,{}_{3n+1}\mathrm{C}_{3k-1}+{}_{3n+1}\mathrm{C}_{3k}=\cdots$
+      criteria: ['1.R1']
+    hint_ladder:
+    - 좌변에 <나>를 한 번 적용하면 어떤 두 항이 되는가?
+    - 각 항에 다시 <나>를 적용하면 계수는 파스칼 삼각형처럼 늘어난다.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: '선행학습 영향평가 보고서 2023 문항카드9 예시답안 p.79'
+    steps:
+    - id: 1b-1
+      content: |
+        제시문 <나>에 의해 ${}_n\mathrm{C}_k+{}_n\mathrm{C}_{k+1}={}_{n+1}\mathrm{C}_{k+1}$이다. 이를 이용하면 ($1\le k\le n$이므로 각 단계의 첨자 조건 $0\le k'<n'$이 성립)
+        $${}_{3n+3}\mathrm{C}_{3k}={}_{3n+2}\mathrm{C}_{3k-1}+{}_{3n+2}\mathrm{C}_{3k}$$
+        $$={}_{3n+1}\mathrm{C}_{3k-2}+2\times{}_{3n+1}\mathrm{C}_{3k-1}+{}_{3n+1}\mathrm{C}_{3k}$$
+        $$={}_{3n}\mathrm{C}_{3k-3}+3\times{}_{3n}\mathrm{C}_{3k-2}+3\times{}_{3n}\mathrm{C}_{3k-1}+{}_{3n}\mathrm{C}_{3k}$$
+        를 얻는다. ■
+      criteria: ['1.R1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.R1
+      mark_type: R
+      points: 10
+      evidence: |
+        <나>를 단계별로 적용하여 좌변에서 우변을 얻는 과정(중간식 ${}_{3n+1}\mathrm{C}_{3k-2}+2\times{}_{3n+1}\mathrm{C}_{3k-1}+{}_{3n+1}\mathrm{C}_{3k}$ 포함)이 명료하게 기술되었다. (문항카드 20/20)
+      depends_on: []
+      steps: [1a, 1b-1]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '2'
+  stem: |
+    자연수 $n$에 대해 $a_{n+1}=2+\displaystyle\sum_{k=1}^{n}{}_{3n+3}\mathrm{C}_{3k}$를 이용하여 $a_n+a_{n+1}=3\times2^{3n}$이 성립함을 보이시오.
+  points: 20
+  depends_on: ['1']
+  answer: {kind: proof, value: null, equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: 1의 식을 대입하면 ${}_{3n}\mathrm{C}_{3k-3}$의 합과 ${}_{3n}\mathrm{C}_{3k}$의 합이 각각 $a_n-1$이 되어 전체가 $3\sum_{j=0}^{3n}{}_{3n}\mathrm{C}_j$로 묶인다.
+    steps:
+    - id: 2a
+      content: |
+        $a_{n+1}+a_n=\displaystyle\sum_{k=1}^{n}(3\,{}_{3n}\mathrm{C}_{3k-2}+3\,{}_{3n}\mathrm{C}_{3k-1})+3a_n=3\sum_{j=0}^{3n}{}_{3n}\mathrm{C}_j=3\times2^{3n}$.
+      criteria: ['2.M1', '2.R1']
+    hint_ladder:
+    - 1의 결과를 $\sum$ 안에 대입하자.
+    - $\sum_{k=1}^{n}{}_{3n}\mathrm{C}_{3k-3}$과 $\sum_{k=1}^{n}{}_{3n}\mathrm{C}_{3k}$를 $a_n$으로 나타내자.
+  - id: S2-B
+    audience: B
+    method_no: 1
+    source_flow: '선행학습 영향평가 보고서 2023 문항카드9 예시답안 p.79~80'
+    steps:
+    - id: 2b-1
+      content: |
+        1번의 결과를 이용하면
+        $$a_{n+1}+a_n=2+\sum_{k=1}^{n}{}_{3n+3}\mathrm{C}_{3k}+\sum_{k=0}^{n}{}_{3n}\mathrm{C}_{3k}=2+\sum_{k=1}^{n}\left({}_{3n}\mathrm{C}_{3k-3}+3\times{}_{3n}\mathrm{C}_{3k-2}+3\times{}_{3n}\mathrm{C}_{3k-1}+{}_{3n}\mathrm{C}_{3k}\right)+\sum_{k=0}^{n}{}_{3n}\mathrm{C}_{3k}$$
+      criteria: ['2.M1']
+    - id: 2b-2
+      content: |
+        $\displaystyle\sum_{k=1}^{n}{}_{3n}\mathrm{C}_{3k}=a_n-1$이므로
+        $$=2+\sum_{k=1}^{n}\left({}_{3n}\mathrm{C}_{3k-3}+3\times{}_{3n}\mathrm{C}_{3k-2}+3\times{}_{3n}\mathrm{C}_{3k-1}\right)+2\sum_{k=0}^{n}{}_{3n}\mathrm{C}_{3k}-1$$
+        이고, $\displaystyle\sum_{k=1}^{n}{}_{3n}\mathrm{C}_{3k-3}=a_n-1$이므로
+        $$=2+\sum_{k=1}^{n}\left(3\times{}_{3n}\mathrm{C}_{3k-2}+3\times{}_{3n}\mathrm{C}_{3k-1}\right)+3\sum_{k=0}^{n}{}_{3n}\mathrm{C}_{3k}-2$$
+      criteria: ['2.M1']
+    - id: 2b-3
+      content: |
+        $$=\sum_{k=1}^{n}\left(3\times{}_{3n}\mathrm{C}_{3k-2}+3\times{}_{3n}\mathrm{C}_{3k-1}\right)+3\sum_{k=0}^{n}{}_{3n}\mathrm{C}_{3k}=3\sum_{k=0}^{3n}{}_{3n}\mathrm{C}_k=3\times2^{3n}$$
+        이다. ■
+      criteria: ['2.R1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 10
+      evidence: |
+        1의 결과를 대입하고 $\sum_{k=1}^{n}{}_{3n}\mathrm{C}_{3k}$, $\sum_{k=1}^{n}{}_{3n}\mathrm{C}_{3k-3}$을 $a_n-1$로 바꾸는 등 $\sum$ 식을 정리했다. (문항카드 20/40)
+      depends_on: []
+      implied_ok: false
+      ft: {allowed: true, from: [1.R1], max_points: 10}
+      steps: [2b-1, 2b-2]
+    - id: 2.R1
+      mark_type: R
+      points: 10
+      evidence: |
+        모든 첨자가 $0$부터 $3n$까지 한 번씩 나타남을 밝혀 $3\sum_{k=0}^{3n}{}_{3n}\mathrm{C}_k=3\times2^{3n}$으로 결론지었다. (문항카드 20/40)
+      depends_on: [2.M1]
+      steps: [2b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '3'
+  stem: |
+    $\displaystyle\sum_{k=1}^{100}{}_{300}\mathrm{C}_{3k-1}$의 값을 구하시오.
+  points: 20
+  depends_on: ['2']
+  answer: {kind: value, value: '(8**100 - 1)/3', equivalents: ['(2**300 - 1)/3'], tolerance: null}
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: $a_{100}=\dfrac{8^{100}+2}{3}$이고 나머지 $2^{300}-a_{100}$을 대칭성으로 반분한다.
+    steps:
+    - id: 3a
+      content: |
+        $\dfrac12\left(8^{100}-a_{100}\right)=\dfrac13(8^{100}-1)$.
+      criteria: ['3.M1', '3.A1']
+    hint_ladder:
+    - $\{(-1)^{n+1}(a_n+a_{n+1})\}$은 어떤 수열인가?
+    - ${}_{300}\mathrm{C}_{3k-1}$과 ${}_{300}\mathrm{C}_{3k-2}$의 합은 대칭성으로 비교할 수 있다.
+  - id: S3-B
+    audience: B
+    method_no: 1
+    source_flow: '선행학습 영향평가 보고서 2023 문항카드9 예시답안 p.80'
+    steps:
+    - id: 3b-1
+      content: |
+        2에 의해 수열 $\{(-1)^{n+1}(a_n+a_{n+1})\}$은 등비수열이다.
+        $$a_1+a_{100}=(a_1+a_2)-(a_2+a_3)+\cdots-(a_{98}+a_{99})+(a_{99}+a_{100})=\sum_{k=1}^{99}(-1)^{k+1}(3\times2^{3k})=\frac{24\{1-(-8)^{99}\}}{1-(-8)}=\frac83(8^{99}+1)$$
+      criteria: ['3.M1']
+    - id: 3b-2
+      content: |
+        $a_1={}_3\mathrm{C}_0+{}_3\mathrm{C}_3=2$이므로 $a_{100}=\dfrac83(8^{99}+1)-2=\dfrac13(8^{100}+2)$이다.
+      criteria: ['3.M1']
+    - id: 3b-3
+      content: |
+        대칭성에 의해 ${}_{300}\mathrm{C}_{3k-1}={}_{300}\mathrm{C}_{3(101-k)-2}$이므로 $\displaystyle\sum_{k=1}^{100}{}_{300}\mathrm{C}_{3k-1}=\sum_{k=1}^{100}{}_{300}\mathrm{C}_{3k-2}$이다. 두 합과 $a_{100}$을 더하면 $2^{300}=8^{100}$이므로
+        $$\sum_{k=1}^{100}{}_{300}\mathrm{C}_{3k-1}=\frac12(8^{100}-a_{100})=\frac12\left(\frac23\,8^{100}-\frac23\right)=\frac13(8^{100}-1)$$
+        이다.
+      criteria: ['3.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 10
+      evidence: |
+        등비수열의 합(교대합)을 이용하여 $a_{100}=\dfrac13(8^{100}+2)$를 정확히 구했다. (문항카드 20/40)
+      depends_on: []
+      implied_ok: false
+      ft: {allowed: true, from: [2.R1], max_points: 10}
+      steps: [3b-1, 3b-2]
+    - id: 3.A1
+      mark_type: A
+      points: 10
+      evidence: |
+        이항계수의 대칭성으로 두 합이 같음을 밝혀 $\dfrac13(8^{100}-1)$을 구했다. (문항카드 20/40)
+      depends_on: [3.M1]
+      steps: [3b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+remedy_links: []
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: hyu-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+- {stage: verify, actor_type: system, actor_id: verify/HYU-G23C.py, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

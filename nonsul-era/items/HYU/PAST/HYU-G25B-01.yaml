@@ -1,0 +1,313 @@
+# 한양대 2025학년도 논술 자연계열(오후1) [문제 1] — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: HYU-G25B-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: HYU
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 분류
+points: 50
+time_estimate_min: 45
+intent: |
+  수학Ⅱ의 다항함수 정적분, 수학의 경우의 수(합의 법칙·곱의 법칙)와 조합, 수학Ⅱ의 함수의 연속·미분계수, 미적분의 치환적분법 같은 기본 내용을 활용할 수 있는지 본다. 정적분 값으로 순서쌍을 세고, 방향 전환 지점을 조합으로 세어 최단 경로 수를 구하며, 연속·미분가능 조건으로 함수를 결정한 뒤 치환적분으로 넓이를 구한다.
+key_idea: |
+  2.는 방향이 바뀌는 지점의 좌표를 고르는 문제로 바꾸어 $_{n-1}\mathrm{C}_k$의 곱으로 센다. 3.은 각 구간의 $f$가 $g$를 가로·세로로 축소·평행이동한 것이므로 $x=3$에서의 미분가능 조건으로 $g$를 정하고, 치환하면 각 구간의 적분이 $\left(\tfrac49\right)^{k-1}\int_0^3|g|$가 된다.
+stuck: |
+  2.에서 시작 방향(오른쪽/위쪽)에 따라 전환 지점의 $x$좌표·$y$좌표를 고르는 개수가 정해진다는 것, 3.에서 $[3,5)$의 $f$를 $g$로 직접 써서 좌·우 미분계수를 맞추는 것
+idea_tags: [IDEA-LATTICE-TURN-COUNT, IDEA-SELF-SIMILAR-PIECEWISE, IDEA-SUBSTITUTION-SCALING]
+tags: [정적분, 최단 경로, 조합, 연속과 미분가능, 치환적분, 등비수열, 배점환산]
+elements:
+  materials:
+  - '$20\le\int_1^2(2x^3+3ax^2+bx)\,dx\le30$, $a,b\in\{1,\dots,5\}$'
+  - '$n\times n$ 정사각형 도로망에서 방향 전환 지점이 4개·7개인 최단 경로 수 $f(n)$, $g(n)$'
+  - '삼차함수 $g$와 $a_n=9\left(1-\left(\tfrac23\right)^{n-1}\right)$로 조각별 정의된 $f$'
+  concepts:
+  - 다항함수의 정적분
+  - 합의 법칙과 곱의 법칙
+  - 조합의 수
+  - 함수의 연속
+  - 미분계수와 미분가능성
+  - 치환적분법
+  - 등비수열의 합
+  tools:
+  - '$\int_1^2(\cdots)\,dx=7a+\dfrac{3b+15}{2}$로 $a$별 경우 나누기'
+  - '전환 지점 좌표 선택: $_{n-1}\mathrm{C}_2\times{}_{n-1}\mathrm{C}_1$, $_{n-1}\mathrm{C}_3\times{}_{n-1}\mathrm{C}_3$, 시작 방향 대칭으로 2배'
+  - '$x=3$에서 좌·우 미분계수 일치로 $x_0=\tfrac32$, $g''(0)g''(3)=9$로 계수 결정'
+  - '치환 $y=\left(\tfrac32\right)^{k-1}(x-a_{k+1})+3$'
+  - '$\int_0^3|g|=2\int_0^{3/2}g$ (대칭)'
+  conditions:
+  - '방향 전환 지점은 A와 B를 제외'
+  - '4회 전환: 오른쪽→위쪽 전환 2회($x$좌표 2개), 위쪽→오른쪽 전환 2회(그중 하나의 $y$좌표는 $n$이 아님에 주의)'
+  - '$a_1=0$, $a_2=3$, $a_3=5$, $a_4=\tfrac{19}{3}$, $a_5=\tfrac{65}{9}$'
+  - '$[a_n,a_{n+1})$에서 $f$의 인자 $\left(\tfrac32\right)^{n-1}(x-a_{n+1})+3\in[0,3)$이므로 $f=g$ 사용'
+  stimuli_used: []
+  subpart_links: null
+
+curriculum:
+  version: '2015'
+  subjects: [수학, 수학Ⅱ, 미적분]
+  scope_2028: calc2
+  scope_confirmed: false
+  standards:
+  - code: 10수학05-01
+    text: 합의 법칙과 곱의 법칙을 이해하고, 이를 이용하여 경우의 수를 구할 수 있다.
+    verified: true
+  - code: 10수학05-03
+    text: 조합의 의미를 이해하고, 조합의 수를 구할 수 있다.
+    verified: true
+  - code: 12수학Ⅱ03-04
+    text: 다항함수의 정적분을 구할 수 있다.
+    verified: true
+  - code: 12수학Ⅱ01-03
+    text: 함수의 연속의 뜻을 안다.
+    verified: true
+  - code: 12수학Ⅱ02-01
+    text: 미분계수의 뜻을 알고, 그 값을 구할 수 있다.
+    verified: true
+  - code: 12미적03-01
+    text: 치환적분법을 이해하고, 이를 활용할 수 있다.
+    verified: true
+  content_area: 경우의 수·정적분·연속과 미분
+  behavior_domain: 문제해결
+  unit_path: [미적분, 적분법, 여러 가지 적분법, 치환적분법]
+  key_concepts: [다항함수의 정적분, 합의 법칙과 곱의 법칙, 조합의 수, 함수의 연속, 미분계수와 미분가능성, 치환적분법, 등비수열의 합]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 한양대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 한양대학교
+  admission_year: 2025
+  admission_type: 수시 논술
+  track: 자연계열(오후1)
+  question_no: 1
+  official_url: https://go.hanyang.ac.kr/web/pds/pds_view.do?m_type=SUSI&bn=17897
+  retrieved_at: 2026-11-21
+  original_points: [15, 15, 20]
+  rights_notice: 한양대학교 입학처 공개 기출(내부 분석용)
+  transcribed_from: 2025학년도 자연계열 논술(오후1) 문제지 p.2, 해설 근거 2025학년도 선행학습 영향평가 자체평가보고서 문항카드7 p.88~94 (원본 PDF 이미지 대조 2026-11-21). 채점기준 배점(30·30·40, 100점 기준)을 문제 배점 50점에 맞춰 1/2로 환산
+
+verify: verify/HYU-G25B.py::p01
+
+stimuli: []
+
+stem: |
+  [문제 1] 다음 물음에 답하시오. (50점)
+
+subparts:
+- id: '1'
+  stem: |
+    $\displaystyle20\le\int_1^2(2x^3+3ax^2+bx)\,dx\le30$을 만족시키는 $5$ 이하의 두 자연수 $a$, $b$의 모든 순서쌍 $(a,b)$의 개수를 구하시오.
+  points: 15
+  depends_on: []
+  answer: {kind: value, value: '8', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: 적분값은 $7a+\dfrac{3b+15}{2}$. $a=1$에서 $b=4,5$, $a=2$에서 $b=1\sim5$, $a=3$에서 $b=1$, $a\ge4$ 불가.
+    steps:
+    - {id: 1a, content: '$2+5+1=8$', criteria: ['1.M1', '1.A1']}
+    hint_ladder:
+    - 정적분을 $a$, $b$에 대한 일차식으로 나타내자.
+    - $a$의 값별로 $b$의 범위를 구하자.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 2025 선행학습 영향평가 보고서 문항카드7 p.92 예시답안 1
+    steps:
+    - id: 1b-1
+      content: |
+        $$\int_1^2(2x^3+3ax^2+bx)\,dx=\left[\tfrac12x^4+ax^3+\tfrac12bx^2\right]_1^2=\tfrac12(2^4-1^4)+a(2^3-1^3)+\tfrac12b(2^2-1^2)=7a+\frac{3b+15}{2}.$$
+      criteria: ['1.M1']
+    - id: 1b-2
+      content: |
+        $a=1$: $13\le\dfrac{3b+15}{2}\le23\iff11\le3b\le31$이므로 $b\in\{4,5\}$.
+        $a=2$: $6\le\dfrac{3b+15}{2}\le16\iff-3\le3b\le17$이므로 $b\in\{1,2,3,4,5\}$.
+        $a=3$: $-1\le\dfrac{3b+15}{2}\le9\iff-17\le3b\le3$이므로 $b\in\{1\}$.
+        $a=4$: $28+\dfrac{3b+15}{2}>30$, $a=5$: $35+\dfrac{3b+15}{2}>30$이므로 불가.
+        따라서 순서쌍은 $8$가지이다.
+      criteria: ['1.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 10
+      evidence: |
+        정적분 $\int_1^2(2x^3+3ax^2+bx)\,dx=7a+\dfrac{3b+15}{2}$를 구했다(채점기준 20/30).
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1]
+    - id: 1.A1
+      mark_type: A
+      points: 5
+      evidence: |
+        $a$의 값별로 $b$를 정해 순서쌍의 개수 $8$을 구했다(채점기준 10/30).
+      depends_on: ['1.M1']
+      steps: [1b-2]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '2'
+  stem: |
+    그림과 같이 정사각형이 가로로 $n$개, 세로로 $n$개씩 놓여 있는 정사각형 모양으로 연결된 도로망이 있다. 지점 $\mathrm{A}$에서 출발하여 지점 $\mathrm{B}$까지 최단 거리로 갈 때, 지점 $\mathrm{A}$와 지점 $\mathrm{B}$를 제외하고 이동 방향이 바뀌는 지점의 개수가 $4$인 경우의 수를 $f(n)$, 이동 방향이 바뀌는 지점의 개수가 $7$인 경우의 수를 $g(n)$이라 하자. $f(6)$과 $\sqrt{2\times g(32)}$의 값을 구하시오.
+    (오른쪽 그림에서 굵은 선은 이동 방향이 바뀌는 지점의 개수가 $4$인 경로 중 하나이다.)
+    [그림: 가로 $n$칸·세로 $n$칸의 정사각형 격자 도로망. 왼쪽 아래 꼭짓점이 $\mathrm{A}$, 오른쪽 위 꼭짓점이 $\mathrm{B}$. 굵은 선 경로는 $\mathrm{A}$에서 오른쪽으로 2칸, 위로 2칸, 오른쪽으로 가운데(생략 부분)를 지나, 위쪽 끝(맨 윗줄)까지 올라간 뒤 오른쪽으로 가서 $\mathrm{B}$에 도착(방향 전환 4회). 가로·세로 가운데는 $\cdots$, $\vdots$로 생략 표시]
+  points: 15
+  depends_on: []
+  answer: {kind: value, value: 'f(6) = 100; sqrt(2*g(32)) = 8990', equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: 오른쪽으로 시작하면 4회 전환은 $_{n-1}\mathrm{C}_2\times{}_{n-1}\mathrm{C}_1$, 7회 전환은 $_{n-1}\mathrm{C}_3\times{}_{n-1}\mathrm{C}_3$, 위쪽 시작도 같으므로 2배.
+    steps:
+    - {id: 2a, content: '$f(n)=(n-1)^2(n-2)$, $g(n)=\dfrac{(n-1)^2(n-2)^2(n-3)^2}{18}$, $f(6)=100$, $\sqrt{2g(32)}=\dfrac{31\times30\times29}{3}=8990$', criteria: ['2.M1', '2.A1']}
+    hint_ladder:
+    - 도로망을 좌표평면에 놓고 $\mathrm{A}(0,0)$, $\mathrm{B}(n,n)$이라 하자.
+    - 방향이 바뀌는 지점의 $x$좌표·$y$좌표를 고르는 경우의 수를 세자.
+  - id: S2-B
+    audience: B
+    method_no: 1
+    source_flow: 2025 선행학습 영향평가 보고서 문항카드7 p.92~93 예시답안 2
+    steps:
+    - id: 2b-1
+      content: |
+        도로망을 좌표평면에 놓아 $\mathrm{A}(0,0)$, $\mathrm{B}(n,n)$이라 하자. 방향이 바뀌는 지점이 정확히 4개이고 처음 오른쪽으로 움직이면, 오른쪽에서 위쪽으로 바뀌는 지점이 두 번 생기며 그 $x$좌표는 $0,n$을 제외한 서로 다른 두 수이다. 위쪽에서 오른쪽으로 바뀌는 지점도 두 번 생기며 그 $y$좌표는 하나는 $n$이고 다른 하나는 $0,n$을 제외한 수이다. 그러므로 경우의 수는 $_{n-1}\mathrm{C}_2\times{}_{n-1}\mathrm{C}_1=\dfrac{(n-1)^2(n-2)}{2}$이다.
+      criteria: ['2.M1']
+    - id: 2b-2
+      content: |
+        위쪽으로 움직이기 시작하는 경우의 수도 대칭으로 같으므로 $f(n)=(n-1)^2(n-2)$이다.
+      criteria: ['2.M1']
+    - id: 2b-3
+      content: |
+        방향이 바뀌는 지점이 정확히 7개이고 처음 오른쪽으로 움직이면, 오른쪽→위쪽 전환이 세 번($x$좌표는 $0,n$을 제외한 서로 다른 세 수), 위쪽→오른쪽 전환도 세 번($y$좌표는 $0,n$을 제외한 서로 다른 세 수) 생긴다. 경우의 수는 $_{n-1}\mathrm{C}_3\times{}_{n-1}\mathrm{C}_3=\dfrac{(n-1)^2(n-2)^2(n-3)^2}{36}$이고 대칭으로 $g(n)=\dfrac{(n-1)^2(n-2)^2(n-3)^2}{18}$이다.
+      criteria: ['2.M1']
+    - id: 2b-4
+      content: |
+        $f(6)=(6-1)^2(6-2)=100$이고 $\sqrt{2\times g(32)}=\sqrt{2\times\dfrac{(32-1)^2(32-2)^2(32-3)^2}{18}}=\dfrac{31\times30\times29}{3}=8990$이다.
+      criteria: ['2.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 10
+      evidence: |
+        조건을 만족하는 최단 경로의 수 $f(n)$, $g(n)$을 조합의 수($_{n-1}\mathrm{C}_2\times{}_{n-1}\mathrm{C}_1$, $_{n-1}\mathrm{C}_3\times{}_{n-1}\mathrm{C}_3$, 시작 방향 2배)로 구했다(채점기준 20/30).
+      depends_on: []
+      implied_ok: false
+      steps: [2b-1, 2b-2, 2b-3]
+    - id: 2.A1
+      mark_type: A
+      points: 5
+      evidence: |
+        $f(6)=100$과 $\sqrt{2\times g(32)}=8990$을 구했다(채점기준 10/30).
+      depends_on: ['2.M1']
+      steps: [2b-4]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '3'
+  stem: |
+    실수 전체의 집합에서 정의된 두 함수 $f(x)$와 $g(x)$는 다음 조건을 만족시킨다.
+
+    <가> $g(x)$는 삼차함수이고, $g(0)=g(3)=0$, $g'(0)>0$, $g'(0)g'(3)=9$이다.
+    <나> 자연수 $n$에 대하여 $a_n=9\left(1-\left(\dfrac23\right)^{n-1}\right)$이고,
+    $a_1\le x<a_2$일 때 $f(x)=g(x)$,
+    $a_n\le x<a_{n+1}$ $(n=2,\ 3,\ 4)$일 때 $f(x)=\left(\dfrac23\right)^{n-1}f\left(\left(\dfrac32\right)^{n-1}(x-a_{n+1})+3\right)$이다.
+    <다> $f(x)$는 닫힌구간 $[a_1,a_5]$에서 연속이고, 열린구간 $(a_1,a_5)$에서 미분가능하다.
+
+    이때 $\displaystyle\int_{a_1}^{a_5}|f(x)|\,dx$의 값을 구하시오.
+  points: 20
+  depends_on: []
+  answer: {kind: value, value: '1261/432', equivalents: [], tolerance: null}
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: $g(x)=ax(x-x_0)(x-3)$, $x=3$에서 미분가능 ⇒ $x_0=\tfrac32$, $a=\tfrac23$. 치환하면 $\int_{a_k}^{a_{k+1}}|f|=\left(\tfrac49\right)^{k-1}\int_0^3|g|=\left(\tfrac49\right)^{k-1}\tfrac{27}{16}$.
+    steps:
+    - {id: 3a, content: '$\dfrac{27}{16}\sum_{k=1}^{4}\left(\dfrac49\right)^{k-1}=\dfrac{1261}{432}$', criteria: ['3.M1', '3.A1']}
+    hint_ladder:
+    - $a_1,\dots,a_5$를 먼저 계산하자.
+    - $[3,5)$에서 $f$를 $g$로 나타내고 $x=3$에서 좌·우 미분계수를 비교하자.
+    - 각 구간의 적분을 치환으로 $\int_0^3|g|$로 바꾸자.
+  - id: S3-B
+    audience: B
+    method_no: 1
+    source_flow: 2025 선행학습 영향평가 보고서 문항카드7 p.93~94 예시답안 3
+    steps:
+    - id: 3b-1
+      content: |
+        $a_1=0$, $a_2=3$, $a_3=5$, $a_4=\dfrac{19}{3}$, $a_5=\dfrac{65}{9}$이다. $g(0)=g(3)=0$이므로 $g(x)=ax(x-x_0)(x-3)$이라 하자. $0\le x<3$에서 $f(x)=ax(x-x_0)(x-3)$이고, $3\le x<5$에서
+        $$f(x)=\frac23f\left(\frac32(x-5)+3\right)=\frac23f\left(\frac32(x-3)\right)=\frac23\times a\times\frac32(x-3)\left(\frac32(x-3)-x_0\right)\left(\frac32(x-3)-3\right)=\frac{3a}{4}(x-3)(3x-9-2x_0)(x-5)$$
+        이다.
+      criteria: ['3.M1']
+    - id: 3b-2
+      content: |
+        $f$가 $[a_1,a_5]$에서 연속이려면 $\lim_{x\to3-}f(x)=f(3)$, $(a_1,a_5)$에서 미분가능하려면 $\lim_{x\to3-}\dfrac{f(x)-f(3)}{x-3}=\lim_{x\to3+}\dfrac{f(x)-f(3)}{x-3}$이어야 한다. $\lim_{x\to3-}f(x)=f(3)=0$은 확인할 수 있고,
+        $$\lim_{x\to3-}\frac{f(x)-f(3)}{x-3}=\lim_{x\to3-}ax(x-x_0)=3a(3-x_0),\qquad\lim_{x\to3+}\frac{f(x)-f(3)}{x-3}=\lim_{x\to3+}\frac{3a}{4}(3x-9-2x_0)(x-5)=3ax_0$$
+        이므로 $x_0=\dfrac32$이다. $g'(0)g'(3)=9$와 $g'(0)>0$에서 $a=\dfrac23$이다.
+      criteria: ['3.M1']
+    - id: 3b-3
+      content: |
+        정리하면 $0\le x<3$에서 $f(x)=\dfrac23x\left(x-\dfrac32\right)(x-3)$, $3\le x<5$에서 $f(x)=\dfrac32(x-3)(x-4)(x-5)$이다. 같은 방법으로 $x=a_3$, $x=a_4$에서 $f$가 연속이고 미분가능함을 확인할 수 있고, $f$가 $[a_1,a_5]$에서 연속이므로 $f(a_5)=0$이다.
+      criteria: ['3.M1']
+    - id: 3b-4
+      content: |
+        $$\int_0^3\left|\tfrac23x\left(x-\tfrac32\right)(x-3)\right|dx=\frac43\int_0^{\frac32}x\left(x-\tfrac32\right)(x-3)\,dx=\frac43\left[\frac14x^4-\frac32x^3+\frac94x^2\right]_0^{\frac32}=\frac{27}{16}.$$
+      criteria: ['3.A1']
+    - id: 3b-5
+      content: |
+        $\displaystyle\int_{a_2}^{a_3}|f(x)|\,dx=\int_{a_2}^{a_3}\frac23\left|f\left(\tfrac32(x-a_3)+3\right)\right|dx$에서 $y=\tfrac32(x-a_3)+3$으로 치환하면 $\dfrac{dy}{dx}=\dfrac32$이고 적분구간은 $0$에서 $3$이 되므로 $\displaystyle=\int_0^3\frac49|f(y)|\,dy=\frac49\int_0^3|f(x)|\,dx$이다. 같은 과정을 반복하면 $\int_{a_3}^{a_4}|f|=\left(\tfrac49\right)^2\int_0^3|f|$, $\int_{a_4}^{a_5}|f|=\left(\tfrac49\right)^3\int_0^3|f|$이다.
+      criteria: ['3.A1']
+    - id: 3b-6
+      content: |
+        $$\int_{a_1}^{a_5}|f(x)|\,dx=\frac{27}{16}\sum_{k=1}^{4}\left(\frac49\right)^{k-1}=\frac{27}{16}\times\frac{1-\left(\frac49\right)^4}{1-\frac49}=\frac{3^3(6561-256)}{2^4\times3^6\times5}=\frac{97\times13}{2^4\times3^3}=\frac{1261}{432}.$$
+      criteria: ['3.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 10
+      evidence: |
+        미분가능성(연속성)을 이용하여 $g(x)=\dfrac23x\left(x-\dfrac32\right)(x-3)$을 찾았다(채점기준 20/40).
+      depends_on: []
+      implied_ok: false
+      steps: [3b-1, 3b-2, 3b-3]
+    - id: 3.A1
+      mark_type: A
+      points: 10
+      evidence: |
+        치환적분으로 각 구간 적분을 $\left(\tfrac49\right)^{k-1}\int_0^3|g|$로 바꾸어 $\dfrac{1261}{432}$을 구했다(채점기준 20/40).
+      depends_on: ['3.M1']
+      steps: [3b-4, 3b-5, 3b-6]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: hyu-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+- {stage: verify, actor_type: system, actor_id: verify/HYU-G25B.py, item_version: 1, verdict: pass, date: 2026-11-22}
+
+created: 2026-11-21
+updated: 2026-11-21

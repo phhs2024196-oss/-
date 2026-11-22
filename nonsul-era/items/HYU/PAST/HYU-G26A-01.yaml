@@ -1,0 +1,293 @@
+# 한양대 2026학년도 논술 자연계열(오전) [문제 1] — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: HYU-G26A-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: HYU
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 분류
+points: 50
+time_estimate_min: 45
+intent: |
+  수학Ⅰ 삼각함수 단원의 사인법칙·코사인법칙, 수학Ⅰ 수열 단원의 여러 가지 수열의 합, 수학 경우의 수(곱의 법칙), 수학Ⅱ 정적분의 개념을 이해하고 활용할 수 있는지 본다. 넓이로 $\sin A$를 얻어 나머지 변과 내접원의 반지름을 구하고, 조건을 만족하는 함수의 개수를 여사건으로 세어 거듭제곱의 합으로 비를 구하며, $4\sin\frac{(2n-1)\pi}{6}$가 가질 수 있는 값을 파악해 정적분 조건을 만족하는 $n$의 개수를 센다.
+key_idea: |
+  1은 $\sin A=\frac{2S}{bc}$와 코사인법칙, $S=\frac12(a+b+c)r$. 2는 $a_n=n^3-(\text{짝수 개수})(\text{홀수 개수})n$을 $n$의 홀짝으로 나눔. 3은 $c=4\sin\frac{(2n-1)\pi}{6}\in\{-4,-2,2,4\}$로 경우를 나누고 $x^3-3x+2$의 $[\frac12,2]$에서의 범위와 비교.
+stuck: |
+  2에서 '또는' 조건을 여사건($f(a)$ 짝수이고 $f(b)$ 홀수)으로 바꾸고 $n$의 홀짝에 따라 $a_n$을 나누는 것, 3에서 $c=2$일 때 피적분함수의 부호가 $x=\sqrt3$에서 바뀌는 것
+idea_tags: [IDEA-AREA-SINE-INRADIUS, IDEA-COMPLEMENT-COUNT, IDEA-PERIODIC-CASE-SPLIT]
+tags: [사인법칙, 코사인법칙, 내접원, 여사건, 거듭제곱의 합, 절댓값 정적분, 배점환산]
+elements:
+  materials:
+  - '$\overline{\mathrm{AB}}=5$, $\overline{\mathrm{AC}}=3$, 넓이 $\sqrt{26}$, $\angle\mathrm{A}$ 예각인 삼각형의 내접원'
+  - '$X=\{a,b,c\}$에서 $Y=\{1,\dots,n\}$으로의 함수 중 「$f(a)$는 홀수 또는 $f(b)$는 짝수」인 것의 개수 $a_n$, $S_n=\sum a_k$'
+  - '$\int_{1/2}^{2}\left\lvert(x+2)(x-1)^2-4\sin\frac{(2n-1)\pi}{6}\right\rvert dx<4$를 만족하는 $n<2026$'
+  concepts: [사인법칙, 코사인법칙, 삼각형의 넓이, 곱의 법칙, 자연수의 거듭제곱의 합, 사인함수의 주기, 정적분]
+  tools:
+  - '$S=\frac12bc\sin A$로 $\sin A$, $\sin^2A+\cos^2A=1$로 $\cos A$'
+  - '$S=\frac12(a+b+c)r$'
+  - '여사건 개수 = (짝수 원소 수)(홀수 원소 수)$\times n$'
+  - '$\sum k,\ \sum k^2,\ \sum k^3$ 공식'
+  - '$c$ 값별 경우 나누기, $f(x)=x^3-3x+2$의 증감'
+  conditions:
+  - '$\angle\mathrm{A}$가 예각 ⇒ $\cos A>0$'
+  - '「$f(a)$ 홀수 또는 $f(b)$ 짝수」의 여사건은 「$f(a)$ 짝수이고 $f(b)$ 홀수」'
+  - '$n$이 홀수/짝수일 때 $Y$의 짝수·홀수 원소 개수가 다름'
+  - '$\frac12\le x\le2$에서 최솟값 $0$, 최댓값 $4$인 $x^3-3x+2$와 $c$의 대소($c=2$이면 $x=\sqrt3$에서 부호 변화)'
+  stimuli_used: []
+  subpart_links: null
+
+curriculum:
+  version: '2015'
+  subjects: [수학, 수학Ⅰ, 수학Ⅱ]
+  scope_2028: common
+  scope_confirmed: false
+  standards:
+  - code: 12수학Ⅰ02-03
+    text: 사인법칙과 코사인법칙을 이해하고, 이를 활용할 수 있다.
+    verified: true
+  - code: 10수학05-01
+    text: 합의 법칙과 곱의 법칙을 이해하고, 이를 이용하여 경우의 수를 구할 수 있다.
+    verified: true
+  - code: 12수학Ⅰ03-05
+    text: 여러 가지 수열의 첫째항부터 제n항까지의 합을 구할 수 있다.
+    verified: true
+  - code: 12수학Ⅰ02-02
+    text: 삼각함수의 뜻을 알고, 사인함수, 코사인함수, 탄젠트함수의 그래프를 그릴 수 있다.
+    verified: true
+  - code: 12수학Ⅱ03-04
+    text: 다항함수의 정적분을 구할 수 있다.
+    verified: true
+  content_area: 삼각함수·수열의 합·경우의 수·정적분
+  behavior_domain: 계산
+  unit_path: [수학Ⅰ, 삼각함수, 삼각함수의 활용, 사인법칙과 코사인법칙]
+  key_concepts: [사인법칙, 코사인법칙, 삼각형의 넓이, 곱의 법칙, 자연수의 거듭제곱의 합, 사인함수의 주기, 정적분]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 한양대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 한양대학교
+  admission_year: 2026
+  admission_type: 수시 논술
+  track: 자연계열(오전)
+  question_no: 1
+  official_url: https://go.hanyang.ac.kr/web/pds/pds_view.do?m_type=SUSI&bn=20601
+  retrieved_at: 2026-11-21
+  original_points: [15, 15, 20]
+  rights_notice: 한양대학교 입학처 공개 기출(내부 분석용)
+  transcribed_from: 2026학년도 자연계열 논술(오전) 문제지 p.2, 해설 근거 2026학년도 선행학습 영향평가 자체평가보고서 문항카드5 p.89~94 (원본 PDF 이미지 대조 2026-11-21). 채점기준 배점(30·30·40, 100점 기준)을 문제 배점 50점에 맞춰 1/2로 환산
+
+verify: verify/HYU-G26A.py::p01
+
+stimuli: []
+
+stem: |
+  [문제 1] 다음 물음에 답하시오. (50점)
+
+subparts:
+- id: '1'
+  stem: |
+    $\overline{\mathrm{AB}}=5$, $\overline{\mathrm{AC}}=3$이고 넓이가 $\sqrt{26}$인 삼각형 $\mathrm{ABC}$가 있다.
+    $\angle\mathrm{A}$가 예각일 때 삼각형 $\mathrm{ABC}$의 내접원의 반지름의 길이를 구하시오.
+  points: 15
+  depends_on: []
+  answer: {kind: value, value: '(4*sqrt(26) - sqrt(78))/13', equivalents: ['sqrt(26)/(4 + sqrt(3))'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $\sin A=\frac{2\sqrt{26}}{15}$, $\cos A=\frac{11}{15}$, $\overline{\mathrm{BC}}=2\sqrt3$, $r=\frac{2S}{a+b+c}$.
+    steps:
+    - {id: 1a, content: '$\sin\theta=\frac{2\sqrt{26}}{15}\Rightarrow\cos\theta=\frac{11}{15}\Rightarrow a=2\sqrt3\Rightarrow r=\frac{\sqrt{26}}{4+\sqrt3}$', criteria: ['1.M1', '1.A1']}
+    hint_ladder:
+    - 넓이 공식 $\frac12bc\sin A$에서 무엇을 알 수 있는가?
+    - 내접원의 반지름은 넓이와 둘레로 나타낼 수 있다.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 2026 선행학습 영향평가 보고서 문항카드5 p.92 예시답안 1
+    steps:
+    - id: 1b-1
+      content: |
+        $\overline{\mathrm{BC}}=a$, $\overline{\mathrm{AC}}=b$, $\overline{\mathrm{AB}}=c$, $\angle\mathrm{A}=\theta$, 넓이를 $S$라 하면 $S=\frac12bc\sin\theta$이므로 $\sin\theta=\dfrac{2S}{bc}=\dfrac{2\sqrt{26}}{15}$이다.
+      criteria: ['1.M1']
+    - id: 1b-2
+      content: |
+        $\angle\mathrm{A}$가 예각이므로 $0<\cos\theta<1$이고 $\cos\theta=\sqrt{1-\sin^2\theta}=\sqrt{\dfrac{225-104}{225}}=\dfrac{11}{15}$이다.
+      criteria: ['1.M1']
+    - id: 1b-3
+      content: |
+        코사인법칙에 의해 $a=\sqrt{3^2+5^2-2\times3\times5\times\frac{11}{15}}=2\sqrt3$이다.
+      criteria: ['1.A1']
+    - id: 1b-4
+      content: |
+        내접원의 반지름을 $r$이라 하면 $S=\frac12(a+b+c)r$이므로 $r=\dfrac{2\sqrt{26}}{2\sqrt3+3+5}=\dfrac{\sqrt{26}}{4+\sqrt3}=\dfrac{4\sqrt{26}-\sqrt{78}}{13}$이다.
+      criteria: ['1.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 8
+      evidence: |
+        사인법칙(넓이 공식)으로 $\sin\theta=\frac{2\sqrt{26}}{15}$, 예각 조건으로 $\cos\theta=\frac{11}{15}$을 구했다(공식 채점기준 15점 → 8).
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1, 1b-2, 1a]
+    - id: 1.A1
+      mark_type: A
+      points: 7
+      evidence: |
+        코사인법칙으로 $\overline{\mathrm{BC}}=2\sqrt3$, 내접원 성질로 $r=\frac{4\sqrt{26}-\sqrt{78}}{13}$을 구했다(공식 15점 → 7).
+      depends_on: [1.M1]
+      steps: [1b-3, 1b-4, 1a]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '2'
+  stem: |
+    자연수 $n$에 대하여 집합 $X=\{a,b,c\}$에서 집합 $Y=\{y\mid y$는 $n$ 이하의 자연수$\}$로의 함수 $f$ 중에서 다음 조건을 만족시키는 것의 개수를 $a_n$이라 하자.
+
+    [조건] $f(a)$는 홀수 또는 $f(b)$는 짝수이다.
+
+    $S_n=\displaystyle\sum_{k=1}^{n}a_k$라 할 때 $\dfrac{S_9-S_1}{S_{12}}$의 값을 구하시오.
+  points: 15
+  depends_on: []
+  answer: {kind: value, value: '1/3', equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: 여사건을 빼면 $a_{2k-1}=6k^3-9k^2+5k-1$, $a_{2k}=6k^3$. $S_9=1525$, $S_{12}=4572$.
+    steps:
+    - {id: 2a, content: '$a_n=n^3-(\text{짝수 개수})(\text{홀수 개수})n$, $\frac{1525-1}{4572}=\frac13$', criteria: ['2.M1', '2.A1']}
+    hint_ladder:
+    - 조건을 만족하지 않는 함수는 어떤 함수인가?
+    - $n$이 홀수일 때와 짝수일 때 $Y$의 짝수 원소 개수를 세어 보자.
+  - id: S2-B
+    audience: B
+    method_no: 1
+    source_flow: 2026 선행학습 영향평가 보고서 문항카드5 p.92~93 예시답안 2
+    steps:
+    - id: 2b-1
+      content: |
+        $a_n=(\text{전체 } f\text{의 개수})-(f(a)\text{가 짝수이면서 } f(b)\text{가 홀수인 } f\text{의 개수})$이다. 전체 $f$의 개수는 $n^3$이고, 뒤의 개수는 곱의 법칙에 의해 $(Y\text{의 짝수 원소 개수})\times(Y\text{의 홀수 원소 개수})\times n$이다.
+      criteria: ['2.M1']
+    - id: 2b-2
+      content: |
+        자연수 $k$에 대해 $a_{2k-1}=(2k-1)^3-(k-1)k(2k-1)=6k^3-9k^2+5k-1$, $a_{2k}=(2k)^3-k^2(2k)=6k^3$이다.
+      criteria: ['2.M1']
+    - id: 2b-3
+      content: |
+        $S_1=a_1=1$이고 $S_9=\displaystyle\sum_{k=1}^{5}(a_{2k-1}+a_{2k})-a_{10}=\sum_{k=1}^{5}(12k^3-9k^2+5k-1)-6\times5^3=2700-495+75-5-750=1525$.
+      criteria: ['2.A1']
+    - id: 2b-4
+      content: |
+        $S_{12}=\displaystyle\sum_{k=1}^{6}(12k^3-9k^2+5k-1)=5292-819+105-6=4572$이므로 $\dfrac{S_9-S_1}{S_{12}}=\dfrac{1525-1}{4572}=\dfrac13$이다.
+      criteria: ['2.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 8
+      evidence: |
+        경우의 수(여사건·곱의 법칙)로 $n$의 홀짝에 따른 $a_n$ 식을 구했다(공식 15점 → 8).
+      depends_on: []
+      implied_ok: false
+      steps: [2b-1, 2b-2, 2a]
+    - id: 2.A1
+      mark_type: A
+      points: 7
+      evidence: |
+        거듭제곱의 합으로 $S_9=1525$, $S_{12}=4572$를 구해 $\frac13$을 얻었다(공식 15점 → 7).
+      depends_on: [2.M1]
+      steps: [2b-3, 2b-4, 2a]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '3'
+  stem: |
+    $\displaystyle\int_{\frac12}^{2}\left\lvert(x+2)(x-1)^2-4\sin\frac{(2n-1)\pi}{6}\right\rvert dx<4$를 만족시키고 $2026$보다 작은 자연수 $n$의 개수를 구하시오.
+  points: 20
+  depends_on: []
+  answer: {kind: value, value: '676', equivalents: [], tolerance: null}
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: $c=4\sin\frac{(2n-1)\pi}{6}\in\{-4,-2,2,4\}$이고 적분값은 $c=2$일 때만 $\frac{137}{64}<4$. $n\equiv1,3\pmod 6$인 $n<2026$은 $676$개.
+    steps:
+    - {id: 3a, content: '$g(-4)=\frac{471}{64}$, $g(-2)=\frac{279}{64}$, $g(2)=\frac{137}{64}$, $g(4)=\frac{297}{64}$; $2\times338=676$', criteria: ['3.M1', '3.A1']}
+    hint_ladder:
+    - $4\sin\frac{(2n-1)\pi}{6}$는 몇 가지 값을 가지는가?
+    - $(x+2)(x-1)^2$의 $\left[\frac12,2\right]$에서의 최댓값·최솟값과 각 값을 비교해 보자.
+  - id: S3-B
+    audience: B
+    method_no: 1
+    source_flow: 2026 선행학습 영향평가 보고서 문항카드5 p.93~94 예시답안 3
+    steps:
+    - id: 3b-1
+      content: |
+        $f(x)=(x+2)(x-1)^2=x^3-3x+2$, $g(c)=\displaystyle\int_{1/2}^{2}\lvert x^3-3x+2-c\rvert dx$라 하자. $f'(x)=3x^2-3$이므로 $\frac12\le x\le2$에서 $f$는 $x=\frac12$에서 $\frac58$, $x=1$에서 최솟값 $0$, $x=2$에서 최댓값 $4$를 갖는다.
+      criteria: ['3.M1']
+    - id: 3b-2
+      content: |
+        자연수 $k$에 대해 $n=6k-1$이면 $c=4\sin\frac{3\pi}{2}=-4$; $n=6k-2,\,6k$이면 $c=-2$; $n=6k-5,\,6k-3$이면 $c=2$; $n=6k-4$이면 $c=4$. 즉 $c$는 $-4,-2,2,4$만 가진다.
+      criteria: ['3.M1']
+    - id: 3b-3
+      content: |
+        (i) $c=-4,-2$이면 $f(x)\ge c$이므로 $g(c)=\left[\frac14x^4-\frac32x^2+(2-c)x\right]_{1/2}^{2}=-\frac32c+\frac{87}{64}$, $g(-4)=\frac{471}{64}$, $g(-2)=\frac{279}{64}$.
+        (ii) $c=2$이면 $f(\sqrt3)=2$이므로 $\frac12\le x<\sqrt3$에서 $f(x)<c$, $\sqrt3\le x\le2$에서 $f(x)\ge c$. $g(2)=\displaystyle\int_{1/2}^{\sqrt3}(-x^3+3x)dx+\int_{\sqrt3}^{2}(x^3-3x)dx=\frac52-\frac{23}{64}=\frac{137}{64}$.
+        (iii) $c=4$이면 $f(x)\le c$이므로 $g(4)=\displaystyle\int_{1/2}^{2}(-x^3+3x+2)dx=5-\frac{23}{64}=\frac{297}{64}$.
+      criteria: ['3.M1']
+    - id: 3b-4
+      content: |
+        $4=\frac{256}{64}$이므로 $c=2$일 때만 $g(c)<4$이고, 이는 $n=6k-5$ 또는 $n=6k-3$인 경우이다. $2025=6\times338-3$이므로 개수는 $2\times338=676$이다.
+      criteria: ['3.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 15
+      evidence: |
+        $4\sin\frac{(2n-1)\pi}{6}$가 $-4,-2,2,4$만 가짐을 밝히고 각 값에서 정적분을 계산했다(공식 30점 → 15).
+      depends_on: []
+      implied_ok: false
+      steps: [3b-1, 3b-2, 3b-3, 3a]
+    - id: 3.A1
+      mark_type: A
+      points: 5
+      evidence: |
+        $c=2$일 때만 조건을 만족함을 판단하고 $n$의 개수 $676$을 구했다(공식 10점 → 5).
+      depends_on: [3.M1]
+      steps: [3b-4, 3a]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+remedy_links: []
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: hyu-past-v1, item_version: 1, verdict: pass, date: 2026-11-22}
+- {stage: verify, actor_type: system, actor_id: verify/HYU-G26A.py, item_version: 1, verdict: pass, date: 2026-11-22}
+
+created: 2026-11-22
+updated: 2026-11-22

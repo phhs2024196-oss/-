@@ -1,0 +1,271 @@
+# 한양대 2022학년도 수시 모의논술 자연계열 [문제 1] — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: HYU-M22-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: HYU
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 추론
+points: 50
+time_estimate_min: 30
+intent: |
+  함수의 극한, 정적분의 활용, 정적분과 급수의 관계, 평균값 정리를 이해하는지 묻는다. 제시문의 극한 대소 관계(조임 정리)와 정적분·급수의 관계식을 적절히 이용해 극한값을 구할 수 있는지 측정한다.
+key_idea: |
+  $\tfrac{1}{\sqrt x}$의 그래프로 합을 적분 사이에 끼우고 조임 정리를 쓴다. 3.은 (다)의 등식과 평균값 정리로 $f(\tfrac kn)-f(x)$를 $f'$의 범위로 감싸 2.의 두 극한으로 끼운다.
+stuck: |
+  3.에서 $\sum(\tfrac kn)^5-n\int_0^1x^5dx$를 (다)의 적분합으로 바꾼 뒤 평균값 정리로 $5(\tfrac{k-1}{n})^4(\tfrac kn-x)$와 $5(\tfrac kn)^4(\tfrac kn-x)$ 사이에 끼우는 발상 — 2.가 그 양 끝의 극한이라는 연결
+idea_tags: [IDEA-SUM-INTEGRAL-SANDWICH, IDEA-MVT-SQUEEZE-RIEMANN]
+tags: [조임 정리, 정적분과 급수, 평균값 정리, 배점환산]
+elements:
+  materials:
+  - '$\lim\tfrac{1}{\sqrt n}\sum_{k=1}^n\tfrac{1}{\sqrt k}$'
+  - '$\sum\int_{(k-1)/n}^{k/n}n(\tfrac{k-1}{n})^4(\tfrac kn-x)dx$ 와 $\sum\int n(\tfrac kn)^4(\tfrac kn-x)dx$'
+  - '$\sum(\tfrac kn)^5-n\int_0^1x^5dx$ (구분구적 오차)'
+  concepts:
+  - 함수의 극한의 대소 관계
+  - 정적분과 급수의 합
+  - 정적분의 활용(넓이 비교)
+  - 평균값 정리
+  tools:
+  - '감소함수 $\tfrac{1}{\sqrt x}$의 직사각형 넓이와 적분 비교'
+  - '조임 정리(제시문 (가)②)'
+  - '$\int_{(k-1)/n}^{k/n}(\tfrac kn-x)dx=\tfrac{1}{2n^2}$'
+  - '구분구적법(제시문 (나))'
+  - '$f(x)=x^5$에 평균값 정리, $f''=5x^4$의 증가성'
+  conditions:
+  - '2.의 두 극한이 같아야 3.에서 조임 정리가 성립'
+  - '(다)의 등식은 $\sum_k\int_{(k-1)/n}^{k/n}=\int_0^1$에서 나온다'
+  stimuli_used: [가, 나, 다]
+  subpart_links: '3.은 2.의 두 극한값을 부등식의 양 끝으로 사용한다'
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅱ, 미적분]
+  scope_2028: unknown
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 함수의 극한, 정적분의 활용(넓이), 평균값 정리(수학Ⅱ 천재교육 p10·p78·p131), 정적분과 급수(미적분 VISANG p143)
+    verified: false
+  content_area: 극한·적분법
+  behavior_domain: 추론
+  unit_path: [미적분, 적분법, 정적분, 정적분과 급수의 합 사이의 관계]
+  key_concepts: [함수의 극한의 대소 관계, 정적분과 급수의 합, 정적분의 활용(넓이 비교), 평균값 정리]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 한양대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 한양대학교
+  admission_year: 2022
+  admission_type: 수시 모의논술
+  track: 자연계열
+  question_no: 1
+  official_url: https://go.hanyang.ac.kr/web/pds/pds_view.do?m_type=SUSI&bn=1241
+  retrieved_at: 2026-11-21
+  original_points: [20, 15, 15]
+  rights_notice: 한양대학교 입학처 공개 기출(내부 분석용)
+  transcribed_from: 2022 모의논술 자연계열 문제지 p.1, 해설 근거 출제의도 및 평가지침 1번(p.1)·모의논술 예시답안 1번(p.1) (원본 PDF 이미지 대조 2026-11-21). 평가지침 세부 배점(40·30·30, 100점 기준)을 문제 배점 50점에 맞춰 1/2로 환산(15→8+7)
+
+verify: verify/HYU-M22.py::p01
+
+stimuli:
+- label: 가
+  body: |
+    함수의 극한의 대소 관계
+    $\displaystyle\lim_{x\to a}f(x)=L,\ \lim_{x\to a}g(x)=M$ ($L,M$은 실수)일 때, $a$가 아니면서 $a$에 가까운 모든 실수 $x$에 대하여
+    ① $f(x)\le g(x)$이면 $L\le M$
+    ② $f(x)\le h(x)\le g(x)$이고 $L=M$이면, $\displaystyle\lim_{x\to a}h(x)=L$
+- label: 나
+  body: |
+    정적분과 급수의 합 사이의 관계
+    함수 $f(x)$가 닫힌구간 $[a,b]$에서 연속일 때,
+    $$\lim_{n\to\infty}\sum_{k=1}^{n}f(x_k)\Delta x=\int_a^bf(x)\,dx\quad\left(\text{단, }\Delta x=\frac{b-a}{n},\ x_k=a+k\Delta x\right)$$
+- label: 다
+  body: |
+    연속함수 $f(x)$는 다음 식을 만족시킨다.
+    $$\sum_{k=1}^{n}f\left(\frac kn\right)-n\int_0^1f(x)\,dx=n\sum_{k=1}^{n}\int_{\frac{k-1}{n}}^{\frac kn}\left(f\left(\frac kn\right)-f(x)\right)dx$$
+
+stem: |
+  다음 제시문을 읽고 물음에 답하시오. (50점)
+
+subparts:
+- id: '1'
+  stem: |
+    극한값 $\displaystyle\lim_{n\to\infty}\frac{1}{\sqrt n}\sum_{k=1}^{n}\frac{1}{\sqrt k}$을 구하시오.
+  points: 20
+  depends_on: []
+  answer: {kind: value, value: '2', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $2(\sqrt{n+1}-1)\le\sum\tfrac{1}{\sqrt k}\le1+2(\sqrt n-1)$을 $\sqrt n$으로 나누어 조임 정리.
+    steps:
+    - {id: 1a, content: '$\int_1^{n+1}\tfrac{dx}{\sqrt x}\le\sum_{k=1}^n\tfrac{1}{\sqrt k}\le1+\int_1^n\tfrac{dx}{\sqrt x}$', criteria: ['1.M1', '1.A1']}
+    hint_ladder:
+    - $y=\tfrac{1}{\sqrt x}$ 아래 넓이와 폭 1인 직사각형들을 비교하자.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 2022 모의논술 예시답안 1번 p.1 문항 1
+    steps:
+    - id: 1b-1
+      content: |
+        함수 $f(x)=\dfrac{1}{\sqrt x}$의 그래프를 생각하면, 다음 부등식이 성립한다.
+        $$\int_1^{n+1}\frac{1}{\sqrt x}dx\le\sum_{k=1}^{n}\frac{1}{\sqrt k}\le1+\int_1^{n}\frac{1}{\sqrt x}dx\ \Rightarrow\ 2(\sqrt{n+1}-1)\le\sum_{k=1}^{n}\frac{1}{\sqrt k}\le1+2(\sqrt n-1)$$
+      criteria: ['1.M1']
+    - id: 1b-2
+      content: |
+        각 변에 $\dfrac{1}{\sqrt n}$을 곱한 후에 극한 $\lim_{n\to\infty}$을 취하면
+        $2=\displaystyle\lim_{n\to\infty}\frac{2(\sqrt{n+1}-1)}{\sqrt n}\le\lim_{n\to\infty}\frac{1}{\sqrt n}\sum_{k=1}^{n}\frac{1}{\sqrt k}\le\lim_{n\to\infty}\frac{1+2(\sqrt n-1)}{\sqrt n}=2$이다. 그러므로 (가)에 의해 $\displaystyle\lim_{n\to\infty}\frac{1}{\sqrt n}\sum_{k=1}^{n}\frac{1}{\sqrt k}=2$이다.
+      criteria: ['1.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 10
+      evidence: |
+        극한값을 구하기 위해 적분과 비교한 적절한 부등식 $2(\sqrt{n+1}-1)\le\sum\tfrac{1}{\sqrt k}\le1+2(\sqrt n-1)$(또는 동등한 부등식)을 세웠다(평가지침 20/40).
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1]
+    - id: 1.A1
+      mark_type: A
+      points: 10
+      evidence: |
+        조임 정리로 극한값 $2$를 바르게 계산했다(평가지침 20/40).
+      depends_on: ['1.M1']
+      steps: [1b-2]
+    deductions: []
+  misconceptions: []
+
+- id: '2'
+  stem: |
+    극한값 $\displaystyle\lim_{n\to\infty}\left[\sum_{k=1}^{n}\int_{\frac{k-1}{n}}^{\frac kn}n\left(\frac{k-1}{n}\right)^4\left(\frac kn-x\right)dx\right]$와 $\displaystyle\lim_{n\to\infty}\left[\sum_{k=1}^{n}\int_{\frac{k-1}{n}}^{\frac kn}n\left(\frac kn\right)^4\left(\frac kn-x\right)dx\right]$을 구하시오.
+  points: 15
+  depends_on: []
+  answer: {kind: value, value: 'first = 1/10; second = 1/10', equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: $\int_{(k-1)/n}^{k/n}(\tfrac kn-x)dx=\tfrac{1}{2n^2}$이므로 두 식 모두 $\tfrac12\times$(구분구적합 $\to\int_0^1x^4dx$).
+    steps:
+    - {id: 2a, content: '두 극한 모두 $\tfrac12\int_0^1x^4dx=\tfrac1{10}$', criteria: ['2.M1', '2.M2']}
+    hint_ladder:
+    - 적분 안에서 $x$와 무관한 인수를 밖으로 빼자.
+  - id: S2-B
+    audience: B
+    method_no: 1
+    source_flow: 2022 모의논술 예시답안 1번 p.1 문항 2
+    steps:
+    - id: 2b-1
+      content: |
+        첫 번째로 주어진 급수를 다음과 같이 정리할 수 있다.
+        $$\sum_{k=1}^{n}\int_{\frac{k-1}{n}}^{\frac kn}n\left(\frac{k-1}{n}\right)^4\left(\frac kn-x\right)dx=\sum_{k=1}^{n}n\left(\frac{k-1}{n}\right)^4\left(\frac{1}{2n^2}\right)=\frac12\sum_{k=1}^{n}\left(\frac{k-1}{n}\right)^4\left(\frac1n\right)$$
+        따라서 제시문 (나)에 의해 구하고자 하는 극한값은 $\dfrac12\displaystyle\lim_{n\to\infty}\sum_{k=1}^{n}\left(\frac{k-1}{n}\right)^4\frac1n=\frac12\int_0^1x^4dx=\frac1{10}$이다.
+      criteria: ['2.M1']
+    - id: 2b-2
+      content: |
+        동일한 방식으로 두 번째 극한값을 계산하면
+        $$\lim_{n\to\infty}\left[\sum_{k=1}^{n}n\left(\frac kn\right)^4\left(\frac{1}{2n^2}\right)\right]=\frac12\lim_{n\to\infty}\left[\sum_{k=1}^{n}\left(\frac kn\right)^4\left(\frac1n\right)\right]=\frac12\int_0^1x^4dx=\frac1{10}.$$
+      criteria: ['2.M2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 8
+      evidence: |
+        첫 번째 극한값 $\tfrac1{10}$을 바르게 계산했다(평가지침 15/30).
+      depends_on: []
+      implied_ok: false
+      steps: [2b-1]
+    - id: 2.M2
+      mark_type: M
+      points: 7
+      evidence: |
+        두 번째 극한값 $\tfrac1{10}$을 바르게 계산했다(평가지침 15/30).
+      depends_on: []
+      implied_ok: false
+      steps: [2b-2]
+    deductions: []
+  misconceptions: []
+
+- id: '3'
+  stem: |
+    극한값 $\displaystyle\lim_{n\to\infty}\left[\sum_{k=1}^{n}\left(\frac kn\right)^5-n\int_0^1x^5dx\right]$을 구하시오.
+  points: 15
+  depends_on: ['2']
+  answer: {kind: value, value: '1/2', equivalents: [], tolerance: null}
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: (다)와 평균값 정리로 $n\sum\int5(\tfrac{k-1}{n})^4(\tfrac kn-x)\le(\text{식})\le n\sum\int5(\tfrac kn)^4(\tfrac kn-x)$, 양 끝은 2.에 의해 $5\cdot\tfrac1{10}=\tfrac12$.
+    steps:
+    - {id: 3a, content: '양 끝 극한이 모두 $\tfrac12$이므로 (가)에 의해 $\tfrac12$', criteria: ['3.M1', '3.A1']}
+    hint_ladder:
+    - 제시문 (다)에 $f(x)=x^5$를 넣어 보자.
+    - $f(\tfrac kn)-f(x)$에 평균값 정리를 쓰면 2.의 식이 보인다.
+  - id: S3-B
+    audience: B
+    method_no: 1
+    source_flow: 2022 모의논술 예시답안 1번 p.1 문항 3
+    steps:
+    - id: 3b-1
+      content: |
+        제시문 (다)에 의해 아래의 등식이 성립함을 알 수 있다.
+        $$\sum_{k=1}^{n}f\left(\frac kn\right)-n\int_0^1f(x)dx=n\sum_{k=1}^{n}\frac1nf\left(\frac kn\right)-n\sum_{k=1}^{n}\int_{\frac{k-1}{n}}^{\frac kn}f(x)dx=n\sum_{k=1}^{n}\int_{\frac{k-1}{n}}^{\frac kn}\left(f\left(\frac kn\right)-f(x)\right)dx$$
+        여기서 $f(x)=x^5$이라 하자. 그러면 $f(x)$는 연속이고 미분가능한 함수이므로, 평균값 정리에 의해 $\displaystyle\int_{\frac{k-1}{n}}^{\frac kn}\left(f\left(\frac kn\right)-f(x)\right)dx=\int_{\frac{k-1}{n}}^{\frac kn}f'(\theta_k(x))\left(\frac kn-x\right)dx$을 만족하는 $\theta_k(x)\in\left[x,\dfrac kn\right]$가 존재한다.
+      criteria: ['3.M1']
+    - id: 3b-2
+      content: |
+        $f'(x)=5x^4$는 $[0,1]$에서 증가하므로, 모든 $x\in\left[\dfrac{k-1}{n},\dfrac kn\right]$에 대하여 $5\left(\dfrac{k-1}{n}\right)^4\le5x^4\le5\left(\dfrac kn\right)^4$이 성립한다. 이로부터
+        $$n\sum_{k=1}^{n}\int_{\frac{k-1}{n}}^{\frac kn}5\left(\frac{k-1}{n}\right)^4\left(\frac kn-x\right)dx\le n\sum_{k=1}^{n}\int_{\frac{k-1}{n}}^{\frac kn}\left(\left(\frac kn\right)^5-x^5\right)dx\le n\sum_{k=1}^{n}\int_{\frac{k-1}{n}}^{\frac kn}5\left(\frac kn\right)^4\left(\frac kn-x\right)dx$$
+        를 얻을 수 있다.
+      criteria: ['3.M1']
+    - id: 3b-3
+      content: |
+        2.에서 계산한 결과를 활용하여 위 부등식 양쪽 끝을 $n\to\infty$일 때의 극한값을 계산하면 $5\cdot\dfrac1{10}=\dfrac12$로 동일함을 알 수 있다. 따라서 제시문 (가)에 의해 구하는 극한값은 $\displaystyle\lim_{n\to\infty}\left[\sum_{k=1}^{n}\left(\frac kn\right)^5-n\int_0^1x^5dx\right]=\frac12$이다.
+      criteria: ['3.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 8
+      evidence: |
+        (다)와 평균값 정리로 극한값을 구하기 위한 적절한 부등식(양 끝이 2.의 식의 5배)을 세웠다(평가지침 15/30).
+      depends_on: []
+      implied_ok: false
+      steps: [3b-1, 3b-2]
+    - id: 3.A1
+      mark_type: A
+      points: 7
+      evidence: |
+        조임 정리로 극한값 $\tfrac12$를 바르게 계산했다(평가지침 15/30).
+      depends_on: ['3.M1']
+      steps: [3b-3]
+    deductions: []
+  misconceptions: []
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: hyu-past-v1, item_version: 1, verdict: pass, date: 2026-11-22}
+- {stage: verify, actor_type: system, actor_id: verify/HYU-M22.py, item_version: 1, verdict: pass, date: 2026-11-22}
+
+created: 2026-11-22
+updated: 2026-11-22

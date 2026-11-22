@@ -1,0 +1,311 @@
+# 한양대 2021학년도 논술전형 자연계열(오후2) [문제 2] — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: HYU-G21C-02
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: HYU
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 추론
+points: 50
+time_estimate_min: 45
+intent: |
+  합성함수의 미분법으로 주어진 함수를 미분하고, 곡선의 길이 공식과 평균값 정리·극한의 대소 관계를 활용해 극한값을 계산하며, 부정적분의 형태를 추론해 제시된 값을 계산할 수 있는지를 본다(문항카드10 문항 해설 요지).
+key_idea: |
+  $\int\sqrt{1+e^x}\,dx=f(x)$ ($a=2$, $b=1$)를 알아낸 뒤, 곡선 길이를 $\frac12\{f(2k+2e^{-k})-f(2k)\}$로 바꾸어 평균값 정리·조임정리로 극한을 구하고, $F$의 성장을 $2f$와 유계인 로그 적분으로 나누어 본다.
+stuck: |
+  (1) 도함수 조건을 $e^x$에 대한 항등식으로 바꿔 계수를 비교하는 것, (2) $x=2t$ 치환으로 $f$의 차로 나타내는 것, (3) $\int_0^x\ln\frac{\sqrt{1+e^t}-1}{\sqrt{1+e^t}+1}dt$를 $-\ln\frac{\sqrt2+1}{\sqrt2-1}\cdot x$와 $0$ 사이로 묶는 것.
+idea_tags: [IDEA-COEFF-COMPARE-IDENTITY, IDEA-MVT-SQUEEZE-LIMIT, IDEA-ANTIDERIVATIVE-GROWTH-SPLIT]
+tags: [기출, 한양대, 곡선의 길이, 평균값 정리, 조임정리, 부정적분, 배점환산]
+elements:
+  materials:
+  - '$f(x)=a\sqrt{1+e^x}+\ln\dfrac{\sqrt{1+e^x}-b}{\sqrt{1+e^x}+b}$, $f^\prime(x)=\sqrt{1+e^x}$'
+  - '곡선 $y=e^x$ ($k\le x\le k+e^{-k}$)의 길이 $g(k)$'
+  - '$f$의 한 부정적분 $F$와 $\lim\frac{F(2x)}{e^x}$'
+  concepts:
+  - '합성함수의 미분법'
+  - '곡선의 길이'
+  - '치환적분법'
+  - '평균값 정리'
+  - '함수의 극한의 대소 관계(조임정리)'
+  - '정적분의 대소 관계'
+  tools:
+  - '$e^x$에 대한 항등식의 계수 비교'
+  - '$x=2t$ 치환으로 $\sqrt{1+e^{2t}}$ 적분을 $\frac12\{f(\cdot)-f(\cdot)\}$로 표현'
+  - '$f^\prime$의 증가성과 평균값 정리로 $g(k)$를 위아래에서 묶기'
+  - '$\lim_{l\to0}\frac{e^{2l}-1}{2l}=1$'
+  - '$F(x)=G(x)+C$, $G(x)=\int_0^xf$'
+  conditions:
+  - '$a>0$, $0\le b\le1$'
+  - '$\lim_{x\to\infty}\frac{x}{e^x}=0$ (단서)'
+  stimuli_used: [가, 나, 다, 라]
+  subpart_links: '(2)·(3)은 (1)에서 얻은 $a=2$, $b=1$의 $f$를 부정적분으로 사용'
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅱ, 미적분]
+  scope_2028: unknown
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 합성함수를 미분할 수 있다 / 곡선의 길이를 구할 수 있다 / 치환적분법을 이해하고 활용할 수 있다(요지, 성취기준 쪽 미판독)
+    verified: false
+  content_area: 미분법 – 여러 가지 미분법, 적분법 – 정적분의 활용
+  behavior_domain: 추론
+  unit_path: [미적분, 적분법, 정적분의 활용, 곡선의 길이]
+  key_concepts: [합성함수의 미분법, 곡선의 길이, 치환적분법, 평균값 정리, 함수의 극한의 대소 관계(조임정리), 정적분의 대소 관계]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 한양대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 한양대학교
+  admission_year: 2021
+  admission_type: 수시 논술
+  track: 자연계열(오후2)
+  question_no: 2
+  official_url: https://go.hanyang.ac.kr/web/pds/pds_view.do?m_type=SUSI&bn=706
+  retrieved_at: 2026-11-21
+  original_points: [10, 20, 20]
+  rights_notice: 한양대학교 입학처 공개 기출(내부 분석용)
+  transcribed_from: 2021학년도 한양대 논술전형 자연계열(오후2) 문제지 p.3, 해설 근거 2021학년도 선행학습 영향평가 자체평가보고서 문항카드10(보고서 PDF p.76–80, 인쇄 쪽 74–78) (원본 PDF 이미지 대조 2026-11-21)
+
+verify: verify/HYU-G21C.py::p02
+
+stimuli:
+- label: 가
+  body: |
+    $a>0$, $0\le b\le1$인 상수 $a$, $b$에 대하여 함수
+    $$f(x)=a\sqrt{1+e^x}+\ln\left(\frac{\sqrt{1+e^x}-b}{\sqrt{1+e^x}+b}\right)$$
+    의 도함수가 $f^\prime(x)=\sqrt{1+e^x}$이다.
+- label: 나
+  body: |
+    곡선 $y=h(x)$ $(c\le x\le d)$의 길이는 $\displaystyle\int_c^d\sqrt{1+\{h^\prime(x)\}^2}\,dx$이다.
+- label: 다
+  body: |
+    수열 $\{\alpha_n\}$, $\{\beta_n\}$, $\{\gamma_n\}$에 대하여 $\displaystyle\lim_{n\to\infty}\alpha_n=\lim_{n\to\infty}\beta_n=L$이고, 모든 자연수 $n$에 대하여 $\alpha_n\le\gamma_n\le\beta_n$이면, $\displaystyle\lim_{n\to\infty}\gamma_n=L$이다.
+- label: 라
+  body: |
+    연속함수 $p(x)$, $q(x)$, $r(x)$에 대하여 닫힌구간 $[c,d]$에서 $p(x)\le q(x)\le r(x)$이면
+    $$\int_c^dp(x)\,dx\le\int_c^dq(x)\,dx\le\int_c^dr(x)\,dx$$
+    이다.
+
+stem: |
+  [문제 2] 다음 제시문을 읽고 물음에 답하시오. (50점)
+
+subparts:
+- id: '1'
+  stem: |
+    $a+b$의 값을 구하시오.
+  points: 10
+  depends_on: []
+  answer: {kind: value, value: '3', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: |
+      $f^\prime(x)=\frac{e^x}{2\sqrt{1+e^x}}\left(a+\frac{2b}{1+e^x-b^2}\right)=\sqrt{1+e^x}$을 $e^x$의 항등식으로 바꿔 계수 비교.
+    steps:
+    - {id: 1a, content: '$a=2$, $b=1$, $a+b=3$', criteria: ['1.M1', '1.A1']}
+    hint_ladder:
+    - 로그를 차로 나누어 미분하자.
+    - 양변에 $2\sqrt{1+e^x}$와 분모를 곱하면 $e^{2x}$, $e^x$, 상수항이 나온다.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: '선행학습 영향평가 자체평가보고서 2021 문항카드10 p.78(인쇄 76쪽 예시 답안 [2-1])'
+    steps:
+    - id: 1b-1
+      content: |
+        $f(x)=a\sqrt{1+e^x}+\ln\left(\sqrt{1+e^x}-b\right)-\ln\left(\sqrt{1+e^x}+b\right)$를 $x$에 대하여 미분하면
+        $f^\prime(x)=\dfrac{e^x}{2\sqrt{1+e^x}}\left(a+\dfrac{1}{\sqrt{1+e^x}-b}-\dfrac{1}{\sqrt{1+e^x}+b}\right)=\sqrt{1+e^x}$.
+        따라서 $e^x\left[a+\dfrac{2b}{(1+e^x)-b^2}\right]=2(1+e^x)$, 즉 $e^x\left[a\{(1+e^x)-b^2\}+2b\right]=2(1+e^x)\{(1+e^x)-b^2\}$.
+      criteria: ['1.M1']
+    - id: 1b-2
+      content: |
+        전개하면 $ae^{2x}+\left[a(1-b^2)+2b\right]e^x=2e^{2x}+2(2-b^2)e^x+2(1-b^2)$이고, 양변의 계수를 비교하면 $a=2$, $b=1$이다. 따라서 $a+b=3$.
+      criteria: ['1.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 5
+      evidence: |
+        합성함수의 미분으로 $f^\prime(x)$를 구하고 $e^x$에 대한 항등식을 세웠다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1]
+    - id: 1.A1
+      mark_type: A
+      points: 5
+      evidence: |
+        계수 비교로 $a=2$, $b=1$, $a+b=3$을 얻었다(공식 단일 기준 20/100점 → 10점 환산, 둘로 나눔).
+      depends_on: [1.M1]
+      steps: [1b-2]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '2'
+  stem: |
+    실수 $k$에 대하여 곡선 $y=e^x$ $\left(k\le x\le k+\dfrac{1}{e^k}\right)$의 길이를 $g(k)$라 할 때, $\displaystyle\lim_{k\to\infty}g(k)$의 값을 구하시오.
+  points: 20
+  depends_on: ['1']
+  answer: {kind: value, value: '1', equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: |
+      $g(k)=\frac12\{f(2k+2e^{-k})-f(2k)\}=e^{-k}\sqrt{1+e^c}$ ($2k<c<2k+2e^{-k}$)이고 양쪽 한계가 모두 $1$로 간다.
+    steps:
+    - {id: 2a, content: '$e^{-k}\sqrt{1+e^{2k}}<g(k)<e^{-k}\sqrt{1+e^{2k+2e^{-k}}}$, 양변 $\to1$', criteria: ['2.M1', '2.M2', '2.A1']}
+    hint_ladder:
+    - $x=2t$로 치환하면 (1)의 $f$가 보인다.
+    - 평균값 정리를 쓰고 $f^\prime$의 증가성으로 묶자.
+  - id: S2-B
+    audience: B
+    method_no: 1
+    source_flow: '선행학습 영향평가 자체평가보고서 2021 문항카드10 p.79(인쇄 77쪽 예시 답안 [2-2] <해 1>)'
+    steps:
+    - id: 2b-1
+      content: |
+        제시문 <나>, 치환적분법 및 문제 1에 의하여
+        $g(k)=\displaystyle\int_k^{k+e^{-k}}\sqrt{1+e^{2t}}\,dt=\frac12\int_{2k}^{2k+2e^{-k}}\sqrt{1+e^x}\,dx\ \left(x=2t,\ \frac{dt}{dx}=\frac12\right)=\frac12\left(f(2k+2e^{-k})-f(2k)\right)$.
+      criteria: ['2.M1']
+    - id: 2b-2
+      content: |
+        평균값 정리에 의하여 $g(k)=\dfrac12f^\prime(c)\cdot2e^{-k}=e^{-k}f^\prime(c)=e^{-k}\sqrt{1+e^c}$를 만족하는 $c$가 열린구간 $(2k,\,2k+2e^{-k})$에 적어도 하나 존재한다. $f^\prime(x)$는 증가하므로
+        $e^{-k}\sqrt{1+e^{2k}}<g(k)=e^{-k}\sqrt{1+e^c}<e^{-k}\sqrt{1+e^{2k+2e^{-k}}}$이다.
+      criteria: ['2.M2']
+    - id: 2b-3
+      content: |
+        $\displaystyle\lim_{k\to\infty}e^{-k}\sqrt{1+e^{2k}}=\lim_{k\to\infty}\sqrt{1+e^{-2k}}=1$, $\displaystyle\lim_{k\to\infty}e^{-k}\sqrt{1+e^{2k+2e^{-k}}}=\lim_{k\to\infty}\sqrt{e^{2e^{-k}}+e^{-2k}}=1$이므로 제시문 <다>에 의하여 $\displaystyle\lim_{k\to\infty}g(k)=1$.
+      criteria: ['2.A1']
+  - id: S2-ALT
+    audience: ALT
+    method_no: 2
+    source_flow: '선행학습 영향평가 자체평가보고서 2021 문항카드10 p.79(인쇄 77쪽 [2-2] <해 2>)'
+    key_idea: |
+      $f$를 직접 대입해 $g(k)=\left(\sqrt{1+e^{2k+2e^{-k}}}-\sqrt{1+e^{2k}}\right)+\frac12\ln(\cdots)$로 쓰고 각 항의 극한을 구한다.
+    steps:
+    - id: 2c-1
+      content: |
+        $g(k)=\left(\sqrt{1+e^{2k+2e^{-k}}}-\sqrt{1+e^{2k}}\right)+\dfrac12\ln\left(\dfrac{\sqrt{1+e^{2k+2e^{-k}}}-1}{\sqrt{1+e^{2k+2e^{-k}}}+1}\times\dfrac{\sqrt{1+e^{2k}}+1}{\sqrt{1+e^{2k}}-1}\right)$이다.
+        첫 항은 유리화하면 $\dfrac{e^k(e^{2e^{-k}}-1)}{\sqrt{e^{-2k}+e^{2e^{-k}}}+\sqrt{e^{-2k}+1}}\to\dfrac12\lim_{l\to0}\dfrac{e^{2l}-1}{l}=1$ ($l=e^{-k}$), 로그 안은 $1\times1$로 가므로 둘째 항은 $\ln1=0$. 따라서 $\lim g(k)=1$.
+      criteria: ['2.M1', '2.M2', '2.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 5
+      evidence: |
+        곡선의 길이 $g(k)=\int_k^{k+e^{-k}}\sqrt{1+e^{2t}}\,dt=\frac12\{f(2k+2e^{-k})-f(2k)\}$를 계산했다(공식 10/100점 → 5점 환산).
+      depends_on: []
+      implied_ok: false
+      ft: {allowed: true, from: [1.A1], max_points: 5}
+      steps: [2b-1, 2c-1]
+    - id: 2.M2
+      mark_type: M
+      points: 10
+      evidence: |
+        평균값 정리와 $f^\prime$의 증가성(또는 직접 계산)으로 $g(k)$를 극한을 구할 수 있는 꼴로 바꾸었다.
+      depends_on: [2.M1]
+      steps: [2b-2, 2c-1]
+    - id: 2.A1
+      mark_type: A
+      points: 5
+      evidence: |
+        조임정리(또는 직접 극한)로 $\lim g(k)=1$을 얻었다(공식 '극한값' 30/100점 → 15점 환산을 2.M2·2.A1로 나눔).
+      depends_on: [2.M2]
+      steps: [2b-3, 2c-1]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '3'
+  stem: |
+    함수 $f(x)$의 한 부정적분을 $F(x)$라 할 때, $\displaystyle\lim_{x\to\infty}\frac{F(2x)}{e^x}$의 값을 구하시오. $\left(\text{단, }\displaystyle\lim_{x\to\infty}\frac{x}{e^x}=0\right)$
+  points: 20
+  depends_on: ['1']
+  answer: {kind: value, value: '4', equivalents: [], tolerance: null}
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: |
+      $G(x)=\int_0^xf=2(f(x)-f(0))+\int_0^x\ln\frac{\sqrt{1+e^t}-1}{\sqrt{1+e^t}+1}dt$이고 로그 적분은 $O(x)$이므로 $e^{-x/2}G(x)\to2\lim e^{-x/2}f(x)=4$.
+    steps:
+    - {id: 3a, content: '$\lim e^{-x}F(2x)=\lim e^{-x/2}F(x)=4\lim e^{-x/2}\sqrt{1+e^x}=4$', criteria: ['3.M1', '3.A1']}
+    hint_ladder:
+    - $\frac{F(2x)}{e^x}$에서 $2x$를 $x$로 바꿔 보자.
+    - $\int\sqrt{1+e^t}\,dt$는 이미 알고 있다.
+  - id: S3-B
+    audience: B
+    method_no: 1
+    source_flow: '선행학습 영향평가 자체평가보고서 2021 문항카드10 p.79–80(인쇄 77–78쪽 예시 답안 [2-3])'
+    steps:
+    - id: 3b-1
+      content: |
+        $G(x)=\displaystyle\int_0^xf(t)\,dt$라 하면 $F(x)=G(x)+C$ ($C$는 상수)이므로
+        $\displaystyle\lim_{x\to\infty}e^{-x}F(2x)=\lim_{x\to\infty}e^{-x/2}F(x)=\lim_{x\to\infty}e^{-x/2}(G(x)+C)=\lim_{x\to\infty}e^{-x/2}G(x)$를 구하면 된다.
+        문제 1에 의해 $G(x)=2\displaystyle\int_0^x\sqrt{1+e^t}\,dt+\int_0^x\ln\left(\frac{\sqrt{1+e^t}-1}{\sqrt{1+e^t}+1}\right)dt=2(f(x)-f(0))+\int_0^x\ln\left(\frac{\sqrt{1+e^t}-1}{\sqrt{1+e^t}+1}\right)dt$ …… (6)
+      criteria: ['3.M1']
+    - id: 3b-2
+      content: |
+        한편 $f^\prime(x)$가 증가하고 $(-1,\infty)$에서 $\frac{x-1}{x+1}$도 증가하므로 임의의 양수 $t$에 대하여
+        $\dfrac{\sqrt2-1}{\sqrt2+1}\le\dfrac{\sqrt{1+e^t}-1}{\sqrt{1+e^t}+1}\le1$, 즉 $-\ln\left(\dfrac{\sqrt2+1}{\sqrt2-1}\right)\le\ln\left(\dfrac{\sqrt{1+e^t}-1}{\sqrt{1+e^t}+1}\right)\le0$ …… (7)
+        제시문 <라>에 의하여 $-\ln\left(\frac{\sqrt2+1}{\sqrt2-1}\right)x\le\displaystyle\int_0^x\ln\left(\frac{\sqrt{1+e^t}-1}{\sqrt{1+e^t}+1}\right)dt\le0$이고, 제시문 <다>와 단서에 의하여 $e^{-x/2}\displaystyle\int_0^x\ln(\cdots)\,dt\to0$이다.
+      criteria: ['3.M1']
+    - id: 3b-3
+      content: |
+        (6), (7)과 제시문 <다>에 의하여
+        $\displaystyle\lim_{x\to\infty}e^{-x/2}G(x)=2\lim_{x\to\infty}e^{-x/2}f(x)=4\lim_{x\to\infty}e^{-x/2}\sqrt{1+e^x}+2\lim_{x\to\infty}e^{-x/2}\ln\left(\frac{\sqrt{1+e^x}-1}{\sqrt{1+e^x}+1}\right)=4+0=4$.
+      criteria: ['3.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 10
+      evidence: |
+        $F(x)=G(x)+C$로 두고 $G(x)=2(f(x)-f(0))+\int_0^x\ln(\cdots)dt$처럼 계산 가능한 형태로 표현하며, 로그 적분 항을 정적분의 대소로 묶었다(공식 20/100점 → 10점 환산).
+      depends_on: []
+      implied_ok: false
+      ft: {allowed: true, from: [1.A1], max_points: 10}
+      steps: [3b-1, 3b-2]
+    - id: 3.A1
+      mark_type: A
+      points: 10
+      evidence: |
+        극한값 $4$를 구했다(공식 20/100점 → 10점 환산).
+      depends_on: [3.M1]
+      steps: [3b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+remedy_links: []
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: hyu-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+- {stage: verify, actor_type: system, actor_id: verify/HYU-G21C.py, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

@@ -1,0 +1,334 @@
+# 한양대 2026학년도 논술 자연계열(오후2) [문제 2] — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: HYU-G26C-02
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: HYU
+type: null
+variant_of: null
+replaces: null
+level: L6
+form: 최적2단
+points: 50
+time_estimate_min: 45
+intent: |
+  수학의 이차방정식과 이차함수, 여러 가지 방정식, 도형의 이동, 수학Ⅰ의 수열의 합, 수학Ⅱ·미적분의 함수의 연속, 도함수의 활용과 여러 가지 미분법, 기하의 위치벡터와 평면벡터의 성분에 대한 전반적인 지식을 평가한다. 몫의 미분으로 $f$가 $[0,1]$에서 증가함을 보여 최댓값·최솟값을 구하고, 그 결과로 얻는 부등식과 위치벡터로 합성함수 꼴 식의 최댓값을 구하며, $k$의 값에 따라 경우를 나누어 $h(s)$의 불연속점을 찾고 수열의 합을 구한다.
+key_idea: |
+  1은 $f'(x)$의 분자가 $(1+x)^{n-1}(1-x^{n-1})-(1-x)^{n-1}(1+x^{n-1})>0$. 2는 1의 $F(x)=\frac{(1+x)^8+(1-x)^8}{1+x^8}\ge2$에서 $(a+b)^8+(a-b)^8\ge2(a^8+b^8)$(등호는 $a=0$ 또는 $b=0$)을 얻어 두 번 적용하고 조건과 더한다. 3은 $\lvert g(x)+k\rvert$의 그래프에서 꼭짓점·모서리 높이가 겹쳐야 불연속점이 2개.
+stuck: |
+  2에서 1의 결과를 두 변수 부등식 $(a+b)^8+(a-b)^8\ge2(a^8+b^8)$으로 바꾸고 $a\pm b$에 $\sqrt[8]{1-s^8}$, $\sqrt[8]{1-(f(s))^8}$와 $s$, $f(s)$를 각각 대입하는 발상(보조 부등식 스스로 설정)
+idea_tags: [IDEA-MONOTONE-QUOTIENT-BOUND, IDEA-POWER-MEAN-SUBSTITUTION, IDEA-ABS-GRAPH-DISCONTINUITY-COUNT]
+tags: [몫의 미분, 최대·최소, 부등식, 위치벡터, 절댓값 함수, 불연속, 수열의 합, 배점환산]
+elements:
+  materials:
+  - '$f(x)=\dfrac{(1+x)^n+(1-x)^n}{1+x^n}$ $(0\le x\le1,\ n\ge3)$'
+  - '$f(x)=-x^3+\left(\frac1k+1\right)x^2-\left(\frac1k+1\right)x$, 점 $\mathrm{A}(\sqrt[8]{1-s^8},s)$, $\mathrm{B}(\sqrt[8]{1-(f(s))^8},f(s))$, 중점 $\mathrm{M}(g(s),h(s))$'
+  - '$g(x)=x^2+2nx+n^2+2\ (x\le0)$, $x^2-6nx+n^2+2\ (x>0)$, $y=\lvert g(x)+k\rvert$와 $y=s$의 교점 개수 $h(s)$'
+  concepts: [몫의 미분법, 함수의 증가와 감소, 최댓값과 최솟값, 위치벡터, 평면벡터의 성분, 이차함수의 최대·최소, 그래프의 평행이동과 대칭이동, 함수의 연속, 수열의 합]
+  tools:
+  - '$\left(\frac{1+x}{1-x}\right)^{n-1}\ge\frac{1+x}{1-x}>\frac{1+x^{n-1}}{1-x^{n-1}}$'
+  - '$F\left(\frac ba\right)\ge2$ ⇒ $(a+b)^8+(a-b)^8\ge2(a^8+b^8)$'
+  - '두 부등식의 합과 조건 $(g(s))^8+(h(s))^8\ge1-\frac1{k^8}$'
+  - '$f(\frac1k)=-\frac1k$, $f(1)=-1$, $f''(s)<0$'
+  - '$k$와 $4n^2-2$, $\frac72n^2-2$, $8n^2-2$의 대소로 경우 나누기'
+  conditions:
+  - '$n\ge3$, $0<x<1$에서 $x^{n-1}<x$'
+  - '$k>1$, $0\le s\le1$'
+  - '등호 조건 $s=\pm f(s)$ ⇒ $s=0,1,\frac1k$, $s=1$은 조건 불만족'
+  - '$h(s)$가 불연속인 $p$가 정확히 2개'
+  stimuli_used: []
+  subpart_links: '2는 1의 결과($n=8$일 때 $F(x)\ge2$)를 사용'
+
+curriculum:
+  version: '2015'
+  subjects: [수학, 수학Ⅰ, 수학Ⅱ, 미적분, 기하]
+  scope_2028: geom
+  scope_confirmed: false
+  standards:
+  - code: 12수학Ⅱ01-04
+    text: 연속함수의 성질을 이해하고, 이를 활용할 수 있다.
+    verified: true
+  - code: 12수학Ⅱ02-08
+    text: 함수의 증가와 감소, 극대와 극소를 판정하고 설명할 수 있다.
+    verified: true
+  - code: 12미적02-06
+    text: 함수의 몫을 미분할 수 있다.
+    verified: true
+  - code: 12미적02-07
+    text: 합성함수를 미분할 수 있다.
+    verified: true
+  - code: 10수학01-09
+    text: 이차방정식과 이차함수의 관계를 이해한다.
+    verified: true
+  - code: 10수학01-12
+    text: 간단한 삼차방정식과 사차방정식을 풀 수 있다.
+    verified: true
+  - code: 12기하02-03
+    text: 위치벡터의 뜻을 알고, 평면벡터와 좌표의 대응을 이해한다.
+    verified: true
+  - code: 10수학01-11
+    text: 이차함수의 최대, 최소를 이해하고, 이를 활용하여 문제를 해결할 수 있다.
+    verified: true
+  - code: 10수학02-08
+    text: 평행이동의 의미를 이해한다.
+    verified: true
+  - code: 12수학Ⅰ03-05
+    text: 여러 가지 수열의 첫째항부터 제n항까지의 합을 구할 수 있다.
+    verified: true
+  - code: 12수학Ⅱ01-03
+    text: 함수의 연속의 뜻을 안다.
+    verified: true
+  content_area: 도함수의 활용·부등식·위치벡터·함수의 연속
+  behavior_domain: 추론
+  unit_path: [미적분, 미분법, 도함수의 활용, 최대·최소를 이용한 부등식]
+  key_concepts: [몫의 미분법, 함수의 증가와 감소, 최댓값과 최솟값, 위치벡터, 평면벡터의 성분, 이차함수의 최대·최소, 그래프의 평행이동과 대칭이동, 함수의 연속, 수열의 합]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 한양대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 한양대학교
+  admission_year: 2026
+  admission_type: 수시 논술
+  track: 자연계열(오후2)
+  question_no: 2
+  official_url: https://go.hanyang.ac.kr/web/pds/pds_view.do?m_type=SUSI&bn=20601
+  retrieved_at: 2026-11-21
+  original_points: [15, 20, 15]
+  rights_notice: 한양대학교 입학처 공개 기출(내부 분석용)
+  transcribed_from: 2026학년도 자연계열 논술(오후2) 문제지 p.3, 해설 근거 2026학년도 선행학습 영향평가 자체평가보고서 문항카드10 p.119~124 (p.124는 보고서 원본 PDF 126쪽에서 직접 확인; 원본 PDF 이미지 대조 2026-11-22). 채점기준 배점(30·40·30, 100점 기준)을 1/2로 환산
+
+verify: verify/HYU-G26C.py::p02
+
+stimuli: []
+
+stem: |
+  [문제 2] 다음 물음에 답하시오. (50점)
+
+subparts:
+- id: '1'
+  stem: |
+    자연수 $n\ (n\ge3)$에 대하여 닫힌구간 $[0,1]$에서 정의된 함수
+    $$f(x)=\frac{(1+x)^n+(1-x)^n}{1+x^n}$$
+    의 최댓값과 최솟값을 구하시오.
+  points: 15
+  depends_on: []
+  answer: {kind: expression, value: 'max = 2**(n-1); min = 2', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $f'(x)=n\cdot\frac{(1+x)^{n-1}(1-x^{n-1})-(1-x)^{n-1}(1+x^{n-1})}{(1+x^n)^2}>0$이므로 증가. 최댓값 $f(1)=2^{n-1}$, 최솟값 $f(0)=2$.
+    steps:
+    - {id: 1a, content: '$\left(\frac{1+x}{1-x}\right)^{n-1}>\frac{1+x^{n-1}}{1-x^{n-1}}$ ⇒ $f''>0$', criteria: ['1.M1', '1.A1']}
+    hint_ladder:
+    - 몫의 미분법으로 $f'(x)$의 분자를 정리하자.
+    - $0<x<1$이면 $x^{n-1}<x$이다.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 2026 선행학습 영향평가 보고서 문항카드10 p.122 예시답안 1
+    steps:
+    - id: 1b-1
+      content: |
+        $f'(x)=n\cdot\dfrac{\left((1+x)^{n-1}-(1-x)^{n-1}\right)(1+x^n)-x^{n-1}\left((1+x)^n+(1-x)^n\right)}{(1+x^n)^2}=n\cdot\dfrac{(1+x)^{n-1}(1-x^{n-1})-(1-x)^{n-1}(1+x^{n-1})}{(1+x^n)^2}$ …… (＊)
+        (공식 예시답안 첫 줄의 $(1-x)^{x-1}$은 $(1-x)^{n-1}$의 오기로 보아 고쳐 적음)
+      criteria: ['1.M1']
+    - id: 1b-2
+      content: |
+        $0<x<1$이면 $x^{n-1}<x$이므로 $\left(\dfrac{1+x}{1-x}\right)^{n-1}\ge\dfrac{1+x}{1-x}>\dfrac{1+x^{n-1}}{1-x^{n-1}}$. 그러므로 $(1+x)^{n-1}(1-x^{n-1})>(1+x^{n-1})(1-x)^{n-1}$, 즉 (＊)의 분자가 양수이다.
+      criteria: ['1.A1']
+    - id: 1b-3
+      content: |
+        열린구간 $(0,1)$에서 $f'(x)>0$이므로 닫힌구간 $[0,1]$에서 $f$는 증가한다. 따라서 최댓값은 $f(1)=2^{n-1}$, 최솟값은 $f(0)=2$이다.
+      criteria: ['1.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 5
+      evidence: |
+        몫의 미분법으로 $f'(x)$를 구했다(공식 10점 → 5).
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1, 1a]
+    - id: 1.A1
+      mark_type: A
+      points: 10
+      evidence: |
+        $[0,1]$에서 $f$가 증가함을 보이고 최댓값 $2^{n-1}$, 최솟값 $2$를 구했다(공식 20점 → 10).
+      depends_on: [1.M1]
+      steps: [1b-2, 1b-3, 1a]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-0412}
+  misconceptions:
+  - id: MC-CAL-0412
+    outcome_code: '71'
+    wrong_work: '$f''(x)=\dfrac{(1+x^n)\cdot N''-N\cdot nx^{n-1}}{(1+x^n)^2}$의 분자 두 항 순서를 바꿔 $f''<0$으로 판단'
+    detect_cue: 분자가 $N\cdot nx^{n-1}-(1+x^n)N'$ 꼴이고 $f$가 감소한다고 결론
+    feedback: 몫의 미분은 (분모)×(분자)′−(분자)×(분모)′입니다. $f(0)=2<f(1)=2^{n-1}$로 방향을 확인해 보세요.
+    remedy: [RL-1]
+
+- id: '2'
+  stem: |
+    $k>1$인 실수 $k$에 대하여 함수 $f(x)=-x^3+\left(\dfrac1k+1\right)x^2-\left(\dfrac1k+1\right)x$가 있고,
+    $0\le s\le1$인 실수 $s$에 대하여 두 점 $\mathrm{A}\left(\sqrt[8]{1-s^8},\,s\right)$와 $\mathrm{B}\left(\sqrt[8]{1-(f(s))^8},\,f(s)\right)$가 있다.
+    $\overrightarrow{\mathrm{OM}}=\dfrac12\left(\overrightarrow{\mathrm{OA}}+\overrightarrow{\mathrm{OB}}\right)$인 점 $\mathrm{M}(g(s),h(s))$가 $(g(s))^8+(h(s))^8\ge1-\dfrac{1}{k^8}$을 만족시킬 때,
+    $\left\{\sqrt[8]{1-s^8}-\sqrt[8]{1-(f(s))^8}\right\}^8+\{s-f(s)\}^8$의 최댓값을 구하시오. (단, $\mathrm{O}$는 원점이다.)
+  points: 20
+  depends_on: ['1']
+  answer: {kind: expression, value: '256/k**8', equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: $(a+b)^8+(a-b)^8\ge2(a^8+b^8)$을 $(a,b)=\left(g,\ \frac{\sqrt[8]{1-s^8}-\sqrt[8]{1-f^8}}{2}\right)$, $\left(h,\ \frac{s-f}{2}\right)$에 적용해 더하면 $\left(\frac{X}{2}\right)^8+\left(\frac{Y}{2}\right)^8\le\frac1{k^8}$, 등호는 $s=\frac1k$.
+    steps:
+    - {id: 2a, content: '최댓값 $2^8\cdot\frac1{k^8}=\frac{256}{k^8}$ ($s=\frac1k$)', criteria: ['2.M1', '2.A1']}
+    hint_ladder:
+    - 문항 1에서 $n=8$이면 $\frac{(1+x)^8+(1-x)^8}{1+x^8}\ge2$이다. $x=\frac ba$로 놓아 보자.
+    - $\mathrm{A}$, $\mathrm{B}$는 모두 곡선 $x^8+y^8=1$ 위에 있다.
+  - id: S2-B
+    audience: B
+    method_no: 1
+    source_flow: 2026 선행학습 영향평가 보고서 문항카드10 p.122~124 예시답안 2
+    steps:
+    - id: 2b-1
+      content: |
+        문항 1에서 $0\le x\le1$이면 $F(x)=\dfrac{(1+x)^8+(1-x)^8}{1+x^8}\ge2$이다. (i) $a\ge b>0$이면 $1\ge\frac ba>0$이므로 $F\left(\frac ba\right)\ge2$, (ii) $b\ge a>0$이면 $F\left(\frac ab\right)\ge2$. 따라서 $a,b>0$이면 $(a+b)^8+(a-b)^8\ge2(a^8+b^8)$ …… ㉠. (iii) 부호가 다른 경우와 $a=0$ 또는 $b=0$인 경우에도 ㉠에 의해 성립하므로 모든 실수 $a,b$에 대해 $(a+b)^8+(a-b)^8\ge2(a^8+b^8)$ …… ㉡. $F$는 $x=0$에서 최솟값을 가지므로 등호는 $a=0$ 또는 $b=0$일 때 성립한다 …… (＊)
+      criteria: ['2.M1']
+    - id: 2b-2
+      content: |
+        $0\le s\le1$에서 $f(s)=-s(s-1)\left(s-\frac1k\right)-s$이고 $f(0)=0$, $f(1)=-1$. $f'(s)=-3s^2+2\left(\frac1k+1\right)s-\left(\frac1k+1\right)$의 판별식이 $\left(\frac1k-2\right)\left(\frac1k+1\right)<0$이므로 $f'(s)<0$이고 $-1\le f(s)\le0$이다.
+        [그림: $t=s$, $t=-s$, $t=f(s)$의 그래프 — $t=f(s)$는 $(0,0)$에서 $(1,-1)$로 감소하며 $s=\frac1k$에서 $t=-s$와 만남]
+      criteria: ['2.M1']
+    - id: 2b-3
+      content: |
+        ㉡에 $a=\frac{\sqrt[8]{1-s^8}+\sqrt[8]{1-(f(s))^8}}{2}$, $b=\frac{\sqrt[8]{1-s^8}-\sqrt[8]{1-(f(s))^8}}{2}$를 대입하면 $(1-s^8)+(1-(f(s))^8)\ge2\left(a^8+b^8\right)$ …… ㉢. ㉡에 $a=\frac{s+f(s)}{2}$, $b=\frac{s-f(s)}{2}$를 대입하면 $s^8+(f(s))^8\ge2\left(\left(\frac{s+f(s)}{2}\right)^8+\left(\frac{s-f(s)}{2}\right)^8\right)$ …… ㉣.
+      criteria: ['2.A1']
+    - id: 2b-4
+      content: |
+        ㉢과 ㉣을 더하면 $g(s)=\frac{\sqrt[8]{1-s^8}+\sqrt[8]{1-(f(s))^8}}{2}$, $h(s)=\frac{s+f(s)}{2}$이므로
+        $2\ge2\left((g(s))^8+\left(\frac{\sqrt[8]{1-s^8}-\sqrt[8]{1-(f(s))^8}}{2}\right)^8+(h(s))^8+\left(\frac{s-f(s)}{2}\right)^8\right)\ge2\left(1-\frac1{k^8}+\left(\frac{\sqrt[8]{1-s^8}-\sqrt[8]{1-(f(s))^8}}{2}\right)^8+\left(\frac{s-f(s)}{2}\right)^8\right)$.
+        즉 $\left(\frac{\sqrt[8]{1-s^8}-\sqrt[8]{1-(f(s))^8}}{2}\right)^8+\left(\frac{s-f(s)}{2}\right)^8\le\left(\frac1k\right)^8$ …… ㉤. (공식 예시답안의 「$1-\left(\frac1k\right)^8$」은 조건의 $1-\frac1{k^8}$과 같음)
+      criteria: ['2.A1']
+    - id: 2b-5
+      content: |
+        (＊)에 의해 ㉤의 등호가 성립하려면 $s=f(s)$ 또는 $s=-f(s)$이고, 이를 만족하는 $s$는 $0,1,\frac1k$이다. ① $s=0$이면 $f(0)=0$이므로 ㉤의 좌변이 $0$. ② $s=1$이면 $f(1)=-1$이므로 $(g,h)=(0,0)$이고 조건을 만족하지 않는다. ③ $s=\frac1k$이면 $f\left(\frac1k\right)=-\frac1k$이므로 ㉤의 좌변이 $\left(\frac1k\right)^8$이고 등호가 성립하며 $\left(g\left(\frac1k\right)\right)^8+\left(h\left(\frac1k\right)\right)^8=1-\frac1{k^8}$이다. 그러므로 구하는 최댓값은 $\dfrac{256}{k^8}$이다.
+        (참고: $F(x)$의 최댓값이 $2^7$임을 이용해 ㉡을 보일 수도 있다. 양수 $a>b>0$에 대해 $u=\frac{a+b}{2}$, $v=\frac{a-b}{2}$이면 $F\left(\frac vu\right)\le2^7$이므로 $(a+b)^8+(a-b)^8\ge2(a^8+b^8)$.)
+      criteria: ['2.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 10
+      evidence: |
+        $[0,1]$에서 $f(s)$의 그래프 개형($f(0)=0$, $f(1)=-1$, $f'<0$, $f(\frac1k)=-\frac1k$)을 파악했다(공식 20점 → 10).
+      depends_on: []
+      implied_ok: false
+      steps: [2b-1, 2b-2, 2a]
+    - id: 2.A1
+      mark_type: A
+      points: 10
+      evidence: |
+        문항 1에서 얻은 부등식 $(a+b)^8+(a-b)^8\ge2(a^8+b^8)$을 이용해 최댓값 $\frac{256}{k^8}$을 찾았다(공식 20점 → 10).
+      depends_on: [2.M1]
+      ft: {allowed: true, from: [1.A1], max_points: 10}
+      steps: [2b-3, 2b-4, 2b-5, 2a]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '3'
+  stem: |
+    자연수 $n$에 대하여 함수 $g(x)$는 $g(x)=\begin{cases}x^2+2nx+n^2+2 & (x\le0)\\ x^2-6nx+n^2+2 & (x>0)\end{cases}$이다.
+    다음 조건을 만족시키는 양수 $k$를 $a_n$이라 하자.
+
+    [조건] 실수 $s$에 대하여 곡선 $y=\lvert g(x)+k\rvert$와 직선 $y=s$의 교점의 개수를 $h(s)$라 하자. 함수 $h(s)$가 $s=p$에서 불연속이 되도록 하는 실수 $p$의 개수는 $2$이다.
+
+    $\displaystyle\sum_{n=1}^{10}a_n$의 값을 구하시오.
+  points: 15
+  depends_on: []
+  answer: {kind: value, value: '1520', equivalents: [], tolerance: null}
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: 불연속 후보는 $s=0$, $k+2$(왼쪽 꼭짓점), $k+n^2+2$($x=0$의 모서리), $\lvert k+2-8n^2\rvert$(오른쪽 꼭짓점). $k=4n^2-2$일 때만 $k+2=-k+8n^2-2$로 겹쳐 2개.
+    steps:
+    - {id: 3a, content: '$a_n=4n^2-2$, $\sum_{n=1}^{10}a_n=4\times\frac{10\times11\times21}{6}-2\times10=1520$', criteria: ['3.M1', '3.A1']}
+    hint_ladder:
+    - $y=\lvert g(x)+k\rvert$의 그래프에서 $h(s)$가 바뀌는 높이를 모두 적어 보자.
+    - 그 높이들 중 두 개가 겹치려면 $k$가 어떤 값이어야 하는가?
+  - id: S3-B
+    audience: B
+    method_no: 1
+    source_flow: 2026 선행학습 영향평가 보고서 문항카드10 p.124 예시답안 3 (보고서 원본 PDF 126쪽)
+    steps:
+    - id: 3b-1
+      content: |
+        $k$의 값을 기준으로 경우를 나누면
+        (i) $k\ge8n^2-2$: $h$는 $s=k+n^2+2,\ k+2,\ k-8n^2+2$에서 불연속.
+        (ii) $4n^2-2<k<8n^2-2$: $s=k+n^2+2,\ k+2,\ -k+8n^2-2,\ 0$에서 불연속.
+        (iii) $k=4n^2-2$: $s=k+n^2+2,\ 0$에서 불연속.
+      criteria: ['3.M1']
+    - id: 3b-2
+      content: |
+        (iv) $\frac72n^2-2<k<4n^2-2$: $s=k+n^2+2,\ -k+8n^2-2,\ k+2,\ 0$에서 불연속.
+        (v) $k=\frac72n^2-2$: $s=k+n^2+2,\ k+2,\ 0$에서 불연속.
+        (vi) $0<k<\frac72n^2-2$: $s=-k+8n^2-2,\ k+n^2+2,\ k+2,\ 0$에서 불연속.
+        [그림: (ii) $4n^2-2<k<8n^2-2$, (iii) $k=4n^2-2$, (vi) $0<k<\frac72n^2-2$일 때 $y=\lvert g(x)+k\rvert$의 그래프 — (iii)에서는 왼쪽 극소와 오른쪽 극대의 높이가 같다]
+      criteria: ['3.M1']
+    - id: 3b-3
+      content: |
+        따라서 $a_n=4n^2-2$이고 $\displaystyle\sum_{n=1}^{10}a_n=4\times\frac{10\times11\times21}{6}-2\times10=1520$이다.
+      criteria: ['3.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 10
+      evidence: |
+        $k$의 값을 기준으로 경우를 나누어 $h(s)$가 불연속인 $s$의 값을 찾았다(공식 20점 → 10).
+      depends_on: []
+      implied_ok: false
+      steps: [3b-1, 3b-2, 3a]
+    - id: 3.A1
+      mark_type: A
+      points: 5
+      evidence: |
+        $a_n=4n^2-2$에서 수열의 합 $1520$을 구했다(공식 10점 → 5).
+      depends_on: [3.M1]
+      steps: [3b-3, 3a]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CAL-0412}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-DIFF-QUOTIENT}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: hyu-past-v1, item_version: 1, verdict: pass, date: 2026-11-22}
+- {stage: verify, actor_type: system, actor_id: verify/HYU-G26C.py, item_version: 1, verdict: pass, date: 2026-11-22}
+
+created: 2026-11-22
+updated: 2026-11-22

@@ -1,0 +1,258 @@
+# 한양대 2023학년도 수시 모의논술 자연계열 [문제 2] — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: HYU-M23-02
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: HYU
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 추론
+points: 50
+time_estimate_min: 30
+intent: |
+  수열의 평균으로 이루어진 급수와 정적분의 관계(1.), 주어진 조건으로 연쇄법칙·부분적분법을 활용하는 능력(2.), 삼각함수(코사인법칙)로 원하는 식을 구하고 정적분의 정의·부분적분법으로 극한값을 구하는 능력(3.)을 측정한다.
+key_idea: |
+  1.은 $x_n=\tfrac1n\sum_{k=1}^{2n}f(\tfrac{2k-1}{2n})$, $f(x)=\tfrac1{1+x}$로 보아 $\int_0^2$. 2.는 $\int f^\prime(t)dt$를 $t$와 곱으로 보고 부분적분해 $f^{\prime\prime}$ 조건을 쓴다. 3.은 $S_k=\sin\tfrac{k\pi}{n+1}$이고 $\tfrac{1}{n+1}\sum\sin^2\to\tfrac1\pi\int_0^\pi\sin^2t\,dt$.
+stuck: |
+  2.에서 $f^\prime$의 식을 구하지 않고 $\int_x^{\sqrt3x}f^\prime(t)\cdot1\,dt$를 부분적분해 $tf^{\prime\prime}(t)=\sin t$로 만드는 발상. 3.에서 지름 위 원주각이 직각이라 $S_k^2=\tfrac14\overline{\mathrm{AP}_k}^2\overline{\mathrm{P}_k\mathrm B}^2$가 $\sin^2$으로 정리되는 것
+idea_tags: [IDEA-RIEMANN-MIDPOINT-SUM, IDEA-IBP-TIMES-ONE, IDEA-INSCRIBED-RIGHT-ANGLE]
+tags: [정적분과 급수, 부분적분, 원주각, 코사인법칙, 배점환산, 원문조건모순]
+elements:
+  materials:
+  - '$x_n=\tfrac1n\sum_{k=1}^{2n}\tfrac{2n}{2n+2k-1}$'
+  - '$f^{\prime\prime}(x)=\tfrac{\sin x}{x}$, $\lim_{x\to\pi/\sqrt3}f^\prime(x)=\tfrac1{\sqrt3}$, $\lim_{x\to\pi}f^\prime(x)=1$, $\lim\int_x^{\sqrt3x}f^\prime(t)dt$'
+  - '반지름 1인 반원의 호를 $n+1$등분하는 점 $\mathrm P_k$, 삼각형 $\mathrm{AP}_k\mathrm B$의 넓이 $S_k$'
+  concepts:
+  - 정적분과 급수의 합
+  - 부분적분법
+  - 합성함수의 미분법(연쇄법칙)
+  - 코사인법칙
+  - 원주각
+  tools:
+  - '중점 리만합 $\tfrac1n\sum f(\tfrac{2k-1}{2n})\to\int_0^2f$'
+  - '$\int f^\prime(t)dt=[tf^\prime(t)]-\int tf^{\prime\prime}(t)dt$'
+  - '중심각 $\tfrac{k\pi}{n+1}$에 코사인법칙, $\overline{\mathrm{P}_k\mathrm B}^2=4-\overline{\mathrm{AP}_k}^2$'
+  - '$\int\sin^2t\,dt=\tfrac12(t-\cos t\sin t)+C$'
+  conditions:
+  - '$\overline{\mathrm{AP}_1}=\cdots=\overline{\mathrm P_n\mathrm B}$이면 호가 $n+1$등분 — 중심각 $\tfrac{\pi}{n+1}$씩'
+  - '2.의 단서로 주어진 수치($\cos\tfrac{\pi}{\sqrt3}=-0.24$ 등) 중 답에는 $\cos\tfrac{\pi}{\sqrt3}$만 쓰임'
+  - '원문 2.의 조건 (i)~(iii)은 서로 정확히 맞지 않음($\int_{\pi/\sqrt3}^{\pi}\tfrac{\sin x}{x}dx\approx0.339\ne1-\tfrac1{\sqrt3}\approx0.423$) — 공식 풀이는 끝값의 극한만 사용'
+  stimuli_used: []
+  subpart_links: null
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅰ, 미적분]
+  scope_2028: unknown
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 삼각함수의 활용(코사인법칙, 수학Ⅰ), 부분적분법·정적분과 급수·합성함수의 미분법(미적분 비상교육·좋은책신사고)
+    verified: false
+  content_area: 적분법·삼각함수
+  behavior_domain: 문제해결
+  unit_path: [미적분, 적분법, 정적분의 활용, 정적분과 급수의 합 사이의 관계]
+  key_concepts: [정적분과 급수의 합, 부분적분법, 합성함수의 미분법(연쇄법칙), 코사인법칙, 원주각]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 한양대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 한양대학교
+  admission_year: 2023
+  admission_type: 수시 모의논술
+  track: 자연계열
+  question_no: 2
+  official_url: https://go.hanyang.ac.kr/web/pds/pds_view.do?m_type=SUSI&bn=6056
+  retrieved_at: 2026-11-21
+  original_points: [15, 15, 20]
+  rights_notice: 한양대학교 입학처 공개 기출(내부 분석용)
+  transcribed_from: 2023 모의논술 자연계열 문제지 p.2, 해설 근거 출제의도 및 평가지침 2번(p.2)·모의논술 예시답안 2번(p.2) (원본 PDF 이미지 대조 2026-11-21). 평가지침 세부 배점(30·30·40, 100점 기준)을 문제 배점 50점에 맞춰 1/2로 환산(15→8+7)
+
+verify: verify/HYU-M23.py::p02
+
+stimuli: []
+
+stem: |
+  다음 물음에 답하시오. (50점)
+
+subparts:
+- id: '1'
+  stem: |
+    자연수 $n$에 대하여 $x_n=\dfrac1n\displaystyle\sum_{k=1}^{2n}\frac{2n}{2n+2k-1}$일 때, 극한값 $\displaystyle\lim_{n\to\infty}x_n$을 구하시오.
+  points: 15
+  depends_on: []
+  answer: {kind: value, value: 'log(3)', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $\tfrac{2n}{2n+2k-1}=\tfrac{1}{1+\frac{2k-1}{2n}}$, 폭 $\tfrac1n$로 $[0,2]$를 나눈 리만합.
+    steps:
+    - {id: 1a, content: '$\lim x_n=\int_0^2\tfrac{dx}{1+x}=\ln3$', criteria: ['1.M1', '1.A1']}
+    hint_ladder:
+    - 분자·분모를 $2n$으로 나누어 보자.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 2023 모의논술 예시답안 2번 p.2 문항 1
+    steps:
+    - id: 1b-1
+      content: |
+        $f(x)=\dfrac1{1+x}$는 $[0,1]$에서 연속함수이다. (원문 표기 그대로 — 실제로 쓰이는 구간은 $[0,2]$이며 $f$는 이 구간에서도 연속이다.)
+        $$x_n=\frac1n\sum_{k=1}^{2n}\frac{2n}{2n+2k-1}=\frac1n\sum_{k=1}^{2n}\frac{1}{1+\frac{2k-1}{2n}}=\frac1n\sum_{k=1}^{2n}f\left(\frac{2k-1}{2n}\right)$$
+        이다.
+      criteria: ['1.M1']
+    - id: 1b-2
+      content: |
+        $$\lim_{n\to\infty}x_n=\lim_{n\to\infty}\frac1n\sum_{k=1}^{2n}f\left(\frac{2k-1}{2n}\right)=\int_0^2f(x)dx=\int_0^2\frac{1}{1+x}dx=\ln3.$$
+      criteria: ['1.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 8
+      evidence: |
+        함수 $f(x)=\tfrac1{1+x}$를 사용하여 $x_n$을 함숫값들의 평균(리만합) 형태로 바꾸었다(평가지침 15/30).
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1]
+    - id: 1.A1
+      mark_type: A
+      points: 7
+      evidence: |
+        극한값 $\ln3$을 바르게 계산했다(평가지침 15/30).
+      depends_on: ['1.M1']
+      steps: [1b-2]
+    deductions: []
+  misconceptions: []
+
+- id: '2'
+  stem: |
+    함수 $f(x)$ (단, $x>0$)가 세 조건
+    (i) $f^{\prime\prime}(x)=\dfrac{\sin x}{x}$,  (ii) $\displaystyle\lim_{x\to\frac{\pi}{\sqrt3}}f^\prime(x)=\frac1{\sqrt3}$,  (iii) $\displaystyle\lim_{x\to\pi}f^\prime(x)=1$
+    을 만족시킬 때, 극한값 $\displaystyle\lim_{x\to\frac{\pi}{\sqrt3}}\int_x^{\sqrt3x}f^\prime(t)\,dt$을 구하시오.
+    (단, $\sin\dfrac{\pi}{\sqrt3}=0.97$, $\cos\dfrac{\pi}{\sqrt3}=-0.24$, $\sin(\sqrt3\pi)=-0.75$, $\cos(\sqrt3\pi)=0.67$이다.)
+  points: 15
+  depends_on: []
+  answer: {kind: value, value: '2*pi/3 - 1 - cos(pi/sqrt(3))', equivalents: ['2*pi/3 - 0.76'], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: $\int_x^{\sqrt3x}f^\prime(t)dt=[tf^\prime(t)]_x^{\sqrt3x}+[\cos t]_x^{\sqrt3x}$에 극한을 넣는다.
+    steps:
+    - {id: 2a, content: '$\pi\cdot1-\tfrac{\pi}{\sqrt3}\cdot\tfrac1{\sqrt3}+\cos\pi-\cos\tfrac{\pi}{\sqrt3}=\tfrac23\pi-0.76$', criteria: ['2.M1', '2.A1']}
+    hint_ladder:
+    - $f^\prime(t)=f^\prime(t)\cdot1$로 보고 부분적분하자.
+    - $x\to\tfrac{\pi}{\sqrt3}$이면 $\sqrt3x\to\pi$이다.
+  - id: S2-B
+    audience: B
+    method_no: 1
+    source_flow: 2023 모의논술 예시답안 2번 p.2 문항 2
+    steps:
+    - id: 2b-1
+      content: |
+        $$\int_x^{\sqrt3x}f^\prime(t)dt=\big[f^\prime(t)t\big]_x^{\sqrt3x}-\int_x^{\sqrt3x}f^{\prime\prime}(t)t\,dt=\big[f^\prime(t)t\big]_x^{\sqrt3x}-\int_x^{\sqrt3x}\sin t\,dt=\big[f^\prime(t)t\big]_x^{\sqrt3x}+\big[\cos t\big]_x^{\sqrt3x}$$
+        $$=f^\prime(\sqrt3x)\sqrt3x-f^\prime(x)x+\cos(\sqrt3x)-\cos x$$
+      criteria: ['2.M1']
+    - id: 2b-2
+      content: |
+        $$\lim_{x\to\frac{\pi}{\sqrt3}}\int_x^{\sqrt3x}f^\prime(t)dt=\lim_{x\to\frac{\pi}{\sqrt3}}f^\prime(\sqrt3x)\lim_{x\to\frac{\pi}{\sqrt3}}\sqrt3x-\lim_{x\to\frac{\pi}{\sqrt3}}f^\prime(x)\lim_{x\to\frac{\pi}{\sqrt3}}x+\cos\pi-\cos\left(\frac{\pi}{\sqrt3}\right)=\frac23\pi-1-\cos\frac{\pi}{\sqrt3}=\frac23\pi-0.76$$
+        (참고: 조건 (i)과 (ii)로부터 $f^\prime(\pi)=\tfrac1{\sqrt3}+\int_{\pi/\sqrt3}^{\pi}\tfrac{\sin t}{t}dt\approx0.916$이 되어 (iii)의 값 $1$과 정확히 맞지 않는다. 공식 풀이는 (ii)·(iii)의 끝값만 사용하므로 위 답을 공식 답으로 둔다.)
+      criteria: ['2.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 8
+      evidence: |
+        주어진 조건을 이용하기 위해 부분적분으로 $\int_x^{\sqrt3x}f^\prime(t)dt=[tf^\prime(t)]+[\cos t]$ 꼴로 바꾸었다(평가지침 15/30).
+      depends_on: []
+      implied_ok: false
+      steps: [2b-1]
+    - id: 2.A1
+      mark_type: A
+      points: 7
+      evidence: |
+        극한값 $\tfrac23\pi-1-\cos\tfrac{\pi}{\sqrt3}=\tfrac23\pi-0.76$을 바르게 계산했다(평가지침 15/30).
+      depends_on: ['2.M1']
+      steps: [2b-2]
+    deductions: []
+  misconceptions: []
+
+- id: '3'
+  stem: |
+    선분 $\mathrm{AB}$를 지름으로 하고, 반지름의 길이가 $1$인 반원의 호 위에 $\overline{\mathrm{AP}_1}=\overline{\mathrm P_1\mathrm P_2}=\overline{\mathrm P_2\mathrm P_3}=\cdots=\overline{\mathrm P_{n-1}\mathrm P_n}=\overline{\mathrm P_n\mathrm B}$를 만족시키는 $n$개의 점 $\mathrm P_1,\mathrm P_2,\cdots,\mathrm P_n$이 순서대로 놓여있다.
+    자연수 $k\ (1\le k\le n)$에 대하여 삼각형 $\mathrm{AP}_k\mathrm B$의 넓이를 $S_k$라 할 때, 극한값 $\displaystyle\lim_{n\to\infty}\frac{S_1^2+S_2^2+\cdots+S_n^2}{n+1}$을 구하시오.
+    (오른쪽 그림은 $n=3$인 경우이다.)
+    [그림: 지름 AB(중심에서 B까지 길이 1 표시) 위의 반원과 호 위의 세 점 $\mathrm P_1,\mathrm P_2,\mathrm P_3$. 각 점에서 A와 B로 선분이 그어져 삼각형 $\mathrm{AP}_1\mathrm B$, $\mathrm{AP}_2\mathrm B$, $\mathrm{AP}_3\mathrm B$가 그려져 있다.]
+  points: 20
+  depends_on: []
+  answer: {kind: value, value: '1/2', equivalents: [], tolerance: null}
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: $S_k^2=\sin^2\tfrac{k\pi}{n+1}$, 합/$(n+1)$은 $\tfrac1\pi\int_0^\pi\sin^2t\,dt=\tfrac12$.
+    steps:
+    - {id: 3a, content: '$\lim\sum_{k=1}^{n}\sin^2(\tfrac{\pi k}{n+1})\tfrac1{n+1}=\tfrac1\pi\int_0^\pi\sin^2t\,dt=\tfrac12$', criteria: ['3.M1', '3.A1']}
+    hint_ladder:
+    - 점 $\mathrm P_k$의 중심각은 얼마인가?
+    - 지름 위의 원주각은 직각이다.
+  - id: S3-B
+    audience: B
+    method_no: 1
+    source_flow: 2023 모의논술 예시답안 2번 p.2 문항 3
+    steps:
+    - id: 3b-1
+      content: |
+        [그림: 반원의 중심 O, $\angle\mathrm{AOP}_k=\tfrac{\pi k}{n+1}$, $\mathrm{OP}_k=1$]
+        코사인법칙으로 $\overline{\mathrm{AP}_k}^2=1^2+1^2-2\times1\times1\times\cos\left(\dfrac{\pi}{n+1}k\right)=2-2\cos\left(\dfrac{\pi}{n+1}k\right)$, $\overline{\mathrm P_k\mathrm B}^2=4-\overline{\mathrm{AP}_k}^2=2+2\cos\left(\dfrac{\pi}{n+1}k\right)$이고, 따라서
+        $$S_k^2=\left(\frac12\times\overline{\mathrm{AP}_k}\times\overline{\mathrm P_k\mathrm B}\right)^2=\frac14\left(2-2\cos\left(\frac{\pi}{n+1}k\right)\right)\left(2+2\cos\left(\frac{\pi}{n+1}k\right)\right)=\sin^2\left(\frac{\pi}{n+1}k\right).$$
+      criteria: ['3.M1']
+    - id: 3b-2
+      content: |
+        이므로
+        $$\lim_{n\to\infty}\frac{S_1^2+\cdots+S_n^2}{n+1}=\lim_{n\to\infty}\sum_{k=1}^{n}\sin^2\left(\frac{\pi}{n+1}k\right)\frac1{n+1}=\lim_{n+1\to\infty}\sum_{k=1}^{n+1}\sin^2\left(\frac{\pi}{n+1}k\right)\frac{1}{n+1}=\lim_{n+1\to\infty}\frac1\pi\sum_{k=1}^{n+1}\sin^2\left(0+\frac{\pi-0}{n+1}k\right)\frac{\pi-0}{n+1}=\frac1\pi\int_0^\pi\sin^2t\,dt$$
+        이고 ($k=n+1$ 항은 $\sin^2\pi=0$), 부분적분법에 의해 $\displaystyle\int\sin^2t\,dt=\frac12(t-\cos t\sin t)+C$이므로 구하는 값은 $\dfrac1\pi\displaystyle\int_0^\pi\sin^2t\,dt=\frac1{2\pi}\big[t-\cos t\sin t\big]_0^\pi=\frac12$.
+      criteria: ['3.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 10
+      evidence: |
+        코사인법칙을 활용해서 $S_k$를 $k$와 $n$에 대한 식($S_k^2=\sin^2\tfrac{k\pi}{n+1}$)으로 표현했다(평가지침 20/40).
+      depends_on: []
+      implied_ok: false
+      steps: [3b-1]
+    - id: 3.A1
+      mark_type: A
+      points: 10
+      evidence: |
+        정적분과 급수의 관계와 부분적분으로 극한값 $\tfrac12$를 바르게 계산했다(평가지침 20/40).
+      depends_on: ['3.M1']
+      steps: [3b-2]
+    deductions: []
+  misconceptions: []
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: hyu-past-v1, item_version: 1, verdict: pass, date: 2026-11-22}
+- {stage: verify, actor_type: system, actor_id: verify/HYU-M23.py, item_version: 1, verdict: pass, date: 2026-11-22}
+
+created: 2026-11-22
+updated: 2026-11-22

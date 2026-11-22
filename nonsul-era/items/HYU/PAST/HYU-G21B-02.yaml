@@ -1,0 +1,328 @@
+# 한양대 2021학년도 논술전형 자연계열(오후1) [문제 2] — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: HYU-G21B-02
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: HYU
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 추론
+points: 50
+time_estimate_min: 45
+intent: |
+  삼각함수의 덧셈정리와 치환적분법을 주요 내용으로, 정사각형에 내접하는 삼각형이 갖는 성질을 분석하고 정확한 논증으로 결과를 도출할 수 있는지를 본다(문항카드8 출제 의도 요지).
+key_idea: |
+  $\angle\mathrm{HAQ}=s$로 두면 $\overline{\mathrm{AH}}=\frac{\cos s}{\cos t}=\frac{\cos(\frac\pi4-s)}{\cos(\frac\pi4-t)}$에서 $s=t$, 즉 $\overline{\mathrm{AH}}=1$로 H가 사분원 위에 있음을 보이고, 넓이를 $t$, $s$의 식으로 나타내 치환적분한다.
+stuck: |
+  (1) H가 그리는 곡선이 반지름 $1$인 사분원임을 알아채는 것($\triangle\mathrm{DAQ}\equiv\triangle\mathrm{HAQ}$), (3) 정삼각형이 정사각형 안에 있도록 하는 $s$의 범위 $\left[\frac\pi4,\frac{5\pi}{12}\right]$와 한 변 $a=\frac{1}{\sin(s+\frac\pi6)}$을 구하는 것.
+idea_tags: [IDEA-HALF-ANGLE-REFLECTION-CONGRUENCE, IDEA-TAN-SUBSTITUTION-INTEGRAL]
+tags: [기출, 한양대, 삼각함수의 덧셈정리, 치환적분, 정사각형에 내접하는 삼각형, 배점환산]
+elements:
+  materials:
+  - '한 변의 길이가 $1$인 정사각형 $\mathrm{ABCD}$'
+  - '$\angle\mathrm{PAQ}=\frac\pi4$인 삼각형 $\mathrm{PAQ}$ ($\mathrm{P}\in\mathrm{BC}$, $\mathrm{Q}\in\mathrm{CD}$), $\angle(\mathrm{AD},\mathrm{AQ})=t$'
+  - '세 꼭짓점이 $\mathrm{AB}$, $\mathrm{CD}$, $\mathrm{DA}$ 위에 있는 삼각형 $\mathrm{RST}$, $\angle(\mathrm{AD},\mathrm{TS})=s$'
+  concepts:
+  - '삼각함수의 덧셈정리'
+  - '사인법칙과 삼각형의 넓이'
+  - '곡선(호)의 길이'
+  - '치환적분법'
+  - '삼각함수의 부정적분($\csc^2$)'
+  tools:
+  - '$\overline{\mathrm{AH}}$를 두 직각삼각형으로 두 번 표현해 $\tan t=\tan s$ 유도'
+  - '합동 $\triangle\mathrm{DAQ}\equiv\triangle\mathrm{HAQ}$ 또는 $\triangle\mathrm{AQP}\equiv\triangle\mathrm{AQP^\prime}$'
+  - '$\overline{\mathrm{PQ}}=\dfrac{1+\tan^2t}{1+\tan t}$, $u=1+\tan t$ 치환'
+  - '$a\cos\left(\frac23\pi-s\right)+a\cos s=1$에서 $a=\dfrac{1}{\sin(s+\frac\pi6)}$'
+  - '$u=s+\frac\pi6$ 치환 후 $\int\csc^2u\,du=-\cot u$'
+  conditions:
+  - '$0\le t\le\frac\pi4$, $0\le s\le\frac\pi2$'
+  - '정삼각형 조건에서 $\mathrm{R}=\mathrm{B}$일 때 $s_0=\frac\pi4$, $\mathrm{S}=\mathrm{C}$일 때 $s_1=\frac{5\pi}{12}$'
+  stimuli_used: [가, 나]
+  subpart_links: '(1)의 $\overline{\mathrm{AH}}=1$을 (2)의 넓이 $f(t)=\frac12\overline{\mathrm{AH}}\cdot\overline{\mathrm{PQ}}$에 사용, (3)은 제시문 <나>로 독립'
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅰ, 미적분]
+  scope_2028: unknown
+  scope_confirmed: false
+  standards:
+  - code: 12수학Ⅰ02-02
+    text: 삼각함수의 뜻을 알고, 사인함수, 코사인함수, 탄젠트함수의 그래프를 그릴 수 있다.
+    verified: false
+  - code: 12미적02-03
+    text: 삼각함수의 덧셈정리를 이해한다.
+    verified: false
+  - code: 12수학Ⅰ02-03
+    text: 사인법칙과 코사인법칙을 이해하고, 이를 활용할 수 있다.
+    verified: false
+  - code: 12미적03-01
+    text: 치환적분법을 이해하고, 이를 활용할 수 있다.
+    verified: false
+  - code: 12미적03-03
+    text: 여러 가지 함수의 부정적분과 정적분을 구할 수 있다.
+    verified: false
+  content_area: 미분법 – 삼각함수의 덧셈정리, 적분법 – 여러 가지 적분법
+  behavior_domain: 문제해결
+  unit_path: [미적분, 적분법, 여러 가지 적분법, 치환적분법]
+  key_concepts: [삼각함수의 덧셈정리, 사인법칙과 삼각형의 넓이, 곡선(호)의 길이, 치환적분법, 삼각함수의 부정적분($\csc^2$)]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 한양대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 한양대학교
+  admission_year: 2021
+  admission_type: 수시 논술
+  track: 자연계열(오후1)
+  question_no: 2
+  official_url: https://go.hanyang.ac.kr/web/pds/pds_view.do?m_type=SUSI&bn=703
+  retrieved_at: 2026-11-21
+  original_points: [15, 15, 20]
+  rights_notice: 한양대학교 입학처 공개 기출(내부 분석용)
+  transcribed_from: 2021학년도 한양대 논술전형 자연계열(오후1) 문제지 p.3, 해설 근거 2021학년도 선행학습 영향평가 자체평가보고서 문항카드8(보고서 PDF p.67–71, 인쇄 쪽 65–69) (원본 PDF 이미지 대조 2026-11-21)
+
+verify: verify/HYU-G21B.py::p02
+
+stimuli:
+- label: 공통
+  body: |
+    한 변의 길이가 $1$인 정사각형 $\mathrm{ABCD}$가 있다.
+- label: 가
+  body: |
+    삼각형 $\mathrm{PAQ}$의 두 꼭짓점 $\mathrm{P}$와 $\mathrm{Q}$는 각각 변 $\mathrm{BC}$와 $\mathrm{CD}$ 위에 있고, $\angle\mathrm{PAQ}=\dfrac{\pi}{4}$이다. 선분 $\mathrm{AD}$와 $\mathrm{AQ}$가 이루는 각의 크기를 $t$라 하자. $\left(\text{단, }0\le t\le\dfrac{\pi}{4}\right)$
+    [그림: 왼쪽 위 $\mathrm{A}$, 오른쪽 위 $\mathrm{D}$, 왼쪽 아래 $\mathrm{B}$, 오른쪽 아래 $\mathrm{C}$인 정사각형. $\mathrm{Q}$는 변 $\mathrm{CD}$ 위, $\mathrm{P}$는 변 $\mathrm{BC}$ 위. $\mathrm{A}$에서 $\mathrm{AD}$와 $\mathrm{AQ}$ 사이 각 $t$, $\mathrm{AQ}$와 $\mathrm{AP}$ 사이 각 $\frac\pi4$ 표시]
+- label: 나
+  body: |
+    삼각형 $\mathrm{RST}$의 세 꼭짓점 $\mathrm{R}$, $\mathrm{S}$, $\mathrm{T}$는 각각 변 $\mathrm{AB}$, $\mathrm{CD}$, $\mathrm{DA}$ 위에 있다. 선분 $\mathrm{AD}$와 $\mathrm{TS}$가 이루는 각의 크기를 $s$라 하자. $\left(\text{단, }0\le s\le\dfrac{\pi}{2}\right)$
+    [그림: 같은 정사각형에서 $\mathrm{T}$는 윗변 $\mathrm{AD}$ 위, $\mathrm{R}$은 왼쪽 변 $\mathrm{AB}$ 위(B 가까이), $\mathrm{S}$는 오른쪽 변 $\mathrm{CD}$ 위. $\mathrm{T}$에서 $\mathrm{TD}$ 쪽과 $\mathrm{TS}$ 사이 각 $s$ 표시]
+
+stem: |
+  [문제 2] 다음 제시문을 읽고 물음에 답하시오. (50점)
+
+subparts:
+- id: '1'
+  stem: |
+    제시문 <가>에서 주어진 삼각형 $\mathrm{PAQ}$의 꼭짓점 $\mathrm{A}$에서 변 $\mathrm{PQ}$에 내린 수선의 발을 $\mathrm{H}$라 할 때, 각의 크기 $t\left(0\le t\le\dfrac{\pi}{4}\right)$가 변함에 따라 점 $\mathrm{H}$가 이루는 곡선의 길이를 구하시오.
+  points: 15
+  depends_on: []
+  answer: {kind: value, value: 'pi/2', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: |
+      $\overline{\mathrm{AH}}=\overline{\mathrm{AD}}=1$이므로 H는 $\mathrm{A}$ 중심 반지름 $1$인 사분원 위를 움직인다.
+    steps:
+    - {id: 1a, content: 'H의 자취는 반지름 $1$인 사분원(B에서 D까지), 길이 $\frac\pi2$', criteria: ['1.M1', '1.A1']}
+    hint_ladder:
+    - $\angle\mathrm{HAQ}=s$로 두고 $\overline{\mathrm{AH}}$를 두 가지로 표현하자.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: '선행학습 영향평가 자체평가보고서 2021 문항카드8 p.69(인쇄 67쪽 예시 답안 [2-1])'
+    steps:
+    - id: 1b-1
+      content: |
+        $\angle\mathrm{DAQ}=t$, $\angle\mathrm{HAQ}=s$라 하면 $\angle\mathrm{BAP}=\frac\pi4-t$, $\angle\mathrm{HAP}=\frac\pi4-s$이다.
+        $\overline{\mathrm{AQ}}=\frac{1}{\cos t}$, $\overline{\mathrm{AP}}=\frac{1}{\cos(\frac\pi4-t)}$이므로
+        $\dfrac{\cos s}{\cos t}=\overline{\mathrm{AH}}=\dfrac{\cos\left(\frac\pi4-s\right)}{\cos\left(\frac\pi4-t\right)}=\dfrac{\cos\frac\pi4\cos s+\sin\frac\pi4\sin s}{\cos\frac\pi4\cos t+\sin\frac\pi4\sin t}=\dfrac{\cos s+\sin s}{\cos t+\sin t}$이다.
+      criteria: ['1.M1']
+    - id: 1b-2
+      content: |
+        정리하면 $\tan t=\tan s$, 즉 $t=s$이므로 삼각형 $\mathrm{DAQ}$와 삼각형 $\mathrm{HAQ}$는 합동이고 $\overline{\mathrm{AH}}=\overline{\mathrm{AD}}=1$이다.
+      criteria: ['1.M1']
+    - id: 1b-3
+      content: |
+        따라서 점 $\mathrm{H}$가 이루는 곡선은 반지름이 $1$인 사분원이므로 길이는 $\dfrac\pi2$이다.
+      criteria: ['1.A1']
+  - id: S1-ALT
+    audience: ALT
+    method_no: 2
+    source_flow: '선행학습 영향평가 자체평가보고서 2021 문항카드8 p.70(인쇄 68쪽 [2-1] 다른 풀이)'
+    key_idea: |
+      $\mathrm{P}$를 $\mathrm{AQ}$에 대해 돌려 놓은 $\mathrm{P^\prime}$(직선 $\mathrm{CD}$ 연장선 위, $\angle\mathrm{DAP^\prime}=\frac\pi4-t$)을 잡으면 $\triangle\mathrm{AQP}\equiv\triangle\mathrm{AQP^\prime}$.
+    steps:
+    - id: 1c-1
+      content: |
+        $\triangle\mathrm{AQP}\equiv\triangle\mathrm{AQP^\prime}$이므로 $\overline{\mathrm{AH}}=(\triangle\mathrm{AQP}\text{의 높이})=(\triangle\mathrm{AQP^\prime}\text{의 높이})=\overline{\mathrm{AD}}=1$. 따라서 H의 자취는 반지름 $1$인 사분원, 길이 $\dfrac\pi2$.
+      criteria: ['1.M1', '1.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 10
+      evidence: |
+        삼각형 $\mathrm{PAQ}$의 밑변 $\mathrm{PQ}$에 대한 높이 $\overline{\mathrm{AH}}=1$을 근거와 함께 구했다(공식 20/100점 → 10점 환산).
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1, 1b-2, 1c-1]
+    - id: 1.A1
+      mark_type: A
+      points: 5
+      evidence: |
+        H의 자취가 반지름 $1$인 사분원임을 밝히고 길이 $\dfrac\pi2$를 구했다(공식 10/100점 → 5점 환산).
+      depends_on: [1.M1]
+      steps: [1b-3, 1c-1]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '2'
+  stem: |
+    제시문 <가>에서 주어진 삼각형 $\mathrm{PAQ}$의 넓이를 $t$에 대한 식 $f(t)$로 나타낼 때,
+    $$\int_0^{\frac{\pi}{4}}f(t)\,dt$$
+    의 값을 구하시오.
+  points: 15
+  depends_on: ['1']
+  answer: {kind: value, value: 'log(2)/2', equivalents: ['log(sqrt(2))'], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: |
+      $f(t)=\frac12\overline{\mathrm{AH}}\cdot\overline{\mathrm{PQ}}=\frac12\cdot\frac{1+\tan^2t}{1+\tan t}$이고 $u=1+\tan t$로 치환한다.
+    steps:
+    - {id: 2a, content: '$\frac12\int_1^2\frac1u\,du=\frac12\ln2$', criteria: ['2.M1', '2.A1']}
+    hint_ladder:
+    - $\overline{\mathrm{DQ}}=\tan t$, $\overline{\mathrm{BP}}=\tan\left(\frac\pi4-t\right)$이다.
+    - $(1+\tan t)^\prime=1+\tan^2t$를 이용하자.
+  - id: S2-B
+    audience: B
+    method_no: 1
+    source_flow: '선행학습 영향평가 자체평가보고서 2021 문항카드8 p.70(인쇄 68쪽 예시 답안 [2-2])'
+    steps:
+    - id: 2b-1
+      content: |
+        $\overline{\mathrm{CQ}}=1-\tan t$, $\overline{\mathrm{CP}}=1-\tan\left(\frac\pi4-t\right)$이므로
+        $\overline{\mathrm{PQ}}=\sqrt{(1-\tan t)^2+\left(1-\tan\left(\frac\pi4-t\right)\right)^2}=\dfrac{1+\tan^2t}{1+\tan t}$이고, 삼각형 $\mathrm{PAQ}$의 넓이는
+        $f(t)=\dfrac12\cdot\overline{\mathrm{AH}}\cdot\overline{\mathrm{PQ}}=\dfrac12\cdot\dfrac{1+\tan^2t}{1+\tan t}$이다.
+      criteria: ['2.M1']
+    - id: 2b-2
+      content: |
+        $1+\tan t=u$로 치환하면 $du=(1+\tan^2t)\,dt$이므로
+        $\displaystyle\int_0^{\frac\pi4}f(t)\,dt=\frac12\int_0^{\frac\pi4}\frac{1+\tan^2t}{1+\tan t}\,dt=\frac12\int_1^2\frac1u\,du=\frac12\ln2\ (=\ln\sqrt2)$이다.
+      criteria: ['2.A1']
+  - id: S2-ALT
+    audience: ALT
+    method_no: 2
+    source_flow: '선행학습 영향평가 자체평가보고서 2021 문항카드8 p.70(인쇄 68쪽 [2-2] 다른 풀이)'
+    key_idea: |
+      $f(t)=\frac12\overline{\mathrm{AP}}\cdot\overline{\mathrm{AQ}}\sin\frac\pi4$로 직접 넓이를 쓴다.
+    steps:
+    - id: 2c-1
+      content: |
+        $f(t)=\dfrac12\cdot\dfrac{1}{\cos\left(\frac\pi4-t\right)}\cdot\dfrac{1}{\cos t}\cdot\dfrac{1}{\sqrt2}=\dfrac12\cdot\dfrac{1}{(\cos t+\sin t)\cos t}$이고, 분모·분자를 $\cos^2t$로 나누면 $\dfrac12\cdot\dfrac{1+\tan^2t}{1+\tan t}$가 되어 $\displaystyle\int_0^{\frac\pi4}f(t)\,dt=\frac12\ln2$.
+      criteria: ['2.M1', '2.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 10
+      evidence: |
+        삼각형 $\mathrm{PAQ}$의 넓이를 $f(t)=\dfrac12\cdot\dfrac{1+\tan^2t}{1+\tan t}$ 또는 동치식으로 표현했다(공식 20/100점 → 10점 환산).
+      depends_on: []
+      implied_ok: false
+      ft: {allowed: true, from: [1.M1], max_points: 10}
+      steps: [2b-1, 2c-1]
+    - id: 2.A1
+      mark_type: A
+      points: 5
+      evidence: |
+        치환적분으로 $\dfrac12\ln2$를 구했다(공식 10/100점 → 5점 환산).
+      depends_on: [2.M1]
+      steps: [2b-2, 2c-1]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '3'
+  stem: |
+    제시문 <나>에서 주어진 삼각형 $\mathrm{RST}$가 정삼각형이 되기 위한 $s$의 최솟값을 $s_0$, 최댓값을 $s_1$이라 하자. 정삼각형 $\mathrm{RST}$의 넓이를 $s$에 대한 식 $g(s)$로 나타낼 때,
+    $$\int_{s_0}^{s_1}g(s)\,ds$$
+    의 값을 구하시오.
+  points: 20
+  depends_on: []
+  answer: {kind: value, value: 'sqrt(3) - 3/2', equivalents: [], tolerance: null}
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: |
+      한 변 $a$에 대해 $a\cos\left(\frac23\pi-s\right)+a\cos s=1$이므로 $a=\frac{1}{\sin(s+\frac\pi6)}$, $g(s)=\frac{\sqrt3}{4}\csc^2\left(s+\frac\pi6\right)$, $s\in\left[\frac\pi4,\frac{5\pi}{12}\right]$.
+    steps:
+    - {id: 3a, content: '$\frac{\sqrt3}{4}\left[-\cot u\right]_{5\pi/12}^{7\pi/12}=\sqrt3-\frac32$', criteria: ['3.M1', '3.M2', '3.A1']}
+    hint_ladder:
+    - $\mathrm{R}=\mathrm{B}$, $\mathrm{S}=\mathrm{C}$가 되는 두 극단 상황을 그려 보자.
+    - 윗변 $\mathrm{AD}$의 길이를 $\mathrm{T}$ 양쪽으로 나누어 $a$로 나타내자.
+  - id: S3-B
+    audience: B
+    method_no: 1
+    source_flow: '선행학습 영향평가 자체평가보고서 2021 문항카드8 p.70–71(인쇄 68–69쪽 예시 답안 [2-3])'
+    steps:
+    - id: 3b-1
+      content: |
+        $\mathrm{R}=\mathrm{B}$일 때 $s_0=\dfrac\pi4\,(=45^\circ)$, $\mathrm{S}=\mathrm{C}$일 때 $s_1=\dfrac{5\pi}{12}\,(=75^\circ)$이다.
+      criteria: ['3.M1']
+    - id: 3b-2
+      content: |
+        $\frac\pi4\le s\le\frac{5\pi}{12}$인 $s$에 대해 정삼각형 $\mathrm{RST}$의 한 변의 길이를 $a$라 하면 $\angle\mathrm{ATR}=\frac23\pi-s$이므로 $a\cos\left(\frac23\pi-s\right)+a\cos s=1$이고,
+        $a=\dfrac{1}{\cos\left(\frac23\pi-s\right)+\cos s}=\dfrac{1}{\cos\frac23\pi\cos s+\sin\frac23\pi\sin s+\cos s}=\dfrac{1}{\sin\left(s+\frac\pi6\right)}$이다.
+        정삼각형 $\mathrm{RST}$의 넓이는 $g(s)=\dfrac12\left(\dfrac{1}{\sin\left(s+\frac\pi6\right)}\right)^2\sin\dfrac\pi3=\dfrac{\sqrt3}{4}\csc^2\left(s+\dfrac\pi6\right)$이다.
+      criteria: ['3.M2']
+    - id: 3b-3
+      content: |
+        $t=s+\frac\pi6$으로 치환하면
+        $\displaystyle\int_{\frac\pi4}^{\frac{5\pi}{12}}g(s)\,ds=\frac{\sqrt3}{4}\int_{\frac{5\pi}{12}}^{\frac{7\pi}{12}}\csc^2t\,dt=-\frac{\sqrt3}{4}\Big[\cot t\Big]_{\frac{5\pi}{12}}^{\frac{7\pi}{12}}=-\frac{\sqrt3}{4}\left(-\frac{\sqrt3-1}{\sqrt3+1}-\frac{\sqrt3-1}{\sqrt3+1}\right)=\sqrt3-\frac32$이다.
+      criteria: ['3.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 3.M1
+      mark_type: B
+      points: 5
+      evidence: |
+        $s_0=\dfrac\pi4$, $s_1=\dfrac{5\pi}{12}$을 구했다(공식 10/100점 → 5점 환산).
+      depends_on: []
+      steps: [3b-1]
+    - id: 3.M2
+      mark_type: M
+      points: 10
+      evidence: |
+        정삼각형의 넓이를 $g(s)=\dfrac{\sqrt3}{4}\csc^2\left(s+\dfrac\pi6\right)$ 또는 동치식으로 표현했다(공식 20/100점 → 10점 환산).
+      depends_on: []
+      implied_ok: false
+      steps: [3b-2]
+    - id: 3.A1
+      mark_type: A
+      points: 5
+      evidence: |
+        정적분 값 $\sqrt3-\dfrac32$를 구했다(공식 10/100점 → 5점 환산).
+      depends_on: [3.M2]
+      steps: [3b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+remedy_links: []
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: hyu-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+- {stage: verify, actor_type: system, actor_id: verify/HYU-G21B.py, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21
