@@ -1,0 +1,488 @@
+# 이화여대 2027학년도 수시 모의논술(자연계열Ⅱ) 문제 1 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: EWHA-M27B-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: EWHA
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 분류
+points: 40
+time_estimate_min: 40
+intent: |
+  절댓값과 지수함수를 포함한 함수의 그래프 성질을 분석하고 곡선과 선분으로 둘러싸인 영역의 넓이를 탐구하여 미분과 적분의 활용 능력을 평가한다. 연속성·미분가능성·이계도함수로 볼록성을 판단하고, 절댓값 때문에 구간이 나뉘는 상황을 처리하며, 그래프의 성질과 방정식의 해의 개수 판단을 연결하는 통합적 문제 해결 능력을 본다(공식 출제 의도 요지).
+key_idea: |
+  $f$가 우함수이고 각 반직선에서 아래로 볼록이므로 현은 항상 곡선 위에 있고, $S(a)=\dfrac{f(a)+f(a+1)}{2}-\displaystyle\int_a^{a+1}f(x)\,dx$를 $a\ge0$, $-1<a<0$, $a\le-1$로 나누어 구한다. 대칭 $S(a)=S(-a-1)$.
+stuck: |
+  $x_1<0<x_2$인 경우를 원점을 거쳐 처리하는 것, 그리고 $S(a)=S(-a-1)$ 대칭과 $a=0,-1$에서 좌·우미분계수 비교
+idea_tags: [IDEA-EVEN-FUNC-SYMMETRY, IDEA-TRAPEZOID-MINUS-INTEGRAL, IDEA-ONE-SIDED-DERIV-KINK]
+tags: [지수함수, 절댓값, 볼록성, 넓이 함수, 미분가능성, 실근 개수]
+elements:
+  materials:
+  - '$f(x)=\lvert x\rvert e^{\lvert x\rvert}$'
+  - '두 점 $(a,f(a))$, $(a+1,f(a+1))$을 잇는 선분과 곡선으로 둘러싸인 넓이 $S(a)$'
+  concepts:
+  - '이계도함수와 곡선의 오목·볼록'
+  - '우함수의 대칭성'
+  - '부분적분법'
+  - '좌·우미분계수와 미분가능성'
+  - '함수의 극대·극소와 최솟값'
+  - '그래프를 이용한 실근 개수'
+  tools:
+  - '$f^{\prime\prime}(x)=(x+2)e^x>0$ $(x>0)$'
+  - '사다리꼴 넓이 − 정적분'
+  - '$\int xe^x\,dx=(x-1)e^x$'
+  - '대칭 $S(a)=S(-a-1)$'
+  conditions:
+  - '경우 $x_1,x_2\ge0$ / $x_1,x_2\le0$ / $x_1<0<x_2$'
+  - '경우 $a\ge0$ / $-1<a<0$ / $a\le-1$'
+  stimuli_used: []
+  subpart_links: '(2)는 (1), (3)은 (2), (4)는 (3)의 $S^{\prime}(a)$, (5)는 (4)의 증감표를 사용'
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅱ, 미적분]
+  scope_2028: calc2
+  scope_confirmed: true
+  standards:
+  - code: 미확인
+    text: '출제 근거: 수학Ⅱ(비상 김원경 외) 미분계수 pp.51-58, 넓이 pp.125-131 / 수학Ⅱ(천재 이준열 외) 미분계수 pp.53-59, 도형의 넓이 pp.132-139 / 미적분(비상 김원경 외) 지수함수와 로그함수의 미분 pp.55-57, 도함수의 활용과 함수의 그래프 pp.99-103, 넓이 pp.147-149 / 미적분(천재 류희찬 외) pp.62-65, 128-132, 183-187'
+    verified: false
+  content_area: 미분법·적분법 – 그래프의 볼록성과 넓이
+  behavior_domain: 문제해결
+  unit_path: [미적분, 적분법, 정적분의 활용, 곡선과 직선 사이의 넓이]
+  key_concepts: [이계도함수, 오목과 볼록, 부분적분, 미분가능성, 극값]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 이화여자대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 이화여자대학교
+  admission_year: 2027
+  admission_type: 수시 모의논술
+  track: 자연계열Ⅱ
+  question_no: 1
+  official_url: https://admission.ewha.ac.kr/admission/html/rolling/lecture-info.asp
+  retrieved_at: 2026-11-21
+  original_points: [40]
+  rights_notice: 소문항별 배점은 공식 자료에 없음(문항 전체 40점). 소문항 배점 6·8·10·8·8은 입력자 추정 배분
+  transcribed_from: 「2027학년도 논술고사 안내」(이화여대 입학처) 문제지 p.52, 출제 의도·예시 답안 pp.29-32 (원본 PDF 이미지 대조 완료 2026-11-21)
+
+verify: verify/EWHA-M27B.py::p01
+
+stimuli: []
+
+stem: |
+  함수 $f(x)=\lvert x\rvert e^{\lvert x\rvert}$와 실수 $a$에 대하여 두 점 $(a,f(a))$, $(a+1,f(a+1))$을 잇는 선분과 곡선 $y=f(x)$로 둘러싸인 부분의 넓이를 $S(a)$라 할 때, 아래 물음에 답하시오. [40점]
+
+subparts:
+- id: '1'
+  stem: |
+    곡선 $y=f(x)$는 각각의 구간 $(0,\infty)$, $(-\infty,0)$에서 아래로 볼록함을 보이시오.
+  points: 6
+  depends_on: []
+  answer: {kind: proof, value: null, equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $x>0$에서 $f^{\prime\prime}(x)=(x+2)e^x>0$, 우함수이므로 $x<0$도 대칭.
+    steps:
+    - {id: 1a, content: '$f^{\prime\prime}(x)=(x+2)e^x>0$ $(x>0)$, $f(-x)=f(x)$', criteria: [1.M1, 1.A1, 1.R1]}
+    hint_ladder:
+    - 아래로 볼록은 이계도함수의 부호로 판정한다.
+    - $f(-x)$와 $f(x)$를 비교해 보자.
+  - id: S1-B
+    audience: B
+    source_flow: 2027 논술고사 안내 p.29
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        구간 $(0,\infty)$에서 $f(x)=xe^x$이므로 $f^{\prime}(x)=(x+1)e^x$, $f^{\prime\prime}(x)=(x+2)e^x>0$이다.
+      criteria: [1.M1]
+    - id: 1b-2
+      content: |
+        따라서 $f(x)$는 $(0,\infty)$에서 아래로 볼록인 함수이다.
+      criteria: [1.A1]
+    - id: 1b-3
+      content: |
+        모든 실수 $x$에 대하여 $f(-x)=f(x)$이므로 곡선 $y=f(x)$는 $y$축에 대하여 대칭이다. 따라서 $(-\infty,0)$에서도 아래로 볼록이다.
+      criteria: [1.R1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 2
+      evidence: |
+        $x>0$에서 $f^{\prime\prime}(x)=(x+2)e^x$를 구했다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1, 1a]
+    - id: 1.A1
+      mark_type: A
+      points: 2
+      evidence: |
+        $f^{\prime\prime}(x)>0$이므로 $(0,\infty)$에서 아래로 볼록이라고 적었다.
+      depends_on: [1.M1]
+      steps: [1b-2, 1a]
+    - id: 1.R1
+      mark_type: R
+      points: 2
+      evidence: |
+        $f(-x)=f(x)$(또는 $x<0$에서 $f^{\prime\prime}(x)=(2-x)e^{-x}>0$ 직접 계산)로 $(-\infty,0)$의 볼록성을 보였다.
+      depends_on: []
+      steps: [1b-3, 1a]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-9561}
+  misconceptions:
+  - id: MC-CAL-9561
+    outcome_code: '71'
+    wrong_work: '$f^{\prime}(x)=(x+1)e^x>0$이므로 아래로 볼록'
+    detect_cue: 이계도함수가 없다
+    feedback: 증가는 일계도함수, 아래로 볼록은 이계도함수의 부호로 판정합니다.
+    remedy: [RL-1]
+
+- id: '2'
+  stem: |
+    $x_1<x_2$인 실수 $x_1,x_2$에 대하여 곡선 $y=f(x)$ 위의 두 점 $\mathrm{P}=(x_1,f(x_1))$, $\mathrm{Q}=(x_2,f(x_2))$ 사이의 곡선 부분이 선분 $\mathrm{PQ}$보다 아래쪽에 있음을 보이시오.
+  points: 8
+  depends_on: ['1']
+  answer: {kind: proof, value: null, equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: 같은 쪽이면 (1)의 볼록성, $x_1<0<x_2$이면 원점 O를 거쳐 PO, OQ가 각각 곡선 위에 있고, $f(x_1),f(x_2)>0$이므로 PO, OQ는 PQ 아래.
+    steps:
+    - {id: 2a, content: '경우 (i) $x_1,x_2\ge0$ (ii) $\le0$ (iii) $x_1<0<x_2$: 원점 경유', criteria: [2.M1, 2.R1, 2.R2]}
+    hint_ladder:
+    - 두 점이 $y$축의 같은 쪽에 있는 경우와 다른 쪽에 있는 경우로 나누자.
+    - 다른 쪽이면 원점을 거쳐 생각하자.
+  - id: S2-B
+    audience: B
+    source_flow: 2027 논술고사 안내 p.30
+    method_no: 1
+    steps:
+    - id: 2b-1
+      content: |
+        $x_1,x_2\ge0$, $x_1,x_2\le0$, $x_1<0<x_2$인 경우로 나눈다. (i) $x_1,x_2\ge0$: (1)에서 $f$는 $(0,\infty)$에서 아래로 볼록이므로 $0<x_1<x_2$일 때 곡선 부분은 선분 PQ보다 아래에 있다. $x_1=0$, $x_2=\alpha>0$이면 직선 PQ는 $y=e^\alpha x$이고 $0<x<\alpha$에서 $e^\alpha x-f(x)=x(e^\alpha-e^x)>0$이다.
+      criteria: [2.M1]
+    - id: 2b-2
+      content: |
+        (ii) $x_1,x_2\le0$: $f(-x)=f(x)$로 곡선이 $y$축에 대하여 대칭이므로 (i)에서 성립한다.
+      criteria: [2.R1]
+    - id: 2b-3
+      content: |
+        (iii) $x_1<0<x_2$: 원점 $\mathrm{O}=(0,f(0))$에 대해 $f$가 $[0,\infty)$, $(-\infty,0]$에서 각각 아래로 볼록하므로 P, O 사이의 곡선은 선분 PO보다, O, Q 사이의 곡선은 선분 OQ보다 아래쪽에 있다. $f(x_1)>0$, $f(x_2)>0$이므로 선분 PO와 OQ는 선분 PQ 아래에 있다. 따라서 곡선 부분은 선분 PQ보다 아래쪽에 있다.
+      criteria: [2.R2]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 3
+      evidence: |
+        경우를 나누고, 같은 쪽($\ge0$)인 경우를 (1)의 볼록성(끝점 0 포함)으로 처리했다.
+      depends_on: []
+      implied_ok: false
+      ft: {allowed: true, from: [1.A1], max_points: 3}
+      steps: [2b-1, 2a]
+    - id: 2.R1
+      mark_type: R
+      points: 2
+      evidence: |
+        $x_1,x_2\le0$ 경우를 대칭성으로 처리했다.
+      depends_on: []
+      steps: [2b-2, 2a]
+    - id: 2.R2
+      mark_type: R
+      points: 3
+      evidence: |
+        $x_1<0<x_2$ 경우를 원점을 거쳐 PO, OQ와 PQ의 위치 관계($f(x_1),f(x_2)>0$)로 보였다.
+      depends_on: []
+      steps: [2b-3, 2a]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-9562}
+  misconceptions:
+  - id: MC-CAL-9562
+    outcome_code: '71'
+    wrong_work: '두 구간에서 아래로 볼록이므로 모든 $x_1<x_2$에 대해 성립한다'
+    detect_cue: $x_1<0<x_2$인 경우에 대한 별도 논증이 없다
+    feedback: 볼록성은 구간마다 주어졌으므로, 두 점이 원점 양쪽에 있을 때는 따로 보여야 합니다(원점에서 미분가능하지 않음).
+    remedy: [RL-2]
+
+- id: '3'
+  stem: |
+    함수 $S(a)$가 미분가능하지 않은 실수 $a$의 값을 모두 구하시오.
+  points: 10
+  depends_on: ['2']
+  answer: {kind: set, value: '{-1, 0}', equivalents: [], tolerance: null}
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: $S(a)=\tfrac{f(a)+f(a+1)}{2}-\int_a^{a+1}f$를 세 경우로 구하고 $a=0$에서 우미분계수 $\tfrac12$, 좌미분계수 $-\tfrac12$; 대칭으로 $a=-1$도.
+    steps:
+    - {id: 3a, content: '$S^{\prime}(0^+)=\tfrac12\ne-\tfrac12=S^{\prime}(0^-)$, $S(a)=S(-a-1)$ ⇒ $a=-1,0$', criteria: [3.M1, 3.A1, 3.M2, 3.A2]}
+    hint_ladder:
+    - 적분 구간 $[a,a+1]$이 0을 포함하는지에 따라 나누자.
+    - $S(a)$와 $S(-a-1)$의 관계는?
+  - id: S3-B
+    audience: B
+    source_flow: 2027 논술고사 안내 pp.30-32
+    method_no: 1
+    steps:
+    - id: 3b-1
+      content: |
+        (2)에서 선분이 곡선 위쪽에 있으므로 네 점 $(a,0)$, $(a,f(a))$, $(a+1,f(a+1))$, $(a+1,0)$의 사다리꼴 넓이에서 빼서
+        $$S(a)=\dfrac{f(a)+f(a+1)}{2}-\int_a^{a+1}f(x)\,dx.$$
+      criteria: [3.M1]
+    - id: 3b-2
+      content: |
+        (i) $a\ge0$: $\displaystyle\int_a^{a+1}xe^x\,dx=\big[(x-1)e^x\big]_a^{a+1}=ae^{a+1}-(a-1)e^a$이므로 $S(a)=\dfrac{e^a\big((3-e)a+e-2\big)}{2}$.
+        (ii) $-1<a<0$: $S(a)=\dfrac{-ae^{-a}+(a+1)e^{a+1}}{2}+\displaystyle\int_a^0 xe^{-x}\,dx-\int_0^{a+1}xe^x\,dx=\dfrac{(a+2)e^{-a}}{2}+\dfrac{(1-a)e^{a+1}}{2}-2$.
+        (iii) $a\le-1$: 대칭성에 의해 $S(a)=S(-a-1)=\dfrac{e^{-a-1}\big((e-3)a+2e-5\big)}{2}$.
+      criteria: [3.A1]
+    - id: 3b-3
+      content: |
+        $a>0$에서 $S^{\prime}(a)=\dfrac{e^a\big((3-e)a+1\big)}{2}$, $-1<a<0$에서 $S^{\prime}(a)=-\dfrac{(a+1)e^{-a}+ae^{a+1}}{2}$이고, $a<-1$에서 $S^{\prime}(a)=-S^{\prime}(-a-1)$이다.
+        $$\lim_{h\to0+}\dfrac{S(h)-S(0)}{h}=\dfrac{3-e}{2}+\dfrac{e-2}{2}=\dfrac12,\qquad \lim_{h\to0-}\dfrac{S(h)-S(0)}{h}=\dfrac12-\dfrac e2-1+\dfrac e2=-\dfrac12$$
+        이므로 $S$는 $a=0$에서 미분가능하지 않다.
+      criteria: [3.M2]
+    - id: 3b-4
+      content: |
+        $S(a)=S(-a-1)$이므로 대칭성에 의해 $a=-1$에서도 미분가능하지 않다. 나머지 점에서는 각 식이 미분가능하므로 구하는 값은 $a=-1,0$이다.
+      criteria: [3.A2]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 2
+      evidence: |
+        $S(a)$를 사다리꼴 넓이 − 정적분으로 나타냈다.
+      depends_on: []
+      implied_ok: false
+      steps: [3b-1, 3a]
+    - id: 3.A1
+      mark_type: A
+      points: 3
+      evidence: |
+        $a\ge0$, $-1<a<0$, $a\le-1$ 각 경우의 $S(a)$ 식을 구했다.
+      depends_on: [3.M1]
+      steps: [3b-2]
+    - id: 3.M2
+      mark_type: M
+      points: 3
+      evidence: |
+        $a=0$에서 좌·우미분계수 $-\tfrac12$, $\tfrac12$를 계산해 비교했다.
+      depends_on: []
+      implied_ok: false
+      steps: [3b-3, 3a]
+    - id: 3.A2
+      mark_type: A
+      points: 2
+      evidence: |
+        대칭성으로 $a=-1$도 포함하여 $a=-1,0$이라고 답했다.
+      depends_on: [3.M2]
+      steps: [3b-4, 3a]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-9563}
+  - {code: '72', misconception: MC-CAL-9564}
+  misconceptions:
+  - id: MC-CAL-9563
+    outcome_code: '71'
+    wrong_work: '모든 $a$에 대해 $S(a)=\tfrac{e^a((3-e)a+e-2)}{2}$로 계산해 미분불가능한 점이 없다고 답함'
+    detect_cue: 적분 구간이 0을 포함하는 경우의 분리가 없다
+    feedback: $f(x)=\lvert x\rvert e^{\lvert x\rvert}$의 식은 $x=0$에서 바뀝니다. $[a,a+1]$이 0을 포함하는지로 경우를 나누세요.
+    remedy: [RL-3]
+  - id: MC-CAL-9564
+    outcome_code: '72'
+    wrong_work: '$S$가 연속이므로 $a=0$에서 미분가능하다고 하거나 $a=0$만 답함'
+    detect_cue: 좌·우미분계수 계산이 없거나 $a=-1$이 빠졌다
+    feedback: 경계점에서는 좌·우미분계수를 각각 계산해 비교하고, $S(a)=S(-a-1)$ 대칭으로 대응점도 확인하세요.
+    remedy: [RL-3]
+
+- id: '4'
+  stem: |
+    함수 $S(a)$의 최솟값을 구하시오.
+  points: 8
+  depends_on: ['3']
+  answer: {kind: value, value: '(E-2)/2', equivalents: ['(exp(1)-2)/2'], tolerance: null}
+  solutions:
+  - id: S4-A
+    audience: A
+    method_no: 1
+    key_idea: $a\ge0$에서 $S^{\prime}>0$이므로 $S(0)$, 대칭으로 $S(-1)$; $(-1,0)$에서는 $S^{\prime\prime}<0$이고 $a=-\tfrac12$에서 극대이므로 최솟값은 $S(0)=\tfrac{e-2}{2}$.
+    steps:
+    - {id: 4a, content: '$\min S=S(0)=S(-1)=\tfrac{e-2}{2}$', criteria: [4.M1, 4.M2, 4.A1]}
+    hint_ladder:
+    - $a\ge0$에서 $S^{\prime}(a)$의 부호는?
+    - $(-1,0)$에서 $S$의 극값은 극대인가 극소인가?
+  - id: S4-B
+    audience: B
+    source_flow: 2027 논술고사 안내 p.32
+    method_no: 1
+    steps:
+    - id: 4b-1
+      content: |
+        $a\ge0$에서 $S^{\prime}(a)=\dfrac{e^a((3-e)a+1)}{2}$이고 $e<3$이므로 $S^{\prime}(a)>0$, $S$는 증가한다. 따라서 $a\ge0$에서 최솟값은 $S(0)=\dfrac{e-2}{2}$이고, 대칭성 $S(a)=S(-a-1)$에 의해 $(-\infty,-1]$에서는 $a=-1$일 때 최솟값 $S(-1)=\dfrac{e-2}{2}$이다.
+      criteria: [4.M1]
+    - id: 4b-2
+      content: |
+        $-1<a<0$에서 $S^{\prime\prime}(a)=\dfrac{ae^{-a}-(a+1)e^{a+1}}{2}$이고 $a<0<(a+1)e^{2a+1}$이므로 $S^{\prime\prime}(a)<0$이다. 따라서 $S^{\prime}$은 $(-1,0)$에서 감소하고 $S^{\prime}\left(-\tfrac12\right)=0$이므로 $S$는 $\left(-1,-\tfrac12\right)$에서 증가, $\left(-\tfrac12,0\right)$에서 감소하며 $a=-\tfrac12$에서 극대이다.
+      criteria: [4.M2]
+    - id: 4b-3
+      content: |
+        따라서 구하는 최솟값은 $\dfrac{e-2}{2}$이다.
+      criteria: [4.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 4.M1
+      mark_type: M
+      points: 3
+      evidence: |
+        $a\ge0$에서 $S^{\prime}(a)>0$을 보이고 대칭으로 $a\le-1$을 처리했다.
+      depends_on: []
+      implied_ok: false
+      ft: {allowed: true, from: [3.A1], max_points: 3}
+      steps: [4b-1, 4a]
+    - id: 4.M2
+      mark_type: M
+      points: 3
+      evidence: |
+        $(-1,0)$에서 $S^{\prime\prime}<0$(또는 $S^{\prime}$의 부호 변화)으로 $a=-\tfrac12$가 극대임을 밝혔다.
+      depends_on: []
+      implied_ok: false
+      steps: [4b-2, 4a]
+    - id: 4.A1
+      mark_type: A
+      points: 2
+      evidence: |
+        최솟값 $\tfrac{e-2}{2}$를 얻었다.
+      depends_on: [4.M1, 4.M2]
+      steps: [4b-3, 4a]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-9565}
+  misconceptions:
+  - id: MC-CAL-9565
+    outcome_code: '71'
+    wrong_work: '$S^{\prime}\left(-\tfrac12\right)=0$이므로 최솟값은 $S\left(-\tfrac12\right)=\tfrac32\sqrt e-2$'
+    detect_cue: 극대·극소 판정 없이 도함수가 0인 점의 값을 답했다
+    feedback: 도함수가 0인 점이 극대일 수도 있습니다. 증감을 확인하고 미분불가능한 점의 함숫값도 비교하세요.
+    remedy: [RL-4]
+
+- id: '5'
+  stem: |
+    방정식 $S(a)=c$가 서로 다른 세 실근을 갖도록 하는 실수 $c$의 값을 모두 구하시오.
+  points: 8
+  depends_on: ['4']
+  answer: {kind: value, value: '3*sqrt(E)/2 - 2', equivalents: ['3*exp(1/2)/2 - 2'], tolerance: null}
+  solutions:
+  - id: S5-A
+    audience: A
+    method_no: 1
+    key_idea: 감소 $(-\infty,-1)$, 증가 $\left(-1,-\tfrac12\right)$, 감소 $\left(-\tfrac12,0\right)$, 증가 $(0,\infty)$인 W자 그래프 — 세 근은 극댓값 높이에서만.
+    steps:
+    - {id: 5a, content: '$c=S\left(-\tfrac12\right)=\tfrac32\sqrt e-2$', criteria: [5.M1, 5.A1]}
+    hint_ladder:
+    - (4)의 증감을 이용해 $y=S(a)$의 개형을 그려 보자.
+    - 직선 $y=c$가 개형과 세 점에서 만나려면?
+  - id: S5-B
+    audience: B
+    source_flow: 2027 논술고사 안내 p.32
+    method_no: 1
+    steps:
+    - id: 5b-1
+      content: |
+        (4)로부터 $S$는 $(-\infty,-1)$, $\left(-\tfrac12,0\right)$에서 감소하고 $\left(-1,-\tfrac12\right)$, $(0,\infty)$에서 증가하며, $a=-1,0$에서 최솟값 $\tfrac{e-2}{2}$, $a=-\tfrac12$에서 극댓값을 가진다.
+      criteria: [5.M1]
+    - id: 5b-2
+      content: |
+        $S\left(-\tfrac12\right)=\dfrac{\tfrac32e^{1/2}}{2}+\dfrac{\tfrac32e^{1/2}}{2}-2=\dfrac32e^{\frac12}-2$이다. 그러므로 $S(a)=c$는 $c=\dfrac32\sqrt e-2$일 때만 서로 다른 세 실근을 가진다.
+      criteria: [5.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 5.M1
+      mark_type: M
+      points: 4
+      evidence: |
+        $S$의 증감·극값(최솟점 $-1,0$, 극대점 $-\tfrac12$)으로 그래프 개형을 정리했다.
+      depends_on: []
+      implied_ok: false
+      ft: {allowed: true, from: [4.M1, 4.M2], max_points: 4}
+      steps: [5b-1, 5a]
+    - id: 5.A1
+      mark_type: A
+      points: 4
+      evidence: |
+        $c=\tfrac32\sqrt e-2$를 얻었다.
+      depends_on: [5.M1]
+      steps: [5b-2, 5a]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-9566}
+  misconceptions:
+  - id: MC-CAL-9566
+    outcome_code: '71'
+    wrong_work: '$c=\tfrac{e-2}{2}$ 또는 $\tfrac{e-2}{2}<c<\tfrac32\sqrt e-2$로 답함'
+    detect_cue: 최솟값 높이(근 2개)나 사이 구간(근 4개)을 답했다
+    feedback: $y=c$가 W자 개형과 만나는 점을 세어 보세요. 극댓값 높이에서만 세 점(양 바깥 둘 + 극대점)입니다.
+    remedy: [RL-5]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CAL-9561}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-CONVEXITY}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-CAL-9562}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-CONVEXITY}
+  priority: 1
+- id: RL-3
+  trigger: {type: misconception, ref: MC-CAL-9563}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-ONE-SIDED-DERIV}
+  priority: 1
+- id: RL-4
+  trigger: {type: misconception, ref: MC-CAL-9565}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-MONOTONE-DERIV}
+  priority: 1
+- id: RL-5
+  trigger: {type: misconception, ref: MC-CAL-9566}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-ROOT-COUNT-GRAPH}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21
+# 메모: 공식 예시답안 (4) p.32 "문항 (1)의 풀이에 의하여 S'(a)=…"는 문항 (3)의 풀이를 가리키는 오기로 보임.

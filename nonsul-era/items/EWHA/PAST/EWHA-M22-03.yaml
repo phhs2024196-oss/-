@@ -1,0 +1,357 @@
+# 이화여대 2022학년도 수시 모의논술(자연계열) 문제 3 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: EWHA-M22-03
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: EWHA
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 분류
+points: 35
+time_estimate_min: 35
+intent: |
+  집합과 원의 방정식으로 제시된 조건을 이해하고, 직선과 원의 관계에 관한 개념으로 수리적 조건을 유도한 뒤 두 점 사이의 거리, 점과 직선 사이의 거리를 활용하여 함숫값을 구하는 능력을 평가한다(안내 책자 출제의도 요지).
+key_idea: |
+  반지름의 최솟값 $m$은 점 $(a,0)$과 선분 사이의 최단 거리이다. 수선의 발 $\left(\tfrac a2-1,\tfrac a2+1\right)$이 선분 위에 있는 $0\le a\le4$에서는 점과 직선 사이 거리, 그 밖에서는 가까운 끝점까지의 거리.
+stuck: |
+  「한 점에서 만나는 반지름의 최솟값」을 원이 선분에 접하거나 끝점 하나만 지나는 경우로 해석하고, 수선의 발이 선분 위에 있는 $a$의 범위로 경우를 나누는 것
+idea_tags: [IDEA-POINT-SEGMENT-DISTANCE-CASES, IDEA-PERP-FOOT-PARAMETER]
+tags: [점과 선분 사이 거리, 원과 직선, 경우 분류]
+elements:
+  materials:
+  - '선분 $\{(t,t+2)\mid-1\le t\le1\}$ (끝점 $(-1,1)$, $(1,3)$)'
+  - '중심 $(a,0)$, 반지름 $r$인 원'
+  - '$f(a)=m^2$ ($m$은 한 점에서 만나는 반지름의 최솟값)'
+  concepts:
+  - '두 직선의 수직 조건'
+  - '두 점 사이의 거리'
+  - '점과 직선 사이의 거리'
+  - '원과 직선의 위치 관계'
+  - '집합의 표현'
+  tools:
+  - '수선의 발 $\left(\tfrac a2-1,\tfrac a2+1\right)$'
+  - '$-1\le\tfrac a2-1\le1\iff0\le a\le4$'
+  - '점과 직선 거리 $\tfrac{\lvert a+2\rvert}{\sqrt2}$'
+  - '끝점까지 거리 $\sqrt{(a+1)^2+1}$, $\sqrt{(a-1)^2+9}$'
+  conditions:
+  - '$a<0$: 가까운 끝점 $(-1,1)$'
+  - '$0\le a\le4$: 원이 선분에 접함'
+  - '$a>4$: 가까운 끝점 $(1,3)$'
+  stimuli_used: [조건]
+  subpart_links: '(2)(3)은 (1)의 수선의 발로 접하는 $a$의 범위를 판정'
+
+curriculum:
+  version: '2015'
+  subjects: [수학]
+  scope_2028: common
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: '안내 책자 출제근거: 수학 두 점 사이의 거리, 두 직선의 평행과 수직, 점과 직선 사이의 거리, 원의 방정식, 원과 직선의 위치 관계, 집합의 뜻과 표현, 함수의 뜻과 그래프(교과서 쪽수만 제시, 성취기준 코드 없음)'
+    verified: false
+  content_area: 수학 – 도형의 방정식(직선·원)
+  behavior_domain: 추론
+  unit_path: [수학, 도형의 방정식, 원과 직선의 위치 관계, 점과 선분 사이의 최단 거리]
+  key_concepts: [수선의 발, 점과 직선 사이의 거리, 원과 직선의 위치 관계]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 이화여자대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 이화여자대학교
+  admission_year: 2022
+  admission_type: 수시 모의논술
+  track: 자연계열
+  question_no: 3
+  official_url: https://admission.ewha.ac.kr/admission/html/rolling/lecture-info.asp
+  retrieved_at: 2026-11-21
+  original_points: [35]
+  rights_notice: 미확인(「2022 논술고사 안내」 책자)
+  transcribed_from: |
+    「2022학년도 논술고사 안내」(안내_2022.pdf) p.19 문제지, pp.41–42 출제의도·우수답안 및 해설 — 원본 PDF 이미지 대조 완료 2026-11-21.
+    공식 소문항 배점·채점기준 없음(문항 전체 35점만 표기). 소문항 배점 7·12·16과 채점 마크는 입력자가 임의 배분.
+
+verify: verify/EWHA-M22.py::p03
+
+stimuli:
+- label: 조건
+  body: |
+    실수 $a$에 대하여, 좌표평면의 선분 $\{(t,t+2)\mid-1\le t\le1\}$과 원 $(x-a)^2+y^2=r^2$이 한 점에서 만나는 반지름 $r$의 최솟값 $m$이 있다. 이때 함숫값 $f(a)$는 $m^2$이다.
+
+stem: |
+  다음 함수 $f$에 대하여 아래 물음에 답하시오. [35점]
+  (원문은 이 발문 아래 상자 안에 「조건」 제시문이 있다.)
+
+subparts:
+- id: '1'
+  stem: |
+    실수 $a\neq-2$에 대하여 점 $(a,0)$에서 직선 $y=x+2$에 내린 수선의 발을 $a$로 나타내시오.
+  points: 7
+  depends_on: []
+  answer: {kind: expression, value: '(a/2 - 1, a/2 + 1)', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: 기울기 $-1$인 직선 $y=-x+a$와 $y=x+2$의 교점.
+    steps:
+    - {id: 1a, content: '$-x+a=x+2\Rightarrow x=\tfrac a2-1$, 수선의 발 $\left(\tfrac a2-1,\tfrac a2+1\right)$', criteria: ['1.M1', '1.A1']}
+    hint_ladder:
+    - 기울기가 1인 직선에 수직인 직선의 기울기는?
+  - id: S1-B
+    audience: B
+    source_flow: 2022 논술고사 안내 p.42 우수답안 및 해설 (1) 풀이
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        직선 $y=x+2$의 기울기가 1이므로 이 직선에 수직인 직선의 기울기는 $-1$이다. 기울기가 $-1$이고 점 $(a,0)$을 지나는 직선은 $y=-(x-a)=-x+a$이다.
+      criteria: ['1.M1']
+    - id: 1b-2
+      content: |
+        두 직선의 교점이 구하는 수선의 발이므로 답은 $\left(\dfrac a2-1,\dfrac a2+1\right)$이다.
+      criteria: ['1.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 3
+      evidence: |
+        기울기 $-1$이고 $(a,0)$을 지나는 직선 $y=-x+a$를 세웠다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1]
+    - id: 1.A1
+      mark_type: A
+      points: 4
+      evidence: |
+        교점 $\left(\dfrac a2-1,\dfrac a2+1\right)$을 구했다.
+      depends_on: [1.M1]
+      steps: [1b-2]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-GEO-9167}
+  misconceptions:
+  - id: MC-GEO-9167
+    outcome_code: '71'
+    wrong_work: '$\left(\dfrac a2+1,\dfrac a2-1\right)$ (좌표를 뒤바꿈) 또는 기울기 1인 직선을 사용'
+    detect_cue: 답이 직선 $y=x+2$ 위에 있지 않다
+    feedback: 구한 점이 $y=x+2$를 만족하는지 대입해 확인하세요.
+    remedy: [RL-1]
+
+- id: '2'
+  stem: |
+    $a<0$일 때 함수 $f(a)$를 구하시오.
+  points: 12
+  depends_on: ['1']
+  answer: {kind: expression, value: 'a**2 + 2*a + 2', equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: $a<0$이면 수선의 발이 선분 밖($t<-1$)이므로 최단점은 끝점 $(-1,1)$.
+    steps:
+    - {id: 2a, content: '$m^2=(a+1)^2+1=a^2+2a+2$', criteria: ['2.R1', '2.M1', '2.A1']}
+    hint_ladder:
+    - 원이 선분에 접할 수 있는 $a$의 범위를 (1)로 구하자.
+  - id: S2-B
+    audience: B
+    source_flow: 2022 논술고사 안내 p.42 우수답안 및 해설 (2) 풀이
+    method_no: 1
+    steps:
+    - id: 2b-1
+      content: |
+        선분과 원 $(x-a)^2+y^2=r^2$이 한 점에서 만나는 반지름 $r$이 최소가 되는 경우는 원이 선분에 접하거나 선분의 끝점 $(-1,1)$, $(1,3)$ 중 한 점만 만나는 때이다.
+      criteria: ['2.R1']
+    - id: 2b-2
+      content: |
+        문항 (1)에 의해 원이 선분에 접하는 때는 $-1\le\dfrac a2-1\le1$, 즉 $0\le a\le4$이다. 따라서 $a<0$일 때 최솟값 $m$을 반지름으로 하는 원은 선분에 접하지 않는다.
+      criteria: ['2.R2']
+    - id: 2b-3
+      content: |
+        $a<0$일 때 조건을 만족하는 원의 반지름 $m$은 끝점 $(-1,1)$과 $(a,0)$ 사이의 거리 $\sqrt{(-1-a)^2+1^2}=\sqrt{a^2+2a+2}$이다.
+      criteria: ['2.M1']
+    - id: 2b-4
+      content: |
+        따라서 $a<0$일 때 $f(a)=a^2+2a+2$이다.
+      criteria: ['2.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.R1
+      mark_type: R
+      points: 3
+      evidence: |
+        최소 반지름은 원이 선분에 접하거나 끝점 하나만 지날 때임을 적었다.
+      depends_on: []
+      steps: [2b-1]
+    - id: 2.R2
+      mark_type: R
+      points: 3
+      evidence: |
+        (1)의 수선의 발로 접하는 범위 $0\le a\le4$를 구해 $a<0$에서는 접하지 않음을 밝혔다.
+      depends_on: []
+      ft: {allowed: true, from: [1.A1], max_points: 3}
+      steps: [2b-2]
+    - id: 2.M1
+      mark_type: M
+      points: 3
+      evidence: |
+        끝점 $(-1,1)$과 $(a,0)$ 사이 거리 $\sqrt{a^2+2a+2}$를 반지름으로 잡았다.
+      depends_on: []
+      implied_ok: false
+      steps: [2b-3]
+    - id: 2.A1
+      mark_type: A
+      points: 3
+      evidence: |
+        $f(a)=a^2+2a+2$를 얻었다.
+      depends_on: [2.M1, 2.R2]
+      steps: [2b-4]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '72', misconception: MC-GEO-9168}
+  misconceptions:
+  - id: MC-GEO-9168
+    outcome_code: '72'
+    wrong_work: '$a<0$에서도 $f(a)=\dfrac{(a+2)^2}{2}$ (점과 직선 사이 거리)'
+    detect_cue: 수선의 발이 선분 위에 있는지 확인하지 않는다
+    feedback: 수선의 발의 $x$좌표 $\tfrac a2-1$이 $-1$보다 작으면 선분 위의 가장 가까운 점은 끝점입니다.
+    remedy: [RL-2]
+
+- id: '3'
+  stem: |
+    $a\ge0$일 때 함수 $f(a)$를 구하시오.
+  points: 16
+  depends_on: ['1', '2']
+  answer: {kind: expression, value: 'Piecewise(((a+2)**2/2, a <= 4), (a**2 - 2*a + 10, True))', equivalents: ['(a+2)**2/2 (0<=a<=4); a**2-2*a+10 (a>4)'], tolerance: null}
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: $0\le a\le4$에서는 접하므로 거리 $\tfrac{\lvert a+2\rvert}{\sqrt2}$, $a>4$에서는 끝점 $(1,3)$.
+    steps:
+    - {id: 3a, content: '$f(a)=\tfrac{(a+2)^2}{2}$ $(0\le a\le4)$, $a^2-2a+10$ $(a>4)$', criteria: ['3.R1', '3.M1', '3.A1', '3.M2', '3.A2']}
+    hint_ladder:
+    - (2)의 경우 분류를 $a\ge0$에 적용하자.
+  - id: S3-B
+    audience: B
+    source_flow: 2022 논술고사 안내 p.42 우수답안 및 해설 (3) 풀이
+    method_no: 1
+    steps:
+    - id: 3b-1
+      content: |
+        반지름이 최소가 되는 경우는 원이 선분에 접하거나 끝점 하나만 만나는 때이고, 문항 (2)의 풀이에서 원이 선분에 접하는 때는 $0\le a\le4$이므로 $0\le a\le4$와 $4<a$로 구별한다.
+      criteria: ['3.R1']
+    - id: 3b-2
+      content: |
+        (ㄱ) $0\le a\le4$일 때 $m$은 점 $(a,0)$과 직선 $y=x+2$ 사이의 거리 $\dfrac{\lvert0-a-2\rvert}{\sqrt{1+1}}=\dfrac{\lvert a+2\rvert}{\sqrt2}$이고
+      criteria: ['3.M1']
+    - id: 3b-3
+      content: |
+        $f(a)=\dfrac{(a+2)^2}{2}$이다.
+      criteria: ['3.A1']
+    - id: 3b-4
+      content: |
+        (ㄴ) $4<a$일 때 $m$은 끝점 중 한 점만 만나는 경우에서 구해진다. 원이 끝점 $(-1,1)$을 지나면 선분과 두 점에서 만날 수 있으므로, $m$은 끝점 $(1,3)$과 $(a,0)$ 사이의 거리 $\sqrt{(1-a)^2+3^2}=\sqrt{a^2-2a+10}$이다.
+      criteria: ['3.M2']
+    - id: 3b-5
+      content: |
+        따라서 $4<a$일 때 $f(a)=a^2-2a+10$이고,
+        $$f(a)=\begin{cases}\dfrac{(a+2)^2}{2} & (0\le a\le4)\\ a^2-2a+10 & (4<a)\end{cases}$$
+      criteria: ['3.A2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 3.R1
+      mark_type: R
+      points: 3
+      evidence: |
+        접하는 범위로 $0\le a\le4$와 $a>4$로 경우를 나누었다.
+      depends_on: []
+      ft: {allowed: true, from: [2.R2], max_points: 3}
+      steps: [3b-1]
+    - id: 3.M1
+      mark_type: M
+      points: 3
+      evidence: |
+        $0\le a\le4$에서 점과 직선 사이 거리 $\dfrac{\lvert a+2\rvert}{\sqrt2}$를 반지름으로 잡았다.
+      depends_on: []
+      implied_ok: false
+      steps: [3b-2]
+    - id: 3.A1
+      mark_type: A
+      points: 3
+      evidence: |
+        $0\le a\le4$에서 $f(a)=\dfrac{(a+2)^2}{2}$를 얻었다.
+      depends_on: [3.M1]
+      steps: [3b-3]
+    - id: 3.M2
+      mark_type: M
+      points: 4
+      evidence: |
+        $a>4$에서 끝점 $(1,3)$까지의 거리 $\sqrt{a^2-2a+10}$을 반지름으로 잡았다.
+      depends_on: []
+      implied_ok: false
+      steps: [3b-4]
+    - id: 3.A2
+      mark_type: A
+      points: 3
+      evidence: |
+        $a>4$에서 $f(a)=a^2-2a+10$을 얻고 두 구간의 결과를 함께 정리했다.
+      depends_on: [3.M2, 3.R1]
+      steps: [3b-5]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '73', misconception: MC-GEO-9169}
+  - {code: '74', misconception: MC-GEO-9168}
+  misconceptions:
+  - id: MC-GEO-9169
+    outcome_code: '73'
+    wrong_work: '$a>4$에서 끝점 $(-1,1)$까지의 거리로 $f(a)=a^2+2a+2$'
+    detect_cue: $a>4$인데 $(-1,1)$을 쓴다
+    feedback: $a>4$이면 수선의 발이 선분의 위쪽 끝 $(1,3)$ 너머에 있으므로 가장 가까운 점은 $(1,3)$입니다.
+    remedy: [RL-3]
+  - id: MC-GEO-9168
+    outcome_code: '74'
+    wrong_work: '$a\ge0$ 전체에서 $f(a)=\dfrac{(a+2)^2}{2}$'
+    detect_cue: $a>4$인 경우를 따로 다루지 않는다
+    feedback: 수선의 발이 선분 위에 있는 범위($0\le a\le4$)를 벗어나면 끝점까지의 거리를 써야 합니다.
+    remedy: [RL-2]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-GEO-9167}
+  relation: remediation
+  target: {kind: concept, ref: CON-GEO-PERP-FOOT}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-GEO-9168}
+  relation: remediation
+  target: {kind: concept, ref: CON-GEO-POINT-SEGMENT-DIST}
+  priority: 1
+- id: RL-3
+  trigger: {type: misconception, ref: MC-GEO-9169}
+  relation: remediation
+  target: {kind: concept, ref: CON-GEO-POINT-SEGMENT-DIST}
+  priority: 2
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

@@ -1,0 +1,465 @@
+# 이화여대 2026학년도 수시 논술(자연계열Ⅱ) 문제 1 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: EWHA-G26B-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: EWHA
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 점화
+points: 40
+time_estimate_min: 40
+intent: |
+  부분적분법으로 정적분 값을 구하고 그 결과로 적분으로 주어진 수열의 관계(등차수열)를 파악하여 극한값을 찾으며, 자연수의 거듭제곱의 합·이차함수의 최솟값·등차수열의 성질로 부등식과 분수 꼴 수열의 합을 도출하는 능력을 본다(공식 출제의도 요지).
+key_idea: |
+  두 번 부분적분하면 경계항이 (나)와 $\cos\tfrac{\pi}{2}=\cos\tfrac{3\pi}{2}=0$으로 사라져 $\int_2^6f\cos\tfrac{\pi x}{4}dx=1$. $g(x)=f(x)\cos\tfrac{\pi x}{4}$는 $x\ge2$에서 $g(x+4)=g(x)$이므로 $a_{n+1}-a_n=1$, $a_n=n+t$ ($t=\int_0^2g$). $\sum a_n^2$은 $t$의 이차식이고, 등호일 때 $a_n=n-\tfrac{2027}{2}$은 $a_n=-a_{2027-n}$.
+stuck: |
+  (2)에서 $f(x+4)=-f(x)$와 $\cos\left(\pi+\tfrac{\pi x}{4}\right)=-\cos\tfrac{\pi x}{4}$가 상쇄되어 $g$가 주기 4임을 보는 것, (4)에서 $\dfrac{a_n+a_{n+1}}{a_n^2a_{n+1}^2}=\dfrac{1}{a_n^2}-\dfrac{1}{a_{n+1}^2}$와 대칭 $a_n=-a_{2027-n}$
+idea_tags: [IDEA-IBP-TWICE-BOUNDARY-VANISH, IDEA-ANTIPERIODIC-TIMES-COS, IDEA-QUADRATIC-IN-PARAMETER-MIN, IDEA-SYMMETRIC-CANCEL]
+tags: [부분적분, 적분으로 정의된 수열, 등차수열, 거듭제곱의 합, 이차함수 최솟값]
+elements:
+  materials:
+  - '연속인 이계도함수를 갖는 함수 $f(x)$'
+  - '조건 (가) $\int_2^6f^{\prime\prime}(x)\cos\tfrac{\pi x}{4}dx=-\tfrac{\pi^2}{16}$, (나) $x\ge2$에서 $f(x+4)=-f(x)$'
+  - '수열 $a_n=\int_0^{4n+2}f(x)\cos\tfrac{\pi x}{4}dx$'
+  - '합 $\sum_{n=1}^{2026}a_n^2$와 $\sum\dfrac{a_{2k-1}+a_{2k}}{a_{2k-1}^2a_{2k}^2}$'
+  concepts:
+  - '부분적분법'
+  - '사인·코사인함수의 미분'
+  - '정적분의 성질과 치환'
+  - '등차수열의 일반항'
+  - '자연수의 거듭제곱의 합'
+  - '수열의 극한의 기본 성질'
+  - '이차함수의 최솟값(완전제곱식)'
+  - '망원(소거) 합'
+  tools:
+  - '두 번 부분적분, 경계값 $\sin\tfrac{3\pi}{2}=-1$, $\sin\tfrac{\pi}{2}=1$, $\cos\tfrac{\pi}{2}=\cos\tfrac{3\pi}{2}=0$'
+  - '$g(x+4)=g(x)$ $(x\ge2)$와 치환 $x=y+4n$'
+  - '$\sum n^2=\tfrac{m(m+1)(2m+1)}{6}$, $\sum n=\tfrac{m(m+1)}{2}$'
+  - '$2026\left(\left(t+\tfrac{2027}{2}\right)^2+\tfrac{2025\cdot2027}{12}\right)$'
+  - '$\dfrac{a_n+a_{n+1}}{a_n^2a_{n+1}^2}=\dfrac{1}{a_n^2}-\dfrac{1}{a_{n+1}^2}$'
+  conditions:
+  - '(나)에서 $f(6)=-f(2)$'
+  - '$t=\int_0^2f(x)\cos\tfrac{\pi x}{4}dx$는 미정 상수(조건이 $[0,2]$의 $f$를 정하지 않음)'
+  - '등호 조건 $t=-\tfrac{2027}{2}$'
+  stimuli_used: []
+  subpart_links: '(2)는 (1)의 값 1을 사용, (3)은 (2)의 $a_n=n+t$를 사용, (4)는 (3)의 등호 조건 $t=-\tfrac{2027}{2}$와 $a_{n+1}-a_n=1$을 사용'
+
+curriculum:
+  version: '2015'
+  subjects: [수학, 수학Ⅰ, 미적분]
+  scope_2028: calc2
+  scope_confirmed: true
+  standards:
+  - code: 12미적02-05
+    text: 사인함수와 코사인함수를 미분할 수 있다.
+    verified: true
+  - code: 12미적03-02
+    text: 부분적분법을 이해하고, 이를 활용할 수 있다.
+    verified: true
+  - code: 12수학Ⅰ03-02
+    text: 등차수열의 뜻을 알고, 일반항, 첫째항부터 제$n$항까지의 합을 구할 수 있다.
+    verified: true
+  - code: 12수학Ⅰ03-05
+    text: 여러 가지 수열의 첫째항부터 제$n$항까지의 합을 구할 수 있다.
+    verified: true
+  - code: 12미적01-02
+    text: 수열의 극한에 대한 기본 성질을 이해하고, 이를 이용하여 극한값을 구할 수 있다.
+    verified: true
+  - code: 12미적03-01
+    text: 치환적분법을 이해하고, 이를 활용할 수 있다.
+    verified: true
+  - code: 10수학02-07
+    text: 이차함수의 최댓값과 최솟값을 구할 수 있다.
+    verified: true
+  content_area: 적분법·수열 – 부분적분과 등차수열의 합
+  behavior_domain: 문제해결
+  unit_path: [미적분, 적분법, 여러 가지 적분법, 부분적분법]
+  key_concepts: [부분적분법, 등차수열, 자연수의 거듭제곱의 합, 이차함수의 최솟값, 망원 합]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 이화여자대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 이화여자대학교
+  admission_year: 2026
+  admission_type: 수시 논술전형
+  track: 자연계열Ⅱ
+  question_no: 1
+  official_url: https://admission.ewha.ac.kr/admission/html/rolling/lecture-info.asp
+  retrieved_at: 2026-11-21
+  original_points: [6, 10, 12, 12]
+  rights_notice: 문항 전체 40점, 소문항 배점은 공식 채점기준(답안지 pp.3-4, 문항카드 10)에 따름. 공식 출제근거표의 제시문 성취기준 코드는 원문 표기 「12기수03-04」를 그대로 옮기지 않고 생략함(10수학 계열 표기 오기로 보임)
+  transcribed_from: 「2026 논술고사 문제지(자연Ⅱ)」 p.3(문제), 「2026 논술고사 답안지(자연Ⅱ)」 pp.1-6(출제의도·출제근거·채점기준·예시답안), 「선행_2026」 문항카드 10(PDF pp.105-111, 예상 소요 시간 40분) (원본 PDF 이미지 대조 완료 2026-11-21)
+
+verify: verify/EWHA-G26B.py::p01
+
+stimuli: []
+
+stem: |
+  함수 $f(x)$는 실수 전체의 집합에서 연속인 이계도함수 $f''(x)$를 갖고 다음 조건을 만족시킨다.
+
+  (가) $\displaystyle\int_2^6f''(x)\cos\frac{\pi x}{4}\,dx=-\frac{\pi^2}{16}$
+
+  (나) $x\ge2$인 모든 실수 $x$에 대하여 $f(x+4)=-f(x)$이다.
+
+  모든 자연수 $n$에 대하여 $a_n=\displaystyle\int_0^{4n+2}f(x)\cos\frac{\pi x}{4}\,dx$라 할 때, 아래 물음에 답하시오. [40점]
+
+subparts:
+- id: '1'
+  stem: |
+    $\displaystyle\int_2^6f(x)\cos\frac{\pi x}{4}\,dx$의 값을 구하시오.
+  points: 6
+  depends_on: []
+  answer: {kind: value, value: '1', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: 두 번 부분적분하면 경계항은 (나)와 $\cos\tfrac{\pi}{2}=\cos\tfrac{3\pi}{2}=0$으로 모두 사라지고 $\left(\tfrac{4}{\pi}\right)^2\cdot\left(-\tfrac{\pi^2}{16}\right)$의 부호를 바꾼 값 1이 남는다.
+    steps:
+    - id: 1a
+      content: |
+        $\int_2^6f\cos\tfrac{\pi x}{4}dx=-\tfrac{16}{\pi^2}\int_2^6f''\cos\tfrac{\pi x}{4}dx=1$
+      criteria: ['1.M1', '1.A1']
+    hint_ladder:
+    - $\cos\tfrac{\pi x}{4}$를 적분하는 쪽으로 부분적분해 보자.
+    - 경계항에서 $f(6)$과 $f(2)$의 관계는?
+  - id: S1-B
+    audience: B
+    source_flow: 「2026 논술고사 답안지(자연Ⅱ)」 p.4 예시답안 1-(1)
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        부분적분법으로 $\displaystyle\int_2^6f(x)\cos\frac{\pi x}{4}dx=\frac{4}{\pi}\left[f(x)\sin\frac{\pi x}{4}\right]_2^6-\frac{4}{\pi}\int_2^6f'(x)\sin\frac{\pi x}{4}dx$이다.
+        조건 (나)에서 $f(6)=-f(2)$이므로 $\left[f(x)\sin\dfrac{\pi x}{4}\right]_2^6=f(6)\sin\dfrac{3\pi}{2}-f(2)\sin\dfrac{\pi}{2}=-f(6)-f(2)=0$이다.
+        따라서 $\displaystyle\int_2^6f(x)\cos\frac{\pi x}{4}dx=-\frac{4}{\pi}\int_2^6f'(x)\sin\frac{\pi x}{4}dx$이다.
+      criteria: ['1.M1']
+    - id: 1b-2
+      content: |
+        다시 부분적분하면 $=-\dfrac{4}{\pi}\left(-\dfrac{4}{\pi}\left[f'(x)\cos\dfrac{\pi x}{4}\right]_2^6+\dfrac{4}{\pi}\displaystyle\int_2^6f''(x)\cos\frac{\pi x}{4}dx\right)$이고, $\cos\dfrac{\pi}{2}=0$, $\cos\dfrac{3\pi}{2}=0$과 조건 (가)에 의하여
+        $\displaystyle\int_2^6f(x)\cos\frac{\pi x}{4}dx=-\frac{4}{\pi}\left(-\frac{4}{\pi}\cdot0+\frac{4}{\pi}\cdot\left(-\frac{\pi^2}{16}\right)\right)=1$이다.
+      criteria: ['1.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 3
+      evidence: |
+        $\displaystyle\int_2^6f(x)\cos\frac{\pi x}{4}dx=-\frac{4}{\pi}\int_2^6f'(x)\sin\frac{\pi x}{4}dx$를 유도했다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1, 1a]
+    - id: 1.A1
+      mark_type: A
+      points: 3
+      evidence: |
+        $\displaystyle\int_2^6f(x)\cos\frac{\pi x}{4}dx=1$을 도출했다.
+      depends_on: [1.M1]
+      steps: [1b-2, 1a]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-9462}
+  misconceptions:
+  - id: MC-CAL-9462
+    outcome_code: '71'
+    wrong_work: '$\cos\tfrac{\pi x}{4}$의 부정적분을 $\tfrac{\pi}{4}\sin\tfrac{\pi x}{4}$로 써서 값이 $\tfrac{\pi^4}{256}$ 등으로 나옴'
+    detect_cue: 계수 $\tfrac{4}{\pi}$ 대신 $\tfrac{\pi}{4}$가 곱해져 있다
+    feedback: $\left(\sin\tfrac{\pi x}{4}\right)^{\prime}=\tfrac{\pi}{4}\cos\tfrac{\pi x}{4}$이므로 부정적분에는 역수 $\tfrac{4}{\pi}$가 붙습니다.
+    remedy: [RL-1]
+
+- id: '2'
+  stem: |
+    $\displaystyle\lim_{m\to\infty}\frac{1}{m^2}\sum_{n=1}^ma_n$의 값을 구하시오.
+  points: 10
+  depends_on: ['1']
+  answer: {kind: value, value: '1/2', equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: $g(x)=f(x)\cos\tfrac{\pi x}{4}$는 $x\ge2$에서 주기 4이므로 $a_{n+1}-a_n=\int_2^6g=1$, $a_n=n+t$.
+    steps:
+    - id: 2a
+      content: |
+        $a_n=n+\int_0^2g$, $\tfrac{1}{m^2}\sum(n+t)=\tfrac{m+1}{2m}+\tfrac{t}{m}\to\tfrac12$
+      criteria: ['2.M1', '2.A1', '2.M2', '2.A2']
+    hint_ladder:
+    - $f(x+4)\cos\tfrac{\pi(x+4)}{4}$를 $f(x)\cos\tfrac{\pi x}{4}$로 나타내 보자.
+    - $a_{n+1}-a_n$은 길이 4인 구간의 적분이다.
+  - id: S2-B
+    audience: B
+    source_flow: 「2026 논술고사 답안지(자연Ⅱ)」 pp.4-5 예시답안 1-(2)
+    method_no: 1
+    steps:
+    - id: 2b-1
+      content: |
+        $g(x)=f(x)\cos\dfrac{\pi x}{4}$라 하면, $x\ge2$인 모든 실수 $x$에 대해 $g(x+4)=f(x+4)\cdot\cos\left(\pi+\dfrac{\pi x}{4}\right)=(-f(x))\cdot\left(-\cos\dfrac{\pi x}{4}\right)=g(x)$ …… ㉠ 이다.
+      criteria: ['2.M1']
+    - id: 2b-2
+      content: |
+        문항 (1)에 의하여 $a_1=\displaystyle\int_0^6g=\int_0^2g+\int_2^6g=\int_0^2g(x)dx+1$이고, $a_{n+1}-a_n=\displaystyle\int_{4n+2}^{4n+6}g(x)dx$에서 $x=y+4n$이라 놓으면 ㉠과 문항 (1)에 의하여 $a_{n+1}-a_n=\displaystyle\int_2^6g(y+4n)dy=\int_2^6g(y)dy=1$이다.
+        따라서 $a_n$은 첫째항이 $\int_0^2g(x)dx+1$, 공차가 1인 등차수열이고 $a_n=n+\displaystyle\int_0^2g(x)dx$ …… ㉡ 이다.
+      criteria: ['2.A1']
+    - id: 2b-3
+      content: |
+        $\displaystyle\lim_{m\to\infty}\frac{1}{m^2}\sum_{n=1}^ma_n=\lim_{m\to\infty}\left(\frac{1}{m^2}\sum_{n=1}^mn+\frac{1}{m^2}\left(\int_0^2g\right)\sum_{n=1}^m1\right)$이고 $\sum_{n=1}^mn=\dfrac{m(m+1)}{2}$, $\sum_{n=1}^m1=m$이므로 $\displaystyle\lim_{m\to\infty}\frac{m(m+1)}{2m^2}=\frac12$이다.
+      criteria: ['2.M2']
+    - id: 2b-4
+      content: |
+        수열의 극한의 기본 성질에 의해 $\displaystyle\lim_{m\to\infty}\frac{1}{m^2}\sum_{n=1}^ma_n=\lim_{m\to\infty}\frac{m(m+1)}{2m^2}+\lim_{m\to\infty}\frac1m\int_0^2g(x)dx=\frac12$이다.
+      criteria: ['2.A2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 3
+      evidence: |
+        $x\ge2$에서 $f(x+4)\cos\dfrac{\pi(x+4)}{4}=f(x)\cos\dfrac{\pi x}{4}$임을 유도했다.
+      depends_on: []
+      implied_ok: false
+      steps: [2b-1, 2a]
+    - id: 2.A1
+      mark_type: A
+      points: 3
+      evidence: |
+        $a_n=n+\displaystyle\int_0^2f(x)\cos\frac{\pi x}{4}dx$임을 유도했다.
+      depends_on: [2.M1]
+      ft: {allowed: true, from: [1.A1], max_points: 3}
+      steps: [2b-2, 2a]
+    - id: 2.M2
+      mark_type: M
+      points: 3
+      evidence: |
+        $\displaystyle\lim_{m\to\infty}\frac{1}{m^2}\sum_{n=1}^mn=\frac12$을 유도했다.
+      depends_on: []
+      steps: [2b-3, 2a]
+    - id: 2.A2
+      mark_type: A
+      points: 1
+      evidence: |
+        $\displaystyle\lim_{m\to\infty}\frac{1}{m^2}\sum_{n=1}^ma_n=\frac12$을 도출했다.
+      depends_on: [2.A1, 2.M2]
+      steps: [2b-4, 2a]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '72', misconception: MC-CAL-9463}
+  misconceptions:
+  - id: MC-CAL-9463
+    outcome_code: '72'
+    wrong_work: '$f(x+4)=-f(x)$만 보고 길이 4인 구간마다 적분값이 $1,-1,1,\cdots$로 교대한다고 판단해 극한을 0으로 답함'
+    detect_cue: $\cos\tfrac{\pi(x+4)}{4}=-\cos\tfrac{\pi x}{4}$의 부호 반전을 반영하지 않았다
+    feedback: 피적분함수 $f(x)\cos\tfrac{\pi x}{4}$ 전체를 보세요. 두 인수가 모두 부호를 바꾸므로 곱은 주기 4입니다.
+    remedy: [RL-2]
+
+- id: '3'
+  stem: |
+    다음 부등식이 성립함을 증명하시오.
+
+    $$a_1^2+\cdots+a_{2026}^2\ge\frac{2025\times2026\times2027}{12}$$
+  points: 12
+  depends_on: ['2']
+  answer: {kind: proof, value: null, equivalents: [], tolerance: null}
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: $\sum(n+t)^2=2026\left(t^2+2027t+\tfrac{2027\cdot4053}{6}\right)$을 완전제곱식으로 바꾼다.
+    steps:
+    - id: 3a
+      content: |
+        $2026\left(\left(t+\tfrac{2027}{2}\right)^2+\tfrac{2025\cdot2027}{12}\right)\ge\tfrac{2025\cdot2026\cdot2027}{12}$
+      criteria: ['3.B1', '3.M1', '3.A1']
+    hint_ladder:
+    - (2)의 $a_n=n+t$를 대입해 $t$에 대한 식으로 정리하자.
+    - $t$에 대한 이차식의 최솟값은?
+  - id: S3-B
+    audience: B
+    source_flow: 「2026 논술고사 답안지(자연Ⅱ)」 pp.5-6 예시답안 1-(3)
+    method_no: 1
+    steps:
+    - id: 3b-1
+      content: |
+        식 ㉡에 의하여 $a_1^2+\cdots+a_{2026}^2=\displaystyle\sum_{n=1}^{2026}\left(n+\int_0^2g\right)^2=\sum n^2+2\left(\int_0^2g\right)\sum n+\left(\int_0^2g\right)^2\sum1$ …… ㉢ 이다.
+        자연수의 거듭제곱의 합에 의하여 $\displaystyle\sum_{n=1}^{2026}n^2=\frac{2026\times2027\times4053}{6}$, $\displaystyle\sum_{n=1}^{2026}n=\frac{2026\times2027}{2}$, $\displaystyle\sum_{n=1}^{2026}1=2026$ …… ㉣ 이다.
+      criteria: ['3.B1']
+    - id: 3b-2
+      content: |
+        $t=\displaystyle\int_0^2g(x)dx$라 하면 ㉢, ㉣에 의하여 $a_1^2+\cdots+a_{2026}^2=2026\left(t^2+2027t+\dfrac{2027\times4053}{6}\right)$ …… ㉤ 이다.
+      criteria: ['3.M1']
+    - id: 3b-3
+      content: |
+        $2026\left(t^2+2027t+\dfrac{2027\times4053}{6}\right)=2026\left(\left(t+\dfrac{2027}{2}\right)^2+\dfrac{2025\times2027}{12}\right)\ge\dfrac{2025\times2026\times2027}{12}$ …… ㉥ 이므로 ㉤, ㉥에 의하여 주어진 부등식이 성립한다. ■
+      criteria: ['3.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 3.B1
+      mark_type: B
+      points: 5
+      evidence: |
+        $\displaystyle\sum_{n=1}^{2026}n^2=\frac{2026\times2027\times4053}{6}$, $\displaystyle\sum_{n=1}^{2026}n=\frac{2026\times2027}{2}$, $\displaystyle\sum_{n=1}^{2026}1=2026$을 유도했다.
+      depends_on: []
+      implied_ok: false
+      steps: [3b-1, 3a]
+    - id: 3.M1
+      mark_type: M
+      points: 3
+      evidence: |
+        $a_1^2+\cdots+a_{2026}^2=2026\left(t^2+2027t+\dfrac{2027\times4053}{6}\right)$ $\left(t=\int_0^2f(x)\cos\frac{\pi x}{4}dx\right)$를 유도했다.
+      depends_on: []
+      ft: {allowed: true, from: [2.A1], max_points: 3}
+      steps: [3b-2, 3a]
+    - id: 3.A1
+      mark_type: A
+      points: 4
+      evidence: |
+        완전제곱식 등으로 $a_1^2+\cdots+a_{2026}^2\ge\dfrac{2025\times2026\times2027}{12}$을 증명했다.
+      depends_on: [3.M1, 3.B1]
+      steps: [3b-3, 3a]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '73', misconception: MC-ALG-9464}
+  misconceptions:
+  - id: MC-ALG-9464
+    outcome_code: '73'
+    wrong_work: '$\int_0^2f\cos\tfrac{\pi x}{4}dx$를 0으로 두어 $a_n=n$, $\sum n^2$만 계산하고 부등식을 확인'
+    detect_cue: $t$를 미지수로 남기지 않고 특정 값으로 정했다
+    feedback: 조건은 $[0,2]$에서의 $f$를 정하지 않으므로 $t$는 임의의 실수입니다. 모든 $t$에 대해 성립함을 $t$의 이차식 최솟값으로 보이세요.
+    remedy: [RL-3]
+
+- id: '4'
+  stem: |
+    문항(3)의 부등식의 등호가 성립할 때 다음 식의 값을 구하시오.
+
+    $$\frac{a_1+a_2}{a_1^2a_2^2}+\frac{a_3+a_4}{a_3^2a_4^2}+\cdots+\frac{a_{2025}+a_{2026}}{a_{2025}^2a_{2026}^2}$$
+  points: 12
+  depends_on: ['2', '3']
+  answer: {kind: value, value: '0', equivalents: [], tolerance: null}
+  solutions:
+  - id: S4-A
+    audience: A
+    method_no: 1
+    key_idea: 공차 1이므로 각 항은 $\tfrac{1}{a_n^2}-\tfrac{1}{a_{n+1}^2}$, 등호에서 $a_n=n-\tfrac{2027}{2}$은 $a_n=-a_{2027-n}$이라 짝지어 소거된다.
+    steps:
+    - id: 4a
+      content: |
+        합 $=\sum_{n=1}^{2026}\tfrac{(-1)^{n+1}}{a_n^2}$, $a_n^2=a_{2027-n}^2$이고 $n$과 $2027-n$의 홀짝이 반대 → 0
+      criteria: ['4.B1', '4.B2', '4.M2', '4.A2']
+    hint_ladder:
+    - $a_{n+1}-a_n=1$을 분자에 곱해 보자.
+    - 등호일 때 $a_n$을 구하고, $a_n$과 $a_{2027-n}$의 관계를 보자.
+  - id: S4-B
+    audience: B
+    source_flow: 「2026 논술고사 답안지(자연Ⅱ)」 p.6 예시답안 1-(4)
+    method_no: 1
+    steps:
+    - id: 4b-1
+      content: |
+        $a_{n+1}-a_n=1$이므로 $\dfrac{a_n+a_{n+1}}{a_n^2a_{n+1}^2}=\dfrac{(a_n+a_{n+1})(a_{n+1}-a_n)}{a_n^2a_{n+1}^2}=\dfrac{a_{n+1}^2-a_n^2}{a_n^2a_{n+1}^2}=\dfrac{1}{a_n^2}-\dfrac{1}{a_{n+1}^2}$이다.
+        따라서 주어진 식은 $\dfrac{1}{a_1^2}-\dfrac{1}{a_2^2}+\dfrac{1}{a_3^2}-\dfrac{1}{a_4^2}+\cdots+\dfrac{1}{a_{2025}^2}-\dfrac{1}{a_{2026}^2}$이다.
+      criteria: ['4.A2']
+    - id: 4b-2
+      content: |
+        문항 (3)의 부등식에서 등호가 성립하면 ㉤과 ㉥에 의하여 $t=\displaystyle\int_0^2g(x)dx=-\frac{2027}{2}$이다.
+      criteria: ['4.B1']
+    - id: 4b-3
+      content: |
+        따라서 ㉡에 의하여 $a_n=n-\dfrac{2027}{2}$이다.
+      criteria: ['4.B2']
+    - id: 4b-4
+      content: |
+        $1\le n\le2026$인 자연수 $n$에 대하여 $a_n+a_{2027-n}=\left(n-\dfrac{2027}{2}\right)+\left(2027-n-\dfrac{2027}{2}\right)=0$이므로 $a_n=-a_{2027-n}$이 성립한다.
+      criteria: ['4.M2']
+    - id: 4b-5
+      content: |
+        따라서 주어진 식 $=\left(\dfrac{1}{a_1^2}-\dfrac{1}{a_{2026}^2}\right)+\left(-\dfrac{1}{a_2^2}+\dfrac{1}{a_{2025}^2}\right)+\cdots+\left(\dfrac{1}{a_{1013}^2}-\dfrac{1}{a_{1014}^2}\right)=0$이다.
+      criteria: ['4.A2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 4.B1
+      mark_type: B
+      points: 3
+      evidence: |
+        $\displaystyle\int_0^2f(x)\cos\frac{\pi x}{4}dx=-\frac{2027}{2}$임을 유도했다.
+      depends_on: []
+      implied_ok: false
+      ft: {allowed: true, from: [3.M1], max_points: 3}
+      steps: [4b-2, 4a]
+    - id: 4.B2
+      mark_type: B
+      points: 1
+      evidence: |
+        $a_n=n-\dfrac{2027}{2}$임을 유도했다.
+      depends_on: [4.B1]
+      steps: [4b-3, 4a]
+    - id: 4.M2
+      mark_type: M
+      points: 4
+      evidence: |
+        $a_n=-a_{2027-n}$임을 유도했다.
+      depends_on: []
+      steps: [4b-4, 4a]
+    - id: 4.A2
+      mark_type: A
+      points: 4
+      evidence: |
+        주어진 식의 값이 0임을 도출했다.
+      depends_on: [4.M2, 4.B2]
+      steps: [4b-1, 4b-5, 4a]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '74', misconception: MC-ALG-9465}
+  misconceptions:
+  - id: MC-ALG-9465
+    outcome_code: '74'
+    wrong_work: '$\tfrac{1}{a_1^2}-\tfrac{1}{a_2^2}+\tfrac{1}{a_3^2}-\cdots$를 연속 망원합으로 보고 $\tfrac{1}{a_1^2}-\tfrac{1}{a_{2026}^2}$로 처리'
+    detect_cue: 짝으로 묶인 항 사이($-\tfrac{1}{a_2^2}$와 $+\tfrac{1}{a_3^2}$)를 소거했다
+    feedback: 묶음은 $(a_1,a_2),(a_3,a_4),\cdots$뿐이라 이웃 묶음끼리는 소거되지 않습니다. 대칭 $a_n=-a_{2027-n}$을 이용해 앞뒤 항을 짝지으세요.
+    remedy: [RL-4]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CAL-9462}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-INTEG-BY-PARTS}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-CAL-9463}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-PERIODIC-INTEGRAL}
+  priority: 1
+- id: RL-3
+  trigger: {type: misconception, ref: MC-ALG-9464}
+  relation: remediation
+  target: {kind: concept, ref: CON-ALG-QUAD-MIN}
+  priority: 1
+- id: RL-4
+  trigger: {type: misconception, ref: MC-ALG-9465}
+  relation: remediation
+  target: {kind: concept, ref: CON-ALG-TELESCOPING}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

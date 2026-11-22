@@ -1,0 +1,658 @@
+# 이화여대 2024학년도 수시 논술(자연계열Ⅱ) 문제 1 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: EWHA-G24B-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: EWHA
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 귀납구조
+points: 40
+time_estimate_min: 40
+intent: |
+  주어진 적분을 삼각함수의 덧셈정리와 로그함수의 기본 성질을 통해 치환적분하여 다루기 쉬운 형태로 변형하는 능력과 수학적 귀납법을 사용하여 적분값을 추론하는 능력을 평가한다(공식 출제의도 요지). 자연계열Ⅰ 문항 1의 (2)·(3)을 한 소문항으로 합친 형태로, 치환 과정을 유도하라는 안내 없이 귀납법까지 한 번에 구성해야 한다.
+key_idea: |
+  $I(a)=\int_{-\pi/2}^{\pi/2}\ln(a^2+1+2a\sin\theta)\,d\theta$에 대해 $2I(a)=I(a^2)$이므로 $I(a)=\dfrac{1}{2^n}I(a^{2^n})$이고, $I(a^{2^n})$은 $2\pi\ln(1\pm a^{2^n})$ 사이에 있어 $2^n$으로 나누면 0으로 수렴한다.
+stuck: |
+  $(a^2+1+2a\sin\theta)(a^2+1-2a\sin\theta)=a^4+1+2a^2\cos2\theta$로 묶은 뒤, $2\theta=t$ 치환으로 생긴 구간 $[-\pi,\pi]$를 둘로 나눠 $t\pm\frac{\pi}{2}$ 평행이동으로 다시 $[-\frac{\pi}{2},\frac{\pi}{2}]$의 사인 꼴로 되돌리는 단계
+idea_tags:
+- IDEA-FUNCTIONAL-EQ-DOUBLING
+- IDEA-INDUCTION-ITERATE
+- IDEA-SQUEEZE-LIMIT
+tags:
+- 로그 삼각 적분
+- 치환적분
+- 수학적 귀납법
+- 샌드위치 정리
+elements:
+  materials:
+  - 정적분 $\int_{-\pi/2}^{\pi/2}\ln(a^2+1+2a\sin\theta)\,d\theta$ $(-1<a<1)$
+  - $a$를 $a^{2^n}$으로 바꾼 적분열 $\int_{-\pi/2}^{\pi/2}\ln(a^{2^{n+1}}+1+2a^{2^n}\sin\theta)\,d\theta$
+  concepts:
+  - 치환적분법(적분 구간 변환)
+  - 로그의 성질 $\ln A+\ln B=\ln AB$
+  - 배각 공식 $1-2\sin^2\theta=\cos2\theta$
+  - 삼각함수의 성질 $\cos(x-\frac{\pi}{2})=\sin x$, $\cos(y+\frac{\pi}{2})=-\sin y$
+  - 수학적 귀납법
+  - 로그함수의 증가성과 정적분의 대소
+  - 등비수열의 극한, 수열의 극한의 대소 관계
+  tools:
+  - 치환 $\theta=-t$, $2\theta=t$, $x=t+\frac{\pi}{2}$, $y=t-\frac{\pi}{2}$
+  - 적분 구간 분할 $\int_{-\pi}^{\pi}=\int_{-\pi}^{0}+\int_0^{\pi}$
+  - $\beta=a^{2^k}$로 두고 $n=1$의 등식을 $\beta$에 적용
+  - $(1-a^{2^n})^2\le a^{2^{n+1}}+1+2a^{2^n}\sin\theta\le(1+a^{2^n})^2$
+  - 샌드위치 정리(수열의 극한의 대소 관계)
+  conditions:
+  - $-1<a<1$이므로 $0\le a^{2^n}<1$, 로그의 진수가 양수
+  - $-1\le\sin\theta\le1$
+  - $\lim_{n\to\infty}a^{2^n}=0$
+  stimuli_used: []
+  subpart_links: (2)는 (1)로 $n=1$ 단계(치환적분)를 만들고 귀납 단계까지 수행, (4)는 (2)와 (3)을 결합
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학Ⅰ
+  - 수학Ⅱ
+  - 미적분
+  scope_2028: calc2
+  scope_confirmed: true
+  standards:
+  - code: '[12미적03-01]'
+    text: 치환적분법을 이해하고, 이를 활용할 수 있다.
+    verified: true
+  - code: '[12미적02-03]'
+    text: 삼각함수의 덧셈정리를 이해한다.
+    verified: true
+  - code: '[12수학Ⅰ03-08]'
+    text: 수학적 귀납법을 이용하여 명제를 증명할 수 있다.
+    verified: true
+  - code: '[12수학Ⅰ01-07]'
+    text: 지수함수와 로그함수의 그래프를 그릴 수 있고, 그 성질을 이해한다.
+    verified: true
+  - code: '[12미적01-03]'
+    text: 등비수열의 극한값을 구할 수 있다.
+    verified: true
+  - code: '[12수학Ⅱ01-04]'
+    text: 연속함수의 성질을 이해하고, 이를 활용할 수 있다.
+    verified: true
+  content_area: 적분법 – 치환적분, 수열의 극한
+  behavior_domain: 추론
+  unit_path:
+  - 미적분
+  - 적분법
+  - 여러 가지 적분법
+  - 치환적분법
+  key_concepts:
+  - 치환적분법
+  - 삼각함수의 덧셈정리
+  - 수학적 귀납법
+  - 수열의 극한의 대소 관계
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 이화여자대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 이화여자대학교
+  admission_year: 2024
+  admission_type: 수시 논술전형
+  track: 자연계열Ⅱ
+  question_no: 1
+  official_url: https://admission.ewha.ac.kr/admission/html/rolling/lecture-info.asp
+  retrieved_at: 2026-11-21
+  original_points:
+  - 5
+  - 25
+  - 5
+  - 5
+  transcribed_from: 이화여대 「2024 논술고사 문제지(자연 Ⅱ)」 p.3(문제지 1/3쪽), 「(이화여대)2024 논술고사 자연계열 Ⅱ_답안」 pp.1-7, 「2024학년도 선행학습 영향평가 자체평가보고서」 pp.88-89 (원본 PDF 이미지 대조 완료 2026-11-21)
+verify: verify/EWHA-G24B.py::p01
+stimuli: []
+stem: |
+  실수 $a$가 $-1<a<1$일 때 다음 물음에 답하시오. [40점]
+subparts:
+- id: '1'
+  stem: |
+    다음 등식이 성립함을 보이시오.
+    $$\int_{-\frac{\pi}{2}}^{\frac{\pi}{2}}\ln(a^2+1-2a\sin\theta)\,d\theta=\int_{-\frac{\pi}{2}}^{\frac{\pi}{2}}\ln(a^2+1+2a\sin\theta)\,d\theta$$
+  points: 5
+  depends_on: []
+  answer:
+    kind: proof
+    value: null
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $\theta=-t$로 치환하면 $\sin\theta=-\sin t$이고 구간이 뒤집혀 $-1$과 상쇄된다.
+    steps:
+    - id: 1a
+      content: '$\theta=-t$: $\int_{-\pi/2}^{\pi/2}\ln(a^2+1-2a\sin\theta)d\theta=\int_{\pi/2}^{-\pi/2}\ln(a^2+1+2a\sin t)(-1)dt$'
+      criteria:
+      - 1.M1
+      - 1.A1
+    hint_ladder:
+    - $\sin(-t)=-\sin t$를 이용할 수 있는 치환은?
+  - id: S1-B
+    audience: B
+    source_flow: (이화여대)2024 논술고사 자연계열 Ⅱ_답안 p.4 [풀이] 1-(1)
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        $\theta=-t$로 치환하면 $d\theta=-dt$, $t$는 $\frac{\pi}{2}$에서 $-\frac{\pi}{2}$까지 변하고 $\sin\theta=\sin(-t)=-\sin t$이므로
+        $$\int_{-\frac{\pi}{2}}^{\frac{\pi}{2}}\ln(a^2+1-2a\sin\theta)\,d\theta=\int_{\frac{\pi}{2}}^{-\frac{\pi}{2}}\ln(a^2+1+2a\sin t)(-1)\,dt$$
+      criteria:
+      - 1.M1
+    - id: 1b-2
+      content: |
+        적분 구간을 뒤집으면 $(-1)$이 상쇄되어 $\displaystyle\int_{-\frac{\pi}{2}}^{\frac{\pi}{2}}\ln(a^2+1+2a\sin t)\,dt$가 되고, 이는 오른쪽 적분과 같다. ■
+      criteria:
+      - 1.A1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 3
+      evidence: |
+        $\theta=-t$로 치환하여 $\displaystyle\int_{\frac{\pi}{2}}^{-\frac{\pi}{2}}\ln(a^2+1+2a\sin t)(-1)\,dt$ 꼴을 적었다.
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 1b-1
+    - id: 1.A1
+      mark_type: A
+      points: 2
+      evidence: |
+        구간을 뒤집어 $\displaystyle\int_{-\frac{\pi}{2}}^{\frac{\pi}{2}}\ln(a^2+1+2a\sin t)\,dt$와 같음을 보였다.
+      depends_on:
+      - 1.M1
+      steps:
+      - 1b-2
+    deductions: []
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  - code: '71'
+    misconception: MC-CAL-9250
+  misconceptions:
+  - id: MC-CAL-9250
+    outcome_code: '71'
+    wrong_work: $\theta=-t$로 바꾸고 구간을 그대로 $[-\frac{\pi}{2},\frac{\pi}{2}]$로 둔 채 $dt$ 앞의 $-1$도 생략
+    detect_cue: 치환 뒤 적분 구간과 $d\theta=-dt$가 함께 처리되지 않았다(우연히 상쇄된 결과만 적음)
+    feedback: 치환하면 구간이 $\frac{\pi}{2}\to-\frac{\pi}{2}$로 뒤집히고 $d\theta=-dt$가 생깁니다. 두 부호가 상쇄됨을 식으로 보이세요.
+    remedy:
+    - RL-1
+- id: '2'
+  stem: |
+    문항 (1)로부터 다음 등식이 모든 자연수 $n$에 대하여 성립함을 보이시오.
+    $$\int_{-\frac{\pi}{2}}^{\frac{\pi}{2}}\ln(a^2+1+2a\sin\theta)\,d\theta=\frac{1}{2^n}\int_{-\frac{\pi}{2}}^{\frac{\pi}{2}}\ln(a^{2^{n+1}}+1+2a^{2^n}\sin\theta)\,d\theta$$
+  points: 25
+  depends_on:
+  - '1'
+  answer:
+    kind: proof
+    value: null
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: (1)로 $2I(a)=I(a^2)$를 만든 뒤(치환 $2\theta=t$, $t\pm\frac{\pi}{2}$), $\beta=a^{2^k}$에 반복 적용하는 귀납법으로 마무리한다.
+    steps:
+    - id: 2a
+      content: $2I=\int\ln\{(a^2+1)^2-4a^2\sin^2\theta\}d\theta=\int\ln(a^4+1+2a^2\cos2\theta)d\theta=\tfrac12\int_{-\pi}^{\pi}\ln(a^4+1+2a^2\cos t)dt$
+      criteria:
+      - 2.R1
+      - 2.M1
+      - 2.M2
+      - 2.M4
+    hint_ladder:
+    - (1)의 두 적분을 더해 보자. 로그 두 개를 하나로 묶으면?
+    - $1-2\sin^2\theta$는 무엇인가?
+    - 구간 $[-\pi,\pi]$를 반으로 나누고 각각 $\frac{\pi}{2}$만큼 옮기면 코사인이 사인이 된다.
+    - $n=1$ 단계를 증명했다면, 같은 결과를 $a^{2^k}$에 적용할 수 있는가?
+  - id: S2-B
+    audience: B
+    source_flow: (이화여대)2024 논술고사 자연계열 Ⅱ_답안 pp.4-6 [풀이] 1-(2), 채점 기준 p.3
+    method_no: 1
+    steps:
+    - id: 2b-1
+      content: |
+        문항 (1)에 의하여
+        $$2\int_{-\frac{\pi}{2}}^{\frac{\pi}{2}}\ln(a^2+1+2a\sin\theta)\,d\theta=\int_{-\frac{\pi}{2}}^{\frac{\pi}{2}}\ln(a^2+1+2a\sin\theta)\,d\theta+\int_{-\frac{\pi}{2}}^{\frac{\pi}{2}}\ln(a^2+1-2a\sin\theta)\,d\theta$$
+      criteria:
+      - 2.R1
+    - id: 2b-2
+      content: |
+        $\ln A+\ln B=\ln AB$와 $1-2\sin^2\theta=\cos2\theta$를 이용하면
+        $$(\text{위 식})=\int_{-\frac{\pi}{2}}^{\frac{\pi}{2}}\ln\{a^4+1+2a^2(1-2\sin^2\theta)\}\,d\theta=\int_{-\frac{\pi}{2}}^{\frac{\pi}{2}}\ln(a^4+1+2a^2\cos2\theta)\,d\theta$$
+      criteria:
+      - 2.M1
+    - id: 2b-3
+      content: |
+        $2\theta=t$로 치환하면 $\displaystyle\int_{-\frac{\pi}{2}}^{\frac{\pi}{2}}\ln(a^4+1+2a^2\cos2\theta)\,d\theta=\frac12\int_{-\pi}^{\pi}\ln(a^4+1+2a^2\cos t)\,dt$이고, 이 적분을 $\displaystyle\int_{-\pi}^{0}+\int_{0}^{\pi}$로 나눈다.
+      criteria:
+      - 2.M2
+    - id: 2b-4
+      content: |
+        $x=t+\frac{\pi}{2}$로 치환하면 $\cos t=\cos(x-\frac{\pi}{2})=\sin x$이므로 $\displaystyle\int_{-\pi}^{0}\ln(a^4+1+2a^2\cos t)\,dt=\int_{-\frac{\pi}{2}}^{\frac{\pi}{2}}\ln(a^4+1+2a^2\sin x)\,dx$.
+        $y=t-\frac{\pi}{2}$로 치환하면 $\cos t=\cos(y+\frac{\pi}{2})=-\sin y$이므로 $\displaystyle\int_{0}^{\pi}\ln(a^4+1+2a^2\cos t)\,dt=\int_{-\frac{\pi}{2}}^{\frac{\pi}{2}}\ln(a^4+1-2a^2\sin y)\,dy$.
+      criteria:
+      - 2.M3
+    - id: 2b-5
+      content: |
+        문항 (1)을 $a^2$($-1<a^2<1$)에 적용하면(또는 $\theta=-y$로 치환하면) $\displaystyle\int_{-\frac{\pi}{2}}^{\frac{\pi}{2}}\ln(a^4+1-2a^2\sin y)\,dy=\int_{-\frac{\pi}{2}}^{\frac{\pi}{2}}\ln(a^4+1+2a^2\sin\theta)\,d\theta$이다. 따라서
+        $$2\int_{-\frac{\pi}{2}}^{\frac{\pi}{2}}\ln(a^2+1+2a\sin\theta)\,d\theta=\frac12\cdot2\int_{-\frac{\pi}{2}}^{\frac{\pi}{2}}\ln(a^4+1+2a^2\sin\theta)\,d\theta=\int_{-\frac{\pi}{2}}^{\frac{\pi}{2}}\ln(a^4+1+2a^2\sin\theta)\,d\theta \quad$$
+        즉 $n=1$일 때 주어진 등식이 성립한다.
+      criteria:
+      - 2.A1
+    - id: 2b-6
+      content: |
+        $n=k$일 때 $\displaystyle\int_{-\frac{\pi}{2}}^{\frac{\pi}{2}}\ln(a^2+1+2a\sin\theta)d\theta=\frac{1}{2^k}\int_{-\frac{\pi}{2}}^{\frac{\pi}{2}}\ln(a^{2^{k+1}}+1+2a^{2^k}\sin\theta)d\theta$가 성립한다고 가정한다. $\beta=a^{2^k}$라 하면 $0\le\beta<1$이고 $a^{2^{k+1}}=(a^{2^k})^2=\beta^2$, $a^{2^{k+2}}=(a^{2^{k+1}})^2=\beta^4$이다.
+      criteria:
+      - 2.B1
+    - id: 2b-7
+      content: |
+        $-1<\beta<1$이므로 위에서 보인 $n=1$의 등식을 $\beta$에 적용하면
+        $$\frac{1}{2^k}\int\ln(\beta^2+1+2\beta\sin\theta)d\theta=\frac{1}{2^k}\cdot\frac12\int\ln(\beta^4+1+2\beta^2\sin\theta)d\theta=\frac{1}{2^{k+1}}\int_{-\frac{\pi}{2}}^{\frac{\pi}{2}}\ln(a^{2^{k+2}}+1+2a^{2^{k+1}}\sin\theta)d\theta$$
+      criteria:
+      - 2.M4
+    - id: 2b-8
+      content: |
+        따라서 $n=k+1$일 때도 성립하고, 수학적 귀납법에 의하여 주어진 등식은 모든 자연수 $n$에 대하여 성립한다. ■
+      criteria:
+      - 2.A2
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 2.R1
+      mark_type: R
+      points: 3
+      evidence: |
+        문항 (1)을 근거로 $2\int\ln(a^2+1+2a\sin\theta)d\theta$를 $+$ 적분과 $-$ 적분의 합으로 썼다.
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 2b-1
+    - id: 2.M1
+      mark_type: M
+      points: 4
+      evidence: |
+        로그를 묶고 $1-2\sin^2\theta=\cos2\theta$를 써서 $\int\ln(a^4+1+2a^2\cos2\theta)d\theta$를 얻었다.
+      depends_on:
+      - 2.R1
+      implied_ok: false
+      steps:
+      - 2b-2
+    - id: 2.M2
+      mark_type: M
+      points: 4
+      evidence: |
+        $2\theta=t$로 치환하여 $\frac12\int_{-\pi}^{\pi}\ln(a^4+1+2a^2\cos t)dt$를 얻고 $\int_{-\pi}^{0}+\int_0^{\pi}$로 나누었다.
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 2b-3
+    - id: 2.M3
+      mark_type: M
+      points: 4
+      evidence: |
+        $x=t+\frac{\pi}{2}$, $y=t-\frac{\pi}{2}$ 치환으로 두 적분을 각각 $\int_{-\pi/2}^{\pi/2}\ln(a^4+1+2a^2\sin x)dx$, $\int_{-\pi/2}^{\pi/2}\ln(a^4+1-2a^2\sin y)dy$로 바꾸었다.
+      depends_on:
+      - 2.M2
+      implied_ok: false
+      steps:
+      - 2b-4
+    - id: 2.A1
+      mark_type: A
+      points: 3
+      evidence: |
+        문항 (1)(또는 $\theta=-y$ 치환)으로 $-$ 적분을 $+$ 적분으로 바꾸어 $\int\ln(a^2+1+2a\sin\theta)d\theta=\frac12\int\ln(a^4+1+2a^2\sin\theta)d\theta$, 즉 $n=1$일 때 성립함을 확인했다.
+      depends_on:
+      - 2.M3
+      steps:
+      - 2b-5
+    - id: 2.B1
+      mark_type: R
+      points: 2
+      evidence: |
+        $n=k$일 때 등식이 성립한다고 가정하고 $0\le a^{2^{k+1}}<1$, $a^{2^{k+1}}=(a^{2^k})^2$, $a^{2^{k+2}}=(a^{2^{k+1}})^2$임을 언급했다.
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 2b-6
+    - id: 2.M4
+      mark_type: M
+      points: 3
+      evidence: |
+        가정과 $n=1$의 등식을 $a^{2^k}$에 적용하여 $\frac{1}{2^{k+1}}\int\ln(a^{2^{k+2}}+1+2a^{2^{k+1}}\sin\theta)d\theta$를 유도했다.
+      depends_on:
+      - 2.B1
+      implied_ok: false
+      steps:
+      - 2b-7
+    - id: 2.A2
+      mark_type: A
+      points: 2
+      evidence: |
+        수학적 귀납법에 의하여 모든 자연수 $n$에 대하여 성립한다고 결론을 적었다.
+      depends_on:
+      - 2.M4
+      steps:
+      - 2b-8
+    deductions: []
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  - code: '71'
+    misconception: MC-CAL-9251
+  - code: '72'
+    misconception: MC-CAL-9252
+  - code: '73'
+    misconception: MC-PRF-9253
+  misconceptions:
+  - id: MC-CAL-9251
+    outcome_code: '71'
+    wrong_work: $\int_{-\pi/2}^{\pi/2}\ln(a^4+1+2a^2\cos2\theta)d\theta=\int_{-\pi}^{\pi}\ln(a^4+1+2a^2\cos t)dt$
+    detect_cue: $2\theta=t$ 치환 뒤 $\frac12$이 없어 최종 식의 계수가 2배로 나온다
+    feedback: $d\theta=\frac12dt$입니다. 계수 $\frac12$이 마지막에 두 적분의 합 2와 상쇄되어 등식이 완성됩니다.
+    remedy:
+    - RL-2
+  - id: MC-CAL-9252
+    outcome_code: '72'
+    wrong_work: $\frac12\int_{-\pi}^{\pi}\ln(a^4+1+2a^2\cos t)dt$에서 멈추거나, 코사인을 그대로 둔 채 구간만 $[-\frac{\pi}{2},\frac{\pi}{2}]$로 바꿈
+    detect_cue: 구간 분할과 $t\pm\frac{\pi}{2}$ 평행이동 치환이 없다
+    feedback: $[-\pi,0]$과 $[0,\pi]$를 각각 $\frac{\pi}{2}$만큼 옮기면 $\cos$가 $\pm\sin$이 되어 원래 구간으로 돌아옵니다.
+    remedy:
+    - RL-2
+  - id: MC-PRF-9253
+    outcome_code: '73'
+    wrong_work: 「(2)를 반복하면 성립」이라고만 쓰고 $a^{2^k}$에 (2)를 적용할 수 있는 근거($-1<a^{2^k}<1$)를 밝히지 않음
+    detect_cue: 귀납 단계에 $0\le a^{2^k}<1$ 같은 조건 확인이 없다
+    feedback: (2)는 $-1<a<1$일 때의 결과입니다. 새 변수 $a^{2^k}$도 이 조건을 만족함을 밝힌 뒤 적용하세요.
+    remedy:
+    - RL-3
+- id: '3'
+  stem: |
+    다음 부등식이 모든 자연수 $n$에 대하여 성립함을 보이시오.
+    $$2\pi\ln(1-a^{2^n})\le\int_{-\frac{\pi}{2}}^{\frac{\pi}{2}}\ln(a^{2^{n+1}}+1+2a^{2^n}\sin\theta)\,d\theta\le2\pi\ln(1+a^{2^n})$$
+  points: 5
+  depends_on: []
+  answer:
+    kind: proof
+    value: null
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: $\sin\theta=\pm1$에서 진수가 $(1\pm a^{2^n})^2$이 되므로 진수를 위아래로 누르고 로그의 증가성을 쓴다.
+    steps:
+    - id: 3a
+      content: $(1-a^{2^n})^2\le a^{2^{n+1}}+1+2a^{2^n}\sin\theta\le(1+a^{2^n})^2$, $\int_{-\pi/2}^{\pi/2}\ln(1\pm a^{2^n})^2d\theta=2\pi\ln(1\pm a^{2^n})$
+      criteria:
+      - 3.R1
+      - 3.M1
+      - 3.A1
+    hint_ladder:
+    - $\sin\theta$ 대신 $\pm1$을 넣으면 진수는 어떤 완전제곱식이 되는가?
+  - id: S3-B
+    audience: B
+    source_flow: (이화여대)2024 논술고사 자연계열 Ⅱ_답안 pp.6-7 [풀이] 1-(3)
+    method_no: 1
+    steps:
+    - id: 3b-1
+      content: |
+        $-1<a<1$이므로 $0\le a^{2^n}<1$이고, $\theta\in[-\frac{\pi}{2},\frac{\pi}{2}]$에서 $-1\le\sin\theta\le1$이므로
+        $$(1-a^{2^n})^2=a^{2^{n+1}}+1+2a^{2^n}(-1)\le a^{2^{n+1}}+1+2a^{2^n}\sin\theta\le a^{2^{n+1}}+1+2a^{2^n}\cdot1=(1+a^{2^n})^2$$
+      criteria:
+      - 3.R1
+    - id: 3b-2
+      content: |
+        밑이 1보다 큰 로그함수는 증가함수이므로
+        $$\int_{-\frac{\pi}{2}}^{\frac{\pi}{2}}\ln(1-a^{2^n})^2d\theta\le\int_{-\frac{\pi}{2}}^{\frac{\pi}{2}}\ln(a^{2^{n+1}}+1+2a^{2^n}\sin\theta)d\theta\le\int_{-\frac{\pi}{2}}^{\frac{\pi}{2}}\ln(1+a^{2^n})^2d\theta$$
+      criteria:
+      - 3.M1
+    - id: 3b-3
+      content: |
+        $\ln(1\pm a^{2^n})^2=2\ln(1\pm a^{2^n})$은 $\theta$에 대하여 상수이므로 $\displaystyle\int_{-\frac{\pi}{2}}^{\frac{\pi}{2}}\ln(1\pm a^{2^n})^2d\theta=2\ln(1\pm a^{2^n})\cdot\pi=2\pi\ln(1\pm a^{2^n})$이고, 주어진 부등식이 성립한다. ■
+      criteria:
+      - 3.A1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 3.R1
+      mark_type: R
+      points: 2
+      evidence: |
+        $0\le a^{2^n}<1$을 언급하고 $(1-a^{2^n})^2\le a^{2^{n+1}}+1+2a^{2^n}\sin\theta\le(1+a^{2^n})^2$을 보였다.
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 3b-1
+    - id: 3.M1
+      mark_type: M
+      points: 2
+      evidence: |
+        로그함수(증가함수)를 적용하여 세 적분의 부등식을 세웠다.
+      depends_on:
+      - 3.R1
+      implied_ok: false
+      steps:
+      - 3b-2
+    - id: 3.A1
+      mark_type: A
+      points: 1
+      evidence: |
+        양 끝 적분을 $2\pi\ln(1\pm a^{2^n})$으로 계산해 결론을 적었다.
+      depends_on:
+      - 3.M1
+      steps:
+      - 3b-3
+    deductions: []
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  - code: '74'
+    misconception: MC-CAL-9254
+  misconceptions:
+  - id: MC-CAL-9254
+    outcome_code: '74'
+    wrong_work: $\int_{-\pi/2}^{\pi/2}\ln(1+a^{2^n})^2d\theta=\pi\ln(1+a^{2^n})$ 또는 $2\ln(1+a^{2^n})$
+    detect_cue: 계수 2(로그의 지수) 또는 구간 길이 $\pi$ 중 하나가 빠졌다
+    feedback: $\ln(1\pm a^{2^n})^2=2\ln(1\pm a^{2^n})$이고, 상수를 길이 $\pi$인 구간에서 적분하면 $\pi$배가 됩니다.
+    remedy:
+    - RL-4
+- id: '4'
+  stem: |
+    다음 정적분을 수열의 극한의 대소관계를 이용하여 계산하시오.
+    $$\int_{-\frac{\pi}{2}}^{\frac{\pi}{2}}\ln(a^2+1+2a\sin\theta)\,d\theta$$
+  points: 5
+  depends_on:
+  - '2'
+  - '3'
+  answer:
+    kind: value
+    value: '0'
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S4-A
+    audience: A
+    method_no: 1
+    key_idea: (2)와 (3)를 합치면 적분값이 $\frac{2\pi\ln(1\pm a^{2^n})}{2^n}$ 사이에 있고 양쪽이 모두 0으로 수렴한다.
+    steps:
+    - id: 4a
+      content: $\dfrac{2\pi\ln(1-a^{2^n})}{2^n}\le I\le\dfrac{2\pi\ln(1+a^{2^n})}{2^n}\to0$이므로 $I=0$
+      criteria:
+      - 4.M1
+      - 4.A1
+      - 4.R1
+    hint_ladder:
+    - (2)의 오른쪽 적분을 (3)으로 눌러 보자.
+    - $n\to\infty$일 때 $a^{2^n}$은?
+  - id: S4-B
+    audience: B
+    source_flow: (이화여대)2024 논술고사 자연계열 Ⅱ_답안 p.7 [풀이] 1-(4)
+    method_no: 1
+    steps:
+    - id: 4b-1
+      content: |
+        문항 (2)의 등식과 문항 (3)의 부등식으로부터 모든 자연수 $n$에 대하여
+        $$\frac{2\pi\ln(1-a^{2^n})}{2^n}\le\int_{-\frac{\pi}{2}}^{\frac{\pi}{2}}\ln(a^2+1+2a\sin\theta)\,d\theta\le\frac{2\pi\ln(1+a^{2^n})}{2^n}$$
+      criteria:
+      - 4.M1
+    - id: 4b-2
+      content: |
+        $-1<a<1$이므로 $\lim_{n\to\infty}a^{2^n}=0$이고 로그함수는 연속이므로 $\lim_{n\to\infty}\ln(1\pm a^{2^n})=\ln1=0$, 또 $\lim_{n\to\infty}\frac{2\pi}{2^n}=0$이다. 따라서 $\displaystyle\lim_{n\to\infty}\frac{2\pi\ln(1+a^{2^n})}{2^n}=0$, $\displaystyle\lim_{n\to\infty}\frac{2\pi\ln(1-a^{2^n})}{2^n}=0$.
+      criteria:
+      - 4.A1
+    - id: 4b-3
+      content: |
+        수열의 극한의 대소 관계(샌드위치 정리)에 의하여 $\displaystyle\int_{-\frac{\pi}{2}}^{\frac{\pi}{2}}\ln(a^2+1+2a\sin\theta)\,d\theta=0$이다.
+      criteria:
+      - 4.R1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 4.M1
+      mark_type: M
+      points: 2
+      evidence: |
+        (2)와 (3)를 결합해 $\frac{2\pi\ln(1-a^{2^n})}{2^n}\le\int\ln(a^2+1+2a\sin\theta)d\theta\le\frac{2\pi\ln(1+a^{2^n})}{2^n}$을 적었다.
+      depends_on: []
+      implied_ok: false
+      ft:
+        allowed: true
+        from:
+        - 2.A2
+        - 3.A1
+        max_points: 2
+      steps:
+      - 4b-1
+    - id: 4.A1
+      mark_type: A
+      points: 2
+      evidence: |
+        양쪽 수열의 극한이 모두 0임을 구했다.
+      depends_on:
+      - 4.M1
+      steps:
+      - 4b-2
+    - id: 4.R1
+      mark_type: R
+      points: 1
+      evidence: |
+        샌드위치 정리(극한의 대소 관계)에 의하여 적분값이 $0$이라고 결론지었다.
+      depends_on:
+      - 4.A1
+      implied_ok: false
+      cao: true
+      steps:
+      - 4b-3
+    deductions: []
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  - code: '75'
+    misconception: MC-CAL-9255
+  misconceptions:
+  - id: MC-CAL-9255
+    outcome_code: '75'
+    wrong_work: 「$a^{2^n}\to0$이므로 적분값은 $2\pi\ln1=0$」처럼 $\frac{1}{2^n}$ 없이 (3)의 양 끝만으로 결론
+    detect_cue: $2^n$으로 나눈 양쪽 수열이 없고, 적분값 자체가 $n$에 무관함을 쓰지 않았다
+    feedback: (3)으로 적분값을 $\frac{1}{2^n}$배 꼴로 바꾼 뒤 (3)을 적용하고, 양쪽 수열의 극한이 같음을 보인 다음 샌드위치 정리를 쓰세요.
+    remedy:
+    - RL-5
+remedy_links:
+- id: RL-1
+  trigger:
+    type: misconception
+    ref: MC-CAL-9250
+  relation: remediation
+  target:
+    kind: concept
+    ref: CON-CAL-SUBST-INTERVAL
+  priority: 1
+- id: RL-2
+  trigger:
+    type: misconception
+    ref: MC-CAL-9252
+  relation: remediation
+  target:
+    kind: concept
+    ref: CON-CAL-TRIG-ADDITION
+  priority: 1
+- id: RL-3
+  trigger:
+    type: misconception
+    ref: MC-PRF-9253
+  relation: remediation
+  target:
+    kind: concept
+    ref: CON-ALG-INDUCTION
+  priority: 1
+- id: RL-4
+  trigger:
+    type: misconception
+    ref: MC-CAL-9254
+  relation: remediation
+  target:
+    kind: concept
+    ref: CON-CAL-SQUEEZE
+  priority: 2
+- id: RL-5
+  trigger:
+    type: misconception
+    ref: MC-CAL-9255
+  relation: remediation
+  target:
+    kind: concept
+    ref: CON-CAL-SQUEEZE
+  priority: 1
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: opus
+  prompt_version: p3-past-v1
+  item_version: 1
+  verdict: pass
+  date: 2026-11-21
+created: 2026-11-21
+updated: 2026-11-21

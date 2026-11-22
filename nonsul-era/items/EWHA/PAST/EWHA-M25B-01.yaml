@@ -1,0 +1,328 @@
+# 이화여대 2025학년도 수시 모의논술(자연계열Ⅱ) 문제 1 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: EWHA-M25B-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: EWHA
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 추론
+points: 30
+time_estimate_min: 25
+intent: |
+  정적분과 급수의 합 사이의 관계를 바탕으로 두 곡선으로 둘러싸인 도형의 넓이를 구한다. 이차함수의 성질과 조건으로 교점을 찾고, 닫힌구간에서 연속함수의 성질·두 곡선 사이 넓이의 정적분 표현·정적분의 성질로 두 함수의 대소를 논리적으로 밝히며, $y$축 대칭 함수의 정적분 성질을 적용하는지 평가한다(공식 출제의도 요지).
+key_idea: |
+  (라)는 $\int_0^2\{f(x)+g(x)\}dx=-6$이고, 교점이 $x=\pm2$뿐이므로 $f-g$는 $(-2,2)$에서 부호가 일정하다. $\int_0^2(f-g)dx=\tfrac23>0$으로 부호를 결정한다.
+stuck: |
+  $f$를 모르는 채로 $f-g$의 부호를 교점이 두 개뿐이라는 조건(사잇값 정리)과 적분값의 부호로 결정하는 것
+idea_tags: [IDEA-RIEMANN-SUM-TO-INTEGRAL, IDEA-SIGN-BY-INTEGRAL-AND-IVT]
+tags: [정적분과 급수, 우함수, 두 곡선 사이 넓이, 미지 함수]
+elements:
+  materials:
+  - '실수 전체에서 연속인 미지 함수 $f(x)$'
+  - '이차함수 $g(x)=x^2-3$'
+  - '조건 (가) $f(2)=1$, (나) $f$는 우함수, (다) 교점 두 개, (라) 구분구적 극한'
+  concepts:
+  - '정적분과 급수의 합 사이의 관계'
+  - '연속함수의 성질(사잇값 정리)'
+  - '두 곡선 사이의 넓이'
+  - '우함수의 정적분'
+  tools:
+  - '$\lim_{n\to\infty}\tfrac1n\sum_{k=1}^{2n}h\left(\tfrac kn\right)=\int_0^2h(x)dx$'
+  - '$\int_0^2(f-g)dx=\int_0^2(f+g)dx-2\int_0^2g\,dx$'
+  - '$\int_{-2}^2=2\int_0^2$ (우함수)'
+  conditions:
+  - '$f(\pm2)=g(\pm2)=1$'
+  - '교점은 서로 다른 두 점뿐'
+  stimuli_used: []
+  subpart_links: '(2)는 (1)의 $a=-2$, $b=2$를, (3)은 (2)의 $f\ge g$를 사용'
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅱ, 미적분]
+  scope_2028: calc2
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: '출제근거(교과서) — 수학Ⅱ(이준열 외, 천재교육) 연속함수의 성질 pp.35-40, 정적분 pp.121-127, 도형의 넓이 pp.132-139; 수학Ⅱ(황선욱 외, 미래엔) 연속함수의 성질 pp.35-39, 정적분 pp.122-128, 넓이 pp.135-141; 미적분(이준열 외, 천재교육) 정적분과 급수의 합 사이의 관계 pp.164-167; 미적분(황선욱 외, 미래엔) 정적분과 급수의 합 사이의 관계 pp.161-165'
+    verified: false
+  content_area: 정적분과 급수 · 넓이
+  behavior_domain: 추론
+  unit_path: [미적분, 적분법, 정적분의 활용, 정적분과 급수의 합 사이의 관계]
+  key_concepts: [정적분과 급수의 합, 사잇값 정리, 두 곡선 사이의 넓이, 우함수의 정적분]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 이화여자대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 이화여자대학교
+  admission_year: 2025
+  admission_type: 수시 모의논술
+  track: 자연계열Ⅱ
+  question_no: 1
+  official_url: https://admission.ewha.ac.kr/admission/html/rolling/lecture-info.asp
+  retrieved_at: 2026-11-21
+  original_points: [30]
+  rights_notice: 소문항별 배점은 공개되지 않음(문항 전체 30점). 소문항 배점 8·12·10은 DB 입력용 추정 배분. 문제지 (2)의 「문항 (1)]에서」의 ']'는 원문 그대로(해설 쪽 p.52에는 「문항 (1)에서」)
+  transcribed_from: 「2025학년도 수시모집 논술고사 안내」 p.23(문제지), pp.52-53(출제의도·우수답안 및 해설) (원본 PDF 이미지 대조 완료 2026-11-21)
+
+verify: verify/EWHA-M25B.py::p01
+
+stimuli:
+- label: 조건
+  body: |
+    (가) $f(2)=1$
+    (나) 모든 실수 $x$에 대하여 $f(x)=f(-x)$이다.
+    (다) 두 함수 $y=f(x)$와 $y=g(x)$의 그래프는 서로 다른 두 점에서만 만난다.
+    (라) $\displaystyle\lim_{n\to\infty}\frac1n\sum_{k=1}^{2n}\left\{f\left(\frac kn\right)+g\left(\frac kn\right)\right\}=-6$
+
+stem: |
+  실수 전체의 집합에서 연속인 함수 $f(x)$와 이차함수 $g(x)=x^2-3$가 다음 조건을 만족시킬 때, 아래 물음에 답하시오. [30점]
+
+subparts:
+- id: '1'
+  stem: |
+    두 함수 $y=f(x)$와 $y=g(x)$의 그래프가 만나는 점의 좌표를 모두 구하시오.
+  points: 8
+  depends_on: []
+  answer: {kind: set, value: '{(-2,1),(2,1)}', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $f(\pm2)=1=g(\pm2)$이고 (다)에 의해 교점은 이 둘뿐.
+    steps:
+    - {id: 1a, content: '$(-2,1)$, $(2,1)$', criteria: ['1.B1', '1.R1']}
+    hint_ladder:
+    - $g(2)$의 값은?
+    - (나)를 쓰면 $f(-2)$는?
+  - id: S1-B
+    audience: B
+    source_flow: 「2025 논술고사 안내」 우수답안 및 해설 p.53
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        조건 (가)와 (나)에 의해 $f(2)=f(-2)=1$이므로 $f(2)=f(-2)=g(2)=g(-2)=1$이다.
+      criteria: ['1.B1']
+    - id: 1b-2
+      content: |
+        조건 (다)에 의해 교점은 서로 다른 두 점뿐이므로, 두 함수 $y=f(x)$, $y=g(x)$의 그래프가 만나는 두 점의 좌표는 $(-2,1)$과 $(2,1)$이다.
+      criteria: ['1.R1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.B1
+      mark_type: B
+      points: 5
+      evidence: |
+        (가)·(나)로 $f(\pm2)=1$, 그리고 $g(\pm2)=1$을 보였다.
+      depends_on: []
+      steps: [1b-1, 1a]
+    - id: 1.R1
+      mark_type: R
+      points: 3
+      evidence: |
+        (다)를 근거로 교점이 $(-2,1)$, $(2,1)$뿐이라고 밝혔다.
+      depends_on: [1.B1]
+      steps: [1b-2, 1a]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-PRF-9411}
+  misconceptions:
+  - id: MC-PRF-9411
+    outcome_code: '71'
+    wrong_work: '$f(x)=ax^2+b$로 두고 (가)·(라)로 $a,b$를 정해 $f=g$를 풂'
+    detect_cue: 문제에 없는 구체적 함수식을 $f$로 가정했다
+    feedback: $f$는 조건만 주어진 일반 함수입니다. 조건 (가)~(다)만으로 교점을 결정할 수 있습니다.
+    remedy: [RL-1]
+
+- id: '2'
+  stem: |
+    문항 (1)]에서 구한 두 점의 $x$좌표를 각각 $a,b$ $(a<b)$라 하자. $a\le x\le b$일 때, 부등식 $f(x)\ge g(x)$이 성립함을 보이시오.
+  points: 12
+  depends_on: ['1']
+  answer: {kind: proof, value: null, equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: (라) $\Rightarrow\int_0^2(f+g)=-6$, $\int_0^2(f-g)=\tfrac23>0$; 교점이 없으므로 부호 일정.
+    steps:
+    - {id: 2a, content: '$\int_0^2(f-g)dx=-6+\tfrac{20}{3}=\tfrac23>0$', criteria: ['2.M1', '2.A1', '2.R1', '2.R2']}
+    hint_ladder:
+    - (라)의 극한은 어떤 정적분인가?
+    - $-2<x<2$에서 $f-g$가 $0$이 될 수 있는가?
+  - id: S2-B
+    audience: B
+    source_flow: 「2025 논술고사 안내」 우수답안 및 해설 p.53
+    method_no: 1
+    steps:
+    - id: 2b-1
+      content: |
+        문항 $(1)$의 결과로부터 $a=-2$, $b=2$이고, 조건 (다)에 의해 $-2\le x\le2$에서 $f(x)-g(x)\ge0$ 또는 $f(x)-g(x)\le0$이다(연속함수 $f-g$가 $(-2,2)$에서 $0$이 되지 않으므로 부호가 바뀌지 않는다).
+      criteria: ['2.R1']
+    - id: 2b-2
+      content: |
+        조건 (라)에 의해 $\displaystyle\int_0^2\{f(x)+g(x)\}dx=-6$임을 알 수 있고, $2\displaystyle\int_0^2g(x)dx=2\int_0^2(x^2-3)dx=-\frac{10}{3}$이므로
+        $$\int_0^2\{f(x)-g(x)\}dx=\int_0^2\{f(x)+g(x)\}dx-2\int_0^2g(x)dx=\frac23>0$$
+        이 된다. (공식 해설 p.53은 이 단계를 「조건 (다)에 의해」라고 적었으나 조건 (라)의 오기로 보인다.)
+      criteria: ['2.M1', '2.A1']
+    - id: 2b-3
+      content: |
+        $0\le x\le2$에서 $f(x)-g(x)$의 부호는 변하지 않으므로 $\lvert f(x)-g(x)\rvert=f(x)-g(x)$ 또는 $\lvert f(x)-g(x)\rvert=g(x)-f(x)$이다. $\displaystyle\int_0^2\{f(x)-g(x)\}dx=\frac23>0$이므로 $0\le x\le2$에서 $f(x)-g(x)=\lvert f(x)-g(x)\rvert\ge0$이다.
+      criteria: ['2.R2']
+    - id: 2b-4
+      content: |
+        $f(-x)=f(x)$, $g(-x)=g(x)$ 역시 만족하므로 $-2\le x\le2$에서 $f(x)\ge g(x)$이다. ■
+      criteria: ['2.R2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 3
+      evidence: |
+        (라)의 극한을 $\int_0^2\{f(x)+g(x)\}dx=-6$으로 바꿨다.
+      depends_on: []
+      implied_ok: false
+      steps: [2b-2, 2a]
+    - id: 2.A1
+      mark_type: A
+      points: 3
+      evidence: |
+        $\int_0^2g\,dx=-\tfrac53$을 이용해 $\int_0^2(f-g)dx=\tfrac23$을 얻었다.
+      depends_on: [2.M1]
+      steps: [2b-2, 2a]
+    - id: 2.R1
+      mark_type: R
+      points: 3
+      evidence: |
+        교점이 $x=\pm2$뿐이고 $f-g$가 연속이므로 $[-2,2]$에서 부호가 일정함을 밝혔다.
+      depends_on: []
+      steps: [2b-1, 2a]
+    - id: 2.R2
+      mark_type: R
+      points: 3
+      evidence: |
+        적분값 $\tfrac23>0$과 부호 일정을 결합해 $[0,2]$에서 $f\ge g$, 대칭성으로 $[-2,2]$ 전체에서 $f\ge g$를 결론지었다.
+      depends_on: [2.R1, 2.A1]
+      steps: [2b-3, 2b-4, 2a]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '72', misconception: MC-CAL-9412}
+  - {code: '73', misconception: MC-CAL-9413}
+  misconceptions:
+  - id: MC-CAL-9412
+    outcome_code: '72'
+    wrong_work: '(라)를 $\int_0^1\{f(x)+g(x)\}dx=-6$ 또는 $2\int_0^1$로 바꿈'
+    detect_cue: 적분 구간이 $[0,2]$가 아니다
+    feedback: $\tfrac kn$이 $k=1$부터 $2n$까지 움직이면 $x$는 $0$에서 $2$까지 움직이고 폭은 $\tfrac1n$입니다.
+    remedy: [RL-2]
+  - id: MC-CAL-9413
+    outcome_code: '73'
+    wrong_work: '$\int_0^2(f-g)dx>0$이므로 곧바로 $f(x)\ge g(x)$'
+    detect_cue: 교점이 $\pm2$뿐이라 부호가 바뀌지 않는다는 근거(조건 (다), 연속성)가 없다
+    feedback: 적분값이 양수여도 중간에 음수 구간이 있을 수 있습니다. 교점이 없어 부호가 일정하다는 사실을 먼저 밝히세요.
+    remedy: [RL-3]
+
+- id: '3'
+  stem: |
+    두 곡선 $y=f(x)$와 $y=g(x)$로 둘러싸인 도형의 넓이를 구하시오.
+  points: 10
+  depends_on: ['2']
+  answer: {kind: value, value: '4/3', equivalents: [], tolerance: null}
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: 넓이 $=\int_{-2}^2(f-g)dx=2\int_0^2(f-g)dx$.
+    steps:
+    - {id: 3a, content: '$2\cdot\tfrac23=\tfrac43$', criteria: ['3.M1', '3.A1']}
+    hint_ladder:
+    - $f-g$는 우함수인가?
+  - id: S3-B
+    audience: B
+    source_flow: 「2025 논술고사 안내」 우수답안 및 해설 p.53
+    method_no: 1
+    steps:
+    - id: 3b-1
+      content: |
+        두 함수 $y=f(x)$, $y=g(x)$의 그래프가 $y$축 대칭이므로 $y=f(x)-g(x)$의 그래프 역시 $y$축 대칭이다. 문항 $(2)$의 결과로부터 $-2\le x\le2$에서 $f(x)\ge g(x)$이다.
+      criteria: ['3.M1']
+    - id: 3b-2
+      content: |
+        두 곡선으로 둘러싸인 도형의 넓이는
+        $$\int_{-2}^2\lvert f(x)-g(x)\rvert dx=\int_{-2}^2\{f(x)-g(x)\}dx=2\int_0^2\{f(x)-g(x)\}dx=\frac43$$
+        이다.
+      criteria: ['3.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 5
+      evidence: |
+        넓이를 $\int_{-2}^2\lvert f-g\rvert dx=\int_{-2}^2(f-g)dx$로 쓰고 $y$축 대칭으로 $2\int_0^2$로 바꿨다.
+      depends_on: []
+      implied_ok: false
+      ft: {allowed: true, from: [2.A1], max_points: 5}
+      steps: [3b-1, 3a]
+    - id: 3.A1
+      mark_type: A
+      points: 5
+      evidence: |
+        넓이 $\tfrac43$을 얻었다.
+      depends_on: [3.M1]
+      steps: [3b-2, 3a]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '74', misconception: MC-CAL-9414}
+  misconceptions:
+  - id: MC-CAL-9414
+    outcome_code: '74'
+    wrong_work: '넓이를 $\int_0^2(f-g)dx=\tfrac23$로 답함'
+    detect_cue: 답이 $\tfrac23$이고 $[-2,0]$ 부분이 빠졌다
+    feedback: 둘러싸인 도형은 $-2\le x\le2$ 전체입니다. 우함수이므로 $[0,2]$의 두 배입니다.
+    remedy: [RL-4]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-PRF-9411}
+  relation: remediation
+  target: {kind: concept, ref: CON-ALG-FUNC-EQUATION}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-CAL-9412}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-RIEMANN-SUM}
+  priority: 1
+- id: RL-3
+  trigger: {type: misconception, ref: MC-CAL-9413}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-IVT}
+  priority: 1
+- id: RL-4
+  trigger: {type: misconception, ref: MC-CAL-9414}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-EVEN-ODD-INTEGRAL}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

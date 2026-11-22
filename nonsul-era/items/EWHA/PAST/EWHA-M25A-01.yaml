@@ -1,0 +1,373 @@
+# 이화여대 2025학년도 수시 모의논술(자연계열Ⅰ) 문제 1 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: EWHA-M25A-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: EWHA
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 최적2단
+points: 35
+time_estimate_min: 30
+intent: |
+  두 곡선으로 둘러싸인 도형의 넓이를 정적분으로 구하고, 그 도형과 직선이 만나는 선분의 길이를 매개변수의 함수로 세운 뒤 정의 구간을 나누어 미분법으로 최댓값을 구하는 능력을 본다(공식 출제의도 요지: 이차함수의 최대·최소, 두 곡선의 교점, 함수와 정의 구간 설정, 미분법을 활용한 최댓값).
+key_idea: |
+  수평선 $y=t$는 $t=\tfrac92$를 경계로 왼쪽 끝이 곡선 $y=\tfrac12x^2$에서 $y=-x^2+\tfrac92x$로 바뀌고, 직선 $y=mx$는 $m=\tfrac32$(교점 $(3,\tfrac92)$ 통과)를 경계로 다른 끝점이 바뀐다. 구간별로 길이 함수를 세워 최대를 비교한다.
+stuck: |
+  선분의 양 끝이 어느 곡선 위에 있는지가 $t=\tfrac92$, $m=\tfrac32$에서 바뀐다는 점을 찾아 경우를 나누는 것, 그리고 $(3)$에서 길이를 $\{g(m)\}^2$로 바꿔 미분하는 것
+idea_tags: [IDEA-PIECEWISE-LENGTH-MAX, IDEA-SQUARE-BEFORE-DIFF]
+tags: [두 곡선 사이 넓이, 선분 길이의 최대, 경우 분류]
+elements:
+  materials:
+  - '두 이차곡선 $y=\tfrac12x^2$, $y=-x^2+\tfrac92x$로 둘러싸인 도형 $S$'
+  - '수평선 $y=t$와 $S$가 만나는 선분'
+  - '원점을 지나는 직선 $y=mx$와 $S$가 만나는 선분'
+  concepts:
+  - '두 곡선 사이의 넓이'
+  - '이차함수의 최대·최소'
+  - '두 곡선의 교점'
+  - '두 점 사이의 거리'
+  - '도함수를 이용한 최댓값'
+  tools:
+  - '정적분 $\int_0^3\{(-x^2+\tfrac92x)-\tfrac12x^2\}dx$'
+  - '근의 공식 $x=\dfrac{9\pm\sqrt{81-16t}}{4}$'
+  - '구간별로 정의된 길이 함수의 미분과 끝점 비교'
+  - '$h(m)=\{g(m)\}^2$로 근호 제거 후 미분'
+  conditions:
+  - '$0\le x\le3$에서 $\tfrac12x^2\le-x^2+\tfrac92x$'
+  - '$y=t$가 $S$와 만나는 범위 $0\le t\le\tfrac{81}{16}$, 경계 $t=\tfrac92$'
+  - '$y=mx$가 $S$와 두 점 이상에서 만나는 범위 $0<m<\tfrac92$, 경계 $m=\tfrac32$'
+  stimuli_used: []
+  subpart_links: '(1)의 교점 $x=0,3$과 대소 관계를 (2)·(3)의 구간 설정에 사용'
+
+curriculum:
+  version: '2015'
+  subjects: [수학, 수학Ⅱ]
+  scope_2028: common
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: '출제근거(교과서) — 수학(황선욱 외, 미래엔) 두 점 사이의 거리 pp.111-113, 이차방정식과 이차함수 pp.70-73, 이차함수의 최대·최소 pp.75-78; 수학Ⅱ(황선욱 외, 미래엔) 함수의 그래프 pp.90-93, 두 곡선 사이의 넓이 pp.139-141'
+    verified: false
+  content_area: 다항함수의 미분·적분 활용
+  behavior_domain: 문제해결
+  unit_path: [수학Ⅱ, 적분, 정적분의 활용, 두 곡선 사이의 넓이]
+  key_concepts: [두 곡선 사이의 넓이, 이차함수의 최대·최소, 두 점 사이의 거리, 도함수의 활용]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 이화여자대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 이화여자대학교
+  admission_year: 2025
+  admission_type: 수시 모의논술
+  track: 자연계열Ⅰ
+  question_no: 1
+  official_url: https://admission.ewha.ac.kr/admission/html/rolling/lecture-info.asp
+  retrieved_at: 2026-11-21
+  original_points: [35]
+  rights_notice: 소문항별 배점은 공개되지 않음(문항 전체 35점). 소문항 배점 9·12·14는 DB 입력용 추정 배분
+  transcribed_from: 「2025학년도 수시모집 논술고사 안내」 p.21(문제지), pp.43-46(출제의도·우수답안 및 해설) (원본 PDF 이미지 대조 완료 2026-11-21)
+
+verify: verify/EWHA-M25A.py::p01
+
+stimuli: []
+
+stem: |
+  두 곡선 $y=\dfrac12x^2$와 $y=-x^2+\dfrac92x$로 둘러싸인 도형을 $S$라 할 때, 도형 $S$와 두 함수 $f$, $g$에 대하여 아래 물음에 답하시오. [35점]
+
+subparts:
+- id: '1'
+  stem: |
+    도형 $S$의 넓이를 구하시오.
+  points: 9
+  depends_on: []
+  answer: {kind: value, value: '27/4', equivalents: ['6.75'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: 교점 $x=0,3$을 구하고 위 곡선에서 아래 곡선을 빼서 적분한다.
+    steps:
+    - {id: 1a, content: '$\int_0^3\left(-\tfrac32x^2+\tfrac92x\right)dx=\tfrac{27}{4}$', criteria: ['1.M1', '1.A1']}
+    hint_ladder:
+    - 두 곡선은 어디서 만나는가?
+    - 그 구간에서 어느 곡선이 위에 있는가?
+  - id: S1-B
+    audience: B
+    source_flow: 「2025 논술고사 안내」 우수답안 및 해설 p.44
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        교점은 $0=\dfrac12x^2-\left(-x^2+\dfrac92x\right)=\dfrac12(3x^2-9x)=\dfrac32x(x-3)$을 만족하므로 $x=0,3$이다.
+      criteria: ['1.M1']
+    - id: 1b-2
+      content: |
+        $0\le x\le3$에서 $\dfrac12x^2\le-x^2+\dfrac92x$이므로
+        $$A=\int_0^3\left\{\left(-x^2+\frac92x\right)-\frac12x^2\right\}dx=\int_0^3\left(-\frac32x^2+\frac92x\right)dx=\left[-\frac12x^3+\frac94x^2\right]_0^3=\frac{27}{4}$$
+      criteria: ['1.M2', '1.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 3
+      evidence: |
+        두 곡선의 교점의 $x$좌표 $0$, $3$을 구했다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1, 1a]
+    - id: 1.M2
+      mark_type: M
+      points: 3
+      evidence: |
+        $0\le x\le3$에서 위·아래 곡선을 밝히고 $\int_0^3\{(-x^2+\tfrac92x)-\tfrac12x^2\}dx$를 세웠다.
+      depends_on: [1.M1]
+      implied_ok: false
+      steps: [1b-2]
+    - id: 1.A1
+      mark_type: A
+      points: 3
+      evidence: |
+        넓이 $\dfrac{27}{4}$를 얻었다.
+      depends_on: [1.M2]
+      steps: [1b-2, 1a]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-9400}
+  misconceptions:
+  - id: MC-CAL-9400
+    outcome_code: '71'
+    wrong_work: '$\int_0^3\left(\tfrac12x^2-(-x^2+\tfrac92x)\right)dx=-\tfrac{27}{4}$을 넓이로 씀'
+    detect_cue: 넓이가 음수이거나 피적분함수가 (아래 곡선)−(위 곡선)이다
+    feedback: 구간에서 어느 곡선이 위에 있는지 먼저 확인하고 (위)−(아래)를 적분하세요.
+    remedy: [RL-1]
+
+- id: '2'
+  stem: |
+    실수 $t$에 대하여 직선 $y=t$와 도형 $S$가 만나는 부분의 선분의 길이의 최댓값 $l$이 있다. 함숫값 $f(t)$를 $l$이라 할 때, $f(t)$의 최댓값을 구하시오.
+  points: 12
+  depends_on: ['1']
+  answer: {kind: value, value: '(9*sqrt(3)-9)/4', equivalents: ['9*(sqrt(3)-1)/4'], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: $0\le t\le\tfrac92$이면 선분은 $\left[\tfrac{9-\sqrt{81-16t}}{4},\sqrt{2t}\right]$, $\tfrac92<t\le\tfrac{81}{16}$이면 두 근 사이. 앞 구간에서 $f'(t)=0$인 $t=\tfrac{27}{8}$이 최대.
+    steps:
+    - {id: 2a, content: '$f\left(\tfrac{27}{8}\right)=\tfrac{9\sqrt3-9}{4}>\tfrac32=f\left(\tfrac92\right)$', criteria: ['2.M1', '2.M2', '2.A2', '2.A3']}
+    hint_ladder:
+    - $y=t$가 $S$와 만나려면 $t$는 어느 범위여야 하는가?
+    - 선분의 오른쪽 끝은 언제까지 곡선 $y=\tfrac12x^2$ 위에 있는가?
+  - id: S2-B
+    audience: B
+    source_flow: 「2025 논술고사 안내」 우수답안 및 해설 pp.44-45
+    method_no: 1
+    steps:
+    - id: 2b-1
+      content: |
+        $0\le x\le3$에서 $\dfrac12x^2$의 최솟값은 $0$, $-x^2+\dfrac92x$의 최댓값은 $\dfrac{81}{16}$이므로 직선 $y=t$가 $S$와 만나는 범위는 $0\le t\le\dfrac{81}{16}$이다.
+      criteria: ['2.M1']
+    - id: 2b-2
+      content: |
+        $y=t$와 $y=\dfrac12x^2$의 교점은 $x=\sqrt{2t}$이고, $0\le x\le3$에서 $\dfrac12x^2\le\dfrac92$이므로 $0\le t\le\dfrac92$에서만 만난다. $y=t$와 $y=-x^2+\dfrac92x$의 교점은 $x=\dfrac{9\pm\sqrt{81-16t}}{4}$이고, $0\le t\le\dfrac92$에서는 $x=\dfrac{9-\sqrt{81-16t}}{4}$에서, $\dfrac92\le t\le\dfrac{81}{16}$에서는 $x=\dfrac{9\pm\sqrt{81-16t}}{4}$에서 각각 만난다.
+      criteria: ['2.M1']
+    - id: 2b-3
+      content: |
+        따라서
+        $$f(t)=\begin{cases}\sqrt{2t}-\dfrac{9-\sqrt{81-16t}}{4}=\dfrac{4\sqrt{2t}-9+\sqrt{81-16t}}{4}, & 0\le t\le\dfrac92\\[2mm] \dfrac{\sqrt{81-16t}}{2}, & \dfrac92<t\le\dfrac{81}{16}\end{cases}$$
+      criteria: ['2.A1']
+    - id: 2b-4
+      content: |
+        (i) $0\le t\le\dfrac92$에서 $f'(t)=\dfrac{\sqrt2}{2\sqrt t}-\dfrac{8}{4\sqrt{81-16t}}=\dfrac{2(\sqrt2\sqrt{81-16t}-4\sqrt t)}{4\sqrt t\sqrt{81-16t}}=0$인 경우는 $t=\dfrac{27}{8}$이다. $f(0)=0$, $f\left(\dfrac{27}{8}\right)=\dfrac{9\sqrt3-9}{4}$, $f\left(\dfrac92\right)=\dfrac32$이므로 이 구간의 최댓값은 $\dfrac{9\sqrt3-9}{4}$이다.
+      criteria: ['2.M2', '2.A2']
+    - id: 2b-5
+      content: |
+        (ii) $\dfrac92\le t\le\dfrac{81}{16}$에서 $f(t)=\dfrac{\sqrt{81-16t}}{2}$는 감소함수이므로 $t=\dfrac92$일 때 최대이고 최댓값은 $\dfrac32$이다.
+        (i), (ii)로부터 $f(t)$의 최댓값은 $\dfrac{9\sqrt3-9}{4}$이다.
+      criteria: ['2.A3']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 3
+      evidence: |
+        $t$의 범위 $0\le t\le\tfrac{81}{16}$과 경계 $t=\tfrac92$를 밝히고 선분의 양 끝이 어느 곡선 위에 있는지 구분했다.
+      depends_on: []
+      implied_ok: false
+      steps: [2b-1, 2b-2, 2a]
+    - id: 2.A1
+      mark_type: A
+      points: 3
+      evidence: |
+        구간별 $f(t)$의 식 두 개를 바르게 적었다.
+      depends_on: [2.M1]
+      steps: [2b-3]
+    - id: 2.M2
+      mark_type: M
+      points: 2
+      evidence: |
+        $0\le t\le\tfrac92$에서 $f'(t)$를 구해 $f'(t)=0$인 $t$를 찾으려 했다.
+      depends_on: []
+      implied_ok: false
+      steps: [2b-4, 2a]
+    - id: 2.A2
+      mark_type: A
+      points: 2
+      evidence: |
+        $t=\tfrac{27}{8}$, $f\left(\tfrac{27}{8}\right)=\tfrac{9\sqrt3-9}{4}$를 구하고 끝점값 $f(0)$, $f\left(\tfrac92\right)$과 비교했다.
+      depends_on: [2.M2, 2.A1]
+      steps: [2b-4, 2a]
+    - id: 2.A3
+      mark_type: A
+      points: 2
+      evidence: |
+        $\tfrac92<t\le\tfrac{81}{16}$의 최댓값 $\tfrac32$와 비교해 최댓값 $\tfrac{9\sqrt3-9}{4}$를 결론지었다.
+      depends_on: [2.M2, 2.A2]
+      steps: [2b-5, 2a]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '72', misconception: MC-CAL-9401}
+  misconceptions:
+  - id: MC-CAL-9401
+    outcome_code: '72'
+    wrong_work: '모든 $t$에서 선분을 $\left[\tfrac{9-\sqrt{81-16t}}{4},\sqrt{2t}\right]$로 두고 $t=\tfrac{81}{16}$까지 같은 식으로 최대를 구함'
+    detect_cue: $t=\tfrac92$에서의 경우 분류가 없고 $\tfrac{\sqrt{81-16t}}{2}$ 식이 없다
+    feedback: 선분의 오른쪽 끝이 곡선 $y=\tfrac12x^2$ 위에 있는 것은 $t\le\tfrac92$일 때뿐입니다. 끝점이 바뀌는 지점에서 경우를 나누세요.
+    remedy: [RL-2]
+
+- id: '3'
+  stem: |
+    실수 $m$에 대하여 직선 $y=mx$와 도형 $S$가 만나는 부분의 선분의 길이의 최댓값 $r$이 있다. 함숫값 $g(m)$을 $r$이라 할 때, $g(m)$의 최댓값을 구하시오.
+  points: 14
+  depends_on: ['1']
+  answer: {kind: value, value: '5*sqrt(5)/2', equivalents: ['sqrt(125)/2'], tolerance: null}
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: $0<m\le\tfrac32$이면 $g=2m\sqrt{1+m^2}$(증가), $\tfrac32\le m<\tfrac92$이면 $g=\left(\tfrac92-m\right)\sqrt{1+m^2}$이고 $g^2$의 도함수가 $m=2$에서 $0$.
+    steps:
+    - {id: 3a, content: '$g(2)=\tfrac52\sqrt5>\tfrac{3\sqrt{13}}{2}=g\left(\tfrac32\right)$', criteria: ['3.M1', '3.M2', '3.A2', '3.A3']}
+    hint_ladder:
+    - 직선 $y=mx$가 원점에서 각 곡선에 접하는 기울기는?
+    - 직선이 두 곡선의 교점 $(3,\tfrac92)$을 지나는 기울기에서 무엇이 바뀌는가?
+    - 근호가 있으면 제곱한 함수를 미분해 보자.
+  - id: S3-B
+    audience: B
+    source_flow: 「2025 논술고사 안내」 우수답안 및 해설 pp.45-46
+    method_no: 1
+    steps:
+    - id: 3b-1
+      content: |
+        직선 $y=mx$가 곡선 $y=\dfrac12x^2$과 $y=-x^2+\dfrac92x$에 원점에서 접할 때의 기울기는 각각 $m=0$, $m=\dfrac92$이다. 따라서 직선 $y=mx$가 도형 $S$와 두 점 이상에서 만나는 $m$의 범위는 $0<m<\dfrac92$이다.
+      criteria: ['3.M1']
+    - id: 3b-2
+      content: |
+        직선 $y=mx$가 두 곡선의 교점 $\left(3,\dfrac92\right)$을 지날 때 $m=\dfrac32$이다. $0<m\le\dfrac32$에서는 곡선 $y=\dfrac12x^2$과, $\dfrac32\le m<\dfrac92$에서는 곡선 $y=-x^2+\dfrac92x$와 두 점에서 만난다.
+      criteria: ['3.M1']
+    - id: 3b-3
+      content: |
+        (i) $0<m\le\dfrac32$: 교점이 $(0,0)$, $(2m,2m^2)$이므로 $g(m)=\sqrt{(2m)^2+(2m^2)^2}=2m\sqrt{1+m^2}$이고 증가함수이다. 이 구간의 최댓값은 $g\left(\dfrac32\right)=\dfrac{3\sqrt{13}}{2}$이다.
+      criteria: ['3.A1']
+    - id: 3b-4
+      content: |
+        (ii) $\dfrac32\le m<\dfrac92$: 교점이 $(0,0)$, $\left(\dfrac92-m,\ \dfrac92m-m^2\right)$이므로 $g(m)=\left(\dfrac92-m\right)\sqrt{1+m^2}$이다. $h(m)=\{g(m)\}^2=\left(\dfrac92-m\right)^2(1+m^2)$이 최대일 때 $g(m)$이 최대이다.
+      criteria: ['3.A1', '3.M2']
+    - id: 3b-5
+      content: |
+        $$h'(m)=-2\left(\frac92-m\right)(1+m^2)+2m\left(\frac92-m\right)^2=\frac12(2m-9)(4m-1)(m-2)$$
+        이 구간에서 $h'(m)=0$인 경우는 $m=2$이다. $h\left(\dfrac32\right)=\dfrac{117}{4}$, $h(2)=\dfrac{125}{4}$, $h\left(\dfrac92\right)=0$이므로 이 구간에서 $g(m)$의 최댓값은 $\dfrac{5\sqrt5}{2}$이다.
+      criteria: ['3.A2']
+    - id: 3b-6
+      content: |
+        (i), (ii)의 결과로부터 $g(m)$의 최댓값은 $\dfrac{5\sqrt5}{2}$이다. (공식 해설 p.46의 「구간 $1\le m<3$에서」는 $\dfrac32\le m<\dfrac92$의 오기로 보인다.)
+      criteria: ['3.A3']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 4
+      evidence: |
+        $0<m<\tfrac92$의 범위와 경계 $m=\tfrac32$를 밝혀 선분의 다른 끝점이 어느 곡선 위에 있는지 구분했다.
+      depends_on: []
+      implied_ok: false
+      steps: [3b-1, 3b-2, 3a]
+    - id: 3.A1
+      mark_type: A
+      points: 3
+      evidence: |
+        두 구간에서 $g(m)=2m\sqrt{1+m^2}$, $g(m)=\left(\tfrac92-m\right)\sqrt{1+m^2}$를 두 점 사이의 거리로 구했다.
+      depends_on: [3.M1]
+      steps: [3b-3, 3b-4]
+    - id: 3.M2
+      mark_type: M
+      points: 3
+      evidence: |
+        $\{g(m)\}^2$(또는 $g$)를 미분해 극값 후보를 찾으려 했다.
+      depends_on: []
+      implied_ok: false
+      steps: [3b-4, 3a]
+    - id: 3.A2
+      mark_type: A
+      points: 2
+      evidence: |
+        $h'(m)=\tfrac12(2m-9)(4m-1)(m-2)$에서 $m=2$를 얻고 $h(2)=\tfrac{125}{4}$를 끝점값과 비교했다.
+      depends_on: [3.M2, 3.A1]
+      steps: [3b-5, 3a]
+    - id: 3.A3
+      mark_type: A
+      points: 2
+      evidence: |
+        두 구간의 최댓값 $\tfrac{3\sqrt{13}}{2}$, $\tfrac{5\sqrt5}{2}$를 비교해 최댓값 $\tfrac{5\sqrt5}{2}$를 결론지었다.
+      depends_on: [3.M2, 3.A2]
+      steps: [3b-6, 3a]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '73', misconception: MC-GEO-9402}
+  misconceptions:
+  - id: MC-GEO-9402
+    outcome_code: '73'
+    wrong_work: '선분의 길이를 교점의 $x$좌표 차 $\tfrac92-m$ 또는 $2m$으로 두고 최대를 구함'
+    detect_cue: $\sqrt{1+m^2}$ 인수가 없다
+    feedback: 기울어진 선분의 길이는 두 끝점 사이의 거리 $\sqrt{\Delta x^2+\Delta y^2}=\lvert\Delta x\rvert\sqrt{1+m^2}$입니다.
+    remedy: [RL-3]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CAL-9400}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-AREA-BETWEEN}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-CAL-9401}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-PIECEWISE-OPT}
+  priority: 1
+- id: RL-3
+  trigger: {type: misconception, ref: MC-GEO-9402}
+  relation: remediation
+  target: {kind: concept, ref: CON-GEO-DISTANCE}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

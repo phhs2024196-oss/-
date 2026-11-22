@@ -1,0 +1,490 @@
+# 이화여대 2024학년도 수시 논술(자연계열Ⅱ) 문제 2 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: EWHA-G24B-02
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: EWHA
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 분류
+points: 30
+time_estimate_min: 25
+intent: |
+  도함수로 $f(x)=x^2e^x$의 증가·감소와 극값을 판정하고, 수평선과 그래프의 교점 위치로 부등식 $f(a)<c<f(a+1)$을 만족하는 정수를 찾으며($e$의 근삿값 사용), 직선 $y=k$와의 교점 개수를 세 경우로 나누어 정수근의 존재 여부를 추론하는 능력을 평가한다(공식 출제의도 요지).
+key_idea: |
+  $f$는 $x=-2$에서 극대 $4e^{-2}$, $x=0$에서 극소 $0$이고 $f(0)<f(-1)<f(-3)<f(-2)<f(1)<f(2)$이다. $0<k\le4e^{-2}$이면 양의 근이 $(0,1)$에 있어 정수가 아니므로, 양의 근 하나뿐인 $k>4e^{-2}$에서 $x=1$이 근인 $k=e$가 최소이다.
+stuck: |
+  $f(x)=k$의 근이 모두 정수이려면 $(-2,0)$의 근은 $-1$뿐이어야 하고, 그때 양의 근이 $f(0)<k<f(1)$ 때문에 $(0,1)$에 갇힌다는 점
+idea_tags:
+- IDEA-ROOT-COUNT-HORIZONTAL-LINE
+- IDEA-E-BOUND-COMPARE
+tags:
+- 극값
+- 수평선과 그래프의 교점
+- 정수근
+- e의 근삿값
+elements:
+  materials:
+  - 함수 $f(x)=x^2e^x$
+  - 부등식 $a^2e^a<4e^{-2}<(a+1)^2e^{a+1}$, $b^2e^b<e^{-1}<(b+1)^2e^{b+1}$
+  - 방정식 $f(x)=k$ $(k>0)$
+  concepts:
+  - 곱의 미분법, 지수함수의 미분
+  - 도함수의 부호와 증가·감소, 극대·극소
+  - 함수의 그래프의 개형과 점근선($x\to-\infty$에서 $f\to0$)
+  - 방정식의 실근의 개수와 그래프의 교점
+  tools:
+  - $f^\prime(x)=x(x+2)e^x$의 부호표
+  - $16<2.7^3<e^3$으로 $16e^{-4}<e^{-1}<9e^{-3}$ 비교
+  - 직선 $y=k$와의 교점 개수에 따른 세 경우 분류
+  conditions:
+  - $2.7<e$ (문제의 단서)
+  - $k>0$, 실근이 모두 정수
+  - $f(x)\ge0$ 이고 $x>0$에서 증가
+  stimuli_used: []
+  subpart_links: (2)는 (1)의 증감표, (3)은 (1)의 극값과 (2)에서 쓴 $f(0)=0<e^{-1},4e^{-2}<e=f(1)$을 사용
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학Ⅱ
+  - 미적분
+  scope_2028: calc2
+  scope_confirmed: true
+  standards:
+  - code: '[12미적02-02]'
+    text: 지수함수와 로그함수를 미분할 수 있다.
+    verified: true
+  - code: '[12수학Ⅱ02-08]'
+    text: 함수의 증가와 감소, 극대와 극소를 판정하고 설명할 수 있다.
+    verified: true
+  - code: '[12미적02-12]'
+    text: 함수의 그래프의 개형을 그릴 수 있다.
+    verified: true
+  - code: '[12미적02-13]'
+    text: 방정식과 부등식에 대한 문제를 해결할 수 있다.
+    verified: true
+  content_area: 미분법 – 도함수의 활용
+  behavior_domain: 추론
+  unit_path:
+  - 미적분
+  - 미분법
+  - 도함수의 활용
+  - 방정식의 실근의 개수
+  key_concepts:
+  - 지수함수의 미분
+  - 극대·극소
+  - 그래프의 개형
+  - 방정식의 실근
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 이화여자대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 이화여자대학교
+  admission_year: 2024
+  admission_type: 수시 논술전형
+  track: 자연계열Ⅱ
+  question_no: 2
+  official_url: https://admission.ewha.ac.kr/admission/html/rolling/lecture-info.asp
+  retrieved_at: 2026-11-21
+  original_points:
+  - 4
+  - 9
+  - 17
+  transcribed_from: 이화여대 「2024 논술고사 문제지(자연 Ⅱ)」 p.4(문제지 2/3쪽), 「(이화여대)2024 논술고사 자연계열 Ⅱ_답안」 pp.7-11, 「2024학년도 선행학습 영향평가 자체평가보고서」 pp.96-97 (원본 PDF 이미지 대조 완료 2026-11-21)
+verify: verify/EWHA-G24B.py::p02
+stimuli: []
+stem: |
+  함수 $f(x)=x^2e^x$에 대하여 다음 물음에 답하시오. [30점]
+subparts:
+- id: '1'
+  stem: |
+    함수 $f(x)$의 극댓값과 극솟값을 구하시오.
+  points: 4
+  depends_on: []
+  answer:
+    kind: value
+    value: max=4*exp(-2); min=0
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $f^\prime(x)=x(x+2)e^x$의 부호가 $+,-,+$로 바뀐다.
+    steps:
+    - id: 1a
+      content: $M=f(-2)=4e^{-2}$, $m=f(0)=0$
+      criteria:
+      - 1.M1
+      - 1.A1
+    hint_ladder:
+    - 곱의 미분법으로 $f^\prime(x)$를 인수분해해 보자.
+  - id: S1-B
+    audience: B
+    source_flow: (이화여대)2024 논술고사 자연계열 Ⅱ_답안 p.10 [풀이] 2-(1)
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        $f^\prime(x)=2xe^x+x^2e^x=x(x+2)e^x$이므로 $f^\prime(x)=0$의 근은 $x=-2$, $x=0$이다. $(-\infty,-2)$에서 $f^\prime(x)>0$(증가), $(-2,0)$에서 $f^\prime(x)<0$(감소), $(0,\infty)$에서 $f^\prime(x)>0$(증가)이다.
+      criteria:
+      - 1.M1
+    - id: 1b-2
+      content: |
+        따라서 $x=-2$에서 극댓값 $f(-2)=4e^{-2}$, $x=0$에서 극솟값 $f(0)=0$을 갖는다.
+      criteria:
+      - 1.A1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 2
+      evidence: |
+        $f^\prime(x)=2xe^x+x^2e^x$를 구하고 근 $x=-2,0$과 구간별 증가·감소를 설명했다.
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 1b-1
+    - id: 1.A1
+      mark_type: A
+      points: 2
+      evidence: |
+        극댓값 $4e^{-2}$, 극솟값 $0$을 구했다.
+      depends_on:
+      - 1.M1
+      steps:
+      - 1b-2
+    deductions: []
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  - code: '71'
+    misconception: MC-CAL-9256
+  misconceptions:
+  - id: MC-CAL-9256
+    outcome_code: '71'
+    wrong_work: $f^\prime(x)=2xe^x$로 두어 임계점을 $x=0$ 하나로 판단
+    detect_cue: 극댓값 $4e^{-2}$가 없고 $x=-2$가 언급되지 않는다
+    feedback: $(x^2e^x)^\prime=2xe^x+x^2e^x$입니다. 곱의 미분법의 두 항을 모두 쓰세요.
+    remedy:
+    - RL-1
+- id: '2'
+  stem: |
+    부등식 $a^2e^a<4e^{-2}<(a+1)^2e^{a+1}$과 $b^2e^b<e^{-1}<(b+1)^2e^{b+1}$을 만족시키는 정수 $a$, $b$를 모두 구하시오. (단, $2.7<e$)
+  points: 9
+  depends_on:
+  - '1'
+  answer:
+    kind: set
+    value: a=[0]; b=[-4, 0]
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: 부등식은 $f(a)<c<f(a+1)$, 즉 직선 $y=c$와 그래프의 교점이 증가 구간에서 $(a,a+1)$ 안에 있다는 뜻이다.
+    steps:
+    - id: 2a
+      content: $a=0$; $b=-4,\ 0$
+      criteria:
+      - 2.M1
+      - 2.R1
+      - 2.A1
+      - 2.R2
+      - 2.A2
+    hint_ladder:
+    - $f(a)<c<f(a+1)$은 $f$가 $[a,a+1]$에서 증가하며 값 $c$를 지난다는 뜻이다.
+    - $y=4e^{-2}$와 $y=e^{-1}$은 그래프와 각각 몇 점에서 만나는가?
+  - id: S2-B
+    audience: B
+    source_flow: (이화여대)2024 논술고사 자연계열 Ⅱ_답안 pp.10-11 [풀이] 2-(2)
+    method_no: 1
+    steps:
+    - id: 2b-1
+      content: |
+        모든 실수 $x$에서 $f(x)\ge0$이고 $f$는 $x<-2$ 또는 $x>0$에서 증가, $(-2,0)$에서 감소한다. 그래프의 개형으로 $y=f(x)$는 직선 $y=4e^{-2}$와 서로 다른 두 점에서, 직선 $y=e^{-1}$과 서로 다른 세 점에서 만난다.
+      criteria:
+      - 2.M1
+    - id: 2b-2
+      content: |
+        (ㄱ) $f(a)<4e^{-2}<f(a+1)$을 만족하는 정수 $a$는 $a\ge0$이고 이 구간에서 한 개 존재한다. $2<e$이므로 $f(0)=0<4e^{-2}<e=f(1)$이다.
+      criteria:
+      - 2.R1
+    - id: 2b-3
+      content: |
+        따라서 구하는 정수 $a$는 $0$이다.
+      criteria:
+      - 2.A1
+    - id: 2b-4
+      content: |
+        (ㄴ) $f(b)<e^{-1}<f(b+1)$을 만족하는 정수 $b$는 구간 $(-\infty,-2)$와 $(0,\infty)$에 구간별로 한 개씩 존재할 수 있다. $2.7<e<3$이므로 $16<2.7^3<e^3$이고, $f(-4)=16e^{-4}<e^{-1}<9e^{-3}=f(-3)$, $f(0)=0<e^{-1}<e=f(1)$이다.
+      criteria:
+      - 2.R2
+    - id: 2b-5
+      content: |
+        따라서 구하는 정수 $b$는 $-4$와 $0$이다.
+      criteria:
+      - 2.A2
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 2
+      evidence: |
+        $y=f(x)$가 직선 $y=4e^{-2}$와 두 점, 직선 $y=e^{-1}$과 세 점에서 만나는 두 경우로 구분했다.
+      depends_on: []
+      implied_ok: false
+      ft:
+        allowed: true
+        from:
+        - 1.A1
+        max_points: 2
+      steps:
+      - 2b-1
+    - id: 2.R1
+      mark_type: R
+      points: 2
+      evidence: |
+        정수 $a$는 $a\ge0$임을 설명하고 $0<4e^{-2}<e$를 언급했다.
+      depends_on:
+      - 2.M1
+      implied_ok: false
+      steps:
+      - 2b-2
+    - id: 2.A1
+      mark_type: A
+      points: 1
+      evidence: |
+        $a=0$을 구했다.
+      depends_on:
+      - 2.R1
+      steps:
+      - 2b-3
+    - id: 2.R2
+      mark_type: R
+      points: 2
+      evidence: |
+        $b$가 $(-\infty,-2)$, $(0,\infty)$에 한 개씩 있음을 설명하고 $16e^{-4}<e^{-1}<9e^{-3}$, $0<e^{-1}<e$를 언급했다.
+      depends_on:
+      - 2.M1
+      implied_ok: false
+      steps:
+      - 2b-4
+    - id: 2.A2
+      mark_type: A
+      points: 2
+      evidence: |
+        $b=-4,\ 0$을 구했다.
+      depends_on:
+      - 2.R2
+      steps:
+      - 2b-5
+    deductions: []
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  - code: '72'
+    misconception: MC-CAL-9258
+  misconceptions:
+  - id: MC-CAL-9258
+    outcome_code: '72'
+    wrong_work: $b=0$만 답함(왼쪽 증가 구간 $(-\infty,-2)$의 교점을 놓침)
+    detect_cue: $b=-4$가 없다
+    feedback: 직선 $y=e^{-1}$은 $x<-2$에서도 그래프와 만납니다. 그 교점이 어느 두 정수 사이에 있는지 $e$의 범위로 확인하세요.
+    remedy:
+    - RL-3
+- id: '3'
+  stem: |
+    방정식 $f(x)=k$의 실근이 모두 정수인 양의 실수 $k$의 최솟값을 구하시오.
+  points: 17
+  depends_on:
+  - '1'
+  - '2'
+  answer:
+    kind: value
+    value: E
+    equivalents:
+    - f(1)
+    tolerance: null
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: $0<k\le4e^{-2}$이면 양의 근이 $(0,1)$에 있어 정수가 아니다. 따라서 $k>4e^{-2}$에서 양의 근이 $1$이 되는 $k=e$가 최소.
+    steps:
+    - id: 3a
+      content: $k_{\min}=f(1)=e$
+      criteria:
+      - 3.M1
+      - 3.R1
+      - 3.R2
+      - 3.R3
+      - 3.A1
+    hint_ladder:
+    - $y=k$와 $y=f(x)$의 교점 개수는 $k$와 $4e^{-2}$의 대소에 따라 어떻게 달라지는가?
+    - 양의 근이 정수가 되려면 $k$는 적어도 얼마여야 하는가?
+  - id: S3-B
+    audience: B
+    source_flow: (이화여대)2024 논술고사 자연계열 Ⅱ_답안 p.11 [풀이] 2-(3)
+    method_no: 1
+    steps:
+    - id: 3b-1
+      content: |
+        $k>0$에 대하여 $f(x)=k$는 $0<k<M=4e^{-2}$일 때 서로 다른 세 실근, $k=4e^{-2}$일 때 서로 다른 두 실근, $k>4e^{-2}$일 때 한 개의 실근을 갖는다.
+      criteria:
+      - 3.M1
+    - id: 3b-2
+      content: |
+        (ㄱ) $0<k<4e^{-2}$일 때 세 근이 모두 정수이려면 $f$가 감소하는 구간 $-2<x<0$의 근은 $x=-1$이어야 하므로 $k=e^{-1}=f(-1)$이다. 이때 다른 두 근 중 하나인 양수 $\alpha$가 정수여야 하는데, $2<e$이므로 $f(0)=0<e^{-1}(=f(\alpha))<e=f(1)$이므로 $0<\alpha<1$, 즉 $\alpha$는 정수가 아니다. 따라서 조건을 만족하는 $k$는 없다.
+      criteria:
+      - 3.R1
+    - id: 3b-3
+      content: |
+        (ㄴ) $k=4e^{-2}$일 때 근은 $x=-2$와 양의 실수 $\beta$이다. $2<e$이므로 $f(0)=0<4e^{-2}(=f(\beta))<e=f(1)$이므로 $\beta$는 정수가 아니다. 따라서 $k=4e^{-2}$는 조건을 만족하지 않는다.
+      criteria:
+      - 3.R2
+    - id: 3b-4
+      content: |
+        (ㄷ) $k>4e^{-2}$일 때 $f(x)=k$는 한 개의 양의 실근을 갖는다. $x>0$에서 $f$는 증가하고 $f(1)=e>4e^{-2}$이므로, 근이 양의 정수가 되는 가장 작은 $k$는 $x=1$일 때의 $f(1)=e$이다.
+      criteria:
+      - 3.R3
+      - 3.A1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 3
+      evidence: |
+        $0<k<4e^{-2}$(세 실근), $k=4e^{-2}$(두 실근), $k>4e^{-2}$(한 실근)의 세 경우를 언급했다.
+      depends_on: []
+      implied_ok: false
+      ft:
+        allowed: true
+        from:
+        - 1.A1
+        max_points: 3
+      steps:
+      - 3b-1
+    - id: 3.R1
+      mark_type: R
+      points: 5
+      evidence: |
+        ① $0<k<4e^{-2}$: $(-2,0)$의 근이 $x=-1$이어야 함, 양의 근 $\alpha$에 대해 $f(0)=0<e^{-1}<e=f(1)$(문항 (2)에서 도출)을 언급하여 $\alpha$가 정수가 아니므로 조건을 만족하는 $k$가 없다고 결론지었다.
+      depends_on:
+      - 3.M1
+      implied_ok: false
+      steps:
+      - 3b-2
+    - id: 3.R2
+      mark_type: R
+      points: 4
+      evidence: |
+        ② $k=4e^{-2}$: 근 $x=-2$와 양수 $\beta$, $f(0)=0<4e^{-2}<e=f(1)$로 $\beta$가 정수가 아니어서 조건을 만족하지 않는다고 결론지었다.
+      depends_on:
+      - 3.M1
+      implied_ok: false
+      steps:
+      - 3b-3
+    - id: 3.R3
+      mark_type: R
+      points: 3
+      evidence: |
+        ③ $k>4e^{-2}$: 한 개의 양의 실근을 가지며 $f(1)=e>4e^{-2}$이고 $x>0$에서 $f$가 증가함을 기술했다.
+      depends_on:
+      - 3.M1
+      implied_ok: false
+      steps:
+      - 3b-4
+    - id: 3.A1
+      mark_type: A
+      points: 2
+      evidence: |
+        최솟값 $k=e$를 구했다.
+      depends_on:
+      - 3.R3
+      cao: true
+      steps:
+      - 3b-4
+    deductions: []
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  - code: '73'
+    misconception: MC-CAL-9259
+  misconceptions:
+  - id: MC-CAL-9259
+    outcome_code: '73'
+    wrong_work: $x=-1$이 근이 되는 $k=e^{-1}$을 답으로 냄(양의 근을 확인하지 않음)
+    detect_cue: 답이 $e^{-1}$ 또는 $4e^{-2}$이다
+    feedback: $k\le4e^{-2}$이면 양의 근도 반드시 생기고 그 근은 $0$과 $1$ 사이에 있습니다. 모든 근이 정수인지 확인하세요.
+    remedy:
+    - RL-4
+remedy_links:
+- id: RL-1
+  trigger:
+    type: misconception
+    ref: MC-CAL-9256
+  relation: remediation
+  target:
+    kind: concept
+    ref: CON-CAL-MONOTONE-DERIV
+  priority: 1
+- id: RL-3
+  trigger:
+    type: misconception
+    ref: MC-CAL-9258
+  relation: remediation
+  target:
+    kind: concept
+    ref: CON-CAL-ROOT-COUNT-GRAPH
+  priority: 1
+- id: RL-4
+  trigger:
+    type: misconception
+    ref: MC-CAL-9259
+  relation: remediation
+  target:
+    kind: concept
+    ref: CON-CAL-ROOT-COUNT-GRAPH
+  priority: 1
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: opus
+  prompt_version: p3-past-v1
+  item_version: 1
+  verdict: pass
+  date: 2026-11-21
+created: 2026-11-21
+updated: 2026-11-21

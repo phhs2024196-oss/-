@@ -1,0 +1,492 @@
+# 이화여대 2023학년도 수시 논술(자연계열) 문제 1 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: EWHA-G23-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: EWHA
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 일반화
+points: 40
+time_estimate_min: 40
+intent: |
+  주어진 함수들에 의해 결정되는 도형을 파악하고, 점과 직선 사이의 거리 등 간단한 수리적 도구로 도형의 넓이를 구한 뒤 관련된 극한값을 구하는 수리적 조작 능력과, 함수들의 조건을 만족시키는 범위를 결정하고 극한의 대소 관계를 활용해 결과를 도출하는 수리적 추론 능력을 평가한다(공식 출제 의도 요지).
+key_idea: |
+  구간 $[2n,2n+2]$에서 $f$의 그래프는 꼭짓점 $(2n+1,1)$인 삼각형 모양이므로, 직선 $y=ax$와 두 점에서 만날 조건은 꼭짓점이 직선보다 위에 있는 것($a(2n+1)<1$)이고, 넓이는 두 교점과 꼭짓점이 이루는 삼각형의 넓이(밑변 × 점과 직선 사이 거리 ÷ 2)이다.
+stuck: |
+  (3)에서 $n$의 범위를 $\dfrac{1-3a}{2a}\le n<\dfrac{1-a}{2a}$로 정리해 $1-3a\le 2na<1-a$로 바꾸는 것, (4)에서 $a\to0+$일 때 $n\to\infty$이므로 항별 극한이 아니라 합을 닫힌 꼴로 구한 뒤 $na\to\tfrac12$, $\tfrac1n\to0$을 함께 쓰는 것
+idea_tags: [IDEA-TENT-PEAK-ABOVE-LINE, IDEA-TRIANGLE-AREA-POINT-LINE-DIST, IDEA-SQUEEZE-NA-LIMIT]
+tags: [톱니 함수, 삼각형 넓이, 극한의 대소 관계, 수열의 합]
+elements:
+  materials:
+  - '주기 2로 반복되는 톱니(삼각파) 함수 $f(x)=1-\lvert x-2n-1\rvert$ ($2n\le x<2n+2$), $x<0$에서 $f(x)=0$'
+  - '원점을 지나는 직선 $y=ax$ ($0<a<1$)'
+  - '구간 $[2n,2n+2]$에서 직선과 그래프로 둘러싸인 삼각형의 넓이 $S_n$'
+  concepts:
+  - '절댓값 함수의 그래프'
+  - '두 직선의 교점'
+  - '두 점 사이의 거리'
+  - '점과 직선 사이의 거리'
+  - '함수의 극한과 극한의 대소 관계'
+  - '자연수의 거듭제곱의 합 $\sum k$, $\sum k^2$'
+  tools:
+  - '꼭짓점 $(2n+1,1)$과 직선의 위치 비교 $a(2n+1)<1$'
+  - '삼각형 넓이 $=\tfrac12\times$(두 교점 사이 거리)$\times$(꼭짓점과 직선 사이 거리)'
+  - '$1-3a\le 2na<1-a$에서 $na\to\tfrac12$ (조임)'
+  - '$\sum_{k=0}^{n}k=\tfrac{n(n+1)}{2}$, $\sum_{k=0}^{n}k^2=\tfrac{n(n+1)(2n+1)}{6}$'
+  conditions:
+  - '$0<a<1$'
+  - '$[2n,2n+2]$에서 두 점에서 만남 $\iff 0<a<\tfrac{1}{2n+1}$'
+  - '$[2n+2,2n+4]$에서 한 점에서 만나거나 만나지 않음 $\iff a(2n+3)\ge1$'
+  stimuli_used: []
+  subpart_links: '(2)는 (1)의 일반화, (3)은 (2)의 범위 조건을 $n$에 대해 풀어 쓰고, (4)는 (2)의 $S_k$와 (3)의 $\lim na$를 사용'
+
+curriculum:
+  version: '2015'
+  subjects: [수학, 수학Ⅰ, 수학Ⅱ, 미적분]
+  scope_2028: calc2
+  scope_confirmed: false
+  standards:
+  - code: 10수학04-01
+    text: 함수의 개념을 이해하고, 그 그래프를 이해한다.
+    verified: true
+  - code: 10수학02-05
+    text: 점과 직선 사이의 거리를 구할 수 있다.
+    verified: true
+  - code: 12수학Ⅱ01-02
+    text: 함수의 극한에 대한 성질을 이해하고, 함수의 극한값을 구할 수 있다.
+    verified: true
+  - code: 12수학Ⅰ03-05
+    text: 여러 가지 수열의 첫째항부터 제n항까지의 합을 구할 수 있다.
+    verified: true
+  - code: 12미적01-02
+    text: 수열의 극한에 대한 기본 성질을 이해하고, 이를 이용하여 극한값을 구할 수 있다.
+    verified: true
+  content_area: 함수의 그래프·직선의 방정식·함수의 극한·수열의 합
+  behavior_domain: 추론
+  unit_path: [수학Ⅱ, 함수의 극한과 연속, 함수의 극한, 함수의 극한의 대소 관계]
+  key_concepts: [점과 직선 사이의 거리, 함수의 극한의 대소 관계, 수열의 합, 절댓값 함수의 그래프]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 이화여자대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 이화여자대학교
+  admission_year: 2023
+  admission_type: 수시 논술전형
+  track: 자연계열
+  question_no: 1
+  official_url: https://admission.ewha.ac.kr/admission/html/rolling/lecture-info.asp
+  retrieved_at: 2026-11-21
+  original_points: [7, 9, 11, 13]
+  rights_notice: 문항 전체 40점. 소문항 배점 7·9·11·13은 공식 채점 기준표(「2023학년도 논술고사 출제 의도 및 답안(자연계열)」 pp.3-5)의 하위 문항 배점
+  transcribed_from: 「2023 논술고사 자연계열 문제지」 p.1(PDF 3쪽), 「2023 논술고사 자연계열 답안」 pp.1-8(출제 의도·출제 근거·채점 기준·예시 답안) (원본 PDF 이미지 대조 완료 2026-11-21)
+
+verify: verify/EWHA-G23.py::p01
+
+stimuli: []
+
+stem: |
+  실수 전체의 집합에서 연속인 함수 $f(x)$가 다음 조건을 만족시킨다.
+
+  (가) $2n\le x<2n+2$일 때, $f(x)=1-\lvert x-2n-1\rvert$이다. (단, $n=0,1,2,3,\cdots$ 이다.)
+  (나) $x<0$일 때, $f(x)=0$이다.
+
+  닫힌구간 $[2n,2n+2]$에서 직선 $y=ax\ (0<a<1)$와 함수 $y=f(x)$의 그래프가 두 점에서 만날 때 직선과 함수의 그래프로 둘러싸인 도형의 넓이를 $S_n$이라 한다. 아래 물음에 답하시오. [40점]
+
+subparts:
+- id: '1'
+  stem: |
+    $S_0$을 구하시오.
+  points: 7
+  depends_on: []
+  answer: {kind: expression, value: '(1-a)/(1+a)', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $[0,2]$에서 그래프는 $(0,0)$, $(1,1)$, $(2,0)$을 잇는 꺾은선이므로 둘러싸인 도형은 두 교점과 꼭짓점 $(1,1)$이 이루는 삼각형이다.
+    steps:
+    - {id: 1a, content: '교점 $(0,0)$, $\left(\tfrac{2}{1+a},\tfrac{2a}{1+a}\right)$, 높이 $\tfrac{1-a}{\sqrt{1+a^2}}$ → $S_0=\tfrac{1-a}{1+a}$', criteria: ['1.B1', '1.M1', '1.A1', '1.A2', '1.A3']}
+    hint_ladder:
+    - $[0,1]$과 $[1,2]$에서 $f(x)$를 절댓값 없이 써 보자.
+    - 둘러싸인 도형의 꼭짓점은 몇 개인가?
+  - id: S1-B
+    audience: B
+    source_flow: 「2023 논술고사 자연계열 답안」 예시 답안 p.5
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        구간 $[0,2]$에서 $y=f(x)$의 그래프는 $[0,1]$에서는 $y=x$, $[1,2]$에서는 $y=2-x$이다. 그러므로 직선 $y=ax$와의 교점은 $y=x$와의 교점 $(0,0)$과 $y=2-x$와의 교점 $\left(\dfrac{2}{1+a},\dfrac{2a}{1+a}\right)$이다.
+      criteria: ['1.B1']
+    - id: 1b-2
+      content: |
+        따라서 둘러싸인 도형은 두 교점 $(0,0)$, $\left(\dfrac{2}{1+a},\dfrac{2a}{1+a}\right)$와 그래프 위의 점 $(1,1)$이 이루는 삼각형이다.
+      criteria: ['1.M1']
+    - id: 1b-3
+      content: |
+        두 교점 사이의 거리는 $\dfrac{2\sqrt{1+a^2}}{1+a}$이고, 점 $(1,1)$에서 직선 $y=ax$까지의 거리는 $\dfrac{\lvert 1-a\cdot1\rvert}{\sqrt{1+a^2}}=\dfrac{1-a}{\sqrt{1+a^2}}\ (0<a<1)$이다.
+      criteria: ['1.A1', '1.A2']
+    - id: 1b-4
+      content: |
+        $S_0=\dfrac12\cdot\dfrac{2\sqrt{1+a^2}}{1+a}\cdot\dfrac{1-a}{\sqrt{1+a^2}}=\dfrac{1-a}{1+a}$.
+      criteria: ['1.A3']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.B1
+      mark_type: B
+      points: 2
+      evidence: |
+        두 교점 $(0,0)$, $\left(\dfrac{2}{1+a},\dfrac{2a}{1+a}\right)$를 구했다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1]
+    - id: 1.M1
+      mark_type: M
+      points: 1
+      evidence: |
+        둘러싸인 도형이 $(0,0)$, $\left(\dfrac{2}{1+a},\dfrac{2a}{1+a}\right)$, $(1,1)$을 꼭짓점으로 하는 삼각형임을 밝혔다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-2]
+    - id: 1.A1
+      mark_type: A
+      points: 1
+      evidence: |
+        두 교점 사이의 거리 $\dfrac{2\sqrt{1+a^2}}{1+a}$를 구했다.
+      depends_on: [1.M1]
+      steps: [1b-3]
+    - id: 1.A2
+      mark_type: A
+      points: 2
+      evidence: |
+        점 $(1,1)$과 직선 $y=ax$ 사이의 거리 $\dfrac{1-a}{\sqrt{1+a^2}}$를 구했다.
+      depends_on: [1.M1]
+      steps: [1b-3]
+    - id: 1.A3
+      mark_type: A
+      points: 1
+      evidence: |
+        삼각형의 넓이 $S_0=\dfrac{1-a}{1+a}$를 적었다.
+      depends_on: [1.M1, 1.A1, 1.A2]
+      steps: [1b-4]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-GEO-9201}
+  misconceptions:
+  - id: MC-GEO-9201
+    outcome_code: '71'
+    wrong_work: '둘러싸인 도형을 $(0,0)$, $(2,0)$, 교점이 이루는 도형으로 보거나 꼭짓점 $(1,1)$을 빼고 넓이를 계산'
+    detect_cue: 넓이 식에 점 $(1,1)$ 또는 꼭짓점까지의 거리가 나오지 않는다
+    feedback: $[0,2]$에서 그래프는 $(1,1)$에서 꺾입니다. 직선 위쪽에 남는 부분은 두 교점과 $(1,1)$이 이루는 삼각형입니다.
+    remedy: [RL-1]
+
+- id: '2'
+  stem: |
+    닫힌구간 $[2n,2n+2]$에서 직선 $y=ax$와 함수 $y=f(x)$의 그래프가 두 점에서 만나도록 하는 실수 $a$의 값의 범위를 구하고 $S_n$을 구하시오.
+  points: 9
+  depends_on: ['1']
+  answer: {kind: expression, value: 'a_upper=1/(2*n+1); S_n=(1-a-2*n*a)**2/(1-a**2)', equivalents: ['0<a<1/(2n+1)'], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: 꼭짓점 $(2n+1,1)$이 직선보다 위에 있어야 두 점에서 만나고, (1)과 같은 삼각형 넓이 계산을 $n$에 대해 반복한다.
+    steps:
+    - {id: 2a, content: '$a(2n+1)<1$, 교점 $\left(\tfrac{2n}{1-a},\tfrac{2na}{1-a}\right)$, $\left(\tfrac{2(n+1)}{1+a},\tfrac{2(n+1)a}{1+a}\right)$ → $S_n=\tfrac{(1-a-2na)^2}{1-a^2}$', criteria: ['2.M1', '2.A1', '2.A2', '2.A3', '2.A4']}
+    hint_ladder:
+    - 직선이 꼭짓점 $(2n+1,1)$보다 위에 있으면 교점은 몇 개인가?
+    - 넓이는 (1)과 같은 방법으로 구할 수 있다.
+  - id: S2-B
+    audience: B
+    source_flow: 「2023 논술고사 자연계열 답안」 예시 답안 pp.5-6
+    method_no: 1
+    steps:
+    - id: 2b-1
+      content: |
+        $[2n,2n+2]$에서 $f$의 그래프는 $[2n,2n+1]$에서 $y=x-2n$, $[2n+1,2n+2]$에서 $y=2n+2-x$이다. 직선 $y=ax$와 두 점에서 만나려면 그래프 위의 점 $(2n+1,1)$이 직선 $y=ax$보다 위쪽에 있어야 한다. 즉 $a(2n+1)<1$이므로 $0<a<\dfrac{1}{2n+1}$이다.
+      criteria: ['2.M1']
+    - id: 2b-2
+      content: |
+        이때 두 교점은 $ax=x-2n\ (2n\le x<2n+1)$, $ax=2n+2-x\ (2n+1\le x\le 2n+2)$를 만족시키므로 $\left(\dfrac{2n}{1-a},\dfrac{2na}{1-a}\right)$, $\left(\dfrac{2(n+1)}{1+a},\dfrac{2(n+1)a}{1+a}\right)$이다.
+      criteria: ['2.A1']
+    - id: 2b-3
+      content: |
+        두 교점 사이의 거리는 $\sqrt{\left(\dfrac{2(n+1)}{1+a}-\dfrac{2n}{1-a}\right)^2+\left(\dfrac{2(n+1)a}{1+a}-\dfrac{2na}{1-a}\right)^2}=\dfrac{2\sqrt{1+a^2}\,(1-a-2na)}{1-a^2}$이다.
+      criteria: ['2.A2']
+    - id: 2b-4
+      content: |
+        점 $(2n+1,1)$에서 직선 $y=ax$까지의 거리는 $\dfrac{\lvert 1-a(2n+1)\rvert}{\sqrt{1+a^2}}=\dfrac{1-(2n+1)a}{\sqrt{1+a^2}}$ $\left(0<a<\dfrac{1}{2n+1}\right)$이다.
+      criteria: ['2.A3']
+    - id: 2b-5
+      content: |
+        $S_n=\dfrac12\cdot\dfrac{2\sqrt{1+a^2}\,(1-a-2na)}{1-a^2}\cdot\dfrac{1-(2n+1)a}{\sqrt{1+a^2}}=\dfrac{(1-a-2na)^2}{1-a^2}$.
+      criteria: ['2.A4']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 3
+      evidence: |
+        점 $(2n+1,1)$이 직선보다 위쪽에 있어야 함을 지적하고 범위 $0<a<\dfrac{1}{2n+1}$을 구했다.
+      depends_on: []
+      implied_ok: false
+      steps: [2b-1]
+    - id: 2.A1
+      mark_type: A
+      points: 2
+      evidence: |
+        두 교점 $\left(\dfrac{2n}{1-a},\dfrac{2na}{1-a}\right)$, $\left(\dfrac{2(n+1)}{1+a},\dfrac{2(n+1)a}{1+a}\right)$을 구했다.
+      depends_on: [2.M1]
+      steps: [2b-2]
+    - id: 2.A2
+      mark_type: A
+      points: 1
+      evidence: |
+        두 교점 사이의 거리 $\dfrac{2\sqrt{1+a^2}(1-a-2na)}{1-a^2}$을 구했다.
+      depends_on: [2.M1, 2.A1]
+      steps: [2b-3]
+    - id: 2.A3
+      mark_type: A
+      points: 2
+      evidence: |
+        점 $(2n+1,1)$과 직선 $y=ax$ 사이의 거리 $\dfrac{1-(2n+1)a}{\sqrt{1+a^2}}$을 구했다.
+      depends_on: [2.M1]
+      steps: [2b-4]
+    - id: 2.A4
+      mark_type: A
+      points: 1
+      evidence: |
+        삼각형의 넓이 $S_n=\dfrac{(1-a-2na)^2}{1-a^2}$을 적었다.
+      depends_on: [2.A2, 2.A3]
+      implied_ok: true
+      steps: [2b-5]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '72', misconception: MC-ALG-9202}
+  misconceptions:
+  - id: MC-ALG-9202
+    outcome_code: '72'
+    wrong_work: '구간 끝점 $(2n+2,0)$ 또는 $(2n,0)$을 기준으로 $a(2n+2)<1$처럼 범위를 잡음'
+    detect_cue: 범위 식에 $2n+1$이 아닌 $2n$ 또는 $2n+2$가 들어 있다
+    feedback: 직선이 삼각형 모양 그래프와 두 점에서 만나려면 꼭짓점 $(2n+1,1)$이 직선보다 위에 있어야 합니다.
+    remedy: [RL-2]
+
+- id: '3'
+  stem: |
+    실수 $a$에 대하여 직선 $y=ax$와 함수 $y=f(x)$의 그래프가 닫힌구간 $[2n,2n+2]$에서 두 점에서 만나고 닫힌구간 $[2n+2,2n+4]$에서는 한 점에서 만나거나 만나지 않는 자연수 $n$의 값의 범위를 $a$로 나타내고 극한값 $\displaystyle\lim_{a\to0+}na$를 구하시오.
+  points: 11
+  depends_on: ['2']
+  answer: {kind: expression, value: 'n_lower=(1-3*a)/(2*a); n_upper=(1-a)/(2*a); limit=1/2', equivalents: ['(1-3a)/(2a) <= n < (1-a)/(2a)'], tolerance: null}
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: $[2n,2n+2]$에서는 $a(2n+1)<1$, $[2n+2,2n+4]$에서는 꼭짓점 $(2n+3,1)$이 직선 위 또는 아래, 즉 $a(2n+3)\ge1$. 이를 $na$에 대해 풀어 조인다.
+    steps:
+    - {id: 3a, content: '$\tfrac{1-3a}{2a}\le n<\tfrac{1-a}{2a}$ → $1-3a\le 2na<1-a$ → $\lim na=\tfrac12$', criteria: ['3.M1', '3.A1', '3.M2', '3.A2']}
+    hint_ladder:
+    - (2)의 조건을 $n$에 대한 부등식으로 바꿔 보자.
+    - 다음 구간의 꼭짓점은 어디에 있어야 하는가?
+  - id: S3-B
+    audience: B
+    source_flow: 「2023 논술고사 자연계열 답안」 예시 답안 pp.6-7
+    method_no: 1
+    steps:
+    - id: 3b-1
+      content: |
+        문항 (2)의 결과로부터 $0<a<\dfrac{1}{2n+1}$일 때 $[2n,2n+2]$에서 두 점에서 만나므로 자연수 $n$은 $n<\dfrac{1-a}{2a}$를 만족한다.
+      criteria: ['3.M1']
+    - id: 3b-2
+      content: |
+        한편 $[2n+2,2n+4]$에서 한 점에서만 만나거나 만나지 않으려면 그래프 위의 점 $(2n+3,1)$이 직선 $y=ax$ 위의 점이거나 직선보다 아래쪽에 있어야 한다. 즉 $a(2n+3)\ge1$이므로 $n\ge\dfrac{1-3a}{2a}$이다. 따라서 $\dfrac{1-3a}{2a}\le n<\dfrac{1-a}{2a}$.
+      criteria: ['3.A1']
+    - id: 3b-3
+      content: |
+        이 범위에서 $1-3a\le 2na<1-a$이다.
+      criteria: ['3.M2']
+    - id: 3b-4
+      content: |
+        $a\to0+$일 때 양 끝이 모두 $1$로 수렴하므로 극한의 대소 관계에 의해 $\displaystyle\lim_{a\to0+}na=\dfrac12$이다.
+      criteria: ['3.A2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 1
+      evidence: |
+        $[2n,2n+2]$에서 두 점에서 만나기 위한 조건 $n<\dfrac{1-a}{2a}$를 적었다.
+      depends_on: []
+      implied_ok: false
+      ft: {allowed: true, from: [2.M1], max_points: 1}
+      steps: [3b-1]
+    - id: 3.A1
+      mark_type: A
+      points: 4
+      evidence: |
+        자연수 $n$의 범위 $\dfrac{1-3a}{2a}\le n<\dfrac{1-a}{2a}$를 구했다.
+      depends_on: [3.M1]
+      steps: [3b-2]
+    - id: 3.M2
+      mark_type: M
+      points: 3
+      evidence: |
+        범위로부터 $1-3a\le 2na<1-a$를 얻었다.
+      depends_on: [3.A1]
+      steps: [3b-3]
+    - id: 3.A2
+      mark_type: A
+      points: 3
+      evidence: |
+        극한값 $\displaystyle\lim_{a\to0+}na=\dfrac12$을 구했다.
+      depends_on: [3.M2]
+      steps: [3b-4]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '73', misconception: MC-ALG-9203}
+  misconceptions:
+  - id: MC-ALG-9203
+    outcome_code: '73'
+    wrong_work: '$[2n+2,2n+4]$의 조건을 $a(2n+3)>1$로 두어 $n>\dfrac{1-3a}{2a}$로 씀(꼭짓점을 지나 한 점에서 만나는 경우 누락)'
+    detect_cue: 하한에 등호가 없다
+    feedback: 직선이 꼭짓점 $(2n+3,1)$을 지나면 그 구간에서 한 점에서 만나므로 조건에 포함됩니다. 등호를 넣으세요.
+    remedy: [RL-3]
+
+- id: '4'
+  stem: |
+    문항 (3)에서 구한 자연수 $n$의 값의 범위에 대하여 극한값 $\displaystyle\lim_{a\to0+}\frac{1}{n}(S_0+S_1+\cdots+S_n)$을 구하시오.
+  points: 13
+  depends_on: ['2', '3']
+  answer: {kind: value, value: '1/3', equivalents: [], tolerance: null}
+  solutions:
+  - id: S4-A
+    audience: A
+    method_no: 1
+    key_idea: $k\le n$이면 모두 두 점에서 만나므로 $S_k=\tfrac{(1-a-2ka)^2}{1-a^2}$을 합해 닫힌 꼴로 만든 뒤 $na\to\tfrac12$, $\tfrac1n\to0$을 대입한다.
+    steps:
+    - {id: 4a, content: '$\tfrac1n\sum S_k=\tfrac{1}{1-a^2}\left(1+\tfrac1n\right)\left(\tfrac43(na)^2+\tfrac{2(4a-3)}{3}(na)+(1-a)^2\right)\to\tfrac13$', criteria: ['4.R1', '4.M1', '4.A1', '4.R2', '4.A2']}
+    hint_ladder:
+    - $a\to0+$이면 $n$은 어떻게 되는가? 각 $S_k$의 극한을 먼저 구하면 안 되는 이유는?
+    - $\sum k$, $\sum k^2$로 합을 정리하고 $na$로 묶어 보자.
+  - id: S4-B
+    audience: B
+    source_flow: 「2023 논술고사 자연계열 답안」 예시 답안 pp.7-8
+    method_no: 1
+    steps:
+    - id: 4b-1
+      content: |
+        문항 (3)의 범위 $\dfrac{1-3a}{2a}\le n<\dfrac{1-a}{2a}$에서는 $a(2n+1)<1$이므로 모든 $k=0,1,2,\cdots,n$에 대하여 $a(2k+1)<1$, 즉 구간 $[2k,2k+2]$에서 직선과 그래프가 두 점에서 만난다.
+      criteria: ['4.R1']
+    - id: 4b-2
+      content: |
+        따라서 문항 (2)의 결과에 의해 $S_k=\dfrac{(1-a-2ka)^2}{1-a^2}=\dfrac{1}{1-a^2}\left(4a^2k^2-4a(1-a)k+(1-a)^2\right)$이다.
+      criteria: ['4.M1']
+    - id: 4b-3
+      content: |
+        $\dfrac1n(S_0+\cdots+S_n)=\dfrac{1}{(1-a^2)n}\left(\dfrac{4a^2n(n+1)(2n+1)}{6}-\dfrac{4a(1-a)n(n+1)}{2}+(1-a)^2(n+1)\right)=\dfrac{n+1}{(1-a^2)n}\left(\dfrac{4a^2n^2}{3}+\dfrac{2(4a-3)an}{3}+(1-a)^2\right)$.
+      criteria: ['4.A1']
+    - id: 4b-4
+      content: |
+        $\dfrac{1-3a}{2a}\le n<\dfrac{1-a}{2a}$이므로 $\dfrac{2a}{1-a}<\dfrac1n\le\dfrac{2a}{1-3a}$이고, 따라서 $\displaystyle\lim_{a\to0+}\dfrac1n=0$이다.
+      criteria: ['4.R2']
+    - id: 4b-5
+      content: |
+        문항 (3)의 $\displaystyle\lim_{a\to0+}na=\dfrac12$와 함께 쓰면
+        $\displaystyle\lim_{a\to0+}\dfrac{1}{1-a^2}\left(1+\dfrac1n\right)\left(\dfrac43(na)^2+\dfrac{2(4a-3)}{3}(na)+(1-a)^2\right)=\dfrac43\cdot\dfrac14-1+1=\dfrac13$.
+      criteria: ['4.A2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 4.R1
+      mark_type: R
+      points: 3
+      evidence: |
+        $\dfrac{1-3a}{2a}\le n<\dfrac{1-a}{2a}$일 때 모든 $k=0,1,\cdots,n$에 대하여 교점이 두 점임을 지적했다.
+      depends_on: []
+      implied_ok: false
+      steps: [4b-1]
+    - id: 4.M1
+      mark_type: M
+      points: 2
+      evidence: |
+        문항 (2)의 결과를 인용하여 $S_k=\dfrac{(1-a-2ka)^2}{1-a^2}$ ($k=0,\cdots,n$)임을 보였다.
+      depends_on: [4.R1]
+      ft: {allowed: true, from: [2.A4], max_points: 2}
+      steps: [4b-2]
+    - id: 4.A1
+      mark_type: A
+      points: 3
+      evidence: |
+        $\dfrac1n(S_0+S_1+\cdots+S_n)$을 닫힌 꼴로 구했다.
+      depends_on: [4.M1]
+      steps: [4b-3]
+    - id: 4.R2
+      mark_type: R
+      points: 2
+      evidence: |
+        $\dfrac{1-3a}{2a}\le n<\dfrac{1-a}{2a}$을 인용하여 $\displaystyle\lim_{a\to0+}\dfrac1n=0$을 얻었다.
+      depends_on: []
+      steps: [4b-4]
+    - id: 4.A2
+      mark_type: A
+      points: 3
+      evidence: |
+        극한값 $\dfrac13$을 얻었다.
+      depends_on: [4.A1, 4.R2]
+      steps: [4b-5]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '74', misconception: MC-CAL-9204}
+  misconceptions:
+  - id: MC-CAL-9204
+    outcome_code: '74'
+    wrong_work: '각 $k$에 대해 $\lim_{a\to0+}S_k=1$이므로 평균도 $1$이라고 답함'
+    detect_cue: 합을 닫힌 꼴로 정리하지 않고 극한을 각 항에 먼저 적용했으며 답이 $1$이다
+    feedback: $a\to0+$이면 $n\to\infty$라서 더하는 항의 개수가 함께 늘어납니다. 합을 $n$, $na$로 정리한 뒤 극한을 취하세요.
+    remedy: [RL-4]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-GEO-9201}
+  relation: remediation
+  target: {kind: concept, ref: CON-GEO-POINT-LINE-DIST}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-ALG-9202}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-ROOT-COUNT-GRAPH}
+  priority: 1
+- id: RL-3
+  trigger: {type: misconception, ref: MC-ALG-9203}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-ROOT-COUNT-GRAPH}
+  priority: 2
+- id: RL-4
+  trigger: {type: misconception, ref: MC-CAL-9204}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-LIMIT-VAR-INDEX}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

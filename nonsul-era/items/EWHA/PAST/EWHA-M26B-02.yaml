@@ -1,0 +1,354 @@
+# 이화여대 2026학년도 수시 모의논술(자연계열Ⅱ) 문제 2 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: EWHA-M26B-02
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: EWHA
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 분류
+points: 30
+time_estimate_min: 30
+intent: |
+  조건으로 귀납적으로 정의된 함수의 자연수에서의 값을 구하고, 그래프의 개형을 구간별로 분석해 직선과의 교점 개수를 찾으며, 치환적분으로 정적분 값을 구하는 수학적 추론·문제해결 능력을 평가한다(공식 출제의도 요지).
+key_idea: |
+  $n\le x<n+1$에서 $f(x)=1+\left(-\frac13\right)^n\left(\lvert\cos\pi u\rvert-1\right)$ ($u=2^n(x-n)-k\in[0,1)$)이므로 각 구간에서 $f$의 값 범위가 $[1,\frac43]$, $[\frac89,1]$, … 처럼 정해지고, 각 조각은 $\lvert\cos\pi x\rvert$를 가로로 $2^{-n}$배, 세로로 $3^{-n}$배 한 것이다.
+stuck: |
+  조건 (다)의 $2^n(x-n)-[2^n(x-n)]$이 구간 $[n,n+1)$을 $2^n$개 조각으로 나누어 각 조각에서 $\lvert\cos\pi u\rvert$를 재현한다는 해석
+idea_tags: [IDEA-SELF-SIMILAR-PIECEWISE-FUNC, IDEA-RANGE-BY-INTERVAL-CASE]
+tags: [가우스 기호, 구간별 함수, 치환적분, 교점 개수]
+elements:
+  materials:
+  - '$-1<x<1$에서 $f(x)=\lvert\cos\pi x\rvert$, $f$는 우함수이고 실수 전체에서 연속'
+  - '$n\le x<n+1$에서 $f(x)=1+\left(-\frac13\right)^n\left(f\left(2^n(x-n)-[2^n(x-n)]\right)-1\right)$'
+  - '직선 $y=\frac89$, 구간 $[-3,3]$'
+  concepts:
+  - '가우스 기호'
+  - '함수의 그래프와 대칭(우함수)'
+  - '방정식의 실근 개수'
+  - '치환적분법, 정적분의 성질'
+  tools:
+  - '구간 $[n,n+1)$을 $\left[n+\frac{k}{2^n},n+\frac{k+1}{2^n}\right)$로 분할'
+  - '값의 범위 $-1\le f(u)-1\le0$으로 구간별 치역 판정'
+  - '$\int_0^1\lvert\cos\pi x\rvert dx=\frac{2}{\pi}$와 일차식 치환'
+  conditions:
+  - '$[x]$는 $x$를 넘지 않는 최대의 정수'
+  - '$x\ge3$에서는 $f(x)\ge\frac{80}{81}>\frac89$'
+  stimuli_used: []
+  subpart_links: '(2)(3)은 (1)과 조건 (다)의 구간별 해석을 사용'
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅱ, 미적분]
+  scope_2028: calc2
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: '출제근거(공식): 수학(동아) 치환적분법 pp.134-139[원문 표기 그대로], 미적분(지학사) 치환적분법 pp.144-147, 수학Ⅱ(천재교육·미래엔) 정적분'
+    verified: false
+  content_area: 적분법 – 치환적분과 정적분
+  behavior_domain: 문제해결
+  unit_path: [미적분, 적분법, 치환적분법, 구간별로 정의된 함수의 정적분]
+  key_concepts: [가우스 기호, 우함수, 치환적분법, 교점의 개수]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 이화여자대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 이화여자대학교
+  admission_year: 2026
+  admission_type: 수시 모의논술
+  track: 자연계열Ⅱ
+  question_no: 2
+  official_url: https://admission.ewha.ac.kr/admission/html/rolling/lecture-info.asp
+  retrieved_at: 2026-11-21
+  original_points: [30]
+  points_note: 소문항별 배점은 원문에 없음 — 8·10·12점은 입력자 배분
+  rights_notice: 미확인(대학 원본 PDF 표지 문구 확인 필요)
+  transcribed_from: 이화여대 「2026학년도 수시모집 논술고사 안내」 문제지 p.60, 출제의도·우수답안 및 해설 pp.38-41 (원본 PDF 이미지 대조 완료 2026-11-21)
+
+verify: verify/EWHA-M26B.py::p02
+
+stimuli: []
+
+stem: |
+  실수 전체의 집합에서 연속인 함수 $f(x)$가 다음 조건을 만족시킬 때, 아래 물음에 답하시오. [30점]
+
+  (가) $-1<x<1$인 모든 실수 $x$에 대하여, $f(x)=\lvert\cos\pi x\rvert$이다.
+
+  (나) 임의의 실수 $x$에 대해 $f(x)=f(-x)$이다.
+
+  (다) 모든 자연수 $n$과 $n\le x<n+1$을 만족하는 실수 $x$에 대하여
+  $$f(x)=1+\left(-\dfrac13\right)^n\left(f\left(2^n(x-n)-\left[2^n(x-n)\right]\right)-1\right)$$
+  가 성립한다. (단, $[x]$는 $x$를 넘지 않는 최대의 정수이다.)
+
+subparts:
+- id: '1'
+  stem: |
+    모든 자연수 $n$에 대하여 $f(n)=1$임을 보이시오.
+  points: 8
+  depends_on: []
+  answer: {kind: proof, value: null, equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $x=n$을 (다)에 대입하면 안쪽 인수가 $f(0)=1$.
+    steps:
+    - {id: 1a, content: '$f(n)=1+\left(-\frac13\right)^n(f(0)-1)=1$', criteria: [1.B1, 1.M1]}
+    hint_ladder:
+    - $x=n$이면 $2^n(x-n)$은?
+  - id: S1-B
+    audience: B
+    source_flow: 「2026 논술고사 안내」 우수답안 및 해설 p.39
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        조건 (가)에 의해 $f(0)=\lvert\cos0\rvert=1$이다.
+      criteria: [1.B1]
+    - id: 1b-2
+      content: |
+        모든 자연수 $n$에 대해서 조건 (다)에 의해
+        $$f(n)=1+\left(-\dfrac13\right)^n\left(f\left(2^n(n-n)-[2^n(n-n)]\right)-1\right)=1+\left(-\dfrac13\right)^n(f(0)-1)=1$$
+        이다.
+      criteria: [1.M1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.B1
+      mark_type: B
+      points: 3
+      evidence: |
+        (가)로부터 $f(0)=1$을 적었다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1]
+    - id: 1.M1
+      mark_type: M
+      points: 5
+      evidence: |
+        (다)에 $x=n$을 대입해 안쪽 인수가 $f(0)$이 됨을 보이고 $f(n)=1$을 얻었다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-2]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-9514}
+  misconceptions:
+  - id: MC-CAL-9514
+    outcome_code: '71'
+    wrong_work: '(가)를 $x=1$에도 적용해 $f(1)=\lvert\cos\pi\rvert=1$이라 하고 나머지 $n$은 생략'
+    detect_cue: (가)의 범위 $-1<x<1$ 밖에서 (가)를 썼다
+    feedback: $x\ge1$에서는 조건 (다)를 써야 합니다. $x=n$을 대입해 보세요.
+    remedy: [RL-1]
+
+- id: '2'
+  stem: |
+    직선 $y=\dfrac89$과 함수 $y=f(x)$의 교점의 개수를 구하시오.
+  points: 10
+  depends_on: ['1']
+  answer: {kind: value, value: '12', equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: $[1,2)$에서 $1\le f\le\frac43$, $x\ge3$에서 $f>\frac89$, $[0,1)$에서 $2$개, $[2,3)$에서 $f=\frac89+\frac19\lvert\cos\pi u\rvert$이므로 $u=\frac12$인 $4$개 — 양수 $6$개, 대칭으로 $12$개.
+    steps:
+    - {id: 2a, content: '$2+0+4+0=6$, $f(0)=1$, $2\times6=12$', criteria: [2.M1, 2.R1, 2.A1, 2.A2]}
+    hint_ladder:
+    - 구간 $[n,n+1)$마다 $f$가 취할 수 있는 값의 범위를 먼저 구하자.
+  - id: S2-B
+    audience: B
+    source_flow: 「2026 논술고사 안내」 우수답안 및 해설 pp.39-40
+    method_no: 1
+    steps:
+    - id: 2b-1
+      content: |
+        양수 $x$를 $0<x\le1$, $1\le x\le2$, $2\le x\le3$, $3\le x$로 나누어 살펴본다. 조건 (다)에 의해 임의의 자연수 $n$과 $0\le k<2^n$인 음이 아닌 정수 $k$에 대해서 $n+\dfrac{k}{2^n}\le x<n+\dfrac{k+1}{2^n}$인 실수 $x$는 $[2^n(x-n)]=k$를 만족하고 $0\le2^n(x-n)-k<1$이므로 $f(x)=1+\left(-\dfrac13\right)^n\left(f(2^n(x-n)-k)-1\right)$이고 $-1\le f(2^n(x-n)-k)-1\le0$이다. (공식 해설의 「$0\le k<n$」은 $0\le k<2^n$의 오식으로 보아 바로잡음)
+      criteria: [2.M1]
+    - id: 2b-2
+      content: |
+        (ㄱ) $3\le x$이면 $n\ge3$이고, $n$이 홀수이면 $f(x)\ge1>\dfrac89$, $n$이 짝수이면 $f(x)\ge1-\left(-\dfrac13\right)^n\ge\dfrac{80}{81}>\dfrac89$이므로 $f(x)=\dfrac89$인 실수는 존재하지 않는다.
+        (ㄴ) $0\le x<1$이면 $f(x)=\lvert\cos\pi x\rvert$이므로 $f(x)=\dfrac89$인 양의 실수 $x$의 개수는 $2$이다.
+        (ㄷ) $1\le x<2$이면 $f(x)=1+\left(-\dfrac13\right)(f(2(x-1)-[2(x-1)])-1)$이고 $1\le f(x)\le\dfrac43$이므로 이 범위에서는 존재하지 않는다.
+      criteria: [2.R1]
+    - id: 2b-3
+      content: |
+        (ㄹ) $2\le x<3$이고 $f(x)=\dfrac89$이면 $f(4(x-2)-[4(x-2)])=0$이다. 네 구간 $\left[2,\dfrac94\right)$, $\left[\dfrac94,\dfrac{10}{4}\right)$, $\left[\dfrac{10}{4},\dfrac{11}{4}\right)$, $\left[\dfrac{11}{4},3\right)$에서 각각 $\lvert\cos(4\pi x-8\pi)\rvert=0$, $\lvert\cos(4\pi x-9\pi)\rvert=0$, …을 풀면 $x=\dfrac{17}{8},\dfrac{19}{8},\dfrac{21}{8},\dfrac{23}{8}$에서만 $f(x)=\dfrac89$이다.
+      criteria: [2.A1]
+    - id: 2b-4
+      content: |
+        (ㄱ)~(ㄹ)에 따라 $f(x)=\dfrac89$인 양수 $x$의 개수는 $6$이다. $f(0)=1$이고 조건 (나)에 의해 $f(x)=f(-x)$이므로 $f(x)=\dfrac89$을 만족하는 실수 $x$의 개수는 $12$이다.
+      criteria: [2.A2]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 2
+      evidence: |
+        $[n,n+1)$을 $2^n$개 조각으로 나누어 $f(x)=1+\left(-\frac13\right)^n(f(u)-1)$, $u\in[0,1)$로 나타냈다.
+      depends_on: []
+      implied_ok: false
+      steps: [2b-1]
+    - id: 2.R1
+      mark_type: R
+      points: 3
+      evidence: |
+        $[1,2)$와 $[3,\infty)$에서 $f>\frac89$ 또는 $f\ge1$임을 값의 범위로 보이고, $[0,1)$에서 $2$개를 셌다.
+      depends_on: [2.M1]
+      steps: [2b-2]
+    - id: 2.A1
+      mark_type: A
+      points: 3
+      evidence: |
+        $[2,3)$에서 $x=\frac{17}{8},\frac{19}{8},\frac{21}{8},\frac{23}{8}$의 $4$개를 구했다.
+      depends_on: [2.M1]
+      steps: [2b-3]
+    - id: 2.A2
+      mark_type: A
+      points: 2
+      evidence: |
+        양수 해 $6$개와 대칭성, $f(0)=1$로 교점 $12$개를 결론지었다.
+      depends_on: [2.R1, 2.A1]
+      steps: [2b-4]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-9514}
+  - {code: '72', misconception: MC-CNT-9515}
+  misconceptions:
+  - id: MC-CAL-9514
+    outcome_code: '71'
+    wrong_work: '$[2,3)$에서 $f(x)=1+\frac19(f(4(x-2))-1)$로 보고 $\lvert\cos4\pi(x-2)\rvert$를 한 번만 풀어 $2$개라 셈'
+    detect_cue: $[2,3)$의 해가 $4$개가 아니다
+    feedback: 가우스 기호 때문에 $[2,3)$은 네 조각으로 나뉘고 조각마다 $\lvert\cos\pi u\rvert$가 반복됩니다.
+    remedy: [RL-1]
+  - id: MC-CNT-9515
+    outcome_code: '72'
+    wrong_work: '양수 해 $6$개에 $x=0$을 더해 $13$개, 또는 대칭을 빠뜨려 $6$개'
+    detect_cue: 답이 $13$ 또는 $6$이다
+    feedback: $f(0)=1\neq\frac89$이므로 원점은 해가 아니고, 우함수이므로 음수 쪽에도 같은 개수의 해가 있습니다.
+    remedy: [RL-1]
+
+- id: '3'
+  stem: |
+    $\displaystyle\int_{-3}^{3}f(x)dx$의 값을 구하시오.
+  points: 12
+  depends_on: ['1']
+  answer: {kind: value, value: '28/(9*pi) + 40/9', equivalents: [], tolerance: null}
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: 각 조각에서 $\lvert\cos\pi u\rvert$의 적분은 치환하면 길이에 비례하므로 $\int_1^2f=\frac43-\frac13\cdot\frac2\pi$, $\int_2^3f=\frac89+\frac19\cdot\frac2\pi$.
+    steps:
+    - {id: 3a, content: '$2\left(\frac2\pi+\frac43-\frac{2}{3\pi}+\frac89+\frac{2}{9\pi}\right)=\frac{28}{9\pi}+\frac{40}{9}$', criteria: [3.M1, 3.A1, 3.M2, 3.A2, 3.A3]}
+    hint_ladder:
+    - 우함수이므로 $[0,3]$만 계산하자.
+    - $\int_0^1\lvert\cos\pi x\rvert dx$를 먼저 구하자.
+  - id: S3-B
+    audience: B
+    source_flow: 「2026 논술고사 안내」 우수답안 및 해설 pp.40-41
+    method_no: 1
+    steps:
+    - id: 3b-1
+      content: |
+        조건 (나)에 의해 $\displaystyle\int_{-3}^{3}f(x)dx=2\int_0^3f(x)dx$이다. 조건 (가)와 (1)에 의해 $0\le x\le1$에서 $f(x)=\lvert\cos\pi x\rvert$이므로
+        $$\int_0^1f(x)dx=\int_0^{1/2}\cos\pi x\,dx-\int_{1/2}^1\cos\pi x\,dx=\dfrac{2}{\pi}\int_0^{\pi/2}\cos x\,dx=\dfrac{2}{\pi}$$
+      criteria: [3.M1]
+    - id: 3b-2
+      content: |
+        조건 (다)에 의해 $1\le x<\dfrac32$에서 $f(x)=\dfrac43-\dfrac13\lvert\cos(2\pi x-2\pi)\rvert$, $\dfrac32\le x<2$에서 $f(x)=\dfrac43-\dfrac13\lvert\cos(2\pi x-3\pi)\rvert$이므로 치환적분법에 의해
+        $$\int_1^2f(x)dx=\dfrac43-\dfrac13\int_0^1\lvert\cos\pi x\rvert dx=\dfrac43-\dfrac{2}{3\pi}$$
+      criteria: [3.A1]
+    - id: 3b-3
+      content: |
+        비슷하게 $2\le x<3$의 네 구간에서 $f(x)=\dfrac89+\dfrac19\lvert\cos(4\pi x-j\pi)\rvert$ ($j=8,9,10,11$)이므로 치환적분법에 의해
+        $$\int_2^3f(x)dx=\dfrac89+\dfrac19\int_0^1\lvert\cos\pi x\rvert dx=\dfrac89+\dfrac{2}{9\pi}$$
+      criteria: [3.M2, 3.A2]
+    - id: 3b-4
+      content: |
+        정리하면 $\displaystyle\int_{-3}^{3}f(x)dx=2\left(\dfrac2\pi+\dfrac43-\dfrac{2}{3\pi}+\dfrac89+\dfrac{2}{9\pi}\right)=\dfrac{28}{9\pi}+\dfrac{40}{9}$이다.
+      criteria: [3.A3]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 3
+      evidence: |
+        대칭성으로 $2\int_0^3$으로 바꾸고 $\int_0^1\lvert\cos\pi x\rvert dx=\frac2\pi$를 구했다.
+      depends_on: []
+      implied_ok: false
+      steps: [3b-1]
+    - id: 3.A1
+      mark_type: A
+      points: 3
+      evidence: |
+        $\int_1^2f(x)dx=\frac43-\frac{2}{3\pi}$를 얻었다.
+      depends_on: [3.M1]
+      steps: [3b-2]
+    - id: 3.M2
+      mark_type: M
+      points: 2
+      evidence: |
+        $[2,3)$을 네 조각으로 나눠 $f=\frac89+\frac19\lvert\cos(4\pi x-j\pi)\rvert$로 나타냈다.
+      depends_on: []
+      implied_ok: false
+      steps: [3b-3]
+    - id: 3.A2
+      mark_type: A
+      points: 2
+      evidence: |
+        $\int_2^3f(x)dx=\frac89+\frac{2}{9\pi}$를 얻었다.
+      depends_on: [3.M2]
+      steps: [3b-3]
+    - id: 3.A3
+      mark_type: A
+      points: 2
+      evidence: |
+        $\frac{28}{9\pi}+\frac{40}{9}$을 얻었다.
+      depends_on: [3.M1, 3.M2]
+      steps: [3b-4]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-9516}
+  misconceptions:
+  - id: MC-CAL-9516
+    outcome_code: '71'
+    wrong_work: '$\int_0^1\lvert\cos\pi x\rvert dx=\int_0^1\cos\pi x\,dx=0$으로 계산'
+    detect_cue: 절댓값을 떼면서 $x=\frac12$에서 구간을 나누지 않았다
+    feedback: $\cos\pi x$는 $x=\frac12$에서 부호가 바뀌므로 구간을 나눠 적분하세요.
+    remedy: [RL-2]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CAL-9514}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-PIECEWISE-RECUR}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-CAL-9516}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-SUBST-INT}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

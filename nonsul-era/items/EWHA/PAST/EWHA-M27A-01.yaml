@@ -1,0 +1,450 @@
+# 이화여대 2027학년도 수시 모의논술(자연계열Ⅰ) 문제 1 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: EWHA-M27A-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: proof
+origin: mock_exam
+school: EWHA
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 추론
+points: 35
+time_estimate_min: 30
+intent: |
+  주어진 함수 $f(x)=x\ln x$의 성질을 파악하고 함숫값들의 대소관계를 도출하는 문제이다. 연속함수에 대한 사잇값의 정리와 미분가능한 함수의 평균값 정리, 도함수를 이용한 함수의 증감상태를 파악하는 능력, 함수가 특정한 값을 갖는 점이 유일하게 존재함을 증감상태와 사잇값의 정리로 추론하는 능력을 평가한다(공식 출제 의도 요지).
+key_idea: |
+  $f(x)=x\ln x$의 도함수 $f'(x)=1+\ln x$가 증가함수라는 사실을 (1)~(4) 전체에 쓴다: 증가 구간(1)(2), 평균값 정리(3), 두 구간의 평균변화율 비교(4).
+stuck: |
+  (4)에서 $z=\dfrac{x+y}{2}$를 잡고 $[x,z]$, $[z,y]$ 두 구간에 평균값 정리를 각각 적용해 기울기를 비교하는 발상
+idea_tags: [IDEA-MVT-SLOPE-COMPARE, IDEA-IVT-PLUS-MONOTONE-UNIQUE]
+tags: [로그함수, 평균값 정리, 사잇값 정리, 부등식 증명]
+elements:
+  materials:
+  - '함수 $f(x)=x\ln x\ (x>0)$'
+  - '방정식 $x\ln x-\pi=0$'
+  - '부등식 $\ln x\le\dfrac{y\ln y-x\ln x}{y-x}$, $\dfrac{x+y}{2}\ln\dfrac{x+y}{2}\le\dfrac{x\ln x+y\ln y}{2}$'
+  concepts:
+  - '로그함수의 도함수'
+  - '도함수의 부호와 함수의 증가·감소'
+  - '사잇값의 정리'
+  - '평균값 정리'
+  tools:
+  - '$f^{\prime}(x)=1+\ln x$의 부호 조사'
+  - '구간 $\left(0,\tfrac1e\right)$, $\left(\tfrac1e,\infty\right)$로 나누기'
+  - '$z=\tfrac{x+y}{2}$에서 두 구간 평균값 정리'
+  conditions:
+  - '(1) $1<x<y$'
+  - '(2) 열린구간 $(0,\infty)$에서 오직 하나의 실근'
+  - '(3)(4) $0<x<y$'
+  stimuli_used: []
+  subpart_links: '(1)~(4) 모두 $f(x)=x\ln x$와 $f^{\prime}(x)=1+\ln x$의 증가성을 공유. (2) 별해는 (1)의 결과를 사용'
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅱ, 미적분]
+  scope_2028: calc2
+  scope_confirmed: true
+  standards:
+  - code: 미확인
+    text: '출제 근거: 수학Ⅱ(미래엔) 사잇값의 정리 p.38, 평균값 정리 pp.78-80, 함수의 증가와 감소 pp.82-84 / 미적분(미래엔) 로그함수의 도함수 p.61, 함수의 증가와 감소·극대와 극소 p.110'
+    verified: false
+  content_area: 미분법 – 도함수의 활용
+  behavior_domain: 추론
+  unit_path: [미적분, 미분법, 도함수의 활용, 평균값 정리와 부등식]
+  key_concepts: [로그함수의 도함수, 사잇값의 정리, 평균값 정리, 함수의 증가와 감소]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 이화여자대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 이화여자대학교
+  admission_year: 2027
+  admission_type: 수시 모의논술
+  track: 자연계열Ⅰ
+  question_no: 1
+  official_url: https://admission.ewha.ac.kr/admission/html/rolling/lecture-info.asp
+  retrieved_at: 2026-11-21
+  original_points: [35]
+  rights_notice: 소문항별 배점은 공식 자료에 없음(문항 전체 35점). 소문항 배점 7·8·10·10은 입력자 추정 배분
+  transcribed_from: 「2027학년도 논술고사 안내」(이화여대 입학처) 문제지 p.48, 출제 의도·예시 답안 pp.21-23 (원본 PDF 이미지 대조 완료 2026-11-21)
+
+verify: verify/EWHA-M27A.py::p01
+
+stimuli: []
+
+stem: |
+  아래 물음에 답하시오. [35점]
+
+subparts:
+- id: '1'
+  stem: |
+    $1<x<y$인 실수 $x,y$에 대하여 부등식 $x\ln x<y\ln y$가 성립함을 보이시오.
+  points: 7
+  depends_on: []
+  answer: {kind: proof, value: null, equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $f(x)=x\ln x$는 $f'(x)=1+\ln x>0$ $(x>1)$이므로 $(1,\infty)$에서 증가한다.
+    steps:
+    - {id: 1a, content: '$x>1\Rightarrow f^{\prime}(x)=1+\ln x>1>0\Rightarrow f$ 증가 $\Rightarrow f(x)<f(y)$', criteria: [1.M1, 1.R1]}
+    hint_ladder:
+    - 양변이 같은 함수의 함숫값이다.
+    - $f(x)=x\ln x$의 도함수 부호를 $x>1$에서 조사하자.
+  - id: S1-B
+    audience: B
+    source_flow: 2027 논술고사 안내 p.21
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        $x>0$에서 $f(x)=x\ln x$라 하면 $f'(x)=1+\ln x$이다.
+      criteria: [1.M1]
+    - id: 1b-2
+      content: |
+        구간 $(1,\infty)$에서 $\ln x>0$이므로 $f'(x)=1+\ln x>1>0$이고, $f(x)$는 구간 $(1,\infty)$에서 증가한다.
+      criteria: [1.A1]
+    - id: 1b-3
+      content: |
+        그러므로 $1<x<y$이면 $f(y)>f(x)$, 즉 $x\ln x<y\ln y$이다.
+      criteria: [1.R1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 2
+      evidence: |
+        $f(x)=x\ln x$로 두고 $f'(x)=1+\ln x$를 구했다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1, 1a]
+    - id: 1.A1
+      mark_type: A
+      points: 3
+      evidence: |
+        $x>1$에서 $f'(x)>0$임을 근거($\ln x>0$)와 함께 밝혔다.
+      depends_on: [1.M1]
+      steps: [1b-2]
+    - id: 1.R1
+      mark_type: R
+      points: 2
+      evidence: |
+        증가함수이므로 $1<x<y$에서 $f(x)<f(y)$라고 결론을 적었다.
+      depends_on: []
+      steps: [1b-3, 1a]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-9550}
+  misconceptions:
+  - id: MC-CAL-9550
+    outcome_code: '71'
+    wrong_work: '$f^{\prime}(x)=1+\ln x>0$이므로 $f$는 $(0,\infty)$에서 증가한다'
+    detect_cue: 도함수의 부호를 구간 $(1,\infty)$ 또는 $x>\tfrac1e$로 한정하지 않았다
+    feedback: $1+\ln x$는 $x<\tfrac1e$에서 음수입니다. 부호가 양수인 구간을 먼저 확인하세요.
+    remedy: [RL-1]
+
+- id: '2'
+  stem: |
+    방정식 $x\ln x-\pi=0$이 열린구간 $(0,\infty)$에서 오직 하나의 실근을 가짐을 보이시오.
+  points: 8
+  depends_on: []
+  answer: {kind: proof, value: null, equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: $\left(0,\tfrac1e\right)$에서는 $f<0$이라 근이 없고, $\left(\tfrac1e,\infty\right)$에서는 증가 + 사잇값 정리로 근이 꼭 하나.
+    steps:
+    - {id: 2a, content: '$0<x<\tfrac1e$: $f(x)<-x<0$ / $x>\tfrac1e$: $f(\tfrac1e)<\pi<f(e^2)$, 증가 ⇒ 유일', criteria: [2.M1, 2.M2, 2.R1]}
+    hint_ladder:
+    - $f'(x)=1+\ln x=0$이 되는 점에서 구간을 나누자.
+    - 감소 구간에서 $f$의 부호는? 증가 구간에서는 사잇값의 정리를 쓰자.
+  - id: S2-B
+    audience: B
+    source_flow: 2027 논술고사 안내 pp.21-22
+    method_no: 1
+    steps:
+    - id: 2b-1
+      content: |
+        $f'(x)=1+\ln x=0$인 것은 $x=\dfrac1e$뿐이다. $\ln x$가 증가하므로 $\left(0,\dfrac1e\right)$에서 $f'(x)<0$(감소), $\left(\dfrac1e,\infty\right)$에서 $f'(x)>0$(증가)이다.
+      criteria: [2.M1]
+    - id: 2b-2
+      content: |
+        (i) $0<x<\dfrac1e$이면 $\ln x<\ln\dfrac1e=-1$이고 $x>0$이므로 $f(x)=x\ln x<-x<0$이다. 따라서 이 구간에서는 $x\ln x=\pi$의 근이 없다.
+      criteria: [2.A1]
+    - id: 2b-3
+      content: |
+        (ii) $x>\dfrac1e$에서 $f\left(\dfrac1e\right)=-\dfrac1e<\pi$, $f(e^2)=2e^2>\pi$이므로 사잇값의 정리에 의해 $z\ln z=\pi$인 $z$가 열린구간 $\left(\dfrac1e,e^2\right)$에 존재한다($x=\dfrac1e$ 자체는 근이 아니다).
+      criteria: [2.M2]
+    - id: 2b-4
+      content: |
+        $f$가 $\left(\dfrac1e,\infty\right)$에서 증가하므로 이 구간에서 $x\ln x=\pi$를 만족하는 $x$는 유일하다. 결론적으로 $(0,\infty)$에서 방정식 $x\ln x-\pi=0$의 실근은 오직 하나이다.
+      criteria: [2.R1]
+  - id: S2-ALT
+    audience: ALT
+    source_flow: 2027 논술고사 안내 p.22 별해
+    method_no: 2
+    key_idea: 문항 (1)을 이용해 $(0,1)$과 $(1,\infty)$로 나눈다. $(0,1)$에서 $f(x)<0$, $(1,\infty)$에서 $f(1)=0<\pi<f(e^2)$ + 증가.
+    steps:
+    - id: 2c-1
+      content: |
+        $0<x<1$이면 $\ln x<0$이므로 $f(x)<0$이고 근이 없다. $x=1$이면 $f(1)=0\ne\pi$. $x>1$에서는 $f(1)=0<\pi<2e^2=f(e^2)$이므로 사잇값 정리로 근이 $(1,e^2)$에 존재하고, (1)에서 $f$가 $(1,\infty)$에서 증가하므로 유일하다.
+      criteria: [2.M1, 2.A1, 2.M2, 2.R1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 2
+      evidence: |
+        $f'(x)=1+\ln x$의 부호로 감소 구간 $\left(0,\tfrac1e\right)$과 증가 구간 $\left(\tfrac1e,\infty\right)$를 구분했다(별해: $(0,1)$과 $(1,\infty)$).
+      depends_on: []
+      implied_ok: false
+      steps: [2b-1, 2c-1, 2a]
+    - id: 2.A1
+      mark_type: A
+      points: 2
+      evidence: |
+        앞 구간에서 $f(x)<0<\pi$이므로 근이 없음을 보였다.
+      depends_on: [2.M1]
+      steps: [2b-2, 2c-1]
+    - id: 2.M2
+      mark_type: M
+      points: 2
+      evidence: |
+        구간 양 끝(예: $\tfrac1e$와 $e^2$)에서 $f$의 값과 $\pi$를 비교하여 사잇값의 정리로 근의 존재를 보였다.
+      depends_on: []
+      implied_ok: false
+      steps: [2b-3, 2c-1, 2a]
+    - id: 2.R1
+      mark_type: R
+      points: 2
+      evidence: |
+        증가함수이므로 근이 유일하다는 근거를 적고 전체 구간에서 근이 하나라고 결론지었다.
+      depends_on: [2.M2]
+      steps: [2b-4, 2c-1, 2a]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-9551}
+  - {code: '72', misconception: MC-CAL-9550}
+  misconceptions:
+  - id: MC-CAL-9551
+    outcome_code: '71'
+    wrong_work: '$f(1)=0<\pi<f(e^2)$이므로 사잇값 정리에 의해 근이 하나 존재한다'
+    detect_cue: 존재만 말하고 증가성(유일성)이나 $\left(0,\tfrac1e\right)$ 구간 처리가 없다
+    feedback: 사잇값의 정리는 존재만 보장합니다. 유일성은 단조성으로, 나머지 구간은 따로 근이 없음을 보이세요.
+    remedy: [RL-2]
+  - id: MC-CAL-9550
+    outcome_code: '72'
+    wrong_work: '$f$가 $(0,\infty)$에서 증가하므로 근은 많아야 하나'
+    detect_cue: $\left(0,\tfrac1e\right)$에서 감소함을 무시했다
+    feedback: $x\ln x$는 $\left(0,\tfrac1e\right)$에서 감소합니다. 구간을 나누어 각각 근의 개수를 확인하세요.
+    remedy: [RL-1]
+
+- id: '3'
+  stem: |
+    $0<x<y$인 실수 $x,y$에 대하여 부등식 $\ln x\le\dfrac{y\ln y-x\ln x}{y-x}$가 성립함을 보이시오.
+  points: 10
+  depends_on: []
+  answer: {kind: proof, value: null, equivalents: [], tolerance: null}
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: 우변은 $f(x)=x\ln x$의 평균변화율이므로 평균값 정리로 $1+\ln a$ $(x<a<y)$와 같고, $\ln x<\ln a<1+\ln a$.
+    steps:
+    - {id: 3a, content: '$\dfrac{f(y)-f(x)}{y-x}=f^{\prime}(a)=1+\ln a>\ln a>\ln x$', criteria: [3.M1, 3.A1, 3.R1]}
+    hint_ladder:
+    - 우변은 어떤 함수의 평균변화율인가?
+    - 평균값 정리의 $a$는 어느 구간에 있는가?
+  - id: S3-B
+    audience: B
+    source_flow: 2027 논술고사 안내 p.22
+    method_no: 1
+    steps:
+    - id: 3b-1
+      content: |
+        $f(x)=x\ln x$는 $(0,\infty)$에서 미분가능하므로 평균값 정리에 의해 $0<x<y$에 대하여
+        $$f'(a)=\dfrac{f(y)-f(x)}{y-x}=\dfrac{y\ln y-x\ln x}{y-x}$$
+        인 $a$가 구간 $(x,y)$에 존재한다.
+      criteria: [3.M1]
+    - id: 3b-2
+      content: |
+        $f'(a)=1+\ln a$이고 $\ln x$가 증가하므로 $x<a$에서 $\ln x<\ln a<1+\ln a=\dfrac{y\ln y-x\ln x}{y-x}$이다.
+      criteria: [3.A1, 3.R1]
+  - id: S3-ALT
+    audience: ALT
+    source_flow: 2027 논술고사 안내 pp.22-23 별해
+    method_no: 2
+    key_idea: $y\ln x<y\ln y$에서 양변에 $-x\ln x$를 더해 $(y-x)\ln x<y\ln y-x\ln x$, $y-x>0$으로 나눈다.
+    steps:
+    - id: 3c-1
+      content: |
+        $0<x<y$이면 $\ln x<\ln y$이고 $y>0$이므로 $y\ln x<y\ln y$, 즉 $(y-x)\ln x<y\ln y-x\ln x$. $y-x>0$으로 나누면 $\ln x<\dfrac{y\ln y-x\ln x}{y-x}$.
+      criteria: [3.M1, 3.A1, 3.R1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 4
+      evidence: |
+        우변을 $f(x)=x\ln x$의 평균변화율로 보고 평균값 정리로 $f'(a)$ $(x<a<y)$와 같다고 적었다(별해: $y\ln x<y\ln y$에서 출발).
+      depends_on: []
+      implied_ok: false
+      steps: [3b-1, 3c-1, 3a]
+    - id: 3.A1
+      mark_type: A
+      points: 3
+      evidence: |
+        $f'(a)=1+\ln a$를 적었다(별해: $(y-x)\ln x<y\ln y-x\ln x$로 정리).
+      depends_on: [3.M1]
+      steps: [3b-2, 3c-1, 3a]
+    - id: 3.R1
+      mark_type: R
+      points: 3
+      evidence: |
+        $x<a$와 $\ln$의 증가성으로 $\ln x<\ln a<1+\ln a$를 이끌어 결론을 적었다(별해: $y-x>0$으로 나눔을 명시).
+      depends_on: [3.M1]
+      steps: [3b-2, 3c-1, 3a]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '21', meaning: 만점(별해)}
+  - {code: '71', misconception: MC-CAL-9552}
+  misconceptions:
+  - id: MC-CAL-9552
+    outcome_code: '71'
+    wrong_work: '평균값 정리로 $1+\ln a$와 같다고 쓴 뒤 $a$의 범위 없이 $1+\ln a\ge\ln x$라고 단정'
+    detect_cue: $x<a<y$라는 조건이 답안에 없다
+    feedback: 평균값 정리의 $a$가 열린구간 $(x,y)$ 안에 있다는 점이 $\ln a>\ln x$의 근거입니다.
+    remedy: [RL-3]
+
+- id: '4'
+  stem: |
+    $0<x<y$인 실수 $x,y$에 대하여 부등식 $\dfrac{x+y}{2}\ln\dfrac{x+y}{2}\le\dfrac{x\ln x+y\ln y}{2}$가 성립함을 보이시오.
+  points: 10
+  depends_on: []
+  answer: {kind: proof, value: null, equivalents: [], tolerance: null}
+  solutions:
+  - id: S4-A
+    audience: A
+    method_no: 1
+    key_idea: $z=\tfrac{x+y}{2}$에서 $[x,z]$, $[z,y]$에 평균값 정리, $f'$ 증가이므로 왼쪽 기울기 < 오른쪽 기울기, 구간 길이가 같으므로 $f(z)-f(x)<f(y)-f(z)$.
+    steps:
+    - {id: 4a, content: '$\dfrac{f(z)-f(x)}{z-x}=f^{\prime}(v)<f^{\prime}(w)=\dfrac{f(y)-f(z)}{y-z}$, $z-x=y-z$', criteria: [4.M1, 4.M2, 4.R1, 4.A1]}
+    hint_ladder:
+    - 우변은 $f(x)$와 $f(y)$의 평균이다. 중점 $z=\tfrac{x+y}{2}$를 잡자.
+    - 두 구간 $[x,z]$, $[z,y]$의 평균변화율을 비교해 보자.
+  - id: S4-B
+    audience: B
+    source_flow: 2027 논술고사 안내 p.23
+    method_no: 1
+    steps:
+    - id: 4b-1
+      content: |
+        $x>0$에서 $\ln x$가 증가함수이므로 $f'(x)=1+\ln x$도 $(0,\infty)$에서 증가한다. 즉 $0<s<t$이면 $f'(s)<f'(t)$이다.
+      criteria: [4.M1]
+    - id: 4b-2
+      content: |
+        $z=\dfrac{x+y}{2}$라 하면 $x<z<y$이다. 평균값 정리에 의해
+        $$f'(v)=\dfrac{f(z)-f(x)}{z-x},\quad f'(w)=\dfrac{f(y)-f(z)}{y-z}$$
+        인 $v$와 $w$가 각각 구간 $(x,z)$와 $(z,y)$에 존재한다.
+      criteria: [4.M2]
+    - id: 4b-3
+      content: |
+        $v<z<w$이고 $f'$이 증가하므로 $f'(v)<f'(w)$, 즉 $\dfrac{f(z)-f(x)}{z-x}<\dfrac{f(y)-f(z)}{y-z}$이다.
+      criteria: [4.R1]
+    - id: 4b-4
+      content: |
+        $z-x=\dfrac{y-x}{2}=y-z>0$이므로 $f(z)-f(x)<f(y)-f(z)$이다. 즉
+        $$\dfrac{x+y}{2}\ln\dfrac{x+y}{2}=f(z)<\dfrac{f(x)+f(y)}{2}=\dfrac{x\ln x+y\ln y}{2}.$$
+      criteria: [4.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 4.M1
+      mark_type: M
+      points: 2
+      evidence: |
+        $f'(x)=1+\ln x$가 증가함수임을 밝혔다.
+      depends_on: []
+      implied_ok: false
+      steps: [4b-1, 4a]
+    - id: 4.M2
+      mark_type: M
+      points: 3
+      evidence: |
+        $z=\tfrac{x+y}{2}$를 잡고 $[x,z]$, $[z,y]$에서 평균값 정리를 각각 적용한 식을 적었다.
+      depends_on: []
+      implied_ok: false
+      steps: [4b-2, 4a]
+    - id: 4.R1
+      mark_type: R
+      points: 3
+      evidence: |
+        $v<z<w$와 $f'$의 증가성으로 두 평균변화율의 대소를 이끌었다.
+      depends_on: [4.M1, 4.M2]
+      steps: [4b-3, 4a]
+    - id: 4.A1
+      mark_type: A
+      points: 2
+      evidence: |
+        $z-x=y-z>0$을 써서 $f(z)<\tfrac{f(x)+f(y)}{2}$로 결론지었다.
+      depends_on: [4.R1]
+      steps: [4b-4, 4a]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-9553}
+  - {code: '72', misconception: MC-CAL-9552}
+  misconceptions:
+  - id: MC-CAL-9553
+    outcome_code: '71'
+    wrong_work: '$\dfrac{f(z)-f(x)}{z-x}<\dfrac{f(y)-f(z)}{y-z}$에서 곧바로 $f(z)-f(x)<f(y)-f(z)$'
+    detect_cue: $z-x=y-z$(구간 길이가 같음)를 언급하지 않았다
+    feedback: 기울기의 대소를 함숫값 차의 대소로 옮기려면 두 구간의 길이가 같고 양수라는 사실이 필요합니다.
+    remedy: [RL-3]
+  - id: MC-CAL-9552
+    outcome_code: '72'
+    wrong_work: '평균값 정리의 $v,w$에 대해 범위 없이 $f^{\prime}(v)<f^{\prime}(w)$라고 씀'
+    detect_cue: $v\in(x,z)$, $w\in(z,y)$, 즉 $v<z<w$가 답안에 없다
+    feedback: $f'(v)<f'(w)$의 근거는 $v<w$입니다. 각 중간값이 어느 구간에 있는지 적으세요.
+    remedy: [RL-3]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CAL-9550}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-MONOTONE-DERIV}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-CAL-9551}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-IVT-UNIQUE}
+  priority: 1
+- id: RL-3
+  trigger: {type: misconception, ref: MC-CAL-9552}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-MVT}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21
+# 메모: 공식 예시답안 (2) p.21-22 에 "함수 f(x)=x ln x는 구간 (0,1/e)에서 증가한다"는 오기가 있음(문맥상 (1/e,∞)). 해설 B 는 바로잡아 적음.

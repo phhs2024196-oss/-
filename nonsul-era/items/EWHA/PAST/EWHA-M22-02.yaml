@@ -1,0 +1,325 @@
+# 이화여대 2022학년도 수시 모의논술(자연계열) 문제 2 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: EWHA-M22-02
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: proof
+origin: mock_exam
+school: EWHA
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 추론
+points: 30
+time_estimate_min: 30
+intent: |
+  다항함수의 정적분을 이해하고 정적분의 기본 성질과 여러 가지 적분법(부분적분법, 치환적분법)을 활용하여 주어진 정적분들 사이의 관계를 수리적으로 추론하는 능력을 평가한다(안내 책자 출제의도 요지).
+key_idea: |
+  피적분함수를 합쳐 $(1-x)+x=1$을 만들고, 부분적분으로 $x$의 지수를 올리며, $t=1-x$ 치환으로 지수를 맞바꿔 네 적분 사이의 선형 관계를 얻은 뒤 연립한다.
+stuck: |
+  $A-B-C$의 피적분함수에서 $1-x(1-x)-x=(1-x)^2$이 나오는 것과, $x^{2021}(1-x)^{2023}$을 치환으로 $D$로 바꾸는 것
+idea_tags: [IDEA-BETA-INTEGRAL-RECURSION, IDEA-SYMMETRIC-SUBST-1-MINUS-X]
+tags: [정적분, 부분적분, 치환적분]
+elements:
+  materials:
+  - '$A=\int_0^1x^{2021}(1-x)^{2021}dx$, $B=\int_0^1x^{2022}(1-x)^{2022}dx$'
+  - '$C=\int_0^1x^{2022}(1-x)^{2021}dx$, $D=\int_0^1x^{2023}(1-x)^{2021}dx$'
+  concepts:
+  - '정적분의 성질(선형성)'
+  - '다항식의 연산'
+  - '부분적분법'
+  - '치환적분법'
+  tools:
+  - '$x^{2022}(1-x)^{2021}\{(1-x)+x\}$로 묶기'
+  - '$x^{2022}$ 적분, $(1-x)^{2022}$ 미분의 부분적분(경계항 0)'
+  - '$t=1-x$ 치환'
+  - '연립하여 $A=\tfrac{2\cdot4045}{2022}B$'
+  conditions:
+  - '경계항 $\left[\tfrac{x^{2023}}{2023}(1-x)^{2022}\right]_0^1=0$'
+  stimuli_used: []
+  subpart_links: '(3)의 둘째 부분은 (1)·(2)의 관계와 (3)의 첫째 결과를 함께 사용'
+
+curriculum:
+  version: '2015'
+  subjects: [수학, 수학Ⅱ, 미적분]
+  scope_2028: calc2
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: '안내 책자 출제근거: 수학 다항식의 연산, 수학Ⅱ 도함수·부정적분·정적분, 미적분 치환적분법·부분적분법(교과서 쪽수만 제시, 성취기준 코드 없음)'
+    verified: false
+  content_area: 미적분 – 적분법(치환·부분적분)
+  behavior_domain: 추론
+  unit_path: [미적분, 적분법, 여러 가지 적분법, 정적분 사이의 관계식]
+  key_concepts: [정적분의 성질, 부분적분법, 치환적분법]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 이화여자대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 이화여자대학교
+  admission_year: 2022
+  admission_type: 수시 모의논술
+  track: 자연계열
+  question_no: 2
+  official_url: https://admission.ewha.ac.kr/admission/html/rolling/lecture-info.asp
+  retrieved_at: 2026-11-21
+  original_points: [30]
+  rights_notice: 미확인(「2022 논술고사 안내」 책자)
+  transcribed_from: |
+    「2022학년도 논술고사 안내」(안내_2022.pdf) p.19 문제지, pp.39–40 출제의도·우수답안 및 해설 — 원본 PDF 이미지 대조 완료 2026-11-21.
+    공식 소문항 배점·채점기준 없음(문항 전체 30점만 표기). 소문항 배점 10·10·10과 채점 마크는 입력자가 임의 배분.
+
+verify: verify/EWHA-M22.py::p02
+
+stimuli: []
+
+stem: |
+  실수 $A,B,C,D$가 다음과 같이 주어질 때, 아래 물음에 답하시오. [30점]
+  $$A=\int_0^1x^{2021}(1-x)^{2021}dx,\quad B=\int_0^1x^{2022}(1-x)^{2022}dx,$$
+  $$C=\int_0^1x^{2022}(1-x)^{2021}dx,\quad D=\int_0^1x^{2023}(1-x)^{2021}dx$$
+
+subparts:
+- id: '1'
+  stem: |
+    $B+D=C$임을 보이시오.
+  points: 10
+  depends_on: []
+  answer: {kind: proof, value: 'B + D = C', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: 피적분함수를 더하면 $x^{2022}(1-x)^{2021}\{(1-x)+x\}$.
+    steps:
+    - {id: 1a, content: '$B+D=\int_0^1x^{2022}(1-x)^{2021}\{(1-x)+x\}dx=C$', criteria: ['1.M1', '1.A1']}
+    hint_ladder:
+    - 두 피적분함수의 공통인수를 묶어 보자.
+  - id: S1-B
+    audience: B
+    source_flow: 2022 논술고사 안내 p.40 우수답안 및 해설 (1) 풀이
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        정적분의 성질에 따라 $B+D=\displaystyle\int_0^1\left(x^{2022}(1-x)^{2022}+x^{2023}(1-x)^{2021}\right)dx$이다.
+      criteria: ['1.M1']
+    - id: 1b-2
+      content: |
+        $=\displaystyle\int_0^1x^{2022}(1-x)^{2021}\left((1-x)+x\right)dx=\int_0^1x^{2022}(1-x)^{2021}dx=C$
+      criteria: ['1.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 4
+      evidence: |
+        정적분의 성질로 $B+D$를 하나의 정적분으로 합쳤다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1]
+    - id: 1.A1
+      mark_type: A
+      points: 6
+      evidence: |
+        공통인수 $x^{2022}(1-x)^{2021}$로 묶어 $(1-x)+x=1$을 얻고 $C$임을 보였다.
+      depends_on: [1.M1]
+      steps: [1b-2]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-9164}
+  misconceptions:
+  - id: MC-CAL-9164
+    outcome_code: '71'
+    wrong_work: '$x^{2022}(1-x)^{2022}+x^{2023}(1-x)^{2021}=x^{2022}(1-x)^{2022}\{1+x\}$로 묶음'
+    detect_cue: 묶은 뒤 남는 인수가 $(1-x)+x$가 아니다
+    feedback: 두 항의 공통인수는 $x^{2022}(1-x)^{2021}$입니다(지수가 작은 쪽).
+    remedy: [RL-1]
+
+- id: '2'
+  stem: |
+    $B=\dfrac{2022}{2023}D$임을 보이시오.
+  points: 10
+  depends_on: []
+  answer: {kind: proof, value: 'B = 2022/2023*D', equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: $x^{2022}$을 적분, $(1-x)^{2022}$를 미분하는 부분적분(경계항 0).
+    steps:
+    - {id: 2a, content: '$B=0+\tfrac{2022}{2023}\int_0^1x^{2023}(1-x)^{2021}dx$', criteria: ['2.M1', '2.A1', '2.A2']}
+    hint_ladder:
+    - $x$의 지수를 올리고 $(1-x)$의 지수를 내리는 적분법은?
+  - id: S2-B
+    audience: B
+    source_flow: 2022 논술고사 안내 p.40 우수답안 및 해설 (2) 풀이
+    method_no: 1
+    steps:
+    - id: 2b-1
+      content: |
+        정적분 $B$에 $x^{2022}$을 적분하고 $(1-x)^{2022}$을 미분하여 부분적분법을 적용한다.
+      criteria: ['2.M1']
+    - id: 2b-2
+      content: |
+        $$B=\left[\dfrac{x^{2023}}{2023}(1-x)^{2022}\right]_0^1-\int_0^1\dfrac{x^{2023}}{2023}\cdot2022(1-x)^{2021}(-1)dx$$
+        경계항은 0이다.
+      criteria: ['2.A1']
+    - id: 2b-3
+      content: |
+        $$=\dfrac{2022}{2023}\int_0^1x^{2023}(1-x)^{2021}dx=\dfrac{2022}{2023}D$$
+      criteria: ['2.A2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 3
+      evidence: |
+        $x^{2022}$을 적분, $(1-x)^{2022}$을 미분하는 부분적분을 시도했다.
+      depends_on: []
+      implied_ok: false
+      steps: [2b-1]
+    - id: 2.A1
+      mark_type: A
+      points: 4
+      evidence: |
+        부분적분 식(경계항과 $(1-x)^{2022}$의 도함수 $-2022(1-x)^{2021}$)을 바르게 적고 경계항이 0임을 밝혔다.
+      depends_on: [2.M1]
+      steps: [2b-2]
+    - id: 2.A2
+      mark_type: A
+      points: 3
+      evidence: |
+        $B=\dfrac{2022}{2023}D$를 얻었다.
+      depends_on: [2.M1, 2.A1]
+      steps: [2b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '72', misconception: MC-CAL-9165}
+  misconceptions:
+  - id: MC-CAL-9165
+    outcome_code: '72'
+    wrong_work: '$(1-x)^{2022}$의 도함수를 $2022(1-x)^{2021}$로 써서 $B=-\dfrac{2022}{2023}D$'
+    detect_cue: 결과에 음의 부호가 있다(양수끼리의 관계인데 음수)
+    feedback: 합성함수 미분으로 $\{(1-x)^{2022}\}'=-2022(1-x)^{2021}$입니다.
+    remedy: [RL-2]
+
+- id: '3'
+  stem: |
+    $A-B-C=D$임을 보이고, $B=\dfrac{1011}{4045}A$임을 보이시오.
+  points: 10
+  depends_on: ['1', '2']
+  answer: {kind: proof, value: 'A - B - C = D; B = 1011/4045*A', equivalents: [], tolerance: null}
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: $1-x(1-x)-x=(1-x)^2$로 $A-B-C=\int_0^1x^{2021}(1-x)^{2023}dx$, $t=1-x$로 $D$. 이후 (1)(2)와 연립.
+    steps:
+    - {id: 3a, content: '$A=B+C+D=B+\tfrac{4045}{2022}B+\tfrac{2023}{2022}B=\tfrac{2\cdot4045}{2022}B$', criteria: ['3.M1', '3.A1', '3.M2', '3.A2']}
+    hint_ladder:
+    - $A-B-C$의 피적분함수를 $x^{2021}(1-x)^{2021}$로 묶자.
+    - $x\leftrightarrow1-x$로 바꾸면 지수가 서로 바뀐다.
+  - id: S3-B
+    audience: B
+    source_flow: 2022 논술고사 안내 p.40 우수답안 및 해설 (3) 풀이
+    method_no: 1
+    steps:
+    - id: 3b-1
+      content: |
+        정적분의 성질에 따라
+        $$A-B-C=\int_0^1x^{2021}(1-x)^{2021}\left(1-x(1-x)-x\right)dx=\int_0^1x^{2021}(1-x)^{2021}(1-x)^2dx=\int_0^1x^{2021}(1-x)^{2023}dx$$
+      criteria: ['3.M1']
+    - id: 3b-2
+      content: |
+        $t=1-x$로 놓으면 $\dfrac{dt}{dx}=-1$이고, $x=0$일 때 $t=1$, $x=1$일 때 $t=0$이므로
+        $$\int_0^1x^{2021}(1-x)^{2023}dx=\int_1^0(1-t)^{2021}t^{2023}(-dt)=\int_0^1t^{2023}(1-t)^{2021}dt=D$$
+        따라서 $A-B-C=D$이다.
+      criteria: ['3.A1']
+    - id: 3b-3
+      content: |
+        문항 (2)에서 $D=\dfrac{2023}{2022}B$를 얻고, 문항 (1)의 $B+D=C$에 대입하면 $C=B+\dfrac{2023}{2022}B=\dfrac{4045}{2022}B$이다.
+      criteria: ['3.M2']
+    - id: 3b-4
+      content: |
+        $A-B-C=D$로부터 $A=B+C+D=B+\dfrac{4045}{2022}B+\dfrac{2023}{2022}B=\dfrac{2\cdot4045}{2022}B$이며, 정리하면 $B=\dfrac{1011}{4045}A$이다.
+      criteria: ['3.A2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 3
+      evidence: |
+        $A-B-C=\int_0^1x^{2021}(1-x)^{2023}dx$ (피적분함수 정리 $1-x(1-x)-x=(1-x)^2$)를 얻었다.
+      depends_on: []
+      implied_ok: false
+      steps: [3b-1]
+    - id: 3.A1
+      mark_type: A
+      points: 3
+      evidence: |
+        $t=1-x$ 치환(구간·부호 처리 포함)으로 그 적분이 $D$임을 보였다.
+      depends_on: [3.M1]
+      steps: [3b-2]
+    - id: 3.M2
+      mark_type: M
+      points: 2
+      evidence: |
+        (1), (2)의 관계를 이용해 $C$, $D$를 $B$로 나타냈다($C=\dfrac{4045}{2022}B$, $D=\dfrac{2023}{2022}B$).
+      depends_on: []
+      implied_ok: false
+      ft: {allowed: true, from: [1.A1, 2.A2], max_points: 2}
+      steps: [3b-3]
+    - id: 3.A2
+      mark_type: A
+      points: 2
+      evidence: |
+        $A=\dfrac{2\cdot4045}{2022}B$에서 $B=\dfrac{1011}{4045}A$를 얻었다.
+      depends_on: [3.M2, 3.A1]
+      steps: [3b-4]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '73', misconception: MC-CAL-9166}
+  misconceptions:
+  - id: MC-CAL-9166
+    outcome_code: '73'
+    wrong_work: '$\int_0^1x^{2021}(1-x)^{2023}dx=\int_1^0(1-t)^{2021}t^{2023}dt=-D$'
+    detect_cue: 치환 후 $dx=-dt$를 빠뜨리거나 구간을 뒤집으면서 부호를 두 번 바꾼다
+    feedback: $dx=-dt$와 구간 $1\to0$을 함께 처리하면 부호가 상쇄되어 $+D$입니다.
+    remedy: [RL-3]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CAL-9164}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-DEF-INTEG-LINEARITY}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-CAL-9165}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-INTEG-BY-PARTS}
+  priority: 1
+- id: RL-3
+  trigger: {type: misconception, ref: MC-CAL-9166}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-INTEG-SUBST}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

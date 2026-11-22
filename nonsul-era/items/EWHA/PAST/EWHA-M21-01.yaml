@@ -1,0 +1,377 @@
+# 이화여대 2021학년도 수시 모의논술(자연계열) 문제 1 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: EWHA-M21-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: proof
+origin: mock_exam
+school: EWHA
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 추론
+points: 40
+time_estimate_min: 35
+intent: |
+  지수함수와 로그함수의 성질을 이해하고 해당 함수들의 미분을 활용하여 주어진 함수의 상태를 수리적으로 추론하며, 앞서 확인된 결과들을 활용하여 주어진 수열이 제시된 수렴 조건들을 만족함을 추론하는 문제이다. 평균값의 정리 등의 수리적 개념을 이해하고 활용하는 능력을 평가한다(안내 출제의도).
+key_idea: |
+  (2)의 단조성으로 $n\ln\left(1+\frac1n\right)\le(n+1)\ln\left(1+\frac{1}{n+1}\right)$, (1)의 $1+\frac1n<e^{1/n}$로 $\left(1+\frac1n\right)^n\le e$를 얻는다.
+stuck: |
+  $b_n$의 로그가 (2)의 함수값 $f(n)$이라는 것, 그리고 (1)에 $x=\frac1n$을 대입해 상계 $e$를 얻는 발상
+idea_tags: [IDEA-MVT-LOG-DIFFERENCE, IDEA-MONOTONE-BOUNDED-EULER]
+tags: [평균값 정리, 자연상수 e, 단조수렴]
+elements:
+  materials:
+  - '부등식 $e^x>1+x$ ($x>0$)'
+  - '$f(x)=x\ln\left(1+\frac1x\right)$ (구간 $(0,\infty)$)'
+  - '수렴 조건 (i) $a_n\le a_{n+1}$, (ii) $a_n\le M$'
+  - '$b_n=\left(1+\frac1n\right)^n$'
+  concepts:
+  - 지수함수·로그함수의 미분
+  - 평균값 정리
+  - 증가함수 판정
+  - 로그함수의 증가성
+  - 단조·유계 수열의 수렴(문제에서 사실로 제시)
+  tools:
+  - '$g(x)=e^x-1-x$에 평균값 정리'
+  - '$\ln(x+1)-\ln x=\frac1c$, $x<c<x+1$'
+  - "$f'(x)=\\ln(x+1)-\\ln x-\\frac{1}{x+1}$"
+  - '$x=\frac1n$ 대입'
+  conditions:
+  - '$c>0$이면 $e^c-1>0$'
+  - '$c<x+1$이면 $\frac1c>\frac{1}{x+1}$'
+  stimuli_used: []
+  subpart_links: '(3)의 조건 (i)은 (2)의 증가성, 조건 (ii)는 (1)의 부등식을 사용'
+
+curriculum:
+  version: '2015'
+  subjects: [미적분]
+  scope_2028: calc2
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 지수함수와 로그함수를 미분할 수 있다(요지 — 모의논술은 문항카드 미공개)
+    verified: false
+  - code: 미확인
+    text: 평균값 정리를 이해하고 함수의 증가·감소를 판정할 수 있다(요지)
+    verified: false
+  content_area: 미분법 – 지수·로그함수의 미분, 평균값 정리
+  behavior_domain: 추론
+  unit_path: [미적분, 미분법, 도함수의 활용, 평균값 정리와 수열의 수렴]
+  key_concepts: [평균값 정리, 로그함수의 미분, 단조수렴]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 이화여자대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 이화여자대학교
+  admission_year: 2021
+  admission_type: 수시 모의논술
+  track: 자연계열
+  question_no: 1
+  official_url: https://admission.ewha.ac.kr/admission/html/rolling/lecture-info.asp
+  retrieved_at: 2026-11-21
+  original_points: [40]
+  rights_notice: 2021학년도 수시 모의논술고사 문제지(자연계열) 및 「2021학년도 논술고사 안내」 출제의도 및 우수답안 분석
+  transcribed_from: 2021모의__문제지_자연.pdf p.2(문제지 1/3) + 안내_2021.pdf p.39–41(출제의도·우수답안 및 해설) (원본 PDF 이미지 대조 완료 2026-11-21). 소문항별 배점은 공식 자료에 없어 10·15·15로 임의 배분(총 40점만 공식).
+
+verify: verify/EWHA-M21.py::p01
+
+stimuli: []
+
+stem: |
+  [40점]
+
+subparts:
+- id: '1'
+  stem: |
+    양의 실수 $x$에 대하여 부등식 $e^x>1+x$가 성립함을 보이시오.
+  points: 10
+  depends_on: []
+  answer: {kind: proof, value: null, equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $g(x)=e^x-1-x$에 $[0,x]$에서 평균값 정리를 쓰면 $g(x)=x(e^c-1)>0$.
+    steps:
+    - id: 1a
+      content: |
+        $g(0)=0$, $g'(c)=e^c-1>0$ ($0<c<x$)이므로 $g(x)>0$.
+      criteria: [1.M1, 1.A1, 1.R1]
+    hint_ladder:
+    - 두 변의 차를 함수로 두고 $x=0$에서의 값을 보자.
+  - id: S1-B
+    audience: B
+    source_flow: 안내_2021 자연 문제1 우수답안 및 해설 p.39
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        함수 $g(x)=e^x-1-x$를 미분하면 $g'(x)=e^x-1$이고, $g(0)=e^0-1=0$이다.
+      criteria: [1.M1]
+    - id: 1b-2
+      content: |
+        평균값의 정리에 의하여 $\dfrac{g(x)-g(0)}{x-0}=\dfrac{e^x-1-x}{x}=e^c-1=g'(c)$를 만족하는 $c$가 $(0,x)$ 안에 적어도 하나 존재한다.
+      criteria: [1.A1]
+    - id: 1b-3
+      content: |
+        $x$와 $c$가 양의 실수이므로 $e^c-1>0$이고 $x>0$이다. 따라서 $g(x)=xg'(c)=x(e^c-1)>0$이다. 결론적으로 양의 실수 $x$에 대하여 부등식 $e^x>1+x$가 성립한다.
+      criteria: [1.R1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 3
+      evidence: |
+        $g(x)=e^x-1-x$(또는 동치)를 두고 $g'(x)=e^x-1$, $g(0)=0$을 적었다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1]
+    - id: 1.A1
+      mark_type: A
+      points: 4
+      evidence: |
+        평균값 정리로 $\frac{g(x)-g(0)}{x}=e^c-1$인 $c\in(0,x)$의 존재를 적었다(또는 $x>0$에서 $g'(x)>0$으로 증가함을 보였다).
+      depends_on: [1.M1]
+      steps: [1b-2]
+    - id: 1.R1
+      mark_type: R
+      points: 3
+      evidence: |
+        $c>0$이므로 $e^c-1>0$, $x>0$이므로 $g(x)>0$, 즉 $e^x>1+x$를 결론지었다.
+      depends_on: [1.A1]
+      steps: [1b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-9110}
+  misconceptions:
+  - id: MC-CAL-9110
+    outcome_code: '71'
+    wrong_work: |
+      $g'(x)=e^x-1>0$이므로 $g(x)>0$
+    detect_cue: 증가성만 말하고 $g(0)=0$과의 비교(또는 평균값 정리의 식)가 없다
+    feedback: 증가함수라는 사실만으로는 부호가 정해지지 않습니다. 기준점 $g(0)=0$과 비교하세요.
+    remedy: [RL-1]
+
+- id: '2'
+  stem: |
+    함수 $f(x)=x\ln\left(1+\dfrac1x\right)$이 구간 $(0,\infty)$에서 증가함을 평균값의 정리를 이용하여 보이시오.
+  points: 15
+  depends_on: []
+  answer: {kind: proof, value: null, equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: $f'(x)=\ln(x+1)-\ln x-\frac{1}{x+1}=\frac1c-\frac{1}{x+1}>0$ ($x<c<x+1$).
+    steps:
+    - id: 2a
+      content: |
+        평균값 정리로 $\ln(x+1)-\ln x=\frac1c$, $c<x+1$이므로 $f'(x)>0$.
+      criteria: [2.M1, 2.M2, 2.A1, 2.R1]
+    hint_ladder:
+    - $\ln\left(1+\frac1x\right)=\ln(x+1)-\ln x$로 쓰자.
+    - $\ln$에 대해 구간 $[x,x+1]$에서 평균값 정리를 쓰면?
+  - id: S2-B
+    audience: B
+    source_flow: 안내_2021 자연 문제1 우수답안 및 해설 p.40
+    method_no: 1
+    steps:
+    - id: 2b-1
+      content: |
+        로그함수 $\ln x$의 도함수는 $\frac1x$이다. 평균값의 정리에 의하여 $\ln(x+1)-\ln x=\dfrac1c$를 만족하는 $c$가 $(x,x+1)$ 안에 적어도 하나 존재한다.
+      criteria: [2.M1]
+    - id: 2b-2
+      content: |
+        함수 $f(x)=x\ln\left(1+\frac1x\right)=x\ln\left(\frac{x+1}{x}\right)=x(\ln(x+1)-\ln x)$를 미분하면
+        $$f'(x)=\ln(x+1)-\ln x+x\left(\frac{1}{x+1}-\frac1x\right)=\ln(x+1)-\ln x-\frac{1}{x+1}$$
+      criteria: [2.M2, 2.A1]
+    - id: 2b-3
+      content: |
+        이고, $\dfrac1c>\dfrac{1}{x+1}$이므로 $f'(x)>0$이다. 따라서 함수 $f(x)$는 구간 $(0,\infty)$에서 증가한다.
+      criteria: [2.R1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 4
+      evidence: |
+        $\ln x$에 구간 $[x,x+1]$에서 평균값 정리를 적용해 $\ln(x+1)-\ln x=\frac1c$ ($x<c<x+1$)를 적었다.
+      depends_on: []
+      implied_ok: false
+      steps: [2b-1]
+    - id: 2.M2
+      mark_type: M
+      points: 3
+      evidence: |
+        $f(x)=x(\ln(x+1)-\ln x)$로 변형해 곱의 미분을 시도했다.
+      depends_on: []
+      implied_ok: true
+      steps: [2b-2]
+    - id: 2.A1
+      mark_type: A
+      points: 4
+      evidence: |
+        $f'(x)=\ln(x+1)-\ln x-\frac{1}{x+1}$을 얻었다.
+      depends_on: [2.M2]
+      steps: [2b-2]
+    - id: 2.R1
+      mark_type: R
+      points: 4
+      evidence: |
+        $c<x+1$에서 $\frac1c>\frac{1}{x+1}$이므로 $f'(x)>0$, 따라서 $(0,\infty)$에서 증가함을 결론지었다.
+      depends_on: [2.M1, 2.A1]
+      steps: [2b-3]
+    deductions:
+    - code: D2-1
+      condition: 평균값의 정리를 쓰지 않고 다른 방법(이계도함수 등)으로만 증가를 보임 — 발문 요구 미충족
+      effect: minus
+      value: 4
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '72', misconception: MC-CAL-9111}
+  misconceptions:
+  - id: MC-CAL-9111
+    outcome_code: '72'
+    wrong_work: |
+      $x<c$이므로 $\frac1c<\frac{1}{x+1}$이고 $f'(x)<0$
+    detect_cue: $c$의 범위 $(x,x+1)$에서 비교 대상($x$ 대신 $x+1$)이나 부등호 방향을 잘못 잡았다
+    feedback: 비교할 값은 $\frac{1}{x+1}$입니다. $c<x+1$이므로 $\frac1c>\frac{1}{x+1}$입니다.
+    remedy: [RL-2]
+
+- id: '3'
+  stem: |
+    수열 $\{a_n\}$이 아래 조건 (i), (ii)를 만족하면 수렴한다.
+
+    (i) $a_n\le a_{n+1}$ (단, $n=1,2,3,\cdots$)
+    (ii) 어떤 양의 실수 $M$에 대하여 $a_n\le M$ (단, $n=1,2,3,\cdots$)
+
+    수열 $\{b_n\}$의 일반항이 $b_n=\left(1+\dfrac1n\right)^n\,(n=1,2,3,\cdots)$일 때, 수열 $\{b_n\}$이 위의 조건 (i), (ii)를 만족함을 보임으로써 수렴함을 보이시오.
+  points: 15
+  depends_on: ['1', '2']
+  answer: {kind: proof, value: null, equivalents: [], tolerance: null}
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: $\ln b_n=f(n)$이 증가하므로 (i), $\ln b_n=n\ln\left(1+\frac1n\right)<n\cdot\frac1n=1$이므로 (ii) ($M=e$).
+    steps:
+    - id: 3a
+      content: |
+        $f(n)\le f(n+1)\Rightarrow b_n\le b_{n+1}$; $1+\frac1n<e^{1/n}\Rightarrow b_n\le e$.
+      criteria: [3.M1, 3.A1, 3.M2, 3.A2, 3.R1]
+    hint_ladder:
+    - $\ln b_n$을 (2)의 함수로 나타내 보자.
+    - (1)에 $x=\frac1n$을 넣으면?
+  - id: S3-B
+    audience: B
+    source_flow: 안내_2021 자연 문제1 우수답안 및 해설 p.40–41
+    method_no: 1
+    steps:
+    - id: 3b-1
+      content: |
+        (2)의 결과로부터 함수 $f(x)=x\ln\left(1+\frac1x\right)$가 구간 $(0,\infty)$에서 증가함수이므로, 자연수 $n$에 대하여 $n\ln\left(1+\frac1n\right)\le(n+1)\ln\left(1+\frac{1}{n+1}\right)$이 성립한다.
+      criteria: [3.M1]
+    - id: 3b-2
+      content: |
+        로그함수의 성질로부터 $\ln\left(1+\frac1n\right)^n\le\ln\left(1+\frac{1}{n+1}\right)^{n+1}$이다. 로그함수 $\ln x$가 증가함수이므로 $\left(1+\frac1n\right)^n\le\left(1+\frac{1}{n+1}\right)^{n+1}$이 성립한다. 따라서 수열 $\{b_n\}$은 조건 (i)을 만족한다.
+      criteria: [3.A1]
+    - id: 3b-3
+      content: |
+        (1)의 결과로부터 양의 실수 $x$에 대하여 $e^x>1+x$가 성립하므로, 자연수 $n$에 대하여 $1+\frac1n<e^{\frac1n}$이 성립한다. 로그함수는 증가함수이므로 $\ln\left(1+\frac1n\right)<\ln e^{\frac1n}=\frac1n$이 성립한다.
+      criteria: [3.M2]
+    - id: 3b-4
+      content: |
+        로그함수의 성질로부터 $\ln\left(1+\frac1n\right)^n=n\ln\left(1+\frac1n\right)<1=\ln e$이다. 로그함수 $\ln x$가 증가함수이므로 $\left(1+\frac1n\right)^n\le e$가 성립한다. 따라서 수열 $\{b_n\}$은 조건 (ii)를 만족한다.
+      criteria: [3.A2]
+    - id: 3b-5
+      content: |
+        수열 $\{b_n\}$이 조건 (i), (ii)를 만족하므로 수렴한다.
+      criteria: [3.R1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 4
+      evidence: |
+        (2)의 증가성을 인용해 $n\ln\left(1+\frac1n\right)\le(n+1)\ln\left(1+\frac{1}{n+1}\right)$을 적었다.
+      depends_on: []
+      implied_ok: false
+      ft: {allowed: true, from: [2.R1], max_points: 4}
+      steps: [3b-1]
+    - id: 3.A1
+      mark_type: A
+      points: 3
+      evidence: |
+        $\ln$의 증가성으로 $b_n\le b_{n+1}$, 즉 조건 (i)을 결론지었다.
+      depends_on: [3.M1]
+      steps: [3b-2]
+    - id: 3.M2
+      mark_type: M
+      points: 4
+      evidence: |
+        (1)에 $x=\frac1n$을 대입해 $1+\frac1n<e^{1/n}$, $\ln\left(1+\frac1n\right)<\frac1n$을 적었다.
+      depends_on: []
+      implied_ok: false
+      ft: {allowed: true, from: [1.R1], max_points: 4}
+      steps: [3b-3]
+    - id: 3.A2
+      mark_type: A
+      points: 3
+      evidence: |
+        $n\ln\left(1+\frac1n\right)<1$에서 $b_n\le e$, 즉 조건 (ii)($M=e$ 등)를 결론지었다.
+      depends_on: [3.M2]
+      steps: [3b-4]
+    - id: 3.R1
+      mark_type: R
+      points: 1
+      evidence: |
+        두 조건을 만족하므로 $\{b_n\}$이 수렴한다고 결론을 적었다.
+      depends_on: [3.A1, 3.A2]
+      steps: [3b-5]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '73', misconception: MC-PRF-9112}
+  misconceptions:
+  - id: MC-PRF-9112
+    outcome_code: '73'
+    wrong_work: '$\lim_{n\to\infty}\left(1+\frac1n\right)^n=e$이므로 $b_n\le e$이고 수렴한다'
+    detect_cue: 수렴을 보여야 하는데 극한값 $e$를 전제로 썼거나, 조건 (ii)의 근거가 없다
+    feedback: 보이려는 결론(수렴과 극한값)을 근거로 쓰면 순환논증입니다. (1)의 부등식으로 상계를 직접 보이세요.
+    remedy: [RL-3]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CAL-9110}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-MVT}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-CAL-9111}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-MVT}
+  priority: 2
+- id: RL-3
+  trigger: {type: misconception, ref: MC-PRF-9112}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-MONOTONE-BOUNDED}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

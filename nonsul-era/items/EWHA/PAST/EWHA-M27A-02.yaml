@@ -1,0 +1,326 @@
+# 이화여대 2027학년도 수시 모의논술(자연계열Ⅰ) 문제 2 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: EWHA-M27A-02
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: EWHA
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 분류
+points: 35
+time_estimate_min: 25
+intent: |
+  조합을 이용한 경우의 수, 이산확률변수와 확률분포, 이산확률변수의 기댓값의 정의를 바탕으로, 네 장을 뽑아 작은 수부터 나열했을 때 인접한 두 수의 차이 값의 최솟값으로 정의되는 확률변수에 대해 특정 사건의 경우의 수와 기댓값을 구한다. 인접한 차이에 조건이 부여된 네 수의 선택을 중복조합 문제로 바꾸는 추론 능력과 기댓값 계산 능력을 평가한다(공식 출제 의도 요지).
+key_idea: |
+  뽑히지 않은 8개의 수를 $\square a_1\square a_2\square a_3\square a_4\square$의 다섯 칸에 나누어 넣고, 가운데 세 칸의 최소 개수를 빼서 음이 아닌 정수해의 개수(중복조합)로 센다.
+stuck: |
+  「인접한 차가 모두 $d$ 이상」을 가운데 칸에 $d-1$개 이상이 들어가는 조건으로 바꾸고, $M=d$를 $M\ge d$와 $M\ge d+1$의 차로 구하는 발상
+idea_tags: [IDEA-GAP-TO-STARS-BARS, IDEA-EXACT-AS-DIFF-OF-AT-LEAST]
+tags: [중복조합, 기댓값, 최소 간격]
+elements:
+  materials:
+  - '1부터 12까지 적힌 카드 12장에서 4장 선택'
+  - '인접한 두 수의 차의 최솟값 $M$'
+  concepts:
+  - '조합'
+  - '중복조합(음이 아닌 정수해의 개수)'
+  - '이산확률변수의 확률분포'
+  - '기댓값'
+  tools:
+  - '뽑히지 않은 수의 칸 나누기 $n_1+\cdots+n_5=8$'
+  - '치환 $m_i=n_i-(d-1)$'
+  - '$P(M=d)=P(M\ge d)-P(M\ge d+1)$ 꼴의 차'
+  conditions:
+  - '$a_1<a_2<a_3<a_4$, 각 $a_{i+1}-a_i\ge d$'
+  - '$M\ge4$는 불가능($a_4\ge12+a_1$)'
+  stimuli_used: []
+  subpart_links: '(2)는 (1)의 126 사용, (3)은 (1)(2)의 126·15·111 사용'
+
+curriculum:
+  version: '2015'
+  subjects: [수학, 확률과통계]
+  scope_2028: common
+  scope_confirmed: true
+  standards:
+  - code: 미확인
+    text: '출제 근거: 확률과 통계(미래엔) 중복조합 pp.18-21, 확률변수와 확률분포 pp.79-84, 이산확률변수의 기댓값 pp.86-91 / 수학(미래엔) 조합 pp.270-272'
+    verified: false
+  content_area: 경우의 수 – 중복조합 / 확률분포
+  behavior_domain: 문제해결
+  unit_path: [확률과통계, 경우의 수, 중복조합, 간격 조건이 있는 선택]
+  key_concepts: [중복조합, 이산확률변수, 기댓값]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 이화여자대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 이화여자대학교
+  admission_year: 2027
+  admission_type: 수시 모의논술
+  track: 자연계열Ⅰ
+  question_no: 2
+  official_url: https://admission.ewha.ac.kr/admission/html/rolling/lecture-info.asp
+  retrieved_at: 2026-11-21
+  original_points: [35]
+  rights_notice: 소문항별 배점은 공식 자료에 없음(문항 전체 35점). 소문항 배점 10·10·15는 입력자 추정 배분
+  transcribed_from: 「2027학년도 논술고사 안내」(이화여대 입학처) 문제지 p.49, 출제 의도·예시 답안 pp.24-26 (원본 PDF 이미지 대조 완료 2026-11-21)
+
+verify: verify/EWHA-M27A.py::p02
+
+stimuli: []
+
+stem: |
+  $1$부터 $12$까지의 자연수가 각각 하나씩 적힌 $12$장의 카드 중에서 임의로 네 장의 카드를 동시에 뽑아 작은 수부터 나열했을 때, 인접한 두 수의 차이 값 중에서 가장 작은 값을 $M$이라 하자. 아래 물음에 답하시오. [35점]
+
+subparts:
+- id: '1'
+  stem: |
+    $M\ge2$인 사건의 경우의 수를 구하시오.
+  points: 10
+  depends_on: []
+  answer: {kind: value, value: '126', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: 뽑히지 않은 8개를 5칸에 넣되 가운데 세 칸은 1개 이상 → $n_1+m_2+m_3+m_4+n_5=5$의 음이 아닌 정수해 ${}_5\mathrm{H}_5=126$.
+    steps:
+    - {id: 1a, content: '${}_5\mathrm{H}_5={}_9\mathrm{C}_4=126$', criteria: [1.M1, 1.M2, 1.A1]}
+    hint_ladder:
+    - 뽑히지 않은 수들이 뽑힌 네 수 사이 어디에 놓이는지 생각하자.
+    - 차가 2 이상이려면 사이 칸에 최소 몇 개가 있어야 하는가?
+  - id: S1-B
+    audience: B
+    source_flow: 2027 논술고사 안내 pp.24-25
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        뽑은 네 수를 작은 순으로 $a_1,a_2,a_3,a_4$라 하면 $M\ge2$는 $a_2-a_1\ge2$, $a_3-a_2\ge2$, $a_4-a_3\ge2$와 같다. 뽑히지 않은 $12-4=8$개의 수가 $\square a_1\square a_2\square a_3\square a_4\square$의 5개 칸에 나뉘어 들어가며, 각 칸의 개수를 $n_1,\dots,n_5$라 하면
+        $$n_1+n_2+n_3+n_4+n_5=8,\quad n_1,n_5\ge0,\quad n_2,n_3,n_4\ge1.$$
+      criteria: [1.M1]
+    - id: 1b-2
+      content: |
+        $m_i=n_i-1$ $(i=2,3,4)$로 두면 $n_1+m_2+m_3+m_4+n_5=5$ (모두 $\ge0$)의 음이 아닌 정수해의 개수와 같다.
+      criteria: [1.M2]
+    - id: 1b-3
+      content: |
+        따라서 ${}_5\mathrm{H}_5={}_9\mathrm{C}_5={}_9\mathrm{C}_4=\dfrac{9\times8\times7\times6}{4\times3\times2\times1}=126$이다.
+      criteria: [1.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 4
+      evidence: |
+        뽑히지 않은 수의 칸 배치로 조건을 $n_1+\cdots+n_5=8$, 가운데 세 칸 $\ge1$로 나타냈다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1, 1a]
+    - id: 1.M2
+      mark_type: M
+      points: 3
+      evidence: |
+        치환으로 음이 아닌 정수해의 개수(중복조합 ${}_5\mathrm{H}_5$)로 바꾸었다.
+      depends_on: [1.M1]
+      steps: [1b-2, 1a]
+    - id: 1.A1
+      mark_type: A
+      points: 3
+      evidence: |
+        $126$을 얻었다.
+      depends_on: [1.M2]
+      steps: [1b-3, 1a]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CNT-9554}
+  misconceptions:
+  - id: MC-CNT-9554
+    outcome_code: '71'
+    wrong_work: '${}_5\mathrm{H}_8={}_{12}\mathrm{C}_4=495$ 또는 ${}_5\mathrm{H}_8$을 그대로 답함'
+    detect_cue: 가운데 세 칸에 최소 1개씩을 먼저 넣는(빼는) 과정이 없다
+    feedback: 차가 2 이상이려면 사이 칸에 수가 하나 이상 있어야 합니다. 최소 개수를 먼저 빼고 중복조합을 쓰세요.
+    remedy: [RL-1]
+
+- id: '2'
+  stem: |
+    $M=2$인 사건의 경우의 수를 구하시오.
+  points: 10
+  depends_on: ['1']
+  answer: {kind: value, value: '111', equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: $M\ge3$은 가운데 칸 $\ge2$ → ${}_5\mathrm{H}_2=15$, $M=2$는 $126-15=111$.
+    steps:
+    - {id: 2a, content: '$126-{}_5\mathrm{H}_2=126-15=111$', criteria: [2.M1, 2.A1, 2.A2]}
+    hint_ladder:
+    - $M=2$는 「$M\ge2$」에서 무엇을 뺀 것인가?
+  - id: S2-B
+    audience: B
+    source_flow: 2027 논술고사 안내 p.25
+    method_no: 1
+    steps:
+    - id: 2b-1
+      content: |
+        $M\ge3$이면 $a_{i+1}-a_i\ge3$이므로 가운데 세 칸에 각각 2개 이상이 들어가야 한다: $n_1+\cdots+n_5=8$, $n_1,n_5\ge0$, $n_2,n_3,n_4\ge2$.
+      criteria: [2.M1]
+    - id: 2b-2
+      content: |
+        $m_i=n_i-2$로 두면 $n_1+m_2+m_3+m_4+n_5=2$의 음이 아닌 정수해의 개수이므로 $M\ge3$인 경우의 수는 ${}_5\mathrm{H}_2={}_6\mathrm{C}_2=15$이다.
+      criteria: [2.A1]
+    - id: 2b-3
+      content: |
+        $M=2$인 경우의 수는 $M\ge2$인 경우의 수에서 $M\ge3$인 경우의 수를 뺀 $126-15=111$이다.
+      criteria: [2.A2]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 4
+      evidence: |
+        $M\ge3$을 가운데 세 칸 $\ge2$ 조건으로 나타냈다.
+      depends_on: []
+      implied_ok: false
+      steps: [2b-1, 2a]
+    - id: 2.A1
+      mark_type: A
+      points: 3
+      evidence: |
+        $M\ge3$인 경우의 수 $15$를 구했다.
+      depends_on: [2.M1]
+      steps: [2b-2, 2a]
+    - id: 2.A2
+      mark_type: A
+      points: 3
+      evidence: |
+        $126-15=111$을 얻었다.
+      depends_on: [2.M1]
+      ft: {allowed: true, from: [1.A1], max_points: 3}
+      steps: [2b-3, 2a]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CNT-9555}
+  misconceptions:
+  - id: MC-CNT-9555
+    outcome_code: '71'
+    wrong_work: '$M=2$인 경우의 수를 $126$으로 답함'
+    detect_cue: $M\ge3$인 경우를 빼는 과정이 없다
+    feedback: $M\ge2$에는 $M=3$인 경우도 들어 있습니다. $M\ge3$인 경우를 따로 세어 빼세요.
+    remedy: [RL-1]
+
+- id: '3'
+  stem: |
+    $M$의 값을 확률변수 $X$라 할 때, $X$의 기댓값을 구하시오.
+  points: 15
+  depends_on: ['1', '2']
+  answer: {kind: value, value: '212/165', equivalents: ['636/495'], tolerance: null}
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: $M\ge4$ 불가, 전체 ${}_{12}\mathrm{C}_4=495$에서 $M=1,2,3$의 개수 $369,111,15$.
+    steps:
+    - {id: 3a, content: '$E(X)=\dfrac{369+222+45}{495}=\dfrac{212}{165}$', criteria: [3.R1, 3.M1, 3.A1, 3.A2]}
+    hint_ladder:
+    - $M$이 가질 수 있는 가장 큰 값은?
+    - $M=1$의 개수는 전체에서 무엇을 빼면 되는가?
+  - id: S3-B
+    audience: B
+    source_flow: 2027 논술고사 안내 pp.25-26
+    method_no: 1
+    steps:
+    - id: 3b-1
+      content: |
+        $M\ge4$이면 $a_4\ge4+a_3\ge8+a_2\ge12+a_1$이고 $12\ge a_4$이므로 $a_1\le0$이 되어 모순이다. 따라서 $M\ge4$인 사건은 일어나지 않는다. 네 수가 서로 다르므로 항상 $M\ge1$이다.
+      criteria: [3.R1]
+    - id: 3b-2
+      content: |
+        전체 경우의 수는 ${}_{12}\mathrm{C}_4=495$이므로 $M=1$은 $495-126=369$, $M=2$는 $111$, $M=3$은 $15$가지이다.
+      criteria: [3.M1]
+    - id: 3b-3
+      content: |
+        $P(X=1)=\dfrac{369}{495}=\dfrac{41}{55}$, $P(X=2)=\dfrac{111}{495}=\dfrac{37}{165}$, $P(X=3)=\dfrac{15}{495}=\dfrac{1}{33}$.
+      criteria: [3.A1]
+    - id: 3b-4
+      content: |
+        $E(X)=1\cdot\dfrac{369}{495}+2\cdot\dfrac{111}{495}+3\cdot\dfrac{1}{33}=\dfrac{369+222+45}{495}=\dfrac{636}{495}=\dfrac{212}{165}$.
+      criteria: [3.A2]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 3.R1
+      mark_type: R
+      points: 4
+      evidence: |
+        $M\ge4$가 불가능함($a_1\le0$ 모순)을 보이고 $X$의 값이 $1,2,3$임을 밝혔다.
+      depends_on: []
+      steps: [3b-1, 3a]
+    - id: 3.M1
+      mark_type: M
+      points: 4
+      evidence: |
+        전체 $495$와 (1)(2)의 결과로 $M=1,2,3$의 경우의 수 $369,111,15$를 구했다.
+      depends_on: []
+      implied_ok: false
+      ft: {allowed: true, from: [1.A1, 2.A1, 2.A2], max_points: 4}
+      steps: [3b-2, 3a]
+    - id: 3.A1
+      mark_type: A
+      points: 3
+      evidence: |
+        확률분포 $P(X=1)=\tfrac{41}{55}$, $P(X=2)=\tfrac{37}{165}$, $P(X=3)=\tfrac{1}{33}$을 적었다.
+      depends_on: [3.M1]
+      steps: [3b-3, 3a]
+    - id: 3.A2
+      mark_type: A
+      points: 4
+      evidence: |
+        $E(X)=\tfrac{212}{165}$를 얻었다.
+      depends_on: [3.M1]
+      steps: [3b-4, 3a]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-PRB-9556}
+  misconceptions:
+  - id: MC-PRB-9556
+    outcome_code: '71'
+    wrong_work: '$M=4$도 가능하다고 보거나 $M=1$의 경우를 빠뜨려 확률의 합이 1이 아닌 분포로 기댓값 계산'
+    detect_cue: 확률의 합 $\tfrac{369+111+15}{495}=1$ 확인이 없고 값의 범위 판정이 없다
+    feedback: 먼저 $M$이 가질 수 있는 값을 확정하고, 확률의 합이 1인지 확인한 뒤 기댓값을 계산하세요.
+    remedy: [RL-2]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CNT-9554}
+  relation: remediation
+  target: {kind: concept, ref: CON-CNT-STARS-BARS}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-PRB-9556}
+  relation: remediation
+  target: {kind: concept, ref: CON-PRB-EXPECTATION}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21
+# 메모: 공식 예시답안 (2) p.25 에 "따라서 M≥2인 사건의 경우의 수는 5H2=15" 오기(문맥상 M≥3). 해설 B 는 바로잡아 적음.

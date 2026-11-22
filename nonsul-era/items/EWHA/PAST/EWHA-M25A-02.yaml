@@ -1,0 +1,308 @@
+# 이화여대 2025학년도 수시 모의논술(자연계열Ⅰ) 문제 2 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: EWHA-M25A-02
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: EWHA
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 전수
+points: 30
+time_estimate_min: 25
+intent: |
+  $m^2+n^2=2025$의 자연수 해를 원 $x^2+y^2=45^2$ 위의 자연수 격자점에 대응시키고, 이 격자점들이 점 $\mathrm{P}(-45,0)$을 지나고 기울기가 유리수인 직선과 원의 교점과 같음을 추론한 뒤, 직선과 원의 방정식으로 교점을 구체적으로 특정하는 능력을 본다(공식 출제의도 요지).
+key_idea: |
+  $\mathrm{P}(-45,0)$을 지나는 기울기 $\tfrac pq$인 직선과 원의 다른 교점은 $\left(\tfrac{45(q^2-p^2)}{p^2+q^2},\tfrac{90pq}{p^2+q^2}\right)$이고, $\gcd(pq,p^2+q^2)=1$이므로 $p^2+q^2\mid90$이다.
+stuck: |
+  원 위의 격자점을 '고정점을 지나는 유리 기울기 직선'으로 매개화하는 발상, 그리고 서로소 조건에서 $p^2+q^2$이 $90$의 약수임을 끌어내는 것
+idea_tags: [IDEA-RATIONAL-PARAM-CIRCLE, IDEA-COPRIME-DIVISOR-BOUND]
+tags: [피타고라스 수, 원 위의 격자점, 유리 매개화]
+elements:
+  materials:
+  - '중심이 원점이고 반지름이 $45$인 원 $C$'
+  - '점 $\mathrm{P}(-45,0)$을 지나는 직선'
+  - '원 위의 자연수 격자점 $\mathrm{Q}(m,n)$'
+  concepts:
+  - '직선의 방정식(기울기)'
+  - '원의 방정식'
+  - '원과 직선의 위치 관계(교점)'
+  - '서로소와 약수'
+  tools:
+  - '기울기 $\dfrac{n}{m+45}$와 $0<n<45$, $45<m+45$'
+  - '이미 아는 근 $m=-45$를 인수 $m+45$로 나누기'
+  - '$\gcd(pq,p^2+q^2)=1\Rightarrow p^2+q^2\mid90$'
+  conditions:
+  - '$m,n$은 자연수'
+  - '$p,q$는 서로소인 자연수, $0<\tfrac pq<1$'
+  stimuli_used: []
+  subpart_links: '(3)은 (1)의 「기울기가 0과 1 사이의 유리수」와 (2)의 좌표식을 사용'
+
+curriculum:
+  version: '2015'
+  subjects: [수학]
+  scope_2028: common
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: '출제근거(교과서) — 수학(박교식 외, 동아) 직선의 방정식 pp.113-116, 원의 방정식 pp.129-131, 원과 직선의 위치관계 pp.133-140; 수학(홍성복 외, 지학사) 직선의 방정식 pp.127-130, 원의 방정식 pp.141-144, 원과 직선의 위치관계 pp.144-151'
+    verified: false
+  content_area: 도형의 방정식
+  behavior_domain: 추론
+  unit_path: [수학, 도형의 방정식, 원의 방정식, 원과 직선의 위치 관계]
+  key_concepts: [직선의 방정식, 원의 방정식, 원과 직선의 교점, 서로소]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 이화여자대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 이화여자대학교
+  admission_year: 2025
+  admission_type: 수시 모의논술
+  track: 자연계열Ⅰ
+  question_no: 2
+  official_url: https://admission.ewha.ac.kr/admission/html/rolling/lecture-info.asp
+  retrieved_at: 2026-11-21
+  original_points: [30]
+  rights_notice: 소문항별 배점은 공개되지 않음(문항 전체 30점). 소문항 배점 8·10·12는 DB 입력용 추정 배분
+  transcribed_from: 「2025학년도 수시모집 논술고사 안내」 p.21(문제지), pp.47-48(출제의도·우수답안 및 해설) (원본 PDF 이미지 대조 완료 2026-11-21)
+
+verify: verify/EWHA-M25A.py::p02
+
+stimuli: []
+
+stem: |
+  중심이 원점이고 반지름의 길이가 $45$인 원 $C$에 대하여, 아래 물음에 답하시오. [30점]
+
+subparts:
+- id: '1'
+  stem: |
+    점 $\mathrm{P}(-45,0)$을 지나는 직선이 원 $C$ 위의 점 $\mathrm{Q}(m,n)$(단, $m,n$은 자연수)을 지날 때, 이 직선의 기울기가 $0$보다 크고 $1$보다 작은 유리수임을 보이시오.
+  points: 8
+  depends_on: []
+  answer: {kind: proof, value: null, equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: 기울기 $\tfrac{n}{m+45}$는 정수의 비이고, $m^2+n^2=45^2$에서 $0<n<45<m+45$.
+    steps:
+    - {id: 1a, content: '$0<\tfrac{n}{m+45}<1$, 분자·분모가 정수이므로 유리수', criteria: ['1.M1', '1.R1']}
+    hint_ladder:
+    - 두 점을 지나는 직선의 기울기를 써 보자.
+    - $\mathrm{Q}$가 원 위에 있으면 $n$은 어떤 범위에 있는가?
+  - id: S1-B
+    audience: B
+    source_flow: 「2025 논술고사 안내」 우수답안 및 해설 p.48
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        두 점 $\mathrm{P}(-45,0)$, $\mathrm{Q}(m,n)$을 지나는 직선의 기울기는 $\dfrac{n}{m+45}$이다. $m,n$이 자연수이므로 분자·분모가 정수인 분수, 즉 유리수이다.
+      criteria: ['1.M1']
+    - id: 1b-2
+      content: |
+        $m^2+n^2=45^2=2025$이고 $m,n$이 자연수이므로 $0<n<45$이고 $45<m+45$이다. 따라서 $0<\dfrac{n}{m+45}<1$이다. ■
+      criteria: ['1.R1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 3
+      evidence: |
+        기울기를 $\dfrac{n}{m+45}$로 쓰고 정수의 비이므로 유리수라고 밝혔다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1, 1a]
+    - id: 1.R1
+      mark_type: R
+      points: 5
+      evidence: |
+        $m^2+n^2=2025$와 $m,n\ge1$에서 $0<n<45<m+45$를 근거로 $0<$기울기$<1$을 이끌었다.
+      depends_on: [1.M1]
+      steps: [1b-2, 1a]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-GEO-9403}
+  misconceptions:
+  - id: MC-GEO-9403
+    outcome_code: '71'
+    wrong_work: '그림만 보고 「1사분면의 점이므로 기울기는 0과 1 사이」라고 단정'
+    detect_cue: $m^2+n^2=2025$에서 $n<45$, $m+45>45$를 끌어내는 식이 없다
+    feedback: 점이 원 위에 있다는 조건 $m^2+n^2=45^2$을 써서 $n<45<m+45$를 보여야 기울기가 $1$보다 작음이 증명됩니다.
+    remedy: [RL-1]
+
+- id: '2'
+  stem: |
+    점 $\mathrm{P}(-45,0)$을 지나는 직선의 기울기가 $0$과 $1$사이인 유리수 $\dfrac pq$(단, $p,q$는 서로소인 자연수)일 때, 이 직선이 $1$사분면과 만나는 점 $\mathrm{Q}(m,n)$의 좌표를 $p,q$에 관한 식으로 나타내시오.
+  points: 10
+  depends_on: []
+  answer: {kind: expression, value: '(45*(q**2-p**2)/(p**2+q**2), 90*p*q/(p**2+q**2))', equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: $y=\tfrac pq(x+45)$을 원에 대입하면 $x=-45$가 한 근이므로 $x+45$로 나누어 다른 근을 얻는다.
+    steps:
+    - {id: 2a, content: '$p^2(m+45)=q^2(45-m)\Rightarrow m=\tfrac{45(q^2-p^2)}{p^2+q^2}$, $n=\tfrac{90pq}{p^2+q^2}$', criteria: ['2.M1', '2.M2', '2.A1']}
+    hint_ladder:
+    - 점 $\mathrm{P}$도 원 위의 점이다. 연립한 이차방정식의 한 근은 무엇인가?
+  - id: S2-B
+    audience: B
+    source_flow: 「2025 논술고사 안내」 우수답안 및 해설 p.48
+    method_no: 1
+    steps:
+    - id: 2b-1
+      content: |
+        직선의 방정식은 $y=\dfrac pq(x+45)$이다. 따라서 $\mathrm{Q}(m,n)$은 $m^2+n^2=2025$, $n=\dfrac pq(m+45)$를 만족한다.
+      criteria: ['2.M1']
+    - id: 2b-2
+      content: |
+        정리하면 $\dfrac{p^2}{q^2}(m+45)^2=45^2-m^2$이고, 양변을 $m+45$로 나누고 $q^2$을 곱하면 $p^2(m+45)=q^2(45-m)$이다.
+      criteria: ['2.M2']
+    - id: 2b-3
+      content: |
+        따라서 $m=\dfrac{45(q^2-p^2)}{p^2+q^2}$이고 $n=\dfrac pq(m+45)=\dfrac{90pq}{p^2+q^2}$이다.
+      criteria: ['2.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 3
+      evidence: |
+        직선 $y=\dfrac pq(x+45)$와 원 $m^2+n^2=2025$를 연립했다.
+      depends_on: []
+      implied_ok: false
+      steps: [2b-1, 2a]
+    - id: 2.M2
+      mark_type: M
+      points: 3
+      evidence: |
+        $m+45\neq0$으로 나누어(또는 근 $-45$를 인수분해로 제거해) 일차식 $p^2(m+45)=q^2(45-m)$을 얻었다.
+      depends_on: [2.M1]
+      implied_ok: true
+      steps: [2b-2, 2a]
+    - id: 2.A1
+      mark_type: A
+      points: 4
+      evidence: |
+        $m=\dfrac{45(q^2-p^2)}{p^2+q^2}$, $n=\dfrac{90pq}{p^2+q^2}$를 모두 바르게 구했다.
+      depends_on: [2.M2]
+      steps: [2b-3, 2a]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '72', misconception: MC-GEO-9404}
+  misconceptions:
+  - id: MC-GEO-9404
+    outcome_code: '72'
+    wrong_work: '연립한 이차방정식을 근의 공식으로 풀다가 근호를 정리하지 못하거나 $m=-45$를 답으로 고름'
+    detect_cue: $m+45$로 나누는 단계가 없고 근호가 남은 식이나 $\mathrm{P}$의 좌표가 답이다
+    feedback: 점 $\mathrm{P}(-45,0)$이 원과 직선의 공통점이므로 $m=-45$는 이미 아는 근입니다. $m+45$로 나누면 다른 교점이 바로 나옵니다.
+    remedy: [RL-2]
+
+- id: '3'
+  stem: |
+    $m^2+n^2=2025$를 만족시키는 자연수 $m$, $n$에 대하여 순서쌍 $(m,n)$을 모두 구하시오.
+  points: 12
+  depends_on: ['1', '2']
+  answer: {kind: set, value: '{(27,36),(36,27)}', equivalents: [], tolerance: null}
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: $(1)$에서 모든 해는 $(2)$의 꼴이고 $n=\tfrac{90pq}{p^2+q^2}$가 자연수이며 $\gcd(pq,p^2+q^2)=1$이므로 $p^2+q^2\mid90$, $p<q$ → $(p,q)=(1,2),(1,3)$.
+    steps:
+    - {id: 3a, content: '$(p,q)=(1,2)\Rightarrow(27,36)$, $(1,3)\Rightarrow(36,27)$', criteria: ['3.M1', '3.R1', '3.A1']}
+    hint_ladder:
+    - $(1)$에 의해 모든 해는 $(2)$의 식으로 표현된다.
+    - $pq$와 $p^2+q^2$의 공약수는?
+  - id: S3-B
+    audience: B
+    source_flow: 「2025 논술고사 안내」 우수답안 및 해설 p.48
+    method_no: 1
+    steps:
+    - id: 3b-1
+      content: |
+        $(1)$, $(2)$에 의해 $m^2+n^2=2025$를 만족하는 모든 자연수 $m,n$에 대해 $m=\dfrac{45(q^2-p^2)}{p^2+q^2}$, $n=\dfrac pq(m+45)=\dfrac{90pq}{p^2+q^2}$를 만족하고 서로소인 두 자연수 $p,q$가 존재하며, $m>0$이므로 $p<q$이다.
+      criteria: ['3.M1']
+    - id: 3b-2
+      content: |
+        $p,q$가 서로소이므로 $pq$와 $p^2+q^2$은 서로소이다. $n$이 자연수이므로 $p^2+q^2$은 $90$의 약수이다.
+      criteria: ['3.R1']
+    - id: 3b-3
+      content: |
+        이를 만족하는 서로소인 두 자연수($p<q$)는 $p=1,q=2$ 혹은 $p=1,q=3$이다($90$의 약수 중 서로소인 두 제곱수의 합으로 $p<q$인 것은 $5=1^2+2^2$, $10=1^2+3^2$뿐; $45=3^2+6^2$, $90=3^2+9^2$은 서로소가 아님). 해당하는 순서쌍 $(m,n)$은 $(27,36)$, $(36,27)$이다.
+      criteria: ['3.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 4
+      evidence: |
+        $(1)$·$(2)$를 근거로 모든 해가 서로소 $p<q$에 대한 $(2)$의 식으로 표현됨을 밝혔다.
+      depends_on: []
+      implied_ok: false
+      ft: {allowed: true, from: [2.A1], max_points: 4}
+      steps: [3b-1, 3a]
+    - id: 3.R1
+      mark_type: R
+      points: 4
+      evidence: |
+        $\gcd(pq,p^2+q^2)=1$과 $n$이 자연수임을 근거로 $p^2+q^2\mid90$을 이끌었다.
+      depends_on: [3.M1]
+      steps: [3b-2, 3a]
+    - id: 3.A1
+      mark_type: A
+      points: 4
+      evidence: |
+        $(p,q)=(1,2),(1,3)$을 찾고 순서쌍 $(27,36)$, $(36,27)$을 모두 구했다.
+      depends_on: [3.R1]
+      steps: [3b-3, 3a]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '73', misconception: MC-CNT-9405}
+  misconceptions:
+  - id: MC-CNT-9405
+    outcome_code: '73'
+    wrong_work: '$p^2+q^2\mid90$에서 $(p,q)=(1,1)$ 또는 $(3,6)$ 등도 넣어 $(0,45)$나 중복 쌍을 답에 포함'
+    detect_cue: 답에 $m=0$인 쌍이 있거나 서로소·$p<q$ 조건 확인이 없다
+    feedback: $p,q$는 서로소이고 $m$이 자연수이려면 $p<q$입니다. 두 조건으로 후보를 걸러 내세요.
+    remedy: [RL-3]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-GEO-9403}
+  relation: remediation
+  target: {kind: concept, ref: CON-GEO-LINE-CIRCLE}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-GEO-9404}
+  relation: remediation
+  target: {kind: concept, ref: CON-GEO-LINE-CIRCLE}
+  priority: 1
+- id: RL-3
+  trigger: {type: misconception, ref: MC-CNT-9405}
+  relation: remediation
+  target: {kind: concept, ref: CON-CNT-COPRIME-DIVISOR}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

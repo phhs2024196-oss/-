@@ -1,0 +1,405 @@
+# 이화여대 2027학년도 수시 모의논술(자연계열Ⅱ) 문제 2 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: EWHA-M27B-02
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: EWHA
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 일반화
+points: 30
+time_estimate_min: 30
+intent: |
+  원순열의 개념과 경우의 수의 합의 법칙·곱의 법칙을 이해하고, 부부가 이웃하여 앉는 조건을 하나의 단위로 묶어 처리하는 방법으로 경우의 수를 구한다. 정확히 특정 수의 부부만 이웃하는 경우를 구하며 중복 계산된 경우를 제거·보정하는 논리적 추론 능력, 수열의 일반항으로 합을 구하고 범위를 판단하는 논증력을 평가한다(공식 출제 의도 요지).
+key_idea: |
+  이웃하지 않을 부부를 먼저 고르고, 나머지 부부를 묶음으로 본 원순열에서 고른 부부가 이웃하는 경우를 (1)·(2)의 결과로 뺀다(두 부부면 포함배제). (4)는 $\dfrac{a_k}{2^{k-1}3^{k+1}}=\dfrac{(k+1)!}{3^{k+1}}-\dfrac{k!}{3^k}$의 망원합.
+stuck: |
+  「정확히 $(k-1)$쌍」을 이웃하지 않는 부부 1쌍 선택 × (나머지 묶음 원순열 − 그 부부도 이웃하는 경우)로 세는 발상, (4)에서 $k-2=(k+1)-3$으로 쪼개는 발상
+idea_tags: [IDEA-BUNDLE-CIRCULAR-PERM, IDEA-EXACT-COUNT-BY-SUBTRACTION, IDEA-FACTORIAL-TELESCOPE]
+tags: [원순열, 부부 문제, 포함배제, 망원합]
+elements:
+  materials:
+  - '$k$쌍의 부부 $2k$명이 원탁에 앉음($k\ge2$, 회전하여 일치하면 같은 것)'
+  - '$a_k$ = 정확히 $(k-1)$쌍만 이웃하는 경우의 수'
+  - '부등식 $0<\sum_{k=2}^{n}\dfrac{a_k}{2^{k-1}3^{k+1}}<1$'
+  concepts:
+  - '원순열'
+  - '곱의 법칙·합의 법칙'
+  - '여사건·중복 제거(포함배제)'
+  - '수열의 합'
+  tools:
+  - '부부를 한 묶음으로 보고 $(m-1)!$, 묶음 내부 $2$가지'
+  - '$k!(k-2)=(k+1)!-3\cdot k!$ 분해'
+  - '증가수열로 범위 판정'
+  conditions:
+  - '「정확히」 — 선택된 부부는 이웃하지 않아야 함'
+  - '$n\ge2$ 자연수'
+  stimuli_used: []
+  subpart_links: '(2)는 (1), (3)은 (1)(2), (4)는 (2)의 $a_k$를 사용'
+
+curriculum:
+  version: '2015'
+  subjects: [수학, 수학Ⅰ, 확률과통계]
+  scope_2028: common
+  scope_confirmed: true
+  standards:
+  - code: 미확인
+    text: '출제 근거: 확률과 통계(비상 김원경 외) 경우의 수 pp.11-12 / 수학(하)(비상) 경우의 수 pp.243-246 / 수학Ⅰ(비상) 수열 pp.139-143 / 확률과 통계(천재 류희찬 외) 원순열 pp.11-13 / 수학Ⅰ(천재 이준열 외) 수열 pp.146-152'
+    verified: false
+  content_area: 경우의 수 – 원순열 / 수열의 합
+  behavior_domain: 추론
+  unit_path: [확률과통계, 경우의 수, 원순열, 이웃 조건이 있는 원순열]
+  key_concepts: [원순열, 포함배제, 망원합]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 이화여자대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 이화여자대학교
+  admission_year: 2027
+  admission_type: 수시 모의논술
+  track: 자연계열Ⅱ
+  question_no: 2
+  official_url: https://admission.ewha.ac.kr/admission/html/rolling/lecture-info.asp
+  retrieved_at: 2026-11-21
+  original_points: [30]
+  rights_notice: 소문항별 배점은 공식 자료에 없음(문항 전체 30점). 소문항 배점 6·8·8·8은 입력자 추정 배분
+  transcribed_from: 「2027학년도 논술고사 안내」(이화여대 입학처) 문제지 p.53, 출제 의도·예시 답안 pp.33-35 (원본 PDF 이미지 대조 완료 2026-11-21)
+
+verify: verify/EWHA-M27B.py::p02
+
+stimuli: []
+
+stem: |
+  $k$쌍의 부부 $2k$명이 원탁에 둘러앉을 때, 다음 물음에 답하시오.($k$는 $2$ 이상의 자연수이고, 회전하여 일치하는 것은 같은 것으로 본다.) [30점]
+
+subparts:
+- id: '1'
+  stem: |
+    모든 부부가 서로 이웃하여 앉는 모든 경우의 수를 구하시오.
+  points: 6
+  depends_on: []
+  answer: {kind: expression, value: 'factorial(k-1)*2**k', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: 부부 $k$묶음의 원순열 $(k-1)!$, 묶음 내부 $2^k$.
+    steps:
+    - {id: 1a, content: '$(k-1)!\times2^k$', criteria: [1.M1, 1.A1]}
+    hint_ladder:
+    - 이웃하는 부부를 한 사람처럼 묶자.
+  - id: S1-B
+    audience: B
+    source_flow: 2027 논술고사 안내 p.34
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        한 쌍의 부부를 하나의 묶음으로 생각하면 총 $k$개의 묶음이고, 이를 원탁에 배열하는 경우의 수는 $(k-1)!$이다.
+      criteria: [1.M1]
+    - id: 1b-2
+      content: |
+        각 부부는 자리를 바꾸어 앉을 수 있으므로 부부마다 2가지이다. 따라서 구하는 경우의 수는 $(k-1)!\times2^k$이다.
+      criteria: [1.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 3
+      evidence: |
+        부부를 묶음으로 보고 $k$개의 원순열 $(k-1)!$을 적었다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1, 1a]
+    - id: 1.A1
+      mark_type: A
+      points: 3
+      evidence: |
+        묶음 내부 $2^k$를 곱해 $(k-1)!\,2^k$를 얻었다.
+      depends_on: [1.M1]
+      steps: [1b-2, 1a]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CNT-9567}
+  misconceptions:
+  - id: MC-CNT-9567
+    outcome_code: '71'
+    wrong_work: '$k!\times2^k$ 또는 $(k-1)!$'
+    detect_cue: 원순열을 $k!$로 셌거나 $2^k$가 없다
+    feedback: 원탁에서 $m$개의 배열은 $(m-1)!$이고, 묶인 부부마다 자리를 바꾸는 2가지를 곱해야 합니다.
+    remedy: [RL-1]
+
+- id: '2'
+  stem: |
+    정확히 $(k-1)$쌍의 부부만 서로 이웃하여 앉는 모든 경우의 수를 구하시오.
+  points: 8
+  depends_on: ['1']
+  answer: {kind: expression, value: 'factorial(k)*(k-2)*2**(k-1)', equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: 이웃하지 않을 부부 ${}_k\mathrm{C}_1$, 단위 $k+1$개 원순열 $k!\,2^{k-1}$에서 그 부부도 이웃하는 $(k-1)!\,2^k$를 뺌.
+    steps:
+    - {id: 2a, content: '$k\big(k!\,2^{k-1}-(k-1)!\,2^k\big)=k!\,(k-2)\,2^{k-1}$', criteria: [2.M1, 2.M2, 2.A1]}
+    hint_ladder:
+    - 이웃하지 않을 한 쌍을 먼저 고르자.
+    - 그 두 사람을 따로 세운 원순열에서, 우연히 이웃하는 경우는?
+  - id: S2-B
+    audience: B
+    source_flow: 2027 논술고사 안내 p.34
+    method_no: 1
+    steps:
+    - id: 2b-1
+      content: |
+        이웃하지 않는 부부를 선택하는 경우는 ${}_k\mathrm{C}_1$가지이다. 나머지 $(k-1)$쌍을 묶음 $A_1,\dots,A_{k-1}$로, 선택된 부부를 $B_1,B_2$로 보면 $k+1$개를 원탁에 배열하는 경우는 $k!$가지이고, 묶음 내부 배열 $2^{k-1}$을 곱하면 $k!\,2^{k-1}$가지이다.
+      criteria: [2.M1]
+    - id: 2b-2
+      content: |
+        이 중 $B_1,B_2$가 서로 이웃한 경우는 (1)에서 구한 $(k-1)!\,2^k$가지이므로 이웃하지 않는 경우는 $k!\,2^{k-1}-(k-1)!\,2^k=(k-1)!\,(k-2)\,2^{k-1}$이다.
+      criteria: [2.M2]
+    - id: 2b-3
+      content: |
+        따라서 구하는 경우의 수는 ${}_k\mathrm{C}_1(k-1)!\,(k-2)\,2^{k-1}=k!\,(k-2)\,2^{k-1}$이다.
+      criteria: [2.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 3
+      evidence: |
+        이웃하지 않는 부부 선택 ${}_k\mathrm{C}_1$과 $k+1$개 단위의 원순열 $k!\,2^{k-1}$을 세웠다.
+      depends_on: []
+      implied_ok: false
+      steps: [2b-1, 2a]
+    - id: 2.M2
+      mark_type: M
+      points: 3
+      evidence: |
+        선택된 부부가 이웃하는 경우 $(k-1)!\,2^k$를 빼서 $(k-1)!(k-2)2^{k-1}$을 얻었다.
+      depends_on: [2.M1]
+      ft: {allowed: true, from: [1.A1], max_points: 3}
+      steps: [2b-2, 2a]
+    - id: 2.A1
+      mark_type: A
+      points: 2
+      evidence: |
+        $k!\,(k-2)\,2^{k-1}$을 얻었다.
+      depends_on: [2.M2]
+      steps: [2b-3, 2a]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CNT-9568}
+  misconceptions:
+  - id: MC-CNT-9568
+    outcome_code: '71'
+    wrong_work: '$k\cdot k!\,2^{k-1}$ (선택된 부부가 우연히 이웃하는 경우를 빼지 않음)'
+    detect_cue: $(k-1)!\,2^k$를 빼는 단계가 없다
+    feedback: 「정확히」이므로 따로 세운 부부가 우연히 이웃하는 배열은 제외해야 합니다.
+    remedy: [RL-2]
+
+- id: '3'
+  stem: |
+    정확히 $(k-2)$쌍의 부부만 서로 이웃하여 앉는 모든 경우의 수를 구하시오.
+  points: 8
+  depends_on: ['1', '2']
+  answer: {kind: expression, value: 'factorial(k)*(k-1)*(k**2-3*k+4)*2**(k-3)', equivalents: [], tolerance: null}
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: 두 부부 선택 ${}_k\mathrm{C}_2$, 단위 $k+2$개 원순열 $(k+1)!\,2^{k-2}$에서 포함배제로 $B$ 또는 $C$가 이웃하는 경우를 뺌.
+    steps:
+    - {id: 3a, content: '${}_k\mathrm{C}_2\big[(k+1)!\,2^{k-2}-2\cdot k!\,2^{k-1}+(k-1)!\,2^k\big]$', criteria: [3.M1, 3.M2, 3.A1]}
+    hint_ladder:
+    - 이웃하지 않을 두 쌍을 고르고 나머지를 묶자.
+    - 「$B$가 이웃 또는 $C$가 이웃」의 개수는 포함배제로.
+  - id: S3-B
+    audience: B
+    source_flow: 2027 논술고사 안내 p.34
+    method_no: 1
+    steps:
+    - id: 3b-1
+      content: |
+        이웃하지 않는 부부 두 쌍을 고르는 경우는 ${}_k\mathrm{C}_2$가지이다. 나머지 $(k-2)$쌍을 묶음 $A_1,\dots,A_{k-2}$, 선택된 두 부부를 $B_1,B_2$, $C_1,C_2$라 하면 $k+2$개를 원탁에 배열하는 경우 $(k+1)!$, 묶음 내부 $2^{k-2}$로 총 $(k+1)!\,2^{k-2}$가지이다.
+      criteria: [3.M1]
+    - id: 3b-2
+      content: |
+        부부 $B$가 이웃하는 경우는 (2)에서 구한 $k!\,2^{k-1}$, 마찬가지로 $C$도 $k!\,2^{k-1}$, 둘 다 이웃하는 경우는 (1)의 $(k-1)!\,2^k$이다. 따라서 $B$ 또는 $C$가 이웃하는 경우를 제외하면
+        $$(k+1)!\,2^{k-2}-\big(k!\,2^{k-1}+k!\,2^{k-1}-(k-1)!\,2^k\big)=(k-1)!\,(k^2-3k+4)\,2^{k-2}.$$
+      criteria: [3.M2]
+    - id: 3b-3
+      content: |
+        구하는 경우의 수는 ${}_k\mathrm{C}_2\times(k-1)!\,(k^2-3k+4)\,2^{k-2}=k!\,(k-1)\,(k^2-3k+4)\,2^{k-3}$이다.
+      criteria: [3.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 3
+      evidence: |
+        ${}_k\mathrm{C}_2$와 $k+2$개 단위의 원순열 $(k+1)!\,2^{k-2}$을 세웠다.
+      depends_on: []
+      implied_ok: false
+      steps: [3b-1, 3a]
+    - id: 3.M2
+      mark_type: M
+      points: 3
+      evidence: |
+        포함배제로 $2\cdot k!\,2^{k-1}-(k-1)!\,2^k$를 빼서 $(k-1)!(k^2-3k+4)2^{k-2}$를 얻었다.
+      depends_on: [3.M1]
+      ft: {allowed: true, from: [1.A1, 2.M2], max_points: 3}
+      steps: [3b-2, 3a]
+    - id: 3.A1
+      mark_type: A
+      points: 2
+      evidence: |
+        $k!\,(k-1)\,(k^2-3k+4)\,2^{k-3}$ 또는 동치식을 얻었다.
+      depends_on: [3.M2]
+      steps: [3b-3, 3a]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CNT-9569}
+  - {code: '72', misconception: MC-CNT-9568}
+  misconceptions:
+  - id: MC-CNT-9569
+    outcome_code: '71'
+    wrong_work: '$(k+1)!\,2^{k-2}-2\cdot k!\,2^{k-1}$ (둘 다 이웃하는 경우를 다시 더하지 않음)'
+    detect_cue: $(k-1)!\,2^k$를 더하는 항이 없다
+    feedback: $B$가 이웃하는 경우와 $C$가 이웃하는 경우에 둘 다 이웃하는 경우가 두 번 빠졌으니 한 번 더해 주세요.
+    remedy: [RL-3]
+  - id: MC-CNT-9568
+    outcome_code: '72'
+    wrong_work: '${}_k\mathrm{C}_2(k+1)!\,2^{k-2}$을 답으로 씀'
+    detect_cue: 선택된 부부가 이웃하는 경우를 빼는 단계가 전혀 없다
+    feedback: 「정확히」 조건이므로 선택된 두 부부가 이웃하는 배열을 제외해야 합니다.
+    remedy: [RL-2]
+
+- id: '4'
+  stem: |
+    문항(2)에서 구한 경우의 수를 $a_k$라 할 때
+    $$0<\sum_{k=2}^{n}\dfrac{a_k}{2^{k-1}3^{k+1}}<1$$
+    을 만족하는 $2$ 이상의 자연수 $n$을 모두 구하시오.
+  points: 8
+  depends_on: ['2']
+  answer: {kind: set, value: '{3, 4, 5}', equivalents: [], tolerance: null}
+  solutions:
+  - id: S4-A
+    audience: A
+    method_no: 1
+    key_idea: $\dfrac{a_k}{2^{k-1}3^{k+1}}=\dfrac{(k+1)!}{3^{k+1}}-\dfrac{k!}{3^k}$, 합 $=\dfrac{(n+1)!}{3^{n+1}}-\dfrac29$ (증가).
+    steps:
+    - {id: 4a, content: '합 $=\tfrac{(n+1)!}{3^{n+1}}-\tfrac29$; $n=2$: 0, $n=5$: $\tfrac{62}{81}$, $n=6$: $\tfrac{506}{243}$', criteria: [4.M1, 4.A1, 4.R1, 4.A2]}
+    hint_ladder:
+    - $k!(k-2)$를 $(k+1)!$과 $k!$의 차로 나타내 보자.
+  - id: S4-B
+    audience: B
+    source_flow: 2027 논술고사 안내 p.35
+    method_no: 1
+    steps:
+    - id: 4b-1
+      content: |
+        (2)에 의해 $a_k=k!\,(k-2)\,2^{k-1}$이므로
+        $$\dfrac{a_k}{2^{k-1}3^{k+1}}=\dfrac{k!\,(k-2)}{3^{k+1}}=\dfrac{(k+1)!-3\times k!}{3^{k+1}}=\dfrac{(k+1)!}{3^{k+1}}-\dfrac{k!}{3^k}.$$
+      criteria: [4.M1]
+    - id: 4b-2
+      content: |
+        따라서 $\displaystyle\sum_{k=2}^{n}\dfrac{a_k}{2^{k-1}3^{k+1}}=\dfrac{(n+1)!}{3^{n+1}}-\dfrac{2}{9}$이다.
+      criteria: [4.A1]
+    - id: 4b-3
+      content: |
+        $n\ge2$일 때 $\dfrac{(n+2)!}{3^{n+2}}=\dfrac{n+2}{3}\cdot\dfrac{(n+1)!}{3^{n+1}}>\dfrac{(n+1)!}{3^{n+1}}$이므로 이 수열은 증가수열이다.
+      criteria: [4.R1]
+    - id: 4b-4
+      content: |
+        $n=2$일 때 $\dfrac{6}{27}-\dfrac29=0$, $n=5$일 때 $\dfrac{720}{729}-\dfrac29=\dfrac{62}{81}<1$, $n=6$일 때 $\dfrac{5040}{2187}-\dfrac29=\dfrac{506}{243}>1$이므로 구하는 $n$은 $3,4,5$이다.
+      criteria: [4.A2]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 4.M1
+      mark_type: M
+      points: 2
+      evidence: |
+        일반항을 $\tfrac{(k+1)!}{3^{k+1}}-\tfrac{k!}{3^k}$으로 분해했다.
+      depends_on: []
+      implied_ok: false
+      ft: {allowed: true, from: [2.A1], max_points: 2}
+      steps: [4b-1, 4a]
+    - id: 4.A1
+      mark_type: A
+      points: 2
+      evidence: |
+        합 $\tfrac{(n+1)!}{3^{n+1}}-\tfrac29$를 얻었다.
+      depends_on: [4.M1]
+      steps: [4b-2, 4a]
+    - id: 4.R1
+      mark_type: R
+      points: 2
+      evidence: |
+        합이 $n$에 대해 증가함을 근거와 함께 밝혔다.
+      depends_on: []
+      steps: [4b-3, 4a]
+    - id: 4.A2
+      mark_type: A
+      points: 2
+      evidence: |
+        $n=2$(합 0)를 제외하고 $n=5$, $n=6$의 값을 비교해 $n=3,4,5$로 답했다.
+      depends_on: [4.R1]
+      steps: [4b-4, 4a]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-ALG-9570}
+  misconceptions:
+  - id: MC-ALG-9570
+    outcome_code: '71'
+    wrong_work: '$n=2,3,4,5$로 답함'
+    detect_cue: $n=2$일 때 합이 0이라 $0<$ 조건을 만족하지 않음을 확인하지 않았다
+    feedback: 양 끝 부등호를 모두 확인하세요. $n=2$이면 $a_2=0$이라 합이 0입니다.
+    remedy: [RL-4]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CNT-9567}
+  relation: remediation
+  target: {kind: concept, ref: CON-CNT-CIRCULAR-PERM}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-CNT-9568}
+  relation: remediation
+  target: {kind: concept, ref: CON-CNT-INCL-EXCL}
+  priority: 1
+- id: RL-3
+  trigger: {type: misconception, ref: MC-CNT-9569}
+  relation: remediation
+  target: {kind: concept, ref: CON-CNT-INCL-EXCL}
+  priority: 1
+- id: RL-4
+  trigger: {type: misconception, ref: MC-ALG-9570}
+  relation: remediation
+  target: {kind: concept, ref: CON-ALG-TELESCOPING}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

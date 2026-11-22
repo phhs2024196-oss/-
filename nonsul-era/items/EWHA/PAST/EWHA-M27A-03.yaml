@@ -1,0 +1,332 @@
+# 이화여대 2027학년도 수시 모의논술(자연계열Ⅰ) 문제 3 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: EWHA-M27A-03
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: EWHA
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 최적2단
+points: 30
+time_estimate_min: 25
+intent: |
+  절댓값을 포함한 등식으로 주어진 도형이 두 축에 대하여 대칭임을 파악하고, 도형의 기하학적 성질을 관찰하여 넓이의 불변성을 증명하며, 부등식의 성질로 둘레의 길이의 최솟값을 구하는 능력을 평가한다. 미분을 통한 접선의 방정식 도출을 주요 방법으로 착안·활용하는 능력을 본다(공식 출제 의도 요지).
+key_idea: |
+  두 도형이 두 축에 대하여 대칭이므로 $n(A\cap B)=4$는 제1사분면에서 직선 $\tfrac xa+\tfrac yb=1$이 $y=\tfrac1x$에 접하는 것과 같고, (1)의 접선식에서 $a=2\alpha$, $b=\tfrac2\alpha$, 즉 $ab=4$.
+stuck: |
+  교점 4개 조건을 「제1사분면에서 접한다」로 바꾸고, 접선의 절편으로 $a$, $b$를 표현하는 발상
+idea_tags: [IDEA-SYMMETRY-REDUCE-QUADRANT, IDEA-TANGENT-INTERCEPTS, IDEA-AMGM-FIXED-PRODUCT]
+tags: [절댓값 도형, 마름모, 쌍곡선 접선, 산술기하평균]
+elements:
+  materials:
+  - '$A=\{(x,y)\mid \tfrac{\lvert x\rvert}{a}+\tfrac{\lvert y\rvert}{b}=1\}$ (마름모)'
+  - '$B=\{(x,y)\mid \lvert xy\rvert=1\}$ (네 사분면의 쌍곡선)'
+  - '$n(A\cap B)=4$'
+  concepts:
+  - '절댓값 식이 나타내는 도형의 대칭성'
+  - '접선의 방정식'
+  - '마름모의 넓이·둘레'
+  - '산술평균과 기하평균의 관계'
+  tools:
+  - '$y=\tfrac1x$의 도함수 $-\tfrac1{x^2}$'
+  - '접선을 $lx+my=1$ 꼴로 정리 → 절편 $a=2\alpha$, $b=\tfrac2\alpha$'
+  - '$a^2+b^2\ge2ab$'
+  conditions:
+  - '$a,b>0$'
+  - '제1사분면 접점 $(\alpha,\tfrac1\alpha)$, $\alpha>0$'
+  stimuli_used: []
+  subpart_links: '(2)는 (1)의 접선식으로 $a,b$를 결정, (3)은 (2)의 $ab=4$를 사용'
+
+curriculum:
+  version: '2015'
+  subjects: [수학, 미적분]
+  scope_2028: calc2
+  scope_confirmed: true
+  standards:
+  - code: 미확인
+    text: '출제 근거: 수학(교학사 권오남 외 2025; 미래엔 황선욱 외 2019) 도형의 방정식 관련 쪽 / 미적분(동아출판 박교식 외 2024 pp.77-79, 101-103; 교학사 권오남 외 2022 pp.82-85, 108-111)'
+    verified: false
+  content_area: 미분법 – 접선의 방정식 / 도형의 방정식
+  behavior_domain: 문제해결
+  unit_path: [미적분, 미분법, 도함수의 활용, 접선의 방정식]
+  key_concepts: [접선의 방정식, 대칭이동, 마름모의 넓이, 산술기하평균]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 이화여자대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 이화여자대학교
+  admission_year: 2027
+  admission_type: 수시 모의논술
+  track: 자연계열Ⅰ
+  question_no: 3
+  official_url: https://admission.ewha.ac.kr/admission/html/rolling/lecture-info.asp
+  retrieved_at: 2026-11-21
+  original_points: [30]
+  rights_notice: 소문항별 배점은 공식 자료에 없음(문항 전체 30점). 소문항 배점 8·12·10은 입력자 추정 배분
+  transcribed_from: 「2027학년도 논술고사 안내」(이화여대 입학처) 문제지 p.50, 출제 의도·예시 답안 pp.27-28 (원본 PDF 이미지 대조 완료 2026-11-21)
+
+verify: verify/EWHA-M27A.py::p03
+
+stimuli: []
+
+stem: |
+  좌표평면에 주어진 두 집합
+  $$A=\left\{(x,y)\ \middle|\ \dfrac{\lvert x\rvert}{a}+\dfrac{\lvert y\rvert}{b}=1\right\},\quad B=\{(x,y)\mid \lvert xy\rvert=1\}$$
+  에 대하여 $n(A\cap B)=4$일 때 다음 물음에 답하시오(단, $a,b$는 양의 실수). [30점]
+
+subparts:
+- id: '1'
+  stem: |
+    $xy=1$의 점 $(\alpha,\beta)$에서 접선의 방정식을 $lx+my=1$의 꼴로 나타낼 때 $l+m$을 $\alpha$에 관한 식으로 나타내시오.
+  points: 8
+  depends_on: []
+  answer: {kind: expression, value: '(1/alpha + alpha)/2', equivalents: ['(alpha**2+1)/(2*alpha)'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $y=\tfrac1x$의 접선 $y-\tfrac1\alpha=-\tfrac1{\alpha^2}(x-\alpha)$를 정리하면 $\tfrac{1}{2\alpha}x+\tfrac\alpha2y=1$.
+    steps:
+    - {id: 1a, content: '$l=\tfrac1{2\alpha}$, $m=\tfrac\alpha2$, $l+m=\tfrac12\left(\tfrac1\alpha+\alpha\right)$', criteria: [1.M1, 1.A1]}
+    hint_ladder:
+    - $y=\tfrac1x$로 두고 미분하자.
+    - 상수항이 1이 되도록 양변을 나누자.
+  - id: S1-B
+    audience: B
+    source_flow: 2027 논술고사 안내 pp.27-28
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        $y=\dfrac1x$로 두고 $x$에 대하여 미분하면 $y'=-\dfrac1{x^2}$이므로 점 $\left(\alpha,\dfrac1\alpha\right)$에서 접선의 기울기는 $-\dfrac1{\alpha^2}$이고 접선은 $y-\dfrac1\alpha=-\dfrac1{\alpha^2}(x-\alpha)$이다.
+      criteria: [1.M1]
+    - id: 1b-2
+      content: |
+        주어진 꼴로 정리하면 $\dfrac{1}{2\alpha}x+\dfrac{\alpha}{2}y=1$이므로 $l+m=\dfrac12\left(\dfrac1\alpha+\alpha\right)$이다.
+      criteria: [1.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 4
+      evidence: |
+        기울기 $-\tfrac1{\alpha^2}$을 구하고 접선의 방정식을 세웠다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1, 1a]
+    - id: 1.A1
+      mark_type: A
+      points: 4
+      evidence: |
+        $lx+my=1$ 꼴로 정리해 $l+m=\tfrac12\left(\tfrac1\alpha+\alpha\right)$을 얻었다.
+      depends_on: [1.M1]
+      steps: [1b-2, 1a]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-9557}
+  misconceptions:
+  - id: MC-CAL-9557
+    outcome_code: '71'
+    wrong_work: '$\tfrac{1}{\alpha^2}x+y=\tfrac2\alpha$에서 $l=\tfrac1{\alpha^2}$, $m=1$로 둠'
+    detect_cue: 우변이 1이 아닌 상태에서 계수를 읽었다
+    feedback: $lx+my=1$ 꼴이므로 우변이 1이 되도록 양변을 $\tfrac2\alpha$로 나누어야 합니다.
+    remedy: [RL-1]
+
+- id: '2'
+  stem: |
+    집합 $A$로 둘러싸인 도형의 넓이가 $a,b$에 관계없이 일정함을 보이시오.
+  points: 12
+  depends_on: ['1']
+  answer: {kind: proof, value: '8', equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: 대칭성으로 제1사분면에서 접할 조건 → (1)에서 $a=2\alpha$, $b=\tfrac2\alpha$ → 넓이 $2ab=8$.
+    steps:
+    - {id: 2a, content: '넓이 $=\tfrac12(2a)(2b)=2ab=2\cdot2\alpha\cdot\tfrac2\alpha=8$', criteria: [2.R1, 2.M1, 2.A1]}
+    hint_ladder:
+    - 두 도형은 어떤 대칭성을 가지는가? 한 사분면에서 교점은 몇 개여야 하는가?
+    - 한 사분면에서 교점이 하나라면 직선과 곡선은 어떤 관계인가?
+  - id: S2-B
+    audience: B
+    source_flow: 2027 논술고사 안내 p.28
+    method_no: 1
+    steps:
+    - id: 2b-1
+      content: |
+        집합 $A$, $B$가 나타내는 도형은 모두 $x$축과 $y$축에 대하여 대칭이므로, $n(A\cap B)=4$는 직선 $\dfrac xa+\dfrac yb=1$이 제1사분면에서 곡선 $y=\dfrac1x$에 접할 때 만족된다.
+      criteria: [2.R1]
+    - id: 2b-2
+      content: |
+        곡선 $y=\dfrac1x$ 위의 $\alpha>0$인 점 $\left(\alpha,\dfrac1\alpha\right)$에서 접한다고 하면 문항 (1)의 $\dfrac{1}{2\alpha}x+\dfrac\alpha2y=1$과 비교하여 $a=2\alpha$, $b=\dfrac2\alpha$이다.
+      criteria: [2.M1]
+    - id: 2b-3
+      content: |
+        $A$가 나타내는 도형은 대각선의 길이가 각각 $2a$, $2b$인 마름모이므로 넓이는 $\dfrac12(2a\cdot2b)=2ab=2\left(2\alpha\cdot\dfrac2\alpha\right)=8$이다. 따라서 넓이는 $a,b$에 관계없이 일정하다.
+      criteria: [2.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.R1
+      mark_type: R
+      points: 4
+      evidence: |
+        두 축 대칭을 근거로 $n(A\cap B)=4$를 제1사분면에서의 접함 조건으로 바꾸었다.
+      depends_on: []
+      steps: [2b-1, 2a]
+    - id: 2.M1
+      mark_type: M
+      points: 4
+      evidence: |
+        접선식과 비교해 $a=2\alpha$, $b=\tfrac2\alpha$ (또는 $ab=4$)를 얻었다.
+      depends_on: []
+      implied_ok: false
+      ft: {allowed: true, from: [1.A1], max_points: 4}
+      steps: [2b-2, 2a]
+    - id: 2.A1
+      mark_type: A
+      points: 4
+      evidence: |
+        마름모 넓이 $2ab=8$로 일정함을 결론지었다.
+      depends_on: [2.M1]
+      steps: [2b-3, 2a]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-GEO-9558}
+  - {code: '72', misconception: MC-GEO-9559}
+  misconceptions:
+  - id: MC-GEO-9558
+    outcome_code: '71'
+    wrong_work: '마름모와 쌍곡선이 만나기만 하면 된다고 보고 $ab\ge4$ 등 부등식 조건으로 처리'
+    detect_cue: 접함(제1사분면 교점 1개) 조건이 없다
+    feedback: 한 사분면의 교점이 정확히 하나여야 하므로 직선이 곡선에 접해야 합니다. $ab>4$이면 교점이 8개입니다.
+    remedy: [RL-2]
+  - id: MC-GEO-9559
+    outcome_code: '72'
+    wrong_work: '마름모의 넓이를 $ab$ 또는 $4ab$로 계산'
+    detect_cue: 넓이 결과가 4 또는 16
+    feedback: 대각선 길이가 $2a$, $2b$인 마름모의 넓이는 $\tfrac12\cdot2a\cdot2b=2ab$입니다.
+    remedy: [RL-3]
+
+- id: '3'
+  stem: |
+    집합 $A$가 나타내는 도형의 둘레의 길이의 최솟값을 구하시오.
+  points: 10
+  depends_on: ['2']
+  answer: {kind: value, value: '8*sqrt(2)', equivalents: ['4*sqrt(8)'], tolerance: null}
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: 둘레 $4\sqrt{a^2+b^2}$, $ab=4$에서 $a^2+b^2\ge2ab=8$.
+    steps:
+    - {id: 3a, content: '$4\sqrt{a^2+b^2}\ge4\sqrt8=8\sqrt2$', criteria: [3.M1, 3.M2, 3.A1]}
+    hint_ladder:
+    - 마름모의 한 변의 길이를 $a$, $b$로 나타내자.
+    - $ab$가 일정할 때 $a^2+b^2$의 최솟값은?
+  - id: S3-B
+    audience: B
+    source_flow: 2027 논술고사 안내 p.28
+    method_no: 1
+    steps:
+    - id: 3b-1
+      content: |
+        $A$가 나타내는 도형은 대각선의 길이가 $2a$, $2b$인 마름모이므로 둘레의 길이는 $4\sqrt{a^2+b^2}$이다.
+      criteria: [3.M1]
+    - id: 3b-2
+      content: |
+        문항 (2)에 의하여 $ab=4$이고, 산술평균-기하평균의 부등식에 의해 $a^2+b^2\ge2\sqrt{a^2b^2}=2ab=8$이다(등호는 $a=b=2$).
+      criteria: [3.M2]
+    - id: 3b-3
+      content: |
+        따라서 둘레의 길이 $4\sqrt{a^2+b^2}$의 최솟값은 $4\sqrt8=8\sqrt2$이다.
+      criteria: [3.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 3
+      evidence: |
+        둘레를 $4\sqrt{a^2+b^2}$로 나타냈다.
+      depends_on: []
+      implied_ok: false
+      steps: [3b-1, 3a]
+    - id: 3.M2
+      mark_type: M
+      points: 4
+      evidence: |
+        $ab=4$와 산술기하평균 부등식으로 $a^2+b^2\ge8$을 보였다.
+      depends_on: []
+      implied_ok: false
+      ft: {allowed: true, from: [2.M1], max_points: 4}
+      steps: [3b-2, 3a]
+    - id: 3.A1
+      mark_type: A
+      points: 3
+      evidence: |
+        최솟값 $8\sqrt2$를 얻었다.
+      depends_on: [3.M1, 3.M2]
+      steps: [3b-3, 3a]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-GEO-9559}
+  - {code: '72', misconception: MC-ALG-9560}
+  misconceptions:
+  - id: MC-GEO-9559
+    outcome_code: '71'
+    wrong_work: '둘레를 $4(a+b)$로 두고 $a+b\ge2\sqrt{ab}=4$에서 최솟값 16'
+    detect_cue: 답이 16 또는 한 변을 $a+b$로 씀
+    feedback: 마름모의 한 변은 두 반대각선을 두 변으로 하는 직각삼각형의 빗변 $\sqrt{a^2+b^2}$입니다.
+    remedy: [RL-3]
+  - id: MC-ALG-9560
+    outcome_code: '72'
+    wrong_work: '$ab=4$를 쓰지 않고 $a$, $b$를 독립으로 보아 최솟값이 없다고 하거나 0으로 답함'
+    detect_cue: (2)의 $ab=4$ 조건이 등장하지 않는다
+    feedback: 교점 조건이 $ab=4$를 강제합니다. 곱이 일정할 때 산술기하평균 부등식을 쓰세요.
+    remedy: [RL-4]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CAL-9557}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-TANGENT-LINE}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-GEO-9558}
+  relation: remediation
+  target: {kind: concept, ref: CON-GEO-ABS-RHOMBUS}
+  priority: 1
+- id: RL-3
+  trigger: {type: misconception, ref: MC-GEO-9559}
+  relation: remediation
+  target: {kind: concept, ref: CON-GEO-ABS-RHOMBUS}
+  priority: 1
+- id: RL-4
+  trigger: {type: misconception, ref: MC-ALG-9560}
+  relation: remediation
+  target: {kind: concept, ref: CON-ALG-AM-GM}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21
+# 메모: 공식 예시답안 (2)는 "접할 때 n(A∩B)=4를 만족한다"(충분조건)만 서술하고, n(A∩B)=4 ⇒ 접함(ab=4)의 역방향 근거는 생략함. 검산에서 ab<4 → 교점 0, ab>4 → 교점 8 임을 수치로 확인.
