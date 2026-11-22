@@ -1,0 +1,362 @@
+# 서강대 2025학년도 모의논술 1차(자연계열) 문제 1 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+# 배점 비공개: 자료집에 배점이 없어 소문항당 10점으로 나누고, 채점기준 항목별로 배분함(original_points: null).
+schema_version: '2.0'
+id: SGU-M25A-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: SGU
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 최적2단
+points: 40
+time_estimate_min: 50
+intent: |
+  도함수와 이계도함수로 그래프의 개형을 그리고, 도함수로 증감을 판정하여 최댓값·최솟값을 조사하며, 삼각함수의 미분·적분과 정적분을 이용한 넓이, 여러 가지 함수의 극한을 구할 수 있는지 평가한다(출제의도 요지).
+key_idea: |
+  [1-1]의 $2x+\sin2x$ 가 증가함수라는 사실을 [1-2]·[1-3]의 도함수 부호 판정(근의 유일성)에 다시 쓴다.
+stuck: |
+  $S'(t)$ 의 부호가 [1-1] 함수의 부호 문제로 바뀐다는 것을 알아보는 것, $a-t_0=\sin t_0\cos t_0$ 로 $g(a)=\sin^2t_0$ 을 얻는 것
+idea_tags: [IDEA-REUSE-MONOTONE-AUX, IDEA-PARAMETRIZE-BY-CRITICAL-POINT]
+tags: [그래프 개형, 탄젠트 접선, 최대최소, 극한]
+elements:
+  materials:
+  - '$f(x)=2x+\sin2x$ $(0\le x\le\pi)$'
+  - '$y=\tan x$ 의 접선이 만드는 직각삼각형 ABC'
+  - '$y=\tan x$ 아래 직사각형 ABCD'
+  - '$h(a)=\int_0^{t_0}\tan x\,dx$ 와 $g(a)$ 의 비의 극한'
+  concepts:
+  - '도함수와 증감'
+  - '이계도함수와 오목·볼록, 변곡점'
+  - '접선의 방정식'
+  - '삼각함수의 미분'
+  - '최댓값·최솟값'
+  - '정적분과 넓이'
+  - '$\lim_{x\to0}(1+x)^{1/x}=e$ 를 이용한 극한'
+  tools:
+  - '$p(t)=\sec t\left(\tfrac{\pi}{2}+\sin t\cos t-t\right)$ 로 $S=\tfrac12p^2$'
+  - '[1-1] 함수의 단조성으로 영점 유일성'
+  - '$a=t_0+\sin t_0\cos t_0$ 로 매개'
+  - '치환 $\cos t_0-1=k$'
+  conditions:
+  - '$0\le t<\tfrac{\pi}{2}$ (반열린구간)'
+  - '$0<a<\tfrac{\pi}{2}$'
+  - '$a\to0^+$ 이면 $t_0\to0^+$'
+  stimuli_used: [가, 나, 다]
+  subpart_links: '(1-2)·(1-3)은 (1-1)의 증가성을 사용, (1-4)는 (1-3)의 $g(a)=\sin^2t_0$ 사용'
+
+curriculum:
+  version: '2015'
+  subjects: [미적분]
+  scope_2028: calc2
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 도함수를 활용하여 그래프 개형·최대최소를 조사하고 정적분으로 넓이, 함수의 극한을 구할 수 있다(요지)
+    verified: false
+  content_area: 미분법·적분법
+  behavior_domain: 문제해결
+  unit_path: [미적분, 미분법, 도함수의 활용]
+  key_concepts: [그래프의 개형, 접선, 최대최소, 정적분, 함수의 극한]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 서강대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 서강대학교
+  admission_year: 2025
+  admission_type: 수시 모의논술
+  track: 자연계열
+  question_no: 1
+  official_url: https://admission.sogang.ac.kr/upload/BBS0007/20240829144317867YSR.PDF
+  retrieved_at: 2026-11-21
+  original_points: null   # 배점 비공개
+  rights_notice: 미확인(대학 원본 PDF 표지 문구 확인 필요)
+  transcribed_from: 서강대학교 입학처 「2025학년도 서강대학교 모의논술 자료집 1차 - 자연계열 -」 p.1-6 (원본 PDF 이미지 대조 2026-11-21)
+
+verify: verify/SGU-M25A.py::p01
+
+stimuli:
+- label: 가
+  body: |
+    함수 $y=f(x)$의 그래프의 개형은 다음과 같은 사항을 조사하여 그릴 수 있다
+    ① 함수의 정의역과 치역　② 곡선과 좌표축의 교점　③ 곡선의 대칭성과 주기　④ 함수의 증가와 감소　⑤ 곡선의 오목과 볼록, 변곡점　⑥ $\displaystyle\lim_{x\to\infty}f(x)$, $\displaystyle\lim_{x\to-\infty}f(x)$, 점근선
+- label: 나
+  body: |
+    사인함수와 코사인함수의 덧셈정리
+    ① $\sin(\alpha+\beta)=\sin\alpha\cos\beta+\cos\alpha\sin\beta$, $\sin(\alpha-\beta)=\sin\alpha\cos\beta-\cos\alpha\sin\beta$
+    ② $\cos(\alpha+\beta)=\cos\alpha\cos\beta-\sin\alpha\sin\beta$, $\cos(\alpha-\beta)=\cos\alpha\cos\beta+\sin\alpha\sin\beta$
+- label: 다
+  body: |
+    무리수 $e$
+    $$\lim_{x\to0}(1+x)^{\frac1x}=e$$
+
+stem: |
+  제시문을 참고하여 문항 【1-1】~【1-4】에 답하시오.
+
+subparts:
+- id: '1'
+  stem: |
+    함수 $f(x)=2x+\sin2x$ $(0\le x\le\pi)$의 그래프의 개형을 그리시오.
+  points: 10
+  depends_on: []
+  answer: {kind: proof, value: null, equivalents: [], tolerance: null}
+  # 정답 요지: 증가함수, (0,π/2) 위로 볼록·(π/2,π) 아래로 볼록, 변곡점 (π/2, π), f(0)=0, f(π)=2π, f'(π/2)=0
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $f'=2(1+\cos2x)\ge0$, $f''=-4\sin2x$ 의 부호로 증감·오목볼록을 판정.
+    steps:
+    - {id: 1a, content: '증가, $(\tfrac{\pi}{2},\pi)$ 변곡점(접선 기울기 0), $(0,0)$ 에서 $(\pi,2\pi)$ 까지', criteria: ['1.M1', '1.A1']}
+    hint_ladder:
+    - $1+\cos2x$ 의 부호를 생각하라.
+  - id: S1-B
+    audience: B
+    source_flow: '모의논술자료집 p.5'
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        $f'(x)=2(1+\cos2x)$ 이고 $f''(x)=-4\sin2x$ 이므로 증감표는 $x=0$: $f'=4$, $f''=-4$, $f=0$ / $x=\dfrac{\pi}{2}$: $f'=0$, $f''=0$, $f=\pi$ / $x=\pi$: $f'=4$, $f''=-4$, $f=2\pi$ 이고, $\left(0,\dfrac{\pi}{2}\right)$ 에서 $f'>0$, $f''<0$, $\left(\dfrac{\pi}{2},\pi\right)$ 에서 $f'>0$, $f''>0$.
+      criteria: ['1.M1']
+    - id: 1b-2
+      content: |
+        따라서 $f(x)$는 증가함수이고 $0<x<\dfrac{\pi}{2}$일 때 위로 볼록, $\dfrac{\pi}{2}<x<\pi$일 때 아래로 볼록이다.
+        [그림: 원점에서 출발해 위로 볼록하게 증가하여 변곡점 $\left(\dfrac{\pi}{2},\pi\right)$ 에서 접선이 수평이 되고, 다시 아래로 볼록하게 증가하여 $(\pi,2\pi)$ 에 이르는 곡선]
+      criteria: ['1.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 5
+      evidence: |
+        $f'(x)=2(1+\cos2x)$, $f''(x)=-4\sin2x$ 를 구하고 부호표(증감·오목볼록)를 작성했다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1, 1a]
+    - id: 1.A1
+      mark_type: A
+      points: 5
+      evidence: |
+        증가함수, 변곡점 $\left(\dfrac{\pi}{2},\pi\right)$, 끝점 $(0,0)$·$(\pi,2\pi)$ 가 반영된 개형을 그렸다.
+      depends_on: [1.M1]
+      steps: [1b-2, 1a]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '2'
+  stem: |
+    $\mathrm{A}=\left(\dfrac{\pi}{2},0\right)$이고, 곡선 $y=\tan x$ $\left(0\le x<\dfrac{\pi}{2}\right)$ 위의 점 $(t,\tan t)$에서 접하는 접선이 $x$축과 만나는 점을 $\mathrm{B}$, 직선 $x=\dfrac{\pi}{2}$와 만나는 점을 $\mathrm{C}$라 하자. 삼각형 $\mathrm{ABC}$의 넓이를 $S(t)$라 할 때, 함수 $S(t)$가 구간 $\left[0,\dfrac{\pi}{2}\right)$에서 최대값과 최솟값을 갖는지 조사하시오.
+  points: 10
+  depends_on: ['1']
+  answer: {kind: expression, value: 'min = pi**2/8; max = none', equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: $S=\tfrac12\sec^2t\left(\tfrac{\pi}{2}+\sin t\cos t-t\right)^2$, $p'(t)=\tfrac12\sin t\sec^2t(\pi-\sin2t-2t)>0$.
+    steps:
+    - {id: 2a, content: '$S$ 증가 → 최솟값 $S(0)=\tfrac{\pi^2}{8}$, 최댓값 없음', criteria: ['2.M1', '2.A1', '2.M2', '2.A2']}
+    hint_ladder:
+    - $\pi-\sin2t-2t$ 는 [1-1]의 함수와 어떤 관계인가?
+  - id: S2-B
+    audience: B
+    source_flow: '모의논술자료집 p.5-6'
+    method_no: 1
+    steps:
+    - id: 2b-1
+      content: |
+        점 $(t,\tan t)$에서 접선의 방정식은 $y=\sec^2t\,(x-t)+\tan t$이다. $\mathrm{B}=(t-\sin t\cos t,\,0)$이므로 $\overline{\mathrm{AB}}=\dfrac{\pi}{2}+\sin t\cos t-t$이다.
+      criteria: ['2.M1']
+    - id: 2b-2
+      content: |
+        삼각형 $\mathrm{ABC}$는 각 $\mathrm{A}$가 직각인 직각삼각형이고 접선의 기울기가 $\sec^2t$이므로 $\overline{\mathrm{AC}}=\sec^2t\times\overline{\mathrm{AB}}$이다(원 예시답안에는 $\overline{\mathrm{BC}}$ 로 인쇄됨 — 높이는 $\overline{\mathrm{AC}}$). 따라서
+        $$S(t)=\frac12\sec^2t\left(\frac{\pi}{2}+\sin t\cos t-t\right)^2,\quad 0\le t<\frac{\pi}{2}.$$
+      criteria: ['2.A1']
+    - id: 2b-3
+      content: |
+        $p(t)=\sec t\left(\dfrac{\pi}{2}+\sin t\cos t-t\right)$라 하면 $p'(t)=\sin t\sec^2t\left(\dfrac{\pi}{2}-\sin t\cos t-t\right)=\dfrac12\sin t\sec^2t\,(\pi-\sin2t-2t)$이다. 문항 【1-1】에 의해 $2t+\sin2t<\pi$ $\left(0<t<\dfrac{\pi}{2}\right)$이므로 모든 $0<t<\dfrac{\pi}{2}$에서 $p'(t)>0$이고 $p(t)$는 증가함수이다.
+      criteria: ['2.M2']
+    - id: 2b-4
+      content: |
+        $S(t)=\dfrac12\{p(t)\}^2$이므로 $S(t)$도 $0\le t<\dfrac{\pi}{2}$에서 증가함수이다. 따라서 $S(t)$의 최솟값은 $S(0)=\dfrac{\pi^2}{8}$이고, 최댓값은 존재하지 않는다.
+      criteria: ['2.A2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 2
+      evidence: |
+        접선의 방정식으로 $\mathrm{B}$ 의 좌표(또는 $\overline{\mathrm{AB}}$)를 구했다.
+      depends_on: []
+      implied_ok: false
+      steps: [2b-1, 2a]
+    - id: 2.A1
+      mark_type: A
+      points: 3
+      evidence: |
+        $S(t)=\dfrac12\sec^2t\left(\dfrac{\pi}{2}+\sin t\cos t-t\right)^2$ 을 $t$ 로 나타냈다.
+      depends_on: [2.M1]
+      steps: [2b-2, 2a]
+    - id: 2.M2
+      mark_type: M
+      points: 3
+      evidence: |
+        도함수의 부호를 [1-1]의 결과로 판정해 $S$ 가 증가함을 보였다.
+      depends_on: [2.A1]
+      implied_ok: false
+      ft: {allowed: true, from: [1.A1], max_points: 3}
+      steps: [2b-3, 2a]
+    - id: 2.A2
+      mark_type: A
+      points: 2
+      evidence: |
+        최솟값 $\dfrac{\pi^2}{8}$, 최댓값은 존재하지 않음을 결론지었다.
+      depends_on: [2.M2]
+      steps: [2b-4, 2a]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '3'
+  stem: |
+    $\mathrm{A}=(a,0)$이고, 곡선 $y=\tan x$ $(0<x<a)$ 위를 움직이는 점 $\mathrm{C}(t,\tan t)$에 대하여 $\mathrm{B}=(t,0)$, $\mathrm{D}=(a,\tan t)$라 할 때, 사각형 $\mathrm{ABCD}$의 넓이의 최댓값을 $g(a)$라 하자. 문항 【1-3】과 【1-4】에 답하시오. (단, $0<a<\dfrac{\pi}{2}$)
+
+    사각형 $\mathrm{ABCD}$의 넓이가 최대가 되는 $t$가 유일함을 보이고, $g(a)=\dfrac12$일 때 $a$의 값을 구하시오.
+  points: 10
+  depends_on: ['1']
+  answer: {kind: value, value: 'pi/4 + 1/2', equivalents: [], tolerance: null}
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: $S'(t)=\tfrac12\sec^2t\,(2a-2t-\sin2t)$ 이고 $2t+\sin2t$ 가 증가하므로 영점 유일.
+    steps:
+    - {id: 3a, content: '$a-t_0=\sin t_0\cos t_0$, $g(a)=\sin^2t_0=\tfrac12\Rightarrow t_0=\tfrac{\pi}{4}$, $a=\tfrac{\pi}{4}+\tfrac12$', criteria: ['3.R1', '3.M1', '3.A1']}
+    hint_ladder:
+    - 넓이를 $S(t)=(a-t)\tan t$ 로 쓰고 미분하라.
+    - $S'(t_0)=0$ 에서 얻는 관계를 $S(t_0)$ 에 대입하라.
+  - id: S3-B
+    audience: B
+    source_flow: '모의논술자료집 p.6'
+    method_no: 1
+    steps:
+    - id: 3b-1
+      content: |
+        사각형 $\mathrm{ABCD}$의 넓이를 점 $\mathrm{B}$의 좌표 $t$로 표현하면 $S(t)=(a-t)\tan t$이다. $S'(t)=\sec^2t\,(a-t-\sin t\cos t)=\dfrac12\sec^2t\,(2a-2t-\sin2t)$이므로, 문항 【1-1】에 의해 함수 $2a-2x-\sin2x$는 구간 $\left(0,\dfrac{\pi}{2}\right)$의 오직 한 점에서만 0이 된다. 따라서 $S'(t)$는 구간 $\left(0,\dfrac{\pi}{2}\right)$의 오직 한 점 $t=t_0$에서 0이고, $t=t_0$일 때 $S(t)$의 값이 최대가 된다.
+      criteria: ['3.R1']
+    - id: 3b-2
+      content: |
+        $S'(t_0)=0$으로부터 $a-t_0=\dfrac12\sin2t_0=\cos t_0\sin t_0$이므로 $g(a)=S(t_0)=\sin^2t_0$이다.
+      criteria: ['3.M1']
+    - id: 3b-3
+      content: |
+        따라서 $g(a)=\dfrac12$이면 $t_0=\dfrac{\pi}{4}$이고 $a=t_0+\sin t_0\cos t_0=\dfrac{\pi}{4}+\dfrac12$이다.
+      criteria: ['3.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 3.R1
+      mark_type: R
+      points: 5
+      evidence: |
+        $S'(t)$ 의 영점이 [1-1]의 단조성에 의해 유일하고 그 점에서 최대임을 보였다.
+      depends_on: []
+      implied_ok: false
+      ft: {allowed: true, from: [1.A1], max_points: 5}
+      steps: [3b-1, 3a]
+    - id: 3.M1
+      mark_type: M
+      points: 2
+      evidence: |
+        $a-t_0=\sin t_0\cos t_0$ 로 $g(a)=\sin^2t_0$ 를 $t_0$ 로 나타냈다.
+      depends_on: []
+      implied_ok: false
+      steps: [3b-2, 3a]
+    - id: 3.A1
+      mark_type: A
+      points: 3
+      evidence: |
+        $a=\dfrac{\pi}{4}+\dfrac12$ 를 구했다.
+      depends_on: [3.M1]
+      steps: [3b-3, 3a]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '4'
+  stem: |
+    사각형 $\mathrm{ABCD}$의 넓이가 최대가 되는 $t$의 값을 $t_0$라 하자. 곡선 $y=\tan x$ $\left(0\le x<\dfrac{\pi}{2}\right)$와 $x$축 및 직선 $x=t_0$로 둘러싸인 도형의 넓이를 $h(a)$라 할 때, 극한 $\displaystyle\lim_{a\to0^+}\frac{h(a)}{g(a)}$을 조사하시오.
+  points: 10
+  depends_on: ['3']
+  answer: {kind: value, value: '1/2', equivalents: [], tolerance: null}
+  solutions:
+  - id: S4-A
+    audience: A
+    method_no: 1
+    key_idea: $h=-\ln\cos t_0$, $g=\sin^2t_0$, $t_0\to0^+$ 에서 $\cos t_0-1=k$ 로 치환.
+    steps:
+    - {id: 4a, content: '$\dfrac{\ln(1+k)}{(2+k)k}\to\dfrac12$', criteria: ['4.M1', '4.A1']}
+    hint_ladder:
+    - $a\to0^+$ 일 때 $t_0$ 는 어디로 가는가?
+  - id: S4-B
+    audience: B
+    source_flow: '모의논술자료집 p.6'
+    method_no: 1
+    steps:
+    - id: 4b-1
+      content: |
+        문제 3의 풀이에 의해 $g(a)=\sin^2t_0$이고 $h(a)=\displaystyle\int_0^{t_0}\tan x\,dx=-\ln(\cos t_0)$이다. $0<t_0<a$이므로 $a\to0^+$ 이면 $t_0\to0^+$ 이고
+        $$\lim_{a\to0^+}\frac{h(a)}{g(a)}=\lim_{t_0\to0^+}\frac{-\ln(\cos t_0)}{\sin^2t_0}=\lim_{t_0\to0^+}\frac{\ln(\cos t_0)}{(1+\cos t_0)(\cos t_0-1)}.$$
+      criteria: ['4.M1']
+    - id: 4b-2
+      content: |
+        $\cos t_0-1=k$로 놓으면 $t_0\to0^+$일 때 $k\to0^-$이므로 $\displaystyle\lim_{a\to0^+}\frac{h(a)}{g(a)}=\lim_{k\to0^-}\frac{\ln(1+k)}{(2+k)k}$. 제시문 [다]에 의해 $\displaystyle\lim_{k\to0}\frac{\ln(1+k)}{k}=1$이므로 $\displaystyle\lim_{a\to0^+}\frac{h(a)}{g(a)}=\frac12$이다.
+      criteria: ['4.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 4.M1
+      mark_type: M
+      points: 5
+      evidence: |
+        $g(a)=\sin^2t_0$, $h(a)=-\ln\cos t_0$ 로 점 B의 $x$좌표 $t_0$ 에 대해 나타냈다.
+      depends_on: []
+      implied_ok: false
+      ft: {allowed: true, from: [3.M1], max_points: 5}
+      steps: [4b-1, 4a]
+    - id: 4.A1
+      mark_type: A
+      points: 5
+      evidence: |
+        제시문 [다]를 이용해 극한값 $\dfrac12$ 을 구했다.
+      depends_on: [4.M1]
+      steps: [4b-2, 4a]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+remedy_links: []
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

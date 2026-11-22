@@ -1,0 +1,366 @@
+# 서강대 2021학년도 모의논술 1차(자연계열) 문제 1~4 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+# 원문은 【1-1】 표기 없이 '1.~4.' 네 물음이 제시문 [가]~[마]를 공유하는 한 세트(50분)이므로 한 문항(소문항 1~4)으로 입력.
+# 배점: 공식 10점(3·2·3·2), 감점 0.5점 단위 → 정수화를 위해 points = 공식 배점 × 2 (6·4·6·4 = 20).
+schema_version: '2.0'
+id: SGU-M21A-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: proof
+origin: mock_exam
+school: SGU
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 추론
+points: 20
+time_estimate_min: 50
+intent: |
+  이항정리로 수열의 극한 계산에 유용한 부등식을 유도하고, 등비급수의 부분합을 미분·적분하여 $\sum\frac{n}{2^n}$, $\sum\frac{1}{n2^n}$ 같은 급수의 합을 계산하며, 정적분의 대소 관계로 정적분으로 정의된 수열이 $0$으로 수렴함을 보일 수 있는지 평가한다.
+key_idea: |
+  등비수열의 부분합 $\sum r^k$를 $r$에 대해 미분하면 $\sum kr^{k-1}$, $0$부터 $r$까지 적분하면 $\sum\frac{r^k}{k}$가 되고, 나머지 항은 (1)의 부등식이나 정적분의 대소 관계로 $0$에 수렴함을 보인다.
+stuck: |
+  등비급수 부분합 공식을 '미분' 또는 '적분'하여 새 급수의 부분합을 얻는 발상과, 나머지 적분항 $\int_0^{1/2}\frac{t^{n+1}}{1-t}dt$를 $\left(\frac12\right)^{n+1}\int_0^{1/2}\frac{1}{1-t}dt$로 위에서 누르는 발상
+idea_tags: [IDEA-GEOM-SUM-DIFFERENTIATE, IDEA-GEOM-SUM-INTEGRATE, IDEA-SQUEEZE-INTEGRAL-REMAINDER]
+tags: [이항정리 부등식, 급수의 합, 등비급수 미분·적분, 서강대 모의]
+elements:
+  materials:
+  - '부등식 $(1+a)^{n+1}\ge\frac{n^2}{2}a^2$'
+  - '극한 $\lim_{n\to\infty}\frac{n}{2^n}=0$'
+  - '급수 $\sum_{n=1}^{\infty}\frac{n}{2^n}$'
+  - '급수 $\sum_{n=1}^{\infty}\frac{1}{n2^n}$'
+  - '정적분으로 나타낸 나머지항 $\int_0^r\frac{t^{n+1}}{1-t}dt$'
+  concepts:
+  - '이항정리'
+  - '수열의 극한의 대소 관계'
+  - '등비수열의 합과 등비급수'
+  - '다항함수의 미분'
+  - '정적분의 성질(선형성·대소 관계)'
+  - '정적분과 로그함수 $\int\frac{1}{1-t}dt=-\ln(1-t)$'
+  tools:
+  - '이항전개에서 양의 항 하나만 남겨 아래로 평가'
+  - '$a=1$ 대입으로 $\frac{n}{2^n}<\frac{4}{n}$'
+  - '$\sum r^k$를 $r$로 미분'
+  - '$\sum t^{k-1}$을 $0$부터 $r$까지 적분'
+  - '샌드위치(제시문 [나])'
+  conditions:
+  - '(1) $a>0$, 모든 자연수 $n$'
+  - '(2) $r\ne1$'
+  - '(3) $0<r<1$'
+  - '(4) $r=\frac12$에서 나머지 적분항이 $0$으로 수렴'
+  stimuli_used: [가, 나, 다, 라, 마]
+  subpart_links: '(2)의 급수 합은 (1)의 극한을, (4)는 (3)의 등식을 사용'
+
+curriculum:
+  version: '2015'
+  subjects: [확률과통계, 수학Ⅱ, 미적분]
+  scope_2028: calc2
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 이항정리를 이용하여 부등식을 유도하고, 수열의 극한·급수의 합을 구할 수 있다(요지)
+    verified: false
+  content_area: 수열의 극한·급수·정적분
+  behavior_domain: 추론
+  unit_path: [미적분, 수열의 극한, 급수, 급수의 합]
+  key_concepts: [이항정리, 수열의 극한의 대소 관계, 등비급수, 정적분의 대소 관계]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 서강대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 서강대학교
+  admission_year: 2021
+  admission_type: 수시 모의논술
+  track: 자연계열
+  question_no: 1
+  official_url: https://admission.sogang.ac.kr/upload/BBS0007/20200923133036U6NALW.PDF
+  retrieved_at: 2026-11-21
+  original_points: [3, 2, 3, 2]
+  rights_notice: 미확인(대학 원본 PDF 표지 문구 확인 필요)
+  transcribed_from: 서강대학교 입학처 「2021학년도 서강대학교 모의논술 자료집 1차 - 자연계열 -」 p.1~5 (원본 PDF 이미지 대조 2026-11-21)
+
+verify: verify/SGU-M21A.py::p01
+
+stimuli:
+- label: 가
+  body: |
+    실수 $a,b$와 자연수 $n$에 대하여 다음 등식이 성립한다.
+    $$(a+b)^n=\sum_{k=0}^{n}{}_n\mathrm{C}_k\,a^{n-k}b^k$$
+- label: 나
+  body: |
+    모든 자연수 $n$에 대하여 $0\le a_n\le b_n$이고 $\displaystyle\lim_{n\to\infty}b_n=0$이면 $\displaystyle\lim_{n\to\infty}a_n=0$이다.
+- label: 다
+  body: |
+    $r\ne1$일 때 실수 $a$와 자연수 $n$에 대하여
+    $$\sum_{k=1}^{n}ar^{k-1}=\frac{a(1-r^n)}{1-r}$$
+    이다. 또한, $\lvert r\rvert<1$이면 $\displaystyle\lim_{n\to\infty}r^n=0$이므로
+    $$\sum_{n=1}^{\infty}ar^{n-1}=\frac{a}{1-r}$$
+    이다.
+- label: 라
+  body: |
+    닫힌구간 $[a,b]$에서 연속인 두 함수 $f(x),g(x)$에 대하여 다음 등식이 성립한다.
+    $$\int_a^b kf(x)\,dx=k\int_a^b f(x)\,dx\quad(\text{단, }k\text{는 상수})$$
+    $$\int_a^b\{f(x)+g(x)\}\,dx=\int_a^b f(x)\,dx+\int_a^b g(x)\,dx$$
+    $$\int_a^b\{f(x)-g(x)\}\,dx=\int_a^b f(x)\,dx-\int_a^b g(x)\,dx$$
+- label: 마
+  body: |
+    함수 $f(x),g(x)$가 닫힌구간 $[a,b]$에서 연속이고 모든 $x\in[a,b]$에 대하여 $f(x)\le g(x)$라고 하자. 이 때 $h(x)=g(x)-f(x)$라고 하면 모든 $x\in[a,b]$에 대하여 $h(x)\ge0$이므로 정적분 $\displaystyle\int_a^b h(x)\,dx$은 곡선 $y=h(x)$와 $x$축 및 두 직선 $x=a,x=b$로 둘러싸인 도형의 넓이를 나타낸다. 제시문 [라]에 의하여
+    $$\int_a^b g(x)\,dx-\int_a^b f(x)\,dx=\int_a^b h(x)\,dx\ge0$$
+    이고 따라서
+    $$\int_a^b f(x)\,dx\le\int_a^b g(x)\,dx$$
+    이다.
+
+stem: |
+  (시험시간 50분) 제시문 [가]~[마]를 참고하여 다음 물음 1~4에 답하시오.
+
+subparts:
+- id: '1'
+  stem: |
+    $a$가 양의 실수일 때 모든 자연수 $n$에 대하여 다음 부등식이 성립함을 보이시오.
+    $$(1+a)^{n+1}\ge\frac{n^2}{2}a^2$$
+    또한, 이 부등식을 이용하여 $\displaystyle\lim_{n\to\infty}\frac{n}{2^n}=0$을 보이시오.
+  points: 6
+  depends_on: []
+  answer: {kind: proof, value: 'limit n/2**n = 0', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: 이항전개에서 $a^2$항 $\frac{(n+1)n}{2}a^2$만 남기고, $a=1$을 대입해 $0<\frac{n}{2^n}<\frac4n$으로 끼운다.
+    steps:
+    - {id: 1a, content: '$(1+a)^{n+1}\ge\tfrac{(n+1)n}{2}a^2>\tfrac{n^2}{2}a^2$, $a=1$: $0<\tfrac{n}{2^n}=\tfrac{2n}{2^{n+1}}<\tfrac{4}{n}\to0$', criteria: ['1.M1', '1.A1', '1.R1']}
+    hint_ladder:
+    - $(1+a)^{n+1}$을 이항정리로 전개했을 때 $a^2$의 계수는?
+    - 모든 항이 양수이면 한 항만 남겨도 부등식이 된다.
+    - $a=1$이면 $(1+a)^{n+1}=2^{n+1}$이다.
+  - id: S1-B
+    audience: B
+    source_flow: 모의논술자료집 p.4~5
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        제시문 [가]를 이용하면 ($a>0$이므로 모든 항이 양수)
+        $$(1+a)^{n+1}=1+(n+1)a+\frac{(n+1)n}{2}a^2+\cdots+a^{n+1}>\frac{n^2}{2}a^2$$
+        이다.
+      criteria: ['1.M1', '1.A1']
+    - id: 1b-2
+      content: |
+        $a=1$을 대입하면 $2^{n+1}>\dfrac{n^2}{2}$이므로
+        $$0<\frac{n}{2^n}=\frac{2n}{(1+1)^{n+1}}<\frac{4n}{n^2}=\frac4n\to0$$
+        이고, 제시문 [나]에 의하여 $\displaystyle\lim_{n\to\infty}\frac{n}{2^n}=0$이다.
+      criteria: ['1.R1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 1, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 2
+      evidence: |
+        $(1+a)^{n+1}$을 이항정리로 전개(공식 유의사항: 수학적 귀납법도 인정)하여 $a^2$ 항을 이용했다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1]
+    - id: 1.A1
+      mark_type: A
+      points: 2
+      evidence: |
+        나머지 항이 양수임을 근거로 $(1+a)^{n+1}>\dfrac{n^2}{2}a^2$를 결론지었다(부등식 증명 공식 2점 = 이 단위 4).
+      depends_on: [1.M1]
+      steps: [1b-1]
+    - id: 1.R1
+      mark_type: R
+      points: 2
+      evidence: |
+        $a=1$을 대입해 $0<\dfrac{n}{2^n}<\dfrac4n$을 얻고 제시문 [나](샌드위치)로 극한 $0$을 결론지었다(극한식 증명 공식 1점).
+      depends_on: []
+      implied_ok: false
+      steps: [1b-2]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '2'
+  stem: |
+    $r\ne1$일 때 모든 자연수 $n$에 대하여 다음 등식이 성립함을 보이시오.
+    $$\sum_{k=1}^{n}kr^{k-1}=\frac{1-(n+1)r^n+nr^{n+1}}{(1-r)^2}$$
+    또한, 이 등식을 이용하여 급수 $\displaystyle\sum_{n=1}^{\infty}\frac{n}{2^n}$의 합을 구하시오.
+  points: 4
+  depends_on: ['1']
+  answer: {kind: value, value: '2', equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: $\sum_{k=1}^n r^k=\frac{r-r^{n+1}}{1-r}$을 $r$로 미분하고, $r=\frac12$에서 $\frac{n}{2^n}\to0$, $\frac1{2^n}\to0$을 쓴다.
+    steps:
+    - {id: 2a, content: '$\sum_{n=1}^\infty\tfrac{n}{2^n}=\lim\tfrac12\sum_{k=1}^n\tfrac{k}{2^{k-1}}=\tfrac12\cdot\tfrac{1}{(1/2)^2}=2$', criteria: ['2.M1', '2.A1']}
+    hint_ladder:
+    - $kr^{k-1}$은 $r^k$의 도함수이다.
+    - $r=\frac12$을 대입했을 때 $n$이 포함된 항은 문제 1의 극한으로 사라진다.
+  - id: S2-B
+    audience: B
+    source_flow: 모의논술자료집 p.5
+    method_no: 1
+    steps:
+    - id: 2b-1
+      content: |
+        제시문 [다]와 [라]의 결과를 이용하면
+        $$\sum_{k=1}^{n}kr^{k-1}=\frac{d}{dr}\left(\sum_{k=1}^{n}r^k\right)=\frac{d}{dr}\left(\frac{r-r^{n+1}}{1-r}\right)=\frac{1-(n+1)r^n+nr^{n+1}}{(1-r)^2}$$
+        이다.
+      criteria: ['2.M1']
+    - id: 2b-2
+      content: |
+        여기서 $r=\dfrac12$일 때, 제시문 [다]와 문제 1의 결과를 이용하면 $\displaystyle\lim_{n\to\infty}\frac{1}{2^n}=\lim_{n\to\infty}\frac{n}{2^n}=0$이므로
+        $$\sum_{n=1}^{\infty}\frac{n}{2^n}=\lim_{n\to\infty}\frac12\sum_{k=1}^{n}\frac{k}{2^{k-1}}=2$$
+        이다.
+      criteria: ['2.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 1, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 2
+      evidence: |
+        등비수열의 부분합을 미분하는 등의 방법으로 주어진 등식을 증명했다(공식 1점).
+      depends_on: []
+      implied_ok: false
+      steps: [2b-1]
+    - id: 2.A1
+      mark_type: A
+      points: 2
+      evidence: |
+        $r=\dfrac12$을 대입하고 $\dfrac{n}{2^n}\to0$, $\dfrac1{2^n}\to0$을 근거로 급수의 합 $2$를 구했다(공식 1점, 계산 실수 −0.5점).
+      depends_on: [2.M1]
+      ft: {allowed: true, from: [1.R1], max_points: 2}
+      steps: [2b-2]
+    deductions:
+    - {code: D2-1, condition: '계산 실수로 급수의 합을 잘못 구함(공식 −0.5점)', effect: minus, value: 1}
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '3'
+  stem: |
+    $0<r<1$일 때 모든 자연수 $n$에 대하여 다음 등식이 성립함을 보이시오.
+    $$\sum_{k=1}^{n+1}\frac{r^k}{k}=-\ln(1-r)-\int_0^r\frac{t^{n+1}}{1-t}\,dt$$
+  points: 6
+  depends_on: []
+  answer: {kind: proof, value: null, equivalents: [], tolerance: null}
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: $\frac{r^k}{k}=\int_0^r t^{k-1}dt$이므로 등비수열의 합 $\sum_{k=1}^{n+1}t^{k-1}=\frac{1-t^{n+1}}{1-t}$을 적분한다.
+    steps:
+    - {id: 3a, content: '$\sum_{k=1}^{n+1}\tfrac{r^k}{k}=\int_0^r\tfrac{1-t^{n+1}}{1-t}dt=-\ln(1-r)-\int_0^r\tfrac{t^{n+1}}{1-t}dt$', criteria: ['3.M1', '3.A1']}
+    hint_ladder:
+    - $\frac{r^k}{k}$를 정적분으로 나타내 보자.
+  - id: S3-B
+    audience: B
+    source_flow: 모의논술자료집 p.5
+    method_no: 1
+    steps:
+    - id: 3b-1
+      content: |
+        $\dfrac{r^k}{k}=\displaystyle\int_0^r t^{k-1}\,dt$이므로 제시문 [라]에 의해 $\displaystyle\sum_{k=1}^{n+1}\frac{r^k}{k}=\int_0^r\left(\sum_{k=1}^{n+1}t^{k-1}\right)dt$이다.
+      criteria: ['3.M1']
+    - id: 3b-2
+      content: |
+        제시문 [다]에 의해 $\displaystyle\sum_{k=1}^{n+1}t^{k-1}=\frac{1-t^{n+1}}{1-t}=\frac{1}{1-t}-\frac{t^{n+1}}{1-t}$이므로
+        $$\sum_{k=1}^{n+1}\frac{r^k}{k}=\int_0^r\left(\frac{1}{1-t}-\frac{t^{n+1}}{1-t}\right)dt=-\ln(1-r)-\int_0^r\frac{t^{n+1}}{1-t}\,dt$$
+        이다.
+      criteria: ['3.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 1, isw: true}
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 3
+      evidence: |
+        $\dfrac{r^k}{k}$을 $\displaystyle\int_0^r t^{k-1}dt$로 바꾸어 합과 적분의 순서를 바꾸었다(제시문 [라]).
+      depends_on: []
+      implied_ok: false
+      steps: [3b-1]
+    - id: 3.A1
+      mark_type: A
+      points: 3
+      evidence: |
+        등비수열의 합 $\dfrac{1-t^{n+1}}{1-t}$를 적분하여 $-\ln(1-r)-\displaystyle\int_0^r\frac{t^{n+1}}{1-t}dt$를 얻었다(등식 증명 공식 3점, 마크 배분은 입력자 분할).
+      depends_on: [3.M1]
+      steps: [3b-2]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '4'
+  stem: |
+    문제 3의 결과를 이용하여 급수 $\displaystyle\sum_{n=1}^{\infty}\frac{1}{n\,2^n}$의 합을 구하시오.
+  points: 4
+  depends_on: ['3']
+  answer: {kind: value, value: 'log(2)', equivalents: ['ln2'], tolerance: null}
+  solutions:
+  - id: S4-A
+    audience: A
+    method_no: 1
+    key_idea: $r=\frac12$에서 $0\le\int_0^{1/2}\frac{t^{n+1}}{1-t}dt\le\left(\frac12\right)^{n+1}\ln2\to0$이므로 합은 $-\ln\frac12=\ln2$.
+    steps:
+    - {id: 4a, content: '$\sum\tfrac{1}{n2^n}=-\ln(1-\tfrac12)-\lim\int_0^{1/2}\tfrac{t^{n+1}}{1-t}dt=\ln2$', criteria: ['4.R1', '4.A1']}
+    hint_ladder:
+    - $0\le t\le\frac12$이면 $t^{n+1}\le\left(\frac12\right)^{n+1}$이다.
+  - id: S4-B
+    audience: B
+    source_flow: 모의논술자료집 p.5
+    method_no: 1
+    steps:
+    - id: 4b-1
+      content: |
+        제시문 [마]에 의하여
+        $$0\le\int_0^{\frac12}\frac{t^{n+1}}{1-t}\,dt\le\int_0^{\frac12}\frac{\left(\frac12\right)^{n+1}}{1-t}\,dt=\left(\frac12\right)^{n+1}\int_0^{\frac12}\frac{1}{1-t}\,dt=\left(\frac12\right)^{n+1}\ln2\to0$$
+        이므로 제시문 [나]에 의하여 $\displaystyle\lim_{n\to\infty}\int_0^{\frac12}\frac{t^{n+1}}{1-t}\,dt=0$이다.
+      criteria: ['4.R1']
+    - id: 4b-2
+      content: |
+        문제 3의 결과($r=\frac12$)를 이용하면 $\displaystyle\sum_{n=1}^{\infty}\frac{1}{n\,2^n}=-\ln\frac12-0=\ln2$이다.
+      criteria: ['4.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 1, isw: true}
+    criteria:
+    - id: 4.R1
+      mark_type: R
+      points: 2
+      evidence: |
+        정적분의 대소 관계(제시문 [마])와 [나]로 $\displaystyle\int_0^{1/2}\frac{t^{n+1}}{1-t}dt\to0$을 정확히 설명했다(미설명 시 감점 — 공식 유의사항).
+      depends_on: []
+      implied_ok: false
+      steps: [4b-1]
+    - id: 4.A1
+      mark_type: A
+      points: 2
+      evidence: |
+        문제 3의 등식에 $r=\dfrac12$을 대입하여 급수의 합 $\ln2$를 구했다(계산 실수 −0.5점).
+      depends_on: [4.R1]
+      ft: {allowed: true, from: [3.A1], max_points: 2}
+      steps: [4b-2]
+    deductions:
+    - {code: D4-1, condition: '계산 실수(공식 −0.5점)', effect: minus, value: 1}
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+remedy_links: []
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

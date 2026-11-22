@@ -1,0 +1,346 @@
+# 서강대 2021학년도 수시 논술(자연계열) 기출문제 1 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: SGU-G21-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: proof
+origin: past_exam
+school: SGU
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 추론
+points: 320   # 문제 전체 320점은 공식 공개, 소문항 배점은 비공개 → 소문항 배분은 임의(60·80·60·120)
+time_estimate_min: 25
+intent: |
+  함수의 증가·감소의 뜻과 도함수를 이용한 판정, 사잇값 정리, 역함수와 삼각함수의 기본 성질을 이해하고 이를 이용해 부등식을 증명할 수 있는지를 평가한다(공식 출제의도 요지).
+key_idea: |
+  $f'(x)=1-\cos x>0$로 증가성을 보이고, 사잇값 정리와 증가성으로 역함수 $g$를 정의한 뒤, $f$가 홀함수이므로 $g$도 홀함수이고, $\lvert g(y)\rvert^3\ge6\lvert y\rvert$는 $x=g(y)$로 놓아 $x^3\ge6(x-\sin x)$로 바꾼다.
+stuck: |
+  역함수에 대한 부등식을 원래 함수 $f$에 대한 부등식 $t^3>6(t-\sin t)$로 바꾸고, 보조함수 $h(t)=\dfrac{t^3}{6}-t+\sin t$를 두 번 미분하는 발상
+idea_tags: []
+tags: [역함수, 사잇값 정리, 증가함수]
+elements:
+  materials:
+  - '함수 $f(x)=x-\sin x$'
+  - '$f$의 역함수 $g:(-\pi,\pi)\to(-\pi,\pi)$'
+  - '부등식 $\lvert g(y)\rvert^3\ge6\lvert y\rvert$'
+  concepts:
+  - '증가함수의 정의'
+  - '도함수의 부호와 증가·감소'
+  - '사잇값 정리'
+  - '역함수'
+  - '홀함수'
+  tools:
+  - '$f^{\prime}(x)=1-\cos x$의 부호 판정'
+  - '구간 $[-\pi,0]$과 $[0,\pi]$로 나누어 증가 판정'
+  - '보조함수 $h(t)=\dfrac{t^3}{6}-t+\sin t$와 $h^{\prime\prime}(t)=f(t)$'
+  conditions:
+  - '$x=0$에서 $f^{\prime}(0)=0$이므로 구간을 나누어 판정'
+  - '$f(-\pi)=-\pi$, $f(\pi)=\pi$'
+  - '$y<0$인 경우는 【1-3】의 대칭성으로 환원'
+  stimuli_used: [가, 나, 다]
+  subpart_links: '【1-2】는 【1-1】의 증가성 사용, 【1-4】는 【1-1】·【1-3】 결과 사용'
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅱ, 미적분]
+  scope_2028: calc2
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 도함수를 이용하여 함수의 증가와 감소를 판정하고 부등식을 증명할 수 있다(요지)
+    verified: false
+  content_area: 미분법·도함수의 활용
+  behavior_domain: 추론
+  unit_path: [미적분, 미분법, 도함수의 활용, 부등식의 증명]
+  key_concepts: [증가함수, 사잇값 정리, 역함수, 삼각함수의 도함수]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 서강대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 서강대학교
+  admission_year: 2021
+  admission_type: 수시 논술(일반)
+  track: 자연계열
+  question_no: 1
+  official_url: https://admission.sogang.ac.kr/upload/BBS0014/20210518110436SM2XWJ.PDF
+  retrieved_at: 2026-11-21
+  original_points: null   # 배점 비공개(문제 전체 320점만 공개)
+  rights_notice: 미확인(대학 원본 PDF 표지 문구 확인 필요)
+  transcribed_from: 서강대학교 입학처 「2022학년도 논술가이드북」 p.53~55 (PDF 27~28쪽, 원본 PDF 이미지 대조 2026-11-21)
+
+verify: verify/SGU-G21.py::p01
+
+stimuli:
+- label: 가
+  body: |
+    함수 $f(x)$가 어떤 구간에 속하는 임의의 두 실수 $x_1$, $x_2$에 대하여
+    ① $x_1<x_2$일 때 $f(x_1)<f(x_2)$이면 함수 $f(x)$는 그 구간에서 증가한다고 한다.
+    ② $x_1<x_2$일 때 $f(x_1)>f(x_2)$이면 함수 $f(x)$는 그 구간에서 감소한다고 한다.
+- label: 나
+  body: |
+    함수 $f(x)$가 닫힌구간 $[a,\,b]$에서 연속이고 열린구간 $(a,\,b)$에서 미분가능할 때,
+    ① 열린구간 $(a,\,b)$의 모든 $x$에 대하여 $f'(x)>0$이면 함수 $f(x)$가 닫힌구간 $[a,\,b]$에서 증가한다.
+    ② 열린구간 $(a,\,b)$의 모든 $x$에 대하여 $f'(x)<0$이면 함수 $f(x)$가 닫힌구간 $[a,\,b]$에서 감소한다.
+- label: 다
+  body: |
+    함수 $f(x)$가 닫힌구간 $[a,\,b]$에서 연속이고 $f(a)\ne f(b)$이면 $f(a)$와 $f(b)$ 사이에 있는 임의의 실수 $k$에 대하여 $f(c)=k$인 $c$가 열린구간 $(a,\,b)$에 적어도 하나 존재한다.
+
+stem: |
+  함수 $f(x)=x-\sin x$에 대하여 제시문 [가], [나], [다]를 참고하여 다음 물음에 답하시오.
+
+subparts:
+- id: '1'
+  stem: |
+    【1-1】 함수 $f(x)$가 닫힌구간 $[-\pi,\,\pi]$에서 증가함을 보이시오.
+  points: 60
+  depends_on: []
+  answer: {kind: proof, value: null, equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $f'(x)=1-\cos x$는 $x=0$에서만 $0$이므로 $[-\pi,0]$, $[0,\pi]$에서 각각 증가함을 보이고 합친다.
+    steps:
+    - {id: 1a, content: '$-\pi<x<0$, $0<x<\pi$에서 $f^{\prime}(x)=1-\cos x>0$ → 두 구간에서 증가 → 전체 구간에서 증가', criteria: ['1.M1', '1.R1']}
+    hint_ladder:
+    - $f'(x)=0$이 되는 점이 구간 안에 있는가?
+    - 구간을 그 점에서 나누어 제시문 [나]를 적용해 보자.
+  - id: S1-B
+    audience: B
+    source_flow: '논술가이드북2022 p.55 답안사례 (PDF 28쪽)'
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        $-\pi<x<0$일 때 $f'(x)=1-\cos x>0$이다. 따라서 제시문 [나]에 의하여 함수 $f(x)$는 닫힌구간 $[-\pi,\,0]$에서 증가한다. 또한 $0<x<\pi$일 때 $f'(x)>0$이므로 함수 $f(x)$는 닫힌구간 $[0,\,\pi]$에서 증가한다.
+      criteria: ['1.M1']
+    - id: 1b-2
+      content: |
+        함수 $f(x)$가 각 구간 $[-\pi,\,0]$과 $[0,\,\pi]$에서 증가하므로 전체구간 $[-\pi,\,\pi]$에서 증가한다.
+      criteria: ['1.R1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 30
+      evidence: |
+        제시문 [가]와 [나]의 증가함수 정의·충분조건을 이용하여 $f(x)$가 각 구간 $[-\pi,0]$과 $[0,\pi]$에서 증가함을 보였다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1]
+    - id: 1.R1
+      mark_type: R
+      points: 30
+      evidence: |
+        각 구간에서 증가하므로 전체구간 $[-\pi,\pi]$에서 증가한다는 것을 명시했다.
+      depends_on: [1.M1]
+      steps: [1b-2]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '2'
+  stem: |
+    【1-2】 열린구간 $(-\pi,\,\pi)$의 각 실수 $y$에 대하여 $f(x)=y$인 열린구간 $(-\pi,\,\pi)$의 실수 $x$가 오직 하나씩 존재함을 보이시오.
+  points: 80
+  depends_on: ['1']
+  answer: {kind: proof, value: null, equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: $f(-\pi)=-\pi<y<\pi=f(\pi)$이므로 사잇값 정리로 존재, 증가성으로 유일.
+    steps:
+    - {id: 2a, content: '존재: 제시문 [다], 유일: 【1-1】의 증가성', criteria: ['2.M1', '2.R1']}
+    hint_ladder:
+    - 구간 양 끝에서의 함숫값은?
+    - 증가함수는 같은 값을 두 번 가질 수 있는가?
+  - id: S2-B
+    audience: B
+    source_flow: '논술가이드북2022 p.55 답안사례 (PDF 28쪽)'
+    method_no: 1
+    steps:
+    - id: 2b-1
+      content: |
+        $-\pi<y<\pi$일 때, $f(-\pi)=-\pi$이고 $f(\pi)=\pi$이므로 $f(-\pi)<y<f(\pi)$이다. 제시문 [다]에 의하여 $f(x)=y$인 $x$가 열린구간 $(-\pi,\,\pi)$에 적어도 하나 존재한다.
+      criteria: ['2.M1']
+    - id: 2b-2
+      content: |
+        문항 【1-1】의 결과에 의하여 함수 $f(x)$는 열린구간 $(-\pi,\,\pi)$에서 증가하므로 그와 같은 $x$는 오직 하나뿐이다.
+      criteria: ['2.R1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 40
+      evidence: |
+        $f(-\pi)=-\pi$, $f(\pi)=\pi$를 확인하고 제시문 [다]의 사잇값 정리로 $f(x)=y$를 만족하는 $x$가 적어도 하나 존재함을 보였다.
+      depends_on: []
+      implied_ok: false
+      steps: [2b-1]
+    - id: 2.R1
+      mark_type: R
+      points: 40
+      evidence: |
+        【1-1】의 증가성을 근거로 그러한 $x$가 오직 하나뿐임을 보였다.
+      depends_on: []
+      ft: {allowed: true, from: [1.R1], max_points: 40}
+      steps: [2b-2]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '3'
+  stem: |
+    문항 【1-2】에 의하여 열린구간 $(-\pi,\,\pi)$의 각 원소 $y$에 $f(x)=y$인 열린구간 $(-\pi,\,\pi)$의 원소 $x$를 대응시키는 함수 $g:(-\pi,\,\pi)\to(-\pi,\,\pi)$를 정의할 수 있다. 문항 【1-3】과 문항 【1-4】에 답하시오.
+
+    【1-3】 $-\pi<y<\pi$일 때, $g(-y)+g(y)=0$임을 보이시오.
+  points: 60
+  depends_on: ['2']
+  answer: {kind: proof, value: null, equivalents: [], tolerance: null}
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: $f$가 홀함수이므로 $x=g(y)$이면 $f(-x)=-y$, 즉 $g(-y)=-x$.
+    steps:
+    - {id: 3a, content: '$f(-x)=-f(x)=-y\Rightarrow g(-y)=-x=-g(y)$', criteria: ['3.M1', '3.R1']}
+    hint_ladder:
+    - $f(-x)$와 $f(x)$의 관계는?
+  - id: S3-B
+    audience: B
+    source_flow: '논술가이드북2022 p.55 답안사례 (PDF 28쪽)'
+    method_no: 1
+    steps:
+    - id: 3b-1
+      content: |
+        $x=g(y)$라고 하면 $y=f(x)=x-\sin x$이므로 $f(-x)=-f(x)=-y$이다.
+      criteria: ['3.M1']
+    - id: 3b-2
+      content: |
+        따라서 함수 $g$의 정의에 의해 $-x=g(-y)$이다. 그러므로 $-g(y)=-x=g(-y)$이다.
+      criteria: ['3.R1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 30
+      evidence: |
+        $x=g(y)$로 놓고 $f(-x)=-f(x)=-y$를 보였다.
+      depends_on: []
+      implied_ok: false
+      steps: [3b-1]
+    - id: 3.R1
+      mark_type: R
+      points: 30
+      evidence: |
+        역함수 $g$의 정의(유일성)에 의해 $g(-y)=-x=-g(y)$를 이끌었다.
+      depends_on: [3.M1]
+      steps: [3b-2]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '4'
+  stem: |
+    【1-4】 $-\pi<y<\pi$일 때, $\lvert g(y)\rvert^3\ge6\lvert y\rvert$임을 보이시오.
+  points: 120
+  depends_on: ['1', '3']
+  answer: {kind: proof, value: null, equivalents: [], tolerance: null}
+  solutions:
+  - id: S4-A
+    audience: A
+    method_no: 1
+    key_idea: $0<y<\pi$에서 $x=g(y)>0$으로 놓으면 $x^3>6(x-\sin x)$를 보이면 되고, $h(t)=\dfrac{t^3}{6}-t+\sin t$의 $h''=f>0$을 쓴다. $y\le0$은 【1-3】으로 처리.
+    steps:
+    - {id: 4a, content: '$h^{\prime\prime}(t)=t-\sin t>0\Rightarrow h^{\prime}(t)>h^{\prime}(0)=0\Rightarrow h(t)>h(0)=0$', criteria: ['4.M1', '4.M2', '4.A1', '4.R1']}
+    hint_ladder:
+    - $x=g(y)$로 놓으면 부등식은 $x$에 대한 어떤 부등식이 되는가?
+    - 차를 함수로 놓고 두 번 미분해 보자.
+    - $y<0$인 경우는 【1-3】을 이용하자.
+  - id: S4-B
+    audience: B
+    source_flow: '논술가이드북2022 p.55 답안사례 (PDF 28쪽)'
+    method_no: 1
+    steps:
+    - id: 4b-1
+      content: |
+        (i) $0<y<\pi$일 때, $x=g(y)$라고 하면 $x>0$이고 $y=f(x)$이므로
+        $\lvert g(y)\rvert^3>6\lvert y\rvert\iff x^3>6f(x)\iff x^3>6(x-\sin x)$이다. 그러므로 $0<t<\pi$인 모든 $t$에 대하여 $t^3>6(t-\sin t)$를 증명하면 된다.
+      criteria: ['4.M1']
+    - id: 4b-2
+      content: |
+        이를 위하여 함수 $h(t)=\dfrac{t^3}{6}-t+\sin t$를 생각하자. 이때 $h'(t)=\dfrac{t^2}{2}-1+\cos t$, $h''(t)=t-\sin t$이다.
+      criteria: ['4.M2']
+    - id: 4b-3
+      content: |
+        $0<t<\pi$일 때, $h''(t)=f(t)>0$이므로 $h'(t)$가 닫힌구간 $[0,\,\pi]$에서 증가한다. 따라서 $0<t<\pi$일 때, $h'(t)>h'(0)=0$이다. 따라서 함수 $h(t)$가 닫힌구간 $[0,\,\pi]$에서 증가한다.
+        그러므로 $0<t<\pi$일 때, $h(t)>h(0)=0$이다. 즉, $t^3>6(t-\sin t)$이므로 $g(y)^3>6y$이다.
+      criteria: ['4.A1']
+    - id: 4b-4
+      content: |
+        (ii) $y=0$일 때, $g(0)=0$이므로 당연히 성립한다.
+        (iii) $-\pi<y<0$이면 $0<-y<\pi$이므로 문항 【1-3】과 (i)에 의해서 $\lvert g(y)\rvert^3=\lvert -g(y)\rvert^3=\lvert g(-y)\rvert^3>6\lvert -y\rvert=6\lvert y\rvert$.
+        그러므로 (i), (ii), (iii)에 의해서 열린구간 $(-\pi,\,\pi)$의 모든 $y$에 대하여 $\lvert g(y)\rvert^3\ge6\lvert y\rvert$가 성립한다.
+      criteria: ['4.R1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 4.M1
+      mark_type: M
+      points: 30
+      evidence: |
+        역함수 $g(x)$에 대한 부등식을 원래 함수 $f(x)$에 대한 부등식 $x^3>6(x-\sin x)$로 변환했다.
+      depends_on: []
+      implied_ok: false
+      steps: [4b-1]
+    - id: 4.M2
+      mark_type: M
+      points: 30
+      evidence: |
+        적당한 함수 $h(x)$(예: $h(t)=\dfrac{t^3}{6}-t+\sin t$)를 정의하고 도함수를 구했다.
+      depends_on: []
+      implied_ok: false
+      steps: [4b-2]
+    - id: 4.A1
+      mark_type: A
+      points: 40
+      evidence: |
+        제시문 [나]의 증가함수 충분조건을 이용하여 $h$가 구간에서 증가함을 보이고 $h(t)>0$을 얻었다.
+      depends_on: [4.M2]
+      steps: [4b-3]
+    - id: 4.R1
+      mark_type: R
+      points: 20
+      evidence: |
+        $y=0$과 $-\pi<y<0$인 경우를 【1-3】으로 처리하여 모든 $y$에 대해 결론을 맺었다.
+      depends_on: [4.A1]
+      steps: [4b-4]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+remedy_links: []
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

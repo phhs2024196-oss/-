@@ -1,0 +1,365 @@
+# 서강대 2023학년도 모의논술 1차(자연계열) 문제 【1-1】~【1-4】 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+# 배점: 공식 문항당 2점(총 8점), 세부 0.5점 단위 → 정수화를 위해 points = 공식 배점 × 2 (4·4·4·4 = 16).
+schema_version: '2.0'
+id: SGU-M23A-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: SGU
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 추론
+points: 16
+time_estimate_min: 50
+intent: |
+  접선의 방정식을 구하고 직선과 원의 접선의 기본 성질, 삼각함수의 덧셈정리(배각)를 활용해 접원의 반지름을 구하며, 함수의 극한값을 구하고, 함수의 증가·감소와 사잇값의 정리로 치역을 구할 수 있는지 평가한다.
+key_idea: |
+  접선 $l$과 $x$축(또는 $y$축)의 교점에서 원의 중심은 두 접선이 이루는 각의 이등분선 위에 있으므로 반지름 $=$ (접점까지 거리)$\times\tan\frac{\theta}{2}$이고, $\tan\theta$에서 배각 공식으로 $\tan\frac{\theta}{2}$를 구한다.
+stuck: |
+  원의 중심이 두 접선이 이루는 각의 이등분선 위에 있다는 것과, $\tan\frac\theta2$를 배각 공식의 이차방정식으로 구하는 발상, 그리고 【1-4】에서 $t=\sqrt{1+4x^2}+1$로 치환해 단조성을 보이는 발상
+idea_tags: [IDEA-INCIRCLE-HALF-ANGLE-TAN, IDEA-RATIONALIZE-LIMIT, IDEA-SUBSTITUTION-MONOTONE-IVT-RANGE]
+tags: [접원, 반각 탄젠트, 함수의 극한, 사잇값의 정리, 서강대 모의]
+elements:
+  materials:
+  - '곡선 $y=x^2$ 위의 점 $\mathrm{P}(a,a^2)$에서의 접선 $l$'
+  - '$l$과 점 P에서 접하고 $x$축(또는 $y$축)에 접하는 원'
+  - '$f(x)=\frac{xh(x)}{g(x)}$의 극한과 치역'
+  concepts:
+  - '접선의 방정식'
+  - '원의 접선의 성질(접점까지 거리가 같음, 중심은 각의 이등분선 위)'
+  - '삼각함수의 덧셈정리(배각)'
+  - '함수의 극한'
+  - '함수의 증가와 감소'
+  - '사잇값의 정리'
+  tools:
+  - '$\tan\theta=2a$, $\tan\alpha=\frac{1}{2a}$'
+  - '$\tan\theta=\frac{2\tan\frac\theta2}{1-\tan^2\frac\theta2}$에서 이차방정식'
+  - '분자·분모 유리화'
+  - '치환 $t=\sqrt{1+4x^2}+1$'
+  conditions:
+  - '$a>0$'
+  - '(1-1) $l$보다 아래에 있는 원'
+  - '(1-2) $l$보다 위에 있는 원'
+  - '(1-4) 정의역 $(0,\infty)$'
+  stimuli_used: [가, 나, 다, 라, 마]
+  subpart_links: '【1-3】은 【1-1】·【1-2】의 g, h를, 【1-4】는 【1-3】의 f와 극한값을 사용'
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅱ, 미적분]
+  scope_2028: calc2
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 접선의 방정식과 삼각함수의 덧셈정리를 활용하고, 함수의 극한·증감·사잇값의 정리를 이해한다(요지)
+    verified: false
+  content_area: 미분법·함수의 극한과 연속
+  behavior_domain: 문제해결
+  unit_path: [수학Ⅱ, 미분, 도함수의 활용, 접선의 방정식]
+  key_concepts: [접선의 방정식, 삼각함수의 덧셈정리, 함수의 극한, 사잇값의 정리]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 서강대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 서강대학교
+  admission_year: 2023
+  admission_type: 수시 모의논술
+  track: 자연계열
+  question_no: 1
+  official_url: https://admission.sogang.ac.kr/upload/BBS0007/20220908170835F74FSF.PDF
+  retrieved_at: 2026-11-21
+  original_points: [2, 2, 2, 2]
+  rights_notice: 미확인(대학 원본 PDF 표지 문구 확인 필요)
+  transcribed_from: 서강대학교 입학처 「2023학년도 서강대학교 모의논술 자료집 1차 - 자연계열 -」 p.1~7 (원본 PDF 이미지 대조 2026-11-21)
+
+verify: verify/SGU-M23A.py::p01
+
+stimuli:
+- label: 가
+  body: |
+    함수 $y=f(x)$가 $x=a$에서 미분가능할 때, 곡선 $y=f(x)$ 위의 점
+    $\mathrm{P}(a,f(a))$에서의 접선의 방정식은
+    $$y-f(a)=f'(a)(x-a)$$
+- label: 나
+  body: |
+    삼각함수의 덧셈정리
+    $$\sin(\alpha\pm\beta)=\sin\alpha\cos\beta\pm\cos\alpha\sin\beta$$
+    $$\cos(\alpha\pm\beta)=\cos\alpha\cos\beta\mp\sin\alpha\sin\beta$$
+    $$\tan(\alpha\pm\beta)=\frac{\tan\alpha\pm\tan\beta}{1\mp\tan\alpha\tan\beta}$$
+- label: 다
+  body: |
+    함수 $f(x)$에서 $x$의 값이 한없이 커질 때, $f(x)$의 값이 일정한 값 $L$에 한없이
+    가까워지면 이것을 기호로
+    $$\lim_{x\to\infty}f(x)=L\ \text{또는}\ x\to\infty\text{일 때}\ f(x)\to L$$
+    과 같이 나타낸다.
+    함수 $f(x)$에서 $x$의 값이 $a$보다 크면서 $a$에 한없이 가까워질 때, $f(x)$의 값이 일정한 값 $L$에 한없이 가까워지면 $L$을 함수 $f(x)$의 $x=a$에서의 우극한 이라고 하고, 이것을 기호로
+    $$\lim_{x\to a+}f(x)=L\ \text{또는}\ x\to a+\text{일 때}\ f(x)\to L$$
+    과 같이 나타낸다.
+- label: 라
+  body: |
+    함수 $f(x)$가 어떤 구간에 속하는 임의의 두 실수 $x_1$, $x_2$에서
+    $$x_1<x_2\text{일 때, }f(x_1)<f(x_2)$$
+    이면, 함수 $f(x)$는 이 구간에서 증가한다고 한다. 또,
+    $$x_1<x_2\text{일 때, }f(x_1)>f(x_2)$$
+    이면, 함수 $f(x)$는 이 구간에서 감소한다고 한다.
+- label: 마
+  body: |
+    사잇값의 정리
+    함수 $f(x)$가 닫힌구간 $[a,b]$에서 연속이고 $f(a)\ne f(b)$이면 $f(a)$와 $f(b)$ 사이에 있는 임의의 값 $k$에 대하여 $f(c)=k$인 $c$가 $a$와 $b$사이에 적어도 하나 존재한다.
+
+stem: |
+  (시험시간 50분) 제시문 [가]-[마]를 참고하여 다음 물음에 답하시오.
+
+  $a>0$이고, 곡선 $y=x^2$ 위의 점 $\mathrm{P}(a,a^2)$에서의 접선을 $l$이라 하자.
+
+  [그림: 좌표평면에 곡선 $y=x^2$와 제1사분면의 점 $\mathrm{P}(a,a^2)$, 점 P에서 곡선에 접하는 직선 $l$이 그려져 있다. $l$은 $x$축의 양의 부분과 $y$축의 음의 부분을 지난다]
+
+subparts:
+- id: '1'
+  stem: |
+    【1-1】 직선 $l$과 점 $\mathrm{P}$에서 접하고 $x$축과 접하는 두 원 중, 직선 $l$보다 아래에 있는 원의 반지름을 구하시오.
+  points: 4
+  depends_on: []
+  answer: {kind: expression, value: '(1 + 4*a**2 - sqrt(1 + 4*a**2))/4', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $\mathrm{Q}\left(\frac a2,0\right)$에서 반지름 $=\overline{\mathrm{PQ}}\tan\frac\theta2$, $\tan\theta=2a$.
+    steps:
+    - {id: 1a, content: '$\tan\tfrac\theta2=\tfrac{-1+\sqrt{1+4a^2}}{2a}$, $\overline{\mathrm{PQ}}=\tfrac a2\sqrt{1+4a^2}$ $\Rightarrow$ $\tfrac{1+4a^2-\sqrt{1+4a^2}}{4}$', criteria: ['1.M1', '1.M2', '1.A1']}
+    hint_ladder:
+    - 원의 중심은 $l$과 $x$축이 이루는 각의 이등분선 위에 있다.
+    - $\tan\theta$를 알면 $\tan\frac\theta2$는 배각 공식으로.
+  - id: S1-B
+    audience: B
+    source_flow: 모의논술자료집 p.5
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        접선 $l$이 $x$축과 만나는 점을 $\mathrm{Q}$, $x$축의 양의 방향과 이루는 각을 $\theta$라 하고, 원의 중심을 $\mathrm{C}$라 하자. 그러면 구하는 원의 반지름은 $\overline{\mathrm{PC}}$가 된다. 제시문 [가]에 의해 접선 $l$의 방정식은 $y=2ax-a^2$이므로 점 $\mathrm{Q}$는 $\left(\dfrac a2,0\right)$이고 $\tan\theta=2a$가 된다.
+      criteria: ['1.M1']
+    - id: 1b-2
+      content: |
+        [그림: 점 Q에서 $x$축과 $l$ 사이에 끼인 작은 원(중심 C)이 P에서 $l$에, 또 $x$축에 접함]
+        원과 접선의 기본 성질로부터 $\triangle\mathrm{QPC}$는 직각삼각형이고 $\angle\mathrm{PQC}=\dfrac\theta2$임을 알 수 있다. 제시문 [나]에 의해 $2a=\tan\theta=\dfrac{2\tan\frac\theta2}{1-\tan^2\frac\theta2}$이므로 $a\tan^2\dfrac\theta2+\tan\dfrac\theta2-a=0$이 된다. $0<\dfrac\theta2<\dfrac\pi4$이므로 $\tan\dfrac\theta2=\dfrac{-1+\sqrt{1+4a^2}}{2a}$이다.
+      criteria: ['1.M2']
+    - id: 1b-3
+      content: |
+        따라서 $\tan\dfrac\theta2=\dfrac{\overline{\mathrm{PC}}}{\overline{\mathrm{PQ}}}$이고 $\overline{\mathrm{PQ}}=\dfrac a2\sqrt{1+4a^2}$이므로, 원의 반지름은 $\overline{\mathrm{PC}}=\dfrac{1+4a^2-\sqrt{1+4a^2}}{4}$이다.
+      criteria: ['1.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 1, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 1
+      evidence: |
+        접선의 방정식 $y=2ax-a^2$를 구했다(공식 0.5점).
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1]
+    - id: 1.M2
+      mark_type: M
+      points: 1
+      evidence: |
+        덧셈정리(배각)를 이용하여 $\tan\dfrac\theta2=\dfrac{-1+\sqrt{1+4a^2}}{2a}$를 구했다(공식 0.5점).
+      depends_on: []
+      implied_ok: false
+      steps: [1b-2]
+    - id: 1.A1
+      mark_type: A
+      points: 2
+      evidence: |
+        원의 접선 성질과 $\tan\dfrac\theta2$로부터 반지름 $\dfrac{1+4a^2-\sqrt{1+4a^2}}{4}$를 구했다(공식 1점).
+      depends_on: [1.M1, 1.M2]
+      steps: [1b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '2'
+  stem: |
+    【1-2】 직선 $l$과 점 $\mathrm{P}$에서 접하고 $y$축과 접하는 두 원 중, 직선 $l$보다 위에 있는 원의 반지름을 구하시오.
+  points: 4
+  depends_on: []
+  answer: {kind: expression, value: 'a*(1 + 4*a**2) - 2*a**2*sqrt(1 + 4*a**2)', equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: $\mathrm{Q}'(0,-a^2)$에서 반지름 $=\overline{\mathrm{PQ}'}\tan\frac\alpha2$, $\tan\alpha=\frac1{2a}$.
+    steps:
+    - {id: 2a, content: '$\tan\tfrac\alpha2=-2a+\sqrt{1+4a^2}$, $\overline{\mathrm{PQ}\prime}=a\sqrt{1+4a^2}$', criteria: ['2.M1', '2.A1']}
+    hint_ladder:
+    - $l$이 $y$축의 양의 방향과 이루는 각은 $\frac\pi2-\theta$이다.
+  - id: S2-B
+    audience: B
+    source_flow: 모의논술자료집 p.5~6
+    method_no: 1
+    steps:
+    - id: 2b-1
+      content: |
+        접선 $l$이 $y$축과 만나는 점을 $\mathrm{Q}'$, $y$축의 양의 방향과 이루는 각을 $\alpha$라 하고, 원의 중심을 $\mathrm{C}'$라 하자. 그러면 구하는 원의 반지름은 $\overline{\mathrm{PC}'}$가 된다. 접선 $l$의 방정식은 $y=2ax-a^2$이므로 점 $\mathrm{Q}'$는 $(0,-a^2)$이고 $\tan\alpha=\tan\left(\dfrac\pi2-\theta\right)=\dfrac{1}{2a}$가 된다.
+        [그림: $y$축과 $l$에 접하고 $l$ 위쪽에 있는 원(중심 C′), 점 Q′에서의 각 $\alpha$]
+        원과 접선의 기본 성질로부터 $\triangle\mathrm{Q'PC'}$는 직각삼각형이고 $\angle\mathrm{PQ'C'}=\dfrac\alpha2$임을 알 수 있다. 제시문 [나]에 의해 $\dfrac{1}{2a}=\tan\alpha=\dfrac{2\tan\frac\alpha2}{1-\tan^2\frac\alpha2}$이므로 $\tan^2\dfrac\alpha2+4a\tan\dfrac\alpha2-1=0$가 된다. $0<\dfrac\alpha2<\dfrac\pi4$이므로 $\tan\dfrac\alpha2=-2a+\sqrt{1+4a^2}$이다.
+      criteria: ['2.M1']
+    - id: 2b-2
+      content: |
+        따라서 $\tan\dfrac\alpha2=\dfrac{\overline{\mathrm{PC}'}}{\overline{\mathrm{PQ}'}}$이고 $\overline{\mathrm{PQ}'}=a\sqrt{1+4a^2}$이므로, 원의 반지름은 $\overline{\mathrm{PC}'}=a(1+4a^2)-2a^2\sqrt{1+4a^2}$이다.
+      criteria: ['2.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 1, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 2
+      evidence: |
+        접선의 방정식과 덧셈정리를 이용하여 $\tan\dfrac\alpha2=-2a+\sqrt{1+4a^2}$를 구했다(공식 1점).
+      depends_on: []
+      implied_ok: false
+      steps: [2b-1]
+    - id: 2.A1
+      mark_type: A
+      points: 2
+      evidence: |
+        원의 접선 성질과 $\tan\dfrac\alpha2$로부터 반지름 $a(1+4a^2)-2a^2\sqrt{1+4a^2}$를 구했다(공식 1점).
+      depends_on: [2.M1]
+      steps: [2b-2]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '3'
+  stem: |
+    【1-3】 문제 【1-1】과 【1-2】에서 구한 원의 반지름을 각각 $g(a)$, $h(a)$라 할 때,
+    $f(x)=\dfrac{xh(x)}{g(x)}\ (x>0)$라 하자. 극한값 $\displaystyle\lim_{x\to0+}f(x)$와 $\displaystyle\lim_{x\to\infty}f(x)$가 존재하는지 조사하고, 존재하면 극한값을 구하시오.
+  points: 4
+  depends_on: ['1', '2']
+  answer: {kind: expression, value: 'right = 2; infinity = 1/2', equivalents: [], tolerance: null}
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: 유리화하면 $f(x)=\frac{\sqrt{1+4x^2}+1}{\sqrt{1+4x^2}+2x}$.
+    steps:
+    - {id: 3a, content: '$\lim_{x\to0+}f=2$, $\lim_{x\to\infty}f=\tfrac12$', criteria: ['3.M1', '3.A1']}
+    hint_ladder:
+    - 분자·분모에 켤레식을 곱해 $\sqrt{1+4x^2}-1$, $\sqrt{1+4x^2}-2x$를 없애 보자.
+  - id: S3-B
+    audience: B
+    source_flow: 모의논술자료집 p.6
+    method_no: 1
+    steps:
+    - id: 3b-1
+      content: |
+        $$f(x)=\frac{4x\left[x(1+4x^2)-2x^2\sqrt{1+4x^2}\right]}{1+4x^2-\sqrt{1+4x^2}}=\frac{4x^2\left(\sqrt{1+4x^2}-2x\right)}{\sqrt{1+4x^2}-1}$$
+        이므로 분자, 분모에 $\left(\sqrt{1+4x^2}+2x\right)\left(\sqrt{1+4x^2}+1\right)$를 각각 곱하면,
+        $$f(x)=\frac{\sqrt{1+4x^2}+1}{\sqrt{1+4x^2}+2x}=\frac{\sqrt{\frac{1}{x^2}+4}+\frac1x}{\sqrt{\frac{1}{x^2}+4}+2}\quad(x>0)$$
+        이다.
+      criteria: ['3.M1']
+    - id: 3b-2
+      content: |
+        따라서 제시문 [다]에 의해 $\displaystyle\lim_{x\to0+}f(x)=2$, $\displaystyle\lim_{x\to\infty}f(x)=\frac12$이다.
+      criteria: ['3.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 1, isw: true}
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 2
+      evidence: |
+        $f(x)$를 정리(유리화)하여 $\displaystyle\lim_{x\to0+}f(x)=2$를 구했다(공식 1점; 엄밀한 계산과정 없이 극한값만 적으면 0점).
+      depends_on: []
+      implied_ok: false
+      ft: {allowed: true, from: [1.A1, 2.A1], max_points: 2}
+      steps: [3b-1, 3b-2]
+    - id: 3.A1
+      mark_type: A
+      points: 2
+      evidence: |
+        $\displaystyle\lim_{x\to\infty}f(x)=\dfrac12$을 구했다(공식 1점).
+      depends_on: [3.M1]
+      steps: [3b-2]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '4'
+  stem: |
+    【1-4】 문제 【1-3】에서 주어진 함수 $f(x)$의 정의역이 열린구간 $(0,\infty)$일 때, $f(x)$의 치역을 구하시오.
+  points: 4
+  depends_on: ['3']
+  answer: {kind: set, value: 'Interval.open(1/2, 2)', equivalents: ['(1/2, 2)'], tolerance: null}
+  solutions:
+  - id: S4-A
+    audience: A
+    method_no: 1
+    key_idea: $t=\sqrt{1+4x^2}+1$로 두면 $F(t)=\frac{1}{1-\frac1t+\sqrt{1-\frac2t}}$은 $t>2$에서 감소하므로 $f$는 감소, 사잇값의 정리로 치역 $\left(\frac12,2\right)$.
+    steps:
+    - {id: 4a, content: '$f$ 감소, $2>f(x)>\tfrac12$, 사잇값 정리로 치역 $\left(\tfrac12,2\right)$', criteria: ['4.R1', '4.A1']}
+    hint_ladder:
+    - $\sqrt{1+4x^2}$를 하나의 문자로 치환해 보자.
+    - 감소함수이고 양 끝 극한이 $2$, $\frac12$이면 치역은?
+  - id: S4-B
+    audience: B
+    source_flow: 모의논술자료집 p.6~7
+    method_no: 1
+    steps:
+    - id: 4b-1
+      content: |
+        $\sqrt{1+4x^2}+1=t\ (x>0)$라 두면 $x=\dfrac{\sqrt{t^2-2t}}{2}\ (t>2)$이다. $F(t)=f\left(\dfrac{\sqrt{t^2-2t}}{2}\right)$라 두면,
+        $$F(t)=f\left(\frac{\sqrt{t^2-2t}}{2}\right)=\frac{t}{t-1+\sqrt{t^2-2t}}=\frac{1}{1-\frac1t+\sqrt{1-\frac2t}}\quad(t>2)$$
+        가 된다. 제시문 [라]에 의해, $t$에 관한 함수 $1-\dfrac1t$와 $1-\dfrac2t$는 $t>2$인 구간에서 증가하고, 함수 $F(t)$는 이 구간에서 감소한다. $x$에 관한 함수 $\sqrt{1+4x^2}+1$는 $x>0$인 구간에서 증가하므로, 함수 $f(x)=F\left(\sqrt{1+4x^2}+1\right)$는 정의역인 $x>0$인 구간에서 감소한다.
+      criteria: ['4.R1']
+    - id: 4b-2
+      content: |
+        함수 $f(x)$가 감소하므로, 임의의 $x_0>0$에 대하여 $2=\displaystyle\lim_{x\to0+}f(x)>f(x_0)>\lim_{x\to\infty}f(x)=\frac12$가 되어 함수 $f(x)$의 치역은 열린구간 $\left(\dfrac12,2\right)$의 부분집합이 된다. 극한의 정의로부터 $\dfrac12<k<2$인 임의의 값 $k$에 대하여 $\dfrac12<f(b)<k<f(a)<2$가 되는 $0<a<b$가 존재함을 알 수 있다. 함수 $f(x)=\dfrac{\sqrt{1+4x^2}+1}{\sqrt{1+4x^2}+2x}$는 닫힌구간 $[a,b]$에서 연속이므로 제시문 [마]의 사잇값의 정리에 의해 $f(c)=k$가 되는 $c$가 $a$와 $b$사이에 존재한다. 따라서 함수 $f(x)$의 치역은 열린구간 $\left(\dfrac12,2\right)$가 된다.
+      criteria: ['4.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 1, isw: true}
+    criteria:
+    - id: 4.R1
+      mark_type: R
+      points: 2
+      evidence: |
+        함수 $f(x)$가 감소함을 엄밀히 보였다(공식 1점; 엄밀한 설명 없이 감소한다고만 하면 1점 감점).
+      depends_on: []
+      implied_ok: false
+      ft: {allowed: true, from: [3.M1], max_points: 2}
+      steps: [4b-1]
+    - id: 4.A1
+      mark_type: A
+      points: 2
+      evidence: |
+        사잇값의 정리를 이용하여 치역 $\left(\dfrac12,2\right)$를 구했다(공식 1점; 사잇값의 정리 설명 없이 치역만 구하면 1점 감점).
+      depends_on: [4.R1]
+      steps: [4b-2]
+    deductions:
+    - {code: D4-1, condition: '엄밀한 설명 없이 f가 감소한다고만 함(공식 −1점)', effect: minus, value: 2}
+    - {code: D4-2, condition: '감소를 보인 뒤 사잇값의 정리를 이용한 엄밀한 설명 없이 치역만 구함(공식 −1점)', effect: minus, value: 2}
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+remedy_links: []
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

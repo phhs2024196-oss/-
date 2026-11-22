@@ -1,0 +1,395 @@
+# 서강대 2024학년도 수시 논술(자연계열) 1차 문제 1 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+# 1차 모집단위: 수학과, 기계공학과, 컴퓨터공학과, 시스템반도체공학과(논술가이드북2027 2024학년도 기출문제 표기). 예상소요 시간 40분.
+schema_version: '2.0'
+id: SGU-G24A-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: SGU
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 분류
+points: 40   # 배점 비공개 — 문제 1 비중 40%(논술가이드북2027)만 공개, 소문항은 균등 10점으로 나눔
+time_estimate_min: 40
+intent: |
+  함수의 연속·미분가능·증가의 정의를 구간별로 정의된 함수에 적용해 조건을 찾고, 중복조합과 정적분으로 순서쌍의 개수를 센 뒤 이를 조건부확률 계산에 활용하는 능력을 본다.
+key_idea: |
+  증가 조건을 $x=0$에서의 좌·우극한과 함숫값 비교($0\le d\le c$)와 $[0,1]$에서 이차함수의 증가(대칭축 위치에 따른 경우 분류)로 분리한다.
+stuck: |
+  $a<0$일 때 대칭축 $-\dfrac{b}{a}\ge1$ 조건을 놓치거나, $x=0$에서 증가 조건을 $d$와 $c$의 대소로 바꾸는 발상
+idea_tags: [IDEA-PIECEWISE-INCREASING-COUNT, IDEA-CONDITIONAL-PROB-COUNT]
+tags: [구간별 함수, 중복조합, 조건부확률]
+elements:
+  materials:
+  - '구간별로 정의된 함수 $f(x)$($x<0$ 일차, $x=0$ 상수 $d$, $x>0$ 이차)'
+  - '$-n$ 이상 $n$ 이하의 정수 계수 $a,b,c,d$'
+  - '$-n$부터 $n$까지 적힌 $2n+1$장의 카드 복원추출 4회'
+  concepts:
+  - '함수의 증가'
+  - '좌극한·우극한과 연속'
+  - '미분가능성'
+  - '다항함수의 정적분'
+  - '중복조합'
+  - '조건부확률'
+  tools:
+  - '$\lim_{x\to0-}f(x)\le f(0)\le\lim_{x\to0+}f(x)$'
+  - '이차함수 대칭축 $x=-\dfrac{b}{a}$의 위치에 따른 경우 분류'
+  - '${}_{n+1}\mathrm{H}_2={}_{n+2}\mathrm{C}_2$'
+  - '조건부확률 $\mathrm{P}(B\mid A)=\dfrac{\mathrm{P}(A\cap B)}{\mathrm{P}(A)}$'
+  conditions:
+  - '증가 ⇔ $0\le d\le c\le n$ 이고 $[0,1]$에서 $\dfrac a2x^2+bx+c$ 증가'
+  - '연속 ⇔ $c=d=0$'
+  - '미분가능 ⇔ $c=d=0$, $b=1$'
+  - '$\displaystyle\int_{-1}^{1}f(x)dx\le1$ ⇔ $a\le6$ (단, $b=1$, $c=0$)'
+  stimuli_used: [가, 나, 다, 라]
+  subpart_links: '【1-2】는 【1-1】의 증가 조건, 【1-3】·【1-4】는 【1-1】·【1-2】의 개수를 사용'
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅱ, 확률과통계]
+  scope_2028: common
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 함수의 연속·미분가능성과 증가를 이해하고, 중복조합과 조건부확률을 활용할 수 있다(요지)
+    verified: false
+  content_area: 함수의 극한과 연속·미분·경우의 수·확률
+  behavior_domain: 추론
+  unit_path: [수학Ⅱ, 미분, 도함수의 활용, 함수의 증가와 감소]
+  key_concepts: [함수의 증가, 연속, 미분가능성, 중복조합, 조건부확률]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 서강대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 서강대학교
+  admission_year: 2024
+  admission_type: 수시 논술(일반)
+  track: 자연계열
+  question_no: 1
+  official_url: https://admission.sogang.ac.kr/upload/BBS0014/202407031152567GS2GF.PDF
+  retrieved_at: 2026-11-21
+  original_points: null   # 배점 비공개(문제 비중 40%만 공개)
+  rights_notice: 미확인(대학 원본 PDF 표지 문구 확인 필요)
+  transcribed_from: 서강대학교 입학처 「2025 논술가이드북」 p.50 (원본 PDF 이미지 대조 2026-11-21; 교차 확인 「2027 논술가이드북」 2024학년도 기출문제 1차)
+
+verify: verify/SGU-G24A.py::p01
+
+stimuli:
+- label: 가
+  body: |
+    함수 $f(x)$가 어떤 구간에 속하는 모든 실수 $x$에서 연속일 때, $f(x)$는 그 구간에서 연속이라고 한다.
+- label: 나
+  body: |
+    함수 $f(x)$가 어떤 구간에 속하는 모든 실수 $x$에서 미분가능하면 $f(x)$는 그 구간에서 미분가능하다고 한다.
+- label: 다
+  body: |
+    함수 $f(x)$가 어떤 구간에 속하는 임의의 두 실수 $x_1,\ x_2$에 대하여 $x_1<x_2$일 때, $f(x_1)<f(x_2)$이면
+    그 구간에서 증가한다고 한다.
+- label: 라
+  # 원문 문장 그대로(‘사건 A가 일어났을 B때의 사건 의’ — 원본 PDF의 어순 오류를 고치지 않음)
+  body: |
+    사건 A가 일어났을 B때의 사건 의 조건부확률은 $\mathrm{P}(B\mid A)=\dfrac{\mathrm{P}(A\cap B)}{\mathrm{P}(A)}$ 이다. (단, $\mathrm{P}(A)>0$)
+
+# 원문에서 둘째 문단(카드 시행)은 【1-2】와 【1-3】 사이에 있음 — 공통 발문에 함께 옮김
+stem: |
+  자연수 $n$에 대하여 $a,b,c,d$는 각각 $-n$보다 크거나 같고 $n$보다 작거나 같은 정수이다. $-1\le x\le1$에서 $f(x)$를 다음과 같이 정의하자.
+  $$f(x)=\begin{cases}x & (-1\le x<0)\\ d & (x=0)\\ \dfrac{a}{2}x^2+bx+c & (0<x\le1)\end{cases}$$
+
+  자연수 $n$에 대하여 $-n$부터 $n$까지 서로 다른 정수가 적힌 $2n+1$장의 카드가 주머니에 들어있다. 주머니에서 임의로 한 장을 뽑아 수를 확인하고 주머니에 다시 넣는다. 이 시행을 4번 반복하여 나온 수를 차례로 위에 정의된 함수 $f(x)$의 $a,b,c,d$라 하자. 문항 【1-3】과 【1-4】에 답하시오.
+
+subparts:
+- id: '1-1'
+  stem: |
+    $f(x)$가 닫힌구간 $[-1,\ 1]$에서 증가하는 함수가 되도록 하는 순서쌍 $(a,\ b)$와 $(c,\ d)$의 개수를 각각 구하시오.
+  points: 10
+  depends_on: []
+  answer: {kind: expression, value: 'ab=n*(3*n+5)/2; cd=(n+1)*(n+2)/2', equivalents: [], tolerance: null}
+  solutions:
+  - id: S11-A
+    audience: A
+    method_no: 1
+    key_idea: $x=0$에서 $0\le d\le c$, $[0,1]$에서 이차함수의 증가를 $a=0$, $a>0$, $a<0$으로 나눈다.
+    steps:
+    - {id: 11a, content: '$(a,b)$: $n+n(n+1)+\tfrac{n(n+1)}{2}=\tfrac{n(3n+5)}{2}$, $(c,d)$: ${}_{n+1}\mathrm{H}_2=\tfrac{(n+1)(n+2)}{2}$', criteria: ['1-1.M1', '1-1.A1', '1-1.M2', '1-1.A2']}
+    hint_ladder:
+    - $x=0$에서 증가하려면 왼쪽 극한, 함숫값, 오른쪽 극한 사이에 어떤 대소가 필요한가?
+    - $[0,1]$에서 이차함수가 증가하려면 대칭축은 어디에 있어야 하는가? $a$의 부호로 나누어 보자.
+  - id: S11-B
+    audience: B
+    source_flow: '논술가이드북2025 p.52'
+    method_no: 1
+    steps:
+    - id: 11b-1
+      content: |
+        구간 $[-1,0)$에서 $f(x)=x$는 증가한다. $x=0$에서 $\displaystyle\lim_{x\to0-}f(x)\le f(0)\le\lim_{x\to0+}f(x)$를 만족해야 하므로 $0\le d\le c\le n$을 얻는다.
+      criteria: ['1-1.M1']
+    # 원문 ③은 'a>0일 때'로 인쇄됨(그림은 위로 볼록) — 내용상 a<0 이므로 해설에서는 a<0으로 적음
+    - id: 11b-2
+      content: |
+        구간 $[0,1]$에서 $f(x)$가 증가할 조건을 세 경우로 나눈다.
+        ① $a=0$일 때, $0<b\le n$이므로 $(a,b)$의 개수는 $n$.
+        ② $a>0$일 때, $-\dfrac{b}{a}\le0$이므로 $0\le b\le n$이 되어 $(a,b)$의 개수는 $n(n+1)$.
+        ③ $a<0$일 때, $-\dfrac{b}{a}\ge1$이므로 $0<-a\le b\le n$이 되어 $(a,b)$의 개수는 $\dfrac{n(n+1)}{2}$.
+      criteria: ['1-1.M1']
+    - id: 11b-3
+      content: |
+        그러므로 $(a,b)$의 개수는 $n+n(n+1)+\dfrac{n(n+1)}{2}=\dfrac{n(3n+5)}{2}$이다.
+      criteria: ['1-1.A1']
+    - id: 11b-4
+      content: |
+        한편 $(c,d)$는 $0\le d\le c\le n$을 만족해야 하므로 $(c,d)$의 개수는 ${}_{n+1}\mathrm{H}_2={}_{n+2}\mathrm{C}_2=\dfrac{(n+2)(n+1)}{2}$이다.
+      criteria: ['1-1.M2', '1-1.A2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1-1.M1
+      mark_type: M
+      points: 3
+      evidence: |
+        증가의 정의([다])를 적용해 $0\le d\le c$와 $[0,1]$에서 이차함수 증가 조건(대칭축 위치)을 경우별로 세웠다.
+      depends_on: []
+      implied_ok: false
+      steps: [11b-1, 11b-2]
+    - id: 1-1.A1
+      mark_type: A
+      points: 3
+      evidence: |
+        $(a,b)$의 개수 $\dfrac{n(3n+5)}{2}$를 얻었다.
+      depends_on: [1-1.M1]
+      steps: [11b-3]
+    - id: 1-1.M2
+      mark_type: M
+      points: 2
+      evidence: |
+        $0\le d\le c\le n$인 $(c,d)$의 개수를 중복조합으로 세었다.
+      depends_on: [1-1.M1]
+      implied_ok: false
+      steps: [11b-4]
+    - id: 1-1.A2
+      mark_type: A
+      points: 2
+      evidence: |
+        $(c,d)$의 개수 $\dfrac{(n+1)(n+2)}{2}$를 얻었다.
+      depends_on: [1-1.M2]
+      steps: [11b-4]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '1-2'
+  stem: |
+    $f(x)$가 닫힌구간 $[-1,\ 1]$에서 증가하는 연속함수이고 열린구간 $(-1,\ 1)$에서 미분가능한 함수라 하자.
+    $\displaystyle\int_{-1}^{1}f(x)dx\le1$을 만족하는 순서쌍 $(a,\ b)$와 $(c,\ d)$의 개수를 각각 구하시오.
+  points: 10
+  depends_on: ['1-1']
+  answer: {kind: expression, value: 'ab=Piecewise((n+2, n<=5), (8, True)); cd=1', equivalents: [], tolerance: null}
+  solutions:
+  - id: S12-A
+    audience: A
+    method_no: 1
+    key_idea: 연속이면 $c=d=0$, 미분가능하면 $b=1$, 증가면 $-1\le a$, 적분 조건에서 $a\le6$.
+    steps:
+    - {id: 12a, content: '$-1\le a\le\min(n,6)$ → $(a,b)$: $1\le n\le5$이면 $n+2$, $n\ge6$이면 $8$; $(c,d)$: $1$', criteria: ['1-2.M1', '1-2.M2', '1-2.M3', '1-2.A1']}
+    hint_ladder:
+    - $x=0$에서 연속·미분가능하려면 $c,d,b$는 각각 얼마여야 하는가?
+    - $\int_{-1}^0x\,dx$를 먼저 계산하면 $\int_0^1$ 쪽에 남는 조건은?
+  - id: S12-B
+    audience: B
+    source_flow: '논술가이드북2025 p.52~53'
+    method_no: 1
+    steps:
+    - id: 12b-1
+      content: |
+        (연속 조건) $f(x)$는 $[-1,0)$과 $(0,1]$에서 다항함수이므로 연속이다. $x=0$에서 연속일 조건은 $f(0)=d$, $\displaystyle\lim_{x\to0-}f(x)=0$, $\displaystyle\lim_{x\to0+}f(x)=c$가 모두 같은 것이므로 $c=d=0$이다.
+      criteria: ['1-2.M1']
+    - id: 12b-2
+      content: |
+        (미분가능 조건) $x=0$에서 미분가능할 조건은 $\displaystyle\lim_{h\to0+}\frac{\frac a2h^2+bh-0}{h}=b$와 $\displaystyle\lim_{h\to0-}\frac{h-0}{h}=1$이 같은 것이므로 $b=1$이다.
+      criteria: ['1-2.M2']
+    - id: 12b-3
+      content: |
+        (증가하고 미분가능할 조건) $b=1$이므로 【1-1】로부터 $-1\le a\le n$이다.
+      criteria: ['1-2.M2']
+    - id: 12b-4
+      content: |
+        (적분 조건) $\displaystyle\int_{-1}^0f(x)dx=\int_{-1}^0x\,dx=-\frac12$이므로 $\displaystyle\int_0^1f(x)dx\le\frac32$이어야 한다. $\dfrac32\ge\displaystyle\int_0^1\left(\frac a2x^2+x\right)dx=\frac a6+\frac12$, 즉 $a\le6$이다.
+      criteria: ['1-2.M3']
+    - id: 12b-5
+      content: |
+        그러므로 $n\ge6$일 때 $-1\le a\le6$이고, $1\le n\le5$일 때 $-1\le a\le n$이다. 따라서 $(c,d)$의 개수는 $1$이고, $(a,b)$의 개수는 $1\le n\le5$일 때 $n+2$, $n\ge6$일 때 $8$이다.
+      criteria: ['1-2.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1-2.M1
+      mark_type: M
+      points: 3
+      evidence: |
+        연속의 정의([가])로 $x=0$에서 $c=d=0$을 얻었다.
+      depends_on: []
+      implied_ok: false
+      steps: [12b-1]
+    - id: 1-2.M2
+      mark_type: M
+      points: 3
+      evidence: |
+        미분가능의 정의([나])로 좌·우 미분계수를 비교해 $b=1$을 얻고, 【1-1】의 증가 조건에서 $-1\le a\le n$을 얻었다.
+      depends_on: []
+      implied_ok: false
+      ft: {allowed: true, from: [1-1.M1], max_points: 3}
+      steps: [12b-2, 12b-3]
+    - id: 1-2.M3
+      mark_type: M
+      points: 2
+      evidence: |
+        정적분 $\dfrac a6+\dfrac12-\dfrac12\le1$을 계산해 $a\le6$을 얻었다.
+      depends_on: []
+      implied_ok: false
+      steps: [12b-4]
+    - id: 1-2.A1
+      mark_type: A
+      points: 2
+      evidence: |
+        $(c,d)$ 1개, $(a,b)$는 $1\le n\le5$일 때 $n+2$, $n\ge6$일 때 $8$로 $n$에 따라 나누어 답했다.
+      depends_on: [1-2.M1, 1-2.M2, 1-2.M3]
+      steps: [12b-5]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '1-3'
+  stem: |
+    위 시행으로부터 얻어진 함수 $f(x)$가 닫힌구간 $[-1,\ 1]$에서 연속일 때, $f(x)$가가 증가하는 함수일 확률을 구하시오.
+  # '$f(x)$가가' 원문 그대로
+  points: 10
+  depends_on: ['1-1', '1-2']
+  answer: {kind: expression, value: 'n*(3*n+5)/(2*(2*n+1)**2)', equivalents: [], tolerance: null}
+  solutions:
+  - id: S13-A
+    audience: A
+    method_no: 1
+    key_idea: 연속인 경우 $c=d=0$이므로 $(2n+1)^2$가지, 그중 증가는 【1-1】의 $(a,b)$ 개수.
+    steps:
+    - {id: 13a, content: '$\dfrac{n(3n+5)/2}{(2n+1)^2}=\dfrac{n(3n+5)}{2(2n+1)^2}$', criteria: ['1-3.M1', '1-3.A1']}
+    hint_ladder:
+    - 연속이라는 조건에서 $c,d$는 고정된다. 남은 자유도는?
+  - id: S13-B
+    audience: B
+    source_flow: '논술가이드북2025 p.53'
+    method_no: 1
+    steps:
+    - id: 13b-1
+      content: |
+        정수 $a,b,c,d$는 각각 $-n$ 이상 $n$ 이하이므로 근원사건의 개수는 $(2n+1)^4$이다.
+      criteria: ['1-3.M1']
+    - id: 13b-2
+      content: |
+        ($f(x)$가 연속함수일 확률) 【1-2】로부터 $f(x)$가 연속함수일 $a,b,c,d$의 개수는 $(2n+1)^2$이므로 확률은 $\dfrac{(2n+1)^2}{(2n+1)^4}=\dfrac{1}{(2n+1)^2}$이다.
+      criteria: ['1-3.M1']
+    - id: 13b-3
+      content: |
+        ($f(x)$가 증가하는 연속함수일 확률) $c=d=0$에서 증가하는 $(a,b)$의 개수는 【1-1】로부터 $\dfrac{n(3n+5)}{2}$이므로 확률은 $\dfrac{n(3n+5)}{2(2n+1)^4}$이다.
+      criteria: ['1-3.M1']
+    - id: 13b-4
+      content: |
+        조건부확률의 정의([라])에 의해 구하는 확률은 $\dfrac{n(3n+5)}{2(2n+1)^2}$이다.
+      criteria: ['1-3.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1-3.M1
+      mark_type: M
+      points: 5
+      evidence: |
+        근원사건 $(2n+1)^4$, 연속인 경우 $(2n+1)^2$, 증가하는 연속인 경우 $\dfrac{n(3n+5)}{2}$를 세었다.
+      depends_on: []
+      implied_ok: false
+      ft: {allowed: true, from: [1-1.A1, 1-2.M1], max_points: 5}
+      steps: [13b-1, 13b-2, 13b-3]
+    - id: 1-3.A1
+      mark_type: A
+      points: 5
+      evidence: |
+        조건부확률로 $\dfrac{n(3n+5)}{2(2n+1)^2}$을 얻었다.
+      depends_on: [1-3.M1]
+      steps: [13b-4]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '1-4'
+  stem: |
+    위 시행으로부터 얻어진 함수 $f(x)$가 닫힌구간 $[-1,\ 1]$에서 증가할 때, $f(x)$가 열린구간 $(-1,\ 1)$에서 미분가능한 함수일 확률을 구하시오.
+  points: 10
+  depends_on: ['1-1', '1-2']
+  answer: {kind: expression, value: '4/(n*(3*n+5)*(n+1))', equivalents: [], tolerance: null}
+  solutions:
+  - id: S14-A
+    audience: A
+    method_no: 1
+    key_idea: 증가하는 경우의 수는 【1-1】 두 개수의 곱, 그중 미분가능은 $c=d=0$, $b=1$, $-1\le a\le n$.
+    steps:
+    - {id: 14a, content: '$\dfrac{n+2}{\frac{n(3n+5)}{2}\cdot\frac{(n+1)(n+2)}{2}}=\dfrac{4}{n(3n+5)(n+1)}$', criteria: ['1-4.M1', '1-4.A1']}
+    hint_ladder:
+    - 증가하는 $(a,b,c,d)$의 개수는 $(a,b)$와 $(c,d)$의 개수를 어떻게 결합한 것인가?
+  - id: S14-B
+    audience: B
+    source_flow: '논술가이드북2025 p.53'
+    method_no: 1
+    steps:
+    - id: 14b-1
+      content: |
+        ($f(x)$가 증가할 확률) 【1-1】로부터 $f(x)$가 증가할 $a,b,c,d$의 개수는 $\dfrac{n(3n+5)(n+1)(n+2)}{4}$이므로 확률은 $\dfrac{n(3n+5)(n+1)(n+2)}{4(2n+1)^4}$이다.
+      criteria: ['1-4.M1']
+    - id: 14b-2
+      content: |
+        ($f(x)$가 미분가능하고 증가할 확률) 【1-2】로부터 그 개수는 $n+2$이므로 확률은 $\dfrac{n+2}{(2n+1)^4}$이다.
+      criteria: ['1-4.M1']
+    - id: 14b-3
+      content: |
+        그러므로 구하는 확률은 $\dfrac{4}{n(3n+5)(n+1)}$이다.
+      criteria: ['1-4.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1-4.M1
+      mark_type: M
+      points: 5
+      evidence: |
+        증가하는 경우의 수 $\dfrac{n(3n+5)(n+1)(n+2)}{4}$와 미분가능하고 증가하는 경우의 수 $n+2$를 세었다.
+      depends_on: []
+      implied_ok: false
+      ft: {allowed: true, from: [1-1.A1, 1-1.A2, 1-2.M2], max_points: 5}
+      steps: [14b-1, 14b-2]
+    - id: 1-4.A1
+      mark_type: A
+      points: 5
+      evidence: |
+        조건부확률로 $\dfrac{4}{n(3n+5)(n+1)}$을 얻었다.
+      depends_on: [1-4.M1]
+      steps: [14b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+remedy_links: []
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

@@ -1,0 +1,464 @@
+# 서강대 2022학년도 수시 논술(자연계열) 1차 문제 2 [가이드북 표기 「자연 기출문제 ②」, 【2-1】~【2-5】] — 기출 원문은 내부 분석용(allowed_use: internal_only)
+# 회차 근거: 2023 논술가이드북 PDF p.12 <2022학년도 자연계열 문항별 출제내용> 표의 '1차 2번'(이항정리·증가와 감소·수열의 극한·그래프의 개형)
+# 쪽 표기는 PDF 쪽(인쇄 쪽 = PDF 쪽 − 2)
+schema_version: '2.0'
+id: SGU-G22A-02
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: proof
+origin: past_exam
+school: SGU
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 추론
+points: 60   # 배점 비공개 — 문제2 반영비율 60%(2022 모집요강)를 점수로 둠, 소문항 균등 배분(12×5)
+time_estimate_min: 60
+intent: |
+  미적분의 기본 내용과 확률과 통계의 이항정리를 이용하여 도함수의 부호에 따른 함수의 증가·감소 판정, 함수의 극한, 이계도함수와 곡선의 오목·볼록 및 변곡점의 관계를 이해하고 활용할 수 있는지 평가한다. 제시문과 앞 문항의 결과를 활용해 그래프의 개형까지 단계적으로 이끌도록 구성하였다.
+key_idea: |
+  $p(x)=\ln\left(1+\frac1x\right)-\frac{1}{x+1}$, $q(x)=\frac{1}{\sqrt{x(x+1)}}-\ln\left(1+\frac1x\right)$가 감소하며 극한 0으로 가므로 양수. $f'=pf$, $f''=f(p'+p^2)$이고 $p'+p^2=-\frac{2}{x+1}p-\left(\ln\left(1+\frac1x\right)+\frac{1}{\sqrt{x(x+1)}}\right)q<0$. $x\to0+$ 극한은 $g$와 【2-1】의 $(1+n)^{1/n}\to1$로 조임.
+stuck: |
+  【2-4】에서 $n=\left[\frac1x\right]$이면 $x\le\frac1n$이므로 $f(x)\le f\left(\frac1n\right)$이 되는 것, 【2-5】에서 $p'+p^2$를 $p$와 $q$로 묶어 부호를 정하는 변형
+idea_tags: [IDEA-BINOMIAL-LOWER-BOUND, IDEA-DIFF-FUNC-MONO-LIMIT, IDEA-SQUEEZE-VIA-FLOOR, IDEA-LOG-DIFF-CONCAVITY]
+tags: [이항정리, 부등식 증명, 수 e의 정의, 조임정리, 그래프의 개형]
+elements:
+  materials:
+  - '$(1+n)^{\frac1n}<1+\sqrt{\frac{2}{n-1}}$'
+  - '$\frac{1}{x+1}<\ln\left(1+\frac1x\right)<\frac{1}{\sqrt{x(x+1)}}$'
+  - '$f(x)=\left(1+\frac1x\right)^x\ (x>0)$'
+  - '$g(x)=f\left(\frac1n\right)\ (0<x\le1,\ n=\left[\frac1x\right]),\ g(x)=3\ (x>1)$'
+  concepts:
+  - '이항정리'
+  - '도함수의 부호와 함수의 증가·감소'
+  - '수 $e$의 정의 $\lim_{x\to\infty}\left(1+\frac1x\right)^x=e$'
+  - '수열·함수의 극한의 대소 관계(조임)'
+  - '로그미분(합성함수의 미분법)'
+  - '이계도함수와 곡선의 오목·볼록, 변곡점'
+  - '점근선'
+  tools:
+  - '양변 $n$제곱 후 이항전개의 둘째 항까지로 하계'
+  - '차함수 $p(x)$, $q(x)$의 도함수 부호와 $x\to\infty$ 극한'
+  - '$\frac{f''(x)}{f(x)}=p(x)$'
+  - '$f''''=f\,(p''+p^2)$'
+  - '$(2x+1)^2-\left(2\sqrt{x(x+1)}\right)^2=1$'
+  conditions:
+  - '【2-1】 $n$은 1보다 큰 자연수'
+  - '【2-2】 $x$는 양의 실수'
+  - '【2-4】 $0<x\le1$과 $x>1$로 나눔'
+  - '【2-5】 치역 $(1,e)$, 점근선 $y=e$, 위로 볼록, 변곡점 없음'
+  stimuli_used: [가, 나, 다, 라]
+  subpart_links: '【2-3】은 【2-2】의 $p(x)>0$, 【2-4】는 【2-3】, 【2-5】는 【2-1】~【2-4】를 사용'
+
+curriculum:
+  version: '2015'
+  subjects: [확률과통계, 수학Ⅱ, 미적분]
+  scope_2028: calc2
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 이항정리와 도함수를 활용해 부등식을 증명하고, 극한과 이계도함수로 그래프의 개형을 그릴 수 있다(요지)
+    verified: false
+  content_area: 미분법·수열과 함수의 극한
+  behavior_domain: 추론
+  unit_path: [미적분, 미분법, 도함수의 활용, 그래프의 개형]
+  key_concepts: [이항정리, 함수의 증가와 감소, 수 e의 정의, 조임정리, 곡선의 오목과 볼록]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 서강대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 서강대학교
+  admission_year: 2022
+  admission_type: 수시 논술(일반)
+  track: 자연계열
+  question_no: 2   # 1차 2번(가이드북 「자연 기출문제 ②」)
+  official_url: https://admission.sogang.ac.kr/upload/BBS0014/20220916162849P7Z2EV.PDF
+  retrieved_at: 2026-11-21
+  original_points: null   # 배점 비공개(문제별 반영비율 60%만 공개)
+  rights_notice: 미확인(대학 원본 PDF 표지 문구 확인 필요)
+  transcribed_from: 서강대학교 입학처 「2023학년도 논술가이드북」 p.58~59 (원본 PDF 이미지 대조 2026-11-21)
+
+verify: verify/SGU-G22A.py::p02
+
+stimuli:
+- label: 가
+  body: |
+    $n$이 자연수일 때, 다항식 $(a+b)^n$을 전개하면 다음과 같은 전개식을 얻을 수 있고, 이것을 이항정리라고 한다.
+    $$(a+b)^n={}_n\mathrm{C}_0a^n+{}_n\mathrm{C}_1a^{n-1}b^1+\cdots+{}_n\mathrm{C}_ra^{n-r}b^r+\cdots+{}_n\mathrm{C}_nb^n$$
+- label: 나
+  body: |
+    함수 $f(x)$가 어떤 열린구간에서 미분가능하고, 이 구간의 모든 $x$에 대하여
+    ① $f'(x)>0$이면 $f(x)$는 이 구간에서 증가한다.
+    ② $f'(x)<0$이면 $f(x)$는 이 구간에서 감소한다.
+- label: 다
+  body: |
+    ① 세 수열 $\{a_n\},\ \{b_n\},\ \{c_n\}$과 모든 자연수 $n$에 대하여, $a_n\le c_n\le b_n$이고 $\displaystyle\lim_{n\to\infty}a_n=\lim_{n\to\infty}b_n=L$이면 $\displaystyle\lim_{n\to\infty}c_n=L$이다.
+    ② 세 함수 $f(x),\ g(x),\ h(x)$와 $a$에 가까운 모든 실수 $x$에 대하여, $f(x)\le h(x)\le g(x)$이고 $\displaystyle\lim_{x\to a}f(x)=\lim_{x\to a}g(x)=L$이면 $\displaystyle\lim_{x\to a}h(x)=L$이다. 또한, 이와 같은 함수의 극한의 관계는 $x\to a+,\ x\to a-,\ x\to\infty,\ x\to-\infty$일 때도 성립한다.
+- label: 라
+  body: |
+    함수 $f(x)$의 그래프의 개형을 그릴 때에는 다음을 고려한다.
+    ① 함수의 정의역과 치역
+    ② 좌표축과의 교점
+    ③ 함수의 증가와 감소, 극대와 극소, 곡선의 오목과 볼록, 변곡점
+    ④ 점근선
+
+stem: |
+  제시문 [가]~[라]를 참고하여 다음 물음에 답하시오.
+  (【2-3】~【2-5】의 공통 조건) 집합 $\{x\mid x>0\}$을 정의역으로 갖는 함수 $f(x)=\left(1+\dfrac1x\right)^x$에 대하여, 문항 【2-3】~【2-5】에 답하시오.
+
+subparts:
+- id: '1'
+  stem: |
+    제시문 [가]를 이용하여, 다음 부등식이 성립함을 보이시오.
+    $$(1+n)^{\frac1n}<1+\sqrt{\frac{2}{n-1}}\quad(\text{단, }n\text{은 }1\text{보다 큰 자연수})$$
+  points: 12
+  depends_on: []
+  answer: {kind: proof, value: null, equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: 양변을 $n$제곱하고 이항전개의 ${}_n\mathrm{C}_2$ 항만 남기면 $1+\frac{n(n-1)}{2}\cdot\frac{2}{n-1}=1+n$.
+    steps:
+    - {id: 1a, content: '$\left(1+\sqrt{\tfrac{2}{n-1}}\right)^n>1+{}_n\mathrm{C}_2\cdot\tfrac{2}{n-1}=1+n$', criteria: ['1.M1', '1.R1']}
+    hint_ladder:
+    - 양변이 양수이므로 $n$제곱해도 대소가 유지된다.
+    - 전개식의 어느 항 하나가 정확히 $n$이 되는가?
+  - id: S1-B
+    audience: B
+    source_flow: '논술가이드북2023 p.62'
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        1보다 큰 자연수 $n$에 대하여 주어진 부등식의 양변이 양수이므로, 양변을 $n$제곱한 부등식 $1+n<\left(1+\sqrt{\dfrac{2}{n-1}}\right)^n\ \cdots(1)$이 성립함을 보이면 된다.
+      criteria: ['1.M1']
+    - id: 1b-2
+      content: |
+        제시문 [가]를 이용하여 (1)의 우변을 전개하면
+        $\left(1+\sqrt{\dfrac{2}{n-1}}\right)^n={}_n\mathrm{C}_0+{}_n\mathrm{C}_1\left(\sqrt{\dfrac{2}{n-1}}\right)+{}_n\mathrm{C}_2\left(\sqrt{\dfrac{2}{n-1}}\right)^2+\cdots+{}_n\mathrm{C}_n\left(\sqrt{\dfrac{2}{n-1}}\right)^n\ \cdots(2)$
+      criteria: ['1.M1']
+    - id: 1b-3
+      content: |
+        (2)의 우변의 각 항이 양수이므로 (2)의 우변 $>{}_n\mathrm{C}_0+{}_n\mathrm{C}_2\left(\sqrt{\dfrac{2}{n-1}}\right)^2=1+\dfrac{n(n-1)}{2}\times\dfrac{2}{n-1}=1+n$이다. 따라서 부등식 $1+n<\left(1+\sqrt{\dfrac{2}{n-1}}\right)^n$이 성립한다.
+      criteria: ['1.R1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 6
+      evidence: |
+        우변을 $n$제곱한 식을 제시문 [가]의 이항정리로 전개했다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1, 1b-2]
+    - id: 1.R1
+      mark_type: R
+      points: 6
+      evidence: |
+        각 항이 양수임을 근거로 ${}_n\mathrm{C}_0+{}_n\mathrm{C}_2\cdot\frac{2}{n-1}=1+n$보다 큼을 보여 부등식을 완성했다.
+      depends_on: [1.M1]
+      steps: [1b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '2'
+  stem: |
+    제시문 [나]를 이용하여, 다음 부등식이 성립함을 보이시오.
+    $$\frac{1}{x+1}<\ln\left(1+\frac1x\right)<\frac{1}{\sqrt{x(x+1)}}\quad(\text{단, }x\text{는 양의 실수})$$
+  points: 12
+  depends_on: []
+  answer: {kind: proof, value: null, equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: 두 변의 차 $p(x)$, $q(x)$가 감소하고 $x\to\infty$에서 0으로 가므로 양수.
+    steps:
+    - {id: 2a, content: '$p''(x)=-\tfrac{1}{x(x+1)^2}<0$, $q''(x)=-\tfrac{(2x+1)-2\sqrt{x(x+1)}}{2x(x+1)\sqrt{x(x+1)}}<0$, $\lim_{x\to\infty}p=\lim_{x\to\infty}q=0$', criteria: ['2.M1', '2.A1', '2.R1']}
+    hint_ladder:
+    - 한쪽으로 이항한 함수의 도함수 부호를 보자.
+    - 감소함수가 $\infty$에서 0으로 가면 그 값의 부호는?
+  - id: S2-B
+    audience: B
+    source_flow: '논술가이드북2023 p.62'
+    method_no: 1
+    steps:
+    - id: 2b-1
+      content: |
+        (i) $p(x)=\ln\left(1+\dfrac1x\right)-\dfrac{1}{x+1}$이라 하면
+        $p'(x)=\dfrac{-\frac{1}{x^2}}{1+\frac1x}+\dfrac{1}{(x+1)^2}=-\dfrac{1}{x(x+1)}+\dfrac{1}{(x+1)^2}=-\dfrac{1}{x(x+1)^2}<0$
+        이므로 제시문 [나]에 의하여 $p(x)$는 $(0,\infty)$에서 감소한다.
+      criteria: ['2.M1']
+    - id: 2b-2
+      content: |
+        또한 $\displaystyle\lim_{x\to\infty}p(x)=\lim_{x\to\infty}\ln\left(1+\frac1x\right)-\lim_{x\to\infty}\frac{1}{x+1}=0-0=0$이다. 따라서 $p(x)>0$이다.
+      criteria: ['2.R1']
+    - id: 2b-3
+      content: |
+        (ii) $q(x)=\dfrac{1}{\sqrt{x(x+1)}}-\ln\left(1+\dfrac1x\right)$이라 하면
+        $q'(x)=-\dfrac{2x+1}{2x(x+1)\sqrt{x(x+1)}}+\dfrac{1}{x(x+1)}=-\dfrac{(2x+1)-2\sqrt{x(x+1)}}{2x(x+1)\sqrt{x(x+1)}}<0$.
+        여기서 $(2x+1)^2-\left(2\sqrt{x(x+1)}\right)^2=1>0$이고 $2x+1>0,\ 2\sqrt{x(x+1)}>0$이므로 분자가 양수이다. 그러므로 제시문 [나]에 의하여 $q(x)$는 $(0,\infty)$에서 감소한다.
+      criteria: ['2.M1', '2.A1']
+    - id: 2b-4
+      content: |
+        또한 $\displaystyle\lim_{x\to\infty}q(x)=\lim_{x\to\infty}\frac{1}{\sqrt{x(x+1)}}-\lim_{x\to\infty}\ln\left(1+\frac1x\right)=0-0=0$이므로 $q(x)>0$이다. 그러므로 (i), (ii)에 의하여 주어진 부등식이 성립한다.
+      criteria: ['2.R1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 4
+      evidence: |
+        두 변의 차로 이루어진 함수 $p(x)$, $q(x)$를 두고 도함수를 계산했다.
+      depends_on: []
+      implied_ok: false
+      steps: [2b-1, 2b-3]
+    - id: 2.A1
+      mark_type: A
+      points: 4
+      evidence: |
+        $p'(x)<0$, $q'(x)<0$의 부호를 근거(분자 $(2x+1)-2\sqrt{x(x+1)}>0$ 등)와 함께 결정했다.
+      depends_on: [2.M1]
+      steps: [2b-3]
+    - id: 2.R1
+      mark_type: R
+      points: 4
+      evidence: |
+        제시문 [나]로 감소함을 밝히고 $x\to\infty$ 극한이 0임을 이용해 $p(x)>0$, $q(x)>0$을 결론지었다.
+      depends_on: [2.A1]
+      steps: [2b-2, 2b-4]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '3'
+  stem: |
+    함수 $f(x)$가 열린구간 $(0,\infty)$에서 증가함을 보이시오.
+  points: 12
+  depends_on: ['2']
+  answer: {kind: proof, value: null, equivalents: [], tolerance: null}
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: 로그미분하면 $\frac{f'(x)}{f(x)}=p(x)>0$.
+    steps:
+    - {id: 3a, content: '$f''(x)=p(x)f(x)>0$', criteria: ['3.M1', '3.R1']}
+    hint_ladder:
+    - 양변에 자연로그를 취해 미분해 보자.
+  - id: S3-B
+    audience: B
+    source_flow: '논술가이드북2023 p.63'
+    method_no: 1
+    steps:
+    - id: 3b-1
+      content: |
+        $x>0$이면 $f(x)=\left(1+\dfrac1x\right)^x>0$이므로 양변에 자연로그를 취하면 $\ln f(x)=x\ln\left(1+\dfrac1x\right)$이다. 양변을 $x$에 대하여 미분하면
+        $\dfrac{f'(x)}{f(x)}=\ln\left(1+\dfrac1x\right)+x\times\left(-\dfrac{1}{x(x+1)}\right)=\ln\left(1+\dfrac1x\right)-\dfrac{1}{x+1}$.
+      criteria: ['3.M1']
+    - id: 3b-2
+      content: |
+        문항 【2-2】에 의하여 $f'(x)=p(x)f(x)>0$이다. 따라서 제시문 [나]에 의하여 $f(x)$는 구간 $(0,\infty)$에서 증가한다.
+      criteria: ['3.R1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 6
+      evidence: |
+        도함수 $f'(x)=f(x)\left\{\ln\left(1+\frac1x\right)-\frac{1}{x+1}\right\}$을 계산했다.
+      depends_on: []
+      implied_ok: false
+      steps: [3b-1]
+    - id: 3.R1
+      mark_type: R
+      points: 6
+      evidence: |
+        【2-2】의 결과로 $f'(x)>0$을 결정하고 제시문 [나]로 증가함을 결론지었다.
+      depends_on: [3.M1]
+      ft: {allowed: true, from: [2.R1], max_points: 6}
+      steps: [3b-2]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '4'
+  stem: |
+    함수 $g(x)$를 다음과 같이 정의하자.
+    $$g(x)=\begin{cases}f\left(\dfrac1n\right)&\left(0<x\le1,\ \text{단, }n\text{은 }\dfrac1x\text{의 정수 부분}\right)\\[2mm]3&(x>1)\end{cases}$$
+    임의의 양의 실수 $x$에 대하여 $f(x)\le g(x)$임을 보이시오.
+  points: 12
+  depends_on: ['3']
+  answer: {kind: proof, value: null, equivalents: [], tolerance: null}
+  solutions:
+  - id: S4-A
+    audience: A
+    method_no: 1
+    key_idea: $x>1$이면 $f(x)<e<3$, $0<x\le1$이면 $x\le\frac1n$이고 $f$가 증가하므로 $f(x)\le f\left(\frac1n\right)$.
+    steps:
+    - {id: 4a, content: '$n\le\tfrac1x<n+1\Rightarrow x\le\tfrac1n\le1\Rightarrow f(x)\le f\left(\tfrac1n\right)=g(x)$', criteria: ['4.M1', '4.R1', '4.R2']}
+    hint_ladder:
+    - $f$가 증가하고 $\lim_{x\to\infty}f(x)=e$이다.
+    - $n=\left[\frac1x\right]$과 $x$의 대소를 비교해 보자.
+  - id: S4-B
+    audience: B
+    source_flow: '논술가이드북2023 p.63'
+    method_no: 1
+    steps:
+    - id: 4b-1
+      content: |
+        정의역의 $x$를 $x>1$인 경우와 $0<x\le1$인 경우로 나누어 생각한다.
+      criteria: ['4.M1']
+    - id: 4b-2
+      content: |
+        문항 【2-3】에 의하여 $f(x)$가 $(0,\infty)$에서 증가하고 $\displaystyle\lim_{x\to\infty}f(x)=\lim_{x\to\infty}\left(1+\frac1x\right)^x=e$이므로 $f(x)<e\ (x>0)$이다. 따라서 $x>1$이면 $f(x)<e<3=g(x)$이다.
+      criteria: ['4.R1']
+    - id: 4b-3
+      content: |
+        한편 $0<x\le1$이면 $\dfrac1x\ge1$이므로 $\dfrac1x$의 정수 부분인 $n$에 대하여 $1\le n\le\dfrac1x<n+1$을 만족한다. 따라서 $0<x\le\dfrac1n\le1$이므로 문항 【2-3】과 $g(x)$의 정의에 의하여 $f(x)\le f\left(\dfrac1n\right)=g(x)$이다. 그러므로 임의의 양의 실수 $x$에 대하여 $f(x)\le g(x)$이다.
+      criteria: ['4.R2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 4.M1
+      mark_type: M
+      points: 2
+      evidence: |
+        $x>1$인 경우와 $0<x\le1$인 경우로 나누었다.
+      depends_on: []
+      implied_ok: true
+      steps: [4b-1]
+    - id: 4.R1
+      mark_type: R
+      points: 5
+      evidence: |
+        $x>1$에서 【2-3】의 증가성과 $e$의 정의로 $f(x)<e<3$을 보였다.
+      depends_on: [4.M1]
+      ft: {allowed: true, from: [3.R1], max_points: 5}
+      steps: [4b-2]
+    - id: 4.R2
+      mark_type: R
+      points: 5
+      evidence: |
+        $0<x\le1$에서 $x\le\frac1n$과 증가성으로 $f(x)\le f\left(\frac1n\right)=g(x)$를 보였다.
+      depends_on: [4.M1]
+      ft: {allowed: true, from: [3.R1], max_points: 5}
+      steps: [4b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '5'
+  stem: |
+    문항 【2-1】~【2-4】를 이용하여, 함수 $y=f(x)$의 그래프의 개형을 그리시오.
+  points: 12
+  depends_on: ['1', '2', '3', '4']
+  answer: {kind: expression, value: 'range = Interval.open(1, E); asymptote = E; concave = down; inflection = none', equivalents: [], tolerance: null}
+  solutions:
+  - id: S5-A
+    audience: A
+    method_no: 1
+    key_idea: 【2-1】과 조임으로 $\lim_{x\to0+}f=1$, $\lim_{x\to\infty}f=e$, $f''=f(p'+p^2)<0$.
+    steps:
+    - {id: 5a, content: '치역 $(1,e)$, 증가·위로 볼록·변곡점 없음, 점근선 $y=e$', criteria: ['5.M1', '5.A1', '5.M2', '5.A2', '5.B1']}
+    hint_ladder:
+    - $\lim_{x\to0+}g(x)$는 수열 $(1+n)^{1/n}$의 극한과 같다.
+    - $f'=pf$를 한 번 더 미분해 보자.
+  - id: S5-B
+    audience: B
+    source_flow: '논술가이드북2023 p.63~64'
+    method_no: 1
+    steps:
+    - id: 5b-1
+      content: |
+        $\displaystyle\lim_{n\to\infty}\left(1+\sqrt{\frac{2}{n-1}}\right)=1$이고 문항 【2-1】로부터 $1<(1+n)^{\frac1n}<1+\sqrt{\dfrac{2}{n-1}}$ ($n$은 1보다 큰 자연수)이므로 제시문 [다]에 의하여 $\displaystyle\lim_{n\to\infty}(1+n)^{\frac1n}=1$이다. 따라서 $\displaystyle\lim_{x\to0+}g(x)=1$이다.
+      criteria: ['5.M1']
+    - id: 5b-2
+      content: |
+        또한 $\displaystyle\lim_{x\to0+}g(x)=1$이고 문항 【2-4】로부터 $1<f(x)\le g(x)\ (x>0)$이므로 제시문 [다]에 의하여 $\displaystyle\lim_{x\to0+}f(x)=1$이다. (【2-3】의 증가성과 $\lim_{x\to\infty}f(x)=e$로 치역은 $\{y\mid1<y<e\}$)
+      criteria: ['5.A1']
+    - id: 5b-3
+      content: |
+        한편 문항 【2-3】으로부터 $f'(x)=p(x)f(x)$이므로 $f''(x)=p'(x)f(x)+p(x)f'(x)=f(x)\left(p'(x)+p^2(x)\right)$이다. 또한
+        $p'(x)+p^2(x)=\dfrac{1}{(x+1)^2}-\dfrac{1}{x(x+1)}+\left\{\ln\left(1+\dfrac1x\right)-\dfrac{1}{x+1}\right\}^2$
+        $=\dfrac{2}{(x+1)^2}-\dfrac{1}{x(x+1)}-\dfrac{2}{x+1}\times\ln\left(1+\dfrac1x\right)+\left\{\ln\left(1+\dfrac1x\right)\right\}^2$
+        $=\dfrac{2}{x+1}\left\{\dfrac{1}{x+1}-\ln\left(1+\dfrac1x\right)\right\}+\left\{\ln\left(1+\dfrac1x\right)+\dfrac{1}{\sqrt{x(x+1)}}\right\}\left\{\ln\left(1+\dfrac1x\right)-\dfrac{1}{\sqrt{x(x+1)}}\right\}$
+        $=-\dfrac{2}{x+1}\times p(x)-\left\{\ln\left(1+\dfrac1x\right)+\dfrac{1}{\sqrt{x(x+1)}}\right\}\times q(x)$
+      criteria: ['5.M2']
+    - id: 5b-4
+      content: |
+        문항 【2-2】로부터 $p(x)>0$이고 $q(x)>0$이므로 $p'(x)+p^2(x)<0$이다. 따라서 구간 $(0,\infty)$에서 $f''(x)<0$이므로 곡선 $y=f(x)$는 위로 볼록하며 변곡점은 존재하지 않는다.
+      criteria: ['5.A2']
+    - id: 5b-5
+      content: |
+        제시문 [라]의 내용을 확인하면 ① 정의역: $\{x\mid x>0\text{인 실수}\}$, 치역: $\{y\mid1<y<e\text{인 실수}\}$ ② 좌표축과의 교점은 없다. ③ 열린구간 $(0,\infty)$에서 $f(x)$는 증가한다. $f(x)$의 극값은 존재하지 않는다. 곡선 $y=f(x)$는 위로 볼록하며 변곡점은 존재하지 않는다. ④ 점근선: $y=e$.
+        [그림: 좌표평면에서 $y$축 위 점 $(0,1)$은 빈 점(○)이고, 곡선이 그 점에서 출발해 가파르게 올라가다가 점점 완만해지며 증가하고, 위로 볼록한 채로 점근선 $y=e$(수평선)에 아래쪽에서 가까워지는 그래프]
+      criteria: ['5.B1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 5.M1
+      mark_type: M
+      points: 2
+      evidence: |
+        【2-1】과 제시문 [다]로 $\lim_{n\to\infty}(1+n)^{1/n}=1$, 즉 $\lim_{x\to0+}g(x)=1$을 구했다.
+      depends_on: []
+      implied_ok: false
+      steps: [5b-1]
+    - id: 5.A1
+      mark_type: A
+      points: 3
+      evidence: |
+        【2-4】와 조임으로 $\lim_{x\to0+}f(x)=1$을 얻고 치역 $(1,e)$를 찾았다.
+      depends_on: [5.M1]
+      steps: [5b-2]
+    - id: 5.M2
+      mark_type: M
+      points: 2
+      evidence: |
+        이계도함수 $f''(x)=f(x)\left(p'(x)+p^2(x)\right)$를 계산했다.
+      depends_on: []
+      implied_ok: false
+      steps: [5b-3]
+    - id: 5.A2
+      mark_type: A
+      points: 3
+      evidence: |
+        【2-2】의 결과로 $f''(x)<0$을 결정해 위로 볼록·변곡점 없음을 밝혔다.
+      depends_on: [5.M2]
+      steps: [5b-4]
+    - id: 5.B1
+      mark_type: B
+      points: 2
+      evidence: |
+        제시문 [라]의 항목(정의역·치역, 교점, 증감·볼록, 점근선 $y=e$)을 반영한 개형을 그렸다($(0,1)$은 빈 점).
+      steps: [5b-5]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+remedy_links: []
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

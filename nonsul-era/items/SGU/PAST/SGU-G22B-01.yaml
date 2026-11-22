@@ -1,0 +1,408 @@
+# 서강대 2022학년도 수시 논술(자연계열) 2차 문제 1 [가이드북 표기 「자연 기출문제 ③」, 소문항 번호 【3-1】~【3-4】] — 기출 원문은 내부 분석용(allowed_use: internal_only)
+# 회차 근거: 2023 논술가이드북 PDF p.12 <2022학년도 자연계열 문항별 출제내용> 표의 '2차 1번'(확률과 경우의 수·연속함수·판별식·역함수·등비수열)
+# 원문 소문항 번호 【3-k】는 그대로 두고, 이 파일의 소문항 id 는 1~4 로 둔다. 쪽 표기는 PDF 쪽(인쇄 쪽 = PDF 쪽 − 2)
+schema_version: '2.0'
+id: SGU-G22B-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: SGU
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 추론
+points: 40   # 배점 비공개 — 문제1 반영비율 40%(2022 모집요강)를 점수로 둠, 소문항 균등 배분(10×4)
+time_estimate_min: 40
+intent: |
+  확률의 기본 개념과 함수의 여러 가지 성질 및 미분·적분을 이해하고 활용할 수 있는지 평가한다(확률의 정의와 기본성질, 함수의 연속, 역함수, 미분을 이용한 증가·감소 판정, 정적분의 의미, 등비급수의 합).
+key_idea: |
+  3전2선승($p^2$)과 5전3선승($p^3+3p^3(1-p)$)의 우승 확률을 같게 놓기, 연속 조건을 $X=e^{2p}$의 이차방정식으로 보고 $X>1$인 근 고르기, $f$를 $g(x)=xe^{-x}$의 역함수로 보아 넓이 관계 이용, 함수방정식을 $2^k$배로 반복해 망원합과 등비급수로 $g(x)=f(x)-\frac{24}{7x^4}$ 얻기.
+stuck: |
+  【3-3】에서 $f(x)=xe^{f(x)}$를 $g(f(x))=x$로 읽어 $f=g^{-1}$임을 알아차리는 것, 【3-4】에서 $x$ 대신 $2x$를 넣고 2를 곱해 망원합을 만드는 것
+idea_tags: [IDEA-BEST-OF-SERIES-PROB, IDEA-SUBST-EXP-QUADRATIC, IDEA-INVERSE-AREA-RECTANGLE, IDEA-FUNC-EQ-TELESCOPE-GEOMETRIC]
+tags: [확률의 곱셈정리, 함수의 연속, 역함수의 넓이, 등비급수, 함수방정식]
+elements:
+  materials:
+  - '한국시리즈 3전 2선승제 → 5전 3선승제(1차전 A팀 패배)'
+  - '$f(x)=b-ae^{-2x}\ (0<x<p),\ ae^{2x}\ (x\ge p)$, $0<2a<b$'
+  - '$f:\left[0,\frac1e\right]\to[0,1]$, $f(x)=xe^{f(x)}$'
+  - '$\int_1^2f(x)dx=3$, $f(x)-2f(2x)=\frac{3}{x^4}$, $g(x)=\lim_{n\to\infty}2^nf(2^nx)$'
+  concepts:
+  - '확률의 기본성질·독립시행'
+  - '함수의 연속'
+  - '이차방정식의 근과 판별식'
+  - '역함수의 존재(일대일대응)'
+  - '도함수를 이용한 증가 판정'
+  - '역함수의 정적분과 넓이'
+  - '부분적분법'
+  - '등비급수의 합'
+  tools:
+  - '$p^2=p^3+3p^3(1-p)\iff p^2(3p-1)(p-1)=0$'
+  - '$X=e^{2p}$, $aX^2-bX+a=0\ (X>1)$'
+  - '$(b^2-4a^2)-(b-2a)^2=4a(b-2a)>0$'
+  - '$g(x)=xe^{-x}$, $g''(x)=(1-x)e^{-x}>0$'
+  - '$\int_0^{1/e}f\,dx+\int_0^1g\,dx=1\cdot\frac1e$'
+  - '$2^{k-1}f(2^{k-1}x)-2^kf(2^kx)=\frac{3}{x^4}\left(\frac18\right)^{k-1}$'
+  conditions:
+  - '【3-1】 $0<p<1$, 비기는 경우 없음'
+  - '【3-2】 $0<2a<b$, 연결점 $p>0$이므로 $X>1$'
+  - '【3-3】 $f$의 치역이 $[0,1]$'
+  - '【3-4】 $f$는 $(0,\infty)$에서 연속'
+  stimuli_used: [가, 나, 다]
+  subpart_links: '네 소문항은 서로 독립(공통 제시문 [가]~[다]만 공유)'
+
+curriculum:
+  version: '2015'
+  subjects: [수학, 수학Ⅱ, 미적분, 확률과통계]
+  scope_2028: calc2
+  scope_confirmed: false
+  standards:
+  - code: 12확통02-02
+    text: 확률의 기본성질을 이해한다. (가이드북 문항 해설 인용, 그 밖에 10수학01-06·07, 12수학Ⅱ01-03, 10수학04-03, 12수학Ⅱ02-08, 12미적03-02·05, 12미적01-03·05, 12미적03-03 명시)
+    verified: false
+  content_area: 확률·함수의 연속·역함수·적분·급수
+  behavior_domain: 문제해결
+  unit_path: [미적분, 적분법, 정적분의 활용, 역함수의 정적분]
+  key_concepts: [독립시행의 확률, 함수의 연속, 역함수, 정적분과 넓이, 등비급수]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 서강대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 서강대학교
+  admission_year: 2022
+  admission_type: 수시 논술(일반)
+  track: 자연계열
+  question_no: 1   # 2차 1번(가이드북 「자연 기출문제 ③」, 원문 소문항 번호 【3-…】)
+  official_url: https://admission.sogang.ac.kr/upload/BBS0014/20220916162849P7Z2EV.PDF
+  retrieved_at: 2026-11-21
+  original_points: null   # 배점 비공개(문제별 반영비율 40%만 공개)
+  rights_notice: 미확인(대학 원본 PDF 표지 문구 확인 필요)
+  transcribed_from: 서강대학교 입학처 「2023학년도 논술가이드북」 p.65 (원본 PDF 이미지 대조 2026-11-21)
+
+verify: verify/SGU-G22B.py::p01
+
+stimuli:
+- label: 가
+  body: |
+    함수 $f(x)$와 실수 $a$에 대하여
+    ① 함수 $f(x)$가 $x=a$에서 정의되고
+    ② 극한값 $\displaystyle\lim_{x\to a}f(x)$가 존재하며
+    ③ $\displaystyle\lim_{x\to a}f(x)=f(a)$
+    일 때, 함수 $f(x)$는 $x=a$에서 연속이라고 한다.
+- label: 나
+  body: |
+    함수 $f:X\to Y$가 일대일대응이면 $f$의 역함수 $f^{-1}:Y\to X$가 존재한다.
+- label: 다
+  body: |
+    등비급수 $\displaystyle\sum_{n=1}^{\infty}ar^{n-1}\ (a\ne0)$은 $\lvert r\rvert<1$일 때 수렴하고 그 합은 $\dfrac{a}{1-r}$이다.
+
+stem: |
+  제시문 [가]~[다]를 참고하여 다음 물음에 답하시오.
+
+subparts:
+- id: '1'
+  stem: |
+    【3-1】 한국시리즈가 코로나 사태로 인하여 3번의 경기 중에서 2번을 먼저 이기는 팀이 최종우승하는 방식으로 축소되었다. 한국시리즈에 진출한 두 팀 A와 B가 첫 경기를 진행하였는데 A팀이 패하였다. 하지만 코로나 사태가 진정되어 이미 치러진 1차전을 포함하여 5번의 경기 중에서 3번을 먼저 이기는 팀이 최종 우승하는 방식으로 되돌아가기로 결정하였다. A팀이 경기마다 승리할 확률이 $p$일 때, 이러한 결정에도 불구하고 A팀이 최종 우승할 확률이 변하지 않을 $p$의 값을 구하시오. (단, $0<p<1$이고 두 팀이 비기는 경우는 없다.)
+  points: 10
+  depends_on: []
+  answer: {kind: value, value: '1/3', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: 1패 후 3전2선승이면 남은 2경기 연승 $p^2$, 5전3선승이면 $p^3+3p^3(1-p)$.
+    steps:
+    - {id: 1a, content: '$p^2=p^3+3p^3(1-p)\iff p^2(3p-1)(p-1)=0$, $p=\tfrac13$', criteria: ['1.M1', '1.A1', '1.M2', '1.A2']}
+    hint_ladder:
+    - 이미 1패를 안고 있다. 각 방식에서 A가 몇 번 더 이겨야 하는가?
+  - id: S1-B
+    audience: B
+    source_flow: '논술가이드북2023 p.68'
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        (i) 3번의 경기 중에서 2번을 먼저 이기는 팀이 우승하는 방식에서, A팀이 우승하기 위해서는 남은 2경기를 모두 이겨야 하므로 우승할 확률 $p_1=p^2$이다.
+      criteria: ['1.M1']
+    - id: 1b-2
+      content: |
+        (ii) 5번의 경기 중에서 3번을 먼저 이기는 팀이 우승하는 방식: ① 4차전까지 진행되는 경우 3경기를 모두 연달아 이겨야 하므로 확률은 $p^3$, ② 5차전까지 진행되는 경우 마지막 경기는 반드시 이기고 나머지 세 경기 중 한 번만 져야 하므로 확률은 $3p^3(1-p)$. 따라서 $p_2=p^3+3p^3(1-p)$이다.
+      criteria: ['1.A1']
+    - id: 1b-3
+      content: |
+        A팀이 우승할 확률이 변하지 않으려면 $p_1=p_2$, 즉 $p^2=p^3+3p^3(1-p)$, $p^2(3p-1)(p-1)=0$이다.
+      criteria: ['1.M2']
+    - id: 1b-4
+      content: |
+        조건 $0<p<1$로부터 $p=\dfrac13$이다.
+      criteria: ['1.A2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 2
+      evidence: |
+        3전2선승 방식에서 A의 우승 확률 $p^2$을 구했다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1]
+    - id: 1.A1
+      mark_type: A
+      points: 3
+      evidence: |
+        5전3선승 방식을 4차전·5차전 종료로 나누어 $p^3+3p^3(1-p)$를 구했다.
+      depends_on: [1.M1]
+      steps: [1b-2]
+    - id: 1.M2
+      mark_type: M
+      points: 2
+      evidence: |
+        두 확률이 같다는 방정식을 세워 인수분해했다.
+      depends_on: [1.M1, 1.A1]
+      implied_ok: false
+      steps: [1b-3]
+    - id: 1.A2
+      mark_type: A
+      points: 3
+      evidence: |
+        $0<p<1$에서 $p=\frac13$만 택했다.
+      depends_on: [1.M2]
+      steps: [1b-4]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '2'
+  stem: |
+    【3-2】 함수 $f(x)=\begin{cases}b-ae^{-2x}&(0<x<p)\\ae^{2x}&(x\ge p)\end{cases}$ 가 열린구간 $(0,\,\infty)$에서 연속함수가 되기 위한 $p$의 값을 구하시오. (단, $a,\,b$는 $0<2a<b$를 만족하는 상수)
+  points: 10
+  depends_on: []
+  answer: {kind: expression, value: 'log((b + sqrt(b**2 - 4*a**2))/(2*a))/2', equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: $x=p$에서의 연속 조건을 $X=e^{2p}$의 이차방정식 $aX^2-bX+a=0$으로 바꾸고 $X>1$인 근만 택한다.
+    steps:
+    - {id: 2a, content: '$X=\tfrac{b+\sqrt{b^2-4a^2}}{2a}$(작은 근은 $<1$), $p=\tfrac12\ln\tfrac{b+\sqrt{b^2-4a^2}}{2a}$', criteria: ['2.M1', '2.A1', '2.R1', '2.A2']}
+    hint_ladder:
+    - $p>0$이면 $e^{2p}$의 범위는?
+    - 두 근의 곱이 1임을 떠올려 보자.
+  - id: S2-B
+    audience: B
+    source_flow: '논술가이드북2023 p.68'
+    method_no: 1
+    steps:
+    - id: 2b-1
+      content: |
+        함수 $f(x)$가 열린구간 $(0,\infty)$에서 연속이 되기 위해서는 $b-ae^{-2p}=ae^{2p}$, 즉 $ae^{4p}-be^{2p}+a=0$을 만족해야 한다. $X=e^{2p}$라고 하면 $aX^2-bX+a=0\ (X>1)$을 만족해야 한다.
+      criteria: ['2.M1']
+    - id: 2b-2
+      content: |
+        따라서 $X=\dfrac{b\pm\sqrt{b^2-4a^2}}{2a}$이고 $X>1$이어야 한다.
+      criteria: ['2.A1']
+    - id: 2b-3
+      content: |
+        (i) $b>2a>0$이므로 $\dfrac{b+\sqrt{b^2-4a^2}}{2a}>\dfrac{b}{2a}>1$이고 $X=\dfrac{b+\sqrt{b^2-4a^2}}{2a}$는 해가 된다.
+        (ii) $1-\dfrac{b-\sqrt{b^2-4a^2}}{2a}=\dfrac{\sqrt{b^2-4a^2}-(b-2a)}{2a}>0$이다. 여기서 $\sqrt{b^2-4a^2}>0,\ b-2a>0$이고 $(b^2-4a^2)-(b-2a)^2=4ab-8a^2=4a(b-2a)>0$이므로 분자가 양수이다. 따라서 $\dfrac{b-\sqrt{b^2-4a^2}}{2a}<1$이 되어 해가 아니다.
+      criteria: ['2.R1']
+    - id: 2b-4
+      content: |
+        그러므로 (i), (ii)에 의하여 $p=\dfrac12\ln X=\dfrac12\ln\left(\dfrac{b+\sqrt{b^2-4a^2}}{2a}\right)$이다.
+      criteria: ['2.A2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 3
+      evidence: |
+        $x=p$에서 연속 조건 $b-ae^{-2p}=ae^{2p}$를 세우고 $X=e^{2p}$에 대한 이차방정식으로 바꾸었다.
+      depends_on: []
+      implied_ok: false
+      steps: [2b-1]
+    - id: 2.A1
+      mark_type: A
+      points: 2
+      evidence: |
+        근 $X=\frac{b\pm\sqrt{b^2-4a^2}}{2a}$를 구했다.
+      depends_on: [2.M1]
+      steps: [2b-2]
+    - id: 2.R1
+      mark_type: R
+      points: 3
+      evidence: |
+        $X>1$ 조건으로 큰 근은 해가 되고 작은 근은 1보다 작아 해가 아님을 근거와 함께 보였다.
+      depends_on: [2.A1]
+      steps: [2b-3]
+    - id: 2.A2
+      mark_type: A
+      points: 2
+      evidence: |
+        $p=\frac12\ln\frac{b+\sqrt{b^2-4a^2}}{2a}$를 얻었다.
+      depends_on: [2.R1]
+      steps: [2b-4]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '3'
+  stem: |
+    【3-3】 함수 $f:\left[0,\,\dfrac1e\right]\to[0,\,1]$가 닫힌구간 $\left[0,\,\dfrac1e\right]$에서 연속이고 열린구간 $\left(0,\,\dfrac1e\right)$에서 미분가능하며 $f(x)=x\,e^{f(x)}$를 만족할 때,
+    함수 $f$의 역함수가 존재함을 보이고 $\displaystyle\int_0^{\frac1e}f(x)\,dx$의 값을 구하시오.
+  points: 10
+  depends_on: []
+  answer: {kind: value, value: '3/E - 1', equivalents: ['3*exp(-1) - 1'], tolerance: null}
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: $g(x)=xe^{-x}$는 $[0,1]$에서 증가하는 일대일대응이고 $g(f(x))=x$이므로 $f=g^{-1}$. 넓이 관계로 $\int_0^{1/e}f=\frac1e-\int_0^1xe^{-x}dx$.
+    steps:
+    - {id: 3a, content: '$\int_0^1xe^{-x}dx=1-\tfrac2e$이므로 $\int_0^{1/e}f(x)dx=\tfrac3e-1$', criteria: ['3.M1', '3.R1', '3.M2', '3.A1']}
+    hint_ladder:
+    - $f(x)=xe^{f(x)}$를 $x$에 대해 풀어 보자.
+    - 함수와 역함수의 그래프 아래 넓이를 합하면 어떤 도형이 되는가?
+  - id: S3-B
+    audience: B
+    source_flow: '논술가이드북2023 p.68~69'
+    method_no: 1
+    steps:
+    - id: 3b-1
+      content: |
+        $g(x)=xe^{-x}$에 대하여 $g(0)=0,\ g(1)=e^{-1}$이고 열린구간 $(0,1)$에 속한 임의의 $x$에 대하여 $g'(x)=(1-x)e^{-x}>0$이므로 $g(x)$는 닫힌구간 $[0,1]$에서 증가함수가 되어 $g:[0,1]\to\left[0,\dfrac1e\right]$는 일대일대응이다.
+      criteria: ['3.M1']
+    - id: 3b-2
+      content: |
+        따라서 제시문 [나]에 의하여 $g$의 역함수 $g^{-1}:\left[0,\dfrac1e\right]\to[0,1]$가 존재하며 $g^{-1}(x)=xe^{g^{-1}(x)}$를 만족한다. 한편 함수 $f:\left[0,\dfrac1e\right]\to[0,1]$가 정의역에 속하는 모든 $x$에 대하여 $f(x)=xe^{f(x)}$, 즉 $(g\circ f)(x)=x$를 만족하므로 $f(x)=g^{-1}(x)$이다. 그러므로 함수 $f$의 역함수가 존재하며 $f^{-1}(x)=g(x)=xe^{-x}$이다.
+      criteria: ['3.R1']
+    - id: 3b-3
+      content: |
+        따라서 $\displaystyle\int_0^{\frac1e}f(x)dx+\int_0^1g(x)dx$는 두 변의 길이가 $1,\ \dfrac1e$인 직사각형의 넓이와 같으므로
+      criteria: ['3.M2']
+    - id: 3b-4
+      content: |
+        $\displaystyle\int_0^{\frac1e}f(x)dx=\frac1e-\int_0^1xe^{-x}dx=\frac1e-\left(\left[-xe^{-x}\right]_0^1+\int_0^1e^{-x}dx\right)=\frac1e-\left(1-\frac2e\right)=\frac3e-1$이다.
+      criteria: ['3.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 3
+      evidence: |
+        도함수 $g'(x)=(1-x)e^{-x}>0$으로 $g(x)=xe^{-x}$가 증가하므로 일대일임을 보였다.
+      depends_on: []
+      implied_ok: false
+      steps: [3b-1]
+    - id: 3.R1
+      mark_type: R
+      points: 2
+      evidence: |
+        $(g\circ f)(x)=x$로 $f=g^{-1}$임을 밝혀 $f$의 역함수가 존재함을 보였다.
+      depends_on: [3.M1]
+      steps: [3b-2]
+    - id: 3.M2
+      mark_type: M
+      points: 2
+      evidence: |
+        역함수와 넓이의 관계 $\int_0^{1/e}f\,dx+\int_0^1g\,dx=\frac1e$를 세웠다.
+      depends_on: [3.R1]
+      implied_ok: false
+      steps: [3b-3]
+    - id: 3.A1
+      mark_type: A
+      points: 3
+      evidence: |
+        부분적분으로 $\int_0^1xe^{-x}dx=1-\frac2e$를 계산해 $\frac3e-1$을 얻었다.
+      depends_on: [3.M2]
+      steps: [3b-4]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '4'
+  stem: |
+    【3-4】 열린구간 $(0,\,\infty)$에서 연속인 함수 $f(x)$가 $\displaystyle\int_1^2f(x)\,dx=3$을 만족하고
+    모든 양의 실수 $x$에 대하여 $f(x)-2f(2x)=\dfrac{3}{x^4}$을 만족한다.
+    함수 $g(x)=\displaystyle\lim_{n\to\infty}2^nf(2^nx)$에 대하여, $\displaystyle\int_1^2g(x)\,dx$의 값을 구하시오.
+  points: 10
+  depends_on: []
+  answer: {kind: value, value: '2', equivalents: [], tolerance: null}
+  solutions:
+  - id: S4-A
+    audience: A
+    method_no: 1
+    key_idea: $x\to2^{k-1}x$를 넣고 $2^{k-1}$을 곱해 더하면 망원합 $f(x)-2^nf(2^nx)=\sum_{k=1}^n\frac{3}{x^4}\left(\frac18\right)^{k-1}$.
+    steps:
+    - {id: 4a, content: '$g(x)=f(x)-\tfrac{24}{7x^4}$, $\int_1^2g=3-1=2$', criteria: ['4.M1', '4.A1', '4.A2']}
+    hint_ladder:
+    - 주어진 식의 $x$ 대신 $2x$를 넣고 양변에 2를 곱해 보자.
+  - id: S4-B
+    audience: B
+    source_flow: '논술가이드북2023 p.69'
+    method_no: 1
+    steps:
+    - id: 4b-1
+      content: |
+        주어진 항등식 $f(x)-2f(2x)=\dfrac{3}{x^4}$의 $x$ 대신 $2x$를 넣어서 얻은 등식에 2를 곱하면 $2f(2x)-2^2f(2^2x)=\dfrac{3}{x^4}\times\dfrac18$을 얻는다. 같은 방식으로 반복하면 $2^{n-1}f(2^{n-1}x)-2^nf(2^nx)=\dfrac{3}{x^4}\times\left(\dfrac18\right)^{n-1}$이므로 좌변과 우변을 각각 더하면
+        $f(x)-2^nf(2^nx)=\displaystyle\sum_{k=1}^{n}\frac{3}{x^4}\times\left(\frac18\right)^{k-1}$이다.
+      criteria: ['4.M1']
+    - id: 4b-2
+      content: |
+        제시문 [다]에 의하여 우변은 수렴하며 이 등비급수의 합은 $\displaystyle\lim_{n\to\infty}\sum_{k=1}^{n}\frac{3}{x^4}\times\left(\frac18\right)^{k-1}=\frac{24}{7x^4}$이다. 따라서 $g(x)=\displaystyle\lim_{n\to\infty}2^nf(2^nx)=f(x)-\frac{24}{7x^4}$이다.
+      criteria: ['4.A1']
+    - id: 4b-3
+      content: |
+        $\displaystyle\int_1^2g(x)dx=\int_1^2f(x)dx-\int_1^2\frac{24}{7x^4}dx=3+\left[\frac{8}{7x^3}\right]_1^2=3-1=2$이다.
+      criteria: ['4.A2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 4.M1
+      mark_type: M
+      points: 4
+      evidence: |
+        주어진 등식을 변형·반복해 $f(x)-2^nf(2^nx)=\sum_{k=1}^n\frac{3}{x^4}\left(\frac18\right)^{k-1}$을 얻었다.
+      depends_on: []
+      implied_ok: false
+      steps: [4b-1]
+    - id: 4.A1
+      mark_type: A
+      points: 3
+      evidence: |
+        등비급수의 합으로 $g(x)=f(x)-\frac{24}{7x^4}$를 구했다.
+      depends_on: [4.M1]
+      steps: [4b-2]
+    - id: 4.A2
+      mark_type: A
+      points: 3
+      evidence: |
+        유리함수의 정적분을 계산해 $\int_1^2g(x)dx=2$를 얻었다.
+      depends_on: [4.M1, 4.A1]
+      steps: [4b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+remedy_links: []
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

@@ -1,0 +1,332 @@
+# 서강대 2022학년도 모의논술 2차(자연계열) 문제 【1-1】~【1-4】 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+# 배점: 공식 문항당 2점(총 8점), 정수 그대로.
+schema_version: '2.0'
+id: SGU-M22B-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: proof
+origin: mock_exam
+school: SGU
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 존재
+points: 8
+time_estimate_min: 50
+intent: |
+  평균값 정리를 주어진 상황에 단순 적용하고, 결론의 형태로부터 보조함수를 스스로 찾아 창의적으로 활용하며, 부분적분을 두 번 이용해 적분값을 구하고, 정적분과 급수의 합 사이의 관계와 수열의 극한의 대소 관계로 급수의 극한값을 구하는 능력을 평가한다.
+key_idea: |
+  【1-2】는 $g(x)=(x-a)(x-b)f(x)$에 평균값 정리(롤의 정리)를 적용하고, 【1-3】은 $u=x(2\pi-x)$, $v'=f''$로 부분적분을 두 번 하여 $-2\int_0^{2\pi}f(x)dx$로 바꾸며, 【1-4】는 $\sqrt{x+y}<\sqrt x+\sqrt y$로 끼운다.
+stuck: |
+  결론 $\frac{1}{a-c}+\frac{1}{b-c}=\frac{f'(c)}{f(c)}$를 로그미분 꼴로 읽어 보조함수 $(x-a)(x-b)f(x)$를 만드는 발상, 그리고 $f(0)=f(2\pi)=0$이 저절로 성립함을 알아차리는 것
+idea_tags: [IDEA-MVT-AUXILIARY-PRODUCT, IDEA-IBP-TWICE-BOUNDARY-ZERO, IDEA-SQUEEZE-RIEMANN-SUM]
+tags: [평균값 정리, 보조함수, 부분적분, 구분구적법, 서강대 모의]
+elements:
+  materials:
+  - '$\sqrt{1+x}<1+\frac x2$ $(-1<x<0)$'
+  - '$\frac{1}{a-c}+\frac{1}{b-c}=\frac{f''(c)}{f(c)}$인 $c$의 존재'
+  - '$f(x)=g(x)(\sin^2x+2\sin x)$, $\int_0^{2\pi}f(x)dx=-3$'
+  - '$\lim\frac1n\sum\sqrt{\frac kn+a_n}$, $a_n\to0$'
+  concepts:
+  - '평균값 정리'
+  - '곱의 미분법'
+  - '부분적분법'
+  - '수열의 극한의 대소 관계'
+  - '정적분과 급수의 합 사이의 관계'
+  tools:
+  - '닫힌구간 $[x,0]$에 평균값 정리'
+  - '보조함수 $g(x)=(x-a)(x-b)f(x)$, $g(a)=g(b)=0$'
+  - '$u=x(2\pi-x)$, $v''=f''''$로 부분적분 두 번'
+  - '$\sqrt{x+y}<\sqrt x+\sqrt y$'
+  conditions:
+  - '(1-2) $f>0$ on $(a,b)$, $[a,b]$에서 연속, $(a,b)$에서 미분가능'
+  - '(1-3) $f(0)=f(2\pi)=0$ ($\sin0=\sin2\pi=0$)'
+  - '(1-4) $a_n>0$, $\lim a_n=0$'
+  stimuli_used: [가, 나, 다, 라]
+  subpart_links: '네 소문항은 서로 독립(같은 제시문 공유)'
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅱ, 미적분]
+  scope_2028: calc2
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 평균값 정리를 이해하고, 부분적분법과 정적분과 급수의 합의 관계를 활용할 수 있다(요지)
+    verified: false
+  content_area: 미분법·적분법·수열의 극한
+  behavior_domain: 추론
+  unit_path: [수학Ⅱ, 미분, 도함수의 활용, 평균값 정리]
+  key_concepts: [평균값 정리, 부분적분법, 구분구적법, 수열의 극한의 대소 관계]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 서강대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 서강대학교
+  admission_year: 2022
+  admission_type: 수시 모의논술
+  track: 자연계열
+  question_no: 1
+  official_url: https://admission.sogang.ac.kr/upload/BBS0007/20220102160859JCBR4Z.PDF
+  retrieved_at: 2026-11-21
+  original_points: [2, 2, 2, 2]
+  rights_notice: 미확인(대학 원본 PDF 표지 문구 확인 필요)
+  transcribed_from: 서강대학교 입학처 「2022학년도 서강대학교 모의논술 자료집 2차 - 자연계열 -」 p.1~6 (원본 PDF 이미지 대조 2026-11-21)
+
+verify: verify/SGU-M22B.py::p01
+
+stimuli:
+- label: 가
+  body: |
+    함수 $f(x)$가 닫힌구간 $[a,b]$에서 연속이고 열린구간 $(a,b)$에서 미분가능하면
+    $\dfrac{f(b)-f(a)}{b-a}=f'(c)$인 $c$가 열린구간 $(a,b)$에 적어도 하나 존재한다.
+- label: 나
+  body: |
+    두 함수 $f(x)$, $g(x)$가 닫힌 구간 $[a,b]$에서 미분가능하고, $f'(x)$, $g'(x)$가 연속일 때, 다음 등식이 성립한다.
+    $$\int_a^b f(x)g'(x)\,dx=\Big[f(x)g(x)\Big]_a^b-\int_a^b f'(x)g(x)\,dx$$
+- label: 다
+  body: |
+    수열 $\{a_n\}$, $\{b_n\}$이 수렴하고 $\displaystyle\lim_{n\to\infty}a_n=\lim_{n\to\infty}b_n=\alpha$일 때, 수열 $\{c_n\}$이 모든 자연수 $n$에 대하여 $a_n\le c_n\le b_n$을 만족하면 $\displaystyle\lim_{n\to\infty}c_n=\alpha$이다.
+- label: 라
+  body: |
+    함수 $f(x)$가 닫힌 구간 $[a,b]$에서 연속이면 다음 등식이 성립한다.
+    $$\lim_{n\to\infty}\sum_{k=1}^{n}f(x_k)\Delta x=\int_a^b f(x)\,dx\quad\left(\text{단, }\Delta x=\frac{b-a}{n},\ x_k=a+k\Delta x\right)$$
+
+stem: |
+  (시험시간 50분) 제시문 [가]-[라]를 참고하여 다음 물음에 답하시오.
+
+subparts:
+- id: '1'
+  stem: |
+    【1-1】 함수 $f(x)=\sqrt{1+x}$에 제시문 [가]를 적용하여 $-1<x<0$ 일 때 부등식 $\sqrt{1+x}<1+\dfrac x2$이 성립함을 보이시오.
+  points: 2
+  depends_on: []
+  answer: {kind: proof, value: null, equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $[x,0]$에서 평균변화율 $=\frac{1}{2\sqrt{1+c}}>\frac12$ ($x<c<0$).
+    steps:
+    - {id: 1a, content: '$\tfrac{1-\sqrt{1+x}}{-x}=\tfrac{1}{2\sqrt{1+c}}>\tfrac12\Rightarrow\sqrt{1+x}<1+\tfrac x2$', criteria: ['1.M1', '1.A1']}
+    hint_ladder:
+    - 구간 $[x,0]$에서 평균값 정리를 쓴다.
+    - $c<0$이면 $\sqrt{1+c}<1$이다.
+  - id: S1-B
+    audience: B
+    source_flow: 모의논술자료집 p.5
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        $f(x)=\sqrt{1+x}$에 대하여 닫힌구간 $[x,0]$에 제시문 [가]의 평균값 정리를 적용하면 $x<c<0$인 적당한 $c$가 존재하여
+      criteria: ['1.M1']
+    - id: 1b-2
+      content: |
+        $$\frac{1-\sqrt{1+x}}{-x}=\frac{f(0)-f(x)}{0-x}=f'(c)=\frac{1}{2\sqrt{1+c}}>\frac12$$
+        가 성립하므로 ($-x>0$을 곱하면) $\sqrt{1+x}<1+\dfrac x2$이다.
+      criteria: ['1.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 1, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 1
+      evidence: |
+        $f(x)=\sqrt{1+x}$에 대하여 닫힌구간 $[x,0]$에 평균값 정리를 적용했다(공식 1점).
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1]
+    - id: 1.A1
+      mark_type: A
+      points: 1
+      evidence: |
+        $f'(c)=\dfrac{1}{2\sqrt{1+c}}>\dfrac12$을 근거로 $\sqrt{1+x}<1+\dfrac x2$를 증명했다(공식 1점).
+      depends_on: [1.M1]
+      steps: [1b-2]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '2'
+  stem: |
+    【1-2】 닫힌구간 $[a,b]$에서 연속이고 열린구간 $(a,b)$에서 미분가능한 함수 $f(x)$가 모든 $x\in(a,b)$에 대하여 $f(x)>0$을 만족할 때, $\dfrac{1}{a-c}+\dfrac{1}{b-c}=\dfrac{f'(c)}{f(c)}$ 인 $c$가 열린구간 $(a,b)$에 적어도 하나 존재함을 보이시오.
+  points: 2
+  depends_on: []
+  answer: {kind: proof, value: null, equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: $g(x)=(x-a)(x-b)f(x)$는 $g(a)=g(b)=0$이므로 $g'(c)=0$인 $c$가 있고, $(c-a)(c-b)f(c)\ne0$으로 나눈다.
+    steps:
+    - {id: 2a, content: '$g\prime(c)=0\Rightarrow\tfrac{1}{c-a}+\tfrac{1}{c-b}+\tfrac{f\prime(c)}{f(c)}=0$', criteria: ['2.M1', '2.A1']}
+    hint_ladder:
+    - 결론을 $\frac{f'}{f}$의 꼴로 정리하면 어떤 함수의 로그미분처럼 보이는가?
+  - id: S2-B
+    audience: B
+    source_flow: 모의논술자료집 p.5
+    method_no: 1
+    steps:
+    - id: 2b-1
+      content: |
+        $g(x)=(x-a)(x-b)f(x)$라 놓으면 $g(x)$는 닫힌구간 $[a,b]$에서 연속이고 열린구간 $(a,b)$에서 미분가능하며 $g(a)=g(b)=0$이다. 따라서 제시문 [가]의 평균값정리에 의하여 $g'(c)=0$인 $c$가 열린구간 $(a,b)$에 존재한다.
+      criteria: ['2.M1']
+    - id: 2b-2
+      content: |
+        $$g'(x)=(x-a)f(x)+(x-b)f(x)+(x-a)(x-b)f'(x)$$
+        로부터 $0=(c-a)f(c)+(c-b)f(c)+(c-a)(c-b)f'(c)$를 얻는다. 등식의 양변을 $(c-a)(c-b)f(c)$로 나누면
+        $$\frac{1}{c-a}+\frac{1}{c-b}+\frac{f'(c)}{f(c)}=0$$
+        이 성립하여 $\dfrac{1}{a-c}+\dfrac{1}{b-c}=\dfrac{f'(c)}{f(c)}$을 얻는다.
+      criteria: ['2.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 1, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 1
+      evidence: |
+        $g(x)=(x-a)(x-b)f(x)$라 놓고 시작했다(공식 1점).
+      depends_on: []
+      implied_ok: false
+      steps: [2b-1]
+    - id: 2.A1
+      mark_type: A
+      points: 1
+      evidence: |
+        $g'(c)=0$에서 $(c-a)(c-b)f(c)\ne0$으로 나누어 결론까지 증명을 완성했다(공식 1점).
+      depends_on: [2.M1]
+      steps: [2b-2]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '3'
+  stem: |
+    【1-3】 적당한 다항함수 $g(x)$에 대하여 $f(x)=g(x)(\sin^2x+2\sin x)$로 표현되며 $\displaystyle\int_0^{2\pi}f(x)\,dx=-3$을 만족하는 임의의 함수 $f(x)$에 대하여 정적분 $\displaystyle\int_0^{2\pi}x(2\pi-x)f''(x)\,dx$의 값을 구하시오.
+  points: 2
+  depends_on: []
+  answer: {kind: value, value: '6', equivalents: [], tolerance: null}
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: 부분적분 두 번이면 경계항이 모두 $0$($x(2\pi-x)$와 $f$가 양 끝에서 $0$)이 되어 $-2\int_0^{2\pi}f\,dx=6$.
+    steps:
+    - {id: 3a, content: '$\int_0^{2\pi}x(2\pi-x)f\prime\prime dx=-\int_0^{2\pi}(2\pi-2x)f\prime dx=-2\int_0^{2\pi}f dx=6$', criteria: ['3.M1', '3.A1']}
+    hint_ladder:
+    - $x(2\pi-x)$는 양 끝에서 $0$이다.
+    - $f(0)$, $f(2\pi)$는?
+  - id: S3-B
+    audience: B
+    source_flow: 모의논술자료집 p.5
+    method_no: 1
+    steps:
+    - id: 3b-1
+      content: |
+        $u=x(2\pi-x)$, $v'=f''$이라 놓고 제시문 [나]의 부분적분을 사용하면
+        $$\int_0^{2\pi}x(2\pi-x)f''(x)\,dx=\Big[x(2\pi-x)f'(x)\Big]_0^{2\pi}-\int_0^{2\pi}(2\pi-2x)f'(x)\,dx=-\int_0^{2\pi}(2\pi-2x)f'(x)\,dx$$
+        이다.
+      criteria: ['3.M1']
+    - id: 3b-2
+      content: |
+        다시한번 부분적분을 하고 $f(0)=f(2\pi)=0$을 사용하면
+        $$-\int_0^{2\pi}(2\pi-2x)f'(x)\,dx=-\Big[(2\pi-2x)f(x)\Big]_0^{2\pi}-2\int_0^{2\pi}f(x)\,dx=-2\int_0^{2\pi}f(x)\,dx=6$$
+        이다. 그러므로 $\displaystyle\int_0^{2\pi}x(2\pi-x)f''(x)\,dx=6$이다.
+      criteria: ['3.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 1, isw: true}
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 1
+      evidence: |
+        $u=x(2\pi-x)$, $v'=f''$이라 놓고 부분적분을 사용했다(공식 1점).
+      depends_on: []
+      implied_ok: false
+      steps: [3b-1]
+    - id: 3.A1
+      mark_type: A
+      points: 1
+      evidence: |
+        다시 한번 부분적분하고 $f(0)=f(2\pi)=0$을 써서 $6$을 구했다(공식 1점; 조건을 만족하는 특정 함수를 대입해 답을 구하면 0점 — 공식 유의사항).
+      depends_on: [3.M1]
+      steps: [3b-2]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '4'
+  stem: |
+    【1-4】 수열 $\{a_n\}$이 모든 자연수 $n$에 대하여 $a_n>0$이고 $\displaystyle\lim_{n\to\infty}a_n=0$일 때 극한값
+    $$\lim_{n\to\infty}\frac1n\sum_{k=1}^{n}\sqrt{\frac kn+a_n}$$
+    를 구하시오.
+  points: 2
+  depends_on: []
+  answer: {kind: value, value: '2/3', equivalents: [], tolerance: null}
+  solutions:
+  - id: S4-A
+    audience: A
+    method_no: 1
+    key_idea: $\sqrt{\frac kn}\le\sqrt{\frac kn+a_n}\le\sqrt{\frac kn}+\sqrt{a_n}$로 끼우고 양쪽 극한 $\int_0^1\sqrt x\,dx=\frac23$.
+    steps:
+    - {id: 4a, content: '양변 극한 $\tfrac23$, $\tfrac23+0$ $\Rightarrow$ $\tfrac23$', criteria: ['4.M1', '4.A1']}
+    hint_ladder:
+    - $a_n$이 $k$와 무관하므로 $\sqrt{a_n}$을 따로 떼어 내 보자.
+  - id: S4-B
+    audience: B
+    source_flow: 모의논술자료집 p.6
+    method_no: 1
+    steps:
+    - id: 4b-1
+      content: |
+        $x,y>0$에 대하여 $\sqrt{x+y}<\sqrt x+\sqrt y$ 이므로 주어진 자연수 $n$에 대하여
+        $$\frac1n\sum_{k=1}^{n}\sqrt{\frac kn}\le\frac1n\sum_{k=1}^{n}\sqrt{\frac kn+a_n}\le\frac1n\left[\sum_{k=1}^{n}\left(\sqrt{\frac kn}+\sqrt{a_n}\right)\right]$$
+        이 성립한다.
+      criteria: ['4.M1']
+    - id: 4b-2
+      content: |
+        제시문 [라]에 의하여 $\displaystyle\lim_{n\to\infty}\frac1n\sum_{k=1}^{n}\sqrt{\frac kn}=\int_0^1\sqrt x\,dx=\frac23$ 이고 $\displaystyle\lim_{n\to\infty}\frac1n\sum_{k=1}^{n}\sqrt{a_n}=\lim_{n\to\infty}\sqrt{a_n}=0$ 이므로
+        $\displaystyle\lim_{n\to\infty}\frac1n\left[\sum_{k=1}^{n}\left(\sqrt{\frac kn}+\sqrt{a_n}\right)\right]=\frac23+0=\frac23$이다. 따라서 제시문 [다]에 의하여 $\displaystyle\lim_{n\to\infty}\frac1n\sum_{k=1}^{n}\sqrt{\frac kn+a_n}=\frac23$이다.
+      criteria: ['4.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 1, isw: true}
+    criteria:
+    - id: 4.M1
+      mark_type: M
+      points: 1
+      evidence: |
+        부등식 $\frac1n\sum\sqrt{\frac kn}\le\frac1n\sum\sqrt{\frac kn+a_n}\le\frac1n\sum\left(\sqrt{\frac kn}+\sqrt{a_n}\right)$을 얻었다(공식 1점).
+      depends_on: []
+      implied_ok: false
+      steps: [4b-1]
+    - id: 4.A1
+      mark_type: A
+      points: 1
+      evidence: |
+        양변에 극한을 취하여(정적분 $\int_0^1\sqrt x\,dx$, $\sqrt{a_n}\to0$) 극한값 $\dfrac23$을 얻었다(공식 1점; $a_n=0$을 대입해 답을 구하면 0점 — 공식 유의사항).
+      depends_on: [4.M1]
+      steps: [4b-2]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+remedy_links: []
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

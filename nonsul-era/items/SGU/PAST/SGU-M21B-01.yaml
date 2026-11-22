@@ -1,0 +1,325 @@
+# 서강대 2021학년도 모의논술 2차(자연계열) 문제 1~4 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+# 원문은 공통 상황(항아리) 아래 네 물음(첫 물음은 번호 없이 '함수 f(x)를 구하시오.', 이어서 2.~4.)이 제시문 [가]~[다]를 공유하는 한 세트(50분) → 한 문항(소문항 1~4)으로 입력.
+# 배점: 공식 10점(2·2·4·2), 정수 그대로.
+schema_version: '2.0'
+id: SGU-M21B-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: SGU
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 추론
+points: 10
+time_estimate_min: 50
+intent: |
+  정적분과 급수의 합 사이의 관계로 극한식을 정적분으로 나타내 수면의 넓이 $f(x)$를 구하고, 부분적분법으로 부피 $V(x)$를 계산하며, 합성함수의 미분법으로 수면의 하강 속력을 구하고 도함수로 그 최솟값을 찾을 수 있는지 평가한다.
+key_idea: |
+  $\sum_{k=1}^n\left(\frac{kh}{n}\right)^2e^{-\frac{kh}{n}}\frac hn\to\int_0^h x^2e^{-x}dx$로 $f(x)=x^2e^{-x}$, 그리고 $\frac{dV}{dt}=f(x)\frac{dx}{dt}=-2x$에서 하강 속력 $\frac{2e^x}{x}$.
+stuck: |
+  극한식의 일반항 $k^2\left(\frac hn\right)^3e^{-\frac{kh}{n}}$을 $\left(\frac{kh}{n}\right)^2e^{-\frac{kh}{n}}\cdot\frac hn$으로 묶어 구분구적법 꼴로 보는 발상, 그리고 부피의 시간 변화율을 높이의 시간 변화율로 바꾸는 연쇄법칙
+idea_tags: [IDEA-RIEMANN-SUM-TO-INTEGRAL, IDEA-CHAIN-RULE-RELATED-RATES]
+tags: [구분구적법, 부분적분, 변화율, 서강대 모의]
+elements:
+  materials:
+  - '물이 새는 항아리(높이 $H>2$)'
+  - '수면의 넓이 $f(x)$, 배출 속도 $2x$(시간 당 부피)'
+  - '극한식 $\lim_{n\to\infty}\sum k^2\left(\frac hn\right)^3e^{-\frac{kh}{n}}$'
+  concepts:
+  - '정적분과 급수의 합 사이의 관계'
+  - '단면의 넓이와 입체의 부피'
+  - '부분적분법'
+  - '합성함수의 미분법'
+  - '도함수를 이용한 최솟값'
+  tools:
+  - '$\Delta x=\frac hn$, $x_k=\frac{kh}{n}$로 두기'
+  - '부분적분 두 번'
+  - '$\frac{dV}{dt}=f(x)\frac{dx}{dt}$'
+  - '$\frac{d}{dx}\left(\frac{2e^x}{x}\right)=\frac{2e^x(x-1)}{x^2}$'
+  conditions:
+  - '$f$는 $[0,H]$에서 연속, 모든 $h\in(0,H]$에서 등식 성립'
+  - '시간 당 빠져나가는 부피 $2x$'
+  - '$H>2$이므로 $x=1$이 구간 안에 있음'
+  stimuli_used: [가, 나, 다]
+  subpart_links: '2~4는 1의 f(x)를, 4는 3의 하강 속력을 사용'
+
+curriculum:
+  version: '2015'
+  subjects: [미적분]
+  scope_2028: calc2
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 정적분과 급수의 합 사이의 관계를 이해하고, 부분적분법·합성함수의 미분법을 활용할 수 있다(요지)
+    verified: false
+  content_area: 적분법·미분법
+  behavior_domain: 문제해결
+  unit_path: [미적분, 적분법, 정적분의 활용, 정적분과 급수의 합]
+  key_concepts: [구분구적법, 부분적분법, 합성함수의 미분법, 최솟값]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 서강대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 서강대학교
+  admission_year: 2021
+  admission_type: 수시 모의논술
+  track: 자연계열
+  question_no: 1
+  official_url: https://admission.sogang.ac.kr/upload/BBS0007/20210217215141FMBXMV.PDF
+  retrieved_at: 2026-11-21
+  original_points: [2, 2, 4, 2]
+  rights_notice: 미확인(대학 원본 PDF 표지 문구 확인 필요)
+  transcribed_from: 서강대학교 입학처 「2021학년도 서강대학교 모의논술 자료집 2차 - 자연계열 -」 p.1~5 (원본 PDF 이미지 대조 2026-11-21)
+
+verify: verify/SGU-M21B.py::p01
+
+stimuli:
+- label: 가
+  body: |
+    닫힌구간 $[a,b]$의 임의의 점 $x$에서 $x$축에 수직인 평면으로 자른 단면의 넓이가 $S(x)$인 입체도형의 부피 $V$는 다음과 같다.
+    $$V=\int_a^b S(x)\,dx$$
+- label: 나
+  body: |
+    미분가능한 두 함수 $y=f(u)$, $u=g(x)$에 대하여 합성함수 $y=f(g(x))$의 도함수는 다음과 같이 나타낼 수 있다.
+    $$\frac{dy}{dx}=\frac{dy}{du}\,\frac{du}{dx}$$
+- label: 다
+  body: |
+    함수 $f(t)$가 실수 $a$를 포함하는 구간에서 연속이면 이 구간에 속하는 임의의 $x$에 대하여 다음이 성립한다.
+    $$\frac{d}{dx}\int_a^x f(t)\,dt=f(x)$$
+
+stem: |
+  (시험시간 50분) 높이가 $H\,(H>2)$인 항아리에 물이 가득 채워져 있다. 이 항아리 바닥에 갑자기 작은 구멍이 생겨 물이 새기 시작한다. 항아리 바닥으로부터 수면까지의 높이가 $x\,(x>0)$일 때, 수면의 넓이는 $f(x)$이고, 구멍을 통해 빠져나가는 물의 부피는 시간 당 $2x$이다. 함수 $f(x)$는 구간 $[0,H]$에서 연속이고 모든 $h\in(0,H]$에 대하여 다음 식을 만족한다.
+  $$\int_0^h f(x)\,dx=\lim_{n\to\infty}\left\{\left(\frac hn\right)^3e^{-\frac hn}+4\left(\frac hn\right)^3e^{-\frac{2h}{n}}+9\left(\frac hn\right)^3e^{-\frac{3h}{n}}+\cdots+n^2\left(\frac hn\right)^3e^{-h}\right\}$$
+
+subparts:
+- id: '1'
+  stem: |
+    함수 $f(x)$를 구하시오.
+  points: 2
+  depends_on: []
+  answer: {kind: expression, value: 'x**2*exp(-x)', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: 일반항을 $\left(\frac{kh}{n}\right)^2e^{-\frac{kh}{n}}\cdot\frac hn$으로 보면 우변은 $\int_0^h x^2e^{-x}dx$이다.
+    steps:
+    - {id: 1a, content: '$\int_0^hf(x)dx=\int_0^hx^2e^{-x}dx$ ($0<h\le H$) $\Rightarrow f(x)=x^2e^{-x}$', criteria: ['1.M1', '1.A1']}
+    hint_ladder:
+    - $k^2\left(\frac hn\right)^3=\left(\frac{kh}{n}\right)^2\cdot\frac hn$이다.
+  - id: S1-B
+    audience: B
+    source_flow: 모의논술자료집 p.4
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        주어진 극한은
+        $$\lim_{n\to\infty}\sum_{k=1}^{n}\left(\frac{kh}{n}\right)^2e^{-\frac{kh}{n}}\left(\frac hn\right)$$
+        로 쓸 수 있다.
+      criteria: ['1.M1']
+    - id: 1b-2
+      content: |
+        여기에서 $\Delta x=h/n$, $x_k=k\dfrac hn$이라고 두면, 정적분과 급수의 합 사이의 관계를 이용하여 $\displaystyle\lim_{n\to\infty}\sum_{k=1}^{n}x_k^2e^{-x_k}\Delta x=\int_0^h x^2e^{-x}\,dx$로 나타낼 수 있다. 따라서 $f(x)=x^2e^{-x}$.
+      criteria: ['1.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 1, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 1
+      evidence: |
+        극한식을 $\sum\left(\frac{kh}{n}\right)^2e^{-\frac{kh}{n}}\frac hn$ 꼴(구분구적법)로 정리했다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1]
+    - id: 1.A1
+      mark_type: A
+      points: 1
+      evidence: |
+        $f(x)=x^2e^{-x}$를 구했다(공식: $f(x)$를 구하면 2점 — 마크 분할은 입력자).
+      depends_on: [1.M1]
+      steps: [1b-2]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '2'
+  stem: |
+    수면의 높이가 $x$일 때, 항아리에 채워진 물의 부피를 나타내는 함수 $V(x)$를 구하시오.
+  points: 2
+  depends_on: ['1']
+  answer: {kind: expression, value: '2 - exp(-x)*(x**2 + 2*x + 2)', equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: $V(x)=\int_0^x z^2e^{-z}dz$를 부분적분 두 번으로 계산한다.
+    steps:
+    - {id: 2a, content: '$V(x)=\int_0^xz^2e^{-z}dz=-e^{-x}(x^2+2x+2)+2$', criteria: ['2.M1', '2.A1']}
+    hint_ladder:
+    - 단면의 넓이가 $f(z)$이므로 부피는 $\int_0^x f(z)dz$.
+  - id: S2-B
+    audience: B
+    source_flow: 모의논술자료집 p.4
+    method_no: 1
+    steps:
+    - id: 2b-1
+      content: |
+        제시문 [가]를 참고하고 부분적분법을 이용해서
+        $$V(x)=\int_0^x f(z)\,dz=\int_0^x z^2e^{-z}\,dz=\left[z^2(-e^{-z})\right]_0^x-\int_0^x 2z(-e^{-z})\,dz=-x^2e^{-x}+2\int_0^x ze^{-z}\,dz$$
+        로 쓸 수 있다.
+      criteria: ['2.M1']
+    - id: 2b-2
+      content: |
+        여기에서 $\displaystyle\int_0^x ze^{-z}\,dz=\left[z(-e^{-z})\right]_0^x-\int_0^x(-e^{-z})\,dz=-xe^{-x}-e^{-x}+1$이므로,
+        $V(x)=-e^{-x}(x^2+2x+2)+2$를 구할 수 있다.
+      criteria: ['2.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 1, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 1
+      evidence: |
+        $V(x)=\displaystyle\int_0^x f(z)dz$로 놓고 부분적분을 적용했다.
+      depends_on: []
+      implied_ok: false
+      ft: {allowed: true, from: [1.A1], max_points: 1}
+      steps: [2b-1]
+    - id: 2.A1
+      mark_type: A
+      points: 1
+      evidence: |
+        $V(x)=-e^{-x}(x^2+2x+2)+2$를 얻었다(공식: 정적분 계산 2점 — 마크 분할은 입력자).
+      depends_on: [2.M1]
+      steps: [2b-2]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '3'
+  stem: |
+    수면의 높이가 $x$일 때, 수면의 하강 속력을 구하시오.
+  points: 4
+  depends_on: ['1']
+  answer: {kind: expression, value: '2*exp(x)/x', equivalents: [], tolerance: null}
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: $\frac{dV}{dt}=f(x)\frac{dx}{dt}=-2x$에서 $\left\lvert\frac{dx}{dt}\right\rvert=\frac{2x}{x^2e^{-x}}$.
+    steps:
+    - {id: 3a, content: '$\left\lvert\tfrac{dx}{dt}\right\rvert=\tfrac{2x}{f(x)}=\tfrac{2e^x}{x}$', criteria: ['3.M1', '3.A1']}
+    hint_ladder:
+    - 부피의 시간 변화율과 높이의 시간 변화율을 연쇄법칙으로 잇는다.
+  - id: S3-B
+    audience: B
+    source_flow: 모의논술자료집 p.4
+    method_no: 1
+    steps:
+    - id: 3b-1
+      content: |
+        제시문 [나]와 [다]를 이용하면 $\dfrac{dV}{dt}=\dfrac{dV}{dx}\dfrac{dx}{dt}=f(x)\dfrac{dx}{dt}$이다.
+      criteria: ['3.M1']
+    - id: 3b-2
+      content: |
+        여기에서 $\dfrac{dV}{dt}=-2x$와 $f(x)=x^2e^{-x}$이므로 수면의 하강 속력은 $\left\lvert\dfrac{dx}{dt}\right\rvert=\dfrac{2e^x}{x}$이다.
+      criteria: ['3.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 1, isw: true}
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 2
+      evidence: |
+        $\dfrac{dV}{dt}=f(x)\dfrac{dx}{dt}$(합성함수의 미분 + 제시문 [다])를 세웠다.
+      depends_on: []
+      implied_ok: false
+      ft: {allowed: true, from: [1.A1], max_points: 2}
+      steps: [3b-1]
+    - id: 3.A1
+      mark_type: A
+      points: 2
+      evidence: |
+        $\dfrac{dV}{dt}=-2x$를 대입해 하강 속력 $\dfrac{2e^x}{x}$를 구했다(공식 4점, 부분점수 없음·부호 실수 −1점 — 마크 분할은 입력자).
+      depends_on: [3.M1]
+      steps: [3b-2]
+    deductions:
+    - {code: D3-1, condition: '부호 실수(공식 −1점)', effect: minus, value: 1}
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '4'
+  stem: |
+    수면의 하강 속력이 가장 작을 때, 수면의 높이와 하강 속력을 구하시오.
+  points: 2
+  depends_on: ['3']
+  answer: {kind: expression, value: 'x = 1; speed = 2*E', equivalents: [], tolerance: null}
+  solutions:
+  - id: S4-A
+    audience: A
+    method_no: 1
+    key_idea: $\frac{d}{dx}\frac{2e^x}{x}=\frac{2e^x(x-1)}{x^2}$이므로 $x=1$에서 최소 $2e$ ($H>2$이므로 $x=1$은 범위 안).
+    steps:
+    - {id: 4a, content: '$x=1$에서 최솟값 $2e$', criteria: ['4.M1', '4.A1']}
+    hint_ladder:
+    - 하강 속력을 $x$에 대해 미분해 부호를 조사한다.
+  - id: S4-B
+    audience: B
+    source_flow: 모의논술자료집 p.4~5
+    method_no: 1
+    steps:
+    - id: 4b-1
+      content: |
+        수면의 하강 속력의 도함수는 $\dfrac{d}{dx}\left(\left\lvert\dfrac{dx}{dt}\right\rvert\right)=\dfrac{2e^x(x-1)}{x^2}$이다. 이를 이용하여 수면 높이에 따른 하강 속력의 개형(감소하다가 증가)을 찾을 수 있다. [그림: 가로축 $x$($0$~$3$), 세로축 $\lvert dx/dt\rvert$의 그래프. $x\to0+$에서 매우 크고, 감소하다가 $x=1$ 부근에서 약 $5.4$의 최솟값을 가진 뒤 다시 증가하여 $x=3$에서 약 $13.4$]
+      criteria: ['4.M1']
+    - id: 4b-2
+      content: |
+        $x=1$일 때 $\dfrac{d}{dx}\left(\left\lvert\dfrac{dx}{dt}\right\rvert\right)=0$이 되어, 하강 속력은 최솟값 $2e$를 갖는다.
+      criteria: ['4.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 1, isw: true}
+    criteria:
+    - id: 4.M1
+      mark_type: M
+      points: 1
+      evidence: |
+        하강 속력을 $x$에 대해 미분하여 $\dfrac{2e^x(x-1)}{x^2}$의 부호로 증감을 판정했다.
+      depends_on: []
+      implied_ok: false
+      ft: {allowed: true, from: [3.A1], max_points: 1}
+      steps: [4b-1]
+    - id: 4.A1
+      mark_type: A
+      points: 1
+      evidence: |
+        수면의 높이 $x=1$과 최소 하강 속력 $2e$를 구했다(공식: 최솟값 2점, 부호 실수 −1점 — 마크 분할은 입력자).
+      depends_on: [4.M1]
+      steps: [4b-2]
+    deductions:
+    - {code: D4-1, condition: '부호 실수(공식 −1점)', effect: minus, value: 1}
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+remedy_links: []
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

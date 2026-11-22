@@ -1,0 +1,440 @@
+# 서강대 2024학년도 수시 논술(자연계열) 2차 문제 2 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+# 2차 모집단위: 물리학과, 전자공학과, 화공생명공학과, 인공지능학과. 예상소요 시간 60분.
+schema_version: '2.0'
+id: SGU-G24B-02
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: SGU
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 추론
+points: 60   # 배점 비공개 — 문제 2 비중 60%(논술가이드북2027)만 공개, 소문항은 균등 12점으로 나눔
+time_estimate_min: 60
+intent: |
+  도함수로 그래프 개형을 그려 방정식·부등식에 적용하고, 접선의 방정식과 정적분으로 넓이 함수를 구하며, 최솟값·이계도함수·우극한을 활용해 넓이 함수와 그 역함수의 그래프 개형을 그리는 능력을 본다.
+key_idea: |
+  두 접선의 교점이 $\left(\dfrac{2t}{t^2+1},\dfrac{2t}{t^2+1}\right)$로 직선 $y=x$ 위에 있고, $S''(t)=\dfrac{-2(t^2-1)h(t)}{t^2(t^2+1)^3}$($h(t)=t^4-8t^2-1$)로 변곡점이 【2-1】의 근 $a$에서 생긴다.
+stuck: |
+  $t^2(t^2+1)^3S''(t)$를 정리해 $-2(t^2-1)(t^4-8t^2-1)$로 인수분해하고 【2-1】과 연결하는 것
+idea_tags: [IDEA-RECIPROCAL-TANGENTS-AREA, IDEA-INFLECTION-FROM-AUX-POLY]
+tags: [접선, 넓이 함수, 역함수 그래프, 변곡점]
+elements:
+  materials:
+  - '사차방정식 $x^4-8x^2-1=0$'
+  - '곡선 $y=\dfrac1x$ 위의 두 점 $\mathrm{P}_1\left(\dfrac1t,t\right)$, $\mathrm{P}_2\left(t,\dfrac1t\right)$에서의 접선 $l_1,l_2$'
+  - '곡선과 두 접선으로 둘러싸인 넓이 $S(t)$'
+  - '$y=t-2\ln t$'
+  concepts:
+  - '다항함수의 그래프와 실근의 개수'
+  - '접선의 방정식'
+  - '곡선과 직선 사이의 넓이(정적분)'
+  - '함수의 최솟값'
+  - '몫의 미분법과 이계도함수'
+  - '우극한'
+  - '역함수의 그래프(직선 $y=t$ 대칭)'
+  tools:
+  - '$f(1)<0<f(3)$와 증감표'
+  - '$l_1:y=-t^2x+2t$, $l_2:y=-\dfrac{1}{t^2}x+\dfrac2t$'
+  - '$S(t)=2\ln t-\dfrac{2(t^2-1)}{t^2+1}$'
+  - '$S''(t)=\dfrac{2(t+1)^2(t-1)^2}{t(t^2+1)^2}$'
+  - '$\ln2<\ln e=1$'
+  conditions:
+  - '$t>1$'
+  - '$a$는 $x^4-8x^2-1=0$의 1보다 큰 해'
+  stimuli_used: [가, 나, 다]
+  subpart_links: '【2-3】~【2-5】는 【2-2】의 $S(t)$, 【2-5】는 【2-1】의 근 $a$와 【2-4】의 $S''''$를 사용'
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅱ, 미적분]
+  scope_2028: calc2
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 접선의 방정식과 정적분으로 넓이를 구하고, 도함수·이계도함수로 그래프의 개형을 그릴 수 있다(요지)
+    verified: false
+  content_area: 미분법·적분법
+  behavior_domain: 추론
+  unit_path: [미적분, 미분법, 도함수의 활용, 곡선의 오목과 볼록]
+  key_concepts: [접선의 방정식, 넓이, 최솟값, 이계도함수, 역함수의 그래프]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 서강대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 서강대학교
+  admission_year: 2024
+  admission_type: 수시 논술(일반)
+  track: 자연계열
+  question_no: 2
+  official_url: https://admission.sogang.ac.kr/upload/BBS0014/202407031152567GS2GF.PDF
+  retrieved_at: 2026-11-21
+  original_points: null   # 배점 비공개(문제 비중 60%만 공개)
+  rights_notice: 미확인(대학 원본 PDF 표지 문구 확인 필요)
+  transcribed_from: 서강대학교 입학처 「2025 논술가이드북」 p.65 (원본 PDF 이미지 대조 2026-11-21; 교차 확인 「2027 논술가이드북」 2024학년도 기출문제 2차)
+
+verify: verify/SGU-G24B.py::p02
+
+stimuli:
+- label: 가
+  body: |
+    함수 $f(x)$가 $x=a$에서 미분가능할 때, 곡선 $y=f(x)$ 위의 점 $(a,\ f(a))$에서의 접선의 방정식은
+    $y-f(a)=f'(a)(x-a)$이다.
+- label: 나
+  # 원문(2025 가이드북 p.65) 그대로: '$f'(x)>$이면', '$f'(x)<$이면' — 0이 빠져 인쇄됨
+  body: |
+    함수 $f(x)$가 어떤 구간에서 미분가능하고, 이 구간의 모든 $x$에 대하여
+    ① $f'(x)>$이면 $f(x)$는 이 구간에서 증가한다.
+    ② $f'(x)<$이면 $f(x)$는 이 구간에서 감소한다.
+- label: 다
+  body: |
+    함수 $y=f(x)$의 그래프의 개형은 다음과 같은 사항을 조사하여 그릴 수 있다.
+    ① 함수의 정의역과 치역
+    ② 곡선과 좌표축의 교점
+    ③ 곡선의 대칭성과 주기
+    ④ 함수의 증가와 감소, 극대와 극소
+    ⑤ 곡선의 오목과 볼록, 변곡점
+    ⑥ $\displaystyle\lim_{x\to\infty}f(x)$, $\displaystyle\lim_{x\to-\infty}f(x)$, 점근선
+
+# 원문에서 이 문단은 【2-1】 다음에 있음 — 공통 발문에 옮김
+stem: |
+  1보다 큰 실수 $t$에 대하여, 곡선 $y=\dfrac1x$ 위의 두 점 $\mathrm{P}_1\left(\dfrac1t,\ t\right)$와 $\mathrm{P}_2\left(t,\ \dfrac1t\right)$에서의 접선을 각각 $l_1$과 $l_2$라 하고,
+  곡선 $y=\dfrac1x$과 두 접선 $l_1$과 $l_2$로 둘러싸인 도형의 넓이를 $S(t)$라 하자. 문항 【2-2】~【2-5】에 답하시오.
+
+subparts:
+- id: '2-1'
+  stem: |
+    방정식 $x^4-8x^2-1=0$의 1보다 큰 해가 오직 하나 존재함을 보이시오.
+  points: 12
+  depends_on: []
+  answer: {kind: proof, value: null, equivalents: [], tolerance: null}
+  solutions:
+  - id: S21-A
+    audience: A
+    method_no: 1
+    key_idea: $f'(x)=4x(x+2)(x-2)$로 $x>2$에서 증가, $1<x\le2$에서 $f<0$, $f(3)=8>0$.
+    steps:
+    - {id: 21a, content: '증감표와 $f(1)=-8<0<f(3)=8$로 1보다 큰 해는 하나', criteria: ['2-1.M1', '2-1.R1']}
+    hint_ladder:
+    - $f(x)=x^4-8x^2-1$의 증감표를 그려 보자.
+  - id: S21-B
+    audience: B
+    source_flow: '논술가이드북2025 p.68'
+    method_no: 1
+    steps:
+    - id: 21b-1
+      content: |
+        $f(x)=x^4-8x^2-1$이라 하면 $f'(x)=4x^3-16x=4x(x+2)(x-2)$이므로 $f$는 $x<-2$에서 감소, $-2<x<0$에서 증가, $0<x<2$에서 감소, $x>2$에서 증가하고 $f(-2)=-17$, $f(0)=-1$, $f(2)=-17$이다.
+      criteria: ['2-1.M1']
+    - id: 21b-2
+      content: |
+        $f(1)=-8<0$이고 $f(3)=8>0$이라는 사실과 $f(x)$의 그래프에 의해 방정식 $x^4-8x^2-1=0$의 1보다 큰 해는 오직 하나 존재한다.
+      criteria: ['2-1.R1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2-1.M1
+      mark_type: M
+      points: 6
+      evidence: |
+        $f'(x)=4x(x+2)(x-2)$와 제시문 [나]로 증감표(극값 $-17,-1,-17$)를 작성했다.
+      depends_on: []
+      implied_ok: false
+      steps: [21b-1]
+    - id: 2-1.R1
+      mark_type: R
+      points: 6
+      evidence: |
+        $f(1)<0<f(3)$와 $x>2$에서의 증가($1<x\le2$에서 $f<0$)로 1보다 큰 해가 하나뿐임을 서술했다.
+      depends_on: [2-1.M1]
+      implied_ok: false
+      steps: [21b-2]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '2-2'
+  stem: |
+    함수 $S(t)$를 구하시오.
+  points: 12
+  depends_on: []
+  answer: {kind: expression, value: '2*log(t) - 2*(t**2 - 1)/(t**2 + 1)', equivalents: [], tolerance: null}
+  solutions:
+  - id: S22-A
+    audience: A
+    method_no: 1
+    key_idea: 두 접선의 교점 $b=\dfrac{2t}{t^2+1}$에서 나누어, 곡선 아래 넓이에서 두 사다리꼴 넓이를 뺀다.
+    steps:
+    - {id: 22a, content: '$S(t)=\ln t-\ln\tfrac1t-b\left(t-\tfrac1t\right)=2\ln t-\tfrac{2(t^2-1)}{t^2+1}$', criteria: ['2-2.M1', '2-2.M2', '2-2.A1']}
+    hint_ladder:
+    - $y=\dfrac1x$는 직선 $y=x$에 대칭이다. 두 접선의 교점은 어디에 있을까?
+  - id: S22-B
+    audience: B
+    source_flow: '논술가이드북2025 p.68'
+    method_no: 1
+    steps:
+    - id: 22b-1
+      content: |
+        $y=\dfrac1x$을 미분하면 $y'=-\dfrac{1}{x^2}$이므로 제시문 [가]에 의해 두 접선은 $y-t=-t^2\left(x-\dfrac1t\right)$, $y-\dfrac1t=-\dfrac{1}{t^2}(x-t)$, 즉 $y=-t^2x+2t$, $y=-\dfrac{1}{t^2}x+\dfrac2t$이다.
+      criteria: ['2-2.M1']
+    - id: 22b-2
+      content: |
+        $-t^2x+2t=-\dfrac{1}{t^2}x+\dfrac2t$를 풀면 $t>1$이므로 $x=\dfrac{2t}{t^2+1}$이고 교점은 $\left(\dfrac{2t}{t^2+1},\ \dfrac{2t}{t^2+1}\right)$이다.
+      criteria: ['2-2.M1']
+    - id: 22b-3
+      content: |
+        $b=\dfrac{2t}{t^2+1}$라 놓고 적분과 사다리꼴의 넓이를 이용하면
+        $S(t)=\displaystyle\int_{\frac1t}^{t}\frac1x\,dx-\frac12(t+b)\left(b-\frac1t\right)-\frac12\left(b+\frac1t\right)(t-b)$
+      criteria: ['2-2.M2']
+    - id: 22b-4
+      content: |
+        $=\ln t-\ln\dfrac1t-b\left(t-\dfrac1t\right)=2\ln t-\dfrac{2(t^2-1)}{t^2+1}$
+      criteria: ['2-2.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2-2.M1
+      mark_type: M
+      points: 4
+      evidence: |
+        두 접선의 방정식과 교점 $\left(\dfrac{2t}{t^2+1},\dfrac{2t}{t^2+1}\right)$을 구했다.
+      depends_on: []
+      implied_ok: false
+      steps: [22b-1, 22b-2]
+    - id: 2-2.M2
+      mark_type: M
+      points: 4
+      evidence: |
+        곡선 아래 정적분에서 두 사다리꼴(또는 접선 아래 넓이)을 빼는 식을 세웠다.
+      depends_on: [2-2.M1]
+      implied_ok: false
+      steps: [22b-3]
+    - id: 2-2.A1
+      mark_type: A
+      points: 4
+      evidence: |
+        $S(t)=2\ln t-\dfrac{2(t^2-1)}{t^2+1}$을 얻었다.
+      depends_on: [2-2.M2]
+      steps: [22b-4]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '2-3'
+  stem: |
+    함수 $y=t-2\ln t\ \ (t>1)$의 최솟값을 구하고, 1보다 큰 실수 $t$에 대하여 $S(t)<t$임을 보이시오.
+  points: 12
+  depends_on: ['2-2']
+  answer: {kind: value, value: '2 - 2*log(2)', equivalents: [], tolerance: null}
+  solutions:
+  - id: S23-A
+    audience: A
+    method_no: 1
+    key_idea: $g(t)=t-2\ln t$는 $t=2$에서 최소 $2-2\ln2>0$, $t-S(t)=g(t)+\dfrac{2(t^2-1)}{t^2+1}>g(t)$.
+    steps:
+    - {id: 23a, content: '최솟값 $2-2\ln2=2(1-\ln2)>0$이므로 $t-S(t)>0$', criteria: ['2-3.M1', '2-3.A1', '2-3.R1']}
+    hint_ladder:
+    - $t-S(t)$를 $t-2\ln t$가 들어가게 정리해 보자.
+  - id: S23-B
+    audience: B
+    source_flow: '논술가이드북2025 p.68'
+    method_no: 1
+    steps:
+    - id: 23b-1
+      content: |
+        $g(t)=t-2\ln t\ (t>1)$라 하면 $g'(t)=1-\dfrac2t=\dfrac{t-2}{t}$이므로 $1<t<2$에서 감소, $t>2$에서 증가한다.
+      criteria: ['2-3.M1']
+    - id: 23b-2
+      content: |
+        따라서 $y=t-2\ln t\ (t>1)$의 최솟값은 $g(2)=2-2\ln2$이다.
+      criteria: ['2-3.A1']
+    - id: 23b-3
+      content: |
+        $t>1$일 때 $\dfrac{2(t^2-1)}{t^2+1}>0$와 $\ln2<\ln e=1$임을 이용하면
+        $t-S(t)=t-2\ln t+\dfrac{2(t^2-1)}{t^2+1}>t-2\ln t\ge2-2\ln2=2(1-\ln2)>0$이 되어 $S(t)<t$이다.
+      criteria: ['2-3.R1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2-3.M1
+      mark_type: M
+      points: 4
+      evidence: |
+        $g'(t)=\dfrac{t-2}{t}$로 증감표를 작성했다.
+      depends_on: []
+      implied_ok: false
+      steps: [23b-1]
+    - id: 2-3.A1
+      mark_type: A
+      points: 3
+      evidence: |
+        최솟값 $2-2\ln2$를 얻었다.
+      depends_on: [2-3.M1]
+      steps: [23b-2]
+    - id: 2-3.R1
+      mark_type: R
+      points: 5
+      evidence: |
+        $t-S(t)>t-2\ln t\ge2-2\ln2>0$($\ln2<1$)으로 $S(t)<t$를 보였다.
+      depends_on: [2-3.A1]
+      implied_ok: false
+      ft: {allowed: true, from: [2-2.A1], max_points: 5}
+      steps: [23b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '2-4'
+  stem: |
+    극한 $\displaystyle\lim_{t\to1+}S'(t)$를 조사하고, $t^2(t^2+1)^3S''(t)$를 구하시오.
+  points: 12
+  depends_on: ['2-2']
+  answer: {kind: expression, value: 'limit=0; T=-2*(t**2+1)**3 - 8*t**2*(t**2+1) + 32*t**4', equivalents: [], tolerance: null}
+  solutions:
+  - id: S24-A
+    audience: A
+    method_no: 1
+    key_idea: $S'(t)=\dfrac2t-\dfrac{8t}{(t^2+1)^2}$을 한 번 더 미분한다.
+    steps:
+    - {id: 24a, content: '$\lim_{t\to1+}S''(t)=2-2=0$, $t^2(t^2+1)^3S''''(t)=-2(t^2+1)^3-8t^2(t^2+1)+32t^4$', criteria: ['2-4.M1', '2-4.A1', '2-4.A2']}
+    hint_ladder:
+    - $\dfrac{t^2-1}{t^2+1}=1-\dfrac{2}{t^2+1}$로 고치면 미분이 쉽다.
+  - id: S24-B
+    audience: B
+    source_flow: '논술가이드북2025 p.69'
+    method_no: 1
+    steps:
+    - id: 24b-1
+      content: |
+        $S(t)=2\ln t-\dfrac{2(t^2-1)}{t^2+1}$이므로 $S'(t)=\dfrac2t-2\times\dfrac{2t(t^2+1)-(t^2-1)(2t)}{(t^2+1)^2}=\dfrac2t-\dfrac{8t}{(t^2+1)^2}$이다.
+      criteria: ['2-4.M1']
+    - id: 24b-2
+      content: |
+        $\displaystyle\lim_{t\to1+}S'(t)=\frac21-\frac{8}{(1^2+1)^2}=0$이다.
+      criteria: ['2-4.A1']
+    - id: 24b-3
+      content: |
+        $S''(t)=-\dfrac{2}{t^2}-8\left\{\dfrac{1}{(t^2+1)^2}-\dfrac{4t^2}{(t^2+1)^3}\right\}=-\dfrac2{t^2}-\dfrac{8}{(t^2+1)^2}+\dfrac{32t^2}{(t^2+1)^3}$이므로
+        $t^2(t^2+1)^3S''(t)=-2(t^2+1)^3-8t^2(t^2+1)+32t^4$이다.
+      criteria: ['2-4.A2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2-4.M1
+      mark_type: M
+      points: 4
+      evidence: |
+        몫의 미분법으로 $S'(t)=\dfrac2t-\dfrac{8t}{(t^2+1)^2}$을 구했다.
+      depends_on: []
+      implied_ok: false
+      ft: {allowed: true, from: [2-2.A1], max_points: 4}
+      steps: [24b-1]
+    - id: 2-4.A1
+      mark_type: A
+      points: 3
+      evidence: |
+        $\displaystyle\lim_{t\to1+}S'(t)=0$을 얻었다.
+      depends_on: [2-4.M1]
+      steps: [24b-2]
+    - id: 2-4.A2
+      mark_type: A
+      points: 5
+      evidence: |
+        $t^2(t^2+1)^3S''(t)=-2(t^2+1)^3-8t^2(t^2+1)+32t^4$(또는 동치식 $-2(t^2-1)(t^4-8t^2-1)$)을 얻었다.
+      depends_on: [2-4.M1]
+      steps: [24b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '2-5'
+  stem: |
+    두 함수 $y=S(t)$와 $y=S^{-1}(t)$의 그래프의 개형을 한 평면에 그리시오. (단, 방정식 $x^4-8x^2-1=0$의 1보다 큰 해는 $a$라 한다.)
+  points: 12
+  depends_on: ['2-1', '2-3', '2-4']
+  answer: {kind: proof, value: null, equivalents: [], tolerance: null}
+  solutions:
+  - id: S25-A
+    audience: A
+    method_no: 1
+    key_idea: $S'>0$, $S(1+)=0$, $S\to\infty$, $t=a$에서 변곡(아래로 볼록 → 위로 볼록), $S(t)<t$이므로 $S^{-1}$은 $y=t$ 위쪽에 대칭으로 그린다.
+    steps:
+    - {id: 25a, content: '$S''(t)=\tfrac{2(t+1)^2(t-1)^2}{t(t^2+1)^2}>0$, $S''''(t)=\tfrac{-2(t^2-1)h(t)}{t^2(t^2+1)^3}$, 변곡점 $(a,S(a))$', criteria: ['2-5.M1', '2-5.M2', '2-5.A1']}
+    hint_ladder:
+    - 【2-4】의 식을 $(t^2-1)$로 묶으면 남는 인수는 무엇인가?
+    - 【2-3】의 $S(t)<t$는 두 그래프의 위치 관계를 말해 준다.
+  - id: S25-B
+    audience: B
+    source_flow: '논술가이드북2025 p.69'
+    method_no: 1
+    steps:
+    - id: 25b-1
+      content: |
+        $S'(t)=\dfrac2t-\dfrac{8t}{(t^2+1)^2}=2\times\dfrac{(t^2+1)^2-(2t)^2}{t(t^2+1)^2}=\dfrac{2(t+1)^2(t-1)^2}{t(t^2+1)^2}$이므로 $(1,\infty)$의 모든 $t$에 대하여 $S'(t)>0$이다. 따라서 $S(t)$의 극값은 존재하지 않고 제시문 [나]에 의해 $S(t)$는 $(1,\infty)$에서 증가한다.
+      criteria: ['2-5.M1']
+    - id: 25b-2
+      content: |
+        $\displaystyle\lim_{t\to1+}S(t)=2\ln1-\frac{2(1^2-1)}{1^2+1}=0$이고 $\displaystyle\lim_{t\to\infty}S(t)=\infty$이므로 치역은 $(0,\infty)$이다.
+      criteria: ['2-5.M1']
+    - id: 25b-3
+      content: |
+        $h(t)=t^4-8t^2-1$이라 하면 $S''(t)=\dfrac{-2(t^2-1)h(t)}{t^2(t^2+1)^3}$이다. $t>1$일 때 $S''(a)=0$이고 【2-1】의 그래프로부터 ① $1<t<a$이면 $h(t)<0$이므로 $S''(t)>0$, 곡선은 아래로 볼록, ② $t>a$이면 $h(t)>0$이므로 $S''(t)<0$, 곡선은 위로 볼록이다. 그러므로 점 $(a,S(a))$는 변곡점이다.
+      criteria: ['2-5.M2']
+    - id: 25b-4
+      content: |
+        따라서 $y=S(t)$의 그래프의 개형을 그린 후, 이를 직선 $y=t$에 대칭이 되도록 역함수 $y=S^{-1}(t)$의 그래프를 그린다. [그림: $y=S(t)$는 $(1,0)$에서 시작해 $t=a$까지 아래로 볼록하게 증가하다가 이후 위로 볼록하게 증가하며 $y=t$ 아래에 있음. $y=S^{-1}(t)$는 $(0,1)$에서 시작해 높이 $a$ 부근에서 변곡하며 $y=t$ 위에 있음]
+      criteria: ['2-5.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2-5.M1
+      mark_type: M
+      points: 4
+      evidence: |
+        $S'(t)>0$으로 증가, $S(1+)=0$, $S(\infty)=\infty$에서 치역 $(0,\infty)$를 구했다.
+      depends_on: []
+      implied_ok: false
+      ft: {allowed: true, from: [2-4.M1], max_points: 4}
+      steps: [25b-1, 25b-2]
+    - id: 2-5.M2
+      mark_type: M
+      points: 4
+      evidence: |
+        $S''(t)$를 $h(t)=t^4-8t^2-1$로 나타내 【2-1】로 $t=a$ 전후 오목·볼록과 변곡점 $(a,S(a))$를 판정했다.
+      depends_on: []
+      implied_ok: false
+      ft: {allowed: true, from: [2-4.A2], max_points: 4}
+      steps: [25b-3]
+    - id: 2-5.A1
+      mark_type: A
+      points: 4
+      evidence: |
+        $y=S(t)$와 직선 $y=t$에 대칭인 $y=S^{-1}(t)$를 한 평면에 시작점·변곡점·위치 관계를 반영해 그렸다.
+      depends_on: [2-5.M1, 2-5.M2]
+      steps: [25b-4]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+remedy_links: []
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

@@ -1,0 +1,345 @@
+# 서강대 2025학년도 모의논술 2차(자연계열) 문제 1 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+# 배점 비공개: 자료집에 배점이 없어 소문항당 10점으로 나누고, 채점기준 항목별로 배분함(original_points: null).
+schema_version: '2.0'
+id: SGU-M25B-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: proof
+origin: mock_exam
+school: SGU
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 추론
+points: 40
+time_estimate_min: 50
+intent: |
+  정적분의 정의·기본성질과 평균값 정리로 정적분의 대소관계를 파악하고, 치환적분법으로 적분으로 정의된 함수의 대칭성을 보이며, 이를 이용해 부등식을 유도하고, 정적분과 미분의 관계로 도함수를 구할 수 있는지 평가한다(출제의도 요지).
+key_idea: |
+  $|\cos^3|\le1$ 과 [1-1]의 적분 대소관계로 $\left|\int_0^x t^2\cos^3(x-t)dt\right|\le\frac13x^3$, 홀함수성으로 음수 $x$ 에 확장, $t=x-u$ 치환으로 피적분함수에서 $x$ 를 분리해 미분.
+stuck: |
+  [1-4]에서 피적분함수 안의 $x$ 를 적분 밖으로 꺼내기 위한 치환 $t=x-u$ 와 전개
+idea_tags: [IDEA-INTEGRAL-COMPARISON, IDEA-SEPARATE-PARAMETER-FROM-INTEGRAND]
+tags: [평균값 정리, 적분 부등식, 홀함수, 적분으로 정의된 함수]
+elements:
+  materials:
+  - '$f(x)=x-\tfrac12\int_0^x t^2\cos^3(x-t)\,dt$'
+  - '정적분의 대소관계'
+  concepts:
+  - '평균값 정리'
+  - '정적분의 정의(부정적분의 차)'
+  - '정적분의 기본성질'
+  - '치환적분법'
+  - '정적분과 미분의 관계'
+  - '곱의 미분법'
+  tools:
+  - '$F=\int(h-g)$ 에 평균값 정리'
+  - '$u=-t$ 치환으로 $f(-x)=-f(x)$'
+  - '$-t^2\le t^2\cos^3(x-t)\le t^2$'
+  - '$t=x-u$ 치환 후 $(x-t)^2$ 전개'
+  conditions:
+  - '$x>0$, $x<0$, $x=0$ 경우 구분'
+  - '$-1\le\cos^3\le1$'
+  stimuli_used: [가, 나, 다, 라, 마, 바]
+  subpart_links: '(1-3)은 (1-1)과 (1-2)의 결과를 사용'
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅱ, 미적분]
+  scope_2028: calc2
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 평균값 정리·치환적분·정적분과 미분의 관계로 적분으로 정의된 함수를 다룰 수 있다(요지)
+    verified: false
+  content_area: 적분법
+  behavior_domain: 추론
+  unit_path: [미적분, 적분법, 정적분]
+  key_concepts: [평균값 정리, 치환적분법, 정적분과 미분의 관계]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 서강대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 서강대학교
+  admission_year: 2025
+  admission_type: 수시 모의논술
+  track: 자연계열
+  question_no: 1
+  official_url: https://admission.sogang.ac.kr/upload/BBS0007/20250218140818JBG5CX.PDF
+  retrieved_at: 2026-11-21
+  original_points: null   # 배점 비공개
+  rights_notice: 미확인(대학 원본 PDF 표지 문구 확인 필요)
+  transcribed_from: 서강대학교 입학처 「2025학년도 서강대학교 모의논술 자료집 2차 - 자연계열 -」 p.1-7 (원본 PDF 이미지 대조 2026-11-21)
+
+verify: verify/SGU-M25B.py::p01
+
+stimuli:
+- label: 가
+  body: |
+    함수 $f(x)$가 닫힌구간 $[a,b]$에서 연속이고 열린구간 $(a,b)$에서 미분가능하면
+    $$\frac{f(b)-f(a)}{b-a}=f'(c)$$
+    인 $c$가 $a$와 $b$ 사이에 적어도 하나 존재한다.
+- label: 나
+  body: |
+    닫힌구간 $[a,b]$에서 연속인 함수 $f(x)$의 한 부정적분을 $F(x)$라고 하면
+    $$\int_a^b f(x)\,dx=F(b)-F(a)$$
+- label: 다
+  body: |
+    함수 $f(x)$, $g(x)$가 닫힌구간 $[a,b]$에서 연속일 때
+    1. $\displaystyle\int_a^b kf(x)\,dx=k\int_a^b f(x)\,dx$ (단, $k$는 상수)
+    2. $\displaystyle\int_a^b\{f(x)+g(x)\}\,dx=\int_a^b f(x)\,dx+\int_a^b g(x)\,dx$
+    3. $\displaystyle\int_a^b\{f(x)-g(x)\}\,dx=\int_a^b f(x)\,dx-\int_a^b g(x)\,dx$
+- label: 라
+  body: |
+    닫힌구간 $[a,b]$에서 연속인 함수 $f(x)$에 대하여 미분가능한 함수 $x=g(t)$의 도함수 $g'(t)$가 $a=g(\alpha)$, $b=g(\beta)$일 때 $\alpha$, $\beta$를 포함하는 구간에서 연속이면
+    $$\int_a^b f(x)\,dx=\int_\alpha^\beta f(g(t))g'(t)\,dt$$
+- label: 마
+  body: |
+    함수 $f(x)$가 실수 $a$를 포함하는 구간에서 연속이면 이 구간에 속하는 임의의 $x$에 대하여
+    $$\frac{d}{dx}\int_a^x f(t)\,dt=f(x)$$
+- label: 바
+  body: |
+    함수 $f(x)$, $g(x)$가 미분가능할 때
+    1. $\{kf(x)\}'=kf'(x)$ (단, $k$는 상수)
+    2. $\{f(x)+g(x)\}'=f'(x)+g'(x)$
+    3. $\{f(x)-g(x)\}'=f'(x)-g'(x)$
+    4. $\{f(x)g(x)\}'=f'(x)g(x)+f(x)g'(x)$
+
+stem: |
+  제시문 [가]~[다]를 참고하여 문항 【1-1】에 답하고, 아래와 같이 정의된 함수에 대하여 제시문 [다]~[바]와 문항 【1-1】의 결과를 참고하여 문항 【1-2】~【1-4】에 답하시오.
+
+  실수 전체의 집합에서 함수 $f(x)$를 아래와 같이 정의하자.
+  $$f(x)=x-\frac12\int_0^x t^2\cos^3(x-t)\,dt$$
+
+subparts:
+- id: '1'
+  stem: |
+    두 함수 $g(x)$, $h(x)$가 구간 $[a,b]$에서 연속이고 모든 $x\in(a,b)$에 대하여 $g(x)\le h(x)$일 때 $\displaystyle\int_a^b g(x)\,dx\le\int_a^b h(x)\,dx$임을 보이시오.
+  points: 10
+  depends_on: []
+  answer: {kind: proof, value: null, equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $h-g$ 의 부정적분 $F$ 는 $F'\ge0$ 이므로 평균값 정리로 $F(b)-F(a)\ge0$.
+    steps:
+    - {id: 1a, content: '$\int_a^b h-\int_a^b g=F(b)-F(a)=F''(c)(b-a)\ge0$', criteria: ['1.R1', '1.R2']}
+    hint_ladder:
+    - 차 $h(x)-g(x)$ 의 부정적분에 평균값 정리를 적용하라.
+  - id: S1-B
+    audience: B
+    source_flow: '모의논술자료집 p.6'
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        $f(x)=h(x)-g(x)$라 할 때, $f(x)$의 한 부정적분을 $F(x)$라 하면 모든 $x\in(a,b)$에 대하여 $F'(x)=f(x)\ge0$이므로 제시문 [가]에 의하여 어떤 $c\in(a,b)$에 대하여 $F(b)-F(a)=f(c)(b-a)\ge0$이다.
+      criteria: ['1.R1']
+    - id: 1b-2
+      content: |
+        따라서 제시문 [나]와 [다]에 의하여 $\displaystyle\int_a^b h(x)\,dx-\int_a^b g(x)\,dx=\int_a^b f(x)\,dx=F(b)-F(a)\ge0$.
+      criteria: ['1.R2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.R1
+      mark_type: R
+      points: 5
+      evidence: |
+        제시문 [가]·[나](평균값 정리와 정적분의 정의)로 음이 아닌 함수의 정적분이 음이 아님을 보였다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1, 1a]
+    - id: 1.R2
+      mark_type: R
+      points: 5
+      evidence: |
+        제시문 [다]의 성질로 $\int_a^b h-\int_a^b g=\int_a^b(h-g)\ge0$ 의 대소관계를 결론지었다.
+      depends_on: [1.R1]
+      implied_ok: false
+      steps: [1b-2, 1a]
+    deductions:
+    - {code: D1, effect: minus, points: 2, description: '정적분의 정의와 평균값 정리를 정확하게 이용하지 않으면 감점(원 유의사항, 감점폭 비공개 — DB 임의값)'}
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '2'
+  stem: |
+    모든 실수 $x$에 대하여 $f(x)+f(-x)=0$임을 보이시오.
+  points: 10
+  depends_on: []
+  answer: {kind: proof, value: null, equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: $f(-x)$ 의 적분에서 $u=-t$ 로 치환.
+    steps:
+    - {id: 2a, content: '$\int_0^{-x}t^2\cos^3(-x-t)dt=-\int_0^x u^2\cos^3(x-u)du$', criteria: ['2.M1', '2.R1']}
+    hint_ladder:
+    - $f(-x)$ 를 쓰고 $u=-t$ 로 바꿔 보라. 코사인은 짝함수이다.
+  - id: S2-B
+    audience: B
+    source_flow: '모의논술자료집 p.6'
+    method_no: 1
+    steps:
+    - id: 2b-1
+      content: |
+        $u=-t$로 놓으면, 제시문 [라]에 의하여
+        $$f(-x)=(-x)-\frac12\int_0^{-x}t^2\cos^3(-x-t)\,dt=-x-\frac12\int_0^x(-u)^2\cos^3(-x+u)(-1)\,du$$
+      criteria: ['2.M1']
+    - id: 2b-2
+      content: |
+        $$=-x+\frac12\int_0^x u^2\cos^3(x-u)\,du=-f(x).$$
+      criteria: ['2.R1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 5
+      evidence: |
+        $u=-t$ 치환으로 적분 구간·피적분함수를 바르게 바꿨다.
+      depends_on: []
+      implied_ok: false
+      steps: [2b-1, 2a]
+    - id: 2.R1
+      mark_type: R
+      points: 5
+      evidence: |
+        $\cos$ 의 짝함수성으로 정리해 $f(-x)=-f(x)$ 를 결론지었다.
+      depends_on: [2.M1]
+      implied_ok: false
+      steps: [2b-2, 2a]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '3'
+  stem: |
+    모든 실수 $x$에 대하여 $|f(x)-x|\le\dfrac16|x|^3$임을 보이시오.
+  points: 10
+  depends_on: ['1', '2']
+  answer: {kind: proof, value: null, equivalents: [], tolerance: null}
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: $x>0$ 에서 $-t^2\le t^2\cos^3\le t^2$ 를 [1-1]로 적분, $x<0$ 은 [1-2], $x=0$ 은 자명.
+    steps:
+    - {id: 3a, content: '$\left|\int_0^x t^2\cos^3(x-t)dt\right|\le\tfrac13x^3\Rightarrow|f(x)-x|\le\tfrac16x^3$', criteria: ['3.R1', '3.R2']}
+    hint_ladder:
+    - $|\cos^3|\le1$ 과 [1-1]을 함께 써라.
+    - 음수 $x$ 는 [1-2]의 대칭성으로 양수로 바꿔라.
+  - id: S3-B
+    audience: B
+    source_flow: '모의논술자료집 p.6'
+    method_no: 1
+    steps:
+    - id: 3b-1
+      content: |
+        $x$가 양의 실수라고 하자. 모든 실수 $t$에 대해 $-1\le\cos^3(x-t)\le1$이므로 문항 【1-1】의 결과를 이용하면
+        $$-\frac13x^3=\int_0^x(-t^2)\,dt\le\int_0^x t^2\cos^3(x-t)\,dt\le\int_0^x t^2\,dt=\frac13x^3$$
+        이므로 $\left|\displaystyle\int_0^x t^2\cos^3(x-t)\,dt\right|\le\dfrac13x^3$이다. 따라서 임의의 양의 실수 $x$에 대하여 $|f(x)-x|=\left|-\dfrac12\displaystyle\int_0^x t^2\cos^3(x-t)\,dt\right|\le\dfrac16x^3$이다.
+      criteria: ['3.R1']
+    - id: 3b-2
+      content: |
+        $x$가 음의 실수이면 $t=-x$가 양의 실수이므로 문항 【1-2】의 결과에 의하여 $|f(x)-x|=|f(-t)-(-t)|=|f(t)-t|\le\dfrac16t^3=\dfrac16|x|^3$이다. 마지막으로 $x=0$일 때는 $|f(x)-x|=|0-0|=0=\dfrac16|x|^3$.
+      criteria: ['3.R2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 3.R1
+      mark_type: R
+      points: 5
+      evidence: |
+        [1-1]의 결과로 $x>0$ 일 때 부등식을 유도했다.
+      depends_on: []
+      implied_ok: false
+      steps: [3b-1, 3a]
+    - id: 3.R2
+      mark_type: R
+      points: 5
+      evidence: |
+        [1-2]의 대칭성으로 $x<0$ 일 때도 성립함을 보이고 $x=0$ 도 확인했다.
+      depends_on: [3.R1]
+      implied_ok: false
+      ft: {allowed: true, from: [2.R1], max_points: 5}
+      steps: [3b-2, 3a]
+    deductions:
+    - {code: D1, effect: minus, points: 2, description: '$x$ 가 양수·음수·0 인 경우를 모두 고려하지 않으면 감점(원 유의사항, 감점폭 비공개 — DB 임의값)'}
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '4'
+  stem: |
+    $f'''(0)$의 값을 구하시오.
+  points: 10
+  depends_on: []
+  answer: {kind: value, value: '-1', equivalents: [], tolerance: null}
+  solutions:
+  - id: S4-A
+    audience: A
+    method_no: 1
+    key_idea: $t=x-u$ 로 바꿔 $x$ 를 적분 밖으로 꺼낸 뒤 세 번 미분하면 $f'''(x)=-\cos^3x$.
+    steps:
+    - {id: 4a, content: '$f''''(x)=-\int_0^x\cos^3t\,dt\Rightarrow f''''''(0)=-1$', criteria: ['4.M1', '4.A1']}
+    hint_ladder:
+    - 피적분함수에 $x$ 가 있으면 바로 [마]를 쓸 수 없다. 치환으로 분리하라.
+  - id: S4-B
+    audience: B
+    source_flow: '모의논술자료집 p.6-7'
+    method_no: 1
+    steps:
+    - id: 4b-1
+      content: |
+        $t=x-u$로 놓으면 $f(x)=x-\dfrac12\displaystyle\int_0^x u^2\cos^3(x-u)\,du=x-\dfrac12\int_0^x(x-t)^2\cos^3t\,dt$이므로, 제시문 [다]에 의하여
+        $$f(x)=x-\frac12x^2\int_0^x\cos^3t\,dt+x\int_0^x t\cos^3t\,dt-\frac12\int_0^x t^2\cos^3t\,dt.$$
+      criteria: ['4.M1']
+    - id: 4b-2
+      content: |
+        따라서 제시문 [마]와 [바]에 의하여 $f'(x)=1-x\displaystyle\int_0^x\cos^3t\,dt-\frac12x^2\cos^3x+\int_0^x t\cos^3t\,dt+x^2\cos^3x-\frac12x^2\cos^3x=1-x\int_0^x\cos^3t\,dt+\int_0^x t\cos^3t\,dt$이고
+        $f''(x)=-\displaystyle\int_0^x\cos^3t\,dt-x\cos^3x+x\cos^3x=-\int_0^x\cos^3t\,dt$이다. 그러므로 $f'''(0)=-\cos^30=-1$.
+      criteria: ['4.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 4.M1
+      mark_type: M
+      points: 5
+      evidence: |
+        치환과 전개로 $f(x)$ 를 $x$ 와 적분이 분리된 꼴로 나타냈다.
+      depends_on: []
+      implied_ok: false
+      steps: [4b-1, 4a]
+    - id: 4.A1
+      mark_type: A
+      points: 5
+      evidence: |
+        정적분과 미분의 관계로 $f''(x)=-\int_0^x\cos^3t\,dt$ 를 얻고 $f'''(0)=-1$ 을 구했다.
+      depends_on: [4.M1]
+      steps: [4b-2, 4a]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+remedy_links: []
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

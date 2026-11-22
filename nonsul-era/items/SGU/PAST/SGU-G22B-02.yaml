@@ -1,0 +1,396 @@
+# 서강대 2022학년도 수시 논술(자연계열) 2차 문제 2 [가이드북 표기 「자연 기출문제 ④」, 소문항 번호 【4-1】~【4-4】] — 기출 원문은 내부 분석용(allowed_use: internal_only)
+# 회차 근거: 2023 논술가이드북 PDF p.12 <2022학년도 자연계열 문항별 출제내용> 표의 '2차 2번'(사잇값 정리·평균값 정리·최대최소 정리·정적분·삼각함수의 미분)
+# 원문 소문항 번호 【4-k】는 그대로 두고, 이 파일의 소문항 id 는 1~4 로 둔다. 쪽 표기는 PDF 쪽(인쇄 쪽 = PDF 쪽 − 2)
+schema_version: '2.0'
+id: SGU-G22B-02
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: proof
+origin: past_exam
+school: SGU
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 존재
+points: 60   # 배점 비공개 — 문제2 반영비율 60%(2022 모집요강)를 점수로 둠, 소문항 균등 배분(15×4)
+time_estimate_min: 60
+intent: |
+  미적분의 기본 내용(삼각함수와 주기함수의 성질, 평균값 정리, 사잇값 정리, 최대·최소 정리, 적분과 극한값의 계산, 도함수를 이용한 증가·감소 판정)을 이해하고 여러 상황에 적용하여 문제를 해결할 수 있는지 평가한다.
+key_idea: |
+  평균값 정리로 $f'(r)=0$, $f'(s)=2$인 $r\in(1,2)$, $s\in(2,3)$을 잡고 $f'$에 사잇값 정리·평균값 정리 적용($s-r<2$). 주기 2와 한 주기 적분 1로 $\frac1x\int_{-x}^xf\to1$(나머지는 최대·최소 정리로 유계). $\frac{\sin t}{t}$의 감소성으로 $\left(\frac{\sin3x}{3x}\right)^k\int_x^{3x}\frac{dt}{t}\le\int_x^{3x}\frac{(f(t))^k}{t}dt\le\ln3$.
+stuck: |
+  【4-1】에서 $f''(b)>1$을 얻으려면 $f'$에 평균값 정리를 한 번 더 쓰고 $s-r<2$를 이용해야 한다는 점, 【4-4】에서 $t\le3x$를 이용해 $f(t)\ge f(3x)$로 아래에서 누르는 발상
+idea_tags: [IDEA-MVT-TWICE-IVT-DERIVATIVE, IDEA-PERIODIC-AVERAGE-LIMIT, IDEA-SQUEEZE-MONOTONE-INTEGRAND]
+tags: [사잇값 정리, 평균값 정리, 주기함수, 최대·최소 정리, 정적분의 대소, 조임정리]
+elements:
+  materials:
+  - '$f(1)=f(2)=3,\ f(3)=5$인 이계도함수를 갖는 함수'
+  - '$f(x+2)=f(x)$, $\int_1^3f(x)dx=1$인 연속함수'
+  - '$f(x)=\frac{\sin x}{x}$'
+  - '$\lim_{x\to0+}\int_x^{3x}\frac{(f(t))^k}{t}dt$'
+  concepts:
+  - '사잇값 정리'
+  - '평균값 정리'
+  - '미분가능성과 연속성의 관계'
+  - '주기함수의 정적분'
+  - '최대·최소 정리'
+  - '몫의 미분법·삼각함수의 미분'
+  - '정적분의 대소 관계'
+  - '함수의 극한(조임)'
+  tools:
+  - '$f''(r)=0,\ f''(s)=2$ ($1<r<2<s<3$)'
+  - '$f''''(b)=\frac{2}{s-r}>1$'
+  - '$x=2n+c\ (0\le c<2)$, $\int_{-2n}^{2n}f=2n\int_0^2f=2n$'
+  - '$-2M\le\int_0^cf(t)dt\le2M$'
+  - '$x\cos x-\sin x<0$ (제시문 [라])'
+  - '$\left(\frac{\sin3x}{3x}\right)^k\frac1t\le\frac{\sin^kt}{t^{k+1}}\le\frac1t$'
+  conditions:
+  - '【4-1】 $f''''$가 실수 전체에서 존재'
+  - '【4-2】 $\int_1^3f=1$은 한 주기 적분'
+  - '【4-4】 $0<x<\frac\pi6$이면 $[x,3x]\subset\left(0,\frac\pi2\right)$'
+  stimuli_used: [가, 나, 다, 라]
+  subpart_links: '【4-4】는 【4-3】의 감소성을 사용, 【4-1】·【4-2】는 독립'
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅱ, 미적분]
+  scope_2028: calc2
+  scope_confirmed: false
+  standards:
+  - code: 12수학Ⅱ02-07
+    text: 함수에 대한 평균값정리를 이해한다. (가이드북 문항 해설 인용, 그 밖에 12수학Ⅱ01-02·04, 12수학Ⅱ02-03·08, 12수학Ⅱ03-05, 12미적02-04·06·13, 12미적03-03·05 명시)
+    verified: false
+  content_area: 미분법·적분법·함수의 연속
+  behavior_domain: 추론
+  unit_path: [미적분, 적분법, 정적분의 활용, 정적분과 부등식·극한]
+  key_concepts: [사잇값 정리, 평균값 정리, 최대·최소 정리, 주기함수, 정적분의 대소]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 서강대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 서강대학교
+  admission_year: 2022
+  admission_type: 수시 논술(일반)
+  track: 자연계열
+  question_no: 2   # 2차 2번(가이드북 「자연 기출문제 ④」, 원문 소문항 번호 【4-…】)
+  official_url: https://admission.sogang.ac.kr/upload/BBS0014/20220916162849P7Z2EV.PDF
+  retrieved_at: 2026-11-21
+  original_points: null   # 배점 비공개(문제별 반영비율 60%만 공개)
+  rights_notice: 미확인(대학 원본 PDF 표지 문구 확인 필요)
+  transcribed_from: 서강대학교 입학처 「2023학년도 논술가이드북」 p.70 (원본 PDF 이미지 대조 2026-11-21)
+
+verify: verify/SGU-G22B.py::p02
+
+stimuli:
+- label: 가
+  body: |
+    함수 $f(x)$가 닫힌구간 $[a,\,b]$에서 연속이고 $f(a)\ne f(b)$일 때, $f(a)$와 $f(b)$ 사이의 임의의 실수 $k$에 대하여 $f(c)=k$인 $c$가 열린구간 $(a,\,b)$에 적어도 하나 존재한다.
+- label: 나
+  body: |
+    함수 $f(x)$가 닫힌구간 $[a,\,b]$에서 연속이고 열린구간 $(a,\,b)$에서 미분가능하면 $\dfrac{f(b)-f(a)}{b-a}=f'(c)$인 $c$가 열린구간 $(a,\,b)$에 적어도 하나 존재한다.
+- label: 다
+  body: |
+    함수 $f(x)$가 닫힌구간 $[a,\,b]$에서 연속이면 $f(x)$는 $[a,\,b]$에서 반드시 최댓값과 최솟값을 갖는다.
+- label: 라
+  body: |
+    $0<x<\dfrac\pi2$일 때 $\sin x<x<\tan x$이 성립한다.
+
+stem: |
+  제시문 [가]~[라]를 참고하여 다음 물음에 답하시오.
+  (【4-3】·【4-4】의 공통 조건) 함수 $f(x)=\dfrac{\sin x}{x}$에 대하여, 문항 【4-3】과 【4-4】에 답하시오.
+
+subparts:
+- id: '1'
+  stem: |
+    【4-1】 함수 $f(x)$가 실수 전체의 집합에서 이계도함수를 가지며 $f(1)=f(2)=3,\ f(3)=5$일 때,
+    $f'(a)=\dfrac32$인 $a$와 $f''(b)>1$인 $b$가 모두 열린구간 $(1,\,3)$에 존재함을 보이시오.
+  points: 15
+  depends_on: []
+  answer: {kind: proof, value: null, equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: 평균값 정리로 $f'(r)=0\ (1<r<2)$, $f'(s)=2\ (2<s<3)$. $f'$에 사잇값 정리로 $a$, 평균값 정리로 $f''(b)=\frac{2}{s-r}>1$.
+    steps:
+    - {id: 1a, content: '$0<\tfrac32<2$이므로 $f''(a)=\tfrac32$인 $a\in(r,s)$, $f''''(b)=\tfrac{2}{s-r}>1$ ($s-r<2$)', criteria: ['1.M1', '1.R1', '1.A1', '1.A2']}
+    hint_ladder:
+    - 구간 $[1,2]$, $[2,3]$에 각각 평균값 정리를 적용해 보자.
+    - $f'$은 연속이므로 사잇값 정리를 쓸 수 있다.
+  - id: S1-B
+    audience: B
+    source_flow: '논술가이드북2023 p.74'
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        제시문 [나]의 평균값 정리에 의해서 $f'(r)=\dfrac{f(2)-f(1)}{2-1}=\dfrac{3-3}{2-1}=0$을 만족하는 $r$이 열린구간 $(1,2)$에 존재하며 $f'(s)=\dfrac{f(3)-f(2)}{3-2}=\dfrac{5-3}{3-2}=2$를 만족하는 $s$가 열린구간 $(2,3)$에 존재한다.
+      criteria: ['1.M1']
+    - id: 1b-2
+      content: |
+        모든 실수 $x$에 대해서 이계도함수 $f''(x)$가 존재하므로 $f'(x)$는 닫힌구간 $[r,s]$에서 연속이다.
+      criteria: ['1.R1']
+    - id: 1b-3
+      content: |
+        $f'(r)=0,\ f'(s)=2,\ 0<\dfrac32<2$이므로 제시문 [가]에 주어진 사잇값 정리에 의하여 $f'(a)=\dfrac32$를 만족하는 $a$가 열린구간 $(r,s)$에 존재한다.
+      criteria: ['1.A1']
+    - id: 1b-4
+      content: |
+        또한 평균값 정리를 닫힌구간 $[r,s]$와 미분가능한 함수 $f'(x)$에 적용하면 $f''(b)=\dfrac{f'(s)-f'(r)}{s-r}=\dfrac{2}{s-r}$을 만족하는 $b$가 열린구간 $(r,s)$에 존재한다. 구간 $(r,s)$는 구간 $(1,3)$에 포함되므로 $s-r<2$가 성립하고 따라서 $f''(b)>1$이다.
+      criteria: ['1.A2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 4
+      evidence: |
+        제시문 [나]의 평균값 정리를 $f$에 적용해 $f'(r)=0$, $f'(s)=2$인 $r\in(1,2)$, $s\in(2,3)$을 얻었다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1]
+    - id: 1.R1
+      mark_type: R
+      points: 3
+      evidence: |
+        이계도함수가 존재하므로(미분가능) $f'$이 $[r,s]$에서 연속임을 밝혔다.
+      depends_on: []
+      steps: [1b-2]
+    - id: 1.A1
+      mark_type: A
+      points: 4
+      evidence: |
+        제시문 [가]의 사잇값 정리를 $f'$에 적용해 $f'(a)=\frac32$인 $a\in(1,3)$의 존재를 보였다.
+      depends_on: [1.M1, 1.R1]
+      steps: [1b-3]
+    - id: 1.A2
+      mark_type: A
+      points: 4
+      evidence: |
+        평균값 정리를 $f'$에 적용해 $f''(b)=\frac{2}{s-r}$이고 $s-r<2$로 $f''(b)>1$을 보였다.
+      depends_on: [1.M1]
+      steps: [1b-4]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '2'
+  stem: |
+    【4-2】 함수 $f(x)$가 실수 전체의 집합에서 연속이고, 모든 $x$에 대하여 $f(x+2)=f(x)$를 만족하며,
+    $\displaystyle\int_1^3f(x)\,dx=1$일 때, $\displaystyle\lim_{x\to\infty}\frac1x\int_{-x}^{x}f(t)\,dt$의 값을 구하시오.
+  points: 15
+  depends_on: []
+  answer: {kind: value, value: '1', equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: $x=2n+c$로 쓰면 $\int_{-x}^xf=2n+\int_0^cf+\int_{-c}^0f$이고 나머지 두 적분은 $\lvert f\rvert$의 최댓값 $M$으로 $2M$ 이하.
+    steps:
+    - {id: 2a, content: '$\tfrac{2n}{x}\to1$, $\tfrac1x\int_0^cf\to0$, $\tfrac1x\int_{-c}^0f\to0$', criteria: ['2.M1', '2.A1', '2.M2', '2.A2']}
+    hint_ladder:
+    - 길이 2인 구간에서의 적분은 어디서 시작하든 같다.
+    - 남는 조각의 적분은 유계이다.
+  - id: S2-B
+    audience: B
+    source_flow: '논술가이드북2023 p.74'
+    method_no: 1
+    steps:
+    - id: 2b-1
+      content: |
+        구간 $[2,\infty)$에서 임의의 $x$를 택하자. $x=2n+c$를 만족하는 자연수 $n$과 $0\le c<2$가 존재하므로
+        $\displaystyle\int_{-x}^{x}f(t)dt=\int_{-2n-c}^{2n+c}f(t)dt=\int_{-2n-c}^{-2n}f(t)dt+\int_{-2n}^{2n}f(t)dt+\int_{2n}^{2n+c}f(t)dt$이다.
+        $f(x+2)=f(x)$이므로 $\displaystyle\int_{-2n}^{2n}f(t)dt=2n\int_0^2f(t)dt$이고 $\displaystyle\int_{2n}^{2n+c}f(t)dt=\int_0^cf(2n+t)dt=\int_0^cf(t)dt$이다.
+      criteria: ['2.M1']
+    - id: 2b-2
+      content: |
+        $\displaystyle\int_0^2f(x)dx=\int_0^1f(x)dx+\int_1^2f(x)dx=\int_2^3f(x)dx+\int_1^2f(x)dx=\int_1^3f(x)dx=1$이므로
+        $\displaystyle\frac1x\int_{-x}^{x}f(t)dt=\frac{2n}{x}+\frac1x\int_0^cf(t)dt+\frac1x\int_{-c}^0f(t)dt$이다. 이때 $\dfrac{x-2}{x}\le\dfrac{2n}{x}\le1$이고 $\displaystyle\lim_{x\to\infty}\frac{x-2}{x}=1$이므로 $\displaystyle\lim_{x\to\infty}\frac{2n}{x}=1$이다.
+      criteria: ['2.A1']
+    - id: 2b-3
+      content: |
+        이제 $\displaystyle\lim_{x\to\infty}\frac1x\int_0^cf(t)dt=0$임을 보이자. $c=0$인 경우에는 당연히 성립하므로 $0<c<2$라 가정하자. 함수 $\lvert f(x)\rvert$가 닫힌구간 $[0,2]$에서 연속이므로 제시문 [다]의 최대·최소 정리에 의하여 $\lvert f(x)\rvert$는 최댓값을 갖는다. 최댓값을 $M$이라고 하면 구간 $[0,c]$에 속하는 임의의 $x$에 대하여 $-M\le f(x)\le M$이므로
+        $\displaystyle-2M\le-cM=\int_0^c(-M)dt\le\int_0^cf(t)dt\le\int_0^cM\,dt=cM\le2M$이 성립한다.
+      criteria: ['2.M2']
+    - id: 2b-4
+      content: |
+        이때 $\displaystyle-\frac{2M}{x}\le\frac1x\int_0^cf(t)dt\le\frac{2M}{x}$이고 $\displaystyle\lim_{x\to\infty}\frac{2M}{x}=0$이므로 $\displaystyle\lim_{x\to\infty}\frac1x\int_0^cf(t)dt=0$이다. 마찬가지로 $\displaystyle\lim_{x\to\infty}\frac1x\int_{-c}^0f(t)dt=0$이 성립한다. 그러므로 $\displaystyle\lim_{x\to\infty}\frac1x\int_{-x}^{x}f(t)dt=1$이다.
+      criteria: ['2.A2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 4
+      evidence: |
+        $x=2n+c$로 나누고 주기성으로 $\int_{-2n}^{2n}f=2n\int_0^2f$, $\int_{2n}^{2n+c}f=\int_0^cf$로 바꾸었다.
+      depends_on: []
+      implied_ok: false
+      steps: [2b-1]
+    - id: 2.A1
+      mark_type: A
+      points: 4
+      evidence: |
+        $\int_0^2f=\int_1^3f=1$을 보이고 $\frac{2n}{x}\to1$을 구했다.
+      depends_on: [2.M1]
+      steps: [2b-2]
+    - id: 2.M2
+      mark_type: M
+      points: 4
+      evidence: |
+        제시문 [다]의 최대·최소 정리로 $\lvert f\rvert\le M$을 얻어 나머지 적분을 $\pm2M$으로 눌렀다.
+      depends_on: []
+      implied_ok: false
+      steps: [2b-3]
+    - id: 2.A2
+      mark_type: A
+      points: 3
+      evidence: |
+        나머지 항이 0으로 수렴함을 보이고 극한값 1을 얻었다.
+      depends_on: [2.A1, 2.M2]
+      steps: [2b-4]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '3'
+  stem: |
+    【4-3】 함수 $f(x)$가 열린구간 $\left(0,\,\dfrac\pi2\right)$에서 감소함을 보이시오.
+  points: 15
+  depends_on: []
+  answer: {kind: proof, value: null, equivalents: [], tolerance: null}
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: $f'(x)=\frac{x\cos x-\sin x}{x^2}$이고 제시문 [라]의 $x<\tan x$에서 $x\cos x<\sin x$.
+    steps:
+    - {id: 3a, content: '$x\cos x-\sin x<0\Rightarrow f''(x)<0$', criteria: ['3.M1', '3.A1', '3.R1']}
+    hint_ladder:
+    - 몫의 미분법으로 도함수를 구하고 분자의 부호를 보자.
+  - id: S3-B
+    audience: B
+    source_flow: '논술가이드북2023 p.75'
+    method_no: 1
+    steps:
+    - id: 3b-1
+      content: |
+        제시문 [라]로부터 $0<x<\dfrac\pi2$일 때 $\dfrac{1}{\tan x}<\dfrac1x<\dfrac{1}{\sin x}$이므로 $\dfrac{\cos x}{\sin x}<\dfrac1x$, 즉 $x\cos x-\sin x<0$이다.
+      criteria: ['3.A1']
+    - id: 3b-2
+      content: |
+        따라서 $f'(x)=\dfrac{x\cos x-\sin x}{x^2}<0$이 성립하여 $f(x)$는 열린구간 $\left(0,\dfrac\pi2\right)$에서 감소한다.
+      criteria: ['3.M1', '3.R1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 5
+      evidence: |
+        몫의 미분법으로 $f'(x)=\frac{x\cos x-\sin x}{x^2}$을 계산했다.
+      depends_on: []
+      implied_ok: false
+      steps: [3b-2]
+    - id: 3.A1
+      mark_type: A
+      points: 5
+      evidence: |
+        제시문 [라]를 이용해 $x\cos x-\sin x<0$으로 도함수의 부호를 결정했다.
+      depends_on: [3.M1]
+      steps: [3b-1]
+    - id: 3.R1
+      mark_type: R
+      points: 5
+      evidence: |
+        도함수의 부호와 증가·감소의 관계로 감소함을 결론지었다.
+      depends_on: [3.A1]
+      steps: [3b-2]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '4'
+  stem: |
+    【4-4】 임의의 자연수 $k$에 대하여 $\displaystyle\lim_{x\to0+}\int_x^{3x}\frac{(f(t))^k}{t}\,dt$의 값을 구하시오.
+  points: 15
+  depends_on: ['3']
+  answer: {kind: value, value: 'log(3)', equivalents: ['ln 3'], tolerance: null}
+  solutions:
+  - id: S4-A
+    audience: A
+    method_no: 1
+    key_idea: $x\le t\le3x$에서 $f(3x)\le f(t)<1$이므로 $\left(\frac{\sin3x}{3x}\right)^k\ln3\le\int_x^{3x}\frac{(f(t))^k}{t}dt\le\ln3$.
+    steps:
+    - {id: 4a, content: '$\lim_{x\to0+}\left(\tfrac{\sin3x}{3x}\right)^k=1$이므로 극한값 $\ln3$', criteria: ['4.M1', '4.M2', '4.A1']}
+    hint_ladder:
+    - 【4-3】에 의해 구간 $[x,3x]$에서 $f(t)$의 최솟값은?
+    - $\int_x^{3x}\frac{dt}{t}$는 $x$와 무관하다.
+  - id: S4-B
+    audience: B
+    source_flow: '논술가이드북2023 p.75'
+    method_no: 1
+    steps:
+    - id: 4b-1
+      content: |
+        제시문 [라]로부터 열린구간 $\left(0,\dfrac\pi2\right)$에서 $f(x)<1$이고 $\displaystyle\lim_{x\to0+}f(x)=1$이다. 열린구간 $\left(0,\dfrac\pi6\right)$에서 임의의 $x$를 택하자. 문항 【4-3】에 의하여 $f(t)=\dfrac{\sin t}{t}$가 구간 $\left(0,\dfrac\pi2\right)$에서 감소하므로 $x\le t\le3x$인 임의의 $t$에 대하여 $\dfrac{\sin3x}{3x}\le\dfrac{\sin t}{t}<1$이다.
+      criteria: ['4.M1']
+    - id: 4b-2
+      content: |
+        각 변을 $k$제곱하고 $\dfrac1t$를 곱하면 $0<\left(\dfrac{\sin3x}{3x}\right)^k\dfrac1t\le\dfrac{\sin^kt}{t^{k+1}}\le\dfrac1t$이다. 따라서 정적분과 곡선 및 $x$축 사이의 넓이의 관계를 이용하면
+        $\displaystyle\left(\frac{\sin3x}{3x}\right)^k\int_x^{3x}\frac1t\,dt=\int_x^{3x}\left(\frac{\sin3x}{3x}\right)^k\frac1t\,dt\le\int_x^{3x}\frac{\sin^kt}{t^{k+1}}dt\le\int_x^{3x}\frac1t\,dt$이다.
+      criteria: ['4.M2']
+    - id: 4b-3
+      content: |
+        $\displaystyle\lim_{x\to0+}\left(\frac{\sin3x}{3x}\right)^k=1$이고 $\displaystyle\lim_{x\to0+}\int_x^{3x}\frac1t\,dt=\ln3$이므로 $\displaystyle\lim_{x\to0+}\int_x^{3x}\frac{(f(t))^k}{t}dt=\lim_{x\to0+}\int_x^{3x}\frac{\sin^kt}{t^{k+1}}dt=\ln3$이다.
+      criteria: ['4.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 4.M1
+      mark_type: M
+      points: 5
+      evidence: |
+        제시문 [라]와 【4-3】의 결과로 $\frac{\sin3x}{3x}\le\frac{\sin t}{t}<1\ (x\le t\le3x)$을 찾았다.
+      depends_on: []
+      implied_ok: false
+      ft: {allowed: true, from: [3.R1], max_points: 5}
+      steps: [4b-1]
+    - id: 4.M2
+      mark_type: M
+      points: 5
+      evidence: |
+        함수의 대소 관계로 정적분의 대소 관계 $\left(\frac{\sin3x}{3x}\right)^k\int_x^{3x}\frac{dt}{t}\le\int_x^{3x}\frac{\sin^kt}{t^{k+1}}dt\le\int_x^{3x}\frac{dt}{t}$를 세웠다.
+      depends_on: [4.M1]
+      implied_ok: false
+      steps: [4b-2]
+    - id: 4.A1
+      mark_type: A
+      points: 5
+      evidence: |
+        부등식과 극한으로 극한값 $\ln3$을 얻었다.
+      depends_on: [4.M2]
+      steps: [4b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+remedy_links: []
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

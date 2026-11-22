@@ -1,0 +1,407 @@
+# 서강대 2024학년도 수시 논술(자연계열) 1차 문제 2 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+# 1차 모집단위: 수학과, 기계공학과, 컴퓨터공학과, 시스템반도체공학과. 예상소요 시간 60분.
+schema_version: '2.0'
+id: SGU-G24A-02
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: SGU
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 최적2단
+points: 60   # 배점 비공개 — 문제 2 비중 60%(논술가이드북2027)만 공개, 소문항은 균등 15점으로 나눔
+time_estimate_min: 60
+intent: |
+  속도와 정적분으로 평면 위 점의 이동 거리를 구하고 치환적분하며, 도함수로 부등식을 증명해 극한을 구하고 그래프 개형을 그리며, 접선과 직사각형 넓이의 최댓값과 등비급수를 활용하는 능력을 본다.
+key_idea: |
+  근호 안을 $(2t+e^{2t})(e^{2t}+1)^2$으로 인수분해해 치환적분하고, $y=e^{-x}$의 접선의 $x$절편이 항상 접점보다 $1$ 크다는 사실로 직사각형 넓이 합을 $(t-c+\cdots)e^{-t}$ 꼴로 정리한다.
+stuck: |
+  속력의 제곱을 완전제곱 꼴로 묶는 인수분해, 그리고 $R_k$의 넓이가 $e^{-t-k}$로 등비수열을 이룬다는 관찰
+idea_tags: [IDEA-SPEED-PERFECT-SQUARE, IDEA-EXP-TANGENT-INTERCEPT-SHIFT]
+tags: [이동 거리, 그래프 개형, 접선, 등비급수]
+elements:
+  materials:
+  - '$x=\tfrac13e^{3t}+te^t$, $y=\int_{\ln\sqrt2}^t\sqrt{(2s-s^2)e^{2s}+2s}\,ds$로 움직이는 점'
+  - '$f(x)=xe^{-x}$'
+  - '곡선 $y=e^{-x}$ 아래에 접선의 $x$절편을 따라 이어지는 직사각형 $R_0,R_1,\cdots,R_n$'
+  concepts:
+  - '평면 위 점의 이동 거리'
+  - '적분과 미분의 관계'
+  - '치환적분법'
+  - '도함수와 함수의 증가·감소'
+  - '함수의 극한(샌드위치)'
+  - '이계도함수와 변곡점'
+  - '접선의 방정식'
+  - '등비급수'
+  tools:
+  - '$\{e^{3t}+(t+1)e^t\}^2+(2t-t^2)e^{2t}+2t=(2t+e^{2t})(e^{2t}+1)^2$'
+  - '$u=e^{2t}+2t$ 치환'
+  - '$0<xe^{-x}<\dfrac2x$'
+  - '접선의 $x$절편 $t_1=t+1$'
+  - '$\displaystyle\sum_{k=1}^\infty e^{-k}=\frac{1}{e-1}$'
+  conditions:
+  - '$t>c$'
+  - '$n$은 자연수'
+  - '【2-3】 최댓값 $\dfrac1e$, 【2-4】 $c=\dfrac1e$'
+  stimuli_used: [가, 나, 다, 라]
+  subpart_links: '【2-4】는 【2-3】의 접선 $x$절편 관계와 $c=\tfrac1e$를 사용'
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅱ, 미적분]
+  scope_2028: calc2
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 속도와 거리, 도함수의 활용, 등비급수를 이용해 문제를 해결할 수 있다(요지)
+    verified: false
+  content_area: 미분법·적분법·수열의 극한
+  behavior_domain: 문제해결
+  unit_path: [미적분, 미분법, 도함수의 활용, 함수의 최대·최소]
+  key_concepts: [이동 거리, 치환적분, 그래프 개형, 접선의 방정식, 등비급수]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 서강대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 서강대학교
+  admission_year: 2024
+  admission_type: 수시 논술(일반)
+  track: 자연계열
+  question_no: 2
+  official_url: https://admission.sogang.ac.kr/upload/BBS0014/202407031152567GS2GF.PDF
+  retrieved_at: 2026-11-21
+  original_points: null   # 배점 비공개(문제 비중 60%만 공개)
+  rights_notice: 미확인(대학 원본 PDF 표지 문구 확인 필요)
+  transcribed_from: 서강대학교 입학처 「2025 논술가이드북」 p.54~55 (원본 PDF 이미지 대조 2026-11-21; 교차 확인 「2027 논술가이드북」 2024학년도 기출문제 1차)
+
+verify: verify/SGU-G24A.py::p02
+
+stimuli:
+- label: 가
+  body: |
+    무리수 $e$의 정의
+    $$\lim_{x\to0}(1+x)^{\frac{1}{x}}=e$$
+- label: 나
+  body: |
+    함수 $f(x)$가 어떤 열린구간에서 미분가능하고, 이 구간의 모든 $x$에 대하여
+    ① $f'(x)>0$이면 $f(x)$는 이 구간에서 증가한다.
+    ② $f'(x)<0$이면 $f(x)$는 이 구간에서 감소한다.
+- label: 다
+  body: |
+    함수 $y=f(x)$의 그래프의 개형은 다음과 같은 사항을 조사하여 그릴 수 있다.
+    ① 함수의 정의역과 치역
+    ② 곡선과 좌표축의 교점
+    ③ 곡선의 대칭성과 주기
+    ④ 함수의 증가와 감소, 극대와 극소
+    ⑤ 곡선의 오목과 볼록, 변곡점
+    ⑥ $\displaystyle\lim_{x\to\infty}f(x)$, $\displaystyle\lim_{x\to-\infty}f(x)$, 점근선
+- label: 라
+  body: |
+    함수 $f(x)$가 $x=a$에서 미분가능할 때, 곡선 $y=f(x)$위의 점 $\mathrm{P}(a,\ f(a))$에서의 접선의 기울기는 $f'(a)$이므로 접선의 방정식은 다음과 같다.
+    $$y-f(a)=f'(a)(x-a)$$
+
+# 원문에서 직사각형 설정 문단은 【2-2】와 【2-3】 사이에 있음 — 공통 발문에 옮김
+stem: |
+  양수 $c$에 대하여 다음 그림과 같이 직사각형 $\mathrm{R}_0$의 두 변은 각각 $x$축, 직선 $x=c$위에 있고, 한 꼭짓점은 곡선 $y=e^{-x}$ 위에 있다. 이때, 곡선 $y=e^{-x}$ 위의 꼭짓점을 $(t,\ e^{-t})$이라 하자. 곡선 $y=e^{-x}$ 위의 점 $(t,\ e^{-t})$에서의 접선의 $x$절편을 $t_1$이라 할 때, 두 변이 각각 $x$축, 직선 $x=t$위에 있고 한 꼭짓점이 곡선 $y=e^{-x}$ 위의 점 $\left(t_1,\ e^{-t_1}\right)$인 직사각형을 $\mathrm{R}_1$이라 하자. 곡선 $y=e^{-x}$ 위의 점 $\left(t_1,\ e^{-t_1}\right)$에서의 접선의 $x$절편을 $t_2$라 할 때, 두 변이 각각 $x$축, 직선 $x=t_1$위에 있고 한 꼭짓점이 곡선 $y=e^{-x}$ 위의 점 $\left(t_2,\ e^{-t_2}\right)$인 직사각형을 $\mathrm{R}_2$라 하자. 이 과정을 반복하여 직사각형 $\mathrm{R}_1,\mathrm{R}_2,\ \dots,\ \mathrm{R}_n$을 만든다.
+  문항 【2-3】과 【2-4】에 답하시오. (단, $t>c$이고 $n$은 자연수)
+
+  [그림: 곡선 $y=e^{-x}$와 직선 $x=c$. $\mathrm{R}_0$은 $x=c$부터 $x=t$까지 높이 $e^{-t}$인 직사각형이고, 점 $(t,e^{-t})$에서 그은 접선이 $x$축과 만나는 점이 $t_1$이며, $\mathrm{R}_1$은 $x=t$부터 $x=t_1$까지 높이 $e^{-t_1}$인 직사각형. 오른쪽으로 … 이 이어짐]
+
+subparts:
+- id: '2-1'
+  stem: |
+    좌표평면 위를 움직이는 점 $\mathrm{P}$의 시각 $t$에서 위치 $(x,\ y)$가 $x=\dfrac13e^{3t}+te^t$, $y=\displaystyle\int_{\ln\sqrt2}^{t}\sqrt{(2s-s^2)e^{2s}+2s}\,ds$일 때,
+    시각 $t=\dfrac12$에서 $t=\ln2$까지 점 $\mathrm{P}$가 움직인 거리를 구하시오.
+  points: 15
+  depends_on: []
+  answer: {kind: value, value: '((4+2*log(2))**(3/2) - (E+1)**(3/2))/3', equivalents: [], tolerance: null}
+  solutions:
+  - id: S21-A
+    audience: A
+    method_no: 1
+    key_idea: 속력의 제곱이 $(2t+e^{2t})(e^{2t}+1)^2$로 인수분해되므로 $u=e^{2t}+2t$로 치환한다.
+    steps:
+    - {id: 21a, content: '$\displaystyle\int_{1/2}^{\ln2}(e^{2t}+1)\sqrt{e^{2t}+2t}\,dt=\frac12\int_{e+1}^{4+2\ln2}\sqrt u\,du=\frac{(4+2\ln2)^{3/2}-(e+1)^{3/2}}{3}$', criteria: ['2-1.M1', '2-1.M2', '2-1.A1']}
+    hint_ladder:
+    - $\dfrac{dy}{dt}$는 적분과 미분의 관계로 바로 얻는다.
+    - 근호 안을 $e^{2t}+1$의 제곱을 묶어 정리해 보자.
+  - id: S21-B
+    audience: B
+    source_flow: '논술가이드북2025 p.57'
+    method_no: 1
+    steps:
+    - id: 21b-1
+      content: |
+        $\dfrac{dx}{dt}=e^{3t}+(t+1)e^t$, $\dfrac{dy}{dt}=\sqrt{(2t-t^2)e^{2t}+2t}$이므로 점 $\mathrm{P}$가 움직인 거리는
+        $\displaystyle\int_{\frac12}^{\ln2}\sqrt{\left(\frac{dx}{dt}\right)^2+\left(\frac{dy}{dt}\right)^2}\,dt=\int_{\frac12}^{\ln2}\sqrt{(e^{3t}+te^t+e^t)^2+(2t-t^2)e^{2t}+2t}\,dt$
+      criteria: ['2-1.M1']
+    - id: 21b-2
+      content: |
+        근호 안을 정리하면
+        $\{e^{3t}+(t+1)e^t\}^2+(2t-t^2)e^{2t}+2t=t(2e^{4t}+4e^{2t}+2)+e^{6t}+2e^{4t}+e^{2t}=2t(e^{4t}+2e^{2t}+1)+e^{2t}(e^{4t}+2e^{2t}+1)=(2t+e^{2t})(e^{2t}+1)^2$
+        이므로 거리는 $\displaystyle\int_{\frac12}^{\ln2}(e^{2t}+1)\sqrt{e^{2t}+2t}\,dt$이다.
+      criteria: ['2-1.M1']
+    - id: 21b-3
+      content: |
+        $e^{2t}+2t=u$로 놓으면 $\dfrac{du}{dt}=2(e^{2t}+1)$이고, $t=\dfrac12$일 때 $u=e+1$, $t=\ln2$일 때 $u=4+2\ln2$이다.
+      criteria: ['2-1.M2']
+    - id: 21b-4
+      content: |
+        $\displaystyle\int_{\frac12}^{\ln2}(e^{2t}+1)\sqrt{e^{2t}+2t}\,dt=\frac12\int_{e+1}^{4+2\ln2}\sqrt u\,du=\frac{(4+2\ln2)^{\frac32}-(e+1)^{\frac32}}{3}$
+      criteria: ['2-1.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2-1.M1
+      mark_type: M
+      points: 6
+      evidence: |
+        $\dfrac{dx}{dt}$, $\dfrac{dy}{dt}$를 구해 움직인 거리를 속력의 정적분으로 나타냈다.
+      depends_on: []
+      implied_ok: false
+      steps: [21b-1, 21b-2]
+    - id: 2-1.M2
+      mark_type: M
+      points: 5
+      evidence: |
+        근호 안을 $(2t+e^{2t})(e^{2t}+1)^2$로 정리하고 $u=e^{2t}+2t$로 치환적분했다.
+      depends_on: [2-1.M1]
+      implied_ok: false
+      steps: [21b-3]
+    - id: 2-1.A1
+      mark_type: A
+      points: 4
+      evidence: |
+        $\dfrac{(4+2\ln2)^{3/2}-(e+1)^{3/2}}{3}$을 얻었다.
+      depends_on: [2-1.M2]
+      steps: [21b-4]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '2-2'
+  stem: |
+    $x\ge0$일 때 부등식 $2e^x>x^2$이 성립함을 보이고, 이 부등식을 이용하여 극한값 $\displaystyle\lim_{x\to\infty}xe^{-x}$을 구하시오.
+    그리고 구간 $(-\infty,\ \infty)$에서 함수 $f(x)=xe^{-x}$의 그래프의 개형을 그리시오.
+  points: 15
+  depends_on: []
+  answer: {kind: expression, value: 'limit=0; max=(1, exp(-1)); inflection=(2, 2*exp(-2))', equivalents: [], tolerance: null}
+  solutions:
+  - id: S22-A
+    audience: A
+    method_no: 1
+    key_idea: $g(x)=2e^x-x^2$의 증가로 부등식, $0<xe^{-x}<\dfrac2x$로 극한, $f'$·$f''$ 부호표로 개형.
+    steps:
+    - {id: 22a, content: '극한 $0$, 극댓값 $f(1)=e^{-1}$, 변곡점 $(2,2e^{-2})$, $\lim_{x\to-\infty}f=-\infty$', criteria: ['2-2.R1', '2-2.A1', '2-2.M2', '2-2.A2']}
+    hint_ladder:
+    - $g(x)=2e^x-x^2$의 도함수 부호는?
+    - 부등식에서 $xe^{-x}$를 위에서 누르는 식을 만들어 보자.
+  - id: S22-B
+    audience: B
+    source_flow: '논술가이드북2025 p.58'
+    method_no: 1
+    steps:
+    - id: 22b-1
+      content: |
+        $g(x)=2e^x-x^2$이라고 하면, $g'(x)=2(e^x-x)>0$이므로 제시문 [나]에 의해 $g(x)$는 증가한다. $g(0)=2>0$이므로 $x\ge0$에서 $g(x)>0$이 되어 부등식 $2e^x>x^2$이 성립한다.
+      criteria: ['2-2.R1']
+    - id: 22b-2
+      content: |
+        따라서 $x>0$일 때, $0<xe^{-x}<\dfrac2x$이고 $\displaystyle\lim_{x\to\infty}\frac2x=0$이므로 $\displaystyle\lim_{x\to\infty}xe^{-x}=0$이다.
+      criteria: ['2-2.A1']
+    - id: 22b-3
+      content: |
+        함수 $f(x)=xe^{-x}$의 정의역은 실수 전체의 집합이고, $f(0)=0$이므로 원점을 지난다. $f'(x)=(1-x)e^{-x}$, $f''(x)=(x-2)e^{-x}$이므로 $x<1$에서 증가, $x>1$에서 감소, $x<2$에서 위로 볼록, $x>2$에서 아래로 볼록이다.
+      criteria: ['2-2.M2']
+    - id: 22b-4
+      content: |
+        $f(x)$는 $x=1$에서 극댓값 $e^{-1}$을 갖고, 변곡점은 $(2,\ 2e^{-2})$이다. 또 $\displaystyle\lim_{x\to-\infty}f(x)=-\infty$, $\displaystyle\lim_{x\to\infty}f(x)=0$이다. [그림: 원점을 지나 $x=1$에서 최고점 $e^{-1}$, $x=2$에서 변곡하고 $x\to\infty$에서 $x$축에 가까워지며, $x\to-\infty$에서 $-\infty$로 내려가는 곡선]
+      criteria: ['2-2.A2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2-2.R1
+      mark_type: R
+      points: 4
+      evidence: |
+        $g(x)=2e^x-x^2$의 도함수 부호와 [나]로 $g$가 증가함을 보이고 $g(0)>0$에서 부등식을 이끌었다.
+      depends_on: []
+      implied_ok: false
+      steps: [22b-1]
+    - id: 2-2.A1
+      mark_type: A
+      points: 3
+      evidence: |
+        $0<xe^{-x}<\dfrac2x$로 극한값 $0$을 얻었다.
+      depends_on: [2-2.R1]
+      steps: [22b-2]
+    - id: 2-2.M2
+      mark_type: M
+      points: 4
+      evidence: |
+        $f'(x)=(1-x)e^{-x}$, $f''(x)=(x-2)e^{-x}$를 구해 증감·오목볼록을 표로 정리했다.
+      depends_on: []
+      implied_ok: false
+      steps: [22b-3]
+    - id: 2-2.A2
+      mark_type: A
+      points: 4
+      evidence: |
+        극댓값 $e^{-1}$, 변곡점 $(2,2e^{-2})$, 양끝 극한을 반영한 개형을 그렸다.
+      depends_on: [2-2.M2]
+      steps: [22b-4]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '2-3'
+  stem: |
+    두 개의 직사각형 $\mathrm{R}_0$와 $\mathrm{R}_1$의 넓이의 합의 최댓값이 $\dfrac1e$일 때, $c$의 값을 구하시오.
+  points: 15
+  depends_on: []
+  answer: {kind: value, value: 'exp(-1)', equivalents: [], tolerance: null}
+  solutions:
+  - id: S23-A
+    audience: A
+    method_no: 1
+    key_idea: 접선의 $x$절편 $t_1=t+1$이므로 $S(t)=(t-c+e^{-1})e^{-t}$, 최댓값 $e^{-1-c+e^{-1}}$.
+    steps:
+    - {id: 23a, content: '$S''(t)=(1-t+c-e^{-1})e^{-t}=0$에서 $t=c+1-e^{-1}$, $e^{-1-c+e^{-1}}=e^{-1}\Rightarrow c=e^{-1}$', criteria: ['2-3.M1', '2-3.M2', '2-3.A1']}
+    hint_ladder:
+    - $y=e^{-x}$ 위 점 $(t,e^{-t})$에서의 접선의 $x$절편은?
+  - id: S23-B
+    audience: B
+    source_flow: '논술가이드북2025 p.58'
+    method_no: 1
+    steps:
+    - id: 23b-1
+      content: |
+        직사각형 $\mathrm{R}_0$의 넓이는 $(t-c)e^{-t}$이다. 제시문 [라]에 의하여 점 $(t,e^{-t})$에서의 접선의 방정식은 $y=-e^{-t}(x-t)+e^{-t}$이므로 $x$절편은 $t_1=t+1$이 되어 $\mathrm{R}_1$의 넓이는 $e^{-t-1}$이다.
+      criteria: ['2-3.M1']
+    - id: 23b-2
+      content: |
+        넓이의 합을 $S(t)$라 하면 $S(t)=(t-c)e^{-t}+e^{-t-1}=(t-c+e^{-1})e^{-t}\ (t>c)$이고, $S'(t)=(1-t+c-e^{-1})e^{-t}$이므로 $S(t)$는 $t=c+1-e^{-1}$에서 증가에서 감소로 바뀌어 최댓값 $e^{-1-c+e^{-1}}$을 갖는다.
+      criteria: ['2-3.M2']
+    - id: 23b-3
+      content: |
+        최댓값이 $\dfrac1e$이므로 $c=\dfrac1e$이다.
+      criteria: ['2-3.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2-3.M1
+      mark_type: M
+      points: 5
+      evidence: |
+        접선의 방정식으로 $t_1=t+1$을 얻고 $\mathrm{R}_1$의 넓이 $e^{-t-1}$을 구했다.
+      depends_on: []
+      implied_ok: false
+      steps: [23b-1]
+    - id: 2-3.M2
+      mark_type: M
+      points: 6
+      evidence: |
+        $S(t)=(t-c+e^{-1})e^{-t}$를 미분해 최댓값 $e^{-1-c+e^{-1}}$을 증감표로 구했다.
+      depends_on: [2-3.M1]
+      implied_ok: false
+      steps: [23b-2]
+    - id: 2-3.A1
+      mark_type: A
+      points: 4
+      evidence: |
+        $c=\dfrac1e$를 얻었다.
+      depends_on: [2-3.M2]
+      steps: [23b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '2-4'
+  stem: |
+    $c=\dfrac1e$일 때, $n+1$개의 직사각형 $\mathrm{R}_0,\mathrm{R}_1,\mathrm{R}_2,\dots,\mathrm{R}_n$의 넓이의 합이 최대가 되는 $t$를 $a_n$이라 하자.
+    극한값 $\displaystyle\lim_{n\to\infty}a_n$을 구하시오.
+  points: 15
+  depends_on: ['2-3']
+  answer: {kind: value, value: '1 + exp(-1) - 1/(E - 1)', equivalents: [], tolerance: null}
+  solutions:
+  - id: S24-A
+    audience: A
+    method_no: 1
+    key_idea: $t_k=t+k$, $\mathrm{R}_k$의 넓이 $e^{-t-k}$이므로 $A(t)=(t-e^{-1}+S_n)e^{-t}$, $a_n=1+e^{-1}-S_n$.
+    steps:
+    - {id: 24a, content: '$S_n=\sum_{k=1}^ne^{-k}\to\dfrac{1}{e-1}$, $\lim a_n=1+\dfrac1e-\dfrac1{e-1}$', criteria: ['2-4.M1', '2-4.M2', '2-4.A1']}
+    hint_ladder:
+    - 【2-3】에서 $x$절편이 접점보다 얼마나 커졌는가? 그것이 반복되면?
+  - id: S24-B
+    audience: B
+    source_flow: '논술가이드북2025 p.59'
+    method_no: 1
+    steps:
+    - id: 24b-1
+      content: |
+        $\mathrm{R}_0$의 넓이는 $(t-e^{-1})e^{-t}$이다. $k=1,2,\dots,n$일 때 점 $(t+k-1,\ e^{-t-k+1})$에서의 접선은 $y=-e^{-t-k+1}(x-t-k+1)+e^{-t-k+1}$이므로 $x$절편은 $t_k=t+k$가 되어 $\mathrm{R}_k$의 넓이는 $e^{-t-k}$이다.
+      criteria: ['2-4.M1']
+    - id: 24b-2
+      content: |
+        넓이의 합을 $A(t)$, $S_n=\displaystyle\sum_{k=1}^ne^{-k}$라 하면 $A(t)=(t-e^{-1})e^{-t}+e^{-t}S_n=(t-e^{-1}+S_n)e^{-t}\ (t>e^{-1})$이고 $A'(t)=(1-t+e^{-1}-S_n)e^{-t}$이다.
+      criteria: ['2-4.M1']
+    - id: 24b-3
+      content: |
+        증감표에 의해 $A(t)$는 $t=a_n=1+e^{-1}-S_n$에서 최댓값을 갖는다.
+      criteria: ['2-4.M2']
+    - id: 24b-4
+      content: |
+        $\displaystyle\lim_{n\to\infty}S_n=\sum_{n=1}^\infty e^{-n}$은 첫째항이 $e^{-1}$, 공비가 $e^{-1}$인 등비급수이므로 $\dfrac{e^{-1}}{1-e^{-1}}=\dfrac{1}{e-1}$이다. 따라서 $\displaystyle\lim_{n\to\infty}a_n=1+\frac1e-\frac1{e-1}$.
+      criteria: ['2-4.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2-4.M1
+      mark_type: M
+      points: 5
+      evidence: |
+        $\mathrm{R}_k$의 넓이 $e^{-t-k}$를 구하고 넓이의 합 $A(t)$를 식으로 나타냈다.
+      depends_on: []
+      implied_ok: false
+      ft: {allowed: true, from: [2-3.M1], max_points: 5}
+      steps: [24b-1, 24b-2]
+    - id: 2-4.M2
+      mark_type: M
+      points: 5
+      evidence: |
+        $A'(t)$의 부호로 최대가 되는 $t=a_n=1+e^{-1}-S_n$을 구했다.
+      depends_on: [2-4.M1]
+      implied_ok: false
+      steps: [24b-3]
+    - id: 2-4.A1
+      mark_type: A
+      points: 5
+      evidence: |
+        등비급수로 $\displaystyle\lim_{n\to\infty}a_n=1+\frac1e-\frac1{e-1}$을 얻었다.
+      depends_on: [2-4.M2]
+      steps: [24b-4]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+remedy_links: []
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21
