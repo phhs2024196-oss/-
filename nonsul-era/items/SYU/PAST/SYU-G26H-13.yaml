@@ -1,0 +1,171 @@
+schema_version: '2.0'
+id: SYU-G26H-13
+legacy_id: null
+version: 1
+status: draft
+exam_family: yaksul
+item_type: numeric
+origin: past_exam
+school: SYU
+type: null
+variant_of: null
+replaces: null
+level: L3
+form: 추론
+points: 10
+time_estimate_min: 5
+intent: 자연수의 거듭제곱의 합과 $\sum$의 성질을 활용하여 여러 가지 수열의 합을 구하고, 그 과정을 설명할 수 있다.
+key_idea: '지수 $\dfrac{(n+2)(n-1)}{2}$의 홀짝을 따져 $a_n$이 $1,1,-1,-1$이 반복됨을 찾고, 네 항씩 묶어 합을 구한다.'
+stuck: 지수의 홀짝이 주기 4로 반복된다는 규칙 발견과 99항을 4개씩 묶을 때 남는 3항 처리
+idea_tags: [IDEA-SIGN-PERIOD4-GROUP-SUM]
+tags: [삼육대 약술형, 2026학년도, 인문계열]
+
+source:
+  rights_holder: 삼육대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 삼육대학교
+  admission_year: 2026
+  admission_type: 논술우수자전형
+  track: 인문
+  question_no: 13
+  official_url: https://ipsi.syu.ac.kr/2016_syu/pages/index.asp?p=29&b=B_1_1&bn=66389&m=read
+  retrieved_at: 2026-11-21
+  original_points: 10
+  rights_notice: '「2026학년도 선행학습 영향평가 자체평가 보고서」 부록 p.66~67 — EBS 출처: 수능특강 수학Ⅰ(2025) p.89~91'
+
+verify: verify/SYU-G26H.py::p13
+
+stimuli: []
+
+stem: |
+  수열 $\{a_n\}$에서 $a_n=(-1)^{\frac{n^2+n-2}{2}}$일 때, $\displaystyle\sum_{n=1}^{99}na_n$의 값을 구하시오.
+
+elements:
+  materials: ['지수가 $\dfrac{n^2+n-2}{2}$인 $(-1)$의 거듭제곱 수열 $a_n$', '$na_n$의 첫째항부터 제99항까지의 합']
+  concepts: [수열의 합, 합의 기호 $\sum$의 성질, 거듭제곱의 부호]
+  tools: [몇 개의 항 나열로 규칙 찾기, 네 항씩 묶어 더하기]
+  conditions: ['$\dfrac{n^2+n-2}{2}=\dfrac{(n+2)(n-1)}{2}$의 홀짝 → $a_n$은 $1,1,-1,-1$ 반복', '$99=4\times24+3$ → 24묶음과 남는 3항']
+  stimuli_used: []
+  subpart_links: 단일 논제
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅰ]
+  scope_2028: common
+  scope_confirmed: true
+  standards:
+  - code: 12수학Ⅰ03-05
+    text: 여러 가지 수열의 첫째항부터 제$n$항까지의 합을 구할 수 있다.
+    verified: true
+  content_area: 수열 – 수열의 합
+  behavior_domain: 추론
+  unit_path: [수학Ⅰ, 수열, 수열의 합, 여러 가지 수열의 합]
+  key_concepts: [수열의 합, 합의 기호, 규칙성]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+subparts:
+- id: '1'
+  stem: |
+    $\displaystyle\sum_{n=1}^{99}na_n$의 값을 구하시오.
+  points: 10
+  depends_on: []
+  answer:
+    kind: value
+    value: '0'
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $a_n$은 $1,1,-1,-1$이 반복되므로 네 항씩 묶으면 각 묶음의 합이 $-4$이다.
+    steps:
+    - id: 1a
+      content: '$(1+2-3-4)+\cdots+(93+94-95-96)+97+98-99=-4\times24+96=0$'
+      criteria: [1.M1, 1.A1]
+    hint_ladder:
+    - $n=1,2,3,\cdots,8$을 대입해 지수가 홀수인지 짝수인지 확인해 보자.
+    - 부호가 4개 주기로 반복된다면 네 항씩 묶어 보자.
+    - 99항은 4개짜리 묶음 몇 개와 남는 항 몇 개인가?
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 「2026 선행학습 영향평가 보고서」 p.66~67 문항 해설 및 풀이과정
+    steps:
+    - id: 1b-1
+      content: |
+        $\dfrac{n^2+n-2}{2}=\dfrac{(n+2)(n-1)}{2}$에서
+        $n=1$일 때, $\dfrac{3\times0}{2}=0$, $(-1)^0=1$
+        $n=2$일 때, $\dfrac{4\times1}{2}=2$, $(-1)^2=1$
+        $n=3$일 때, $\dfrac{5\times2}{2}=5$, $(-1)^5=-1$
+        $n=4$일 때, $\dfrac{6\times3}{2}=9$, $(-1)^9=-1$
+        $n=5$일 때, $\dfrac{7\times4}{2}=14$, $(-1)^{14}=1$
+        $n=6$일 때, $\dfrac{8\times5}{2}=20$, $(-1)^{20}=1$
+        $n=7$일 때, $\dfrac{9\times6}{2}=27$, $(-1)^{27}=-1$
+        $n=8$일 때, $\dfrac{10\times7}{2}=35$, $(-1)^{35}=-1$
+        이므로 수열 $\{a_n\}$은 $1,1,-1,-1,\cdots$이 반복적으로 나타난다.
+      criteria: [1.M1]
+    - id: 1b-2
+      content: |
+        보충: $\dfrac{(n+4+2)(n+4-1)}{2}-\dfrac{(n+2)(n-1)}{2}=4n+10$은 짝수이므로 부호는 실제로 주기 4로 반복된다.
+      criteria: [1.M1]
+    - id: 1b-3
+      content: |
+        $\displaystyle\therefore\sum_{n=1}^{99}na_n=(1+2-3-4)+(5+6-7-8)+\cdots+(93+94-95-96)+97+98-99$
+        $=(-4\times24)+97+98-99=0$
+      criteria: [1.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 5
+      evidence: '수열 $\{a_n\}$이 $1,1,-1,-1,\cdots$로 반복되는 규칙성을 제시했다.'
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1, 1b-2]
+    - id: 1.A1
+      mark_type: A
+      points: 5
+      evidence: '$\displaystyle\sum_{n=1}^{99}na_n=0$을 구했다.'
+      depends_on: [1.M1]
+      steps: [1b-3]
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-ALG-4101}
+  - {code: '71', misconception: MC-ALG-4102}
+  misconceptions:
+  - id: MC-ALG-4101
+    outcome_code: '70'
+    wrong_work: '처음 두세 항만 보고 부호가 $1,-1,1,-1$로 번갈아 나온다고 보아 $\sum n(-1)^{n+1}=50$으로 계산'
+    detect_cue: '답이 $50$이거나 두 항씩 묶은 흔적'
+    feedback: 지수 $\dfrac{(n+2)(n-1)}{2}$의 값을 $n=1$부터 8까지 직접 계산해 주기를 확인하세요.
+    remedy: [RL-1]
+  - id: MC-ALG-4102
+    outcome_code: '71'
+    wrong_work: '99항을 4개씩 25묶음으로 보아 $-4\times25=-100$으로 계산(남는 3항 처리 누락)'
+    detect_cue: '답이 $-100$이거나 묶음 수를 25로 씀'
+    feedback: '$99=4\times24+3$입니다. 24묶음 뒤에 남는 $97+98-99$를 따로 더하세요.'
+    remedy: [RL-2]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-ALG-4101}
+  relation: remediation
+  target: {kind: concept, ref: CON-SYU-G26H-SIGNPERIOD}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-ALG-4102}
+  relation: remediation
+  target: {kind: concept, ref: CON-SYU-G26H-GROUPSUM}
+  priority: 2
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-transcribe-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

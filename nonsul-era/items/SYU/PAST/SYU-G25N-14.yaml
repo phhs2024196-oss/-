@@ -1,0 +1,258 @@
+schema_version: '2.0'
+id: SYU-G25N-14
+legacy_id: null
+version: 1
+status: draft
+exam_family: yaksul
+item_type: short_answer
+origin: past_exam
+school: SYU
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 추론
+points: 10
+time_estimate_min: 6
+intent: 정적분의 성질을 이용하여 주어진 문제를 해결할 수 있다.
+key_idea: $x-b=X$ 치환으로 $\int_0^af(x)dx=-B+2a$, $f(x)-5$가 기함수라 $\int_{-a}^af(x)dx=10a$를 써서 구간을 나누어 합친다.
+stuck: $B$의 적분을 평행이동(치환)으로 $\int_0^af(x)dx$로 바꾸고 기함수 성질로 $\int_{-a}^0$을 구하는 것
+idea_tags:
+- IDEA-INTEGRAL-SHIFT-ODD-SYMMETRY
+tags:
+- 2025 기출
+- 자연계열
+- 답은 A, B, a로 표현(B 자체가 a로 정해져 표현이 유일하지 않음 — 공식답 형태 -A+B+8a 기준)
+stimuli: []
+stem: |
+  $a>b$인 두 양수 $a$, $b$와 삼차함수 $f(x)=x^3-a^2x+5$에 대하여
+  $\int_{-b}^{0}f(x)dx=A$, $\int_{b}^{a+b}\{-f(x-b)+2\}dx=B$
+  일 때, $\int_{-a}^{-b}f(x)dx$의 값을 $A,B$, $a$를 이용하여 표현하시오. (단, $f(x)$의 극솟값은 $2$보다 크다.)
+elements:
+  materials:
+  - 삼차함수 $f(x)=x^3-a^2x+5$ ($f(x)-5$는 기함수)
+  - 세 정적분 $A$, $B$, $\int_{-a}^{-b}f(x)dx$
+  concepts:
+  - 정적분의 구간 나누기
+  - 평행이동(치환)과 정적분
+  - 기함수의 대칭구간 정적분
+  tools:
+  - $x-b=X$ 치환
+  - $\int_{-a}^{a}(x^3-a^2x+5)dx=10a$
+  - 구간 합·차로 재구성
+  conditions:
+  - $a>b>0$
+  - 극솟값 $>2$ (그래프 해석용 조건)
+  stimuli_used: []
+  subpart_links: 단일 논제
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학Ⅱ
+  scope_2028: common
+  scope_confirmed: true
+  standards:
+  - code: 12수학Ⅱ03-04
+    text: 다항함수의 정적분을 구할 수 있다.
+    verified: true
+  content_area: 적분 – 정적분의 성질
+  behavior_domain: 추론
+  unit_path:
+  - 수학Ⅱ
+  - 적분
+  - 정적분
+  - 정적분의 성질
+  key_concepts:
+  - 정적분의 성질
+  - 평행이동
+  - 기함수의 정적분
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 삼육대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 삼육대학교
+  admission_year: 2025
+  admission_type: 논술우수자전형
+  track: 자연
+  question_no: 14
+  official_url: https://ipsi.syu.ac.kr/2016_syu/pages/index.asp?p=29&b=B_1_1&bn=64541&m=read
+  retrieved_at: '2026-11-21'
+  original_points: 10
+  rights_notice: '「2025학년도 선행학습 영향평가 자체평가 보고서」 부록 p.102~105 — EBS 출처: 수능특강 수학Ⅱ(EBS, 2024) p.74~77'
+verify: verify/SYU-G25N.py::p14
+subparts:
+- id: '1'
+  stem: 위 문제의 답을 구하시오.
+  points: 10
+  depends_on: []
+  answer:
+    kind: expression
+    value: -A+B+8a
+    equivalents:
+    - B-A+8a
+    tolerance: null
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $x-b=X$ 치환으로 $\int_0^af(x)dx=-B+2a$, $f(x)-5$가 기함수라 $\int_{-a}^af(x)dx=10a$를 써서 구간을 나누어 합친다.
+    steps:
+    - id: 1a
+      content: |
+        $\int_{-a}^{-b}=\int_0^{-b}-\int_0^{-a}$, $\int_0^{-b}f=-A$, $\int_0^af=-B+2a$, $-\int_0^{-a}f=10a-\int_0^af=B+8a$ → $-A+B+8a$.
+      criteria:
+      - 1.M1
+      - 1.M2
+      - 1.M3
+      - 1.M4
+    hint_ladder:
+    - $\int_{-a}^{-b}$을 $0$을 기준으로 두 적분의 차로 나누어 보자.
+    - $B$의 적분에서 $x-b=X$로 치환하면 어떤 구간의 적분이 되는가?
+    - $x^3-a^2x$는 기함수이다.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 「2025 선행학습 영향평가 보고서」 p.102~105 문항 해설 및 풀이과정
+    steps:
+    - id: 1b-1
+      content: |
+        (수식 변형) $\int_{-a}^{-b}f(x)dx=\int_0^{-b}f(x)dx-\int_0^{-a}f(x)dx$
+      criteria:
+      - 1.M1
+    - id: 1b-2
+      content: |
+        $\int_0^{-b}f(x)dx=-A$
+      criteria:
+      - 1.M2
+    - id: 1b-3
+      content: |
+        $\int_b^{a+b}\{-f(x-b)+2\}dx=B$에서 $x-b=X$로 치환하면 $\int_0^a\{-f(X)+2\}dX=B$, $-\int_0^af(x)dx=B-2a$, $\int_0^af(x)dx=-B+2a$
+      criteria:
+      - 1.M3
+    - id: 1b-4
+      content: |
+        $\int_{-a}^af(x)dx=\int_{-a}^a(x^3-a^2x+5)dx=10a=\int_{-a}^0f(x)dx+\int_0^af(x)dx$이므로
+        $-\int_0^{-a}f(x)dx=10a-\int_0^af(x)dx=B+8a$
+        $\therefore\ \int_{-a}^{-b}f(x)dx=-A+B+8a$
+      criteria:
+      - 1.M4
+  - id: S2-B
+    audience: B
+    method_no: 2
+    source_flow: 「2025 선행학습 영향평가 보고서」 p.103 (그래프 변형)
+    steps:
+    - id: 2b-1
+      content: |
+        $f(x)-5=x(x-a)(x+a)$. $y=5$ 위 $-b\le x\le0$ 부분 넓이를 $C$라 하면 $A=C+5b$, $C=A-5b$.
+      criteria:
+      - 1.M2
+    - id: 2b-2
+      content: |
+        $g(x)=-f(x-b)+2=-[f(x-b)-2]$의 $b\le x\le a+b$ 부분에서 $y=-3$ 위 넓이를 $D$라 하면 $B=-(3a-D)=D-3a$, $D=B+3a$.
+      criteria:
+      - 1.M3
+    - id: 2b-3
+      content: |
+        $\int_{-a}^{-b}f(x)dx=D-C+5(a-b)=B+3a-A+5b+5a-5b=-A+B+8a$
+      criteria:
+      - 1.M4
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 2
+      evidence: $\int_{-a}^{-b}f(x)dx=\int_0^{-b}f(x)dx-\int_0^{-a}f(x)dx$로 적분구간을 나누어 표현함(「$\int_0^{-b}+\int_{-a}^0$의 합」으로 표현해도 됨, 뒷부분에 정의해도 됨)
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 1b-1
+    - id: 1.M2
+      mark_type: M
+      points: 1
+      evidence: $\int_0^{-b}f(x)dx=-A$ 확인(적분구간 $-b$에서 $0$까지를 $0$에서 $-b$까지로 변형)
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 1b-2
+      - 2b-1
+    - id: 1.M3
+      mark_type: M
+      points: 3
+      evidence: $\int_0^af(x)dx=-B+2a$ 확인(치환·평행이동)
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 1b-3
+      - 2b-2
+    - id: 1.M4
+      mark_type: M
+      points: 4
+      evidence: $-\int_0^{-a}f(x)dx=10a-\int_0^af(x)dx=B+8a$ 확인(기함수의 특성으로 $\int_{-a}^af(x)dx$를 단순화)하여 $-A+B+8a$를 얻음
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 1b-4
+      - 2b-3
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  - code: '71'
+    misconception: MC-CAL-4257
+  - code: '72'
+    misconception: MC-CAL-4258
+  misconceptions:
+  - id: MC-CAL-4257
+    outcome_code: '71'
+    wrong_work: $x-b=X$ 치환에서 적분구간을 바꾸지 않거나 상수 $2$의 적분($2a$)을 빠뜨림
+    detect_cue: $\int_0^af(x)dx=-B$ 또는 $-B+2(a+b)$로 씀
+    feedback: 치환하면 구간은 $[b,a+b]\to[0,a]$이고, $\int_0^a2\,dX=2a$입니다.
+    remedy:
+    - RL-1
+  - id: MC-CAL-4258
+    outcome_code: '72'
+    wrong_work: $\int_{-a}^af(x)dx$에서 상수항 $5$를 빠뜨려 $0$으로 봄
+    detect_cue: 답이 $-A+B-2a$
+    feedback: $x^3-a^2x$만 기함수이고 상수 $5$의 적분은 $5\times2a=10a$입니다.
+    remedy:
+    - RL-2
+remedy_links:
+- id: RL-1
+  trigger:
+    type: misconception
+    ref: MC-CAL-4257
+  relation: remediation
+  target:
+    kind: concept
+    ref: CON-SYU-G25N-INTEGRAL-SHIFT
+  priority: 1
+- id: RL-2
+  trigger:
+    type: misconception
+    ref: MC-CAL-4258
+  relation: remediation
+  target:
+    kind: concept
+    ref: CON-SYU-G25N-INTEGRAL-SHIFT
+  priority: 1
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: opus
+  prompt_version: past-transcribe-v1
+  item_version: 1
+  verdict: pass
+  date: '2026-11-21'
+created: '2026-11-21'
+updated: '2026-11-21'

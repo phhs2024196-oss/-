@@ -1,0 +1,207 @@
+schema_version: '2.0'
+id: SYU-G26N-10
+legacy_id: null
+version: 1
+status: draft
+exam_family: yaksul
+item_type: numeric
+origin: past_exam
+school: SYU
+type: null
+variant_of: null
+replaces: null
+level: L3
+form: 추론
+points: 10
+time_estimate_min: 5
+intent: 자연수의 거듭제곱의 합과 $\sum$의 성질을 활용하여 여러 가지 수열의 합을 구하고, 그 과정을 설명할 수 있다.
+key_idea: $S_n=an^2$이고 $\dfrac{a_{k+1}}{S_kS_{k+1}}=\dfrac1{S_k}-\dfrac1{S_{k+1}}$로 망원합.
+stuck: 분자 $a_{k+1}$을 $S_{k+1}-S_k$로 바꾸는 발상
+idea_tags:
+- IDEA-TELESCOPE-PARTIAL-SUM-RECIPROCAL
+tags:
+- 2026 기출
+- 자연계열
+stimuli: []
+stem: |
+  모든 항이 양수인 등차수열 $\{a_n\}$의 첫째항부터 제$n$항까지의 합을 $S_n$이라 하자. $a_2=3a_1$이고 $\displaystyle\sum_{k=1}^{3}\frac{1}{S_k}=\frac{7}{18}$일 때, $\displaystyle\sum_{k=1}^{9}\frac{a_{k+1}}{S_kS_{k+1}}$의 값을 구하시오. [10점]
+elements:
+  materials:
+  - 모든 항이 양수인 등차수열 $\{a_n\}$
+  - $a_2=3a_1$
+  - $\sum_{k=1}^{3}\frac1{S_k}=\frac7{18}$
+  concepts:
+  - 등차수열의 일반항과 합
+  - $a_{k+1}=S_{k+1}-S_k$
+  - 망원합
+  tools:
+  - 부분분수 분해
+  - 시그마 전개
+  conditions:
+  - $d=2a_1$ → $a_n=a(2n-1)$, $S_n=an^2$
+  - $\dfrac{49}{36a}=\dfrac7{18}$ → $a=\dfrac72$
+  stimuli_used: []
+  subpart_links: 단일 논제
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학Ⅰ
+  scope_2028: common
+  scope_confirmed: true
+  standards:
+  - code: 12수학Ⅰ03-05
+    text: 여러 가지 수열의 첫째항부터 제$n$항까지의 합을 구할 수 있다.
+    verified: true
+  content_area: 수열 – 수열의 합
+  behavior_domain: 계산
+  unit_path:
+  - 수학Ⅰ
+  - 수열
+  - 수열의 합
+  - 분수꼴 수열의 합(망원합)
+  key_concepts:
+  - 등차수열의 합
+  - $a_{n+1}=S_{n+1}-S_n$
+  - 부분분수
+  - 시그마의 성질
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 삼육대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 삼육대학교
+  admission_year: 2026
+  admission_type: 논술우수자전형
+  track: 자연
+  question_no: 10
+  official_url: https://ipsi.syu.ac.kr/2016_syu/pages/index.asp?p=29&b=B_1_1&bn=66389&m=read
+  retrieved_at: '2026-11-21'
+  original_points: 10
+  rights_notice: '「2026학년도 선행학습 영향평가 자체평가 보고서」 부록 p.100~101 — EBS 출처: 수능완성 수학Ⅰ(EBS, 2025) p.121'
+verify: verify/SYU-G26N.py::p10
+subparts:
+- id: '1'
+  stem: 위 문제의 답을 구하시오.
+  points: 10
+  depends_on: []
+  answer:
+    kind: value
+    value: \dfrac{99}{350}
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $S_n=an^2$이고 $\dfrac{a_{k+1}}{S_kS_{k+1}}=\dfrac1{S_k}-\dfrac1{S_{k+1}}$로 망원합.
+    steps:
+    - id: 1a
+      content: |
+        $S_n=an^2$, $a=\dfrac72$; $\sum_{k=1}^{9}\left(\dfrac1{S_k}-\dfrac1{S_{k+1}}\right)=\dfrac1{S_1}-\dfrac1{S_{10}}=\dfrac27-\dfrac1{350}=\dfrac{99}{350}$.
+      criteria:
+      - 1.M1
+      - 1.A1
+    hint_ladder:
+    - $a_2=3a_1$에서 공차를 첫째항으로 나타내 보자.
+    - $S_n$을 구하면 첫 조건에서 첫째항이 정해진다.
+    - $a_{k+1}=S_{k+1}-S_k$를 이용하면 분수를 둘로 쪼갤 수 있다.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 「2026 선행학습 영향평가 보고서」 p.100~101 문항 해설 및 풀이과정
+    steps:
+    - id: 1b-1
+      content: |
+        등차수열 $\{a_n\}$의 첫째항을 $a$, 공차를 $d$라 하면 $a_n=a+(n-1)d$이다.
+        $d=a_2-a_1=3a_1-a_1=2a_1$이므로 $a_n=a+(n-1)2a=a(2n-1)$.
+        $S_n=\dfrac{n(a+l)}{2}=\dfrac{n(a+2an-a)}{2}=an^2$.
+        $\displaystyle\sum_{k=1}^{3}\frac1{S_k}=\frac1a+\frac1{4a}+\frac1{9a}=\frac{49}{36a}=\frac7{18}$이므로 $a=\dfrac72$, 대입하면 $a_n=7n-\dfrac72$.
+      criteria:
+      - 1.M1
+    - id: 1b-2
+      content: |
+        $\displaystyle\sum_{k=1}^{9}\frac{a_{k+1}}{S_kS_{k+1}}=\sum_{k=1}^{9}\frac{S_{k+1}-S_k}{S_kS_{k+1}}=\sum_{k=1}^{9}\left(\frac1{S_k}-\frac1{S_{k+1}}\right)=\frac1{S_1}-\frac1{S_{10}}$.
+        $S_n=\dfrac72n^2$이므로 $S_1=\dfrac72$, $S_{10}=350$. 따라서 $\dfrac1{S_1}-\dfrac1{S_{10}}=\dfrac27-\dfrac1{350}=\dfrac{99}{350}$.
+      criteria:
+      - 1.A1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 4
+      evidence: $a_n=7n-\dfrac72$을 구함
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 1b-1
+    - id: 1.A1
+      mark_type: A
+      points: 6
+      evidence: $\dfrac{99}{350}$를 구함
+      depends_on:
+      - 1.M1
+      implied_ok: false
+      steps:
+      - 1b-2
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  - code: '71'
+    misconception: MC-ALG-4157
+  - code: '72'
+    misconception: MC-ALG-4158
+  misconceptions:
+  - id: MC-ALG-4157
+    outcome_code: '71'
+    wrong_work: 망원합 결과를 $\dfrac1{S_1}-\dfrac1{S_9}$ 등으로 끝항을 잘못 잡음
+    detect_cue: 마지막에 $S_{10}$ 대신 $S_9$가 쓰임
+    feedback: $k=9$일 때 남는 항은 $-\dfrac1{S_{10}}$입니다. 처음 몇 항과 마지막 항을 직접 써 보세요.
+    remedy:
+    - RL-1
+  - id: MC-ALG-4158
+    outcome_code: '72'
+    wrong_work: $a_2=3a_1$을 공차 $3a_1$(또는 공비 $3$)로 해석
+    detect_cue: $S_n$이 $an^2$ 꼴이 아님
+    feedback: 공차는 $d=a_2-a_1=2a_1$입니다.
+    remedy:
+    - RL-2
+remedy_links:
+- id: RL-1
+  trigger:
+    type: misconception
+    ref: MC-ALG-4157
+  relation: remediation
+  target:
+    kind: concept
+    ref: CON-SYU-G26N-TELESCOPE
+  priority: 1
+- id: RL-2
+  trigger:
+    type: misconception
+    ref: MC-ALG-4158
+  relation: remediation
+  target:
+    kind: concept
+    ref: CON-SYU-G26N-TELESCOPE
+  priority: 1
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: opus
+  prompt_version: past-transcribe-v1
+  item_version: 1
+  verdict: pass
+  date: '2026-11-21'
+created: '2026-11-21'
+updated: '2026-11-21'

@@ -1,0 +1,228 @@
+schema_version: '2.0'
+id: SYU-G25N-10
+legacy_id: null
+version: 1
+status: draft
+exam_family: yaksul
+item_type: numeric
+origin: past_exam
+school: SYU
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 분류
+points: 10
+time_estimate_min: 6
+intent: 함수의 그래프와 극한의 성질을 이용하여 주어진 문제를 해결할 수 있다.
+key_idea: $f$를 $\dfrac1{x+2}-5$, $4\left(x+\dfrac12\right)^2-4$, $-\log_2(9x-1)$로 그려 $k$의 범위별 교점 개수 $g(k)$를 구하고 한쪽 극한을 읽는다.
+stuck: 점근선 $y=-5$, $x=-2$와 끝점 $(-1,-3)$, $(1,5)$, $(1,-3)$의 포함 여부를 정확히 처리하는 것
+idea_tags:
+- IDEA-PIECEWISE-GRAPH-LEVEL-COUNT
+tags:
+- 2025 기출
+- 자연계열
+stimuli: []
+stem: |
+  함수 $f(x)=\begin{cases}\dfrac{-5x-9}{x+2} & (x<-1)\\ 4x^2+4x-3 & (-1\le x<1)\\ -\log_2(9x-1) & (x\ge1)\end{cases}$의 그래프가
+  직선 $y=k$와 만나는 점의 개수를 $g(k)$라 할 때,
+  $\lim_{k\to-4-}g(k)+\lim_{k\to-3+}g(k)+\lim_{k\to5-}g(k)$의 값을 구하시오. (단, $k$는 실수이다.)
+elements:
+  materials:
+  - 유리함수·이차함수·로그함수로 이루어진 구간별 함수
+  - 수평선 $y=k$와의 교점 개수 $g(k)$
+  concepts:
+  - 유리함수의 점근선
+  - 이차함수의 꼭짓점
+  - 로그함수의 그래프
+  - 좌극한·우극한
+  tools:
+  - 표준형 변형 $\dfrac1{x+2}-5$, $4\left(x+\frac12\right)^2-4$
+  - 그래프를 그려 $k$의 범위 분류
+  conditions:
+  - $x<-1$에서 점근선 $x=-2$, $y=-5$; $x\to-1-$일 때 $-4$로 다가감(포함 안 됨)
+  - '$-1\le x<1$: 꼭짓점 $\left(-\frac12,-4\right)$, $f(-1)=-3$, $x\to1-$일 때 $5$'
+  - '$x\ge1$: $f(1)=-3$에서 감소'
+  stimuli_used: []
+  subpart_links: 단일 논제
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학Ⅱ
+  scope_2028: common
+  scope_confirmed: true
+  standards:
+  - code: 12수학Ⅱ01-01
+    text: 함수의 극한의 뜻을 안다.
+    verified: true
+  content_area: 함수의 극한과 연속 – 함수의 극한
+  behavior_domain: 추론
+  unit_path:
+  - 수학Ⅱ
+  - 함수의 극한과 연속
+  - 함수의 극한
+  - 좌극한과 우극한
+  key_concepts:
+  - 좌극한과 우극한
+  - 유리함수의 그래프
+  - 교점의 개수
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 삼육대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 삼육대학교
+  admission_year: 2025
+  admission_type: 논술우수자전형
+  track: 자연
+  question_no: 10
+  official_url: https://ipsi.syu.ac.kr/2016_syu/pages/index.asp?p=29&b=B_1_1&bn=64541&m=read
+  retrieved_at: '2026-11-21'
+  original_points: 10
+  rights_notice: '「2025학년도 선행학습 영향평가 자체평가 보고서」 부록 p.90~91 — EBS 출처: 수능특강 수학Ⅱ(EBS, 2024) p.4~11'
+verify: verify/SYU-G25N.py::p10
+subparts:
+- id: '1'
+  stem: 위 문제의 답을 구하시오.
+  points: 10
+  depends_on: []
+  answer:
+    kind: value
+    value: '5'
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $f$를 $\dfrac1{x+2}-5$, $4\left(x+\dfrac12\right)^2-4$, $-\log_2(9x-1)$로 그려 $k$의 범위별 교점 개수 $g(k)$를 구하고 한쪽 극한을 읽는다.
+    steps:
+    - id: 1a
+      content: |
+        $g(k)$: $1\ (k\ge5)$, $2\ (-3<k<5)$, $4\ (-4<k\le-3)$, $2\ (k=-4)$, $1\ (-5\le k<-4)$, $2\ (k<-5)$ → $1+2+2=5$.
+      criteria:
+      - 1.M1
+      - 1.M2
+      - 1.A1
+    hint_ladder:
+    - $\dfrac{-5x-9}{x+2}$를 $\dfrac{a}{x+2}+b$ 꼴로 바꾸어 점근선을 찾자.
+    - 구간의 끝점에서 함숫값이 포함되는지 표시하며 그래프를 그려라.
+    - $k$를 위에서 아래로 움직이며 교점 개수가 바뀌는 값을 찾아라.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 「2025 선행학습 영향평가 보고서」 p.90~91 문항 해설 및 풀이과정
+    steps:
+    - id: 1b-1
+      content: |
+        $f(x)=\begin{cases}\dfrac{-5x-9}{x+2}=\dfrac1{x+2}-5 & (x<-1)\\ 4x^2+4x-3=4\left(x+\dfrac12\right)^2-4 & (-1\le x<1)\\ -\log_2(9x-1) & (x\ge1)\end{cases}$ 의 그래프를 그린다.
+      criteria:
+      - 1.M1
+      - 1.M2
+    - id: 1b-2
+      content: |
+        $k$의 값의 범위에 따른 $g(k)$: $g(k)=1\ (k\ge5)$, $2\ (-3<k<5)$, $4\ (-4<k\le-3)$
+      criteria:
+      - 1.M1
+    - id: 1b-3
+      content: |
+        $g(k)=2\ (k=-4)$, $1\ (-5\le k<-4)$, $2\ (k<-5)$
+      criteria:
+      - 1.M2
+    - id: 1b-4
+      content: |
+        따라서 $\lim_{k\to-4-}g(k)=1$, $\lim_{k\to-3+}g(k)=2$, $\lim_{k\to5-}g(k)=2$이고 합은 $5$이다.
+      criteria:
+      - 1.A1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 3
+      evidence: 그래프로부터 $g(k)=1\ (k\ge5)$, $2\ (-3<k<5)$, $4\ (-4<k\le-3)$을 구함
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 1b-1
+      - 1b-2
+    - id: 1.M2
+      mark_type: M
+      points: 3
+      evidence: 그래프로부터 $g(k)=2\ (k=-4)$, $1\ (-5\le k<-4)$, $2\ (k<-5)$를 구함
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 1b-1
+      - 1b-3
+    - id: 1.A1
+      mark_type: A
+      points: 4
+      evidence: 극한값 $\lim_{k\to-4-}g(k)+\lim_{k\to-3+}g(k)+\lim_{k\to5-}g(k)=5$를 구함
+      depends_on:
+      - 1.M1
+      - 1.M2
+      implied_ok: false
+      steps:
+      - 1b-4
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  - code: '71'
+    misconception: MC-CAL-4253
+  - code: '72'
+    misconception: MC-CAL-4254
+  misconceptions:
+  - id: MC-CAL-4253
+    outcome_code: '71'
+    wrong_work: $x<-1$ 부분에서 $x\to-1-$일 때의 값 $-4$를 포함된 값으로 보거나 $-2<x<-1$ 가지를 빠뜨림
+    detect_cue: $\lim_{k\to-3+}g(k)$를 $1$ 또는 $3$으로 셈
+    feedback: $x<-1$의 유리함수는 $x=-2$를 경계로 두 가지가 있고, $-2<x<-1$ 가지의 값의 범위는 $(-4,\infty)$입니다.
+    remedy:
+    - RL-1
+  - id: MC-CAL-4254
+    outcome_code: '72'
+    wrong_work: 한쪽 극한 대신 함숫값 $g(-4)$, $g(-3)$, $g(5)$를 더함
+    detect_cue: $g(-4)+g(-3)+g(5)=2+4+1=7$
+    feedback: $\lim_{k\to-4-}g(k)$는 $k$가 $-4$보다 작은 쪽에서 다가갈 때의 값입니다. 그 근방 구간의 $g$값을 쓰세요.
+    remedy:
+    - RL-2
+remedy_links:
+- id: RL-1
+  trigger:
+    type: misconception
+    ref: MC-CAL-4253
+  relation: remediation
+  target:
+    kind: concept
+    ref: CON-SYU-G25N-PIECEWISE-COUNT
+  priority: 1
+- id: RL-2
+  trigger:
+    type: misconception
+    ref: MC-CAL-4254
+  relation: remediation
+  target:
+    kind: concept
+    ref: CON-SYU-G25N-PIECEWISE-COUNT
+  priority: 1
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: opus
+  prompt_version: past-transcribe-v1
+  item_version: 1
+  verdict: pass
+  date: '2026-11-21'
+created: '2026-11-21'
+updated: '2026-11-21'

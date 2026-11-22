@@ -1,0 +1,183 @@
+schema_version: '2.0'
+id: SYU-G26H-11
+legacy_id: null
+version: 1
+status: draft
+exam_family: yaksul
+item_type: numeric
+origin: past_exam
+school: SYU
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 분류
+points: 10
+time_estimate_min: 5
+intent: 다항함수의 그래프의 개형에 대한 여러 가지 문제를 해결할 수 있다.
+key_idea: '$y=\lvert f(x)\rvert$의 그래프와 직선 $y=k$의 교점 개수로 $n$을 세고, 정수 $k$를 $n$의 홀짝으로 분류한다.'
+stuck: 'x축 아래 극솟값 $-9$를 접어 올린 $y=\lvert f(x)\rvert$의 개형에서 $k=0$, $k=1$, $k=9$ 등 경계값의 교점 개수를 정확히 세는 것'
+idea_tags: [IDEA-ABS-GRAPH-LINE-INTERSECT-COUNT]
+tags: [삼육대 약술형, 2026학년도, 인문계열, 논술가이드북 2027 수록(수학 문제 1)]
+
+source:
+  rights_holder: 삼육대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 삼육대학교
+  admission_year: 2026
+  admission_type: 논술우수자전형
+  track: 인문
+  question_no: 11
+  official_url: https://ipsi.syu.ac.kr/2016_syu/pages/index.asp?p=29&b=B_1_1&bn=66389&m=read
+  retrieved_at: 2026-11-21
+  original_points: 10
+  rights_notice: '「2026학년도 선행학습 영향평가 자체평가 보고서」 부록 p.62~63 — EBS 출처: 수능특강 수학Ⅱ(2025) p.64'
+
+verify: verify/SYU-G26H.py::p11
+
+stimuli: []
+
+stem: |
+  함수 $f(x)=\dfrac{1}{3}x^3-x^2-3x$에 대하여 $x$에 대한 방정식 $\lvert f(x)\rvert=k$의 서로 다른 실근의 개수를 $n$이라 하자. $n$이 홀수가 되도록 하는 모든 $k$의 값의 합을 $\alpha$, $n$이 짝수가 되도록 하는 모든 $k$의 값의 합을 $\beta$라 할 때, $\beta-\alpha$의 값을 구하시오. (단, $n>2$, $k$는 정수이다.)
+
+elements:
+  materials: ['삼차함수 $f(x)=\dfrac13x^3-x^2-3x$와 그 절댓값 함수 $y=\lvert f(x)\rvert$', '수평선 $y=k$']
+  concepts: [도함수와 극대·극소, 삼차함수의 그래프 개형, 절댓값 함수의 그래프, 방정식의 실근과 그래프의 교점]
+  tools: ['$f^{\prime}(x)=(x-3)(x+1)$로 극값 구하기', 그래프 접어 올리기, 정수 $k$의 경우 분류]
+  conditions: ['극댓값 $f(-1)=\dfrac53$, 극솟값 $f(3)=-9$', '$n>2$ → $0\le k\le 9$인 정수만 대상', '$k$는 정수 → $k=\dfrac53$은 제외']
+  stimuli_used: []
+  subpart_links: 단일 논제
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅱ]
+  scope_2028: common
+  scope_confirmed: true
+  standards:
+  - code: 12수학Ⅱ02-09
+    text: 함수의 그래프의 개형을 그릴 수 있다.
+    verified: true
+  content_area: 미분 – 도함수의 활용
+  behavior_domain: 문제해결
+  unit_path: [수학Ⅱ, 미분, 도함수의 활용, 방정식의 실근의 개수]
+  key_concepts: [극대·극소, 그래프의 개형, 절댓값 함수, 교점의 개수]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+subparts:
+- id: '1'
+  stem: |
+    $\beta-\alpha$의 값을 구하시오.
+  points: 10
+  depends_on: []
+  answer:
+    kind: value
+    value: '27'
+    equivalents: []
+    tolerance: null
+    note: '$n=3$: $k=0,9$ / $n=4$: $k=2,3,\cdots,8$ / $n=6$: $k=1$ → $\alpha=9$, $\beta=36$'
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: 극값 $\dfrac53$, $-9$를 구해 $y=\lvert f(x)\rvert$를 그리고, 정수 $k=0,1,\cdots,9$마다 교점 개수를 센다.
+    steps:
+    - id: 1a
+      content: '$n=3$ ($k=0,9$), $n=4$ ($k=2\sim8$), $n=6$ ($k=1$)이므로 $\beta-\alpha=36-9=27$'
+      criteria: [1.M1, 1.M2, 1.M3, 1.A1]
+    hint_ladder:
+    - 실근의 개수는 $y=\lvert f(x)\rvert$와 $y=k$의 교점 개수와 같다.
+    - '$f^{\prime}(x)=0$에서 극값을 구하고, $x$축 아래 부분을 위로 접어 보자.'
+    - '$k\ge10$이면 $n=2$이므로 조건 $n>2$에서 제외된다. $k=0$, $k=9$에서 접하는 점을 주의하자.'
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 「2026 선행학습 영향평가 보고서」 p.62~63 문항 해설 및 풀이과정
+    steps:
+    - id: 1b-1
+      content: |
+        $n$은 $y=\lvert f(x)\rvert$ 그래프와 직선 $y=k$가 만나는 교점의 개수와 같다.
+        $f^{\prime}(x)=x^2-2x-3=(x-3)(x+1)$이므로 $x=-1$에서 극대(극댓값 $\dfrac53$), $x=3$에서 극소(극솟값 $-9$)이다.
+      criteria: [1.M1]
+    - id: 1b-2
+      content: |
+        함수 $y=f(x)$의 그래프는 [그림1]과 같고, 함수 $y=\lvert f(x)\rvert$의 그래프는 [그림2]와 같다.
+        [그림1: $y=f(x)$의 그래프. $x=-1$에서 극댓값 $\dfrac53$, 원점을 지나 내려가 $x=3$에서 극솟값 $-9$를 갖고 다시 증가하는 삼차함수 곡선.]
+        [그림2: $y=\lvert f(x)\rvert$의 그래프. $x=-1$에서 높이 $\dfrac53$의 작은 봉우리, 원점과 양의 $x$절편에서 $x$축에 닿고, $x=3$에서 높이 $9$의 큰 봉우리. 점선 $y=k$가 가로로 그어져 있음.]
+      criteria: [1.M1]
+    - id: 1b-3
+      content: |
+        $n=3$일 때, $k=0,9$
+        $n=4$일 때, $k=2,3,4,5,6,7,8$
+        $n=6$일 때, $k=1$
+      criteria: [1.M1, 1.M2, 1.M3]
+    - id: 1b-4
+      content: |
+        $\therefore\alpha=0+9=9$, $\beta=1+2+3+4+5+6+7+8=36$, $\beta-\alpha=27$
+      criteria: [1.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 3
+      evidence: '$n=3$일 때 $k=0,9$를 구했다.'
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1, 1b-2, 1b-3]
+    - id: 1.M2
+      mark_type: M
+      points: 3
+      evidence: '$n=4$일 때 $k=2,3,4,5,6,7,8$을 구했다.'
+      depends_on: []
+      steps: [1b-3]
+    - id: 1.M3
+      mark_type: M
+      points: 3
+      evidence: '$n=6$일 때 $k=1$을 구했다.'
+      depends_on: []
+      steps: [1b-3]
+    - id: 1.A1
+      mark_type: A
+      points: 1
+      evidence: '$\beta-\alpha=27$을 구했다.'
+      depends_on: [1.M1, 1.M2, 1.M3]
+      steps: [1b-4]
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-CAL-4103}
+  - {code: '71', misconception: MC-CAL-4104}
+  misconceptions:
+  - id: MC-CAL-4103
+    outcome_code: '70'
+    wrong_work: '$k=9$일 때 $f(x)=-9$의 중근 $x=3$을 두 개로 세어 $n=4$(짝수)로 분류 → $\alpha=0$, $\beta=45$, $\beta-\alpha=45$'
+    detect_cue: '$k=9$가 짝수 쪽 합에 들어가 있거나 답이 $45$'
+    feedback: 서로 다른 실근의 개수는 그래프의 교점 개수입니다. 접하는 점은 한 개로 셉니다.
+    remedy: [RL-1]
+  - id: MC-CAL-4104
+    outcome_code: '71'
+    wrong_work: '$y=\lvert f(x)\rvert$를 그리지 않고 $f(x)=k$의 실근만 세어 $k=1$일 때 $n=3$, $k\ge2$일 때 $n=1$ 등으로 분류'
+    detect_cue: '$f(x)=-k$인 경우를 고려한 흔적이 없고 $x$축 아래 부분을 접지 않음'
+    feedback: '$\lvert f(x)\rvert=k$는 $f(x)=k$ 또는 $f(x)=-k$입니다. $x$축 아래 부분을 위로 접은 그래프를 그리세요.'
+    remedy: [RL-2]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CAL-4103}
+  relation: remediation
+  target: {kind: concept, ref: CON-SYU-G26H-ROOTCOUNT}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-CAL-4104}
+  relation: remediation
+  target: {kind: concept, ref: CON-SYU-G26H-ABSGRAPH}
+  priority: 2
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-transcribe-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

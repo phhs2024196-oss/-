@@ -1,0 +1,199 @@
+schema_version: '2.0'
+id: SYU-G25H-13
+legacy_id: null
+version: 1
+status: draft
+exam_family: yaksul
+item_type: numeric
+origin: past_exam
+school: SYU
+type: null
+variant_of: null
+replaces: null
+level: L3
+form: 추론
+points: 10
+time_estimate_min: 6
+intent: 절댓값이 포함되어 있는 함수의 성질과 삼각함수의 주기를 이용하여 주어진 문제를 해결할 수 있다.
+key_idea: '$\tan\pi x=\sqrt3$에서 $A_1\left(\frac13,\frac{\sqrt3}{2}\right)$, 주기 1과 $x=\frac12$ 대칭으로 교점 간격이 $\frac13$, $\frac23$으로 번갈아 나타난다.'
+stuck: 두 그래프의 대칭성으로 교점의 $x$좌표가 $\frac13,\frac23,\frac43,\frac53,\cdots$임을 정리하는 것
+idea_tags: [IDEA-TRIG-ABS-PERIOD-SYMMETRY]
+tags: [2025 기출, 인문, 약술형]
+
+stem: |
+  $x>0$에서 정의된 두 함수 $f(x)=\lvert\sin\pi x\rvert$, $g(x)=\sqrt3\lvert\cos\pi x\rvert$에 대하여 함수 $y=f(x)$의 그래프가 함수 $y=g(x)$의 그래프와 만나는 점을 $x$좌표가 작은 것부터 차례로 $\mathrm{A}_1$, $\mathrm{A}_2$, $\mathrm{A}_3$, $\cdots$이라 하고, 함수 $y=f(x)$의 그래프 또는 함수 $y=g(x)$의 그래프가 $x$축과 만나는 점을 $x$좌표가 작은 것부터 차례로 $\mathrm{B}_1$, $\mathrm{B}_2$, $\mathrm{B}_3$, $\cdots$이라 하자. 자연수 $n$에 대하여 삼각형 $\mathrm{A}_n\mathrm{B}_n\mathrm{A}_{n+1}$의 넓이를 $S_n$이라 할 때, $\displaystyle\sum_{n=1}^{9}S_n$의 값을 구하시오. [10점]
+
+elements:
+  materials:
+  - $f(x)=\lvert\sin\pi x\rvert$, $g(x)=\sqrt3\lvert\cos\pi x\rvert$ $(x>0)$
+  - 교점 $\mathrm{A}_n$, $x$축 위의 점 $\mathrm{B}_n$
+  - 삼각형 $\mathrm{A}_n\mathrm{B}_n\mathrm{A}_{n+1}$의 넓이 $S_n$
+  concepts:
+  - 삼각함수의 그래프와 주기
+  - 절댓값 함수의 대칭
+  - $\tan\frac{\pi}{3}=\sqrt3$
+  - 삼각형의 넓이
+  tools:
+  - $\frac{\sin\pi x}{\cos\pi x}=\tan\pi x=\sqrt3$
+  - 직선 $x=\frac12$, $x=1$에 대한 대칭
+  - 홀수 번째·짝수 번째 넓이를 나누어 합
+  conditions:
+  - 모든 교점의 $y$좌표는 $\frac{\sqrt3}{2}$ → 삼각형의 높이 일정
+  - 밑변 $\overline{\mathrm{A}_n\mathrm{A}_{n+1}}$은 $n$ 홀수일 때 $\frac13$, 짝수일 때 $\frac23$
+  - $\mathrm{B}_n$의 $x$좌표는 $\frac{n}{2}$
+  stimuli_used: []
+  subpart_links: 단일 논제
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅰ]
+  scope_2028: common
+  scope_confirmed: true
+  standards:
+  - code: 12수학Ⅰ02-02
+    text: 삼각함수의 뜻을 알고, 사인함수, 코사인함수, 탄젠트함수의 그래프를 그릴 수 있다.
+    verified: true
+  content_area: 삼각함수 – 삼각함수의 그래프
+  behavior_domain: 추론
+  unit_path: [수학Ⅰ, 삼각함수, 삼각함수의 그래프, 주기와 대칭]
+  key_concepts: [삼각함수의 그래프, 주기, 절댓값 함수의 대칭]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 삼육대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 삼육대학교
+  admission_year: 2025
+  admission_type: 논술우수자전형
+  track: 인문
+  question_no: 13
+  official_url: https://ipsi.syu.ac.kr/2016_syu/pages/index.asp?p=29&b=B_1_1&bn=64541&m=read
+  retrieved_at: 2026-11-21
+  original_points: 10
+  rights_notice: '「2025학년도 선행학습 영향평가 자체평가 보고서」 부록 p.56–58 — EBS 출처: 수능특강 수학영역 수학Ⅰ(2024) p.36-53'
+
+verify: verify/SYU-G25H.py::p13
+
+stimuli: []
+
+subparts:
+- id: '1'
+  stem: |
+    $\sum_{n=1}^{9}S_n$의 값을 구하시오.
+  points: 10
+  depends_on: []
+  answer: {kind: value, value: '\dfrac{13\sqrt{3}}{12}', equivalents: ['$S_1=\dfrac{\sqrt3}{12}$', '$S_2=\dfrac{\sqrt3}{6}$'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: 교점의 $y$좌표는 모두 $\frac{\sqrt3}{2}$이고 밑변이 $\frac13$, $\frac23$으로 번갈아 나온다.
+    steps:
+    - id: 1a
+      content: |
+        $\tan\pi x=\sqrt3$ → $x=\frac13$, 대칭으로 $\frac23,\frac43,\frac53,\cdots$. $S_{\text{홀}}=\frac{\sqrt3}{12}$, $S_{\text{짝}}=\frac{\sqrt3}{6}$ → $5\cdot\frac{\sqrt3}{12}+4\cdot\frac{\sqrt3}{6}=\frac{13\sqrt3}{12}$.
+      criteria: [1.M1, 1.A1, 1.A2, 1.A3]
+    hint_ladder:
+    - $0<x<\frac12$에서 절댓값을 벗기고 $\tan\pi x$를 구해 보자.
+    - 두 함수의 주기는 1이고 $[0,1]$에서 $x=\frac12$에 대해 대칭이다.
+    - 삼각형의 높이는 모두 같고 밑변만 달라진다.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 「2025 선행학습 영향평가 보고서」 p.57–58 문항 해설 및 풀이과정
+    steps:
+    - id: 1b-1
+      content: |
+        i) 삼각형 $\mathrm{A}_n\mathrm{B}_n\mathrm{A}_{n+1}$은 $\overline{\mathrm{A}_n\mathrm{A}_{n+1}}$을 밑변, $\mathrm{A}_n$의 $y$좌표의 값을 높이로 한다.
+        $\lvert\sin\pi x\rvert=\sqrt3\lvert\cos\pi x\rvert$
+        $\sin\pi x>0$, $\cos\pi x>0$일 때, $\frac{\sin\pi x}{\cos\pi x}=\tan\pi x=\sqrt3$ $\therefore x=\frac13$이고,
+        $\sin\frac{\pi}{3}=\frac{\sqrt3}{2}$이므로 $\mathrm{A}_1\left(\frac13,\frac{\sqrt3}{2}\right)$
+      criteria: [1.M1]
+    - id: 1b-2
+      content: |
+        $f(x)=\lvert\sin\pi x\rvert$와 $g(x)=\sqrt3\lvert\cos\pi x\rvert$는 주기가 1이고 닫힌구간 $[0,1]$에 대하여 두 함수 $y=f(x)$, $y=g(x)$의 그래프가 $x=\frac12$에 대하여 대칭이다.
+        따라서 두 점 $\mathrm{A}_1$과 $\mathrm{A}_2$는 $x=\frac12$에 대칭이므로 $\mathrm{A}_2\left(\frac23,\frac{\sqrt3}{2}\right)$,
+        $\mathrm{A}_2$와 $\mathrm{A}_3$는 $x=1$에 대칭이므로 $\mathrm{A}_3\left(\frac43,\frac{\sqrt3}{2}\right)$.
+        한편, 삼각형의 높이는 $\mathrm{A}_1$의 $y$좌표와 같으므로 $\frac{\sqrt3}{2}$이다.
+        (보충: $\mathrm{B}_n$은 $x=\frac12,1,\frac32,2,\cdots$로 각 삼각형의 두 꼭짓점 $\mathrm{A}_n$, $\mathrm{A}_{n+1}$ 사이 $x$축 위에 있다.)
+      criteria: [1.M1]
+    - id: 1b-3
+      content: |
+        ii) $S_1=\frac12\cdot\left(\frac23-\frac13\right)\left(\frac{\sqrt3}{2}\right)=\frac{\sqrt3}{12}$
+        $S_1+S_3+S_5+S_7+S_9=\frac{\sqrt3}{12}\times5=\frac{5\sqrt3}{12}$
+      criteria: [1.A1]
+    - id: 1b-4
+      content: |
+        iii) $S_2=\frac12\cdot\left(\frac43-\frac23\right)\left(\frac{\sqrt3}{2}\right)=\frac{2\sqrt3}{12}=\frac{\sqrt3}{6}$
+        $S_2+S_4+S_6+S_8=\frac{\sqrt3}{6}\times4=\frac{2\sqrt3}{3}$
+      criteria: [1.A2]
+    - id: 1b-5
+      content: |
+        iv) $\therefore\ \frac{5\sqrt3}{12}+\frac{2\sqrt3}{3}=\frac{13\sqrt3}{12}$
+      criteria: [1.A3]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 3
+      evidence: $\frac{\sin\pi x}{\cos\pi x}=\tan\pi x=\sqrt3$에서 $x=\frac13$을 구했다.
+      depends_on: []
+      steps: [1b-1, 1b-2]
+    - id: 1.A1
+      mark_type: A
+      points: 3
+      evidence: $S_1\times5=\frac{5\sqrt3}{12}$를 구했다(홀수 번째 넓이의 합).
+      depends_on: [1.M1]
+      steps: [1b-3]
+    - id: 1.A2
+      mark_type: A
+      points: 3
+      evidence: $S_2\times4=\frac{2\sqrt3}{3}$을 구했다(짝수 번째 넓이의 합).
+      depends_on: [1.M1]
+      steps: [1b-4]
+    - id: 1.A3
+      mark_type: A
+      points: 1
+      evidence: $\frac{5\sqrt3}{12}+\frac{2\sqrt3}{3}=\frac{13\sqrt3}{12}$를 구했다.
+      depends_on: [1.M1]
+      steps: [1b-5]
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-ALG-4205}
+  - {code: '72', misconception: MC-ALG-4206}
+  misconceptions:
+  - id: MC-ALG-4205
+    outcome_code: '71'
+    wrong_work: '모든 삼각형을 $S_1$과 같다고 보아 $9\times\frac{\sqrt3}{12}=\frac{3\sqrt3}{4}$'
+    detect_cue: 답이 $\frac{3\sqrt3}{4}$ 또는 $9S_1$
+    feedback: 교점 간격은 $\frac13$과 $\frac23$이 번갈아 나옵니다. $\mathrm{A}_1$, $\mathrm{A}_2$, $\mathrm{A}_3$의 좌표를 직접 확인하세요.
+    remedy: [RL-1]
+  - id: MC-ALG-4206
+    outcome_code: '72'
+    wrong_work: '절댓값을 떼고 $\tan\pi x=\sqrt3$의 해 $x=\frac13,\frac43,\cdots$만 교점으로 잡음'
+    detect_cue: 교점 간격을 모두 1로 계산, $S_n=\frac{\sqrt3}{4}$
+    feedback: 절댓값이 있으므로 $\tan\pi x=-\sqrt3$인 점($x=\frac23,\frac53,\cdots$)도 교점입니다.
+    remedy: [RL-2]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-ALG-4205}
+  relation: remediation
+  target: {kind: concept, ref: CON-SYU-G25H-TRIG-ABS-SYM}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-ALG-4206}
+  relation: remediation
+  target: {kind: concept, ref: CON-SYU-G25H-TRIG-ABS-SYM}
+  priority: 2
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-transcribe-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

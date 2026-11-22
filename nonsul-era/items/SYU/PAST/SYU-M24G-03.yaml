@@ -1,0 +1,223 @@
+schema_version: '2.0'
+id: SYU-M24G-03
+legacy_id: null
+version: 1
+status: draft
+exam_family: yaksul
+item_type: numeric
+origin: mock_exam
+school: SYU
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 추론
+points: 10
+time_estimate_min: 5
+intent: |
+  극한의 성질을 이용하여 함수값 계산
+key_idea: |
+  조건 (1)에서 $f(x)=(x-3)g(x)$, 조건 (2)에서 $g(x)-1=k(x-2)^2(x-a)$로 두고 두 극한값으로 $k$, $a$를 정한다.
+stuck: |
+  $(x-2)^2$로 나눈 극한이 수렴하려면 $f(x)-x+3$이 $(x-2)^2$을 인수로 가져야 함을 쓰는 것
+idea_tags: [IDEA-LIMIT-FACTOR-POLY]
+tags: ['가이드북 2024 모의문제', '함수의 극한', '출제근거 수능특강 수학Ⅱ pp.4~17']
+
+stem: |
+  사차함수 $f(x)$가 $\displaystyle\lim_{x\to3}\dfrac{xf(x)}{x-3}=6$, $\displaystyle\lim_{x\to2}\dfrac{f(x)-x+3}{(x-2)^2}=2$를 만족시킬 때, $f(1)$의 값은?
+
+elements:
+  materials:
+  - 두 극한 조건을 만족하는 사차함수 $f(x)$
+  concepts:
+  - 함수의 극한의 성질
+  - 인수정리
+  tools:
+  - $0/0$ 꼴 극한에서 분자의 인수 찾기
+  - 미정계수 연립
+  conditions:
+  - 조건 (1)에서 $f(3)=0$, $f(x)=(x-3)g(x)$($g$는 삼차함수)
+  - 조건 (2)에서 $f(x)-(x-3)=(x-3)(g(x)-1)$이 $(x-2)^2$을 인수로 가짐
+  stimuli_used: []
+  subpart_links: 단일 논제
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅱ]
+  scope_2028: common
+  scope_confirmed: true
+  standards:
+  - code: '[12수학Ⅱ01-02]'
+    text: 함수의 극한에 대한 성질을 이해하고, 함수의 극한값을 구할 수 있다.
+    verified: false
+  content_area: 함수의 극한과 연속 – 함수의 극한
+  behavior_domain: 추론
+  unit_path: [수학Ⅱ, 함수의 극한과 연속, 함수의 극한, 극한으로 다항함수 결정]
+  key_concepts: [함수의 극한, 인수정리, 미정계수 결정]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 삼육대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 삼육대학교
+  admission_year: 2024
+  admission_type: 논술우수자전형 모의논술
+  track: 공통
+  question_no: 3
+  official_url: 'https://ipsi.syu.ac.kr/2016_syu/pages/index.asp?p=97&b=B_1_12&bn=66480&m=read'
+  retrieved_at: 2026-11-21
+  original_points: 10
+  rights_notice: |
+    「2024학년도 삼육대학교 논술가이드」(guide_2024.pdf) 논술고사 모의문제(수학) p.21 · 논술고사 모범답안(수학) p.24 — EBS 출처: 수능특강 수학Ⅱ(2023) pp.4~17
+    (가이드북 모범답안에 성취기준 코드 없음 — standards 는 작성자 추정. 모의논술(SYU-M24-05~08)과 다른 문항)
+
+verify: verify/SYU-M24G.py::p3
+
+stimuli: []
+
+subparts:
+- id: '1'
+  stem: |
+    $f(1)$의 값을 구하시오.
+  points: 10
+  depends_on: []
+  answer:
+    kind: value
+    value: 8
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $f(x)=(x-3)\{k(x-2)^2(x-a)+1\}$로 두고 두 극한값에서 $k(3-a)=1$, $-k(2-a)=2$.
+    steps:
+    - {id: 1a, content: '$a=\frac83$, $k=3$, $f(1)=(-2)\{3\cdot(-\frac53)+1\}=8$', criteria: [1.M1, 1.M2, 1.M3, 1.M4, 1.A1, 1.A2, 1.A3]}
+    hint_ladder:
+    - 첫 조건에서 분모가 $0$으로 가면 분자는?
+    - 둘째 조건의 분자 $f(x)-x+3=f(x)-(x-3)$을 $(x-3)$으로 묶어 보자.
+    - 분모 $(x-2)^2$에 맞춰 $g(x)-1$이 어떤 인수를 가져야 하는가?
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 「2024학년도 삼육대학교 논술가이드」 p.24 모의문제 문항 3번 답안 예시답안
+    steps:
+    - id: 1b-1
+      content: |
+        $\displaystyle\lim_{x\to3}\dfrac{xf(x)}{x-3}=6$ $\cdots$ 조건 (1), $\displaystyle\lim_{x\to2}\dfrac{f(x)-x+3}{(x-2)^2}=2$ $\cdots$ 조건 (2)
+        조건 (1)에서 $f(x)=(x-3)g(x)$, $g(x)$는 $3$차함수 (보충: 분모 $\to0$이므로 $3f(3)=0$.)
+      criteria: [1.M1]
+    - id: 1b-2
+      content: |
+        조건 (2)에서 $f(x)-(x-3)=(x-3)g(x)-(x-3)=(x-3)(g(x)-1)$이고,
+      criteria: [1.M2]
+    - id: 1b-3
+      content: |
+        조건 (2)의 $g(x)$에 대하여 $g(x)-1=k(x-2)^2(x-a)$를 만족해야 함.
+        $f(x)=(x-3)\{k(x-2)^2(x-a)+1\}$를 조건 (1)에 대입하면
+        $\displaystyle\lim_{x\to3}x\{k(x-2)^2(x-a)+1\}=6$, $3k(3-a)=3$, $k(3-a)=1$ $\cdots$ ①
+        (보충: $3\{k(3-a)+1\}=6$.)
+      criteria: [1.M3]
+    - id: 1b-4
+      content: |
+        $f(x)=(x-3)\{k(x-2)^2(x-a)+1\}$를 조건 (2)에 대입하면
+        $\displaystyle\lim_{x\to2}k(x-3)(x-a)=2$, $k(-1)(2-a)=2$ $\cdots$ ②
+      criteria: [1.M4]
+    - id: 1b-5
+      content: |
+        ①/②는 $\dfrac{3-a}{a-2}=\dfrac12$이고, $6-2a=a-2$, $3a=8$, 따라서 $a=\dfrac83$
+      criteria: [1.A1]
+    - id: 1b-6
+      content: |
+        ①에 대입 $\dfrac13k=1$, $\therefore k=3$
+      criteria: [1.A2]
+    - id: 1b-7
+      content: |
+        $f(x)=(x-3)\left\{3(x-2)^2\left(x-\dfrac83\right)+1\right\}$
+        $f(1)=(-2)\left\{(3)(1)^2\left(-\dfrac53\right)+1\right\}=(-2)(-5+1)=8$
+      criteria: [1.A3]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 2
+      evidence: 조건 (1)에서 $f(x)=(x-3)g(x)$($g$는 삼차함수)로 놓았다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1]
+    - id: 1.M2
+      mark_type: M
+      points: 2
+      evidence: 조건 (2)의 분자를 $(x-3)(g(x)-1)$로 정리했다.
+      depends_on: [1.M1]
+      steps: [1b-2]
+    - id: 1.M3
+      mark_type: M
+      points: 1
+      evidence: $g(x)-1=k(x-2)^2(x-a)$로 두고 조건 (1)에서 $k(3-a)=1$을 얻었다.
+      depends_on: [1.M2]
+      steps: [1b-3]
+    - id: 1.M4
+      mark_type: M
+      points: 1
+      evidence: 조건 (2)에 대입해 $-k(2-a)=2$를 얻었다.
+      depends_on: [1.M2]
+      steps: [1b-4]
+    - id: 1.A1
+      mark_type: A
+      points: 1
+      evidence: 두 식을 연립해 $a=\frac83$을 구했다.
+      depends_on: [1.M3, 1.M4]
+      steps: [1b-5]
+    - id: 1.A2
+      mark_type: A
+      points: 1
+      evidence: $k=3$을 구했다.
+      depends_on: [1.M3, 1.M4, 1.A1]
+      steps: [1b-6]
+    - id: 1.A3
+      mark_type: A
+      points: 2
+      evidence: $f(x)$를 완성하고 $f(1)=8$을 적었다.
+      depends_on: [1.M3, 1.M4, 1.A2]
+      steps: [1b-7]
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-4405}
+  - {code: '72', misconception: MC-CAL-4406}
+  misconceptions:
+  - id: MC-CAL-4405
+    outcome_code: '71'
+    wrong_work: '$g(x)-1$이 $(x-2)$ 하나만 인수로 가진다고 두어 미지수가 남거나 극한값 $2$를 미분계수로 잘못 연결'
+    detect_cue: $(x-2)^2$이 아닌 $(x-2)$ 한 번만 인수로 둠
+    feedback: 분모가 $(x-2)^2$이고 극한값이 유한하므로 분자도 $(x-2)^2$을 인수로 가져야 합니다.
+    remedy: [RL-1]
+  - id: MC-CAL-4406
+    outcome_code: '72'
+    wrong_work: '조건 (1)의 극한을 $\lim_{x\to3}g(x)=6$으로 두어 분자의 $x$를 빠뜨림($k(3-a)=5$)'
+    detect_cue: $x$를 곱하지 않은 $g(3)=6$이 보인다
+    feedback: 약분 후 남는 식은 $x\,g(x)$입니다. $x=3$을 곱하는 것을 잊지 마세요.
+    remedy: [RL-2]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CAL-4405}
+  relation: remediation
+  target: {kind: concept, ref: CON-SYU-M24-LIMIT-FACTOR}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-CAL-4406}
+  relation: remediation
+  target: {kind: concept, ref: CON-SYU-M24-LIMIT-ZERO-FORM}
+  priority: 2
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-transcribe-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

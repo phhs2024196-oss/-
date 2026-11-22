@@ -1,0 +1,180 @@
+schema_version: '2.0'
+id: SYU-G25H-14
+legacy_id: null
+version: 1
+status: draft
+exam_family: yaksul
+item_type: numeric
+origin: past_exam
+school: SYU
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 추론
+points: 10
+time_estimate_min: 7
+intent: 수열의 합과 귀납적 정의를 이용하여 주어진 문제를 해결할 수 있다.
+key_idea: '$a_5,a_6,a_7$이 110의 배수이고, $a_{n+7}=a_n+n$을 누적하면 $S_{84}-S_{77}=S_7+\sum_{k=1}^{77}k$.'
+stuck: 7개씩 묶인 블록의 합이 블록마다 얼마씩 늘어나는지 누적해 $S_{84}-S_{77}$을 $S_7$로 나타내는 것
+idea_tags: [IDEA-RECUR-BLOCK-SUM-MOD]
+tags: [2025 기출, 인문, 약술형]
+
+stem: |
+  수열 $\{a_n\}$은 $a_1=1$이고, 다음 조건을 만족시킨다.
+
+  (가) $a_{m+1}=(3m-1)a_m\quad(m=1,\ 2,\ 3,\ 4,\ 5,\ 6)$
+  (나) 모든 자연수 $n$에 대하여 $a_{n+7}=a_n+n$이다.
+
+  수열 $\{a_n\}$의 첫째항부터 제$n$항까지의 합을 $S_n$이라 할 때, $S_{84}-S_{77}$을 $110$으로 나눈 나머지를 구하시오. [10점]
+
+elements:
+  materials:
+  - $a_1=1$, $a_{m+1}=(3m-1)a_m$ $(m=1,\cdots,6)$
+  - $a_{n+7}=a_n+n$ (모든 자연수 $n$)
+  - $S_{84}-S_{77}$을 $110$으로 나눈 나머지
+  concepts:
+  - 수열의 귀납적 정의
+  - 합의 기호와 부분합
+  - 자연수의 거듭제곱의 합 $\sum k$
+  - 나머지 계산
+  tools:
+  - $a_1$~$a_7$ 직접 계산
+  - $110=2\times5\times11$로 배수 판정
+  - 블록 합의 누적 $S_{7(j+1)}-S_{7j}=S_7+\sum_{k=1}^{7j}k$
+  conditions:
+  - $a_5,a_6,a_7$은 $2$, $5$, $11$을 모두 인수로 가짐 → 110의 배수
+  - $S_{84}-S_{77}=a_{78}+\cdots+a_{84}$
+  stimuli_used: []
+  subpart_links: 단일 논제
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅰ]
+  scope_2028: common
+  scope_confirmed: true
+  standards:
+  - code: 12수학Ⅰ03-06
+    text: 수열의 귀납적 정의를 이해한다.
+    verified: true
+  content_area: 수열 – 수학적 귀납법
+  behavior_domain: 추론
+  unit_path: [수학Ⅰ, 수열, 수열의 합과 수학적 귀납법, 수열의 귀납적 정의]
+  key_concepts: [수열의 귀납적 정의, 수열의 합, 나머지]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 삼육대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 삼육대학교
+  admission_year: 2025
+  admission_type: 논술우수자전형
+  track: 인문
+  question_no: 14
+  official_url: https://ipsi.syu.ac.kr/2016_syu/pages/index.asp?p=29&b=B_1_1&bn=64541&m=read
+  retrieved_at: 2026-11-21
+  original_points: 10
+  rights_notice: '「2025학년도 선행학습 영향평가 자체평가 보고서」 부록 p.59–60 — EBS 출처: 수능특강 수학영역 수학Ⅰ(2024) p.86-103'
+
+verify: verify/SYU-G25H.py::p14
+
+stimuli: []
+
+subparts:
+- id: '1'
+  stem: |
+    $S_{84}-S_{77}$을 $110$으로 나눈 나머지를 구하시오.
+  points: 10
+  depends_on: []
+  answer: {kind: value, value: 16, equivalents: ['$S_{84}-S_{77}=S_7+3003$'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $S_7\equiv a_1+a_2+a_3+a_4=93$, $S_{84}-S_{77}=S_7+\sum_{k=1}^{77}k$.
+    steps:
+    - id: 1a
+      content: |
+        $S_7\equiv93$, $\sum_{k=1}^{77}k=3003\equiv33$ $\pmod{110}$ → $93+33=126\equiv16$.
+      criteria: [1.B1, 1.M1, 1.A1]
+    hint_ladder:
+    - $a_1$부터 $a_7$까지 곱의 꼴로 써 보자. 어느 항부터 $2$, $5$, $11$이 모두 들어가는가?
+    - $S_{14}-S_7$, $S_{21}-S_{14}$는 $S_7$보다 얼마씩 큰가?
+    - $S_{84}-S_{77}$까지 늘어난 양을 하나의 합으로 써 보자.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 「2025 선행학습 영향평가 보고서」 p.60 문항 해설 및 풀이과정
+    steps:
+    - id: 1b-1
+      content: |
+        i) $a_1=1$, $a_2=1\cdot2$, $a_3=1\cdot2\cdot5$, $a_4=1\cdot2\cdot5\cdot8$, $a_5=1\cdot2\cdot5\cdot8\cdot11$, $a_6=1\cdot2\cdot5\cdot8\cdot11\cdot14$, $a_7=1\cdot2\cdot5\cdot8\cdot11\cdot14\cdot17$
+        $110=2\times5\times11$이므로 $a_5,a_6,a_7$은 110으로 나누어 떨어짐
+        $\therefore S_7$을 110으로 나눈 나머지는 $a_1+a_2+a_3+a_4=93$
+      criteria: [1.B1]
+    - id: 1b-2
+      content: |
+        한편, $a_{n+7}=a_n+n$에서
+        $S_{14}-S_7=S_7+\sum_{k=1}^{7}k$
+        $S_{21}-S_{14}=S_7+\sum_{k=1}^{14}k$
+        $\cdots$
+        $S_{84}-S_{77}=S_7+\sum_{k=1}^{77}k$이므로
+        (보충: $a_{n+7}=a_n+n$을 $n=1,\cdots,7$에 더하면 $S_{14}-S_7=S_7+(1+\cdots+7)$, 같은 방법으로 블록마다 앞 블록보다 $8+\cdots+14$, … 씩 더해진다.)
+      criteria: [1.M1]
+    - id: 1b-3
+      content: |
+        ii) $\sum_{k=1}^{77}k=\frac{77(1+77)}{2}=77\times39$
+        $77\times39$를 110으로 나눈 나머지는 $33$
+      criteria: [1.M1]
+    - id: 1b-4
+      content: |
+        iii) $\therefore 93+33=126$을 110으로 나눈 나머지는 $16$
+      criteria: [1.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.B1
+      mark_type: B
+      points: 4
+      evidence: $S_7$을 110으로 나눈 나머지 $a_1+a_2+a_3+a_4=93$을 구했다.
+      depends_on: []
+      steps: [1b-1]
+    - id: 1.M1
+      mark_type: M
+      points: 4
+      evidence: $S_{84}-S_{77}=S_7+\sum_{k=1}^{77}k$로 보고 $\sum_{k=1}^{77}k$를 110으로 나눈 나머지 $33$을 구했다.
+      depends_on: []
+      steps: [1b-2, 1b-3]
+    - id: 1.A1
+      mark_type: A
+      points: 2
+      evidence: $93+33=126$을 110으로 나눈 나머지 $16$을 구했다.
+      depends_on: [1.B1, 1.M1]
+      steps: [1b-4]
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-ALG-4207}
+  misconceptions:
+  - id: MC-ALG-4207
+    outcome_code: '71'
+    wrong_work: '$S_{84}-S_{77}=S_7+\sum_{k=1}^{7}k=S_7+28$로 한 블록의 증가분만 더해 나머지 $121\to11$'
+    detect_cue: 증가분이 $28$ 또는 $77$, 답이 $11$ 등
+    feedback: $a_{78}=a_{71}+71=\cdots=a_1+(1+8+\cdots+71)$처럼 증가분이 블록마다 누적됩니다.
+    remedy: [RL-1]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-ALG-4207}
+  relation: remediation
+  target: {kind: concept, ref: CON-SYU-G25H-RECUR-BLOCK}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-transcribe-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

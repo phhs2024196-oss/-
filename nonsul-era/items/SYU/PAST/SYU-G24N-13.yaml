@@ -1,0 +1,225 @@
+schema_version: '2.0'
+id: SYU-G24N-13
+legacy_id: null
+version: 1
+status: draft
+exam_family: yaksul
+item_type: numeric
+origin: past_exam
+school: SYU
+type: null
+variant_of: null
+replaces: null
+level: L3
+form: 추론
+points: 10
+time_estimate_min: 5
+intent: 함수의 극한과 도함수의 정의를 이용하여 미분계수를 구할 수 있다.
+key_idea: 극한이 존재하려면 분자→0, 그 뒤 분자를 $f(t+a)-f(a)$ 꼴로 묶어 미분계수로 바꾼다.
+stuck: (나)의 분자를 $2\{f(t+2)-f(2)\}+3\{f(t+3)-f(3)\}+\cdots$로 재배열하는 것
+idea_tags:
+- IDEA-LIMIT-TO-DERIVATIVE-REGROUP
+tags:
+- 자연계열1
+- 2024학년도 논술
+- 수리 약술형
+- 미분가능성 암묵 가정(공식 해설도 $f'(2)$, $f'(3)$ 존재를 전제)
+source:
+  rights_holder: 삼육대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 삼육대학교
+  admission_year: 2024
+  admission_type: 논술우수자전형(자연계열1)
+  track: 자연
+  question_no: 13
+  official_url: https://ipsi.syu.ac.kr/2016_syu/pages/index.asp?p=29&b=B_1_1&bn=63027&m=read
+  retrieved_at: '2026-11-21'
+  original_points: 10
+  rights_notice: '「2024학년도 선행학습 영향평가 자체평가 보고서」 부록 pp.93-94(보고서 쪽번호, 자연계열1 문제13) — 자료 출처: 수학Ⅱ(황선욱 외 8, 미래엔, 2020) p.53'
+verify: verify/SYU-G24N.py::p13
+stimuli: []
+stem: |
+  함수 $f(x)$가 다음 조건을 만족시킨다.
+
+  (가) $\displaystyle\lim_{x\to4}\dfrac{f(x-1)+2}{x-4}=-4$
+  (나) $\displaystyle\lim_{x\to2}\dfrac{2f(x)+3f(x+1)+x}{x-2}=1$
+
+  $f(2)+f'(2)$의 값을 구하시오. (단, 로피탈 정리는 사용할 수 없다.) [10점]
+elements:
+  materials:
+  - 극한 조건 두 개로 주어진 함수 $f(x)$
+  concepts:
+  - $\dfrac00$ 꼴 극한의 조건
+  - 미분계수의 정의
+  tools:
+  - 치환 $x-4=t$, $x-2=t$
+  - 분자 재배열
+  conditions:
+  - (가) → $f(3)=-2$, $f'(3)=-4$
+  - (나) → $2f(2)+3f(3)+2=0$, $2f'(2)+3f'(3)+1=1$
+  stimuli_used: []
+  subpart_links: 단일 논제
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학Ⅱ
+  scope_2028: common
+  scope_confirmed: true
+  standards:
+  - code: 12수학Ⅱ02-01
+    text: 미분계수의 뜻을 알고, 그 값을 구할 수 있다.
+    verified: true
+  content_area: 미분 – 미분계수
+  behavior_domain: 추론
+  unit_path:
+  - 수학Ⅱ
+  - 미분
+  - 미분계수
+  - 극한으로 표현된 미분계수
+  key_concepts:
+  - 함수의 극한
+  - 미분계수의 정의
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+subparts:
+- id: '1'
+  stem: 위 물음에 답하시오.
+  points: 10
+  depends_on: []
+  answer:
+    kind: value
+    value: '8'
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: 극한이 존재하려면 분자→0, 그 뒤 분자를 $f(t+a)-f(a)$ 꼴로 묶어 미분계수로 바꾼다.
+    steps:
+    - id: 1a
+      content: 극한이 존재하려면 분자→0, 그 뒤 분자를 $f(t+a)-f(a)$ 꼴로 묶어 미분계수로 바꾼다.
+      criteria:
+      - 1.M1
+    hint_ladder:
+    - 분모가 0으로 가는데 극한값이 있으면 분자는?
+    - $f(x-1)+2=f(x-1)-f(3)$으로 볼 수 있다.
+    - (나)의 분자에서 $f(2)$, $f(3)$을 빼고 더해 묶어 보자.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 「2024 선행학습 영향평가 보고서」 pp.93-94 문항 해설 및 풀이과정
+    steps:
+    - id: 1b-1
+      content: (가)에서 $x\to4$에서 극한값을 가지려면 $f(3)+2=0$ $\therefore f(3)=-2$
+      criteria:
+      - 1.M1
+    - id: 1b-2
+      content: (가)에서 $x-4=t$로 치환하면 $\displaystyle\lim_{t\to0}\dfrac{f(t+3)+2}{t}=\lim_{t\to0}\dfrac{f(t+3)-f(3)}{t}=-4$ $\therefore f'(3)=-4$
+      criteria:
+      - 1.M2
+    - id: 1b-3
+      content: (나)에서 $x-2=t$로 치환하면 $\displaystyle\lim_{t\to0}\dfrac{2f(t+2)+3f(t+3)+t+2}{t}=\lim_{t\to0}\dfrac1t[2\{f(t+2)-f(2)\}+3\{f(t+3)-f(3)\}+2f(2)+3f(3)+t+2]=2f'(2)+3f'(3)+\lim_{t\to0}\dfrac{t+2f(2)+3f(3)+2}{t}$. 마지막 항이 극한값을 가지려면 $2f(2)+3f(3)+2=0$, $2f(2)-6+2=0$ $\therefore f(2)=2$
+      criteria:
+      - 1.M3
+    - id: 1b-4
+      content: (나)에서 $2f'(2)+3f'(3)+1=1$, $2f'(2)-12=0$ $\therefore f'(2)=6$, $\therefore f(2)+f'(2)=8$
+      criteria:
+      - 1.A1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 2
+      evidence: (가)에서 극한의 조건을 이용하여 $f(3)=-2$를 구함
+      depends_on: []
+      implied_ok: true
+      steps:
+      - 1b-1
+    - id: 1.M2
+      mark_type: M
+      points: 2
+      evidence: (가)에서 도함수의 정의를 이용하여 $f'(3)=-4$를 구함
+      depends_on: []
+      implied_ok: true
+      steps:
+      - 1b-2
+    - id: 1.M3
+      mark_type: M
+      points: 4
+      evidence: (나)에서 도함수의 정의와 극한의 조건을 이용하여 $f(2)=2$를 구함
+      depends_on: []
+      implied_ok: true
+      steps:
+      - 1b-3
+    - id: 1.A1
+      mark_type: A
+      points: 2
+      evidence: 구한 함수값을 (나)에 대입하여 $f'(2)=6$을 구함
+      depends_on:
+      - 1.M3
+      implied_ok: false
+      steps:
+      - 1b-4
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  - code: '71'
+    misconception: MC-CAL-4356
+  - code: '72'
+    misconception: MC-CAL-4357
+  misconceptions:
+  - id: MC-CAL-4356
+    outcome_code: '71'
+    wrong_work: (나)를 곧바로 $2f'(2)+3f'(3)+1=1$로만 씀
+    detect_cue: $f(2)$를 구하는 식이 없음
+    feedback: 분자를 $f(a+t)-f(a)$ 꼴로 묶고 남는 상수항이 0이어야 극한이 존재합니다.
+    remedy:
+    - RL-1
+  - id: MC-CAL-4357
+    outcome_code: '72'
+    wrong_work: 분자를 $2f(t+2)+3f(t+3)+t$로 씀
+    detect_cue: $2f(2)+3f(3)=0$에서 $f(2)=3$
+    feedback: $x=t+2$이므로 $x$항은 $t+2$가 됩니다.
+    remedy:
+    - RL-2
+remedy_links:
+- id: RL-1
+  trigger:
+    type: misconception
+    ref: MC-CAL-4356
+  relation: remediation
+  target:
+    kind: concept
+    ref: CON-SYU-G24N-LIMZERO
+  priority: 1
+- id: RL-2
+  trigger:
+    type: misconception
+    ref: MC-CAL-4357
+  relation: remediation
+  target:
+    kind: concept
+    ref: CON-SYU-G24N-SUBST
+  priority: 1
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: opus
+  prompt_version: past-transcribe-v1
+  item_version: 1
+  verdict: pass
+  date: '2026-11-21'
+created: '2026-11-21'
+updated: '2026-11-21'

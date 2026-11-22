@@ -1,0 +1,216 @@
+schema_version: '2.0'
+id: SYU-G25N-13
+legacy_id: null
+version: 1
+status: draft
+exam_family: yaksul
+item_type: numeric
+origin: past_exam
+school: SYU
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 일반화
+points: 10
+time_estimate_min: 5
+intent: 삼각함수의 그래프와 함수의 주기성을 이용하여 문제를 해결할 수 있다.
+key_idea: 직선은 $[0,n]$에서 $-1$부터 $1$까지 오르고 그 구간에 $y=\sin n\pi x$가 $\dfrac{n^2}{2}$주기 있으므로 $n$이 홀수면 $n^2$개, 짝수면 $n^2-1$개.
+stuck: 직선이 $-1\le y\le1$인 구간 $[0,n]$ 안의 주기 수를 세고, 중심 $x=\dfrac n2$에서의 반주기·중복 교점을 처리하는 것
+idea_tags:
+- IDEA-LINE-SINE-INTERSECT-PERIOD-COUNT
+tags:
+- 2025 기출
+- 자연계열
+stimuli: []
+stem: |
+  자연수 $n$에 대하여 직선 $y=\dfrac{2}{n}x-1$과 함수 $y=\sin n\pi x$의 그래프의 교점의 개수를 $f(n)$이라 할 때, $f(9)+f(20)$의 값을 구하시오.
+elements:
+  materials:
+  - 직선 $y=\dfrac2nx-1$
+  - 사인함수 $y=\sin n\pi x$ (주기 $\dfrac2n$)
+  concepts:
+  - 사인함수의 주기
+  - 그래프의 교점
+  - 대칭성
+  tools:
+  - 직선이 $[-1,1]$에 있는 $x$구간 $[0,n]$ 찾기
+  - 주기당 교점 수 세기
+  - 홀짝 경우 나누기
+  conditions:
+  - 교점은 $0\le x\le n$에서만
+  - $[0,n]$의 주기 수 $\dfrac{n^2}{2}$
+  - $n$ 짝수면 $\left(\dfrac n2,0\right)$이 공통점
+  stimuli_used: []
+  subpart_links: 단일 논제
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학Ⅰ
+  scope_2028: common
+  scope_confirmed: true
+  standards:
+  - code: 12수학Ⅰ02-02
+    text: 삼각함수의 뜻을 알고, 사인함수, 코사인함수, 탄젠트함수의 그래프를 그릴 수 있다.
+    verified: true
+  content_area: 삼각함수 – 삼각함수의 그래프
+  behavior_domain: 추론
+  unit_path:
+  - 수학Ⅰ
+  - 삼각함수
+  - 삼각함수의 그래프
+  - 주기와 교점의 개수
+  key_concepts:
+  - 사인함수의 주기
+  - 교점의 개수
+  - 대칭성
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 삼육대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 삼육대학교
+  admission_year: 2025
+  admission_type: 논술우수자전형
+  track: 자연
+  question_no: 13
+  official_url: https://ipsi.syu.ac.kr/2016_syu/pages/index.asp?p=29&b=B_1_1&bn=64541&m=read
+  retrieved_at: '2026-11-21'
+  original_points: 10
+  rights_notice: '「2025학년도 선행학습 영향평가 자체평가 보고서」 부록 p.98~101 — EBS 출처: 수능특강 수학Ⅰ(EBS, 2024) p.40~45'
+verify: verify/SYU-G25N.py::p13
+subparts:
+- id: '1'
+  stem: 위 문제의 답을 구하시오.
+  points: 10
+  depends_on: []
+  answer:
+    kind: value
+    value: '480'
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: 직선은 $[0,n]$에서 $-1$부터 $1$까지 오르고 그 구간에 $y=\sin n\pi x$가 $\dfrac{n^2}{2}$주기 있으므로 $n$이 홀수면 $n^2$개, 짝수면 $n^2-1$개.
+    steps:
+    - id: 1a
+      content: |
+        $f(9)=20\times2+20\times2+1=81$, $f(20)=100\times2+100\times2-1=399$ → $480$.
+      criteria:
+      - 1.M1
+      - 1.M2
+    hint_ladder:
+    - 직선의 $y$값이 $-1$과 $1$ 사이에 있는 $x$의 범위는?
+    - 그 범위에 $y=\sin n\pi x$의 주기가 몇 개 들어가는가?
+    - 가운데 $x=\dfrac n2$ 근처를 따로 살펴보자.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 「2025 선행학습 영향평가 보고서」 p.98~101 문항 해설 및 풀이과정
+    steps:
+    - id: 1b-1
+      content: |
+        (풀이 1) $n=9$인 경우, 총 주기는 $\dfrac{81}{2}$개이므로, $x=9$의 절반 지점인 직선 $x=\dfrac92$를 기준으로 왼쪽(구간 A) $20$개, 오른쪽(구간 B) $20$개의 사인함수가 대칭으로 존재한다. 또한 $x=\dfrac92$에서 사인함수의 반파장이 양의 구간에 위치한다.
+        구간 A의 $20$개 주기는 $y$값이 $0$보다 작은 구간에서 주기당 $2$개의 교점을, 구간 B의 $20$개 주기는 $y$값이 $0$보다 큰 구간에서 주기당 $2$개의 교점을 가지고, 중심의 반주기에서 $1$개의 추가 교점을 가진다.
+        $\therefore\ f(9)=20\times2+20\times2+1=81$
+      criteria:
+      - 1.M1
+    - id: 1b-2
+      content: |
+        $n=20$인 경우, 총 주기는 $\dfrac{400}{2}$개이므로, $x=10$을 기준으로 왼쪽(구간 C) $100$개, 오른쪽(구간 D) $100$개의 사인함수가 존재한다.
+        왼쪽($x<10$) $100$개는 $y<0$인 구간에서 주기당 $2$개, 오른쪽($x>10$) $100$개는 $y>0$인 구간에서 주기당 $2$개의 교점을 가지며, 점 $x=10$에서 교점이 중복되므로
+        $f(20)=100\times2+100\times2-1=399$, $\therefore\ f(9)+f(20)=81+399=480$
+      criteria:
+      - 1.M2
+    - id: 1b-3
+      content: |
+        (풀이 2) 직선이 $-1$에서 $1$까지 도달하는 $x$의 범위는 $[0,n]$이고, 이 구간에서 $y=\sin n\pi x$의 주기의 개수는 $\dfrac{n^2}{2}$이다.
+        $n$이 홀수이면 교점의 개수는 $2\cdot\dfrac{n^2-1}{2}+1=n^2$, $n$이 짝수이면 $2\cdot\dfrac{n^2}{2}-1=n^2-1$.
+        (확인: $n=1$이면 $1$개, $n=2$이면 $3$개, $n=3$이면 $9$개.) $\therefore\ f(9)+f(20)=81+399=480$
+      criteria:
+      - 1.M1
+      - 1.M2
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 5
+      evidence: 홀수인 경우의 교점 개수($n^2$)를 구하고 $f(9)=20\times2+20\times2+1=81$을 구함
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 1b-1
+      - 1b-3
+    - id: 1.M2
+      mark_type: M
+      points: 5
+      evidence: 짝수인 경우 $2\cdot\dfrac{n^2}{2}-1=n^2-1$, $f(20)=100\times2+100\times2-1=399$를 구하고 $f(9)+f(20)=480$을 구함
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 1b-2
+      - 1b-3
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  - code: '71'
+    misconception: MC-ALG-4257
+  - code: '72'
+    misconception: MC-ALG-4258
+  misconceptions:
+  - id: MC-ALG-4257
+    outcome_code: '71'
+    wrong_work: $n$이 짝수일 때 중심 $\left(\dfrac n2,0\right)$의 교점을 양쪽 구간에서 두 번 셈
+    detect_cue: $f(20)=400$, 답 $481$
+    feedback: $x=\dfrac n2$에서 직선과 사인곡선이 모두 $0$이므로 같은 점입니다. 왼쪽·오른쪽 구간에서 한 번씩 세었다면 $1$을 빼세요.
+    remedy:
+    - RL-1
+  - id: MC-ALG-4258
+    outcome_code: '72'
+    wrong_work: $y=\sin n\pi x$의 주기를 $\dfrac{2\pi}{n}$ 또는 $\dfrac1n$으로 잡음
+    detect_cue: $[0,n]$의 주기 수를 $n^2$ 등으로 셈
+    feedback: $\sin(n\pi x)$의 주기는 $\dfrac{2\pi}{n\pi}=\dfrac2n$입니다.
+    remedy:
+    - RL-2
+remedy_links:
+- id: RL-1
+  trigger:
+    type: misconception
+    ref: MC-ALG-4257
+  relation: remediation
+  target:
+    kind: concept
+    ref: CON-SYU-G25N-SINE-LINE-COUNT
+  priority: 1
+- id: RL-2
+  trigger:
+    type: misconception
+    ref: MC-ALG-4258
+  relation: remediation
+  target:
+    kind: concept
+    ref: CON-SYU-G25N-SINE-LINE-COUNT
+  priority: 1
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: opus
+  prompt_version: past-transcribe-v1
+  item_version: 1
+  verdict: pass
+  date: '2026-11-21'
+created: '2026-11-21'
+updated: '2026-11-21'

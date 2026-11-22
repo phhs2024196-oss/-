@@ -1,0 +1,187 @@
+schema_version: '2.0'
+id: SYU-G25H-11
+legacy_id: null
+version: 1
+status: draft
+exam_family: yaksul
+item_type: numeric
+origin: past_exam
+school: SYU
+type: null
+variant_of: null
+replaces: null
+level: L3
+form: 분류
+points: 10
+time_estimate_min: 3
+intent: 삼차함수의 극대, 극소를 이용하여 주어진 문제를 해결할 수 있다.
+key_idea: '$x^3+3x^2-9x=k$의 실근을 $y=f(x)$와 $y=k$의 교점으로 보고, 극댓값 27·극솟값 $-5$·$f(0)=0$을 기준으로 $k$를 나눈다.'
+stuck: 근 0이 생기는 $k=0$과 접하는 $k=27$, $k=-5$에서 양·음의 근 개수를 정확히 세는 것
+idea_tags: [IDEA-ROOT-COUNT-GRAPH-SIGN]
+tags: [2025 기출, 인문, 약술형, 논술가이드북 2026 수록(수학 문제 2), '보고서 자료 출처 표기는 「수능특강 수학영역 수학Ⅰ」(단원은 수학Ⅱ) — 원문 그대로']
+
+stem: |
+  방정식 $x^3+3x^2-9x-k=0$의 양의 실근의 개수를 $a$, 음의 실근의 개수를 $b$라 하자. $a=b$를 만족시키는 모든 정수 $k$의 개수를 $A$, $a<b$를 만족시키는 모든 정수 $k$의 개수를 $B$, $a>b$를 만족시키는 모든 정수 $k$의 개수를 $C$라 할 때, $A+B-C$의 값을 구하시오. (단, $a$와 $b$는 모두 $0$이 아니다.) [10점]
+
+elements:
+  materials:
+  - 삼차방정식 $x^3+3x^2-9x-k=0$
+  - 양의 실근 개수 $a$, 음의 실근 개수 $b$
+  - 정수 $k$의 개수 $A$, $B$, $C$
+  concepts:
+  - 방정식의 실근과 그래프의 교점
+  - 도함수를 이용한 극대·극소
+  - 삼차함수의 그래프 개형
+  tools:
+  - $f(x)=x^3+3x^2-9x$와 직선 $y=k$의 교점 세기
+  - $f'(x)=3(x+3)(x-1)$로 극값 구하기
+  - $k$의 범위에 따른 경우 나누기
+  conditions:
+  - 극댓값 $f(-3)=27$, 극솟값 $f(1)=-5$, $f(0)=0$
+  - $a$와 $b$는 모두 $0$이 아님 → $-5\le k\le27$
+  - 서로 다른 실근의 개수로 셈(중근은 하나)
+  stimuli_used: []
+  subpart_links: 단일 논제
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅱ]
+  scope_2028: common
+  scope_confirmed: true
+  standards:
+  - code: 12수학Ⅱ02-09
+    text: 함수의 그래프의 개형을 그릴 수 있다.
+    verified: true
+  - code: 12수학Ⅱ02-10
+    text: 방정식과 부등식에 대한 문제를 해결할 수 있다.
+    verified: true
+  content_area: 미분 – 도함수의 활용
+  behavior_domain: 문제해결
+  unit_path: [수학Ⅱ, 미분, 도함수의 활용, 방정식의 실근의 개수]
+  key_concepts: [극대·극소, 삼차함수의 그래프, 방정식의 실근의 개수]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 삼육대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 삼육대학교
+  admission_year: 2025
+  admission_type: 논술우수자전형
+  track: 인문
+  question_no: 11
+  official_url: https://ipsi.syu.ac.kr/2016_syu/pages/index.asp?p=29&b=B_1_1&bn=64541&m=read
+  retrieved_at: 2026-11-21
+  original_points: 10
+  rights_notice: '「2025학년도 선행학습 영향평가 자체평가 보고서」 부록 p.52–53 — EBS 출처: 수능특강 수학영역 수학Ⅰ(2024) p.54-69 (보고서 표기 그대로)'
+
+verify: verify/SYU-G25H.py::p11
+
+stimuli: []
+
+subparts:
+- id: '1'
+  stem: |
+    $A+B-C$의 값을 구하시오.
+  points: 10
+  depends_on: []
+  answer: {kind: value, value: 25, equivalents: ['$A=3$', '$B=26$', '$C=4$'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $y=f(x)$와 $y=k$의 교점을 극댓값 27, 극솟값 $-5$, $f(0)=0$ 기준으로 분류한다.
+    steps:
+    - id: 1a
+      content: |
+        $k=27,-5,0$에서 $a=b=1$, $0<k<27$에서 $a=1,b=2$, $-5<k<0$에서 $a=2,b=1$ → $A=3$, $B=26$, $C=4$, $A+B-C=25$.
+      criteria: [1.B1, 1.B2, 1.B3]
+    hint_ladder:
+    - $k$를 우변으로 넘겨 $y=x^3+3x^2-9x$와 $y=k$의 교점으로 생각해 보자.
+    - 극댓값·극솟값과 $y$절편 $f(0)=0$이 경계가 된다.
+    - $a$, $b$가 모두 0이 아니려면 교점이 두 개 이상이어야 한다.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 「2025 선행학습 영향평가 보고서」 p.52–53 문항 해설 및 풀이과정
+    steps:
+    - id: 1b-1
+      content: |
+        방정식 $x^3+3x^2-9x=k$의 근의 개수는 $f(x)=x^3+3x^2-9x$라 할 때 함수 $y=f(x)$ 그래프와 직선 $y=k$가 만나는 점의 개수와 같다.
+        $f'(x)=3x^2+6x-9=3(x+3)(x-1)$ $\therefore$ $x=-3$에서 극대, $x=1$에서 극소.
+        $f(-3)=27$, $f(1)=-5$, $f(0)=0$. $a$, $b$ 모두 0이 아니므로 $k$ 값의 범위는 $-5\le k\le27$이다.
+        (보충: $k>27$ 또는 $k<-5$이면 실근이 하나뿐이어서 $a$, $b$ 중 하나가 0이다.)
+      criteria: [1.B1]
+    - id: 1b-2
+      content: |
+        i) $a=b$일 때 $k$의 값 $27,\ -5,\ 0$ $\therefore A=3$
+        (보충: $k=27$이면 근 $-3$(중근), $3$; $k=-5$이면 근 $1$(중근), $-5$; $k=0$이면 근 $0$과 양수 하나, 음수 하나.)
+      criteria: [1.B1]
+    - id: 1b-3
+      content: |
+        ii) $a<b$일 때 $k$의 값 $0<k<27$ $\therefore B=26$
+      criteria: [1.B2]
+    - id: 1b-4
+      content: |
+        iii) $a>b$일 때 $k$의 값 $-5<k<0$ $\therefore C=4$
+        $A+B-C=25$
+      criteria: [1.B3]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.B1
+      mark_type: B
+      points: 2
+      evidence: $A=3$을 구했다($k=27,-5,0$).
+      depends_on: []
+      steps: [1b-1, 1b-2]
+    - id: 1.B2
+      mark_type: B
+      points: 4
+      evidence: $B=26$을 구했다($0<k<27$인 정수).
+      depends_on: []
+      steps: [1b-3]
+    - id: 1.B3
+      mark_type: B
+      points: 4
+      evidence: $C=4$를 구했다($-5<k<0$인 정수).
+      depends_on: []
+      steps: [1b-4]
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-4201}
+  - {code: '72', misconception: MC-CAL-4202}
+  misconceptions:
+  - id: MC-CAL-4201
+    outcome_code: '71'
+    wrong_work: '$k=27$에서 중근 $-3$을 두 개로 세어 $b=2$로 보고 $a<b$에 포함'
+    detect_cue: $A=2$ 또는 $A=1$, $B=27$ 또는 $C=5$
+    feedback: 양·음의 실근의 「개수」는 서로 다른 실근을 셉니다. 접하는 경우 교점은 하나입니다.
+    remedy: [RL-1]
+  - id: MC-CAL-4202
+    outcome_code: '72'
+    wrong_work: '$k=0$일 때 근 $x=0$을 양의 근(또는 음의 근)으로 세어 $a\ne b$로 분류'
+    detect_cue: $k=0$을 $B$ 또는 $C$ 쪽에 포함, $A=2$
+    feedback: $0$은 양수도 음수도 아닙니다. $k=0$이면 양의 근 1개, 음의 근 1개입니다.
+    remedy: [RL-2]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CAL-4201}
+  relation: remediation
+  target: {kind: concept, ref: CON-SYU-G25H-ROOT-COUNT-GRAPH}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-CAL-4202}
+  relation: remediation
+  target: {kind: concept, ref: CON-SYU-G25H-ROOT-COUNT-GRAPH}
+  priority: 2
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-transcribe-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

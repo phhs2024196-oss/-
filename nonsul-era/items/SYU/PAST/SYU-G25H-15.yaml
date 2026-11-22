@@ -1,0 +1,208 @@
+schema_version: '2.0'
+id: SYU-G25H-15
+legacy_id: null
+version: 1
+status: draft
+exam_family: yaksul
+item_type: numeric
+origin: past_exam
+school: SYU
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 분류
+points: 10
+time_estimate_min: 7
+intent: 절댓값이 포함된 함수에 대한 정적분의 성질을 이용하여 문제를 해결할 수 있다.
+key_idea: '$3t^2-2xt=3t\left(t-\frac23x\right)$의 부호가 바뀌는 $t=\frac23x$가 $[0,1]$의 어디에 있느냐로 $x\le0$, $0<x\le\frac32$, $x>\frac32$를 나누어 $f(x)$를 구한다.'
+stuck: $\frac23x$의 위치로 구간을 나누고, 가운데 구간의 삼차식 $\frac{8}{27}x^3-x+1$의 극솟값이 최솟값임을 판단하는 것
+idea_tags: [IDEA-ABS-INTEGRAL-PARAM-CASES]
+tags: [2025 기출, 인문, 약술형]
+
+stem: |
+  함수 $f(x)=\displaystyle\int_0^1\lvert3t^2-2xt\rvert dt$의 최솟값을 구하시오. [10점]
+
+elements:
+  materials:
+  - 매개변수 $x$를 포함한 절댓값 정적분 $f(x)=\int_0^1\lvert3t^2-2xt\rvert dt$
+  concepts:
+  - 절댓값 함수의 정적분
+  - 다항함수의 정적분
+  - 도함수를 이용한 극값
+  - 연속함수의 최솟값
+  tools:
+  - $3t\left(t-\frac23x\right)=0$에서 $t=0,\ \frac23x$
+  - $x\le0$, $0<x\le\frac32$, $x>\frac32$로 구간 나누기
+  - $f'(x)=\frac89x^2-1$로 극소 판정
+  conditions:
+  - $x\le0$에서 $f(x)=1-x$ (감소)
+  - $0<x\le\frac32$에서 $f(x)=\frac{8}{27}x^3-x+1$
+  - $x>\frac32$에서 $f(x)=x-1$ (증가)
+  stimuli_used: []
+  subpart_links: 단일 논제
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅱ]
+  scope_2028: common
+  scope_confirmed: true
+  standards:
+  - code: 12수학Ⅱ02-09
+    text: 함수의 그래프의 개형을 그릴 수 있다.
+    verified: true
+  - code: 12수학Ⅱ03-04
+    text: 다항함수의 정적분을 구할 수 있다.
+    verified: true
+  content_area: 적분 – 정적분
+  behavior_domain: 문제해결
+  unit_path: [수학Ⅱ, 적분, 정적분, 절댓값이 있는 함수의 정적분]
+  key_concepts: [정적분, 절댓값 함수, 극솟값, 최솟값]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 삼육대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 삼육대학교
+  admission_year: 2025
+  admission_type: 논술우수자전형
+  track: 인문
+  question_no: 15
+  official_url: https://ipsi.syu.ac.kr/2016_syu/pages/index.asp?p=29&b=B_1_1&bn=64541&m=read
+  retrieved_at: 2026-11-21
+  original_points: 10
+  rights_notice: '「2025학년도 선행학습 영향평가 자체평가 보고서」 부록 p.61–63 — EBS 출처: 수능특강 수학영역 수학Ⅱ(2024) p.72-87'
+
+verify: verify/SYU-G25H.py::p15
+
+stimuli: []
+
+subparts:
+- id: '1'
+  stem: |
+    $f(x)$의 최솟값을 구하시오.
+  points: 10
+  depends_on: []
+  answer: {kind: value, value: '1-\dfrac{\sqrt{2}}{2}', equivalents: ['$x=\dfrac{3}{2\sqrt2}$일 때'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $t=\frac23x$의 위치로 세 구간을 나누면 가운데 구간에서만 극소가 생긴다.
+    steps:
+    - id: 1a
+      content: |
+        $f(x)=1-x\ (x\le0)$, $\frac{8}{27}x^3-x+1\ (0<x\le\frac32)$, $x-1\ (x>\frac32)$ → $x=\frac{3}{2\sqrt2}$에서 최솟값 $1-\frac{\sqrt2}{2}$.
+      criteria: [1.M1, 1.A1, 1.A2, 1.A3, 1.A4]
+    hint_ladder:
+    - $3t^2-2xt=0$이 되는 $t$를 구해 보자.
+    - $\frac23x$가 $0$보다 작을 때, $0$과 $1$ 사이일 때, $1$보다 클 때로 나누자.
+    - 가운데 구간에서 $f'(x)=0$인 점을 찾자.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 「2025 선행학습 영향평가 보고서」 p.61–63 문항 해설 및 풀이과정
+    steps:
+    - id: 1b-1
+      content: |
+        $3t\left(t-\frac23x\right)=0$일 때 $\therefore t=0,\ \frac23x$
+        $x\le0$, $0<x\le\frac32$, $x>\frac32$로 구간을 나눔
+      criteria: [1.M1]
+    - id: 1b-2
+      content: |
+        i) $\frac23x\le0\Rightarrow x\le0$
+        ($[0,1]$에서 $3t^2-2xt\ge0$)
+        $f(x)=\int_0^1(3t^2-2xt)dt=\left[t^3-xt^2\right]_0^1=1-x$
+      criteria: [1.A1]
+    - id: 1b-3
+      content: |
+        ii) $0<\frac23x\le1\Rightarrow0<x\le\frac32$
+        $f(x)=\int_0^1\lvert3t^2-2xt\rvert dt=\int_0^{\frac23x}(-3t^2+2xt)dt+\int_{\frac23x}^1(3t^2-2xt)dt$
+        $=\left[-t^3+xt^2\right]_0^{\frac23x}+\left[t^3-xt^2\right]_{\frac23x}^1$
+        $=2\left(-\frac{8}{27}x^3+\frac49x^3\right)+(1-x)$
+        $=\frac{8}{27}x^3-x+1$
+      criteria: [1.A2]
+    - id: 1b-4
+      content: |
+        iii) $\frac23x>1\Rightarrow x>\frac32$
+        $f(x)=\int_0^1(-3t^2+2xt)dt=\left[-t^3+xt^2\right]_0^1=x-1$
+      criteria: [1.A3]
+    - id: 1b-5
+      content: |
+        $0<x<\frac32$일 때 $f'(x)=\frac89x^2-1$, $x=\pm\frac{3}{2\sqrt2}$.
+        $f(x)$는 $0<x\le\frac32$ 구간 중 $x=\frac{3}{2\sqrt2}$에서 극소를 가진다.
+        $f(x)$는 $x\le0$에서 감소 함수, $x>\frac32$에서 증가 함수이고 $f(x)$는 연속이기 때문에 $0<x\le\frac32$에서의 극솟값이 최솟값이다.
+        $\therefore$ 최솟값은 $f\left(\frac{3}{2\sqrt2}\right)=1-\frac{\sqrt2}{2}$
+      criteria: [1.A4]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 1
+      evidence: $x\le0$, $0<x\le\frac32$, $x>\frac32$로 구간을 나누었다.
+      depends_on: []
+      steps: [1b-1]
+    - id: 1.A1
+      mark_type: A
+      points: 2
+      evidence: $f(x)=1-x$의 식을 구했다(감소 함수 확인).
+      depends_on: [1.M1]
+      steps: [1b-2]
+    - id: 1.A2
+      mark_type: A
+      points: 2
+      evidence: $f(x)=\frac{8}{27}x^3-x+1$의 식을 구했다.
+      depends_on: [1.M1]
+      steps: [1b-3]
+    - id: 1.A3
+      mark_type: A
+      points: 2
+      evidence: $f(x)=x-1$의 식을 구했다(증가 함수 확인).
+      depends_on: [1.M1]
+      steps: [1b-4]
+    - id: 1.A4
+      mark_type: A
+      points: 3
+      evidence: $f(x)$가 $0<\frac23x\le1$에서의 극솟값이 최솟값임을 확인하여 $1-\frac{\sqrt2}{2}$를 구했다.
+      depends_on: [1.M1]
+      steps: [1b-5]
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-4203}
+  - {code: '72', misconception: MC-CAL-4204}
+  misconceptions:
+  - id: MC-CAL-4203
+    outcome_code: '71'
+    wrong_work: '절댓값을 무시하고 $f(x)=\int_0^1(3t^2-2xt)dt=1-x$로 계산해 최솟값 없음(또는 임의 값)'
+    detect_cue: 구간 나누기 없이 $f(x)=1-x$ 하나만 씀
+    feedback: 피적분함수 $3t\left(t-\frac23x\right)$는 $t=\frac23x$에서 부호가 바뀝니다. 그 위치에 따라 구간을 나누세요.
+    remedy: [RL-1]
+  - id: MC-CAL-4204
+    outcome_code: '72'
+    wrong_work: '가운데 구간에서 끝값만 비교해 $f\left(\frac32\right)=\frac12$를 최솟값으로 답함'
+    detect_cue: 답이 $\frac12$, $f'(x)=0$ 계산 없음
+    feedback: 삼차식 $\frac{8}{27}x^3-x+1$은 구간 안 $x=\frac{3}{2\sqrt2}$에서 극소입니다. 도함수로 극값을 확인하세요.
+    remedy: [RL-2]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CAL-4203}
+  relation: remediation
+  target: {kind: concept, ref: CON-SYU-G25H-ABS-INTEGRAL}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-CAL-4204}
+  relation: remediation
+  target: {kind: concept, ref: CON-SYU-G25H-ABS-INTEGRAL}
+  priority: 2
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-transcribe-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

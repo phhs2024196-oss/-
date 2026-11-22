@@ -1,0 +1,230 @@
+schema_version: '2.0'
+id: SYU-G26N-11
+legacy_id: null
+version: 1
+status: draft
+exam_family: yaksul
+item_type: numeric
+origin: past_exam
+school: SYU
+type: null
+variant_of: null
+replaces: null
+level: L3
+form: 추론
+points: 10
+time_estimate_min: 5
+intent: |
+  - 함수의 실수배, 합, 차, 곱의 미분법을 이용하여 다항함수의 도함수를 구하고 이를 설명할 수 있다.
+  - 다항함수의 정적분을 구할 수 있다.
+key_idea: $h$는 기함수이므로 $h'$는 우함수, $x^5h'$·$x^3h'$는 기함수여서 적분이 $0$이고 $3\int_{-7}^7h'=6h(7)$만 남는다.
+stuck: $h$가 홀수 차수 항만 가지므로 $h'$이 짝수 차수 항만 가진다는 관찰
+idea_tags:
+- IDEA-ODD-EVEN-SYMMETRIC-INTEGRAL
+tags:
+- 2026 기출
+- 자연계열
+stimuli: []
+stem: |
+  두 다항함수 $f(x),\ g(x)$가 모든 실수 $x$에 대하여 $f(x)=-f(-x),\ g(x)=g(-x)$를 만족시킨다. 함수 $h(x)=f(x)g(x)$에 대하여 $\displaystyle\int_{-7}^{7}(2x^5+x^3+3)h'(x)dx=42$일 때, $h(-7)$의 값을 구하시오.
+elements:
+  materials:
+  - 기함수인 다항함수 $f$, 우함수인 다항함수 $g$
+  - $h=fg$
+  - 구간 $[-7,7]$의 정적분
+  concepts:
+  - 기함수·우함수
+  - 기함수의 도함수는 우함수
+  - 대칭 구간 정적분
+  - 미적분의 기본정리
+  tools:
+  - 정적분의 선형성
+  - 대칭 구간에서 기함수 적분 $=0$
+  conditions:
+  - $h(-x)=-h(x)$
+  - $h(0)=0$
+  - $\int_{-7}^{7}(2x^5+x^3+3)h'(x)dx=42$
+  stimuli_used: []
+  subpart_links: 단일 논제
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학Ⅱ
+  scope_2028: common
+  scope_confirmed: true
+  standards:
+  - code: 12수학Ⅱ02-05
+    text: 함수의 실수배, 합, 차, 곱의 미분법을 알고, 다항함수의 도함수를 구할 수 있다.
+    verified: true
+  - code: 12수학Ⅱ03-04
+    text: 다항함수의 정적분을 구할 수 있다.
+    verified: true
+  content_area: 적분 – 정적분(우함수·기함수)
+  behavior_domain: 추론
+  unit_path:
+  - 수학Ⅱ
+  - 적분
+  - 정적분
+  - 기함수·우함수의 정적분
+  key_concepts:
+  - 기함수와 우함수
+  - 곱의 미분법
+  - 정적분의 성질
+  - 미적분의 기본정리
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 삼육대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 삼육대학교
+  admission_year: 2026
+  admission_type: 논술우수자전형
+  track: 자연
+  question_no: 11
+  official_url: https://ipsi.syu.ac.kr/2016_syu/pages/index.asp?p=29&b=B_1_1&bn=66389&m=read
+  retrieved_at: '2026-11-21'
+  original_points: 10
+  rights_notice: '「2026학년도 선행학습 영향평가 자체평가 보고서」 부록 p.102~103 — EBS 출처: 수능특강 수학Ⅱ(EBS, 2025) p.74~75'
+verify: verify/SYU-G26N.py::p11
+subparts:
+- id: '1'
+  stem: 위 문제의 답을 구하시오.
+  points: 10
+  depends_on: []
+  answer:
+    kind: value
+    value: '-7'
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $h$는 기함수이므로 $h'$는 우함수, $x^5h'$·$x^3h'$는 기함수여서 적분이 $0$이고 $3\int_{-7}^7h'=6h(7)$만 남는다.
+    steps:
+    - id: 1a
+      content: |
+        $h$ 기함수 → $h'$ 우함수 → $\int_{-7}^7(2x^5+x^3)h'=0$, $3\int_{-7}^7h'=6h(7)=42$ → $h(7)=7$, $h(-7)=-7$.
+      criteria:
+      - 1.M1
+      - 1.M2
+      - 1.A1
+    hint_ladder:
+    - $h(-x)$를 계산해 보자.
+    - 기함수를 미분하면 어떤 함수가 되는가?
+    - $2x^5h'(x)$, $x^3h'(x)$는 기함수인가 우함수인가?
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 「2026 선행학습 영향평가 보고서」 p.102~103 문항 해설 및 풀이과정
+    steps:
+    - id: 1b-1
+      content: |
+        $f(x)=-f(-x)$, $g(x)=g(-x)$이므로 $h(-x)=f(-x)g(-x)=-f(x)g(x)=-h(x)$ … ①
+      criteria:
+      - 1.M1
+    - id: 1b-2
+      content: |
+        따라서 다항함수 $h(x)$는 홀수 차수의 항만 있으므로 $h'(x)$는 짝수 차수의 항 또는 상수항만 있게 된다.
+        $\displaystyle\int_{-7}^{7}(2x^5+x^3+3)h'(x)dx=\int_{-7}^{7}\{2x^5h'(x)+x^3h'(x)+3h'(x)\}dx$에서
+        $2x^5h'(x)$, $x^3h'(x)$는 홀수 차수의 항만 존재하므로 $[-7,7]$에서의 정적분이 $0$이다.
+        $\displaystyle\int_{-7}^{7}\{2x^5h'(x)+x^3h'(x)+3h'(x)\}dx=3\int_{-7}^{7}h'(x)dx=3\times2\int_{0}^{7}h'(x)dx$
+      criteria:
+      - 1.M2
+    - id: 1b-3
+      content: |
+        $=6\big[h(x)\big]_0^7=6\{h(7)-h(0)\}=42$이므로 $h(7)-h(0)=7$ … ②
+        한편 ①에서 양변에 $x=0$을 대입하면 $h(0)=-h(0)$이므로 $h(0)=0$.
+        ②에 대입하면 $h(7)=7$, 따라서 $h(-7)=-h(7)=-7$.
+      criteria:
+      - 1.A1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 2
+      evidence: $h(-x)=-h(x)$를 구함
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 1b-1
+    - id: 1.M2
+      mark_type: M
+      points: 5
+      evidence: 주어진 식을 $3\times2\displaystyle\int_0^7h'(x)dx$ (또는 $3\displaystyle\int_{-7}^{7}h'(x)dx$)로 변환함
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 1b-2
+    - id: 1.A1
+      mark_type: A
+      points: 3
+      evidence: $h(-7)=-7$을 구함
+      depends_on:
+      - 1.M1
+      - 1.M2
+      implied_ok: false
+      steps:
+      - 1b-3
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  - code: '71'
+    misconception: MC-CAL-4151
+  - code: '72'
+    misconception: MC-CAL-4152
+  misconceptions:
+  - id: MC-CAL-4151
+    outcome_code: '71'
+    wrong_work: $h'$도 기함수라고 보아 $\int_{-7}^{7}3h'(x)dx=0$으로 처리
+    detect_cue: 상수항 $3$이 붙은 적분까지 $0$으로 지움
+    feedback: 기함수의 도함수는 우함수입니다. $\int_{-7}^{7}h'(x)dx=h(7)-h(-7)=2h(7)$입니다.
+    remedy:
+    - RL-1
+  - id: MC-CAL-4152
+    outcome_code: '72'
+    wrong_work: $h(7)=7$에서 멈추어 답을 $7$로 씀
+    detect_cue: 최종 답의 부호가 $+$
+    feedback: 묻는 것은 $h(-7)$입니다. $h$가 기함수이므로 $h(-7)=-h(7)$입니다.
+    remedy:
+    - RL-2
+remedy_links:
+- id: RL-1
+  trigger:
+    type: misconception
+    ref: MC-CAL-4151
+  relation: remediation
+  target:
+    kind: concept
+    ref: CON-SYU-G26N-ODD-EVEN-INT
+  priority: 1
+- id: RL-2
+  trigger:
+    type: misconception
+    ref: MC-CAL-4152
+  relation: remediation
+  target:
+    kind: concept
+    ref: CON-SYU-G26N-ODD-EVEN-INT
+  priority: 1
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: opus
+  prompt_version: past-transcribe-v1
+  item_version: 1
+  verdict: pass
+  date: '2026-11-21'
+created: '2026-11-21'
+updated: '2026-11-21'

@@ -1,0 +1,221 @@
+schema_version: '2.0'
+id: SYU-M24G-04
+legacy_id: null
+version: 1
+status: draft
+exam_family: yaksul
+item_type: numeric
+origin: mock_exam
+school: SYU
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 추론
+points: 10
+time_estimate_min: 5
+intent: |
+  함수 관계를 이용하여 정적분 계산
+key_idea: |
+  $f(x+5)=f(x)+5$이면 그래프가 $(5,5)$씩 평행이동하고 직선 $y=x+3$도 그대로 옮겨지므로 $[0,20]$의 넓이는 $[-3,2]$ 넓이의 $4$배이다.
+stuck: |
+  $f(x+5)=f(x)+5$와 직선 $y=x+3$이 같은 평행이동에 대해 불변임을 보는 것
+idea_tags: [IDEA-AREA-TRANSLATION-INVARIANT]
+tags: ['가이드북 2024 모의문제', '정적분 넓이', '출제근거 수능특강 수학Ⅱ pp.88~103', '공식 문항해설 문장이 3번과 같음(편집 오류 추정)']
+
+stem: |
+  함수 $f(x)$가 다음 조건을 만족시킨다.
+  (가) $-3\le x<2$일 때, $f(x)=\lvert x^2+2x-3\rvert$, (나) 모든 실수 $x$에 대하여, $f(x+5)=f(x)+5$이다.
+  닫힌 구간 $[0,20]$에서 곡선 $y=f(x)$와 직선 $y=x+3$으로 둘러싸인 부분들의 넓이의 합을 구하시오.
+
+elements:
+  materials:
+  - 절댓값 이차함수 $\lvert x^2+2x-3\rvert$를 $(5,5)$씩 평행이동해 이어 붙인 함수
+  - 직선 $y=x+3$
+  concepts:
+  - 정적분과 넓이
+  - 함수의 평행이동
+  tools:
+  - 구간 분할 정적분
+  - 평행이동에 대한 넓이 불변
+  conditions:
+  - $f(x+5)=f(x)+5$와 직선 $y=x+3$은 $(5,5)$ 평행이동으로 겹쳐짐
+  - $[0,5]$의 넓이 = $[-3,2]$의 넓이, $[0,20]$은 그 $4$배
+  stimuli_used: []
+  subpart_links: 단일 논제
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅱ]
+  scope_2028: common
+  scope_confirmed: true
+  standards:
+  - code: '[12수학Ⅱ03-05]'
+    text: 곡선으로 둘러싸인 도형의 넓이를 구할 수 있다.
+    verified: false
+  content_area: 적분 – 정적분의 활용(넓이)
+  behavior_domain: 문제해결
+  unit_path: [수학Ⅱ, 적분, 정적분의 활용, 곡선과 직선 사이의 넓이]
+  key_concepts: [정적분, 넓이, 평행이동]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 삼육대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 삼육대학교
+  admission_year: 2024
+  admission_type: 논술우수자전형 모의논술
+  track: 공통
+  question_no: 4
+  official_url: 'https://ipsi.syu.ac.kr/2016_syu/pages/index.asp?p=97&b=B_1_12&bn=66480&m=read'
+  retrieved_at: 2026-11-21
+  original_points: 10
+  rights_notice: |
+    「2024학년도 삼육대학교 논술가이드」(guide_2024.pdf) 논술고사 모의문제(수학) p.21 · 논술고사 모범답안(수학) p.25 — EBS 출처: 수능특강 수학Ⅱ(2023) pp.88~103
+    (가이드북 모범답안에 성취기준 코드 없음 — standards 는 작성자 추정. 모의논술(SYU-M24-05~08)과 다른 문항)
+
+verify: verify/SYU-M24G.py::p4
+
+stimuli: []
+
+subparts:
+- id: '1'
+  stem: |
+    넓이의 합을 구하시오.
+  points: 10
+  depends_on: []
+  answer:
+    kind: value
+    value: 34
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $[-3,2]$에서 넓이 $\frac{17}2$를 구해 $4$배한다.
+    steps:
+    - {id: 1a, content: '$\frac92+\frac{11}6+\frac{13}6=\frac{17}2$, $\frac{17}2\times4=34$', criteria: [1.M1, 1.R1, 1.A1, 1.A2, 1.A3, 1.A4, 1.A5]}
+    hint_ladder:
+    - 그래프를 $(5,5)$만큼 옮기면 직선 $y=x+3$은 어떻게 되는가?
+    - 한 주기 $[-3,2]$에서 곡선과 직선의 교점을 찾아 구간을 나눠 보자.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 「2024학년도 삼육대학교 논술가이드」 p.25 모의문제 문항 4번 답안 예시답안
+    steps:
+    - id: 1b-1
+      content: |
+        [그림: $x$축 $-3$에서 $5$ 남짓까지, $y=f(x)$와 직선 $y=x+3$을 그린 그래프. $[-3,1]$에서 꼭짓점 $(-1,4)$인 위로 볼록한 포물선 조각, $[1,2]$에서 아래로 볼록한 조각이 $(2,5)$에 이르고, 다시 $(5,5)$ 평행이동한 같은 모양이 이어진다. 직선과 곡선 사이(교점 $x=-3,0,2$ 및 옮긴 점)가 빗금으로 칠해져 있고, $x$축 아래에 $[0,5]$ 구간을 화살표로 표시하며 「$[0,20]$ 4번 반복」이라 적혀 있다.]
+        (보충: $f(x+5)-5=f(x)$이고 $(x+5)+3-5=x+3$이므로 그래프와 직선을 함께 $(5,5)$만큼 옮겨도 겹친다.)
+      criteria: [1.M1]
+    - id: 1b-2
+      content: |
+        $[0,5]$ 구간의 면적은 $[-3,2]$ 구간의 면적과 동일.
+        각 구간 $[5,10]$, $[10,15]$, $[15,20]$에 해당하는 면적은 모두 $[0,5]$ 구간의 면적과 같음.
+      criteria: [1.R1]
+    - id: 1b-3
+      content: |
+        [구간1] $[-3,0]$: $\displaystyle\int_{-3}^{0}[-(x^2+2x-3)-(x+3)]dx=\int_{-3}^{0}(-x^2-3x)dx=\left[-\dfrac13x^3-\dfrac32x^2\right]_{-3}^{0}=-9+\dfrac{27}2$
+      criteria: [1.A1]
+    - id: 1b-4
+      content: |
+        [구간2] $[0,1]$: $\displaystyle\int_{0}^{1}[(x+3)-(-x^2-2x+3)]dx=\int_{0}^{1}(x^2+3x)dx=\left[\dfrac13x^3+\dfrac32x^2\right]_0^1=\dfrac13+\dfrac32$
+      criteria: [1.A2]
+    - id: 1b-5
+      content: |
+        [구간3] $[1,2]$: $\displaystyle\int_{1}^{2}[(x+3)-(x^2+2x-3)]dx=\int_{1}^{2}(-x^2-x+6)dx=\left[-\dfrac13x^3-\dfrac12x^2+6x\right]_1^2=-\dfrac73-\dfrac32+6$
+      criteria: [1.A3]
+    - id: 1b-6
+      content: |
+        구간1+구간2+구간3 $=-9+\dfrac{27}2+\dfrac13+\dfrac32-\dfrac73-\dfrac32+6=\dfrac{17}2$
+      criteria: [1.A4]
+    - id: 1b-7
+      content: |
+        $[0,20]$구간 $=\dfrac{17}2\times4=34$
+      criteria: [1.A5]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 3
+      evidence: (가)(나)로 그래프를 그리고 직선과 둘러싸인 부분이 $[0,5]$ 단위로 반복됨을 나타냈다(그림 또는 평행이동 설명).
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1]
+    - id: 1.R1
+      mark_type: R
+      points: 2
+      evidence: $[0,5]$의 넓이가 $[-3,2]$의 넓이와 같고, $[5,10]$, $[10,15]$, $[15,20]$도 같음을 밝혔다.
+      depends_on: [1.M1]
+      steps: [1b-2]
+    - id: 1.A1
+      mark_type: A
+      points: 1
+      evidence: $[-3,0]$의 넓이 $\int_{-3}^0(-x^2-3x)dx=\frac92$를 계산했다.
+      depends_on: [1.M1]
+      steps: [1b-3]
+    - id: 1.A2
+      mark_type: A
+      points: 1
+      evidence: $[0,1]$의 넓이 $\int_0^1(x^2+3x)dx=\frac{11}6$을 계산했다.
+      depends_on: [1.M1]
+      steps: [1b-4]
+    - id: 1.A3
+      mark_type: A
+      points: 1
+      evidence: $[1,2]$의 넓이 $\int_1^2(-x^2-x+6)dx=\frac{13}6$을 계산했다.
+      depends_on: [1.M1]
+      steps: [1b-5]
+    - id: 1.A4
+      mark_type: A
+      points: 1
+      evidence: 세 구간 넓이의 합 $\frac{17}2$를 적었다.
+      depends_on: [1.M1, 1.A1, 1.A2, 1.A3]
+      steps: [1b-6]
+    - id: 1.A5
+      mark_type: A
+      points: 1
+      evidence: $\frac{17}2\times4=34$를 적었다.
+      depends_on: [1.R1, 1.A4]
+      steps: [1b-7]
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-4407}
+  - {code: '72', misconception: MC-CAL-4408}
+  misconceptions:
+  - id: MC-CAL-4407
+    outcome_code: '71'
+    wrong_work: '넓이 대신 $\int_{-3}^{2}\{f(x)-(x+3)\}dx$를 부호 그대로 계산해 직선 위·아래 부분이 상쇄됨'
+    detect_cue: 교점 $x=0$에서 구간을 나누지 않고 한 번에 적분
+    feedback: 넓이는 (위 함수)−(아래 함수)를 구간별로 적분합니다. 교점에서 위아래가 바뀌는지 확인하세요.
+    remedy: [RL-1]
+  - id: MC-CAL-4408
+    outcome_code: '72'
+    wrong_work: '(나)를 $f(x+5)=f(x)$로 보고 직선과의 관계가 구간마다 같다고 가정하거나, $[0,20]$을 $[-3,2]$의 길이 $5$로 나눈 $4$배 대신 다른 배수를 사용'
+    detect_cue: 평행이동 후 직선도 함께 옮겨진다는 설명 없이 반복 횟수를 정함
+    feedback: $f(x+5)=f(x)+5$는 그래프를 $(5,5)$만큼 옮긴 것입니다. 직선 $y=x+3$도 같은 이동에서 자기 자신이 되는지 확인하세요.
+    remedy: [RL-2]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CAL-4407}
+  relation: remediation
+  target: {kind: concept, ref: CON-SYU-M24-AREA-SPLIT}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-CAL-4408}
+  relation: remediation
+  target: {kind: concept, ref: CON-SYU-M24-TRANSLATION-AREA}
+  priority: 2
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-transcribe-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

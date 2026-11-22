@@ -1,0 +1,176 @@
+schema_version: '2.0'
+id: SYU-G26H-10
+legacy_id: null
+version: 1
+status: draft
+exam_family: yaksul
+item_type: numeric
+origin: past_exam
+school: SYU
+type: null
+variant_of: null
+replaces: null
+level: L3
+form: 추론
+points: 10
+time_estimate_min: 3
+intent: 미분가능성과 연속성의 관계를 설명할 수 있다.
+key_idea: '$x=2$에서 연속 조건과 좌·우 미분계수 일치 조건으로 $a$, $b$에 대한 연립방정식을 세운다.'
+stuck: 미분가능하면 연속이라는 사실(연속 조건)까지 함께 써야 $b$가 결정된다는 점
+idea_tags: [IDEA-PIECEWISE-DIFF-CONT-MATCH]
+tags: [삼육대 약술형, 2026학년도, 인문계열, 논술가이드북 2027 수록(수학 문제 2)]
+
+source:
+  rights_holder: 삼육대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 삼육대학교
+  admission_year: 2026
+  admission_type: 논술우수자전형
+  track: 인문
+  question_no: 10
+  official_url: https://ipsi.syu.ac.kr/2016_syu/pages/index.asp?p=29&b=B_1_1&bn=66389&m=read
+  retrieved_at: 2026-11-21
+  original_points: 10
+  rights_notice: '「2026학년도 선행학습 영향평가 자체평가 보고서」 부록 p.60~61 — EBS 출처: 수능특강 수학Ⅱ(2025) p.31'
+
+verify: verify/SYU-G26H.py::p10
+
+stimuli: []
+
+stem: |
+  함수 $f(x)=\begin{cases}2ax^3+4x & (x<2)\\ 3ax^2+x+2b & (x\ge 2)\end{cases}$가 실수 전체의 집합에서 미분가능할 때,
+  $f(1)+f(4)$의 값을 구하시오. (단, $a$, $b$는 상수이다.)
+
+elements:
+  materials: [구간 $x<2$에서 삼차식, $x\ge 2$에서 이차식으로 정의된 구간별 다항함수]
+  concepts: [미분가능성과 연속성의 관계, 미분계수, 다항함수의 도함수, 함수의 극한]
+  tools: [좌극한·우극한 비교, 좌·우 도함수 비교, 연립일차방정식]
+  conditions: ['실수 전체에서 미분가능 → $x=2$에서 연속($16a+8=12a+2+2b$)이고 미분계수 일치($24a+4=12a+1$)']
+  stimuli_used: []
+  subpart_links: 단일 논제
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅱ]
+  scope_2028: common
+  scope_confirmed: true
+  standards:
+  - code: 12수학Ⅱ02-03
+    text: 미분가능성과 연속성의 관계를 이해한다.
+    verified: true
+  content_area: 미분 – 미분계수
+  behavior_domain: 계산
+  unit_path: [수학Ⅱ, 미분, 미분계수와 도함수, 미분가능성과 연속성]
+  key_concepts: [미분가능성, 연속성, 구간별로 정의된 함수]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+subparts:
+- id: '1'
+  stem: |
+    $f(1)+f(4)$의 값을 구하시오.
+  points: 10
+  depends_on: []
+  answer:
+    kind: value
+    value: '1/2'
+    equivalents: ['$\dfrac{1}{2}$', '0.5']
+    tolerance: null
+    note: '$a=-\dfrac{1}{4}$, $b=\dfrac{5}{2}$, $f(1)=\dfrac{7}{2}$, $f(4)=-3$'
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: 미분가능 ⇒ 연속이므로 $x=2$에서 함숫값 일치와 미분계수 일치, 두 식으로 $a$, $b$를 구한다.
+    steps:
+    - id: 1a
+      content: '$16a+8=12a+2+2b$, $24a+4=12a+1$에서 $a=-\dfrac14$, $b=\dfrac52$이고 $f(1)+f(4)=\dfrac72-3=\dfrac12$'
+      criteria: [1.M1, 1.A1, 1.A2]
+    hint_ladder:
+    - 미분가능한 함수는 반드시 연속이다. $x=2$에서 무엇이 같아야 할까?
+    - 좌극한과 우극한, 그리고 $x=2$에서의 좌·우 미분계수를 각각 같게 놓아 보자.
+    - '$f(4)$는 $x\ge 2$ 쪽 식에 대입한다.'
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 「2026 선행학습 영향평가 보고서」 p.60~61 문항 해설 및 풀이과정
+    steps:
+    - id: 1b-1
+      content: |
+        실수 전체의 집합에서 미분가능하므로 $x=2$에서 연속이다.
+        $\displaystyle\lim_{x\to2-}(2ax^3+4x)=\lim_{x\to2+}(3ax^2+x+2b)$에서 $16a+8=12a+2+2b$ … ①
+      criteria: [1.M1, 1.A1]
+    - id: 1b-2
+      content: |
+        $x=2$에서 미분가능하므로 $f'(x)=\begin{cases}6ax^2+4 & (x<2)\\ 6ax+1 & (x\ge 2)\end{cases}$에서
+        $f'(2)=24a+4=12a+1$ … ②
+      criteria: [1.M1]
+    - id: 1b-3
+      content: |
+        ②에서 $12a=-3$, $a=-\dfrac14$. 이를 ①에 대입하면 $-4+8=-3+2+2b$, 즉 $4=-1+2b$이므로 $b=\dfrac52$.
+      criteria: [1.M1, 1.A1]
+    - id: 1b-4
+      content: |
+        $\therefore f(x)=\begin{cases}-\dfrac12x^3+4x & (x<2)\\ -\dfrac34x^2+x+5 & (x\ge 2)\end{cases}$
+        $f(1)=\dfrac72$, $f(4)=-12+4+5=-3$이므로 $f(1)+f(4)=\dfrac12$
+      criteria: [1.A2]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 4
+      evidence: '$x=2$에서의 미분계수 일치 조건(과 연속 조건)을 식으로 세워 $a=-\dfrac{1}{4}$을 구했다.'
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1, 1b-2, 1b-3]
+    - id: 1.A1
+      mark_type: A
+      points: 4
+      evidence: '$x=2$에서의 연속 조건 $16a+8=12a+2+2b$로 $b=\dfrac{5}{2}$를 구했다.'
+      depends_on: [1.M1]
+      steps: [1b-1, 1b-3]
+    - id: 1.A2
+      mark_type: A
+      points: 2
+      evidence: '$f(1)+f(4)=\dfrac{1}{2}$을 구했다.'
+      depends_on: [1.M1]
+      steps: [1b-4]
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-CAL-4101}
+  - {code: '71', misconception: MC-CAL-4102}
+  misconceptions:
+  - id: MC-CAL-4101
+    outcome_code: '70'
+    wrong_work: '미분계수 조건 $24a+4=12a+1$만 세워 $a=-\dfrac14$을 구한 뒤 $b$를 결정하지 못하거나 임의로 $b=0$으로 둠'
+    detect_cue: 연속 조건(좌극한=우극한=함숫값) 식이 없고 $b$가 비어 있거나 근거 없이 정해짐
+    feedback: 미분가능하면 연속입니다. $x=2$에서 두 식의 값이 같다는 조건을 먼저 세우세요.
+    remedy: [RL-1]
+  - id: MC-CAL-4102
+    outcome_code: '71'
+    wrong_work: '$f(4)$를 $x<2$ 쪽 식에 대입해 $f(4)=2\cdot(-\dfrac14)\cdot64+16=-16$으로 계산'
+    detect_cue: '$f(4)$ 계산에 $2ax^3+4x$가 쓰임(최종값 $-\dfrac{25}{2}$ 등)'
+    feedback: 구간별로 정의된 함수는 $x$값이 속한 구간의 식에 대입해야 합니다.
+    remedy: [RL-2]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CAL-4101}
+  relation: remediation
+  target: {kind: concept, ref: CON-SYU-G26H-DIFFCONT}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-CAL-4102}
+  relation: remediation
+  target: {kind: concept, ref: CON-SYU-G26H-PIECEWISE}
+  priority: 2
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-transcribe-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

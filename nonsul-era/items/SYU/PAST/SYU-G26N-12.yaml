@@ -1,0 +1,215 @@
+schema_version: '2.0'
+id: SYU-G26N-12
+legacy_id: null
+version: 1
+status: draft
+exam_family: yaksul
+item_type: numeric
+origin: past_exam
+school: SYU
+type: null
+variant_of: null
+replaces: null
+level: L3
+form: 추론
+points: 10
+time_estimate_min: 5
+intent: 여러 가지 함수의 극한을 구하고, 이유를 설명할 수 있다.
+key_idea: 분자 $=(x-1)\{(x^{n+1}-1)+(x^n-1)+\cdots+(x-1)\}$로 한 번 더 $(x-1)$을 묶어 내 극한 $\dfrac{n+2}{2(n+1)}$.
+stuck: 분자에서 $(x-1)$을 묶은 뒤 남은 식을 $x^k-1$의 합으로 다시 쪼개는 것
+idea_tags:
+- IDEA-FACTOR-XN-MINUS-1-DOUBLE-ROOT
+tags:
+- 2026 기출
+- 자연계열
+stimuli: []
+stem: |
+  $\displaystyle\lim_{x\to1}\frac{x^{n+2}-(n+2)x+n+1}{(x^{n+1}-1)^2}=\frac{5}{8}$를 만족시키는 자연수 $n$의 값을 구하시오.
+  (단, $1$보다 큰 자연수 $t$에 대해 $x^t-1=(x-1)(x^{t-1}+x^{t-2}+x^{t-3}+\cdots+1)$이고, 로피탈 정리는 사용할 수 없다.)
+elements:
+  materials:
+  - $\frac00$ 꼴 유리함수의 극한
+  - 자연수 매개변수 $n$
+  concepts:
+  - 함수의 극한의 성질
+  - 거듭제곱의 인수분해
+  - 자연수의 합 $\sum k$
+  tools:
+  - 인수분해로 $(x-1)^2$ 약분
+  - $\frac{x^k-1}{x-1}\to k$
+  conditions:
+  - 로피탈 정리 사용 금지
+  - 극한값 $\frac58$
+  - $n$은 자연수
+  stimuli_used: []
+  subpart_links: 단일 논제
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학Ⅱ
+  scope_2028: common
+  scope_confirmed: true
+  standards:
+  - code: 12수학Ⅱ01-02
+    text: 함수의 극한에 대한 성질을 이해하고, 함수의 극한값을 구할 수 있다.
+    verified: true
+  content_area: 함수의 극한과 연속 – 함수의 극한
+  behavior_domain: 계산
+  unit_path:
+  - 수학Ⅱ
+  - 함수의 극한과 연속
+  - 함수의 극한
+  - 0/0 꼴 극한의 인수분해
+  key_concepts:
+  - $\frac00$ 꼴 극한
+  - 인수분해 $x^t-1=(x-1)(x^{t-1}+\cdots+1)$
+  - 자연수의 합
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 삼육대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 삼육대학교
+  admission_year: 2026
+  admission_type: 논술우수자전형
+  track: 자연
+  question_no: 12
+  official_url: https://ipsi.syu.ac.kr/2016_syu/pages/index.asp?p=29&b=B_1_1&bn=66389&m=read
+  retrieved_at: '2026-11-21'
+  original_points: 10
+  rights_notice: '「2026학년도 선행학습 영향평가 자체평가 보고서」 부록 p.104~105 — EBS 출처: 수능특강 수학Ⅱ(EBS, 2025) p.14~16'
+verify: verify/SYU-G26N.py::p12
+subparts:
+- id: '1'
+  stem: 위 문제의 답을 구하시오.
+  points: 10
+  depends_on: []
+  answer:
+    kind: value
+    value: '3'
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: 분자 $=(x-1)\{(x^{n+1}-1)+(x^n-1)+\cdots+(x-1)\}$로 한 번 더 $(x-1)$을 묶어 내 극한 $\dfrac{n+2}{2(n+1)}$.
+    steps:
+    - id: 1a
+      content: |
+        극한 $=\dfrac{(n+1)+n+\cdots+1}{(n+1)^2}=\dfrac{n+2}{2(n+1)}=\dfrac58$ → $n=3$.
+      criteria:
+      - 1.M1
+      - 1.A1
+    hint_ladder:
+    - 분모를 $(x-1)^2(\cdots)^2$로 인수분해하자.
+    - 분자를 $x(x^{n+1}-1)-(n+1)(x-1)$로 정리해 보자.
+    - $\dfrac{x^k-1}{x-1}$의 $x\to1$ 극한은 $k$이다.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 「2026 선행학습 영향평가 보고서」 p.104~105 문항 해설 및 풀이과정
+    steps:
+    - id: 1b-1
+      content: |
+        분모·분자를 정리한다. $x^{n+1}-1=(x-1)(x^n+x^{n-1}+x^{n-2}+\cdots+1)$이므로
+        $(x^{n+1}-1)^2=(x-1)^2(x^n+x^{n-1}+x^{n-2}+\cdots+1)^2$ … ①
+        $x^{n+2}-(n+2)x+n+1=x^{n+2}-x-(n+1)(x-1)=x(x^{n+1}-1)-(n+1)(x-1)$
+        $=x(x-1)(x^n+x^{n-1}+\cdots+1)-(n+1)(x-1)=(x-1)(x^{n+1}+x^n+x^{n-1}+\cdots+x-n-1)$ … ②
+      criteria:
+      - 1.M1
+    - id: 1b-2
+      content: |
+        ①, ②에서
+        $\displaystyle\lim_{x\to1}\frac{x^{n+2}-(n+2)x+n+1}{(x^{n+1}-1)^2}=\lim_{x\to1}\frac{\dfrac{x^{n+1}+x^n+\cdots+x-n-1}{x-1}}{(x^n+x^{n-1}+\cdots+1)^2}$
+        $\displaystyle=\lim_{x\to1}\frac{\dfrac{x^{n+1}-1}{x-1}+\dfrac{x^n-1}{x-1}+\cdots+\dfrac{x-1}{x-1}}{(x^n+x^{n-1}+\cdots+1)^2}=\frac{(n+1)+n+(n-1)+\cdots+1}{(n+1)^2}$ … ③
+      criteria:
+      - 1.M1
+    - id: 1b-3
+      content: |
+        ③의 분자는 $\displaystyle\sum_{k=1}^{n+1}k=\frac{(n+1)(n+2)}{2}$이므로 $\dfrac{(n+1)(n+2)}{2(n+1)^2}=\dfrac{n+2}{2(n+1)}=\dfrac58$.
+        $8n+16=10n+10$에서 $n=3$.
+      criteria:
+      - 1.A1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 5
+      evidence: $\dfrac{(n+1)+n+(n-1)+\cdots+1}{(n+1)^2}$을 구함
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 1b-1
+      - 1b-2
+    - id: 1.A1
+      mark_type: A
+      points: 5
+      evidence: $n=3$을 구함
+      depends_on:
+      - 1.M1
+      implied_ok: false
+      steps:
+      - 1b-3
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  - code: '71'
+    misconception: MC-CAL-4153
+  - code: '72'
+    misconception: MC-CAL-4154
+  misconceptions:
+  - id: MC-CAL-4153
+    outcome_code: '71'
+    wrong_work: 분자의 합을 $n+(n-1)+\cdots+1=\dfrac{n(n+1)}2$로 셈(항 하나 누락)
+    detect_cue: 극한값을 $\dfrac{n}{2(n+1)}$로 둠(자연수 해 없음)
+    feedback: $\dfrac{x^{n+1}-1}{x-1}$부터 $\dfrac{x-1}{x-1}$까지 $n+1$개 항이 있습니다.
+    remedy:
+    - RL-1
+  - id: MC-CAL-4154
+    outcome_code: '72'
+    wrong_work: 로피탈 정리(분자·분모 미분)를 써서 극한을 구함
+    detect_cue: 분모·분자를 각각 미분한 식이 보임
+    feedback: 조건에서 로피탈 정리는 금지되어 있습니다. 주어진 인수분해 공식으로 $(x-1)$을 약분하세요.
+    remedy:
+    - RL-2
+remedy_links:
+- id: RL-1
+  trigger:
+    type: misconception
+    ref: MC-CAL-4153
+  relation: remediation
+  target:
+    kind: concept
+    ref: CON-SYU-G26N-LIMIT-FACTOR
+  priority: 1
+- id: RL-2
+  trigger:
+    type: misconception
+    ref: MC-CAL-4154
+  relation: remediation
+  target:
+    kind: concept
+    ref: CON-SYU-G26N-LIMIT-FACTOR
+  priority: 1
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: opus
+  prompt_version: past-transcribe-v1
+  item_version: 1
+  verdict: pass
+  date: '2026-11-21'
+created: '2026-11-21'
+updated: '2026-11-21'

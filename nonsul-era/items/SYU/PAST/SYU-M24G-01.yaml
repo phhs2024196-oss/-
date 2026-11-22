@@ -1,0 +1,197 @@
+schema_version: '2.0'
+id: SYU-M24G-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: yaksul
+item_type: numeric
+origin: mock_exam
+school: SYU
+type: null
+variant_of: null
+replaces: null
+level: L3
+form: 추론
+points: 10
+time_estimate_min: 5
+intent: |
+  지수함수의 성질을 이용한 부등식의 해 구하기
+key_idea: |
+  $9^{f(x)}=(3^{f(x)})^2$으로 치환해 $3^{f(x)}(3^{f(x)}-3^5)<0$, 즉 $f(x)<5$로 바꾼다.
+stuck: |
+  $9^{f(x)}$와 $3^{5+f(x)}$를 같은 밑 $3^{f(x)}$로 묶는 것
+idea_tags: [IDEA-EXP-SUBST-QUADRATIC]
+tags: ['가이드북 2024 모의문제', '지수부등식', '출제근거 수능특강 수학Ⅰ pp.20~35']
+
+stem: |
+  함수 $f(x)=x^2-5x-1$에 대하여 부등식 $9^{f(x)}-3^{5+f(x)}<0$을 만족시키는 정수 $x$의 개수는?
+
+elements:
+  materials:
+  - 이차함수 $f(x)=x^2-5x-1$을 지수로 갖는 부등식 $9^{f(x)}-3^{5+f(x)}<0$
+  concepts:
+  - 지수법칙
+  - 지수함수의 단조성
+  - 이차부등식
+  tools:
+  - $3^{f(x)}$로 묶어 인수분해
+  - 밑이 1보다 큰 지수함수의 증가성
+  conditions:
+  - $3^{f(x)}>0$이므로 $3^{f(x)}<3^5\iff f(x)<5$
+  - $x^2-5x-6<0$의 정수해
+  stimuli_used: []
+  subpart_links: 단일 논제
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅰ]
+  scope_2028: common
+  scope_confirmed: true
+  standards:
+  - code: '[12수학Ⅰ01-07]'
+    text: 지수함수와 로그함수를 활용하여 문제를 해결할 수 있다.
+    verified: false
+  content_area: 지수함수와 로그함수 – 지수함수의 활용
+  behavior_domain: 계산
+  unit_path: [수학Ⅰ, 지수함수와 로그함수, 지수함수의 활용, 지수부등식]
+  key_concepts: [지수법칙, 지수부등식, 이차부등식]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 삼육대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 삼육대학교
+  admission_year: 2024
+  admission_type: 논술우수자전형 모의논술
+  track: 공통
+  question_no: 1
+  official_url: 'https://ipsi.syu.ac.kr/2016_syu/pages/index.asp?p=97&b=B_1_12&bn=66480&m=read'
+  retrieved_at: 2026-11-21
+  original_points: 10
+  rights_notice: |
+    「2024학년도 삼육대학교 논술가이드」(guide_2024.pdf) 논술고사 모의문제(수학) p.20 · 논술고사 모범답안(수학) p.22 — EBS 출처: 수능특강 수학Ⅰ(2023) pp.20~35
+    (가이드북 모범답안에 성취기준 코드 없음 — standards 는 작성자 추정. 모의논술(SYU-M24-05~08)과 다른 문항)
+
+verify: verify/SYU-M24G.py::p1
+
+stimuli: []
+
+subparts:
+- id: '1'
+  stem: |
+    부등식을 만족시키는 정수 $x$의 개수를 구하시오.
+  points: 10
+  depends_on: []
+  answer:
+    kind: value
+    value: 6
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $3^{f(x)}$로 묶으면 $0<3^{f(x)}<3^5$, 즉 $f(x)<5$.
+    steps:
+    - {id: 1a, content: '$3^{f(x)}(3^{f(x)}-3^5)<0\Rightarrow f(x)<5\Rightarrow-1<x<6$, 정수 $6$개', criteria: [1.M1, 1.M2, 1.A1, 1.M3, 1.A2]}
+    hint_ladder:
+    - $9^{f(x)}$를 밑이 $3$인 꼴로 바꿔 보자.
+    - $3^{f(x)}=t$로 두면 어떤 부등식이 되는가?
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 「2024학년도 삼육대학교 논술가이드」 p.22 모의문제 문항 1번 답안 예시답안
+    steps:
+    - id: 1b-1
+      content: |
+        $9^{f(x)}-3^{5+f(x)}<0$에서 $(3^2)^{f(x)}-3^5\cdot3^{f(x)}<0$, $(3^{f(x)})^2-3^5\cdot3^{f(x)}<0$
+      criteria: [1.M1]
+    - id: 1b-2
+      content: |
+        $3^{f(x)}(3^{f(x)}-3^5)<0$, $0<3^{f(x)}<3^5$ (보충: $3^{f(x)}>0$이므로 양변을 나눌 수 있다.)
+      criteria: [1.M2]
+    - id: 1b-3
+      content: |
+        따라서 $f(x)<5$ (보충: 밑 $3>1$이므로 지수함수는 증가함수.)
+      criteria: [1.A1]
+    - id: 1b-4
+      content: |
+        $f(x)=x^2-5x-1$에 대입하여 $x^2-5x-1<5$, $x^2-5x-6=(x+1)(x-6)<0$
+      criteria: [1.M3]
+    - id: 1b-5
+      content: |
+        $-1<x<6$을 만족하는 정수 $x$는 $0,1,2,3,4,5$이므로 $6$개
+      criteria: [1.A2]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 2
+      evidence: $9^{f(x)}$를 $(3^{f(x)})^2$, $3^{5+f(x)}$를 $3^5\cdot3^{f(x)}$로 바꿔 적었다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1]
+    - id: 1.M2
+      mark_type: M
+      points: 2
+      evidence: $3^{f(x)}(3^{f(x)}-3^5)<0$으로 묶어 $0<3^{f(x)}<3^5$를 얻었다.
+      depends_on: [1.M1]
+      steps: [1b-2]
+    - id: 1.A1
+      mark_type: A
+      points: 2
+      evidence: $f(x)<5$를 적었다.
+      depends_on: [1.M2]
+      steps: [1b-3]
+    - id: 1.M3
+      mark_type: M
+      points: 2
+      evidence: $x^2-5x-6=(x+1)(x-6)<0$을 세웠다.
+      depends_on: [1.A1]
+      steps: [1b-4]
+    - id: 1.A2
+      mark_type: A
+      points: 2
+      evidence: 정수 $0,1,2,3,4,5$를 나열하고 $6$개라고 적었다.
+      depends_on: [1.M3]
+      steps: [1b-5]
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-ALG-4405}
+  - {code: '72', misconception: MC-ALG-4406}
+  misconceptions:
+  - id: MC-ALG-4405
+    outcome_code: '71'
+    wrong_work: '$3^{5+f(x)}=3^5+3^{f(x)}$로 분해'
+    detect_cue: 지수의 합을 거듭제곱의 합으로 바꾼 식이 있다
+    feedback: $3^{p+q}=3^p\cdot3^q$입니다. 지수의 합은 곱으로 나뉩니다.
+    remedy: [RL-1]
+  - id: MC-ALG-4406
+    outcome_code: '72'
+    wrong_work: '$-1\le x\le6$으로 끝점을 포함해 $8$개'
+    detect_cue: 답이 $8$이거나 $-1$, $6$이 해에 포함됨
+    feedback: 엄격한 부등식 $<0$이므로 $(x+1)(x-6)=0$인 끝점은 제외됩니다.
+    remedy: [RL-2]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-ALG-4405}
+  relation: remediation
+  target: {kind: concept, ref: CON-SYU-M24-EXP-LAW}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-ALG-4406}
+  relation: remediation
+  target: {kind: concept, ref: CON-SYU-M24-STRICT-INEQ}
+  priority: 2
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-transcribe-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

@@ -1,0 +1,236 @@
+schema_version: '2.0'
+id: SYU-G26N-15
+legacy_id: null
+version: 1
+status: draft
+exam_family: yaksul
+item_type: numeric
+origin: past_exam
+school: SYU
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 추론
+points: 10
+time_estimate_min: 8
+intent: 미분계수의 기하적 의미를 이해하고, 함수의 증가, 감소 및 극대, 극소 판정을 통해 여러 가지 문제를 해결할 수 있다.
+key_idea: (가)에서 $f(x)=(x-\alpha)x^2$, (나)에서 $g(x)\ge0$이므로 $g(x)=(x-\alpha)^2$, $h(x)=(x-\alpha)^3x$의 극솟값 $h(\alpha/4)=-432$.
+stuck: (나)의 적분 부등식에서 $f(x)g(x)$의 부호 조건을 뽑아 $g\ge0$을 얻는 것
+idea_tags:
+- IDEA-ABS-NONDIFF-SIMPLE-ROOT
+- IDEA-INTEGRAL-SIGN-CONDITION
+tags:
+- 2026 기출
+- 자연계열
+stimuli: []
+stem: |
+  최고차항의 계수가 $1$이고 $f(0)=0$인 삼차함수 $f(x)$와 최고차항의 계수가 $1$이고 $g(\alpha)=0\ (\alpha<0)$인 이차함수 $g(x)$가 다음 조건을 만족시킬 때, $\alpha$의 값을 구하시오.
+
+  (가) 함수 $|f(x)|$는 $x=\alpha$에서만 미분가능하지 않다.
+  (나) 모든 실수 $x$에 대하여 $\displaystyle\int_{\alpha}^{x}f(t)g(t)dt\ge0$이다.
+  (다) 다항함수 $h(x)$가 모든 실수 $x$에 대하여 $xh(x)=f(x)g(x)$일 때, 함수 $h(x)$의 극솟값은 $-432$이다.
+elements:
+  materials:
+  - 최고차항 계수 $1$, $f(0)=0$인 삼차함수 $f$
+  - 최고차항 계수 $1$, $g(\alpha)=0$인 이차함수 $g$
+  - $xh(x)=f(x)g(x)$인 다항함수 $h$
+  concepts:
+  - $|f|$의 미분가능성과 근의 중복도
+  - 정적분으로 정의된 함수의 증감
+  - 극대·극소 판정
+  tools:
+  - 인수 결정
+  - 증감표
+  - 극솟값 방정식
+  conditions:
+  - '(가) → $0$은 중근, $\alpha$는 단순근: $f(x)=(x-\alpha)x^2$'
+  - (나) → $x<\alpha$에서 $fg\le0$, $x>\alpha$에서 $fg\ge0$ → $g\ge0$ → $g(x)=(x-\alpha)^2$
+  - (다) → $h(x)=(x-\alpha)^3x$, 극솟값 $-432$
+  - $\alpha<0$
+  stimuli_used: []
+  subpart_links: 단일 논제
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학Ⅱ
+  scope_2028: common
+  scope_confirmed: true
+  standards:
+  - code: 12수학Ⅱ02-02
+    text: 미분계수의 기하적 의미를 이해한다.
+    verified: true
+  - code: 12수학Ⅱ02-08
+    text: 함수의 증가와 감소, 극대와 극소를 판정하고 설명할 수 있다.
+    verified: true
+  content_area: 미분 – 도함수의 활용(극대·극소)
+  behavior_domain: 추론
+  unit_path:
+  - 수학Ⅱ
+  - 미분
+  - 도함수의 활용
+  - 조건을 만족시키는 다항함수 결정
+  key_concepts:
+  - 절댓값 함수의 미분가능성
+  - 정적분으로 정의된 함수의 부호
+  - 극솟값
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 삼육대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 삼육대학교
+  admission_year: 2026
+  admission_type: 논술우수자전형
+  track: 자연
+  question_no: 15
+  official_url: https://ipsi.syu.ac.kr/2016_syu/pages/index.asp?p=29&b=B_1_1&bn=66389&m=read
+  retrieved_at: '2026-11-21'
+  original_points: 10
+  rights_notice: '「2026학년도 선행학습 영향평가 자체평가 보고서」 부록 p.110~112 — EBS 출처: 수능특강 수학Ⅱ(EBS, 2025) p.52'
+verify: verify/SYU-G26N.py::p15
+subparts:
+- id: '1'
+  stem: 위 문제의 답을 구하시오.
+  points: 10
+  depends_on: []
+  answer:
+    kind: value
+    value: '-8'
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: (가)에서 $f(x)=(x-\alpha)x^2$, (나)에서 $g(x)\ge0$이므로 $g(x)=(x-\alpha)^2$, $h(x)=(x-\alpha)^3x$의 극솟값 $h(\alpha/4)=-432$.
+    steps:
+    - id: 1a
+      content: |
+        $f=(x-\alpha)x^2$, $g=(x-\alpha)^2$, $h=(x-\alpha)^3x$, $h'=(x-\alpha)^2(4x-\alpha)$, $h(\alpha/4)=-\dfrac{27}{256}\alpha^4=-432$ → $\alpha=-8$.
+      criteria:
+      - 1.M1
+      - 1.M2
+      - 1.A1
+    hint_ladder:
+    - $|f(x)|$가 미분가능하지 않은 점은 $f$의 부호가 바뀌는 근이다. $0$은 어떤 근이어야 하는가?
+    - (나)의 적분이 $x=\alpha$의 좌우에서 모두 $0$ 이상이려면 $f(x)g(x)$의 부호는?
+    - $h(x)=(x-\alpha)^3x$의 극소를 증감표로 찾자.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 「2026 선행학습 영향평가 보고서」 p.110~112 문항 해설 및 풀이과정
+    steps:
+    - id: 1b-1
+      content: |
+        함수 $|f(x)|$는 $x=\alpha\ (\alpha<0)$에서 미분가능하지 않고 $f(0)=0$이므로, $y=f(x)$의 그래프는 $x=\alpha$에서 $x$축을 뚫고 지나가고 $x=0$에서 $x$축에 접하는 개형이다.
+        (보충: $x=0$이 단순근이면 $|f(x)|$가 $x=0$에서도 미분가능하지 않으므로 $0$은 중근이다.)
+        즉, $f(x)=(x-\alpha)x^2$.
+      criteria:
+      - 1.M1
+    - id: 1b-2
+      content: |
+        $x<\alpha$인 모든 실수 $x$에 대하여 $\displaystyle\int_\alpha^x f(t)g(t)dt\ge0$이 성립하려면 어떤 열린구간 $(\beta,\alpha)$에 속하는 모든 $x$에 대하여 $f(x)g(x)\le0$이어야 한다.
+        $x\ge\alpha$인 모든 실수 $x$에 대하여 $\displaystyle\int_\alpha^x f(t)g(t)dt\ge0$이 성립하려면 어떤 열린구간 $(\alpha,\gamma)$에 속하는 모든 $x$에 대하여 $f(x)g(x)\ge0$이어야 한다.
+        그런데 $x<\alpha$에서 $f(x)<0$, $x\ge\alpha$에서 $f(x)\ge0$이므로 모든 실수 $x$에 대하여 $g(x)\ge0$이어야 한다.
+        이차함수 $g(x)$는 최고차항의 계수가 $1$이고 $g(\alpha)=0$이므로 $g(x)=(x-\alpha)^2$.
+      criteria:
+      - 1.M2
+    - id: 1b-3
+      content: |
+        조건 (다)에서 $xh(x)=f(x)g(x)=(x-\alpha)^3x^2$이고 $h(x)$는 다항함수이므로 $h(x)=(x-\alpha)^3x$.
+        $h'(x)=3(x-\alpha)^2x+(x-\alpha)^3=(x-\alpha)^2(4x-\alpha)$, $h'(x)=0$에서 $x=\alpha$ 또는 $x=\dfrac\alpha4$이고, $\alpha<0$이므로 $\alpha<\dfrac\alpha4$.
+        증감표: $x<\alpha$에서 $h'<0$, $\alpha<x<\dfrac\alpha4$에서 $h'<0$, $x>\dfrac\alpha4$에서 $h'>0$이므로 $h$는 $x=\dfrac\alpha4$에서 극소이다.
+        $h\left(\dfrac\alpha4\right)=\left(\dfrac\alpha4-\alpha\right)^3\dfrac\alpha4=-\left(\dfrac34\right)^3\cdot\dfrac{\alpha^4}{4}=-432$, $\alpha<0$이므로 $\alpha=-8$.
+      criteria:
+      - 1.A1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 3
+      evidence: $f(x)=(x-\alpha)x^2$을 구함
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 1b-1
+    - id: 1.M2
+      mark_type: M
+      points: 4
+      evidence: $g(x)=(x-\alpha)^2$을 구함
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 1b-2
+    - id: 1.A1
+      mark_type: A
+      points: 3
+      evidence: $\alpha=-8$을 구함
+      depends_on:
+      - 1.M1
+      - 1.M2
+      implied_ok: false
+      steps:
+      - 1b-3
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  - code: '71'
+    misconception: MC-CAL-4159
+  - code: '72'
+    misconception: MC-CAL-4160
+  misconceptions:
+  - id: MC-CAL-4159
+    outcome_code: '71'
+    wrong_work: $f(x)=x(x-\alpha)(x-c)$처럼 $0$을 단순근으로 둠
+    detect_cue: $f$에 $x^2$ 인수가 없음
+    feedback: $|f|$는 $f$의 부호가 바뀌는 근(홀수 중복도)에서 미분가능하지 않습니다. $x=\alpha$에서만 그러려면 $0$은 중근이어야 합니다.
+    remedy:
+    - RL-1
+  - id: MC-CAL-4160
+    outcome_code: '72'
+    wrong_work: (나)를 「모든 $x$에서 $f(x)g(x)\ge0$」으로 해석해 $g(x)=(x-\alpha)(x-\beta)$ 꼴로 둠
+    detect_cue: $g$를 서로 다른 두 근으로 둠
+    feedback: $x<\alpha$에서는 적분 방향이 반대이므로 $f(x)g(x)\le0$이어야 합니다. $f<0$이므로 $g\ge0$, 즉 $g=(x-\alpha)^2$입니다.
+    remedy:
+    - RL-2
+remedy_links:
+- id: RL-1
+  trigger:
+    type: misconception
+    ref: MC-CAL-4159
+  relation: remediation
+  target:
+    kind: concept
+    ref: CON-SYU-G26N-ABS-NONDIFF
+  priority: 1
+- id: RL-2
+  trigger:
+    type: misconception
+    ref: MC-CAL-4160
+  relation: remediation
+  target:
+    kind: concept
+    ref: CON-SYU-G26N-ABS-NONDIFF
+  priority: 1
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: opus
+  prompt_version: past-transcribe-v1
+  item_version: 1
+  verdict: pass
+  date: '2026-11-21'
+created: '2026-11-21'
+updated: '2026-11-21'
