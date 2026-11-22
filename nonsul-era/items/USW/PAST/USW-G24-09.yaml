@@ -1,0 +1,170 @@
+schema_version: '2.0'
+id: USW-G24-09
+legacy_id: null
+version: 1
+status: draft
+exam_family: yaksul
+item_type: derivation
+origin: past_exam
+school: USW
+type: null
+variant_of: null
+replaces: null
+level: L3
+form: 추론
+points: 10
+time_estimate_min: null
+intent: 등차수열의 뜻을 알고 합을 구할 수 있는지 파악한다(공식 출제의도).
+key_idea: $S_7-S_5=a_6+a_7=0$과 $a_3=14$로 $a_1$, $d$를 구하고 항의 부호 변화로 $S_n$의 최댓값을 찾는다.
+stuck: $a_6>0>a_7$이므로 $S_6$이 최대라는 판단.
+tags:
+- 등차수열
+- 등차수열의 합
+- 최댓값
+elements:
+  materials:
+  - $a_3=14$
+  - $S_5=S_7$
+  - $S_n$의 최댓값
+  concepts:
+  - 등차수열의 일반항
+  - 등차수열의 합 $S_n=\frac{n(2a_1+(n-1)d)}{2}$
+  tools:
+  - $S_7-S_5=a_6+a_7=0$
+  - 연립방정식 $a_1+2d=14$, $2a_1+11d=0$
+  - $a_6>0>a_7$ 로 $S_6$ 최대
+  conditions:
+  - $\{a_n\}$은 등차수열
+  stimuli_used: []
+  subpart_links: 단일 논제
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학Ⅰ
+  scope_2028: common
+  scope_confirmed: false
+  content_area: 수열
+  behavior_domain: 계산
+  unit_path:
+  - 수학Ⅰ
+  - 수열
+  - 등차수열
+  - 등차수열의 합의 최대
+  key_concepts:
+  - 공차
+  - 등차수열
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 수원대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 수원대학교
+  admission_year: 2024
+  admission_type: 수시 교과논술전형
+  track: 공통(국어+수학)
+  question_no: 9
+  official_url: https://ipsi.suwon.ac.kr/board/pre_question/read/2705
+  retrieved_at: '2026-11-22'
+  original_points:
+  - 10
+  rights_notice: 미확인
+  transcribed_from: 수원대 입학처「G24_Q.pdf」p.9 · 「G24_A.pdf」p.6 이미지 판독(2026-11-22)
+verify: verify/USW-G24.py::p09
+stimuli: []
+stem: 등차수열 $\{a_n\}$의 첫째항부터 제$n$항까지의 합을 $S_n$이라 하자. $a_3=14$, $S_5=S_7$일 때, $S_n$의 최댓값을 구하는 과정을 논술하시오.
+subparts:
+- id: '1'
+  stem: '[편집: 단일 논제 — 발문은 위 문항 전체와 같다]'
+  points: 10
+  depends_on: []
+  answer:
+    kind: value
+    value: '72'
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S1-B
+    audience: B
+    source_flow: G24_A.pdf p.6 모범답안
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: $a_3=14\Rightarrow a_1+2d=14$
+      criteria:
+      - 1.M1
+    - id: 1b-2
+      content: $S_7-S_5=a_6+a_7=2a_1+11d=0$
+      criteria:
+      - 1.M2
+    - id: 1b-3
+      content: 두 식을 연립하여 풀면 $d=-4$, $a_1=22$
+      criteria:
+      - 1.M3
+    - id: 1b-4
+      content: $a_6+a_7=0$, $d=-4$이므로 $a_6>0>a_7$이므로 $S_6$이 $S_n$의 최댓값이다. $S_n=\dfrac{n(2a_1+(n-1)d)}{2}\Rightarrow$ 최댓값 $S_6=\dfrac{6(2\cdot22+5\cdot(-4))}{2}=72$
+      criteria:
+      - 1.A1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 0
+      isw: true
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 2
+      evidence: $a_1+2d=14$(채점기준 2점).
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 1b-1
+    - id: 1.M2
+      mark_type: M
+      points: 3
+      evidence: $2a_1+11d=0$(채점기준 3점).
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 1b-2
+    - id: 1.M3
+      mark_type: M
+      points: 2
+      evidence: $d=-4$, $a_1=22$(채점기준 2점).
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 1b-3
+    - id: 1.A1
+      mark_type: A
+      points: 3
+      evidence: 최댓값 72(채점기준 3점).
+      depends_on:
+      - 1.M1
+      - 1.M2
+      - 1.M3
+      implied_ok: false
+      steps:
+      - 1b-4
+    deductions: []
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: past-v2-lean
+  item_version: 1
+  verdict: pass
+  date: &id001 2026-11-22
+created: *id001
+updated: *id001

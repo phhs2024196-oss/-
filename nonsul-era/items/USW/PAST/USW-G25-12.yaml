@@ -1,0 +1,170 @@
+schema_version: '2.0'
+id: USW-G25-12
+legacy_id: null
+version: 1
+status: draft
+exam_family: yaksul
+item_type: derivation
+origin: past_exam
+school: USW
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 추론
+points: 10
+time_estimate_min: null
+intent: 도함수를 활용하여 함수의 극값을 구하는 계산 능력을 평가한다(공식 출제의도).
+key_idea: 도함수가 $x(x-k)(x-2k)$ 꼴임을 이용해 $a$, $b$, $k$를 정하고 극값을 계산한다.
+stuck: 삼차 도함수의 세 근이 $0, k, 2k$이므로 $f'(x)=x(x-k)(x-2k)$로 놓고 계수를 비교하는 것.
+tags:
+- 함수의 극값
+- 도함수
+- 계수 비교
+elements:
+  materials:
+  - $f(x)=\frac14x^4-2x^3+ax^2+bx$
+  - $x=0,k,2k$에서 극값
+  concepts:
+  - 극값의 필요조건 $f'=0$
+  - 삼차함수의 인수분해
+  - 계수 비교
+  tools:
+  - $f'(x)=x(x-k)(x-2k)$
+  - $b=0$, $k=2$, $a=4$
+  - $f(x)=\frac14x^4-2x^3+4x^2$
+  conditions:
+  - $a$, $b$, $k$는 실수
+  - $k\neq0$
+  stimuli_used: []
+  subpart_links: 단일 논제
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학Ⅱ
+  scope_2028: common
+  scope_confirmed: false
+  content_area: 미분
+  behavior_domain: 계산
+  unit_path:
+  - 수학Ⅱ
+  - 미분
+  - 도함수의 활용
+  - 함수의 극대·극소
+  key_concepts:
+  - 함수의 극값
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 수원대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 수원대학교
+  admission_year: 2025
+  admission_type: 수시 교과논술전형
+  track: 공통(국어+수학)
+  question_no: 12
+  official_url: https://ipsi.suwon.ac.kr/board/pre_question/read/4019
+  retrieved_at: '2026-11-22'
+  original_points:
+  - 10
+  rights_notice: 미확인
+  transcribed_from: 수원대 입학처「G25_Q.pdf」p.12 · 「G25_A.pdf」p.13 이미지 판독(2026-11-22)
+verify: verify/USW-G25.py::p12
+stimuli: []
+stem: 함수 $f(x)=\dfrac14x^4-2x^3+ax^2+bx$가 $x=0,\ k,\ 2k$에서 극값을 가질 때, 함수 $f(x)$의 극댓값과 극솟값을 구하는 과정을 논술하시오. (단, $a,\ b,\ k$는 실수, $k\neq0$)
+subparts:
+- id: '1'
+  stem: '[편집: 단일 논제 — 발문은 위 문항 전체와 같다]'
+  points: 10
+  depends_on: []
+  answer:
+    kind: value
+    value: max = 4; min = 0
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S1-B
+    audience: B
+    source_flow: G25_A.pdf p.13 모범답안
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: $f(x)$가 $x=0,\ k,\ 2k$일 때 극값을 가지므로 $f'(x)=x^3-6x^2+2ax+b=x(x-k)(x-2k)$
+      criteria:
+      - 1.M1
+    - id: 1b-2
+      content: $b=0$
+      criteria:
+      - 1.M2
+    - id: 1b-3
+      content: $x^2-6x+2a=(x-k)(x-2k)$에서 $6=3k$, 즉 $k=2$. $a=k^2=4$. $f'(x)=x(x-2)(x-4)$이고 $f(x)=\dfrac14x^4-2x^3+4x^2$
+      criteria:
+      - 1.M3
+    - id: 1b-4
+      content: 극솟값은 $f(0)=0$, $f(4)=4^3-2\times4^3+4^3=0$, 극댓값은 $f(2)=4-16+16=4$
+      criteria:
+      - 1.A1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 0
+      isw: true
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 2
+      evidence: $f'(x)=x(x-k)(x-2k)$(채점기준 2점).
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 1b-1
+    - id: 1.M2
+      mark_type: M
+      points: 1
+      evidence: $b=0$(채점기준 1점).
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 1b-2
+    - id: 1.M3
+      mark_type: M
+      points: 3
+      evidence: $k=2$, $a=4$(채점기준 3점).
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 1b-3
+    - id: 1.A1
+      mark_type: A
+      points: 4
+      evidence: 극댓값 4, 극솟값 0(채점기준 4점).
+      depends_on:
+      - 1.M1
+      - 1.M2
+      - 1.M3
+      implied_ok: false
+      steps:
+      - 1b-4
+    deductions: []
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: past-v2-lean
+  item_version: 1
+  verdict: pass
+  date: &id001 2026-11-22
+created: *id001
+updated: *id001

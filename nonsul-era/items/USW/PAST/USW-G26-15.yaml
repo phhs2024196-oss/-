@@ -1,0 +1,171 @@
+schema_version: '2.0'
+id: USW-G26-15
+legacy_id: null
+version: 1
+status: draft
+exam_family: yaksul
+item_type: derivation
+origin: past_exam
+school: USW
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 추론
+points: 10
+time_estimate_min: 5
+intent: 정적분을 이용해 넓이를 구할 수 있는지 평가한다(공식 출제의도).
+key_idea: 접점의 $x$좌표를 $t$로 놓고 원점을 지나는 조건으로 $t=\pm\sqrt a$, 접선 $y=\pm2\sqrt a\,x$를 구한 뒤 $S_1=\dfrac23a\sqrt a$, $S_2=\dfrac43a\sqrt a$를 정적분으로 계산한다.
+stuck: 접선이 원점을 지난다는 조건으로 접점을 정하고, 두 도형의 넓이를 대칭성을 이용해 $0\le x\le\sqrt a$에서 두 배로 계산하는 것.
+tags:
+- 정적분
+- 접선
+- 넓이
+elements:
+  materials:
+  - 곡선 $y=x^2+a$ ($a>0$)
+  - 원점에서 곡선에 그은 두 접선
+  - $x$축에 평행하고 두 접점을 지나는 직선
+  - $S_1$, $S_2$
+  concepts:
+  - 접선의 방정식
+  - 정적분을 이용한 넓이
+  - 그래프의 대칭성
+  tools:
+  - 접선 $y=2t(x-t)+t^2+a$가 원점을 지날 조건
+  - $S_1=\dfrac23a\sqrt a$
+  - $S_2=\dfrac43a\sqrt a$
+  conditions:
+  - $a>0$
+  - $S_2=2S_1$임을 보임
+  stimuli_used: []
+  subpart_links: 단일 논제
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학Ⅱ
+  scope_2028: unknown
+  scope_confirmed: false
+  content_area: 적분
+  behavior_domain: 계산
+  unit_path:
+  - 수학Ⅱ
+  - 적분
+  - 정적분의 활용
+  - 곡선으로 둘러싸인 넓이
+  key_concepts:
+  - 정적분
+  - 접선
+  - 넓이
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 수원대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 수원대학교
+  admission_year: 2026
+  admission_type: 수시 교과논술전형
+  track: 공통(국어+수학)
+  question_no: 15
+  official_url: https://ipsi.suwon.ac.kr/board/pre_question/read/5508
+  retrieved_at: '2026-11-22'
+  original_points:
+  - 10
+  rights_notice: 미확인
+  transcribed_from: 수원대 입학처「G26_Q.pdf」p.12 · 「G26_A.pdf」p.16 이미지 판독(2026-11-22)
+verify: verify/USW-G26.py::p15
+stimuli: []
+stem: '양수 $a$에 대하여 곡선 $y=x^2+a$와 원점에서 곡선에 그은 두 접선으로 둘러싸인 도형의 넓이를 $S_1$이라 하고, 곡선과 두 접점을 지나며 $x$축과 평행한 직선에 둘러싸인 도형의 넓이를 $S_2$라 하자. $S_2$는 $S_1$의 $2$배가 됨을 보이는 과정을 논술하시오.
+
+
+  [그림 1: 곡선 $y=x^2+a$, 원점에서 곡선에 그은 두 접선, 두 접점을 지나며 $x$축과 평행한 직선. 곡선과 두 접선으로 둘러싸인 부분이 $S_1$, 곡선과 직선으로 둘러싸인 부분이 $S_2$]'
+subparts:
+- id: '1'
+  stem: 답과 풀이
+  points: 10
+  depends_on: []
+  answer:
+    kind: value
+    value: '2'
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S1-B
+    audience: B
+    source_flow: G26_A.pdf p.16 모범답안
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: 접점의 $x$좌표를 $t$라 하면 접선의 방정식은 $y=2t(x-t)+t^2+a$이다. 원점을 지나므로 $0=-2t^2+t^2+a$로부터 $t=\pm\sqrt a$.
+      criteria:
+      - 1.M1
+    - id: 1b-2
+      content: 접선은 $y=\pm2\sqrt a\,x$.
+      criteria:
+      - 1.M2
+    - id: 1b-3
+      content: $S_1=2\displaystyle\int_0^{\sqrt a}\left(x^2+a-2\sqrt a\,x\right)dx=2\left[\dfrac13x^3+ax-\sqrt a\,x^2\right]_0^{\sqrt a}=\dfrac23a\sqrt a$.
+      criteria:
+      - 1.M3
+    - id: 1b-4
+      content: $x$축과 평행한 직선은 $y=2a$. $S_2=2\displaystyle\int_0^{\sqrt a}\left(2a-(x^2+a)\right)dx=2\int_0^{\sqrt a}(a-x^2)\,dx=\left[2ax-\dfrac23x^3\right]_0^{\sqrt a}=2a\sqrt a-\dfrac23a\sqrt a=\dfrac43a\sqrt a$. (또는 삼각형의 넓이 $\dfrac12\times2\sqrt a\times2a=2a\sqrt a$를 구한 후 $S_2=2a\sqrt a-S_1=\dfrac43a\sqrt a$.) 따라서 $S_2=2S_1$.
+      criteria:
+      - 1.A1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 2
+      evidence: 접선의 방정식과 $t=\pm\sqrt a$(채점기준 2점).
+      steps:
+      - 1b-1
+    - id: 1.M2
+      mark_type: M
+      points: 2
+      evidence: 접선 $y=\pm2\sqrt a\,x$(채점기준 2점).
+      depends_on:
+      - 1.M1
+      steps:
+      - 1b-2
+    - id: 1.M3
+      mark_type: M
+      points: 3
+      evidence: $S_1=\dfrac23a\sqrt a$(채점기준 3점).
+      depends_on:
+      - 1.M2
+      steps:
+      - 1b-3
+    - id: 1.A1
+      mark_type: A
+      points: 3
+      evidence: $S_2=\dfrac43a\sqrt a$, $S_2=2S_1$(채점기준 3점).
+      depends_on:
+      - 1.M2
+      steps:
+      - 1b-4
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: past-v2-lean
+  item_version: 1
+  verdict: pass
+  date: '2026-11-22'
+created: '2026-11-22'
+updated: '2026-11-22'

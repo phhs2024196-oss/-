@@ -1,0 +1,178 @@
+schema_version: '2.0'
+id: USW-G26-10
+legacy_id: null
+version: 1
+status: draft
+exam_family: yaksul
+item_type: derivation
+origin: past_exam
+school: USW
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 추론
+points: 10
+time_estimate_min: 5
+intent: 수열의 합을 구할 수 있는지 평가한다(공식 출제의도).
+key_idea: $b_n$의 분모를 유리화해 $b_n=\dfrac1d\left(\sqrt{a_{n+1}}-\sqrt{a_n}\right)$로 쓰고 부분합이 소거되는 꼴임을 이용해 $d$에 대한 방정식을 세운다.
+stuck: 분모 유리화로 연속하는 항이 서로 소거되는 합을 보는 것.
+tags:
+- 등차수열
+- 수열의 합
+- 유리화
+elements:
+  materials:
+  - $a_1=1$인 등차수열 $\{a_n\}$
+  - $b_n=\dfrac{1}{\sqrt{a_n}+\sqrt{a_{n+1}}}$
+  - $S_{2025}=50$
+  concepts:
+  - 등차수열의 일반항
+  - 분모의 유리화
+  - 소거되는 합(부분분수 꼴)
+  tools:
+  - $a_n=1+(n-1)d$
+  - $S_{2025}=\dfrac1d\left(\sqrt{a_1}-\sqrt{a_{2026}}\right)\cdot(-1)$
+  - $1+2025d=(50d+1)^2$
+  conditions:
+  - $a_1=1$
+  - $S_{2025}=50$
+  stimuli_used: []
+  subpart_links: 단일 논제
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학Ⅰ
+  scope_2028: unknown
+  scope_confirmed: false
+  content_area: 수열
+  behavior_domain: 계산
+  unit_path:
+  - 수학Ⅰ
+  - 수열
+  - 수열의 합
+  - 유리화를 이용한 합
+  key_concepts:
+  - 수열의 합
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 수원대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 수원대학교
+  admission_year: 2026
+  admission_type: 수시 교과논술전형
+  track: 공통(국어+수학)
+  question_no: 10
+  official_url: https://ipsi.suwon.ac.kr/board/pre_question/read/5508
+  retrieved_at: '2026-11-22'
+  original_points:
+  - 10
+  rights_notice: 미확인
+  transcribed_from: 수원대 입학처「G26_Q.pdf」p.10 · 「G26_A.pdf」p.11 이미지 판독(2026-11-22)
+verify: verify/USW-G26.py::p10
+stimuli: []
+stem: 첫째항 $a_1=1$인 등차수열 $\{a_n\}$에 대하여 $b_n=\dfrac{1}{\sqrt{a_n}+\sqrt{a_{n+1}}}$로 주어진 수열 $\{b_n\}$의 부분합 $S_{2025}=b_1+b_2+\cdots+b_{2024}+b_{2025}=50$일 때, 등차수열 $\{a_n\}$의 공차를 구하는 과정을 논술하시오.
+subparts:
+- id: '1'
+  stem: 답과 풀이
+  points: 10
+  depends_on: []
+  answer:
+    kind: value
+    value: 77/100
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S1-B
+    audience: B
+    source_flow: G26_A.pdf p.11 모범답안
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: 공차를 $d$라고 하면 $a_n=1+(n-1)d$이다. 그러므로 $S_{2025}=\dfrac{1}{\sqrt1+\sqrt{1+d}}+\dfrac{1}{\sqrt{1+d}+\sqrt{1+2d}}+\cdots+\dfrac{1}{\sqrt{1+2024d}+\sqrt{1+2025d}}$.
+      criteria:
+      - 1.M1
+    - id: 1b-2
+      content: $=\dfrac{\sqrt1-\sqrt{1+d}}{1-(1+d)}+\dfrac{\sqrt{1+d}-\sqrt{1+2d}}{(1+d)-(1+2d)}+\cdots+\dfrac{\sqrt{1+2024d}-\sqrt{1+2025d}}{1+2024d-(1+2025d)}$
+      criteria:
+      - 1.M2
+    - id: 1b-3
+      content: $=-\dfrac1d\left(\sqrt1-\sqrt{1+2025d}\right)=50$
+      criteria:
+      - 1.M3
+    - id: 1b-4
+      content: 그러면 $1+2025d=(50d+1)^2=2500d^2+100d+1$.
+      criteria:
+      - 1.A1
+    - id: 1b-5
+      content: 즉 $d=\dfrac{2025-100}{2500}=\dfrac{81-4}{100}=\dfrac{77}{100}=0.77$.
+      criteria:
+      - 1.A2
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 2
+      evidence: $a_n=1+(n-1)d$로 $S_{2025}$를 항별로 씀(채점기준 2점).
+      steps:
+      - 1b-1
+    - id: 1.M2
+      mark_type: M
+      points: 3
+      evidence: 각 항을 유리화(채점기준 3점).
+      depends_on:
+      - 1.M1
+      steps:
+      - 1b-2
+    - id: 1.M3
+      mark_type: M
+      points: 2
+      evidence: 소거하여 $-\dfrac1d\left(\sqrt1-\sqrt{1+2025d}\right)=50$(채점기준 2점).
+      depends_on:
+      - 1.M2
+      steps:
+      - 1b-3
+    - id: 1.A1
+      mark_type: A
+      points: 1
+      evidence: $1+2025d=(50d+1)^2$(채점기준 1점).
+      depends_on:
+      - 1.M3
+      steps:
+      - 1b-4
+    - id: 1.A2
+      mark_type: A
+      points: 2
+      evidence: $d=\dfrac{77}{100}=0.77$(채점기준 2점).
+      depends_on:
+      - 1.A1
+      - 1.M1
+      steps:
+      - 1b-5
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: past-v2-lean
+  item_version: 1
+  verdict: pass
+  date: '2026-11-22'
+created: '2026-11-22'
+updated: '2026-11-22'

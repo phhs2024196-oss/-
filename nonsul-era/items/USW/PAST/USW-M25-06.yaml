@@ -1,0 +1,163 @@
+schema_version: '2.0'
+id: USW-M25-06
+legacy_id: null
+version: 1
+status: draft
+exam_family: yaksul
+item_type: derivation
+origin: mock_exam
+school: USW
+type: null
+variant_of: null
+replaces: null
+level: L3
+form: 추론
+points: 10
+time_estimate_min: null
+key_idea: $S_{12}-S_9=a_{10}+a_{11}+a_{12}$, $S_8-S_5=a_6+a_7+a_8$ 의 비로 $r^4=3$을 얻고, $\dfrac{S_8}{S_4}=r^4+1$로 $a_1^2=4$를 얻는다.
+stuck: 합의 차를 항들의 합으로 바꿔 공비의 거듭제곱 비로 읽는 것.
+tags:
+- 등비수열
+- 수열의 합
+- 공비
+elements:
+  materials:
+  - $\dfrac{S_{12}-S_9}{S_8-S_5}=3$
+  - $\dfrac{S_8}{S_4}=a_1^2$
+  - $a_2\times a_8$의 값
+  concepts:
+  - 등비수열의 일반항
+  - 등비수열의 합
+  - $S_n-S_{n-3}$과 항의 합
+  tools:
+  - $r^4=3$
+  - $\dfrac{S_8}{S_4}=r^4+1=4=a_1^2$
+  - $a_2a_8=a_1^2r^8$
+  conditions:
+  - $\{a_n\}$은 등비수열
+  - $S_n$은 첫째항부터 제 $n$항까지의 합
+  stimuli_used: []
+  subpart_links: 단일 논제
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학Ⅰ
+  scope_2028: common
+  scope_confirmed: false
+  content_area: 수열
+  behavior_domain: 계산
+  unit_path:
+  - 수학Ⅰ
+  - 수열
+  - 등비수열
+  - 등비수열의 합
+  key_concepts:
+  - 등비수열
+  - 등비수열의 합
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 수원대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 수원대학교
+  admission_year: 2025
+  admission_type: 수시 논술고사 가이드북 모의문제
+  track: 공통(국어+수학)
+  question_no: 6
+  official_url: https://ipsi.suwon.ac.kr/board/notice/read/2899
+  retrieved_at: '2026-11-22'
+  original_points:
+  - 10
+  rights_notice: 미확인
+  transcribed_from: 수원대 입학처「GB25.pdf」p.11 문제 · p.15 모범답안 이미지 판독(2026-11-22)
+verify: verify/USW-M25.py::p06
+stimuli: []
+stem: |-
+  등비수열 $\{a_n\}$의 첫째항부터 제 $n$항까지의 합을 $S_n$이라 하자.
+  $$\dfrac{S_{12}-S_9}{S_8-S_5}=3,\qquad \dfrac{S_8}{S_4}=a_1^2$$
+  일 때, $a_2\times a_8$의 값을 구하는 과정을 논술하시오.
+subparts:
+- id: '1'
+  stem: '[편집: 단일 논제 — 발문은 위 문항 전체와 같다]'
+  points: 10
+  depends_on: []
+  answer:
+    kind: value
+    value: '36'
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S1-B
+    audience: B
+    source_flow: GB25.pdf p.15 모범답안
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: 등비수열 $\{a_n\}$의 공비를 $r$이라 하자. $\dfrac{S_{12}-S_9}{S_8-S_5}=\dfrac{a_{10}+a_{11}+a_{12}}{a_6+a_7+a_8}=r^4=3$.
+      criteria:
+      - 1.M1
+    - id: 1b-2
+      content: $\dfrac{S_8}{S_4}=\dfrac{a_1(r^8-1)/(r-1)}{a_1(r^4-1)/(r-1)}=r^4+1=4=a_1^2$.
+      criteria:
+      - 1.M2
+    - id: 1b-3
+      content: $a_2\times a_8=(a_1r)\times(a_1r^7)=a_1^2\times r^8=a_1^2\times(r^4)^2=4\times3^2=36$.
+      criteria:
+      - 1.A1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 0
+      isw: true
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 4
+      evidence: $r^4=3$(채점기준 4점).
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 1b-1
+    - id: 1.M2
+      mark_type: M
+      points: 4
+      evidence: $a_1^2=4$(채점기준 4점).
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 1b-2
+    - id: 1.A1
+      mark_type: A
+      points: 2
+      evidence: $a_2\times a_8=36$(채점기준 2점).
+      depends_on:
+      - 1.M1
+      - 1.M2
+      implied_ok: false
+      steps:
+      - 1b-3
+    deductions: []
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: past-v2-lean
+  item_version: 1
+  verdict: pass
+  date: &id001 2026-11-22
+created: *id001
+updated: *id001
+intent: 등비수열과 그 합을 개념과 공식을 통해 계산할 수 있는지 평가한다(공식 출제의도).
+misconceptions: []

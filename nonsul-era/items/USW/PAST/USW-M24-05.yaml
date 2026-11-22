@@ -1,0 +1,173 @@
+schema_version: '2.0'
+id: USW-M24-05
+legacy_id: null
+version: 1
+status: draft
+exam_family: yaksul
+item_type: derivation
+origin: mock_exam
+school: USW
+type: null
+variant_of: null
+replaces: null
+level: L3
+form: 추론
+points: 10
+time_estimate_min: null
+key_idea: 진수 조건 $x>-2$를 먼저 구하고, 밑을 $2$로 통일하여 $\dfrac{(x+2)^2}{2x+5}<2$를 얻어 정수해를 센다.
+stuck: 밑 $\dfrac14$을 $2$로 바꾸고 진수 조건에서 $x=-2$를 제외하는 것.
+tags:
+- 로그부등식
+- 진수 조건
+- 밑의 변환
+elements:
+  materials:
+  - $\log_2(x+2)+\log_{\frac14}(2x+5)<\dfrac12$
+  - 정수 $x$의 개수
+  concepts:
+  - 로그의 정의와 진수 조건
+  - 로그의 성질(밑의 변환)
+  - 이차부등식
+  tools:
+  - $x>-2$
+  - $\log_2\dfrac{(x+2)^2}{2x+5}<1$
+  - $x^2<6$
+  conditions:
+  - $x$는 정수
+  stimuli_used: []
+  subpart_links: 단일 논제
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학Ⅰ
+  scope_2028: common
+  scope_confirmed: false
+  content_area: 지수함수와 로그함수
+  behavior_domain: 계산
+  unit_path:
+  - 수학Ⅰ
+  - 지수함수와 로그함수
+  - 로그함수
+  - 로그부등식
+  key_concepts:
+  - 로그부등식
+  - 진수 조건
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 수원대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 수원대학교
+  admission_year: 2024
+  admission_type: 수시 논술고사 가이드북 모의문제
+  track: 공통(국어+수학)
+  question_no: 5
+  official_url: https://ipsi.suwon.ac.kr/board/notice/read/1657
+  retrieved_at: '2026-11-22'
+  original_points:
+  - 10
+  rights_notice: 미확인
+  transcribed_from: 수원대 입학처「GB24.pdf」p.11 문제 · p.15 모범답안 이미지 판독(2026-11-22)
+verify: verify/USW-M24.py::p05
+stimuli: []
+stem: 부등식 $\log_2(x+2)+\log_{\frac14}(2x+5)<\dfrac12$을 만족시키는 정수 $x$의 개수를 구하는 과정을 논술하시오.
+subparts:
+- id: '1'
+  stem: '[편집: 단일 논제 — 발문은 위 문항 전체와 같다]'
+  points: 10
+  depends_on: []
+  answer:
+    kind: value
+    value: '4'
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S1-B
+    audience: B
+    source_flow: GB24.pdf p.15 모범답안
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: $\log_2(x+2)$에서 $x+2>0$, 마찬가지로 $2x+5>0$, 그래서 $x>-2$이다.
+      criteria:
+      - 1.M1
+    - id: 1b-2
+      content: 주어진 식을 $\log_2(x+2)-\dfrac12\log_2(2x+5)<\dfrac12$로 쓰고, $2$를 곱하고 간단히 하면 $\log_2(x+2)^2-\log_2(2x+5)=\log_2\dfrac{(x+2)^2}{2x+5}<1$. 즉, $\dfrac{(x+2)^2}{2x+5}<2$이다.
+      criteria:
+      - 1.M2
+    - id: 1b-3
+      content: 정리하면 $x^2+4x+4<4x+10$, 즉 $x^2<6$을 얻는다. 이 식을 만족시키는 정수 $x$는 $x=0,\ 1,\ -1,\ 2,\ -2$.
+      criteria:
+      - 1.M3
+    - id: 1b-4
+      content: $x+2>0$이므로 $x=-2$는 제외되고 조건을 만족시키는 정수는 $4$개이다.
+      criteria:
+      - 1.A1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 0
+      isw: true
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 2
+      evidence: $x>-2$(채점기준 2점).
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 1b-1
+    - id: 1.M2
+      mark_type: M
+      points: 4
+      evidence: $\dfrac{(x+2)^2}{2x+5}<2$(채점기준 4점).
+      depends_on:
+      - 1.M1
+      implied_ok: false
+      steps:
+      - 1b-2
+    - id: 1.M3
+      mark_type: M
+      points: 2
+      evidence: $x^2<6$, 정수 $-2\sim2$(채점기준 2점).
+      depends_on:
+      - 1.M2
+      implied_ok: false
+      steps:
+      - 1b-3
+    - id: 1.A1
+      mark_type: A
+      points: 2
+      evidence: $4$개(채점기준 2점).
+      depends_on:
+      - 1.M1
+      - 1.M2
+      - 1.M3
+      implied_ok: false
+      steps:
+      - 1b-4
+    deductions: []
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: past-v2-lean
+  item_version: 1
+  verdict: pass
+  date: &id001 2026-11-22
+created: *id001
+updated: *id001
+intent: 로그의 정의와 성질을 이해하고 활용하는 능력을 평가한다(공식 출제의도).
+misconceptions: []

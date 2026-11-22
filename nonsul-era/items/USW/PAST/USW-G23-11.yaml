@@ -1,0 +1,167 @@
+schema_version: '2.0'
+id: USW-G23-11
+legacy_id: null
+version: 1
+status: draft
+exam_family: yaksul
+item_type: derivation
+origin: past_exam
+school: USW
+type: null
+variant_of: null
+replaces: null
+level: L3
+form: 추론
+points: 10
+time_estimate_min: 5
+key_idea: $h=\dfrac1t$로 치환해 $\displaystyle\lim_{h\to0}\dfrac{f(1+h)-f(1-h)}{h}=2f'(1)$로 바꾼다.
+stuck: $t\to\infty$ 극한을 $h\to0$으로 바꾸고 $f(1+h)-f(1-h)$를 미분계수의 정의 꼴 둘로 나누는 것.
+tags:
+- 미분계수의 정의
+- 극한
+- 치환
+elements:
+  materials:
+  - $f(x)=x^3-2x^2+3x-4$
+  - $\displaystyle\lim_{t\to\infty}t\left(f\left(1+\dfrac1t\right)-f\left(1-\dfrac1t\right)\right)$
+  concepts:
+  - 미분계수의 정의
+  - 치환
+  - 다항함수의 미분
+  tools:
+  - $h=\dfrac1t$
+  - $\displaystyle\lim_{h\to0}\dfrac{f(1+h)-f(1-h)}{h}=2f'(1)$
+  - $f'(x)=3x^2-4x+3$
+  conditions:
+  - $f(x)=x^3-2x^2+3x-4$
+  stimuli_used: []
+  subpart_links: 단일 논제
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학Ⅱ
+  scope_2028: unknown
+  scope_confirmed: false
+  standards:
+  - code: 12수학Ⅱ02-01
+    text: 미분계수의 뜻을 알고, 그 값을 구할 수 있다.
+    verified: true
+  content_area: 미분
+  behavior_domain: 계산
+  unit_path:
+  - 수학Ⅱ
+  - 미분
+  - 미분계수
+  - 미분계수의 정의를 이용한 극한
+  key_concepts:
+  - 미분계수
+  - 극한
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 수원대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 수원대학교
+  admission_year: 2023
+  admission_type: 수시 교과논술전형
+  track: 공통(국어+수학)
+  question_no: 11
+  official_url: https://ipsi.suwon.ac.kr/board/pre_question/read/1562
+  retrieved_at: '2026-11-22'
+  original_points:
+  - 10
+  rights_notice: 미확인
+  transcribed_from: 수원대 입학처「G23_Q.pdf」p.10 · 「G23_A.pdf」p.25~26 이미지 판독(2026-11-22)
+verify: verify/USW-G23.py::p11
+stimuli: []
+stem: 함수 $f(x)=x^3-2x^2+3x-4$에 대하여 극한 $\displaystyle\lim_{t\to\infty}t\left(f\left(1+\dfrac1t\right)-f\left(1-\dfrac1t\right)\right)$의 값을 구하는 과정을 논술하시오.
+subparts:
+- id: '1'
+  stem: 답과 풀이
+  points: 10
+  depends_on: []
+  answer:
+    kind: value
+    value: '4'
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S1-B
+    audience: B
+    source_flow: G23_A.pdf p.26 모범답안
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: $h=\dfrac1t$라 놓자. $\displaystyle\lim_{t\to\infty}t\left(f\left(1+\dfrac1t\right)-f\left(1-\dfrac1t\right)\right)=\lim_{h\to0}\dfrac{f(1+h)-f(1-h)}h$
+      criteria:
+      - 1.M1
+    - id: 1b-2
+      content: $=\displaystyle\lim_{h\to0}\dfrac{f(1+h)-f(1)-f(1-h)+f(1)}h=\lim_{h\to0}\dfrac{f(1+h)-f(1)}h+\lim_{h\to0}\dfrac{f(1-h)-f(1)}{-h}=2f'(1)$
+      criteria:
+      - 1.M2
+    - id: 1b-3
+      content: 미분하면 $f'(x)=3x^2-4x+3$이다.
+      criteria:
+      - 1.M3
+    - id: 1b-4
+      content: $2f'(1)=2\times(3-4+3)=4$
+      criteria:
+      - 1.A1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 3
+      evidence: $h=\dfrac1t$로 치환해 $\displaystyle\lim_{h\to0}\dfrac{f(1+h)-f(1-h)}h$(채점기준 (1) 3점).
+      steps:
+      - 1b-1
+    - id: 1.M2
+      mark_type: M
+      points: 3
+      evidence: 미분계수의 정의로 $2f'(1)$(채점기준 (2) 3점).
+      depends_on:
+      - 1.M1
+      steps:
+      - 1b-2
+    - id: 1.M3
+      mark_type: M
+      points: 3
+      evidence: $f'(x)=3x^2-4x+3$(채점기준 (3) 3점).
+      steps:
+      - 1b-3
+    - id: 1.A1
+      mark_type: A
+      points: 1
+      evidence: $2f'(1)=4$(채점기준 (4) 1점).
+      depends_on:
+      - 1.M2
+      - 1.M3
+      steps:
+      - 1b-4
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: past-v2-lean
+  item_version: 1
+  verdict: pass
+  date: 2026-11-22
+created: 2026-11-22
+updated: 2026-11-22
+intent: 치환과 대수를 통해 미분계수의 정의 꼴로 바꾸고 다항함수의 미분으로 극한값을 구한다(문항정보 해설 원문; 출제의도 항목 없음).

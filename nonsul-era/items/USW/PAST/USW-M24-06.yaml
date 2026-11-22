@@ -1,0 +1,179 @@
+schema_version: '2.0'
+id: USW-M24-06
+legacy_id: null
+version: 1
+status: draft
+exam_family: yaksul
+item_type: short_answer
+origin: mock_exam
+school: USW
+type: null
+variant_of: null
+replaces: null
+level: L3
+form: 점화
+points: 10
+time_estimate_min: null
+key_idea: $a_{n+1}+(n+1)=\sqrt2(a_n+n)$으로 정리하여 $\{a_n+n\}$이 공비 $\sqrt2$인 등비수열임을 이용한다.
+stuck: 점화식에서 $n$이 들어간 항을 $a_n+n$, $a_{n+1}+(n+1)$ 꼴로 묶어야 한다는 것을 떠올리는 것.
+tags:
+- 수열
+- 점화식
+- 등비수열
+- 빈칸 완성
+elements:
+  materials:
+  - $a_1=\sqrt2-1$
+  - $a_{n+1}-\sqrt2a_n+(1-\sqrt2)n+1=0$
+  - $a_{16}$의 값
+  concepts:
+  - 등비수열의 일반항
+  - 점화식의 변형
+  tools:
+  - $a_{n+1}+(n+1)=\sqrt2(a_n+n)$
+  - $a_n+n=(\sqrt2)^n$
+  conditions:
+  - 모든 자연수 $n$에 대하여 식 성립
+  - $a_1=\sqrt2-1$
+  stimuli_used: []
+  subpart_links: 단일 논제
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학Ⅰ
+  scope_2028: common
+  scope_confirmed: false
+  content_area: 수열
+  behavior_domain: 계산
+  unit_path:
+  - 수학Ⅰ
+  - 수열
+  - 등비수열
+  - 점화식과 등비수열
+  key_concepts:
+  - 등비수열
+  - 점화식
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 수원대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 수원대학교
+  admission_year: 2024
+  admission_type: 수시 논술고사 가이드북 모의문제
+  track: 공통(국어+수학)
+  question_no: 6
+  official_url: https://ipsi.suwon.ac.kr/board/notice/read/1657
+  retrieved_at: '2026-11-22'
+  original_points:
+  - 10
+  rights_notice: 미확인
+  transcribed_from: 수원대 입학처「GB24.pdf」p.11 문제 · p.15 모범답안 이미지 판독(2026-11-22)
+verify: verify/USW-M24.py::p06
+stimuli: []
+stem: |-
+  (단답형 문제) 아래는 수열 $\{a_n\}$이 $a_1=\sqrt2-1$이고, 모든 자연수 $n$에 대하여
+  $$a_{n+1}-\sqrt2a_n+(1-\sqrt2)n+1=0$$
+  일 때, $a_{16}$의 값을 구하는 과정이다. 빈칸 $\boxed{\ ①\ }$, $\boxed{\ ②\ }$, $\boxed{\ ③\ }$, $\boxed{\ ④\ }$를 알맞게 채우시오.
+
+  [풀이 과정 상자] 주어진 식 $a_{n+1}-\sqrt2a_n+(1-\sqrt2)n+1=0$을 정리하면, $a_{n+1}+(n+1)=\boxed{\ ①\ }$으로 쓸 수 있다. 그러므로 수열 $\{a_n+n\}$은 공비가 $\boxed{\ ②\ }$인 등비수열임을 알 수 있다. 일반항을 구하면 $a_n+n=\boxed{\ ③\ }$이다. 따라서 $a_{16}+16=\boxed{\ ④\ }$이고, $a_{16}=\boxed{\ ④\ }-16$이다.
+subparts:
+- id: '1'
+  stem: '[편집: 단일 논제 — 발문은 위 문항 전체와 같다]'
+  points: 10
+  depends_on: []
+  answer:
+    kind: value
+    value: '240'
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S1-B
+    audience: B
+    source_flow: GB24.pdf p.15 모범답안
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: 주어진 식을 정리하면 $a_{n+1}+(n+1)=\sqrt2a_n+\sqrt2n=\sqrt2(a_n+n)$. (① $\sqrt2(a_n+n)$)
+      criteria:
+      - 1.M1
+    - id: 1b-2
+      content: 따라서 수열 $\{a_n+n\}$은 공비가 $\sqrt2$인 등비수열이다. (② $\sqrt2$)
+      criteria:
+      - 1.M2
+    - id: 1b-3
+      content: $a_1+1=\sqrt2$이므로 $a_n+n=(\sqrt2)^{n-1}(a_1+1)=(\sqrt2)^n$. (③ $(\sqrt2)^n$)
+      criteria:
+      - 1.A1
+    - id: 1b-4
+      content: $a_{16}+16=(\sqrt2)^{16}=2^8=256$ (④ $256$ 또는 $2^8$)이고, $a_{16}=256-16=240$.
+      criteria:
+      - 1.A2
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 0
+      isw: true
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 3
+      evidence: ① $\sqrt2(a_n+n)$(채점기준 3점).
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 1b-1
+    - id: 1.M2
+      mark_type: M
+      points: 2
+      evidence: ② $\sqrt2$(채점기준 2점).
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 1b-2
+    - id: 1.A1
+      mark_type: A
+      points: 3
+      evidence: ③ $(\sqrt2)^n$ $\left((\sqrt2)^{n-1}(a_1+1)=(\sqrt2)^n\right)$(채점기준 3점).
+      depends_on:
+      - 1.M1
+      - 1.M2
+      implied_ok: false
+      steps:
+      - 1b-3
+    - id: 1.A2
+      mark_type: A
+      points: 2
+      evidence: ④ $256$(또는 $2^8$; $\sqrt2^{16}$으로 쓰면 1점)(채점기준 2점).
+      depends_on:
+      - 1.M1
+      - 1.M2
+      - 1.A1
+      implied_ok: false
+      steps:
+      - 1b-4
+    deductions: []
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: past-v2-lean
+  item_version: 1
+  verdict: pass
+  date: &id001 2026-11-22
+created: *id001
+updated: *id001
+intent: 수열의 뜻을 알고 여러 가지 수열의 규칙을 발견하는지 평가한다(공식 출제의도). 점화식을 $a_n+n$ 꼴의 등비수열로 바꿔 일반항과 $a_{16}$을 구한다.
+misconceptions: []

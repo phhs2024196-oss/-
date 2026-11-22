@@ -1,0 +1,177 @@
+schema_version: '2.0'
+id: USW-M27-06
+legacy_id: null
+version: 1
+status: draft
+exam_family: yaksul
+item_type: derivation
+origin: mock_exam
+school: USW
+type: null
+variant_of: null
+replaces: null
+level: L3
+form: 일반화
+points: 10
+time_estimate_min: null
+key_idea: 정팔각형을 중심각 $\dfrac\pi4$인 이등변삼각형 8개로 분할해 넓이 $2\sqrt2r^2$를 얻고, 부피 $\dfrac13\times$(밑넓이)$\times h$를 쓴다.
+stuck: 정팔각형의 넓이를 중심에서 꼭짓점으로 나눈 삼각형의 넓이 $\dfrac12r^2\sin\dfrac\pi4$의 8배로 구하는 것.
+tags:
+- 삼각형의 넓이
+- 정다각형
+- 각뿔의 부피
+elements:
+  materials:
+  - 반지름의 길이가 $r$인 원에 내접하는 정팔각형
+  - 높이가 $h$인 팔각뿔
+  - '[그림 1: 정팔각뿔]'
+  concepts:
+  - 삼각형의 넓이 $\dfrac12ab\sin C$
+  - 정다각형의 분할
+  - 각뿔의 부피
+  tools:
+  - 중심각 $\dfrac{2\pi}8=\dfrac\pi4$
+  - 삼각형 넓이 $\dfrac1{2\sqrt2}r^2$
+  - 밑넓이 $2\sqrt2r^2$
+  - 부피 $\dfrac{2\sqrt2}3r^2h$
+  conditions:
+  - 정팔각형이 밑면
+  - 정팔각형은 반지름 $r$인 원에 내접
+  stimuli_used: []
+  subpart_links: 단일 논제
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학Ⅰ
+  scope_2028: common
+  scope_confirmed: false
+  content_area: 삼각함수
+  behavior_domain: 계산
+  unit_path:
+  - 수학Ⅰ
+  - 삼각함수
+  - 삼각형의 넓이
+  - 정다각형의 넓이와 각뿔의 부피
+  key_concepts:
+  - 삼각형의 넓이
+  - 정팔각형
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 수원대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 수원대학교
+  admission_year: 2027
+  admission_type: 수시 논술고사 가이드북 모의문제
+  track: 공통(국어+수학)
+  question_no: 6
+  official_url: https://ipsi.suwon.ac.kr/board/notice/read/5666
+  retrieved_at: '2026-11-22'
+  original_points:
+  - 10
+  rights_notice: 미확인
+  transcribed_from: 수원대 입학처「GB27.pdf」p.11 문제 · p.15 모범답안 이미지 판독(2026-11-22)
+verify: verify/USW-M27.py::p06
+stimuli: []
+stem: |-
+  반지름의 길이가 $r$인 원에 내접하는 정팔각형을 밑면으로 하고 높이가 $h$인 팔각뿔의 부피를 구하는 과정을 논술하시오.
+
+  [그림 1: 밑면이 정팔각형인 팔각뿔. 높이 $h$, 밑면의 중심에서 꼭짓점까지의 길이 $r$가 표시되어 있다]
+subparts:
+- id: '1'
+  stem: '[편집: 단일 논제 — 발문은 위 문항 전체와 같다]'
+  points: 10
+  depends_on: []
+  answer:
+    kind: expression
+    value: 2*sqrt(2)/3*r**2*h
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S1-B
+    audience: B
+    source_flow: GB27.pdf p.15 모범답안
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: 정팔각형은 이등변삼각형 8개로 분할할 수 있다. 삼각형의 중심 방향 각도는 $\dfrac{2\pi}8=\dfrac\pi4$.
+      criteria:
+      - 1.M1
+    - id: 1b-2
+      content: 삼각형의 넓이는 $\dfrac12\times r\times r\times\sin\dfrac\pi4=\dfrac1{2\sqrt2}r^2$.
+      criteria:
+      - 1.M2
+    - id: 1b-3
+      content: 정팔각형의 넓이는 $8\times\dfrac1{2\sqrt2}r^2=2\sqrt2r^2$.
+      criteria:
+      - 1.M3
+    - id: 1b-4
+      content: 정팔각뿔의 부피는 $\dfrac13\times2\sqrt2r^2\times h=\dfrac{2\sqrt2}3r^2h$.
+      criteria:
+      - 1.A1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 0
+      isw: true
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 3
+      evidence: 중심 방향 각도 $\dfrac\pi4$(채점기준 3점).
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 1b-1
+    - id: 1.M2
+      mark_type: M
+      points: 3
+      evidence: 삼각형의 넓이 $\dfrac1{2\sqrt2}r^2$(채점기준 3점).
+      depends_on:
+      - 1.M1
+      implied_ok: false
+      steps:
+      - 1b-2
+    - id: 1.M3
+      mark_type: M
+      points: 2
+      evidence: 정팔각형의 넓이 $2\sqrt2r^2$(채점기준 2점).
+      depends_on:
+      - 1.M2
+      implied_ok: false
+      steps:
+      - 1b-3
+    - id: 1.A1
+      mark_type: A
+      points: 2
+      evidence: 부피 $\dfrac{2\sqrt2}3r^2h$(채점기준 2점).
+      depends_on:
+      - 1.M3
+      implied_ok: false
+      steps:
+      - 1b-4
+    deductions: []
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: past-v2-lean
+  item_version: 1
+  verdict: pass
+  date: &id001 2026-11-22
+created: *id001
+updated: *id001
+intent: 삼각형 넓이 공식을 활용할 수 있는지 평가한다(공식 출제의도). 정팔각형을 합동인 이등변삼각형 8개로 나누어 밑넓이를 구한 뒤 뿔의 부피를 구한다.
+misconceptions: []

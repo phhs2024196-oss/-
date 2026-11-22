@@ -1,0 +1,157 @@
+schema_version: '2.0'
+id: USW-G25-07
+legacy_id: null
+version: 1
+status: draft
+exam_family: yaksul
+item_type: derivation
+origin: past_exam
+school: USW
+type: null
+variant_of: null
+replaces: null
+level: L3
+form: 추론
+points: 10
+time_estimate_min: null
+intent: 로그의 성질을 알고 로그의 밑의 변환을 활용할 수 있는지 평가한다(공식 출제의도).
+key_idea: 두 직선이 수직이면 기울기의 곱이 $-1$이므로 로그의 밑 변환으로 $\log_3a=-3$을 얻는다.
+stuck: $\log_8a=\dfrac{\log a}{3\log2}$로 밑을 바꿔 $\log_32$와 곱이 $\log_3a$로 정리되는 것.
+tags:
+- 로그의 밑의 변환
+- 두 직선의 수직
+- 로그
+elements:
+  materials:
+  - $y=(\log_32)x$
+  - $y=(\log_8a)x$
+  concepts:
+  - 두 직선이 수직일 조건
+  - 로그의 밑의 변환
+  tools:
+  - $\log_32\times\log_8a=-1$
+  - $\log_8a=\frac{\log a}{3\log2}$
+  - $\log_3a=-3$
+  conditions:
+  - $a$는 양수
+  - 두 직선이 서로 수직
+  stimuli_used: []
+  subpart_links: 단일 논제
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학Ⅰ
+  scope_2028: common
+  scope_confirmed: false
+  content_area: 지수함수와 로그함수
+  behavior_domain: 계산
+  unit_path:
+  - 수학Ⅰ
+  - 지수함수와 로그함수
+  - 지수와 로그
+  - 로그의 밑의 변환
+  key_concepts:
+  - 로그
+  - 밑의 변환
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 수원대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 수원대학교
+  admission_year: 2025
+  admission_type: 수시 교과논술전형
+  track: 공통(국어+수학)
+  question_no: 7
+  official_url: https://ipsi.suwon.ac.kr/board/pre_question/read/4019
+  retrieved_at: '2026-11-22'
+  original_points:
+  - 10
+  rights_notice: 미확인
+  transcribed_from: 수원대 입학처「G25_Q.pdf」p.8 · 「G25_A.pdf」p.8 이미지 판독(2026-11-22)
+verify: verify/USW-G25.py::p07
+stimuli: []
+stem: 두 직선 $y=(\log_32)x$와 $y=(\log_8a)x$가 서로 수직이 되도록 하는 양수 $a$의 값을 구하는 과정을 논술하시오.
+subparts:
+- id: '1'
+  stem: '[편집: 단일 논제 — 발문은 위 문항 전체와 같다]'
+  points: 10
+  depends_on: []
+  answer:
+    kind: value
+    value: 1/27
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S1-B
+    audience: B
+    source_flow: G25_A.pdf p.8 모범답안
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: 두 직선 $y=(\log_32)x$, $y=(\log_8a)x$가 서로 수직이므로 $\log_32\times\log_8a=-1$
+      criteria:
+      - 1.M1
+    - id: 1b-2
+      content: '$\log_32\times\log_{2^3}a=-1$, $\dfrac{\log2}{\log3}\times\dfrac{\log a}{3\log2}=-1$, $\dfrac{\log a}{\log3}=\log_3a=-3$ (별해: $\log_8a=-\dfrac1{\log_32}\Rightarrow\dfrac13\log_2a=-\log_23$)'
+      criteria:
+      - 1.M2
+    - id: 1b-3
+      content: '그러므로 $a=3^{-3}=\dfrac1{27}$ (별해: $a^{\frac13}=3^{-1}\Rightarrow a=3^{-3}=\dfrac1{27}$)'
+      criteria:
+      - 1.A1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 0
+      isw: true
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 4
+      evidence: $\log_32\cdot\log_8a=-1$(채점기준 4점).
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 1b-1
+    - id: 1.M2
+      mark_type: M
+      points: 4
+      evidence: $\log_3a=-3$(채점기준 4점).
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 1b-2
+    - id: 1.A1
+      mark_type: A
+      points: 2
+      evidence: $a=1/27$(채점기준 2점).
+      depends_on:
+      - 1.M1
+      - 1.M2
+      implied_ok: false
+      steps:
+      - 1b-3
+    deductions: []
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: past-v2-lean
+  item_version: 1
+  verdict: pass
+  date: &id001 2026-11-22
+created: *id001
+updated: *id001

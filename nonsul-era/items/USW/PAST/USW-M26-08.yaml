@@ -1,0 +1,165 @@
+schema_version: '2.0'
+id: USW-M26-08
+legacy_id: null
+version: 1
+status: draft
+exam_family: yaksul
+item_type: derivation
+origin: mock_exam
+school: USW
+type: null
+variant_of: null
+replaces: null
+level: L3
+form: 추론
+points: 10
+time_estimate_min: null
+key_idea: 교점 A의 $x$좌표는 $k+1$이고, 조건은 $\int_0^{k+1}(x^3-kx^2)\,dx=0$과 같다.
+stuck: 넓이 조건을 곡선 $y=x^3-kx^2$과 $x$축 사이의 부호 있는 넓이 $0$으로 바꾸는 발상.
+tags:
+- 정적분
+- 넓이
+- 도형과 정적분
+elements:
+  materials:
+  - $y=x^3-kx^2$
+  - $y=(k+1)x$
+  - 삼각형 OAB
+  - '[그림 1: 곡선과 직선]'
+  concepts:
+  - 삼차방정식의 근
+  - 정적분과 넓이
+  - 부호 있는 넓이
+  tools:
+  - B의 $x$좌표 $k+1$
+  - $\int_0^{k+1}(x^3-kx^2)\,dx=(k+1)^3\cdot\dfrac{3-k}{12}=0$
+  conditions:
+  - $x\ge0$인 영역
+  - $k\ge0$
+  - 곡선과 직선으로 둘러싸인 부분의 넓이 = 삼각형 OAB의 넓이
+  stimuli_used: []
+  subpart_links: 단일 논제
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학Ⅱ
+  scope_2028: common
+  scope_confirmed: false
+  content_area: 적분
+  behavior_domain: 계산
+  unit_path:
+  - 수학Ⅱ
+  - 적분
+  - 정적분
+  - 정적분과 넓이
+  key_concepts:
+  - 정적분
+  - 곡선과 직선으로 둘러싸인 부분의 넓이
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 수원대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 수원대학교
+  admission_year: 2026
+  admission_type: 수시 논술고사 가이드북 모의문제
+  track: 공통(국어+수학)
+  question_no: 8
+  official_url: https://ipsi.suwon.ac.kr/board/notice/read/4162
+  retrieved_at: '2026-11-22'
+  original_points:
+  - 10
+  rights_notice: 미확인
+  transcribed_from: 수원대 입학처「GB26.pdf」p.13 문제 · p.17 모범답안 이미지 판독(2026-11-22)
+verify: verify/USW-M26.py::p08
+stimuli: []
+stem: |-
+  그림처럼 곡선 $y=x^3-kx^2$과 직선 $y=(k+1)x$의 교점을 A라 하고, 점 A에서 $x$축에 내린 수선의 발을 B라고 할 때, $x\ge0$인 영역에서 주어진 곡선과 직선으로 둘러싸인 부분의 넓이가 원점 O를 꼭짓점으로 한 삼각형 OAB의 넓이와 같게 되는 실수 $k$의 값을 구하는 과정을 논술하시오. (단, $k\ge0$)
+
+  [그림 1: 곡선 $y=x^3-kx^2$과 직선 $y=(k+1)x$가 원점 O와 점 A에서 만나고, A에서 $x$축에 내린 수선의 발이 B이다]
+subparts:
+- id: '1'
+  stem: '[편집: 단일 논제 — 발문은 위 문항 전체와 같다]'
+  points: 10
+  depends_on: []
+  answer:
+    kind: value
+    value: '3'
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S1-B
+    audience: B
+    source_flow: GB26.pdf p.17 모범답안
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: $x^3-kx^2=(k+1)x$에서 $0=x^3-kx^2-(k+1)x=x(x^2-kx-(k+1))=x(x-k-1)(x+1)$. B의 $x$좌표는 $k+1$.
+      criteria:
+      - 1.M1
+    - id: 1b-2
+      content: 곡선의 아래쪽 영역의 넓이와 위쪽 영역의 넓이는 같다. 따라서 $0=\displaystyle\int_0^{k+1}(x^3-kx^2)\,dx$.
+      criteria:
+      - 1.M2
+    - id: 1b-3
+      content: $\left[\dfrac14x^4-\dfrac k3x^3\right]_0^{k+1}=\dfrac{(k+1)^4}4-\dfrac{k(k+1)^3}3=(k+1)^3\left(\dfrac{k+1}4-\dfrac k3\right)=(k+1)^3\left(\dfrac{3-k}{12}\right)$. $k=3$.
+      criteria:
+      - 1.A1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 0
+      isw: true
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 2
+      evidence: B의 $x$좌표 $k+1$(채점기준 2점).
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 1b-1
+    - id: 1.M2
+      mark_type: M
+      points: 5
+      evidence: $0=\int_0^{k+1}(x^3-kx^2)dx$(채점기준 5점).
+      depends_on:
+      - 1.M1
+      implied_ok: false
+      steps:
+      - 1b-2
+    - id: 1.A1
+      mark_type: A
+      points: 3
+      evidence: $k=3$(채점기준 3점).
+      depends_on:
+      - 1.M1
+      - 1.M2
+      implied_ok: false
+      steps:
+      - 1b-3
+    deductions: []
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: past-v2-lean
+  item_version: 1
+  verdict: pass
+  date: &id001 2026-11-22
+created: *id001
+updated: *id001
+intent: 정적분과 기하학적 통찰을 통해 넓이를 구할 수 있는지 평가한다(공식 출제의도). 곡선과 직선 사이의 넓이가 삼각형 넓이와 같음을 곡선 아래·위 넓이가 같음, 곧 정적분 $=0$으로 바꾼다.
+misconceptions: []

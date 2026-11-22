@@ -1,0 +1,155 @@
+schema_version: '2.0'
+id: USW-M26-06
+legacy_id: null
+version: 1
+status: draft
+exam_family: yaksul
+item_type: derivation
+origin: mock_exam
+school: USW
+type: null
+variant_of: null
+replaces: null
+level: L3
+form: 추론
+points: 10
+time_estimate_min: null
+key_idea: $\dfrac1{1+2+\cdots+n}=\dfrac2{n(n+1)}=2\left(\dfrac1n-\dfrac1{n+1}\right)$로 쓰고 $n=1$부터 $10$까지 더하면 소거된다.
+stuck: 각 항의 분모가 $\sum_{k=1}^nk$임을 알아보고 부분분수로 바꾸는 것.
+tags:
+- 수열의 합
+- 부분분수
+- 시그마
+elements:
+  materials:
+  - $1+\dfrac1{1+2}+\dfrac1{1+2+3}+\cdots+\dfrac1{1+2+3+\cdots+10}$
+  concepts:
+  - $\sum$의 성질
+  - $\sum_{k=1}^nk=\dfrac{n(n+1)}2$
+  - 부분분수 분해
+  tools:
+  - $\sum_{n=1}^{10}\dfrac1{\sum_{k=1}^nk}=\sum_{n=1}^{10}\dfrac2{n(n+1)}$
+  - $2\sum_{n=1}^{10}\left(\dfrac1n-\dfrac1{n+1}\right)$
+  conditions: []
+  stimuli_used: []
+  subpart_links: 단일 논제
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학Ⅰ
+  scope_2028: common
+  scope_confirmed: false
+  content_area: 수열
+  behavior_domain: 계산
+  unit_path:
+  - 수학Ⅰ
+  - 수열
+  - 수열의 합
+  - 부분분수와 소거
+  key_concepts:
+  - 시그마
+  - 부분분수
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 수원대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 수원대학교
+  admission_year: 2026
+  admission_type: 수시 논술고사 가이드북 모의문제
+  track: 공통(국어+수학)
+  question_no: 6
+  official_url: https://ipsi.suwon.ac.kr/board/notice/read/4162
+  retrieved_at: '2026-11-22'
+  original_points:
+  - 10
+  rights_notice: 미확인
+  transcribed_from: 수원대 입학처「GB26.pdf」p.12 문제 · p.16 모범답안 이미지 판독(2026-11-22)
+verify: verify/USW-M26.py::p06
+stimuli: []
+stem: $1+\dfrac1{1+2}+\dfrac1{1+2+3}+\cdots+\dfrac1{1+2+3+\cdots+10}$의 값을 구하는 과정을 논술하시오.
+subparts:
+- id: '1'
+  stem: '[편집: 단일 논제 — 발문은 위 문항 전체와 같다]'
+  points: 10
+  depends_on: []
+  answer:
+    kind: value
+    value: 20/11
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S1-B
+    audience: B
+    source_flow: GB26.pdf p.16 모범답안
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: $\displaystyle\sum_{n=1}^{10}\dfrac1{\sum_{k=1}^nk}=\sum_{n=1}^{10}\dfrac2{n(n+1)}$
+      criteria:
+      - 1.M1
+    - id: 1b-2
+      content: $=2\displaystyle\sum_{n=1}^{10}\left(\dfrac1n-\dfrac1{n+1}\right)$
+      criteria:
+      - 1.M2
+    - id: 1b-3
+      content: $=2\left(1-\dfrac1{11}\right)=\dfrac{20}{11}$
+      criteria:
+      - 1.A1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 0
+      isw: true
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 3
+      evidence: $\sum\dfrac2{n(n+1)}$(채점기준 3점).
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 1b-1
+    - id: 1.M2
+      mark_type: M
+      points: 3
+      evidence: 부분분수 $2\left(\dfrac1n-\dfrac1{n+1}\right)$(채점기준 3점).
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 1b-2
+    - id: 1.A1
+      mark_type: A
+      points: 4
+      evidence: $\dfrac{20}{11}$(채점기준 4점).
+      depends_on:
+      - 1.M1
+      - 1.M2
+      implied_ok: false
+      steps:
+      - 1b-3
+    deductions: []
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: past-v2-lean
+  item_version: 1
+  verdict: pass
+  date: &id001 2026-11-22
+created: *id001
+updated: *id001
+intent: 수열의 합을 계산할 수 있는지 평가한다(공식 출제의도). 분모의 합을 공식으로 바꾸고 부분분수로 분해하여 소거되는 합을 구한다.
+misconceptions: []

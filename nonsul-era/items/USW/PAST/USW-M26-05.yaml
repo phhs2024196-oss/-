@@ -1,0 +1,165 @@
+schema_version: '2.0'
+id: USW-M26-05
+legacy_id: null
+version: 1
+status: draft
+exam_family: yaksul
+item_type: derivation
+origin: mock_exam
+school: USW
+type: null
+variant_of: null
+replaces: null
+level: L3
+form: 추론
+points: 10
+time_estimate_min: null
+key_idea: 지름에 대한 원주각 $\angle ACB=90^\circ$이므로 $\tan A=\dfrac{\overline{CB}}{\overline{CA}}=\sqrt3$에서 $A=60^\circ$, $\overline{AH}=\overline{AC}\cos A$.
+stuck: 지름 AB를 보고 직각삼각형 ACB를 떠올리는 것.
+tags:
+- 원주각
+- 삼각비
+- 직각삼각형
+elements:
+  materials:
+  - 선분 AB를 지름으로 하는 원
+  - $\overline{CA}=\sqrt[4]2$, $\overline{CB}=\sqrt[4]{18}$
+  - 수선의 발 H
+  - '[그림 1: 원과 삼각형 ABC]'
+  concepts:
+  - 지름에 대한 원주각
+  - 삼각비
+  - 거듭제곱근
+  tools:
+  - $\angle ACB=90^\circ$
+  - $\tan A=\sqrt3$
+  - $\overline{AH}=\overline{AC}\cos A$
+  conditions:
+  - 선분 AB는 원의 지름
+  - C는 원 위의 점
+  stimuli_used: []
+  subpart_links: 단일 논제
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학Ⅰ
+  scope_2028: common
+  scope_confirmed: false
+  content_area: 삼각함수
+  behavior_domain: 계산
+  unit_path:
+  - 수학Ⅰ
+  - 삼각함수
+  - 삼각비
+  - 원주각과 삼각비
+  key_concepts:
+  - 원주각
+  - 삼각비
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 수원대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 수원대학교
+  admission_year: 2026
+  admission_type: 수시 논술고사 가이드북 모의문제
+  track: 공통(국어+수학)
+  question_no: 5
+  official_url: https://ipsi.suwon.ac.kr/board/notice/read/4162
+  retrieved_at: '2026-11-22'
+  original_points:
+  - 10
+  rights_notice: 미확인
+  transcribed_from: 수원대 입학처「GB26.pdf」p.12 문제 · p.16 모범답안 이미지 판독(2026-11-22)
+verify: verify/USW-M26.py::p05
+stimuli: []
+stem: |-
+  그림과 같이 선분 AB를 지름으로 하는 원 위에 $\overline{CA}=\sqrt[4]2$, $\overline{CB}=\sqrt[4]{18}$인 점 C에서 선분 AB에 내린 수선의 발을 H라 할 때, 선분 AH의 길이를 구하는 과정을 논술하시오.
+
+  [그림 1: 선분 AB를 지름으로 하는 원. 원 위의 점 C에서 AB에 내린 수선의 발이 H이고, $\overline{CA}=\sqrt[4]2$, $\overline{CB}=\sqrt[4]{18}$이 표시되어 있다]
+subparts:
+- id: '1'
+  stem: '[편집: 단일 논제 — 발문은 위 문항 전체와 같다]'
+  points: 10
+  depends_on: []
+  answer:
+    kind: value
+    value: 2**(1/4)/2
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S1-B
+    audience: B
+    source_flow: GB26.pdf p.16 모범답안
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: $\angle ACB$는 $\widehat{AB}$의 원주각이므로 $90^\circ$이다.
+      criteria:
+      - 1.M1
+    - id: 1b-2
+      content: $\tan A=\dfrac{\sqrt[4]{18}}{\sqrt[4]2}=\sqrt[4]9=\sqrt3$이므로 $\angle CAB$는 $60^\circ$이다.
+      criteria:
+      - 1.M2
+    - id: 1b-3
+      content: $\overline{AH}=\overline{AC}\times\cos A=\dfrac{\sqrt[4]2}2$이다.
+      criteria:
+      - 1.A1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 0
+      isw: true
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 3
+      evidence: $\angle ACB=90^\circ$(채점기준 3점).
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 1b-1
+    - id: 1.M2
+      mark_type: M
+      points: 4
+      evidence: $A=60^\circ$(채점기준 4점).
+      depends_on:
+      - 1.M1
+      implied_ok: false
+      steps:
+      - 1b-2
+    - id: 1.A1
+      mark_type: A
+      points: 3
+      evidence: $\overline{AH}=\dfrac{\sqrt[4]2}2$(채점기준 3점).
+      depends_on:
+      - 1.M1
+      - 1.M2
+      implied_ok: false
+      steps:
+      - 1b-3
+    deductions: []
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: past-v2-lean
+  item_version: 1
+  verdict: pass
+  date: &id001 2026-11-22
+created: *id001
+updated: *id001
+intent: 원주각, 삼각비를 계산할 수 있는지 평가한다(공식 출제의도).
+misconceptions: []

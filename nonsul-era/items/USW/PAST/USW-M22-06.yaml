@@ -1,0 +1,164 @@
+schema_version: '2.0'
+id: USW-M22-06
+legacy_id: null
+version: 1
+status: draft
+exam_family: yaksul
+item_type: derivation
+origin: mock_exam
+school: USW
+type: null
+variant_of: null
+replaces: null
+level: L3
+form: 추론
+points: 10
+time_estimate_min: 5
+intent: 주어진 범위에서 이차함수의 최댓값과 최솟값을 구하고 로그함수의 성질을 활용하여 합성함수로서 로그함수의 최댓값과 최솟값을 구할 수 있는지 평가한다(공식 출제의도).
+key_idea: $f(x)=(x-3)^2+2$로 $f$의 최솟값·최댓값을 구하고, $g(x)=\log_3x$가 증가함수이므로 $g(f(x))$의 최솟값·최댓값을 $g$에 대입해 구한다.
+stuck: $g$가 증가함수이므로 합성함수의 최대·최소가 $f$의 최대·최소에서 생긴다는 것.
+tags:
+- 합성함수
+- 이차함수의 최대·최소
+- 로그함수
+elements:
+  materials:
+  - $f(x)=x^2-6x+11$
+  - $g(x)=\log_3x$
+  - 구간 $\{x|1\le x\le7\}$에서 $(g\circ f)(x)$
+  concepts:
+  - 이차함수의 최대·최소
+  - 합성함수
+  - 로그함수의 증가성
+  - 로그의 성질
+  tools:
+  - $f(3)=2$, $f(7)=18$
+  - $g(f(3))=\log_32$, $g(f(7))=\log_318$
+  - $\log_318-\log_32=\log_39=2$
+  conditions:
+  - $1\le x\le7$
+  stimuli_used: []
+  subpart_links: 단일 논제
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학Ⅰ
+  scope_2028: unknown
+  scope_confirmed: false
+  content_area: 지수함수와 로그함수
+  behavior_domain: 계산
+  unit_path:
+  - 수학Ⅰ
+  - 지수함수와 로그함수
+  - 로그함수
+  - 합성함수의 최대·최소
+  key_concepts:
+  - 로그함수
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 수원대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 수원대학교
+  admission_year: 2022
+  admission_type: 수시 논술고사 가이드북 모의문제
+  track: 공통(국어+수학)
+  question_no: 6
+  official_url: https://ipsi.suwon.ac.kr/board/notice/read/200
+  retrieved_at: '2026-11-22'
+  original_points:
+  - 10
+  rights_notice: 미확인
+  transcribed_from: 수원대 입학처「GB22.pdf」p.16 · p.18 이미지 판독(2026-11-22)
+verify: verify/USW-M22.py::p06
+stimuli: []
+stem: 함수 $f(x)=x^2-6x+11$과 함수 $g(x)=\log_3x$가 있다. 구간 $\{x|1\le x\le7\}$에서 합성함수 $(g\circ f)(x)=g(f(x))$의 최댓값과 최솟값의 차를 구하여 간단히 나타내고 그 과정을 서술하시오.
+subparts:
+- id: '1'
+  stem: 답과 풀이
+  points: 10
+  depends_on: []
+  answer:
+    kind: value
+    value: '2'
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S1-B
+    audience: B
+    source_flow: GB22.pdf p.18 모범답안
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: $f(x)=x^2-6x+11=(x-3)^2+2$이므로 $\{x|1\le x\le7\}$에서 $f(x)$의 최솟값은 $f(3)=2$이다.
+      criteria:
+      - 1.M1
+    - id: 1b-2
+      content: 구간의 양 끝점에서 $f(1)<f(7)$이므로 $f(x)$의 최댓값은 $f(7)=18$이다.
+      criteria:
+      - 1.M2
+    - id: 1b-3
+      content: 한편 $g(x)=\log_3x$는 $x$의 값이 증가하면 $g(x)$의 값도 증가하므로 함수 $(g\circ f)(x)=g(f(x))$의 최솟값은 $g(f(3))=g(2)=\log_32$이고, 최댓값은 $g(f(7))=g(18)=\log_318$이다.
+      criteria:
+      - 1.M3
+    - id: 1b-4
+      content: 따라서 $(g\circ f)(x)=g(f(x))$의 최댓값과 최솟값의 차는 $\log_318-\log_32=\log_39=2$이다.
+      criteria:
+      - 1.A1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 2
+      evidence: $f(x)$의 최솟값 $f(3)=2$(채점기준 2점).
+      steps:
+      - 1b-1
+    - id: 1.M2
+      mark_type: M
+      points: 2
+      evidence: $f(x)$의 최댓값 $f(7)=18$(채점기준 2점).
+      steps:
+      - 1b-2
+    - id: 1.M3
+      mark_type: M
+      points: 4
+      evidence: $g$의 증가성을 이용한 $(g\circ f)$의 최솟값 $\log_32$, 최댓값 $\log_318$(채점기준 4점).
+      depends_on:
+      - 1.M1
+      - 1.M2
+      steps:
+      - 1b-3
+    - id: 1.A1
+      mark_type: A
+      points: 2
+      evidence: 최댓값과 최솟값의 차 $\log_39=2$(채점기준 2점).
+      depends_on:
+      - 1.M3
+      steps:
+      - 1b-4
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: past-v2-lean
+  item_version: 1
+  verdict: pass
+  date: '2026-11-22'
+created: '2026-11-22'
+updated: '2026-11-22'

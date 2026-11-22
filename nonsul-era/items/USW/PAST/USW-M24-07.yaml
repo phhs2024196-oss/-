@@ -1,0 +1,147 @@
+schema_version: '2.0'
+id: USW-M24-07
+legacy_id: null
+version: 1
+status: draft
+exam_family: yaksul
+item_type: derivation
+origin: mock_exam
+school: USW
+type: null
+variant_of: null
+replaces: null
+level: L3
+form: 추론
+points: 10
+time_estimate_min: null
+key_idea: 분모 $\to0$이므로 분자 $\sqrt{a-2x}-3\to0$ 이어야 $a=5$; 분자를 유리화하여 $(x+2)$를 약분한다.
+stuck: 극한값이 존재한다는 조건을 분자의 극한값 $0$으로 번역하는 것.
+tags:
+- 함수의 극한
+- 미정계수
+- 유리화
+elements:
+  materials:
+  - $\displaystyle\lim_{x\to-2}\dfrac{\sqrt{a-2x}-3}{x^2-(a-2)x-2a}$
+  - 극한값의 존재
+  concepts:
+  - 함수의 극한
+  - 분모가 $0$으로 가는 분수식의 극한값 존재 조건
+  - 인수분해
+  - 분자의 유리화
+  tools:
+  - 분모 $=(x+2)(x-a)$
+  - $\sqrt{a+4}-3=0$ → $a=5$
+  - $\dfrac{(\sqrt{5-2x}-3)(\sqrt{5-2x}+3)}{\cdots}$
+  conditions:
+  - $a$는 상수
+  - 극한이 존재
+  stimuli_used: []
+  subpart_links: 단일 논제
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학Ⅱ
+  scope_2028: common
+  scope_confirmed: false
+  content_area: 함수의 극한과 연속
+  behavior_domain: 계산
+  unit_path:
+  - 수학Ⅱ
+  - 함수의 극한과 연속
+  - 함수의 극한
+  - 미정계수와 극한값
+  key_concepts:
+  - 함수의 극한
+  - 극한값의 존재
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 수원대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 수원대학교
+  admission_year: 2024
+  admission_type: 수시 논술고사 가이드북 모의문제
+  track: 공통(국어+수학)
+  question_no: 7
+  official_url: https://ipsi.suwon.ac.kr/board/notice/read/1657
+  retrieved_at: '2026-11-22'
+  original_points:
+  - 10
+  rights_notice: 미확인
+  transcribed_from: 수원대 입학처「GB24.pdf」p.12 문제 · p.16 모범답안 이미지 판독(2026-11-22)
+verify: verify/USW-M24.py::p07
+stimuli: []
+stem: 상수 $a$에 대하여 극한 $\displaystyle\lim_{x\to-2}\dfrac{\sqrt{a-2x}-3}{x^2-(a-2)x-2a}$이 존재할 때, 극한값을 구하는 과정을 논술하시오.
+subparts:
+- id: '1'
+  stem: '[편집: 단일 논제 — 발문은 위 문항 전체와 같다]'
+  points: 10
+  depends_on: []
+  answer:
+    kind: value
+    value: 1/21
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S1-B
+    audience: B
+    source_flow: GB24.pdf p.16 모범답안
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: 극한이 존재하는데 $\displaystyle\lim_{x\to-2}(x^2-(a-2)x-2a)=\lim_{x\to-2}(x+2)(x-a)=0$이므로 $\displaystyle\lim_{x\to-2}(\sqrt{a-2x}-3)=0$이어야 해서 $\sqrt{a+4}-3=0$, 즉 $a=5$.
+      criteria:
+      - 1.M1
+    - id: 1b-2
+      content: 그러므로 $\displaystyle\lim_{x\to-2}\dfrac{\sqrt{a-2x}-3}{x^2-(a-2)x-2a}=\lim_{x\to-2}\dfrac{\sqrt{5-2x}-3}{(x+2)(x-5)}=\lim_{x\to-2}\dfrac{\sqrt{5-2x}-3}{(x+2)(x-5)}\cdot\dfrac{\sqrt{5-2x}+3}{\sqrt{5-2x}+3}=\lim_{x\to-2}\dfrac{-2(x+2)}{(x+2)(x-5)(\sqrt{5-2x}+3)}=\dfrac1{21}$
+      criteria:
+      - 1.A1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 0
+      isw: true
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 5
+      evidence: $a=5$(채점기준 5점).
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 1b-1
+    - id: 1.A1
+      mark_type: A
+      points: 5
+      evidence: 극한값 $\dfrac1{21}$(채점기준 5점).
+      depends_on:
+      - 1.M1
+      implied_ok: false
+      steps:
+      - 1b-2
+    deductions: []
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: past-v2-lean
+  item_version: 1
+  verdict: pass
+  date: &id001 2026-11-22
+created: *id001
+updated: *id001
+intent: 함수의 극한에 대한 뜻을 이해하는지 평가한다(공식 출제의도). 분모가 $0$으로 가는 극한이 존재하면 분자도 $0$으로 간다는 조건으로 $a$를 정하고 유리화하여 극한값을 구한다.
+misconceptions: []

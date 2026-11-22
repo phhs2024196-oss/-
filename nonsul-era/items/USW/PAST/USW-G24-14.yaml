@@ -1,0 +1,185 @@
+schema_version: '2.0'
+id: USW-G24-14
+legacy_id: null
+version: 1
+status: draft
+exam_family: yaksul
+item_type: derivation
+origin: past_exam
+school: USW
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 추론
+points: 10
+time_estimate_min: null
+intent: 다항함수의 부정적분과 미분 관계의 이해와 계산 능력 평가(공식 출제의도).
+key_idea: 양변을 미분해 $f'(x)=4x$를 얻고, $x=0$ 대입으로 적분상수를 정한다.
+stuck: 정적분을 포함한 등식의 양변을 미분하면 $2xf(x)$가 약분된다는 점.
+tags:
+- 정적분으로 정의된 함수
+- 미분
+- 부정적분
+elements:
+  materials:
+  - $(x^2+1)f(x)=(x^2+1)^2+2\int_0^xtf(t)dt$
+  concepts:
+  - 정적분과 미분의 관계
+  - 부정적분
+  - 적분상수
+  tools:
+  - 양변을 $x$에 대하여 미분
+  - $f'(x)=4x$
+  - $x=0$ 대입 → $f(0)=1$
+  conditions:
+  - $f(x)$는 다항함수
+  - 모든 실수 $x$에 대하여 성립
+  stimuli_used: []
+  subpart_links: 단일 논제
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학Ⅱ
+  scope_2028: common
+  scope_confirmed: false
+  content_area: 적분
+  behavior_domain: 계산
+  unit_path:
+  - 수학Ⅱ
+  - 미분과 적분
+  - 정적분
+  - 정적분으로 정의된 함수
+  key_concepts:
+  - 다항함수의 적분법
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 수원대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 수원대학교
+  admission_year: 2024
+  admission_type: 수시 교과논술전형
+  track: 공통(국어+수학)
+  question_no: 14
+  official_url: https://ipsi.suwon.ac.kr/board/pre_question/read/2705
+  retrieved_at: '2026-11-22'
+  original_points:
+  - 10
+  rights_notice: 미확인
+  transcribed_from: 수원대 입학처「G24_Q.pdf」p.12 · 「G24_A.pdf」p.9 이미지 판독(2026-11-22)
+verify: verify/USW-G24.py::p14
+stimuli: []
+stem: |
+  다항함수 $f(x)$가 모든 실수 $x$에 대하여
+  $$(x^2+1)f(x)=(x^2+1)^2+2\int_0^xtf(t)\,dt$$
+  를 만족시킬 때, $f(x)$를 구하는 과정을 논술하시오.
+subparts:
+- id: '1'
+  stem: '[편집: 단일 논제 — 발문은 위 문항 전체와 같다]'
+  points: 10
+  depends_on: []
+  answer:
+    kind: value
+    value: 2*x**2+1
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S1-B
+    audience: B
+    source_flow: G24_A.pdf p.9 모범답안
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: 준식을 미분하면 $2xf(x)+(x^2+1)f'(x)=2(x^2+1)(2x)+2xf(x)$
+      criteria:
+      - 1.M1
+    - id: 1b-2
+      content: 그래서 $f'(x)=4x$
+      criteria:
+      - 1.M2
+    - id: 1b-3
+      content: $f(x)=2x^2+C$ (단, $C$는 적분상수)
+      criteria:
+      - 1.M3
+    - id: 1b-4
+      content: 다시 준식에 $x=0$을 대입하면 $f(0)=1$
+      criteria:
+      - 1.M4
+    - id: 1b-5
+      content: 그래서 $f(x)=2x^2+1$
+      criteria:
+      - 1.A1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 0
+      isw: true
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 5
+      evidence: 양변 미분(채점기준 5점).
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 1b-1
+    - id: 1.M2
+      mark_type: M
+      points: 1
+      evidence: $f'(x)=4x$(채점기준 1점).
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 1b-2
+    - id: 1.M3
+      mark_type: M
+      points: 1
+      evidence: 부정적분(채점기준 1점).
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 1b-3
+    - id: 1.M4
+      mark_type: M
+      points: 2
+      evidence: $f(0)=1$(채점기준 2점).
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 1b-4
+    - id: 1.A1
+      mark_type: A
+      points: 1
+      evidence: $f(x)=2x^2+1$(채점기준 1점).
+      depends_on:
+      - 1.M1
+      - 1.M2
+      - 1.M3
+      - 1.M4
+      implied_ok: false
+      steps:
+      - 1b-5
+    deductions: []
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: past-v2-lean
+  item_version: 1
+  verdict: pass
+  date: &id001 2026-11-22
+created: *id001
+updated: *id001

@@ -1,0 +1,176 @@
+schema_version: '2.0'
+id: USW-G24-12
+legacy_id: null
+version: 1
+status: draft
+exam_family: yaksul
+item_type: derivation
+origin: past_exam
+school: USW
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 최적2단
+points: 10
+time_estimate_min: null
+intent: 미분을 통하여 최댓값을 구할 수 있다(공식 출제의도).
+key_idea: 구의 반지름과 원뿔의 높이로 밑면 반지름을 나타내 부피를 $h$의 함수로 만들고 미분하여 최대를 구한다.
+stuck: 피타고라스 정리 $9=r^2+(h-3)^2$로 $r^2=6h-h^2$을 얻는 것.
+tags:
+- 다항함수의 미분
+- 원뿔의 부피
+- 최대
+elements:
+  materials:
+  - 반지름 3인 구에 내접하는 원뿔
+  - 원뿔의 높이 $h$
+  concepts:
+  - 피타고라스 정리
+  - 원뿔의 부피공식
+  - 도함수와 증감
+  tools:
+  - $r^2=6h-h^2$
+  - $V=\frac13\pi(6h^2-h^3)$
+  - $\frac{dV}{dh}=\pi(4-h)h$
+  conditions:
+  - 원뿔이 구에 내접
+  - 반지름의 길이 3
+  - $0<h<6$
+  stimuli_used: []
+  subpart_links: 단일 논제
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학Ⅱ
+  scope_2028: common
+  scope_confirmed: false
+  content_area: 미분
+  behavior_domain: 문제해결
+  unit_path:
+  - 수학Ⅱ
+  - 미분
+  - 도함수의 활용
+  - 최대·최소 응용
+  key_concepts:
+  - 다항함수의 미분법
+  - 원뿔의 부피
+  - 최대
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 수원대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 수원대학교
+  admission_year: 2024
+  admission_type: 수시 교과논술전형
+  track: 공통(국어+수학)
+  question_no: 12
+  official_url: https://ipsi.suwon.ac.kr/board/pre_question/read/2705
+  retrieved_at: '2026-11-22'
+  original_points:
+  - 10
+  rights_notice: 미확인
+  transcribed_from: 수원대 입학처「G24_Q.pdf」p.11 · 「G24_A.pdf」p.8 이미지 판독(2026-11-22)
+verify: verify/USW-G24.py::p12
+stimuli: []
+stem: |
+  그림과 같이 반지름의 길이가 3인 구에 내접하는 원뿔 중에 그 부피가 최대가 되도록 하는 원뿔의 높이를 구하는 과정을 논술하시오.
+
+  [그림 1: 반지름의 길이가 3인 구에 원뿔이 내접한 그림, 구의 중심에서 원뿔의 꼭짓점까지 길이 3 표시]
+subparts:
+- id: '1'
+  stem: '[편집: 단일 논제 — 발문은 위 문항 전체와 같다]'
+  points: 10
+  depends_on: []
+  answer:
+    kind: value
+    value: '4'
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S1-B
+    audience: B
+    source_flow: G24_A.pdf p.8 모범답안
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: 피타고라스 정리 $9=r^2+(h-3)^2$으로부터 $r^2=6h-h^2$이다.
+      criteria:
+      - 1.M1
+    - id: 1b-2
+      content: 원뿔 부피공식에 대입하면 $V=\dfrac13\pi r^2h=\dfrac13\pi(6h-h^2)h=\dfrac13\pi(6h^2-h^3)$이다.
+      criteria:
+      - 1.M2
+    - id: 1b-3
+      content: 미분하면 $\dfrac{dV}{dh}=\dfrac13\pi(12h-3h^2)=\pi(4-h)h$이다.
+      criteria:
+      - 1.M3
+    - id: 1b-4
+      content: 높이 $h=4$일 때 원뿔의 부피가 최대이다.
+      criteria:
+      - 1.A1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 0
+      isw: true
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 2
+      evidence: $r^2=6h-h^2$(채점기준 2점).
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 1b-1
+    - id: 1.M2
+      mark_type: M
+      points: 3
+      evidence: $V(h)$(채점기준 3점).
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 1b-2
+    - id: 1.M3
+      mark_type: M
+      points: 3
+      evidence: $V'(h)$(채점기준 3점).
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 1b-3
+    - id: 1.A1
+      mark_type: A
+      points: 2
+      evidence: $h=4$(채점기준 2점).
+      depends_on:
+      - 1.M1
+      - 1.M2
+      - 1.M3
+      implied_ok: false
+      steps:
+      - 1b-4
+    deductions: []
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: past-v2-lean
+  item_version: 1
+  verdict: pass
+  date: &id001 2026-11-22
+created: *id001
+updated: *id001

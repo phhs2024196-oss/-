@@ -1,0 +1,183 @@
+schema_version: '2.0'
+id: USW-M25-05
+legacy_id: null
+version: 1
+status: draft
+exam_family: yaksul
+item_type: derivation
+origin: mock_exam
+school: USW
+type: null
+variant_of: null
+replaces: null
+level: L3
+form: 추론
+points: 10
+time_estimate_min: null
+key_idea: 진수 조건 $8<x<11$과 밑 $\dfrac12<1$이므로 $(11-x)\left(\dfrac12x-4\right)\le1$을 연립한다.
+stuck: 밑이 $1$보다 작을 때 부등호 방향이 바뀌는 것과 진수 조건을 함께 쓰는 것.
+tags:
+- 로그부등식
+- 진수 조건
+- 이차부등식
+elements:
+  materials:
+  - $\log_{\frac12}(11-x)\left(\dfrac12x-4\right)\ge0$
+  - 실수 $x$의 범위
+  concepts:
+  - 로그함수의 진수 조건
+  - 밑이 $1$보다 작은 로그함수의 증감
+  - 이차부등식
+  tools:
+  - $8<x<11$
+  - $(11-x)\left(\dfrac12x-4\right)\le1$
+  - $(x-9)(x-10)\ge0$
+  conditions: []
+  stimuli_used: []
+  subpart_links: 단일 논제
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학Ⅰ
+  scope_2028: common
+  scope_confirmed: false
+  content_area: 지수함수와 로그함수
+  behavior_domain: 계산
+  unit_path:
+  - 수학Ⅰ
+  - 지수함수와 로그함수
+  - 로그함수
+  - 로그부등식
+  key_concepts:
+  - 로그부등식
+  - 밑이 $1$보다 작은 경우
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 수원대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 수원대학교
+  admission_year: 2025
+  admission_type: 수시 논술고사 가이드북 모의문제
+  track: 공통(국어+수학)
+  question_no: 5
+  official_url: https://ipsi.suwon.ac.kr/board/notice/read/2899
+  retrieved_at: '2026-11-22'
+  original_points:
+  - 10
+  rights_notice: 미확인
+  transcribed_from: 수원대 입학처「GB25.pdf」p.11 문제 · p.15 모범답안 이미지 판독(2026-11-22)
+verify: verify/USW-M25.py::p05
+stimuli: []
+stem: 부등식 $\log_{\frac12}(11-x)\left(\dfrac12x-4\right)\ge0$을 만족시키는 실수 $x$의 범위를 구하는 과정을 논술하시오.
+subparts:
+- id: '1'
+  stem: '[편집: 단일 논제 — 발문은 위 문항 전체와 같다]'
+  points: 10
+  depends_on: []
+  answer:
+    kind: set
+    value: 8<x<=9 또는 10<=x<11
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S1-B
+    audience: B
+    source_flow: GB25.pdf p.15 모범답안
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: 로그함수의 진수 $>0$ $\Rightarrow$ $(x-11)(x-8)<0$, 즉 $8<x<11$.
+      criteria:
+      - 1.M1
+    - id: 1b-2
+      content: $\log_{\frac12}(11-x)\left(\dfrac12x-4\right)\ge0=\log_{\frac12}1$.
+      criteria:
+      - 1.M2
+    - id: 1b-3
+      content: 밑이 $1$보다 작으므로 $(11-x)\left(\dfrac12x-4\right)\le1$.
+      criteria:
+      - 1.M3
+    - id: 1b-4
+      content: $(x-11)(x-8)\ge-2$, $x^2-19x+90=(x-9)(x-10)\ge0$. $x\le9,\ x\ge10$.
+      criteria:
+      - 1.M4
+    - id: 1b-5
+      content: 따라서 $8<x\le9,\ 10\le x<11$.
+      criteria:
+      - 1.A1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 0
+      isw: true
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 2
+      evidence: $8<x<11$(채점기준 2점).
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 1b-1
+    - id: 1.M2
+      mark_type: M
+      points: 2
+      evidence: $\ge\log_{\frac12}1$ 꼴로 정리(채점기준 2점).
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 1b-2
+    - id: 1.M3
+      mark_type: M
+      points: 2
+      evidence: $(11-x)(\tfrac12x-4)\le1$(채점기준 2점).
+      depends_on:
+      - 1.M2
+      implied_ok: false
+      steps:
+      - 1b-3
+    - id: 1.M4
+      mark_type: M
+      points: 2
+      evidence: $x\le9,\ x\ge10$(채점기준 2점).
+      depends_on:
+      - 1.M3
+      implied_ok: false
+      steps:
+      - 1b-4
+    - id: 1.A1
+      mark_type: A
+      points: 2
+      evidence: $8<x\le9,\ 10\le x<11$(채점기준 2점).
+      depends_on:
+      - 1.M1
+      - 1.M4
+      implied_ok: false
+      steps:
+      - 1b-5
+    deductions: []
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: past-v2-lean
+  item_version: 1
+  verdict: pass
+  date: &id001 2026-11-22
+created: *id001
+updated: *id001
+intent: 로그 부등식을 풀 수 있는지 평가한다(공식 출제의도).
+misconceptions: []

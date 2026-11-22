@@ -1,0 +1,165 @@
+schema_version: '2.0'
+id: USW-G23-13
+legacy_id: null
+version: 1
+status: draft
+exam_family: yaksul
+item_type: derivation
+origin: past_exam
+school: USW
+type: null
+variant_of: null
+replaces: null
+level: L3
+form: 추론
+points: 10
+time_estimate_min: 5
+key_idea: $v=x'=3t^2-6t-9=3(t+1)(t-3)$의 부호가 바뀌는 $t=3$에서 방향이 바뀌고, 그때의 $x''$가 가속도이다.
+stuck: '"이동 방향이 바뀌는 순간"을 $v=0$이며 부호가 바뀌는 시각으로 번역하는 것.'
+tags:
+- 속도와 가속도
+- 위치의 미분
+- 운동 방향
+elements:
+  materials:
+  - $x=t^3-3t^2-9t$ ($t\ge0$)
+  concepts:
+  - 위치·속도·가속도의 관계
+  - 속도의 부호와 운동 방향
+  tools:
+  - $x'=3t^2-6t-9$
+  - $x''=6t-6$
+  conditions:
+  - $t\ge0$
+  - 수직선 위를 움직이는 점 P
+  stimuli_used: []
+  subpart_links: 단일 논제
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학Ⅱ
+  scope_2028: unknown
+  scope_confirmed: false
+  standards:
+  - code: 12수학Ⅱ02-11
+    text: 속도와 가속도에 대한 문제를 해결할 수 있다.
+    verified: true
+  content_area: 미분
+  behavior_domain: 계산
+  unit_path:
+  - 수학Ⅱ
+  - 미분
+  - 도함수의 활용
+  - 속도와 가속도
+  key_concepts:
+  - 속도
+  - 가속도
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 수원대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 수원대학교
+  admission_year: 2023
+  admission_type: 수시 교과논술전형
+  track: 공통(국어+수학)
+  question_no: 13
+  official_url: https://ipsi.suwon.ac.kr/board/pre_question/read/1562
+  retrieved_at: '2026-11-22'
+  original_points:
+  - 10
+  rights_notice: 미확인
+  transcribed_from: 수원대 입학처「G23_Q.pdf」p.11 · 「G23_A.pdf」p.29~30 이미지 판독(2026-11-22)
+verify: verify/USW-G23.py::p13
+stimuli: []
+stem: 수직선 위를 움직이는 점 P의 시각 $t$ $(t\ge0)$에서의 위치 $x$가 $x=t^3-3t^2-9t$이다. 점 P의 이동 방향이 바뀌는 순간의 가속도를 구하는 과정을 논술하시오.
+subparts:
+- id: '1'
+  stem: 답과 풀이
+  points: 10
+  depends_on: []
+  answer:
+    kind: value
+    value: '12'
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S1-B
+    audience: B
+    source_flow: G23_A.pdf p.30 모범답안
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: 미분하면 $x'=3t^2-6t-9$이다.
+      criteria:
+      - 1.M1
+    - id: 1b-2
+      content: 인수분해하면 $3(t^2-2t-3)=3(t+1)(t-3)$이므로 $t=3$일 때 이동방향을 바꾼다.
+      criteria:
+      - 1.M2
+    - id: 1b-3
+      content: 한 번 더 미분하면 $x''=6t-6$이다.
+      criteria:
+      - 1.M3
+    - id: 1b-4
+      content: $t=3$을 대입하면 가속도 $6\times3-6=12$를 얻는다.
+      criteria:
+      - 1.A1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 3
+      evidence: $x'=3t^2-6t-9$(채점기준 (1) 3점).
+      steps:
+      - 1b-1
+    - id: 1.M2
+      mark_type: M
+      points: 4
+      evidence: $3(t+1)(t-3)$으로 인수분해해 $t=3$에서 이동방향이 바뀜(채점기준 (2) 4점).
+      depends_on:
+      - 1.M1
+      steps:
+      - 1b-2
+    - id: 1.M3
+      mark_type: M
+      points: 2
+      evidence: $x''=6t-6$(채점기준 (3) 2점).
+      steps:
+      - 1b-3
+    - id: 1.A1
+      mark_type: A
+      points: 1
+      evidence: $t=3$ 대입, 가속도 $12$(채점기준 (4) 1점).
+      depends_on:
+      - 1.M2
+      - 1.M3
+      steps:
+      - 1b-4
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: past-v2-lean
+  item_version: 1
+  verdict: pass
+  date: 2026-11-22
+created: 2026-11-22
+updated: 2026-11-22
+intent: 위치를 미분해 속도를, 속도를 미분해 가속도를 구하고 속도의 부호가 바뀌는 순간이 운동 방향이 바뀌는 순간임을 이용한다(문항정보 해설 원문).

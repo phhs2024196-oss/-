@@ -1,0 +1,152 @@
+schema_version: '2.0'
+id: USW-G26-14
+legacy_id: null
+version: 1
+status: draft
+exam_family: yaksul
+item_type: derivation
+origin: past_exam
+school: USW
+type: null
+variant_of: null
+replaces: null
+level: L3
+form: 추론
+points: 10
+time_estimate_min: 5
+intent: 미적분의 기본정리를 이해하고 있는지 평가한다(공식 출제의도).
+key_idea: $3(t+1)(t-4)=3t^2-9t-12$에서 홀수차항이 구간 $[-x,x]$에서 소거되어 $f(x)=6\displaystyle\int_0^x(t^2-4)\,dt$이고, 미적분의 기본정리로 $f\,\prime(x)=6(x^2-4)$를 구해 극점을 찾는다.
+stuck: 대칭구간 적분에서 $t$의 홀수차항이 사라진다는 것(또는 $-x$를 아래끝으로 하는 미분).
+tags:
+- 정적분
+- 미적분의 기본정리
+- 극대·극소
+elements:
+  materials:
+  - $f(x)=\int_{-x}^{x}3(t+1)(t-4)\,dt$
+  - 극댓값과 극솟값
+  concepts:
+  - 대칭구간에서의 정적분
+  - 미적분의 기본정리
+  - 극대와 극소의 판정
+  tools:
+  - $f(x)=6\int_0^x(t^2-4)\,dt=2x^3-24x$
+  - $f\,\prime(x)=6(x-2)(x+2)$
+  - $f(-2)=32$, $f(2)=-32$
+  conditions:
+  - 함수 $f(x)$의 극댓값과 극솟값을 구하는 과정을 논술
+  stimuli_used: []
+  subpart_links: 단일 논제
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학Ⅱ
+  scope_2028: unknown
+  scope_confirmed: false
+  content_area: 적분
+  behavior_domain: 계산
+  unit_path:
+  - 수학Ⅱ
+  - 적분
+  - 정적분
+  - 정적분으로 나타낸 함수
+  key_concepts:
+  - 정적분
+  - 미적분의 기본정리
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 수원대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 수원대학교
+  admission_year: 2026
+  admission_type: 수시 교과논술전형
+  track: 공통(국어+수학)
+  question_no: 14
+  official_url: https://ipsi.suwon.ac.kr/board/pre_question/read/5508
+  retrieved_at: '2026-11-22'
+  original_points:
+  - 10
+  rights_notice: 미확인
+  transcribed_from: 수원대 입학처「G26_Q.pdf」p.12 · 「G26_A.pdf」p.15 이미지 판독(2026-11-22)
+verify: verify/USW-G26.py::p14
+stimuli: []
+stem: 함수 $f(x)=\displaystyle\int_{-x}^{x}3(t+1)(t-4)\,dt$의 극댓값과 극솟값을 구하는 과정을 논술하시오.
+subparts:
+- id: '1'
+  stem: 답과 풀이
+  points: 10
+  depends_on: []
+  answer:
+    kind: value
+    value: max=32; min=-32
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S1-B
+    audience: B
+    source_flow: G26_A.pdf p.15 모범답안
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: $f(x)=3\displaystyle\int_{-x}^{x}(t^2-3t-4)\,dt=3\int_{-x}^{x}(t^2-4)\,dt=6\int_0^x(t^2-4)\,dt$.
+      criteria:
+      - 1.M1
+    - id: 1b-2
+      content: 미적분의 기본정리에 의해 $f\,'(x)=6(x^2-4)=6(x-2)(x+2)$. 극점은 $x=\pm2$.
+      criteria:
+      - 1.M2
+    - id: 1b-3
+      content: $f(2)=6\displaystyle\int_0^2(t^2-4)\,dt=\left[2t^3-24t\right]_0^2=-32$, $f(-2)=\displaystyle\int_{2}^{-2}3(t+1)(t-4)\,dt=\int_{-2}^{2}3(t+1)(t-4)\,dt=-f(2)=32$. 극댓값은 $32$, 극솟값은 $-32$.
+      criteria:
+      - 1.A1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 4
+      evidence: $f(x)=6\displaystyle\int_0^x(t^2-4)\,dt$로 정리(채점기준 4점).
+      steps:
+      - 1b-1
+    - id: 1.M2
+      mark_type: M
+      points: 3
+      evidence: $f\,'(x)=6(x-2)(x+2)$, 극점 $x=\pm2$(채점기준 3점).
+      depends_on:
+      - 1.M1
+      steps:
+      - 1b-2
+    - id: 1.A1
+      mark_type: A
+      points: 3
+      evidence: 극댓값 $32$, 극솟값 $-32$(채점기준 3점).
+      depends_on:
+      - 1.M2
+      steps:
+      - 1b-3
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: past-v2-lean
+  item_version: 1
+  verdict: pass
+  date: '2026-11-22'
+created: '2026-11-22'
+updated: '2026-11-22'

@@ -1,0 +1,172 @@
+schema_version: '2.0'
+id: USW-G22-13
+legacy_id: null
+version: 1
+status: draft
+exam_family: yaksul
+item_type: derivation
+origin: past_exam
+school: USW
+type: null
+variant_of: null
+replaces: null
+level: L3
+form: 추론
+points: 10
+time_estimate_min: 5
+key_idea: $f'(x)=ax(x-2)$로 두고 부정적분한 뒤, 부호가 $+\to-$인 $x=0$이 극대, $-\to+$인 $x=2$가 극소임을 이용해 $C$, $a$를 정한다.
+stuck: 그래프에서 $f'(x)=ax(x-2)$ ($a>0$) 꼴을 읽어 극대·극소 위치를 정하는 것.
+tags:
+- 도함수 그래프
+- 부정적분
+- 극대·극소
+elements:
+  materials:
+  - $y=f'(x)$의 그래프
+  - 극솟값 $-2$, 극댓값 $2$
+  concepts:
+  - 부정적분
+  - 도함수의 부호와 극대·극소
+  tools:
+  - $f'(x)=ax(x-2)$
+  - $f(x)=\dfrac{ax^3}3-ax^2+C$
+  - $f(0)=2,\ f(2)=-2$
+  conditions:
+  - 삼차함수 $f(x)$
+  - 극솟값 $-2$, 극댓값 $2$
+  - $y=f'(x)$는 $x=0$, $x=2$에서 $x$축과 만나는 아래로 볼록한 포물선
+  stimuli_used: []
+  subpart_links: 단일 논제
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학Ⅱ
+  scope_2028: unknown
+  scope_confirmed: false
+  standards:
+  - code: 12수학Ⅱ03-02
+    text: 함수의 실수배, 합, 차의 부정적분을 알고, 다항함수의 부정적분을 구할 수 있다.
+    verified: true
+  content_area: 적분
+  behavior_domain: 계산
+  unit_path:
+  - 수학Ⅱ
+  - 적분
+  - 부정적분
+  - 도함수로부터 함수 구하기
+  key_concepts:
+  - 부정적분
+  - 극대와 극소
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 수원대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 수원대학교
+  admission_year: 2022
+  admission_type: 수시 교과논술전형
+  track: 공통(국어+수학)
+  question_no: 13
+  official_url: https://ipsi.suwon.ac.kr/board/pre_question/read/359
+  retrieved_at: '2026-11-22'
+  original_points:
+  - 10
+  rights_notice: 미확인
+  transcribed_from: 수원대 입학처「G22_Q.pdf」p.11 · 「G22_A.pdf」p.30~31 이미지 판독(2026-11-22)
+verify: verify/USW-G22.py::p13
+stimuli: []
+stem: |-
+  삼차함수 $f(x)$의 도함수 $y=f'(x)$의 그래프가 그림과 같고, 함수 $f(x)$의 극솟값이 $-2$, 극댓값이 $2$일 때, 삼차함수 $f(x)$를 구하는 과정을 논술하시오.
+
+  [그림 1: 아래로 볼록한 포물선 $y=f'(x)$가 원점 O와 $x=2$에서 $x$축과 만난다]
+subparts:
+- id: '1'
+  stem: 답과 풀이
+  points: 10
+  depends_on: []
+  answer:
+    kind: value
+    value: x**3-3*x**2+2
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S1-B
+    audience: B
+    source_flow: G22_A.pdf p.31 모범답안
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: $f'(x)=ax(x-2)=ax^2-2ax$라 두자.
+      criteria:
+      - 1.M1
+    - id: 1b-2
+      content: $f(x)=\dfrac{ax^3}3-ax^2+C$
+      criteria:
+      - 1.M2
+    - id: 1b-3
+      content: 미분계수의 부호가 $+$에서 $-$로 바뀌는 $x=0$이 극대이고 $-$에서 $+$로 바뀌는 $x=2$가 극소점이므로 $2=f(0)=C$, $-2=f(2)=\dfrac{8a}3-4a+2$.
+      criteria:
+      - 1.M3
+    - id: 1b-4
+      content: 따라서 $a=3$이고 $f(x)=x^3-3x^2+2$.
+      criteria:
+      - 1.A1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 2
+      evidence: $f'(x)=ax(x-2)$(채점기준 (1) 2점).
+      steps:
+      - 1b-1
+    - id: 1.M2
+      mark_type: M
+      points: 3
+      evidence: $f(x)=\dfrac{ax^3}3-ax^2+C$(채점기준 (2) 3점).
+      depends_on:
+      - 1.M1
+      steps:
+      - 1b-2
+    - id: 1.M3
+      mark_type: M
+      points: 4
+      evidence: $x=0$ 극대, $x=2$ 극소로 $f(0)=2$, $f(2)=-2$ 조건 사용(채점기준 (3) 4점).
+      depends_on:
+      - 1.M2
+      steps:
+      - 1b-3
+    - id: 1.A1
+      mark_type: A
+      points: 1
+      evidence: $a=3$, $f(x)=x^3-3x^2+2$(채점기준 (4) 1점).
+      depends_on:
+      - 1.M3
+      steps:
+      - 1b-4
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: past-v2-lean
+  item_version: 1
+  verdict: pass
+  date: 2026-11-22
+created: 2026-11-22
+updated: 2026-11-22
+intent: 다항함수의 부정적분을 계산할 수 있는지와 도함수로부터 극대점, 극소점을 읽어낼 수 있는지 평가한다(문항정보 원문).

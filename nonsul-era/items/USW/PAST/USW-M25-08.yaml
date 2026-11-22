@@ -1,0 +1,166 @@
+schema_version: '2.0'
+id: USW-M25-08
+legacy_id: null
+version: 1
+status: draft
+exam_family: yaksul
+item_type: proof
+origin: mock_exam
+school: USW
+type: null
+variant_of: null
+replaces: null
+level: L3
+form: 추론
+points: 10
+time_estimate_min: null
+key_idea: $S_1=S_2$는 곡선과 직선 사이 영역과 직각삼각형의 공통부분을 뺀 나머지 넓이가 같음과 동치이고, 이는 $\int_0^{\frac32a}(x^2-ax)\,dx=0$이다.
+stuck: 넓이 $S_1$을 직접 구하지 않고 공통부분을 제외한 두 부분의 넓이 비교로 바꾸는 발상.
+tags:
+- 정적분
+- 넓이
+- 도형과 정적분
+- 증명
+elements:
+  materials:
+  - $y=x^2-ax$
+  - $y=\dfrac a2x$
+  - 두 교점 O, P와 P에서 $x$축에 내린 수선의 발 Q
+  - '[그림 1: 곡선과 직선, 직각삼각형 OPQ]'
+  concepts:
+  - 이차함수와 직선의 교점
+  - 정적분과 넓이
+  - 곡선으로 둘러싸인 부분의 넓이
+  tools:
+  - Q의 $x$좌표 $\dfrac32a$
+  - $\int_0^{\frac32a}(x^2-ax)\,dx=0$
+  conditions:
+  - $a$는 양수
+  - '$S_1$: 곡선과 직선으로 둘러싸인 부분의 넓이'
+  - '$S_2$: 직각삼각형 OPQ의 넓이'
+  stimuli_used: []
+  subpart_links: 단일 논제
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학Ⅱ
+  scope_2028: common
+  scope_confirmed: false
+  content_area: 적분
+  behavior_domain: 계산
+  unit_path:
+  - 수학Ⅱ
+  - 적분
+  - 정적분
+  - 정적분과 넓이
+  key_concepts:
+  - 정적분
+  - 곡선과 직선으로 둘러싸인 부분의 넓이
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 수원대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 수원대학교
+  admission_year: 2025
+  admission_type: 수시 논술고사 가이드북 모의문제
+  track: 공통(국어+수학)
+  question_no: 8
+  official_url: https://ipsi.suwon.ac.kr/board/notice/read/2899
+  retrieved_at: '2026-11-22'
+  original_points:
+  - 10
+  rights_notice: 미확인
+  transcribed_from: 수원대 입학처「GB25.pdf」p.12 문제 · p.16 모범답안 이미지 판독(2026-11-22)
+verify: verify/USW-M25.py::p08
+stimuli: []
+stem: |-
+  양수 $a$에 대하여 곡선 $y=x^2-ax$와 직선 $y=\dfrac a2x$로 둘러싸인 부분의 넓이를 $S_1$이라 하자. 또 그림과 같이 곡선과 직선의 두 교점 O와 P, 그리고 P에서 $x$축에 내린 수선이 $x$축과 만나는 점 Q가 만드는 직각삼각형 OPQ의 넓이를 $S_2$라 할 때, $S_1=S_2$를 보이는 과정을 논술하시오.
+
+  [그림 1: 아래로 볼록한 곡선 $y=x^2-ax$와 직선 $y=\dfrac a2x$가 원점 O와 점 P에서 만나고, P에서 $x$축에 내린 수선의 발이 Q이다]
+subparts:
+- id: '1'
+  stem: '[편집: 단일 논제 — 발문은 위 문항 전체와 같다]'
+  points: 10
+  depends_on: []
+  answer:
+    kind: proof
+    value: '0'
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S1-B
+    audience: B
+    source_flow: GB25.pdf p.16 모범답안
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: $x^2-ax=\dfrac a2x$에서 교점 P, 즉 Q의 $x$좌표는 $\dfrac32a$이다.
+      criteria:
+      - 1.M1
+    - id: 1b-2
+      content: $S_1=S_2$를 보이기 위해서 곡선과 직선으로 둘러싸인 부분과 직각삼각형의 공통부분을 제외한 나머지 부분의 넓이가 같음을 보이면 된다. 즉, 아래 정적분이 $0$임을 보이면 된다.
+      criteria:
+      - 1.M2
+    - id: 1b-3
+      content: $\displaystyle\int_0^{\frac32a}(x^2-ax)\,dx=\left[\dfrac13x^3-\dfrac a2x^2\right]_0^{\frac32a}=\dfrac98a^3-\dfrac98a^3=0$.
+      criteria:
+      - 1.A1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 0
+      isw: true
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 2
+      evidence: Q의 $x$좌표 $\dfrac32a$(채점기준 2점).
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 1b-1
+    - id: 1.M2
+      mark_type: M
+      points: 3
+      evidence: $S_1=S_2$를 정적분 $=0$ 보이기로 환원(채점기준 3점).
+      depends_on:
+      - 1.M1
+      implied_ok: false
+      steps:
+      - 1b-2
+    - id: 1.A1
+      mark_type: A
+      points: 5
+      evidence: 정적분 계산 $=0$(채점기준 5점).
+      depends_on:
+      - 1.M1
+      - 1.M2
+      implied_ok: false
+      steps:
+      - 1b-3
+    deductions: []
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: past-v2-lean
+  item_version: 1
+  verdict: pass
+  date: &id001 2026-11-22
+created: *id001
+updated: *id001
+intent: 정적분과 기하학적 통찰을 통해 넓이를 구할 수 있는지 평가한다(공식 출제의도). 두 넓이가 같음을 공통부분을 제외한 나머지 넓이의 비교, 곧 정적분 $=0$으로 바꿔 보인다.
+misconceptions: []

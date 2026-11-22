@@ -1,0 +1,156 @@
+schema_version: '2.0'
+id: USW-G25-13
+legacy_id: null
+version: 1
+status: draft
+exam_family: yaksul
+item_type: derivation
+origin: past_exam
+school: USW
+type: null
+variant_of: null
+replaces: null
+level: L3
+form: 추론
+points: 10
+time_estimate_min: null
+intent: 곡선의 접선을 이해하고 접선의 식을 구하는 능력을 평가한다(공식 출제의도).
+key_idea: 첫째 곡선의 접선 $y=-x$를 구하고, 둘째 곡선에서 접점의 기울기와 좌표 조건으로 $a$, $b$를 정한다.
+stuck: 접점 $(-1,1)$이 둘째 곡선 위에 있다는 조건과 접선의 기울기 조건을 함께 쓰는 것.
+tags:
+- 접선의 방정식
+- 접점
+- 미분계수
+elements:
+  materials:
+  - $y=x^3-2x^2$의 $x=1$에서의 접선
+  - $y=x^2+ax+b$
+  concepts:
+  - 접선의 방정식
+  - 미분계수와 접선의 기울기
+  tools:
+  - 접선 $y=-x$
+  - $y'|_{x=-1}=2x+a|_{x=-1}=-1$ → $a=1$
+  - $(-1,1)$ 대입 → $b=1$
+  conditions:
+  - $x=-1$에서 접함
+  - $a$, $b$는 실수
+  stimuli_used: []
+  subpart_links: 단일 논제
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학Ⅱ
+  scope_2028: common
+  scope_confirmed: false
+  content_area: 미분
+  behavior_domain: 계산
+  unit_path:
+  - 수학Ⅱ
+  - 미분
+  - 접선의 방정식
+  - 두 곡선의 공통 접선
+  key_concepts:
+  - 곡선의 접선
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 수원대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 수원대학교
+  admission_year: 2025
+  admission_type: 수시 교과논술전형
+  track: 공통(국어+수학)
+  question_no: 13
+  official_url: https://ipsi.suwon.ac.kr/board/pre_question/read/4019
+  retrieved_at: '2026-11-22'
+  original_points:
+  - 10
+  rights_notice: 미확인
+  transcribed_from: 수원대 입학처「G25_Q.pdf」p.12 · 「G25_A.pdf」p.14 이미지 판독(2026-11-22)
+verify: verify/USW-G25.py::p13
+stimuli: []
+stem: 곡선 $y=x^3-2x^2$의 $x=1$에서의 접선이 $x=-1$에서 곡선 $y=x^2+ax+b$에 접할 때, 실수 $a$와 $b$의 값을 구하는 과정을 논술하시오.
+subparts:
+- id: '1'
+  stem: '[편집: 단일 논제 — 발문은 위 문항 전체와 같다]'
+  points: 10
+  depends_on: []
+  answer:
+    kind: value
+    value: a = 1; b = 1
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S1-B
+    audience: B
+    source_flow: G25_A.pdf p.14 모범답안
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: 곡선 $y=x^3-2x^2$의 $x=1$에서의 접선은 접점이 $(1,-1)$이고 기울기가 $y'\big|_{x=1}=3x^2-4x\big|_{x=1}=-1$이므로 $y-(-1)=(-1)(x-1)$, 즉 $y=-x$.
+      criteria:
+      - 1.M1
+    - id: 1b-2
+      content: 접선 $y=-x$가 $x=-1$에서 곡선 $y=x^2+ax+b$에 접하므로 기울기 $y'\big|_{x=-1}=2x+a\big|_{x=-1}=-2+a=-1$. 그래서 $a=1$.
+      criteria:
+      - 1.M2
+    - id: 1b-3
+      content: 접점은 $(-1,1)=(-1,1-a+b)$여야 하므로 $1=1-a+b=b$이다.
+      criteria:
+      - 1.A1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 0
+      isw: true
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 4
+      evidence: 접선 $y=-x$(채점기준 4점).
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 1b-1
+    - id: 1.M2
+      mark_type: M
+      points: 3
+      evidence: $a=1$(채점기준 3점).
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 1b-2
+    - id: 1.A1
+      mark_type: A
+      points: 3
+      evidence: $b=1$(채점기준 3점).
+      depends_on:
+      - 1.M1
+      - 1.M2
+      implied_ok: false
+      steps:
+      - 1b-3
+    deductions: []
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: past-v2-lean
+  item_version: 1
+  verdict: pass
+  date: &id001 2026-11-22
+created: *id001
+updated: *id001
