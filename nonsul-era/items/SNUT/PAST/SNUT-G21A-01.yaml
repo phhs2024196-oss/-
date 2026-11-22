@@ -1,0 +1,282 @@
+schema_version: '2.0'
+id: SNUT-G21A-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: numeric
+origin: past_exam
+school: SNUT
+type: null
+variant_of: null
+replaces: null
+level: L3
+form: 추론
+points: 34
+time_estimate_min: 30
+intent: 미분을 이용하여 다항함수의 최댓값을 찾을 수 있는지(1.1), 주어진 원의 방정식으로 두 곡선의 교점을 구하고 삼각함수의 덧셈정리를 활용할 수 있는지(1.2), 직선거리에서의 속도와 거리 문제를 적분으로 해결할 수 있는지(1.3) 평가한다.
+key_idea: 1.1 원뿔의 높이 $x$로 $S^2=6\pi^2(6x^2-x^3)$을 세워 미분한다. 1.2 두 교점의 $y$좌표가 같음을 이용해 넓이를 $\dfrac18\lvert\sin4\alpha\rvert$로 만든다. 1.3 $A$의 거리 $\dfrac a2t^2$와 $B$의 거리 $\dfrac12t^2+2t+20$을 비교한다.
+stuck: 1.1 높이가 3보다 크든 작든 반지름이 $\sqrt{6x-x^2}$로 같음을 보이는 단계, 1.2 삼각형의 밑변을 PQ로 잡고 높이를 $y$좌표로 쓰는 단계, 1.3 B가 A를 추월한 시점을 시간의 기준으로 잡는 단계
+idea_tags: [IDEA-CONE-IN-SPHERE-LATERAL-MAX, IDEA-TRIANGLE-AREA-DOUBLE-ANGLE, IDEA-VELOCITY-INTEGRAL-RACE]
+tags: [미분을 이용한 최대·최소, 삼각함수의 덧셈정리, 속도와 거리]
+elements:
+  materials:
+  - 구에 내접하는 원뿔의 옆넓이 $S$
+  - 원 $x^2-x+y^2=0$과 원 $x^2+y^2=\cos^2\alpha$, $x^2+y^2=\sin^2\alpha$의 교점 P, Q와 삼각형 OPQ의 넓이
+  - 경주에서 A, B의 속도 $at$, $t+2$와 결승선 90m
+  concepts:
+  - 다항함수의 도함수와 극대·극소
+  - 원의 방정식
+  - 삼각함수의 덧셈정리(배각)
+  - 속도와 거리(정적분)
+  tools:
+  - $f(x)=6\pi^2(6x^2-x^3)$의 도함수 $18\pi^2x(4-x)$
+  - $\sin2\alpha=2\sin\alpha\cos\alpha$, $\cos2\alpha=\cos^2\alpha-\sin^2\alpha$
+  - $\displaystyle\int_0^t(x+2)dx$
+  conditions:
+  - 원뿔의 높이가 3 이하일 때와 3 이상일 때 모두 밑면 반지름이 $\sqrt{6x-x^2}$
+  - $0<\alpha<\dfrac\pi2$이므로 제1사분면 교점에서 $y>0$
+  - A가 이기려면 $t=10$(B가 결승선에 닿는 시각)에서 A가 90m를 넘어야 함
+  stimuli_used: []
+  subpart_links: null
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅱ, 수학Ⅰ, 미적분]
+  scope_2028: calc2
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 도함수를 활용하여 함수의 최대·최소 문제를 해결한다(추정)
+    verified: false
+  - code: 미확인
+    text: 속도와 거리에 관한 문제를 정적분으로 해결한다(추정)
+    verified: false
+  content_area: 미분법·적분법·삼각함수
+  behavior_domain: 문제해결
+  unit_path: [수학Ⅱ, 미분, 도함수의 활용, 최대·최소]
+  key_concepts: [도함수의 활용, 삼각함수의 덧셈정리, 속도와 거리]
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 서울과학기술대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 서울과학기술대학교
+  admission_year: 2021
+  admission_type: 수시 논술위주전형
+  track: 자연계열 1차
+  question_no: 1
+  official_url: https://admission.seoultech.ac.kr/cms/FR_BBS_CON/BoardView.do?SITE_NO=2&MENU_ID=970&BOARD_SEQ=25&CONTENTS_NO=1&BBS_SEQ=16
+  retrieved_at: '2026-11-22'
+  original_points: 34%
+  rights_notice: 미확인(입학처 공개 자료)
+  transcribed_from: 서울과기대 입학처 공식 PDF「G21A_Q.pdf」p.2, 「G21A_S.pdf」p.2~3 (이미지 대조 2026-11-22; 쪽은 PDF 쪽 기준)
+verify: verify/SNUT-G21A.py::p01
+stimuli: []
+stem: 다음 물음에 답하시오.
+# 소문항 배점 미공개 — 추정 (문제 1은 34%이며 소문항 11/11/12점으로 가름)
+subparts:
+- id: '1'
+  stem: 반지름의 길이가 3인 구에 내접하는 원뿔의 옆넓이를 $S$라 할 때, $S^2$의 최댓값을 구하시오.
+  points: 11
+  depends_on: []
+  answer:
+    kind: value
+    value: 192*pi**2
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 출제배경 및 해설 p.2 [1.1]
+    steps:
+    - id: 1b-1
+      content: '원뿔의 높이를 $x\ (0<x<6)$이라 하자. $0<x\le3$이든 $3\le x<6$이든 밑면의 반지름은 $\sqrt{6x-x^2}$이고 모선의 길이는 $\sqrt{6x}$이다. [그림] 해설지 그림 1·2·3: 구에 내접하는 원뿔의 두 경우(높이 $x\le3$, $x\ge3$)와 원뿔을 펼친 부채꼴(호의 길이 $2\pi\sqrt{6x-x^2}$, 반지름 $\sqrt{6x}$).'
+      criteria: [1.R1]
+    - id: 1b-2
+      content: 원뿔을 펼친 모양에서 옆넓이는 $S=\sqrt{6x\,(6x-x^2)}\,\pi$이므로 $f(x)=S^2=6\pi^2(6x^2-x^3)$이다.
+      criteria: [1.M1]
+    - id: 1b-3
+      content: $f'(x)=6\pi^2(12x-3x^2)=18\pi^2x(4-x)$이므로 $x=4$일 때 $f(x)$는 최대이고 최댓값은 $f(4)=192\pi^2$이다.
+      criteria: [1.M1, 1.A1]
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 1
+      isw: true
+    criteria:
+    - id: 1.R1
+      mark_type: R
+      points: 3
+      evidence: 높이 $x$에 대해 밑면의 반지름 $\sqrt{6x-x^2}$, 모선 $\sqrt{6x}$를 구했다.
+      steps: [1b-1]
+    - id: 1.M1
+      mark_type: M
+      points: 4
+      evidence: $S^2=f(x)=6\pi^2(6x^2-x^3)$를 세우고 도함수를 구했다.
+      steps: [1b-2, 1b-3]
+    - id: 1.A1
+      mark_type: A
+      points: 4
+      evidence: $x=4$에서 최대임을 보이고 $192\pi^2$를 구했다.
+      depends_on:
+      - 1.M1
+      steps: [1b-3]
+    deductions:
+    - code: D1-1
+      condition: 단순한 계산 실수(건당)
+      effect: minus
+      value: 1
+    - code: D1-2
+      condition: 타당한 설명 없이 답만 기술
+      effect: zero
+      value: 0
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+- id: '2'
+  stem: 원 $x^2-x+y^2=0$이 두 원 $x^2+y^2=\cos^2\alpha,\ x^2+y^2=\sin^2\alpha$와 제1사분면에서 만나는 두 점을 각각 P, Q라 하자. $0<\alpha<\dfrac\pi2$일 때 삼각형 OPQ의 넓이가 최대가 되는 $\alpha$를 모두 구하시오. (단, O는 원점)
+  points: 11
+  depends_on: []
+  answer:
+    kind: set
+    value: '{pi/8, 3*pi/8}'
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S2-B
+    audience: B
+    method_no: 1
+    source_flow: 출제배경 및 해설 p.2~3 [1.2]
+    steps:
+    - id: 2b-1
+      content: $x^2-x+y^2=0$과 $x^2+y^2=\cos^2\alpha$를 풀면 $x=\cos^2\alpha$, $y^2=\cos^2\alpha\sin^2\alpha$이므로 $\mathrm{P}(\cos^2\alpha,\ \lvert\sin\alpha\cos\alpha\rvert)$이다. 마찬가지로 $\mathrm{Q}(\sin^2\alpha,\ \lvert\sin\alpha\cos\alpha\rvert)$이다.
+      criteria: [2.R1]
+    - id: 2b-2
+      content: 선분 PQ가 $x$축과 평행하므로 두 점의 $y$좌표가 삼각형 OPQ의 높이이다. 따라서 $\triangle\mathrm{OPQ}=\dfrac12\lvert(\sin^2\alpha-\cos^2\alpha)\times\cos\alpha\sin\alpha\rvert$이다.
+      criteria: [2.M1]
+    - id: 2b-3
+      content: 덧셈정리 $\sin(x+y)=\sin x\cos y+\cos x\sin y$, $\cos(x+y)=\cos x\cos y-\sin x\sin y$에서 $x=y=\alpha$로 두면 $\sin2\alpha=2\sin\alpha\cos\alpha$, $\cos2\alpha=\cos^2\alpha-\sin^2\alpha$이다. 이를 이용하면 $\triangle\mathrm{OPQ}=\dfrac12\left\lvert\cos2\alpha\times\dfrac12\sin2\alpha\right\rvert=\dfrac18\lvert\sin4\alpha\rvert$이다.
+      criteria: [2.M1]
+    - id: 2b-4
+      content: $0<\alpha<\dfrac\pi2$에서 $\lvert\sin4\alpha\rvert$의 최댓값은 1이고, $4\alpha=\dfrac\pi2$ 또는 $4\alpha=\dfrac{3\pi}2$일 때 얻는다. 따라서 삼각형의 넓이가 최대가 될 때의 $\alpha$는 $\dfrac\pi8,\ \dfrac{3\pi}8$이다.
+      criteria: [2.A1]
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 1
+      isw: true
+    criteria:
+    - id: 2.R1
+      mark_type: R
+      points: 3
+      evidence: 두 교점 P, Q의 좌표를 구했다.
+      steps: [2b-1]
+    - id: 2.M1
+      mark_type: M
+      points: 4
+      evidence: 두 점의 $y$좌표가 같음을 이용해 넓이를 세우고 덧셈정리로 $\dfrac18\lvert\sin4\alpha\rvert$로 정리했다.
+      steps: [2b-2, 2b-3]
+    - id: 2.A1
+      mark_type: A
+      points: 4
+      evidence: $\alpha=\dfrac\pi8,\dfrac{3\pi}8$을 모두 구했다.
+      depends_on:
+      - 2.M1
+      steps: [2b-4]
+    deductions:
+    - code: D2-1
+      condition: 단순한 계산 실수(건당)
+      effect: minus
+      value: 1
+    - code: D2-2
+      condition: 타당한 설명 없이 답만 기술
+      effect: zero
+      value: 0
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+- id: '3'
+  stem: A와 B가 경주를 한다. 계속 앞서고 있던 A가 결승선을 90m 앞두고 넘어졌다. A가 넘어져 있는 동안 B는 2(m/s)의 일정한 속도로 달리며 A를 추월했다. B가 A를 추월한 시점에서 10초 후, A가 다시 달리기 시작했다. A가 다시 달리기 시작한 시점부터 $t$초 후, A의 속도는 $at$(m/s)이고 B의 속도는 $(t+2)$(m/s)이다. A가 이기기 위한 실수 $a$의 조건을 구하시오.
+  points: 12
+  depends_on: []
+  answer:
+    kind: expression
+    value: a>9/5
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S3-B
+    audience: B
+    method_no: 1
+    source_flow: 출제배경 및 해설 p.3 [1.3]
+    steps:
+    - id: 3b-1
+      content: 결승선까지 90m 남은 지점을 P라 하자. A가 다시 달리기 시작한 $t$초 후 속도가 $at$이므로 P로부터 A가 간 거리는 $\dfrac a2t^2$이다.
+      criteria: [3.R1]
+    - id: 3b-2
+      content: 'B는 2(m/s)의 속도로 10초 이동한 후 $(t+2)$(m/s)의 속도로 $t$초 이동하였으므로 P로부터 B가 간 거리는 $20+\displaystyle\int_0^t(x+2)\,dx=\dfrac12t^2+2t+20$이다. [그림] 해설지 그림: $t$축(가로)과 거리(세로) 좌표평면에서 두 곡선 $y=\dfrac a2t^2$과 $y=\dfrac12t^2+2t+20$, 수평선 $y=90$, $t=10$ 표시.'
+      criteria: [3.R1]
+    - id: 3b-3
+      content: B가 결승선에 도착하는 시각은 $\dfrac{t^2}2+2t+20=90$일 때의 시각이므로 $t=10$이다. $t=10$일 때 $\dfrac12at^2>90$이 되기 위해서는 $a>\dfrac95$이어야 한다.
+      criteria: [3.M1, 3.A1]
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 1
+      isw: true
+    criteria:
+    - id: 3.R1
+      mark_type: R
+      points: 4
+      evidence: A, B가 기준점 P로부터 간 거리를 각각 $\dfrac a2t^2$, $20+\displaystyle\int_0^t(x+2)dx$로 세웠다.
+      steps: [3b-1, 3b-2]
+    - id: 3.M1
+      mark_type: M
+      points: 4
+      evidence: B가 결승선에 도착하는 시각 $t=10$을 구했다.
+      steps: [3b-3]
+    - id: 3.A1
+      mark_type: A
+      points: 4
+      evidence: $t=10$에서 A의 거리가 90m보다 크도록 하는 $a>\dfrac95$를 구했다.
+      depends_on:
+      - 3.M1
+      steps: [3b-3]
+    deductions:
+    - code: D3-1
+      condition: 단순한 계산 실수(건당)
+      effect: minus
+      value: 1
+    - code: D3-2
+      condition: 타당한 설명 없이 답만 기술
+      effect: zero
+      value: 0
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: p3-past-v1
+  item_version: 1
+  verdict: pass
+  date: '2026-11-22'
+created: '2026-11-22'
+updated: '2026-11-22'

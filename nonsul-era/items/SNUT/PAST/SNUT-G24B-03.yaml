@@ -1,0 +1,251 @@
+# 서울과학기술대 2024학년도 자연계열 오후 수리논술 문제 3 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+# 소문항 배점 미공개 — 추정(대문항 배점 비율을 소문항에 균등 배분)
+schema_version: '2.0'
+id: SNUT-G24B-03
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: numeric
+origin: past_exam
+school: SNUT
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 추론
+points: 33
+time_estimate_min: 30
+intent: 부분적분법으로 여러 가지 함수의 부정적분을 구하고, 정적분으로 도형의 넓이를 구하며, 정적분과 급수의 합 사이의 관계를 이용하여 극한값을 구하는지 평가한다.
+key_idea: '[3.1] 부분적분을 두 번 하여 $e^x(\sin x-\cos x)+C$. [3.2] 부호를 구간별로 나누어 $A_n=e^{2n\pi}(1+e^\pi)^2$. [3.3] $\ln A_k-2\ln(1+e^\pi)=2k\pi$이므로 구분구적법으로 $(2\pi)^7\int_0^1x^7dx=16\pi^7$.'
+stuck: '[3.2] $[2n\pi,(2n+1)\pi]$와 $[(2n+1)\pi,(2n+2)\pi]$에서 부호를 나누는 단계, [3.3] 합을 $\dfrac kn$의 정적분 꼴로 바꾸는 단계'
+idea_tags:
+- IDEA-INTEGRATION-BY-PARTS-TWICE-RIEMANN
+tags:
+- 부분적분
+- 넓이
+- 구분구적법
+- 정적분과 급수의 합
+- 로그
+elements:
+  materials:
+  - 곡선 $y=2e^x\sin x$와 $x$축, 두 직선 $x=2n\pi$, $x=(2n+2)\pi$로 둘러싸인 도형의 넓이 $A_n$
+  - $\sum_{k=1}^n\dfrac1{n^8}\{\ln A_k-2\ln(1+e^\pi)\}^7$
+  concepts:
+  - 부분적분법
+  - 정적분과 넓이
+  - 로그의 성질
+  - 정적분과 급수의 합 사이의 관계(구분구적법)
+  tools:
+  - $\int e^x\sin x\,dx$ 순환 부분적분
+  - $\lim\sum f(k/n)\dfrac1n=\int_0^1f(x)dx$
+  conditions:
+  - $e^x>0$이므로 $\sin x$의 부호로 구간 분할
+  - $n\to\infty$ 극한과 $\dfrac1{n^8}=\dfrac1{n^7}\cdot\dfrac1n$
+  stimuli_used:
+  - 가
+  subpart_links: '[3.1]의 부정적분을 [3.2]에서, [3.2]의 $A_n$을 [3.3]에서 이용'
+curriculum:
+  version: '2015'
+  subjects:
+  - 미적분
+  scope_2028: calc2
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 미적분 부분적분법, 정적분의 활용(넓이), 정적분과 급수의 합 (추정)
+    verified: false
+  content_area: 적분
+  behavior_domain: 계산
+  unit_path:
+  - 미적분
+  - 부분적분과 정적분의 활용
+  - 넓이와 구분구적법
+  key_concepts:
+  - 부분적분
+  - 넓이
+  - 구분구적법
+difficulty: {rater: author, p_value: null, n: 0}
+source:
+  rights_holder: 서울과학기술대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 서울과학기술대학교
+  admission_year: 2024
+  admission_type: 수시 논술위주전형
+  track: 자연계열 오후
+  question_no: 3
+  official_url: https://admission.seoultech.ac.kr/cms/FR_BBS_CON/BoardView.do?SITE_NO=2&MENU_ID=970&BOARD_SEQ=25&CONTENTS_NO=1&BBS_SEQ=6
+  retrieved_at: '2026-11-22'
+  original_points: 문제 3 총점수의 33%
+  rights_notice: 미확인(입학처 공개 자료)
+  transcribed_from: 서울과기대 입학처 공식 PDF「G24B_Q.pdf」p.4 및 「G24B_S.pdf」(출제배경 및 해설) p.4~5 (이미지 대조 2026-11-22)
+verify: verify/SNUT-G24B.py::p03
+stimuli:
+- label: 가
+  body: 자연수 $n$에 대하여, 곡선 $y=2e^x\sin x$와 $x$축 및 두 직선 $x=2n\pi$, $x=(2n+2)\pi$로 둘러싸인 도형의 넓이를 $A_n$이라 하자.
+stem: 다음 제시문을 읽고 물음에 답하시오.
+subparts:
+- id: '1'
+  stem: 부정적분 $\displaystyle\int2e^x\sin x\,dx$를 구하시오.
+  points: 11
+  depends_on: []
+  answer: {kind: expression, value: exp(x)*(sin(x)-cos(x))+C, equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 출제배경 및 해설 p.4 [3.1]
+    steps:
+    - id: 1b-1
+      content: 부분적분법을 적용하면 $\displaystyle\int2e^x\sin x\,dx=2e^x\sin x-\int2e^x\cos x\,dx$이다. 우변의 부정적분식에서 부분적분법을 적용하면 $\displaystyle\int2e^x\cos x\,dx=2e^x\cos x+\int2e^x\sin x\,dx$이다.
+      criteria:
+      - 1.M1
+    - id: 1b-2
+      content: 이를 첫 번째 식에 대입하면 $\displaystyle\int2e^x\sin x\,dx=e^x(\sin x-\cos x)+C$ (단, $C$는 적분상수)를 얻는다.
+      criteria:
+      - 1.A1
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 1, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 6
+      evidence: 부분적분을 두 번 적용
+      steps:
+      - 1b-1
+    - id: 1.A1
+      mark_type: A
+      points: 5
+      evidence: $e^x(\sin x-\cos x)+C$
+      depends_on:
+      - 1.M1
+      steps:
+      - 1b-2
+    deductions:
+    - code: D1-1
+      condition: 단순한 계산 실수(건당)
+      effect: minus
+      value: 1
+    - code: D1-2
+      condition: 타당한 설명 없이 답만 기술
+      effect: zero
+      value: 0
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+- id: '2'
+  stem: $A_n$을 구하시오.
+  points: 11
+  depends_on:
+  - '1'
+  answer: {kind: expression, value: exp(2*n*pi)*(1+exp(pi))**2, equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-B
+    audience: B
+    method_no: 1
+    source_flow: 출제배경 및 해설 p.4 [3.2]
+    steps:
+    - id: 2b-1
+      content: $e^x>0$이므로 $[2n\pi,(2n+1)\pi]$에서 $2e^x\sin x\ge0$이고 $[(2n+1)\pi,(2n+2)\pi]$에서 $2e^x\sin x\le0$이다. 따라서 구하는 도형의 넓이는 $A_n=\displaystyle\int_{2n\pi}^{(2n+1)\pi}2e^x\sin x\,dx-\int_{(2n+1)\pi}^{(2n+2)\pi}2e^x\sin x\,dx$이다.
+      criteria:
+      - 2.M1
+    - id: 2b-2
+      content: $=\left[e^x(\sin x-\cos x)\right]_{2n\pi}^{(2n+1)\pi}-\left[e^x(\sin x-\cos x)\right]_{(2n+1)\pi}^{(2n+2)\pi}=e^{(2n+1)\pi}+e^{2n\pi}+e^{(2n+2)\pi}+e^{(2n+1)\pi}=e^{2n\pi}(1+e^\pi)^2$이다.
+      criteria:
+      - 2.A1
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 1, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 5
+      evidence: 부호를 구간별로 확인하고 넓이를 두 적분의 차로 설정
+      steps:
+      - 2b-1
+    - id: 2.A1
+      mark_type: A
+      points: 6
+      evidence: $A_n=e^{2n\pi}(1+e^\pi)^2$
+      depends_on:
+      - 2.M1
+      steps:
+      - 2b-2
+    deductions:
+    - code: D2-1
+      condition: 단순한 계산 실수(건당)
+      effect: minus
+      value: 1
+    - code: D2-2
+      condition: 타당한 설명 없이 답만 기술
+      effect: zero
+      value: 0
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+- id: '3'
+  stem: 극한값 $\displaystyle\lim_{n\to\infty}\sum_{k=1}^{n}\dfrac1{n^8}\left\{\ln A_k-2\ln(1+e^\pi)\right\}^7$을 구하시오.
+  points: 11
+  depends_on:
+  - '2'
+  answer: {kind: value, value: 16*pi**7, equivalents: [], tolerance: null}
+  solutions:
+  - id: S3-B
+    audience: B
+    method_no: 1
+    source_flow: 출제배경 및 해설 p.4~5 [3.3]
+    steps:
+    - id: 3b-1
+      content: 문항 [3.2]로부터 $\ln A_k-2\ln(1+e^\pi)=\ln\dfrac{A_k}{(1+e^\pi)^2}=2k\pi$이므로
+      criteria:
+      - 3.M1
+    - id: 3b-2
+      content: $\displaystyle\lim_{n\to\infty}\sum_{k=1}^{n}\dfrac1{n^8}\left\{\ln A_k-2\ln(1+e^\pi)\right\}^7=(2\pi)^7\lim_{n\to\infty}\sum_{k=1}^{n}\left(\dfrac kn\right)^7\dfrac1n$이 성립한다.
+      criteria:
+      - 3.M2
+    - id: 3b-3
+      content: 정적분과 급수의 합 사이의 관계에 의하여, 구하는 극한값은 $(2\pi)^7\displaystyle\int_0^1x^7dx=16\pi^7$이다.
+      criteria:
+      - 3.A1
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 1, isw: true}
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 4
+      evidence: $\ln A_k-2\ln(1+e^\pi)=2k\pi$
+      steps:
+      - 3b-1
+    - id: 3.M2
+      mark_type: M
+      points: 3
+      evidence: 구분구적법 꼴 $(2\pi)^7\sum(k/n)^7\cdot\dfrac1n$
+      steps:
+      - 3b-2
+    - id: 3.A1
+      mark_type: A
+      points: 4
+      evidence: $16\pi^7$
+      depends_on:
+      - 3.M2
+      steps:
+      - 3b-3
+    deductions:
+    - code: D3-1
+      condition: 단순한 계산 실수(건당)
+      effect: minus
+      value: 1
+    - code: D3-2
+      condition: 타당한 설명 없이 답만 기술
+      effect: zero
+      value: 0
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+remedy_links: []
+reviews:
+- {stage: compose, actor_type: model, actor_id: sonnet, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: '2026-11-22'}
+created: '2026-11-22'
+updated: '2026-11-22'

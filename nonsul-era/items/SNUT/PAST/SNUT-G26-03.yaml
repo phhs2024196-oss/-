@@ -1,0 +1,222 @@
+# 서울과학기술대 2026학년도 논술전형고사 문제 3 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: SNUT-G26-03
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: short_answer
+origin: past_exam
+school: SNUT
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 추론
+points: 30
+time_estimate_min: 28
+intent: |
+  제시문에 설명한 성질들을 충분히 이해하고 활용하여 필요한 결과를 수학적으로 도출할 수 있는 능력은 이공계 대학 교육을 받는 학생에게 필수적이다. 이 문제를 풀기 위한 개념은 이차방정식의 근과 계수의 관계, 선분의 내분점, 곡선으로 둘러싸인 영역의 넓이, 함수의 극한 등 고등학생이 알아야 할 기본적인 내용이다. 본 문항에서는 주어진 조건을 만족시키는 함수를 구하고 함수의 그래프를 이해하여 곡선으로 둘러싸인 영역의 넓이를 구할 수 있는지, 또한 극한을 구할 수 있는지 평가한다. [3.1] 이차방정식의 근과 계수의 관계, 선분의 내분점으로 조건을 만족시키는 함수를 구하는지, [3.2] 그래프를 이해하고 정적분으로 곡선과 $x$축 사이의 영역의 넓이를 구하는지, [3.3] 분모와 분자의 차수를 비교하여 극한이 존재하기 위한 조건을 구하고 극한을 계산하는지 평가한다. (출제배경)
+key_idea: |
+  $f'(x)=0$의 두 근이 $\alpha,\beta$이므로 근과 계수의 관계, 내분점 조건에서 $\beta=-2\alpha$, $\alpha=-t$이므로 $a=-\dfrac32t$, $b=-6t^2$. $f(x)=x^3-\dfrac32tx^2-6t^2x$는 $[-t,0]$에서 $f\ge0$, $[0,2t]$에서 $f\le0$이므로 $S(t)=\displaystyle\int_{-t}^0f\,dx-\int_0^{2t}f\,dx=\dfrac{57}4t^4$. $\lim\dfrac{S(t)}{t^k}$가 존재하는 가장 작은 $k=4$, 극한값 $\dfrac{57}4$.
+stuck: |
+  [3.1] 선분 AB를 $1:2$로 내분하는 점의 $x$좌표가 0이라는 조건에서 $\beta=-2\alpha$를, $y$좌표 조건에서 $\alpha=-t$를 이끌어 내는 단계. [3.2] 극댓값·극솟값 위치로 $f$의 부호를 구간별로 판단해 절댓값 없이 넓이를 세우는 단계.
+idea_tags: [IDEA-VIETA-INTERNAL-DIVISION-CUBIC, IDEA-AREA-SIGN-BY-EXTREMA, IDEA-RATIONAL-LIMIT-DEGREE]
+tags: [삼차함수의 극값, 근과 계수의 관계, 선분의 내분점, 정적분과 넓이, 함수의 극한, '출제근거: 이차방정식의 근과 계수의 관계(수학, 좋은책 신사고 2021 p.51~54)', '출제근거: 선분의 내분점과 외분점(수학, 좋은책 신사고 2021 p.108~113)', '출제근거: 넓이(수학Ⅱ, 동아출판 2021 p.137~142)']
+elements:
+  materials:
+  - '삼차함수 $f(x)=x^3+ax^2+bx$, 극대 $x=\alpha$, 극소 $x=\beta$'
+  - '$\mathrm{A}(\alpha,f(\alpha))$, $\mathrm{B}(\beta,f(\beta))$를 $1:2$로 내분하는 점 $\mathrm{P}(0,-t^3)$ ($t>0$)'
+  - '곡선 $y=f(x)$, $x$축, 두 직선 $x=\alpha$, $x=\beta$로 둘러싸인 도형의 넓이 $S(t)$'
+  concepts: [도함수와 극값, 이차방정식의 근과 계수의 관계, 선분의 내분점, 정적분과 넓이(부호 판단), 다항함수의 극한]
+  tools:
+  - '$f''(x)=3x^2+2ax+b$의 두 근 $\alpha,\beta$: $\alpha+\beta=-\dfrac{2a}3$, $\alpha\beta=\dfrac b3$'
+  - '내분점 $\left(\dfrac{\beta+2\alpha}3,\dfrac{f(\beta)+2f(\alpha)}3\right)=(0,-t^3)$'
+  - '$S(t)=\int_{-t}^0f\,dx-\int_0^{2t}f\,dx$'
+  - '차수 비교: $\dfrac{57}4t^{4-k}$의 극한이 존재하려면 $k\ge4$'
+  conditions:
+  - '극댓값 $x=\alpha$, 극솟값 $x=\beta$ → $\alpha<\beta$'
+  - '$t>0$'
+  - '$x$축과 두 직선으로 둘러싸임 → $f$의 부호가 $x=0$에서 바뀜'
+  stimuli_used: [가, 나]
+  subpart_links: '[3.1]의 $a,b$ → [3.2]의 $f$로 넓이 $S(t)$ → [3.3]의 극한'
+
+curriculum:
+  version: '2015'
+  subjects: [수학, 수학Ⅱ]
+  scope_2028: common
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 이차방정식의 근과 계수의 관계, 선분의 내분점, 함수의 극대·극소, 정적분과 넓이, 함수의 극한(출제근거 단원 기준 추정)
+    verified: false
+  content_area: 미분법, 적분법, 함수의 극한
+  behavior_domain: 계산
+  unit_path: [수학Ⅱ, 적분, 정적분의 활용, 삼차함수 극값 사이의 넓이]
+  key_concepts: [근과 계수의 관계, 내분점, 넓이의 부호 판단, 극한의 차수 비교]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 서울과학기술대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 서울과학기술대학교
+  admission_year: 2026
+  admission_type: 수시 논술위주전형
+  track: 자연계열
+  question_no: 3
+  official_url: https://admission.seoultech.ac.kr/cms/FR_BBS_CON/BoardView.do?SITE_NO=2&MENU_ID=970&BOARD_SEQ=25&CONTENTS_NO=1&BBS_SEQ=1
+  retrieved_at: 2026-11-22
+  original_points: 총점의 30%
+  rights_notice: 미확인(입학처 공개 자료)
+  transcribed_from: '서울과기대 입학처 공식 PDF「G26_Q.pdf」p.4, 「G26_S.pdf」p.4~5(PDF p.5~6) (이미지 대조 2026-11-22)'
+
+verify: verify/SNUT-G26.py::p03
+
+stimuli:
+- label: 가   # 원문에는 라벨이 없는 단일 상자 안의 조건 (가), (나)
+  body: |
+    실수 $a,b$에 대하여 함수 $f(x)=x^3+ax^2+bx$가 다음 두 조건을 만족시킨다.
+    (가) 함수 $f(x)$는 $x=\alpha$에서 극댓값을 갖고, $x=\beta$에서 극솟값을 갖는다.
+    (나) 두 점 $\mathrm{A}(\alpha,f(\alpha))$, $\mathrm{B}(\beta,f(\beta))$를 이은 선분 AB를 $1:2$로 내분하는 점은 $\mathrm{P}(0,-t^3)$이다. (단, $t>0$)
+
+stem: |
+  다음 제시문을 읽고 물음에 답하시오.
+
+subparts:
+- id: '1'
+  stem: |
+    $a,b$를 $t$에 관한 식으로 각각 나타내시오.
+  points: 10   # 소문항 배점 미공개 — 추정(30점을 10점씩 균등 추정)
+  depends_on: []
+  answer: {kind: expression, value: 'a=-3*t/2; b=-6*t**2', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 출제배경 및 해설 p.4~5 [3.1]
+    steps:
+    - id: 1b-1
+      content: |
+        $f'(x)=3x^2+2ax+b=0$의 두 근이 $\alpha,\beta$이므로 이차방정식의 근과 계수의 관계에 의하여 $\alpha+\beta=-\dfrac{2a}3$, $\alpha\beta=\dfrac b3$이다.
+      criteria: [1.M1]
+    - id: 1b-2
+      content: |
+        두 점 $\mathrm{A}(\alpha,f(\alpha))$, $\mathrm{B}(\beta,f(\beta))$를 이은 선분 AB를 $1:2$로 내분하는 점의 좌표가 $(0,-t^3)$이므로
+        $$\dfrac{\beta+2\alpha}3=0,\qquad\dfrac{f(\beta)+2f(\alpha)}3=-t^3$$
+        이다. 따라서 $\beta=-2\alpha$이고
+        $$a=-\dfrac32(\alpha+\beta)=\dfrac32\alpha,\qquad b=3\alpha\beta=-6\alpha^2$$
+        이다.
+      criteria: [1.M2]
+    - id: 1b-3
+      content: |
+        또
+        $$-t^3=\dfrac{f(\beta)+2f(\alpha)}3=\dfrac13\{f(-2\alpha)+2f(\alpha)\}=-2\alpha^3+2a\alpha^2=\alpha^3$$
+        이므로 $\alpha=-t$이고
+        $$a=\dfrac32\alpha=-\dfrac32t,\qquad b=-6\alpha^2=-6t^2$$
+        이다.
+      criteria: [1.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 1, isw: true}
+    criteria:
+    - {id: 1.M1, mark_type: M, points: 2, evidence: '$f''(x)=0$의 두 근 $\alpha,\beta$에 대해 근과 계수의 관계 $\alpha+\beta=-\dfrac{2a}3$, $\alpha\beta=\dfrac b3$을 적었다.', steps: [1b-1]}
+    - {id: 1.M2, mark_type: M, points: 4, evidence: '내분점의 좌표 조건에서 $\beta=-2\alpha$를 얻고 $a=\dfrac32\alpha$, $b=-6\alpha^2$으로 나타냈다.', depends_on: [1.M1], steps: [1b-2]}
+    - {id: 1.A1, mark_type: A, points: 4, evidence: '$y$좌표 조건에서 $\alpha=-t$를 얻어 $a=-\dfrac32t$, $b=-6t^2$을 구했다.', depends_on: [1.M2], steps: [1b-3]}
+    deductions:
+    - code: D1-1
+      condition: 단순한 계산 실수와 같은 사소한 실수(건당)
+      effect: minus
+      value: 1
+    - code: D1-2
+      condition: 풀이 과정 없이 답만 기술
+      effect: zero
+      value: 0
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+- id: '2'
+  stem: |
+    문항 [3.1]에서 구한 $a,b$에 대하여 곡선 $y=f(x)$와 $x$축 및 두 직선 $x=\alpha$, $x=\beta$로 둘러싸인 도형의 넓이 $S(t)$를 구하시오.
+  points: 10   # 소문항 배점 미공개 — 추정
+  depends_on: ['1']
+  answer: {kind: expression, value: '57*t**4/4', equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-B
+    audience: B
+    method_no: 1
+    source_flow: 출제배경 및 해설 p.5 [3.2]
+    steps:
+    - id: 2b-1
+      content: |
+        $f(x)=x^3-\dfrac32tx^2-6t^2x$이므로 곡선 $y=f(x)$는 원점을 지난다. 또 $x=\alpha=-t$에서 극댓값, $x=\beta=2t$에서 극솟값을 가지므로 닫힌구간 $[-t,0]$에서 $f(x)\ge0$이고 닫힌구간 $[0,2t]$에서 $f(x)\le0$이다.
+      criteria: [2.M1]
+    - id: 2b-2
+      content: |
+        따라서
+        $$S(t)=\int_{-t}^0f(x)\,dx+\int_0^{2t}\{-f(x)\}dx=\Big[\dfrac14x^4-\dfrac12tx^3-3t^2x^2\Big]_{-t}^0-\Big[\dfrac14x^4-\dfrac12tx^3-3t^2x^2\Big]_0^{2t}=\dfrac{57}4t^4$$
+        이다.
+      criteria: [2.M2, 2.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 1, isw: true}
+    criteria:
+    - {id: 2.M1, mark_type: M, points: 4, evidence: '$f(x)=x^3-\dfrac32tx^2-6t^2x$의 극값 위치로 $[-t,0]$에서 $f\ge0$, $[0,2t]$에서 $f\le0$임을 밝혔다.', depends_on: [1.A1], steps: [2b-1]}
+    - {id: 2.M2, mark_type: M, points: 3, evidence: '$S(t)=\displaystyle\int_{-t}^0f\,dx+\int_0^{2t}(-f)\,dx$로 세우고 부정적분을 구했다.', depends_on: [2.M1], steps: [2b-2]}
+    - {id: 2.A1, mark_type: A, points: 3, evidence: '$S(t)=\dfrac{57}4t^4$을 구했다.', depends_on: [2.M2], steps: [2b-2]}
+    deductions:
+    - code: D2-1
+      condition: 단순한 계산 실수와 같은 사소한 실수(건당)
+      effect: minus
+      value: 1
+    - code: D2-2
+      condition: 풀이 과정 없이 답만 기술
+      effect: zero
+      value: 0
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+- id: '3'
+  stem: |
+    문항 [3.2]에서 구한 $S(t)$에 대하여 $\displaystyle\lim_{t\to\infty}\dfrac{S(t)}{t^k}$가 존재하게 하는 가장 작은 자연수 $k$의 값과 이때의 극한값을 각각 구하시오.
+  points: 10   # 소문항 배점 미공개 — 추정
+  depends_on: ['2']
+  answer: {kind: value, value: 'k=4; 57/4', equivalents: [], tolerance: null}
+  solutions:
+  - id: S3-B
+    audience: B
+    method_no: 1
+    source_flow: 출제배경 및 해설 p.5 [3.3]
+    steps:
+    - id: 3b-1
+      content: |
+        $S(t)=\dfrac{57}4t^4$이므로
+        $$\lim_{t\to\infty}\dfrac{S(t)}{t^k}=\lim_{t\to\infty}\dfrac{57t^4}{4t^k}$$
+        이 존재하게 하는 가장 작은 자연수 $k$의 값은 4이고, 이때의 극한값은 $\displaystyle\lim_{t\to\infty}\dfrac{57t^4}{4t^4}=\dfrac{57}4$이다.
+      criteria: [3.M1, 3.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 1, isw: true}
+    criteria:
+    - {id: 3.M1, mark_type: M, points: 5, evidence: '분모·분자의 차수를 비교해 극한이 존재할 조건 $k\ge4$를 적고 가장 작은 자연수 $k=4$를 구했다.', depends_on: [2.A1], steps: [3b-1]}
+    - {id: 3.A1, mark_type: A, points: 5, evidence: '$k=4$일 때의 극한값 $\dfrac{57}4$를 구했다.', depends_on: [3.M1], steps: [3b-1]}
+    deductions:
+    - code: D3-1
+      condition: 단순한 계산 실수와 같은 사소한 실수(건당)
+      effect: minus
+      value: 1
+    - code: D3-2
+      condition: 풀이 과정 없이 답만 기술
+      effect: zero
+      value: 0
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+remedy_links: []
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: sonnet, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-22}
+
+created: 2026-11-22
+updated: 2026-11-22

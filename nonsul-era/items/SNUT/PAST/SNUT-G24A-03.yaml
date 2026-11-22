@@ -1,0 +1,265 @@
+# 서울과학기술대 2024학년도 자연계열 오전 수리논술 문제 3 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+# 소문항 배점 미공개 — 추정(대문항 배점 비율을 소문항에 균등 배분)
+schema_version: '2.0'
+id: SNUT-G24A-03
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: numeric
+origin: past_exam
+school: SNUT
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 추론
+points: 33
+time_estimate_min: 30
+intent: 원의 중심에서 점까지의 거리와 반지름을 비교하여 만난 원의 개수를 구하고, 정적분으로 점이 움직인 거리를 구하며, 삼각함수의 적분과 등비급수를 활용하여 식을 해석하는지 평가한다.
+key_idea: $\overline{\mathrm{OP}}=e^{2t}$이므로 $3^N\le e^{2\pi}$, $\ln3$ 부등식으로 $N=5$. 속력 $\sqrt5e^{2t}$를 $0$부터 $\dfrac52\ln3$까지 적분하여 $121\sqrt5$. 정적분 $2(-1)^{k-1}$로 등비급수 $\dfrac14$.
+stuck: '[3.1] 로그 부등식 $1.09<\ln3<1.10$으로 $\dfrac{2\pi}{\ln3}$의 정수 부분을 평가하는 단계, [3.3] $\int_{k-1}^{k}\pi\sin\pi x\,dx=2(-1)^{k-1}$로 부호를 소거하는 단계'
+idea_tags:
+- IDEA-SPIRAL-RADIUS-COUNT-LENGTH
+tags:
+- 매개변수로 나타낸 곡선
+- 이동 거리
+- 로그
+- 등비급수
+- 삼각함수의 적분
+elements:
+  materials:
+  - 중심이 원점이고 반지름이 $3^n$인 원들
+  - 점 $\mathrm{P}(e^{2t}\cos t,e^{2t}\sin t)$ $(0\le t\le\pi)$
+  - 급수 $\sum_{k=N}^\infty\left(-\dfrac12\right)^{k-1}\int_{k-1}^k\pi\sin\pi x\,dx$
+  concepts:
+  - 매개변수로 나타낸 곡선의 속도와 거리
+  - 지수함수와 로그함수
+  - 정적분
+  - 삼각함수의 적분
+  - 등비급수
+  tools:
+  - $\overline{\mathrm{OP}}=e^{2t}$
+  - $s=\int\sqrt{(x')^2+(y')^2}dt$
+  - 조건 (라) $1.09<\ln3<1.10$
+  conditions:
+  - $0\le t\le\pi$
+  - $N$은 만난 원의 개수(처음 거리 $1<3$이므로 $3^1$부터 센다)
+  stimuli_used:
+  - 가
+  - 나
+  - 다
+  - 라
+  subpart_links: '[3.1]의 $N=5$를 [3.2], [3.3]에서 이용'
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학Ⅰ
+  - 수학Ⅱ
+  - 미적분
+  scope_2028: calc2
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 수학Ⅱ·미적분 속도와 거리(매개변수), 지수·로그함수, 등비급수 (추정)
+    verified: false
+  content_area: 적분의 활용, 급수
+  behavior_domain: 문제해결
+  unit_path:
+  - 미적분
+  - 매개변수로 나타낸 곡선과 급수
+  - 원의 개수, 이동 거리, 급수의 합
+  key_concepts:
+  - 이동 거리
+  - 로그 부등식
+  - 등비급수
+difficulty: {rater: author, p_value: null, n: 0}
+source:
+  rights_holder: 서울과학기술대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 서울과학기술대학교
+  admission_year: 2024
+  admission_type: 수시 논술위주전형
+  track: 자연계열 오전
+  question_no: 3
+  official_url: https://admission.seoultech.ac.kr/cms/FR_BBS_CON/BoardView.do?SITE_NO=2&MENU_ID=970&BOARD_SEQ=25&CONTENTS_NO=1&BBS_SEQ=6
+  retrieved_at: '2026-11-22'
+  original_points: 문제 3 총점수의 33%
+  rights_notice: 미확인(입학처 공개 자료)
+  transcribed_from: 서울과기대 입학처 공식 PDF「G24A_Q.pdf」p.4 및 「G24A_S.pdf」(출제배경 및 해설) p.4~5 (이미지 대조 2026-11-22)
+verify: verify/SNUT-G24A.py::p03
+stimuli:
+- label: 가
+  body: 중심이 원점 $\mathrm{O}(0,0)$이고 반지름의 길이가 $3,9,27,\cdots,3^n,\cdots$인 원이 좌표평면 위에 있다. (단, $n$은 자연수)
+- label: 나
+  body: 좌표평면 위를 시각 $t=0$에서 $t=\pi$까지 점 $\mathrm{P}$가 움직인다. 이 점 $\mathrm{P}$의 위치 $(x,y)$는 $x=e^{2t}\cos t$, $y=e^{2t}\sin t$이다.
+- label: 다
+  body: 점 $\mathrm{P}$가 움직이는 동안 만난 원의 개수를 $N$이라 하자.
+- label: 라
+  body: 필요할 경우, $1.09<\ln3<1.10$을 이용한다.
+stem: 다음 제시문을 읽고 물음에 답하시오.
+subparts:
+- id: '1'
+  stem: $N$을 구하시오.
+  points: 11
+  depends_on: []
+  answer: {kind: value, value: '5', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 출제배경 및 해설 p.4 [3.1]
+    steps:
+    - id: 1b-1
+      content: 원점과 점 $\mathrm{P}$ 사이의 거리는 $\overline{\mathrm{OP}}=\sqrt{(e^{2t}\cos t)^2+(e^{2t}\sin t)^2}=e^{2t}$이다. $t=0$에서 $t=\pi$일 때까지 점 $\mathrm{P}$가 움직이므로, $t=\pi$일 때 원점과 점 $\mathrm{P}$ 사이의 거리 $e^{2\pi}$이 원의 반지름 $3^N$ 이상이 되는 최대 자연수 $N$을 구하자.
+      criteria:
+      - 1.M1
+    - id: 1b-2
+      content: $3^N\le e^{2\pi}$ $\Rightarrow$ $N\ln3\le2\pi$ $\Rightarrow$ $N\le\dfrac{2\pi}{\ln3}$이고, 주어진 조건 $1.09<\ln3<1.10$에서 $\dfrac{2\pi}{1.10}<\dfrac{2\pi}{\ln3}<\dfrac{2\pi}{1.09}$이므로 $5<\dfrac{2\pi}{\ln3}<6$임을 알 수 있다. 따라서 점 $\mathrm{P}$가 만난 원의 개수 $N=5$이다.
+      criteria:
+      - 1.A1
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 1, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 4
+      evidence: $\overline{\mathrm{OP}}=e^{2t}$, $3^N\le e^{2\pi}$ 조건
+      steps:
+      - 1b-1
+    - id: 1.A1
+      mark_type: A
+      points: 7
+      evidence: (라)로 $5<\dfrac{2\pi}{\ln3}<6$, $N=5$
+      depends_on:
+      - 1.M1
+      steps:
+      - 1b-2
+    deductions:
+    - code: D1-1
+      condition: 단순한 계산 실수(건당)
+      effect: minus
+      value: 1
+    - code: D1-2
+      condition: 타당한 설명 없이 답만 기술
+      effect: zero
+      value: 0
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+- id: '2'
+  stem: 점 $\mathrm{P}$가 반지름의 길이가 $3^N$인 원을 만날 때까지, 점 $\mathrm{P}$가 움직인 거리를 구하시오.
+  points: 11
+  depends_on:
+  - '1'
+  answer: {kind: value, value: 121*sqrt(5), equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-B
+    audience: B
+    method_no: 1
+    source_flow: 출제배경 및 해설 p.4~5 [3.2]
+    steps:
+    - id: 2b-1
+      content: 반지름의 길이가 $3^5$인 원을 마지막으로 만나므로, 이때의 시각 $t$를 구하면 $e^{2t}=3^5$ $\Rightarrow$ $t=\dfrac52\ln3$이다.
+      criteria:
+      - 2.M1
+    - id: 2b-2
+      content: 또한 $\dfrac{dx}{dt}=2e^{2t}\cos t-e^{2t}\sin t$, $\dfrac{dy}{dt}=2e^{2t}\sin t+e^{2t}\cos t$이고 $\sqrt{\left(\dfrac{dx}{dt}\right)^2+\left(\dfrac{dy}{dt}\right)^2}=\sqrt{4e^{4t}+e^{4t}}=\sqrt5e^{2t}$이다.
+      criteria:
+      - 2.M2
+    - id: 2b-3
+      content: 따라서 점 $\mathrm{P}$가 움직인 거리는 $\displaystyle\int_0^{\frac52\ln3}\sqrt5e^{2t}dt=\sqrt5\left[\dfrac{e^{2t}}{2}\right]_0^{\frac52\ln3}=\dfrac{\sqrt5}{2}(243-1)=121\sqrt5$이다.
+      criteria:
+      - 2.A1
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 1, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 3
+      evidence: $t=\dfrac52\ln3$
+      steps:
+      - 2b-1
+    - id: 2.M2
+      mark_type: M
+      points: 4
+      evidence: 속력 $\sqrt5e^{2t}$
+      steps:
+      - 2b-2
+    - id: 2.A1
+      mark_type: A
+      points: 4
+      evidence: $121\sqrt5$
+      depends_on:
+      - 2.M2
+      steps:
+      - 2b-3
+    deductions:
+    - code: D2-1
+      condition: 단순한 계산 실수(건당)
+      effect: minus
+      value: 1
+    - code: D2-2
+      condition: 타당한 설명 없이 답만 기술
+      effect: zero
+      value: 0
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+- id: '3'
+  stem: 급수 $\displaystyle\sum_{k=N}^{\infty}\left(-\dfrac12\right)^{k-1}\int_{k-1}^{k}\pi\sin(\pi x)dx$의 합을 구하시오.
+  points: 11
+  depends_on:
+  - '1'
+  answer: {kind: value, value: 1/4, equivalents: [], tolerance: null}
+  solutions:
+  - id: S3-B
+    audience: B
+    method_no: 1
+    source_flow: 출제배경 및 해설 p.5 [3.3]
+    steps:
+    - id: 3b-1
+      content: 정적분을 계산하면 $\displaystyle\int_{k-1}^{k}\pi\sin(\pi x)dx=\left[-\cos(\pi x)\right]_{k-1}^{k}=-\cos(k\pi)+\cos(k-1)\pi=2(-1)^{k-1}$이다.
+      criteria:
+      - 3.M1
+    - id: 3b-2
+      content: $N=5$이므로 $\displaystyle\sum_{k=5}^{\infty}\left(-\dfrac12\right)^{k-1}\times\{2(-1)^{k-1}\}=\sum_{k=5}^{\infty}\left(\dfrac12\right)^{k-2}=\dfrac{\dfrac18}{1-\dfrac12}=\dfrac14$이다.
+      criteria:
+      - 3.A1
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 1, isw: true}
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 5
+      evidence: 정적분 $2(-1)^{k-1}$
+      steps:
+      - 3b-1
+    - id: 3.A1
+      mark_type: A
+      points: 6
+      evidence: 등비급수의 합 $\dfrac14$
+      depends_on:
+      - 3.M1
+      steps:
+      - 3b-2
+    deductions:
+    - code: D3-1
+      condition: 단순한 계산 실수(건당)
+      effect: minus
+      value: 1
+    - code: D3-2
+      condition: 타당한 설명 없이 답만 기술
+      effect: zero
+      value: 0
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+remedy_links: []
+reviews:
+- {stage: compose, actor_type: model, actor_id: sonnet, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: '2026-11-22'}
+created: '2026-11-22'
+updated: '2026-11-22'

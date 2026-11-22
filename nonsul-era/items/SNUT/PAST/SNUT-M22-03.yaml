@@ -1,0 +1,338 @@
+# 서울과기대 2022학년도 모의논술고사(자연계열) 문제 3 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+# 소문항 배점 미공개 — 추정(대문항 33% 배점을 소문항에 균등 분배)
+schema_version: '2.0'
+id: SNUT-M22-03
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: SNUT
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 일반화
+points: 33
+intent: |
+  극한은 사회과학, 자연과학 등 여러 분야의 현상 분석에 많이 이용된다. 주어진 현상에서 규칙을 발견하고 현상을 이해·예측하기 위해 등비수열과 등비급수를 바르게 이해하는지 평가한다. 직각삼각형에서 삼각비로 식을 얻고, 삼각형의 닮음으로 등비급수의 합을 구하며, 등비급수로 표현되는 도형의 넓이의 합이 특정한 값이 되는 조건을 구하는 능력을 본다.
+key_idea: |
+  $\tan\theta=\dfrac\alpha{1-\alpha}=t$에서 $\alpha=\dfrac t{1+t}$. 삼각형 $\mathrm{A}_{n-1}\mathrm{A}_n\mathrm{D}_n$의 닮음비 $1:\sqrt{2\alpha^2-2\alpha+1}$로 $\{l_n\}$은 첫째항 $\alpha$, 공비 $\sqrt{2\alpha^2-2\alpha+1}$인 등비수열이고 $\displaystyle\sum l_n=\dfrac t{1+t-\sqrt{1+t^2}}$. 넓이 비는 $1:(2\alpha^2-2\alpha+1)$이므로 $\{S_{2n-1}\}$은 공비 $(2\alpha^2-2\alpha+1)^2$인 등비수열, $\displaystyle\sum S_{2n-1}=\dfrac1{8(\alpha^2-\alpha+1)}=\dfrac2{13}$에서 $\alpha=\dfrac14$.
+stuck: |
+  [3.1] 직각삼각형 $\mathrm{A}_0\mathrm{D}_1\mathrm{A}_1$의 두 변($\alpha$, $1-\alpha$)으로 $\tan\theta$를 세우는 단계, [3.2] 닮음비 $1:\sqrt{2\alpha^2-2\alpha+1}$를 구해 공비로 읽는 단계, [3.3] 넓이의 닮음비(제곱)와 홀수 번째 항만의 공비 $(2\alpha^2-2\alpha+1)^2$를 구하는 단계
+idea_tags:
+- IDEA-SELF-SIMILAR-SQUARE-INSCRIBED-GEOMETRIC
+- IDEA-ODD-INDEX-GEOMETRIC-RATIO-SQUARED
+tags:
+- 등비수열
+- 등비급수
+- 삼각비
+- 도형의 닮음과 급수
+- '교과서: 미적분 미래엔(2020) 「등비급수의 활용」 37-39쪽'
+- '교과서: 수학Ⅰ 지학사(2020) 「삼각함수의 뜻」 75-79쪽'
+elements:
+  materials:
+  - 한 변의 길이가 1인 정사각형 $\mathrm{A}_0\mathrm{B}_0\mathrm{C}_0\mathrm{D}_0$의 각 변을 $\alpha:1-\alpha$로 내분하는 점을 이은 정사각형 $\mathrm{A}_1\mathrm{B}_1\mathrm{C}_1\mathrm{D}_1$
+  - 이 과정을 반복한 정사각형 열 $\mathrm{A}_n\mathrm{B}_n\mathrm{C}_n\mathrm{D}_n$
+  - 변 $\mathrm{A}_{n-1}\mathrm{A}_n$의 길이 $l_n$, 삼각형 $\mathrm{A}_{n-1}\mathrm{A}_n\mathrm{D}_n$의 넓이 $S_n$
+  concepts:
+  - 내분점
+  - 직각삼각형의 삼각비
+  - 도형의 닮음(길이비·넓이비)
+  - 등비수열
+  - 등비급수의 합
+  tools:
+  - $t=\tan\theta=\dfrac\alpha{1-\alpha}$
+  - $\sqrt{\alpha^2+(1-\alpha)^2}=\sqrt{2\alpha^2-2\alpha+1}$
+  - $l_{n+1}=\sqrt{2\alpha^2-2\alpha+1}\,l_n$
+  - 등비급수 $\dfrac{a}{1-r}$ ($\lvert r\rvert<1$)
+  conditions:
+  - $0<\alpha<\dfrac12$
+  - 삼각형 $\mathrm{A}_{n-1}\mathrm{A}_n\mathrm{D}_n$과 $\mathrm{A}_n\mathrm{A}_{n+1}\mathrm{D}_{n+1}$의 닮음
+  - '[3.3]은 홀수 번째 항 $S_{2n-1}$만의 합'
+  - $\alpha=\dfrac34$는 범위 밖
+  stimuli_used:
+  - 가
+  - 나
+  - 다
+  subpart_links: '[3.1]의 $\alpha=\dfrac t{1+t}$로 [3.2]의 공비를 $t$로 나타내고, [3.2]의 닮음비를 제곱해 [3.3]의 넓이 수열의 공비로 쓴다.'
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학Ⅰ
+  - 미적분
+  scope_2028: calc2
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 삼각함수의 뜻을 이해한다(요지)
+    verified: false
+  - code: 미확인
+    text: 등비수열의 뜻을 알고 등비급수의 합을 구할 수 있다(요지)
+    verified: false
+  - code: 미확인
+    text: 도형의 닮음을 이용할 수 있다(요지)
+    verified: false
+  content_area: 삼각함수, 수열, 급수
+  behavior_domain: 문제해결
+  unit_path:
+  - 미적분
+  - 급수
+  - 등비급수의 활용
+  - 내분점을 이어 만든 정사각형 열
+  key_concepts:
+  - 등비급수
+  - 닮음비
+  - 삼각비
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 서울과학기술대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 서울과학기술대학교
+  admission_year: 2022
+  admission_type: 수시 모의논술
+  track: 자연계열
+  question_no: 3
+  official_url: https://admission.seoultech.ac.kr/cms/FR_BBS_CON/BoardView.do?SITE_NO=2&MENU_ID=970&BOARD_SEQ=25&CONTENTS_NO=1&BBS_SEQ=35
+  retrieved_at: '2026-11-22'
+  original_points: 33
+  rights_notice: 미확인(입학처 공개 자료)
+  transcribed_from: 서울과기대 입학처 공식 PDF「M22_Q.pdf」p.4(문제지)·「M22_S.pdf」p.4~5(출제배경 및 해설, 쪽번호는 PDF 쪽) (이미지 대조 2026-11-22)
+verify: verify/SNUT-M22.py::p03
+stimuli:
+- label: 가
+  body: |
+    $0<\alpha<\dfrac12$인 $\alpha$에 대하여 다음의 단계를 시행한다.
+    (가) 아래 그림과 같이 한 변의 길이가 1인 정사각형 $\mathrm{A}_0\mathrm{B}_0\mathrm{C}_0\mathrm{D}_0$에 대하여 변 $\mathrm{A}_0\mathrm{B}_0$을 $\alpha:1-\alpha$로 내분하는 점을 $\mathrm{A}_1$, 변 $\mathrm{B}_0\mathrm{C}_0$을 $\alpha:1-\alpha$로 내분하는 점을 $\mathrm{B}_1$, 변 $\mathrm{C}_0\mathrm{D}_0$을 $\alpha:1-\alpha$로 내분하는 점을 $\mathrm{C}_1$, 변 $\mathrm{D}_0\mathrm{A}_0$을 $\alpha:1-\alpha$로 내분하는 점을 $\mathrm{D}_1$이라 하자.
+    [그림] 정사각형 $\mathrm{A}_0\mathrm{B}_0\mathrm{C}_0\mathrm{D}_0$(왼쪽 위 $\mathrm{A}_0$, 왼쪽 아래 $\mathrm{B}_0$, 오른쪽 아래 $\mathrm{C}_0$, 오른쪽 위 $\mathrm{D}_0$) 안에 각 변의 내분점 $\mathrm{A}_1$($\mathrm{A}_0\mathrm{B}_0$ 위, $\mathrm{A}_0$에서 $\alpha$만큼), $\mathrm{B}_1$, $\mathrm{C}_1$, $\mathrm{D}_1$을 이은 기울어진 정사각형 $\mathrm{A}_1\mathrm{B}_1\mathrm{C}_1\mathrm{D}_1$이 있고, 같은 방법으로 안쪽에 $\mathrm{A}_2\mathrm{B}_2\mathrm{C}_2\mathrm{D}_2$ 등 더 작은 정사각형들이 반복해서 그려져 있다. $\mathrm{A}_0\mathrm{A}_1$은 $\alpha$, $\mathrm{A}_1\mathrm{B}_0$은 $1-\alpha$로 표시되어 있다.
+- label: 나
+  body: |
+    (나) 정사각형 $\mathrm{A}_1\mathrm{B}_1\mathrm{C}_1\mathrm{D}_1$에 대하여 변 $\mathrm{A}_1\mathrm{B}_1$, $\mathrm{B}_1\mathrm{C}_1$, $\mathrm{C}_1\mathrm{D}_1$ 및 $\mathrm{D}_1\mathrm{A}_1$을 $\alpha:1-\alpha$로 내분하는 점을 각각 $\mathrm{A}_2$, $\mathrm{B}_2$, $\mathrm{C}_2$ 및 $\mathrm{D}_2$라 하자.
+- label: 다
+  body: |
+    (다) 이 과정을 반복하여 정사각형 $\mathrm{A}_{n-1}\mathrm{B}_{n-1}\mathrm{C}_{n-1}\mathrm{D}_{n-1}$에 대하여 각 변을 $\alpha:1-\alpha$로 내분하는 네 점을 연결하여 정사각형 $\mathrm{A}_n\mathrm{B}_n\mathrm{C}_n\mathrm{D}_n$을 얻을 수 있다. (단, $n$은 자연수이다.)
+stem: |
+  다음 제시문을 읽고 물음에 답하시오.
+subparts:
+- id: '1'
+  stem: |
+    $\theta=\angle\mathrm{A}_0\mathrm{D}_1\mathrm{A}_1$, $t=\tan\theta$에 대하여 $\alpha$를 $t$에 관한 식으로 나타내시오.
+  points: 11
+  depends_on: []
+  answer:
+    kind: expression
+    value: alpha = t/(1+t)
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 출제배경 및 해설 p.4 [3.1]
+    steps:
+    - id: 1b-1
+      content: |
+        $t=\tan\theta=\dfrac\alpha{1-\alpha}$이므로 $\alpha=\dfrac t{1+t}$이다.
+      criteria:
+      - 1.M1
+      - 1.A1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 1
+      isw: true
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 6
+      evidence: |
+        직각삼각형 $\mathrm{A}_0\mathrm{D}_1\mathrm{A}_1$의 두 변 $\alpha$, $1-\alpha$로 $t=\tan\theta=\dfrac\alpha{1-\alpha}$를 세웠다.
+      steps:
+      - 1b-1
+    - id: 1.A1
+      mark_type: A
+      points: 5
+      evidence: |
+        $\alpha=\dfrac t{1+t}$를 구했다.
+      depends_on:
+      - 1.M1
+      steps:
+      - 1b-1
+    deductions:
+    - code: D1-1
+      condition: 단순한 계산 실수와 같은 사소한 실수(건당)
+      effect: minus
+      value: 1
+    - code: D1-2
+      condition: 풀이 과정 없이 답만 기술
+      effect: zero
+      value: 0
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+- id: '2'
+  stem: |
+    변 $\mathrm{A}_{n-1}\mathrm{A}_n$의 길이를 $l_n$이라 할 때, $\displaystyle\sum_{n=1}^{\infty}l_n$을 $t$에 관한 식으로 나타내시오.
+  points: 11
+  depends_on:
+  - '1'
+  answer:
+    kind: expression
+    value: t/(1+t-sqrt(1+t**2))
+    equivalents:
+    - (1+t+sqrt(1+t**2))/2
+    tolerance: null
+  solutions:
+  - id: S2-B
+    audience: B
+    method_no: 1
+    source_flow: 출제배경 및 해설 p.4 [3.2]
+    steps:
+    - id: 2b-1
+      content: |
+        자연수 $n$에 대하여 삼각형 $\mathrm{A}_{n-1}\mathrm{A}_n\mathrm{D}_n$에서 $\overline{\mathrm{A}_{n-1}\mathrm{A}_n}:\overline{\mathrm{A}_n\mathrm{D}_n}=\alpha:\sqrt{2\alpha^2-2\alpha+1}$이므로
+        $$\alpha\,\overline{\mathrm{A}_n\mathrm{D}_n}=\sqrt{2\alpha^2-2\alpha+1}\,\overline{\mathrm{A}_{n-1}\mathrm{A}_n}$$
+        이다. 또 $l_{n+1}=\overline{\mathrm{A}_n\mathrm{A}_{n+1}}=\alpha\,\overline{\mathrm{A}_n\mathrm{D}_n}$이므로 $l_{n+1}=\sqrt{2\alpha^2-2\alpha+1}\times l_n$이 된다.
+      criteria:
+      - 2.M1
+    - id: 2b-2
+      content: |
+        $l_1=\alpha$이므로 수열 $\{l_n\}$은 첫째항이 $\alpha$, 공비가 $\sqrt{2\alpha^2-2\alpha+1}$인 등비수열이 된다. 이를 [3.1]에서의 관계식을 이용하여 $t$로 표현하면
+        $$\alpha=\dfrac t{1+t},\qquad\sqrt{2\alpha^2-2\alpha+1}=\dfrac{\sqrt{1+t^2}}{1+t}$$
+        이고 따라서 구하고자 하는 등비급수의 합은
+        $$\sum_{n=1}^{\infty}l_n=\dfrac t{1+t-\sqrt{1+t^2}}=\dfrac12\left(1+t+\sqrt{1+t^2}\right)$$
+        이다.
+      criteria:
+      - 2.A1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 1
+      isw: true
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 6
+      evidence: |
+        삼각형의 닮음(또는 피타고라스 정리)으로 $l_{n+1}=\sqrt{2\alpha^2-2\alpha+1}\,l_n$, 즉 첫째항 $\alpha$, 공비 $\sqrt{2\alpha^2-2\alpha+1}$인 등비수열임을 보였다.
+      steps:
+      - 2b-1
+    - id: 2.A1
+      mark_type: A
+      points: 5
+      evidence: |
+        $\alpha=\dfrac t{1+t}$로 바꿔 등비급수의 합 $\dfrac t{1+t-\sqrt{1+t^2}}$를 구했다.
+      depends_on:
+      - 2.M1
+      steps:
+      - 2b-2
+    deductions:
+    - code: D2-1
+      condition: 단순한 계산 실수와 같은 사소한 실수(건당)
+      effect: minus
+      value: 1
+    - code: D2-2
+      condition: 풀이 과정 없이 답만 기술
+      effect: zero
+      value: 0
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+- id: '3'
+  stem: |
+    삼각형 $\mathrm{A}_{n-1}\mathrm{A}_n\mathrm{D}_n$의 넓이를 $S_n$이라 할 때, $\displaystyle\sum_{n=1}^{\infty}S_{2n-1}=\dfrac2{13}$가 되는 $\alpha$를 구하시오.
+  points: 11
+  depends_on:
+  - '2'
+  answer:
+    kind: value
+    value: 1/4
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S3-B
+    audience: B
+    method_no: 1
+    source_flow: 출제배경 및 해설 p.4 [3.3]
+    steps:
+    - id: 3b-1
+      content: |
+        [3.2]에서 삼각형 $\mathrm{A}_{n-1}\mathrm{A}_n\mathrm{D}_n$과 삼각형 $\mathrm{A}_n\mathrm{A}_{n+1}\mathrm{D}_{n+1}$의 닮음비는 $1:\sqrt{2\alpha^2-2\alpha+1}$이므로 넓이의 비는 $1:(2\alpha^2-2\alpha+1)$이다. 따라서 수열 $\{S_{2n-1}\}$은 첫째항 $S_1$이 $\dfrac{\alpha(1-\alpha)}2$, 공비가 $(2\alpha^2-2\alpha+1)^2$인 등비수열이다.
+      criteria:
+      - 3.M1
+    - id: 3b-2
+      content: |
+        등비급수가 $\displaystyle\sum_{n=1}^{\infty}S_{2n-1}=\dfrac2{13}$를 만족해야 하므로
+        $$\sum_{n=1}^{\infty}S_{2n-1}=\dfrac{\dfrac{\alpha(1-\alpha)}2}{1-(2\alpha^2-2\alpha+1)^2}=\dfrac1{8(\alpha^2-\alpha+1)}=\dfrac2{13}$$
+        을 풀면 $\alpha=\dfrac14,\dfrac34$이다. $\alpha$의 범위가 $0<\alpha<\dfrac12$이므로 $\alpha=\dfrac14$이다.
+      criteria:
+      - 3.M2
+      - 3.A1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 1
+      isw: true
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 5
+      evidence: |
+        넓이의 닮음비 $1:(2\alpha^2-2\alpha+1)$로 $\{S_{2n-1}\}$이 첫째항 $\dfrac{\alpha(1-\alpha)}2$, 공비 $(2\alpha^2-2\alpha+1)^2$인 등비수열임을 보였다.
+      steps:
+      - 3b-1
+    - id: 3.M2
+      mark_type: M
+      points: 3
+      evidence: |
+        등비급수의 합 $\dfrac1{8(\alpha^2-\alpha+1)}$을 구했다.
+      steps:
+      - 3b-2
+    - id: 3.A1
+      mark_type: A
+      points: 3
+      evidence: |
+        $\dfrac1{8(\alpha^2-\alpha+1)}=\dfrac2{13}$를 풀어 $0<\alpha<\dfrac12$인 $\alpha=\dfrac14$를 구했다.
+      depends_on:
+      - 3.M2
+      steps:
+      - 3b-2
+    deductions:
+    - code: D3-1
+      condition: 단순한 계산 실수와 같은 사소한 실수(건당)
+      effect: minus
+      value: 1
+    - code: D3-2
+      condition: 풀이 과정 없이 답만 기술
+      effect: zero
+      value: 0
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: p3-past-v1
+  item_version: 1
+  verdict: pass
+  date: '2026-11-22'
+created: '2026-11-22'
+updated: '2026-11-22'

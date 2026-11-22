@@ -1,0 +1,284 @@
+# 서울과학기술대 2024학년도 자연계열 수리논술 문제 3 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+# 소문항 배점 미공개 — 추정(대문항 배점 비율을 소문항에 균등 배분)
+schema_version: '2.0'
+id: SNUT-M24-03
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: numeric
+origin: mock_exam
+school: SNUT
+type: null
+variant_of: null
+replaces: null
+level: L3
+form: 추론
+points: 33
+time_estimate_min: 25
+intent: 코사인 함수의 값이 $0$이 되는 점을 구하고, 접선의 방정식을 찾아 $y$절편을 구하며(삼각함수가 포함된 분수함수의 도함수, $n$의 홀짝 구분), 삼각형의 넓이를 구하고 부분분수로 변형하여 부분합과 극한으로 무한급수의 합을 구할 수 있는지 평가한다.
+key_idea: $x_n=\dfrac{(2n-1)\pi}2$, $f(x_n)=0$이므로 접선은 $y=f'(x_n)(x-x_n)$이고 $y_n=(-1)^{n-1}\dfrac2{(2n-1)\pi}$. $A_n=\dfrac1{2n-1}$, 부분분수로 $\sum_{n=1}^{10}=\dfrac{10}{21}$, 무한급수 $\dfrac12$.
+stuck: '[3.2] $\sin x_n=(-1)^{n-1}$로 접선의 기울기 부호가 번갈아 바뀜을 처리하는 단계, [3.3] $\mathrm{P}_n\mathrm{P}_{n+1}=\pi$를 밑변, $\lvert y_n\rvert$를 높이로 하는 넓이 계산'
+idea_tags:
+- IDEA-TANGENT-YINTERCEPT-ALTERNATING-TELESCOPING
+tags:
+- 삼각함수의 그래프
+- 몫의 미분법
+- 접선의 방정식
+- 부분분수
+- 무한급수
+elements:
+  materials:
+  - $f(x)=\dfrac{\cos x}{x^2}$ $(x>0)$의 $x$절편 $\mathrm{P}_n$
+  - $\mathrm{P}_n$에서의 접선의 $y$절편 $\mathrm{Q}_n(0,y_n)$
+  - $\sum A_nA_{n+1}$
+  concepts:
+  - 삼각함수의 그래프와 영점
+  - 몫의 미분법
+  - 접선의 방정식
+  - 삼각형의 넓이
+  - 부분분수와 급수의 합
+  tools:
+  - $f(x_n)=0$이므로 접선 $y=f'(x_n)(x-x_n)$
+  - $\sin\dfrac{(2n-1)\pi}2=(-1)^{n-1}$
+  - $\dfrac1{(2n-1)(2n+1)}=\dfrac12\left(\dfrac1{2n-1}-\dfrac1{2n+1}\right)$
+  conditions:
+  - $x>0$
+  - $n$이 홀수일 때와 짝수일 때를 구분
+  - $A_n$은 넓이이므로 $\lvert y_n\rvert$ 사용
+  stimuli_used:
+  - 가
+  subpart_links: '[3.1]의 $x_n$을 [3.2]에서, [3.2]의 $y_n$을 [3.3]에서, [3.3]의 $A_n$을 [3.4]에서 이용'
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학Ⅰ
+  - 수학Ⅱ
+  - 미적분
+  scope_2028: calc2
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 수학Ⅰ 삼각함수·수열의 합, 수학Ⅱ 접선의 방정식, 미적분 급수의 수렴·몫의 미분법 (추정)
+    verified: false
+  content_area: 삼각함수, 미분, 급수
+  behavior_domain: 계산
+  unit_path:
+  - 미적분
+  - 접선과 급수
+  - 접선의 $y$절편, 삼각형의 넓이, 부분분수 급수
+  key_concepts:
+  - 접선
+  - 부분분수
+  - 무한급수
+difficulty: {rater: author, p_value: null, n: 0}
+source:
+  rights_holder: 서울과학기술대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 서울과학기술대학교
+  admission_year: 2024
+  admission_type: 수시 모의논술
+  track: 자연계열
+  question_no: 3
+  official_url: https://admission.seoultech.ac.kr/cms/FR_BBS_CON/BoardView.do?SITE_NO=2&MENU_ID=970&BOARD_SEQ=25&CONTENTS_NO=1&BBS_SEQ=7
+  retrieved_at: '2026-11-22'
+  original_points: 문제 3 총점수의 33%
+  rights_notice: 미확인(입학처 공개 자료)
+  transcribed_from: 서울과기대 입학처 공식 PDF「M24_Q.pdf」p.4 및 「M24_S.pdf」(출제배경 및 해설) p.4~5 (이미지 대조 2026-11-22)
+verify: verify/SNUT-M24.py::p03
+stimuli:
+- label: 가
+  body: 함수 $f(x)=\dfrac{\cos x}{x^2}$ $(x>0)$에 대하여 곡선 $y=f(x)$와 $x$축의 교점을 $x$좌표가 작은 것부터 차례대로 $\mathrm{P}_1(x_1,0),\mathrm{P}_2(x_2,0),\mathrm{P}_3(x_3,0),\cdots$이라고 하자. 또 $n=1,2,3,\cdots$에 대하여 점 $\mathrm{P}_n$에서 곡선 $y=f(x)$의 접선이 $y$축과 만나는 점을 $\mathrm{Q}_n(0,y_n)$이라고 하자.
+stem: 다음 제시문을 읽고 물음에 답하시오.
+subparts:
+- id: '1'
+  stem: $n=1,2,3,\cdots$에 대하여 $x_n$을 구하시오.
+  points: 8
+  depends_on: []
+  answer: {kind: expression, value: (2*n-1)*pi/2, equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 출제배경 및 해설 p.4 [3.1]
+    steps:
+    - id: 1b-1
+      content: $x^2>0$이므로 $\cos x=0$이 되는 $x$를 찾으면 된다. 따라서 $x_n=\dfrac{(2n-1)\pi}{2}$이다.
+      criteria:
+      - 1.B1
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 1, isw: true}
+    criteria:
+    - id: 1.B1
+      mark_type: B
+      points: 8
+      evidence: $\cos x=0$, $x>0$에서 $x_n=\dfrac{(2n-1)\pi}2$
+      steps:
+      - 1b-1
+    deductions:
+    - code: D1-1
+      condition: 단순한 계산 실수(건당)
+      effect: minus
+      value: 1
+    - code: D1-2
+      condition: 타당한 설명 없이 답만 기술
+      effect: zero
+      value: 0
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+- id: '2'
+  stem: $n=1,2,3,\cdots$에 대하여 $y_n$을 구하시오.
+  points: 8
+  depends_on:
+  - '1'
+  answer: {kind: expression, value: (-1)**(n-1)*2/((2*n-1)*pi), equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-B
+    audience: B
+    method_no: 1
+    source_flow: 출제배경 및 해설 p.4~5 [3.2]
+    steps:
+    - id: 2b-1
+      content: $f(x)$를 미분하면 $f'(x)=-\dfrac{\sin x}{x^2}-\dfrac{2\cos x}{x^3}$이므로 $f'(x_n)=\dfrac{-\sin x_n}{x_n^2}-\dfrac{2\cos x_n}{x_n^3}=-\dfrac{\sin x_n}{x_n^2}=-\left(\dfrac2{(2n-1)\pi}\right)^2\sin\dfrac{(2n-1)\pi}2$이고, 사인값을 계산하면 $f'(x_n)=\begin{cases}-\left(\dfrac2{(2n-1)\pi}\right)^2&(n=1,3,5,\cdots)\\\left(\dfrac2{(2n-1)\pi}\right)^2&(n=2,4,6,\cdots)\end{cases}$이다.
+      criteria:
+      - 2.M1
+    - id: 2b-2
+      content: 따라서 $n=1,3,5,\cdots$일 때 점 $\mathrm{P}_n$에서 곡선 $y=f(x)$의 접선의 방정식은 $y=-\left(\dfrac2{(2n-1)\pi}\right)^2\left(x-\dfrac{(2n-1)\pi}2\right)$이고 이 직선의 $y$절편은 $y_n=\dfrac2{(2n-1)\pi}$이다. 또 $n=2,4,6,\cdots$일 때 접선의 방정식은 $y=\left(\dfrac2{(2n-1)\pi}\right)^2\left(x-\dfrac{(2n-1)\pi}2\right)$이고 이 직선의 $y$절편은 $y_n=-\dfrac2{(2n-1)\pi}$이다. 따라서 $y_n=\begin{cases}\dfrac2{(2n-1)\pi}&(n=1,3,5,\cdots)\\-\dfrac2{(2n-1)\pi}&(n=2,4,6,\cdots)\end{cases}$이다.
+      criteria:
+      - 2.A1
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 1, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 4
+      evidence: $f'(x)$와 $f'(x_n)$을 홀짝으로 구분하여 구함
+      steps:
+      - 2b-1
+    - id: 2.A1
+      mark_type: A
+      points: 4
+      evidence: $y_n$을 $n$이 홀수/짝수로 나누어 서술
+      depends_on:
+      - 2.M1
+      steps:
+      - 2b-2
+    deductions:
+    - code: D2-1
+      condition: 단순한 계산 실수(건당)
+      effect: minus
+      value: 1
+    - code: D2-2
+      condition: 타당한 설명 없이 답만 기술
+      effect: zero
+      value: 0
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+- id: '3'
+  stem: $n=1,2,3,\cdots$에 대하여 삼각형 $\mathrm{P}_n\mathrm{P}_{n+1}\mathrm{Q}_n$의 넓이를 $A_n$이라고 할 때, $\displaystyle\sum_{n=1}^{10}A_nA_{n+1}$의 값을 구하시오.
+  points: 8
+  depends_on:
+  - '2'
+  answer: {kind: value, value: 10/21, equivalents: [], tolerance: null}
+  solutions:
+  - id: S3-B
+    audience: B
+    method_no: 1
+    source_flow: 출제배경 및 해설 p.5 [3.3]
+    steps:
+    - id: 3b-1
+      content: 두 점 $\mathrm{P}_n$과 $\mathrm{P}_{n+1}$ 사이의 거리는 $\pi$이므로 $A_n=\dfrac12\times\pi\times\dfrac2{(2n-1)\pi}=\dfrac1{2n-1}$이고 $\displaystyle\sum_{n=1}^{10}A_nA_{n+1}=\sum_{n=1}^{10}\dfrac1{(2n-1)(2n+1)}$이다.
+      criteria:
+      - 3.M1
+    - id: 3b-2
+      content: 부분분수로 바꾸어 계산하면 $\displaystyle\sum_{n=1}^{10}A_nA_{n+1}=\sum_{n=1}^{10}\dfrac12\left(\dfrac1{2n-1}-\dfrac1{2n+1}\right)=\dfrac12\left\{\left(1-\dfrac13\right)+\left(\dfrac13-\dfrac15\right)+\cdots+\left(\dfrac1{19}-\dfrac1{21}\right)\right\}=\dfrac{10}{21}$이다.
+      criteria:
+      - 3.A1
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 1, isw: true}
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 4
+      evidence: $A_n=\dfrac1{2n-1}$
+      steps:
+      - 3b-1
+    - id: 3.A1
+      mark_type: A
+      points: 4
+      evidence: 부분분수 합 $\dfrac{10}{21}$
+      depends_on:
+      - 3.M1
+      steps:
+      - 3b-2
+    deductions:
+    - code: D3-1
+      condition: 단순한 계산 실수(건당)
+      effect: minus
+      value: 1
+    - code: D3-2
+      condition: 타당한 설명 없이 답만 기술
+      effect: zero
+      value: 0
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+- id: '4'
+  stem: 문항 [3.3]에서 구한 $A_n$에 대하여 급수 $\displaystyle\sum_{n=1}^{\infty}A_nA_{n+1}$의 합을 구하시오.
+  points: 9
+  depends_on:
+  - '3'
+  answer: {kind: value, value: 1/2, equivalents: [], tolerance: null}
+  solutions:
+  - id: S4-B
+    audience: B
+    method_no: 1
+    source_flow: 출제배경 및 해설 p.5 [3.4]
+    steps:
+    - id: 4b-1
+      content: 부분합을 구하면 $S_n=\displaystyle\sum_{k=1}^{n}\dfrac1{(2k-1)(2k+1)}=\sum_{k=1}^{n}\dfrac12\left(\dfrac1{2k-1}-\dfrac1{2k+1}\right)=\dfrac n{2n+1}$이다.
+      criteria:
+      - 4.M1
+    - id: 4b-2
+      content: 이므로 $\displaystyle\sum_{n=1}^{\infty}A_nA_{n+1}=\lim_{n\to\infty}\dfrac n{2n+1}=\dfrac12$이다.
+      criteria:
+      - 4.A1
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 1, isw: true}
+    criteria:
+    - id: 4.M1
+      mark_type: M
+      points: 5
+      evidence: 부분합 $S_n=\dfrac n{2n+1}$
+      steps:
+      - 4b-1
+    - id: 4.A1
+      mark_type: A
+      points: 4
+      evidence: 극한 $\dfrac12$
+      depends_on:
+      - 4.M1
+      steps:
+      - 4b-2
+    deductions:
+    - code: D4-1
+      condition: 단순한 계산 실수(건당)
+      effect: minus
+      value: 1
+    - code: D4-2
+      condition: 타당한 설명 없이 답만 기술
+      effect: zero
+      value: 0
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+remedy_links: []
+reviews:
+- {stage: compose, actor_type: model, actor_id: sonnet, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: '2026-11-22'}
+created: '2026-11-22'
+updated: '2026-11-22'

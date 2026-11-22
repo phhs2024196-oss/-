@@ -1,0 +1,274 @@
+schema_version: '2.0'
+id: SNUT-G21A-02
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: numeric
+origin: past_exam
+school: SNUT
+type: null
+variant_of: null
+replaces: null
+level: L3
+form: 전수
+points: 33
+time_estimate_min: 30
+intent: 자연현상 및 사회현상을 수학적 모델로 설명하는 능력을 보기 위해 중복조합으로 경우의 수를 구하고(2.1), 특정 사건의 확률과 확률변수의 기댓값을 계산하며(2.2), 확률변수의 값을 직접 계산하고 수열의 합으로 기댓값을 구할 수 있는지(2.3) 평가한다.
+key_idea: 2.1 자리 숫자의 합이 9인 $(x,y,z)$는 중복조합 ${}_3\mathrm H_9$. 2.2 $P(X=i)=\dfrac1{55}$로 균등하므로 $E(X)=28$. 2.3 5번 틀릴 때마다 20초를 더한 시간 $5i+20\lfloor(i-1)/5\rfloor$로 $E(Y)$를 계산한다.
+stuck: 2.1 백의 자리가 1로 고정되어 나머지 세 자리의 합이 9가 되는 경우로 바꾸는 단계, 2.2 $i$번째에 처음 맞힐 확률이 모든 $i$에서 $\dfrac1{55}$로 같음을 보이는 단계, 2.3 대기시간 20초가 5번 틀린 뒤마다 붙는 규칙을 식으로 옮기는 단계
+idea_tags: [IDEA-REPEATED-COMBINATION-DIGIT-SUM, IDEA-UNIFORM-FIRST-SUCCESS-EXPECTATION]
+tags: [중복조합, 조건부확률, 이산확률변수의 기댓값]
+elements:
+  materials:
+  - 네 자리 비밀번호(1000~1999, 각 자리 숫자의 합 10)
+  - 번호를 맞힐 때까지 입력한 횟수 $X$
+  - 입력에 걸린 시간 $Y$(입력 5초, 5번 실패마다 20초 대기)
+  concepts:
+  - 중복조합
+  - 조건부확률
+  - 이산확률변수의 기댓값
+  - 여러 가지 수열의 합
+  tools:
+  - ${}_3\mathrm H_9={}_{11}\mathrm C_9$
+  - $P(A_i\cap B_i)=P(B_i)P(A_i\mid B_i)$
+  - $\sum_{i=1}^{n}i=\dfrac{n(n+1)}2$
+  conditions:
+  - 백의 자리는 1, 나머지 세 자리의 합은 9이고 각 자리는 0~9
+  - 이미 입력한 번호는 다시 입력하지 않음(비복원)
+  - 처음 입력 전 틀린 횟수는 0
+  stimuli_used: [가, 나]
+  subpart_links: 2.1의 경우의 수 55가 2.2의 표본 크기이고, 2.2의 $P(X=i)$가 2.3의 $P(Y=\cdot)$ 계산에 쓰인다.
+curriculum:
+  version: '2015'
+  subjects: [확률과통계, 수학Ⅰ]
+  scope_2028: common
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 중복조합의 뜻을 알고 중복조합의 수를 구한다(추정)
+    verified: false
+  - code: 미확인
+    text: 이산확률변수의 기댓값을 구한다(추정)
+    verified: false
+  content_area: 확률 – 조합·조건부확률·확률분포
+  behavior_domain: 문제해결
+  unit_path: [확률과통계, 확률, 이산확률변수의 기댓값, 비복원 시행에서 처음 성공한 횟수]
+  key_concepts: [중복조합, 조건부확률, 확률변수의 기댓값]
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 서울과학기술대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 서울과학기술대학교
+  admission_year: 2021
+  admission_type: 수시 논술위주전형
+  track: 자연계열 1차
+  question_no: 2
+  official_url: https://admission.seoultech.ac.kr/cms/FR_BBS_CON/BoardView.do?SITE_NO=2&MENU_ID=970&BOARD_SEQ=25&CONTENTS_NO=1&BBS_SEQ=16
+  retrieved_at: '2026-11-22'
+  original_points: 33%
+  rights_notice: 미확인(입학처 공개 자료)
+  transcribed_from: 서울과기대 입학처 공식 PDF「G21A_Q.pdf」p.3, 「G21A_S.pdf」p.4~5 (이미지 대조 2026-11-22; 쪽은 PDF 쪽 기준)
+verify: verify/SNUT-G21A.py::p02
+stimuli:
+- label: 가
+  body: |
+    이 금고의 비밀번호에 대하여 다음을 알고 있다.
+    (1) 1000부터 1999까지의 자연수 중 하나이다.
+    (2) 각 자리의 숫자의 합은 10이다.
+- label: 나
+  body: |
+    이 금고에 네 자리 번호를 한 번 입력하는 데는 5초가 걸린다. 비밀번호를 맞히는데 연속 5번 실패할 때마다 20초간 번호를 입력할 수 없고, 틀린 번호를 입력한 횟수는 0번으로 초기화된다.
+stem: |
+  다음 제시문을 읽고 물음에 답하시오.
+
+  (제시문 상자의 첫머리) 설정된 네 자리의 비밀번호를 입력하면 열리는 금고가 있다. 이 금고에는 하나의 비밀번호만 설정되어 있다.
+# 소문항 배점 미공개 — 추정 (문제 2는 33%이며 소문항 11점씩)
+subparts:
+- id: '1'
+  stem: 제시문 (가)를 만족하는 네 자리 번호는 모두 몇 가지인지 구하시오.
+  points: 11
+  depends_on: []
+  answer:
+    kind: value
+    value: '55'
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 출제배경 및 해설 p.4 [2.1]
+    steps:
+    - id: 1b-1
+      content: 비밀번호의 백의 자리의 수, 십의 자리의 수, 일의 자리의 수를 각각 $x,\ y,\ z$라 하면 $x+y+z=9\ (0\le x\le9,\ 0\le y\le9,\ 0\le z\le9)$를 만족해야 한다.
+      criteria: [1.R1]
+    - id: 1b-2
+      content: 이를 만족하는 정수 $x,\ y,\ z$ 순서쌍의 개수는 $x,\ y,\ z$를 중복을 허용하여 9개 선택하는 방법의 수와 같다. 따라서 가능한 비밀번호는 ${}_3\mathrm H_9={}_{11}\mathrm C_9=55$가지이다.
+      criteria: [1.A1]
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 1
+      isw: true
+    criteria:
+    - id: 1.R1
+      mark_type: R
+      points: 5
+      evidence: 백의 자리가 1이므로 나머지 세 자리의 합이 9임을 식 $x+y+z=9$로 나타냈다.
+      steps: [1b-1]
+    - id: 1.A1
+      mark_type: A
+      points: 6
+      evidence: 중복조합으로 55가지를 구했다.
+      depends_on:
+      - 1.R1
+      steps: [1b-2]
+    deductions:
+    - code: D1-1
+      condition: 단순한 계산 실수(건당)
+      effect: minus
+      value: 1
+    - code: D1-2
+      condition: 타당한 설명 없이 답만 기술
+      effect: zero
+      value: 0
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+- id: '2'
+  stem: 제시문 (가)를 만족하는 네 자리 번호를 임의로 입력하되 이미 입력했던 번호는 다시 입력하지 않는다. 틀린 번호를 입력한 경우 다른 네 자리 번호를 바로 입력하고, 비밀번호를 맞힌 경우에는 더 이상 입력하지 않는다. 비밀번호를 맞힐 때까지 네 자리 번호를 입력한 횟수를 확률변수 $X$라 하자. $X$의 기댓값을 구하시오.
+  points: 11
+  depends_on: ['1']
+  answer:
+    kind: value
+    value: '28'
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S2-B
+    audience: B
+    method_no: 1
+    source_flow: 출제배경 및 해설 p.4 [2.2]
+    steps:
+    - id: 2b-1
+      content: $A_i$를 $i$번째에 비밀번호를 맞히는 사건, $i\ge2$일 때 $B_i$를 $i-1$번째까지 비밀번호를 맞히지 못한 사건이라 하자. 그러면 $P(A_1)=\dfrac1{55}$이고 $2\le i\le55$일 때, $i-1$번째까지 맞히지 못하고 $i$번째에 맞히는 사건의 확률은 $P(A_i\cap B_i)=P(B_i)\times P(A_i\mid B_i)=\left\{\left(1-\dfrac1{55}\right)\left(1-\dfrac1{54}\right)\cdots\left(1-\dfrac1{55-(i-2)}\right)\right\}\times\left(\dfrac1{55-(i-1)}\right)=\dfrac1{55}$이다.
+      criteria: [2.M1]
+    - id: 2b-2
+      content: 따라서 $1\le i\le55$일 때 $P(X=i)=\dfrac1{55}$이다. 그러므로 기댓값은 $E(X)=\displaystyle\sum_{i=1}^{55}\left(i\times P(X=i)\right)=\sum_{i=1}^{55}\dfrac i{55}=\dfrac1{55}\times\dfrac{55(55+1)}2=28$이다.
+      criteria: [2.A1]
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 1
+      isw: true
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 6
+      evidence: 조건부확률로 $P(X=i)=\dfrac1{55}\ (1\le i\le55)$를 구했다.
+      steps: [2b-1]
+    - id: 2.A1
+      mark_type: A
+      points: 5
+      evidence: $E(X)=\displaystyle\sum_{i=1}^{55}\dfrac i{55}=28$을 구했다.
+      depends_on:
+      - 2.M1
+      steps: [2b-2]
+    deductions:
+    - code: D2-1
+      condition: 단순한 계산 실수(건당)
+      effect: minus
+      value: 1
+    - code: D2-2
+      condition: 타당한 설명 없이 답만 기술
+      effect: zero
+      value: 0
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+- id: '3'
+  stem: 문항 [2.2]와 같은 방식으로 네 자리 번호를 입력할 때, 비밀번호를 맞힐 때까지 걸리는 시간을 확률변수 $Y$라 하자. $Y$의 기댓값을 제시문 (나)에 따라 구하시오. (단, 번호를 처음 입력하기 전 틀린 번호 입력 횟수는 0이다.)
+  points: 11
+  depends_on: ['2']
+  answer:
+    kind: value
+    value: '240'
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S3-B
+    audience: B
+    method_no: 1
+    source_flow: 출제배경 및 해설 p.4~5 [2.3]
+    steps:
+    - id: 3b-1
+      content: 확률변수 $Y$는 비밀번호를 맞힐 때까지 걸리는 시간이다. 네 자리 번호를 한 번 입력하는데 5초가 걸리고, 5번 틀린 후에는 20초 동안 입력할 수 없다. 따라서 $i-1$번째까지 비밀번호를 맞히지 못하고 $i$번째 비밀번호를 입력할 경우, $i$번째 비밀번호를 입력할 때까지 걸리는 시간은 $5i\ (1\le i\le5)$, $5i+20\ (6\le i\le10)$, $\cdots$, $5i+200\ (51\le i\le55)$이다.
+      criteria: [3.R1]
+    - id: 3b-2
+      content: 이고 $P(Y=5i)=P(X=i)=\dfrac1{55}\ (1\le i\le5)$, $P(Y=5i+20)=P(X=i)=\dfrac1{55}\ (6\le i\le10)$, $\cdots$, $P(Y=5i+200)=P(X=i)=\dfrac1{55}\ (51\le i\le55)$이다.
+      criteria: [3.R1, 3.M1]
+    - id: 3b-3
+      content: 따라서 $E(Y)=\displaystyle\sum_{i=1}^{55}\left(\dfrac1{55}\times5i\right)+\dfrac1{55}(0\times5+20\times5+\cdots+200\times5)=240$이다.
+      criteria: [3.M1, 3.A1]
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 1
+      isw: true
+    criteria:
+    - id: 3.R1
+      mark_type: R
+      points: 4
+      evidence: $i$번째 입력까지 걸리는 시간을 $5i$에 5번 실패마다 20초씩을 더한 식으로 나타냈다.
+      steps: [3b-1, 3b-2]
+    - id: 3.M1
+      mark_type: M
+      points: 4
+      evidence: $P(Y=\cdot)=\dfrac1{55}$를 이용해 기댓값의 합식을 세웠다.
+      steps: [3b-2, 3b-3]
+    - id: 3.A1
+      mark_type: A
+      points: 3
+      evidence: $E(Y)=240$을 구했다.
+      depends_on:
+      - 3.M1
+      steps: [3b-3]
+    deductions:
+    - code: D3-1
+      condition: 단순한 계산 실수(건당)
+      effect: minus
+      value: 1
+    - code: D3-2
+      condition: 타당한 설명 없이 답만 기술
+      effect: zero
+      value: 0
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: p3-past-v1
+  item_version: 1
+  verdict: pass
+  date: '2026-11-22'
+created: '2026-11-22'
+updated: '2026-11-22'

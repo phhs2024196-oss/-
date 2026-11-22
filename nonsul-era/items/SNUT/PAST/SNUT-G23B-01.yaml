@@ -1,0 +1,288 @@
+# 서울과학기술대 2023학년도 자연계열 오후 수리논술 문제 1 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+# 소문항 배점 미공개 — 추정(대문항 배점 비율을 소문항에 균등 배분)
+schema_version: '2.0'
+id: SNUT-G23B-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: numeric
+origin: past_exam
+school: SNUT
+type: null
+variant_of: null
+replaces: null
+level: L3
+form: 추론
+points: 34
+time_estimate_min: 30
+intent: 경우의 수(조합)를 이용해 조건이 있는 경우의 수를 구하는지, 수열의 합으로부터 일반항을 구하고 부분분수로 급수의 합의 극한을 구하는지, 미분의 정의와 도함수를 이용해 조건을 해석하는지 평가한다.
+key_idea: '[1.1] 여사건으로 $70$, $756-150=606$. [1.2] $a_n=n(n+2)$, 부분분수로 $\dfrac34$. [1.3] $f(3)=g(3)=2$, 곱의 미분으로 $g''(3)=3$.'
+stuck: '[1.1](2) 조건 "민수에게 고양이 $\ge1$이면 창수에게 강아지 $\ge1$"의 여사건을 정확히 세는 단계, [1.3] 극한이 존재하므로 $f(3)=g(3)$임을 쓰는 단계'
+idea_tags:
+- IDEA-COMPLEMENT-COUNT
+- IDEA-PARTIAL-FRACTION-TELESCOPING
+tags:
+- 조합
+- 여사건
+- 수열의 합과 일반항
+- 부분분수
+- 미분계수의 정의
+- 곱의 미분법
+elements:
+  materials:
+  - 서로 다른 강아지 4마리와 고양이 5마리
+  - $a_1+\dfrac{a_2}{2}+\cdots+\dfrac{a_n}{n}=\dfrac{n(n+5)}{2}$
+  - $g(x)=x^2f(x)-16$과 미분계수 조건
+  concepts:
+  - 조합
+  - 수열의 합과 일반항
+  - 부분분수 변형과 급수의 극한
+  - 미분계수의 정의
+  - 곱의 미분법
+  tools:
+  - 여사건(전체 $-$ 조건 위반)
+  - $a_n=S_n-S_{n-1}$ 꼴 차
+  - $\dfrac1{k(k+2)}=\dfrac12\left(\dfrac1k-\dfrac1{k+2}\right)$
+  - $\displaystyle\lim_{x\to3}\dfrac{f(x)-g(x)}{x-3}$ 유한 $\Rightarrow f(3)=g(3)$
+  conditions:
+  - '[1.1](2) 민수가 고양이를 받으면 창수는 강아지를 받음(둘 다 각각 2마리)'
+  - $a_1$은 $n=1$일 때 따로 확인
+  - $f,g$는 실수 전체에서 미분가능
+  stimuli_used: []
+  subpart_links: null
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학
+  - 수학Ⅰ
+  - 수학Ⅱ
+  - 미적분
+  scope_2028: calc2
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 수학 경우의 수·조합, 수학Ⅰ 수열의 합, 미적분 급수, 수학Ⅱ 미분계수 (추정)
+    verified: false
+  content_area: 경우의 수, 수열, 미분
+  behavior_domain: 계산
+  unit_path:
+  - 수학
+  - 경우의 수·수열의 합과 극한·미분
+  - 조합, 부분분수와 급수, 곱의 미분
+  key_concepts:
+  - 조합
+  - 여사건
+  - 부분분수
+  - 곱의 미분법
+difficulty: {rater: author, p_value: null, n: 0}
+source:
+  rights_holder: 서울과학기술대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 서울과학기술대학교
+  admission_year: 2023
+  admission_type: 수시 논술위주전형
+  track: 자연계열 오후
+  question_no: 1
+  official_url: https://admission.seoultech.ac.kr/cms/FR_BBS_CON/BoardView.do?SITE_NO=2&MENU_ID=970&BOARD_SEQ=25&CONTENTS_NO=1&BBS_SEQ=8
+  retrieved_at: '2026-11-22'
+  original_points: 문제 1 총점수의 34%
+  rights_notice: 미확인(입학처 공개 자료)
+  transcribed_from: 서울과기대 입학처 공식 PDF「G23B_Q.pdf」p.2 및 「G23B_S.pdf」(출제배경 및 해설) p.1~2 (이미지 대조 2026-11-22)
+verify: verify/SNUT-G23B.py::p01
+stimuli: []
+stem: 다음 물음에 답하시오.
+subparts:
+- id: '1'
+  stem: |-
+    서로 다른 강아지 $4$마리와 고양이 $5$마리 중에서 일부를 선물하려고 한다. 다음을 구하시오.
+    (1) 연수에게 $3$마리를 주려고 할 때, 강아지와 고양이를 적어도 $1$마리씩 주는 경우의 수
+    (2) 민수와 창수에게 각각 $2$마리를 주는 경우의 수 (단, 민수에게 고양이를 적어도 $1$마리 준다면, 창수에게는 강아지를 적어도 $1$마리 준다.)
+  points: 12
+  depends_on: []
+  answer: {kind: expression, value: '(1) 70, (2) 606', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 출제배경 및 해설 p.1 [1.1]
+    steps:
+    - id: 1b-1
+      content: (1) 연수에게 강아지 $1$마리와 고양이 $2$마리, 그리고 강아지 $2$마리와 고양이 $1$마리를 주는 경우의 수는 ${}_4\mathrm{C}_1\times{}_5\mathrm{C}_2+{}_4\mathrm{C}_2\times{}_5\mathrm{C}_1=70$이다.
+      criteria:
+      - 1.B1
+    - id: 1b-2
+      content: (2) 두 사람에게 각각 $2$마리를 주는 전체 경우의 수는 ${}_9\mathrm{C}_2\times{}_7\mathrm{C}_2$이다.
+      criteria:
+      - 1.M1
+    - id: 1b-3
+      content: 이 중 (a) 고양이와 강아지를 $1$마리씩 민수에게 주고, 고양이를 $2$마리 창수에게 주는 경우, (b) 고양이 $2$마리를 민수에게 주고, 나머지 고양이 중 $2$마리를 창수에게 주는 경우를 모두 빼면 ${}_9\mathrm{C}_2\times{}_7\mathrm{C}_2-({}_5\mathrm{C}_1\times{}_4\mathrm{C}_1\times{}_4\mathrm{C}_2+{}_5\mathrm{C}_2\times{}_3\mathrm{C}_2)=756-(120+30)=606$이다.
+      criteria:
+      - 1.A1
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 1, isw: true}
+    criteria:
+    - id: 1.B1
+      mark_type: B
+      points: 4
+      evidence: (1)의 답 $70$ (두 경우로 나누어 조합 계산)
+      steps:
+      - 1b-1
+    - id: 1.M1
+      mark_type: M
+      points: 3
+      evidence: 전체 경우의 수 ${}_9\mathrm{C}_2\times{}_7\mathrm{C}_2=756$
+      steps:
+      - 1b-2
+    - id: 1.A1
+      mark_type: A
+      points: 5
+      evidence: 조건을 어기는 경우 $120+30$을 빼서 $606$
+      depends_on:
+      - 1.M1
+      steps:
+      - 1b-3
+    deductions:
+    - code: D1-1
+      condition: 단순한 계산 실수(건당)
+      effect: minus
+      value: 1
+    - code: D1-2
+      condition: 타당한 설명 없이 답만 기술
+      effect: zero
+      value: 0
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+- id: '2'
+  stem: |-
+    수열 $\{a_n\}$이 모든 자연수 $n$에 대하여
+    $$a_1+\dfrac{a_2}{2}+\cdots+\dfrac{a_n}{n}=\dfrac{n(n+5)}{2}$$
+    를 만족시키고
+    $$T_n=\dfrac{1}{a_1}+\dfrac{1}{a_2}+\cdots+\dfrac{1}{a_n}$$
+    이라 할 때, $\displaystyle\lim_{n\to\infty}T_n$의 값을 구하시오.
+  points: 11
+  depends_on: []
+  answer: {kind: value, value: 3/4, equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-B
+    audience: B
+    method_no: 1
+    source_flow: 출제배경 및 해설 p.1 [1.2]
+    steps:
+    - id: 2b-1
+      content: $a_1=\dfrac{1\times6}{2}=3$이고, $n\ge2$일 때 $\dfrac{a_n}{n}=\left(a_1+\dfrac{a_2}{2}+\cdots+\dfrac{a_n}{n}\right)-\left(a_1+\dfrac{a_2}{2}+\cdots+\dfrac{a_{n-1}}{n-1}\right)=\dfrac{n(n+5)}{2}-\dfrac{(n-1)(n+4)}{2}=n+2$이므로 $a_n=n(n+2)$이다. 이것은 $n=1$인 경우도 포함하므로 $a_n=n(n+2)$ $(n\ge1)$이다.
+      criteria:
+      - 2.M1
+    - id: 2b-2
+      content: $T_n=\displaystyle\sum_{k=1}^{n}\dfrac{1}{k(k+2)}=\dfrac12\sum_{k=1}^{n}\left(\dfrac1k-\dfrac1{k+2}\right)=\dfrac12\left(1+\dfrac12-\dfrac1{n+1}-\dfrac1{n+2}\right)$이다.
+      criteria:
+      - 2.M2
+    - id: 2b-3
+      content: 따라서 $\displaystyle\lim_{n\to\infty}T_n=\lim_{n\to\infty}\dfrac12\left(\dfrac32-\dfrac1{n+1}-\dfrac1{n+2}\right)=\dfrac34$이다.
+      criteria:
+      - 2.A1
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 1, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 5
+      evidence: $a_n=n(n+2)$ $(n\ge1)$ 도출
+      steps:
+      - 2b-1
+    - id: 2.M2
+      mark_type: M
+      points: 3
+      evidence: 부분분수로 $T_n$을 구함
+      steps:
+      - 2b-2
+    - id: 2.A1
+      mark_type: A
+      points: 3
+      evidence: 극한값 $\dfrac34$
+      depends_on:
+      - 2.M2
+      steps:
+      - 2b-3
+    deductions:
+    - code: D2-1
+      condition: 단순한 계산 실수(건당)
+      effect: minus
+      value: 1
+    - code: D2-2
+      condition: 타당한 설명 없이 답만 기술
+      effect: zero
+      value: 0
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+- id: '3'
+  stem: |-
+    실수 전체에서 미분가능한 두 함수 $f(x)$, $g(x)$가 다음 두 조건을 모두 만족시킬 때, $g'(3)$의 값을 구하시오.
+    (가) 모든 실수 $x$에 대하여 $g(x)=x^2f(x)-16$
+    (나) $\displaystyle\lim_{x\to3}\dfrac{f(x)-g(x)}{x-3}=-4$
+  points: 11
+  depends_on: []
+  answer: {kind: value, value: '3', equivalents: [], tolerance: null}
+  solutions:
+  - id: S3-B
+    audience: B
+    method_no: 1
+    source_flow: 출제배경 및 해설 p.2 [1.3]
+    steps:
+    - id: 3b-1
+      content: 주어진 조건으로부터 $g(3)=9f(3)-16$, $f(3)=g(3)$이므로 $g(3)=f(3)=2$이다.
+      criteria:
+      - 3.M1
+    - id: 3b-2
+      content: 첫 번째 조건식의 양변을 $x$에 관하여 미분하고 $x=3$을 대입하면 $g'(3)=12+9f'(3)$이다. 두 번째 조건으로부터 $\displaystyle\lim_{x\to3}\dfrac{f(x)-g(x)}{x-3}=\lim_{x\to3}\left\{\dfrac{f(x)-f(3)}{x-3}-\dfrac{g(x)-g(3)}{x-3}\right\}=f'(3)-g'(3)=-4$이다.
+      criteria:
+      - 3.M2
+    - id: 3b-3
+      content: 따라서 $g'(3)=3$이다.
+      criteria:
+      - 3.A1
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 1, isw: true}
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 4
+      evidence: (나)에서 $f(3)=g(3)$, 그리고 $f(3)=g(3)=2$
+      steps:
+      - 3b-1
+    - id: 3.M2
+      mark_type: M
+      points: 4
+      evidence: $g'(3)=12+9f'(3)$, $f'(3)-g'(3)=-4$
+      steps:
+      - 3b-2
+    - id: 3.A1
+      mark_type: A
+      points: 3
+      evidence: $g'(3)=3$
+      depends_on:
+      - 3.M2
+      steps:
+      - 3b-3
+    deductions:
+    - code: D3-1
+      condition: 단순한 계산 실수(건당)
+      effect: minus
+      value: 1
+    - code: D3-2
+      condition: 타당한 설명 없이 답만 기술
+      effect: zero
+      value: 0
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+remedy_links: []
+reviews:
+- {stage: compose, actor_type: model, actor_id: sonnet, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: '2026-11-22'}
+created: '2026-11-22'
+updated: '2026-11-22'

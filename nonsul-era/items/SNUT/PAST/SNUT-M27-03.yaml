@@ -1,0 +1,221 @@
+# 서울과학기술대 2027학년도 모의논술고사 문제 3 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: SNUT-M27-03
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: short_answer
+origin: mock_exam
+school: SNUT
+type: null
+variant_of: null
+replaces: null
+level: L3
+form: 추론
+points: 30
+time_estimate_min: 28
+intent: |
+  이공계 대학 교육과정을 이수하는 데 필요한 역량은 주어진 조건을 해석하고, 수학적 개념을 연결하여 문제를 해결하는 능력이다. 본 문항에서는 로그의 성질, 접선의 기울기, 이차함수의 결정, 정적분을 이용한 넓이, 급수의 합을 단계적으로 활용할 수 있는지를 평가하고자 하였다. [3.1] 로그의 성질과 로그의 밑의 변환을 이용하여 주어진 방정식을 정리하고 이차방정식의 해를 구할 수 있는지, [3.2] 곡선 위의 점과 그 점에서의 접선의 기울기 조건을 해석하여 이차함수의 계수를 결정할 수 있는지, [3.3] 곡선과 $x$축으로 둘러싸인 도형의 넓이를 정적분으로 나타내고, 부분합을 이용하여 급수의 합을 구할 수 있는지 평가한다. (출제배경)
+key_idea: |
+  $4\log_4(1-r)=2\log_2(1-r)$로 밑을 통일하고 진수 조건 $-1<r<1$에서 $\dfrac{(1+r)(3-r)}{(1-r)^2}=15$, $r=\dfrac12$. $f\left(\dfrac12\right)=1$, $f'\left(\dfrac12\right)=0$으로 $f(x)=-4x^2+4x$. $S_n=\displaystyle\int_0^1x^nf(x)dx=4\left(\dfrac1{n+2}-\dfrac1{n+3}\right)$이므로 부분합이 소거되어 $\displaystyle\sum_{n=1}^{\infty}S_n=\dfrac43$.
+stuck: |
+  [3.1] $\log_4(1-r)$을 밑 2로 변환하고 진수 조건으로 $r$의 범위를 먼저 제한하는 단계. [3.2] "점 $(r,1)$에서의 접선의 기울기 0"을 $f(r)=1$, $f'(r)=0$ 두 식으로 옮기는 단계. [3.3] 구간 $0\le x\le1$에서 $f(x)\ge0$임을 확인하고 $S_n$을 부분분수 꼴로 정리하는 단계.
+idea_tags: [IDEA-LOG-BASE-CHANGE-DOMAIN-QUADRATIC, IDEA-TANGENT-SLOPE-ZERO-VALUE-ONE, IDEA-TELESCOPING-INTEGRAL-SERIES]
+tags: [로그의 밑의 변환, 진수 조건, 접선의 기울기, 이차함수의 결정, 정적분과 넓이, 급수의 합, '출제근거: 로그의 뜻과 성질(수학Ⅰ, 동아출판 2021 p.26~28)', '출제근거: 정적분의 활용(수학Ⅱ, 비상교육 2021 p.124~126)', '출제근거: 급수(미적분, 지학사 2021 p.29~36)']
+elements:
+  materials:
+  - '방정식 $\log_2(1+r)+\log_2(3-r)-4\log_4(1-r)=\log_215$의 해 $r$'
+  - '이차함수 $f(x)=ax^2+bx$와 곡선 $y=f(x)$ 위의 점 $(r,1)$ (접선의 기울기 0)'
+  - '곡선 $y=x^nf(x)$와 $x$축으로 둘러싸인 도형의 넓이 $S_n$, 급수 $\sum S_n$'
+  concepts: [로그의 성질, 로그의 밑의 변환, 로그의 진수 조건, 이차방정식, 도함수와 접선의 기울기, 정적분과 넓이, 급수의 부분합과 극한, 부분분수]
+  tools:
+  - '$4\log_4(1-r)=2\log_2(1-r)$, $\dfrac{(1+r)(3-r)}{(1-r)^2}=15$, $-1<r<1$'
+  - '$f(r)=1$, $f''(r)=0$ → $a+b=0$, $\dfrac a4+\dfrac b2=1$'
+  - '$S_n=\int_0^1(-4x^{n+2}+4x^{n+1})dx=4\left(\dfrac1{n+2}-\dfrac1{n+3}\right)$, 부분합 소거'
+  conditions:
+  - '진수 조건 $1+r>0$, $3-r>0$, $1-r>0$ → $-1<r<1$ (해 $\dfrac32$ 제외)'
+  - '[3.3] $y=x^nf(x)$가 $x=0,\ 1$에서 $x$축과 만나고 $0\le x\le1$에서 $f(x)\ge0$'
+  stimuli_used: [가, 나]
+  subpart_links: '[3.1]의 $r$ → [3.2]의 접점 $(r,1)$으로 $f$ 결정 → [3.3]의 $f$로 $S_n$과 급수의 합'
+
+curriculum:
+  version: '2015'
+  subjects: [수학, 수학Ⅰ, 수학Ⅱ, 미적분]
+  scope_2028: calc2
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 로그의 성질, 접선의 방정식, 정적분과 넓이, 급수(출제근거 단원 기준 추정)
+    verified: false
+  content_area: 지수·로그, 미분법, 적분법, 급수
+  behavior_domain: 계산
+  unit_path: [미적분, 수열의 극한, 급수, 정적분으로 정의된 수열의 급수]
+  key_concepts: [진수 조건, 접선 조건의 식 변환, 정적분과 부분분수 급수]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 서울과학기술대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 서울과학기술대학교
+  admission_year: 2027
+  admission_type: 수시 모의논술
+  track: 자연계열
+  question_no: 3
+  official_url: https://admission.seoultech.ac.kr/cms/FR_BBS_CON/BoardView.do?SITE_NO=2&MENU_ID=970&BOARD_SEQ=25&CONTENTS_NO=1&BBS_SEQ=36
+  retrieved_at: 2026-11-22
+  original_points: 총점의 30%
+  rights_notice: 미확인(입학처 공개 자료)
+  transcribed_from: '서울과기대 입학처 공식 PDF「M27_Q.pdf」p.4, 「M27_S.pdf」p.4~6(PDF p.5~7) (이미지 대조 2026-11-22)'
+
+verify: verify/SNUT-M27.py::p03
+
+stimuli:
+- label: 가
+  body: |
+    실수 $r$는 다음 방정식의 해이다.
+    $$\log_2(1+r)+\log_2(3-r)-4\log_4(1-r)=\log_215$$
+- label: 나
+  body: |
+    이차함수 $f(x)=ax^2+bx$에 대하여, 곡선 $y=f(x)$위의 점 $(r,1)$에서의 접선의 기울기는 0이다.
+
+stem: |
+  다음 제시문을 읽고 물음에 답하시오.
+
+subparts:
+- id: '1'
+  stem: |
+    실수 $r$의 값을 구하시오.
+  points: 10   # 소문항 배점 미공개 — 추정(30점을 10점씩 균등 추정)
+  depends_on: []
+  answer: {kind: value, value: '1/2', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 출제배경 및 해설 p.5 [3.1]
+    steps:
+    - id: 1b-1
+      content: |
+        $4\log_4(1-r)=2\log_2(1-r)$이므로 주어진 방정식은
+        $$\log_2(1+r)+\log_2(3-r)-2\log_2(1-r)=\log_215$$
+        이고 로그의 진수는 양수여야 하므로 $-1<r<1$이다.
+      criteria: [1.M1]
+    - id: 1b-2
+      content: |
+        따라서
+        $$\dfrac{(1+r)(3-r)}{(1-r)^2}=15,\quad-1<r<1$$
+        이다. 정리하면 $4r^2-8r+3=(2r-1)(2r-3)=0$이므로 $r=\dfrac12$이다.
+      criteria: [1.M2, 1.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 1, isw: true}
+    criteria:
+    - {id: 1.M1, mark_type: M, points: 4, evidence: '밑의 변환으로 $4\log_4(1-r)=2\log_2(1-r)$를 쓰고 진수 조건 $-1<r<1$을 적었다.', steps: [1b-1]}
+    - {id: 1.M2, mark_type: M, points: 3, evidence: '로그의 성질로 $\dfrac{(1+r)(3-r)}{(1-r)^2}=15$를 세워 $4r^2-8r+3=0$으로 정리했다.', depends_on: [1.M1], steps: [1b-2]}
+    - {id: 1.A1, mark_type: A, points: 3, evidence: '$r=\dfrac32$를 진수 조건으로 제외하고 $r=\dfrac12$을 구했다.', depends_on: [1.M2], steps: [1b-2]}
+    deductions:
+    - code: D1-1
+      condition: 단순한 계산 실수와 같은 사소한 실수(건당)
+      effect: minus
+      value: 1
+    - code: D1-2
+      condition: 풀이 과정 없이 답만 기술
+      effect: zero
+      value: 0
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+- id: '2'
+  stem: |
+    문항 [3.1]의 $r$에 대하여 제시문의 조건을 만족하는 이차함수 $f(x)$를 구하시오.
+  points: 10   # 소문항 배점 미공개 — 추정
+  depends_on: ['1']
+  answer: {kind: expression, value: 'f(x)=-4*x**2+4*x', equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-B
+    audience: B
+    method_no: 1
+    source_flow: 출제배경 및 해설 p.5 [3.2]
+    steps:
+    - id: 2b-1
+      content: |
+        점 $(r,1)$은 곡선 $y=f(x)$ 위의 점이므로 $f(r)=1$이고, 이 점에서의 접선의 기울기가 0이므로 $f'(r)=0$이다. 또한 문항 [3.1]에서 $r=\dfrac12$이므로 $f\left(\dfrac12\right)=1$, $f'\left(\dfrac12\right)=0$이다.
+      criteria: [2.M1]
+    - id: 2b-2
+      content: |
+        $f'(x)=2ax+b$이므로 $f'\left(\dfrac12\right)=a+b=0$이다. 따라서 $b=-a$이다. 또 $f\left(\dfrac12\right)=a\left(\dfrac12\right)^2+b\left(\dfrac12\right)=1$이고, $b=-a$를 대입하면 $a=-4$이다. 따라서 $f(x)=-4x^2+4x$이다.
+      criteria: [2.M2, 2.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 1, isw: true}
+    criteria:
+    - {id: 2.M1, mark_type: M, points: 3, evidence: '$f(r)=1$, $f''(r)=0$의 두 조건을 $r=\dfrac12$로 적었다.', depends_on: [1.A1], steps: [2b-1]}
+    - {id: 2.M2, mark_type: M, points: 4, evidence: '$f''(x)=2ax+b$로 $a+b=0$과 $\dfrac a4+\dfrac b2=1$의 연립식을 세웠다.', depends_on: [2.M1], steps: [2b-2]}
+    - {id: 2.A1, mark_type: A, points: 3, evidence: '$a=-4$, $b=4$로 $f(x)=-4x^2+4x$를 구했다.', depends_on: [2.M2], steps: [2b-2]}
+    deductions:
+    - code: D2-1
+      condition: 단순한 계산 실수와 같은 사소한 실수(건당)
+      effect: minus
+      value: 1
+    - code: D2-2
+      condition: 풀이 과정 없이 답만 기술
+      effect: zero
+      value: 0
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+- id: '3'
+  stem: |
+    문항 [3.2]의 $f(x)$에 대하여 곡선 $y=x^nf(x)$와 $x$축으로 둘러싸인 도형의 넓이를 $S_n$이라 할 때, $\displaystyle\sum_{n=1}^{\infty}S_n$의 값을 구하시오.
+  points: 10   # 소문항 배점 미공개 — 추정
+  depends_on: ['2']
+  answer: {kind: value, value: '4/3', equivalents: [], tolerance: null}
+  solutions:
+  - id: S3-B
+    audience: B
+    method_no: 1
+    source_flow: 출제배경 및 해설 p.5~6 [3.3]
+    steps:
+    - id: 3b-1
+      content: |
+        문항 [3.2]에서 $f(x)=-4x^2+4x$이므로 $x^nf(x)=x^n(-4x^2+4x)=-4x^{n+2}+4x^{n+1}$이다. 곡선 $y=x^nf(x)$는 $x=0$, $x=1$에서 $x$축과 만나고 구간 $0\le x\le1$에서 $f(x)\ge0$이므로
+        $$S_n=\int_0^1x^nf(x)\,dx=\int_0^1(-4x^{n+2}+4x^{n+1})dx=4\left(\dfrac1{n+2}-\dfrac1{n+3}\right)$$
+        이다.
+      criteria: [3.M1]
+    - id: 3b-2
+      content: |
+        급수 $\displaystyle\sum_{n=1}^{\infty}S_n$의 부분합을 구하면
+        $$\sum_{n=1}^NS_n=4\left[\left(\dfrac13-\dfrac14\right)+\left(\dfrac14-\dfrac15\right)+\cdots+\left(\dfrac1{N+2}-\dfrac1{N+3}\right)\right]=4\left(\dfrac13-\dfrac1{N+3}\right)$$
+        이므로
+        $$\sum_{n=1}^{\infty}S_n=\lim_{N\to\infty}4\left(\dfrac13-\dfrac1{N+3}\right)=\dfrac43$$
+        이다.
+      criteria: [3.M2, 3.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 1, isw: true}
+    criteria:
+    - {id: 3.M1, mark_type: M, points: 4, evidence: '$0\le x\le1$에서 $f(x)\ge0$임을 밝히고 $S_n=4\left(\dfrac1{n+2}-\dfrac1{n+3}\right)$를 구했다.', depends_on: [2.A1], steps: [3b-1]}
+    - {id: 3.M2, mark_type: M, points: 3, evidence: '부분합 $\displaystyle\sum_{n=1}^NS_n=4\left(\dfrac13-\dfrac1{N+3}\right)$를 구했다.', depends_on: [3.M1], steps: [3b-2]}
+    - {id: 3.A1, mark_type: A, points: 3, evidence: '극한으로 $\dfrac43$을 구했다.', depends_on: [3.M2], steps: [3b-2]}
+    deductions:
+    - code: D3-1
+      condition: 단순한 계산 실수와 같은 사소한 실수(건당)
+      effect: minus
+      value: 1
+    - code: D3-2
+      condition: 풀이 과정 없이 답만 기술
+      effect: zero
+      value: 0
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+remedy_links: []
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: sonnet, prompt_version: p3-past-v1, item_version: 1, verdict: pass, date: 2026-11-22}
+
+created: 2026-11-22
+updated: 2026-11-22

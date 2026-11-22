@@ -1,0 +1,326 @@
+schema_version: '2.0'
+id: SNUT-G21D-03
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: numeric
+origin: past_exam
+school: SNUT
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 전수
+points: 33
+time_estimate_min: 35
+intent: 주어진 상황에서 나타나는 경우의 수를 바탕으로 확률을 계산한다. 확률변수의 개념을 도입하여 이산확률분포를 구하고 이항분포와 정규분포 사이의 관계를 이용하여 확률을 구할 수 있는지 묻는다. 3.1은 경우의 수, 3.2는 경우의 수를 바탕으로 한 확률, 3.3은 이항분포에서의 확률, 3.4는 특정한 경우에서 이항분포의 확률을 통해 기댓값과 분산을 구하고 정규분포와의 관계를 이용해 확률을 계산하는 능력을 평가한다.
+key_idea: 3.1 원의 중심 $(a,b)$가 정사각형 $S$로부터 $r+1$ 이상 떨어져 있으면 만나지 않는다 → $\{l-2(r+1)\}^2$. 3.2 $p=\dfrac{l^2-\{l-2(r+1)\}^2}{l^2}$. 3.3 $X\sim\mathrm B\left(4,\dfrac34\right)$. 3.4 $X\sim\mathrm B\left(1200,\dfrac34\right)\approx\mathrm N(900,15^2)$로 근사.
+stuck: 3.1 원과 정사각형(네 변)이 만나지 않을 조건을 중심에서 $S$까지의 거리 $\ge r+1$(정수 좌표)로 바꾸어 세는 단계, 3.3 시행을 독립 반복으로 보고 이항분포 $\mathrm B\left(4,\dfrac34\right)$를 식별하는 단계
+idea_tags: [IDEA-CIRCLE-MEETS-SQUARE-LATTICE-COUNT-BINOMIAL, IDEA-BINOMIAL-NORMAL-APPROX-TABLE]
+tags: [경우의 수, 이항분포, 정규분포, 정규분포의 근사]
+elements:
+  materials:
+  - 정사각형 $S$의 네 변과 격자점 $(a,b)$를 중심으로 하는 반지름 $r$인 원
+  - 주머니 A, B에서 꺼낸 정수 $a,b$와 주머니 C의 구슬 개수 $X$
+  - 표준정규분포표 $\mathrm P(0\le Z\le z)$
+  concepts:
+  - 경우의 수
+  - 확률
+  - 독립시행
+  - 이항분포
+  - 정규분포와 이항분포의 관계
+  tools:
+  - '원과 $S$가 만나지 않는 조건: 중심이 $S$로부터 $r+1$ 이상'
+  - $\mathrm P(X\le3)=1-\mathrm P(X=4)$
+  - $\mu=np$, $\sigma^2=np(1-p)$, $Z=\dfrac{X-\mu}\sigma$
+  conditions:
+  - $r<\dfrac l2-1$인 자연수 $l,r$
+  - $(a,b)$는 $0\le a,b\le l-1$인 정수
+  - 3.3 $l=8,r=1$, 4번 반복
+  - 3.4 1,200번 반복, $894\le X\le918$
+  stimuli_used: [가, 나, 다, 라]
+  subpart_links: 3.1의 경우의 수가 3.2의 확률 $p$를 주고, $l=8,r=1$의 $p=\dfrac34$가 3.3의 이항분포와 3.4의 정규근사에 쓰인다.
+curriculum:
+  version: '2015'
+  subjects: [확률과통계, 수학]
+  scope_2028: common
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 이항분포의 뜻을 알고 평균과 분산을 구한다(추정)
+    verified: false
+  - code: 미확인
+    text: 이항분포와 정규분포의 관계를 이해한다(추정)
+    verified: false
+  content_area: 확률 – 경우의 수·이항분포·정규분포
+  behavior_domain: 문제해결
+  unit_path: [확률과통계, 통계, 이항분포와 정규분포, 이항분포의 정규분포 근사]
+  key_concepts: [경우의 수, 이항분포, 정규분포 근사]
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 서울과학기술대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 서울과학기술대학교
+  admission_year: 2021
+  admission_type: 수시 논술위주전형
+  track: 자연계열 4차
+  question_no: 3
+  official_url: https://admission.seoultech.ac.kr/cms/FR_BBS_CON/BoardView.do?SITE_NO=2&MENU_ID=970&BOARD_SEQ=25&CONTENTS_NO=1&BBS_SEQ=16
+  retrieved_at: '2026-11-22'
+  original_points: 33%
+  rights_notice: 미확인(입학처 공개 자료)
+  transcribed_from: 서울과기대 입학처 공식 PDF「G21D_Q.pdf」p.4, 「G21D_S.pdf」p.5~6 (이미지 대조 2026-11-22; 쪽은 PDF 쪽 기준)
+verify: verify/SNUT-G21D.py::p03
+stimuli:
+- label: 가
+  body: |
+    $l$과 $r$은 $r<\dfrac l2-1$ 관계를 만족하는 자연수이다.
+- label: 나
+  body: |
+    좌표평면에 네 점 $(0,0)$, $(l-1,0)$, $(l-1,l-1)$, $(0,l-1)$을 꼭짓점으로 하는 정사각형의 네 변을 $S$라 한다.
+- label: 다
+  body: |
+    주머니 A와 B에는 각각 0부터 $l-1$까지의 정수가 하나씩 적힌 $l$개의 공이 들어 있다. 두 주머니에서 임의로 한 개씩 공을 꺼냈을 때 주머니 A에서 꺼낸 공에 적힌 정수 $a$, 주머니 B에서 꺼낸 공에 적힌 정수 $b$를 확인하고 다시 넣는다.
+- label: 라
+  body: |
+    제시문 (다)에서 확인한 두 정수 $a,b$에 대하여, 좌표평면에서 점 $(a,b)$를 중심으로 하고 반지름의 길이가 $r$인 원이 $S$와 만나는 경우에만 주머니 C에 구슬을 한 개 넣는다. (단, 주머니 C는 처음에는 비어 있다.)
+stem: 다음 제시문을 읽고 물음에 답하시오.
+# 소문항 배점 미공개 — 추정 (문제 3은 33%이며 소문항 8/8/8/9점으로 가름)
+subparts:
+- id: '1'
+  stem: 제시문 (다)의 시행에서 꺼낸 공에 적힌 정수 $a,\ b$에 대하여, 좌표평면에서 점 $(a,b)$를 중심으로 하고 반지름의 길이가 $r$인 원이 $S$와 만나지 않는 경우의 수를 $l$과 $r$에 대한 식으로 나타내시오.
+  points: 8
+  depends_on: []
+  answer:
+    kind: expression
+    value: (l-2*(r+1))**2
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 출제배경 및 해설 p.5 [3.1]
+    steps:
+    - id: 1b-1
+      content: 원의 중심 $(a,b)$가 $S$로부터 $r+1$ 이상 떨어져 있으면 원이 $S$와 만나지 않는다. 이렇게 $a$와 $b$를 꺼내는 경우의 수는 $\{l-2(r+1)\}^2$이다.
+      criteria: [1.R1, 1.A1]
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 1
+      isw: true
+    criteria:
+    - id: 1.R1
+      mark_type: R
+      points: 4
+      evidence: 중심이 $S$로부터 $r+1$ 이상 떨어진 경우가 만나지 않는 경우임을 설명했다.
+      steps: [1b-1]
+    - id: 1.A1
+      mark_type: A
+      points: 4
+      evidence: $\{l-2(r+1)\}^2$을 구했다.
+      depends_on:
+      - 1.R1
+      steps: [1b-1]
+    deductions:
+    - code: D1-1
+      condition: 단순한 계산 실수(건당)
+      effect: minus
+      value: 1
+    - code: D1-2
+      condition: 타당한 설명 없이 답만 기술
+      effect: zero
+      value: 0
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+- id: '2'
+  stem: 제시문 (다)의 시행에서 꺼낸 공에 적힌 정수 $a,\ b$에 대하여, 좌표평면에서 점 $(a,b)$를 중심으로 하고 반지름의 길이가 $r$인 원이 $S$와 만날 확률을 $l$과 $r$에 대한 식으로 나타내시오.
+  points: 8
+  depends_on: ['1']
+  answer:
+    kind: expression
+    value: (l**2-(l-2*(r+1))**2)/l**2
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S2-B
+    audience: B
+    method_no: 1
+    source_flow: 출제배경 및 해설 p.6 [3.2]
+    steps:
+    - id: 2b-1
+      content: $a$와 $b$를 꺼내는 방법의 수는 $l^2$이고, 문항 [3.1]에서 원과 $S$가 만나지 않는 경우의 수는 $\{l-2(r+1)\}^2$이다. 따라서 원과 $S$가 만날 확률은 $p=\dfrac{l^2-\{l-2(r+1)\}^2}{l^2}$이다.
+      criteria: [2.R1, 2.A1]
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 1
+      isw: true
+    criteria:
+    - id: 2.R1
+      mark_type: R
+      points: 4
+      evidence: 전체 경우의 수 $l^2$과 [3.1]의 경우의 수를 이용해 여사건으로 접근했다.
+      steps: [2b-1]
+    - id: 2.A1
+      mark_type: A
+      points: 4
+      evidence: $p=\dfrac{l^2-\{l-2(r+1)\}^2}{l^2}$을 구했다.
+      depends_on:
+      - 2.R1
+      steps: [2b-1]
+    deductions:
+    - code: D2-1
+      condition: 단순한 계산 실수(건당)
+      effect: minus
+      value: 1
+    - code: D2-2
+      condition: 타당한 설명 없이 답만 기술
+      effect: zero
+      value: 0
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+- id: '3'
+  stem: $l=8$이고 $r=1$이라 하자. 제시문 (다)와 (라)를 잇달아 시행하는 것을 4번 반복할 때, 주머니 C의 구슬이 3개 이하일 확률을 구하시오.
+  points: 8
+  depends_on: ['2']
+  answer:
+    kind: value
+    value: 175/256
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S3-B
+    audience: B
+    method_no: 1
+    source_flow: 출제배경 및 해설 p.6 [3.3]
+    steps:
+    - id: 3b-1
+      content: 문항 [3.2]에서 구한 확률에 $l=8$과 $r=1$을 대입하면 점 $(a,b)$를 중심으로 하고 반지름의 길이가 1인 원이 $S$와 만날 확률은 $p=\dfrac34$이다. 주머니 C의 구슬의 개수를 확률변수 $X$라 하면, $X$는 이항분포 $\mathrm B\left(4,\dfrac34\right)$를 따른다. 따라서 $S$와 만나는 원의 개수가 3개 이하일 확률은 $\mathrm P(X\le3)=1-\mathrm P(X=4)=1-{}_4\mathrm C_4\left(\dfrac34\right)^4=\dfrac{175}{256}$이다.
+      criteria: [3.R1, 3.M1, 3.A1]
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 1
+      isw: true
+    criteria:
+    - id: 3.R1
+      mark_type: R
+      points: 3
+      evidence: $l=8,r=1$에서 $p=\dfrac34$를 구하고 $X\sim\mathrm B\left(4,\dfrac34\right)$임을 밝혔다.
+      steps: [3b-1]
+    - id: 3.M1
+      mark_type: M
+      points: 3
+      evidence: 여사건 $\mathrm P(X\le3)=1-\mathrm P(X=4)$를 이용했다.
+      steps: [3b-1]
+    - id: 3.A1
+      mark_type: A
+      points: 2
+      evidence: $\dfrac{175}{256}$을 구했다.
+      depends_on:
+      - 3.M1
+      steps: [3b-1]
+    deductions:
+    - code: D3-1
+      condition: 단순한 계산 실수(건당)
+      effect: minus
+      value: 1
+    - code: D3-2
+      condition: 타당한 설명 없이 답만 기술
+      effect: zero
+      value: 0
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+- id: '4'
+  stem: |
+    $l=8$이고 $r=1$이라 하자. 제시문 (다)와 (라)를 잇달아 시행하는 것을 1,200번 반복할 때, 주머니 C의 구슬이 894개 이상 918개 이하일 확률을 아래의 표준정규분포표를 이용하여 구하시오.
+    [표준정규분포표] $z$: 0.4, 0.6, 0.8, 1.0, 1.2 에 대해 $\mathrm P(0\le Z\le z)$: 0.1554, 0.2257, 0.2881, 0.3413, 0.3849
+  points: 9
+  depends_on: ['3']
+  answer:
+    kind: value
+    value: 5403/10000
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S4-B
+    audience: B
+    method_no: 1
+    source_flow: 출제배경 및 해설 p.6 [3.4]
+    steps:
+    - id: 4b-1
+      content: 주머니 C의 구슬의 개수를 확률변수 $X$라 하면, $X$는 $\mathrm B\left(1200,\dfrac34\right)$을 따르므로 평균과 분산은 각각 $\mu=np=1200\times\dfrac34=900$, $\sigma^2=np(1-p)=1200\times\dfrac34\times\dfrac14=225=15^2$이다.
+      criteria: [4.R1]
+    - id: 4b-2
+      content: 시행의 횟수가 충분히 크므로 이항분포와 정규분포의 관계를 이용하면 $X$는 정규분포 $\mathrm N(900,15^2)$을 따름을 알 수 있다. 따라서 $\mathrm P(894\le X\le918)=\mathrm P\left(\dfrac{894-900}{15}\le\dfrac{X-900}{15}\le\dfrac{918-900}{15}\right)=\mathrm P(-0.4\le Z\le1.2)$이고, 주어진 정규분포표에 의하여 $\mathrm P(894\le X\le918)=0.1554+0.3849=0.5403$이다.
+      criteria: [4.M1, 4.A1]
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 1
+      isw: true
+    criteria:
+    - id: 4.R1
+      mark_type: R
+      points: 3
+      evidence: $X\sim\mathrm B\left(1200,\dfrac34\right)$에서 평균 900, 분산 $15^2$을 구했다.
+      steps: [4b-1]
+    - id: 4.M1
+      mark_type: M
+      points: 3
+      evidence: 정규분포 $\mathrm N(900,15^2)$로 근사하고 $\mathrm P(-0.4\le Z\le1.2)$로 표준화했다.
+      steps: [4b-2]
+    - id: 4.A1
+      mark_type: A
+      points: 3
+      evidence: 표를 이용해 $0.1554+0.3849=0.5403$을 구했다.
+      depends_on:
+      - 4.M1
+      steps: [4b-2]
+    deductions:
+    - code: D4-1
+      condition: 단순한 계산 실수(건당)
+      effect: minus
+      value: 1
+    - code: D4-2
+      condition: 타당한 설명 없이 답만 기술
+      effect: zero
+      value: 0
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: p3-past-v1
+  item_version: 1
+  verdict: pass
+  date: '2026-11-22'
+created: '2026-11-22'
+updated: '2026-11-22'
