@@ -1,0 +1,123 @@
+# 한국항공대 2024학년도(G24E·G24S) 오개념 후보 — 공용 db/misconceptions.yaml 에는 넣지 않고 검토 후 병합한다.
+# ID 범위: MC-*-82401 ~ 82499. concepts 는 db/concepts.yaml 에 없는 제안값(concepts_new)을 따로 적는다.
+proposed_misconceptions:
+- id: MC-ALG-82401
+  name: 사차함수에서 f(x)=0 과 f'(x)=0 의 공통근을 단순근으로 처리해 중근 조건을 놓침
+  appears_in: [KAU-G24E-01#1]
+  wrong_work: '$f(x)=k(x-20)(x-23)$ 꼴이나 사차 조건을 맞추려 $(x-20)(x-23)(x-p)(x-q)$로 둠'
+  detect_cue: 인수에 $(x-20)^2(x-23)^2$ 이 아니라 일차 인수가 두 개 이하로 나타난다
+  concepts_new: [CON-ALG-REMAINDER-DOUBLE-ROOT]
+- id: MC-ALG-82402
+  name: 지수방정식을 $2^x=y$로 치환한 뒤 두 근의 합을 로그의 합이 아니라 $\log_2\left(\frac{1}{k}\right)$ 등으로 잘못 정리
+  appears_in: [KAU-G24E-01#2]
+  wrong_work: '$\alpha_k+\beta_k=\log_2\left(1+\dfrac1k\right)\cdot\log_2\left(1-\dfrac1k\right)$ 처럼 합 대신 곱'
+  detect_cue: 로그의 합 성질(제시문 나)을 쓰지 않고 로그끼리 곱하거나 뺀다
+  concepts_new: [CON-ALG-LOG-SUM-TELESCOPE]
+- id: MC-ALG-82403
+  name: 분수 부등식 $0<k-\frac1k-3<1$ 에서 양변에 $k$를 곱한 뒤 $k>1$ 조건과의 교집합을 빠뜨림
+  appears_in: [KAU-G24E-01#3]
+  wrong_work: '두 이차부등식의 해만 쓰고 $k<\frac{3-\sqrt{13}}{2}$ 구간까지 답에 포함'
+  detect_cue: 최종 답에 ①($k>1$)이 반영되지 않았다
+  concepts_new: [CON-ALG-QUAD-INEQ-INTERSECT]
+- id: MC-ALG-82404
+  name: 판별식 조건과 근의 차 조건을 구한 뒤 $\sin\theta$ 범위를 $0\le\theta\le2\pi$의 구간 하나로만 표기
+  appears_in: [KAU-G24E-01#4]
+  wrong_work: '$\sin\theta\le\frac12$ 에서 $0\le\theta\le\frac{\pi}{6}$ 한 구간만 적음'
+  detect_cue: 답이 구간 3개가 아니라 1개 또는 2개이다
+  concepts_new: [CON-ALG-TRIG-RANGE-INTERVALS]
+- id: MC-ALG-82405
+  name: 이차식의 최솟값을 구한 뒤 $a,b,c,d\neq0$ 조건(공비 $r\neq0$, $d\neq0$) 충족을 확인하지 않음
+  appears_in: [KAU-G24E-01#5]
+  wrong_work: '$\frac da=2r^2-r$ 의 최솟값만 쓰고 그때의 수열이 조건을 만족하는지 점검하지 않음'
+  detect_cue: 최솟값을 주는 $r$ 값을 대입해 네 수가 0이 아님을 확인한 문장이 없다
+  concepts_new: [CON-ALG-GEOM-ARITH-SEQ-CONDITION]
+- id: MC-CAL-82406
+  name: 매개변수 곡선의 이동 거리에서 $\{x'(t)\}^2+\{y'(t)\}^2$ 을 정리할 때 $\sin^2t+\cos^2t=1$ 을 쓰지 못하고 적분이 막힘
+  appears_in: [KAU-G24E-02#1]
+  wrong_work: '곱 $t^2(2\sin t+t\cos t)^2$ 를 전개한 채로 적분하려 함'
+  detect_cue: 근호 안에서 두 제곱합을 $t^2(4+t^2)$ 로 묶은 줄이 없다
+  concepts_new: [CON-CAL-PARAM-ARC-LENGTH]
+- id: MC-CAL-82407
+  name: 두 곡선으로 둘러싸인 넓이에서 교점의 $x$좌표를 직접 구하려 하고 $S_2-S_1$ 의 소거 구조를 보지 못함
+  appears_in: [KAU-G24E-02#2]
+  wrong_work: '$\cos x=ax\sin x$ 의 근을 닫힌 식으로 구하려다 중단'
+  detect_cue: 교점을 $x_1$ 로 두지 않고 근사값을 쓰거나 답에 $x_1$ 이 남아 있다
+  concepts_new: [CON-CAL-AREA-SPLIT-AT-INTERSECTION]
+- id: MC-CAL-82408
+  name: 두 접선이 이루는 각의 탄젠트를 기울기 차 $\tan(m_2-m_1)$ 로 착각(덧셈정리 입력 오류)
+  appears_in: [KAU-G24E-02#3]
+  wrong_work: '$\tan(\angle APB)=g''(x_1)-f''(x_1)$ 또는 $\tan(m_2-m_1)$'
+  detect_cue: 분모 $1+m_1m_2$ 가 없다
+  concepts_new: [CON-CAL-TAN-ANGLE-BETWEEN-LINES]
+- id: MC-CAL-82409
+  name: 평행한 접선의 접점 관계 $f'(t)=g'(s)$ 에서 $g'(s)=\frac1s$ 의 역수 처리를 빠뜨림
+  appears_in: [KAU-G24E-02#4]
+  wrong_work: '$\dfrac{t^2-2}{t^2}=s$ 로 둠'
+  detect_cue: $s$ 가 $t^2$ 의 분수로 적히지 않고 $\frac{t^2-2}{t^2}$ 와 같다고 쓴다
+  concepts_new: [CON-CAL-TANGENT-PARALLEL-PARAM]
+- id: MC-CAL-82410
+  name: 정의역 $(\sqrt2,\infty)$ 밖의 임계점 $t=-1$ 을 극값 후보로 포함하거나 증감표에 넣음
+  appears_in: [KAU-G24E-02#4]
+  wrong_work: '$t=-1,\ 2$ 모두에서 극값을 갖는다고 결론'
+  detect_cue: 증감표 구간이 $t>\sqrt2$ 로 제한되지 않았다
+  concepts_new: [CON-CAL-DOMAIN-CRITICAL-POINT]
+- id: MC-ALG-82411
+  name: 켤레복소수 $\bar z$ 를 $a-bi$ 가 아니라 $a+bi$ 와 같게 둠
+  appears_in: [KAU-G24S-01#1]
+  wrong_work: '$z^2=-\dfrac z2$ 로 두고 풀기'
+  detect_cue: 식 $z^2=-\bar z/2$ 의 $\bar z$ 자리에 $z$ 를 그대로 쓴다
+  concepts_new: [CON-ALG-CONJUGATE-COMPLEX]
+- id: MC-CAL-82412
+  name: $f(g(x))$ 에서 $g(x)<0$ 인 구간도 적분에 포함(합성함수 $f$ 의 $x<0$ 일 때 0 처리 누락)
+  appears_in: [KAU-G24S-01#2]
+  wrong_work: '$\displaystyle\int_{-5}^{4}g(x)dx$ 를 그대로 계산해 $h(k)$ 로 둠'
+  detect_cue: 적분 구간이 $[k-2,k+2]$ 가 아니라 $[-5,4]$ 전체이다
+  concepts_new: [CON-CAL-COMPOSITE-PIECEWISE-INTEGRAL]
+- id: MC-PRF-82413
+  name: 수학적 귀납법 (ii)에서 $n=k$ 가정($b_k-a_k>0$)을 쓰지 않고 식을 직접 전개해 부등식을 확인
+  appears_in: [KAU-G24S-01#3]
+  wrong_work: '$b_{k+1}-a_{k+1}=(1+h)^{k+1}-(1+(k+1)h)>0$ 을 이항정리로 새로 증명'
+  detect_cue: 증명에 "가정에 의하여" 문장이 없고 $a_k,b_k$ 의 크기 비교가 쓰이지 않는다
+  concepts_new: [CON-PRF-INDUCTION-HYPOTHESIS-USE]
+- id: MC-ALG-82414
+  name: 도형 수열에서 중심 사이의 가로 거리를 $r_{n-1}+r_n$ 이나 $2r_{n-1}$ 로 착각해 계수 $\frac52$ 를 놓침
+  appears_in: [KAU-G24S-01#4]
+  wrong_work: '$x_n=x_{n-1}+r_{n-1}+r_n$'
+  detect_cue: 관계식의 증가분이 $\frac{5}{2^{n-1}}$ 이 아니다
+  concepts_new: [CON-ALG-GEOMETRIC-FIGURE-RECURRENCE]
+- id: MC-ALG-82415
+  name: 이차방정식의 두 양근 조건에서 판별식 조건만 쓰고 합·곱의 양수 조건을 빠뜨림
+  appears_in: [KAU-G24S-02#2]
+  wrong_work: '$-\frac5{11}<a<5$ 만 답으로 씀'
+  detect_cue: $a>-1$, $a\neq0$ 에 대한 서술이 없다
+  concepts_new: [CON-ALG-QUAD-TWO-POSITIVE-ROOTS]
+- id: MC-ALG-82416
+  name: 등차수열 조건에서 얻은 $a$ 값이 (1)의 범위에 속하는지 확인하지 않음
+  appears_in: [KAU-G24S-02#2]
+  wrong_work: '$a=1,\ -\frac13$ 을 구한 뒤 범위 검증 없이 제시(다른 풀이에서 추가 근이 생기면 그대로 채택)'
+  detect_cue: 구한 값을 (1)의 구간과 비교한 줄이 없다
+  concepts_new: [CON-ALG-ARITH-SEQ-ROOT-CONDITION]
+- id: MC-CAL-82417
+  name: 극한 $\lim\sqrt k\,h(k)$ 에서 분자 $k(1-\sqrt k)$ 의 부호를 놓쳐 $+1$ 또는 $\infty$ 로 답함
+  appears_in: [KAU-G24S-02#3]
+  wrong_work: '$\dfrac{k\cdot\sqrt k}{\sqrt k\cdot k}=1$'
+  detect_cue: 분자의 $1-\sqrt k$ 를 $\sqrt k$ 로 줄이며 부호를 잃는다
+  concepts_new: [CON-CAL-LIMIT-INFINITY-RATIONALIZE]
+- id: MC-CAL-82418
+  name: 삼차함수와 직선의 교점이 3개일 조건에서 극값에 해당하는 $k$(접하는 경우)를 포함
+  appears_in: [KAU-G24S-02#1]
+  wrong_work: '$-\frac{4\sqrt6}{9}\le k\le\frac{4\sqrt6}{9}$'
+  detect_cue: 답의 부등호에 등호가 있다
+  concepts_new: [CON-CAL-CUBIC-ROOT-COUNT]
+- id: MC-CAL-82419
+  name: $S(\alpha)$ 를 미분할 때 $\beta$ 를 상수로 보고 $\alpha+\beta=2\alpha\beta$ 로 소거하지 않음
+  appears_in: [KAU-G24S-02#4]
+  wrong_work: '$S(\alpha)=(2\alpha-1)\left(\frac23\alpha^3+2\alpha^2\beta\right)$ 에서 $\beta$ 를 남긴 채 미분'
+  detect_cue: 도함수에 $\beta$ 가 들어 있다
+  concepts_new: [CON-CAL-ELIMINATE-PARAMETER-BEFORE-DIFF]
+- id: MC-CAL-82420
+  name: 증감표에서 $S'(\alpha)$ 의 부호가 바뀌지 않는 $\alpha=0$ 을 극값으로 판정
+  appears_in: [KAU-G24S-02#4]
+  wrong_work: '$\alpha=0$ 에서 극대 또는 극소라고 서술'
+  detect_cue: $\alpha^2$ 인수의 부호 변화 여부를 따지지 않고 두 근 모두 극값이라 쓴다
+  concepts_new: [CON-CAL-EXTREMUM-SIGN-CHANGE]

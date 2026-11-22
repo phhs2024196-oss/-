@@ -1,0 +1,295 @@
+schema_version: '2.0'
+id: KAU-G25E-02
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: KAU
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 추론
+points: 50
+time_estimate_min: 45
+intent: 항등식의 뜻과 성질(미정계수법)을 이해하고, 사인법칙과 코사인법칙의 정의를 이해하여 이를 적용해 선분의 길이를 구하는 능력을 평가한다.
+key_idea: 항등식에 인수가 0이 되는 값을 대입하여 α, β, γ를 a로 나타내고, 원에 외접하는 삼각형에서 접선의 길이와 사인법칙·코사인법칙으로 선분의 길이를 구한다.
+stuck: 2-2(2)에서 삼각형 APY와 AXB에 사인법칙을 적용해 PA/PY=AB/BX를 얻고 접선의 길이(ZP=PY, BX=BZ)로 방정식을 세우는 발상
+idea_tags: []
+tags: [KAU, 공학계열]
+elements:
+  materials: [삼차식, 항등식, 삼각형, 내접원, 접선]
+  concepts: [항등식, 미정계수법, 사인법칙, 코사인법칙, 접선의 길이]
+  tools: [인수가 0이 되는 값 대입, 사인법칙, 코사인법칙]
+  conditions: [원이 삼각형의 세 변에 접함, AP=3, PB=3, AC=5]
+  stimuli_used: {'1': [가], '2': [나, 다]}
+  subpart_links: []
+curriculum:
+  version: '2015'
+  subjects: [수학, 수학Ⅰ]
+  scope_2028: common
+  scope_confirmed: true
+  standards:
+  - {code: 10수학01-02, text: 항등식의 성질을 이해한다., verified: true}
+  - {code: 12수학Ⅰ02-03, text: 사인법칙과 코사인법칙을 이해하고, 이를 활용할 수 있다., verified: true}
+  behavior_domain: 문제해결
+difficulty: {rater: author, p_value: null, n: 0}
+source:
+  rights_holder: 한국항공대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 한국항공대학교
+  admission_year: 2025
+  admission_type: 수시 논술우수자
+  track: 공학계열
+  question_no: 2
+  official_url: https://ibhak.kau.ac.kr/admission/html/rolling/previousView.asp?p_board_idx=6047
+  retrieved_at: '2026-11-22'
+  original_points: [21, 29]
+  rights_notice: 미확인
+  transcribed_from: 한국항공대 입학처 공식 PDF「2025학년도 논술고사 기출문제 및 모범답안(공학계열)」p.10-15 (이미지 대조 2026-11-22)
+verify: verify/KAU-G25E.py::p02
+stimuli:
+- label: 가
+  body: |
+    항등식의 뜻과 성질을 이용하여 등식에서 미지의 계수와 상수항을 정하는 방법을 미정계수법이라고 한다.
+- label: 나
+  body: |
+    삼각형 ABC에 대하여 다음이 성립한다.
+    $$\dfrac{\overline{BC}}{\sin A}=\dfrac{\overline{CA}}{\sin B}=\dfrac{\overline{AB}}{\sin C}$$
+- label: 다
+  body: |
+    삼각형 ABC에 대하여 다음이 성립한다.
+    $$\begin{aligned}\overline{AB}^2&=\overline{BC}^2+\overline{CA}^2-2\overline{BC}\times\overline{CA}\times\cos C\\
+    \overline{BC}^2&=\overline{CA}^2+\overline{AB}^2-2\overline{CA}\times\overline{AB}\times\cos A\\
+    \overline{CA}^2&=\overline{AB}^2+\overline{BC}^2-2\overline{AB}\times\overline{BC}\times\cos B\end{aligned}$$
+stem: |
+  ※ 다음 제시문을 읽고 물음에 대한 풀이 과정과 답을 제시하시오.(답만 기재하면 0점 처리)
+subparts:
+- id: '1'
+  stem: |
+    [문제 2-1] 최고차항의 계수가 $a\ (a\ne 0)$인 삼차식 $f(x)$와 세 실수 $\alpha$, $\beta$, $\gamma$가 다음을 만족한다.
+    $$\begin{aligned}f(x)-5x+6&=a(x-2)(x-3)(x-\alpha)\\f(x)-6x+8&=a(x-2)(x-4)(x-\beta)\\f(x)-7x+12&=a(x-3)(x-4)(x-\gamma)\end{aligned}$$
+    $\alpha+\beta+\gamma=24$일 때, $f(0)$의 값을 구하시오.
+  points: 21
+  depends_on: []
+  answer:
+    kind: value
+    value: 24/5
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S1-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        주어진 세 관계식으로부터 $f(2)=4$, $f(3)=9$, $f(4)=16$을 얻을 수 있다.
+        $f(x)$가 최고차항의 계수가 $a$인 삼차식이므로 $f(x)=a(x-2)(x-3)(x-4)+x^2$
+        또는 $f(x)=ax^3+(1-9a)x^2+26ax-24a$
+      source_flow: 예시답안 p.13
+      criteria: [1.M1]
+    - id: 1b-2
+      content: |
+        $f(x)-5x+6=a(x-2)(x-3)(x-\alpha)$에 $x=4$를 대입하면 $\alpha=4-\dfrac{1}{a}$
+      source_flow: 예시답안 p.14
+      criteria: [1.A1]
+    - id: 1b-3
+      content: |
+        $f(x)-6x+8=a(x-2)(x-4)(x-\beta)$에 $x=3$을 대입하면 $\beta=3-\dfrac{1}{a}$
+      source_flow: 예시답안 p.14
+      criteria: [1.A2]
+    - id: 1b-4
+      content: |
+        $f(x)-7x+12=a(x-3)(x-4)(x-\gamma)$에 $x=2$를 대입하면 $\gamma=2-\dfrac{1}{a}$
+      source_flow: 예시답안 p.14
+      criteria: [1.A3]
+    - id: 1b-5
+      content: |
+        $\alpha+\beta+\gamma=24=4-\dfrac{1}{a}+3-\dfrac{1}{a}+2-\dfrac{1}{a}$이므로 $a=-\dfrac{1}{5}$
+      source_flow: 예시답안 p.14
+      criteria: [1.A4]
+    - id: 1b-6
+      content: |
+        따라서 $f(x)=-\dfrac{1}{5}(x-2)(x-3)(x-4)+x^2=-\dfrac{1}{5}x^3+\dfrac{14}{5}x^2-\dfrac{26}{5}x+\dfrac{24}{5}$
+        $f(0)=-\dfrac{1}{5}(-2)(-3)(-4)+0^2=\dfrac{24}{5}$
+      source_flow: 예시답안 p.14
+      criteria: [1.A5]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 3
+      evidence: 세 관계식에 인수가 0이 되는 $x$값을 대입하여 $f(2)=4$, $f(3)=9$, $f(4)=16$을 구했다.
+      steps: [1b-1]
+    - id: 1.A1
+      mark_type: A
+      points: 3
+      evidence: $\alpha=4-\dfrac{1}{a}$를 구했다.
+      depends_on: [1.M1]
+      steps: [1b-2]
+    - id: 1.A2
+      mark_type: A
+      points: 3
+      evidence: $\beta=3-\dfrac{1}{a}$를 구했다.
+      depends_on: [1.M1]
+      steps: [1b-3]
+    - id: 1.A3
+      mark_type: A
+      points: 3
+      evidence: $\gamma=2-\dfrac{1}{a}$를 구했다.
+      depends_on: [1.M1]
+      steps: [1b-4]
+    - id: 1.A4
+      mark_type: A
+      points: 5
+      evidence: $\alpha+\beta+\gamma=24$를 이용하여 $a=-\dfrac{1}{5}$를 구했다.
+      depends_on: [1.M1, 1.A1, 1.A2, 1.A3]
+      steps: [1b-5]
+    - id: 1.A5
+      mark_type: A
+      points: 4
+      evidence: $f(0)=\dfrac{24}{5}$를 구했다.
+      depends_on: [1.M1, 1.A4]
+      steps: [1b-6]
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+- id: '2'
+  stem: |
+    [문제 2-2] 그림과 같이 삼각형 ABC에 중심이 R인 원 $O$가 세 점 X, W, Z에서 접한다. 선분 AX가 원 $O$와 만나는 점 중 X가 아닌 점을 Y라 하고 점 Y에서의 접선이 두 선분 AB, AC와 만나는 점을 각각 P, Q라 하자. $\overline{AP}=3$, $\overline{PB}=3$, $\overline{AC}=5$일 때, 다음 물음에 답하시오.
+    [그림 1: 꼭짓점 A가 위, B가 왼쪽 아래, C가 오른쪽 아래인 삼각형 ABC. 중심 R인 원 O가 변 AB, BC, CA에 각각 점 Z, X, W에서 접한다. 선분 AX가 원과 만나는 X가 아닌 점이 Y이고, Y에서의 접선이 선분 AB, AC와 만나는 점이 각각 P, Q이다.]
+    (1) $\angle PYX=\angle YXB$임을 보이시오.
+    (2) 제시문 나)를 이용하여 $\overline{ZP}=1$임을 보이시오.
+    (3) 제시문 다)를 이용하여 $\overline{WQ}$의 값을 구하시오.
+  points: 29
+  depends_on: []
+  answer:
+    kind: expression
+    value: '(1)=증명; (2)=증명; (3)=2/3'
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S2-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 2b-1
+      content: |
+        (1) $\angle RYP=\angle RXB=90^\circ$이고 $\angle RYX=\angle RXY$이므로 $\angle PYX=\angle YXB$
+      source_flow: 예시답안 p.14
+      criteria: [2.R1]
+    - id: 2b-2
+      content: |
+        (2) $\overline{ZP}=\overline{PY}=x$라 하자.
+        삼각형 APY에서 사인법칙을 이용하면 $\dfrac{\sin\angle PAY}{\overline{PY}}=\dfrac{\sin\angle PYA}{\overline{PA}}$이므로 $\dfrac{\overline{PA}}{\overline{PY}}=\dfrac{\sin\angle PYA}{\sin\angle PAY}$
+        삼각형 AXB에서 사인법칙을 이용하면 $\dfrac{\sin\angle BAX}{\overline{BX}}=\dfrac{\sin\angle AXB}{\overline{AB}}$이므로 $\dfrac{\overline{AB}}{\overline{BX}}=\dfrac{\sin\angle AXB}{\sin\angle BAX}$
+      source_flow: 예시답안 p.14
+      criteria: [2.M1]
+    - id: 2b-3
+      content: |
+        $\angle PAY=\angle BAX$이고, $\sin\angle PYA=\sin(\pi-\angle PYX)=\sin\angle PYX=\sin\angle YXB=\sin\angle AXB$이므로
+        $\dfrac{3}{x}=\dfrac{\overline{PA}}{\overline{PY}}=\dfrac{\sin\angle PYA}{\sin\angle PAY}=\dfrac{\sin\angle AXB}{\sin\angle BAX}=\dfrac{\overline{AB}}{\overline{BX}}=\dfrac{6}{3-x}$
+      source_flow: 예시답안 p.14-15
+      criteria: [2.R2]
+    - id: 2b-4
+      content: |
+        따라서 $x=\overline{ZP}=\overline{PY}=1$
+      source_flow: 예시답안 p.15
+      criteria: [2.A1]
+    - id: 2b-5
+      content: |
+        (3) $\overline{ZB}=3-x=2=\overline{BX}$, $\overline{AZ}=x+3=4=\overline{AW}$, $\overline{WC}=5-\overline{AW}=1=\overline{XC}$
+        따라서 $\overline{BC}=2+1=3$
+      source_flow: 예시답안 p.15
+      criteria: [2.A2]
+    - id: 2b-6
+      content: |
+        $\overline{WQ}=\overline{YQ}=y$라 할 때, $\overline{PQ}=1+y$, $\overline{AQ}=4-y$
+      source_flow: 예시답안 p.15
+      criteria: [2.M2]
+    - id: 2b-7
+      content: |
+        삼각형 BAC에서 코사인법칙을 이용하면
+        $\cos\angle BAC=\dfrac{\overline{AB}^2+\overline{AC}^2-\overline{BC}^2}{2\overline{AB}\,\overline{AC}}=\dfrac{6^2+5^2-3^2}{2\times 6\times 5}=\dfrac{13}{15}$
+      source_flow: 예시답안 p.15
+      criteria: [2.M3]
+    - id: 2b-8
+      content: |
+        삼각형 PAQ에서 코사인법칙을 이용하면
+        $\cos\angle PAQ=\dfrac{\overline{AP}^2+\overline{AQ}^2-\overline{PQ}^2}{2\overline{AP}\,\overline{AQ}}=\dfrac{3^2+(4-y)^2-(1+y)^2}{2\times 3\times(4-y)}=\dfrac{12-5y}{12-3y}$
+      source_flow: 예시답안 p.15
+      criteria: [2.M4]
+    - id: 2b-9
+      content: |
+        $\cos\angle BAC=\cos\angle PAQ$이므로 $\dfrac{13}{15}=\dfrac{12-5y}{12-3y}$, $y=\overline{WQ}=\dfrac{2}{3}$
+      source_flow: 예시답안 p.15
+      criteria: [2.A3]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    # 채점기준표의 1.5점 두 칸(PA/PY, AB/BX 사인법칙)은 정수 규칙에 따라 2.M1(3점) 한 칸으로 합침
+    criteria:
+    - id: 2.R1
+      mark_type: R
+      points: 3
+      evidence: $\angle PYX=\angle YXB$임을 보였다(접선과 반지름이 수직, 이등변삼각형 RXY의 밑각).
+      steps: [2b-1]
+    - id: 2.M1
+      mark_type: M
+      points: 3
+      evidence: 삼각형 APY와 AXB에 각각 사인법칙을 적용하여 $\dfrac{\overline{PA}}{\overline{PY}}=\dfrac{\sin\angle PYA}{\sin\angle PAY}$, $\dfrac{\overline{AB}}{\overline{BX}}=\dfrac{\sin\angle AXB}{\sin\angle BAX}$를 구했다.
+      steps: [2b-2]
+    - id: 2.R2
+      mark_type: R
+      points: 3
+      evidence: $\sin\angle PYA=\sin(\pi-\angle PYX)=\sin\angle PYX=\sin\angle YXB=\sin\angle AXB$ 관계식을 구했다.
+      depends_on: [2.R1]
+      steps: [2b-3]
+    - id: 2.A1
+      mark_type: A
+      points: 4
+      evidence: $\overline{ZP}=\overline{PY}=1$의 값을 구했다.
+      depends_on: [2.M1, 2.R2]
+      steps: [2b-4]
+    - id: 2.A2
+      mark_type: A
+      points: 3
+      evidence: 접선의 길이를 이용하여 $\overline{BC}=2+1=3$을 구했다.
+      depends_on: [2.A1, 2.R2]
+      steps: [2b-5]
+    - id: 2.M2
+      mark_type: M
+      points: 2
+      evidence: $\overline{WQ}=\overline{YQ}=y$라 할 때 $\overline{PQ}=1+y$, $\overline{AQ}=4-y$의 관계식을 구했다.
+      steps: [2b-6]
+    - id: 2.M3
+      mark_type: M
+      points: 3
+      evidence: 코사인법칙으로 $\cos\angle BAC=\dfrac{13}{15}$을 구했다.
+      steps: [2b-7]
+    - id: 2.M4
+      mark_type: M
+      points: 3
+      evidence: 코사인법칙으로 $\cos\angle PAQ=\dfrac{12-5y}{12-3y}$를 구했다.
+      depends_on: [2.M2]
+      steps: [2b-8]
+    - id: 2.A3
+      mark_type: A
+      points: 5
+      evidence: $\cos\angle BAC=\cos\angle PAQ$로부터 $y=\overline{WQ}=\dfrac{2}{3}$를 구했다.
+      depends_on: [2.M3, 2.M4]
+      steps: [2b-9]
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+remedy_links: []
+reviews:
+- {stage: compose, actor_type: model, actor_id: sonnet, prompt_version: past-v2-lean, item_version: 1, verdict: pass, date: 2026-11-22}
+created: 2026-11-22
+updated: 2026-11-22
