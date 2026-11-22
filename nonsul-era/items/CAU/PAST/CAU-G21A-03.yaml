@@ -1,0 +1,251 @@
+schema_version: '2.0'
+id: CAU-G21A-03
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: CAU
+type: T03
+variant_of: null
+replaces: null
+level: L5
+form: 추론
+points: 25
+time_estimate_min: 25
+intent: '(1) 주어진 정적분의 형태를 파악한 후 부분적분을 두 번 사용하여 정적분 값을 구할 수 있는지, 삼각함수의 미분과 적분을 구할 수 있는지 평가한다. (2) 주어진 상황을 수식으로 표현한 후 음함수 미분과 합성함수 미분으로 속도를 구하고, Q에 대응하는 P를 구할 때 삼각함수가 들어간 방정식을 계산할 수 있는지 평가한다(가이드북 출제의도 요지).'
+key_idea: '(1) $F''(x)=\sin^2x$이므로 $\left(e^{F(x)}\right)''=e^{F(x)}\sin^2x$, 부분적분 후 $2-2\cos2x=4\sin^2x$로 다시 $\left(e^{F}\right)''$ 꼴. (2) $(x-\cos t)^2+(y-\sin t)^2=8$을 $t$로 음함수 미분, $\dfrac{dy}{dt}=\dfrac{dy}{dx}\dfrac{dx}{dt}$.'
+stuck: (1) $e^{F(x)}\sin^2x$가 $e^{F(x)}$의 도함수임을 알아채는 단계 / (2) 두 점의 거리 조건을 $t$에 대한 항등식으로 보고 미분하는 단계
+idea_tags: [IDEA-PARTS-EXP-OF-INTEGRAL, IDEA-IMPLICIT-DIFF-IN-TIME]
+tags: [부분적분, 적분으로 정의된 함수, 음함수 미분, 속도, 중앙대 실전]
+elements:
+  materials: ['$F(x)=\int_0^x\sin^2t\,dt$', '정적분 $\int_0^\pi(2x-\sin2x)e^{F(x)}\sin^2x\,dx$', '단위원 위의 점 $\mathrm{P}(\cos t,\sin t)$, $0\le t\le\frac{\pi}{4}$', '곡선 $y=(x+1)(x-1)^2$ 위의 점 Q', '거리 $2\sqrt2$ 유지']
+  concepts: [부분적분법, 적분으로 정의된 함수의 미분, 반각(배각) 공식, 음함수의 미분, 합성함수의 미분, 속도]
+  tools: [부분적분 두 번, $\sin^2x=\frac12-\frac12\cos2x$, $F(\pi)$ 계산, 거리 조건의 음함수 미분, 삼각방정식 풀이와 범위로 근 선택, 연쇄법칙]
+  conditions:
+  - '(1) $F(x)=\int_0^x\sin^2t\,dt$ ⇒ $F''(x)=\sin^2x$, $\left(e^{F(x)}\right)''=e^{F(x)}\sin^2x$'
+  - '(2) Q는 곡선 위 ⇒ $y=(x+1)(x-1)^2$, $\dfrac{dy}{dx}=3x^2-2x-1$'
+  - '(2) $\lvert\mathrm{PQ}\rvert=2\sqrt2$ 유지 ⇒ $(x-\cos t)^2+(y-\sin t)^2=8$이 모든 $t$에서 성립'
+  - '(2) $0\le t\le\dfrac{\pi}{4}$ ⇒ $\sin t=\dfrac5{13}$, $1$ 중 $\sin t=\dfrac5{13}$만 유효'
+  stimuli_used: ['1', '2', '3']
+  subpart_links:
+  - from: '1'
+    to: '2'
+    relation: 독립(결과 이월 없음)
+
+curriculum:
+  version: '2015'
+  subjects: [미적분]
+  scope_2028: calc2
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 부분적분법을 이해하고, 이를 활용할 수 있다 / 음함수와 역함수를 미분할 수 있다 / 속도와 가속도에 대한 문제를 해결할 수 있다(요지)
+    verified: false
+  content_area: 적분법 – 부분적분 / 미분법 – 음함수의 미분
+  behavior_domain: 문제해결
+  unit_path: [미적분, 적분법, 여러 가지 적분법, 부분적분법]
+  key_concepts: [부분적분법, 음함수의 미분]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 중앙대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 중앙대학교
+  admission_year: 2021
+  admission_type: 논술(수시)
+  track: 자연계열Ⅰ
+  question_no: 3
+  official_url: https://admisfile.cau.ac.kr/download/cau_2021_s_n_j_1.pdf
+  retrieved_at: '2026-11-21'
+  original_points: 25
+  rights_notice: 중앙대학교 입학처 공개 자료(기출문제 게시판 board_seq=2360). 상업적 재사용 허락 미요청
+  note: 문제 = 2021 자연계열Ⅰ 문제지 p.3(PDF 4쪽) / 예시답안·채점기준 = 2022 논술가이드북(자연) p.55~56 / 출제의도 = 같은 책 p.53. 문항카드 없음
+
+verify: verify/CAU-G21A.py::p03
+
+stimuli:
+- label: '1'
+  body: |
+    미분가능한 두 함수 $f(x)$, $g(x)$에 대하여 다음이 성립한다.
+    $$\int f(x)g'(x)dx=f(x)g(x)-\int f'(x)g(x)dx$$
+- label: '2'
+  body: |
+    두 함수 $y=f(u)$, $u=g(x)$가 각각 $u$, $x$에 대하여 미분가능하면, 합성함수 $y=f(g(x))$도 $x$에 대하여 미분가능하고, 그 도함수는 $\dfrac{dy}{dx}=\dfrac{dy}{du}\dfrac{du}{dx}$이다.
+- label: '3'
+  body: |
+    $x$의 함수 $y$가 음함수 $f(x,y)=0$의 꼴로 주어졌을 때, $y$를 $x$의 함수로 보고 각 항을 $x$에 대하여 미분한 후 $\dfrac{dy}{dx}$를 구한다.
+
+stem: |
+  다음을 읽고 문제에 답하시오.
+
+subparts:
+- id: '1'
+  stem: |
+    [문제 3-1] 함수 $F(x)=\displaystyle\int_0^x\sin^2t\,dt$에 대하여, 다음 정적분의 값을 구하시오. (단, 각 $\theta$에 대하여 $\sin^2\theta=\dfrac{1-\cos2\theta}{2}$가 성립한다.) [10점]
+    $$\int_0^\pi(2x-\sin(2x))e^{F(x)}\sin^2x\,dx$$
+  points: 10
+  depends_on: []
+  answer: {kind: value, value: '(2\pi-4)e^{\frac{\pi}{2}}+4', equivalents: ['(2pi-4)e^(pi/2)+4'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: '$u=2x-\sin2x$, $v''=e^{F}\sin^2x$로 부분적분, 남는 $\int(2-2\cos2x)e^{F}dx=\int4\sin^2x\,e^{F}dx=4\left[e^{F}\right]$.'
+    steps:
+    - {id: 1a, content: '$2\pi e^{F(\pi)}-4e^{F(\pi)}+4$, $F(\pi)=\dfrac{\pi}{2}$', criteria: [1.M1, 1.B1, 1.B2]}
+    hint_ladder:
+    - '$F''(x)$는 무엇인가? $e^{F(x)}$를 미분해 보자.'
+    - '$(2x-\sin2x)$를 미분하면 $2-2\cos2x$이다. 이것을 $\sin^2x$로 바꾸면?'
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 2022 논술가이드북(자연) p.55 예시답안
+    steps:
+    - id: 1b-1
+      content: |
+        부분적분을 하고 $\sin^2xdx=\dfrac12-\dfrac12\cos2x$를 이용하면
+        $$\Big[(2x-\sin2x)e^{F(x)}\Big]_0^\pi-\int_0^\pi(2-2\cos2x)e^{F(x)}dx$$
+      criteria: [1.M1]
+    - id: 1b-2
+      content: |
+        $$=2\pi e^{F(\pi)}-\int_0^\pi e^{F(x)}4\sin^2x\,dx=2\pi e^{F(\pi)}-\Big[4e^{F(x)}\Big]_0^\pi=2\pi e^{F(\pi)}-4e^{F(\pi)}+4$$
+        이다.
+      criteria: [1.B1]
+    - id: 1b-3
+      content: |
+        $F(x)=\displaystyle\int_0^x\sin^2t\,dt=\frac12x-\frac14\sin2x$이므로 $F(\pi)=\left[\dfrac12x-\dfrac14\sin2x\right]_0^\pi=\dfrac{\pi}{2}$이고 정리하면 $(2\pi-4)e^{\frac{\pi}{2}}+4$이다.
+      criteria: [1.B2]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 3
+      evidence: '$\Big[(2x-\sin2x)e^{F(x)}\Big]_0^\pi-\int_0^\pi(2-2\cos2x)e^{F(x)}dx$로 부분적분했다.'
+      depends_on: []
+      steps: [1b-1]
+    - id: 1.B1
+      mark_type: B
+      points: 3
+      evidence: '$\sin^2x\,dx=\frac12-\frac12\cos2x$를 이용하여 $2\pi e^{F(x)}-4e^{F(x)}+4$를 구했다.'
+      depends_on: []
+      steps: [1b-2]
+    - id: 1.B2
+      mark_type: B
+      points: 4
+      evidence: '$\int_0^\pi\sin^2x\,dx=\frac{\pi}{2}$를 계산해서 정답 $(2\pi-4)e^{\frac{\pi}{2}}+4$를 구했다.'
+      depends_on: []
+      steps: [1b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-CAL-4211}
+  misconceptions:
+  - id: MC-CAL-4211
+    outcome_code: '70'
+    wrong_work: '$e^{F(x)}\sin^2x$를 적분할 때 $F''(x)=\sin^2x$를 쓰지 못하고 $e^{F(x)}$를 상수처럼 빼거나 $\int e^{F}dx=e^{F}$로 처리'
+    detect_cue: '$\left(e^{F}\right)''=e^{F}\sin^2x$ 관계가 답안에 없음'
+    feedback: '$F(x)=\int_0^x\sin^2t\,dt$이면 $F''(x)=\sin^2x$입니다. 그래서 $e^{F(x)}\sin^2x$는 $e^{F(x)}$의 도함수입니다.'
+    remedy: [RL-1]
+- id: '2'
+  stem: |
+    [문제 3-2] 좌표평면 위를 움직이는 점 $\mathrm{P}$의 시각 $t$에서의 좌표는 $(\cos t,\sin t)$이다. 여기서 $t$의 범위는 $0\le t\le\dfrac{\pi}{4}$이다. 제1사분면에 속한 점 $\mathrm{Q}$는 곡선 $y=(x+1)(x-1)^2$ 위에 있고, 점 $\mathrm{P}$와 거리를 $2\sqrt2$로 유지하며 연속적으로 움직인다. 점 $\mathrm{Q}$가 $(2,3)$을 지날 때, 점 $\mathrm{Q}$의 속도 $\left(\dfrac{dx}{dt},\dfrac{dy}{dt}\right)$를 구하시오. [15점]
+  points: 15
+  depends_on: []
+  answer: {kind: value, value: '\left(\dfrac{13}{126},\dfrac{13}{18}\right)', equivalents: ['(13/126, 13/18)'], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: '거리식을 $t$로 미분해 $\dfrac{dx}{dt}$를 풀고, $\mathrm{Q}(2,3)$에 대응하는 $\mathrm{P}\left(\frac{12}{13},\frac{5}{13}\right)$, $\dfrac{dy}{dx}=7$을 대입.'
+    steps:
+    - {id: 2a, content: '$\dfrac{dx}{dt}=\dfrac{13}{126}$, $\dfrac{dy}{dt}=7\cdot\dfrac{13}{126}=\dfrac{13}{18}$', criteria: [2.M1, 2.B1, 2.B2]}
+    hint_ladder:
+    - 거리 조건 $(x-\cos t)^2+(y-\sin t)^2=8$은 모든 시각 $t$에서 성립한다.
+    - '$y$는 $x$의 함수이고 $x$는 $t$의 함수다. $\frac{dy}{dt}=\frac{dy}{dx}\frac{dx}{dt}$.'
+    - Q가 $(2,3)$일 때의 $t$를 먼저 구하자. $t$의 범위에 주의.
+  - id: S2-B
+    audience: B
+    method_no: 1
+    source_flow: 2022 논술가이드북(자연) p.56 예시답안
+    steps:
+    - id: 2b-1
+      content: |
+        $(x-\cos t)^2+(y-\sin t)^2=8$이다. $t$에 대하여 음함수, 합성함수 미분하면
+        $$x\frac{dx}{dt}-\frac{dx}{dt}\cos t+x\sin t+y\frac{dy}{dx}\frac{dx}{dt}-\frac{dy}{dx}\frac{dx}{dt}\sin t-y\cos t=0\quad\cdots(1)$$
+        을 얻는다.
+      criteria: [2.M1]
+    - id: 2b-2
+      content: |
+        $\dfrac{dy}{dx}=(x-1)^2+2(x-1)(x+1)=3x^2-2x-1$이고, $x=2$일 때 $\dfrac{dy}{dx}=7$이다.
+      criteria: [2.B2]
+    - id: 2b-3
+      content: |
+        $\mathrm{Q}=(2,3)$에 대응되는 $\mathrm{P}$를 구하기 위하여
+        $$(\cos t-2)^2+(\sin t-3)^2=8$$
+        을 풀면 $2\cos t+3\sin t=3$이고 제곱하여 $4\cos^2t=9(1-\sin t)^2$의 근을 구하면 $\sin t=\dfrac5{13}$, $1$이다. $0\le t\le\dfrac{\pi}{4}$이므로 대응되는 $\mathrm{P}$는 $\left(\dfrac{12}{13},\dfrac5{13}\right)$이다.
+      criteria: [2.B1]
+    - id: 2b-4
+      content: |
+        식 (1)에 대입하면 $\dfrac{dx}{dt}=\dfrac{13}{126}$, $\dfrac{dy}{dt}=\dfrac{dy}{dx}\dfrac{dx}{dt}=\dfrac{91}{126}=\dfrac{13}{18}$이다.
+      criteria: [2.B2]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 5
+      evidence: '$x\frac{dx}{dt}-\frac{dx}{dt}\cos t+x\sin t+y\frac{dy}{dx}\frac{dx}{dt}-\frac{dy}{dx}\frac{dx}{dt}\sin t-y\cos t=0$을 구했다.'
+      depends_on: []
+      steps: [2b-1]
+    - id: 2.B1
+      mark_type: B
+      points: 5
+      evidence: '$\mathrm{Q}=(2,3)$에 대응되는 $\mathrm{P}=\left(\frac{12}{13},\frac{5}{13}\right)$를 구했다.'
+      depends_on: []
+      steps: [2b-3]
+    - id: 2.B2
+      mark_type: B
+      points: 5
+      evidence: '$x=2$일 때 $\frac{dy}{dx}=7$ 등을 감안하여 $\frac{dx}{dt}=\frac{13}{126}$, $\frac{dy}{dt}=\frac{91}{126}=\frac{13}{18}$을 구했다.'
+      depends_on: []
+      steps: [2b-2, 2b-4]
+    deductions:
+    - code: D2-1
+      condition: 공식 주석 — 논리 전개 과정이 맞으면 답이 틀리더라도 1~2점의 부분 점수 부여 가능, 채점자는 답안의 완성도에 따라 −0.5~+0.5점 부여 가능
+      effect: minus
+      value: 0.5
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-CAL-4212}
+  misconceptions:
+  - id: MC-CAL-4212
+    outcome_code: '70'
+    wrong_work: '$\sin t=1$($t=\frac{\pi}{2}$, $\mathrm{P}(0,1)$)을 택해 대입'
+    detect_cue: '$\mathrm{P}=(0,1)$ 또는 $\cos t=0$을 대입한 계산'
+    feedback: '$t$의 범위가 $0\le t\le\frac{\pi}{4}$입니다. 범위 밖 근 $\sin t=1$은 버려야 합니다(제곱하면서 생긴 근인지도 확인).'
+    remedy: [RL-2]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CAL-4211}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-INT-PARTS}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-CAL-4212}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-IMPLICIT-DIFF}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-input-v1, item_version: 1, verdict: pass, date: 2026-11-22, note: 문제 원문 PDF 이미지 대조로 옮김 · 주 해설은 공식 예시답안 흐름 그대로 · 채점기준은 공식 기준을 M/B 마크로 옮김}
+
+created: 2026-11-22
+updated: 2026-11-22

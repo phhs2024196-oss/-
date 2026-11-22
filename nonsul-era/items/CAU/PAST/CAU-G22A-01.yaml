@@ -1,0 +1,192 @@
+schema_version: '2.0'
+id: CAU-G22A-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: CAU
+type: T01
+variant_of: null
+replaces: null
+level: L4
+form: 분류
+points: 20
+time_estimate_min: 20
+intent: 주어진 상황에서 가능한 모든 경우의 수를 논리적으로 사고하여 정확하게 계산하는 문제로, 여러 조건 하에서 등번호와 의자번호를 매칭하는 경우의 수를 계산할 수 있는가를 평가한다. 경우의 수와 순열의 의미 및 순열의 수 계산능력을 평가하며 난이도는 '중, 하' 정도(가이드북 출제의도 요지).
+key_idea: '자리 제약이 가장 강한 등번호 5·6·7번의 자리를 먼저 정하고(6가지), 남은 자리에 등번호 1·2·3·4번을 작은 번호부터 차례로 앉히며 곱의 법칙을 쓴다.'
+stuck: '등번호 1~4번을 1번부터 순서대로 앉히면 각 사람의 선택지가 앞사람 선택과 무관하게 일정해진다는 점(남은 자리 집합에 4번 의자가 있는지에 따라 4번 사람의 선택지 1 또는 2)'
+idea_tags: [IDEA-FIX-MOST-CONSTRAINED-FIRST, IDEA-SEQUENTIAL-CHOICE-PRODUCT]
+tags: [자리 배치, 곱의 법칙, 순열, 중앙대 실전]
+elements:
+  materials: [번호 0~7이 부여된 의자 8개(위 0·1·2·3, 아래 4·5·6·7), 등번호 1~7번 7명]
+  concepts: [경우의 수(합의 법칙·곱의 법칙), 순열]
+  tools: ['등번호 5·6·7번 자리 경우 6가지 나열', '등번호 1번부터 차례로 남은 자리 선택(곱의 법칙)', '남은 자리 집합별 경우의 수 합산']
+  conditions:
+  - '한 의자에 2명 이상 앉을 수 없음 ⇒ 서로 다른 의자(단사 배정), 7명이 8개 중 7개 사용'
+  - '본인 등번호보다 큰 번호의 의자에 앉을 수 없음 ⇒ 등번호 $k$번은 $0\sim k$번 의자'
+  - '5번은 $\{4,5\}$, 6번은 $\{4,5,6\}$, 7번은 $\{6,7\}$ ⇒ 세 사람의 자리 6가지'
+  - '등번호 1~4번은 $\{0,1,2,3,4\}$ 중 남은 의자에 앉음 ⇒ 남은 자리에 4가 있으면 $2\times2\times2\times2$, 없으면 $2\times2\times2\times1$'
+  stimuli_used: []
+  subpart_links: null
+
+curriculum:
+  version: '2015'
+  subjects: [수학]
+  scope_2028: common
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 합의 법칙과 곱의 법칙을 이해하고, 이를 이용하여 경우의 수를 구할 수 있다(요지)
+    verified: false
+  - code: 미확인
+    text: 순열의 의미를 이해하고, 순열의 수를 구할 수 있다(요지)
+    verified: false
+  content_area: 경우의 수 – 합의 법칙·곱의 법칙, 순열
+  behavior_domain: 문제해결
+  unit_path: [수학, 경우의 수, 경우의 수, 곱의 법칙]
+  key_concepts: [곱의 법칙, 순열]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 중앙대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 중앙대학교
+  admission_year: 2022
+  admission_type: 논술(수시)
+  track: 자연계열Ⅰ
+  question_no: 1
+  official_url: https://admisfile.cau.ac.kr/download/cau_2022_s_n_j_1.pdf
+  retrieved_at: '2026-11-21'
+  original_points: 20
+  rights_notice: 중앙대학교 입학처 공개 자료(기출문제 게시판, board_seq=2531). 상업적 재사용 허락 미요청
+  note: 문제 = 2022 자연계열Ⅰ 문제지 p.1(PDF p.2) / 출전·출제의도 = 2023 논술가이드북(자연) p.61 / 예시답안·채점기준 = 같은 가이드북 p.62
+
+verify: verify/CAU-G22A.py::p01
+
+stimuli: []
+
+stem: |
+  다음 상황에 기초하여 문제에 답하시오.
+
+  아래와 같이 번호가 부여된 8개의 의자가 있다. 1번부터 7번까지의 서로 다른 등번호를 부여받은 7명의 사람들을 7개의 의자에 앉히려고 한다.
+
+  (그림: 직사각형 탁자 위쪽에 의자 0, 1, 2, 3, 아래쪽에 의자 4, 5, 6, 7이 놓여 있다.)
+
+  단, 자리를 배치할 때, 다음의 조건을 모두 만족하여야 한다.
+
+  - 한 의자에 2명 이상 앉을 수 없다.
+  - 모든 사람은 본인의 등번호보다 큰 번호의 의자에 앉을 수 없다.
+  - 등번호가 5번인 사람은 4번, 5번 의자 중 하나에 앉아야 한다.
+  - 등번호가 6번인 사람은 4번, 5번, 6번 의자 중 하나에 앉아야 한다.
+  - 등번호가 7번인 사람은 6번, 7번 의자 중 하나에 앉아야 한다.
+
+  자리를 배치하는 경우의 수를 구하시오. [20점]
+
+subparts:
+- id: '1'
+  stem: |
+    자리를 배치하는 경우의 수를 구하시오.
+  points: 20
+  depends_on: []
+  answer: {kind: value, value: '56', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: '5·6·7번의 자리 6가지 중 4번 의자가 남는 경우는 $(5,6,7)\to(5,6,7)$ 하나뿐. 그때 $2^4=16$, 나머지 5가지는 $2^3\cdot1=8$씩 ⇒ $8\times5+16=56$.'
+    steps:
+    - {id: 1a, content: '등번호 $k\ (1\le k\le4)$번은 앞사람이 쓴 $k-1$개를 뺀 $\{0,\dots,k\}$ 중에서 고르므로 2가지씩(단 4번은 4번 의자가 남아 있을 때만 2가지)', criteria: [1.B1, 1.B2]}
+    hint_ladder:
+    - 선택지가 가장 적은 사람부터 자리를 정해 보자.
+    - 등번호 1번, 2번, 3번 순서로 앉히면 각자 선택할 수 있는 의자는 몇 개인가?
+    - 남은 자리에 4번 의자가 있는 경우와 없는 경우를 나누자.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 2023 논술가이드북(자연) p.62 예시답안
+    steps:
+    - id: 1b-1
+      content: |
+        먼저, 등번호가 5번, 6번, 7번인 사람의 자리를 고려하면 아래의 6가지 경우가 있다.
+        (등번호 5, 6, 7의 자리번호 → 남은 자리)
+        $(4,5,6)\to\{0,1,2,3,7\}$, $(4,5,7)\to\{0,1,2,3,6\}$, $(4,6,7)\to\{0,1,2,3,5\}$,
+        $(5,4,6)\to\{0,1,2,3,7\}$, $(5,4,7)\to\{0,1,2,3,6\}$, $(5,6,7)\to\{0,1,2,3,4\}$
+      criteria: [1.B1]
+    - id: 1b-2
+      content: |
+        나머지 사람인 등번호 1, 2, 3, 4번의 사람이 앉을 수 있는 경우를 고려해보자.
+        예를 들어, 남은 자리가 $\{0,1,2,3,7\}$인 경우는 다음과 같이 계산된다.
+        − 등번호 1번 사람이 선택할 수 있는 경우의 수 − 2가지 (0번 자리, 1번 자리)
+        − 등번호 2번 사람이 선택할 수 있는 경우의 수 − 2가지 (0번, 1번, 2번 자리 중 등번호 1번이 선택하지 않은 자리)
+        − 등번호 3번 사람이 선택할 수 있는 경우의 수 − 2가지 (0번, 1번, 2번, 3번 자리 중 등번호 1번, 2번이 선택하지 않은 자리)
+        − 등번호 4번 사람이 선택할 수 있는 경우의 수 − 1가지 (0번, 1번, 2번, 3번 자리 중 등번호 1번, 2번, 3번이 선택하지 않은 자리)
+        따라서, 모든 경우의 수는 $2\times2\times2\times1=8$이다.
+      criteria: [1.B2]
+    - id: 1b-3
+      content: |
+        위의 계산과정을 모든 경우에 대하여 반복하면 아래와 같이 계산된다.
+        $(4,5,6)$, 남은 자리 $\{0,1,2,3,7\}$: $2\times2\times2\times1=8$
+        $(4,5,7)$, 남은 자리 $\{0,1,2,3,6\}$: $2\times2\times2\times1=8$
+        $(4,6,7)$, 남은 자리 $\{0,1,2,3,5\}$: $2\times2\times2\times1=8$
+        $(5,4,6)$, 남은 자리 $\{0,1,2,3,7\}$: $2\times2\times2\times1=8$
+        $(5,4,7)$, 남은 자리 $\{0,1,2,3,6\}$: $2\times2\times2\times1=8$
+        $(5,6,7)$, 남은 자리 $\{0,1,2,3,4\}$: $2\times2\times2\times2=16$
+        따라서, 모든 경우의 수는 $8\times5+16=56$이다.
+      criteria: [1.B2]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.B1
+      mark_type: B
+      points: 10
+      evidence: 등번호 5번, 6번, 7번이 앉을 수 있는 경우 6개를 모두 찾았다.
+      depends_on: []
+      steps: [1b-1]
+    - id: 1.B2
+      mark_type: B
+      points: 10
+      evidence: '6개 경우에 대한 경우의 수를 바르게 계산했다(남은 자리 $\{0,1,2,3,4\}$인 경우 16개를 못 찾으면 2점 감점, 그 외 5개 경우는 각 1점 감점).'
+      depends_on: []
+      steps: [1b-2, 1b-3]
+    deductions:
+    - code: D1-1
+      condition: '1.B2 안에서 남은 자리 $\{0,1,2,3,4\}$인 경우의 16개를 못 찾음(공식 채점기준)'
+      effect: minus
+      value: 2
+    - code: D1-2
+      condition: 1.B2 안에서 그 외 5개 경우 중 하나의 경우의 수를 틀림(경우마다, 공식 채점기준)
+      effect: minus
+      value: 1
+    - code: D1-3
+      condition: 계산 실수로 틀렸어도 논리 전개 과정이 맞으면 해당 부분에 1~2점 부분 점수 / 완성도에 따라 총점 20점 이내에서 ±1점(공식 채점기준 주석)
+      effect: minus
+      value: 1
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-CNT-4307}
+  misconceptions:
+  - id: MC-CNT-4307
+    outcome_code: '70'
+    wrong_work: '모든 경우에서 등번호 4번의 선택지를 1가지로 보아 $8\times6=48$로 답함(4번 의자가 남는 경우를 놓침)'
+    detect_cue: 답이 48, 또는 남은 자리 $\{0,1,2,3,4\}$ 경우를 8가지로 계산
+    feedback: '등번호 5·6·7번이 4번 의자를 쓰지 않으면 등번호 4번 사람은 4번 의자에도 앉을 수 있습니다. 남은 자리 집합마다 선택지를 다시 세세요.'
+    remedy: [RL-1]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CNT-4307}
+  relation: remediation
+  target: {kind: concept, ref: CON-PRB-RESTRICTED-ASSIGNMENT}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-input-v1, item_version: 1, verdict: pass, date: 2026-11-22, note: 문제 원문 PDF 이미지 대조로 옮김(의자 배치 그림은 글로 설명) · 주 해설은 공식 예시답안 흐름 그대로(표는 줄 목록으로) · 채점기준은 공식 기준을 B 마크로 옮김}
+
+created: 2026-11-22
+updated: 2026-11-22

@@ -1,0 +1,278 @@
+schema_version: '2.0'
+id: CAU-G25B-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: CAU
+type: T07
+variant_of: null
+replaces: null
+level: L5
+form: 분류
+points: 20
+time_estimate_min: 25
+intent: 서로 다른 이산확률변수(공 1회 제거·2회 제거 때의 상금)의 기댓값을 계산하고 이를 비교해 이차부등식으로 나타낸 뒤 그 해를 구하는 능력을 본다(문항카드 출제 의도 요지).
+key_idea: '빨간 공이 제거된 사건으로 나누면 상금은 “빨간 공 제거 여부”만으로 정해진다. 1회: $P(\text{제거})=a$, 2회: $P(\text{미제거})=(1-a)\left(1-\dfrac a2\right)$.'
+stuck: 주머니 A가 비면 B에서 택한다는 규칙 때문에 “빨간 공이 제거되었는가”로 사건을 나누는 발상, 그리고 비용 $-2$, $-4$를 상금에 반영하는 단계
+idea_tags: [IDEA-PARTITION-BY-STAGE1, IDEA-EXPECTATION-COMPARE-QUADRATIC]
+tags: [기댓값, 조건부확률, 확률의 곱셈정리, 이차부등식, 중앙대 실전]
+elements:
+  materials: ['주머니 A(빨간 공 1개), 주머니 B(파란 공 5개), 합친 주머니 C에서 1개를 꺼내 빨간 공이면 100만 원', '회당 2만 원 비용으로 A 또는 B에서 공 1개 제거(최대 2회)', '$k$번째 제거에서 A를 택할 확률 $\dfrac ak$, A가 비면 B']
+  concepts: [이산확률변수의 기댓값, 확률의 곱셈정리, 확률의 덧셈정리(배반사건), 조건부확률, 이차부등식]
+  tools: [빨간 공 제거 사건 E·F로 분할, 조건부확률로 P(A)·P(C) 계산, 상금 확률변수 X·Y의 기댓값, 기댓값 비교를 이차부등식으로, 범위 0<a<1과의 공통부분]
+  conditions:
+  - '(라) 비용은 상금에서 차감 ⇒ 1회 제거 상금 $X\in\{-2,\ 98\}$, 2회 제거 상금 $Y\in\{-4,\ 96\}$(만 원)'
+  - '(다) $k$번째 선택에서 A를 택할 확률 $\dfrac ak$ ⇒ 1회째 $a$, 2회째 $\dfrac a2$'
+  - '(다) A에 공이 없으면 B에서 택함 ⇒ 빨간 공이 이미 제거되었으면 2회째는 B'
+  - '“크거나 같도록 하는 $a$의 최댓값”, $0<a<1$ ⇒ $(5a-1)(5a-6)\ge0$과 $0<a<1$의 공통부분 $0<a\le\dfrac15$'
+  stimuli_used: []
+  subpart_links: null
+
+curriculum:
+  version: '2015'
+  subjects: [수학, 확률과통계]
+  scope_2028: common
+  scope_confirmed: false
+  standards:
+  - code: 10수학01-16
+    text: 이차부등식과 이차함수의 관계를 이해하고, 이차부등식과 연립이차부등식을 풀 수 있다.
+    verified: true
+  - code: 12확통02-03
+    text: 확률의 덧셈정리를 이해하고, 이를 활용할 수 있다.
+    verified: true
+  - code: 12확통02-07
+    text: 확률의 곱셈정리를 이해하고, 이를 활용할 수 있다.
+    verified: true
+  - code: 12확통03-02
+    text: 이산확률변수의 기댓값(평균)과 표준편차를 구할 수 있다.
+    verified: true
+  content_area: 확률 – 확률의 곱셈정리 / 통계 – 이산확률변수의 기댓값 / 이차부등식
+  behavior_domain: 문제해결
+  unit_path: [확률과 통계, 통계, 확률분포, 이산확률변수의 기댓값]
+  key_concepts: [이차부등식, 이산확률변수, 기댓값]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 중앙대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 중앙대학교
+  admission_year: 2025
+  admission_type: 논술(수시)
+  track: 자연계열Ⅱ
+  question_no: 1
+  official_url: https://admission.cau.ac.kr/files/2025/2025_cau_ns_jy2.pdf
+  retrieved_at: '2026-11-21'
+  original_points: 20
+  rights_notice: 중앙대학교 입학처 공개 자료(기출문제 게시판 board_seq=3072). 상업적 재사용 허락 미요청
+  note: 문제 = 2025 자연계열Ⅱ 문제지 p.1(PDF p.2, 2026 논술가이드북 p.56) / 예시답안·별해·채점기준 = 2026 논술가이드북(자연) p.60~62 / 출제의도·성취기준 = 2025 선행학습 영향평가 보고서 문항카드 11(PDF p.243~247, 인쇄 쪽 241~245) / official_url 파일 경로는
+
+verify: verify/CAU-G25B.py::p01
+
+stimuli: []
+
+stem: |
+  다음 규칙에 따라 상금을 받는 시행을 한다. 풀이와 함께 물음에 답하시오.
+
+  (가) 주머니 A에는 빨간색 공 1개가 들어 있고, 주머니 B에는 파란색 공 5개가 들어 있다. 두 주머니의 공을 주머니 C에 합친 후 임의로 1개를 꺼내서 그 공이 빨간색 공일 때 100만 원의 상금을 받는다. 만일 파란색 공을 꺼낸 경우 상금은 0원이다.
+  (나) 주머니 C에 합치기 전에, 회당 2만 원의 비용을 지불하면 주머니 A 또는 B를 선택한 후 선택한 주머니에서 임의로 1개의 공을 택하여 제거한다.
+  (다) (나)는 최대 2회 가능하며, $k\ (k=1\text{ 또는 }2)$번째에서 주머니를 선택하는 규칙은 다음과 같다.
+    − 주머니 A를 선택할 확률은 $\dfrac ak$이고, 주머니 B를 선택할 확률은 $1-\dfrac ak$이다.
+    − 주머니 A에 공이 없는 경우 주머니 B에서 공을 택한다.
+  (라) 공을 제거할 때 지불하는 비용은 상금에서 차감된다. 따라서 상금의 값은 음수가 될 수 있다.
+
+  위 시행에서 공을 2회 제거할 때의 상금의 기댓값이 공을 1회 제거할 때의 상금의 기댓값보다 크거나 같도록 하는 $a$의 최댓값을 구하시오. (단, $0<a<1$이다.) [20점]
+
+subparts:
+- id: '1'
+  stem: |
+    공을 2회 제거할 때의 상금의 기댓값이 공을 1회 제거할 때의 상금의 기댓값보다 크거나 같도록 하는 $a$의 최댓값을 구하시오. (단, $0<a<1$이다.)
+  points: 20
+  depends_on: []
+  answer: {kind: value, value: '\dfrac15', equivalents: ['1/5', '0.2'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: '$E(X)=100P(\text{빨강 남음, 그리고 뽑힘})-2=-20a+18$, $E(Y)=\dfrac{25}{2}a^2-\dfrac{75}{2}a+21$.'
+    steps:
+    - {id: 1a, content: '$E(Y)\ge E(X)\iff(5a-1)(5a-6)\ge0$, $0<a<1$에서 $a\le\dfrac15$, 최댓값 $\dfrac15$', criteria: [1.B1, 1.B2, 1.B3, 1.B4, 1.B5, 1.B6]}
+    hint_ladder:
+    - 상금은 빨간 공이 제거되었는지에 따라 달라진다. 이 사건으로 나누어 보자.
+    - 2회 제거 후 빨간 공이 남아 있을 확률은?
+    - 기댓값을 비교한 식은 $a$에 대한 이차부등식이다.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 2026 논술가이드북(자연) p.60~61 예시답안
+    steps:
+    - id: 1b-1
+      content: |
+        (1) 공을 1회 제거할 때의 상금을 $X$(단위: 만 원)라고 하자. $X$가 가질 수 있는 값은 $-2$ 또는 98이므로, 각각에 대한 확률을 구한다. $X=-2$인 사건을 $A$, $X=98$인 사건을 $B$라 하자.
+      criteria: []
+    - id: 1b-2
+      content: |
+        (2) $P(A)$는 파란색 공을 꺼낼 확률과 같다. 파란색 공을 꺼내는 사건은 1) 빨간색 공이 제거되어 선택하지 못하는 사건과 2) 빨간색 공이 남아 있지만 꺼내지 못하는 사건으로 나눌 수 있다. 따라서 빨간색 공이 제거된 사건을 $E$라고 하면, 확률의 덧셈정리와 곱셈정리에 의해 $P(A)$는 다음과 같이 구할 수 있다.
+        $$P(A)=P(E)P(A\mid E)+P(E^c)P(A\mid E^c)$$
+      criteria: []
+    - id: 1b-3
+      content: |
+        (3) 문제의 조건에 의해 $P(E)=a$이다. 빨간색 공이 제거되었다면 조건에 의해 선택할 수 없으므로 $P(A\mid E)=1$이다. 빨간색 공이 제거되지 않았다면 남아 있는 5개의 공 중에 파란색 공이 4개이므로 $P(A\mid E^c)=\dfrac45$이다. 따라서
+        $$P(A)=(a\times1)+\left\{(1-a)\times\dfrac45\right\}=\dfrac15a+\dfrac45$$
+        이다.
+      criteria: [1.B1]
+    - id: 1b-4
+      content: |
+        (4) 빨간색 공이 제거되었다면 조건에 의해 선택할 수 없으므로 $P(B\mid E)=0$이다. 빨간색 공이 제거되지 않았다면 남아 있는 5개의 공 중에 빨간색 공이 1개이므로 $P(B\mid E^c)=\dfrac15$이다. 따라서 $P(B)=(a\times0)+\left\{(1-a)\times\dfrac15\right\}=-\dfrac15a+\dfrac15$이다. 혹은, $X=-2$인 사건과 $X=98$인 사건은 여사건이므로, $P(B)=1-P(A)=-\dfrac15a+\dfrac15$임을 간단하게 구할 수 있다.
+      criteria: [1.B1]
+    - id: 1b-5
+      content: |
+        (5) 따라서, 1개의 공을 제거할 때의 상금의 기댓값은 다음과 같다.
+        $$E(X)=\{(-2)\times P(A)\}+\{98\times P(B)\}=\left\{(-2)\times\left(\dfrac15a+\dfrac45\right)\right\}+\left\{98\times\left(-\dfrac15a+\dfrac15\right)\right\}=(-100)\times\dfrac15a+\dfrac{90}{5}=-20a+18$$
+      criteria: [1.B3]
+    - id: 1b-6
+      content: |
+        (6) 공을 2회 제거할 때의 상금을 $Y$(단위: 만 원)라고 하자. $Y$가 가질 수 있는 값은 $-4$ 또는 96이다. $Y=-4$인 사건을 $C$, $Y=96$인 사건을 $D$라 하자.
+        (7) $P(C)$는 파란색 공을 꺼낼 확률과 같으므로, 빨간색 공이 제거된 사건을 $F$라고 하면 $P(C)$는 다음과 같이 구할 수 있다.
+        $$P(C)=P(F)P(C\mid F)+P(F^c)P(C\mid F^c)$$
+      criteria: []
+    - id: 1b-7
+      content: |
+        (8) 빨간색 공이 제거되지 않을 확률은 $P(F^c)=(1-a)\left(1-\dfrac a2\right)=\dfrac12a^2-\dfrac32a+1$이다. 따라서 $P(F)=1-P(F^c)=-\dfrac12a^2+\dfrac32a$이다.
+        (9) 빨간색 공이 제거되었다면 조건에 의해 선택할 수 없으므로 $P(C\mid F)=1$이다. 빨간색 공이 제거되지 않았다면 남아 있는 4개의 공 중에 파란색 공이 3개이므로 $P(C\mid F^c)=\dfrac34$이다. 따라서
+        $$P(C)=\left\{\left(-\dfrac12a^2+\dfrac32a\right)\times1\right\}+\left\{\left(\dfrac12a^2-\dfrac32a+1\right)\times\dfrac34\right\}=-\dfrac18a^2+\dfrac38a+\dfrac34$$
+        이다.
+      criteria: [1.B2]
+    - id: 1b-8
+      content: |
+        (10) 빨간색 공이 제거되었다면 조건에 의해 선택할 수 없으므로 $P(D\mid F)=0$이다. 빨간색 공이 제거되지 않았다면 남아 있는 4개의 공 중에 빨간색 공이 1개이므로 $P(D\mid F^c)=\dfrac14$이다. 따라서
+        $$P(D)=\left\{\left(-\dfrac12a^2+\dfrac32a\right)\times0\right\}+\left\{\left(\dfrac12a^2-\dfrac32a+1\right)\times\dfrac14\right\}=\dfrac18a^2-\dfrac38a+\dfrac14$$
+        이다. 혹은, (4)와 마찬가지로 $P(D)=1-P(C)=\dfrac18a^2-\dfrac38a+\dfrac14$임을 간단하게 구할 수도 있다.
+      criteria: [1.B2]
+    - id: 1b-9
+      content: |
+        (11) 따라서, 공을 2회 제거할 때의 상금의 기댓값은 다음과 같다.
+        $$E(Y)=\{(-4)\times P(C)\}+\{96\times P(D)\}=\left\{(-4)\times\left(-\dfrac18a^2+\dfrac38a+\dfrac34\right)\right\}+\left\{96\times\left(\dfrac18a^2-\dfrac38a+\dfrac14\right)\right\}$$
+        $$=(100)\times\left(\dfrac18a^2-\dfrac38a\right)+\dfrac{84}{4}=\dfrac{25}{2}a^2-\dfrac{75}{2}a+21$$
+      criteria: [1.B4]
+    - id: 1b-10
+      content: |
+        (12) 조건을 만족하는 $a$의 최댓값을 구하기 위해서 다음의 2차 부등식을 풀면 된다.
+        $$E(Y)\ge E(X)\iff\dfrac{25}{2}a^2-\dfrac{75}{2}a+21\ge-20a+18\iff25a^2-35a+6\ge0\iff(5a-1)(5a-6)\ge0$$
+      criteria: [1.B5]
+    - id: 1b-11
+      content: |
+        따라서, $0<a<1$을 만족하는 $a$의 최댓값은 $\dfrac15$이다.
+      criteria: [1.B6]
+  - id: S1-ALT
+    audience: ALT
+    method_no: 2
+    source_flow: 2026 논술가이드북(자연) p.62 별해
+    key_idea: 비용은 확률 1로 발생하므로 기댓값에서 그대로 빼면 된다.
+    steps:
+    - id: 1c-1
+      content: |
+        (1) 제거를 1회 할 때, 2만 원의 비용은 1의 확률로 발생한다. 따라서
+        $$E(X)=100\times P(B)-2=100\times\left(-\dfrac15a+\dfrac15\right)-2=-20a+18$$
+        이다.
+      criteria: [1.B3]
+    - id: 1c-2
+      content: |
+        (2) 제거를 2회 할 때, 4만 원의 비용은 1의 확률로 발생한다. 따라서
+        $$E(Y)=100\times P(D)-4=100\times\left(\dfrac18a^2-\dfrac38a+\dfrac14\right)-4=\dfrac{25}{2}a^2-\dfrac{75}{2}a+21$$
+        이다.
+      criteria: [1.B4]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.B1
+      mark_type: B
+      points: 4
+      evidence: $P(A)=\dfrac15a+\dfrac45$ 또는 $P(B)=-\dfrac15a+\dfrac15$를 정확히 계산했다.
+      depends_on: []
+      steps: [1b-3, 1b-4]
+    - id: 1.B2
+      mark_type: B
+      points: 4
+      evidence: $P(C)=-\dfrac18a^2+\dfrac38a+\dfrac34$ 또는 $P(D)=\dfrac18a^2-\dfrac38a+\dfrac14$를 정확히 계산했다.
+      depends_on: []
+      steps: [1b-7, 1b-8]
+    - id: 1.B3
+      mark_type: B
+      points: 4
+      evidence: $X$의 기댓값 $-20a+18$을 정확히 계산했다.
+      depends_on: []
+      steps: [1b-5, 1c-1]
+    - id: 1.B4
+      mark_type: B
+      points: 4
+      evidence: $Y$의 기댓값 $\dfrac{25}{2}a^2-\dfrac{75}{2}a+21$을 정확히 계산했다.
+      depends_on: []
+      steps: [1b-9, 1c-2]
+    - id: 1.B5
+      mark_type: B
+      points: 2
+      evidence: 문제의 조건을 만족하는 이차부등식 $25a^2-35a+6\ge0$(또는 동치식)을 정확히 세웠다.
+      depends_on: []
+      steps: [1b-10]
+    - id: 1.B6
+      mark_type: B
+      points: 2
+      evidence: $a$의 최댓값 $\dfrac15$를 정확히 계산했다.
+      depends_on: []
+      steps: [1b-11]
+    deductions:
+    - code: D1-1
+      condition: 논리 전개 과정이 맞으면 답이 틀리더라도 부분 점수 가능(공식 채점기준 주석)
+      effect: minus
+      value: 1
+    - code: D1-2
+      condition: 채점자 재량 — 답안의 완성도에 따라 ±1점(공식 채점기준 주석)
+      effect: minus
+      value: 1
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-PRB-4615}
+  - {code: '71', misconception: MC-ALG-4616}
+  misconceptions:
+  - id: MC-PRB-4615
+    outcome_code: '70'
+    wrong_work: '2회째에도 A를 택할 확률을 $\dfrac a2$로 두고 빨간 공 제거 확률을 $a+\dfrac a2$로 더함(1회째에 이미 제거된 경우를 구분하지 않음)'
+    detect_cue: $P(F)=\dfrac32a$, 또는 $P(F^c)$에 $(1-a)\left(1-\dfrac a2\right)$가 없음
+    feedback: 1회째에 빨간 공이 제거되면 2회째는 반드시 B입니다. “두 번 모두 제거되지 않을 확률” $(1-a)\left(1-\dfrac a2\right)$의 여사건으로 구하세요.
+    remedy: [RL-1]
+  - id: MC-ALG-4616
+    outcome_code: '71'
+    wrong_work: '$(5a-1)(5a-6)\ge0$의 해를 $\dfrac15\le a\le\dfrac65$로 거꾸로 읽거나 $a\ge\dfrac65$ 쪽을 답으로 고름'
+    detect_cue: 답이 $\dfrac65$ 또는 1에 가까운 값
+    feedback: 이차항 계수가 양수이면 $\ge0$의 해는 두 근의 바깥쪽입니다. $0<a<1$과의 공통부분은 $0<a\le\dfrac15$입니다.
+    remedy: [RL-2]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-PRB-4615}
+  relation: remediation
+  target: {kind: concept, ref: CON-PRB-TOTAL-PROB}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-ALG-4616}
+  relation: remediation
+  target: {kind: concept, ref: CON-ALG-QUAD-INEQ}
+  priority: 1
+- id: RL-3
+  trigger: {type: criterion_missed, ref: 1.B4}
+  relation: prerequisite
+  target: {kind: concept, ref: CON-PRB-EXPECTATION}
+  priority: 2
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-input-v1, item_version: 1, verdict: pass, date: 2026-11-21, note: 문제 원문 PDF 이미지 대조로 옮김 · 주 해설은 공식 예시답안 (1)~(12) 흐름 그대로 · 채점기준은 공식 기준을 B 마크로 옮김(X·Y 기댓값 각 4점으로 분리)}
+
+created: 2026-11-21
+updated: 2026-11-21

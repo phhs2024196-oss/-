@@ -1,0 +1,215 @@
+schema_version: '2.0'
+id: CAU-G20A-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: CAU
+type: T01
+variant_of: null
+replaces: null
+level: L5
+form: 전수
+points: 20
+time_estimate_min: 25
+intent: 임의로 설정된 상황에서 얻을 수 있는 경우의 수와 그에 따른 확률 구조를 이해하고 각 상황의 확률을 정확히 비교·계산하는지 평가한다(가이드북 출제 의도 요지, 난이도 중하).
+key_idea: '두 주사위의 6인 면을 붙이면 두 끝면은 1, 네 옆면은 두 주사위의 옆면 눈(2·3·5·4 순환)의 합이다. 두 주사위의 상대 회전 4가지가 곧 4종류이고, 면적비로 옆면 확률 $\dfrac15$, 끝면 $\dfrac1{10}$.'
+stuck: 붙인 주사위의 종류가 두 주사위 옆면의 상대 회전으로 4가지임을 찾고 각 옆면의 눈을 정하는 단계
+idea_tags: [IDEA-RELATIVE-ROTATION-CLASSES, IDEA-AREA-PROPORTIONAL-PROB]
+tags: [주사위, 기하적 확률, 확률의 덧셈정리, 곱셈정리, 중앙대 실전]
+elements:
+  materials:
+  - 마주보는 면의 합이 7인 일반 주사위 두 개
+  - 6인 면끼리 붙인 직육면체 주사위(옆면 4개는 정사각형 2개 넓이, 끝면 2개는 정사각형 1개 넓이)
+  - 일반 정육면체 주사위 한 개(비교 대상)
+  concepts: [수학적 확률, 확률의 곱셈정리, 확률의 덧셈정리(배반사건), 경우의 수]
+  tools:
+  - 6과 마주보는 1이 두 끝면에 온다는 관찰
+  - 옆면 순환 2·3·5·4 와 상대 회전 4가지로 주사위 종류 A~D 나열
+  - 면적 비례로 면별 확률 $\dfrac15,\ \dfrac1{10}$
+  - 새 눈이 일반 주사위 눈 이하가 되는 경우만 골라 곱셈·덧셈
+  conditions:
+  - '6인 면끼리 붙임 ⇒ 두 끝면은 각각 6의 반대면인 1'
+  - '한 면의 눈 = 그 면에 있는 눈의 합 ⇒ 옆면 눈 = 두 주사위 옆면 눈의 합(4~10)'
+  - '각 면이 나올 확률은 면적에 비례 ⇒ 전체 넓이 10 중 옆면 2, 끝면 1 ⇒ $\dfrac15,\ \dfrac1{10}$'
+  - '모든 종류 중 하나를 임의로 선택 ⇒ 4종류 각각 확률 $\dfrac14$'
+  - '새 눈 ≤ 일반 주사위 눈 ⇒ 새 눈이 6 이하인 면만 기여(1, 4, 5, 6)'
+  stimuli_used: []
+  subpart_links: null
+
+curriculum:
+  version: '2015'
+  subjects: [확률과통계]
+  scope_2028: unknown
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 확률의 덧셈정리와 곱셈정리를 이해하고 이를 활용할 수 있다(2009 개정 확률과 통계 출전, 요지).
+    verified: false
+  content_area: 확률 – 확률의 뜻과 활용 / 조건부확률(곱셈정리)
+  behavior_domain: 문제해결
+  unit_path: [확률과 통계, 확률, 확률의 뜻과 활용, 확률의 덧셈정리]
+  key_concepts: [수학적 확률, 확률의 곱셈정리, 확률의 덧셈정리]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 중앙대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 중앙대학교
+  admission_year: 2020
+  admission_type: 논술(수시)
+  track: 자연계열Ⅰ
+  question_no: 1
+  official_url: https://admisfile.cau.ac.kr/download/cau_2020_s_n_j_1.pdf
+  retrieved_at: '2026-11-21'
+  original_points: 20
+  rights_notice: 중앙대학교 입학처 공개 자료(기출문제 게시판 board_seq=2220). 상업적 재사용 허락 미요청
+  note: 문제 = 2020 수시 논술 자연계열Ⅰ 문제지 p.1(PDF 2쪽) / 출전·출제의도 = 2021 논술가이드북(자연) p.67~68 / 예시답안·채점기준 = 2021 논술가이드북(자연) p.68~69. 문항카드 없음
+
+verify: verify/CAU-G20A.py::p01
+
+stimuli: []
+
+stem: |
+  다음과 같은 방식으로 주사위 두 개를 붙여서 새로운 주사위를 만든다.
+
+  - 일반적인 정육면체 모양의 주사위는 서로 마주보고 있는 면의 눈의 수의 합이 항상 7이고 다음 그림과 같이 면이 구성되어 있다.
+    [그림: 윗면 2, 앞면 3, 오른쪽 면 1이 보이는 주사위]
+  - 위와 같은 모양의 주사위 두 개를 눈의 수가 6인 면끼리 붙여서 직육면체 모양의 주사위 하나를 만든다. 다음은 새롭게 만들 수 있는 주사위 중 한 가지 예시를 보여준다.
+    [그림(예시): 윗면 2·앞면 4·오른쪽 면 6이 보이는 주사위 ＋ 윗면 2·앞면 3·오른쪽 면 1이 보이는 주사위 → 윗면에 2와 2, 앞면에 4와 3, 오른쪽 끝면에 1이 보이는 직육면체 주사위]
+  - 새로운 주사위 한 면의 눈의 수는 그 면에 있는 모든 눈의 수의 합과 같고, 각 면이 나올 확률은 면적에 비례한다고 가정한다.
+
+  위의 방식에 따라 새롭게 만들 수 있는 모든 종류의 주사위 중 하나를 임의로 선택하여 한 번 던져서 나오는 눈의 수가, 일반적인 정육면체 모양의 주사위를 한 번 던져서 나오는 눈의 수보다 작거나 같을 확률을 구하시오. [20점]
+
+subparts:
+- id: '1'
+  stem: |
+    새롭게 만들 수 있는 모든 종류의 주사위 중 하나를 임의로 선택하여 한 번 던져서 나오는 눈의 수가, 일반적인 정육면체 모양의 주사위를 한 번 던져서 나오는 눈의 수보다 작거나 같을 확률을 구하시오.
+  points: 20
+  depends_on: []
+  answer: {kind: value, value: '\dfrac{17}{60}', equivalents: ['17/60', '0.2833', '0.28'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: '종류 A~D 의 옆면 눈은 (4,7,10,7), (5,5,9,9), (7,6,7,8), (6,8,8,6), 끝면은 모두 1. 새 눈 1 은 항상 이하(확률 $\dfrac15$), 그 밖에 6 이하인 옆면만 따로 계산.'
+    steps:
+    - {id: 1a, content: '$\dfrac14\left(\dfrac1{10}+\dfrac15\right)+\dfrac14\left(\dfrac2{15}+\dfrac15\right)+\dfrac14\left(\dfrac1{30}+\dfrac15\right)+\dfrac14\left(\dfrac1{15}+\dfrac15\right)=\dfrac{17}{60}$', criteria: [1.B1, 1.B2, 1.B3, 1.B4]}
+    hint_ladder:
+    - 6과 마주보는 면은 1이다. 붙인 주사위의 두 끝면은 무엇인가?
+    - 6을 아래로 두면 옆면은 2, 3, 5, 4 순서로 돈다. 두 번째 주사위를 돌려 붙이는 방법은 몇 가지인가?
+    - 옆면 하나의 넓이는 끝면의 2배다.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 2021 논술가이드북(자연) p.68~69 예시답안
+    steps:
+    - id: 1b-1
+      content: |
+        새롭게 만들 수 있는 직육면체 모양의 주사위는 다음과 같이 4가지 형태 중 하나를 가지게 된다(원문은 주사위 A, B, C, D 그림).
+      criteria: [1.B1]
+    - id: 1b-2
+      content: |
+        새로운 주사위에서 눈이 나오는 경우와 확률은 다음과 같다. (단, $(a,b)$는 일반적인 주사위 두 개에서 나오는 각각의 눈의 수를 의미한다.)
+
+        | 주사위 | 옆면 $(a,b)$ → 새로운 눈의 수 (각 확률 $\frac15$) | 끝면 (각 확률 $\frac1{10}$) |
+        |---|---|---|
+        | A | $(2,2)\to4$, $(4,3)\to7$, $(5,5)\to10$, $(3,4)\to7$ | 1, 1 |
+        | B | $(3,2)\to5$, $(2,3)\to5$, $(4,5)\to9$, $(5,4)\to9$ | 1, 1 |
+        | C | $(5,2)\to7$, $(3,3)\to6$, $(2,5)\to7$, $(4,4)\to8$ | 1, 1 |
+        | D | $(4,2)\to6$, $(5,3)\to8$, $(3,5)\to8$, $(2,4)\to6$ | 1, 1 |
+      criteria: [1.B2]
+    - id: 1b-3
+      content: |
+        새로운 주사위 중 하나를 한 번 던져서 나오는 눈의 수가 정육면체 모양의 일반적인 주사위를 한 번 던져서 나오는 눈의 수보다 작거나 같은 경우는 다음과 같다.
+
+        | 주사위 | 새 눈 | 일반 주사위 | 확률 |
+        |---|---|---|---|
+        | A | 4 | (4,5,6) | $\frac15\times\frac12=\frac1{10}$ |
+        | A | 1 | 모든 눈 | $\frac15\times1=\frac15$ |
+        | B | 5 | (5,6) | $\frac25\times\frac13=\frac2{15}$ |
+        | B | 1 | 모든 눈 | $\frac15\times1=\frac15$ |
+        | C | 6 | 6 | $\frac15\times\frac16=\frac1{30}$ |
+        | C | 1 | 모든 눈 | $\frac15\times1=\frac15$ |
+        | D | 6 | 6 | $\frac25\times\frac16=\frac1{15}$ |
+        | D | 1 | 모든 눈 | $\frac15\times1=\frac15$ |
+      criteria: [1.B3]
+    - id: 1b-4
+      content: |
+        위의 표를 바탕으로 주어진 확률을 계산하면 다음과 같다.
+        $$\frac14\left(\frac1{10}+\frac15\right)+\frac14\left(\frac2{15}+\frac15\right)+\frac14\left(\frac1{30}+\frac15\right)+\frac14\left(\frac1{15}+\frac15\right)=\frac14\left(\frac3{10}+\frac13+\frac7{30}+\frac4{15}\right)=\frac{17}{60}$$
+        또는 0.2833(소수점 아래 둘째 자리에서 반올림 가능)
+      criteria: [1.B4]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.B1
+      mark_type: B
+      points: 6
+      evidence: 네 가지 종류의 주사위를 올바르게 찾아냈다(그림 또는 옆면 눈의 배치로 4종류 제시).
+      depends_on: []
+      steps: [1b-1]
+    - id: 1.B2
+      mark_type: B
+      points: 6
+      evidence: 각 주사위의 눈이 나오는 경우의 수와 그에 해당하는 확률(옆면 $\dfrac15$, 끝면 $\dfrac1{10}$)을 올바르게 계산했다.
+      depends_on: []
+      steps: [1b-2]
+    - id: 1.B3
+      mark_type: B
+      points: 4
+      evidence: 새로운 주사위에서 나오는 눈의 수가 일반적인 주사위에서 나오는 눈의 수보다 작거나 같은 경우를 올바르게 찾아냈다.
+      depends_on: []
+      steps: [1b-3]
+    - id: 1.B4
+      mark_type: B
+      points: 4
+      evidence: 확률의 곱셈정리와 덧셈정리를 사용하여 확률 $\dfrac{17}{60}$ 을 올바르게 계산했다.
+      depends_on: []
+      steps: [1b-4]
+    deductions:
+    - code: D1-1
+      condition: 채점자 재량 — 답안의 완성도에 따라 총점 20점 이내에서 ±1점(공식 채점기준 주석). 계산 실수로 틀렸어도 논리 전개 과정이 맞으면 해당 부분에 1~2점 부분 점수
+      effect: minus
+      value: 1
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-CNT-4108}
+  - {code: '71', misconception: MC-PRB-4118}
+  misconceptions:
+  - id: MC-CNT-4108
+    outcome_code: '70'
+    wrong_work: '예시 주사위 한 종류만 고려하거나, 두 주사위의 붙이는 방법을 16가지(또는 다른 개수)의 서로 다른 종류로 셈'
+    detect_cue: 종류가 1가지 또는 4가지가 아님, 옆면 눈 배치가 A~D 와 다름
+    feedback: 첫 주사위를 고정하면 두 번째 주사위를 붙이는 방법은 6인 면을 축으로 한 회전 4가지뿐이고, 이것이 서로 다른 4종류입니다.
+    remedy: [RL-1]
+  - id: MC-PRB-4118
+    outcome_code: '71'
+    wrong_work: '여섯 면이 같은 확률 $\dfrac16$ 로 나온다고 봄(면적 비례 무시)'
+    detect_cue: 옆면 확률이 $\dfrac16$ 으로 적혀 있음
+    feedback: 옆면은 정사각형 두 개 넓이, 끝면은 한 개 넓이입니다. 전체 넓이 10 에 대한 비로 $\dfrac15,\ \dfrac1{10}$ 입니다.
+    remedy: [RL-2]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CNT-4108}
+  relation: remediation
+  target: {kind: concept, ref: CON-PRB-MULT-RULE}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-PRB-4118}
+  relation: remediation
+  target: {kind: concept, ref: CON-PRB-CLASSICAL}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-input-v1, item_version: 1, verdict: pass, date: 2026-11-22, note: 문제 원문 PDF 이미지 대조로 옮김(그림은 글로 설명) · 주 해설은 2021 가이드북 예시답안 흐름 그대로(표는 같은 내용으로 재배열) · 채점기준은 공식 기준을 B 마크로 옮김}
+
+created: 2026-11-22
+updated: 2026-11-22

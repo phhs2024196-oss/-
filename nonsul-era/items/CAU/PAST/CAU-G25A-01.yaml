@@ -1,0 +1,265 @@
+schema_version: '2.0'
+id: CAU-G25A-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: CAU
+type: T07
+variant_of: null
+replaces: null
+level: L4
+form: 분류
+points: 20
+time_estimate_min: 25
+intent: 주어진 상황에서 사건(주사위 눈의 합)에 따른 조건부확률을 계산하고, 이를 종합해 독립시행에서 원하는 확률을 계산하는 능력을 본다(문항카드 출제 의도 요지).
+key_idea: '1회 점수 $X$가 0·1일 확률 $P(C)=\dfrac59$, $P(D)=\dfrac{19}{45}$를 주사위 사건 $A$로 나눠 구하고, 여사건 $1-\{P(C)\}^2-2P(C)P(D)$로 계산한다.'
+stuck: 점수 합이 1인 경우를 (0,1), (1,0) 두 순서로 세는 것, 그리고 공 2개를 꺼낼 때와 1개를 꺼낼 때의 조건부확률을 나누는 단계
+idea_tags: [IDEA-PARTITION-BY-STAGE1, IDEA-COMPLEMENT-SMALL-CASES]
+tags: [조건부확률, 독립시행, 여사건, 확률의 곱셈정리, 중앙대 실전]
+elements:
+  materials: [빨간 공 4·파란 공 3·초록 공 3개가 든 주머니, 서로 다른 주사위 2개, 눈의 합에 따라 공 2개 또는 1개 추출, 빨간 공 개수를 점수로, 꺼낸 공을 다시 넣고 2회 반복]
+  concepts: [조건부확률, 확률의 곱셈정리, 확률의 덧셈정리, 여사건의 확률, 독립시행, 조합]
+  tools: [눈의 합 4 이하 사건 A로 분할, 조건부확률 4개 계산, 1회 점수의 분포, 여사건(합 0 또는 1) 이용]
+  conditions:
+  - '눈의 합이 4 이하 ⇒ 6가지 ⇒ $P(A)=\dfrac16$이고 이때 공 2개, 아니면 공 1개'
+  - '꺼낸 공을 모두 다시 넣음 ⇒ 두 시행은 독립 ⇒ $P(\text{합}=0)=\{P(C)\}^2$, $P(\text{합}=1)=2P(C)P(D)$'
+  - '점수 합 2 이상 ⇒ 여사건은 합 0 또는 1'
+  stimuli_used: []
+  subpart_links: null
+
+curriculum:
+  version: '2015'
+  subjects: [확률과통계]
+  scope_2028: common
+  scope_confirmed: false
+  standards:
+  - code: 12확통02-03
+    text: 확률의 덧셈정리를 이해하고, 이를 활용할 수 있다.
+    verified: true
+  - code: 12확통02-04
+    text: 여사건의 확률의 뜻을 알고, 이를 활용할 수 있다.
+    verified: true
+  - code: 12확통02-05
+    text: 조건부확률의 의미를 이해하고, 이를 구할 수 있다.
+    verified: true
+  - code: 12확통02-06
+    text: 사건의 독립과 종속의 의미를 이해하고, 이를 설명할 수 있다.
+    verified: true
+  - code: 12확통02-07
+    text: 확률의 곱셈정리를 이해하고, 이를 활용할 수 있다.
+    verified: true
+  content_area: 확률 – 확률의 뜻과 활용 / 조건부확률
+  behavior_domain: 문제해결
+  unit_path: [확률과 통계, 확률, 조건부확률, 확률의 곱셈정리]
+  key_concepts: [독립시행, 수학적 확률, 조건부확률]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 중앙대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 중앙대학교
+  admission_year: 2025
+  admission_type: 논술(수시)
+  track: 자연계열Ⅰ
+  question_no: 1
+  official_url: https://admission.cau.ac.kr/files/2025/2025_cau_ns_jy1.pdf
+  retrieved_at: '2026-11-21'
+  original_points: 20
+  rights_notice: 중앙대학교 입학처 공개 자료(기출문제 게시판 board_seq=3072). 상업적 재사용 허락 미요청
+  note: 문제 = 2025 자연계열Ⅰ 문제지 p.1(PDF p.2, 2026 논술가이드북 p.45에도 수록) / 예시답안·별해·채점기준 = 2026 논술가이드북(자연) p.49~50 / 출제의도·성취기준 = 2025 선행학습 영향평가 보고서 문항카드 7(PDF p.225~228, 인쇄 쪽 223~226) / official_url 파일 경로는
+
+verify: verify/CAU-G25A.py::p01
+
+stimuli: []
+
+stem: |
+  다음 규칙에 따라 점수를 얻는 시행을 한다. 풀이와 함께 물음에 답하시오.
+
+  - 주머니에 빨간색 공 4개, 파란색 공 3개, 초록색 공 3개가 들어 있다.
+  - 서로 다른 2개의 주사위를 동시에 던져 나온 눈의 수의 합이 4 이하이면, 주머니에서 임의로 공 2개를 동시에 꺼낸다. 만일 눈의 수의 합이 5 이상이면, 주머니에서 임의로 공 1개를 꺼낸다.
+  - 꺼낸 공 중에서 빨간색 공의 개수를 점수로 얻는다.
+  - 꺼낸 공을 모두 주머니에 다시 넣는다.
+
+  위 시행을 2회 반복할 때, 얻은 점수의 합이 2 이상일 확률을 구하시오. [20점]
+
+subparts:
+- id: '1'
+  stem: |
+    위 시행을 2회 반복할 때, 얻은 점수의 합이 2 이상일 확률을 구하시오.
+  points: 20
+  depends_on: []
+  answer: {kind: value, value: '\dfrac{2}{9}', equivalents: ['2/9', '450/2025'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $P(C)=\dfrac16\cdot\dfrac13+\dfrac56\cdot\dfrac35=\dfrac59$, $P(D)=\dfrac16\cdot\dfrac8{15}+\dfrac56\cdot\dfrac25=\dfrac{19}{45}$, 답 $1-\dfrac{25}{81}-\dfrac{38}{81}=\dfrac29$.
+    steps:
+    - {id: 1a, content: '$1-\{P(C)\}^2-2P(C)P(D)=\dfrac{18}{81}=\dfrac29$', criteria: [1.B1, 1.B2, 1.B3, 1.B4, 1.B5, 1.B6, 1.B7, 1.B8]}
+    hint_ladder:
+    - 1회 시행의 점수가 0, 1, 2일 확률을 먼저 구하자.
+    - 눈의 합이 4 이하인 사건으로 나누어 조건부확률을 구하자.
+    - 합이 2 이상인 사건의 여사건은 무엇인가?
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 2026 논술가이드북(자연) p.49~50 예시답안
+    steps:
+    - id: 1b-1
+      content: |
+        (1) 2개의 주사위를 동시에 던져 나온 수의 눈의 합이 4 이하인 사건을 $A$라고 하자. 2개의 주사위를 동시에 던져 나온 수의 눈의 합이 4 이하인 경우의 수는 $(1,1),(1,2),(2,1),(1,3),(2,2),(3,1)$의 6가지이므로, 사건 $A$가 일어날 확률은 $P(A)=\dfrac{6}{36}=\dfrac16$이다.
+      criteria: [1.B1]
+    - id: 1b-2
+      content: |
+        (2) 시행을 2회 반복할 때 얻은 점수의 합이 0인 사건과 점수의 합이 1인 사건은 서로 배반사건이므로, 점수의 합이 2 미만일 확률은 점수의 합이 0인 확률과 점수의 합이 1인 확률의 합과 같다. 또한, 점수의 합이 2 이상인 사건은 점수의 합이 2 미만인 사건의 여사건이다. 따라서,
+        $$P(\text{점수의 합}\ge2)=1-P(\text{점수의 합}\le1)=1-P(\text{점수의 합}=0)-P(\text{점수의 합}=1)$$
+        으로 구할 수 있다.
+      criteria: []
+    - id: 1b-3
+      content: |
+        (3) 문제의 시행을 1회 했을 때 얻은 점수를 $X$라 하고, $X=0$인 사건을 $C$, $X=1$인 사건을 $D$라 하자. 각 시행은 독립시행이므로 $P(\text{점수의 합}=0)=\{P(C)\}^2$이며, 점수의 합이 1이려면 첫 번째 시행에서 0점, 두 번째 시행에서 1점을 얻거나 첫 번째 시행에서 1점, 두 번째 시행에서 0점을 얻으면 되므로
+        $$P(\text{점수의 합}=1)=P(C)\times P(D)+P(D)\times P(C)=2\times P(C)\times P(D)$$
+        이다.
+      criteria: []
+    - id: 1b-4
+      content: |
+        (4) 확률의 곱셈정리와 덧셈정리를 이용하면 $P(C)$, $P(D)$는 다음과 같이 구할 수 있다.
+        $$P(C)=P(C\cap A)+P(C\cap A^c)=P(A)P(C\mid A)+P(A^c)P(C\mid A^c)$$
+        $$P(D)=P(D\cap A)+P(D\cap A^c)=P(A)P(D\mid A)+P(A^c)P(D\mid A^c)$$
+      criteria: []
+    - id: 1b-5
+      content: |
+        (5) $P(C\mid A)$와 $P(D\mid A)$, $P(C\mid A^c)$와 $P(D\mid A^c)$는 다음과 같이 구할 수 있다.
+        $P(C\mid A)=\dfrac{{}_6C_2}{{}_{10}C_2}=\dfrac{15}{45}=\dfrac13$ (나머지 색깔 중에서만 2개를 꺼낼 확률)
+        $P(D\mid A)=\dfrac{{}_6C_1\times{}_4C_1}{{}_{10}C_2}=\dfrac{24}{45}=\dfrac{8}{15}$ (빨간색 공 1개, 나머지 색깔 중 1개를 꺼낼 확률)
+        $P(C\mid A^c)=\dfrac{{}_6C_1}{{}_{10}C_1}=\dfrac{6}{10}=\dfrac35$ (나머지 색깔 중에서만 1개를 꺼낼 확률)
+        $P(D\mid A^c)=\dfrac{{}_4C_1}{{}_{10}C_1}=\dfrac{4}{10}=\dfrac25$ (빨간색 공 1개를 꺼낼 확률)
+      criteria: [1.B2, 1.B3, 1.B4, 1.B5]
+    - id: 1b-6
+      content: |
+        (6) (4), (5)를 종합하면 $P(C)$, $P(D)$는 다음과 같다.
+        $$P(C)=\left(\dfrac16\times\dfrac13\right)+\left(\dfrac56\times\dfrac35\right)=\dfrac{10}{18}=\dfrac59,\qquad P(D)=\left(\dfrac16\times\dfrac{8}{15}\right)+\left(\dfrac56\times\dfrac25\right)=\dfrac{19}{45}$$
+      criteria: [1.B6, 1.B7]
+    - id: 1b-7
+      content: |
+        (7) 최종적으로, 구하는 확률은 다음과 같다.
+        $$1-\{P(C)\}^2-2\times P(C)\times P(D)=1-\left(\dfrac59\right)^2-\left(2\times\dfrac59\times\dfrac{19}{45}\right)=1-\dfrac{25}{81}-\dfrac{38}{81}=\dfrac{18}{81}=\dfrac29$$
+      criteria: [1.B8]
+  - id: S1-ALT
+    audience: ALT
+    method_no: 2
+    source_flow: 2026 논술가이드북(자연) p.50 별해
+    key_idea: 여사건을 쓰지 않고 $X=2$인 사건 $E$까지 구해 합이 2, 3, 4인 확률을 직접 더한다.
+    steps:
+    - id: 1c-1
+      content: |
+        (1) 여사건을 활용하지 않고 직접 답을 구할 수 있다. $X=2$인 사건을 $E$라 하면
+        $$P(E)=\left(\dfrac16\times\dfrac{{}_4C_2}{{}_{10}C_2}\right)+\left(\dfrac56\times0\right)=\dfrac{1}{45}$$
+        이며, 이때
+        점수의 합이 2일 확률 $=2\times P(C)\times P(E)+\{P(D)\}^2=\dfrac{2}{81}+\dfrac{361}{45^2}=\dfrac{411}{45^2}$
+        점수의 합이 3일 확률 $=2\times P(D)\times P(E)=\dfrac{38}{45^2}$
+        점수의 합이 4일 확률 $=\{P(E)\}^2=\dfrac{1}{45^2}$
+        이므로 모두 더하면 $\dfrac{411+38+1}{45^2}=\dfrac{450}{45^2}=\dfrac29$이다.
+      criteria: [1.B8]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.B1
+      mark_type: B
+      points: 2
+      evidence: 사건 $A$(눈의 합 4 이하)의 확률 $\dfrac16$을 정확히 계산했다.
+      depends_on: []
+      steps: [1b-1]
+    - id: 1.B2
+      mark_type: B
+      points: 2
+      evidence: $P(C\mid A)=\dfrac13$을 정확히 계산했다.
+      depends_on: []
+      steps: [1b-5]
+    - id: 1.B3
+      mark_type: B
+      points: 2
+      evidence: $P(D\mid A)=\dfrac{8}{15}$을 정확히 계산했다.
+      depends_on: []
+      steps: [1b-5]
+    - id: 1.B4
+      mark_type: B
+      points: 2
+      evidence: $P(C\mid A^c)=\dfrac35$을 정확히 계산했다.
+      depends_on: []
+      steps: [1b-5]
+    - id: 1.B5
+      mark_type: B
+      points: 2
+      evidence: $P(D\mid A^c)=\dfrac25$을 정확히 계산했다.
+      depends_on: []
+      steps: [1b-5]
+    - id: 1.B6
+      mark_type: B
+      points: 4
+      evidence: $P(C)=\dfrac59$를 정확히 계산했다.
+      depends_on: []
+      steps: [1b-6]
+    - id: 1.B7
+      mark_type: B
+      points: 4
+      evidence: $P(D)=\dfrac{19}{45}$를 정확히 계산했다.
+      depends_on: []
+      steps: [1b-6]
+    - id: 1.B8
+      mark_type: B
+      points: 2
+      evidence: 최종 확률 $\dfrac29$를 정확히 계산했다.
+      depends_on: []
+      steps: [1b-7, 1c-1]
+    deductions:
+    - code: D1-1
+      condition: 논리 전개 과정이 맞으면 답이 틀리더라도 부분 점수 가능(공식 채점기준 주석)
+      effect: minus
+      value: 1
+    - code: D1-2
+      condition: 채점자 재량 — 답안의 완성도에 따라 ±1점(공식 채점기준 주석)
+      effect: minus
+      value: 1
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-PRB-4608}
+  - {code: '71', misconception: MC-PRB-4600}
+  misconceptions:
+  - id: MC-PRB-4608
+    outcome_code: '70'
+    wrong_work: '$P(\text{합}=1)=P(C)P(D)$로 한 번만 세어 $1-\dfrac{25}{81}-\dfrac{19}{81}=\dfrac{37}{81}$'
+    detect_cue: 답이 $\dfrac{37}{81}$, 합이 1인 확률에 계수 2가 없음
+    feedback: 1회차 0점·2회차 1점과 1회차 1점·2회차 0점은 서로 다른 경우입니다. 두 순서를 모두 더하세요.
+    remedy: [RL-1]
+  - id: MC-PRB-4600
+    outcome_code: '71'
+    wrong_work: '주사위 사건을 나누지 않고 공 1개를 꺼내는 경우만으로 $P(C)=\dfrac35$, $P(D)=\dfrac25$를 사용'
+    detect_cue: $P(A)=\dfrac16$이 계산에 없음, 답이 $\dfrac{4}{25}$
+    feedback: 눈의 합에 따라 꺼내는 공의 개수가 다릅니다. 사건 $A$, $A^c$로 나누어 곱셈정리로 합치세요.
+    remedy: [RL-2]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-PRB-4608}
+  relation: remediation
+  target: {kind: concept, ref: CON-PRB-COMPLEMENT}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-PRB-4600}
+  relation: remediation
+  target: {kind: concept, ref: CON-PRB-TOTAL-PROB}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-input-v1, item_version: 1, verdict: pass, date: 2026-11-21, note: 문제 원문 PDF 이미지 대조로 옮김 · 주 해설은 공식 예시답안 흐름 그대로 · 채점기준(조건부확률 4개 각 2점, P(C)·P(D) 각 4점)을 B 마크로 옮김}
+
+created: 2026-11-21
+updated: 2026-11-21

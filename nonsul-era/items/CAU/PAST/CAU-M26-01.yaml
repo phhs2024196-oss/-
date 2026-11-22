@@ -1,0 +1,246 @@
+schema_version: '2.0'
+id: CAU-M26-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: CAU
+type: T01
+variant_of: null
+replaces: null
+level: L5
+form: 분류
+points: 20
+time_estimate_min: 25
+intent: 복잡한 사건의 경우의 수를 같은 것이 있는 순열과 중복조합으로 계산할 수 있는 간단한 사건들로 나누어 각각 센 뒤, 조건을 만족하는 사건의 확률을 구하는 능력을 본다(가이드북 출제 의도 요지).
+key_idea: '손을 든 학생은 남녀가 번갈아 나와야 하므로 손 든 학생 수 $k$마다 배열이 2가지(전원이면 2가지, 0명이면 1가지)로 고정되고, 나머지 학생은 손 든 학생이 만든 $k+1$개의 칸에 중복조합으로 넣는다.'
+stuck: '“손을 든 두 학생 사이에 손을 든 다른 학생이 없으면 이웃하여 든 것”을 “손 든 학생만 뽑아 늘어놓으면 남녀가 번갈아 나온다”로 번역하는 단계'
+idea_tags: [IDEA-ALTERNATING-MARKED-SUBSEQ, IDEA-GAPS-REP-COMB]
+tags: [같은 것이 있는 순열, 중복조합, 수학적 확률, 중앙대 모의]
+elements:
+  materials: [일렬로 놓인 6개의 의자, 남학생 3명·여학생 3명(같은 성별끼리 구별하지 않음), 손을 들거나 들지 않는 선택]
+  concepts: [같은 것이 있는 순열, 중복조합, 수학적 확률]
+  tools: [손 든 학생 수(0~6명)에 따른 사건 분할, 손 든 학생이 만드는 칸에 나머지 학생을 중복조합으로 배치, 칸에 넣은 학생들의 성별 배열을 같은 것이 있는 순열로 셈, 여사건 대신 직접 합산]
+  conditions:
+  - '같은 성별의 학생은 구별하지 않음 ⇒ 전체 배열은 ○(남) 3개, △(여) 3개를 늘어놓는 같은 것이 있는 순열로 셈'
+  - '손 든 두 학생 사이에 손 든 다른 학생이 없으면 이웃하여 든 것 ⇒ 손 든 학생만 차례로 보면 연속한 두 사람'
+  - '같은 성별의 두 학생은 이웃하여 손을 들 수 없음 ⇒ 손 든 학생은 남녀가 번갈아 나옴(●▲●… 또는 ▲●▲…), 손 든 남학생 ≤ 3, 손 든 여학생 ≤ 3'
+  - '2명 이상의 남학생이 손을 듦 ⇒ ● 가 2개 이상 ⇒ 손 든 학생 4명 이상이거나 ●▲● 인 3명'
+  stimuli_used: []
+  subpart_links: null
+
+curriculum:
+  version: '2015'
+  subjects: [확률과통계]
+  scope_2028: common
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 같은 것이 있는 순열과 중복조합의 수를 구하고, 수학적 확률을 계산한다(요지 — 모의논술은 문항카드 없음).
+    verified: false
+  content_area: 경우의 수 – 같은 것이 있는 순열·중복조합 / 확률의 뜻과 활용
+  behavior_domain: 문제해결
+  unit_path: [확률과 통계, 경우의 수, 순열과 조합, 중복조합]
+  key_concepts: [같은 것이 있는 순열, 중복조합, 수학적 확률]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 중앙대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 중앙대학교
+  admission_year: 2026
+  admission_type: 모의논술
+  track: 자연계열
+  question_no: 1
+  official_url: https://admission.cau.ac.kr/detail.do?menuurl=jcgylvDgJz1bdCxN45fl1g%3D%3D&board_seq=3249&pageNo=1&categoryid=14
+  retrieved_at: '2026-11-21'
+  original_points: 20
+  rights_notice: 중앙대학교 입학처 공개 자료(모의논술 게시판). 상업적 재사용 허락 미요청
+  note: 문제 = 2026 모의논술 자연계열 문제지 p.1(PDF 2쪽) / 출제의도·제시문 출전 = 2026 논술가이드북(자연) p.33 / 예시답안·채점기준 = 같은 가이드북 p.36~37 / 문항카드 없음
+
+verify: verify/CAU-M26.py::p01
+
+stimuli: []
+
+stem: |
+  다음 규칙에 따라 시행을 한다. 풀이와 함께 물음에 답하시오.
+
+  - 남학생 3명과 여학생 3명이 일렬로 놓인 6개의 의자에 앉는다. 이때, 같은 성별의 학생은 서로 구별하지 않는다.
+  - 각 학생은 손을 들거나 들지 않을 수 있다.
+  - 손을 든 두 학생 사이에 손을 든 다른 학생이 없으면, 그 두 학생은 이웃하여 손을 든 것으로 간주한다.
+  - 같은 성별의 두 학생은 이웃하여 손을 들 수 없다.
+
+  위 시행에서 2명 이상의 남학생이 손을 들 확률을 구하시오. [20점]
+
+subparts:
+- id: '1'
+  stem: |
+    위 시행에서 2명 이상의 남학생이 손을 들 확률을 구하시오.
+  points: 20
+  depends_on: []
+  answer: {kind: value, value: '\dfrac{67}{257}', equivalents: ['67/257', '134/514'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: 손 든 학생 수 $k$별로 (손 든 배열 2가지)×(칸 $k+1$개에 나머지 $6-k$명 중복조합)×(나머지 성별 배열)을 더하면 전체 514, 그중 ● 2개 이상은 $60+12+2+60=134$.
+    steps:
+    - {id: 1a, content: '전체 $20+120+180+120+60+12+2=514$, 남학생 2명 이상 손 든 경우 $134$, 확률 $\dfrac{134}{514}=\dfrac{67}{257}$', criteria: [1.B1, 1.B8, 1.B9, 1.B10]}
+    hint_ladder:
+    - 손을 든 학생만 골라 차례로 적어 보자. 어떤 모양이어야 하는가?
+    - 손 든 학생이 $k$명이면 손 들지 않은 학생이 들어갈 칸은 몇 개인가?
+    - 남학생이 2명 이상 손을 든 경우는 손 든 학생의 배열이 어떤 것일 때인가?
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 2026 논술가이드북(자연) p.36~37 예시답안
+    steps:
+    - id: 1b-1
+      content: |
+        편의를 위해 손을 들지 않은 남학생과 여학생을 각각 ○와 △, 손을 든 남학생과 여학생을 각각 ●와 ▲로 표시한다. 같은 성별의 두 학생이 이웃하여 손을 들 수 없다는 조건에 의해 ●와 ▲의 배치가 매우 제한됨을 이용하여 문제를 해결한다.
+      criteria: []
+    - id: 1b-2
+      content: |
+        아무도 손을 들지 않는 경우의 수는 ○ 3개, △ 3개를 일렬로 나열하는 경우의 수와 같으므로 $\dfrac{6!}{3!3!}=20$가지이다.
+      criteria: [1.B1]
+    - id: 1b-3
+      content: |
+        손을 든 학생의 수가 1명이면, ● 또는 ▲의 2가지 경우가 있다. 이때 손을 든 학생을 경계로 ∨●∨ 또는 ∨▲∨와 같이 2개의 공간이 생긴다. 2개의 공간에 나머지 5명을 구분 없이 배치하는 방법은 ${}_2\mathrm{H}_5=6$가지이다. 5명은 ○ 2명, △ 3명 또는 ○ 3명, △ 2명이므로 이들을 일렬로 나열하는 경우의 수는 $\dfrac{5!}{2!3!}=10$가지이다. 따라서 손을 든 학생의 수가 1명인 경우의 수는 $2\times6\times10=120$가지이다.
+      criteria: [1.B2]
+    - id: 1b-4
+      content: |
+        손을 든 학생의 수가 2명이면, ●▲ 또는 ▲●의 2가지 경우가 있다. 이때 손을 든 학생을 경계로 ∨●∨▲∨ 또는 ∨▲∨●∨와 같이 3개의 공간이 생긴다. 3개의 공간에 나머지 4명을 구분 없이 배치하는 방법은 ${}_3\mathrm{H}_4=15$가지이다. 4명은 ○ 2명, △ 2명이므로 이들을 일렬로 나열하는 경우의 수는 $\dfrac{4!}{2!2!}=6$가지이다. 따라서 손을 든 학생의 수가 2명인 경우의 수는 $2\times15\times6=180$가지이다.
+      criteria: [1.B3]
+    - id: 1b-5
+      content: |
+        손을 든 학생의 수가 3명이면, ●▲● 또는 ▲●▲의 2가지 경우가 있다. 이때 손을 든 학생을 경계로 4개의 공간이 생기며, 여기에 나머지 3명을 구분 없이 배치하는 방법은 ${}_4\mathrm{H}_3=20$가지이다. 3명은 ○ 1명, △ 2명 또는 ○ 2명, △ 1명이므로 이들을 일렬로 나열하는 경우의 수는 $\dfrac{3!}{1!2!}=3$가지이다. 따라서 손을 든 학생의 수가 3명인 경우의 수는 $2\times20\times3=120$가지이다.
+      criteria: [1.B4]
+    - id: 1b-6
+      content: |
+        손을 든 학생의 수가 4명이면, ●▲●▲ 또는 ▲●▲●의 2가지 경우가 있다. 이때 손을 든 학생을 경계로 5개의 공간이 생기며, 여기에 나머지 2명을 구분 없이 배치하는 방법은 ${}_5\mathrm{H}_2=15$가지이다. 2명은 ○ 1명, △ 1명이므로 이들을 일렬로 나열하는 경우의 수는 $\dfrac{2!}{1!1!}=2$가지이다. 따라서 손을 든 학생의 수가 4명인 경우의 수는 $2\times15\times2=60$가지이다. [원문 오기: 이 문장의 '4명'이 가이드북에는 '2명'으로 인쇄됨]
+      criteria: [1.B5]
+    - id: 1b-7
+      content: |
+        손을 든 학생의 수가 5명이면, ●▲●▲● 또는 ▲●▲●▲의 2가지 경우가 있다. 이때 손을 든 학생을 경계로 6개의 공간이 생기며, 여기에 나머지 1명을 배치하는 방법은 6가지이다. 따라서 손을 든 학생의 수가 5명인 경우의 수는 $2\times6=12$가지이다.
+      criteria: [1.B6]
+    - id: 1b-8
+      content: |
+        모두 손을 드는 경우의 수는 ●▲●▲●▲ 또는 ▲●▲●▲●의 2가지이다. 따라서 전체 경우의 수는 $20+120+180+120+60+12+2=514$가지이다.
+      criteria: [1.B7, 1.B8]
+    - id: 1b-9
+      content: |
+        2명 이상의 남학생이 손을 든 사건은 ●가 두 개 이상인 사건과 같다. 위의 과정에 의해 이 사건은 4명 이상의 학생이 손을 들거나 2명의 남학생과 1명의 여학생이 손을 든 사건(●▲●)과 같으며, 그 경우의 수는 $60+12+2+60=134$가지이다.
+      criteria: [1.B9]
+    - id: 1b-10
+      content: |
+        따라서 구하는 확률은 $\dfrac{134}{514}=\dfrac{67}{257}$이다.
+      criteria: [1.B10]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.B1
+      mark_type: B
+      points: 2
+      evidence: 손을 든 학생이 0명인 경우의 수 20을 구했다(공식 기준 「7개 경우 각각 맞으면 +2」 중 하나).
+      depends_on: []
+      steps: [1b-2]
+    - id: 1.B2
+      mark_type: B
+      points: 2
+      evidence: 손을 든 학생이 1명인 경우의 수 120을 구했다.
+      depends_on: []
+      steps: [1b-3]
+    - id: 1.B3
+      mark_type: B
+      points: 2
+      evidence: 손을 든 학생이 2명인 경우의 수 180을 구했다.
+      depends_on: []
+      steps: [1b-4]
+    - id: 1.B4
+      mark_type: B
+      points: 2
+      evidence: 손을 든 학생이 3명인 경우의 수 120을 구했다.
+      depends_on: []
+      steps: [1b-5]
+    - id: 1.B5
+      mark_type: B
+      points: 2
+      evidence: 손을 든 학생이 4명인 경우의 수 60을 구했다.
+      depends_on: []
+      steps: [1b-6]
+    - id: 1.B6
+      mark_type: B
+      points: 2
+      evidence: 손을 든 학생이 5명인 경우의 수 12를 구했다.
+      depends_on: []
+      steps: [1b-7]
+    - id: 1.B7
+      mark_type: B
+      points: 2
+      evidence: 손을 든 학생이 6명인 경우의 수 2를 구했다.
+      depends_on: []
+      steps: [1b-8]
+    - id: 1.B8
+      mark_type: B
+      points: 1
+      evidence: 전체 경우의 수 514를 정확히 구했다(공식 기준 「전체 경우의 수가 맞으면 추가 +1」).
+      depends_on: []
+      steps: [1b-8]
+    - id: 1.B9
+      mark_type: B
+      points: 3
+      evidence: 2명 이상의 남학생이 손을 든 경우의 수 134를 정확히 구했다.
+      depends_on: []
+      steps: [1b-9]
+    - id: 1.B10
+      mark_type: B
+      points: 2
+      evidence: 최종 확률 $\dfrac{67}{257}$을 정확히 구했다.
+      depends_on: []
+      steps: [1b-10]
+    deductions:
+    - code: D1-1
+      condition: 채점자 재량 — 답안의 완성도에 따라 ±1점(공식 주석). 논리 전개 과정이 맞으면 답이 틀려도 1~2점 부분 점수(공식 주석)
+      effect: minus
+      value: 1
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-CNT-4650}
+  - {code: '71', misconception: MC-CNT-4651}
+  misconceptions:
+  - id: MC-CNT-4650
+    outcome_code: '70'
+    wrong_work: '실제로 옆자리에 앉은 두 학생만 “이웃하여 손 든” 것으로 보고, 사이에 손 들지 않은 학생이 있는 같은 성별 두 학생(예: ●○●)도 허용함'
+    detect_cue: 전체 경우의 수가 514보다 크거나, 손 든 학생 수별 배열이 2가지보다 많음
+    feedback: 문제의 정의에서는 손 든 두 학생 사이에 손 든 다른 학생만 없으면 이웃한 것으로 봅니다. 손 든 학생만 뽑아 늘어놓으면 남녀가 번갈아 나와야 합니다.
+    remedy: [RL-1]
+  - id: MC-CNT-4651
+    outcome_code: '71'
+    wrong_work: 같은 성별을 구별하지 않는다는 조건을 무시하고 학생을 모두 구별해 세거나, 분자만 구별해 세어 비율이 어긋남
+    detect_cue: 전체 경우의 수에 $3!$·$3!$ 같은 배치 계수가 붙거나 분자·분모의 세는 기준이 다름
+    feedback: 이 문제에서 같은 성별의 학생은 구별하지 않으므로 ○·△의 같은 것이 있는 순열로 셉니다. 분자와 분모를 같은 기준으로 세세요.
+    remedy: [RL-2]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CNT-4650}
+  relation: remediation
+  target: {kind: concept, ref: CON-PRB-REP-COMB}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-CNT-4651}
+  relation: remediation
+  target: {kind: concept, ref: CON-PRB-CLASSICAL}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-input-v1, item_version: 1, verdict: pass, date: 2026-11-22, note: 문제 원문 PDF 이미지 대조로 옮김 · 주 해설은 가이드북 예시답안 흐름 그대로(4명인 경우 문장의 '2명' 오기만 표시) · 채점기준은 공식 기준을 B 마크로 옮김}
+
+created: 2026-11-22
+updated: 2026-11-22

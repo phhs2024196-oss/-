@@ -1,0 +1,260 @@
+schema_version: '2.0'
+id: CAU-M27A-03
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: CAU
+type: T02
+variant_of: null
+replaces: null
+level: L5
+form: 분류
+points: 30
+time_estimate_min: 30
+intent: 로그함수·삼각함수를 치환해 이차함수의 꼴로 바꾼 뒤, 제한된 범위에서 이차함수(절댓값 포함)의 최대·최소를 갖는 점을 찾고 특수각 삼각방정식을 푸는 능력을 본다(가이드북 출제 의도 요지).
+key_idea: '$\log_kx=t$, $\sin x=t$로 치환해 $\lvert t^2-4t-32\rvert$, $\lvert(2t-1)^2-1-a\rvert$의 닫힌구간 최대·최소 문제로 바꾼다.'
+stuck: 치환 후 $t$의 범위를 $a$로 나타내고, 꼭짓점·구간 끝점 중 최솟값·최댓값을 주는 점을 가려내는 단계
+idea_tags: [IDEA-SUBST-TO-QUADRATIC, IDEA-ABS-QUADRATIC-ENDPOINT-VERTEX]
+tags: [로그함수, 삼각함수, 이차함수의 최대·최소, 치환, 중앙대 모의]
+elements:
+  materials:
+  - '$k=2^a$를 밑으로 하는 로그의 곱 $\lvert(\log_kx+4)(\log_kx-8)\rvert$, $\dfrac14\le x\le16$'
+  - '$f(x)=\lvert4\sin^2x-4\sin x-a\rvert$, $0\le x\le2\pi$'
+  concepts: [로그의 밑 변환, 로그함수의 증가성, 이차함수의 최대·최소, 삼각함수의 주기, 특수각 삼각방정식]
+  tools:
+  - '$\log_kx=t$ 치환과 $t$의 범위'
+  - '절댓값 이차함수의 꼭짓점·끝점 비교'
+  - '이차부등식'
+  - '$\sin x=t$ 치환'
+  - '후보값 비교로 최댓값 결정'
+  conditions:
+  - '$k=2^a$ ⇒ $\log_kx=\dfrac{\log_2x}{a}$, $\dfrac14\le x\le16$ ⇒ $-\dfrac2a\le t\le\dfrac4a$'
+  - '$f(x)\ge29$가 구간 전체에서 성립 ⇒ $g(t)\ne0$ 이어야 하므로 $\dfrac4a<8$, 최솟값은 꼭짓점 $t=2$에서 먼 끝점 $t=-\dfrac2a$'
+  - '$\sin x=t\in[-1,1]$ ⇒ 최댓값 후보는 $t=\dfrac12$(꼭짓점), $t=\pm1$(끝점)'
+  - '$f(x)=M$이 서로 다른 세 실근 ⇒ $t=\dfrac12$(두 근)과 $t=-1$(한 근)에서 동시에 최대 ⇒ $a+1=8-a$'
+  stimuli_used: ['1', '2', '3']
+  subpart_links: null
+
+curriculum:
+  version: '2015'
+  subjects: [수학, 수학Ⅰ]
+  scope_2028: common
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 이차함수의 최대, 최소를 이해하고, 이를 활용하여 문제를 해결할 수 있다(요지)
+    verified: false
+  - code: 미확인
+    text: 지수함수와 로그함수의 그래프를 그릴 수 있고, 그 성질을 이해한다(요지)
+    verified: false
+  - code: 미확인
+    text: 삼각함수를 활용하여 간단한 방정식과 부등식을 풀 수 있다(요지)
+    verified: false
+  content_area: 지수함수와 로그함수 / 삼각함수 / 이차함수의 최대·최소
+  behavior_domain: 문제해결
+  unit_path: [수학Ⅰ, 지수함수와 로그함수, 로그함수, 로그함수의 활용]
+  key_concepts: [로그함수, 삼각함수, 이차함수의 최대·최소]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 중앙대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 중앙대학교
+  admission_year: 2027
+  admission_type: 모의논술(일반형)
+  track: 자연계열(공통)
+  question_no: 3
+  official_url: https://admission.cau.ac.kr/detail.do?menuurl=jcgylvDgJz1bdCxN45fl1g%3D%3D&board_seq=3252&pageNo=1&categoryid=14
+  retrieved_at: '2026-11-21'
+  original_points: 30
+  rights_notice: 중앙대학교 입학처 공개 자료(모의논술 게시판). 상업적 재사용 허락 미요청
+  note: 문제 = 2027 일반형 모의논술 자연계열 문제지 p.3 / 예시답안·채점기준 = 2027 논술가이드북(자연) p.36~37 / 출제의도·제시문 출전 = 같은 책 p.30~31. 의·약학부 문제지(CAU-M27B) 문제 3과 동일(글자 대조 확인) — 한 번만 입력. 문항카드 없음
+
+verify: verify/CAU-M27A.py::p03
+
+stimuli:
+- label: '1'
+  body: |
+    $x$의 값의 범위가 $\alpha\le x\le\beta$일 때, 이차함수
+    $$f(x)=a(x-p)^2+q$$
+    의 최댓값과 최솟값은 다음과 같음을 알 수 있다.
+    (i) $\alpha\le p\le\beta$이면 $f(\alpha)$, $f(p)$, $f(\beta)$ 중에서 가장 큰 값이 최댓값이고 가장 작은 값이 최솟값이다.
+    (ii) $p<\alpha$ 또는 $p>\beta$이면 $f(\alpha)$, $f(\beta)$ 중에서 큰 값이 최댓값이고 작은 값이 최솟값이다.
+- label: '2'
+  body: |
+    로그함수 $y=\log_ax$는 $a>1$일 때, $x$의 값이 증가하면 $y$의 값도 증가한다.
+- label: '3'
+  body: |
+    삼각함수 $y=\sin x$는 주기함수이고 주기는 $2\pi$이다.
+
+stem: |
+  다음을 읽고 문항별로 풀이와 함께 답하시오.
+
+subparts:
+- id: '1'
+  stem: |
+    [문제 3-1] (15점) 양의 실수 $a$에 대하여 $k=2^a$이라 하자. 함수 $f(x)$를 $f(x)=\left\lvert(\log_kx+4)(\log_kx-8)\right\rvert$이라 하고 $\dfrac14\le x\le16$일 때, $f(x)\ge29$이 성립하도록 하는 $a$의 최솟값을 구하시오.
+  points: 15
+  depends_on: []
+  answer: {kind: value, value: '\dfrac{4+2\sqrt7}{3}', equivalents: ['(4+2*sqrt(7))/3'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $t=\log_kx\in\left[-\dfrac2a,\dfrac4a\right]$, $g(t)=\lvert t^2-4t-32\rvert$. 근 $t=8$을 피하려면 $\dfrac4a<8$이고, 최솟값은 꼭짓점 $t=2$에서 먼 $t=-\dfrac2a$.
+    steps:
+    - {id: 1a, content: '$g\left(-\dfrac2a\right)=32-\dfrac8a-\dfrac4{a^2}\ge29\iff3a^2-8a-4\ge0\iff a\ge\dfrac{4+2\sqrt7}{3}$', criteria: [1.B1, 1.B2, 1.B3]}
+    hint_ladder:
+    - $\log_kx$를 $\log_2x$로 나타내 보자.
+    - $\log_kx=t$로 두면 $t$의 범위는?
+    - $\lvert t^2-4t-32\rvert$의 최솟값은 범위의 어느 점에서 생기는가?
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 2027 논술가이드북(자연) p.36 예시답안
+    steps:
+    - id: 1b-1
+      content: |
+        $2^a=k$이므로, $\log_kx=\dfrac{\log_2x}{a}$이다. $\log_kx=t$라 하면, $-\dfrac2a\le t\le\dfrac4a$이다.
+      criteria: [1.B1]
+    - id: 1b-2
+      content: |
+        주어진 함수는 $g(t)=\lvert(t+4)(t-8)\rvert=\lvert t^2-4t-32\rvert$이다. 주어진 구간에서 $g(t)\ge29$가 성립하기 위해서는 $\dfrac4a<8$이 성립하고(주어진 범위에서 $g(t)\ne0$), 이로부터 $\dfrac4a-2<2+\dfrac2a$임을 알 수 있다. 따라서, $g(t)$의 최솟값은 구간의 양 끝점 중 꼭짓점 $t=2$에서 거리가 먼 $t=-\dfrac2a$에서 갖게 됨을 알 수 있다.
+      criteria: [1.B2]
+    - id: 1b-3
+      content: |
+        최솟값과 비교하여 $g\left(-\dfrac2a\right)=32-\dfrac8a-\dfrac4{a^2}\ge29$가 성립하는 $a$를 찾는다. 정리하면
+        $$3a^2-8a-4=3\left(a-\dfrac{4-2\sqrt7}{3}\right)\left(a-\dfrac{4+2\sqrt7}{3}\right)\ge0$$
+        이고, $a$는 양수이므로 $a\ge\dfrac{4+2\sqrt7}{3}$이고 $a$의 최솟값은 $\dfrac{4+2\sqrt7}{3}$이다.
+      criteria: [1.B3]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.B1
+      mark_type: B
+      points: 5
+      evidence: 구간의 범위 $-\dfrac2a\le t\le\dfrac4a$를 구했다.
+      depends_on: []
+      steps: [1b-1]
+    - id: 1.B2
+      mark_type: B
+      points: 5
+      evidence: 최솟값을 $t=-\dfrac2a$에서 갖는다는 것을 얻었다.
+      depends_on: []
+      steps: [1b-2]
+    - id: 1.B3
+      mark_type: B
+      points: 5
+      evidence: 부등식을 정리하여 $a$의 최솟값 $\dfrac{4+2\sqrt7}{3}$을 구했다.
+      depends_on: []
+      steps: [1b-3]
+    deductions:
+    - code: D1-1
+      condition: 채점자 재량 — 답안의 완성도에 따라 −0.5~+0.5점(공식 주석). 논리 전개 과정이 맞으면 답이 틀리더라도 1~2점의 부분 점수 부여(공식 주석)
+      effect: minus
+      value: 0.5
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-ALG-4701}
+  misconceptions:
+  - id: MC-ALG-4701
+    outcome_code: '70'
+    wrong_work: 절댓값 이차함수의 최솟값을 꼭짓점 $t=2$에서의 값(36)이나 가까운 끝점 $t=\dfrac4a$에서 잡음
+    detect_cue: $g(2)$ 또는 $g\left(\dfrac4a\right)\ge29$로 부등식을 세움
+    feedback: $\lvert t^2-4t-32\rvert$는 근 $-4$, $8$ 사이에서 위로 볼록한 모양입니다. 이 구간 안에서 최솟값은 꼭짓점에서 먼 끝점에서 생깁니다(제시문 ⚫1).
+    remedy: [RL-1]
+- id: '2'
+  stem: |
+    [문제 3-2] (15점) 양의 실수 $a$에 대하여 $0\le x\le2\pi$에서 정의된 함수 $f(x)=\lvert4\sin^2x-4\sin x-a\rvert$이 있다. $0\le x\le2\pi$에서 함수 $f(x)$의 최댓값을 $M$이라 할 때, $x$에 대한 방정식 $f(x)=M$이 구간 $[0,2\pi]$에서 서로 다른 세 실근 $x_1$, $x_2$, $x_3$을 갖는다. $a$와 $x_1$, $x_2$, $x_3$의 값을 구하시오.
+  points: 15
+  depends_on: []
+  answer: {kind: value, value: 'a=\dfrac72,\ x_1,x_2,x_3=\dfrac{\pi}{6},\ \dfrac{5}{6}\pi,\ \dfrac32\pi', equivalents: ['a=7/2; pi/6, 5pi/6, 3pi/2'], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: $t=\sin x$, $g(t)=\lvert(2t-1)^2-1-a\rvert$의 최댓값 후보는 $g\left(\tfrac12\right)=a+1$, $g(-1)=\lvert8-a\rvert$, $g(1)=a$. 세 근이 되려면 $t=\tfrac12$와 $t=-1$이 동시에 최대.
+    steps:
+    - {id: 2a, content: '$a+1=8-a\Rightarrow a=\dfrac72$, 근 $\dfrac\pi6,\dfrac56\pi,\dfrac32\pi$', criteria: [2.B1, 2.R1, 2.B2]}
+    hint_ladder:
+    - $\sin x=t$로 두면 $t$의 범위는?
+    - 닫힌구간에서 이차함수의 절댓값이 최대가 되는 후보는 어디인가?
+    - $t=\dfrac12$, $t=-1$, $t=1$은 각각 몇 개의 $x$에 대응하는가?
+  - id: S2-B
+    audience: B
+    method_no: 1
+    source_flow: 2027 논술가이드북(자연) p.36 예시답안
+    steps:
+    - id: 2b-1
+      content: |
+        $\sin x=t\ (-1\le t\le1)$라 하면 주어진 함수는 $g(t)=\lvert4t^2-4t-a\rvert=\lvert(2t-1)^2-1-a\rvert$이다. 최대·최소 정리에 의하여 최댓값은 $t=\dfrac12$ 또는 $t=-1$ 또는 $t=1$에서 갖는다.
+      criteria: [2.B1]
+    - id: 2b-2
+      content: |
+        각 점에서 함숫값은 $g\left(\dfrac12\right)=a+1$, $g(-1)=\lvert8-a\rvert$, $g(1)=a$이므로, $a+1$보다 작은 $a$, $a-8$은 최댓값이 될 수 없다.
+      criteria: [2.R1]
+    - id: 2b-3
+      content: |
+        $t=\dfrac12$인 $x=\dfrac\pi6$, $\dfrac56\pi$이고 $t=-1$인 $x=\dfrac32\pi$이므로, $f(x)=M$이 서로 다른 세 실근을 갖기 위해서 $a+1=8-a$이어야 한다. 따라서, $a=\dfrac72$이고 세 실근은 $\dfrac\pi6$, $\dfrac56\pi$, $\dfrac32\pi$이다.
+      criteria: [2.B2]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.B1
+      mark_type: B
+      points: 5
+      evidence: 최댓값은 $\sin x=\dfrac12$ 또는 $\sin x=-1$ 또는 $\sin x=1$에서 갖게 됨을 밝혔다.
+      depends_on: []
+      steps: [2b-1]
+    - id: 2.R1
+      mark_type: R
+      points: 5
+      evidence: $a+1$, $\lvert8-a\rvert$, $a$가 최댓값의 가능한 값이고 $a$, $a-8$은 최댓값이 될 수 없음을 근거와 함께 얻었다.
+      depends_on: []
+      steps: [2b-2]
+    - id: 2.B2
+      mark_type: B
+      points: 5
+      evidence: $a+1=8-a$를 얻고 $a=\dfrac72$이고 세 실근 $\dfrac\pi6$, $\dfrac56\pi$, $\dfrac32\pi$를 얻었다.
+      depends_on: []
+      steps: [2b-3]
+    deductions:
+    - code: D2-1
+      condition: 채점자 재량 — 답안의 완성도에 따라 −0.5~+0.5점(공식 주석). 논리 전개 과정이 맞으면 답이 틀리더라도 1~2점의 부분 점수 부여(공식 주석)
+      effect: minus
+      value: 0.5
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-ALG-4702}
+  misconceptions:
+  - id: MC-ALG-4702
+    outcome_code: '70'
+    wrong_work: 최댓값을 한 점($t=\dfrac12$ 또는 $t=-1$)에서만 갖는다고 보고 근의 개수를 맞추지 못하거나, $t=1$의 $x=\dfrac\pi2$를 근으로 넣음
+    detect_cue: $a$를 구하지 못하거나 근이 2개·1개, 또는 $\dfrac\pi2$가 포함됨
+    feedback: $t=\dfrac12$는 $x$ 두 개, $t=-1$은 $x$ 한 개에 대응합니다. 세 근이 되려면 두 점에서 동시에 최댓값이 나와야 합니다.
+    remedy: [RL-2]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-ALG-4701}
+  relation: remediation
+  target: {kind: concept, ref: CON-ALG-QUAD-MAXMIN-INTERVAL}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-ALG-4702}
+  relation: remediation
+  target: {kind: concept, ref: CON-ALG-TRIG-EQ-SUBST}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-input-v1, item_version: 1, verdict: pass, date: 2026-11-21, note: 문제 원문 PDF 이미지 대조로 옮김 · 주 해설은 공식 예시답안 흐름 그대로 · 채점기준은 공식 기준을 B/R 마크로 옮김}
+
+created: 2026-11-21
+updated: 2026-11-21

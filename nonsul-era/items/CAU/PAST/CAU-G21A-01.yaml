@@ -1,0 +1,184 @@
+schema_version: '2.0'
+id: CAU-G21A-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: CAU
+type: T01
+variant_of: null
+replaces: null
+level: L4
+form: 분류
+points: 20
+time_estimate_min: 15
+intent: 회사의 의사결정 상황을 확률과 연관 지어, 두 가지 상황에 대한 확률을 확률의 덧셈정리로 계산할 수 있는가를 평가한다. 이 과정에서 사건의 독립 및 종속의 개념이 사용되며, 확률의 덧셈정리 및 사건의 독립·종속에 대한 이해도를 평가한다(난이도 중·하, 가이드북 출제의도 요지).
+key_idea: '(가)는 $(p\cap s)\cup(q\cap r)$, (나)는 $(p\cup q)\cap(r\cup s)$로 전류가 흐르는 사건을 쓰고 덧셈정리·독립으로 $x=\dfrac{7}{16}$, $y=\dfrac{9}{16}$.'
+stuck: 중앙 전선이 추가된 (나)를 「앞쪽 $p$ 또는 $q$, 뒤쪽 $r$ 또는 $s$」의 곱 구조로 바꾸어 보는 단계와 「1% 증가」의 해석
+idea_tags: [IDEA-CIRCUIT-SERIES-PARALLEL, IDEA-INCLUSION-EXCLUSION]
+tags: [확률의 덧셈정리, 독립사건, 기댓값, 중앙대 실전]
+elements:
+  materials: [부품 4개 p·q·r·s(각각 독립, 작동 확률 1/2), 회로 (가)·(나), 교체 비용 50만 원, 확률 1% 증가당 수익 10만 원]
+  concepts: [확률의 덧셈정리, 사건의 독립, 여러 사건의 합·곱, 기댓값(이익 증가액)]
+  tools: [회로를 사건식으로 번역, 덧셈정리(포함배제), 독립사건의 곱, 16가지 상태 전수 나열(참고)]
+  conditions:
+  - '각 부품 독립, 작동 확률 $\dfrac12$ ⇒ 교사건 확률은 곱'
+  - '(가): A→p→s→B 또는 A→q→r→B ⇒ $(p\cap s)\cup(q\cap r)$'
+  - '(나): 중앙 전선으로 위·아래 가운데 점이 연결 ⇒ $(p\cup q)\cap(r\cup s)$'
+  - '수익 = 확률 1% 증가당 10만 원, 비용 50만 원 ⇒ 이익 증가액 $=10\times(\text{증가율}\ \%)-50$ (1%p 해석도 정답 인정)'
+  stimuli_used: []
+  subpart_links: null
+
+curriculum:
+  version: '2015'
+  subjects: [확률과통계]
+  scope_2028: common
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 확률의 덧셈정리를 이해하고 이를 활용할 수 있다 / 사건의 독립과 종속의 의미를 이해하고 이를 설명할 수 있다(요지)
+    verified: false
+  content_area: 확률 – 확률의 덧셈정리 / 사건의 독립
+  behavior_domain: 문제해결
+  unit_path: [확률과 통계, 확률, 확률의 뜻과 활용, 확률의 덧셈정리]
+  key_concepts: [확률의 덧셈정리, 독립사건]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 중앙대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 중앙대학교
+  admission_year: 2021
+  admission_type: 논술(수시)
+  track: 자연계열Ⅰ
+  question_no: 1
+  official_url: https://admisfile.cau.ac.kr/download/cau_2021_s_n_j_1.pdf
+  retrieved_at: '2026-11-21'
+  original_points: 20
+  rights_notice: 중앙대학교 입학처 공개 자료(기출문제 게시판 board_seq=2360). 상업적 재사용 허락 미요청
+  note: 문제 = 2021 자연계열Ⅰ 문제지 p.1(PDF 2쪽) / 예시답안·채점기준 = 2022 논술가이드북(자연) p.53 / 출제의도 = 같은 책 p.52. 회로 그림은 글로 옮김. 문항카드 없음(성취기준 미확인)
+
+verify: verify/CAU-G21A.py::p01
+
+stimuli: []
+
+stem: |
+  K 회사는 다음 그림의 (가)와 같이 4개의 부품 p, q, r, s 가 전선으로 연결된 전기 시스템 설계를 (나)와 같이 전선이 중앙에 추가된 설계로 교체할 것을 고려하고 있다. 각 부품은 독립적으로 동작하고, 각 부품이 작동 및 오작동할 확률은 각각 $\dfrac12$이다. 전류는 A에서 B로 흐르며, 각 부품은 작동할 때만 전류가 흐른다. 시스템 (가)에서 (나)로 설계를 교체할 때 추가되는 비용은 50만 원이며, 시스템에서 전류가 흐를 확률이 1% 증가함에 따르는 수익은 10만 원이라고 한다. K 회사가 시스템 설계를 (가)에서 (나)로 교체할 때, 이익의 증가액(단위: 만 원)의 기댓값을 구하시오. [20점]
+
+  [그림] (가): A에서 갈라진 두 경로가 B에서 다시 만난다. 위 경로에는 부품 p, s가 차례로, 아래 경로에는 부품 q, r가 차례로 놓여 있다(마름모 모양). (나): (가)와 같은 배치에서 위 경로의 p와 s 사이 꼭짓점과 아래 경로의 q와 r 사이 꼭짓점을 잇는 세로 전선이 중앙에 추가되어 있다.
+
+subparts:
+- id: '1'
+  stem: |
+    시스템 설계를 (가)에서 (나)로 교체할 때, 이익의 증가액(단위: 만 원)의 기댓값을 구하시오.
+  points: 20
+  depends_on: []
+  answer: {kind: value, value: '\dfrac{1650}{7}', equivalents: ['1650/7', '235.71', '75(1%p 해석, 공식 정답 인정)'], tolerance: 0.01}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $x=\dfrac14+\dfrac14-\dfrac1{16}=\dfrac7{16}$, $y=\dfrac34\cdot\dfrac34=\dfrac9{16}$, 증가율 $\dfrac{y-x}{x}=\dfrac27$.
+    steps:
+    - {id: 1a, content: '$10\times\left(\dfrac27\times100\right)-50=\dfrac{1650}{7}\approx235.71$(만 원)', criteria: [1.B1, 1.B2, 1.B3, 1.B4]}
+    hint_ladder:
+    - (가)에서 전류가 흐르는 경우를 두 경로의 사건으로 써 보자.
+    - (나)는 중앙 전선 덕분에 「앞쪽 한 부품 + 뒤쪽 한 부품」만 작동하면 된다.
+    - 「확률이 1% 증가」를 확률 자체의 증가율로 해석해 보자.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 2022 논술가이드북(자연) p.53 예시답안
+    steps:
+    - id: 1b-1
+      content: |
+        시스템의 각 부품이 작동하는 사건을 $p$, $q$, $r$, $s$로 나타낸다고 하자. 시스템 (가)와 (나)에서 전류가 흐를 확률 $x$, $y$는, 각각
+        $$x=P\{(p\cap s)\cup(q\cap r)\}=P\{(p\cap s)\}+P\{(q\cap r)\}-P\{p\cap q\cap r\cap s\}=P\{p\}P\{s\}+P\{q\}P\{r\}-P\{p\}P\{q\}P\{r\}P\{s\}=\frac14+\frac14-\frac1{16}=\frac7{16}$$
+      criteria: [1.B1]
+    - id: 1b-2
+      content: |
+        $$y=P\{(p\cup q)\cap(r\cup s)\}=P\{p\cup q\}\times P\{r\cup s\}=[P\{p\}+P\{q\}-P\{p\cap q\}]\times[P\{r\}+P\{s\}-P\{r\cap s\}]$$
+        $$=[P\{p\}+P\{q\}-P\{p\}P\{q\}]\times[P\{r\}+P\{s\}-P\{r\}P\{s\}]=\frac34\times\frac34=\frac9{16}$$
+      criteria: [1.B2]
+    - id: 1b-3
+      content: |
+        따라서, 시스템 설계를 (가)에서 (나)로 교체할 때의 이익의 증가액은
+        $$\left(10\times\frac{y-x}{x}\times100\%\right)-50=\left\{10\times\left(\frac27\times100\%\right)\right\}-50=\frac{1650}{7}\approx235.71\ (\text{만 원}).$$
+      criteria: [1.B3, 1.B4]
+    - id: 1b-4
+      content: |
+        ※ 문제에서의, 「1 증가」를 「1%p 증가」로 해석한 경우, 이익의 증가액은 다음과 같다. 이 경우도 정답으로 간주한다.
+        $$\{10\times(y-x)\times100\%\}-50=\left\{10\times\left(\frac2{16}\times100\%\right)\right\}-50=125-50=75\ (\text{만 원}).$$
+      criteria: [1.B3, 1.B4]
+  - id: S1-ALT
+    audience: ALT
+    method_no: 2
+    source_flow: 2022 논술가이드북(자연) p.53 참고(모든 경우 나열)
+    key_idea: 16가지 작동 상태를 모두 나열하여 확률 $(x,\ y)$ 및 확률의 증가값 $(y-x)$를 계산
+    steps:
+    - id: 1c-1
+      content: |
+        각 상태의 확률은 $\dfrac1{16}$이다. (가)에서 전류가 흐르는 상태는 7가지($p,s$ 모두 작동 또는 $q,r$ 모두 작동)이고, (나)에서 흐르는 상태는 그 7가지에 중앙 전선을 가로지르는 2가지($p$·$r$만 작동, $q$·$s$ 오작동 / $q$·$s$만 작동, $p$·$r$ 오작동 — 공식 표의 6번·11번)가 더해진 9가지이다. 따라서 $x=\dfrac7{16}$, $y=\dfrac9{16}$, $y-x=\dfrac2{16}$.
+      criteria: [1.B1, 1.B2]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.B1
+      mark_type: B
+      points: 7
+      evidence: 시스템 (가)에서 전류가 흐를 확률 $x=\dfrac7{16}$을 바르게 계산했다(경우의 수를 고려해 구해도 됨). [$x$와 $y$를 따로 계산하지 않고 $(y-x)$ 또는 $\dfrac{y-x}{x}$를 바르게 계산하면 1.B1·1.B2 합쳐 14점]
+      depends_on: []
+      steps: [1b-1, 1c-1]
+    - id: 1.B2
+      mark_type: B
+      points: 7
+      evidence: 시스템 (나)에서 전류가 흐를 확률 $y=\dfrac9{16}$을 바르게 계산했다(경우의 수를 고려해 구해도 됨).
+      depends_on: []
+      steps: [1b-2, 1c-1]
+    - id: 1.B3
+      mark_type: B
+      points: 3
+      evidence: 교체할 때의 수익 $\dfrac{2000}{7}$만 원 또는 $125$만 원을 바르게 계산했다. [결괏값은 바르지 않으나 수익 계산 구조를 반영하면 +1]
+      depends_on: []
+      steps: [1b-3, 1b-4]
+    - id: 1.B4
+      mark_type: B
+      points: 3
+      evidence: 추가 비용을 고려하여 기대되는 이익의 증가액 $\dfrac{1650}{7}\ (\approx235.71)$만 원 또는 $75$만 원을 바르게 계산했다. [결괏값은 바르지 않으나 비용을 고려한 이익 증가액 계산 구조를 반영하면 +1]
+      depends_on: []
+      steps: [1b-3, 1b-4]
+    deductions:
+    - code: D1-1
+      condition: 공식 주석 — 계산 실수로 틀렸어도 논리 전개 과정이 맞으면 해당 부분에 1~2점의 부분 점수 부여, 각 부분을 바르게 작성한 경우에도 답안의 완성도에 따라 총점 20점 이내에서 ±1점 추가 부여 가능
+      effect: minus
+      value: 1
+  outcome_codes:
+  - {code: '20', meaning: 만점(비율 해석 1650/7)}
+  - {code: '21', meaning: 만점(1%p 해석 75)}
+  - {code: '70', misconception: MC-PRB-4207}
+  misconceptions:
+  - id: MC-PRB-4207
+    outcome_code: '70'
+    wrong_work: '$x=P(p\cap s)+P(q\cap r)=\dfrac12$로 교사건을 빼지 않음'
+    detect_cue: $x=\dfrac12$, 증가율 $\dfrac18$ 또는 $\dfrac1{16}$ 꼴
+    feedback: 두 경로가 동시에 열리는 경우($p,q,r,s$ 모두 작동)가 두 번 세어졌습니다. 덧셈정리로 $P(p\cap q\cap r\cap s)=\dfrac1{16}$을 빼세요.
+    remedy: [RL-1]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-PRB-4207}
+  relation: remediation
+  target: {kind: concept, ref: CON-PRB-ADD-INDEP}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-input-v1, item_version: 1, verdict: pass, date: 2026-11-22, note: 문제 원문 PDF 이미지 대조로 옮김(회로 그림은 글로) · 주 해설은 공식 예시답안 흐름 그대로 · 채점기준은 공식 기준을 B 마크로 옮김}
+
+created: 2026-11-22
+updated: 2026-11-22

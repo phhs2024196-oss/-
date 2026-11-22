@@ -1,0 +1,192 @@
+schema_version: '2.0'
+id: CAU-M21-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: CAU
+type: T07
+variant_of: null
+replaces: null
+level: L4
+form: 추론
+points: 20
+time_estimate_min: 15
+intent: 보물섬에 다녀온 사람이 특수그룹으로 분류되었을 때 실제로 보물을 가지고 있을 확률을 계산하는 과정을 통해 확률분포(확률밀도함수) 및 조건부확률에 대한 전반적인 이해도를 평가한다(채점자 매뉴얼 출제 의도 요지).
+key_idea: '확률밀도함수 그래프 아래 넓이로 $P(G\mid B)=\dfrac89$, $P(G\mid B^{C})=\dfrac19$를 구하고 전확률로 $P(G)$를 만든 뒤 $P(B\mid G)=\dfrac{P(G\mid B)P(B)}{P(G)}$.'
+stuck: 구하는 확률이 $P(G\mid B)$가 아니라 $P(B\mid G)$임을 알아채고, 사전확률 $\dfrac19$, $\dfrac89$로 가중하는 단계
+idea_tags: [IDEA-BAYES-TOTAL-PROB, IDEA-PDF-AREA]
+tags: [조건부확률, 확률밀도함수, 베이즈, 중앙대 모의]
+elements:
+  materials: [보물섬 귀환자(보물 소유 확률 1/9), 검색대 측정값 0~4, 특수그룹 기준 2 이상, 일차함수 꼴 확률밀도함수 f·g의 그래프]
+  concepts: [조건부확률, 확률의 곱셈정리, 연속확률변수의 확률밀도함수, 확률 = 그래프 아래 넓이]
+  tools: [그래프에서 f·g의 식 읽기, 삼각형·사다리꼴 넓이, 전확률 공식, 베이즈 꼴 조건부확률]
+  conditions:
+  - '보물 소유 확률 1/9, 미소유 8/9 ⇒ 사전확률 $P(B)=\dfrac19$, $P(B^{C})=\dfrac89$'
+  - '측정값 2 이상이면 특수그룹 ⇒ $G=\{X\ge2\}$, 확률은 $x\ge2$ 부분의 넓이'
+  - '보물 소유자는 $g$, 미소유자는 $f$를 따름 ⇒ $P(G\mid B)=\int_2^4 g$, $P(G\mid B^{C})=\int_2^3 f$'
+  - '특수그룹으로 분류되었을 때 보물을 가질 확률 ⇒ $P(B\mid G)$'
+  stimuli_used: []
+  subpart_links: null
+
+curriculum:
+  version: '2015'
+  subjects: [확률과통계]
+  scope_2028: common
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 조건부확률의 의미를 이해하고 확률의 곱셈정리를 이해한다 / 연속확률변수의 확률분포를 이해한다(요지)
+    verified: false
+  content_area: 확률 – 조건부확률 / 통계 – 연속확률변수
+  behavior_domain: 문제해결
+  unit_path: [확률과 통계, 확률, 조건부확률, 확률의 곱셈정리]
+  key_concepts: [조건부확률, 확률밀도함수]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 중앙대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 중앙대학교
+  admission_year: 2021
+  admission_type: 모의논술
+  track: 자연계열
+  question_no: 1
+  official_url: https://admission.cau.ac.kr/detail.do?menuurl=jcgylvDgJz1bdCxN45fl1g%3D%3D&board_seq=2235&pageNo=1&categoryid=14
+  retrieved_at: '2026-11-21'
+  original_points: 20
+  rights_notice: 중앙대학교 입학처 공개 자료(모의논술 게시판). 상업적 재사용 허락 미요청
+  note: 문제 = 2021 모의논술 문제지(자연) p.1(PDF 2쪽) / 예시답안·채점기준 = 2021 논술가이드북(자연) p.45~46 (채점자 매뉴얼 p.14~15 예시답안 동일) / 출제의도 = 채점자 매뉴얼 p.3. 그래프는 글로 옮김(f는 (0,2/3)~(3,0) 선분, g는 (1,0)~(4,2/3) 선분)
+
+verify: verify/CAU-M21.py::p01
+
+stimuli: []
+
+stem: |
+  다음을 읽고 문제에 답하시오.
+
+  - 보물섬에 가는 사람들은 $\dfrac19$의 확률로 보물을 발견하여 보물을 가지고 돌아오고, $\dfrac89$의 확률로 보물을 발견하지 못하고 그냥 돌아온다.
+  - 보물섬에 다녀온 사람들이 세관의 검색대를 통과하면, 검색대가 $0$과 $4$사이의 $x$값을 출력한다. (단, $x$는 실수)
+  - 보물을 가진 사람들을 검색대에서 측정한 값의 분포는 확률밀도함수 $g(x)$를 따르고, 보물을 가지고 있지 않은 사람들을 측정한 값의 분포는 확률밀도함수 $f(x)$를 따른다.
+  - 세관에서는 이 검색대에서 측정한 값이 $2$보다 크거나 같은 사람들을 특수그룹으로 분류하여, 잠재적인 보물 소유 그룹으로 판단한다.
+  - 확률밀도함수 $f(x)$와 $g(x)$는 아래의 그래프와 같다.
+
+  [그래프] 좌표평면에서 $y=f(x)$는 점 $\left(0,\dfrac23\right)$과 점 $(3,0)$을 잇는 선분이고, $y=g(x)$는 점 $(1,0)$과 점 $\left(4,\dfrac23\right)$을 잇는 선분이다. (가로축 눈금 $1,2,3,4$, 세로축 눈금 $\dfrac23$)
+
+  보물섬에 다녀온 철수가 세관으로부터 특수그룹으로 분류되었을 때, 철수가 실제로 보물을 가지고 돌아왔을 확률을 구하시오. [20점]
+
+subparts:
+- id: '1'
+  stem: |
+    철수가 특수그룹으로 분류되었을 때, 실제로 보물을 가지고 돌아왔을 확률을 구하시오.
+  points: 20
+  depends_on: []
+  answer: {kind: value, value: '\dfrac{1}{2}', equivalents: ['1/2', '0.5'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: 넓이로 $P(G\mid B)=\dfrac89$, $P(G\mid B^{C})=\dfrac19$, 전확률 $P(G)=\dfrac{16}{81}$, 따라서 $P(B\mid G)=\dfrac{8/81}{16/81}=\dfrac12$.
+    steps:
+    - {id: 1a, content: '$P(B\mid G)=\dfrac{\frac89\cdot\frac19}{\frac89\cdot\frac19+\frac19\cdot\frac89}=\dfrac12$', criteria: [1.B1, 1.B2, 1.B3, 1.B4]}
+    hint_ladder:
+    - 구하는 것은 「특수그룹일 때 보물을 가질」 확률이다. 어느 사건이 조건인가?
+    - 보물을 가진 사람이 특수그룹으로 분류될 확률은 $g$의 그래프에서 어느 부분의 넓이인가?
+    - 특수그룹에 속할 확률 $P(G)$는 보물을 가진 경우와 가지지 않은 경우로 나누어 더한다.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 2021 논술가이드북(자연) p.45 예시답안
+    steps:
+    - id: 1b-1
+      content: |
+        보물을 가지고 있을 사건을 $B$라고 표기하고, 특수그룹으로 분류되는 사건을 $G$라고 표기하면, 구하고자 하는 확률은 특수그룹으로 분류되었을 때 실제로 보물을 가지고 있을 확률인 $P(B\mid G)$가 된다. 이는 $P(G\mid B)$, $P(G\mid B^{C})$, $P(B)$ 등을 계산한 후, 해당 확률들로부터 유도될 수 있다.
+      criteria: []
+    - id: 1b-2
+      content: |
+        보물을 갖고 있는 사람이 특수그룹으로 분류될 확률 $P(G\mid B)$: 확률변수 $X$가 보물을 갖고 있는 사람이 검색대를 통과했을 때, 검색대로부터 측정한 값이라고 할 때, $P(G\mid B)$는 해당 확률변수의 확률밀도함수인 $g(x)$의 그래프로부터 $P(2\le X\le4)$로 계산될 수 있다. 이 확률은 그래프에서 $2\le x\le4$ 부분의 사다리꼴의 넓이가 되기 때문에, $1-1\times\dfrac29\times\dfrac12=\dfrac89$로 계산된다. 이는 $g(x)=\dfrac29x-\dfrac29$, $1\le x\le4$이고, $g(2)=\dfrac29$로부터 계산할 수 있다.
+      criteria: [1.B1]
+    - id: 1b-3
+      content: |
+        보물을 갖고 있지 않은 사람이 특수그룹으로 분류될 확률 $P(G\mid B^{C})$: 확률변수 $Y$가 보물을 갖고 있지 않은 사람이 검색대를 통과했을 때, 검색대가 측정한 값이라고 할 때, $P(G\mid B^{C})$는 해당 확률변수의 확률밀도함수인 $f(x)$의 그래프로부터 $P(2\le Y\le4)$로 계산될 수 있다. 이 확률은 그래프에서 $2\le x\le3$ 부분의 삼각형의 넓이가 되기 때문에, $1\times\dfrac29\times\dfrac12=\dfrac19$로 계산된다.
+      criteria: [1.B2]
+    - id: 1b-4
+      content: |
+        임의의 사람이 특수그룹에 속하게 될 확률인 $P(G)$는
+        $$P(G)=P(G\cap B)+P(G\cap B^{C})=P(G\mid B)P(B)+P(G\mid B^{C})P(B^{C})$$
+        로 구할 수 있고, 이는 $\dfrac89\times\dfrac19+\dfrac19\times\dfrac89=\dfrac{16}{81}$이 된다.
+      criteria: [1.B3]
+    - id: 1b-5
+      content: |
+        따라서 특수그룹에 속한 사람이 실제로 보물을 갖고 있을 확률은 다음과 같다.
+        $$P(B\mid G)=\dfrac{P(G\cap B)}{P(G)}=\dfrac{P(G\mid B)P(B)}{P(G)}=\dfrac{8/81}{16/81}=\dfrac12$$
+      criteria: [1.B4]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.B1
+      mark_type: B
+      points: 5
+      evidence: 보물을 갖고 있는 사람이 특수그룹으로 분류될 확률 $P(G\mid B)=\dfrac89$를 올바르게 계산했다.
+      depends_on: []
+      steps: [1b-2]
+    - id: 1.B2
+      mark_type: B
+      points: 5
+      evidence: 보물을 갖고 있지 않은 사람이 특수그룹으로 분류될 확률 $P(G\mid B^{C})=\dfrac19$를 올바르게 계산했다.
+      depends_on: []
+      steps: [1b-3]
+    - id: 1.B3
+      mark_type: B
+      points: 5
+      evidence: 임의의 사람이 특수그룹에 속하게 될 확률 $P(G)=\dfrac{16}{81}$을 올바르게 계산했다.
+      depends_on: []
+      steps: [1b-4]
+    - id: 1.B4
+      mark_type: B
+      points: 5
+      evidence: 위 세 결과로부터 최종 결과 $P(B\mid G)=\dfrac12$를 올바르게 유도했다.
+      depends_on: []
+      steps: [1b-5]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-PRB-4201}
+  - {code: '71', misconception: MC-PRB-4202}
+  misconceptions:
+  - id: MC-PRB-4201
+    outcome_code: '70'
+    wrong_work: 답을 $P(G\mid B)=\dfrac89$로 씀
+    detect_cue: 최종 답이 $\dfrac89$이고 $P(G)$ 계산이 없다
+    feedback: 조건은 「특수그룹으로 분류되었을 때」입니다. 구하는 것은 $P(B\mid G)$이고, $P(G\mid B)$는 그 계산 재료일 뿐입니다.
+    remedy: [RL-1]
+  - id: MC-PRB-4202
+    outcome_code: '71'
+    wrong_work: '$\dfrac{P(G\mid B)}{P(G\mid B)+P(G\mid B^{C})}=\dfrac{8/9}{8/9+1/9}=\dfrac89$처럼 사전확률을 곱하지 않음'
+    detect_cue: 분모·분자에 $\dfrac19$, $\dfrac89$가 곱해져 있지 않다
+    feedback: 보물을 가진 사람은 전체의 $\dfrac19$뿐입니다. $P(G\cap B)=P(G\mid B)P(B)$처럼 사전확률을 곱해야 합니다.
+    remedy: [RL-1]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-PRB-4201}
+  relation: remediation
+  target: {kind: concept, ref: CON-PRB-BAYES}
+  priority: 1
+- id: RL-2
+  trigger: {type: criterion_missed, ref: 1.B1}
+  relation: prerequisite
+  target: {kind: concept, ref: CON-PRB-CONT-PDF}
+  priority: 2
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-input-v1, item_version: 1, verdict: pass, date: 2026-11-22, note: 문제 원문 PDF 이미지 대조로 옮김(그래프는 글로) · 주 해설은 공식 예시답안 흐름 그대로 · 채점기준은 공식 기준을 B 마크로 옮김}
+
+created: 2026-11-22
+updated: 2026-11-22

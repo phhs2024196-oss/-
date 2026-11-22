@@ -1,0 +1,209 @@
+schema_version: '2.0'
+id: CAU-M25-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: CAU
+type: T07
+variant_of: null
+replaces: null
+level: L4
+form: 분류
+points: 20
+time_estimate_min: 25
+intent: 전체 사건을 두 배반사건(주머니 A·B 선택)으로 나누고 각 사건에서 확률변수의 조건부 분포를 구한 뒤 확률의 곱셈정리·덧셈정리로 확률분포와 기댓값을 구하는 능력, 특히 삼차방정식의 해를 이용해 경우의 수를 체계적으로 파악하는지를 본다(채점매뉴얼 출제 의도 요지).
+key_idea: '조건식 $b^3-6ab^2+11a^2b-6a^3=0$을 $(b-a)(b-2a)(b-3a)=0$으로 인수분해해 “$b=2a$ 또는 $b=3a$이면 $\dfrac ba$, 아니면 $b-a$”로 바꾼다.'
+stuck: 동차 삼차식의 인수분해, 그리고 주머니 B에서 $b=4a$인 $(2,8)$은 몫이 아니라 차를 쓴다는 점
+idea_tags: [IDEA-FACTOR-HOMOG-CONDITION, IDEA-PARTITION-BY-STAGE1]
+tags: [기댓값, 확률의 곱셈정리, 인수분해, 중앙대 모의]
+elements:
+  materials: [주사위 1개, 주머니 A(카드 1~3), 주머니 B(카드 2~8), 카드 2장 동시 추출, 삼차 조건식으로 정해지는 점수]
+  concepts: [이산확률변수의 확률분포와 기댓값, 확률의 곱셈정리, 확률의 덧셈정리(배반사건), 조합, 다항식의 인수분해]
+  tools: [조건식의 인수분해, 주머니별 (a,b) 쌍 전수 나열 표, 주머니별 조건부 확률분포표, 곱셈정리·덧셈정리로 분포 합성]
+  conditions:
+  - '눈의 수가 3의 배수 ⇒ $P(A)=\dfrac26=\dfrac13$, 아니면 $P(B)=\dfrac23$'
+  - '$b^3-6ab^2+11a^2b-6a^3=0$ ⇒ $(b-a)(b-2a)(b-3a)=0$ ⇒ $b=2a$ 또는 $b=3a$일 때만 $\dfrac ba$점($b=a$는 서로 다른 카드라 불가능)'
+  - '두 장을 동시에 꺼냄 ⇒ 주머니 A는 ${}_3C_2=3$가지, 주머니 B는 ${}_7C_2=21$가지가 같은 확률'
+  stimuli_used: []
+  subpart_links: null
+
+curriculum:
+  version: '2015'
+  subjects: [확률과통계, 수학]
+  scope_2028: common
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 이산확률변수의 기댓값을 구할 수 있다 / 확률의 덧셈정리·곱셈정리를 활용할 수 있다(요지, 모의논술은 문항카드 없음)
+    verified: false
+  content_area: 확률 – 확률의 곱셈정리 / 통계 – 이산확률변수의 기댓값
+  behavior_domain: 문제해결
+  unit_path: [확률과 통계, 통계, 확률분포, 이산확률변수의 기댓값]
+  key_concepts: [기댓값, 확률의 곱셈정리, 인수분해]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 중앙대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 중앙대학교
+  admission_year: 2025
+  admission_type: 모의논술
+  track: 자연계열
+  question_no: 1
+  official_url: https://admission.cau.ac.kr/detail.do?menuurl=jcgylvDgJz1bdCxN45fl1g%3D%3D&board_seq=2897&pageNo=1&categoryid=14
+  retrieved_at: '2026-11-21'
+  original_points: 20
+  rights_notice: 중앙대학교 입학처 공개 자료(모의논술 게시판). 상업적 재사용 허락 미요청
+  note: 문제 = 2025 모의논술 자연계열 문제지 p.1(PDF p.2) / 예시답안·채점기준 = 2025 모의논술 채점자 매뉴얼 p.8~10(같은 내용 2025 논술가이드북(자연) p.36~37) / 출제의도 = 채점자 매뉴얼 p.3 / 모의논술은 문항카드 없음
+
+verify: verify/CAU-M25.py::p01
+
+stimuli: []
+
+stem: |
+  주머니 A에는 1부터 3까지의 자연수가 각각 하나씩 적힌 3장의 카드가 들어 있고, 주머니 B에는 2부터 8까지의 자연수가 각각 하나씩 적힌 7장의 카드가 들어 있다. 이때 다음과 같은 시행을 한다.
+
+  - 한 개의 주사위를 던져서 나온 눈의 수가 3의 배수이면 주머니 A를 선택하고, 아니면 주머니 B를 선택한다.
+  - 선택한 주머니에서 두 장의 카드를 동시에 꺼낸다.
+  - 두 장의 카드에 적힌 수 중 작은 수를 $a$, 큰 수를 $b$라고 할 때, $a$와 $b$가 $b^3-6ab^2+11a^2b-6a^3=0$을 만족하면 $\dfrac{b}{a}$점의 점수를 획득하고, 그렇지 않으면 $b-a$점의 점수를 획득한다.
+
+  위의 시행을 한 번 할 때, 획득하는 점수의 기댓값을 구하시오. [20점]
+
+subparts:
+- id: '1'
+  stem: |
+    위의 시행을 한 번 할 때, 획득하는 점수의 기댓값을 구하시오.
+  points: 20
+  depends_on: []
+  answer: {kind: value, value: '\dfrac{146}{63}', equivalents: ['146/63'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: 조건식을 인수분해해 점수 규칙을 단순화하고, 주머니 A(3쌍)·B(21쌍)의 분포를 각각 만든 뒤 $\dfrac13,\ \dfrac23$을 곱해 합친다.
+    steps:
+    - {id: 1a, content: '$(b-a)(b-2a)(b-3a)=0$. A: $X=1,2,3$ 각 $\dfrac13$. B: $X=1,\dots,6$ 의 경우의 수 $6,7,4,1,2,1$. $E(X)=\dfrac{146}{63}$', criteria: [1.B1, 1.B2, 1.B3, 1.B4]}
+    hint_ladder:
+    - 조건식은 $a,\ b$에 대한 동차 삼차식이다. $b=a$를 대입해 보자.
+    - 주머니 B에서 $b=4a$인 쌍은 조건식을 만족하는가?
+    - 주머니마다 확률분포표를 따로 만든 다음 선택 확률을 곱해 더하자.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 2025 모의논술 채점자 매뉴얼 p.8~9 예시 답안
+    steps:
+    - id: 1b-1
+      content: |
+        주머니 A를 선택하는 사건을 $A$, 주머니 B를 선택하는 사건을 $B$라 하면 $P(A)=\dfrac26=\dfrac13$, $P(B)=\dfrac46=\dfrac23$이다.
+      criteria: []
+    - id: 1b-2
+      content: |
+        조건식 $b^3-6ab^2+11a^2b-6a^3=0$의 좌변을 인수분해 하면 $(b-a)(b-2a)(b-3a)=0$이다. 따라서 문제의 조건을 ‘$b=a$ 또는 $b=2a$ 또는 $b=3a$이면 $\dfrac ba$, 그렇지 않으면 $b-a$를 반환한다’로 바꿀 수 있다. 단, 두 장의 카드에 적힌 수가 같을 수 없으므로 $b=a$인 경우는 고려할 필요가 없다.
+      criteria: [1.B1]
+    - id: 1b-3
+      content: |
+        문제의 시행으로부터 반환되는 값을 $X$라 하자. 주머니 A를 선택한 경우, $a$와 $b$ 쌍이 가질 수 있는 값의 경우의 수는 ${}_3C_2=3$이다. $a$와 $b$의 값에 따른 $X$의 값은 $(a,b)=(1,2)$일 때 $\dfrac ba=2$, $(1,3)$일 때 $\dfrac ba=3$, $(2,3)$일 때 $b-a=1$이다.
+      criteria: [1.B2]
+    - id: 1b-4
+      content: |
+        따라서 주머니 A를 선택한 경우 $X$의 확률분포는 $P(X=1)=P(X=2)=P(X=3)=\dfrac13$이다. $P(X=x)$는 $X=x$인 경우의 수를 전체 경우의 수인 3으로 나누어 구한다.
+      criteria: [1.B2]
+    - id: 1b-5
+      content: |
+        주머니 B를 선택한 경우, $a$와 $b$ 쌍이 가질 수 있는 값의 경우의 수는 ${}_7C_2=21$이다. ($a=2,\ b=8$일 때 $b=4a$이므로 몫이 아닌 차를 구해야 함을 유의) $a$와 $b$의 값에 따른 $X$의 값은 다음과 같다.
+        $(2,3)\to1$, $(2,4)\to\dfrac ba=2$, $(2,5)\to3$, $(2,6)\to\dfrac ba=3$, $(2,7)\to5$, $(2,8)\to6$, $(3,4)\to1$, $(3,5)\to2$, $(3,6)\to\dfrac ba=2$, $(3,7)\to4$, $(3,8)\to5$,
+        $(4,5)\to1$, $(4,6)\to2$, $(4,7)\to3$, $(4,8)\to\dfrac ba=2$, $(5,6)\to1$, $(5,7)\to2$, $(5,8)\to3$, $(6,7)\to1$, $(6,8)\to2$, $(7,8)\to1$
+      criteria: [1.B3]
+    - id: 1b-6
+      content: |
+        따라서 주머니 B를 선택한 경우 $X$의 확률분포는 $X=1,2,3,4,5,6$에 대하여 각각 $\dfrac{6}{21},\ \dfrac{7}{21},\ \dfrac{4}{21},\ \dfrac{1}{21},\ \dfrac{2}{21},\ \dfrac{1}{21}$이다. $P(X=x)$는 $X=x$인 경우의 수를 전체 경우의 수인 21로 나누어 구한다.
+      criteria: [1.B3]
+    - id: 1b-7
+      content: |
+        $A$와 $B$는 배반사건이므로, 확률의 덧셈정리와 곱셈정리를 이용하여 $X$의 확률분포를 다음과 같이 구할 수 있다.
+        $P(X=1)=\dfrac13\times\dfrac13+\dfrac23\times\dfrac{6}{21}=\dfrac{19}{63}$, $P(X=2)=\dfrac13\times\dfrac13+\dfrac23\times\dfrac{7}{21}=\dfrac{21}{63}$, $P(X=3)=\dfrac13\times\dfrac13+\dfrac23\times\dfrac{4}{21}=\dfrac{15}{63}$,
+        $P(X=4)=\dfrac23\times\dfrac{1}{21}=\dfrac{2}{63}$, $P(X=5)=\dfrac23\times\dfrac{2}{21}=\dfrac{4}{63}$, $P(X=6)=\dfrac23\times\dfrac{1}{21}=\dfrac{2}{63}$
+      criteria: [1.B4]
+    - id: 1b-8
+      content: |
+        따라서, $X$의 기댓값은 다음과 같이 구할 수 있다.
+        $$E(X)=1\times\dfrac{19}{63}+2\times\dfrac{21}{63}+3\times\dfrac{15}{63}+4\times\dfrac{2}{63}+5\times\dfrac{4}{63}+6\times\dfrac{2}{63}=\dfrac{146}{63}$$
+      criteria: [1.B4]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.B1
+      mark_type: B
+      points: 4
+      evidence: 삼차방정식(조건식)의 해 $b=a,\ 2a,\ 3a$를 올바르게 구했다(인수분해 $(b-a)(b-2a)(b-3a)=0$).
+      depends_on: []
+      steps: [1b-2]
+    - id: 1.B2
+      mark_type: B
+      points: 3
+      evidence: 주머니 A를 선택한 경우의 $X$의 경우의 수 또는 확률분포표(각 $\dfrac13$)를 정확히 구했다.
+      depends_on: []
+      steps: [1b-3, 1b-4]
+    - id: 1.B3
+      mark_type: B
+      points: 8
+      evidence: 주머니 B를 선택한 경우의 $X$의 경우의 수($6,7,4,1,2,1$) 또는 확률분포표를 정확히 구했다.
+      depends_on: []
+      steps: [1b-5, 1b-6]
+    - id: 1.B4
+      mark_type: B
+      points: 5
+      evidence: $X$의 기댓값 $\dfrac{146}{63}$을 정확히 구했다.
+      depends_on: []
+      steps: [1b-7, 1b-8]
+    deductions:
+    - code: D1-1
+      condition: 계산 실수로 틀렸어도 논리 전개 과정이 맞으면 해당 부분에 1~2점 부분 점수(공식 채점기준 주석)
+      effect: minus
+      value: 1
+    - code: D1-2
+      condition: 채점자 재량 — 답안의 완성도에 따라 총점 20점 이내에서 ±1점(공식 채점기준 주석)
+      effect: minus
+      value: 1
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-ALG-4601}
+  - {code: '71', misconception: MC-PRB-4600}
+  misconceptions:
+  - id: MC-ALG-4601
+    outcome_code: '70'
+    wrong_work: '주머니 B의 $(2,8)$에서 $b=4a$인데도 $\dfrac ba=4$점으로 처리'
+    detect_cue: 주머니 B 분포에서 $X=4$의 경우의 수가 2, $X=6$이 0
+    feedback: 조건식의 해는 $b=a,\ 2a,\ 3a$ 뿐입니다. $b=4a$는 조건식을 만족하지 않으므로 $b-a=6$점입니다.
+    remedy: [RL-1]
+  - id: MC-PRB-4600
+    outcome_code: '71'
+    wrong_work: '두 주머니의 기댓값 $2$와 $\dfrac{52}{21}$을 단순 평균하거나, 경우의 수 $3+21=24$가지를 같은 확률로 취급'
+    detect_cue: 주머니 선택 확률 $\dfrac13,\ \dfrac23$이 계산에 없음
+    feedback: 주머니 선택은 같은 확률이 아닙니다. 각 주머니의 조건부 분포에 선택 확률을 곱해 더하세요.
+    remedy: [RL-2]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-ALG-4601}
+  relation: remediation
+  target: {kind: concept, ref: CON-ALG-FACTOR-CONDITION}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-PRB-4600}
+  relation: remediation
+  target: {kind: concept, ref: CON-PRB-TOTAL-PROB}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-input-v1, item_version: 1, verdict: pass, date: 2026-11-21, note: 문제 원문 PDF 이미지 대조로 옮김 · 주 해설은 공식 예시답안 흐름 그대로(분포표는 글로 풀어 씀) · 채점기준은 공식 기준을 B 마크로 옮김}
+
+created: 2026-11-21
+updated: 2026-11-21

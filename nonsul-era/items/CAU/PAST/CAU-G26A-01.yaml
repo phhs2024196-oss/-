@@ -1,0 +1,220 @@
+schema_version: '2.0'
+id: CAU-G26A-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: CAU
+type: T01
+variant_of: null
+replaces: null
+level: L4
+form: 분류
+points: 20
+time_estimate_min: 25
+intent: 복잡한 자리 배치 조건을 다루기 쉬운 사건으로 나눈 뒤 경우의 수를 세고, 이를 종합해 수학적 확률을 계산하는 능력을 본다(문항카드 출제 의도 요지).
+key_idea: '1학년 학생을 기준으로 자리를 고정해 원순열을 일렬 배치로 바꾸고, 2학년 두 명의 자리 쌍 $(i,j)$를 조건 $i+2<j<i+6$으로 먼저 결정한다.'
+stuck: '“두 2학년 학생은 같은 학생과 이웃하지 않는다”를 “두 2학년 사이 양쪽에 2명 이상”으로 번역하는 단계'
+idea_tags: [IDEA-CIRC-FIX-ONE, IDEA-CASE-BY-PAIR-POSITION]
+tags: [원순열, 수학적 확률, 중앙대 실전]
+elements:
+  materials: [8인 원탁, 학년별 학생(1학년 1·2학년 2·3학년 2·4학년 3명, 모두 서로 다른 사람), 이웃 금지 조건 3개]
+  concepts: [원순열, 수학적 확률, 경우의 수(곱의 법칙·순열)]
+  tools: [유일한 1학년 학생을 기준으로 회전 동일성 제거, 2학년 자리 쌍 (i,j) 전수 나열, 1학년 옆 두 자리(1·7번)의 학년으로 사건 분할, 배반사건의 확률 합]
+  conditions:
+  - '회전하여 일치하면 같은 배치 ⇒ 1명뿐인 1학년을 기준 자리에 고정하고 나머지 7자리를 일렬 배치로 셈'
+  - '2학년끼리 이웃 금지 + 같은 학생과 이웃 금지 ⇒ 두 2학년 사이 양쪽 호에 각각 2명 이상 ⇒ $i+2<j<i+6$'
+  - '3학년은 1학년과 이웃 금지 ⇒ 1학년 옆(1·7번 자리) 중 2학년이 아닌 자리는 4학년'
+  stimuli_used: []
+  subpart_links: null
+
+curriculum:
+  version: '2015'
+  subjects: [확률과통계]
+  scope_2028: common
+  scope_confirmed: false
+  standards:
+  - code: 12확통01-01
+    text: 원순열, 중복순열, 같은 것이 있는 순열을 이해하고, 그 순열의 수를 구할 수 있다.
+    verified: true
+  - code: 12확통02-01
+    text: 통계적 확률과 수학적 확률의 의미를 이해한다.
+    verified: true
+  - code: 12확통02-02
+    text: 확률의 기본 성질을 이해한다.
+    verified: true
+  content_area: 경우의 수 – 원순열 / 확률의 뜻과 활용
+  behavior_domain: 문제해결
+  unit_path: [확률과 통계, 경우의 수, 순열과 조합, 원순열]
+  key_concepts: [원순열, 수학적 확률]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 중앙대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 중앙대학교
+  admission_year: 2026
+  admission_type: 논술(수시)
+  track: 자연계열Ⅰ
+  question_no: 1
+  official_url: https://admission.cau.ac.kr/files/2026/2026_cau_ns_jy1.pdf
+  retrieved_at: '2026-11-21'
+  original_points: 20
+  rights_notice: 중앙대학교 입학처 공개 자료(기출문제 게시판). 상업적 재사용 허락 미요청
+  note: 문제 = 2026 자연계열Ⅰ 문제지 p.1 / 예시답안·별해·채점기준 = 2027 논술가이드북(자연) p.59~60 / 출제의도·성취기준 = 2026 선행학습 영향평가 보고서 문항카드 7 (p.231~234)
+
+verify: verify/CAU-G26A.py::p01
+
+stimuli: []
+
+stem: |
+  다음 규칙에 따라 시행을 한다. 풀이와 함께 물음에 답하시오.
+
+  - 1학년 학생 1명, 2학년 학생 2명, 3학년 학생 2명, 4학년 학생 3명이 8개의 자리가 있는 원탁에 둘러앉는다.
+  - 2학년 학생끼리는 서로 이웃하지 않는다.
+  - 두 2학년 학생은 같은 학생과 서로 이웃하지 않는다.
+  - 1학년 학생은 3학년 학생과 서로 이웃하지 않는다.
+  - 회전하여 일치하는 것은 같은 것으로 본다.
+
+  위 시행에서 1학년 학생이 2학년 학생과 서로 이웃할 확률을 구하시오. [20점]
+
+subparts:
+- id: '1'
+  stem: |
+    위 시행에서 1학년 학생이 2학년 학생과 서로 이웃할 확률을 구하시오.
+  points: 20
+  depends_on: []
+  answer: {kind: value, value: '\dfrac{4}{5}', equivalents: ['4/5', '0.8', '864/1080'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: 1학년을 고정하면 2학년 자리 쌍은 $(1,4),(1,5),(1,6),(2,5),(2,6),(2,7),(3,6),(3,7),(4,7)$의 9가지. 1 또는 7을 포함하는 6쌍과 그렇지 않은 3쌍으로 나눠 $864:216$.
+    steps:
+    - {id: 1a, content: '이웃하는 경우 $6\times2\times3\times4!=864$, 이웃하지 않는 경우 $3\times2\times{}_3P_2\times3!=216$, 확률 $\dfrac{864}{1080}=\dfrac45$', criteria: [1.B2, 1.B3, 1.B4]}
+    hint_ladder:
+    - 1학년 학생은 1명뿐이다. 이 학생의 자리를 고정해 보자.
+    - 두 2학년 학생 사이(양쪽)에 몇 명 이상이 있어야 하는가?
+    - 1학년 옆 두 자리에는 3학년이 올 수 없다. 2학년이 아니면 누가 앉는가?
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 2027 논술가이드북(자연) p.59 예시답안
+    steps:
+    - id: 1b-1
+      content: |
+        1학년 학생이 1명이므로, 1학년 학생을 기준으로 나머지 학생들의 위치를 고정할 수 있다. 1학년 학생의 시계방향으로 나머지 학생들의 위치를 $1,\ \dots,\ 7$이라 하자.
+      criteria: []
+    - id: 1b-2
+      content: |
+        2학년 학생 2명의 위치를 각각 $i,\ j\ (i<j)$라 하자. 2번째, 3번째 조건을 더하면 2학년 학생의 사이 양쪽에 2명 이상의 학생이 있도록 하는 것과 같다. 이를 만족하는 $i,\ j$의 조건은
+        $i+2<j,\quad j+2<8+i$ 또는 $i+2<j<i+6$이다.
+      criteria: [1.B1]
+    - id: 1b-3
+      content: |
+        위 조건을 만족하는 $(i,\ j)$ 쌍은
+        $i=1:\ j=4,5,6$, $i=2:\ j=5,6,7$, $i=3:\ j=6,7$, $i=4:\ j=7$ 이다.
+      criteria: [1.B1]
+    - id: 1b-4
+      content: |
+        $(i,\ j)$ 쌍 중에서 1명 이상의 2학년 학생이 1학년 학생과 이웃하는 경우는 1 또는 7이 포함된 경우로 6가지이며, 2학년 학생 2명의 자리를 바꾸는 경우의 수는 2가지이다. 이때 항상 1명의 2학년 학생이 1학년 학생과 이웃한다. 1학년 학생 옆의 남은 한 자리에 4학년 학생이 들어가야 하므로 4학년 학생 중 1명을 선택하는 경우의 수는 3가지이며, 남은 4학년 학생 2명과 3학년 학생 2명을 남은 자리에 배치하면 된다. 이 경우의 수는 $6\times2\times3\times4!=864$가지이다.
+      criteria: [1.B2]
+    - id: 1b-5
+      content: |
+        $(i,\ j)$ 쌍 중에서 2학년 학생이 1학년 학생과 이웃하지 않는 경우는 남은 3가지이며, 2학년 학생 2명의 자리를 바꾸는 경우의 수는 2가지이다. 이때 1학년 학생 옆의 두 자리에 모두 4학년 학생이 들어가야 하므로 4학년 학생 중 2명을 선택하는 경우의 수는 ${}_3P_2=6$가지이며, 남은 4학년 학생 1명과 3학년 학생 2명을 남은 자리에 배치하면 된다. 이 경우의 수는 $3\times2\times6\times3!=216$가지이다.
+      criteria: [1.B3]
+    - id: 1b-6
+      content: |
+        최종적으로, 구하는 확률은 $\dfrac{864}{864+216}=\dfrac{864}{1080}=\dfrac45$이다.
+      criteria: [1.B4]
+  - id: S1-ALT
+    audience: ALT
+    method_no: 2
+    source_flow: 2027 논술가이드북(자연) p.60 별해
+    key_idea: 1번·7번 자리 학생의 학년으로 세 사건 $A$(1–2학년, 7–4학년), $B$(1–4학년, 7–2학년), $C$(1–4학년, 7–4학년)로 나눈다.
+    steps:
+    - id: 1c-1
+      content: |
+        $A$는 $i=1$인 경우이므로 두 2학년 학생이 앉는 경우의 수는 $2\times3=6$, 7번 자리에 앉을 4학년 선택 3가지, 나머지 4명 배치 $4!=24$가지이므로 $n(A)=6\times3\times24=432$. 같은 방법으로 $n(B)=432$.
+      criteria: [1.B2]
+    - id: 1c-2
+      content: |
+        $C$는 $i\neq1,\ j\neq7$인 경우이므로 두 2학년 학생이 앉는 경우의 수는 $3\times2!=6$, 4학년 3명 중 2명이 1학년 옆에 앉는 경우 ${}_3P_2=6$, 나머지 배치 $3!=6$이므로 $n(C)=216$.
+      criteria: [1.B3]
+    - id: 1c-3
+      content: |
+        $A,\ B,\ C$는 서로 배반사건이므로 $P(A\cup B)=\dfrac{n(A)+n(B)}{n(A)+n(B)+n(C)}=\dfrac{432+432}{432+432+216}=\dfrac45$.
+      criteria: [1.B1, 1.B4]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.B1
+      mark_type: B
+      points: 6
+      evidence: 2학년 학생이 앉을 수 있는 전체 경우의 수를 정확히 계산했다(자리 쌍 9가지 또는 전체 1080가지). 다른 방법으로 풀었으면 아래 값들이 정확할 때 합산.
+      depends_on: []
+      steps: [1b-2, 1b-3]
+    - id: 1.B2
+      mark_type: B
+      points: 6
+      evidence: 2학년 학생이 1학년 학생과 이웃하는 경우의 수 864를 정확히 계산했다.
+      depends_on: []
+      steps: [1b-4]
+    - id: 1.B3
+      mark_type: B
+      points: 6
+      evidence: 2학년 학생이 1학년 학생과 이웃하지 않는 경우의 수 216을 정확히 계산했다.
+      depends_on: []
+      steps: [1b-5]
+    - id: 1.B4
+      mark_type: B
+      points: 2
+      evidence: 최종 확률 $\dfrac45$를 정확히 계산했다.
+      depends_on: []
+      steps: [1b-6]
+    deductions:
+    - code: D1-1
+      condition: 채점자 재량 — 답안의 완성도에 따라 ±1점(공식 채점기준 주석)
+      effect: minus
+      value: 1
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-CNT-4001}
+  - {code: '71', misconception: MC-CNT-4002}
+  misconceptions:
+  - id: MC-CNT-4001
+    outcome_code: '70'
+    wrong_work: '“같은 학생과 이웃하지 않는다”를 빠뜨리고 2학년 사이에 1명만 있는 배치(예: $j=i+2$)까지 셈'
+    detect_cue: 2학년 자리 쌍이 9가지보다 많다(예 14가지), 확률이 4/5가 아님
+    feedback: 두 2학년이 같은 학생과 이웃하면 그 학생이 두 사람 사이에 단 1명 끼어 있는 경우입니다. 사이 양쪽에 2명 이상이어야 합니다.
+    remedy: [RL-1]
+  - id: MC-CNT-4002
+    outcome_code: '71'
+    wrong_work: 같은 학년 학생을 구별하지 않고 세거나, 한쪽(분자 또는 분모)만 학생을 구별해 비율이 어긋남
+    detect_cue: 분모·분자에 $4!$, ${}_3P_2$ 같은 학생 배치 계수가 한쪽에만 있음
+    feedback: 확률은 같은 기준(모든 학생 구별, 또는 모두 같은 방식)으로 센 경우의 수의 비입니다. 분자와 분모의 세는 방식을 맞추세요.
+    remedy: [RL-2]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CNT-4001}
+  relation: remediation
+  target: {kind: concept, ref: CON-PRB-CIRC-PERM}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-CNT-4002}
+  relation: remediation
+  target: {kind: concept, ref: CON-PRB-CLASSICAL}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-input-v1, item_version: 1, verdict: pass, date: 2026-11-21, note: 문제 원문 PDF 이미지 대조로 옮김 · 주 해설은 공식 예시답안 흐름 그대로 · 채점기준은 공식 기준을 B/A 마크로 옮김}
+
+created: 2026-11-21
+updated: 2026-11-21

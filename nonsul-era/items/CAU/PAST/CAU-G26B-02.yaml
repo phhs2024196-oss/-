@@ -1,0 +1,347 @@
+schema_version: '2.0'
+id: CAU-G26B-02
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: CAU
+type: T03
+variant_of: null
+replaces: null
+level: L5
+form: 추론
+points: 25
+time_estimate_min: 30
+intent: '귀납적으로 정의된 수열의 항들을 계산해 규칙성을 알아보는 논리력(2-1)과, 적분식으로 표현된 함수에서 계수를 구하고 접선의 방정식을 세운 뒤 미분으로 극댓값·극솟값을 구하는 능력(2-2)을 평가한다(문항카드 12 출제 의도 요지).'
+key_idea: '(2-1) 집합 원소가 유한(5개)이므로 어느 항부터 반복되어야 하고, 3의 배수가 아닌 항 $3k+1$·$3k+2$에서 출발하면 $9(k+1)\to3(k+1)\to k+1$이 되어 순환은 $1\to9\to3\to1$뿐이다; (2-2) $x-u=t$로 치환해 $\int_0^x(x-t)f''(t)dt=\int_0^xf(t)dt-xf(0)$을 얻고 미분한다.'
+stuck: '(2-1) 반복되는 서로 다른 수가 1, 3, 9뿐임을 경우 분류로 보이는 단계 / (2-2) 적분 속 $u f''(x-u)$를 치환과 부분적분으로 $f$의 적분으로 바꾸는 단계'
+idea_tags: [IDEA-FINITE-SET-FORCES-CYCLE, IDEA-CONVOLUTION-INT-BY-PARTS]
+tags: [귀납적 정의, 수열의 순환, 치환적분, 부분적분, 접선의 y절편, 극값, 중앙대 실전]
+elements:
+  materials:
+  - '모든 항이 자연수이고 $a_n$을 3으로 나눈 나머지에 따라 $3(a_n+2)$, $3(a_n+1)$, $\dfrac13a_n$으로 정의된 수열'
+  - '집합 $A=\{a_n\mid n\text{은 자연수}\}$의 원소 개수 5'
+  - '$\displaystyle\int_0^xuf''(x-u)du=-xe^{-x}+x^2+ax$를 만족하는 미분가능한 함수 $f(x)$'
+  - '점 $(t,f(t))$에서의 접선의 $y$절편 $g(t)$, $\displaystyle\int_{\ln2}^{\ln4}g(t)dt=4\ln2-\dfrac12(\ln2)^2$'
+  concepts: [수열의 귀납적 정의, 나머지에 따른 분류, 치환적분법, 부분적분법, 접선의 방정식, 극대·극소]
+  tools:
+  - 반복되는 서로 다른 수의 개수(2~5개)로 경우 분류
+  - '3의 배수가 아닌 항을 $\alpha=3k+1$ 또는 $3k+2$로 두고 다음 항 추적'
+  - 역추적으로 $a_3$, $a_2$, $a_1$ 결정
+  - '치환 $x-u=t$'
+  - 부분적분
+  - 양변 미분 후 $x=0$ 대입
+  - 접선의 방정식에 $x=0$ 대입해 $y$절편
+  - 도함수의 부호로 극값 판정
+  conditions:
+  - '모든 항이 자연수, $n(A)=5$(유한) ⇒ 어느 항 이후 반복, 반복되는 서로 다른 수는 많아야 5개'
+  - '모든 수가 3의 배수면 계속 감소 ⇒ 반복 부분에 3의 배수가 아닌 수가 있음'
+  - '$\alpha=3k+1$ 또는 $3k+2$ ⇒ $\beta=9(k+1)$, $\gamma=3(k+1)$, $\delta=k+1$ ⇒ $\delta=\alpha$ 일 때만 $k=0$, $\alpha=1$'
+  - '$a_1$, $a_2$는 9, 3, 1과 달라야 원소가 5개 ⇒ $a_3=9$, $a_2\in\{2,27\}$'
+  - '$x=0$을 대입 ⇒ 좌변 0 ⇒ $a=1$; 적분값 조건 ⇒ $f(0)=3$'
+  stimuli_used: ['1', '2', '3']
+  subpart_links: 2-1과 2-2는 서로 독립이다(2-1은 제시문 없이 귀납적 정의만, 2-2는 제시문 1·2·3 사용).
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅰ, 수학Ⅱ, 미적분]
+  scope_2028: calc2
+  scope_confirmed: false
+  standards:
+  - code: 12수학Ⅰ03-06
+    text: 수열의 귀납적 정의를 이해한다.
+    verified: true
+  - code: 12미적03-01
+    text: 치환적분법을 이해하고, 이를 활용할 수 있다.
+    verified: true
+  - code: 12미적03-02
+    text: 부분적분법을 이해하고, 이를 활용할 수 있다.
+    verified: true
+  - code: 12수학Ⅱ02-06
+    text: 접선의 방정식을 구할 수 있다.
+    verified: true
+  - code: 12수학Ⅱ02-08
+    text: 함수의 증가와 감소, 극대와 극소를 판정하고 설명할 수 있다.
+    verified: true
+  content_area: 수열 – 수학적 귀납법 / 적분법 – 여러 가지 적분법 / 미분 – 도함수의 활용
+  behavior_domain: 추론
+  unit_path: [미적분, 적분법, 여러 가지 적분법, 치환적분과 부분적분]
+  key_concepts: [귀납적 정의, 치환적분, 부분적분, 접선의 방정식, 극값]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 중앙대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 중앙대학교
+  admission_year: 2026
+  admission_type: 논술(수시)
+  track: 자연계열Ⅱ
+  question_no: 2
+  official_url: https://admission.cau.ac.kr/files/2026/2026_cau_ns_jy2.pdf
+  retrieved_at: '2026-11-21'
+  original_points: 25
+  rights_notice: 중앙대학교 입학처 공개 자료(기출문제 게시판). 상업적 재사용 허락 미요청
+  note: 문제 = 2026 자연계열Ⅱ 문제지 p.2(PDF 4쪽) / 예시답안·별해·채점기준 = 2027 논술가이드북(자연) p.74~76 / 출제의도·성취기준 = 2026 선행학습 영향평가 보고서 문항카드 12 (p.255~261)
+
+verify: verify/CAU-G26B.py::p02
+
+stimuli:
+- label: '1'
+  body: |
+    닫힌구간 $[a,b]$에서 연속인 함수 $f(x)$에 대하여 미분가능한 함수 $x=g(t)$의 도함수 $g'(t)$가 $a=g(\alpha)$, $b=g(\beta)$일 때 $\alpha$, $\beta$를 포함하는 구간에서 연속이면 다음 식이 성립한다.
+    $$\int_a^bf(x)dx=\int_\alpha^\beta f(g(t))g'(t)dt$$
+- label: '2'
+  body: |
+    함수 $f(x)$가 $x=a$에서 미분가능할 때, 곡선 $y=f(x)$ 위의 점 $\mathrm{P}(a,f(a))$에서의 접선의 방정식은 다음과 같다.
+    $$y-f(a)=f'(a)(x-a)$$
+- label: '3'
+  body: |
+    두 함수 $f(x)$, $g(x)$가 미분가능하고, $f'(x)$, $g'(x)$가 닫힌구간 $[a,b]$에서 연속일 때 다음 식이 성립한다.
+    $$\int_a^bf(x)g'(x)dx=\Big[f(x)g(x)\Big]_a^b-\int_a^bf'(x)g(x)dx$$
+
+stem: |
+  다음을 읽고 문항별로 풀이와 함께 답하시오.
+
+subparts:
+- id: '1'
+  stem: |
+    모든 항이 자연수인 수열 $\{a_n\}$이 모든 자연수 $n$에 대하여
+    $$a_{n+1}=\begin{cases}3(a_n+2) & (a_n\text{을 3으로 나눈 나머지가 1인 경우})\\ 3(a_n+1) & (a_n\text{을 3으로 나눈 나머지가 2인 경우})\\ \dfrac13a_n & (a_n\text{이 3의 배수인 경우})\end{cases}$$
+    를 만족시킨다. 집합 $A=\{a_n\mid n\text{은 자연수}\}$의 원소의 개수가 5가 되도록 하는 $a_1$을 모두 구하시오. [10점]
+  points: 10
+  depends_on: []
+  answer: {kind: set, value: '6,\ 7,\ 8,\ 81', equivalents: ['{6,7,8,81}'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: 순환하는 수는 $1\to9\to3\to1$뿐이므로 $a_3=9$이고 $a_1$, $a_2$는 1, 3, 9와 달라야 한다. $a_2\in\{2,27\}$에서 역추적.
+    steps:
+    - {id: 1a, content: '$a_2=2\Rightarrow a_1=6$, $a_2=27\Rightarrow a_1=81,8,7$', criteria: [1.B1, 1.B2, 1.B3]}
+    hint_ladder:
+    - 원소가 유한하면 수열은 언젠가 반복된다. 반복되는 수 중 3의 배수가 아닌 수를 $\alpha$로 두자.
+    - $\alpha=3k+1$ 또는 $3k+2$이면 다음 세 항은 무엇인가?
+    - 반복이 $1\to9\to3$이면 원소 5개가 되려면 앞에 서로 다른 두 수가 더 있어야 한다. 거꾸로 추적하자.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 2027 논술가이드북(자연) p.74 예시답안
+    steps:
+    - id: 1b-1
+      content: |
+        집합 $A$의 원소의 개수가 5이므로 $\{a_n\}$의 어느 항 이후 수열의 항들이 반복되어야 하고 반복되는 서로 다른 수는 많아야 5개이다. $n(A)=5$를 만족하는 수열의 어느 항 이후 반복될 부분 5개를 생각해보자.
+        $\alpha\to\beta\to\gamma\to\delta\to\eta$ ($a_m=\alpha$, $a_{m+1}=\beta$, $a_{m+2}=\gamma$, $a_{m+3}=\delta$, $a_{m+4}=\eta$)
+        모든 수가 3의 배수이면 계속 감소하므로 적어도 하나는 3의 배수가 아니고 $\alpha$가 3의 배수가 아니라고 가정해도 무방하다.
+        $\alpha=3k+1$ 또는 $3k+2$ ($k$는 0이상인 정수)라면 $\beta=9(k+1)$, $\gamma=3(k+1)$, $\delta=k+1$이고, $\eta=\dfrac13(k+1)$ ($k+1$이 3의 배수인 경우) 또는 $\eta=3(k+2)$ ($k$가 3으로 나누었을 때 나머지가 1인 경우) 또는 $\eta=3(k+3)$ ($k$가 3의 배수인 경우)이다.
+      criteria: []
+    - id: 1b-2
+      content: |
+        (i) $\beta=\alpha$인 경우는 수열의 정의에서 가능하지 않다.
+        (ii) $\gamma=\alpha$인 경우는 $3(k+1)=3k+1$ 또는 $3(k+1)=3k+2$인데 이를 만족하는 정수 $k$는 없다.
+        (iii) $\alpha$, $\beta$, $\gamma$가 다른 수이고 $\delta=\alpha$인 경우는 $k+1=3k+1$ 또는 $k+1=3k+2$인데 이를 만족하는 $k=0$, $\alpha=1$이다. 그러므로, $1\to9\to3\to1\to9\to3\to1\to\cdots$처럼 반복가능하다.
+      criteria: [1.B1]
+    - id: 1b-3
+      content: |
+        (iv) $\alpha$, $\beta$, $\gamma$, $\delta$가 다른 수이고 $\eta=\alpha$인 경우는 $3k+1=\dfrac13(k+1)$ 또는 $3(k+2)$ 또는 $3(k+3)$이거나 $3k+2=\dfrac13(k+1)$ 또는 $3(k+2)$ 또는 $3(k+3)$인데 이를 만족하는 양의 정수 $k$는 존재하지 않는다.
+        (v) $\alpha$, $\beta$, $\gamma$, $\delta$, $\eta$가 모두 다른 수이고 $\eta$ 다음에 $\alpha$가 오는 경우
+        $(\eta,\alpha)=\left(\dfrac13(k+1),\dfrac19(k+1)\right)$, $\left(\dfrac13(k+1),k+4\right)$, $\left(\dfrac13(k+1),k+7\right)$, $(3(k+2),k+2)$, $(3(k+3),k+3)$
+        인데,(앞의 3경우는 $k$가 3으로 나누었을 때, 나머지가 2인 경우, 뒤의 두 경우는 각각 $k$가 3으로 나누었을 때 나머지가 1인 경우와 3의 배수인 경우) $\alpha\ne1$이면서 가능한 $k$는 존재하지 않는다.
+      criteria: [1.B2]
+    - id: 1b-4
+      content: |
+        따라서, $n(A)=5$인 경우는 $a_1$, $a_2$가 9, 3, 1과 다른 자연수로 $a_3$이후 9, 3, 1이 반복되는 경우이다.
+        $a_3=1,\ 3$이 되는 경우 $a_2$는 각각 3, 9만 가능한데 이는 다른 수가 아니므로, 가능한 경우는 $a_3=9$뿐이다.
+        $a_3=9$인 경우 $a_2=1,\ 2,\ 27$이 가능하고 이 중 1이 아닌 경우는 $2,\ 27$이다.
+        - $a_2=2$인 경우 $a_1=6$
+        - $a_2=27$인 경우 $\dfrac13a_1=27$ 혹은 $3(a_1+1)=27$ 혹은 $3(a_1+2)=27$이므로, $a_1=81,\ 8,\ 7$
+        그러므로, 가능한 $a_1=6,\ 7,\ 8,\ 81$이다.
+      criteria: [1.B3]
+  - id: S1-ALT
+    audience: ALT
+    method_no: 2
+    source_flow: 2027 논술가이드북(자연) p.75 별해
+    key_idea: 반복되는 서로 다른 수의 개수가 2, 3, 4, 5개인 경우로 나누어 3개(1, 9, 3)만 가능함을 보인다.
+    steps:
+    - id: 1c-1
+      content: |
+        집합 $A$의 원소의 개수가 5이므로 $\{a_n\}$의 어떤 특정한 항들이 반복되어야 한다.
+        (i) 서로 다른 2개의 수가 반복되는 경우: 반복되는 다른 두 수를 $\alpha$, $\beta$라 하면 두 수 중 하나는 3의 배수이고 다른 하나는 3의 배수가 아니어야 한다. $\alpha$가 3의 배수가 아니라고 가정해도 무방하므로, $\alpha=3k+1$ 또는 $3k+2$ ($k$는 0이상인 정수)라면 $\beta=9(k+1)$, $\alpha=3(k+1)$로 이를 만족하는 $k$는 존재하지 않는다.
+        (ii) 서로 다른 3개의 수가 반복되는 경우: 반복되는 다른 세 수를 $\alpha$, $\beta$, $\gamma$라 하면 $\alpha=3k+1$ 또는 $3k+2$라면 $\beta=9(k+1)$, $\gamma=3(k+1)$, $\alpha=k+1$로 만족하는 $k=0$, $\alpha=1$이다. 그러므로, $1\to9\to3\to1\to9\to3\to1\to\cdots$처럼 반복가능하다.
+      criteria: [1.B1]
+    - id: 1c-2
+      content: |
+        (iii) 서로 다른 4개의 수가 반복되는 경우: $\beta=9(k+1)$, $\gamma=3(k+1)$, $\delta=k+1$이고, $\alpha=\dfrac13(k+1)$ 또는 $3(k+2)$ 또는 $3(k+3)$인데, 이를 만족하는 $k$는 존재하지 않는다.
+        (iv) 서로 다른 5개의 수가 반복되는 경우: $\beta=9(k+1)$, $\gamma=3(k+1)$, $\delta=k+1$이고, $(\eta,\alpha)=\left(\dfrac13(k+1),\dfrac19(k+1)\right)$, $\left(\dfrac13(k+1),k+4\right)$, $\left(\dfrac13(k+1),k+7\right)$, $(3(k+2),k+2)$, $(3(k+3),k+3)$인데, $\alpha\ne1$이면서 가능한 $k$는 존재하지 않는다.
+      criteria: [1.B2]
+    - id: 1c-3
+      content: |
+        따라서, $n(A)=5$인 경우는 $a_1$, $a_2$가 9, 3, 1과 다른 자연수로 $a_3$이후 9, 3, 1이 반복되는 경우이다. (이하 예시답안과 같이) 가능한 $a_1=6,\ 7,\ 8,\ 81$이다.
+      criteria: [1.B3]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.B1
+      mark_type: B
+      points: 4
+      evidence: $9\to3\to1\to9\to3\to\cdots$과 같이 9, 3, 1이 반복되는 것을 찾았다.
+      depends_on: []
+      steps: [1b-2, 1c-1]
+    - id: 1.B2
+      mark_type: B
+      points: 3
+      evidence: 1, 3, 9를 제외하고 반복되는 다른 경우가 없음을 보였다.
+      depends_on: []
+      steps: [1b-3, 1c-2]
+    - id: 1.B3
+      mark_type: B
+      points: 3
+      evidence: $a_1=6,\ 7,\ 8,\ 81$을 얻었다.
+      depends_on: []
+      steps: [1b-4, 1c-3]
+    deductions:
+    - code: D1-1
+      condition: 채점자 재량 — 답안의 완성도에 따라 ±1점(공식 주석). 논리 전개 과정이 맞으면 답이 틀려도 부분 점수 가능(공식 주석)
+      effect: minus
+      value: 1
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-ALG-4667}
+  misconceptions:
+  - id: MC-ALG-4667
+    outcome_code: '70'
+    wrong_work: '$a_2=1$인 경우($a_1=3$ 등)를 포함하거나, $a_1=243$처럼 순환 전 항이 3개 이상이 되는 경우를 포함함'
+    detect_cue: 답에 3, 243, 26, 25 등이 있거나 $a_1$, $a_2$가 1, 3, 9와 달라야 한다는 언급이 없음
+    feedback: 원소가 정확히 5개이려면 순환하는 1, 3, 9 외에 서로 다른 두 수가 앞에 있어야 합니다. $a_1$부터 직접 나열해 원소 개수를 확인하세요.
+    remedy: [RL-1]
+- id: '2'
+  stem: |
+    실수 전체의 집합에서 미분가능한 함수 $f(x)$의 도함수 $f'(x)$가 모든 실수 $x$에 대하여 $\displaystyle\int_0^xuf'(x-u)du=-xe^{-x}+x^2+ax$ (단, $a$는 실수)를 만족시킨다. 곡선 $y=f(x)$ 위의 점 $(t,f(t))$에서의 접선의 $y$절편을 $g(t)$라 할 때, $\displaystyle\int_{\ln2}^{\ln4}g(t)dt=4\ln2-\dfrac12(\ln2)^2$이다. 실수 $a$의 값과 $g(t)$의 극댓값과 극솟값을 구하시오. [15점]
+  points: 15
+  depends_on: []
+  answer: {kind: value, value: 'a=1;\ g(3)=5e^{-3}+4\ (\text{극댓값}),\ g(0)=3\ (\text{극솟값})', equivalents: ['a=1, max=5e^(-3)+4, min=3'], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: $\int_0^xuf'(x-u)du=\int_0^xf(t)dt-xf(0)$ ⇒ 미분해 $f(x)=(x-1)e^{-x}+2x+f(0)+a$, $x=0$에서 $a=1$; $g(t)=(t^2-t-1)e^{-t}+1+f(0)$, 적분 조건에서 $f(0)=3$.
+    steps:
+    - {id: 2a, content: '$g''(t)=(-t^2+3t)e^{-t}$ ⇒ $t=0$에서 극솟값 3, $t=3$에서 극댓값 $5e^{-3}+4$', criteria: [2.B1, 2.B2, 2.B3, 2.B4, 2.B5]}
+    hint_ladder:
+    - $x-u=t$로 치환하면 적분 속에 $x$가 어떻게 나오는가?
+    - 부분적분으로 $f'$을 $f$로 바꾸고 양변을 미분해 보자.
+    - 접선의 방정식에 $x=0$을 넣으면 $y$절편이다. 적분 조건으로 남은 상수를 정하자.
+  - id: S2-B
+    audience: B
+    method_no: 1
+    source_flow: 2027 논술가이드북(자연) p.76 예시답안
+    steps:
+    - id: 2b-1
+      content: |
+        $x-u=t$라 치환하면 $\displaystyle\int_0^xuf'(x-u)du=-\int_x^0(x-t)f'(t)dt=\int_0^x(x-t)f'(t)dt$이다.
+        제시문의 부분적분을 적용하면
+        $$\int_0^x(x-t)f'(t)dt=x\int_0^xf'(t)dt-\int_0^xtf'(t)dt=x(f(x)-f(0))-\Big[tf(t)\Big]_0^x+\int_0^xf(t)dt=\int_0^xf(t)dt-xf(0)$$
+        를 얻는다.
+      criteria: [2.B1]
+    - id: 2b-2
+      content: |
+        주어진 식에 의하여 $\displaystyle\int_0^xf(t)dt=-xe^{-x}+x^2+ax+xf(0)$이고 양변을 미분하면 $f(x)=(x-1)e^{-x}+2x+f(0)+a$
+      criteria: [2.B1]
+    - id: 2b-3
+      content: |
+        위 식의 양변에 $x=0$을 대입하면 $a=1$이다. 따라서, $f(x)=(x-1)e^{-x}+2x+1+f(0)$이고, $f'(x)=(2-x)e^{-x}+2$이다.
+      criteria: [2.B2]
+    - id: 2b-4
+      content: |
+        이를 이용하면 $(t,f(t))$에서의 접선의 방정식은
+        $y=((2-t)e^{-t}+2)(x-t)+(t-1)e^{-t}+2t+1+f(0)$이고 $g(t)=(t^2-t-1)e^{-t}+1+f(0)$이다.
+      criteria: [2.B3]
+    - id: 2b-5
+      content: |
+        $$\int_{\ln2}^{\ln4}g(t)dt=\int_{\ln2}^{\ln4}(t^2-t-1)e^{-t}+(1+f(0))dt$$
+        $$\int_{\ln2}^{\ln4}t^2e^{-t}dt=\Big[-t^2e^{-t}\Big]_{\ln2}^{2\ln2}+2\int_{\ln2}^{2\ln2}te^{-t}dt=\Big[-t^2e^{-t}-2te^{-t}-2e^{-t}\Big]_{\ln2}^{\ln4}=-\dfrac12(\ln2)^2+\dfrac12,$$
+        $$-\int_{\ln2}^{\ln4}te^{-t}dt=\Big[(t+1)e^{-t}\Big]_{\ln2}^{\ln4}=-\dfrac14,\quad -\int_{\ln2}^{\ln4}e^{-t}dt=\Big[e^{-t}\Big]_{\ln2}^{\ln4}=-\dfrac14$$
+        이다. 따라서, $\displaystyle\int_{\ln2}^{\ln4}(t^2-t-1)e^{-t}+(1+f(0))dt=-\dfrac12(\ln2)^2+(f(0)+1)\ln2$이고, 문제의 조건에 의해 $f(0)=3$이다.
+      criteria: [2.B4]
+    - id: 2b-6
+      content: |
+        $g(t)=(t^2-t-1)e^{-t}+4$, $g'(t)=(-t^2+3t)e^{-t}$이므로 $t=0,\ 3$에서 극값을 갖는다.
+        $t<0$인 경우 $g'(t)<0$, $0<t<3$인 경우 $g'(t)>0$, $t>3$인 경우 $g'(t)<0$이므로,
+        $t=0$에서 극솟값 $g(0)=3$과 $t=3$에서 극댓값 $g(3)=5e^{-3}+4$를 갖는다.
+      criteria: [2.B5]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.B1
+      mark_type: B
+      points: 3
+      evidence: $\int_0^xf(t)dt=-xe^{-x}+x^2+ax+xf(0)$ 혹은 $f(x)=(x-1)e^{-x}+2x+f(0)+a$를 구했다.
+      depends_on: []
+      steps: [2b-1, 2b-2]
+    - id: 2.B2
+      mark_type: B
+      points: 2
+      evidence: $a=1$을 구했다.
+      depends_on: []
+      steps: [2b-3]
+    - id: 2.B3
+      mark_type: B
+      points: 3
+      evidence: 접선의 방정식에 대입하여 $g(t)=(t^2-t-1)e^{-t}+1+f(0)$을 얻었다.
+      depends_on: []
+      steps: [2b-4]
+    - id: 2.B4
+      mark_type: B
+      points: 4
+      evidence: 정적분을 계산하여 $f(0)=3$을 얻었다.
+      depends_on: []
+      steps: [2b-5]
+    - id: 2.B5
+      mark_type: B
+      points: 3
+      evidence: $t=0$에서 극솟값 $g(0)=3$, $t=3$에서 극댓값 $g(3)=5e^{-3}+4$를 얻었다.
+      depends_on: []
+      steps: [2b-6]
+    deductions:
+    - code: D2-1
+      condition: 채점자 재량 — 답안의 완성도에 따라 ±1점(공식 주석). 논리 전개 과정이 맞으면 답이 틀려도 부분 점수 가능(공식 주석)
+      effect: minus
+      value: 1
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-CAL-4668}
+  misconceptions:
+  - id: MC-CAL-4668
+    outcome_code: '70'
+    wrong_work: '$x-u=t$로 치환하면서 앞의 $u$를 $t$로 그대로 두어 $\int_0^xtf''(t)dt$로 쓰거나, 적분 구간의 순서·부호를 바꾸지 않음'
+    detect_cue: '$\int_0^x(x-t)f''(t)dt$ 꼴이 없음, $a\neq1$'
+    feedback: 치환할 때는 피적분함수 속 모든 $u$를 $x-t$로 바꾸고, $du=-dt$와 적분 구간($u=0\to t=x$, $u=x\to t=0$)도 함께 바꾸세요.
+    remedy: [RL-2]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-ALG-4667}
+  relation: remediation
+  target: {kind: concept, ref: CON-ALG-RECURSIVE-SEQ}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-CAL-4668}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-SUBST-INT}
+  priority: 1
+- id: RL-3
+  trigger: {type: criterion_missed, ref: 2.B3}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-TANGENT-LINE}
+  priority: 2
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-input-v1, item_version: 1, verdict: pass, date: 2026-11-22, note: 문제 원문 PDF 이미지 대조로 옮김 · 주 해설은 가이드북 예시답안 흐름 그대로 · 별해는 ALT(뒷부분 생략 표시) · 채점기준은 공식 기준을 B 마크로 옮김}
+
+created: 2026-11-22
+updated: 2026-11-22

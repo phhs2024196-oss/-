@@ -1,0 +1,252 @@
+schema_version: '2.0'
+id: CAU-M25-03
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: CAU
+type: T03
+variant_of: null
+replaces: null
+level: L4
+form: 분류
+points: 25
+time_estimate_min: 30
+intent: '[3-1] 적분하는 함수를 적절한 형태로 치환해 정적분을 계산하고, 그 값으로 이루어진 수열의 합을 구할 수 있는지, [3-2] 식의 인수분해를 수행하고 인수분해로 얻은 식에서 요구하는 값의 최솟값을 미분으로 구할 수 있는지를 본다(채점매뉴얼 출제 의도 요지).'
+key_idea: '[3-1] $(x\ln x-x)''=\ln x$이므로 $y=x\ln x-x$로 치환하면 $a_n=\displaystyle\int_{-1}^{0}y^n\,dy$. [3-2] 곡선 식을 $y$에 대해 인수분해하면 $(y-x^2)(y-x-1)=0$.'
+stuck: '[3-1] 피적분함수 안의 $\ln x$가 괄호 안 식의 도함수임을 알아보는 단계 / [3-2] $y$에 대한 이차식으로 보고 인수분해하는 단계'
+idea_tags: [IDEA-SUBST-INNER-DERIVATIVE, IDEA-TELESCOPING-PARTIAL-FRACTION, IDEA-FACTOR-CURVE-INTO-BRANCHES]
+tags: [치환적분, 부분분수 합, 인수분해, 최솟값, 중앙대 모의]
+elements:
+  materials: ['$a_n=\displaystyle\int_1^e(x\ln x-x)^n\ln x\,dx$와 $\displaystyle\sum_{k=1}^{2024}a_ka_{k+1}$', '곡선 $y^2-(x^2+x+1)y+x^3+x^2=0$ 위의 점 P와 A(1,0), B(5,0)', '$\overline{PA}^2+\overline{PB}^2$']
+  concepts: [치환적분법, 수열의 합(부분분수), 다항식의 인수분해, 두 점 사이의 거리, 미분을 이용한 최솟값]
+  tools: [y=x ln x − x 치환과 구간 변환, 부분분수 분해로 망원 합, y에 대한 이차식 인수분해, 분지별 거리 제곱 함수의 최솟값(미분)]
+  conditions:
+  - '$(x\ln x-x)''=\ln x$ ⇒ $y=x\ln x-x$로 치환, $x:1\to e$일 때 $y:-1\to0$'
+  - '$a_n=\dfrac{(-1)^n}{n+1}$ ⇒ $a_ka_{k+1}=\dfrac{-1}{(k+1)(k+2)}$(부호가 번갈아 곱이 음수)'
+  - '$y^2-(x^2+x+1)y+x^3+x^2=0$ ⇒ $(y-x^2)(y-x-1)=0$ ⇒ P는 $y=x^2$ 또는 $y=x+1$ 위'
+  stimuli_used: ['1', '2', '3']
+  subpart_links:
+  - {from: '1', to: '2', relation: 독립(서로 다른 소재)}
+
+curriculum:
+  version: '2015'
+  subjects: [미적분, 수학, 수학Ⅰ, 수학Ⅱ]
+  scope_2028: calc2
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 치환적분법을 이해하고 활용할 수 있다 / 여러 가지 수열의 합을 구할 수 있다 / 두 점 사이의 거리를 구할 수 있다 / 함수의 최대·최소를 구할 수 있다(요지, 모의논술은 문항카드 없음)
+    verified: false
+  content_area: 적분법 – 치환적분 / 수열의 합 / 다항식의 인수분해와 최대·최소
+  behavior_domain: 계산
+  unit_path: [미적분, 적분법, 여러 가지 적분법, 치환적분법]
+  key_concepts: [치환적분, 부분분수, 인수분해, 최솟값]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 중앙대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 중앙대학교
+  admission_year: 2025
+  admission_type: 모의논술
+  track: 자연계열
+  question_no: 3
+  official_url: https://admission.cau.ac.kr/detail.do?menuurl=jcgylvDgJz1bdCxN45fl1g%3D%3D&board_seq=2897&pageNo=1&categoryid=14
+  retrieved_at: '2026-11-21'
+  original_points: 25
+  rights_notice: 중앙대학교 입학처 공개 자료(모의논술 게시판). 상업적 재사용 허락 미요청
+  note: 문제 = 2025 모의논술 자연계열 문제지 p.3(PDF p.4) / 예시답안·채점기준 = 2025 모의논술 채점자 매뉴얼 p.13(같은 내용 2025 논술가이드북(자연) p.40) / 제시문 출전·출제의도 = 채점자 매뉴얼 p.5 / 모의논술은 문항카드 없음
+
+verify: verify/CAU-M25.py::p03
+
+stimuli:
+- label: '1'
+  body: |
+    미분가능한 함수 $g(x)$의 도함수 $g'(x)$가 닫힌구간 $[a,b]$를 포함하는 열린구간에서 연속이고, $g(a)=\alpha$, $g(b)=\beta$에 대하여 함수 $f(x)$가 $\alpha$와 $\beta$를 양끝으로 하는 닫힌구간에서 연속일 때 다음 식이 성립한다.
+    $$\int_a^b f(g(x))g'(x)\,dx=\int_\alpha^\beta f(t)\,dt$$
+- label: '2'
+  body: |
+    좌표평면 위의 두 점 $\mathrm{A}(x_1,y_1)$, $\mathrm{B}(x_2,y_2)$ 사이의 거리는 다음과 같다.
+    $$\overline{\mathrm{AB}}=\sqrt{(x_1-x_2)^2+(y_1-y_2)^2}$$
+- label: '3'
+  body: |
+    함수 $f(x)$가 $x=a$에서 미분가능하고 $x=a$에서 극값을 가지면 $f'(a)=0$이다.
+
+stem: |
+  다음을 읽고 문제에 답하시오.
+
+subparts:
+- id: '1'
+  stem: |
+    일반항이 $a_n=\displaystyle\int_1^e(x\ln x-x)^n\ln x\,dx$인 수열 $\{a_n\}$에 대하여 $\displaystyle\sum_{k=1}^{2024}a_ka_{k+1}$을 구하시오. [10점]
+  points: 10
+  depends_on: []
+  answer: {kind: value, value: '-\dfrac{506}{1013}', equivalents: ['-506/1013'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $y=x\ln x-x$ 치환으로 $a_n=\dfrac{(-1)^n}{n+1}$, 곱은 $-\left(\dfrac1{k+1}-\dfrac1{k+2}\right)$로 망원 합.
+    steps:
+    - {id: 1a, content: '$\displaystyle\sum_{k=1}^{2024}a_ka_{k+1}=-\left(\dfrac12-\dfrac1{2026}\right)=-\dfrac{506}{1013}$', criteria: [1.M1, 1.B1, 1.B2]}
+    hint_ladder:
+    - 괄호 안 식 $x\ln x-x$를 미분해 보자.
+    - $a_ka_{k+1}$을 부분분수로 나누자.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 2025 모의논술 채점자 매뉴얼 p.13 예시 답안
+    steps:
+    - id: 1b-1
+      content: |
+        $y=x\ln x-x$로 치환하고 $(x\ln x-x)'=\ln x$를 고려하여 치환적분하면 아래와 같다.
+        $$\int_1^e(x\ln x-x)^n\ln x\,dx=\int_{-1}^{0}y^n\,dy=\dfrac{(-1)^n}{n+1}$$
+      criteria: [1.M1, 1.B1]
+    - id: 1b-2
+      content: |
+        따라서 $a_ka_{k+1}=\dfrac{-1}{(k+1)(k+2)}$이고, 구하는 값은 아래와 같다.
+        $$\sum_{k=1}^{2024}a_ka_{k+1}=-\sum_{k=1}^{2024}\left(\dfrac{1}{k+1}-\dfrac{1}{k+2}\right)=-\dfrac{506}{1013}$$
+      criteria: [1.B2]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 2
+      evidence: 치환하여 계산을 시도했다.
+      depends_on: []
+      steps: [1b-1]
+    - id: 1.B1
+      mark_type: B
+      points: 4
+      evidence: 치환적분을 계산하여 $a_n=\dfrac{(-1)^n}{n+1}$을 얻었다.
+      depends_on: []
+      steps: [1b-1]
+    - id: 1.B2
+      mark_type: B
+      points: 4
+      evidence: $a_ka_{k+1}=-\left(\dfrac{1}{k+1}-\dfrac{1}{k+2}\right)$을 구하고 합 $-\dfrac{506}{1013}$을 구했다.
+      depends_on: []
+      steps: [1b-2]
+    deductions:
+    - code: D1-1
+      condition: 논리 전개 과정이 맞으면 답이 틀리더라도 1~2점 부분 점수 가능(공식 채점기준 주석)
+      effect: minus
+      value: 1
+    - code: D1-2
+      condition: 채점자 재량 — 답안의 완성도에 따라 −0.5~+0.5점(공식 채점기준 주석)
+      effect: minus
+      value: 0.5
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-CAL-4604}
+  misconceptions:
+  - id: MC-CAL-4604
+    outcome_code: '70'
+    wrong_work: '치환 후에도 적분 구간을 $1\to e$로 두어 $\displaystyle\int_1^e y^n\,dy$를 계산'
+    detect_cue: $a_n$이 $\dfrac{e^{n+1}-1}{n+1}$ 꼴이거나 부호가 번갈아 나오지 않음
+    feedback: 치환하면 구간도 바뀝니다. $x=1$일 때 $y=-1$, $x=e$일 때 $y=0$입니다.
+    remedy: [RL-1]
+
+- id: '2'
+  stem: |
+    좌표평면 위의 점 $\mathrm{P}(x,y)$가 $y^2-(x^2+x+1)y+x^3+x^2=0$을 만족한다. 점 $\mathrm{A}(1,0)$, $\mathrm{B}(5,0)$에 대하여 $\overline{\mathrm{PA}}^2+\overline{\mathrm{PB}}^2$의 최솟값을 구하시오. [15점]
+  points: 15
+  depends_on: []
+  answer: {kind: value, value: '18', equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: $(y-x^2)(y-x-1)=0$으로 두 분지를 나누어 각각 최솟값(18, 24)을 구하고 작은 값을 택한다.
+    steps:
+    - {id: 2a, content: '$y=x^2$: $2t^4+2t^2-12t+26$의 최솟값 $18$($t=1$). $y=x+1$: $4t^2-8t+28$의 최솟값 $24$. 답 18', criteria: [2.B1, 2.B2, 2.B3]}
+    hint_ladder:
+    - 주어진 식을 $y$에 대한 이차식으로 보고 인수분해해 보자.
+    - 두 분지마다 $\overline{\mathrm{PA}}^2+\overline{\mathrm{PB}}^2$을 한 변수 함수로 쓰자.
+  - id: S2-B
+    audience: B
+    method_no: 1
+    source_flow: 2025 모의논술 채점자 매뉴얼 p.13 예시 답안
+    steps:
+    - id: 2b-1
+      content: |
+        $y$에 대하여 인수분해하면 $(y-x^2)(y-x-1)=0$이다. $y=x^2$이거나 $y=x+1$이다.
+      criteria: [2.B1]
+    - id: 2b-2
+      content: |
+        (1) $y=x^2$인 경우 $\mathrm{P}(t,t^2)$이고 $\overline{\mathrm{PA}}^2+\overline{\mathrm{PB}}^2$을
+        $$f(t)=(t-1)^2+t^4+(t-5)^2+t^4=2t^4+2t^2-12t+26$$
+        라 하자. $f'(t)=8t^3+4t-12=4(t-1)(2t^2+2t+3)$이므로 $t=1$에서 최솟값 $f(1)=18$을 갖는다.
+      criteria: [2.B2]
+    - id: 2b-3
+      content: |
+        (2) $y=x+1$인 경우 $\mathrm{P}(t,t+1)$이고 $\overline{\mathrm{PA}}^2+\overline{\mathrm{PB}}^2$을
+        $$g(t)=4t^2-8t+28$$
+        라 하자. $t=1$에서 최솟값 $g(1)=24$를 갖는다. 최솟값은 18이다.
+      criteria: [2.B3]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.B1
+      mark_type: B
+      points: 5
+      evidence: 인수분해하여 $y=x^2$이거나 $y=x+1$을 얻었다.
+      depends_on: []
+      steps: [2b-1]
+    - id: 2.B2
+      mark_type: B
+      points: 5
+      evidence: $y=x^2$인 경우 최솟값 18을 구했다.
+      depends_on: []
+      steps: [2b-2]
+    - id: 2.B3
+      mark_type: B
+      points: 5
+      evidence: $y=x+1$인 경우 최솟값 24를 구했다.
+      depends_on: []
+      steps: [2b-3]
+    deductions:
+    - code: D2-1
+      condition: 계산 실수로 틀렸어도 논리 전개 과정이 맞으면 해당 부분에 1~2점 부분 점수(공식 채점기준 주석)
+      effect: minus
+      value: 1
+    - code: D2-2
+      condition: 채점자 재량 — 답안의 완성도에 따라 총점 15점 이내에서 ±1점(공식 채점기준 주석)
+      effect: minus
+      value: 1
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-ALG-4605}
+  misconceptions:
+  - id: MC-ALG-4605
+    outcome_code: '70'
+    wrong_work: '두 분지 중 $y=x+1$만 보고 최솟값을 24로 답하거나, $y=x^2$만 보고 다른 분지를 확인하지 않음'
+    detect_cue: 한 분지의 계산만 있음, 답이 24
+    feedback: 곡선은 두 분지 $y=x^2$, $y=x+1$의 합집합입니다. 두 분지의 최솟값을 모두 구해 비교하세요.
+    remedy: [RL-2]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CAL-4604}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-INT-SUBST}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-ALG-4605}
+  relation: remediation
+  target: {kind: concept, ref: CON-ALG-FACTOR-CONDITION}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-input-v1, item_version: 1, verdict: pass, date: 2026-11-21, note: 문제 원문 PDF 이미지 대조로 옮김 · 주 해설은 공식 예시답안 흐름 그대로 · 채점기준은 공식 기준을 M/B 마크로 옮김}
+
+created: 2026-11-21
+updated: 2026-11-21

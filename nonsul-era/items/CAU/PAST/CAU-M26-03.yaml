@@ -1,0 +1,253 @@
+schema_version: '2.0'
+id: CAU-M26-03
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: CAU
+type: T08
+variant_of: null
+replaces: null
+level: L4
+form: 추론
+points: 25
+time_estimate_min: 25
+intent: '(3-1) 음함수 미분법을 적절히 계산하고 얻은 정보로 삼차방정식의 근을 구할 수 있는지, (3-2) 삼각함수의 미분으로 주어진 구간에서 함수의 최댓값을 구할 수 있는지 본다(가이드북 출제 의도 요지).'
+key_idea: '(3-1) 로그 조건을 $xy(5-x-y)=1$로 바꾸고 $\dfrac{dy}{dx}=-1$에서 $(y-x)(x+y-5)=0$을 얻어 $y=x$로 좁힌다; (3-2) $f''(x)=2\cos^2x(-\tan^2x+\tan x+1)$로 정리해 $\tan x$의 이차식 부호를 본다.'
+stuck: '(3-1) $\dfrac{dy}{dx}=-1$ 조건을 인수분해해 $x+y-5=0$을 정의역 조건으로 버리는 단계 / (3-2) 도함수를 $\cos^2x$로 묶어 $\tan x$의 식으로 바꾸는 단계'
+idea_tags: [IDEA-IMPLICIT-DIFF-FACTOR, IDEA-TAN-QUADRATIC-SIGN]
+tags: [음함수 미분, 로그함수, 삼각함수 최대, 중앙대 모의]
+elements:
+  materials:
+  - '음함수 $\ln x+\ln y+\ln(5-x-y)=0$'
+  - '조건 $\dfrac{dy}{dx}=-1$'
+  - '$f(x)=\sin x(\sin x+2\cos x)$, 닫힌구간 $\left[-\dfrac\pi2,\dfrac\pi2\right]$'
+  concepts: [음함수의 미분법, 로그함수의 정의역, 삼차방정식의 인수분해, 삼각함수의 도함수, 극대·극소, 최댓값]
+  tools:
+  - 로그의 성질로 곱의 꼴로 정리
+  - 음함수 미분 후 인수분해
+  - 정의역 조건으로 해 걸러내기
+  - 도함수를 $2\cos^2x$로 묶어 $\tan x$의 이차식으로 바꾸기
+  - 끝값과 극값 비교
+  conditions:
+  - '로그가 정의됨 ⇒ $x>0$, $y>0$, $5-x-y>0$ ⇒ $x+y-5=0$인 경우와 $1-\sqrt2$는 제외'
+  - '$\dfrac{dy}{dx}=-1$ ⇒ $(y-x)(x+y-5)=0$ ⇒ $y=x$'
+  - '$-\dfrac\pi2<x<\dfrac\pi2$에서 $\cos x>0$ ⇒ $f''(x)$의 부호는 $-\tan^2x+\tan x+1$의 부호'
+  - '닫힌구간 ⇒ 끝값 $f\left(\pm\dfrac\pi2\right)=1$과 극댓값 비교'
+  stimuli_used: ['1', '2']
+  subpart_links: 3-1과 3-2는 제시문만 공유하고 결과는 서로 독립이다(3-1은 제시문 1, 3-2는 제시문 2 사용).
+
+curriculum:
+  version: '2015'
+  subjects: [미적분]
+  scope_2028: calc2
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 음함수와 역함수를 미분할 수 있다(요지 — 모의논술은 문항카드 없음).
+    verified: false
+  - code: 미확인
+    text: 삼각함수를 미분하고 함수의 극대·극소와 최댓값을 구할 수 있다(요지).
+    verified: false
+  content_area: 미분법 – 여러 가지 미분법·도함수의 활용
+  behavior_domain: 계산
+  unit_path: [미적분, 미분법, 여러 가지 미분법, 음함수의 미분법]
+  key_concepts: [음함수의 미분법, 삼각함수의 미분, 최댓값]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 중앙대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 중앙대학교
+  admission_year: 2026
+  admission_type: 모의논술
+  track: 자연계열
+  question_no: 3
+  official_url: https://admission.cau.ac.kr/detail.do?menuurl=jcgylvDgJz1bdCxN45fl1g%3D%3D&board_seq=3249&pageNo=1&categoryid=14
+  retrieved_at: '2026-11-21'
+  original_points: 25
+  rights_notice: 중앙대학교 입학처 공개 자료(모의논술 게시판). 상업적 재사용 허락 미요청
+  note: 문제 = 2026 모의논술 자연계열 문제지 p.3(PDF 4쪽) / 제시문 출전·출제의도 = 2026 논술가이드북(자연) p.34 / 예시답안·채점기준 = 같은 가이드북 p.41 / 문항카드 없음
+
+verify: verify/CAU-M26.py::p03
+
+stimuli:
+- label: '1'
+  body: |
+    음함수 표현 $f(x,y)=0$에서 $y$를 $x$의 함수로 보고 양변을 $x$에 대하여 미분하여 $\dfrac{dy}{dx}$를 구한다.
+- label: '2'
+  body: |
+    미분가능한 함수 $f(x)$에 대하여 $f'(a)=0$이고 $x=a$의 좌우에서 $f'(x)$의 부호가 양에서 음으로 바뀌면 $f(x)$는 $x=a$에서 극대이다.
+
+stem: |
+  다음을 읽고 문항별로 풀이와 함께 답하시오.
+
+subparts:
+- id: '1'
+  stem: |
+    음함수 표현 $\ln x+\ln y+\ln(5-x-y)=0$에 대하여 $x=a$에서 $\dfrac{dy}{dx}=-1$이 된다. $a$의 가능한 값을 모두 구하시오. [10점]
+  points: 10
+  depends_on: []
+  answer: {kind: set, value: '\dfrac12,\ 1+\sqrt2', equivalents: ['1/2, 1+sqrt(2)'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $xy(5-x-y)=1$을 미분해 $\dfrac{dy}{dx}=\dfrac{y(2x+y-5)}{x(5-x-2y)}=-1$ ⇒ $(y-x)(x+y-5)=0$ ⇒ $y=x$ ⇒ $2x^3-5x^2+1=0$.
+    steps:
+    - {id: 1a, content: '$(2x-1)(x^2-2x-1)=0$, 정의역에서 $a=\dfrac12,\ 1+\sqrt2$', criteria: [1.B1, 1.B2, 1.B3]}
+    hint_ladder:
+    - 로그 세 개의 합을 한 로그로 묶어 보자. 정의역도 적어 두자.
+    - $\dfrac{dy}{dx}=-1$을 정리하면 인수분해가 된다.
+    - 정의역 조건 $5-x-y>0$으로 버릴 인수는 무엇인가?
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 2026 논술가이드북(자연) p.41 예시답안
+    steps:
+    - id: 1b-1
+      content: |
+        로그함수가 정의되기 위하여 $x>0$, $y>0$, $5-x-y>0$이다. 또한 로그함수의 성질에 의하여 $xy(5-x-y)=1$이다. 음함수 미분을 하고 조건을 고려하면
+        $$\dfrac{dy}{dx}=\dfrac{y(2x+y-5)}{x(5-x-2y)}=-1$$
+        이다.
+      criteria: [1.B1]
+    - id: 1b-2
+      content: |
+        정리하면 $(y-x)(x+y-5)=0$이고 $y-x=0$이다.
+      criteria: [1.B2]
+    - id: 1b-3
+      content: |
+        $xy(5-x-y)=1$에 대입하면 $2x^3-5x^2+1=(2x-1)(x^2-2x-1)=0$이다. 가능한 값은 $a=\dfrac12,\ 1+\sqrt2$이다.
+      criteria: [1.B3]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.B1
+      mark_type: B
+      points: 4
+      evidence: $\dfrac{dy}{dx}=\dfrac{y(2x+y-5)}{x(5-x-2y)}$를 얻었다.
+      depends_on: []
+      steps: [1b-1]
+    - id: 1.B2
+      mark_type: B
+      points: 3
+      evidence: $y-x=0$을 구했다.
+      depends_on: []
+      steps: [1b-2]
+    - id: 1.B3
+      mark_type: B
+      points: 3
+      evidence: $a=\dfrac12,\ 1+\sqrt2$를 얻었다.
+      depends_on: []
+      steps: [1b-3]
+    deductions:
+    - code: D1-1
+      condition: 채점자 재량 — 답안의 완성도에 따라 −0.5~+0.5점(공식 주석). 논리 전개 과정이 맞으면 답이 틀려도 1~2점 부분 점수(공식 주석)
+      effect: minus
+      value: 1
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-CAL-4655}
+  misconceptions:
+  - id: MC-CAL-4655
+    outcome_code: '70'
+    wrong_work: '$x^2-2x-1=0$의 두 근을 모두 답으로 써서 $a=1-\sqrt2$를 포함하거나, $x+y=5$인 경우를 남겨 둠'
+    detect_cue: 답에 $1-\sqrt2$가 있거나 정의역 $x>0$, $5-x-y>0$ 언급이 없음
+    feedback: 로그의 진수는 모두 양수여야 합니다. $x>0$, $y>0$, $5-x-y>0$으로 해를 걸러내세요.
+    remedy: [RL-1]
+- id: '2'
+  stem: |
+    닫힌구간 $\left[-\dfrac\pi2,\dfrac\pi2\right]$에서 함수 $f(x)=\sin x(\sin x+2\cos x)$의 최댓값을 구하시오. [15점]
+  points: 15
+  depends_on: []
+  answer: {kind: value, value: '\dfrac{1+\sqrt5}{2}', equivalents: ['(1+sqrt(5))/2'], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: $f'(x)=2\cos^2x(-\tan^2x+\tan x+1)$, $\tan x=\dfrac{1+\sqrt5}{2}$에서 극대이고 그 값 $\dfrac{1+\sqrt5}{2}$가 끝값 1보다 크다.
+    steps:
+    - {id: 2a, content: '극댓값 $\dfrac{1+\sqrt5}{2}>1=f\left(\pm\dfrac\pi2\right)$ ⇒ 최댓값 $\dfrac{1+\sqrt5}{2}$', criteria: [2.B1, 2.B2, 2.B3]}
+    hint_ladder:
+    - 구간 내부에서 $\cos x>0$이다. 도함수를 $\cos^2x$로 묶어 보자.
+    - $\tan x=u$로 두면 도함수의 부호는 $u$의 이차식으로 정해진다.
+    - 극댓값과 끝값을 비교하자.
+  - id: S2-B
+    audience: B
+    method_no: 1
+    source_flow: 2026 논술가이드북(자연) p.41 예시답안
+    steps:
+    - id: 2b-1
+      content: |
+        $f\left(-\dfrac\pi2\right)=f\left(\dfrac\pi2\right)=1$이고, 구간 $-\dfrac\pi2<x<\dfrac\pi2$에서 $\cos x>0$이다. 미분하면
+        $$f'(x)=2\sin x\cos x+2\cos^2x-2\sin^2x=2\cos^2x(-\tan^2x+\tan x+1)$$
+        이다.
+      criteria: [2.B1]
+    - id: 2b-2
+      content: |
+        $f(x)$는 $\tan x=\dfrac{1-\sqrt5}{2}$에서 극소, $\tan x=\dfrac{1+\sqrt5}{2}$에서 극대이다.
+      criteria: [2.B2]
+    - id: 2b-3
+      content: |
+        $\tan x=\dfrac{1+\sqrt5}{2}$에서 최댓값 $\dfrac{1+\sqrt5}{2}$를 갖는다.
+      criteria: [2.B3]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.B1
+      mark_type: B
+      points: 8
+      evidence: $f'(x)=2\cos^2x(-\tan^2x+\tan x+1)$를 구했다.
+      depends_on: []
+      steps: [2b-1]
+    - id: 2.B2
+      mark_type: B
+      points: 3
+      evidence: $\tan x=\dfrac{1+\sqrt5}{2}$에서 극대임을 구했다.
+      depends_on: []
+      steps: [2b-2]
+    - id: 2.B3
+      mark_type: B
+      points: 4
+      evidence: 최댓값 $\dfrac{1+\sqrt5}{2}$를 구했다.
+      depends_on: []
+      steps: [2b-3]
+    deductions:
+    - code: D2-1
+      condition: 채점자 재량 — 답안의 완성도에 따라 −0.5~+0.5점(공식 주석). 논리 전개 과정이 맞으면 답이 틀려도 1~2점 부분 점수(공식 주석)
+      effect: minus
+      value: 1
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-CAL-4656}
+  misconceptions:
+  - id: MC-CAL-4656
+    outcome_code: '70'
+    wrong_work: 극댓값을 구한 뒤 끝값 $f\left(\pm\dfrac\pi2\right)=1$과 비교하지 않고 바로 최댓값이라 함(또는 극값을 찾지 않고 끝값 1을 최댓값으로 답함)
+    detect_cue: 끝값 언급 없음, 또는 답이 1
+    feedback: 닫힌구간의 최댓값은 극댓값들과 양 끝값을 모두 비교해 정합니다.
+    remedy: [RL-2]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CAL-4655}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-IMPLICIT-DIFF}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-CAL-4656}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-CLOSED-MAXMIN}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-input-v1, item_version: 1, verdict: pass, date: 2026-11-22, note: 문제 원문 PDF 이미지 대조로 옮김 · 주 해설은 가이드북 예시답안 흐름 그대로 · 채점기준은 공식 기준을 B 마크로 옮김}
+
+created: 2026-11-22
+updated: 2026-11-22

@@ -1,0 +1,197 @@
+schema_version: '2.0'
+id: CAU-M20-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: CAU
+type: T07
+variant_of: null
+replaces: null
+level: L4
+form: 분류
+points: 20
+time_estimate_min: 20
+intent: 2단계로 구성된 게임에서 발생하는 경우의 수와 확률 구조를 이해하고, 조건부확률과 이산확률변수의 기댓값을 정확히 계산하는지 평가한다(채점매뉴얼 출제 의도 요지, 난이도 중하).
+key_idea: '단계 II 는 끝날 때까지 반복되므로 결국 반드시 끝나고(종료 확률의 합 $\dfrac58\sum\left(\dfrac38\right)^{k-1}=1$), 최종 점수는 단계 I 값의 제곱으로만 정해진다.'
+stuck: 단계 II 의 무한 반복을 등비급수로 정리하는 단계(종료 확률의 합이 1이 됨을 보는 것)
+idea_tags: [IDEA-TREE-DIAGRAM, IDEA-GEOM-SERIES-REPEAT-TRIAL]
+tags: [기댓값, 조건부확률, 등비급수, 중앙대 모의]
+elements:
+  materials: [동전 2개(단계 I), 동전 4개(단계 II), 단계 I 의 값 1·2·3, 최종 점수 = 단계 I 값의 제곱]
+  concepts: [수학적 확률, 확률의 곱셈정리(조건부확률), 이산확률변수의 기댓값, 등비급수]
+  tools:
+  - 수형도(단계별 확률 나열)
+  - '이항계수로 앞면 2개 확률 ${}_4C_2\left(\frac12\right)^4$'
+  - 여사건
+  - 등비급수의 합
+  conditions:
+  - '둘 다 앞면 1, 둘 다 뒷면 2, 그렇지 않으면 3 ⇒ $P=\dfrac14,\ \dfrac14,\ \dfrac12$'
+  - '앞면과 뒷면의 개수가 다르면 종료 ⇒ 종료 확률 $1-{}_4C_2\left(\frac12\right)^4=\dfrac58$, 반복 확률 $\dfrac38$'
+  - '그렇지 않으면 단계 II 반복 ⇒ $k$번째에 끝날 확률 $\dfrac58\left(\dfrac38\right)^{k-1}$, 모두 더하면 1'
+  - '기댓값은 분수 또는 소수점 아래 둘째 자리에서 반올림 ⇒ $\dfrac{23}{4}$ 또는 $5.8$'
+  stimuli_used: []
+  subpart_links: null
+
+curriculum:
+  version: '2015'
+  subjects: [확률과통계, 수학Ⅰ]
+  scope_2028: unknown
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 조건부확률의 의미를 이해하고 확률의 곱셈정리를 이용해 확률을 구한다(2009 개정 확률과 통계 Ⅱ-2-1 출전, 요지).
+    verified: false
+  - code: 미확인
+    text: 이산확률변수의 기댓값을 구할 수 있다(2009 개정 확률과 통계 Ⅲ-1-2 출전, 요지).
+    verified: false
+  content_area: 확률 – 조건부확률 / 확률분포 – 이산확률변수의 기댓값
+  behavior_domain: 계산
+  unit_path: [확률과 통계, 확률분포, 이산확률변수, 기댓값]
+  key_concepts: [확률의 곱셈정리, 기댓값, 등비급수]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 중앙대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 중앙대학교
+  admission_year: 2020
+  admission_type: 모의논술
+  track: 자연계열
+  question_no: 1
+  official_url: https://admission.cau.ac.kr/detail.do?menuurl=jcgylvDgJz1bdCxN45fl1g%3D%3D&board_seq=2023&pageNo=1&categoryid=14
+  retrieved_at: '2026-11-21'
+  original_points: 20
+  rights_notice: 중앙대학교 입학처 공개 자료(모의논술 게시판). 상업적 재사용 허락 미요청
+  note: 문제 = 2020 모의논술 자연계열 문제지 p.1(PDF 2쪽) / 출전·출제의도 = 채점자 매뉴얼 p.3 / 예시답안·채점기준 = 채점자 매뉴얼 p.11~12 (2020 논술가이드북(자연) p.88 에도 동일 수록). 문항카드 없음
+
+verify: verify/CAU-M20.py::p01
+
+stimuli: []
+
+stem: |
+  영희는 두 단계로 구성된 게임에 다음과 같은 규칙에 따라 참여한다.
+
+  단계 Ⅰ
+  동전 두 개를 동시에 던져서 둘 다 앞면이 나오면 1, 둘 다 뒷면이 나오면 2, 그렇지 않으면 3의 값을 얻고 단계 Ⅱ로 넘어간다.
+
+  단계 Ⅱ
+  동전 네 개를 동시에 던져서 앞면과 뒷면의 개수가 다르면 단계 Ⅰ에서 나온 값의 제곱을 최종 점수로 얻고 게임은 종료되며, 그렇지 않으면 단계 Ⅱ를 반복한다.
+
+  위의 규칙에 따라 영희가 게임에 참여할 때 얻을 수 있는 최종 점수의 기댓값을 구하시오. (단, 기댓값은 분수로 제시하거나 소수점 아래 둘째 자리에서 반올림하여 제시한다.) [20점]
+
+subparts:
+- id: '1'
+  stem: |
+    영희가 게임에 참여할 때 얻을 수 있는 최종 점수의 기댓값을 구하시오. (단, 기댓값은 분수로 제시하거나 소수점 아래 둘째 자리에서 반올림하여 제시한다.)
+  points: 20
+  depends_on: []
+  answer: {kind: value, value: '\dfrac{23}{4}', equivalents: ['23/4', '5.8', '5.75'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: 단계 Ⅱ는 확률 $\dfrac58$로 끝나고 $\dfrac38$로 반복되므로 결국 확률 1로 끝난다. 최종 점수의 기댓값은 $1^2\cdot\dfrac14+2^2\cdot\dfrac14+3^2\cdot\dfrac12$.
+    steps:
+    - {id: 1a, content: '$P(1)=\dfrac14,\ P(2)=\dfrac14,\ P(3)=\dfrac12$, 단계 Ⅱ 종료확률 $\dfrac58$, 반복 $\dfrac38$. 종료확률의 합 $\dfrac58\cdot\dfrac{1}{1-\frac38}=1$이므로 $E=\dfrac14+1+\dfrac92=\dfrac{23}{4}$', criteria: [1.B1, 1.B2, 1.B3, 1.B4]}
+    hint_ladder:
+    - 단계 Ⅰ의 세 값이 나올 확률을 먼저 구하자.
+    - 동전 네 개에서 앞면과 뒷면이 2개씩 나올 확률은?
+    - 단계 Ⅱ가 언젠가는 끝날 확률을 등비급수로 계산해 보자.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 2020 모의논술 채점자 매뉴얼(자연) p.11~12 예시답안
+    steps:
+    - id: 1b-1
+      content: |
+        동전의 앞면이 나오는 경우를 H, 뒷면이 나오는 경우를 T라고 하면 1단계에서 발생하는 사건의 확률은 다음과 같다.
+        둘 다 앞면이 나오는 경우: $P(HH)=\dfrac14$
+        둘 다 뒷면이 나오는 경우: $P(TT)=\dfrac14$
+        그렇지 않은 경우: $1-P(HH)-P(TT)=\dfrac12$
+      criteria: [1.B1]
+    - id: 1b-2
+      content: |
+        동전 네 개를 동시에 던져서 앞면과 뒷면의 개수가 같을 확률은 ${}_4C_2\left(\dfrac12\right)^4=\dfrac38$이고, 개수가 다를 확률은 $1-\dfrac38=\dfrac58$이다.
+      criteria: [1.B2]
+    - id: 1b-3
+      content: |
+        1, 2단계를 바탕으로 최종 점수를 얻을 수 있는 경우와 그에 따르는 확률은 수형도로 나타낼 수 있다. 1단계에서 값 1(확률 $\dfrac14$), 2(확률 $\dfrac14$), 3(확률 $\dfrac12$)을 얻은 뒤, 2단계에서 확률 $\dfrac58$로 각각 최종 점수 1, 4, 9를 얻고 끝나며, 확률 $\dfrac38$로 2단계를 반복한다.
+        (원문은 수형도 그림)
+      criteria: [1.B3]
+    - id: 1b-4
+      content: |
+        위의 그림을 바탕으로 영희가 얻을 수 있는 최종 점수의 기댓값은 다음과 같이 계산된다.
+        $$1^2\left(\frac14\frac58+\frac14\frac58\frac38+\frac14\frac58\left(\frac38\right)^2+\frac14\frac58\left(\frac38\right)^3+\cdots\right)+2^2\left(\frac14\frac58+\frac14\frac58\frac38+\frac14\frac58\left(\frac38\right)^2+\frac14\frac58\left(\frac38\right)^3+\cdots\right)$$
+        $$+3^2\left(\frac12\frac58+\frac12\frac58\frac38+\frac12\frac58\left(\frac38\right)^2+\frac12\frac58\left(\frac38\right)^3+\cdots\right)$$
+        $$=\frac14+1+\frac92=\frac{23}{4}\ \text{또는}\ 5.8$$
+      criteria: [1.B4]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.B1
+      mark_type: B
+      points: 2
+      evidence: 1단계에서 사건의 발생 확률 $\dfrac14,\ \dfrac14,\ \dfrac12$을 올바르게 계산했다.
+      depends_on: []
+      steps: [1b-1]
+    - id: 1.B2
+      mark_type: B
+      points: 2
+      evidence: 2단계에서 사건의 발생 확률(개수가 같을 확률 $\dfrac38$, 다를 확률 $\dfrac58$)을 올바르게 계산했다.
+      depends_on: []
+      steps: [1b-2]
+    - id: 1.B3
+      mark_type: B
+      points: 8
+      evidence: 2단계 게임의 규칙(반복)을 제대로 반영해 최종 점수를 얻을 수 있는 경우와 그에 따르는 확률(수형도 또는 $\dfrac14\cdot\dfrac58\left(\dfrac38\right)^{k-1}$ 꼴)을 올바르게 적었다.
+      depends_on: []
+      steps: [1b-3]
+    - id: 1.B4
+      mark_type: B
+      points: 8
+      evidence: 최종 점수의 기댓값 $\dfrac{23}{4}$(또는 5.8)을 올바르게 계산했다.
+      depends_on: []
+      steps: [1b-4]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-PRB-4101}
+  - {code: '71', misconception: MC-PRB-4102}
+  misconceptions:
+  - id: MC-PRB-4101
+    outcome_code: '70'
+    wrong_work: 단계 Ⅱ를 한 번만 시행한다고 보고 $\dfrac58$을 곱한 채 끝냄($E=\dfrac58\cdot\dfrac{23}{4}=\dfrac{115}{32}$)
+    detect_cue: 답이 $\dfrac{115}{32}\approx3.6$, 반복(등비급수) 항이 없음
+    feedback: 단계 Ⅱ는 앞뒷면 개수가 다를 때까지 반복됩니다. 끝날 확률을 모두 더하면 $\dfrac58\sum\left(\dfrac38\right)^{k-1}=1$입니다.
+    remedy: [RL-1]
+  - id: MC-PRB-4102
+    outcome_code: '71'
+    wrong_work: '동전 네 개에서 앞면 2개일 확률을 $\dfrac{1}{5}$(앞면 개수 0~4를 같은 확률로 봄) 또는 $\left(\dfrac12\right)^4$로 계산'
+    detect_cue: 단계 Ⅱ 종료확률이 $\dfrac45$ 또는 $\dfrac{15}{16}$로 적혀 있음
+    feedback: 앞면 개수가 2인 경우의 수는 ${}_4C_2=6$, 전체 16가지이므로 확률은 $\dfrac{6}{16}=\dfrac38$입니다.
+    remedy: [RL-2]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-PRB-4101}
+  relation: remediation
+  target: {kind: concept, ref: CON-ALG-GEOM-SERIES}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-PRB-4102}
+  relation: remediation
+  target: {kind: concept, ref: CON-PRB-CLASSICAL}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-input-v1, item_version: 1, verdict: pass, date: 2026-11-22, note: 문제 원문 PDF 이미지 대조로 옮김 · 주 해설은 채점자 매뉴얼 예시답안 흐름 그대로(수형도는 글로 옮김) · 채점기준은 공식 기준을 B 마크로 옮김}
+
+created: 2026-11-22
+updated: 2026-11-22

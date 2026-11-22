@@ -1,0 +1,204 @@
+schema_version: '2.0'
+id: CAU-G20B-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: CAU
+type: T01
+variant_of: null
+replaces: null
+level: L4
+form: 분류
+points: 20
+time_estimate_min: 20
+intent: 임의로 설정된 상황에서 얻을 수 있는 경우의 수와 그에 따른 확률 구조를 이해하고 각 상황의 확률을 정확히 계산하는지 평가한다(가이드북 출제 의도 요지, 난이도 중하).
+key_idea: '첫 학생은 무조건 A. 이후 주머니 속 공의 구성이 배정에 따라 바뀌므로 수형도로 따라가고, 세 과제 모두 배정 ⇔ 과제 C 에 1명 이상 배정되는 네 경우로 나눈다.'
+stuck: 빈 공을 뽑아도 우선순위 때문에 결과가 정해지고, 공을 뽑을 때마다 주머니 구성이 바뀌는 것을 반영하는 단계
+idea_tags: [IDEA-TREE-DIAGRAM, IDEA-STATE-DEPENDENT-URN]
+tags: [확률의 곱셈정리, 수형도, 주머니 모델, 중앙대 실전]
+elements:
+  materials:
+  - 우선순위 A>B>C 인 과제 3개
+  - 과제명 A 가 쓰인 공 2개와 빈 공 4개가 든 주머니(공 수 6개 유지)
+  - 학생 4명이 차례로 한 개씩 뽑음
+  concepts: [확률의 곱셈정리, 확률의 덧셈정리(배반사건), 수형도]
+  tools:
+  - 학생별 주머니 상태(과제명 공의 개수)를 추적하는 수형도
+  - C 가 배정되는 경로만 골라 곱셈정리
+  - 네 경우의 확률 합(덧셈정리)
+  conditions:
+  - '과제명 공을 뽑으면 그 과제에 배정되고 빈 공 하나에 그 과제명을 적어 함께 넣음 ⇒ 그 과제명 공이 1개 늘고 빈 공이 1개 줆'
+  - '빈 공을 뽑았는데 미배정 과제가 있으면 그중 우선순위가 가장 높은 과제에 배정 ⇒ 첫 학생은 반드시 A, 다음 빈 공은 B, 그 다음은 C'
+  - '모든 과제가 배정된 뒤 빈 공 ⇒ 임의 배정(사건에 영향 없음)'
+  - '세 과제 모두 배정 ⇔ C 에 1명 이상 배정 ⇒ 네 경우 (A,A,B,C), (A,B,A,C), (A,B,B,C), (A,B,C,–)'
+  stimuli_used: []
+  subpart_links: null
+
+curriculum:
+  version: '2015'
+  subjects: [확률과통계]
+  scope_2028: unknown
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 확률의 곱셈정리와 덧셈정리를 이해하고 이를 활용할 수 있다(2009 개정 확률과 통계 출전, 요지).
+    verified: false
+  content_area: 확률 – 조건부확률(곱셈정리) / 확률의 덧셈정리
+  behavior_domain: 문제해결
+  unit_path: [확률과 통계, 확률, 조건부확률, 확률의 곱셈정리]
+  key_concepts: [확률의 곱셈정리, 수형도, 확률의 덧셈정리]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 중앙대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 중앙대학교
+  admission_year: 2020
+  admission_type: 논술(수시)
+  track: 자연계열Ⅱ
+  question_no: 1
+  official_url: https://admisfile.cau.ac.kr/download/cau_2020_s_n_j_2.pdf
+  retrieved_at: '2026-11-21'
+  original_points: 20
+  rights_notice: 중앙대학교 입학처 공개 자료(기출문제 게시판 board_seq=2220). 상업적 재사용 허락 미요청
+  note: 문제 = 2020 수시 논술 자연계열Ⅱ 문제지 p.1(PDF 2쪽) / 출전·출제의도 = 2021 논술가이드북(자연) p.91~92 / 예시답안·채점기준 = 2021 논술가이드북(자연) p.92~94. 문항카드 없음
+
+verify: verify/CAU-G20B.py::p01
+
+stimuli: []
+
+stem: |
+  각기 다른 3개의 과제 A, B, C가 있다. 과제의 우선순위는 A가 B보다, B가 C보다 높아서 이를 고려하여 다음과 같은 방식으로 4명의 학생을 과제에 배정하려고 한다.
+
+  과제명 A가 쓰여 있는 공 2개와 과제명이 쓰여 있지 않은 공 4개가 들어 있는 주머니를 준비한다. 다음과 같은 규칙에 따라 학생들은 모두 차례대로 한 명씩 주머니에 있는 공을 한 개 뽑아서 과제에 배정된다.
+
+  - 과제명이 쓰여 있는 공을 뽑으면 그 과제에 배정되며, 이때 주머니에서 과제명이 쓰여 있지 않은 공 하나를 꺼내 배정된 과제명을 적은 후, 뽑은 공과 함께 다시 주머니에 집어넣는다. 따라서 주머니에 있는 공의 수는 6개로 유지된다.
+  - 과제명이 쓰여 있지 않은 공을 뽑았을 때 아직 학생이 배정되지 않은 과제가 있으면, 그 중에서 우선순위가 더 높은 과제에 배정되며, 이때 뽑은 공에 배정된 과제명을 적은 후 다시 주머니에 집어넣는다. 따라서 주머니에 있는 공의 수는 6개로 유지된다.
+  - 과제명이 쓰여 있지 않은 공을 뽑았을 때 이미 모든 과제에 학생이 배정되어 있으면, 세 과제 중 하나에 임의로 배정된다.
+
+  위의 방식에 따라 4명의 학생이 과제에 배정될 때, 3개의 과제 A, B, C 모두에 학생이 배정될 확률을 구하시오. [20점]
+
+subparts:
+- id: '1'
+  stem: |
+    4명의 학생이 과제에 배정될 때, 3개의 과제 A, B, C 모두에 학생이 배정될 확률을 구하시오.
+  points: 20
+  depends_on: []
+  answer: {kind: value, value: '\dfrac14', equivalents: ['1/4', '0.25', '18/72'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: '첫 학생은 무조건 A. C 에 1명 이상 배정되는 경로 (A,A,B,C), (A,B,A,C), (A,B,B,C), (A,B,C) 의 확률 $\frac1{36},\ \frac1{24},\ \frac1{72},\ \frac16$.'
+    steps:
+    - {id: 1a, content: '$\dfrac1{36}+\dfrac1{24}+\dfrac1{72}+\dfrac16=\dfrac{18}{72}=\dfrac14$', criteria: [1.B1, 1.B2, 1.B3, 1.B4]}
+    hint_ladder:
+    - 첫 번째 학생이 빈 공을 뽑으면 어느 과제에 배정되는가?
+    - 공을 뽑을 때마다 주머니 속 과제명 공의 개수가 어떻게 변하는지 적어 보자.
+    - 세 과제 모두 배정되려면 C 에 누군가 배정되어야 한다.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 2021 논술가이드북(자연) p.92~94 예시답안
+    steps:
+    - id: 1b-1
+      content: |
+        첫 번째 학생은 뽑는 공에 상관없이 무조건 과제 A에 배정된다. 두 번째 학생은 $\dfrac12$의 확률로 과제 A 또는 B에 배정되고, 세 번째, 네 번째 학생은 앞의 학생의 배정 결과에 따라 각기 다른 확률로 과제에 배정된다. 과제명이 쓰여 있지 않은 공을 뽑았을 때 아직 학생이 배정되지 않은 과제가 있으면, 과제의 우선순위 A>B>C를 고려한다.
+      criteria: [1.B1]
+    - id: 1b-2
+      content: |
+        학생이 배정되는 경우는 다음과 같이 나타낼 수 있다(원문은 수형도 그림).
+        학생 1: A
+        학생 2: A $\left(\dfrac12\right)$, B $\left(\dfrac12\right)$
+        (A, A) 다음 학생 3: A $\left(\dfrac23\right)$, B $\left(\dfrac13\right)$ / (A, A, A) 다음 학생 4: A $\left(\dfrac56\right)$, B $\left(\dfrac16\right)$ / (A, A, B) 다음 학생 4: A $\left(\dfrac23\right)$, B $\left(\dfrac16\right)$, C $\left(\dfrac16\right)$
+        (A, B) 다음 학생 3: A $\left(\dfrac12\right)$, B $\left(\dfrac16\right)$, C $\left(\dfrac13\right)$ / (A, B, A) 다음 학생 4: A $\left(\dfrac23\right)$, B $\left(\dfrac16\right)$, C $\left(\dfrac16\right)$ / (A, B, B) 다음 학생 4: A $\left(\dfrac12\right)$, B $\left(\dfrac13\right)$, C $\left(\dfrac16\right)$ / (A, B, C) 다음 학생 4: A 또는 B 또는 C
+      criteria: [1.B2]
+    - id: 1b-3
+      content: |
+        이때 3개의 과제 모두에 학생이 배정되려면 과제 C에 최소한 1명이 배정되어야 한다. 이를 만족하는 경우의 수는 다음과 같다.
+
+        | | 학생 1 | 학생 2 | 학생 3 | 학생 4 |
+        |---|---|---|---|---|
+        | Case 1 | 과제 A | 과제 A | 과제 B | 과제 C |
+        | Case 2 | 과제 A | 과제 B | 과제 A | 과제 C |
+        | Case 3 | 과제 A | 과제 B | 과제 B | 과제 C |
+        | Case 4 | 과제 A | 과제 B | 과제 C | – |
+
+        Case 4의 경우 학생 4가 공을 뽑기 전에 이미 모든 과제에 최소한 한명의 학생이 배정이 되었기 때문에 학생 4의 과제 배정 여부는 고려할 필요가 없다.
+        (원문의 이 표는 Case 2 를 '과제 A, 과제 A, 과제 A, 과제 C' 로 적었으나 바로 아래 확률표와 수형도에 따라 'A, B, A, C' 로 바로잡아 옮김)
+      criteria: [1.B2]
+    - id: 1b-4
+      content: |
+        네 가지 경우가 발생할 확률은 다음과 같이 계산된다.
+        Case 1 (A, A, B, C): $\dfrac12\times\dfrac13\times\dfrac16=\dfrac1{36}$
+        Case 2 (A, B, A, C): $\dfrac12\times\dfrac12\times\dfrac16=\dfrac1{24}$
+        Case 3 (A, B, B, C): $\dfrac12\times\dfrac16\times\dfrac16=\dfrac1{72}$
+        Case 4 (A, B, C, –): $\dfrac12\times\dfrac13=\dfrac16$
+      criteria: [1.B3]
+    - id: 1b-5
+      content: |
+        따라서 3개의 과제 모두에 학생이 배정될 확률은 다음과 같이 계산된다.
+        $$\frac1{36}+\frac1{24}+\frac1{72}+\frac16=\frac{18}{72}=\frac14=0.25$$
+      criteria: [1.B4]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.B1
+      mark_type: B
+      points: 2
+      evidence: 첫 번째 학생은 무조건 과제 A 에 배정된다는 사실을 적었다.
+      depends_on: []
+      steps: [1b-1]
+    - id: 1.B2
+      mark_type: B
+      points: 8
+      evidence: 과제 C 에 최소한 1명의 학생이 배정되는 네 가지 경우(A,A,B,C / A,B,A,C / A,B,B,C / A,B,C)를 올바르게 찾아냈다.
+      depends_on: []
+      steps: [1b-2, 1b-3]
+    - id: 1.B3
+      mark_type: B
+      points: 8
+      evidence: '네 가지 경우에 대한 확률 $\dfrac1{36},\ \dfrac1{24},\ \dfrac1{72},\ \dfrac16$ 을 올바르게 계산했다.'
+      depends_on: []
+      steps: [1b-4]
+    - id: 1.B4
+      mark_type: B
+      points: 2
+      evidence: 확률의 곱셈정리와 덧셈정리를 사용하여 확률 $\dfrac14$ 을 올바르게 계산했다.
+      depends_on: []
+      steps: [1b-5]
+    deductions:
+    - code: D1-1
+      condition: 채점자 재량 — 답안의 완성도에 따라 총점 20점 이내에서 ±1점(공식 채점기준 주석). 계산 실수로 틀렸어도 논리 전개 과정이 맞으면 해당 부분에 1~2점 부분 점수
+      effect: minus
+      value: 1
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-PRB-4113}
+  misconceptions:
+  - id: MC-PRB-4113
+    outcome_code: '70'
+    wrong_work: '공을 뽑을 때마다 주머니 구성이 바뀌는 것을 무시하고 매번 A 공 $\dfrac26$, 빈 공 $\dfrac46$ 로 계산'
+    detect_cue: 학생 2 의 확률이 $\dfrac13,\ \dfrac23$ 로 적혀 있음, 각 경로 확률이 다름
+    feedback: 학생 1 이 배정된 뒤 빈 공 하나에 A 가 적히므로 주머니는 A 공 3개, 빈 공 3개가 됩니다. 뽑을 때마다 구성을 갱신하세요.
+    remedy: [RL-1]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-PRB-4113}
+  relation: remediation
+  target: {kind: concept, ref: CON-PRB-MULT-RULE}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-input-v1, item_version: 1, verdict: pass, date: 2026-11-22, note: 문제 원문 PDF 이미지 대조로 옮김 · 주 해설은 2021 가이드북 예시답안 흐름 그대로(수형도는 글로, Case 2 표 오식 정정 표시) · 채점기준은 공식 기준을 B 마크로 옮김}
+
+created: 2026-11-22
+updated: 2026-11-22

@@ -1,0 +1,208 @@
+schema_version: '2.0'
+id: CAU-M27A-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: CAU
+type: T07
+variant_of: null
+replaces: null
+level: L4
+form: 추론
+points: 20
+time_estimate_min: 20
+intent: 두 가지 서로 다른 확률분포를 가진 카드 게임에서 무승부가 반복되는 무한 시행을 등비급수로 정리하고, 한 번의 시행에서의 승리 확률 비교로 환원해 조건을 만족하는 경우를 찾는 능력을 본다(가이드북 출제 의도 요지).
+key_idea: '무승부 확률을 $r$이라 하면 최종 승리 확률은 $\dfrac{p}{1-r}$, $\dfrac{q}{1-r}$이므로 한 번의 시행에서 $p=q$만 따지면 된다.'
+stuck: 무승부 후 반복되는 무한 시행을 등비급수로 정리해 한 번의 시행 비교($p=q$)로 바꾸는 단계
+idea_tags: [IDEA-REPEAT-UNTIL-DECIDED-GEOMETRIC, IDEA-COMPLEMENT-PROB]
+tags: [확률분포, 등비급수, 무한 시행, 중앙대 모의]
+elements:
+  materials: [갑의 카드 1~n (n≥11), 을의 카드 1~11 중 k를 제거한 10장, 더 큰 수 승리·같으면 무승부 후 재시행]
+  concepts: [이산확률변수의 확률분포, 수학적 확률, 등비급수의 합, 여사건의 확률]
+  tools: [확률변수 X·Y의 확률분포 표, 무승부 반복의 등비급수, 을이 이기는 경우 표로 세기, 전체 확률 1에서 빼기, 일차 부정방정식의 자연수 해]
+  conditions:
+  - '무승부면 카드를 다시 넣고 반복 ⇒ 매 시행이 같은 확률 구조 ⇒ 최종 승리 확률 $=\dfrac{p}{1-r}$, $\dfrac{q}{1-r}$ ⇒ $p=q$와 동치'
+  - '을은 $k$를 제거한 10장에서 뽑음 ⇒ 을이 $y$를 뽑으면 이기는 경우 $y-1$가지, $y=k$ 제외 ⇒ 합 $56-k$'
+  - '$n\ge11$ ⇒ 을의 모든 카드와 같은 수를 갑이 1장씩 가짐 ⇒ 무승부 확률 $\dfrac1n$'
+  - '$1\le k\le11$, $n\ge11$ 인 자연수 ⇒ $10n+2k=122$ 의 해는 $(11,6),(12,1)$'
+  stimuli_used: []
+  subpart_links: null
+
+curriculum:
+  version: '2015'
+  subjects: [확률과통계, 수학Ⅰ]
+  scope_2028: common
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 이산확률변수의 확률분포의 뜻을 안다(요지)
+    verified: false
+  - code: 미확인
+    text: 확률의 기본 성질과 여사건의 확률을 이해한다(요지)
+    verified: false
+  content_area: 확률 – 확률의 뜻과 활용 / 확률분포
+  behavior_domain: 문제해결
+  unit_path: [확률과 통계, 확률, 확률의 뜻과 활용, 수학적 확률]
+  key_concepts: [확률분포, 등비급수, 여사건]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 중앙대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 중앙대학교
+  admission_year: 2027
+  admission_type: 모의논술(일반형)
+  track: 자연계열(공통)
+  question_no: 1
+  official_url: https://admission.cau.ac.kr/detail.do?menuurl=jcgylvDgJz1bdCxN45fl1g%3D%3D&board_seq=3252&pageNo=1&categoryid=14
+  retrieved_at: '2026-11-21'
+  original_points: 20
+  rights_notice: 중앙대학교 입학처 공개 자료(모의논술 게시판). 상업적 재사용 허락 미요청
+  note: 문제 = 2027 일반형 모의논술 자연계열 문제지 p.1(M27_문제_일반_일반계.pdf 2쪽) / 예시답안·채점기준 = 2027 논술가이드북(자연) p.33~34 / 출제의도 = 같은 책 p.29. 의·약학부 문제지(CAU-M27B) 문제 1과 동일(글자 대조 확인) — 한 번만 입력. 문항카드 없음(2027 선행학습 영향평가 보고서 미공개)
+
+verify: verify/CAU-M27A.py::p01
+
+stimuli: []
+
+stem: |
+  갑과 을, 두 사람이 아래와 같은 규칙으로 게임을 한다. 풀이와 함께 물음에 답하시오. [20점]
+
+  - 갑은 1부터 $n$까지의 자연수가 각각 하나씩 적힌 $n$장의 카드에서 임의로 한 장의 카드를 꺼낸다. 단, $n\ge11$이다.
+  - 을은 1부터 11까지의 자연수가 각각 하나씩 적힌 11장의 카드에서 특정 수 $k\ (1\le k\le11)$가 적힌 카드는 제거하고, 나머지 10장의 카드 중에서 임의로 한 장의 카드를 꺼낸다.
+  - 두 사람이 꺼낸 카드에 적힌 수를 비교하여 더 큰 수를 꺼낸 사람이 승자가 된다.
+  - 만약 두 수가 동일하면 무승부가 되고, 꺼낸 카드는 다시 넣는다.
+  - 게임은 승부가 날 때까지 같은 규칙으로 진행한다.
+
+  갑이 승자가 될 확률과 을이 승자가 될 확률이 서로 같아지도록 하는 순서쌍 $(n,k)$를 모두 구하시오.
+
+subparts:
+- id: '1'
+  stem: |
+    갑이 승자가 될 확률과 을이 승자가 될 확률이 서로 같아지도록 하는 순서쌍 $(n,k)$를 모두 구하시오.
+  points: 20
+  depends_on: []
+  answer: {kind: set, value: '(n,k)=(11,6),\ (12,1)', equivalents: ['(11,6),(12,1)'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: 최종 확률 비교는 한 번의 시행 비교 $p=q$와 같다. $q=\dfrac{56-k}{10n}$, 무승부 $\dfrac1n$, $p=\dfrac{10n-66+k}{10n}$.
+    steps:
+    - {id: 1a, content: '$p=q\iff 10n-66+k=56-k\iff 10n+2k=122$, $n\ge11$, $1\le k\le11$ ⇒ $(11,6),(12,1)$', criteria: [1.R1, 1.B1, 1.B2]}
+    hint_ladder:
+    - 무승부가 나면 같은 게임이 처음부터 다시 시작된다. 갑이 이길 확률을 무한급수로 써 보자.
+    - 두 최종 확률의 분모가 같다면 무엇만 비교하면 되는가?
+    - 을이 $y$를 꺼냈을 때 을이 이기는 갑의 카드는 몇 장인가?
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 2027 논술가이드북(자연) p.33~34 예시답안
+    steps:
+    - id: 1b-1
+      content: |
+        편의를 위해 갑이 꺼낸 카드의 숫자를 $X$라 하고, 을이 꺼낸 카드의 숫자를 $Y$라 하자. 각 확률변수의 확률분포는 다음과 같다.
+        $$P(X=l)=\dfrac1n,\quad l\in\{1,2,\dots,n\}$$
+        $$P(Y=l)=\begin{cases}\dfrac{1}{10}, & l\in\{1,2,\dots,11\}-\{k\}\\ 0, & l=k\end{cases}$$
+      criteria: []
+    - id: 1b-2
+      content: |
+        무승부가 발생하면 동일한 확률 구조의 시행이 다시 시작되므로 최종 승리 확률은 반복 시행에 따른 등비급수로 아래와 같이 표현된다.
+        한 번의 시행에서 무승부가 나올 확률을 $r$, 갑이 승자가 될 확률을 $p$, 을이 승자가 될 확률을 $q$라 하자. 갑이 승자가 될 확률은
+        $$p+rp+r^2p+\cdots=\dfrac{p}{1-r}$$
+        이고, 을이 승자가 될 확률은
+        $$q+rq+r^2q+\cdots=\dfrac{q}{1-r}$$
+        이다. 따라서 두 확률이 같아지는 경우는 $\dfrac{p}{1-r}=\dfrac{q}{1-r}$, 즉 $p=q$이므로 한 번의 시행에서 갑이 이길 확률과 을이 이길 확률만 고려하면 된다.
+      criteria: [1.R1]
+    - id: 1b-3
+      content: |
+        한 번의 시행에서 을이 승자가 될 경우는 다음과 같다. 을이 꺼낸 카드가 1이면 0가지, 2이면 갑의 카드 1로 1가지, 3이면 갑의 카드 1, 2로 2가지, $\cdots$, 11이면 갑의 카드 $1,2,\dots,10$으로 10가지이다.
+        따라서 을이 꺼낸 카드가 $y$일 때, 을이 승자가 되는 경우의 수는 $y-1$이다. 단, 을이 $k$가 적힌 카드를 꺼낼 수 없으므로 해당 경우는 제외한다.
+        을이 꺼낼 수 있는 카드 집합을 $S=\{1,2,\dots,11\}-\{k\}$라 할 때, 을이 승자가 될 경우를 모두 구하면
+        $$\sum_{y\in S}(y-1)=(0+1+\cdots+10)-(k-1)=56-k$$
+        이다. 따라서 을이 승자가 될 확률은 전체 경우의 수 $10n$으로 나눈 $\dfrac{56-k}{10n}$이다.
+      criteria: [1.B1]
+    - id: 1b-4
+      content: |
+        한 번의 시행에서 무승부일 확률은 $X$와 $Y$의 값이 $S=\{1,2,\dots,11\}-\{k\}$ 중 한 값으로 같아야 한다. 을이 어떤 카드를 내든 갑은 그와 똑같은 숫자의 카드를 무조건 1장씩 가지고 있으므로, 무승부일 확률은
+        $$10\times\dfrac1n\times\dfrac{1}{10}=\dfrac1n$$
+        이다.
+      criteria: [1.B1]
+    - id: 1b-5
+      content: |
+        한 번의 시행에서 갑이 승자가 될 경우는 $X>Y$이며, 전체 확률이 1임을 이용하여
+        $$1-\dfrac1n-\dfrac{56-k}{10n}=\dfrac{10n-66+k}{10n}$$
+      criteria: [1.B1]
+    - id: 1b-6
+      content: |
+        따라서 갑이 승자가 될 확률과 을이 승자가 될 확률을 같게 두면
+        $$\dfrac{10n-66+k}{10n}=\dfrac{56-k}{10n},\qquad 10n+2k=122$$
+        이며, $n\ge11$인 범위에서 이를 만족하는 순서쌍 $(n,k)$는 $(11,6)$, $(12,1)$이다.
+      criteria: [1.B2]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.R1
+      mark_type: R
+      points: 4
+      evidence: 무승부가 반복되는 경우를 고려하여(등비급수 등) 두 최종 확률이 같은 조건이 한 번의 시행에서 $p=q$인 경우임을 올바르게 밝혔다.
+      depends_on: []
+      steps: [1b-2]
+    - id: 1.B1
+      mark_type: B
+      points: 14
+      evidence: 한 번의 시행에서 갑과 을이 승자가 될 확률 $\dfrac{10n-66+k}{10n}$, $\dfrac{56-k}{10n}$(무승부 $\dfrac1n$ 포함)을 올바르게 구했다.
+      depends_on: []
+      steps: [1b-3, 1b-4, 1b-5]
+    - id: 1.B2
+      mark_type: B
+      points: 2
+      evidence: 수식($10n+2k=122$)을 통해 순서쌍 $(11,6)$, $(12,1)$을 정확히 찾았다.
+      depends_on: []
+      steps: [1b-6]
+    deductions:
+    - code: D1-1
+      condition: 채점자 재량 — 답안의 완성도에 따라 ±1점(공식 채점기준 주석). 논리 전개 과정이 맞으면 답이 틀리더라도 1~2점의 부분 점수 부여(공식 주석)
+      effect: minus
+      value: 1
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-PRB-4701}
+  - {code: '71', misconception: MC-PRB-4702}
+  misconceptions:
+  - id: MC-PRB-4701
+    outcome_code: '70'
+    wrong_work: 무승부 후 재시행을 고려하지 않고 '갑이 이길 확률 = 1/2' 같은 식을 세우거나, 무승부 확률을 한쪽에만 나눠 붙임
+    detect_cue: 식이 $p=\dfrac12$ 또는 $p+r=q$ 꼴, 답이 $(11,6),(12,1)$이 아님
+    feedback: 무승부면 같은 게임이 반복되므로 최종 승리 확률은 $\dfrac{p}{1-r}$, $\dfrac{q}{1-r}$입니다. 두 값이 같을 조건은 $p=q$입니다.
+    remedy: [RL-1]
+  - id: MC-PRB-4702
+    outcome_code: '71'
+    wrong_work: 을이 이기는 경우의 수를 셀 때 제거된 카드 $k$의 몫 $k-1$을 빼지 않아 $55$로 셈
+    detect_cue: 을의 승리 확률이 $\dfrac{55}{10n}$ 꼴로 $k$가 없음
+    feedback: 을은 $k$가 적힌 카드를 꺼낼 수 없으므로 $y=k$일 때의 $k-1$가지를 빼야 합니다.
+    remedy: [RL-2]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-PRB-4701}
+  relation: remediation
+  target: {kind: concept, ref: CON-PRB-REPEAT-GEOMETRIC}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-PRB-4702}
+  relation: remediation
+  target: {kind: concept, ref: CON-PRB-CLASSICAL}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-input-v1, item_version: 1, verdict: pass, date: 2026-11-21, note: 문제 원문 PDF 이미지 대조로 옮김 · 주 해설은 공식 예시답안 흐름 그대로 · 채점기준은 공식 기준을 R/B 마크로 옮김}
+
+created: 2026-11-21
+updated: 2026-11-21

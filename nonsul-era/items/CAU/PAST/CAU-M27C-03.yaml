@@ -1,0 +1,243 @@
+schema_version: '2.0'
+id: CAU-M27C-03
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: CAU
+type: T03
+variant_of: null
+replaces: null
+level: L5
+form: 추론
+points: 15
+time_estimate_min: 15
+intent: 미적분학의 기본원리를 이해하면 정적분 형태로 주어진 함수의 도함수를 쉽게 구할 수 있다. 치환적분으로 정적분을 계산할 수 있는지 평가한다(가이드북 출제 의도).
+key_idea: '$g$가 증가함수이므로 $u=g^{-1}(x)$로 치환하면 $\int_0^{g(1)}g^{-1}(x)\,dx=\int_0^1u\,g''(u)\,du$가 되어 $e^{-t^2}$을 직접 적분할 필요가 없다.'
+stuck: 역함수의 정적분을 $u=g^{-1}(x)$ 치환으로 $\int_0^1ug'(u)\,du$로 바꾸는 발상($g(0)=0$ 확인 포함)
+idea_tags: [IDEA-INVERSE-INTEGRAL-SUBST, IDEA-FTC-DERIVATIVE]
+tags: [정적분으로 정의된 함수, 미적분의 기본정리, 역함수의 적분, 치환적분, 중앙대 모의, 창의형]
+elements:
+  materials:
+  - '$g(x)=x+a\displaystyle\int_0^xe^{-t^2}dt$ ($a>0$)'
+  - '$\displaystyle\int_0^{g(1)}g^{-1}(x)\,dx=1$'
+  concepts: [미적분의 기본정리, 함수의 증가와 도함수의 부호, 역함수의 존재, 치환적분법]
+  tools:
+  - '정적분으로 정의된 함수의 미분'
+  - '도함수 부호로 증가 판정'
+  - '역함수 치환 $u=g^{-1}(x)$'
+  - '$t=u^2$ 치환'
+  conditions:
+  - '$a>0$ ⇒ $g''(x)=1+ae^{-x^2}>0$ ⇒ 실수 전체에서 증가 ⇒ 역함수 존재'
+  - '$g(0)=0$, $u=g^{-1}(x)$ ⇒ $x:0\to g(1)$일 때 $u:0\to1$'
+  stimuli_used: []
+  subpart_links:
+  - '3-2 ← 3-1: 3-1에서 보인 $g$의 증가성으로 역함수가 존재하고 $u=g^{-1}(x)$ 치환이 가능함'
+
+curriculum:
+  version: '2015'
+  subjects: [미적분]
+  scope_2028: calc2
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 정적분으로 정의된 함수의 미분과 미적분의 기본정리를 이해한다(요지)
+    verified: false
+  - code: 미확인
+    text: 치환적분법을 이해하고, 이를 활용할 수 있다(요지)
+    verified: false
+  content_area: 적분법 – 정적분으로 정의된 함수 / 치환적분
+  behavior_domain: 추론
+  unit_path: [미적분, 적분법, 정적분, 정적분으로 정의된 함수]
+  key_concepts: [미적분의 기본정리, 역함수, 치환적분법]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 중앙대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 중앙대학교
+  admission_year: 2027
+  admission_type: 모의논술(창의형)
+  track: 자연계열(공통)
+  question_no: 3
+  official_url: https://admission.cau.ac.kr/detail.do?menuurl=jcgylvDgJz1bdCxN45fl1g%3D%3D&board_seq=3252&pageNo=1&categoryid=14
+  retrieved_at: '2026-11-21'
+  original_points: 15
+  rights_notice: 중앙대학교 입학처 공개 자료(모의논술 게시판). 상업적 재사용 허락 미요청
+  note: 문제 = 2027 창의형 모의논술 자연계열 문제지 p.2 / 예시답안·채점기준 = 2027 논술가이드북(자연) p.47~48 / 출제의도 = 같은 책 p.45. 창의형 의·약학부 문제지(CAU-M27D) 문제 3과 동일(글자 대조 확인) — 한 번만 입력. 문항카드 없음
+
+verify: verify/CAU-M27C.py::p03
+
+stimuli: []
+
+stem: |
+  양의 실수 $a$에 대하여 함수 $g(x)$를 다음과 같이 정의한다. [15점]
+  $$g(x)=x+a\int_0^xe^{-t^2}dt$$
+
+subparts:
+- id: '1'
+  stem: |
+    [3-1] 함수 $g(x)$가 증가하는 구간을 구하시오. [5점]
+  points: 5
+  depends_on: []
+  answer: {kind: value, value: '(-\infty,\ \infty)', equivalents: ['실수 전체'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: '$g''(x)=1+ae^{-x^2}>0$.'
+    steps:
+    - {id: 1a, content: '모든 $x$에서 $g''(x)>0$ ⇒ 증가 구간 $(-\infty,\infty)$', criteria: [1.B1, 1.B2]}
+    hint_ladder:
+    - 미적분의 기본정리로 $g'(x)$를 구하자.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 2027 논술가이드북(자연) p.47 예시답안
+    steps:
+    - id: 1b-1
+      content: |
+        미적분학의 기본정리를 이용하여 $g'(x)=1+ae^{-x^2}$를 구하면 $g'(x)$가 모든 $x$에 대하여 양수임을 알 수 있다.
+      criteria: [1.B1]
+    - id: 1b-2
+      content: |
+        따라서 $g(x)$가 증가하는 구간은 $(-\infty,\infty)$이다.
+      criteria: [1.B2]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.B1
+      mark_type: B
+      points: 3
+      evidence: $g'(x)=1+ae^{-x^2}$을 구했다.
+      depends_on: []
+      steps: [1b-1]
+    - id: 1.B2
+      mark_type: B
+      points: 2
+      evidence: 구간 $(-\infty,\infty)$를 구했다.
+      depends_on: []
+      steps: [1b-2]
+    deductions:
+    - code: D1-1
+      condition: 논리 전개 과정이 맞으면 답이 틀리더라도 1~2점의 부분 점수 부여, 채점자 재량 −0.5~+0.5점(공식 주석은 [3-2] 아래에 표기, 문제 3 전체 적용으로 봄)
+      effect: minus
+      value: 0.5
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-CAL-4708}
+  misconceptions:
+  - id: MC-CAL-4708
+    outcome_code: '70'
+    wrong_work: '$\dfrac{d}{dx}\int_0^xe^{-t^2}dt$를 $e^{-x^2}\cdot(-2x)$ 또는 $-2xe^{-x^2}$로 계산해 증가 구간을 일부로 잡음'
+    detect_cue: $g'(x)=1-2axe^{-x^2}$ 꼴, 증가 구간이 실수 전체가 아님
+    feedback: 미적분의 기본정리에 의해 $\dfrac{d}{dx}\int_0^xf(t)\,dt=f(x)$입니다. 피적분함수를 미분하지 않습니다.
+    remedy: [RL-1]
+- id: '2'
+  stem: |
+    [3-2] 정적분
+    $$\int_0^{g(1)}g^{-1}(x)\,dx=1$$
+    을 만족시키는 $a$를 구하시오. [10점]
+  points: 10
+  depends_on: ['1']
+  answer: {kind: value, value: '\dfrac{e}{e-1}', equivalents: ['1/(1-e^{-1})', 'e/(e-1)'], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: $u=g^{-1}(x)$ 치환 ⇒ $\int_0^1u(1+ae^{-u^2})\,du=\dfrac12+\dfrac a2(1-e^{-1})$.
+    steps:
+    - {id: 2a, content: '$\dfrac12+\dfrac a2(1-e^{-1})=1\Rightarrow a=\dfrac{e}{e-1}$', criteria: [2.R1, 2.B1, 2.B2, 2.B3]}
+    hint_ladder:
+    - $g^{-1}$를 직접 구할 수 없다. $x=g(u)$로 두면 $dx$는?
+    - $g(0)$과 $g(1)$을 이용해 적분 구간을 바꾸자.
+  - id: S2-B
+    audience: B
+    method_no: 1
+    source_flow: 2027 논술가이드북(자연) p.48 예시답안
+    steps:
+    - id: 2b-1
+      content: |
+        $g(x)$가 증가함수이므로 역함수가 실수 전체 구간에서 존재하고 따라서 다음과 같이 $u=g^{-1}(x)$로 치환적분을 할 수 있다.
+      criteria: [2.R1]
+    - id: 2b-2
+      content: |
+        $$\int_0^{g(1)}g^{-1}(x)\,dx=\int_0^1u\,g'(u)\,du=\int_0^1u\left(1+ae^{-u^2}\right)du=\int_0^1u\,du+a\int_0^1ue^{-u^2}du$$
+      criteria: [2.B1]
+    - id: 2b-3
+      content: |
+        두 번째 적분에 대하여 $t=u^2$으로 치환하여
+        $$\int_0^1ue^{-u^2}du=\dfrac12\int_0^1e^{-t}dt=\dfrac12\left(1-e^{-1}\right)$$
+        을 얻는다. 따라서 문제에 주어진 조건에 의해
+        $$\dfrac12+\dfrac a2\left(1-e^{-1}\right)=1$$
+      criteria: [2.B2]
+    - id: 2b-4
+      content: |
+        이 성립한다. 따라서 $a=\dfrac{1}{1-e^{-1}}=\dfrac{e}{e-1}$이다.
+      criteria: [2.B3]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.R1
+      mark_type: R
+      points: 1
+      evidence: $g(x)$가 증가함수이므로 (역함수가 존재해) 치환적분이 가능하다는 언급이 있다.
+      depends_on: []
+      steps: [2b-1]
+    - id: 2.B1
+      mark_type: B
+      points: 3
+      evidence: 치환적분하여 $\int_0^{g(1)}g^{-1}(x)\,dx=\int_0^1u\,g'(u)\,du=\int_0^1u\left(1+ae^{-u^2}\right)du$를 얻었다.
+      depends_on: []
+      steps: [2b-2]
+    - id: 2.B2
+      mark_type: B
+      points: 4
+      evidence: 정적분을 계산하여 등식 $\dfrac12+\dfrac a2\left(1-e^{-1}\right)=1$을 얻었다.
+      depends_on: []
+      steps: [2b-3]
+    - id: 2.B3
+      mark_type: B
+      points: 2
+      evidence: $a=\dfrac{1}{1-e^{-1}}=\dfrac{e}{e-1}$을 구했다.
+      depends_on: []
+      steps: [2b-4]
+    deductions:
+    - code: D2-1
+      condition: 채점자 재량 — 답안의 완성도에 따라 −0.5~+0.5점(공식 주석). 논리 전개 과정이 맞으면 답이 틀리더라도 1~2점의 부분 점수 부여(공식 주석)
+      effect: minus
+      value: 0.5
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-CAL-4709}
+  misconceptions:
+  - id: MC-CAL-4709
+    outcome_code: '70'
+    wrong_work: '$u=g^{-1}(x)$로 치환하면서 적분 구간을 $0\to g(1)$ 그대로 두거나 $dx=g''(u)\,du$를 빠뜨려 $\int_0^1u\,du$만 계산'
+    detect_cue: 식에 $g'(u)$가 없거나 상한이 $g(1)$로 남음, $a$를 구하지 못함
+    feedback: $x=g(u)$이므로 $dx=g'(u)\,du$이고, $g(0)=0$, $x=g(1)$일 때 $u=1$입니다.
+    remedy: [RL-2]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CAL-4708}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-FTC}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-CAL-4709}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-INVERSE-INTEGRAL}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-input-v1, item_version: 1, verdict: pass, date: 2026-11-21, note: 문제 원문 PDF 이미지 대조로 옮김 · 주 해설은 공식 예시답안 흐름 그대로 · 채점기준은 공식 기준을 R/B 마크로 옮김}
+
+created: 2026-11-21
+updated: 2026-11-21

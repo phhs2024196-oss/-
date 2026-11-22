@@ -1,0 +1,286 @@
+schema_version: '2.0'
+id: CAU-G25B-03
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: CAU
+type: T03
+variant_of: null
+replaces: null
+level: L5
+form: 분류
+points: 25
+time_estimate_min: 30
+intent: '정적분으로 수열을 구하고 수열의 합을 구하며, 문제를 이해해 함수를 구성하고 그래프의 개형을 고려해 최솟값을 구한 뒤 정적분하는 능력을 본다. [3-1] 수열을 구하고 그 합을 구할 수 있는지, [3-2] 함수를 구해 그래프 개형으로 최솟값을 구하고 주어진 정적분 값을 구할 수 있는지를 평가한다(문항카드 출제 의도 요지).'
+key_idea: '[3-1] 부분적분으로 $a_{n+1}+(n+1)a_n=e$를 얻으면 합의 각 항이 $e\left(\dfrac{1}{\ln\frac{n}{15}}-\dfrac{1}{\ln\frac{n+1}{15}}\right)$로 망원된다. [3-2] $\overline{\mathrm{PA}}^2\,\overline{\mathrm{PB}}^2=(x^2+t^2-1)^2+4t^2$이므로 $0<t<1$이면 $x=\pm\sqrt{1-t^2}$, $t\ge1$이면 $x=0$에서 최소.'
+stuck: '[3-1] $\ln(n+1)-\ln n=\ln\dfrac{n+1}{15}-\ln\dfrac{n}{15}$으로 고쳐 써서 부분분수 꼴을 만드는 단계 / [3-2] 곱을 $(x^2+t^2-1)^2+4t^2$으로 정리하고 $t$의 범위로 나누는 단계'
+idea_tags: [IDEA-PARTS-RECURRENCE, IDEA-TELESCOPING-PARTIAL-FRACTION, IDEA-COMPLETE-SQUARE-PRODUCT, IDEA-CASE-BY-PARAMETER]
+tags: [부분적분, 정적분의 점화식, 망원 합, 최솟값, 매개변수, 중앙대 실전]
+elements:
+  materials: ['세 직선 $y=0$, $x=1$, $x=e$와 곡선 $y=(\ln x)^n$으로 둘러싸인 넓이 $a_n$', '합 $\displaystyle\sum_{n=1}^{13}\{a_{n+1}+(n+1)a_n\}\dfrac{\ln(n+1)-\ln n}{\ln\left(\frac{n}{15}\right)\ln\left(\frac{n+1}{15}\right)}$', 'A(1,t), B(−1,t), P(x,0)와 $f(x)=\ln\overline{\mathrm{PA}}+\ln\overline{\mathrm{PB}}$의 최솟값 $g(t)$', '정적분 $\displaystyle\int_{1/2}^{2}2t\,g(t)\,dt$']
+  concepts: [정적분과 넓이, 부분적분법, 수열의 합(망원), 로그의 성질, 두 점 사이의 거리, 함수의 최솟값과 그래프의 개형]
+  tools: ['부분적분으로 $a_{n+1}$과 $a_n$의 관계식', 로그 차를 분수로 바꿔 망원 합, 거리 곱의 완전제곱 정리, t의 범위별 최소점, 부분적분과 치환으로 2t ln 적분]
+  conditions:
+  - '$1\le x\le e$에서 $(\ln x)^n\ge0$ ⇒ $a_n=\displaystyle\int_1^e(\ln x)^n\,dx$'
+  - '$a_{n+1}+(n+1)a_n=e$ ⇒ 합의 일반항 $=e\cdot\dfrac{\ln\frac{n+1}{15}-\ln\frac{n}{15}}{\ln\frac{n}{15}\ln\frac{n+1}{15}}$ ($n\le13$이라 $\ln\frac{n}{15}$, $\ln\frac{n+1}{15}\neq0$)'
+  - '$\ln\overline{\mathrm{PA}}+\ln\overline{\mathrm{PB}}=\dfrac12\ln(\overline{\mathrm{PA}}^2\,\overline{\mathrm{PB}}^2)$, $\ln$은 증가 ⇒ 곱의 최소를 찾으면 됨'
+  - '$(x^2+t^2-1)^2+4t^2$: $0<t<1$이면 $x^2=1-t^2$에서 최소 $4t^2$, $t\ge1$이면 $x=0$에서 최소 $(t^2+1)^2$'
+  - '적분 구간 $\left[\dfrac12,2\right]$를 $t=1$에서 나눔'
+  stimuli_used: ['1', '2', '3']
+  subpart_links:
+  - {from: '1', to: '2', relation: 독립(서로 다른 소재)}
+
+curriculum:
+  version: '2015'
+  subjects: [미적분, 수학Ⅰ, 수학]
+  scope_2028: calc2
+  scope_confirmed: false
+  standards:
+  - code: 12미적03-02
+    text: 부분적분법을 이해하고, 이를 활용할 수 있다.
+    verified: true
+  - code: 12수학Ⅰ03-05
+    text: 여러 가지 수열의 첫째항부터 제n항까지의 합을 구할 수 있다.
+    verified: true
+  - code: 10수학02-01
+    text: 두 점 사이의 거리를 구할 수 있다.
+    verified: true
+  - code: 12미적02-12
+    text: 함수의 그래프의 개형을 그릴 수 있다.
+    verified: true
+  - code: 12미적03-01
+    text: 치환적분법을 이해하고, 이를 활용할 수 있다.
+    verified: true
+  content_area: 적분법 – 부분적분·치환적분 / 수열의 합 / 도함수의 활용 – 그래프의 개형
+  behavior_domain: 문제해결
+  unit_path: [미적분, 적분법, 여러 가지 적분법, 부분적분법]
+  key_concepts: [정적분, 수열의 합, 두 점 사이의 거리, 그래프의 개형]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 중앙대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 중앙대학교
+  admission_year: 2025
+  admission_type: 논술(수시)
+  track: 자연계열Ⅱ
+  question_no: 3
+  official_url: https://admission.cau.ac.kr/files/2025/2025_cau_ns_jy2.pdf
+  retrieved_at: '2026-11-21'
+  original_points: 25
+  rights_notice: 중앙대학교 입학처 공개 자료(기출문제 게시판 board_seq=3072). 상업적 재사용 허락 미요청
+  note: 문제 = 2025 자연계열Ⅱ 문제지 p.3(PDF p.4, 2026 논술가이드북 p.58) / 예시답안·채점기준 = 2026 논술가이드북(자연) p.65~66 / 출제의도·성취기준 = 2025 선행학습 영향평가 보고서 문항카드 13(PDF p.254~257, 인쇄 쪽 252~255) / official_url 파일 경로는
+
+verify: verify/CAU-G25B.py::p03
+
+stimuli:
+- label: '1'
+  body: |
+    두 함수 $f(x)$, $g(x)$가 미분가능할 때, 다음이 성립한다.
+    $$\int f(x)g^\prime(x)\,dx=f(x)g(x)-\int f^\prime(x)g(x)\,dx$$
+- label: '2'
+  body: |
+    좌표평면에서 두 점 $\mathrm A(x_1,y_1)$, $\mathrm B(x_2,y_2)$ 사이의 거리는 $\overline{\mathrm{AB}}=\sqrt{(x_1-x_2)^2+(y_1-y_2)^2}$이다.
+- label: '3'
+  body: |
+    미분가능한 함수 $g(x)$의 도함수 $g^\prime(x)$가 닫힌구간 $[a,b]$를 포함하는 열린구간에서 연속이고, $g(a)=\alpha$, $g(b)=\beta$에 대하여 함수 $f(x)$가 $\alpha$와 $\beta$를 양끝으로 하는 닫힌구간에서 연속일 때 다음 식이 성립한다.
+    $$\int_a^b f(g(x))g^\prime(x)\,dx=\int_\alpha^\beta f(t)\,dt$$
+
+stem: |
+  다음을 읽고 문항별로 풀이와 함께 답하시오.
+
+subparts:
+- id: '1'
+  stem: |
+    좌표평면 위의 세 직선 $y=0$, $x=1$, $x=e$와 곡선 $y=(\ln x)^n$으로 둘러싸인 영역의 넓이를 $a_n$이라 하자. 수열의 합 $\displaystyle\sum_{n=1}^{13}\{a_{n+1}+(n+1)a_n\}\dfrac{\ln(n+1)-\ln n}{\ln\left(\dfrac{n}{15}\right)\ln\left(\dfrac{n+1}{15}\right)}$을 구하시오. [10점]
+  points: 10
+  depends_on: []
+  answer: {kind: value, value: 'e\left(\dfrac{1}{\ln\frac{15}{14}}-\dfrac{1}{\ln15}\right)', equivalents: ['e*(1/ln(15/14)-1/ln(15))', 'e\left(\dfrac{1}{\ln\frac{1}{15}}-\dfrac{1}{\ln\frac{14}{15}}\right)'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $a_{n+1}=e-(n+1)a_n$이므로 괄호는 상수 $e$, 나머지는 $\dfrac1{\ln\frac n{15}}-\dfrac1{\ln\frac{n+1}{15}}$의 망원 합.
+    steps:
+    - {id: 1a, content: '$e\left(\dfrac{1}{\ln\frac{1}{15}}-\dfrac{1}{\ln\frac{14}{15}}\right)=e\left(\dfrac{1}{\ln\frac{15}{14}}-\dfrac{1}{\ln15}\right)$', criteria: [1.B1, 1.B2, 1.B3]}
+    hint_ladder:
+    - '$a_{n+1}$에 부분적분을 적용해 $a_n$과의 관계를 찾자.'
+    - '$\ln(n+1)-\ln n$을 $\ln\dfrac{n+1}{15}-\ln\dfrac{n}{15}$으로 바꿔 보자.'
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 2026 논술가이드북(자연) p.65 예시답안
+    steps:
+    - id: 1b-1
+      content: |
+        $a_{n+1}=\displaystyle\int_1^e(\ln x)^{n+1}\,dx$이고 부분적분을 적용하여
+        $$a_{n+1}=\int_1^e(\ln x)^{n+1}\,dx=\left[x(\ln x)^{n+1}\right]_1^e-\int_1^e(n+1)(\ln x)^n\,dx=e-(n+1)a_n$$
+        을 얻을 수 있다.
+      criteria: [1.B1, 1.B2]
+    - id: 1b-2
+      content: |
+        정리하면 $a_{n+1}+(n+1)a_n=e$이다. 구하는 수열의 합은 다음과 같다.
+        $$e\sum_{n=1}^{13}\dfrac{\ln(n+1)-\ln(n)}{\ln\left(\frac{n}{15}\right)\ln\left(\frac{n+1}{15}\right)}=e\sum_{n=1}^{13}\dfrac{\ln\left(\frac{n+1}{15}\right)-\ln\left(\frac{n}{15}\right)}{\ln\left(\frac{n}{15}\right)\ln\left(\frac{n+1}{15}\right)}=e\sum_{n=1}^{13}\left\{\dfrac{1}{\ln\frac{n}{15}}-\dfrac{1}{\ln\frac{n+1}{15}}\right\}$$
+        $$=e\left(\dfrac{1}{\ln\frac{1}{15}}-\dfrac{1}{\ln\frac{14}{15}}\right)=e\left(\dfrac{1}{\ln\frac{15}{14}}-\dfrac{1}{\ln15}\right)$$
+        이다.
+      criteria: [1.B3]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.B1
+      mark_type: B
+      points: 2
+      evidence: $a_n$이 $a_n=\displaystyle\int_1^e(\ln x)^n\,dx$임을 구했다.
+      depends_on: []
+      steps: [1b-1]
+    - id: 1.B2
+      mark_type: B
+      points: 4
+      evidence: $a_{n+1}+(n+1)a_n=e$를 구했다.
+      depends_on: []
+      steps: [1b-1]
+    - id: 1.B3
+      mark_type: B
+      points: 4
+      evidence: 나머지 계산을 하여 수열의 합 $e\left(\dfrac{1}{\ln\frac{1}{15}}-\dfrac{1}{\ln\frac{14}{15}}\right)$ 또는 $e\left(\dfrac{1}{\ln\frac{15}{14}}-\dfrac{1}{\ln15}\right)$을 계산했다.
+      depends_on: []
+      steps: [1b-2]
+    deductions:
+    - code: D1-1
+      condition: 논리 전개 과정이 맞으면 답이 틀리더라도 부분 점수 가능(공식 채점기준 주석)
+      effect: minus
+      value: 1
+    - code: D1-2
+      condition: 채점자 재량 — 답안의 완성도에 따라 ±1점(공식 채점기준 주석)
+      effect: minus
+      value: 1
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-CAL-4619}
+  misconceptions:
+  - id: MC-CAL-4619
+    outcome_code: '70'
+    wrong_work: '부분적분에서 경계항 $\left[x(\ln x)^{n+1}\right]_1^e=e$를 빠뜨려 $a_{n+1}=-(n+1)a_n$으로 둠'
+    detect_cue: 괄호 안 값이 0 또는 $n$에 따라 변하는 식, 답에 $e$ 인수가 없음
+    feedback: '$\displaystyle\int_1^e(\ln x)^{n+1}\cdot1\,dx$에서 $u=(\ln x)^{n+1}$, $v=x$로 두면 경계항 $\left[x(\ln x)^{n+1}\right]_1^e=e$가 남습니다.'
+    remedy: [RL-1]
+
+- id: '2'
+  stem: |
+    좌표평면 위의 점 $\mathrm A(1,t)$, $\mathrm B(-1,t)$, $\mathrm P(x,0)$이 있다. 실수 $t\ (t>0)$에 대하여 함수 $f(x)$는
+    $$f(x)=\ln\overline{\mathrm{PA}}+\ln\overline{\mathrm{PB}}$$
+    이다. 함수 $f(x)$의 최솟값을 $g(t)$라 할 때, 정적분 $\displaystyle\int_{\frac12}^{2}2t\,g(t)\,dt$의 값을 구하시오. [15점]
+  points: 15
+  depends_on: []
+  answer: {kind: value, value: '5\ln5-\ln2-\dfrac{27}{8}', equivalents: ['5*ln5-ln2-27/8'], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: '$g(t)=\ln(2t)\ (0<t<1)$, $g(t)=\ln(t^2+1)\ (t\ge1)$로 나누어 각 구간을 적분한다.'
+    steps:
+    - {id: 2a, content: '$\displaystyle\int_{1/2}^{1}2t\ln(2t)\,dt=\ln2-\dfrac38$, $\displaystyle\int_1^2 2t\ln(t^2+1)\,dt=5\ln5-2\ln2-3$, 합 $5\ln5-\ln2-\dfrac{27}{8}$', criteria: [2.B1, 2.B2, 2.B3, 2.B4]}
+    hint_ladder:
+    - 로그의 합은 곱의 로그이다. 거리 제곱의 곱을 전개해 보자.
+    - '$(x^2+1+t^2)^2-4x^2$을 $x^2$에 대한 식으로 정리하면 완전제곱이 보인다.'
+    - '$x^2=1-t^2$이 가능한 $t$와 불가능한 $t$를 나누자.'
+  - id: S2-B
+    audience: B
+    method_no: 1
+    source_flow: 2026 논술가이드북(자연) p.66 예시답안
+    steps:
+    - id: 2b-1
+      content: |
+        $\ln\overline{\mathrm{PA}}+\ln\overline{\mathrm{PB}}=\dfrac12\ln\left(\overline{\mathrm{PA}}^2\,\overline{\mathrm{PB}}^2\right)$이고 $\overline{\mathrm{PA}}^2\,\overline{\mathrm{PB}}^2=\left((x-1)^2+t^2\right)\left((x+1)^2+t^2\right)$이다.
+        식을 정리하면 $(x^2+1+t^2+2x)(x^2+1+t^2-2x)=(x^2+1+t^2)^2-4x^2=(x^2+t^2-1)^2+4t^2$이다.
+      criteria: []
+    - id: 2b-2
+      content: |
+        $0<t<1$이면 $x=\pm\sqrt{1-t^2}$에서 최솟값 $g(t)=\ln(2t)$를 갖는다.
+      criteria: [2.B1]
+    - id: 2b-3
+      content: |
+        $t\ge1$이면 $x=0$에서 최솟값 $g(t)=\ln(t^2+1)$을 갖는다.
+      criteria: [2.B2]
+    - id: 2b-4
+      content: |
+        구하는 정적분은 $\displaystyle\int_{\frac12}^{2}2t\,g(t)\,dt=\int_{\frac12}^{1}2t\ln(2t)\,dt+\int_1^2 2t\ln(t^2+1)\,dt$이다.
+        $$\int_{\frac12}^{1}2t\ln(2t)\,dt=\left[t^2\ln(2t)\right]_{\frac12}^{1}-\int_{\frac12}^{1}t\,dt=\ln2-\dfrac38$$
+        이고
+      criteria: [2.B3]
+    - id: 2b-5
+      content: |
+        $$\int_1^2 2t\ln(t^2+1)\,dt=5\ln5-2\ln2-3$$
+        이다. 답은 $5\ln5-\ln2-\dfrac{27}{8}$이다.
+      criteria: [2.B4]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.B1
+      mark_type: B
+      points: 4
+      evidence: $0<t<1$이면 $g(t)=\ln(2t)$를 구했다.
+      depends_on: []
+      steps: [2b-2]
+    - id: 2.B2
+      mark_type: B
+      points: 4
+      evidence: $t\ge1$이면 $g(t)=\ln(t^2+1)$을 구했다.
+      depends_on: []
+      steps: [2b-3]
+    - id: 2.B3
+      mark_type: B
+      points: 4
+      evidence: $\displaystyle\int_{\frac12}^{1}2t\ln(2t)\,dt=\ln2-\dfrac38$을 구했다.
+      depends_on: []
+      steps: [2b-4]
+    - id: 2.B4
+      mark_type: B
+      points: 3
+      evidence: $\displaystyle\int_1^2 2t\ln(t^2+1)\,dt=5\ln5-2\ln2-3$을 구했다.
+      depends_on: []
+      steps: [2b-5]
+    deductions:
+    - code: D2-1
+      condition: 논리 전개 과정이 맞으면 답이 틀리더라도 부분 점수 가능(공식 채점기준 주석)
+      effect: minus
+      value: 1
+    - code: D2-2
+      condition: 채점자 재량 — 답안의 완성도에 따라 ±1점(공식 채점기준 주석)
+      effect: minus
+      value: 1
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-CAL-4620}
+  misconceptions:
+  - id: MC-CAL-4620
+    outcome_code: '70'
+    wrong_work: '대칭성만 보고 모든 $t$에서 $x=0$이 최소점이라 하여 $g(t)=\ln(t^2+1)$을 $\left[\dfrac12,2\right]$ 전체에서 적분'
+    detect_cue: $\ln(2t)$가 없음, 답이 $\displaystyle\int_{1/2}^{2}2t\ln(t^2+1)\,dt$ 값
+    feedback: '$0<t<1$이면 $(x^2+t^2-1)^2$을 0으로 만드는 $x=\pm\sqrt{1-t^2}$가 존재합니다. $t$의 범위에 따라 최소점이 달라집니다.'
+    remedy: [RL-2]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CAL-4619}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-INT-PARTS}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-CAL-4620}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-OPTIM}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-input-v1, item_version: 1, verdict: pass, date: 2026-11-21, note: 문제 원문 PDF 이미지 대조로 옮김 · 주 해설은 공식 예시답안 흐름 그대로 · 채점기준은 공식 기준을 B 마크로 옮김}
+
+created: 2026-11-21
+updated: 2026-11-21

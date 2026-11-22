@@ -1,0 +1,254 @@
+schema_version: '2.0'
+id: CAU-G24B-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: CAU
+type: T01
+variant_of: null
+replaces: null
+level: L5
+form: 분류
+points: 20
+time_estimate_min: 25
+intent: 꺼낸 공의 숫자에 따라 확률이 정해지는 내분·외분 이동을 경우별로 정리하고, 각 경로의 확률과 도착점을 계산해 거리 조건을 만족하는 확률을 구하는 능력을 본다(공식 해설 흐름에서 정리 — 공식 출제 의도 문서 없음).
+key_idea: '$(m,n)=(2,3)$, $(3,2)$ 두 경우만 있으므로 각 경우 $\mathrm{A}_1$·$\mathrm{A}_2$의 좌표와 확률을 표로 나열하고, $\overline{\mathrm{A_2P}}<\lvert x_1\rvert$를 하나씩 비교한다.'
+stuck: 외분점 공식의 부호와, $n=2$일 때 $1-\frac2n=0$이라 외분 이동이 일어나지 않는다는 점
+idea_tags: [IDEA-CASE-TREE-PROBABILITY, IDEA-SECTION-POINT-FORMULA]
+tags: [확률, 내분점, 외분점, 경우의 수, 중앙대 실전]
+elements:
+  materials:
+  - '숫자 2, 3이 적힌 공 2개(비복원)'
+  - '원점 O, $\mathrm{P}(12,0)$, $\mathrm{Q}(x_1,8)$'
+  - '첫 이동: 확률 $\frac1m$로 OP를 $m:1$ 내분, $1-\frac1m$로 $1:m$ 외분 ⇒ $\mathrm{A}_1(x_1,0)$'
+  - '둘째 이동: 확률 $\frac2n$로 $\mathrm{A_1Q}$를 $1:n$ 내분, $1-\frac2n$로 $n:1$ 외분 ⇒ $\mathrm{A}_2(x_1,y_1)$'
+  - '조건 $\overline{\mathrm{A_2P}}<\lvert x_1\rvert$'
+  concepts: [선분의 내분점·외분점, 두 점 사이의 거리, 확률의 곱셈정리, 배반사건의 확률의 덧셈]
+  tools:
+  - '일반 $(m,n)$에 대해 $\mathrm{A}_1$, $\mathrm{A}_2$ 좌표·확률 표 작성'
+  - '$(m,n)=(2,3)$, $(3,2)$ 각각 대입'
+  - '경로별 확률 = $\frac12\times$(첫 이동 확률)$\times$(둘째 이동 확률)'
+  - 거리 공식으로 6개 도착점 비교
+  conditions:
+  - '공을 다시 넣지 않음 ⇒ $m$이 정해지면 $n$은 남은 숫자, $(m,n)=(2,3)$ 또는 $(3,2)$ 각 확률 $\frac12$'
+  - '$n=2$ ⇒ 내분 확률 $\frac2n=1$, 외분 확률 0 ⇒ 외분점 $\mathrm{A}_2(9,16)$, $(-6,16)$은 제외'
+  - 'Q의 $x$좌표가 $\mathrm{A}_1$과 같음 ⇒ $\mathrm{A}_2$의 $x$좌표는 $x_1$ 그대로'
+  stimuli_used: []
+  subpart_links: null
+
+curriculum:
+  version: '2015'
+  subjects: [수학, 확률과통계]
+  scope_2028: common
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 선분의 내분과 외분을 이해하고 내분점과 외분점의 좌표를 구할 수 있다 / 확률의 곱셈정리(요지)
+    verified: false
+  content_area: 평면좌표 – 내분점·외분점 / 확률 – 조건부확률과 곱셈정리
+  behavior_domain: 문제해결
+  unit_path: [확률과 통계, 확률, 조건부확률, 확률의 곱셈정리]
+  key_concepts: [내분점, 외분점, 확률의 곱셈정리]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 중앙대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 중앙대학교
+  admission_year: 2024
+  admission_type: 논술(수시)
+  track: 자연계열Ⅱ
+  question_no: 1
+  official_url: https://admisfile.cau.ac.kr/download/2024/susi/2024_s_n_j2.pdf
+  retrieved_at: '2026-11-21'
+  original_points: 20
+  rights_notice: 중앙대학교 입학처 공개 자료(기출문제 게시판). 상업적 재사용 허락 미요청
+  note: 문제 = 2024 자연계열Ⅱ 문제지 4-1(PDF p.2) / 예시답안·채점기준 = 2025 논술가이드북(자연) p.60~62 / 문항카드 없음(성취기준 미확인) / 게시판 board_seq 2872
+
+verify: verify/CAU-G24B.py::p01
+
+stimuli: []
+
+stem: |
+  좌표평면의 원점 O에 있는 점 A는 다음과 같은 규칙에 따라 이동한다.
+
+  - 주머니에 숫자 2가 적힌 공 1개와 숫자 3이 적힌 공 1개가 들어 있다.
+  - 주머니에서 임의로 1개의 공을 꺼낸 후 그 공에 적힌 숫자를 $m$이라 하자. 점 A는 $\dfrac1m$의 확률로 원점 O와 점 $\mathrm{P}(12,0)$을 이은 선분 OP를 $m:1$로 내분하는 점으로 이동하거나, $1-\dfrac1m$의 확률로 선분 OP를 $1:m$으로 외분하는 점으로 이동한다. 이때 이동한 점을 $\mathrm{A}_1(x_1,0)$이라 하고, 꺼낸 공은 다시 집어넣지 않는다.
+  - 주머니에 남아 있는 공에 적힌 숫자를 $n$이라 하자. 점 $\mathrm{A}_1$은 $\dfrac2n$의 확률로 점 $\mathrm{A}_1$과 점 $\mathrm{Q}(x_1,8)$을 이은 선분 $\mathrm{A_1Q}$를 $1:n$으로 내분하는 점으로 이동하거나, $1-\dfrac2n$의 확률로 선분 $\mathrm{A_1Q}$를 $n:1$로 외분하는 점으로 이동한다. 이때 이동한 점을 $\mathrm{A}_2(x_1,y_1)$이라 한다.
+
+  두 점 $\mathrm{A}_2(x_1,y_1)$, $\mathrm{P}(12,0)$ 사이의 거리가 $\lvert x_1\rvert$보다 작을 확률을 구하시오. [20점]
+
+subparts:
+- id: '1'
+  stem: |
+    두 점 $\mathrm{A}_2(x_1,y_1)$, $\mathrm{P}(12,0)$ 사이의 거리가 $\lvert x_1\rvert$보다 작을 확률을 구하시오.
+  points: 20
+  depends_on: []
+  answer: {kind: value, value: '\dfrac{1}{3}', equivalents: ['1/3'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: 도착점과 확률은 $(8,2)\frac16$, $(8,12)\frac{1}{12}$, $(-12,2)\frac16$, $(-12,12)\frac{1}{12}$, $\left(9,\frac83\right)\frac16$, $\left(-6,\frac83\right)\frac13$.
+    steps:
+    - {id: 1a, content: '조건을 만족하는 것은 $\mathrm{A}_2(8,2)$, $\mathrm{A}_2\left(9,\frac83\right)$ ⇒ $\dfrac16+\dfrac16=\dfrac13$', criteria: [1.B1, 1.B2, 1.B3, 1.B4, 1.B5, 1.B6, 1.B7]}
+    hint_ladder:
+    - 먼저 꺼낸 공이 2인 경우와 3인 경우로 나누자.
+    - $n=2$이면 외분할 확률 $1-\frac2n$은 얼마인가?
+    - 도착점마다 P까지의 거리와 $\lvert x_1\rvert$를 비교하자.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 2025 논술가이드북(자연) p.60~61 [문제 1] 예시답안
+    steps:
+    - id: 1b-1
+      content: |
+        (1) 선분의 내분점과 외분점은 다음과 같이 정의된다.
+        - 좌표평면 위의 두 점 $\mathrm{A}(x_1,y_1)$, $\mathrm{B}(x_2,y_2)$를 이은 선분 AB를 $m:n$으로 내분하는 점의 좌표는 $\left(\dfrac{mx_2+nx_1}{m+n},\ \dfrac{my_2+ny_1}{m+n}\right)$이다. $(m>0,\ n>0)$
+        - 선분 AB를 $m:n$으로 외분하는 점의 좌표는 $\left(\dfrac{mx_2-nx_1}{m-n},\ \dfrac{my_2-ny_1}{m-n}\right)$이다. $(m>0,\ n>0,\ m\ne n)$
+      criteria: []
+    - id: 1b-2
+      content: |
+        (2) 일반적으로 $(m,n)$인 경우 $\mathrm{A}_1(x_1,0)$과 $\mathrm{A}_2(x_1,y_1)$은 다음과 같이 계산할 수 있다.
+
+        | 선분 OP | $\mathrm{A}_1(x_1,0)$ | 확률 | 선분 $\mathrm{A_1Q}$ | $\mathrm{A}_2(x_1,y_1)$ | 확률 |
+        |---|---|---|---|---|---|
+        | $m:1$로 내분 | $\left(\frac{12m}{m+1},0\right)$ | $\frac1m$ | $1:n$으로 내분 | $\left(x_1,\frac{8}{1+n}\right)$ | $\frac2n$ |
+        | $1:m$로 외분 | $\left(\frac{12}{1-m},0\right)$ | $1-\frac1m$ | $n:1$로 외분 | $\left(x_1,\frac{8n}{n-1}\right)$ | $1-\frac2n$ |
+      criteria: []
+    - id: 1b-3
+      content: |
+        (3) $m=2,\ n=3$인 경우
+        - 선분 OP를 $2:1$로 내분한 점은 $(8,0)$이고, $1:2$로 외분한 점은 $(-12,0)$이다. 즉, 점 A는 $\frac12$의 확률로 $\mathrm{A}_1(8,0)$으로 이동하거나, $\frac12$의 확률로 $\mathrm{A}_1(-12,0)$으로 이동한다.
+        - 점 $\mathrm{A}_1(8,0)$일 때, 선분 $\mathrm{A_1Q}$를 $1:3$으로 내분한 점은 $(8,2)$이고, $3:1$로 외분한 점은 $(8,12)$이다. 즉, 점 $\mathrm{A}_1$은 $\frac23$의 확률로 $\mathrm{A}_2(8,2)$로 이동하거나, $\frac13$의 확률로 $\mathrm{A}_2(8,12)$로 이동한다.
+        - 점 $\mathrm{A}_1(-12,0)$일 때, 점 $\mathrm{A}_1$은 $\frac23$의 확률로 $\mathrm{A}_2(-12,2)$로 이동하거나, $\frac13$의 확률로 $\mathrm{A}_2(-12,12)$로 이동한다.
+      criteria: [1.B1, 1.B2]
+    - id: 1b-4
+      content: |
+        (4) $m=3,\ n=2$인 경우
+        - 선분 OP를 $3:1$로 내분한 점은 $(9,0)$이고, $1:3$으로 외분한 점은 $(-6,0)$이다. 즉, 점 A는 $\frac13$의 확률로 $\mathrm{A}_1(9,0)$으로 이동하거나, $\frac23$의 확률로 $\mathrm{A}_1(-6,0)$으로 이동한다.
+        - 점 $\mathrm{A}_1(9,0)$일 때, 선분 $\mathrm{A_1Q}$를 $1:2$로 내분한 점은 $\left(9,\frac83\right)$이고, $2:1$로 외분한 점은 $(9,16)$이다. 즉, 점 $\mathrm{A}_1$은 1의 확률로 $\mathrm{A}_2\left(9,\frac83\right)$로 이동한다.
+        - 점 $\mathrm{A}_1(-6,0)$일 때, 점 $\mathrm{A}_1$은 1의 확률로 $\mathrm{A}_2\left(-6,\frac83\right)$로 이동한다.
+      criteria: [1.B4, 1.B5]
+    - id: 1b-5
+      content: |
+        (5) 모든 경우를 고려하여 계산한 확률은 다음과 같이 나타낼 수 있다.
+
+        | $m,n$ | 확률 | $\mathrm{A}_1(x_1,0)$ | 확률 | $\mathrm{A}_2(x_1,y_1)$ | 확률 | $\mathrm{A}\to\mathrm{A}_1\to\mathrm{A}_2$일 확률 |
+        |---|---|---|---|---|---|---|
+        | $m=2,\ n=3$ | $\frac12$ | $\mathrm{A}_1(8,0)$ | $\frac12$ | $\mathrm{A}_2(8,2)$ | $\frac23$ | $\frac12\times\frac12\times\frac23=\frac16$ |
+        | | | | | $\mathrm{A}_2(8,12)$ | $\frac13$ | $\frac12\times\frac12\times\frac13=\frac{1}{12}$ |
+        | | | $\mathrm{A}_1(-12,0)$ | $\frac12$ | $\mathrm{A}_2(-12,2)$ | $\frac23$ | $\frac12\times\frac12\times\frac23=\frac16$ |
+        | | | | | $\mathrm{A}_2(-12,12)$ | $\frac13$ | $\frac12\times\frac12\times\frac13=\frac{1}{12}$ |
+        | $m=3,\ n=2$ | $\frac12$ | $\mathrm{A}_1(9,0)$ | $\frac13$ | $\mathrm{A}_2\left(9,\frac83\right)$ | 1 | $\frac12\times\frac13=\frac16$ |
+        | | | | | $\mathrm{A}_2(9,16)$ | 0 | 0 |
+        | | | $\mathrm{A}_1(-6,0)$ | $\frac23$ | $\mathrm{A}_2\left(-6,\frac83\right)$ | 1 | $\frac12\times\frac23=\frac13$ |
+        | | | | | $\mathrm{A}_2(-6,16)$ | 0 | 0 |
+      criteria: [1.B3, 1.B6]
+    - id: 1b-6
+      content: |
+        (6) 두 점 $\mathrm{A}_2$와 점 P 사이의 거리는 거리 공식을 통해서 다음과 같이 계산할 수 있고, $\lvert x_1\rvert$보다 작은 경우는 $\mathrm{A}_2(8,2)$와 $\mathrm{A}_2\left(9,\frac83\right)$이며 그때의 확률은 $\frac16+\frac16=\frac13$이다.
+
+        | $\mathrm{A}_2(x_1,y_1)$ | 확률 | $\lvert x_1\rvert$ | 점 $\mathrm{A}_2$와 점 P 사이의 거리 | $\lvert x_1\rvert>$ 거리 |
+        |---|---|---|---|---|
+        | $\mathrm{A}_2(8,2)$ | $\frac16$ | 8 | $\sqrt{4^2+2^2}=\sqrt{20}$ | O |
+        | $\mathrm{A}_2(8,12)$ | $\frac{1}{12}$ | 8 | $\sqrt{4^2+12^2}=\sqrt{160}$ | X |
+        | $\mathrm{A}_2(-12,2)$ | $\frac16$ | 12 | $\sqrt{24^2+2^2}=\sqrt{580}$ | X |
+        | $\mathrm{A}_2(-12,12)$ | $\frac{1}{12}$ | 12 | $\sqrt{24^2+12^2}=\sqrt{720}$ | X |
+        | $\mathrm{A}_2\left(9,\frac83\right)$ | $\frac16$ | 9 | $\sqrt{3^2+\left(\frac83\right)^2}=\sqrt{\frac{145}{9}}$ | O |
+        | $\mathrm{A}_2\left(-6,\frac83\right)$ | $\frac13$ | 6 | $\sqrt{18^2+\left(\frac83\right)^2}=\sqrt{324+\frac{64}{9}}$ | X |
+
+        ※ 확률이 0인 $\mathrm{A}_2(9,16)$과 $\mathrm{A}_2(-6,16)$의 경우는 거리 계산에서 제외하였다.
+      criteria: [1.B7]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.B1
+      mark_type: B
+      points: 3
+      evidence: $m=2,\ n=3$인 경우 점 $\mathrm{A}_1$의 좌표 $(8,0)$, $(-12,0)$을 정확히 계산했다.
+      depends_on: []
+      steps: [1b-3]
+    - id: 1.B2
+      mark_type: B
+      points: 3
+      evidence: $m=2,\ n=3$인 경우 점 $\mathrm{A}_2$의 좌표 $(8,2)$, $(8,12)$, $(-12,2)$, $(-12,12)$를 정확히 계산했다.
+      depends_on: []
+      steps: [1b-3]
+    - id: 1.B3
+      mark_type: B
+      points: 2
+      evidence: $m=2,\ n=3$인 경우 $\mathrm{A}_1$과 $\mathrm{A}_2$가 일어날 확률과 $\mathrm{A}\to\mathrm{A}_1\to\mathrm{A}_2$일 확률($\frac16,\frac{1}{12},\frac16,\frac{1}{12}$)을 정확히 계산했다.
+      depends_on: []
+      steps: [1b-5]
+    - id: 1.B4
+      mark_type: B
+      points: 3
+      evidence: $m=3,\ n=2$인 경우 점 $\mathrm{A}_1$의 좌표 $(9,0)$, $(-6,0)$을 정확히 계산했다.
+      depends_on: []
+      steps: [1b-4]
+    - id: 1.B5
+      mark_type: B
+      points: 3
+      evidence: $m=3,\ n=2$인 경우 점 $\mathrm{A}_2$의 좌표 $\left(9,\frac83\right)$, $\left(-6,\frac83\right)$(및 확률 0인 외분점)을 정확히 계산했다.
+      depends_on: []
+      steps: [1b-4]
+    - id: 1.B6
+      mark_type: B
+      points: 2
+      evidence: $m=3,\ n=2$인 경우 $\mathrm{A}_1$과 $\mathrm{A}_2$가 일어날 확률과 $\mathrm{A}\to\mathrm{A}_1\to\mathrm{A}_2$일 확률($\frac16$, 0, $\frac13$, 0)을 정확히 계산했다.
+      depends_on: []
+      steps: [1b-5]
+    - id: 1.B7
+      mark_type: B
+      points: 4
+      evidence: 두 점 사이의 거리를 정확히 계산하고 $\lvert x_1\rvert$와 정확히 비교해서 정답 $\frac13$을 찾아냈다.
+      depends_on: []
+      steps: [1b-6]
+    deductions:
+    - code: D1-1
+      condition: 채점자 재량 — 답안의 완성도에 따라 ±1점. 논리 전개 과정이 맞으면 답이 틀리더라도 부분 점수 부여 가능(공식 채점기준 주석)
+      effect: minus
+      value: 1
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-GEO-4516}
+  - {code: '71', misconception: MC-PRB-4523}
+  misconceptions:
+  - id: MC-GEO-4516
+    outcome_code: '70'
+    wrong_work: '선분 OP를 $1:2$로 외분한 점을 $(12,0)$이나 $(24,0)$으로, $\mathrm{A_1Q}$를 $3:1$로 외분한 점을 $(8,-4)$ 등으로 계산'
+    detect_cue: $\mathrm{A}_1$ 외분점이 $(-12,0)$, $(-6,0)$이 아님
+    feedback: $m:n$ 외분점은 $\frac{mx_2-nx_1}{m-n}$입니다. $1:2$ 외분이면 $\frac{1\cdot12-2\cdot0}{1-2}=-12$처럼 분모 부호에 주의하세요.
+    remedy: [RL-1]
+  - id: MC-PRB-4523
+    outcome_code: '71'
+    wrong_work: '$n=2$일 때도 외분 이동을 확률 $\frac12$ 등으로 넣거나, 첫 이동의 확률 $\frac1m$과 $1-\frac1m$을 내분·외분에 뒤바꿔 배정'
+    detect_cue: $\mathrm{A}_2(9,16)$ 또는 $(-6,16)$에 양의 확률, 또는 경로 확률의 합이 1이 아님
+    feedback: $n=2$이면 $\frac2n=1$이므로 반드시 내분점으로 갑니다. 경로 확률을 모두 더해 1이 되는지 확인하세요.
+    remedy: [RL-2]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-GEO-4516}
+  relation: remediation
+  target: {kind: concept, ref: CON-GEO-SECTION-POINT}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-PRB-4523}
+  relation: remediation
+  target: {kind: concept, ref: CON-PRB-CLASSICAL}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-input-v1, item_version: 1, verdict: pass, date: 2026-11-21, note: 문제 원문 PDF 이미지 대조로 옮김 · 주 해설은 2025 가이드북 예시답안 흐름 그대로 · 채점기준(경우별 8점 = 3·3·2, 거리 비교 4점)을 B 마크로 옮김}
+
+created: 2026-11-21
+updated: 2026-11-21

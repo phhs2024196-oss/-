@@ -1,0 +1,172 @@
+schema_version: '2.0'
+id: CAU-G22B-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: CAU
+type: T01
+variant_of: null
+replaces: null
+level: L4
+form: 분류
+points: 20
+time_estimate_min: 20
+intent: 도형과 연관하여 경우의 수를 계산하는 능력을 평가하고자 하며, 이를 위하여 '조합'의 개념을 사용할 수 있는지를 평가한다. 경우의 수에 대한 계산능력 및 조합 개념의 이해도를 평가하며 난이도는 '중' 정도(가이드북 출제의도 요지).
+key_idea: '축에 평행한 직사각형은 가로선 2개·세로선 2개를 고르는 조합 ${}_m\mathrm{C}_2\times{}_n\mathrm{C}_2$, $m=3$이면 축에 평행하지 않은(45° 기울어진) 정사각형 $n-2$개가 추가되고, 넓이 1인 것($m=2$: $n-1$개, $m=3$: $2(n-1)$개)을 뺀다.'
+stuck: '$m=3$일 때 축에 평행하지 않은 직사각형(대각선 방향 정사각형) $n-2$개를 빠뜨리기 쉬움'
+idea_tags: [IDEA-RECTANGLE-CHOOSE-TWO-LINES, IDEA-COUNT-TILTED-SQUARES]
+tags: [격자점, 직사각형의 개수, 조합, 중앙대 실전]
+elements:
+  materials: ['격자점 $(i,j)$ ($1\le i\le m$, $1\le j\le n$) $m\times n$개', '4개의 점으로 만드는 직사각형 중 넓이가 1이 아닌 것의 개수 $A(m,n)$']
+  concepts: [조합, 경우의 수(합의 법칙), 직사각형의 성질]
+  tools: ['$x$축·$y$축에 평행한 선 2개씩 선택 ${}_m\mathrm{C}_2\times{}_n\mathrm{C}_2$', '축에 평행하지 않은 직사각형 따로 세기', '넓이 1인 직사각형(단위정사각형) 개수 빼기', '$A(3,n)-A(2,n)$을 일반식으로 정리 후 $n=100$ 대입']
+  conditions:
+  - '$m,n$은 1보다 큰 자연수 ⇒ $m=2$, $m=3$ 모두 직사각형 존재'
+  - '넓이가 1인 것 제외 ⇒ 단위정사각형 $(m-1)(n-1)$개를 뺌'
+  - '$m=3$ ⇒ $x$좌표 1·2·3에서 꼭짓점이 $(2,y),(1,y+1),(2,y+2),(3,y+1)$인 기울어진 정사각형(넓이 2) $n-2$개'
+  stimuli_used: []
+  subpart_links: null
+
+curriculum:
+  version: '2015'
+  subjects: [수학]
+  scope_2028: common
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 조합의 의미를 이해하고, 조합의 수를 구할 수 있다(요지)
+    verified: false
+  content_area: 경우의 수 – 조합
+  behavior_domain: 문제해결
+  unit_path: [수학, 경우의 수, 순열과 조합, 조합]
+  key_concepts: [조합, 직사각형의 개수]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 중앙대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 중앙대학교
+  admission_year: 2022
+  admission_type: 논술(수시)
+  track: 자연계열Ⅱ
+  question_no: 1
+  official_url: https://admisfile.cau.ac.kr/download/cau_2022_s_n_j_2.pdf
+  retrieved_at: '2026-11-21'
+  original_points: 20
+  rights_notice: 중앙대학교 입학처 공개 자료(기출문제 게시판, board_seq=2531). 상업적 재사용 허락 미요청
+  note: 문제 = 2022 자연계열Ⅱ 문제지 p.1(PDF p.2) / 출전·출제의도 = 2023 논술가이드북(자연) p.83 / 예시답안·채점기준 = 같은 가이드북 p.84
+
+verify: verify/CAU-G22B.py::p01
+
+stimuli: []
+
+stem: |
+  다음 상황에 기초하여 문제에 답하시오.
+
+  그림과 같이 좌표평면 위에 좌표가 $(1,1),(1,2),\cdots,(m,n)$인 $m\times n$개의 점이 있다. 이 중 4개의 점을 택하여 만들 수 있는 직사각형 중 넓이가 1인 것을 제외한 개수를 $A(m,n)$이라고 정의한다. (단, $m,n$은 1보다 큰 자연수이다.)
+
+  (그림: $x$좌표 $1,2,3,\cdots,m$, $y$좌표 $1,2,3,\cdots,n$인 격자점들이 찍혀 있다.)
+
+  $A(3,100)-A(2,100)$을 구하시오. [20점]
+
+subparts:
+- id: '1'
+  stem: |
+    $A(3,100)-A(2,100)$을 구하시오.
+  points: 20
+  depends_on: []
+  answer: {kind: value, value: '9899', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: '$A(2,n)={}_n\mathrm{C}_2-(n-1)$, $A(3,n)=3\,{}_n\mathrm{C}_2+(n-2)-2(n-1)=3\,{}_n\mathrm{C}_2-n$이므로 차는 $2\,{}_n\mathrm{C}_2-1$, $n=100$에서 $9899$.'
+    steps:
+    - {id: 1a, content: '$A(2,100)=4851$, $A(3,100)=14750$, 차 $9899$', criteria: [1.B1, 1.B2, 1.B3]}
+    hint_ladder:
+    - 축에 평행한 직사각형은 가로선 두 개와 세로선 두 개로 결정된다.
+    - '$m=3$이면 변이 축에 평행하지 않은 직사각형도 생긴다. 어떤 모양인가?'
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 2023 논술가이드북(자연) p.84 예시답안
+    steps:
+    - id: 1b-1
+      content: |
+        (1) $m=2$인 경우
+        − $x$축과 평행한 $n$개의 선들 중에서 2개를 선택하여 만들 수 있는 직사각형의 개수를 구하면 ${}_2\mathrm{C}_2\times{}_n\mathrm{C}_2$이다.
+        − 이때, 넓이가 1인 직사각형의 개수는 $n-1$이다.
+        − 따라서, $A(2,n)={}_2\mathrm{C}_2\times{}_n\mathrm{C}_2-(n-1)={}_n\mathrm{C}_2-(n-1)$이다.
+      criteria: [1.B1]
+    - id: 1b-2
+      content: |
+        (2) $m=3$인 경우
+        − $x$축과 평행한 $n$개의 선들 중에서 2개를 선택하고 $y$축과 평행한 3개의 선들 중에서 2개를 선택하여 만들 수 있는 직사각형의 개수를 구하면 ${}_3\mathrm{C}_2\times{}_n\mathrm{C}_2$이다.
+        − $x$축, $y$축과 평행하지 않은 선으로 만들 수 있는 직사각형은 $n-2$개 있다. (예시 그림: 꼭짓점이 $(2,1),(1,2),(2,3),(3,2)$인 정사각형과 $(2,2),(1,3),(2,4),(3,3)$인 정사각형)
+        − 이때 넓이가 1인 직사각형의 개수는 $2(n-1)$이다.
+        − 따라서, $A(3,n)={}_3\mathrm{C}_2\times{}_n\mathrm{C}_2+(n-2)-2(n-1)=3\,{}_n\mathrm{C}_2-n$
+      criteria: [1.B2]
+    - id: 1b-3
+      content: |
+        따라서, $A(3,n)-A(2,n)=3\,{}_n\mathrm{C}_2-n-{}_n\mathrm{C}_2+(n-1)=2\,{}_n\mathrm{C}_2-1$이므로, $A(3,100)-A(2,100)=2\,{}_{100}\mathrm{C}_2-1=9899$이다.
+      criteria: [1.B3]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.B1
+      mark_type: B
+      points: 6
+      evidence: '$A(2,n)={}_2\mathrm{C}_2\times{}_n\mathrm{C}_2-(n-1)={}_n\mathrm{C}_2-(n-1)$의 수식을 유도하거나, $A(2,100)={}_{100}\mathrm{C}_2-99=4851$을 바르게 계산했다.'
+      depends_on: []
+      steps: [1b-1]
+    - id: 1.B2
+      mark_type: B
+      points: 12
+      evidence: '$A(3,n)-A(2,n)=3\,{}_n\mathrm{C}_2-n-{}_n\mathrm{C}_2+(n-1)=2\,{}_n\mathrm{C}_2-1$의 수식을 유도하거나, $A(3,100)=3\,{}_{100}\mathrm{C}_2-100=14750$을 바르게 계산했다(대각선으로 만들어지는 직사각형의 개수 $n-2=98$개를 빠뜨린 경우는 8점만 부여).'
+      depends_on: []
+      steps: [1b-2]
+    - id: 1.B3
+      mark_type: B
+      points: 2
+      evidence: '$A(3,100)-A(2,100)=9899$를 바르게 계산했다.'
+      depends_on: []
+      steps: [1b-3]
+    deductions:
+    - code: D1-1
+      condition: '1.B2 에서 대각선으로 만들어지는 직사각형 $n-2=98$개를 빠뜨림(공식 채점기준: 12점 중 8점만 부여)'
+      effect: minus
+      value: 4
+    - code: D1-2
+      condition: 계산 실수로 틀렸어도 논리 전개 과정이 맞으면 해당 부분에 1~2점 부분 점수 / 완성도에 따라 총점 20점 이내에서 ±1점(공식 채점기준 주석)
+      effect: minus
+      value: 1
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-CNT-4312}
+  misconceptions:
+  - id: MC-CNT-4312
+    outcome_code: '70'
+    wrong_work: '축에 평행한 직사각형만 세어 $A(3,100)=14652$, 차를 $9801$로 답함'
+    detect_cue: '답이 9801, 또는 $A(3,n)$ 식에 $n-2$ 항이 없음'
+    feedback: 네 점으로 만든 직사각형의 변이 꼭 축에 평행할 필요는 없습니다. 세로 3줄이면 45° 기울어진 정사각형도 만들어집니다.
+    remedy: [RL-1]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CNT-4312}
+  relation: remediation
+  target: {kind: concept, ref: CON-PRB-LATTICE-RECTANGLE-COUNT}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-input-v1, item_version: 1, verdict: pass, date: 2026-11-22, note: 문제 원문 PDF 이미지 대조로 옮김(격자 그림은 글로 설명) · 주 해설은 공식 예시답안 흐름 그대로(예시 그림은 꼭짓점 좌표로) · 채점기준은 공식 기준을 B 마크로 옮김}
+
+created: 2026-11-22
+updated: 2026-11-22

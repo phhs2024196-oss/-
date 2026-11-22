@@ -1,0 +1,286 @@
+schema_version: '2.0'
+id: CAU-G21A-02
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: CAU
+type: T08
+variant_of: null
+replaces: null
+level: L5
+form: 추론
+points: 25
+time_estimate_min: 25
+intent: '(1) 정적분으로 함수의 그래프와 $x$축 사이의 넓이를 구하는 과정을 이해하는지, 합성함수의 미분법으로 복잡한 함수를 미분하는 방법을 이해하는지 평가한다. (2) 도함수로 극솟값·극댓값을 찾고 이를 이용해 닫힌구간에서 함수의 최댓값·최솟값을 구하는 과정을 이해하는지 평가한다(가이드북 출제의도 요지).'
+key_idea: '(1) 대칭성으로 $f(\theta)=-\ln\tan\left(\dfrac{\pi}{4}-\dfrac{\theta}{2}\right)$, $f''(\theta)=\dfrac1{\cos\theta}$. (2) $t=\sqrt{x+1}-1$로 치환·유리화하면 $f=\dfrac1{t+2\cos t}$, $g(t)=t+2\cos t$의 $[0,\pi]$ 최솟값 문제.'
+stuck: (1) $y=x$ 대칭을 이용해 넓이를 $\alpha=\dfrac{\pi}{4}-\dfrac{\theta}{2}$ 하나로 쓰는 단계 / (2) $\sqrt{x+1}+1=\dfrac{x}{\sqrt{x+1}-1}$ 유리화로 식을 단순화하고 극소와 경계값을 비교하는 단계
+idea_tags: [IDEA-SYMMETRY-HALF-AREA, IDEA-RATIONALIZE-SUBST, IDEA-RECIPROCAL-MAXMIN]
+tags: [넓이, 합성함수의 미분, 최댓값, 치환, 중앙대 실전]
+elements:
+  materials: ['$y=x$에 대칭이고 각 $\theta$를 이루는 두 직선 $l_1$, $l_2$', '곡선 $y=\dfrac1x$', '닫힌구간 $[0,\pi^2+2\pi]$의 분수함수 $f(x)$']
+  concepts: [정적분과 넓이, 삼각함수의 덧셈정리, 합성함수의 미분법, 극값과 도함수, 닫힌구간의 최대·최소]
+  tools:
+  - 대칭으로 절반 넓이 계산
+  - '교점 $\left(\frac{1}{\sqrt{\tan\alpha}},\sqrt{\tan\alpha}\right)$'
+  - 로그함수 적분
+  - 탄젠트 덧셈정리(방법 2)
+  - $t=\sqrt{x+1}-1$ 치환과 유리화
+  - $g'(t)=1-2\sin t$ 부호 조사
+  - 경계값 비교
+  conditions:
+  - '(1) $l_1$, $l_2$는 $y=x$에 대칭, 사잇각 $\theta$ ⇒ $l_1$의 경사각 $\alpha=\dfrac{\pi}{4}-\dfrac{\theta}{2}$'
+  - '(1) $f''(\theta)=2$ ⇒ $\dfrac{1}{\cos\theta}=2$, 제1사분면 조건에서 $\theta=\dfrac{\pi}{3}$'
+  - '(2) $x\in[0,\pi^2+2\pi]$ ⇒ $t=\sqrt{x+1}-1\in[0,\pi]$'
+  - '(2) $f=\dfrac{1}{g(t)}$, $g>0$ ⇒ $f$ 최대 ⇔ $g$ 최소, 극소 $t=\dfrac{5\pi}{6}$와 경계 $t=0$ 비교'
+  stimuli_used: ['1', '2', '3']
+  subpart_links:
+  - from: '1'
+    to: '2'
+    relation: 독립(결과 이월 없음)
+
+curriculum:
+  version: '2015'
+  subjects: [미적분, 수학Ⅱ]
+  scope_2028: calc2
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 곡선으로 둘러싸인 도형의 넓이를 구할 수 있다 / 합성함수를 미분할 수 있다 / 함수의 최댓값과 최솟값을 구할 수 있다(요지)
+    verified: false
+  content_area: 정적분의 활용 – 넓이 / 미분법 – 합성함수 / 도함수의 활용 – 최대·최소
+  behavior_domain: 문제해결
+  unit_path: [미적분, 미분법, 여러 가지 미분법, 합성함수의 미분법]
+  key_concepts: [넓이, 합성함수의 미분, 최댓값]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 중앙대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 중앙대학교
+  admission_year: 2021
+  admission_type: 논술(수시)
+  track: 자연계열Ⅰ
+  question_no: 2
+  official_url: https://admisfile.cau.ac.kr/download/cau_2021_s_n_j_1.pdf
+  retrieved_at: '2026-11-21'
+  original_points: 25
+  rights_notice: 중앙대학교 입학처 공개 자료(기출문제 게시판 board_seq=2360). 상업적 재사용 허락 미요청
+  note: 문제 = 2021 자연계열Ⅰ 문제지 p.2(PDF 3쪽) / 예시답안·채점기준 = 2022 논술가이드북(자연) p.54~55 / 출제의도 = 같은 책 p.52. 공식 2-2 채점기준의 「$g(x)$의 도함수」는 원문 표기 그대로($g(t)$를 뜻함). 문항카드 없음
+
+verify: verify/CAU-G21A.py::p02
+
+stimuli:
+- label: '1'
+  body: |
+    함수 $f(x)$가 닫힌구간 $[a,b]$에서 연속이고 $f(x)\ge0$이면, 정적분 $\displaystyle\int_a^b f(x)dx$는 곡선 $y=f(x)$, 직선 $x=a$, 직선 $x=b$와 $x$축으로 둘러싸인 도형의 넓이를 나타낸다.
+- label: '2'
+  body: |
+    각 $\theta_1$과 $\theta_2$에 대하여 $\sin(\theta_1+\theta_2)=\sin\theta_1\cos\theta_2+\cos\theta_1\sin\theta_2$가 성립한다.
+- label: '3'
+  body: |
+    함수 $f(x)$가 $x=a$에서 미분가능하고 극값을 가지면 $f'(a)=0$이다.
+
+stem: |
+  다음을 읽고 문제에 답하시오.
+
+subparts:
+- id: '1'
+  stem: |
+    [문제 2-1] 원점을 지나는 두 직선 $l_1$과 $l_2$는 $y=x$에 대하여 대칭이고 제1사분면에서 각 $\theta$를 이루고 있다. 제1사분면에서 직선 $l_1$과 $l_2$와 곡선 $y=\dfrac1x$을 경계로 하는 영역의 넓이를 $f(\theta)$라고 할 때, $f'(\theta)=2$를 만족하는 $\theta$를 구하시오. [10점]
+  points: 10
+  depends_on: []
+  answer: {kind: value, value: '\dfrac{\pi}{3}', equivalents: ['pi/3', '60°'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $f(\theta)=-\ln\tan\alpha$, $\alpha=\dfrac{\pi}{4}-\dfrac{\theta}{2}$, $f'(\theta)=\dfrac{1}{2\sin\alpha\cos\alpha}=\dfrac1{\cos\theta}$.
+    steps:
+    - {id: 1a, content: '$\dfrac1{\cos\theta}=2\Rightarrow\theta=\dfrac{\pi}{3}$', criteria: [1.B1, 1.B2]}
+    hint_ladder:
+    - 영역은 $y=x$에 대칭이다. 절반만 구해 보자.
+    - '$l_1$이 $x$축과 이루는 각을 $\alpha$라 하면 $\alpha$와 $\theta$의 관계는?'
+    - '$\dfrac{d}{d\theta}\ln\tan\alpha$에서 $\alpha$를 $\theta$로 미분한 값도 곱해야 한다.'
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 2022 논술가이드북(자연) p.54 예시답안 [방법 1]
+    steps:
+    - id: 1b-1
+      content: |
+        직선 $l_1$과 $x$축이 이루는 각을 $\alpha$라고 하자. (이때, $\alpha=\dfrac{\pi}{4}-\dfrac{\theta}{2}$이다.) $y=(\tan\alpha)x$와 곡선 $y=\dfrac1x$이 만나는 점 $\left(\dfrac1{\sqrt{\tan\alpha}},\sqrt{\tan\alpha}\right)$을 구한 후, 그림을 그려 $y=x$ 아래의 넓이
+        $$\frac12+\int_1^{1/\sqrt{\tan\alpha}}\frac1x dx-\frac12\cdot\frac1{\sqrt{\tan\alpha}}\sqrt{\tan\alpha}=-\frac12\ln(\tan\alpha)$$
+        를 구한다. 따라서 영역의 전체 넓이는
+        $$f(\theta)=-\ln(\tan\alpha)=-\ln\left(\tan\left(\frac{\pi}{4}-\frac{\theta}{2}\right)\right)$$
+        이다.
+      criteria: [1.B1]
+    - id: 1b-2
+      content: |
+        합성함수의 미분법을 이용하여 $f$의 도함수
+        $$f'(\theta)=-\frac{1}{\tan\left(\frac{\pi}{4}-\frac{\theta}{2}\right)}\sec^2\left(\frac{\pi}{4}-\frac{\theta}{2}\right)\left(-\frac12\right)=\frac{1}{2\sin\left(\frac{\pi}{4}-\frac{\theta}{2}\right)\cos\left(\frac{\pi}{4}-\frac{\theta}{2}\right)}=\frac{1}{\sin\left(\frac{\pi}{2}-\theta\right)}=\frac1{\cos\theta}$$
+        계산하여 정답 $\theta=\dfrac{\pi}{3}$를 얻는다.
+      criteria: [1.B2]
+  - id: S1-ALT
+    audience: ALT
+    method_no: 2
+    source_flow: 2022 논술가이드북(자연) p.54 예시답안 [방법 2]
+    steps:
+    - id: 1c-1
+      content: |
+        삼각형의 대칭성을 이용하지 않는 경우, 두 직선 $y=\left(\tan\left(\frac{\pi}{4}-\frac{\theta}{2}\right)\right)x$와 $y=\left(\tan\left(\frac{\pi}{4}+\frac{\theta}{2}\right)\right)x$와 곡선 $y=\dfrac1x$이 만나는 두 점
+        $$\left(\frac{1}{\sqrt{\tan\left(\frac{\pi}{4}+\frac{\theta}{2}\right)}},\ \sqrt{\tan\left(\frac{\pi}{4}+\frac{\theta}{2}\right)}\right),\quad\left(\frac{1}{\sqrt{\tan\left(\frac{\pi}{4}-\frac{\theta}{2}\right)}},\ \sqrt{\tan\left(\frac{\pi}{4}-\frac{\theta}{2}\right)}\right)$$
+        을 고려해야 하고, 주어진 영역의 넓이는
+        $$f(\theta)=\frac12+\int_{1/\sqrt{\tan(\frac{\pi}{4}+\frac{\theta}{2})}}^{1/\sqrt{\tan(\frac{\pi}{4}-\frac{\theta}{2})}}\frac1x dx-\frac12=\frac12\ln\left(\frac{\tan\left(\frac{\pi}{4}+\frac{\theta}{2}\right)}{\tan\left(\frac{\pi}{4}-\frac{\theta}{2}\right)}\right)$$
+        를 얻는다.
+      criteria: [1.B1]
+    - id: 1c-2
+      content: |
+        여기에 탄젠트 함수의 덧셈 정리를 이용하면
+        $$f(\theta)=\ln\left(\frac{1+\tan\left(\frac{\theta}{2}\right)}{1-\tan\left(\frac{\theta}{2}\right)}\right)=\ln\left(\frac{\cos\left(\frac{\theta}{2}\right)+\sin\left(\frac{\theta}{2}\right)}{\cos\left(\frac{\theta}{2}\right)-\sin\left(\frac{\theta}{2}\right)}\right)$$
+        로 간단하게 할 수 있다. 이 함수를 미분하여 정답 $\theta=\dfrac{\pi}{3}$를 얻는다.
+      criteria: [1.B2]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.B1
+      mark_type: B
+      points: 5
+      evidence: 주어진 영역을 파악한 후 적분계산을 하여 영역의 넓이 $-\ln\left(\tan\left(\frac{\pi}{4}-\frac{\theta}{2}\right)\right)$(방법 2는 동치인 $f(\theta)$)를 얻었다.
+      depends_on: []
+      steps: [1b-1, 1c-1]
+    - id: 1.B2
+      mark_type: B
+      points: 5
+      evidence: 합성함수의 미분법을 이용해 미분계산을 하여 정답 $\theta=\dfrac{\pi}{3}$를 얻었다.
+      depends_on: []
+      steps: [1b-2, 1c-2]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점(방법 1)}
+  - {code: '21', meaning: 만점(방법 2)}
+  - {code: '70', misconception: MC-CAL-4208}
+  misconceptions:
+  - id: MC-CAL-4208
+    outcome_code: '70'
+    wrong_work: '$f''(\theta)=-\dfrac{\sec^2\alpha}{\tan\alpha}$에서 $\dfrac{d\alpha}{d\theta}=-\dfrac12$를 곱하지 않아 $f''(\theta)=-\dfrac{2}{\cos\theta}$ 꼴'
+    detect_cue: '$f''(\theta)=\pm\dfrac{2}{\cos\theta}$, 답 $\theta=0$ 또는 해 없음'
+    feedback: '$\alpha=\frac{\pi}{4}-\frac{\theta}{2}$는 $\theta$의 함수입니다. 합성함수 미분에서 안쪽 함수의 도함수 $-\frac12$를 곱하세요.'
+    remedy: [RL-1]
+- id: '2'
+  stem: |
+    [문제 2-2] 닫힌구간 $[0,\pi^2+2\pi]$에서 다음과 같이 정의된 함수 $f(x)$가 최댓값을 갖게 하는 $x$를 구하시오. [15점]
+    $$f(x)=\frac{\sqrt{x+1}+1}{x+2\left(\sqrt{x+1}+1\right)\cos\left(\sqrt{x+1}-1\right)}$$
+  points: 15
+  depends_on: []
+  answer: {kind: value, value: '\left(\dfrac{5\pi}{6}+1\right)^2-1', equivalents: ['(5\pi/6+1)^2-1', '\frac{25\pi^2}{36}+\frac{5\pi}{3}'], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: $t=\sqrt{x+1}-1$이면 $f=\dfrac1{t+2\cos t}$, $g(t)=t+2\cos t$는 $t=\dfrac{5\pi}{6}$에서 극소, $g\left(\frac{5\pi}{6}\right)=\frac{5\pi}{6}-\sqrt3<2=g(0)$.
+    steps:
+    - {id: 2a, content: '$t=\dfrac{5\pi}{6}$, $x=(t+1)^2-1=\left(\dfrac{5\pi}{6}+1\right)^2-1$', criteria: [2.M1, 2.B1, 2.B2, 2.B3]}
+    hint_ladder:
+    - '$\sqrt{x+1}$가 반복된다. $t=\sqrt{x+1}-1$로 두면 $x$는 $t$로 어떻게 쓰이는가?'
+    - '$\sqrt{x+1}+1$을 유리화하면 $\dfrac{x}{\sqrt{x+1}-1}$이다.'
+    - '$f=\dfrac{1}{g(t)}$의 최대는 $g$의 최소다. 극소와 구간 끝값을 비교하자.'
+  - id: S2-B
+    audience: B
+    method_no: 1
+    source_flow: 2022 논술가이드북(자연) p.55 예시답안
+    steps:
+    - id: 2b-1
+      content: |
+        $t=\sqrt{x+1}-1$로 치환하자. 이 때 주어진 함수의 항 중 $\sqrt{x+1}+1$는 유리화하여
+        $$\sqrt{x+1}+1=\frac{x}{\sqrt{x+1}-1}=\frac{x}{t}$$
+        를 대입한다.
+      criteria: [2.M1]
+    - id: 2b-2
+      content: |
+        그 결과는
+        $$f(x)=\frac{\sqrt{x+1}+1}{x+2\left(\sqrt{x+1}+1\right)\cos\left(\sqrt{x+1}-1\right)}=\frac{1}{t+2\cos t}$$
+        이다. 따라서 $g(t)=t+2\cos t$ (단, $0\le t\le\pi$)가 최솟값을 갖는 $t$를 찾으면 된다.
+      criteria: [2.B1]
+    - id: 2b-3
+      content: |
+        함수 $g(t)$를 미분을 하여 도함수 $g'(t)=1-2\sin t$를 구하고 주어진 구간 내에서 도함수가 $0$이 되는 $t=\dfrac{\pi}{6}$, $\dfrac{5\pi}{6}$를 찾는다. 그리고 사인함수의 개형을 이용하여 함수 $g(t)$가 구간 $\left(0,\dfrac{\pi}{6}\right)$에서 증가, 구간 $\left(\dfrac{\pi}{6},\dfrac{5\pi}{6}\right)$에서 감소, 구간 $\left(\dfrac{5\pi}{6},\pi\right)$에서 증가한다는 사실을 확인한다. 따라서 $g(t)$의 최솟값을 찾기 위해서는 주어진 구간의 왼쪽 경계 $t=0$에서의 값과 $t=\dfrac{5\pi}{6}$에서의 값만 조사하면 된다.
+      criteria: [2.B2]
+    - id: 2b-4
+      content: |
+        실제 $g(0)=2$이고 $g\left(\dfrac{5\pi}{6}\right)=\dfrac{5\pi}{6}-\sqrt3$인데 이 두 값을 비교하여 $g(t)$의 최솟값은 $t=\dfrac{5\pi}{6}$일 때 얻을 수 있음을 확인한다. (여기서 $\dfrac{5\pi}{6}-\sqrt3$이 $2$보다 작다는 것을 파악하기 위해서 가장 간단하게는 $\pi\le3.5$, $\sqrt3\ge1.5$인 것만 이용해도 충분히 확인할 수 있다.) 따라서 정답은 $x=(t+1)^2-1=\left(\dfrac{5\pi}{6}+1\right)^2-1$이다.
+      criteria: [2.B3]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 3
+      evidence: $t=\sqrt{x+1}-1$로 치환했다.
+      depends_on: []
+      steps: [2b-1]
+    - id: 2.B1
+      mark_type: B
+      points: 3
+      evidence: |
+        함수를 정리하여 $g(t)=t+2\cos t$에 대한 최솟값 문제로 변환했다. [보충: $h(t)=\dfrac{1}{t+2\cos t}$의 최댓값 문제로 풀어도 채점기준 동일]
+      depends_on: []
+      steps: [2b-2]
+    - id: 2.B2
+      mark_type: B
+      points: 6
+      evidence: $g$의 도함수를 구해 극소를 찾았다(원문 표기 「$g(x)$의 도함수」).
+      depends_on: []
+      steps: [2b-3]
+    - id: 2.B3
+      mark_type: B
+      points: 3
+      evidence: 정답 $x=\left(\dfrac{5\pi}{6}+1\right)^2-1$을 얻었다.
+      depends_on: []
+      steps: [2b-4]
+    deductions:
+    - code: D2-1
+      condition: '[많이 발견된 오류] 극값을 $t=\dfrac{\pi}{6}$만 생각하고($t=\dfrac{5\pi}{6}$는 놓침), 정답을 $\pi^2+2\pi$로 적은 경우 — 9점(3점+3점+3점) 부여'
+      effect: cap
+      value: 9
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-CAL-4209}
+  - {code: '71', misconception: MC-CAL-4210}
+  misconceptions:
+  - id: MC-CAL-4209
+    outcome_code: '70'
+    wrong_work: '$g''(t)=0$의 해 중 $t=\dfrac{\pi}{6}$(g의 극대)만 보고 그 근처에서 $f$가 최대라 판단, 답을 $\pi^2+2\pi$ 등으로 씀'
+    detect_cue: '$t=\dfrac{5\pi}{6}$이 언급되지 않음, 답 $\pi^2+2\pi$'
+    feedback: '$f=\dfrac1g$이므로 $f$의 최대는 $g$의 최소에서 생깁니다. $g$의 극대가 아니라 극소 $t=\frac{5\pi}{6}$를 보세요.'
+    remedy: [RL-2]
+  - id: MC-CAL-4210
+    outcome_code: '71'
+    wrong_work: '극소 $t=\dfrac{5\pi}{6}$를 찾고 경계 $t=0$, $t=\pi$의 값과 비교하지 않은 채 최댓값이라 결론'
+    detect_cue: '$g(0)=2$와의 비교가 없음'
+    feedback: 닫힌구간의 최대·최소는 극값과 구간 끝값을 모두 비교해야 결론 낼 수 있습니다.
+    remedy: [RL-2]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CAL-4208}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-CHAIN-RULE}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-CAL-4209}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-MAXMIN-CLOSED}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-input-v1, item_version: 1, verdict: pass, date: 2026-11-22, note: 문제 원문 PDF 이미지 대조로 옮김 · 주 해설은 공식 예시답안 흐름 그대로(방법 2는 ALT) · 채점기준은 공식 기준을 M/B 마크로 옮김}
+
+created: 2026-11-22
+updated: 2026-11-22

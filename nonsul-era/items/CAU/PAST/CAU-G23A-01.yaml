@@ -1,0 +1,200 @@
+schema_version: '2.0'
+id: CAU-G23A-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: CAU
+type: T01
+variant_of: null
+replaces: null
+level: L5
+form: 분류
+points: 20
+time_estimate_min: 25
+intent: 규칙이 주어진 반복 시행에서 사건이 일어나는 라운드에 따라 경우를 나누고, 각 경우를 단계별 곱의 법칙으로 세어 합산하는 능력을 본다(공식 출제 의도 미공개 — 예시답안 구조로부터 자체 요약).
+key_idea: '$n$라운드에서만 1명이 자기 이름표를 뽑는 경우의 수를 $M_n$이라 하면, 이전 라운드는 완전순열 2가지씩, $n$라운드는 3가지, 이후 라운드는 두 사람이 엇갈려 뽑는 1가지씩이므로 $M_n=3\times2^{n-1}$.'
+stuck: '“게임이 종료되지 않고 6라운드까지” ⇒ 각 라운드에서 모두가 자기 이름표를 뽑지 않아야 하고, 1명이 뽑은 뒤 남은 두 사람은 매 라운드 엇갈려 뽑는 1가지뿐임을 해석하는 단계'
+idea_tags: [IDEA-CASE-BY-FIRST-EVENT-ROUND, IDEA-DERANGEMENT-SMALL]
+tags: [경우의 수, 곱의 법칙, 완전순열, 등비수열의 합, 중앙대 실전]
+elements:
+  materials: ['세 사람 A, B, C와 각자의 이름표 3장', '라운드 규칙: 자기 이름표를 뽑은 사람만 빠지고 나머지는 이름표를 다시 넣음', '6라운드까지 종료되지 않음, 오직 한 사람만 자기 이름표를 뽑음']
+  concepts: [경우의 수(합의 법칙·곱의 법칙), 순열, 완전순열(교란순열), 등비수열의 합]
+  tools: ['자기 이름표를 뽑는 라운드 $n$으로 사건 분할', '세 사람 완전순열 2가지, 두 사람 완전순열 1가지', '$\sum_{n=1}^6 3\cdot2^{n-1}$ 등비수열의 합']
+  conditions:
+  - '오직 한 사람만 자기 이름표를 뽑음 ⇒ 그 사람이 뽑는 라운드 $n$ 이전에는 세 사람 모두 남의 것(완전순열 2가지), $n$라운드에는 한 명만 자기 것(3가지)'
+  - '게임이 6라운드까지 종료되지 않음 ⇒ $n$라운드 이후 남은 두 사람은 매 라운드 서로 엇갈려 뽑음(1가지)'
+  - '각 라운드에서 뽑는 순서는 고려하지 않음 ⇒ 라운드마다 (사람→이름표) 대응 하나가 한 경우'
+  stimuli_used: []
+  subpart_links: null
+
+curriculum:
+  version: '2015'
+  subjects: [수학, 수학Ⅰ]
+  scope_2028: common
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 합의 법칙과 곱의 법칙을 이해하고 이를 이용하여 경우의 수를 구할 수 있다 / 순열의 뜻을 알고 순열의 수를 구할 수 있다(요지, 2023 실전 문항카드 미확보)
+    verified: false
+  content_area: 경우의 수 – 합의 법칙·곱의 법칙, 순열
+  behavior_domain: 문제해결
+  unit_path: [수학, 경우의 수, 경우의 수, 합의 법칙과 곱의 법칙]
+  key_concepts: [곱의 법칙, 완전순열, 등비수열의 합]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 중앙대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 중앙대학교
+  admission_year: 2023
+  admission_type: 논술(수시)
+  track: 자연계열Ⅰ
+  question_no: 1
+  official_url: https://admission.cau.ac.kr/detail.do?menuurl=jcgylvDgJz1bdCxN45fl1g%3D%3D&board_seq=2707&pageNo=1&categoryid=14
+  retrieved_at: '2026-11-21'
+  original_points: 20
+  rights_notice: 중앙대학교 입학처 공개 자료(기출문제 게시판). 상업적 재사용 허락 미요청
+  note: 문제 = 2023 자연계열Ⅰ 문제지 p.1(PDF p.2) / 예시답안·채점기준 = 2024 논술가이드북(자연) p.50 / 출제의도·문항카드 = 미확보(2024 가이드북에 2023 실전 출제의도 없음)
+
+verify: verify/CAU-G23A.py::p01
+
+stimuli: []
+
+stem: |
+  세 사람 A, B, C의 이름이 각각 적힌 서로 다른 3장의 이름표가 들어 있는 상자가 있다. 다음과 같은 규칙의 게임을 고려하자.
+
+  - 1라운드 : A, B, C가 상자에서 임의로 각각 한 장씩 이름표를 뽑은 다음, 자신의 이름표를 뽑은 사람을 제외하고 다른 사람의 이름표를 뽑은 사람만 이름표를 상자에 다시 넣는다.
+  - $n$라운드$(n\ge2)$ : 아직 자신의 이름표를 뽑지 못한 사람만 $(n-1)$라운드 직후의 상자에서 임의로 각각 한 장씩 이름표를 뽑는다. 이때 자신의 이름표를 뽑은 사람을 제외하고 다른 사람의 이름표를 뽑은 사람만 이름표를 상자에 다시 넣는다.
+  - 각 라운드 직후 상자에 남은 이름표가 없으면 게임은 종료된다.
+
+  위와 같은 규칙으로 게임이 종료되지 않고 6라운드까지 진행된다고 할 때, 오직 한 사람만 자신의 이름표를 뽑는 경우의 수를 구하시오. (단, 각 라운드에서 이름표를 뽑는 순서는 고려하지 않는다.) [20점]
+
+subparts:
+- id: '1'
+  stem: |
+    게임이 종료되지 않고 6라운드까지 진행된다고 할 때, 오직 한 사람만 자신의 이름표를 뽑는 경우의 수를 구하시오.
+  points: 20
+  depends_on: []
+  answer: {kind: value, value: '189', equivalents: ['189가지'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $M_n=2^{n-1}\times3\times1^{6-n}$, $\displaystyle\sum_{n=1}^6M_n=3(2^6-1)=189$.
+    steps:
+    - {id: 1a, content: '$M_1=3,\ M_2=6,\ M_3=12,\ \dots,\ M_6=96$, 합 $189$', criteria: [1.B1, 1.B2, 1.B3, 1.B4, 1.B5, 1.B6, 1.B7]}
+    hint_ladder:
+    - 자신의 이름표를 뽑는 사람이 몇 라운드에 뽑는지로 나누어 보자.
+    - 세 사람 모두 남의 이름표를 뽑는 방법은 몇 가지인가?
+    - 한 명이 빠진 뒤 남은 두 사람은 게임이 끝나지 않으려면 어떻게 뽑아야 하는가?
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 2024 논술가이드북(자연) p.50 예시답안
+    steps:
+    - id: 1b-1
+      content: |
+        우선, $n$라운드에서만 1명이 자신의 이름표를 뽑을 조건을 고려하자. 이를 위해서는,
+        ① 이전 라운드까지는 모든 사람이 다른 사람의 이름표를 뽑아야 하고
+        ② $n$라운드에서 세 사람 중 한 명이 자신의 이름표를 뽑고
+        ③ $(n+1)$라운드부터는 나머지 사람이 모두 다른 사람의 이름표를 계속 뽑아야 한다.
+        단, $n=1$인 경우는 이전 라운드가 없기 때문에 ①의 과정이 없고, $n=6$인 경우는 6라운드까지 고려하므로 ③의 과정이 없다.
+      criteria: []
+    - id: 1b-2
+      content: |
+        편의상, 세 사람 A, B, C의 이름표를 각각 a, b, c라고 하자. ①의 경우는 A, B, C가 (b, c, a) 또는 (c, a, b)를 고르는 경우이므로 2가지가 있다. ②의 경우는 A, B, C 중 한 사람이 자신의 이름표를 뽑고 나머지 두 사람은 이름표를 엇갈리게 뽑는 경우이다. 따라서, 자신의 이름표를 뽑는 사람이 세 사람 중 한 명이므로 3가지가 있다. ③의 경우는 두 사람이 서로 이름표를 엇갈리게 뽑는 경우이므로 1가지 경우이다.
+      criteria: []
+    - id: 1b-3
+      content: |
+        따라서, 6라운드까지 진행에서 $n$라운드에서만 1명이 자신의 이름표를 뽑는 경우의 수를 $M_n$이라고 하면 다음과 같이 계산할 수 있다.
+        - $M_1=3\times1\times1\times1\times1\times1=3$; 예: A만 이름표를 뽑는 경우 (a, c, b) → ( · , c, b) → ⋯ → ( · , c, b)
+        - $M_2=2\times3\times1\times1\times1\times1=3\times2^1$; 예: A만 이름표를 뽑는 경우 (b, c, a) or (c, a, b) → (a, c, b) → ( · , c, b) → ⋯ → ( · , c, b)
+        - $M_3=2\times2\times3\times1\times1\times1=3\times2^2$; 예: A만 이름표를 뽑는 경우 (b, c, a) or (c, a, b) → (b, c, a) or (c, a, b) → (a, c, b) → ( · , c, b) → ⋯ → ( · , c, b)
+        - ⋯
+        - $M_6=2\times2\times2\times2\times2\times3=3\times2^5$; 예: A만 이름표를 뽑는 경우 (b, c, a) or (c, a, b) → ⋯ → (b, c, a) or (c, a, b) → (a, c, b)
+      criteria: [1.B1, 1.B2, 1.B3, 1.B4, 1.B5, 1.B6]
+    - id: 1b-4
+      content: |
+        위의 계산에 의하여, 문제에서 요구하는 경우의 수는 다음과 같다.
+        $$\sum_{n=1}^{6}M_n=3\times\left(\frac{2^6-1}{2-1}\right)=3\times63=189$$
+      criteria: [1.B7]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.B1
+      mark_type: B
+      points: 3
+      evidence: $M_1=3$을 구했다(각 경우에 대한 순서를 이해하면 +1, 경우의 수 계산이 정확하면 +2).
+      depends_on: []
+      steps: [1b-3]
+    - id: 1.B2
+      mark_type: B
+      points: 3
+      evidence: $M_2=3\times2^1=6$을 구했다(순서 이해 +1, 계산 정확 +2).
+      depends_on: []
+      steps: [1b-3]
+    - id: 1.B3
+      mark_type: B
+      points: 3
+      evidence: $M_3=3\times2^2=12$를 구했다(순서 이해 +1, 계산 정확 +2).
+      depends_on: []
+      steps: [1b-3]
+    - id: 1.B4
+      mark_type: B
+      points: 3
+      evidence: $M_4=3\times2^3=24$를 구했다(순서 이해 +1, 계산 정확 +2).
+      depends_on: []
+      steps: [1b-3]
+    - id: 1.B5
+      mark_type: B
+      points: 3
+      evidence: $M_5=3\times2^4=48$을 구했다(순서 이해 +1, 계산 정확 +2).
+      depends_on: []
+      steps: [1b-3]
+    - id: 1.B6
+      mark_type: B
+      points: 3
+      evidence: $M_6=3\times2^5=96$을 구했다(순서 이해 +1, 계산 정확 +2).
+      depends_on: []
+      steps: [1b-3]
+    - id: 1.B7
+      mark_type: B
+      points: 2
+      evidence: 모든 경우의 수를 합하여 최종 답 189를 계산했다.
+      depends_on: []
+      steps: [1b-4]
+    deductions:
+    - code: D1-1
+      condition: 채점자 재량 — 답안의 완성도에 따라 총점 20점 이내에서 ±1점(공식 채점기준 주석). 계산 실수로 틀렸어도 논리 전개 과정이 맞으면 해당 부분에 1~2점의 부분 점수 부여
+      effect: minus
+      value: 1
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-CNT-4406}
+  misconceptions:
+  - id: MC-CNT-4406
+    outcome_code: '70'
+    wrong_work: '한 사람이 자기 이름표를 뽑은 뒤 남은 두 사람의 각 라운드를 $2!=2$가지로 세어 $M_n=3\times2^{n-1}\times2^{6-n}=3\times2^5$, 합 $576$ 등으로 계산'
+    detect_cue: $M_1$이 3보다 크거나, 모든 $M_n$이 같음
+    feedback: 남은 두 사람 중 한 명이라도 자기 이름표를 뽑으면 두 사람 모두 자기 것을 뽑게 되어(오직 한 사람 조건 위반·게임 종료) 안 됩니다. 두 사람이 엇갈려 뽑는 1가지뿐입니다.
+    remedy: [RL-1]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CNT-4406}
+  relation: remediation
+  target: {kind: concept, ref: CON-PRB-PRODUCT-RULE}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-input-v1, item_version: 1, verdict: pass, date: 2026-11-22, note: 문제 원문 PDF 이미지 대조로 옮김 · 주 해설은 공식 예시답안 흐름 그대로 · 채점기준은 공식 기준(M_n 한 개당 3점 + 합 2점)을 B 마크로 옮김}
+
+created: 2026-11-22
+updated: 2026-11-22

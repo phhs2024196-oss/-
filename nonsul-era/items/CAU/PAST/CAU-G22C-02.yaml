@@ -1,0 +1,296 @@
+schema_version: '2.0'
+id: CAU-G22C-02
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: CAU
+type: T03
+variant_of: null
+replaces: null
+level: L5
+form: 추론
+points: 25
+time_estimate_min: 30
+intent: '[2-1] 미분의 정의를 잘 이해하고 있는지, 주어진 조건으로부터 함수의 값과 미분을 얻고 이를 이용하여 수열을 찾아내고 수열의 합을 계산할 수 있는지, [2-2] 정적분에서 적분 구간의 의미를 이해하고 적분 함수의 성질(삼각함수의 주기)을 이용하여 정적분을 계산하기 쉽게 적절히 나누는 방법과, 수열의 극한의 기본 성질을 이용해 극한값을 구할 수 있는지 평가한다(가이드북 출제의도 요지).'
+key_idea: '[2-1] 극한이 존재하려면 $f(k)=k$, 따라서 $f^{\prime}(k)=k^{\frac32}$, $g^{\prime}(n)=f^{\prime}(f(n))f^{\prime}(n)=n^3$. [2-2] 구간을 길이 $\pi$씩 나누고 $u=x-k\pi$로 옮기면 $\lvert\sin x\rvert\cos^2x$ 부분은 매번 $\dfrac23$, $\sin^5(2x)\cos x$ 부분은 $(-1)^k$배로 번갈아 나타나 $\dfrac1n\sum(-1)^k\to0$.'
+stuck: '[2-2] 주기 $\pi$를 이용해 구간을 쪼갠 뒤 $\cos(u+k\pi)=(-1)^k\cos u$로 부호만 바뀜을 보고, $\dfrac1n\sum_{k=0}^{n-1}(-1)^k$을 샌드위치로 처리하는 단계'
+idea_tags: [IDEA-LIMIT-EXISTS-NUMERATOR-ZERO, IDEA-SPLIT-INTEGRAL-BY-PERIOD, IDEA-SQUEEZE-AVERAGE-ALTERNATING]
+tags: [미분계수의 정의, 합성함수의 미분, 거듭제곱의 합, 주기함수의 정적분, 수열의 극한, 중앙대 실전]
+elements:
+  materials: ['$\displaystyle\lim_{x\to k}\dfrac{f(x)-k}{x-k}=f(k)\sqrt{f(k)}$ (모든 자연수 $k$, $f(x)\ge0$)', '$g(x)=f(f(x))$, $\displaystyle\sum_{n=1}^{20}g^{\prime}(n)$', '$I_n=\displaystyle\int_0^{n\pi}\{\lvert\sin x\rvert\cos^2x+\sin^5(2x)\cos x\}dx$', '$\displaystyle\lim_{n\to\infty}\dfrac{I_n}{n}$']
+  concepts: [미분계수의 정의, 합성함수의 미분법, 자연수의 거듭제곱의 합, 정적분의 성질(구간 나누기), 삼각함수의 주기성, 치환적분법, 수열의 극한(샌드위치 정리)]
+  tools: ['분모 $\to0$이므로 분자 $\to0$ ⇒ $f(k)=k$', '미분계수 정의로 $f^{\prime}(k)$', '$\sum n^3=\left(\dfrac{n(n+1)}{2}\right)^2$', '$\displaystyle\int_0^{n\pi}=\sum_{k=0}^{n-1}\int_{k\pi}^{(k+1)\pi}$', '$u=x-k\pi$ 치환', '$t=\cos u$ 치환으로 $\displaystyle\int_0^\pi\sin u\cos^2u\,du=\dfrac23$', '$0\le\dfrac1n\sum(-1)^k\le\dfrac1n$']
+  conditions:
+  - '극한값이 존재하고 분모 $x-k\to0$ ⇒ $f(k)-k=0$'
+  - '$f(x)\ge0$ ⇒ $\sqrt{f(k)}$ 정의, $f^{\prime}(k)=k\sqrt k$'
+  - '$g^{\prime}(n)=f^{\prime}(f(n))f^{\prime}(n)$에서 $f(n)=n$ ⇒ $g^{\prime}(n)=(f^{\prime}(n))^2=n^3$'
+  - '$\sum_{k=0}^{n-1}(-1)^k\in\{0,1\}$ ⇒ $\dfrac1n\sum(-1)^k\to0$'
+  stimuli_used: ['1', '2', '3', '4']
+  subpart_links:
+  - from: '1'
+    to: '2'
+    relation: 독립(같은 제시문을 각각 사용)
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅰ, 수학Ⅱ, 미적분]
+  scope_2028: calc2
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 미분계수의 뜻을 알고, 그 값을 구할 수 있다(요지)
+    verified: false
+  - code: 미확인
+    text: 합성함수를 미분할 수 있다(요지)
+    verified: false
+  - code: 미확인
+    text: 여러 가지 함수의 정적분을 구할 수 있다(요지)
+    verified: false
+  - code: 미확인
+    text: 수열의 극한에 대한 기본 성질을 이해하고, 이를 이용하여 극한값을 구할 수 있다(요지)
+    verified: false
+  content_area: 미분법 – 미분계수·합성함수 / 적분법 – 정적분 / 수열의 극한
+  behavior_domain: 문제해결
+  unit_path: [미적분, 적분법, 정적분, 주기함수의 정적분]
+  key_concepts: [미분계수의 정의, 합성함수의 미분, 주기성, 샌드위치 정리]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 중앙대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 중앙대학교
+  admission_year: 2022
+  admission_type: 논술(수시)
+  track: 자연계열Ⅲ
+  question_no: 2
+  official_url: https://admisfile.cau.ac.kr/download/cau_2022_s_n_j_3.pdf
+  retrieved_at: '2026-11-21'
+  original_points: 25
+  rights_notice: 중앙대학교 입학처 공개 자료(기출문제 게시판, board_seq=2531). 상업적 재사용 허락 미요청
+  note: 문제 = 2022 자연계열Ⅲ 문제지 p.2(PDF p.3) / 출전·출제의도 = 2023 논술가이드북(자연) p.104~105 / 2-1 예시답안 p.105, 채점기준 p.105~106 / 2-2 예시답안·채점기준(채점위원 대상 코멘트 포함) p.106
+
+verify: verify/CAU-G22C.py::p02
+
+stimuli:
+- label: '1'
+  body: |
+    함수 $y=f(x)$의 $x=a$에서의 미분계수는 $f'(a)=\displaystyle\lim_{\Delta x\to0}\dfrac{f(a+\Delta x)-f(a)}{\Delta x}$이다.
+- label: '2'
+  body: |
+    미분가능한 두 함수 $y=f(u)$, $u=g(x)$에 대하여 합성함수 $y=f(g(x))$의 도함수는 $\{f(g(x))\}'=f'(g(x))g'(x)$이다.
+- label: '3'
+  body: |
+    함수 $f(x)$가 임의의 실수 $a$, $b$, $c$를 포함하는 닫힌구간에서 연속일 때, 다음 식이 성립한다.
+    $$\int_a^cf(x)\,dx=\int_a^bf(x)\,dx+\int_b^cf(x)\,dx$$
+- label: '4'
+  body: |
+    $\displaystyle\lim_{n\to\infty}a_n=\lim_{n\to\infty}b_n=L$ ($L$은 실수)이고 모든 자연수 $n$에 대하여 $a_n\le c_n\le b_n$이면 $\displaystyle\lim_{n\to\infty}c_n=L$이다.
+
+stem: |
+  다음을 읽고 문제에 답하시오.
+
+subparts:
+- id: '1'
+  stem: |
+    미분가능한 함수 $f(x)$가 모든 자연수 $k$에 대하여
+    $$\lim_{x\to k}\dfrac{f(x)-k}{x-k}=f(k)\sqrt{f(k)}\qquad(\text{단, }f(x)\ge0)$$
+    을 만족한다. $g(x)=f(f(x))$라 할 때, $\displaystyle\sum_{n=1}^{20}g'(n)$의 값을 구하시오. [10점]
+  points: 10
+  depends_on: []
+  answer: {kind: value, value: '44100', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: '$f(k)=k$, $f^{\prime}(k)=k^{3/2}$, $g^{\prime}(n)=(f^{\prime}(n))^2=n^3$, $\sum_{n=1}^{20}n^3=210^2=44100$.'
+    steps:
+    - {id: 1a, content: '$\displaystyle\sum_{n=1}^{20}n^3=\left(\dfrac{20\cdot21}{2}\right)^2=44100$', criteria: [1.B1, 1.B2, 1.B3, 1.B4]}
+    hint_ladder:
+    - 분모가 0으로 가는데 극한값이 존재하면 분자는?
+    - '$f(k)=k$이면 주어진 극한은 무엇의 정의인가?'
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 2023 논술가이드북(자연) p.105 예시답안
+    steps:
+    - id: 1b-1
+      content: |
+        $\displaystyle\lim_{x\to k}\dfrac{f(x)-k}{x-k}$가 극한이 존재하기 위해서는 $f(k)=k$이어야 한다.
+      criteria: [1.B1]
+    - id: 1b-2
+      content: |
+        또한 미분의 정의에 의해 $f'(k)=f(k)\sqrt{f(k)}=k^{\frac32}$이므로,
+      criteria: [1.B2]
+    - id: 1b-3
+      content: |
+        합성함수 미분법에 의해 $g'(n)=f'(f(n))f'(n)=(f'(n))^2=n^3$이다.
+      criteria: [1.B3]
+    - id: 1b-4
+      content: |
+        따라서 $\displaystyle\sum_{n=1}^{20}g'(n)=\sum_{n=1}^{20}n^3=\left(\dfrac{20\cdot21}{2}\right)^2=44100$
+      criteria: [1.B4]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.B1
+      mark_type: B
+      points: 3
+      evidence: '극한이 존재한다는 것으로부터 $f(k)=k$를 얻었다.'
+      depends_on: []
+      steps: [1b-1]
+    - id: 1.B2
+      mark_type: B
+      points: 3
+      evidence: '미분의 정의로부터 $f^{\prime}(k)=k^{\frac32}$를 얻었다.'
+      depends_on: []
+      steps: [1b-2]
+    - id: 1.B3
+      mark_type: B
+      points: 2
+      evidence: '합성함수의 미분법으로부터 $g^{\prime}(n)=n^3$을 얻었다.'
+      depends_on: []
+      steps: [1b-3]
+    - id: 1.B4
+      mark_type: B
+      points: 2
+      evidence: '합을 계산하여 정답 $44100$을 얻었다.'
+      depends_on: []
+      steps: [1b-4]
+    deductions:
+    - code: D1-1
+      condition: 논리 전개 과정이 맞으면 답이 틀려도 1~2점 부분 점수 / 완성도에 따라 −0.5~+0.5점(공식 채점기준 주석)
+      effect: minus
+      value: 1
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-CAL-4318}
+  misconceptions:
+  - id: MC-CAL-4318
+    outcome_code: '70'
+    wrong_work: '$g^{\prime}(n)=f^{\prime}(f(n))$만 쓰거나 $f^{\prime}(n)^{\frac32}$ 꼴로 계산해 $\sum n^{3/2}$ 또는 $\sum n^{9/4}$을 구하려 함'
+    detect_cue: '$g^{\prime}(n)\ne n^3$, 합이 정수로 정리되지 않음'
+    feedback: '$g(x)=f(f(x))$이면 $g^{\prime}(x)=f^{\prime}(f(x))\cdot f^{\prime}(x)$입니다. $f(n)=n$을 대입하면 $f^{\prime}(n)\cdot f^{\prime}(n)$이 됩니다.'
+    remedy: [RL-1]
+- id: '2'
+  stem: |
+    자연수 $n$에 대하여 $I_n$을
+    $$I_n=\int_0^{n\pi}\{\lvert\sin x\rvert\cos^2x+\sin^5(2x)\cos x\}\,dx$$
+    라 정의할 때, 극한 $\displaystyle\lim_{n\to\infty}\dfrac{I_n}{n}$의 값을 구하시오. [15점]
+  points: 15
+  depends_on: []
+  answer: {kind: value, value: '\dfrac{2}{3}', equivalents: ['2/3'], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: '$\displaystyle\int_{k\pi}^{(k+1)\pi}=\dfrac23+(-1)^k\int_0^\pi\sin^5(2u)\cos u\,du$이므로 $\dfrac{I_n}{n}=\dfrac23+\dfrac1n\left\{\sum_{k=0}^{n-1}(-1)^k\right\}\displaystyle\int_0^\pi\sin^5(2u)\cos u\,du\to\dfrac23$.'
+    steps:
+    - {id: 2a, content: '$\sum_{k=0}^{n-1}(-1)^k\in\{0,1\}$이므로 둘째 항은 $0$으로 수렴', criteria: [2.B1, 2.B2, 2.B3, 2.B4, 2.B5]}
+    hint_ladder:
+    - 피적분함수의 주기를 생각해 구간 $[k\pi,(k+1)\pi]$로 나누자.
+    - '$u=x-k\pi$로 옮기면 $\cos(u+k\pi)$는 어떻게 되는가?'
+    - '$\displaystyle\int_0^\pi\sin^5(2u)\cos u\,du$의 값을 직접 구하지 않아도 된다. 그 앞에 붙는 계수의 극한을 보자.'
+  - id: S2-B
+    audience: B
+    method_no: 1
+    source_flow: 2023 논술가이드북(자연) p.106 예시답안
+    steps:
+    - id: 2b-1
+      content: |
+        우선 적분 구간을 나누어
+        $$I_n=\sum_{k=0}^{n-1}\int_{k\pi}^{(k+1)\pi}\{\lvert\sin x\rvert\cos^2x+\sin^5(2x)\cos x\}\,dx$$
+        로 표현한다.
+      criteria: [2.B1]
+    - id: 2b-2
+      content: |
+        각 적분에 치환적분($u=x-k\pi$)을 한 후, 삼각함수의 성질을 이용하여
+        $$\begin{aligned}&\int_{k\pi}^{(k+1)\pi}\{\lvert\sin x\rvert\cos^2x+\sin^5(2x)\cos x\}\,dx\\&=\int_0^\pi\{\lvert\sin(u+k\pi)\rvert\cos^2(u+k\pi)+\sin^5(2(u+k\pi))\cos(u+k\pi)\}\,du\\&=\int_0^\pi\{\sin u\cos^2u+\sin^5(2u)(-1)^k\cos u\}\,du\end{aligned}$$
+        를 얻는다.
+      criteria: [2.B2]
+    - id: 2b-3
+      content: |
+        치환적분($t=\cos u$)에 의해 $\displaystyle\int_0^\pi\sin u\cos^2u\,du=\dfrac23$이므로
+        $$\dfrac{I_n}{n}=\dfrac1n\sum_{k=0}^{n-1}\left\{\dfrac23+(-1)^k\int_0^\pi\sin^5(2u)\cos u\,du\right\}=\dfrac23+\dfrac1n\left\{\sum_{k=0}^{n-1}(-1)^k\right\}\int_0^\pi\sin^5(2u)\cos u\,du$$
+        이다.
+      criteria: [2.B3]
+    - id: 2b-4
+      content: |
+        그런데 $0\le\dfrac1n\displaystyle\sum_{k=0}^{n-1}(-1)^k\le\dfrac1n$ (여기서 $\displaystyle\sum_{k=0}^{n-1}(-1)^k$는 $0$ 또는 $1$을 이용하였다.)이므로 $\dfrac{I_n}{n}$의 극한은 $\dfrac23$이다.
+      criteria: [2.B4, 2.B5]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.B1
+      mark_type: B
+      points: 3
+      evidence: '구간을 $\pi$ 간격으로 나누어 합으로 표현했다.'
+      depends_on: []
+      steps: [2b-1]
+    - id: 2.B2
+      mark_type: B
+      points: 3
+      evidence: '치환적분을 하여 구간 $0\le u\le\pi$에서의 적분의 합으로 식을 표현했다.'
+      depends_on: []
+      steps: [2b-2]
+    - id: 2.B3
+      mark_type: B
+      points: 3
+      evidence: '$\displaystyle\int_0^\pi\sin u\cos^2u\,du=\dfrac23$을 얻었다.'
+      depends_on: []
+      steps: [2b-3]
+    - id: 2.B4
+      mark_type: B
+      points: 3
+      evidence: '$\dfrac1n\left\{\displaystyle\sum_{k=0}^{n-1}(-1)^k\right\}\int_0^\pi\sin^5(2u)\cos u\,du$의 극한이 $0$임을 구했다.'
+      depends_on: []
+      steps: [2b-4]
+    - id: 2.B5
+      mark_type: B
+      points: 3
+      evidence: '최종적으로 정답 $\dfrac23$을 얻었다.'
+      depends_on: []
+      steps: [2b-4]
+    deductions:
+    - code: D2-1
+      condition: '$\displaystyle\int_0^{n\pi}\sin^5(2x)\cos x\,dx$를 근거 없이 0이라 한 경우(이 적분은 $n$이 짝수이면 0, 홀수이면 $\dfrac{512}{693}$) — 답이 맞더라도 최대 10점(3+3+3+1)만 부여(채점위원 대상 코멘트)'
+      effect: cap
+      value: 10
+    - code: D2-2
+      condition: 논리 전개 과정이 맞으면 답이 틀려도 1~2점 부분 점수 / 완성도에 따라 −0.5~+0.5점(공식 채점기준 주석)
+      effect: minus
+      value: 1
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-CAL-4319}
+  misconceptions:
+  - id: MC-CAL-4319
+    outcome_code: '70'
+    wrong_work: '$\sin^5(2x)\cos x$가 기함수 꼴이라 보고 $\displaystyle\int_0^{n\pi}\sin^5(2x)\cos x\,dx=0$이라고 근거 없이 둠'
+    detect_cue: '둘째 적분을 0으로 처리한 근거(주기·부호 분석)가 없음'
+    feedback: '이 적분은 $n$이 홀수이면 $\dfrac{512}{693}\ne0$입니다. 구간을 $\pi$씩 나누면 $(-1)^k$배가 번갈아 나오므로 그 합을 $n$으로 나눈 극한이 0임을 보여야 합니다.'
+    remedy: [RL-2]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CAL-4318}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-CHAIN-RULE}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-CAL-4319}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-PERIODIC-INTEGRAL-SPLIT}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-input-v1, item_version: 1, verdict: pass, date: 2026-11-22, note: 문제 원문 PDF 이미지 대조로 옮김 · 주 해설은 공식 예시답안 흐름 그대로 · 채점기준은 공식 기준을 B 마크로 옮김(채점위원 코멘트는 cap 감점)}
+
+created: 2026-11-22
+updated: 2026-11-22

@@ -1,0 +1,170 @@
+schema_version: '2.0'
+id: CAU-G21C-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: CAU
+type: T07
+variant_of: null
+replaces: null
+level: L4
+form: 분류
+points: 20
+time_estimate_min: 15
+intent: 주어진 상황에서 확률변수가 가지는 값을 이해하고 관련된 확률을 이끌어 내는 능력, 특히 반복된 실험에서 동일한 확률 구조를 가지지 않는 경우의 확률 계산 이해력을 요구한다. 이산확률변수 및 그 확률분포를 이용하여 기댓값을 계산하는 능력을 평가하며 난이도는 「중·하」 정도이다(가이드북 출제의도 요지).
+key_idea: '조건(첫 번째는 5가 아니고 두 번째가 5) 아래 첫 번째 눈은 $\{1,2,3,4,6\}$에서 균등 ⇒ $P(X=1)=\frac15$, $X=2$는 불가능, 이후는 일반 주사위.'
+stuck: 조건 때문에 첫 번째 던짐의 확률 구조가 달라지고($6$이 나올 확률 $\frac15$), $X=2$가 불가능함을 알아채는 단계
+idea_tags: [IDEA-CONDITION-CHANGES-SAMPLE-SPACE, IDEA-FIRST-SUCCESS-TRUNCATED]
+tags: [이산확률변수, 확률분포, 기댓값, 조건부확률, 중앙대 실전]
+elements:
+  materials: [주사위 4회 던지기, X = 처음 6이 나올 때까지 던진 횟수(안 나오면 5), 조건 — 두 번째에 처음으로 5]
+  concepts: [이산확률변수와 확률분포, 기댓값, 조건부확률, 독립시행]
+  tools: [조건으로 첫 번째·두 번째 결과 제한, X의 값별 확률 계산, 확률 합 1 확인, 기댓값 공식]
+  conditions:
+  - '두 번째에 처음으로 5 ⇒ 첫 번째 눈은 5가 아님(1,2,3,4,6 중 하나, 각 $\frac15$), 두 번째 눈은 5'
+  - '두 번째 눈이 5 ⇒ $X\neq2$; 첫 번째가 6이면 $X=1$'
+  - '네 번 모두 6이 아니면 $X=5$'
+  stimuli_used: []
+  subpart_links: null
+
+curriculum:
+  version: '2015'
+  subjects: [확률과통계]
+  scope_2028: common
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 이산확률변수의 기댓값(평균)과 표준편차를 구할 수 있다 / 조건부확률의 의미를 이해한다(요지)
+    verified: false
+  content_area: 통계 – 이산확률변수의 기댓값
+  behavior_domain: 문제해결
+  unit_path: [확률과 통계, 통계, 확률분포, 이산확률변수의 기댓값]
+  key_concepts: [이산확률변수, 기댓값]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 중앙대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 중앙대학교
+  admission_year: 2021
+  admission_type: 논술(수시)
+  track: 자연계열Ⅲ
+  question_no: 1
+  official_url: https://admisfile.cau.ac.kr/download/cau_2021_s_n_j_3.pdf
+  retrieved_at: '2026-11-21'
+  original_points: 20
+  rights_notice: 중앙대학교 입학처 공개 자료(기출문제 게시판 board_seq=2360). 상업적 재사용 허락 미요청
+  note: 문제 = 2021 자연계열Ⅲ 문제지 p.1(PDF 2쪽) / 예시답안·채점기준 = 2022 논술가이드북(자연) p.96 / 출제의도 = 같은 책 p.95. 문항카드 없음
+
+verify: verify/CAU-G21C.py::p01
+
+stimuli: []
+
+stem: |
+  주사위를 네 번 던지는 실험을 할 때, 처음으로 $6$의 눈이 나올 때까지 던졌던 횟수를 확률변수 $X$로 정의한다. 만약 네 번 던지는 동안 $6$의 눈이 나오지 않는 경우는, $X=5$로 정의한다. 예를 들어, 주사위의 눈이 순서대로 $4,1,6,2$로 나오면 $X=3$이 된다. 주사위를 두 번째 던졌을 때 처음으로 $5$의 눈이 나왔다고 하자. 이때 $X$의 기댓값을 구하시오. [20점]
+
+subparts:
+- id: '1'
+  stem: |
+    주사위를 두 번째 던졌을 때 처음으로 $5$의 눈이 나왔을 때, $X$의 기댓값을 구하시오.
+  points: 20
+  depends_on: []
+  answer: {kind: value, value: '\dfrac{172}{45}', equivalents: ['172/45'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: '$P(X=1)=\frac15$, $P(X=3)=\frac45\cdot\frac16$, $P(X=4)=\frac45\cdot\frac56\cdot\frac16$, $P(X=5)=\frac45\cdot\frac56\cdot\frac56$.'
+    steps:
+    - {id: 1a, content: '$E(X)=\dfrac15+3\cdot\dfrac2{15}+4\cdot\dfrac19+5\cdot\dfrac59=\dfrac{172}{45}$', criteria: [1.B1, 1.B2, 1.B3, 1.B4, 1.B5]}
+    hint_ladder:
+    - 첫 번째 던짐의 눈은 어떤 값들이 가능한가? 각각의 확률은?
+    - '$X=2$가 될 수 있는가?'
+    - 세 번째, 네 번째 던짐은 조건과 무관하다.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 2022 논술가이드북(자연) p.96 예시답안
+    steps:
+    - id: 1b-1
+      content: |
+        주사위를 두 번째 던졌을 때 처음으로 5의 눈이었을 때, $X$의 확률분포는 아래와 같다.
+
+        | 확률변수 $X$ | $1$ | $3$ | $4$ | $5$ | 계 |
+        |---|---|---|---|---|---|
+        | 확률 | $\frac15$ | $\left(\frac45\right)\left(\frac16\right)$ | $\left(\frac45\right)\left(\frac56\right)\left(\frac16\right)$ | $\left(\frac45\right)\left(\frac56\right)\left(\frac56\right)$ | $1$ |
+        | 보조계산1 | $\frac15$ | $\frac4{30}=\frac2{15}$ | $\frac{20}{180}=\frac19$ | $\frac{100}{180}=\frac59$ | $1$ |
+        | 보조계산2 | $\frac{36}{180}$ | $\frac{24}{180}$ | $\frac{20}{180}$ | $\frac{100}{180}$ | $1$ |
+      criteria: [1.B1, 1.B2, 1.B3, 1.B4]
+    - id: 1b-2
+      content: |
+        따라서, $X$의 기댓값 $=1\left(\dfrac15\right)+3\left(\dfrac2{15}\right)+4\left(\dfrac19\right)+5\left(\dfrac59\right)=\dfrac15+\dfrac25+\dfrac49+\dfrac{25}9=\dfrac{9+18+20+125}{45}=\dfrac{172}{45}$
+      criteria: [1.B5]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.B1
+      mark_type: B
+      points: 4
+      evidence: '$P(X=1)=\frac15$을 바르게 계산했다(확률분포 16점 중 $X=1,3,4,5$ 각 확률값 4점씩).'
+      depends_on: []
+      steps: [1b-1]
+    - id: 1.B2
+      mark_type: B
+      points: 4
+      evidence: '$P(X=3)=\frac2{15}$을 바르게 계산했다.'
+      depends_on: []
+      steps: [1b-1]
+    - id: 1.B3
+      mark_type: B
+      points: 4
+      evidence: '$P(X=4)=\frac19$을 바르게 계산했다.'
+      depends_on: []
+      steps: [1b-1]
+    - id: 1.B4
+      mark_type: B
+      points: 4
+      evidence: '$P(X=5)=\frac59$을 바르게 계산했다.'
+      depends_on: []
+      steps: [1b-1]
+    - id: 1.B5
+      mark_type: B
+      points: 4
+      evidence: $X$의 기댓값을 $X$가 가지는 값과 확률을 곱하고 더하여 $\dfrac{172}{45}$로 바르게 계산했다. [계산 결과가 틀렸어도 기댓값의 구조를 정확하게 이해하고 있으면 +2]
+      depends_on: []
+      steps: [1b-2]
+    deductions:
+    - code: D1-1
+      condition: 공식 주석 — 계산 실수로 틀렸어도 논리 전개 과정이 맞으면 해당 부분에 1~2점의 부분 점수 부여, 각 부분을 바르게 작성한 경우에도 답안의 완성도에 따라 총점 20점 이내에서 ±1점 추가 부여 가능
+      effect: minus
+      value: 1
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-PRB-4217}
+  misconceptions:
+  - id: MC-PRB-4217
+    outcome_code: '70'
+    wrong_work: '조건을 무시하고 $P(X=1)=\frac16$, $P(X=3)=\frac56\cdot\frac16$처럼 무조건부 확률을 쓰거나 $X=2$에 양의 확률을 줌'
+    detect_cue: '$P(X=1)=\frac16$, 확률 합이 1이 아님, $X=2$ 항이 있음'
+    feedback: 「두 번째에 처음으로 5」라는 조건 아래 첫 번째 눈은 5를 뺀 다섯 가지 중 하나이고 두 번째 눈은 5로 고정됩니다.
+    remedy: [RL-1]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-PRB-4217}
+  relation: remediation
+  target: {kind: concept, ref: CON-PRB-EXPECT-DISCRETE}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-input-v1, item_version: 1, verdict: pass, date: 2026-11-22, note: 문제 원문 PDF 이미지 대조로 옮김 · 주 해설은 공식 예시답안(표) 흐름 그대로 · 채점기준은 공식 기준(확률분포 16점 = 4점×4, 기댓값 4점)을 B 마크로 옮김}
+
+created: 2026-11-22
+updated: 2026-11-22

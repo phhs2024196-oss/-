@@ -1,0 +1,194 @@
+schema_version: '2.0'
+id: CAU-G21B-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: CAU
+type: T01
+variant_of: null
+replaces: null
+level: L4
+form: 분류
+points: 20
+time_estimate_min: 15
+intent: 경우의 수를 계산하기 위하여 「같은 것이 있는 순열」의 개념을 사용할 수 있는지와 이를 이용하여 확률과 연관시킬 수 있는 능력을 평가한다. 확률의 개념의 이해도 및 경우의 수에 대한 이해도를 평가하며 난이도는 「중」 정도로 볼 수 있다(가이드북 출제의도 요지).
+key_idea: 'Q(12,8)까지 경로는 앞면 10·뒷면 2의 배열 $_{12}C_2=66$가지로 모두 같은 확률. $x$축에 닿지 않으려면 처음 두 번은 앞면이고 셋째가 앞면(→(3,3)) 또는 뒷면 후 앞면(→(4,2))으로 나누어 $36+8=44$.'
+stuck: 「Q에 도착했다」는 조건 아래 모든 경로가 같은 확률이므로 경로 수의 비로 바뀐다는 점과, 닿지 않는 경로를 초반 움직임으로 분류하는 단계
+idea_tags: [IDEA-LATTICE-PATH-PERM, IDEA-CASE-BY-EARLY-MOVES]
+tags: [같은 것이 있는 순열, 조건부확률, 격자 경로, 여사건, 중앙대 실전]
+elements:
+  materials: [동전 던지기(앞면 ↗, 뒷면 ↘ 한 칸), 원점 출발, 도착점 Q(12, 8), x축 미접촉 사건]
+  concepts: [같은 것이 있는 순열, 수학적 확률, 조건부확률, 여사건]
+  tools: [앞·뒷면 횟수 연립 a+b=12·a−b=8, 같은 것이 있는 순열로 경로 수, 초반 경로로 경우 분류, 여사건(축에 닿는 경로) 계산(별해)]
+  conditions:
+  - 'Q(12,8) 도착 ⇒ 앞면 $a$회, 뒷면 $b$회에 대해 $a+b=12$, $a-b=8$ ⇒ $a=10$, $b=2$'
+  - '모든 도착 경로의 확률이 $\left(\frac12\right)^{12}$로 같음 ⇒ 확률 $=\dfrac{m}{n}$(경로 수의 비)'
+  - '원점 출발 이후 $x$축에 닿지 않음 ⇒ 첫 두 번은 앞면, 이후 높이가 0이 되지 않음'
+  stimuli_used: []
+  subpart_links: null
+
+curriculum:
+  version: '2015'
+  subjects: [확률과통계]
+  scope_2028: common
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 같은 것이 있는 순열을 이해하고, 그 순열의 수를 구할 수 있다 / 조건부확률의 의미를 이해한다(요지)
+    verified: false
+  content_area: 경우의 수 – 같은 것이 있는 순열 / 확률
+  behavior_domain: 문제해결
+  unit_path: [확률과 통계, 경우의 수, 순열과 조합, 같은 것이 있는 순열]
+  key_concepts: [같은 것이 있는 순열, 수학적 확률]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 중앙대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 중앙대학교
+  admission_year: 2021
+  admission_type: 논술(수시)
+  track: 자연계열Ⅱ
+  question_no: 1
+  official_url: https://admisfile.cau.ac.kr/download/cau_2021_s_n_j_2.pdf
+  retrieved_at: '2026-11-21'
+  original_points: 20
+  rights_notice: 중앙대학교 입학처 공개 자료(기출문제 게시판 board_seq=2360). 상업적 재사용 허락 미요청
+  note: 문제 = 2021 자연계열Ⅱ 문제지 p.1(PDF 2쪽) / 예시답안·채점기준 = 2022 논술가이드북(자연) p.74~75 / 출제의도 = 같은 책 p.73. 문제 그림(이동 예시 화살표·격자)은 글로 옮김. 문항카드 없음
+
+verify: verify/CAU-G21B.py::p01
+
+stimuli: []
+
+stem: |
+  좌표평면 위의 점 P는 동전을 한 번 던져서 앞면이 나오면 오른쪽 대각선 방향의 위(↗)로 한 칸만큼, 뒷면이 나오면 오른쪽 대각선 방향의 아래(↘)로 한 칸만큼 이동한다. 동전을 반복적으로 던지는 실험의 결과, 아래의 그림과 같이 원점 O에서 출발한 점 P가 점 Q(12, 8)에 도착했다고 할 때, 원점을 출발한 이후 점 P가 $x$축에 닿지 않았을 확률을 구하시오. [20점]
+
+  [그림] 원점 O에 놓인 점 P에서 ↗ 화살표는 점 $(1,1)$, $(2,2)$ 쪽으로, ↘ 화살표는 점 $(1,-1)$ 쪽으로 그려져 있고, 한 칸 이동은 $x$좌표 $+1$, $y$좌표 $\pm1$이다. 오른쪽 위에 점 Q(12, 8)이 표시되어 있다.
+
+subparts:
+- id: '1'
+  stem: |
+    점 P가 Q(12, 8)에 도착했을 때, 원점을 출발한 이후 $x$축에 닿지 않았을 확률을 구하시오.
+  points: 20
+  depends_on: []
+  answer: {kind: value, value: '\dfrac{2}{3}', equivalents: ['2/3', '44/66'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $n={}_{12}C_2=66$, 닿지 않는 경로 $m={}_9C_2+{}_8C_1=36+8=44$(여사건으로 $66-(11+10+1)$도 가능).
+    steps:
+    - {id: 1a, content: '$p=\dfrac{44}{66}=\dfrac23$', criteria: [1.B1, 1.B2, 1.B3, 1.B4]}
+    hint_ladder:
+    - Q에 도착한 경로들은 모두 같은 확률을 갖는다. 그렇다면 확률은 무엇의 비인가?
+    - 앞면·뒷면이 각각 몇 번 나와야 Q에 도착하는가?
+    - $x$축에 닿지 않으려면 처음 몇 번은 반드시 앞면이어야 하는가? 셋째 던짐으로 나누어 보자.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 2022 논술가이드북(자연) p.74 예시답안
+    steps:
+    - id: 1b-1
+      content: |
+        $\mathrm{P}\to\mathrm{Q}$로 진행되는 모든 경로는 동일한 확률($=(1/2)^{12}$)을 가지므로, P가 $x$축에 닿지 않았을 확률 $p$는 다음과 같이 구할 수 있다.
+        $$p=\frac{\mathrm{P}\to\mathrm{Q}\text{의 경로 중에서 }x\text{축에 닿지 않는 경우의 수}}{\mathrm{P}\to\mathrm{Q}\text{의 경우의 수}}\left(=\frac{m}{n}\right)$$
+        ※ 참고: 조건부 확률 및 이항분포 형태를 고려하여 $p=\dfrac{m\times\left(\frac12\right)^{12}}{n\times\left(\frac12\right)^{12}}$과 같은 표현을 고려할 수도 있음.
+      criteria: []
+    - id: 1b-2
+      content: |
+        (1) $n$의 값: Q점에 도착하기 위한 동전의 앞면(H)이 나온 횟수를 $a$, 뒷면(T)의 횟수를 $b$라고 하면, 다음과 같은 관계식을 유도할 수 있다. $a+b=12$, $a-b=8$. 따라서, $a=10$, $b=2$이다. 즉, 10개의 H와 2개의 T를 일렬로 배열하는 경우의 수이다.
+        $$n={}_{12}C_{10}={}_{12}C_2=\frac{12\times11}{2}=66.$$
+      criteria: [1.B1]
+    - id: 1b-3
+      content: |
+        (2) $m$의 값: $x$축에 닿지 않는 경로는 다음의 2가지 경우로 나눠 생각할 수 있다.
+        (ⅰ) P가 $(0,0)\to(1,1)\to(2,2)\to(3,3)$으로 진행한 경우: 이 경우는, 7개의 H와 2개의 T를 일렬로 배열하는 경우의 수이다. $m_1={}_9C_7={}_9C_2=\dfrac{9\times8}{2}=36$
+      criteria: [1.B2]
+    - id: 1b-4
+      content: |
+        (ⅱ) P가 $(0,0)\to(1,1)\to(2,2)\to(3,1)\to(4,2)$로 진행한 경우: 이 경우는, 7개의 H와 1개의 T를 일렬로 배열하는 경우의 수이다. $m_2={}_8C_7={}_8C_1=8$
+      criteria: [1.B3]
+    - id: 1b-5
+      content: |
+        (3) 확률 $p$의 계산: 따라서, $m=m_1+m_2=44$이므로, $p=\dfrac{44}{66}=\dfrac23$.
+      criteria: [1.B4]
+  - id: S1-ALT
+    audience: ALT
+    method_no: 2
+    source_flow: 2022 논술가이드북(자연) p.74 ※ 여사건 풀이
+    steps:
+    - id: 1c-1
+      content: |
+        $m$의 계산을 위하여, 다음과 같이 여사건을 이용할 수도 있다. 즉, $x$축에 닿고 Q점에 도달하는 경우는 다음과 같은 세 가지 경우이다.
+        (ⅰ) P가 $(0,0)\to(1,-1)$로 진행한 경우: $m_1^*={}_{11}C_1=11$
+        (ⅱ) P가 $(0,0)\to(1,1)\to(2,0)$으로 진행한 경우: $m_2^*={}_{10}C_1=10$
+        (ⅲ) P가 $(0,0)\to(1,1)\to(2,2)\to(3,1)\to(4,0)$으로 진행한 경우: $m_3^*={}_8C_0=1$
+      criteria: [1.B2]
+    - id: 1c-2
+      content: |
+        따라서, 위의 세 가지 경우의 합(여사건의 경우의 수, $m^*$)을 이용하여,
+        $$m=n-m^*=n-(m_1^*+m_2^*+m_3^*)=66-(11+10+1)=66-22=44.$$
+      criteria: [1.B3]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.B1
+      mark_type: B
+      points: 7
+      evidence: Q점에 도착하기 위한 모든 경로의 수 $n=66$을 바르게 계산했다. [$a$, $b$의 값만 구한 경우 +2]
+      depends_on: []
+      steps: [1b-2]
+    - id: 1.B2
+      mark_type: B
+      points: 5
+      evidence: $x$축에 닿지 않는 경로의 수 $m_1=36$을 바르게 계산했다. [여사건 풀이는 1.B2·1.B3 합쳐 10점 — 각 여사건 $m_1^*$, $m_2^*$, $m_3^*$에 대하여 3점씩, 총합 $m^*=22$ 계산 1점]
+      depends_on: []
+      steps: [1b-3, 1c-1]
+    - id: 1.B3
+      mark_type: B
+      points: 5
+      evidence: $x$축에 닿지 않는 경로의 수 $m_2=8$을 바르게 계산했다(여사건 풀이는 $m=n-m^*=44$까지).
+      depends_on: []
+      steps: [1b-4, 1c-2]
+    - id: 1.B4
+      mark_type: B
+      points: 3
+      evidence: $n$과 $m$을 이용하여 확률 $p=\dfrac23$을 바르게 계산했다.
+      depends_on: []
+      steps: [1b-5]
+    deductions:
+    - code: D1-1
+      condition: 공식 주석 — 계산 실수로 틀렸어도 논리 전개 과정이 맞으면 해당 부분에 1~2점의 부분 점수 부여, 각 부분을 바르게 작성한 경우에도 답안의 완성도에 따라 총점 20점 이내에서 ±1점 추가 부여 가능
+      effect: minus
+      value: 1
+  outcome_codes:
+  - {code: '20', meaning: 만점(직접 분류)}
+  - {code: '21', meaning: 만점(여사건)}
+  - {code: '70', misconception: MC-PRB-4213}
+  misconceptions:
+  - id: MC-PRB-4213
+    outcome_code: '70'
+    wrong_work: '여사건에서 $(0,0)\to(1,1)\to(2,2)\to(3,1)\to(4,0)$ 경우(1가지)나 첫 이동이 ↘인 경우를 빠뜨려 $m^*=21$ 또는 $11$로 셈'
+    detect_cue: '$m\ne44$, 확률이 $\frac{45}{66}$, $\frac{55}{66}$ 등'
+    feedback: 축에 닿는 경로는 「처음 닿는 시점」으로 나누면 빠짐없이 셀 수 있습니다(1번째, 2번째, 4번째 이동에서 처음 닿음).
+    remedy: [RL-1]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-PRB-4213}
+  relation: remediation
+  target: {kind: concept, ref: CON-PRB-LATTICE-PATH}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-input-v1, item_version: 1, verdict: pass, date: 2026-11-22, note: 문제 원문 PDF 이미지 대조로 옮김(그림은 글로) · 주 해설은 공식 예시답안 흐름 그대로(여사건 풀이는 ALT) · 채점기준은 공식 기준을 B 마크로 옮김}
+
+created: 2026-11-22
+updated: 2026-11-22

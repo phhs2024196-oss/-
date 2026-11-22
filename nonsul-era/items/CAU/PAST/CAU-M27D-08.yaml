@@ -1,0 +1,180 @@
+schema_version: '2.0'
+id: CAU-M27D-08
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: CAU
+type: T06
+variant_of: null
+replaces: null
+level: L5
+form: 최적2단
+points: 15
+time_estimate_min: 15
+intent: 벡터가 크기와 방향을 함께 가지는 양임을 잘 이해하고 위치벡터의 개념을 활용하여 문제를 해결할 수 있는지 평가한다(가이드북 출제 의도).
+key_idea: '원의 중심 O를 시점으로 $\overrightarrow{\mathrm{AB}}\cdot\overrightarrow{\mathrm{AC}}=\overrightarrow{\mathrm{OB}}\cdot\overrightarrow{\mathrm{OC}}-(\overrightarrow{\mathrm{OB}}+\overrightarrow{\mathrm{OC}})\cdot\overrightarrow{\mathrm{OA}}+1$로 쓰고, B·C를 고정한 뒤 A, 다음에 $\theta$ 순으로 두 단계 최소화한다.'
+stuck: 위치벡터로 분해한 뒤 $\overrightarrow{\mathrm{OA}}$가 $\overrightarrow{\mathrm{OB}}+\overrightarrow{\mathrm{OC}}$와 같은 방향일 때 최소임을 보고, 남은 식을 $\cos\dfrac\theta2$의 이차식으로 바꾸는 단계
+idea_tags: [IDEA-POSITION-VECTOR-FROM-CENTER, IDEA-TWO-STAGE-OPTIMIZATION]
+tags: [벡터의 내적, 위치벡터, 원, 최솟값, 반각, 중앙대 모의, 창의형, 의약학부]
+elements:
+  materials:
+  - '반지름의 길이가 1인 원 위의 세 점 A, B, C'
+  - '내적 $\overrightarrow{\mathrm{AB}}\cdot\overrightarrow{\mathrm{AC}}$의 최솟값과 그때 삼각형 ABC의 넓이'
+  concepts: [위치벡터, 벡터의 내적, 벡터의 크기, 코사인의 배각(반각) 공식, 이차함수의 최솟값, 삼각형의 넓이]
+  tools: [원의 중심을 시점으로 분해, 내적의 크기·각 표현, 두 단계 최적화(방향 먼저 각 다음), 반각 치환으로 이차식, 그림으로 넓이]
+  conditions:
+  - '$\lvert\overrightarrow{\mathrm{OA}}\rvert=\lvert\overrightarrow{\mathrm{OB}}\rvert=\lvert\overrightarrow{\mathrm{OC}}\rvert=1$ ⇒ $\overrightarrow{\mathrm{OA}}\cdot\overrightarrow{\mathrm{OA}}=1$, $\lvert\overrightarrow{\mathrm{OB}}+\overrightarrow{\mathrm{OC}}\rvert=2\cos\dfrac\theta2$'
+  - '$0\le\theta\le\pi$ ⇒ $\cos\dfrac\theta2\ge0$ ⇒ 최소가 되려면 $\cos\phi=1$'
+  - '$2\left(\cos^2\dfrac\theta2-\cos\dfrac\theta2\right)$ 최소 ⇔ $\cos\dfrac\theta2=\dfrac12$ ⇔ $\theta=\dfrac{2\pi}3$'
+  stimuli_used: []
+  subpart_links: null
+
+curriculum:
+  version: '2015'
+  subjects: [기하]
+  scope_2028: geom
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 위치벡터의 뜻을 알고, 두 벡터의 내적을 구할 수 있다(요지)
+    verified: false
+  content_area: 평면벡터 – 위치벡터와 내적
+  behavior_domain: 문제해결
+  unit_path: [기하, 평면벡터, 평면벡터의 성분과 내적, 벡터의 내적]
+  key_concepts: [위치벡터, 내적, 최솟값]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 중앙대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 중앙대학교
+  admission_year: 2027
+  admission_type: 모의논술(창의형)
+  track: 자연계열 의·약학부 추가문항
+  question_no: 8
+  official_url: https://admission.cau.ac.kr/detail.do?menuurl=jcgylvDgJz1bdCxN45fl1g%3D%3D&board_seq=3252&pageNo=1&categoryid=14
+  retrieved_at: '2026-11-21'
+  original_points: 15
+  rights_notice: 중앙대학교 입학처 공개 자료(모의논술 게시판). 상업적 재사용 허락 미요청
+  note: 문제 = 2027 창의형 모의논술 의·약학부 문제지 p.4 / 예시답안·채점기준 = 2027 논술가이드북(자연) p.53 / 출제의도 = 같은 책 p.45. 문항카드 없음
+
+verify: verify/CAU-M27D.py::p08
+
+stimuli: []
+
+stem: |
+  반지름의 길이가 1인 원 위의 세 점 A, B, C에 대하여 내적 $\overrightarrow{\mathrm{AB}}\cdot\overrightarrow{\mathrm{AC}}$가 최솟값을 가질 때, 그 값과 삼각형 ABC의 넓이를 구하시오. [15점]
+
+subparts:
+- id: '1'
+  stem: |
+    내적 $\overrightarrow{\mathrm{AB}}\cdot\overrightarrow{\mathrm{AC}}$의 최솟값과 그때 삼각형 ABC의 넓이를 구하시오.
+  points: 15
+  depends_on: []
+  answer: {kind: value, value: '최솟값\ -\dfrac12,\ 넓이\ \dfrac{\sqrt3}{4}', equivalents: ['-1/2, sqrt(3)/4'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: B, C를 고정하면 A는 $\overrightarrow{\mathrm{OB}}+\overrightarrow{\mathrm{OC}}$ 방향에 있을 때 최소이고, 그때 값은 $\cos\theta-2\cos\dfrac\theta2+1=2\left(\cos\dfrac\theta2-\dfrac12\right)^2-\dfrac12$.
+    steps:
+    - {id: 1a, content: '최솟값 $-\dfrac12$ ($\theta=\dfrac{2\pi}3$), $\overline{\mathrm{AB}}=\overline{\mathrm{AC}}=1$, $\angle\mathrm{BAC}=\dfrac{2\pi}3$, 넓이 $\dfrac{\sqrt3}4$', criteria: [1.B1, 1.B2, 1.B3, 1.B4]}
+    hint_ladder:
+    - 원의 중심 O를 시점으로 하는 위치벡터로 $\overrightarrow{\mathrm{AB}}$, $\overrightarrow{\mathrm{AC}}$를 나타내자.
+    - B, C를 고정하면 A가 어디에 있을 때 내적이 가장 작은가?
+    - $\angle\mathrm{BOC}=\theta$로 두고 반각 공식을 쓰자.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 2027 논술가이드북(자연) p.53 예시답안
+    steps:
+    - id: 1b-1
+      content: |
+        원의 중심을 O라 하면,
+        $$\begin{aligned}\overrightarrow{\mathrm{AB}}\cdot\overrightarrow{\mathrm{AC}}&=(\overrightarrow{\mathrm{OB}}-\overrightarrow{\mathrm{OA}})\cdot(\overrightarrow{\mathrm{OC}}-\overrightarrow{\mathrm{OA}})\\&=\overrightarrow{\mathrm{OB}}\cdot\overrightarrow{\mathrm{OC}}-(\overrightarrow{\mathrm{OB}}+\overrightarrow{\mathrm{OC}})\cdot\overrightarrow{\mathrm{OA}}+\overrightarrow{\mathrm{OA}}\cdot\overrightarrow{\mathrm{OA}}\\&=\overrightarrow{\mathrm{OB}}\cdot\overrightarrow{\mathrm{OC}}-(\overrightarrow{\mathrm{OB}}+\overrightarrow{\mathrm{OC}})\cdot\overrightarrow{\mathrm{OA}}+1\end{aligned}$$
+      criteria: [1.B1]
+    - id: 1b-2
+      content: |
+        두 벡터 $\overrightarrow{\mathrm{OB}}$, $\overrightarrow{\mathrm{OC}}$ 사이의 각을 $\theta\ (0\le\theta\le\pi)$라 하면,
+        $$\begin{aligned}\lvert\overrightarrow{\mathrm{OB}}+\overrightarrow{\mathrm{OC}}\rvert^2&=(\overrightarrow{\mathrm{OB}}+\overrightarrow{\mathrm{OC}})\cdot(\overrightarrow{\mathrm{OB}}+\overrightarrow{\mathrm{OC}})=\lvert\overrightarrow{\mathrm{OB}}\rvert^2+\lvert\overrightarrow{\mathrm{OC}}\rvert^2+2\overrightarrow{\mathrm{OB}}\cdot\overrightarrow{\mathrm{OC}}\\&=\lvert\overrightarrow{\mathrm{OB}}\rvert^2+\lvert\overrightarrow{\mathrm{OC}}\rvert^2+2\lvert\overrightarrow{\mathrm{OB}}\rvert\lvert\overrightarrow{\mathrm{OC}}\rvert\cos\theta=1+1+2\cos\theta=2+2\cos\theta=4\cos^2\dfrac\theta2\end{aligned}$$
+        따라서 $\lvert\overrightarrow{\mathrm{OB}}+\overrightarrow{\mathrm{OC}}\rvert=2\cos\dfrac\theta2$이다.
+      criteria: []
+    - id: 1b-3
+      content: |
+        두 벡터 $\overrightarrow{\mathrm{OB}}+\overrightarrow{\mathrm{OC}}$와 $\overrightarrow{\mathrm{OA}}$ 사이의 각을 $\phi\ (0\le\phi\le\pi)$라 하면, $(\overrightarrow{\mathrm{OB}}+\overrightarrow{\mathrm{OC}})\cdot\overrightarrow{\mathrm{OA}}=\lvert\overrightarrow{\mathrm{OB}}+\overrightarrow{\mathrm{OC}}\rvert\lvert\overrightarrow{\mathrm{OA}}\rvert\cos\phi=2\cos\dfrac\theta2\cos\phi$이고 $\cos\dfrac\theta2\ge0$이므로
+        $\overrightarrow{\mathrm{AB}}\cdot\overrightarrow{\mathrm{AC}}=\overrightarrow{\mathrm{OB}}\cdot\overrightarrow{\mathrm{OC}}-(\overrightarrow{\mathrm{OB}}+\overrightarrow{\mathrm{OC}})\cdot\overrightarrow{\mathrm{OA}}+1=\cos\theta-2\cos\dfrac\theta2\cos\phi+1$이 최솟값을 가지려면 $\cos\phi=1\ (\phi=0)$이어야 한다.
+      criteria: [1.B2]
+    - id: 1b-4
+      content: |
+        $\phi=0$이면, 내적 $\overrightarrow{\mathrm{AB}}\cdot\overrightarrow{\mathrm{AC}}$은
+        $\overrightarrow{\mathrm{AB}}\cdot\overrightarrow{\mathrm{AC}}=\cos\theta-2\cos\dfrac\theta2+1=2\left(\cos^2\dfrac\theta2-\cos\dfrac\theta2\right)$이고
+        $\cos\dfrac\theta2=\dfrac12\ \left(\theta=\dfrac{2\pi}3\right)$일 때, 최솟값 $-\dfrac12$을 갖는다.
+      criteria: [1.B3]
+    - id: 1b-5
+      content: |
+        이때, 그림과 같이 $\overline{\mathrm{AB}}=\overline{\mathrm{AC}}=1$, $\angle\mathrm{BAC}=\dfrac{2\pi}3$이고
+        $$\triangle\mathrm{ABC}=\dfrac12\times\overline{\mathrm{AB}}\times\overline{\mathrm{AC}}\times\sin(\angle\mathrm{BAC})=\dfrac{\sqrt3}{4}$$
+        [그림: 원에 내접하는 정육각형의 이웃한 세 꼭짓점 B, A, C와 중심각 $60^\circ$들]
+      criteria: [1.B4]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.B1
+      mark_type: B
+      points: 5
+      evidence: $\overrightarrow{\mathrm{AB}}\cdot\overrightarrow{\mathrm{AC}}=\overrightarrow{\mathrm{OB}}\cdot\overrightarrow{\mathrm{OC}}-(\overrightarrow{\mathrm{OB}}+\overrightarrow{\mathrm{OC}})\cdot\overrightarrow{\mathrm{OA}}+1$을 구했다.
+      depends_on: []
+      steps: [1b-1]
+    - id: 1.B2
+      mark_type: B
+      points: 5
+      evidence: 최소 조건 $\cos\phi=1\ (\phi=0)$을 구했다.
+      depends_on: []
+      steps: [1b-3]
+    - id: 1.B3
+      mark_type: B
+      points: 3
+      evidence: 내적의 최솟값 $-\dfrac12$을 구했다.
+      depends_on: []
+      steps: [1b-4]
+    - id: 1.B4
+      mark_type: B
+      points: 2
+      evidence: 삼각형 ABC의 넓이 $\dfrac{\sqrt3}{4}$를 구했다.
+      depends_on: []
+      steps: [1b-5]
+    deductions:
+    - code: D1-1
+      condition: 채점자 재량 — 답안의 완성도에 따라 −0.5~+0.5점(공식 주석). 논리 전개 과정이 맞으면 답이 틀리더라도 1~2점의 부분 점수 부여(공식 주석)
+      effect: minus
+      value: 0.5
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-GEO-4704}
+  misconceptions:
+  - id: MC-GEO-4704
+    outcome_code: '70'
+    wrong_work: 정삼각형이나 직각삼각형 등 특수한 배치만 시험해 보고 그중 작은 값(예 $\dfrac12$, $0$)을 최솟값으로 결론지음
+    detect_cue: 일반 배치에 대한 식 없이 특정 삼각형의 값만 비교, 답이 $-\dfrac12$가 아님
+    feedback: 내적은 둔각일 때 음수가 됩니다. 중심 O를 시점으로 분해해 A의 위치와 $\angle\mathrm{BOC}$를 차례로 최적화하세요.
+    remedy: [RL-1]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-GEO-4704}
+  relation: remediation
+  target: {kind: concept, ref: CON-GEO-POSITION-VECTOR-DOT}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-input-v1, item_version: 1, verdict: pass, date: 2026-11-21, note: 문제 원문 PDF 이미지 대조로 옮김 · 주 해설은 공식 예시답안 흐름 그대로(그림은 글로 설명) · 채점기준은 공식 기준을 B 마크로 옮김}
+
+created: 2026-11-21
+updated: 2026-11-21

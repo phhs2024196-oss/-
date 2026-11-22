@@ -1,0 +1,313 @@
+schema_version: '2.0'
+id: CAU-G26A-03
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: CAU
+type: T03
+variant_of: null
+replaces: null
+level: L5
+form: 추론
+points: 25
+time_estimate_min: 30
+intent: '정적분과 급수의 관계를 알고, 바로 정적분으로 바꿀 수 없는 급수를 적절히 변형해 정적분을 구할 수 있는지(3-1), 주어진 상황을 함수로 표현하고 미분해 그래프의 개형을 파악하여 최솟값을 구하고 그 정적분을 계산할 수 있는지(3-2) 평가한다(문항카드 9 출제 의도 요지).'
+key_idea: '(3-1) $\ln(3n+k)=\ln n+\ln\left(3+\dfrac kn\right)$로 분리하면 $\ln n$ 항이 상쇄되어 $\int_0^1\left(\dfrac{1}{(2+x)\ln(2+x)}-\dfrac{1}{(3+x)\ln(3+x)}\right)dx$가 된다; (3-2) 대칭으로 $f(x)=\lvert x\rvert+2\sqrt{(x-t)^2+3t}$, 임계점 $x=t-\sqrt t$가 $0$ 이상인지로 $t\lessgtr1$을 나눈다.'
+stuck: '(3-1) 분자의 $\ln n$을 떼어 내 $\dfrac kn$만의 식으로 만드는 단계 / (3-2) 최소점 $t-\sqrt t$의 부호에 따라 $m(t)$가 두 식으로 갈리는 단계'
+idea_tags: [IDEA-RIEMANN-SPLIT-LOG-N, IDEA-MIN-POINT-CASE-BY-PARAM]
+tags: [정적분과 급수, 치환적분, 부분적분, 거리의 합 최소, 중앙대 실전]
+elements:
+  materials:
+  - '로그가 들어간 급수의 극한 $\displaystyle\lim_{n\to\infty}\sum_{k=1}^n\dfrac1n\cdot\dfrac{(3+\frac kn)\ln(3n+k)-(2+\frac kn)\ln(2n+k)-\ln n}{(2+\frac kn)(3+\frac kn)\ln(2+\frac kn)\ln(3+\frac kn)}$'
+  - '점 $\mathrm{O}(0,0)$, $\mathrm{P}(x,0)$, $\mathrm{A}(t,\sqrt{3t})$, $\mathrm{B}(t,-\sqrt{3t})$와 거리의 합 $f(x)=\overline{PO}+\overline{PA}+\overline{PB}$'
+  - '$\displaystyle\int_{\frac12}^4\ln(m(t))\,dt=a\ln2+b\ln5+c\ln7+d$'
+  concepts: [정적분과 급수의 합의 관계, 로그의 성질, 치환적분법, 부분적분법, 두 점 사이의 거리, 도함수와 최솟값]
+  tools:
+  - 로그 분리로 $\ln n$ 상쇄
+  - '분수 분해 $\dfrac{(3+x)\ln(3+x)-(2+x)\ln(2+x)}{(2+x)(3+x)\ln(2+x)\ln(3+x)}$'
+  - '치환 $y=\ln(2+x)$, $y=\ln(3+x)$'
+  - $x\ge0$만 보아도 됨(대칭·절댓값)
+  - '$x\ge t$에서 $f''\ge0$이므로 $[0,t]$로 제한'
+  - 임계점 위치에 따른 경우 분류
+  - 로그의 성질과 부분적분
+  conditions:
+  - '$x_k=\dfrac kn$, $\Delta x=\dfrac1n$, 구간 $[0,1]$ ⇒ 급수 = 정적분(제시문 1)'
+  - 'A, B가 $x$축에 대칭 ⇒ $\overline{PA}=\overline{PB}=\sqrt{(x-t)^2+3t}$'
+  - '최솟값 문제, $x<0$이면 $f(-x)\le f(x)$ ⇒ $x\ge0$만 고려'
+  - '$f''(x)=0$ ⇒ $x=t-\sqrt t$; $0\le t\le1$이면 $t-\sqrt t\le0$ ⇒ $x=0$에서 최소, $t\ge1$이면 $0\le t-\sqrt t\le t$ ⇒ 그 점에서 최소'
+  - '$a$, $b$, $c$, $d$는 유리수 ⇒ $\ln2$, $\ln5$, $\ln7$과 상수항의 계수 비교'
+  stimuli_used: ['1', '2', '3', '4']
+  subpart_links: 3-1과 3-2는 제시문만 공유하고 결과는 서로 독립이다(3-1은 제시문 1·3, 3-2는 제시문 2·4 사용).
+
+curriculum:
+  version: '2015'
+  subjects: [미적분]
+  scope_2028: calc2
+  scope_confirmed: false
+  standards:
+  - code: 12미적03-04
+    text: 정적분과 급수의 합 사이의 관계를 이해한다.
+    verified: true
+  - code: 12미적03-01
+    text: 치환적분법을 이해하고, 이를 활용할 수 있다.
+    verified: true
+  - code: 12미적02-12
+    text: 함수의 그래프의 개형을 그릴 수 있다.
+    verified: true
+  - code: 12미적03-02
+    text: 부분적분법을 이해하고, 이를 활용할 수 있다.
+    verified: true
+  content_area: 적분법 – 정적분의 활용·여러 가지 적분법 / 미분법 – 도함수의 활용
+  behavior_domain: 문제해결
+  unit_path: [미적분, 적분법, 정적분의 활용, 정적분과 급수의 합]
+  key_concepts: [구분구적법, 치환적분, 부분적분, 최솟값]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 중앙대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 중앙대학교
+  admission_year: 2026
+  admission_type: 논술(수시)
+  track: 자연계열Ⅰ
+  question_no: 3
+  official_url: https://admission.cau.ac.kr/files/2026/2026_cau_ns_jy1.pdf
+  retrieved_at: '2026-11-21'
+  original_points: 25
+  rights_notice: 중앙대학교 입학처 공개 자료(기출문제 게시판). 상업적 재사용 허락 미요청
+  note: 문제 = 2026 자연계열Ⅰ 문제지 p.3(PDF 5쪽) / 예시답안·채점기준 = 2027 논술가이드북(자연) p.64~65 / 출제의도·성취기준 = 2026 선행학습 영향평가 보고서 문항카드 9 (p.241~245)
+
+verify: verify/CAU-G26A.py::p03
+
+stimuli:
+- label: '1'
+  body: |
+    함수 $f(x)$가 닫힌구간 $[a,b]$를 포함하는 열린구간에서 연속일 때 다음 식이 성립한다.
+    $$\lim_{n\to\infty}\sum_{k=1}^nf(x_k)\Delta x=\int_a^bf(x)\,dx\quad\left(\text{단, }\Delta x=\dfrac{b-a}{n},\ x_k=a+k\Delta x\right)$$
+- label: '2'
+  body: |
+    미분가능한 함수 $f(x)$에서 $f'(a)=0$이고 $x=a$의 좌우에서 $f'(x)$의 부호가 음에서 양으로 바뀌면 $f(x)$는 $x=a$에서 극소이고 극솟값은 $f(a)$이다.
+- label: '3'
+  body: |
+    미분가능한 함수 $g(x)$의 도함수 $g'(x)$가 닫힌구간 $[a,b]$를 포함하는 열린구간에서 연속이고, $g(a)=\alpha$, $g(b)=\beta$에 대하여 함수 $f(x)$가 $\alpha$와 $\beta$를 양끝으로 하는 닫힌구간에서 연속일 때 다음 식이 성립한다.
+    $$\int_a^bf(g(x))g'(x)\,dx=\int_\alpha^\beta f(t)\,dt$$
+- label: '4'
+  body: |
+    두 함수 $f(x)$, $g(x)$가 미분가능할 때, 다음 식이 성립한다.
+    $$\int f(x)g'(x)\,dx=f(x)g(x)-\int f'(x)g(x)\,dx$$
+
+stem: |
+  다음을 읽고 문항별로 풀이와 함께 답하시오.
+
+subparts:
+- id: '1'
+  stem: |
+    극한값
+    $$\lim_{n\to\infty}\sum_{k=1}^n\dfrac1n\,\dfrac{\left(3+\dfrac kn\right)\ln(3n+k)-\left(2+\dfrac kn\right)\ln(2n+k)-\ln n}{\left(2+\dfrac kn\right)\left(3+\dfrac kn\right)\ln\left(2+\dfrac kn\right)\ln\left(3+\dfrac kn\right)}$$
+    을 구하시오. [10점]
+  points: 10
+  depends_on: []
+  answer: {kind: value, value: '2\ln(\ln3)-\ln(\ln2)-\ln(\ln4)', equivalents: ['2ln(ln3)-2ln(ln2)-ln2', 'ln((ln3)^2/(2(ln2)^2))'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: 분자 $=\left(3+\frac kn\right)\ln\left(3+\frac kn\right)-\left(2+\frac kn\right)\ln\left(2+\frac kn\right)$ ($\ln n$ 상쇄) ⇒ $\int_0^1\dfrac{dx}{(2+x)\ln(2+x)}-\int_0^1\dfrac{dx}{(3+x)\ln(3+x)}$.
+    steps:
+    - {id: 1a, content: '$[\ln\ln(2+x)]_0^1-[\ln\ln(3+x)]_0^1=2\ln(\ln3)-\ln(\ln2)-\ln(\ln4)$', criteria: [1.B1, 1.B2, 1.B3]}
+    hint_ladder:
+    - $\ln(3n+k)$를 $\ln n$과 $\dfrac kn$만의 식으로 나누어 보자.
+    - 분자의 $\ln n$ 항들은 어떻게 되는가?
+    - 분수를 두 개로 쪼개면 각각 $\dfrac{1}{u\ln u}$ 꼴이다.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 2027 논술가이드북(자연) p.64 예시답안
+    steps:
+    - id: 1b-1
+      content: |
+        $$\left(3+\dfrac kn\right)\ln(3n+k)-\left(2+\dfrac kn\right)\ln(2n+k)-\ln n=\left(3+\dfrac kn\right)\ln n\left(3+\dfrac kn\right)-\left(2+\dfrac kn\right)\ln n\left(2+\dfrac kn\right)-\ln n$$
+        $$=\left(3+\dfrac kn\right)\ln\left(3+\dfrac kn\right)-\left(2+\dfrac kn\right)\ln\left(2+\dfrac kn\right)+\left(3+\dfrac kn\right)\ln n-\left(2+\dfrac kn\right)\ln n-\ln n$$
+        $$=\left(3+\dfrac kn\right)\ln\left(3+\dfrac kn\right)-\left(2+\dfrac kn\right)\ln\left(2+\dfrac kn\right)$$
+      criteria: [1.B1]
+    - id: 1b-2
+      content: |
+        이므로 주어진 극한값을 다음 정적분이다.
+        $$\lim_{n\to\infty}\sum_{k=1}^n\dfrac1n\,\dfrac{\left(3+\frac kn\right)\ln\left(3+\frac kn\right)-\left(2+\frac kn\right)\ln\left(2+\frac kn\right)}{\left(2+\frac kn\right)\left(3+\frac kn\right)\ln\left(2+\frac kn\right)\ln\left(3+\frac kn\right)}=\int_0^1\dfrac{(3+x)\ln(3+x)-(2+x)\ln(2+x)}{(2+x)(3+x)\ln(2+x)\ln(3+x)}dx$$
+        $$=\int_0^1\dfrac{1}{(2+x)\ln(2+x)}dx-\int_0^1\dfrac{1}{(3+x)\ln(3+x)}dx$$
+      criteria: [1.B2]
+    - id: 1b-3
+      content: |
+        $y=\ln(2+x)$, $y=\ln(3+x)$로 치환적분하여 정리하면 다음과 같다.
+        $2\ln(\ln3)-\ln(\ln2)-\ln(\ln4)$ 또는 $2\ln(\ln3)-2\ln(\ln2)-\ln2$ 또는 $\ln\left(\dfrac{(\ln3)^2}{2(\ln2)^2}\right)$
+      criteria: [1.B3]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.B1
+      mark_type: B
+      points: 4
+      evidence: 정적분을 쓸 수 있도록 분자를 변형했다($\ln n$ 항 소거).
+      depends_on: []
+      steps: [1b-1]
+    - id: 1.B2
+      mark_type: B
+      points: 2
+      evidence: 맞는 정적분 형태로 썼다.
+      depends_on: []
+      steps: [1b-2]
+    - id: 1.B3
+      mark_type: B
+      points: 4
+      evidence: $2\ln(\ln3)-\ln(\ln2)-\ln(\ln4)$(또는 동치식)를 구했다.
+      depends_on: []
+      steps: [1b-3]
+    deductions:
+    - code: D1-1
+      condition: 채점자 재량 — 답안의 완성도에 따라 ±1점(공식 주석). 논리 전개 과정이 맞으면 답이 틀려도 부분 점수 가능(공식 주석)
+      effect: minus
+      value: 1
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-CAL-4662}
+  misconceptions:
+  - id: MC-CAL-4662
+    outcome_code: '70'
+    wrong_work: '$\ln(3n+k)$를 그대로 $\ln(3+x)$로 바꾸거나 $\ln n$ 항을 무시하고 정적분으로 옮김'
+    detect_cue: 분자 변형 과정 없이 바로 정적분, 또는 $-\ln n$의 처리 흔적 없음
+    feedback: 구분구적법은 $\dfrac kn$만의 함수일 때 쓸 수 있습니다. $\ln(3n+k)=\ln n+\ln\left(3+\dfrac kn\right)$로 나누어 $\ln n$이 사라지는지 먼저 확인하세요.
+    remedy: [RL-1]
+- id: '2'
+  stem: |
+    좌표평면 위의 점 $\mathrm{O}(0,0)$, $\mathrm{P}(x,0)$, $\mathrm{A}(t,\sqrt{3t})$, $\mathrm{B}(t,-\sqrt{3t})$에 대하여 함수 $f(x)$는 다음과 같다.
+    $$f(x)=\overline{\mathrm{PO}}+\overline{\mathrm{PA}}+\overline{\mathrm{PB}}$$
+    $f(x)$의 최솟값을 $m(t)$라 할 때, $\displaystyle\int_{\frac12}^4\ln(m(t))\,dt=a\ln2+b\ln5+c\ln7+d$이다. 유리수 $a$, $b$, $c$, $d$를 구하시오. (단, $t>0$이다.) [15점]
+  points: 15
+  depends_on: []
+  answer: {kind: value, value: 'a=\dfrac{53}{2},\ b=-5,\ c=-\dfrac74,\ d=-\dfrac12', equivalents: ['a=53/2, b=-5, c=-7/4, d=-1/2'], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: $m(t)=2\sqrt{t^2+3t}$ ($0<t\le1$), $m(t)=t+3\sqrt t$ ($t\ge1$); $\int_{1/2}^1\ln(2\sqrt{t^2+3t})dt=\dfrac{13}{2}\ln2-\dfrac74\ln7-\dfrac12$, $\int_1^4\ln(t+3\sqrt t)dt=20\ln2-5\ln5$.
+    steps:
+    - {id: 2a, content: '합 $\dfrac{53}{2}\ln2-5\ln5-\dfrac74\ln7-\dfrac12$', criteria: [2.B1, 2.B2, 2.B3, 2.B4, 2.B5]}
+    hint_ladder:
+    - $\overline{PA}$와 $\overline{PB}$는 같다. $f(x)$를 식으로 쓰자.
+    - $x<0$이나 $x>t$에서는 최솟값이 나올 수 없음을 확인하고 $[0,t]$에서 미분하자.
+    - 임계점 $t-\sqrt t$가 $0$보다 작으면 최소는 어디에서 생기는가?
+  - id: S2-B
+    audience: B
+    method_no: 1
+    source_flow: 2027 논술가이드북(자연) p.65 예시답안
+    steps:
+    - id: 2b-1
+      content: |
+        $f(x)=\lvert x\rvert+2\sqrt{(x-t)^2+3t}$이고 최솟값을 구하는 문제이므로 $x\ge0$만 고려해도 충분하다.
+      criteria: [2.B1]
+    - id: 2b-2
+      content: |
+        $f'(x)=1+\dfrac{2(x-t)}{\sqrt{(x-t)^2+3t}}$이고 $x\ge t$이면 $f'(x)\ge0$이므로 구간 $0\le x\le t$에서 생각해도 충분하다. $f'(x)=0$에서 $x=t-\sqrt t$이 나온다.
+      criteria: []
+    - id: 2b-3
+      content: |
+        $0\le t\le1$이면 $t-\sqrt t\le0$이므로 $x=0$에서 최솟값을 갖고 $m(t)=2\sqrt{t^2+3t}$이다.
+      criteria: [2.B2]
+    - id: 2b-4
+      content: |
+        $t\ge1$이면 $0\le t-\sqrt t\le t$이므로 $x=t-\sqrt t$에서 최솟값을 갖고 $m(t)=t+3\sqrt t$이다.
+      criteria: [2.B3]
+    - id: 2b-5
+      content: |
+        구하는 적분은 다음과 같다.
+        $$\int_{\frac12}^4\ln(m(t))\,dt=\int_{\frac12}^1\ln\left(2\sqrt{t^2+3t}\right)dt+\int_1^4\ln\left(t+3\sqrt t\right)dt$$
+        $$\int_{\frac12}^1\ln\left(2\sqrt{t^2+3t}\right)dt=\dfrac12\ln2+\int_{\frac12}^1\dfrac12\ln(t^2+3t)\,dt=\dfrac12\ln2+\dfrac12\int_{\frac12}^1\left(\ln t+\ln(t+3)\right)dt=\dfrac{13}{2}\ln2-\dfrac74\ln7-\dfrac12$$
+        이고
+      criteria: [2.B4]
+    - id: 2b-6
+      content: |
+        $$\int_1^4\ln\left(t+3\sqrt t\right)dt=\left[t\ln\left(t+3\sqrt t\right)\right]_1^4-\int_1^4t\,\dfrac{1+\frac32t^{-\frac12}}{t+3\sqrt t}dt=\left[t\ln\left(t+3\sqrt t\right)\right]_1^4-\int_1^4\dfrac{\sqrt t+\frac32}{\sqrt t+3}dt=20\ln2-5\ln5$$
+        이다.
+      criteria: [2.B5]
+    - id: 2b-7
+      content: |
+        두 값을 더하면 $\dfrac{53}{2}\ln2-5\ln5-\dfrac74\ln7-\dfrac12$이고 $a=\dfrac{53}{2}$, $b=-5$, $c=-\dfrac74$, $d=-\dfrac12$이다.
+      criteria: []
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.B1
+      mark_type: B
+      points: 3
+      evidence: $f(x)=\lvert x\rvert+2\sqrt{(x-t)^2+3t}$를 구했다.
+      depends_on: []
+      steps: [2b-1]
+    - id: 2.B2
+      mark_type: B
+      points: 3
+      evidence: $0\le t\le1$에서 $m(t)=2\sqrt{t^2+3t}$를 구했다.
+      depends_on: []
+      steps: [2b-3]
+    - id: 2.B3
+      mark_type: B
+      points: 3
+      evidence: $t\ge1$에서 $m(t)=t+3\sqrt t$를 구했다.
+      depends_on: []
+      steps: [2b-4]
+    - id: 2.B4
+      mark_type: B
+      points: 3
+      evidence: $\dfrac{13}{2}\ln2-\dfrac74\ln7-\dfrac12$를 구했다.
+      depends_on: []
+      steps: [2b-5]
+    - id: 2.B5
+      mark_type: B
+      points: 3
+      evidence: $20\ln2-5\ln5$를 구했다.
+      depends_on: []
+      steps: [2b-6]
+    deductions:
+    - code: D2-1
+      condition: 채점자 재량 — 답안의 완성도에 따라 ±1점(공식 주석). 논리 전개 과정이 맞으면 답이 틀려도 부분 점수 가능(공식 주석)
+      effect: minus
+      value: 1
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-CAL-4663}
+  misconceptions:
+  - id: MC-CAL-4663
+    outcome_code: '70'
+    wrong_work: '모든 $t$에서 $m(t)=t+3\sqrt t$로 두고 $\int_{\frac12}^4\ln(t+3\sqrt t)dt$를 한 번에 계산함'
+    detect_cue: $t\le1$과 $t\ge1$의 경우 분류가 없음, $\ln7$ 항이 답에 없음
+    feedback: 임계점 $x=t-\sqrt t$는 $t<1$이면 음수라 $x\ge0$ 범위 밖입니다. 이때 최소는 $x=0$에서 생깁니다.
+    remedy: [RL-2]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CAL-4662}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-RIEMANN-SUM}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-CAL-4663}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-CLOSED-MAXMIN}
+  priority: 1
+- id: RL-3
+  trigger: {type: criterion_missed, ref: 2.B5}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-PARTS-INT}
+  priority: 2
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-input-v1, item_version: 1, verdict: pass, date: 2026-11-22, note: 문제 원문 PDF 이미지 대조로 옮김 · 주 해설은 가이드북 예시답안 흐름 그대로 · 채점기준은 공식 기준을 B 마크로 옮김}
+
+created: 2026-11-22
+updated: 2026-11-22

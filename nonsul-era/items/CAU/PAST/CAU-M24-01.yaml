@@ -1,0 +1,213 @@
+schema_version: '2.0'
+id: CAU-M24-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: CAU
+type: T07
+variant_of: null
+replaces: null
+level: L4
+form: 점화
+points: 20
+time_estimate_min: 20
+intent: 수열의 귀납적 정의로 확률변수를 정의하고, 이항분포를 이용해 확률과 기댓값을 정확히 찾는지 본다. 독립시행에서 일어날 수 있는 경우와 첫째항·이웃하는 두 항 사이의 관계로 점의 최종 위치를 찾아야 한다(채점자 매뉴얼 출제 의도 요지).
+key_idea: '$x$좌표는 검은 공에서만, $y$좌표는 흰 공에서만 바뀌므로 최종 위치는 꺼낸 순서와 무관하게 검은 공 횟수 $m$만으로 정해진다: $(2^{m+1}-2,\ -\tfrac{3^{n+1}-3}{2})$.'
+stuck: 공을 꺼내는 순서가 달라도 최종 좌표가 같다는 점(두 좌표가 따로 변함)을 알아채고, 각 좌표를 점화식으로 정리하는 단계
+idea_tags: [IDEA-COORD-INDEPENDENT-UPDATE, IDEA-BINOMIAL-THEN-EXPECTATION]
+tags: [이항분포, 기댓값, 귀납적 정의, 중앙대 모의]
+elements:
+  materials:
+  - 검은 공 4개·흰 공 2개가 든 주머니(복원추출)
+  - 원점에서 출발하는 점 P
+  - '검은 공 이동 $(x,y)\to(2x+2,y)$, 흰 공 이동 $(x,y)\to(x,3y-3)$'
+  - 시행 4번
+  concepts: [독립시행의 확률(이항분포), 이산확률변수의 기댓값, 수열의 귀납적 정의, 등비수열의 합]
+  tools:
+  - '검은 공 횟수 $m$·흰 공 횟수 $n$ ($m+n=4$)으로 경우 분할'
+  - '좌표별 점화식 $a_{m+1}=2a_m+2$·$b_{n+1}=3b_n-3$'
+  - 확률분포표 작성 후 기댓값 계산
+  conditions:
+  - '꺼낸 공을 다시 넣는다 ⇒ 매 시행 독립, 검은 공 확률 $\tfrac23$·흰 공 확률 $\tfrac13$ ⇒ $P(m)={}_4C_m(\tfrac23)^m(\tfrac13)^n$'
+  - '검은 공은 $x$만, 흰 공은 $y$만 바꾼다 ⇒ 최종 좌표는 순서와 무관하게 $(m,n)$으로 결정'
+  - '원점에서 출발 ⇒ $a_0=0,\ b_0=0$'
+  stimuli_used: []
+  subpart_links: null
+
+curriculum:
+  version: '2015'
+  subjects: [확률과통계, 수학Ⅰ]
+  scope_2028: common
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 이항분포의 뜻을 알고, 평균과 표준편차를 구할 수 있다 / 이산확률변수의 기댓값(요지)
+    verified: false
+  - code: 미확인
+    text: 수열의 귀납적 정의를 이해한다(요지)
+    verified: false
+  content_area: 확률분포 – 이산확률변수의 기댓값 / 수열의 귀납적 정의
+  behavior_domain: 문제해결
+  unit_path: [확률과 통계, 통계, 확률분포, 이항분포와 기댓값]
+  key_concepts: [이항분포, 기댓값, 귀납적 정의]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 중앙대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 중앙대학교
+  admission_year: 2024
+  admission_type: 모의논술
+  track: 자연계열
+  question_no: 1
+  official_url: https://admission.cau.ac.kr/detail.do?menuurl=jcgylvDgJz1bdCxN45fl1g%3D%3D&board_seq=2725&pageNo=1&categoryid=14
+  retrieved_at: '2026-11-21'
+  original_points: 20
+  rights_notice: 중앙대학교 입학처 공개 자료(모의논술 게시판). 상업적 재사용 허락 미요청
+  note: 문제 = 2024 모의논술 문제지(자연) p.1(PDF p.2) / 출제 의도 = 2024 모의논술 채점자 매뉴얼(자연) p.3 / 예시답안·채점기준 = 같은 매뉴얼 p.8~9 (2024 논술가이드북(자연) p.40~41 에 같은 내용) / 문항카드 없음(성취기준 미확인)
+
+verify: verify/CAU-M24.py::p01
+
+stimuli: []
+
+stem: |
+  검은 공 4개와 흰 공 2개가 들어있는 주머니가 있다. 이때, 원점에 놓여있는 점 P를 다음 규칙에 따라 좌표평면 위에서 이동시키는 시행을 한다.
+
+  - 주머니에서 1개의 공을 꺼낸 후, 이 공이 검은 공일 경우 점 P를 $(x,y)$에서 $(2x+2,y)$로 이동시키고, 흰 공일 경우 $(x,y)$에서 $(x,3y-3)$으로 이동시킨다.
+  - 점 P를 이동시킨 후 꺼낸 공은 다시 주머니에 넣는다.
+
+  이와 같은 시행을 4번 반복한 후, 점 P의 $x$좌표와 $y$좌표의 합의 기댓값을 구하시오. [20점]
+
+subparts:
+- id: '1'
+  stem: |
+    이와 같은 시행을 4번 반복한 후, 점 P의 $x$좌표와 $y$좌표의 합의 기댓값을 구하시오.
+  points: 20
+  depends_on: []
+  answer: {kind: value, value: '\dfrac{272}{81}', equivalents: ['272/81'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: 검은 공 $m$번이면 $x=2^{m+1}-2$, 흰 공 $n$번이면 $y=-\dfrac{3^{n+1}-3}{2}$. $m\sim B(4,\tfrac23)$로 기댓값을 계산.
+    steps:
+    - {id: 1a, content: '$X=-120,-37,-6,11,30$ (확률 $\tfrac{1}{81},\tfrac{8}{81},\tfrac{24}{81},\tfrac{32}{81},\tfrac{16}{81}$) ⇒ $E(X)=\dfrac{272}{81}$', criteria: [1.B1, 1.B2, 1.B3]}
+    hint_ladder:
+    - 검은 공은 어느 좌표만 바꾸는가? 흰 공은?
+    - 검은 공이 $m$번 나오면 $x$좌표는 순서와 상관없이 정해진다. $a_{m+1}=2a_m+2$를 풀어 보자.
+    - 검은 공이 $m$번 나올 확률은 독립시행의 확률이다.
+  - id: S1-B
+    audience: B
+    method_no: 1
+    source_flow: 2024 모의논술 채점자 매뉴얼(자연) p.8~9 예시 답안(방법 1)
+    steps:
+    - id: 1b-1
+      content: |
+        주머니에서 검은 공 1개를 꺼낼 확률은 $\dfrac46=\dfrac23$, 흰 공 1개를 꺼낼 확률은 $\dfrac26=\dfrac13$이다. 이와 같은 상황에서 주어진 시행을 4번 반복할 때, 검은 공이 나오는 횟수를 $m$, 흰 공이 나오는 횟수를 $n$이라 하자. 이때, $m+n=4$를 만족하고, 검은 공이 $m$번과 흰 공이 $n$번 나오는 확률은 ${}_4C_m\left(\dfrac23\right)^m\left(\dfrac13\right)^n$이다.
+      criteria: [1.B1]
+    - id: 1b-2
+      content: |
+        이동한 점 P의 $x$좌표와 $y$좌표를 구하면 다음과 같다. [방법 1] 4번의 시행에서 검은 공이 $m$번, 흰 공이 $n$번 나왔을 때, 이동한 점 P의 $x$좌표를 $a_m$, $y$좌표를 $b_n$이라 하면, 수열의 귀납적 정의를 통해 각 수열은 다음과 같이 표현된다.
+        $$a_0=0,\ a_{m+1}=2a_m+2,\ m=0,1,2,3,4$$
+        $$b_0=0,\ b_{n+1}=3b_n-3,\ n=0,1,2,3,4$$
+      criteria: [1.B2]
+    - id: 1b-3
+      content: |
+        따라서, 점 P의 $x$좌표와 $y$좌표의 합을 확률변수 $X$라고 정의하면, $X$의 확률분포는 다음 표와 같다.
+
+        | 조합 | $m$ | $n$ | $x$좌표 | $y$좌표 | $X$ | $P(X=x)$ |
+        |---|---|---|---|---|---|---|
+        | I | 0 | 4 | 0 | $-120$ | $-120$ | ${}_4C_0\left(\frac23\right)^0\left(\frac13\right)^4=\frac{1}{81}$ |
+        | II | 1 | 3 | 2 | $-39$ | $-37$ | ${}_4C_1\left(\frac23\right)^1\left(\frac13\right)^3=\frac{8}{81}$ |
+        | III | 2 | 2 | 6 | $-12$ | $-6$ | ${}_4C_2\left(\frac23\right)^2\left(\frac13\right)^2=\frac{24}{81}$ |
+        | IV | 3 | 1 | 14 | $-3$ | 11 | ${}_4C_3\left(\frac23\right)^3\left(\frac13\right)^1=\frac{32}{81}$ |
+        | V | 4 | 0 | 30 | 0 | 30 | ${}_4C_4\left(\frac23\right)^4\left(\frac13\right)^0=\frac{16}{81}$ |
+      criteria: [1.B2]
+    - id: 1b-4
+      content: |
+        확률변수 $X$의 기댓값은 $-120\times\dfrac{1}{81}-37\times\dfrac{8}{81}-6\times\dfrac{24}{81}+11\times\dfrac{32}{81}+30\times\dfrac{16}{81}=\dfrac{272}{81}$이다.
+      criteria: [1.B3]
+  - id: S1-ALT
+    audience: ALT
+    method_no: 2
+    source_flow: 2024 모의논술 채점자 매뉴얼(자연) p.8 예시 답안(방법 2)
+    key_idea: 출발점을 $(x,y)$로 두고 등비수열의 합으로 일반항을 직접 구한다.
+    steps:
+    - id: 1c-1
+      content: |
+        [방법 2] 점 P가 $(x,y)$에서 출발한다고 하자. 검은 공이 $m$번, 흰 공이 $n$번 나왔을 때, 이동한 점 P의 $x$좌표와 $y$좌표는 다음과 같다.
+        - $x$좌표: $2^mx+2^m+2^{m-1}+\cdots+2=2^mx+\dfrac{2(2^m-1)}{2-1}=2^mx+2^{m+1}-2$
+        - $y$좌표: $3^ny-3^n-3^{n-1}-\cdots-3=3^ny-\dfrac{3(3^n-1)}{3-1}=3^ny-\dfrac{3^{n+1}-3}{2}$
+      criteria: [1.B2]
+    - id: 1c-2
+      content: |
+        점 P는 원점에서 출발하였으므로, 위 식에 $x=0,\ y=0$을 대입하면, 이동한 점 P의 $x$좌표는 $2^{m+1}-2$, $y$좌표는 $-\dfrac{3^{n+1}-3}{2}$이 된다. 이후 확률분포표와 기댓값 계산은 방법 1과 같다.
+      criteria: [1.B2, 1.B3]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.B1
+      mark_type: B
+      points: 3
+      evidence: 검은 공 또는 흰 공의 개수에 대한 이항분포 ${}_4C_m\left(\frac23\right)^m\left(\frac13\right)^n$을 올바르게 적었다.
+      depends_on: []
+      steps: [1b-1]
+    - id: 1.B2
+      mark_type: B
+      points: 12
+      evidence: 검은 공과 흰 공 개수의 조합에 따라 이동 후 점 P의 $x$좌표와 $y$좌표($m=0,\dots,4$ 각각 $(0,-120),(2,-39),(6,-12),(14,-3),(30,0)$)를 올바르게 찾았다.
+      depends_on: []
+      steps: [1b-2, 1b-3]
+    - id: 1.B3
+      mark_type: B
+      points: 5
+      evidence: 점 P의 $x$좌표와 $y$좌표의 합의 기댓값 $\dfrac{272}{81}$을 정확히 계산했다.
+      depends_on: []
+      steps: [1b-4]
+    deductions:
+    - code: D1-1
+      condition: 채점자 재량 — 답안의 완성도에 따라 총점 20점 이내에서 ±1점. 계산 실수로 틀렸어도 논리 전개 과정이 맞으면 해당 부분에 1~2점의 부분 점수 부여(공식 채점기준 주석)
+      effect: minus
+      value: 1
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '70', misconception: MC-PRB-4501}
+  - {code: '71', misconception: MC-ALG-4502}
+  misconceptions:
+  - id: MC-PRB-4501
+    outcome_code: '70'
+    wrong_work: '확률을 $\left(\frac23\right)^m\left(\frac13\right)^n$으로만 두고 ${}_4C_m$을 곱하지 않음'
+    detect_cue: 확률의 합이 1이 아니다(예 $\frac{1}{81}+\frac{2}{81}+\cdots$), 기댓값 분모가 81이지만 값이 272가 아님
+    feedback: 검은 공이 $m$번 나오는 순서는 ${}_4C_m$가지입니다. 각 순서의 확률이 같으므로 곱해야 합니다.
+    remedy: [RL-1]
+  - id: MC-ALG-4502
+    outcome_code: '71'
+    wrong_work: '$x$좌표를 $2^m-2$ 또는 $2^{m+1}-1$처럼 지수·상수항을 한 칸 어긋나게 씀'
+    detect_cue: $m=1$일 때 $x$좌표가 2가 아니다
+    feedback: 일반항을 구한 뒤 $m=0,1$을 넣어 $a_0=0,\ a_1=2$와 맞는지 확인하세요.
+    remedy: [RL-2]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-PRB-4501}
+  relation: remediation
+  target: {kind: concept, ref: CON-PRB-BINOMIAL}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-ALG-4502}
+  relation: remediation
+  target: {kind: concept, ref: CON-ALG-RECUR-LINEAR}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-input-v1, item_version: 1, verdict: pass, date: 2026-11-21, note: 문제 원문 PDF 이미지 대조로 옮김 · 주 해설은 채점자 매뉴얼 예시답안(방법 1) 흐름 그대로 · 방법 2는 ALT · 채점기준은 공식 기준을 B 마크로 옮김}
+
+created: 2026-11-21
+updated: 2026-11-21
