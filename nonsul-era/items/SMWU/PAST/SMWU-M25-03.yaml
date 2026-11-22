@@ -1,0 +1,237 @@
+# 숙명여자대학교 2025학년도 모의논술 자연계열 계열문항 3 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+# 채점: 문항카드 「6. 채점 기준」은 <3-1>,<3-2> 통합 6개 기준 + 1~9등급제(배점 숫자 없음).
+#       아래 points 는 소문항당 50 균등 배분 # [확인필요] 배점 미공개
+schema_version: '2.0'
+id: SMWU-M25-03
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: SMWU
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 불변량
+points: 100   # [확인필요] 배점 미공개(등급제)
+time_estimate_min: 25
+intent: |
+  치환적분으로 적분 구간을 대칭 구간으로 옮겨 기함수의 정적분이 $0$임을 이용하고, 함수방정식 $f(x)+f(c-x)=c$를 치환적분과 결합해 정적분의 값을 구하는 능력을 본다.
+key_idea: |
+  (3-1) $t=x-\tfrac12$로 치환하면 $t^5\cos(2\pi t)$ 꼴의 기함수가 남는다. (3-2) $\int_0^c f(c-x)dx=\int_0^c f(t)dt$이므로 $2\int_0^c f=c^2$.
+stuck: |
+  $\cos(2\pi(t+\tfrac12))=-\cos(2\pi t)$로 바꿔 기함수를 확인하는 것, 그리고 $c-x=t$ 치환으로 두 적분이 같음을 보는 것
+idea_tags: [IDEA-SYMMETRIC-INTERVAL-ODD, IDEA-KING-PROPERTY]
+tags: [치환적분, 기함수, 대칭성, 2025 모의논술]
+elements:
+  materials:
+  - '$f(x)=\tfrac12+\left(x-\tfrac12\right)^5\cos(2\pi x)$의 $[0,1]$ 정적분'
+  - '함수방정식 $f(x)+f(c-x)=c$를 만족하는 연속함수'
+  concepts:
+  - '정적분의 정의(미적분의 기본정리)'
+  - '치환적분법'
+  - '기함수의 대칭 구간 정적분'
+  - '삼각함수의 성질'
+  tools:
+  - '평행이동 치환 $t=x-\tfrac12$'
+  - '대칭 치환 $t=c-x$'
+  - '$\int_{-a}^{a}(\text{기함수})=0$'
+  conditions:
+  - '$\cos(2\pi t+\pi)=-\cos 2\pi t$'
+  - '$\int_0^c f(x)dx=\tfrac12c^2=2$'
+  stimuli_used: [라, 마]
+  subpart_links: '(3-1)·(3-2) 모두 치환적분으로 적분의 대칭성을 드러내는 독립 소문항'
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅰ, 수학Ⅱ, 미적분]
+  scope_2028: calc2
+  scope_confirmed: false
+  standards:
+  - code: 12수학Ⅱ03-03
+    text: 정적분의 뜻을 안다.
+    verified: true
+  - code: 12미적03-01
+    text: 치환적분법을 이해하고, 이를 활용할 수 있다.
+    verified: true
+  - code: 12미적03-03
+    text: 여러 가지 함수의 부정적분과 정적분을 구할 수 있다.
+    verified: true
+  content_area: 적분법 – 치환적분법
+  behavior_domain: 문제해결
+  unit_path: [미적분, 적분법, 여러 가지 적분법, 치환적분법]
+  key_concepts: [치환적분법, 기함수, 정적분의 성질]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 숙명여자대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 숙명여자대학교
+  admission_year: 2025
+  admission_type: 논술우수자전형 모의논술
+  track: 자연
+  question_no: 3
+  official_url: https://admission.sookmyung.ac.kr/admission/html/rolling/previous.asp
+  retrieved_at: 2026-11-21
+  original_points: null   # 등급제(1~9등급), 배점 미공개
+  rights_notice: 숙명여자대학교 입학처 기출문제 게시판 공개 자료(문제지·문항카드)
+
+verify: verify/SMWU-M25.py::p03
+
+stimuli:
+- label: 라
+  body: |
+    임의의 실수 $a$, $b$를 포함하는 구간에서 연속인 함수 $f(x)$의 한 부정적분을 $F(x)$라고 하면
+    $$\int_a^b f(x)dx=\Big[F(x)\Big]_a^b=F(b)-F(a)$$
+    이다.
+- label: 마
+  body: |
+    닫힌구간 $[a,b]$에서 연속인 함수 $f(x)$와 미분가능한 함수 $x=g(t)$에 대하여 $a=g(\alpha)$, $b=g(\beta)$일 때 $x=g(t)$의 도함수 $g'(t)$가 $\alpha$, $\beta$를 포함하는 구간에서 연속이면
+    $$\int_a^b f(x)dx=\int_\alpha^\beta f(g(t))g'(t)dt$$
+    이다.
+
+stem: |
+  제시문 <라>와 <마>를 읽고 다음 문제에 답하시오.
+
+subparts:
+- id: '1'   # 원문 3-1
+  stem: |
+    함수 $f(x)=\dfrac12+\left(x-\dfrac12\right)^5\cos(2\pi x)$에 대하여, 정적분
+    $$\int_0^1 f(x)dx$$
+    의 값을 구하시오.
+  points: 50
+  depends_on: []
+  answer: {kind: value, value: '1/2', equivalents: ['0.5'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $t=x-\tfrac12$로 치환하면 피적분함수의 두 번째 항은 $[-\tfrac12,\tfrac12]$에서 기함수이다.
+    steps:
+    - {id: 1a, content: '$\int_0^1 f=\tfrac12-\int_{-1/2}^{1/2}t^5\cos(2\pi t)dt=\tfrac12$', criteria: ['1.M1', '1.M2', '1.A1']}
+  - id: S1-B
+    audience: B
+    source_flow: 문항카드 card-23.png
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        정적분 $\displaystyle\int_0^1\left\{\frac12+\left(x-\frac12\right)^5\cos(2\pi x)\right\}dx$에서 $x-\dfrac12=t$로 놓으면 $\dfrac{dx}{dt}=1$이고 $0-\dfrac12=-\dfrac12$, $1-\dfrac12=\dfrac12$이므로
+        $$\int_0^1\left\{\frac12+\left(x-\frac12\right)^5\cos(2\pi x)\right\}dx=\int_{-\frac12}^{\frac12}\left\{\frac12+t^5\cos\left(2\pi\left(t+\frac12\right)\right)\right\}dt=\frac12-\int_{-\frac12}^{\frac12}t^5\cos(2\pi t)dt$$
+        이다.
+      criteria: ['1.M1', '1.M2']
+    - id: 1b-2
+      content: |
+        $g(t)=t^5\cos(2\pi t)$라 하면 $g(-t)=-g(t)$이므로 $\displaystyle\int_{-\frac12}^{\frac12}t^5\cos(2\pi t)dt=0$이다. 따라서 $\displaystyle\int_0^1 f(x)dx=\frac12$이다.
+      criteria: ['1.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 15
+      evidence: |
+        (문항카드 ①, <3-1>·<3-2> 공통) 치환적분법의 활용을 정확히 이해한다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1]
+    - id: 1.M2
+      mark_type: M
+      points: 15
+      evidence: |
+        (문항카드 ②) <3-1>에서 삼각함수의 성질($\cos(2\pi t+\pi)=-\cos 2\pi t$)을 파악한다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1]
+    - id: 1.A1
+      mark_type: A
+      points: 20
+      evidence: |
+        (문항카드 ③) 기함수의 정적분을 정확히 구해 $\dfrac12$을 얻는다.
+      depends_on: [1.M1]
+      steps: [1b-2]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '2'   # 원문 3-2
+  stem: |
+    실수 전체에서 연속인 함수 $f(x)$가 상수 $c$에 대하여
+    $$f(x)+f(c-x)=c$$
+    를 만족시킨다. $\displaystyle\int_0^c f(x)dx=2$일 때, 상수 $c$의 값을 모두 구하시오.
+  points: 50
+  depends_on: []
+  answer: {kind: set, value: '{-2, 2}', equivalents: ['c = 2 or c = -2'], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: 양변을 $0$부터 $c$까지 적분하고 $t=c-x$로 치환하면 $2\int_0^c f=c^2$.
+    steps:
+    - {id: 2a, content: '$\tfrac12c^2=2\Rightarrow c=\pm2$', criteria: ['2.M1', '2.M2', '2.A1']}
+  - id: S2-B
+    audience: B
+    source_flow: 문항카드 card-23.png, card-24.png
+    method_no: 1
+    steps:
+    - id: 2b-1
+      content: |
+        함수 $f(x)$의 성질에 의하여
+        $$\int_0^c\{f(x)+f(c-x)\}dx=c^2\ \cdots\cdots\ ②$$
+        이다.
+      criteria: ['2.M1']
+    - id: 2b-2
+      content: |
+        $c-x=t$라 하면 $\dfrac{dx}{dt}=-1$이고 $c-0=c$, $c-c=0$이므로 $\displaystyle\int_0^c f(c-x)dx=\int_0^c f(t)dt$이다.
+      criteria: ['2.M2']
+    - id: 2b-3
+      content: |
+        ②에서 정적분의 성질을 이용하면
+        $$\int_0^c\{f(x)+f(c-x)\}dx=\int_0^c f(x)dx+\int_0^c f(c-x)dx=2\int_0^c f(t)dt=c^2$$
+        이므로 $\displaystyle\int_0^c f(x)dx=\frac12c^2$이다. 따라서 $\displaystyle\int_0^c f(x)dx=2$를 만족시키는 실수 $c$의 값은 $c=\pm2$이다.
+      criteria: ['2.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 15
+      evidence: |
+        (문항카드 ④) <3-2>에서 $f(x)+f(c-x)=c$의 의미를 정확히 이해하고 활용한다.
+      depends_on: []
+      implied_ok: false
+      steps: [2b-1]
+    - id: 2.M2
+      mark_type: M
+      points: 15
+      evidence: |
+        (문항카드 ⑤) 치환적분법을 적용하여 정적분의 값을 구한다($\int_0^c f(c-x)dx=\int_0^c f(t)dt$).
+      depends_on: []
+      implied_ok: false
+      steps: [2b-2]
+    - id: 2.A1
+      mark_type: A
+      points: 20
+      evidence: |
+        (문항카드 ⑥) 실수 $c$의 값 $c=\pm2$를 정확히 구한다.
+      depends_on: [2.M1, 2.M2]
+      steps: [2b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+remedy_links: []
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-transcribe-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

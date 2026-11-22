@@ -1,0 +1,227 @@
+# 숙명여대 2023학년도 모의논술 자연계열 계열문항 3 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+# 원문: img/M23/q-3.png / 문항카드 card-26, 30, 33~34
+# 배점: 문항카드 채점 기준표(3-1: 2+3 = 5, 3-2: 4+6 = 10) 그대로 — 3-1 이 5점으로 다른 소문항(10점)보다 적음.
+# [원문 오기] 문항카드 예시 답안 3-2 풀이1 의 「2-1의 b_n」은 3-1, 「제시문 가)의 공식」은 제시문 <마> 를 가리키는 것으로 보임.
+schema_version: '2.0'
+id: SMWU-M23-03
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: proof
+origin: mock_exam
+school: SMWU
+type: null
+variant_of: null
+replaces: null
+level: L3
+form: 구성
+points: 15
+time_estimate_min: 20
+intent: |
+  주어진 조건을 만족하는 등비수열과 그로부터 만든 수열을 구성할 수 있는지(3-1), 짝수 번째에 처음 엎어진 윷이 나올 확률을 $\sum_{n=1}^{\infty}f_{2n}$으로 나타내고 무한등비급수로 계산하여 $\frac12$보다 작음을 보일 수 있는지(3-2)를 평가한다.
+key_idea: |
+  $a_n=(-1)^{n-1}$, $b_n=\dfrac{1-a_n}{2}$로 짝수 번째 항만 골라 $\sum b_nf_n=\sum f_{2n}=\dfrac{q}{1+q}<\dfrac12$.
+stuck: |
+  구하는 확률이 $\sum_{n=1}^{\infty}f_{2n}$임을 세우고, 공비 $q^2$(또는 $q$, $-q$)인 무한등비급수로 계산하는 단계
+idea_tags: [IDEA-PARITY-SELECTOR-SEQUENCE, IDEA-GEOMETRIC-SERIES-PROBABILITY]
+tags: [등비급수, 기하분포, 윷놀이]
+elements:
+  materials:
+  - '홀짝에 따라 $1$, $-1$이 되는 등비수열'
+  - '처음 엎어진 윷이 나올 때까지 던진 횟수의 확률 $f_n=pq^{n-1}$'
+  concepts:
+  - '등비수열의 일반항'
+  - '무한등비급수의 수렴 조건과 합'
+  - '독립시행의 확률'
+  - '분수식의 대소 비교(또는 도함수와 증가)'
+  tools:
+  - '$b_n=\frac{1-(-1)^{n-1}}{2}$로 짝수 항 선택'
+  - '$\sum_{n=1}^{\infty}pq^{2n-1}=\frac{pq}{1-q^2}=\frac{q}{1+q}$'
+  - '$q<1\Rightarrow 1+q>2q$'
+  conditions:
+  - '$0<p<1$, $q=1-p$이므로 $0<q<1$'
+  stimuli_used: [마, 바]
+  subpart_links: '(3-2) 풀이 1은 (3-1)의 $b_n$으로 $\sum f_{2n}=\sum b_nf_n$을 만든다'
+
+curriculum:
+  version: '2015'
+  subjects: [미적분, 확률과통계]
+  scope_2028: calc2
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: '[미적분] I 수열의 극한 - 등비수열의 극한 / 급수 - 2 등비급수 ① 등비급수의 수렴 조건과 극한값 / [확률과 통계] II 확률 - 사건의 독립과 종속 (문항카드)'
+    verified: false
+  content_area: 수열의 극한 – 등비급수
+  behavior_domain: 문제해결
+  unit_path: [미적분, 수열의 극한, 급수, 등비급수]
+  key_concepts: [등비수열, 등비급수, 독립시행의 확률]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 숙명여자대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 숙명여자대학교
+  admission_year: 2023
+  admission_type: 논술우수자전형 모의논술
+  track: 자연
+  question_no: 3
+  official_url: https://admission.sookmyung.ac.kr/admission/html/rolling/previous.asp
+  retrieved_at: 2026-11-21
+  original_points: [5, 10]
+  rights_notice: 숙명여자대학교 입학처 기출문제 게시판 공개 자료(문제지·문항카드)
+
+verify: verify/SMWU-M23.py::p03
+
+stimuli:
+- label: 마
+  body: |
+    등비수열은 이전 항에 차례로 일정한 값을 곱하여 만들어진 수열을 말하며 이때 곱해지는 일정한 값을 공비라고 한다. 첫째항이 $a(\ne0)$이고 공비가 $r$인 등비수열, $a_n=ar^{n-1}$에 대해 무한등비급수를 $S$라고 하면
+    $$S=a+ar+ar^2+\ \cdots\ +ar^{n-1}+\ \cdots\ =a\sum_{n=0}^{\infty}r^n$$
+    이다. 이 때 $\lvert r\rvert<1$이면, 급수 $S$는 $\dfrac{a}{1-r}$로 수렴하고 $\lvert r\rvert\ge1$이면 급수 $S$는 발산한다.
+- label: 바
+  body: |
+    윷 하나를 던지는 시행을 할 때 나오는 결과는 엎어지는 경우$(T)$와 젖혀지는 경우$(H)$밖에 없으며 윷이 엎어질 확률은 $p\ (0<p<1)$, 젖혀질 확률은 $q=1-p$라 하자. 엎어지는 경우가 나올 때까지 윷을 반복적으로 던진다고 할 때, 처음으로 엎어진 윷이 나올 때까지 윷을 던진 횟수가 $n$인 확률을 $f_n$이라 하자. 예를 들어, 윷을 던져 세 번째에 처음으로 엎어진 윷이 나올 확률은 $P(HHT)=pq^2$이다. 따라서, $f_n$은 다음과 같이 첫째항이 $p$이고 공비가 $q$인 등비수열로 표시할 수 있다.
+    $$f_n=pq^{n-1},\quad n=1,2,3,\ \ldots$$
+
+stem: |
+  제시문 <마>, <바>를 읽고 다음 문제에 답하시오.
+
+subparts:
+- id: '1'
+  stem: |
+    $n$이 홀수이면 1, 짝수이면 -1이 되는 등비수열 $\{a_n\}$을 구하고 이를 이용하여 $n$이 홀수이면 0, 짝수이면 1이 되는 수열 $\{b_n\}$을 구하시오.
+  points: 5
+  depends_on: []
+  answer: {kind: expression, value: 'a_n = (-1)**(n-1); b_n = (1-(-1)**(n-1))/2', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: 첫째항 $1$, 공비 $-1$이면 $a_n=(-1)^{n-1}$이고, $b_n=\frac{1-a_n}{2}$.
+    steps:
+    - {id: 1a, content: '$a_n=(-1)^{n-1}$, $b_n=\frac{1-(-1)^{n-1}}{2}$', criteria: ['1.B1', '1.M1']}
+    hint_ladder:
+    - 홀짝마다 부호가 바뀌려면 공비는 얼마인가?
+    - $1$과 $-1$을 각각 $0$과 $1$로 보내는 일차식을 찾아보자.
+  - id: S1-B
+    audience: B
+    source_flow: 문항카드 card-33.png
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        홀수이면 $1$, 짝수이면 $-1$이 되기 위해서는 공비가 $-1$이 되어야 하며 첫째항은 $1$이어야 하기 때문에 $a_n=ar^{n-1}=1(-1)^{n-1}$이 된다.
+      criteria: ['1.B1']
+    - id: 1b-2
+      content: |
+        홀수이면 $0$, 짝수이면 $1$이 되는 수열의 경우 앞의 $a_n$을 이용하여 다음과 같이 유도할 수 있다.
+        $b_n=\dfrac{1-a_n}{2}=\dfrac{1-(-1)^{n-1}}{2}$
+      criteria: ['1.M1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.B1
+      mark_type: B
+      points: 2
+      evidence: |
+        공비가 $-1$, 첫째항이 $1$이어야 하므로 $a_n=ar^{n-1}=1(-1)^{n-1}$임을 보였다.
+      depends_on: []
+      steps: [1b-1]
+    - id: 1.M1
+      mark_type: M
+      points: 3
+      evidence: |
+        앞의 $a_n$을 이용하여 $b_n=\dfrac{1-a_n}{2}=\dfrac{1-(-1)^{n-1}}{2}$로 유도할 수 있음을 보였다.
+      depends_on: [1.B1]
+      steps: [1b-2]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '2'
+  stem: |
+    제시문 <바>의 $f_n$을 이용하여, 짝수번 던졌을 때 처음으로 엎어진 윷이 나올 확률이 $\dfrac12$보다 작음을 보이시오.
+  points: 10
+  depends_on: []
+  answer: {kind: proof, value: null, equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: $\sum_{n=1}^{\infty}f_{2n}=pq+pq^3+\cdots=\frac{pq}{1-q^2}=\frac{q}{1+q}$이고 $0<q<1$이면 $\frac{q}{1+q}<\frac12$.
+    steps:
+    - {id: 2a, content: '$\sum_{n=1}^{\infty}f_{2n}=\frac{q}{1+q}=\frac12-\frac{p}{2(2-p)}<\frac12$', criteria: ['2.M1', '2.A1']}
+    hint_ladder:
+    - 짝수 번째에 처음 엎어질 확률은 어떤 $f_n$들의 합인가?
+    - 그 합은 공비가 무엇인 등비급수인가?
+  - id: S2-B
+    audience: B
+    source_flow: 문항카드 card-33.png~card-34.png 풀이1
+    method_no: 1
+    steps:
+    - id: 2b-1
+      content: |
+        $n$이 짝수인 경우의 확률의 합은 $f_2+f_4+f_6+\ \cdots\ =\displaystyle\sum_{n=1}^{\infty}f_{2n}$이며, 3-1의 $b_n$을 이용하여 다음과 같이 표시할 수 있다.
+        $\displaystyle\sum_{n=1}^{\infty}f_{2n}=\sum_{n=1}^{\infty}b_nf_n=\sum_{n=1}^{\infty}\frac{1-(-1)^{n-1}}{2}pq^{n-1}=\frac p2\left(\sum_{x=1}^{\infty}q^{x-1}-\sum_{x=1}^{\infty}(-q)^{x-1}\right)$
+      criteria: ['2.M1']
+    - id: 2b-2
+      content: |
+        여기서 괄호 안에 있는 두 합은 각각 첫째항이 $1$이고 공비가 $q$와 $-q$인 등비급수이고 $\lvert q\rvert=\lvert1-p\rvert<1$이므로 제시문 <마>의 공식에 의해
+        $=\dfrac p2\left(\dfrac{1}{1-q}-\dfrac{1}{1+q}\right)=\dfrac p2\left(\dfrac1p-\dfrac{1}{2-p}\right)=\dfrac12-\dfrac{p}{2(2-p)}$로 정리할 수 있다.
+      criteria: ['2.A1']
+    - id: 2b-3
+      content: |
+        $0<p<1$이므로 위의 식에서 $\dfrac{p}{2(2-p)}>0$이고, 따라서 $\displaystyle\sum_{n=1}^{\infty}f_{2n}<\frac12$이다.
+      criteria: ['2.A1']
+  - id: S2-ALT
+    audience: ALT
+    source_flow: 문항카드 card-34.png 풀이2(방법1·방법2)
+    method_no: 2
+    key_idea: $b_n$을 쓰지 않고 $f_{2n}=pq^{2n-1}$을 대입해 첫째항 $pq$, 공비 $q^2$인 등비급수로 $\frac{q}{1+q}$를 얻은 뒤 $\frac{q}{1+q}<\frac12$를 보인다.
+    steps:
+    - id: 2c-1
+      content: |
+        $f_{2n}=pq^{2n-1}$을 $\displaystyle\sum_{n=1}^{\infty}f_{2n}$에 대입하여 풀어 쓰면 $\displaystyle\sum_{n=1}^{\infty}f_{2n}=pq+pq^3+pq^5+\ \cdots$가 되는데 이는 첫째항이 $pq$이고 공비가 $q^2$인 등비급수이고 $\lvert q^2\rvert<1$이므로 $\displaystyle\sum_{n=1}^{\infty}f_{2n}=\frac{pq}{1-q^2}=\frac{q}{1+q}$.
+      criteria: ['2.M1', '2.A1']
+    - id: 2c-2
+      content: |
+        방법1: $\dfrac{df(q)}{dq}=\dfrac{1}{(1+q)^2}>0$이므로 $f(q)=\dfrac{q}{1+q}$는 $q$에 단조증가함수이고 $q=1-p$는 $0<q<1$이므로 $f(q)<f(1)=\dfrac12$가 된다.
+        방법2: $q<1$로부터 $1+q>2q$이고, $q>0$이므로 $\dfrac{1}{1+q}<\dfrac{1}{2q}$이다. 양변에 $q$를 곱하면 $\dfrac{q}{1+q}<\dfrac{q}{2q}=\dfrac12$이다.
+      criteria: ['2.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 4
+      evidence: |
+        $n$이 짝수인 경우의 확률의 합이 $\displaystyle\sum_{n=1}^{\infty}f_{2n}$으로 나타낼 수 있음을 보였다.
+      depends_on: []
+      implied_ok: false
+      steps: [2b-1, 2c-1]
+    - id: 2.A1
+      mark_type: A
+      points: 6
+      evidence: |
+        무한등비급수 식을 이용하여 $\displaystyle\sum_{n=1}^{\infty}f_{2n}$을 계산하고 $\dfrac12$보다 작음을 보였다.
+      depends_on: [2.M1]
+      steps: [2b-2, 2b-3, 2c-1, 2c-2]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+remedy_links: []
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-transcribe-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

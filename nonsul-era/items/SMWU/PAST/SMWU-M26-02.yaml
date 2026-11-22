@@ -1,0 +1,261 @@
+# 숙명여자대학교 2026학년도 모의논술(자연계열) 계열문항 2 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+# 원본: img/M26/q-06.png(문제지), 문항카드 img/M26/card-18~card-26.png
+# 약학부 문항지 계열문항 2(img/M26P/q-09.png)는 부분적분·치환적분 수열 문항으로 다름 → SMWU-M26P-02 별도.
+# 배점: 문항카드 「채점 기준」은 1~9등급 등급제만 제시, 점수 미공개. ①~③ → 2-1, ④~⑥ → 2-2, 소문항당 50점 균등.  # [확인필요] 배점 미공개
+schema_version: '2.0'
+id: SMWU-M26-02
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: SMWU
+type: null
+variant_of: null
+replaces: null
+level: L3
+form: 추론
+points: 100   # [확인필요] 배점 미공개
+time_estimate_min: 25
+intent: |
+  제시문을 따라 치환적분법으로 정적분 관계식을 증명할 수 있는지, 로그함수와 무리함수가 연속이 되는 조건을 이해하고 치환적분법을 활용하여 주어진 정적분을 계산할 수 있는지 평가한다.
+key_idea: |
+  $t=a+b-x$로 치환하면 $\displaystyle\int_a^bf(x)dx=\int_a^bf(a+b-x)dx$이고, $a+b=2$이므로 $\ln(x+25)\leftrightarrow\ln(27-x)$가 서로 바뀌어 $2I=\displaystyle\int_{-24}^{26}1\,dx=50$.
+stuck: |
+  구하는 적분을 $I$로 두고 (2-1)의 관계식으로 얻은 식과 더하는 발상
+idea_tags: [IDEA-KING-PROPERTY-SYMMETRIC-SUM]
+tags: [치환적분, 대칭 적분]
+elements:
+  materials:
+  - '닫힌구간 $[a,b]$에서 연속인 함수 $f(x)$'
+  - '피적분함수 $\dfrac{\sqrt{\ln(x+25)}}{\sqrt{\ln(x+25)}+\sqrt{\ln(27-x)}}$ (구간 $[-24,26]$)'
+  concepts:
+  - '치환적분법'
+  - '정적분의 계산'
+  - '합성함수의 연속'
+  - '로그함수'
+  - '무리함수'
+  tools:
+  - '$t=a+b-x$ 치환, $\dfrac{dx}{dt}=-1$'
+  - '적분 구간의 위끝·아래끝 교환'
+  - '구하는 값을 $I$로 두고 두 식을 더함'
+  conditions:
+  - '$-24+26=2$이므로 $a+b-x=2-x$에서 $\ln(x+25)\to\ln(27-x)$'
+  - '$\ln(x+25)$와 $\ln(27-x)$는 $[-24,26]$에서 $0$ 이상이고 동시에 $0$이 아님(분모 $\neq0$)'
+  stimuli_used: [다, 라]
+  subpart_links: '(2-2)는 (2-1)에서 증명한 관계식을 직접 적용'
+
+curriculum:
+  version: '2015'
+  subjects: [수학, 수학Ⅰ, 미적분]
+  scope_2028: calc2
+  scope_confirmed: false
+  standards:
+  - code: 12미적03-01
+    text: 치환적분법을 이해하고, 이를 활용할 수 있다.
+    verified: true
+  - code: 12미적03-03
+    text: 여러 가지 함수의 부정적분과 정적분을 구할 수 있다.
+    verified: true
+  - code: 10수학04-02
+    text: 함수의 합성을 이해하고, 합성함수를 구할 수 있다.
+    verified: true
+  content_area: 적분법 – 치환적분법
+  behavior_domain: 추론
+  unit_path: [미적분, 적분법, 여러 가지 적분법, 치환적분법]
+  key_concepts: [치환적분법, 정적분, 연속함수]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 숙명여자대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 숙명여자대학교
+  admission_year: 2026
+  admission_type: 논술우수자전형 모의논술
+  track: 자연
+  question_no: 2
+  official_url: https://admission.sookmyung.ac.kr/admission/html/rolling/previous.asp
+  retrieved_at: 2026-11-21
+  original_points: null   # 등급제(1~9등급), 점수 미공개
+  rights_notice: 숙명여자대학교 입학처 기출문제 게시판 공개 자료(문제지·문항카드)
+
+verify: verify/SMWU-M26.py::p02
+
+stimuli:
+- label: 다
+  body: |
+    함수 $f(x)$의 한 부정적분을 $F(x)$라 하고, 미분가능한 함수 $g(t)$에 대하여 $x=g(t)$로 놓으면
+    $$F(x)=F(g(t))$$
+    이다. 이때 $F(x)$를 $t$에 대하여 미분하면
+    $$\frac{d}{dt}F(x)=\frac{d}{dx}F(x)\times\frac{dx}{dt}=f(x)g'(t)=f(g(t))g'(t)$$
+    이므로
+    $$F(x)+C=\int f(g(t))g'(t)dt$$
+    이다. 이때 $F(x)+C=\displaystyle\int f(x)dx$이므로 다음이 성립한다.
+    $$\int f(x)dx=\int f(g(t))g'(t)dt$$
+    이와 같이 한 변수를 다른 변수로 바꾸어 적분하는 방법을 치환적분법이라고 한다.
+- label: 라
+  body: |
+    닫힌구간 $[a,b]$에서 연속인 함수 $f(x)$의 한 부정적분을 $F(x)$라고 하면
+    $$\int_a^bf(x)dx=F(b)-F(a)$$
+    이다. 여기서 미분가능한 함수 $g(t)$에 대하여 $x=g(t)$로 놓으면 치환적분법에 따라
+    $$\int f(x)dx=\int f(g(t))g'(t)dt=F(g(t))+C$$
+    가 성립한다. 이때 $g(t)$의 도함수 $g'(t)$가 $a=g(\alpha)$, $b=g(\beta)$일 때, $\alpha$, $\beta$를 포함하는 구간에서 연속이면
+    $$\int_\alpha^\beta f(g(t))g'(t)dt=\Big[F(g(t))\Big]_\alpha^\beta=F(g(\beta))-F(g(\alpha))=F(b)-F(a)$$
+    이다. 따라서 다음이 성립한다.
+    $$\int_a^bf(x)dx=\int_\alpha^\beta f(g(t))g'(t)dt$$
+
+stem: |
+  제시문 <다>와 <라>를 읽고 다음 문제에 답하시오.
+
+subparts:
+- id: '1'   # 원문 2-1
+  stem: |
+    닫힌구간 $[a,b]$에서 연속인 함수 $f(x)$에 대하여 다음이 성립함을 증명하시오.
+    $$\int_a^bf(x)dx=\int_a^bf(a+b-x)dx$$
+  points: 50
+  depends_on: []
+  answer: {kind: proof, value: null, equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $x=a+b-t$로 치환하면 $dx=-dt$, 구간 $a\to b$가 $b\to a$로 바뀌고 부호가 상쇄된다.
+    steps:
+    - {id: 1a, content: '$\displaystyle\int_a^bf(x)dx=\int_b^af(a+b-t)(-1)dt=\int_a^bf(a+b-t)dt$', criteria: ['1.M1', '1.M2', '1.A1']}
+    hint_ladder:
+    - $a+b-x$를 새 변수로 두어 보자.
+    - $x=a$, $x=b$일 때 새 변수의 값은?
+  - id: S1-B
+    audience: B
+    source_flow: 문항카드 card-24.png
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        $a+b-x=t$, 즉 $x=a+b-t$로 놓으면 $\dfrac{dx}{dt}=-1$이다.
+      criteria: ['1.M1', '1.A1']
+    - id: 1b-2
+      content: |
+        $x=a$일 때 $t=b$이고 $x=b$일 때 $t=a$이므로
+      criteria: ['1.M2']
+    - id: 1b-3
+      content: |
+        $$\int_a^bf(x)dx=\int_b^af(a+b-t)(-1)dt=\int_a^bf(a+b-t)dt$$
+        이다. (적분변수의 문자를 $x$로 바꾸면 증명할 식이다.) ■
+      criteria: ['1.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 15
+      evidence: |
+        (기준 ①) $a+b-x=t$로 치환했다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1]
+    - id: 1.M2
+      mark_type: M
+      points: 15
+      evidence: |
+        (기준 ②) 적분 범위가 $x:a\to b$에서 $t:b\to a$로 바뀜을 적었다.
+      depends_on: [1.M1]
+      implied_ok: false
+      steps: [1b-2]
+    - id: 1.A1
+      mark_type: A
+      points: 20
+      evidence: |
+        (기준 ③) $\dfrac{dx}{dt}=-1$을 이용해 위끝·아래끝을 바꾸어 $\displaystyle\int_a^bf(a+b-t)dt$를 얻었다.
+      depends_on: [1.M1, 1.M2]
+      steps: [1b-1, 1b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '2'   # 원문 2-2
+  stem: |
+    위의 적분식을 이용하여 다음의 적분값을 구하시오.
+    $$\int_{-24}^{26}\frac{\sqrt{\ln(x+25)}}{\sqrt{\ln(x+25)}+\sqrt{\ln(27-x)}}dx$$
+  points: 50
+  depends_on: ['1']
+  answer: {kind: value, value: '25', equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: $a+b=2$이므로 $f(2-x)$는 분자가 $\sqrt{\ln(27-x)}$로 바뀐 식이고, 두 적분의 합은 $\displaystyle\int_{-24}^{26}1\,dx=50$.
+    steps:
+    - {id: 2a, content: '$2I=\displaystyle\int_{-24}^{26}dx=50\Rightarrow I=25$', criteria: ['2.M1', '2.M2', '2.A1']}
+    hint_ladder:
+    - $a+b-x$에 $x+25$를 넣으면 무엇이 되는가?
+    - 원래 적분과 바뀐 적분을 더해 보자.
+  - id: S2-B
+    audience: B
+    source_flow: 문항카드 card-25.png
+    method_no: 1
+    steps:
+    - id: 2b-1
+      content: |
+        로그함수 $\ln x$는 $x>0$일 때 연속이므로, 닫힌구간 $[-24,26]$에서 $\ln(x+25)$와 $\ln(27-x)$는 모두 연속이다. 이 구간에서 두 함수 모두 $0$ 이상의 값을 가지므로 $\sqrt{\ln(x+25)}$와 $\sqrt{\ln(27-x)}$, 모두 연속이다. 또한 $\ln(x+25)$와 $\ln(27-x)$는 동시에 $0$의 값을 가질 수 없으므로 피적분함수
+        $$\frac{\sqrt{\ln(x+25)}}{\sqrt{\ln(x+25)}+\sqrt{\ln(27-x)}}$$
+        이 적분 구간 $[-24,26]$에서 연속임을 알 수 있다.
+      criteria: ['2.M1']
+    - id: 2b-2
+      content: |
+        구하고자 하는 적분의 값을 $I$라 하자. 즉,
+        $$I=\int_{-24}^{26}\frac{\sqrt{\ln(x+25)}}{\sqrt{\ln(x+25)}+\sqrt{\ln(27-x)}}dx\qquad(1)$$
+        문제 2-1에서 주어진 적분식을 이용하면
+        $$I=\int_{-24}^{26}\frac{\sqrt{\ln(27-x)}}{\sqrt{\ln(x+25)}+\sqrt{\ln(27-x)}}dx\qquad(2)$$
+      criteria: ['2.M2']
+    - id: 2b-3
+      content: |
+        식 (1)과 (2)의 양변을 서로 더하면
+        $$2I=\int_{-24}^{26}\frac{\sqrt{\ln(x+25)}+\sqrt{\ln(27-x)}}{\sqrt{\ln(x+25)}+\sqrt{\ln(27-x)}}dx=\int_{-24}^{26}1\,dx=50$$
+        즉 $2I=50$이고, 이는 $I=25$임을 의미한다.
+      criteria: ['2.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: R
+      points: 15
+      evidence: |
+        (기준 ④) $[-24,26]$에서 로그·무리함수가 정의되고 분모가 $0$이 아니어서 피적분함수가 연속임을 밝혔다.
+      depends_on: []
+      implied_ok: false
+      steps: [2b-1]
+    - id: 2.M2
+      mark_type: M
+      points: 15
+      evidence: |
+        (기준 ⑤) (2-1)의 관계식을 적용해 분자가 $\sqrt{\ln(27-x)}$인 적분으로 바꿨다.
+      depends_on: []
+      implied_ok: false
+      ft: {allowed: true, from: [1.A1], max_points: 15}
+      steps: [2b-2]
+    - id: 2.A1
+      mark_type: A
+      points: 20
+      evidence: |
+        (기준 ⑥) 구하는 값을 $I$로 두고 두 식을 더해 $2I=50$, $I=25$를 얻었다.
+      depends_on: [2.M2]
+      steps: [2b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+remedy_links: []
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-transcribe-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

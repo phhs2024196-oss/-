@@ -1,0 +1,251 @@
+# 숙명여자대학교 2026학년도 논술우수자전형 자연계열(약학부) 계열문항 2 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+# 원본: img/G26P/q-2.png(문제지), 문항카드 img/G26P/card-01~card-16.png
+# 일반 문항지 계열문항 2(SMWU-G26-02)와 제시문·발문이 다름 → 별도 파일.
+# 배점: 등급제(1~9등급)만 제시, 점수 미공개. ①~③ → 2-1, ④~⑥ → 2-2, 소문항당 50점 균등.  # [확인필요] 배점 미공개
+# 2-1 원문은 「해당하는 x의 값의 범위에 대하여 함수 f(x)의 정적분의 값」 — 해집합 위에서의 정적분(합집합 구간 적분)으로 해석(문항카드 예시 답안과 일치).
+schema_version: '2.0'
+id: SMWU-G26P-02
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: SMWU
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 일반화
+points: 100   # [확인필요] 배점 미공개
+time_estimate_min: 25
+intent: |
+  삼각함수를 포함하는 부등식을 풀고 해당하는 $x$의 값의 범위에 대하여 주어진 함수의 정적분의 값을 구할 수 있는지, 그 정적분의 값을 등비수열의 합을 이용하여 구할 수 있는지 평가한다.
+key_idea: |
+  $0\le x\le100\pi$에서 $\sin x\le-\frac12$의 해는 $A_n=\left[(2n-1)\pi+\frac\pi6,\,2n\pi-\frac\pi6\right]$ $(n=1,\ldots,50)$이고, 각 구간의 적분이 $\left(e^{\frac{5\pi}{6}}-e^{\frac\pi6}\right)e^{-2n\pi}$이므로 등비수열의 합.
+stuck: |
+  주기 $2\pi$마다 같은 모양의 구간이 반복되어 적분값이 공비 $e^{-2\pi}$인 등비수열이 된다는 관찰
+idea_tags: [IDEA-PERIODIC-INTERVAL-GEOMETRIC-SUM]
+tags: [삼각부등식, 지수함수 적분, 등비수열, 약학부]
+elements:
+  materials:
+  - '지수함수 $f(x)=e^{-x}$'
+  - '$0\le x\le2\pi$에서 $\sin x\le\frac12$의 해집합'
+  - '$0\le x\le100\pi$에서 $\sin x\le-\frac12$의 해집합'
+  concepts:
+  - '삼각함수의 그래프와 주기'
+  - '삼각함수를 포함한 부등식'
+  - '지수함수의 정적분'
+  - '등비수열의 합'
+  tools:
+  - '$\sin\frac\pi6=\frac12$, 그래프로 해 구간 판정'
+  - '$\displaystyle\int e^{-x}dx=-e^{-x}+C$'
+  - '구간별 적분값을 $e^{-2n\pi}$로 묶기'
+  conditions:
+  - '해 구간 $\left[0,\frac\pi6\right]\cup\left[\frac{5\pi}{6},2\pi\right]$'
+  - '$A_n=\left[(2n-1)\pi+\frac\pi6,\,2n\pi-\frac\pi6\right]$, $n=1,2,\ldots,50$'
+  stimuli_used: [라, 마]
+  subpart_links: '(2-1)은 한 주기에서의 계산, (2-2)는 같은 계산을 50주기로 일반화해 등비수열의 합으로 정리'
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅰ, 미적분]
+  scope_2028: calc2
+  scope_confirmed: false
+  standards:
+  - code: 12수학Ⅰ02-03
+    text: 삼각함수를 활용하여 간단한 방정식과 부등식을 풀 수 있다.
+    verified: false
+  - code: 12수학Ⅰ03-03
+    text: 등비수열의 뜻을 알고, 일반항, 첫째항부터 제n항까지의 합을 구할 수 있다.
+    verified: false
+  - code: 12미적03-03
+    text: 여러 가지 함수의 부정적분과 정적분을 구할 수 있다.
+    verified: false
+  content_area: 삼각함수·등비수열·정적분
+  behavior_domain: 문제해결
+  unit_path: [미적분, 적분법, 정적분, 여러 가지 함수의 정적분]
+  key_concepts: [삼각부등식, 지수함수의 정적분, 등비수열의 합]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 숙명여자대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 숙명여자대학교
+  admission_year: 2026
+  admission_type: 논술우수자전형
+  track: 자연(약학부)
+  question_no: 2
+  official_url: https://admission.sookmyung.ac.kr/admission/html/rolling/previous.asp
+  retrieved_at: 2026-11-21
+  original_points: null   # 등급제(1~9등급), 점수 미공개
+  rights_notice: 숙명여자대학교 입학처 기출문제 게시판 공개 자료(문제지·문항카드)
+
+verify: verify/SMWU-G26P.py::p02
+
+stimuli:
+- label: 라
+  body: |
+    두 함수 $y=\sin x$, $y=\cos x$의 정의역은 실수 전체의 집합이고 치역은 $\{y\mid-1\le y\le1\}$이다. 함수 $y=\sin x$의 그래프는 원점에 대해 대칭이므로 $\sin(-x)=-\sin x$이고, 함수 $y=\cos x$의 그래프는 $y$축에 대해 대칭이므로 $\cos(-x)=\cos x$이다. 두 함수 $y=\sin x$, $y=\cos x$의 그래프는 $2\pi$ 간격으로 같은 모양이 반복된다. 즉, 임의의 실수 $x$에 대하여
+    $$\sin(x+2n\pi)=\sin x,\ \cos(x+2n\pi)=\cos x\quad(\text{단, }n\text{은 정수})$$
+    가 성립한다.
+- label: 마
+  body: |
+    첫째항이 $a$, 공비가 $r$인 등비수열의 첫째항부터 제$n$항까지의 합을 $S_n$이라고 하면
+    1. $r\neq1$일 때, $S_n=\dfrac{a(1-r^n)}{1-r}=\dfrac{a(r^n-1)}{r-1}$이고,
+    2. $r=1$일 때, $S_n=na$이다.
+
+stem: |
+  제시문 <라>와 <마>를 읽고 다음 문제에 답하시오.
+
+  함수 $f(x)=e^{-x}$은 실수 전체의 집합에서 정의된 지수함수이다.
+
+subparts:
+- id: '1'   # 원문 2-1
+  stem: |
+    $0\le x\le2\pi$일 때, 부등식 $\sin x\le\dfrac12$을 풀고, 해당하는 $x$의 값의 범위에 대하여 함수 $f(x)$의 정적분의 값을 구하시오.
+  points: 50
+  depends_on: []
+  answer: {kind: value, value: '1 - exp(-pi/6) + exp(-5*pi/6) - exp(-2*pi)', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: 해는 $\left[0,\frac\pi6\right]\cup\left[\frac{5\pi}{6},2\pi\right]$이고 각 구간에서 $e^{-x}$를 적분해 더한다.
+    steps:
+    - {id: 1a, content: '$\left[-e^{-x}\right]_0^{\frac\pi6}+\left[-e^{-x}\right]_{\frac{5\pi}{6}}^{2\pi}=1-e^{-\frac\pi6}+e^{-\frac{5\pi}{6}}-e^{-2\pi}$', criteria: ['1.M1', '1.M2', '1.A1']}
+    hint_ladder:
+    - $\sin x=\frac12$인 $x$를 $[0,2\pi]$에서 모두 찾자.
+  - id: S1-B
+    audience: B
+    source_flow: 문항카드 card-12.png
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        $\sin\dfrac\pi6=\dfrac12$이므로, $0\le x\le2\pi$일 때, 부등식 $\sin x\le\dfrac12$의 해는 아래 그림에서 표시된 것과 같이
+        $$\left\{x\,\middle|\,0\le x\le\frac\pi6\right\}\cup\left\{x\,\middle|\,\pi-\frac\pi6\le x\le2\pi\right\}$$
+        가 된다. [그림: $0\le x\le2\pi$에서 $y=\sin x$와 $y=\frac12$, 해 구간 $\left[0,\frac\pi6\right]$, $\left[\frac{5\pi}{6},2\pi\right]$ 표시]
+      criteria: ['1.M1']
+    - id: 1b-2
+      content: |
+        그러므로 $f(x)$의 정적분의 값은 다음과 같이 구할 수 있다.
+        $$\int_0^{\frac\pi6}e^{-x}dx+\int_{\frac{5\pi}{6}}^{2\pi}e^{-x}dx=\Big[-e^{-x}\Big]_0^{\frac\pi6}+\Big[-e^{-x}\Big]_{\frac{5\pi}{6}}^{2\pi}$$
+      criteria: ['1.M2']
+    - id: 1b-3
+      content: |
+        $$=1-e^{-\frac\pi6}+e^{-\frac{5\pi}{6}}-e^{-2\pi}$$
+      criteria: ['1.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: B
+      points: 15
+      evidence: |
+        (기준 ①) 부등식의 해 $0\le x\le\frac\pi6$ 또는 $\frac{5\pi}{6}\le x\le2\pi$를 구했다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1]
+    - id: 1.M2
+      mark_type: M
+      points: 15
+      evidence: |
+        (기준 ②) 해당 범위에서 $f(x)$의 정적분을 $\displaystyle\int_0^{\frac\pi6}e^{-x}dx+\int_{\frac{5\pi}{6}}^{2\pi}e^{-x}dx$로 표현했다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-2]
+    - id: 1.A1
+      mark_type: A
+      points: 20
+      evidence: |
+        (기준 ③) 정적분의 값 $1-e^{-\frac\pi6}+e^{-\frac{5\pi}{6}}-e^{-2\pi}$를 계산했다.
+      depends_on: [1.M2]
+      steps: [1b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '2'   # 원문 2-2
+  stem: |
+    $0\le x\le100\pi$일 때, 부등식 $\sin x\le-\dfrac12$에 해당하는 $x$의 값의 범위에 대하여 함수 $f(x)$의 정적분의 값이 $\left(e^{\frac{5\pi}{6}}-e^{\frac\pi6}\right)k$가 되는 실수 $k$의 값을 구하시오.
+  points: 50
+  depends_on: []
+  answer: {kind: value, value: 'exp(-2*pi)*(1 - exp(-100*pi))/(1 - exp(-2*pi))', equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: 해 구간 $A_n$ 위의 적분은 $\left(e^{\frac{5\pi}{6}}-e^{\frac\pi6}\right)e^{-2n\pi}$, $k=\displaystyle\sum_{n=1}^{50}e^{-2n\pi}$.
+    steps:
+    - {id: 2a, content: '$k=\dfrac{e^{-2\pi}\left(1-e^{-100\pi}\right)}{1-e^{-2\pi}}$', criteria: ['2.M1', '2.M2', '2.A1']}
+    hint_ladder:
+    - 한 주기 안에서 해 구간을 구하고, 주기만큼 평행이동하자.
+    - 각 구간의 적분값 사이에는 어떤 관계가 있는가?
+  - id: S2-B
+    audience: B
+    source_flow: 문항카드 card-13.png, card-14.png
+    method_no: 1
+    steps:
+    - id: 2b-1
+      content: |
+        아래 그림에서 보는 것과 같이 $0\le x\le100\pi$에서 $\sin x=-\dfrac12$을 만족시키는 첫 번째 $x$는 $\pi+\dfrac\pi6$이다. 사인함수는 주기가 $2\pi$인 주기함수이므로 $\sin x=-\dfrac12$을 만족시키는 홀수 번째 $x$의 값은 $x=(2n-1)\pi+\dfrac\pi6$ $(n=1,2,\cdots,50)$이다. 마찬가지로 짝수 번째 $x$의 값은 $x=2n\pi-\dfrac\pi6$ $(n=1,2,\cdots,50)$이다. 따라서
+        $$A_n=\left\{x\,\middle|\,(2n-1)\pi+\frac\pi6\le x\le2n\pi-\frac\pi6\right\}$$
+        이라고 하면, $0\le x\le100\pi$일 때, 부등식 $\sin x\le-\dfrac12$의 해는 $A_1\cup A_2\cup\cdots\cup A_{50}$로 표시할 수 있다. [그림: $y=\sin x$와 $y=-\frac12$, 각 주기의 해 구간을 $x$축 위에 표시]
+      criteria: ['2.M1']
+    - id: 2b-2
+      content: |
+        해당하는 $x$의 값의 범위에 대하여 함수 $f(x)$의 정적분의 값은 다음과 같이 계산할 수 있다.
+        $$\sum_{n=1}^{50}\int_{(2n-1)\pi+\frac\pi6}^{2n\pi-\frac\pi6}e^{-x}dx=\sum_{n=1}^{50}\Big[-e^{-x}\Big]_{(2n-1)\pi+\frac\pi6}^{2n\pi-\frac\pi6}=\sum_{n=1}^{50}\left[e^{-\left\{(2n-1)\pi+\frac\pi6\right\}}-e^{-\left(2n\pi-\frac\pi6\right)}\right]=\left(e^{\frac{5\pi}{6}}-e^{\frac\pi6}\right)\sum_{n=1}^{50}e^{-2n\pi}$$
+      criteria: ['2.M2']
+    - id: 2b-3
+      content: |
+        여기서 $\displaystyle\sum_{n=1}^{50}e^{-2n\pi}$는 첫째항이 $e^{-2\pi}$, 공비가 $e^{-2\pi}$인 등비수열의 50항까지의 합이다. 제시문 <마>에 의해
+        $$\sum_{n=1}^{50}e^{-2n\pi}=\frac{e^{-2\pi}\left((e^{-2\pi})^{50}-1\right)}{e^{-2\pi}-1}=\frac{e^{-2\pi}\left(1-e^{-100\pi}\right)}{1-e^{-2\pi}}$$
+        이다. 그러므로
+        $$k=\frac{e^{-2\pi}\left(1-e^{-100\pi}\right)}{1-e^{-2\pi}}$$
+        이다.
+      criteria: ['2.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: B
+      points: 15
+      evidence: |
+        (기준 ④) 해 $A_n=\left[(2n-1)\pi+\frac\pi6,\,2n\pi-\frac\pi6\right]$ $(n=1,\ldots,50)$을 구했다.
+      depends_on: []
+      implied_ok: false
+      steps: [2b-1]
+    - id: 2.M2
+      mark_type: M
+      points: 15
+      evidence: |
+        (기준 ⑤) 해당 범위의 정적분을 $\displaystyle\sum_{n=1}^{50}\int_{(2n-1)\pi+\frac\pi6}^{2n\pi-\frac\pi6}e^{-x}dx$로 표현했다.
+      depends_on: []
+      implied_ok: false
+      steps: [2b-2]
+    - id: 2.A1
+      mark_type: A
+      points: 20
+      evidence: |
+        (기준 ⑥) 등비수열의 합으로 $k=\dfrac{e^{-2\pi}\left(1-e^{-100\pi}\right)}{1-e^{-2\pi}}$를 구했다.
+      depends_on: [2.M2]
+      steps: [2b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+remedy_links: []
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-transcribe-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

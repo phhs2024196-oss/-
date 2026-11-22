@@ -1,0 +1,246 @@
+# 숙명여대 2027학년도 모의논술 자연계열(약학부) 계열문항 2 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+# 제시문 <라>는 일반 문항지 <다>와 같으나 발문·소문항이 달라 별도 파일.
+# 문항카드 채점 기준: 6가지 기준(①~⑥) 충족 개수로 1~9등급 판정, 점수 배점 미공개.
+#   → points 는 소문항 2개 × 50 = 100, 기준 ①~⑥을 마크 1개씩(17/17/16)으로 옮김  # [확인필요] 배점 미공개
+schema_version: '2.0'
+id: SMWU-M27P-02
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: SMWU
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 추론
+points: 100
+time_estimate_min: 25
+intent: |
+  등비수열의 자연로그 값이 등차수열이 됨을 이용해 로그 평균의 지수함수 값(기하평균)을 구하고 이차부등식으로 공비의 범위를 찾으며, 등차수열과 등비수열의 곱의 급수를 제시문 공식으로 계산하는 능력을 본다.
+key_idea: |
+  $\ln a_k=\ln a+(k-1)\ln r$이므로 $C_n=ar^{\frac{n-1}{2}}$이고, $a_n\ln a_n=ar^{n-1}\left(\ln a+(n-1)\ln r\right)$을 세 등비급수형 급수로 나눈다.
+stuck: |
+  (2-2)에서 $a_n\ln a_n$을 $\sum r^{n-1}$과 $\sum nr^{n-1}$의 결합으로 분해하고 $1-r=a$로 정리하는 단계
+idea_tags: []
+tags: [등비급수, 로그, 기하평균]
+elements:
+  materials:
+  - '첫째항 $a\ (a>0)$, 공비 $r\ (r>0)$인 등비수열 $\{a_n\}$'
+  - '$A_n=\frac1n\sum\ln a_k$, $B_n=\frac1n\sum a_k$, $C_n=e^{A_n}$'
+  - '급수 $\sum a_n\ln a_n$'
+  concepts:
+  - '등비수열의 일반항'
+  - '로그의 성질'
+  - '등차수열의 합'
+  - '이차부등식'
+  - '등비급수의 합과 급수 $\sum nr^{n-1}$의 합'
+  tools:
+  - '$\ln a_k$가 등차수열임을 이용한 평균 계산'
+  - '$\frac{B_3}{C_3}$를 $r$의 이차부등식으로 정리'
+  - '급수를 $\sum r^{n-1}$, $\sum nr^{n-1}$로 분해'
+  conditions:
+  - '$r>0$이므로 $3r>0$을 곱해도 부등호 방향 유지'
+  - '(2-2) $a+r=1$, $a>0$, $r>0$에서 $0<r<1$'
+  stimuli_used: [라]
+  subpart_links: '(2-1)·(2-2) 모두 $\ln a_n=\ln a+(n-1)\ln r$(등차수열)을 사용'
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅰ, 미적분]
+  scope_2028: calc2
+  scope_confirmed: false
+  standards:
+  - code: 12수학Ⅰ03-03
+    text: 등비수열의 뜻을 알고, 일반항, 첫째항부터 제 n항까지의 합을 구할 수 있다.
+    verified: false
+  - code: 12미적01-02
+    text: 수열의 극한에 대한 기본 성질을 이해하고, 이를 이용하여 극한값을 구할 수 있다.
+    verified: false
+  - code: 12미적01-06
+    text: 등비급수를 활용하여 여러 가지 문제를 해결할 수 있다.
+    verified: false
+  content_area: 수열의 극한 – 급수
+  behavior_domain: 계산
+  unit_path: [미적분, 수열의 극한, 급수, 등비급수]
+  key_concepts: [등비수열, 로그의 성질, 이차부등식, 등비급수]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 숙명여자대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 숙명여자대학교
+  admission_year: 2027
+  admission_type: 논술우수자전형 모의논술
+  track: 자연(약학부)
+  question_no: 2
+  official_url: https://admission.sookmyung.ac.kr/admission/html/rolling/previous.asp
+  retrieved_at: 2026-11-21
+  original_points: [50, 50]   # [확인필요] 배점 미공개(문항카드는 1~9등급 판정)
+  rights_notice: 숙명여자대학교 입학처 기출문제 게시판 공개 자료(문제지·문항카드)
+
+verify: verify/SMWU-M27P.py::p02
+
+stimuli:
+- label: 라
+  body: |
+    첫째항이 $b\ (b\ne0)$, 공비가 $r\ (r\ne1)$인 등비수열의 첫째항부터 제$n$항까지의 합을 $S_n$이라고 하면
+    $$S_n=\frac{b(1-r^n)}{1-r}$$
+    이고, 등비급수 $\displaystyle\sum_{n=1}^{\infty}br^{n-1}$은
+    $\lvert r\rvert<1$일 때 수렴하고 그 합은 $\dfrac{b}{1-r}$,
+    $\lvert r\rvert\ge1$일 때 발산한다.
+    $T_n=b+2br+3br^2+\cdots+nbr^{n-1}=\displaystyle\sum_{k=1}^{n}kbr^{k-1}$이라고 하면
+    $$T_n-rT_n=(1-r)T_n=b+br+br^2+\cdots+br^{n-1}-nbr^n=S_n-nbr^n$$
+    이 되고 $T_n=\dfrac{S_n-nbr^n}{1-r}$이 된다. $\lvert r\rvert<1$일 때, $\displaystyle\lim_{n\to\infty}nr^n=0$임이 알려져 있으므로
+    $$\lim_{n\to\infty}T_n=\lim_{n\to\infty}\frac{S_n-nbr^n}{1-r}=\frac{b}{(1-r)^2}$$
+    따라서 $\displaystyle\sum_{n=1}^{\infty}nbr^{n-1}$은 수렴하고 그 합은 $\dfrac{b}{(1-r)^2}$이다.
+
+stem: |
+  수열 $\{a_n\}$은 첫째항이 $a\ (a>0)$, 공비가 $r\ (r>0)$인 등비수열이다. $A_n=\dfrac1n\displaystyle\sum_{k=1}^{n}\ln a_k$, $B_n=\dfrac1n\displaystyle\sum_{k=1}^{n}a_k$일 때, 제시문을 읽고 다음 문제에 답하시오.
+
+subparts:
+- id: '1'
+  # 원문 2-1.
+  stem: |
+    $C_n=e^{A_n}$일 때, $\dfrac{B_3}{C_3}\le\dfrac76$을 만족시키는 $r$의 값의 범위를 구하시오.
+  points: 50
+  depends_on: []
+  answer: {kind: set, value: 'Interval(1/2, 2)', equivalents: ['1/2 <= r <= 2'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $C_3=ar$, $B_3=\frac{a(1+r+r^2)}{3}$이므로 $\frac{r^2+r+1}{3r}\le\frac76\iff 2r^2-5r+2\le0$.
+    steps:
+    - {id: 1a, content: '$2r^2-5r+2\le0\Rightarrow\frac12\le r\le2$', criteria: ['1.M1', '1.M2', '1.A1']}
+    hint_ladder:
+    - $\ln a_k$는 어떤 수열인가?
+  - id: S1-B
+    audience: B
+    source_flow: 문항카드 card-7.png
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        $a_n=ar^{n-1}$이므로 $\ln a_k=\ln a+(k-1)\ln r$이다. 따라서 $A_n=\dfrac1n\displaystyle\sum_{k=1}^{n}\ln a_k=\ln a+\dfrac{n-1}{2}\ln r$이다. 한편, $C_n=e^{A_n}=e^{\ln a+\frac{n-1}{2}\ln r}=ar^{\frac{n-1}{2}}$이다.
+      criteria: ['1.M1']
+    - id: 1b-2
+      content: |
+        이므로 $\dfrac{B_3}{C_3}=\dfrac{\dfrac{a+ar+ar^2}{3}}{ar}=\dfrac{r^2+r+1}{3r}\le\dfrac76$.
+      criteria: ['1.M2']
+    - id: 1b-3
+      content: |
+        따라서 $2r^2-5r+2\le0$이므로 $\dfrac12\le r\le2$이다.
+      criteria: ['1.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 17
+      evidence: |
+        (채점 기준 ①) $C_3=ar$를 계산했다($C_n=ar^{\frac{n-1}{2}}$).
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1]
+    - id: 1.M2
+      mark_type: M
+      points: 17
+      evidence: |
+        (채점 기준 ②) 해당 부등식이 공비의 이차부등식 $2r^2-5r+2\le0$으로 표시됨을 보였다.
+      depends_on: [1.M1]
+      implied_ok: false
+      steps: [1b-2]
+    - id: 1.A1
+      mark_type: A
+      points: 16
+      evidence: |
+        (채점 기준 ③) 이차부등식을 만족하는 공비의 값의 범위 $\frac12\le r\le2$를 구했다.
+      depends_on: [1.M2]
+      steps: [1b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '2'
+  # 원문 2-2.
+  stem: |
+    $a+r=1$일 때, 급수 $\displaystyle\sum_{n=1}^{\infty}a_n\ln a_n$의 합을 $a$에 대한 식으로 나타내시오.
+  points: 50
+  depends_on: []
+  answer: {kind: expression, value: 'log(a/(1 - a)*(1 - a)**(1/a))', equivalents: ['log(a) + log(1 - a)/a - log(1 - a)'], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: $\sum a_n\ln a_n=a\ln a\sum r^{n-1}+a\ln r\sum nr^{n-1}-a\ln r\sum r^{n-1}$에 $1-r=a$를 대입한다.
+    steps:
+    - {id: 2a, content: '$\ln a+\frac1a\ln(1-a)-\ln(1-a)=\ln\left(\frac{a}{1-a}(1-a)^{1/a}\right)$', criteria: ['2.M1', '2.R1', '2.A1']}
+    hint_ladder:
+    - $\ln a_n$을 $\ln a$와 $\ln r$로 나타내 보자.
+    - $\sum nr^{n-1}$ 꼴이 나오면 제시문 <라>를 쓰자.
+  - id: S2-B
+    audience: B
+    source_flow: 문항카드 card-7.png
+    method_no: 1
+    steps:
+    - id: 2b-1
+      content: |
+        $\displaystyle\sum_{n=1}^{\infty}a_n\ln a_n=\sum_{n=1}^{\infty}ar^{n-1}\ln(ar^{n-1})=\sum_{n=1}^{\infty}ar^{n-1}(\ln a+(n-1)\ln r)$
+        $\displaystyle=a\ln a\sum_{n=1}^{\infty}r^{n-1}+a\ln r\sum_{n=1}^{\infty}nr^{n-1}-a\ln r\sum_{n=1}^{\infty}r^{n-1}$
+      criteria: ['2.M1']
+    - id: 2b-2
+      content: |
+        문항의 조건 $a+r=1$에 의해 $0<r<1$이므로, 제시문 <라>에 의해 $\displaystyle\sum_{n=1}^{\infty}r^{n-1}=\frac{1}{1-r}$, $\displaystyle\sum_{n=1}^{\infty}nr^{n-1}=\frac{1}{(1-r)^2}$이다. 따라서
+        $\displaystyle\sum_{n=1}^{\infty}a_n\ln a_n=\frac{a}{1-r}\ln a+\frac{a\ln r}{(1-r)^2}-\frac{a}{1-r}\ln r$
+      criteria: ['2.R1']
+      # 문항카드 원문은 이 줄의 합 기호 위끝을 n 으로 적음(∞ 의 오기로 보임)
+    - id: 2b-3
+      content: |
+        $=\ln a+\dfrac1a\ln(1-a)-\ln(1-a)=\ln\left(\dfrac{a}{1-a}(1-a)^{1/a}\right)$
+      criteria: ['2.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 17
+      evidence: |
+        (채점 기준 ④) $a_n\ln a_n$이 등비수열과 등차수열의 곱임을 보였다.
+      depends_on: []
+      implied_ok: false
+      steps: [2b-1]
+    - id: 2.R1
+      mark_type: R
+      points: 17
+      evidence: |
+        (채점 기준 ⑤) $0<r<1$로 급수의 합이 수렴하는 조건을 만족함을 보이고 급수의 합을 구했다.
+      depends_on: [2.M1]
+      implied_ok: false
+      steps: [2b-2]
+    - id: 2.A1
+      mark_type: A
+      points: 16
+      evidence: |
+        (채점 기준 ⑥) 주어진 조건 $r=1-a$를 이용하여 극한값을 첫째항 $a$에 대한 식 $\ln\left(\frac{a}{1-a}(1-a)^{1/a}\right)$(또는 동치식)으로 보였다.
+      depends_on: [2.M1, 2.R1]
+      steps: [2b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+remedy_links: []
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-transcribe-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

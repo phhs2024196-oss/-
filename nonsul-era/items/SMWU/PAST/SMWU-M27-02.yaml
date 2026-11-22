@@ -1,0 +1,241 @@
+# 숙명여대 2027학년도 모의논술 자연계열(일반) 계열문항 2 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+# 문항카드 채점 기준: 6가지 기준(①~⑥) 충족 개수로 1~9등급 판정, 점수 배점 미공개.
+#   → points 는 소문항 2개 × 50 = 100, 기준 ①~⑥을 마크 1개씩(17/17/16)으로 옮김  # [확인필요] 배점 미공개
+schema_version: '2.0'
+id: SMWU-M27-02
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: SMWU
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 추론
+points: 100
+time_estimate_min: 25
+intent: |
+  등차수열을 지수함수에 넣은 수열이 등비수열임을 알고 등비급수의 수렴 조건과 합을 구하며, 짝수 번째 항으로 이루어진 등비수열과 제시문의 $\sum nbr^{n-1}$ 공식을 이용해 급수의 합을 계산하는 능력을 본다.
+key_idea: |
+  $b_n=e^a(e^d)^{n-1}$은 공비 $e^d$인 등비수열, $b_{2n}=e^{a+d}(e^{2d})^{n-1}$은 공비 $e^{2d}$인 등비수열이다.
+stuck: |
+  (2-2)에서 $\{b_{2n}\}$의 첫째항·공비를 찾고 $1-e^d=e^a$, $1+e^d=2-e^a$로 $a$만의 식으로 바꾸는 단계
+idea_tags: []
+tags: [등비급수, 등차수열, 지수함수]
+elements:
+  materials:
+  - '첫째항 $a$, 공차 $d$인 등차수열 $\{a_n\}$과 $b_n=e^{a_n}$'
+  - '급수 $\sum b_n$, $\sum nb_{2n}$'
+  concepts:
+  - '등차수열의 일반항'
+  - '등비수열의 뜻과 일반항'
+  - '등비급수의 수렴 조건과 합'
+  - '급수 $\sum nbr^{n-1}$의 합'
+  - '지수법칙'
+  tools:
+  - '$e^{a+(n-1)d}=e^a(e^d)^{n-1}$으로 등비수열 확인'
+  - '제시문 <다>의 공식 $\dfrac{b}{(1-r)^2}$ 적용'
+  - '조건 $e^a+e^d=1$로 $e^d$ 소거'
+  conditions:
+  - '수렴 조건 $\lvert e^d\rvert<1\iff d<0$'
+  - '(2-2) $e^a+e^d=1$이므로 $0<e^{2d}<1$'
+  stimuli_used: [다]
+  subpart_links: '(2-2)는 (2-1)의 등비수열 표현 $b_n=e^a(e^d)^{n-1}$을 짝수 번째 항에 적용'
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅰ, 미적분]
+  scope_2028: calc2
+  scope_confirmed: false
+  standards:
+  - code: 12수학Ⅰ03-02
+    text: 등차수열의 뜻을 알고, 일반항, 첫째항부터 제 n항까지의 합을 구할 수 있다.
+    verified: false
+  - code: 12수학Ⅰ03-03
+    text: 등비수열의 뜻을 알고, 일반항, 첫째항부터 제 n항까지의 합을 구할 수 있다.
+    verified: false
+  - code: 12미적01-06
+    text: 등비급수를 활용하여 여러 가지 문제를 해결할 수 있다.
+    verified: false
+  content_area: 수열의 극한 – 급수
+  behavior_domain: 계산
+  unit_path: [미적분, 수열의 극한, 급수, 등비급수]
+  key_concepts: [등차수열, 등비수열, 등비급수, 급수의 수렴]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 숙명여자대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 숙명여자대학교
+  admission_year: 2027
+  admission_type: 논술우수자전형 모의논술
+  track: 자연
+  question_no: 2
+  official_url: https://admission.sookmyung.ac.kr/admission/html/rolling/previous.asp
+  retrieved_at: 2026-11-21
+  original_points: [50, 50]   # [확인필요] 배점 미공개(문항카드는 1~9등급 판정)
+  rights_notice: 숙명여자대학교 입학처 기출문제 게시판 공개 자료(문제지·문항카드)
+
+verify: verify/SMWU-M27.py::p02
+
+stimuli:
+- label: 다
+  body: |
+    첫째항이 $b\ (b\ne0)$, 공비가 $r\ (r\ne1)$인 등비수열의 첫째항부터 제$n$항까지의 합을 $S_n$이라고 하면
+    $$S_n=\frac{b(1-r^n)}{1-r}$$
+    이고, 등비급수 $\displaystyle\sum_{n=1}^{\infty}br^{n-1}$은
+    $\lvert r\rvert<1$일 때 수렴하고 그 합은 $\dfrac{b}{1-r}$,
+    $\lvert r\rvert\ge1$일 때 발산한다.
+    $T_n=b+2br+3br^2+\cdots+nbr^{n-1}=\displaystyle\sum_{k=1}^{n}kbr^{k-1}$이라고 하면
+    $$T_n-rT_n=(1-r)T_n=b+br+br^2+\cdots+br^{n-1}-nbr^n=S_n-nbr^n$$
+    이 되고 $T_n=\dfrac{S_n-nbr^n}{1-r}$이 된다. $\lvert r\rvert<1$일 때, $\displaystyle\lim_{n\to\infty}nr^n=0$임이 알려져 있으므로
+    $$\lim_{n\to\infty}T_n=\lim_{n\to\infty}\frac{S_n-nbr^n}{1-r}=\frac{b}{(1-r)^2}$$
+    따라서 $\displaystyle\sum_{n=1}^{\infty}nbr^{n-1}$은 수렴하고 그 합은 $\dfrac{b}{(1-r)^2}$이다.
+
+stem: |
+  수열 $\{a_n\}$은 첫째항이 $a$, 공차가 $d$인 등차수열이고 $b_n=e^{a_n}$이다. 제시문을 읽고 다음 문제에 답하시오.
+
+subparts:
+- id: '1'
+  # 원문 2-1.
+  stem: |
+    급수 $\displaystyle\sum_{n=1}^{\infty}b_n$이 수렴하기 위한 $d$의 값의 범위를 구하고, 이 급수의 합을 구하시오.
+  points: 50
+  depends_on: []
+  answer: {kind: expression, value: 'd < 0; sum = exp(a)/(1 - exp(d))', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $b_n=e^a(e^d)^{n-1}$은 첫째항 $e^a$, 공비 $e^d>0$인 등비수열이므로 $e^d<1$일 때 수렴한다.
+    steps:
+    - {id: 1a, content: '$e^d<1\iff d<0$, 합 $\dfrac{e^a}{1-e^d}$', criteria: ['1.M1', '1.A1', '1.A2']}
+    hint_ladder:
+    - $b_{n+1}\div b_n$을 계산해 보자.
+  - id: S1-B
+    audience: B
+    source_flow: 문항카드 card-7.png
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        $b_n=e^{a_n}=e^{a+(n-1)d}=e^a(e^d)^{n-1}$이므로, 수열 $\{b_n\}$은 첫째항이 $b=e^a$, 공비가 $r=e^d$인 등비수열이다.
+      criteria: ['1.M1']
+    - id: 1b-2
+      content: |
+        제시문 <다>에 의해 급수 $\displaystyle\sum_{n=1}^{\infty}b_n$이 수렴하기 위한 조건은 $e^d<1$이다. 따라서 $d$의 값의 범위는 $d<0$이다.
+      criteria: ['1.A1']
+    - id: 1b-3
+      content: |
+        이때 이 급수의 합은 $\displaystyle\sum_{n=1}^{\infty}b_n=\frac{b}{1-r}=\frac{e^a}{1-e^d}$이다.
+      criteria: ['1.A2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 17
+      evidence: |
+        (채점 기준 ①) $b_n=e^{a_n}=e^a(e^d)^{n-1}$이 등비수열임을 보였다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1]
+    - id: 1.A1
+      mark_type: A
+      points: 17
+      evidence: |
+        (채점 기준 ②) 급수가 수렴하는 공차의 범위 $d<0$을 구했다.
+      depends_on: [1.M1]
+      steps: [1b-2]
+    - id: 1.A2
+      mark_type: A
+      points: 16
+      evidence: |
+        (채점 기준 ③) 극한값(급수의 합) $\dfrac{e^a}{1-e^d}$을 구했다.
+      depends_on: [1.M1]
+      steps: [1b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+- id: '2'
+  # 원문 2-2.
+  stem: |
+    $e^a+e^d=1$일 때, 급수 $\displaystyle\sum_{n=1}^{\infty}nb_{2n}$의 합을 $a$에 대한 식으로 나타내시오.
+  points: 50
+  depends_on: ['1']
+  answer: {kind: expression, value: '(1 - exp(a))/(exp(a)*(2 - exp(a))**2)', equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: $\{b_{2n}\}$은 첫째항 $e^{a+d}$, 공비 $e^{2d}$인 등비수열이므로 <다>에서 합은 $\dfrac{e^{a+d}}{(1-e^{2d})^2}$이다.
+    steps:
+    - {id: 2a, content: '$T=\dfrac{e^{a+d}}{(1-e^{2d})^2}=\dfrac{1-e^a}{e^a(2-e^a)^2}$', criteria: ['2.M1', '2.R1', '2.A1']}
+    hint_ladder:
+    - $b_{2n}$을 $(\ \ )\cdot(\ \ )^{n-1}$ 꼴로 써 보자.
+    - $1-e^{2d}=(1-e^d)(1+e^d)$를 이용하자.
+  - id: S2-B
+    audience: B
+    source_flow: 문항카드 card-7.png
+    method_no: 1
+    steps:
+    - id: 2b-1
+      content: |
+        급수 $T=\displaystyle\sum_{n=1}^{\infty}nb_{2n}$이라고 하면 $b_{2n}=e^{a+d(2n-1)}=(e^{a+d})(e^{2d})^{n-1}$이므로 수열 $\{b_{2n}\}$은 첫째항이 $e^{a+d}$, 공비가 $e^{2d}$인 등비수열이다.
+      criteria: ['2.M1']
+    - id: 2b-2
+      content: |
+        문항의 조건 $e^a+e^d=1$에 의해 $0<e^{2d}<1$이므로, 제시문 <다>에 의해
+        $T=\dfrac{e^{a+d}}{(1-e^{2d})^2}=\dfrac{e^{a+d}}{\left((1+e^d)(1-e^d)\right)^2}$이다.
+      criteria: ['2.R1']
+    - id: 2b-3
+      content: |
+        $1-e^d=e^a$, $1+e^d=2-e^a$이므로 $T=\dfrac{1-e^a}{e^a(2-e^a)^2}$이다.
+      criteria: ['2.A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 17
+      evidence: |
+        (채점 기준 ④) $\{b_{2n}\}$이 첫째항이 $e^{a+d}$, 공비가 $e^{2d}$인 등비수열임을 보였다.
+      depends_on: []
+      implied_ok: false
+      steps: [2b-1]
+    - id: 2.R1
+      mark_type: R
+      points: 17
+      evidence: |
+        (채점 기준 ⑤) $e^a+e^d=1$에서 $0<e^{2d}<1$로 급수의 합이 수렴하는 조건을 만족함을 보였다.
+      depends_on: []
+      implied_ok: false
+      steps: [2b-2]
+    - id: 2.A1
+      mark_type: A
+      points: 16
+      evidence: |
+        (채점 기준 ⑥) 급수의 합 $\dfrac{1-e^a}{e^a(2-e^a)^2}$을 구했다.
+      depends_on: [2.M1, 2.R1]
+      steps: [2b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  misconceptions: []
+
+remedy_links: []
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-transcribe-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21
