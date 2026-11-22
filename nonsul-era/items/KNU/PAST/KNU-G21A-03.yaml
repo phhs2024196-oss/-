@@ -1,0 +1,402 @@
+# 경북대 2021학년도 수시 논술(AAT) 자연계열Ⅰ 수학 문제 3 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: KNU-G21A-03
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: KNU
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 추론
+points: 120
+time_estimate_min: 30
+intent: |
+  적분과 미분의 관계를 이용하여 주어진 함수의 특징을 파악할 수 있는지, 주기함수의 성질을 이해하고 이를 활용하여 정적분을 계산할 수 있는지, 치환적분을 이해하고 이를 활용하여 정적분을 계산할 수 있는지를 평가한다.
+key_idea: |
+  $x-t=u$로 치환하고 주기성(3-2)으로 적분 구간을 $[0,2\pi]$로 옮기면 $\int_0^{2\pi}f^{\prime}(x-t)\cos t\,dt=A\cos x+B\sin x$($A,B$는 상수)이므로 $f(x)=(A\cos x+B\sin x)^2-\cos x+\alpha$. 이를 미분해 $A,B$의 정의식에 다시 넣으면 홀수 차수 삼각 적분이 $0$이 되어 $B=\pi$, $A=0$.
+stuck: |
+  3-3에서 적분 구간 $[x-2\pi,x]$를 3-2의 결과로 $[0,2\pi]$로 바꾸고, 미지의 상수 $A,B$를 두어 자기참조 방정식을 푸는 단계
+idea_tags: [IDEA-PERIODIC-INTEGRAL-SHIFT, IDEA-SELF-REFERENTIAL-INTEGRAL-CONSTANTS]
+tags: [부분적분, 주기함수의 정적분, 적분과 미분의 관계, 치환적분, 삼각함수의 덧셈정리]
+elements:
+  materials:
+  - '$\int_0^{2\pi}\sin^2x\,dx$'
+  - '주기 $2\pi$인 연속함수 $g$와 $h(x)=\int_{x-2\pi}^{x}g(t)\,dt$'
+  - '$f^{\prime}(x)=f^{\prime}(x+2\pi)$, $f(x)=\left(\int_0^{2\pi}f^{\prime}(x-t)\cos t\,dt\right)^2-\cos x+\alpha$'
+  concepts:
+  - '부분적분(제시문 (가))'
+  - '적분과 미분의 관계(제시문 (나))'
+  - '삼각함수의 덧셈정리(제시문 (다))'
+  - '치환적분(제시문 (라))'
+  tools:
+  - '부분적분 후 $\cos^2x=1-\sin^2x$로 자기 자신을 다시 얻는 방법'
+  - '상수 $c$로 적분 구간 분할 후 미분: $h^{\prime}(x)=g(x)-g(x-2\pi)$'
+  - '$x-t=u$ 치환과 $\cos(x-u)$ 덧셈정리 전개'
+  - '$\int_0^{2\pi}\sin^3t\,dt=\int_0^{2\pi}\sin^2t\cos t\,dt=\int_0^{2\pi}\sin t\cos^2t\,dt=\int_0^{2\pi}\cos^3t\,dt=\int_0^{2\pi}\sin t\cos t\,dt=0$'
+  conditions:
+  - '$f^{\prime}$ 연속, 주기 $2\pi$'
+  - '$f(0)=1$'
+  stimuli_used: ['(가)', '(나)', '(다)', '(라)']
+  subpart_links: '3-3은 3-1의 $\int_0^{2\pi}\sin^2=\pi$와 3-2의 주기함수 적분 구간 이동을 사용'
+
+curriculum:
+  version: '2015'
+  subjects: [미적분]
+  scope_2028: calc2
+  scope_confirmed: false
+  standards:
+  - code: 12미적03-02
+    text: 부분적분법을 이해하고, 이를 활용할 수 있다.
+    verified: false
+  - code: 12미적03-01
+    text: 치환적분법을 이해하고, 이를 활용할 수 있다.
+    verified: false
+  - code: 12미적02-03
+    text: 삼각함수의 덧셈정리를 이해한다.
+    verified: true
+  content_area: 적분법 – 치환적분·부분적분, 주기함수의 정적분
+  behavior_domain: 추론
+  unit_path: [미적분, 적분법, 여러 가지 적분법, 치환적분과 부분적분]
+  key_concepts: [부분적분, 치환적분, 적분과 미분의 관계, 주기함수]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 경북대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 경북대학교
+  admission_year: 2021
+  admission_type: 수시 논술(AAT)
+  track: 자연계열Ⅰ
+  question_no: 3
+  official_url: https://ipsi1.knu.ac.kr   # [확인필요] 입학처 공지·자료 게시판 원본 게시물 주소
+  retrieved_at: 2026-11-21
+  original_points: [20, 20, 40, 40]
+  rights_notice: 미확인(대학 원본 PDF 표지 문구 확인 필요)
+  transcribed_from: 'G21_N1.pdf p.4(문제지 3/3쪽) / 채점기준·예시답안: rep2021.pdf PDF p.115~119(문항카드 자연계열1 / 3번, 인쇄 쪽 114~115)'
+
+verify: verify/KNU-G21A.py::p03
+
+stimuli:
+- label: (가)
+  body: |
+    두 함수 $f(x),g(x)$가 미분가능하고, $f^{\prime}(x),g^{\prime}(x)$가 닫힌구간 $[a,b]$에서 연속일 때
+
+    $$\int_a^bf(x)g^{\prime}(x)\,dx=\Big[f(x)g(x)\Big]_a^b-\int_a^bf^{\prime}(x)g(x)\,dx$$
+
+    이다.
+- label: (나)
+  body: |
+    함수 $f(t)$가 닫힌구간 $[a,b]$에서 연속일 때
+
+    $$\frac{d}{dx}\int_a^xf(t)\,dt=f(x)\quad(\text{단, }a<x<b)$$
+
+    이다.
+- label: (다)
+  body: |
+    $\sin(\alpha+\beta)=\sin\alpha\cos\beta+\cos\alpha\sin\beta$
+
+    $\sin(\alpha-\beta)=\sin\alpha\cos\beta-\cos\alpha\sin\beta$
+
+    $\cos(\alpha+\beta)=\cos\alpha\cos\beta-\sin\alpha\sin\beta$
+
+    $\cos(\alpha-\beta)=\cos\alpha\cos\beta+\sin\alpha\sin\beta$
+- label: (라)
+  body: |
+    닫힌구간 $[a,b]$에서 연속인 함수 $f(x)$에 대하여 미분가능한 함수 $x=g(t)$의 도함수 $g^{\prime}(t)$가 $a=g(\alpha)$, $b=g(\beta)$일 때, $\alpha,\beta$를 포함하는 구간에서 연속이면
+
+    $$\int_a^bf(x)\,dx=\int_\alpha^\beta f(g(t))g^{\prime}(t)\,dt$$
+
+    이다.
+
+stem: |
+  ※ 모든 문항에서 풀이과정을 반드시 기술하시오.
+
+subparts:
+- id: '1'
+  stem: |
+    【3-1】 $\displaystyle\int_0^{2\pi}\sin^2x\,dx$의 값을 구하시오. (20점)
+  points: 20
+  depends_on: []
+  answer: {kind: value, value: 'pi', equivalents: ['π'], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: 부분적분으로 $\int\sin^2=\int\cos^2=2\pi-\int\sin^2$.
+    steps:
+    - {id: 1a, content: '$\int_0^{2\pi}\sin^2x\,dx=2\pi-\int_0^{2\pi}\sin^2x\,dx\Rightarrow\pi$', criteria: [1.M1, 1.A1]}
+    hint_ladder:
+    - $\sin^2x=\sin x\cdot\sin x$로 보고 부분적분해 보자.
+  - id: S1-B
+    audience: B
+    source_flow: rep2021.pdf p.118
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        $\displaystyle\int_0^{2\pi}\sin^2x\,dx=\Big[-\sin x\cos x\Big]_0^{2\pi}+\int_0^{2\pi}\cos^2x\,dx=\int_0^{2\pi}(1-\sin^2x)\,dx$
+      criteria: [1.M1]
+    - id: 1b-2
+      content: |
+        이므로 $\displaystyle\int_0^{2\pi}\sin^2x\,dx=\pi$이다.
+      criteria: [1.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 10
+      evidence: |
+        $\displaystyle\int_0^{2\pi}\sin^2x\,dx=2\pi-\int_0^{2\pi}\sin^2x\,dx$임을 유도했다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1]
+    - id: 1.A1
+      mark_type: A
+      points: 10
+      evidence: |
+        $\displaystyle\int_0^{2\pi}\sin^2x\,dx=\pi$를 구했다.
+      depends_on: [1.M1]
+      steps: [1b-2]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-42103}
+  misconceptions:
+  - id: MC-CAL-42103
+    outcome_code: '71'
+    wrong_work: '$\int\sin^2x\,dx=\frac{\sin^3x}{3}$으로 적분해 $0$을 답함'
+    detect_cue: 답이 $0$이거나 합성함수 미분의 역을 잘못 적용했다
+    feedback: $\sin^3x/3$을 미분하면 $\sin^2x\cos x$입니다. 부분적분(또는 반각공식)을 쓰세요.
+    remedy: [RL-1]
+
+- id: '2'
+  stem: |
+    【3-2】 연속함수 $g(x)$가 모든 실수 $x$에 대하여
+
+    $$g(x)=g(x+2\pi)$$
+
+    를 만족시킬 때, 함수 $h(x)=\displaystyle\int_{x-2\pi}^{x}g(t)\,dt$가 상수함수임을 증명하시오. (20점)
+  points: 20
+  depends_on: []
+  answer: {kind: proof, value: null, equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: 상수 $c$로 구간을 나눠 미분하면 $h^{\prime}(x)=g(x)-g(x-2\pi)=0$.
+    steps:
+    - {id: 2a, content: '$h(x)=\int_c^xg-\int_c^{x-2\pi}g$, $h^{\prime}(x)=g(x)-g(x-2\pi)=0$', criteria: [2.M1, 2.A1]}
+    hint_ladder:
+    - 아래끝에도 $x$가 있다. 고정된 점 $c$로 적분을 둘로 나누자.
+  - id: S2-B
+    audience: B
+    source_flow: rep2021.pdf p.118
+    method_no: 1
+    steps:
+    - id: 2b-1
+      content: |
+        구간 $[x-2\pi,x]$에 속하는 상수 $c$에 대하여 $h(x)=\displaystyle\int_{x-2\pi}^{x}g(t)\,dt=\int_c^xg(t)\,dt+\int_{x-2\pi}^{c}g(t)\,dt=\int_c^xg(t)\,dt-\int_c^{x-2\pi}g(t)\,dt$이다. 이 등식의 양변을 $x$에 대하여 미분하면 $h^{\prime}(x)=g(x)-g(x-2\pi)$이다.
+      criteria: [2.M1]
+    - id: 2b-2
+      content: |
+        $g(x-2\pi)=g(x)$이므로 $h^{\prime}(x)=0$이다. 따라서 함수 $h(x)$는 상수함수이다.
+      criteria: [2.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 10
+      evidence: |
+        $h^{\prime}(x)=g(x)-g(x-2\pi)$임을 보였다.
+      depends_on: []
+      implied_ok: false
+      steps: [2b-1]
+    - id: 2.A1
+      mark_type: A
+      points: 10
+      evidence: |
+        $h^{\prime}(x)=0$임을 증명했다.
+      depends_on: [2.M1]
+      steps: [2b-2]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-42104}
+  misconceptions:
+  - id: MC-CAL-42104
+    outcome_code: '71'
+    wrong_work: '$\frac{d}{dx}\int_{x-2\pi}^{x}g(t)\,dt=g(x)$로 아래끝의 변화를 무시'
+    detect_cue: $h^{\prime}(x)$에 $g(x-2\pi)$ 항이 없다
+    feedback: 아래끝도 $x$에 따라 움직입니다. 고정된 상수 $c$로 나눈 뒤 제시문 (나)를 각각 적용하세요.
+    remedy: [RL-2]
+
+- id: '3'
+  stem: |
+    【3-3】 함수 $f(x)$는 실수 전체의 집합에서 미분가능하고 도함수 $f^{\prime}(x)$는 연속함수이다. 함수 $f(x)$가 다음 조건을 만족시킨다.
+
+    모든 실수 $x$에 대하여
+
+    (ㄱ) $f^{\prime}(x)=f^{\prime}(x+2\pi)$
+
+    (ㄴ) $f(x)=\left(\displaystyle\int_0^{2\pi}f^{\prime}(x-t)\cos t\,dt\right)^2-\cos x+\alpha$ (단, $\alpha$는 상수)
+
+    다음 물음에 답하시오.
+
+    (1) $\displaystyle\int_0^{2\pi}f^{\prime}(t)\sin t\,dt$의 값을 구하시오. (40점)
+
+    (2) $f(0)=1$일 때, 상수 $\alpha$의 값을 구하시오. (40점)
+  points: 80
+  depends_on: ['1', '2']
+  answer: {kind: value, value: 'pi; 2', equivalents: ['(1) π (2) α=2'], tolerance: null}
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: $A=\int_0^{2\pi}f^{\prime}\cos$, $B=\int_0^{2\pi}f^{\prime}\sin$로 두면 $f=(A\cos x+B\sin x)^2-\cos x+\alpha$이고 홀수 차수 삼각 적분이 모두 $0$.
+    steps:
+    - {id: 3a, content: '$B=\int_0^{2\pi}\sin^2t\,dt=\pi$, $A=0$, $f(x)=(\pi\sin x)^2-\cos x+\alpha$, $f(0)=-1+\alpha=1\Rightarrow\alpha=2$', criteria: [3.M1, 3.M2, 3.M3, 3.A1, 3.M4, 3.M5, 3.M6, 3.A2]}
+    hint_ladder:
+    - $x-t=u$로 치환한 뒤 3-2를 이용해 적분 구간을 $[0,2\pi]$로 바꾸자.
+    - $\int_0^{2\pi}f^{\prime}(u)\cos u\,du$와 $\int_0^{2\pi}f^{\prime}(u)\sin u\,du$는 상수다.
+  - id: S3-B
+    audience: B
+    source_flow: rep2021.pdf p.119
+    method_no: 1
+    steps:
+    - id: 3b-1
+      content: |
+        (1) 정적분 $\displaystyle\int_0^{2\pi}f^{\prime}(x-t)\cos t\,dt$에서 $x-t=u$로 놓으면 $(-1)\dfrac{dt}{du}=1$이고, $t=0$일 때 $u=x$, $t=2\pi$일 때 $u=x-2\pi$이므로 $\displaystyle\int_0^{2\pi}f^{\prime}(x-t)\cos t\,dt=-\int_x^{x-2\pi}f^{\prime}(u)\cos(x-u)\,du=\int_0^{2\pi}f^{\prime}(u)\cos(x-u)\,du$이다. (3-2에 의해 주기 $2\pi$인 함수의 길이 $2\pi$ 구간 적분은 일정)
+      criteria: [3.M1]
+    - id: 3b-2
+      content: |
+        $\displaystyle=\int_0^{2\pi}f^{\prime}(u)(\cos x\cos u+\sin x\sin u)\,du=\cos x\int_0^{2\pi}f^{\prime}(u)\cos u\,du+\sin x\int_0^{2\pi}f^{\prime}(u)\sin u\,du$이다. 이 두 정적분은 상수이므로 각각 $A$, $B$라 두자.
+      criteria: [3.M2]
+    - id: 3b-3
+      content: |
+        그러면 조건 (ㄴ)으로부터 $f(x)=(A\cos x+B\sin x)^2-\cos x+\alpha$이고, 양변을 미분하면 $f^{\prime}(x)=2(A\cos x+B\sin x)(-A\sin x+B\cos x)+\sin x=-2AB\sin^2x+2(B^2-A^2)\sin x\cos x+2AB\cos^2x+\sin x$이다.
+      criteria: [3.M3]
+    - id: 3b-4
+      content: |
+        따라서 $B=\displaystyle\int_0^{2\pi}f^{\prime}(t)\sin t\,dt=-2AB\int_0^{2\pi}\sin^3t\,dt+2(B^2-A^2)\int_0^{2\pi}\sin^2t\cos t\,dt+2AB\int_0^{2\pi}\sin t\cos^2t\,dt+\int_0^{2\pi}\sin^2t\,dt$이고, 치환적분법을 이용하면 $\displaystyle\int_0^{2\pi}\sin^3t\,dt=\int_0^{2\pi}\sin^2t\cos t\,dt=\int_0^{2\pi}\sin t\cos^2t\,dt=0$이다. 따라서 $B=\displaystyle\int_0^{2\pi}\sin^2t\,dt=\pi$이다.
+      criteria: [3.A1]
+    - id: 3b-5
+      content: |
+        (2) $A=\displaystyle\int_0^{2\pi}f^{\prime}(t)\cos t\,dt=-2AB\int_0^{2\pi}\sin^2t\cos t\,dt+2(B^2-A^2)\int_0^{2\pi}\sin t\cos^2t\,dt+2AB\int_0^{2\pi}\cos^3t\,dt+\int_0^{2\pi}\sin t\cos t\,dt$이다.
+      criteria: [3.M4]
+    - id: 3b-6
+      content: |
+        치환적분법을 이용하면 네 정적분이 모두 $0$이다. 즉, $A=0$이다.
+      criteria: [3.M5]
+    - id: 3b-7
+      content: |
+        따라서 $f(x)=(\pi\sin x)^2-\cos x+\alpha$이다.
+      criteria: [3.M6]
+    - id: 3b-8
+      content: |
+        이때 $f(0)=1$이므로 $\alpha=2$이다.
+      criteria: [3.A2]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 10
+      evidence: |
+        (1) $\displaystyle\int_0^{2\pi}f^{\prime}(x-t)\cos t\,dt=\int_0^{2\pi}f^{\prime}(u)\cos(x-u)\,du$임을 유도했다.
+      depends_on: []
+      implied_ok: false
+      steps: [3b-1]
+    - id: 3.M2
+      mark_type: M
+      points: 5
+      evidence: |
+        (1) $=\cos x\displaystyle\int_0^{2\pi}f^{\prime}(u)\cos u\,du+\sin x\int_0^{2\pi}f^{\prime}(u)\sin u\,du$임을 유도했다.
+      depends_on: [3.M1]
+      steps: [3b-2]
+    - id: 3.M3
+      mark_type: M
+      points: 10
+      evidence: |
+        (1) $f^{\prime}(x)=-2AB\sin^2x+2(B^2-A^2)\sin x\cos x+2AB\cos^2x+\sin x$를 구했다.
+      depends_on: [3.M2]
+      steps: [3b-3]
+    - id: 3.A1
+      mark_type: A
+      points: 15
+      evidence: |
+        (1) $\displaystyle\int_0^{2\pi}f^{\prime}(t)\sin t\,dt=\pi$를 구했다.
+      depends_on: [3.M3]
+      steps: [3b-4]
+    - id: 3.M4
+      mark_type: M
+      points: 10
+      evidence: |
+        (2) $\displaystyle\int_0^{2\pi}f^{\prime}(t)\cos t\,dt$를 네 정적분의 합으로 나타냈다.
+      depends_on: [3.M3]
+      steps: [3b-5]
+    - id: 3.M5
+      mark_type: M
+      points: 10
+      evidence: |
+        (2) $A=0$을 구했다.
+      depends_on: [3.M4]
+      steps: [3b-6]
+    - id: 3.M6
+      mark_type: M
+      points: 10
+      evidence: |
+        (2) $f(x)=(\pi\sin x)^2-\cos x+\alpha$임을 구했다.
+      depends_on: [3.M5, 3.A1]
+      steps: [3b-7]
+    - id: 3.A2
+      mark_type: A
+      points: 10
+      evidence: |
+        (2) $\alpha=2$를 구했다.
+      depends_on: [3.M6]
+      steps: [3b-8]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-42105}
+  misconceptions:
+  - id: MC-CAL-42105
+    outcome_code: '71'
+    wrong_work: '치환 후 적분 구간 $[x-2\pi,x]$를 그대로 두어 $A,B$가 $x$의 함수라 보고 진행하지 못함'
+    detect_cue: $\int_{x-2\pi}^{x}$가 남아 있고 3-2를 인용하지 않았다
+    feedback: 피적분함수 $f^{\prime}(u)\cos u$는 주기 $2\pi$이므로 3-2에 의해 길이 $2\pi$인 어느 구간에서 적분해도 같습니다.
+    remedy: [RL-3]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CAL-42103}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-INTEG-BY-PARTS}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-CAL-42104}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-FTC-VARIABLE-LIMITS}
+  priority: 1
+- id: RL-3
+  trigger: {type: misconception, ref: MC-CAL-42105}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-SUBST-INTEGRAL}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-transcribe-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

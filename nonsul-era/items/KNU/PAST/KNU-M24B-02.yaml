@@ -1,0 +1,529 @@
+# 경북대 2024학년도 논술(AAT) 모의고사 자연계열Ⅱ 수학 문제 2 — 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: KNU-M24B-02
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: KNU
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 추론
+points: 150
+time_estimate_min: 50
+intent: |
+  포물선 위 두 점을 잇는 직선의 기울기가 $x$좌표의 합임을 이용해 좌표를 기울기로 나타내고(2-1), 포물선과 현 사이의 넓이 공식 $\frac{(x_2-x_1)^3}{6}$을 구하며(2-2), 정삼각형 조건을 덧셈정리로 기울기 관계로 바꾸어 범위를 구하고 사잇값 정리·도함수로 일대일대응을 증명하며, 삼각치환 적분으로 값을 구할 수 있는지(2-3) 평가한다. (모의고사 자료에 출제 의도 별도 기재 없음 — 예시답안 흐름으로 요약)
+key_idea: |
+  $\ell=a+c$, $m=b+c$, $n=a+b$. 정삼각형이면 $m=\tan t$일 때 $\ell=\tan\left(t+\frac{\pi}{3}\right)$, $n=\tan\left(t-\frac{\pi}{3}\right)$이고 $n<m<\ell$에서 $-\frac{1}{\sqrt3}<m<\frac{1}{\sqrt3}$. $F(m)=\frac{m(7+3m^2)}{2(1-3m^2)}$은 증가·전사, $R(m)=(\ell-n)\sqrt{1+m^2}=\frac{2\sqrt3(1+m^2)^{3/2}}{1-3m^2}$, $\int\frac{1}{R}$은 $x=\tan t$ 치환.
+stuck: |
+  2-3(1)에서 정삼각형 조건을 세 변의 기울기(경사각이 $\frac{\pi}{3}$씩 차이)로 바꾸는 단계와 $n<m<\ell$ 순서를 조건 (Ⅰ)에서 끌어내는 단계
+idea_tags: [IDEA-PARABOLA-CHORD-SLOPE-SUM, IDEA-EQUILATERAL-SLOPES-TAN-ADDITION]
+tags: [포물선, 현의 기울기, 포물선과 현 사이의 넓이, 정삼각형, 덧셈정리, 일대일대응, 삼각치환]
+elements:
+  materials:
+  - '포물선 $y=x^2$ 위의 세 점 $\mathrm A(a,a^2)$, $\mathrm B(b,b^2)$, $\mathrm C(c,c^2)$ ($b<a<c$)'
+  - '선분 $\mathrm{AC}$, $\mathrm{BC}$, $\mathrm{AB}$의 기울기 $\ell$, $m$, $n$'
+  - '$\triangle\mathrm{ABC}$가 정삼각형일 때 $m\mapsto a$의 함수 $F$, 한 변의 길이 $R(m)$, 확장 함수 $\overline{R}(x)$'
+  concepts:
+  - '두 점을 잇는 직선의 기울기(제시문 (가)), 두 점 사이의 거리(제시문 (나))'
+  - '사잇값 정리(제시문 (다))'
+  - '삼각함수의 덧셈정리(제시문 (라))'
+  - '두 곡선 사이의 넓이(제시문 (마))'
+  - '도함수와 증가·감소(제시문 (바)), 치환적분법(제시문 (사))'
+  tools:
+  - '$\frac{a^2-c^2}{a-c}=a+c$ 꼴의 인수분해, 연립일차방정식'
+  - '$\int_{x_1}^{x_2}\{(x_1+x_2)x-x_1x_2-x^2\}dx=\frac{(x_2-x_1)^3}{6}$'
+  - '$m=\tan t$로 두고 $\tan\left(t\pm\frac{\pi}{3}\right)$ 덧셈정리'
+  - '양 끝 극한 $\pm\infty$와 사잇값 정리로 전사, $F''(m)>0$으로 단사'
+  - '$x=\tan t$ 치환 → $\int(4\cos t-3\sec t)\,dt$'
+  conditions:
+  - '$b<a<c$'
+  - '정삼각형 조건, $-\frac{1}{\sqrt3}<m<\frac{1}{\sqrt3}$'
+  stimuli_used: ['(가)', '(나)', '(다)', '(라)', '(마)', '(바)', '(사)']
+  subpart_links: '2-2는 2-1의 $a-b=\ell-m$, $c-a=m-n$을, 2-3(2)는 2-1과 2-3(1)의 $\ell,n$의 $m$ 표현을, 2-3(3)은 2-3(1)의 범위와 2-1의 좌표를 사용'
+
+curriculum:
+  version: '2015'
+  subjects: [수학, 수학Ⅱ, 미적분]
+  scope_2028: calc2
+  scope_confirmed: true
+  standards:
+  - code: 미확인
+    text: 삼각함수의 덧셈정리, 곡선으로 둘러싸인 도형의 넓이, 치환적분법(요지)
+    verified: false
+  content_area: 도형의 방정식 / 삼각함수의 덧셈정리 / 적분법
+  behavior_domain: 문제해결
+  unit_path: [미적분, 적분법, 여러 가지 적분법, 치환적분법]
+  key_concepts: [현의 기울기, 포물선과 현 사이의 넓이, 덧셈정리, 일대일대응, 치환적분법]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 경북대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 경북대학교
+  admission_year: 2024
+  admission_type: 논술(AAT) 모의고사
+  track: 자연계열Ⅱ
+  question_no: 2
+  official_url: https://ipsi1.knu.ac.kr   # [확인필요] 입학처 공지·자료 게시판 원본 게시물 주소
+  retrieved_at: 2026-11-21
+  original_points: [20, 30, 20, 40, 40]
+  rights_notice: 미확인(대학 원본 PDF 표지 문구 확인 필요)
+  transcribed_from: 'M24_N2.pdf p.3(문제지 2/3쪽) / 예시답안·채점기준: M24_N2.pdf p.7~9'
+
+verify: verify/KNU-M24B.py::p02
+
+stimuli:
+- label: (가)
+  body: |
+    두 점 $(x_1,y_1)$과 $(x_2,y_2)$을 잇는 직선의 기울기 $m$은
+    $$m=\dfrac{y_2-y_1}{x_2-x_1}$$
+    이다.
+- label: (나)
+  body: |
+    두 점 $(x_1,y_1)$과 $(x_2,y_2)$사이의 거리는
+    $$\sqrt{(x_1-x_2)^2+(y_1-y_2)^2}$$
+    이다.
+- label: (다)
+  body: |
+    함수 $f(x)$가 닫힌구간 $[a,b]$에서 연속이고 $f(a)\ne f(b)$이면 $f(a)$와 $f(b)$사이의 임의의 실수 $k$에 대하여 $f(c)=k$인 $c$가 열린구간 $(a,b)$에 적어도 하나 존재한다.
+- label: (라)
+  body: |
+    삼각함수의 덧셈정리
+
+    $\sin(\alpha+\beta)=\sin\alpha\cos\beta+\cos\alpha\sin\beta$
+
+    $\sin(\alpha-\beta)=\sin\alpha\cos\beta-\cos\alpha\sin\beta$
+
+    $\cos(\alpha+\beta)=\cos\alpha\cos\beta-\sin\alpha\sin\beta$
+
+    $\cos(\alpha-\beta)=\cos\alpha\cos\beta+\sin\alpha\sin\beta$
+
+    $\tan(\alpha+\beta)=\dfrac{\tan\alpha+\tan\beta}{1-\tan\alpha\tan\beta}$
+
+    $\tan(\alpha-\beta)=\dfrac{\tan\alpha-\tan\beta}{1+\tan\alpha\tan\beta}$
+
+    이다.
+- label: (마)
+  body: |
+    두 함수 $f(x)$, $g(x)$가 닫힌구간 $[a,b]$에서 연속일 때, 두 곡선 $y=f(x)$, $y=g(x)$ 및 두 직선 $x=a$, $x=b$로 둘러싸인 도형의 넓이 $S$는 다음과 같다.
+    $$S=\int_a^b|f(x)-g(x)|\,dx$$
+- label: (바)
+  body: |
+    함수 $f(x)$가 어떤 열린구간에서 미분가능하고, 이 구간에 속하는 모든 $x$에 대하여
+
+    (1) $f'(x)>0$이면 함수 $f(x)$는 이 구간에서 증가하고,
+
+    (2) $f'(x)<0$이면 함수 $f(x)$는 이 구간에서 감소한다.
+- label: (사)
+  body: |
+    미분가능한 함수 $t=g(x)$의 도함수 $g'(x)$가 닫힌구간 $[\alpha,\beta]$에서 연속이고, 함수 $f(t)$가 닫힌구간 $[a,b]$에서 연속일 때, $g(\alpha)=a$, $g(\beta)=b$이면
+    $$\int_a^bf(t)\,dt=\int_\alpha^\beta f(g(x))g'(x)\,dx$$
+    이다.
+
+stem: |
+  ※ 모든 문항에서 풀이 과정을 반드시 기술하시오.
+
+  포물선 $P:y=x^2$위의 서로 다른 세 점 $\mathrm A(a,a^2)$, $\mathrm B(b,b^2)$, $\mathrm C(c,c^2)$이 아래 조건을 만족 시킨다.
+
+  > (Ⅰ) $b<a<c$
+  > (Ⅱ) 선분 $\mathrm{AC}$, $\mathrm{BC}$, $\mathrm{AB}$의 기울기는 각각 $\ell,m,n$이다
+
+  다음 물음에 답하시오.
+
+subparts:
+- id: 2-1
+  stem: |
+    【2-1】 $a,b,c$를 $\ell,m,n$으로 나타내시오. (20점)
+  points: 20
+  depends_on: []
+  answer: {kind: expression, value: '((l - m + n)/2, (-l + m + n)/2, (l + m - n)/2)', equivalents: ['a=(ℓ-m+n)/2, b=(-ℓ+m+n)/2, c=(ℓ+m-n)/2'], tolerance: null}
+  solutions:
+  - id: S21-A
+    audience: A
+    method_no: 1
+    key_idea: 포물선의 현의 기울기 = 두 $x$좌표의 합.
+    steps:
+    - {id: 21a, content: '$\ell=a+c$, $m=b+c$, $n=a+b$ 연립', criteria: [2-1.M1, 2-1.A1]}
+    hint_ladder:
+    - $\frac{a^2-c^2}{a-c}$를 간단히 하자.
+  - id: S21-B
+    audience: B
+    source_flow: M24_N2.pdf p.7
+    method_no: 1
+    steps:
+    - id: 21b-1
+      content: |
+        제시문 (가)에 의해, $\ell=\dfrac{a^2-c^2}{a-c}=a+c$, $m=\dfrac{b^2-c^2}{b-c}=b+c$, $n=\dfrac{a^2-b^2}{a-b}=a+b$.
+      criteria: [2-1.M1]
+    - id: 21b-2
+      content: |
+        따라서 $a=\dfrac{\ell-m+n}{2}$, $b=\dfrac{-\ell+m+n}{2}$, $c=\dfrac{\ell+m-n}{2}$.
+      criteria: [2-1.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2-1.M1
+      mark_type: M
+      points: 10
+      evidence: |
+        $\ell=a+c$, $m=b+c$, $n=a+b$임을 구했다.
+      steps: [21b-1]
+    - id: 2-1.A1
+      mark_type: A
+      points: 10
+      evidence: |
+        연립1차방정식을 풀고 $a=\dfrac{\ell-m+n}{2}$, $b=\dfrac{-\ell+m+n}{2}$, $c=\dfrac{\ell+m-n}{2}$를 구했다.
+      depends_on: [2-1.M1]
+      steps: [21b-2]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-GEO-42405}
+  misconceptions:
+  - id: MC-GEO-42405
+    outcome_code: '71'
+    wrong_work: |
+      $\ell$, $m$, $n$이 어느 선분의 기울기인지 뒤섞어($m$을 $\mathrm{AB}$로) 연립해 $a$와 $b$의 식이 바뀜
+    detect_cue: $m=a+b$ 등 조건 (Ⅱ)의 대응이 어긋남
+    feedback: 조건 (Ⅱ)는 $\mathrm{AC}\to\ell$, $\mathrm{BC}\to m$, $\mathrm{AB}\to n$ 순서입니다.
+    remedy: [RL-1]
+- id: 2-2
+  stem: |
+    【2-2】 선분 $\mathrm{AB}$와 포물선 $P$로 둘러싸인 영역의 넓이를 $D_1$, 선분 $\mathrm{AC}$와 포물선 $P$로 둘러싸인 영역의 넓이를 $D_2$라 할 때, $D_1+D_2$의 값을 $\ell,m,n$으로 나타내시오. (30점)
+  points: 30
+  depends_on: [2-1]
+  answer: {kind: expression, value: '((l - m)**3 + (m - n)**3)/6', equivalents: [], tolerance: null}
+  solutions:
+  - id: S22-A
+    audience: A
+    method_no: 1
+    key_idea: 현 아래 넓이 $\frac{(x_2-x_1)^3}{6}$, $a-b=\ell-m$, $c-a=m-n$.
+    steps:
+    - {id: 22a, content: '$D_1=\frac{(a-b)^3}{6}$, $D_2=\frac{(c-a)^3}{6}$', criteria: [2-2.M1, 2-2.M2, 2-2.A1]}
+    hint_ladder:
+    - 두 점 $(x_1,x_1^2)$, $(x_2,x_2^2)$을 잇는 직선의 방정식은?
+  - id: S22-B
+    audience: B
+    source_flow: M24_N2.pdf p.7
+    method_no: 1
+    steps:
+    - id: 22b-1
+      content: |
+        $x_1<x_2$일 때, 포물선 $y=x^2$위의 두 점 $(x_1,x_1^2)$, $(x_2,x_2^2)$을 잇는 직선은 $y=(x_1+x_2)x-x_1x_2$이다.
+      criteria: [2-2.M1]
+    - id: 22b-2
+      content: |
+        직선과 포물선 사이의 영역의 넓이는 제시문 (마)에 의해
+        $$\int_{x_1}^{x_2}\{(x_2+x_1)x-x_1x_2-x^2\}\,dx=\left[(x_2+x_1)\dfrac{x^2}{2}-x_1x_2x-\dfrac{x^3}{3}\right]_{x_1}^{x_2}=\dfrac{(x_2-x_1)^3}{6}.$$
+      criteria: [2-2.M2]
+    - id: 22b-3
+      content: |
+        따라서 $D_1+D_2=\dfrac{(\ell-m)^3+(m-n)^3}{6}$.
+      criteria: [2-2.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2-2.M1
+      mark_type: M
+      points: 10
+      evidence: |
+        직선 $\mathrm{AB}$와 $\mathrm{AC}$의 방정식을 구했다.
+      steps: [22b-1]
+    - id: 2-2.M2
+      mark_type: M
+      points: 10
+      evidence: |
+        직선과 포물선 사이의 영역을 정적분으로 나타냈다.
+      steps: [22b-2]
+    - id: 2-2.A1
+      mark_type: A
+      points: 10
+      evidence: |
+        적분값을 올바르게 계산했다.
+      depends_on: [2-2.M2]
+      steps: [22b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-42420}
+  misconceptions:
+  - id: MC-CAL-42420
+    outcome_code: '71'
+    wrong_work: |
+      $D_1$의 밑변 길이 $a-b$를 $\ell-n$ 또는 $m-n$으로 잘못 바꿔 $\frac{(\ell-n)^3+(m-n)^3}{6}$ 등으로 답함
+    detect_cue: 2-1의 좌표식을 대입한 차 $a-b$, $c-a$ 계산이 없음
+    feedback: 2-1에서 $a-b=\ell-m$, $c-a=m-n$입니다. 차를 직접 계산해 대입하세요.
+    remedy: [RL-2]
+- id: 2-3-1
+  stem: |
+    【2-3】 $\mathrm{ABC}$가 정삼각형일 때 $m$의 최솟값을 $\alpha$, 최댓값을 $\beta$라 하자.
+
+    (1) $\alpha$와 $\beta$를 구하시오. (20점)
+  points: 20
+  depends_on: [2-1]
+  answer: {kind: value, value: '(-sqrt(3)/3, sqrt(3)/3)', equivalents: ['α=-1/√3, β=1/√3'], tolerance: null}
+  solutions:
+  - id: S231-A
+    audience: A
+    method_no: 1
+    key_idea: $m=\tan t$, $\ell=\tan(t+\frac{\pi}{3})$, $n=\tan(t-\frac{\pi}{3})$, $n<m<\ell$.
+    steps:
+    - {id: 231a, content: '$\frac{m-\sqrt3}{1+\sqrt3m}<m<\frac{m+\sqrt3}{1-\sqrt3m}$ ⇔ $-\frac1{\sqrt3}<m<\frac1{\sqrt3}$', criteria: [2-3-1.M1, 2-3-1.R1, 2-3-1.A1]}
+    hint_ladder:
+    - 정삼각형의 세 변은 서로 $60^\circ$씩 기울어져 있다.
+    - $b<a<c$로부터 $n$, $m$, $\ell$의 크기 순서를 구하자.
+  - id: S231-B
+    audience: B
+    source_flow: M24_N2.pdf p.7
+    method_no: 1
+    steps:
+    - id: 231b-1
+      content: |
+        $m=\tan(t)$라 할 때 $\ell=\tan\left(t+\dfrac{\pi}{3}\right)$, $n=\tan\left(t-\dfrac{\pi}{3}\right)$이고, 제시문 (라)에 의해
+        $\ell=\dfrac{\tan(t)+\tan(\pi/3)}{1-\tan(t)\tan(\pi/3)}=\dfrac{m+\sqrt3}{1-\sqrt3m}$, $n=\dfrac{\tan(t)-\tan(\pi/3)}{1+\tan(t)\tan(\pi/3)}=\dfrac{m-\sqrt3}{1+\sqrt3m}$.
+      criteria: [2-3-1.M1]
+    - id: 231b-2
+      content: |
+        조건 (Ⅰ)에 의해 $b<a<c$이므로, $n=a+b<m=b+c<\ell=a+c$이므로
+      criteria: [2-3-1.R1]
+    - id: 231b-3
+      content: |
+        $$\dfrac{m-\sqrt3}{1+\sqrt3m}<m<\dfrac{m+\sqrt3}{1-\sqrt3m}\iff\alpha=-\dfrac{1}{\sqrt3}<m<\dfrac{1}{\sqrt3}=\beta.$$
+      criteria: [2-3-1.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2-3-1.M1
+      mark_type: M
+      points: 10
+      evidence: |
+        $\mathrm{ABC}$가 정삼각형임과 삼각함수 덧셈정리를 이용하여 $\ell,n$을 $m$으로 표현했다.
+      steps: [231b-1]
+    - id: 2-3-1.R1
+      mark_type: R
+      points: 5
+      evidence: |
+        조건 (Ⅰ)로부터 $b<a<c$를 써서 $n<m<\ell$을 구했다.
+      steps: [231b-2]
+    - id: 2-3-1.A1
+      mark_type: A
+      points: 5
+      evidence: |
+        위 부등식으로부터 $\alpha=-\dfrac{1}{\sqrt3}<m<\dfrac{1}{\sqrt3}=\beta$를 구했다.
+      depends_on: [2-3-1.R1]
+      steps: [231b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-42421}
+  misconceptions:
+  - id: MC-CAL-42421
+    outcome_code: '71'
+    wrong_work: |
+      분모 $1\pm\sqrt3m$의 부호를 따지지 않고 부등식 양변에 곱해 범위를 잘못 구함
+    detect_cue: $1-\sqrt3m>0$, $1+\sqrt3m>0$ 확인 없이 정리
+    feedback: 분수 부등식은 분모의 부호에 따라 부등호 방향이 바뀝니다. 경우를 나누거나 분모 제곱을 곱하세요.
+    remedy: [RL-3]
+- id: 2-3-2
+  stem: |
+    (2) 실수 $m$에 대하여 점 $\mathrm A(a,a^2)$의 $x$좌표인 $a$를 대응시킨 함수 $F:(\alpha,\beta)\to\mathbb R$가 일대일대응임을 증명하시오. (40점)
+  points: 40
+  depends_on: [2-3-1]
+  answer: {kind: proof, value: null, equivalents: [], tolerance: null}
+  solutions:
+  - id: S232-A
+    audience: A
+    method_no: 1
+    key_idea: $F(m)=\frac{m(7+3m^2)}{2(1-3m^2)}$, 양 끝 $\mp\infty$ + 사잇값 정리(전사), $F'>0$(단사).
+    steps:
+    - {id: 232a, content: '$F$ 식 → 연속 → 극한 $\pm\infty$ → 치역 $\mathbb R$; $F''=\frac{-9m^4+30m^2+7}{2(1-3m^2)^2}>0$', criteria: [2-3-2.M1, 2-3-2.R1, 2-3-2.R2, 2-3-2.R3]}
+    hint_ladder:
+    - 2-1의 $a$ 식에 $\ell$, $n$의 $m$ 표현을 대입하자.
+    - 일대일대응 = 전사 + 단사. 각각 어떤 정리로 보일까?
+  - id: S232-B
+    audience: B
+    source_flow: M24_N2.pdf p.7
+    method_no: 1
+    steps:
+    - id: 232b-1
+      content: |
+        【2-1】에서, $F(m)=a=\dfrac{\ell-m+n}{2}=\dfrac12\left\{\dfrac{m+\sqrt3}{1-\sqrt3m}-m+\dfrac{m-\sqrt3}{1+\sqrt3m}\right\}=\dfrac{m(7+3m^2)}{2(1-3m^2)}$.
+      criteria: [2-3-2.M1]
+    - id: 232b-2
+      content: |
+        이때 $F(m)$은 $m$에 대한 유리함수이므로 연속이고,
+      criteria: [2-3-2.R1]
+    - id: 232b-3
+      content: |
+        $\displaystyle\lim_{m\to-1/\sqrt3}F(m)=-\infty$, $\displaystyle\lim_{m\to1/\sqrt3}F(m)=\infty$이므로 제시문 (다)의 사잇값 정리에 의해 치역은 실수전체.
+      criteria: [2-3-2.R2]
+    - id: 232b-4
+      content: |
+        또한 $-\dfrac{1}{\sqrt3}<m<\dfrac{1}{\sqrt3}$에서
+        $$\dfrac{dF}{dm}=\dfrac{(7+9m^2)(1-3m^2)-m(7+3m^2)(-6m)}{2(1-3m^2)^2}=\dfrac{-9m^4+30m^2+7}{2(1-3m^2)^2}>0$$
+        이므로 제시문 (바)에 의해 $F(m)$이 증가함수이고 일대일대응. ■
+      criteria: [2-3-2.R3]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2-3-2.M1
+      mark_type: M
+      points: 10
+      evidence: |
+        $F(m)=a=\dfrac{m(7+3m^2)}{2(1-3m^2)}$을 구했다.
+      steps: [232b-1]
+    - id: 2-3-2.R1
+      mark_type: R
+      points: 10
+      evidence: |
+        $F(m)$이 연속임을 보였다.
+      steps: [232b-2]
+    - id: 2-3-2.R2
+      mark_type: R
+      points: 5
+      evidence: |
+        극한과 사잇값 정리를 이용하여 $F(m)$의 치역이 실수 전체인 것을 보였다.
+      steps: [232b-3]
+    - id: 2-3-2.R3
+      mark_type: R
+      points: 15
+      evidence: |
+        $\dfrac{dF}{dm}=\dfrac{-9m^4+30m^2+7}{2(1-3m^2)^2}>0$이므로 $F(m)$이 증가함수이고 따라서 일대일대응임을 증명했다.
+      steps: [232b-4]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-42422}
+  misconceptions:
+  - id: MC-CAL-42422
+    outcome_code: '71'
+    wrong_work: |
+      $F'(m)>0$(단사)만 보이고 치역이 $\mathbb R$ 전체임(전사)을 보이지 않거나, $-9m^4+30m^2+7>0$을 범위 $m^2<\frac13$에서 확인하지 않음
+    detect_cue: 끝점 극한·사잇값 정리 언급이 없음
+    feedback: 일대일대응은 단사와 전사 둘 다 필요합니다. 양 끝에서 $\mp\infty$로 가는 것과 사잇값 정리로 전사를 보이세요.
+    remedy: [RL-4]
+- id: 2-3-3
+  stem: |
+    (3) 정삼각형 $\mathrm{ABC}$의 한 변의 길이를 $R(m)$이라 하자. 실수전체의 집합에서 다음과 같이 정의된 함수 $\overline{R}(x)$에 대하여
+    $$\overline{R}(x)=\begin{cases}\displaystyle\lim_{t\to\alpha+}\dfrac{1}{R(t)} & x\leqq\alpha\\ \dfrac{1}{R(x)} & \alpha<x<\beta\\ \displaystyle\lim_{t\to\beta-}\dfrac{1}{R(t)} & x\geqq\beta\end{cases}$$
+    정적분
+    $$\int_\alpha^\beta\overline{R}(x)\,dx$$
+    의 값을 구하시오. (40점)
+  points: 40
+  depends_on: [2-3-1]
+  answer: {kind: value, value: '(4 - 3*log(3))/(2*sqrt(3))', equivalents: ['(4-3ln3)/(2√3)'], tolerance: null}
+  solutions:
+  - id: S233-A
+    audience: A
+    method_no: 1
+    key_idea: $R(m)=(\ell-n)\sqrt{1+m^2}=\frac{2\sqrt3(1+m^2)^{3/2}}{1-3m^2}$, $x=\tan t$ 치환.
+    steps:
+    - {id: 233a, content: '$\int_{-1/\sqrt3}^{1/\sqrt3}\frac{1-3x^2}{2\sqrt3(1+x^2)^{3/2}}dx=\frac{1}{2\sqrt3}[4\sin t-3\ln(\sec t+\tan t)]_{-\pi/6}^{\pi/6}$', criteria: [2-3-3.M1, 2-3-3.M2, 2-3-3.M3, 2-3-3.A1]}
+    hint_ladder:
+    - 한 변 $\mathrm{BC}$의 길이를 $c-b$와 기울기 $m$으로 쓰자.
+    - $x=\tan t$로 치환하면 $(1+x^2)^{3/2}=\sec^3t$.
+  - id: S233-B
+    audience: B
+    source_flow: M24_N2.pdf p.7~8
+    method_no: 1
+    steps:
+    - id: 233b-1
+      content: |
+        정삼각형의 한 변의 길이 $R(m)$은 선분 $\mathrm{BC}$의 길이와 같으므로, 제시문 (나)에 의해,
+        $R(m)=\sqrt{(c-b)^2+(c^2-b^2)^2}=(c-b)\sqrt{1+(c+b)^2}=(\ell-n)\sqrt{1+m^2}=\dfrac{2\sqrt3(1+m^2)^{\frac32}}{1-3m^2}$.
+      criteria: [2-3-3.M1]
+    - id: 233b-2
+      content: |
+        이 때, $\displaystyle\lim_{t\to-1/\sqrt3}\dfrac{1}{R(t)}=\lim_{t\to1/\sqrt3}\dfrac{1}{R(t)}=0$이므로, $\overline{R}(x)=0\ \left(x\le-\frac{1}{\sqrt3},\ x\ge\frac{1}{\sqrt3}\right)$, $\overline{R}(x)=\dfrac{1-3x^2}{2\sqrt3(1+x^2)^{\frac32}}\ \left(-\frac{1}{\sqrt3}<x<\frac{1}{\sqrt3}\right)$.
+      criteria: [2-3-3.M2]
+    - id: 233b-3
+      content: |
+        제시문 (사)를 이용하여 정적분을 계산하면
+        $$\int_{-\frac{1}{\sqrt3}}^{\frac{1}{\sqrt3}}\overline{R}(x)\,dx=\int_{-\frac{1}{\sqrt3}}^{\frac{1}{\sqrt3}}\dfrac{1-3x^2}{2\sqrt3(1+x^2)^{\frac32}}\,dx=\dfrac{1}{2\sqrt3}\int_{-\frac{\pi}{6}}^{\frac{\pi}{6}}\dfrac{1-3\tan^2t}{\sec^3t}\sec^2t\,dt$$
+      criteria: [2-3-3.M3]
+    - id: 233b-4
+      content: |
+        $$=\dfrac{1}{2\sqrt3}\left(4\sin t-3\ln(\sec t+\tan t)\right)\Big|_{-\pi/6}^{\pi/6}=\dfrac{1}{2\sqrt3}(4-3\ln3).$$
+      criteria: [2-3-3.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2-3-3.M1
+      mark_type: M
+      points: 10
+      evidence: |
+        $R(m)=\dfrac{2\sqrt3(1+m^2)^{\frac32}}{1-3m^2}$을 올바르게 계산했다.
+      steps: [233b-1]
+    - id: 2-3-3.M2
+      mark_type: M
+      points: 10
+      evidence: |
+        $\overline{R}(x)$를 올바르게 계산했다(구간 밖에서 $0$).
+      steps: [233b-2]
+    - id: 2-3-3.M3
+      mark_type: M
+      points: 10
+      evidence: |
+        치환적분을 올바르게 사용했다.
+      steps: [233b-3]
+    - id: 2-3-3.A1
+      mark_type: A
+      points: 10
+      evidence: |
+        정적분을 올바르게 계산하여 $\dfrac{1}{2\sqrt3}(4-3\ln3)$을 얻었다.
+      depends_on: [2-3-3.M3]
+      steps: [233b-4]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-42413}
+  misconceptions:
+  - id: MC-CAL-42413
+    outcome_code: '71'
+    wrong_work: |
+      $x=\tan t$ 치환에서 $dx=\sec^2t\,dt$나 적분 구간 $\pm\frac{\pi}{6}$ 변환을 빠뜨림
+    detect_cue: 치환 후 구간이 $\pm\frac{1}{\sqrt3}$ 그대로이거나 $\sec^2t$ 인수가 없음
+    feedback: $x=\tan t$이면 $x=\pm\frac{1}{\sqrt3}\to t=\pm\frac{\pi}{6}$, $dx=\sec^2t\,dt$입니다.
+    remedy: [RL-5]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-GEO-42405}
+  relation: remediation
+  target: {kind: concept, ref: CON-GEO-PARABOLA-CHORD}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-CAL-42420}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-AREA-BETWEEN}
+  priority: 1
+- id: RL-3
+  trigger: {type: misconception, ref: MC-CAL-42421}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-TRIG-ADDITION}
+  priority: 1
+- id: RL-4
+  trigger: {type: misconception, ref: MC-CAL-42422}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-IVT}
+  priority: 1
+- id: RL-5
+  trigger: {type: misconception, ref: MC-CAL-42413}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-SUBST-INTEGRAL}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-transcribe-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

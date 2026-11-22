@@ -1,0 +1,557 @@
+# 경북대 2026학년도 수시 논술(AAT) 자연계열Ⅱ(의예·치의예·수의예) 수학 문제 1 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: KNU-G26B-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: KNU
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 추론
+points: 120
+time_estimate_min: 35
+intent: |
+  함수의 증가와 감소 및 곡선의 변곡점을 이해하고 있는지(1-1), 미분계수와 함수의 그래프의 개형을 이해하고 있는지(1-2), 수열의 합의 성질 및 정적분과 급수의 합 사이의 관계를 이해하고 있는지(1-3)를 평가한다.
+key_idea: |
+  변곡점 조건 $g''\!\left(-\tfrac23\right)=0$으로 $b=2a$, 역함수 존재(증가)로 $g'(x)\ge0$의 판별식 $b^2-6a\le0$. (Ⅳ)의 좌극한은 $x<2$ 쪽이므로 $2g'(2)=44$, 따라서 $h'(c)=2c+r=22$ $(c\ge2)$. 수열 $b_n$은 $(n+1)a_n=\sum_{k=1}^{n}kb_{n-k+1}$의 차로 합 $\sum b_k$를 얻는다.
+stuck: |
+  (Ⅳ)에서 $h\to0-$이면 $2+3h$, $2+h$가 모두 $2$보다 작아 $g$의 미분계수가 쓰인다는 점, 그리고 1-3(2)에서 $(n+1)a_n-na_{n-1}=\sum_{k=1}^{n}b_k$를 끌어내는 단계
+idea_tags: [IDEA-INFLECTION-AND-MONOTONE-DISCRIMINANT, IDEA-ONE-SIDED-DERIV-LIMIT-REWRITE, IDEA-CONVOLUTION-SUM-DIFFERENCE, IDEA-RIEMANN-SUM-SHIFT]
+tags: [변곡점, 역함수 존재, 미분계수의 정의, 수열의 합과 일반항, 구분구적법]
+elements:
+  materials:
+  - '삼차함수 $g(x)=ax^3+bx^2+2x-15$, 이차함수 $h(x)=x^2+rx+s$'
+  - '$x=2$에서 이어 붙인 함수 $f(x)$'
+  - '조건 (Ⅰ) 변곡점 $x=-\tfrac23$, (Ⅱ) 역함수 존재, (Ⅲ) 연속, (Ⅳ) $\displaystyle\lim_{h\to0-}\dfrac{f(2+3h)-f(2+h)}h=2f\prime(c)$인 $c\ge2$ 존재'
+  - '수열 $a_n=f(n)$과 $a_n=\displaystyle\sum_{k=1}^{n}\dfrac{kb_{n-k+1}}{n+1}$로 정의된 $b_n$'
+  - '극한 $\displaystyle\lim_{n\to\infty}\dfrac1{n^6}\sum_{k=1}^{n+3}\left(\dfrac{b_k-44}{12}+\dfrac n2\right)^5$'
+  concepts:
+  - '이계도함수와 변곡점(제시문 (가))'
+  - '역함수 존재 ⇔ 증가함수, 이차부등식의 판별식'
+  - '좌극한·우극한(제시문 (나)), 연속(제시문 (다))'
+  - '미분계수의 정의'
+  - '수열의 합과 일반항의 관계(제시문 (라))'
+  - '정적분과 급수의 합(제시문 (마))'
+  tools:
+  - '$g\prime\prime\left(-\tfrac23\right)=0\Rightarrow b=2a$'
+  - '$g\prime(x)=3ax^2+2bx+2\ge0$의 판별식 $b^2-6a\le0$'
+  - '$\displaystyle\lim_{h\to0-}\dfrac{g(2+3h)-g(2+h)}{2h}=g\prime(2)=22$'
+  - '$(n+1)a_n-na_{n-1}=\sum_{k=1}^{n}b_k$'
+  - '첨자 이동 $t=k-2$, $\dfrac1{32}\int_1^2x^5dx$'
+  conditions:
+  - '$a$는 자연수, $b,r,s$는 실수'
+  - '$c\in[2,\infty)$'
+  - '$a_1=g(1)$, $n\ge2$에서 $a_n=h(n)$'
+  - '$b_n$의 일반항은 $n\ge4$에서만 $6n+32$'
+  stimuli_used: ['(가)', '(나)', '(다)', '(라)', '(마)']
+  subpart_links: '1-2는 1-1의 g(x), 1-3(1)은 1-2의 β=18, 1-3(2)는 1-3(1)의 a_n, 1-3(3)은 1-3(2)의 b_n 을 사용'
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅰ, 수학Ⅱ, 미적분]
+  scope_2028: calc2
+  scope_confirmed: false
+  standards:
+  - code: 12미적02-12
+    text: 함수의 그래프의 개형을 그릴 수 있다.
+    verified: true
+  - code: 12수학Ⅱ01-03
+    text: 함수의 연속의 뜻을 안다.
+    verified: true
+  - code: 12수학Ⅰ03-04
+    text: $\sum$의 뜻을 알고, 그 성질을 이해하고, 이를 활용할 수 있다.
+    verified: true
+  - code: 12미적03-04
+    text: 정적분과 급수의 합 사이의 관계를 이해한다.
+    verified: true
+  content_area: 미분법·수열·정적분과 급수
+  behavior_domain: 문제해결
+  unit_path: [미적분, 적분법, 정적분의 활용, 정적분과 급수의 합]
+  key_concepts: [변곡점, 역함수, 미분계수, 수열의 합, 정적분과 급수]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 경북대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 경북대학교
+  admission_year: 2026
+  admission_type: 수시 논술(AAT)
+  track: 자연계열Ⅱ
+  question_no: 1
+  official_url: https://ipsi1.knu.ac.kr   # [확인필요] 입학처 공지·자료 게시판 원본 게시물 주소
+  retrieved_at: 2026-11-21
+  original_points: [20, 20, 10, 30, 40]
+  rights_notice: 미확인(대학 원본 PDF 표지 문구 확인 필요)
+  transcribed_from: 'G26_N2.pdf p.2(문제지 1/4) 이미지 판독; 해설·채점기준 rep2026.pdf pp.103–110(인쇄 99–106, 문항카드 10)'
+
+verify: verify/KNU-G26B.py::p01
+
+stimuli:
+- label: (가)
+  body: |
+    이계도함수를 갖는 함수 $f(x)$에 대하여 $f''(a)=0$이고 $x=a$의 좌우에서 $f''(x)$의 부호가 바뀌면 점 $(a,f(a))$는 곡선 $y=f(x)$의 변곡점이다.
+- label: (나)
+  body: |
+    $x=a$에서 함수 $f(x)$의 우극한과 좌극한이 각각 존재하고 그 값이 모두 $L$이면 $\displaystyle\lim_{x\to a}f(x)=L$이다. 또한 그 역도 성립한다.
+- label: (다)
+  body: |
+    함수 $f(x)$와 실수 $a$에 대하여
+    ① 함수 $f(x)$가 $x=a$에서 정의되어 있고
+    ② 극한값 $\displaystyle\lim_{x\to a}f(x)$가 존재하며
+    ③ $\displaystyle\lim_{x\to a}f(x)=f(a)$
+    일 때, 함수 $f(x)$는 $x=a$에서 연속이라고 한다.
+- label: (라)
+  body: |
+    수열 $\{a_n\}$의 첫째항부터 제$n$항까지의 합을 $S_n$이라고 하면
+    $$a_1=S_1,\quad a_n=S_n-S_{n-1}\ (\text{단, }n\ge2)$$
+- label: (마)
+  body: |
+    함수 $f(x)$가 닫힌구간 $[a,b]$에서 연속일 때,
+    $$\int_a^bf(x)\,dx=\lim_{n\to\infty}\sum_{k=1}^{n}f(x_k)\Delta x$$
+    (단, $\Delta x=\dfrac{b-a}{n}$이고 $x_k=a+k\Delta x$)
+
+stem: |
+  ※ 모든 문항에서 풀이 과정을 반드시 기술하시오.
+
+  삼차함수 $g(x)=ax^3+bx^2+2x-15$와 이차함수 $h(x)=x^2+rx+s$에 대하여 함수
+  $$f(x)=\begin{cases}g(x)&(x<2)\\h(x)&(x\ge2)\end{cases}$$
+  라고 할 때, 함수 $f(x)$와 $g(x)$는 다음 조건을 만족시킨다. (단, $a$는 자연수이고 $b,r,s$는 실수)
+
+  (Ⅰ) 함수 $g(x)$는 $x=-\dfrac23$에서 변곡점을 가진다.
+  (Ⅱ) 함수 $f(x)$의 역함수가 존재한다.
+  (Ⅲ) 함수 $f(x)$는 실수 전체의 집합에서 연속이다.
+  (Ⅳ) $\displaystyle\lim_{h\to0-}\dfrac{f(2+3h)-f(2+h)}{h}=2f'(c)$인 $c$가 구간 $[2,\infty)$에 존재한다.
+
+  다음 물음에 답하시오.
+
+subparts:
+- id: '1-1'
+  stem: |
+    상수 $a$와 $b$의 값을 구하시오. (20점)
+  points: 20
+  depends_on: []
+  answer: {kind: expression, value: '(1, 2)', equivalents: ['a=1, b=2'], tolerance: null}
+  solutions:
+  - id: S1-1-A
+    audience: A
+    method_no: 1
+    key_idea: (Ⅰ)로 $b=2a$, (Ⅰ)(Ⅱ)로 $g'(x)\ge0$이므로 $b^2-6a\le0$; $a$ 자연수.
+    steps:
+    - {id: 1-1a, content: '$4a^2-6a\le0\Rightarrow0\le a\le\tfrac32$, $a=1$, $b=2$', criteria: [1-1.M1, 1-1.M2, 1-1.A1]}
+    hint_ladder:
+    - 변곡점에서 $g''$의 값은?
+    - 역함수가 존재하면 $g$는 증가해야 한다. $g'(x)\ge0$을 판별식으로 바꾸자.
+  - id: S1-1-B
+    audience: B
+    source_flow: rep2026.pdf p.108(인쇄 104)
+    method_no: 1
+    steps:
+    - id: 1-1b-1
+      content: |
+        $g'(x)=3ax^2+2bx+2$이고 $g''(x)=6ax+2b$이다. 조건 (Ⅰ)에 의해 $g''\!\left(-\dfrac23\right)=0$이므로 $2a=b$이다.
+      criteria: [1-1.M1]
+    - id: 1-1b-2
+      content: |
+        또한 조건 (Ⅰ)과 조건 (Ⅱ)에 의해 모든 실수 $x$에 대하여 $g'(x)\ge0$이므로 $b^2-3a\times2\le0$이다.
+      criteria: [1-1.M2]
+    - id: 1-1b-3
+      content: |
+        이 부등식을 풀면 $0\le a\le\dfrac32$이다. $a$는 자연수이므로 $a=1$이고 $b=2$이다.
+      criteria: [1-1.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1-1.M1
+      mark_type: M
+      points: 5
+      evidence: $2a=b$를 올바르게 제시했다.
+      depends_on: []
+      implied_ok: false
+      steps: [1-1b-1]
+    - id: 1-1.M2
+      mark_type: M
+      points: 5
+      evidence: |
+        $b^2-6a\le0$을 올바르게 제시했다($2a=b$를 이용하여 변형한 식, 예: $4a^2-6a\le0$, $b^2-3b\le0$ 등도 인정).
+      depends_on: []
+      implied_ok: false
+      accept: ['$4a^2-6a\le0$', '$b^2-3b\le0$']
+      steps: [1-1b-2]
+    - id: 1-1.A1
+      mark_type: A
+      points: 10
+      evidence: |
+        $a=1$과 $b=2$를 모두 올바르게 구했다(하나만 맞으면 5점, 그 외 0점).
+      depends_on: [1-1.M1, 1-1.M2]
+      steps: [1-1b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-42605}
+  misconceptions:
+  - id: MC-CAL-42605
+    outcome_code: '71'
+    wrong_work: '$b=2a$만 쓰고 $a$를 정하지 못하거나, 판별식을 $b^2-4\cdot3a\cdot2\le0$으로 잘못 써 $a\le3$에서 $a=1,2,3$을 모두 답함'
+    detect_cue: $a$의 후보가 여러 개, 또는 $g'(x)\ge0$ 조건이 없음
+    feedback: 역함수가 존재하려면 $g$가 증가함수여야 하므로 $g'(x)=3ax^2+2bx+2\ge0$이 모든 $x$에서 성립해야 합니다(짝수 판별식 $b^2-6a\le0$).
+    remedy: [RL-1]
+
+- id: '1-2'
+  stem: |
+    가능한 모든 실수 $r$의 값의 범위는 $\alpha\le r\le\beta$이다. 상수 $\alpha$와 $\beta$의 값을 구하시오. (20점)
+  points: 20
+  depends_on: ['1-1']
+  answer: {kind: expression, value: '(-4, 18)', equivalents: ['alpha=-4, beta=18'], tolerance: null}
+  solutions:
+  - id: S1-2-A
+    audience: A
+    method_no: 1
+    key_idea: $x=2$에서의 우미분계수 $4+r\ge0$ (증가), (Ⅳ)의 좌극한은 $2g'(2)=44$이므로 $2c+r=22$, $c\ge2$.
+    steps:
+    - {id: 1-2a, content: '$r\ge-4$, $r=22-2c\le18$', criteria: [1-2.M1, 1-2.M2, 1-2.M3, 1-2.A1]}
+    hint_ladder:
+    - $h\to0-$이면 $2+3h$와 $2+h$는 어느 쪽 함수에 들어가는가?
+    - $f$가 증가하려면 $x\ge2$ 쪽 $h(x)$의 기울기 조건은?
+  - id: S1-2-B
+    audience: B
+    source_flow: rep2026.pdf p.109(인쇄 105)
+    method_no: 1
+    steps:
+    - id: 1-2b-1
+      content: |
+        1-1에 의해 $g(x)=x^3+2x^2+2x-15$이다. $x\ge2$에서 $f(x)=h(x)$이므로 조건 (Ⅱ)에 의해
+        $0\le\displaystyle\lim_{h\to0+}\dfrac{f(2+h)-f(2)}{h}=4+r$이다. 그러므로 $r\ge-4$이다.
+      criteria: [1-2.M1]
+    - id: 1-2b-2
+      content: |
+        또한 $c\ge2$이고 $x<2$에서 $f(x)=g(x)$이므로 조건 (Ⅳ)에 의해
+        $2c+r=f'(c)=\displaystyle\lim_{h\to0-}\dfrac{f(2+3h)-f(2+h)}{2h}=22$이다.
+      criteria: [1-2.M2, 1-2.M3]
+    - id: 1-2b-3
+      content: |
+        그러므로 $r=22-2c\le18$이다. 따라서 $-4\le r\le18$이고, $\alpha=-4$, $\beta=18$이다.
+      criteria: [1-2.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1-2.M1
+      mark_type: M
+      points: 4
+      evidence: |
+        $\displaystyle\lim_{h\to0+}\dfrac{f(2+h)-f(2)}{h}=4+r$을 제시했다.
+      depends_on: []
+      implied_ok: false
+      steps: [1-2b-1]
+    - id: 1-2.M2
+      mark_type: M
+      points: 4
+      evidence: |
+        $\displaystyle\lim_{h\to0-}\dfrac{f(2+3h)-f(2+h)}{h}=44$ (또는 $\displaystyle\lim_{h\to0-}\dfrac{g(2+3h)-g(2+h)}{h}=44$ 또는 $\displaystyle\lim_{h\to0-}\dfrac{f(2+3h)-f(2+h)}{2h}=22$ 또는 $\displaystyle\lim_{h\to0-}\dfrac{g(2+3h)-g(2+h)}{2h}=22$)를 올바르게 구했다.
+      depends_on: []
+      implied_ok: false
+      steps: [1-2b-2]
+    - id: 1-2.M3
+      mark_type: M
+      points: 4
+      evidence: $f'(c)=2c+r$을 제시했다.
+      depends_on: []
+      implied_ok: true
+      steps: [1-2b-2]
+    - id: 1-2.A1
+      mark_type: A
+      points: 8
+      evidence: |
+        $\alpha=-4$와 $\beta=18$을 올바르게 구했다(하나만 맞으면 4점, 그 외 0점).
+      depends_on: [1-2.M1, 1-2.M2]
+      steps: [1-2b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-42606}
+  misconceptions:
+  - id: MC-CAL-42606
+    outcome_code: '71'
+    wrong_work: '(Ⅳ)의 좌변을 $2h\prime(2)=2(4+r)$로 계산해 $2c+r=4+r$, $c=2$로 처리하고 $\beta$를 구하지 못함'
+    detect_cue: 좌변 극한을 $h(x)$로 계산, $44$가 없음
+    feedback: $h\to0-$이면 $2+3h<2$, $2+h<2$이므로 $f=g$입니다. 미분계수의 정의로 $3g'(2)-g'(2)=2g'(2)$가 됩니다.
+    remedy: [RL-2]
+
+- id: '1-3(1)'
+  stem: |
+    모든 자연수 $n$과 【1-2】에서 구한 $\beta$에 대하여 $r=\beta$일 때 수열 $\{a_n\}$은
+    $$a_n=f(n)\quad(n\ge1)$$
+    로 정의된다. 또한 수열 $\{b_n\}$은
+    $$a_n=\sum_{k=1}^{n}\dfrac{kb_{n-k+1}}{n+1}\quad(n\ge1)$$
+    을 만족시킨다.
+    (1) $a_1+a_5$의 값을 구하시오. (10점)
+  points: 10
+  depends_on: ['1-2']
+  answer: {kind: value, value: '70', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-31-A
+    audience: A
+    method_no: 1
+    key_idea: (Ⅲ)으로 $h(2)=g(2)=5$에서 $2r+s=1$, $r=18$이면 $s=-35$; $a_1=g(1)$, $a_5=h(5)$.
+    steps:
+    - {id: 1-31a, content: '$a_1=-10$, $a_5=80$, 합 $70$', criteria: ['1-3(1).M1', '1-3(1).A1', '1-3(1).A2']}
+    hint_ladder:
+    - $n=1$일 때 $f(1)$은 어느 식으로 계산하는가?
+  - id: S1-31-B
+    audience: B
+    source_flow: rep2026.pdf p.109(인쇄 105)
+    method_no: 1
+    steps:
+    - id: 1-31b-1
+      content: |
+        조건 (Ⅲ)에 의해 $\displaystyle\lim_{x\to2-}g(x)=h(2)$이므로 $2r+s=1$이다. 【1-2】에 의해 $\beta=18$이므로 $h(x)=x^2+18x-35$이다.
+      criteria: ['1-3(1).M1']
+    - id: 1-31b-2
+      content: |
+        그러므로 $a_n=\begin{cases}-10&(n=1)\\n^2+18n-35&(n\ge2)\end{cases}$이다.
+      criteria: ['1-3(1).A1']
+    - id: 1-31b-3
+      content: |
+        따라서 $a_1=-10$, $a_5=80$이고 $a_1+a_5=70$이다.
+      criteria: ['1-3(1).A2']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1-3(1).M1
+      mark_type: M
+      points: 4
+      evidence: $r+2s=1$ (또는 $h(x)=x^2+rx+1-2r$)을 제시했다.  # [공식해설 확인필요] 채점기준 원문 「r+2s=1」은 오기로 보임(h(2)=g(2)=5 에서 2r+s=1, 괄호 안 h(x)=x^2+rx+1-2r 과 예시답안도 2r+s=1)
+      depends_on: []
+      implied_ok: false
+      steps: [1-31b-1]
+    - id: 1-3(1).A1
+      mark_type: A
+      points: 4
+      evidence: |
+        $a_1=-10$과 $a_n=n^2+18n-35$ $(n\ge2)$를 올바르게 구했다($a_1=-10$만 2점, $a_n$ 식만 2점, $a_n$ 식은 맞으나 $n$의 범위를 틀리면 1점).
+      depends_on: ['1-3(1).M1']
+      steps: [1-31b-2]
+    - id: 1-3(1).A2
+      mark_type: A
+      points: 2
+      evidence: $a_1+a_5=70$을 올바르게 구했다.
+      depends_on: ['1-3(1).M1']
+      cao: true
+      steps: [1-31b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-SEQ-42602}
+  misconceptions:
+  - id: MC-SEQ-42602
+    outcome_code: '71'
+    wrong_work: '$a_1=h(1)=1+18-35=-16$으로 계산해 $a_1+a_5=64$'
+    detect_cue: 답 $64$, $a_1=-16$
+    feedback: $n=1<2$이므로 $a_1=f(1)=g(1)$입니다. 정의 구간을 확인하세요.
+    remedy: [RL-3]
+
+- id: '1-3(2)'
+  stem: |
+    (2) $b_1+3b_2+4b_3-b_{50}$의 값을 구하시오. (30점)
+  points: 30
+  depends_on: ['1-3(1)']
+  answer: {kind: value, value: '61', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-32-A
+    audience: A
+    method_no: 1
+    key_idea: $(n+1)a_n=\sum_{k=1}^{n}kb_{n-k+1}$에서 이웃 항의 차가 $\sum_{k=1}^nb_k$이다.
+    steps:
+    - {id: 1-32a, content: '$\sum_{k=1}^{n}b_k=(n+1)a_n-na_{n-1}$, $b_1=-20$, $b_2=55$, $b_3=62$, $b_{50}=332$', criteria: ['1-3(2).M1', '1-3(2).A1', '1-3(2).A2', '1-3(2).A3']}
+    hint_ladder:
+    - $(n+1)a_n$과 $na_{n-1}$을 $b$로 각각 펼쳐 빼 보자.
+  - id: S1-32-B
+    audience: B
+    source_flow: rep2026.pdf p.109(인쇄 105)
+    method_no: 1
+    steps:
+    - id: 1-32b-1
+      content: |
+        수열 $\{b_n\}$의 정의에 의해 $(n+1)a_n=b_n+2b_{n-1}+\cdots+nb_1$ $(n\ge1)$이므로 $b_1=2a_1=-20$이다. $n\ge2$일 때 $na_{n-1}=b_{n-1}+2b_{n-2}+\cdots+(n-1)b_1$이므로 $\displaystyle\sum_{k=1}^{n}b_k=(n+1)a_n-na_{n-1}$ $(n\ge2)$이다.
+      criteria: ['1-3(2).M1']
+    - id: 1-32b-2
+      content: |
+        $n=2$일 때 $b_1+b_2=3a_2-2a_1=35$이고 $b_2=55$이다. 또한 $n\ge3$일 때
+        $(n+1)a_n-na_{n-1}=(n+1)(n^2+18n-35)-n\{(n-1)^2+18(n-1)-35\}=3n^2+35n-35$
+        이므로 $\displaystyle\sum_{k=1}^{n}b_k=3n^2+35n-35$ $(n\ge3)$이다.
+      criteria: ['1-3(2).M1']
+    - id: 1-32b-3
+      content: |
+        그러므로 $b_1+b_2+b_3=97$이고 $b_3=62$이다. $n\ge4$일 때 $b_n=\displaystyle\sum_{k=1}^{n}b_k-\sum_{k=1}^{n-1}b_k=(3n^2+35n-35)-\{3(n-1)^2+35(n-1)-35\}=6n+32$이다.
+      criteria: ['1-3(2).A1']
+    - id: 1-32b-4
+      content: |
+        그러므로 $b_{50}=332$이다. 따라서 $b_1+3b_2+4b_3-b_{50}=-20+165+248-332=61$이다.
+      criteria: ['1-3(2).A2', '1-3(2).A3']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1-3(2).M1
+      mark_type: M
+      points: 10
+      evidence: |
+        $\displaystyle\sum_{k=1}^{n}b_k(=b_1+b_2+\cdots+b_n)=3n^2+35n-35$ $(n\ge3)$을 올바르게 구했다($n$의 범위를 틀리면 3점, 식을 못 구하면 0점).
+      depends_on: []
+      implied_ok: false
+      steps: [1-32b-1, 1-32b-2]
+    - id: 1-3(2).A1
+      mark_type: A
+      points: 10
+      evidence: |
+        $b_n=6n+32$ $(n\ge4)$를 올바르게 구했다($n$의 범위를 틀리면 8점, 식을 못 구하면 0점).
+      depends_on: ['1-3(2).M1']
+      steps: [1-32b-3]
+    - id: 1-3(2).A2
+      mark_type: A
+      points: 8
+      evidence: |
+        $b_1=-20$, $b_2=55$, $b_3=62$, $b_{50}=332$를 올바르게 구했다(각 2점).
+      depends_on: ['1-3(2).M1']
+      steps: [1-32b-4]
+    - id: 1-3(2).A3
+      mark_type: A
+      points: 2
+      evidence: $b_1+3b_2+4b_3-b_{50}=61$을 올바르게 구했다.
+      depends_on: ['1-3(2).M1']
+      cao: true
+      steps: [1-32b-4]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-SEQ-42601}
+  misconceptions:
+  - id: MC-SEQ-42601
+    outcome_code: '71'
+    wrong_work: '$b_n=6n+32$를 $n=1,2,3$에도 적용해 $b_1=38$, $b_2=44$, $b_3=50$으로 계산'
+    detect_cue: $b_1$, $b_2$, $b_3$이 모두 $6n+32$ 꼴
+    feedback: $a_1$이 다른 식이라 합의 식은 $n\ge3$, 일반항은 $n\ge4$에서만 성립합니다. 앞 항은 따로 구하세요.
+    remedy: [RL-4]
+
+- id: '1-3(3)'
+  stem: |
+    (3) $\displaystyle\lim_{n\to\infty}\dfrac1{n^6}\sum_{k=1}^{n+3}\left(\dfrac{b_k-44}{12}+\dfrac n2\right)^5=\dfrac qp$일 때, $p$와 $q$의 값을 구하시오. (단, $p$와 $q$는 서로소인 자연수) (40점)
+  points: 40
+  depends_on: ['1-3(2)']
+  answer: {kind: expression, value: '(64, 21)', equivalents: ['p=64, q=21'], tolerance: null}
+  solutions:
+  - id: S1-33-A
+    audience: A
+    method_no: 1
+    key_idea: $k\ge4$에서 $\dfrac{b_k-44}{12}=\dfrac{k-2}2$이고 앞 세 항은 $\dfrac1{n^6}\cdot O(n^5)\to0$; $t=k-2$로 바꾸면 $\dfrac1{32}\int_1^2x^5dx=\dfrac{21}{64}$.
+    steps:
+    - {id: 1-33a, content: '$\tfrac1{32}\lim\tfrac1n\sum_{t=1}^{n}\left(\tfrac tn+1\right)^5=\tfrac1{32}\int_1^2x^5dx=\tfrac{21}{64}$', criteria: ['1-3(3).M1', '1-3(3).M2', '1-3(3).A1']}
+    hint_ladder:
+    - $b_k=6k+32$이면 $\dfrac{b_k-44}{12}$는?
+    - $\dfrac{k-2+n}{2}$에서 $t=k-2$로 놓고 $n$으로 묶어 보자.
+  - id: S1-33-B
+    audience: B
+    source_flow: rep2026.pdf pp.109–110(인쇄 105–106)
+    method_no: 1
+    steps:
+    - id: 1-33b-1
+      content: |
+        (2)에 의해
+        $\displaystyle\lim_{n\to\infty}\dfrac1{n^6}\sum_{k=1}^{n+3}\left(\dfrac{b_k-44}{12}+\dfrac n2\right)^5=\lim_{n\to\infty}\dfrac1{n^6}\left\{\left(-\dfrac{16}3+\dfrac n2\right)^5+\left(\dfrac{11}{12}+\dfrac n2\right)^5+\left(\dfrac32+\dfrac n2\right)^5+\sum_{k=4}^{n+3}\left(\dfrac{k-2}2+\dfrac n2\right)^5\right\}$
+      criteria: ['1-3(3).M1']
+    - id: 1-33b-2
+      content: |
+        앞 세 항은 $\dfrac1n\left(-\dfrac{16}{3n}+\dfrac12\right)^5$ 등의 꼴로 $0$에 수렴하므로
+        $=\dfrac1{32}\displaystyle\lim_{n\to\infty}\dfrac1{n^6}\sum_{t=2}^{n+1}(t+n)^5=\dfrac1{32}\lim_{n\to\infty}\dfrac1{n^6}\left\{\sum_{t=1}^{n}(t+n)^5+(2n+1)^5-(1+n)^5\right\}$
+        $=\dfrac1{32}\left[\displaystyle\lim_{n\to\infty}\dfrac1n\sum_{t=1}^{n}\left(\dfrac tn+1\right)^5+\lim_{n\to\infty}\left\{\dfrac1n\left(2+\dfrac1n\right)^5-\dfrac1n\left(\dfrac1n+1\right)^5\right\}\right]$
+      criteria: ['1-3(3).M1']
+    - id: 1-33b-3
+      content: |
+        제시문 (마)에 의해 $=\dfrac1{32}\displaystyle\int_1^2x^5\,dx$
+      criteria: ['1-3(3).M2']
+    - id: 1-33b-4
+      content: |
+        $=\dfrac1{32}\cdot\dfrac{64-1}{6}=\dfrac{21}{64}$이다. 따라서 $p=64$, $q=21$이다.
+      criteria: ['1-3(3).A1']
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1-3(3).M1
+      mark_type: M
+      points: 15
+      evidence: |
+        무한급수의 식을 계산하여 $\dfrac1{32}\displaystyle\lim_{n\to\infty}\dfrac1n\sum_{t=1}^{n}\left(\dfrac tn+1\right)^5$을 올바르게 제시했다(다른 방법으로 $\displaystyle\lim_{n\to\infty}\sum_{t=1}^{n}$ 꼴을 얻어 계산이 맞아도 15점).
+      depends_on: []
+      implied_ok: false
+      steps: [1-33b-1, 1-33b-2]
+    - id: 1-3(3).M2
+      mark_type: M
+      points: 15
+      evidence: |
+        무한급수의 식을 계산하여 $\dfrac1{32}\displaystyle\int_1^2x^5\,dx$를 올바르게 제시했다(다른 방법으로 적분식을 얻어 계산이 맞아도 15점).
+      depends_on: []
+      implied_ok: false
+      steps: [1-33b-3]
+    - id: 1-3(3).A1
+      mark_type: A
+      points: 10
+      evidence: |
+        $p=64$와 $q=21$을 올바르게 구했다(하나만 맞으면 5점, 그 외 0점).
+      depends_on: ['1-3(3).M2']
+      steps: [1-33b-4]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-42607}
+  misconceptions:
+  - id: MC-CAL-42607
+    outcome_code: '71'
+    wrong_work: '$\left(\tfrac{k-2+n}{2}\right)^5$을 $\tfrac1{32}\int_0^1x^5dx$로 바꿔 $\tfrac1{192}$'
+    detect_cue: 적분 구간이 $[0,1]$, 또는 $\tfrac1n$을 묶을 때 $n^5$ 인수 처리 누락
+    feedback: $\dfrac{t+n}{n}=1+\dfrac tn$이므로 $x$는 $1$에서 $2$까지 움직입니다.
+    remedy: [RL-5]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CAL-42605}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-INVERSE-FUNC}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-CAL-42606}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-DERIV-DEF-LIMIT}
+  priority: 1
+- id: RL-3
+  trigger: {type: misconception, ref: MC-SEQ-42602}
+  relation: remediation
+  target: {kind: concept, ref: CON-SEQ-SUM-TO-TERM}
+  priority: 1
+- id: RL-4
+  trigger: {type: misconception, ref: MC-SEQ-42601}
+  relation: remediation
+  target: {kind: concept, ref: CON-SEQ-SUM-TO-TERM}
+  priority: 1
+- id: RL-5
+  trigger: {type: misconception, ref: MC-CAL-42607}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-RIEMANN-SUM}
+  priority: 1
+- id: RL-6
+  trigger: {type: criterion_missed, ref: 1-1.M1}
+  relation: prerequisite
+  target: {kind: concept, ref: CON-CAL-INFLECTION}
+  priority: 2
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-transcribe-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

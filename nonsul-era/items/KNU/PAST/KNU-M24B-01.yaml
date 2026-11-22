@@ -1,0 +1,356 @@
+# 경북대 2024학년도 논술(AAT) 모의고사 자연계열Ⅱ 수학 문제 1 — 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: KNU-M24B-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: proof
+origin: mock_exam
+school: KNU
+type: null
+variant_of: null
+replaces: null
+level: L6
+form: 점화
+points: 130
+time_estimate_min: 50
+intent: |
+  인수정리로 보간 다항식의 차를 인수분해하고(1-1), 롤의 정리를 두 번 써서 보간 오차식의 존재를 증명하며(1-2), 할선법 점화식에 평균값 정리와 1-2의 오차식을 적용해 $|t_{n+2}|\le\frac12|t_{n+1}||t_n|$을 얻어 $|t_6|$을 평가할 수 있는지(1-3) 본다. (모의고사 자료에 출제 의도 별도 기재 없음 — 예시답안 흐름으로 요약)
+key_idea: |
+  $r=q-p$는 $x_1,x_2$를 근으로 갖고 이차항 계수가 $\frac{b_2}{2}$이므로 $r(x)=\frac{b_2}{2}(x-x_1)(x-x_2)$. $g=f-q$가 세 근을 가지므로 롤의 정리 두 번으로 $f''(c)=b_2$. 할선법 $t_{n+2}$는 $0$에서의 직선 보간값의 근이므로 1-2를 $x_0=0$에 적용하면 $t_{n+2}=-\frac{f''(c_n)}{2f'(d_n)}t_nt_{n+1}$.
+stuck: |
+  1-3에서 할선법의 다음 항 $t_{n+2}$를 1-2의 보간 오차식에 $x_0=0$을 넣은 형태로 다시 쓰는 단계
+idea_tags: [IDEA-INTERPOLATION-ERROR-ROLLE-TWICE, IDEA-SECANT-METHOD-ERROR-RECURSION]
+tags: [인수정리, 롤의 정리, 평균값 정리, 보간 다항식, 할선법, 부등식 점화]
+elements:
+  materials:
+  - '$f''(x)\ge1$, $|f''''(x)|\le1$, $f(0)=0$인 함수 $f$'
+  - '두 점 보간 일차식 $p(x)=a_0+a_1x$, 세 점 보간 이차식 $q(x)=b_0+b_1x+\frac{b_2}{2}x^2$'
+  - '할선(직선의 $x$절편)으로 정의되는 수열 $t_n$, $1>t_1>t_2>t_3>t_4>0$'
+  concepts:
+  - '인수정리(제시문 (가))'
+  - '롤의 정리(제시문 (나))'
+  - '평균값 정리(제시문 (다))'
+  tools:
+  - '$r(x)=q(x)-p(x)$의 두 근과 최고차항 계수 비교'
+  - '$g(x)=f(x)-q(x)$에 롤의 정리 두 번 → $g''''(c)=0$'
+  - '할선 $x$절편 공식 $t_{n+2}=t_{n+1}-\dfrac{f(t_{n+1})}{\frac{f(t_{n+1})-f(t_n)}{t_{n+1}-t_n}}$'
+  - '1-2를 $x_0=0$, $x_1=t_n$, $x_2=t_{n+1}$로 적용'
+  - '$|t_{n+2}|\le\frac12|t_{n+1}||t_n|$의 반복'
+  conditions:
+  - '$x_0,x_1,x_2$는 서로 다른 실수, $a=\min$, $b=\max$'
+  - '$f$의 근은 $0$뿐($f''\ge1$, $f(0)=0$)'
+  - '(ㄷ) $1>t_1>t_2>t_3>t_4>0$'
+  stimuli_used: ['(가)', '(나)', '(다)']
+  subpart_links: '1-2는 1-1의 $q(x_0)-p(x_0)=\frac{b_2}{2}(x_0-x_1)(x_0-x_2)$를, 1-3은 1-2의 오차식을 사용'
+
+curriculum:
+  version: '2015'
+  subjects: [수학, 수학Ⅱ, 미적분]
+  scope_2028: calc2
+  scope_confirmed: true
+  standards:
+  - code: 미확인
+    text: 인수정리, 롤의 정리와 평균값 정리(요지)
+    verified: false
+  content_area: 다항식 – 인수정리 / 미분 – 평균값 정리
+  behavior_domain: 추론
+  unit_path: [수학Ⅱ, 미분, 도함수의 활용, 롤의 정리와 평균값 정리]
+  key_concepts: [인수정리, 롤의 정리, 평균값 정리, 이계도함수]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 경북대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 경북대학교
+  admission_year: 2024
+  admission_type: 논술(AAT) 모의고사
+  track: 자연계열Ⅱ
+  question_no: 1
+  official_url: https://ipsi1.knu.ac.kr   # [확인필요] 입학처 공지·자료 게시판 원본 게시물 주소
+  retrieved_at: 2026-11-21
+  original_points: [20, 50, 60]
+  rights_notice: 미확인(대학 원본 PDF 표지 문구 확인 필요)
+  transcribed_from: 'M24_N2.pdf p.2(문제지 1/3쪽) / 예시답안·채점기준: M24_N2.pdf p.5~6'
+
+verify: verify/KNU-M24B.py::p01
+
+stimuli:
+- label: (가)
+  body: |
+    다항식 $P(x)$에 대하여 $P(\alpha)=0$이면 $P(x)$는 $x-\alpha$로 나누어떨어진다. 거꾸로 $P(x)$가 $x-\alpha$로 나누어떨어지면 $P(\alpha)=0$이다.
+- label: (나)
+  body: |
+    함수 $f(x)$가 닫힌구간 $[a,b]$에서 연속이고 열린구간 $(a,b)$에서 미분가능할 때, $f(a)=f(b)$이면
+    $$f'(c)=0$$
+    인 $c$가 열린구간 $(a,b)$에 적어도 하나 존재한다.
+- label: (다)
+  body: |
+    함수 $f(x)$가 닫힌구간 $[a,b]$에서 연속이고 열린구간 $(a,b)$에서 미분가능하면
+    $$\dfrac{f(b)-f(a)}{b-a}=f'(c)$$
+    인 $c$가 열린구간 $(a,b)$에 적어도 하나 존재한다.
+
+stem: |
+  ※ 모든 문항에서 풀이과정을 반드시 기술하시오.
+
+  미분가능한 함수 $f(x)$는 이계도함수를 갖고 다음 조건을 만족시킨다.
+
+  > (Ⅰ) 모든 실수 $x$에 대하여 $f'(x)\ge1$ 이다.
+  > (Ⅱ) 모든 실수 $x$에 대하여 $|f''(x)|\le1$ 이다.
+  > (Ⅲ) $f(0)=0$ 이다.
+
+  서로 다른 세 실수 $x_0$, $x_1$, $x_2$에 대하여, 다항함수 $p(x)=a_0+a_1x$의 그래프가 두 점 $(x_1,f(x_1))$, $(x_2,f(x_2))$을 지나고, 다항함수 $q(x)=b_0+b_1x+\dfrac{b_2}{2}x^2$의 그래프가 세 점 $(x_0,f(x_0))$, $(x_1,f(x_1))$, $(x_2,f(x_2))$ 을 지난다.
+
+  다음 물음에 답하시오.
+
+subparts:
+- id: 1-1
+  stem: |
+    【1-1】 $q(x_0)-p(x_0)=\square(x_0-x_1)(x_0-x_2)$일 때, $\square$안에 알맞은 $b_0$, $b_1$, $b_2$에 관한 식을 구하시오. (20점)
+  points: 20
+  depends_on: []
+  answer: {kind: expression, value: 'b_2/2', equivalents: ['□=b₂/2'], tolerance: null}
+  solutions:
+  - id: S11-A
+    audience: A
+    method_no: 1
+    key_idea: $q-p$는 $x_1,x_2$가 근인 이차 이하 다항식, 이차항 계수 $\frac{b_2}{2}$.
+    steps:
+    - {id: 11a, content: '$r(x)=q(x)-p(x)=\frac{b_2}{2}(x-x_1)(x-x_2)$ ⇒ $\square=\frac{b_2}{2}$', criteria: [1-1.A1]}
+    hint_ladder:
+    - $q(x)-p(x)$는 어디에서 $0$이 되는가?
+  - id: S11-B
+    audience: B
+    source_flow: M24_N2.pdf p.5
+    method_no: 1
+    steps:
+    - id: 11b-1
+      content: |
+        다항함수 $r(x)=q(x)-p(x)$는 이차이하 다항함수이고 방정식 $r(x)=0$은 서로 다른 두 근 $x_1$, $x_2$를 갖는다. $b_2=0$일 때 $r(x)$는 일차이하 다항함수이고, 서로 다른 두 근을 가지므로 $r(x)=0$이다. $b_2\ne0$일 때, $r(x)$는 이차함수이고 인수정리에 의하여 $r(x)$는 $x-x_1$과 $x-x_2$로 나누어떨어진다.
+      criteria: [1-1.A1]
+    - id: 11b-2
+      content: |
+        $r(x)$와 $q(x)$의 이차항계수는 같으므로 $b_2=0$ 또는 $b_2\ne0$인 경우 모두 $r(x)=\dfrac{b_2}{2}(x-x_1)(x-x_2)$이다. $x$에 $x_0$를 대입하면 $q(x_0)-p(x_0)=\dfrac{b_2}{2}(x_0-x_1)(x_0-x_2)$이다.
+      criteria: [1-1.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: false, misread_penalty: 2, isw: true}   # 학교 채점기준이 답 하나에 20점
+    criteria:
+    - id: 1-1.A1
+      mark_type: A
+      points: 20
+      evidence: |
+        알맞은 식이 $\dfrac{b_2}{2}$ 임을 보였다.
+      steps: [11b-1, 11b-2]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-ALG-42406}
+  misconceptions:
+  - id: MC-ALG-42406
+    outcome_code: '71'
+    wrong_work: |
+      이차항 계수를 $b_2$로 읽어 $\square=b_2$라 답하거나, $b_2=0$인 경우를 따로 다루지 않음
+    detect_cue: $q$의 이차항이 $\frac{b_2}{2}x^2$임을 놓침
+    feedback: $q(x)=b_0+b_1x+\frac{b_2}{2}x^2$이고 $p$는 일차 이하이므로 $q-p$의 이차항 계수는 $\frac{b_2}{2}$입니다.
+    remedy: [RL-1]
+- id: 1-2
+  stem: |
+    【1-2】
+    $$f(x_0)=f(x_2)+\dfrac{f(x_2)-f(x_1)}{x_2-x_1}(x_0-x_2)+\dfrac{f''(c)}{2}(x_0-x_1)(x_0-x_2)$$
+    인 $c$가 열린구간 $(a,b)$에 적어도 하나 존재함을 증명하시오. (단, $a$는 $x_0$, $x_1$, $x_2$의 최솟값, $b$는 $x_0$, $x_1$, $x_2$의 최댓값.) (50점)
+  points: 50
+  depends_on: [1-1]
+  answer: {kind: proof, value: null, equivalents: [], tolerance: null}
+  solutions:
+  - id: S12-A
+    audience: A
+    method_no: 1
+    key_idea: $g=f-q$가 세 근 → 롤 두 번 → $f''(c)=q''=b_2$.
+    steps:
+    - {id: 12a, content: '$p(x_0)$ 식 + 1-1 ⇒ $b_2=f''''(c)$를 보이면 됨; $g$ 세 근 → $g''$ 두 근 → $g''''$ 한 근', criteria: [1-2.M1, 1-2.R1, 1-2.R2, 1-2.R3]}
+    hint_ladder:
+    - $p(x)$를 $f(x_2)$와 기울기로 써 보자. 그러면 증명할 식은 $b_2=f''(c)$와 같다.
+    - $f(x)-q(x)$는 몇 개의 근을 갖는가?
+  - id: S12-B
+    audience: B
+    source_flow: M24_N2.pdf p.5
+    method_no: 1
+    steps:
+    - id: 12b-1
+      content: |
+        주어진 조건에 따라, $p(x)=f(x_2)+\dfrac{f(x_2)-f(x_1)}{x_2-x_1}(x-x_2)$이고, $q(x_0)=f(x_0)$이며 또한 문제【1-1】에 의하여 $q(x_0)-p(x_0)=\dfrac{b_2}{2}(x_0-x_1)(x_0-x_2)$이므로, 문제의 증명을 위하여 $\dfrac{b_2}{2}(x_0-x_1)(x_0-x_2)=\dfrac{f''(c)}{2}(x_0-x_1)(x_0-x_2)$ 즉, $b_2=f''(c)$인 $c$가 열린구간 $(a,b)$에 적어도 하나 존재함을 보이면 된다.
+      criteria: [1-2.M1]
+    - id: 12b-2
+      content: |
+        함수 $g(x)=f(x)-q(x)$라 하자. $x_0$, $x_1$, $x_2$를 크기가 커지는 순서대로 각각 $A$, $B$, $C$라 하면 주어진 조건에 따라 $g(x)$는 서로 다른 세 근 $A$, $B$, $C$를 닫힌구간 $[a,b]$에서 갖는다.
+      criteria: [1-2.R1, 1-2.R2]
+    - id: 12b-3
+      content: |
+        롤의 정리에 의하여 $g'(c_1)=0$ 인 $c_1$이 열린구간 $(A,B)$에 적어도 하나 존재하고, $g'(c_2)=0$인 $c_2$가 열린구간 $(B,C)$에 적어도 하나 존재한다. 그러한 $c_1$, $c_2$에 대하여 $c_1<c_2$이다.
+      criteria: [1-2.R1, 1-2.R3]
+    - id: 12b-4
+      content: |
+        $h(x)$를 함수 $g(x)$의 도함수라 하면 롤의 정리에 의하여 $h'(c)=g''(c)=0$인 $c$가 열린구간 $(c_1,c_2)\subset(a,b)$에 적어도 하나 존재한다. $q''(x)=b_2$는 상수함수이므로 $f''(c)=b_2$ 인 $c$가 열린구간 $(a,b)$에 적어도 하나 존재한다. ■
+      criteria: [1-2.R1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1-2.M1
+      mark_type: M
+      points: 10
+      evidence: |
+        $f''(c)=b_2$인 $c$의 존재를 증명하고자 하였다.
+      steps: [12b-1]
+    - id: 1-2.R1
+      mark_type: R
+      points: 30
+      evidence: |
+        $f(x)-q(x)$, $f'(x)-q'(x)$, $f''(x)-q''(x)$가 각각 근을 세 개, 두 개, 한 개 가짐을 보였다.
+      steps: [12b-2, 12b-3, 12b-4]
+    - id: 1-2.R2
+      mark_type: R
+      points: 5
+      evidence: |
+        $f(x)-q(x)$의 세 근이 서로 다름을 보였다.
+      steps: [12b-2]
+    - id: 1-2.R3
+      mark_type: R
+      points: 5
+      evidence: |
+        $f'(x)-q'(x)$의 두 근이 서로 다름을 보였다.
+      steps: [12b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-42418}
+  misconceptions:
+  - id: MC-CAL-42418
+    outcome_code: '71'
+    wrong_work: |
+      $g'$의 두 근 $c_1$, $c_2$가 서로 다른지(서로 겹치지 않는 구간에 있음) 확인하지 않고 두 번째 롤의 정리를 적용
+    detect_cue: $c_1\in(A,B)$, $c_2\in(B,C)$라 $c_1<c_2$라는 언급이 없음
+    feedback: 롤의 정리는 서로 다른 두 점에서 같은 값을 가질 때 씁니다. $c_1<c_2$임을 구간으로 보장하세요.
+    remedy: [RL-2]
+- id: 1-3
+  stem: |
+    【1-3】 수열 $t_n$이 다음 조건을 만족시킨다.
+
+    > (ㄱ) 모든 자연수 $n$에 대하여 $t_n=t_{n+1}$이면 $t_{n+2}=t_{n+1}$이다.
+    > (ㄴ) 모든 자연수 $n$에 대하여 $t_n\ne t_{n+1}$이면 $t_{n+2}$는 두 점 $(t_n,f(t_n))$, $(t_{n+1},f(t_{n+1}))$을 지나는 직선의 $x$절편이다.
+    > (ㄷ) $1>t_1>t_2>t_3>t_4>0$ 이다.
+
+    $|t_6|\le\dfrac{1}{128}$ 임을 증명하시오. (60점)
+  points: 60
+  depends_on: [1-2]
+  answer: {kind: proof, value: null, equivalents: [], tolerance: null}
+  solutions:
+  - id: S13-A
+    audience: A
+    method_no: 1
+    key_idea: 1-2를 $x_0=0$에 적용 → $t_{n+2}=-\frac{f''(c_n)}{2f'(d_n)}t_nt_{n+1}$, $|f''|\le1$, $f'\ge1$.
+    steps:
+    - {id: 13a, content: '$|t_{n+2}|\le\frac12|t_{n+1}||t_n|$ ⇒ $|t_3|\le\frac12$, $|t_4|\le\frac14$, $|t_5|\le\frac1{16}$, $|t_6|\le\frac1{128}$', criteria: [1-3.M1, 1-3.R1, 1-3.R2, 1-3.R3, 1-3.A1]}
+    hint_ladder:
+    - $t_{n+2}$는 직선 보간 $p$의 근이다. $f(0)=0$이므로 1-2에서 $x_0=0$을 넣어 보자.
+    - $f'(d_n)\ge1$, $|f''(c_n)|\le1$을 쓰면 $|t_{n+2}|$를 위에서 누를 수 있다.
+  - id: S13-B
+    audience: B
+    source_flow: M24_N2.pdf p.5~6
+    method_no: 1
+    steps:
+    - id: 13b-1
+      content: |
+        조건 (ㄴ),(ㄷ)에 의하여, $t_{n+2}=t_{n+1}-\dfrac{f(t_{n+1})}{\dfrac{f(t_{n+1})-f(t_n)}{t_{n+1}-t_n}}$가 자연수 $n$이 $1,2,3$ 일 때 성립한다.
+      criteria: [1-3.M1]
+    - id: 13b-2
+      content: |
+        이 때, 평균값 정리에 의하여 $\dfrac{f(t_{n+1})-f(t_n)}{t_{n+1}-t_n}=f'(d_n)$인 $d_n$ 이 존재하고, 문제의 조건에 따라 $\dfrac{f(t_{n+1})-f(t_n)}{t_{n+1}-t_n}\ge1$이다. 문제 조건에 따라 함수 $f(x)$의 근은 오직 $0$뿐이므로 $f(t_4)\ne0$이다. 따라서 $t_5\ne t_4$이고, 위 식이 자연수 $n$이 $1,2,3,4$ 일 때 성립한다.
+      criteria: [1-3.R1]
+    - id: 13b-3
+      content: |
+        자연수 $n$이 $1,2,3,4$ 일 때, $d_n$이 $\dfrac{f(t_{n+1})-f(t_n)}{t_{n+1}-t_n}=f'(d_n)$를 만족한다고 하면, $t_{n+2}=-\dfrac{1}{f'(d_n)}\left\{f(0)-f(t_{n+1})-\dfrac{f(t_{n+1})-f(t_n)}{t_{n+1}-t_n}(0-t_{n+1})\right\}$이고, 문제【1-2】에 의하여 $t_{n+2}=-\dfrac{f''(c_n)}{f'(d_n)}(0-t_n)(0-t_{n+1})$인 $c_n$이 존재한다.
+      criteria: [1-3.R2]
+    - id: 13b-4
+      content: |
+        이때, 문제의 조건에 따라 $|t_{n+2}|\le\dfrac12|t_{n+1}|\,|t_n|$을 만족한다.
+      criteria: [1-3.R3]
+    - id: 13b-5
+      content: |
+        조건 (ㄷ)에 따라서 $|t_1|\le1$, $|t_2|\le1$이므로, $|t_6|\le\dfrac{1}{128}$이다. ■ (실제로 $|t_3|\le\frac12$, $|t_4|\le\frac14$, $|t_5|\le\frac1{16}$, $|t_6|\le\frac12\cdot\frac1{16}\cdot\frac14=\frac1{128}$)
+      criteria: [1-3.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    # [공식해설 확인필요] 예시답안·채점기준의 식 t_{n+2}=-f''(c_n)/f'(d_n)·(0-t_n)(0-t_{n+1}) 는 1-2 를 x0=0 에 적용한 결과 t_{n+2}=+f''(c_n)/(2f'(d_n))·t_n t_{n+1} 과 비교해 1/2 인수와 부호가 다름(절댓값 부등식 결론에는 영향 없음) — 원문 그대로 둠
+    criteria:
+    - id: 1-3.M1
+      mark_type: M
+      points: 10
+      evidence: |
+        $t_n\ne t_{n+1}$일 때 $t_{n+2}$의 공식을 구했다.
+      steps: [13b-1]
+    - id: 1-3.R1
+      mark_type: R
+      points: 5
+      evidence: |
+        $n$이 $1,2,3,4$ 중 하나일 때, $t_n\ne t_{n+1}$ 임을 보였다.
+      steps: [13b-2]
+    - id: 1-3.R2
+      mark_type: R
+      points: 20
+      evidence: |
+        $n$이 $1,2,3,4$ 중 하나일 때, $t_{n+2}=-\dfrac{f''(c_n)}{f'(d_n)}(0-t_n)(0-t_{n+1})$인 $c_n$이 존재함을 보였다.
+      steps: [13b-3]
+    - id: 1-3.R3
+      mark_type: R
+      points: 15
+      evidence: |
+        $n$이 $1,2,3,4$ 중 하나일 때 $|t_{n+2}|\le\dfrac12|t_{n+1}|\,|t_n|$ 임을 보였다.
+      depends_on: [1-3.R2]
+      steps: [13b-4]
+    - id: 1-3.A1
+      mark_type: A
+      points: 10
+      evidence: |
+        부등식 $|t_{n+2}|\le\dfrac12|t_{n+1}|\,|t_n|$과 조건 (ㄷ)을 이용하여 $|t_6|\le\dfrac{1}{128}$임을 보였다.
+      depends_on: [1-3.R3]
+      steps: [13b-5]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-42419}
+  misconceptions:
+  - id: MC-CAL-42419
+    outcome_code: '71'
+    wrong_work: |
+      $t_5$, $t_6$을 정의할 때 $t_4\ne t_5$를 확인하지 않거나, $|t_{n+2}|\le\frac12|t_{n+1}||t_n|$을 $|t_{n+2}|\le\frac12|t_{n+1}|$로 잘못 써서 $|t_6|\le\frac1{32}$ 정도에서 멈춤
+    detect_cue: 할선법 점화식에서 두 이전 항의 곱 구조가 빠짐
+    feedback: 1-2를 $x_0=0$에 쓰면 오차가 $t_n$과 $t_{n+1}$의 곱에 비례합니다. 곱을 유지해 $\frac12,\frac14,\frac1{16},\frac1{128}$로 줄이세요.
+    remedy: [RL-3]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-ALG-42406}
+  relation: remediation
+  target: {kind: concept, ref: CON-ALG-FACTOR-THEOREM}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-CAL-42418}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-MVT}
+  priority: 1
+- id: RL-3
+  trigger: {type: misconception, ref: MC-CAL-42419}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-MVT}
+  priority: 2
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-transcribe-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

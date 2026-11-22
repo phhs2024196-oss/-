@@ -1,0 +1,447 @@
+# 경북대 2027학년도 논술(AAT) 모의고사 자연계열Ⅰ 문제 2(수학) — 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: KNU-M27A-02
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: KNU
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 추론
+points: 130
+time_estimate_min: 45
+intent: |
+  접선과 곡선 사이의 차를 적분 꼴(테일러 나머지)로 나타내고 정적분의 대소 관계로 양쪽을 평가하여, 음함수로 정의된 수열 $t_n$의 극한과 관련 극한값을 조임 정리로 구하는 능력을 본다.
+key_idea: |
+  $e^x-L(x)=\displaystyle\int_x^t(s-x)e^sds$에서 $1\le e^s\le e^t$로 $\dfrac{(t-x)^2}{2}\le e^x-L(x)\le\dfrac{e^t(t-x)^2}{2}$를 얻고, 이를 적분해 $\dfrac{t^3}{6}\le S(t)\le e^t\dfrac{t^3}{6}$, $\dfrac{t^4}{24}\le T(t)\le e^t\dfrac{t^4}{24}$로 조인다.
+stuck: |
+  $e^x-L(x)$를 $s$에 관한 적분으로 보고 피적분함수의 $e^s$만 상수로 바꿔 끼우는 발상, 그리고 $nt_n^3\to6$을 $6e^{-t_n}\le nt_n^3\le6$으로 끌어내는 단계
+idea_tags: [IDEA-TAYLOR-REMAINDER-INTEGRAL, IDEA-SQUEEZE-BY-INTEGRAL-BOUNDS, IDEA-IMPLICIT-SEQUENCE-LIMIT]
+tags: [접선과 곡선의 차, 정적분의 대소, 조임 정리, 음함수 수열]
+elements:
+  materials:
+  - '곡선 $y=e^x$ 위의 점 $(t,e^t)$에서의 접선 $y=L(x)$'
+  - '$S(t)=\displaystyle\int_0^t\{e^x-L(x)\}dx$, $T(t)=\displaystyle\int_0^tx\{e^x-L(x)\}dx$'
+  - '$S(t_n)=\dfrac1n$으로 정의된 수열 $t_n$'
+  concepts:
+  - '접선의 방정식'
+  - '부분적분법'
+  - '정적분의 대소 관계'
+  - '사잇값 정리'
+  - '수열의 극한의 대소 관계(조임 정리)'
+  - '수열의 극한의 곱'
+  tools:
+  - '적분 표현 $e^x-L(x)=\displaystyle\int_x^t(s-x)e^sds$'
+  - '$0\le x\le s\le t$에서 $1\le e^s\le e^t$'
+  - '$S(t)$, $T(t)$의 양쪽 평가를 $t=t_n$에 대입'
+  - '$6e^{-t_n}\le nt_n^3\le6$으로 조임'
+  conditions:
+  - '$t>0$, $0\le x\le t$'
+  - '$t_n$은 $S(t)=\dfrac1n$의 양의 실근'
+  stimuli_used: ['(가)', '(나)', '(다)', '(라)', '(마)']
+  subpart_links: '2-1의 부등식을 2-3(1)(2)에서 적분해 사용, 2-2의 S(t) 식·증가성을 2-3(1)의 존재·유일성에 사용, 2-3(2)는 2-3(1)의 nt_n^3≤6을 사용'
+
+curriculum:
+  version: '2015'
+  subjects: [미적분]
+  scope_2028: calc2
+  scope_confirmed: true
+  standards:
+  - code: 미확인
+    text: 정적분의 성질과 부분적분법을 이해하고 수열의 극한에 대한 기본 성질을 이용하여 극한값을 구할 수 있다(요지)
+    verified: false
+  content_area: 적분법 – 정적분의 활용, 수열의 극한
+  behavior_domain: 추론
+  unit_path: [미적분, 적분법, 정적분, 정적분으로 정의된 함수와 부등식]
+  key_concepts: [접선의 방정식, 부분적분법, 정적분의 대소, 수열의 극한의 대소 관계]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 경북대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 경북대학교
+  admission_year: 2027
+  admission_type: 논술(AAT) 모의고사
+  track: 자연계열Ⅰ
+  question_no: 2
+  official_url: https://ipsi1.knu.ac.kr   # 입학처 공지·자료 게시판 「2027학년도 논술(AAT) 전형 가이드북」
+  retrieved_at: 2026-11-21
+  original_points: [30, 20, 40, 40]
+  rights_notice: 미확인(가이드북 표지·판권 문구 확인 필요)
+  transcribed_from: GB27.pdf(2027학년도 논술(AAT) 전형 가이드북) 문제지 PDF p.52, 예시답안·채점기준 PDF p.71~72(인쇄 p.69~70) (원본 이미지 대조 2026-11-21)
+
+verify: verify/KNU-M27A.py::p02
+
+stimuli:
+- label: (가)
+  body: |
+    함수 $f(x)$가 미분가능할 때, 곡선 $y=f(x)$위의 점 $\mathrm{P}(a,f(a))$에서의 접선의 방정식은
+    $$y-f(a)=f'(a)(x-a)$$
+- label: (나)
+  body: |
+    닫힌구간 $[a,b]$에서 연속인 도함수를 갖는 두 함수 $f(x)$, $g(x)$에 대하여
+    $$\int_a^bf(x)g'(x)dx=[f(x)g(x)]_a^b-\int_a^bf'(x)g(x)dx$$
+- label: (다)
+  body: |
+    두 함수 $f(x)$, $g(x)$가 닫힌구간 $[a,b]$에서 연속이고 $f(x)\le g(x)$일 때,
+    $$\int_a^bf(x)dx\le\int_a^bg(x)dx$$
+- label: (라)
+  body: |
+    두 수열 $\{a_n\}$, $\{b_n\}$이 각각 수렴하고
+    $$\lim_{n\to\infty}a_n=\lim_{n\to\infty}b_n=\alpha$$
+    일 때, 만약 수열 $\{c_n\}$이 모든 자연수 $n$에 대하여 $a_n\le c_n\le b_n$이면 수열 $\{c_n\}$은 수렴하고
+    $$\lim_{n\to\infty}c_n=\alpha$$
+- label: (마)
+  body: |
+    두 수열 $\{a_n\}$, $\{b_n\}$이 각각 수렴하고 $\displaystyle\lim_{n\to\infty}a_n=\alpha$, $\displaystyle\lim_{n\to\infty}b_n=\beta$ ($\alpha$, $\beta$는 실수)일 때,
+    $$\lim_{n\to\infty}a_nb_n=\lim_{n\to\infty}a_n\times\lim_{n\to\infty}b_n=\alpha\beta$$
+
+stem: |
+  ※ 모든 문항에서 풀이 과정을 반드시 기술하시오.
+
+  양의 실수 $t$에 대하여, 곡선 $y=e^x$ 위의 점 $(t,e^t)$에서의 접선의 방정식을 $y=L(x)$라 하고
+  $$S(t)=\int_0^t\{e^x-L(x)\}dx$$
+  라 할 때, 다음 물음에 답하시오.
+
+subparts:
+- id: 2-1
+  stem: |
+    【2-1】식 $e^x-L(x)=\displaystyle\int_x^t(s-x)e^sds$가 성립함을 보이고, $0\le x\le t$인 $x$에 대하여 다음 부등식
+    $$\frac{(t-x)^2}{2}\le e^x-L(x)\le\frac{e^t(t-x)^2}{2}$$
+    이 성립함을 보이시오. (30점)
+  points: 30
+  depends_on: []
+  answer: {kind: proof, value: null, equivalents: [], tolerance: null}
+  solutions:
+  - id: S21-A
+    audience: A
+    method_no: 1
+    key_idea: $L(x)=e^t(x-t+1)$, 우변 적분을 부분적분으로 계산해 일치를 확인하고, $1\le e^s\le e^t$를 피적분함수에 끼운다.
+    steps:
+    - {id: 21a, content: '$L(x)=e^t(x-t+1)$, $\int_x^t(s-x)e^sds=e^x-e^t(x-t+1)$, $\int_x^t(s-x)ds=\tfrac{(t-x)^2}{2}$', criteria: [2-1.B1, 2-1.R1, 2-1.R2]}
+    hint_ladder:
+    - 접선 $L(x)$를 먼저 구하자.
+    - $\int_x^t(s-x)e^sds$는 부분적분으로 계산된다.
+    - $s$가 $[x,t]\subset[0,t]$에 있을 때 $e^s$는 어느 범위에 있는가?
+  - id: S21-B
+    audience: B
+    source_flow: GB27.pdf p.71(인쇄 p.69)
+    method_no: 1
+    steps:
+    - id: 21b-1
+      content: |
+        점 $(t,e^t)$에서의 접선의 방정식은 $y-e^t=e^t(x-t)$이므로 $L(x)=e^t(x-t)+e^t=e^t(x-t+1)$이다.
+      criteria: [2-1.B1]
+    - id: 21b-2
+      content: |
+        제시문 (나)(부분적분)에 의해 $\displaystyle\int_x^t(s-x)e^sds=\Big[(s-x)e^s\Big]_x^t-\int_x^te^sds=(t-x)e^t-e^t+e^x$이므로 $e^x-L(x)=e^x-e^t(x-t+1)=\displaystyle\int_x^t(s-x)e^sds$가 성립한다.
+      criteria: [2-1.R1]
+    - id: 21b-3
+      content: |
+        $0\le x\le s\le t$일 때 $1\le e^s\le e^t$이고 $s-x\ge0$이므로 제시문 (다)에 의해 $\displaystyle\int_x^t(s-x)ds\le\int_x^t(s-x)e^sds\le e^t\int_x^t(s-x)ds$가 성립한다. $\displaystyle\int_x^t(s-x)ds=\dfrac{(t-x)^2}{2}$이므로 정리하면 $\dfrac{(t-x)^2}{2}\le e^x-L(x)\le\dfrac{e^t(t-x)^2}{2}$이다. ■
+      criteria: [2-1.R2]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2-1.B1
+      mark_type: B
+      points: 5
+      evidence: |
+        $L(x)=e^t(x-t+1)$를 구했다.
+      steps: [21b-1]
+    - id: 2-1.R1
+      mark_type: R
+      points: 10
+      evidence: |
+        $e^x-L(x)=\displaystyle\int_x^t(s-x)e^sds$를 (부분적분 계산으로) 보였다.
+      steps: [21b-2]
+    - id: 2-1.R2
+      mark_type: R
+      points: 15
+      evidence: |
+        부등식 $\dfrac{(t-x)^2}{2}\le e^x-L(x)\le\dfrac{e^t(t-x)^2}{2}$을 ($1\le e^s\le e^t$와 정적분의 대소로) 보였다.
+      steps: [21b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-42706}
+  - {code: '72', misconception: MC-CAL-42705}
+  misconceptions:
+  - id: MC-CAL-42706
+    outcome_code: '71'
+    wrong_work: |
+      $\displaystyle\int_x^t(s-x)e^sds=(t-x)e^t+e^t-e^x$처럼 부분적분의 뒤 항 부호를 틀림
+    detect_cue: 결과가 $e^x-L(x)$와 맞지 않아 억지로 맞춤
+    feedback: $\int uv'=uv-\int u'v$에서 뒤 항은 빼기입니다. 경계값 $s=x$에서 $(s-x)e^s=0$도 확인하세요.
+    remedy: [RL-1]
+  - id: MC-CAL-42705
+    outcome_code: '72'
+    wrong_work: |
+      $e^s\le e^x$로 잘못 평가하여 위쪽 경계를 $\dfrac{e^x(t-x)^2}{2}$로 씀
+    detect_cue: 적분 변수 $s$의 범위 $[x,t]$를 확인하지 않음
+    feedback: 적분 변수는 $s$이고 $x\le s\le t$입니다. $e^s$의 최댓값은 $e^t$입니다.
+    remedy: [RL-2]
+- id: 2-2
+  stem: |
+    【2-2】$S(t)=e^t\left(1-t+\dfrac{t^2}{2}\right)-1$임을 보이고, $S(t)$가 $t>0$에서 증가함수임을 보이시오. (20점)
+  points: 20
+  depends_on: [2-1]
+  answer: {kind: expression, value: 'exp(t)*(1 - t + t**2/2) - 1', equivalents: [], tolerance: null}
+  solutions:
+  - id: S22-A
+    audience: A
+    method_no: 1
+    key_idea: $\int_0^t\{e^x-e^t(x-t+1)\}dx$를 직접 계산하고 $S'(t)=\dfrac{t^2}{2}e^t>0$.
+    steps:
+    - {id: 22a, content: '$S(t)=e^t-1-e^t\left(\tfrac{t^2}{2}-t^2+t\right)=e^t\left(1-t+\tfrac{t^2}{2}\right)-1$, $S''(t)=\tfrac{t^2}{2}e^t$', criteria: [2-2.A1, 2-2.R1]}
+    hint_ladder:
+    - $L(x)$는 $x$에 관한 일차식이다.
+  - id: S22-B
+    audience: B
+    source_flow: GB27.pdf p.71(인쇄 p.69)
+    method_no: 1
+    steps:
+    - id: 22b-1
+      content: |
+        $S(t)=\displaystyle\int_0^t\{e^x-L(x)\}dx=\int_0^t\{e^x-e^t(x-t+1)\}dx=(e^t-1)-e^t\left(\dfrac{t^2}{2}-t^2+t\right)=e^t\left(1-t+\dfrac{t^2}{2}\right)-1$을 얻는다.
+      criteria: [2-2.A1]
+    - id: 22b-2
+      content: |
+        이로부터 $S'(t)=e^t\left(1-t+\dfrac{t^2}{2}\right)+e^t(-1+t)=\dfrac{t^2}{2}e^t$이고, 따라서 $t>0$에서 $S'(t)=\dfrac{t^2}{2}e^t>0$이므로 $S(t)$는 증가함수이다.
+      criteria: [2-2.R1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2-2.A1
+      mark_type: A
+      points: 10
+      evidence: |
+        $S(t)=e^t\left(1-t+\dfrac{t^2}{2}\right)-1$임을 계산 과정과 함께 보였다.
+      implied_ok: true
+      steps: [22b-1]
+    - id: 2-2.R1
+      mark_type: R
+      points: 10
+      evidence: |
+        $S'(t)=\dfrac{t^2}{2}e^t>0$ 등으로 $S(t)$가 $t>0$에서 증가함을 보였다.
+      steps: [22b-2]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-42706}
+  misconceptions:
+  - id: MC-CAL-42706
+    outcome_code: '71'
+    wrong_work: |
+      $\displaystyle\int_0^te^t(x-t+1)dx$에서 $e^t$를 $x$의 함수로 보고 적분함
+    detect_cue: $e^t$를 적분한 흔적($\int e^tdx=e^t$ 등)
+    feedback: 적분 변수는 $x$이고 $e^t$는 상수입니다.
+    remedy: [RL-1]
+- id: 2-3-1
+  stem: |
+    【2-3】자연수 $n$에 대하여
+    $$S(t_n)=\frac1n$$
+    을 만족하는 양의 실수 $t_n$을 생각하자. 다음 물음에 답하시오.
+
+    (1) 각 자연수 $n$에 대하여, $S(t)=\dfrac1n$을 만족하는 양의 실수 $t$가 오직 하나 존재함을 보이고 부등식
+    $$nt_n^3\le6$$
+    이 성립함을 보이시오. (40점)
+  points: 40
+  depends_on: [2-1, 2-2]
+  answer: {kind: proof, value: null, equivalents: [], tolerance: null}
+  solutions:
+  - id: S231-A
+    audience: A
+    method_no: 1
+    key_idea: $S$는 연속·증가, $S(t)\to0\ (t\to0)$, $S(t)\to\infty$; 2-1을 적분하면 $\dfrac{t^3}{6}\le S(t)$.
+    steps:
+    - {id: 231a, content: '사잇값 정리 + 증가 ⇒ 유일, $\tfrac{t_n^3}{6}\le S(t_n)=\tfrac1n$', criteria: [2-3-1.R1, 2-3-1.R2, 2-3-1.R3, 2-3-1.A1]}
+    hint_ladder:
+    - $t\to0$, $t\to\infty$일 때 $S(t)$는?
+    - 2-1의 부등식을 $0$부터 $t$까지 적분해 보자.
+  - id: S231-B
+    audience: B
+    source_flow: GB27.pdf p.71(인쇄 p.69)
+    method_no: 1
+    steps:
+    - id: 231b-1
+      content: |
+        $S(t)=e^t\left(1-t+\dfrac{t^2}{2}\right)-1$은 연속함수이며 $\displaystyle\lim_{t\to0}S(t)=0$이고 $\displaystyle\lim_{t\to\infty}S(t)=\infty$이다. 따라서 사잇값 정리에 의해 $S(t)=\dfrac1n$을 만족하는 양의 실수 $t$가 존재한다.
+      criteria: [2-3-1.R1]
+    - id: 231b-2
+      content: |
+        또한 $S(t)$는 증가함수이므로(【2-2】) $S(t)=\dfrac1n$을 만족하는 양의 실수 $t$는 오직 하나 존재한다.
+      criteria: [2-3-1.R2]
+    - id: 231b-3
+      content: |
+        부등식 $\dfrac{(t-x)^2}{2}\le e^x-L(x)\le\dfrac{e^t(t-x)^2}{2}$ $(0\le x\le t)$를 $0$부터 $t$까지 적분하면 $\displaystyle\int_0^t\dfrac{(t-x)^2}{2}dx\le S(t)\le e^t\int_0^t\dfrac{(t-x)^2}{2}dx$이고, 계산하면 $\dfrac{t^3}{6}\le S(t)\le e^t\dfrac{t^3}{6}$이다.
+      criteria: [2-3-1.R3]
+    - id: 231b-4
+      content: |
+        $t=t_n$을 대입하고 $S(t_n)=\dfrac1n$을 이용하면 $\dfrac{t_n^3}{6}\le\dfrac1n\le e^{t_n}\dfrac{t_n^3}{6}$을 얻는다. 따라서 $nt_n^3\le6$이다. ■
+      criteria: [2-3-1.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2-3-1.R1
+      mark_type: R
+      points: 15
+      evidence: |
+        $S(t)=\dfrac1n$을 만족하는 양의 실수 $t$가 존재함을 (연속성·양 끝 극한·사잇값 정리로) 보였다.
+      steps: [231b-1]
+    - id: 2-3-1.R2
+      mark_type: R
+      points: 5
+      evidence: |
+        $S(t)=\dfrac1n$을 만족하는 양의 실수 $t$가 오직 하나뿐임을 (증가함수임을 근거로) 보였다.
+      steps: [231b-2]
+    - id: 2-3-1.R3
+      mark_type: R
+      points: 10
+      evidence: |
+        $\dfrac{t^3}{6}\le S(t)$를 보였다.
+      steps: [231b-3]
+    - id: 2-3-1.A1
+      mark_type: A
+      points: 10
+      evidence: |
+        $nt_n^3\le6$을 보였다.
+      depends_on: [2-3-1.R3]
+      steps: [231b-4]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-42703}
+  misconceptions:
+  - id: MC-CAL-42703
+    outcome_code: '71'
+    wrong_work: |
+      $S(t)$가 증가함수이므로 $S(t)=\dfrac1n$의 해가 하나라고만 쓰고 존재(연속·$S(0^+)=0$·$S\to\infty$)를 보이지 않음
+    detect_cue: 사잇값 정리 또는 양 끝 극한이 없음
+    feedback: 증가함수는 해가 「많아야 하나」임을 보장할 뿐입니다. 존재는 사잇값 정리로 따로 보이세요.
+    remedy: [RL-3]
+- id: 2-3-2
+  stem: |
+    (2) 함수 $T(t)$를
+    $$T(t)=\int_0^tx\{e^x-L(x)\}dx$$
+    라 할 때, 극한값
+    $$\lim_{n\to\infty}n^4\{T(t_n)\}^3$$
+    을 구하시오. (40점)
+  points: 40
+  depends_on: [2-1, 2-3-1]
+  answer: {kind: value, value: '3/32', equivalents: [], tolerance: null}
+  solutions:
+  - id: S232-A
+    audience: A
+    method_no: 1
+    key_idea: $\dfrac{t^4}{24}\le T(t)\le e^t\dfrac{t^4}{24}$, $t_n\to0$, $nt_n^3\to6$이므로 극한은 $\dfrac{6^4}{24^3}=\dfrac{3}{32}$.
+    steps:
+    - {id: 232a, content: '$\tfrac{(nt_n^3)^4}{24^3}\le n^4T(t_n)^3\le e^{3t_n}\tfrac{(nt_n^3)^4}{24^3}\to\tfrac{6^4}{24^3}=\tfrac3{32}$', criteria: [2-3-2.R1, 2-3-2.R2, 2-3-2.R3, 2-3-2.A1]}
+    hint_ladder:
+    - 2-1의 부등식에 $x\ (\ge0)$를 곱하고 적분해 보자.
+    - $n^4T^3$을 $nt_n^3$으로 나타내면?
+    - $nt_n^3$의 아래쪽 평가는 (1)의 $\dfrac1n\le e^{t_n}\dfrac{t_n^3}{6}$에서 나온다.
+  - id: S232-B
+    audience: B
+    source_flow: GB27.pdf p.71~72(인쇄 p.69~70)
+    method_no: 1
+    steps:
+    - id: 232b-1
+      content: |
+        부등식 $\dfrac{(t-x)^2}{2}\le e^x-L(x)\le\dfrac{e^t(t-x)^2}{2}$ $(0\le x\le t)$에서 $\dfrac{x(t-x)^2}{2}\le x\{e^x-L(x)\}\le\dfrac{e^tx(t-x)^2}{2}$ $(0\le x\le t)$를 얻고, 이로부터 $\displaystyle\int_0^t\dfrac{x(t-x)^2}{2}dx\le T(t)\le e^t\int_0^t\dfrac{x(t-x)^2}{2}dx$를 얻는다. 이를 계산하면 $\dfrac{t^4}{24}\le T(t)\le e^t\dfrac{t^4}{24}$이다.
+      criteria: [2-3-2.R1]
+    - id: 232b-2
+      content: |
+        (1)에서 $0<t_n\le\sqrt[3]{\dfrac6n}$이므로 $\displaystyle\lim_{n\to\infty}t_n=0$이다.
+      criteria: [2-3-2.R2]
+    - id: 232b-3
+      content: |
+        (1)의 $\dfrac1n\le e^{t_n}\dfrac{t_n^3}{6}$과 합치면 $6e^{-t_n}\le nt_n^3\le6$이므로 제시문 (라)에 의해 $\displaystyle\lim_{n\to\infty}nt_n^3=6$을 얻는다.
+      criteria: [2-3-2.R3]
+    - id: 232b-4
+      content: |
+        따라서 $\dfrac{(nt_n^3)^4}{24^3}=n^4\left(\dfrac{t_n^4}{24}\right)^3\le n^4\{T(t_n)\}^3\le n^4\left(e^{t_n}\dfrac{t_n^4}{24}\right)^3=e^{3t_n}\dfrac{(nt_n^3)^4}{24^3}$이고, $\displaystyle\lim_{n\to\infty}e^{3t_n}=1$ 및 $\displaystyle\lim_{n\to\infty}nt_n^3=6$으로부터(제시문 (라)·(마)) $\displaystyle\lim_{n\to\infty}n^4\{T(t_n)\}^3=\dfrac{6^4}{24^3}=\dfrac{3}{32}$이다.
+      criteria: [2-3-2.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2-3-2.R1
+      mark_type: R
+      points: 10
+      evidence: |
+        $\dfrac{t^4}{24}\le T(t)\le e^t\dfrac{t^4}{24}$을 보였다.
+      steps: [232b-1]
+    - id: 2-3-2.R2
+      mark_type: R
+      points: 5
+      evidence: |
+        $\displaystyle\lim_{n\to\infty}t_n=0$을 보였다.
+      steps: [232b-2]
+    - id: 2-3-2.R3
+      mark_type: R
+      points: 5
+      evidence: |
+        $\displaystyle\lim_{n\to\infty}nt_n^3=6$을 보였다.
+      depends_on: [2-3-2.R2]
+      steps: [232b-3]
+    - id: 2-3-2.A1
+      mark_type: A
+      points: 20
+      evidence: |
+        $\displaystyle\lim_{n\to\infty}n^4\{T(t_n)\}^3=\dfrac{3}{32}$을 구했다.
+      depends_on: [2-3-2.R1, 2-3-2.R3]
+      cao: true
+      steps: [232b-4]
+    deductions:
+    - code: D232-1
+      condition: 답만 쓰고 과정 없음
+      effect: cap
+      value: 8
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-42707}
+  misconceptions:
+  - id: MC-CAL-42707
+    outcome_code: '71'
+    wrong_work: |
+      $nt_n^3\le6$만으로 $\displaystyle\lim_{n\to\infty}nt_n^3=6$이라 쓰거나, $e^{3t_n}\to1$의 근거($t_n\to0$) 없이 극한을 계산
+    detect_cue: 아래쪽 평가 $6e^{-t_n}\le nt_n^3$ 또는 $t_n\to0$이 없음
+    feedback: 조임 정리는 양쪽 경계가 같은 값으로 수렴해야 씁니다. $t_n\to0$부터 보이세요.
+    remedy: [RL-4]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CAL-42706}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-INTEG-BY-PARTS}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-CAL-42705}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-INTEGRAL-INEQ}
+  priority: 1
+- id: RL-3
+  trigger: {type: misconception, ref: MC-CAL-42703}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-ROOT-UNIQUE}
+  priority: 1
+- id: RL-4
+  trigger: {type: misconception, ref: MC-CAL-42707}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-SQUEEZE}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-transcribe-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

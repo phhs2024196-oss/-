@@ -1,0 +1,263 @@
+# 경북대 2021학년도 논술(AAT) 모의고사 자연계열Ⅰ 수학 문제 1 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: KNU-M21A-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: KNU
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 추론
+points: 70
+time_estimate_min: 20
+intent: |
+  치환적분으로 적분 변수를 바꾸어 등식을 증명하고(1-1), 적분으로 정의된 함수의 등식에 특정값을 대입하고 양변을 미분하여 미지수를 결정할 수 있는지(1-2) 평가한다.
+key_idea: |
+  $x-t=u$로 치환하면 좌변이 $\int_1^xf(t)(x^2-tx)dt=x^2\int_1^xf-x\int_1^xtf$가 된다. $x=1$ 대입으로 $\sin a+\cos b+\sqrt2=0$, 미분 후 $x=1$ 대입으로 $a\cos a-b\sin b=0$, $a+b=-\frac32\pi$에서 $\cos b=\sin a$, $\sin b=\cos a$.
+stuck: |
+  적분 안의 $x$를 밖으로 꺼낸 뒤 곱의 미분으로 양변을 미분하는 단계
+idea_tags: [IDEA-SUBSTITUTION-SWAP-VARIABLE, IDEA-INTEGRAL-EQUATION-PLUG-AND-DIFFERENTIATE]
+tags: [치환적분, 적분과 미분의 관계, 적분방정식, 삼각함수의 성질]
+elements:
+  materials:
+  - '$\int_0^{x-1}f(x-t)(tx)dt=\sin(ax^2)+\cos(bx^2)+\sqrt2$, $a+b=-\frac32\pi$'
+  - '구간 $(0,\infty)$에서 연속인 함수 $f$'
+  concepts:
+  - '치환적분(제시문 (가))'
+  - '적분과 미분의 관계(제시문 (나))'
+  - '$\cos\left(\frac{\pi}{2}-a\right)=\sin a$ 등 삼각함수의 성질'
+  tools:
+  - '$u=x-t$ 치환과 적분 구간 뒤집기'
+  - '$x^2\int_1^xf(t)dt-x\int_1^xtf(t)dt$로 분리 후 미분'
+  - '$x=1$ 대입으로 적분항 제거'
+  conditions:
+  - '$a+b=-\frac32\pi$'
+  - '$\sin a=-\frac{\sqrt2}{2}$이므로 $\cos a\ne0$'
+  stimuli_used: ['(가)', '(나)']
+  subpart_links: '1-2는 1-1의 등식으로 바꾼 식을 사용'
+
+curriculum:
+  version: '2015'
+  subjects: [미적분]
+  scope_2028: calc2
+  scope_confirmed: false
+  standards:
+  - code: 12미적03-01
+    text: 치환적분법을 이해하고, 이를 활용할 수 있다.
+    verified: false
+  content_area: 적분법 – 치환적분, 정적분으로 정의된 함수
+  behavior_domain: 계산
+  unit_path: [미적분, 적분법, 여러 가지 적분법, 치환적분법]
+  key_concepts: [치환적분, 정적분으로 정의된 함수의 미분]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 경북대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 경북대학교
+  admission_year: 2021
+  admission_type: 논술(AAT) 모의고사
+  track: 자연계열Ⅰ
+  question_no: 1
+  official_url: https://ipsi1.knu.ac.kr   # [확인필요] 입학처 공지·자료 게시판 원본 게시물 주소
+  retrieved_at: 2026-11-21
+  original_points: [30, 40]
+  rights_notice: 미확인(대학 원본 PDF 표지 문구 확인 필요)
+  transcribed_from: 'M21_N1.pdf p.2(문제지 1/3쪽) / 예시답안 p.5, 채점기준 p.6'
+
+verify: verify/KNU-M21A.py::p01
+
+stimuli:
+- label: (가)
+  body: |
+    미분가능한 함수 $g(t)$에 대하여 $x=g(t)$로 놓으면
+
+    $$\int f(x)\,dx=\int f(g(t))g^{\prime}(t)\,dt$$
+
+    이다.
+- label: (나)
+  body: |
+    함수 $f(t)$가 닫힌구간 $[a,b]$에서 연속일 때,
+
+    $$\frac{d}{dx}\int_a^xf(t)\,dt=f(x)\quad(\text{단, }a<x<b)$$
+
+    가 성립한다.
+
+stem: |
+  ※ 모든 문항에서 풀이 과정을 반드시 기술하시오.
+
+  함수 $f(x)$는 구간 $(0,\infty)$에서 연속이고 다음을 만족시킨다.
+
+  $$\int_0^{x-1}f(x-t)(tx)\,dt=\sin(ax^2)+\cos(bx^2)+\sqrt2$$
+
+  $\left(\text{단, }a+b=-\dfrac32\pi\right)$
+
+subparts:
+- id: '1'
+  stem: |
+    【1-1】 다음을 증명하시오. (30점)
+
+    $$\int_0^{x-1}f(x-t)(tx)\,dt=\int_1^xf(t)(x^2-tx)\,dt$$
+  points: 30
+  depends_on: []
+  answer: {kind: proof, value: null, equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $u=x-t$로 치환.
+    steps:
+    - {id: 1a, content: '$t=x-u$, $dt=-du$, $t:0\to x-1$일 때 $u:x\to1$', criteria: [1.M1, 1.A1]}
+    hint_ladder:
+    - $f$ 안의 $x-t$를 하나의 변수로 두자.
+  - id: S1-B
+    audience: B
+    source_flow: M21_N1.pdf p.5
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        좌변에서 $x-t=u$로 놓으면
+      criteria: [1.M1]
+    - id: 1b-2
+      content: |
+        $\displaystyle\int_0^{x-1}f(x-t)(tx)\,dt=\int_x^1[-f(u)\{(x-u)x\}]\,du=\int_1^xf(u)(x^2-ux)\,du=\int_1^xf(t)(x^2-tx)\,dt$이다.
+      criteria: [1.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 10
+      evidence: |
+        $u=x-t$로 치환했다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1]
+    - id: 1.A1
+      mark_type: A
+      points: 20
+      evidence: |
+        $\displaystyle\int_0^{x-1}f(x-t)(tx)\,dt=\int_1^xf(t)(x^2-tx)\,dt$임을 증명했다.
+      depends_on: [1.M1]
+      steps: [1b-2]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-42115}
+  misconceptions:
+  - id: MC-CAL-42115
+    outcome_code: '71'
+    wrong_work: '치환하면서 $dt=-du$의 부호나 적분 구간 $x\to1$의 순서를 빠뜨려 $-\int_1^x$가 남음'
+    detect_cue: 결과에 음의 부호가 남거나 적분 구간이 $[x-1,x]$ 등으로 바뀌었다
+    feedback: $t=0\Rightarrow u=x$, $t=x-1\Rightarrow u=1$, $dt=-du$입니다. 구간을 뒤집으며 부호가 상쇄됩니다.
+    remedy: [RL-1]
+
+- id: '2'
+  stem: |
+    【1-2】 두 실수 $a,b$의 값을 각각 구하시오. (40점)
+  points: 40
+  depends_on: ['1']
+  answer: {kind: value, value: '-3*pi/4; -3*pi/4', equivalents: ['a=b=-3π/4'], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: $x=1$ 대입, 미분 후 $x=1$ 대입, $a+b=-\frac32\pi$로 $\cos b=\sin a$, $\sin b=\cos a$.
+    steps:
+    - {id: 2a, content: '$\sin a+\cos b+\sqrt2=0\Rightarrow\sin a=-\frac{\sqrt2}{2}$; $2(a-b)\cos a=0\Rightarrow a=b=-\frac34\pi$', criteria: [2.M1, 2.M2, 2.M3, 2.A1]}
+    hint_ladder:
+    - $x=1$이면 적분값은?
+    - 양변을 미분한 뒤 다시 $x=1$을 넣자.
+  - id: S2-B
+    audience: B
+    source_flow: M21_N1.pdf p.5
+    method_no: 1
+    steps:
+    - id: 2b-1
+      content: |
+        【1-1】에서 얻은 결과를 바탕으로 $\displaystyle\int_1^xf(t)(x^2-tx)\,dt=\sin(ax^2)+\cos(bx^2)+\sqrt2$를 얻을 수 있다. 위의 등식에 $x=1$을 대입하면 $0=\sin a+\cos b+\sqrt2\ \cdots(*)$
+      criteria: [2.M1]
+    - id: 2b-2
+      content: |
+        한편, $\displaystyle\int_1^xf(t)(x^2-tx)\,dt=x^2\int_1^xf(t)\,dt-x\int_1^xtf(t)\,dt$이고, 위의 등식의 양변을 $x$에 대하여 미분하면 $\displaystyle 2x\int_1^xf(t)\,dt-\int_1^xtf(t)\,dt=(2ax)\cos(ax^2)-(2bx)\sin(bx^2)\ \cdots(**)$이다.
+      criteria: [2.M2]
+    - id: 2b-3
+      content: |
+        등식 $(**)$의 양변에 $x=1$을 대입하면 $0=2a\cos a-2b\sin b\ \cdots(***)$
+      criteria: [2.M3]
+    - id: 2b-4
+      content: |
+        이때, $a+b=-\dfrac32\pi$이므로 $\cos b=\cos\left(-\dfrac{3\pi}{2}-a\right)=\cos\left(\dfrac{\pi}{2}-a\right)=\sin a$이고 비슷한 방법으로 $\sin b=\cos a$이다. 등식 $(*)$에서 $\sin a=-\dfrac{\sqrt2}{2}$이고 등식 $(***)$에서 $2(a-b)\cos a=0$이다. 이때, $\cos a\ne0$이므로 $a=b$이다. 따라서 $a=b=-\dfrac34\pi$이다.
+      criteria: [2.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 10
+      evidence: |
+        등식 $0=\sin a+\cos b+\sqrt2$를 구했다.
+      depends_on: []
+      implied_ok: false
+      steps: [2b-1]
+    - id: 2.M2
+      mark_type: M
+      points: 10
+      evidence: |
+        등식 $\displaystyle 2x\int_1^xf(t)dt-\int_1^xtf(t)dt=(2ax)\cos(ax^2)-(2bx)\sin(bx^2)$를 구했다.
+      depends_on: []
+      implied_ok: false
+      steps: [2b-2]
+    - id: 2.M3
+      mark_type: M
+      points: 10
+      evidence: |
+        등식 $0=2a\cos a-2b\sin b$를 구했다.
+      depends_on: [2.M2]
+      steps: [2b-3]
+    - id: 2.A1
+      mark_type: A
+      points: 10
+      evidence: |
+        답 $a=b=-\dfrac34\pi$를 구했다.
+      depends_on: [2.M1, 2.M3]
+      steps: [2b-4]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-42116}
+  misconceptions:
+  - id: MC-CAL-42116
+    outcome_code: '71'
+    wrong_work: '$\frac{d}{dx}\int_1^xf(t)(x^2-tx)dt=f(x)(x^2-x\cdot x)=0$으로 피적분함수의 $x$를 상수 취급하지 않음'
+    detect_cue: 미분 결과가 $0$ 또는 $f(x)$만의 식이다
+    feedback: 피적분함수에 $x$가 있으면 먼저 $x^2\int f-x\int tf$로 분리한 뒤 곱의 미분을 하세요.
+    remedy: [RL-2]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CAL-42115}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-SUBST-INTEGRAL}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-CAL-42116}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-FTC-VARIABLE-LIMITS}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-transcribe-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

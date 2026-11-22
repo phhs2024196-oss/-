@@ -1,0 +1,398 @@
+# 경북대 2025학년도 논술(AAT) 모의고사 자연계열Ⅱ(의예·치의예·수의예) 수학 문제 1 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: KNU-M25B-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: KNU
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 추론
+points: 120
+time_estimate_min: 30
+intent: |
+  함수방정식에 특수값을 대입해 함숫값을 구하고(1-1), 미분계수의 정의와 극한의 성질로 실수 전체에서의 미분가능성과 도함수 $f'(x)=\sqrt{4+\{f(x)\}^2}$를 이끌어 내며(1-2), 이를 부분적분에 활용해 정적분을 계산할 수 있는지(1-3) 평가한다. (모의고사 자료에 출제 의도 별도 기재 없음 — 문항 해설 요지)
+key_idea: |
+  $a=b=0$에서 $f(0)=0$, $b=0$에서 $f(2a)=f(a)\sqrt{4+\{f(a)\}^2}$. $a=h$로 두고 $2h$로 나누면 $\lim\frac{f(b+2h)-f(b)}{2h}=\sqrt{4+\{f(b)\}^2}$. 1-3은 $\{f'\}^2=\sqrt{4+f^2}\,f'$로 바꿔 부분적분하면 같은 적분이 다시 나와 이항한다.
+stuck: |
+  1-2에서 조건 (Ⅰ)의 $a$를 증분 $h$로 보고 $\frac{f(h)}{h}\to f'(0)$, $f(h)\to0$을 이용해 임의의 점 $b$에서의 미분계수로 바꾸는 단계
+idea_tags: [IDEA-FUNC-EQ-SPECIAL-VALUES, IDEA-FUNC-EQ-TO-DERIVATIVE-DEF, IDEA-IBP-SAME-INTEGRAL-RETURNS]
+tags: [함수방정식, 미분계수의 정의, 부분적분, 쌍곡선 함수꼴]
+elements:
+  materials:
+  - '함수방정식 $2f(2a+b)-2f(b)=f(a)\sqrt{4+\{f(a)\}^2}\sqrt{4+\{f(b)\}^2}+\{f(a)\}^2f(b)$'
+  - '$f(\ln2)=\frac32$, $f''(0)=2$'
+  - '$\int_0^{\ln2}\{f''(x)\}^2dx$'
+  concepts:
+  - '함수의 연속(제시문 (가))'
+  - '미분계수의 정의(제시문 (나))'
+  - '함수의 극한의 성질(제시문 (다))'
+  - '부분적분법(제시문 (라))'
+  tools:
+  - '$a=b=0$, $b=0$ 대입'
+  - '$a=h$ 대입 후 양변을 $4h$로 나누기'
+  - '$\{f''(x)\}^2=\sqrt{4+\{f(x)\}^2}\,f''(x)$'
+  - '$\frac{f''(x)}{\sqrt{4+\{f(x)\}^2}}=1$'
+  conditions:
+  - '$f$는 실수 전체에서 연속'
+  - '$2+\{f(0)\}^2>0$이므로 $f(0)=0$'
+  stimuli_used: ['(가)', '(나)', '(다)', '(라)']
+  subpart_links: '1-2는 1-1의 $f(0)=0$을, 1-3은 1-2의 $f''(x)=\sqrt{4+\{f(x)\}^2}$와 1-1의 $f(\ln4)$ 계산 방식을 사용'
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅱ, 미적분]
+  scope_2028: calc2
+  scope_confirmed: true
+  standards:
+  - code: 미확인
+    text: 미분계수의 뜻을 알고 함수의 미분가능성을 판단할 수 있다(요지)
+    verified: false
+  - code: 미확인
+    text: 부분적분법을 이해하고, 이를 활용할 수 있다(요지)
+    verified: false
+  content_area: 미분 – 미분계수 / 적분법 – 부분적분
+  behavior_domain: 추론
+  unit_path: [수학Ⅱ, 미분, 미분계수, 함수방정식과 미분가능성]
+  key_concepts: [함수방정식, 미분계수의 정의, 극한의 성질, 부분적분]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 경북대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 경북대학교
+  admission_year: 2025
+  admission_type: 논술(AAT) 모의고사
+  track: 자연계열Ⅱ
+  question_no: 1
+  official_url: https://ipsi1.knu.ac.kr   # [확인필요] 입학처 공지·자료 게시판 원본 게시물 주소
+  retrieved_at: 2026-11-21
+  original_points: [30, 50, 40]
+  rights_notice: 미확인(대학 원본 PDF 표지 문구 확인 필요)
+  transcribed_from: 'M25_N2q.pdf p.2(문제지 1/3쪽) / 예시답안·채점기준: M25_N2s.pdf p.1~2(가이드북 인쇄 쪽 72~73)'
+
+verify: verify/KNU-M25B.py::p01
+
+stimuli:
+- label: (가)
+  body: |
+    함수 $f(x)$가 실수 $a$에 대하여 다음 세 조건을 만족시킬 때, $f(x)$는 $x=a$에서 연속이라고 한다.
+
+    (ⅰ) $f(x)$가 $x=a$에서 정의되어 있다.
+
+    (ⅱ) 극한값 $\displaystyle\lim_{x\to a}f(x)$가 존재한다.
+
+    (ⅲ) $\displaystyle\lim_{x\to a}f(x)=f(a)$
+- label: (나)
+  body: |
+    함수 $y=f(x)$의 $x=a$에서의 미분계수는
+
+    $$f'(a)=\lim_{h\to0}\frac{f(a+h)-f(a)}{h}$$
+- label: (다)
+  body: |
+    두 함수 $f(x)$, $g(x)$에 대하여 $\displaystyle\lim_{x\to a}f(x)=\alpha$, $\displaystyle\lim_{x\to a}g(x)=\beta$ ($\alpha$, $\beta$는 실수)일 때,
+
+    (1) $\displaystyle\lim_{x\to a}cf(x)=c\alpha$ (단, $c$는 상수)
+
+    (2) $\displaystyle\lim_{x\to a}\{f(x)+g(x)\}=\alpha+\beta$
+
+    (3) $\displaystyle\lim_{x\to a}\{f(x)g(x)\}=\alpha\beta$
+
+    (4) $\displaystyle\lim_{x\to a}\frac{f(x)}{g(x)}=\frac{\alpha}{\beta}$ (단, $\beta\ne0$)
+- label: (라)
+  body: |
+    닫힌구간 $[a,b]$에서 연속인 도함수를 갖는 두 함수 $f(x)$, $g(x)$에 대하여
+
+    $$\int_a^bf(x)g'(x)dx=\Big[f(x)g(x)\Big]_a^b-\int_a^bf'(x)g(x)dx$$
+
+stem: |
+  ※ 모든 문항에서 풀이 과정을 반드시 기술하시오.
+
+  실수 전체의 집합에서 연속인 함수 $f(x)$가 다음 조건을 만족시킨다.
+
+  (Ⅰ) 모든 실수 $a$, $b$에 대하여,
+
+  $$2f(2a+b)-2f(b)=f(a)\sqrt{4+\{f(a)\}^2}\sqrt{4+\{f(b)\}^2}+\{f(a)\}^2f(b)$$
+
+  (Ⅱ) $f(\ln2)=\dfrac32$
+
+  (Ⅲ) 함수 $f(x)$는 $x=0$에서 미분가능하고, $f'(0)=2$이다.
+
+  다음 물음에 답하시오.
+
+subparts:
+- id: '1'
+  stem: |
+    【1-1】 $f(0)$과 $f(\ln4)$의 값을 각각 구하시오. (30점)
+  points: 30
+  depends_on: []
+  answer: {kind: value, value: '0; 15/4', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $a=b=0$으로 $f(0)=0$, $b=0$으로 $f(2a)=f(a)\sqrt{4+\{f(a)\}^2}$.
+    steps:
+    - {id: 1a, content: '$2f(0)\{2+(f(0))^2\}=0\Rightarrow f(0)=0$, $f(\ln4)=\frac32\sqrt{4+\frac94}=\frac{15}4$', criteria: [1.M1, 1.A1, 1.M2, 1.A2]}
+    hint_ladder:
+    - $a$, $b$에 $0$을 넣어 보자.
+    - $\ln4=2\ln2$이다. $b=0$이면 좌변은?
+  - id: S1-B
+    audience: B
+    source_flow: M25_N2s.pdf p.1
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        조건 (Ⅰ)에 $a=b=0$을 대입하면 $2f(0)\{2+(f(0))^2\}=0$이므로
+      criteria: [1.M1]
+    - id: 1b-2
+      content: |
+        $f(0)=0$이다.
+      criteria: [1.A1]
+    - id: 1b-3
+      content: |
+        조건 (Ⅰ)에 $b=0$을 대입하고 $f(0)=0$을 이용하면, 임의의 실수 $a$에 대하여 $f(2a)=f(a)\sqrt{4+\{f(a)\}^2}$가 성립함을 알 수 있다.
+      criteria: [1.M2]
+    - id: 1b-4
+      content: |
+        따라서 $f(\ln4)=f(2\ln2)=f(\ln2)\sqrt{4+\{f(\ln2)\}^2}=\dfrac32\sqrt{4+\left(\dfrac32\right)^2}=\dfrac{15}{4}$이다.
+      criteria: [1.A2]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 5
+      evidence: |
+        $2f(0)\{2+(f(0))^2\}=0$을 유도했다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1]
+    - id: 1.A1
+      mark_type: A
+      points: 10
+      evidence: |
+        $f(0)=0$을 구했다.
+      depends_on: [1.M1]
+      steps: [1b-2]
+    - id: 1.M2
+      mark_type: M
+      points: 5
+      evidence: |
+        $f(\ln4)=f(\ln2)\sqrt{4+\{f(\ln2)\}^2}$을 구했다.
+      depends_on: []
+      steps: [1b-3]
+    - id: 1.A2
+      mark_type: A
+      points: 10
+      evidence: |
+        $f(\ln4)=\dfrac{15}{4}$을 구했다.
+      depends_on: [1.M2]
+      steps: [1b-4]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-42523}
+  misconceptions:
+  - id: MC-CAL-42523
+    outcome_code: '71'
+    wrong_work: '$a=b=\ln2$를 대입해 $f(3\ln2)$에 관한 식을 얻고 $f(\ln4)$를 구하지 못함'
+    detect_cue: $2a+b=\ln4$가 되도록 대입하지 않았다
+    feedback: $2a+b=2\ln2$, $f(b)$가 사라지도록 $b=0$, $a=\ln2$를 대입하세요.
+    remedy: [RL-1]
+
+- id: '2'
+  stem: |
+    【1-2】 함수 $f(x)$는 실수 전체의 집합에서 미분가능함을 보이고, $f'(\ln2)$의 값을 구하시오. (50점)
+  points: 50
+  depends_on: ['1']
+  answer: {kind: value, value: '5/2', equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: $a=h$로 두고 $2h$로 나누면 $\frac{f(h)}{h}\to2$, $f(h)\to0$이므로 $f'(b)=\sqrt{4+\{f(b)\}^2}$.
+    steps:
+    - {id: 2a, content: '$\lim_{h\to0}\frac{f(b+2h)-f(b)}{2h}=\sqrt{4+\{f(b)\}^2}$, $f''(\ln2)=\frac52$', criteria: [2.M1, 2.A1, 2.R1, 2.M2, 2.A2]}
+    hint_ladder:
+    - 조건 (Ⅰ)의 $a$를 작은 수 $h$로 보면 좌변은 어떤 극한의 분자인가?
+  - id: S2-B
+    audience: B
+    source_flow: M25_N2s.pdf p.1
+    method_no: 1
+    steps:
+    - id: 2b-1
+      content: |
+        조건 (Ⅰ)에서 $a=h$라 두면 $2f(b+2h)-2f(b)=f(h)\sqrt{4+\{f(h)\}^2}\sqrt{4+\{f(b)\}^2}+\{f(h)\}^2f(b)$이고, 따라서 $\dfrac{f(b+2h)-f(b)}{2h}=\dfrac{f(h)\sqrt{4+\{f(h)\}^2}}{4h}\sqrt{4+\{f(b)\}^2}+\dfrac{\{f(h)\}^2f(b)}{4h}$이다. 한편 $\displaystyle\lim_{h\to0}f(h)=f(0)=0$, $\displaystyle\lim_{h\to0}\frac{f(h)}{h}=f'(0)=2$임을 이용하면 $\displaystyle\lim_{h\to0}\frac{f(b+2h)-f(b)}{2h}=\lim_{h\to0}\frac{f(h)}{h}\frac{\sqrt{4+\{f(h)\}^2}}{4}\sqrt{4+\{f(b)\}^2}+\frac{f(b)}{4}\lim_{h\to0}\frac{f(h)}{h}f(h)$
+      criteria: [2.M1]
+    - id: 2b-2
+      content: |
+        $=\sqrt{4+\{f(b)\}^2}$이므로,
+      criteria: [2.A1]
+    - id: 2b-3
+      content: |
+        함수 $f(x)$는 $x=b$에서 미분가능하다. 따라서 함수 $f(x)$는 실수 전체의 집합에서 미분가능하다.
+      criteria: [2.R1]
+    - id: 2b-4
+      content: |
+        또한 $f'(\ln2)=\sqrt{4+\{f(\ln2)\}^2}$
+      criteria: [2.M2]
+    - id: 2b-5
+      content: |
+        $=\sqrt{4+\dfrac94}=\dfrac52$이다.
+      criteria: [2.A2]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 10
+      evidence: |
+        $\displaystyle\lim_{h\to0}\frac{f(b+2h)-f(b)}{2h}=\lim_{h\to0}\frac{f(h)}{h}\frac{\sqrt{4+\{f(h)\}^2}}{4}\sqrt{4+\{f(b)\}^2}+\frac{f(b)}{4}\lim_{h\to0}\frac{f(h)}{h}f(h)$를 유도했다.
+      depends_on: []
+      implied_ok: false
+      ft: {allowed: true, from: [1.A1], max_points: 10}
+      steps: [2b-1]
+    - id: 2.A1
+      mark_type: A
+      points: 10
+      evidence: |
+        $\displaystyle\lim_{h\to0}\frac{f(b+2h)-f(b)}{2h}=\sqrt{4+\{f(b)\}^2}$을 구했다.
+      depends_on: [2.M1]
+      steps: [2b-2]
+    - id: 2.R1
+      mark_type: R
+      points: 10
+      evidence: |
+        함수 $f(x)$가 실수 전체의 집합에서 미분가능함을 보였다.
+      depends_on: [2.A1]
+      steps: [2b-3]
+    - id: 2.M2
+      mark_type: M
+      points: 10
+      evidence: |
+        $f'(\ln2)=\sqrt{4+\{f(\ln2)\}^2}$을 구했다.
+      depends_on: []
+      steps: [2b-4]
+    - id: 2.A2
+      mark_type: A
+      points: 10
+      evidence: |
+        $f'(\ln2)=\dfrac52$를 구했다.
+      depends_on: [2.M2]
+      steps: [2b-5]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-42524}
+  misconceptions:
+  - id: MC-CAL-42524
+    outcome_code: '71'
+    wrong_work: '$\frac{f(b+2h)-f(b)}{h}\to f''(b)$로 보아 $f''(b)=2\sqrt{4+\{f(b)\}^2}$, $f''(\ln2)=5$'
+    detect_cue: 증분 $2h$를 $h$로 나눴다
+    feedback: 미분계수의 정의에서 분모는 $x$의 증분과 같아야 합니다. 증분이 $2h$이면 $2h$로 나누세요.
+    remedy: [RL-2]
+
+- id: '3'
+  stem: |
+    【1-3】 $\displaystyle\int_0^{\ln2}\{f'(x)\}^2dx$의 값을 구하시오. (40점)
+  points: 40
+  depends_on: ['1', '2']
+  answer: {kind: value, value: '15/8 + 2*log(2)', equivalents: [], tolerance: null}
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: $\{f'\}^2=\sqrt{4+f^2}\,f'$를 부분적분하면 같은 적분이 다시 나오고, $\frac{f'}{\sqrt{4+f^2}}=1$.
+    steps:
+    - {id: 3a, content: '$I=\frac{15}4-I+\int_0^{\ln2}\frac{4f''}{\sqrt{4+f^2}}dx\Rightarrow I=\frac{15}8+2\ln2$', criteria: [3.M1, 3.M2, 3.A1]}
+    hint_ladder:
+    - $\{f'(x)\}^2$ 중 하나를 1-2의 식으로 바꿔 보자.
+    - $u=\sqrt{4+f^2}$, $v'=f'$로 부분적분하면 우변에 무엇이 다시 나타나는가?
+  - id: S3-B
+    audience: B
+    source_flow: M25_N2s.pdf p.1
+    method_no: 1
+    steps:
+    - id: 3b-1
+      content: |
+        임의의 실수 $x$에 대하여 【1-2】 풀이에 의해 $f'(x)=\sqrt{4+\{f(x)\}^2}$임을 알 수 있다. 따라서 $\displaystyle\int_0^{\ln2}\{f'(x)\}^2dx=\int_0^{\ln2}\sqrt{4+\{f(x)\}^2}f'(x)dx$이다.
+      criteria: [3.M1]
+    - id: 3b-2
+      content: |
+        부분적분을 이용하면 $\displaystyle\int_0^{\ln2}\sqrt{4+\{f(x)\}^2}f'(x)dx=\Big[\sqrt{4+\{f(x)\}^2}f(x)\Big]_0^{\ln2}-\int_0^{\ln2}\frac{\{f(x)\}^2}{\sqrt{4+\{f(x)\}^2}}f'(x)dx=\frac{15}{4}-\int_0^{\ln2}\sqrt{4+\{f(x)\}^2}f'(x)dx+\int_0^{\ln2}\frac{4}{\sqrt{4+\{f(x)\}^2}}f'(x)dx$이므로 $\displaystyle\int_0^{\ln2}\{f'(x)\}^2dx=\frac{15}{8}+2\int_0^{\ln2}\frac{f'(x)}{\sqrt{4+\{f(x)\}^2}}dx$이다.
+      criteria: [3.M2]
+    - id: 3b-3
+      content: |
+        $\displaystyle\int_0^{\ln2}\{f'(x)\}^2dx=\frac{15}{8}+2\int_0^{\ln2}1\,dx=\frac{15}{8}+2\ln2$이다.
+      criteria: [3.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 10
+      evidence: |
+        $\displaystyle\int_0^{\ln2}\{f'(x)\}^2dx=\int_0^{\ln2}\sqrt{4+\{f(x)\}^2}f'(x)dx$를 유도했다.
+      depends_on: []
+      implied_ok: false
+      ft: {allowed: true, from: [2.A1], max_points: 10}
+      steps: [3b-1]
+    - id: 3.M2
+      mark_type: M
+      points: 10
+      evidence: |
+        $\displaystyle\int_0^{\ln2}\{f'(x)\}^2dx=\frac{15}{8}+2\int_0^{\ln2}\frac{f'(x)}{\sqrt{4+\{f(x)\}^2}}dx$를 유도했다.
+      depends_on: [3.M1]
+      steps: [3b-2]
+    - id: 3.A1
+      mark_type: A
+      points: 20
+      evidence: |
+        $\displaystyle\int_0^{\ln2}\{f'(x)\}^2dx=\frac{15}{8}+2\ln2$를 구했다.
+      depends_on: [3.M2]
+      steps: [3b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-42525}
+  misconceptions:
+  - id: MC-CAL-42525
+    outcome_code: '71'
+    wrong_work: '부분적분 후 $\int\frac{f^2f''}{\sqrt{4+f^2}}dx$를 계산하려다 멈추거나, 이항하지 않고 답을 $\frac{15}4$로 씀'
+    detect_cue: 원래 적분 $I$가 우변에 다시 나온 것을 정리하지 않았다
+    feedback: $\frac{f^2}{\sqrt{4+f^2}}=\sqrt{4+f^2}-\frac{4}{\sqrt{4+f^2}}$로 나누면 원래 적분이 다시 나옵니다. 이항해서 $2I$로 정리하세요.
+    remedy: [RL-3]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CAL-42523}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-FUNC-EQ}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-CAL-42524}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-DERIV-DEF-LIMIT}
+  priority: 1
+- id: RL-3
+  trigger: {type: misconception, ref: MC-CAL-42525}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-INTEG-BY-PARTS}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-transcribe-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

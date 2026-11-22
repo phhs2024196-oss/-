@@ -1,0 +1,339 @@
+# 경북대 2021학년도 논술(AAT) 모의고사 자연계열Ⅱ 수학 문제 2 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: KNU-M21B-02
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: KNU
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 이중세기
+points: 120
+time_estimate_min: 35
+intent: |
+  극값 조건으로 삼차함수를 결정하고(2-1), 두 곡선 사이 영역의 격자점 개수를 세로선별로 세어 자연수 거듭제곱의 합으로 나타내며(2-2(1)), 격자점 개수와 넓이의 비가 수렴함을 극한의 대소 관계로 증명할 수 있는지(2-2(2)) 평가한다.
+key_idea: |
+  $f^{\prime}(x)=3a(x+m)(x-m)$이므로 $b=0$, $c=-3am^2$, $f(m)=m^3+n$에서 $a=-\frac12$. $f(x)-(mx^2+n)=-\frac12x(x+3m)(x-m)\ge0$ ($0\le x\le m$). 세로선 $x=i$ 위의 격자점 수 $L_i$는 두 곡선 사이 길이 $+1$(정수일 때)로, 합을 $\sum i,\sum i^2,\sum i^3$로 계산; 일반 $m$에서는 $L_i$를 길이와 길이$+1$ 사이로 끼워 $\frac{B_m}{A_m}\to1$.
+stuck: |
+  2-2(1)에서 $m$이 홀수일 때 $f(i)$가 항상 정수임($i$의 홀짝에 따라)을 보이는 단계
+idea_tags: [IDEA-LATTICE-COUNT-BY-VERTICAL-LINES, IDEA-LATTICE-TO-AREA-RATIO-LIMIT]
+tags: [삼차함수의 극값, 격자점의 개수, 자연수 거듭제곱의 합, 두 곡선 사이의 넓이, 극한의 대소 관계]
+elements:
+  materials:
+  - '$f(x)=ax^3+bx^2+cx+n$, $x=m$에서 극댓값 $m^3+n$, $x=-m$에서 극솟값($m$ 자연수, $n$ 정수)'
+  - '$y=f(x)$, $y=mx^2+n$, $x=0$, $x=m$으로 둘러싸인 도형의 넓이 $A_m$과 격자점 개수 $B_m$'
+  - '$m=2k-1$일 때 $B_m=\frac{k(pk^3+qk^2+rk+s)}{6}$'
+  concepts:
+  - '극값과 $f^{\prime}(a)=0$(제시문 (가))'
+  - '자연수 거듭제곱의 합(제시문 (나))'
+  - '두 곡선 사이의 넓이(제시문 (다))'
+  - '수열 극한의 대소 관계(제시문 (라))'
+  tools:
+  - '$f^{\prime}(x)=3a(x+m)(x-m)$ 계수 비교'
+  - '$f(i)=\frac i2(-i^2+3m^2)+n$의 정수성($m$ 홀수)'
+  - '$L_i=f(i)-(mi^2+n)+1$, $\sum_{i=0}^{m}L_i$'
+  - '$f(i)-(mi^2+n)\le L_i\le f(i)-(mi^2+n)+1$'
+  conditions:
+  - '$m$ 자연수, $n$ 정수'
+  - '$0\le x\le m$에서 $f(x)\ge mx^2+n$'
+  stimuli_used: ['(가)', '(나)', '(다)', '(라)']
+  subpart_links: '2-2는 2-1에서 결정한 $f(x)=-\frac12x^3+\frac32m^2x+n$을 사용'
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅰ, 수학Ⅱ, 미적분]
+  scope_2028: calc2
+  scope_confirmed: false
+  standards:
+  - code: 12수학Ⅱ02-08
+    text: 함수의 증가와 감소, 극대와 극소를 판정하고 설명할 수 있다.
+    verified: false
+  - code: 12수학Ⅱ03-05
+    text: 곡선으로 둘러싸인 도형의 넓이를 구할 수 있다.
+    verified: false
+  content_area: 다항함수 – 극값, 넓이와 격자점, 수열의 극한
+  behavior_domain: 문제해결
+  unit_path: [수학Ⅱ, 적분, 정적분의 활용, 넓이]
+  key_concepts: [삼차함수의 극값, 격자점, 거듭제곱의 합, 넓이, 극한의 대소 관계]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 경북대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 경북대학교
+  admission_year: 2021
+  admission_type: 논술(AAT) 모의고사
+  track: 자연계열Ⅱ
+  question_no: 2
+  official_url: https://ipsi1.knu.ac.kr   # [확인필요] 입학처 공지·자료 게시판 원본 게시물 주소
+  retrieved_at: 2026-11-21
+  original_points: [30, 40, 50]
+  rights_notice: 미확인(대학 원본 PDF 표지 문구 확인 필요)
+  transcribed_from: 'M21_N2.pdf p.3(문제지 2/3쪽) / 예시답안 p.7~8, 채점기준 p.9'
+
+verify: verify/KNU-M21B.py::p02
+
+stimuli:
+- label: (가)
+  body: |
+    미분가능한 함수 $f(x)$가 $x=a$에서 극값을 가지면
+
+    $$f^{\prime}(a)=0$$
+
+    이다.
+- label: (나)
+  body: |
+    (1) $\displaystyle\sum_{k=1}^{n}k=\frac{n(n+1)}{2}$
+
+    (2) $\displaystyle\sum_{k=1}^{n}k^2=\frac{n(n+1)(2n+1)}{6}$
+
+    (3) $\displaystyle\sum_{k=1}^{n}k^3=\left\{\frac{n(n+1)}{2}\right\}^2$
+- label: (다)
+  body: |
+    두 곡선 사이의 넓이
+
+    두 함수 $y=f(x)$와 $y=g(x)$가 닫힌구간 $[a,b]$에서 연속일 때, 두 곡선 $y=f(x)$, $y=g(x)$와 두 직선 $x=a$, $x=b$로 둘러싸인 도형의 넓이 $S$는
+
+    $$S=\int_a^b|f(x)-g(x)|\,dx$$
+
+    이다.
+- label: (라)
+  body: |
+    수열의 극한값의 대소 관계
+
+    두 수열 $\{a_n\}$, $\{b_n\}$이 수렴하고 $\displaystyle\lim_{n\to\infty}a_n=\alpha$, $\displaystyle\lim_{n\to\infty}b_n=\beta$일 때, 수열 $\{c_n\}$이 모든 자연수 $n$에 대하여 $a_n\le c_n\le b_n$이고 $\alpha=\beta$이면 $\{c_n\}$은 수렴하고
+
+    $$\lim_{n\to\infty}c_n=\alpha$$
+
+    이다.
+
+stem: |
+  ※ 모든 문항에서 풀이과정을 반드시 기술하시오.
+
+  삼차함수 $f(x)=ax^3+bx^2+cx+n$은 다음 조건을 만족시킨다. (단, $n$은 정수)
+
+  함수 $f(x)$는 $x=m$에서 극댓값 $m^3+n$을 갖고, $x=-m$에서 극솟값을 갖는다. (단, $m$은 자연수)
+
+  다음 물음에 답하시오.
+
+subparts:
+- id: '1'
+  stem: |
+    【2-1】 $\dfrac{4ac}{m^2}$의 값을 구하시오. (30점)
+  points: 30
+  depends_on: []
+  answer: {kind: value, value: '-3', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: 도함수의 두 근이 $\pm m$.
+    steps:
+    - {id: 1a, content: '$b=0$, $c=-3am^2$, $-2am^3=m^3\Rightarrow a=-\frac12$, $\frac{4ac}{m^2}=-3$', criteria: [1.M1, 1.M2, 1.A1]}
+    hint_ladder:
+    - $f^{\prime}(x)$는 $x=\pm m$을 근으로 갖는 이차식이다.
+  - id: S1-B
+    audience: B
+    source_flow: M21_N2.pdf p.7
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        주어진 조건과 제시문 (가)를 이용하면 $f^{\prime}(x)=3ax^2+2bx+c=3a(x+m)(x-m)=3ax^2-3am^2$이다. 좌변과 우변의 계수를 비교하면 $b=0$, $c=-3am^2$이므로 $f(x)=ax^3-3am^2x+n$이다.
+      criteria: [1.M1]
+    - id: 1b-2
+      content: |
+        주어진 조건을 이용하면 $f(m)=-2am^3+n=m^3+n$이므로 $a=-\dfrac12$이다.
+      criteria: [1.M2]
+    - id: 1b-3
+      content: |
+        따라서 $f(x)=-\dfrac12x^3+\dfrac32m^2x+n$이고 $\dfrac{4ac}{m^2}=\dfrac{4\times\left(-\frac12\right)\times\frac32m^2}{m^2}=-3$이다.
+      criteria: [1.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 10
+      evidence: |
+        $b=0$, $c=-3am^2$을 구했다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1]
+    - id: 1.M2
+      mark_type: M
+      points: 10
+      evidence: |
+        $a=-\dfrac12$을 구했다.
+      depends_on: [1.M1]
+      steps: [1b-2]
+    - id: 1.A1
+      mark_type: A
+      points: 10
+      evidence: |
+        $\dfrac{4ac}{m^2}=-3$을 구했다.
+      depends_on: [1.M2]
+      steps: [1b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-42121}
+  misconceptions:
+  - id: MC-CAL-42121
+    outcome_code: '71'
+    wrong_work: '극댓값 조건을 $f(-m)=m^3+n$에 적용해 $a=\frac12$'
+    detect_cue: $a>0$ 또는 답이 $3$이다
+    feedback: 극댓값은 $x=m$에서입니다. $a<0$이어야 $x=m$이 극대, $x=-m$이 극소가 됩니다.
+    remedy: [RL-1]
+
+- id: '2'
+  stem: |
+    【2-2】 두 곡선 $y=f(x)$, $y=mx^2+n$과 두 직선 $x=0$, $x=m$으로 둘러싸인 도형의 넓이를 $A_m$이라 하고, 이 도형의 내부 또는 경계에 속하는 $x$좌표와 $y$좌표가 모두 정수인 점의 개수를 $B_m$이라 하자.
+
+    (1) 자연수 $k$에 대하여, $m=2k-1$이면
+
+    $$B_m=\frac{k(pk^3+qk^2+rk+s)}{6}$$
+
+    이다. $\dfrac{(p-q)r}{s}$의 값을 구하시오. (단, $p,q,r,s$는 상수) (40점)
+
+    (2) 수열 $\left\{\dfrac{B_m}{A_m}\right\}$이 수렴함을 증명하시오. (50점)
+  points: 90
+  depends_on: ['1']
+  answer: {kind: value, value: '588', equivalents: ['(1) 588 (2) 증명(극한 1)'], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: $L_i=-\frac12i^3-mi^2+\frac32m^2i+1$ ($m$ 홀수), 일반 $m$은 $L_i$를 끼워 $\frac{B_m}{A_m}\to1$, $A_m=\frac{7}{24}m^4$.
+    steps:
+    - {id: 2a, content: '(1) $B_{2k-1}=\frac{k(28k^3-56k^2+35k+5)}{6}$, $\frac{(28+56)35}{5}=588$ (2) $C_m\le B_m\le D_m$, $\frac{C_m}{A_m},\frac{D_m}{A_m}\to1$', criteria: [2.M1, 2.M2, 2.A1, 2.M3, 2.M4, 2.M5, 2.A2]}
+    hint_ladder:
+    - 세로선 $x=i$ 위에서 두 곡선 사이에 있는 정수 $y$는 몇 개인가?
+    - $m$이 홀수이면 $f(i)$는 왜 정수인가?
+  - id: S2-B
+    audience: B
+    source_flow: M21_N2.pdf p.7~8
+    method_no: 1
+    steps:
+    - id: 2b-1
+      content: |
+        (1) 주어진 도형의 내부 또는 경계에서 직선 $x=i$($i$는 $0\le i\le m$인 정수) 위의 $y$좌표가 정수인 점의 개수를 $L_i$라 하자. 자연수 $k$에 대하여, $m=2k-1$이면 $f(i)=-\dfrac12i^3+\dfrac32(2k-1)^2i+n=\dfrac i2\left(-i^2+3(2k-1)^2\right)+n$이다. 여기서 $i$가 짝수이면 $\dfrac i2$가 정수이므로 $-\dfrac12i^3+\dfrac32(2k-1)^2i$는 정수이고, $i$가 홀수이면 $-i^2+3(2k-1)^2$은 짝수이므로 $-\dfrac12i^3+\dfrac32(2k-1)^2i$는 정수이다. 즉, $f(i)$는 정수이다.
+      criteria: [2.M1]
+    - id: 2b-2
+      content: |
+        따라서 $L_i=-\dfrac12i^3-(2k-1)i^2+\dfrac32(2k-1)^2i+1$이고
+      criteria: [2.M2]
+    - id: 2b-3
+      content: |
+        $B_m=B_{2k-1}=\displaystyle\sum_{i=0}^{2k-1}L_i=-\frac12\left\{\frac{(2k-1)2k}{2}\right\}^2-(2k-1)\times\frac{(2k-1)2k(4k-1)}{6}+\frac32(2k-1)^2\times\frac{(2k-1)2k}{2}+2k=\frac{k(28k^3-56k^2+35k+5)}{6}$이다. 즉 $\dfrac{(p-q)r}{s}=\dfrac{(28+56)35}{5}=588$이다.
+      criteria: [2.A1]
+    - id: 2b-4
+      content: |
+        (2) 주어진 도형의 내부 또는 경계에서 직선 $x=i$($0\le i\le m$인 정수) 위의 $y$좌표가 정수인 점의 개수를 $L_i$라 하면 $-\dfrac12i^3-mi^2+\dfrac32m^2i=-\dfrac12i^3+\dfrac32m^2i+n-(mi^2+n)\le L_i\le-\dfrac12i^3+\dfrac32m^2i+n-(mi^2+n)+1=-\dfrac12i^3-mi^2+\dfrac32m^2i+1$이다.
+      criteria: [2.M3]
+    - id: 2b-5
+      content: |
+        따라서 $-\dfrac12\left\{\dfrac{m(m+1)}{2}\right\}^2-m\times\dfrac{m(m+1)(2m+1)}{6}+\dfrac32m^2\times\dfrac{m(m+1)}{2}\le B_m=\displaystyle\sum_{i=0}^{m}L_i\le-\frac12\left\{\frac{m(m+1)}{2}\right\}^2-m\times\frac{m(m+1)(2m+1)}{6}+\frac32m^2\times\frac{m(m+1)}{2}+m+1$이고, 이 부등식에서 가장 왼쪽 값을 $C_m$, 가장 오른쪽 값을 $D_m$이라 하자.
+      criteria: [2.M4]
+    - id: 2b-6
+      content: |
+        또한 $A_m=\displaystyle\int_0^m\left(-\frac12x^3+\frac32m^2x-mx^2\right)dx=-\frac18m^4+\frac34m^4-\frac13m^4=\frac{-3+18-8}{24}m^4=\frac{7}{24}m^4$이다.
+      criteria: [2.M5]
+    - id: 2b-7
+      content: |
+        부등식 $\dfrac{C_m}{A_m}\le\dfrac{B_m}{A_m}\le\dfrac{D_m}{A_m}$에서 $\displaystyle\lim_{m\to\infty}\frac{C_m}{A_m}=\lim_{m\to\infty}\frac{D_m}{A_m}=1$이므로 제시문 (라)에 의하여 수열 $\left\{\dfrac{B_m}{A_m}\right\}$이 $1$로 수렴한다.
+      criteria: [2.A2]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 20
+      evidence: |
+        (1) $f(i)$가 정수임을 보였다.
+      depends_on: []
+      implied_ok: false
+      ft: {allowed: true, from: [1.M2], max_points: 20}
+      steps: [2b-1]
+    - id: 2.M2
+      mark_type: M
+      points: 10
+      evidence: |
+        (1) $L_i$를 구했다.
+      depends_on: [2.M1]
+      steps: [2b-2]
+    - id: 2.A1
+      mark_type: A
+      points: 10
+      evidence: |
+        (1) $B_m=B_{2k-1}$을 구하고 $\dfrac{(p-q)r}{s}=588$을 구했다.
+      depends_on: [2.M2]
+      steps: [2b-3]
+    - id: 2.M3
+      mark_type: M
+      points: 20
+      evidence: |
+        (2) $L_i$의 부등식을 구했다.
+      depends_on: []
+      implied_ok: false
+      steps: [2b-4]
+    - id: 2.M4
+      mark_type: M
+      points: 10
+      evidence: |
+        (2) $B_m$의 범위를 구했다.
+      depends_on: [2.M3]
+      steps: [2b-5]
+    - id: 2.M5
+      mark_type: M
+      points: 10
+      evidence: |
+        (2) $A_m$을 구했다.
+      depends_on: []
+      implied_ok: false
+      steps: [2b-6]
+    - id: 2.A2
+      mark_type: A
+      points: 10
+      evidence: |
+        (2) $\displaystyle\lim_{m\to\infty}\frac{C_m}{A_m}=\lim_{m\to\infty}\frac{D_m}{A_m}=1$을 계산했다.
+      depends_on: [2.M4, 2.M5]
+      steps: [2b-7]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CNT-42101}
+  misconceptions:
+  - id: MC-CNT-42101
+    outcome_code: '71'
+    wrong_work: '세로선 위 격자점 수를 두 곡선 사이 길이 $f(i)-(mi^2+n)$로 두어 양 끝점 $+1$을 빠뜨림'
+    detect_cue: $L_i$에 $+1$이 없고 $B_m$의 마지막 항 $2k$가 없다
+    feedback: 정수 $p\le y\le q$의 개수는 $q-p+1$입니다. 경계도 포함됩니다.
+    remedy: [RL-2]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CAL-42121}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-EXTREMA}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-CNT-42101}
+  relation: remediation
+  target: {kind: concept, ref: CON-CNT-LATTICE-COUNT}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-transcribe-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

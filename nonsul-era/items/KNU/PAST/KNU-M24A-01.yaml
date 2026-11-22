@@ -1,0 +1,494 @@
+# 경북대 2024학년도 논술(AAT) 모의고사 자연계열Ⅰ 수학 문제 1 — 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: KNU-M24A-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: KNU
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 추론
+points: 130
+time_estimate_min: 45
+intent: |
+  수학적 귀납법과 등비수열로 수열의 일반항을 보이고(1-1), 지수함수의 그래프의 평행이동을 이해하며(1-2), 속력을 적분하여 움직인 거리를 구하고 코사인법칙으로 두 점 사이의 거리를 근삿값으로 구하며(1-3), 수학적 귀납법과 함수의 극한의 대소 관계로 극한값을 구하고 삼각형의 넓이의 비의 극한을 구할 수 있는지(1-4) 평가한다. (모의고사 자료에 출제 의도 별도 기재 없음 — 예시답안 흐름으로 요약)
+key_idea: |
+  $V_{\mathrm A}(x)=2^{x-1}+1$, $V_{\mathrm B}(x)=3^{x-1}$이므로 움직인 거리 $\ell_{\mathrm A}(t)=\dfrac{2^t-1}{2\ln2}+t$, $\ell_{\mathrm B}(t)=\dfrac{3^t-1}{3\ln3}$. 두 직선이 이루는 각이 $\frac{\pi}{6}$이므로 $d^2=\ell_{\mathrm A}^2+\ell_{\mathrm B}^2-\sqrt3\ell_{\mathrm A}\ell_{\mathrm B}$, 넓이의 비는 $\dfrac{\ell_{\mathrm A}(t)\ell_{\mathrm B}(t+1)}{\ell_{\mathrm A}(t+1)\ell_{\mathrm B}(t)}\to\frac12\cdot3$.
+stuck: |
+  1-2에서 수열 조건만으로 주어진 $V_{\mathrm A}$를 $a^{x+\alpha_{\mathrm A}}-\beta_{\mathrm A}$ 꼴로 놓고 세 값으로 연립하는 단계, 1-4(1)에서 $2^t\ge t^2$를 귀납법으로 보여 조임 정리에 쓰는 단계
+idea_tags: [IDEA-SPEED-INTEGRAL-DISTANCE, IDEA-RATIO-LIMIT-DOMINANT-TERM]
+tags: [수학적 귀납법, 등비수열, 지수함수의 평행이동, 속력과 거리, 코사인법칙, 함수의 극한의 대소 관계]
+elements:
+  materials:
+  - '점화식 $V_{\mathrm A}(n+1)=2V_{\mathrm A}(n)-1$, $V_{\mathrm B}(n+1)=3V_{\mathrm B}(n)$, $V_{\mathrm A}(1)=2$, $V_{\mathrm B}(1)=1$'
+  - '평행이동하면 지수함수 $y=a^x$, $y=b^x$가 되는 두 함수 $V_{\mathrm A}(x)$, $V_{\mathrm B}(x)$'
+  - '직선 $y=\frac{1}{\sqrt3}x$, $y=\sqrt3x$ 위를 원점에서 출발해 속력 $V_{\mathrm A}(t)$, $V_{\mathrm B}(t)$로 움직이는 두 점'
+  - '삼각형 $\mathrm{OA}_t\mathrm{B}_{t+1}$, $\mathrm{OA}_{t+1}\mathrm{B}_t$의 넓이의 비'
+  concepts:
+  - '직선의 기울기와 $\tan\theta$(제시문 (가))'
+  - '수학적 귀납법(제시문 (나))'
+  - '속력과 움직인 거리(제시문 (다))'
+  - '코사인법칙(제시문 (라))'
+  - '함수의 극한의 대소 관계(제시문 (마))'
+  - '지수함수의 그래프의 평행이동, 지수함수의 적분'
+  tools:
+  - '귀납법으로 $V_{\mathrm A}(n)=2^{n-1}+1$, 등비수열로 $V_{\mathrm B}(n)=3^{n-1}$'
+  - '$V_{\mathrm A}(x)=a^{x+\alpha_{\mathrm A}}-\beta_{\mathrm A}$에 $x=1,2,3$ 대입·연립'
+  - '$\int_0^t2^{x-1}dx=\frac{2^t-1}{2\ln2}$'
+  - '두 직선의 사잇각 $\frac{\pi}{3}-\frac{\pi}{6}=\frac{\pi}{6}$ → $d^2=\ell_{\mathrm A}^2+\ell_{\mathrm B}^2-\sqrt3\ell_{\mathrm A}\ell_{\mathrm B}$'
+  - '귀납법으로 $2^t\ge t^2$ ($t\ge4$) → $0\le\frac{t+1}{2^t}\le\frac{t+1}{t^2}$'
+  - '넓이 $\frac12\ell_{\mathrm A}\ell_{\mathrm B}\sin\frac{\pi}{6}$의 비에서 분자·분모를 $2^t$, $3^t$로 나눔'
+  conditions:
+  - '두 점은 $t=0$에 원점에서 만나고 제1사분면 위를 움직임'
+  - '1-3은 주어진 근삿값 $\frac{1}{2\ln2}\approx0.72$, $\frac{1}{3\ln3}\approx0.3$, $\sqrt3\approx1.73$을 사용해 소수점 셋째 자리에서 반올림'
+  stimuli_used: ['(가)', '(나)', '(다)', '(라)', '(마)']
+  subpart_links: '1-2는 1-1의 값 $V_{\mathrm A}(1),V_{\mathrm A}(2),V_{\mathrm A}(3)$을, 1-3·1-4(2)는 1-2로 정해진 $V_{\mathrm A},V_{\mathrm B}$와 거리 $\ell_{\mathrm A},\ell_{\mathrm B}$를, 1-4(2)는 1-4(1)의 극한을 사용'
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅰ, 수학Ⅱ, 미적분]
+  scope_2028: calc2
+  scope_confirmed: true
+  standards:
+  - code: 12수학Ⅰ03-08
+    text: 수학적 귀납법을 이용하여 명제를 증명할 수 있다.
+    verified: false
+  - code: 12수학Ⅰ02-03
+    text: 사인법칙과 코사인법칙을 이해하고, 이를 활용할 수 있다.
+    verified: false
+  - code: 12미적03-07
+    text: 속도와 거리에 대한 문제를 해결할 수 있다.
+    verified: false
+  - code: 미확인
+    text: 함수의 극한의 대소 관계(요지)
+    verified: false
+  content_area: 수열 – 수학적 귀납법 / 적분법 – 속도와 거리 / 함수의 극한
+  behavior_domain: 문제해결
+  unit_path: [미적분, 적분법, 정적분의 활용, 속도와 거리]
+  key_concepts: [수학적 귀납법, 지수함수의 평행이동, 속도와 거리, 코사인법칙, 함수의 극한의 대소 관계]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 경북대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 경북대학교
+  admission_year: 2024
+  admission_type: 논술(AAT) 모의고사
+  track: 자연계열Ⅰ
+  question_no: 1
+  official_url: https://ipsi1.knu.ac.kr   # [확인필요] 입학처 공지·자료 게시판 원본 게시물 주소
+  retrieved_at: 2026-11-21
+  original_points: [30, 20, 40, 10, 30]
+  rights_notice: 미확인(대학 원본 PDF 표지 문구 확인 필요)
+  transcribed_from: 'M24_N1.pdf p.2(문제지 1/3쪽) / 예시답안·채점기준: M24_N1.pdf p.5~7'
+
+verify: verify/KNU-M24A.py::p01
+
+stimuli:
+- label: (가)
+  body: |
+    직선 $y=mx+n$이 $x$축의 양의 방향과 이루는 각의 크기를 $\theta$라 하면 $\tan\theta$는 직선의 기울기 $m$과 같다.
+- label: (나)
+  body: |
+    자연수 $n$에 대한 명제 $p(n)$이 모든 자연수에 대하여 성립함을 증명하려면 다음 두 가지를 보이면 된다.
+
+    (ⅰ) $n=1$일 때 명제 $p(n)$이 성립한다.
+
+    (ⅱ) $n=k$일 때 명제 $p(n)$이 성립한다고 가정하면 $n=k+1$일 때도 명제 $p(n)$이 성립한다.
+- label: (다)
+  body: |
+    좌표평면 위를 움직이는 점 $\mathrm{P}$의 시각 $t$에서의 위치 $(x,y)$가 두 함수 $x=f(t)$, $y=g(t)$로 나타내어질 때, 시각 $t$에서의 점 $\mathrm{P}$의 속력은 $\sqrt{\left(\dfrac{dx}{dt}\right)^2+\left(\dfrac{dy}{dt}\right)^2}$이고, 시각 $t=a$에서 $t=b$까지 점 $\mathrm{P}$가 움직인 거리 $s$는
+    $$s=\int_a^b\sqrt{\left(\dfrac{dx}{dt}\right)^2+\left(\dfrac{dy}{dt}\right)^2}\,dt$$
+    이다.
+- label: (라)
+  body: |
+    삼각형 $\mathrm{ABC}$에서
+    $$a^2=b^2+c^2-2bc\cos A$$
+    $$b^2=c^2+a^2-2ca\cos B$$
+    $$c^2=a^2+b^2-2ab\cos C$$
+    이다.
+- label: (마)
+  body: |
+    두 함수 $f(x)$, $g(x)$에서 $\displaystyle\lim_{x\to a}f(x)=\alpha$, $\displaystyle\lim_{x\to a}g(x)=\beta$ (단, $\alpha$, $\beta$는 실수)일 때, $a$에 가까운 모든 실수 $x$에서 함수 $h(x)$에 대하여 $f(x)\le h(x)\le g(x)$이고 $\alpha=\beta$이면, $\displaystyle\lim_{x\to a}h(x)=\alpha$이다.
+
+stem: |
+  ※ 모든 문항에서 풀이 과정을 반드시 기술하시오.
+
+  실수 전체의 집합에서 미분가능인 두 함수 $y=V_{\mathrm A}(x)$, $y=V_{\mathrm B}(x)$가 다음 조건을 만족시킨다.
+
+  > (Ⅰ) 모든 자연수 $n$에 대하여 두 수열 $\{V_{\mathrm A}(n)\}$와 $\{V_{\mathrm B}(n)\}$는 각각 $V_{\mathrm A}(n+1)=2V_{\mathrm A}(n)-1$과 $V_{\mathrm B}(n+1)=3V_{\mathrm B}(n)$을 만족시키며, $V_{\mathrm A}(1)=2$ 이고 $V_{\mathrm B}(1)=1$ 이다.
+  >
+  > (Ⅱ) 함수 $y=V_{\mathrm A}(x)$의 그래프를 $x$축의 방향으로 $\alpha_A$만큼, $y$축의 방향으로 $\beta_A$만큼 평행이동 하였더니 지수함수 $y=a^x$의 그래프가 되었고, 함수 $y=V_{\mathrm B}(x)$의 그래프를 $x$축의 방향으로 $\alpha_B$만큼, $y$축의 방향으로 $\beta_B$만큼 평행이동 하였더니 지수함수 $y=b^x$의 그래프가 되었다.
+  >
+  > (Ⅲ) 좌표평면 위의 두 점 $\mathrm{A}$와 $\mathrm{B}$는 각각 직선 $y=\dfrac{1}{\sqrt3}x$와 $y=\sqrt3x$위를 움직인다. $\mathrm{A}$와 $\mathrm{B}$는 시각 $t=0$일 때 원점 $\mathrm{O}$에서 만난 후 제 1사분면 위를 움직이며, 시각 $t\,(\ge0)$에서의 위치는 각각 $A_t$와 $B_t$이며 그때의 속력은 각각 $V_{\mathrm A}(t)$와 $V_{\mathrm B}(t)$이다.
+
+  다음 물음에 답하시오.
+
+subparts:
+- id: 1-1
+  stem: |
+    【1-1】 모든 자연수 $n$에 대하여 $V_{\mathrm A}(n)=2^{n-1}+1$이고 $V_{\mathrm B}(n)=3^{n-1}$임을 보이시오. (30점)
+  points: 30
+  depends_on: []
+  answer: {kind: proof, value: null, equivalents: [], tolerance: null}
+  solutions:
+  - id: S11-A
+    audience: A
+    method_no: 1
+    key_idea: $V_{\mathrm A}$는 귀납법, $V_{\mathrm B}$는 공비 3인 등비수열.
+    steps:
+    - {id: 11a, content: '$V_{\mathrm A}(k+1)=2(2^{k-1}+1)-1=2^k+1$; $V_{\mathrm B}(n)=3^{n-1}$', criteria: [1-1.R1, 1-1.R2]}
+    hint_ladder:
+    - $n=k$에서 식이 성립한다고 가정하고 점화식에 대입하자.
+  - id: S11-B
+    audience: B
+    source_flow: M24_N1.pdf p.5
+    method_no: 1
+    steps:
+    - id: 11b-1
+      content: |
+        $V_{\mathrm A}(1)=2^0+1=2$ 이므로 $n=1$일 때 성립한다. $n=k$일 때, $V_{\mathrm A}(k)=2^{k-1}+1$이라 가정하면, $V_{\mathrm A}(k+1)=2V_{\mathrm A}(k)-1=2(2^{k-1}+1)-1=2^k+1$이므로 $n=k+1$일 때도 성립하여 수학적 귀납법에 의하여 $V_{\mathrm A}(n)=2^{n-1}+1$이다.
+      criteria: [1-1.R1]
+    - id: 11b-2
+      content: |
+        $V_{\mathrm B}(n+1)=3V_{\mathrm B}(n)$이므로 $V_{\mathrm B}(n)$은 공비가 $3$인 등비수열이다. 즉, $V_{\mathrm B}(n)=3^{n-1}$이다. ■
+      criteria: [1-1.R2]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1-1.R1
+      mark_type: R
+      points: 15
+      evidence: |
+        수학적 귀납법에 의하여 $V_{\mathrm A}(n)=2^{n-1}+1$임을 보였다.
+      steps: [11b-1]
+    - id: 1-1.R2
+      mark_type: R
+      points: 15
+      evidence: |
+        $V_{\mathrm B}(n)=3^{n-1}$를 구했다.
+      steps: [11b-2]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-SEQ-42402}
+  misconceptions:
+  - id: MC-SEQ-42402
+    outcome_code: '71'
+    wrong_work: |
+      $V_{\mathrm A}$의 처음 몇 항($2,3,5,9$)을 나열하고 규칙이 $2^{n-1}+1$이라고만 써서 귀납 단계를 생략
+    detect_cue: $n=k\Rightarrow n=k+1$ 단계의 식 변형이 없음
+    feedback: 몇 개 항의 확인은 증명이 아닙니다. 가정 $V_{\mathrm A}(k)=2^{k-1}+1$을 점화식에 대입해 $2^k+1$이 됨을 보이세요.
+    remedy: [RL-1]
+- id: 1-2
+  stem: |
+    【1-2】 $a+b+\alpha_{\mathrm A}+\alpha_{\mathrm B}+\beta_{\mathrm A}+\beta_{\mathrm B}$의 값을 구하시오. (20점)
+  points: 20
+  depends_on: [1-1]
+  answer: {kind: value, value: '2', equivalents: [], tolerance: null}
+  solutions:
+  - id: S12-A
+    audience: A
+    method_no: 1
+    key_idea: $V_{\mathrm A}(x)=a^{x+\alpha_{\mathrm A}}-\beta_{\mathrm A}$에 세 값 대입.
+    steps:
+    - {id: 12a, content: '$\alpha_{\mathrm A}=-1$, $a=2$, $\beta_{\mathrm A}=-1$, $\alpha_{\mathrm B}=-1$, $b=3$, $\beta_{\mathrm B}=0$ ⇒ 합 $2$', criteria: [1-2.R1, 1-2.A1]}
+    hint_ladder:
+    - $y=a^x$를 거꾸로 평행이동하면 $V_{\mathrm A}(x)$가 된다. 식으로 쓰면?
+  - id: S12-B
+    audience: B
+    source_flow: M24_N1.pdf p.5
+    method_no: 1
+    steps:
+    - id: 12b-1
+      content: |
+        $y=a^x$의 그래프를 $x$축으로 $-\alpha_{\mathrm A}$만큼, $y$축으로 $-\beta_{\mathrm A}$만큼 평행이동하면 $y=V_{\mathrm A}(x)$의 그래프이므로, $V_{\mathrm A}(x)=a^{x+\alpha_{\mathrm A}}-\beta_{\mathrm A}$이다. $V_{\mathrm A}(1)=2$, $V_{\mathrm A}(2)=3$, $V_{\mathrm A}(3)=5$이므로 $a^{1+\alpha_{\mathrm A}}-\beta_{\mathrm A}=2$, $a^{2+\alpha_{\mathrm A}}-\beta_{\mathrm A}=3$, $a^{3+\alpha_{\mathrm A}}-\beta_{\mathrm A}=5$이다. 연립하면, $\alpha_{\mathrm A}=-1$, $a=2$, $\beta_{\mathrm A}=-1$임을 알 수 있다. 비슷하게, $\alpha_{\mathrm B}=-1$, $b=3$, $\beta_{\mathrm B}=0$을 구할 수 있으므로
+      criteria: [1-2.R1]   # [판독확인] 원문 예시답안 셋째 식에 m_A, n_A 로 인쇄된 곳은 α_A, β_A 의 오식으로 보고 정정
+    - id: 12b-2
+      content: |
+        $a+b+\alpha_{\mathrm A}+\alpha_{\mathrm B}+\beta_{\mathrm A}+\beta_{\mathrm B}=2$이다.
+      criteria: [1-2.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1-2.R1
+      mark_type: R
+      points: 18
+      evidence: |
+        $\alpha_{\mathrm A}=-1$, $a=2$, $\beta_{\mathrm A}=-1$, $\alpha_{\mathrm B}=-1$, $b=3$, $\beta_{\mathrm B}=0$임을 보였다.
+      steps: [12b-1]
+    - id: 1-2.A1
+      mark_type: A
+      points: 2
+      evidence: |
+        $a+b+\alpha_{\mathrm A}+\alpha_{\mathrm B}+\beta_{\mathrm A}+\beta_{\mathrm B}=2$임을 보였다.
+      depends_on: [1-2.R1]
+      steps: [12b-2]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-ALG-42403}
+  misconceptions:
+  - id: MC-ALG-42403
+    outcome_code: '71'
+    wrong_work: |
+      평행이동 방향을 반대로 적용해 $V_{\mathrm A}(x)=a^{x-\alpha_{\mathrm A}}+\beta_{\mathrm A}$로 두고 $\alpha_{\mathrm A}=1$, $\beta_{\mathrm A}=1$을 얻음(합 $6$)
+    detect_cue: $\alpha$, $\beta$의 부호가 모두 반대
+    feedback: $V_{\mathrm A}$를 $(\alpha,\beta)$만큼 옮겨 $a^x$가 되므로 $V_{\mathrm A}(x-\alpha_{\mathrm A})+\beta_{\mathrm A}=a^x$입니다.
+    remedy: [RL-2]
+- id: 1-3
+  stem: |
+    【1-3】 시각 $t=4$에서의 두 점 $\mathrm{A}$와 $\mathrm{B}$ 사이의 거리 $d(A_4,B_4)$를 구하시오. (단, 근삿값 $\dfrac{1}{2\ln2}\approx0.72$, $\dfrac{1}{3\ln3}\approx0.3$, $\sqrt3\approx1.73$을 이용하여 소수점 3번째 자리에서 반올림을 해서 2자리까지의 값을 구하시오) (40점)
+  points: 40
+  depends_on: [1-2]
+  answer: {kind: value, value: '13.44', equivalents: ['d(A_4,B_4)≈13.44'], tolerance: null}   # 문제가 지정한 근삿값 기준 답. 정확한 값은 ≈13.63(1/(3ln3)=0.3034… 등 근삿값 오차가 둘째 자리를 바꿈) [공식해설 확인필요]
+  solutions:
+  - id: S13-A
+    audience: A
+    method_no: 1
+    key_idea: 거리 = 속력의 적분, 두 직선의 사잇각 $\frac{\pi}{6}$에 코사인법칙.
+    steps:
+    - {id: 13a, content: '$\ell_{\mathrm A}(4)\approx14.8$, $\ell_{\mathrm B}(4)\approx24$, $d^2\approx180.544$, $d\approx13.44$', criteria: [1-3.M1, 1-3.M2, 1-3.M3, 1-3.R1, 1-3.A1]}
+    hint_ladder:
+    - 원점에서 시각 $t$까지 각 점이 움직인 거리를 적분으로 쓰자.
+    - 두 직선이 $x$축과 이루는 각은 각각 $\frac{\pi}{6}$, $\frac{\pi}{3}$이다.
+  - id: S13-B
+    audience: B
+    source_flow: M24_N1.pdf p.5
+    method_no: 1
+    steps:
+    - id: 13b-1
+      content: |
+        원점에서 만난 후 시각 $t$까지 점 $\mathrm{A},\mathrm{B}$가 움직인 거리를 각각 $\ell_{\mathrm A}(t),\ell_{\mathrm B}(t)$라 하면,
+        $\ell_{\mathrm A}(t)=\displaystyle\int_0^tV_{\mathrm A}(x)\,dx=\dfrac{2^t-1}{2\ln2}+t\approx(0.72)(2^t-1)+t$, $\ell_{\mathrm B}(t)=\displaystyle\int_0^tV_{\mathrm B}(x)\,dx=\dfrac{3^t-1}{3\ln3}\approx(0.3)(3^t-1)$이다.
+      criteria: [1-3.M1]
+    - id: 13b-2
+      content: |
+        시각 $t=4$에서 두 점 $\mathrm{A}$와 $\mathrm{B}$ 사이의 거리 $d(\mathrm{A}_4,\mathrm{B}_4)$는, 제시문 (라)에 의하여, $[d(\mathrm{A}_4,\mathrm{B}_4)]^2=[\ell_{\mathrm A}(4)]^2+[\ell_{\mathrm B}(4)]^2-\sqrt3\,\ell_{\mathrm A}(4)\ell_{\mathrm B}(4)$이다. $\ell_{\mathrm A}(4)\approx(0.72)(15)+4=14.8$, $\ell_{\mathrm B}(4)\approx(0.3)(80)=24$이므로,
+      criteria: [1-3.M2]
+    - id: 13b-3
+      content: |
+        $[d(\mathrm{A}_4,\mathrm{B}_4)]^2\approx(14.8)^2+(24)^2-(1.73)(14.8)(24)=180.544$ 이다.
+      criteria: [1-3.M3]
+    - id: 13b-4
+      content: |
+        $13.436<\sqrt{180.544}<13.437$이므로,
+      criteria: [1-3.R1]
+    - id: 13b-5
+      content: |
+        $d(\mathrm{A}_4,\mathrm{B}_4)$을 소수점 3번째 자리에서 반올림을 해서 2자리까지의 값을 구하면 $13.44$이다.
+      criteria: [1-3.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1-3.M1
+      mark_type: M
+      points: 10
+      evidence: |
+        $\ell_{\mathrm A}(t)=\dfrac{2^t-1}{2\ln2}+t\approx(0.72)(2^t-1)+t$, $\ell_{\mathrm B}(t)=\dfrac{3^t-1}{3\ln3}\approx(0.3)(3^t-1)$임을 보였다.
+      steps: [13b-1]
+    - id: 1-3.M2
+      mark_type: M
+      points: 10
+      evidence: |
+        $[d(\mathrm{A}_4,\mathrm{B}_4)]^2=[\ell_{\mathrm A}(4)]^2+[\ell_{\mathrm B}(4)]^2-\sqrt3\ell_{\mathrm A}(4)\ell_{\mathrm B}(4)$, $\ell_{\mathrm A}(4)\approx14.8$, $\ell_{\mathrm B}(4)\approx24$를 구했다.
+      steps: [13b-2]
+    - id: 1-3.M3
+      mark_type: M
+      points: 5
+      evidence: |
+        $[d(\mathrm{A}_4,\mathrm{B}_4)]^2\approx180.544$을 구했다.
+      steps: [13b-3]
+    - id: 1-3.R1
+      mark_type: R
+      points: 10
+      evidence: |
+        $13.436<\sqrt{180.544}<13.437$을 보였다.
+      steps: [13b-4]
+    - id: 1-3.A1
+      mark_type: A
+      points: 5
+      evidence: |
+        반올림하여 $13.44$를 찾았다.
+      depends_on: [1-3.R1]
+      steps: [13b-5]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-GEO-42404}
+  misconceptions:
+  - id: MC-GEO-42404
+    outcome_code: '71'
+    wrong_work: |
+      두 직선 사이의 각을 $\frac{\pi}{3}$(직선 $y=\sqrt3x$의 경사각)으로 잡아 $d^2=\ell_{\mathrm A}^2+\ell_{\mathrm B}^2-\ell_{\mathrm A}\ell_{\mathrm B}$로 계산
+    detect_cue: 코사인법칙의 계수가 $\sqrt3$이 아니라 $1$
+    feedback: 두 직선의 경사각은 $\frac{\pi}{6}$, $\frac{\pi}{3}$(제시문 (가))이므로 사잇각은 $\frac{\pi}{6}$이고 $2\cos\frac{\pi}{6}=\sqrt3$입니다.
+    remedy: [RL-3]
+- id: 1-4-1
+  stem: |
+    【1-4】
+    (1) 제시문 (마)를 이용하여, 극한값 $\displaystyle\lim_{t\to\infty}\dfrac{t+1}{2^t}$을 구하시오. (10점)
+  points: 10
+  depends_on: []
+  answer: {kind: value, value: '0', equivalents: [], tolerance: null}
+  # [메모] 공식 예시답안은 4 이상의 자연수 t에 대해서만 2^t≥t^2를 보인 뒤 실수 t→∞ 극한에 적용함 — 엄밀히는 실수 t로의 확장 보완 필요 [공식해설 확인필요]
+  solutions:
+  - id: S141-A
+    audience: A
+    method_no: 1
+    key_idea: $2^t\ge t^2$ ($t\ge4$)로 $0\le\frac{t+1}{2^t}\le\frac{t+1}{t^2}\to0$.
+    steps:
+    - {id: 141a, content: '귀납법 $2^t\ge t^2$ → 조임', criteria: [1-4-1.R1, 1-4-1.A1]}
+    hint_ladder:
+    - $2^t$와 $t^2$ 중 어느 쪽이 큰지 $t=4,5,6$에서 비교해 보자.
+  - id: S141-B
+    audience: B
+    source_flow: M24_N1.pdf p.6
+    method_no: 1
+    steps:
+    - id: 141b-1
+      content: |
+        4 이상인 모든 자연수 $t$에 대하여 $2^t\ge t^2$을 먼저 증명하자. $2^4=4^2$이므로 $t=4$일 때, $2^t\ge t^2$은 성립한다. $t=k\ (k\ge4)$일 때, $2^k\ge k^2$이 성립한다고 가정하자. 4 이상인 모든 자연수 $k$에 대하여 $k^2\ge2k+1$은 쉽게 보일 수 있고 $2^{k+1}=2\times2^k\ge2k^2=k^2+k^2\ge k^2+2k+1=(k+1)^2$이므로 $t=k+1$일 때도 $2^t\ge t^2$은 성립한다. 수학적 귀납법에 의해 4 이상인 모든 자연수 $t$에 대하여 $2^t\ge t^2$은 성립한다.
+      criteria: [1-4-1.R1]
+    - id: 141b-2
+      content: |
+        4 이상인 모든 자연수 $t$에 대하여 $2^t\ge t^2\,(>0)$이므로, $0\le\dfrac{t+1}{2^t}\le\dfrac{t+1}{t^2}$이 4 이상인 모든 자연수 $t$에 대하여 성립한다. $\displaystyle\lim_{t\to\infty}\dfrac{t+1}{t^2}=0$이므로 제시문 (마)에 의하여 $\displaystyle\lim_{t\to\infty}\dfrac{t+1}{2^t}=0$이다.
+      criteria: [1-4-1.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1-4-1.R1
+      mark_type: R
+      points: 5
+      evidence: |
+        4 이상인 모든 자연수 $t$에 대하여 $2^t\ge t^2$을 보였다.
+      steps: [141b-1]
+    - id: 1-4-1.A1
+      mark_type: A
+      points: 5
+      evidence: |
+        $0\le\dfrac{t+1}{2^t}\le\dfrac{t+1}{t^2}$이 성립함을 찾고, $\displaystyle\lim_{t\to\infty}\dfrac{t+1}{t^2}=0$이므로 제시문 (마)에 의하여 $\displaystyle\lim_{t\to\infty}\dfrac{t+1}{2^t}=0$임을 보였다.
+      depends_on: [1-4-1.R1]
+      steps: [141b-2]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-42414}
+  misconceptions:
+  - id: MC-CAL-42414
+    outcome_code: '71'
+    wrong_work: |
+      로피탈 정리 등 교육과정 밖 도구로 극한을 구하거나, "$2^t$이 더 빨리 커지므로 $0$"이라고만 씀(제시문 (마) 미사용)
+    detect_cue: 비교 부등식 $0\le\frac{t+1}{2^t}\le g(t)$가 없음
+    feedback: 문제는 제시문 (마)(조임 정리)를 쓰라고 요구합니다. $2^t\ge t^2$을 먼저 증명해 위아래로 묶으세요.
+    remedy: [RL-4]
+- id: 1-4-2
+  stem: |
+    (2) 삼각형 $\mathrm{OA}_t\mathrm{B}_{t+1}$과 삼각형 $\mathrm{OA}_{t+1}\mathrm{B}_t$의 넓이를 각각 $S_t$와 $T_t$라 할 때, $\displaystyle\lim_{t\to\infty}\dfrac{S_t}{T_t}$의 값을 구하시오. (30점)
+  points: 30
+  depends_on: [1-3, 1-4-1]
+  answer: {kind: value, value: '3/2', equivalents: [], tolerance: null}
+  solutions:
+  - id: S142-A
+    audience: A
+    method_no: 1
+    key_idea: $\frac{S_t}{T_t}=\frac{\ell_{\mathrm A}(t)}{\ell_{\mathrm A}(t+1)}\cdot\frac{\ell_{\mathrm B}(t+1)}{\ell_{\mathrm B}(t)}\to\frac12\cdot3$.
+    steps:
+    - {id: 142a, content: '넓이 $\frac12\ell\ell\sin\frac{\pi}{6}$, 분자·분모를 $2^t3^t$로 나누고 (1)의 극한 사용 ⇒ $\frac32$', criteria: [1-4-2.M1, 1-4-2.M2, 1-4-2.A1]}
+    hint_ladder:
+    - 두 삼각형 모두 꼭지각이 $\frac{\pi}{6}$이다.
+    - $\ell_{\mathrm A}(t)$에서 가장 빨리 커지는 항은 무엇인가?
+  - id: S142-B
+    audience: B
+    source_flow: M24_N1.pdf p.6
+    method_no: 1
+    steps:
+    - id: 142b-1
+      content: |
+        $S_t=\dfrac12\ell_{\mathrm A}(t)\ell_{\mathrm B}(t+1)\sin\dfrac{\pi}{6}$, $T_t=\dfrac12\ell_{\mathrm A}(t+1)\ell_{\mathrm B}(t)\sin\dfrac{\pi}{6}$이므로,
+      criteria: [1-4-2.M1]
+    - id: 142b-2
+      content: |
+        $$\dfrac{S_t}{T_t}=\dfrac{\ell_{\mathrm A}(t)\ell_{\mathrm B}(t+1)}{\ell_{\mathrm A}(t+1)\ell_{\mathrm B}(t)}=\dfrac{\left(1-\dfrac{1}{2^t}+2\ln2\dfrac{t}{2^t}\right)\left(3-\dfrac{1}{3^t}\right)}{\left(2-\dfrac{1}{2^t}+2\ln2\dfrac{t+1}{2^t}\right)\left(1-\dfrac{1}{3^t}\right)}$$
+        이고,
+      criteria: [1-4-2.M2]
+    - id: 142b-3
+      content: |
+        (1)에 의해 $\displaystyle\lim_{t\to\infty}\dfrac{S_t}{T_t}=\dfrac32$이다.
+      criteria: [1-4-2.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1-4-2.M1
+      mark_type: M
+      points: 20
+      evidence: |
+        $S_t=\dfrac12\ell_{\mathrm A}(t)\ell_{\mathrm B}(t+1)\sin\dfrac{\pi}{6}$, $T_t=\dfrac12\ell_{\mathrm A}(t+1)\ell_{\mathrm B}(t)\sin\dfrac{\pi}{6}$를 구했다.
+      steps: [142b-1]
+    - id: 1-4-2.M2
+      mark_type: M
+      points: 5
+      evidence: |
+        $\dfrac{S_t}{T_t}$를 위의 식으로 정리했다.
+      steps: [142b-2]
+    - id: 1-4-2.A1
+      mark_type: A
+      points: 5
+      evidence: |
+        $\displaystyle\lim_{t\to\infty}\dfrac{S_t}{T_t}=\dfrac32$를 찾았다.
+      depends_on: [1-4-2.M2]
+      steps: [142b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-42415}
+  misconceptions:
+  - id: MC-CAL-42415
+    outcome_code: '71'
+    wrong_work: |
+      $\ell_{\mathrm A}(t)$의 $t$ 항을 무시하지 않고 $\frac{t}{t+1}\to1$만 보거나, $\ell_{\mathrm A}(t+1)/\ell_{\mathrm A}(t)\to2$를 뒤집어 극한을 $6$ 또는 $\frac23$으로 답함
+    detect_cue: 분자·분모를 최고차 지수항으로 나누지 않음
+    feedback: $\ell_{\mathrm A}(t)\sim\frac{2^t}{2\ln2}$, $\ell_{\mathrm B}(t)\sim\frac{3^t}{3\ln3}$이므로 $\frac{\ell_{\mathrm A}(t)}{\ell_{\mathrm A}(t+1)}\to\frac12$, $\frac{\ell_{\mathrm B}(t+1)}{\ell_{\mathrm B}(t)}\to3$입니다.
+    remedy: [RL-5]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-SEQ-42402}
+  relation: remediation
+  target: {kind: concept, ref: CON-SEQ-INDUCTION}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-ALG-42403}
+  relation: remediation
+  target: {kind: concept, ref: CON-ALG-EXP-TRANSLATION}
+  priority: 1
+- id: RL-3
+  trigger: {type: misconception, ref: MC-GEO-42404}
+  relation: remediation
+  target: {kind: concept, ref: CON-GEO-LAW-OF-COSINES}
+  priority: 1
+- id: RL-4
+  trigger: {type: misconception, ref: MC-CAL-42414}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-SQUEEZE}
+  priority: 1
+- id: RL-5
+  trigger: {type: misconception, ref: MC-CAL-42415}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-EXP-LIMIT}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-transcribe-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

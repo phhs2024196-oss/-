@@ -1,0 +1,444 @@
+# 경북대 2023학년도 수시 논술(AAT) 자연계열Ⅰ 수학 문제 3 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: KNU-G23A-03
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: KNU
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 추론
+points: 120
+time_estimate_min: 35
+intent: |
+  도함수를 활용하여 함수의 그래프의 개형을 파악할 수 있는지(3-1), 도함수를 활용하여 부등식의 성립 여부를 확인할 수 있는지(3-2), 수열의 극한에 대한 기본 성질을 이해하고 이를 이용하여 수열의 극한을 구할 수 있는지(3-3) 평가한다.
+key_idea: |
+  $f'(x)=\dfrac{-(x+1)^2+(n+1)^2}{n(x+1)^2}$로 $x=n$에서 극댓값 $n+1$, 이후 감소하여 $-\infty$로 가므로 $f(k)$가 자연수인 가장 큰 $k$는 $f(k)=1$의 해 $n^2+2n$. 3-2는 $l(x)=f(x)-g(x)$의 증감표, 3-3은 곡선이 수평선 $y=n+1$과 할선 $y=g(x)$ 사이에 있음을 이용해 $S_n$을 두 부채꼴 넓이로 끼운다.
+stuck: |
+  3-1에서 「자연수가 되는 가장 큰 $k$」를 $f(x)=1$의 해로 바꾸는 단계, 3-3에서 곡선 대신 직선 $y=n+1$과 $y=g(x)$로 영역을 위·아래에서 끼워 $\dfrac{\pi}{12}n^2-T_n\le S_n\le\dfrac{\pi}{12}n^2$를 세우고 $\theta_n\to0$을 제시문 (마)(바)로 보이는 단계
+idea_tags: [IDEA-LARGEST-NATURAL-VALUE-BY-MONOTONE, IDEA-DIFFERENCE-FUNCTION-SIGN, IDEA-SANDWICH-BY-SECTORS]
+tags: [증감표, 극값, 부등식 증명, 부채꼴 넓이, 샌드위치 정리, 수열의 극한]
+elements:
+  materials:
+  - '$(-1,\infty)$에서 정의된 분수함수 $f(x)=\dfrac{-x^2+n(n+3)x+n}{n(x+1)}$'
+  - '$f(k)$가 자연수가 되는 가장 큰 자연수 $a_n$, 극대점 $b_n$'
+  - '두 점 $(a_n,f(a_n))$, $(b_n,f(b_n))$을 지나는 직선 $y=g(x)$'
+  - '중심 $\mathrm{P}(b_n,f(b_n))$이고 $y$축에 접하는 원 $C$, 기울기 $-\tfrac{1}{\sqrt3}$인 직선과의 교점 $\mathrm{D}$, 곡선과의 교점 $\mathrm{E}$로 둘러싸인 넓이 $S_n$'
+  concepts:
+  - '몫의 미분법, 증감표와 극값'
+  - '$\sum k$, $\sum k^2$ 공식'
+  - '차함수의 증감으로 부등식 증명'
+  - '부채꼴의 넓이'
+  - '$\sin\theta\le\theta\le\tan\theta$와 수열의 극한의 대소 관계(샌드위치)'
+  tools:
+  - '$f''(x)=0\iff x=n$ (정의역 안)'
+  - '$f(x)=1\iff x=n^2+2n$'
+  - '$l(x)=f(x)-g(x)$, $l''(x)=\dfrac{-(x+1)^2+(n+1)^3}{n(n+1)(x+1)^2}$, $l(n)=l(n^2+2n)=0$'
+  - '직선 $\mathrm{PD}$의 기울기 $-\tfrac1{\sqrt3}$ → 중심각 $\tfrac{\pi}{6}$인 부채꼴(넓이 $\tfrac{\pi}{12}n^2$)'
+  - '부채꼴 $\mathrm{PFG}$($\mathrm{F}$: 원과 $y=g(x)$, $\mathrm{G}$: 원과 $y=n+1$)의 넓이 $T_n=\tfrac12n^2\theta_n$, $\tan\theta_n=\tfrac{1}{n+1}$'
+  conditions:
+  - '$n$은 자연수, 정의역 $x>-1$'
+  - '부채꼴 $\mathrm{PDE}$의 중심각은 $\tfrac{\pi}{2}$보다 작다'
+  - '3-2는 닫힌구간 $[b_n,a_n]$에서'
+  stimuli_used: ['(가)', '(나)', '(다)', '(라)', '(마)', '(바)']
+  subpart_links: '3-1의 증감표에서 $b_n=n$, $a_n=n^2+2n$을 3-2에 사용, 3-2의 $f\ge g$를 3-3의 아래쪽 끼움에 사용'
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅰ, 수학Ⅱ, 미적분]
+  scope_2028: common
+  scope_confirmed: false
+  standards:
+  - code: 12수학Ⅱ02-08
+    text: 함수의 증가와 감소, 극대와 극소를 판정하고 설명할 수 있다.
+    verified: true
+  - code: 12미적02-06
+    text: 함수의 몫을 미분할 수 있다.
+    verified: true
+  - code: 12수학Ⅰ03-05
+    text: 여러 가지 수열의 첫째항부터 제 $n$항까지의 합을 구할 수 있다.
+    verified: true
+  - code: 12미적02-13
+    text: 방정식과 부등식에 대한 문제를 해결할 수 있다.
+    verified: true
+  - code: 12수학Ⅰ02-01
+    text: 일반각과 호도법의 뜻을 안다.
+    verified: true
+  - code: 12미적01-02
+    text: 수열의 극한에 대한 기본 성질을 이해하고, 이를 이용하여 극한값을 구할 수 있다.
+    verified: true
+  content_area: 미분법(증감·극값·부등식) – 수열의 합 – 부채꼴 넓이 – 수열의 극한
+  behavior_domain: 추론
+  unit_path: [미적분, 미분법, 도함수의 활용, 부등식과 극한]
+  key_concepts: [증감표, 극값, 부등식 증명, 부채꼴, 샌드위치 정리]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 경북대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 경북대학교
+  admission_year: 2023
+  admission_type: 수시 논술(AAT)
+  track: 자연계열Ⅰ
+  question_no: 3
+  official_url: https://ipsi1.knu.ac.kr   # [확인필요] 입학처 공지·자료 게시판 원본 게시물 주소
+  retrieved_at: 2026-11-21
+  original_points: [35, 35, 50]
+  rights_notice: 미확인(대학 원본 PDF 표지 문구 확인 필요)
+  transcribed_from: 'G23_N1.pdf p.4(문제지 3/3) 이미지 판독; 해설·채점기준 rep2023.pdf pp.41–44(인쇄 78–83, 문항카드 9)'
+
+verify: verify/KNU-G23A.py::p03
+
+stimuli:
+- label: (가)
+  body: |
+    함수 $f(x)$가 어떤 열린구간에서 미분가능하고, 이 구간에 속하는 모든 $x$에 대하여
+    (1) $f'(x)>0$이면 $f(x)$는 이 구간에서 증가한다.
+    (2) $f'(x)<0$이면 $f(x)$는 이 구간에서 감소한다.
+- label: (나)
+  body: |
+    미분가능한 두 함수 $f(x)$와 $g(x)$ $(g(x)\ne0)$에 대하여
+    $$\left\{\dfrac{f(x)}{g(x)}\right\}'=\dfrac{f'(x)g(x)-f(x)g'(x)}{\{g(x)\}^2}$$
+- label: (다)
+  body: |
+    (1) $\displaystyle\sum_{k=1}^{n}k=\dfrac{n(n+1)}{2}$
+    (2) $\displaystyle\sum_{k=1}^{n}k^2=\dfrac{n(n+1)(2n+1)}{6}$
+    (3) $\displaystyle\sum_{k=1}^{n}k^3=\left\{\dfrac{n(n+1)}{2}\right\}^2$
+- label: (라)
+  body: |
+    반지름의 길이가 $r$, 중심각의 크기가 $\theta$인 부채꼴의 넓이는
+    $$\dfrac12r^2\theta$$
+    (단, $\theta$의 단위는 라디안)
+- label: (마)
+  body: |
+    $0\le\theta<\dfrac{\pi}{2}$일 때,
+    $$\sin\theta\le\theta\le\tan\theta$$
+    (단, $\theta$의 단위는 라디안)
+- label: (바)
+  body: |
+    두 수열 $\{a_n\}$, $\{b_n\}$이 각각 수렴하고
+    $$\lim_{n\to\infty}a_n=\alpha,\quad\lim_{n\to\infty}b_n=\beta$$
+    일 때, 수열 $\{c_n\}$이 모든 자연수 $n$에 대하여 $a_n\le c_n\le b_n$이고 $\alpha=\beta$이면 수열 $\{c_n\}$은 수렴하고
+    $$\lim_{n\to\infty}c_n=\alpha$$
+
+stem: |
+  ※ 모든 문항에서 풀이과정을 반드시 기술하시오.
+
+  구간 $(-1,\infty)$에서 정의된 함수
+  $$f(x)=\dfrac{-x^2+n(n+3)x+n}{n(x+1)}$$
+  에 대하여, 함숫값 $f(k)$가 자연수가 되도록 하는 가장 큰 자연수 $k$를 $a_n$이라 하자. 함수 $f(x)$가 $x=b_n$에서 극댓값을 가질 때, 다음 물음에 답하시오. (단, $n$은 자연수)
+
+subparts:
+- id: '3-1'
+  stem: |
+    $\displaystyle\sum_{n=1}^{10}a_n$의 값을 구하시오. (35점)
+  points: 35
+  depends_on: []
+  answer: {kind: value, value: '495', equivalents: [], tolerance: null}
+  solutions:
+  - id: S3-1-A
+    audience: A
+    method_no: 1
+    key_idea: $x\ge n$에서 $f$는 $n+1$에서 $-\infty$로 감소하므로 자연수 값을 갖는 가장 큰 $k$는 $f(k)=1$인 $k=n^2+2n$.
+    steps:
+    - {id: 3-1a, content: '$\sum_{n=1}^{10}(n^2+2n)=385+110=495$', criteria: [3-1.M1, 3-1.M2, 3-1.M3, 3-1.A1]}
+    hint_ladder:
+    - $f'(x)$의 분자를 $(n+1)^2-(x+1)^2$ 꼴로 정리해 보자.
+    - $x$가 커질 때 $f(x)$가 마지막으로 지나는 자연수 값은?
+  - id: S3-1-B
+    audience: B
+    source_flow: rep2023.pdf p.43(인쇄 82)
+    method_no: 1
+    steps:
+    - id: 3-1b-1
+      content: |
+        함수 $f(x)$의 그래프의 개형을 그리기 위하여 도함수 $f'(x)$를 구하면 $f'(x)=\dfrac{-(x+1)^2+(n+1)^2}{n(x+1)^2}$이다.
+      criteria: [3-1.M1]
+    - id: 3-1b-2
+      content: |
+        $f'(x)=0$에서 $x=n$ 또는 $x=-n-2$이므로 함수 $f(x)$의 증가와 감소를 표로 나타내면 다음과 같다.
+        $(-1)<x<n$에서 $f'(x)>0$, $f$ 증가; $x=n$에서 $f'(x)=0$, $f(n)=n+1$; $x>n$에서 $f'(x)<0$, $f$ 감소.
+        함수 $f(x)$는 $x\ge n$에서 감소하고 $\lim_{x\to\infty}f(x)=-\infty$이므로,
+      criteria: [3-1.M2]
+    - id: 3-1b-3
+      content: |
+        $f(k)$가 자연수가 되도록 하는 가장 큰 자연수를 찾기 위해서 우선 $x$에 대한 방정식 $f(x)=1$의 해가 자연수인지부터 살펴본다. $f(x)=1$에서 $x=n^2+2n$이고 $n$은 자연수이므로 $n^2+2n$은 자연수가 되어, $a_n=n^2+2n$이 된다.
+      criteria: [3-1.M3]
+    - id: 3-1b-4
+      content: |
+        따라서, 구하는 값은 $\displaystyle\sum_{n=1}^{10}(n^2+2n)=495$이다.
+      criteria: [3-1.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 3-1.M1
+      mark_type: M
+      points: 10
+      evidence: |
+        $f'(x)=\dfrac{-(x+1)^2+(n+1)^2}{n(x+1)^2}$을 구했다.
+      depends_on: []
+      implied_ok: true
+      steps: [3-1b-1]
+    - id: 3-1.M2
+      mark_type: M
+      points: 10
+      evidence: |
+        함수의 증감표($x=n$에서 $f'=0$, 극댓값 $n+1$, 앞에서 증가·뒤에서 감소)와 $\lim_{x\to\infty}f(x)=-\infty$를 구했다.
+      depends_on: [3-1.M1]
+      implied_ok: false
+      steps: [3-1b-2]
+    - id: 3-1.M3
+      mark_type: M
+      points: 10
+      evidence: |
+        $f(x)=1$에서 $a_n=n^2+2n$을 구했다.
+      depends_on: [3-1.M2]
+      implied_ok: false
+      steps: [3-1b-3]
+    - id: 3-1.A1
+      mark_type: A
+      points: 5
+      evidence: |
+        $\sum_{n=1}^{10}a_n=495$를 구했다.
+      depends_on: [3-1.M3]
+      cao: true
+      steps: [3-1b-4]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-42305}
+  misconceptions:
+  - id: MC-CAL-42305
+    outcome_code: '71'
+    wrong_work: '극대점 $x=n$을 「자연수가 되는 가장 큰 $k$」로 착각해 $a_n=n$(합 $55$)으로 답하거나, $f(x)=n+1$ 등 다른 자연수 값으로 $k$를 찾음'
+    detect_cue: 답 $55$, 또는 $a_n$이 $n^2+2n$보다 작음
+    feedback: $x>n$에서 $f$는 감소하며 모든 값 $n+1,n,\dots,1$을 지납니다. 가장 큰 $k$는 마지막 자연수 값 $1$을 갖는 점입니다.
+    remedy: [RL-1]
+
+- id: '3-2'
+  stem: |
+    두 점 $(a_n,f(a_n))$, $(b_n,f(b_n))$을 지나는 직선을 $y=g(x)$라 할 때, 닫힌구간 $[b_n,a_n]$에서 부등식 $f(x)\ge g(x)$가 성립함을 보이시오. (35점)
+  points: 35
+  depends_on: ['3-1']
+  answer: {kind: proof, value: null, equivalents: [], tolerance: null}
+  solutions:
+  - id: S3-2-A
+    audience: A
+    method_no: 1
+    key_idea: $l=f-g$는 양 끝에서 $0$이고 $l'$이 한 번만 $+$에서 $-$로 바뀌므로 $[b_n,a_n]$에서 $l\ge0$.
+    steps:
+    - {id: 3-2a, content: '$l''(x)=\dfrac{(n+1)^3-(x+1)^2}{n(n+1)(x+1)^2}$, 근 $x=-1+(n+1)\sqrt{n+1}$에서 극대, $l(n)=l(n^2+2n)=0$', criteria: [3-2.B1, 3-2.B2, 3-2.M1, 3-2.M2, 3-2.R1]}
+    hint_ladder:
+    - $b_n=n$, $a_n=n^2+2n$, $f(b_n)=n+1$, $f(a_n)=1$.
+    - $l(x)=f(x)-g(x)$의 증감을 보자.
+  - id: S3-2-B
+    audience: B
+    source_flow: rep2023.pdf p.43(인쇄 82)
+    method_no: 1
+    steps:
+    - id: 3-2b-1
+      content: |
+        위 【3-1】의 표에 의해서 함수 $f(x)$는 $x=n$에서 극댓값 $n+1$을 가지므로, $b_n=n$이고 $f(b_n)=n+1$이다.
+      criteria: [3-2.B1]
+    - id: 3-2b-2
+      content: |
+        $a_n=n^2+2n$이고 $f(a_n)=1$이므로 두 점 $(a_n,f(a_n))$, $(b_n,f(b_n))$을 지나는 직선은 $g(x)=-\dfrac{1}{n+1}(x-n)+n+1$이다.
+      criteria: [3-2.B2]
+    - id: 3-2b-3
+      content: |
+        함수 $l(x)=f(x)-g(x)$로 놓으면 함수 $l(x)$의 도함수는
+        $$l'(x)=f'(x)-g'(x)=\dfrac{-(x+1)^2+(n+1)^2}{n(x+1)^2}+\dfrac{1}{n+1}=\dfrac{-(x+1)^2+(n+1)^3}{n(n+1)(x+1)^2}$$
+        이므로,
+      criteria: [3-2.M1]
+    - id: 3-2b-4
+      content: |
+        $n\le x\le n^2+2n$에서 함수 $l(x)$의 증가와 감소를 표로 나타내면: $x=n$에서 $l'=\dfrac{1}{n+1}$, $l=0$; $n<x<-1+(n+1)\sqrt{n+1}$에서 $l'>0$(증가); $x=-1+(n+1)\sqrt{n+1}$에서 $l'=0$; $-1+(n+1)\sqrt{n+1}<x<n^2+2n$에서 $l'<0$(감소); $x=n^2+2n$에서 $l'=-\dfrac{1}{(n+1)^2}$, $l=0$.
+      criteria: [3-2.M2]
+    - id: 3-2b-5
+      content: |
+        따라서, $n\le x\le n^2+2n$에서 $l(x)=f(x)-g(x)\ge0$이므로 $f(x)\ge g(x)$이다.
+      criteria: [3-2.R1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 3-2.B1
+      mark_type: B
+      points: 5
+      evidence: |
+        $b_n=n$을 구했다.
+      steps: [3-2b-1]
+    - id: 3-2.B2
+      mark_type: B
+      points: 5
+      evidence: |
+        $g(x)=-\dfrac{1}{n+1}(x-n)+n+1$을 구했다.
+      steps: [3-2b-2]
+    - id: 3-2.M1
+      mark_type: M
+      points: 10
+      evidence: |
+        $l'(x)=f'(x)-g'(x)=\dfrac{-(x+1)^2+(n+1)^3}{n(n+1)(x+1)^2}$을 구했다.
+      depends_on: []
+      implied_ok: false
+      steps: [3-2b-3]
+    - id: 3-2.M2
+      mark_type: M
+      points: 10
+      evidence: |
+        $[n,n^2+2n]$에서 $l(x)$의 증감표($x=-1+(n+1)\sqrt{n+1}$에서 $l'=0$, 양 끝 $l=0$)를 구했다.
+      depends_on: [3-2.M1]
+      implied_ok: false
+      steps: [3-2b-4]
+    - id: 3-2.R1
+      mark_type: R
+      points: 5
+      evidence: |
+        $l(x)=f(x)-g(x)\ge0$에서 $f(x)\ge g(x)$임을 유도했다.
+      depends_on: [3-2.M2]
+      steps: [3-2b-5]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-42306}
+  misconceptions:
+  - id: MC-CAL-42306
+    outcome_code: '71'
+    wrong_work: '「$f$가 $[n,n^2+2n]$에서 감소하므로 할선보다 위」라고 단조성만으로 결론(오목성·차함수 근거 없음)'
+    detect_cue: $l=f-g$의 도함수·끝값 확인이 없음
+    feedback: 감소 함수라도 할선 아래로 내려갈 수 있습니다. $l=f-g$의 양 끝값 $0$과 증감(한 번 증가 후 감소)을 보이세요.
+    remedy: [RL-2]
+
+- id: '3-3'
+  stem: |
+    중심이 $\mathrm{P}(b_n,f(b_n))$인 원 $C$가 $y$축에 접할 때, 점 $\mathrm{P}$와 점 $((\sqrt3+1)n+\sqrt3,0)$을 지나는 직선과 원 $C$의 두 교점 중 $x$좌표가 큰 점을 $\mathrm{D}$, 곡선 $y=f(x)$와 원 $C$의 두 교점 중 $x$좌표가 큰 점을 $\mathrm{E}$라 하자. 두 점 $\mathrm{P}$, $\mathrm{E}$ 사이의 곡선 $y=f(x)$의 부분과 부채꼴 $\mathrm{PDE}$의 호 $\mathrm{DE}$ 및 선분 $\mathrm{PD}$로 둘러싸인 도형의 넓이를 $S_n$이라 할 때,
+    $$\lim_{n\to\infty}\dfrac{S_n}{n^2}$$
+    의 값을 구하시오. (단, 부채꼴 $\mathrm{PDE}$의 중심각의 크기는 $\dfrac{\pi}{2}$보다 작다.) (50점)
+  points: 50
+  depends_on: ['3-2']
+  answer: {kind: value, value: 'pi/12', equivalents: ['$\dfrac{\pi}{12}$'], tolerance: null}
+  solutions:
+  - id: S3-3-A
+    audience: A
+    method_no: 1
+    key_idea: 직선 $\mathrm{PD}$의 기울기는 $-\tfrac{1}{\sqrt3}$. 곡선은 $y=n+1$ 아래, $y=g(x)$ 위에 있으므로 $S_n$은 중심각 $\tfrac{\pi}{6}$ 부채꼴과 그보다 $\theta_n$만큼 작은 부채꼴 사이.
+    steps:
+    - {id: 3-3a, content: '$\dfrac{\pi}{12}-\dfrac{\theta_n}{2}\le\dfrac{S_n}{n^2}\le\dfrac{\pi}{12}$, $\tan\theta_n=\tfrac1{n+1}\to0$이므로 $\dfrac{\pi}{12}$', criteria: [3-3.B1, 3-3.M1, 3-3.M2, 3-3.M3, 3-3.A1]}
+    hint_ladder:
+    - 원의 반지름은 $n$, 직선 $\mathrm{PD}$의 기울기를 구해 보자.
+    - 3-2의 부등식과 $f(x)\le n+1$을 곡선의 위·아래 경계로 쓰자.
+  - id: S3-3-B
+    audience: B
+    source_flow: rep2023.pdf pp.43–44(인쇄 82–83)
+    method_no: 1
+    steps:
+    - id: 3-3b-1
+      content: |
+        원 $C$의 방정식은 $(x-n)^2+(y-n-1)^2=n^2$이다. (점 $\mathrm{P}(n,n+1)$과 $((\sqrt3+1)n+\sqrt3,0)$을 지나는 직선의 기울기는 $-\dfrac{1}{\sqrt3}$이므로 부채꼴 $\mathrm{PD}$와 수평선이 이루는 각은 $\dfrac{\pi}{6}$이다.)
+      criteria: [3-3.B1]
+    - id: 3-3b-2
+      content: |
+        원 $C$와 직선 $y=g(x)$의 두 교점 중 $x$좌표가 큰 점을 $\mathrm{F}$, 원 $C$와 직선 $y=n+1$의 두 교점 중 $x$좌표가 큰 점을 $\mathrm{G}$라 하자. 중심각의 크기가 $\dfrac{\pi}{2}$보다 작은 부채꼴 $\mathrm{PFG}$의 중심각과 넓이를 각각 $\theta_n$과 $T_n$이라 하면 $T_n=\dfrac12n^2\theta_n$이고
+        $$\dfrac{\pi}{12}n^2-T_n\le S_n\le\dfrac{\pi}{12}n^2$$
+        이 성립한다.
+      criteria: [3-3.M1]
+    - id: 3-3b-3
+      content: |
+        또한, $\sin\theta_n=\dfrac{n}{\sqrt{(n^2+n)^2+n^2}}$, $\tan\theta_n=\dfrac{n}{n^2+n}$이므로,
+      criteria: [3-3.M2]
+    - id: 3-3b-4
+      content: |
+        $\lim_{n\to\infty}\sin\theta_n=\lim_{n\to\infty}\tan\theta_n=0$이고, 제시문 (마)와 (바)에 의해 $\lim_{n\to\infty}\theta_n=0$이다. 따라서, $\lim_{n\to\infty}\dfrac{T_n}{n^2}=\lim_{n\to\infty}\dfrac12\theta_n=0$이므로,
+      criteria: [3-3.M3]
+    - id: 3-3b-5
+      content: |
+        부등식 $\dfrac{\pi}{12}-\dfrac{T_n}{n^2}\le\dfrac{S_n}{n^2}\le\dfrac{\pi}{12}$와 제시문 (바)에 의해 $\lim_{n\to\infty}\dfrac{S_n}{n^2}=\dfrac{\pi}{12}$이다.
+      criteria: [3-3.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 3-3.B1
+      mark_type: B
+      points: 5
+      evidence: |
+        원 $C$의 방정식 $(x-n)^2+(y-n-1)^2=n^2$을 구했다.
+      steps: [3-3b-1]
+    - id: 3-3.M1
+      mark_type: M
+      points: 15
+      evidence: |
+        $\dfrac{\pi}{12}n^2-T_n\le S_n\le\dfrac{\pi}{12}n^2$을 유도했다.
+      depends_on: []
+      implied_ok: false
+      steps: [3-3b-2]
+    - id: 3-3.M2
+      mark_type: M
+      points: 15
+      evidence: |
+        $\sin\theta_n=\dfrac{n}{\sqrt{(n^2+n)^2+n^2}}$, $\tan\theta_n=\dfrac{n}{n^2+n}$을 구했다.
+      depends_on: [3-3.M1]
+      implied_ok: false
+      steps: [3-3b-3]
+    - id: 3-3.M3
+      mark_type: M
+      points: 10
+      evidence: |
+        $\lim\sin\theta_n=\lim\tan\theta_n=0$으로부터 $\lim\theta_n=0$을 구했다.
+      depends_on: [3-3.M2]
+      implied_ok: false
+      steps: [3-3b-4]
+    - id: 3-3.A1
+      mark_type: A
+      points: 5
+      evidence: |
+        $\lim_{n\to\infty}\dfrac{S_n}{n^2}=\dfrac{\pi}{12}$을 구했다.
+      depends_on: [3-3.M3]
+      cao: true
+      steps: [3-3b-5]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-42307}
+  misconceptions:
+  - id: MC-CAL-42307
+    outcome_code: '71'
+    wrong_work: '직선 $\mathrm{PD}$의 기울기 $-\tfrac1{\sqrt3}$을 수평선과 $\tfrac{\pi}{3}$의 각으로 읽어 $\tfrac{\pi}{6}$($=\tfrac12\cdot\tfrac{\pi}{3}$)로 답하거나, $S_n$을 부채꼴로 근사만 하고 끼움 부등식 없이 극한을 단정'
+    detect_cue: 답 $\tfrac{\pi}{6}$, 또는 $T_n$·$\theta_n\to0$ 논증이 없음
+    feedback: 기울기 $-\tfrac1{\sqrt3}=\tan\left(-\tfrac{\pi}{6}\right)$입니다. 곡선을 $y=n+1$과 $y=g(x)$ 사이에 끼워 두 부채꼴로 위·아래를 잡으세요.
+    remedy: [RL-3]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CAL-42305}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-MONOTONE-DERIV}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-CAL-42306}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-MONOTONE-DERIV}
+  priority: 1
+- id: RL-3
+  trigger: {type: misconception, ref: MC-CAL-42307}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-SQUEEZE}
+  priority: 1
+- id: RL-4
+  trigger: {type: criterion_missed, ref: 3-3.M1}
+  relation: prerequisite
+  target: {kind: concept, ref: CON-ALG-RADIAN-SECTOR}
+  priority: 2
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-transcribe-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

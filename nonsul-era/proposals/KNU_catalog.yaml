@@ -1,0 +1,1315 @@
+# 경북대(KNU) 문항이 validate 를 통과하려면 공용 파일에 아래를 병합해야 함(학교 스레드는 공용 파일을 직접 고치지 않음).
+# 1) db/taxonomy.yaml schools: 에 추가
+#   KNU:  {name: 경북대, candidate: false, format: "논술(AAT) 자연계열Ⅰ·Ⅱ 수학 2~3문제(소문항), 100분", scope_2027: [수학, 수학Ⅰ, 수학Ⅱ, 미적분, 확률과통계, 기하], scope_2028: unknown, exclude_tools: []}
+#    types: 에  KNU: {}
+# 2) 아래 misconceptions → db/misconceptions.yaml, concepts → db/concepts.yaml (기존 ID 와 겹치면 기존 것 유지)
+misconceptions:
+- id: MC-GEO-42101
+  name: 점과 직선 사이 거리 공식에서 직선 계수 정리를 틀려 범위를 잘못 구함
+  concepts:
+  - CON-GEO-POINT-LINE-DIST
+- id: MC-PRB-42101
+  name: 확률밀도함수의 꼭짓점 위치에 따른 구간 분리 없이 넓이를 한 식으로 계산
+  concepts:
+  - CON-PRB-CONT-DENSITY
+- id: MC-PRB-42102
+  name: 조건부확률을 교사건의 확률로 착각
+  concepts:
+  - CON-PRB-CONDITIONAL
+- id: MC-PRB-42103
+  name: 직선으로 잘린 원판에서 요구된 쪽이 아닌 활꼴 넓이를 확률변수 값으로 씀
+  concepts:
+  - CON-PRB-EXPECTATION
+- id: MC-PRF-42101
+  name: 조건의 대우를 쓰지 않고 삼차함수의 근(대칭)을 가정
+  concepts:
+  - CON-PRF-CONTRAPOSITIVE
+- id: MC-CAL-42101
+  name: 다항함수 정적분 전개 오류로 이차식 꼭짓점을 잘못 구함
+  concepts:
+  - CON-ALG-QUAD-VERTEX
+- id: MC-CAL-42102
+  name: 절댓값 함수에서 짝수 중근도 미분불가능한 점으로 셈
+  concepts:
+  - CON-CAL-DIFFERENTIABILITY
+- id: MC-ALG-42101
+  name: 양변을 x로 나눠 x=0 근을 잃고 실근 개수 조건을 잘못 해석
+  concepts:
+  - CON-ALG-ROOT-COUNT-GRAPH
+- id: MC-CAL-42103
+  name: sin^2 x 의 부정적분을 sin^3 x/3 으로 잘못 계산
+  concepts:
+  - CON-CAL-INTEG-BY-PARTS
+- id: MC-CAL-42104
+  name: 위끝·아래끝이 모두 x인 정적분 미분에서 아래끝 기여를 빠뜨림
+  concepts:
+  - CON-CAL-FTC-VARIABLE-LIMITS
+- id: MC-CAL-42105
+  name: 주기함수의 적분 구간 이동을 못 해 적분 상수를 x의 함수로 취급
+  concepts:
+  - CON-CAL-SUBST-INTEGRAL
+- id: MC-CAL-42106
+  name: 미분계수 정의 대신 도함수 식의 대입으로 미분가능성 주장
+  concepts:
+  - CON-CAL-DERIV-DEF-LIMIT
+- id: MC-CAL-42107
+  name: 극값 후보 근이 정의 구간 안에 있는지 확인하지 않음
+  concepts:
+  - CON-CAL-EXTREMA
+- id: MC-CAL-42108
+  name: 끝점 최솟값과 극솟값에서 교점 수 변화를 같게 취급
+  concepts:
+  - CON-ALG-ROOT-COUNT-GRAPH
+- id: MC-CAL-42109
+  name: 접점의 x좌표와 접선의 기울기를 혼동
+  concepts:
+  - CON-CAL-TANGENT-LINE
+- id: MC-CAL-42110
+  name: 두 직선이 이루는 각의 탄젠트를 기울기로 정리하지 못함
+  concepts:
+  - CON-CAL-TRIG-ADDITION
+- id: MC-CAL-42111
+  name: 극한의 대소관계에 필요한 상한 없이 부정형 극한을 추측
+  concepts:
+  - CON-CAL-SQUEEZE
+- id: MC-CAL-42112
+  name: 내분점 가중치를 반대로 대입해 볼록 조건을 잘못 적용
+  concepts:
+  - CON-CAL-CONVEX-CHORD
+- id: MC-CAL-42113
+  name: 정적분 근사 구간을 나누지 않아 오차 범위가 커서 정수 결정 실패
+  concepts:
+  - CON-CAL-INTEGRAL-INEQ
+- id: MC-CAL-42114
+  name: 볼록함수의 평균값 단조성에서 사다리꼴(상한)과 중점(하한) 부등식을 혼동
+  concepts:
+  - CON-CAL-SUBST-INTEGRAL
+- id: MC-CAL-42115
+  name: 치환적분에서 dt=-du 부호와 적분 구간 순서를 놓침
+  concepts:
+  - CON-CAL-SUBST-INTEGRAL
+- id: MC-CAL-42116
+  name: 피적분함수에 x가 있는 정적분을 분리하지 않고 미분
+  concepts:
+  - CON-CAL-FTC-VARIABLE-LIMITS
+- id: MC-CAL-42117
+  name: x ln x 미분 오류로 접선의 절편 관계를 놓침
+  concepts:
+  - CON-CAL-TANGENT-LINE
+- id: MC-CAL-42118
+  name: x ln x 부분적분에서 -x^2/4 항 누락
+  concepts:
+  - CON-CAL-INTEG-BY-PARTS
+- id: MC-SEQ-42101
+  name: 합의 첨자 범위(m-1은 0부터) 오류
+  concepts:
+  - CON-SEQ-SIGMA
+- id: MC-PRB-42104
+  name: 중근을 실근 2개로 세어 확률분포를 잘못 구함
+  concepts:
+  - CON-PRB-EXPECTATION
+- id: MC-PRB-42105
+  name: 두 근의 차 조건을 판별식으로 옮길 때 계수 오류
+  concepts:
+  - CON-PRB-CONDITIONAL
+- id: MC-PRB-42106
+  name: 엄격한 부등호 조건의 격자점 개수를 하나씩 더 셈
+  concepts:
+  - CON-SEQ-SIGMA
+- id: MC-ALG-42102
+  name: 탄젠트 방정식 해의 주기를 2π로 착각
+  concepts:
+  - CON-ALG-GENERAL-ANGLE
+- id: MC-CAL-42119
+  name: 발산하는 조화형 합에 구분구적법을 잘못 적용
+  concepts:
+  - CON-CAL-HARMONIC-INTEGRAL
+- id: MC-CAL-42120
+  name: 구간별 절댓값 적분을 하나의 적분으로 합쳐 상쇄시킴
+  concepts:
+  - CON-CAL-INTEGRAL-INEQ
+- id: MC-CAL-42121
+  name: 극댓값·극솟값 위치를 바꿔 계수 부호를 틀림
+  concepts:
+  - CON-CAL-EXTREMA
+- id: MC-CNT-42101
+  name: 닫힌 구간의 정수 개수에서 +1 누락
+  concepts:
+  - CON-CNT-LATTICE-COUNT
+- id: MC-ALG-42103
+  name: 밑이 1보다 크다는 조건을 쓰지 않아 지수 비교를 못 함
+  concepts:
+  - CON-CAL-FUNC-EQ
+- id: MC-SEQ-42102
+  name: 등비수열 합의 첫째항을 1로 착각
+  concepts:
+  - CON-SEQ-SIGMA
+- id: MC-CAL-42122
+  name: 함수방정식의 정수·유리수 결과를 연속성 없이 실수로 확장
+  concepts:
+  - CON-CAL-EXP-LIMIT
+- id: MC-ALG-42201
+  name: 직선·포물선 교점 방정식을 이항할 때 상수항 부호를 틀려 판별식을 잘못 세움
+  concepts:
+  - CON-ALG-QUAD-ROOT-COUNT
+- id: MC-GEO-42201
+  name: 점과 직선 사이 거리에서 절댓값 안의 부호를 확인하지 않아 음수 거리로 답함
+  concepts:
+  - CON-GEO-POINT-LINE-DIST
+- id: MC-CAL-42201
+  name: 접선족이 지나는 영역을 두 곡선 사이 영역 전체로 착각
+  concepts:
+  - CON-CAL-TANGENT-FAMILY-REGION
+- id: MC-CNT-42201
+  name: 공선점 보정에서 그 직선 자체 1개를 다시 더하지 않음
+  concepts:
+  - CON-CNT-COLLINEAR-CORRECTION
+- id: MC-GEO-42202
+  name: 원점 직선이 자른 두 부분 중 꼭짓점 쪽 삼각형과 나머지 사각형을 혼동
+  concepts:
+  - CON-GEO-LINE-INTERCEPT
+- id: MC-ALG-42202
+  name: 연립으로 얻은 이차방정식에서 선분 위 조건(양수)을 무시하고 음의 근을 택함
+  concepts:
+  - CON-ALG-SUM-PRODUCT-SYSTEM
+- id: MC-ALG-42203
+  name: 곱이 0인 식에서 한 인수만 0으로 두고 나머지 경우를 배제하지 않음
+  concepts:
+  - CON-ALG-PRODUCT-ZERO-CASES
+- id: MC-CAL-42202
+  name: 여러 인수의 곱을 미분할 때 일부 항을 빠뜨림
+  concepts:
+  - CON-CAL-QUOTIENT-PRODUCT-RULE
+- id: MC-CAL-42203
+  name: 불연속 조건(계단함수의 두 값이 다름)을 무시하고 α=0 을 포함
+  concepts:
+  - CON-CAL-PIECEWISE-COMPOSITE
+- id: MC-CAL-42204
+  name: 도함수의 중근(부호 불변)을 극값점으로 착각
+  concepts:
+  - CON-CAL-EXTREMA
+- id: MC-CAL-42205
+  name: 제곱이 같은 함수방정식에서 부호까지 같다고(주기함수로) 단정
+  concepts:
+  - CON-CAL-FUNC-EQ
+- id: MC-ALG-42204
+  name: ± 두 경우 중 한쪽 삼차방정식만 풀어 범위에 맞는 근을 놓침
+  concepts:
+  - CON-ALG-CUBIC-ROOT-SELECTION
+- id: MC-CAL-42206
+  name: 부분적분 경계항을 빠뜨리거나 끝값 대입 부호를 틀림
+  concepts:
+  - CON-CAL-INTEG-BY-PARTS
+- id: MC-CAL-42207
+  name: 접선과 두 할선이 이루는 예각이 같다는 조건을 기울기각 관계로 잘못 옮김
+  concepts:
+  - CON-CAL-TRIG-ADDITION
+- id: MC-SEQ-42201
+  name: 증가수열이면 양의 무한대로 발산한다고 단정
+  concepts:
+  - CON-CAL-SQUEEZE
+- id: MC-SEQ-42202
+  name: 수렴 여부를 확인하지 않고 극한의 차 성질을 적용
+  concepts:
+  - CON-SEQ-LIMIT-LAWS
+- id: MC-CAL-42208
+  name: 차분비의 극한을 곧바로 공비로 쓰거나 현과 곡선 사이 넓이를 잘못 잡음
+  concepts:
+  - CON-CAL-AREA-BETWEEN
+- id: MC-CAL-42209
+  name: 증가 조건을 경계 근처만 보고 x→-∞ 거동(최고차 항)을 놓침
+  concepts:
+  - CON-CAL-MONOTONE-DERIV
+- id: MC-CAL-42210
+  name: 역함수의 y절편(영점)의 부호·구간을 잘못 잡거나 곱의 a-미분 항을 빠뜨림
+  concepts:
+  - CON-CAL-IMPLICIT-DIFF
+- id: MC-CAL-42211
+  name: 사잇값 정리로 존재만 보이고 단조성으로 유일성·부재 구간을 보이지 않음
+  concepts:
+  - CON-CAL-IVT
+- id: MC-SEQ-42203
+  name: 근의 위치를 정량적 폭 없이 그래프로만 주장해 조임 정리를 쓸 수 없음
+  concepts:
+  - CON-CAL-SQUEEZE
+- id: MC-GEO-42203
+  name: 접하는 원의 중심-접점 선분을 접선과 평행하게 잡음(법선 조건 오류)
+  concepts:
+  - CON-CAL-TANGENT-LINE
+- id: MC-GEO-42204
+  name: 이등변삼각형의 반각과 높이 관계에서 sin/cos 를 뒤바꿈
+  concepts:
+  - CON-TRI-RELATIONS
+- id: MC-CAL-42212
+  name: 고차 무한소 항을 주요항으로 착각해 극한값을 틀림
+  concepts:
+  - CON-CAL-LIMIT-ORDER-COMPARE
+- id: MC-CAL-42213
+  name: 구간별 함수의 미분가능 조건에서 상수항까지 미분하거나 연속 조건을 빠뜨림
+  concepts:
+  - CON-CAL-DIFFERENTIABILITY
+- id: MC-CAL-42214
+  name: 절댓값 함수가 g(x)=t 인 모든 점에서 미분불가능하다고 봄(정류점 예외 무시)
+  concepts:
+  - CON-CAL-ABS-NONDIFF
+- id: MC-CAL-42215
+  name: 교점의 x좌표 합에서 중근을 중복 계산
+  concepts:
+  - CON-ALG-ROOT-COUNT-GRAPH
+- id: MC-SEQ-42204
+  name: 홀짝 점화식에서 두 단계 점화를 한 단계로 처리
+  concepts:
+  - CON-SEQ-INDUCTION
+- id: MC-GEO-42205
+  name: 넓이비를 닮음비로 그대로 사용(제곱근을 취하지 않음)
+  concepts:
+  - CON-GEO-SIMILAR-RATIO
+- id: MC-SEQ-42205
+  name: 점의 좌표에 쓰인 수열 첨자(2n-1 등) 대응 오류
+  concepts:
+  - CON-SEQ-RECURSIVE
+- id: MC-CAL-42216
+  name: 지수함수가 곱해진 식의 미분에서 항을 빠뜨리거나 부호를 틀려 접속 조건을 잘못 세움
+  concepts:
+  - CON-CAL-DIFFERENTIABILITY
+- id: MC-CAL-42217
+  name: 지수 값의 대소를 주어진 부등식 대신 근삿값으로만 판단
+  concepts:
+  - CON-CAL-EXP-VALUE-BOUND
+- id: MC-CAL-42218
+  name: 합성함수 f∘f 의 극값점에서 f'(f(x))=1 인 경우를 놓침
+  concepts:
+  - CON-CAL-CHAIN-RULE
+- id: MC-CAL-42219
+  name: 극값 동일 조건에서 내부값 일치(f(t)=f(x0))를 근거 없이 가정
+  concepts:
+  - CON-CAL-MVT
+- id: MC-CAL-42220
+  name: 역함수 치환에서 적분 끝값·dt 변환을 함께 바꾸지 않음
+  concepts:
+  - CON-CAL-SUBST-INTEGRAL
+- id: MC-CAL-42221
+  name: 역함수의 이계도함수 관계를 잘못 세움(g''=f'' 또는 1/f'')
+  concepts:
+  - CON-CAL-INVERSE-DERIV
+- id: MC-CAL-42222
+  name: 점근적 근사만으로 극한을 결론(적분 부등식·조임 생략)
+  concepts:
+  - CON-CAL-INTEGRAL-INEQ
+- id: MC-ALG-42205
+  name: x² 치환 이차함수의 꼭짓점이 정의역(x²≥0) 밖인 경우를 나누지 않음
+  concepts:
+  - CON-ALG-QUAD-VERTEX
+- id: MC-GEO-42206
+  name: 교점 조건(y=x²≥0)을 거르지 않거나 접선 방정식 비교를 생략
+  concepts:
+  - CON-CAL-TANGENT-LINE
+- id: MC-CAL-42223
+  name: 점근 전개에서 O(1) 이상 기여하는 부채꼴 항을 무시
+  concepts:
+  - CON-CAL-SQUEEZE
+- id: MC-CAL-42301
+  name: 끝점 함숫값을 연속성(한쪽 극한) 근거 없이 정하거나 정할 수 없다고 판단
+  concepts:
+  - CON-CAL-CONTINUITY
+- id: MC-ALG-42301
+  name: 이차항 계수가 음수일 때 근의 공식 ± 부호와 근의 대소를 뒤바꿔 구간 안의 근을 잘못 고름
+  concepts:
+  - CON-ALG-QUAD-ROOT-COUNT
+- id: MC-CAL-42302
+  name: 구간별 정의 함수의 경계점 미분계수를 정의 대신 한쪽 식의 도함수에 대입해 구함
+  concepts:
+  - CON-CAL-DERIV-DEF-LIMIT
+- id: MC-CAL-42303
+  name: 치환적분에서 du=2t dt 의 계수 1/2 을 빠뜨림
+  concepts:
+  - CON-CAL-SUBST-INTEGRAL
+- id: MC-GEO-42301
+  name: 절편식 기울기 공식(두 직선 교점과 원점)에 절편을 잘못 대응시켜 부호·역수가 뒤집힘
+  concepts:
+  - CON-GEO-LINE-INTERCEPT
+- id: MC-GEO-42302
+  name: 공선 조건(같은 직선의 기울기 등식)을 쓰지 않아 매개변수가 약분됨을 놓침
+  concepts:
+  - CON-GEO-LINE-INTERCEPT
+- id: MC-CAL-42304
+  name: 정의역 밖의 임계점을 택하거나 닫힌구간 끝값 비교를 생략
+  concepts:
+  - CON-CAL-EXTREMA
+- id: MC-CAL-42305
+  name: 극대점을 '자연수 값을 갖는 가장 큰 k'로 착각(감소 구간에서 마지막 자연수 값 1을 놓침)
+  concepts:
+  - CON-CAL-MONOTONE-DERIV
+- id: MC-CAL-42306
+  name: 단조성만으로 곡선이 할선 위에 있다고 결론(차함수 l=f-g 의 끝값·증감 확인 생략)
+  concepts:
+  - CON-CAL-MONOTONE-DERIV
+- id: MC-CAL-42307
+  name: 기울기-각 대응을 잘못 읽거나 끼움 부등식 없이 부채꼴 근사로 극한 단정
+  concepts:
+  - CON-CAL-SQUEEZE
+- id: MC-CAL-42308
+  name: 대칭으로 정의된 조각의 좌미분계수 부호 반전을 놓침(좌·우미분계수를 같은 식으로 계산)
+  concepts:
+  - CON-CAL-DIFFERENTIABILITY
+- id: MC-CAL-42309
+  name: 이음점 우미분계수를 다음 조각으로 변환할 때 -h 로 나누는 부호를 놓침
+  concepts:
+  - CON-CAL-DIFFERENTIABILITY
+- id: MC-CAL-42310
+  name: 절댓값 도함수 적분을 부호 구간 분할 없이 f(b)-f(a) 로 계산
+  concepts:
+  - CON-CAL-DEF-INTEGRAL-PIECEWISE
+- id: MC-CAL-42311
+  name: 절댓값 |f-t| 의 미분불가능점을 셀 때 접점(극대점)까지 세거나 교점을 중복 계산
+  concepts:
+  - CON-CAL-SQUEEZE
+- id: MC-CAL-42312
+  name: 함수방정식에서 f(0)=0 확인 없이 f(h)/h 를 f'(0) 으로 바꿈
+  concepts:
+  - CON-CAL-FUNC-EQ
+- id: MC-CAL-42313
+  name: f'-f ln a = (비동차항) 꼴에서 동차해 C a^x 만 가정해 비동차항을 무시
+  concepts:
+  - CON-CAL-QUOTIENT-PRODUCT-RULE
+- id: MC-CAL-42314
+  name: 곱셈형 함수방정식을 로그로 덧셈형으로 바꿀 때 보정 지수항 계수 오류 또는 선형성 근거 생략
+  concepts:
+  - CON-CAL-FUNC-EQ
+- id: MC-CAL-42315
+  name: 감소함수의 구간 적분을 끝값으로 끼울 때 부등호 방향·합의 첨자 범위를 뒤바꿈
+  concepts:
+  - CON-CAL-INTEGRAL-INEQ
+- id: MC-CAL-42316
+  name: 치환 후 적분 구간의 대소(감소하는 g)로 생기는 부호를 놓치거나 h 의 감소 확인 생략
+  concepts:
+  - CON-CAL-SUBST-INTEGRAL
+- id: MC-CAL-42317
+  name: 로그 항 부호(역수) 처리 오류 또는 ln x 의 부정적분을 부분적분 없이 잘못 구함
+  concepts:
+  - CON-CAL-INTEG-BY-PARTS
+- id: MC-ALG-42302
+  name: 0!=0 으로 두거나 r=0 항을 빠뜨림
+  concepts:
+  - CON-ALG-COMBINATION
+- id: MC-ALG-42303
+  name: 순열의 수를 조합처럼 r! 로 나누어 계산
+  concepts:
+  - CON-ALG-COMBINATION
+- id: MC-CAL-42318
+  name: 적분함수 g 의 극값을 g'=f 의 부호 변화가 아닌 f 의 극값 위치로 착각
+  concepts:
+  - CON-CAL-EXTREMA
+- id: MC-CAL-42319
+  name: 구간 정적분으로 정의된 함수의 최솟값을 피적분함수의 최솟값과 혼동
+  concepts:
+  - CON-CAL-INTEGRAL-FUNCTION
+- id: MC-ALG-42304
+  name: 연속성 근거 없이 공통인수를 가정하거나 계수 조건의 해를 빠짐없이 찾지 않음
+  concepts:
+  - CON-CAL-CONTINUITY
+- id: MC-ALG-42305
+  name: 교점 개수에서 한 경우만 조사하고 매개변수 범위 조건(m>0)을 확인하지 않음
+  concepts:
+  - CON-ALG-QUAD-ROOT-COUNT
+- id: MC-CAL-42320
+  name: 구간별 함수 미분가능성에서 연속 조건만 쓰거나 합성 g(x-m) 미분 부호 누락
+  concepts:
+  - CON-CAL-DIFFERENTIABILITY
+- id: MC-CAL-42321
+  name: 매개변수 곡선의 속력 계산에서 계수 n 을 빠뜨림
+  concepts:
+  - CON-CAL-ARC-LENGTH
+- id: MC-CAL-42322
+  name: 대칭 치환 u=π/2-t 에서 du 부호·구간 변환 근거 없이 결론
+  concepts:
+  - CON-CAL-SUBST-INTEGRAL
+- id: MC-CAL-42323
+  name: 끼움 부등식의 하한이 유효한 구간을 고르지 않아 극한을 정하지 못함
+  concepts:
+  - CON-CAL-SQUEEZE
+- id: MC-GEO-42303
+  name: 교점을 정의하는 두 원의 첨자를 잘못 잡음
+  concepts:
+  - CON-GEO-CIRCLE-INTERSECTION
+- id: MC-GEO-42304
+  name: 교점 좌표의 지수(2^(n-3)) 계산 오류로 기울기 극한을 0 또는 발산으로 판정
+  concepts:
+  - CON-GEO-CIRCLE-INTERSECTION
+- id: MC-CAL-42324
+  name: 세 곡선이 둘러싼 넓이에서 교점에 따른 구간 분할을 놓침
+  concepts:
+  - CON-CAL-AREA-BETWEEN
+- id: MC-SEQ-42301
+  name: 근호 안 제곱을 절댓값 없이 꺼내 음수 매개변수의 경우를 잘못 계산
+  concepts:
+  - CON-SEQ-RECURSIVE
+- id: MC-SEQ-42302
+  name: 반복 합성 수열의 수렴 초항을 고정점만으로 한정(한 번 이동 후 고정점 도달을 놓침)
+  concepts:
+  - CON-SEQ-RECURSIVE
+- id: MC-CAL-42325
+  name: f(1/x) 의 미분에서 속미분 -1/x² 를 빠뜨림
+  concepts:
+  - CON-CAL-CHAIN-RULE
+- id: MC-CAL-42326
+  name: 함수방정식 해의 적분상수를 조건(g=t)과 연결하지 않음
+  concepts:
+  - CON-CAL-FUNC-EQ
+- id: MC-CAL-42327
+  name: cos(α-β) 덧셈정리 부호 혼동
+  concepts:
+  - CON-CAL-TRIG-ADDITION
+- id: MC-CAL-42328
+  name: 정적분 점화식에서 같은 적분 항의 이항 또는 2^(-n/2) 배율 누락
+  concepts:
+  - CON-CAL-REDUCTION-FORMULA
+- id: MC-CAL-42329
+  name: 대칭 치환 후 양변의 같은 적분을 이항하지 않음
+  concepts:
+  - CON-CAL-SUBST-INTEGRAL
+- id: MC-GEO-42401
+  name: 같은 비율로 내분하므로 무게중심이 같다고 좌표 계산 없이 단정
+  concepts:
+  - CON-GEO-CENTROID
+- id: MC-SEQ-42401
+  name: 귀납 단계에서 합동·코사인법칙 근거 없이 다음 삼각형도 정삼각형이라 단정
+  concepts:
+  - CON-SEQ-INDUCTION
+- id: MC-CAL-42401
+  name: 닮음비(길이의 비)를 넓이 등비급수의 공비로 그대로 사용
+  concepts:
+  - CON-CAL-GEOM-SERIES
+- id: MC-ALG-42401
+  name: 동경의 시작각(π/2)을 빠뜨리거나 회전 횟수를 n 으로 세어 사분면·x축 위 점을 잘못 판정
+  concepts:
+  - CON-ALG-GENERAL-ANGLE
+- id: MC-GEO-42402
+  name: 선분 AB 의 1:3 내분을 B 쪽에서부터 잡아 길이를 뒤바꿈
+  concepts:
+  - CON-GEO-INTERNAL-DIV
+- id: MC-ALG-42402
+  name: 함수방정식에서 차수 비교 없이 다항식의 꼴(ax 등)을 가정
+  concepts:
+  - CON-ALG-POLY-DEGREE-IDENTITY
+- id: MC-CAL-42402
+  name: f'=0 의 근만 구하고 부호 변화 없이 극대·극소를 정함
+  concepts:
+  - CON-CAL-MONOTONE-DERIV
+- id: MC-CAL-42403
+  name: 치환적분에서 dt 변환 계수(1/2)·부정적분 부호를 잘못 처리
+  concepts:
+  - CON-CAL-SUBST-INTEGRAL
+- id: MC-CAL-42404
+  name: 부등식을 만족하는 자연수를 하나 찾고 나머지 후보 배제를 생략
+  concepts:
+  - CON-CAL-MONOTONE-DERIV
+- id: MC-CAL-42405
+  name: f'≠0 에서 바로 단조라고 결론(평균값 정리·귀류 없이)
+  concepts:
+  - CON-CAL-MVT
+- id: MC-CAL-42406
+  name: x→-∞ 에서 e^{-x}→0 으로 착각
+  concepts:
+  - CON-CAL-EXP-LIMIT
+- id: MC-CAL-42407
+  name: 합성함수 f=p∘g 의 임계점에서 p' 의 근을 x 로 착각(g(x) 임을 놓침)
+  concepts:
+  - CON-CAL-CHAIN-RULE
+- id: MC-PRF-42401
+  name: 대우 대신 역을 사용하거나 조건 집합에 속하는 값으로 존재를 주장
+  concepts:
+  - CON-PRF-CONTRAPOSITIVE
+- id: MC-CAL-42408
+  name: 임계점의 위치를 구간 정보만으로 임의 결정(경계 조건으로 확정하는 논증 생략)
+  concepts:
+  - CON-CAL-MONOTONE-DERIV
+- id: MC-CAL-42409
+  name: 인수 x 로 생기는 고정근을 빼거나 극댓값을 놓쳐 실근 개수 함수의 불연속점을 잘못 찾음
+  concepts:
+  - CON-ALG-ROOT-COUNT-GRAPH
+- id: MC-CAL-42410
+  name: 정삼각형 꼭짓점의 방향각을 잘못 잡아(사인·코사인 혼동 포함) 좌표가 어긋남
+  concepts:
+  - CON-CAL-TRIG-ADDITION
+- id: MC-CAL-42411
+  name: 각의 범위를 확인하지 않고 cos 을 ±√(1-x²) 로 둠
+  concepts:
+  - CON-CAL-TRIG-ADDITION
+- id: MC-GEO-42403
+  name: 한 변의 경우만 구하고 회전 대칭인 나머지 경우를 빠뜨림
+  concepts:
+  - CON-GEO-SYMMETRY-CASES
+- id: MC-CAL-42412
+  name: 대칭 분할 시 조각 수를 잘못 세어 넓이 계산이 틀림
+  concepts:
+  - CON-CAL-AREA-BETWEEN
+- id: MC-CAL-42413
+  name: 삼각치환에서 적분 구간 변환·dx 변환을 빠뜨림
+  concepts:
+  - CON-CAL-SUBST-INTEGRAL
+- id: MC-SEQ-42402
+  name: 처음 몇 항의 나열로 일반항을 단정(귀납 단계 생략)
+  concepts:
+  - CON-SEQ-INDUCTION
+- id: MC-ALG-42403
+  name: 평행이동 방향을 반대로 적용해 이동량의 부호가 뒤바뀜
+  concepts:
+  - CON-ALG-EXP-TRANSLATION
+- id: MC-GEO-42404
+  name: 두 직선의 사잇각 대신 한 직선의 경사각을 코사인법칙에 사용
+  concepts:
+  - CON-GEO-LAW-OF-COSINES
+- id: MC-CAL-42414
+  name: 조임 정리 대신 교육과정 밖 도구·직관으로 극한을 처리
+  concepts:
+  - CON-CAL-SQUEEZE
+- id: MC-CAL-42415
+  name: 지수항 비의 극한에서 지배항을 잘못 잡거나 비를 뒤집음
+  concepts:
+  - CON-CAL-EXP-LIMIT
+- id: MC-ALG-42404
+  name: 로그 진수의 양수 조건·부호 조건 없이 곱이 0인 조건의 인수를 택함
+  concepts:
+  - CON-ALG-PRODUCT-ZERO-CASES
+- id: MC-CAL-42416
+  name: 좌·우미분계수 계산 없이 식이 바뀌는 점을 모두 미분불가능으로 판단
+  concepts:
+  - CON-CAL-DIFFERENTIABILITY
+- id: MC-ALG-42405
+  name: 주기 조건이 없는 함수를 주기적으로 반복된다고 가정해 근의 개수를 셈
+  concepts:
+  - CON-ALG-ROOT-COUNT-GRAPH
+- id: MC-CAL-42417
+  name: 평행이동 치환·홀함수 대칭을 보지 못하고 직접 적분하다 막힘
+  concepts:
+  - CON-CAL-SUBST-INTEGRAL
+- id: MC-ALG-42406
+  name: 이차항 계수를 b₂/2 가 아닌 b₂ 로 읽거나 차수가 떨어지는 경우를 빠뜨림
+  concepts:
+  - CON-ALG-FACTOR-THEOREM
+- id: MC-CAL-42418
+  name: 롤의 정리 반복 시 도함수의 두 근이 서로 다름을 확인하지 않음
+  concepts:
+  - CON-CAL-MVT
+- id: MC-CAL-42419
+  name: 할선법 오차의 곱 구조를 놓쳐 오차 평가를 약하게 함
+  concepts:
+  - CON-CAL-MVT
+- id: MC-GEO-42405
+  name: 기울기 기호와 선분의 대응을 뒤섞어 연립
+  concepts:
+  - CON-GEO-PARABOLA-CHORD
+- id: MC-CAL-42420
+  name: 현 아래 넓이의 밑변 길이(x좌표 차)를 기울기 차로 잘못 변환
+  concepts:
+  - CON-CAL-AREA-BETWEEN
+- id: MC-CAL-42421
+  name: 분수 부등식에서 분모 부호를 따지지 않고 곱함
+  concepts:
+  - CON-CAL-TRIG-ADDITION
+- id: MC-CAL-42422
+  name: 일대일대응 증명에서 전사(치역 전체) 또는 단사 중 하나를 빠뜨림
+  concepts:
+  - CON-CAL-IVT
+- id: MC-CAL-42501
+  name: 수선의 발을 반복할 때 공비를 cos θ 로 잡음(두 번 투영되어 cos²θ 임을 놓침) 또는 √h_k 의 공비를 cos²θ 로 둠
+  concepts:
+  - CON-CAL-GEOM-SERIES
+- id: MC-CAL-42502
+  name: cos(θ+π/6) 전개 후 sinθ·cosθ 연립에서 예각 조건으로 근을 고르지 않음
+  concepts:
+  - CON-CAL-TRIG-ADDITION
+- id: MC-SEQ-42501
+  name: 귀납 단계에서 합의 첨자를 옮길 때 첫 항·끝 항을 빠뜨림(ㄹ을 2k+1 로 씀 등)
+  concepts:
+  - CON-SEQ-INDUCTION
+- id: MC-CAL-42503
+  name: 교대 급수를 짝수 번째까지 묶지 않고 항별 극한을 따로 취함 / Δx 인수를 빠뜨려 적분 구간을 잘못 잡음
+  concepts:
+  - CON-CAL-RIEMANN-SUM
+- id: MC-GEO-42501
+  name: 내접원의 접선의 길이를 r·tan(α/2) 로 씀(cot 과 tan 혼동)
+  concepts:
+  - CON-GEO-INCIRCLE
+- id: MC-CAL-42504
+  name: 이웃 삼각형의 바깥 각 π-β 의 반각을 tan(β/2) 로 그대로 씀(cot 으로 바뀜을 놓침)
+  concepts:
+  - CON-CAL-TRIG-ADDITION
+- id: MC-GEO-42502
+  name: 내접원 중심이 1사분면에 있다는 조건 없이 절댓값을 풀어 m 의 근을 잘못 고름
+  concepts:
+  - CON-GEO-POINT-LINE-DIST
+- id: MC-CAL-42505
+  name: 합성함수 미분에서 속미분 계수(8t+16 의 8)를 빠뜨림
+  concepts:
+  - CON-CAL-CHAIN-RULE
+- id: MC-CAL-42506
+  name: g(x)=x²/25 또는 x²/81 중 조건 (Ⅳ) 로 경우를 배제하지 않고 하나를 임의로 택함
+  concepts:
+  - CON-CAL-PIECEWISE-COND
+- id: MC-CAL-42507
+  name: 합성함수 f∘f 의 미분가능 조건을 쓰지 않고 f(5a) 값을 결정하지 못함
+  concepts:
+  - CON-CAL-DIFFERENTIABILITY
+  - CON-CAL-CHAIN-RULE
+- id: MC-CAL-42508
+  name: p(x)=-lim{f(x-|h|)-f(x)}/|h| 를 -f'(x) 로 보아 부호를 반대로 씀
+  concepts:
+  - CON-CAL-DERIV-DEF-LIMIT
+- id: MC-CAL-42509
+  name: 닫힌구간 최솟값에서 끝점 값 비교를 빠뜨림
+  concepts:
+  - CON-CAL-EXTREMA
+- id: MC-CAL-42510
+  name: x≥9a 의 직선 구간을 쓰지 않고 f(17a) 를 이차식 구간으로 계산함
+  concepts:
+  - CON-CAL-PIECEWISE-COND
+- id: MC-CAL-42511
+  name: (f∘f)' 의 최솟값을 f'(x) 의 최솟값만으로 판단함(f'(f(x)) 값 무시)
+  concepts:
+  - CON-CAL-CHAIN-RULE
+  - CON-CAL-EXTREMA
+- id: MC-CAL-42512
+  name: 단면의 닮음비를 높이에 정비례(1-2y)로 둠(곡선 y=x²/(2a²) 를 직선처럼 처리)
+  concepts:
+  - CON-CAL-VOLUME-SECTION
+- id: MC-CAL-42513
+  name: 단면 넓이에 닮음비를 제곱하지 않고 한 번만 곱함
+  concepts:
+  - CON-CAL-VOLUME-SECTION
+- id: MC-CAL-42514
+  name: n sin(2π/n) 의 극한을 2π 가 아니라 1 또는 π/2 등으로 처리함
+  concepts:
+  - CON-CAL-TRIG-LIMIT
+- id: MC-CAL-42515
+  name: s=f(t) 치환에서 ds=f'(t)dt 를 빠뜨리거나 적분 구간을 f(k) 그대로 둠
+  concepts:
+  - CON-CAL-SUBST-INTEGRAL
+- id: MC-CAL-42516
+  name: k→0+ 에서 k²ln k 항의 극한을 0 으로 보이지 못하고 발산으로 처리함
+  concepts:
+  - CON-CAL-SQUEEZE
+- id: MC-GEO-42503
+  name: 정n각형 중심에서 변까지의 거리를 외접원 반지름 1 로 씀(cos(π/n) 누락)
+  concepts:
+  - CON-GEO
+- id: MC-CNT-42501
+  name: 짝 짓기를 순서 있게 세고 짝의 순서(r!)로 나누지 않음(a_2=6 등)
+  concepts:
+  - CON-CNT-PAIRING
+- id: MC-CAL-42517
+  name: 직사각형 넓이와 정적분 비교에서 왼쪽 끝점·오른쪽 끝점(부등호 방향)을 혼동함
+  concepts:
+  - CON-CAL-INTEGRAL-INEQ
+- id: MC-CAL-42518
+  name: ln(n!)→∞ 를 보이지 않고 n ln3/ln(n!) 의 극한을 상수로 둠
+  concepts:
+  - CON-CAL-SQUEEZE
+- id: MC-CAL-42519
+  name: f''(x) 분자의 부호만 보고 분자 함수 w(x) 의 단조성(w(0)=0, w'>0) 근거를 빠뜨림
+  concepts:
+  - CON-CAL-MONOTONE-DERIV
+- id: MC-CAL-42520
+  name: 보조함수 φ 의 두 영점 중 x=0 이 h'(0)≠0 인 점임을 놓쳐 k=0 으로 답함
+  concepts:
+  - CON-CAL-MONOTONE-DERIV
+- id: MC-CAL-42521
+  name: φ(0)=0 이므로 x=0 도 g(x)=0 의 근이라고 셈(g(0)=1 정의 무시)
+  concepts:
+  - CON-CAL-ROOT-UNIQUE
+- id: MC-CAL-42522
+  name: b=1/f'(k) 와 b<β=1/f'(α) 에서 f' 의 대소 방향을 뒤집어 k<α 로 씀
+  concepts:
+  - CON-CAL-MONOTONE-DERIV
+- id: MC-CAL-42523
+  name: 함수방정식에서 대입 값을 잘못 골라 f(ln4) 대신 다른 점의 식을 얻음(a=b=ln2 대입 등)
+  concepts:
+  - CON-CAL-FUNC-EQ
+- id: MC-CAL-42524
+  name: 증분이 2h 인 차분몫을 h 로 나누어 미분계수를 2배로 계산함
+  concepts:
+  - CON-CAL-DERIV-DEF-LIMIT
+- id: MC-CAL-42525
+  name: 부분적분 후 우변에 다시 나타난 같은 적분을 이항해 정리하지 않음
+  concepts:
+  - CON-CAL-INTEG-BY-PARTS
+- id: MC-ALG-42501
+  name: 호의 길이 l=rθ 에서 반지름 PD 를 2tan p 로 씀(cot 과 tan 혼동)
+  concepts:
+  - CON-ALG-RADIAN-SECTOR
+- id: MC-ALG-42502
+  name: 부채꼴 넓이를 rR² 으로 써서 1/2 을 빠뜨림
+  concepts:
+  - CON-ALG-RADIAN-SECTOR
+- id: MC-CAL-42526
+  name: 음함수 미분에서 (cot q)'=-csc²q·q' 의 속미분 q' 을 빠뜨림
+  concepts:
+  - CON-CAL-IMPLICIT-DIFF
+- id: MC-CAL-42527
+  name: tan 의 적분을 ln|cos| 로 써서 부호를 틀리거나 치환 계수 3/π 를 빠뜨림
+  concepts:
+  - CON-CAL-SUBST-INTEGRAL
+- id: MC-GEO-42601
+  name: 넓이비와 선분비를 대응시킬 때 비의 순서를 뒤집음
+  concepts:
+  - CON-GEO-AREA-RATIO
+- id: MC-GEO-42602
+  name: 넓이비 a·b·c 를 대응 꼭짓점이 아닌 다른 꼭짓점의 가중치로 붙임
+  concepts:
+  - CON-GEO-AREA-BARYCENTRIC
+- id: MC-GEO-42603
+  name: 여러 부등식 조건 중 일부만 반영한 영역으로 최대 넓이를 구함
+  concepts:
+  - CON-GEO-AREA-BARYCENTRIC
+- id: MC-ALG-42601
+  name: 꼭짓점이 정의 구간 안에 있는지 확인하지 않고 꼭짓점 값을 최댓값으로 씀(또는 a 의 조건으로 근 선택 누락)
+  concepts:
+  - CON-ALG-QUAD-VERTEX
+- id: MC-CAL-42601
+  name: 합성함수를 구간별로 쓸 때 속함수 값의 범위가 아니라 x 의 범위로 그대로 나눔
+  concepts:
+  - CON-CAL-PIECEWISE-COMPOSITE
+- id: MC-CAL-42602
+  name: 꺾인 점 후보를 모두 미분불가능점으로 답함(좌·우미분계수 확인 없이)
+  concepts:
+  - CON-CAL-DIFFERENTIABILITY
+- id: MC-CAL-42603
+  name: 합성함수 도함수에서 속미분을 빠뜨려 증가 구간을 잘못 구함
+  concepts:
+  - CON-CAL-CHAIN-RULE
+- id: MC-CAL-42604
+  name: 구간별 함수의 정적분에서 상수 구간(값 1)의 적분을 빠뜨림
+  concepts:
+  - CON-CAL-DEF-INTEGRAL-PIECEWISE
+- id: MC-CAL-42605
+  name: 변곡점 조건만 쓰고 역함수 존재(도함수 부호 불변) 조건을 판별식으로 바꾸지 못함
+  concepts:
+  - CON-CAL-INVERSE-FUNC
+  - CON-CAL-INFLECTION
+- id: MC-CAL-42606
+  name: h→0- 극한에서 2+3h, 2+h 가 모두 x<2 쪽임을 놓쳐 h(x)의 미분계수를 씀
+  concepts:
+  - CON-CAL-DERIV-DEF-LIMIT
+- id: MC-SEQ-42601
+  name: $a_n=S_n-S_{n-1}$ 을 n=1 에도 적용함
+  concepts:
+  - CON-SEQ-SUM-TO-TERM
+- id: MC-SEQ-42602
+  name: 합의 식이 성립하는 n 의 범위를 놓쳐 앞 항까지 같은 일반항으로 계산
+  concepts:
+  - CON-SEQ-SUM-TO-TERM
+- id: MC-CAL-42607
+  name: 급수의 극한을 정적분으로 바꿀 때 적분 구간·$\frac1n$ 인수를 잘못 잡음
+  concepts:
+  - CON-CAL-RIEMANN-SUM
+- id: MC-CAL-42608
+  name: $\ln\frac{1+\sin x}{\cos x}$ 미분에서 몫의 미분 부호 실수
+  concepts:
+  - CON-CAL-TRIG-LOG-DERIV
+- id: MC-CAL-42609
+  name: 곡선의 길이를 구간 나누지 않고 한 식으로 적분함(구간별 정의 무시)
+  concepts:
+  - CON-CAL-ARC-LENGTH
+- id: MC-CAL-42610
+  name: 최댓값·최솟값을 구하고 e 의 지수로 올리지 않음(e^{c(t)} 대신 c(t) 의 값 답)
+  concepts:
+  - CON-CAL-EXTREMA
+- id: MC-CAL-42611
+  name: 접선 위의 점을 접점과 거리 L 로 잡을 때 방향(a(t)≥t)을 반영하지 않음
+  concepts:
+  - CON-CAL-TANGENT-LINE
+  - CON-CAL-ARC-LENGTH
+- id: MC-CAL-42612
+  name: 끝점 비교 없이 Q(0) 과 Q(π/3) 중 최대를 단정함
+  concepts:
+  - CON-CAL-EXTREMA
+- id: MC-SEQ-42603
+  name: 두 점화식의 이웃 항의 비를 비교할 때 r 인수를 빠뜨림
+  concepts:
+  - CON-SEQ-RECURSIVE
+- id: MC-SEQ-42604
+  name: 역수를 취하며 부등호 방향을 바꾸지 않음
+  concepts:
+  - CON-ALG-INEQ-RECIPROCAL
+- id: MC-CAL-42613
+  name: 상수 하한만으로 수열이 발산한다고 결론
+  concepts:
+  - CON-CAL-EXP-INEQ-PRODUCT
+  - CON-CAL-HARMONIC-INTEGRAL
+- id: MC-CAL-42614
+  name: 한쪽 부등식만으로 극한이 0 이 되는 범위를 확정(경계 포함 여부 미확인)
+  concepts:
+  - CON-CAL-SQUEEZE
+- id: MC-ALG-42602
+  name: 연속한 자연수 집합의 원소 개수를 하나 적게 셈
+  concepts:
+  - CON-ALG-COMBINATION
+- id: MC-SEQ-42605
+  name: 일부 n 에서만 주어진 비 조건을 모든 n 에 적용함
+  concepts:
+  - CON-SEQ-RECURSIVE
+- id: MC-CAL-42615
+  name: f/e^g 의 미분에서 몫·합성함수 미분을 잘못 적용
+  concepts:
+  - CON-CAL-QUOTIENT-PRODUCT-RULE
+  - CON-CAL-CHAIN-RULE
+- id: MC-CAL-42616
+  name: e^{f(x)-x} 미분에서 지수의 -x 를 미분하지 않음
+  concepts:
+  - CON-CAL-CHAIN-RULE
+- id: MC-CAL-42617
+  name: 증가함수의 임계점에서 이계도함수 0 조건을 끌어내지 못함
+  concepts:
+  - CON-CAL-INVERSE-FUNC
+- id: MC-CAL-42618
+  name: 역함수의 도함수 h'(g(x)) 를 g'(x) 와 혼동
+  concepts:
+  - CON-CAL-INVERSE-DERIV
+- id: MC-CAL-42619
+  name: 음이 아님을 확인하지 않고 부등식끼리 곱함
+  concepts:
+  - CON-CAL-INTEGRAL-INEQ
+- id: MC-CAL-42620
+  name: 부분적분의 경계항을 조건으로 소거하지 않거나 f,g 역할을 바꿔 점화식이 나오지 않음
+  concepts:
+  - CON-CAL-REDUCTION-FORMULA
+- id: MC-PRF-42601
+  name: 귀납법 없이 몇 개의 n 에서 확인한 패턴으로 일반식을 결론
+  concepts:
+  - CON-PRF-INDUCTION
+- id: MC-CAL-42621
+  name: α>1/2 에서 극한값이 존재하지 않음을 보이지 않고 최댓값을 결론
+  concepts:
+  - CON-CAL-SQUEEZE
+- id: MC-CAL-42701
+  name: 부등식 f(x)>0 을 직접 미분해 판정하려다 실패함(양변을 나눈 보조함수를 세우지 못함)
+  concepts:
+  - CON-CAL-MONOTONE-DERIV
+- id: MC-CAL-42702
+  name: 구간의 끝점(근)에서의 등호를 놓쳐 열린/닫힌 구간 판단을 틀림
+  concepts:
+  - CON-CAL-MONOTONE-DERIV
+- id: MC-CAL-42703
+  name: 실근의 존재만 보이고 유일성(단조성)을 빠뜨림
+  concepts:
+  - CON-CAL-ROOT-UNIQUE
+- id: MC-CAL-42704
+  name: 합성함수의 미분에서 속미분 g'(x)를 빠뜨림
+  concepts:
+  - CON-CAL-CHAIN-RULE
+- id: MC-CAL-42705
+  name: 정적분의 대소 관계에서 적분 변수와 고정 변수를 혼동함
+  concepts:
+  - CON-CAL-INTEGRAL-INEQ
+- id: MC-CAL-42706
+  name: 부분적분에서 부호·경계값 계산 실수
+  concepts:
+  - CON-CAL-INTEG-BY-PARTS
+- id: MC-CAL-42707
+  name: 조임 정리에서 양쪽 극한이 같음을 확인하지 않음(e^{t_n}→1 근거 누락)
+  concepts:
+  - CON-CAL-SQUEEZE
+- id: MC-CAL-42708
+  name: 증가함수이면 일대일이라는 것만 쓰고 치역이 [0,∞) 전체임(위로의 함수)을 빠뜨림
+  concepts:
+  - CON-CAL-INVERSE-FUNC
+- id: MC-CAL-42709
+  name: 역함수의 정적분을 역함수식을 직접 구해 계산하려 함
+  concepts:
+  - CON-CAL-INVERSE-INTEGRAL
+- id: MC-CAL-42710
+  name: 적분 평균값의 위치 t_n 이 0 으로 감을 보이지 않고 극한을 대입함
+  concepts:
+  - CON-CAL-MVT-INTEGRAL
+  - CON-CAL-SQUEEZE
+- id: MC-GEO-42701
+  name: 내분 비의 양수 조건(점이 양 끝점과 다름)을 근거 없이 씀
+  concepts:
+  - CON-GEO-INTERNAL-DIV
+- id: MC-ALG-42701
+  name: 교점의 유일성과 방정식의 양의 실근 유일성을 연결하지 못함
+  concepts:
+  - CON-ALG-QUAD-ROOT-COUNT
+- id: MC-PRF-42701
+  name: 귀류 가정에서 나온 접선 조건을 끝까지 모순으로 연결하지 못함
+  concepts:
+  - CON-PRF-CONTRADICTION
+- id: MC-CAL-42711
+  name: 넓이를 구할 때 점의 위치(구간 안/밖)에 따른 경우를 나누지 않음
+  concepts:
+  - CON-CAL-AREA-BETWEEN
+concepts:
+- id: CON-GEO
+  name: 도형의 방정식·기하
+  parent: null
+  precedes: []
+- id: CON-GEO-POINT-LINE-DIST
+  name: 점과 직선 사이의 거리
+  parent: CON-GEO
+  precedes: []
+- id: CON-PRB
+  name: 확률과 통계
+  parent: null
+  precedes: []
+- id: CON-PRB-CONT-DENSITY
+  name: 연속확률변수와 확률밀도함수(넓이로 확률 구하기)
+  parent: CON-PRB
+  precedes: []
+- id: CON-PRB-CONDITIONAL
+  name: 조건부확률
+  parent: CON-PRB
+  precedes: []
+- id: CON-PRB-EXPECTATION
+  name: 이산확률변수의 확률분포와 기댓값
+  parent: CON-PRB
+  precedes: []
+- id: CON-CAL-FTC-VARIABLE-LIMITS
+  name: 위끝·아래끝이 변수인 정적분의 미분(적분과 미분의 관계)
+  parent: CON-CAL
+  precedes: []
+- id: CON-CAL-CONVEX-CHORD
+  name: 아래로 볼록한 함수의 현·중점 부등식(내분점 조건)
+  parent: CON-CAL
+  precedes: []
+- id: CON-CNT-LATTICE-COUNT
+  name: 영역 안 격자점 개수를 세로선별로 세기
+  parent: CON-CNT
+  precedes: []
+- id: CON-CAL-TANGENT-FAMILY-REGION
+  name: 접선족이 지나는 점의 집합(고정된 x에서 매개변수에 대한 최대·최소)
+  parent: CON-CAL
+  precedes: []
+- id: CON-ALG-QUAD-ROOT-COUNT
+  name: 이차방정식의 근의 개수·중근 판정
+  parent: CON-ALG
+  precedes: []
+- id: CON-CAL-TANGENT-LINE
+  name: 곡선 위의 점에서의 접선의 방정식
+  parent: CON-CAL
+  precedes: []
+- id: CON-ALG
+  name: 대수·방정식
+  parent: null
+  precedes: []
+- id: CON-CNT-COLLINEAR-CORRECTION
+  name: 한 직선 위의 점이 있을 때 직선·삼각형 개수의 조합 보정
+  parent: CON-CNT
+  precedes: []
+- id: CON-ALG-SUM-PRODUCT-SYSTEM
+  name: 두 수의 차(합)와 곱으로 연립하여 두 수 구하기(부호 조건으로 근 선택)
+  parent: CON-ALG
+  precedes: []
+- id: CON-ALG-COMBINATION
+  name: 조합의 수와 부분집합의 개수
+  parent: CON-ALG
+  precedes: []
+- id: CON-CNT
+  name: 경우의 수
+  parent: null
+  precedes: []
+- id: CON-GEO-LINE-INTERCEPT
+  name: 직선의 절편식과 두 직선의 교점
+  parent: CON-GEO
+  precedes: []
+- id: CON-ALG-POLY-DEGREE-IDENTITY
+  name: 항등식에서 다항식의 차수·계수 비교
+  parent: CON-ALG
+  precedes: []
+- id: CON-ALG-PRODUCT-ZERO-CASES
+  name: 곱이 0인 조건을 점마다 인수별로 나누고 부호·정의역으로 경우 배제
+  parent: CON-ALG
+  precedes: []
+- id: CON-CAL-EXTREMA
+  name: 도함수를 이용한 최댓값·최솟값
+  parent: CON-CAL
+  precedes: []
+- id: CON-CAL-PIECEWISE-COMPOSITE
+  name: 구간별로 정의된 함수의 합성(속함수 값의 범위로 구간 나누기)
+  parent: CON-CAL
+  precedes: []
+- id: CON-CAL-QUOTIENT-PRODUCT-RULE
+  name: 곱·몫의 미분법
+  parent: CON-CAL
+  precedes: []
+- id: CON-ALG-CUBIC-ROOT-SELECTION
+  name: 삼차방정식의 인수분해와 범위 조건에 의한 근의 선택
+  parent: CON-ALG
+  precedes: []
+- id: CON-CAL-FUNC-EQ
+  name: 함수방정식에 특수값 대입하기
+  parent: CON-CAL
+  precedes: []
+- id: CON-CAL-INTEG-BY-PARTS
+  name: 부분적분법
+  parent: CON-CAL
+  precedes: []
+- id: CON-CAL-SUBST-INTEGRAL
+  name: 치환적분법(삼각치환·역함수 치환 포함)
+  parent: CON-CAL
+  precedes: []
+- id: CON-SEQ-LIMIT-LAWS
+  name: 수열의 극한의 기본 성질(합·차·곱·몫, 수렴 전제)
+  parent: CON-SEQ
+  precedes: []
+- id: CON-CAL-AREA-BETWEEN
+  name: 곡선과 직선으로 둘러싸인 넓이
+  parent: CON-CAL
+  precedes: []
+- id: CON-CAL-SQUEEZE
+  name: 수열의 극한의 대소 관계(조임 정리)
+  parent: CON-CAL
+  precedes: []
+- id: CON-CAL-TRIG-ADDITION
+  name: 삼각함수의 덧셈정리(반각·여각 변형 포함)
+  parent: CON-CAL
+  precedes: []
+- id: CON-SEQ
+  name: 수열
+  parent: null
+  precedes: []
+- id: CON-CAL-IMPLICIT-DIFF
+  name: 음함수의 미분법
+  parent: CON-CAL
+  precedes: []
+- id: CON-CAL-INVERSE-FUNC
+  name: 역함수의 존재(일대일대응)와 그래프의 대칭
+  parent: CON-CAL
+  precedes:
+  - CON-CAL-MONOTONE-DERIV
+- id: CON-CAL-IVT
+  name: 사잇값 정리로 실근의 존재 보이기
+  parent: CON-CAL
+  precedes: []
+- id: CON-CAL-MONOTONE-DERIV
+  name: 도함수의 부호와 함수의 증가·감소(증감표)
+  parent: CON-CAL
+  precedes: []
+- id: CON-CAL-LIMIT-ORDER-COMPARE
+  name: 극한에서 각 항의 차수(무한소의 크기) 비교
+  parent: CON-CAL
+  precedes: []
+- id: CON-TRI-RELATIONS
+  name: 삼각함수 사이의 관계($\frac\pi2\pm\theta$, $\sin^2+\cos^2=1$)로 방정식 정리
+  parent: CON-TRI
+  precedes: []
+- id: CON-TRI
+  name: 삼각함수
+  parent: null
+  precedes: []
+- id: CON-CAL-ABS-NONDIFF
+  name: 절댓값 함수 |g(x)-t| 의 미분불가능점(교점에서 g'≠0)
+  parent: CON-CAL
+  precedes: []
+- id: CON-ALG-ROOT-COUNT-GRAPH
+  name: 방정식의 실근의 개수를 그래프와 직선의 교점으로 세기
+  parent: CON-ALG
+  precedes:
+  - CON-CAL-MONOTONE-DERIV
+- id: CON-CAL-DIFFERENTIABILITY
+  name: 좌·우미분계수로 미분가능성 판정
+  parent: CON-CAL
+  precedes: []
+- id: CON-GEO-INTERNAL-DIV
+  name: 선분의 내분점의 좌표
+  parent: CON-GEO
+  precedes: []
+- id: CON-GEO-SIMILAR-RATIO
+  name: 평행선과 닮음비(선분의 길이의 비)
+  parent: CON-GEO
+  precedes: []
+- id: CON-SEQ-INDUCTION
+  name: 수학적 귀납법(n=k+1 단계의 식 정리)
+  parent: CON-SEQ
+  precedes: []
+- id: CON-SEQ-RECURSIVE
+  name: 수열의 귀납적 정의(점화식)와 이웃 항의 비
+  parent: CON-SEQ
+  precedes: []
+- id: CON-CAL-CHAIN-RULE
+  name: 합성함수의 미분법
+  parent: CON-CAL
+  precedes: []
+- id: CON-CAL-MVT
+  name: 평균값 정리(롤의 정리)로 모순·존재 보이기
+  parent: CON-CAL
+  precedes: []
+- id: CON-CAL-EXP-VALUE-BOUND
+  name: 주어진 부등식(e^2 의 범위 등)으로 지수함수 값의 대소를 엄밀히 비교
+  parent: CON-CAL
+  precedes: []
+- id: CON-CAL-INTEGRAL-INEQ
+  name: 정적분의 대소 관계로 부등식 얻기
+  parent: CON-CAL
+  precedes: []
+- id: CON-CAL-INVERSE-DERIV
+  name: 역함수의 미분법($h'(g(x))g'(x)=1$)
+  parent: CON-CAL
+  precedes:
+  - CON-CAL-CHAIN-RULE
+- id: CON-CAL-INVERSE-INTEGRAL
+  name: 역함수의 정적분을 넓이로 바꾸기
+  parent: CON-CAL
+  precedes:
+  - CON-CAL-INVERSE-FUNC
+- id: CON-ALG-QUAD-VERTEX
+  name: 이차함수의 꼭짓점과 최댓값·최솟값
+  parent: CON-ALG
+  precedes: []
+- id: CON-ALG-RADIAN-SECTOR
+  name: 호도법과 부채꼴의 호의 길이·넓이
+  parent: CON-ALG
+  precedes: []
+- id: CON-CAL-ARC-LENGTH
+  name: 곡선의 길이
+  parent: CON-CAL
+  precedes: []
+- id: CON-CAL-CONTINUITY
+  name: 함수의 연속(좌극한·우극한·함숫값)
+  parent: CON-CAL
+  precedes: []
+- id: CON-CAL-DEF-INTEGRAL-PIECEWISE
+  name: 구간별 함수의 정적분(적분 구간 나누기)
+  parent: CON-CAL
+  precedes: []
+- id: CON-CAL-DERIV-DEF-LIMIT
+  name: 미분계수의 정의를 이용한 극한 변형
+  parent: CON-CAL
+  precedes: []
+- id: CON-CAL-INTEGRAL-FUNCTION
+  name: 정적분으로 정의된 함수와 그 미분
+  parent: CON-CAL
+  precedes: []
+- id: CON-CAL-REDUCTION-FORMULA
+  name: 부분적분으로 거듭제곱 적분의 점화식 만들기
+  parent: CON-CAL
+  precedes:
+  - CON-CAL-INTEG-BY-PARTS
+- id: CON-GEO-CIRCLE-INTERSECTION
+  name: 원의 방정식과 두 원의 교점(방정식을 빼서 공통현 구하기)
+  parent: CON-GEO
+  precedes: []
+- id: CON-GEO-CENTROID
+  name: 내분점과 삼각형의 무게중심의 좌표
+  parent: CON-GEO
+  precedes: []
+- id: CON-CAL-GEOM-SERIES
+  name: 등비급수의 수렴 조건과 합
+  parent: CON-CAL
+  precedes: []
+- id: CON-ALG-GENERAL-ANGLE
+  name: 일반각과 동경의 위치(사분면)
+  parent: CON-ALG
+  precedes: []
+- id: CON-PRF
+  name: 증명·논증
+  parent: null
+- id: CON-CAL-EXP-LIMIT
+  name: 지수함수의 극한($x\to\pm\infty$에서 $e^{-x}$의 극한)
+  parent: CON-CAL
+  precedes: []
+- id: CON-PRF-CONTRAPOSITIVE
+  name: 명제의 대우를 이용한 증명(역과 대우의 구분)
+  parent: CON-PRF
+  precedes: []
+- id: CON-GEO-SYMMETRY-CASES
+  name: 도형의 대칭(회전 대칭)으로 경우를 확장·분할하기
+  parent: CON-GEO
+  precedes: []
+- id: CON-ALG-EXP-TRANSLATION
+  name: 지수함수의 그래프의 평행이동
+  parent: CON-ALG
+  precedes: []
+- id: CON-GEO-LAW-OF-COSINES
+  name: 코사인법칙(두 변과 끼인각으로 셋째 변)
+  parent: CON-GEO
+  precedes: []
+- id: CON-ALG-FACTOR-THEOREM
+  name: 인수정리와 다항식의 결정(근과 최고차항 계수)
+  parent: CON-ALG
+  precedes: []
+- id: CON-GEO-PARABOLA-CHORD
+  name: 포물선 y=x² 의 현의 기울기(두 x좌표의 합)
+  parent: CON-GEO
+  precedes: []
+- id: CON-CAL-RIEMANN-SUM
+  name: 정적분과 급수의 합(구분구적법)
+  parent: CON-CAL
+  precedes: []
+- id: CON-CAL-ROOT-UNIQUE
+  name: 사잇값 정리 + 단조성으로 실근의 유일성 보이기
+  parent: CON-CAL
+  precedes:
+  - CON-CAL-IVT
+  - CON-CAL-MONOTONE-DERIV
+- id: CON-GEO-INCIRCLE
+  name: 삼각형의 내접원(접선의 길이·넓이 S=rs)
+  parent: CON-GEO
+  precedes: []
+- id: CON-CAL-PIECEWISE-COND
+  name: 여러 조건으로 구간별 함수식을 결정하기(경우 배제)
+  parent: CON-CAL
+  precedes:
+  - CON-CAL-DIFFERENTIABILITY
+- id: CON-CAL-VOLUME-SECTION
+  name: 단면의 넓이와 입체도형의 부피(닮음비의 제곱)
+  parent: CON-CAL
+  precedes: []
+- id: CON-CAL-TRIG-LIMIT
+  name: 삼각함수의 극한($\lim\frac{\sin x}{x}=1$)
+  parent: CON-CAL
+  precedes: []
+- id: CON-CNT-PAIRING
+  name: 원소를 2개씩 짝 짓는 경우의 수(조합과 순서 제거)
+  parent: CON-CNT
+  precedes: []
+- id: CON-GEO-AREA-RATIO
+  name: 밑변·높이의 비와 삼각형의 넓이의 비
+  parent: CON-GEO
+  precedes: []
+- id: CON-GEO-AREA-BARYCENTRIC
+  name: 삼각형 내부의 점이 만드는 세 넓이비와 점의 좌표(넓이비 좌표)
+  parent: CON-GEO
+  precedes:
+  - CON-GEO-AREA-RATIO
+  - CON-GEO-INTERNAL-DIV
+- id: CON-CAL-INFLECTION
+  name: 이계도함수와 변곡점
+  parent: CON-CAL
+  precedes: []
+- id: CON-CAL-TRIG-LOG-DERIV
+  name: 삼각함수·로그함수의 미분
+  parent: CON-CAL
+  precedes: []
+- id: CON-SEQ-SUM-TO-TERM
+  name: 수열의 합과 일반항의 관계($a_n=S_n-S_{n-1}$)
+  parent: CON-SEQ
+  precedes: []
+- id: CON-SEQ-SIGMA
+  name: 합의 기호 $\sum$의 성질과 계산
+  parent: CON-SEQ
+  precedes: []
+- id: CON-ALG-INEQ-RECIPROCAL
+  name: 양수의 역수와 부등호 방향
+  parent: CON-ALG
+  precedes: []
+- id: CON-CAL-EXP-INEQ-PRODUCT
+  name: $1+x\le e^x$로 곱을 지수의 합으로 묶기
+  parent: CON-CAL
+  precedes: []
+- id: CON-CAL-HARMONIC-INTEGRAL
+  name: 직사각형 넓이의 합과 정적분 비교(조화수열의 부분합과 로그)
+  parent: CON-CAL
+  precedes: []
+- id: CON-PRF-INDUCTION
+  name: 수학적 귀납법
+  parent: CON-PRF
+  precedes: []
+- id: CON-CAL-MVT-INTEGRAL
+  name: 평균값 정리를 적분으로 정의된 함수에 적용하기
+  parent: CON-CAL
+  precedes: []
+- id: CON-PRF-CONTRADICTION
+  name: 귀류법으로 경우 배제하기
+  parent: CON-PRF
+  precedes: []

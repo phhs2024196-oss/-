@@ -1,0 +1,392 @@
+# 경북대 2022학년도 논술(AAT) 모의고사 자연계열Ⅱ 수학 문제 1 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: KNU-M22B-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: KNU
+type: null
+variant_of: null
+replaces: null
+level: L6
+form: 귀류
+points: 110
+time_estimate_min: 40
+intent: |
+  구간별로 정의된 함수의 미분가능 조건으로 계수 관계를 구하고(1-1), 지수함수가 포함된 함수의 극값을 부등식으로 평가하며(1-2(1)), 합성함수 $g=f-f\circ f$의 극값점 개수를 사잇값 정리로 세고(1-2(2)), 극값 조건과 평균값 정리를 이용한 귀류로 계수를 결정할 수 있는지(1-3) 평가한다. (모의고사 자료에 출제 의도 별도 기재 없음 — 채점기준으로 요약)
+key_idea: |
+  $x=1$에서 미분가능: $a+b=8$, 연속: $\tfrac a3+\tfrac b2+d=0$ ⇒ $b+6d=-16$. $g'(x)=(1-f'(f(x)))f'(x)$이므로 극값점은 $f'(x)=0$ 또는 $f'(f(x))=1$인 점. $x<1$의 음의 극값점은 $x=-\tfrac ba$, 양의 극값점 $t\in(0,1)$은 $f'(f(t))=1$. 두 극값이 같다는 조건에서 $f(t)=f(-\tfrac ba)$를 귀류로 보이면 $2a(ac+b)+1=0$.
+stuck: |
+  1-3에서 $f(t)>f(-\tfrac ba)$이면 $g(t)=g(-\tfrac ba)$로부터 $\dfrac{f(f(t))-f(f(-b/a))}{f(t)-f(-b/a)}=1$, 평균값 정리로 $f'(s)=1$인 $s$, 다시 사잇값 정리로 $s=f(s')$ $(s'\in(0,t))$가 생겨 극값점 유일성에 모순이 되는 고리
+idea_tags: [IDEA-COMPOSITE-SELF-EXTREMA-CHAIN-RULE, IDEA-MVT-CONTRADICTION-UNIQUE-EXTREMUM, IDEA-PIECEWISE-SMOOTH-GLUING]
+tags: [구간별 함수, 미분가능성, 합성함수의 극값, 평균값 정리, 사잇값 정리, 귀류법]
+elements:
+  materials:
+  - '세 구간에서 이차·삼차·$-(x-1)(3x-11)e^{-x+1}$로 정의된 함수 $f(x)$($a,b>0$, $c,d<0$)'
+  - '$g(x)=f(x)-(f\circ f)(x)$와 그 극값점'
+  - '수치 조건 $(1.1)^3<e^2<8$'
+  concepts:
+  - '좌·우극한과 극한(제시문 (가)), 미분계수(제시문 (나))'
+  - '사잇값 정리(제시문 (다)), 평균값 정리(제시문 (라))'
+  - '합성함수의 미분(제시문 (마))'
+  - '극값과 도함수의 부호'
+  tools:
+  - '$g''(x)=(1-f''(f(x)))f''(x)$'
+  - '$f''(y)=1$인 $y_1\in(0,1)$, $y_2\in(1,\tfrac53)$, $y_3>5$'
+  - '$(\tfrac{12}{11})^3<(\tfrac{11}{10})^3<e^2<2^3<(\tfrac{12}5)^3$로 $\tfrac53<f(\tfrac53)=4e^{-2/3}<\tfrac{11}3$'
+  - '귀류(①·② 두 경우)와 평균값 정리'
+  conditions:
+  - '(ㄱ) $f$는 실수 전체에서 미분가능'
+  - '(ㄴ) $x<1$에서 $g$의 극값점은 양수 하나·음수 하나, 두 극값이 같음'
+  stimuli_used: ['(가)', '(나)', '(다)', '(라)', '(마)']
+  subpart_links: '1-3은 1-1의 $a+b=8$, $d=-\tfrac16b-\tfrac83$을 연립에 사용, 1-2(2)는 1-2(1)의 $f(\tfrac53)<\tfrac{11}3$으로 $y_3$ 경우 배제'
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅱ, 미적분]
+  scope_2028: calc2
+  scope_confirmed: false
+  standards:
+  - code: 12수학Ⅱ02-02
+    text: 함수의 미분가능성과 연속성의 관계를 이해한다.
+    verified: false
+  - code: 12미적02-07
+    text: 합성함수를 미분할 수 있다.
+    verified: true
+  - code: 12수학Ⅱ02-07
+    text: 함수에 대한 평균값 정리를 이해한다.
+    verified: false
+  - code: 12수학Ⅱ01-04
+    text: 연속함수의 성질을 이해하고, 이를 활용할 수 있다.
+    verified: false
+  content_area: 미적분 – 여러 가지 미분법·도함수의 활용
+  behavior_domain: 추론
+  unit_path: [미적분, 미분법, 도함수의 활용, 합성함수의 극값]
+  key_concepts: [미분가능성, 합성함수의 미분, 평균값 정리, 사잇값 정리]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 경북대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 경북대학교
+  admission_year: 2022
+  admission_type: 논술(AAT) 모의고사
+  track: 자연계열Ⅱ
+  question_no: 1
+  official_url: https://ipsi1.knu.ac.kr   # [확인필요] 입학처 공지·자료 게시판 원본 게시물 주소
+  retrieved_at: 2026-11-21
+  original_points: [10, 20, 20, 60]
+  rights_notice: 미확인(대학 원본 PDF 표지 문구 확인 필요)
+  transcribed_from: 'M22_N2.pdf p.3(문제지 1/3쪽, 200dpi 재판독) / 예시답안·채점기준: M22_N2.pdf p.6~7'
+
+verify: verify/KNU-M22B.py::p01
+
+stimuli:
+- label: (가)
+  body: |
+    $x=a$에서 함수 $f(x)$의 우극한과 좌극한이 모두 존재하고, 그 값이 모두 $L$이면 $\lim_{x\to a}f(x)=L$이다.
+- label: (나)
+  body: |
+    함수 $y=f(x)$의 $x=a$에서의 미분계수는
+    $$f'(a)=\lim_{x\to a}\dfrac{f(x)-f(a)}{x-a}$$
+- label: (다)
+  body: |
+    함수 $f(x)$가 닫힌구간 $[a,b]$에서 연속이고 $f(a)\ne f(b)$이면 $f(a)$와 $f(b)$ 사이에 있는 임의의 $k$에 대하여 $f(c)=k$인 $c$가 열린구간 $(a,b)$에 적어도 하나 존재한다.
+- label: (라)
+  body: |
+    함수 $f(x)$가 닫힌구간 $[a,b]$에서 연속이고 열린구간 $(a,b)$에서 미분가능하면
+    $$\dfrac{f(b)-f(a)}{b-a}=f'(c)$$
+    인 $c$가 열린구간 $(a,b)$에 적어도 하나 존재한다.
+- label: (마)
+  body: |
+    두 함수 $y=f(u)$, $u=g(x)$가 미분가능할 때, 합성함수 $y=f(g(x))$의 도함수는
+    $$\{f(g(x))\}'=f'(g(x))g'(x)$$
+
+stem: |
+  ※ 모든 문항에서 풀이과정을 반드시 기술하시오.
+
+  양의 실수 $a$, $b$와 음의 실수 $c$, $d$에 대하여 실수 전체의 집합에서 정의된 함수
+  $$f(x)=\begin{cases}-(ax+b)^2+c & \left(x<-\dfrac ba\right)\\ \dfrac a3x^3+\dfrac b2x^2+d & \left(-\dfrac ba\le x<1\right)\\ -(x-1)(3x-11)e^{-x+1} & (x\ge1)\end{cases}$$
+  과 함수
+  $$g(x)=f(x)-(f\circ f)(x)$$
+  가 다음 조건을 만족시킨다.
+
+  (ㄱ) 함수 $f(x)$는 실수 전체 집합에서 미분가능하다.
+  (ㄴ) $x<1$에서 함수 $g(x)$는 극대 또는 극소가 되는 양의 실수 $x$와 음의 실수 $x$가 오직 한 개씩 존재하고, 두 극값은 동일하다.
+
+subparts:
+- id: '1-1'
+  stem: |
+    $b+6d$의 값을 구하시오. (10점)
+  points: 10
+  depends_on: []
+  answer: {kind: value, value: '-16', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-1-A
+    audience: A
+    method_no: 1
+    key_idea: $x=1$에서 연속·미분가능.
+    steps:
+    - {id: 1-1a, content: '$a+b=8$, $d=-\tfrac a3-\tfrac b2$ ⇒ $b+6d=-2(a+b)=-16$', criteria: [1-1.M1, 1-1.A1]}
+    hint_ladder:
+    - $x=1$에서 가운데 식과 오른쪽 식의 값·미분계수를 맞추자.
+  - id: S1-1-B
+    audience: B
+    source_flow: M22_N2.pdf p.6
+    method_no: 1
+    steps:
+    - id: 1-1b-1
+      content: |
+        $x=1$에서 함수 $f(x)$는 미분가능하므로,
+        $\dfrac a3+\dfrac b2+d=0\Rightarrow d=-\dfrac a3-\dfrac b2$, $a+b=-(-3x^2+20x-25)e^{-x+1}\big|_{x=1}=8$
+      criteria: [1-1.M1]
+    - id: 1-1b-2
+      content: |
+        $\therefore b+6d=(8-a)+(-2a-3b)=-16$.
+      criteria: [1-1.A1]
+      # [공식표기] 예시답안의 중간식 (8-a)+(-2a-3b) 는 b+6d=b-2a-3b 를 a+b=8 로 정리하는 과정의 표기(값 -16 일치)
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1-1.M1
+      mark_type: M
+      points: 5
+      evidence: $a+b$의 값 또는 미분값 $-(-3x^2+20x-25)e^{-x+1}\big|_{x=1}$을 정확히 구했다.
+      depends_on: []
+      implied_ok: false
+      steps: [1-1b-1]
+    - id: 1-1.A1
+      mark_type: A
+      points: 5
+      evidence: $b+6d$의 값($-16$)을 정확히 구했다.
+      depends_on: [1-1.M1]
+      cao: true
+      steps: [1-1b-2]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-42216}
+  misconceptions:
+  - id: MC-CAL-42216
+    outcome_code: '71'
+    wrong_work: '$x\ge1$ 식의 미분에서 $e^{-x+1}$의 미분 $-e^{-x+1}$ 항을 빠뜨려 $a+b=-(6x-14)|_{x=1}=8$은 맞지만 일반식을 틀리거나, 부호를 틀려 $a+b=-8$'
+    detect_cue: $a+b=-8$ 또는 $b+6d=16$
+    feedback: 곱의 미분 $\{-(x-1)(3x-11)\}'e^{-x+1}+\{-(x-1)(3x-11)\}(-e^{-x+1})$를 정리하면 $-(-3x^2+20x-25)e^{-x+1}$입니다.
+    remedy: [RL-1]
+
+- id: '1-2(1)'
+  stem: |
+    다음 물음에 답하시오. 단, $(1.1)^3<e^2<8$이다.
+    (1) $x=\alpha$에서 함수 $f(x)$는 극값을 가질 때, $\alpha<f(\alpha)<\dfrac{11}3$임을 보이시오. 단, $1<\alpha<\dfrac{11}3$이다. (20점)
+  points: 20
+  depends_on: []
+  answer: {kind: proof, value: null, equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-2-1-A
+    audience: A
+    method_no: 1
+    key_idea: $x\ge1$에서 $f'(x)=(3x-5)(x-5)e^{-x+1}$이므로 $\alpha=\tfrac53$, $f(\tfrac53)=4e^{-2/3}$를 $e^2$의 범위로 평가.
+    steps:
+    - {id: 1-2-1a, content: '$(\tfrac{12}{11})^3<e^2<(\tfrac{12}5)^3\iff\tfrac53<4e^{-2/3}<\tfrac{11}3$', criteria: [1-2(1).R1, 1-2(1).R2]}
+    hint_ladder:
+    - $x\ge1$에서 $f'(x)$를 인수분해해 극값점을 찾자.
+    - $f(\tfrac53)<\tfrac{11}3$은 $e^2$에 대한 어떤 부등식과 같은가?
+  - id: S1-2-1-B
+    audience: B
+    source_flow: M22_N2.pdf p.6
+    method_no: 1
+    steps:
+    - id: 1-2-1b-1
+      content: |
+        $\left(-(x-1)(3x-11)e^{-x+1}\right)'=(3x-5)(x-5)e^{-x+1}$이므로 $\alpha=\dfrac53$.
+      criteria: [1-2(1).R1]
+      # [공식해설 확인필요] 예시답안 원문은 「=−(3x−5)(x−5)e^{−x+1}」 — 부호 오식으로 보임(1-1 의 −(−3x²+20x−25)e^{−x+1} 및 f'(1)=8 과 일치하려면 부호 +). α=5/3 결론은 동일
+    - id: 1-2-1b-2
+      content: |
+        $\therefore\left(\dfrac{12}{11}\right)^3<\left(\dfrac{11}{10}\right)^3<e^2<2^3<\left(\dfrac{12}5\right)^3\Rightarrow\left(\dfrac{12}{11}\right)^3<e^2<\left(\dfrac{12}5\right)^3\iff\dfrac53<f\left(\dfrac53\right)<\dfrac{11}3$.
+      criteria: [1-2(1).R1, 1-2(1).R2]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1-2(1).R1
+      mark_type: R
+      points: 10
+      evidence: 부등식 $\dfrac53<f\left(\dfrac53\right)$을 정확히 보였다.
+      depends_on: []
+      steps: [1-2-1b-1, 1-2-1b-2]
+    - id: 1-2(1).R2
+      mark_type: R
+      points: 10
+      evidence: 부등식 $f\left(\dfrac53\right)<\dfrac{11}3$을 정확히 보였다.
+      depends_on: []
+      steps: [1-2-1b-2]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-42217}
+  misconceptions:
+  - id: MC-CAL-42217
+    outcome_code: '71'
+    wrong_work: '$f(\tfrac53)=4e^{-2/3}$을 $e\approx2.7$ 근삿값으로만 비교(주어진 부등식 $(1.1)^3<e^2<8$ 미사용)'
+    detect_cue: 소수 근삿값만으로 결론
+    feedback: 논증형 문항에서는 주어진 부등식 $(1.1)^3<e^2<8$을 세제곱 형태로 바꿔 엄밀히 비교해야 합니다.
+    remedy: [RL-2]
+
+- id: '1-2(2)'
+  stem: |
+    (2) $1<x<\dfrac{11}3$에서 함수 $g(x)$가 극값을 가지는 서로 다른 실수 $x$가 다섯 개 존재함을 보이시오. (20점)
+  points: 20
+  depends_on: ['1-2(1)']
+  answer: {kind: proof, value: null, equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-2-2-A
+    audience: A
+    method_no: 1
+    key_idea: $g'=(1-f'(f(x)))f'(x)$; $x=\tfrac53$ 하나 + $f(x)=y_1$, $f(x)=y_2$가 각각 두 개($\ne\tfrac53$) + $f(x)=y_3$은 없음.
+    steps:
+    - {id: 1-2-2a, content: '$1+2+2=5$개', criteria: [1-2(2).R1, 1-2(2).R2]}
+    hint_ladder:
+    - $g'(x)=0$이 되는 두 가지 경우를 나누자.
+    - $f'(y)=1$인 $y$는 몇 개이고 각각 어느 범위에 있는가?
+  - id: S1-2-2-B
+    audience: B
+    source_flow: M22_N2.pdf p.6~7
+    method_no: 1
+    steps:
+    - id: 1-2-2b-1
+      content: |
+        조건으로부터 $x<0$이면 $f(x)<0$이다. $g'(x)=(1-f'(f(x)))f'(x)\Rightarrow f'(f(x))=1$ 또는 $f'(x)=0$로부터 $f(x)=y_1,y_2,y_3$, $f'(y_i)=1$, $0<y_1<1$, $1<y_2<\dfrac53$, $5<y_3$인 $x$와 $x=\dfrac53$에서 극대 또는 극소가 된다.
+      criteria: [1-2(2).R1]
+    - id: 1-2-2b-2
+      content: |
+        함숫값 $y_1$, $y_2$에 대하여 각각 두 개씩의 실수 $x$ $(\ne\tfrac53)$가 존재하지만, $f\left(\dfrac53\right)<\dfrac{11}3$이므로 함숫값이 $y_3$인 $x$는 존재하지 않는다. 그러므로, $5$개 존재한다.
+      criteria: [1-2(2).R1, 1-2(2).R2]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1-2(2).R1
+      mark_type: R
+      points: 10
+      evidence: 함숫값 $y_1$, $y_2$에 대하여 각각 두 개씩의 실수 $x$ $(\ne\tfrac53)$가 존재함을 보이거나 함숫값이 $y_3$인 $x$가 존재하지 않음을 설명했다.
+      depends_on: []
+      steps: [1-2-2b-1, 1-2-2b-2]
+    - id: 1-2(2).R2
+      mark_type: R
+      points: 10
+      evidence: 모두 다섯 개 점이 존재함을 설명했다.
+      depends_on: [1-2(2).R1]
+      steps: [1-2-2b-2]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-42218}
+  misconceptions:
+  - id: MC-CAL-42218
+    outcome_code: '71'
+    wrong_work: '$g''(x)=0$을 $f''(x)=0$인 점($x=\tfrac53$)만으로 보고 $f''(f(x))=1$인 경우를 놓침'
+    detect_cue: 극값점 개수를 1개 또는 3개로 답함
+    feedback: 합성함수의 미분 $g'=(1-f'(f(x)))f'(x)$에서 앞 인수가 $0$인 경우도 극값점 후보입니다.
+    remedy: [RL-3]
+
+- id: '1-3'
+  stem: |
+    실수 $b$는 등식 $b^2+pb+\dfrac{1021}6=0$을 만족시킨다. 정수 $p$를 구하시오. (60점)
+  points: 60
+  depends_on: ['1-1']
+  answer: {kind: value, value: '-40', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-3-A
+    audience: A
+    method_no: 1
+    key_idea: 극값이 같다는 조건과 유일성으로 $f(t)=f(-\tfrac ba)$ ⇒ $f'(f(-\tfrac ba))=1$ ⇒ $2a(ac+b)+1=0$; 연속 조건 $c=-\tfrac{b^3}{3a^2}+\tfrac{b^3}{2a^2}+d$와 1-1을 연립.
+    steps:
+    - {id: 1-3a, content: '$b^2-40b+\tfrac{1021}6=0$ ⇒ $p=-40$', criteria: [1-3.M1, 1-3.A1]}
+    hint_ladder:
+    - $x<1$에서 $g$의 음의 극값점은 어디인가? ($f'=0$인 점)
+    - 양의 극값점 $t$에서 $f'(f(t))=1$이다. $f(t)$와 $f(-\tfrac ba)$의 대소를 나눠 모순을 찾자.
+  - id: S1-3-B
+    audience: B
+    source_flow: M22_N2.pdf p.7
+    method_no: 1
+    steps:
+    - id: 1-3b-1
+      content: |
+        $g'(x)=(1-f'(f(x)))f'(x)$로부터 $x=-\dfrac ba$에서 함수 $g(x)$는 극값을 가지고 조건으로부터 $x=t$, $t\in(0,1)$에서 유일한 극값을 갖는다. 그런데, $f'(x)\ne0$, $0<x<1$이므로, $1-f'(f(t))=0$.
+        ① $f(t)<f\left(-\dfrac ba\right)$이면 $f(t)=f(c)$, $c\in\left(-\infty,-\dfrac ba\right)$인 $c$가 존재하여 조건에 모순이다.
+        ② $f(t)>f\left(-\dfrac ba\right)$이라 하자. 조건으로부터 $g(t)=g\left(-\dfrac ba\right)\Rightarrow\dfrac{f(f(t))-f\left(f\left(-\frac ba\right)\right)}{f(t)-f\left(-\frac ba\right)}=1$이므로 평균값 정리에 의해 $f'(s)=1$, $s\in\left(f\left(-\dfrac ba\right),f(t)\right)$인 $s$가 존재한다. 사잇값 정리에 의해 $s=f(s')$, $s'\in(0,t)$인 $s'$이 존재한다. 이는 조건에 모순이다.
+      criteria: [1-3.M1]
+      # [공식표기] ① 의 「f(t)=f(c), c∈(−∞,−b/a)」 에서 c 는 문제의 상수 c 와 다른 임시 변수(원문 그대로)
+    - id: 1-3b-2
+      content: |
+        ①과 ②로부터, $f(t)=f\left(-\dfrac ba\right)\Rightarrow2a\left(af\left(-\dfrac ba\right)+b\right)+1=0\Rightarrow2a(ac+b)+1=0$.
+        그리고, $x=-\dfrac ba$에서 함수 $f(x)$는 연속이므로, $c=-\dfrac{b^3}{3a^2}+\dfrac{b^3}{2a^2}+d$.
+        두 식을 $a+b=8$, $d=-\dfrac16b-\dfrac83$과 연립하면, $b$에 대한 이차 방정식 $b^2-40b+\dfrac{1021}6=0$. $p=-40$.
+      criteria: [1-3.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1-3.M1
+      mark_type: M
+      points: 40
+      evidence: $f(t)=f\left(-\dfrac ba\right)$임을 확인했다.
+      depends_on: []
+      implied_ok: false
+      steps: [1-3b-1]
+    - id: 1-3.A1
+      mark_type: A
+      points: 20
+      evidence: $p$를 정확히 구했다($p=-40$).
+      depends_on: [1-3.M1]
+      cao: true
+      steps: [1-3b-2]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-42219}
+  misconceptions:
+  - id: MC-CAL-42219
+    outcome_code: '71'
+    wrong_work: '두 극값이 같다는 조건을 $g(t)=g(-\tfrac ba)$로만 쓰고 $f(t)=f(-\tfrac ba)$를 근거 없이 가정하거나, $f''(f(t))=1$ 대신 $f''(t)=1$로 계산'
+    detect_cue: 귀류(①·②) 없이 $f(t)=f(-\tfrac ba)$ 사용, 또는 $at^2+bt=1$ 식
+    feedback: $g'(t)=0$에서 $f'(t)\ne0$이므로 $f'(f(t))=1$입니다. $f(t)$와 $f(-\tfrac ba)$의 대소를 나눠 평균값 정리로 모순을 보이세요.
+    remedy: [RL-4]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CAL-42216}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-DIFFERENTIABILITY}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-CAL-42217}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-EXP-VALUE-BOUND}
+  priority: 1
+- id: RL-3
+  trigger: {type: misconception, ref: MC-CAL-42218}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-CHAIN-RULE}
+  priority: 1
+- id: RL-4
+  trigger: {type: misconception, ref: MC-CAL-42219}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-MVT}
+  priority: 1
+- id: RL-5
+  trigger: {type: criterion_missed, ref: 1-2(2).R1}
+  relation: prerequisite
+  target: {kind: concept, ref: CON-CAL-IVT}
+  priority: 2
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-transcribe-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

@@ -1,0 +1,376 @@
+# 경북대 2021학년도 논술(AAT) 모의고사 자연계열Ⅰ 수학 문제 3 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: KNU-M21A-03
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: KNU
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 전수
+points: 120
+time_estimate_min: 30
+intent: |
+  이차방정식의 판별식과 근과 계수의 관계를 확률변수의 사건으로 해석하여 이산확률변수의 기댓값(3-1)과 조건부확률(3-2)을 구하고, 순서쌍의 개수를 자연수의 거듭제곱의 합으로 세어 확률의 극한을 구할 수 있는지(3-3) 평가한다.
+key_idea: |
+  실근의 개수는 판별식 $P^2-Q$의 부호로, 두 근의 차 $>4$는 $4P^2-4Q>16$으로, 최솟값 $-P^2+Q>n$은 $Q>P^2+n$으로 바꾸어 순서쌍 $(P,Q)$를 센다. 3-3의 개수는 $\sum_{k=1}^{n-1}(n^2-n-k^2)$.
+stuck: |
+  3-3에서 $P=k$마다 가능한 $Q$의 개수 $n^2-n-k^2$와 $k$의 범위($k\le n-1$)를 정하는 단계
+idea_tags: [IDEA-DISCRIMINANT-AS-EVENT, IDEA-COUNT-LATTICE-POINTS-SUM-SQUARES]
+tags: [이산확률변수의 기댓값, 조건부확률, 판별식, 근과 계수의 관계, 자연수의 거듭제곱의 합, 수열의 극한]
+elements:
+  materials:
+  - '$1$부터 $k$까지 적힌 카드에서 복원추출한 두 수 $P_k$, $Q_k$'
+  - '이차방정식 $x^2-2P_6x+Q_6=0$의 실근의 개수 $X$, 두 근의 차'
+  - '$k=n^2$일 때 이차함수 $y=x^2-2P_kx+Q_k$의 최솟값 $>n$인 사건 $E_n$'
+  concepts:
+  - '이산확률변수의 기댓값(제시문 (가))'
+  - '조건부확률(제시문 (나))'
+  - '자연수의 거듭제곱의 합(제시문 (다))'
+  - '이차방정식의 판별식, 근과 계수의 관계'
+  tools:
+  - '$\frac{D}{4}=P_6^2-Q_6$의 부호로 순서쌍 분류'
+  - '$|\alpha-\beta|^2=(\alpha+\beta)^2-4\alpha\beta=4P_6^2-4Q_6$'
+  - '최솟값 $-P^2+Q$'
+  - '$\sum k^2=\frac{n(n+1)(2n+1)}{6}$'
+  conditions:
+  - '각 순서쌍의 확률 $\frac{1}{36}$($k=6$), $\frac{1}{n^4}$($k=n^2$)'
+  - '서로 다른 두 실근을 가질 때(조건부)'
+  stimuli_used: ['(가)', '(나)', '(다)']
+  subpart_links: '3-1·3-2는 같은 방정식의 판별식 분류를 공유'
+
+curriculum:
+  version: '2015'
+  subjects: [수학, 수학Ⅰ, 미적분, 확률과통계]
+  scope_2028: unknown
+  scope_confirmed: false
+  standards:
+  - code: 12확통03-02
+    text: 이산확률변수의 기댓값(평균)과 표준편차를 구할 수 있다.
+    verified: false
+  - code: 12확통02-05
+    text: 조건부확률의 의미를 이해하고, 이를 구할 수 있다.
+    verified: false
+  content_area: 확률과 통계 – 이산확률변수, 조건부확률 / 수열의 합과 극한
+  behavior_domain: 문제해결
+  unit_path: [확률과통계, 통계, 확률분포, 이산확률변수의 기댓값]
+  key_concepts: [기댓값, 조건부확률, 판별식, 거듭제곱의 합, 극한]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 경북대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 경북대학교
+  admission_year: 2021
+  admission_type: 논술(AAT) 모의고사
+  track: 자연계열Ⅰ
+  question_no: 3
+  official_url: https://ipsi1.knu.ac.kr   # [확인필요] 입학처 공지·자료 게시판 원본 게시물 주소
+  retrieved_at: 2026-11-21
+  original_points: [30, 40, 50]
+  rights_notice: 미확인(대학 원본 PDF 표지 문구 확인 필요)
+  transcribed_from: 'M21_N1.pdf p.4(문제지 3/3쪽) / 예시답안 p.10~11, 채점기준 p.12'
+
+verify: verify/KNU-M21A.py::p03
+
+stimuli:
+- label: (가)
+  body: |
+    이산확률변수 $X$의 확률분포가 다음과 같다.
+
+    | $X$ | $x_1$ | $x_2$ | $\cdots$ | $x_k$ | $\cdots$ | $x_n$ | 합계 |
+    |---|---|---|---|---|---|---|---|
+    | $\mathrm{P}(X=x_i)$ | $p_1$ | $p_2$ | $\cdots$ | $p_k$ | $\cdots$ | $p_n$ | $1$ |
+
+    이때, 확률변수 $X$의 기댓값은
+
+    $$\mathrm{E}(X)=\sum_{k=1}^{n}x_kp_k$$
+
+    이다.
+- label: (나)
+  body: |
+    두 사건 $A$와 $B$에 대하여, 사건 $B$가 일어났을 때의 사건 $A$의 조건부확률은
+
+    $$\mathrm{P}(A\mid B)=\frac{\mathrm{P}(A\cap B)}{\mathrm{P}(B)}$$
+
+    이다.
+- label: (다)
+  body: |
+    (1) $\displaystyle\sum_{k=1}^{n}k=\frac{n(n+1)}{2}$
+
+    (2) $\displaystyle\sum_{k=1}^{n}k^2=\frac{n(n+1)(2n+1)}{6}$
+
+    (3) $\displaystyle\sum_{k=1}^{n}k^3=\left\{\frac{n(n+1)}{2}\right\}^2$
+
+stem: |
+  ※ 모든 문항에서 풀이과정을 반드시 기술하시오.
+
+  자연수 $k$에 대하여, $1$부터 $k$까지의 자연수가 각각 적힌 $k$장의 카드가 들어 있는 상자가 있다. 이 상자에서 한 장의 카드를 임의로 꺼내어 카드에 적힌 수를 확인한 후 다시 넣고, 다시 한 장의 카드를 임의로 꺼내어 카드에 적힌 수를 확인한다. 첫 번째 카드에서 나온 수를 $P_k$, 두 번째 나온 수를 $Q_k$라 하면 $P_k$와 $Q_k$는 $1$부터 $k$까지의 자연수 값을 가지는 이산확률변수가 된다. 각각의 카드가 뽑힐 확률이 모두 같을 때, 다음 물음에 답하시오.
+
+subparts:
+- id: '1'
+  stem: |
+    【3-1】 이차방정식 $x^2-2P_6x+Q_6=0$의 실근의 개수를 확률변수 $X$라 할 때, $\mathrm{E}(X)$를 구하시오. (30점)
+  points: 30
+  depends_on: []
+  answer: {kind: value, value: '14/9', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $P_6^2-Q_6<0$인 쌍 7개, $=0$인 쌍 2개.
+    steps:
+    - {id: 1a, content: '$\mathrm{P}(X=0)=\frac{7}{36}$, $\mathrm{P}(X=1)=\frac{2}{36}$, $\mathrm{P}(X=2)=\frac{27}{36}$, $\mathrm{E}(X)=\frac{14}{9}$', criteria: [1.M1, 1.M2, 1.A1]}
+    hint_ladder:
+    - 판별식 $\frac D4=P_6^2-Q_6$의 부호로 36개 순서쌍을 나누자.
+  - id: S1-B
+    audience: B
+    source_flow: M21_N1.pdf p.10
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        $x^2-2P_6x+Q_6=0$의 해의 개수 $X$는 $P_6$과 $Q_6$에 따라 $0,1$, 그리고 $2$의 값을 갖는다. $X=0$이 되는 사건의 조건은 $P_6^2-Q_6<0$이고 이 조건을 만족시키는 순서쌍 $(P_6,Q_6)$은 $(1,2),(1,3),\cdots,(1,6),(2,5),(2,6)$이다. 같은 방법으로, $X=1$이 되는 사건의 조건은 $P_6^2-Q_6=0$이고 이를 만족하는 순서쌍 $(P_6,Q_6)$은 $(1,1),(2,4)$이다.
+      criteria: [1.M1]
+    - id: 1b-2
+      content: |
+        각 순서쌍이 나올 확률이 $\dfrac{1}{36}$이므로 $\mathrm{P}(X=0)=\dfrac{7}{36}$, $\mathrm{P}(X=1)=\dfrac{2}{36}$이 되며, 나머지 $X=2$가 되는 사건의 확률은 $\mathrm{P}(X=2)=\dfrac{27}{36}$이 된다.
+      criteria: [1.M2]
+    - id: 1b-3
+      content: |
+        따라서 확률변수 $X$의 기댓값은 $\mathrm{E}(X)=0\times\dfrac{7}{36}+1\times\dfrac{2}{36}+2\times\dfrac{27}{36}=\dfrac{14}{9}$이다.
+      criteria: [1.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 10
+      evidence: |
+        실근의 개수에 따른 순서쌍 $(P_6,Q_6)$을 구했다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1]
+    - id: 1.M2
+      mark_type: M
+      points: 10
+      evidence: |
+        확률변수 $X$의 확률분포를 구했다.
+      depends_on: [1.M1]
+      steps: [1b-2]
+    - id: 1.A1
+      mark_type: A
+      points: 10
+      evidence: |
+        $\mathrm{E}(X)=\dfrac{14}{9}$를 구했다.
+      depends_on: [1.M2]
+      steps: [1b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-PRB-42104}
+  misconceptions:
+  - id: MC-PRB-42104
+    outcome_code: '71'
+    wrong_work: '중근을 실근 2개로 세어 $\mathrm{P}(X=2)=\frac{29}{36}$, $\mathrm{E}(X)=\frac{29}{18}$'
+    detect_cue: $X=1$인 경우가 없다
+    feedback: 중근은 서로 같은 근 하나이므로 실근의 개수는 $1$입니다.
+    remedy: [RL-1]
+
+- id: '2'
+  stem: |
+    【3-2】 이차방정식 $x^2-2P_6x+Q_6=0$이 서로 다른 두 실근을 가질 때, 두 근의 차가 $4$보다 클 확률을 구하시오. (40점)
+  points: 40
+  depends_on: ['1']
+  answer: {kind: value, value: '22/27', equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: $|\alpha-\beta|^2=4P_6^2-4Q_6>16\iff Q_6<P_6^2-4$.
+    steps:
+    - {id: 2a, content: '$n(A)=27$, $n(A\cap B)=22$, $\mathrm{P}(B\mid A)=\frac{22}{27}$', criteria: [2.M1, 2.M2, 2.M3, 2.A1]}
+    hint_ladder:
+    - 근과 계수의 관계로 $(\alpha-\beta)^2$을 $P_6,Q_6$으로 나타내자.
+  - id: S2-B
+    audience: B
+    source_flow: M21_N1.pdf p.10
+    method_no: 1
+    steps:
+    - id: 2b-1
+      content: |
+        이차방정식 $x^2-2P_6x+Q_6=0$이 서로 다른 두 실근을 갖기 위한 조건은 $P_6^2-Q_6>0$이다. 이 조건을 만족시키는 순서쌍 $(P_6,Q_6)$의 집합을 $A$라고 하면, $A=\{(2,1),(2,2),(2,3),(3,1),\cdots,(3,6),(4,1),\cdots,(4,6),(5,1),\cdots,(5,6),(6,1),\cdots,(6,6)\}$이 된다.
+      criteria: [2.M1]
+    - id: 2b-2
+      content: |
+        서로 다른 두 실근이 존재할 때, 두 근을 $\alpha$와 $\beta$라고 하면, $\alpha+\beta=2P_6$이고 $\alpha\beta=Q_6$이 된다. $|\alpha-\beta|>4\iff|\alpha-\beta|^2>16$이고 $|\alpha-\beta|^2=4P_6^2-4Q_6$이므로, 두 근의 차가 $4$보다 크게 될 조건은 $4P_6^2-4Q_6>16$, 즉, $Q_6<P_6^2-4$가 된다.
+      criteria: [2.M2]
+    - id: 2b-3
+      content: |
+        이 조건을 만족시키는 순서쌍 $(P_6,Q_6)$의 집합을 $B$라 하면, $B=\{(3,1),(3,2),(3,3),(3,4),(4,1),\cdots,(4,6),(5,1),\cdots,(5,6),(6,1),\cdots,(6,6)\}$이 된다.
+      criteria: [2.M3]
+    - id: 2b-4
+      content: |
+        따라서 구하는 확률은 다음의 조건부확률 $\mathrm{P}(B\mid A)=\dfrac{\mathrm{P}(B\cap A)}{\mathrm{P}(A)}=\dfrac{\frac{22}{36}}{\frac{27}{36}}=\dfrac{22}{27}$이다.
+      criteria: [2.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 5
+      evidence: |
+        서로 다른 두 실근을 갖게 하는 순서쌍 $(P_6,Q_6)$을 구했다.
+      depends_on: []
+      implied_ok: false
+      steps: [2b-1]
+    - id: 2.M2
+      mark_type: M
+      points: 5
+      evidence: |
+        두 근의 차이가 $4$보다 클 조건 $Q_6<P_6^2-4$를 구했다.
+      depends_on: []
+      implied_ok: false
+      steps: [2b-2]
+    - id: 2.M3
+      mark_type: M
+      points: 10
+      evidence: |
+        $Q_6<P_6^2-4$를 만족하는 순서쌍 $(P_6,Q_6)$을 구했다.
+      depends_on: [2.M2]
+      steps: [2b-3]
+    - id: 2.A1
+      mark_type: A
+      points: 20
+      evidence: |
+        조건부확률 $\mathrm{P}(B\mid A)=\dfrac{22}{27}$을 구했다.
+      depends_on: [2.M1, 2.M3]
+      steps: [2b-4]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-PRB-42105}
+  misconceptions:
+  - id: MC-PRB-42105
+    outcome_code: '71'
+    wrong_work: '근의 차를 $|\alpha-\beta|=2\sqrt{P_6^2-Q_6}$로 두고 $>4$를 $P_6^2-Q_6>2$로 풀어 개수를 잘못 셈'
+    detect_cue: 조건이 $Q_6<P_6^2-4$가 아니다
+    feedback: $2\sqrt{P_6^2-Q_6}>4\iff P_6^2-Q_6>4$입니다. 양변을 제곱할 때 계수를 확인하세요.
+    remedy: [RL-2]
+
+- id: '3'
+  stem: |
+    【3-3】 자연수 $n$에 대하여 $k=n^2$일 때, 이차함수
+
+    $$y=x^2-2P_kx+Q_k$$
+
+    의 최솟값이 $n$보다 클 사건을 $E_n$이라 하자. $\displaystyle\lim_{n\to\infty}\{n\mathrm{P}(E_n)\}$의 값을 구하시오. (50점)
+  points: 50
+  depends_on: []
+  answer: {kind: value, value: '2/3', equivalents: [], tolerance: null}
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: 최솟값 $-P^2+Q>n$, $P=k$일 때 $Q$는 $n^2-n-k^2$개($1\le k\le n-1$).
+    steps:
+    - {id: 3a, content: '$\mathrm{P}(E_n)=\frac{n(n-1)}{n^4}\left(\frac23n-\frac56\right)$, $n\mathrm{P}(E_n)\to\frac23$', criteria: [3.M1, 3.M2, 3.M3, 3.A1]}
+    hint_ladder:
+    - 이차함수 $x^2-2Px+Q$의 최솟값은?
+    - $P$를 고정하면 가능한 $Q$는 몇 개인가?
+  - id: S3-B
+    audience: B
+    source_flow: M21_N1.pdf p.11
+    method_no: 1
+    steps:
+    - id: 3b-1
+      content: |
+        $P_{n^2}$과 $Q_{n^2}$을 각각 $P$와 $Q$로 표기하면, $P$와 $Q$는 $\dfrac{1}{n^2}$의 확률로 $1$부터 $n^2$까지 자연수의 값을 갖는 확률변수이다. 주어진 함수의 최솟값이 $-P^2+Q$이므로, 문제의 조건은 $-P^2+Q>n$, 즉, $Q>P^2+n$이 된다. 이 조건을 만족시키는 $P$와 $Q$는 $P=1$일 때 $Q=n+2,\cdots,n^2$, $P=2$일 때 $Q=n+5,\cdots,n^2$, $\cdots$, $P=k$일 때 $Q=n+k^2+1,\cdots,n^2$, $\cdots$, $P=n-1$일 때 $Q=n+(n-1)^2+1,\cdots,n^2$이다.
+      criteria: [3.M1]
+    - id: 3b-2
+      content: |
+        따라서 $-P^2+Q>n$을 만족시키는 순서쌍 $(P,Q)$의 개수는 $\displaystyle\sum_{k=1}^{n-1}(n^2-n-k^2)=(n^2-n)(n-1)-\frac{n(n-1)(2n-1)}{6}=n(n-1)\left(\frac23n-\frac56\right)$이다.
+      criteria: [3.M2]
+    - id: 3b-3
+      content: |
+        각각의 순서쌍에 주어진 확률이 $\dfrac{1}{n^4}$이므로, $\mathrm{P}(E_n)=\dfrac{1}{n^4}\displaystyle\sum_{k=1}^{n-1}(n^2-n-k^2)=\frac{n(n-1)}{n^4}\left(\frac23n-\frac56\right)$이 된다.
+      criteria: [3.M3]
+    - id: 3b-4
+      content: |
+        따라서 $\displaystyle\lim_{n\to\infty}n\mathrm{P}(E_n)=\frac23$이다.
+      criteria: [3.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 20
+      evidence: |
+        $Q>P^2+n$을 만족하는 순서쌍 $(P,Q)$를 구했다.
+      depends_on: []
+      implied_ok: false
+      steps: [3b-1]
+    - id: 3.M2
+      mark_type: M
+      points: 20
+      evidence: |
+        위 조건을 만족시키는 순서쌍 $(P,Q)$의 개수 $\displaystyle\sum_{k=1}^{n-1}(n^2-n-k^2)=n(n-1)\left(\frac23n-\frac56\right)$을 구했다.
+      depends_on: [3.M1]
+      steps: [3b-2]
+    - id: 3.M3
+      mark_type: M
+      points: 5
+      evidence: |
+        $\mathrm{P}(E_n)=\dfrac{n(n-1)}{n^4}\left(\dfrac23n-\dfrac56\right)$을 구했다.
+      depends_on: [3.M2]
+      steps: [3b-3]
+    - id: 3.A1
+      mark_type: A
+      points: 5
+      evidence: |
+        $\displaystyle\lim_{n\to\infty}\{n\mathrm{P}(E_n)\}=\frac23$을 구했다.
+      depends_on: [3.M3]
+      steps: [3b-4]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-PRB-42106}
+  misconceptions:
+  - id: MC-PRB-42106
+    outcome_code: '71'
+    wrong_work: '$P=k$일 때 $Q$의 개수를 $n^2-n-k^2+1$로 세거나 $k$를 $n$까지 더해 개수를 잘못 셈'
+    detect_cue: 합의 범위가 $k=1$부터 $n$까지이거나 각 항에 $+1$이 있다
+    feedback: $Q>P^2+n$은 엄격한 부등호이므로 $Q=n+k^2+1,\cdots,n^2$의 $n^2-n-k^2$개이고, $k=n$이면 하나도 없습니다.
+    remedy: [RL-3]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-PRB-42104}
+  relation: remediation
+  target: {kind: concept, ref: CON-PRB-EXPECTATION}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-PRB-42105}
+  relation: remediation
+  target: {kind: concept, ref: CON-PRB-CONDITIONAL}
+  priority: 1
+- id: RL-3
+  trigger: {type: misconception, ref: MC-PRB-42106}
+  relation: remediation
+  target: {kind: concept, ref: CON-SEQ-SIGMA}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-transcribe-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

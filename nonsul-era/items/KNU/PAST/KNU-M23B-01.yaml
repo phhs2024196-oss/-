@@ -1,0 +1,354 @@
+# 경북대 2023학년도 논술(AAT) 모의고사 자연계열Ⅱ 수학 문제 1 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: KNU-M23B-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: KNU
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 일반화
+points: 110
+time_estimate_min: 35
+intent: |
+  두 원의 교점을 원의 방정식으로 구할 수 있는지(1-1), 교점 좌표의 일반항으로 기울기의 극한을 구할 수 있는지(1-2), 접선·점과 직선 사이의 거리로 삼각형 넓이를 구하고 곡선으로 둘러싸인 넓이의 비에 대한 부등식을 해결할 수 있는지(1-3) 평가한다. (모의고사 자료에 출제 의도 문항 없음 — 채점기준으로부터 요약)
+key_idea: |
+  두 원의 방정식을 빼면 $x_n=(9\times2^{n-3}-2)r$, $y_n=\sqrt{15}\times2^{n-3}r$로 모든 $\mathrm{P}_n$이 한 직선 $\sqrt{15}x-9y+2\sqrt{15}r=0$ 위에 있다. $a_{n+1}-a_n=b_{n+1}$이라 $C_n$의 중심이 $C_{n+1}$ 위에 있고, 접선 $\ell_n$은 반지름 $(a_n,0)\mathrm{P}_n$에 수직이므로 $\mathrm{Q}_n$은 $C_{n+1}$의 지름 반대쪽 끝 $(a_{n+1}+b_{n+1},0)$.
+stuck: |
+  $\mathrm{Q}_n$의 좌표를 「$C_n$의 중심이 $C_{n+1}$ 위에 있다 → 지름에 대한 원주각」으로 바로 얻는 단계, 그리고 $s_{n+1}=4s_n$을 써서 $A_n$을 두 구간 적분으로 나누고 $\dfrac{A_{n+1}}{A_n}>3$을 $2n+6>(6-n)4^n$으로 정리하는 단계
+idea_tags: [IDEA-RADICAL-AXIS-SUBTRACT-CIRCLES, IDEA-CENTER-ON-NEXT-CIRCLE-DIAMETER, IDEA-AREA-BETWEEN-POWER-CURVES]
+tags: [두 원의 교점, 수열의 극한, 접선, 점과 직선 사이의 거리, 곡선 사이의 넓이, 부등식]
+elements:
+  materials:
+  - '$a_n=(2^n-2)r$, $b_n=2^{n-1}r$ ($r$ 자연수), 중심 $(a_n,0)$·반지름 $b_n$인 원 $C_n$'
+  - '$C_n$과 $C_{n+1}$의 교점 중 $y$좌표가 양수인 점 $\mathrm{P}_n$'
+  - '$\mathrm{P}_n$에서 $C_n$의 접선 $\ell_n$의 $x$절편 $\mathrm{Q}_n$, 삼각형 $\mathrm{Q}_n\mathrm{P}_n\mathrm{P}_{n+1}$의 넓이 $s_n$'
+  - '세 곡선 $y=s_nx^n$, $y=s_{n+1}x^n$, $y=s_nx^{n-1}$로 둘러싸인 넓이 $A_n$'
+  concepts:
+  - '원의 방정식, 두 원의 교점'
+  - '원의 접선과 반지름의 수직'
+  - '점과 직선 사이의 거리'
+  - '두 곡선 사이의 넓이(정적분)'
+  - '등비수열의 극한'
+  tools:
+  - '$b_n^2-(x_n-a_n)^2=b_{n+1}^2-(x_n-a_{n+1})^2$'
+  - '$\mathrm{Q}_n=(a_{n+1}+b_{n+1},0)=((3\times2^n-2)r,0)$'
+  - '직선 $\mathrm{P}_n\mathrm{P}_{n+1}$: $\sqrt{15}x-9y+2\sqrt{15}r=0$, $\overline{\mathrm{P}_n\mathrm{P}_{n+1}}=2^{n-1}r\sqrt6$'
+  - '$s_{n+1}=4s_n$, 교점 $x=\tfrac14$'
+  conditions:
+  - '$r$, $n$은 자연수'
+  - '$\mathrm{P}_n$의 $y$좌표는 양수'
+  stimuli_used: ['(가)', '(나)', '(다)', '(라)']
+  subpart_links: '1-1의 $x_n$을 1-2의 $y_n$·기울기에, 1-1·1-2의 좌표를 1-3의 직선·넓이 계산에 사용'
+
+curriculum:
+  version: '2015'
+  subjects: [수학, 미적분, 수학Ⅱ]
+  scope_2028: common
+  scope_confirmed: false
+  standards:
+  - code: 10수학02-06
+    text: 원의 방정식을 구할 수 있다.
+    verified: true
+  - code: 10수학02-05
+    text: 점과 직선 사이의 거리를 구할 수 있다.
+    verified: true
+  - code: 12미적01-03
+    text: 등비수열의 극한값을 구할 수 있다.
+    verified: false
+  - code: 12수학Ⅱ03-05
+    text: 곡선으로 둘러싸인 도형의 넓이를 구할 수 있다.
+    verified: false
+  content_area: 도형의 방정식(원·직선) – 수열의 극한 – 정적분과 넓이
+  behavior_domain: 문제해결
+  unit_path: [수학, 도형의 방정식, 원의 방정식, 두 원의 교점]
+  key_concepts: [원의 방정식, 접선, 점과 직선 사이의 거리, 넓이, 등비수열]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 경북대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 경북대학교
+  admission_year: 2023
+  admission_type: 논술(AAT) 모의고사
+  track: 자연계열Ⅱ
+  question_no: 1
+  official_url: https://ipsi1.knu.ac.kr   # [확인필요] 입학처 공지·자료 게시판 원본 게시물 주소
+  retrieved_at: 2026-11-21
+  original_points: [20, 30, 60]
+  rights_notice: 미확인(대학 원본 PDF 표지 문구 확인 필요)
+  transcribed_from: 'M23_N2.pdf p.2(문제지 1/3) 이미지 판독; 예시 답안·채점 기준 M23_N2.pdf p.5(인쇄 1–2, 문항카드 1 — 원문 표기 「문항카드 11」)'
+
+verify: verify/KNU-M23B.py::p01
+
+stimuli:
+- label: (가)
+  body: |
+    중심의 좌표가 $(a,b)$이고 반지름의 길이가 $r$인 원의 방정식은
+    $$(x-a)^2+(y-b)^2=r^2$$
+- label: (나)
+  body: |
+    점 $(x_1,y_1)$과 직선 $ax+by+c=0$ 사이의 거리는
+    $$\dfrac{\lvert ax_1+by_1+c\rvert}{\sqrt{a^2+b^2}}$$
+- label: (다)
+  body: |
+    두 함수 $f(x)$, $g(x)$가 닫힌구간 $[a,b]$에서 연속일 때, 두 곡선 $y=f(x)$, $y=g(x)$ 및 두 직선 $x=a$, $x=b$로 둘러싸인 도형의 넓이 $S$는
+    $$S=\int_a^b\lvert f(x)-g(x)\rvert\,dx$$
+- label: (라)
+  body: |
+    등비수열 $\{r^n\}$은
+    ① $r>1$일 때, $\lim_{n\to\infty}r^n=\infty$ (발산)
+    ② $r=1$일 때, $\lim_{n\to\infty}r^n=1$ (수렴)
+    ③ $\lvert r\rvert<1$일 때, $\lim_{n\to\infty}r^n=0$ (수렴)
+    ④ $r\le-1$일 때, 수열 $\{r^n\}$은 발산한다.
+
+stem: |
+  ※ 모든 문항에서 풀이과정을 반드시 기술하시오.
+
+  모든 자연수 $n$에 대하여
+  $$a_n=(2^n-2)r,\quad b_n=2^{n-1}r\quad(\text{단, }r\text{는 자연수})$$
+  이다. 중심이 $(a_n,0)$이고 반지름이 $b_n$인 원을 $C_n$이라 할 때, $C_n$과 $C_{n+1}$의 교점 중 $y$좌표가 양수인 점을 $\mathrm{P}_n$이라 하자.
+  다음 물음에 답하시오.
+
+subparts:
+- id: '1-1'
+  stem: |
+    점 $\mathrm{P}_3$의 $x$좌표가 $21$이 되도록 하는 $r$의 값을 구하시오. (20점)
+  points: 20
+  depends_on: []
+  answer: {kind: value, value: '3', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-1-A
+    audience: A
+    method_no: 1
+    key_idea: 두 원의 방정식을 빼서 $x_n$을 구한다.
+    steps:
+    - {id: 1-1a, content: '$x_n=(9\times2^{n-3}-2)r$, $x_3=7r=21$, $r=3$', criteria: [1-1.M1, 1-1.A1]}
+    hint_ladder:
+    - 두 원의 방정식에서 $y_n^2$을 소거하자.
+  - id: S1-1-B
+    audience: B
+    source_flow: M23_N2.pdf p.5(인쇄 1)
+    method_no: 1
+    steps:
+    - id: 1-1b-1
+      content: |
+        점 $\mathrm{P}_n(x_n,y_n)$은 원 $C_n$과 $C_{n+1}$ 위의 점이므로, $(x_n-a_n)^2+y_n^2=b_n^2$과 $(x_n-a_{n+1})^2+y_n^2=b_{n+1}^2$을 만족한다. $b_n^2-(x_n-a_n)^2=y_n^2=b_{n+1}^2-(x_n-a_{n+1})^2$으로부터
+      criteria: [1-1.M1]
+    - id: 1-1b-2
+      content: |
+        $x_n=(9\times2^{n-3}-2)r$을 구할 수 있고, $r=3$일 때, $x_3=21$이다.
+      criteria: [1-1.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1-1.M1
+      mark_type: M
+      points: 10
+      evidence: |
+        두 원의 방정식으로부터 하나의 식($b_n^2-(x_n-a_n)^2=b_{n+1}^2-(x_n-a_{n+1})^2$)을 도출했다.
+      depends_on: []
+      implied_ok: false
+      steps: [1-1b-1]
+    - id: 1-1.A1
+      mark_type: A
+      points: 10
+      evidence: |
+        $x_n=(9\times2^{n-3}-2)r$을 구하고 $r=3$을 찾았다.
+      depends_on: [1-1.M1]
+      cao: true
+      steps: [1-1b-2]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-GEO-42303}
+  misconceptions:
+  - id: MC-GEO-42303
+    outcome_code: '71'
+    wrong_work: '$\mathrm{P}_3$을 $C_3$과 $C_4$가 아닌 $C_2$와 $C_3$의 교점으로 잡아 $r=\tfrac{21}{2.5}$ 등 자연수가 아닌 값을 얻음'
+    detect_cue: $r$이 자연수가 아님
+    feedback: $\mathrm{P}_n$은 $C_n$과 $C_{n+1}$의 교점입니다. $\mathrm{P}_3$은 $C_3$, $C_4$를 씁니다.
+    remedy: [RL-1]
+
+- id: '1-2'
+  stem: |
+    원점과 점 $\mathrm{P}_n$을 지나는 직선의 기울기를 $m_n$이라 할 때, $\displaystyle\lim_{n\to\infty}m_n$의 값을 구하시오. (30점)
+  points: 30
+  depends_on: ['1-1']
+  answer: {kind: value, value: 'sqrt(15)/9', equivalents: ['$\dfrac{\sqrt{15}}{9}$'], tolerance: null}
+  solutions:
+  - id: S1-2-A
+    audience: A
+    method_no: 1
+    key_idea: $y_n=\sqrt{15}\times2^{n-3}r$, $m_n=\dfrac{\sqrt{15}\times2^{n-3}}{9\times2^{n-3}-2}\to\dfrac{\sqrt{15}}{9}$.
+    steps:
+    - {id: 1-2a, content: '$\lim m_n=\tfrac{\sqrt{15}}{9}$', criteria: [1-2.M1, 1-2.A1]}
+    hint_ladder:
+    - $y_n^2=b_n^2-(x_n-a_n)^2$.
+  - id: S1-2-B
+    audience: B
+    source_flow: M23_N2.pdf p.5(인쇄 1)
+    method_no: 1
+    steps:
+    - id: 1-2b-1
+      content: |
+        $(x_n-a_n)^2+y_n^2=b_n^2$과 $y_n$이 양수라는 것으로부터 $y_n=\sqrt{b_n^2-(x_n-a_n)^2}$이고, $x_n=(9\times2^{n-3}-2)r$을 대입하면 $y_n=\sqrt{15}\times2^{n-3}r$을 구할 수 있다.
+      # 원문 예시답안은 √(b_n²-(x_n²-a_n)²) 로 인쇄 — (x_n-a_n)² 의 오기로 보고 바로잡아 적음
+      criteria: [1-2.M1]
+    - id: 1-2b-2
+      content: |
+        그러므로 원점과 점 $\mathrm{P}_n(x_n,y_n)$을 지나는 직선의 기울기는 $\dfrac{y_n}{x_n}=\dfrac{\sqrt{15}\times2^{n-3}}{9\times2^{n-3}-2}$이고, 극한값은 $\dfrac{\sqrt{15}}{9}$이다.
+      criteria: [1-2.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1-2.M1
+      mark_type: M
+      points: 20
+      evidence: |
+        $y_n=\sqrt{15}\times2^{n-3}r$을 찾았다.
+      depends_on: []
+      implied_ok: false
+      steps: [1-2b-1]
+    - id: 1-2.A1
+      mark_type: A
+      points: 10
+      evidence: |
+        기울기 $\dfrac{y_n}{x_n}=\dfrac{\sqrt{15}\times2^{n-3}}{9\times2^{n-3}-2}$이고 극한값 $\dfrac{\sqrt{15}}{9}$를 찾았다.
+      depends_on: [1-2.M1]
+      cao: true
+      steps: [1-2b-2]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-GEO-42304}
+  misconceptions:
+  - id: MC-GEO-42304
+    outcome_code: '71'
+    wrong_work: '$y_n^2=b_n^2-(x_n-a_n)^2$ 전개에서 $2^{n-3}$의 지수 계산을 틀려 $y_n$의 차수가 $x_n$과 달라져 극한이 $0$ 또는 $\infty$'
+    detect_cue: 답 $0$ 또는 발산
+    feedback: $x_n$, $y_n$ 모두 $2^{n-3}r$에 비례합니다. 분자·분모를 $2^{n-3}$으로 나누어 극한을 구하세요.
+    remedy: [RL-2]
+
+- id: '1-3'
+  stem: |
+    점 $\mathrm{P}_n$에서 원 $C_n$에 접하는 접선을 $\ell_n$이라 하고, $\ell_n$과 $x$축과의 교점을 $\mathrm{Q}_n$이라 하자. 세 점 $\mathrm{Q}_n$, $\mathrm{P}_n$, $\mathrm{P}_{n+1}$을 꼭짓점으로 하는 삼각형의 넓이를 $s_n$이라 할 때, 세 곡선 $y=s_nx^n$, $y=s_{n+1}x^n$, $y=s_nx^{n-1}$으로 둘러싸인 도형의 넓이를 $A_n$이라 하자. 부등식 $\dfrac{A_{n+1}}{A_n}>3$을 만족시키는 자연수 $n$의 최솟값을 구하시오. (60점)
+  points: 60
+  depends_on: ['1-2']
+  answer: {kind: value, value: '6', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-3-A
+    audience: A
+    method_no: 1
+    key_idea: $s_n=3\sqrt{15}\times4^{n-2}r^2$이라 $s_{n+1}=4s_n$. $A_n=\dfrac{s_n(4^n-1)}{n(n+1)4^n}$, 비 $\dfrac{n(4^{n+1}-1)}{(n+2)(4^n-1)}>3\iff2n+6>(6-n)4^n$.
+    steps:
+    - {id: 1-3a, content: '$n\le5$에서 불성립, $n\ge6$에서 성립 → $6$', criteria: [1-3.B1, 1-3.M1, 1-3.M2, 1-3.A1]}
+    hint_ladder:
+    - $C_n$의 중심 $(a_n,0)$은 $C_{n+1}$ 위에 있다($a_{n+1}-a_n=b_{n+1}$).
+    - $y=s_{n+1}x^n$과 $y=s_nx^{n-1}$의 교점은?
+  - id: S1-3-B
+    audience: B
+    source_flow: M23_N2.pdf p.5(인쇄 1)
+    method_no: 1
+    steps:
+    - id: 1-3b-1
+      content: |
+        $a_{n+1}-a_n=b_{n+1}$이므로 원 $C_n$의 중심 $(a_n,0)$은 원 $C_{n+1}$ 위의 점이고, 점 $(a_n,0)$과 점 $\mathrm{P}_n$을 지나는 직선은 접선 $\ell_n$에 수직이므로 점 $\mathrm{Q}_n$의 좌표는 $(a_{n+1}+b_{n+1},0)=((3\times2^n-2)r,0)$이다.
+      criteria: [1-3.B1]
+    - id: 1-3b-2
+      content: |
+        두 점 $\mathrm{P}_n$과 $\mathrm{P}_{n+1}$을 지나는 직선의 방정식을 구하면 $\sqrt{15}x-9y+2\sqrt{15}r=0$이고, 점 $\mathrm{Q}_n$에서 이 직선까지 거리를 구하면 $d_n=\dfrac{3\sqrt{15}\times2^{n-2}r}{\sqrt6}$이다. 또한, 두 점 $\mathrm{P}_n$과 $\mathrm{P}_{n+1}$ 사이의 거리는 $2^{n-1}r\sqrt6$이므로, 삼각형의 넓이 $s_n$은
+        $$s_n=\dfrac12\times2^{n-1}r\sqrt6\times\dfrac{3\sqrt{15}\times2^{n-2}r}{\sqrt6}=3\sqrt{15}\times4^{n-2}r^2$$
+        이다.
+      criteria: [1-3.M1]
+    - id: 1-3b-3
+      content: |
+        세 곡선 $y=s_nx^n$, $y=s_{n+1}x^n$, $y=s_nx^{n-1}$으로 둘러싸인 도형의 넓이 $A_n$은 $s_{n+1}=4s_n$과
+        $$A_n=\int_0^{\frac14}(s_{n+1}x^n-s_nx^n)\,dx+\int_{\frac14}^1(s_nx^{n-1}-s_nx^n)\,dx$$
+        임을 이용하면, $A_n=\dfrac{s_n(4^n-1)}{n(n+1)4^n}$이고 $\dfrac{A_{n+1}}{A_n}=\dfrac{n(4^{n+1}-1)}{(n+2)(4^n-1)}$이다.
+      criteria: [1-3.M2]
+    - id: 1-3b-4
+      content: |
+        $\dfrac{n(4^{n+1}-1)}{(n+2)(4^n-1)}>3$의 양변에 양수 $(n+2)(4^n-1)$을 곱하여 정리하면 $2n+6>(6-n)4^n$이다. $6$ 이상의 자연수 $n$은 $2n+6>(6-n)4^n$을 만족시키고, $5$ 이하의 자연수 $n$은 $2n+6>(6-n)4^n$을 만족시키지 않는다는 것을 쉽게 알 수 있으므로, $\dfrac{A_{n+1}}{A_n}>3$을 만족시키는 자연수 $n$의 최솟값은 $6$이다.
+      criteria: [1-3.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1-3.B1
+      mark_type: B
+      points: 10
+      evidence: |
+        $\mathrm{Q}_n$의 좌표가 $(a_{n+1}+b_{n+1},0)=((3\times2^n-2)r,0)$임을 찾았다.
+      steps: [1-3b-1]
+    - id: 1-3.M1
+      mark_type: M
+      points: 20
+      evidence: |
+        $s_n=\dfrac12\times2^{n-1}r\sqrt6\times\dfrac{3\sqrt{15}\times2^{n-2}r}{\sqrt6}=3\sqrt{15}\times4^{n-2}r^2$임을 찾았다.
+      depends_on: []
+      implied_ok: false
+      steps: [1-3b-2]
+    - id: 1-3.M2
+      mark_type: M
+      points: 10
+      evidence: |
+        $A_n=\dfrac{s_n(4^n-1)}{n(n+1)4^n}$을 찾았다.
+      depends_on: [1-3.M1]
+      implied_ok: false
+      steps: [1-3b-3]
+    - id: 1-3.A1
+      mark_type: A
+      points: 20
+      evidence: |
+        $\dfrac{A_{n+1}}{A_n}>3$을 만족시키는 자연수 $n$의 최솟값은 $6$임을 찾았다.
+      depends_on: [1-3.M2]
+      cao: true
+      steps: [1-3b-4]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-42324}
+  misconceptions:
+  - id: MC-CAL-42324
+    outcome_code: '71'
+    wrong_work: '$A_n$을 한 구간 $[0,1]$의 적분 $\int_0^1(s_{n+1}-s_n)x^n\,dx$로만 계산(교점 $x=\tfrac14$에서 경계가 바뀌는 것을 놓침)'
+    detect_cue: $A_n=\dfrac{3s_n}{n+1}$ 꼴, 비가 상수에 가까움
+    feedback: 세 곡선이 둘러싼 영역은 $x=\tfrac14$에서 위쪽 경계가 $s_{n+1}x^n$에서 $s_nx^{n-1}$로 바뀝니다. 두 구간으로 나누세요.
+    remedy: [RL-3]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-GEO-42303}
+  relation: remediation
+  target: {kind: concept, ref: CON-GEO-CIRCLE-INTERSECTION}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-GEO-42304}
+  relation: remediation
+  target: {kind: concept, ref: CON-GEO-CIRCLE-INTERSECTION}
+  priority: 1
+- id: RL-3
+  trigger: {type: misconception, ref: MC-CAL-42324}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-AREA-BETWEEN}
+  priority: 1
+- id: RL-4
+  trigger: {type: criterion_missed, ref: 1-3.M1}
+  relation: prerequisite
+  target: {kind: concept, ref: CON-GEO-POINT-LINE-DIST}
+  priority: 2
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-transcribe-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

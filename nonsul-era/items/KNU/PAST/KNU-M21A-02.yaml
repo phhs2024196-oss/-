@@ -1,0 +1,383 @@
+# 경북대 2021학년도 논술(AAT) 모의고사 자연계열Ⅰ 수학 문제 2 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: KNU-M21A-02
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: KNU
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 추론
+points: 120
+time_estimate_min: 30
+intent: |
+  접선의 방정식으로 접점의 좌표를 수열로 나타내고(2-1), 부분적분으로 곡선과 $x$축 사이의 넓이를 구하며(2-2), 정적분의 구간 합 성질을 이용하여 넓이의 합을 하나의 정적분으로 정리하고 수열의 합을 계산할 수 있는지(2-3) 평가한다.
+key_idea: |
+  접선의 $y$절편이 $a_n=-x_n$이므로 $x_n=r^{n-1}$. $x\ln x+\frac x2$의 부정적분이 $\frac12x^2\ln x$이므로 $A_n=\frac12\{nr^2-(n-1)\}r^{2n-2}\ln r$이고, $\sum_{n=m}^{20}A_n=\int_{r^{m-1}}^{r^{20}}$으로 합쳐져 $B_m=10r^{40}-\frac{m-1}{2}r^{2m-2}$.
+stuck: |
+  $\int\left(x\ln x+\frac x2\right)dx=\frac12x^2\ln x$로 깔끔하게 정리됨을 알아채는 단계(부분적분)
+idea_tags: [IDEA-TANGENT-INTERCEPT-RECURSION, IDEA-SUM-OF-INTEGRALS-TELESCOPE]
+tags: [접선의 방정식, 부분적분, 넓이, 정적분의 성질, 등비수열, 수열의 합]
+elements:
+  materials:
+  - '곡선 $C:y=x\ln x+\frac x2\ (x>0)$ 위의 점 $(x_n,y_n)$에서의 접선의 $y$절편 $a_n=-r^{n-1}$'
+  - '$x=x_n$, $x=x_{n+1}$ 사이 넓이 $A_n$, $B_m=\sum_{n=m}^{20}\frac{A_n}{\ln r}$'
+  concepts:
+  - '접선의 방정식(제시문 (가))'
+  - '정적분과 넓이(제시문 (나))'
+  - '부분적분(제시문 (다))'
+  - '정적분의 구간 합(제시문 (라))'
+  tools:
+  - '$y$절편 $=y_n-x_nf^{\prime}(x_n)=-x_n$'
+  - '$\left[\frac12x^2\ln x\right]$'
+  - '$\sum_{n=m}^{20}\int_{r^{n-1}}^{r^n}=\int_{r^{m-1}}^{r^{20}}$'
+  - '$\sum_{m=1}^{20}(m-1)=190$'
+  conditions:
+  - '$r>1$이므로 $x\ge1$에서 $x\ln x+\frac x2>0$(절댓값 제거)'
+  stimuli_used: ['(가)', '(나)', '(다)', '(라)']
+  subpart_links: '2-2는 2-1의 $x_n=r^{n-1}$, 2-3은 2-2의 $A_n$ 적분식을 사용'
+
+curriculum:
+  version: '2015'
+  subjects: [미적분]
+  scope_2028: calc2
+  scope_confirmed: false
+  standards:
+  - code: 12미적03-02
+    text: 부분적분법을 이해하고, 이를 활용할 수 있다.
+    verified: false
+  - code: 12미적03-05
+    text: 곡선으로 둘러싸인 도형의 넓이를 구할 수 있다.
+    verified: false
+  content_area: 미분법·적분법 – 접선, 부분적분, 넓이
+  behavior_domain: 계산
+  unit_path: [미적분, 적분법, 정적분의 활용, 넓이]
+  key_concepts: [접선의 방정식, 부분적분, 넓이, 수열의 합]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 경북대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 경북대학교
+  admission_year: 2021
+  admission_type: 논술(AAT) 모의고사
+  track: 자연계열Ⅰ
+  question_no: 2
+  official_url: https://ipsi1.knu.ac.kr   # [확인필요] 입학처 공지·자료 게시판 원본 게시물 주소
+  retrieved_at: 2026-11-21
+  original_points: [30, 30, 30, 30]
+  rights_notice: 미확인(대학 원본 PDF 표지 문구 확인 필요)
+  transcribed_from: 'M21_N1.pdf p.3(문제지 2/3쪽) / 예시답안 p.7~8, 채점기준 p.9'
+
+verify: verify/KNU-M21A.py::p02
+
+stimuli:
+- label: (가)
+  body: |
+    함수 $f(x)$가 $x=a$에서 미분가능할 때, 곡선 $y=f(x)$ 위의 점 $(a,f(a))$에서의 접선의 방정식은
+
+    $$y-f(a)=f^{\prime}(a)(x-a)$$
+
+    이다.
+- label: (나)
+  body: |
+    함수 $f(x)$가 닫힌구간 $[a,b]$에서 연속일 때, 곡선 $y=f(x)$와 $x$축 및 두 직선 $x=a$, $x=b$로 둘러싸인 부분의 넓이 $S$는
+
+    $$S=\int_a^b|f(x)|\,dx$$
+
+    이다.
+- label: (다)
+  body: |
+    닫힌구간 $[a,b]$에서 연속인 도함수를 갖는 두 함수 $f(x),g(x)$에 대하여
+
+    $$\int_a^bf(x)g^{\prime}(x)\,dx=[f(x)g(x)]_a^b-\int_a^bf^{\prime}(x)g(x)\,dx$$
+
+    이다.
+- label: (라)
+  body: |
+    함수 $f(x)$가 임의의 실수 $a,b,c$를 포함하는 구간에서 연속일 때,
+
+    $$\int_a^cf(x)\,dx+\int_c^bf(x)\,dx=\int_a^bf(x)\,dx$$
+
+    이다.
+
+stem: |
+  ※ 모든 문항에서 풀이과정을 반드시 기술하시오.
+
+  곡선
+
+  $$C:y=x\ln x+\frac x2\quad(x>0)$$
+
+  위의 점 $(x_n,y_n)$에서의 접선과 $y$축과의 교점을 $(0,a_n)$이라 하자. 또한, 곡선 $C$와 $x$축 및 두 직선 $x=x_n$, $x=x_{n+1}$로 둘러싸인 부분의 넓이를 $A_n$이라 하자. 수열 $\{a_n\}$의 일반항이 $a_n=-r^{n-1}$일 때, 다음 물음에 답하시오. (단, $r$는 $1$보다 큰 상수이고, $n$은 자연수이다.)
+
+subparts:
+- id: '1'
+  stem: |
+    【2-1】 $\dfrac{\ln x_{21}}{\ln x_{20}}$의 값을 구하시오. (30점)
+  points: 30
+  depends_on: []
+  answer: {kind: value, value: '20/19', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $y$절편 $=-x_n$이므로 $x_n=r^{n-1}$.
+    steps:
+    - {id: 1a, content: '$a_n=-x_n=-r^{n-1}$, $\ln x_n=(n-1)\ln r$, $\frac{20}{19}$', criteria: [1.M1, 1.M2, 1.A1]}
+    hint_ladder:
+    - 접선에 $x=0$을 넣어 $a_n$을 $x_n$으로 나타내자.
+  - id: S1-B
+    audience: B
+    source_flow: M21_N1.pdf p.7
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        $f(x)=x\ln x+\dfrac x2$라 두면, $f^{\prime}(x)=\ln x+\dfrac32$이므로 곡선 $C$ 위의 점 $(x_n,y_n)$에서의 접선의 방정식은 $y-y_n=\left(\ln x_n+\dfrac32\right)(x-x_n)$이다.
+      criteria: [1.M1]
+    - id: 1b-2
+      content: |
+        이 접선과 $y$축과의 교점이 $(0,a_n)$이므로 $a_n-y_n=\left(\ln x_n+\dfrac32\right)(-x_n)$이다. 한편, 수열 $\{a_n\}$은 첫째항이 $-1$, 공비가 $r$인 등비수열이므로 $a_n=-r^{n-1}$이고, $y_n=f(x_n)=x_n\ln x_n+\dfrac{x_n}{2}$이므로 이를 위 식에 대입하여 정리하면 $x_n=r^{n-1}$을 얻는다.
+      criteria: [1.M2]
+    - id: 1b-3
+      content: |
+        이로부터 $\ln x_n=(n-1)\ln r$이다. 따라서 $\dfrac{\ln x_{21}}{\ln x_{20}}=\dfrac{20\ln r}{19\ln r}=\dfrac{20}{19}$이다.
+      criteria: [1.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 10
+      evidence: |
+        접선의 방정식 $y-y_n=\left(\ln x_n+\dfrac32\right)(x-x_n)$을 구했다.
+      depends_on: []
+      implied_ok: false
+      steps: [1b-1]
+    - id: 1.M2
+      mark_type: M
+      points: 10
+      evidence: |
+        $x_n=r^{n-1}$을 구했다.
+      depends_on: [1.M1]
+      steps: [1b-2]
+    - id: 1.A1
+      mark_type: A
+      points: 10
+      evidence: |
+        $\dfrac{\ln x_{21}}{\ln x_{20}}=\dfrac{20}{19}$을 구했다.
+      depends_on: [1.M2]
+      steps: [1b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-42117}
+  misconceptions:
+  - id: MC-CAL-42117
+    outcome_code: '71'
+    wrong_work: '$f^{\prime}(x)=\ln x+\frac12$로 미분해 $a_n=-x_n$을 얻지 못함'
+    detect_cue: $a_n$이 $x_n$의 단순 배수가 아니다
+    feedback: $(x\ln x)^{\prime}=\ln x+1$이므로 $f^{\prime}(x)=\ln x+\frac32$입니다.
+    remedy: [RL-1]
+
+- id: '2'
+  stem: |
+    【2-2】 $\dfrac{1}{r^2-1}\left(\dfrac{A_{20}}{r^{38}\ln r}-\dfrac12\right)$의 값을 구하시오. (30점)
+  points: 30
+  depends_on: ['1']
+  answer: {kind: value, value: '10', equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: $\int\left(x\ln x+\frac x2\right)dx=\frac12x^2\ln x$.
+    steps:
+    - {id: 2a, content: '$A_{20}=\frac12(20r^2-19)r^{38}\ln r$이므로 값은 $10$', criteria: [2.M1, 2.M2, 2.A1]}
+    hint_ladder:
+    - $x\ln x$를 부분적분하면 $\frac{x^2}{2}\ln x-\frac{x^2}{4}$이다.
+  - id: S2-B
+    audience: B
+    source_flow: M21_N1.pdf p.7
+    method_no: 1
+    steps:
+    - id: 2b-1
+      content: |
+        (2-1)의 풀이과정에서 얻은 결과를 바탕으로 $A_n=\displaystyle\int_{x_n}^{x_{n+1}}|f(x)|\,dx=\int_{r^{n-1}}^{r^n}\left|x\ln x+\frac x2\right|dx=\int_{r^{n-1}}^{r^n}\left(x\ln x+\frac x2\right)dx$
+      criteria: [2.M1]
+    - id: 2b-2
+      content: |
+        이를 부분적분법을 이용해 계산하면 $A_n=\left[\dfrac12x^2\ln x\right]_{r^{n-1}}^{r^n}=\dfrac12\left(r^{2n}\ln r^n-r^{2n-2}\ln r^{n-1}\right)=\dfrac12\{nr^2-(n-1)\}r^{2n-2}\ln r$이다. 이로부터 $A_{20}=\dfrac12(20r^2-19)r^{38}\ln r$이다.
+      criteria: [2.M2]
+    - id: 2b-3
+      content: |
+        따라서 $\dfrac{1}{r^2-1}\left(\dfrac{A_{20}}{r^{38}\ln r}-\dfrac12\right)=\dfrac{1}{r^2-1}\left\{\dfrac12(20r^2-19)-\dfrac12\right\}=\dfrac{10(r^2-1)}{r^2-1}=10$이다.
+      criteria: [2.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 10
+      evidence: |
+        $A_n=\displaystyle\int_{r^{n-1}}^{r^n}\left(x\ln x+\frac x2\right)dx$ 또는 $A_{20}=\displaystyle\int_{r^{19}}^{r^{20}}\left(x\ln x+\frac x2\right)dx$를 구했다.
+      depends_on: []
+      implied_ok: false
+      ft: {allowed: true, from: [1.M2], max_points: 10}
+      steps: [2b-1]
+    - id: 2.M2
+      mark_type: M
+      points: 10
+      evidence: |
+        $A_{20}=\dfrac12(20r^2-19)r^{38}\ln r$를 구했다.
+      depends_on: [2.M1]
+      steps: [2b-2]
+    - id: 2.A1
+      mark_type: A
+      points: 10
+      evidence: |
+        값 $10$을 구했다.
+      depends_on: [2.M2]
+      steps: [2b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-42118}
+  misconceptions:
+  - id: MC-CAL-42118
+    outcome_code: '71'
+    wrong_work: '$\int x\ln x\,dx=\frac{x^2}{2}\ln x$로 $-\frac{x^2}{4}$ 항을 빠뜨린 뒤 $\frac x2$의 적분 $\frac{x^2}{4}$을 따로 더해 $A_n$이 커짐'
+    detect_cue: $A_{20}$에 $\frac{r^{40}-r^{38}}{4}$ 꼴의 항이 남는다
+    feedback: 부분적분으로 $\int x\ln x\,dx=\frac{x^2}{2}\ln x-\frac{x^2}{4}$이고, 이것이 $\frac{x^2}{4}$와 상쇄됩니다.
+    remedy: [RL-2]
+
+- id: '3'
+  stem: |
+    【2-3】 $20$ 이하의 자연수 $m$에 대하여
+
+    $$B_m=\sum_{n=m}^{20}\frac{A_n}{\ln r}$$
+
+    이라 하자. 다음 물음에 답하시오.
+
+    (1) $\dfrac{B_1}{2r^{40}}$의 값을 구하시오. (30점)
+
+    (2) $\displaystyle\sum_{m=1}^{20}\left(\frac{B_1-B_m}{r^{2m-2}}\right)$의 값을 구하시오. (30점)
+  points: 60
+  depends_on: ['2']
+  answer: {kind: value, value: '5; 95', equivalents: ['(1) 5 (2) 95'], tolerance: null}
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: 적분 구간을 이어 붙여 $B_m=\frac{1}{\ln r}\left[\frac12x^2\ln x\right]_{r^{m-1}}^{r^{20}}$.
+    steps:
+    - {id: 3a, content: '$B_1=10r^{40}$, $B_m=10r^{40}-\frac{m-1}{2}r^{2m-2}$, $\sum\frac{m-1}{2}=95$', criteria: [3.M1, 3.A1, 3.M2, 3.M3, 3.A2]}
+    hint_ladder:
+    - $\sum_{n=m}^{20}\int_{r^{n-1}}^{r^n}$은 어떤 하나의 적분인가?
+  - id: S3-B
+    audience: B
+    source_flow: M21_N1.pdf p.7~8
+    method_no: 1
+    steps:
+    - id: 3b-1
+      content: |
+        (1) (2-2)의 풀이과정에서 얻은 식 $A_n=\displaystyle\int_{r^{n-1}}^{r^n}\left(x\ln x+\frac x2\right)dx$와 제시문 (라)를 이용하면, $B_1=\displaystyle\sum_{n=1}^{20}\frac{A_n}{\ln r}=\frac{1}{\ln r}\sum_{n=1}^{20}\int_{r^{n-1}}^{r^n}\left(x\ln x+\frac x2\right)dx=\frac{1}{\ln r}\int_1^{r^{20}}\left(x\ln x+\frac x2\right)dx$
+      criteria: [3.M1]
+    - id: 3b-2
+      content: |
+        $=\dfrac{1}{\ln r}\left[\dfrac12x^2\ln x\right]_1^{r^{20}}=10r^{40}$이다. 따라서 $\dfrac{B_1}{2r^{40}}=5$이다.
+      criteria: [3.A1]
+    - id: 3b-3
+      content: |
+        (2) 같은 방법으로 $B_m=\displaystyle\frac{1}{\ln r}\int_{r^{m-1}}^{r^{20}}\left(x\ln x+\frac x2\right)dx=\frac{1}{\ln r}\left[\frac12x^2\ln x\right]_{r^{m-1}}^{r^{20}}=10r^{40}-\frac{m-1}{2}r^{2m-2}$이다.
+      criteria: [3.M2]
+    - id: 3b-4
+      content: |
+        (2-3) (1)에서 구한 $B_1=10r^{40}$으로부터 $B_1-B_m=\dfrac{m-1}{2}r^{2m-2}$임을 알 수 있다.
+      criteria: [3.M3]
+    - id: 3b-5
+      content: |
+        따라서 $\displaystyle\sum_{m=1}^{20}\left(\frac{B_1-B_m}{r^{2m-2}}\right)=\sum_{m=1}^{20}\left(\frac{m-1}{2}\right)=\frac12\sum_{m=1}^{20}(m-1)=\frac12\left(\frac{20\times21}{2}-20\right)=95$이다.
+      criteria: [3.A2]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 15
+      evidence: |
+        (1) $B_1=\dfrac{1}{\ln r}\displaystyle\int_1^{r^{20}}\left(x\ln x+\frac x2\right)dx$를 구했다.
+      depends_on: []
+      implied_ok: false
+      steps: [3b-1]
+    - id: 3.A1
+      mark_type: A
+      points: 15
+      evidence: |
+        (1) $\dfrac{B_1}{2r^{40}}=5$를 구했다.
+      depends_on: [3.M1]
+      steps: [3b-2]
+    - id: 3.M2
+      mark_type: M
+      points: 10
+      evidence: |
+        (2) $B_m=10r^{40}-\dfrac{m-1}{2}r^{2m-2}$를 구했다.
+      depends_on: []
+      implied_ok: false
+      steps: [3b-3]
+    - id: 3.M3
+      mark_type: M
+      points: 10
+      evidence: |
+        (2) $B_1-B_m=\dfrac{m-1}{2}r^{2m-2}$를 구했다.
+      depends_on: [3.M2]
+      steps: [3b-4]
+    - id: 3.A2
+      mark_type: A
+      points: 10
+      evidence: |
+        (2) $\displaystyle\sum_{m=1}^{20}\left(\frac{B_1-B_m}{r^{2m-2}}\right)=95$를 구했다.
+      depends_on: [3.M3]
+      steps: [3b-5]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-SEQ-42101}
+  misconceptions:
+  - id: MC-SEQ-42101
+    outcome_code: '71'
+    wrong_work: '$\sum_{m=1}^{20}(m-1)$을 $\frac{20\times21}{2}=210$으로 계산해 $105$를 답함'
+    detect_cue: 답이 $105$이다
+    feedback: $m-1$은 $0$부터 $19$까지이므로 합은 $\frac{19\times20}{2}=190$입니다.
+    remedy: [RL-3]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CAL-42117}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-TANGENT-LINE}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-CAL-42118}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-INTEG-BY-PARTS}
+  priority: 1
+- id: RL-3
+  trigger: {type: misconception, ref: MC-SEQ-42101}
+  relation: remediation
+  target: {kind: concept, ref: CON-SEQ-SIGMA}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-transcribe-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

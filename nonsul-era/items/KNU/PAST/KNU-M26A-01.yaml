@@ -1,0 +1,397 @@
+# 경북대 2026학년도 논술(AAT) 모의고사 자연계열Ⅰ 수학 문제 1 — 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: KNU-M26A-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: proof
+origin: mock_exam
+school: KNU
+type: null
+variant_of: null
+replaces: null
+level: L6
+form: 추론
+points: 120
+time_estimate_min: 35
+intent: |
+  점화식으로 정의된 두 수열의 관계에서 일반항을 구하고, 넓이(정적분)와 직사각형 넓이의 합 비교로 조화수열의 부분합을 로그로 평가한 뒤, $1+x\le e^x$와 결합해 곱으로 표현된 수열의 증가 속도를 위·아래로 묶어 극한을 판정하는 능력을 본다. (가이드북에 출제 의도 별도 기재 없음 — 해설 흐름에서 요약)
+key_idea: |
+  $a_{n+1}=r^nb_n\cdots b_1$이고 $b_k=1-\dfrac1{rk}$. 위로는 $b_k\le e^{-\frac1{rk}}$, 아래로는 $b_k\ge\left(1+\dfrac1{r(k-1)}\right)^{-1}\ge e^{-\frac1{r(k-1)}}$; 조화합은 $\int\dfrac1x\,dx=\ln$으로 양쪽에서 묶여 $a_{n+1}\approx r^n n^{-\frac1r}$.
+stuck: |
+  곱 $b_1b_2\cdots b_n$을 $1+x\le e^x$로 지수의 합(조화합)으로 바꾸고, 그 합을 제시문 (가)의 적분 부등식으로 $\ln n$에 묶는 연결, 그리고 1-4에서 아래쪽 부등식을 1-2의 형태로 만드는 단계
+idea_tags: [IDEA-PRODUCT-TO-EXP-SUM, IDEA-HARMONIC-INTEGRAL-BOUND, IDEA-SQUEEZE-GROWTH-RATE]
+tags: [곱으로 정의된 수열, 조화급수, 1+x≤e^x, 수열의 극한 판정]
+elements:
+  materials:
+  - '점화식 $a_1=1$, $a_{n+1}=\left(r-\dfrac1n\right)a_n$ ($r>1$)'
+  - '곱 관계 $a_{n+1}=r^nb_nb_{n-1}\cdots b_1$'
+  - '조화수열의 부분합과 $\int_1^k\dfrac1x\,dx$'
+  - '수열 $\dfrac{r^n}{a_{n+1}}$, $\dfrac{a_{n+1}n^p}{3^n}$'
+  concepts:
+  - '수열의 귀납적 정의'
+  - '정적분과 넓이(제시문 (나)), 직사각형 넓이의 합과 비교'
+  - '부등식 $1+x\le e^x$(제시문 (다))'
+  - '지수법칙(제시문 (라))'
+  - '$\lim\dfrac{n^p}{r^n}=0$(제시문 (마)), 수열의 극한의 대소 관계'
+  tools:
+  - '$\dfrac{a_{n+1}}{a_n}=rb_n$ ($n\ge2$), $a_2=rb_1$'
+  - '$b_n=\left(1+\dfrac1{rn-1}\right)^{-1}$'
+  - '$b_k\le e^{-\frac1{rk}}$, $\left(1+\frac1{r(k-1)}\right)^{-1}\ge e^{-\frac1{r(k-1)}}$'
+  - '$\ln(n+1)\le1+\frac12+\cdots+\frac1n$, $\frac12+\cdots+\frac1{n-1}\le\ln(n-1)$'
+  - '조임: $C_2n^{p-\frac13}\le\dfrac{a_{n+1}n^p}{3^n}\le C_3n^{p-\frac13}$'
+  conditions:
+  - '$r>1$이므로 모든 $a_n>0$'
+  - '1-2는 $n\ge2$'
+  - '1-4는 $r=3$, $a_2=2$'
+  stimuli_used: ['(가)', '(나)', '(다)', '(라)', '(마)']
+  subpart_links: '1-2는 1-1의 b_n, 1-3은 1-1의 곱 표현, 1-4는 1-2의 부등식과 1-3의 위쪽 부등식을 사용'
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅰ, 미적분]
+  scope_2028: calc2
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 수열의 귀납적 정의를 이해하고, 수열의 극한의 대소 관계를 이용하여 극한을 판정한다(요지)
+    verified: false
+  - code: 미확인
+    text: 정적분과 넓이의 관계를 이해하고 급수의 합을 정적분으로 평가한다(요지)
+    verified: false
+  content_area: 수열의 극한·정적분의 활용
+  behavior_domain: 추론
+  unit_path: [미적분, 수열의 극한, 수열의 극한의 대소 관계, 곱으로 정의된 수열의 증가 속도]
+  key_concepts: [수열의 귀납적 정의, 1+x≤e^x, 조화수열의 부분합, 수열의 수렴과 발산]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 경북대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 경북대학교
+  admission_year: 2026
+  admission_type: 논술(AAT) 모의고사
+  track: 자연계열Ⅰ
+  question_no: 1
+  official_url: https://ipsi1.knu.ac.kr   # [확인필요] 입학처 공지·자료 게시판 원본(2026학년도 논술(AAT) 가이드북) 주소
+  retrieved_at: 2026-11-21
+  original_points: [20, 20, 40, 40]
+  rights_notice: 미확인(가이드북 표지·판권 문구 확인 필요)
+  transcribed_from: 'GB26.pdf p.51(모의고사 자연계열Ⅰ 문제지 1/4) 이미지 판독; 예시답안·채점기준 GB26.pdf pp.69–70(인쇄 67–68)'
+
+verify: verify/KNU-M26A.py::p01
+
+stimuli:
+- label: (가)
+  body: |
+    $2$ 이상의 자연수 $k$에 대하여 부등식
+    $$\dfrac12+\dfrac13+\cdots+\dfrac1k\le\int_1^k\dfrac1x\,dx\le1+\dfrac12+\dfrac13+\cdots+\dfrac1{k-1}$$
+    이 성립한다.
+- label: (나)
+  body: |
+    함수 $f(x)$가 닫힌구간 $[a,b]$에서 연속이고 $f(x)\ge0$일 때, 곡선 $y=f(x)$와 $x$축 및 두 직선 $x=a$, $x=b$로 둘러싸인 도형의 넓이 $S$는
+    $$S=\int_a^bf(x)\,dx$$
+- label: (다)
+  body: |
+    모든 실수 $x$에 대하여 $1+x\le e^x$
+- label: (라)
+  body: |
+    $a>0$이고 $x$, $y$가 실수일 때 $a^xa^y=a^{x+y}$
+- label: (마)
+  body: |
+    실수 $p$와 $r$에 대하여 $r>1$일 때, $\displaystyle\lim_{n\to\infty}\dfrac{n^p}{r^n}=0$
+
+stem: |
+  ※ 모든 문항에서 풀이 과정을 반드시 기술하시오.
+
+  실수 $r>1$에 대하여 수열 $\{a_n\}$과 $\{b_n\}$이 다음을 만족시킨다.
+
+  (ⅰ) $a_1=1$이고, 자연수 $n$에 대하여 $a_{n+1}=\left(r-\dfrac1n\right)a_n$
+  (ⅱ) 자연수 $n$에 대하여 $a_{n+1}=r^nb_nb_{n-1}b_{n-2}\cdots b_2b_1$
+
+  다음 물음에 답하시오.
+
+subparts:
+- id: '1-1'
+  stem: |
+    수열 $\{b_n\}$의 일반항을 구하시오. (20점)
+  points: 20
+  depends_on: []
+  answer: {kind: expression, value: '1 - 1/(r*n)', equivalents: ['(r*n-1)/(r*n)'], tolerance: null}
+  solutions:
+  - id: S1-1-A
+    audience: A
+    method_no: 1
+    key_idea: (ⅰ)과 (ⅱ)에서 각각 $\dfrac{a_{n+1}}{a_n}$을 구해 비교한다(모든 $a_n>0$ 확인).
+    steps:
+    - {id: 1-1a, content: '$r-\tfrac1n=rb_n\Rightarrow b_n=1-\tfrac1{rn}$', criteria: [1-1.B1]}
+    hint_ladder:
+    - (ⅱ)에서 $a_{n+1}$과 $a_n$을 나누면 무엇이 남는가?
+  - id: S1-1-B
+    audience: B
+    source_flow: GB26.pdf p.69(인쇄 67)
+    method_no: 1
+    steps:
+    - id: 1-1b-1
+      content: |
+        $a_1=1$이고, 자연수 $n$에 대하여 $a_n>0$이면 $a_{n+1}=\left(r-\dfrac1n\right)a_n\ge(r-1)a_n>0$이므로 모든 자연수 $n$에 대하여 $a_n>0$이다.
+      criteria: [1-1.B1]
+    - id: 1-1b-2
+      content: |
+        조건 (ⅰ)로부터 $\dfrac{a_{n+1}}{a_n}=r-\dfrac1n$이고, 조건 (ⅱ)로부터 $\dfrac{a_{n+1}}{a_n}=rb_n$이므로 $b_n=1-\dfrac1{rn}$이다. ($n=1$일 때는 $a_2=rb_1$에서 직접 같은 식.)
+      criteria: [1-1.B1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1-1.B1
+      mark_type: B
+      points: 20
+      evidence: $b_n=1-\dfrac1{rn}$을 맞게 구했다.
+      steps: [1-1b-1, 1-1b-2]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-SEQ-42603}
+  misconceptions:
+  - id: MC-SEQ-42603
+    outcome_code: '71'
+    wrong_work: '$\dfrac{a_{n+1}}{a_n}=b_n$으로 놓아 $b_n=r-\dfrac1n$'
+    detect_cue: 답 $b_n=r-\tfrac1n$ ($r$ 인수 누락)
+    feedback: (ⅱ)에서 $a_{n+1}$에는 $r^n$, $a_n$에는 $r^{n-1}$이 곱해져 있어 비에 $r$이 하나 남습니다.
+    remedy: [RL-1]
+
+- id: '1-2'
+  stem: |
+    $2$ 이상의 자연수 $n$에 대하여 부등식
+    $$b_n\ge\left(1+\dfrac1{r(n-1)}\right)^{-1}$$
+    이 성립함을 보이시오. (20점)
+  points: 20
+  depends_on: ['1-1']
+  answer: {kind: proof, value: null, equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-2-A
+    audience: A
+    method_no: 1
+    key_idea: $b_n=\left(1+\dfrac1{rn-1}\right)^{-1}$이고 $r>1$이면 $rn-1\ge r(n-1)$.
+    steps:
+    - {id: 1-2a, content: '$rn-1>rn-r\Rightarrow\tfrac1{rn-1}<\tfrac1{r(n-1)}$', criteria: [1-2.R1]}
+    hint_ladder:
+    - $b_n$을 $(1+\square)^{-1}$ 꼴로 바꿔 보자.
+  - id: S1-2-B
+    audience: B
+    source_flow: GB26.pdf p.69(인쇄 67)
+    method_no: 1
+    steps:
+    - id: 1-2b-1
+      content: |
+        $n\ge2$일 때, $b_n=\dfrac{rn-1}{rn}=\left(\dfrac{rn}{rn-1}\right)^{-1}=\left(1+\dfrac1{rn-1}\right)^{-1}$이고 $r>1$이므로 $rn-1>r(n-1)>0$, 즉 $1+\dfrac1{rn-1}<1+\dfrac1{r(n-1)}$이다. 따라서 $b_n\ge\left(1+\dfrac1{r(n-1)}\right)^{-1}$이다.
+      criteria: [1-2.R1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1-2.R1
+      mark_type: R
+      points: 20
+      evidence: |
+        부등식 $b_n\ge\left(1+\dfrac1{r(n-1)}\right)^{-1}$ ($n\ge2$)의 유도과정이 맞다($b_n=\left(1+\frac1{rn-1}\right)^{-1}$ 변형과 $r>1$에 의한 비교).
+      depends_on: []
+      steps: [1-2b-1]
+    deductions:
+    - code: D1-2-1
+      condition: 결론 부등식을 가정하고 출발해 참인 식에 도달한 뒤 끝냄(동치 표시 없음)
+      effect: zero
+      value: 0
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-SEQ-42604}
+  misconceptions:
+  - id: MC-SEQ-42604
+    outcome_code: '71'
+    wrong_work: '역수를 취하며 부등호 방향을 그대로 두어 $rn-1\le r(n-1)$을 결론으로 씀'
+    detect_cue: $rn-1$과 $r(n-1)$의 대소가 거꾸로, 또는 $r>1$을 쓰지 않음
+    feedback: 양수의 역수를 취하면 부등호 방향이 바뀝니다. $rn-1-r(n-1)=r-1>0$을 확인하세요.
+    remedy: [RL-2]
+
+- id: '1-3'
+  stem: |
+    제시문 (가)의 두 부등식이 성립하는 이유를 제시문 (나)를 이용하여 설명하고, 수열 $\left\{\dfrac{r^n}{a_{n+1}}\right\}$의 수렴과 발산을 조사하시오. (40점)
+  points: 40
+  depends_on: ['1-1']
+  answer: {kind: value, value: 'oo', equivalents: ['양의 무한대로 발산', '발산'], tolerance: null}
+  solutions:
+  - id: S1-3-A
+    audience: A
+    method_no: 1
+    key_idea: $y=\tfrac1x$ 아래 넓이를 구간별 최솟값·최댓값 높이의 직사각형으로 위·아래에서 묶고, $b_k\le e^{-\frac1{rk}}$로 $a_{n+1}\le r^n(n+1)^{-\frac1r}$.
+    steps:
+    - {id: 1-3a, content: '$\dfrac{r^n}{a_{n+1}}\ge(n+1)^{\frac1r}\to\infty$', criteria: [1-3.R1, 1-3.R2, 1-3.M1, 1-3.A1]}
+    hint_ladder:
+    - 구간 $[m,m+1]$에서 $\tfrac1x$의 최솟값과 최댓값은?
+    - $b_k=1-\tfrac1{rk}\le e^{?}$
+  - id: S1-3-B
+    audience: B
+    source_flow: GB26.pdf p.69(인쇄 67)
+    method_no: 1
+    steps:
+    - id: 1-3b-1
+      content: |
+        $k\ge2$일 때, 함수 $f(x)=\dfrac1x$ (단, $x\ge1$)의 그래프와 $x$축 및 두 직선 $x=1$, $x=k$로 둘러싸인 도형의 넓이 $S$는(제시문 (나)) 구간 $[m,m+1]$ $(m=1,2,\cdots,k-1)$에서 함수의 최솟값 $\dfrac1{m+1}$을 높이로 하는 직사각형을 만들었을 때 이 직사각형들의 넓이의 합인 $\dfrac12+\dfrac13+\cdots+\dfrac1k$보다 크거나 같다.
+      criteria: [1-3.R2]
+    - id: 1-3b-2
+      content: |
+        마찬가지로 도형의 넓이 $S$는 구간 $[m,m+1]$ $(m=1,2,\cdots,k-1)$에서 함수의 최댓값 $\dfrac1m$을 높이로 하는 직사각형을 만들었을 때 이 직사각형들의 넓이의 합인 $1+\dfrac12+\dfrac13+\cdots+\dfrac1{k-1}$보다 작거나 같다.
+      criteria: [1-3.R1]
+    - id: 1-3b-3
+      content: |
+        제시문 (다), (라)를 이용하면($b_k=1-\frac1{rk}\le e^{-\frac1{rk}}$), 자연수 $n$에 대하여
+        $a_{n+1}\le r^ne^{-\frac1r\left(1+\frac12+\frac13+\cdots+\frac1n\right)}\le r^ne^{-\frac1r\ln(n+1)}=r^n(n+1)^{-\frac1r}$이다.
+      criteria: [1-3.M1]
+    - id: 1-3b-4
+      content: |
+        따라서 $\dfrac{r^n}{a_{n+1}}\ge(n+1)^{\frac1r}$이다. $(n+1)^{\frac1r}$은 발산하므로 수열 $\left\{\dfrac{r^n}{a_{n+1}}\right\}$은 발산한다.
+      criteria: [1-3.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1-3.R1
+      mark_type: R
+      points: 10
+      evidence: |
+        넓이를 이용하여 $\displaystyle\int_1^k\dfrac1x\,dx\le1+\dfrac12+\dfrac13+\cdots+\dfrac1{k-1}$를 설명했다.
+      depends_on: []
+      steps: [1-3b-2]
+    - id: 1-3.R2
+      mark_type: R
+      points: 10
+      evidence: |
+        넓이를 이용하여 $\dfrac12+\dfrac13+\cdots+\dfrac1k\le\displaystyle\int_1^k\dfrac1x\,dx$를 설명했다.
+      depends_on: []
+      steps: [1-3b-1]
+    - id: 1-3.M1
+      mark_type: M
+      points: 15
+      evidence: |
+        $a_{n+1}\le C_0r^nn^{-\frac1r}$ (단, $C_0>0$) 꼴을 맞게 유도했다.
+      depends_on: []
+      implied_ok: false
+      steps: [1-3b-3]
+    - id: 1-3.A1
+      mark_type: A
+      points: 5
+      evidence: $\dfrac{r^n}{a_{n+1}}$이 발산한다고 했다.
+      depends_on: [1-3.M1]
+      steps: [1-3b-4]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-42613}
+  misconceptions:
+  - id: MC-CAL-42613
+    outcome_code: '71'
+    wrong_work: '$b_k<1$이므로 $a_{n+1}<r^n$, 따라서 $\dfrac{r^n}{a_{n+1}}>1$만 보이고 발산이라 결론'
+    detect_cue: 하한이 상수(1 등)뿐, 조화합·$e^x$ 부등식 없음
+    feedback: 아래로 유계인 것만으로는 발산이 아닙니다. 무한대로 가는 하한($(n+1)^{1/r}$)이 필요합니다.
+    remedy: [RL-3]
+
+- id: '1-4'
+  stem: |
+    $r=3$일 때 $\displaystyle\lim_{n\to\infty}\dfrac{a_{n+1}n^p}{3^n}=0$이 성립하도록 하는 실수 $p$의 범위를 구하시오. (40점)
+  points: 40
+  depends_on: ['1-2', '1-3']
+  answer: {kind: set, value: 'Interval.open(-oo, 1/3)', equivalents: ['p<1/3'], tolerance: null}
+  solutions:
+  - id: S1-4-A
+    audience: A
+    method_no: 1
+    key_idea: 1-2와 (다)로 $b_k\ge e^{-\frac1{r(k-1)}}$, (가)로 조화합 $\le\ln(n-1)+1$; 1-3의 위쪽과 합쳐 $\dfrac{a_{n+1}n^p}{3^n}$을 $n^{p-\frac13}$의 상수배로 위·아래에서 묶는다.
+    steps:
+    - {id: 1-4a, content: '$\dfrac2{3e^{1/3}}\cdot\dfrac{n^p}{(n-1)^{1/3}}\le\dfrac{a_{n+1}n^p}{3^n}\le\dfrac{n^p}{(n+1)^{1/3}}$, $p<\tfrac13$', criteria: [1-4.M1, 1-4.A1]}
+    hint_ladder:
+    - 1-2의 부등식에 제시문 (다)를 적용하면 $b_k\ge e^{?}$
+    - 위·아래 경계가 모두 $n^{p-1/3}$ 정도이다. 언제 $0$으로 가는가?
+  - id: S1-4-B
+    audience: B
+    source_flow: GB26.pdf p.69(인쇄 67)
+    method_no: 1
+    steps:
+    - id: 1-4b-1
+      content: |
+        제시문 (다), (라)와 문제 【1-2】를 이용하면($b_k\ge\left(1+\frac1{r(k-1)}\right)^{-1}\ge e^{-\frac1{r(k-1)}}$), $2$ 이상의 자연수 $n$에 대하여
+        $a_{n+1}\ge r^{n-1}e^{-\frac1r\left(1+\frac12+\frac13+\cdots+\frac1{n-1}\right)}a_2\ge r^{n-1}e^{-\frac1r}e^{-\frac1r\left(\frac12+\frac13+\cdots+\frac1{n-1}\right)}a_2\ge r^{n-1}e^{-\frac1r}(n-1)^{-\frac1r}a_2$이다.
+      criteria: [1-4.M1]
+    - id: 1-4b-2
+      content: |
+        $r=3$일 때, 조건에 따라 $a_2=2$이고, 문제 【1-3】 풀이와 이 부등식을 이용하면, $2$ 이상의 자연수에 대하여
+        $\dfrac2{3e^{\frac13}}\times\dfrac{n^p}{(n-1)^{\frac13}}\le\dfrac{a_{n+1}n^p}{3^n}\le\dfrac{n^p}{(n+1)^{\frac13}}$이다.
+      criteria: [1-4.M1]
+    - id: 1-4b-3
+      content: |
+        $\displaystyle\lim_{n\to\infty}\dfrac{a_{n+1}n^p}{3^n}=0$이므로 $p<\dfrac13$이다. ($p<\frac13$이면 오른쪽이 $0$으로 가서 조임에 의해 $0$, $p\ge\frac13$이면 왼쪽이 양의 상수 이상이라 $0$이 될 수 없다.)
+      criteria: [1-4.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1-4.M1
+      mark_type: M
+      points: 20
+      evidence: |
+        반대 방향 부등식 $a_{n+1}\ge C_13^nn^{-\frac13}$ (단, $C_1>0$) 꼴 또는 양방향 부등식 $C_2n^{p-\frac13}\le\dfrac{a_{n+1}n^p}{3^n}\le C_3n^{p-\frac13}$ (단, $C_2>0$, $C_3>0$) 꼴을 맞게 유도했다.
+      depends_on: []
+      implied_ok: false
+      steps: [1-4b-1, 1-4b-2]
+    - id: 1-4.A1
+      mark_type: A
+      points: 20
+      evidence: 범위 $p<\dfrac13$을 맞게 구했다.
+      depends_on: [1-4.M1]
+      cao: true
+      steps: [1-4b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-42614}
+  misconceptions:
+  - id: MC-CAL-42614
+    outcome_code: '71'
+    wrong_work: '1-3의 위쪽 부등식만으로 「$p<\tfrac13$이면 $0$」을 보이고 범위를 $p<\tfrac13$로 확정(또는 $p\le\tfrac13$)'
+    detect_cue: 아래쪽 부등식이 없음, 또는 경계 $p=\tfrac13$ 포함
+    feedback: 범위를 정하려면 $p\ge\tfrac13$일 때 $0$이 아님도 보여야 합니다. 1-2로 아래쪽 경계를 만드세요.
+    remedy: [RL-4]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-SEQ-42603}
+  relation: remediation
+  target: {kind: concept, ref: CON-SEQ-RECURSIVE}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-SEQ-42604}
+  relation: remediation
+  target: {kind: concept, ref: CON-ALG-INEQ-RECIPROCAL}
+  priority: 1
+- id: RL-3
+  trigger: {type: misconception, ref: MC-CAL-42613}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-EXP-INEQ-PRODUCT}
+  priority: 1
+- id: RL-4
+  trigger: {type: misconception, ref: MC-CAL-42614}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-SQUEEZE}
+  priority: 1
+- id: RL-5
+  trigger: {type: criterion_missed, ref: 1-3.R1}
+  relation: prerequisite
+  target: {kind: concept, ref: CON-CAL-HARMONIC-INTEGRAL}
+  priority: 2
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-transcribe-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

@@ -1,0 +1,401 @@
+# 경북대 2022학년도 수시 논술(AAT) 자연계열Ⅱ 수학 문제 3 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: KNU-G22B-03
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: proof
+origin: past_exam
+school: KNU
+type: null
+variant_of: null
+replaces: null
+level: L6
+form: 존재
+points: 120
+time_estimate_min: 35
+intent: |
+  도함수를 구하고 함수의 증가를 판정할 수 있는지(3-1), 함수 및 역함수의 성질을 이해하고 음함수를 미분할 수 있는지(3-2), 사잇값 정리 및 함수의 증가와 감소를 이용하여 함수의 그래프의 개형을 그릴 수 있는지(3-3(1)), 함수의 그래프의 개형, 도함수, 사잇값 정리를 활용하여 수열의 극한을 구할 수 있는지(3-3(2)) 평가한다.
+key_idea: |
+  $x\ge0$에서 $f'(x)=(7-a)-4\sin x>0\iff a<3$, $x<0$에서 $f'(x)=-2(a+1)x+\tfrac{7-a}{1-x}>0\iff-1\le a<7$. $h(a)$는 $f(h)=0$인 양수이므로 음함수 미분. 원점을 지나는 접선 조건은 보조함수 $w(x)=f(x)-xf'(x)$의 영점이고, $w'(x)=-xf''(x)$의 부호로 증감을 나눠 사잇값 정리로 영점을 센다.
+stuck: |
+  3-3에서 접점 조건을 $w(t)=f(t)-tf'(t)=0$으로 바꾸고, $w'(x)=4x\cos x$($x\ge0$)의 부호가 바뀌는 $(2n\pm\tfrac12)\pi$를 기준으로 구간을 나누는 단계, 그리고 (2)에서 $w'$의 하한 $4n\pi$로 근을 $\tfrac1n$ 폭에 가두는 단계
+idea_tags: [IDEA-AUX-FUNCTION-TANGENT-THROUGH-ORIGIN, IDEA-IVT-MONOTONE-ROOT-COUNT, IDEA-DERIVATIVE-LOWER-BOUND-TRAPS-ROOT]
+tags: [증가함수 조건, 역함수, 음함수 미분, 원점을 지나는 접선, 사잇값 정리, 수열의 극한]
+elements:
+  materials:
+  - '구간별로 정의된 미분가능 함수 $f(x)$($x\ge0$: $(7-a)x+4\cos x-2(\pi+1)$, $x<0$: $-(a+1)x^2-(7-a)\ln(1-x)-2(\pi-1)$)'
+  - '역함수 $g$의 $y$절편 $h(a)=g(0)$'
+  - '원점을 지나는 접선의 접점 $t$의 집합 $S$와 양의 원소를 차례로 나열한 수열 $c_n$'
+  concepts:
+  - '도함수의 부호와 증가(제시문 (가))'
+  - '합성함수의 미분(제시문 (나)) — 음함수 미분'
+  - '접선의 방정식(제시문 (다))'
+  - '사잇값 정리(제시문 (라))'
+  - '수열의 극한의 대소 관계(제시문 (마))'
+  tools:
+  - '$x\ge0$에서 $\sin x$의 최댓값 $1$, $x<0$에서 $x\to-\infty$ 거동'
+  - '$f(h(a))=0$을 $a$에 대해 미분'
+  - '보조함수 $w(x)=f(x)-xf''(x)$, $w''(x)=-xf''''(x)$'
+  - '$w''(x)=4x\cos x\ge4n\pi$ 등 도함수 하한으로 $w(2n\pi+\tfrac1n)>0$'
+  conditions:
+  - '$f$는 실수 전체에서 미분가능(경계 $x=0$에서 값·미분계수 일치)'
+  - '$k_1<a<k_2$일 때 $f$는 증가 → 역함수 존재'
+  - '$h(1)=\tfrac\pi3$, $6\ln3+2\pi<14$'
+  stimuli_used: ['(가)', '(나)', '(다)', '(라)', '(마)']
+  subpart_links: '3-2는 3-1의 $f''>0$으로 역함수 존재, 3-3(2)는 3-3(1)의 $w$와 구간 분할을 일반 $n$으로 확장'
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅱ, 미적분]
+  scope_2028: calc2
+  scope_confirmed: false
+  standards:
+  - code: 12수학Ⅱ02-08
+    text: 함수의 증가와 감소, 극대와 극소를 판정하고 설명할 수 있다.
+    verified: true
+  - code: 12미적02-07
+    text: 합성함수를 미분할 수 있다.
+    verified: true
+  - code: 12미적02-02
+    text: 지수함수와 로그함수를 미분할 수 있다.
+    verified: true
+  - code: 12미적02-05
+    text: 사인함수와 코사인함수를 미분할 수 있다.
+    verified: true
+  - code: 12미적01-02
+    text: 수열의 극한에 대한 기본 성질을 이해하고, 이를 이용하여 극한값을 구할 수 있다.
+    verified: true
+  content_area: 미적분 – 여러 가지 미분법·도함수의 활용 / 수열의 극한
+  behavior_domain: 추론
+  unit_path: [미적분, 미분법, 도함수의 활용, 접선과 근의 개수]
+  key_concepts: [증가함수, 역함수, 음함수 미분, 사잇값 정리, 조임 정리]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 경북대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 경북대학교
+  admission_year: 2022
+  admission_type: 수시 논술(AAT)
+  track: 자연계열Ⅱ
+  question_no: 3
+  official_url: https://ipsi1.knu.ac.kr   # [확인필요] 입학처 공지·자료 게시판 원본 게시물 주소
+  retrieved_at: 2026-11-21
+  original_points: [20, 25, 35, 40]
+  rights_notice: 미확인(대학 원본 PDF 표지 문구 확인 필요)
+  transcribed_from: 'G22_N2.pdf p.4(문제지 3/3) 이미지 판독; 해설·채점기준 rep2022.pdf pp.99–103(인쇄 95–99, 문항카드 3 자연Ⅱ)'
+
+verify: verify/KNU-G22B.py::p03
+
+stimuli:
+- label: (가)
+  body: |
+    함수 $f(x)$가 어떤 열린구간에서 미분가능하고, 그 구간의 모든 $x$에 대하여
+    (a) $f'(x)>0$이면 $f(x)$는 그 구간에서 증가한다.
+    (b) $f'(x)<0$이면 $f(x)$는 그 구간에서 감소한다.
+- label: (나)
+  body: |
+    두 함수 $y=f(u)$, $u=g(x)$가 미분가능할 때, 합성함수 $y=f(g(x))$의 도함수는
+    $$\{f(g(x))\}'=f'(g(x))g'(x)$$
+- label: (다)
+  body: |
+    함수 $f(x)$가 $x=x_0$에서 미분가능할 때, 곡선 $y=f(x)$ 위의 점 $(x_0,f(x_0))$에서의 접선의 방정식은
+    $$y-f(x_0)=f'(x_0)(x-x_0)$$
+- label: (라)
+  body: |
+    함수 $f(x)$가 닫힌구간 $[a,b]$에서 연속이고 $f(a)\ne f(b)$이면 $f(a)$와 $f(b)$ 사이에 있는 임의의 $k$에 대하여 $f(c)=k$인 $c$가 열린구간 $(a,b)$에 적어도 하나 존재한다.
+- label: (마)
+  body: |
+    수렴하는 두 수열 $\{a_n\}$, $\{b_n\}$에 대하여
+    $$\lim_{n\to\infty}a_n=\lim_{n\to\infty}b_n=\alpha\quad(\alpha\text{는 실수})$$
+    일 때, 수열 $\{c_n\}$이 모든 자연수 $n$에 대하여 $a_n\le c_n\le b_n$이면
+    $$\lim_{n\to\infty}c_n=\alpha$$
+
+stem: |
+  ※ 모든 문항에서 풀이 과정을 반드시 기술하시오.
+
+  실수 $a$에 대하여 실수 전체의 집합에서 미분가능한 함수 $f(x)$를
+  $$f(x)=\begin{cases}(7-a)x+4\cos x-2(\pi+1) & (x\ge0)\\ -(a+1)x^2-(7-a)\ln(1-x)-2(\pi-1) & (x<0)\end{cases}$$
+  이라 하자. 모든 실수 $x$에 대하여 $f'(x)>0$이 되기 위한 모든 $a$의 값의 범위는 $k_1\le a<k_2$이다.
+
+subparts:
+- id: '3-1'
+  stem: |
+    $k_1$과 $k_2$의 값을 각각 구하시오. (20점)
+  points: 20
+  depends_on: []
+  answer: {kind: value, value: '-1; 3', equivalents: ['k_1=-1, k_2=3'], tolerance: null}
+  solutions:
+  - id: S3-1-A
+    audience: A
+    method_no: 1
+    key_idea: |
+      $x\ge0$에서 $7-a>4\ge4\sin x$가 필요충분 → $a<3$. $x<0$에서 $x\to-\infty$일 때 $-2(a+1)x$가 지배 → $a\ge-1$, 그리고 $7-a>0$.
+    steps:
+    - {id: 3-1a, content: '$-1\le a<3$이므로 $k_1=-1$, $k_2=3$', criteria: [3-1.B1, 3-1.B2]}
+    hint_ladder:
+    - 두 구간에서 각각 $f'(x)$를 구해 보자.
+  - id: S3-1-B
+    audience: B
+    source_flow: rep2022.pdf p.102(인쇄 98)
+    method_no: 1
+    steps:
+    - id: 3-1b-1
+      content: |
+        $$f'(x)=\begin{cases}(7-a)-4\sin x & (x\ge0)\\ -2(a+1)x+\dfrac{7-a}{1-x} & (x<0)\end{cases}$$
+        이다. $x\ge0$일 때 $a<3$이다. $x<0$일 때 $-1\le a<7$이다. 따라서 $k_1=-1$, $k_2=3$이다.
+      criteria: [3-1.B1, 3-1.B2]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 3-1.B1
+      mark_type: B
+      points: 10
+      evidence: $k_1=-1$을 구했다.
+      steps: [3-1b-1]
+    - id: 3-1.B2
+      mark_type: B
+      points: 10
+      evidence: $k_2=3$을 구했다.
+      steps: [3-1b-1]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-42209}
+  misconceptions:
+  - id: MC-CAL-42209
+    outcome_code: '71'
+    wrong_work: '$x<0$ 구간을 $x=0$ 근처만 보고 $a<7$만 얻어 $k_1$을 구하지 못하거나 $a>-1$(등호 제외)로 답함'
+    detect_cue: $k_1$ 없음 또는 $-1<a$
+    feedback: $x\to-\infty$에서 $-2(a+1)x$가 지배하므로 $a+1\ge0$이 필요하고, $a=-1$이면 $f'(x)=\tfrac{8}{1-x}>0$으로 성립합니다.
+    remedy: [RL-1]
+
+- id: '3-2'
+  stem: |
+    $k_1<a<k_2$일 때, 함수 $f(x)$는 역함수 $g(x)$를 가진다. 곡선 $y=g(x)$의 $y$절편을 $h(a)$라 할 때, 함수 $h(a)$는 미분가능하다. $h'(1)$의 값을 구하시오. (단, $h(1)=\dfrac\pi3$) (25점)
+  points: 25
+  depends_on: ['3-1']
+  answer: {kind: value, value: '(3 + sqrt(3))*pi/36', equivalents: [], tolerance: null}
+  solutions:
+  - id: S3-2-A
+    audience: A
+    method_no: 1
+    key_idea: $h(a)>0$이 $(7-a)h+4\cos h-2(\pi+1)=0$을 만족, $a$로 미분.
+    steps:
+    - {id: 3-2a, content: '$h''(1)=\dfrac{h}{7-a-4\sin h}\Big|_{a=1}=\dfrac{\pi/3}{6-2\sqrt3}=\dfrac{(3+\sqrt3)\pi}{36}$', criteria: [3-2.M1, 3-2.A1]}
+    hint_ladder:
+    - $g(0)=h(a)$이면 $f(h(a))$는 얼마인가? $h(a)$의 부호는?
+  - id: S3-2-B
+    audience: B
+    source_flow: rep2022.pdf p.102(인쇄 98)
+    method_no: 1
+    steps:
+    - id: 3-2b-1
+      content: |
+        $h(a)=g(0)$이므로 $f(h(a))=f(g(0))=0$이다. $f(0)=-2(\pi-1)<0$이고 $f'(x)>0$이므로 $h(a)>0$이고,
+        $$f(h(a))=(7-a)h(a)+4\cos(h(a))-2(\pi+1)$$
+        이다. 따라서 $(7-a)h(a)+4\cos(h(a))-2(\pi+1)=0$이다.
+      criteria: [3-2.M1]
+    - id: 3-2b-2
+      content: |
+        양변을 미분하면 $-h(a)+(7-a)h'(a)-4\sin(h(a))h'(a)=0$이고, $h(1)=\dfrac\pi3$이므로 $h'(1)=\dfrac{(3+\sqrt3)\pi}{36}$이다.
+      criteria: [3-2.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 3-2.M1
+      mark_type: M
+      points: 10
+      evidence: $(7-a)h(a)+4\cos(h(a))-2(\pi+1)=0$이 성립함을 보였다.
+      depends_on: []
+      implied_ok: false
+      steps: [3-2b-1]
+    - id: 3-2.A1
+      mark_type: A
+      points: 15
+      evidence: $h'(1)=\dfrac{(3+\sqrt3)\pi}{36}$를 구했다.
+      depends_on: [3-2.M1]
+      cao: true
+      steps: [3-2b-2]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-42210}
+  misconceptions:
+  - id: MC-CAL-42210
+    outcome_code: '71'
+    wrong_work: '$h(a)<0$으로 보고 $x<0$ 쪽 식을 사용하거나, $a$에 대해 미분할 때 $(7-a)$의 미분 $-h(a)$ 항을 빠뜨림'
+    detect_cue: 분자에 $h(1)=\tfrac\pi3$이 없음(답이 $0$ 등)
+    feedback: $f(0)<0$이고 $f$가 증가하므로 $f$의 영점은 양수입니다. $(7-a)h(a)$는 곱이므로 $a$에 대한 미분이 $-h(a)+(7-a)h'(a)$입니다.
+    remedy: [RL-2]
+
+- id: '3-3(1)'
+  stem: |
+    $a=1$일 때, 곡선 $y=f(x)$ 위의 점 $(t,f(t))$에서의 접선이 원점을 지나도록 하는 모든 실수 $t$의 집합을 $S$라 하자.
+    (1) 집합 $S$의 원소 중 열린구간 $(-2,6\pi)$에 속하는 원소의 개수가 $5$임을 증명하시오. (단, $6\ln3+2\pi<14$) (35점)
+  points: 35
+  depends_on: []
+  answer: {kind: proof, value: null, equivalents: [], tolerance: null}
+  solutions:
+  - id: S3-3-1-A
+    audience: A
+    method_no: 1
+    key_idea: $w(x)=f(x)-xf'(x)$의 영점 개수. $w'=4x\cos x$($x\ge0$), $4x-\tfrac{6x}{(1-x)^2}$($x<0$)로 증감 구간을 나누고 각 구간 끝값 부호로 사잇값 정리.
+    steps:
+    - {id: 3-3-1a, content: '$(-2,0)$, $(2\pi,\tfrac52\pi)$, $(\tfrac52\pi,3\pi)$, $(4\pi,\tfrac92\pi)$, $(\tfrac92\pi,5\pi)$에 하나씩, 나머지 구간엔 없음 → $5$개', criteria: [3-3(1).R1, 3-3(1).R2]}
+    hint_ladder:
+    - 접선이 원점을 지날 조건을 $t$에 대한 방정식으로 쓰자.
+    - 그 방정식의 좌변을 함수 $w(x)$로 보고 미분하면 무엇이 남는가?
+  - id: S3-3-1-B
+    audience: B
+    source_flow: rep2022.pdf pp.102–103(인쇄 98–99)
+    method_no: 1
+    steps:
+    - id: 3-3-1b-1
+      content: |
+        $a=1$일 때, 곡선 $y=f(x)$ 위의 점 $(t,f(t))$에서의 접선의 방정식은 $y-f(t)=f'(t)(x-t)$이고, 이 접선이 원점을 지나면 $f(t)-tf'(t)=0$이다. $w(x)=f(x)-xf'(x)$라 하면
+        $$w(x)=\begin{cases}4\cos x+4x\sin x-2(\pi+1) & (x\ge0)\\ 2x^2-6\ln(1-x)-\dfrac{6x}{1-x}-2(\pi-1) & (x<0)\end{cases}$$
+        이다. $w(-2)=14-6\ln3-2\pi>0$, $w(0)=-2(\pi-1)<0$, $w\left(\dfrac\pi2\right)<0$, $w(2n\pi)<0$, $w\left(\left(2n+\dfrac12\right)\pi\right)>0$, $w((2n+1)\pi)<0$, $w\left(\left(2n+\dfrac32\right)\pi\right)<0$이다. (단, $n$은 자연수)
+      criteria: [3-3(1).R1]
+    - id: 3-3-1b-2
+      content: |
+        $$w'(x)=\begin{cases}4x\cos x & (x\ge0)\\ 4x-\dfrac{6x}{(1-x)^2} & (x<0)\end{cases}$$
+        이므로 열린구간 $\left(-2,-\dfrac{\sqrt6}2+1\right)$, $\left(\left(2n+\dfrac12\right)\pi,\left(2n+\dfrac32\right)\pi\right)$에서 $w'(x)<0$이고 열린구간 $\left(-\dfrac{\sqrt6}2+1,0\right)$, $\left(2n\pi,\left(2n+\dfrac12\right)\pi\right)$, $\left(\left(2n+\dfrac32\right)\pi,(2n+2)\pi\right)$에서 $w'(x)>0$이다. (단, $n$은 음이 아닌 정수)
+      criteria: [3-3(1).R1]
+    - id: 3-3-1b-3
+      content: |
+        사잇값 정리 및 함수 $w(x)$의 증감에 의해 열린구간 $(-2,0)$, $\left(2\pi,\dfrac52\pi\right)$, $\left(\dfrac52\pi,3\pi\right)$, $\left(4\pi,\dfrac92\pi\right)$, $\left(\dfrac92\pi,5\pi\right)$에서 $S$의 원소가 오직 하나씩 존재하며, 구간 $[0,2\pi]$, $[3\pi,4\pi]$, $[5\pi,6\pi)$에서 $S$의 원소는 존재하지 않고, $\dfrac52\pi$ 및 $\dfrac92\pi$ 역시 $S$의 원소가 아니다. 따라서 열린구간 $(-2,6\pi)$에 속하는 $S$의 원소의 개수가 $5$이다.
+      criteria: [3-3(1).R2]
+      # [메모] (-2,0) 에서 w 는 감소 후 증가 — 감소 구간 (-2,1-√6/2) 에서 한 번만 0 을 지나고 증가 구간은 w<0 에서 w(0)<0 까지라 근 없음(검산 수치 확인)
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 3-3(1).R1
+      mark_type: R
+      points: 30
+      evidence: 열린구간 $(-2,0)$, $\left(2\pi,\tfrac52\pi\right)$, $\left(\tfrac52\pi,3\pi\right)$, $\left(4\pi,\tfrac92\pi\right)$, $\left(\tfrac92\pi,5\pi\right)$에서 $S$의 원소가 오직 하나씩 존재함을 보였다.
+      depends_on: []
+      steps: [3-3-1b-1, 3-3-1b-2, 3-3-1b-3]
+    - id: 3-3(1).R2
+      mark_type: R
+      points: 5
+      evidence: 구간 $[0,2\pi]$, $[3\pi,4\pi]$, $[5\pi,6\pi)$에서 $S$의 원소는 존재하지 않고, $\tfrac52\pi$ 및 $\tfrac92\pi$ 역시 $S$의 원소가 아님을 보였다.
+      depends_on: []
+      steps: [3-3-1b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-42211}
+  misconceptions:
+  - id: MC-CAL-42211
+    outcome_code: '71'
+    wrong_work: '사잇값 정리로 각 구간에 근이 「적어도 하나」 있음만 보이고 증감(유일성)이나 근이 없는 구간을 보이지 않아 「5개 이상」만 증명'
+    detect_cue: $w'(x)$의 부호 분석이 없음
+    feedback: 개수가 정확히 $5$임을 보이려면 각 구간에서 $w$가 단조임(유일성)과 나머지 구간에서 $w\ne0$임을 함께 보여야 합니다.
+    remedy: [RL-3]
+
+- id: '3-3(2)'
+  stem: |
+    (2) 집합 $S$의 원소 중 양수인 것을 작은 수부터 크기순으로 모두 나열할 때, $n$번째 수를 $c_n$이라 하자. $\displaystyle\lim_{n\to\infty}(c_{2n}-c_{2n-1})=\pi$가 성립함을 증명하시오. (40점)
+  points: 40
+  depends_on: ['3-3(1)']
+  answer: {kind: proof, value: null, equivalents: [], tolerance: null}
+  solutions:
+  - id: S3-3-2-A
+    audience: A
+    method_no: 1
+    key_idea: $c_{2n-1}\in(2n\pi,(2n+\tfrac12)\pi)$, $c_{2n}\in((2n+\tfrac12)\pi,(2n+1)\pi)$이고 $|w'|\ge4n\pi$인 구간에서 $w(2n\pi+\tfrac1n)>0$, $w((2n+1)\pi-\tfrac1n)>0$.
+    steps:
+    - {id: 3-3-2a, content: '$\pi-\tfrac2n<c_{2n}-c_{2n-1}<\pi$, 조임 정리', criteria: [3-3(2).R1, 3-3(2).R2, 3-3(2).R3]}
+    hint_ladder:
+    - 3-3(1)의 구간 분할을 일반 $n$에 대해 쓰면 $c_{2n-1}$, $c_{2n}$은 어느 구간에 있는가?
+    - $w(2n\pi)$는 얼마인가? 그 근처에서 $w'$은 얼마나 큰가?
+  - id: S3-3-2-B
+    audience: B
+    source_flow: rep2022.pdf p.103(인쇄 99)
+    method_no: 1
+    steps:
+    - id: 3-3-2b-1
+      content: |
+        모든 자연수 $n$에 대하여 닫힌구간 $\left[2n\pi,\left(2n+\dfrac13\right)\pi\right]$에서 $w'(x)=4x\cos x\ge8n\pi\times\dfrac12=4n\pi$이므로 $w\left(2n\pi+\dfrac1n\right)\ge w(2n\pi)+\dfrac1n\times4n\pi>0$이다.
+      criteria: [3-3(2).R1]
+    - id: 3-3-2b-2
+      content: |
+        닫힌구간 $\left[\left(2n+\dfrac23\right)\pi,(2n+1)\pi\right]$에서 $w'(x)=4x\cos x\le-8n\pi\times\dfrac12=-4n\pi$이므로 $w\left((2n+1)\pi-\dfrac1n\right)\ge w((2n+1)\pi)+\dfrac1n\times4n\pi>0$이다.
+      criteria: [3-3(2).R2]
+    - id: 3-3-2b-3
+      content: |
+        따라서 $2n\pi<c_{2n-1}<2n\pi+\dfrac1n$, $(2n+1)\pi-\dfrac1n<c_{2n}<(2n+1)\pi$이므로, $\pi-\dfrac2n<c_{2n}-c_{2n-1}<\pi$이다. 제시문 (마)에 의해 $\lim_{n\to\infty}(c_{2n}-c_{2n-1})=\pi$가 성립한다.
+      criteria: [3-3(2).R3]
+      # [메모] w(2nπ)=2-2π 이므로 w(2nπ)+4π=2+2π>0; 1/n<π/3 (n≥1) 이라 2nπ+1/n 은 하한 구간 안
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 3-3(2).R1
+      mark_type: R
+      points: 15
+      evidence: $2n\pi<c_{2n-1}<2n\pi+\dfrac1n$ 또는 $\lim_{n\to\infty}(c_{2n-1}-2n\pi)=0$이 성립함을 보였다.
+      depends_on: []
+      steps: [3-3-2b-1, 3-3-2b-3]
+    - id: 3-3(2).R2
+      mark_type: R
+      points: 15
+      evidence: $(2n+1)\pi-\dfrac1n<c_{2n}<(2n+1)\pi$ 또는 $\lim_{n\to\infty}((2n+1)\pi-c_{2n})=0$이 성립함을 보였다.
+      depends_on: []
+      steps: [3-3-2b-2, 3-3-2b-3]
+    - id: 3-3(2).R3
+      mark_type: R
+      points: 10
+      evidence: $\lim_{n\to\infty}(c_{2n}-c_{2n-1})=\pi$가 성립함을 보였다.
+      depends_on: [3-3(2).R1, 3-3(2).R2]
+      steps: [3-3-2b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-SEQ-42203}
+  misconceptions:
+  - id: MC-SEQ-42203
+    outcome_code: '71'
+    wrong_work: '$c_{2n-1}\approx2n\pi$, $c_{2n}\approx(2n+1)\pi$를 그래프 개형만으로 주장(오차 상한 없이)'
+    detect_cue: $\tfrac1n$ 같은 폭의 부등식이 없음
+    feedback: 근이 $2n\pi$에 얼마나 가까운지 정량적인 폭(예 $\tfrac1n$)으로 가둬야 조임 정리를 쓸 수 있습니다. $w'$의 하한을 이용하세요.
+    remedy: [RL-4]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CAL-42209}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-MONOTONE-DERIV}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-CAL-42210}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-IMPLICIT-DIFF}
+  priority: 1
+- id: RL-3
+  trigger: {type: misconception, ref: MC-CAL-42211}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-IVT}
+  priority: 1
+- id: RL-4
+  trigger: {type: misconception, ref: MC-SEQ-42203}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-SQUEEZE}
+  priority: 1
+- id: RL-5
+  trigger: {type: criterion_missed, ref: 3-2.M1}
+  relation: prerequisite
+  target: {kind: concept, ref: CON-CAL-INVERSE-FUNC}
+  priority: 2
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-transcribe-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

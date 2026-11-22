@@ -1,0 +1,483 @@
+# 경북대 2023학년도 수시 논술(AAT) 자연계열Ⅱ 수학 문제 1 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: KNU-G23B-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: KNU
+type: null
+variant_of: null
+replaces: null
+level: L6
+form: 귀납구조
+points: 120
+time_estimate_min: 30
+intent: |
+  미분계수의 정의를 이해하고 함수의 성질을 활용하여 미분계수를 구할 수 있는지(1-1), 미분계수를 구하고 수열의 관계를 구할 수 있는지(1-2), 함수의 그래프의 개형을 이해하고 정적분을 구할 수 있는지(1-3(1)), 함수의 극한의 대소 관계를 이해하고 함수의 극한을 구할 수 있는지(1-3(2)) 평가한다.
+key_idea: |
+  조건 (Ⅱ)는 $f$의 그래프가 직선 $x=2n-1$에 대하여 대칭이라는 뜻이다. 대칭축 $x=2n-1$에서 좌·우미분계수가 $c_n$, $-c_n$이므로 $c_n=0$. 이음점 $x=2n$에서 좌미분계수 $4a_n+2b_n$, 우미분계수 $-(4a_{n+1}+2b_{n+1})$이 같아 $2a_{n+1}+b_{n+1}=-(2a_n+b_n)$. 1-3은 $2a_n+b_n=0$이 되어 $f$가 홀수점에서 극대, 짝수점에서 극소인 진동 그래프가 된다.
+stuck: |
+  조건 (Ⅱ)를 대칭으로 읽고 $x=2n-1$, $x=2n$에서 좌·우미분계수를 $h\to0\pm$로 나누어 계산하는 단계, 1-3(1)에서 $|f'|$의 적분을 증감에 따라 구간별 부호로 나누는 단계, 1-3(2)에서 $t$가 $\tfrac1{2^k}\le t<\tfrac1{2^{k-1}}$일 때 교점 수 $2k$를 세고 $\log_2t$로 끼우는 단계
+idea_tags: [IDEA-SYMMETRY-ONE-SIDED-DERIVATIVE, IDEA-RECURRENCE-FROM-SMOOTH-GLUING, IDEA-ABS-INTEGRAL-BY-MONOTONE-PIECES, IDEA-COUNT-CROSSINGS-SQUEEZE-LOG]
+tags: [미분계수의 정의, 좌우미분계수, 대칭, 수열의 관계, 절댓값 적분, 극한의 대소 관계]
+elements:
+  materials:
+  - '$(0,\infty)$에서 미분가능한 $f$: $[2n-1,2n]$에서 $f(x)=a_n(x-2n+1)^4+b_n(x-2n+1)^2+c_n(x-2n+1)+\dfrac1{2^{n-1}}$'
+  - '조건 (Ⅱ) $2n-2<x<2n-1$에서 $f(x)=f(4n-2-x)$ (직선 $x=2n-1$에 대한 대칭)'
+  - '$b_1=-4$, $\lim_{x\to0+}f(x)=-1$'
+  - '$g(x)=\lvert f(x)-t\rvert$의 미분불가능한 점의 개수 $m(t)$'
+  concepts:
+  - '미분계수의 정의와 좌·우미분계수'
+  - '함수의 극한(좌극한·우극한)'
+  - '등비수열의 합'
+  - '정적분의 구간 분할'
+  - '함수의 극한의 대소 관계'
+  tools:
+  - '$\lim_{h\to0-}\dfrac{f(2n-1+h)-f(2n-1)}{h}=\lim_{h\to0+}\dfrac{f(2n-1+h)-f(2n-1)}{-h}$ (대칭)'
+  - '$x=2n$의 우미분계수를 $f(2n+h)=f(2n+2-h)$로 다음 조각의 좌미분으로 변환'
+  - '$f''(x)=4a_n(x-2n+1)\{(x-2n+1)^2-1\}$로 각 단위구간에서 단조'
+  - '$\int_2^{10}\lvert f''\rvert dx$를 $f$의 증감 구간별 차로 망원합'
+  - '$-\log_2t\le k<-\log_2t+1$로 $\dfrac{m(t)}{\log_2t}$를 끼움'
+  conditions:
+  - '$f$는 $(0,\infty)$에서 미분가능(따라서 $x=2n-1$, $x=2n$에서 좌·우미분계수 일치)'
+  - '1-3(1)의 $p$, $q$는 서로소인 자연수'
+  - '$t>0$'
+  stimuli_used: ['(가)', '(나)', '(다)', '(라)', '(마)']
+  subpart_links: '1-1의 $c_n=0$과 1-2의 관계식을 1-3(1)에서 사용($2a_n+b_n=0$), 1-3(1)의 그래프 개형을 1-3(2)의 교점 세기에 사용'
+
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅰ, 수학Ⅱ]
+  scope_2028: common
+  scope_confirmed: false
+  standards:
+  - code: 12수학Ⅱ02-01
+    text: 미분계수의 뜻을 알고, 그 값을 구할 수 있다.
+    verified: true
+  - code: 12수학Ⅱ01-01
+    text: 함수의 극한의 뜻을 안다.
+    verified: true
+  - code: 12수학Ⅱ02-09
+    text: 함수의 그래프의 개형을 그릴 수 있다.
+    verified: true
+  - code: 12수학Ⅱ03-03
+    text: 정적분의 뜻을 안다.
+    verified: true
+  - code: 12수학Ⅰ03-03
+    text: 등비수열의 뜻을 알고, 일반항, 첫째항부터 제$n$항까지의 합을 구할 수 있다.
+    verified: true
+  - code: 12수학Ⅱ01-02
+    text: 함수의 극한에 대한 성질을 이해하고, 함수의 극한값을 구할 수 있다.
+    verified: true
+  content_area: 미분계수(좌우미분) – 수열 – 정적분 – 함수의 극한
+  behavior_domain: 추론
+  unit_path: [수학Ⅱ, 미분, 미분계수, 구간별로 정의된 함수]
+  key_concepts: [미분계수, 좌우미분계수, 대칭, 등비수열, 극한의 대소 관계]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 경북대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 경북대학교
+  admission_year: 2023
+  admission_type: 수시 논술(AAT)
+  track: 자연계열Ⅱ
+  question_no: 1
+  official_url: https://ipsi1.knu.ac.kr   # [확인필요] 입학처 공지·자료 게시판 원본 게시물 주소
+  retrieved_at: 2026-11-21
+  original_points: [20, 30, 35, 35]
+  rights_notice: 미확인(대학 원본 PDF 표지 문구 확인 필요)
+  transcribed_from: 'G23_N2.pdf p.2(문제지 1/3) 이미지 판독; 해설·채점기준 rep2023.pdf pp.44–47(인쇄 84–89, 문항카드 10)'
+
+verify: verify/KNU-G23B.py::p01
+
+stimuli:
+- label: (가)
+  body: |
+    함수 $y=f(x)$의 $x=a$에서의 미분계수는
+    $$f'(a)=\lim_{h\to0}\dfrac{f(a+h)-f(a)}{h}$$
+- label: (나)
+  body: |
+    $x=a$에서 함수 $f(x)$의 우극한과 좌극한이 모두 존재하고, 그 값이 모두 $L$이면
+    $$\lim_{x\to a}f(x)=L$$
+- label: (다)
+  body: |
+    함수 $f(x)$가 세 실수 $a,b,c$를 포함하는 닫힌구간에서 연속일 때,
+    $$\int_a^bf(x)\,dx+\int_b^cf(x)\,dx=\int_a^cf(x)\,dx$$
+- label: (라)
+  body: |
+    첫째항이 $a$, 공비가 $r$ $(r\ne1)$인 등비수열의 첫째항부터 제$n$항까지의 합은
+    $$\dfrac{a(1-r^n)}{1-r}$$
+- label: (마)
+  body: |
+    세 함수 $f(x)$, $g(x)$, $h(x)$에 대하여 $f(x)\le h(x)\le g(x)$이고
+    $$\lim_{x\to0+}f(x)=\lim_{x\to0+}g(x)=\alpha\quad(\alpha\text{는 실수})$$
+    이면
+    $$\lim_{x\to0+}h(x)=\alpha$$
+
+stem: |
+  ※ 모든 문항에서 풀이과정을 반드시 기술하시오.
+
+  세 수열 $\{a_n\}$, $\{b_n\}$, $\{c_n\}$과 구간 $(0,\infty)$에서 미분가능한 함수 $f(x)$가 모든 자연수 $n$에 대하여 다음 조건을 만족시킨다.
+
+  〈조건〉
+  (Ⅰ) $2n-1\le x\le2n$인 모든 실수 $x$에 대하여
+  $$f(x)=a_n(x-2n+1)^4+b_n(x-2n+1)^2+c_n(x-2n+1)+\dfrac{1}{2^{n-1}}$$
+  이다.
+  (Ⅱ) $2n-2<x<2n-1$인 모든 실수 $x$에 대하여
+  $$f(x)=f(4n-2-x)$$
+  이다.
+
+  다음 물음에 답하시오.
+
+subparts:
+- id: '1-1'
+  stem: |
+    $c_{2023}$의 값을 구하시오. (20점)
+  points: 20
+  depends_on: []
+  answer: {kind: value, value: '0', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-1-A
+    audience: A
+    method_no: 1
+    key_idea: 대칭축 $x=2n-1$에서 우미분계수 $c_n$, 좌미분계수 $-c_n$이 같아야 하므로 $c_n=0$.
+    steps:
+    - {id: 1-1a, content: '$c_n=-c_n$ → $c_{2023}=0$', criteria: [1-1.M1, 1-1.M2, 1-1.A1]}
+    hint_ladder:
+    - 조건 (Ⅱ)는 어떤 직선에 대한 대칭인가?
+    - $x=2n-1$에서 좌미분계수를 우미분계수로 바꿔 보자.
+  - id: S1-1-B
+    audience: B
+    source_flow: rep2023.pdf p.46(인쇄 88)
+    method_no: 1
+    steps:
+    - id: 1-1b-1
+      content: |
+        함수 $f(x)$는 $x=2n-1$에서 미분가능하므로 (단, $n$은 자연수), $\lim_{h\to0+}\dfrac{f(2n-1+h)-f(2n-1)}{h}=\lim_{h\to0-}\dfrac{f(2n-1+h)-f(2n-1)}{h}$임을 알 수 있다. 한편, 문제의 조건 (Ⅰ)과 (Ⅱ)를 이용하면,
+        $$\lim_{h\to0+}\dfrac{f(2n-1+h)-f(2n-1)}{h}=\lim_{h\to0+}(a_nh^3+b_nh+c_n)=c_n$$
+      criteria: [1-1.M1]
+    - id: 1-1b-2
+      content: |
+        $$\lim_{h\to0-}\dfrac{f(2n-1+h)-f(2n-1)}{h}=\lim_{h\to0-}\dfrac{f(2n-1-h)-f(2n-1)}{h}=\lim_{h\to0+}\dfrac{f(2n-1+h)-f(2n-1)}{-h}=-c_n$$
+      criteria: [1-1.M2]
+    - id: 1-1b-3
+      content: |
+        이므로, $c_n=-c_n$, 즉, $c_n=0$임을 알 수 있다. 따라서, $c_{2023}=0$이다.
+      criteria: [1-1.A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1-1.M1
+      mark_type: M
+      points: 5
+      evidence: |
+        $\lim_{h\to0+}\dfrac{f(2n-1+h)-f(2n-1)}{h}=c_n$임을 보였다.
+      depends_on: []
+      implied_ok: false
+      steps: [1-1b-1]
+    - id: 1-1.M2
+      mark_type: M
+      points: 5
+      evidence: |
+        $\lim_{h\to0-}\dfrac{f(2n-1+h)-f(2n-1)}{h}=-c_n$임을 보였다.
+      depends_on: []
+      implied_ok: false
+      steps: [1-1b-2]
+    - id: 1-1.A1
+      mark_type: A
+      points: 10
+      evidence: |
+        $c_{2023}=0$을 구했다.
+      depends_on: [1-1.M1, 1-1.M2]
+      cao: true
+      steps: [1-1b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-42308}
+  misconceptions:
+  - id: MC-CAL-42308
+    outcome_code: '71'
+    wrong_work: '조건 (Ⅰ)의 식만 미분해 $f''(2n-1)=c_n$이라 하고 $c_n$을 결정하지 못하거나, 좌미분계수도 $c_n$이라 둠'
+    detect_cue: 좌미분계수 계산에서 대칭 $f(2n-1-h)$ 사용이 없음
+    feedback: 왼쪽 구간의 $f$는 조건 (Ⅱ)로 오른쪽 조각을 뒤집은 것입니다. 뒤집으면 기울기의 부호가 바뀝니다.
+    remedy: [RL-1]
+
+- id: '1-2'
+  stem: |
+    모든 자연수 $n$에 대하여,
+    $$(2a_n+b_n)(2a_{n+1}+b_{n+1})\le0$$
+    임을 증명하시오. (30점)
+  points: 30
+  depends_on: ['1-1']
+  answer: {kind: proof, value: null, equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-2-A
+    audience: A
+    method_no: 1
+    key_idea: $x=2n$에서 좌미분계수 $4a_n+2b_n$, 우미분계수 $-(4a_{n+1}+2b_{n+1})$이 같으므로 곱은 $-(2a_n+b_n)^2\le0$.
+    steps:
+    - {id: 1-2a, content: '$2a_{n+1}+b_{n+1}=-(2a_n+b_n)$', criteria: [1-2.M1, 1-2.M2, 1-2.M3, 1-2.R1]}
+    hint_ladder:
+    - $x=2n$ 바로 오른쪽은 조건 (Ⅱ)의 $n+1$번째 구간이다.
+    - $f(2n+h)=f(2n+2-h)$를 이용하자.
+  - id: S1-2-B
+    audience: B
+    source_flow: rep2023.pdf p.46(인쇄 88)
+    method_no: 1
+    steps:
+    - id: 1-2b-1
+      content: |
+        함수 $f(x)$는 $x=2n$에서 미분가능하므로 (단, $n$은 자연수), $\lim_{h\to0+}\dfrac{f(2n+h)-f(2n)}{h}=\lim_{h\to0-}\dfrac{f(2n+h)-f(2n)}{h}$임을 알 수 있다. 한편, 문제의 조건 (Ⅰ)과 (Ⅱ)를 이용하면,
+        $$\lim_{h\to0+}\dfrac{f(2n+h)-f(2n)}{h}=\lim_{h\to0+}\dfrac{f(2n+2-h)-f(2n+2)}{h}=-(4a_{n+1}+2b_{n+1})$$
+      criteria: [1-2.M1]
+    - id: 1-2b-2
+      content: |
+        $$\lim_{h\to0-}\dfrac{f(2n+h)-f(2n)}{h}=4a_n+2b_n$$
+      criteria: [1-2.M2]
+    - id: 1-2b-3
+      content: |
+        이므로, $-(2a_{n+1}+b_{n+1})=2a_n+b_n$임을 알 수 있다.
+      criteria: [1-2.M3]
+    - id: 1-2b-4
+      content: |
+        따라서, $(2a_n+b_n)(2a_{n+1}+b_{n+1})=-(2a_n+b_n)^2\le0$이다.
+      criteria: [1-2.R1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1-2.M1
+      mark_type: M
+      points: 5
+      evidence: |
+        $\lim_{h\to0+}\dfrac{f(2n+h)-f(2n)}{h}=-(4a_{n+1}+2b_{n+1})$임을 보였다.
+      depends_on: []
+      implied_ok: false
+      steps: [1-2b-1]
+    - id: 1-2.M2
+      mark_type: M
+      points: 5
+      evidence: |
+        $\lim_{h\to0-}\dfrac{f(2n+h)-f(2n)}{h}=4a_n+2b_n$임을 보였다.
+      depends_on: []
+      implied_ok: false
+      steps: [1-2b-2]
+    - id: 1-2.M3
+      mark_type: M
+      points: 10
+      evidence: |
+        $-(2a_{n+1}+b_{n+1})=2a_n+b_n$임을 보였다.
+      depends_on: [1-2.M1, 1-2.M2]
+      implied_ok: false
+      steps: [1-2b-3]
+    - id: 1-2.R1
+      mark_type: R
+      points: 10
+      evidence: |
+        $(2a_n+b_n)(2a_{n+1}+b_{n+1})=-(2a_n+b_n)^2\le0$임을 보였다.
+      depends_on: [1-2.M3]
+      steps: [1-2b-4]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-42309}
+  misconceptions:
+  - id: MC-CAL-42309
+    outcome_code: '71'
+    wrong_work: '$x=2n$의 우미분계수를 $n$번째 식으로 계산하거나, 변환 $f(2n+h)=f(2n+2-h)$ 후 $-h$로 나누는 부호를 놓쳐 $4a_{n+1}+2b_{n+1}$로 둠'
+    detect_cue: 관계식이 $2a_{n+1}+b_{n+1}=2a_n+b_n$(부호 없음)
+    feedback: 오른쪽 조각은 대칭으로 뒤집힌 $n+1$번째 식입니다. 뒤집으면 미분계수의 부호가 바뀝니다.
+    remedy: [RL-1]
+
+- id: '1-3(1)'
+  stem: |
+    $b_1=-4$, $\lim_{x\to0+}f(x)=-1$이라고 하자.
+    (1) $\displaystyle\int_2^{10}\lvert f'(x)\rvert\,dx=\dfrac qp$라 할 때, $p+q$의 값을 구하시오. (단, $p$와 $q$는 서로소인 자연수) (35점)
+  points: 35
+  depends_on: ['1-1', '1-2']
+  answer: {kind: value, value: '87', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-31-A
+    audience: A
+    method_no: 1
+    key_idea: $a_1=2$로 $2a_n+b_n=0$이 되어 $f'(x)=4a_nu(u^2-1)$ ($u=x-2n+1$)이므로 $[2n-1,2n]$에서 감소, 대칭으로 $[2n-2,2n-1]$에서 증가. $\lvert f'\rvert$의 적분은 높이차의 합.
+    steps:
+    - {id: 1-31a, content: '$\sum_{n=1}^{4}2\left(\dfrac1{2^n}+1\right)=\dfrac{79}{8}$, $p+q=87$', criteria: [1-3(1).B1, 1-3(1).M1, 1-3(1).M2, 1-3(1).A1]}
+    hint_ladder:
+    - $\lim_{x\to0+}f(x)=\lim_{x\to0+}f(2-x)=f(2)$.
+    - 1-2의 관계식으로 모든 $n$에서 $2a_n+b_n$의 값을 정하자.
+  - id: S1-31-B
+    audience: B
+    source_flow: rep2023.pdf p.46(인쇄 88)
+    method_no: 1
+    steps:
+    - id: 1-31b-1
+      content: |
+        문제의 조건에 의해, $\lim_{x\to0+}f(x)=\lim_{x\to0+}f(2-x)=f(2)=a_1+b_1+1=-1$이므로, $a_1=2$임을 알 수 있다. 따라서, $2a_1+b_1=0$이다.
+      criteria: [1-3(1).B1]
+    - id: 1-31b-2
+      content: |
+        【1-2】에 의하여, 자연수 $n$에 대하여 $2a_n+b_n=0$임을 알 수 있다. 이로부터 $2n-1\le x\le2n$인 실수 $x$에 대하여 (단, $n$은 자연수),
+        $f(x)=a_n(x-2n+1)^4-2a_n(x-2n+1)^2+\dfrac{1}{2^{n-1}}$,
+        $f'(x)=4a_n(x-2n+1)^3-4a_n(x-2n+1)=4a_n(x-2n+1)\{(x-2n+1)^2-1\}$이다.
+      criteria: [1-3(1).M1]
+    - id: 1-31b-3
+      content: |
+        그러므로,
+        $$\int_2^{10}\lvert f'(x)\rvert dx=\int_2^3\lvert f'(x)\rvert dx+\int_3^4\lvert f'(x)\rvert dx+\cdots+\int_8^9\lvert f'(x)\rvert dx+\int_9^{10}\lvert f'(x)\rvert dx=\int_2^3f'(x)\,dx-\int_3^4f'(x)\,dx+\cdots+\int_8^9f'(x)\,dx-\int_9^{10}f'(x)\,dx$$
+      criteria: [1-3(1).M2]
+    - id: 1-31b-4
+      content: |
+        $=\{f(3)-f(2)\}-\{f(4)-f(3)\}+\cdots+\{f(9)-f(8)\}-\{f(10)-f(9)\}=\displaystyle\sum_{n=1}^{4}2\left(\dfrac1{2^n}+1\right)=\dfrac{79}{8}$이다. 따라서, $p+q=8+79=87$이다.
+      criteria: [1-3(1).A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1-3(1).B1
+      mark_type: B
+      points: 5
+      evidence: |
+        $2a_1+b_1=0$을 구했다.
+      steps: [1-31b-1]
+    - id: 1-3(1).M1
+      mark_type: M
+      points: 5
+      evidence: |
+        자연수 $n$에 대하여 $2a_n+b_n=0$을 구했다.
+      depends_on: [1-3(1).B1]
+      implied_ok: false
+      steps: [1-31b-2]
+    - id: 1-3(1).M2
+      mark_type: M
+      points: 10
+      evidence: |
+        $\int_2^{10}\lvert f'(x)\rvert dx=\int_2^3f'(x)dx-\int_3^4f'(x)dx+\cdots+\int_8^9f'(x)dx-\int_9^{10}f'(x)dx$임을 보였다.
+      depends_on: [1-3(1).M1]
+      implied_ok: false
+      steps: [1-31b-3]
+    - id: 1-3(1).A1
+      mark_type: A
+      points: 15
+      evidence: |
+        $p+q=8+79=87$을 구했다.
+      depends_on: [1-3(1).M2]
+      cao: true
+      steps: [1-31b-4]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-42310}
+  misconceptions:
+  - id: MC-CAL-42310
+    outcome_code: '71'
+    wrong_work: '$\lvert f''\rvert$를 $f''$로 두고 $\int_2^{10}f''(x)dx=f(10)-f(2)$만 계산'
+    detect_cue: 답이 $f(10)-f(2)$에 해당하는 작은 값(망원합이 전부 상쇄)
+    feedback: $f'$의 부호가 단위구간마다 바뀝니다. 증가 구간과 감소 구간을 나누어 높이차를 모두 더하세요.
+    remedy: [RL-2]
+
+- id: '1-3(2)'
+  stem: |
+    (2) 양수 $t$에 대하여, 함수 $g(x)=\lvert f(x)-t\rvert$가 구간 $(0,\infty)$에서 미분가능하지 않은 모든 점의 개수를 $m(t)$라 하자.
+    $$\lim_{t\to0+}\dfrac{m(t)}{\log_2t}$$
+    의 값을 구하시오. (35점)
+  points: 35
+  depends_on: ['1-3(1)']
+  answer: {kind: value, value: '-2', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-32-A
+    audience: A
+    method_no: 1
+    key_idea: 극댓값은 $f(2n-1)=\dfrac1{2^{n-1}}$, 극솟값은 $f(2n)=-1$. $\dfrac1{2^k}\le t<\dfrac1{2^{k-1}}$이면 $t$보다 큰 봉우리 $k$개가 각각 두 번 교차하여 $m(t)=2k$.
+    steps:
+    - {id: 1-32a, content: '$2\left(-1+\dfrac1{\log_2t}\right)<\dfrac{m(t)}{\log_2t}\le-2$ → $-2$', criteria: [1-3(2).M1, 1-3(2).M2, 1-3(2).A1]}
+    hint_ladder:
+    - 1-3(1)에서 $a_n$의 점화 관계(연속 조건)로 $f(2n)$을 계산해 보자.
+    - $f(x)=t$의 해 중 $f'\ne0$인 점에서 $g$가 꺾인다.
+  - id: S1-32-B
+    audience: B
+    source_flow: rep2023.pdf p.47(인쇄 89)
+    method_no: 1
+    steps:
+    - id: 1-32b-1
+      content: |
+        우선, $m(t)$를 구하자. $t\ge1$이면, $m(t)=0$이다. 또한, 자연수 $k$에 대하여 $\dfrac1{2^k}\le t<\dfrac1{2^{k-1}}$이면, $m(t)=2k$임을 알 수 있다.
+      criteria: [1-3(2).M1]
+    - id: 1-32b-2
+      content: |
+        한편, 부등식 $\dfrac1{2^k}\le t<\dfrac1{2^{k-1}}$은 $-\log_2t\le k<-\log_2t+1$로 쓸 수 있다. 따라서, $0<t<1$일 때, $-2\log_2t\le m(t)<2(-\log_2t+1)$이다. 이로부터 $0<t<1$일 때,
+        $$2\left(-1+\dfrac1{\log_2t}\right)<\dfrac{m(t)}{\log_2t}\le-2$$
+        가 성립함을 알 수 있다.
+      criteria: [1-3(2).M2]
+    - id: 1-32b-3
+      content: |
+        $\lim_{t\to0+}2\left(-1+\dfrac1{\log_2t}\right)=-2$이므로, 함수의 극한의 대소관계에 의해 $\lim_{t\to0+}\dfrac{m(t)}{\log_2t}=-2$이다.
+      criteria: [1-3(2).A1]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1-3(2).M1
+      mark_type: M
+      points: 10
+      evidence: |
+        자연수 $k$에 대하여 $\dfrac1{2^k}\le t<\dfrac1{2^{k-1}}$이면 $m(t)=2k$임을 보였다.
+      depends_on: []
+      implied_ok: false
+      steps: [1-32b-1]
+    - id: 1-3(2).M2
+      mark_type: M
+      points: 10
+      evidence: |
+        $0<t<1$일 때, $2\left(-1+\dfrac1{\log_2t}\right)<\dfrac{m(t)}{\log_2t}\le-2$가 성립함을 보였다.
+      depends_on: [1-3(2).M1]
+      implied_ok: false
+      steps: [1-32b-2]
+    - id: 1-3(2).A1
+      mark_type: A
+      points: 15
+      evidence: |
+        $\lim_{t\to0+}\dfrac{m(t)}{\log_2t}=-2$를 구했다.
+      depends_on: [1-3(2).M2]
+      cao: true
+      steps: [1-32b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-42311}
+  misconceptions:
+  - id: MC-CAL-42311
+    outcome_code: '71'
+    wrong_work: '$t=\dfrac1{2^k}$일 때 봉우리에 접하는 점(극대점)도 미분불가능점으로 세어 $m(t)=2k+1$로 두거나, 극솟값 $-1$ 쪽 교점까지 세어 개수를 두 배로 셈'
+    detect_cue: $m(t)$가 홀수이거나 답이 $-4$
+    feedback: $f(x)=t$인 점 중 $f'(x)\ne0$인 교차점에서만 $\lvert f-t\rvert$가 꺾입니다. 접하는 극대점에서는 미분가능합니다.
+    remedy: [RL-3]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CAL-42308}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-DIFFERENTIABILITY}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-CAL-42310}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-DEF-INTEGRAL-PIECEWISE}
+  priority: 1
+- id: RL-3
+  trigger: {type: misconception, ref: MC-CAL-42311}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-SQUEEZE}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-transcribe-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21

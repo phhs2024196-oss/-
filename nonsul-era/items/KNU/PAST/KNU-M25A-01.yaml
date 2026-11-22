@@ -1,0 +1,382 @@
+# 경북대 2025학년도 논술(AAT) 모의고사 자연계열Ⅰ 수학 문제 1 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: KNU-M25A-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: KNU
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 이중세기
+points: 120
+time_estimate_min: 30
+intent: |
+  고정점이 없는 대합(짝 짓기)의 개수를 조합으로 세고(1-1), 직사각형 넓이와 정적분의 비교로 $\ln(n!)$의 하한을 얻은 뒤(1-2), 이를 이용해 로그 비의 극한을 조임 정리로 구할 수 있는지(1-3) 평가한다. (모의고사 자료에 출제 의도 별도 기재 없음 — 문항 해설 요지)
+key_idea: |
+  조건을 만족하는 $f$는 $2n$개의 원소를 2개씩 짝 짓는 방법과 일대일 대응이므로 $a_n=\frac{(2n)!}{2^nn!}$, 따라서 $b_n=n!$. $\ln(n!)\ge\int_1^n\ln x\,dx=n\ln n-n+1$이므로 $\frac{n\ln3}{2\ln(n!)}\to0$이다.
+stuck: |
+  1-3에서 $b_n=n!$임을 알아채고, $\frac{n\ln3}{\ln(n!)}\to0$을 1-2의 적분 하한으로 보이는 단계
+idea_tags: [IDEA-INVOLUTION-AS-PAIRING, IDEA-LOG-FACTORIAL-INTEGRAL-BOUND, IDEA-SQUEEZE-LOG-RATIO]
+tags: [짝 짓기, 계승, 구분구적 비교, 조임 정리]
+elements:
+  materials:
+  - '집합 $X=\{1,2,\cdots,2n\}$ 위의 일대일 대응 $f$ ($f(x)\ne x$, $f\circ f(x)=x$)의 개수 $a_n$'
+  - '부등식 $\int_1^n\ln x\,dx\le\ln(n!)$'
+  - '$b_n=\frac{(2n)!}{2^na_n}$, $\sqrt{\frac{n!}{3^n}}\le c_n\le\sqrt{n!3^n}$'
+  concepts:
+  - '순열과 조합(제시문 (가))'
+  - '$\int\ln x\,dx=x\ln x-x+C$ (제시문 (나))'
+  - '수열의 극한의 대소 관계(제시문 (다))'
+  - '정적분과 직사각형 넓이의 비교'
+  tools:
+  - '$f(k)=l\iff f(l)=k$: 서로 다른 원소의 쌍 만들기'
+  - '${}_{2n}C_2\times{}_{2n-2}C_2\times\cdots\times{}_2C_2\div n!$'
+  - '$\ln(n!)=\sum_{k=1}^n\ln k$ = 폭 1 직사각형 넓이의 합'
+  - '로그를 취해 $\frac{\ln c_n}{\ln b_n}$을 위아래로 묶기'
+  conditions:
+  - '$f(x)\ne x$ (고정점 없음), $f\circ f=$항등함수'
+  - '$\ln x$는 증가함수'
+  - '$\ln(n!)>0$ ($n\ge2$)'
+  stimuli_used: ['(가)', '(나)', '(다)']
+  subpart_links: '1-3은 1-1의 $a_n$ 일반화와 1-2의 부등식을 사용'
+
+curriculum:
+  version: '2015'
+  subjects: [확률과통계, 미적분]
+  scope_2028: calc2
+  scope_confirmed: true
+  standards:
+  - code: 미확인
+    text: 순열과 조합을 이해하고 그 수를 구할 수 있다(요지)
+    verified: false
+  - code: 미확인
+    text: 정적분과 급수의 합 사이의 관계를 이해하고 수열의 극한을 구할 수 있다(요지)
+    verified: false
+  content_area: 경우의 수 – 조합 / 수열의 극한 – 대소 관계
+  behavior_domain: 추론
+  unit_path: [미적분, 수열의 극한, 수열의 극한의 대소 관계, 로그 비의 극한]
+  key_concepts: [조합, 짝 짓기, 정적분과 넓이 비교, 조임 정리]
+
+difficulty: {rater: author, p_value: null, n: 0}
+
+source:
+  rights_holder: 경북대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 경북대학교
+  admission_year: 2025
+  admission_type: 논술(AAT) 모의고사
+  track: 자연계열Ⅰ
+  question_no: 1
+  official_url: https://ipsi1.knu.ac.kr   # [확인필요] 입학처 공지·자료 게시판 원본 게시물 주소
+  retrieved_at: 2026-11-21
+  original_points: [30, 30, 60]
+  rights_notice: 미확인(대학 원본 PDF 표지 문구 확인 필요)
+  transcribed_from: 'M25_N1q.pdf p.2(문제지 1/4쪽) / 예시답안·채점기준: M25_N1s.pdf p.1~2(2025학년도 논술(AAT) 전형 가이드북 인쇄 쪽 66~67)'
+
+verify: verify/KNU-M25A.py::p01
+
+stimuli:
+- label: (가)
+  body: |
+    계승 $n!=n\times(n-1)\times(n-2)\times\cdots\times3\times2\times1$, $0!=1$
+
+    (1) 서로 다른 $n$개에서 $r$개를 택하는 순열의 수는
+
+    $${}_n\mathrm{P}_r=\frac{n!}{(n-r)!}\quad(\text{단, }0\le r\le n)$$
+
+    (2) 서로 다른 $n$개에서 $r$개를 택하는 조합의 수는
+
+    $${}_n\mathrm{C}_r=\frac{{}_n\mathrm{P}_r}{r!}=\frac{n!}{r!\,(n-r)!}\quad(\text{단, }0\le r\le n)$$
+- label: (나)
+  body: |
+    $\displaystyle\int\ln x\,dx=x\ln x-x+C$ (단, $C$는 적분상수)
+- label: (다)
+  body: |
+    두 수열 $\{a_n\}$, $\{b_n\}$이 각각 수렴하고
+
+    $$\lim_{n\to\infty}a_n=\alpha,\quad\lim_{n\to\infty}b_n=\beta$$
+
+    일 때, 수열 $\{c_n\}$이 모든 자연수 $n$에 대하여 $a_n\le c_n\le b_n$이고 $\alpha=\beta$이면 수열 $\{c_n\}$은 수렴하고
+
+    $$\lim_{n\to\infty}c_n=\alpha$$
+
+stem: |
+  ※ 모든 문항에서 풀이 과정을 반드시 기술하시오.
+
+  자연수 $n$에 대하여 집합 $X=\{x\mid1\le x\le2n,\ x\text{는 자연수}\}$라 할 때, 다음 조건을 만족시키는 일대일 대응 $f:X\to X$의 개수를 $a_n$이라 하자.
+
+  모든 $x\in X$에 대하여, $f(x)\ne x$이고 $f\circ f(x)=x$이다.
+
+  다음 물음에 답하시오.
+
+subparts:
+- id: '1'
+  stem: |
+    【1-1】 $a_2$, $a_3$, $a_4$의 값을 각각 구하시오. (30점)
+  points: 30
+  depends_on: []
+  answer: {kind: value, value: '3; 15; 105', equivalents: [], tolerance: null}
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: $f$는 $2n$개의 원소를 2개씩 짝 짓는 방법과 일대일로 대응한다.
+    steps:
+    - {id: 1a, content: '$a_2=\frac{{}_4C_2{}_2C_2}{2!}=3$, $a_3=15$, $a_4=105$', criteria: [1.B1, 1.B2, 1.B3]}
+    hint_ladder:
+    - $f(k)=l$이면 $f(l)$은?
+  - id: S1-B
+    audience: B
+    source_flow: M25_N1s.pdf p.1
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        집합 $X=\{1,2,\cdots,2n\}$에 속하는 원소 $k$에 대하여 $f(k)=l$이라 하자. 함수 $f(x)$는 $X$의 모든 원소 $x$에 대하여 $f(x)\ne x$이므로 $k\ne l$이다. 또한 $f\circ f(x)=x$이므로 $f(l)=k$이다. 따라서 $a_n$은 서로 다른 $2n$개의 원소를 2개씩 짝을 짓는 경우의 수와 같다.
+      criteria: [1.B1]
+    - id: 1b-2
+      content: |
+        따라서 $a_2=\dfrac{{}_4C_2\times{}_2C_2}{2!}=3$, $a_3=\dfrac{{}_6C_2\times{}_4C_2\times{}_2C_2}{3!}=15$,
+      criteria: [1.B2]
+    - id: 1b-3
+      content: |
+        $a_4=\dfrac{{}_8C_2\times{}_6C_2\times{}_4C_2\times{}_2C_2}{4!}=105$이다.
+      criteria: [1.B3]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 1.B1
+      mark_type: B
+      points: 10
+      evidence: |
+        답 $a_2=3$을 구했다.
+      steps: [1b-1, 1b-2]
+    - id: 1.B2
+      mark_type: B
+      points: 10
+      evidence: |
+        답 $a_3=15$를 구했다.
+      steps: [1b-2]
+    - id: 1.B3
+      mark_type: B
+      points: 10
+      evidence: |
+        답 $a_4=105$를 구했다.
+      steps: [1b-3]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CNT-42501}
+  misconceptions:
+  - id: MC-CNT-42501
+    outcome_code: '71'
+    wrong_work: '$a_2={}_4C_2\times{}_2C_2=6$, $a_3=90$'
+    detect_cue: 짝의 개수 $n!$로 나누지 않았다
+    feedback: 짝 $\{1,2\},\{3,4\}$와 $\{3,4\},\{1,2\}$는 같은 대응입니다. 짝들의 순서 $n!$로 나누세요.
+    remedy: [RL-1]
+
+- id: '2'
+  stem: |
+    【1-2】 모든 자연수 $n$에 대하여, 다음의 부등식이 성립함을 보이시오. (30점)
+
+    $$\int_1^n\ln x\,dx\le\ln(n!)$$
+  points: 30
+  depends_on: []
+  answer: {kind: proof, value: null, equivalents: [], tolerance: null}
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: $\ln(n!)=\sum_{k=2}^n\ln k$는 $[k-1,k]$ 위 높이 $\ln k$인 직사각형 넓이의 합이고 $\ln x$는 증가함수이다.
+    steps:
+    - {id: 2a, content: '$\int_{k-1}^k\ln x\,dx\le\ln k$ ($k=2,\cdots,n$)를 더한다', criteria: [2.R1, 2.R2]}
+    hint_ladder:
+    - $\ln(n!)$을 합으로 쓰면?
+    - $[k-1,k]$에서 $\ln x$와 $\ln k$의 대소는?
+  - id: S2-B
+    audience: B
+    source_flow: M25_N1s.pdf p.1
+    method_no: 1
+    steps:
+    - id: 2b-1
+      content: |
+        $\ln(n!)=\displaystyle\sum_{k=1}^n\ln k$이다.
+      criteria: [2.R1]
+    - id: 2b-2
+      content: |
+        따라서 아래 그림에서 $\displaystyle\int_1^n\ln x\,dx\le\ln(n!)$가 성립한다. (보충: $\ln x$는 증가함수이므로 $k-1\le x\le k$에서 $\ln x\le\ln k$이고 $\displaystyle\int_{k-1}^k\ln x\,dx\le\ln k$. $k=2,\cdots,n$에 대해 더하면 $\displaystyle\int_1^n\ln x\,dx\le\sum_{k=2}^n\ln k=\ln(n!)$; $n=1$이면 양변 모두 $0$.)
+      criteria: [2.R2]
+  # [그림: y=ln x 와 x=1,2,3,…,n-1,n 에서 폭 1 직사각형(오른쪽 끝 높이 ln k)들 — 직사각형이 곡선 위로 올라옴]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 2.R1
+      mark_type: R
+      points: 15
+      evidence: |
+        $\ln(n!)=\displaystyle\sum_{k=1}^n\ln k$임을 보였다.
+      depends_on: []
+      steps: [2b-1]
+    - id: 2.R2
+      mark_type: R
+      points: 15
+      evidence: |
+        $\displaystyle\int_1^n\ln x\,dx\le\sum_{k=1}^n\ln k$임을 증명했다.
+      depends_on: [2.R1]
+      steps: [2b-2]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-42517}
+  misconceptions:
+  - id: MC-CAL-42517
+    outcome_code: '71'
+    wrong_work: '$[k,k+1]$ 위에 높이 $\ln k$인 직사각형을 그려 $\int_1^n\ln x\,dx\le\sum\ln k$라고 함'
+    detect_cue: 직사각형의 높이가 구간의 왼쪽 끝 값이다(그 경우 직사각형은 곡선 아래)
+    feedback: $\ln x$가 증가하므로 곡선 위에 오는 직사각형은 오른쪽 끝 값 $\ln k$를 높이로 하는 $[k-1,k]$ 위의 직사각형입니다.
+    remedy: [RL-2]
+
+- id: '3'
+  stem: |
+    【1-3】 두 수열 $\{b_n\}$과 $\{c_n\}$이 모든 자연수 $n$에 대하여
+
+    $$b_n=\frac{(2n)!}{2^na_n}\ \text{이고}\ \sqrt{\frac{n!}{3^n}}\le c_n\le\sqrt{n!3^n}$$
+
+    일 때, $\displaystyle\lim_{n\to\infty}\frac{\ln c_n}{\ln b_n}$의 값을 구하시오. (60점)
+  points: 60
+  depends_on: ['1', '2']
+  answer: {kind: value, value: '1/2', equivalents: [], tolerance: null}
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: $b_n=n!$이고 $\frac{\ln c_n}{\ln(n!)}$은 $\frac12\pm\frac{n\ln3}{2\ln(n!)}$ 사이에 있으며 1-2로 $\frac{n\ln3}{\ln(n!)}\to0$.
+    steps:
+    - {id: 3a, content: '$\frac12-\frac{n\ln3}{2\ln(n!)}\le\frac{\ln c_n}{\ln b_n}\le\frac12+\frac{n\ln3}{2\ln(n!)}$, $0\le\frac{n\ln3}{2\ln(n!)}\le\frac{\ln3}{2(\ln n-1+\frac1n)}\to0$', criteria: [3.M1, 3.M2, 3.M3, 3.A1, 3.A2, 3.A3, 3.A4]}
+    hint_ladder:
+    - 1-1의 방법으로 $a_n$의 일반항을 쓰면 $b_n$은?
+    - 1-2와 제시문 (나)로 $\ln(n!)$의 하한을 구해 보자.
+  - id: S3-B
+    audience: B
+    source_flow: M25_N1s.pdf p.1
+    method_no: 1
+    steps:
+    - id: 3b-1
+      content: |
+        수열 $\{a_n\}$의 일반항은 $a_n=\dfrac{{}_{2n}C_2\times\cdots\times{}_2C_2}{n!}=\dfrac{(2n)!}{2^nn!}$이다. $b_n=\dfrac{(2n)!}{2^na_n}$이므로 따라서 $b_n=n!$이다.
+      criteria: [3.M1]
+    - id: 3b-2
+      content: |
+        모든 자연수 $n$에 대하여 $\sqrt{\dfrac{n!}{3^n}}\le c_n\le\sqrt{n!3^n}$이므로 $\dfrac{\ln\left(\sqrt{\frac{n!}{3^n}}\right)}{\ln(n!)}\le\dfrac{\ln c_n}{\ln b_n}\le\dfrac{\ln\left(\sqrt{n!3^n}\right)}{\ln(n!)}$이다. 한편 $\dfrac{\ln\left(\sqrt{\frac{n!}{3^n}}\right)}{\ln(n!)}=\dfrac{\ln(n!)-n\ln3}{2\ln(n!)}=\dfrac12-\dfrac{n\ln3}{2\ln(n!)}$이고 $\dfrac{\ln\left(\sqrt{n!3^n}\right)}{\ln(n!)}=\dfrac{\ln(n!)+n\ln3}{2\ln(n!)}=\dfrac12+\dfrac{n\ln3}{2\ln(n!)}$이다.
+      criteria: [3.M2]
+    - id: 3b-3
+      content: |
+        이때 【1-2】와 제시문 (나)에 의해 $0\le\dfrac{n\ln3}{2\ln(n!)}\le\dfrac{n\ln3}{2\int_1^n\ln x\,dx}=\dfrac{n\ln3}{2(n\ln n-n+1)}=\dfrac{\ln3}{2\left(\ln n-1+\frac1n\right)}$이고
+      criteria: [3.M3]
+    - id: 3b-4
+      content: |
+        제시문 (다)에 의해 $\displaystyle\lim_{n\to\infty}\frac{n\ln3}{2\ln(n!)}=0$이다.
+      criteria: [3.A1]
+    - id: 3b-5
+      content: |
+        그러므로 $\displaystyle\lim_{n\to\infty}\frac{\ln\left(\sqrt{\frac{n!}{3^n}}\right)}{\ln(n!)}=\lim_{n\to\infty}\left(\frac12-\frac{n\ln3}{2\ln(n!)}\right)=\frac12$이고 $\displaystyle\lim_{n\to\infty}\frac{\ln\left(\sqrt{n!3^n}\right)}{\ln(n!)}=\lim_{n\to\infty}\left(\frac12+\frac{n\ln3}{2\ln(n!)}\right)=\frac12$이다.
+      criteria: [3.A2, 3.A3]
+    - id: 3b-6
+      content: |
+        따라서 제시문 (다)에 의해 $\displaystyle\lim_{n\to\infty}\frac{\ln c_n}{\ln b_n}=\frac12$이다.
+      criteria: [3.A4]
+  rubric:
+    rules: {ft_scope: cross_subpart_only, ft_requires_working: true, a_requires_m: true, misread_penalty: 2, isw: true}
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 20
+      evidence: |
+        수열 $\{a_n\}$의 일반항 $a_n=\dfrac{(2n)!}{2^nn!}$을 구했다.
+      depends_on: []
+      implied_ok: false
+      steps: [3b-1]
+    - id: 3.M2
+      mark_type: M
+      points: 10
+      evidence: |
+        부등식 $\dfrac{\ln\left(\sqrt{\frac{n!}{3^n}}\right)}{\ln(n!)}\le\dfrac{\ln c_n}{\ln b_n}\le\dfrac{\ln\left(\sqrt{n!3^n}\right)}{\ln(n!)}$을 구했다.
+      depends_on: [3.M1]
+      steps: [3b-2]
+    - id: 3.M3
+      mark_type: M
+      points: 10
+      evidence: |
+        부등식 $0\le\dfrac{n\ln3}{2\ln(n!)}\le\dfrac{\ln3}{2\left(\ln n-1+\frac1n\right)}$을 구했다.
+      depends_on: []
+      steps: [3b-3]
+    - id: 3.A1
+      mark_type: A
+      points: 5
+      evidence: |
+        극한값 $\displaystyle\lim_{n\to\infty}\frac{n\ln3}{2\ln(n!)}=0$을 구했다.
+      depends_on: [3.M3]
+      steps: [3b-4]
+    - id: 3.A2
+      mark_type: A
+      points: 5
+      evidence: |
+        $\displaystyle\lim_{n\to\infty}\frac{\ln\left(\sqrt{\frac{n!}{3^n}}\right)}{\ln(n!)}=\frac12$을 구했다.
+      depends_on: [3.M2, 3.A1]
+      steps: [3b-5]
+    - id: 3.A3
+      mark_type: A
+      points: 5
+      evidence: |
+        $\displaystyle\lim_{n\to\infty}\frac{\ln\left(\sqrt{n!3^n}\right)}{\ln(n!)}=\frac12$을 구했다.
+      depends_on: [3.M2, 3.A1]
+      steps: [3b-5]
+    - id: 3.A4
+      mark_type: A
+      points: 5
+      evidence: |
+        답 $\displaystyle\lim_{n\to\infty}\frac{\ln c_n}{\ln b_n}=\frac12$을 구했다.
+      depends_on: [3.M2, 3.A2, 3.A3]
+      steps: [3b-6]
+    deductions: []
+  outcome_codes:
+  - {code: '20', meaning: 만점}
+  - {code: '71', misconception: MC-CAL-42518}
+  misconceptions:
+  - id: MC-CAL-42518
+    outcome_code: '71'
+    wrong_work: '$\frac{n\ln3}{2\ln(n!)}$의 극한을 근거 없이 $0$으로 두거나 $\frac{\ln3}{2}$로 둠'
+    detect_cue: $\ln(n!)$이 $n$보다 빠르게 커진다는 근거(1-2의 하한)가 없다
+    feedback: 1-2와 제시문 (나)로 $\ln(n!)\ge n\ln n-n+1$을 얻어 위에서 누르면 극한이 $0$임이 보입니다.
+    remedy: [RL-3]
+
+remedy_links:
+- id: RL-1
+  trigger: {type: misconception, ref: MC-CNT-42501}
+  relation: remediation
+  target: {kind: concept, ref: CON-CNT-PAIRING}
+  priority: 1
+- id: RL-2
+  trigger: {type: misconception, ref: MC-CAL-42517}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-INTEGRAL-INEQ}
+  priority: 1
+- id: RL-3
+  trigger: {type: misconception, ref: MC-CAL-42518}
+  relation: remediation
+  target: {kind: concept, ref: CON-CAL-SQUEEZE}
+  priority: 1
+
+reviews:
+- {stage: compose, actor_type: model, actor_id: opus, prompt_version: past-transcribe-v1, item_version: 1, verdict: pass, date: 2026-11-21}
+
+created: 2026-11-21
+updated: 2026-11-21
