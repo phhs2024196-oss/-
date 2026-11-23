@@ -1,0 +1,478 @@
+# 광운대 2019학년도 모의논술 자연계열 문제 1 — HWP 변환본 기반(원본 PDF 없음), 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: KW-M19-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: KW
+type: null
+variant_of: null
+replaces: null
+level: L3
+form: 추론
+points: 50
+time_estimate_min: null
+key_idea: '[1] 평행이동으로 $g(n)=f(n-k)$를 얻고 분모의 유리화로 합을 망원급수로 만든다. [2] $f$의 3번 합성이 항등함수임을 이용해 $g(x)=x$를 얻고 극한을 구하며, $n$을 3으로 나눈 나머지로 분류한다. [3] 허근 $w$가 $w^3=1$임을 이용해 $f(w)=aw+b+1=0$으로 정리하고 $a,b$가 실수임을 쓴다. [4] $[f(x)]=[x^2-2x]-3$으로 정리해 $[x^2-2x]=-1$을 만들고 이차부등식을 푼다.'
+stuck: '[2](2) 3번 합성이 항등함수라는 주기성을 $n=3t+r$ 꼴로 정리하는 단계, [3] $w^{52}=w$, $w^{27}=1$로 줄이고 허근이므로 $a=0$임을 추론하는 단계, [4] $[x^2-2x]=-1$을 $-1\le x^2-2x<0$으로 바꾸는 단계'
+tags:
+- 2009개정
+- 평행이동
+- 분모의 유리화
+- 수열의 합
+- 합성함수
+- 함수의 극한
+- 허근
+- 가우스 기호
+elements:
+  materials:
+  - $f(n)=\sqrt{n+2}+\sqrt{n+1}$을 $x$축 방향으로 $k$만큼 평행이동한 $g(n)$
+  - $f(x)=\frac1{1-x}$와 그 합성
+  - $g(x)=x^2+x+1$의 허근 $w$와 $f(x)=ax^{52}+bx^{27}+1$
+  - $f(x)=x^2-2x-3$, $g(x)=x^2-2x-5$와 가우스 기호
+  concepts:
+  - 도형의 평행이동
+  - 무리수 분모의 유리화와 합
+  - 합성함수와 주기
+  - 함수의 극한
+  - 삼차방정식의 허근
+  - 가우스 기호와 이차부등식
+  tools:
+  - $g(n)=f(n-k)$
+  - $\frac{2}{\sqrt{A}+\sqrt{B}}=2(\sqrt{A}-\sqrt{B})$ 유리화
+  - $f\circ f\circ f=x$
+  - $w^3=1$, $w^2+w+1=0$
+  - $[x^2-2x-3]=[x^2-2x]-3$
+  conditions:
+  - $k$는 음의 정수
+  - $k$는 자연수, $n$은 자연수
+  - $a,b$는 실수
+  - $x$는 정수
+  stimuli_used:
+  - '[1]: —'
+  - '[2](1): 4·5'
+  - '[2](2): 4·5'
+  - '[3]: 3'
+  - '[4]: 1'
+  subpart_links: '[1]~[4]는 서로 독립. [2](1)과 [2](2)는 같은 $f(x)=\frac1{1-x}$의 합성 주기를 사용한다.'
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학
+  - 수학Ⅰ
+  - 수학Ⅱ
+  scope_2028: common
+  scope_confirmed: false
+  behavior_domain: 문제해결
+  content_area: 수열의 합 · 합성함수 · 허근 · 가우스 기호
+  unit_path:
+  - 수학
+  - 함수
+  - 합성함수
+  key_concepts:
+  - 유리화와 망원급수
+  - 합성함수의 주기
+  - 허근
+  - 가우스 기호
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 광운대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 광운대학교
+  admission_year: 2019
+  admission_type: 수시 모의논술
+  track: 자연계열
+  question_no: 1
+  official_url: https://iphak.kw.ac.kr/pds/pds_view.php?m_type=SUSI&bn=39619
+  retrieved_at: '2026-11-22'
+  original_points:
+  - 10
+  - 9
+  - 7
+  - 10
+  - 14
+  rights_notice: 미확인
+  transcribed_from: HWP 변환본 M19.txt「자연계열 [문제 1] 해설 및 모범답안」(HWP 원본만 있음, 이미지 대조 불가)
+verify: verify/KW-M19.py::p01
+stimuli:
+- label: '1'
+  body: 실수 $a$에 대하여 $[a]$는 $a$를 넘지 않는 최대의 정수이다.
+- label: '2'
+  body: 이차방정식 $ax^2+bx+c=0$의 근은 $x=\dfrac{-b\pm\sqrt{b^2-4ac}}{2a}$이다.
+- label: '3'
+  body: 다항식 $A$를 다항식 $B$로 나누었을 때의 몫을 $Q$, 나머지를 $R$라고 하면 $A=BQ+R$ (단, $R$의 차수는 $B$의 차수보다 낮다.) 특히, $R=0$, 즉, $A=BQ$일 때, $A$는 $B$로 나누어떨어진다고 한다.
+- label: '4'
+  body: 세 집합 $X,W,Y$에 대하여 두 함수 $f:X\to W,\ g:W\to Y$의 합성함수 $g\circ f$는 $g\circ f:X\to Y,\ (g\circ f)(x)=g(f(x))$이다.
+- label: '5'
+  body: 집합 $X$와 함수 $f:X\to X$에 대하여 $f\circ f$는 $f$를 두 번 합성한 함수, $f\circ f\circ f$는 $f$를 세 번 합성한 함수를 나타낸다.
+stem: '[문제 1] (50점) 다음 제시문을 읽고 문항별로 풀이와 함께 답하시오.'
+subparts:
+- id: '1'
+  stem: |
+    [1] 모든 자연수에서 정의된 함수 $f(n)=\sqrt{n+2}+\sqrt{n+1}$의 그래프를 $x$축의 방향으로 음의 정수 $k$만큼 평행이동시켰을때 얻는 함수를 $g(n)$이라 하자. 이때 $\displaystyle\sum_{n=1}^{2018}\frac{2}{g(n)}$를 구하시오. [10점]
+  points: 10
+  depends_on: []
+  answer:
+    kind: expression
+    value: 2*(sqrt(2020-k)-sqrt(2-k))
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S1-B
+    audience: B
+    source_flow: 예시 답안
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        $g(n)=f(n-k)=\sqrt{n-k+2}+\sqrt{n-k+1}$이다. 그런데
+      source_flow: 예시 답안
+      criteria:
+      - 1.M1
+    - id: 1b-2
+      content: |
+        $$\frac{2}{g(n)}=\frac{2}{\sqrt{n-k+2}+\sqrt{n-k+1}}=\frac{2(\sqrt{n-k+2}-\sqrt{n-k+1})}{(\sqrt{n-k+2}+\sqrt{n-k+1})(\sqrt{n-k+2}-\sqrt{n-k+1})}=2(\sqrt{n-k+2}-\sqrt{n-k+1})$$
+        이므로
+      source_flow: 예시 답안
+      criteria:
+      - 1.M2
+    - id: 1b-3
+      content: |
+        $$\sum_{n=1}^{2018}\frac{2}{g(n)}=\sum_{n=1}^{2018}2(\sqrt{n-k+2}-\sqrt{n-k+1})=2(\sqrt{2020-k}-\sqrt{2-k})$$
+        이다.
+      source_flow: 예시 답안
+      criteria:
+      - 1.A3
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 3
+      evidence: $g(n)=\sqrt{n-k+2}+\sqrt{n-k+1}$을 구했다.
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 1b-1
+    - id: 1.M2
+      mark_type: M
+      points: 3
+      evidence: $\dfrac{2}{g(n)}=2(\sqrt{n-k+2}-\sqrt{n-k+1})$을 구했다.
+      depends_on:
+      - 1.M1
+      implied_ok: false
+      steps:
+      - 1b-2
+    - id: 1.A3
+      mark_type: A
+      points: 4
+      evidence: $\sum_{n=1}^{2018}\dfrac{2}{g(n)}=2(\sqrt{2020-k}-\sqrt{2-k})$를 구했다.
+      depends_on:
+      - 1.M1
+      - 1.M2
+      implied_ok: false
+      steps:
+      - 1b-3
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+- id: 2-1
+  stem: |
+    [2] 함수 $f(x)=\dfrac{1}{1-x}$에 대하여 다음 물음에 답하시오.
+
+    (1) $k$가 자연수일 때 $f$를 $3k$번 합성한 함수를 $g(x)$라고 하자. 이때 $\displaystyle\lim_{x\to3}\frac{f(x)}{g(x)}$를 구하시오. [9점]
+  points: 9
+  depends_on: []
+  answer:
+    kind: value
+    value: -1/6
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S21-B
+    audience: B
+    source_flow: 예시 답안
+    method_no: 1
+    steps:
+    - id: 21b-1
+      content: |
+        $(f\circ f)(x)=1-\dfrac1x$, $(f\circ f\circ f)(x)=x$, $(f\circ f\circ f\circ f)(x)=f(x)$, $\cdots$이므로 $g(x)=x$이다.
+      source_flow: 예시 답안
+      criteria:
+      - 2-1.M1
+    - id: 21b-2
+      content: 따라서 $\displaystyle\lim_{x\to3}\frac{f(x)}{g(x)}=\lim_{x\to3}\frac{\dfrac1{1-x}}{x}=\lim_{x\to3}\frac{1}{x(1-x)}=-\frac16$이다.
+      source_flow: 예시 답안
+      criteria:
+      - 2-1.A2
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 2-1.M1
+      mark_type: M
+      points: 5
+      evidence: $g(x)=x$를 구했다.
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 21b-1
+    - id: 2-1.A2
+      mark_type: A
+      points: 4
+      evidence: $\lim_{x\to3}\dfrac{f(x)}{g(x)}=-\dfrac16$을 구했다.
+      depends_on:
+      - 2-1.M1
+      implied_ok: false
+      steps:
+      - 21b-2
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+- id: 2-2
+  stem: |
+    (2) $n$이 자연수일 때 $f$를 $n$번 합성한 함수를 $h(x)$라고 할 때 $h(x)=1-\dfrac1x$이면 $n=3t+2$인 정수 $t$가 존재함을 설명하시오. [7점]
+  points: 7
+  depends_on: []
+  answer:
+    kind: proof
+    value: $n=3t$이면 $h(x)=x$, $n=3t+1$이면 $h(x)=\dfrac1{1-x}$이므로 $h(x)=1-\dfrac1x$이면 $n=3t+2$이다.
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S22-B
+    audience: B
+    source_flow: 예시 답안
+    method_no: 1
+    steps:
+    - id: 22b-1
+      content: |
+        $n=3t$ 또는 $n=3t+1$ 또는 $n=3t+2$인 정수 $t$가 존재한다.
+      source_flow: 예시 답안
+      criteria:
+      - 2-2.R1
+    - id: 22b-2
+      content: 만일 $n=3t$이면 $h(x)=x$이다. 만일 $n=3t+1$이면 $h(x)=\dfrac1{1-x}$이다. 따라서, $n=3t+2$인 정수 $t$가 존재한다.
+      source_flow: 예시 답안
+      criteria:
+      - 2-2.R2
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 2-2.R1
+      mark_type: R
+      points: 3
+      evidence: $n=3t$ 또는 $n=3t+1$ 또는 $n=3t+2$인 정수 $t$가 존재함을 설명했다.
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 22b-1
+    - id: 2-2.R2
+      mark_type: R
+      points: 4
+      evidence: $n=3t$이면 $h(x)=x$이고 $n=3t+1$이면 $h(x)=\dfrac1{1-x}$임을 설명했다.
+      depends_on:
+      - 2-2.R1
+      implied_ok: false
+      steps:
+      - 22b-2
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+- id: '3'
+  stem: |
+    [3] 다항식 $g(x)=x^2+x+1$에 대하여 $g(x)=0$의 하나의 허근을 $w$라고 하자. 다항식 $f(x)=ax^{52}+bx^{27}+1$가 $g(x)$로 나누어떨어진다고 가정할 때, 즉, $f(x)=q(x)g(x)$인 다항식 $q(x)$가 존재할 때, 실수 $a$와 $b$를 구하시오. [10점]
+  points: 10
+  depends_on: []
+  answer:
+    kind: value
+    value: a=0; b=-1
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S3-B
+    audience: B
+    source_flow: 예시 답안
+    method_no: 1
+    steps:
+    - id: 3b-1
+      content: |
+        $f(w)=q(w)g(w)=0$이고 $w^3=1$이므로
+      source_flow: 예시 답안
+      criteria:
+      - 3.M1
+    - id: 3b-2
+      content: |
+        $f(w)=aw^{52}+bw^{27}+1=aw+b+1=0$이다.
+      source_flow: 예시 답안
+      criteria:
+      - 3.M2
+    - id: 3b-3
+      content: 그런데 $w=\dfrac{-1+\sqrt3i}{2}$ 또는 $w=\dfrac{-1-\sqrt3i}{2}$이고 $a$와 $b$는 실수이므로 $a=0$이고 $b=-1$이다.
+      source_flow: 예시 답안
+      criteria:
+      - 3.A3
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 3
+      evidence: $f(w)=0$을 구했다.
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 3b-1
+    - id: 3.M2
+      mark_type: M
+      points: 3
+      evidence: $f(w)=aw^{52}+bw^{27}+1=aw+b+1$을 구했다.
+      depends_on:
+      - 3.M1
+      implied_ok: false
+      steps:
+      - 3b-2
+    - id: 3.A3
+      mark_type: A
+      points: 4
+      evidence: $a=0$, $b=-1$을 구했다. (각각 2점씩)
+      depends_on:
+      - 3.M1
+      - 3.M2
+      implied_ok: false
+      steps:
+      - 3b-3
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+- id: '4'
+  stem: |
+    [4] 두 다항식 $f(x)=x^2-2x-3,\ g(x)=x^2-2x-5$에 대하여 방정식
+    $$2[f(x)]+1=[g(x)]-1$$
+    을 만족시키는 정수 $x$를 모두 구하시오. [14점]
+  points: 14
+  depends_on: []
+  answer:
+    kind: value
+    value: '1'
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S4-B
+    audience: B
+    source_flow: 예시 답안
+    method_no: 1
+    steps:
+    - id: 4b-1
+      content: |
+        $[f(x)]=[x^2-2x]-3,\ [g(x)]=[x^2-2x]-5$이므로 $2[x^2-2x]-5=[x^2-2x]-6$이다. 따라서 $[x^2-2x]=-1$이고 $-1\le[x^2-2x]<0$이다. [판독확인: 원문 표기 $-1\le[x^2-2x]<0$ — 가우스 기호 안이 아니라 $-1\le x^2-2x<0$을 뜻하는 것으로 보이나 원문 그대로]
+      source_flow: 예시 답안
+      criteria:
+      - 4.M1
+    - id: 4b-2
+      content: |
+        부등식 $-1\le[x^2-2x]$로부터 $[x^2-2x+1]\ge0$이다. 그런데 모든 $x$에 대하여 $x^2-2x+1\ge0$이므로, 부등식 $-1\le[x^2-2x]$은 모든 실수 $x$에 대하여 성립한다.
+      source_flow: 예시 답안
+      criteria:
+      - 4.M2
+    - id: 4b-3
+      content: |
+        또한 $[x^2-2x]<0$으로부터 $x^2-2x<0$이고 $x(x-2)<0$이므로 $0<x<2$이다.
+      source_flow: 예시 답안
+      criteria:
+      - 4.M3
+    - id: 4b-4
+      content: 그러므로 주어진 방정식을 만족시키는 정수 $x$는 $x=1$이다.
+      source_flow: 예시 답안
+      criteria:
+      - 4.A4
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 4.M1
+      mark_type: M
+      points: 6
+      evidence: '$-1\le[x^2-2x]<0$을 구했다. [판독확인: 원문 표기 $-1\le[x^2-2x]<0$ — 위와 같음]'
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 4b-1
+    - id: 4.M2
+      mark_type: M
+      points: 3
+      evidence: $-1\le[x^2-2x]$은 모든 실수 $x$에 대하여 성립함을 보였다.
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 4b-2
+    - id: 4.M3
+      mark_type: M
+      points: 3
+      evidence: $[x^2-2x]<0$로부터 $0<x<2$를 구했다.
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 4b-3
+    - id: 4.A4
+      mark_type: A
+      points: 2
+      evidence: $x=1$을 구했다.
+      depends_on:
+      - 4.M1
+      - 4.M2
+      - 4.M3
+      implied_ok: false
+      steps:
+      - 4b-4
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: past-v2-lean
+  item_version: 1
+  verdict: pass
+  date: &id001 2026-11-22
+created: *id001
+updated: *id001
+intent: '[1] 도형의 평행이동, 무리수를 포함한 분모의 유리화과정에 대한 이해력과 수열의 합에 대한 계산능력을 평가한다. [2] (1) 함수의 합성과 함수의 극한의 이해력 및 계산능력을 평가한다. (2) 함수의 합성에 대한 이해력 및 논리력을 평가한다. [3] 3차 방정식의 허근에 대한 이해력 및 계산능력을 평가한다. [4] 함수 $[x]$의 이해와 이차부등식에 대한 계산능력을 평가한다. (광운대 공식 출제 의도)'

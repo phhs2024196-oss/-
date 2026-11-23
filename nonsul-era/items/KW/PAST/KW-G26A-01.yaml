@@ -1,0 +1,505 @@
+schema_version: '2.0'
+id: KW-G26A-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: KW
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 분류
+points: 50
+time_estimate_min: null
+intent: |
+  [1] 집합의 정의를 이해하고 원소의 개수와 집합의 포함관계를 적용할 수 있는 능력을 평가한다. 또한 이항정리를 적용하여 조건에 맞는 부분집합의 개수를 구하는 능력을 평가한다. [2] (1) 점의 대칭이동과 주어진 도형의 넓이를 구하는 능력을 평가한다. (2) 도형의 평행이동과 위치관계를 이해하고 주어진 조건을 이용하여 원하는 도형의 넓이를 수식으로 정확하게 구성하는 능력을 평가한다. [3] (1) 정적분의 개념을 이해하고 구간에 따른 정적분을 계산하는 능력을 평가한다. (2) 도함수를 활용하여 주어진 함수의 최솟값을 구하는 능력을 평가한다. (문항카드 원문)
+key_idea: |
+  [1]은 $n(B)=k$로 나누어 ${}_6\mathrm{C}_k(2^k-1)$을 이항정리로 합산한다. [2]는 평행이동 거리에 따라 겹침 모양이 달라지는 구간을 나눈다. [3]은 $x^3+k$의 근이 $[0,1]$ 안에 드는지로 절댓값을 벗겨 구간별 함수를 만든 뒤 극소를 찾는다.
+stuck: |
+  [2](2)에서 평행이동 거리 $a$에 따라 겹치는 영역이 세 모양으로 바뀌는 구간을 나누고 가운데 구간의 넓이를 평행사변형에서 두 모서리 삼각형을 빼 식으로 세우는 단계
+idea_tags:
+- IDEA-CASE-SPLIT-BY-SIZE
+- IDEA-BINOMIAL-SUM-COUNT
+- IDEA-OVERLAP-AREA-BY-INTERVALS
+- IDEA-ABS-INTEGRAL-ROOT-SPLIT
+tags:
+- 집합
+- 이항정리
+- 대칭이동
+- 평행이동
+- 넓이
+- 절댓값 정적분
+- 최솟값
+elements:
+  materials:
+  - 전체집합 $U=\{1,\dots,6\}$와 부분집합 $A\subset B$
+  - |
+    삼각형 $\mathrm{ABC}$와 원점대칭 삼각형 $\mathrm{A}^{\prime}\mathrm{B}^{\prime}\mathrm{C}^{\prime}$
+  - 절댓값 정적분 $S(k)=\int_0^1\lvert x^3+k\rvert dx$
+  concepts:
+  - 부분집합의 개수와 포함관계
+  - 이항정리
+  - 원점에 대한 대칭이동
+  - 평행이동
+  - 구간별 정적분
+  - 도함수와 극솟값
+  tools:
+  - $n(B)=k$로 분류하여 ${}_6\mathrm{C}_k(2^k-1)$ 합
+  - $(1+2)^6-(1+64)$ 꼴 이항정리
+  - 평행사변형 넓이에서 모서리 삼각형 빼기
+  - $x^3+k$의 근 $-\sqrt[3]{k}$와 $[0,1]$의 위치 비교
+  - $S^{\prime}(k)=0$의 부호 변화
+  conditions:
+  - $A\ne\varnothing$, $A\subset B\subsetneq U$
+  - $a$는 $\mathrm{A}^{\prime}$의 $x$좌표이며 $0<a<3$에서만 겹침
+  - $k\le-1$, $-1<k<0$, $k\ge0$ 세 구간
+  stimuli_used:
+  - '1: 1, 2'
+  - '2-1·2-2: 3'
+  - '3-2: 4'
+  subpart_links: |
+    네 소문항 [1], [2], [3]은 서로 독립. [2](2)는 [2](1)의 삼각형 쌍을 평행이동한다. [3](2)는 [3](1)의 $S(k)$를 쓴다.
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학
+  - 수학Ⅱ
+  - 확률과통계
+  scope_2028: common
+  scope_confirmed: false
+  standards:
+  - code: 10수학03-01
+    text: 집합의 개념을 이해하고, 집합을 표현할 수 있다.
+    verified: true
+  - code: 10수학03-02
+    text: 두 집합 사이의 포함 관계를 이해한다.
+    verified: true
+  - code: 12확통01-03
+    text: 이항정리를 이해하고 이를 이용하여 문제를 해결할 수 있다.
+    verified: true
+  - code: 10수학02-09
+    text: 원점, x축, y축, 직선 y=x에 대한 대칭이동의 의미를 이해한다.
+    verified: true
+  - code: 10수학02-08
+    text: 평행이동의 의미를 이해한다.
+    verified: true
+  - code: 12수학Ⅱ03-04
+    text: 다항함수의 정적분을 구할 수 있다.
+    verified: true
+  - code: 12수학Ⅱ02-08
+    text: 함수의 증가와 감소, 극대와 극소를 판정하고 설명할 수 있다.
+    verified: true
+  content_area: 집합·경우의 수 · 도형의 이동 · 정적분과 도함수의 활용
+  behavior_domain: 문제해결
+  unit_path:
+  - 수학
+  - 집합과 명제
+  - 집합
+  - 부분집합의 개수
+  key_concepts:
+  - 부분집합의 개수
+  - 이항정리
+  - 평행이동
+  - 구간별 정적분
+  - 극솟값
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 광운대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 광운대학교
+  admission_year: 2026
+  admission_type: 수시 논술우수자
+  track: 자연계열(1교시)
+  question_no: 1
+  official_url: https://iphak.kw.ac.kr/pds/pds_view.php?m_type=SUSI&bn=44604
+  retrieved_at: '2026-11-22'
+  original_points:
+  - 10
+  - 6
+  - 14
+  - 10
+  - 10
+  rights_notice: 미확인
+  transcribed_from: 광운대 입학처 공식 PDF「2026학년도 논술고사 자연계열 1교시 1번」문항카드 p.1~9 (이미지 대조 2026-11-22)
+verify: verify/KW-G26A.py::p01
+stimuli:
+- label: '1'
+  body: |
+    집합 $A$가 유한집합일 때, 집합 $A$의 원소의 개수를 기호로
+    $$n(A)$$
+    와 같이 나타낸다. 특히 $n(\varnothing)=0$이다.
+- label: '2'
+  body: |
+    $n$이 자연수일 때,
+    $$(a+b)^n={}_n\mathrm{C}_0a^n+{}_n\mathrm{C}_1a^{n-1}b+\cdots+{}_n\mathrm{C}_ra^{n-r}b^r+\cdots+{}_n\mathrm{C}_nb^n$$
+- label: '3'
+  body: 점 $(a,b)$를 원점에 대하여 대칭이동한 점의 좌표는 $(-a,-b)$
+- label: '4'
+  body: |
+    미분가능한 함수 $f(x)$에서 $f^{\prime}(a)=0$이고, $x=a$의 좌우에서
+    ① $f^{\prime}(x)$의 부호가 양에서 음으로 바뀌면 $f(x)$는 $x=a$에서 극대이고, 극댓값은 $f(a)$이다.
+    ② $f^{\prime}(x)$의 부호가 음에서 양으로 바뀌면 $f(x)$는 $x=a$에서 극소이고, 극솟값은 $f(a)$이다.
+stem: '[문제 1] (50점) 다음 제시문을 읽고 문항별로 풀이와 함께 답하시오.'
+subparts:
+- id: '1'
+  stem: |
+    [1] 전체집합 $U=\{1,2,3,4,5,6\}$의 두 부분집합 $A,B$가 다음 조건을 만족시키는 경우의 수를 구하시오. [10점]
+
+    (가) $n(A)\times n(B)\ne0$
+    (나) $n(B)<n(U)$
+    (다) $A\subset B$
+  points: 10
+  depends_on: []
+  answer:
+    kind: value
+    value: '602'
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S1-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        조건 (가)와 (나)에 의하여 부분집합 $B$는 공집합과 전체집합을 포함하지 않는다. $n(B)=k\,(1\le k\le5)$일 때, 가능한 집합 $B$의 개수는 ${}_6\mathrm{C}_k$이고, 그 각각에 대하여 집합 $A$의 개수는 조건 (가)와 (다)에 의하여 공집합을 제외한 $2^k-1$이다.
+      source_flow: 예시 답안 p.5~6
+      criteria:
+      - 1.M1
+      - 1.M2
+    - id: 1b-2
+      content: |
+        따라서 세 조건을 만족시키는 경우의 수는
+        $${}_6\mathrm{C}_1\times(2^1-1)+{}_6\mathrm{C}_2\times(2^2-1)+\cdots+{}_6\mathrm{C}_5\times(2^5-1)=({}_6\mathrm{C}_1\times2^1+{}_6\mathrm{C}_2\times2^2+\cdots+{}_6\mathrm{C}_5\times2^5)-({}_6\mathrm{C}_1+{}_6\mathrm{C}_2+\cdots+{}_6\mathrm{C}_5)$$
+      source_flow: 예시 답안 p.5~6
+      criteria:
+      - 1.M2
+    - id: 1b-3
+      content: |
+        이항정리를 이용하면 ${}_6\mathrm{C}_1\times2^1+\cdots+{}_6\mathrm{C}_5\times2^5=(1+2)^6-(1+64)=664$이고 ${}_6\mathrm{C}_1+\cdots+{}_6\mathrm{C}_5=(1+1)^6-(1+1)=62$이다. 따라서 구하는 경우의 수는 $664-62=602$이다.
+        (다른 풀이) $n(B)=1,2,3,4,5$일 때 $B$의 개수는 $6,15,20,15,6$이고 $A$의 개수는 $1,3,7,15,31$이므로 $6\times1+15\times3+20\times7+15\times15+6\times31=602$.
+      source_flow: 예시 답안 p.5~6
+      criteria:
+      - 1.A1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 2
+      evidence: 집합 $A$(공집합 제외)와 집합 $B$(공집합과 전체집합 제외)의 조건을 구했다.
+      steps:
+      - 1b-1
+    - id: 1.M2
+      mark_type: M
+      points: 6
+      evidence: 두 집합의 포함관계를 이용하여 각각의 경우의 수를 구했다(이항정리를 이용하거나 직접 계산한 경우 모두 인정).
+      depends_on:
+      - 1.M1
+      steps:
+      - 1b-1
+      - 1b-2
+    - id: 1.A1
+      mark_type: A
+      points: 2
+      evidence: 조건의 경우의 수 $602$를 구했다.
+      depends_on:
+      - 1.M1
+      - 1.M2
+      steps:
+      - 1b-3
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+- id: 2-1
+  stem: |
+    [2] 세 점 $\mathrm{A}(-1,-1)$, $\mathrm{B}(1,-1)$, $\mathrm{C}(1,3)$을 꼭짓점으로 하는 삼각형 $\mathrm{ABC}$와 이 삼각형을 원점에 대하여 대칭이동한 삼각형 $\mathrm{A}^{\prime}\mathrm{B}^{\prime}\mathrm{C}^{\prime}$에 대하여 다음 물음에 답하시오.
+
+    (1) 두 삼각형이 겹치는 영역의 넓이를 구하시오. [6점]
+  points: 6
+  depends_on: []
+  answer:
+    kind: value
+    value: '2'
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S21-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 21b-1
+      content: |
+        원점을 중심으로 대칭이동한 세 점은 $\mathrm{A}^{\prime}(1,1)$, $\mathrm{B}^{\prime}(-1,1)$, $\mathrm{C}^{\prime}(-1,-3)$이다.
+      source_flow: 예시 답안 p.7
+      criteria:
+      - 2-1.M1
+    - id: 21b-2
+      content: 두 삼각형이 겹치는 영역은 평행사변형이므로 그 넓이는 $1\times2=2$이다.
+      source_flow: 예시 답안 p.7
+      criteria:
+      - 2-1.A1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 2-1.M1
+      mark_type: M
+      points: 4
+      evidence: |
+        대칭이동한 세 점 $\mathrm{A}^{\prime}(1,1)$, $\mathrm{B}^{\prime}(-1,1)$, $\mathrm{C}^{\prime}(-1,-3)$을 구했다.
+      steps:
+      - 21b-1
+    - id: 2-1.A1
+      mark_type: A
+      points: 2
+      evidence: 겹치는 영역의 넓이 $2$를 구했다.
+      depends_on:
+      - 2-1.M1
+      steps:
+      - 21b-2
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+- id: 2-2
+  stem: |
+    (2) 두 삼각형 중 한 삼각형을 고정하고 다른 삼각형을 $x$축의 양의 방향 또는 음의 방향으로 평행이동할 때, 두 삼각형이 겹치는 영역의 넓이의 최댓값을 구하시오. [14점]
+  points: 14
+  depends_on: []
+  answer:
+    kind: value
+    value: 5/2
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S22-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 22b-1
+      content: |
+        삼각형 $\mathrm{ABC}$를 고정하고, 삼각형 $\mathrm{A}^{\prime}\mathrm{B}^{\prime}\mathrm{C}^{\prime}$을 $x$축 방향으로 평행이동하여 영역의 넓이를 구한다. 점 $\mathrm{A}^{\prime}$의 좌표를 $\mathrm{A}^{\prime}(a,1)$이라 하면, 두 삼각형이 겹치는 경우는 $0<a<3$이므로 구간을 나누어 생각한다.
+      source_flow: 예시 답안 p.7~8
+      criteria:
+      - 2-2.M1
+    - id: 22b-2
+      content: |
+        (ⅰ) $0<a\le1$일 때 그림 (a)에서 평행사변형의 넓이 $S=a\times2\le2$.
+        (ⅱ) $1<a\le2$일 때 그림 (b)에서 겹치는 영역의 넓이 $S$는 점 $\mathrm{A}$와 점 $\mathrm{A}^{\prime}$을 대각선 양 끝점으로 하는 평행사변형의 넓이에서 양쪽 모서리 삼각형의 넓이를 뺀 것이므로
+        $$S=(a\times2)-2\times\left\{\frac12\times(a-1)\times2\times(a-1)\right\}=-2a^2+6a-2.$$
+        (ⅲ) $2<a<3$일 때 그림 (c)에서 직사각형의 넓이 $S=(3-a)\times2\le2$.
+      source_flow: 예시 답안 p.7~8
+      criteria:
+      - 2-2.M2
+    - id: 22b-3
+      content: |
+        (ⅱ)에서 $S^{\prime}=-4a+6=0$에서 $a=\dfrac32$이고, 이때 최댓값은 $S\left(\dfrac32\right)=-2\times\left(\dfrac32\right)^2+6\times\dfrac32-2=\dfrac52$이다. (참고: $S=-2\left(a-\dfrac32\right)^2+\dfrac52$) (ⅰ),(ⅱ),(ⅲ)으로부터 두 삼각형이 겹치는 영역의 넓이의 최댓값은 $\dfrac52$이다. (참고: 삼각형 $\mathrm{A}^{\prime}\mathrm{B}^{\prime}\mathrm{C}^{\prime}$을 고정하고 삼각형 $\mathrm{ABC}$를 평행이동하여 같은 방법으로 구할 수 있다.)
+      source_flow: 예시 답안 p.7~8
+      criteria:
+      - 2-2.A1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 2-2.M1
+      mark_type: M
+      points: 4
+      evidence: 두 삼각형을 좌표평면으로 대응하고 평행이동에 따른 변수를 설정했다.
+      steps:
+      - 22b-1
+    - id: 2-2.M2
+      mark_type: M
+      points: 6
+      evidence: |
+        구간에 따라 겹치는 영역을 설정한 변수의 함수로 표현했다(평행이동에 따라 변하는 영역의 넓이를 함수로 표현하면 부분 점수 인정).
+      depends_on:
+      - 2-2.M1
+      steps:
+      - 22b-2
+    - id: 2-2.A1
+      mark_type: A
+      points: 4
+      evidence: 겹치는 영역의 최댓값 $\dfrac52$를 구했다(도함수 또는 완전제곱 형태 계산 모두 인정).
+      depends_on:
+      - 2-2.M1
+      - 2-2.M2
+      steps:
+      - 22b-3
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+- id: 3-1
+  stem: |
+    [3] 실수 $k$에 대하여 $S(k)=\displaystyle\int_0^1\lvert x^3+k\rvert dx$라 할 때, 다음 물음에 답하시오.
+
+    (1) 함수 $S(k)$를 구하시오. [10점]
+  points: 10
+  depends_on: []
+  answer:
+    kind: expression
+    value: low=-k-1/4; mid=3*k*cbrt(k)/2+k+1/4; high=k+1/4
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S31-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 31b-1
+      content: |
+        $y=x^3+k$의 $x$절편은 $x=\sqrt[3]{-k}=-\sqrt[3]{k}$이므로 $x=-\sqrt[3]{k}$가 적분구간 $[0,1]$에 속하는 경우와 속하지 않는 경우로 나누어 $S(k)$를 구한다.
+      source_flow: 예시 답안 p.8
+      criteria:
+      - 3-1.M1
+    - id: 31b-2
+      content: |
+        (ⅰ) $-\sqrt[3]{k}\le0$에서 $k\ge0$일 때 $S(k)=\displaystyle\int_0^1(x^3+k)dx=\left[\frac14x^4+kx\right]_0^1=k+\frac14$.
+        (ⅱ) $0<-\sqrt[3]{k}<1$에서 $-1<k<0$일 때
+        $$S(k)=\int_0^{-\sqrt[3]{k}}(-x^3-k)dx+\int_{-\sqrt[3]{k}}^1(x^3+k)dx=\left[-\frac14x^4-kx\right]_0^{-\sqrt[3]{k}}+\left[\frac14x^4+kx\right]_{-\sqrt[3]{k}}^1=\frac32k\sqrt[3]{k}+k+\frac14.$$
+        (ⅲ) $-\sqrt[3]{k}\ge1$에서 $k\le-1$일 때 $S(k)=\displaystyle\int_0^1(-x^3-k)dx=\left[-\frac14x^4-kx\right]_0^1=-k-\frac14$.
+      source_flow: 예시 답안 p.8
+      criteria:
+      - 3-1.M2
+    - id: 31b-3
+      content: |
+        따라서 $S(k)=\begin{cases}-k-\dfrac14&(k\le-1)\\ \dfrac32k\sqrt[3]{k}+k+\dfrac14&(-1<k<0)\\ k+\dfrac14&(k\ge0)\end{cases}$이다.
+      source_flow: 예시 답안 p.8
+      criteria:
+      - 3-1.A1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 3-1.M1
+      mark_type: M
+      points: 2
+      evidence: $y=x^3+k$의 근 $x=-\sqrt[3]{k}$에 따라 함수 $S(k)$의 구간을 나누었다.
+      steps:
+      - 31b-1
+    - id: 3-1.M2
+      mark_type: M
+      points: 6
+      evidence: 각 구간의 적분을 계산하여 구간에 따른 함수 $S(k)$를 구했다.
+      depends_on:
+      - 3-1.M1
+      steps:
+      - 31b-2
+    - id: 3-1.A1
+      mark_type: A
+      points: 2
+      evidence: 전체 구간에 대한 함수 $S(k)$를 구했다.
+      depends_on:
+      - 3-1.M1
+      - 3-1.M2
+      steps:
+      - 31b-3
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+- id: 3-2
+  stem: (2) 함수 $S(k)$가 최소가 되게 하는 $k$의 값과 함수 $S(k)$의 최솟값을 구하시오. [10점]
+  points: 10
+  depends_on: []
+  answer:
+    kind: expression
+    value: k=-1/8; min=7/32
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S32-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 32b-1
+      content: |
+        각 구간에서 $S(k)$의 최솟값을 구한다. (ⅰ) $k\le-1$일 때 $S(k)=-k-\dfrac14\ge\dfrac34$. (ⅲ) $k\ge0$일 때 $S(k)=k+\dfrac14\ge\dfrac14$.
+      source_flow: 예시 답안 p.8~9
+      criteria:
+      - 3-2.M1
+    - id: 32b-2
+      content: |
+        (ⅱ) $-1<k<0$일 때 $S(k)=\dfrac32k\sqrt[3]{k}+k+\dfrac14$이므로 $S^{\prime}(k)=2\sqrt[3]{k}+1=0$에서 $k=-\dfrac18$이고, $k=-\dfrac18$의 좌우에서 $S^{\prime}(k)$의 부호가 음에서 양으로 바뀌므로 $k=-\dfrac18$에서 극소이고 최솟값은 $\dfrac7{32}$이다. (참고: $S^{\prime\prime}(k)=\dfrac{2}{3\sqrt[3]{k^2}}$에서 $S^{\prime\prime}\left(-\dfrac18\right)=\dfrac16>0$이므로 극소)
+      source_flow: 예시 답안 p.8~9
+      criteria:
+      - 3-2.A1
+    - id: 32b-3
+      content: (ⅰ),(ⅱ),(ⅲ)으로부터 $k=-\dfrac18$일 때 $S(k)$의 최솟값은 $\dfrac7{32}$이다.
+      source_flow: 예시 답안 p.8~9
+      criteria:
+      - 3-2.A2
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 3-2.M1
+      mark_type: M
+      points: 4
+      evidence: 구간을 나누어 각 구간의 최솟값을 구했다.
+      steps:
+      - 32b-1
+    - id: 3-2.A1
+      mark_type: A
+      points: 4
+      evidence: $-1<k<0$일 때, 최솟값 $\dfrac7{32}$을 구했다.
+      depends_on:
+      - 3-2.M1
+      steps:
+      - 32b-2
+    - id: 3-2.A2
+      mark_type: A
+      points: 2
+      evidence: 함수 $S(k)$가 최소가 되는 $k=-\dfrac18$과 최솟값 $\dfrac7{32}$을 구했다.
+      depends_on:
+      - 3-2.M1
+      - 3-2.A1
+      steps:
+      - 32b-3
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: past-v2-lean
+  item_version: 1
+  verdict: pass
+  date: &id001 2026-11-22
+created: *id001
+updated: *id001

@@ -1,0 +1,756 @@
+# 광운대 2022학년도 논술고사 자연계열(2교시) 문제 1 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+# 공식 채점기준표 [1](2) 표기 메모: 첫 행의 등식 '=-a^3/24+a^2/4-5/24'는 S_1-5/24 를 합쳐 쓴 표기(예시 답안은 '-a^3/24+a^2/4-5/24=0'). 원문 그대로 두고 evidence 에는 S_1 식만 적음.
+schema_version: '2.0'
+id: KW-G22B-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: KW
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 구성
+points: 50
+time_estimate_min: null
+intent: |
+  [1] 좌표평면에서 조건을 만족시키는 영역을 이해하고 이를 수식으로 표현할 수 있는 능력을 평가한다. 그리고 직선과 이차곡선의 위치 관계를 이해하고 정적분의 개념을 이용하여 문제를 해결할 수 있는 능력을 평가한다. [2] 연속함수의 대칭이동과 평행이동을 이해하고 이를 수식으로 표현할 수 있는 능력을 평가한다. 그리고 치환적분법을 이용한 정적분의 계산 능력과 주어진 조건을 적용하여 새로운 응용문제를 해결할 수 있는 능력을 평가한다. [3] 수열의 개념을 이해하고 등비수열의 특징을 이용하여 문제의 조건에 맞는 좌표평면의 점의 좌표를 수학적으로 표현할 수 있는 능력과 등비급수의 합을 계산하는 능력을 평가한다. 그리고 좌표평면에서 두 직선 사이의 위치 관계를 이해하고 삼각함수를 이용하여 이를 표현할 수 있는 능력을 평가한다. [4] 규칙성이 있는 수열의 합을 일반적인 식으로 표현하고 이를 계산할 수 있는 능력을 평가한다. (광운대 공식 '문제 해설' 출제 의도)
+key_idea: |
+  판별식으로 영역을 $0\le c\le\dfrac{b^2}{4}$로 바꾸고 점 $\mathrm{A}$를 지나는 직선이 나누는 넓이를 접점의 $x$좌표 $a$로 표현해 삼차방정식을 푼다. $g(x)=f(\pi-x)$ 치환으로 $\int_0^\pi xh(x)\,dx=\dfrac\pi2\int_0^\pi h(x)\,dx$ 꼴을 만든다. 정사각형 열은 등비수열·등비급수, 각은 $\tan(45^{\circ}+\theta_n)$로 처리하고, $1+n^2+n^4$ 인수분해로 소거합을 구한다.
+stuck: |
+  [2](3)에서 $x$ 대신 $\pi-x$ 치환을 적용해 구하려는 적분 $I$에 대한 방정식 $I=\pi\int\cdots-I$를 세우는 단계
+idea_tags:
+- IDEA-REFLECT-SUBSTITUTION-INTEGRAL
+- IDEA-FACTOR-QUARTIC-TELESCOPING
+tags:
+- 판별식
+- 정적분과 넓이
+- 치환적분
+- 대칭이동
+- 등비급수
+- 탄젠트 덧셈정리
+- 부분분수
+- 소거합
+elements:
+  materials:
+  - 조건 (i)과 (ii)를 만족시키는 점 $(b,c)$ 전체의 영역(포물선 $c=\dfrac{b^2}{4}$ 아래)
+  - 점 $\mathrm{A}(2,0)$을 지나 영역을 $5:11$로 나누는 직선
+  - $\int_0^\pi\dfrac{\sin x}{1+\cos^2x}dx$, $\int_0^\pi\dfrac{x\sin x}{1+\cos^2x}dx$
+  - 한 변이 $1,\dfrac12,\dfrac14,\cdots$ 인 정사각형의 꼭짓점 $\mathrm{P}_n$
+  - $\dfrac{4}{1+2^2+2^4}+\cdots+\dfrac{20}{1+10^2+10^4}$
+  concepts:
+  - 이차방정식의 판별식
+  - 곡선으로 둘러싸인 도형의 넓이
+  - 그래프의 대칭이동·평행이동
+  - 치환적분법
+  - 등비수열과 등비급수
+  - 탄젠트 덧셈정리
+  - 부분분수와 소거합
+  tools:
+  - $D=b^2-4c\ge0$
+  - $S_1=\int_0^a\dfrac{x^2}{4}dx+\dfrac12(2-a)\dfrac{a^2}{4}$
+  - $g(x)=f(\pi-x)$, $t=\pi-x$
+  - $t=\cos x$, $t=\tan\theta$
+  - $\tan(45^{\circ}+\theta_n)=\dfrac{1+\tan\theta_n}{1-\tan\theta_n}$
+  - $1+n^2+n^4=(n^2-n+1)(n^2+n+1)$
+  conditions:
+  - $0\le a\le2$ (교점의 $x$좌표)
+  - 넓이의 비 $5:11$ (왼쪽:오른쪽)
+  - $n\ge2$, $d_n>0$
+  stimuli_used:
+  - '[1]: 1'
+  - '[2]: 2'
+  subpart_links: '[1](1)의 영역을 [1](2)에서 사용, [2](2)의 값을 [2](3)에서 사용, [3](1)의 좌표를 (2)(3)에서 사용. [1]~[4]는 서로 독립'
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학
+  - 수학Ⅰ
+  - 수학Ⅱ
+  - 미적분
+  scope_2028: calc2
+  scope_confirmed: false
+  standards:
+  - code: 10수학01-07
+    text: 이차방정식에서 판별식의 의미를 이해하고 이를 설명할 수 있다.
+    verified: true
+  - code: 10수학02-03
+    text: 직선의 방정식을 구할 수 있다.
+    verified: true
+  - code: 12수학Ⅱ03-05
+    text: 곡선으로 둘러싸인 도형의 넓이를 구할 수 있다.
+    verified: true
+  - code: 10수학02-08
+    text: 평행이동의 의미를 이해한다.
+    verified: true
+  - code: 10수학02-09
+    text: 원점, x축, y축, 직선 y=x에 대한 대칭이동의 의미를 이해한다.
+    verified: true
+  - code: 12수학Ⅱ03-03
+    text: 정적분의 뜻을 안다.
+    verified: true
+  - code: 12미적03-01
+    text: 치환적분법을 이해하고, 이를 활용할 수 있다.
+    verified: true
+  - code: 12수학Ⅰ03-03
+    text: 등비수열의 뜻을 알고, 일반항, 첫째항부터 제n항까지의 합을 구할 수 있다.
+    verified: true
+  - code: 12미적01-05
+    text: 등비급수의 뜻을 알고, 그 합을 구할 수 있다.
+    verified: true
+  - code: 12미적02-03
+    text: 삼각함수의 덧셈정리를 이해한다.
+    verified: true
+  - code: 12수학Ⅰ03-05
+    text: 여러 가지 수열의 첫째항부터 제n항까지의 합을 구할 수 있다.
+    verified: true
+  content_area: 이차방정식 · 정적분 · 수열의 합 · 등비급수
+  behavior_domain: 문제해결
+  unit_path:
+  - 미적분
+  - 적분법
+  - 치환적분법
+  key_concepts:
+  - 판별식
+  - 치환적분법
+  - 등비급수
+  - 탄젠트 덧셈정리
+  - 소거합
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 광운대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 광운대학교
+  admission_year: 2022
+  admission_type: 수시 논술우수자
+  track: 자연계열(2교시)
+  question_no: 1
+  official_url: https://iphak.kw.ac.kr/pds/pds_view.php?m_type=SUSI&bn=41307
+  retrieved_at: '2026-11-22'
+  original_points:
+  - 3
+  - 6
+  - 6
+  - 6
+  - 7
+  - 6
+  - 4
+  - 6
+  - 6
+  rights_notice: 미확인
+  transcribed_from: 광운대 입학처 공식 PDF「2022학년도 논술고사 자연계열(2교시)」문제 p.1~2, 문제 해설 p.6~11 (이미지 대조 2026-11-22)
+verify: verify/KW-G22B.py::p01
+stimuli:
+- label: '1'
+  body: |
+    1. 이차방정식의 근의 판별
+    계수가 실수인 이차방정식 $ax^2+bx+c=0\ (a\ne0)$에서 $D=b^2-4ac$라고 할 때,
+    $D>0$이면 서로 다른 두 실근이 있다.
+    $D=0$이면 중근이 있다.
+    $D<0$이면 서로 다른 두 허근이 있다.
+- label: '2'
+  body: |
+    2. 치환적분법을 이용한 정적분
+    미분가능한 함수 $g(x)$의 도함수 $g^{\prime}(x)$가 닫힌구간 $[a,b]$를 포함하는 열린구간에서 연속이고, $g(a)=\alpha$와 $g(b)=\beta$에 대하여 함수 $f(x)$가 $\alpha$와 $\beta$를 포함하는 구간에서 연속일 때 다음이 성립한다.
+    $$\int_a^bf(g(x))g^{\prime}(x)\,dx=\int_\alpha^\beta f(t)\,dt$$
+stem: |
+  [문제 1] (50점) 다음 제시문을 읽고 문항별로 풀이와 함께 답하시오.
+subparts:
+- id: 1-1
+  stem: |
+    [1] (1) 다음 조건 (i)과 (ii)를 만족시키는 두 실수 $b$와 $c$에 대해 $(b,c)$를 좌표로 하는 점 전체로 이루어진 영역을 그림 또는 식으로 나타내시오. [3점]
+
+    (i) $0\le b\le2$, $0\le c\le2$
+    (ii) 이차방정식 $x^2+bx+c=0$의 실근이 있다.
+  points: 3
+  depends_on: []
+  answer:
+    kind: expression
+    value: 0<=b<=2, 0<=c<=b**2/4
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S11-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 11b-1
+      content: |
+        이차방정식 $x^2+bx+c=0$의 실근이 있기 위한 필요충분조건은 $b^2-4c\ge0$이므로 $c\le\dfrac{b^2}{4}$이다.
+      source_flow: 해설 p.8~9
+      criteria:
+      - 1-1.M1
+    - id: 11b-2
+      content: |
+        조건 (i)에서 $0\le b\le2$이고 $0\le c\le2$이므로 $0\le c\le\dfrac{b^2}{4}$이다. 따라서 문제의 조건을 모두 만족시키는 영역은 포물선 $y=\dfrac{x^2}{4}$과 $x$축 및 직선 $x=2$로 둘러싸인 영역이다. 이를 "$0\le x\le2$, $0\le y\le\dfrac{x^2}{4}$" 또는 $\left\{(x,y)\mid0\le x\le2,\ 0\le y\le\dfrac{x^2}{4}\right\}$와 같이 나타낼 수도 있다.
+      source_flow: 해설 p.8~9
+      criteria:
+      - 1-1.A1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 1-1.M1
+      mark_type: M
+      points: 1
+      evidence: |
+        두 실수 $b$와 $c$ 사이의 관계식 $c\le\dfrac{b^2}{4}$을 얻었다.
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 11b-1
+    - id: 1-1.A1
+      mark_type: A
+      points: 2
+      evidence: |
+        조건의 영역 $0\le x\le2$, $0\le y\le\dfrac{x^2}{4}$을 그림이나 식으로 표현했다.
+      depends_on:
+      - 1-1.M1
+      steps:
+      - 11b-2
+    deductions: []
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+- id: 1-2
+  stem: |
+    (2) 점 $\mathrm{A}(2,0)$을 지나는 직선이 (1)의 영역을 왼쪽과 오른쪽으로 넓이의 비가 $5:11$이 되도록 나눌 때, 그 직선의 방정식을 찾으시오. [6점]
+  points: 6
+  depends_on: []
+  answer:
+    kind: expression
+    value: y=-x/4+1/2
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S12-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 12b-1
+      content: |
+        (1)의 영역의 넓이는 $S=\displaystyle\int_0^2\dfrac{x^2}{4}\,dx=\left[\dfrac{x^3}{12}\right]_0^2=\dfrac{8}{12}=\dfrac23$이다.
+        점 $\mathrm{A}(2,0)$을 지나는 직선이 포물선 $y=\dfrac{x^2}{4}$과 만나는 점의 $x$좌표를 $a$라 하면, 이 직선이 나눈 (1)의 영역의 왼쪽 부분의 넓이는 $S_1=\displaystyle\int_0^a\dfrac{x^2}{4}\,dx+\dfrac12\times(2-a)\times\dfrac{a^2}{4}=\dfrac{a^3}{12}+\dfrac18a^2(2-a)$이다.
+      source_flow: 해설 p.8~9
+      criteria:
+      - 1-2.M1
+    - id: 12b-2
+      content: |
+        이 직선이 영역의 넓이를 $5:11$로 나누므로 $S_1=\dfrac{5}{16}S$에서 다음을 얻는다.
+        $\dfrac{a^3}{12}+\dfrac18a^2(2-a)=\dfrac{5}{16}\times\dfrac23=\dfrac{5}{24}$, $-\dfrac{a^3}{24}+\dfrac{a^2}{4}-\dfrac{5}{24}=0$, $a^3-6a^2+5=(a-1)(a^2-5a-5)=0$
+        $a$의 값이 될 수 있는 $1$ 또는 $\dfrac{5\pm3\sqrt5}{2}$ 중에서, 조건 $0\le a\le2$를 만족시키는 $a$의 값은 $1$뿐이다.
+      source_flow: 해설 p.8~9
+      criteria:
+      - 1-2.M2
+    - id: 12b-3
+      content: |
+        따라서 직선과 포물선의 교점은 $\left(1,\dfrac14\right)$이므로, 찾는 직선의 방정식은 $y=-\dfrac14x+\dfrac12$이다.
+      source_flow: 해설 p.8~9
+      criteria:
+      - 1-2.A1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 1-2.M1
+      mark_type: M
+      points: 2
+      evidence: |
+        영역의 넓이를 변수를 이용하여 표현했다(예: $S_1=\dfrac{a^3}{12}+\dfrac18a^2(2-a)$).
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 12b-1
+    - id: 1-2.M2
+      mark_type: M
+      points: 3
+      evidence: |
+        넓이의 비를 이용하여 방정식($a^3-6a^2+5=0$)을 얻고 알맞은 $a=1$을 찾았다.
+      depends_on:
+      - 1-2.M1
+      implied_ok: false
+      steps:
+      - 12b-2
+    - id: 1-2.A1
+      mark_type: A
+      points: 1
+      evidence: |
+        직선의 방정식 $y=-\dfrac14x+\dfrac12$을 얻었다.
+      depends_on:
+      - 1-2.M1
+      - 1-2.M2
+      steps:
+      - 12b-3
+    deductions: []
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+- id: 2-1
+  stem: |
+    [2] 함수 $f(x)$가 $0\le x\le\pi$에서 정의된 연속함수일 때, 다음 물음에 답하시오.
+
+    (1) 함수 $y=f(x)$의 그래프를 $y$축에 대하여 대칭이동한 뒤에, $x$축의 방향으로 $\pi$만큼 평행이동한 것이 그래프인 함수를 $g(x)$라고 할 때, $\displaystyle\int_0^{\pi}f(x)\,dx=\int_0^{\pi}g(x)\,dx$임을 증명하시오. [6점]
+  points: 6
+  depends_on: []
+  answer:
+    kind: proof
+    value: g(x)=f(pi-x) 이고 치환 pi-x=t 로 int_0^pi f = int_0^pi g
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S21-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 21b-1
+      content: |
+        함수 $y=f(x)$의 그래프를 $y$축에 대하여 대칭이동한 식은 $y=f(-x)$이다. 이것을 다시 $x$축의 방향으로 $\pi$만큼 평행이동한 식은 $y=f(-(x-\pi))=f(\pi-x)$이다. 따라서 $g(x)=f(\pi-x)$이다.
+      source_flow: 해설 p.9
+      criteria:
+      - 2-1.M1
+    - id: 21b-2
+      content: |
+        여기서 $\pi-x=t$로 치환하면 $\dfrac{dt}{dx}=-1$이므로 다음을 얻는다.
+        $\displaystyle\int_0^{\pi}g(x)\,dx=\int_0^{\pi}f(\pi-x)\,dx=-\int_{\pi}^{0}f(t)\,dt=\int_0^{\pi}f(t)\,dt=\int_0^{\pi}f(x)\,dx$
+      source_flow: 해설 p.9
+      criteria:
+      - 2-1.R1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 2-1.M1
+      mark_type: M
+      points: 3
+      evidence: |
+        대칭이동 후 평행이동된 함수 $g(x)=f(\pi-x)$를 얻었다.
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 21b-1
+    - id: 2-1.R1
+      mark_type: R
+      points: 3
+      evidence: |
+        $\displaystyle\int_0^{\pi}f(x)\,dx=\int_0^{\pi}g(x)\,dx$임을 증명했다.
+      depends_on:
+      - 2-1.M1
+      steps:
+      - 21b-2
+    deductions: []
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+- id: 2-2
+  stem: |
+    (2) 정적분 $\displaystyle\int_0^{\pi}\dfrac{\sin x}{1+\cos^2x}\,dx$의 값을 찾으시오. [6점]
+  points: 6
+  depends_on: []
+  answer:
+    kind: value
+    value: pi/2
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S22-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 22b-1
+      content: |
+        정적분 $\displaystyle\int_0^{\pi}\dfrac{\sin x}{1+\cos^2x}\,dx$에서 $\cos x=t$로 치환하면 $\dfrac{dt}{dx}=-\sin x$이고 적분의 아래끝은 $1$이며 위끝은 $-1$로 바뀌므로 다음이 성립한다.
+        $\displaystyle\int_0^{\pi}\dfrac{\sin x}{1+\cos^2x}\,dx=-\int_1^{-1}\dfrac{1}{1+t^2}\,dt=\int_{-1}^{1}\dfrac{1}{1+t^2}\,dt=2\int_0^1\dfrac{1}{1+t^2}\,dt$
+      source_flow: 해설 p.10
+      criteria:
+      - 2-2.M1
+    - id: 22b-2
+      content: |
+        이제 $t=\tan\theta\ \left(0\le\theta\le\dfrac{\pi}{4}\right)$로 치환하면 $\dfrac{dt}{d\theta}=\sec^2\theta$이고 적분의 아래끝은 $0$이며 위끝은 $\dfrac{\pi}{4}$로 바뀌므로
+        $2\displaystyle\int_0^1\dfrac{1}{1+t^2}\,dt=2\int_0^{\frac{\pi}{4}}\dfrac{\sec^2\theta}{\sec^2\theta}\,d\theta=2\int_0^{\frac{\pi}{4}}d\theta=\dfrac{\pi}{2}$이다.
+        따라서 $\displaystyle\int_0^{\pi}\dfrac{\sin x}{1+\cos^2x}\,dx=\dfrac{\pi}{2}$이다.
+      source_flow: 해설 p.10
+      criteria:
+      - 2-2.A1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 2-2.M1
+      mark_type: M
+      points: 2
+      evidence: |
+        치환적분법을 이용하여 적분식을 표현했다(예: $\cos x=t$ 또는 $t=\tan\theta$).
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 22b-1
+    - id: 2-2.A1
+      mark_type: A
+      points: 4
+      evidence: |
+        정적분 $\displaystyle\int_0^{\pi}\dfrac{\sin x}{1+\cos^2x}\,dx=\dfrac{\pi}{2}$를 얻었다.
+      depends_on:
+      - 2-2.M1
+      steps:
+      - 22b-2
+    deductions: []
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+- id: 2-3
+  stem: |
+    (3) 위의 결과를 이용하여 정적분 $\displaystyle\int_0^{\pi}\dfrac{x\sin x}{1+\cos^2x}\,dx$의 값을 찾으시오. [7점]
+  points: 7
+  depends_on: []
+  answer:
+    kind: value
+    value: pi**2/4
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S23-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 23b-1
+      content: |
+        삼각함수의 성질에서 $\sin x=\sin(\pi-x)$이고 $\cos x=-\cos(\pi-x)$이므로 (1)의 결과를 이용하면 주어진 식은 다음과 같다.
+        $I=\displaystyle\int_0^{\pi}\dfrac{x\sin x}{1+\cos^2x}\,dx=\int_0^{\pi}\dfrac{(\pi-x)\sin(\pi-x)}{1+\cos^2(\pi-x)}\,dx=\int_0^{\pi}\dfrac{(\pi-x)\sin x}{1+\cos^2x}\,dx=\pi\int_0^{\pi}\dfrac{\sin x}{1+\cos^2x}\,dx-I$
+      source_flow: 해설 p.10
+      criteria:
+      - 2-3.M1
+    - id: 23b-2
+      content: |
+        따라서 (2)의 결과에 의해 찾는 적분값은 $I=\dfrac{\pi}{2}\int_0^{\pi}\dfrac{\sin x}{1+\cos^2x}\,dx=\dfrac{\pi}{2}\times\dfrac{\pi}{2}=\dfrac{\pi^2}{4}$이다.
+      source_flow: 해설 p.10
+      criteria:
+      - 2-3.A1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 2-3.M1
+      mark_type: M
+      points: 4
+      evidence: |
+        치환적분법으로 문제의 정적분과 (2)의 정적분과의 관계를 얻었다(예: $\pi-x=t$).
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 23b-1
+    - id: 2-3.A1
+      mark_type: A
+      points: 3
+      evidence: |
+        정적분 $\displaystyle\int_0^{\pi}\dfrac{x\sin x}{1+\cos^2x}\,dx=\dfrac{\pi^2}{4}$을 얻었다.
+      depends_on:
+      - 2-3.M1
+      steps:
+      - 23b-2
+    deductions: []
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+- id: 3-1
+  stem: |
+    [3] 오른쪽 그림과 같이 한 변의 길이가 $1$인 정사각형의 두 변이 두 좌표축에 놓여 있다. 이 정사각형의 오른쪽으로 $x$축에 놓이면서 한 변의 길이가 절반인 정사각형들을 계속해서 추가한다. $n$번째 정사각형의 오른쪽 위 꼭짓점을 $\mathrm{P}_n(a_n,b_n)$이라고 할 때, 다음 물음에 답하시오.
+
+    [그림: $x$축과 $y$축이 있고 한 변의 길이가 $1$인 정사각형의 오른쪽 위 꼭짓점이 $\mathrm{P}_1$. 그 오른쪽에 변의 길이 $\dfrac12$, $\dfrac14$인 정사각형이 차례로 이어져 오른쪽 위 꼭짓점이 $\mathrm{P}_2$, $\mathrm{P}_3$. $x$축 눈금 $1$, $\dfrac32$, $\dfrac74$, $y$축 눈금 $1$, 점선과 말줄임표]
+
+    (1) 점 $\mathrm{P}_n$의 좌표 $(a_n,b_n)$을 찾고, 모든 자연수 $n$에 대하여 $\dfrac{a_n}{b_n}$이 홀수임을 증명하시오. [6점]
+  points: 6
+  depends_on: []
+  answer:
+    kind: expression
+    value: a_n=2-(1/2)**(n-1); b_n=(1/2)**(n-1); ratio=2**n-1
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S31-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 31b-1
+      content: |
+        점 $\mathrm{P}_n$의 $y$좌표는 첫째항이 $1$이고 공비가 $\dfrac12$인 등비수열이므로 $b_n=\left(\dfrac12\right)^{n-1}$이고
+      source_flow: 해설 p.10
+      criteria:
+      - 3-1.B1
+    - id: 31b-2
+      content: |
+        점 $\mathrm{P}_n$의 $x$좌표는 $a_n=\displaystyle\sum_{k=1}^{n}b_k=\sum_{k=1}^{n}\left(\dfrac12\right)^{k-1}=2-\left(\dfrac12\right)^{n-1}$이므로 점 $\mathrm{P}_n$의 좌표는 $\left(2-\left(\dfrac12\right)^{n-1},\left(\dfrac12\right)^{n-1}\right)$이다.
+      source_flow: 해설 p.10
+      criteria:
+      - 3-1.M1
+    - id: 31b-3
+      content: |
+        따라서 $\dfrac{a_n}{b_n}=\dfrac{2-\left(\dfrac12\right)^{n-1}}{\left(\dfrac12\right)^{n-1}}=2^n-1$이고 모든 자연수 $n$에서 $2^n$은 짝수이므로 $\dfrac{a_n}{b_n}=2^n-1$은 홀수이다.
+      source_flow: 해설 p.10
+      criteria:
+      - 3-1.R1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 3-1.B1
+      mark_type: B
+      points: 2
+      evidence: |
+        점 $\mathrm{P}_n$의 $y$좌표 $b_n=\left(\dfrac12\right)^{n-1}$을 얻었다.
+      depends_on: []
+      steps:
+      - 31b-1
+    - id: 3-1.M1
+      mark_type: M
+      points: 2
+      evidence: |
+        점 $\mathrm{P}_n$의 $x$좌표 $a_n=2-\left(\dfrac12\right)^{n-1}$을 얻었다.
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 31b-2
+    - id: 3-1.R1
+      mark_type: R
+      points: 2
+      evidence: |
+        $\dfrac{a_n}{b_n}=2^n-1$을 얻고 홀수임을 증명했다.
+      depends_on:
+      - 3-1.B1
+      - 3-1.M1
+      steps:
+      - 31b-3
+    deductions: []
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+- id: 3-2
+  stem: |
+    (2) $n$번째 정사각형의 넓이를 $S_n$이라고 할 때, $\dfrac{\displaystyle\sum_{k=n+1}^{\infty}S_k}{S_n}$의 값을 찾으시오. [4점]
+  points: 4
+  depends_on: []
+  answer:
+    kind: value
+    value: 1/3
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S32-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 32b-1
+      content: |
+        $n$번째 정사각형의 넓이는 $S_n=b_n^2=\left(\left(\dfrac12\right)^{n-1}\right)^2=\left(\dfrac14\right)^{n-1}$이므로
+      source_flow: 해설 p.10
+      criteria:
+      - 3-2.B1
+    - id: 32b-2
+      content: |
+        $\displaystyle\sum_{k=n+1}^{\infty}S_k=\sum_{k=n+1}^{\infty}\left(\dfrac14\right)^{k-1}=\dfrac{\left(\dfrac14\right)^n}{1-\dfrac14}=\dfrac43\left(\dfrac14\right)^n$이다. 따라서 $\dfrac{\displaystyle\sum_{k=n+1}^{\infty}S_k}{S_n}=\dfrac{\dfrac43\left(\dfrac14\right)^n}{\left(\dfrac14\right)^{n-1}}=\dfrac13$이다.
+      source_flow: 해설 p.10
+      criteria:
+      - 3-2.A1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 3-2.B1
+      mark_type: B
+      points: 2
+      evidence: |
+        $n$번째 정사각형의 넓이 $S_n=\left(\dfrac14\right)^{n-1}$을 얻었다.
+      depends_on: []
+      steps:
+      - 32b-1
+    - id: 3-2.A1
+      mark_type: A
+      points: 2
+      evidence: |
+        등비급수의 합을 계산하여 $\dfrac{\displaystyle\sum_{k=n+1}^{\infty}S_k}{S_n}=\dfrac13$을 얻었다.
+      depends_on:
+      - 3-2.B1
+      steps:
+      - 32b-2
+    deductions: []
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+- id: 3-3
+  stem: |
+    (3) $n\ge2$일 때, 다음을 만족시키는 양수 $d_n$을 찾으시오. [6점]
+
+    원점 $\mathrm{O}$와 점 $\mathrm{P}_n$을 지나는 직선과 직선 $y=d_nx$ 사이의 각의 크기는 $45^{\circ}$이다.
+  points: 6
+  depends_on: []
+  answer:
+    kind: expression
+    value: 2**n/(2**n-2)
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S33-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 33b-1
+      content: |
+        원점 $\mathrm{O}$과 $\mathrm{P}_n$ $(n\ge2)$을 지나는 직선이 $x$축의 양의 방향과 이루는 각을 $\theta_n$이라고 하면 $\tan\theta_n=\dfrac{b_n}{a_n}=\dfrac{1}{2^n-1}$이다.
+        직선 $y=d_nx$가 $x$축의 양의 방향과 이루는 각을 $\phi_n$이라고 하면 $\tan\phi_n=d_n\ (d_n>0)$이므로 다음을 얻는다.
+      source_flow: 해설 p.11
+      criteria:
+      - 3-3.M1
+    - id: 33b-2
+      content: |
+        $d_n=\tan\phi_n=\tan(45^{\circ}+\theta_n)=\dfrac{\tan45^{\circ}+\tan\theta_n}{1-\tan45^{\circ}\cdot\tan\theta_n}=\dfrac{1+\dfrac{1}{2^n-1}}{1-\dfrac{1}{2^n-1}}=\dfrac{2^n}{2^n-2}=\dfrac{2^{n-1}}{2^{n-1}-1}$
+        (다른 풀이) $\tan(\phi_n-\theta_n)=\dfrac{\tan\phi_n-\tan\theta_n}{1+\tan\phi_n\tan\theta_n}=\dfrac{d_n-\dfrac{1}{2^n-1}}{1+\dfrac{d_n}{2^n-1}}=\dfrac{d_n(2^n-1)-1}{(2^n-1)+d_n}=\tan45^{\circ}=1$이므로 $d_n=\dfrac{(2^n-1)+1}{(2^n-1)-1}=\dfrac{2^n}{2^n-2}=\dfrac{2^{n-1}}{2^{n-1}-1}$이다.
+      source_flow: 해설 p.11
+      criteria:
+      - 3-3.A1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 3-3.M1
+      mark_type: M
+      points: 3
+      evidence: |
+        직선 $\mathrm{OP}_n$과 직선 $y=d_nx$ 간의 기울기의 관계를 표현했다(예: $d_n=\tan(45^{\circ}+\theta_n)$).
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 33b-1
+    - id: 3-3.A1
+      mark_type: A
+      points: 3
+      evidence: |
+        직선의 기울기 $d_n=\dfrac{2^n}{2^n-2}=\dfrac{2^{n-1}}{2^{n-1}-1}$를 얻었다.
+      depends_on:
+      - 3-3.M1
+      steps:
+      - 33b-2
+    deductions: []
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+- id: '4'
+  stem: |
+    [4] 다음 식의 값을 찾으시오. [6점]
+
+    $$\dfrac{4}{1+2^2+2^4}+\dfrac{6}{1+3^2+3^4}+\dfrac{8}{1+4^2+4^4}+\cdots+\dfrac{20}{1+10^2+10^4}$$
+  points: 6
+  depends_on: []
+  answer:
+    kind: value
+    value: 12/37
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S4-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 4b-1
+      content: |
+        모든 자연수 $n$에 대하여 $1+n^2+n^4=(1+n^2)^2-n^2=(1-n+n^2)(1+n+n^2)$이므로 다음이 성립한다.
+        $\dfrac{2n}{1+n^2+n^4}=\dfrac{1}{1-n+n^2}-\dfrac{1}{1+n+n^2}=\dfrac{1}{1+(n-1)n}-\dfrac{1}{1+n(n+1)}$
+      source_flow: 해설 p.11
+      criteria:
+      - 4.M1
+    - id: 4b-2
+      content: |
+        그러므로 다음을 얻는다.
+        $\dfrac{4}{1+2^2+2^4}+\dfrac{6}{1+3^2+3^4}+\dfrac{8}{1+4^2+4^4}+\cdots+\dfrac{20}{1+10^2+10^4}=\left(\dfrac{1}{1+1\times2}-\dfrac{1}{1+2\times3}\right)+\left(\dfrac{1}{1+2\times3}-\dfrac{1}{1+3\times4}\right)+\cdots+\left(\dfrac{1}{1+9\times10}-\dfrac{1}{1+10\times11}\right)=\dfrac{1}{1+1\times2}-\dfrac{1}{1+10\times11}=\dfrac13-\dfrac{1}{111}=\dfrac{37-1}{111}=\dfrac{36}{111}=\dfrac{12}{37}$
+      source_flow: 해설 p.11
+      criteria:
+      - 4.A1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 4.M1
+      mark_type: M
+      points: 4
+      evidence: |
+        부분분수 $\dfrac{2n}{1+n^2+n^4}=\dfrac{1}{1+(n-1)n}-\dfrac{1}{1+n(n+1)}$ 식을 얻었다.
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 4b-1
+    - id: 4.A1
+      mark_type: A
+      points: 2
+      evidence: |
+        주어진 식의 값 $\dfrac{12}{37}$를 얻었다.
+      depends_on:
+      - 4.M1
+      steps:
+      - 4b-2
+    deductions: []
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: past-v2-lean
+  item_version: 1
+  verdict: pass
+  date: '2026-11-22'
+created: '2026-11-22'
+updated: '2026-11-22'

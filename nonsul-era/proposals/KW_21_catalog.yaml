@@ -1,0 +1,335 @@
+# 광운대 2021학년도 실전(1~3교시)·2021 모의 [문제 1]·[문제 2] — 오개념 후보 (공용 카탈로그 반영 전 제안). ID 구간 MC-*-82101~82199 (실전 A 01~29, B 30~59, C 60~79, 모의 80~99)
+misconceptions:
+- id: MC-GEO-82101
+  name: 수직 조건을 $aa^{\prime}+bb^{\prime}=0$ 대신 기울기의 곱 $\dfrac{a}{2}\cdot\dfrac{2b}{5}=-1$로 잘못 세움
+  concepts:
+  - CON-GEO-LINE-PERP
+  used_in: KW-G21A-01#1-1
+  outcome_code: '71'
+  wrong_work: $ab=-5$를 얻음
+  detect_cue: $ab=5$가 아님
+  feedback: 직선 $ax+by+c=0$의 수직 조건은 $aa^{\prime}+bb^{\prime}=0$이므로 $2b\cdot a+2\cdot(-5)=0$에서 $ab=5$입니다.
+- id: MC-GEO-82102
+  name: 삼각형 넓이의 최대를 대수식으로만 처리하고 교점이 지름 $AB$인 원 위에 있음을 놓침
+  concepts:
+  - CON-GEO-CIRCLE-DIAMETER
+  used_in: KW-G21A-01#1-2
+  outcome_code: '72'
+  wrong_work: $a,b$로 교점을 구해 넓이를 $a,b$의 식으로 쓰다 막힘
+  detect_cue: 원 위의 점이라는 언급이 없음
+  feedback: 두 직선은 정점 $(0,\pm2)$를 지나고 서로 수직이므로 교점은 $AB$를 지름으로 하는 원 위에 있고 높이는 $2$ 이하입니다.
+- id: MC-CAL-82103
+  name: $t^nw(t)$의 극한에서 $n=1$만 확인하고 $n\ge2$일 때 발산을 확인하지 않음
+  concepts:
+  - CON-CAL-LIMIT-INFTY
+  used_in: KW-G21A-01#2-2
+  outcome_code: '71'
+  wrong_work: $n=1$에서 $1$로 수렴하므로 모든 $n$이 가능
+  detect_cue: $n$의 값이 여러 개로 나옴
+  feedback: $n\ge2$이면 $t^{n-1}\sqrt{1+1/t^2}\to\infty$이므로 수렴하는 자연수는 $n=1$뿐입니다.
+- id: MC-CAL-82104
+  name: 사잇값의 정리로 방향 전환을 보일 때 $u(t)=0$이 되는 시각을 직접 풀려 함
+  concepts:
+  - CON-CAL-IVT-SIGN
+  used_in: KW-G21A-01#2-3
+  outcome_code: '72'
+  wrong_work: $-\dfrac{\sin t}{t}-\dfrac{\cos t}{t^2}=0$을 풀려다 중단
+  detect_cue: $\tan t=-\dfrac1t$를 풂
+  feedback: 부호가 바뀌는 구간만 보이면 됩니다. $u(\pi)>0$, $u(2\pi)<0$, $u(3\pi)>0$으로 사잇값의 정리를 두 번 씁니다.
+- id: MC-ALG-82105
+  name: $\dfrac{\omega}{3+\omega}=a+b\omega$에서 $\omega^2+\omega+1=0$을 쓰지 않고 $\omega$를 허수 성분으로 풀어 계산이 복잡해짐
+  concepts:
+  - CON-ALG-CUBE-ROOT-UNITY
+  used_in: KW-G21A-01#3-1
+  outcome_code: '71'
+  wrong_work: $\omega=\dfrac{-1+\sqrt3i}{2}$를 대입해 분모를 유리화
+  detect_cue: $a,b$ 값이 틀리거나 시간이 오래 걸림
+  feedback: 양변에 $3+\omega$를 곱하고 $\omega^2=-\omega-1$을 대입한 뒤 $\omega$의 계수 비교를 합니다.
+- id: MC-PRB-82106
+  name: 중복을 허용한 두 원소의 합에서 서로 다른 두 원소의 경우를 한 번만 셈
+  concepts:
+  - CON-PRB-DIST-TABLE
+  used_in: KW-G21A-01#3-2
+  outcome_code: '71'
+  wrong_work: $P(X=4/7)=P(X=8/7)=P(X=10/7)=\dfrac19$로 둠
+  detect_cue: 확률의 합이 $1$이 아님
+  feedback: 서로 다른 두 원소의 합은 순서쌍으로 두 번 나타나므로 $\dfrac29$입니다.
+- id: MC-CAL-82107
+  name: $a\ge1$ 또는 $a\le0$일 때 $g(a)$를 구간 끝점이 아닌 극대점 값으로 처리
+  concepts:
+  - CON-CAL-MAX-CASES
+  used_in: KW-G21A-02#1-1
+  outcome_code: '71'
+  wrong_work: 모든 $a$에서 $g(a)=f(a)=\dfrac{a^3}{2}-a$
+  detect_cue: $a\le0$에서 $g(a)>0$이 아님
+  feedback: $a\le0$이면 $[0,1]$에서 감소하여 $g=f(0)$, $a\ge1$이면 증가하여 $g=f(1)$입니다.
+- id: MC-CAL-82108
+  name: $\log_23$과 $\sqrt{1.5}$의 비교에 쓰는 $f(x)=\dfrac{\ln x}{x}$의 증가구간을 $x>e$로 착각
+  concepts:
+  - CON-CAL-LOG-COMPARE
+  used_in: KW-G21A-02#2-3
+  outcome_code: '72'
+  wrong_work: $\sqrt2<\sqrt3$이므로 $f(\sqrt2)<f(\sqrt3)$이 곧바로 성립한다고 서술하고 극대 위치 $e$를 언급하지 않음
+  detect_cue: $\sqrt3<e$ 확인이 없음
+  feedback: $f$는 $x<e$에서 증가하므로 $\sqrt2<\sqrt3<e$를 확인해야 $f(\sqrt3)>f(\sqrt2)$입니다.
+- id: MC-CAL-82109
+  name: $a_n=\displaystyle\int|x^{-n}\ln x|dx$에서 구간 $[e^{1/(1-n)},1]$의 부호를 확인하지 않고 절댓값을 그냥 제거
+  concepts:
+  - CON-CAL-INTEGRAL-ABS
+  used_in: KW-G21A-02#2-4
+  outcome_code: '71'
+  wrong_work: $a_n=\displaystyle\int x^{-n}\ln x\,dx$로 계산해 음수가 나옴
+  detect_cue: $a_n<0$
+  feedback: 구간에서 $\ln x\le0$이므로 $\lvert x^{-n}\ln x\rvert=-x^{-n}\ln x$입니다.
+- id: MC-CNT-82130
+  name: $A\cap B$와 $A\cup B$에서 $B$의 원소 $\dfrac{2k+1}{12}$을 $U$의 원소 $\dfrac{n}{24}$로 통분하지 않아 같은 값을 다른 원소로 셈
+  concepts:
+  - CON-CNT-SET-OPS
+  used_in: KW-G21B-01#1-1
+  outcome_code: '71'
+  wrong_work: $\dfrac14$과 $\dfrac{3}{12}$을 서로 다른 원소로 봄
+  detect_cue: $A\cap B=\varnothing$
+  feedback: 분수를 통분하면 $\dfrac{3}{12}=\dfrac14$이므로 두 집합이 공유하는 원소는 $\dfrac14,\dfrac34$입니다.
+- id: MC-CAL-82131
+  name: $B+C=\dfrac\pi2$를 쓰지 않고 $\sin B+\sin C$를 두 변수 그대로 최대화하려 함
+  concepts:
+  - CON-CAL-TRIG-MAX
+  used_in: KW-G21B-01#2-1
+  outcome_code: '72'
+  wrong_work: $\sin B=1$, $\sin C=1$일 때 최대 $3$
+  detect_cue: 답 $3$
+  feedback: $B+C=\dfrac\pi2$이므로 $\sin C=\cos B$이고 $1+\sin B+\cos B$의 최댓값은 $1+\sqrt2$입니다.
+- id: MC-GEO-82132
+  name: 사인법칙에서 $\sin A=\dfrac{a}{2R}$ 대신 $\dfrac{a}{R}$을 대입
+  concepts:
+  - CON-GEO-LAW-SINES
+  used_in: KW-G21B-01#2-2
+  outcome_code: '71'
+  wrong_work: 식 전체가 $\dfrac1{R^2}(\cdots)$로 나옴
+  detect_cue: 계수 $4R^2$가 아님
+  feedback: 사인법칙은 $\dfrac{a}{\sin A}=2R$이므로 $\sin A=\dfrac{a}{2R}$입니다.
+- id: MC-ALG-82133
+  name: 무리함수 위의 두 점 사이 기울기를 $f$의 식으로 직접 계산하려 하여 $b+d=1$을 활용하지 못함
+  concepts:
+  - CON-ALG-IRRATIONAL-SLOPE
+  used_in: KW-G21B-01#3-1
+  outcome_code: '71'
+  wrong_work: $\dfrac{d-b}{c-a}$를 $a,c$로 풀어 정리하다 막힘
+  detect_cue: $(b+1)^2=-(a+1)$을 쓰지 않음
+  feedback: $(b+1)^2=-(a+1)$, $(d+1)^2=-(c+1)$의 차로 $c-a$를 $d-b$로 약분합니다.
+- id: MC-ALG-82134
+  name: 제곱으로 만든 이차방정식의 판별식 조건에서 원래 방정식의 정의역 조건($x\le-1$)을 확인하지 않음
+  concepts:
+  - CON-ALG-EXTRANEOUS
+  used_in: KW-G21B-01#3-2
+  outcome_code: '72'
+  wrong_work: $k=\dfrac{1\pm\sqrt2}{2}$ 둘 다 접한다고 보고 범위를 $\dfrac{1-\sqrt2}{2}\le k\le\dfrac{1+\sqrt2}{2}$로 답함
+  detect_cue: 상한이 $1$이 아님
+  feedback: 끝점 $(-1,-1)$을 지나는 $k=1$이 상한이고 $k=\dfrac{1+\sqrt2}{2}$는 무연근입니다.
+- id: MC-CAL-82135
+  name: $x$축이 아닌 $y$축 기준 넓이를 $x$에 대한 적분으로 세우다 곡선의 두 분기를 혼동
+  concepts:
+  - CON-CAL-AREA-Y
+  used_in: KW-G21B-01#3-3
+  outcome_code: '71'
+  wrong_work: $\displaystyle\int|f(x)-kx|dx$ 구간 설정 실패
+  detect_cue: 적분 상·하한이 틀림
+  feedback: $x=h(y)$ 꼴로 바꾸고 $y=-1$에서 $y=\sqrt2$까지 적분한 뒤 삼각형 영역을 뺍니다.
+- id: MC-CNT-82136
+  name: $\sum(_5C_i)^2={}_pC_q$에서 $_{10}C_5$만 답하고 $_{252}C_1$ 등 다른 표현을 놓침
+  concepts:
+  - CON-CNT-BINOM-IDENTITY
+  used_in: KW-G21B-02#1-1
+  outcome_code: '71'
+  wrong_work: $p+q=15$만 답함
+  detect_cue: 경우가 하나뿐
+  feedback: $_pC_q=252$를 만족하는 $(p,q)$는 $(10,5)$, $(252,1)$, $(252,251)$이고 $p\ge q\ge0$이므로 $p+q=15,253,503$입니다.
+- id: MC-CNT-82137
+  name: $2021^{10}$을 $21$로 나눈 나머지를 $3$으로 나눈 나머지 $1$과 $7$로 나눈 나머지 $2$의 곱·합으로 처리
+  concepts:
+  - CON-CNT-CRT
+  used_in: KW-G21B-02#1-3
+  outcome_code: '72'
+  wrong_work: 나머지를 $1+2=3$ 또는 $1\times2=2$로 답함
+  detect_cue: $16$이 아님
+  feedback: $3a+1=7b+2$를 연립해 $b$를 $3$으로 나눈 나머지를 구해야 $21d+16$을 얻습니다.
+- id: MC-CAL-82138
+  name: $h(x)=\min(f,g)$를 구간별로 쓸 때 $f(x)=3$ $(x<0)$을 $g$와 비교하지 않음
+  concepts:
+  - CON-CAL-MIN-FUNCTION
+  used_in: KW-G21B-02#2-1
+  outcome_code: '71'
+  wrong_work: $h(x)=f(x)$로 놓고 넓이를 계산
+  detect_cue: $a=0$에서 $x<0$일 때 $h=3$
+  feedback: $a=0$이면 $g=1$이므로 $x<1$에서 $h=1$이고 $1\le x\le3$에서만 $(x-2)^2$입니다.
+- id: MC-CAL-82139
+  name: 접점 조건에서 $a=-4-2\sqrt3$를 $x<0$에서 접하는 경우로 제외하지 않음
+  concepts:
+  - CON-CAL-TANGENT-DOMAIN
+  used_in: KW-G21B-02#2-2
+  outcome_code: '72'
+  wrong_work: $a=-4\pm2\sqrt3$ 둘 다 답함
+  detect_cue: 답이 두 개
+  feedback: $f$의 접하는 구간은 $x\ge0$이므로 접점의 $x$좌표가 양수인 $a=-4+2\sqrt3$만 가능합니다.
+- id: MC-CAL-82140
+  name: $h$의 미분 불가능한 점을 교점 개수로만 세고 접하는 경우의 좌우 미분계수 일치를 놓침
+  concepts:
+  - CON-CAL-DIFFERENTIABILITY
+  used_in: KW-G21B-02#2-3
+  outcome_code: '71'
+  wrong_work: $a\ge0$에서 교점이 $2$개라 미분 불가능한 점도 $2$개, 접하는 $a=-4+2\sqrt3$에서도 $2+1$로 셈
+  detect_cue: 경계에서 개수가 틀림
+  feedback: 접점에서는 $h$가 미분가능이므로 접하는 경우를 제외하고 교점마다 좌우 기울기를 비교합니다.
+- id: MC-ALG-82160
+  name: 복소수의 켤레 곱 성질을 보일 때 $\overline{\alpha\beta}$를 켤레 후 곱 하나로만 쓰고 실수부·허수부를 전개하지 않음
+  concepts:
+  - CON-ALG-CONJUGATE
+  used_in: KW-G21C-01#1-1
+  outcome_code: '71'
+  wrong_work: $\overline{\alpha\beta}=\overline\alpha\,\overline\beta$를 정의로 서술
+  detect_cue: 증명이 순환
+  feedback: $\alpha=a+bi$, $\beta=c+di$를 전개해 양변의 실수부·허수부를 비교합니다.
+- id: MC-ALG-82161
+  name: $\omega^4-\overline\omega^4=0$에서 $\omega+\overline\omega=0$인 경우($a=-1$)가 허근 조건에 어긋남을 확인하지 않음
+  concepts:
+  - CON-ALG-COMPLEX-ROOT-CASES
+  used_in: KW-G21C-01#1-2
+  outcome_code: '72'
+  wrong_work: $a=-1,\ 1\pm\sqrt2$를 모두 답함
+  detect_cue: 답이 세 개
+  feedback: $a=-1$이면 $D=a^2-6a-3=4>0$이어서 실근이므로 허근 조건 $3-2\sqrt3<a<3+2\sqrt3$에 어긋납니다.
+- id: MC-ALG-82162
+  name: $\omega^2+\overline\omega^2-2\omega\overline\omega>-8$에서 허근 조건($D<0$)을 최종 범위에 적용하지 않음
+  concepts:
+  - CON-ALG-COMPLEX-ROOT-CASES
+  used_in: KW-G21C-01#1-3
+  outcome_code: '71'
+  wrong_work: $a<1$ 또는 $a>5$로 답함
+  detect_cue: $3-2\sqrt3<a<3+2\sqrt3$ 누락
+  feedback: $\omega$가 허근이려면 $3-2\sqrt3<a<3+2\sqrt3$이어야 하므로 두 범위에 교집합을 취합니다.
+- id: MC-PRB-82163
+  name: 정$2n$각형에서 가장 긴 대각선($k=n$)이 나타나는 경우의 수를 $2n$으로 셈
+  concepts:
+  - CON-PRB-POLYGON-DISTANCE
+  used_in: KW-G21C-01#2-3
+  outcome_code: '71'
+  wrong_work: 모든 $k$에서 $P=\dfrac2{2n-1}$
+  detect_cue: 확률의 합이 $\dfrac{2n}{2n-1}$
+  feedback: 지름은 $n$개이므로 $k=n$일 때 $\dfrac{n}{n(2n-1)}=\dfrac1{2n-1}$입니다.
+- id: MC-CAL-82164
+  name: $E(X_n)$의 합을 구분구적법 꼴로 바꿀 때 $\dfrac{\pi}{n}$ 간격과 앞의 계수 $\dfrac{4n}{\pi(2n-1)}$를 맞추지 못함
+  concepts:
+  - CON-CAL-RIEMANN-SUM
+  used_in: KW-G21C-01#2-4
+  outcome_code: '72'
+  wrong_work: 극한을 $\displaystyle\int_0^\pi(1-\cos x)dx=\pi$로 답함
+  detect_cue: 답 $\pi$
+  feedback: $\dfrac4{2n-1}\sum(1-\cos\tfrac{k\pi}n)=\dfrac{4n}{\pi(2n-1)}\cdot\sum(\cdot)\dfrac\pi n\to\dfrac2\pi\cdot\pi=2$입니다.
+- id: MC-ALG-82165
+  name: 방정식 ①이 한 개의 실근일 때 $k=b$(일차)인 경우를 빠뜨림
+  concepts:
+  - CON-ALG-DEGREE-CASES
+  used_in: KW-G21C-02#1-1
+  outcome_code: '71'
+  wrong_work: $D=0$인 $k$의 합 $\dfrac2{a^2}$만 답함
+  detect_cue: $b$가 합에 없음
+  feedback: $k=b$이면 $2akx+2=0$이 $a\ne0$에서 실근 $1$개이므로 합은 $b+\dfrac2{a^2}$입니다.
+- id: MC-ALG-82166
+  name: 두 방정식의 해집합이 같은 조건을 $a\ne0$인 경우에만 보고 $a=0$, $k-b=-2$를 놓침
+  concepts:
+  - CON-ALG-SOLUTION-SET
+  used_in: KW-G21C-02#1-2
+  outcome_code: '72'
+  wrong_work: $k-b=2$만 답함
+  detect_cue: $a=0$ 경우 누락
+  feedback: $a=0$이면 $x^2=-\dfrac2{k-b}$, $x^2=-\dfrac{k-b}2$이므로 $(k-b)^2=4$를 확인합니다.
+- id: MC-CNT-82167
+  name: $\lvert\log_2a-\log_210\rvert$를 $a>10$과 $a<10$으로만 나누고 $a=10$을 빠뜨림
+  concepts:
+  - CON-CNT-LOG-INEQUALITY
+  used_in: KW-G21C-02#2
+  outcome_code: '71'
+  wrong_work: $10+5=15$가지
+  detect_cue: $17$이 아님
+  feedback: $a=10$이면 $\log_2b\le1$에서 $b=1,2$이므로 $2$가지가 더해집니다.
+- id: MC-CAL-82168
+  name: $y>0$, $y<0$로 나누지 않고 부등식을 $y$로 그냥 나눔
+  concepts:
+  - CON-CAL-DERIVATIVE-INEQ
+  used_in: KW-G21C-02#3-2
+  outcome_code: '71'
+  wrong_work: 부등호 방향을 고정한 채 양변을 $y$로 나눔
+  detect_cue: $f^{\prime}(x)\ge2x+1$만 얻음
+  feedback: $y<0$이면 부등호가 반대로 바뀌어 우극한과 좌극한이 반대 방향 부등식을 주고 둘 다 $2x+1$이 됩니다.
+- id: MC-CAL-82169
+  name: $g(x)=xe^{-x}$가 극대인 $a=1$을 구하지 않고 구간 $[0,a]$를 임의로 잡음
+  concepts:
+  - CON-CAL-EXTREMUM-INTERVAL
+  used_in: KW-G21C-02#3-3
+  outcome_code: '71'
+  wrong_work: 구간 $[0,2]$ 등으로 적분
+  detect_cue: $a\ne1$
+  feedback: $g^{\prime}(x)=e^{-x}(1-x)$이므로 극대는 $x=1$이고 $a=1$입니다.
+- id: MC-CAL-82180
+  name: 내분점이 제1사분면일 때 $2m-3>0$에서 $m>\dfrac32$를 놓치고 $2m-1>0$만 사용
+  concepts:
+  - CON-ALG-INTERNAL-POINT
+  used_in: KW-M21-01#1-1
+  outcome_code: '71'
+  wrong_work: $\dfrac12<m<3$ 또는 공식 답 $\dfrac23<m<3$
+  detect_cue: $m>\dfrac32$가 아님
+  feedback: 두 좌표가 모두 양수이어야 하므로 $2m-1>0$과 $2m-3>0$을 동시에 만족하는 $m>\dfrac32$입니다.
+- id: MC-ALG-82181
+  name: 항등식에서 짝수차 계수의 합을 $x=2$만 대입해 구함
+  concepts:
+  - CON-ALG-IDENTITY-COEFF
+  used_in: KW-M21-01#2
+  outcome_code: '71'
+  wrong_work: $\sum a_k=2^{10}-1$을 짝수차 합으로 착각
+  detect_cue: $x=0$을 대입하지 않음
+  feedback: $x=2$와 $x=0$을 더해 $2$로 나누면 짝수차 계수의 합이 나옵니다.
+- id: MC-CNT-82182
+  name: $f\circ f$가 항등함수인 함수의 개수를 $f(1)=k$일 때 $a_{n-1}$로 셈
+  concepts:
+  - CON-CNT-INVOLUTION
+  used_in: KW-M21-01#3-4
+  outcome_code: '72'
+  wrong_work: $a_n=a_{n-1}+(n-1)a_{n-1}$
+  detect_cue: $a_{n-2}$ 대신 $a_{n-1}$
+  feedback: $f(1)=k$이면 $f(k)=1$이어야 하므로 나머지 $n-2$개 원소 위의 같은 문제 $a_{n-2}$입니다.
+- id: MC-CAL-82183
+  name: $f(x)=\cos(\sin x)$의 주기를 $2\pi$로만 답
+  concepts:
+  - CON-CAL-PERIOD
+  used_in: KW-M21-02#1-1
+  outcome_code: '71'
+  wrong_work: $p=2\pi$ (주기 $\pi$ 확인 안 함)
+  detect_cue: $p<2\pi$ 조건을 못 봄
+  feedback: $\sin(x+\pi)=-\sin x$이고 $\cos$이 우함수이므로 $f(x+\pi)=f(x)$입니다.
+- id: MC-CAL-82184
+  name: $x_k$를 극값 전체($k\pi/2$)로 잡아 극솟값 위치가 아닌 점도 포함
+  concepts:
+  - CON-CAL-EXTREMUM-CLASSIFY
+  used_in: KW-M21-02#1-3
+  outcome_code: '72'
+  wrong_work: $x_k=\dfrac{k\pi}2$
+  detect_cue: 극대·극소 구분 안 함
+  feedback: $x=n\pi$는 극대이고 극솟값은 $x=\dfrac{\pi}2+n\pi$에서만 가집니다.
+- id: MC-CAL-82185
+  name: 구간별 함수의 경계점 $x=a$에서 좌미분계수만 확인하고 우미분계수를 확인함($x=0$ 포함 좌우 불일치 누락)
+  concepts:
+  - CON-CAL-ONE-SIDED-DERIV
+  used_in: KW-M21-02#2-1
+  outcome_code: '71'
+  wrong_work: $t=-a,\ a$만 답함
+  detect_cue: $t=0$ 누락
+  feedback: $x=0$에서 좌미분계수 $\dfrac1{2\sqrt a}$와 우미분계수 $-\dfrac1{2\sqrt a}$가 다릅니다.
+- id: MC-CAL-82186
+  name: $\dfrac{y-\sqrt a}{x-a}$의 범위를 점 $(a,0)$을 지나는 기울기까지 포함해 유한 구간으로 답함
+  concepts:
+  - CON-CAL-SLOPE-REGION
+  used_in: KW-M21-02#2-3
+  outcome_code: '72'
+  wrong_work: $[0,M]$ 꼴의 유한 범위
+  detect_cue: 상한이 있음
+  feedback: $(a,0)$에 가까워질수록 기울기는 한없이 커지므로 $0\le\dfrac{y-\sqrt a}{x-a}$입니다.

@@ -1,0 +1,647 @@
+schema_version: '2.0'
+id: KW-M16-02
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: proof
+origin: mock_exam
+school: KW
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 일반화
+points: 50
+time_estimate_min: null
+key_idea: '[1] $f(x_k)=\{e^{1/n}\}^k$의 등비합과 $\lim_{x\to0}\frac{e^x-1}x=1$로 $e-1$. [2] $\frac1n\sum\frac1{2+k/n}$로 $h(x)=\frac1{2+x}$, $\ln\frac32$. [3] $-\lvert f\rvert\le f\le\lvert f\rvert$를 적분. [4] 평균값의 정리로 $\lvert f(x)-f(a)\rvert\le T(x-a)$, 적분하여 직사각형 근사의 오차 $\frac T2(b-a)^2$. [5] 소구간마다 [4]를 적용해 삼각부등식으로 합하면 오차 $\le\frac M{2N}(d-c)^2$, $h$에 적용하면 $N\ge25$.'
+stuck: '[4](2) 오차를 $\left\lvert\int_a^b\{f(x)-f(a)\}\,dx\right\rvert$로 바꾼 뒤 [3]의 부등식 ①과 (1)을 연결하는 단계, [5](1) 소구간별 오차에 [4]를 적용하고 합쳐 $N\cdot\frac M2w^2$로 만드는 단계'
+tags:
+- 2009개정
+- 정적분의 정의
+- 구분구적법
+- 등비급수
+- 절댓값 부등식
+- 평균값 정리
+- 직사각형 근사의 오차
+- 오차의 한계
+elements:
+  materials:
+  - $\int_0^1e^x\,dx$
+  - $\lim_{n\to\infty}\left(\frac1{2n+1}+\cdots+\frac1{2n+n}\right)$
+  - '[그림 1: 증가하는 곡선 $y=f(x)$와 높이 $f(a)$인 직사각형]'
+  - 구간 $[c,d]$를 $N$등분한 직사각형 합 $w\sum g(x_{k-1})$
+  concepts:
+  - 정적분의 정의
+  - 무한등비급수
+  - 미분계수의 정의
+  - 평균값의 정리
+  - 절댓값 부등식
+  - 실수의 삼각부등식
+  - 오차의 한계
+  tools:
+  - $\int_a^bf\,dx=\lim\sum f(x_k)\Delta x$
+  - $\lvert\int f\rvert\le\int\lvert f\rvert$
+  - $f(x)-f(a)=f^{\prime}(c)(x-a)$
+  - $\lvert\sum a_k\rvert\le\sum\lvert a_k\rvert$
+  conditions:
+  - $f(x)\ge0$, $f^{\prime}$ 연속
+  - $T=\max_{[a,b]}\lvert f^{\prime}\rvert$
+  - $M=\max_{[c,d]}\lvert g^{\prime}\rvert$
+  - 오차의 한계 $\le\frac1{200}$
+  stimuli_used:
+  - '[1]: 정적분의 정의'
+  - '[2]: 정적분의 정의'
+  - '[3]: 정적분의 성질1, 정적분과 부등식'
+  - '[4](1): 평균값의 정리, 최대·최소의 정리'
+  - '[4](2): 정적분과 부등식, 정적분의 성질1'
+  - '[5](1): 정적분의 성질2, 실수의 삼각 부등식'
+  - '[5](2): 없음'
+  subpart_links: '[4](2)는 [3]의 ①과 [4](1)을, [5](1)은 [4]의 ②를, [5](2)는 [2]의 $h(x)$와 [5](1)의 ④를 사용한다. 출제진 채점 가이드: [5](2)는 (1)의 풀이 여부와 관계없이 채점한다.'
+curriculum:
+  version: '2015'
+  subjects:
+  - 미적분
+  - 수학Ⅱ
+  scope_2028: calc2
+  scope_confirmed: false
+  content_area: 정적분의 정의 · 정적분의 부등식 · 평균값 정리 · 구분구적의 오차
+  behavior_domain: 추론
+  unit_path:
+  - 미적분
+  - 정적분
+  - 정적분의 정의와 성질
+  key_concepts:
+  - 구분구적법
+  - 평균값 정리
+  - 오차의 한계
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 광운대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 광운대학교
+  admission_year: 2016
+  admission_type: 수시 모의논술
+  track: 자연계열
+  question_no: 2
+  official_url: https://iphak.kw.ac.kr/pds/pds_view.php?m_type=SUSI&bn=39603
+  retrieved_at: '2026-11-22'
+  original_points:
+  - 9
+  - 8
+  - 6
+  - 4
+  - 6
+  - 12
+  - 5
+  rights_notice: 미확인
+  transcribed_from: 광운대 입학처 공식 PDF「2016학년도 논술 모의평가 문제지(자연계열)·출제의도 및 풀이예시」문제 p.3~5, 풀이예시 p.10~12 (이미지 대조 2026-11-23)
+verify: verify/KW-M16.py::p02
+stimuli:
+- label: 정적분의 정의
+  body: |
+    [정적분의 정의] 함수 $f(x)$가 닫힌 구간 $[a,b]$에서 연속일 때,
+    $$\int_a^bf(x)\,dx=\lim_{n\to\infty}\sum_{k=1}^nf(x_k)\Delta x\quad\left(\text{단, }\Delta x=\frac{b-a}n,\ x_k=a+k\Delta x\right)$$
+- label: 정적분의 성질1
+  body: |
+    [정적분의 성질1] 두 함수 $f(x),\ g(x)$가 닫힌 구간 $[a,b]$에서 연속일 때
+    $$\int_a^bkf(x)\,dx=k\int_a^bf(x)\,dx\quad(\text{단, }k\text{는 상수})$$
+    $$\int_a^b\{f(x)\pm g(x)\}\,dx=\int_a^bf(x)\,dx\pm\int_a^bg(x)\,dx\quad(\text{복부호 동순})$$
+- label: 정적분의 성질2
+  body: |
+    [정적분의 성질2] 임의의 실수 $a,b,c$를 포함하는 구간에서 함수 $f(x)$가 연속일 때
+    $$\int_a^bf(x)\,dx=\int_a^cf(x)\,dx+\int_c^bf(x)\,dx$$
+    또한, 수학적 귀납법에 의해 임의의 실수 $c_1,c_2,\ldots,c_n$을 포함하는 구간에서 연속인 함수 $f(x)$에 대해 다음이 성립한다.
+    $$\int_{c_1}^{c_n}f(x)\,dx=\int_{c_1}^{c_2}f(x)\,dx+\int_{c_2}^{c_3}f(x)\,dx+\cdots+\int_{c_{n-1}}^{c_n}f(x)\,dx=\sum_{k=1}^{n-1}\int_{c_k}^{c_{k+1}}f(x)\,dx$$
+- label: 정적분과 부등식
+  body: |
+    [정적분과 부등식] 두 함수 $f(x),\ g(x)$가 닫힌 구간 $[a,b]$에서 연속이고 $f(x)\le g(x)$일 때
+    $$\int_a^bf(x)\,dx\le\int_a^bg(x)\,dx$$
+- label: 실수의 삼각 부등식
+  body: |
+    [실수의 삼각 부등식] 임의의 실수 $a,\ b$에 대하여
+    $$\lvert a+b\rvert\le\lvert a\rvert+\lvert b\rvert\quad(\text{단, 등호는 }ab\ge0\text{일 때 성립})$$
+    또한, 수학적 귀납법에 의해 임의의 실수 $a_1,a_2,\ldots,a_n$에 대하여 다음 부등식이 성립한다.
+    $$\lvert a_1+a_2+\cdots+a_n\rvert\le\lvert a_1\rvert+\lvert a_2\rvert+\cdots+\lvert a_n\rvert\quad\text{또는}\quad\left\lvert\sum_{k=1}^na_k\right\rvert\le\sum_{k=1}^n\lvert a_k\rvert$$
+- label: 최대·최소의 정리
+  body: '[최대·최소의 정리] 함수 $f(x)$가 닫힌 구간 $[a,b]$에서 연속이면 $f(x)$는 이 구간에서 반드시 최댓값과 최솟값을 갖는다.'
+- label: 평균값의 정리
+  body: |
+    [평균값의 정리] 함수 $y=f(x)$가 닫힌 구간 $[a,b]$에서 연속이고 열린 구간 $(a,b)$에서 미분가능하면
+    $$f^{\prime}(c)=\frac{f(b)-f(a)}{b-a}$$
+    인 점 $c$가 $a$와 $b$ 사이에 적어도 하나 존재한다.
+stem: '[문제 2] 다음 제시문을 이용하여 문항별로 풀이와 함께 답하시오. (50점)'
+subparts:
+- id: '1'
+  stem: '[1] 정적분의 정의에 의하여 $\displaystyle\int_0^1e^x\,dx=e-1$임을 보이시오.(9점)'
+  points: 9
+  depends_on: []
+  answer:
+    kind: proof
+    value: null
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S1-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        주어진 구간 $[0,1]$을 $n$ 등분하면 $\Delta x=\frac1n,\ x_k=0+k\Delta x=\frac kn,\ k=1,2,\ldots,n$이고 $f(x)=e^x$라고 하면
+        $$f(x_k)=e^{x_k}=e^{k/n}=\{e^{1/n}\}^k,\quad k=1,2,\ldots,n$$
+      source_flow: 풀이예시 p.10
+      criteria:
+      - 1.R1
+    - id: 1b-2
+      content: |
+        여기서 정적분의 정의와 무한등비급수의 부분합을 이용하여 다음을 얻는다.
+        $$\int_0^1e^x\,dx=\lim_{n\to\infty}\sum_{k=1}^nf(x_k)\Delta x=\lim_{n\to\infty}\frac1n\sum_{k=1}^n\{e^{1/n}\}^k$$
+        $$=\lim_{n\to\infty}\left\{\left(e^{1/n}+e^{2/n}+\cdots+e^{k/n}+\cdots+e^{n/n}\right)\left(\frac1n\right)\right\}$$
+        $$=\lim_{n\to\infty}\left(\frac{e^{1+1/n}-e^{1/n}}{e^{1/n}-1}\right)\left(\frac1n\right)$$
+        $$=\lim_{n\to\infty}\left\{e^{1/n}\cdot(e-1)\cdot\left(\frac{1/n}{e^{1/n}-1}\right)\right\}$$
+      source_flow: 풀이예시 p.10
+      criteria:
+      - 1.R2
+    - id: 1b-3
+      content: |
+        한편 $\displaystyle\lim_{x\to0}\frac{e^x-1}x=\lim_{x\to0}\frac{f(x)-f(0)}{x-0}=f^{\prime}(0)=e^0=1$이므로 다음을 얻는다.
+        $$\lim_{n\to\infty}\frac{1/n}{e^{1/n}-1}=\lim_{n\to\infty}\frac1{\dfrac{e^{1/n}-1}{1/n}}=\lim_{n\to\infty}\frac1{\dfrac{f(1/n)-f(0)}{1/n-0}}=1$$
+        또 $\displaystyle\lim_{n\to\infty}e^{1/n}=1$이므로 극한의 성질에 의해 $\displaystyle\lim_{n\to\infty}\left\{e^{1/n}\cdot(e-1)\cdot\left(\frac{1/n}{e^{1/n}-1}\right)\right\}=e-1$이다.
+        그러므로 $\displaystyle\int_0^1e^x\,dx=e-1$이다.
+      source_flow: 풀이예시 p.10
+      criteria:
+      - 1.R3
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 1.R1
+      mark_type: R
+      points: 2
+      evidence: 구간 $[0,1]$을 $n$등분하여 $f(x_k)=\{e^{1/n}\}^k$를 구했다.
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 1b-1
+    - id: 1.R2
+      mark_type: R
+      points: 4
+      evidence: 정적분의 정의와 등비급수의 부분합으로 $\displaystyle\lim_{n\to\infty}\left\{e^{1/n}\cdot(e-1)\cdot\frac{1/n}{e^{1/n}-1}\right\}$ 꼴을 얻었다.
+      depends_on:
+      - 1.R1
+      implied_ok: false
+      steps:
+      - 1b-2
+    - id: 1.R3
+      mark_type: R
+      points: 3
+      evidence: $\displaystyle\lim_{x\to0}\frac{e^x-1}x=1$ (미분계수의 정의)과 $\displaystyle\lim_{n\to\infty}e^{1/n}=1$로 $\displaystyle\int_0^1e^x\,dx=e-1$을 보였다.
+      depends_on:
+      - 1.R2
+      implied_ok: false
+      steps:
+      - 1b-3
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+- id: '2'
+  stem: |
+    [2] 다음 극한값을 정적분 $\displaystyle\int_0^1h(x)\,dx$를 이용하여 구한다고 할 때, 함수 $h(x)$와 극한값을 구하시오.(8점)
+    $$\lim_{n\to\infty}\left(\frac1{2n+1}+\frac1{2n+2}+\cdots+\frac1{2n+n}\right)$$
+  points: 8
+  depends_on: []
+  answer:
+    kind: expression
+    value: h=1/(2+x); lim=log(3/2)
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S2-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 2b-1
+      content: |
+        주어진 식을 다음과 같이 변형할 수 있다.
+        $$\lim_{n\to\infty}\left(\frac1{n+1}+\frac1{n+2}+\cdots+\frac1{n+n}\right)=\lim_{n\to\infty}\frac1n\left(\frac1{2+\frac1n}+\frac1{2+\frac2n}+\cdots+\frac1{2+\frac kn}+\cdots+\frac1{2+\frac nn}\right)$$
+        $$=\lim_{n\to\infty}\frac1n\sum_{k=1}^n\left(\frac1{2+\frac kn}\right)$$
+        [판독확인: 원문 표기 좌변의 분모가 $n+1,\ n+2,\ n+n$으로 되어 있음. 문제의 합과 우변·마지막 줄은 $2n+1,\ 2n+2,\ 2n+n$ 기준임]
+      source_flow: 풀이예시 p.10
+      criteria:
+      - 2.M1
+    - id: 2b-2
+      content: 구간을 $[0,1]$, $\Delta x=\frac1n,\ x_k=0+k\cdot\frac1n,\ k=1,2,\ldots,n$이라 하자. 제시문의 [정적분의 정의]에 따르면 구하는 함수는 $h(x)=\frac1{2+x}$이다.
+      source_flow: 풀이예시 p.10
+      criteria:
+      - 2.M2
+    - id: 2b-3
+      content: |
+        따라서 함수 $h(x)$의 정적분 $\displaystyle\int_0^1h(x)\,dx$를 이용하면 구하는 극한값은 다음과 같이 $\ln\frac32$이다.
+        $$\lim_{n\to\infty}\left(\frac1{2n+1}+\frac1{2n+2}+\cdots+\frac1{2n+n}\right)=\lim_{n\to\infty}\sum_{k=1}^nh(x_k)\Delta x=\int_0^1\frac1{2+x}\,dx=\ln(2+x)\Big]_0^1=\ln\frac32$$
+      source_flow: 풀이예시 p.10
+      criteria:
+      - 2.A3
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 3
+      evidence: 주어진 합을 $\displaystyle\frac1n\sum_{k=1}^n\frac1{2+\frac kn}$ 꼴로 변형했다.
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 2b-1
+    - id: 2.M2
+      mark_type: M
+      points: 3
+      evidence: 구간 $[0,1]$, $\Delta x=\frac1n$, $x_k=\frac kn$로 두고 $h(x)=\frac1{2+x}$를 구했다.
+      depends_on:
+      - 2.M1
+      implied_ok: false
+      steps:
+      - 2b-2
+    - id: 2.A3
+      mark_type: A
+      points: 2
+      evidence: $\displaystyle\int_0^1\frac1{2+x}\,dx=\ln\frac32$을 극한값으로 구했다.
+      depends_on:
+      - 2.M2
+      implied_ok: false
+      steps:
+      - 2b-3
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+- id: '3'
+  stem: |
+    [3] 함수 $f(x)$가 실수 $a,b\ (a<b)$를 포함하는 구간에서 연속이면 다음이 성립함을 증명하시오.(6점)
+    $$\left\lvert\int_a^bf(x)\,dx\right\rvert\le\int_a^b\lvert f(x)\rvert\,dx\quad\cdots\cdots\cdots\cdots\cdots\ ①$$
+  points: 6
+  depends_on: []
+  answer:
+    kind: proof
+    value: null
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S3-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 3b-1
+      content: |
+        구간 $[a,b]$에서 명백히 다음이 성립한다.
+        $$-\lvert f(x)\rvert\le f(x)\le\lvert f(x)\rvert,\quad x\in[a,b]$$
+      source_flow: 풀이예시 p.11
+      criteria:
+      - 3.R1
+    - id: 3b-2
+      content: |
+        제시문의 [정적분의 성질1]과 [정적분과 부등식]을 이용하여 다음을 얻는다.
+        $$-\int_a^b\lvert f(x)\rvert\,dx\le\int_a^bf(x)\,dx\le\int_a^b\lvert f(x)\rvert\,dx$$
+      source_flow: 풀이예시 p.11
+      criteria:
+      - 3.R2
+    - id: 3b-3
+      content: |
+        따라서 다음을 얻는다.
+        $$\left\lvert\int_a^bf(x)\,dx\right\rvert\le\int_a^b\lvert f(x)\rvert\,dx$$
+      source_flow: 풀이예시 p.11
+      criteria:
+      - 3.R3
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 3.R1
+      mark_type: R
+      points: 2
+      evidence: $-\lvert f(x)\rvert\le f(x)\le\lvert f(x)\rvert$를 썼다.
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 3b-1
+    - id: 3.R2
+      mark_type: R
+      points: 2
+      evidence: '[정적분의 성질1]과 [정적분과 부등식]으로 $-\int_a^b\lvert f\rvert\,dx\le\int_a^bf\,dx\le\int_a^b\lvert f\rvert\,dx$를 얻었다.'
+      depends_on:
+      - 3.R1
+      implied_ok: false
+      steps:
+      - 3b-2
+    - id: 3.R3
+      mark_type: R
+      points: 2
+      evidence: 부등식 ①을 결론으로 정리했다.
+      depends_on:
+      - 3.R2
+      implied_ok: false
+      steps:
+      - 3b-3
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+- id: 4-1
+  stem: |
+    [4] 함수 $f(x)$가 실수 $a,b\ (a<b)$를 포함하는 구간에서 미분가능하고 $f(x)\ge0$이며, 그의 도함수 $f^{\prime}(x)$가 연속이다. 이때 구간 $[a,b]$에서 $\lvert f^{\prime}(x)\rvert$의 최댓값을 $T$라 하자.
+    [그림 1: 증가하는 곡선 $y=f(x)$의 그래프. $y$축에 $f(a),\ f(b)$를 점선으로 표시하고 $x$축의 $a,\ b$에서 올린 선과 이어 놓았으며, 밑변이 $[a,b]$이고 높이가 $f(a)$인 직사각형이 그려져 있다]
+    (1) $x\in[a,b]$에 대하여 다음이 성립함을 보이시오.(4점)
+    $$\lvert f(x)-f(a)\rvert\le T(x-a)$$
+  points: 4
+  depends_on: []
+  answer:
+    kind: proof
+    value: null
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S41-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 41b-1
+      content: |
+        $x=a$이면 자명하다. 만일 $x\in(a,b]$라면 구간 $[a,x]$에 대하여 제시문의 [평균값의 정리]를 적용하면 다음 식을 만족하는 점 $c$가 $a$와 $x$ 사이에 적어도 하나 존재한다.
+        $$f(x)-f(a)=f^{\prime}(c)(x-a)$$
+      source_flow: 풀이예시 p.11
+      criteria:
+      - 4-1.R1
+    - id: 41b-2
+      content: |
+        이때 $T$가 구간 $[a,b]$에서 $\lvert f^{\prime}(x)\rvert$의 최댓값이므로 다음이 성립한다.
+        $$\lvert f(x)-f(a)\rvert=\lvert f^{\prime}(c)(x-a)\rvert\le T(x-a),\quad x\in[a,b]$$
+      source_flow: 풀이예시 p.11
+      criteria:
+      - 4-1.R2
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 4-1.R1
+      mark_type: R
+      points: 2
+      evidence: $[a,x]$에서 평균값의 정리를 적용하여 $f(x)-f(a)=f^{\prime}(c)(x-a)$인 $c$가 존재함을 보였다. ($x=a$인 경우도 언급)
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 41b-1
+    - id: 4-1.R2
+      mark_type: R
+      points: 2
+      evidence: $T$가 $\lvert f^{\prime}\rvert$의 최댓값임을 이용해 $\lvert f(x)-f(a)\rvert\le T(x-a)$를 보였다.
+      depends_on:
+      - 4-1.R1
+      implied_ok: false
+      steps:
+      - 41b-2
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+- id: 4-2
+  stem: |
+    (2) 정적분 $\displaystyle\int_a^bf(x)\,dx$를 높이가 $f(a)$, 밑변의 길이가 $(b-a)$인 직사각형의 넓이 $(b-a)f(a)=\displaystyle\int_a^bf(a)\,dx$로 택하는 경우에 생기는 오차 $\left\lvert\displaystyle\int_a^bf(x)\,dx-(b-a)f(a)\right\rvert$에 대해 다음 부등식이 성립함을 보이시오.([그림 1] 참조)(6점)
+    $$\left\lvert\int_a^bf(x)\,dx-(b-a)f(a)\right\rvert\le\frac T2(b-a)^2\quad\cdots\cdots\cdots\cdots\cdots\cdots\ ②$$
+  points: 6
+  depends_on:
+  - '3'
+  - 4-1
+  answer:
+    kind: proof
+    value: null
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S42-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 42b-1
+      content: $(b-a)f(a)=\displaystyle\int_a^bf(a)\,dx$이므로 $\left\lvert\displaystyle\int_a^bf(x)\,dx-(b-a)f(a)\right\rvert=\left\lvert\displaystyle\int_a^b\{f(x)-f(a)\}\,dx\right\rvert$이다.
+      source_flow: 풀이예시 p.11
+      criteria:
+      - 4-2.R1
+    - id: 42b-2
+      content: |
+        이제 문항 [3]의 부등식 ①, 제시문의 [정적분과 부등식]과 (1)의 부등식으로부터 다음을 얻는다.
+        $$\left\lvert\int_a^bf(x)\,dx-(b-a)f(a)\right\rvert=\left\lvert\int_a^b\{f(x)-f(a)\}\,dx\right\rvert\le\int_a^b\lvert f(x)-f(a)\rvert\,dx\le\int_a^bT(x-a)\,dx=\frac T2(b-a)^2$$
+      source_flow: 풀이예시 p.11
+      criteria:
+      - 4-2.R2
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 4-2.R1
+      mark_type: R
+      points: 3
+      evidence: $(b-a)f(a)=\int_a^bf(a)\,dx$로 오차를 $\left\lvert\int_a^b\{f(x)-f(a)\}\,dx\right\rvert$로 바꿨다.
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 42b-1
+    - id: 4-2.R2
+      mark_type: R
+      points: 3
+      evidence: 부등식 ①, [정적분과 부등식], (1)의 부등식으로 $\le\frac T2(b-a)^2$을 얻었다.
+      depends_on:
+      - 4-2.R1
+      implied_ok: false
+      steps:
+      - 42b-2
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+- id: 5-1
+  stem: |
+    [5] 함수 $g(x)$는 실수 $c,d\ (c<d)$를 포함하는 구간에서 $g(x)\ge0$이고 미분 가능하며, 그의 도함수 $g^{\prime}(x)$가 연속이다. 이때 구간 $[c,d]$를 $N$등분하고 $w=\dfrac{d-c}N,\ x_k=c+k\cdot w,\ k=0,1,2,\ldots,N$이라 하고, 또한 $M$을 구간 $[c,d]$에서 $\lvert g^{\prime}(x)\rvert$의 최댓값이라 하자.
+    이제 각 소구간 $[x_{k-1},x_k],\ k=0,1,2,\ldots,N$에 대해 문항 [4]에서와 같이 높이가 함숫값 $g(x_{k-1})$, 밑변의 길이가 $w=(x_k-x_{k-1})$인 직사각형의 넓이 $w\cdot g(x_{k-1})$을 생각하고 그들을 모두 합하면 다음 식 ③과 같다. [판독확인: 원문 표기 소구간의 $k=0,1,2,\ldots,N$ (식 ③의 합은 $k=1$부터 $N$까지)]
+    $$w\sum_{k=1}^Ng(x_{k-1})=w\{g(x_0)+g(x_1)+\cdots+g(x_{N-1})\}\quad\cdots\cdots\cdots\cdots\cdots\cdots\ ③$$
+    한편 제시문의 [정적분의 성질2]에 의하면 $\displaystyle\int_c^dg(x)\,dx=\sum_{k=1}^N\int_{x_{k-1}}^{x_k}g(x)\,dx$가 성립한다. 따라서 식 ③의 값을 정적분 $\displaystyle\int_c^dg(x)\,dx$의 근삿값으로 택할 수 있다.
+    (1) 이 경우에 발생하는 오차 $\left\lvert\displaystyle\int_c^dg(x)\,dx-w\sum_{k=1}^Ng(x_{k-1})\right\rvert$의 한계에 대해 다음이 성립함을 보이시오.(12점)
+    $$\left\lvert\int_c^dg(x)\,dx-w\sum_{k=1}^Ng(x_{k-1})\right\rvert\le\frac M{2N}(d-c)^2\quad\cdots\cdots\cdots\cdots\cdots\cdots\ ④$$
+  points: 12
+  depends_on:
+  - 4-2
+  answer:
+    kind: proof
+    value: null
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S51-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 51b-1
+      content: |
+        구간 $[c,d]$를 $N$ 등분하면 $\displaystyle\int_c^dg(x)\,dx=\sum_{k=1}^N\int_{x_{k-1}}^{x_k}g(x)\,dx$ 이 성립하므로 부등식 ④의 왼쪽 항의 절댓값 기호 안을 다음과 같이 쓸 수 있다.
+        $$\int_c^dg(x)\,dx-w\sum_{k=1}^Ng(x_{k-1})=\sum_{k=1}^N\left\{\int_{x_{k-1}}^{x_k}g(x)\,dx-w\,g(x_{k-1})\right\}$$
+      source_flow: 풀이예시 p.11
+      criteria:
+      - 5-1.R1
+    - id: 51b-2
+      content: |
+        이제 $M_k$를 소구간 $[x_{k-1},x_k]$ 에서 $\lvert g^{\prime}(x)\rvert$의 최댓값이라 하고 문항 [4]의 식 ②를 적용하고, $M$이 구간 $[c,d]$에서 $\lvert g^{\prime}(x)\rvert$의 최댓값임을 이용하면 다음을 얻는다.
+        $$\left\lvert\int_{x_{k-1}}^{x_k}g(x)\,dx-w\,g(x_{k-1})\right\rvert\le\frac{M_k}2w^2\le\frac M2w^2,\quad k=1,2,\ldots,N$$
+      source_flow: 풀이예시 p.11
+      criteria:
+      - 5-1.R2
+    - id: 51b-3
+      content: |
+        이를 제시문의 [실수의 삼각부등식]과 결합하고 $w=\dfrac{d-c}N$임을 이용하여 다음을 얻는다.
+        $$\left\lvert\int_c^dg(x)\,dx-w\sum_{k=1}^Ng(x_{k-1})\right\rvert=\left\lvert\sum_{k=1}^N\left\{\int_{x_{k-1}}^{x_k}g(x)\,dx-w\,g(x_{k-1})\right\}\right\rvert$$
+        $$\le\sum_{k=1}^N\left\lvert\int_{x_{k-1}}^{x_k}g(x)\,dx-w\,g(x_{k-1})\right\rvert\le\sum_{k=1}^N\frac M2w^2=N\cdot\frac M2\left(\frac{d-c}N\right)^2=\frac M{2N}(d-c)^2$$
+      source_flow: 풀이예시 p.11
+      criteria:
+      - 5-1.R3
+      - 5-1.R4
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 5-1.R1
+      mark_type: R
+      points: 3
+      evidence: $\int_c^dg\,dx=\sum_{k=1}^N\int_{x_{k-1}}^{x_k}g\,dx$를 이용해 오차를 소구간별 오차의 합 $\sum_{k=1}^N\left\{\int_{x_{k-1}}^{x_k}g\,dx-w\,g(x_{k-1})\right\}$로 썼다.
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 51b-1
+    - id: 5-1.R2
+      mark_type: R
+      points: 4
+      evidence: 각 소구간에 [4]의 식 ②를 적용하여 $\left\lvert\int_{x_{k-1}}^{x_k}g\,dx-w\,g(x_{k-1})\right\rvert\le\frac{M_k}2w^2\le\frac M2w^2$을 보였다.
+      depends_on:
+      - 5-1.R1
+      implied_ok: false
+      steps:
+      - 51b-2
+    - id: 5-1.R3
+      mark_type: R
+      points: 3
+      evidence: 실수의 삼각부등식으로 소구간별 오차의 절댓값의 합 $\sum_{k=1}^N\left\lvert\int_{x_{k-1}}^{x_k}g\,dx-w\,g(x_{k-1})\right\rvert$을 이용했다.
+      depends_on:
+      - 5-1.R2
+      implied_ok: false
+      steps:
+      - 51b-3
+    - id: 5-1.R4
+      mark_type: R
+      points: 2
+      evidence: $w=\frac{d-c}N$을 대입하여 $N\cdot\frac M2w^2=\frac M{2N}(d-c)^2$을 얻었다.
+      depends_on:
+      - 5-1.R3
+      implied_ok: false
+      steps:
+      - 51b-3
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+- id: 5-2
+  stem: (2) 문항 [2]에서 찾은 함수 $h(x)$의 정적분 $\displaystyle\int_0^1h(x)\,dx$의 근삿값을 구간 $[0,1]$을 $N$등분한 후에 식 ③을 함수 $h(x)$에 적용하여 얻는 값으로 택하려고 한다. 이때 오차의 한계가 $\dfrac1{200}$ 이하가 되도록 하는 자연수 $N$의 최솟값을 부등식 ④를 이용하여 구하시오.(5점)
+  points: 5
+  depends_on:
+  - '2'
+  - 5-1
+  answer:
+    kind: value
+    value: '25'
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S52-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 52b-1
+      content: 문항 [2]에서 구한 함수는 $h(x)=\frac1{2+x}$이다. 따라서 식 ③을 이용하여 정적분 $\displaystyle\int_0^1\frac1{2+x}\,dx=\ln\frac32$의 근삿값을 구한다면, $c=0,\ d=1$이고, 또 $h^{\prime}(x)=\frac{-1}{(2+x)^2}$에서 $M=\frac14$이다.
+      source_flow: 풀이예시 p.12
+      criteria:
+      - 5-2.M1
+    - id: 52b-2
+      content: |
+        식 ④에 의한 오차한계가 $\frac1{200}$ 이하가 되게 하는 $N$의 최솟값은 다음 식에서 보인 것과 같이 $25$이다.
+        $$\frac M{2N}(d-c)^2=\frac1{8N}(1-0)^2\le\frac1{200}\quad\Longrightarrow\quad N\ge25$$
+      source_flow: 풀이예시 p.12
+      criteria:
+      - 5-2.A2
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 5-2.M1
+      mark_type: M
+      points: 2
+      evidence: $h(x)=\frac1{2+x}$에서 $c=0,\ d=1$, $M=\frac14$을 구했다.
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 52b-1
+    - id: 5-2.A2
+      mark_type: A
+      points: 3
+      evidence: $\frac1{8N}\le\frac1{200}$에서 $N\ge25$, 즉 $N$의 최솟값 $25$를 구했다.
+      depends_on:
+      - 5-2.M1
+      implied_ok: false
+      steps:
+      - 52b-2
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: past-v2-lean
+  item_version: 1
+  verdict: pass
+  date: &id001 2026-11-23
+created: *id001
+updated: *id001

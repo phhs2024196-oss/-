@@ -1,0 +1,557 @@
+schema_version: '2.0'
+id: KW-G16B-02
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: proof
+origin: past_exam
+school: KW
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 추론
+points: 50
+time_estimate_min: null
+key_idea: '[1] $\frac1n\sum\sqrt{2+\frac kn}$로 보고 $\int_0^1\sqrt{2+x}\,dx$. [2] $L^{\prime}(t)=h(t+1)-h(t)$의 소거합. [3] $F(t+h)-F(t)$를 미분하고 평균값의 정리. [4] $e^x$의 증가와 $y=\frac2x$ 아래의 넓이를 직사각형 두 개로 끼움. [5] 부분적분을 두 번 하여 같은 적분이 반대 부호로 나오게 해 정리.'
+stuck: '[3] 미분 후 얻은 $f(t+h)-f(t)$에 평균값의 정리를 적용하는 단계, [4](2) $S_1<S<S_2$에서 지수 $\frac t2$를 곱해 $\ln\left(1+\frac1t\right)^t$ 꼴로 바꾸는 단계, [5] 부분적분을 두 번 적용해 원래 적분을 다시 얻는 단계'
+tags:
+- 2009개정
+- 정적분의 정의
+- 구분구적법
+- 정적분의 기본정리
+- 평균값 정리
+- 지수함수의 증가
+- 부분적분
+- 소거합
+elements:
+  materials:
+  - $\displaystyle\sum_{k=2n+1}^{3n}\frac{\sqrt{nk}}{n^2}$
+  - $L(t)=\int_t^{t+1}\sqrt{1+\frac4{x^4}}\,dx$
+  - $f^{\prime}=g$, $g^{\prime}=f$를 만족시키는 $f,g$
+  - '[그림 1: $y=\frac2x$ 아래 넓이를 두 직사각형으로 끼우는 그림]'
+  concepts:
+  - 정적분의 정의(구분구적)
+  - 정적분의 기본 정리
+  - 평균값의 정리
+  - 함수의 증가
+  - 부분적분법
+  - 삼각함수의 합성
+  tools:
+  - $\int_a^bf\,dx=\lim\sum f(x_k)\Delta x$
+  - $\frac d{dt}\int_t^{t+h}f\,dx=f(t+h)-f(t)$
+  - $\int fg^{\prime}=fg-\int f^{\prime}g$
+  - $\sin x+\cos x=\sqrt2\cos\left(x-\frac\pi4\right)$
+  conditions:
+  - $t>0$
+  - $h>0$
+  - $f^{\prime}=g,\ g^{\prime}=f$
+  stimuli_used:
+  - '[1]: 제시문 1'
+  - '[2]: 제시문 2'
+  - '[3]: 제시문 2, 3'
+  - '[4](1): 제시문 4'
+  - '[4](2): 제시문 4'
+  - '[5]: 제시문 5'
+  subpart_links: '[1]~[5]는 서로 독립. [4](2)는 [4](1)의 $y=e^x$의 증가성을 사용한다.'
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학Ⅱ
+  - 미적분
+  scope_2028: calc2
+  scope_confirmed: false
+  content_area: 정적분의 정의와 성질 · 평균값의 정리 · 지수함수의 증가 · 부분적분
+  behavior_domain: 추론
+  unit_path:
+  - 미적분
+  - 정적분
+  - 정적분의 활용
+  key_concepts:
+  - 구분구적법
+  - 평균값 정리
+  - 부분적분
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 광운대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 광운대학교
+  admission_year: 2016
+  admission_type: 수시 논술우수자
+  track: 자연계열(오후)
+  question_no: 2
+  official_url: https://iphak.kw.ac.kr/pds/pds_view.php?m_type=SUSI&bn=39609
+  retrieved_at: '2026-11-22'
+  original_points:
+  - 9
+  - 9
+  - 11
+  - 3
+  - 7
+  - 11
+  rights_notice: 미확인
+  transcribed_from: 광운대 입학처 공식 PDF「2016학년도 논술고사 자연계열 오후 문제·출제의도·채점기준 및 모범답안」문제 p.4~5, 채점 가이드 p.16~17 (이미지 대조 2026-11-23)
+verify: verify/KW-G16B.py::p02
+stimuli:
+- label: '1'
+  body: |
+    [정적분] 함수 $f(x)$가 닫힌 구간 $[a,b]$에서 연속일 때,
+    $$\int_a^bf(x)\,dx=\lim_{n\to\infty}\sum_{k=1}^nf(x_k)\Delta x\quad\left(\text{단, }\Delta x=\frac{b-a}n,\ x_k=a+k\Delta x\right)$$
+- label: '2'
+  body: |
+    [정적분의 기본 정리] 함수 $f(x)$가 닫힌 구간 $[a,b]$에서 연속이고, $f(x)$의 한 부정적분을 $F(x)$라고 하면 다음이 성립한다.
+    $$\int_a^bf(x)\,dx=\left[F(x)\right]_a^b=F(b)-F(a)$$
+- label: '3'
+  body: |
+    [평균값의 정리] 함수 $y=f(x)$가 닫힌 구간 $[a,b]$에서 연속이고, 열린 구간 $(a,b)$에서 미분가능하면
+    $$\frac{f(b)-f(a)}{b-a}=f^{\prime}(c)\quad(a<c<b)$$
+    인 $c$가 적어도 하나 존재한다.
+- label: '4'
+  body: |
+    [함수의 증가] 함수 $f(x)$가 어떤 구간의 임의의 두 수 $x_1,x_2$에 대하여 다음 성질을 만족하면 $f(x)$는 그 구간에서 증가한다고 말한다.
+    $$x_1<x_2\text{ 일 때},\ f(x_1)<f(x_2)$$
+- label: '5'
+  body: |
+    [부분적분법] 두 함수 $f(x),g(x)$가 각각 연속인 도함수를 가질 때
+    $$\int f(x)g^{\prime}(x)\,dx=f(x)g(x)-\int f^{\prime}(x)g(x)\,dx$$
+stem: '[문제 2] 다음 제시문을 읽고 문항별로 풀이와 함께 답하시오. (50점)'
+subparts:
+- id: '1'
+  stem: |
+    [1] 제시문 1의 정적분을 이용하여 다음 극한값을 구하시오. [9점]
+    $$\lim_{n\to\infty}\sum_{k=2n+1}^{3n}\frac{\sqrt{nk}}{n^2}$$
+  points: 9
+  depends_on: []
+  answer:
+    kind: expression
+    value: 2*sqrt(3)-4*sqrt(2)/3
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S1-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        $$\lim_{n\to\infty}\sum_{k=2n+1}^{3n}\frac{\sqrt{nk}}{n^2}=\lim_{n\to\infty}\frac1n\sum_{k=2n+1}^{3n}\left(\sqrt{\frac kn}\right)=\lim_{n\to\infty}\frac1n\left(\sqrt{\frac{2n+1}n}+\sqrt{\frac{2n+2}n}+\cdots+\sqrt{\frac{2n+n}n}\right)$$
+        $$=\lim_{n\to\infty}\frac1n\left(\sqrt{2+\frac1n}+\sqrt{2+\frac2n}+\cdots+\sqrt{2+\frac nn}\right)=\lim_{n\to\infty}\frac1n\sum_{k=1}^n\sqrt{2+\frac kn}$$
+      source_flow: 채점 가이드 p.16
+      criteria:
+      - 1.M1
+    - id: 1b-2
+      content: |
+        $$=\int_0^1\sqrt{2+x}\,dx=\left[\frac23(2+x)^{\frac32}\right]_0^1=2\sqrt3-\frac43\sqrt2\quad\text{또는}$$
+        $$=\int_2^3\sqrt x\,dx=\left[\frac23x^{\frac32}\right]_2^3=2\sqrt3-\frac43\sqrt2$$
+      source_flow: 채점 가이드 p.16
+      criteria:
+      - 1.A2
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 5
+      evidence: 주어진 급수를 $\displaystyle\lim_{n\to\infty}\frac1n\sum_{k=1}^n\sqrt{2+\frac kn}$ 꼴(구간 $[0,1]$ 또는 $[2,3]$의 구분구적)로 바꿨다.
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 1b-1
+    - id: 1.A2
+      mark_type: A
+      points: 4
+      evidence: 정적분 $\displaystyle\int_0^1\sqrt{2+x}\,dx$ 또는 $\displaystyle\int_2^3\sqrt x\,dx$를 계산하여 $2\sqrt3-\frac43\sqrt2$를 구했다.
+      depends_on:
+      - 1.M1
+      implied_ok: false
+      steps:
+      - 1b-2
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+- id: '2'
+  stem: |
+    [2] 양의 실수 $t$에 대하여 함수 $L(t)$를 다음과 같이 정의하자.
+    $$L(t)=\int_t^{t+1}\sqrt{1+\frac4{x^4}}\,dx$$
+    이때 도함수 $L^{\prime}(t)$에 대한 다음 합을 구하시오. [9점]
+    $$\sum_{k=1}^nL^{\prime}(k)$$
+  points: 9
+  depends_on: []
+  answer:
+    kind: expression
+    value: sqrt(1+4/(n+1)**4)-sqrt(5)
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S2-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 2b-1
+      content: |
+        $h(x)=\sqrt{1+\frac4{x^4}}$라 놓으면, $L^{\prime}(t)=\frac d{dt}\int_t^{t+1}h(x)\,dx=h(t+1)-h(t)$이다. 따라서,
+        $$L^{\prime}(t)=\sqrt{1+\frac4{(t+1)^4}}-\sqrt{1+\frac4{t^4}}$$
+        이고,
+      source_flow: 채점 가이드 p.16
+      criteria:
+      - 2.M1
+    - id: 2b-2
+      content: |
+        $$\sum_{k=1}^nL^{\prime}(k)=(h(2)-h(1))+(h(3)-h(2))+\cdots+(h(n+1)-h(n))$$
+        이다. 여기서 상쇄되는 항들을 제거하면 남는 항은 $h(n+1)-h(1)$이므로 정답은 $\sqrt{1+\frac4{(n+1)^4}}-\sqrt5$이다.
+      source_flow: 채점 가이드 p.16
+      criteria:
+      - 2.A2
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 5
+      evidence: $L^{\prime}(t)=h(t+1)-h(t)=\sqrt{1+\frac4{(t+1)^4}}-\sqrt{1+\frac4{t^4}}$를 구했다.
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 2b-1
+    - id: 2.A2
+      mark_type: A
+      points: 4
+      evidence: 상쇄되는 항을 제거하여 $\displaystyle\sum_{k=1}^nL^{\prime}(k)=\sqrt{1+\frac4{(n+1)^4}}-\sqrt5$를 구했다.
+      depends_on:
+      - 2.M1
+      implied_ok: false
+      steps:
+      - 2b-2
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+- id: '3'
+  stem: |
+    [3] 함수 $y=f(x)$가 닫힌 구간 $[t,t+h]$에서 연속이고, 열린 구간 $(t,t+h)$에서 미분가능하면
+    $$\frac d{dt}\int_t^{t+h}f(x)\,dx=hf^{\prime}(c)$$
+    인 $c$가 구간 $(t,t+h)$에 적어도 하나 존재함을 제시문 2, 3을 이용하여 증명하시오. (단, $h>0$) [11점]
+  points: 11
+  depends_on: []
+  answer:
+    kind: proof
+    value: null
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S3-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 3b-1
+      content: |
+        $F^{\prime}(x)=f(x)$라고 하자. 제시문 2에 의해 $\displaystyle\int_t^{t+h}f(x)\,dx=F(t+h)-F(t)$이다. 이 식의 양변을 $t$에 대해 미분하면
+        $$\frac d{dt}\int_t^{t+h}f(x)\,dx=f(t+h)-f(t)$$
+      source_flow: 채점 가이드 p.16
+      criteria:
+      - 3.R1
+    - id: 3b-2
+      content: |
+        우변에 평균값의 정리를 적용하면 다음을 만족하는 $c\ (t<c<t+h)$가 적어도 하나 존재한다.
+        $$f(t+h)-f(t)=hf^{\prime}(c)$$
+      source_flow: 채점 가이드 p.16
+      criteria:
+      - 3.R2
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 3.R1
+      mark_type: R
+      points: 5
+      evidence: 제시문 2로 $\displaystyle\int_t^{t+h}f(x)\,dx=F(t+h)-F(t)$를 쓰고 양변을 $t$에 대해 미분하여 $f(t+h)-f(t)$를 얻었다.
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 3b-1
+    - id: 3.R2
+      mark_type: R
+      points: 6
+      evidence: 우변 $f(t+h)-f(t)$에 평균값의 정리를 적용하여 $f(t+h)-f(t)=hf^{\prime}(c)$인 $c\ (t<c<t+h)$의 존재를 보였다.
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 3b-2
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+- id: 4-1
+  stem: |
+    [4] 다음 물음에 답하시오.
+    (1) 함수 $y=e^x$는 구간 $(-\infty,\infty)$에서 증가함을 증명하시오. [3점]
+  points: 3
+  depends_on: []
+  answer:
+    kind: proof
+    value: null
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S41-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 41b-1
+      content: 실수 전 구간에서 $y^{\prime}(x)=e^x>0$이므로 이 함수는 증가한다.
+      source_flow: 채점 가이드 p.16
+      criteria:
+      - 4-1.R1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 4-1.R1
+      mark_type: R
+      points: 3
+      evidence: 실수 전 구간에서 $y^{\prime}=e^x>0$임을 이용해 증가함을 보였다.
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 41b-1
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+- id: 4-2
+  stem: |
+    (2) 제시문 4와 [그림 1: 곡선 $y=\frac2x$의 그래프와 $x$축의 점 $t,\ t+1$. $x=t$와 $x=t+1$ 사이에서 곡선 위의 점 $x=t$를 지나는 높이의 직사각형(큰 것)과 점 $x=t+1$을 지나는 높이의 직사각형(작은 것)이 곡선을 위아래로 감싸도록 그려져 있다]을 이용하여 다음 부등식을 증명하시오. [7점]
+    $$e^{\frac t{t+1}}<\left(1+\frac1t\right)^t<e\quad(t>0)$$
+  points: 7
+  depends_on:
+  - 4-1
+  answer:
+    kind: proof
+    value: null
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S42-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 42b-1
+      content: |
+        밑변의 길이가 $1$이고 높이가 $\frac2{t+1}$인 사각형의 넓이 $S_1$은 $\frac2{t+1}$이다.
+        곡선 $y=\frac2x$와 $x$축 및 $x=t,\ x=t+1\ (t>0)$로 둘러싸인 도형의 넓이 $S$는
+        $$S=\int_t^{t+1}\frac2x\,dx=\left[2\ln\frac x2\right]_t^{t+1}=2\ln\frac{t+1}t=2\ln\left(1+\frac1t\right)$$
+        이다. 한편, 밑변의 길이가 $1$이고 높이가 $\frac2t$인 사각형의 넓이 $S_2$는 $\frac2t$이다.
+      source_flow: 채점 가이드 p.16
+      criteria:
+      - 4-2.R1
+    - id: 42b-2
+      content: |
+        [그림 1]에 의해 $S_1<S<S_2$이므로 다음이 성립한다.
+        $$\frac2{t+1}<2\ln\left(1+\frac1t\right)<\frac2t\quad(t>0)$$
+        이 식들에 $\frac t2$를 곱하면 이 값이 양수이므로
+        $$\frac t{t+1}<\ln\left(1+\frac1t\right)^t<1\quad(t>0)$$
+        이다.
+      source_flow: 채점 가이드 p.16~17
+      criteria:
+      - 4-2.R1
+      - 4-2.R2
+    - id: 42b-3
+      content: |
+        $y=e^x$는 실수 전 구간에서 증가하므로 제시문 4에 의해 다음을 얻는다.
+        $$e^{\frac t{t+1}}<\left(1+\frac1t\right)^t<e\quad(t>0)$$
+      source_flow: 채점 가이드 p.17
+      criteria:
+      - 4-2.R2
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 4-2.R1
+      mark_type: R
+      points: 3
+      evidence: '[그림 1]에서 $S_1<S<S_2$를 이용하여 $\frac2{t+1}<2\ln\left(1+\frac1t\right)<\frac2t$를 얻었다.'
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 42b-1
+      - 42b-2
+    - id: 4-2.R2
+      mark_type: R
+      points: 4
+      evidence: $\frac t{t+1}<\ln\left(1+\frac1t\right)^t<1$에서 $y=e^x$가 증가함과 제시문 4를 이용하여 $e^{\frac t{t+1}}<\left(1+\frac1t\right)^t<e$를 보였다.
+      depends_on:
+      - 4-2.R1
+      implied_ok: false
+      steps:
+      - 42b-2
+      - 42b-3
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+- id: '5'
+  stem: |
+    [5] 두 함수 $f(x),g(x)$가 각각 미분가능하고 $f^{\prime}(x)=g(x)$이고 $g^{\prime}(x)=f(x)$라고 하자. 제시문 5의 부분적분법을 이용하여 다음 등식이 성립함을 증명하시오. [11점]
+    $$\int\cos x\{f(x)+g(x)\}\,dx=\frac{\sqrt2}2\cos\left(x-\frac\pi4\right)\{f(x)+g(x)\}+C\quad(\text{단, }C\text{는 적분상수})$$
+  points: 11
+  depends_on: []
+  answer:
+    kind: proof
+    value: null
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S5-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 5b-1
+      content: |
+        (※ 부분적분법을 활용하지 않고 단지 우변을 미분하여 등식을 증명한 경우 최대 3점 부여.)
+        $$\int\cos x\{f(x)+g(x)\}\,dx=\int(\sin x)^{\prime}\{f(x)+g(x)\}\,dx=\sin x\{f(x)+g(x)\}-\int\sin x\{f^{\prime}(x)+g^{\prime}(x)\}\,dx$$
+      source_flow: 채점 가이드 p.17
+      criteria:
+      - 5.R1
+    - id: 5b-2
+      content: |
+        이 식에서
+        $$-\int\sin x\{f^{\prime}(x)+g^{\prime}(x)\}\,dx=-\int\sin x\{f(x)+g(x)\}\,dx=\int(\cos x)^{\prime}\{f(x)+g(x)\}\,dx$$
+        $$=\cos x\{f(x)+g(x)\}-\int\cos x\{f^{\prime}(x)+g^{\prime}(x)\}\,dx=\cos x\{f(x)+g(x)\}-\int\cos x\{f(x)+g(x)\}\,dx$$
+        이다.
+      source_flow: 채점 가이드 p.17
+      criteria:
+      - 5.R2
+    - id: 5b-3
+      content: |
+        따라서
+        $$2\int\cos x\{f(x)+g(x)\}\,dx=(\sin x+\cos x)\{f(x)+g(x)\}=\sqrt2\left\{\sin x\sin\frac\pi4+\cos x\cos\frac\pi4\right\}\{f(x)+g(x)\}$$
+        $$=\sqrt2\cos\left(x-\frac\pi4\right)\{f(x)+g(x)\}$$
+      source_flow: 채점 가이드 p.17
+      criteria:
+      - 5.R3
+    - id: 5b-4
+      content: |
+        따라서
+        $$\int\cos x\{f(x)+g(x)\}\,dx=\frac{\sqrt2}2\cos\left(x-\frac\pi4\right)\{f(x)+g(x)\}+C$$
+        이다. (여기서 $C$는 적분 상수.)
+      source_flow: 채점 가이드 p.17
+      criteria:
+      - 5.R4
+    - id: 5b-5
+      content: |
+        [별해1]
+        $$\int\cos x\{f(x)+g(x)\}\,dx=\int\cos x\{f^{\prime}(x)+g^{\prime}(x)\}\,dx=\cos x\{f(x)+g(x)\}+\int\sin x\{f(x)+g(x)\}\,dx$$
+        이 식에서
+        $$\int\sin x\{f(x)+g(x)\}\,dx=\int\sin x\{f^{\prime}(x)+g^{\prime}(x)\}\,dx=\sin x\{f(x)+g(x)\}-\int\cos x\{f(x)+g(x)\}\,dx$$
+        따라서
+        $$2\int\cos x\{f(x)+g(x)\}\,dx=(\sin x+\cos x)\{f(x)+g(x)\}=\sqrt2\left\{\sin x\sin\frac\pi4+\cos x\cos\frac\pi4\right\}\{f(x)+g(x)\}=\sqrt2\cos\left(x-\frac\pi4\right)\{f(x)+g(x)\}$$
+        따라서
+        $$\int\cos x\{f(x)+g(x)\}\,dx=\frac{\sqrt2}2\cos\left(x-\frac\pi4\right)\{f(x)+g(x)\}+C$$
+        이다. (여기서 $C$는 적분 상수.)
+      source_flow: 채점 가이드 p.17~18
+      criteria:
+      - 5.R1
+      - 5.R2
+      - 5.R3
+      - 5.R4
+    - id: 5b-6
+      content: '[별해2] 첫 번째 풀이와 [별해1]이 뒤섞여 있는 경우가 있을 수 있습니다. 어떤 경우이건 부분적분을 올바로 1번 적용하면 [3점]. 그 중 한 항을 선택해 부분적분을 올바로 2번째 적용하여 원래 문제와 같은 항이 나타나면 [3점]. 원래 문제와 같은 항이 나타난 식을 정리한 후 삼각함수의 합성을 올바로 수행하면 [3점]. 적분상수를 부가해서 올바로 마무리 하면 [2점]을 부여함을 합니다.'
+      source_flow: 채점 가이드 p.18
+      criteria:
+      - 5.R1
+      - 5.R2
+      - 5.R3
+      - 5.R4
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 5.R1
+      mark_type: R
+      points: 3
+      evidence: 부분적분법을 올바로 한 번 적용했다.
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 5b-1
+      - 5b-5
+      - 5b-6
+    - id: 5.R2
+      mark_type: R
+      points: 3
+      evidence: 부분적분을 올바로 두 번째 적용하여 원래 문제와 같은 항 $\int\cos x\{f(x)+g(x)\}\,dx$가 나타나게 했다.
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 5b-2
+      - 5b-5
+      - 5b-6
+    - id: 5.R3
+      mark_type: R
+      points: 3
+      evidence: 원래 문제와 같은 항이 나타난 식을 정리하여 삼각함수의 합성으로 $2\int\cos x\{f(x)+g(x)\}\,dx=\sqrt2\cos\left(x-\frac\pi4\right)\{f(x)+g(x)\}$를 얻었다.
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 5b-3
+      - 5b-5
+      - 5b-6
+    - id: 5.R4
+      mark_type: R
+      points: 2
+      evidence: 적분상수 $C$를 붙여 $\int\cos x\{f(x)+g(x)\}\,dx=\frac{\sqrt2}2\cos\left(x-\frac\pi4\right)\{f(x)+g(x)\}+C$를 얻었다.
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 5b-4
+      - 5b-5
+      - 5b-6
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: past-v2-lean
+  item_version: 1
+  verdict: pass
+  date: &id001 2026-11-23
+created: *id001
+updated: *id001

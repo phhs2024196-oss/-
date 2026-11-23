@@ -1,0 +1,763 @@
+# 광운대 2022학년도 논술고사 자연계열(1교시) 문제 2 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: KW-G22A-02
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: KW
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 일반화
+points: 50
+time_estimate_min: null
+intent: |
+  [1] 세 실근을 등차수열로 표현하고 이를 이용하여 삼차방정식을 완성할 수 있는 능력과 미정계수법을 활용하여 삼차방정식의 계수와 세 실근을 계산하고 찾는 과정을 설명할 수 있는 능력을 판단한다. [2] 계승으로 주어진 식을 간단한 식으로 변환할 수 있는 능력과 부분분수를 활용하여 급수의 합을 찾는 계산 능력과 그 과정을 설명할 수 있는 능력을 판단한다. [3] 미분을 활용하여 두 함수의 대소 관계를 판정할 수 있는 능력과 그 결과를 바탕으로 원점에서 정의되지 않는 함수에 대해 극한값을 찾는 능력을 판단한다. 함수의 그래프 개형을 미분을 활용하여 해결해나가는 능력을 판단한다. 확률밀도함수에 대한 기본적인 이해를 묻고 실제 함수에 활용하는 능력을 판단한다. (광운대 공식 '문제 해설' 출제 의도)
+key_idea: |
+  세 실근 $a-d,a,a+d$로 계수비교, 계승식을 $\dfrac{n+1}{(n+2)!}=\dfrac{1}{(n+1)!}-\dfrac{1}{(n+2)!}$로 바꿔 소거합을 구한다. $h(x)=\ln\lvert x\rvert+\dfrac1{\sqrt x}$의 최솟값으로 부등식을 얻고 조임 정리로 $x=0$ 극한을 구한 뒤, 극값 $\pm ke^{-1}$로 수평선과의 교점 개수 $g(t)$를 센다.
+stuck: |
+  [3](3)에서 $x=0$이 정의되지 않음을 반영해 $t=0$, $t=\pm ke^{-1}$에서의 교점 개수를 각각 세고 불연속점을 판정하는 단계
+idea_tags:
+- IDEA-TELESCOPING-FACTORIAL
+- IDEA-AUX-FUNCTION-INEQUALITY
+- IDEA-HORIZONTAL-LINE-COUNT
+tags:
+- 삼차방정식
+- 등차수열
+- 계승
+- 부분분수
+- 급수의 합
+- 극한의 대소 관계
+- 교점의 개수
+- 확률밀도함수
+- 부분적분
+elements:
+  materials:
+  - 삼차방정식 $x^3-9x^2+cx-12=0$ 의 세 실근(등차수열)
+  - $\dfrac{n+2}{n!+(n+1)!+(n+2)!}$ 와 $\sum_{n=1}^{2022}$
+  - $f(x)=kx\ln\lvert x\rvert$ ($x=0$ 에서 정의되지 않음) 와 수평선 $y=t$ 의 교점 개수 $g(t)$
+  - 구간 $\left[-1,-\dfrac1{\sqrt e}\right]$ 에서의 확률밀도함수 $f(x)=kx\ln\lvert x\rvert$
+  concepts:
+  - 등차중항
+  - 계수비교(항등식)
+  - 계승과 부분분수
+  - 급수의 합(소거)
+  - 함수 극한의 대소 관계
+  - 함수의 증가와 감소·극값
+  - 불연속
+  - 확률밀도함수의 성질
+  - 부분적분법
+  tools:
+  - 세 근 $a-d,a,a+d$ 로 놓고 전개 후 계수비교
+  - $n!\{1+(n+1)+(n+2)(n+1)\}$ 로 묶기
+  - $\dfrac{n+1}{(n+2)!}=\dfrac1{(n+1)!}-\dfrac1{(n+2)!}$
+  - $h(x)=\ln\lvert x\rvert+\dfrac1{\sqrt x}$ 최솟값 $\ln\dfrac{e^2}4>0$
+  - $f(-x)=-f(x)$ (기함수)
+  - $\displaystyle\int kx\ln(-x)\,dx$ 부분적분
+  conditions:
+  - $k>0$
+  - $0<x<1$
+  - 구간 $-1\le x\le-\dfrac1{\sqrt e}$ 에서 $f\ge0$ 이고 넓이 $1$
+  stimuli_used:
+  - '[3](2): 1'
+  - '[3](4): 2'
+  - '[3](4): 3'
+  subpart_links: '[1](1)(2)(3)은 직렬(a=3 → c=22 → 세 근). [2](1)이 [2](2)의 부분분수 변형. [3](1)이 [3](2) 극한의 근거, [3](3)은 [3](2)의 극한을 전제로 한 그래프 개형, [3](4)는 [3](3)의 부호 정보 사용'
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학
+  - 수학Ⅰ
+  - 수학Ⅱ
+  - 미적분
+  - 확률과통계
+  scope_2028: calc2
+  scope_confirmed: false
+  standards:
+  - code: 12미적02-13
+    text: 방정식과 부등식에 대한 문제를 해결할 수 있다.
+    verified: true
+  - code: 12수학Ⅱ01-02
+    text: 함수의 극한에 대한 성질을 이해하고, 함수의 극한값을 구할 수 있다.
+    verified: true
+  - code: 12수학Ⅱ01-03
+    text: 함수의 연속의 뜻을 안다.
+    verified: true
+  - code: 12확통03-01
+    text: 확률변수와 확률분포의 뜻을 안다.
+    verified: true
+  - code: 12미적03-02
+    text: 부분적분법을 이해하고, 이를 활용할 수 있다.
+    verified: true
+  - code: 12수학Ⅰ03-02
+    text: 등차수열의 뜻을 알고, 일반항, 첫째항부터 제n항까지의 합을 구할 수 있다.
+    verified: true
+  - code: 10수학01-12
+    text: 간단한 삼차방정식과 사차방정식을 풀 수 있다.
+    verified: true
+  - code: 10수학01-04
+    text: 다항식의 인수분해를 할 수 있다.
+    verified: true
+  - code: 10수학01-02
+    text: 항등식의 성질을 이해한다.
+    verified: true
+  - code: 12수학Ⅰ03-05
+    text: 여러 가지 수열의 첫째항부터 제n항까지의 합을 구할 수 있다.
+    verified: true
+  content_area: 방정식 · 수열의 합 · 함수의 극한 · 미분 · 확률밀도함수 · 적분
+  behavior_domain: 문제해결
+  unit_path:
+  - 미적분
+  - 도함수의 활용
+  - 그래프의 개형
+  key_concepts:
+  - 계수비교
+  - 부분분수와 소거합
+  - 함수의 극한의 대소 관계
+  - 함수의 연속과 불연속
+  - 확률밀도함수
+  - 부분적분법
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 광운대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 광운대학교
+  admission_year: 2022
+  admission_type: 수시 논술우수자
+  track: 자연계열(1교시)
+  question_no: 2
+  official_url: https://iphak.kw.ac.kr/pds/pds_view.php?m_type=SUSI&bn=41307
+  retrieved_at: '2026-11-22'
+  original_points:
+  - 4
+  - 3
+  - 4
+  - 6
+  - 7
+  - 7
+  - 6
+  - 7
+  - 6
+  rights_notice: 미확인
+  transcribed_from: 광운대 입학처 공식 PDF「2022학년도 논술고사 자연계열(1교시)」문제 p.3~4, 문제 해설 p.12~18 (이미지 대조 2026-11-22)
+verify: verify/KW-G22A.py::p02
+stimuli:
+- label: '1'
+  body: |
+    1. 함수 극한의 대소 관계
+    두 함수 $f(x)$와 $g(x)$에 대하여 $\displaystyle\lim_{x\to a}f(x)=L$이고 $\displaystyle\lim_{x\to a}g(x)=M$ ($L$, $M$은 실수)일 때, $a$에 가까운 $x$의 모든 값과 함수 $h(x)$에 대하여 $f(x)\le h(x)\le g(x)$이고 $L=M$이면 $\displaystyle\lim_{x\to a}h(x)=L$이다.
+- label: '2'
+  body: |
+    2. 확률밀도함수의 성질
+    연속확률변수 $X$의 확률밀도함수 $f(x)$ $(\alpha\le x\le\beta)$에 대하여
+    ① $f(x)\ge0$
+    ② $f(x)$의 그래프와 $x$축 및 두 직선 $x=\alpha$와 $x=\beta$로 둘러싸인 부분의 넓이는 $1$이다.
+    ③ 두 상수 $a$와 $b$ $(\alpha\le a\le b\le\beta)$에 대하여 $\mathrm{P}(a\le X\le b)$는 $f(x)$의 그래프와 $x$축 및 두 직선 $x=a$와 $x=b$로 둘러싸인 부분의 넓이와 같다.
+- label: '3'
+  body: |
+    3. 부분적분법을 이용한 정적분
+    미분가능한 두 함수 $f(x)$와 $g(x)$에 대하여 $f^{\prime}(x)$와 $g^{\prime}(x)$가 닫힌구간 $[a,b]$에서 연속일 때 다음이 성립한다.
+    $$\int_a^bf(x)g^{\prime}(x)\,dx=\left[f(x)g(x)\right]_a^b-\int_a^bf^{\prime}(x)g(x)\,dx$$
+stem: |
+  [문제 2] (50점) 다음 제시문을 읽고 문항별로 풀이와 함께 답하시오.
+subparts:
+- id: 1-1
+  stem: |
+    [1] 삼차방정식 $x^3-9x^2+cx-12=0$의 세 실근은 등차수열을 이룬다. 이때 다음을 찾으시오.
+
+    (1) 등차수열을 이루는 세 실근의 등차중항 [4점]
+  points: 4
+  depends_on: []
+  answer:
+    kind: value
+    value: '3'
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S11-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 11b-1
+      content: |
+        세 실근을 $a-d$, $a$, $a+d$라고 하자. 그러면 다음을 얻는다.
+        $(x-a)(x-a+d)(x-a-d)=(x-a)(x^2-2ax+a^2-d^2)=x^3-3ax^2+(3a^2-d^2)x-a^3+ad^2$
+      source_flow: 해설 p.16
+      criteria:
+      - 1-1.M1
+    - id: 11b-2
+      content: |
+        $a-d$, $a$, $a+d$가 주어진 삼차방정식의 세 실근이므로 $x^3-9x^2+cx-12=x^3-3ax^2+(3a^2-d^2)x-a^3+ad^2$이 성립한다. 그러면 계수비교에 의해 $9=3a$이므로 $a=3$이다.
+      source_flow: 해설 p.16
+      criteria:
+      - 1-1.A1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 1-1.M1
+      mark_type: M
+      points: 2
+      evidence: |
+        세 실근을 $a-d$, $a$, $a+d$라고 하고 삼차방정식 $x^3-3ax^2+(3a^2-d^2)x-a^3+ad^2$을 찾았다.
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 11b-1
+    - id: 1-1.A1
+      mark_type: A
+      points: 2
+      evidence: |
+        계수비교에 의해 등차중항 $a=3$을 찾았다.
+      depends_on:
+      - 1-1.M1
+      steps:
+      - 11b-2
+    deductions: []
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+- id: 1-2
+  stem: |
+    (2) 상수 $c$의 값 [3점]
+  points: 3
+  depends_on: []
+  answer:
+    kind: value
+    value: '22'
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S12-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 12b-1
+      content: |
+        $a=3$이 주어진 방정식의 근이므로 다음을 얻는다.
+        $3^3-9\times3^2+3c-12=0$, $3c=-27+81+12=66$, $c=22$
+        (다른 풀이) 위의 답안에서 두 삼차방정식의 일차항과 상수항의 계수비교에 의해 $a=3$이므로 $c=3a^2-d^2=27-d^2$과 $-12=-a^3+ad^2=-27+3d^2$을 얻는다. 위 두 번째 식으로부터 $d^2=5$를 얻고 위 첫 번째 식으로부터 $c=22$를 얻는다.
+      source_flow: 해설 p.16
+      criteria:
+      - 1-2.B1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 1-2.B1
+      mark_type: B
+      points: 3
+      evidence: |
+        $a=3$을 대입하여 $c=22$를 찾았다.
+      depends_on: []
+      steps:
+      - 12b-1
+    deductions: []
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+- id: 1-3
+  stem: |
+    (3) 주어진 방정식의 세 실근 [4점]
+  points: 4
+  depends_on: []
+  answer:
+    kind: set
+    value: 3-sqrt(5), 3, 3+sqrt(5)
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S13-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 13b-1
+      content: |
+        (2)에 의해 $c=22$이므로 주어진 방정식은 $x^3-9x^2+22x-12=0$이다.
+        (1)에 의해 $x=3$은 이 방정식의 근이므로, 인수정리에 의해 $x^3-9x^2+22x-12$는 $x-3$에 의해 나누어떨어진다. 실제로 나누거나 조립제법에 의해 $x^3-9x^2+22x-12=(x-3)(x^2-6x+4)$를 얻는다.
+      source_flow: 해설 p.16
+      criteria:
+      - 1-3.M1
+    - id: 13b-2
+      content: |
+        이에 따라 $(x-3)(x^2-6x+4)=0$이므로, 주어진 방정식의 세 근은 $3-\sqrt5$, $3$, $3+\sqrt5$이다.
+        (다른 풀이) 위의 (1)에서 구한 $a$와 위 (2)의 다른 풀이의 방법으로 구한 $d=\pm\sqrt5$를 $a-d$, $a$, $a+d$에 대입하여 구할 수도 있다.
+      source_flow: 해설 p.16
+      criteria:
+      - 1-3.A1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 1-3.M1
+      mark_type: M
+      points: 2
+      evidence: |
+        $x^3-9x^2+22x-12=(x-3)(x^2-6x+4)$를 찾았거나 $d=\pm\sqrt5$를 찾았다.
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 13b-1
+    - id: 1-3.A1
+      mark_type: A
+      points: 2
+      evidence: |
+        세 실근 $3-\sqrt5$, $3$, $3+\sqrt5$를 찾았다.
+      depends_on:
+      - 1-3.M1
+      steps:
+      - 13b-2
+    deductions: []
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+- id: 2-1
+  stem: |
+    [2] $n$이 자연수일 때, 다음 물음에 답하시오.
+
+    (1) $\dfrac{n+2}{n!+(n+1)!+(n+2)!}=\dfrac{n+1}{(n+2)!}$임을 증명하시오. [6점]
+  points: 6
+  depends_on: []
+  answer:
+    kind: proof
+    value: n+2 over n!+(n+1)!+(n+2)! = (n+1)/(n+2)! 의 항등 증명
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S21-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 21b-1
+      content: |
+        $\dfrac{n+2}{n!+(n+1)!+(n+2)!}=\dfrac{n+2}{n!\{1+(n+1)+(n+2)(n+1)\}}=\dfrac{n+2}{n!(n^2+4n+4)}$
+      source_flow: 해설 p.16~18
+      criteria:
+      - 2-1.M1
+    - id: 21b-2
+      content: |
+        $=\dfrac{n+2}{n!(n+2)^2}=\dfrac{1}{n!(n+2)}=\dfrac{n+1}{n!(n+1)(n+2)}=\dfrac{n+1}{(n+2)!}$
+      source_flow: 해설 p.16~18
+      criteria:
+      - 2-1.R1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 2-1.M1
+      mark_type: M
+      points: 3
+      evidence: |
+        $\dfrac{n+2}{n!+(n+1)!+(n+2)!}=\dfrac{n+2}{n!\{1+(n+1)+(n+2)(n+1)\}}=\dfrac{n+2}{n!(n^2+4n+4)}$를 찾았다.
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 21b-1
+    - id: 2-1.R1
+      mark_type: R
+      points: 3
+      evidence: |
+        $\dfrac{n+2}{n!(n+2)^2}=\dfrac{1}{n!(n+2)}=\dfrac{n+1}{n!(n+1)(n+2)}=\dfrac{n+1}{(n+2)!}$을 찾았다.
+      depends_on:
+      - 2-1.M1
+      steps:
+      - 21b-2
+    deductions: []
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+- id: 2-2
+  stem: |
+    (2) $\displaystyle\sum_{n=1}^{2022}\dfrac{n+2}{n!+(n+1)!+(n+2)!}$의 값을 찾으시오. [7점]
+  points: 7
+  depends_on: []
+  answer:
+    kind: value
+    value: 1/2-1/factorial(2024)
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S22-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 22b-1
+      content: |
+        위의 (1)에 의해 각 자연수 $n$에 대해 다음이 성립한다.
+        $\dfrac{n+2}{n!+(n+1)!+(n+2)!}=\dfrac{n+1}{(n+2)!}=\dfrac{1}{(n+1)!}-\dfrac{1}{(n+2)!}$
+      source_flow: 해설 p.16~18
+      criteria:
+      - 2-2.M1
+    - id: 22b-2
+      content: |
+        $\displaystyle\sum_{n=1}^{2022}\dfrac{n+2}{n!+(n+1)!+(n+2)!}=\sum_{n=1}^{2022}\left\{\dfrac{1}{(n+1)!}-\dfrac{1}{(n+2)!}\right\}=\left(\dfrac{1}{2!}-\dfrac{1}{3!}\right)+\left(\dfrac{1}{3!}-\dfrac{1}{4!}\right)+\cdots+\left(\dfrac{1}{2023!}-\dfrac{1}{2024!}\right)=\dfrac{1}{2!}-\dfrac{1}{2024!}=\dfrac12-\dfrac{1}{2024!}$
+      source_flow: 해설 p.16~18
+      criteria:
+      - 2-2.A1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 2-2.M1
+      mark_type: M
+      points: 4
+      evidence: |
+        $\dfrac{n+1}{(n+2)!}=\dfrac{1}{(n+1)!}-\dfrac{1}{(n+2)!}$을 찾았다.
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 22b-1
+    - id: 2-2.A1
+      mark_type: A
+      points: 3
+      evidence: |
+        $\displaystyle\sum_{n=1}^{2022}\dfrac{n+2}{n!+(n+1)!+(n+2)!}=\dfrac12-\dfrac{1}{2024!}$을 찾았다.
+      depends_on:
+      - 2-2.M1
+      steps:
+      - 22b-2
+    deductions: []
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+- id: 3-1
+  stem: |
+    [3] 양수 $k$에 대하여 함수 $f(x)=kx\ln\lvert x\rvert$라 하자. 곡선 $y=f(x)$와 실수 $t$에 대하여 $x$축에 평행한 직선 $y=t$가 만나는 점의 개수를 $g(t)$라 하자. 다음 물음에 답하시오.
+
+    (1) 구간 $0<x<1$에서 두 함수 $\ln\lvert x\rvert$와 $-\dfrac{1}{\sqrt{x}}$의 대소 관계를 판정하시오. [7점]
+  points: 7
+  depends_on: []
+  answer:
+    kind: proof
+    value: 0<x<1 에서 ln|x| > -1/sqrt(x)
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S31-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 31b-1
+      content: |
+        $h(x)=\ln\lvert x\rvert+\dfrac{1}{\sqrt{x}}$라 하자. 함수 $h(x)$는 구간 $0<x<1$에서 미분가능하고 $h^{\prime}(x)=\dfrac1x-\dfrac{1}{2x\sqrt{x}}=\dfrac{2\sqrt{x}-1}{2x\sqrt{x}}$이다.
+      source_flow: 해설 p.16~18
+      criteria:
+      - 3-1.M1
+    - id: 31b-2
+      content: |
+        주어진 구간에서 $h^{\prime}(x)=0$의 근은 $x=\dfrac14$뿐이다. 함수 $h(x)$의 증가와 감소를 표로 나타내면 $x=\dfrac14$의 좌우에서 $h^{\prime}(x)$의 부호가 $-$에서 $+$로 바뀌어 $0<x<\dfrac14$에서 감소, $\dfrac14<x<1$에서 증가한다.
+      source_flow: 해설 p.16~18
+      criteria:
+      - 3-1.M2
+    - id: 31b-3
+      content: |
+        함수 $h(x)$의 최솟값은 $h\left(\dfrac14\right)=-\ln4+2=\ln\dfrac{e^2}{4}>0$이므로, 구간 $0<x<1$에서 $\ln\lvert x\rvert>-\dfrac{1}{\sqrt{x}}$이다.
+      source_flow: 해설 p.16~18
+      criteria:
+      - 3-1.A1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 3-1.M1
+      mark_type: M
+      points: 3
+      evidence: |
+        $h(x)=\ln\lvert x\rvert+\dfrac{1}{\sqrt{x}}$라 하고, $h^{\prime}(x)=\dfrac1x-\dfrac{1}{2x\sqrt{x}}=\dfrac{2\sqrt{x}-1}{2x\sqrt{x}}$을 찾았다.
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 31b-1
+    - id: 3-1.M2
+      mark_type: M
+      points: 3
+      evidence: |
+        $h^{\prime}(x)=0$의 근이 $x=\dfrac14$임을 찾고 함수 $h(x)$의 최솟값이 $h\left(\dfrac14\right)=-\ln4+2=\ln\dfrac{e^2}{4}>0$임을 찾았다.
+      depends_on:
+      - 3-1.M1
+      implied_ok: false
+      steps:
+      - 31b-2
+    - id: 3-1.A1
+      mark_type: A
+      points: 1
+      evidence: |
+        구간 $0<x<1$에서 $\ln\lvert x\rvert>-\dfrac{1}{\sqrt{x}}$임을 찾았다.
+      depends_on:
+      - 3-1.M1
+      - 3-1.M2
+      steps:
+      - 31b-3
+    deductions: []
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+- id: 3-2
+  stem: |
+    (2) (1)을 이용하여 두 극한값 $\displaystyle\lim_{x\to0+}f(x)$와 $\displaystyle\lim_{x\to0-}f(x)$를 찾으시오. [6점]
+  points: 6
+  depends_on: []
+  answer:
+    kind: expression
+    value: right=0; left=0
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S32-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 32b-1
+      content: |
+        (1)의 결과로부터 구간 $(0,1)$에서 $-1<\sqrt{x}\ln\lvert x\rvert<0$이 성립한다. 양변에 $\sqrt{x}$를 곱하면 $-\sqrt{x}<x\ln\lvert x\rvert<0$이다. $\displaystyle\lim_{x\to0+}\sqrt{x}=0$이므로, 함수의 극한의 대소 관계에 의해 $\displaystyle\lim_{x\to0+}f(x)=0$이다.
+      source_flow: 해설 p.16~18
+      criteria:
+      - 3-2.M1
+    - id: 32b-2
+      content: |
+        극한 $\displaystyle\lim_{x\to0-}f(x)$에서 $x=-t$로 치환하고 $f(-x)=-kx\ln\lvert-x\rvert=-kx\ln\lvert x\rvert=-f(x)$를 이용하면 $\displaystyle\lim_{x\to0-}f(x)=\lim_{t\to0+}f(-t)=-\lim_{t\to0+}f(t)=0$이다.
+      source_flow: 해설 p.16~18
+      criteria:
+      - 3-2.M2
+      - 3-2.A1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 3-2.M1
+      mark_type: M
+      points: 2
+      evidence: |
+        $-\sqrt{x}<x\ln\lvert x\rvert<0$을 찾고 $\displaystyle\lim_{x\to0+}\sqrt{x}=0$을 찾았다.
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 32b-1
+    - id: 3-2.M2
+      mark_type: M
+      points: 2
+      evidence: |
+        극한 $\displaystyle\lim_{x\to0-}f(x)$에서 $f(-x)=-f(x)$를 밝혔다.
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 32b-2
+    - id: 3-2.A1
+      mark_type: A
+      points: 2
+      evidence: |
+        $\displaystyle\lim_{x\to0+}f(x)=0$과 $\displaystyle\lim_{x\to0-}f(x)=0$을 찾았다.
+      depends_on:
+      - 3-2.M1
+      - 3-2.M2
+      steps:
+      - 32b-2
+    deductions: []
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+- id: 3-3
+  stem: |
+    (3) 함수 $f(x)$의 증가와 감소를 나타내는 표를 만들고, 함수 $g(t)$가 불연속인 $t$의 값과 그 함숫값 $g(t)$의 순서쌍 $(t,g(t))$를 찾으시오. [7점]
+  points: 7
+  depends_on: []
+  answer:
+    kind: set
+    value: (-k*exp(-1),2), (0,2), (k*exp(-1),2)
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S33-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 33b-1
+      content: |
+        함수 $f(x)$는 $x=0$을 제외한 모든 실수 $x$에서 미분가능하며, $f^{\prime}(x)=k(\ln\lvert x\rvert+1)$이다.
+      source_flow: 해설 p.16~18
+      criteria:
+      - 3-3.B1
+    - id: 33b-2
+      content: |
+        $f^{\prime}(x)=0$의 근은 $x=\pm e^{-1}$이다. 함수 $f(x)$의 증가와 감소를 표로 나타내면 다음과 같다.
+        $x<-e^{-1}$에서 $f^{\prime}(x)>0$(증가), $x=-e^{-1}$에서 $f(x)=ke^{-1}$(극대), $-e^{-1}<x<0$에서 $f^{\prime}(x)<0$(감소), $x=0$은 정의되지 않고 $f(x)$는 $0$에 수렴, $0<x<e^{-1}$에서 $f^{\prime}(x)<0$(감소), $x=e^{-1}$에서 $f(x)=-ke^{-1}$(극소), $x>e^{-1}$에서 $f^{\prime}(x)>0$(증가)
+      source_flow: 해설 p.16~18
+      criteria:
+      - 3-3.M1
+    - id: 33b-3
+      content: |
+        오른쪽에 있는 함수 $y=f(x)$의 그래프 개형과 직선 $y=t$와의 교점을 헤아려 보면 함수 $g(t)$는 다음과 같다.
+        $g(t)=1\ (t<-ke^{-1})$, $2\ (t=-ke^{-1})$, $3\ (-ke^{-1}<t<0)$, $2\ (t=0)$, $3\ (0<t<ke^{-1})$, $2\ (t=ke^{-1})$, $1\ (ke^{-1}<t)$
+        따라서 함수 $g(t)$의 불연속인 $t$의 값과 그 함숫값 $g(t)$의 순서쌍들은 $(-ke^{-1},2)$, $(0,2)$, $(ke^{-1},2)$이다.
+      source_flow: 해설 p.16~18
+      criteria:
+      - 3-3.A1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 3-3.B1
+      mark_type: B
+      points: 1
+      evidence: |
+        $f^{\prime}(x)=k(\ln\lvert x\rvert+1)$을 찾았다.
+      depends_on: []
+      steps:
+      - 33b-1
+    - id: 3-3.M1
+      mark_type: M
+      points: 3
+      evidence: |
+        함수 $f(x)$의 증가와 감소를 표로 나타냈다.
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 33b-2
+    - id: 3-3.A1
+      mark_type: A
+      points: 3
+      evidence: |
+        $(t,g(t))$의 순서쌍 $(-ke^{-1},2)$, $(0,2)$, $(ke^{-1},2)$를 찾았다.
+      depends_on:
+      - 3-3.M1
+      steps:
+      - 33b-3
+    deductions: []
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+- id: 3-4
+  stem: |
+    (4) 연속확률변수 $X$의 확률밀도함수가 $f(x)=kx\ln\lvert x\rvert\ \left(-1\le x\le-\dfrac{1}{\sqrt{e}}\right)$일 때, 양수 $k$의 값을 찾으시오. [6점]
+  points: 6
+  depends_on: []
+  answer:
+    kind: value
+    value: 4*e/(e-2)
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S34-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 34b-1
+      content: |
+        양수 $k$에 대하여 확률밀도함수 $f(x)=kx\ln\lvert x\rvert$은 위 (3)에서 살펴본 바와 같이 구간 $\left(-1\le x\le-\dfrac{1}{\sqrt{e}}\right)$에서 $f(x)\ge0$이다.
+      source_flow: 해설 p.16~18
+      criteria:
+      - 3-4.R1
+    - id: 34b-2
+      content: |
+        또한 확률밀도함수 $f(x)$는 $\displaystyle\int_{-1}^{-\frac{1}{\sqrt{e}}}f(x)\,dx=1$을 만족시켜야 한다. 부분적분법으로 계산하면 다음을 얻는다.
+        $\displaystyle\int_{-1}^{-\frac{1}{\sqrt{e}}}f(x)\,dx=\int_{-1}^{-\frac{1}{\sqrt{e}}}kx\ln(-x)\,dx=k\left[\dfrac12x^2\ln(-x)\right]_{-1}^{-\frac{1}{\sqrt{e}}}-k\int_{-1}^{-\frac{1}{\sqrt{e}}}\dfrac12x\,dx$
+      source_flow: 해설 p.16~18
+      criteria:
+      - 3-4.M1
+    - id: 34b-3
+      content: |
+        $=-\dfrac{k}{4e}-\dfrac{k}{4}\left[x^2\right]_{-1}^{-\frac{1}{\sqrt{e}}}=\dfrac{k}{4}\left(1-\dfrac{2}{e}\right)=\dfrac{k(e-2)}{4e}=1$
+        따라서 찾는 값은 $k=\dfrac{4e}{e-2}$이다.
+      source_flow: 해설 p.16~18
+      criteria:
+      - 3-4.A1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 3-4.R1
+      mark_type: R
+      points: 1
+      evidence: |
+        구간 $\left(-1\le x\le-\dfrac{1}{\sqrt{e}}\right)$에서 $f(x)\ge0$임을 언급했다.
+      depends_on: []
+      steps:
+      - 34b-1
+    - id: 3-4.M1
+      mark_type: M
+      points: 3
+      evidence: |
+        부분적분법으로 $\displaystyle\int_{-1}^{-\frac{1}{\sqrt{e}}}kx\ln(-x)\,dx=k\left[\dfrac12x^2\ln(-x)\right]_{-1}^{-\frac{1}{\sqrt{e}}}-k\int_{-1}^{-\frac{1}{\sqrt{e}}}\dfrac12x\,dx$를 찾았다.
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 34b-2
+    - id: 3-4.A1
+      mark_type: A
+      points: 2
+      evidence: |
+        $k=\dfrac{4e}{e-2}$를 찾았다.
+      depends_on:
+      - 3-4.M1
+      steps:
+      - 34b-3
+    deductions: []
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: past-v2-lean
+  item_version: 1
+  verdict: pass
+  date: '2026-11-22'
+created: '2026-11-22'
+updated: '2026-11-22'

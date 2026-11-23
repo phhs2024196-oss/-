@@ -1,0 +1,527 @@
+schema_version: '2.0'
+id: KW-M27-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: KW
+type: null
+variant_of: null
+replaces: null
+level: L3
+form: 추론
+points: 50
+time_estimate_min: null
+intent: |
+  [1] 수학적 귀납법의 원리를 이해하고 이를 이용하여 명제를 증명할 수 있는 능력을 평가한다. [2] 도함수를 활용하여 부등식이 성립하는 것을 증명하는 능력을 평가한다. 함수의 그래프와 성질을 이해하고 함수의 증가와 감소를 조사하여 문제를 해결하는 능력을 평가한다. [3] 주어진 조건을 이해하고 활용하는 능력과 정적분의 계산을 통해 조건을 만족시키는 다항함수를 결정할 수 있는 능력을 평가한다. [4] 항등식과 유리함수의 성질을 이해하고 다항식의 곱셈과 인수분해를 활용하여 문제를 해결하는 능력을 평가한다. [5] 조건부확률의 의미를 이해하고 이를 활용하여 확률 계산을 할 수 있는 능력을 평가한다. (모범답안 PDF 출제 의도 원문)
+key_idea: |
+  [1] $k\ge4$이면 $k^2\ge k+1$로 귀납 단계를 닫는다. [2] $g(x)=x-\sin x$의 증가성으로 $f^{\prime}=2(x-\sin x)$의 부호를 정한다. [3] 짝함수와 $f(0)=0$으로 $f=bx^2$, 치환적분으로 $b$를 정한다. [4] 항등식 계수 비교와 대칭식. [5] 전확률과 조건부확률.
+stuck: |
+  [2]에서 $\lvert\sin x\rvert\le\lvert x\rvert$을 $g(x)=x-\sin x$의 증가로 보이고 $f^{\prime}(x)$의 부호를 정하는 단계
+idea_tags:
+- IDEA-INDUCTION-INEQUALITY-STEP
+- IDEA-AUX-FUNCTION-SIN-BOUND
+- IDEA-EVEN-POLYNOMIAL-SUBSTITUTION
+- IDEA-COEFFICIENT-MATCH-SYMMETRIC
+- IDEA-BAYES-TOTAL-PROBABILITY
+tags:
+- 수학적 귀납법
+- 부등식
+- 최대·최소
+- 치환적분
+- 항등식
+- 조건부확률
+elements:
+  materials:
+  - $n!\ge n^2$ ($n\ge4$)
+  - $f(x)=x^2+2\cos x$ ($-\frac\pi2\le x\le\pi$)
+  - 짝함수 $f$와 $\int_0^1xe^{f(x)}dx=\frac{e^2-1}4$
+  - 유리식 항등식
+  - 진단 키트의 민감도 99%, 위양성 2%, 유병률 1%
+  concepts:
+  - 수학적 귀납법
+  - 도함수와 증가·감소
+  - 치환적분
+  - 항등식
+  - 조건부확률과 전확률
+  tools:
+  - 귀납 단계에서 $k(k-1)\ge12$
+  - 보조함수 $g(x)=x-\sin x$
+  - $bx^2=t$ 치환
+  - $a+b$, $a^2+b^2$로부터 $ab$, $a^5+b^5$
+  - $\mathrm{P}(A\mid B)=\frac{\mathrm{P}(A\cap B)}{\mathrm{P}(B)}$
+  conditions:
+  - $n\ge4$
+  - 삼차 이하 다항함수
+  - $x\ne0,-1$
+  stimuli_used:
+  - '1: 1'
+  - '3: 2'
+  - '5: 3'
+  subpart_links: '[1]~[5]는 서로 독립.'
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학
+  - 수학Ⅰ
+  - 수학Ⅱ
+  - 미적분
+  - 확률과통계
+  scope_2028: calc2
+  scope_confirmed: false
+  standards: []
+  content_area: 수학적 귀납법 · 도함수의 활용 · 치환적분 · 항등식 · 조건부확률
+  behavior_domain: 문제해결
+  unit_path:
+  - 수학Ⅰ
+  - 수열
+  - 수학적 귀납법
+  - 부등식의 증명
+  key_concepts:
+  - 수학적 귀납법
+  - 보조함수와 증가·감소
+  - 치환적분
+  - 조건부확률
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 광운대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 광운대학교
+  admission_year: 2027
+  admission_type: 수시 모의논술
+  track: 자연계열
+  question_no: 1
+  official_url: https://iphak.kw.ac.kr/pds/pds_view.php?m_type=SUSI&bn=44694
+  retrieved_at: '2026-11-22'
+  original_points:
+  - 8
+  - 12
+  - 10
+  - 10
+  - 10
+  rights_notice: 미확인
+  transcribed_from: |
+    광운대 입학처 공식 PDF「2027학년도 논술우수자전형 모의논술 자연계열 [문제 1] 해설 및 모범답안」p.1~6 (이미지 대조 2026-11-22)
+verify: verify/KW-M27.py::p01
+stimuli:
+- label: '1'
+  body: |
+    수학적 귀납법
+    자연수 $n$에 대한 명제 $p(n)$이 모든 자연수 $n$에 대하여 성립함을 증명하려면 다음 두 가지를 보이면 된다.
+    ① $n=1$일 때, 명제 $p(n)$이 성립한다.
+    ② $n=k$일 때 명제 $p(n)$이 성립한다고 가정하면 $n=k+1$일 때도 명제 $p(n)$이 성립한다.
+- label: '2'
+  body: |
+    미분가능한 함수 $g(t)$에 대하여 $x=g(t)$로 놓으면
+    $$\int f(x)dx=\int f(g(t))g^{\prime}(t)dt$$
+- label: '3'
+  body: |
+    사건 $A$가 일어났을 때의 사건 $B$의 조건부확률은
+    $$\mathrm{P}(B\mid A)=\frac{\mathrm{P}(A\cap B)}{\mathrm{P}(A)}\quad(\text{단, }\mathrm{P}(A)>0)$$
+stem: '[문제 1] (50점) 다음 제시문을 읽고 문항별로 풀이와 함께 답하시오.'
+subparts:
+- id: '1'
+  stem: '[1] $n\ge4$인 모든 자연수 $n$에서 $n!\ge n^2$이 성립함을 수학적 귀납법으로 증명하시오. [8점]'
+  points: 8
+  depends_on: []
+  answer:
+    kind: proof
+    value: n>=4 에서 n!>=n^2 증명
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S1-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        $n!\ge n^2$ ······ ①. (ⅰ) $n=4$일 때 (좌변)$=4!=24\ge4^2=16$(우변)이므로 부등식 ①이 성립한다.
+      source_flow: 예시 답안 p.5
+      criteria:
+      - 1.B1
+    - id: 1b-2
+      content: |
+        (ⅱ) $n=k\,(k\ge4)$일 때 부등식 ①이 성립한다고 가정하면 $k!\ge k^2$ ······ ②. 부등식 ②의 양변에 $k+1$을 곱하면 $(k+1)!\ge k^2(k+1)$ ······ ③. $k\ge4$이면 $k(k-1)\ge12$이므로 $k^2\ge k+1$이다.
+      source_flow: 예시 답안 p.5
+      criteria:
+      - 1.M1
+    - id: 1b-3
+      content: |
+        부등식 ③에서 $(k+1)!\ge k^2(k+1)\ge(k+1)^2$. 따라서 $n=k+1$일 때도 부등식 ①이 성립한다. 그러므로 (ⅰ),(ⅱ)에 따라 $n\ge4$인 모든 자연수 $n$에서 $n!\ge n^2$이 성립한다.
+      source_flow: 예시 답안 p.5
+      criteria:
+      - 1.R1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 1.B1
+      mark_type: B
+      points: 2
+      evidence: $n=4$일 때 $n!\ge n^2$임을 보였다.
+      steps:
+      - 1b-1
+    - id: 1.M1
+      mark_type: M
+      points: 2
+      evidence: $k\ge4$이므로 $k^2\ge k+1$임을 보였다.
+      steps:
+      - 1b-2
+    - id: 1.R1
+      mark_type: R
+      points: 4
+      evidence: $k\ge4$일 때 $k!\ge k^2$이라고 가정하여 $(k+1)!\ge(k+1)^2$을 보였다.
+      depends_on:
+      - 1.M1
+      steps:
+      - 1b-3
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+- id: '2'
+  stem: |
+    [2] 모든 실수 $x$에 대하여 $\lvert\sin x\rvert\le\lvert x\rvert$임을 보이고, 닫힌구간 $\left[-\dfrac\pi2,\pi\right]$에서 함수 $f(x)=x^2+2\cos x$의 최댓값과 최솟값을 구하시오. [12점]
+  points: 12
+  depends_on: []
+  answer:
+    kind: expression
+    value: max=pi**2-2; min=2
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S2-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 2b-1
+      content: |
+        $\sin x$와 $x$의 크기를 비교하기 위해 $g(x)=x-\sin x$로 놓으면 $g^{\prime}(x)=1-\cos x\ge0$이므로 $g(x)$는 증가하고 $g(0)=0$이다. $x<0$일 때 $x<\sin x$이고 $x>0$일 때 $\sin x<x$이다. 그러므로 모든 실수 $x$에 대하여 $\lvert\sin x\rvert\le\lvert x\rvert$ ······ ①.
+      source_flow: 예시 답안 p.5
+      criteria:
+      - 2.R1
+    - id: 2b-2
+      content: |
+        함수 $f(x)=x^2+2\cos x$를 미분하면 $f^{\prime}(x)=2(x-\sin x)$이다. ①에서 $x<0$이면 $f^{\prime}(x)<0$이므로 $f(x)$는 닫힌구간 $\left[-\dfrac\pi2,0\right]$에서 감소하고 $x>0$이면 $f^{\prime}(x)>0$이므로 $f(x)$는 닫힌구간 $[0,\pi]$에서 증가한다.
+      source_flow: 예시 답안 p.5
+      criteria:
+      - 2.M1
+    - id: 2b-3
+      content: 따라서 $f(x)$는 $x=0$에서 최소이고, 최솟값은 $f(0)=2$이다.
+      source_flow: 예시 답안 p.5
+      criteria:
+      - 2.A1
+    - id: 2b-4
+      content: |
+        $f\left(-\dfrac\pi2\right)=\dfrac{\pi^2}4<f(\pi)$이므로 $x=\pi$에서 최대이고, 최댓값은 $f(\pi)=\pi^2-2$이다.
+      source_flow: 예시 답안 p.5
+      criteria:
+      - 2.A2
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 2.R1
+      mark_type: R
+      points: 3
+      evidence: $\lvert\sin x\rvert\le\lvert x\rvert$임을 보였다.
+      steps:
+      - 2b-1
+    - id: 2.M1
+      mark_type: M
+      points: 3
+      evidence: $f(x)$의 증가와 감소를 조사했다.
+      depends_on:
+      - 2.R1
+      steps:
+      - 2b-2
+    - id: 2.A1
+      mark_type: A
+      points: 2
+      evidence: 최솟값 $f(0)=2$를 구했다.
+      depends_on:
+      - 2.R1
+      - 2.M1
+      steps:
+      - 2b-3
+    - id: 2.A2
+      mark_type: A
+      points: 4
+      evidence: 최댓값 $f(\pi)=\pi^2-2$를 구했다.
+      depends_on:
+      - 2.R1
+      - 2.M1
+      steps:
+      - 2b-4
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+- id: '3'
+  stem: |
+    [3] 다음 조건을 만족시키는 삼차 이하의 다항함수 $f(x)$를 구하시오. [10점]
+
+    (가) $f(0)=0$
+    (나) 모든 실수 $x$에 대하여 $f(-x)=f(x)$
+    (다) $\displaystyle\int_0^1xe^{f(x)}dx=\frac{e^2-1}{4}$
+  points: 10
+  depends_on: []
+  answer:
+    kind: expression
+    value: 2*x**2
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S3-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 3b-1
+      content: |
+        $f(x)=ax^3+bx^2+cx+d$로 놓으면 조건 (가)에서 $f(0)=0$이므로 $d=0$. $f(-x)=-ax^3+bx^2-cx$이므로 조건 (나)로부터 $2ax^3+2cx=0$. 따라서 $a=c=0$이므로 $f(x)=bx^2\,(b\ne0)$, 즉 $f(x)$는 이차항만 가지는 함수이다. ($b=0$이면 조건 (다)를 만족시키지 않는다)
+      source_flow: 예시 답안 p.5
+      criteria:
+      - 3.M1
+    - id: 3b-2
+      content: |
+        조건 (다)의 정적분을 구하기 위해 $bx^2=t$로 놓으면 $2bx\dfrac{dx}{dt}=1$이므로 $\displaystyle\int_0^1xe^{bx^2}dx=\int_0^b\frac1{2b}e^tdt=\frac1{2b}(e^b-1)$.
+      source_flow: 예시 답안 p.5
+      criteria:
+      - 3.M2
+    - id: 3b-3
+      content: |
+        조건 (다)로부터 $\dfrac1{2b}(e^b-1)=\dfrac{e^2-1}4$이므로 $b=2$이다. 따라서 $f(x)=2x^2$이다.
+      source_flow: 예시 답안 p.5
+      criteria:
+      - 3.A1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 3
+      evidence: $f(x)$는 이차항만 있는 다항식임을 보였다.
+      steps:
+      - 3b-1
+    - id: 3.M2
+      mark_type: M
+      points: 4
+      evidence: $\displaystyle\int_0^1xe^{f(x)}dx$의 값을 구했다.
+      depends_on:
+      - 3.M1
+      steps:
+      - 3b-2
+    - id: 3.A1
+      mark_type: A
+      points: 3
+      evidence: $f(x)=2x^2$을 구했다.
+      depends_on:
+      - 3.M1
+      - 3.M2
+      steps:
+      - 3b-3
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+- id: '4'
+  stem: |
+    [4] $x\ne0,-1$인 모든 실수 $x$에 대하여 다음 등식이 항상 성립할 때, 상수 $a,b$에 대하여 $a^5+b^5$의 값을 구하시오. [10점]
+
+    $$\frac{ax+2}{x}+\frac{bx+b-2}{x+1}=\frac{a^2+b^2-1}{x(x+1)}+2$$
+  points: 10
+  depends_on: []
+  answer:
+    kind: value
+    value: 29/2
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S4-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 4b-1
+      content: |
+        식의 양변에 $x(x+1)$을 곱하여 내림차순으로 정리하면 $(a+b)x^2+(a+b)x+2=2x^2+2x+a^2+b^2-1$.
+      source_flow: 예시 답안 p.5~6
+      criteria:
+      - 4.M1
+    - id: 4b-2
+      content: 이므로 $a+b=2$, $a^2+b^2=3$.
+      source_flow: 예시 답안 p.5~6
+      criteria:
+      - 4.A1
+    - id: 4b-3
+      content: $(a+b)^2=a^2+b^2+2ab$이므로 $ab=\dfrac12$.
+      source_flow: 예시 답안 p.5~6
+      criteria:
+      - 4.A2
+    - id: 4b-4
+      content: |
+        $a^3+b^3=(a+b)^3-3ab(a+b)=5$이므로 $a^5+b^5=(a^2+b^2)(a^3+b^3)-a^2b^2(a+b)=\dfrac{29}2$.
+      source_flow: 예시 답안 p.5~6
+      criteria:
+      - 4.A3
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 4.M1
+      mark_type: M
+      points: 2
+      evidence: 이차방정식으로 정리했다.
+      steps:
+      - 4b-1
+    - id: 4.A1
+      mark_type: A
+      points: 2
+      evidence: $a+b=2$, $a^2+b^2=3$을 구했다.
+      depends_on:
+      - 4.M1
+      steps:
+      - 4b-2
+    - id: 4.A2
+      mark_type: A
+      points: 2
+      evidence: $ab=\dfrac12$을 구했다.
+      depends_on:
+      - 4.M1
+      - 4.A1
+      steps:
+      - 4b-3
+    - id: 4.A3
+      mark_type: A
+      points: 4
+      evidence: $a^5+b^5=\dfrac{29}2$를 구했다.
+      depends_on:
+      - 4.M1
+      - 4.A1
+      - 4.A2
+      steps:
+      - 4b-4
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+- id: '5'
+  stem: |
+    [5] 어떤 병의 감염 여부를 진단하는 키트로 검사를 할 때, 병에 걸렸는데 양성으로 판정할 확률은 $99\%$, 병에 걸리지 않았는데 양성으로 판정할 확률은 $2\%$라고 한다. 병에 걸린 사람의 비율이 $1\%$인 어느 집단에서 임의로 한 명을 선택하여 이 방법으로 검사를 한 결과 양성으로 판정하였을 때, 그 사람이 실제로 병에 걸렸을 확률을 구하시오. [10점]
+  points: 10
+  depends_on: []
+  answer:
+    kind: value
+    value: 1/3
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S5-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 5b-1
+      content: |
+        병에 걸릴 사건을 $A$, 검사 결과가 양성으로 나오는 사건을 $B$라고 하면 $\mathrm{P}(A)=\dfrac1{100}=10^{-2}$. 양성판정을 받을 확률 $\mathrm{P}(B)$는 병에 걸렸을 경우와 걸리지 않았을 경우로 나누어 구한다.
+      source_flow: 예시 답안 p.6
+      criteria:
+      - 5.M1
+    - id: 5b-2
+      content: |
+        (ⅰ) $\mathrm{P}(A\cap B)=\mathrm{P}(A)\mathrm{P}(B\mid A)=10^{-2}\times0.99=\dfrac{99}{10000}$.
+      source_flow: 예시 답안 p.6
+      criteria:
+      - 5.M1
+    - id: 5b-3
+      content: |
+        (ⅱ) $\mathrm{P}(A^C\cap B)=\mathrm{P}(A^C)\mathrm{P}(B\mid A^C)=(1-10^{-2})\times0.02=\dfrac{198}{10000}$. 즉 $\mathrm{P}(B)=\mathrm{P}(A\cap B)+\mathrm{P}(A^C\cap B)=\dfrac{297}{10000}$.
+      source_flow: 예시 답안 p.6
+      criteria:
+      - 5.M2
+      - 5.A1
+    - id: 5b-4
+      content: |
+        따라서 양성판정을 받았을 때 병에 걸렸을 확률은 $\mathrm{P}(A\mid B)=\dfrac{\mathrm{P}(A\cap B)}{\mathrm{P}(B)}=\dfrac{99}{297}=\dfrac13$이다.
+      source_flow: 예시 답안 p.6
+      criteria:
+      - 5.A2
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 5.M1
+      mark_type: M
+      points: 3
+      evidence: $\mathrm{P}(A\cap B)=\dfrac{99}{10000}$을 구했다.
+      steps:
+      - 5b-1
+      - 5b-2
+    - id: 5.M2
+      mark_type: M
+      points: 3
+      evidence: $\mathrm{P}(A^C\cap B)=\dfrac{198}{10000}$을 구했다.
+      steps:
+      - 5b-3
+    - id: 5.A1
+      mark_type: A
+      points: 2
+      evidence: $\mathrm{P}(B)=\dfrac{297}{10000}$을 구했다.
+      depends_on:
+      - 5.M1
+      - 5.M2
+      steps:
+      - 5b-3
+    - id: 5.A2
+      mark_type: A
+      points: 2
+      evidence: $\mathrm{P}(A\mid B)=\dfrac13$을 구했다.
+      depends_on:
+      - 5.M1
+      - 5.M2
+      - 5.A1
+      steps:
+      - 5b-4
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: past-v2-lean
+  item_version: 1
+  verdict: pass
+  date: &id001 2026-11-22
+created: *id001
+updated: *id001

@@ -1,0 +1,563 @@
+schema_version: '2.0'
+id: KW-M16-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: KW
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 추론
+points: 50
+time_estimate_min: null
+key_idea: '[1] $\det(A^{2015})=\det(A)^{2015}=0$이므로 $A$는 역행렬이 없다. [2] 케일리·해밀턴과 $\det A=0$에서 $A^2=(\mathrm{tr}A)A$, $A^{2015}=(\mathrm{tr}A)^{2014}A=O$이므로 $\mathrm{tr}A=0$. [3] $A^2=O$이므로 $(A^2+E)(A+E)=A+E=E$. [4] $d=-a$이므로 $f(x)=-x$. [5] $f(n)=\{f(1)\}^n$으로 증가를 보이고 $\det g(A)\ne0$을 확인한다.'
+stuck: '[2] $A^2=(a_{11}+a_{22})A$에서 $A^{2015}=(a_{11}+a_{22})^{2014}A=O$을 이용해 $a_{11}+a_{22}=0$ 또는 $A=O$로 나누는 단계, [5](1) $m<0$인 정수까지 $f(n)=\{f(1)\}^n$을 확장하는 단계'
+tags:
+- 2009개정
+- 행렬
+- 케일리·해밀턴
+- 행렬식
+- 합성함수
+- 지수함수형 함수방정식
+- 함수의 극한
+- 역행렬
+elements:
+  materials:
+  - $S_{2015}(\mathbb{R})$의 행렬($A^{2015}=O$)
+  - $f(a)=d$로 정의된 $f:\mathbb{R}\to\mathbb{R}$
+  - (성질 $P$)를 만족시키는 $f:\mathbb{Z}\to\mathbb{R}$와 $g:M_2(\mathbb{Z})\to M_2(\mathbb{R})$
+  concepts:
+  - 행렬식의 곱셈 성질
+  - 케일리·해밀턴의 정리
+  - 역행렬의 존재 조건
+  - 합성함수
+  - 함수의 극한
+  - $f(x+y)=f(x)f(y)$ 꼴 함수
+  tools:
+  - $\det(A^n)=\{\det A\}^n$
+  - $A^2-(a_{11}+a_{22})A+(\det A)E=O$
+  - $f(n)=\{f(1)\}^n$
+  - $\det g(A)=f(1)\{f(1)^{a_{11}a_{22}}-f(1)^{a_{12}a_{21}}\}$
+  conditions:
+  - $A^{2015}=O$
+  - $f(0)\ne0$, $f(1)>1$
+  stimuli_used:
+  - '[1]: 제시문 2, 3, 4'
+  - '[2]: 제시문 2, 3'
+  - '[3]: 제시문 2'
+  - '[4]: 제시문 2, 5'
+  - '[5](1): 제시문 6'
+  - '[5](2): 제시문 2, 3, 6'
+  subpart_links: '[2]는 [1]의 $\det A=0$을, [3]·[4]는 [2]의 $a_{11}+a_{22}=0$을, [5](2)는 [5](1)의 $f(n)=\{f(1)\}^n$을 사용한다.'
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학
+  - 수학Ⅱ
+  scope_2028: unknown
+  scope_confirmed: false
+  content_area: 행렬의 거듭제곱과 행렬식 · 극한 · 지수형 함수방정식
+  behavior_domain: 추론
+  unit_path:
+  - 수학Ⅰ
+  - 행렬
+  - 케일리·해밀턴
+  key_concepts:
+  - 케일리·해밀턴
+  - 행렬식
+  - 함수방정식
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 광운대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 광운대학교
+  admission_year: 2016
+  admission_type: 수시 모의논술
+  track: 자연계열
+  question_no: 1
+  official_url: https://iphak.kw.ac.kr/pds/pds_view.php?m_type=SUSI&bn=39603
+  retrieved_at: '2026-11-22'
+  original_points:
+  - 5
+  - 12
+  - 8
+  - 9
+  - 11
+  - 5
+  rights_notice: 미확인
+  transcribed_from: 광운대 입학처 공식 PDF「2016학년도 논술 모의평가 문제지(자연계열)·출제의도 및 풀이예시」문제 p.2, 풀이예시 p.7 (이미지 대조 2026-11-23)
+verify: verify/KW-M16.py::p01
+stimuli:
+- label: '1'
+  body: 모든 정수들의 집합과 모든 실수들의 집합을 각각 $\mathbb{Z}$와 $\mathbb{R}$로 나타낸다. 또한 집합 $X$와 $Y$는 $\mathbb{R}$의 부분집합이다.
+- label: '2'
+  body: |
+    집합 $M_2(X)$는 크기가 $2\times2$이고 모든 성분이 집합 $X$의 원소인 행렬 전체의 집합이다. 또한 자연수 $n$에 대하여 집합 $S_n(X)$와 $T_2(X)$를 다음과 같이 정의한다.
+    $$S_n(X)=\{A\in M_2(X)\mid A^n=O\}\quad(\text{단, }O\text{는 크기가 }2\times2\text{인 영행렬이다.})$$
+    $$T_2(X)=\{A\in M_2(X)\mid A\text{는 역행렬을 갖는다}\}$$
+- label: '3'
+  body: 행렬 $A=\left(\begin{matrix}a_{11}&a_{12}\\a_{21}&a_{22}\end{matrix}\right)\in M_2(\mathbb{R})$에 대하여 $\det(A)=a_{11}a_{22}-a_{12}a_{21}$이다.
+- label: '4'
+  body: 두 행렬 $A,B\in M_2(\mathbb{R})$에 대하여 $\det(AB)=\det(A)\det(B)$이다.
+- label: '5'
+  body: 함수 $f:X\to X$와 자연수 $n$에 대하여 $f^{(n)}$은 $f$를 $n$번 합성한 함수이다. 즉, 원소 $x\in X$에 대하여 $f^{(n)}(x)=(f\circ f\circ\cdots\circ f)(x)$이다.
+- label: '6'
+  body: |
+    함수 $f:X\to Y$에 대하여 (성질 $P$)를 다음과 같이 정의한다.
+    모든 $x_1,x_2\in X$에 대하여 $f(x_1+x_2)=f(x_1)f(x_2)$이다.
+stem: '[문제 1] 다음 제시문을 읽고 문항별로 풀이와 함께 답하시오.(50점)'
+subparts:
+- id: '1'
+  stem: '[1] 교집합 $S_{2015}(\mathbb{R})\cap T_2(\mathbb{R})$를 구하고 이를 설명하시오.(5점)'
+  points: 5
+  depends_on: []
+  answer:
+    kind: set
+    value: EmptySet
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S1-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        $A\in S_{2015}(\mathbb{R})$이면 $A^{2015}=O$이고 $\det(A^{2015})=\det(O)$이다.
+        그런데 $\det(A^{2015})=\{\det(A)\}^{2015}$이고 $\det(O)=0$이므로 $\det(A)=0$이다.
+      source_flow: 풀이예시 p.7
+      criteria:
+      - 1.M1
+    - id: 1b-2
+      content: |
+        따라서 $A$는 역행렬을 갖지 않으므로 $A\notin T_2(\mathbb{R})$이다.
+        그러므로 $S_{2015}(\mathbb{R})\cap T_2(\mathbb{R})=\varnothing$이다.
+      source_flow: 풀이예시 p.7
+      criteria:
+      - 1.A2
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 3
+      evidence: $\det(A^{2015})=\{\det(A)\}^{2015}=\det(O)=0$에서 $\det(A)=0$을 구했다.
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 1b-1
+    - id: 1.A2
+      mark_type: A
+      points: 2
+      evidence: $A\notin T_2(\mathbb{R})$이므로 $S_{2015}(\mathbb{R})\cap T_2(\mathbb{R})=\varnothing$임을 구했다.
+      depends_on:
+      - 1.M1
+      implied_ok: false
+      steps:
+      - 1b-2
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+- id: '2'
+  stem: '[2] $A=\left(\begin{matrix}a_{11}&a_{12}\\a_{21}&a_{22}\end{matrix}\right)\in S_{2015}(\mathbb{R})$일 때 $a_{11}+a_{22}$의 값을 구하시오.(12점)'
+  points: 12
+  depends_on:
+  - '1'
+  answer:
+    kind: value
+    value: '0'
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S2-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 2b-1
+      content: $A^2-(a_{11}+a_{22})A+(a_{11}a_{22}-a_{12}a_{21})E=O$이고
+      source_flow: 풀이예시 p.7
+      criteria:
+      - 2.M1
+    - id: 2b-2
+      content: '[1]에서 $\det(A)=a_{11}a_{22}-a_{12}a_{21}=0$이므로 $A^2=(a_{11}+a_{22})A$이다.'
+      source_flow: 풀이예시 p.7
+      criteria:
+      - 2.M2
+    - id: 2b-3
+      content: 따라서 $A^{2015}=(a_{11}+a_{22})^{2014}A$이고 $A\in S_{2015}(\mathbb{R})$이므로 $(a_{11}+a_{22})^{2014}A=O$이다.
+      source_flow: 풀이예시 p.7
+      criteria:
+      - 2.M3
+    - id: 2b-4
+      content: 그러므로 $a_{11}+a_{22}=0$ 또는 $A=O$이다. 그런데 $A=O$이면 $a_{11}+a_{22}=0$이므로 모든 행렬 $A\in S_{2015}(\mathbb{R})$에 대하여 $a_{11}+a_{22}=0$이다.
+      source_flow: 풀이예시 p.7
+      criteria:
+      - 2.A4
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 5
+      evidence: 케일리·해밀턴 공식 $A^2-(a_{11}+a_{22})A+(a_{11}a_{22}-a_{12}a_{21})E=O$를 썼다.
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 2b-1
+    - id: 2.M2
+      mark_type: M
+      points: 2
+      evidence: $\det(A)=0$을 이용하여 $A^2=(a_{11}+a_{22})A$를 얻었다.
+      depends_on:
+      - 2.M1
+      implied_ok: false
+      steps:
+      - 2b-2
+    - id: 2.M3
+      mark_type: M
+      points: 2
+      evidence: $A^{2015}=(a_{11}+a_{22})^{2014}A$에서 $(a_{11}+a_{22})^{2014}A=O$를 얻었다.
+      depends_on:
+      - 2.M2
+      implied_ok: false
+      steps:
+      - 2b-3
+    - id: 2.A4
+      mark_type: A
+      points: 3
+      evidence: $a_{11}+a_{22}=0$ 또는 $A=O$를 구하고, $A=O$이어도 $a_{11}+a_{22}=0$이므로 $a_{11}+a_{22}=0$임을 구했다.
+      depends_on:
+      - 2.M3
+      implied_ok: false
+      steps:
+      - 2b-4
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+- id: '3'
+  stem: '[3] 문항 [2]를 이용하여 집합 $G=\{A\in S_{2015}(\mathbb{R})\mid(A^2+E)(A+E)=E\}$를 구하고 이를 설명하시오.(단, $E$는 크기가 $2\times2$인 단위행렬이다.)(8점)'
+  points: 8
+  depends_on:
+  - '2'
+  answer:
+    kind: set
+    value: G={O}
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S3-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 3b-1
+      content: $A\in G$이면 $A\in S_{2015}(\mathbb{R})$이므로 [2]의 결과를 이용하면 $A^2=(a_{11}+a_{22})A=O$이다.
+      source_flow: 풀이예시 p.7
+      criteria:
+      - 3.M1
+    - id: 3b-2
+      content: 따라서 $(A^2+E)(A+E)=A+E$이고 $A\in G$이면 $(A^2+E)(A+E)=E$이므로 $A+E=E$이 되어 $A=O$이다.
+      source_flow: 풀이예시 p.7
+      criteria:
+      - 3.M2
+    - id: 3b-3
+      content: 그러므로 $G=\{O\}$이다.
+      source_flow: 풀이예시 p.7
+      criteria:
+      - 3.A3
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 3
+      evidence: '[2]의 결과로 $A^2=(a_{11}+a_{22})A=O$를 얻었다.'
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 3b-1
+    - id: 3.M2
+      mark_type: M
+      points: 3
+      evidence: $(A^2+E)(A+E)=A+E=E$에서 $A=O$를 얻었다.
+      depends_on:
+      - 3.M1
+      implied_ok: false
+      steps:
+      - 3b-2
+    - id: 3.A3
+      mark_type: A
+      points: 2
+      evidence: $G=\{O\}$를 구했다.
+      depends_on:
+      - 3.M2
+      implied_ok: false
+      steps:
+      - 3b-3
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+- id: '4'
+  stem: '[4] 임의의 실수 $a$에 대하여 $\left(\begin{matrix}a&b\\c&d\end{matrix}\right)\in S_{2015}(\mathbb{R})$인 실수 $b,c,d$가 존재한다. 함수 $f:\mathbb{R}\to\mathbb{R}$를 $f(a)=d$로 정의할 때 극한값 $\displaystyle\lim_{x\to\infty}\frac1{\{f^{(n)}(x)\}^2}$을 구하고 이를 설명하시오.(9점)'
+  points: 9
+  depends_on:
+  - '2'
+  answer:
+    kind: value
+    value: '0'
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S4-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 4b-1
+      content: $\left(\begin{matrix}a&b\\c&d\end{matrix}\right)\in S_{2015}(\mathbb{R})$이면 [2]의 결과에 의하여 $d=-a$이므로 $f(a)=-a$이다.
+      source_flow: 풀이예시 p.7
+      criteria:
+      - 4.M1
+    - id: 4b-2
+      content: 이때 $a$는 임의의 실수이므로 모든 $x\in\mathbb{R}$에 대하여 $f(x)=-x$이다.
+      source_flow: 풀이예시 p.7
+      criteria:
+      - 4.M2
+    - id: 4b-3
+      content: 그러므로 $f^{(n)}(x)=(-1)^nx$이다.
+      source_flow: 풀이예시 p.7
+      criteria:
+      - 4.M3
+    - id: 4b-4
+      content: 따라서 $\displaystyle\lim_{x\to\infty}\frac1{\{f^{(n)}(x)\}^2}=\lim_{x\to\infty}\frac1{x^2}=0$이다.
+      source_flow: 풀이예시 p.7
+      criteria:
+      - 4.A4
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 4.M1
+      mark_type: M
+      points: 3
+      evidence: '[2]의 결과로 $d=-a$, 즉 $f(a)=-a$를 구했다.'
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 4b-1
+    - id: 4.M2
+      mark_type: M
+      points: 2
+      evidence: $a$가 임의의 실수이므로 $f(x)=-x$를 얻었다.
+      depends_on:
+      - 4.M1
+      implied_ok: false
+      steps:
+      - 4b-2
+    - id: 4.M3
+      mark_type: M
+      points: 2
+      evidence: $f^{(n)}(x)=(-1)^nx$를 구했다.
+      depends_on:
+      - 4.M2
+      implied_ok: false
+      steps:
+      - 4b-3
+    - id: 4.A4
+      mark_type: A
+      points: 2
+      evidence: 극한값 $\displaystyle\lim_{x\to\infty}\frac1{\{f^{(n)}(x)\}^2}=0$을 구했다.
+      depends_on:
+      - 4.M3
+      implied_ok: false
+      steps:
+      - 4b-4
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+- id: 5-1
+  stem: |
+    [5] $f(0)\ne0$, $f(1)>1$인 함수 $f:\mathbb{Z}\to\mathbb{R}$가 (성질 $P$)를 만족시킬 때 다음 명제를 증명하시오.
+    (1) $n,m\in\mathbb{Z}$에 대하여 $m<n$이면 $f(m)<f(n)$이다.(11점)
+  points: 11
+  depends_on: []
+  answer:
+    kind: proof
+    value: null
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S51-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 51b-1
+      content: $f(0)=f(0+0)=\{f(0)\}^2$이므로 $f(0)\{f(0)-1\}=0$이다. 그런데 $f(0)\ne0$이므로 $f(0)=1$이다.
+      source_flow: 풀이예시 p.7
+      criteria:
+      - 5-1.R1
+    - id: 51b-2
+      content: 또한 임의의 자연수 $n$에 대하여 $f(n)=f(1+1+\cdots+1)=\{f(1)\}^n$이고
+      source_flow: 풀이예시 p.7
+      criteria:
+      - 5-1.R2
+    - id: 51b-3
+      content: $1=f(0)=f(n+(-n))=f(n)f(-n)$이므로 $f(-n)=\frac1{f(n)}=\frac1{\{f(1)\}^n}=\{f(1)\}^{-n}$이다.
+      source_flow: 풀이예시 p.7
+      criteria:
+      - 5-1.R3
+    - id: 51b-4
+      content: 따라서 모든 $n\in\mathbb{Z}$에 대하여 $f(n)=\{f(1)\}^n$이다.
+      source_flow: 풀이예시 p.7
+      criteria:
+      - 5-1.R3
+    - id: 51b-5
+      content: 그런데 $m<n$이면 $f(0)=1,\ f(1)>1$이므로 $f(n)-f(m)=\{f(1)\}^n-\{f(1)\}^m>0$이다. 즉, $f(m)<f(n)$이다.
+      source_flow: 풀이예시 p.7
+      criteria:
+      - 5-1.R4
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 5-1.R1
+      mark_type: R
+      points: 3
+      evidence: $f(0)=\{f(0)\}^2$과 $f(0)\ne0$에서 $f(0)=1$을 보였다.
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 51b-1
+    - id: 5-1.R2
+      mark_type: R
+      points: 2
+      evidence: 임의의 자연수 $n$에 대하여 $f(n)=\{f(1)\}^n$임을 보였다.
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 51b-2
+    - id: 5-1.R3
+      mark_type: R
+      points: 3
+      evidence: $f(n)f(-n)=f(0)=1$에서 $f(-n)=\{f(1)\}^{-n}$을 보이고 모든 $n\in\mathbb{Z}$에 대하여 $f(n)=\{f(1)\}^n$임을 얻었다.
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 51b-3
+      - 51b-4
+    - id: 5-1.R4
+      mark_type: R
+      points: 3
+      evidence: $f(1)>1$이므로 $\{f(1)\}^n-\{f(1)\}^m>0$, 즉 $m<n$이면 $f(m)<f(n)$임을 보였다.
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 51b-5
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+- id: 5-2
+  stem: (2) 함수 $g:M_2(\mathbb{Z})\to M_2(\mathbb{R})$를 $g\left(\begin{matrix}a_{11}&a_{12}\\a_{21}&a_{22}\end{matrix}\right)=\left(\begin{matrix}f(a_{11}a_{22})&f(a_{12}a_{21})\\f(1)&f(1)\end{matrix}\right)$로 정의하면 $g(T_2(\mathbb{Z}))\subset T_2(\mathbb{R})$이다.(5점)
+  points: 5
+  depends_on:
+  - 5-1
+  answer:
+    kind: proof
+    value: null
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S52-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 52b-1
+      content: |
+        $A=\left(\begin{matrix}a_{11}&a_{12}\\a_{21}&a_{22}\end{matrix}\right)\in T_2(\mathbb{Z})$이라면 $\det(A)=a_{11}a_{22}-a_{12}a_{21}\ne0$이므로
+        $$\det(g(A))=f(a_{11}a_{22})f(1)-f(a_{12}a_{21})f(1)=f(1)^{a_{11}a_{22}}f(1)-f(1)^{a_{12}a_{21}}f(1)$$
+        이다.
+      source_flow: 풀이예시 p.7
+      criteria:
+      - 5-2.R1
+    - id: 52b-2
+      content: |
+        그런데 $f(1)>1$이고 $a_{11}a_{22}\ne a_{12}a_{21}$이므로 $\det(g(A))\ne0$이 되어 $g(A)$의 역행렬이 존재한다.
+        따라서 $g(A)\in T_2(\mathbb{R})$이다. 그러므로 포함관계 $g(T_2(\mathbb{Z}))\subset T_2(\mathbb{R})$가 성립한다.
+      source_flow: 풀이예시 p.7
+      criteria:
+      - 5-2.R2
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 5-2.R1
+      mark_type: R
+      points: 3
+      evidence: $\det(g(A))=f(1)^{a_{11}a_{22}}f(1)-f(1)^{a_{12}a_{21}}f(1)$을 구했다.
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 52b-1
+    - id: 5-2.R2
+      mark_type: R
+      points: 2
+      evidence: $f(1)>1$이고 $a_{11}a_{22}\ne a_{12}a_{21}$이므로 $\det(g(A))\ne0$이어서 $g(A)\in T_2(\mathbb{R})$임을 보였다.
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 52b-2
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: past-v2-lean
+  item_version: 1
+  verdict: pass
+  date: &id001 2026-11-23
+created: *id001
+updated: *id001

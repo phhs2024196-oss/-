@@ -1,0 +1,553 @@
+# 광운대 2021학년도 논술고사 자연계열 1교시 문제 2 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: KW-G21A-02
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: KW
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 추론
+points: 50
+time_estimate_min: null
+key_idea: '[1] $x$의 구간별 증감으로 $g(a)$를 $a\le0$, $0<a<1$, $a\ge1$로 나누고 $g$의 증감표로 최솟값을 구한다. [2] $f=\dfrac{\ln x}{x}$의 극대·변곡점, $\ln t=s$ 치환, $f$의 증감으로 $\log_23$과 $\sqrt{1.5}$ 비교, 부분적분 후 $\dfrac1{(n-1)n}$ 망원급수.'
+stuck: '[1](1) $a$의 위치에 따라 최댓값 위치가 달라지는 경우 분류, [2](3) $\log_23$과 $\sqrt{1.5}$를 $f(\sqrt3)$, $f(\sqrt2)$의 비교로 바꾸는 단계'
+tags:
+- 최댓값·최솟값
+- 경우 분류
+- 극대와 변곡점
+- 치환적분
+- 부분적분
+- 로그의 대소 비교
+- 망원급수
+elements:
+  materials:
+  - $f(x)=-x^3+\dfrac32ax^2-a$ $(0\le x\le1)$의 최댓값 $g(a)$
+  - $f(x)=\dfrac{\ln x}{x}$
+  - $a_n=\displaystyle\int_{e^{\frac1{1-n}}}^1\lvert x^{-n}\ln x\rvert\,dx$
+  concepts:
+  - 극대·극소의 판정
+  - 변곡점의 판정
+  - 로그의 밑의 변환
+  - 치환적분법
+  - 부분적분법
+  - 급수의 합
+  tools:
+  - $f^{\prime}(x)=-3x(x-a)$로 $a$에 따른 최댓값 위치 분류
+  - $\ln t=s$ 치환
+  - $f(\sqrt3)-f(\sqrt2)=\dfrac{\ln2}{2\sqrt3}(\log_23-\sqrt{1.5})$
+  - 구간에서 $x^{-n}\ln x<0$ 확인 후 부분적분
+  - $\dfrac1{(n-1)n}=\dfrac1{n-1}-\dfrac1n$
+  conditions:
+  - $a$는 실수
+  - $a,b$는 [2](1)에서 구한 상수
+  - $n\ge2$인 자연수
+  stimuli_used:
+  - '[1]: 1'
+  - '[2](1): 1·3'
+  - '[2](2): 4'
+  - '[2](3): 1·2'
+  - '[2](4): 5'
+  subpart_links: '[1](2)는 [1](1)의 $g(a)$를 사용. [2](2)는 [2](1)의 $a=e,\ b=e^{3/2}$를, [2](3)은 [2](1)의 증감표를 사용한다.'
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학Ⅰ
+  - 수학Ⅱ
+  - 미적분
+  scope_2028: calc2
+  scope_confirmed: false
+  behavior_domain: 문제해결
+  standards:
+  - code: 12수학Ⅱ02-08
+    text: 함수의 증가와 감소, 극대와 극소를 판정하고 설명할 수 있다.
+    verified: true
+  - code: 12수학Ⅱ02-09
+    text: 함수의 그래프의 개형을 그릴 수 있다.
+    verified: true
+  - code: 12미적02-12
+    text: 함수의 그래프의 개형을 그릴 수 있다.
+    verified: true
+  - code: 12미적03-01
+    text: 치환적분법을 이해하고, 이를 활용할 수 있다.
+    verified: true
+  - code: 12미적03-02
+    text: 부분적분법을 이해하고, 이를 활용할 수 있다.
+    verified: true
+  content_area: 미분(극값·변곡점) · 적분 · 급수
+  unit_path:
+  - 미적분
+  - 미분법
+  - 도함수의 활용
+  key_concepts:
+  - 증감표
+  - 변곡점
+  - 치환적분
+  - 부분적분
+  - 망원급수
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 광운대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 광운대학교
+  admission_year: 2021
+  admission_type: 수시 논술우수자
+  track: 자연계열(1교시)
+  question_no: 2
+  official_url: https://iphak.kw.ac.kr/pds/pds_view.php?m_type=SUSI&bn=39636
+  retrieved_at: '2026-11-22'
+  original_points:
+  - 10
+  - 8
+  - 6
+  - 6
+  - 11
+  - 9
+  rights_notice: 미확인
+  transcribed_from: 광운대 입학처 공식 PDF「2021학년도 논술고사 자연계열 1교시 문제지·해설」문제 p.3~4, 해설·모범답안 p.10~14 (이미지 대조 2026-11-22)
+verify: verify/KW-G21A.py::p02
+stimuli:
+- label: '1'
+  body: |
+    함수의 극대와 극소의 판정
+    함수 $f(x)$가 미분가능하고 $f^{\prime}(a)=0$일 때, $x=a$의 좌우에서 $f^{\prime}(x)$의 부호가
+    양에서 음으로 바뀌면 $f(x)$는 $x=a$에서 극대이고 극댓값 $f(a)$를 갖는다.
+    음에서 양으로 바뀌면 $f(x)$는 $x=a$에서 극소이고 극솟값 $f(a)$를 갖는다.
+- label: '2'
+  body: |
+    로그의 밑의 변환
+    $a>0,\ a\ne1,\ b>0,\ c>0,\ c\ne1$일 때,
+    $$\log_ab=\frac{\log_cb}{\log_ca}$$
+- label: '3'
+  body: |
+    변곡점의 판정
+    연속인 이계도함수를 갖는 함수 $f(x)$에서 $f^{\prime\prime}(a)=0$이고, $x=a$의 좌우에서 $f^{\prime\prime}(x)$의 부호가 바뀌면 점 $(a,f(a))$는 곡선 $y=f(x)$의 변곡점이다.
+- label: '4'
+  body: |
+    치환적분법을 이용한 정적분
+    닫힌구간 $[a,b]$에서 연속인 함수 $f(x)$에 대하여 미분가능한 함수 $x=g(t)$의 도함수 $g^{\prime}(t)$가 $a=g(\alpha),\ b=g(\beta)$일 때 $\alpha,\beta$를 포함하는 구간에서 연속이면
+    $$\int_a^bf(x)\,dx=\int_\alpha^\beta f(g(t))g^{\prime}(t)\,dt$$
+- label: '5'
+  body: |
+    부분적분법을 이용한 정적분
+    미분가능한 두 함수 $f(x)$, $g(x)$에 대하여 $f^{\prime}(x)$, $g^{\prime}(x)$가 닫힌구간 $[a,b]$에서 연속일 때
+    $$\int_a^bf(x)g^{\prime}(x)\,dx=\Big[f(x)g(x)\Big]_a^b-\int_a^bf^{\prime}(x)g(x)\,dx$$
+stem: '[문제 2] (50점) 다음 제시문을 읽고 문항별로 풀이와 함께 답하시오.'
+subparts:
+- id: 1-1
+  stem: |
+    [1] $a$는 실수이고 $0\le x\le1$에서 함수 $f(x)=-x^3+\dfrac32ax^2-a$의 최댓값을 $g(a)$라 할 때, 물음에 답하시오.
+
+    (1) 함수 $g(a)$를 구하시오. [10점]
+  points: 10
+  depends_on: []
+  answer:
+    kind: expression
+    value: g=Piecewise((-a,a<=0),(a**3/2-a,(a>0)&(a<1)),(a/2-1,a>=1))
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S11-B
+    audience: B
+    source_flow: 해설 p.12
+    method_no: 1
+    steps:
+    - id: 11b-1
+      content: |
+        $f^{\prime}(x)=-3x^2+3ax=-3x(x-a)$이다.
+        (ⅰ) $a\le0$이면 $0\le x\le1$에서 $f^{\prime}(x)\le0$이다. 따라서 $g(a)=f(0)=-a$이다.
+      criteria:
+      - 1-1.M1
+    - id: 11b-2
+      content: (ⅱ) $0<a<1$이면 증감표에서 $x=0$에서 $x=a$까지 $f^{\prime}(x)>0$(증가), $x=a$에서 극대, $x=a$에서 $x=1$까지 $f^{\prime}(x)<0$(감소)이고 $f(0)=-a$, $f(1)=\dfrac a2-1$이다. 따라서 $g(a)=f(a)=\dfrac{a^3}2-a$이다.
+      criteria:
+      - 1-1.M2
+    - id: 11b-3
+      content: |
+        (ⅲ) $a\ge1$이면 $0\le x\le1$에서 $f^{\prime}(x)\ge0$이다. 따라서 $g(a)=f(1)=\dfrac a2-1$이다.
+        (ⅰ), (ⅱ), (ⅲ)에 의하여 $g(a)=\begin{cases}-a&(a\le0)\\ \dfrac{a^3}2-a&(0<a<1)\\ \dfrac a2-1&(a\ge1)\end{cases}$이다.
+      criteria:
+      - 1-1.A3
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 1-1.M1
+      mark_type: M
+      points: 3
+      evidence: $a\le0$일 때 $g(a)=-a$를 구했다.
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 11b-1
+    - id: 1-1.M2
+      mark_type: M
+      points: 4
+      evidence: $0<a<1$일 때 $g(a)=\dfrac{a^3}2-a$를 구했다.
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 11b-2
+    - id: 1-1.A3
+      mark_type: A
+      points: 3
+      evidence: $a\ge1$일 때 $g(a)=\dfrac a2-1$을 구했다.
+      depends_on:
+      - 1-1.M1
+      - 1-1.M2
+      implied_ok: false
+      steps:
+      - 11b-3
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+- id: 1-2
+  stem: (2) 함수 $g(a)$의 최솟값을 구하시오. [8점]
+  points: 8
+  depends_on: []
+  answer:
+    kind: value
+    value: -2*sqrt(6)/9
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S12-B
+    audience: B
+    source_flow: 해설 p.12
+    method_no: 1
+    steps:
+    - id: 12b-1
+      content: 함수 $g(a)$는 연속함수이고, $a\le0$에서 감소하고 $a\ge1$에서 증가하므로 $0\le a\le1$에서 최솟값을 갖는다.
+      criteria:
+      - 1-2.M1
+    - id: 12b-2
+      content: $g(a)=\dfrac{a^3}2-a$는 $0<a<1$에서 미분가능하고 $g^{\prime}(a)=\dfrac32a^2-1=0$에서 $a=\dfrac{\sqrt6}3$이다. 증감표에서 $a=0$에서 $a=\dfrac{\sqrt6}3$까지 $g^{\prime}(a)<0$(감소), $a=\dfrac{\sqrt6}3$에서 극소, 이후 $g^{\prime}(a)>0$(증가)이고 $g(0)=0$, $g(1)=-\dfrac12$이다.
+      criteria:
+      - 1-2.M2
+    - id: 12b-3
+      content: 위의 증감표에 의해 함수 $g(a)$의 최솟값은 $g\left(\dfrac{\sqrt6}3\right)=\dfrac12\cdot\dfrac23\cdot\dfrac{\sqrt6}3-\dfrac{\sqrt6}3=-\dfrac{2\sqrt6}9$이다.
+      criteria:
+      - 1-2.A3
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 1-2.M1
+      mark_type: M
+      points: 2
+      evidence: 함수 $g(a)$가 $0\le a\le1$에서 최솟값을 가진다는 것을 설명했다.
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 12b-1
+    - id: 1-2.M2
+      mark_type: M
+      points: 4
+      evidence: 함수가 최솟값을 가지는 점 $a=\dfrac{\sqrt6}3$을 구했다.
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 12b-2
+    - id: 1-2.A3
+      mark_type: A
+      points: 2
+      evidence: 최솟값 $-\dfrac{2\sqrt6}9$를 구했다.
+      depends_on:
+      - 1-2.M1
+      - 1-2.M2
+      implied_ok: false
+      steps:
+      - 12b-3
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+- id: 2-1
+  stem: |
+    [2] 함수 $f(x)=\dfrac{\ln x}{x}$에 대하여 물음에 답하시오.
+
+    (1) 함수 $f(x)$는 $x=a$에서 극대이고, 곡선 $y=f(x)$의 변곡점이 점 $(b,f(b))$일 때, 상수 $a$, $b$를 구하시오. [6점]
+  points: 6
+  depends_on: []
+  answer:
+    kind: value
+    value: a=e; b=exp(3/2)
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S21-B
+    audience: B
+    source_flow: 해설 p.12~13
+    method_no: 1
+    steps:
+    - id: 21b-1
+      content: |
+        $f(x)=\dfrac{\ln x}x$, $f^{\prime}(x)=\dfrac{1-\ln x}{x^2}$이므로 $f^{\prime}(x)=0$에서 $x=e$이다.
+        증감표에서 $x=e$의 좌우에서 $f^{\prime}(x)$의 부호가 $+$에서 $-$로 바뀌므로 $x=e$에서 극대이다.
+      criteria:
+      - 2-1.M1
+    - id: 21b-2
+      content: |
+        $f^{\prime\prime}(x)=\dfrac{-x-2x(1-\ln x)}{x^4}=-\dfrac{3-2\ln x}{x^3}$이므로 $f^{\prime\prime}(x)=0$에서 $x=e^{\frac32}$이다.
+        증감표에서 $x=e^{\frac32}$의 좌우에서 $f^{\prime\prime}(x)$의 부호가 $-$에서 $+$로 바뀌므로 곡선 $y=f(x)$의 변곡점은 $\left(e^{\frac32},f\left(e^{\frac32}\right)\right)$이다. 따라서 $a=e,\ b=e^{\frac32}$이다.
+      criteria:
+      - 2-1.M2
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 2-1.M1
+      mark_type: M
+      points: 3
+      evidence: $f^{\prime}(x)=0$에서 $x=e$를 구하고 극대임을 설명했다.
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 21b-1
+    - id: 2-1.M2
+      mark_type: M
+      points: 3
+      evidence: $f^{\prime\prime}(x)=0$에서 $x=e^{\frac32}$를 구하고 변곡점임을 설명했다.
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 21b-2
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+- id: 2-2
+  stem: |
+    (2) 다음 이차방정식의 근을 구하시오. (단, $a$, $b$는 (1)에서 구한 상수) [6점]
+    $$\left(\int_1^bf(t)\,dt\right)x^2-\frac12x-\frac54\int_a^b\frac{f(t)}{\ln t}\,dt=0$$
+  points: 6
+  depends_on: []
+  answer:
+    kind: set
+    value: -5/9, 1
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S22-B
+    audience: B
+    source_flow: 해설 p.13
+    method_no: 1
+    steps:
+    - id: 22b-1
+      content: 정적분 $\displaystyle\int_1^bf(t)\,dt$에서 $\ln t=s$로 치환하면 $\displaystyle\int_1^bf(t)\,dt=\int_1^{e^{\frac32}}\frac{\ln t}t\,dt=\int_0^{\frac32}s\,ds=\left[\frac{s^2}2\right]_0^{\frac32}=\frac98$이다.
+      criteria:
+      - 2-2.M1
+    - id: 22b-2
+      content: $\displaystyle\int_a^b\frac{f(t)}{\ln t}\,dt=\int_e^{e^{\frac32}}\frac1t\,dt=\Big[\ln\lvert t\rvert\Big]_e^{e^{\frac32}}=\frac12$이다.
+      criteria:
+      - 2-2.M2
+    - id: 22b-3
+      content: 이로부터 $\dfrac98x^2-\dfrac12x-\dfrac58=\dfrac18(9x^2-4x-5)=\dfrac18(x-1)(9x+5)=0$이다. 따라서 이차방정식의 근은 $x=-\dfrac59,\ 1$이다.
+      criteria:
+      - 2-2.A3
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 2-2.M1
+      mark_type: M
+      points: 2
+      evidence: $\displaystyle\int_1^bf(t)\,dt=\dfrac98$을 구했다.
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 22b-1
+    - id: 2-2.M2
+      mark_type: M
+      points: 2
+      evidence: $\displaystyle\int_a^b\dfrac{f(t)}{\ln t}\,dt=\dfrac12$을 구했다.
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 22b-2
+    - id: 2-2.A3
+      mark_type: A
+      points: 2
+      evidence: 이차방정식의 근 $x=-\dfrac59,\ 1$을 구했다.
+      depends_on:
+      - 2-2.M1
+      - 2-2.M2
+      implied_ok: false
+      steps:
+      - 22b-3
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+- id: 2-3
+  stem: (3) 함수 $f(x)$를 이용하여 $\log_23$과 $\sqrt{1.5}$의 대소를 비교하시오. [11점]
+  points: 11
+  depends_on: []
+  answer:
+    kind: value
+    value: log2(3) > sqrt(1.5)
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S23-B
+    audience: B
+    source_flow: 해설 p.13
+    method_no: 1
+    steps:
+    - id: 23b-1
+      content: $\log_23-\sqrt{1.5}=\dfrac{\ln3}{\ln2}-\dfrac{\sqrt3}{\sqrt2}=\dfrac{2\sqrt3}{\ln2}\left(\dfrac{\ln\sqrt3}{\sqrt3}-\dfrac{\ln\sqrt2}{\sqrt2}\right)$이다. $\dfrac{2\sqrt3}{\ln2}>0$이므로 대소의 변화는 없다.
+      criteria:
+      - 2-3.M1
+      - 2-3.M2
+    - id: 23b-2
+      content: (1)로부터 $f(x)$는 $x=e$에서 극대이고 $x<e$에서 증가($f^{\prime}(x)>0$), $x>e$에서 감소하는 증감표를 얻는다. $\sqrt2<\sqrt3<e$이므로 증감표에 의해 $f(\sqrt3)-f(\sqrt2)>0$이다.
+      criteria:
+      - 2-3.A3
+    - id: 23b-3
+      content: $f(\sqrt3)-f(\sqrt2)=\dfrac{\ln\sqrt3}{\sqrt3}-\dfrac{\ln\sqrt2}{\sqrt2}=\dfrac{\ln2}{2\sqrt3}(\log_23-\sqrt{1.5})>0$이므로 따라서 $\log_23>\sqrt{1.5}$이다.
+      criteria:
+      - 2-3.A3
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 2-3.M1
+      mark_type: M
+      points: 3
+      evidence: $\log_23-\sqrt{1.5}=\dfrac{\ln3}{\ln2}-\dfrac{\sqrt3}{\sqrt2}$로 바꾸었다.
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 23b-1
+    - id: 2-3.M2
+      mark_type: M
+      points: 4
+      evidence: $\dfrac{\ln3}{\ln2}-\dfrac{\sqrt3}{\sqrt2}=\dfrac{2\sqrt3}{\ln2}\left(\dfrac{\ln\sqrt3}{\sqrt3}-\dfrac{\ln\sqrt2}{\sqrt2}\right)$를 구했다.
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 23b-1
+    - id: 2-3.A3
+      mark_type: A
+      points: 4
+      evidence: $\sqrt2<\sqrt3<e$이므로 증감표에 의해 $f(\sqrt3)-f(\sqrt2)>0$을 구했다.
+      depends_on:
+      - 2-3.M1
+      - 2-3.M2
+      implied_ok: false
+      steps:
+      - 23b-2
+      - 23b-3
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+- id: 2-4
+  stem: (4) $n\ge2$인 자연수 $n$에 대하여 $a_n=\displaystyle\int_{e^{\frac1{1-n}}}^1\lvert x^{-n}\ln x\rvert\,dx$일 때, $\displaystyle\sum_{n=2}^{2021}\sqrt{a_na_{n+1}}$을 구하시오. [9점]
+  points: 9
+  depends_on: []
+  answer:
+    kind: value
+    value: 2020/2021
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S24-B
+    audience: B
+    source_flow: 해설 p.13
+    method_no: 1
+    steps:
+    - id: 24b-1
+      content: 닫힌구간 $\left[e^{\frac1{1-n}},1\right]$에서 $x^{-n}\ln x<0$이다.
+      criteria:
+      - 2-4.M1
+    - id: 24b-2
+      content: 부분적분법을 이용한 정적분의 값을 구하면 $a_n=\displaystyle\int_{e^{\frac1{1-n}}}^1\lvert x^{-n}\ln x\rvert\,dx=-\int_{e^{\frac1{1-n}}}^1x^{-n}\ln x\,dx=-\left[\frac1{1-n}x^{1-n}\ln x\right]_{e^{\frac1{1-n}}}^1+\frac1{1-n}\int_{e^{\frac1{1-n}}}^1x^{-n}\,dx=\frac e{(n-1)^2}+\left[\frac1{(n-1)^2}x^{1-n}\right]_{e^{\frac1{1-n}}}^1=\frac1{(n-1)^2}$이다.
+      criteria:
+      - 2-4.M2
+    - id: 24b-3
+      content: 따라서 $\displaystyle\sum_{n=2}^{2021}\sqrt{a_na_{n+1}}=\sum_{n=2}^{2021}\frac1{(n-1)n}=\sum_{n=2}^{2021}\left(\frac1{n-1}-\frac1n\right)=1-\frac12+\frac12-\frac13+\cdots-\frac1{2021}=\frac{2020}{2021}$이다.
+      criteria:
+      - 2-4.A3
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 2-4.M1
+      mark_type: M
+      points: 2
+      evidence: 닫힌구간 $\left[e^{\frac1{1-n}},1\right]$에서 $x^{-n}\ln x<0$을 보였다.
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 24b-1
+    - id: 2-4.M2
+      mark_type: M
+      points: 4
+      evidence: $a_n=\dfrac1{(n-1)^2}$을 보였다.
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 24b-2
+    - id: 2-4.A3
+      mark_type: A
+      points: 3
+      evidence: $\displaystyle\sum_{n=2}^{2021}\sqrt{a_na_{n+1}}=\dfrac{2020}{2021}$을 보였다.
+      depends_on:
+      - 2-4.M1
+      - 2-4.M2
+      implied_ok: false
+      steps:
+      - 24b-3
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: past-v2-lean
+  item_version: 1
+  verdict: pass
+  date: 2026-11-22
+created: 2026-11-22
+updated: 2026-11-22
+intent: '[1] 함수의 증가와 감소, 극대와 극소를 판정하고 설명할 수 있는 능력을 평가한다. 그리고 함수의 그래프의 개형을 이용하여 함수의 최솟값을 계산하는 능력을 평가한다. [2] 함수의 극값과 변곡점을 구하는 과정의 판단과 이와 연관된 적분과 이차방정식의 계산 능력을 판단한다. 함수를 이용하여 대소를 비교할 수 있는 응용 문제를 해결하는 과정을 설명할 수 있는 능력을 판단한다. (광운대 공식 출제 의도)'

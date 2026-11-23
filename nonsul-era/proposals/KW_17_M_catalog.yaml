@@ -1,0 +1,155 @@
+# 광운대 2017학년도 모의평가 자연계열 M17 문제 1·2 — 오개념 후보 (공용 카탈로그 반영 전 제안). ID 구간 MC-*-81780~81799(모의)
+misconceptions:
+- id: MC-PRF-81780
+  name: 귀납법에서 $n=k+1$ 식을 $17$의 배수로 묶지 못하고 $2^k\cdot3^{2k}-1$ 가정을 쓰지 않음
+  concepts:
+  - CON-PRF-INDUCTION
+  used_in: KW-M17-01#1
+  outcome_code: '71'
+  wrong_work: $2^{k+1}3^{2(k+1)}-1=18\cdot18^k-1$에서 가정 없이 $18^k$를 $17$로 나눔
+  detect_cue: 귀납 가정 $18^k-1=17m$ 미사용
+  feedback: $18^{k+1}-1=18(18^k-1)+17$로 쓰고 가정 $18^k-1=17m$을 대입하여 $17(18m+1)$ 꼴로 만듭니다.
+- id: MC-PRF-81781
+  name: 나머지의 범위 $0\le r<b$를 쓰지 않고 $q_1=q_2$를 곧바로 단정
+  concepts:
+  - CON-PRF-DIVISION-UNIQUE
+  used_in: KW-M17-01#2
+  outcome_code: '71'
+  wrong_work: $bq_1+r_1=bq_2+r_2$이므로 $q_1=q_2$, $r_1=r_2$
+  detect_cue: $|r_2-r_1|<b$ 논의 없음
+  feedback: $b(q_1-q_2)=r_2-r_1$에서 $0\le r_1,r_2<b$이므로 $|r_2-r_1|<b$이어야 $b$의 배수 $0$이 됩니다. $r_1>r_2$, $r_1<r_2$ 두 경우를 나눕니다.
+- id: MC-ALG-81782
+  name: $\gcd$가 곱셈에 대해 항상 분배된다고 착각
+  concepts:
+  - CON-ALG-GCD-MULTIPLICATIVE
+  used_in: KW-M17-01#3-1
+  outcome_code: '71'
+  wrong_work: $f(ab)=f(a)f(b)$가 항상 성립한다고 판정
+  detect_cue: 반례 없이 '성립'
+  feedback: $a=b=2$이면 $f(4)=2$, $f(2)f(2)=4$로 성립하지 않습니다.
+- id: MC-ALG-81783
+  name: $f(a)=1$에서 $a$가 홀수임을 쓰지 않고 $ab$의 최대공약수를 $1\times1$로 직접 계산
+  concepts:
+  - CON-ALG-GCD-PARITY
+  used_in: KW-M17-01#3-2
+  outcome_code: '71'
+  wrong_work: $f(ab)=\gcd(ab,2)=\gcd(a,2)\gcd(b,2)$
+  detect_cue: $\gcd$의 곱 분배를 가정
+  feedback: $f(a)=f(b)=1$이면 $a,b$가 모두 홀수이므로 $ab$도 홀수이고 $f(ab)=1=f(a)f(b)$입니다.
+- id: MC-ALG-81784
+  name: $x^{2016}$, $x^{523}$을 직접 나누어 나머지를 구하려 함
+  concepts:
+  - CON-ALG-CUBE-ROOT-UNITY
+  used_in: KW-M17-01#4
+  outcome_code: '71'
+  wrong_work: $x^{2016}+\ldots$를 $x^2+x+1$로 직접 나눔
+  detect_cue: 차수가 큰 다항식의 직접 장제법
+  feedback: $x^2+x+1=0$의 근 $w$는 $w^3=1$이므로 $w^{2016}=1$, $w^{523}=w$로 지수를 줄여 $f(w)=0$을 씁니다.
+- id: MC-ALG-81785
+  name: $a+bw-6=0$에서 $a=6$, $b=0$을 이끌 때 $a,b$가 실수임을 쓰지 않음
+  concepts:
+  - CON-ALG-COMPLEX-EQUALITY
+  used_in: KW-M17-01#4
+  outcome_code: '72'
+  wrong_work: $a+bw=6$에서 $b$를 임의로 구함
+  detect_cue: $w\notin\mathbb{R}$ 언급 없음
+  feedback: $w=\dfrac{-1\pm\sqrt3i}{2}$는 실수가 아니므로 실수 $a,b$에 대해 $(a-6)+bw=0$이면 $a-6=0$, $b=0$입니다.
+- id: MC-ALG-81786
+  name: $X=\{2,k\}$에서 $k$를 $s+t$로 둠(근의 합의 절반을 빠뜨림)
+  concepts:
+  - CON-ALG-ROOT-HALF-SUM
+  used_in: KW-M17-01#5
+  outcome_code: '71'
+  wrong_work: $(x-2)(2x-s-t)=0$에서 $k=s+t=11$
+  detect_cue: $k=11$
+  feedback: $f+g=(x-2)(2x-s-t)$이므로 근은 $x=\dfrac{s+t}{2}$입니다.
+- id: MC-ALG-81787
+  name: $2\in X$, $2\in Y$에서 $f(2)=g(2)=0$을 이끌지 않고 한쪽만 $0$이라 가정
+  concepts:
+  - CON-ALG-SET-ROOT-ELIMINATE
+  used_in: KW-M17-01#5
+  outcome_code: '72'
+  wrong_work: $f(2)=0$이라고만 두고 $g(2)$를 방치
+  detect_cue: $g$의 인수 $(x-2)$가 없음
+  feedback: $f(2)+g(2)=0$과 $f(2)g(2)=0$을 함께 쓰면 $f(2)^2=0$이므로 $f(2)=g(2)=0$입니다.
+- id: MC-CAL-81788
+  name: $\tan\alpha(x)=f^{\prime}(x)$를 $\alpha(x)=f^{\prime}(x)$로 혼동
+  concepts:
+  - CON-CAL-TANGENT-ANGLE
+  used_in: KW-M17-02#1-1
+  outcome_code: '71'
+  wrong_work: $\alpha(x)=f^{\prime}(x)$
+  detect_cue: $\tan$이 빠짐
+  feedback: 접선이 $x$축과 이루는 각의 탄젠트가 접선의 기울기이므로 $\tan\alpha(x)=f^{\prime}(x)$입니다.
+- id: MC-CAL-81789
+  name: $\alpha(x)\ne\dfrac{\pi}{2}$의 이유를 $\tan\dfrac{\pi}{2}=0$이라서로 설명
+  concepts:
+  - CON-CAL-TANGENT-UNDEFINED
+  used_in: KW-M17-02#1-2
+  outcome_code: '71'
+  wrong_work: $\tan\dfrac{\pi}{2}=0$이므로 $f^{\prime}(x)=0$이 되어 모순
+  detect_cue: $\tan\dfrac{\pi}{2}$ 값을 $0$이라 씀
+  feedback: $\tan\dfrac{\pi}{2}$는 정의되지 않아 접선의 기울기가 존재하지 않으므로 미분가능이라는 가정에 모순입니다.
+- id: MC-CAL-81790
+  name: $\beta=\alpha+\dfrac{\pi}{2}$만 쓰고 둔각인 경우를 빠뜨림
+  concepts:
+  - CON-CAL-TAN-ADDITION-PERP
+  used_in: KW-M17-02#2
+  outcome_code: '71'
+  wrong_work: $\tan\beta=-\cot\alpha$를 예각 경우에만 유도
+  detect_cue: $\alpha$ 둔각 경우 언급 없음
+  feedback: 둔각이면 $\alpha=\beta+\dfrac{\pi}{2}$이므로 $\tan\beta=\tan\left(\alpha-\dfrac{\pi}{2}\right)=-\cot\alpha$로 같은 결과가 됩니다. 두 경우를 모두 확인하세요.
+- id: MC-CAL-81791
+  name: 덧셈정리 분모를 $1+\tan\alpha\tan\beta$로 씀
+  concepts:
+  - CON-CAL-TAN-ADDITION
+  used_in: KW-M17-02#2
+  outcome_code: '72'
+  wrong_work: $\tan(\alpha+\beta)=\dfrac{\tan\alpha+\tan\beta}{1+\tan\alpha\tan\beta}$
+  detect_cue: 분모가 $0$이 되어 식이 정의되지 않음
+  feedback: 탄젠트 덧셈정리의 분모는 $1-\tan\alpha\tan\beta$이고 $\tan\alpha\tan\beta=-1$이므로 분모는 $2$입니다.
+- id: MC-CAL-81792
+  name: $\tan\alpha(x)$의 미분에서 연쇄법칙 $\alpha^{\prime}(x)$를 빠뜨림
+  concepts:
+  - CON-CAL-CHAIN-RULE-TAN
+  used_in: KW-M17-02#3-1
+  outcome_code: '71'
+  wrong_work: $\dfrac{d}{dx}\tan\alpha(x)=\sec^2\alpha(x)$
+  detect_cue: $\dfrac{d\alpha}{dx}$가 식에 없음
+  feedback: $\dfrac{d}{dx}\tan\alpha(x)=\sec^2\alpha(x)\cdot\dfrac{d\alpha}{dx}$입니다. 이를 $f^{\prime\prime}(x)$와 같다고 놓아 $\alpha^{\prime}$를 구합니다.
+- id: MC-CAL-81793
+  name: $f=\ln(\sec x)$의 도함수를 $\sec x$로 오계산
+  concepts:
+  - CON-CAL-LOG-TRIG-DERIVATIVE
+  used_in: KW-M17-02#3-2
+  outcome_code: '71'
+  wrong_work: $f^{\prime}(x)=\dfrac{1}{\sec x}$
+  detect_cue: $f^{\prime}(x)=\tan x$가 아님
+  feedback: $\ln\sec x=-\ln\cos x$이므로 $f^{\prime}(x)=\dfrac{\sin x}{\cos x}=\tan x$, $f^{\prime\prime}(x)=\sec^2x$입니다.
+- id: MC-PRF-81794
+  name: '''역도 성립''을 증명하며 $\alpha^{\prime}=0\Rightarrow f^{\prime\prime}=0$ 뒤 $f^{\prime}$ 상수에서 $f$가 일차임을 적분 상수 없이 서술'
+  concepts:
+  - CON-PRF-IFF
+  used_in: KW-M17-02#4
+  outcome_code: '71'
+  wrong_work: $f^{\prime\prime}=0$이므로 $f=ax$
+  detect_cue: 상수항 $C_2$ 누락
+  feedback: $f^{\prime\prime}=0\Rightarrow f^{\prime}=C_1\Rightarrow f=C_1x+C_2$로 상수함수·일차함수 모두 포함해야 합니다.
+- id: MC-CAL-81795
+  name: $g(x)=-\dfrac{\sin x}{1+\cos^2x}$의 미분에서 분모 미분 부호를 틀림
+  concepts:
+  - CON-CAL-QUOTIENT-RULE-TRIG
+  used_in: KW-M17-02#5
+  outcome_code: '71'
+  wrong_work: $g^{\prime}(x)=-\dfrac{\cos x(1+\cos^2x)+\sin x(2\cos x\sin x)}{(1+\cos^2x)^2}$
+  detect_cue: $g^{\prime}$의 분자에 $\sin^2x$ 앞 부호가 $-$ 대신 $+$
+  feedback: 분모 $1+\cos^2x$의 도함수는 $-2\cos x\sin x$이므로 분자는 $\cos x(1+\cos^2x)-\sin x(-2\cos x\sin x)=\cos x(2+\sin^2x)$입니다.
+- id: MC-CAL-81796
+  name: $g$의 최대·최소를 $\alpha$의 최대·최소와 혼동
+  concepts:
+  - CON-CAL-DERIVED-ANGLE-EXTREMA
+  used_in: KW-M17-02#5
+  outcome_code: '72'
+  wrong_work: $\alpha(x)$가 $0$일 때를 $x_M$, $\dfrac{\pi}{4}$일 때를 $x_m$으로 답
+  detect_cue: $x_M,x_m$이 $\alpha$의 극값으로 서술
+  feedback: $x_M$, $x_m$은 $g(x)=\dfrac{d\alpha}{dx}$가 최대·최소인 점입니다. 증감표에서 $g(\tfrac{3\pi}{2})=1$이 최대, $g(\tfrac{\pi}{2})=-1$이 최소입니다.

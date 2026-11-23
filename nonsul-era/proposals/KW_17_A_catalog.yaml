@@ -1,0 +1,128 @@
+# 광운대 2017학년도 실전 자연계열(오전) G17A 문제 1·2 — 오개념 후보 (공용 카탈로그 반영 전 제안). ID 구간 MC-*-81701~81729(오전)
+misconceptions:
+- id: MC-CAL-81701
+  name: 매개변수 미분에서 $\dfrac{dy}{dx}$를 $\dfrac{dx/dt}{dy/dt}$로 뒤집음
+  concepts:
+  - CON-CAL-PARAM-DERIV
+  used_in: KW-G17A-01#2
+  outcome_code: '71'
+  wrong_work: $\dfrac{dy}{dx}=\dfrac{-\sqrt2\sin t}{\cos t}$로 두고 접점 조건을 세움
+  detect_cue: 기울기에 $\tan t$ 꼴(분모 $\cos t$)이 나타남
+  feedback: 제시문 (가)는 $\dfrac{dy}{dx}=\dfrac{dy/dt}{dx/dt}$입니다. $\dfrac{dy}{dt}=\cos t$가 분자, $\dfrac{dx}{dt}=-\sqrt2\sin t$가 분모입니다.
+- id: MC-GEO-81702
+  name: 접점과 원점을 이은 직선이 접선과 수직이라고 처리
+  concepts:
+  - CON-GEO-ELLIPSE-TANGENT
+  used_in: KW-G17A-01#2
+  outcome_code: '72'
+  wrong_work: 원이 아닌 타원인데 $\overrightarrow{OC}\perp$(접선)로 두고 접점을 구함
+  detect_cue: 접선의 기울기와 $\dfrac{y_0}{x_0}$의 곱이 $-1$이라는 식이 등장
+  feedback: 수직 성질은 원의 중심에서 접점을 이은 반지름에만 성립합니다. 원점을 지나는 접선은 접점에서의 접선 기울기가 $\dfrac{y_0}{x_0}$와 같다는 조건($y_0=\dfrac{dy}{dx}x_0$)으로 세웁니다.
+- id: MC-PRB-81703
+  name: 두 영역 선택을 순서 있는 선택(순열 ${}_8\mathrm{P}_2$)으로 셈
+  concepts:
+  - CON-PRB-COMBINATION-UNORDERED
+  used_in: KW-G17A-01#3
+  outcome_code: '71'
+  wrong_work: 전체 경우의 수를 ${}_8\mathrm{P}_2=56$으로 두고 $1-\dfrac{4}{56}$ 계산
+  detect_cue: 분모가 $56$, 답 $\dfrac{13}{14}$
+  feedback: 서로 다른 두 영역을 선택하는 것이므로 순서가 없습니다. ${}_8\mathrm{C}_2=28$이고 대칭인 쌍도 순서 없이 $4$가지입니다.
+- id: MC-PRB-81704
+  name: 대칭인 경우를 순서쌍으로 세어 $8$가지로 처리
+  concepts:
+  - CON-PRB-COMPLEMENT-COUNT
+  used_in: KW-G17A-01#3
+  outcome_code: '72'
+  wrong_work: 분모 $28$, 대칭 경우 $8$로 두어 $1-\dfrac{8}{28}=\dfrac57$
+  detect_cue: 답 $\dfrac57$
+  feedback: 대칭인 두 영역의 선택은 $\{a,a^{\prime}\}$ 한 쌍을 한 번만 세어 $4$가지입니다. 순서를 구분하면 분모도 바뀌어야 합니다.
+- id: MC-CAL-81705
+  name: 내접 직사각형의 가로·세로를 절반 길이로 둠
+  concepts:
+  - CON-CAL-INSCRIBED-RECT-PARAM
+  used_in: KW-G17A-01#4
+  outcome_code: '71'
+  wrong_work: $S(t)=\sqrt2\cos t\cdot\sin t$로 두어 최댓값 $\dfrac{\sqrt2}{2}$ 또는 $\sqrt2$
+  detect_cue: 최댓값이 $2\sqrt2$가 아님
+  feedback: 꼭짓점이 $(\sqrt2\cos t,\,2+\sin t)$이면 직사각형은 $x$축·중심선 $y=2$에 대칭이므로 가로 $2\sqrt2\cos t$, 세로 $2\sin t$입니다.
+- id: MC-CAL-81706
+  name: $S^{\prime}(t)=0$의 구간을 확인하지 않고 $\sin t=-\cos t$ 해까지 취함
+  concepts:
+  - CON-CAL-TRIG-MAX-DOMAIN
+  used_in: KW-G17A-01#4
+  outcome_code: '72'
+  wrong_work: $\cos t+\sin t=0$에서 $t=\dfrac{3\pi}{4}$도 극점으로 포함
+  detect_cue: $0<t<\dfrac{\pi}{2}$ 언급 없이 극점 두 개
+  feedback: 내접 직사각형이 존재하려면 꼭짓점이 제1사분면 쪽($0<t<\dfrac{\pi}{2}$)에 있어야 합니다. 이 구간에서는 $\cos t+\sin t>0$이므로 $\cos t=\sin t$만 해입니다.
+- id: MC-GEO-81707
+  name: 정사영 넓이의 비를 $\cos\theta=\dfrac{S}{S^{\prime}}$로 거꾸로 씀
+  concepts:
+  - CON-GEO-PROJECTION-AREA
+  used_in: KW-G17A-01#5
+  outcome_code: '71'
+  wrong_work: $\cos\theta=\dfrac{S}{S^{\prime}}=2$ 또는 $\theta=\dfrac{2\pi}{3}$
+  detect_cue: $\cos\theta>1$ 혹은 각이 둔각
+  feedback: 제시문 (다)는 $S^{\prime}=S\cos\theta$이므로 $\cos\theta=\dfrac{S^{\prime}}{S}$입니다. 정사영은 원래 도형보다 크지 않습니다.
+- id: MC-GEO-81708
+  name: $z$좌표 양수 조건과 크기 조건을 쓰지 않고 $\overrightarrow{OR}$을 임의로 둠
+  concepts:
+  - CON-GEO-VECTOR-PERPENDICULAR
+  used_in: KW-G17A-01#5
+  outcome_code: '72'
+  wrong_work: $\overrightarrow{OR}=(0,0,n)$에서 $n$을 $1$로 두고 평면 $y+z-1=0$ 등을 구함
+  detect_cue: $R$의 $z$좌표가 $\sqrt3$이 아님
+  feedback: 두 내적 조건으로 $l=m=0$을 얻은 뒤 $|\overrightarrow{OR}|=|\overrightarrow{PQ}|=\sqrt3$과 $n>0$으로 $n=\sqrt3$을 정해야 합니다.
+- id: MC-PRF-81709
+  name: $\ln f-\ln g=C$에서 $f=\pm e^Cg$를 허용
+  concepts:
+  - CON-PRF-LOG-CONSTANT-RATIO
+  used_in: KW-G17A-02#1
+  outcome_code: '71'
+  wrong_work: $|f|=e^C|g|$에서 $f=kg$ ($k$ 부호 미정)로 결론
+  detect_cue: $f,g>0$ 조건이 쓰이지 않음
+  feedback: $f>0$, $g>0$이므로 $\dfrac{f}{g}=e^C>0$입니다. 절댓값 없이 $\ln\dfrac{f}{g}=C$를 쓰고 $k=e^C>0$임을 밝혀야 합니다.
+- id: MC-CAL-81710
+  name: $\int_0^xtf(t)dt>0$을 보이지 않고 곧바로 $0<P(x)<x$ 결론
+  concepts:
+  - CON-CAL-INTEGRAL-POSITIVE
+  used_in: KW-G17A-02#2-1
+  outcome_code: '71'
+  wrong_work: $tf(t)<xf(t)$만 적분하여 $P<x$를 쓰고 $P>0$은 생략
+  detect_cue: $0<P(x)$ 근거가 없음
+  feedback: $P(x)>0$은 $tf(t)>0$이므로 $\int_0^xtf(t)dt>0$이고 $\int_0^xf(t)dt>0$이기 때문입니다. 두 부등호 방향을 각각 보여야 합니다.
+- id: MC-CAL-81711
+  name: $x\to0+$에서 $P(0)$을 직접 대입
+  concepts:
+  - CON-CAL-SQUEEZE
+  used_in: KW-G17A-02#2-2
+  outcome_code: '71'
+  wrong_work: $P(0)=\dfrac{0}{0}$ 꼴을 무시하고 $\lim P(x)=0$이라 씀
+  detect_cue: 끼움 부등식 없이 결론
+  feedback: $P$는 $x=0$에서 정의되지 않으므로 $0<P(x)<x$에서 양쪽 극한이 $0$임을 이용하는 끼움 원리로 구합니다.
+- id: MC-CAL-81712
+  name: 몫의 미분법에서 분자의 빼는 순서를 바꿈
+  concepts:
+  - CON-CAL-QUOTIENT-RULE-INTEGRAL
+  used_in: KW-G17A-02#3-1
+  outcome_code: '71'
+  wrong_work: $P^{\prime}=\dfrac{f\int_0^xtf-xf\int_0^xf}{(\int_0^xf)^2}$
+  detect_cue: 결과가 $\dfrac{f}{\int f}\{P-x\}$ 꼴로 부호가 반대
+  feedback: $\left(\dfrac{u}{w}\right)^{\prime}=\dfrac{u^{\prime}w-uw^{\prime}}{w^2}$이고 $u^{\prime}=xf$, $w^{\prime}=f$이므로 분자는 $xf\int f-f\int tf$입니다.
+- id: MC-PRF-81713
+  name: 필요충분조건을 한 방향만 증명
+  concepts:
+  - CON-PRF-IFF
+  used_in: KW-G17A-02#4
+  outcome_code: '71'
+  wrong_work: $P=Q\Rightarrow f=kg$만 보이고 역을 생략
+  detect_cue: (B) 부분(역) 없음
+  feedback: 필요충분조건은 $P=Q\Rightarrow f=kg$와 $f=kg\Rightarrow P=Q$ 두 방향을 모두 보여야 합니다.
+- id: MC-CAL-81714
+  name: $f\int g=g\int f$를 미분한 식에서 $f^{\prime}=g^{\prime}$로 결론
+  concepts:
+  - CON-CAL-LOG-DERIV-RATIO
+  used_in: KW-G17A-02#4
+  outcome_code: '72'
+  wrong_work: $f^{\prime}\int g=g^{\prime}\int f$에서 $f^{\prime}=g^{\prime}$
+  detect_cue: 적분 항을 지워 버림
+  feedback: 두 식 $f\int g=g\int f$, $f^{\prime}\int g=g^{\prime}\int f$를 변변 나누어 $\dfrac{f^{\prime}}{f}=\dfrac{g^{\prime}}{g}$를 얻고 [1]을 적용합니다(적분값과 $f,g$는 양수).

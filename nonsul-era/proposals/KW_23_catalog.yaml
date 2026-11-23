@@ -1,0 +1,465 @@
+# 광운대 2023학년도 실전(자연 1교시 G23A 문제 1·2, 2교시 G23B 문제 1·2) — 오개념 후보 (공용 카탈로그 반영 전 제안). ID 구간 MC-*-82301~82329(1교시), 82330~82359(2교시)
+misconceptions:
+- id: MC-ALG-82301
+  name: 1/27의 지수를 양수로 처리(부호 누락)
+  concepts:
+  - CON-ALG-EXP-LAW
+  used_in: KW-G23A-01#1-1
+  outcome_code: '71'
+  wrong_work: $\left(\dfrac{1}{27}\right)^{\frac{a}{12}}=3^{3\times\frac{a}{12}}=4^{\frac14}=\sqrt2$
+  detect_cue: 답 $\sqrt2$ (분수 $\frac1{27}=3^{-3}$의 음의 부호 누락)
+  feedback: $\dfrac{1}{27}=3^{-3}$이므로 지수에 음의 부호가 붙어 $(3^{a})^{-\frac14}=4^{-\frac14}=\dfrac{\sqrt2}{2}$입니다.
+- id: MC-PRF-82302
+  name: 귀류법의 가정을 결론 그대로 설정
+  concepts:
+  - CON-PRF-CONTRADICTION
+  used_in: KW-G23A-01#1-2
+  outcome_code: '72'
+  wrong_work: $\log_3 4$가 무리수라고 가정하고 $3^q=4^p$를 이끎
+  detect_cue: 가정이 ’무리수’ 그대로이며 $\frac qp$ 꼴이 없음
+  feedback: 귀류법은 결론의 부정을 가정합니다. 증명할 결론이 ’무리수’이므로 ’유리수라고 가정’해야 합니다.
+- id: MC-PRF-82303
+  name: 유리수 표현에서 p, q가 자연수임을 확인하지 않음
+  concepts:
+  - CON-PRF-CONTRADICTION
+  used_in: KW-G23A-01#1-2
+  outcome_code: '73'
+  wrong_work: $\log_3 4=\dfrac qp$를 정수 $p,q$로 두고 $3^q=4^p$에서 $p=q=0$을 허용
+  detect_cue: $p,q$의 범위(자연수) 언급 없이 홀짝 모순 서술
+  feedback: $\log_3 4>0$이므로 $p,q$는 자연수이고 $3^q$은 홀수, $4^p$은 짝수가 되어 모순입니다. $p=q=0$이면 $3^0=4^0$이 되므로 범위를 밝혀야 합니다.
+- id: MC-CAL-82304
+  name: $-x$ 항을 빼고 증감표를 작성해 근의 개수를 셈
+  concepts:
+  - CON-CAL-ROOT-COUNT
+  used_in: KW-G23A-01#2
+  outcome_code: '71'
+  wrong_work: $f(x)=\cos^2x-\sin x$의 증감표만 보고 $f(x)=0$의 근이 $f$의 극점 개수만큼(4개)이라고 답함
+  detect_cue: 답 3 또는 4, $y=x$ 또는 $-x$ 항이 증감표에 없음
+  feedback: 방정식 $\cos^2x-\sin x=x$는 $y=f(x)$와 직선 $y=x$의 교점 개수입니다. $f$의 극값 위치는 $-x$ 항을 포함한 함수의 근과 무관합니다.
+- id: MC-CAL-82305
+  name: 사잇값 정리만으로 근의 개수를 단정
+  concepts:
+  - CON-CAL-ROOT-COUNT
+  used_in: KW-G23A-01#2
+  outcome_code: '72'
+  wrong_work: $f(0)>0$, $f\left(\dfrac{\pi}{2}\right)<0$이므로 근이 정확히 1개
+  detect_cue: $0<x<\frac{\pi}{2}$에서 $f^{\prime}(x)<0$ 확인이 없음
+  feedback: 사잇값 정리는 ’적어도 1개’만 보장합니다. 단 1개임은 구간에서 $f$가 감소(단조)임을 보여야 합니다.
+- id: MC-PRB-82306
+  name: 교집합 확률을 조건부확률로 착각
+  concepts:
+  - CON-PRB-COND-PROB
+  used_in: KW-G23A-01#3-1
+  outcome_code: '71'
+  wrong_work: $\mathrm{P}(A^{C}\cap B)=\mathrm{P}(B\mid A^{C})=0.3$
+  detect_cue: 답 $\frac{3}{10}$ 또는 0.3
+  feedback: $\mathrm{P}(A^{C}\cap B)=\mathrm{P}(A^{C})\mathrm{P}(B\mid A^{C})=0.75\times0.3$입니다. 조건부확률에 조건의 확률을 곱해야 합니다.
+- id: MC-PRB-82307
+  name: 전체 확률을 조건부확률의 평균으로 계산
+  concepts:
+  - CON-PRB-COND-PROB
+  used_in: KW-G23A-01#3-2
+  outcome_code: '72'
+  wrong_work: $\mathrm{P}(B)=\dfrac{0.8+0.3}{2}=0.55$
+  detect_cue: 답 0.55 (가중치 $\mathrm{P}(A)$, $\mathrm{P}(A^{C})$ 미사용)
+  feedback: $\mathrm{P}(B)=\mathrm{P}(A)\mathrm{P}(B\mid A)+\mathrm{P}(A^{C})\mathrm{P}(B\mid A^{C})$로 가중합을 구해야 합니다.
+- id: MC-PRB-82308
+  name: 조건부확률의 조건과 사건을 맞바꿈
+  concepts:
+  - CON-PRB-COND-PROB
+  used_in: KW-G23A-01#3-3
+  outcome_code: '73'
+  wrong_work: $\mathrm{P}(A\mid B)=\mathrm{P}(B\mid A)=\dfrac45$
+  detect_cue: 답 $\frac45$ 또는 0.8
+  feedback: 구하는 확률은 ’단어가 있을 때 스팸일 확률’이므로 $\mathrm{P}(A\mid B)=\dfrac{\mathrm{P}(A\cap B)}{\mathrm{P}(B)}$입니다. 조건의 방향이 다릅니다.
+- id: MC-ALG-82309
+  name: 조건 (ⅱ)를 $f(-x)=g(x)+h(x)$로 잘못 적용
+  concepts:
+  - CON-ALG-EVEN-ODD-DECOMP
+  used_in: KW-G23A-01#4-1
+  outcome_code: '71'
+  wrong_work: $f(-x)=g(x)+h(x)$로 놓고 연립
+  detect_cue: $f(-x)=f(x)$로 이어지거나 $g$, $h$를 구하지 못함
+  feedback: $f(-x)=g(-x)+h(-x)=g(x)-h(x)$입니다. $g$는 우함수, $h$는 기함수 성질을 각각 적용하세요.
+- id: MC-CAL-82310
+  name: $\dfrac{x}{(x+p)^2+1}$를 모든 $p$에서 기함수로 간주
+  concepts:
+  - CON-CAL-ODD-EVEN-INTEGRAL
+  used_in: KW-G23A-01#4-2
+  outcome_code: '72'
+  wrong_work: 기함수이므로 $\displaystyle\int_{-1}^{1}\dfrac{x}{(x+p)^2+1}dx=0$이 항상 성립
+  detect_cue: $p=0$ 조건이 결론에서 유도되지 않음
+  feedback: $p\ne0$이면 $f(-x)\ne-f(x)$입니다. 우함수 부분 $g(x)=-2p\dfrac{x^2}{\cdots}$가 남아 정적분이 $0$이 아님을 보여야 합니다.
+- id: MC-CAL-82311
+  name: 우함수 부분의 부호 판정 없이 $p=0$ 결론
+  concepts:
+  - CON-CAL-ODD-EVEN-INTEGRAL
+  used_in: KW-G23A-01#4-2
+  outcome_code: '73'
+  wrong_work: $\displaystyle\int_{-1}^{1}f(x)dx=-4p\int_0^1\cdots dx=0$에서 바로 $p=0$
+  detect_cue: 피적분함수가 $(0,1)$에서 양이라는 언급 없음
+  feedback: $-4p\displaystyle\int_0^1(\text{양수})dx=0$이려면 정적분 값이 양수임을 밝히고 $p=0$을 결론지어야 합니다.
+- id: MC-GEO-82312
+  name: 점과 직선 사이 거리의 절댓값을 한 부호만 처리
+  concepts:
+  - CON-GEO-CIRCLE-TANGENT
+  used_in: KW-G23A-02#1-1
+  outcome_code: '71'
+  wrong_work: $\dfrac{7a-6}{5}=a$에서 $a=3$만 구함
+  detect_cue: 답 3 하나 ($\frac12$ 누락)
+  feedback: $\lvert7a-6\rvert=5a$이므로 $7a-6=5a$ 또는 $7a-6=-5a$ 두 경우를 모두 풀어야 합니다.
+- id: MC-GEO-82313
+  name: 두 접선이 이루는 각을 반각 그대로 사용
+  concepts:
+  - CON-GEO-TANGENT-ANGLE
+  used_in: KW-G23A-02#1-2
+  outcome_code: '72'
+  wrong_work: $\theta=\alpha$로 보고 $\sin\theta=\dfrac35$
+  detect_cue: 답 $\frac35$
+  feedback: 선분 $\mathrm{CP}$는 두 접선이 이루는 각을 이등분하므로 $\theta=2\alpha$이고 $\sin\theta=2\sin\alpha\cos\alpha=\dfrac{24}{25}$입니다.
+- id: MC-GEO-82314
+  name: 내분비 $1:2$를 $2:1$로 뒤바꿈
+  concepts:
+  - CON-GEO-DIVIDING-POINT
+  used_in: KW-G23A-02#1-2
+  outcome_code: '73'
+  wrong_work: $\mathrm{P}\left(\dfrac23,1\right)$
+  detect_cue: 점 P의 $y$좌표가 1
+  feedback: $\mathrm{AB}$를 $1:2$로 내분하면 $\mathrm{A}$ 쪽 가중치가 2, $\mathrm{B}$ 쪽 가중치가 1이므로 $\mathrm{P}\left(\dfrac43,\dfrac12\right)$입니다.
+- id: MC-ALG-82315
+  name: $\alpha^5$를 차수 낮추기 중 잘못 정리
+  concepts:
+  - CON-ALG-VIETA-POWER
+  used_in: KW-G23A-02#2-1
+  outcome_code: '71'
+  wrong_work: $\alpha^5=3\alpha+2$로 두고 $k=\dfrac{5}{3\sqrt5}=\dfrac{\sqrt5}{3}$
+  detect_cue: 답 $\frac{\sqrt5}{3}$ ($\alpha^4$ 값을 $\alpha^5$로 사용)
+  feedback: $\alpha^2=\alpha+1$, $\alpha^4=3\alpha+2$, $\alpha^5=5\alpha+3$입니다. 차수를 한 단계씩 올려 계산하세요.
+- id: MC-ALG-82316
+  name: 분자·분모가 모두 커지므로 극한을 1로 판단
+  concepts:
+  - CON-ALG-GEOM-RATIO-LIMIT
+  used_in: KW-G23A-02#2-2
+  outcome_code: '72'
+  wrong_work: $\displaystyle\lim_{n\to\infty}\dfrac{\alpha^{n+4}-\beta^{n+4}}{\alpha^n-\beta^n}=1$
+  detect_cue: 답 1
+  feedback: $\alpha^n$로 나누고 $\left\lvert\dfrac{\beta}{\alpha}\right\rvert<1$이므로 $\left(\dfrac{\beta}{\alpha}\right)^n\to0$이 되어 극한은 $\alpha^4$입니다.
+- id: MC-CAL-82317
+  name: $k=\dfrac12$에서도 극값이 있다고 판단
+  concepts:
+  - CON-CAL-EXTREMA-DOUBLE-ROOT
+  used_in: KW-G23A-02#3-1
+  outcome_code: '71'
+  wrong_work: $k=\dfrac12$일 때 $x=0$에서 극댓값 $1$
+  detect_cue: $k=\frac12$에서 $f^{\prime}(x)=\frac{2x^2e^x}{(x^2+2x+2)^2}\ge0$인데 극값을 말함
+  feedback: $k=\dfrac12$이면 두 근이 겹쳐 $f^{\prime}$의 부호가 바뀌지 않으므로 극값이 없습니다.
+- id: MC-CAL-82318
+  name: 두 임계점의 좌우 순서를 반대로 둠
+  concepts:
+  - CON-CAL-EXTREMA-DOUBLE-ROOT
+  used_in: KW-G23A-02#3-1
+  outcome_code: '72'
+  wrong_work: $2-\dfrac1k<0$으로 보고 $x=0$에서 극소, $x=2-\dfrac1k$에서 극대
+  detect_cue: 극댓값이 $\frac{e^{2-1/k}}{4k-1}$로 서술됨
+  feedback: $k>\dfrac12$이면 $2-\dfrac1k>0$이므로 $x=0$이 먼저 오고 $f^{\prime}$의 부호는 $+,-,+$입니다.
+- id: MC-CAL-82319
+  name: $e^x>1+x$만 사용해 극한 증명 실패
+  concepts:
+  - CON-CAL-EXP-INEQ-LIMIT
+  used_in: KW-G23A-02#3-2
+  outcome_code: '71'
+  wrong_work: $0<\dfrac{x}{e^x}<\dfrac{x}{1+x}$이므로 극한이 $0$
+  detect_cue: 상한 $\frac{x}{1+x}\to1$이어서 조임정리가 성립하지 않음
+  feedback: 상한이 $0$으로 가야 합니다. $e^x>\dfrac12x^2+x+1>\dfrac12x^2$을 이용하면 $\dfrac{x}{e^x}<\dfrac{2}{x}$입니다.
+- id: MC-CAL-82320
+  name: 연속이면 미분가능이라고 단정
+  concepts:
+  - CON-CAL-DIFFERENTIABILITY-LIMIT
+  used_in: KW-G23A-02#3-3
+  outcome_code: '72'
+  wrong_work: $g(x)$가 $x=0$에서 연속이므로 미분가능
+  detect_cue: 좌극한·우극한 $\frac{g(x)}{x}$ 계산 없음
+  feedback: 연속이어도 미분가능은 아닙니다. $\displaystyle\lim_{x\to0\pm}\dfrac{g(x)-g(0)}{x}$를 각각 구해 같음을 보여야 합니다.
+- id: MC-CAL-82321
+  name: $t=\dfrac1x$ 치환에서 $x\to0+$의 극한 방향 오류
+  concepts:
+  - CON-CAL-DIFFERENTIABILITY-LIMIT
+  used_in: KW-G23A-02#3-3
+  outcome_code: '73'
+  wrong_work: $x\to0+$일 때 $t\to-\infty$, $\displaystyle\lim\dfrac{t}{e^t}=-\infty$이므로 미분불가능
+  detect_cue: 결론 ’미분불가능’
+  feedback: $x\to0+$이면 $t=\dfrac1x\to+\infty$이고 $\dfrac{t}{e^t}\to0$입니다.
+- id: MC-CNT-82330
+  name: 조건 $x<f(x)$ 없이 일대일대응 전체 개수
+  concepts:
+  - CON-CNT-BIJECTION-COUNT
+  used_in: KW-G23B-01#1-1
+  outcome_code: '71'
+  wrong_work: $4!=24$개
+  detect_cue: 답 24 (부등식 조건 미사용)
+  feedback: $A=\{1,2,3,6\}$, $B=\{2,3,5,7\}$에서 $x<f(x)$를 만족해야 하므로 $f(6)=7$부터 차례로 정해 1개입니다.
+- id: MC-ALG-82331
+  name: 합성함수를 왼쪽부터 계산
+  concepts:
+  - CON-ALG-INVERSE-COMPOSITE
+  used_in: KW-G23B-01#1-1
+  outcome_code: '72'
+  wrong_work: $(f^{-1}\circ f\circ f^{-1})(5)$에서 $f(5)$를 먼저 계산하려 함
+  detect_cue: $f(5)$ 계산 시도(5는 정의역 밖)
+  feedback: 합성은 오른쪽부터 적용합니다. $f^{-1}(5)=3$, $f(3)=5$, $f^{-1}(5)=3$입니다.
+- id: MC-CNT-82332
+  name: $g(2)$의 선택 수를 남은 원소 수와 다르게 셈
+  concepts:
+  - CON-CNT-BIJECTION-COUNT
+  used_in: KW-G23B-01#1-2
+  outcome_code: '71'
+  wrong_work: $g(3)$ 2가지, $g(2)\in\{2,3,5\}$ 3가지로 $2\times3=6$
+  detect_cue: 답 6
+  feedback: $g(3)$를 정한 뒤 남은 두 원소를 $g(1),g(2)$에 배정하므로 $2\times2=4$입니다. 일대일이므로 이미 쓴 값은 다시 쓸 수 없습니다.
+- id: MC-GEO-82333
+  name: 접점이 $y=x$ 위이고 기울기가 $-1$인 경우 누락
+  concepts:
+  - CON-GEO-REFLECTION-TANGENCY
+  used_in: KW-G23B-01#2-1
+  outcome_code: '71'
+  wrong_work: $x=-x^2+px+q$의 판별식만 사용해 $(1-p)^2+4q=0$ 한 가지만 구함
+  detect_cue: $p^2-2p-3+4q=0$ 경우가 없음
+  feedback: 접점이 $y=x$ 위에 있고 접선의 기울기가 $-1$일 때도 두 도형은 접합니다. 공식 답안은 두 관계식 중 하나를 구하면 인정합니다.
+- id: MC-GEO-82334
+  name: 대칭이동을 $y$축 대칭으로 처리
+  concepts:
+  - CON-GEO-REFLECTION-TANGENCY
+  used_in: KW-G23B-01#2-2
+  outcome_code: '72'
+  wrong_work: $y=-\dfrac14(1-x)^2$를 $x\to-x$로 바꾼 $y=-\dfrac14(1+x)^2$와 교점을 구함
+  detect_cue: 대칭 도형 방정식에 $x\to-x$ 사용
+  feedback: 직선 $y=x$에 대한 대칭이동은 $x$와 $y$를 서로 바꾼 $x=-\dfrac14(1-y)^2$입니다.
+- id: MC-CAL-82335
+  name: 치환적분에서 $dt=-dx$와 적분구간 처리 누락
+  concepts:
+  - CON-CAL-SUBST-INT
+  used_in: KW-G23B-01#3-1
+  outcome_code: '71'
+  wrong_work: $\displaystyle\int_0^a f(a-x)dx=\int_0^a f(t)dt\cdot(-1)$로 쓰고 등식이 성립하지 않는다고 결론
+  detect_cue: $-\int_0^a f(t)dt$ 형태
+  feedback: $t=a-x$이면 $dx=-dt$이고 구간이 $[a,0]$으로 바뀌므로 부호가 한 번 더 바뀌어 $\displaystyle\int_0^a f(t)dt$가 됩니다.
+- id: MC-CAL-82336
+  name: 대칭 합 $\dfrac{\pi}{2}$를 구하는 값으로 착각
+  concepts:
+  - CON-CAL-SUBST-INT
+  used_in: KW-G23B-01#3-2
+  outcome_code: '72'
+  wrong_work: $I+I^{\prime}=\dfrac{\pi}{2}$에서 $I=\dfrac{\pi}{2}$
+  detect_cue: 답 $\frac{\pi}{2}$
+  feedback: 같은 값의 두 적분을 더한 것이므로 $2I=\dfrac{\pi}{2}$, $I=\dfrac{\pi}{4}$입니다.
+- id: MC-CAL-82337
+  name: $x$축과의 교점을 잘못 계산
+  concepts:
+  - CON-CAL-AREA-BOUNDARY
+  used_in: KW-G23B-01#4-1
+  outcome_code: '71'
+  wrong_work: $-x^2+2a^4=0$에서 $x=2a^2$로 보고 $\displaystyle\int_{a^2}^{2a^2}$
+  detect_cue: 적분 상한이 $2a^2$
+  feedback: $x^2=2a^4$이므로 $x=\sqrt2a^2$입니다.
+- id: MC-CAL-82338
+  name: 구간 끝점 $a+2$에서만 최댓값을 취함
+  concepts:
+  - CON-CAL-PIECEWISE-MAX
+  used_in: KW-G23B-01#4-2
+  outcome_code: '71'
+  wrong_work: $g(a)=f(a+2)=(a+2)^2$ (모든 $a>0$)
+  detect_cue: $g(a)$가 한 식
+  feedback: $f$는 $x=a^2$에서 꺾이며 $x<a^2$에서 증가, $x>a^2$에서 감소합니다. $a$, $a^2$, $a+2$의 위치로 경우를 나눠야 합니다.
+- id: MC-CAL-82339
+  name: $0<a<1$에서도 $f(a^2)$를 최댓값으로 사용
+  concepts:
+  - CON-CAL-PIECEWISE-MAX
+  used_in: KW-G23B-01#4-2
+  outcome_code: '72'
+  wrong_work: $0<a<1$에서 $g(a)=a^4$
+  detect_cue: $g(a)$ 극솟값이 없다는 결론
+  feedback: $a^2<a$이면 구간 $[a,a+2]$가 모두 $x>a^2$ 쪽이어서 $f$가 감소하므로 $g(a)=f(a)=2a^4-a^2$입니다.
+- id: MC-CAL-82340
+  name: 연속·증가 연결점에서도 극값이 있다고 판단
+  concepts:
+  - CON-CAL-PIECEWISE-MAX
+  used_in: KW-G23B-01#4-2
+  outcome_code: '73'
+  wrong_work: $a=1$, $a=2$에서도 극값이 있다고 함
+  detect_cue: 극솟값이 3개
+  feedback: 연결점 좌우에서 $g^{\prime}$의 부호가 모두 양이면 극값이 아닙니다. 극솟값은 $g\left(\dfrac12\right)=-\dfrac18$ 하나입니다.
+- id: MC-ALG-82341
+  name: 로그의 진수 조건을 판별식 $D>0$으로 처리
+  concepts:
+  - CON-ALG-LOG-DOMAIN
+  used_in: KW-G23B-02#1-1
+  outcome_code: '71'
+  wrong_work: $x^2+2ax+4a+5>0$이 모든 $x$에서 성립하려면 $D>0$
+  detect_cue: $a<-1$ 또는 $a>5$
+  feedback: 모든 실수 $x$에서 이차식이 양수이려면 $D<0$이어야 합니다.
+- id: MC-ALG-82342
+  name: 밑의 조건에서 $\lvert a-2\rvert\ne1$ 누락
+  concepts:
+  - CON-ALG-LOG-DOMAIN
+  used_in: KW-G23B-02#1-1
+  outcome_code: '72'
+  wrong_work: 밑 $\lvert a-2\rvert>0$만 사용해 $a\ne2$
+  detect_cue: 정수 $a=0,1,3,4$
+  feedback: 로그의 밑은 양수이면서 $1$이 아니어야 합니다. $\lvert a-2\rvert\ne1$에서 $a\ne1,3$입니다.
+- id: MC-ALG-82343
+  name: $g(h(x))$ 계산에서 $(\sqrt{x})^2$를 $x^2$으로 처리
+  concepts:
+  - CON-ALG-INVERSE-COMPOSITE
+  used_in: KW-G23B-02#1-2
+  outcome_code: '71'
+  wrong_work: $(g\circ h)(x)=\log_2(x^2+5)$로 두고 역함수에 $\sqrt{2^x-5}$ 사용
+  detect_cue: 역함수에 제곱근이 나타남
+  feedback: $h(x)=\sqrt x$이므로 $g(h(x))=\log_2\{(\sqrt x)^2+5\}=\log_2(x+5)$입니다.
+- id: MC-ALG-82344
+  name: 이차부등식 해의 방향 오류
+  concepts:
+  - CON-ALG-LOG-DOMAIN
+  used_in: KW-G23B-02#1-2
+  outcome_code: '73'
+  wrong_work: $X^2-5X-6>0$에서 $-1<X<6$
+  detect_cue: 답 $x<\log_26$
+  feedback: $(X+1)(X-6)>0$의 해는 $X<-1$ 또는 $X>6$이고 $X=2^x>0$이므로 $X>6$입니다.
+- id: MC-CAL-82345
+  name: 각 항을 $n^{\frac23}$로 근사해 차를 0으로 판단
+  concepts:
+  - CON-CAL-CUBE-ROOT-LIMIT
+  used_in: KW-G23B-02#2
+  outcome_code: '71'
+  wrong_work: $(n^2+n)^{\frac13}-(n^2+1)^{\frac13}\to0$이므로 극한 $0$
+  detect_cue: 답 0 ($\infty\cdot0$ 꼴 방치)
+  feedback: $a^3-b^3=(a-b)(a^2+ab+b^2)$으로 분모를 유리화해야 $n^{\frac13}\cdot\dfrac{n-1}{3n^{\frac43}}\to\dfrac13$을 얻습니다.
+- id: MC-PRB-82346
+  name: 점 $(k,n-k)$를 $(k,n)$으로 잘못 씀
+  concepts:
+  - CON-PRB-EXPECTATION-DISCRETE
+  used_in: KW-G23B-02#3-1
+  outcome_code: '71'
+  wrong_work: 원점과의 거리의 제곱 $k^2+n^2$
+  detect_cue: 답 $k^2+n^2$
+  feedback: $x+y=n$이므로 $x=k$이면 $y=n-k$이고 거리의 제곱은 $k^2+(n-k)^2$입니다.
+- id: MC-PRB-82347
+  name: $k=0$인 점을 빼고 원소 수를 $n$으로 셈
+  concepts:
+  - CON-PRB-EXPECTATION-DISCRETE
+  used_in: KW-G23B-02#3-2
+  outcome_code: '72'
+  wrong_work: $\mathrm{E}(X_n)=\dfrac1n\displaystyle\sum_{k=1}^{n}(2k^2-2nk+n^2)=\dfrac{2n^2+1}{3}$
+  detect_cue: 답 $\frac{2n^2+1}{3}$
+  feedback: $k=0,1,\cdots,n$으로 점이 $n+1$개이므로 확률은 $\dfrac1{n+1}$입니다.
+- id: MC-ALG-82348
+  name: $f$를 일차식으로만 가정
+  concepts:
+  - CON-ALG-POLY-IDENTITY
+  used_in: KW-G23B-02#4-1
+  outcome_code: '71'
+  wrong_work: $f(x)=x$, $p=-1$, $q=0$만 구함
+  detect_cue: 2차 해가 없음
+  feedback: 일차 이상이므로 차수를 비교해 3차 이상은 불가능함을 보인 뒤 1차와 2차를 모두 조사해야 합니다.
+- id: MC-ALG-82349
+  name: 계수 비교에서 $q+r$를 $q$로 씀
+  concepts:
+  - CON-ALG-POLY-IDENTITY
+  used_in: KW-G23B-02#4-1
+  outcome_code: '72'
+  wrong_work: $4rs=q$에서 $s=1$이면 $r=\dfrac q4$, $p=\dfrac{q^2}{4}-1$
+  detect_cue: $f(x)=\frac q4x^2+x$
+  feedback: 우변 $x^2$의 계수는 $q+r$입니다. $4rs=q+r$에서 $s=1$이면 $r=\dfrac q3$입니다.
+- id: MC-ALG-82350
+  name: 나머지정리에서 $f(-2023)$ 사용
+  concepts:
+  - CON-ALG-REMAINDER-THEOREM
+  used_in: KW-G23B-02#4-2
+  outcome_code: '71'
+  wrong_work: $x-2023$으로 나눈 나머지를 $f(-2023)$으로 계산해 합 $-4046$
+  detect_cue: 답 $-4046$
+  feedback: $x-2023$으로 나눈 나머지는 $f(2023)$입니다.
+- id: MC-CNT-82351
+  name: $p=0$에서 $q$의 부호를 한쪽만 취함
+  concepts:
+  - CON-ALG-POLY-IDENTITY
+  used_in: KW-G23B-02#4-2
+  outcome_code: '72'
+  wrong_work: $q>0$인 $f_2$, $f_3$만 더해 $2023^2+2023$
+  detect_cue: 다항식이 4개가 아닌 2개
+  feedback: $p=4q^2-1=0$에서 $q=\pm\dfrac12$, $p=\dfrac49q^2-1=0$에서 $q=\pm\dfrac32$로 다항식은 모두 4개입니다.
+concepts:
+- id: CON-ALG-EXP-LAW
+  name: 지수법칙(음의 지수)
+  parent: CON-ALG
+- id: CON-PRF-CONTRADICTION
+  name: 귀류법의 가정(결론의 부정)
+  parent: CON-PRF
+- id: CON-CAL-ROOT-COUNT
+  name: 증감표와 사잇값 정리로 방정식의 실근 개수 판정
+  parent: CON-CAL
+- id: CON-PRB-COND-PROB
+  name: 곱셈정리와 조건부확률의 방향
+  parent: CON-PRB
+- id: CON-ALG-EVEN-ODD-DECOMP
+  name: 우함수·기함수 분해
+  parent: CON-ALG
+- id: CON-CAL-ODD-EVEN-INTEGRAL
+  name: 대칭 구간에서 우함수·기함수의 정적분
+  parent: CON-CAL
+- id: CON-GEO-CIRCLE-TANGENT
+  name: 원과 직선이 한 점에서 만날 조건
+  parent: CON-GEO
+- id: CON-GEO-TANGENT-ANGLE
+  name: 접선 사이각과 중심각의 관계
+  parent: CON-GEO
+- id: CON-GEO-DIVIDING-POINT
+  name: 선분의 내분점 공식
+  parent: CON-GEO
+- id: CON-ALG-VIETA-POWER
+  name: 이차방정식의 근을 이용한 거듭제곱 차수 낮추기
+  parent: CON-ALG
+- id: CON-ALG-GEOM-RATIO-LIMIT
+  name: 공비의 절댓값이 1보다 작은 극한
+  parent: CON-ALG
+- id: CON-CAL-EXTREMA-DOUBLE-ROOT
+  name: 도함수의 중근에서는 극값이 없음
+  parent: CON-CAL
+- id: CON-CAL-EXP-INEQ-LIMIT
+  name: 지수 부등식으로 $x/e^x$의 극한 유도
+  parent: CON-CAL
+- id: CON-CAL-DIFFERENTIABILITY-LIMIT
+  name: 미분계수의 정의로 미분가능성 조사
+  parent: CON-CAL
+- id: CON-CNT-BIJECTION-COUNT
+  name: 조건을 만족하는 일대일대응의 개수
+  parent: CON-CNT
+- id: CON-ALG-INVERSE-COMPOSITE
+  name: 합성함수와 역함수의 계산 순서
+  parent: CON-ALG
+- id: CON-GEO-REFLECTION-TANGENCY
+  name: 도형과 그 대칭도형의 접함
+  parent: CON-GEO
+- id: CON-CAL-SUBST-INT
+  name: 치환적분의 구간과 부호
+  parent: CON-CAL
+- id: CON-CAL-AREA-BOUNDARY
+  name: 절댓값 함수의 구간별 넓이
+  parent: CON-CAL
+- id: CON-CAL-PIECEWISE-MAX
+  name: 절댓값 이차함수의 구간 최댓값
+  parent: CON-CAL
+- id: CON-ALG-LOG-DOMAIN
+  name: 로그의 밑과 진수 조건
+  parent: CON-ALG
+- id: CON-CAL-CUBE-ROOT-LIMIT
+  name: 세제곱근 차 극한의 유리화
+  parent: CON-CAL
+- id: CON-PRB-EXPECTATION-DISCRETE
+  name: 격자점의 거리와 이산확률변수
+  parent: CON-PRB
+- id: CON-ALG-POLY-IDENTITY
+  name: 다항식 항등식의 차수 비교와 계수 비교
+  parent: CON-ALG
+- id: CON-ALG-REMAINDER-THEOREM
+  name: 나머지정리 $x-\alpha$로 나눈 나머지
+  parent: CON-ALG

@@ -1,0 +1,756 @@
+# 광운대 2023학년도 논술 모의평가 자연계열 문제 2 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+schema_version: '2.0'
+id: KW-M23-02
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: KW
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 일반화
+points: 50
+time_estimate_min: null
+intent: |
+  [1] (1) 연속함수의 성질을 이해하고 지수함수의 미분을 활용할 수 있는 능력을 평가한다. (2) 함수의 극한에 대한 성질을 이해하고, 무리식의 극한값을 계산할 수 있는 능력을 평가한다. [2] 미분과 적분의 관계를 이해하는 능력과 로그함수와 관련된 적분을 계산하는 능력을 평가한다. [3] (1) 함수의 곱의 미분을 계산하는 능력과 함수의 극대와 극소를 판정하는 추론 능력을 평가한다. (2) 도함수와 정적분의 정의를 이해하고, 극한값을 계산하는 능력을 평가한다. [4] (1) 치환적분법을 이용하여 조건식을 만족시키는 함수를 계산하는 능력을 평가한다. (2) 삼각방정식의 풀이 능력과 등비급수의 합을 계산하는 능력을 평가한다. [5] (1) 확률의 기본 성질을 이해하는 능력과 여러 가지 경우의 수를 계산하는 능력을 평가한다. (2) 확률의 뜻을 이해하는 능력과 이를 활용할 수 있는 능력을 평가한다. (광운대 공식 '출제 의도')
+key_idea: |
+  $a+b=1$ 아래 $2^a+2^{1-a}$을 극값으로, $\dfrac{\sqrt{x+a^4}-\sqrt{x+b^4}}{\sqrt{4x+a}-\sqrt{4x+b}}$를 유리화해 $ab=-2$를 얻는다. 적분 등식을 미분해 $\dfrac{f^{\prime}}{f}=-\dfrac1{2x}$를 풀고, 극댓값 $e^{-2m\pi}$의 비로 $\ln\dfrac{b_n}{b_{n+1}}$을 구한다. $s=2t-\pi$ 치환과 미분계수의 정의로 극한을 구하고, $\sin(\ln x)=-1$의 근을 등비수열로 보아 급수 합을 구한다. 남은 $4$경기의 $2^4=16$가지 경우로 승률을 센다.
+stuck: |
+  [2]에서 양변을 미분하기 전에 $x=1$을 대입해 $f(1)=\dfrac12$를 얻어 두고 $\dfrac{f^{\prime}(x)}{f(x)}=-\dfrac{1}{2x}$를 적분해 상수를 정하는 단계
+idea_tags:
+- IDEA-INTEGRAL-EQUATION-DIFFERENTIATE
+- IDEA-RATIONALIZE-LIMIT-INFINITY
+- IDEA-DERIVATIVE-DEFINITION-AFTER-SUBSTITUTION
+tags:
+- 지수함수의 최대·최소
+- 무리식의 극한
+- 미분과 적분의 관계
+- 극값
+- 미분계수의 정의
+- 치환적분
+- 삼각방정식
+- 등비급수
+- 확률
+elements:
+  materials:
+  - $a+b=1$ 일 때 $2^a+2^b$
+  - $\lim_{x\to\infty}\dfrac{\sqrt{x+a^4}-\sqrt{x+b^4}}{\sqrt{4x+a}-\sqrt{4x+b}}=10$
+  - $2xf(x)-x=\int_1^x\{f(t)-1\}dt$
+  - $f(x)=e^{-x}(\sin x+\cos x)$ 의 극댓값 $b_n$
+  - $f(x)=\int\dfrac1x\cos(\ln x)dx$, $f(e^{-\pi})=1$
+  - 우승 상금 8백만 원, 4번의 경기가 남은 두 바둑 기사
+  concepts:
+  - 지수함수의 미분과 극값
+  - 무리식의 극한(유리화)
+  - 미분과 적분의 관계
+  - 함수의 곱의 미분
+  - 정적분의 치환
+  - 미분계수의 정의
+  - 삼각방정식
+  - 등비급수
+  - 수학적 확률
+  tools:
+  - $f^{\prime}(x)=(2^x-2^{1-x})\ln2$
+  - 분자·분모 유리화 후 $\sqrt x$ 로 나누기
+  - 양변을 $x$ 로 미분, $\dfrac{f^{\prime}}{f}=-\dfrac1{2x}$
+  - $f^{\prime}(x)=-2e^{-x}\sin x$
+  - $s=2t-\pi$ 치환 후 미분계수 $F^{\prime}(\pi)$
+  - $\ln x=t$ 치환
+  - ${}_4\mathrm{C}_4+{}_4\mathrm{C}_3+{}_4\mathrm{C}_2$
+  conditions:
+  - $a\ge0$, $b\ge0$
+  - $a\ne b$
+  - $x>0$
+  - $x>0$ 에서 극댓값을 큰 것부터 나열
+  - 구간 $(0,1)$
+  - 비기는 경기는 없다
+  stimuli_used:
+  - '[1](1): 1'
+  - '[2]: 2'
+  - '[3](2): 2·3'
+  - '[4](1): 3'
+  - '[5]: 4'
+  subpart_links: '[1](1)과 (2)는 같은 $a+b=1$ 설정이나 독립 계산. [3](1)·(2)는 같은 $f$. [4](1)의 $f$를 (2)에서 사용. [5](1)의 확률을 (2)에서 사용'
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학
+  - 수학Ⅱ
+  - 미적분
+  - 확률과통계
+  scope_2028: calc2
+  scope_confirmed: false
+  standards: []
+  content_area: 미분 · 적분 · 함수의 극한 · 수열의 극한 · 확률
+  behavior_domain: 문제해결
+  unit_path:
+  - 미적분
+  - 적분법
+  - 여러 가지 적분법
+  key_concepts:
+  - 지수함수의 미분
+  - 미분과 적분의 관계
+  - 치환적분법
+  - 등비급수
+  - 수학적 확률
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 광운대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 광운대학교
+  admission_year: 2023
+  admission_type: 수시 모의논술
+  track: 자연계열
+  question_no: 2
+  official_url: https://iphak.kw.ac.kr/pds/pds_view.php?m_type=SUSI&bn=41541
+  retrieved_at: '2026-11-22'
+  original_points:
+  - 5
+  - 5
+  - 8
+  - 6
+  - 6
+  - 4
+  - 6
+  - 6
+  - 4
+  rights_notice: 미확인
+  transcribed_from: 광운대 입학처 공식 PDF「2023학년도 논술 모의평가 자연계열 [문제 2] 해설 및 모범답안」문제 p.1~2, 출제 의도·채점 기준·예시 답안 p.3~6 (이미지 대조 2026-11-22)
+verify: verify/KW-M23.py::p02
+stimuli:
+- label: '1'
+  body: |
+    1. 극대와 극소의 판정
+    미분가능한 함수 $f(x)$에 대하여 $f^{\prime}(a)=0$일 때, $x=a$의 좌우에서
+    (ⅰ) $f^{\prime}(x)$의 부호가 양에서 음으로 바뀌면 $f(x)$는 $x=a$에서 극대이고, 극댓값 $f(a)$를 갖는다.
+    (ⅱ) $f^{\prime}(x)$의 부호가 음에서 양으로 바뀌면 $f(x)$는 $x=a$에서 극소이고, 극솟값 $f(a)$를 갖는다.
+- label: '2'
+  body: |
+    2. 미분과 적분의 관계
+    함수 $f(x)$가 닫힌구간 $[a,b]$에서 연속일 때,
+    $$\dfrac{d}{dx}\int_a^xf(t)\,dt=f(x)\quad(\text{단, }a<x<b)$$
+- label: '3'
+  body: |
+    3. 치환적분법을 이용한 정적분
+    미분가능한 함수 $g(x)$의 도함수 $g^{\prime}(x)$가 닫힌구간 $[a,b]$를 포함하는 열린구간에서 연속이고, $g(a)=\alpha$와 $g(b)=\beta$에 대하여 함수 $f(x)$가 $\alpha$와 $\beta$를 포함한 구간에서 연속일 때 다음이 성립한다.
+    $$\int_a^bf(g(x))g^{\prime}(x)\,dx=\int_\alpha^\beta f(t)\,dt$$
+- label: '4'
+  body: |
+    4. 수학적 확률
+    표본공간 $S$에서 각각의 근원사건이 일어날 가능성이 모두 같은 정도로 기대될 때, 사건 $A$가 일어날 확률은 다음과 같다.
+    $$\mathrm{P}(A)=\dfrac{n(A)}{n(S)}$$
+stem: |
+  [문제 2] (50점) 다음 제시문을 읽고 문항별로 풀이와 함께 답하시오.
+subparts:
+- id: 1-1
+  stem: |
+    [1] 등식 $a+b=1$을 만족시키는 실수 $a,b$에 대하여 다음 물음에 답하시오.
+
+    (1) $a\ge0$, $b\ge0$일 때, 실수 $2^a+2^b$의 최댓값과 최솟값을 구하시오. [5점]
+  points: 5
+  depends_on: []
+  answer:
+    kind: expression
+    value: max=3; min=2*sqrt(2)
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S11-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 11b-1
+      content: |
+        $b=1-a$이므로 $0\le a\le1$일 때 $2^a+2^{1-a}$의 최댓값과 최솟값을 구하면 된다. $f(x)=2^x+2^{1-x}$라 하면, $f^{\prime}(x)=(2^x-2^{1-x})\ln2=0$으로부터 $2^x=2^{1-x}$이므로 $x=\dfrac12$이다. $x=\dfrac12$의 좌우에서 $f^{\prime}(x)$의 부호가 음에서 양으로 바뀌므로 $f(x)$는 극소이다.
+      source_flow: 예시 답안 p.5
+      criteria:
+      - 1-1.M1
+    - id: 11b-2
+      content: |
+        $0\le x\le1$에서 $x=0$ 또는 $x=1$일 때 최댓값 $3$, $x=\dfrac12$일 때 최솟값 $2\sqrt2$
+      source_flow: 예시 답안 p.5
+      criteria:
+      - 1-1.B1
+      - 1-1.A1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 1-1.M1
+      mark_type: M
+      points: 2
+      evidence: |
+        $x=\dfrac12$에서 $f(x)$가 극값을 갖는 것을 보였다.
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 11b-1
+    - id: 1-1.B1
+      mark_type: B
+      points: 1
+      evidence: |
+        $x=0$, $x=1$에서 함숫값을 구했다.
+      depends_on: []
+      steps:
+      - 11b-2
+    - id: 1-1.A1
+      mark_type: A
+      points: 2
+      evidence: |
+        최댓값 $3$, 최솟값 $2\sqrt2$를 구했다.
+      depends_on:
+      - 1-1.M1
+      - 1-1.B1
+      steps:
+      - 11b-2
+    deductions: []
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+- id: 1-2
+  stem: |
+    (2) 다음 식을 만족시키는 $a$와 $b$를 구하시오. (단, $a\ne b$) [5점]
+
+    $$\lim_{x\to\infty}\dfrac{\sqrt{x+a^4}-\sqrt{x+b^4}}{\sqrt{4x+a}-\sqrt{4x+b}}=10$$
+  points: 5
+  depends_on: []
+  answer:
+    kind: expression
+    value: a=2; b=-1; a2=-1; b2=2
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S12-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 12b-1
+      content: |
+        $\displaystyle\lim_{x\to\infty}\dfrac{\{(x+a^4)-(x+b^4)\}(\sqrt{4x+a}+\sqrt{4x+b})}{\{(4x+a)-(4x+b)\}(\sqrt{x+a^4}+\sqrt{x+b^4})}=\lim_{x\to\infty}\dfrac{(a^4-b^4)\left(\sqrt{4+\frac{a}{x}}+\sqrt{4+\frac{b}{x}}\right)}{(a-b)\left(\sqrt{1+\frac{a^4}{x}}+\sqrt{1+\frac{b^4}{x}}\right)}$
+        $=(a^2+b^2)(a+b)\dfrac{\sqrt4+\sqrt4}{\sqrt1+\sqrt1}=2\{(a+b)^2-2ab\}=2(1-2ab)=10$
+      source_flow: 예시 답안 p.5
+      criteria:
+      - 1-2.M1
+    - id: 12b-2
+      content: |
+        $ab=-2$, $a+b=1$로부터 $a=2$, $b=-1$ 또는 $a=-1$, $b=2$
+      source_flow: 예시 답안 p.5
+      criteria:
+      - 1-2.A1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 1-2.M1
+      mark_type: M
+      points: 3
+      evidence: |
+        $ab=-2$를 구했다.
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 12b-1
+    - id: 1-2.A1
+      mark_type: A
+      points: 2
+      evidence: |
+        $a=2$, $b=-1$ 또는 $a=-1$, $b=2$를 구했다.
+      depends_on:
+      - 1-2.M1
+      steps:
+      - 12b-2
+    deductions: []
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+- id: '2'
+  stem: |
+    [2] $x>0$에서 미분가능한 함수 $f(x)$가 다음 등식을 만족시킬 때, $f(9)$의 값을 구하시오. [8점]
+
+    $$2xf(x)-x=\int_1^x\{f(t)-1\}\,dt$$
+  points: 8
+  depends_on: []
+  answer:
+    kind: value
+    value: 1/6
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S2-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 2b-1
+      content: |
+        $2xf(x)-x=\displaystyle\int_1^x\{f(t)-1\}\,dt\cdots\cdots①$
+        ①의 양변에 $x=1$을 대입하면 $2f(1)-1=0$, 즉 $f(1)=\dfrac12\cdots\cdots②$
+      source_flow: 예시 답안 p.5
+      criteria:
+      - 2.B1
+    - id: 2b-2
+      content: |
+        ①의 양변을 $x$에 대하여 미분하면 $2f(x)+2xf^{\prime}(x)-1=f(x)-1$, 즉 $\dfrac{f^{\prime}(x)}{f(x)}=-\dfrac{1}{2x}\cdots\cdots③$
+        $\displaystyle\int\dfrac{f^{\prime}(x)}{f(x)}\,dx=\ln\lvert f(x)\rvert$이므로 ③의 양변을 적분하면 $\ln\lvert f(x)\rvert=-\dfrac12\ln x+C\cdots\cdots④$
+        양변에 $x=1$을 대입하면 $\ln f(1)=C$이고 ②로부터 $C=\ln\dfrac12$
+        ④로부터 $\ln\lvert f(x)\rvert=-\dfrac12\ln x+\ln\dfrac12=\ln\dfrac{1}{2\sqrt x}$
+        ②로부터 $f(x)=\dfrac{1}{2\sqrt x}$
+      source_flow: 예시 답안 p.5
+      criteria:
+      - 2.M1
+    - id: 2b-3
+      content: |
+        $f(9)=\dfrac16$
+      source_flow: 예시 답안 p.5
+      criteria:
+      - 2.A1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 2.B1
+      mark_type: B
+      points: 2
+      evidence: |
+        $f(1)=\dfrac12$을 구했다.
+      depends_on: []
+      steps:
+      - 2b-1
+    - id: 2.M1
+      mark_type: M
+      points: 5
+      evidence: |
+        $f(x)=\dfrac{1}{2\sqrt x}$을 구했다.
+      depends_on:
+      - 2.B1
+      implied_ok: false
+      steps:
+      - 2b-2
+    - id: 2.A1
+      mark_type: A
+      points: 1
+      evidence: |
+        $f(9)=\dfrac16$을 구했다.
+      depends_on:
+      - 2.M1
+      steps:
+      - 2b-3
+    deductions: []
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+- id: 3-1
+  stem: |
+    [3] 함수 $f(x)=e^{-x}(\sin x+\cos x)$에 대하여 다음 물음에 답하시오.
+
+    (1) $x>0$에서 함수 $f(x)$의 극댓값을 큰 것부터 차례로 $b_1,b_2,b_3,\cdots,b_n,\cdots$이라고 할 때, 자연수 $n$에 대하여 $\ln\dfrac{b_n}{b_{n+1}}$의 값을 구하시오. [6점]
+  points: 6
+  depends_on: []
+  answer:
+    kind: value
+    value: 2*pi
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S31-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 31b-1
+      content: |
+        $f^{\prime}(x)=-e^{-x}(\sin x+\cos x)+e^{-x}(\cos x-\sin x)=-2e^{-x}\sin x$
+        $f^{\prime}(x)=0$이면 $\sin x=0$이므로 $x=n\pi$ $(n=1,2,3,\cdots)$
+        $x=2m\pi$ $(m=1,2,3,\cdots)$의 좌우에서 $f^{\prime}(x)$의 부호가 양에서 음으로 바뀌므로 $f(x)$는 $x=2m\pi$에서 극대이다. (이계도함수를 이용하여 $x=2m\pi$에서 $f^{\prime\prime}(x)=2e^{-x}(\sin x-\cos x)<0$이므로 극대임을 보여도 된다.)
+        함수의 극댓값은 $f(2m\pi)=e^{-2m\pi}(\sin2m\pi+\cos2m\pi)=e^{-2m\pi}$이고 $e^{-2m\pi}>e^{-2(m+1)\pi}$ $(m=1,2,3,\cdots)$이므로 $b_m=e^{-2m\pi}$이다.
+      source_flow: 예시 답안 p.5
+      criteria:
+      - 3-1.M1
+    - id: 31b-2
+      content: |
+        따라서 $\ln\dfrac{b_n}{b_{n+1}}=\ln\dfrac{e^{-2n\pi}}{e^{-2(n+1)\pi}}=\ln e^{2\pi}=2\pi$
+      source_flow: 예시 답안 p.5
+      criteria:
+      - 3-1.A1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 3-1.M1
+      mark_type: M
+      points: 4
+      evidence: |
+        $b_m=e^{-2m\pi}\ (m=1,2,3,\cdots)$을 구했다.
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 31b-1
+    - id: 3-1.A1
+      mark_type: A
+      points: 2
+      evidence: |
+        $\ln\dfrac{b_n}{b_{n+1}}=2\pi$를 구했다.
+      depends_on:
+      - 3-1.M1
+      steps:
+      - 31b-2
+    deductions: []
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+- id: 3-2
+  stem: |
+    (2) $\displaystyle\lim_{x\to\pi}\dfrac{1}{x-\pi}\int_{\pi}^{\frac{x+\pi}{2}}f(2t-\pi)\,dt$의 값을 구하시오. [6점]
+  points: 6
+  depends_on: []
+  answer:
+    kind: value
+    value: -1/(2*exp(pi))
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S32-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 32b-1
+      content: |
+        $\displaystyle\int f(x)\,dx=F(x)+C$ ($C$는 적분상수)라 하면 $F^{\prime}(x)=f(x)$
+        $s=2t-\pi$라 하면, $t=\dfrac{s+\pi}{2}$, $dt=\dfrac12ds$, $t=\pi$일 때 $s=\pi$이고 $t=\dfrac{x+\pi}{2}$일 때 $s=x$
+        따라서 $\displaystyle\lim_{x\to\pi}\dfrac{1}{x-\pi}\int_{\pi}^{\frac{x+\pi}{2}}f(2t-\pi)\,dt=\lim_{x\to\pi}\dfrac{1}{x-\pi}\int_{\pi}^{x}f(s)\dfrac12\,ds$
+      source_flow: 예시 답안 p.5
+      criteria:
+      - 3-2.M1
+    - id: 32b-2
+      content: |
+        $=\dfrac12\displaystyle\lim_{x\to\pi}\dfrac{F(x)-F(\pi)}{x-\pi}=\dfrac12F^{\prime}(\pi)=\dfrac12f(\pi)$
+      source_flow: 예시 답안 p.5
+      criteria:
+      - 3-2.M2
+    - id: 32b-3
+      content: |
+        $=\dfrac12e^{-\pi}(\sin\pi+\cos\pi)=-\dfrac{1}{2e^{\pi}}$
+      source_flow: 예시 답안 p.5
+      criteria:
+      - 3-2.A1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 3-2.M1
+      mark_type: M
+      points: 2
+      evidence: |
+        극한값을 $\dfrac12\displaystyle\lim_{x\to\pi}\dfrac{1}{x-\pi}\int_{\pi}^{x}f(s)\,ds$로 나타냈다.
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 32b-1
+    - id: 3-2.M2
+      mark_type: M
+      points: 3
+      evidence: |
+        극한값이 $\dfrac12f(\pi)$임을 보였다.
+      depends_on:
+      - 3-2.M1
+      implied_ok: false
+      steps:
+      - 32b-2
+    - id: 3-2.A1
+      mark_type: A
+      points: 1
+      evidence: |
+        $-\dfrac{1}{2e^{\pi}}$을 구했다.
+      depends_on:
+      - 3-2.M1
+      - 3-2.M2
+      steps:
+      - 32b-3
+    deductions: []
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+- id: 4-1
+  stem: |
+    [4] 열린구간 $(0,1)$에서 정의된 함수 $f(x)$가 다음 두 조건을 만족시킬 때, 물음에 답하시오.
+
+    (가) $f(x)=\displaystyle\int\dfrac1x\cos(\ln x)\,dx$
+    (나) $f(e^{-\pi})=1$
+
+    (1) 함수 $f(x)$를 구하시오. [4점]
+  points: 4
+  depends_on: []
+  answer:
+    kind: expression
+    value: sin(log(x))+1
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S41-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 41b-1
+      content: |
+        조건 (가)에서 $f(x)=\displaystyle\int\dfrac1x\cos(\ln x)\,dx$이고 $\ln x=t$라 하면 $\dfrac1x\,dx=dt$이므로 $f(x)=\displaystyle\int\cos t\,dt=\sin t+C=\sin(\ln x)+C$ ($C$는 적분상수)
+      source_flow: 예시 답안 p.6
+      criteria:
+      - 4-1.M1
+    - id: 41b-2
+      content: |
+        조건 (나)에서 $f(e^{-\pi})=1$이므로 $\sin(\ln e^{-\pi})+C=C=1$이다. 따라서 $f(x)=\sin(\ln x)+1$
+      source_flow: 예시 답안 p.6
+      criteria:
+      - 4-1.A1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 4-1.M1
+      mark_type: M
+      points: 2
+      evidence: |
+        $\ln x=t$로 치환하여 $f(x)=\displaystyle\int\cos t\,dt$로 나타냈다.
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 41b-1
+    - id: 4-1.A1
+      mark_type: A
+      points: 2
+      evidence: |
+        $f(x)=\sin(\ln x)+1$을 구했다.
+      depends_on:
+      - 4-1.M1
+      steps:
+      - 41b-2
+    deductions: []
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+- id: 4-2
+  stem: |
+    (2) 방정식 $f(x)=0$의 실근을 큰 수부터 차례로 $a_1,a_2,a_3,\cdots,a_n,\cdots$이라 할 때, $\displaystyle\sum_{n=1}^{\infty}a_n$의 합을 구하시오. [6점]
+  points: 6
+  depends_on: []
+  answer:
+    kind: value
+    value: exp(3*pi/2)/(exp(2*pi)-1)
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S42-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 42b-1
+      content: |
+        방정식 $f(x)=0$에서 $\sin(\ln x)=-1\cdots\cdots①$
+        $0<x<1$이므로 $\ln x<0$이고, 사인함수는 주기가 $2\pi$인 주기함수이므로 ①로부터 $\ln x=-\dfrac{\pi}{2},-\dfrac{5\pi}{2},\cdots,-\dfrac{(4n-3)\pi}{2},\cdots$
+        그러므로 $a_1=e^{-\frac{\pi}{2}}$, $a_2=e^{-\frac{5\pi}{2}}$, $\cdots$, $a_n=e^{-\frac{(4n-3)\pi}{2}}$, $\cdots$이고, $a_n=e^{-\frac{\pi}{2}}(e^{-2\pi})^{n-1}$ ($n$은 자연수)
+      source_flow: 예시 답안 p.6
+      criteria:
+      - 4-2.M1
+    - id: 42b-2
+      content: |
+        따라서 $\displaystyle\sum_{n=1}^{\infty}a_n=\dfrac{e^{-\frac{\pi}{2}}}{1-e^{-2\pi}}=\dfrac{e^{\frac{3\pi}{2}}}{e^{2\pi}-1}$
+      source_flow: 예시 답안 p.6
+      criteria:
+      - 4-2.A1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 4-2.M1
+      mark_type: M
+      points: 4
+      evidence: |
+        $a_n=e^{-\frac{\pi}{2}}(e^{-2\pi})^{n-1}$을 구했다.
+      depends_on: []
+      implied_ok: false
+      steps:
+      - 42b-1
+    - id: 4-2.A1
+      mark_type: A
+      points: 2
+      evidence: |
+        $\displaystyle\sum_{n=1}^{\infty}a_n=\dfrac{e^{\frac{3\pi}{2}}}{e^{2\pi}-1}$을 구했다.
+      depends_on:
+      - 4-2.M1
+      steps:
+      - 42b-2
+    deductions: []
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+- id: 5-1
+  stem: |
+    [5] 아래 글을 읽고 다음 물음에 답하시오.
+
+    같은 수준의 두 바둑 기사 A와 B가 우승 상금 8백만 원을 놓고 여러 차례 바둑 경기를 치렀고 4번의 경기가 남아있다. 현재 A가 상금을 타기 위해서는 앞으로 2승이 더 필요하고 B는 3승이 더 필요하다. (단, 비기는 경기는 없다.)
+
+    (1) 현재 상황에서 A와 B가 우승할 확률을 각각 구하시오. [6점]
+  points: 6
+  depends_on: []
+  answer:
+    kind: expression
+    value: A=11/16; B=5/16
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S51-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 51b-1
+      content: |
+        A가 이기는 경우 ${}_4\mathrm{C}_4+{}_4\mathrm{C}_3+{}_4\mathrm{C}_2=1+4+6=11$(가지), B가 이기는 경우 ${}_4\mathrm{C}_4+{}_4\mathrm{C}_3=1+4=5$(가지)
+      source_flow: 예시 답안 p.6
+      criteria:
+      - 5-1.B1
+      - 5-1.B2
+    - id: 51b-2
+      content: |
+        따라서 A가 우승할 확률은 $\dfrac{11}{16}$이고 B가 우승할 확률은 $\dfrac{5}{16}$이다.
+        (다른 풀이) A의 승리를 a, B의 승리를 b로 표시하면, 4번의 경기가 치러질 때 우승자가 가려지는 경우는 다음과 같은 $16$가지의 경우이다. A가 이기는 경우($11$가지): aaaa, aaab, aaba, abaa, baaa, aabb, abba, bbaa, abab, baba, baab / B가 이기는 경우($5$가지): bbbb, bbba, bbab, babb, abbb
+      source_flow: 예시 답안 p.6
+      criteria:
+      - 5-1.B1
+      - 5-1.B2
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 5-1.B1
+      mark_type: B
+      points: 3
+      evidence: |
+        A가 우승할 확률은 $\dfrac{11}{16}$임을 구했다.
+      depends_on: []
+      steps:
+      - 51b-1
+      - 51b-2
+    - id: 5-1.B2
+      mark_type: B
+      points: 3
+      evidence: |
+        B가 우승할 확률은 $\dfrac{5}{16}$임을 구했다.
+      depends_on: []
+      steps:
+      - 51b-1
+      - 51b-2
+    deductions: []
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+- id: 5-2
+  stem: |
+    (2) 더 이상 바둑 경기를 진행할 수 없게 돼서 현재 상황에서 우승 상금을 A와 B가 나누어야 한다. (1)의 결과를 이용하여 각각 나누어야 할 금액을 구하시오. [4점]
+  points: 4
+  depends_on: []
+  answer:
+    kind: expression
+    value: A=5500000; B=2500000
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S52-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 52b-1
+      content: |
+        A가 우승할 확률은 $\dfrac{11}{16}$이므로 A의 상금은 $8{,}000{,}000\times\dfrac{11}{16}=5{,}500{,}000$(원)
+        B가 우승할 확률은 $\dfrac{5}{16}$이므로 B의 상금은 $8{,}000{,}000\times\dfrac{5}{16}=2{,}500{,}000$(원)
+      source_flow: 예시 답안 p.6
+      criteria:
+      - 5-2.B1
+      - 5-2.B2
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 5-2.B1
+      mark_type: B
+      points: 2
+      evidence: |
+        A의 상금 $5{,}500{,}000$원을 구했다.
+      depends_on: []
+      steps:
+      - 52b-1
+    - id: 5-2.B2
+      mark_type: B
+      points: 2
+      evidence: |
+        B의 상금 $2{,}500{,}000$원을 구했다.
+      depends_on: []
+      steps:
+      - 52b-1
+    deductions: []
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: past-v2-lean
+  item_version: 1
+  verdict: pass
+  date: '2026-11-22'
+created: '2026-11-22'
+updated: '2026-11-22'
