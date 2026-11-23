@@ -1,0 +1,59 @@
+# 오개념 카탈로그 후보 — DDW-G26 (2026학년도 동덕여대 수시 논술우수자 자연 실전). 공용 db/misconceptions.yaml 에는 병합 담당이 옮긴다.
+# 문항 YAML 에는 아직 연결하지 않았다(카탈로그에 없으면 validate ERROR). 병합 후 subparts[].misconceptions 에 연결: 아래 item/sub 참조.
+misconceptions:
+- id: MC-CAL-874301
+  name: $\lim\dfrac{f(x)-1}{\ln x-1}=5$를 곧바로 $f'(e)=5$로 읽음($\ln$의 미분계수 $\dfrac1e$ 보정 누락)
+  concepts: [미분계수의 정의]
+  item: DDW-G26-01
+  sub: 1-1
+  wrong_work: $\dfrac{f(x)-f(e)}{x-e}$ 꼴이라고 보고 $f'(e)=5$로 답함
+  detect_cue: $\ln x-\ln e$를 $x-e$로 바꿔 쓰는 줄이 없고 $f'(e)=5$ 또는 $e$가 곱해지지 않음
+  feedback: 분모는 $x-e$가 아니라 $\ln x-\ln e$이다. $\dfrac{x-e}{\ln x-\ln e}\to e$를 곱해야 $f'(e)\times e=5$.
+- id: MC-CAL-874302
+  name: $\displaystyle\lim_{x\to e}\dfrac{x-e}{\ln x-\ln e}$를 $\dfrac1e$로 계산(역수 처리 누락)
+  concepts: [미분계수의 정의, 로그함수의 미분]
+  item: DDW-G26-01
+  sub: 1-1
+  wrong_work: $\ln x$의 미분계수가 $\dfrac1e$이므로 극한도 $\dfrac1e$라고 하여 $f'(e)=5e$
+  detect_cue: $f'(e)=5e$ 로 끝남
+  feedback: 주어진 극한은 $\dfrac{\ln x-\ln e}{x-e}$의 역수이므로 $e$이다.
+- id: MC-CAL-874303
+  name: $\ln(1+e^{kx})$의 도함수에서 합성함수 미분의 $k$ 누락
+  concepts: [합성함수의 미분, 로그미분]
+  item: DDW-G26-01
+  sub: 1-2
+  wrong_work: $\dfrac{h'(x)}{h(x)}=\displaystyle\sum_{k=1}^{10}\dfrac{e^{kx}}{1+e^{kx}}$ 로 두어 극한 $5$
+  detect_cue: 분자가 $e^{kx}$ 이고 $k$ 계수가 없음, 답 $5$
+  feedback: $(e^{kx})'=ke^{kx}$. 각 항의 극한은 $\dfrac k2$.
+- id: MC-GEO-874304
+  name: 원에 내접하는 사각형의 마주 보는 각을 같다고 놓음($\cos\angle\mathrm{BCD}=\cos\angle\mathrm{BAD}$)
+  concepts: [사인법칙·코사인법칙, 원에 내접하는 사각형]
+  item: DDW-G26-02
+  sub: 2-1
+  wrong_work: $\triangle\mathrm{BCD}$에 코사인법칙을 쓸 때 $\cos\theta$ 그대로 사용
+  detect_cue: $\overline{\mathrm{BD}}^2=4^2+(8-x)^2-8(8-x)\cos\theta$ 로 씀
+  feedback: 마주 보는 두 각의 합은 $\pi$이므로 $\cos(\pi-\theta)=-\cos\theta$.
+- id: MC-ALG-874305
+  name: 넓이의 제곱 $S^2$을 한 변수로 정리하지 않고 $\sin\theta$ 를 상수로 취급하거나 정의역 $1<x<7$ 확인 생략
+  concepts: [이차함수의 최댓값, 삼각함수의 관계]
+  item: DDW-G26-02
+  sub: 2-1
+  wrong_work: $S=(16-x)\sin\theta$ 에서 $x$ 를 작게 할수록 크다고 판단, 또는 $\sin\theta=1$ 로 둠
+  detect_cue: $\sin^2\theta=1-\cos^2\theta$ 대입 없이 최댓값을 주장
+  feedback: $\cos\theta$ 를 $x$ 로 나타내 $S^2=-15(x-1)(x-7)$ 로 만들고 꼭짓점 $x=4$ 를 정의역에서 확인한다.
+- id: MC-CAL-874306
+  name: $f(x)=f(-x)$ 사차함수에서 $x=0$ 의 극값을 극솟값으로 착각(극솟값은 $x=\pm\sqrt{-a/2}$)
+  concepts: [극값과 도함수, 우함수]
+  item: DDW-G26-03
+  sub: 3-1
+  wrong_work: $f(0)=-13$ 으로 두거나 $b=-13$ 으로 놓음
+  detect_cue: $f(0)=-13$
+  feedback: $x=0$ 은 극댓값($f(0)=3$). 극솟값은 $f'(x)=0$ 의 나머지 두 근에서.
+- id: MC-CAL-874307
+  name: 극한 조건 $\lim\dfrac{f(x)g(x)-3}{x}=0$ 에서 $f(x)g(x)$ 의 $x=0$ 미분계수 $0$ 으로 해석하지 못함($f(0)g(0)=3$ 확인 누락)
+  concepts: [미분계수의 정의, 곱의 미분법]
+  item: DDW-G26-03
+  sub: 3-2
+  wrong_work: 곱의 미분법에서 $f'(0)g(0)$ 항을 빠뜨리고 $f(0)g'(0)=0$ 또는 $g(0)$ 을 $0$ 으로 둠
+  detect_cue: $h'(0)=0$ 이라는 해석 없이 $g'(0)$ 를 바로 계산
+  feedback: $h(x)=f(x)g(x)$, $h(0)=3$ 이므로 극한은 $h'(0)$.

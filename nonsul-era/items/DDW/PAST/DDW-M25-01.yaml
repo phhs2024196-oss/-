@@ -1,0 +1,177 @@
+schema_version: '2.0'
+id: DDW-M25-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: DDW
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 전수
+points: 60
+time_estimate_min: 25
+intent: 등차수열의 일반항과 합을 이해하고, 절댓값 조건을 수열의 합의 부호 분석으로 바꾸어 조건을 만족하는 공차를 찾는 능력을 평가한다.
+key_idea: $|S_n|-S_n$은 $S_n\ge0$이면 0, $S_n<0$이면 $-2S_n$이므로 조건은 $S_n<0$인 항의 합이 $-17$이라는 뜻이고, 공차 $d=-1,-2,-3$을 모두 조사한다.
+stuck: 절댓값 합 $\sum(|S_n|-S_n)=34$를 $S_n$의 부호별 합 조건으로 번역하지 못하거나, $d\ge0$을 배제하는 이유와 가능한 정수 $d$의 후보를 정리하지 못한다.
+tags:
+- 공식 해설·채점기준 있음(논술가이드북)
+- 자연 모의논술 문제 1
+elements:
+  materials:
+  - 첫째항이 3이고 공차 $d$가 $|d|\le3$인 정수인 등차수열 $\{a_n\}$
+  - 첫째항부터 제 $n$항까지의 합 $S_n$
+  concepts:
+  - 등차수열의 일반항
+  - 등차수열의 합
+  - 절댓값의 정의
+  tools:
+  - $S_n=\dfrac{n}{2}\{2a+(n-1)d\}$
+  - $S_n$의 부호에 따른 경우 분류
+  - 가능한 공차 $d\in\{-3,-2,-1,0,1,2,3\}$의 전수 조사
+  conditions:
+  - 첫째항 3
+  - $d$는 $|d|\le3$인 정수
+  - $\sum_{n=1}^{6}(|S_n|-S_n)=34$
+  stimuli_used: {}
+  subpart_links: []
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학Ⅰ
+  scope_2028: unknown
+  scope_confirmed: false
+  standards:
+  - code: 12수학Ⅰ03-01
+    text: 수열의 뜻을 안다.
+    verified: true
+  - code: 12수학Ⅰ03-02
+    text: 등차수열의 뜻을 알고, 일반항, 첫째항부터 제 $n$항까지의 합을 구할 수 있다.
+    verified: true
+  - code: 12수학Ⅰ03-04
+    text: $\sum$의 뜻을 알고, 그 성질을 이해하고, 이를 활용할 수 있다.
+    verified: true
+  - code: 12수학Ⅰ03-05
+    text: 여러 가지 수열의 첫째항부터 제 $n$항까지의 합을 구할 수 있다.
+    verified: true
+  content_area: 수열 – 등차수열과 등비수열, 수열의 합
+  behavior_domain: 추론
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 동덕여자대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 동덕여자대학교
+  admission_year: 2025
+  admission_type: 수시 모의논술고사(논술가이드북 수록)
+  track: 자연
+  question_no: 1
+  official_url: https://ipsi.dongduk.ac.kr/ipsi/contents/nontime-doc.do?schM=view&schBdcode=_ipsi_admdoc01&id=37475
+  retrieved_at: '2026-11-23'
+  original_points:
+  - 60
+  rights_notice: 미확인
+  transcribed_from: 2025 논술가이드북 모의논술 p.31
+verify: verify/DDW-M25.py::p01
+stimuli: []
+stem: |
+  다음 문제를 읽고 구체적인 풀이과정과 답을 제시하시오. [60점]
+
+  등차수열 $\{a_n\}$은 첫째항이 3이고 공차 $d$는 $|d|\le3$을 만족하는 정수이다. 수열 $\{a_n\}$에 대하여 첫째항부터 제 $n$항까지의 합을 $S_n$이라 하자.
+subparts:
+- id: '1'
+  stem: |
+    $\displaystyle\sum_{n=1}^{6}(|S_n|-S_n)=34$를 만족할 때, 수열 $\{a_n\}$의 일반항을 구하시오.
+  points: 60
+  depends_on: []
+  answer:
+    kind: expression
+    value: -2*n+5
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S1-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        $1\le n\le6$에서 공차가 $d\ge0$이면 $S_n>0$이므로 $|S_n|=S_n$이고 $\displaystyle\sum_{n=1}^{6}(|S_n|-S_n)=0$이 되어 $34$에 모순이다. 따라서 공차는 $d<0$이어야 한다. (1)
+      source_flow: 예시 답안 p.39
+      criteria:
+      - 1.M1
+    - id: 1b-2
+      content: |
+        $|S_n|-S_n$은 $S_n\ge0$이면 $0$, $S_n<0$이면 $-2S_n$이므로 $\displaystyle\sum_{n=1}^{6}(|S_n|-S_n)=34$가 되려면 $S_n<0$인 값의 합이 $-17$이 되어야 한다. (2)
+      source_flow: 예시 답안 p.39
+      criteria:
+      - 1.M2
+    - id: 1b-3
+      content: |
+        $d\in\{-3,-2,-1\}$을 조사한다. $d=-3$이면 $S_n=\dfrac{n}{2}(-3n+9)$이고 $S_n\ge0$인 $n$은 $1,2,3$, $S_n<0$인 $n$은 $4,5,6$이며 $\displaystyle\sum_{n=4}^{6}\dfrac12(-3n^2+9n)=-48$이어서 (2)를 만족하지 않는다. (3) $d=-2$이면 $S_n=n(-n+4)$이고 $S_n\ge0$인 $n$은 $1,2,3,4$, $S_n<0$인 $n$은 $5,6$이며 $\displaystyle\sum_{n=5}^{6}(-n^2+4n)=-17$이어서 (2)를 만족한다. (4) $d=-1$이면 $S_n=\dfrac{n}{2}(-n+7)$이고 $S_n\ge0$인 $n$은 $1,\cdots,6$이며 $S_n<0$인 경우는 문제의 조건에 존재하지 않는다. (5)
+      source_flow: 예시 답안 p.39
+      criteria:
+      - 1.M3
+    - id: 1b-4
+      content: |
+        따라서 조건을 만족하는 것은 공차 $d$가 $-2$이고 첫째항 $a$가 3인 경우이며, 수열 $\{a_n\}$의 일반항은 $a_n=-2n+5$이다. (6)
+      source_flow: 예시 답안 p.40
+      criteria:
+      - 1.A1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 15
+      evidence: (1)과 같이 $d\ge0$이면 $\sum(|S_n|-S_n)=0$이어서 조건에 모순이므로 $d<0$이어야 함을 밝힌다.
+      steps:
+      - 1b-1
+    - id: 1.M2
+      mark_type: M
+      points: 15
+      evidence: (2)와 같이 $1\le n\le6$에서 $S_n<0$인 값의 합이 $-17$이 되어야 함을 밝힌다.
+      steps:
+      - 1b-2
+    - id: 1.M3
+      mark_type: M
+      points: 20
+      evidence: (3), (4), (5)와 같이 $d=-3,-2,-1$ 각각에 대해 $S_n$의 부호를 조사하여 조건을 만족하는 공차 $d=-2$를 구한다. (공식 채점기준 45점·35점 구간은 이 과정을 알아내지 못하고 $1\le n\le6$에서의 $a_n$과 $S_n$을 나열하여 답 또는 공차를 구한 경우)
+      steps:
+      - 1b-3
+    - id: 1.A1
+      mark_type: A
+      points: 10
+      evidence: (6)과 같이 $a_n=-2n+5$를 제시한다. (공차는 구했으나 일반항을 제시하지 않거나 오류가 있으면 이 마크 0점)
+      depends_on:
+      - 1.M3
+      steps:
+      - 1b-4
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: past-v2-lean
+  item_version: 1
+  verdict: pass
+  date: &id001 2026-11-23
+created: *id001
+updated: *id001

@@ -1,0 +1,271 @@
+schema_version: '2.0'
+id: DDW-M26-02
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: DDW
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 일반화
+points: 70
+time_estimate_min: 25
+intent: 정적분과 급수의 합의 관계를 이해하여 주어진 극한을 정적분으로 나타내고, 복잡한 함수의 정적분을 부분적분법으로 계산하는 능력을 평가한다.
+key_idea: $\dfrac{1}{n^3}\sum_{k=1}^{n}k^2f\left(\dfrac kn\right)=\sum_{k=1}^{n}\left(\dfrac kn\right)^2f\left(\dfrac kn\right)\dfrac1n$이므로 극한은 $\displaystyle\int_0^1x^2f(x)dx$이고, $f(x)=\sin(\pi x)$이면 부분적분을 두 번 적용하여 $\dfrac1\pi-\dfrac4{\pi^3}$을 얻는다.
+stuck: 극한식의 $k^2$과 $\dfrac1{n^3}$을 $\left(\dfrac kn\right)^2\cdot\dfrac1n$로 나누는 것을 떠올리지 못하거나, $\int x^2\sin(\pi x)dx$에서 부분적분을 한 번 더 적용해야 함을 놓친다.
+tags:
+- 공식 해설·예시답안 있음(논술가이드북)
+- 채점기준 문장 판독불가(배점 분할 추정)
+- 자연 모의논술 문제 2
+elements:
+  materials:
+  - 정적분과 급수의 합의 관계 (가)
+  - 부분적분법 공식 (나)
+  - 극한 $\lim_{n\to\infty}\dfrac1{n^3}\left[f\left(\dfrac1n\right)+2^2f\left(\dfrac2n\right)+\cdots+n^2f\left(\dfrac nn\right)\right]=S$
+  concepts:
+  - 구분구적법(급수와 정적분)
+  - 부분적분법
+  - 삼각함수의 정적분
+  tools:
+  - $\Delta x=\dfrac1n$, $x_k=\dfrac kn$
+  - $\int f(x)g'(x)dx=f(x)g(x)-\int f'(x)g(x)dx$
+  - 부분적분 2회
+  conditions:
+  - $f$는 연속함수
+  - (2)에서 $f(x)=\sin(\pi x)$
+  stimuli_used:
+    가: (1)에서 극한을 정적분으로 바꾸는 근거
+    나: (2)에서 $x^2\sin(\pi x)$의 부정적분
+    다: 구할 극한 $S$
+  subpart_links:
+  - (1)에서 구한 $S=\int_0^1x^2f(x)dx$에 (2)에서 $f(x)=\sin(\pi x)$를 대입
+curriculum:
+  version: '2015'
+  subjects:
+  - 미적분
+  scope_2028: unknown
+  scope_confirmed: false
+  standards:
+  - code: 미확인
+    text: 출제 근거 표가 원본 PDF 에서 읽히지 않음(교육부 고시 제2020-236호 【별책 8】 수학과 교육과정 표의 내용이 비어 있음)
+    verified: false
+  content_area: 적분법 – 정적분과 급수의 합, 부분적분법
+  behavior_domain: 계산
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 동덕여자대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 동덕여자대학교
+  admission_year: 2026
+  admission_type: 수시 모의논술고사(논술가이드북 수록)
+  track: 자연
+  question_no: 2
+  official_url: https://ipsi.dongduk.ac.kr/ipsi/contents/nontime-doc.do?schM=view&schBdcode=_ipsi_admdoc01&id=90261
+  retrieved_at: '2026-11-23'
+  original_points:
+  - 25
+  - 45
+  rights_notice: 미확인
+  transcribed_from: 2026 논술가이드북 모의논술 p.43
+verify: verify/DDW-M26.py::p02
+stimuli:
+- label: 가
+  body: |
+    연속함수 $f(x)$에 대하여 구간 $[a,b]$를 $n$등분한 후, $\Delta x=\dfrac{b-a}{n}$, $x_k=a+k\Delta x$ 라고 하면 정적분과 급수의 합의 관계는 다음과 같다.
+    $$\int_a^bf(x)dx=\lim_{n\to\infty}\sum_{k=1}^{n}f(x_k)\Delta x$$
+- label: 나
+  body: |
+    두 함수 $f(x)$와 $g(x)$가 미분 가능할 때, 다음의 관계가 성립한다.
+    $$\int f(x)g'(x)dx=f(x)g(x)-\int f'(x)g(x)dx$$
+- label: 다
+  body: |
+    $\displaystyle\lim_{n\to\infty}\dfrac1{n^3}\left[f\left(\dfrac1n\right)+2^2f\left(\dfrac2n\right)+3^2f\left(\dfrac3n\right)+\cdots+n^2f\left(\dfrac nn\right)\right]=S$ 라고 하자.
+stem: |
+  [판독확인: 원본 쪽(p.43)에 문제 번호·공통 발문·문제 전체 배점 표기가 없음 — 소문항 배점 25점·45점의 합 70점]
+subparts:
+- id: 2-1
+  stem: |
+    (1) 제시문의 (다) 극한을 $\sum$를 사용하여 표현한 뒤, 정적분으로 나타내시오. (25점)
+  points: 25
+  depends_on: []
+  answer:
+    kind: expression
+    value: Integral(x**2*f(x), (x, 0, 1))
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S21-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 21b-1
+      content: |
+        $\displaystyle\lim_{n\to\infty}\dfrac1{n^3}\left[f\left(\dfrac1n\right)+2^2f\left(\dfrac2n\right)+3^2f\left(\dfrac3n\right)+\cdots+n^2f\left(\dfrac nn\right)\right]=\lim_{n\to\infty}\dfrac1{n^3}\sum_{k=1}^{n}k^2f\left(\dfrac kn\right)$이다. (1)
+      source_flow: 예시 답안 p.49
+      criteria:
+      - 2-1.M1
+    - id: 21b-2
+      content: |
+        적분과 급수의 합과의 관계는 $\displaystyle\int_a^bf(x)dx=\lim_{n\to\infty}\sum_{k=1}^{n}f(x_k)\Delta x$ (단, $\Delta x=\dfrac{b-a}{n}$, $x_k=a+k\Delta x$)이기 때문에 위의 급수의 합은 $\displaystyle\lim_{n\to\infty}\sum_{k=1}^{n}\dfrac{k^2}{n^2}f\left(\dfrac kn\right)\dfrac1n=\lim_{n\to\infty}\sum_{k=1}^{n}x_k^2f(x_k)\Delta x$ $\left(\Delta x=\dfrac{1-0}{n},\ x_k=0+k\times\dfrac1n\right)$으로 볼 수 있다. (2)
+      source_flow: 예시 답안 p.49
+      criteria:
+      - 2-1.M2
+    - id: 21b-3
+      content: |
+        이로부터 정적분 $\displaystyle\int_0^1x^2f(x)dx$로 나타낼 수 있다. (3)
+      source_flow: 예시 답안 p.49
+      criteria:
+      - 2-1.A1
+  # 채점기준 문장 판독불가(원본 PDF 표에 수식만 남음) — 단계별 추정. 소문항 총점 25 는 원본.
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 2-1.M1
+      mark_type: M
+      points: 8
+      evidence: (1)과 같이 극한을 $\dfrac1{n^3}\sum_{k=1}^{n}k^2f\left(\dfrac kn\right)$로 표현한다. (배점 분할 추정)
+      steps:
+      - 21b-1
+    - id: 2-1.M2
+      mark_type: M
+      points: 10
+      evidence: (2)와 같이 $\dfrac{k^2}{n^2}f\left(\dfrac kn\right)\dfrac1n$ 꼴로 바꾸어 $\Delta x=\dfrac1n$, $x_k=\dfrac kn$의 급수의 합으로 나타낸다. (배점 분할 추정)
+      depends_on:
+      - 2-1.M1
+      steps:
+      - 21b-2
+    - id: 2-1.A1
+      mark_type: A
+      points: 7
+      evidence: (3)과 같이 정적분 $\displaystyle\int_0^1x^2f(x)dx$로 나타낸다. (배점 분할 추정)
+      depends_on:
+      - 2-1.M2
+      steps:
+      - 21b-3
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+- id: 2-2
+  stem: |
+    (2) (1)에서 함수 $f(x)$를 $f(x)=\sin\left(\pi x\right)$라 할 때, $S$의 값을 구하시오. (45점)
+  points: 45
+  depends_on:
+  - 2-1
+  answer:
+    kind: expression
+    value: 1/pi-4/pi**3
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S22-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 22b-1
+      content: |
+        $\displaystyle\int_0^1x^2f(x)dx$에 $f(x)=\sin(\pi x)$를 대입한다. (1) $x^2\sin(\pi x)$가 미분가능하고 연속이기 때문에 $\displaystyle\int f(x)g'(x)dx=f(x)g(x)-\int f'(x)g(x)dx$의 부분적분법을 이용한다. $f(x)=x^2$, $f'(x)=2x$, $g'(x)=\sin(\pi x)$, $g(x)=-\dfrac1\pi\cos(\pi x)$이므로 $\displaystyle\int x^2\sin(\pi x)dx=-\dfrac{x^2}{\pi}\cos(\pi x)+\int\dfrac{2x}{\pi}\cos(\pi x)dx$로 나타낼 수 있다. (2)
+      source_flow: 예시 답안 p.49
+      criteria:
+      - 2-2.M1
+    - id: 22b-2
+      content: |
+        $\displaystyle\int\dfrac{2x}{\pi}\cos(\pi x)dx$도 부분적분법을 적용한다. $f(x)=\dfrac{2x}{\pi}$, $f'(x)=\dfrac2\pi$, $g'(x)=\cos(\pi x)$, $g(x)=\dfrac1\pi\sin(\pi x)$이므로 $\displaystyle\int\dfrac{2x}{\pi}\cos(\pi x)dx=\dfrac{2x}{\pi^2}\sin(\pi x)-\int\dfrac{2}{\pi^2}\sin(\pi x)dx=\dfrac{2x}{\pi^2}\sin(\pi x)+\dfrac{2}{\pi^3}\cos(\pi x)$이다. (3)
+      source_flow: 예시 답안 p.49
+      criteria:
+      - 2-2.M2
+    - id: 22b-3
+      content: |
+        위의 결과를 결합하면 $\displaystyle\int x^2\sin(\pi x)dx=-\dfrac{x^2}{\pi}\cos(\pi x)+\dfrac{2x}{\pi^2}\sin(\pi x)+\dfrac2{\pi^3}\cos(\pi x)+C$이다. (4)
+      source_flow: 예시 답안 p.49
+      criteria:
+      - 2-2.A1
+    - id: 22b-4
+      content: |
+        이를 구하기 위해 $\cos(\pi)=-1$, $\sin(\pi)=0$, $\cos(0)=1$, $\sin(0)=0$ 값을 적용한다. $x=1$일 때 $-\dfrac1\pi(-1)+0+\dfrac2{\pi^3}(-1)=\dfrac1\pi-\dfrac2{\pi^3}$ (5), $x=0$일 때 $0+0+\dfrac2{\pi^3}(1)=\dfrac2{\pi^3}$ (6)이다.
+      source_flow: 예시 답안 p.49
+      criteria:
+      - 2-2.M3
+    - id: 22b-5
+      content: |
+        $\displaystyle\int_0^1x^2\sin(\pi x)dx=\left(\dfrac1\pi-\dfrac2{\pi^3}\right)-\dfrac2{\pi^3}=\dfrac1\pi-\dfrac4{\pi^3}$이다. (7)
+      source_flow: 예시 답안 p.49
+      criteria:
+      - 2-2.A2
+  # 채점기준 문장 판독불가(원본 PDF 표에 수식만 남음) — 단계별 추정. 소문항 총점 45 는 원본.
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 2-2.M1
+      mark_type: M
+      points: 12
+      evidence: (1), (2)와 같이 $f(x)=\sin(\pi x)$를 대입하고 첫 번째 부분적분으로 $-\dfrac{x^2}{\pi}\cos(\pi x)+\int\dfrac{2x}{\pi}\cos(\pi x)dx$를 얻는다. (배점 분할 추정)
+      steps:
+      - 22b-1
+    - id: 2-2.M2
+      mark_type: M
+      points: 12
+      evidence: (3)과 같이 $\int\dfrac{2x}{\pi}\cos(\pi x)dx$에 부분적분을 다시 적용한다. (배점 분할 추정)
+      depends_on:
+      - 2-2.M1
+      steps:
+      - 22b-2
+    - id: 2-2.A1
+      mark_type: A
+      points: 5
+      evidence: (4)와 같이 부정적분 $-\dfrac{x^2}{\pi}\cos(\pi x)+\dfrac{2x}{\pi^2}\sin(\pi x)+\dfrac2{\pi^3}\cos(\pi x)+C$를 구한다. (배점 분할 추정)
+      depends_on:
+      - 2-2.M2
+      steps:
+      - 22b-3
+    - id: 2-2.M3
+      mark_type: M
+      points: 11
+      evidence: (5), (6)과 같이 $x=1$, $x=0$을 대입하여 값을 구한다. (배점 분할 추정)
+      depends_on:
+      - 2-2.A1
+      steps:
+      - 22b-4
+    - id: 2-2.A2
+      mark_type: A
+      points: 5
+      evidence: (7)과 같이 $\int_0^1x^2\sin(\pi x)dx=\dfrac1\pi-\dfrac4{\pi^3}$를 구한다. (배점 분할 추정)
+      depends_on:
+      - 2-2.M3
+      steps:
+      - 22b-5
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: past-v2-lean
+  item_version: 1
+  verdict: pass
+  date: &id001 2026-11-23
+created: *id001
+updated: *id001
