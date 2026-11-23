@@ -1,0 +1,163 @@
+schema_version: '2.0'
+id: SHU-G26H-10
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: short_answer
+origin: past_exam
+school: SHU
+type: null
+variant_of: null
+replaces: null
+level: L3
+form: 추론
+points: 10
+time_estimate_min: 4
+key_idea: $y=3^{x}$을 $y$축 대칭, $x$축 평행이동하여 $y=3^{-(x-m)}$를 얻고 점 $(3,9)$를 대입해 지수를 비교한다.
+stuck: 대칭이동·평행이동 순서대로 $x$에 $-x$, $x-m$을 대입하는 부분
+tags:
+- 지수함수
+- 대칭이동
+- 평행이동
+elements:
+  materials:
+  - 곡선 $y=3^{x}$
+  - 점 $(3,9)$
+  concepts:
+  - 지수함수의 그래프
+  - 대칭이동
+  - 평행이동
+  tools:
+  - $x$ 대신 $-x$, $x-m$ 대입
+  - 지수 비교
+  conditions: []
+  stimuli_used: {}
+  subpart_links: []
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학Ⅰ
+  scope_2028: common
+  scope_confirmed: false
+  standards:
+  - code: 12수학Ⅰ01-07
+    text: 지수함수와 로그함수의 그래프를 그릴 수 있고, 그 성질을 이해한다.
+    verified: true
+  content_area: 지수함수와 로그함수 – 지수함수
+  behavior_domain: 계산
+  unit_path:
+  - 수학Ⅰ
+  - 지수함수와 로그함수
+  - 지수함수
+  - 그래프의 대칭이동과 평행이동
+  key_concepts:
+  - 지수함수
+  - 대칭이동
+  - 평행이동
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 신한대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 신한대학교
+  admission_year: 2026
+  admission_type: 수시 논술전형(약술형)
+  track: 인문계열
+  question_no: 10
+  official_url: https://ipsi.shinhan.ac.kr/cmm/fms/FileDown.do?atchFileId=FILE_000000000017607&fileSn=0
+  retrieved_at: '2026-11-23'
+  original_points:
+  - 3
+  - 3
+  - 4
+  rights_notice: 미확인
+  transcribed_from: 2026학년도 선행학습영향평가 자체평가 보고서 문항정보-10 p.65
+verify: verify/SHU-G26H.py::p10
+stimuli: []
+stem: |
+  곡선 $y=3^{x}$을 $y$축에 대하여 대칭이동한 후, $x$축 방향으로 $m$만큼 평행이동한 도형이 점 $(3,9)$를 지난다. 상수 $m$의 값을 구하는 과정을 서술하시오.
+subparts:
+- id: '1'
+  stem: |
+    상수 $m$의 값
+  points: 10
+  depends_on: []
+  answer:
+    kind: value
+    value: '5'
+    equivalents:
+    - $m=5$
+    tolerance: null
+  solutions:
+  - id: S1-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        $y$축 대칭이동으로 $x$ 대신 $-x$를 대입하면, $y=3^{-x}=\left(\dfrac{1}{3}\right)^{x}$이고, $x$축 평행이동으로 $x$ 대신에 $x-m$을 대입하면, $y=3^{-(x-m)}=\left(\dfrac{1}{3}\right)^{x-m}$이다.
+      source_flow: 문항해설 p.66
+      criteria:
+      - 1.M1
+    - id: 1b-2
+      content: |
+        점 $(3,9)$를 지나므로 $9=3^{-(3-m)}=3^{-3+m}$이고,
+      source_flow: 문항해설 p.66
+      criteria:
+      - 1.M2
+    - id: 1b-3
+      content: |
+        $9=3^{2}$이므로 지수를 비교하면 $2=m-3$으로 $m=5$이다.
+      source_flow: 문항해설 p.66
+      criteria:
+      - 1.A1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 3
+      evidence: $y=3^{-(x-m)}=\left(\dfrac{1}{3}\right)^{x-m}$을 구했다.
+      steps:
+      - 1b-1
+    - id: 1.M2
+      mark_type: M
+      points: 3
+      evidence: 점 $(3,9)$를 대입하여 $9=3^{-3+m}$을 세웠다.
+      steps:
+      - 1b-2
+    - id: 1.A1
+      mark_type: A
+      points: 4
+      evidence: $m=5$를 구했다.
+      steps:
+      - 1b-3
+      depends_on:
+      - 1.M2
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: past-v2-lean
+  item_version: 1
+  verdict: pass
+  date: &id001 2026-11-23
+created: *id001
+updated: *id001
+intent: 제시문의 상황에서 지수함수의 성질을 이해하고, 이를 활용하여 함수를 해결할 수 있는지를 평가한다.

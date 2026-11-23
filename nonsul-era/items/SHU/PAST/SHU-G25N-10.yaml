@@ -1,0 +1,152 @@
+schema_version: '2.0'
+id: SHU-G25N-10
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: short_answer
+origin: past_exam
+school: SHU
+type: null
+variant_of: null
+replaces: null
+level: L3
+form: 추론
+points: 10
+intent: 제시문의 상황에서 함수의 극한에 대한 성질을 활용해 문제를 해결할 수 있는지 평가한다.
+time_estimate_min: 3
+key_idea: 분모가 $0$으로 가므로 분자도 $0$으로 가야 함을 이용해 $b$를 $a$로 나타내고, 분자를 유리화하여 $a$를 구한다.
+stuck: 극한값이 존재하고 분모의 극한이 $0$이면 분자의 극한도 $0$이라는 조건을 쓰는 부분
+tags:
+- 극한
+- 미정계수
+- 유리화
+elements:
+  materials:
+  - 등식 $\displaystyle\lim_{x\to2}\dfrac{\sqrt{x+a}+b}{x^{2}-4}=\dfrac{1}{32}$
+  concepts: &id001
+  - 부정형 극한
+  - 분자의 유리화
+  tools:
+  - $\sqrt{x+a}-\sqrt{2+a}$의 유리화
+  conditions:
+  - 극한값이 $\dfrac{1}{32}$
+  stimuli_used: {}
+  subpart_links: []
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학Ⅱ
+  scope_2028: unknown
+  scope_confirmed: false
+  standards:
+  - code: 12수학Ⅱ01-02
+    text: 함수의 극한에 대한 성질을 이해하고, 함수의 극한값을 구할 수 있다.
+    verified: true
+  content_area: 함수의 극한과 연속 – 함수의 극한
+  behavior_domain: 계산
+  unit_path:
+  - 수학Ⅱ
+  - 함수의 극한과 연속
+  - 함수의 극한
+  - 부정형 극한과 미정계수
+  key_concepts: *id001
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 신한대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 신한대학교
+  admission_year: 2025
+  admission_type: 수시 논술전형(약술형)
+  track: 자연과학·공학계열
+  question_no: 10
+  official_url: https://ipsi.shinhan.ac.kr/cmm/fms/FileDown.do?atchFileId=FILE_000000000016766&fileSn=1
+  retrieved_at: '2026-11-23'
+  original_points:
+  - 5
+  - 5
+  rights_notice: 미확인
+  transcribed_from: 2025학년도 선행학습영향평가 자체평가 보고서 문항정보-10 p.94
+verify: verify/SHU-G25N.py::p10
+stimuli: []
+stem: |
+  등식 $\displaystyle\lim_{x\to2}\dfrac{\sqrt{x+a}+b}{x^{2}-4}=\dfrac{1}{32}$이 성립하도록 하는 상수 $a$, $b$의 값을 구하는 풀이 과정을 서술하시오.
+subparts:
+- id: '1'
+  stem: |
+    $a$, $b$의 값을 구하는 풀이 과정을 서술하시오.
+  points: 10
+  depends_on: []
+  answer:
+    kind: value
+    value: a=14;b=-4
+    equivalents:
+    - $a=14,\ b=-4$
+    tolerance: null
+  solutions:
+  - id: S1-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        $\displaystyle\lim_{x\to2}\dfrac{\sqrt{x+a}+b}{x^{2}-4}=\dfrac{1}{32}$이고, $\displaystyle\lim_{x\to2}(x^{2}-4)=0$이므로, $\displaystyle\lim_{x\to2}(\sqrt{x+a}+b)=0$이고, $\sqrt{2+a}+b=0$이므로, $b=-\sqrt{2+a}$이다.
+      source_flow: 문항해설 p.95
+      criteria:
+      - 1.B2
+    - id: 1b-2
+      content: |
+        $\displaystyle\lim_{x\to2}\dfrac{\sqrt{x+a}+b}{x^{2}-4}=\lim_{x\to2}\dfrac{\sqrt{x+a}-\sqrt{2+a}}{x^{2}-4}=\lim_{x\to2}\dfrac{1}{(x+2)(\sqrt{x+a}+\sqrt{2+a})}=\dfrac{1}{8\sqrt{2+a}}=\dfrac{1}{32}$
+      source_flow: 문항해설 p.95
+      criteria:
+      - 1.B1
+    - id: 1b-3
+      content: |
+        따라서, $a=14$, $b=-4$이다.
+      source_flow: 문항해설 p.95
+      criteria:
+      - 1.B1
+      - 1.B2
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 1.B1
+      mark_type: B
+      points: 5
+      evidence: $a=14$를 구했다.
+      steps:
+      - 1b-2
+      - 1b-3
+    - id: 1.B2
+      mark_type: B
+      points: 5
+      evidence: $b=-4$를 구했다.
+      steps:
+      - 1b-1
+      - 1b-3
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: past-v2-lean
+  item_version: 1
+  verdict: pass
+  date: &id002 2026-11-23
+created: *id002
+updated: *id002
