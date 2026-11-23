@@ -1,0 +1,192 @@
+schema_version: '2.0'
+id: SKU-G24A-12
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: SKU
+type: null
+variant_of: null
+replaces: null
+level: L3
+form: 점화
+points: 10
+time_estimate_min: null
+key_idea: 항을 차례로 구하면 $a,-2,-2-a,-a,2,2+a$가 반복되어 $\lvert a_n\rvert$는 주기 3으로 반복된다.
+stuck: 점화식에서 항을 나열해 주기(6)를 찾고 절댓값 때문에 주기가 3이 되는 것을 이용해 22항 합을 묶는 것
+tags:
+- 기출
+- SKU
+- '2024'
+- 전 계열(공통)
+- A형
+elements:
+  materials:
+  - 귀납적으로 정의된 수열
+  - 절댓값의 합
+  concepts:
+  - 수열의 귀납적 정의
+  - $\Sigma$의 성질
+  - 수열의 주기성
+  tools:
+  - 항 나열
+  - 주기를 이용한 합 계산
+  conditions:
+  - $a_1=a>0$
+  - $a_2=-2$
+  - $a_{n+2}=a_{n+1}-a_n$
+  - $\sum_{k=1}^{22}\lvert a_k\rvert=103$
+  stimuli_used: {}
+  subpart_links: []
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학Ⅰ
+  scope_2028: unknown
+  scope_confirmed: false
+  standards:
+  - code: '[12수학Ⅰ03-04]'
+    text: Σ의 뜻을 알고, 그 성질을 이해하고, 이를 활용할 수 있다.
+    verified: true
+  - code: '[12수학Ⅰ03-07]'
+    text: 수학적귀납법의 원리를 이해한다.
+    verified: true
+  content_area: 수열 – 수열의 귀납적 정의
+  behavior_domain: 계산
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 서경대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 서경대학교
+  admission_year: 2024
+  admission_type: 수시 논술우수자
+  track: 전 계열(공통) A형
+  question_no: 12
+  official_url: https://go.skuniv.ac.kr/index.php?mid=notice&document_srl=195639
+  retrieved_at: '2026-11-23'
+  original_points:
+  - 10
+  rights_notice: 미확인
+  transcribed_from: 서경대 2024학년도 선행학습 영향평가 보고서 수시 논술고사 문제지 A형 수학 12번 (r2024.pdf p.33); 해설·채점 r2024.pdf p.178-179
+verify: verify/SKU-G24A.py::p12
+stimuli: []
+stem: |
+  $a_{1}=a\,(a>0)$, $a_{2}=-2$인 수열 $\{a_{n}\}$이 모든 자연수 $n$에 대하여 $a_{n+2}=a_{n+1}-a_{n}$을 만족시킨다. $\displaystyle\sum_{k=1}^{22}\lvert a_{k}\rvert=103$을 만족시키는 $a$의 값을 구하는
+subparts:
+- id: '1'
+  stem: |
+    풀이 과정과 답을 쓰시오(10점).
+  points: 10
+  depends_on: []
+  answer:
+    kind: value
+    value: '5'
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S1-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        $a_{1}=a\,(a>0)$, $a_{2}=-2$인 수열 $\{a_{n}\}$이 모든 자연수 $n$에 대하여 $a_{n+2}=a_{n+1}-a_{n}$을 만족하므로 수열의 귀납적 정의에 의해
+        $a_{1}=a$, $a_{2}=-2$,
+        $a_{3}=a_{2}-a_{1}=-2-a$,
+        $a_{4}=a_{3}-a_{2}=(-2-a)-(-2)=-a$,
+        $a_{5}=a_{4}-a_{3}=(-a)-(-2-a)=2$,
+        $a_{6}=a_{5}-a_{4}=2-(-a)=2+a$,
+        $a_{7}=a_{6}-a_{5}=(2+a)-a=a$,
+        $a_{8}=a_{7}-a_{6}=a-(2+a)=-2$,
+        $a_{9}=a_{8}-a_{7}=-2-a$, $\cdots$ 이다.
+      source_flow: 예시답안 p.179
+      criteria:
+      - 1.M1
+    - id: 1b-2
+      content: |
+        이때 $a>0$이므로 $\lvert a_{1}\rvert=a$, $\lvert a_{2}\rvert=2$, $\lvert a_{3}\rvert=2+a$, $\lvert a_{4}\rvert=a$, $\lvert a_{5}\rvert=2$, $\lvert a_{6}\rvert=2+a$, $\cdots$ 이 성립한다.
+      source_flow: 예시답안 p.179
+      criteria:
+      - 1.M2
+    - id: 1b-3
+      content: |
+        즉, 자연수 $m$에 대하여 $\lvert a_{3m-2}\rvert=a$, $\lvert a_{3m-1}\rvert=2$, $\lvert a_{3m}\rvert=2+a$이다. (일반항 도출)
+      source_flow: 예시답안 p.179
+      criteria:
+      - 1.M3
+    - id: 1b-4
+      content: |
+        따라서 $\displaystyle\sum_{k=1}^{22}\lvert a_{k}\rvert=\sum_{k=1}^{21}\lvert a_{k}\rvert+\lvert a_{22}\rvert=\sum_{k=1}^{21}\lvert a_{k}\rvert+\lvert a_{1}\rvert=7\times(a+2+2+a)+a=15a+28$이다.
+      source_flow: 예시답안 p.179
+      criteria:
+      - 1.M4
+    - id: 1b-5
+      content: |
+        $15a+28=103$에서 $a=5$이다.
+      source_flow: 예시답안 p.179
+      criteria:
+      - 1.A1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 2
+      evidence: $a_{3},\cdots,a_{9}$ 정도까지 항을 차례로 구해 $a_{7}=a$, $a_{8}=-2$로 되돌아옴을 보였다.
+      steps:
+      - 1b-1
+    - id: 1.M2
+      mark_type: M
+      points: 2
+      evidence: $a>0$을 이용해 $\lvert a_{1}\rvert,\cdots,\lvert a_{6}\rvert$를 구했다.
+      steps:
+      - 1b-2
+    - id: 1.M3
+      mark_type: M
+      points: 3
+      evidence: $\lvert a_{3m-2}\rvert=a$, $\lvert a_{3m-1}\rvert=2$, $\lvert a_{3m}\rvert=2+a$ 꼴의 일반항(주기)을 적었다.
+      steps:
+      - 1b-3
+    - id: 1.M4
+      mark_type: M
+      points: 2
+      evidence: $\sum_{k=1}^{22}\lvert a_{k}\rvert=15a+28$을 얻었다.
+      steps:
+      - 1b-4
+    - id: 1.A1
+      mark_type: A
+      points: 1
+      evidence: $a=5$를 적었다.
+      depends_on:
+      - 1.M4
+      steps:
+      - 1b-5
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: past-v2-lean
+  item_version: 1
+  verdict: pass
+  date: &id001 2026-11-23
+created: *id001
+updated: *id001
+intent: 수열의 귀납적 정의에 대해 이해하고, 관계가 간단한 수열을 귀납적으로 정의해 수열에서 특정한 항을 구할 수 있다.

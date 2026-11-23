@@ -1,0 +1,271 @@
+schema_version: '2.0'
+id: SKU-M26-03
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: SKU
+type: null
+variant_of: null
+replaces: null
+level: L3
+form: 추론
+points: 10
+time_estimate_min: null
+key_idea: 접선의 기울기 $f'(x)=ax^2-12$와 $x$축에 접한다는 조건 $f(-2)=f'(-2)=0$으로 $a$와 적분상수를 정한다.
+stuck: 조건 (나)를 $f'(-2)=0$과 $f(-2)=0$ 두 조건으로 바꾸는 단계
+tags:
+- 예시문항
+- SKU
+- '2026'
+- 전 계열(공통)
+elements:
+  materials:
+  - 다항함수 $f(x)$
+  concepts:
+  - 접선의 기울기와 미분계수
+  - 부정적분
+  - 극값
+  tools:
+  - $f'(-2)=0,\ f(-2)=0$
+  - 증감표
+  conditions:
+  - (가) 접선의 기울기가 $ax^2-12$
+  - (나) $x=-2$에서 $x$축에 접함
+  stimuli_used: {}
+  subpart_links:
+  - from: '1'
+    to: '2'
+    relation: 구한 $a$로 $f'(x)$를 결정
+  - from: '2'
+    to: '3'
+    relation: 구한 $f(x)$의 극값 계산
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학Ⅱ
+  scope_2028: unknown
+  scope_confirmed: false
+  content_area: 미분 – 도함수의 활용 / 적분 – 부정적분
+  behavior_domain: 계산
+  unit_path:
+  - 수학Ⅱ
+  - 미분
+  - 도함수의 활용
+  - 접선과 극값
+  key_concepts:
+  - 접선의 기울기
+  - 부정적분
+  - 함수의 극대·극소
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 서경대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 서경대학교
+  admission_year: 2026
+  admission_type: 수시 논술가이드북 예시문항
+  track: 전 계열(공통) 예시문항
+  question_no: 3
+  official_url: https://go.skuniv.ac.kr/index.php?mid=notice&document_srl=211549
+  retrieved_at: '2026-11-23'
+  original_points:
+  - 2
+  - 3
+  - 5
+  rights_notice: 미확인
+  transcribed_from: 서경대 2026학년도 논술가이드북 예시문항 수학 문제 3 (gb2026.pdf p.22)
+verify: verify/SKU-M26.py::p03
+stimuli: []
+stem: |
+  다항함수 $f(x)$가 다음 조건(가)와 (나)를 만족시킨다.
+  (가) 곡선 $y=f(x)$ 위의 임의의 점 $(x,\ f(x))$에서 접선의 기울기가 $ax^2-12$ ($a$는 상수)이다.
+  (나) 곡선 $y=f(x)$가 점 $(-2,\ f(-2))$에서 $x$축에 접한다. 다음을 구하시오. [총 10점]
+subparts:
+- id: '1'
+  stem: |
+    ① 상수 $a$ = ? [2점]
+  points: 2
+  depends_on: []
+  answer:
+    kind: value
+    value: '3'
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S1-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        조건 (가)로부터 $f'(x)=ax^2-12$이고 조건 (나)에 의하여 $f'(-2)=0$이고 $f(-2)=0$이다. $f'(-2)=0$으로부터 $4a-12=0$이고 $a=3$이다.
+      source_flow: 해설 p.22
+      criteria:
+      - 1.M1
+      - 1.A1
+  rubric:
+    # 채점기준 미공개 — 단계별 추정
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 1
+      evidence: $f'(x)=ax^2-12$이고 $f'(-2)=0$, $f(-2)=0$을 세웠다.
+      steps:
+      - 1b-1
+    - id: 1.A1
+      mark_type: A
+      points: 1
+      evidence: $4a-12=0$에서 $a=3$을 구했다.
+      depends_on:
+      - 1.M1
+      steps:
+      - 1b-1
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+- id: '2'
+  stem: |
+    ② 함수 $f(x)$ = ? [3점]
+  points: 3
+  depends_on:
+  - '1'
+  answer:
+    kind: value
+    value: x**3-12*x-16
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S2-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 2b-1
+      content: |
+        따라서 부정적분을 이용하면 $f(x)=\int f'(x)\,dx=\int(3x^2-12)\,dx=x^3-12x+C$ ($C$는 적분상수)이다.
+      source_flow: 해설 p.22
+      criteria:
+      - 2.M1
+    - id: 2b-2
+      content: |
+        $f(-2)=0$에서 $f(-2)=-8+24+C=0$에서 $C=-16$이다. $f(x)=x^3-12x-16$이다.
+      source_flow: 해설 p.22
+      criteria:
+      - 2.A1
+  rubric:
+    # 채점기준 미공개 — 단계별 추정
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 1
+      evidence: 부정적분으로 $f(x)=x^3-12x+C$를 얻었다.
+      steps:
+      - 2b-1
+    - id: 2.A1
+      mark_type: A
+      points: 2
+      evidence: $f(-2)=0$으로 $C=-16$, $f(x)=x^3-12x-16$을 구했다.
+      depends_on:
+      - 2.M1
+      steps:
+      - 2b-2
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+- id: '3'
+  stem: |
+    ③ 함수 $f(x)$의 극솟값 = ? [5점]
+  points: 5
+  depends_on:
+  - '2'
+  answer:
+    kind: value
+    value: '-32'
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S3-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 3b-1
+      content: |
+        $f(x)=x^3-12x-16$이고 극대, 극소를 알아보기 위해 도함수를 이용하면, $f'(x)=3(x+2)(x-2)=0$이고 증감상태를 파악하면 $x=2$에서 극솟값 $f(2)$를 갖는다.
+      source_flow: 해설 p.22
+      criteria:
+      - 3.M1
+      - 3.A1
+    - id: 3b-2
+      content: |
+        따라서 극솟값은 $f(2)=8-24-16=-32$이다.
+      source_flow: 해설 p.22
+      criteria:
+      - 3.A2
+  rubric:
+    # 채점기준 미공개 — 단계별 추정
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 2
+      evidence: $f'(x)=3(x+2)(x-2)$를 구하고 증감을 조사했다.
+      steps:
+      - 3b-1
+    - id: 3.A1
+      mark_type: A
+      points: 1
+      evidence: $x=2$에서 극소임을 밝혔다.
+      depends_on:
+      - 3.M1
+      steps:
+      - 3b-1
+    - id: 3.A2
+      mark_type: A
+      points: 2
+      evidence: 극솟값 $f(2)=-32$를 구했다.
+      depends_on:
+      - 3.M1
+      - 3.A1
+      steps:
+      - 3b-2
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: past-v2-lean
+  item_version: 1
+  verdict: pass
+  date: &id001 2026-11-23
+created: *id001
+updated: *id001

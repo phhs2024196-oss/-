@@ -1,0 +1,176 @@
+schema_version: '2.0'
+id: SKU-G25B-06
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: SKU
+type: null
+variant_of: null
+replaces: null
+level: L3
+form: 추론
+points: 10
+time_estimate_min: null
+key_idea: $a_{n+3}=15-a_n$을 이용해 세 항씩 묶은 합이 $10,35,10,35,\cdots$로 6항 주기로 순환함을 보이고 $63=6\times10+3$으로 나누어 합한다.
+stuck: 세 항씩의 합이 $15\times3$에서 직전 묶음의 합을 뺀 값으로 번갈아 바뀐다는 규칙을 찾아 63항을 묶음으로 나누는 단계
+tags:
+- 기출
+- SKU
+- '2025'
+- 전 계열(공통)
+- B형
+elements:
+  materials:
+  - 수열 $\{a_n\}$
+  - 점화 관계 $a_n+a_{n+3}=15$
+  concepts:
+  - 수열의 합
+  - 시그마의 성질
+  - 주기성
+  - 점화 관계
+  tools:
+  - 세 항씩 묶기
+  - 시그마의 구간 분할
+  conditions:
+  - 모든 자연수 $n$에 대하여 $a_n+a_{n+3}=15$
+  - $\sum_{n=1}^{3}a_n=10$
+  stimuli_used: {}
+  subpart_links: []
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학Ⅰ
+  scope_2028: unknown
+  scope_confirmed: false
+  standards:
+  - code: 12수학Ⅰ03-04
+    text: ∑의 뜻을 알고, 그 성질을 이해하고, 이를 활용할 수 있다.
+    verified: true
+  - code: 12수학Ⅰ03-05
+    text: 여러 가지 수열의 첫째항부터 제n항까지의 합을 구할 수 있다.
+    verified: true
+  content_area: 수열 – 수열의 합
+  behavior_domain: 계산
+  key_concepts:
+  - 수열의 합
+  - 시그마
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 서경대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 서경대학교
+  admission_year: 2025
+  admission_type: 수시 논술우수자
+  track: 전 계열(공통) B형
+  question_no: 6
+  official_url: https://go.skuniv.ac.kr/index.php?mid=notice&document_srl=209184
+  retrieved_at: '2026-11-23'
+  original_points:
+  - 10
+  rights_notice: 미확인
+  transcribed_from: 서경대 2025학년도 선행학습 영향평가 보고서 수시 논술고사 문제지 B형 수학 6번 (r2025.pdf p.46)
+verify: verify/SKU-G25B.py::p06
+stimuli: []
+stem: |
+  수열 $\{a_n\}$이 모든 자연수 $n$에 대하여 $a_n+a_{n+3}=15$를 만족시킨다.
+subparts:
+- id: '1'
+  stem: |
+    $\displaystyle\sum_{n=1}^{3}a_n=10$일 때, $\displaystyle\sum_{n=1}^{63}a_n$의 값을 구하는 풀이 과정과 답을 쓰시오(10점).
+  points: 10
+  depends_on: []
+  answer:
+    kind: value
+    value: '460'
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S1-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        $a_n+a_{n+3}=15$에서 $a_{n+3}=15-a_n$이다.
+      source_flow: 모범답안 p.80
+      criteria:
+      - 1.M1
+    - id: 1b-2
+      content: |
+        $\displaystyle\sum_{n=1}^{3}a_n=a_1+a_2+a_3=10$. $a_4+a_5+a_6=(15-a_1)+(15-a_2)+(15-a_3)=45-10=35$, $a_7+a_8+a_9=(15-a_4)+(15-a_5)+(15-a_6)=45-35=10$, $a_{10}+a_{11}+a_{12}=(15-a_7)+(15-a_8)+(15-a_9)=45-10=35$이고, 같은 방식으로 반복하면 $a_{58}+a_{59}+a_{60}=(15-a_{55})+(15-a_{56})+(15-a_{57})=45-10=35$, $a_{61}+a_{62}+a_{63}=(15-a_{58})+(15-a_{59})+(15-a_{60})=45-35=10$이다.
+      source_flow: 모범답안 p.80
+      criteria:
+      - 1.A2
+    - id: 1b-3
+      content: |
+        즉, 수열의 합이 6을 주기로 45의 값을 가지며 순환한다. 따라서 $\displaystyle\sum_{n=1}^{63}a_n=10\times\sum_{n=1}^{6}a_n+\sum_{n=61}^{63}a_n$.
+      source_flow: 모범답안 p.80
+      criteria:
+      - 1.M3
+    - id: 1b-4
+      content: |
+        $=10\times45+10=460$.
+      source_flow: 모범답안 p.80
+      criteria:
+      - 1.A4
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 2
+      evidence: $a_{n+3}=15-a_n$을 제시했다.
+      steps:
+      - 1b-1
+    - id: 1.A2
+      mark_type: A
+      points: 4
+      evidence: 세 항씩의 부분 수열의 합($35,10,35,\cdots,35,10$)을 맞게 제시했다.
+      depends_on:
+      - 1.M1
+      steps:
+      - 1b-2
+    - id: 1.M3
+      mark_type: M
+      points: 2
+      evidence: 전체 수열의 합을 부분 수열의 합으로 분해하여 표시했다.
+      steps:
+      - 1b-3
+    - id: 1.A4
+      mark_type: A
+      points: 2
+      evidence: $\displaystyle\sum_{n=1}^{63}a_n=10\times45+10=460$으로 합을 맞게 구했다.
+      depends_on:
+      - 1.M3
+      - 1.A2
+      steps:
+      - 1b-4
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: past-v2-lean
+  item_version: 1
+  verdict: pass
+  date: &id001 2026-11-23
+created: *id001
+updated: *id001
