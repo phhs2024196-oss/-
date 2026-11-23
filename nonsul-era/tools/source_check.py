@@ -19,6 +19,9 @@
   UNREAD  원본 수식 글꼴 글자를 해독표로 못 읽음 → 그 부분 이미지 확인
   NOALIGN 필드 위치를 못 찾음(한글 6자 미만 등) → 필드 전체 이미지 확인
   PTS     배점 불일치/미발견
+  MATHX   원본 텍스트층에 수식이 없음(이미지·벡터 수식) → 한글만 자동 대조, 수식은 표시된 필드만 크롭 확인
+  GAP     필드 사이 40자 이상 원본 글(같은 쪽의 해설·채점표 추정) — 정보, 확인 필요로 세지 않음
+  PTS?    배점 짝짓기만 어긋나고 같은 배점들은 원본에 있음 — 정보(--strict 면 확인 필요)
   OUTSIDE 어느 문항에도 대응되지 않은 원본 글(30자 이상) → 통째로 빠진 제시문·물음 의심
 종료코드: 확인 필요가 없으면 0. 신뢰성 시험: tools/tests/test_source_check.py
 """
@@ -37,6 +40,8 @@ sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 from textnorm import POINTS, hangul, is_pua, math_seq, plain  # noqa: E402
 
 MIN_HANGUL = 6
+GAP = 40          # 필드 사이 원본 글이 이보다 길면 GAP(정보) — 해설·채점표가 같은 쪽에 섞인 양식
+MATH_MIN = 0.5    # 원본 수식 기호가 DB 의 이 비율 미만이면 수식 대조 포기(MATHX 한 줄)
 ANSWER_PAGE = re.compile(r"모범\s*답안|예시\s*답안|채점\s*기준|해설|풀이")
 PAGE_NO = re.compile(r"^\s*[-–]\s*\d+\s*[-–]\s*$|^\s*\d+\s*/\s*\d+\s*$")
 
@@ -51,8 +56,8 @@ def read_src(path: str, pages: str | None = None) -> str:
     if pages:
         a, b = (int(v) for v in pages.split("-"))
     else:
-        a, b = 2 if len(allp) > 2 else 1, len(allp)
-        for i in range(a, len(allp) + 1):
+        a, b = 1, len(allp)          # 1쪽부터(표지는 OUTSIDE 한 줄로만 나옴, 1쪽 문항 누락 방지)
+        for i in range(2, len(allp) + 1):
             if ANSWER_PAGE.search(allp[i - 1][:300]):
                 b = i - 1
                 break
@@ -172,6 +177,11 @@ def compare(src: Source, fields: list[Field], check_points: bool = True) -> list
             continue
         who = owner_h[min(j1, len(owner_h) - 1)]
         ctx = src.h[lo + max(0, i1 - 6):lo + i1]
+        a_, b_ = lo + i1, lo + i2
+        if op == "delete" and i2 - i1 >= GAP and not any(f.span[0] < b_ and a_ < f.span[1] for f in placed):
+            # 필드와 필드 '사이'의 긴 원본 글: 같은 쪽에 섞인 해설·채점표·다른 문항(2단 조판 등)으로 본다
+            out.append(("GAP", who.name, f"필드 사이 원본 글 {i2 - i1}자(해설·채점표 추정): {src.h[a_:a_ + 30]}…"))
+            continue
         out.append(("DIFF", who.name, f"한글 …{ctx}[원본 '{src.h[lo + i1:lo + i2]}' → DB '{db_h[j1:j2]}']"))
 
     # 수식: 원본 범위 전체 ↔ 필드 이어 붙인 것. 어긋난 조각을 필드별로 모아
@@ -182,6 +192,13 @@ def compare(src: Source, fields: list[Field], check_points: bool = True) -> list
         ms = math_seq(f.plain)
         d_seq += ms
         owner_m += [f] * len(ms)
+    if len(s_seq) < MATH_MIN * len(d_seq):
+        # 원본 텍스트층에 수식이 거의 없음(이미지·벡터 수식, 해독표 없는 글꼴) → 수식 대조 불가. 한 줄로 알리고
+        # 수식이 든 필드 목록을 준다(그 필드의 수식만 크롭으로 확인).
+        mf = [f.label for f in placed if math_seq(f.plain)]
+        out.append(("MATHX", f"{placed[0].item_id} 외", f"원본 수식 기호 {len(s_seq)} / DB {len(d_seq)} — 텍스트로 대조 불가. "
+                    f"한글은 대조 완료. 수식 확인 필드 {len(mf)}개: {', '.join(mf[:12])}{' …' if len(mf) > 12 else ''}"))
+        s_seq, d_seq, owner_m = [], [], []
     per = collections.defaultdict(lambda: [collections.Counter(), collections.Counter(), []])
     for op, i1, i2, j1, j2 in difflib.SequenceMatcher(None, s_seq, d_seq, autojunk=False).get_opcodes():
         if op == "equal":
@@ -233,7 +250,15 @@ def compare(src: Source, fields: list[Field], check_points: bool = True) -> list
                                 f"({', '.join(f.label for f in fs)}) ≠ 원본 {target if target is not None else '없음'}"))
             return bad
         b0, b1 = check(False), check(True)
-        out += b0 if len(b0) <= len(b1) else b1
+        best = b0 if len(b0) <= len(b1) else b1
+        if best:
+            # 짝짓기가 어긋난 경우(소문항 순서·양식 차이): DB 배점 묶음이 원본에 찍힌 배점들 안에 모두 있으면
+            # 순서 문제로만 본다(PTS? — --strict 에서만 확인 필요로 셈). 하나라도 없으면 PTS.
+            printed = collections.Counter(int(v) for v in re.findall(r"(\d+)\s*점", src.raw(lo, hi)))
+            leaves = collections.Counter(int(f.points) for f, _, _ in info)
+            if not (leaves - printed):
+                best = [("PTS?", n, m + " (원본에 같은 배점들이 있음 — 짝짓기 문제 추정)") for _, n, m in best]
+        out += best
     return out
 
 
@@ -254,11 +279,13 @@ def main() -> int:
     ap.add_argument("--pages")
     ap.add_argument("--src-kind", default="pdf", choices=["pdf", "hwp", "txt"])
     ap.add_argument("--no-points", action="store_true", help="배점이 원본에 없는 시험지")
+    ap.add_argument("--strict", action="store_true", help="PTS?(배점 짝짓기 의심)도 확인 필요로 센다")
     ap.add_argument("--lenient", action="store_true", help="ORDER(같은 기호, 순서만 다름)는 확인 필요에서 뺀다 — 기본은 셈(신뢰성)")
     ap.add_argument("items", nargs="+")
     a = ap.parse_args()
     fields, res = run(a.src, a.items, a.pages, a.src_kind, not a.no_points)
-    need = [r for r in res if not a.lenient or r[0] != "ORDER"]
+    info_only = {"GAP"} | ({"ORDER", "PTS?"} if a.lenient else set()) | (set() if a.strict else {"PTS?"})
+    need = [r for r in res if r[0] not in info_only]
     for g, name, msg in sorted(res, key=lambda r: (r[1], r[0])):
         print(f"{g:7} {name}  {msg}")
     cnt = collections.Counter(g for g, _, _ in res)
