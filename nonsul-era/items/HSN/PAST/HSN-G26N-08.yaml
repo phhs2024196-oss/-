@@ -1,0 +1,149 @@
+schema_version: '2.0'
+id: HSN-G26N-08
+legacy_id: null
+version: 1
+status: draft
+exam_family: yaksul
+item_type: derivation
+origin: past_exam
+school: HSN
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 추론
+points: 8
+time_estimate_min: 4
+key_idea: 로그의 성질로 $\log_{2n}m=\dfrac32$을 얻어 $m^2=(2n)^3$으로 바꾸고, 자연수 조건으로 최솟값을 찾는다.
+stuck: $m^2=(2n)^3$에서 $m$이 자연수가 되기 위한 $n$의 조건을 찾는 것
+tags: []
+elements:
+  materials: []
+  concepts: &id001
+  - 거듭제곱근
+  - 로그의 성질
+  - 자연수 조건
+  tools: []
+  conditions: []
+  stimuli_used: {}
+  subpart_links: []
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학Ⅰ
+  scope_2028: common
+  scope_confirmed: false
+  standards:
+  - code: 12수학Ⅰ01-01
+    text: 거듭제곱과 거듭제곱근의 뜻을 알고, 그 성질을 이해한다.
+    verified: true
+  - code: 12수학Ⅰ01-04
+    text: 로그의 뜻을 알고, 그 성질을 이해한다.
+    verified: true
+  content_area: 지수함수와 로그함수 – 지수와 로그
+  behavior_domain: 추론
+  unit_path:
+  - 수학Ⅰ
+  - 지수함수와 로그함수
+  - 지수와 로그
+  - 로그의 성질과 자연수 조건
+  key_concepts: *id001
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 한신대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 한신대학교
+  admission_year: 2026
+  admission_type: 수시 논술전형(약술형)
+  track: 자연계열
+  question_no: 8
+  official_url: https://cdn013.negagea.net/dgsmidc/omr/seoul/web/univ_info2026/한신대학교/한신대학교_2026학년도_선행학습영향평가.pdf
+  retrieved_at: '2026-11-23'
+  original_points:
+  - 8
+  rights_notice: 미확인
+  transcribed_from: 2026 선행학습영향평가 보고서 문항카드 p.136
+  reference_note: '원 문항카드 4.나) 자료 출처: 교과서 수학Ⅰ(이준열 외, 천재교육, 2025) 27~32쪽; 수학Ⅰ(김원경 외, 비상, 2025) 23~28쪽'
+  item_note: '문항카드 5. 문항 해설: 지수함수와 로그함수는 급격히 증감하는 수량이나 현상을 다루는 유용한 도구로서 자연 현상이나 사회 현상을 표현하고 설명하는 데 활용된다. 그러므로 이 문항에서는 거듭제곱과 거듭제곱근 그리고 로그의 뜻을 알고 그 성질을 이해하는지를 평가한다.'
+verify: verify/HSN-G26N.py::p08
+stimuli: []
+stem: |
+  두 자연수 $m,n$의 순서쌍 $(m,n)$이
+  $$\log_{2n}\sqrt m+2\log_{2n}m=\dfrac{15}{4}$$
+  를 만족시킬 때, $m+n$의 최솟값을 구하는 과정을 서술하시오.
+subparts:
+- id: '1'
+  stem: |
+    (소문항 없음)
+  points: 8
+  depends_on: []
+  answer:
+    kind: value
+    value: '10'
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S1-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        $\log_{2n}\sqrt m+2\log_{2n}m=\dfrac52\log_{2n}m=\dfrac{15}{4}$이므로
+        $\log_{2n}m=\dfrac32$에서 $m^2=(2n)^3$ (또는 $m=(2n)^{\frac32}$)이다.
+      source_flow: 보고서 p.137
+      criteria:
+      - 1.M1
+    - id: 1b-2
+      content: |
+        좌변이 제곱수이므로 $n=2p^2$ ($p$는 자연수) 꼴이어야 한다.
+        $p=1$이면 $(2n)^3=(2\times2)^3=(2^3)^2$이다.
+        그러므로 $n=2,\ m=8$일 때, $m+n$의 최솟값은 $10$이다.
+      # 원본 오기 수정(독립 교차검증 2회 일치, 2026-11-23): 보고서 p.137 원문은 "n=2p 꼴" → (2n)^3 이 제곱수이려면 n=2p^2
+      source_flow: 보고서 p.137
+      criteria:
+      - 1.A1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 4
+      evidence: 로그의 성질로 $\log_{2n}m=\dfrac32$을 구하고 $m^2=(2n)^3$ (또는 $m=(2n)^{\frac32}$)으로 바꿨다.
+      steps:
+      - 1b-1
+    - id: 1.A1
+      mark_type: A
+      points: 4
+      evidence: $m,n$이 자연수가 되는 조건을 따져 $n=2,\ m=8$을 찾고 $m+n$의 최솟값 $10$을 구했다.
+      depends_on:
+      - 1.M1
+      steps:
+      - 1b-2
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: past-v2-lean
+  item_version: 1
+  verdict: pass
+  date: &id002 2026-11-23
+created: *id002
+updated: *id002
+intent: 거듭제곱과 거듭제곱근, 그리고 로그의 뜻을 알고 그 성질을 이해하는지를 평가한다.

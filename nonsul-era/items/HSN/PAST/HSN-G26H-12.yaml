@@ -1,0 +1,142 @@
+schema_version: '2.0'
+id: HSN-G26H-12
+legacy_id: null
+version: 1
+status: draft
+exam_family: yaksul
+item_type: derivation
+origin: past_exam
+school: HSN
+type: null
+variant_of: null
+replaces: null
+level: L3
+form: 추론
+points: 8
+time_estimate_min: 4
+key_idea: $a_{n+1}-a_n=-\dfrac23$이므로 공차 $-\dfrac23$인 등차수열이다. 일반항을 구해 $a_n>0$을 푼다.
+stuck: 점화식을 공차가 $-\dfrac23$인 등차수열로 읽는 것과 부등식의 경계값 처리
+tags: []
+elements:
+  materials: []
+  concepts: &id001
+  - 등차수열의 뜻
+  - 일반항
+  tools: []
+  conditions: []
+  stimuli_used: {}
+  subpart_links: []
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학Ⅰ
+  scope_2028: common
+  scope_confirmed: false
+  standards:
+  - code: 12수학Ⅰ03-02
+    text: 등차수열의 뜻을 알고, 일반항, 첫째항부터 제 $n$ 항까지의 합을 구할 수 있다.
+    verified: true
+  content_area: 수열 – 등차수열과 등비수열
+  behavior_domain: 추론
+  unit_path:
+  - 수학Ⅰ
+  - 수열
+  - 등차수열과 등비수열
+  - 등차수열의 일반항
+  key_concepts: *id001
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 한신대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 한신대학교
+  admission_year: 2026
+  admission_type: 수시 논술전형(약술형)
+  track: 인문계열
+  question_no: 12
+  official_url: https://cdn013.negagea.net/dgsmidc/omr/seoul/web/univ_info2026/한신대학교/한신대학교_2026학년도_선행학습영향평가.pdf
+  retrieved_at: '2026-11-23'
+  original_points:
+  - 8
+  rights_notice: 미확인
+  transcribed_from: 2026 선행학습영향평가 보고서 문항카드 p.121
+  reference_note: '원 문항카드 4.나) 자료 출처: 교과서 수학Ⅰ(이준열 외, 천재교육, 2018) 125쪽; 수학Ⅰ(김원경 외, 비상, 2018) 120쪽'
+  item_note: '문항카드 5. 문항 해설: 수열은 규칙적으로 나열된 수로 나타낼 수 있는 현상을 탐구하는 데 활용되며 수열의 극한과 급수의 기초 개념이다. 본 문항의 핵심적인 내용은 수학Ⅰ의 ''수열'' 단원에서 다루어진다. 따라서 본 문항을 통해 학생들이 등차수열의 뜻을 알고, 등차수열의 일반항을 구할 수 있는지를 평가한다.'
+verify: verify/HSN-G26H.py::p12
+stimuli: []
+stem: |
+  수열 $\{a_n\}$은 첫째항이 $10$이고 모든 자연수 $n$에 대하여 $a_{n+1}=a_n-\dfrac23$를 만족시킨다.
+  $a_n>0$이 되는 자연수 $n$의 최댓값을 구하는 과정을 서술하시오.
+subparts:
+- id: '1'
+  stem: |
+    (소문항 없음)
+  points: 8
+  depends_on: []
+  answer:
+    kind: value
+    value: '15'
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S1-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        $a_1=10$이고 공차 $d=a_{n+1}-a_n=-\dfrac23$이므로,
+        수열의 일반항 $a_n=10-\dfrac23(n-1)=-\dfrac23n+\dfrac{32}{3}$
+      source_flow: 보고서 p.122
+      criteria:
+      - 1.M1
+    - id: 1b-2
+      content: |
+        따라서 $-\dfrac23n+\dfrac{32}{3}>0$에서 $2n<32$ 즉 $n<16$
+        그러므로 $n$의 최댓값은 $15$이다.
+      source_flow: 보고서 p.122
+      criteria:
+      - 1.A1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 4
+      evidence: 공차 $-\dfrac23$를 구하고 일반항 $a_n=-\dfrac23n+\dfrac{32}{3}$ (또는 동치식)을 구했다.
+      steps:
+      - 1b-1
+    - id: 1.A1
+      mark_type: A
+      points: 4
+      evidence: $a_n>0$에서 $n<16$을 얻고 최댓값 $15$를 구했다.
+      depends_on:
+      - 1.M1
+      steps:
+      - 1b-2
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: past-v2-lean
+  item_version: 1
+  verdict: pass
+  date: &id002 2026-11-23
+created: *id002
+updated: *id002
+intent: 등차수열의 뜻을 알고 있는지, 등차수열의 일반항을 구할 수 있는지를 평가한다.

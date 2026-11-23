@@ -1,0 +1,149 @@
+schema_version: '2.0'
+id: HSN-M25-03
+legacy_id: null
+version: 1
+status: draft
+exam_family: yaksul
+item_type: short_answer
+origin: mock_exam
+school: HSN
+type: null
+variant_of: null
+replaces: null
+level: L3
+form: 추론
+points: 8
+time_estimate_min: 4
+intent: '삼각함수 사이의 관계를 이용해 분수식을 정리하고 주어진 범위에서 각을 구하는 능력을 본다.'
+key_idea: '통분하여 좌변을 $2\tan^2\theta$ 로 정리한 뒤 제3사분면에서 $\tan\theta>0$임을 이용한다.'
+stuck: '$\sin^2\theta+\cos^2\theta=1$로 분모 $1-\sin^2\theta$를 $\cos^2\theta$로 바꾸는 발상과 범위에 따른 부호 판단'
+tags: []
+elements:
+  materials:
+  - '분수형 삼각방정식'
+  - '범위 $\pi<\theta<\frac32\pi$'
+  concepts:
+  - '$\sin^2\theta+\cos^2\theta=1$'
+  - '$\tan\theta=\frac{\sin\theta}{\cos\theta}$'
+  - '사분면에 따른 부호'
+  tools:
+  - '통분'
+  - '삼각함수 사이의 관계'
+  conditions:
+  - '$\pi<\theta<\frac32\pi$'
+  stimuli_used: {}
+  subpart_links: []
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅰ]
+  scope_2028: common
+  scope_confirmed: true
+  standards:
+  - code: 미확인
+    text: '삼각함수 사이의 관계를 이해하고 이를 이용하여 삼각함수의 값을 구한다(요지)'
+    verified: false
+  content_area: '삼각함수 – 삼각함수 사이의 관계'
+  behavior_domain: 계산
+  unit_path: ['수학Ⅰ', '삼각함수', '삼각함수 사이의 관계', '분수식 정리와 각의 결정']
+  key_concepts: ['삼각함수 사이의 관계', '사분면별 부호']
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 한신대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 한신대학교
+  admission_year: 2025
+  admission_type: 논술고사 모의문제
+  track: 공통
+  question_no: 3
+  official_url: https://ent.hs.ac.kr/ipsi/pages/index.asp?p=43&b=b_1_8&m=read&bn=21274
+  retrieved_at: '2026-11-23'
+  original_points:
+  - 8
+  rights_notice: 미확인
+  transcribed_from: 2025학년도 모의논술고사 시험문제 수학영역 p.9
+verify: verify/HSN-M25.py::p03
+stimuli: []
+stem: |
+  $\pi<\theta<\dfrac{3}{2}\pi$인 $\theta$에 대하여 $\dfrac{\sin\theta}{1-\sin\theta}-\dfrac{\sin\theta}{1+\sin\theta}=2$일 때, $\theta$의 값을 구하는 과정을 서술하시오.
+subparts:
+- id: '1'
+  stem: |
+    (소문항 없음)
+  points: 8
+  depends_on: []
+  answer:
+    kind: expression
+    value: '5*pi/4'
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S1-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        좌변을 통분하면 $\dfrac{\sin\theta(1+\sin\theta)-\sin\theta(1-\sin\theta)}{1-\sin^2\theta}=\dfrac{2\sin^2\theta}{\cos^2\theta}=2\tan^2\theta$이므로 $\tan^2\theta=1$이다. (풀이 2: $\dfrac{2\sin^2\theta}{1-\sin^2\theta}=2$에서 $\sin^2\theta=\dfrac12$)
+      source_flow: 모범답안 p.7
+      criteria: [1.M1]
+    - id: 1b-2
+      content: |
+        $\pi<\theta<\dfrac32\pi$에서 $\tan\theta>0$이므로 $\tan\theta=1$, 따라서 $\theta=\dfrac54\pi$이다.
+      source_flow: 모범답안 p.7
+      criteria: [1.A1]
+  - id: S1-ALT
+    audience: ALT
+    method_no: 2
+    steps:
+    - id: 1c-1
+      content: |
+        풀이 2: $\dfrac{2\sin^2\theta}{1-\sin^2\theta}=2$에서 $\sin^2\theta=1-\sin^2\theta$, 즉 $\sin^2\theta=\dfrac12$이다.
+      source_flow: 모범답안 p.7
+      criteria: [1.M1]
+    - id: 1c-2
+      content: |
+        $\pi<\theta<\dfrac32\pi$에서 $\sin\theta<0$이므로 $\sin\theta=-\dfrac{\sqrt2}{2}$, 따라서 $\theta=\dfrac54\pi$이다.
+      source_flow: 모범답안 p.7
+      criteria: [1.A1]
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 4
+      evidence: |
+        분수식을 정리하여 $\tan^2\theta=1$ 또는 $\sin^2\theta=\dfrac12$을 얻었다.
+      steps: [1b-1]
+    - id: 1.A1
+      mark_type: A
+      points: 4
+      evidence: |
+        범위 $\pi<\theta<\dfrac32\pi$를 이용하여 $\theta=\dfrac54\pi$를 구했다.
+      depends_on: [1.M1]
+      steps: [1b-2]
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: past-v2-lean
+  item_version: 1
+  verdict: pass
+  date: &id001 2026-11-23
+created: *id001
+updated: *id001

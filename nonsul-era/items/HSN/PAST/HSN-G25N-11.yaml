@@ -1,0 +1,160 @@
+schema_version: '2.0'
+id: HSN-G25N-11
+legacy_id: null
+version: 1
+status: draft
+exam_family: yaksul
+item_type: short_answer
+origin: past_exam
+school: HSN
+type: null
+variant_of: null
+replaces: null
+level: L3
+form: 추론
+points: 8
+time_estimate_min: 5
+key_idea: 극한식을 $-2f'(x)$로 바꾸어 도함수를 얻고, $f'(1)=0$으로 $a$, $f(3)=-8$로 적분상수를 정한다.
+stuck: $h$의 계수 $-2$를 맞추어 극한식을 $-2f'(x)$로 바꾸는 것
+tags: []
+elements:
+  materials: []
+  concepts:
+  - 미분계수의 정의
+  - 도함수
+  - 부정적분(상수항 결정)
+  tools:
+  - $\lim_{h\to0}\frac{f(x-2h)-f(x)}{h}=-2f'(x)$
+  conditions:
+  - $f'(1)=0$
+  - $f(3)=-8$
+  stimuli_used: {}
+  subpart_links: []
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학Ⅱ
+  scope_2028: common
+  scope_confirmed: true
+  standards:
+  - code: 12수학Ⅱ02-01
+    text: 미분계수의 뜻을 알고, 그 값을 구할 수 있다.
+    verified: true
+  - code: 12수학Ⅱ02-05
+    text: 함수의 실수배, 합, 차, 곱의 미분법을 알고, 다항함수의 도함수를 구할 수 있다.
+    verified: true
+  content_area: 미분
+  behavior_domain: 계산
+  unit_path:
+  - 수학Ⅱ
+  - 미분
+  - 미분계수와 도함수
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 한신대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 한신대학교
+  admission_year: 2025
+  admission_type: 수시 논술전형(약술형)
+  track: 자연계열
+  question_no: 11
+  official_url: https://cdn013.negagea.net/dgsmidc/omr/seoul/web/univ_info2025/한신대학교/한신대학교_2025학년도_선행학습영향평가.pdf
+  retrieved_at: '2026-11-23'
+  original_points:
+  - 8
+  rights_notice: 미확인
+  transcribed_from: 2025 선행학습영향평가 보고서 문항카드 p.138
+verify: verify/HSN-G25N.py::p11
+stimuli: []
+stem: |
+  다항함수 $f(x)$가 모든 실수 $x$에 대하여
+  $$\lim_{h\to0}\frac{f(x-2h)-f(x)}{h}=4x^2+ax$$
+  를 만족시킨다. $f'(1)=0$이고 $f(3)=-8$일 때, 함수 $f(x)$를 구하는 과정을 서술하시오. (단, $a$는 상수)
+subparts:
+- id: '1'
+  stem: |
+    (소문항 없음)
+  points: 8
+  depends_on: []
+  answer:
+    kind: value
+    value: a=-4; f=-2*x**3/3+x**2+1
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S1-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        $\displaystyle\lim_{h\to0}\frac{f(x-2h)-f(x)}{h}=\lim_{h\to0}\left\{\frac{f(x-2h)-f(x)}{-2h}\times(-2)\right\}$, 즉 $-2f'(x)=4x^2+ax$
+      source_flow: 보고서 p.139
+      criteria:
+      - 1.M1
+    - id: 1b-2
+      content: |
+        $f'(x)=-2x^2-\dfrac a2x$, $f'(1)=-2-\dfrac a2=0$이므로 $a=-4$
+      source_flow: 보고서 p.139
+      criteria:
+      - 1.A1
+    - id: 1b-3
+      content: |
+        $f'(x)=-2x^2+2x$, 따라서 $f(x)=-\dfrac23x^3+x^2+C$라 놓으면 $f(3)=-18+9+C=-8$에서 $C=1$. 따라서 $f(x)=-\dfrac23x^3+x^2+1$
+      source_flow: 보고서 p.139
+      criteria:
+      - 1.A2
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 4
+      evidence: |
+        식 $-2f'(x)=4x^2+ax$를 구했다.
+      steps:
+      - 1b-1
+    - id: 1.A1
+      mark_type: A
+      points: 2
+      evidence: |
+        $a=-4$를 구했다.
+      depends_on:
+      - 1.M1
+      steps:
+      - 1b-2
+    - id: 1.A2
+      mark_type: A
+      points: 2
+      evidence: |
+        $f(x)=-\dfrac23x^3+x^2+1$를 구했다.
+      depends_on:
+      - 1.A1
+      steps:
+      - 1b-3
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: past-v2-lean
+  item_version: 1
+  verdict: pass
+  date: 2026-11-23
+created: &id001 2026-11-23
+updated: *id001

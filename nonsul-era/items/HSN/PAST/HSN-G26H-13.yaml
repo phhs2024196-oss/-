@@ -1,0 +1,147 @@
+schema_version: '2.0'
+id: HSN-G26H-13
+legacy_id: null
+version: 1
+status: draft
+exam_family: yaksul
+item_type: derivation
+origin: past_exam
+school: HSN
+type: null
+variant_of: null
+replaces: null
+level: L3
+form: 추론
+points: 8
+time_estimate_min: 4
+key_idea: $f'(2)=0$으로 $a$를 구하고 $f'(x)=0$의 다른 근에서의 부호 변화로 극소를 판정한다.
+stuck: 극대 조건을 $f'(2)=0$으로 바꾸고 증감표로 극솟값 위치를 찾는 것
+tags: []
+elements:
+  materials: []
+  concepts: &id001
+  - 극대와 극소
+  - 도함수의 부호 변화
+  tools: []
+  conditions: []
+  stimuli_used: {}
+  subpart_links: []
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학Ⅱ
+  scope_2028: common
+  scope_confirmed: false
+  standards:
+  - code: 12수학Ⅱ02-08
+    text: 함수의 증가와 감소, 극대와 극소를 판정하고 설명할 수 있다.
+    verified: true
+  - code: 12수학Ⅱ02-09
+    text: 함수의 그래프의 개형을 그릴 수 있다.
+    verified: true
+  content_area: 미분 – 도함수의 활용
+  behavior_domain: 추론
+  unit_path:
+  - 수학Ⅱ
+  - 미분
+  - 도함수의 활용
+  - 극대·극소
+  key_concepts: *id001
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 한신대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 한신대학교
+  admission_year: 2026
+  admission_type: 수시 논술전형(약술형)
+  track: 인문계열
+  question_no: 13
+  official_url: https://cdn013.negagea.net/dgsmidc/omr/seoul/web/univ_info2026/한신대학교/한신대학교_2026학년도_선행학습영향평가.pdf
+  retrieved_at: '2026-11-23'
+  original_points:
+  - 8
+  rights_notice: 미확인
+  transcribed_from: 2026 선행학습영향평가 보고서 문항카드 p.123
+  reference_note: '원 문항카드 4.나) 자료 출처: 교과서 수학Ⅱ(이준열 외, 천재교육, 2025) 86~89쪽; 수학Ⅱ(김원경 외, 비상, 2022) 82~85쪽'
+  item_note: '문항카드 5. 문항 해설: 미분은 함수의 순간적인 변화를 설명하는 도구로서 여러 가지 미분법과 함수의 적분에 대한 기초가 되고 최대, 최소 문제를 포함하여 변화 현상을 다루는 데 활용된다. 그러므로 이 문항에서는 함수의 그래프의 개형을 이해하고 극대와 극소를 판정하고 설명할 수 있는지 평가한다.'
+verify: verify/HSN-G26H.py::p13
+stimuli: []
+stem: |
+  함수 $f(x)=-x^3+ax^2+6x-3$이 $x=2$에서 극대일 때,
+  함수 $f(x)$의 극솟값을 구하는 과정을 서술하시오. (단, $a$는 상수이다.)
+subparts:
+- id: '1'
+  stem: |
+    (소문항 없음)
+  points: 8
+  depends_on: []
+  answer:
+    kind: value
+    value: -13/2
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S1-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        $f'(x)=-3x^2+2ax+6$이고
+        $x=2$에서 극대이므로 $f'(2)=-12+4a+6=0$이므로 $a=\dfrac32$
+      source_flow: 보고서 p.124
+      criteria:
+      - 1.M1
+    - id: 1b-2
+      content: |
+        $f'(x)=-3x^2+3x+6=0$을 풀면 $3(x-2)(x+1)=0$
+        따라서 함수 $f(x)$는 $x=-1$에서 극솟값을 가진다.
+        $f(-1)=1+\dfrac32-6-3=-\dfrac{13}{2}$
+        그러므로 구하는 극솟값은 $-\dfrac{13}{2}$
+      source_flow: 보고서 p.124
+      criteria:
+      - 1.A1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 4
+      evidence: $f'(x)=-3x^2+2ax+6$과 $f'(2)=0$으로 $a=\dfrac32$를 구했다.
+      steps:
+      - 1b-1
+    - id: 1.A1
+      mark_type: A
+      points: 4
+      evidence: $f'(x)=0$의 근 $x=2,-1$에서 $x=-1$이 극소임을 판정하고 극솟값 $-\dfrac{13}{2}$를 구했다.
+      depends_on:
+      - 1.M1
+      steps:
+      - 1b-2
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: past-v2-lean
+  item_version: 1
+  verdict: pass
+  date: &id002 2026-11-23
+created: *id002
+updated: *id002
+intent: 함수의 그래프의 개형을 이해하고 극대와 극소를 판정하고 해석할 수 있는지 평가한다.

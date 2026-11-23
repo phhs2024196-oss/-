@@ -1,0 +1,135 @@
+schema_version: '2.0'
+id: HSN-M25G-06
+legacy_id: null
+version: 1
+status: draft
+exam_family: yaksul
+item_type: short_answer
+origin: mock_exam
+school: HSN
+type: null
+variant_of: null
+replaces: null
+level: L3
+form: 추론
+points: 8
+time_estimate_min: 4
+intent: '등차수열의 일반항과 합의 공식을 이해하고 공차를 구해 항의 값을 구하는 능력을 본다.'
+key_idea: '$S_{10}=\dfrac{10(2+9d)}{2}=100$에서 $d=2$를 구하고 $a_{2025}=1+2024d$를 계산한다.'
+stuck: '합 조건에서 공차 $d$를 먼저 결정한 뒤 일반항에 대입하는 순서'
+tags: []
+elements:
+  materials:
+  - '첫째항이 1인 등차수열'
+  - '$\sum_{n=1}^{10}a_n=100$'
+  concepts:
+  - '등차수열'
+  - '공차'
+  - '등차수열의 합'
+  tools:
+  - '$S_n=\frac{n\{2a+(n-1)d\}}{2}$'
+  - '$a_n=a+(n-1)d$'
+  conditions:
+  - '첫째항 1'
+  stimuli_used: {}
+  subpart_links: []
+curriculum:
+  version: '2015'
+  subjects: [수학Ⅰ]
+  scope_2028: common
+  scope_confirmed: true
+  standards:
+  - code: 미확인
+    text: '등차수열의 뜻을 알고, 일반항과 첫째항부터 제$n$항까지의 합을 구한다(요지)'
+    verified: false
+  content_area: '수열 – 등차수열'
+  behavior_domain: 계산
+  unit_path: ['수학Ⅰ', '수열', '등차수열', '등차수열의 합과 일반항']
+  key_concepts: ['등차수열의 합', '일반항']
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 한신대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 한신대학교
+  admission_year: 2025
+  admission_type: 논술고사 모의문제
+  track: 공통
+  question_no: 6
+  official_url: https://ent.hs.ac.kr/ipsi/pages/index.asp?p=43&b=b_1_8&m=read&bn=19321
+  retrieved_at: '2026-11-23'
+  original_points:
+  - 8
+  rights_notice: 미확인
+  transcribed_from: 2025학년도 논술가이드북 모의문제 p.13
+verify: verify/HSN-M25G.py::p06
+stimuli: []
+stem: |
+  첫째항이 1인 등차수열 $\{a_n\}$에서 $\displaystyle\sum_{n=1}^{10}a_n=100$일 때, $a_{2025}$의 값을 구하는 과정을 서술하시오.
+subparts:
+- id: '1'
+  stem: |
+    (소문항 없음)
+  points: 8
+  depends_on: []
+  answer:
+    kind: value
+    value: '4049'
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S1-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        공차를 $d$라 하면 $n=10$, $a=1$이므로 $\displaystyle\sum_{n=1}^{10}a_n=\dfrac{n\{2a+(n-1)d\}}{2}=\dfrac{10(2+9d)}{2}=100$이고 $2+9d=20$, 즉 $d=2$이다.
+      source_flow: 모범답안 p.19
+      criteria: [1.M1]
+    - id: 1b-2
+      content: |
+        $a_{2025}=1+2024d=4049$이다.
+      source_flow: 모범답안 p.19
+      criteria: [1.A1]
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 4
+      evidence: |
+        등차수열의 합의 공식으로 $\dfrac{10(2+9d)}{2}=100$을 세워 $d=2$를 구했다.
+      steps: [1b-1]
+    - id: 1.A1
+      mark_type: A
+      points: 4
+      evidence: |
+        $a_{2025}=1+2024d=4049$를 구했다.
+      depends_on: [1.M1]
+      steps: [1b-2]
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: past-v2-lean
+  item_version: 1
+  verdict: pass
+  date: &id001 2026-11-23
+created: *id001
+updated: *id001

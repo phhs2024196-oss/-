@@ -1,0 +1,163 @@
+schema_version: '2.0'
+id: HSN-G25N-10
+legacy_id: null
+version: 1
+status: draft
+exam_family: yaksul
+item_type: short_answer
+origin: past_exam
+school: HSN
+type: null
+variant_of: null
+replaces: null
+level: L3
+form: 추론
+points: 8
+time_estimate_min: 5
+key_idea: $x=0$에서 $f$의 좌극한이 $a$, 우극한이 0임을 이용해 $g$의 좌·우극한을 구하고 $g(0)$과 같다고 놓는다.
+stuck: $f$가 $x=0$에서 불연속일 때 $g$의 좌극한과 우극한을 따로 계산하여 $g(0)$과 비교하는 것
+tags: []
+elements:
+  materials: []
+  concepts:
+  - 함수의 연속
+  - 좌극한·우극한
+  - 곱의 극한
+  tools:
+  - 극한의 곱셈 법칙
+  conditions:
+  - $a\ne0$
+  - $g$가 $x=0$에서 연속
+  stimuli_used: {}
+  subpart_links: []
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학Ⅱ
+  scope_2028: common
+  scope_confirmed: true
+  standards:
+  - code: 12수학Ⅱ01-03
+    text: 함수의 연속의 뜻을 안다.
+    verified: true
+  content_area: 함수의 극한과 연속
+  behavior_domain: 계산
+  unit_path:
+  - 수학Ⅱ
+  - 함수의 극한과 연속
+  - 함수의 연속
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 한신대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 한신대학교
+  admission_year: 2025
+  admission_type: 수시 논술전형(약술형)
+  track: 자연계열
+  question_no: 10
+  official_url: https://cdn013.negagea.net/dgsmidc/omr/seoul/web/univ_info2025/한신대학교/한신대학교_2025학년도_선행학습영향평가.pdf
+  retrieved_at: '2026-11-23'
+  original_points:
+  - 8
+  rights_notice: 미확인
+  transcribed_from: 2025 선행학습영향평가 보고서 문항카드 p.136
+verify: verify/HSN-G25N.py::p10
+stimuli: []
+stem: |
+  $0$이 아닌 상수 $a$에 대하여 함수 $f(x)$가 다음과 같다.
+  $$f(x)=\begin{cases}x & (x>0)\\ x+a & (x\le0)\end{cases}$$
+  함수 $g(x)=\{f(x)-1\}\{f(x)+2\}$가 $x=0$에서 연속일 때, $a$의 값을 구하는 과정을 서술하시오.
+subparts:
+- id: '1'
+  stem: |
+    (소문항 없음)
+  points: 8
+  depends_on: []
+  answer:
+    kind: value
+    value: '-1'
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S1-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        $\displaystyle\lim_{x\to0-}f(x)=a$, $\displaystyle\lim_{x\to0+}f(x)=0$. 함수 $g(x)$가 $x=0$에서 연속이므로 $\displaystyle\lim_{x\to0-}g(x)=\lim_{x\to0+}g(x)=g(0)$
+      source_flow: 보고서 p.137
+      criteria:
+      - 1.M1
+    - id: 1b-2
+      content: |
+        $\displaystyle\lim_{x\to0-}g(x)=\lim_{x\to0-}\{f(x)-1\}\{f(x)+2\}=(a-1)(a+2)$
+      source_flow: 보고서 p.137
+      criteria:
+      - 1.M1
+    - id: 1b-3
+      content: |
+        $\displaystyle\lim_{x\to0+}g(x)=\lim_{x\to0+}\{f(x)-1\}\{f(x)+2\}=-2$
+      source_flow: 보고서 p.137
+      criteria:
+      - 1.M2
+    - id: 1b-4
+      content: |
+        $(a-1)(a+2)=-2$, $a^2+a=0$이고 $a\ne0$이므로 $a=-1$
+      source_flow: 보고서 p.137
+      criteria:
+      - 1.A1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 4
+      evidence: |
+        $\displaystyle\lim_{x\to0-}g(x)=(a-1)(a+2)$를 구했다.
+      steps:
+      - 1b-1
+      - 1b-2
+    - id: 1.M2
+      mark_type: M
+      points: 2
+      evidence: |
+        $\displaystyle\lim_{x\to0+}g(x)=-2$를 구했다.
+      steps:
+      - 1b-3
+    - id: 1.A1
+      mark_type: A
+      points: 2
+      evidence: |
+        $a=-1$을 구했다.
+      depends_on:
+      - 1.M1
+      - 1.M2
+      steps:
+      - 1b-4
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: past-v2-lean
+  item_version: 1
+  verdict: pass
+  date: 2026-11-23
+created: &id001 2026-11-23
+updated: *id001
