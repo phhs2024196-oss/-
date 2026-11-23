@@ -1,0 +1,154 @@
+schema_version: '2.0'
+id: KNG-G26H-09
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: KNG
+type: null
+variant_of: null
+replaces: null
+level: L3
+form: 추론
+points: 8
+time_estimate_min: null
+intent: 닫힌구간에서 로그함수의 최댓값과 최솟값을 구하고, 로그함수의 성질을 이용할 수 있는지 평가한다.
+key_idea: 밑이 1보다 큰 로그함수는 증가하므로 구간의 양 끝에서 최솟값·최댓값을 갖고, 두 값의 차는 로그의 성질로 정리한다.
+stuck: $x=k$에서의 최댓값 $\log_2 2k$를 $\log_2 k$와 비교해 로그의 차로 계산하는 부분
+tags:
+- 로그함수
+- 최댓값·최솟값
+- 단조성
+elements:
+  materials:
+  - 함수 $y=\log_2(x+k)$와 닫힌구간 $[0,k]$ (단, $k$는 양수)
+  concepts:
+  - 로그함수의 그래프와 증가·감소
+  - 닫힌구간에서의 최댓값과 최솟값
+  tools:
+  - 밑이 1보다 큰 로그함수의 단조성
+  - 로그의 성질 $\log_2 2k-\log_2 k=\log_2 2$
+  conditions:
+  - $k>0$
+  stimuli_used: {}
+  subpart_links: []
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학Ⅰ
+  scope_2028: unknown
+  scope_confirmed: false
+  standards:
+  - code: 12수학Ⅰ01-07
+    text: 지수함수와 로그함수의 그래프를 그릴 수 있고, 그 성질을 이해한다.
+    verified: true
+  content_area: 지수함수와 로그함수 – 로그함수
+  behavior_domain: 이해
+  unit_path:
+  - 수학Ⅰ
+  - 지수함수와 로그함수
+  - 로그함수
+  - 닫힌구간에서의 최댓값·최솟값
+  key_concepts:
+  - 로그함수
+  - 최댓값
+  - 최솟값
+  - 로그의 성질
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 강남대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 강남대학교
+  admission_year: 2026
+  admission_type: 수시 논술전형(약술형)
+  track: 인문사회계
+  question_no: 9
+  official_url: https://admission.kangnam.ac.kr/doumi/notice.htm?bbsid=notice&mode=view&bltn_seq=39528
+  retrieved_at: '2026-11-23'
+  original_points:
+  - 8
+  rights_notice: 미확인
+  transcribed_from: 2027 논술가이드북 p.14
+verify: verify/KNG-G26H.py::p09
+stimuli: []
+stem: |
+  양수 $k$에 대하여 함수 $y=\log_2(x+k)$가 닫힌구간 $[0,k]$에서 최댓값 $M$, 최솟값 $m$을 갖는다. $M-m$의 값을 구하는 과정을 서술하시오. [8점]
+subparts:
+- id: '1'
+  stem: ''
+  points: 8
+  depends_on: []
+  answer:
+    kind: value
+    value: '1'
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S1-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        함수 $y=\log_2(x+k)$는 증가하는 로그함수이다. $x=0$일 때 최솟값 $m=\log_2 k$를 갖는다.
+      source_flow: 예시답안 p.23
+      criteria:
+      - 1.M1
+    - id: 1b-2
+      content: |
+        $x=k$일 때 최댓값 $M=\log_2 2k=1+\log_2 k$를 갖는다.
+      source_flow: 예시답안 p.23
+      criteria:
+      - 1.M1
+    - id: 1b-3
+      content: |
+        따라서 $M-m=\log_2 2k-\log_2 k=\log_2 2=1$이다.
+      source_flow: 예시답안 p.23
+      criteria:
+      - 1.A1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 4
+      evidence: $x=0$일 때 최솟값 $m=\log_2 k$, $x=k$일 때 최댓값 $M=\log_2 2k=1+\log_2 k$임을 구했다.
+      steps:
+      - 1b-1
+      - 1b-2
+    - id: 1.A1
+      mark_type: A
+      points: 4
+      evidence: $M-m=\log_2 2=1$임을 구했다.
+      depends_on:
+      - 1.M1
+      steps:
+      - 1b-3
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: past-v2-lean
+  item_version: 1
+  verdict: pass
+  date: &id001 2026-11-23
+created: *id001
+updated: *id001

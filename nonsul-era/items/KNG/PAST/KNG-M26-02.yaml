@@ -1,0 +1,162 @@
+schema_version: '2.0'
+id: KNG-M26-02
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: KNG
+type: null
+variant_of: null
+replaces: null
+level: L3
+form: 추론
+points: 10
+time_estimate_min: null
+key_idea: 근과 계수의 관계로 $\alpha+\beta$, $\alpha\beta$를 $\tan\theta$로 나타내고($\tan(\frac\pi2-\theta)=\frac1{\tan\theta}$, $\tan(\pi+\theta)=\tan\theta$) $(3\alpha+1)(3\beta+1)=1$을 전개해 대입한다.
+stuck: $\tan(\frac\pi2-\theta)$와 $\tan(\pi+\theta)$를 $\tan\theta$로 바꾸는 점
+tags:
+- 삼각함수
+- 이차방정식의 근과 계수
+- 삼각함수의 성질
+elements:
+  materials:
+  - $x^2+6x\tan(\frac\pi2-\theta)+\tan(\pi+\theta)=0$의 두 근 $\alpha,\beta$
+  - $(3\alpha+1)(3\beta+1)=1$
+  concepts:
+  - 이차방정식의 근과 계수의 관계
+  - 삼각함수의 성질
+  tools:
+  - $\tan(\frac\pi2-\theta)=\frac1{\tan\theta}$
+  - $\tan(\pi+\theta)=\tan\theta$
+  - 곱셈 전개
+  conditions:
+  - $(3\alpha+1)(3\beta+1)=1$
+  stimuli_used: {}
+  subpart_links: []
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학Ⅰ
+  scope_2028: unknown
+  scope_confirmed: false
+  standards:
+  - code: 12수학Ⅰ02-02
+    text: 삼각함수의 뜻을 알고, 사인함수, 코사인함수, 탄젠트함수의 그래프를 그릴 수 있다.
+    verified: true
+  content_area: 삼각함수 – 삼각함수의 성질과 방정식
+  behavior_domain: 계산
+  unit_path:
+  - 수학Ⅰ
+  - 삼각함수
+  - 삼각함수의 성질
+  - 근과 계수의 관계와 $\tan$
+  key_concepts:
+  - 근과 계수의 관계
+  - 삼각함수의 성질
+  - 탄젠트
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 강남대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 강남대학교
+  admission_year: 2026
+  admission_type: 모의논술고사
+  track: 공통(모의)
+  question_no: 2
+  official_url: https://admission.kangnam.ac.kr/doumi/notice.htm?bbsid=notice&mode=view&bltn_seq=38520
+  retrieved_at: '2026-11-23'
+  original_points:
+  - 10
+  rights_notice: 미확인
+  transcribed_from: '2026 논술가이드북 p.24(문제)·p.31(해설·채점기준). 정정 반영본(g26fix 2025.07.28 기준): 문제 $\tan(\pi-\theta)$→$\tan(\pi+\theta)$, 채점기준 $\alpha\beta=-\tan\theta$→$\alpha\beta=\tan\theta$, 대입식 $9\times(-\tan\theta)$→$9\times\tan\theta$. 가이드북 최종본 p.24·p.31은 이미 정정 후 내용'
+verify: verify/KNG-M26.py::p02
+stimuli: []
+stem: |
+  $x$에 대한 이차방정식 $x^2+6x\tan\left(\dfrac\pi2-\theta\right)+\tan(\pi+\theta)=0$의 두 근을 $\alpha$, $\beta$라 하자.
+subparts:
+- id: '1'
+  stem: |
+    $(3\alpha+1)(3\beta+1)=1$일 때, $\tan^2\theta$의 값을 구하는 과정을 서술하시오. [10점]
+  points: 10
+  depends_on: []
+  answer:
+    kind: value
+    value: tan2=2
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S1-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        $\alpha+\beta=-6\tan\left(\dfrac\pi2-\theta\right)$, $\alpha\beta=\tan(\pi+\theta)$
+      source_flow: 예시답안 p.31
+      criteria:
+      - 1.M1
+    - id: 1b-2
+      content: |
+        $\alpha+\beta=-6\tan\left(\dfrac\pi2-\theta\right)=-6\times\dfrac{\sin\left(\frac\pi2-\theta\right)}{\cos\left(\frac\pi2-\theta\right)}=-6\times\dfrac{\cos\theta}{\sin\theta}=-\dfrac6{\tan\theta}$
+        $\alpha\beta=\tan\theta$
+      source_flow: 예시답안 p.31
+      criteria:
+      - 1.M2
+    - id: 1b-3
+      content: |
+        주어진 식 $(3\alpha+1)(3\beta+1)=1$을 정리하고 대입하면
+        $9\times\tan\theta=-3\times\left(-\dfrac6{\tan\theta}\right)$이고 $\tan^2\theta=2$ 이다.
+      source_flow: 예시답안 p.31
+      criteria:
+      - 1.A3
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 3
+      evidence: 근과 계수의 관계로 $\alpha+\beta=-6\tan(\frac\pi2-\theta)$, $\alpha\beta=\tan(\pi+\theta)$를 썼다.
+      steps:
+      - 1b-1
+    - id: 1.M2
+      mark_type: M
+      points: 3
+      evidence: $\alpha+\beta=-\frac6{\tan\theta}$, $\alpha\beta=\tan\theta$로 바꾸었다.
+      steps:
+      - 1b-2
+    - id: 1.A3
+      mark_type: A
+      points: 4
+      evidence: $(3\alpha+1)(3\beta+1)=1$을 정리해 대입한 식 $9\tan\theta=-3\times\left(-\frac6{\tan\theta}\right)$에서 $\tan^2\theta=2$를 구했다.
+      depends_on:
+      - 1.M2
+      steps:
+      - 1b-3
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: past-v2-lean
+  item_version: 1
+  verdict: pass
+  date: &id001 2026-11-23
+created: *id001
+updated: *id001

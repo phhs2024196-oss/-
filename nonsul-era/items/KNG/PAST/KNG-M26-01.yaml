@@ -1,0 +1,173 @@
+schema_version: '2.0'
+id: KNG-M26-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: KNG
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 분류
+points: 10
+time_estimate_min: null
+key_idea: 밑 $a$의 범위로 나누어 지수함수의 단조성에 따라 최댓값이 생기는 끝점을 정하고 $a$를 구한 뒤 조건 만족 여부를 확인한다.
+stuck: $0<a<1$에서 감소함수라 최댓값이 $x=-1$에서 생기고, 얻은 $a=4$가 조건에 모순임을 판단하는 점
+tags:
+- 지수함수
+- 최댓값
+- 경우 분류
+elements:
+  materials:
+  - 함수 $y=a^{(x+2)}-1$, 닫힌구간 $[-1,1]$, 최댓값 $3$
+  concepts:
+  - 지수함수의 증가·감소
+  - 지수와 거듭제곱근
+  tools:
+  - 밑에 따른 경우 분류
+  - $a^3=4\Rightarrow a=4^{\frac13}$
+  conditions:
+  - $a>0$, $a\ne1$
+  - 최댓값이 $3$
+  stimuli_used: {}
+  subpart_links: []
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학Ⅰ
+  scope_2028: unknown
+  scope_confirmed: false
+  standards:
+  - code: 12수학Ⅰ01-07
+    text: 지수함수와 로그함수의 그래프를 그릴 수 있고, 그 성질을 이해한다.
+    verified: true
+  content_area: 지수함수 – 최댓값
+  behavior_domain: 추론
+  unit_path:
+  - 수학Ⅰ
+  - 지수함수와 로그함수
+  - 지수함수
+  - 밑에 따른 최댓값
+  key_concepts:
+  - 지수함수
+  - 단조성
+  - 최댓값
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 강남대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 강남대학교
+  admission_year: 2026
+  admission_type: 모의논술고사
+  track: 공통(모의)
+  question_no: 1
+  official_url: https://admission.kangnam.ac.kr/doumi/notice.htm?bbsid=notice&mode=view&bltn_seq=38520
+  retrieved_at: '2026-11-23'
+  original_points:
+  - 10
+  rights_notice: 미확인
+  transcribed_from: 2026 논술가이드북 p.24(문제)·p.30(해설·채점기준)
+verify: verify/KNG-M26.py::p01
+stimuli: []
+stem: |
+  양수 $a(a\ne1)$에 대하여 함수 $y=a^{(x+2)}-1$이 닫힌구간 $[-1,1]$에서 최댓값 $3$가질 때,
+subparts:
+- id: '1'
+  stem: |
+    $a>1$와 $0<a<1$로 나누어서 $a$값을 구하는 과정을 서술하시오. 만약, $a$값이 존재하지 않으면 그 이유를 서술하시오. [10점]
+  points: 10
+  depends_on: []
+  answer:
+    kind: value
+    value: a=4**(1/3)
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S1-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        $a>1$일 때, $y=a^{(x+2)}-1$는 증가하므로 $x=1$에서 최댓값을 가진다.
+      source_flow: 예시답안 p.30
+      criteria:
+      - 1.M1
+    - id: 1b-2
+      content: |
+        $a>1$일 때, $a^3=4$를 만족하므로 $a=4^{\frac13}$이다.
+      source_flow: 예시답안 p.30
+      criteria:
+      - 1.A2
+    - id: 1b-3
+      content: |
+        $0<a<1$일 때, $y=a^{(x+2)}-1$는 감소하므로 $x=-1$에서 최댓값을 가진다.
+      source_flow: 예시답안 p.30
+      criteria:
+      - 1.M3
+    - id: 1b-4
+      content: |
+        $0<a<1$일 때, $a=4$ 그러므로 만족하는 $a$가 존재하지 않는다.
+      source_flow: 예시답안 p.30
+      criteria:
+      - 1.A4
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 2
+      evidence: $a>1$일 때 증가함수이므로 $x=1$에서 최댓값을 가진다고 썼다.
+      steps:
+      - 1b-1
+    - id: 1.A2
+      mark_type: A
+      points: 3
+      evidence: $a^3-1=3$에서 $a^3=4$, $a=4^{\frac13}$을 구했다.
+      depends_on:
+      - 1.M1
+      steps:
+      - 1b-2
+    - id: 1.M3
+      mark_type: M
+      points: 2
+      evidence: $0<a<1$일 때 감소함수이므로 $x=-1$에서 최댓값을 가진다고 썼다.
+      steps:
+      - 1b-3
+    - id: 1.A4
+      mark_type: A
+      points: 3
+      evidence: $a-1=3$에서 $a=4$가 되어 $0<a<1$에 모순이므로 $a$가 존재하지 않는다고 썼다.
+      depends_on:
+      - 1.M3
+      steps:
+      - 1b-4
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: past-v2-lean
+  item_version: 1
+  verdict: pass
+  date: &id001 2026-11-23
+created: *id001
+updated: *id001

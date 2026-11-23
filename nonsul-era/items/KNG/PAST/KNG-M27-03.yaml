@@ -1,0 +1,173 @@
+schema_version: '2.0'
+id: KNG-M27-03
+legacy_id: null
+version: 1
+status: draft
+exam_family: yaksul
+item_type: derivation
+origin: mock_exam
+school: KNG
+type: null
+variant_of: null
+replaces: null
+level: L3
+form: 분류
+points: 10
+time_estimate_min: null
+key_idea: 절댓값의 정의에 따라 $x\ge0$, $x<0$으로 나눠 $f$를 쓰고 각 구간의 증감을 증감표로 정리한다. $x=0$에서는 미분계수가 없어도 연속이고 부호가 음에서 양으로 바뀌므로 극솟값이 된다.
+stuck: $x=0$에서 미분가능하지 않아도 극값일 수 있음을 증감(부호 변화)으로 판정하는 부분
+tags:
+- 절댓값을 포함한 함수
+- 극대와 극소
+- 증감표
+elements:
+  materials:
+  - 함수 $f(x)=x^3+|x|$
+  concepts:
+  - 도함수와 증가·감소
+  - 극대와 극소
+  - 절댓값 함수의 구간 분할
+  tools:
+  - 구간 분할
+  - 증감표
+  - 극값 판정(도함수의 부호 변화)
+  conditions:
+  - $x=0$에서 미분불가능
+  stimuli_used: {}
+  subpart_links: []
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학Ⅱ
+  scope_2028: unknown
+  scope_confirmed: false
+  standards:
+  - code: 12수학Ⅱ02-08
+    text: 함수의 증가와 감소, 극대와 극소를 판정하고 설명할 수 있다.
+    verified: true
+  content_area: 미분 – 극대와 극소
+  behavior_domain: 이해
+  unit_path:
+  - 수학Ⅱ
+  - 미분
+  - 도함수의 활용
+  - 절댓값을 포함한 함수의 극값
+  key_concepts:
+  - 절댓값 함수
+  - 극대와 극소
+  - 증감표
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 강남대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 강남대학교
+  admission_year: 2027
+  admission_type: 모의논술고사
+  track: 공통
+  question_no: 3
+  official_url: https://admission.kangnam.ac.kr/doumi/notice.htm?bbsid=notice&mode=view&bltn_seq=39581
+  retrieved_at: '2026-11-23'
+  original_points:
+  - 10
+  rights_notice: 미확인
+  
+verify: verify/KNG-M27.py::p03
+stimuli: []
+stem: |
+  (소문항 없음)
+subparts:
+- id: '1'
+  stem: |
+    함수 $f(x)=x^3+|x|$의 극댓값과 극솟값을 구하는 과정을 서술하시오. [10점]
+  points: 10
+  depends_on: []
+  answer:
+    kind: value
+    value: max = 2*sqrt(3)/9; min = 0
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S1-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        ① $x\ge0$일 때, $f(x)=x^3+x$이고, $x>0$일 때 $f'(x)=3x^2+1$이고 $x>0$인 모든 실수 $x$에 대하여 $f'(x)>0$이므로 $(0,+\infty)$에서 증가한다.
+        ② $x<0$일 때, $f(x)=x^3-x$이고 $f'(x)=3x^2-1$이므로 $x=-\dfrac{\sqrt3}{3}$에서 $f'(x)=0$이다.
+      source_flow: 해설 p.17~18
+      criteria:
+      - 1.M1
+    - id: 1b-2
+      content: |
+        증감표는 다음과 같다.
+
+        | $x$ | $\cdots$ | $-\dfrac{\sqrt3}{3}$ | $\cdots$ | $0$ | $\cdots$ |
+        |---|---|---|---|---|---|
+        | $f'(x)$ | $+$ | $0$ | $-$ | 존재 안 함 | $+$ |
+        | $f(x)$ | ↗ | $\dfrac{2\sqrt3}{9}$ | ↘ | $0$ | ↗ |
+
+        (또는, 증감표가 아닌 그래프 개형으로 설명 가능)
+        [그림 1: $y=f(x)$의 그래프 개형. $x=-\dfrac{\sqrt3}{3}$에서 극대(값 $\dfrac{2\sqrt3}{9}$), 원점에서 꺾이며 극소(값 $0$)이고 $x>0$에서 증가]
+      source_flow: 해설 p.17~18
+      criteria:
+      - 1.M2
+    - id: 1b-3
+      content: |
+        위 증감표에 의해, $x=-\dfrac{\sqrt3}{3}$에서 $f'(x)$ 값이 양에서 음으로 바뀌므로 극댓값은 $\dfrac{2\sqrt3}{9}$이고, $x=0$에서 연속이고 $f'(x)$ 값이 음에서 양으로 바뀌므로 극솟값은 $0$이다.
+      source_flow: 해설 p.17~18
+      criteria:
+      - 1.A1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 3
+      evidence: $x\ge0$, $x<0$으로 나눠 $f(x)$와 $f'(x)$를 구했다.
+      steps:
+      - 1b-1
+    - id: 1.M2
+      mark_type: M
+      points: 3
+      evidence: 증감표(또는 그래프 개형)를 이용하여 $f(x)$의 증감을 설명했다.
+      depends_on:
+      - 1.M1
+      steps:
+      - 1b-2
+    - id: 1.A1
+      mark_type: A
+      points: 4
+      evidence: 극댓값 $\dfrac{2\sqrt3}{9}$, 극솟값 $0$을 구했다.
+      depends_on:
+      - 1.M2
+      steps:
+      - 1b-3
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  - code: '70'
+    misconception: MC-CAL-4702
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: past-v2-lean
+  item_version: 1
+  verdict: pass
+  date: &id001 2026-11-23
+created: *id001
+updated: *id001

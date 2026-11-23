@@ -1,0 +1,173 @@
+schema_version: '2.0'
+id: KNG-M26E-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: KNG
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 분류
+points: 10
+time_estimate_min: null
+key_idea: 밑 $a$의 범위($a>1$, $0<a<1$)로 나누어 단조성에 따라 최솟값이 생기는 끝점을 정하고 $\log_a$ 값을 지수식으로 바꿔 $a$를 구한 뒤 조건 만족 여부를 확인한다.
+stuck: $0<a<1$에서 감소함수라 최솟값이 $x=3$에서 생기는 점, 구한 $a$가 경우의 조건을 만족하는지 확인하는 점
+tags:
+- 로그함수
+- 최솟값
+- 경우 분류
+elements:
+  materials:
+  - 함수 $y=\log_a(x+3)-1$, 닫힌구간 $[0,3]$, 최솟값 $-\frac32$
+  concepts:
+  - 로그함수의 증가·감소
+  - 로그의 정의
+  tools:
+  - 밑에 따른 경우 분류
+  - $\log_a b=c\iff a^c=b$
+  conditions:
+  - $a>0$, $a\ne1$
+  - 최솟값이 $-\frac32$
+  stimuli_used: {}
+  subpart_links: []
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학Ⅰ
+  scope_2028: unknown
+  scope_confirmed: false
+  standards:
+  - code: 12수학Ⅰ01-07
+    text: 지수함수와 로그함수의 그래프를 그릴 수 있고, 그 성질을 이해한다.
+    verified: true
+  content_area: 로그함수 – 최솟값
+  behavior_domain: 추론
+  unit_path:
+  - 수학Ⅰ
+  - 지수함수와 로그함수
+  - 로그함수
+  - 밑에 따른 최솟값
+  key_concepts:
+  - 로그함수
+  - 단조성
+  - 최솟값
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 강남대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 강남대학교
+  admission_year: 2026
+  admission_type: 모의논술고사
+  track: 공통(예시)
+  question_no: 1
+  official_url: https://admission.kangnam.ac.kr/doumi/notice.htm?bbsid=notice&mode=view&bltn_seq=38520
+  retrieved_at: '2026-11-23'
+  original_points:
+  - 10
+  rights_notice: 미확인
+  transcribed_from: 2026 논술가이드북 p.11(문제)·p.13(해설·채점기준)
+verify: verify/KNG-M26E.py::p01
+stimuli: []
+stem: |
+  양수 $a(a\ne1)$에 대하여 함수 $y=\log_a(x+3)-1$이 닫힌구간 $[0,3]$에서 최솟값 $-\dfrac32$ 가질 때,
+subparts:
+- id: '1'
+  stem: |
+    $a>1$와 $0<a<1$로 나누어서 $a$값을 구하는 과정을 서술하시오. 만약, 주어진 구간에서 $a$값이 없다면 그 이유를 서술하시오. [10점]
+  points: 10
+  depends_on: []
+  answer:
+    kind: value
+    value: a=1/36
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S1-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        $a>1$일 때, $y=\log_a(x+3)-1$은 증가하므로 $x=0$에서 최솟값을 가진다.
+      source_flow: 예시답안 p.13
+      criteria:
+      - 1.M1
+    - id: 1b-2
+      content: |
+        $a>1$일 때, $\log_a3=-\dfrac12$을 만족하므로 $a=3^{-2}=\dfrac19$가 되어야하나 $a>1$ 때문에 만족하는 $a$가 존재하지 않는다.
+      source_flow: 예시답안 p.13
+      criteria:
+      - 1.A2
+    - id: 1b-3
+      content: |
+        $0<a<1$일 때, $y=\log_a(x+3)-1$은 감소하므로 $x=3$에서 최솟값을 가진다.
+      source_flow: 예시답안 p.13
+      criteria:
+      - 1.M3
+    - id: 1b-4
+      content: |
+        $0<a<1$일 때, $\log_a6=-\dfrac12$을 만족하므로 $a=6^{-2}=\dfrac1{36}$이다. 따라서 $a=\dfrac1{36}$이다.
+      source_flow: 예시답안 p.13
+      criteria:
+      - 1.A4
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 2
+      evidence: $a>1$일 때 $y=\log_a(x+3)-1$이 증가함수이므로 $x=0$에서 최솟값을 가진다고 썼다.
+      steps:
+      - 1b-1
+    - id: 1.A2
+      mark_type: A
+      points: 3
+      evidence: $\log_a3-1=-\frac32$로부터 $a=3^{-2}=\frac19$를 얻고 $a>1$에 모순이어서 $a$가 존재하지 않는다고 썼다.
+      depends_on:
+      - 1.M1
+      steps:
+      - 1b-2
+    - id: 1.M3
+      mark_type: M
+      points: 2
+      evidence: $0<a<1$일 때 감소함수이므로 $x=3$에서 최솟값을 가진다고 썼다.
+      steps:
+      - 1b-3
+    - id: 1.A4
+      mark_type: A
+      points: 3
+      evidence: $\log_a6=-\frac12$에서 $a=6^{-2}=\frac1{36}$을 얻고 $0<a<1$을 만족함을 확인하여 $a=\frac1{36}$이라고 썼다.
+      depends_on:
+      - 1.M3
+      steps:
+      - 1b-4
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: past-v2-lean
+  item_version: 1
+  verdict: pass
+  date: &id001 2026-11-23
+created: *id001
+updated: *id001
