@@ -1,0 +1,221 @@
+schema_version: '2.0'
+id: KUT-M19B-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: KUT
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 구성
+points: 20
+time_estimate_min: null
+key_idea: 접선 $y=-2x+k$를 원의 방정식에 대입한 이차방정식의 판별식 $D=0$ 으로 $k$ 를 구하고, $(a_n)^2$ 가 등비수열임을 이용해 급수를 등비급수의 합으로 구한다.
+stuck: 접선 조건을 판별식 $D=0$(중근)으로 바꾸고 제1사분면 조건으로 $k>0$ 을 고르는 것
+tags:
+- 2009개정:수학Ⅰ·미적분Ⅰ
+- 원의 접선
+- 등비급수
+elements:
+  materials:
+  - 제시문 가(원의 방정식)
+  - 제시문 나(급수와 부분합)
+  concepts:
+  - 원의 방정식
+  - 접선의 방정식
+  - 판별식
+  - 등비급수
+  tools:
+  - 판별식
+  - 등비급수의 합 공식
+  conditions:
+  - 원 $x^2+y^2=(4/5)^n$
+  - 기울기 $-2$인 접선
+  - 접선이 제1사분면을 지남
+  - y절편 $(0,a_n)$
+  stimuli_used: {}
+  subpart_links: []
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학
+  - 미적분
+  scope_2028: calc2
+  scope_confirmed: false
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 한국기술교육대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 한국기술교육대학교
+  admission_year: 2019
+  admission_type: 수시 모의논술
+  track: 공학계열·산업경영학부 공통
+  question_no: 1
+  official_url: https://www.koreatech.ac.kr/board.es?mid=a40104010200&bid=0043&act=view&list_no=15433
+  retrieved_at: '2026-11-23'
+  original_points:
+  - 10
+  - 10
+  rights_notice: 미확인
+  transcribed_from: 한국기술교육대 2019학년도 논술 예시문항(2019 논술가이드북) PDF p.31
+verify: verify/KUT-M19B.py::p01
+stimuli:
+- label: 가
+  body: |
+    중심이 $(a,b)$이고 반지름의 길이가 $r$인 원의 방정식은
+    $$(x-a)^2+(y-b)^2=r^2$$
+    이다.
+- label: 나
+  body: |
+    일반적으로 수열 $\{a_n\}$의 각 항을 차례로 덧셈 기호 +를 사용하여 연결한 식
+    $$a_1+a_2+a_3+\cdots+a_n+\cdots$$
+    을 급수라 하고, 기호 $\sum$를 사용하여 $\sum_{n=1}^{\infty}a_n$과 같이 나타낸다. 급수 $\sum_{n=1}^{\infty}a_n$에서 첫째항부터 제 $n$항까지의 합
+    $$S_n=a_1+a_2+a_3+\cdots+a_n=\sum_{k=1}^{n}a_k$$
+    를 이 급수의 제 $n$항까지의 부분합이라고 한다. 부분합으로 이루어진 수열 $S_1,S_2,S_3,\cdots,S_n,\cdots$이 일정한 값 $S$에 수렴할 때, 즉
+    $$\lim_{n\to\infty}S_n=\lim_{n\to\infty}\sum_{k=1}^{n}a_k=S$$
+    이면 급수 $\sum_{n=1}^{\infty}a_n$은 $S$에 수렴한다고 한다. 이 때 $S$를 급수의 합이라 하고,
+    $$a_1+a_2+a_3+\cdots+a_n+\cdots=S\quad\text{또는}\quad\sum_{n=1}^{\infty}a_n=S$$
+    와 같이 나타낸다. 한편 급수 $\sum_{n=1}^{\infty}a_n$의 부분합으로 이루어진 수열 $\{S_n\}$이 발산할 때, 이 급수는 발산한다고 한다. 이 경우에 그 합은 생각하지 않는다.
+stem: |
+  다음 제시문을 읽고 물음에 답하시오.
+
+  원 $x^2+y^2=\left(\dfrac{4}{5}\right)^n$에 대하여 기울기가 $-2$이고 제 1사분면을 지나는 접선이 $y$축과 만나는 점의 좌표를 $(0,a_n)$이라 하자.
+subparts:
+- id: 1-1
+  stem: |
+    $a_n$을 $n$에 관한 식으로 나타내시오. (10점)
+  points: 10
+  depends_on: []
+  answer:
+    kind: expression
+    value: sqrt(5)*(2/sqrt(5))**n
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S11-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 11b-1
+      content: |
+        접선의 방정식을 $y=-2x+k$라고 하자. 이 식을 원 $x^2+y^2=\left(\dfrac{4}{5}\right)^n$에 대입하면,
+        $$x^2+(-2x+k)^2=\left(\dfrac{4}{5}\right)^n\ \Rightarrow\ 5x^2-4kx+k^2-\left(\dfrac{4}{5}\right)^n=0$$
+        이 이차방정식은 중근을 가져야 하므로
+        $$\dfrac{D}{4}=4k^2-5\left(k^2-\left(\dfrac{4}{5}\right)^n\right)=0$$
+        따라서 $k=\pm\sqrt{5}\left(\dfrac{2}{\sqrt{5}}\right)^n$이다. 문제의 접선은 제 1사분면을 지나므로 $k=\sqrt{5}\left(\dfrac{2}{\sqrt{5}}\right)^n$이다.
+      source_flow: PDF p.32
+      criteria:
+      - 1-1.M1
+    - id: 11b-2
+      content: |
+        $a_n$은 접선 $y=-2x+\sqrt{5}\left(\dfrac{2}{\sqrt{5}}\right)^n$의 $y$절편이므로
+        $$a_n=\sqrt{5}\left(\dfrac{2}{\sqrt{5}}\right)^n$$
+        이다.
+      source_flow: PDF p.32
+      criteria:
+      - 1-1.A1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 1-1.M1
+      mark_type: M
+      points: 5
+      evidence: '평가항목 1: 접선 $y=-2x+k$ 를 원의 방정식에 대입한 이차방정식의 판별식으로 $k=\sqrt{5}\left(\dfrac{2}{\sqrt{5}}\right)^n$ 을 구했다(제1사분면 조건으로 양수 선택).'
+      steps:
+      - 11b-1
+    - id: 1-1.A1
+      mark_type: A
+      points: 5
+      evidence: '평가항목 2: $y$절편으로부터 $a_n=\sqrt{5}\left(\dfrac{2}{\sqrt{5}}\right)^n$ 을 구했다.'
+      steps:
+      - 11b-2
+      depends_on:
+      - 1-1.M1
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+- id: 1-2
+  stem: |
+    $\displaystyle\sum_{n=1}^{\infty}(a_n)^2\left(\dfrac{\sqrt{5}}{2}\right)^{n-1}$의 값을 구하시오. (10점)
+  points: 10
+  depends_on:
+  - 1-1
+  answer:
+    kind: value
+    value: 20+8*sqrt(5)
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S12-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 12b-1
+      content: |
+        문제의 수식을 정리하면
+        $$\sum_{n=1}^{\infty}(a_n)^2\left(\dfrac{\sqrt{5}}{2}\right)^{n-1}=\sum_{n=1}^{\infty}5\left(\dfrac{4}{5}\right)^n\left(\dfrac{\sqrt{5}}{2}\right)^{n-1}=\sum_{n=1}^{\infty}4\left(\dfrac{2}{\sqrt{5}}\right)^{n-1}$$
+        위의 정리된 급수는 첫째항이 4이고, 공비가 $\dfrac{2}{\sqrt{5}}$인 등비급수와 같다.
+      source_flow: PDF p.33
+      criteria:
+      - 1-2.M1
+    - id: 12b-2
+      content: |
+        따라서 급수의 합은
+        $$\dfrac{4}{1-\dfrac{2}{\sqrt{5}}}=20+8\sqrt{5}$$
+        이다.
+      source_flow: PDF p.33
+      criteria:
+      - 1-2.A1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 1-2.M1
+      mark_type: M
+      points: 5
+      evidence: '평가항목 3: 급수를 첫째항 4, 공비 $\dfrac{2}{\sqrt{5}}$ 인 등비급수로 정리했다.'
+      steps:
+      - 12b-1
+    - id: 1-2.A1
+      mark_type: A
+      points: 5
+      evidence: '평가항목 4: 등비급수의 합 $\dfrac{4}{1-\frac{2}{\sqrt5}}=20+8\sqrt{5}$ 를 구했다.'
+      steps:
+      - 12b-2
+      depends_on:
+      - 1-2.M1
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: past-v2-lean
+  item_version: 1
+  verdict: pass
+  date: &id001 2026-11-23
+created: *id001
+updated: *id001

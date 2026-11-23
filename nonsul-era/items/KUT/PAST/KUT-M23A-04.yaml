@@ -1,0 +1,153 @@
+schema_version: '2.0'
+id: KUT-M23A-04
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: short_answer
+origin: mock_exam
+school: KUT
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 추론
+points: 10
+time_estimate_min: null
+key_idea: 등차수열의 첫째항 $a$, 공차 $d$, 등비수열의 공비 $r$로 조건 (다)를 세 식으로 나타내 $a$에 대한 이차방정식을 얻고 $r\ne1$인 해를 고른다.
+stuck: 조건 (다)의 세 식에서 $r=\dfrac a2$, $d=2-a$로 소거하여 $a$에 대한 방정식을 세우고 $r=1$인 해를 버리는 지점
+tags:
+- 등차수열
+- 등비수열
+- 연립방정식
+elements:
+  materials:
+  - 등차수열 $\{a_n\}$
+  - 등비수열 $\{b_n\}$
+  concepts:
+  - 등차수열의 일반항
+  - 등비수열의 일반항
+  - 공비와 공차
+  tools:
+  - 미지수 소거
+  - 이차방정식
+  conditions:
+  - $b_1=2$
+  - 공비 $r\ne1$
+  - $a_1=b_2,\ a_2=b_1,\ a_3=b_3$
+  stimuli_used: {}
+  subpart_links: []
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학Ⅰ
+  scope_2028: common
+  scope_confirmed: false
+  behavior_domain: 문제해결
+  content_area: 수열 – 등차수열과 등비수열
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 한국기술교육대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 한국기술교육대학교
+  admission_year: 2023
+  admission_type: 수시 모의논술
+  track: 공학계열
+  question_no: 4
+  official_url: https://www.koreatech.ac.kr/board.es?mid=a40104010200&bid=0043&act=view&list_no=15435
+  retrieved_at: '2026-11-23'
+  original_points:
+  - 10
+  rights_notice: 미확인
+  transcribed_from: 한국기술교육대 2023학년도 수시 논술고사 【수리】모의문제(6월 배포) PDF p.4
+verify: verify/KUT-M23A.py::p04
+stimuli: []
+stem: |
+  등차수열 $\{a_n\}$과 등비수열 $\{b_n\}$이 다음 조건을 만족시킨다.
+
+  (가) $b_1=2$
+  (나) 등비수열 $\{b_n\}$의 공비는 $1$이 아니다.
+  (다) $a_1=b_2,\ a_2=b_1,\ a_3=b_3$
+
+  $|a_{10}|+|b_{10}|$의 값을 구하는 과정을 서술하시오.
+subparts:
+- id: '1'
+  stem: ''
+  points: 10
+  depends_on: []
+  answer:
+    kind: value
+    value: '1074'
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S1-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        등차수열 $\{a_n\}$의 첫째항을 $a$, 공차를 $d$, 등비수열 $\{b_n\}$의 공비를 $r$이라 하자. 조건 (가)에서 $b_n=2\times r^{n-1}$이므로 조건 (다)는 $a=2r$ ㉠, $a+d=2$ ㉡, $a+2d=2r^2$ ㉢이다.
+      source_flow: PDF p.4
+      criteria:
+      - 1.M1
+    - id: 1b-2
+      content: |
+        ㉠에서 $r=\dfrac a2$, ㉡에서 $d=2-a$이므로 ㉢에 대입하면 $a+2(2-a)=2\left(\dfrac a2\right)^2$, 즉 $-\dfrac12(a+4)(a-2)=0$이므로 $a=-4$ 또는 $a=2$이다. $a=2$이면 $r=1$이어서 조건 (나)에 위배되므로 $a=-4$, $r=-2$, $d=6$이다.
+      source_flow: PDF p.4
+      criteria:
+      - 1.M2
+    - id: 1b-3
+      content: |
+        $a_n=-4+6(n-1)$, $b_n=2(-2)^{n-1}$이므로 $a_{10}=50$, $b_{10}=-1024$이고 $|a_{10}|+|b_{10}|=1074$이다.
+      source_flow: PDF p.4
+      criteria:
+      - 1.M3
+  # 채점기준 미공개 — 단계별 추정
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 3
+      evidence: 조건 (다)를 $a,d,r$에 대한 세 식으로 나타냈다.
+      steps:
+      - 1b-1
+    - id: 1.M2
+      mark_type: M
+      points: 4
+      evidence: $a=-4$, $r=-2$, $d=6$을 구했다.
+      steps:
+      - 1b-2
+    - id: 1.M3
+      mark_type: M
+      points: 3
+      evidence: $|a_{10}|+|b_{10}|=1074$를 구했다.
+      steps:
+      - 1b-3
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: past-v2-lean
+  item_version: 1
+  verdict: pass
+  date: &id001 2026-11-23
+created: *id001
+updated: *id001

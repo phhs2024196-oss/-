@@ -1,0 +1,158 @@
+schema_version: '2.0'
+id: KUT-M27-06
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: short_answer
+origin: mock_exam
+school: KUT
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 분류
+points: 12
+time_estimate_min: 9
+key_idea: $\lvert f(x)\rvert$가 연속이려면 구간이 바뀌는 $x=a$에서 $\lvert f\rvert$의 좌극한, 우극한, 함숫값이 같아야 하므로 $\lvert a^{2}-4a+3\rvert=\lvert2a-6\rvert$를 푼다.
+stuck: $f$ 자체가 불연속이어도 절댓값을 씌우면 연속일 수 있다는 점($f$의 점프가 부호만 반대인 경우)을 $\pm$ 두 경우로 처리하는 것
+tags:
+- 함수의 연속
+- 절댓값
+- 구간별 정의
+elements:
+  materials:
+  - 구간별로 정의된 함수 $f(x)$
+  - $\lvert f(x)\rvert$
+  concepts:
+  - 함수의 연속
+  - 연속함수의 성질
+  tools: []
+  conditions:
+  - $\lvert f(x)\rvert$가 실수 전체의 집합에서 연속
+  stimuli_used: {}
+  subpart_links: []
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학Ⅱ
+  scope_2028: common
+  scope_confirmed: false
+  standards:
+  - code: 12수학Ⅱ01-03
+    text: 함수의 연속의 뜻을 안다.
+    verified: true
+  - code: 12수학Ⅱ01-04
+    text: 연속함수의 성질을 이해하고, 이를 활용할 수 있다.
+    verified: true
+  content_area: 수학Ⅱ (1) 함수의 극한과 연속 - 함수의 연속
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 한국기술교육대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 한국기술교육대학교
+  admission_year: 2027
+  admission_type: 수시 모의논술
+  track: 공학·ICT융합계열
+  question_no: 6
+  official_url: https://www.koreatech.ac.kr/board.es?mid=a40104010200&bid=0043&act=view&list_no=56566
+  retrieved_at: '2026-11-23'
+  original_points:
+  - 12
+  rights_notice: 미확인
+  transcribed_from: 한국기술교육대 2027학년도 온라인 모의논술 문제지 PDF p.19
+verify: verify/KUT-M27.py::p06
+stimuli: []
+stem: |
+  함수
+
+  $$f(x)=\begin{cases}x^{2}-4x+3&(x\le a)\\2x-6&(x>a)\end{cases}$$
+
+  에 대하여 함수 $\lvert f(x)\rvert$가 실수 전체의 집합에서 연속이 되도록 하는 모든 상수 $a$의 값의 합을 구하시오.
+subparts:
+- id: '1'
+  stem: ''
+  points: 12
+  depends_on: []
+  answer:
+    kind: value
+    value: '2'
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S1-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        함수 $\lvert f(x)\rvert$가 실수 전체의 집합에서 연속이 되려면 $x=a$에서 연속이어야 하므로 $\displaystyle\lim_{x\to a+}\lvert f(x)\rvert=\lim_{x\to a-}\lvert f(x)\rvert=\lvert f(a)\rvert$이어야 한다. 즉, $\lvert a^{2}-4a+3\rvert=\lvert2a-6\rvert$, $\therefore a^{2}-4a+3=\pm(2a-6)$이다.
+      source_flow: PDF p.21
+      criteria:
+      - 1.B1
+    - id: 1b-2
+      content: |
+        (ⅰ) $a^{2}-4a+3=2a-6$일 때, $a^{2}-6a+9=0$, $(a-3)^{2}=0$, $\therefore a=3$이다.
+      source_flow: PDF p.21
+      criteria:
+      - 1.B2
+    - id: 1b-3
+      content: |
+        (ⅱ) $a^{2}-4a+3=-2a+6$일 때, $a^{2}-2a-3=0$, $(a+1)(a-3)=0$, $\therefore a=-1,\ 3$이다.
+      source_flow: PDF p.21
+      criteria:
+      - 1.B2
+    - id: 1b-4
+      content: |
+        (ⅰ), (ⅱ)로부터 함수 $\lvert f(x)\rvert$가 실수 전체의 집합에서 연속이 되도록 하는 상수 $a$의 값은 $-1$, $3$이므로 그 합은 $(-1)+3=2$이다.
+      source_flow: PDF p.21
+      criteria:
+      - 1.B3
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 1.B1
+      mark_type: B
+      points: 5
+      evidence: $x=a$에서의 연속 조건 $\lvert a^{2}-4a+3\rvert=\lvert2a-6\rvert$를 구했다.
+      steps:
+      - 1b-1
+    - id: 1.B2
+      mark_type: B
+      points: 5
+      evidence: $a=-1,\ 3$을 구했다.
+      steps:
+      - 1b-2
+      - 1b-3
+    - id: 1.B3
+      mark_type: B
+      points: 2
+      evidence: 모든 $a$의 값의 합 $2$를 구했다.
+      steps:
+      - 1b-4
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: past-v2-lean
+  item_version: 1
+  verdict: pass
+  date: &id001 2026-11-23
+created: *id001
+updated: *id001

@@ -1,0 +1,142 @@
+schema_version: '2.0'
+id: KUT-M24-03
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: short_answer
+origin: mock_exam
+school: KUT
+type: null
+variant_of: null
+replaces: null
+level: L3
+form: 추론
+points: 8
+time_estimate_min: 5
+key_idea: $x=\dfrac{\pi}{3}$이 근임을 이용해 $a$를 정하고 $\cos x$에 대한 이차식으로 바꾸어 네 근을 구한다.
+stuck: $\sin^2x=1-\cos^2x$로 바꾸어 $\cos x(2\cos x-1)=0$으로 인수분해하는 지점
+tags:
+- 삼각방정식
+- 사인·코사인
+elements:
+  materials:
+  - 삼각방정식 $\sin^2x+a\cos x-1=0$
+  concepts:
+  - 삼각방정식
+  - 삼각함수의 그래프
+  - $\sin^2x+\cos^2x=1$
+  tools:
+  - 삼각함수 사이의 관계
+  conditions:
+  - $0\le x<2\pi$
+  - 서로 다른 네 실근
+  stimuli_used: {}
+  subpart_links: []
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학Ⅰ
+  scope_2028: common
+  scope_confirmed: false
+  behavior_domain: 계산
+  content_area: 삼각함수 – 삼각함수
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 한국기술교육대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 한국기술교육대학교
+  admission_year: 2024
+  admission_type: 수시 모의논술
+  track: 공학계열
+  question_no: 3
+  official_url: https://www.koreatech.ac.kr/board.es?mid=a40104010200&bid=0043&act=view&list_no=15438
+  retrieved_at: '2026-11-23'
+  original_points:
+  - 8
+  rights_notice: 미확인
+  transcribed_from: 한국기술교육대 2024학년도 온라인 모의논술 수리논술 PDF p.8
+verify: verify/KUT-M24.py::p03
+stimuli: []
+stem: |
+  $0\le x<2\pi$일 때, 방정식 $\sin^2x+a\cos x-1=0$이 서로 다른 네 실근 $\dfrac{\pi}{3}$, $\alpha$, $\beta$, $\gamma$를 갖는다. $a+\alpha+\beta+\gamma$의 값을 구하시오. (단, $a$는 상수이다.)
+subparts:
+- id: '1'
+  stem: ''
+  points: 8
+  depends_on: []
+  answer:
+    kind: value
+    value: 1/2 + 11*pi/3
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S1-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        $x=\dfrac{\pi}{3}$이 근이므로 $\sin^2\dfrac{\pi}{3}+a\cos\dfrac{\pi}{3}-1=0$에서 $a=\dfrac12$이다.
+      source_flow: PDF p.9-10
+      criteria:
+      - 1.M1
+    - id: 1b-2
+      content: |
+        $a=\dfrac12$을 대입하면 $2(1-\cos^2x)+\cos x-2=0$, 즉 $\cos x(2\cos x-1)=0$이므로 $\cos x=0$ 또는 $\cos x=\dfrac12$이다.
+      source_flow: PDF p.9-10
+      criteria:
+      - 1.M2
+    - id: 1b-3
+      content: |
+        $0\le x<2\pi$에서 $\cos x=0$의 근은 $x=\dfrac{\pi}{2},\dfrac{3\pi}{2}$, $\cos x=\dfrac12$의 근은 $x=\dfrac{\pi}{3},\dfrac{5\pi}{3}$이다. 따라서 $\alpha<\beta<\gamma$일 때 $\alpha=\dfrac{\pi}{2}$, $\beta=\dfrac{3\pi}{2}$, $\gamma=\dfrac{5\pi}{3}$이므로 $a+\alpha+\beta+\gamma=\dfrac12+\dfrac{11\pi}{3}$이다.
+      source_flow: PDF p.9-10
+      criteria:
+      - 1.M3
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 2
+      evidence: $a=\dfrac12$을 구했다.
+      steps:
+      - 1b-1
+    - id: 1.M2
+      mark_type: M
+      points: 2
+      evidence: $\cos x=0$ 또는 $\cos x=\dfrac12$을 구했다.
+      steps:
+      - 1b-2
+    - id: 1.M3
+      mark_type: M
+      points: 4
+      evidence: $a+\alpha+\beta+\gamma=\dfrac12+\dfrac{11\pi}{3}$을 구했다.
+      steps:
+      - 1b-3
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: past-v2-lean
+  item_version: 1
+  verdict: pass
+  date: &id001 2026-11-23
+created: *id001
+updated: *id001

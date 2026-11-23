@@ -1,0 +1,160 @@
+schema_version: '2.0'
+id: KUT-M23B-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: short_answer
+origin: mock_exam
+school: KUT
+type: null
+variant_of: null
+replaces: null
+level: L3
+form: 추론
+points: 4
+time_estimate_min: null
+key_idea: $t=f(x)$로 치환해 $t$의 범위 $4\le t\le8$를 구하고, 증가함수 $g(t)=2^t$의 최대·최소를 구한다.
+stuck: 합성함수를 $t=f(x)$로 치환하여 이차함수의 치역을 먼저 구하는 지점
+tags:
+- 합성함수
+- 지수함수
+- 이차함수의 최대·최소
+elements:
+  materials:
+  - $f(x)=x^2+2x+5$
+  - $g(x)=2^x$
+  concepts:
+  - 합성함수
+  - 이차함수의 최대·최소
+  - 지수함수의 증가
+  tools:
+  - 완전제곱식
+  - 지수함수의 단조성
+  conditions:
+  - 닫힌구간 $[-2,1]$
+  stimuli_used: {}
+  subpart_links: []
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학Ⅰ
+  scope_2028: common
+  scope_confirmed: false
+  behavior_domain: 계산
+  content_area: 지수함수와 로그함수 – 지수함수, 이차함수의 최대·최소
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 한국기술교육대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 한국기술교육대학교
+  admission_year: 2023
+  admission_type: 수시 모의논술
+  track: 공학계열
+  question_no: 1
+  official_url: https://www.koreatech.ac.kr/board.es?mid=a40104010200&bid=0043&act=view&list_no=15436
+  retrieved_at: '2026-11-23'
+  original_points:
+  - 4
+  rights_notice: 미확인
+  transcribed_from: 한국기술교육대 2023학년도 수시모집 온라인 모의평가(모의 논술고사) 수리논술 PDF p.2
+verify: verify/KUT-M23B.py::p01
+stimuli: []
+stem: |
+  실수 전체에서 정의된 두 함수
+
+  $$f(x)=x^2+2x+5,\qquad g(x)=2^x$$
+
+  가 있다. 닫힌구간 $[-2,1]$에서 함수 $(g\circ f)(x)$의 최댓값과 최솟값을 구하는 과정을 서술하시오.
+subparts:
+- id: '1'
+  stem: ''
+  points: 4
+  depends_on: []
+  answer:
+    kind: value
+    value: max = 256; min = 16
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S1-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        $f(x)=(x+1)^2+4$이므로 닫힌구간 $[-2,1]$에서 최솟값은 $f(-1)=4$이다.
+      source_flow: PDF p.3-4
+      criteria:
+      - 1.M1
+    - id: 1b-2
+      content: |
+        닫힌구간 $[-2,1]$에서 최댓값은 $f(1)=8$이다. 따라서 $t=f(x)$로 놓으면 $4\le t\le8$이다.
+      source_flow: PDF p.3-4
+      criteria:
+      - 1.M2
+    - id: 1b-3
+      content: |
+        $(g\circ f)(x)=g(t)=2^t$은 $t$에 대하여 증가함수이므로 최솟값은 $g(4)=16$이다.
+      source_flow: PDF p.3-4
+      criteria:
+      - 1.M3
+    - id: 1b-4
+      content: |
+        최댓값은 $g(8)=256$이다.
+      source_flow: PDF p.3-4
+      criteria:
+      - 1.M4
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 1
+      evidence: $f(x)$의 최솟값 $4$를 구했다.
+      steps:
+      - 1b-1
+    - id: 1.M2
+      mark_type: M
+      points: 1
+      evidence: $f(x)$의 최댓값 $8$을 구했다.
+      steps:
+      - 1b-2
+    - id: 1.M3
+      mark_type: M
+      points: 1
+      evidence: $(g\circ f)(x)$의 최솟값 $16$을 구했다.
+      steps:
+      - 1b-3
+    - id: 1.M4
+      mark_type: M
+      points: 1
+      evidence: $(g\circ f)(x)$의 최댓값 $256$을 구했다.
+      steps:
+      - 1b-4
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: past-v2-lean
+  item_version: 1
+  verdict: pass
+  date: &id001 2026-11-23
+created: *id001
+updated: *id001

@@ -1,0 +1,146 @@
+schema_version: '2.0'
+id: KUT-M24-05
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: short_answer
+origin: mock_exam
+school: KUT
+type: null
+variant_of: null
+replaces: null
+level: L3
+form: 추론
+points: 8
+time_estimate_min: 5
+key_idea: $f(-3)=f(-1)$에서 $b=4a$, 평균값 정리의 $c=-\dfrac a2$에서 $a=2$를 얻어 $f'(1)$을 구한다.
+stuck: 평균값 정리 $f'(c)=\dfrac{f(0)-f(-2)}{0-(-2)}$에 $c=-\dfrac a2$를 대입해 $a$를 결정하는 지점
+tags:
+- 평균값 정리
+- 접선의 기울기
+elements:
+  materials:
+  - 이차함수 $f(x)=ax^2+bx+7$
+  concepts:
+  - 평균값 정리
+  - 미분계수
+  - 도함수
+  tools:
+  - 평균값 정리
+  - 도함수
+  conditions:
+  - $f(-3)=f(-1)$
+  - 닫힌구간 $[-2,0]$에서 평균값 정리를 만족시키는 $c=-\dfrac a2$
+  stimuli_used: {}
+  subpart_links: []
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학Ⅱ
+  scope_2028: common
+  scope_confirmed: false
+  behavior_domain: 추론
+  content_area: 미분 – 미분계수, 도함수
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 한국기술교육대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 한국기술교육대학교
+  admission_year: 2024
+  admission_type: 수시 모의논술
+  track: 공학계열
+  question_no: 5
+  official_url: https://www.koreatech.ac.kr/board.es?mid=a40104010200&bid=0043&act=view&list_no=15438
+  retrieved_at: '2026-11-23'
+  original_points:
+  - 8
+  rights_notice: 미확인
+  transcribed_from: 한국기술교육대 2024학년도 온라인 모의논술 수리논술 PDF p.14
+verify: verify/KUT-M24.py::p05
+stimuli: []
+stem: |
+  두 상수 $a$, $b$에 대하여 이차함수 $f(x)=ax^2+bx+7$이 다음 조건을 만족시킬 때, $f(x)$의 그래프 위의 점 $(1,f(1))$에서의 접선의 기울기를 구하시오.
+
+  (가) $f(-3)=f(-1)$
+  (나) 닫힌구간 $[-2,0]$에서 평균값 정리를 만족시키는 상수 $c$의 값은 $-\dfrac a2$이다.
+subparts:
+- id: '1'
+  stem: ''
+  points: 8
+  depends_on: []
+  answer:
+    kind: value
+    value: '12'
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S1-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        $f(-3)=9a-3b+7$, $f(-1)=a-b+7$이므로 조건 (가)에서 $9a-3b+7=a-b+7$, 즉 $b=4a$이다.
+      source_flow: PDF p.15-16
+      criteria:
+      - 1.M1
+    - id: 1b-2
+      content: |
+        $f'(x)=2ax+b$이고 조건 (나)에서 $\dfrac{f(0)-f(-2)}{0-(-2)}=f'\left(-\dfrac a2\right)$, 즉 $-2a+b=-a^2+b$이므로 $a^2-2a=0$이다. $a\ne0$이므로 $a=2$, $b=8$이고 $f(x)=2x^2+8x+7$이다.
+      source_flow: PDF p.15-16
+      criteria:
+      - 1.M2
+    - id: 1b-3
+      content: |
+        점 $(1,f(1))$에서의 접선의 기울기는 $f'(1)=2a+b=12$이다.
+      source_flow: PDF p.15-16
+      criteria:
+      - 1.M3
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 2
+      evidence: $b=4a$를 구했다.
+      steps:
+      - 1b-1
+    - id: 1.M2
+      mark_type: M
+      points: 4
+      evidence: $f(x)=2x^2+8x+7$을 구했다.
+      steps:
+      - 1b-2
+    - id: 1.M3
+      mark_type: M
+      points: 2
+      evidence: 접선의 기울기 $12$를 구했다.
+      steps:
+      - 1b-3
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: past-v2-lean
+  item_version: 1
+  verdict: pass
+  date: &id001 2026-11-23
+created: *id001
+updated: *id001

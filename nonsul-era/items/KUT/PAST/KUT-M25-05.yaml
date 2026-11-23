@@ -1,0 +1,150 @@
+schema_version: '2.0'
+id: KUT-M25-05
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: short_answer
+origin: mock_exam
+school: KUT
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 추론
+points: 8
+time_estimate_min: 6
+key_idea: $f'(x)=0$에서 극값을 갖는 $x$를 구하고 두 극점을 지나는 직선의 기울기를 계산한다.
+stuck: 극값의 $x$좌표를 구한 뒤 $\alpha<\beta$ 조건에 맞게 두 점의 좌표를 정하는 것
+tags:
+- 극값
+- 직선의 기울기
+elements:
+  materials: []
+  concepts:
+  - 함수의 극대와 극소
+  tools:
+  - 도함수
+  - 극값의 필요조건 $f'(x)=0$
+  - 두 점을 지나는 직선의 기울기
+  conditions:
+  - $\alpha<\beta$
+  stimuli_used: {}
+  subpart_links: []
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학Ⅱ
+  scope_2028: common
+  scope_confirmed: true
+  behavior_domain: 계산
+  standards:
+  - code: 12수학Ⅱ02-08
+    text: 함수의 증가와 감소, 극대와 극소를 판정하고 설명할 수 있다.
+    verified: true
+  - code: 12수학Ⅱ02-09
+    text: 함수의 그래프의 개형을 그릴 수 있다.
+    verified: true
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 한국기술교육대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 한국기술교육대학교
+  admission_year: 2025
+  admission_type: 수시 모의논술
+  track: 공학·ICT융합계열(오후)
+  question_no: 5
+  official_url: https://www.koreatech.ac.kr/board.es?mid=a40104010200&bid=0043&act=view&list_no=52392
+  retrieved_at: '2026-11-23'
+  original_points:
+  - 8
+  rights_notice: 미확인
+  transcribed_from: 한국기술교육대 2025학년도 모의논술 평가문제 및 해설(수학) PDF p.14
+verify: verify/KUT-M25.py::p05
+stimuli: []
+stem: 함수 $f(x)=x^{3}-3x^{2}+6$이 $x=\alpha$, $x=\beta$에서 각각 극값을 가질 때, 서로 다른 두 점 $\mathrm{A}(\alpha,f(\alpha))$, $\mathrm{B}(\beta,f(\beta))$를 지나는
+subparts:
+- id: '1'
+  stem: |
+    직선의 기울기를 구하시오. (단, $\alpha<\beta$)
+  points: 8
+  depends_on: []
+  answer:
+    kind: value
+    value: '-2'
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S1-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        미분가능한 함수 $f(x)$가 $x=\alpha,\ x=\beta$에서 극값을 가지면 $f'(\alpha)=0$이고 $f'(\beta)=0$이다. $f(x)=x^{3}-3x^{2}+6$으로부터 $f'(x)=3x^{2}-6x$이다. $f'(x)=3x^{2}-6x=0$으로부터 $3x(x-2)=0$이고, $x=0$ 또는 $x=2$이다. 그러므로 $\alpha=0$이고 $\beta=2$이다.
+      source_flow: PDF p.16
+      criteria:
+      - 1.M1
+    - id: 1b-2
+      content: |
+        $f(0)=6$이고, $f(2)=2$이므로 두 점 $\mathrm{A},\ \mathrm{B}$는 각각 $(0,6)$, $(2,2)$이다.
+      source_flow: PDF p.16
+      criteria:
+      - 1.M2
+    - id: 1b-3
+      content: |
+        그러므로 두 점 $\mathrm{A},\ \mathrm{B}$를 지나는 직선의 기울기는 $\dfrac{2-6}{2-0}=-2$이다.
+      source_flow: PDF p.16
+      criteria:
+      - 1.A1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 4
+      evidence: $\alpha=0$이고 $\beta=2$임을 구했다.
+      steps:
+      - 1b-1
+    - id: 1.M2
+      mark_type: M
+      points: 2
+      evidence: 두 점 $\mathrm{A},\ \mathrm{B}$가 각각 $(0,6)$, $(2,2)$임을 구했다.
+      depends_on:
+      - 1.M1
+      steps:
+      - 1b-2
+    - id: 1.A1
+      mark_type: A
+      points: 2
+      evidence: 기울기 $-2$를 구했다.
+      depends_on:
+      - 1.M2
+      steps:
+      - 1b-3
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: past-v2-lean
+  item_version: 1
+  verdict: pass
+  date: &id001 2026-11-23
+created: *id001
+updated: *id001

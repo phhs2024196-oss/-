@@ -1,0 +1,158 @@
+schema_version: '2.0'
+id: KUT-G23B-05
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: short_answer
+origin: past_exam
+school: KUT
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 추론
+points: 8
+time_estimate_min: 5
+key_idea: 양변을 미분해 $f'(x)=12x+6$을 얻고, $x=-2$를 대입해 적분상수를 정한다.
+stuck: $x=-2$를 대입해 적분상수를 정하는 단계
+tags:
+- 수학Ⅱ
+- 미분
+- 부정적분
+elements:
+  materials: []
+  concepts:
+  - 미분
+  - 부정적분
+  - 정적분으로 정의된 함수
+  tools:
+  - 양변 미분
+  - 적분상수 결정
+  conditions: []
+  stimuli_used: {}
+  subpart_links: []
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학Ⅱ
+  scope_2028: common
+  scope_confirmed: true
+  behavior_domain: 계산
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 한국기술교육대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 한국기술교육대학교
+  admission_year: 2023
+  admission_type: 수시 논술전형
+  track: 공학계열(오후)
+  question_no: 5
+  official_url: https://www.koreatech.ac.kr/board.es?mid=a40104010200&bid=0043&act=view&list_no=15437
+  retrieved_at: '2026-11-23'
+  original_points:
+  - 8
+  rights_notice: 미확인
+  transcribed_from: 한국기술교육대 2024학년도 대비 논술기출문제집(2023학년도 오후) PDF p.43
+verify: verify/KUT-G23B.py::p05
+stimuli: []
+stem: |
+  모든 실수 $x$에 대하여 다항함수 $f(x)$가 $xf(x)=4x^3+3x^2+\displaystyle\int_{-2}^{x}f(t)\,dt$를 만족시킬 때,
+subparts:
+- id: '1'
+  stem: |
+    $f(2)$의 값을 구하시오.
+  points: 8
+  depends_on: []
+  answer:
+    kind: value
+    value: '34'
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S1-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        $xf(x)=4x^3+3x^2+\displaystyle\int_{-2}^{x}f(t)\,dt$의 양변을 $x$에 대하여 미분하면 $f(x)+xf'(x)=12x^2+6x+f(x)$이다. 이로부터 $xf'(x)=x(12x+6)$이고 $f(x)$가 다항함수이므로 $f'(x)=12x+6$, $f(x)=\displaystyle\int(12x+6)\,dx=6x^2+6x+C$ ($C$는 적분상수)이다.
+      source_flow: PDF p.44
+      criteria:
+      - 1.M1
+    - id: 1b-2
+      content: |
+        처음 식에 $x=-2$를 대입하면 $-2f(-2)=4(-2)^3+3(-2)^2+\displaystyle\int_{-2}^{-2}f(t)\,dt=-20$이므로 $f(-2)=10$이다. 한편 $f(-2)=12+C$이므로 $C=-2$, 즉 $f(x)=6x^2+6x-2$이다.
+      source_flow: PDF p.44
+      criteria:
+      - 1.A1
+      - 1.A2
+    - id: 1b-3
+      content: |
+        따라서 $f(2)=6\times2^2+6\times2+(-2)=34$이다.
+      source_flow: PDF p.44
+      criteria:
+      - 1.A3
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 3
+      evidence: |
+        $f(x)+xf'(x)=12x^2+6x+f(x)$ 또는 동치식이 있다.
+      steps:
+      - 1b-1
+    - id: 1.A1
+      mark_type: A
+      points: 2
+      evidence: |
+        $f(-2)=10$이 있다.
+      depends_on:
+      - 1.M1
+      steps:
+      - 1b-2
+    - id: 1.A2
+      mark_type: A
+      points: 2
+      evidence: |
+        $f(x)=6x^2+6x-2$가 있다.
+      depends_on:
+      - 1.M1
+      steps:
+      - 1b-2
+    - id: 1.A3
+      mark_type: A
+      points: 1
+      evidence: |
+        $f(2)=34$가 있다.
+      depends_on:
+      - 1.M1
+      steps:
+      - 1b-3
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: past-v2-lean
+  item_version: 1
+  verdict: pass
+  date: 2026-11-23
+created: 2026-11-23
+updated: 2026-11-23

@@ -1,0 +1,222 @@
+schema_version: '2.0'
+id: KUT-G25A-09
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: short_answer
+origin: past_exam
+school: KUT
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 점화
+points: 16
+time_estimate_min: 14
+key_idea: $a_6=2$에서 앞으로는 주기 5로 반복함을, 뒤로는 정수 여부를 따져 가능한 $(a_1,a_2)$를 역추적한다.
+stuck: 역추적에서 $a_n$이 정수인지에 따른 두 규칙 중 모순 없는 경우만 남기는 판단
+tags:
+- 한국기술교육대
+- 2025학년도
+- 실전
+- 오전
+- 수열의 뜻
+- 수열의 합
+elements:
+  materials: []
+  concepts:
+  - 수열의 뜻
+  - 수열의 합
+  tools:
+  - 귀납적으로 정의된 수열
+  - 주기성
+  - 역추적(경우 분류)
+  conditions:
+  - a_{n+1}=5/a_n (a_n 정수), 2a_n-1 (a_n 정수 아님)
+  - a_6=2
+  stimuli_used: {}
+  subpart_links: []
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학Ⅰ
+  scope_2028: common
+  scope_confirmed: false
+  behavior_domain: 추론
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 한국기술교육대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 한국기술교육대학교
+  admission_year: 2025
+  admission_type: 수시 논술전형
+  track: 공학·ICT융합계열(오전)
+  question_no: 9
+  official_url: https://cdn013.negagea.net/dgsmidc/omr/seoul/web/univ_info2025/한국기술교육대학교/한국기술교육대학교_2025학년도_선행학습영향평가.pdf
+  retrieved_at: '2026-11-23'
+  original_points:
+  - 6
+  - 10
+  rights_notice: 미확인
+  transcribed_from: 한국기술교육대 2025학년도 선행학습 영향평가 보고서 PDF p.51
+verify: verify/KUT-G25A.py::p09
+stimuli: []
+stem: |
+  수열 $\{a_n\}$이 모든 자연수 $n$에 대하여
+  $$a_{n+1}=\begin{cases}\dfrac{5}{a_n} & (a_n\text{이 정수인 경우})\\ 2a_n-1 & (a_n\text{이 정수가 아닌 경우})\end{cases}$$
+  를 만족시킨다. $a_6=2$일 때, 다음 물음에 답하시오.
+subparts:
+- id: 9-1
+  stem: |
+    (1) $2\sum_{k=6}^{27}a_k$의 값을 구하시오. (6점)
+  points: 6
+  depends_on: []
+  answer:
+    kind: value
+    value: '99'
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S91-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 91b-1
+      content: |
+        $a_6=2$이므로 $a_6=2,\ a_7=\dfrac{5}{2},\ a_8=4,\ a_9=\dfrac{5}{4},\ a_{10}=\dfrac{3}{2},\ a_{11}=2,\ \cdots$이다. 따라서 모든 자연수 $n$에 대하여 $a_{5n+1}=2,\ a_{5n+2}=\dfrac{5}{2},\ a_{5n+3}=4,\ a_{5n+4}=\dfrac{5}{4},\ a_{5n+5}=\dfrac{3}{2}$이므로
+      source_flow: PDF p.53~54
+      criteria:
+      - 9-1.M1
+    - id: 91b-2
+      content: |
+        $$2\sum_{k=6}^{27}a_k=2\times\left\{4\times\left(2+\dfrac{5}{2}+4+\dfrac{5}{4}+\dfrac{3}{2}\right)+2+\dfrac{5}{2}\right\}=99$$이다.
+      source_flow: PDF p.53~54
+      criteria:
+      - 9-1.A1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 9-1.M1
+      mark_type: M
+      points: 3
+      evidence: $a_6=2,\ a_7=\tfrac{5}{2},\ a_8=4,\ a_9=\tfrac{5}{4},\ a_{10}=\tfrac{3}{2},\ a_{11}=2$ 임을 구함
+      steps:
+      - 91b-1
+    - id: 9-1.A1
+      mark_type: A
+      points: 3
+      evidence: $2\sum_{k=6}^{27}a_k=99$ 임을 구함
+      steps:
+      - 91b-2
+      depends_on:
+      - 9-1.M1
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+- id: 9-2
+  stem: |
+    (2) $a_1+a_2$의 최댓값과 최솟값을 각각 구하시오. (10점)
+  points: 10
+  depends_on: []
+  answer:
+    kind: value
+    value: max = 9/2; min = 67/32
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S92-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 92b-1
+      content: |
+        $a_5$가 정수이면, $a_6=\dfrac{5}{a_5}=2$에서 $a_5=\dfrac{5}{2}$이므로 $a_5$가 정수라는 조건에 모순이다. 따라서 $a_5$는 정수가 아니고, $a_6=2a_5-1=2$에서 $a_5=\dfrac{3}{2}$이다. 이와 같은 과정을 반복하면 $a_4=\dfrac{5}{4}$이다.
+      source_flow: PDF p.53~54
+      criteria:
+      - 9-2.M1
+    - id: 92b-2
+      content: |
+        계속해서 $a_3$이 정수이면 $a_4=\dfrac{5}{a_3}=\dfrac{5}{4}$에서 $a_3=4$이다. $a_3$이 정수가 아니면 $a_4=2a_3-1=\dfrac{5}{4}$에서 $a_3=\dfrac{9}{8}$이다. 이와 같은 과정을 반복하면 $a_3=4$일 때 $a_2=\dfrac{5}{2}$이고, $a_3=\dfrac{9}{8}$일 때 $a_2=\dfrac{17}{16}$이다. 그리고 $a_2=\dfrac{5}{2}$일 때, $a_1=2$ 또는 $a_1=\dfrac{7}{4}$이다. 한편, $a_2=\dfrac{17}{16}$일 때, $a_1=\dfrac{33}{32}$이다. 정리하면 [그림: $a_6=2$에서 $a_5=\tfrac{3}{2}$, $a_4=\tfrac{5}{4}$로 이어지고 $a_4$에서 두 갈래로 갈라지는 나무 도형 — $a_3=4,\ a_2=\tfrac{5}{2}$ 에서 $a_1=2$ 또는 $\tfrac{7}{4}$, $a_3=\tfrac{9}{8},\ a_2=\tfrac{17}{16},\ a_1=\tfrac{33}{32}$]
+      source_flow: PDF p.53~54
+      criteria:
+      - 9-2.M1
+      - 9-2.M2
+      - 9-2.M3
+    - id: 92b-3
+      content: |
+        $(a_1,\ a_2)=\left(2,\ \dfrac{5}{2}\right)$ 또는 $\left(\dfrac{7}{4},\ \dfrac{5}{2}\right)$ 또는 $\left(\dfrac{33}{32},\ \dfrac{17}{16}\right)$이다. 따라서 $a_1+a_2$의 최댓값은 $2+\dfrac{5}{2}=\dfrac{9}{2}$이고, 최솟값은 $\dfrac{33}{32}+\dfrac{17}{16}=\dfrac{67}{32}$이다.
+      source_flow: PDF p.53~54
+      criteria:
+      - 9-2.A1
+      - 9-2.A2
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 9-2.M1
+      mark_type: M
+      points: 2
+      evidence: $(a_1,a_2)=\left(2,\tfrac{5}{2}\right)$ 임을 구함
+      steps:
+      - 92b-1
+      - 92b-2
+    - id: 9-2.M2
+      mark_type: M
+      points: 2
+      evidence: 또는 $(a_1,a_2)=\left(\tfrac{7}{4},\tfrac{5}{2}\right)$ 임을 구함
+      steps:
+      - 92b-2
+    - id: 9-2.M3
+      mark_type: M
+      points: 2
+      evidence: 또는 $(a_1,a_2)=\left(\tfrac{33}{32},\tfrac{17}{16}\right)$ 임을 구함
+      steps:
+      - 92b-2
+    - id: 9-2.A1
+      mark_type: A
+      points: 2
+      evidence: 최댓값이 $\tfrac{9}{2}$ 임을 구함
+      steps:
+      - 92b-3
+      depends_on:
+      - 9-2.M3
+    - id: 9-2.A2
+      mark_type: A
+      points: 2
+      evidence: 최솟값이 $\tfrac{67}{32}$ 임을 구함
+      steps:
+      - 92b-3
+      depends_on:
+      - 9-2.M3
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: past-v2-lean
+  item_version: 1
+  verdict: pass
+  date: &id001 2026-11-23
+created: *id001
+updated: *id001

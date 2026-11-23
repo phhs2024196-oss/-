@@ -1,0 +1,142 @@
+schema_version: '2.0'
+id: KUT-M23B-02
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: short_answer
+origin: mock_exam
+school: KUT
+type: null
+variant_of: null
+replaces: null
+level: L3
+form: 추론
+points: 4
+time_estimate_min: null
+key_idea: 밑을 2로 통일해 $\log_2(x+10)<\log_2 5^3$으로 바꾸고, 진수 조건 $x>-10$과 함께 정수의 개수를 센다.
+stuck: $\log_8$, $\log_4$를 밑 2의 로그로 바꾸고 진수의 양수 조건을 함께 따지는 지점
+tags:
+- 로그부등식
+- 진수 조건
+elements:
+  materials:
+  - 로그부등식 $\log_8(x+10)<2\log_45$
+  concepts:
+  - 로그의 밑의 변환
+  - 로그부등식
+  - 진수 조건
+  tools:
+  - 로그의 성질
+  - 로그함수의 증가
+  conditions:
+  - $x$는 정수
+  stimuli_used: {}
+  subpart_links: []
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학Ⅰ
+  scope_2028: common
+  scope_confirmed: false
+  behavior_domain: 계산
+  content_area: 지수함수와 로그함수 – 지수함수와 로그함수의 활용
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 한국기술교육대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 한국기술교육대학교
+  admission_year: 2023
+  admission_type: 수시 모의논술
+  track: 공학계열
+  question_no: 2
+  official_url: https://www.koreatech.ac.kr/board.es?mid=a40104010200&bid=0043&act=view&list_no=15436
+  retrieved_at: '2026-11-23'
+  original_points:
+  - 4
+  rights_notice: 미확인
+  transcribed_from: 한국기술교육대 2023학년도 수시모집 온라인 모의평가(모의 논술고사) 수리논술 PDF p.5
+verify: verify/KUT-M23B.py::p02
+stimuli: []
+stem: |
+  부등식 $\log_8(x+10)<2\log_45$를 만족시키는 정수 $x$의 개수를 구하는 과정을 서술하시오.
+subparts:
+- id: '1'
+  stem: ''
+  points: 4
+  depends_on: []
+  answer:
+    kind: value
+    value: '124'
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S1-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        $\log_{2^3}(x+10)<2\log_{2^2}5$에서 $\dfrac13\log_2(x+10)<\log_25$, 즉 $\log_2(x+10)<\log_25^3$이므로 $x+10<5^3$, $x<115$이다.
+      source_flow: PDF p.6-7
+      criteria:
+      - 1.M1
+    - id: 1b-2
+      content: |
+        로그의 진수는 양수이어야 하므로 $x>-10$이다.
+      source_flow: PDF p.6-7
+      criteria:
+      - 1.M2
+    - id: 1b-3
+      content: |
+        따라서 $-10<x<115$이고 정수 $x$의 개수는 $124$이다.
+      source_flow: PDF p.6-7
+      criteria:
+      - 1.M3
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 2
+      evidence: 부등식 $x<115$를 구했다.
+      steps:
+      - 1b-1
+    - id: 1.M2
+      mark_type: M
+      points: 1
+      evidence: 부등식 $x>-10$을 구했다.
+      steps:
+      - 1b-2
+    - id: 1.M3
+      mark_type: M
+      points: 1
+      evidence: 정수 $x$의 개수 $124$를 구했다.
+      steps:
+      - 1b-3
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: past-v2-lean
+  item_version: 1
+  verdict: pass
+  date: &id001 2026-11-23
+created: *id001
+updated: *id001

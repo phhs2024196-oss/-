@@ -1,0 +1,197 @@
+schema_version: '2.0'
+id: KUT-M19A-03
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: KUT
+type: null
+variant_of: null
+replaces: null
+level: L3
+form: 분류
+points: 20
+time_estimate_min: null
+key_idea: 처음 옮긴 공의 색으로 경우를 나누어 $P(B)$를 구하고 조건부확률 $P(A\mid B)=\dfrac{P(A\cap B)}{P(B)}$ 를 쓴다.
+stuck: 구하는 확률을 $P(A\mid B)$ 로 해석하고 분자를 $P(A\cap B)$ 로 두는 것
+tags:
+- 2009개정:확률과 통계
+- 조건부확률
+- 수학적 확률
+elements:
+  materials:
+  - 제시문 1개(수학적 확률의 정의)
+  - 주머니 A(흰 공 2, 검은 공 3), 주머니 B(흰 공 3, 검은 공 5)
+  concepts:
+  - 수학적 확률
+  - 조건부확률
+  - 확률의 덧셈정리와 곱셈정리
+  tools:
+  - 조건부확률 공식
+  conditions:
+  - A에서 1개를 뽑아 B에 넣은 뒤 B에서 1개를 뽑음
+  stimuli_used: {}
+  subpart_links: []
+curriculum:
+  version: '2015'
+  subjects:
+  - 확률과통계
+  scope_2028: common
+  scope_confirmed: false
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 한국기술교육대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 한국기술교육대학교
+  admission_year: 2019
+  admission_type: 수시 모의논술
+  track: 공학계열·산업경영학부 공통
+  question_no: 3
+  official_url: https://www.koreatech.ac.kr/board.es?mid=a40104010200&bid=0043&act=view&list_no=15433
+  retrieved_at: '2026-11-23'
+  original_points:
+  - 10
+  - 10
+  rights_notice: 미확인
+  transcribed_from: 한국기술교육대 2019학년도 논술 예시문항(2019 논술가이드북) PDF p.15
+verify: verify/KUT-M19A.py::p03
+stimuli:
+- label: 제시문
+  body: |
+    표본공간 $S$에서 각각의 근원사건이 일어날 가능성이 모두 같을 때, 사건 $A$가 일어날 수학적 확률은 $P(A)=\dfrac{n(A)}{n(S)}$이다.
+stem: |
+  다음 제시문을 읽고 물음에 답하시오. (20점)
+
+  주머니 A에는 흰 공 2개, 검은 공 3개가 들어 있고, 주머니 B에는 흰 공 3개, 검은 공 5개가 들어 있다. 주머니 A에서 1개의 공을 뽑아 그것을 주머니 B에 넣고, 주머니 B에서 다시 1개를 뽑을 때 다음 확률을 구하여라.
+subparts:
+- id: 1-1
+  stem: |
+    주머니 B에서 뽑은 공이 흰 공일 확률 (10점)
+  points: 10
+  depends_on: []
+  answer:
+    kind: value
+    value: 17/45
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S11-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 11b-1
+      content: |
+        주머니 A에서 흰 공을 뽑는 사건을 $A$라고 하고, 주머니 B에서 흰 공을 뽑는 사건을 $B$라고 하자. 이 때 주머니 B에서 흰 공을 뽑을 확률은 두 가지 경우로 나누어서 생각할 수 있다.
+        (i) 주머니 A에서 흰 공을 뽑고 그 공을 주머니 B에 넣은 다음, 주머니 B에서 흰 공을 꺼낼 확률은
+        $$P(A\cap B)=P(A)P(B\mid A)=\dfrac{2}{5}\times\dfrac{4}{9}=\dfrac{8}{45}$$
+        (ii) 주머니 A에서 검은 공을 뽑고 그 공을 주머니 B에 넣은 다음, 주머니 B에서 흰 공을 꺼낼 확률은
+        $$P(A^{C}\cap B)=P(A^{C})P(B\mid A^{C})=\dfrac{3}{5}\times\dfrac{3}{9}=\dfrac{9}{45}$$
+      source_flow: PDF p.15
+      criteria:
+      - 1-1.M1
+    - id: 11b-2
+      content: |
+        따라서 $P(B)=P(A\cap B)+P(A^{C}\cap B)=\dfrac{8}{45}+\dfrac{9}{45}=\dfrac{17}{45}$
+      source_flow: PDF p.16
+      criteria:
+      - 1-1.A1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 1-1.M1
+      mark_type: M
+      points: 5
+      evidence: '평가항목 1: 처음 뽑은 공의 색으로 경우를 나누어 $P(A\cap B)=\dfrac{8}{45}$, $P(A^{C}\cap B)=\dfrac{9}{45}$ 를 구했다.'
+      steps:
+      - 11b-1
+    - id: 1-1.A1
+      mark_type: A
+      points: 5
+      evidence: '평가항목 2: 두 확률을 더해 $P(B)=\dfrac{17}{45}$ 를 구했다.'
+      steps:
+      - 11b-2
+      depends_on:
+      - 1-1.M1
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+- id: 1-2
+  stem: |
+    주머니 B에서 뽑은 공이 흰 공일 때, 주머니 A에서 주머니 B로 옮긴 공도 흰 공이었을 확률 (10점)
+  points: 10
+  depends_on:
+  - 1-1
+  answer:
+    kind: value
+    value: 8/17
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S12-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 12b-1
+      content: |
+        주머니 B에서 뽑은 공이 흰 공일 때, 주머니 A에서 주머니 B로 옮긴 공도 흰 공이었을 확률은 다음의 조건부확률로 표현할 수 있다.
+        $$P(A\mid B)=\dfrac{P(A\cap B)}{P(B)}$$
+      source_flow: PDF p.16
+      criteria:
+      - 1-2.M1
+    - id: 12b-2
+      content: |
+        따라서 $P(A\mid B)=\dfrac{P(A\cap B)}{P(B)}=\dfrac{8/45}{17/45}=\dfrac{8}{17}$
+      source_flow: PDF p.16
+      criteria:
+      - 1-2.A1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 1-2.M1
+      mark_type: M
+      points: 5
+      evidence: '평가항목 3: 구하는 확률을 $P(A\mid B)=\dfrac{P(A\cap B)}{P(B)}$ 로 표현했다.'
+      steps:
+      - 12b-1
+    - id: 1-2.A1
+      mark_type: A
+      points: 5
+      evidence: '평가항목 4: $P(A\mid B)=\dfrac{8}{17}$ 을 구했다.'
+      steps:
+      - 12b-2
+      depends_on:
+      - 1-2.M1
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: past-v2-lean
+  item_version: 1
+  verdict: pass
+  date: &id001 2026-11-23
+created: *id001
+updated: *id001

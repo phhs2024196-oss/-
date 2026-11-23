@@ -1,0 +1,157 @@
+schema_version: '2.0'
+id: KUT-G26-05
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: short_answer
+origin: past_exam
+school: KUT
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 분류
+points: 8
+time_estimate_min: 5
+key_idea: $f(x)=(x-\sin\theta)^{2}-2\sin^{2}\theta-\sin\theta+2$로 완전제곱 꼴을 만들고, 꼭짓점의 위치($\sin\theta\ge0$ 여부)에 따라 $x\ge0$에서의 최솟값을 나누어 구한다.
+stuck: 정의역이 $x\ge0$이므로 $\sin\theta$의 부호에 따라 최솟값이 $f(\sin\theta)$와 $f(0)$으로 갈린다는 분류
+tags:
+- 삼각함수
+- 이차함수 최솟값
+- 경우 분류
+elements:
+  materials:
+  - $f(x)=x^{2}-2(\sin\theta)x+\cos^{2}\theta-\sin\theta+1$ ($x\ge0$)
+  concepts:
+  - 삼각함수의 성질
+  - 사인함수의 그래프
+  - 이차함수의 최솟값
+  - 삼각함수 $\sin^{2}\theta+\cos^{2}\theta=1$
+  tools: []
+  conditions:
+  - $0\le\theta<2\pi$
+  - 최솟값이 $1$
+  stimuli_used: {}
+  subpart_links: []
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학Ⅰ
+  scope_2028: common
+  scope_confirmed: false
+  standards:
+  - code: 12수학Ⅰ02-02
+    text: 삼각함수의 뜻을 알고, 사인함수, 코사인함수, 탄젠트함수의 그래프를 그릴 수 있다.
+    verified: true
+  content_area: 수학Ⅰ (2) 삼각함수 - 삼각함수
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 한국기술교육대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 한국기술교육대학교
+  admission_year: 2026
+  admission_type: 수시 논술전형
+  track: 공학·ICT융합계열
+  question_no: 5
+  official_url: https://www.koreatech.ac.kr/board.es?mid=a40104010200&bid=0043&act=view&list_no=56564
+  retrieved_at: '2026-11-23'
+  original_points:
+  - 8
+  rights_notice: 미확인
+  transcribed_from: 한국기술교육대 2026학년도 논술고사 문제지 PDF p.6
+verify: verify/KUT-G26.py::p05
+stimuli: []
+stem: |
+  정의역이 $\{x\mid x\ge0\}$인 함수
+
+  $$f(x)=x^{2}-2(\sin\theta)x+\cos^{2}\theta-\sin\theta+1$$
+
+  의 최솟값이 $1$일 때, 이를 만족시키는 모든 실수 $\theta$의 값의 합을 구하시오. (단, $0\le\theta<2\pi$)
+subparts:
+- id: '1'
+  stem: ''
+  points: 8
+  depends_on: []
+  answer:
+    kind: value
+    value: pi
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S1-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        $\cos^{2}\theta=1-\sin^{2}\theta$이므로 $f(x)=(x-\sin\theta)^{2}+\cos^{2}\theta-\sin\theta+1-\sin^{2}\theta=(x-\sin\theta)^{2}-2\sin^{2}\theta-\sin\theta+2$이다.
+      source_flow: PDF p.10
+      criteria:
+      - 1.B1
+    - id: 1b-2
+      content: |
+        ① $\sin\theta\ge0$이라면 $x\ge0$일 때 함수 $f(x)$의 최솟값은 $f(\sin\theta)=-2\sin^{2}\theta-\sin\theta+2$이므로 $-2\sin^{2}\theta-\sin\theta+2=1$, $\therefore\sin\theta=\dfrac12$ ($\because\sin\theta\ge0$)이다. 그러므로 실수 $\theta$ $(0\le\theta<2\pi)$는 $\theta=\dfrac\pi6,\ \dfrac{5\pi}{6}$이다.
+      source_flow: PDF p.10
+      criteria:
+      - 1.B1
+    - id: 1b-3
+      content: |
+        ② $\sin\theta<0$이라면 $x\ge0$일 때 함수 $f(x)$의 최솟값은 $f(0)=-\sin^{2}\theta-\sin\theta+2$이므로 $-\sin^{2}\theta-\sin\theta+2=1$, $\therefore\sin\theta=\dfrac{-1\pm\sqrt5}{2}$이다. 그러나 $-1\le\sin\theta<0$이어야 하므로 조건을 만족시키는 실수 $\theta$ $(0\le\theta<2\pi)$는 존재하지 않는다.
+      source_flow: PDF p.10
+      criteria:
+      - 1.B2
+    - id: 1b-4
+      content: |
+        따라서 ①, ②로부터 모든 실수 $\theta$의 값의 합은 $\dfrac\pi6+\dfrac{5\pi}{6}=\pi$이다.
+      source_flow: PDF p.10
+      criteria:
+      - 1.B3
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 1.B1
+      mark_type: B
+      points: 3
+      evidence: $\sin\theta\ge0$일 때 최솟값 $f(\sin\theta)=1$로부터 $\sin\theta=\dfrac12$를 구했다.
+      steps:
+      - 1b-1
+      - 1b-2
+    - id: 1.B2
+      mark_type: B
+      points: 3
+      evidence: $\sin\theta<0$일 때 조건을 만족시키는 $\theta$가 존재하지 않음을 구했다.
+      steps:
+      - 1b-3
+    - id: 1.B3
+      mark_type: B
+      points: 2
+      evidence: 모든 실수 $\theta$의 값의 합 $\pi$를 구했다.
+      steps:
+      - 1b-4
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: past-v2-lean
+  item_version: 1
+  verdict: pass
+  date: &id001 2026-11-23
+created: *id001
+updated: *id001

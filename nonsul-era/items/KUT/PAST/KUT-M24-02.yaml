@@ -1,0 +1,130 @@
+schema_version: '2.0'
+id: KUT-M24-02
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: short_answer
+origin: mock_exam
+school: KUT
+type: null
+variant_of: null
+replaces: null
+level: L3
+form: 전수
+points: 4
+time_estimate_min: 5
+key_idea: 로그의 성질로 식을 $\dfrac{4+k}{6}$로 정리하고 자연수가 되는 $k$를 모두 센다.
+stuck: 식 전체를 하나의 로그 $\log_3 3^{(4+k)/6}$으로 합치는 지점
+tags:
+- 로그
+- 자연수 조건
+elements:
+  materials:
+  - 로그식
+  concepts:
+  - 로그의 성질
+  - 거듭제곱근
+  - 자연수 조건
+  tools:
+  - 로그의 성질
+  - 배수 판별
+  conditions:
+  - $k$는 30 이하의 자연수
+  stimuli_used: {}
+  subpart_links: []
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학Ⅰ
+  scope_2028: common
+  scope_confirmed: false
+  behavior_domain: 계산
+  content_area: 지수함수와 로그함수 – 지수와 로그
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 한국기술교육대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 한국기술교육대학교
+  admission_year: 2024
+  admission_type: 수시 모의논술
+  track: 공학계열
+  question_no: 2
+  official_url: https://www.koreatech.ac.kr/board.es?mid=a40104010200&bid=0043&act=view&list_no=15438
+  retrieved_at: '2026-11-23'
+  original_points:
+  - 4
+  rights_notice: 미확인
+  transcribed_from: 한국기술교육대 2024학년도 온라인 모의논술 수리논술 PDF p.5
+verify: verify/KUT-M24.py::p02
+stimuli: []
+stem: |
+  $\log_3 \sqrt[3]{72}+\log_3 \dfrac{\sqrt[6]{3^k}}{2}$의 값이 자연수가 되도록 하는 $30$ 이하의 모든 자연수 $k$의 합을 구하시오.
+subparts:
+- id: '1'
+  stem: ''
+  points: 4
+  depends_on: []
+  answer:
+    kind: value
+    value: '70'
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S1-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        $\log_3\sqrt[3]{72}+\log_3\dfrac{\sqrt[6]{3^k}}{2}=\log_3\left\{(3^2\times 2^3)^{\frac13}\times\dfrac{3^{\frac k6}}{2}\right\}=\log_3 3^{\frac23+\frac k6}=\dfrac23+\dfrac k6=\dfrac{4+k}{6}$이다.
+      source_flow: PDF p.6-7
+      criteria:
+      - 1.M1
+    - id: 1b-2
+      content: |
+        이 값이 자연수이려면 $4+k$가 $6$의 배수이어야 하므로 $4+k=6,12,18,24,30$, 즉 $k=2,8,14,20,26$이고 그 합은 $70$이다.
+      source_flow: PDF p.6-7
+      criteria:
+      - 1.M2
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 2
+      evidence: 식을 $\dfrac23+\dfrac k6=\dfrac{4+k}{6}$로 정리했다.
+      steps:
+      - 1b-1
+    - id: 1.M2
+      mark_type: M
+      points: 2
+      evidence: 조건을 만족시키는 모든 $k$의 합 $70$을 구했다.
+      steps:
+      - 1b-2
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: past-v2-lean
+  item_version: 1
+  verdict: pass
+  date: &id001 2026-11-23
+created: *id001
+updated: *id001

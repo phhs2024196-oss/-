@@ -1,0 +1,207 @@
+schema_version: '2.0'
+id: KUT-G23B-10
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: short_answer
+origin: past_exam
+school: KUT
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 구성
+points: 16
+time_estimate_min: 14
+key_idea: 원점은 곡선 위의 점이므로 $l_1$은 원점에서의 접선이고, $l_2$는 접점 $(t,f(t))$를 놓고 접선이 원점을 지나는 조건으로 $t$를 구한다.
+stuck: 원점이 곡선 위의 점임을 알아보고 접점이 원점인 접선과 아닌 접선으로 나누는 단계
+tags:
+- 수학Ⅱ
+- 수학Ⅰ
+- 접선의 방정식
+- 미분계수
+elements:
+  materials: []
+  concepts:
+  - 접선의 방정식
+  - 미분계수
+  - 수열의 합
+  - 삼차함수
+  tools:
+  - 접점 설정
+  - 접선의 방정식
+  conditions: []
+  stimuli_used: {}
+  subpart_links: []
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학Ⅱ
+  - 수학Ⅰ
+  scope_2028: common
+  scope_confirmed: true
+  behavior_domain: 문제해결
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 한국기술교육대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 한국기술교육대학교
+  admission_year: 2023
+  admission_type: 수시 논술전형
+  track: 공학계열(오후)
+  question_no: 10
+  official_url: https://www.koreatech.ac.kr/board.es?mid=a40104010200&bid=0043&act=view&list_no=15437
+  retrieved_at: '2026-11-23'
+  original_points:
+  - 10
+  - 6
+  rights_notice: 미확인
+  transcribed_from: 한국기술교육대 2024학년도 대비 논술기출문제집(2023학년도 오후) PDF p.53
+verify: verify/KUT-G23B.py::p10
+stimuli: []
+stem: |
+  $0<k<4$인 실수 $k$에 대하여 곡선 $y=x(x-k)(x-4)$에 접하고 원점을 지나는 두 접선을 $l_1$, $l_2$라 할 때, 다음 물음에 답하시오.
+  (단, 접선 $l_1$의 기울기는 접선 $l_2$의 기울기보다 크다.)
+subparts:
+- id: 1-1
+  stem: |
+    두 접선 $l_1$, $l_2$의 기울기를 $k$에 관한 식으로 나타내시오.
+  points: 10
+  depends_on: []
+  answer:
+    kind: expression
+    value: l1 = 4*k; l2 = -(k**2 - 8*k + 16)/4
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S11-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 11b-1
+      content: |
+        $f(x)=x(x-k)(x-4)$라 하면 $f(0)=0$이므로 원점은 곡선 $y=f(x)$ 위의 점이다. 따라서 접선 $l_1$의 기울기는 $f'(0)$이고 $f'(x)=3x^2-2(k+4)x+4k$이므로 $f'(0)=4k$이다.
+      source_flow: PDF p.54
+      criteria:
+      - 1-1.M1
+    - id: 11b-2
+      content: |
+        접선 $l_2$의 기울기를 구하기 위해 원점이 아닌 점 $(t,\,f(t))$에서의 접선의 방정식 $y-f(t)=f'(t)(x-t)$를 구한다. 이 접선이 원점을 지나므로 $-f(t)=f'(t)(-t)$를 만족시켜야 한다. $f(x)=x^3-(k+4)x^2+4kx$이므로 이를 정리하면 $t^2\{2t-(k+4)\}=0$ ($t\ne0$)이고 $t=\dfrac{k+4}2$이다.
+      source_flow: PDF p.54
+      criteria:
+      - 1-1.M2
+    - id: 11b-3
+      content: |
+        따라서 접선 $l_2$의 기울기는 $f'(t)$이고, 이를 구하면 $f'\!\left(\dfrac{k+4}2\right)=-\dfrac14(k^2-8k+16)$이다.
+      source_flow: PDF p.54
+      criteria:
+      - 1-1.A1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 1-1.M1
+      mark_type: M
+      points: 4
+      evidence: |
+        접선 $l_1$의 기울기 $4k$가 있다.
+      steps:
+      - 11b-1
+    - id: 1-1.M2
+      mark_type: M
+      points: 3
+      evidence: |
+        접선 $l_2$의 접점의 $x$좌표 $\frac{k+4}2$가 있다.
+      steps:
+      - 11b-2
+    - id: 1-1.A1
+      mark_type: A
+      points: 3
+      evidence: |
+        접선 $l_2$의 기울기 $-\frac14(k^2-8k+16)$이 있다.
+      depends_on:
+      - 1-1.M2
+      steps:
+      - 11b-3
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+- id: 1-2
+  stem: |
+    위 (1)에서 구한 두 접선 $l_1$, $l_2$의 기울기의 곱을 $g(k)$라 할 때, $\displaystyle\sum_{k=1}^{3}g(k)$의 값을 구하시오.
+  points: 6
+  depends_on:
+  - 1-1
+  answer:
+    kind: value
+    value: '-20'
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S12-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 12b-1
+      content: |
+        (1)의 풀이에서 구한 두 접선의 기울기의 곱은 $g(k)=-k^3+8k^2-16k$이다.
+      source_flow: PDF p.54
+      criteria:
+      - 1-2.M1
+    - id: 12b-2
+      content: |
+        따라서 $\displaystyle\sum_{k=1}^{3}g(k)=\sum_{k=1}^{3}(-k^3+8k^2-16k)=(-9)+(-8)+(-3)=-20$이다.
+      source_flow: PDF p.54
+      criteria:
+      - 1-2.A1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 1-2.M1
+      mark_type: M
+      points: 2
+      evidence: |
+        $g(k)=-k^3+8k^2-16k$가 있다.
+      steps:
+      - 12b-1
+    - id: 1-2.A1
+      mark_type: A
+      points: 4
+      evidence: |
+        $\sum_{k=1}^{3}g(k)=-20$이 있다.
+      depends_on:
+      - 1-2.M1
+      steps:
+      - 12b-2
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: past-v2-lean
+  item_version: 1
+  verdict: pass
+  date: 2026-11-23
+created: 2026-11-23
+updated: 2026-11-23

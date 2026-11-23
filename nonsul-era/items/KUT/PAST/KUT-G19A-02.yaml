@@ -1,0 +1,234 @@
+schema_version: '2.0'
+id: KUT-G19A-02
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: KUT
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 분류
+points: 20
+time_estimate_min: null
+key_idea: $f$의 부호가 $x=a$에서 바뀌는 점을 기준으로 $\lvert f\rvert$ 를 두 구간으로 나누어 적분해 $S(a)$ 를 구하고, 도함수의 영점과 양 끝점의 값을 비교한다.
+stuck: $-1\le x\le a$ 에서 $f\le0$, $a\le x\le2$ 에서 $f\ge0$ 임을 보고 넓이를 $-\int f+\int f$ 로 나누는 것
+tags:
+- 2009개정:미적분Ⅰ
+- 정적분과 넓이
+- 삼차함수의 극값
+- 구간별 정의 함수
+elements:
+  materials:
+  - 구간별로 정의된 함수 $f(x)$($a$를 매개변수로 가짐)
+  concepts:
+  - 정적분과 넓이
+  - 도함수와 극값
+  - 닫힌구간에서의 최대·최소
+  tools:
+  - 정적분
+  - 도함수
+  conditions:
+  - $-1\le a\le2$
+  - $-1\le x\le a$ 에서 $(x+1)(x-a)$
+  - $a\le x\le2$ 에서 $4(x-a)(2-x)$
+  stimuli_used: {}
+  subpart_links: []
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학Ⅱ
+  scope_2028: common
+  scope_confirmed: false
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 한국기술교육대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 한국기술교육대학교
+  admission_year: 2019
+  admission_type: 수시 논술전형
+  track: 공학계열(오전)
+  question_no: 2
+  official_url: https://www.koreatech.ac.kr/board.es?mid=a40104010200&bid=0043&act=view&list_no=15434
+  retrieved_at: '2026-11-23'
+  original_points:
+  - 10
+  - 4
+  - 6
+  rights_notice: 미확인
+  transcribed_from: 한국기술교육대 2020학년도 논술고사 대비 논술 기출 문제집(이미지 PDF) p.18
+verify: verify/KUT-G19A.py::p02
+stimuli: []
+stem: |
+  【(1)~(3)】 함수 $y=f(x)$가
+  $$f(x)=\begin{cases}(x+1)(x-a)&(-1\le x\le a)\\4(x-a)(2-x)&(a\le x\le2)\end{cases}$$
+  일 때, 다음 물음에 답하시오. (단, $-1\le a\le2$) (20점)
+subparts:
+- id: 2-1
+  stem: |
+    정적분을 이용하여 곡선 $y=f(x)$와 $x$축으로 둘러싸인 도형의 넓이를 $S(a)$라 할 때, $S(a)$를 구하시오. (단, $S(a)$에 대한 최종 계산 결과는 간결하게 정리하시오.) (10점)
+  points: 10
+  depends_on: []
+  answer:
+    kind: expression
+    value: (-a**3+9*a**2-15*a+11)/2
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S21-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 21b-1
+      content: |
+        주어진 함수 $y=f(x)$를 그래프로 나타내면 구간 $[-1,a]$에서는 $x$축 아래, 구간 $[a,2]$에서는 $x$축 위에 있다. 정적분을 이용하여 구하고자 하는 둘러싸인 도형의 넓이 $S(a)$를 나타내면
+        $$S(a)=\int_{-1}^{2}\lvert f(x)\rvert dx=-\int_{-1}^{a}(x+1)(x-a)dx+\int_{a}^{2}4(x-a)(2-x)dx$$
+        이다.
+      source_flow: PDF p.19-20
+      criteria:
+      - 2-1.M1
+    - id: 21b-2
+      content: |
+        정적분을 구하여 정리하면 다음과 같다.
+        $$S(a)=-\int_{-1}^{a}[x^2+(1-a)x-a]dx+4\int_{a}^{2}[-x^2+(a+2)x-2a]dx$$
+        $$=-\left[\dfrac{x^3}{3}+(1-a)\dfrac{x^2}{2}-ax\right]_{-1}^{a}+4\left[-\dfrac{x^3}{3}+(a+2)\dfrac{x^2}{2}-2ax\right]_{a}^{2}=\dfrac{1}{2}\left(-a^3+9a^2-15a+11\right)$$
+      source_flow: PDF p.20
+      criteria:
+      - 2-1.A1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 2-1.M1
+      mark_type: M
+      points: 3
+      evidence: 정적분을 이용하여 도형의 넓이 $S(a)=-\int_{-1}^{a}(x+1)(x-a)dx+\int_{a}^{2}4(x-a)(2-x)dx$ 를 나타낼 수 있다.
+      steps:
+      - 21b-1
+    - id: 2-1.A1
+      mark_type: A
+      points: 7
+      evidence: $S(a)=\dfrac{1}{2}\left(-a^3+9a^2-15a+11\right)$ 을 구할 수 있다. (넓이를 나타낸 적분식이 틀리면 계산 결과가 맞아도 7점을 부여하지 않으며 2-1 전체 0점)
+      steps:
+      - 21b-2
+      depends_on:
+      - 2-1.M1
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+- id: 2-2
+  stem: |
+    함수 $S(a)$가 극값을 가지는 $a$의 값을 구하시오. (4점)
+  points: 4
+  depends_on:
+  - 2-1
+  answer:
+    kind: value
+    value: '1'
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S22-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 22b-1
+      content: |
+        함수 $S(a)$를 $a$에 대해 미분하면
+        $$S'(a)=\dfrac{1}{2}\left(-3a^2+18a-15\right)=-\dfrac{3}{2}(a-1)(a-5)$$
+        이다. 구간 $-1\le a\le2$에서 함수 $S(a)$가 극값을 가질 수 있는, 즉 $S'(a)=0$을 만족하는 $a$를 구하면 $a=1$이다.
+      source_flow: PDF p.20
+      criteria:
+      - 2-2.B1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 2-2.B1
+      mark_type: B
+      points: 4
+      evidence: 함수 $S(a)$에 대하여 극값을 가지는 $a$의 값, 즉 $a=1$을 구할 수 있다.
+      steps:
+      - 22b-1
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+- id: 2-3
+  stem: |
+    함수 $S(a)$의 최댓값과 최솟값을 구하시오. (6점)
+  points: 6
+  depends_on:
+  - 2-1
+  answer:
+    kind: set
+    value: max=18; min=2
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S23-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 23b-1
+      content: |
+        구간 $-1<a<2$에서 $S'(a)=0$의 근에서의 함숫값 $S(1)$과 구간의 양 끝점에서의 함숫값 $S(-1)$, $S(2)$ 중에서 가장 작은 값이 함수 $S(a)$의 최솟값이고, 가장 큰 값이 함수 $S(a)$의 최댓값이 된다. 극값 $S(1)$과 함숫값 $S(-1)$과 $S(2)$를 구하면
+        $$S(1)=2,\ S(-1)=18,\ S(2)=\dfrac{9}{2}$$
+        이다. 따라서 함수 $S(a)$의 최솟값은 2, 최댓값은 18이다.
+      source_flow: PDF p.20
+      criteria:
+      - 2-3.B1
+      - 2-3.B2
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 2-3.B1
+      mark_type: B
+      points: 3
+      evidence: '함수 $S(a)$의 최댓값 18을 구할 수 있다. [판독확인: 원본 채점기준표 2-(3)의 배점 칸이 두 행에 걸쳐 병합되어 "3" 하나만 표기됨(2-(1) 10점+2-(2) 4점+3 = 17점). 문항 배점 6점에 맞춰 3+3으로 분할]'
+      steps:
+      - 23b-1
+    - id: 2-3.B2
+      mark_type: B
+      points: 3
+      evidence: 함수 $S(a)$의 최솟값 2를 구할 수 있다.
+      steps:
+      - 23b-1
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: past-v2-lean
+  item_version: 1
+  verdict: pass
+  date: &id001 2026-11-23
+created: *id001
+updated: *id001

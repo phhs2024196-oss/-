@@ -1,0 +1,150 @@
+schema_version: '2.0'
+id: KUT-M23A-05
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: short_answer
+origin: mock_exam
+school: KUT
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 추론
+points: 10
+time_estimate_min: null
+key_idea: $\displaystyle a=\int_0^1g(t)\,dt$, $\displaystyle b=\int_0^1f(t)\,dt$로 놓아 $f,g$의 꼴을 정하고 $a,b$의 연립방정식을 푼다.
+stuck: 정적분이 상수임을 보고 $a,b$로 놓아 서로를 대입하는 연립 구조를 세우는 지점
+tags:
+- 정적분을 포함한 등식
+- 연립방정식
+- 삼차방정식
+elements:
+  materials:
+  - $f(x)=x^3+2x\int_0^1g(t)\,dt$
+  - $g(x)=3x^2+x\int_0^1f(t)\,dt$
+  concepts:
+  - 정적분
+  - 다항함수의 정적분
+  - 상수로 놓기
+  - 방정식의 근과 계수의 관계
+  tools:
+  - 정적분의 계산
+  - 연립방정식
+  conditions:
+  - 방정식 $f(x)=xg(x)$
+  stimuli_used: {}
+  subpart_links: []
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학Ⅱ
+  scope_2028: common
+  scope_confirmed: false
+  behavior_domain: 문제해결
+  content_area: 적분 – 정적분
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 한국기술교육대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 한국기술교육대학교
+  admission_year: 2023
+  admission_type: 수시 모의논술
+  track: 공학계열
+  question_no: 5
+  official_url: https://www.koreatech.ac.kr/board.es?mid=a40104010200&bid=0043&act=view&list_no=15435
+  retrieved_at: '2026-11-23'
+  original_points:
+  - 10
+  rights_notice: 미확인
+  transcribed_from: 한국기술교육대 2023학년도 수시 논술고사 【수리】모의문제(6월 배포) PDF p.5
+verify: verify/KUT-M23A.py::p05
+stimuli: []
+stem: |
+  두 다항함수 $f(x)$, $g(x)$를
+
+  $$f(x)=x^3+2x\displaystyle\int_0^1g(t)\,dt,\qquad g(x)=3x^2+x\displaystyle\int_0^1f(t)\,dt$$
+
+  라 하자. 방정식 $f(x)=xg(x)$의 모든 실근의 합을 구하는 과정을 서술하시오.
+subparts:
+- id: '1'
+  stem: ''
+  points: 10
+  depends_on: []
+  answer:
+    kind: value
+    value: -5/4
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S1-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        $a=\displaystyle\int_0^1g(t)\,dt$, $b=\displaystyle\int_0^1f(t)\,dt$라 하면 $f(x)=x^3+2ax$ ㉠, $g(x)=3x^2+bx$ ㉡이다.
+      source_flow: PDF p.5
+      criteria:
+      - 1.M1
+    - id: 1b-2
+      content: |
+        ㉠, ㉡에서 $a=\displaystyle\int_0^1(3t^2+bt)\,dt=1+\dfrac b2$ ㉢, $b=\displaystyle\int_0^1(t^3+2at)\,dt=\dfrac14+a$ ㉣이다. ㉢, ㉣을 연립하면 $a=\dfrac94$, $b=\dfrac52$이다.
+      source_flow: PDF p.5
+      criteria:
+      - 1.M2
+    - id: 1b-3
+      content: |
+        $f(x)=x^3+\dfrac92x$, $g(x)=3x^2+\dfrac52x$이고 $f(x)=xg(x)$는 $x\left(-2x^2-\dfrac52x+\dfrac92\right)=0$이다. 따라서 모든 실근의 합은 $-\dfrac54$이다.
+      source_flow: PDF p.5
+      criteria:
+      - 1.M3
+  # 채점기준 미공개 — 단계별 추정
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 3
+      evidence: $f(x)=x^3+2ax$, $g(x)=3x^2+bx$ 꼴로 나타냈다.
+      steps:
+      - 1b-1
+    - id: 1.M2
+      mark_type: M
+      points: 4
+      evidence: $a=\dfrac94$, $b=\dfrac52$를 구했다.
+      steps:
+      - 1b-2
+    - id: 1.M3
+      mark_type: M
+      points: 3
+      evidence: 모든 실근의 합 $-\dfrac54$를 구했다.
+      steps:
+      - 1b-3
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: past-v2-lean
+  item_version: 1
+  verdict: pass
+  date: &id001 2026-11-23
+created: *id001
+updated: *id001

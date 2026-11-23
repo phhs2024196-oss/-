@@ -1,0 +1,182 @@
+schema_version: '2.0'
+id: KUT-M25-06
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: short_answer
+origin: mock_exam
+school: KUT
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 추론
+points: 12
+time_estimate_min: 10
+key_idea: $x=0$에서 $g(0)=\lim_{x\to0-}g(x)=\lim_{x\to0+}g(x)$를 세워 $b$, $a$를 차례로 구한다.
+stuck: $g(0)=\{f(0)\}^{2}+bf(0)$에 $f(0)=a-b$를 대입하는 것과, 좌극한·우극한에서 $f$의 서로 다른 식을 쓰는 것
+tags:
+- 함수의 연속
+- 구간별로 정의된 함수
+elements:
+  materials: []
+  concepts:
+  - 함수의 연속
+  tools:
+  - 연속의 정의(함숫값·좌극한·우극한)
+  - 이차방정식의 풀이
+  conditions:
+  - $a>0$
+  stimuli_used: {}
+  subpart_links: []
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학Ⅱ
+  scope_2028: common
+  scope_confirmed: true
+  behavior_domain: 문제해결
+  standards:
+  - code: 12수학Ⅱ01-03
+    text: 함수의 연속의 뜻을 안다.
+    verified: true
+  - code: 12수학Ⅱ01-04
+    text: 연속함수의 성질을 이해하고, 이를 활용할 수 있다.
+    verified: true
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 한국기술교육대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 한국기술교육대학교
+  admission_year: 2025
+  admission_type: 수시 모의논술
+  track: 공학·ICT융합계열(오후)
+  question_no: 6
+  official_url: https://www.koreatech.ac.kr/board.es?mid=a40104010200&bid=0043&act=view&list_no=52392
+  retrieved_at: '2026-11-23'
+  original_points:
+  - 12
+  rights_notice: 미확인
+  transcribed_from: 한국기술교육대 2025학년도 모의논술 평가문제 및 해설(수학) PDF p.17
+verify: verify/KUT-M25.py::p06
+stimuli: []
+stem: |-
+  두 실수 $a$, $b$에 대하여 함수
+  $$f(x)=\begin{cases}-5x-6&(x<0)\\a-b&(x=0)\\x+2&(x>0)\end{cases}$$
+  일 때, 함수 $g(x)=\{f(x)\}^{2}+bf(x)$라 하자. 함수 $g(x)$가 $x=0$에서 연속일 때,
+subparts:
+- id: '1'
+  stem: |
+    $a+b$의 값을 구하시오. (단, $a>0$)
+  points: 12
+  depends_on: []
+  answer:
+    kind: value
+    value: '10'
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S1-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        함수 $g(x)$는 $x=0$에서 연속이므로 $g(0)=\displaystyle\lim_{x\to0-}g(x)=\lim_{x\to0+}g(x)$이다.
+      source_flow: PDF p.19
+      criteria:
+      - 1.M1
+    - id: 1b-2
+      content: |
+        ① 함숫값 : $g(0)=\{f(0)\}^{2}+bf(0)=(a-b)^{2}+b(a-b)=a(a-b)$
+      source_flow: PDF p.19
+      criteria:
+      - 1.M2
+    - id: 1b-3
+      content: |
+        ② 좌극한 : $\displaystyle\lim_{x\to0-}g(x)=\lim_{x\to0-}\left[(-5x-6)^{2}+b(-5x-6)\right]=(-6)^{2}+b\times(-6)=36-6b$
+      source_flow: PDF p.19
+      criteria:
+      - 1.M3
+    - id: 1b-4
+      content: |
+        ③ 우극한 : $\displaystyle\lim_{x\to0+}g(x)=\lim_{x\to0+}\left[(x+2)^{2}+b(x+2)\right]=2^{2}+b\times2=4+2b$ 이므로 $a(a-b)=36-6b=4+2b$ ····· ㉠
+      source_flow: PDF p.19
+      criteria:
+      - 1.M4
+    - id: 1b-5
+      content: |
+        $36-6b=4+2b$로부터 $b=4$를 구할 수 있고, $b=4$를 ㉠에 대입하면 $a^{2}-4a-12=(a+2)(a-6)=0$이다. 따라서 $a=6$ ($a>0$)이고, $a+b=10$이다.
+      source_flow: PDF p.19
+      criteria:
+      - 1.A1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 2
+      evidence: $g(0)=\displaystyle\lim_{x\to0-}g(x)=\lim_{x\to0+}g(x)$를 세웠다.
+      steps:
+      - 1b-1
+    - id: 1.M2
+      mark_type: M
+      points: 2
+      evidence: $g(0)=a(a-b)$를 구했다.
+      depends_on:
+      - 1.M1
+      steps:
+      - 1b-2
+    - id: 1.M3
+      mark_type: M
+      points: 3
+      evidence: $\displaystyle\lim_{x\to0-}g(x)=36-6b$를 구했다.
+      depends_on:
+      - 1.M1
+      steps:
+      - 1b-3
+    - id: 1.M4
+      mark_type: M
+      points: 3
+      evidence: $\displaystyle\lim_{x\to0+}g(x)=4+2b$를 구했다.
+      depends_on:
+      - 1.M1
+      steps:
+      - 1b-4
+    - id: 1.A1
+      mark_type: A
+      points: 2
+      evidence: $a=6$과 $b=4$를 구하고, $a+b=10$을 구했다.
+      depends_on:
+      - 1.M2
+      - 1.M3
+      - 1.M4
+      steps:
+      - 1b-5
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: past-v2-lean
+  item_version: 1
+  verdict: pass
+  date: &id001 2026-11-23
+created: *id001
+updated: *id001

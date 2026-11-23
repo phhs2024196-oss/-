@@ -1,0 +1,141 @@
+schema_version: '2.0'
+id: KUT-G23B-04
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: short_answer
+origin: past_exam
+school: KUT
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 추론
+points: 8
+time_estimate_min: 5
+key_idea: $\overline{AC}=x$로 놓고 $\triangle ABC=\triangle ABD+\triangle ACD$인 넓이 관계를 세운다.
+stuck: 넓이 분할로 방정식을 세우는 발상
+tags:
+- 수학Ⅰ
+- 삼각형의 넓이
+- 사인함수
+elements:
+  materials: []
+  concepts:
+  - 삼각형의 넓이
+  - 사인함수
+  - 각의 이등분선
+  tools:
+  - 삼각형의 넓이 분할
+  - 인수분해
+  conditions: []
+  stimuli_used: {}
+  subpart_links: []
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학Ⅰ
+  scope_2028: common
+  scope_confirmed: true
+  behavior_domain: 계산
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 한국기술교육대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 한국기술교육대학교
+  admission_year: 2023
+  admission_type: 수시 논술전형
+  track: 공학계열(오후)
+  question_no: 4
+  official_url: https://www.koreatech.ac.kr/board.es?mid=a40104010200&bid=0043&act=view&list_no=15437
+  retrieved_at: '2026-11-23'
+  original_points:
+  - 8
+  rights_notice: 미확인
+  transcribed_from: 한국기술교육대 2024학년도 대비 논술기출문제집(2023학년도 오후) PDF p.41
+verify: verify/KUT-G23B.py::p04
+stimuli: []
+stem: |
+  $\overline{\mathrm{AB}}=2$이고 $\angle\mathrm{BAC}=120^\circ$인 삼각형 $\mathrm{ABC}$가 있다. $\angle\mathrm{BAC}$의 이등분선이 선분 $\mathrm{BC}$와 만나는 점을 $\mathrm D$라 하고 $\overline{\mathrm{AD}}=\overline{\mathrm{AC}}^{2}$일 때,
+subparts:
+- id: '1'
+  stem: |
+    선분 $\mathrm{AC}$의 길이를 구하시오.
+  points: 8
+  depends_on: []
+  answer:
+    kind: value
+    value: -1+sqrt(3)
+    equivalents:
+    - sqrt(3)-1
+    tolerance: null
+  solutions:
+  - id: S1-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        $\overline{\mathrm{AC}}=x$라 하면 $\overline{\mathrm{AD}}=x^2$이고, $\angle\mathrm{BAD}=\angle\mathrm{CAD}=60^\circ$이다. 삼각형 $\mathrm{ABD}$의 넓이는 $\dfrac12\times2\times x^2\times\sin60^\circ=\dfrac{\sqrt3}2x^2$, 삼각형 $\mathrm{ACD}$의 넓이는 $\dfrac12\times x\times x^2\times\sin60^\circ=\dfrac{\sqrt3}4x^3$, 삼각형 $\mathrm{ABC}$의 넓이는 $\dfrac12\times2\times x\times\sin120^\circ=\dfrac{\sqrt3}2x$이다.
+      source_flow: PDF p.42
+      criteria:
+      - 1.M1
+    - id: 1b-2
+      content: |
+        삼각형 $\mathrm{ABC}$의 넓이는 삼각형 $\mathrm{ABD}$와 삼각형 $\mathrm{ACD}$의 넓이의 합과 같으므로 $\dfrac{\sqrt3}2x=\dfrac{\sqrt3}2x^2+\dfrac{\sqrt3}4x^3$이고, 이를 풀면 $x(x^2+2x-2)=0$, 즉 $x=0,\,-1+\sqrt3,\,-1-\sqrt3$이다.
+      source_flow: PDF p.42
+      criteria:
+      - 1.M1
+    - id: 1b-3
+      content: |
+        $x>0$이므로 $x=-1+\sqrt3$이고, 선분 $\mathrm{AC}$의 길이는 $-1+\sqrt3$이다.
+      source_flow: PDF p.42
+      criteria:
+      - 1.A1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 6
+      evidence: |
+        $\overline{AC}=x$일 때 방정식 $x(x^2+2x-2)=0$ 또는 동치식이 있다.
+      steps:
+      - 1b-1
+      - 1b-2
+    - id: 1.A1
+      mark_type: A
+      points: 2
+      evidence: |
+        $\overline{AC}=-1+\sqrt3$이 있다.
+      depends_on:
+      - 1.M1
+      steps:
+      - 1b-3
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: past-v2-lean
+  item_version: 1
+  verdict: pass
+  date: 2026-11-23
+created: 2026-11-23
+updated: 2026-11-23

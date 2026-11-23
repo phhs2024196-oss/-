@@ -1,0 +1,154 @@
+schema_version: '2.0'
+id: KUT-G25B-03
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: short_answer
+origin: past_exam
+school: KUT
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 분류
+points: 8
+time_estimate_min: 5
+key_idea: $g(x)=x^3-12x$의 극값 $\pm16$을 구해 $y=\lvert g(x)\rvert$의 그래프를 그리고 수평선과의 교점이 4개인 $k$를 찾는다.
+stuck: 절댓값으로 접혀 올라온 부분의 꼭짓점(극댓값 16)에서 교점 개수가 4가 된다는 관찰
+tags:
+- 한국기술교육대
+- 2025학년도
+- 실전
+- 오후
+- 도함수
+- 함수의 극대와 극소
+elements:
+  materials: []
+  concepts:
+  - 도함수
+  - 함수의 극대와 극소
+  tools:
+  - 삼차함수의 극값
+  - 절댓값 함수의 그래프
+  - 직선과의 교점 개수
+  conditions:
+  - f(x)=|x^3-12x|
+  - f(x)=k 의 서로 다른 실근의 개수가 4
+  stimuli_used: {}
+  subpart_links: []
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학Ⅱ
+  scope_2028: common
+  scope_confirmed: false
+  behavior_domain: 추론
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 한국기술교육대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 한국기술교육대학교
+  admission_year: 2025
+  admission_type: 수시 논술전형
+  track: 공학·ICT융합계열(오후)
+  question_no: 3
+  official_url: https://cdn013.negagea.net/dgsmidc/omr/seoul/web/univ_info2025/한국기술교육대학교/한국기술교육대학교_2025학년도_선행학습영향평가.pdf
+  retrieved_at: '2026-11-23'
+  original_points:
+  - 8
+  rights_notice: 미확인
+  transcribed_from: 한국기술교육대 2025학년도 선행학습 영향평가 보고서 PDF p.64
+verify: verify/KUT-G25B.py::p03
+stimuli: []
+stem: |
+  함수 $f(x)=\lvert x^3-12x\rvert$에 대하여 $x$에 대한 방정식 $f(x)=k$의 서로 다른 실근의 개수가 4가 되도록 하는 실수 $k$의 값을 구하시오.
+subparts:
+- id: '1'
+  stem: ''
+  points: 8
+  depends_on: []
+  answer:
+    kind: value
+    value: '16'
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S1-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        $g(x)=x^3-12x$라 하면 $g'(x)=3x^2-12=3(x+2)(x-2)$이므로 $g'(x)=0$의 해는 $x=-2$ 또는 $x=2$이다.
+      source_flow: PDF p.65~66
+      criteria:
+      - 1.M1
+    - id: 1b-2
+      content: |
+        따라서 함수 $g(x)$의 극댓값은 $g(-2)=16$, 극솟값은 $g(2)=-16$이므로 함수 $f(x)=\lvert g(x)\rvert=\lvert x^3-12x\rvert$의 그래프는 [그림: $x=-2,\ 2$에서 극댓값 16을 갖고 $x=0,\ \pm2\sqrt{3}$에서 $x$축과 만나는 W자 모양 그래프와 직선 $y=k$]와 같다.
+      source_flow: PDF p.65~66
+      criteria:
+      - 1.M2
+      - 1.M3
+    - id: 1b-3
+      content: |
+        이때 방정식 $f(x)=k$의 서로 다른 실근의 개수가 4가 되기 위해서는 그림과 같이 함수 $y=f(x)$의 그래프와 직선 $y=k$가 서로 다른 네 점에서 만나야 하므로 $k=f(2)=\lvert g(2)\rvert=16$이다.
+      source_flow: PDF p.65~66
+      criteria:
+      - 1.A1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 2
+      evidence: $g(x)=x^3-12x$ 에서 $g'(x)=0$ 의 해 $x=-2$ 또는 $x=2$ 를 구함
+      steps:
+      - 1b-1
+    - id: 1.M2
+      mark_type: M
+      points: 2
+      evidence: $g(-2)=16,\ g(2)=-16$ 임을 구함
+      steps:
+      - 1b-2
+    - id: 1.M3
+      mark_type: M
+      points: 2
+      evidence: $y=f(x)=\lvert g(x)\rvert$ 의 그래프의 개형을 그림
+      steps:
+      - 1b-2
+    - id: 1.A1
+      mark_type: A
+      points: 2
+      evidence: $k=16$ 임을 구함
+      steps:
+      - 1b-3
+      depends_on:
+      - 1.M3
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: past-v2-lean
+  item_version: 1
+  verdict: pass
+  date: &id001 2026-11-23
+created: *id001
+updated: *id001

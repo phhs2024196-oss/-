@@ -1,0 +1,163 @@
+schema_version: '2.0'
+id: KUT-G23B-07
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: short_answer
+origin: past_exam
+school: KUT
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 추론
+points: 12
+time_estimate_min: 9
+key_idea: 수렴 조건으로 $f(5)=0$을 얻어 $f(x)=(x-2)(x-5)(x+a)$로 놓고, $f'(5)$를 이용해 $a$를 정한다.
+stuck: 극한식에서 $\{f'(x)\}^2$를 $f'(5)^2$로 바꾸는 단계
+tags:
+- 수학Ⅱ
+- 함수의 극한
+- 삼차함수
+elements:
+  materials: []
+  concepts:
+  - 함수의 극한
+  - 삼차함수
+  - 미분계수
+  - 수렴 조건
+  tools:
+  - 수렴 조건
+  - 인수정리
+  - 미분
+  conditions: []
+  stimuli_used: {}
+  subpart_links: []
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학Ⅱ
+  scope_2028: common
+  scope_confirmed: true
+  behavior_domain: 계산
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 한국기술교육대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 한국기술교육대학교
+  admission_year: 2023
+  admission_type: 수시 논술전형
+  track: 공학계열(오후)
+  question_no: 7
+  official_url: https://www.koreatech.ac.kr/board.es?mid=a40104010200&bid=0043&act=view&list_no=15437
+  retrieved_at: '2026-11-23'
+  original_points:
+  - 12
+  rights_notice: 미확인
+  transcribed_from: 한국기술교육대 2024학년도 대비 논술기출문제집(2023학년도 오후) PDF p.47
+verify: verify/KUT-G23B.py::p07
+stimuli: []
+stem: |
+  최고차항의 계수가 $1$이고 $f(2)=0$인 삼차함수 $f(x)$가 $\displaystyle\lim_{x\to5}\dfrac{f(x)}{(x-5)\{f'(x)\}^2}=\dfrac19$을 만족시킬 때,
+subparts:
+- id: '1'
+  stem: |
+    $f(3)$의 값을 구하시오.
+  points: 12
+  depends_on: []
+  answer:
+    kind: value
+    value: '-2'
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S1-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        $x\to5$일 때 (분모)$\to0$이고 극한값이 존재하므로 (분자)$\to0$이어야 한다. 즉 $\displaystyle\lim_{x\to5}f(x)=f(5)=0$이다.
+      source_flow: PDF p.48
+      criteria:
+      - 1.M1
+    - id: 1b-2
+      content: |
+        $f(x)$는 $x-5$를 인수로 갖고, 조건 $f(2)=0$에서 $x-2$도 인수로 갖는다. 최고차항의 계수가 $1$인 삼차함수이므로 $f(x)=(x-2)(x-5)(x+a)$ ($a$는 실수)이다.
+      source_flow: PDF p.48
+      criteria:
+      - 1.M2
+    - id: 1b-3
+      content: |
+        $f'(x)=(x-5)(x+a)+(x-2)(x+a)+(x-2)(x-5)$이고 $f'(5)\ne0$이므로 $\displaystyle\lim_{x\to5}\dfrac{f(x)}{(x-5)\{f'(x)\}^2}=\lim_{x\to5}\dfrac{(x-2)(x+a)}{\{f'(x)\}^2}=\dfrac{3(5+a)}{\{f'(5)\}^2}=\dfrac1{3(5+a)}=\dfrac19$이다. 이를 풀면 $a=-2$이므로 $f(x)=(x-2)^2(x-5)$이다.
+      source_flow: PDF p.48
+      criteria:
+      - 1.A1
+    - id: 1b-4
+      content: |
+        따라서 $f(3)=1^2\times(-2)=-2$이다.
+      source_flow: PDF p.48
+      criteria:
+      - 1.A2
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 2
+      evidence: |
+        $f(5)=0$이 있다.
+      steps:
+      - 1b-1
+    - id: 1.M2
+      mark_type: M
+      points: 4
+      evidence: |
+        $f(x)=(x-2)(x-5)(x+a)$ 꼴이 있다.
+      steps:
+      - 1b-2
+    - id: 1.A1
+      mark_type: A
+      points: 5
+      evidence: |
+        $f(x)=(x-2)^2(x-5)$가 있다.
+      depends_on:
+      - 1.M2
+      steps:
+      - 1b-3
+    - id: 1.A2
+      mark_type: A
+      points: 1
+      evidence: |
+        $f(3)=-2$가 있다.
+      depends_on:
+      - 1.M2
+      steps:
+      - 1b-4
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: past-v2-lean
+  item_version: 1
+  verdict: pass
+  date: 2026-11-23
+created: 2026-11-23
+updated: 2026-11-23

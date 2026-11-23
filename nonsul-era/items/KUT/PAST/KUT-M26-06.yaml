@@ -1,0 +1,179 @@
+schema_version: '2.0'
+id: KUT-M26-06
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: short_answer
+origin: mock_exam
+school: KUT
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 추론
+points: 12
+time_estimate_min: 10
+key_idea: $x=4$에서의 연속 조건으로 $a=4$를 구하고, $[1,5]$에서 그래프를 보고 $M$, $m$을 구한다.
+stuck: $a$를 정한 뒤 구간별 함수의 그래프에서 끝점과 꼭짓점 후보를 비교하는 단계
+tags:
+- 함수의 연속
+- 구간별로 정의된 함수
+- 최대·최소
+elements:
+  materials: []
+  concepts:
+  - 연속함수의 성질
+  - 함수의 최대와 최소
+  tools:
+  - 연속의 정의(좌극한·우극한·함숫값)
+  - 이차함수의 그래프
+  - 닫힌구간에서의 최대·최소
+  conditions:
+  - $f(x)$는 실수 전체에서 연속
+  - 닫힌구간 $[1,5]$
+  stimuli_used: {}
+  subpart_links: []
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학Ⅱ
+  scope_2028: common
+  scope_confirmed: true
+  behavior_domain: 문제해결
+  standards:
+  - code: 12수학Ⅱ01-03
+    text: 함수의 연속의 뜻을 안다.
+    verified: true
+  - code: 12수학Ⅱ01-04
+    text: 연속함수의 성질을 이해하고, 이를 활용할 수 있다.
+    verified: true
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 한국기술교육대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 한국기술교육대학교
+  admission_year: 2026
+  admission_type: 수시 모의논술
+  track: 공학·ICT융합계열(오후)
+  question_no: 6
+  official_url: https://www.koreatech.ac.kr/board.es?mid=a40104010200&bid=0043&act=view&list_no=54099
+  retrieved_at: '2026-11-23'
+  original_points:
+  - 12
+  rights_notice: 미확인
+  transcribed_from: 한국기술교육대 2026학년도 모의논술 평가문제 및 해설(수학) PDF p.9
+verify: verify/KUT-M26.py::p06
+stimuli: []
+stem: 함수 $f(x)=\begin{cases}x^{2}-ax&(x<4)\\2x-2a&(x\ge4)\end{cases}$가 실수 전체의 집합에서 연속이다.
+subparts:
+- id: '1'
+  stem: |
+    닫힌구간 $[1,5]$에서 함수 $f(x)$의 최댓값과 최솟값을 각각 $M$, $m$이라 할 때, $M+m$의 값을 구하시오.
+  points: 12
+  depends_on: []
+  answer:
+    kind: value
+    value: '-2'
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S1-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        함수 $f(x)$는 $x=4$에서 연속이므로 다음 3개의 값이 모두 같아야 한다. $f(4)=\displaystyle\lim_{x\to4-}f(x)=\lim_{x\to4+}f(x)$
+      source_flow: PDF p.10
+      criteria: []
+    - id: 1b-2
+      content: |
+        i) 함숫값 : $f(4)=8-2a$
+      source_flow: PDF p.10
+      criteria:
+      - 1.M1
+    - id: 1b-3
+      content: |
+        ii) 좌극한 : $\displaystyle\lim_{x\to4-}f(x)=\lim_{x\to4-}(x^{2}-ax)=16-4a$
+      source_flow: PDF p.10
+      criteria:
+      - 1.M2
+    - id: 1b-4
+      content: |
+        iii) 우극한 : $\displaystyle\lim_{x\to4+}f(x)=\lim_{x\to4+}(2x-2a)=8-2a$ 이므로 $8-2a=16-4a$이다. 위 식으로부터 $a=4$이므로 $f(x)=\begin{cases}x^{2}-4x&(x<4)\\2x-8&(x\ge4)\end{cases}$이다. [그림 1: 구간 $[1,5]$에서 $y=f(x)$의 그래프. $x=2$에서 최솟값 $-4$, $x=5$에서 값 2]
+      source_flow: PDF p.10
+      criteria:
+      - 1.M3
+      - 1.M4
+    - id: 1b-5
+      content: |
+        따라서 $M=f(5)=2,\ m=f(2)=-4$이므로 $M+m=2+(-4)=-2$이다.
+      source_flow: PDF p.10
+      criteria:
+      - 1.A1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 2
+      evidence: $f(4)=8-2a$를 구했다.
+      steps:
+      - 1b-2
+    - id: 1.M2
+      mark_type: M
+      points: 2
+      evidence: $\displaystyle\lim_{x\to4-}f(x)=16-4a$를 구했다.
+      steps:
+      - 1b-3
+    - id: 1.M3
+      mark_type: M
+      points: 2
+      evidence: $\displaystyle\lim_{x\to4+}f(x)=8-2a$를 구했다.
+      steps:
+      - 1b-4
+    - id: 1.M4
+      mark_type: M
+      points: 2
+      evidence: $f(4)=\displaystyle\lim_{x\to4-}f(x)=\lim_{x\to4+}f(x)$를 이용하여 $a=4$를 구했다.
+      depends_on:
+      - 1.M1
+      - 1.M2
+      - 1.M3
+      steps:
+      - 1b-4
+    - id: 1.A1
+      mark_type: A
+      points: 4
+      evidence: $M=f(5)=2,\ m=f(2)=-4$를 구하고, $M+m=-2$임을 구했다.
+      depends_on:
+      - 1.M4
+      steps:
+      - 1b-5
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: past-v2-lean
+  item_version: 1
+  verdict: pass
+  date: &id001 2026-11-23
+created: *id001
+updated: *id001

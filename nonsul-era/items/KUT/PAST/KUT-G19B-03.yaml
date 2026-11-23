@@ -1,0 +1,270 @@
+schema_version: '2.0'
+id: KUT-G19B-03
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: KUT
+type: null
+variant_of: null
+replaces: null
+level: L3
+form: 추론
+points: 20
+time_estimate_min: null
+key_idea: 12의 약수 6개 중 짝수 4개, 홀수 2개로 초기하분포형 확률질량함수를 세우고 기댓값·분산·표준편차를 정의대로 구한다.
+stuck: 짝수 카드 수 $X$ 의 확률질량함수를 조합으로 세우고 분산을 $E(X^2)-\{E(X)\}^2$ 로 구하는 것
+tags:
+- 2009개정:확률과 통계
+- 이산확률변수
+- 확률분포
+- 평균과 표준편차
+elements:
+  materials:
+  - 12의 약수가 적힌 카드 6장
+  - 확률분포표(빈칸 채우기)
+  concepts:
+  - 이산확률변수
+  - 확률질량함수
+  - 평균·분산·표준편차
+  tools:
+  - 조합
+  - $V(X)=E(X^2)-\{E(X)\}^2$
+  conditions:
+  - 카드 6장에서 2장을 동시에 뽑음
+  - $X$ 는 뽑은 카드 중 짝수가 적힌 카드의 개수
+  - 하위문항 최종 결과는 기약분수
+  stimuli_used: {}
+  subpart_links: []
+curriculum:
+  version: '2015'
+  subjects:
+  - 확률과통계
+  scope_2028: common
+  scope_confirmed: false
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 한국기술교육대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 한국기술교육대학교
+  admission_year: 2019
+  admission_type: 수시 논술전형
+  track: 공학계열(오후)
+  question_no: 3
+  official_url: https://www.koreatech.ac.kr/board.es?mid=a40104010200&bid=0043&act=view&list_no=15434
+  retrieved_at: '2026-11-23'
+  original_points:
+  - 5
+  - 5
+  - 5
+  - 5
+  rights_notice: 미확인
+  transcribed_from: 한국기술교육대 2020학년도 논술고사 대비 논술 기출 문제집(이미지 PDF) p.30
+verify: verify/KUT-G19B.py::p03
+stimuli: []
+stem: |
+  【(1)~(4)】 크기와 모양이 같은 카드 뒷면에 12의 약수가 하나씩 적힌 6장의 카드에서 임의로 2장을 동시에 뽑으려고 한다. 뽑은 2장의 카드 중에 짝수가 적힌 카드의 개수를 확률변수 $X$라 할 때, 다음 물음에 답하시오.(단, 하위문항의 최종 계산 결과는 기약분수로 나타내시오.) (20점)
+subparts:
+- id: 3-1
+  stem: |
+    확률변수 $X$의 확률질량함수를 구하시오. (5점)
+  points: 5
+  depends_on: []
+  answer:
+    kind: expression
+    value: C(4,x)*C(2,2-x)/C(6,2) (x=0,1,2)
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S31-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 31b-1
+      content: |
+        12의 약수, 1, 2, 3, 4, 6, 12 중에 짝수가 적힌 카드의 개수는 4개, 홀수가 적힌 카드의 개수는 2개다. 따라서 확률변수 $X$가 가질 수 있는 값은 0, 1, 2이고, 확률변수 $X$의 확률질량함수는 다음과 같다.
+        $$P(X=x)=\dfrac{{}_4\mathrm{C}_x\times{}_2\mathrm{C}_{2-x}}{{}_6\mathrm{C}_2}\quad(x=0,1,2)$$
+      source_flow: PDF p.32
+      criteria:
+      - 3-1.B1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 3-1.B1
+      mark_type: B
+      points: 5
+      evidence: 확률질량함수 $P(X=x)=\dfrac{{}_4\mathrm{C}_x\times{}_2\mathrm{C}_{2-x}}{{}_6\mathrm{C}_2}\ (x=0,1,2)$ 를 구할 수 있다(수식 표현이 일치해야 정답 인정).
+      steps:
+      - 31b-1
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+- id: 3-2
+  stem: |
+    아래 표는 확률변수 $X$의 확률분포를 나타낸 것이다. 다음 빈칸을 채우시오. (5점)
+
+    | $X$ | 0 | 1 | 2 | 합계 |
+    |---|---|---|---|---|
+    | $P(X=x)$ |  |  |  | 1 |
+  points: 5
+  depends_on:
+  - 3-1
+  answer:
+    kind: set
+    value: p0=1/15; p1=8/15; p2=2/5
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S32-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 32b-1
+      content: |
+        확률변수 $X$의 확률분포를 표로 나타내면 다음과 같다.
+
+        | $X$ | 0 | 1 | 2 | 합계 |
+        |---|---|---|---|---|
+        | $P(X=x)$ | $\dfrac{1}{15}$ | $\dfrac{8}{15}$ | $\dfrac{2}{5}$ | 1 |
+      source_flow: PDF p.32
+      criteria:
+      - 3-2.B1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 3-2.B1
+      mark_type: B
+      points: 5
+      evidence: 확률분포표의 빈칸 $\dfrac{1}{15}$, $\dfrac{8}{15}$, $\dfrac{2}{5}$ 를 채울 수 있다.
+      steps:
+      - 32b-1
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+- id: 3-3
+  stem: |
+    확률변수 $X$의 평균을 구하시오. (5점)
+  points: 5
+  depends_on:
+  - 3-2
+  answer:
+    kind: value
+    value: 4/3
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S33-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 33b-1
+      content: |
+        확률변수 $X$의 평균을 구하면 다음과 같다.
+        $$E(X)=0\times\dfrac{1}{15}+1\times\dfrac{8}{15}+2\times\dfrac{2}{5}=\dfrac{4}{3}$$
+      source_flow: PDF p.32
+      criteria:
+      - 3-3.B1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 3-3.B1
+      mark_type: B
+      points: 5
+      evidence: 확률변수 $X$의 평균 $\dfrac{4}{3}$ 를 구할 수 있다.
+      steps:
+      - 33b-1
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+- id: 3-4
+  stem: |
+    확률변수 $X$의 표준편차를 구하시오. (5점)
+  points: 5
+  depends_on:
+  - 3-3
+  answer:
+    kind: value
+    value: 4*sqrt(5)/15
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S34-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 34b-1
+      content: |
+        확률변수 $X^2$의 평균을 구하면 $E(X^2)=0^2\times\dfrac{1}{15}+1^2\times\dfrac{8}{15}+2^2\times\dfrac{2}{5}=\dfrac{32}{15}$이다. 또한 확률변수 $X$의 분산은
+        $$V(X)=E(X^2)-\{E(X)\}^2=\dfrac{32}{15}-\left(\dfrac{4}{3}\right)^2=\dfrac{16}{45}$$
+      source_flow: PDF p.32
+      criteria:
+      - 3-4.B1
+    - id: 34b-2
+      content: |
+        이다. 따라서 확률변수 $X$의 표준편차는 $\sigma(X)=\dfrac{4}{3\sqrt{5}}=\dfrac{4\sqrt{5}}{15}$이다.
+      source_flow: PDF p.32
+      criteria:
+      - 3-4.A1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 3-4.B1
+      mark_type: B
+      points: 3
+      evidence: 확률변수 $X$의 분산 $\dfrac{16}{45}$ 을 구할 수 있다.
+      steps:
+      - 34b-1
+    - id: 3-4.A1
+      mark_type: A
+      points: 2
+      evidence: 확률변수 $X$의 표준편차 $\dfrac{4}{3\sqrt{5}}$ 또는 $\dfrac{4\sqrt{5}}{15}$ 를 구할 수 있다(분모를 유리화하지 않아도 정답 인정).
+      steps:
+      - 34b-2
+      depends_on:
+      - 3-4.B1
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: past-v2-lean
+  item_version: 1
+  verdict: pass
+  date: &id001 2026-11-23
+created: *id001
+updated: *id001

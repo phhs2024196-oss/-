@@ -1,0 +1,200 @@
+schema_version: '2.0'
+id: KUT-M25-09
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: short_answer
+origin: mock_exam
+school: KUT
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 점화
+points: 16
+time_estimate_min: 12
+key_idea: $n$과 $n+1$일 때의 식을 빼서 $S_{n+1}-S_{n}=a_{n+1}$로 정리하면 $\frac{a_{n}}{a_{n+1}}=\frac{3n+5}{3n-1}$을 얻고, 이를 곱해 $\frac{a_{5}}{a_{11}}$을 구한다.
+stuck: $S_{n}$이 섞인 식에서 $n+1$을 대입해 빼어 $a_{n}$과 $a_{n+1}$의 비로 바꾸는 발상
+tags:
+- 수열의 합과 일반항
+- 점화식
+elements:
+  materials: []
+  concepts:
+  - 수열
+  - 수열의 합
+  tools:
+  - $a_{n}=S_{n}-S_{n-1}$ 관계(합과 일반항)
+  - 식의 차를 이용한 점화식
+  - 항의 비의 곱
+  conditions:
+  - 모든 자연수 $n$에 대하여 $(3n-1)a_{n}+3S_{n}=20$
+  stimuli_used: {}
+  subpart_links: []
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학Ⅰ
+  scope_2028: common
+  scope_confirmed: true
+  behavior_domain: 추론
+  standards:
+  - code: 12수학Ⅰ03-04
+    text: Σ의 뜻을 알고, 그 성질을 이해하고, 이를 활용할 수 있다.
+    verified: true
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 한국기술교육대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 한국기술교육대학교
+  admission_year: 2025
+  admission_type: 수시 모의논술
+  track: 공학·ICT융합계열(오후)
+  question_no: 9
+  official_url: https://www.koreatech.ac.kr/board.es?mid=a40104010200&bid=0043&act=view&list_no=52392
+  retrieved_at: '2026-11-23'
+  original_points:
+  - 4
+  - 12
+  rights_notice: 미확인
+  transcribed_from: 한국기술교육대 2025학년도 모의논술 평가문제 및 해설(수학) PDF p.27
+verify: verify/KUT-M25.py::p09
+stimuli: []
+stem: |
+  수열 $\{a_{n}\}$의 첫째항부터 제$n$항까지의 합을 $S_{n}$이라 할 때, 모든 자연수 $n$에 대하여
+  $$(3n-1)a_{n}+3S_{n}=20$$
+  이 성립한다. 다음 물음에 답하시오.
+subparts:
+- id: 1-1
+  stem: |
+    (1) $a_{1}$의 값을 구하시오. (4점)
+  points: 4
+  depends_on: []
+  answer:
+    kind: value
+    value: '4'
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S11-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 11b-1
+      content: |
+        $n=1$일 때 $S_{1}=a_{1}$이고, $(3n-1)a_{n}+3S_{n}=20$에 $n=1$을 대입하면 $2a_{1}+3S_{1}=2a_{1}+3a_{1}=5a_{1}=20$이므로 $a_{1}=4$이다.
+      source_flow: PDF p.29
+      criteria:
+      - 1-1.M1
+      - 1-1.A1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 1-1.M1
+      mark_type: M
+      points: 2
+      evidence: $S_{1}=a_{1}$임을 안다.
+      steps:
+      - 11b-1
+    - id: 1-1.A1
+      mark_type: A
+      points: 2
+      evidence: $a_{1}=4$임을 구했다.
+      depends_on:
+      - 1-1.M1
+      steps:
+      - 11b-1
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+- id: 1-2
+  stem: |
+    (2) $\dfrac{a_{5}}{a_{11}}$의 값을 구하시오. (12점)
+  points: 12
+  depends_on: []
+  answer:
+    kind: value
+    value: 80/17
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S12-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 12b-1
+      content: |
+        $(3n-1)a_{n}+3S_{n}=20$ ····· ㉠ ㉠에서 $n$ 대신 $n+1$을 대입하면 $(3n+2)a_{n+1}+3S_{n+1}=20$ ····· ㉡
+      source_flow: PDF p.29
+      criteria:
+      - 1-2.M1
+    - id: 12b-2
+      content: |
+        ㉡$-$㉠을 하면 $(3n+2)a_{n+1}-(3n-1)a_{n}+3(S_{n+1}-S_{n})=0$, $(3n+5)a_{n+1}=(3n-1)a_{n}$이므로 $\dfrac{a_{n}}{a_{n+1}}=\dfrac{3n+5}{3n-1}$ ····· ㉢
+      source_flow: PDF p.29
+      criteria:
+      - 1-2.M2
+    - id: 12b-3
+      content: |
+        ㉢의 $n$에 5, 6, 7, 8, 9, 10을 차례로 대입하여 변끼리 곱하면 $\dfrac{a_{5}}{a_{6}}\times\dfrac{a_{6}}{a_{7}}\times\dfrac{a_{7}}{a_{8}}\times\dfrac{a_{8}}{a_{9}}\times\dfrac{a_{9}}{a_{10}}\times\dfrac{a_{10}}{a_{11}}=\dfrac{20}{14}\times\dfrac{23}{17}\times\dfrac{26}{20}\times\dfrac{29}{23}\times\dfrac{32}{26}\times\dfrac{35}{29}$이다. 따라서 $\dfrac{a_{5}}{a_{11}}=\dfrac{32\times35}{14\times17}=\dfrac{80}{17}$이다.
+      source_flow: PDF p.29
+      criteria:
+      - 1-2.A1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 1-2.M1
+      mark_type: M
+      points: 3
+      evidence: $(3n+2)a_{n+1}+3S_{n+1}=20$을 구했다.
+      steps:
+      - 12b-1
+    - id: 1-2.M2
+      mark_type: M
+      points: 4
+      evidence: $\dfrac{a_{n}}{a_{n+1}}=\dfrac{3n+5}{3n-1}$를 구했다.
+      depends_on:
+      - 1-2.M1
+      steps:
+      - 12b-2
+    - id: 1-2.A1
+      mark_type: A
+      points: 5
+      evidence: $\dfrac{a_{5}}{a_{11}}=\dfrac{80}{17}$을 구했다.
+      depends_on:
+      - 1-2.M2
+      steps:
+      - 12b-3
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: past-v2-lean
+  item_version: 1
+  verdict: pass
+  date: &id001 2026-11-23
+created: *id001
+updated: *id001

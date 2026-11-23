@@ -1,0 +1,197 @@
+schema_version: '2.0'
+id: KUT-M19B-03
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: KUT
+type: null
+variant_of: null
+replaces: null
+level: L3
+form: 추론
+points: 20
+time_estimate_min: null
+key_idea: 확률밀도함수와 $x$축 사이의 넓이가 1임으로 $a$를 정하고, 구하는 확률을 정적분(또는 도형의 넓이)으로 계산한다.
+stuck: 확률밀도함수 전체 넓이 $=1$ 로 $a$ 를 정한 뒤 $P(X\le0)$, $P(X\ge10)$ 의 구간을 맞게 잡는 것
+tags:
+- 2009개정:확률과 통계·미적분Ⅰ
+- 연속확률변수
+- 확률밀도함수
+- 정적분
+elements:
+  materials:
+  - 확률밀도함수 $f(x)$(구간별 일차함수)
+  concepts:
+  - 연속확률변수
+  - 확률밀도함수의 성질
+  - 정적분과 넓이
+  tools:
+  - 정적분
+  - 삼각형 넓이
+  conditions:
+  - $-5\le X\le15$
+  - $a$는 상수
+  - 연착 10분 이상이면 응시 불가
+  stimuli_used: {}
+  subpart_links: []
+curriculum:
+  version: '2015'
+  subjects:
+  - 확률과통계
+  - 수학Ⅱ
+  scope_2028: common
+  scope_confirmed: false
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 한국기술교육대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 한국기술교육대학교
+  admission_year: 2019
+  admission_type: 수시 모의논술
+  track: 공학계열·산업경영학부 공통
+  question_no: 3
+  official_url: https://www.koreatech.ac.kr/board.es?mid=a40104010200&bid=0043&act=view&list_no=15433
+  retrieved_at: '2026-11-23'
+  original_points:
+  - 10
+  - 10
+  rights_notice: 미확인
+  transcribed_from: 한국기술교육대 2019학년도 논술 예시문항(2019 논술가이드북) PDF p.36
+verify: verify/KUT-M19B.py::p03
+stimuli: []
+stem: |
+  서울에 거주하는 A군은 코리아텍 논술고사를 치르기 위해 시험 당일 서울역에서 KTX를 타고 천안아산역까지 이동하기로 계획을 잡았다. 최근 5개년 자료를 분석한 결과 오전 9시 정각에 도착 예정인 KTX의 실제 도착 시각은 오전 8시 55분에서 오전 9시 15분 사이였고, 실제 도착 시각에서 도착 예정 시각을 뺀 차를 확률변수 $X$(분)이라 할 때 $X$의 확률밀도함수는
+  $$f(x)=\begin{cases}\dfrac{a}{5}(x+5)&(-5\le x\le0)\\-\dfrac{a}{15}(x-15)&(0<x\le15)\end{cases}$$
+  이라 한다. (단, $a$는 상수) 다음 물음에 답하여라.
+subparts:
+- id: 1-1
+  stem: |
+    확률밀도함수 $f(x)$를 이용하여 확률 $P(X\le0)$를 구하여라. (10점)
+  points: 10
+  depends_on: []
+  answer:
+    kind: value
+    value: 1/4
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S11-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 11b-1
+      content: |
+        $f(x)$가 확률밀도함수이므로 $x$축 및 두 직선 $y=\dfrac{a}{5}(x+5)$, $y=-\dfrac{a}{15}(x-15)$로 둘러싸인 도형의 넓이가 1이 되어야 한다. 따라서
+        $$\dfrac{1}{2}\times20\times a=1\ \Leftrightarrow\ a=\dfrac{1}{10}$$
+      source_flow: PDF p.36
+      criteria:
+      - 1-1.M1
+    - id: 11b-2
+      content: |
+        또한 확률 $P(X\le0)=P(-5\le X\le0)$는 $x$축 및 두 직선 $y=\dfrac{a}{5}(x+5)$, $x=0$으로 둘러싸인 도형의 넓이이므로, 따라서
+        $$P(X\le0)=\int_{-5}^{0}f(x)dx=\dfrac{a}{5}\left[\dfrac{x^2}{2}+5x\right]_{-5}^{0}=\dfrac{a}{5}\times\dfrac{25}{2}=\dfrac{1}{4}$$
+      source_flow: PDF p.36
+      criteria:
+      - 1-1.A1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 1-1.M1
+      mark_type: M
+      points: 5
+      evidence: '평가항목 1: 확률밀도함수와 $x$축 사이의 넓이가 1임을 이용해 $a=\dfrac{1}{10}$ 을 구했다.'
+      steps:
+      - 11b-1
+    - id: 1-1.A1
+      mark_type: A
+      points: 5
+      evidence: '평가항목 2: $P(X\le0)=\int_{-5}^{0}f(x)dx=\dfrac{1}{4}$ 을 구했다.'
+      steps:
+      - 11b-2
+      depends_on:
+      - 1-1.M1
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+- id: 1-2
+  stem: |
+    연착 시간이 10분 이상이면 시험장에 입실할 수 없어 논술고사를 치를 수 없게 된다. 논술고사를 치르지 못할 확률을 구하여라. (10점)
+  points: 10
+  depends_on:
+  - 1-1
+  answer:
+    kind: value
+    value: 1/12
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S12-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 12b-1
+      content: |
+        연착 시간이 10분 이상이면 논술고사를 치르지 못하므로, 논술고사를 치르지 못할 확률은 $P(X\ge10)$이다.
+      source_flow: PDF p.37
+      criteria:
+      - 1-2.M1
+    - id: 12b-2
+      content: |
+        따라서 $X$의 확률밀도함수를 이용하면
+        $$P(X\ge10)=\int_{10}^{15}f(x)dx=-\dfrac{a}{15}\left[\dfrac{x^2}{2}-15x\right]_{10}^{15}=-\dfrac{a}{15}\times\left(-\dfrac{25}{2}\right)=\dfrac{1}{12}$$
+        이다.
+      source_flow: PDF p.37
+      criteria:
+      - 1-2.A1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 1-2.M1
+      mark_type: M
+      points: 5
+      evidence: '평가항목 3: 논술고사를 치르지 못할 확률을 $P(X\ge10)$ 으로 나타냈다.'
+      steps:
+      - 12b-1
+    - id: 1-2.A1
+      mark_type: A
+      points: 5
+      evidence: '평가항목 4: 확률밀도함수를 적분하여 $P(X\ge10)=\dfrac{1}{12}$ 을 구했다.'
+      steps:
+      - 12b-2
+      depends_on:
+      - 1-2.M1
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: past-v2-lean
+  item_version: 1
+  verdict: pass
+  date: &id001 2026-11-23
+created: *id001
+updated: *id001

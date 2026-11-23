@@ -1,0 +1,152 @@
+schema_version: '2.0'
+id: KUT-G25A-03
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: short_answer
+origin: past_exam
+school: KUT
+type: null
+variant_of: null
+replaces: null
+level: L3
+form: 추론
+points: 8
+time_estimate_min: 5
+key_idea: $x=2$에서 연속 조건과 좌·우미분계수 일치 조건으로 $a$, $b$를 정한다.
+stuck: 미분가능하면 연속이라는 조건을 먼저 세워 $b=8-2a$를 얻는 것
+tags:
+- 한국기술교육대
+- 2025학년도
+- 실전
+- 오전
+- 미분계수
+- 미분가능성
+- 함수의 연속
+elements:
+  materials: []
+  concepts:
+  - 미분계수
+  - 미분가능성
+  - 함수의 연속
+  tools:
+  - 미분가능이면 연속
+  - 좌미분계수와 우미분계수
+  - 인수분해
+  conditions:
+  - x=2 에서 미분가능
+  - f(x)=ax+b (x<2), x^3 (x>=2)
+  stimuli_used: {}
+  subpart_links: []
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학Ⅱ
+  scope_2028: common
+  scope_confirmed: false
+  behavior_domain: 계산
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 한국기술교육대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 한국기술교육대학교
+  admission_year: 2025
+  admission_type: 수시 논술전형
+  track: 공학·ICT융합계열(오전)
+  question_no: 3
+  official_url: https://cdn013.negagea.net/dgsmidc/omr/seoul/web/univ_info2025/한국기술교육대학교/한국기술교육대학교_2025학년도_선행학습영향평가.pdf
+  retrieved_at: '2026-11-23'
+  original_points:
+  - 8
+  rights_notice: 미확인
+  transcribed_from: 한국기술교육대 2025학년도 선행학습 영향평가 보고서 PDF p.32
+verify: verify/KUT-G25A.py::p03
+stimuli: []
+stem: |
+  함수
+  $$f(x)=\begin{cases}ax+b & (x<2)\\ x^3 & (x\ge2)\end{cases}$$
+  가 $x=2$에서 미분가능할 때, $a-b$의 값을 구하시오.
+subparts:
+- id: '1'
+  stem: ''
+  points: 8
+  depends_on: []
+  answer:
+    kind: value
+    value: '28'
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S1-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        함수 $f(x)$는 $x=2$에서 연속이므로 $f(2)=\lim_{x\to2-}f(x)=\lim_{x\to2+}f(x)$가 성립한다. 따라서 $b=8-2a$ ····· ㉠ 이다.
+      source_flow: PDF p.33~34
+      criteria:
+      - 1.M1
+    - id: 1b-2
+      content: |
+        $x=2$에서 미분계수가 존재하므로 $\lim_{x\to2-}\dfrac{f(x)-f(2)}{x-2}=\lim_{x\to2+}\dfrac{f(x)-f(2)}{x-2}$이고, 즉 $\lim_{x\to2-}\dfrac{(ax+b)-8}{x-2}=\lim_{x\to2+}\dfrac{x^3-8}{x-2}$에 ㉠을 대입하면
+        $$\lim_{x\to2-}\dfrac{ax-2a}{x-2}=\lim_{x\to2-}\dfrac{a(x-2)}{x-2}=\lim_{x\to2+}\dfrac{(x-2)(x^2+2x+4)}{x-2}$$이고, $a=\lim_{x\to2+}(x^2+2x+4)=4+4+4=12$이다.
+      source_flow: PDF p.33~34
+      criteria:
+      - 1.M2
+    - id: 1b-3
+      content: |
+        이 값을 ㉠에 대입하면 $b=8-24=-16$을 얻는다. 따라서 $a-b=12+16=28$이다.
+      source_flow: PDF p.33~34
+      criteria:
+      - 1.A1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 3
+      evidence: $b=8-2a$ 임을 구함(연속 조건)
+      steps:
+      - 1b-1
+    - id: 1.M2
+      mark_type: M
+      points: 3
+      evidence: $a=12$ 임을 구함(미분계수 조건)
+      steps:
+      - 1b-2
+    - id: 1.A1
+      mark_type: A
+      points: 2
+      evidence: $a-b=28$ 임을 구함
+      steps:
+      - 1b-3
+      depends_on:
+      - 1.M2
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: past-v2-lean
+  item_version: 1
+  verdict: pass
+  date: &id001 2026-11-23
+created: *id001
+updated: *id001

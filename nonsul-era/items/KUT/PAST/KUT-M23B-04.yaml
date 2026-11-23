@@ -1,0 +1,160 @@
+schema_version: '2.0'
+id: KUT-M23B-04
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: short_answer
+origin: mock_exam
+school: KUT
+type: null
+variant_of: null
+replaces: null
+level: L3
+form: 추론
+points: 8
+time_estimate_min: null
+key_idea: 극한값이 존재하면 분자가 0으로 가므로 $f(5)=3$이고, 극한은 $f'(5)=-2$이며, 곱의 미분법으로 $g'(5)$를 계산한다.
+stuck: 분모가 0으로 가는 분수 극한에서 $f(5)=3$을 먼저 얻고 미분계수의 정의로 연결하는 지점
+tags:
+- 미분계수
+- 곱의 미분법
+- 함수의 극한
+elements:
+  materials:
+  - 다항함수 $f(x)$
+  - $g(x)=x^3f(x)+2x$
+  concepts:
+  - 극한값이 존재할 조건
+  - 미분계수
+  - 곱의 미분법
+  tools:
+  - 미분계수의 정의
+  - 곱의 미분법
+  conditions:
+  - $\lim_{x\to5}\dfrac{f(x)-3}{x-5}=-2$
+  stimuli_used: {}
+  subpart_links: []
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학Ⅱ
+  scope_2028: common
+  scope_confirmed: false
+  behavior_domain: 계산
+  content_area: 함수의 극한과 연속, 미분 – 미분계수, 도함수
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 한국기술교육대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 한국기술교육대학교
+  admission_year: 2023
+  admission_type: 수시 모의논술
+  track: 공학계열
+  question_no: 4
+  official_url: https://www.koreatech.ac.kr/board.es?mid=a40104010200&bid=0043&act=view&list_no=15436
+  retrieved_at: '2026-11-23'
+  original_points:
+  - 8
+  rights_notice: 미확인
+  transcribed_from: 한국기술교육대 2023학년도 수시모집 온라인 모의평가(모의 논술고사) 수리논술 PDF p.11
+verify: verify/KUT-M23B.py::p04
+stimuli: []
+stem: |
+  다항함수 $f(x)$가
+
+  $$\lim_{x\to5}\dfrac{f(x)-3}{x-5}=-2$$
+
+  을 만족시킨다. 함수 $g(x)=x^3f(x)+2x$에 대하여 $g'(5)$를 구하는 과정을 서술하시오.
+subparts:
+- id: '1'
+  stem: ''
+  points: 8
+  depends_on: []
+  answer:
+    kind: value
+    value: '-23'
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S1-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        $x\to5$일 때 (분모)$\to0$이고 극한값이 존재하므로 (분자)$\to0$이어야 한다. 즉 $\lim_{x\to5}\{f(x)-3\}=0$이고 $f(x)$는 연속함수이므로 $f(5)=3$이다.
+      source_flow: PDF p.12-13
+      criteria:
+      - 1.M1
+    - id: 1b-2
+      content: |
+        $\lim_{x\to5}\dfrac{f(x)-3}{x-5}=\lim_{x\to5}\dfrac{f(x)-f(5)}{x-5}=f'(5)=-2$이다.
+      source_flow: PDF p.12-13
+      criteria:
+      - 1.M2
+    - id: 1b-3
+      content: |
+        $g'(x)=3x^2f(x)+x^3f'(x)+2$이다.
+      source_flow: PDF p.12-13
+      criteria:
+      - 1.M3
+    - id: 1b-4
+      content: |
+        $g'(5)=75f(5)+125f'(5)+2=225-250+2=-23$이다.
+      source_flow: PDF p.12-13
+      criteria:
+      - 1.M4
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 2
+      evidence: $f(5)=3$을 구했다.
+      steps:
+      - 1b-1
+    - id: 1.M2
+      mark_type: M
+      points: 3
+      evidence: $f'(5)=-2$를 구했다.
+      steps:
+      - 1b-2
+    - id: 1.M3
+      mark_type: M
+      points: 2
+      evidence: $g'(x)=3x^2f(x)+x^3f'(x)+2$를 구했다.
+      steps:
+      - 1b-3
+    - id: 1.M4
+      mark_type: M
+      points: 1
+      evidence: $g'(5)=-23$을 구했다.
+      steps:
+      - 1b-4
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: past-v2-lean
+  item_version: 1
+  verdict: pass
+  date: &id001 2026-11-23
+created: *id001
+updated: *id001

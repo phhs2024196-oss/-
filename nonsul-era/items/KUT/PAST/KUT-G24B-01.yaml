@@ -1,0 +1,136 @@
+schema_version: '2.0'
+id: KUT-G24B-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: short_answer
+origin: past_exam
+school: KUT
+type: null
+variant_of: null
+replaces: null
+level: L3
+form: 추론
+points: 4
+time_estimate_min: 5
+key_idea: $3^x=6$에서 $x=\log_3 6$이므로 $6x-2y$를 하나의 로그로 묶어 계산한다.
+stuck: 지수 형태의 조건을 로그로 바꾸고 $6\log_3 6-2\log_3 8=\log_3\dfrac{6^6}{8^2}$로 묶는 발상
+tags:
+- 로그
+- 로그의 성질
+elements:
+  materials: []
+  concepts: &id001
+  - 로그
+  - 로그의 정의
+  - 로그의 성질
+  tools:
+  - 로그의 정의
+  - 로그의 성질
+  conditions: []
+  stimuli_used: {}
+  subpart_links: []
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학Ⅰ
+  scope_2028: common
+  scope_confirmed: false
+  standards:
+  - code: 12수학Ⅰ01-04
+    text: 로그의 뜻을 알고, 그 성질을 이해한다.
+    verified: true
+  content_area: 지수함수와 로그함수 – 지수와 로그
+  behavior_domain: 계산
+  key_concepts: *id001
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 한국기술교육대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 한국기술교육대학교
+  admission_year: 2024
+  admission_type: 수시 논술전형
+  track: 공학·ICT융합계열(오후)
+  question_no: 1
+  official_url: https://www.koreatech.ac.kr/board.es?mid=a40104010200&bid=0043&act=view&list_no=52391
+  retrieved_at: '2026-11-23'
+  original_points:
+  - 4
+  rights_notice: 미확인
+  transcribed_from: 한국기술교육대 2025학년도 논술고사 대비 기출문제집 PDF p.34
+verify: verify/KUT-G24B.py::p01
+stimuli: []
+stem: |
+  두 실수 $x$, $y$가 $3^x=6$, $y=\log_3 8$을 만족시킬 때, $6x-2y$의 값을 구하시오.
+subparts:
+- id: '1'
+  stem: ''
+  points: 4
+  depends_on: []
+  answer:
+    kind: value
+    value: '6'
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S1-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        $3^x=6$이므로 $x=\log_3 6$이다.
+      source_flow: PDF p.35
+      criteria:
+      - 1.M1
+    - id: 1b-2
+      content: |
+        따라서, 문제에서 구하고자 하는 값은 $6x-2y=\log_3 6^6-\log_3 8^2=\log_3\left(\dfrac{6^6}{8^2}\right)=\log_3\left(\dfrac{3^6\times2^6}{2^6}\right)=\log_3 3^6=6$이다.
+      source_flow: PDF p.35
+      criteria:
+      - 1.A2
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 2
+      evidence: $x=\log_3 6$임을 구했다.
+      steps:
+      - 1b-1
+    - id: 1.A2
+      mark_type: A
+      points: 2
+      evidence: $6x-2y=6$임을 구했다.
+      depends_on:
+      - 1.M1
+      steps:
+      - 1b-2
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: past-v2-lean
+  item_version: 1
+  verdict: pass
+  date: &id002 2026-11-23
+created: *id002
+updated: *id002
+intent: 로그의 정의와 성질을 이해하고 이를 적용할 수 있는지를 평가한다.

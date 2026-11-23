@@ -1,0 +1,133 @@
+schema_version: '2.0'
+id: KUT-G23B-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: short_answer
+origin: past_exam
+school: KUT
+type: null
+variant_of: null
+replaces: null
+level: L3
+form: 전수
+points: 4
+time_estimate_min: 5
+key_idea: 식을 $2^{\frac{7n}8}$로 정리하면 $n$은 8의 배수이어야 하고, 세 자리 자연수가 되는 것은 $n=8$뿐이다.
+stuck: $\left(\sqrt{2\sqrt[4]8}\right)^n=2^{\frac{7n}8}$로 정리하는 단계
+tags:
+- 수학Ⅰ
+- 거듭제곱근
+- 지수법칙
+elements:
+  materials: []
+  concepts:
+  - 거듭제곱근
+  - 지수법칙
+  - 유리수 지수
+  tools:
+  - 지수법칙
+  - 배수 조건
+  conditions: []
+  stimuli_used: {}
+  subpart_links: []
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학Ⅰ
+  scope_2028: common
+  scope_confirmed: true
+  behavior_domain: 계산
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 한국기술교육대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 한국기술교육대학교
+  admission_year: 2023
+  admission_type: 수시 논술전형
+  track: 공학계열(오후)
+  question_no: 1
+  official_url: https://www.koreatech.ac.kr/board.es?mid=a40104010200&bid=0043&act=view&list_no=15437
+  retrieved_at: '2026-11-23'
+  original_points:
+  - 4
+  rights_notice: 미확인
+  transcribed_from: 한국기술교육대 2024학년도 대비 논술기출문제집(2023학년도 오후) PDF p.35
+verify: verify/KUT-G23B.py::p01
+stimuli: []
+stem: |
+  $\left(\sqrt{2\sqrt[4]{8}}\right)^{n}$의 값이 세 자리 자연수가 되도록 하는
+subparts:
+- id: '1'
+  stem: |
+    자연수 $n$의 값을 구하시오.
+  points: 4
+  depends_on: []
+  answer:
+    kind: value
+    value: '8'
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S1-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        지수법칙에 의해 $\left(\sqrt{2\sqrt[4]8}\right)^n=\left(2\times2^{\frac34}\right)^{\frac n2}=\left(2^{\frac74}\right)^{\frac n2}=2^{\frac{7n}8}$이다.
+      source_flow: PDF p.36
+      criteria:
+      - 1.M1
+    - id: 1b-2
+      content: |
+        이 값이 자연수가 되려면 $n$은 $8$의 배수이어야 한다. (i) $n=8$이면 $2^7=128$로 세 자리 자연수이다. (ii) $n=16$이면 $2^{14}=16384$로 세 자리 자연수가 아니다. 따라서 구하는 자연수 $n$의 값은 $8$이다.
+      source_flow: PDF p.36
+      criteria:
+      - 1.A1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 2
+      evidence: |
+        $\left(\sqrt{2\sqrt[4]8}\right)^n=2^{\frac{7n}8}$이 있다.
+      steps:
+      - 1b-1
+    - id: 1.A1
+      mark_type: A
+      points: 2
+      evidence: |
+        $n=8$이 있다.
+      depends_on:
+      - 1.M1
+      steps:
+      - 1b-2
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: past-v2-lean
+  item_version: 1
+  verdict: pass
+  date: 2026-11-23
+created: 2026-11-23
+updated: 2026-11-23

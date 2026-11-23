@@ -1,0 +1,168 @@
+schema_version: '2.0'
+id: KUT-G24A-08
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: short_answer
+origin: past_exam
+school: KUT
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 최적2단
+points: 12
+time_estimate_min: 9
+key_idea: (가)로 $a=2$를 얻고 (나)로 $b$의 범위를 구한 뒤, $\int_{-2}^1f(x)\,dx=3b$로 바꿔 최대·최소를 구한다.
+stuck: $\int_{-2}^1f(x)\,dx$가 $a=2$일 때 $3b$로 단순해짐을 알고 $b$의 범위로 최대·최소를 판정하는 발상
+tags:
+- 정적분
+- 이차함수
+- 최대·최소
+elements:
+  materials: []
+  concepts: &id001
+  - 정적분
+  - 다항함수의 정적분
+  tools:
+  - 정적분의 계산
+  - 부등식
+  conditions:
+  - $f(2)-f(-2)=8$
+  - $-2\le\int_0^2f(x)\,dx\le2$
+  stimuli_used: {}
+  subpart_links: []
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학Ⅱ
+  scope_2028: common
+  scope_confirmed: false
+  standards:
+  - code: 12수학Ⅱ03-04
+    text: 다항함수의 정적분을 구할 수 있다.
+    verified: true
+  content_area: 적분 – 정적분
+  behavior_domain: 계산
+  key_concepts: *id001
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 한국기술교육대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 한국기술교육대학교
+  admission_year: 2024
+  admission_type: 수시 논술전형
+  track: 공학·ICT융합계열(오전)
+  question_no: 8
+  official_url: https://www.koreatech.ac.kr/board.es?mid=a40104010200&bid=0043&act=view&list_no=52391
+  retrieved_at: '2026-11-23'
+  original_points:
+  - 12
+  rights_notice: 미확인
+  transcribed_from: 한국기술교육대 2025학년도 논술고사 대비 기출문제집 PDF p.24
+verify: verify/KUT-G24A.py::p08
+stimuli: []
+stem: |
+  다음 조건을 만족시키는 최고차항의 계수가 1인 모든 이차함수 $f(x)$에 대하여
+  $$\int_{-2}^{1}f(x)\,dx$$
+  의 최댓값과 최솟값의 합을 구하시오.
+  (가) $f(2)-f(-2)=8$
+  (나) $-2\le\int_0^2f(x)\,dx\le2$
+subparts:
+- id: '1'
+  stem: ''
+  points: 12
+  depends_on: []
+  answer:
+    kind: value
+    value: '-20'
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S1-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        이차함수 $f(x)=x^2+ax+b$ (단, $a$, $b$는 실수)라 하자. 조건 (가)로부터 $f(2)-f(-2)=8$이므로 $(4+2a+b)-(4-2a+b)=8$, 즉 $a=2$이다. 따라서 $f(x)=x^2+2x+b$이고 $\int_0^2f(x)\,dx=\left[\dfrac13x^3+x^2+bx\right]_0^2=\dfrac83+4+2b$이다.
+      source_flow: PDF p.26
+      criteria:
+      - 1.M1
+    - id: 1b-2
+      content: |
+        이므로 조건 (나)로부터 $-2\le\dfrac83+4+2b\le2$, 즉 $-\dfrac{13}3\le b\le-\dfrac73$ … ㉠ 이다.
+      source_flow: PDF p.26
+      criteria:
+      - 1.M2
+    - id: 1b-3
+      content: |
+        한편, $\int_{-2}^1f(x)\,dx=\left[\dfrac13x^3+x^2+bx\right]_{-2}^1=3b$이다.
+      source_flow: PDF p.26
+      criteria:
+      - 1.M3
+    - id: 1b-4
+      content: |
+        식 ㉠으로부터 $\int_{-2}^1f(x)\,dx$의 최댓값은 $3\times\left(-\dfrac73\right)=-7$이고 최솟값은 $3\times\left(-\dfrac{13}3\right)=-13$이다. 그러므로 문제에서 구하고자 하는 최댓값과 최솟값의 합은 $-20$이다.
+      source_flow: PDF p.26
+      criteria:
+      - 1.A4
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 3
+      evidence: $f(x)=x^2+2x+b$임을 구했다. (단, $b$는 실수)
+      steps:
+      - 1b-1
+    - id: 1.M2
+      mark_type: M
+      points: 4
+      evidence: $-\dfrac{13}3\le b\le-\dfrac73$임을 구했다.
+      steps:
+      - 1b-2
+    - id: 1.M3
+      mark_type: M
+      points: 3
+      evidence: $\int_{-2}^1f(x)\,dx=3b$임을 구했다.
+      steps:
+      - 1b-3
+    - id: 1.A4
+      mark_type: A
+      points: 2
+      evidence: $\int_{-2}^1f(x)\,dx$의 최댓값과 최솟값의 합이 $-20$임을 구했다.
+      depends_on:
+      - 1.M1
+      - 1.M2
+      - 1.M3
+      steps:
+      - 1b-4
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: past-v2-lean
+  item_version: 1
+  verdict: pass
+  date: &id002 2026-11-23
+created: *id002
+updated: *id002
+intent: 정적분의 성질을 이해하고 이를 활용하여 주어진 함수의 정적분을 구할 수 있는지를 평가한다.

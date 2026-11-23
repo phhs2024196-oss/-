@@ -1,0 +1,146 @@
+schema_version: '2.0'
+id: KUT-M25-02
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: short_answer
+origin: mock_exam
+school: KUT
+type: null
+variant_of: null
+replaces: null
+level: L3
+form: 추론
+points: 4
+time_estimate_min: 4
+key_idea: 로그의 밑 조건($x>0,\ x\ne1$)과 진수 조건($-x^{2}+5x+14>0$)을 동시에 만족하는 정수를 모두 더한다.
+stuck: 밑에도 조건이 있음($x\ne1$, $x>0$)을 빠뜨리지 않는 것
+tags:
+- 로그의 정의
+elements:
+  materials: []
+  concepts:
+  - 로그
+  - 밑
+  - 진수
+  tools:
+  - 로그의 밑과 진수의 조건
+  - 이차부등식
+  conditions:
+  - 정수 $x$
+  stimuli_used: {}
+  subpart_links: []
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학Ⅰ
+  scope_2028: common
+  scope_confirmed: true
+  behavior_domain: 계산
+  standards:
+  - code: 12수학Ⅰ01-04
+    text: 로그의 뜻을 알고, 그 성질을 이해한다.
+    verified: true
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 한국기술교육대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 한국기술교육대학교
+  admission_year: 2025
+  admission_type: 수시 모의논술
+  track: 공학·ICT융합계열(오후)
+  question_no: 2
+  official_url: https://www.koreatech.ac.kr/board.es?mid=a40104010200&bid=0043&act=view&list_no=52392
+  retrieved_at: '2026-11-23'
+  original_points:
+  - 4
+  rights_notice: 미확인
+  transcribed_from: 한국기술교육대 2025학년도 모의논술 평가문제 및 해설(수학) PDF p.5
+verify: verify/KUT-M25.py::p02
+stimuli: []
+stem: $\log_{x}(-x^{2}+5x+14)$가 정의되기 위한
+subparts:
+- id: '1'
+  stem: |
+    모든 정수 $x$의 값의 합을 구하시오.
+  points: 4
+  depends_on: []
+  answer:
+    kind: value
+    value: '20'
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S1-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        $\log_{x}(-x^{2}+5x+14)$에서 밑 $x$는 1이 아닌 양수이므로 $x>0,\ x\ne1$ ····· ㉠
+      source_flow: PDF p.7
+      criteria:
+      - 1.M1
+    - id: 1b-2
+      content: |
+        진수 $-x^{2}+5x+14$는 양수이므로 $-x^{2}+5x+14>0$, 즉 $(x+2)(x-7)<0$에서 $-2<x<7$ ····· ㉡
+      source_flow: PDF p.7
+      criteria:
+      - 1.M2
+    - id: 1b-3
+      content: |
+        ㉠, ㉡으로부터 만족하는 정수는 2, 3, 4, 5, 6이므로 구하는 합은 20이다.
+      source_flow: PDF p.7
+      criteria:
+      - 1.A1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 1
+      evidence: 밑에 대한 조건 $x>0,\ x\ne1$을 구했다.
+      steps:
+      - 1b-1
+    - id: 1.M2
+      mark_type: M
+      points: 1
+      evidence: 진수에 대한 조건 $-2<x<7$을 구했다.
+      steps:
+      - 1b-2
+    - id: 1.A1
+      mark_type: A
+      points: 2
+      evidence: 정수 $x$의 값의 합 20을 구했다.
+      depends_on:
+      - 1.M1
+      - 1.M2
+      steps:
+      - 1b-3
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: past-v2-lean
+  item_version: 1
+  verdict: pass
+  date: &id001 2026-11-23
+created: *id001
+updated: *id001

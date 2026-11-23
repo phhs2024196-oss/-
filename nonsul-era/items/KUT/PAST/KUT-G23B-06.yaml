@@ -1,0 +1,133 @@
+schema_version: '2.0'
+id: KUT-G23B-06
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: short_answer
+origin: past_exam
+school: KUT
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 분류
+points: 12
+time_estimate_min: 9
+key_idea: 판별식으로 $f(t)$를 $t<1$, $t=1$, $t>1$의 세 경우로 나누고, $t=1$에서의 좌극한·우극한이 같도록 $a$를 정한다.
+stuck: $f(t)$를 구간별 함수로 나타내고 불연속이 가능한 점 $t=1$을 찾는 단계
+tags:
+- 수학Ⅱ
+- 이차방정식의 판별식
+- 함수의 연속
+elements:
+  materials: []
+  concepts:
+  - 이차방정식의 판별식
+  - 함수의 연속
+  - 좌극한과 우극한
+  tools:
+  - 판별식에 따른 경우 나누기
+  - 연속의 정의
+  conditions: []
+  stimuli_used: {}
+  subpart_links: []
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학Ⅱ
+  scope_2028: common
+  scope_confirmed: true
+  behavior_domain: 계산
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 한국기술교육대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 한국기술교육대학교
+  admission_year: 2023
+  admission_type: 수시 논술전형
+  track: 공학계열(오후)
+  question_no: 6
+  official_url: https://www.koreatech.ac.kr/board.es?mid=a40104010200&bid=0043&act=view&list_no=15437
+  retrieved_at: '2026-11-23'
+  original_points:
+  - 12
+  rights_notice: 미확인
+  transcribed_from: 한국기술교육대 2024학년도 대비 논술기출문제집(2023학년도 오후) PDF p.45
+verify: verify/KUT-G23B.py::p06
+stimuli: []
+stem: |
+  실수 $t$에 대하여 $x$에 대한 이차방정식 $x^2+2x+t=0$의 서로 다른 실근의 개수를 $f(t)$라 하자.
+subparts:
+- id: '1'
+  stem: |
+    함수 $(t+a)f(t)$가 모든 실수 $t$에서 연속일 때, 실수 $a$의 값을 구하시오.
+  points: 12
+  depends_on: []
+  answer:
+    kind: value
+    value: '-1'
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S1-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        이차방정식 $x^2+2x+t=0$의 판별식을 $D$라 하면 $\dfrac D4=1-t$이다. 따라서 서로 다른 실근의 개수를 나타내는 함수 $f(t)$는 $f(t)=\begin{cases}2&(t<1)\\1&(t=1)\\0&(t>1)\end{cases}$이다.
+      source_flow: PDF p.46
+      criteria:
+      - 1.M1
+    - id: 1b-2
+      content: |
+        함수 $(t+a)f(t)$가 모든 실수 $t$에서 연속이기 위해서는 $t=1$에서만 연속이면 충분하다. $\displaystyle\lim_{t\to1-}(t+a)f(t)=\lim_{t\to1+}(t+a)f(t)$에서 $2(1+a)=0$, 즉 $a=-1$이다. 이 경우 $\displaystyle\lim_{t\to1}(t+a)f(t)=(1+a)f(1)$까지 만족시키므로 $t=1$에서 연속이다. 따라서 $a=-1$이다.
+      source_flow: PDF p.46
+      criteria:
+      - 1.A1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 6
+      evidence: |
+        $f(t)=2\ (t<1)$, $1\ (t=1)$, $0\ (t>1)$이 있다.
+      steps:
+      - 1b-1
+    - id: 1.A1
+      mark_type: A
+      points: 6
+      evidence: |
+        $a=-1$이 있다.
+      depends_on:
+      - 1.M1
+      steps:
+      - 1b-2
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: past-v2-lean
+  item_version: 1
+  verdict: pass
+  date: 2026-11-23
+created: 2026-11-23
+updated: 2026-11-23

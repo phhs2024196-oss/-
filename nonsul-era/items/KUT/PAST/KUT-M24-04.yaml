@@ -1,0 +1,148 @@
+schema_version: '2.0'
+id: KUT-M24-04
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: short_answer
+origin: mock_exam
+school: KUT
+type: null
+variant_of: null
+replaces: null
+level: L3
+form: 추론
+points: 8
+time_estimate_min: 5
+key_idea: 첫째 극한으로 $f(x)-x^3$의 꼴(최고차항 계수 2인 이차식)을 정하고, 둘째 극한의 분자가 0으로 가는 조건으로 계수를 정한 뒤 미분계수의 정의를 쓴다.
+stuck: 극한값이 존재하고 분모가 0으로 가므로 분자도 0으로 간다는 조건을 계수 결정에 연결하는 지점
+tags:
+- 함수의 극한
+- 미분계수
+- 다항함수 결정
+elements:
+  materials:
+  - 다항함수 $f(x)$
+  concepts:
+  - 함수의 극한
+  - 미분계수
+  - 도함수
+  tools:
+  - 극한값이 존재할 조건
+  - 미분계수의 정의
+  conditions:
+  - $\lim_{x\to\infty}\dfrac{f(x)-x^3}{4x^2+1}=\dfrac12$
+  - $\lim_{x\to0}\dfrac{f(x)}{x^2+4x}=2$
+  stimuli_used: {}
+  subpart_links: []
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학Ⅱ
+  scope_2028: common
+  scope_confirmed: false
+  behavior_domain: 추론
+  content_area: 함수의 극한과 연속, 미분 – 함수의 극한, 미분계수
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 한국기술교육대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 한국기술교육대학교
+  admission_year: 2024
+  admission_type: 수시 모의논술
+  track: 공학계열
+  question_no: 4
+  official_url: https://www.koreatech.ac.kr/board.es?mid=a40104010200&bid=0043&act=view&list_no=15438
+  retrieved_at: '2026-11-23'
+  original_points:
+  - 8
+  rights_notice: 미확인
+  transcribed_from: 한국기술교육대 2024학년도 온라인 모의논술 수리논술 PDF p.11
+verify: verify/KUT-M24.py::p04
+stimuli: []
+stem: |
+  다항함수 $f(x)$가
+
+  $$\lim_{x\to\infty}\dfrac{f(x)-x^3}{4x^2+1}=\dfrac12,\qquad \lim_{x\to0}\dfrac{f(x)}{x^2+4x}=2$$
+
+  를 만족시킬 때, $\lim_{x\to1}\dfrac{f(x)-f(1)}{x-1}$의 값을 구하시오.
+subparts:
+- id: '1'
+  stem: ''
+  points: 8
+  depends_on: []
+  answer:
+    kind: value
+    value: '15'
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S1-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        첫째 조건에서 $f(x)-x^3$은 최고차항의 계수가 $2$인 이차함수이므로 $f(x)=x^3+2x^2+ax+b$ ($a$, $b$는 상수)로 놓는다.
+      source_flow: PDF p.12-13
+      criteria:
+      - 1.M1
+    - id: 1b-2
+      content: |
+        둘째 조건에서 $x\to0$일 때 (분모)$\to0$이고 극한값이 존재하므로 (분자)$\to0$이어야 하여 $f(0)=b=0$이다. 그러면 $\lim_{x\to0}\dfrac{x(x^2+2x+a)}{x(x+4)}=\dfrac a4=2$에서 $a=8$이므로 $f(x)=x^3+2x^2+8x$이다.
+      source_flow: PDF p.12-13
+      criteria:
+      - 1.M2
+    - id: 1b-3
+      content: |
+        $f'(x)=3x^2+4x+8$이므로 $\lim_{x\to1}\dfrac{f(x)-f(1)}{x-1}=f'(1)=15$이다.
+      source_flow: PDF p.12-13
+      criteria:
+      - 1.M3
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 3
+      evidence: $f(x)=x^3+2x^2+ax+b$ ($a$, $b$는 상수)임을 구했다.
+      steps:
+      - 1b-1
+    - id: 1.M2
+      mark_type: M
+      points: 3
+      evidence: $f(x)=x^3+2x^2+8x$를 구했다.
+      steps:
+      - 1b-2
+    - id: 1.M3
+      mark_type: M
+      points: 2
+      evidence: $\lim_{x\to1}\dfrac{f(x)-f(1)}{x-1}=15$를 구했다.
+      steps:
+      - 1b-3
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: past-v2-lean
+  item_version: 1
+  verdict: pass
+  date: &id001 2026-11-23
+created: *id001
+updated: *id001

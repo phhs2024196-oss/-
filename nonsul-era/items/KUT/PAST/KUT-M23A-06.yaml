@@ -1,0 +1,147 @@
+schema_version: '2.0'
+id: KUT-M23A-06
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: short_answer
+origin: mock_exam
+school: KUT
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 분류
+points: 10
+time_estimate_min: null
+key_idea: 식의 값이 자연수 $m$이라 놓고 $3n\log_3n=9^m$에서 $\log_3n$이 유리수임을 보여 $n=3^p$로 놓은 뒤 $p\cdot3^{p+1}=3^{2m}$을 만족시키는 $p$를 찾는다.
+stuck: $\log_3n$이 유리수여야 함을 보이고 $n=3^p$ ($p=3^k$ 꼴)로 좁혀 $m$이 자연수인 경우를 분류하는 지점
+tags:
+- 로그
+- 자연수 조건
+- 거듭제곱
+elements:
+  materials:
+  - $\log_9n+\log_9(3\log_3n)$
+  concepts:
+  - 로그의 성질
+  - 유리수와 무리수
+  - 거듭제곱의 지수 비교
+  - 자연수 조건
+  tools:
+  - 로그의 성질
+  - 경우 나누기
+  conditions:
+  - $n$은 $3$ 이상의 자연수
+  - 값이 자연수
+  - 작은 것부터 $a_1,a_2,a_3,\cdots$
+  stimuli_used: {}
+  subpart_links: []
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학Ⅰ
+  scope_2028: common
+  scope_confirmed: false
+  behavior_domain: 추론
+  content_area: 지수함수와 로그함수 – 지수와 로그
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 한국기술교육대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 한국기술교육대학교
+  admission_year: 2023
+  admission_type: 수시 모의논술
+  track: 공학계열
+  question_no: 6
+  official_url: https://www.koreatech.ac.kr/board.es?mid=a40104010200&bid=0043&act=view&list_no=15435
+  retrieved_at: '2026-11-23'
+  original_points:
+  - 10
+  rights_notice: 미확인
+  transcribed_from: 한국기술교육대 2023학년도 수시 논술고사 【수리】모의문제(6월 배포) PDF p.6
+verify: verify/KUT-M23A.py::p06
+stimuli: []
+stem: |
+  $3$ 이상의 자연수 $n$에 대하여 $\log_9n+\log_9(3\log_3n)$의 값이 자연수가 되도록 하는 $n$의 값을 작은 것부터 차례로 $a_1$, $a_2$, $a_3$, $\cdots$이라 하자. $\dfrac{81a_1}{a_2}$의 값을 구하는 과정을 서술하시오.
+subparts:
+- id: '1'
+  stem: ''
+  points: 10
+  depends_on: []
+  answer:
+    kind: value
+    value: 1/81
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S1-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        식의 값을 자연수 $m$이라 하면 $\log_9(3n\log_3n)=m$, 즉 $3n\log_3n=9^m$ ㉠이다. $n$과 $m$이 자연수이므로 ㉠에서 $\log_3n$은 유리수이어야 하고, $\log_3n=\dfrac pq$ (단, $p$와 $q$는 서로소인 자연수)라 하면 $n=3^{\frac pq}$이어야 하는데 $n$이 자연수이므로 $q=1$이고 $n=3^p$이다.
+      source_flow: PDF p.6
+      criteria:
+      - 1.M1
+    - id: 1b-2
+      content: |
+        ㉠을 정리하면 $3\cdot3^p\cdot\log_33^p=9^m$, 즉 $p\cdot3^{p+1}=3^{2m}$ ㉡이다. ㉡에서 $p=3^k$ ($k$는 $0$ 이상의 정수) 꼴이고, $k=0$일 때 $m=1$, $k=1$일 때 $m=\dfrac52$, $k=2$일 때 $m=6$, $k=3$일 때 $m=\dfrac{31}{2}$, $k=4$일 때 $m=43$이므로 $p=3^0,3^2,3^4,\cdots$인 경우에만 $m$이 자연수이다.
+      source_flow: PDF p.6
+      criteria:
+      - 1.M2
+    - id: 1b-3
+      content: |
+        $n=3^p$이므로 $a_1=3^1$, $a_2=3^9$이고 $\dfrac{81a_1}{a_2}=\dfrac{3^4\cdot3^1}{3^9}=\dfrac1{81}$이다.
+      source_flow: PDF p.6
+      criteria:
+      - 1.M3
+  # 채점기준 미공개 — 단계별 추정
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 3
+      evidence: $\log_3n$이 유리수임을 보이고 $n=3^p$로 놓았다.
+      steps:
+      - 1b-1
+    - id: 1.M2
+      mark_type: M
+      points: 4
+      evidence: $m$이 자연수가 되는 $p=3^0,3^2,3^4,\cdots$을 구했다.
+      steps:
+      - 1b-2
+    - id: 1.M3
+      mark_type: M
+      points: 3
+      evidence: $a_1=3^1$, $a_2=3^9$와 $\dfrac{81a_1}{a_2}=\dfrac1{81}$을 구했다.
+      steps:
+      - 1b-3
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: past-v2-lean
+  item_version: 1
+  verdict: pass
+  date: &id001 2026-11-23
+created: *id001
+updated: *id001

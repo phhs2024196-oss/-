@@ -1,0 +1,159 @@
+schema_version: '2.0'
+id: KUT-G25B-04
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: short_answer
+origin: past_exam
+school: KUT
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 추론
+points: 8
+time_estimate_min: 5
+key_idea: 주기함수의 연속 조건을 $x=0$ (즉 $x=4$)과 $x=2$에서 세워 $a$, $b$를 구하고 $f(15)=f(3)$을 계산한다.
+stuck: 주기성으로 $x=0$에서의 연속 조건이 $x\to4-$의 극한과 연결된다는 점
+tags:
+- 한국기술교육대
+- 2025학년도
+- 실전
+- 오후
+- 함수의 극한
+- 연속
+- 연속함수
+elements:
+  materials: []
+  concepts:
+  - 함수의 극한
+  - 연속
+  - 연속함수
+  tools:
+  - 주기함수
+  - 좌극한과 우극한
+  - 연속의 정의
+  conditions:
+  - f(x+4)=f(x)
+  - 0<=x<4 에서 f(x)=2x+4 (0<=x<2), (ax+b)/(x+2) (2<=x<4)
+  - f 는 실수 전체에서 연속
+  stimuli_used: {}
+  subpart_links: []
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학Ⅱ
+  scope_2028: common
+  scope_confirmed: false
+  behavior_domain: 추론
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 한국기술교육대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 한국기술교육대학교
+  admission_year: 2025
+  admission_type: 수시 논술전형
+  track: 공학·ICT융합계열(오후)
+  question_no: 4
+  official_url: https://cdn013.negagea.net/dgsmidc/omr/seoul/web/univ_info2025/한국기술교육대학교/한국기술교육대학교_2025학년도_선행학습영향평가.pdf
+  retrieved_at: '2026-11-23'
+  original_points:
+  - 8
+  rights_notice: 미확인
+  transcribed_from: 한국기술교육대 2025학년도 선행학습 영향평가 보고서 PDF p.67
+verify: verify/KUT-G25B.py::p04
+stimuli: []
+stem: |
+  함수 $f(x)$가 모든 실수 $x$에 대하여 $f(x+4)=f(x)$이고, $0\le x<4$일 때
+  $$f(x)=\begin{cases}2x+4 & (0\le x<2)\\ \dfrac{ax+b}{x+2} & (2\le x<4)\end{cases}$$
+  이다. 함수 $f(x)$가 실수 전체의 집합에서 연속일 때, $f(15)$의 값을 구하시오. (단, $a$, $b$는 상수이다.)
+subparts:
+- id: '1'
+  stem: ''
+  points: 8
+  depends_on: []
+  answer:
+    kind: value
+    value: 28/5
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S1-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        함수 $f(x)$가 실수 전체의 집합에서 연속이므로 $x=0$에서도 연속이다. 즉, $f(0)=\lim_{x\to0-}f(x)=\lim_{x\to0+}f(x)$가 성립한다. 이때 모든 실수 $x$에 대하여 $f(x+4)=f(x)$이므로 $\lim_{x\to0-}f(x)=\lim_{x\to0-}f(x+4)=\lim_{x\to4-}f(x)$이다. 따라서 $f(0)=4$, $\lim_{x\to4-}f(x)=\lim_{x\to4-}\dfrac{ax+b}{x+2}=\dfrac{4a+b}{6}$, $\lim_{x\to0+}f(x)=\lim_{x\to0+}(2x+4)=4$이므로 $\dfrac{4a+b}{6}=4$가 성립하고 $4a+b=24$ ····· ㉠ 이다.
+      source_flow: PDF p.68~69
+      criteria:
+      - 1.M1
+      - 1.M2
+    - id: 1b-2
+      content: |
+        또한 $f(x)$는 $x=2$에서도 연속이므로 $f(2)=\lim_{x\to2-}f(x)=\lim_{x\to2+}f(x)$가 성립한다. 따라서 $f(2)=\dfrac{2a+b}{4}$, $\lim_{x\to2-}f(x)=\lim_{x\to2-}(2x+4)=8$, $\lim_{x\to2+}f(x)=\lim_{x\to2+}\dfrac{ax+b}{x+2}=\dfrac{2a+b}{4}$이므로 $2a+b=32$ ····· ㉡ 이다.
+      source_flow: PDF p.68~69
+      criteria:
+      - 1.M3
+    - id: 1b-3
+      content: |
+        ㉠, ㉡으로부터 $a=-4$, $b=40$이다. 따라서 $f(15)=f(11)=f(7)=f(3)=\dfrac{-12+40}{3+2}=\dfrac{28}{5}$이다.
+      source_flow: PDF p.68~69
+      criteria:
+      - 1.A1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 2
+      evidence: $\lim_{x\to0-}f(x)=\lim_{x\to4-}f(x)$ 임을 구함
+      steps:
+      - 1b-1
+    - id: 1.M2
+      mark_type: M
+      points: 2
+      evidence: $4a+b=24$ 임을 구함
+      steps:
+      - 1b-1
+    - id: 1.M3
+      mark_type: M
+      points: 2
+      evidence: $2a+b=32$ 임을 구함
+      steps:
+      - 1b-2
+    - id: 1.A1
+      mark_type: A
+      points: 2
+      evidence: $f(15)=\dfrac{28}{5}$ 임을 구함
+      steps:
+      - 1b-3
+      depends_on:
+      - 1.M3
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: past-v2-lean
+  item_version: 1
+  verdict: pass
+  date: &id001 2026-11-23
+created: *id001
+updated: *id001

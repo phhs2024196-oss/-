@@ -1,0 +1,193 @@
+schema_version: '2.0'
+id: KUT-M23B-09
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: short_answer
+origin: mock_exam
+school: KUT
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 추론
+points: 16
+time_estimate_min: null
+key_idea: 연속 조건으로 $b=a+2$를 얻고, $x<1$에서 $g$가 증가하므로 $x\ge1$에서도 증가해야 역함수가 존재한다는 조건으로 $a\le\dfrac32$를 구한다.
+stuck: 역함수가 존재할 조건(일대일대응)을 $x>1$에서 $f'(x)\ge0$ 조건으로 바꾸고 $a$의 부호로 나누는 지점
+tags:
+- 함수의 연속
+- 역함수
+- 삼차함수의 증가
+elements:
+  materials:
+  - 삼차함수 $f(x)=x^3-ax^2+b$
+  - 구간별 함수 $g(x)$
+  concepts:
+  - 함수의 연속
+  - 역함수의 존재 조건
+  - 도함수의 부호
+  - 일차함수의 증가
+  tools:
+  - 연속 조건
+  - 도함수로 증가 판정
+  conditions:
+  - $g(x)$가 실수 전체의 집합에서 연속
+  - $g(x)$의 역함수가 존재
+  stimuli_used: {}
+  subpart_links: []
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학
+  - 수학Ⅱ
+  scope_2028: common
+  scope_confirmed: false
+  behavior_domain: 추론
+  content_area: 함수 – 역함수, 미분 – 도함수의 활용
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 한국기술교육대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 한국기술교육대학교
+  admission_year: 2023
+  admission_type: 수시 모의논술
+  track: 공학계열
+  question_no: 9
+  official_url: https://www.koreatech.ac.kr/board.es?mid=a40104010200&bid=0043&act=view&list_no=15436
+  retrieved_at: '2026-11-23'
+  original_points:
+  - 10
+  - 6
+  rights_notice: 미확인
+  transcribed_from: 한국기술교육대 2023학년도 수시모집 온라인 모의평가(모의 논술고사) 수리논술 PDF p.26
+verify: verify/KUT-M23B.py::p09
+stimuli: []
+stem: |
+  삼차함수 $f(x)=x^3-ax^2+b$에 대하여 함수 $g(x)$를
+
+  $$g(x)=\begin{cases}2x+1&(x<1)\\f(x)&(x\ge1)\end{cases}$$
+
+  이라 하자. 함수 $g(x)$가 실수 전체의 집합에서 연속이고 역함수가 존재할 때, 다음 물음에 답하시오. (단, $a$, $b$는 실수)
+subparts:
+- id: 1-1
+  stem: |
+    $b$를 $a$에 대한 식으로 나타내고, 실수 $a$의 범위를 구하시오. (10점)
+  points: 10
+  depends_on: []
+  answer:
+    kind: value
+    value: b = a + 2; a <= 3/2
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S11-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 11b-1
+      content: |
+        $g(x)$가 $x=1$에서 연속이므로 $\lim_{x\to1-}g(x)=f(1)$, 즉 $3=1-a+b$이다. 따라서 $b=a+2$이다.
+      source_flow: PDF p.28
+      criteria:
+      - 1-1.M1
+    - id: 11b-2
+      content: |
+        $x<1$에서 $g(x)=2x+1$이 증가하므로 역함수가 존재하려면 $x>1$에서도 증가해야 한다. 즉 $x>1$일 때 $f'(x)=3x\left(x-\dfrac23a\right)\ge0$이어야 한다. (ⅰ) $\dfrac23a\le0$이면 $x>1$에서 항상 $f'(x)>0$이다. (ⅱ) $\dfrac23a>0$이면 $x>1$에서 항상 $f'(x)\ge0$이려면 $\dfrac23a\le1$이어야 한다. (ⅰ), (ⅱ)에서 $\dfrac23a\le1$이므로 $a\le\dfrac32$이다.
+      source_flow: PDF p.28
+      criteria:
+      - 1-1.M2
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 1-1.M1
+      mark_type: M
+      points: 2
+      evidence: 식 $b=a+2$를 구했다.
+      steps:
+      - 11b-1
+    - id: 1-1.M2
+      mark_type: M
+      points: 8
+      evidence: $a\le\dfrac32$를 구했다.
+      steps:
+      - 11b-2
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+- id: 1-2
+  stem: |
+    $f(3)$의 최솟값을 구하시오. (6점)
+  points: 6
+  depends_on:
+  - 1-1
+  answer:
+    kind: value
+    value: '17'
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S12-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 12b-1
+      content: |
+        $b=a+2$이므로 $f(3)=27-9a+b=29-8a$이다.
+      source_flow: PDF p.28
+      criteria:
+      - 1-2.M1
+    - id: 12b-2
+      content: |
+        $a\le\dfrac32$이므로 $f(3)=29-8a\ge17$이고, $f(3)$의 최솟값은 $17$이다.
+      source_flow: PDF p.28
+      criteria:
+      - 1-2.M2
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 1-2.M1
+      mark_type: M
+      points: 2
+      evidence: 식 $f(3)=29-8a$를 구했다.
+      steps:
+      - 12b-1
+    - id: 1-2.M2
+      mark_type: M
+      points: 4
+      evidence: $f(3)$의 최솟값 $17$을 구했다.
+      steps:
+      - 12b-2
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: past-v2-lean
+  item_version: 1
+  verdict: pass
+  date: &id001 2026-11-23
+created: *id001
+updated: *id001

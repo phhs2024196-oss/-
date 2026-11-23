@@ -1,0 +1,146 @@
+schema_version: '2.0'
+id: KUT-G23B-02
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: short_answer
+origin: past_exam
+school: KUT
+type: null
+variant_of: null
+replaces: null
+level: L3
+form: 분류
+points: 4
+time_estimate_min: 5
+key_idea: 밑의 조건($|a-2|>0$, $|a-2|\ne1$)과 진수가 항상 양수일 조건($D<0$)을 함께 만족시키는 정수를 센다.
+stuck: 밑의 조건에서 $a\ne1,2,3$을 빠뜨리는 것
+tags:
+- 수학Ⅰ
+- 로그의 정의
+- 로그의 밑과 진수의 조건
+elements:
+  materials: []
+  concepts:
+  - 로그의 정의
+  - 로그의 밑과 진수의 조건
+  - 이차부등식
+  tools:
+  - 판별식
+  - 정수 해 열거
+  conditions: []
+  stimuli_used: {}
+  subpart_links: []
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학Ⅰ
+  scope_2028: common
+  scope_confirmed: true
+  behavior_domain: 계산
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 한국기술교육대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 한국기술교육대학교
+  admission_year: 2023
+  admission_type: 수시 논술전형
+  track: 공학계열(오후)
+  question_no: 2
+  official_url: https://www.koreatech.ac.kr/board.es?mid=a40104010200&bid=0043&act=view&list_no=15437
+  retrieved_at: '2026-11-23'
+  original_points:
+  - 4
+  rights_notice: 미확인
+  transcribed_from: 한국기술교육대 2024학년도 대비 논술기출문제집(2023학년도 오후) PDF p.37
+verify: verify/KUT-G23B.py::p02
+stimuli: []
+stem: |
+  모든 실수 $x$에 대하여 함수 $f(x)=\log_{|a-2|}(x^2+2ax+5a+36)$가 정의되도록 하는
+subparts:
+- id: '1'
+  stem: |
+    모든 정수 $a$의 값의 합을 구하시오.
+  points: 4
+  depends_on: []
+  answer:
+    kind: value
+    value: '24'
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S1-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        함수가 정의되려면 밑의 조건 $|a-2|>0$, $|a-2|\ne1$, 즉 $a\ne1,\,2,\,3$을 만족시켜야 한다.
+      source_flow: PDF p.38
+      criteria:
+      - 1.M1
+    - id: 1b-2
+      content: |
+        진수의 조건으로부터 모든 실수 $x$에 대하여 $x^2+2ax+5a+36>0$이어야 하므로 이차방정식 $x^2+2ax+5a+36=0$의 판별식 $D$에 대하여 $\dfrac D4=a^2-(5a+36)<0$, 즉 $-4<a<9$이다.
+      source_flow: PDF p.38
+      criteria:
+      - 1.M2
+    - id: 1b-3
+      content: |
+        두 조건을 동시에 만족시키는 정수 $a$의 값은 $-3,\,-2,\,-1,\,0,\,4,\,5,\,6,\,7,\,8$이고 구하는 합은 $24$이다.
+      source_flow: PDF p.38
+      criteria:
+      - 1.A1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 1
+      evidence: |
+        $a\ne1,\,2,\,3$이 있다.
+      steps:
+      - 1b-1
+    - id: 1.M2
+      mark_type: M
+      points: 2
+      evidence: |
+        $-4<a<9$가 있다.
+      steps:
+      - 1b-2
+    - id: 1.A1
+      mark_type: A
+      points: 1
+      evidence: |
+        $a$의 값의 합 $24$가 있다.
+      depends_on:
+      - 1.M2
+      steps:
+      - 1b-3
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: past-v2-lean
+  item_version: 1
+  verdict: pass
+  date: 2026-11-23
+created: 2026-11-23
+updated: 2026-11-23
