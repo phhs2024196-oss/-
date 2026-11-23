@@ -1,0 +1,178 @@
+# 채점기준 미공개 — 단계별 추정
+schema_version: '2.0'
+id: UOS-G20-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: UOS
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 이중세기
+points: 100
+time_estimate_min: null
+key_idea: 순서를 바꿔도 집합이 같으므로 $\sum x_k^2=\sum y_k^2=\sum z_k^2$이고, $x_k=l$인 순서쌍의 개수 $n-l+1$을 이용해 $\sum x_k^2=\sum_{l=1}^{n}l^2(n-l+1)$로 계산한다.
+stuck: 대칭성으로 세 합을 하나로 줄이고, 합을 순서쌍 나열이 아니라 $x_k$의 값 $l$별 개수로 바꾸어 세는 발상
+tags: []
+elements:
+  materials:
+  - 방정식 $x+y+z=n+2$의 자연수해의 집합
+  concepts:
+  - 대칭성
+  - 자연수 거듭제곱의 합 공식
+  - 순서쌍의 개수
+  tools:
+  - 합의 순서 바꾸기
+  - $\sum k^2,\ \sum k^3$ 공식
+  - 인수분해
+  conditions:
+  - $x,y,z$는 자연수
+  - $m$은 순서쌍의 개수
+  stimuli_used: {}
+  subpart_links: []
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학Ⅰ
+  - 확률과통계
+  scope_2028: common
+  scope_confirmed: false
+  content_area: 수열 – 시그마의 성질, 경우의 수 – 중복조합
+  behavior_domain: 문제해결
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 서울시립대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 서울시립대학교
+  admission_year: 2020
+  admission_type: 수시 논술전형
+  track: 자연계열
+  question_no: 1
+  official_url: https://admission.uos.ac.kr/admissionNew/freeBoard/view.do?list_id=OF1&menuid=2002001005000000000&seq=39
+  retrieved_at: '2026-11-23'
+  original_points:
+  - 100
+  rights_notice: 미확인
+  transcribed_from: 2020학년도 논술고사 문제지(자연계열) p.1
+verify: verify/UOS-G20.py::p01
+stimuli: []
+stem: |
+  자연수 $n$에 대하여 방정식 $x+y+z=n+2$를 만족시키는 세 자연수 $x,\ y,\ z$의 순서쌍 $(x,y,z)$ 전체의 집합을
+  $$\{(x_1,y_1,z_1),\ (x_2,y_2,z_2),\ \cdots,\ (x_m,y_m,z_m)\}$$
+  이라 하자.
+subparts:
+- id: 1-1
+  stem: |
+    $\displaystyle\sum_{k=1}^{m}\left(x_k^2+y_k^2+z_k^2\right)$을 $n$에 대하여 인수분해된 식으로 나타내어라.
+  points: 100
+  depends_on: []
+  answer:
+    kind: expression
+    value: n*(n+1)**2*(n+2)/4
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S11-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 11b-1
+      content: |
+        $(a,b,c)$가 주어진 집합의 원소이면 $a,b,c$의 순서를 바꾸어도 주어진 집합의 원소가 되므로 $\displaystyle\sum_{k=1}^{m}x_k^2=\sum_{k=1}^{m}y_k^2=\sum_{k=1}^{m}z_k^2$이다. 따라서 $\displaystyle\sum_{k=1}^{m}\left(x_k^2+y_k^2+z_k^2\right)=3\sum_{k=1}^{m}x_k^2$이다.
+      source_flow: 해설지 p.1 예시 답안
+      criteria:
+      - 1-1.M1
+    - id: 11b-2
+      content: |
+        $x_k=l\ (l=1,2,3,\cdots,n)$일 때 가능한 $y_k,\ z_k$의 순서쌍 $(y_k,z_k)$는
+        $$(1,\ n-l+1),\ (2,\ n-l),\ \cdots,\ (n-l+1,\ 1)$$
+        로 총 $(n-l+1)$개이다. 따라서
+        $$\sum_{k=1}^{m}x_k^2=\sum_{l=1}^{n}l^2(n-l+1)$$
+      source_flow: 해설지 p.1 예시 답안
+      criteria:
+      - 1-1.M2
+    - id: 11b-3
+      content: |
+        $$\sum_{l=1}^{n}l^2(n-l+1)=(n+1)\sum_{l=1}^{n}l^2-\sum_{l=1}^{n}l^3=\frac{(n+1)n(n+1)(2n+1)}{6}-\frac{n^2(n+1)^2}{4}=\frac{n(n+1)^2(n+2)}{12}$$
+      source_flow: 해설지 p.1 예시 답안
+      criteria:
+      - 1-1.M3
+      - 1-1.A1
+    - id: 11b-4
+      content: |
+        이므로 $\displaystyle\sum_{k=1}^{m}\left(x_k^2+y_k^2+z_k^2\right)=3\sum_{k=1}^{m}x_k^2=\frac{n(n+1)^2(n+2)}{4}$이다.
+      source_flow: 해설지 p.1 예시 답안
+      criteria:
+      - 1-1.A2
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 1-1.M1
+      mark_type: M
+      points: 20
+      evidence: 순서를 바꾸어도 집합이 같음을 이용해 $\sum x_k^2=\sum y_k^2=\sum z_k^2$이고 구하는 값이 $3\sum x_k^2$임을 밝혔다.
+      depends_on: []
+      steps:
+      - 11b-1
+    - id: 1-1.M2
+      mark_type: M
+      points: 30
+      evidence: $x_k=l$인 순서쌍이 $n-l+1$개임을 구해 $\sum x_k^2=\sum_{l=1}^{n}l^2(n-l+1)$로 바꾸었다.
+      depends_on: []
+      steps:
+      - 11b-2
+    - id: 1-1.M3
+      mark_type: M
+      points: 20
+      evidence: $\sum l^2,\ \sum l^3$의 합 공식을 써서 $\sum_{l=1}^{n}l^2(n-l+1)$을 계산하는 식을 세웠다.
+      depends_on:
+      - 1-1.M2
+      steps:
+      - 11b-3
+    - id: 1-1.A1
+      mark_type: A
+      points: 15
+      evidence: $\sum x_k^2=\dfrac{n(n+1)^2(n+2)}{12}$를 얻었다.
+      depends_on:
+      - 1-1.M3
+      steps:
+      - 11b-3
+    - id: 1-1.A2
+      mark_type: A
+      points: 15
+      evidence: 인수분해된 꼴 $\dfrac{n(n+1)^2(n+2)}{4}$를 답으로 썼다.
+      depends_on:
+      - 1-1.M1
+      - 1-1.A1
+      steps:
+      - 11b-4
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: past-v2-lean
+  item_version: 1
+  verdict: pass
+  date: &id001 2026-11-23
+created: *id001
+updated: *id001

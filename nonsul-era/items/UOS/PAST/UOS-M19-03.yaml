@@ -1,0 +1,253 @@
+schema_version: '2.0'
+id: UOS-M19-03
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: UOS
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 전수
+points: 100
+time_estimate_min: null
+key_idea: |
+  $b-a=3$인 $(a,b)$는 $(1,4),(2,5),(3,6)$이고, 각 경우의 수는 포함배제로 $4^k-2\cdot3^k+2^k$이며, (b)에서는 첫 눈 5를 고정하고 나머지 $k-1$번의 (최솟값, 최댓값) 쌍으로 나누어 센다.
+stuck: |
+  최솟값·최댓값이 정해진 경우의 수를 포함배제로 세는 것과, (b)에서 첫 번째 눈이 5일 때 가능한 $(a,b)$를 좁히는 것
+tags:
+- 최댓값 최솟값
+- 포함배제
+- 조건부확률
+elements:
+  materials:
+  - 주사위를 $k$번 던질 때의 눈의 최솟값 $a$, 최댓값 $b$
+  concepts:
+  - 중복순열
+  - 포함배제의 원리
+  - 조건부확률
+  tools:
+  - 사건 분할
+  - 포함배제
+  conditions:
+  - $k\ge2$
+  - 처음 던진 주사위의 눈이 5
+  stimuli_used: {}
+  subpart_links:
+  - 3-2는 3-1과 같은 방법(포함배제)으로 $n(G_i)$를 센다
+curriculum:
+  version: '2015'
+  subjects:
+  - 확률과통계
+  scope_2028: common
+  scope_confirmed: false
+  content_area: 확률 – 경우의 수, 조건부확률
+  behavior_domain: 문제해결
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 서울시립대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 서울시립대학교
+  admission_year: 2019
+  admission_type: 수시 모의논술고사
+  track: 자연계열
+  question_no: 3
+  official_url: https://admission.uos.ac.kr/admissionNew/freeBoard/view.do?list_id=OF1&menuid=2002001005000000000&seq=36
+  retrieved_at: '2026-11-23'
+  original_points:
+  - 50
+  - 50
+  rights_notice: 미확인
+  transcribed_from: 2019학년도 모의논술고사 문제지(자연계열) p.3
+verify: verify/UOS-M19.py::p03
+stimuli: []
+stem: |
+  [문제 3] (총 100점)
+  주사위를 $k$번 던져서 나온 눈의 최솟값을 $a$, 최댓값을 $b$라 할 때, 다음 물음에 답하여라. (단, $k\ge2$이다.)
+subparts:
+- id: 3-1
+  stem: |
+    (a) $b-a=3$인 경우의 수를 구하여라. (50점)
+  points: 50
+  depends_on: []
+  answer:
+    kind: expression
+    value: 3*(4**k-2*3**k+2**k)
+    equivalents:
+    - $3\left(4^k-2\cdot3^k+2^k\right)$
+    tolerance: null
+  solutions:
+  - id: S31-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 31b-1
+      content: |
+        $b-a=3$인 순서쌍 $(a,b)$는 $(1,4),(2,5),(3,6)$으로 3개이며, 그 사건을 각각 $A_1,A_2,A_3$이라 하자. $n(A)$를 사건 $A$가 일어나는 경우의 수라 할 때, $b-a=3$인 경우의 수는 $n(A_1)+n(A_2)+n(A_3)$이다. $(a,b)=(1,4)$인 경우에, 모든 주사위의 눈이 1씩 더 나온다면 $(a,b)=(2,5)$인 경우가 된다. 즉, $n(A_1)=n(A_2)$이다. 같은 방법으로 $n(A_2)=n(A_3)$이다. 따라서 $b-a=3$인 경우의 수는 $3\cdot n(A_1)$ ······ ①이다.
+      source_flow: 해설지 p.3 예시 답안
+      criteria:
+      - 3-1.M1
+    - id: 31b-2
+      content: |
+        $n(A_1)$을 구하기 위해 다음의 사건을 정의하자. $B$=주사위를 $k$번 던져서 나온 모든 눈이 1 이상 4 이하인 사건, $C$=모든 눈이 2 이상 4 이하인 사건, $D$=모든 눈이 1 이상 3 이하인 사건. 이때 $A_1=B-(C\cup D)$, $C\cup D\subset B$이므로 $n(A_1)=n(B)-n(C\cup D)$이다.
+      source_flow: 해설지 p.3 예시 답안
+      criteria:
+      - 3-1.M2
+    - id: 31b-3
+      content: |
+        또한 $n(B)=4^k$, $n(C)=3^k$, $n(D)=3^k$이고 $C\cap D$는 주사위를 $k$번 던져서 나온 모든 눈이 2 또는 3인 사건이므로 $n(C\cap D)=2^k$이다. 따라서 $n(C\cup D)=n(C)+n(D)-n(C\cap D)=3^k+3^k-2^k$이므로 $n(A_1)=4^k-2\cdot3^k+2^k$이다. 그러므로 식 ①에 대입하면 $b-a=3$인 경우의 수는 $3\cdot(4^k-2\cdot3^k+2^k)$이다.
+      source_flow: 해설지 p.3 예시 답안
+      criteria:
+      - 3-1.A1
+      - 3-1.A2
+  # 채점기준 미공개 — 단계별 추정
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 3-1.M1
+      mark_type: M
+      points: 15
+      evidence: |
+        $(a,b)=(1,4),(2,5),(3,6)$의 세 경우로 나누고 세 경우의 수가 서로 같음을 근거로 $3\cdot n(A_1)$으로 정리했다.
+      steps:
+      - 31b-1
+    - id: 3-1.M2
+      mark_type: M
+      points: 10
+      evidence: |
+        $(a,b)=(1,4)$인 경우를 눈이 1~4인 경우에서 (2~4인 경우)와 (1~3인 경우)를 제외하는 포함배제 식으로 세웠다.
+      steps:
+      - 31b-2
+    - id: 3-1.A1
+      mark_type: A
+      points: 15
+      evidence: |
+        $n(B)=4^k$, $n(C)=n(D)=3^k$, $n(C\cap D)=2^k$로 $n(A_1)=4^k-2\cdot3^k+2^k$을 구했다.
+      steps:
+      - 31b-3
+      depends_on:
+      - 3-1.M2
+    - id: 3-1.A2
+      mark_type: A
+      points: 10
+      evidence: |
+        최종 값 $3\left(4^k-2\cdot3^k+2^k\right)$을 적었다.
+      steps:
+      - 31b-3
+      depends_on:
+      - 3-1.M2
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+- id: 3-2
+  stem: |
+    (b) 처음 던진 주사위의 눈이 5가 나왔을 때, $b-a=3$일 확률을 구하여라. (50점)
+  points: 50
+  depends_on:
+  - 3-1
+  answer:
+    kind: expression
+    value: (2*4**(k-1)-3**k+2**(k-1))/6**(k-1)
+    equivalents:
+    - $\dfrac{2\cdot4^{k-1}-3^{k}+2^{k-1}}{6^{k-1}}$
+    tolerance: null
+  solutions:
+  - id: S32-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 32b-1
+      content: |
+        $b-a=3$인 사건을 $E$, 처음 던진 주사위의 눈이 5가 나온 사건을 $F$라 하자. $\mathrm{P}(E\cap F)=\dfrac{n(E\cap F)}{6^k}$이고 $\mathrm{P}(F)=\dfrac16$이므로, 처음 던진 주사위의 눈이 5가 나왔을 때, $b-a=3$일 확률은 $\mathrm{P}(E|F)=\dfrac{\mathrm{P}(E\cap F)}{\mathrm{P}(F)}=\dfrac{n(E\cap F)}{6^{k-1}}$이다.
+      source_flow: 해설지 p.3 예시 답안
+      criteria:
+      - 3-2.M1
+    - id: 32b-2
+      content: |
+        처음 던진 주사위의 눈이 5가 나왔을 때, $b-a=3$인 순서쌍 $(a,b)$는 $(2,5)$ 또는 $(3,6)$이어야 한다. 즉, 사건 $E\cap F$가 일어나는 경우는 첫 번째 주사위를 던진 이후에 주사위를 $k-1$번 던져 나온 눈의 최솟값과 최댓값의 순서쌍이 $(2,2),(2,3),(2,4),(2,5),(3,6)$일 때이다. 이 때, 각각의 사건을 $G_1,G_2,G_3,G_4,G_5$라 하자. 그러면 $n(E\cap F)=n(G_1)+n(G_2)+n(G_3)+n(G_4)+n(G_5)$이므로 $\mathrm{P}(E|F)=\dfrac{n(G_1)+n(G_2)+n(G_3)+n(G_4)+n(G_5)}{6^{k-1}}$이다.
+      source_flow: 해설지 p.3 예시 답안
+      criteria:
+      - 3-2.M2
+    - id: 32b-3
+      content: |
+        $G_1$은 $k-1$번 던져 나온 모든 주사위의 눈이 2가 나오는 사건이므로 $n(G_1)=1$이다. $n(G_2),\cdots,n(G_5)$를 문항 (a)와 같은 방법으로 구하면, $n(G_2)=2^{k-1}-2$, $n(G_3)=3^{k-1}-2\cdot2^{k-1}+1$, $n(G_4)=n(G_5)=4^{k-1}-2\cdot3^{k-1}+2^{k-1}$이다.
+      source_flow: 해설지 p.3 예시 답안
+      criteria:
+      - 3-2.A1
+    - id: 32b-4
+      content: |
+        따라서 처음 던진 주사위의 눈이 5가 나왔을 때, $b-a=3$일 확률은 $\dfrac{2\cdot4^{k-1}-3^{k}+2^{k-1}}{6^{k-1}}$이다.
+      source_flow: 해설지 p.3 예시 답안
+      criteria:
+      - 3-2.A2
+  # 채점기준 미공개 — 단계별 추정
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 3-2.M1
+      mark_type: M
+      points: 10
+      evidence: |
+        조건부확률을 $\dfrac{\mathrm{P}(E\cap F)}{\mathrm{P}(F)}=\dfrac{n(E\cap F)}{6^{k-1}}$ 꼴로 세웠다.
+      steps:
+      - 32b-1
+    - id: 3-2.M2
+      mark_type: M
+      points: 15
+      evidence: |
+        첫 눈이 5일 때 $(a,b)$가 $(2,5)$ 또는 $(3,6)$이어야 함을 보이고 나머지 $k-1$번의 (최솟값, 최댓값) 경우로 나누었다.
+      steps:
+      - 32b-2
+    - id: 3-2.A1
+      mark_type: A
+      points: 15
+      evidence: |
+        나눈 각 경우의 수 $n(G_i)$를 포함배제로 바르게 구했다.
+      steps:
+      - 32b-3
+      depends_on:
+      - 3-2.M2
+    - id: 3-2.A2
+      mark_type: A
+      points: 10
+      evidence: |
+        최종 확률 $\dfrac{2\cdot4^{k-1}-3^{k}+2^{k-1}}{6^{k-1}}$을 적었다.
+      steps:
+      - 32b-4
+      depends_on:
+      - 3-2.M2
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: past-v2-lean
+  item_version: 1
+  verdict: pass
+  date: &id001 2026-11-23
+created: *id001
+updated: *id001

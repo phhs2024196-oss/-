@@ -1,0 +1,194 @@
+schema_version: '2.0'
+id: UOS-G21A-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: numeric
+origin: past_exam
+school: UOS
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 분류
+points: 85
+time_estimate_min: null
+key_idea: 앞면을 H, 뒷면을 T로 기록하여 시행이 4번 이하에서 끝나는 경우 $A=\{\mathrm{HH},\mathrm{TTT},\mathrm{HTHH},\mathrm{THHH}\}$를 나열하고, 각 경우의 확률을 곱셈으로 구해 $\mathrm{P}(B\mid A)=\dfrac{\mathrm{P}(A\cap B)}{\mathrm{P}(A)}$를 계산한다.
+stuck: 시행 횟수가 4 이하로 끝나는 경우를 빠짐없이 나열하는 것(앞면 수의 변화), 매 시행마다 선택 확률이 앞면·뒷면의 개수에 따라 달라지는 것
+tags: []
+elements:
+  materials: []
+  concepts:
+  - 조건부확률
+  - 확률의 곱셈정리
+  - 확률변수
+  - 경우의 수 나열
+  tools:
+  - 조건부확률
+  - 수형도
+  conditions:
+  - 동전 5개 중 앞면 2개 뒷면 3개
+  - 임의로 하나를 선택해 뒤집음
+  - 모두 같은 면이면 멈춤
+  - X 는 총 시행 횟수
+  - 'A: X≤4'
+  - 'B: 첫 시행에서 앞면 선택'
+  stimuli_used: {}
+  subpart_links: []
+curriculum:
+  version: '2015'
+  subjects:
+  - 확률과통계
+  scope_2028: common
+  scope_confirmed: false
+  content_area: 확률 – 조건부확률, 독립시행이 아닌 시행의 확률
+  behavior_domain: 문제해결
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 서울시립대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 서울시립대학교
+  admission_year: 2021
+  admission_type: 수시 논술전형
+  track: 자연계열Ⅰ
+  question_no: 1
+  official_url: https://admission.uos.ac.kr/admissionNew/freeBoard/view.do?list_id=OF1&menuid=2002001005000000000&seq=42
+  retrieved_at: '2026-11-23'
+  original_points:
+  - 85
+  rights_notice: 미확인
+  transcribed_from: 2021 논술고사 문제지(자연계열Ⅰ) p.1
+verify: verify/UOS-G21A.py::p01
+stimuli: []
+stem: |
+  동전 5개가 앞면이 2개, 뒷면이 3개가 보이도록 놓여있다. 이 동전 5개 중에서 임의로 하나를 선택하여 뒤집는 시행을 한다. 이 시행을 반복하여 보이는 동전이 모두 같은 면이 되면 멈춘다. 멈출 때까지의 총 시행 횟수를 확률변수 $X$라 하고, $X$가 4 이하인 사건을 $A$라 하자. 첫 시행에서 앞면이 보이는 동전을 선택하는 사건을 $B$라 할 때, $\mathrm{P}(B\mid A)$를 구하여라.
+subparts:
+- id: 1-1
+  stem: ''
+  points: 85
+  depends_on: []
+  answer:
+    kind: value
+    value: 11/19
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S11-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 11b-1
+      content: |
+        5개의 동전 중 임의로 하나를 선택하여 뒤집는 시행에서, 앞면이 보이는 동전을 선택하는 사건을 H, 뒷면이 보이는 동전을 선택하는 사건을 T로 나타내자. 이 시행을 반복하여 동전이 모두 같은 면이 되면 멈추기로 할 때, 매 시행에서 어떤 동전이 선택되었는지를 연속된 H와 T로 나타내기로 하자. 사건 $A$는 다음과 같다.
+        $$A=\{\mathrm{HH},\mathrm{TTT},\mathrm{HTHH},\mathrm{THHH}\}$$
+      source_flow: 해설지 p.1 예시 답안
+      criteria:
+      - 1-1.M1
+    - id: 11b-2
+      content: |
+        사건 $A$를 구성하는 각 사건들의 확률은 아래와 같다.
+        $$\mathrm{P}(X=2)=\dfrac{2}{5}\times\dfrac{1}{5}=\dfrac{2}{25}$$
+        $$\mathrm{P}(X=3)=\dfrac{3}{5}\times\dfrac{2}{5}\times\dfrac{1}{5}=\dfrac{6}{125}$$
+      source_flow: 해설지 p.1 예시 답안
+      criteria:
+      - 1-1.B1
+    - id: 11b-3
+      content: |
+        $$\mathrm{P}(X=4)=\dfrac{2}{5}\times\dfrac{4}{5}\times\dfrac{2}{5}\times\dfrac{1}{5}+\dfrac{3}{5}\times\dfrac{3}{5}\times\dfrac{2}{5}\times\dfrac{1}{5}=\dfrac{34}{625}$$
+      source_flow: 해설지 p.1 예시 답안
+      criteria:
+      - 1-1.B2
+    - id: 11b-4
+      content: |
+        확률의 덧셈정리에 의해, $\mathrm{P}(A)=\mathrm{P}(X=2)+\mathrm{P}(X=3)+\mathrm{P}(X=4)=\dfrac{114}{625}$이다.
+      source_flow: 해설지 p.1 예시 답안
+      criteria:
+      - 1-1.A1
+    - id: 11b-5
+      content: |
+        사건 $B$는 첫 시행에서 앞면이 보이는 동전을 선택하는 사건이므로 $A\cap B=\{\mathrm{HH},\mathrm{HTHH}\}$이며, 이 사건이 발생할 확률은
+        $$\mathrm{P}(A\cap B)=\dfrac{2}{5}\times\dfrac{1}{5}+\dfrac{2}{5}\times\dfrac{4}{5}\times\dfrac{2}{5}\times\dfrac{1}{5}=\dfrac{66}{625}$$
+        이다.
+      source_flow: 해설지 p.1 예시 답안
+      criteria:
+      - 1-1.M2
+    - id: 11b-6
+      content: |
+        따라서 $\mathrm{P}(B\mid A)=\dfrac{\mathrm{P}(A\cap B)}{\mathrm{P}(A)}=\dfrac{11}{19}$이다.
+      source_flow: 해설지 p.1 예시 답안
+      criteria:
+      - 1-1.A2
+  # 채점기준 미공개 — 단계별 추정
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 1-1.M1
+      mark_type: M
+      points: 15
+      evidence: 시행을 H, T 열로 나타내어 사건 $A=\{\mathrm{HH},\mathrm{TTT},\mathrm{HTHH},\mathrm{THHH}\}$ 를 빠짐없이 나열했다.
+      steps:
+      - 11b-1
+    - id: 1-1.B1
+      mark_type: B
+      points: 10
+      evidence: $\mathrm{P}(X=2)=\dfrac{2}{25}$, $\mathrm{P}(X=3)=\dfrac{6}{125}$ 를 구했다.
+      steps:
+      - 11b-2
+    - id: 1-1.B2
+      mark_type: B
+      points: 15
+      evidence: $\mathrm{P}(X=4)=\dfrac{34}{625}$ 를 두 경우의 곱의 합으로 구했다.
+      steps:
+      - 11b-3
+    - id: 1-1.A1
+      mark_type: A
+      points: 10
+      evidence: 덧셈정리로 $\mathrm{P}(A)=\dfrac{114}{625}$ 를 구했다.
+      depends_on:
+      - 1-1.M1
+      steps:
+      - 11b-4
+    - id: 1-1.M2
+      mark_type: M
+      points: 20
+      evidence: $A\cap B=\{\mathrm{HH},\mathrm{HTHH}\}$ 를 찾아 $\mathrm{P}(A\cap B)=\dfrac{66}{625}$ 를 구했다.
+      depends_on:
+      - 1-1.M1
+      steps:
+      - 11b-5
+    - id: 1-1.A2
+      mark_type: A
+      points: 15
+      evidence: $\mathrm{P}(B\mid A)=\dfrac{11}{19}$ 를 적었다.
+      depends_on:
+      - 1-1.A1
+      - 1-1.M2
+      steps:
+      - 11b-6
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: past-v2-lean
+  item_version: 1
+  verdict: pass
+  date: 2026-11-23
+created: 2026-11-23
+updated: 2026-11-23

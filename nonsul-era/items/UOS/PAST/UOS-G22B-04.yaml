@@ -1,0 +1,226 @@
+schema_version: '2.0'
+id: UOS-G22B-04
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: short_answer
+origin: past_exam
+school: UOS
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 최적2단
+points: 115
+time_estimate_min: null
+key_idea: (a)의 결과로 직사각형의 한 변과 넓이를 한 문자 $t$로 나타내고($a=6t^2-t^3$, 가로 $=x_2-x_1$), 로그미분으로 넓이 함수의 극대를 구한다.
+stuck: 두 꼭짓점의 $x$좌표 $x_1$, $x_2$를 $t$로 표현하는 것(a의 활용), 넓이를 $t$의 함수로 두고 로그미분으로 극값을 구하는 것
+tags: []
+elements:
+  materials: []
+  concepts:
+  - 삼차방정식의 인수분해
+  - 근과 계수
+  - 직사각형의 넓이
+  - 로그미분법
+  tools:
+  - 인수분해
+  - 근의 공식
+  - 로그함수의 미분
+  - 증감표
+  conditions:
+  - x^3-6x^2+a=0 의 한 근 t
+  - 제1사분면의 점 A, D
+  - B, C는 x축 위
+  stimuli_used: {}
+  subpart_links: []
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학Ⅱ
+  - 미적분
+  scope_2028: calc2
+  scope_confirmed: false
+  content_area: 미분법 – 삼차방정식의 근, 도함수의 활용(최대), 로그함수의 미분
+  behavior_domain: 문제해결
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 서울시립대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 서울시립대학교
+  admission_year: 2022
+  admission_type: 수시 논술전형
+  track: 자연계열Ⅱ
+  question_no: 4
+  official_url: https://admission.uos.ac.kr/admissionNew/freeBoard/view.do?list_id=OF1&menuid=2002001005000000000&seq=44
+  retrieved_at: '2026-11-23'
+  original_points:
+  - 25
+  - 90
+  rights_notice: 미확인
+  transcribed_from: 2022 논술고사 문제지(자연계열Ⅱ) p.2
+verify: verify/UOS-G22B.py::p04
+stimuli: []
+stem: |
+  다음 물음에 답하여라.
+subparts:
+- id: 4-1
+  stem: |
+    (a) 상수 $a$에 대하여 방정식 $x^3-6x^2+a=0$의 한 근이 $t$일 때, 나머지 두 근을 $t$에 대한 식으로 나타내어라. (25점)
+  points: 25
+  depends_on: []
+  answer:
+    kind: expression
+    value: r1=(6-t-sqrt(-3*t**2+12*t+36))/2; r2=(6-t+sqrt(-3*t**2+12*t+36))/2
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S41-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 41b-1
+      content: |
+        $t$가 방정식 $x^3-6x^2+a=0$의 근이므로 $t^3-6t^2+a=0$, $a=6t^2-t^3$이다. 따라서
+        $$x^3-6x^2+a=x^3-6x^2+6t^2-t^3=(x-t)\left\{x^2-(6-t)x+t^2-6t\right\}=0$$
+        이다.
+      source_flow: 해설지 p.4 예시 답안
+      criteria:
+      - 4-1.M1
+    - id: 41b-2
+      content: |
+        그러므로 나머지 두 근은 $\dfrac{6-t\pm\sqrt{(6-t)^2-4(t^2-6t)}}{2}=\dfrac{6-t\pm\sqrt{-3t^2+12t+36}}{2}$이다.
+      source_flow: 해설지 p.4 예시 답안
+      criteria:
+      - 4-1.A1
+  # 채점기준 미공개 — 단계별 추정
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 4-1.M1
+      mark_type: M
+      points: 10
+      evidence: $a=6t^2-t^3$ 을 대입해 $(x-t)\{x^2-(6-t)x+t^2-6t\}$ 로 인수분해했다.
+      steps:
+      - 41b-1
+    - id: 4-1.A1
+      mark_type: A
+      points: 15
+      evidence: 이차방정식의 근의 공식으로 나머지 두 근 $\dfrac{6-t\pm\sqrt{-3t^2+12t+36}}{2}$ 를 구했다.
+      depends_on:
+      - 4-1.M1
+      steps:
+      - 41b-2
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+- id: 4-2
+  stem: |
+    (b) 좌표평면에서 직사각형 ABCD의 두 꼭짓점 A, D는 곡선 $y=-x^3+6x^2$에 있는 제1사분면의 점이고, 두 꼭짓점 B, C는 $x$축에 있다. 직사각형 ABCD의 넓이가 최대일 때, 변 AB의 길이를 구하여라. (90점)
+  points: 90
+  depends_on:
+  - 4-1
+  answer:
+    kind: value
+    value: 26-2*sqrt(7)
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S42-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 42b-1
+      content: |
+        $\mathrm{B}(x_1,0)$, $\mathrm{C}(x_2,0)$, $\overline{\mathrm{AB}}=a$라 하자. $x_1$, $x_2$는 방정식 $-x^3+6x^2=a$의 해이다. 방정식 $-x^3+6x^2=a$의 $x_1$, $x_2$가 아닌 다른 해를 $t$라 하자. $-2<t<0$이고 (a)에 의해
+        $$x_1=\dfrac{6-t-\sqrt{-3t^2+12t+36}}{2},\qquad x_2=\dfrac{6-t+\sqrt{-3t^2+12t+36}}{2}$$
+        이므로 직사각형 ABCD의 넓이는 $a(x_2-x_1)=(-t^3+6t^2)\sqrt{-3t^2+12t+36}$이다.
+      source_flow: 해설지 p.4 예시 답안
+      criteria:
+      - 4-2.M1
+    - id: 42b-2
+      content: |
+        $f(x)=(-x^3+6x^2)\sqrt{-3x^2+12x+36}$, $g(x)=\ln\lvert f(x)\rvert=2\ln\lvert x\rvert+\ln\lvert x-6\rvert+\dfrac{1}{2}\ln\lvert3x^2-12x-36\rvert$라 하자.
+        $$g^{\prime}(x)=\dfrac{f^{\prime}(x)}{f(x)}=\dfrac{2}{x}+\dfrac{1}{x-6}+\dfrac{6x-12}{2(3x^2-12x-36)}=\dfrac{4(x^2-2x-6)}{x(x-6)(x+2)}$$
+      source_flow: 해설지 p.4 예시 답안
+      criteria:
+      - 4-2.M2
+    - id: 42b-3
+      content: |
+        이고 방정식 $x^2-2x-6=0$의 근 중에서 $-2<x<0$인 것은 $x=1-\sqrt{7}$이다. 증감표: $-2<x<1-\sqrt{7}$에서 $f^{\prime}(x)>0$(증가), $x=1-\sqrt{7}$에서 $f^{\prime}(x)=0$(극대), $1-\sqrt{7}<x<0$에서 $f^{\prime}(x)<0$(감소)이다.
+      source_flow: 해설지 p.4 예시 답안
+      criteria:
+      - 4-2.M3
+    - id: 42b-4
+      content: |
+        따라서 $t=1-\sqrt{7}$에서 직사각형 ABCD는 최대 넓이를 갖고, 이때 변 AB의 길이는 $-(1-\sqrt{7})^3+6(1-\sqrt{7})^2=26-2\sqrt{7}$이다.
+      source_flow: 해설지 p.4 예시 답안
+      criteria:
+      - 4-2.A1
+  # 채점기준 미공개 — 단계별 추정
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 4-2.M1
+      mark_type: M
+      points: 25
+      evidence: $-2<t<0$ 의 범위와 (a)의 결과로 넓이를 $t$ 의 함수 $(-t^3+6t^2)\sqrt{-3t^2+12t+36}$ 로 나타냈다.
+      steps:
+      - 42b-1
+    - id: 4-2.M2
+      mark_type: M
+      points: 30
+      evidence: 넓이 함수(또는 그 로그)를 미분하여 $g^{\prime}(x)=\dfrac{4(x^2-2x-6)}{x(x-6)(x+2)}$ 또는 동치식을 구했다.
+      depends_on:
+      - 4-2.M1
+      steps:
+      - 42b-2
+    - id: 4-2.M3
+      mark_type: M
+      points: 20
+      evidence: $-2<x<0$ 에서 $x=1-\sqrt{7}$ 이 극대(최대)임을 증감으로 보였다.
+      depends_on:
+      - 4-2.M2
+      steps:
+      - 42b-3
+    - id: 4-2.A1
+      mark_type: A
+      points: 15
+      evidence: $\overline{\mathrm{AB}}=a=-t^3+6t^2$ 에 $t=1-\sqrt{7}$ 을 대입해 $26-2\sqrt{7}$ 을 구했다.
+      depends_on:
+      - 4-2.M3
+      steps:
+      - 42b-4
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: past-v2-lean
+  item_version: 1
+  verdict: pass
+  date: 2026-11-23
+created: 2026-11-23
+updated: 2026-11-23

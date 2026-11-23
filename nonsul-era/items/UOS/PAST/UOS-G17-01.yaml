@@ -1,0 +1,199 @@
+schema_version: '2.0'
+id: UOS-G17-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: UOS
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 최적2단
+points: 100
+time_estimate_min: null
+key_idea: 밑변 AB를 고정하면 높이가 최대인 C는 기울기가 같은 접선의 접점이다. 평행 이동한 현의 길이와 거리를 b의 함수로 두고 미분으로 최대를 구한다.
+stuck: (b)에서 최대화를 C의 위치와 직선의 절편 b 두 단계로 나누는 발상
+tags: []
+elements:
+  materials:
+  - 타원 x^2/5+y^2/4=1
+  - 내접삼각형의 넓이
+  concepts:
+  - 현의 길이
+  - 접선의 기울기
+  - 판별식
+  - 근과 계수의 관계
+  - 삼차·사차 다항식의 최대
+  tools:
+  - 점과 직선 사이의 거리
+  - 도함수
+  conditions:
+  - AB의 기울기가 1
+  stimuli_used: {}
+  subpart_links:
+  - 1-1의 구조(현의 길이×높이)를 b의 함수로 일반화
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학Ⅰ
+  - 기하
+  - 미적분
+  scope_2028: unknown
+  scope_confirmed: false
+  behavior_domain: 문제해결
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 서울시립대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 서울시립대학교
+  admission_year: 2017
+  admission_type: 수시 논술전형
+  track: 자연계열
+  question_no: 1
+  official_url: https://admission.uos.ac.kr/admissionNew/freeBoard/view.do?list_id=OF1&menuid=2002001005000000000&seq=32
+  retrieved_at: '2026-11-23'
+  original_points:
+  - 40
+  - 60
+  rights_notice: 미확인
+  transcribed_from: 2017 논술고사 문제지(자연계열) p.2
+verify: verify/UOS-G17.py::p01
+stimuli: []
+stem: |
+  [문제 1] (총 100점)
+  타원 $\dfrac{x^2}{5}+\dfrac{y^2}{4}=1$에 내접하는 삼각형 ABC가 있다.
+subparts:
+- id: 1-1
+  stem: |
+    (a) 직선 AB의 방정식이 $y=x$일 때, 삼각형 ABC의 넓이의 최댓값을 구하여라. (40점)
+  points: 40
+  depends_on: []
+  answer:
+    kind: value
+    value: 2*sqrt(5)
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S11-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 11b-1
+      content: |
+        점 C와 직선 $y=x$ 사이의 거리를 $d$라 하면 삼각형 ABC의 넓이는 $S=\dfrac12\cdot\overline{AB}\cdot d$이다. $y=x$와 $\dfrac{x^2}{5}+\dfrac{y^2}{4}=1$을 연립하여 풀면 $(x,y)=\left(-\dfrac{2\sqrt5}{3},-\dfrac{2\sqrt5}{3}\right)$ 또는 $\left(\dfrac{2\sqrt5}{3},\dfrac{2\sqrt5}{3}\right)$이므로 $\overline{AB}=\dfrac{4\sqrt{10}}{3}$이다.
+      source_flow: 해설지 p.3 예시 답안
+      criteria:
+      - 1-1.M1
+    - id: 11b-2
+      content: |
+        점 C에서의 접선의 기울기가 1일 때 삼각형 ABC의 넓이가 최대가 된다. 이 접선의 방정식을 구하기 위해 $y=x+k$를 $\dfrac{x^2}{5}+\dfrac{y^2}{4}=1$에 대입하여 정리하면 $9x^2+10kx+5k^2-20=0$이고, 이 이차방정식의 판별식을 $D$라 할 때 $D=(10k)^2-4\cdot9\cdot(5k^2-20)=0$에서 $k=\pm3$이고 점 C의 좌표는 $\left(-\dfrac53,\dfrac43\right)$ 또는 $\left(\dfrac53,-\dfrac43\right)$이다. 따라서 $d$의 최댓값은 $\dfrac{3}{\sqrt2}$이므로 구하고자 하는 $S$의 최댓값은 $2\sqrt5$이다.
+      source_flow: 해설지 p.3 예시 답안
+      criteria:
+      - 1-1.A1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 1-1.M1
+      mark_type: M
+      points: 20
+      evidence: 직선 $y=x$와 타원의 교점을 구하고 $\overline{AB}=\dfrac{4\sqrt{10}}{3}$을 얻었다.
+      steps:
+      - 11b-1
+    - id: 1-1.A1
+      mark_type: A
+      points: 20
+      evidence: 직선에서 가장 먼 타원 위의 점(기울기 1인 접선의 접점)을 찾아 $d=\dfrac{3}{\sqrt2}$, 최댓값 $2\sqrt5$를 구했다.
+      depends_on:
+      - 1-1.M1
+      steps:
+      - 11b-2
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+- id: 1-2
+  stem: |
+    (b) 직선 AB의 기울기가 1일 때, 삼각형 ABC의 넓이의 최댓값을 구하여라. (60점)
+  points: 60
+  depends_on: []
+  answer:
+    kind: value
+    value: 3*sqrt(15)/2
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S12-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 12b-1
+      content: |
+        점 C와 직선 $y=x+b$ 사이의 거리를 $d$라 하면 삼각형 ABC의 넓이는 $S=\dfrac12\cdot\overline{AB}\cdot d$이다. $y=x+b$를 $\dfrac{x^2}{5}+\dfrac{y^2}{4}=1$에 대입하여 정리하면 $9x^2+10bx+5b^2-20=0$이다. 이 이차방정식의 두 근을 $\alpha$, $\beta$로 놓으면 $\overline{AB}=\sqrt2\left|\alpha-\beta\right|$이다. $\left|\alpha-\beta\right|$를 근과 계수와의 관계를 이용하여 계산하면 $\left|\alpha-\beta\right|=\sqrt{(\alpha+\beta)^2-4\alpha\beta}=\sqrt{\left(\dfrac{-10b}{9}\right)^2-4\cdot\dfrac{5b^2-20}{9}}=\dfrac{4\sqrt5}{9}\sqrt{9-b^2}$이므로 $\overline{AB}=\sqrt2\left|\alpha-\beta\right|=\dfrac{4\sqrt{10}}{9}\sqrt{9-b^2}$이다.
+      source_flow: 해설지 p.3 예시 답안
+      criteria:
+      - 1-2.M1
+    - id: 12b-2
+      content: |
+        일반성을 잃지 않고 $b\le0$이라 하자. 그러면 점 C의 좌표는 $\left(-\dfrac53,\dfrac43\right)$일 때 $S$가 최대가 되고, 이때 점 C와 직선 $y=x+b$ 사이의 거리는 $\dfrac{3-b}{\sqrt2}$이다. 이를 이용하여 $S$를 계산하면 $S=\dfrac12\cdot\overline{AB}\cdot d=\dfrac12\cdot\dfrac{4\sqrt{10}}{9}\sqrt{9-b^2}\cdot\dfrac{3-b}{\sqrt2}=\dfrac{2\sqrt5}{9}\sqrt{(3-b)^3(3+b)}$이다.
+      source_flow: 해설지 p.3 예시 답안
+      criteria:
+      - 1-2.M1
+    - id: 12b-3
+      content: |
+        구간 $(-3,0]$에서 함수 $f(x)=(3-x)^3(3+x)$의 최댓값을 구하자. $f'(x)=-3(3-x)^2(3+x)+(3-x)^3=(3-x)^2(-6-4x)$이므로 $f(x)$는 $x=-\dfrac32$에서 극대가 되고 최대가 된다. 따라서 $S$의 최댓값은 $S=\dfrac{2\sqrt5}{9}\sqrt{\left(\dfrac92\right)^3\dfrac32}=\dfrac{2\sqrt5}{9}\cdot\dfrac{27\sqrt3}{4}=\dfrac32\sqrt{15}$이다.
+      source_flow: 해설지 p.3 예시 답안
+      criteria:
+      - 1-2.A1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 1-2.M1
+      mark_type: M
+      points: 30
+      evidence: 직선 $y=x+b$와 타원이 만나는 점(현)을 이용해 $\overline{AB}=\dfrac{4\sqrt{10}}{9}\sqrt{9-b^2}$를 구하고 $S$를
+        $b$의 함수 $\dfrac{2\sqrt5}{9}\sqrt{(3-b)^3(3+b)}$로 나타냈다.
+      steps:
+      - 12b-1
+      - 12b-2
+    - id: 1-2.A1
+      mark_type: A
+      points: 30
+      evidence: 주어진 구간에서 함수의 최댓값을 구해 $S$의 최댓값 $\dfrac32\sqrt{15}$를 얻었다.
+      depends_on:
+      - 1-2.M1
+      steps:
+      - 12b-3
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: past-v2-lean
+  item_version: 1
+  verdict: pass
+  date: 2026-11-23
+created: 2026-11-23
+updated: 2026-11-23

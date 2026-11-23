@@ -1,0 +1,188 @@
+# 채점기준 미공개 — 단계별 추정
+schema_version: '2.0'
+id: UOS-G20-02
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: UOS
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 추론
+points: 100
+time_estimate_min: null
+key_idea: $P\left(t,\tfrac14t^2\right)$로 두고 $\theta$와 $t$의 관계 $dt/d\theta=2/(1+\cos\theta)$, 넓이 $S=\tfrac1{24}t^3+\tfrac12t$를 구해 합성함수의 미분법으로 $S'(\pi/3)$를 구한다.
+stuck: 각 $\theta$와 점 P의 위치 $t$ 사이의 관계를 세우고, 넓이를 $t$로 나타낸 뒤 $\dfrac{dS}{d\theta}=\dfrac{dS}{dt}\cdot\dfrac{dt}{d\theta}$를 쓰는 발상
+tags: []
+elements:
+  materials:
+  - 포물선 $y=x^2/4$
+  - 초점 F
+  - 넓이 함수 $S(\theta)$
+  concepts:
+  - 합성함수의 미분법
+  - 정적분과 넓이
+  - 삼각함수의 정의
+  tools:
+  - 매개변수 $t$ 도입
+  - 연쇄법칙
+  conditions:
+  - P는 제1사분면의 점
+  - $\theta=\angle\mathrm{OFP}$
+  - O는 원점
+  stimuli_used: {}
+  subpart_links: []
+curriculum:
+  version: '2015'
+  subjects:
+  - 미적분
+  - 수학Ⅱ
+  scope_2028: calc2
+  scope_confirmed: false
+  content_area: 미분법 – 합성함수의 미분법, 정적분의 활용(넓이)
+  behavior_domain: 문제해결
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 서울시립대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 서울시립대학교
+  admission_year: 2020
+  admission_type: 수시 논술전형
+  track: 자연계열
+  question_no: 2
+  official_url: https://admission.uos.ac.kr/admissionNew/freeBoard/view.do?list_id=OF1&menuid=2002001005000000000&seq=39
+  retrieved_at: '2026-11-23'
+  original_points:
+  - 100
+  rights_notice: 미확인
+  transcribed_from: 2020학년도 논술고사 문제지(자연계열) p.1
+verify: verify/UOS-G20.py::p02
+stimuli: []
+stem: |
+  좌표평면에서 초점이 F인 포물선 $y=\dfrac14x^2$의 제1사분면에 있는 임의의 점을 P라 하고, $\theta=\angle\mathrm{OFP}$라 하자. 두 선분 FO, FP와 포물선으로 둘러싸인 도형의 넓이를 $S(\theta)$라 할 때,
+subparts:
+- id: 2-1
+  stem: |
+    $S'\left(\dfrac{\pi}{3}\right)$의 값을 구하여라. (단, O는 원점이다.)
+  points: 100
+  depends_on: []
+  answer:
+    kind: value
+    value: 8/9
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S21-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 21b-1
+      content: |
+        포물선의 초점의 좌표는 $\mathrm{F}(0,1)$이다. 점 P를 $\left(t,\ \dfrac14t^2\right)\ (t>0)$라 하자. 점 P에서 $y$축에 내린 수선의 발을 Q라 하면, $\overline{\mathrm{PQ}}=t,\ \overline{\mathrm{FP}}=1+\dfrac14t^2$이므로,
+        $$\sin\theta=\frac{\overline{\mathrm{PQ}}}{\overline{\mathrm{FP}}}=\frac{t}{1+\frac14t^2}=\frac{4t}{4+t^2},\quad\cos\theta=\frac{4-t^2}{4+t^2}$$
+        이다.
+      source_flow: 해설지 p.2 예시 답안
+      criteria:
+      - 2-1.M1
+    - id: 21b-2
+      content: |
+        이 식을 $t$에 관하여 풀면 $t=\dfrac{2(1-\cos\theta)}{\sin\theta}$이고 $\dfrac{dt}{d\theta}=\dfrac{2}{1+\cos\theta}$이다.
+      source_flow: 해설지 p.2 예시 답안
+      criteria:
+      - 2-1.A1
+    - id: 21b-3
+      content: |
+        합성함수의 미분법에 의해 $\dfrac{dS}{d\theta}=\dfrac{dS}{dt}\cdot\dfrac{dt}{d\theta}$이다. $S(\theta)$를 $t$에 관한 식으로 나타내면
+        $$S(\theta)=\frac12\left(1+\frac14t^2\right)t-\int_0^t\frac14x^2dx=\frac1{24}t^3+\frac12t$$
+        이므로 $\dfrac{dS}{dt}=\dfrac18t^2+\dfrac12$이다.
+      source_flow: 해설지 p.2 예시 답안
+      criteria:
+      - 2-1.M2
+      - 2-1.A2
+      - 2-1.M3
+    - id: 21b-4
+      content: |
+        $\theta=\dfrac{\pi}{3}$일 때 $t=\dfrac{2}{\sqrt3}$, $\dfrac{dt}{d\theta}=\dfrac43$, $\dfrac{dS}{dt}=\dfrac23$이므로 $S'\left(\dfrac{\pi}{3}\right)=\dfrac23\times\dfrac43=\dfrac89$이다.
+      source_flow: 해설지 p.2 예시 답안
+      criteria:
+      - 2-1.A3
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 2-1.M1
+      mark_type: M
+      points: 15
+      evidence: 점 P를 $\left(t,\frac14t^2\right)$로 두고 $\sin\theta,\ \cos\theta$를 $t$로 나타냈다.
+      depends_on: []
+      steps:
+      - 21b-1
+    - id: 2-1.A1
+      mark_type: A
+      points: 15
+      evidence: $t$와 $\theta$의 관계에서 $\dfrac{dt}{d\theta}=\dfrac{2}{1+\cos\theta}$(또는 동치식)를 얻었다.
+      depends_on:
+      - 2-1.M1
+      steps:
+      - 21b-2
+    - id: 2-1.M2
+      mark_type: M
+      points: 25
+      evidence: 넓이 $S$를 삼각형(또는 직선 FP 아래 넓이)과 $\int_0^t\frac14x^2dx$로 나타내는 식을 세웠다.
+      depends_on: []
+      steps:
+      - 21b-3
+    - id: 2-1.A2
+      mark_type: A
+      points: 10
+      evidence: $S=\dfrac1{24}t^3+\dfrac12t$와 $\dfrac{dS}{dt}=\dfrac18t^2+\dfrac12$을 얻었다.
+      depends_on:
+      - 2-1.M2
+      steps:
+      - 21b-3
+    - id: 2-1.M3
+      mark_type: M
+      points: 15
+      evidence: $\dfrac{dS}{d\theta}=\dfrac{dS}{dt}\cdot\dfrac{dt}{d\theta}$를 이용했다.
+      depends_on: []
+      steps:
+      - 21b-3
+    - id: 2-1.A3
+      mark_type: A
+      points: 20
+      evidence: $\theta=\frac\pi3$에서 $t=\frac2{\sqrt3}$를 구해 대입하고 $S'\left(\frac\pi3\right)=\frac89$를 얻었다.
+      depends_on:
+      - 2-1.A1
+      - 2-1.A2
+      - 2-1.M3
+      steps:
+      - 21b-4
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: past-v2-lean
+  item_version: 1
+  verdict: pass
+  date: &id001 2026-11-23
+created: *id001
+updated: *id001

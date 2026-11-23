@@ -1,0 +1,240 @@
+schema_version: '2.0'
+id: UOS-M18-03
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: UOS
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 분류
+points: 100
+time_estimate_min: null
+key_idea: |
+  주머니의 구성(빨간 공 개수)을 상태로 보고, 한 번의 시행(꺼냄+채움)마다 상태가 바뀌는 확률을 단계별로 계산한다.
+stuck: 매 시행 후 주머니의 구성을 (빨강 2개, 각 1개, 흰 2개)의 세 상태로 나누어 전이 확률을 구하는 것
+tags:
+- 확률
+- 조건부확률
+- 상태 전이
+elements:
+  materials:
+  - 흰 공과 빨간 공이 1개씩 든 주머니, 꺼낸 뒤 바로 공 1개를 채워 넣음
+  concepts:
+  - 확률의 덧셈정리·곱셈정리
+  - 경우 나누기
+  tools:
+  - 상태 전이 표
+  - 경우 분류
+  conditions:
+  - 채워 넣는 공이 빨간색일 확률 $p$, 흰색일 확률 $1-p$
+  stimuli_used: {}
+  subpart_links:
+  - 3-2는 3-1의 단계별 상태 확률(B가 채운 후의 분포)을 이용한다
+curriculum:
+  version: '2015'
+  subjects:
+  - 확률과통계
+  scope_2028: common
+  scope_confirmed: false
+  content_area: 확률 – 확률의 계산
+  behavior_domain: 문제해결
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 서울시립대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 서울시립대학교
+  admission_year: 2018
+  admission_type: 수시 모의논술고사
+  track: 자연계열
+  question_no: 3
+  official_url: https://admission.uos.ac.kr/admissionNew/freeBoard/view.do?list_id=OF1&menuid=2002001005000000000&seq=33
+  retrieved_at: '2026-11-23'
+  original_points:
+  - 50
+  - 50
+  rights_notice: 미확인
+  transcribed_from: 2018학년도 수시모집 논술전형 모의 논술고사 문제지(자연계열) (HWP 변환본 M18_Q)
+verify: verify/UOS-M18.py::p03
+stimuli: []
+stem: |
+  [문제 3] (총 100점)
+  흰 공과 빨간 공이 각각 $1$개씩 들어 있는 주머니가 있다. 세 명의 학생 A, B, C가 A, B, C 순서로 주머니에서 $1$개의 공을 임의로 꺼내고, 공을 꺼낼 때마다 바로 공 $1$개를 다시 채워 넣는다. 이때 A, B, C가 채워 넣는 공이 빨간색일 확률은 $p$이고, 흰색일 확률은 $1-p$이다.
+subparts:
+- id: 3-1
+  stem: (a) B가 공을 채워 넣은 후 주머니에 흰 공과 빨간 공이 각각 1개일 확률을 구하여라. (50점)
+  points: 50
+  depends_on: []
+  answer:
+    kind: expression
+    value: 1/4 + p*(1-p)
+    equivalents:
+    - $\dfrac14+p(1-p)$
+    tolerance: null
+  solutions:
+  - id: S31-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 31b-1
+      content: |
+        A가 공을 채워 넣은 후 주머니에 빨간 공이 2개일 확률은, 흰 공을 꺼내고 빨간 공을 넣어야 하므로 $\dfrac p2$이고, 흰 공과 빨간 공이 각각 1개일 확률은, 빨간 공을 꺼내고 빨간 공을 넣거나 흰 공을 꺼내고 흰 공을 넣어야 하므로 $\dfrac p2+\dfrac{1-p}2=\dfrac12$이며, 흰 공이 2개일 확률은 빨간 공을 꺼내고 흰 공을 넣어야 하므로 $\dfrac{1-p}2$이다.
+      source_flow: 해설지 예시 답안
+      criteria:
+      - 3-1.M1
+    - id: 31b-2
+      content: |
+        B가 공을 채워 넣은 후 주머니에 흰 공과 빨간 공이 각각 1개인 경우는, A가 공을 채워 넣은 후 주머니에 있는 흰 공의 개수 $n$에 따라 다음의 3가지 경우가 있다.
+        (i) $n=0$인 경우: 흰 공을 넣어야 하므로 확률은 $\dfrac p2\cdot(1-p)$이다.
+        (ii) $n=1$일 경우: 빨간 공을 꺼내고 빨간 공을 넣거나, 흰 공을 꺼내고 흰 공을 넣어야 하므로 확률은 $\dfrac12\cdot\left\{\dfrac12\cdot p+\dfrac12\cdot(1-p)\right\}=\dfrac14$이다.
+        (iii) $n=2$일 경우: 빨간 공을 넣어야 하므로 확률은 $\dfrac{1-p}2\cdot p$이다.
+      source_flow: 해설지 예시 답안
+      criteria:
+      - 3-1.M2
+      - 3-1.A1
+    - id: 31b-3
+      content: |
+        따라서 구하는 값은 $\dfrac14+p(1-p)$이다.
+      source_flow: 해설지 예시 답안
+      criteria:
+      - 3-1.A2
+  # 채점기준 미공개 — 단계별 추정
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 3-1.M1
+      mark_type: M
+      points: 15
+      evidence: |
+        A가 채운 후의 세 상태(빨간 공 2개, 각 1개, 흰 공 2개)의 확률 $\dfrac p2$, $\dfrac12$, $\dfrac{1-p}2$를 구했다.
+      steps:
+      - 31b-1
+    - id: 3-1.M2
+      mark_type: M
+      points: 15
+      evidence: |
+        B가 채운 후 각 1개가 되는 경우를 A 후의 흰 공 개수 $n=0,1,2$에 따라 세 가지로 나누었다.
+      steps:
+      - 31b-2
+    - id: 3-1.A1
+      mark_type: A
+      points: 10
+      evidence: |
+        세 경우의 확률 $\dfrac p2(1-p)$, $\dfrac14$, $\dfrac{1-p}2p$를 구했다.
+      steps:
+      - 31b-2
+      depends_on:
+      - 3-1.M2
+    - id: 3-1.A2
+      mark_type: A
+      points: 10
+      evidence: |
+        합 $\dfrac14+p(1-p)$를 적었다.
+      steps:
+      - 31b-3
+      depends_on:
+      - 3-1.M2
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+- id: 3-2
+  stem: (b) C가 꺼낸 공이 빨간 공일 확률을 구하여라. (50점)
+  points: 50
+  depends_on:
+  - 3-1
+  answer:
+    kind: expression
+    value: 1/8 + 3*p/4
+    equivalents:
+    - $\dfrac18+\dfrac{3p}4$
+    tolerance: null
+  solutions:
+  - id: S32-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 32b-1
+      content: |
+        같은 방법으로 B가 공을 채워 넣은 후 주머니에 빨간 공이 2개일 확률은 $\dfrac p2\cdot p+\dfrac12\cdot\dfrac12\cdot p=\dfrac p4+\dfrac{p^2}2$이다.
+      source_flow: 해설지 예시 답안
+      criteria:
+      - 3-2.M1
+      - 3-2.A1
+    - id: 32b-2
+      content: |
+        따라서 구하는 값은 $\dfrac12\cdot\left\{\dfrac14+p(1-p)\right\}+\dfrac p4+\dfrac{p^2}2=\dfrac18+\dfrac{3p}4$이다.
+      source_flow: 해설지 예시 답안
+      criteria:
+      - 3-2.M2
+      - 3-2.A2
+  # 채점기준 미공개 — 단계별 추정
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 3-2.M1
+      mark_type: M
+      points: 15
+      evidence: C가 꺼내기 전 상태(B가 채운 후)에서 빨간 공이 2개가 되는 경로(각 경로의 확률의 곱)를 세웠다.
+      steps:
+      - 32b-1
+    - id: 3-2.A1
+      mark_type: A
+      points: 10
+      evidence: |
+        B 후 빨간 공 2개일 확률 $\dfrac p4+\dfrac{p^2}2$를 구했다.
+      steps:
+      - 32b-1
+      depends_on:
+      - 3-2.M1
+    - id: 3-2.M2
+      mark_type: M
+      points: 15
+      evidence: |
+        C가 빨간 공을 꺼낼 확률을 (빨강 2개: 1) $\times$ P(빨강 2개) $+$ (각 1개: $\dfrac12$) $\times$ P(각 1개)로 세웠다.
+      steps:
+      - 32b-2
+    - id: 3-2.A2
+      mark_type: A
+      points: 10
+      evidence: |
+        최종 확률 $\dfrac18+\dfrac{3p}4$를 적었다.
+      steps:
+      - 32b-2
+      depends_on:
+      - 3-2.M2
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: past-v2-lean
+  item_version: 1
+  verdict: pass
+  date: &id001 2026-11-23
+created: *id001
+updated: *id001

@@ -1,0 +1,200 @@
+# 채점기준 미공개 — 단계별 추정
+schema_version: '2.0'
+id: UOS-G20-03
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: UOS
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 일반화
+points: 100
+time_estimate_min: null
+key_idea: $\sin nx$의 영점으로 $[0,\pi]$를 $n$등분해 $S_n=\sum a_k$로 두고, 부분적분으로 $a_k$를 구한 뒤 $\dfrac1n\sum e^{-k\pi/n}\to\int_0^1e^{-\pi x}dx$로 극한을 구한다.
+stuck: 절댓값을 풀기 위해 $\sin nx$의 영점으로 구간을 나누는 것과, 급수를 $\frac1n\sum f(k/n)$ 꼴로 정리해 정적분으로 바꾸는 발상
+tags: []
+elements:
+  materials:
+  - 곡선 $y=e^{-x}\sin nx$
+  concepts:
+  - 절댓값을 포함한 정적분
+  - 부분적분법
+  - 급수와 정적분의 관계
+  - 수열의 극한의 대소 관계
+  tools:
+  - 구간 분할
+  - 부분적분
+  - 샌드위치 정리
+  - 구분구적법
+  conditions:
+  - 구간 $[0,\pi]$
+  - $n$은 자연수
+  stimuli_used: {}
+  subpart_links: []
+curriculum:
+  version: '2015'
+  subjects:
+  - 미적분
+  scope_2028: calc2
+  scope_confirmed: false
+  content_area: 적분법 – 부분적분법, 급수와 정적분의 관계, 수열의 극한
+  behavior_domain: 계산
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 서울시립대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 서울시립대학교
+  admission_year: 2020
+  admission_type: 수시 논술전형
+  track: 자연계열
+  question_no: 3
+  official_url: https://admission.uos.ac.kr/admissionNew/freeBoard/view.do?list_id=OF1&menuid=2002001005000000000&seq=39
+  retrieved_at: '2026-11-23'
+  original_points:
+  - 100
+  rights_notice: 미확인
+  transcribed_from: 2020학년도 논술고사 문제지(자연계열) p.2
+verify: verify/UOS-G20.py::p03
+stimuli: []
+stem: |
+  자연수 $n$에 대하여 닫힌 구간 $[0,\pi]$에서 곡선 $y=e^{-x}\sin nx$와 $x$축으로 둘러싸인 도형의 넓이를 $S_n$이라 할 때,
+subparts:
+- id: 3-1
+  stem: |
+    $\displaystyle\lim_{n\to\infty}S_n$의 값을 구하여라.
+  points: 100
+  depends_on: []
+  answer:
+    kind: expression
+    value: 2*(1-exp(-pi))/pi
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S31-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 31b-1
+      content: |
+        $S_n=\displaystyle\int_0^{\pi}\left|e^{-x}\sin nx\right|dx$이다. 닫힌 구간 $[0,\pi]$에서 방정식 $e^{-x}\sin nx=0$의 근은
+        $$x=0,\ \frac{\pi}{n},\ \cdots,\ \frac{(n-1)\pi}{n},\ \pi$$
+        이다. $k=1,\cdots,n$에 대해
+        $$a_k=\int_{\frac{(k-1)\pi}{n}}^{\frac{k\pi}{n}}\left|e^{-x}\sin nx\right|dx=\left|\int_{\frac{(k-1)\pi}{n}}^{\frac{k\pi}{n}}e^{-x}\sin nx\,dx\right|$$
+        라 하면 $S_n=a_1+a_2+\cdots+a_n$이다.
+      source_flow: 해설지 p.3 예시 답안
+      criteria:
+      - 3-1.M1
+    - id: 31b-2
+      content: |
+        부분적분법을 이용하면
+        $$\int e^{-x}\sin nx\,dx=-\frac{e^{-x}(\sin nx+n\cos nx)}{n^2+1}$$
+        이다. 따라서 $\displaystyle a_k=\left|\int_{\frac{(k-1)\pi}{n}}^{\frac{k\pi}{n}}e^{-x}\sin nx\,dx\right|=\frac{n\,e^{-\frac{k\pi}{n}}}{n^2+1}\left(1+e^{\frac{\pi}{n}}\right)$이므로
+      source_flow: 해설지 p.3 예시 답안
+      criteria:
+      - 3-1.M2
+      - 3-1.A1
+    - id: 31b-3
+      content: |
+        $$S_n=\frac{n}{n^2+1}\sum_{k=1}^{n}\left\{e^{-\frac{(k-1)\pi}{n}}+e^{-\frac{k\pi}{n}}\right\}=\frac{2n}{n^2+1}\sum_{k=1}^{n}e^{-\frac{k\pi}{n}}+\frac{n}{n^2+1}\left(1-e^{-\frac{\pi}{n}}\right)$$
+        이다.
+      source_flow: 해설지 p.3 예시 답안
+      criteria:
+      - 3-1.A2
+    - id: 31b-4
+      content: |
+        $0\le1-e^{-\frac{\pi}{n}}\le1$이므로 수열의 극한값의 대소 관계에 의해
+        $$\lim_{n\to\infty}0\le\lim_{n\to\infty}\frac{n}{n^2+1}\left(1-e^{-\frac{\pi}{n}}\right)\le\lim_{n\to\infty}\frac{n}{n^2+1}=0$$
+        이다. 따라서 $\displaystyle\lim_{n\to\infty}\frac{n}{n^2+1}\left(1-e^{-\frac{\pi}{n}}\right)=0,\ \lim_{n\to\infty}\frac{2n^2}{n^2+1}=2$이고, 정적분과 급수의 관계에 의해
+        $$\lim_{n\to\infty}\frac1n\sum_{k=1}^{n}e^{-\frac{k\pi}{n}}=\int_0^1e^{-\pi x}dx=\frac{1-e^{-\pi}}{\pi}$$
+        이므로
+      source_flow: 해설지 p.3 예시 답안
+      criteria:
+      - 3-1.M3
+    - id: 31b-5
+      content: |
+        $$\lim_{n\to\infty}S_n=\lim_{n\to\infty}\frac{2n^2}{n^2+1}\cdot\lim_{n\to\infty}\frac1n\sum_{k=1}^{n}e^{-\frac{k\pi}{n}}+\lim_{n\to\infty}\frac{n}{n^2+1}\left(1-e^{-\frac{\pi}{n}}\right)=\frac{2(1-e^{-\pi})}{\pi}$$
+        이다.
+      source_flow: 해설지 p.3 예시 답안
+      criteria:
+      - 3-1.A3
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 3-1.M1
+      mark_type: M
+      points: 15
+      evidence: 절댓값을 풀기 위해 $\sin nx$의 영점 $x=\frac{k\pi}{n}$으로 구간을 나누어 $S_n=a_1+\cdots+a_n$로 나타냈다.
+      depends_on: []
+      steps:
+      - 31b-1
+    - id: 3-1.M2
+      mark_type: M
+      points: 15
+      evidence: 부분적분법으로 $\int e^{-x}\sin nx\,dx=-\dfrac{e^{-x}(\sin nx+n\cos nx)}{n^2+1}$를 구했다.
+      depends_on: []
+      steps:
+      - 31b-2
+    - id: 3-1.A1
+      mark_type: A
+      points: 15
+      evidence: $a_k=\dfrac{n\,e^{-k\pi/n}}{n^2+1}\left(1+e^{\pi/n}\right)$를 구했다.
+      depends_on:
+      - 3-1.M1
+      - 3-1.M2
+      steps:
+      - 31b-2
+    - id: 3-1.A2
+      mark_type: A
+      points: 15
+      evidence: $S_n$을 $\dfrac{2n}{n^2+1}\sum e^{-k\pi/n}+\dfrac{n}{n^2+1}\left(1-e^{-\pi/n}\right)$ 꼴로 정리했다.
+      depends_on:
+      - 3-1.A1
+      steps:
+      - 31b-3
+    - id: 3-1.M3
+      mark_type: M
+      points: 20
+      evidence: $\frac1n\sum e^{-k\pi/n}$를 정적분 $\int_0^1e^{-\pi x}dx$로 바꾸는 급수와 정적분의 관계를 쓰고, 나머지 항의 극한이 0임을 보였다.
+      depends_on:
+      - 3-1.A2
+      steps:
+      - 31b-4
+    - id: 3-1.A3
+      mark_type: A
+      points: 20
+      evidence: 극한값 $\dfrac{2(1-e^{-\pi})}{\pi}$를 구했다.
+      depends_on:
+      - 3-1.M3
+      steps:
+      - 31b-5
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: past-v2-lean
+  item_version: 1
+  verdict: pass
+  date: &id001 2026-11-23
+created: *id001
+updated: *id001

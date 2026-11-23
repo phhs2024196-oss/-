@@ -1,0 +1,213 @@
+# 채점기준 미공개 — 단계별 추정
+schema_version: '2.0'
+id: UOS-G19-04
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: UOS
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 최적2단
+points: 100
+time_estimate_min: null
+key_idea: 두 직사각형이 한 변에서 맞닿고 오른쪽 사각형의 오른쪽 변이 $x=2$에 있을 때를 택해, $S_1\le e^{a-1}$(미분으로 최대 판정)과 $S_2=(2-a)e^a$를 더한 함수 $g(a)$의 최댓값을 구한다.
+stuck: 최대가 되는 배치(맞닿음, $x=2$까지)를 가정하고, 두 사각형의 합을 한 변수 $a$의 함수 두 번(먼저 $t$, 다음 $a$)의 최대화로 나누어 푸는 발상
+tags: []
+elements:
+  materials:
+  - 곡선 $y=e^x$ 아래의 두 직사각형
+  concepts:
+  - 지수함수의 미분
+  - 증감표와 최댓값
+  - 두 단계 최적화
+  tools:
+  - 미분
+  - 증감표
+  conditions:
+  - 한 변이 $x$축 위
+  - 내부가 서로 겹치지 않음
+  - 영역 $0\le x\le2$
+  stimuli_used: {}
+  subpart_links: []
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학Ⅱ
+  - 미적분
+  scope_2028: calc2
+  scope_confirmed: false
+  content_area: 미분법 – 지수함수의 도함수, 함수의 증감과 최대·최소
+  behavior_domain: 문제해결
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 서울시립대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 서울시립대학교
+  admission_year: 2019
+  admission_type: 수시 논술전형
+  track: 자연계열
+  question_no: 4
+  official_url: https://admission.uos.ac.kr/admissionNew/freeBoard/view.do?list_id=OF1&menuid=2002001005000000000&seq=37
+  retrieved_at: '2026-11-23'
+  original_points:
+  - 100
+  rights_notice: 미확인
+  transcribed_from: 2019학년도 논술고사 문제지(자연계열) p.2
+verify: verify/UOS-G19.py::p04
+stimuli: []
+stem: |
+  그림과 같이 곡선 $y=e^x$과 $x$축 및 두 직선 $x=0,\ x=2$로 둘러싸인 영역에 한 변이 $x$축에 있고 내부가 서로 겹치지 않는 두 직사각형이 있다. 두 직사각형의 넓이를 각각 $S_1,\ S_2$라 할 때,
+
+  [그림 1: 곡선 $y=e^x$, $x$축, 직선 $x=2$로 둘러싸인 영역 안에 한 변이 $x$축 위에 있는 두 직사각형 $S_1,\ S_2$가 나란히 놓여 있다]
+subparts:
+- id: 4-1
+  stem: |
+    $S_1+S_2$의 최댓값을 구하여라.
+  points: 100
+  depends_on: []
+  answer:
+    kind: expression
+    value: exp(1+exp(-1))
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S41-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 41b-1
+      content: |
+        그림과 같이 두 직사각형 $R_1,\ R_2$가 한 변에서 맞닿아 있고, 직사각형 $R_2$의 오른쪽 변이 직선 $x=2$에 있으며, 각 직사각형의 한 꼭짓점이 곡선 $y=e^x$에 있을 때 두 직사각형 넓이의 합이 최대가 될 수 있다. $0<a<2$인 실수 $a$에 대하여 두 직사각형이 직선 $x=a$에서 맞닿아 있다고 가정하자. $R_1$의 왼쪽 변이 놓인 직선의 $x$좌표를 $t\ (0\le t<a)$라 하면 $S_1=(a-t)e^t$이다.
+      source_flow: 해설지 p.4 예시 답안
+      criteria:
+      - 4-1.M1
+    - id: 41b-2
+      content: |
+        실수 전체의 집합에서 정의된 함수 $f(x)$를 $f(x)=(a-x)e^x$이라 하자. 그러면 $f'(x)=(-1+a-x)e^x$이고 $f'(x)=0$의 해는 $x=a-1$이다. 증감표는 $x<a-1$에서 $f'(x)>0$(증가), $x=a-1$에서 $0$(최대), $x>a-1$에서 $f'(x)<0$(감소)이다. 따라서 $f(x)$의 최댓값은 $f(a-1)=e^{a-1}$이므로 $S_1\le e^{a-1}$이다.
+      source_flow: 해설지 p.4 예시 답안
+      criteria:
+      - 4-1.M2
+      - 4-1.A1
+    - id: 41b-3
+      content: |
+        한편 $S_2=(2-a)e^a$이므로
+        $$S_1+S_2\le e^{a-1}+(2-a)e^a=e^a\left(2+\frac1e-a\right)$$
+        이다.
+      source_flow: 해설지 p.4 예시 답안
+      criteria:
+      - 4-1.M3
+    - id: 41b-4
+      content: |
+        실수 전체의 집합에서 정의된 함수 $g(x)$를 $g(x)=e^x\left(2+\dfrac1e-x\right)$라 하자. 그러면 $g'(x)=e^x\left(1+\dfrac1e-x\right)$이고 $g'(x)=0$의 해는 $x=1+\dfrac1e$이다. 증감표는 $x<1+\frac1e$에서 증가, $x=1+\frac1e$에서 최대, $x>1+\frac1e$에서 감소이다. 따라서 $g(x)$의 최댓값은 $g\left(1+\dfrac1e\right)=e^{1+\frac1e}$이므로
+        $$S_1+S_2\le e^{1+\frac1e}$$
+        이다.
+      source_flow: 해설지 p.4 예시 답안
+      criteria:
+      - 4-1.M4
+      - 4-1.A2
+    - id: 41b-5
+      content: |
+        한편 $R_1$의 왼쪽 변이 직선 $x=\dfrac1e$에 있고, $R_2$의 왼쪽 변이 직선 $x=1+\dfrac1e\left(0<1+\dfrac1e<2\right)$에 있을 때,
+        $$S_1+S_2=\left(1+\frac1e-\frac1e\right)e^{\frac1e}+\left\{2-\left(1+\frac1e\right)\right\}e^{1+\frac1e}=e^{1+\frac1e}$$
+        이다. 그러므로 $S_1+S_2$의 최댓값은 $e^{1+\frac1e}$이다.
+      source_flow: 해설지 p.4 예시 답안
+      criteria:
+      - 4-1.R1
+      - 4-1.A3
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 4-1.M1
+      mark_type: M
+      points: 15
+      evidence: 두 직사각형이 맞닿는 직선 $x=a$를 두고 $R_2$의 오른쪽 변이 $x=2$, 각 사각형의 한 꼭짓점이 곡선 위에 있는 배치에서 $S_1=(a-t)e^t$로 나타냈다.
+      depends_on: []
+      steps:
+      - 41b-1
+    - id: 4-1.M2
+      mark_type: M
+      points: 15
+      evidence: $f(x)=(a-x)e^x$의 증감을 조사해 $S_1$의 최대를 판정하는 과정(미분·증감표)이 있다.
+      depends_on:
+      - 4-1.M1
+      steps:
+      - 41b-2
+    - id: 4-1.A1
+      mark_type: A
+      points: 10
+      evidence: $S_1\le e^{a-1}$을 얻었다.
+      depends_on:
+      - 4-1.M2
+      steps:
+      - 41b-2
+    - id: 4-1.M3
+      mark_type: M
+      points: 10
+      evidence: $S_2=(2-a)e^a$로 놓고 $S_1+S_2\le e^a\left(2+\frac1e-a\right)$를 얻었다.
+      depends_on:
+      - 4-1.A1
+      steps:
+      - 41b-3
+    - id: 4-1.M4
+      mark_type: M
+      points: 20
+      evidence: $g(x)=e^x\left(2+\frac1e-x\right)$를 미분해 증감표로 $x=1+\frac1e$에서 최대임을 판정했다.
+      depends_on:
+      - 4-1.M3
+      steps:
+      - 41b-4
+    - id: 4-1.A2
+      mark_type: A
+      points: 10
+      evidence: $S_1+S_2\le e^{1+\frac1e}$를 얻었다.
+      depends_on:
+      - 4-1.M4
+      steps:
+      - 41b-4
+    - id: 4-1.R1
+      mark_type: R
+      points: 10
+      evidence: 등호가 성립하는 배치($R_1$의 왼쪽 변 $x=\frac1e$, $R_2$의 왼쪽 변 $x=1+\frac1e$)가 존재함을 보였다.
+      depends_on:
+      - 4-1.A2
+      steps:
+      - 41b-5
+    - id: 4-1.A3
+      mark_type: A
+      points: 10
+      evidence: 최댓값 $e^{1+\frac1e}$를 답으로 썼다.
+      depends_on:
+      - 4-1.R1
+      steps:
+      - 41b-5
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: past-v2-lean
+  item_version: 1
+  verdict: pass
+  date: &id001 2026-11-23
+created: *id001
+updated: *id001

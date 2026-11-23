@@ -1,0 +1,191 @@
+schema_version: '2.0'
+id: UOS-G26-02
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: UOS
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 최적2단
+points: 95
+time_estimate_min: 25
+key_idea: 타원 위 점 $(x_1,y_1)$에서의 접선으로 A, B의 좌표와 넓이 $S$를 $x_1,y_1$로 나타내고 타원 방정식으로 $S^2$을 $y_1$만의 함수로 바꿔 최소를 구한다.
+stuck: 넓이를 접점의 한 좌표 $y_1$의 함수로 줄여 $S$ 대신 $S^2$의 증감을 조사하는 발상
+tags: []
+elements:
+  materials:
+  - 타원 $\dfrac{x^2}{64}+y^2=1$
+  - 직선 $y=-1$
+  - 점 $C(0,-1)$
+  concepts:
+  - 타원의 접선
+  - 삼각형의 넓이
+  - 증감표
+  tools:
+  - 타원의 접선의 방정식
+  - 도함수(몫의 미분)
+  conditions:
+  - 접점이 제1사분면
+  - $0<y_1<1$
+  stimuli_used: {}
+  subpart_links: []
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학Ⅱ
+  - 기하
+  scope_2028: geom
+  scope_confirmed: false
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 서울시립대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 서울시립대학교
+  admission_year: 2026
+  admission_type: 수시 논술전형
+  track: 자연계열
+  question_no: 2
+  official_url: https://admission.uos.ac.kr/admissionNew/freeBoard/view.do?list_id=OF1&menuid=2002001005000000000&seq=52
+  retrieved_at: '2026-11-23'
+  original_points:
+  - 95
+  rights_notice: 미확인
+  transcribed_from: 2026 논술고사 문제지(자연계열) p.1
+verify: verify/UOS-G26.py::p02
+stimuli: []
+stem: |
+  타원 $\dfrac{x^2}{64}+y^2=1$과 제1사분면에서 접하는 접선을 $l$이라 하자. 직선 $l$과 직선 $y=-1$의 교점을 A, 직선 $l$과 $y$축의 교점을 B라 하자. 점 C$(0,-1)$일 때, $\triangle$ABC의 넓이의 최솟값을 구하여라.
+subparts:
+- id: 2-1
+  stem: ''
+  points: 95
+  depends_on: []
+  answer:
+    kind: value
+    value: 12*sqrt(3)
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S21-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 21b-1
+      content: |
+        타원 $\dfrac{x^2}{64}+y^2=1$ 위의 제1사분면의 점 $(x_1,y_1)$에서의 접선 $l$의 방정식은 $x_1x+64y_1y=64$이다.
+      source_flow: 해설지 p.2 예시 답안
+      criteria:
+      - 2-1.M1
+    - id: 21b-2
+      content: |
+        직선 $l$과 직선 $y=-1$의 교점 A의 좌표는 $\left(\dfrac{64(y_1+1)}{x_1},-1\right)$이고, 직선 $l$과 $y$축의 교점 B의 좌표는 $\left(0,\dfrac{1}{y_1}\right)$이다.
+      source_flow: 해설지 p.2 예시 답안
+      criteria:
+      - 2-1.A1
+    - id: 21b-3
+      content: |
+        따라서 $\triangle$ABC의 넓이는 $S=\dfrac{32(y_1+1)^2}{x_1y_1}$이다.
+      source_flow: 해설지 p.2 예시 답안
+      criteria:
+      - 2-1.A2
+    - id: 21b-4
+      content: |
+        $\dfrac{x_1^2}{64}+y_1^2=1$이므로
+        $$S^2=\dfrac{32^2(y_1+1)^4}{(x_1y_1)^2}=\dfrac{16(y_1+1)^3}{(1-y_1)y_1^2}\quad(0<y_1<1)$$
+        이다.
+      source_flow: 해설지 p.2 예시 답안
+      criteria:
+      - 2-1.M2
+    - id: 21b-5
+      content: |
+        구간 $(0,1)$에서 함수 $f(x)=\dfrac{16(x+1)^3}{(1-x)x^2}$이라 하면
+        $$f'(x)=16\times\dfrac{3(x+1)^2(x^2-x^3)-(x+1)^3(2x-3x^2)}{(1-x)^2x^4}=16(x+1)^2\times\dfrac{2x(2x-1)}{(1-x)^2x^4}$$
+        이고, $f(x)$는 $0<x<\dfrac12$에서 감소, $x=\dfrac12$에서 $f'=0$, $\dfrac12<x<1$에서 증가하며 $f\left(\dfrac12\right)=432$이다.
+      source_flow: 해설지 p.2 예시 답안
+      criteria:
+      - 2-1.M3
+    - id: 21b-6
+      content: |
+        따라서 구간 $(0,1)$에서 $x=\dfrac12$일 때 $f(x)$는 최솟값을 갖는다. 그러므로 $y_1=\dfrac12$일 때 $\triangle$ABC의 넓이가 최소가 되고, 그 최솟값은 $12\sqrt3$이다.
+      source_flow: 해설지 p.2 예시 답안
+      criteria:
+      - 2-1.A3
+  # 채점기준 미공개 — 단계별 추정
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 2-1.M1
+      mark_type: M
+      points: 15
+      evidence: 접점 $(x_1,y_1)$에서의 접선 $x_1x+64y_1y=64$를 세웠다.
+      steps:
+      - 21b-1
+    - id: 2-1.A1
+      mark_type: A
+      points: 15
+      evidence: A$\left(\dfrac{64(y_1+1)}{x_1},-1\right)$, B$\left(0,\dfrac1{y_1}\right)$를 구했다.
+      depends_on:
+      - 2-1.M1
+      steps:
+      - 21b-2
+    - id: 2-1.A2
+      mark_type: A
+      points: 10
+      evidence: $S=\dfrac{32(y_1+1)^2}{x_1y_1}$을 구했다.
+      depends_on:
+      - 2-1.M1
+      - 2-1.A1
+      steps:
+      - 21b-3
+    - id: 2-1.M2
+      mark_type: M
+      points: 15
+      evidence: 타원의 방정식을 이용해 $S^2$을 $y_1$만의 함수로 나타냈다.
+      steps:
+      - 21b-4
+    - id: 2-1.M3
+      mark_type: M
+      points: 20
+      evidence: $f'(x)$를 구하고 증감을 조사했다.
+      steps:
+      - 21b-5
+    - id: 2-1.A3
+      mark_type: A
+      points: 20
+      evidence: $y_1=\dfrac12$에서의 최소와 최솟값 $12\sqrt3$을 구했다.
+      depends_on:
+      - 2-1.M3
+      - 2-1.M2
+      steps:
+      - 21b-6
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: past-v2-lean
+  item_version: 1
+  verdict: pass
+  date: &id001 2026-11-23
+created: *id001
+updated: *id001

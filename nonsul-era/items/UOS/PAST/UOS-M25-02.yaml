@@ -1,0 +1,169 @@
+# 채점기준 미공개 — 단계별 추정
+schema_version: '2.0'
+id: UOS-M25-02
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: UOS
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 분류
+points: 95
+time_estimate_min: null
+key_idea: 숫자 $a,b,c$로 이루어진 $n$자리 중 세 숫자를 모두 쓰는 개수를 $3^n-3\cdot2^n+3$으로 세고, 숫자 선택과 첫 자리 조건을 반영해 가능한 비밀번호
+  수 $k$를 구한 뒤 세 번 이내에 맞힐 확률 $\dfrac3k$를 계산한다.
+stuck: 정확히 세 숫자를 모두 쓰는 중복순열을 포함·배제로 세고 "첫째 자리가 $1$" 조건을 전체의 $\dfrac13$로 처리하는 발상
+tags: []
+elements:
+  materials:
+  - $n$자리 비밀번호
+  - 서로 다른 3개의 홀수
+  - 3번 이내 시도
+  concepts:
+  - 중복순열
+  - 포함과 배제(여사건)
+  - 조합
+  - 확률의 덧셈·곱셈
+  tools:
+  - 경우의 수 분류
+  conditions:
+  - $n\ge3$
+  - 첫째 자리 $1$
+  - 매번 다른 번호를 시도
+  stimuli_used: {}
+  subpart_links: []
+curriculum:
+  version: '2015'
+  subjects:
+  - 확률과통계
+  scope_2028: unknown
+  scope_confirmed: false
+  behavior_domain: 문제해결
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 서울시립대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 서울시립대학교
+  admission_year: 2025
+  admission_type: 수시 모의논술고사
+  track: 자연계열
+  question_no: 2
+  official_url: https://admission.uos.ac.kr/admissionNew/freeBoard/view.do?list_id=OF1&menuid=2002001005000000000&seq=49
+  retrieved_at: '2026-11-23'
+  original_points:
+  - 95
+  rights_notice: 미확인
+  transcribed_from: 2025학년도 모의 논술고사 문제지(자연계열) p.2
+verify: verify/UOS-M25.py::p02
+stimuli: []
+stem: |
+  [문제 2] (95점)
+  시립이 집의 현관문에는 $0$에서 $9$까지의 숫자로 이루어진 비밀번호를 입력해야 잠금이 해제되는 잠금장치가 있다. 이 잠금장치는 단 하나의 비밀번호로 잠금이 해제되며, 비밀번호를 $3$번 연속으로 잘못 입력하면 경보음이 울린다. 시립이는 비밀번호는 잊어버렸으나, 비밀번호에 대한 다음의 단서를 기억한다.
+
+  1) 비밀번호는 $n$자리이다. (단, $n$은 $3$ 이상인 고정된 자연수이다.)
+  2) 비밀번호에는 서로 다른 $3$개의 홀수가 쓰인다.
+  3) 비밀번호의 첫 번째 숫자는 $1$이다.
+subparts:
+- id: 2-1
+  stem: |
+    시립이는 이 단서를 활용하여 매번 다른 번호를 시도하여 잠금장치를 해제하려고 한다. 이때, 시립이가 잠금장치의 경보음이 울리기 전에 현관문을 열 확률을 구하여라.
+  points: 95
+  depends_on: []
+  answer:
+    kind: expression
+    value: 1/(2*3**(n-1)-2**(n+1)+2)
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S21-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 21b-1
+      content: |
+        먼저 $3$가지 서로 다른 숫자 $a,\ b,\ c$로 이루어진 비밀번호의 경우의 수를 구해보자. 사건 $A_i$를 숫자 $a,\ b,\ c$ 중 $i$개의 숫자가 사용된 경우라 정의하자. $n(A_1)$은 숫자 $a,\ b,\ c$ 중 하나를 골라 중복을 허용하여 $n$번 나열하는 중복순열이므로 $n(A_1)={}_{3}\mathrm{C}_{1}\times1^n=3$이다. $n(A_2)$는 숫자 $a,\ b,\ c$ 중 두 개를 고른 후, 중복을 허용하여 $n$번 나열하는 중복순열에서 숫자 하나만 $n$번 나열하는 경우를 제외하면 되므로 $n(A_2)={}_{3}\mathrm{C}_{2}\times\left(2^n-{}_{2}\mathrm{C}_{1}\times1^n\right)=3\times(2^n-2)$이다. $n(A_3)$은 숫자 $a,\ b,\ c$를 중복을 허용하여 $n$번 나열하는 중복순열에서 $n(A_1)$과 $n(A_2)$를 빼면 되므로 $n(A_3)=3^n-n(A_1)-n(A_2)=3^n-3\times2^n+3$이다.
+      source_flow: 해설지 p.3 예시 답안
+      criteria:
+      - 2-1.M1
+    - id: 21b-2
+      content: |
+        또한, 숫자 $a,\ b,\ c$의 가능한 조합의 수는 $1$을 포함한 세 개의 홀수를 고르는 경우의 수이므로 ${}_{4}\mathrm{C}_{2}$이다. 그 중, 비밀번호의 첫 번째 숫자가 $1$이 되는 경우는 전체의 $\dfrac13$이다. 따라서, 조건을 만족하는 비밀번호의 경우의 수는 $\dfrac{{}_{4}\mathrm{C}_{2}\times n(A_3)}{3}=2\times3^n-3\times2^{n+1}+6$이다.
+      source_flow: 해설지 p.3 예시 답안
+      criteria:
+      - 2-1.M2
+    - id: 21b-3
+      content: |
+        비밀번호의 경우의 수가 $k$이고 $k\ge3$일 때 $3$번의 시도 이내에 비밀번호를 맞출 확률은 $\dfrac1k+\dfrac{k-1}{k}\times\dfrac{1}{k-1}+\dfrac{k-1}{k}\times\dfrac{k-2}{k-1}\times\dfrac{1}{k-2}=\dfrac3k$이므로,
+      source_flow: 해설지 p.3 예시 답안
+      criteria:
+      - 2-1.M3
+    - id: 21b-4
+      content: |
+        구하는 확률은 $\dfrac{1}{2\times3^{n-1}-2^{n+1}+2}$이다.
+      source_flow: 해설지 p.3 예시 답안
+      criteria:
+      - 2-1.A1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 2-1.M1
+      mark_type: M
+      points: 30
+      evidence: $n(A_1)$, $n(A_2)$를 구해 $n(A_3)=3^n-3\times2^n+3$을 얻었다.
+      steps:
+      - 21b-1
+    - id: 2-1.M2
+      mark_type: M
+      points: 20
+      evidence: 숫자 조합의 수 ${}_{4}\mathrm{C}_{2}$와 첫째 자리 조건($\dfrac13$)을 반영해 비밀번호의 수 $k=2\times3^n-3\times2^{n+1}+6$을
+        구했다.
+      depends_on:
+      - 2-1.M1
+      steps:
+      - 21b-2
+    - id: 2-1.M3
+      mark_type: M
+      points: 20
+      evidence: $k\ge3$일 때 $3$번 이내에 맞힐 확률이 $\dfrac3k$임을 구했다.
+      steps:
+      - 21b-3
+    - id: 2-1.A1
+      mark_type: A
+      points: 25
+      evidence: 확률 $\dfrac{1}{2\times3^{n-1}-2^{n+1}+2}$을 구했다.
+      depends_on:
+      - 2-1.M2
+      - 2-1.M3
+      steps:
+      - 21b-4
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: past-v2-lean
+  item_version: 1
+  verdict: pass
+  date: 2026-11-23
+created: 2026-11-23
+updated: 2026-11-23

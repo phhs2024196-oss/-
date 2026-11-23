@@ -1,0 +1,271 @@
+schema_version: '2.0'
+id: UOS-M17-03
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: UOS
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 추론
+points: 100
+time_estimate_min: null
+key_idea: |
+  $h(x)=f(x)-g(x)$라 두고, (a)는 접점 조건으로 $h(x)=x(x-c)^2$를 얻어 산술·기하평균 부등식으로, (b)는 두 넓이가 같다는 조건을 $\int_0^{\beta}h(x)\,dx=0$으로 바꾸어 $\beta=2\alpha$를 얻는다.
+stuck: |
+  넓이가 같다는 조건을 부호 있는 정적분 $\int_0^{\beta}h(x)\,dx=0$으로 바꾸는 것
+tags:
+- 접선
+- 정적분과 넓이
+- 산술기하평균
+elements:
+  materials:
+  - 삼차함수 $f(x)=x^3+ax^2+bx$와 직선 $g(x)=9x$
+  concepts:
+  - 접하는 조건(중근)
+  - 산술·기하평균 부등식
+  - 정적분과 넓이
+  tools:
+  - $h=f-g$ 도입
+  - 부정적분
+  conditions:
+  - $x=c\ (c>0)$에서 접함
+  - 두 영역의 넓이가 같고 교점의 $x$좌표가 $0,\alpha,\beta\ (0<\alpha<\beta)$
+  stimuli_used: {}
+  subpart_links: []
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학Ⅱ
+  scope_2028: common
+  scope_confirmed: false
+  content_area: 미분법 · 적분법 – 접선, 넓이
+  behavior_domain: 문제해결
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 서울시립대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 서울시립대학교
+  admission_year: 2017
+  admission_type: 수시 모의논술고사
+  track: 자연계열
+  question_no: 3
+  official_url: https://admission.uos.ac.kr/admissionNew/freeBoard/view.do?list_id=OF1&menuid=2002001005000000000&seq=31
+  retrieved_at: '2026-11-23'
+  original_points:
+  - 40
+  - 60
+  rights_notice: 미확인
+  transcribed_from: 2017학년도 수시모집 논술전형 논술고사 문제지(자연계열) (HWP 변환본 M17_Q)
+verify: verify/UOS-M17.py::p03
+stimuli: []
+stem: |
+  [문제 3] (총 100점)
+  함수 $f(x)=x^{3}+ax^{2}+bx$와 $g(x)=9x$에 대하여 다음 물음에 답하여라.
+subparts:
+- id: 3-1
+  stem: |
+    (a) 곡선 $y=f(x)$와 직선 $y=g(x)$가 $x=c$ $(c>0)$에서 접할 때, $\left|\dfrac{b}{a+c}\right|$의 최솟값을 구하여라. (40점)
+  points: 40
+  depends_on: []
+  answer:
+    kind: value
+    value: '6'
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S31-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 31b-1
+      content: |
+        함수 $h(x)=f(x)-g(x)$라 하면 $h(x)=x^3+ax^2+bx-9x=x\left(x^2+ax+b-9\right)=x(x-c)^2$이다.
+      source_flow: 해설지 예시 답안
+      criteria:
+      - 3-1.M1
+    - id: 31b-2
+      content: |
+        곡선 $y=f(x)$와 직선 $y=g(x)$가 $x=c$ $(c>0)$에서 접하므로 $a=-2c$이고 $b=c^2+9$이다.
+      source_flow: 해설지 예시 답안
+      criteria:
+      - 3-1.A1
+    - id: 31b-3
+      content: |
+        따라서 $\left|\dfrac{b}{a+c}\right|=\left|\dfrac{c^2+9}{-2c+c}\right|=\left|c+\dfrac9c\right|\ge2\sqrt{c\cdot\dfrac9c}=2\sqrt9=6$
+      source_flow: 해설지 예시 답안
+      criteria:
+      - 3-1.M2
+      - 3-1.A2
+    - id: 31b-4
+      content: |
+        따라서 구하는 최솟값은 $a=-6$, $b=18$, $c=3$일 때 $6$이다.
+      source_flow: 해설지 예시 답안
+      criteria:
+      - 3-1.A2
+  # 채점기준 미공개 — 단계별 추정
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 3-1.M1
+      mark_type: M
+      points: 10
+      evidence: |
+        $h(x)=f(x)-g(x)$가 $x=c$에서 중근을 가지므로 $h(x)=x(x-c)^2$로 둔다.
+      steps:
+      - 31b-1
+    - id: 3-1.A1
+      mark_type: A
+      points: 10
+      evidence: |
+        계수 비교로 $a=-2c$, $b=c^2+9$를 구했다.
+      steps:
+      - 31b-2
+      depends_on:
+      - 3-1.M1
+    - id: 3-1.M2
+      mark_type: M
+      points: 10
+      evidence: |
+        $\left|\dfrac{b}{a+c}\right|=c+\dfrac9c$로 나타내고 산술·기하평균 부등식(또는 미분)을 적용했다.
+      steps:
+      - 31b-3
+    - id: 3-1.A2
+      mark_type: A
+      points: 10
+      evidence: |
+        등호 조건 $c=3$($a=-6$, $b=18$)과 최솟값 $6$을 적었다.
+      steps:
+      - 31b-3
+      - 31b-4
+      depends_on:
+      - 3-1.M2
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+- id: 3-2
+  stem: |
+    (b) 곡선 $y=f(x)$와 직선 $y=g(x)$으로 둘러싸인 두 영역의 넓이가 같고 교점의 $x$ 좌표가 $0$, $\alpha$, $\beta$ $(0<\alpha<\beta)$일 때 $\dfrac{\beta}{\alpha}$의 값을 구하여라. (60점)
+  points: 60
+  depends_on: []
+  answer:
+    kind: value
+    value: '2'
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S32-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 32b-1
+      content: |
+        함수 $h(x)=f(x)-g(x)$라 하면, $h(x)=x^3+ax^2+bx-9x=x(x-\alpha)(x-\beta)$이다. [그래프에서 $0<x<\alpha$에서는 곡선이 직선 위에, $\alpha<x<\beta$에서는 직선이 곡선 위에 있다.]
+      source_flow: 해설지 예시 답안
+      criteria:
+      - 3-2.M1
+    - id: 32b-2
+      content: |
+        삼차함수와 직선으로 둘러싸인 두 영역의 넓이가 같으므로 다음 식이 성립한다. $\int_0^{\alpha}h(x)\,dx=\int_{\alpha}^{\beta}\left(-h(x)\right)dx$. 즉 $\int_0^{\alpha}h(x)\,dx+\int_{\alpha}^{\beta}h(x)\,dx=\int_0^{\beta}h(x)\,dx=0$이다.
+      source_flow: 해설지 예시 답안
+      criteria:
+      - 3-2.M2
+    - id: 32b-3
+      content: |
+        함수 $h(x)$의 한 부정적분 함수를 $H(x)$라 하자. $H(x)=\dfrac14x^4-\dfrac13(\alpha+\beta)x^3+\dfrac12\alpha\beta x^2$. 그러면 $\int_0^{\beta}h(x)\,dx=H(\beta)-H(0)=0$이다. 따라서 $H(\beta)=H(0)=0$.
+      source_flow: 해설지 예시 답안
+      criteria:
+      - 3-2.A1
+    - id: 32b-4
+      content: |
+        $H(\beta)=\dfrac14\beta^4-\dfrac13(\alpha+\beta)\beta^3+\dfrac12\alpha\beta^3=\dfrac1{12}\beta^3\left\{3\beta-4(\alpha+\beta)+6\alpha\right\}=\dfrac1{12}\beta^3(2\alpha-\beta)=0$. 여기서 $\dfrac1{12}\beta^3\ne0$이므로 $\beta=2\alpha$이다.
+      source_flow: 해설지 예시 답안
+      criteria:
+      - 3-2.A2
+    - id: 32b-5
+      content: |
+        따라서 $\dfrac\beta\alpha=\dfrac{2\alpha}{\alpha}=2$이다.
+      source_flow: 해설지 예시 답안
+      criteria:
+      - 3-2.A3
+  # 채점기준 미공개 — 단계별 추정
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 3-2.M1
+      mark_type: M
+      points: 10
+      evidence: |
+        $h(x)=f(x)-g(x)=x(x-\alpha)(x-\beta)$로 놓고 두 영역의 위치(부호)를 파악했다.
+      steps:
+      - 32b-1
+    - id: 3-2.M2
+      mark_type: M
+      points: 15
+      evidence: |
+        두 넓이가 같다는 조건을 $\int_0^{\alpha}h\,dx=-\int_{\alpha}^{\beta}h\,dx$, 즉 $\int_0^{\beta}h(x)\,dx=0$으로 바꾸었다.
+      steps:
+      - 32b-2
+    - id: 3-2.A1
+      mark_type: A
+      points: 15
+      evidence: |
+        부정적분 $H(x)=\dfrac14x^4-\dfrac13(\alpha+\beta)x^3+\dfrac12\alpha\beta x^2$을 구하고 $H(\beta)=0$으로 정리했다.
+      steps:
+      - 32b-3
+      depends_on:
+      - 3-2.M2
+    - id: 3-2.A2
+      mark_type: A
+      points: 10
+      evidence: |
+        $H(\beta)=\dfrac1{12}\beta^3(2\alpha-\beta)=0$에서 $\beta=2\alpha$를 얻었다.
+      steps:
+      - 32b-4
+      depends_on:
+      - 3-2.M2
+    - id: 3-2.A3
+      mark_type: A
+      points: 10
+      evidence: |
+        $\dfrac\beta\alpha=2$를 적었다.
+      steps:
+      - 32b-5
+      depends_on:
+      - 3-2.M2
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: past-v2-lean
+  item_version: 1
+  verdict: pass
+  date: &id001 2026-11-23
+created: *id001
+updated: *id001

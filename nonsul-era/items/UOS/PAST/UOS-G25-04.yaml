@@ -1,0 +1,188 @@
+schema_version: '2.0'
+id: UOS-G25-04
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: UOS
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 일반화
+points: 115
+time_estimate_min: 30
+key_idea: $\left|\sin\dfrac{x}{2n}\right|$의 부호가 바뀌는 곳($x=2n\pi$)에서 적분을 나누어 $k$번째 적분값을 구하고, $k,\ n+k,\ 2n+k$끼리 묶어 구분구적법으로 정적분으로 바꾼다.
+stuck: $k\le2n$과 $k>2n$로 나누어 절댓값을 처리하고, $3n$개 항을 $n$개씩 묶어 $\dfrac1n\sum f\left(\dfrac kn\right)$ 꼴로 만드는 발상
+tags: []
+elements:
+  materials:
+  - $T_n=\sum_{k=1}^{3n}\dfrac{1}{n^2}\int_0^{k\pi}\left|\sin\dfrac{x}{2n}\right|dx$
+  concepts:
+  - 절댓값을 포함한 정적분
+  - 정적분과 급수의 합 사이의 관계
+  - 극한
+  tools:
+  - 삼각함수의 적분
+  - 구분구적법
+  conditions:
+  - $n$은 자연수
+  stimuli_used: {}
+  subpart_links: []
+curriculum:
+  version: '2015'
+  subjects:
+  - 미적분
+  scope_2028: calc2
+  scope_confirmed: false
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 서울시립대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 서울시립대학교
+  admission_year: 2025
+  admission_type: 수시 논술전형
+  track: 자연계열
+  question_no: 4
+  official_url: https://admission.uos.ac.kr/admissionNew/freeBoard/view.do?list_id=OF1&menuid=2002001005000000000&seq=50
+  retrieved_at: '2026-11-23'
+  original_points:
+  - 115
+  rights_notice: 미확인
+  transcribed_from: 2025 논술고사 문제지(자연계열) p.2
+verify: verify/UOS-G25.py::p04
+stimuli: []
+stem: |
+  자연수 $n$에 대하여
+  $$T_n=\sum_{k=1}^{3n}\dfrac{1}{n^2}\int_0^{k\pi}\left|\sin\dfrac{x}{2n}\right|dx$$
+  라 할 때, $\displaystyle\lim_{n\to\infty}T_n$의 값을 구하여라.
+subparts:
+- id: 4-1
+  stem: ''
+  points: 115
+  depends_on: []
+  answer:
+    kind: value
+    value: 10-4/pi
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S41-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 41b-1
+      content: |
+        먼저 자연수 $k=1,\ 2,\ \cdots,\ 3n$에 대해 적분값 $\displaystyle\int_0^{k\pi}\left|\sin\dfrac{x}{2n}\right|dx$를 구하자.
+        (i) $k=1,\ 2,\ \cdots,\ 2n$인 경우: $0\le x\le2n\pi$에서 $\sin\dfrac{x}{2n}\ge0$이므로
+        $$\int_0^{k\pi}\left|\sin\dfrac{x}{2n}\right|dx=\int_0^{k\pi}\sin\dfrac{x}{2n}\,dx=\left[-2n\cos\dfrac{x}{2n}\right]_0^{k\pi}=2n\left(1-\cos\dfrac{k\pi}{2n}\right)$$
+        이다.
+      source_flow: 해설지 p.4 풀이
+      criteria:
+      - 4-1.M1
+    - id: 41b-2
+      content: |
+        (ii) $k=2n+1,\ 2n+2,\ \cdots,\ 3n$인 경우: $0\le x<2n\pi$에서 $\sin\dfrac{x}{2n}\ge0$이고, $2n\pi\le x\le3n\pi$에서 $\sin\dfrac{x}{2n}\le0$이므로
+        $$\int_0^{k\pi}\left|\sin\dfrac{x}{2n}\right|dx=\int_0^{2n\pi}\sin\dfrac{x}{2n}\,dx+\int_{2n\pi}^{k\pi}\left(-\sin\dfrac{x}{2n}\right)dx=\left[-2n\cos\dfrac{x}{2n}\right]_0^{2n\pi}+\left[2n\cos\dfrac{x}{2n}\right]_{2n\pi}^{k\pi}=2n\left(3+\cos\dfrac{k\pi}{2n}\right)$$
+        이다.
+      source_flow: 해설지 p.4 풀이
+      criteria:
+      - 4-1.M2
+    - id: 41b-3
+      content: |
+        위 (i)과 (ii)에 의해
+        $$T_n=\sum_{k=1}^{n}\dfrac{1}{n^2}\left\{\int_0^{k\pi}\left|\sin\dfrac{x}{2n}\right|dx+\int_0^{(n+k)\pi}\left|\sin\dfrac{x}{2n}\right|dx+\int_0^{(2n+k)\pi}\left|\sin\dfrac{x}{2n}\right|dx\right\}$$
+      source_flow: 해설지 p.4 풀이
+      criteria:
+      - 4-1.M3
+    - id: 41b-4
+      content: |
+        $$=\sum_{k=1}^{n}\dfrac1n\left[2\left(1-\cos\dfrac{k\pi}{2n}\right)+2\left\{1-\cos\dfrac{(n+k)\pi}{2n}\right\}+2\left\{3+\cos\dfrac{(2n+k)\pi}{2n}\right\}\right]=10+\dfrac1n\sum_{k=1}^{n}\left(-4\cos\dfrac{k\pi}{2n}+2\sin\dfrac{k\pi}{2n}\right)$$
+        이다.
+      source_flow: 해설지 p.4 풀이
+      criteria:
+      - 4-1.A1
+    - id: 41b-5
+      content: |
+        따라서 정적분과 급수의 합 사이의 관계로부터
+        $$\lim_{n\to\infty}T_n=10+\lim_{n\to\infty}\dfrac1n\sum_{k=1}^{n}\left(-4\cos\dfrac{k\pi}{2n}+2\sin\dfrac{k\pi}{2n}\right)=10+\int_0^1\left(-4\cos\dfrac{\pi}{2}x+2\sin\dfrac{\pi}{2}x\right)dx=10+\left[-\dfrac8\pi\sin\dfrac\pi2x-\dfrac4\pi\cos\dfrac\pi2x\right]_0^1=10-\dfrac4\pi$$
+        이다.
+      source_flow: 해설지 p.4 풀이
+      criteria:
+      - 4-1.M4
+      - 4-1.A2
+  # 채점기준 미공개 — 단계별 추정
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 4-1.M1
+      mark_type: M
+      points: 15
+      evidence: $k\le2n$일 때 절댓값을 벗겨 $2n\left(1-\cos\dfrac{k\pi}{2n}\right)$를 구했다.
+      steps:
+      - 41b-1
+    - id: 4-1.M2
+      mark_type: M
+      points: 20
+      evidence: $k>2n$일 때 $x=2n\pi$에서 부호가 바뀜을 이용해 구간을 나누어 $2n\left(3+\cos\dfrac{k\pi}{2n}\right)$를 구했다.
+      steps:
+      - 41b-2
+    - id: 4-1.M3
+      mark_type: M
+      points: 20
+      evidence: $T_n$을 $k,\ n+k,\ 2n+k$ 항끼리 묶어 $\sum_{k=1}^{n}$ 꼴로 바꾸었다.
+      steps:
+      - 41b-3
+    - id: 4-1.A1
+      mark_type: A
+      points: 20
+      evidence: $T_n=10+\dfrac1n\sum_{k=1}^{n}\left(-4\cos\dfrac{k\pi}{2n}+2\sin\dfrac{k\pi}{2n}\right)$로 정리했다.
+      depends_on:
+      - 4-1.M1
+      - 4-1.M2
+      - 4-1.M3
+      steps:
+      - 41b-4
+    - id: 4-1.M4
+      mark_type: M
+      points: 20
+      evidence: 정적분과 급수의 합 사이의 관계를 이용해 $\int_0^1$로 바꾸었다.
+      steps:
+      - 41b-5
+    - id: 4-1.A2
+      mark_type: A
+      points: 20
+      evidence: 정적분을 계산해 극한값 $10-\dfrac4\pi$를 구했다.
+      depends_on:
+      - 4-1.M4
+      - 4-1.A1
+      steps:
+      - 41b-5
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: past-v2-lean
+  item_version: 1
+  verdict: pass
+  date: &id001 2026-11-23
+created: *id001
+updated: *id001

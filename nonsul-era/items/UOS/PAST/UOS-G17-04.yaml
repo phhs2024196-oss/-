@@ -1,0 +1,212 @@
+schema_version: '2.0'
+id: UOS-G17-04
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: UOS
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 분류
+points: 100
+time_estimate_min: null
+key_idea: 원소를 첫째항 $a$, 공차 $d$로 매개화해 $d$별로 $a$의 개수를 센다. (3)은 여집합(0을 포함하는 경우)을 원소 위치별로 분류해 센다.
+stuck: 0이 다섯 항 중 몇 번째인지로 분류하고 각 경우의 $d$ 범위를 구하는 발상
+tags: []
+elements:
+  materials:
+  - 집합 U_n
+  - 등차수열을 이루는 5원소 부분집합
+  concepts:
+  - 등차수열의 일반항
+  - 수열의 합
+  - 여사건적 계수
+  - 대칭성
+  tools:
+  - 시그마
+  - 홀짝에 따른 경우 분류
+  conditions:
+  - (1)(2)(3)
+  stimuli_used: {}
+  subpart_links:
+  - 4-2는 4-1의 a_n에서 0을 포함하는 경우를 빼서 구함
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학Ⅱ
+  scope_2028: unknown
+  scope_confirmed: false
+  behavior_domain: 문제해결
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 서울시립대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 서울시립대학교
+  admission_year: 2017
+  admission_type: 수시 논술전형
+  track: 자연계열
+  question_no: 4
+  official_url: https://admission.uos.ac.kr/admissionNew/freeBoard/view.do?list_id=OF1&menuid=2002001005000000000&seq=32
+  retrieved_at: '2026-11-23'
+  original_points:
+  - 50
+  - 50
+  rights_notice: 미확인
+  transcribed_from: 2017 논술고사 문제지(자연계열) p.3
+verify: verify/UOS-G17.py::p04
+stimuli: []
+stem: |
+  [문제 4] (총 100점)
+  자연수 $n$에 대하여 집합 $U_n$을
+  $U_n=\{x\mid -6n\le x\le 6n,\ x\text{는 정수}\}$
+  라 하자. 다음 조건 (1), (2)를 모두 만족시키는 집합 $A$의 개수를 $a_n$이라 하고, 조건 (1), (2), (3)을 모두 만족시키는 집합 $A$의 개수를 $b_n$이라 하자.
+
+  (1) $A$는 원소의 개수가 5인 $U_n$의 부분집합이다.
+  (2) $A$의 모든 원소를 작은 수부터 순서대로 나열하면 등차수열이 된다.
+  (3) $0\notin A$
+subparts:
+- id: 4-1
+  stem: |
+    (a) $a_n$을 구하여라. (50점)
+  points: 50
+  depends_on: []
+  answer:
+    kind: expression
+    value: 18*n**2-3*n
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S41-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 41b-1
+      content: |
+        조건 (1), (2)를 모두 만족시키는 $A$의 원소를 첫째항 $a$와 공차 $d$ $(d\ge1)$로 나타내면 $a,\ a+d,\ a+2d,\ a+3d,\ a+4d$ ($a$, $d$는 정수)이므로 $-6n\le a,\ a+4d\le6n$이다.
+      source_flow: 해설지 p.12 예시 답안
+      criteria:
+      - 4-1.M1
+    - id: 41b-2
+      content: |
+        따라서 $d$는 $a=-6n$일 때 최댓값 $3n$을 가지므로 $1\le d\le3n$이고, $d=k$일 때 $a$는 $-6n\le a\le6n-4k$인 정수이므로 가능한 $a$의 개수는 $12n+1-4k$이다.
+      source_flow: 해설지 p.12 예시 답안
+      criteria:
+      - 4-1.M1
+    - id: 41b-3
+      content: |
+        그러므로 $a_n=\displaystyle\sum_{k=1}^{3n}(12n+1-4k)=18n^2-3n$이다.
+      source_flow: 해설지 p.12 예시 답안
+      criteria:
+      - 4-1.A1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 4-1.M1
+      mark_type: M
+      points: 30
+      evidence: 조건 (1), (2)를 첫째항과 공차의 관계·범위 조건으로 표현했다.
+      steps:
+      - 41b-1
+      - 41b-2
+    - id: 4-1.A1
+      mark_type: A
+      points: 20
+      evidence: $a_n=18n^2-3n$을 구했다.
+      depends_on:
+      - 4-1.M1
+      steps:
+      - 41b-3
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+- id: 4-2
+  stem: |
+    (b) $b_n$을 구하여라. (50점)
+  points: 50
+  depends_on: []
+  answer:
+    kind: expression
+    value: even=18*n**2-13*n; odd=18*n**2-13*n+1
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S42-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 42b-1
+      content: |
+        조건 (1), (2)를 모두 만족시키는 $A$의 원소를 $x_1=a,\ x_2=a+d,\ x_3=a+2d,\ x_4=a+3d,\ x_5=a+4d$ ($a$, $d$는 정수, $d\ge1$)라 두자. 조건 (1), (2)와 $0\in A$를 모두 만족시키는 집합 $A$의 개수를 $c_n$이라 하면 $b_n=a_n-c_n$이다.
+      source_flow: 해설지 p.12 예시 답안
+      criteria:
+      - 4-2.M1
+    - id: 42b-2
+      content: |
+        (i) $x_1=0$이면 $4\le4d\le6n$이므로 가능한 $d$의 개수는 $n$이 짝수일 때 $\dfrac{3n}{2}$, $n$이 홀수일 때 $\dfrac{3n-1}{2}$
+        (ii) $x_2=0$이면 $3\le3d\le6n$이므로 가능한 $d$의 개수는 $2n$
+        (iii) $x_3=0$이면 $2\le2d\le6n$이므로 가능한 $d$의 개수는 $3n$
+        (iv) $x_4=0$이면 대칭성에 의해 $x_2=0$일 때와 같으므로 가능한 $d$의 개수는 $2n$
+        (v) $x_5=0$이면 대칭성에 의해 $x_1=0$일 때와 같으므로 가능한 $d$의 개수는 $n$이 짝수일 때 $\dfrac{3n}{2}$, $n$이 홀수일 때 $\dfrac{3n-1}{2}$
+      source_flow: 해설지 p.12 예시 답안
+      criteria:
+      - 4-2.M1
+    - id: 42b-3
+      content: |
+        따라서 $c_n=\begin{cases}10n&(n\text{은 짝수})\\10n-1&(n\text{은 홀수})\end{cases}$이므로 $b_n=\begin{cases}18n^2-13n&(n\text{은 짝수})\\18n^2-13n+1&(n\text{은 홀수})\end{cases}$이다.
+      source_flow: 해설지 p.12 예시 답안
+      criteria:
+      - 4-2.A1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 4-2.M1
+      mark_type: M
+      points: 40
+      evidence: $0\in A$인 조건을 만족시키는 부분집합의 개수 $c_n$을 (0의 위치별 분류로) 구했다.
+      steps:
+      - 42b-1
+      - 42b-2
+    - id: 4-2.A1
+      mark_type: A
+      points: 10
+      evidence: $b_n=a_n-c_n$을 짝수·홀수로 나누어 구했다.
+      depends_on:
+      - 4-2.M1
+      steps:
+      - 42b-3
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: past-v2-lean
+  item_version: 1
+  verdict: pass
+  date: 2026-11-23
+created: 2026-11-23
+updated: 2026-11-23

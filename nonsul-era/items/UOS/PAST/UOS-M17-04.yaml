@@ -1,0 +1,179 @@
+schema_version: '2.0'
+id: UOS-M17-04
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: UOS
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 추론
+points: 100
+time_estimate_min: null
+key_idea: |
+  $X=1+\sin x$, $Y=1+\cos x$라 두면 $X^Y>Y^X\iff\dfrac{\ln X}{X}>\dfrac{\ln Y}{Y}$이고, $f(x)=\dfrac{\ln x}{x}$가 $1<x<e$에서 증가하므로 $X>Y$, 즉 $\sin x>\cos x$와 같다.
+stuck: |
+  지수가 서로 엇갈린 부등식 $X^Y>Y^X$를 $\dfrac{\ln X}{X}>\dfrac{\ln Y}{Y}$로 바꾸고 $X,Y\in(1,e)$에서의 단조성을 쓰는 것
+tags:
+- 지수 부등식
+- 로그
+- 단조성
+elements:
+  materials:
+  - $(1+\sin x)^{1+\cos x}>(1+\cos x)^{1+\sin x}$
+  concepts:
+  - 로그함수의 단조성
+  - 도함수와 증가·감소
+  - 삼각함수 부등식
+  tools:
+  - 양변에 자연로그
+  - $f(x)=\dfrac{\ln x}{x}$의 단조성
+  conditions:
+  - $0<x<\dfrac\pi2$
+  stimuli_used: {}
+  subpart_links: []
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학Ⅱ
+  - 미적분
+  scope_2028: calc2
+  scope_confirmed: false
+  content_area: 미분법 – 도함수의 활용, 부등식
+  behavior_domain: 추론
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 서울시립대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 서울시립대학교
+  admission_year: 2017
+  admission_type: 수시 모의논술고사
+  track: 자연계열
+  question_no: 4
+  official_url: https://admission.uos.ac.kr/admissionNew/freeBoard/view.do?list_id=OF1&menuid=2002001005000000000&seq=31
+  retrieved_at: '2026-11-23'
+  original_points:
+  - 100
+  rights_notice: 미확인
+  transcribed_from: 2017학년도 수시모집 논술전형 논술고사 문제지(자연계열) (HWP 변환본 M17_Q)
+verify: verify/UOS-M17.py::p04
+stimuli: []
+stem: |
+  [문제 4] (100점)
+  $0<x<\dfrac{\pi}{2}$에서 부등식 $(1+\sin x)^{1+\cos x}>(1+\cos x)^{1+\sin x}$을 만족하는 $x$의 범위를 구하여라.
+subparts:
+- id: 4-1
+  points: 100
+  depends_on: []
+  answer:
+    kind: expression
+    value: lo=pi/4; hi=pi/2
+    equivalents:
+    - $\dfrac\pi4<x<\dfrac\pi2$
+    tolerance: null
+  solutions:
+  - id: S41-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 41b-1
+      content: |
+        $X=1+\sin x$, $Y=1+\cos x$라고 하자. $0<x<\dfrac\pi2$이므로 $1<X<2<e$이고 $Y$의 범위도 $1<Y<e$이다. 주어진 부등식은 $X^Y>Y^X$가 된다.
+      source_flow: 해설지 예시 답안
+      criteria:
+      - 4-1.M1
+    - id: 41b-2
+      content: |
+        함수 $y=\ln x$가 증가함수이므로 이 부등식의 양변에 자연로그를 취하여도 부등호의 방향은 변하지 않는다. 그러므로 주어진 부등식은 $Y\ln X>X\ln Y$와 동치이다. $X>1$이고 $Y>1$이므로 위 부등식을 $XY$로 나누어도 부등호의 방향은 변하지 않는다. 그러므로 주어진 부등식은 $\dfrac{\ln X}{X}>\dfrac{\ln Y}{Y}$ ······ (1)과 동치이다.
+      source_flow: 해설지 예시 답안
+      criteria:
+      - 4-1.M2
+    - id: 41b-3
+      content: |
+        이 부등식을 풀기 위하여 함수 $f(x)=\dfrac{\ln x}{x}$ $(x>1)$를 생각하자. 이때, 부등식 (1)은 $f(X)>f(Y)$ ······ (2)와 같다. $f(x)$를 미분하면 $f'(x)=\dfrac{1-\ln x}{x^2}$이다. $1<x<e$에서 $f'(x)>0$이므로 $f(x)$는 $1<x<e$에서 증가한다.
+      source_flow: 해설지 예시 답안
+      criteria:
+      - 4-1.M3
+    - id: 41b-4
+      content: |
+        그러므로 주어진 $X$, $Y$의 범위에서($1<X<e$, $1<Y<e$) 부등식 (2)는 $X>Y$와 동치이다.
+      source_flow: 해설지 예시 답안
+      criteria:
+      - 4-1.R1
+    - id: 41b-5
+      content: |
+        $0<x<\dfrac\pi2$에서 부등식 $X=1+\sin x>Y=1+\cos x$를 풀면 구하는 범위는 $\dfrac\pi4<x<\dfrac\pi2$이다.
+      source_flow: 해설지 예시 답안
+      criteria:
+      - 4-1.A1
+  # 채점기준 미공개 — 단계별 추정
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 4-1.M1
+      mark_type: M
+      points: 15
+      evidence: |
+        $X=1+\sin x$, $Y=1+\cos x$로 치환하고 $1<X,Y<e$임을 밝혀 $X^Y>Y^X$로 바꾸었다.
+      steps:
+      - 41b-1
+    - id: 4-1.M2
+      mark_type: M
+      points: 20
+      evidence: |
+        양변에 자연로그를 취하고 $XY$로 나누어 $\dfrac{\ln X}{X}>\dfrac{\ln Y}{Y}$와 동치임을 보였다.
+      steps:
+      - 41b-2
+    - id: 4-1.M3
+      mark_type: M
+      points: 20
+      evidence: |
+        $f(x)=\dfrac{\ln x}{x}$를 미분해 $f'(x)=\dfrac{1-\ln x}{x^2}$를 구하고 $1<x<e$에서 증가함을 보였다.
+      steps:
+      - 41b-3
+    - id: 4-1.R1
+      mark_type: R
+      points: 20
+      evidence: |
+        $X,Y$가 모두 $(1,e)$에 있음을 근거로 $f(X)>f(Y)\iff X>Y$임을 이끌었다.
+      steps:
+      - 41b-4
+    - id: 4-1.A1
+      mark_type: A
+      points: 25
+      evidence: |
+        $\sin x>\cos x$를 풀어 $\dfrac\pi4<x<\dfrac\pi2$를 얻었다.
+      steps:
+      - 41b-5
+      depends_on:
+      - 4-1.R1
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: past-v2-lean
+  item_version: 1
+  verdict: pass
+  date: &id001 2026-11-23
+created: *id001
+updated: *id001

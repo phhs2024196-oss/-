@@ -1,0 +1,164 @@
+# 채점기준 미공개 — 단계별 추정
+schema_version: '2.0'
+id: UOS-M26-03
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: UOS
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 구성
+points: 105
+time_estimate_min: null
+key_idea: $a_n+b_n=\displaystyle\sum_{k=n+1}^{2n}\left(\ln\dfrac kn\right)^2$으로 합쳐 구분구적법으로 정적분 $\displaystyle\int_0^1\{\ln(1+x)\}^2dx$로
+  바꾼다.
+stuck: $\ln\dfrac{(2n)!}{n!}$을 $\sum\ln k$로 바꾸고 $a_n$과 $b_n$을 합해 완전제곱 $(\ln k-\ln n)^2$을 만드는 발상
+tags: []
+elements:
+  materials:
+  - $a_n$, $b_n$
+  - $\ln\dfrac{(2n)!}{n!}$
+  concepts:
+  - 로그의 성질
+  - 급수와 정적분
+  - 부분적분법
+  tools:
+  - 구분구적법
+  - 부분적분
+  conditions:
+  - $n$은 자연수
+  stimuli_used: {}
+  subpart_links: []
+curriculum:
+  version: '2015'
+  subjects:
+  - 미적분
+  scope_2028: unknown
+  scope_confirmed: false
+  behavior_domain: 문제해결
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 서울시립대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 서울시립대학교
+  admission_year: 2026
+  admission_type: 수시 모의논술고사
+  track: 자연계열
+  question_no: 3
+  official_url: https://admission.uos.ac.kr/admissionNew/freeBoard/view.do?list_id=OF1&menuid=2002001005000000000&seq=51
+  retrieved_at: '2026-11-23'
+  original_points:
+  - 105
+  rights_notice: 미확인
+  transcribed_from: 2026학년도 모의 논술고사 문제지(자연계열) p.3
+verify: verify/UOS-M26.py::p03
+stimuli: []
+stem: |
+  [문제 3] (105점)
+  자연수 $n$에 대하여
+  $a_n=\left\{n\ln n-2\ln\dfrac{(2n)!}{n!}\right\}\times\ln n,\quad b_n=\displaystyle\sum_{k=n+1}^{2n}(\ln k)^2$
+subparts:
+- id: 3-1
+  stem: |
+    이라 할 때, $\displaystyle\lim_{n\to\infty}\left(\dfrac{a_n+b_n}{n}\right)$의 값을 구하여라.
+  points: 105
+  depends_on: []
+  answer:
+    kind: expression
+    value: 2*log(2)**2-4*log(2)+2
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S31-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 31b-1
+      content: |
+        자연수 $n$에 대하여 자연로그의 성질을 이용하면 $a_n=n(\ln n)^2-2\ln n\displaystyle\sum_{k=n+1}^{2n}\ln k=\sum_{k=n+1}^{2n}\{(\ln n)^2-2(\ln n)(\ln k)\}$이므로,
+      source_flow: 해설지 p.4 예시 답안
+      criteria:
+      - 3-1.M1
+    - id: 31b-2
+      content: |
+        $a_n+b_n=\displaystyle\sum_{k=n+1}^{2n}(\ln k-\ln n)^2=\sum_{k=n+1}^{2n}\left\{\ln\left(\dfrac kn\right)\right\}^2=\sum_{k=1}^{n}\left\{\ln\left(1+\dfrac kn\right)\right\}^2$이다.
+      source_flow: 해설지 p.4 예시 답안
+      criteria:
+      - 3-1.M2
+    - id: 31b-3
+      content: |
+        정적분과 급수의 합 사이의 관계로부터 $\displaystyle\lim_{n\to\infty}\left(\dfrac{a_n+b_n}{n}\right)=\lim_{n\to\infty}\dfrac1n\sum_{k=1}^{n}\left\{\ln\left(1+\dfrac kn\right)\right\}^2=\int_0^1\{\ln(1+x)\}^2dx$이다.
+      source_flow: 해설지 p.4 예시 답안
+      criteria:
+      - 3-1.M3
+    - id: 31b-4
+      content: |
+        한편 부분적분법을 이용하면 $\displaystyle\int_0^1\{\ln(1+x)\}^2dx=\int_1^2(\ln x)^2dx=\left[x(\ln x)^2\right]_1^2-\int_1^2\left(x\times\dfrac{2\ln x}{x}\right)dx=2(\ln2)^2-2\int_1^2\ln x\,dx$이고 $\displaystyle\int_1^2\ln x\,dx=\left[x\ln x-x\right]_1^2=(2\ln2-2)-(-1)=2\ln2-1$이므로 $\displaystyle\int_0^1\{\ln(1+x)\}^2dx=2(\ln2)^2-4\ln2+2$이다. 따라서 $\displaystyle\lim_{n\to\infty}\left(\dfrac{a_n+b_n}{n}\right)=\int_0^1\{\ln(1+x)\}^2dx=2(\ln2)^2-4\ln2+2$이다.
+      source_flow: 해설지 p.4 예시 답안
+      criteria:
+      - 3-1.A1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 3-1.M1
+      mark_type: M
+      points: 30
+      evidence: $\ln\dfrac{(2n)!}{n!}=\displaystyle\sum_{k=n+1}^{2n}\ln k$를 이용해 $a_n$을 합으로 나타냈다.
+      steps:
+      - 31b-1
+    - id: 3-1.M2
+      mark_type: M
+      points: 25
+      evidence: $a_n+b_n=\displaystyle\sum_{k=n+1}^{2n}\left\{\ln\dfrac kn\right\}^2=\sum_{k=1}^{n}\left\{\ln\left(1+\dfrac
+        kn\right)\right\}^2$로 정리했다.
+      depends_on:
+      - 3-1.M1
+      steps:
+      - 31b-2
+    - id: 3-1.M3
+      mark_type: M
+      points: 20
+      evidence: 정적분과 급수의 합의 관계로 극한을 $\displaystyle\int_0^1\{\ln(1+x)\}^2dx$로 바꾸었다.
+      depends_on:
+      - 3-1.M2
+      steps:
+      - 31b-3
+    - id: 3-1.A1
+      mark_type: A
+      points: 30
+      evidence: 부분적분으로 $2(\ln2)^2-4\ln2+2$를 구했다.
+      depends_on:
+      - 3-1.M3
+      steps:
+      - 31b-4
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: past-v2-lean
+  item_version: 1
+  verdict: pass
+  date: 2026-11-23
+created: 2026-11-23
+updated: 2026-11-23

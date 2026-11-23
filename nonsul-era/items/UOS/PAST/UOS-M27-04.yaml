@@ -1,0 +1,224 @@
+# 채점기준 미공개 — 단계별 추정
+schema_version: '2.0'
+id: UOS-M27-04
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: UOS
+type: null
+variant_of: null
+replaces: null
+level: L6
+form: 분류
+points: 115
+time_estimate_min: null
+key_idea: 균형 선택은 $a+d=b+c$이므로 $b-a=d-c=l$로 두고 $l$별로 센다. 전체 개수는 $n$의 홀짝에 따라 시그마를 나누어 계산한다.
+stuck: 균형 조건을 $a+d=b+c$로 해석하고 간격 $l$로 매개화하여 $n-2l$개 중 두 수를 고르는 대응으로 바꾸는 발상
+tags: []
+elements:
+  materials:
+  - 1부터 n까지의 자연수
+  - 균형 선택
+  concepts:
+  - 조합
+  - 합이 같은 두 쌍
+  - 경우의 수의 합
+  - 조건부확률
+  tools:
+  - 시그마
+  - 홀짝 분류
+  conditions:
+  - 4 이상의 자연수 n
+  - 서로 다른 네 수
+  stimuli_used: {}
+  subpart_links:
+  - 4-2는 4-1의 균형 선택 중 $c=b+1$인 경우
+curriculum:
+  version: '2015'
+  subjects:
+  - 확률과통계
+  scope_2028: unknown
+  scope_confirmed: false
+  behavior_domain: 문제해결
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 서울시립대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 서울시립대학교
+  admission_year: 2027
+  admission_type: 수시 모의논술고사
+  track: 자연계열
+  question_no: 4
+  official_url: https://admission.uos.ac.kr/admissionNew/freeBoard/view.do?list_id=OF1&menuid=2002001005000000000&seq=53
+  retrieved_at: '2026-11-23'
+  original_points:
+  - 55
+  - 60
+  rights_notice: 미확인
+  transcribed_from: 2027학년도 모의 논술고사 문제지(자연계열) p.3
+verify: verify/UOS-M27.py::p04
+stimuli: []
+stem: |
+  [문제 4] (총 115점)
+  $4$ 이상의 자연수 $n$에 대하여 $1,\ 2,\ \cdots,\ n$ 중 서로 다른 네 수를 임의로 선택한 후, 두 개씩 두 묶음으로 나누어 각 묶음의 합을 서로 같게 만들 수 있을 때, 이 선택을 균형 선택이라고 하자.
+subparts:
+- id: 4-1
+  stem: |
+    (a) 네 수를 임의로 고르는 선택이 균형 선택일 확률을 구하여라. (55점)
+  points: 55
+  depends_on: []
+  answer:
+    kind: expression
+    value: even=(2*n-5)/((n-1)*(n-3)); odd=(2*n-1)/(n*(n-2))
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S41-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 41b-1
+      content: |
+        선택된 네 수를 $a,b,c,d$ $(a<b<c<d)$라 하자. 이 선택이 균형 선택이려면 $a+d=b+c$이어야 한다. 이때 $b-a=d-c=l$이라 하면 네 수는 $a,\ a+l,\ c,\ c+l$이므로, $a+l<c$, $c+l\le n$이다. 즉, $1\le a<c-l\le n-2l$이다. 이 경우는 $1,2,\cdots,(n-2l)$ 중에서 서로 다른 두 수를 골라 작은 수를 $a$로, 큰 수를 $(c-l)$로 정한 경우와 같다. 따라서 경우의 수는 ${}_{n-2l}\mathrm{C}_{2}$이다. (단, $n-2l\ge2$이다.)
+      source_flow: 해설지 p.5 예시 답안
+      criteria:
+      - 4-1.M1
+      - 4-1.M2
+    - id: 41b-2
+      content: |
+        (i) $n=2k$($k$는 $2$ 이상의 자연수)인 경우, 균형 선택의 개수는 $\displaystyle\sum_{l=1}^{k-1}{}_{2k-2l}\mathrm{C}_{2}=\sum_{j=1}^{k-1}{}_{2j}\mathrm{C}_{2}=\sum_{j=1}^{k-1}j(2j-1)=\dfrac{(k-1)k(4k-5)}{6}$이다. 전체 경우의 수는 ${}_{2k}\mathrm{C}_{4}$이므로, 균형 선택일 확률은 $\dfrac{\dfrac{(k-1)k(4k-5)}{6}}{{}_{2k}\mathrm{C}_{4}}=\dfrac{4k-5}{(2k-1)(2k-3)}=\dfrac{2n-5}{(n-1)(n-3)}$이다.
+      source_flow: 해설지 p.5 예시 답안
+      criteria:
+      - 4-1.A1
+    - id: 41b-3
+      content: |
+        (ii) $n=2k+1$($k$는 $2$ 이상의 자연수)인 경우, 균형 선택의 개수는 $\displaystyle\sum_{l=1}^{k-1}{}_{2k+1-2l}\mathrm{C}_{2}=\sum_{j=1}^{k-1}{}_{2j+1}\mathrm{C}_{2}=\sum_{j=1}^{k-1}j(2j+1)=\dfrac{(k-1)k(4k+1)}{6}$이다. 전체 경우의 수는 ${}_{2k+1}\mathrm{C}_{4}$이므로, 균형 선택일 확률은 $\dfrac{\dfrac{(k-1)k(4k+1)}{6}}{{}_{2k+1}\mathrm{C}_{4}}=\dfrac{4k+1}{(2k+1)(2k-1)}=\dfrac{2n-1}{n(n-2)}$이다.
+      source_flow: 해설지 p.5 예시 답안
+      criteria:
+      - 4-1.A1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 4-1.M1
+      mark_type: M
+      points: 20
+      evidence: 균형 선택의 조건을 $a+d=b+c$, $b-a=d-c=l$로 표현하고 범위 $1\le a<c-l\le n-2l$을 구했다.
+      steps:
+      - 41b-1
+    - id: 4-1.M2
+      mark_type: M
+      points: 15
+      evidence: $l$ 고정 시 경우의 수를 ${}_{n-2l}\mathrm{C}_{2}$로 구했다.
+      depends_on:
+      - 4-1.M1
+      steps:
+      - 41b-1
+    - id: 4-1.A1
+      mark_type: A
+      points: 20
+      evidence: $n$의 홀짝에 따라 $l$에 대해 합하고 전체 경우의 수로 나누어 확률을 구했다.
+      depends_on:
+      - 4-1.M1
+      - 4-1.M2
+      steps:
+      - 41b-2
+      - 41b-3
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+- id: 4-2
+  stem: |
+    (b) 네 수를 임의로 고르는 선택이 균형 선택인 경우, 그 네 수 중에서 두 번째로 작은 수와 세 번째로 작은 수가 연속한 자연수일 확률을 구하여라. (60점)
+  points: 60
+  depends_on: []
+  answer:
+    kind: expression
+    value: even=6*(n-2)/(n*(2*n-5)); odd=6/(2*n-1)
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S42-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 42b-1
+      content: |
+        문제의 조건은 $c=b+1$이므로, 균형 선택인 네 수는 $a,\ a+l,\ a+l+1,\ a+2l+1$이다. $1\le a<a+2l+1\le n$이므로, $1\le a\le n-2l-1$이다. 따라서 가능한 경우의 수는 $(n-2l-1)$이다. (단, $n-2l-1\ge1$이다.)
+      source_flow: 해설지 p.5 예시 답안
+      criteria:
+      - 4-2.M1
+      - 4-2.M2
+    - id: 42b-2
+      content: |
+        (i) $n=2k$($k$는 $2$ 이상의 자연수)인 경우, $c=b+1$인 균형 선택의 개수는 $\displaystyle\sum_{l=1}^{k-1}(2k-2l-1)=(k-1)^2$이다. 따라서 구하는 확률은 $\dfrac{(k-1)^2}{\dfrac{(k-1)k(4k-5)}{6}}=\dfrac{6(k-1)}{k(4k-5)}=\dfrac{6(n-2)}{n(2n-5)}$이다.
+      source_flow: 해설지 p.5 예시 답안
+      criteria:
+      - 4-2.A1
+    - id: 42b-3
+      content: |
+        (ii) $n=2k+1$($k$는 $2$ 이상의 자연수)인 경우, $c=b+1$인 균형 선택의 개수는 $\displaystyle\sum_{l=1}^{k-1}(2k-2l)=k(k-1)$이다. 따라서 구하는 확률은 $\dfrac{k(k-1)}{\dfrac{(k-1)k(4k+1)}{6}}=\dfrac{6}{4k+1}=\dfrac{6}{2n-1}$이다.
+      source_flow: 해설지 p.5 예시 답안
+      criteria:
+      - 4-2.A1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 4-2.M1
+      mark_type: M
+      points: 20
+      evidence: $c=b+1$ 조건으로 균형 선택인 네 수를 $a,a+l,a+l+1,a+2l+1$로 나타냈다.
+      steps:
+      - 42b-1
+    - id: 4-2.M2
+      mark_type: M
+      points: 20
+      evidence: $l$ 고정 시 $a$의 범위 $1\le a\le n-2l-1$과 개수 $n-2l-1$을 구했다.
+      depends_on:
+      - 4-2.M1
+      steps:
+      - 42b-1
+    - id: 4-2.A1
+      mark_type: A
+      points: 20
+      evidence: $n$의 홀짝에 따라 합하고 (a)의 개수로 나누어 확률을 구했다.
+      depends_on:
+      - 4-2.M1
+      - 4-2.M2
+      steps:
+      - 42b-2
+      - 42b-3
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: past-v2-lean
+  item_version: 1
+  verdict: pass
+  date: 2026-11-23
+created: 2026-11-23
+updated: 2026-11-23

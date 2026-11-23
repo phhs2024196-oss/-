@@ -1,0 +1,182 @@
+schema_version: '2.0'
+id: UOS-G22B-03
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: numeric
+origin: past_exam
+school: UOS
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 일반화
+points: 105
+time_estimate_min: null
+key_idea: $k=2^s$, $m=2^t$로 두면 조건이 $s$에 대한 정수 조건($s$가 3의 배수, $0\le s\le\dfrac{9n}{4}$)으로 바뀌어 $a_n=\left\lfloor\dfrac{3n}{4}\right\rfloor+1$이고, $n$을 4개씩 묶어 합을 구한다.
+stuck: $k^2m^3=2^{9n}$에서 $k$, $m$이 2의 거듭제곱이어야 함을 보이는 것, 부등식 조건을 $s$의 범위로 바꾸어 개수를 세는 것, $n$을 4개씩 묶어 합을 구하는 것
+tags: []
+elements:
+  materials: []
+  concepts:
+  - 지수법칙
+  - 소인수분해의 유일성
+  - 수열의 합
+  - 바닥함수
+  tools:
+  - 소인수분해
+  - 시그마
+  - 등차수열의 합
+  conditions:
+  - k^2 m^3 = 2^{9n}
+  - m \le 8^n \le m^2
+  - \sum_{n=1}^{p} a_n \le 2022
+  stimuli_used: {}
+  subpart_links: []
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학Ⅰ
+  scope_2028: common
+  scope_confirmed: false
+  content_area: 지수 – 거듭제곱근과 지수법칙, 수열의 합
+  behavior_domain: 문제해결
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 서울시립대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 서울시립대학교
+  admission_year: 2022
+  admission_type: 수시 논술전형
+  track: 자연계열Ⅱ
+  question_no: 3
+  official_url: https://admission.uos.ac.kr/admissionNew/freeBoard/view.do?list_id=OF1&menuid=2002001005000000000&seq=44
+  retrieved_at: '2026-11-23'
+  original_points:
+  - 105
+  rights_notice: 미확인
+  transcribed_from: 2022 논술고사 문제지(자연계열Ⅱ) p.2
+verify: verify/UOS-G22B.py::p03
+stimuli: []
+stem: |
+  자연수 $n$에 대하여 다음을 모두 만족시키는 두 자연수 $k$, $m$의 순서쌍 $(k,m)$의 개수를 $a_n$이라 하자. 이때, $\displaystyle\sum_{n=1}^{p}a_n\le2022$를 만족시키는 자연수 $p$의 최댓값을 구하여라.
+
+  (1) $k^2m^3=2^{9n}$
+  (2) $m\le8^n\le m^2$
+subparts:
+- id: 3-1
+  stem: ''
+  points: 105
+  depends_on: []
+  answer:
+    kind: value
+    value: '72'
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S31-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 31b-1
+      content: |
+        조건 (1)에 의해서 자연수 $k$, $m$은 적당한 음이 아닌 두 정수 $s$, $t$에 대하여 $k=2^s$, $m=2^t$이다. 조건 (1)로부터 $2s=9n-3t$이므로, $0\le s\le\dfrac{9n}{2}$이고 $\dfrac{s}{3}$는 음이 아닌 정수이다. $\cdots\cdots$ ①
+      source_flow: 해설지 p.3 예시 답안
+      criteria:
+      - 3-1.M1
+    - id: 31b-2
+      content: |
+        조건 (2)에서 $m^3\le2^{9n}\le m^6$이고, 이 부등식에 $m^3=\dfrac{2^{9n}}{k^2}$와 $k=2^s$를 대입하여 정리하면 $0\le s\le\dfrac{9n}{4}$이다. $\cdots\cdots$ ②
+      source_flow: 해설지 p.3 예시 답안
+      criteria:
+      - 3-1.M2
+    - id: 31b-3
+      content: |
+        ①과 ②로부터 $a_n$은 닫힌구간 $\left[0,\dfrac{3n}{4}\right]$에 속하는 정수의 개수이다. 자연수 $q$에 대해서 (i) $n=4q-3$일 때 $a_n=3q-2$, (ii) $n=4q-2$일 때 $a_n=3q-1$, (iii) $n=4q-1$일 때 $a_n=3q$, (iv) $n=4q$일 때 $a_n=3q+1$이다.
+      source_flow: 해설지 p.3 예시 답안
+      criteria:
+      - 3-1.A1
+    - id: 31b-4
+      content: |
+        따라서 자연수 $N$에 대하여
+        $$\sum_{n=1}^{4N}a_n=\sum_{q=1}^{N}(a_{4q-3}+a_{4q-2}+a_{4q-1}+a_{4q})=\sum_{q=1}^{N}(12q-2)=6N^2+4N$$
+        이다.
+      source_flow: 해설지 p.3 예시 답안
+      criteria:
+      - 3-1.M3
+    - id: 31b-5
+      content: |
+        $N=18$일 때 $\displaystyle\sum_{n=1}^{72}a_n=6\times18^2+4\times18=2016$이고, $\displaystyle\sum_{n=1}^{73}a_n=\sum_{n=1}^{72}a_n+a_{73}=2071$이므로 $p=72$이다.
+      source_flow: 해설지 p.3 예시 답안
+      criteria:
+      - 3-1.A2
+  # 채점기준 미공개 — 단계별 추정
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 3-1.M1
+      mark_type: M
+      points: 20
+      evidence: $k=2^s$, $m=2^t$ 로 두고 $2s+3t=9n$ 에서 $s$ 가 3의 배수임($\dfrac{s}{3}$ 가 음이 아닌 정수)을 이끌었다.
+      steps:
+      - 31b-1
+    - id: 3-1.M2
+      mark_type: M
+      points: 20
+      evidence: 조건 (2)를 $s$ 에 대한 부등식 $0\le s\le\dfrac{9n}{4}$ 로 바꾸었다.
+      depends_on:
+      - 3-1.M1
+      steps:
+      - 31b-2
+    - id: 3-1.A1
+      mark_type: A
+      points: 25
+      evidence: $a_n$ 이 $\left[0,\dfrac{3n}{4}\right]$ 의 정수 개수임을 이용해 $n=4q-3,4q-2,4q-1,4q$ 에서 $a_n$ 을 구했다.
+      depends_on:
+      - 3-1.M1
+      - 3-1.M2
+      steps:
+      - 31b-3
+    - id: 3-1.M3
+      mark_type: M
+      points: 20
+      evidence: 네 항씩 묶어 $\sum_{n=1}^{4N}a_n=6N^2+4N$ 을 구했다.
+      depends_on:
+      - 3-1.A1
+      steps:
+      - 31b-4
+    - id: 3-1.A2
+      mark_type: A
+      points: 20
+      evidence: $N=18$ 일 때 2016, $a_{73}$ 을 더한 2071 과 비교하여 $p=72$ 를 적었다.
+      depends_on:
+      - 3-1.M3
+      steps:
+      - 31b-5
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: past-v2-lean
+  item_version: 1
+  verdict: pass
+  date: 2026-11-23
+created: 2026-11-23
+updated: 2026-11-23

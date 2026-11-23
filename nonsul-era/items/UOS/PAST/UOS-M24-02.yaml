@@ -1,0 +1,199 @@
+schema_version: '2.0'
+id: UOS-M24-02
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: numeric
+origin: mock_exam
+school: UOS
+type: null
+variant_of: null
+replaces: null
+level: L3
+form: 전수
+points: 95
+time_estimate_min: null
+key_idea: 빨간 공과 파란 공을 따로 세어 중복조합의 곱으로 나타내고, (b)는 차 $z_i=x_i-y_i\ge 0$로 치환해 같은 꼴의 방정식으로 바꾼다.
+stuck: (b)에서 조건 $x_i\ge y_i$를 $z_i=x_i-y_i\ge 0$로 바꾸어 음이 아닌 정수해의 개수 문제로 만드는 것
+tags:
+- 중복조합
+- 치환
+elements:
+  materials:
+  - 공을 상자에 나누어 넣기
+  concepts:
+  - 중복조합
+  - 음이 아닌 정수해의 개수
+  tools:
+  - 변수 치환
+  - 곱의 법칙
+  conditions:
+  - 같은 색 공은 구별 안 됨
+  - 상자는 서로 다름
+  stimuli_used: {}
+  subpart_links:
+  - 2-2는 2-1과 같은 상황
+curriculum:
+  version: '2015'
+  subjects:
+  - 확률과통계
+  scope_2028: unknown
+  scope_confirmed: false
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 서울시립대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 서울시립대학교
+  admission_year: 2024
+  admission_type: 수시 모의논술고사
+  track: 자연계열
+  question_no: 2
+  official_url: https://admission.uos.ac.kr/admissionNew/freeBoard/view.do?list_id=OF1&menuid=2002001005000000000&seq=47
+  retrieved_at: '2026-11-23'
+  original_points:
+  - 40
+  - 55
+  rights_notice: 미확인
+  transcribed_from: 2024학년도 수시 논술전형 모의 논술고사 문제지(자연계열) p.2
+verify: verify/UOS-M24.py::p02
+stimuli: []
+stem: |
+  빨간 공 6개와 파란 공 4개를 서로 다른 세 상자에 나누어 넣으려고 한다. (단, 빨간 공들은 서로 구별할 수 없고 파란 공들도 서로 구별할 수 없다.)
+subparts:
+- id: 2-1
+  stem: |
+    (a) 나누어 넣는 경우의 수를 구하여라.
+  points: 40
+  depends_on: []
+  answer:
+    kind: value
+    value: '420'
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S21-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 21b-1
+      content: |
+        상자 $i$에 넣은 빨간 공의 수를 $x_i$라 하면 $x_1+x_2+x_3=6$의 음이 아닌 정수해의 개수가 빨간 공을 넣는 경우의 수이므로 ${}_3\mathrm{H}_6={}_8\mathrm{C}_6=28$이다.
+      source_flow: 해설지 p.3 예시 답안
+      criteria:
+      - 2-1.M1
+    - id: 21b-2
+      content: |
+        상자 $i$에 넣은 파란 공의 수를 $y_i$라 하면 $y_1+y_2+y_3=4$의 음이 아닌 정수해의 개수이므로 ${}_3\mathrm{H}_4={}_6\mathrm{C}_4=15$이다.
+      source_flow: 해설지 p.3 예시 답안
+      criteria:
+      - 2-1.M2
+    - id: 21b-3
+      content: |
+        두 경우는 서로 독립이므로 구하는 경우의 수는 ${}_3\mathrm{H}_6\cdot{}_3\mathrm{H}_4=28\cdot 15=420$이다.
+      source_flow: 해설지 p.3 예시 답안
+      criteria:
+      - 2-1.A1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 2-1.M1
+      mark_type: M
+      points: 15
+      evidence: 빨간 공을 넣는 경우의 수를 $x_1+x_2+x_3=6$의 음이 아닌 정수해의 개수로 보고 ${}_3\mathrm{H}_6=28$을 구했다.
+      steps:
+      - 21b-1
+    - id: 2-1.M2
+      mark_type: M
+      points: 15
+      evidence: 파란 공을 넣는 경우의 수를 $y_1+y_2+y_3=4$의 음이 아닌 정수해의 개수로 보고 ${}_3\mathrm{H}_4=15$를 구했다.
+      steps:
+      - 21b-2
+    - id: 2-1.A1
+      mark_type: A
+      points: 10
+      evidence: 두 경우의 수를 곱해 $420$을 구했다.
+      depends_on:
+      - 2-1.M1
+      - 2-1.M2
+      steps:
+      - 21b-3
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+- id: 2-2
+  stem: |
+    (b) 모든 상자에서 빨간 공의 개수가 파란 공의 개수보다 같거나 많도록 나누어 넣는 경우의 수를 구하여라.
+  points: 55
+  depends_on: []
+  answer:
+    kind: value
+    value: '90'
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S22-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 22b-1
+      content: |
+        $z_i=x_i-y_i$라 하면 모든 상자에서 빨간 공이 파란 공보다 같거나 많을 조건은 $z_i\ge 0\ (i=1,2,3)$이다. 따라서 구하는 경우의 수는 $y_1+y_2+y_3=4$와 $z_1+z_2+z_3=2$를 동시에 만족시키는 음이 아닌 정수해의 개수와 같다. ($x_1+x_2+x_3=6$이므로 $z_1+z_2+z_3=6-4=2$이다.)
+      source_flow: 해설지 p.3 예시 답안
+      criteria:
+      - 2-2.M1
+    - id: 22b-2
+      content: |
+        첫 번째 방정식의 해의 개수는 ${}_3\mathrm{H}_4=15$, 두 번째 방정식의 해의 개수는 ${}_3\mathrm{H}_2=6$이므로 구하는 경우의 수는 ${}_3\mathrm{H}_4\cdot{}_3\mathrm{H}_2=15\cdot 6=90$이다.
+      source_flow: 해설지 p.3 예시 답안
+      criteria:
+      - 2-2.A1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 2-2.M1
+      mark_type: M
+      points: 35
+      evidence: $z_i=x_i-y_i\ge 0$로 두어 조건에 맞는 빨간 공을 넣는 경우의 수를 $z_1+z_2+z_3=2$의 음이 아닌 정수해의 개수로 바꾸었다.
+      steps:
+      - 22b-1
+    - id: 2-2.A1
+      mark_type: A
+      points: 20
+      evidence: ${}_3\mathrm{H}_4\cdot{}_3\mathrm{H}_2=90$을 구했다.
+      depends_on:
+      - 2-2.M1
+      steps:
+      - 22b-2
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: past-v2-lean
+  item_version: 1
+  verdict: pass
+  date: 2026-11-23
+created: 2026-11-23
+updated: 2026-11-23

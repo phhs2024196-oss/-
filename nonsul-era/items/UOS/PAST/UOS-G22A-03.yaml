@@ -1,0 +1,194 @@
+schema_version: '2.0'
+id: UOS-G22A-03
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: numeric
+origin: past_exam
+school: UOS
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 분류
+points: 105
+time_estimate_min: null
+key_idea: $f(x)=3\sqrt{2}\sin^3x-\cos x$가 $[0,\dfrac{\pi}{2}]$에서 증가하여 부호가 바뀌는 점이 유일함을 사잇값 정리로 보이고, 그 점 $a$에서 $\sin a=\dfrac{1}{\sqrt{3}}$를 구해 절댓값 적분을 구간별로 나눈다.
+stuck: $f(x)=0$의 근 $a$를 직접 풀 수 없을 때 유일성(증가함수+사잇값 정리)으로 근의 존재를 확보하고 $3\sqrt{2}\sin^3a=\cos a$를 $\sin a$에 대한 식으로 풀어내는 것
+tags: []
+elements:
+  materials: []
+  concepts:
+  - 절댓값 함수의 적분
+  - 사잇값 정리
+  - 삼각함수의 부정적분(치환 적분)
+  tools:
+  - 사잇값 정리
+  - 치환적분
+  - 삼각함수의 관계식
+  conditions:
+  - 적분구간 [-\pi/2, \pi/2]
+  - 피적분함수 |3\sqrt{2}\sin^3x-\cos x|
+  stimuli_used: {}
+  subpart_links: []
+curriculum:
+  version: '2015'
+  subjects:
+  - 미적분
+  scope_2028: calc2
+  scope_confirmed: false
+  content_area: 적분법 – 절댓값을 포함한 정적분, 삼각함수의 부정적분
+  behavior_domain: 문제해결
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 서울시립대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 서울시립대학교
+  admission_year: 2022
+  admission_type: 수시 논술전형
+  track: 자연계열Ⅰ
+  question_no: 3
+  official_url: https://admission.uos.ac.kr/admissionNew/freeBoard/view.do?list_id=OF1&menuid=2002001005000000000&seq=44
+  retrieved_at: '2026-11-23'
+  original_points:
+  - 105
+  rights_notice: 미확인
+  transcribed_from: 2022 논술고사 문제지(자연계열Ⅰ) p.2
+verify: verify/UOS-G22A.py::p03
+stimuli: []
+stem: |
+  다음 정적분의 값을 구하여라.
+  $$\int_{-\frac{\pi}{2}}^{\frac{\pi}{2}}\left\lvert3\sqrt{2}\sin^3x-\cos x\right\rvert dx$$
+subparts:
+- id: 3-1
+  stem: ''
+  points: 105
+  depends_on: []
+  answer:
+    kind: value
+    value: 34*sqrt(3)/9
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S31-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 31b-1
+      content: |
+        $f(x)=3\sqrt{2}\sin^3x-\cos x$라 하자. $-\dfrac{\pi}{2}\le x\le0$일 때 $\sin x\le0$, $\cos x\ge0$이므로 $f(x)\le0$이다.
+      source_flow: 해설지 p.3 예시 답안
+      criteria:
+      - 3-1.M1
+    - id: 31b-2
+      content: |
+        닫힌구간 $\left[0,\dfrac{\pi}{2}\right]$에서 함수 $g(x)=3\sqrt{2}\sin^3x$는 증가함수이고, 함수 $h(x)=\cos x$는 감소함수이다. $f(x)=g(x)-h(x)$는 연속인 증가함수이고, $f(0)=-1<0$, $f\left(\dfrac{\pi}{2}\right)=3\sqrt{2}>0$이므로 사잇값 정리에 의해 방정식 $f(x)=0$은 구간 $\left[0,\dfrac{\pi}{2}\right]$에서 유일한 해를 갖는다. 이 해를 $a$라 하자. $-\dfrac{\pi}{2}\le x\le a$이면 $f(x)\le0$이고 $a\le x\le\dfrac{\pi}{2}$이면 $f(x)\ge0$이다.
+      source_flow: 해설지 p.3 예시 답안
+      criteria:
+      - 3-1.M2
+    - id: 31b-3
+      content: |
+        또한 $3\sqrt{2}\sin^3a=\cos a$, $18\sin^6a=\cos^2a=1-\sin^2a$, $18\sin^6a+\sin^2a-1=(3\sin^2a-1)(6\sin^4a+2\sin^2a+1)=0$이므로 $3\sin^2a=1$, $\sin a=\dfrac{1}{\sqrt{3}}$이고 $\cos a=\sqrt{1-\sin^2a}=\dfrac{\sqrt{2}}{\sqrt{3}}$이다.
+      source_flow: 해설지 p.3 예시 답안
+      criteria:
+      - 3-1.M3
+    - id: 31b-4
+      content: |
+        $\sin^3x=\sin^2x\sin x=(1-\cos^2x)\sin x=\sin x-\cos^2x\sin x$이므로
+        $$\int\left(3\sqrt{2}\sin^3x-\cos x\right)dx=\int3\sqrt{2}\sin x\,dx-\int3\sqrt{2}\cos^2x\sin x\,dx-\int\cos x\,dx=-3\sqrt{2}\cos x+\sqrt{2}\cos^3x-\sin x+C$$
+        이다.
+      source_flow: 해설지 p.3 예시 답안
+      criteria:
+      - 3-1.M4
+    - id: 31b-5
+      content: |
+        $F(x)=\sqrt{2}\cos^3x-3\sqrt{2}\cos x-\sin x$라 하자. 이때 $F^{\prime}(x)=f(x)$이고 $F\left(-\dfrac{\pi}{2}\right)=1$, $F\left(\dfrac{\pi}{2}\right)=-1$이며,
+        $$F(a)=\sqrt{2}\cos^3a-3\sqrt{2}\cos a-\sin a=\sqrt{2}\times\dfrac{2\sqrt{2}}{3\sqrt{3}}-3\sqrt{2}\times\dfrac{\sqrt{2}}{\sqrt{3}}-\dfrac{1}{\sqrt{3}}=-\dfrac{17\sqrt{3}}{9}$$
+        이다.
+      source_flow: 해설지 p.3 예시 답안
+      criteria:
+      - 3-1.A1
+    - id: 31b-6
+      content: |
+        따라서
+        $$\int_{-\frac{\pi}{2}}^{\frac{\pi}{2}}\left\lvert3\sqrt{2}\sin^3x-\cos x\right\rvert dx=-\int_{-\frac{\pi}{2}}^{a}f(x)\,dx+\int_{a}^{\frac{\pi}{2}}f(x)\,dx=-F(a)+F\left(-\dfrac{\pi}{2}\right)+F\left(\dfrac{\pi}{2}\right)-F(a)=\dfrac{34\sqrt{3}}{9}$$
+        이다.
+      source_flow: 해설지 p.3 예시 답안
+      criteria:
+      - 3-1.A2
+  # 채점기준 미공개 — 단계별 추정
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 3-1.M1
+      mark_type: M
+      points: 10
+      evidence: $-\dfrac{\pi}{2}\le x\le0$ 에서 $f(x)\le0$ 임을 보였다.
+      steps:
+      - 31b-1
+    - id: 3-1.M2
+      mark_type: M
+      points: 20
+      evidence: $\left[0,\dfrac{\pi}{2}\right]$ 에서 $f$ 가 증가함수이고 사잇값 정리로 부호가 바뀌는 점 $a$ 가 유일함을 보여 구간을 나누었다.
+      steps:
+      - 31b-2
+    - id: 3-1.M3
+      mark_type: M
+      points: 25
+      evidence: $f(a)=0$ 에서 $\sin a=\dfrac{1}{\sqrt{3}}$, $\cos a=\dfrac{\sqrt{2}}{\sqrt{3}}$ 를 구했다.
+      depends_on:
+      - 3-1.M2
+      steps:
+      - 31b-3
+    - id: 3-1.M4
+      mark_type: M
+      points: 20
+      evidence: $\sin^3x=(1-\cos^2x)\sin x$ 로 바꾸어 부정적분 $F(x)$ 를 구했다.
+      steps:
+      - 31b-4
+    - id: 3-1.A1
+      mark_type: A
+      points: 15
+      evidence: $F\left(-\dfrac{\pi}{2}\right)=1$, $F\left(\dfrac{\pi}{2}\right)=-1$, $F(a)=-\dfrac{17\sqrt{3}}{9}$ 를 구했다.
+      depends_on:
+      - 3-1.M3
+      - 3-1.M4
+      steps:
+      - 31b-5
+    - id: 3-1.A2
+      mark_type: A
+      points: 15
+      evidence: 구간별 부호를 반영해 $\dfrac{34\sqrt{3}}{9}$ 를 적었다.
+      depends_on:
+      - 3-1.M1
+      - 3-1.M2
+      - 3-1.A1
+      steps:
+      - 31b-6
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: past-v2-lean
+  item_version: 1
+  verdict: pass
+  date: 2026-11-23
+created: 2026-11-23
+updated: 2026-11-23

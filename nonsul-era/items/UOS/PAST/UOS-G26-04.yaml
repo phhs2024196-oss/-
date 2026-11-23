@@ -1,0 +1,243 @@
+schema_version: '2.0'
+id: UOS-G26-04
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: UOS
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 전수
+points: 115
+time_estimate_min: 35
+key_idea: A의 위치에 따라 선분 AB, AC의 겹치는 길이가 $k$가 되는 경우의 수를 세어 $P(X=k)$를 구하고, 이를 이용해 평균 $\sum kP(X=k)$를 계산한다.
+stuck: 겹치는 길이 $X$가 $k$인 경우를 A의 위치(양쪽)와 B, C의 위치로 나누어 일반항으로 세는 발상
+tags: []
+elements:
+  materials:
+  - 수직선 위의 $n$개의 점
+  - 선분 AB, AC의 겹치는 길이 $X$
+  concepts:
+  - 순열
+  - 경우의 수
+  - 확률변수의 평균
+  - 자연수 거듭제곱의 합
+  tools:
+  - 경우 분류
+  - 시그마
+  conditions:
+  - $n\ge3$
+  - 서로 다른 세 점을 순서대로 선택
+  stimuli_used: {}
+  subpart_links:
+  - 4-2는 4-1의 경우 분류(A의 위치에 따른 두 경우)를 $k$로 일반화하여 사용
+curriculum:
+  version: '2015'
+  subjects:
+  - 확률과통계
+  - 수학Ⅰ
+  scope_2028: common
+  scope_confirmed: false
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 서울시립대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 서울시립대학교
+  admission_year: 2026
+  admission_type: 수시 논술전형
+  track: 자연계열
+  question_no: 4
+  official_url: https://admission.uos.ac.kr/admissionNew/freeBoard/view.do?list_id=OF1&menuid=2002001005000000000&seq=52
+  retrieved_at: '2026-11-23'
+  original_points:
+  - 40
+  - 75
+  rights_notice: 미확인
+  transcribed_from: 2026 논술고사 문제지(자연계열) p.2
+verify: verify/UOS-G26.py::p04
+stimuli: []
+stem: |
+  1부터 $n\ (n\ge3)$까지의 자연수를 좌표로 갖는 서로 다른 $n$개의 점이 수직선 위에 있다. 이 중에서 서로 다른 세 점을 임의로 선택할 때, 그 세 점을 선택한 순서대로 각각 A, B, C라 하자. 수직선에서 두 선분 AB와 AC가 겹치는 부분의 길이를 확률변수 $X$라 할 때, 다음 물음에 답하여라.
+subparts:
+- id: 4-1
+  stem: |
+    (a) $X=1$일 확률을 구하여라. (40점)
+  points: 40
+  depends_on: []
+  answer:
+    kind: value
+    value: 2/n
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S41-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 41b-1
+      content: |
+        확률변수 $X$가 $1$인 경우는 다음과 같이 나뉜다.
+        (i) 점 A의 좌표가 $k\ (k=1,\cdots,n-2)$일 때, 점 B의 좌표가 $(k+1)$이고 점 C의 좌표가 $(k+2),\cdots,n$ 중 하나이거나, 점 C의 좌표가 $(k+1)$이고 점 B의 좌표가 $(k+2),\cdots,n$ 중 하나인 경우. 이에 해당하는 경우의 수는 $2\displaystyle\sum_{k=1}^{n-2}(n-k-1)=(n-1)(n-2)$이다.
+      source_flow: 해설지 p.4 예시 답안
+      criteria:
+      - 4-1.M1
+      - 4-1.A1
+    - id: 41b-2
+      content: |
+        (ii) 점 A의 좌표가 $k\ (k=3,\cdots,n)$일 때, 점 B의 좌표가 $(k-1)$이고 점 C의 좌표가 $1,\cdots,(k-2)$ 중 하나이거나, 점 C의 좌표가 $(k-1)$이고 점 B의 좌표가 $1,\cdots,(k-2)$ 중 하나인 경우. 이에 해당하는 경우의 수는 $2\displaystyle\sum_{k=3}^{n}(k-2)=2\sum_{k=1}^{n-2}k=(n-1)(n-2)$이다.
+      source_flow: 해설지 p.4 예시 답안
+      criteria:
+      - 4-1.M1
+      - 4-1.A1
+    - id: 41b-3
+      content: |
+        따라서 $X=1$인 경우의 수는 $2(n-1)(n-2)$이다. $n$개의 점에서 서로 다른 세 점을 순서대로 선택하는 경우의 수는 ${}_n\mathrm{P}_3=n(n-1)(n-2)$이므로 $X=1$일 확률은 $\dfrac{2(n-1)(n-2)}{n(n-1)(n-2)}=\dfrac2n$이다.
+      source_flow: 해설지 p.4 예시 답안
+      criteria:
+      - 4-1.A2
+  # 채점기준 미공개 — 단계별 추정
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 4-1.M1
+      mark_type: M
+      points: 15
+      evidence: A의 위치에 따라 B, C가 (한쪽이 A에 이웃한 점, 다른 쪽은 그 바깥)인 두 경우로 나누었다.
+      steps:
+      - 41b-1
+      - 41b-2
+    - id: 4-1.A1
+      mark_type: A
+      points: 10
+      evidence: (i), (ii) 각각의 경우의 수 $(n-1)(n-2)$를 구했다.
+      depends_on:
+      - 4-1.M1
+      steps:
+      - 41b-1
+      - 41b-2
+    - id: 4-1.A2
+      mark_type: A
+      points: 15
+      evidence: 전체 경우의 수 ${}_n\mathrm{P}_3$로 나누어 확률 $\dfrac2n$을 구했다.
+      depends_on:
+      - 4-1.M1
+      - 4-1.A1
+      steps:
+      - 41b-3
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+- id: 4-2
+  stem: |
+    (b) $X$의 평균을 구하여라. (75점)
+  points: 75
+  depends_on:
+  - 4-1
+  answer:
+    kind: value
+    value: (n+1)/6
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S42-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 42b-1
+      content: |
+        확률변수 $X$가 $(n-1)$ 또는 $n$일 확률은 $0$이다. $X$가 $k\ (k=1,\cdots,n-2)$인 경우는 다음과 같이 나뉜다.
+        (i) 점 A의 좌표가 $m\ (m=1,\cdots,n-k-1)$일 때, 점 B의 좌표가 $(m+k)$이고 점 C의 좌표가 $(m+k+1),\cdots,n$ 중 하나이거나, 점 C의 좌표가 $(m+k)$이고 점 B의 좌표가 $(m+k+1),\cdots,n$ 중 하나인 경우. 이에 해당하는 경우의 수는 $2\displaystyle\sum_{m=1}^{n-k-1}(n-m-k)=(n-k)(n-k-1)$이다.
+      source_flow: 해설지 p.4 예시 답안
+      criteria:
+      - 4-2.M1
+      - 4-2.A1
+    - id: 42b-2
+      content: |
+        (ii) 점 A의 좌표가 $m\ (m=k+2,\cdots,n)$일 때, 점 B의 좌표가 $(m-k)$이고 점 C의 좌표가 $1,\cdots,(m-k-1)$ 중 하나이거나, 점 C의 좌표가 $(m-k)$이고 점 B의 좌표가 $1,\cdots,(m-k-1)$ 중 하나인 경우. 이에 해당하는 경우의 수는 $2\displaystyle\sum_{m=k+2}^{n}(m-k-1)=2\sum_{m=1}^{n-k-1}m=(n-k)(n-k-1)$이다.
+      source_flow: 해설지 p.4 예시 답안
+      criteria:
+      - 4-2.M1
+      - 4-2.A1
+    - id: 42b-3
+      content: |
+        따라서 $X=k$인 경우의 수는 $2(n-k)(n-k-1)$이다. $n$개의 점에서 서로 다른 세 점을 순서대로 선택하는 경우의 수는 ${}_n\mathrm{P}_3=n(n-1)(n-2)$이므로 $X$의 평균은
+        $$\sum_{k=1}^{n-2}\left[k\times\dfrac{2(n-k)(n-k-1)}{n(n-1)(n-2)}\right]=\dfrac{2}{n(n-1)(n-2)}\sum_{k=1}^{n-2}k(n-k)(n-k-1)$$
+        $$=\dfrac{2}{n(n-1)(n-2)}\sum_{k=1}^{n-2}\left[k^3-(2n-1)k^2+n(n-1)k\right]=\dfrac{2}{n(n-1)(n-2)}\times\dfrac{n(n+1)(n-1)(n-2)}{12}=\dfrac{n+1}{6}$$
+        이다.
+      source_flow: 해설지 p.4 예시 답안
+      criteria:
+      - 4-2.A1
+      - 4-2.M2
+      - 4-2.A2
+  # 채점기준 미공개 — 단계별 추정
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 4-2.M1
+      mark_type: M
+      points: 20
+      evidence: $X=k$인 경우를 A의 위치(양쪽)로 나누어 경우의 수를 세었다.
+      steps:
+      - 42b-1
+      - 42b-2
+    - id: 4-2.A1
+      mark_type: A
+      points: 20
+      evidence: $X=k$인 경우의 수 $2(n-k)(n-k-1)$을 구했다.
+      depends_on:
+      - 4-2.M1
+      steps:
+      - 42b-1
+      - 42b-2
+      - 42b-3
+    - id: 4-2.M2
+      mark_type: M
+      points: 15
+      evidence: 평균을 $\sum k\,P(X=k)$로 세우고 시그마를 전개했다.
+      steps:
+      - 42b-3
+    - id: 4-2.A2
+      mark_type: A
+      points: 20
+      evidence: 시그마를 계산해 평균 $\dfrac{n+1}{6}$을 구했다.
+      depends_on:
+      - 4-2.M2
+      - 4-2.A1
+      steps:
+      - 42b-3
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: past-v2-lean
+  item_version: 1
+  verdict: pass
+  date: &id001 2026-11-23
+created: *id001
+updated: *id001

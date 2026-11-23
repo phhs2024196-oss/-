@@ -1,0 +1,224 @@
+# 채점기준 미공개 — 단계별 추정
+schema_version: '2.0'
+id: UOS-M25-04
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: UOS
+type: null
+variant_of: null
+replaces: null
+level: L6
+form: 존재
+points: 115
+time_estimate_min: null
+key_idea: $f(x)=10(a-1)x^2-(4+a)x+b\sin x$가 $x=0$에서만 $0$이 되려면 $f\ge0$이어야 하므로 $f'(0)=0$에서 $b=4+a$이고, (a)의
+  부등식으로 이때 $f>0$ $(x\ne0)$임을 확인한다.
+stuck: 교점이 하나라는 조건을 "$f\ge0$이고 $x=0$에서 극소"로 바꾸어 $b=4+a$를 이끌고, $a=1$인 경우를 별도로 분류하는 발상
+tags: []
+elements:
+  materials:
+  - $y=-b\sin x$
+  - $y=10(a-1)x^2-(4+a)x$
+  concepts:
+  - 사인함수의 개형
+  - 도함수와 증가
+  - 평균값 정리
+  - 극값의 필요조건 $f'(0)=0$
+  - 연속함수의 중간값
+  tools:
+  - $\sin x<x\ (x>0)$
+  - $g'$의 하한 평가
+  conditions:
+  - $a$, $b$는 자연수
+  - 교점의 개수가 1개
+  stimuli_used: {}
+  subpart_links:
+  - 4-1의 부등식을 4-2에서 $f'(c)=g(c)>0$으로 사용
+curriculum:
+  version: '2015'
+  subjects:
+  - 미적분
+  - 수학Ⅱ
+  scope_2028: unknown
+  scope_confirmed: false
+  behavior_domain: 문제해결
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 서울시립대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 서울시립대학교
+  admission_year: 2025
+  admission_type: 수시 모의논술고사
+  track: 자연계열
+  question_no: 4
+  official_url: https://admission.uos.ac.kr/admissionNew/freeBoard/view.do?list_id=OF1&menuid=2002001005000000000&seq=49
+  retrieved_at: '2026-11-23'
+  original_points:
+  - 25
+  - 90
+  rights_notice: 미확인
+  transcribed_from: 2025학년도 모의 논술고사 문제지(자연계열) p.3
+verify: verify/UOS-M25.py::p04
+stimuli: []
+stem: |
+  [문제 4] (총 115점)
+  다음 물음에 답하여라.
+subparts:
+- id: 4-1
+  stem: |
+    (a) $x>0$일 때,
+    $20(a-1)x-(4+a)+(4+a)\cos x>0$
+    가 성립함을 보여라. (단, $a$는 $2$ 이상의 자연수이다.) (25점)
+  points: 25
+  depends_on: []
+  answer:
+    kind: proof
+    value: null
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S41-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 41b-1
+      content: |
+        $g(x)=20(a-1)x-(4+a)+(4+a)\cos x$라 하면, $\sin x\le1$이며 $a$는 $2$ 이상의 자연수이므로 $g'(x)=20(a-1)-(4+a)\sin x\ge20(a-1)-(4+a)\ge19a-24\ge14$가 성립한다.
+      source_flow: 해설지 p.5 예시 답안
+      criteria:
+      - 4-1.M1
+    - id: 41b-2
+      content: |
+        $g(0)=0$이므로, $x>0$일 때 $g(x)>0$이다.
+      source_flow: 해설지 p.5 예시 답안
+      criteria:
+      - 4-1.R1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 4-1.M1
+      mark_type: M
+      points: 10
+      evidence: $g(x)$를 두고 $g'(x)\ge19a-24\ge14>0$을 보였다.
+      steps:
+      - 41b-1
+    - id: 4-1.R1
+      mark_type: R
+      points: 15
+      evidence: $g(0)=0$과 $g$의 증가로 $x>0$일 때 $g(x)>0$을 이끌었다.
+      depends_on:
+      - 4-1.M1
+      steps:
+      - 41b-2
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+- id: 4-2
+  stem: |
+    (b) 다음 조건을 만족시키는 두 자연수 $a,\ b$의 순서쌍 $(a,\ b)$를 모두 구하여라. (90점)
+
+    두 함수 $y=-b\sin x$와 $y=10(a-1)x^2-(4+a)x$의 그래프의 교점의 개수는 $1$개이다.
+  points: 90
+  depends_on: []
+  answer:
+    kind: set
+    value: (1,1),(1,2),(1,3),(1,4),(1,5),(k,k+4) (k>=2)
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S42-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 42b-1
+      content: |
+        (i) $a=1$인 경우: 사인함수의 개형을 활용하면, $x>0$일 때 $\sin x<x$이고 $x<0$일 때 $\sin x>x$ $\cdots$ (1)이 성립한다. 자연수 $b$가 $5$ 이하일 때, $x>0$일 때 $-b\sin x>-bx\ge-5x$이고 $x<0$일 때 $-b\sin x<-bx\le-5x$이므로, 두 함수 $y=-b\sin x$와 $y=-5x$의 그래프의 교점은 원점뿐이다. 따라서 자연수 $b$가 $5$ 이하일 때 문제의 조건을 만족한다. 한편 자연수 $b$가 $6$ 이상일 때, $y=-b\sin x$의 $0$에서의 기울기가 $-b$이므로 사인함수의 개형을 활용하면 교점이 세 개 이상임을 알 수 있다. 그러므로 조건을 만족하는 $(a,\ b)$는 $(1,1),(1,2),(1,3),(1,4),(1,5)$이다.
+      source_flow: 해설지 p.5 예시 답안
+      criteria:
+      - 4-2.M1
+    - id: 42b-2
+      content: |
+        (ii) $a$가 $2$ 이상의 자연수인 경우: $f(x)=10(a-1)x^2-(4+a)x+b\sin x$라 정의하면 두 함수 $y=-b\sin x$와 $y=10(a-1)x^2-(4+a)x$의 그래프의 교점의 개수는 $f(x)=0$의 해의 개수와 같다. 한편, $\displaystyle\lim_{x\to+\infty}f(x)=\lim_{x\to-\infty}f(x)=\infty$이다. 그러므로 만약 $f(k)<0$인 $k$가 존재한다면 $f(x)$의 연속성에 의해 열린구간 $(-\infty,k)$와 $(k,\infty)$에서 $f(x)=0$의 해가 각각 존재한다. 따라서 조건을 만족하는 $f(x)$는 항상 $0$보다 크거나 같다. $f(0)=0$이므로, $f(x)$는 $x=0$에서 극소이고 $f'(0)=0$이다. 이를 활용하면 $b=4+a$를 얻을 수 있고,
+      source_flow: 해설지 p.5 예시 답안
+      criteria:
+      - 4-2.M2
+    - id: 42b-3
+      content: |
+        따라서 $f(x)=10(a-1)x^2+(4+a)(\sin x-x)$이다. $x<0$일 때, (1)에 의해 $f(x)>0$이다. $x>0$일 때, 평균값 정리에 의해 $\dfrac{f(x)-f(0)}{x-0}=f'(c)$인 $c$가 $0$과 $x$ 사이에 존재한다. (a)에 의해 $f'(c)=g(c)>0$이다. 그러므로 $x>0$이면 $f(x)>0$이다. 따라서 조건을 만족하는 $(a,\ b)$는 $(k,\ 4+k)$이다. (단, $k$는 $2$ 이상의 자연수)
+      source_flow: 해설지 p.5 예시 답안
+      criteria:
+      - 4-2.R1
+    - id: 42b-4
+      content: |
+        (i), (ii)에 의해 조건을 만족하는 $(a,\ b)$는 $(1,1),(1,2),(1,3),(1,4),(1,5),(k,\ 4+k)$이다. (단, $k$는 $2$ 이상의 자연수)
+      source_flow: 해설지 p.5 예시 답안
+      criteria:
+      - 4-2.A1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 4-2.M1
+      mark_type: M
+      points: 20
+      evidence: $a=1$인 경우를 분류해 $b\le5$이면 교점이 원점뿐, $b\ge6$이면 세 개 이상임을 보여 $(1,1),\cdots,(1,5)$를 구했다.
+      steps:
+      - 42b-1
+    - id: 4-2.M2
+      mark_type: M
+      points: 25
+      evidence: $a\ge2$에서 $f(x)=10(a-1)x^2-(4+a)x+b\sin x$를 두고 $f\ge0$이어야 함과 $f'(0)=0$에서 $b=4+a$를 이끌었다.
+      steps:
+      - 42b-2
+    - id: 4-2.R1
+      mark_type: R
+      points: 25
+      evidence: $b=4+a$일 때 $x<0$에서는 (1)로, $x>0$에서는 평균값 정리와 (a)로 $f(x)>0$임을 보였다.
+      depends_on:
+      - 4-2.M2
+      steps:
+      - 42b-3
+    - id: 4-2.A1
+      mark_type: A
+      points: 20
+      evidence: (i), (ii)를 종합해 $(1,1),\cdots,(1,5),(k,4+k)$ $(k\ge2)$를 구했다.
+      depends_on:
+      - 4-2.M1
+      - 4-2.M2
+      steps:
+      - 42b-4
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: past-v2-lean
+  item_version: 1
+  verdict: pass
+  date: 2026-11-23
+created: 2026-11-23
+updated: 2026-11-23

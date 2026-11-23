@@ -1,0 +1,253 @@
+# 채점기준 미공개 — 단계별 추정
+schema_version: '2.0'
+id: UOS-G18-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: UOS
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 추론
+points: 100
+time_estimate_min: null
+key_idea: (a) $x=\tan\theta$ 치환, (b) $\int_0^2(M_t-m_t)dt$를 그래프와 직선 $y=a$가 만드는 영역의 넓이로 바꾸어 구한다.
+stuck: (b) 교점의 $x$좌표의 최댓값·최솟값의 차를 $a$에 대해 적분한 값을 그래프로 둘러싸인 영역의 넓이로 해석하는 발상
+tags: []
+elements:
+  materials:
+  - 유리함수 $\frac1{x^2+1}$
+  - 구간별로 정의된 함수 $F(x)$
+  concepts:
+  - 치환적분(삼각치환)
+  - 함수의 그래프 개형
+  - 역함수와 넓이
+  - 정적분과 넓이
+  tools:
+  - $x=\tan\theta$
+  - 그래프 개형
+  - 정적분으로 넓이 계산
+  conditions:
+  - $0\le a\le2$
+  - '$M_a$: 최댓값, $m_a$: 최솟값'
+  stimuli_used: {}
+  subpart_links: []
+curriculum:
+  version: '2015'
+  subjects:
+  - 미적분
+  - 수학Ⅱ
+  scope_2028: calc2
+  scope_confirmed: false
+  content_area: 적분법 – 치환적분, 정적분의 활용(넓이), 미분법 – 함수의 그래프
+  behavior_domain: 문제해결
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 서울시립대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 서울시립대학교
+  admission_year: 2018
+  admission_type: 수시 논술전형
+  track: 자연계열
+  question_no: 1
+  official_url: https://admission.uos.ac.kr/admissionNew/freeBoard/view.do?list_id=OF1&menuid=2002001005000000000&seq=35
+  retrieved_at: '2026-11-23'
+  original_points:
+  - 30
+  - 70
+  rights_notice: 미확인
+  transcribed_from: 2018학년도 논술고사 문제지(자연계열) p.1
+verify: verify/UOS-G18.py::p01
+stimuli: []
+stem: |
+  다음 물음에 답하여라.
+subparts:
+- id: 1-1
+  stem: |
+    (a) $\displaystyle\int_0^1\frac{1}{x^2+1}dx$의 값을 구하여라. (30점)
+  points: 30
+  depends_on: []
+  answer:
+    kind: value
+    value: pi/4
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S11-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 11b-1
+      content: |
+        $x=\tan\theta\ \left(-\dfrac{\pi}{2}<\theta<\dfrac{\pi}{2}\right)$라 놓으면 $\dfrac{dx}{d\theta}=\sec^2\theta=\tan^2\theta+1$이고, $x=0$일 때 $\theta=0$, $x=1$일 때 $\theta=\dfrac{\pi}{4}$이므로
+      source_flow: 해설지 p.1 예시 답안
+      criteria:
+      - 1-1.M1
+    - id: 11b-2
+      content: |
+        $$\int_0^1\frac{1}{x^2+1}dx=\int_0^{\frac{\pi}{4}}\frac{\sec^2\theta}{\tan^2\theta+1}d\theta=\int_0^{\frac{\pi}{4}}1\,d\theta=\frac{\pi}{4}$$
+        이다.
+      source_flow: 해설지 p.1 예시 답안
+      criteria:
+      - 1-1.M2
+      - 1-1.A1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 1-1.M1
+      mark_type: M
+      points: 10
+      evidence: $x=\tan\theta$로 치환하고 $dx=\sec^2\theta\,d\theta$, 적분 구간 $0\to\frac\pi4$를 바꾸었다.
+      depends_on: []
+      steps:
+      - 11b-1
+    - id: 1-1.M2
+      mark_type: M
+      points: 10
+      evidence: 피적분함수를 $\dfrac{\sec^2\theta}{\tan^2\theta+1}=1$로 정리했다.
+      depends_on:
+      - 1-1.M1
+      steps:
+      - 11b-2
+    - id: 1-1.A1
+      mark_type: A
+      points: 10
+      evidence: 값 $\dfrac\pi4$를 구했다.
+      depends_on:
+      - 1-1.M2
+      steps:
+      - 11b-2
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+- id: 1-2
+  stem: |
+    (b) 함수
+    $$F(x)=\begin{cases}x^3-3x&(x\le0)\\[2pt]\dfrac{4x^2}{x^2+1}&(x>0)\end{cases}$$
+    에 대하여 직선 $y=a$ ($a$는 $0\le a\le2$인 상수)와 함수 $y=F(x)$의 그래프의 교점의 $x$좌표 중 최댓값을 $M_a$, 최솟값을 $m_a$라 하자. 구간 $[0,2]$에서 정의된 함수 $f(t)=M_t-m_t$에 대하여 $\displaystyle\int_0^2f(t)dt$의 값을 구하여라. (70점)
+  points: 70
+  depends_on: []
+  answer:
+    kind: value
+    value: pi+1
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S12-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 12b-1
+      content: |
+        함수 $y=F(x)$의 그래프의 개형은 $x\le0$에서 $x=-\sqrt3$일 때 $0$, $x=-1$일 때 극댓값 $2$, $x=0$일 때 $0$이고, $x>0$에서는 증가하며 $x=1$일 때 $2$이다. 이 개형에서 $\displaystyle\int_0^2f(t)dt$의 값은 직선 $y=0$, $y=2$와 그래프의 왼쪽 가지($-\sqrt3\le x\le-1$)·오른쪽 가지($0<x\le1$)로 둘러싸인 어두운 부분(각 높이 $a$에서 $m_a\le x\le M_a$인 구간들)의 넓이와 같다.
+      source_flow: 해설지 p.1 예시 답안
+      criteria:
+      - 1-2.M1
+      - 1-2.M2
+    - id: 12b-2
+      content: |
+        따라서
+        $$\int_0^2f(t)dt=\int_{-\sqrt3}^{-1}(x^3-3x)dx+2+\int_0^1\left(2-\frac{4x^2}{x^2+1}\right)dx$$
+        이다.
+      source_flow: 해설지 p.1 예시 답안
+      criteria:
+      - 1-2.M3
+    - id: 12b-3
+      content: |
+        한편
+        $$\int_{-\sqrt3}^{-1}(x^3-3x)dx=1\quad\text{이고}\quad\int_0^1\left(2-\frac{4x^2}{x^2+1}\right)dx=\int_0^1\left(\frac{4}{x^2+1}-2\right)dx=\pi-2$$
+        이므로,
+        $$\int_0^2f(t)dt=\pi+1$$
+        이다.
+      source_flow: 해설지 p.1 예시 답안
+      criteria:
+      - 1-2.A1
+      - 1-2.A2
+      - 1-2.A3
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 1-2.M1
+      mark_type: M
+      points: 15
+      evidence: $F$의 그래프 개형(극댓값 $F(-1)=2$, $F(-\sqrt3)=0$, $F(1)=2$ 등)을 파악했다.
+      depends_on: []
+      steps:
+      - 12b-1
+    - id: 1-2.M2
+      mark_type: M
+      points: 15
+      evidence: $\int_0^2(M_t-m_t)dt$를 그래프와 직선들이 둘러싸는 영역의 넓이로 해석했다.
+      depends_on:
+      - 1-2.M1
+      steps:
+      - 12b-1
+    - id: 1-2.M3
+      mark_type: M
+      points: 15
+      evidence: 넓이를 $\int_{-\sqrt3}^{-1}(x^3-3x)dx+2+\int_0^1\left(2-\frac{4x^2}{x^2+1}\right)dx$로 나타냈다.
+      depends_on:
+      - 1-2.M2
+      steps:
+      - 12b-2
+    - id: 1-2.A1
+      mark_type: A
+      points: 10
+      evidence: $\int_{-\sqrt3}^{-1}(x^3-3x)dx=1$을 구했다.
+      depends_on:
+      - 1-2.M3
+      steps:
+      - 12b-3
+    - id: 1-2.A2
+      mark_type: A
+      points: 10
+      evidence: $\int_0^1\left(2-\frac{4x^2}{x^2+1}\right)dx=\pi-2$를 구했다((a)의 결과 이용 가능).
+      depends_on:
+      - 1-2.M3
+      steps:
+      - 12b-3
+    - id: 1-2.A3
+      mark_type: A
+      points: 5
+      evidence: $\int_0^2f(t)dt=\pi+1$을 얻었다.
+      depends_on:
+      - 1-2.A1
+      - 1-2.A2
+      steps:
+      - 12b-3
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: past-v2-lean
+  item_version: 1
+  verdict: pass
+  date: &id001 2026-11-23
+created: *id001
+updated: *id001

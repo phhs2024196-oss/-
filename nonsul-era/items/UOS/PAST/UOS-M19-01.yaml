@@ -1,0 +1,193 @@
+schema_version: '2.0'
+id: UOS-M19-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: proof
+origin: mock_exam
+school: UOS
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 구성
+points: 100
+time_estimate_min: null
+key_idea: |
+  $\dfrac{n^n\,n!}{(2n)!}=\prod_{j=1}^{n}\dfrac{n}{n+j}$의 인수를 양 끝에서 짝지어 $\dfrac{n}{2n-k}\cdot\dfrac{n}{n+1+k}\le\dfrac12$임을 보이고, $n$이 짝수·홀수인 경우를 나누어 곱한다.
+stuck: |
+  $n!/(2n)!$를 $n/(n+j)$ 꼴의 곱으로 읽고 양 끝 인수를 짝짓는 발상, 홀수 $n$에서 남는 가운데 항의 처리
+tags:
+- 부등식 증명
+- 팩토리얼
+- 짝짓기
+elements:
+  materials:
+  - $\dfrac{n^n\cdot n!}{(2n)!}$
+  concepts:
+  - 팩토리얼
+  - 부등식의 증명
+  - 수열의 곱
+  tools:
+  - 인수 짝짓기
+  - n의 홀짝 분류
+  - 기본 부등식 비교
+  conditions:
+  - 모든 자연수 $n$
+  stimuli_used: {}
+  subpart_links: []
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학Ⅰ
+  scope_2028: common
+  scope_confirmed: false
+  content_area: 수열 – 부등식의 증명
+  behavior_domain: 추론
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 서울시립대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 서울시립대학교
+  admission_year: 2019
+  admission_type: 수시 모의논술고사
+  track: 자연계열
+  question_no: 1
+  official_url: https://admission.uos.ac.kr/admissionNew/freeBoard/view.do?list_id=OF1&menuid=2002001005000000000&seq=36
+  retrieved_at: '2026-11-23'
+  original_points:
+  - 100
+  rights_notice: 미확인
+  transcribed_from: 2019학년도 모의논술고사 문제지(자연계열) p.2
+verify: verify/UOS-M19.py::p01
+stimuli: []
+stem: |
+  [문제 1] (100점)
+  모든 자연수 $n$에 대하여 다음 부등식이 성립함을 보여라.
+  $$\dfrac{n^{n}\cdot n!}{(2n)!}\le\left(\dfrac{1}{\sqrt2}\right)^{n}$$
+subparts:
+- id: 1-1
+  points: 100
+  depends_on: []
+  answer:
+    kind: proof
+    value: null
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S11-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 11b-1
+      content: |
+        $n=2m$($m$은 자연수)이면
+        $$\dfrac{n^n\cdot n!}{(2n)!}=\dfrac{n}{2n}\cdot\dfrac{n}{2n-1}\cdot\cdots\cdot\dfrac{n}{2n-(m-1)}\cdot\dfrac{n}{n+1+(m-1)}\cdot\cdots\cdot\dfrac{n}{n+2}\cdot\dfrac{n}{n+1}$$
+        이다. 이제 $\dfrac{n}{2n}\cdot\dfrac{n}{n+1}\le\left(\dfrac1{\sqrt2}\right)^2,\ \dfrac{n}{2n-1}\cdot\dfrac{n}{n+2}\le\left(\dfrac1{\sqrt2}\right)^2,\ \cdots,\ \dfrac{n}{2n-(m-1)}\cdot\dfrac{n}{n+1+(m-1)}\le\left(\dfrac1{\sqrt2}\right)^2$가 성립함을 보이자.
+      source_flow: 해설지 p.1 예시 답안
+      criteria:
+      - 1-1.M1
+      - 1-1.M2
+    - id: 11b-2
+      content: |
+        $k=0,1,\cdots,m-1$에 대하여 $n-1-k\ge2m-1-(m-1)=m\ge0$이므로 $2n^2+2n+k(n-1-k)\ge2n^2$이다. 즉 $k=0,1,\cdots,m-1$에 대하여 다음이 성립한다.
+        $$\dfrac{n}{2n-k}\cdot\dfrac{n}{n+1+k}=\dfrac{n^2}{2n^2+2n+nk-k-k^2}\le\dfrac{n^2}{2n^2}\le\left(\dfrac1{\sqrt2}\right)^2$$
+      source_flow: 해설지 p.1 예시 답안
+      criteria:
+      - 1-1.A1
+    - id: 11b-3
+      content: |
+        따라서 $\dfrac{n^n\cdot n!}{(2n)!}\le\left(\dfrac1{\sqrt2}\right)^{2m}=\left(\dfrac1{\sqrt2}\right)^n$이다.
+      source_flow: 해설지 p.1 예시 답안
+      criteria:
+      - 1-1.R1
+    - id: 11b-4
+      content: |
+        그리고 $n=1$이면 위 부등식은 성립한다. $n=2m-1$($m$은 2 이상의 자연수)이면
+        $$\dfrac{n^n\cdot n!}{(2n)!}=\dfrac{n}{2n}\cdot\dfrac{n}{2n-1}\cdot\cdots\cdot\dfrac{n}{2n-(m-2)}\cdot\dfrac{n}{2n-(m-1)}\cdot\dfrac{n}{n+1+(m-2)}\cdot\cdots\cdot\dfrac{n}{n+2}\cdot\dfrac{n}{n+1}$$
+        이고, $k=0,1,\cdots,m-2$에 대하여 $n-1-k\ge2m-1-1-(m-2)=m\ge0$이므로
+        $$\dfrac{n}{2n-k}\cdot\dfrac{n}{n+1+k}=\dfrac{n^2}{2n^2+2n+nk-k-k^2}\le\dfrac{n^2}{2n^2}\le\left(\dfrac1{\sqrt2}\right)^2$$
+        이다. 또한 $\dfrac{n}{2n-(m-1)}=\dfrac{2m-1}{3m-1}=\dfrac23-\dfrac13\cdot\dfrac1{3m-1}\le\dfrac23\le\dfrac1{\sqrt2}$이므로,
+        $$\dfrac{n^n\cdot n!}{(2n)!}\le\left(\dfrac1{\sqrt2}\right)^{2(m-1)}\cdot\dfrac1{\sqrt2}=\left(\dfrac1{\sqrt2}\right)^n$$
+        이다.
+      source_flow: 해설지 p.1 예시 답안
+      criteria:
+      - 1-1.M3
+      - 1-1.A2
+  # 채점기준 미공개 — 단계별 추정
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 1-1.M1
+      mark_type: M
+      points: 20
+      evidence: |
+        좌변을 $\dfrac{n}{n+1}\cdots\dfrac{n}{2n}$ 꼴의 곱으로 나타내고 양 끝 인수를 $\dfrac{n}{2n-k}\cdot\dfrac{n}{n+1+k}$ 꼴로 짝지었다.
+      steps:
+      - 11b-1
+    - id: 1-1.M2
+      mark_type: M
+      points: 10
+      evidence: |
+        $n$이 짝수일 때와 홀수일 때로 나누었다.
+      steps:
+      - 11b-1
+    - id: 1-1.A1
+      mark_type: A
+      points: 25
+      evidence: |
+        짝수 $n=2m$에서 각 쌍이 $\left(\dfrac1{\sqrt2}\right)^2$ 이하임을 분모 비교($2n^2+2n+k(n-1-k)\ge2n^2$ 등)로 보였다.
+      steps:
+      - 11b-2
+      depends_on:
+      - 1-1.M2
+    - id: 1-1.R1
+      mark_type: R
+      points: 5
+      evidence: |
+        $m$개의 쌍의 곱으로 $\left(\dfrac1{\sqrt2}\right)^{2m}=\left(\dfrac1{\sqrt2}\right)^n$을 이끌었다.
+      steps:
+      - 11b-3
+    - id: 1-1.M3
+      mark_type: M
+      points: 20
+      evidence: |
+        $n=1$의 확인과 홀수 $n=2m-1$에서 $m-1$개의 쌍과 가운데 인수 $\dfrac{n}{2n-(m-1)}$로 나누었다.
+      steps:
+      - 11b-4
+    - id: 1-1.A2
+      mark_type: A
+      points: 20
+      evidence: |
+        가운데 인수 $\dfrac{2m-1}{3m-1}\le\dfrac23\le\dfrac1{\sqrt2}$를 보이고 쌍의 부등식과 곱해 $\left(\dfrac1{\sqrt2}\right)^n$ 이하임을 결론지었다.
+      steps:
+      - 11b-4
+      depends_on:
+      - 1-1.M3
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: past-v2-lean
+  item_version: 1
+  verdict: pass
+  date: &id001 2026-11-23
+created: *id001
+updated: *id001

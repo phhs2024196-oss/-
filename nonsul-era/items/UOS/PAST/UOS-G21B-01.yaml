@@ -1,0 +1,174 @@
+# 채점기준 미공개 — 단계별 추정
+schema_version: '2.0'
+id: UOS-G21B-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: UOS
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 추론
+points: 85
+time_estimate_min: null
+key_idea: $f(x)-\{m(x-1)+1\}=(x-\alpha)^2(x-\beta)^2$로 두고 계수를 비교해 $m,\alpha,\beta$를 구한 뒤 적분한다.
+stuck: 서로 다른 두 점에서 접한다는 조건을 사차식이 완전제곱식 $(x-\alpha)^2(x-\beta)^2$이라는 항등식으로 바꾸는 발상
+tags: []
+elements:
+  materials:
+  - 사차함수
+  - 접선
+  concepts:
+  - 이중접선
+  - 다항식의 항등식(계수 비교)
+  - 정적분과 넓이
+  tools:
+  - 계수 비교
+  - 정적분
+  conditions:
+  - $a>0$
+  - 점 $(1,1)$을 지나는 직선
+  - 서로 다른 두 점에서 접함
+  stimuli_used: {}
+  subpart_links: []
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학Ⅱ
+  scope_2028: common
+  scope_confirmed: false
+  content_area: 미분법·적분법 – 접선, 정적분의 활용(넓이)
+  behavior_domain: 문제해결
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 서울시립대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 서울시립대학교
+  admission_year: 2021
+  admission_type: 수시 논술전형
+  track: 자연계열Ⅱ
+  question_no: 1
+  official_url: https://admission.uos.ac.kr/admissionNew/freeBoard/view.do?list_id=OF1&menuid=2002001005000000000&seq=42
+  retrieved_at: '2026-11-23'
+  original_points:
+  - 85
+  rights_notice: 미확인
+  transcribed_from: 2021학년도 논술고사 문제지(자연계열Ⅱ) p.1
+verify: verify/UOS-G21B.py::p01
+stimuli: []
+stem: |
+  $f(x)=x^4+2ax^3-3a^2x^2+4a^4-4a^3+1\ (a>0)$이다. 곡선 $y=f(x)$가 점 $(1, 1)$을 지나는 직선과 서로 다른 두 점에서 접할 때,
+subparts:
+- id: 1-1
+  stem: |
+    이 직선과 곡선 $y=f(x)$로 둘러싸인 도형의 넓이를 구하여라.
+  points: 85
+  depends_on: []
+  answer:
+    kind: expression
+    value: 81*a**5/10
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S11-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 11b-1
+      content: |
+        점 $(1,1)$을 지나며 기울기가 $m$인 직선의 방정식은 $y=m(x-1)+1$이다. 곡선 $y=f(x)$와 이 직선이 서로 다른 두 점에서 접할 때, 두 점의 $x$좌표를 $\alpha,\ \beta$ (단, $\alpha<\beta$)라 하면
+        $$(x-\alpha)^2(x-\beta)^2=x^4+2ax^3-3a^2x^2+4a^4-4a^3+1-\{m(x-1)+1\}$$
+        이다.
+      source_flow: 해설지 p.1 예시 답안
+      criteria:
+      - 1-1.M1
+    - id: 11b-2
+      content: |
+        $x^3,\ x^2,\ x$의 계수와 상수항을 비교하면
+        $$-2(\alpha+\beta)=2a,\quad \alpha^2+4\alpha\beta+\beta^2=-3a^2,\quad -2\alpha\beta(\alpha+\beta)=-m,\quad \alpha^2\beta^2=4a^4-4a^3+m$$
+        이므로 $m=4a^3$이고 $\alpha=-2a,\ \beta=a$이다.
+      source_flow: 해설지 p.1 예시 답안
+      criteria:
+      - 1-1.M2
+      - 1-1.A1
+    - id: 11b-3
+      content: |
+        직선 $y=4a^3(x-1)+1$과 곡선 $y=f(x)$로 둘러싸인 도형의 넓이는
+        $$\int_{-2a}^{a}\{(x^4+2ax^3-3a^2x^2+4a^4-4a^3+1)-(4a^3x-4a^3+1)\}dx=\left[\frac15x^5+\frac12ax^4-a^2x^3-2a^3x^2+4a^4x\right]_{-2a}^{a}=\frac{81}{10}a^5$$
+        이다.
+      source_flow: 해설지 p.1 예시 답안
+      criteria:
+      - 1-1.M3
+      - 1-1.A2
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 1-1.M1
+      mark_type: M
+      points: 25
+      evidence: 접하는 두 점의 $x$좌표를 $\alpha,\beta$로 두고 $f(x)-\{m(x-1)+1\}=(x-\alpha)^2(x-\beta)^2$ 꼴의 항등식을 세웠다.
+      depends_on: []
+      steps:
+      - 11b-1
+    - id: 1-1.M2
+      mark_type: M
+      points: 20
+      evidence: 양변의 $x^3, x^2, x$의 계수와 상수항을 비교해 $\alpha,\beta,m$에 관한 연립식을 세웠다.
+      depends_on:
+      - 1-1.M1
+      steps:
+      - 11b-2
+    - id: 1-1.A1
+      mark_type: A
+      points: 15
+      evidence: $m=4a^3,\ \alpha=-2a,\ \beta=a$를 구했다.
+      depends_on:
+      - 1-1.M2
+      steps:
+      - 11b-2
+    - id: 1-1.M3
+      mark_type: M
+      points: 15
+      evidence: 넓이를 $\int_{-2a}^{a}\{f(x)-(4a^3x-4a^3+1)\}dx$로 세웠다.
+      depends_on:
+      - 1-1.A1
+      steps:
+      - 11b-3
+    - id: 1-1.A2
+      mark_type: A
+      points: 10
+      evidence: 넓이 $\dfrac{81}{10}a^5$을 구했다.
+      depends_on:
+      - 1-1.M3
+      steps:
+      - 11b-3
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: past-v2-lean
+  item_version: 1
+  verdict: pass
+  date: &id001 2026-11-23
+created: *id001
+updated: *id001

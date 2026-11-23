@@ -1,0 +1,180 @@
+schema_version: '2.0'
+id: UOS-G21A-04
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: numeric
+origin: past_exam
+school: UOS
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 분류
+points: 115
+time_estimate_min: null
+key_idea: $f(x)=\sin\dfrac{\pi x}{6n}$의 그래프(구간 $[0,6n]$에서 $x=3n$ 대칭)를 이용해 $b$의 범위 $2\le b\le2n$, $2n<b<3n$, $3n\le b\le6n-1$로 나누어 $(a,c)$의 개수를 세고 합한다.
+stuck: 사인 부등식 조건을 그래프의 대칭성($x=3n$)으로 바꾸는 것, $b$의 범위에 따라 $a$와 $c$의 허용 범위가 달라지는 것을 분류하는 것
+tags: []
+elements:
+  materials: []
+  concepts:
+  - 사인함수의 그래프와 대칭성
+  - 순서쌍의 개수
+  - 등차수열의 합
+  tools:
+  - 삼각함수의 그래프
+  - 시그마
+  conditions:
+  - 1\le a<b<c\le 6n
+  - a+c=2b
+  - sin(πa/6n)<sin(πb/6n)<sin(πc/6n)
+  stimuli_used: {}
+  subpart_links: []
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학Ⅰ
+  scope_2028: common
+  scope_confirmed: false
+  content_area: 수열의 합 – 경우의 수와 시그마, 삼각함수의 그래프
+  behavior_domain: 문제해결
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 서울시립대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 서울시립대학교
+  admission_year: 2021
+  admission_type: 수시 논술전형
+  track: 자연계열Ⅰ
+  question_no: 4
+  official_url: https://admission.uos.ac.kr/admissionNew/freeBoard/view.do?list_id=OF1&menuid=2002001005000000000&seq=42
+  retrieved_at: '2026-11-23'
+  original_points:
+  - 115
+  rights_notice: 미확인
+  transcribed_from: 2021 논술고사 문제지(자연계열Ⅰ) p.2
+verify: verify/UOS-G21A.py::p04
+stimuli: []
+stem: |
+  자연수 $n$에 대하여 다음을 모두 만족시키는 세 자연수 $a$, $b$, $c$의 순서쌍 $(a,b,c)$의 개수를 구하여라.
+
+  (1) $1\le a<b<c\le6n$
+  (2) $a+c=2b$
+  (3) $\sin\left(\dfrac{\pi a}{6n}\right)<\sin\left(\dfrac{\pi b}{6n}\right)<\sin\left(\dfrac{\pi c}{6n}\right)$
+subparts:
+- id: 4-1
+  stem: ''
+  points: 115
+  depends_on: []
+  answer:
+    kind: expression
+    value: 3*n**2-3*n+1
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S41-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 41b-1
+      content: |
+        $f(x)=\sin\left(\dfrac{\pi x}{6n}\right)$라 하자. 함수 $y=f(x)$의 그래프는 해설지 그림과 같다(구간 $[0,6n]$에서 위로 볼록하고 $x=3n$에 대해 대칭). $a$, $b$, $c$는 서로 다른 자연수이므로 $2\le b\le6n-1$이다.
+      source_flow: 해설지 p.5 예시 답안
+      criteria:
+      - 4-1.M1
+    - id: 41b-2
+      content: |
+        (i) $2\le b\le2n$일 경우: $a$는 자연수이므로 조건 (2)에 의해 $c<4n$이다. 따라서 함수 $y=f(x)$의 그래프에 의해서 $f(a)<f(b)<f(c)$을 만족시킨다. $b$에 대하여 $a$를 1부터 $b-1$까지 선택할 수 있으므로 세 자연수 $a$, $b$, $c$의 순서쌍 $(a,b,c)$의 개수는 $b-1$이다.
+      source_flow: 해설지 p.5 예시 답안
+      criteria:
+      - 4-1.M2
+    - id: 41b-3
+      content: |
+        (ii) $2n<b<3n$일 경우: $y=f(x)$는 $x=3n$에 대해서 대칭이므로 $f(b)<f(c)$를 만족시키기 위해서는 $b<c<6n-b$이어야 한다. 또한 $c$가 $b<c<6n-b$인 경우 $a$는 1과 $b$ 사이에 존재하고 $f(a)<f(b)$이다. $b$에 대하여 $c$는 $b+1$부터 $6n-b-1$까지 선택할 수 있으므로 세 자연수 $a$, $b$, $c$의 순서쌍 $(a,b,c)$의 개수는 $6n-2b-1$이다.
+      source_flow: 해설지 p.5 예시 답안
+      criteria:
+      - 4-1.M3
+    - id: 41b-4
+      content: |
+        (iii) $3n\le b\le6n-1$일 경우: 함수 $y=f(x)$의 그래프로부터 $f(b)>f(c)$이므로 주어진 조건을 만족시키는 순서쌍 $(a,b,c)$가 존재하지 않는다.
+      source_flow: 해설지 p.5 예시 답안
+      criteria:
+      - 4-1.B1
+    - id: 41b-5
+      content: |
+        (i), (ii), (iii)에 의해서 주어진 조건을 모두 만족시키는 세 자연수 $a$, $b$, $c$의 순서쌍 $(a,b,c)$의 개수는
+        $$\sum_{b=2}^{2n}(b-1)+\sum_{b=2n+1}^{3n-1}(6n-2b-1)=3n^2-3n+1$$
+        이다.
+      source_flow: 해설지 p.5 예시 답안
+      criteria:
+      - 4-1.A1
+  # 채점기준 미공개 — 단계별 추정
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 4-1.M1
+      mark_type: M
+      points: 15
+      evidence: $f(x)=\sin\dfrac{\pi x}{6n}$ 의 그래프를 이용하기로 하고 $2\le b\le6n-1$ 임을 적었다.
+      steps:
+      - 41b-1
+    - id: 4-1.M2
+      mark_type: M
+      points: 25
+      evidence: $2\le b\le2n$ 일 때 $c<4n$ 이므로 조건 (3)이 성립하고 개수가 $b-1$ 임을 구했다.
+      depends_on:
+      - 4-1.M1
+      steps:
+      - 41b-2
+    - id: 4-1.M3
+      mark_type: M
+      points: 35
+      evidence: $2n<b<3n$ 일 때 대칭성으로 $b<c<6n-b$ 임을 이끌어 개수 $6n-2b-1$ 을 구했다.
+      depends_on:
+      - 4-1.M1
+      steps:
+      - 41b-3
+    - id: 4-1.B1
+      mark_type: B
+      points: 10
+      evidence: $3n\le b$ 일 때 $f(b)>f(c)$ 여서 순서쌍이 없음을 밝혔다.
+      steps:
+      - 41b-4
+    - id: 4-1.A1
+      mark_type: A
+      points: 30
+      evidence: 두 합을 계산하여 $3n^2-3n+1$ 을 적었다.
+      depends_on:
+      - 4-1.M2
+      - 4-1.M3
+      - 4-1.B1
+      steps:
+      - 41b-5
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: past-v2-lean
+  item_version: 1
+  verdict: pass
+  date: 2026-11-23
+created: 2026-11-23
+updated: 2026-11-23

@@ -1,0 +1,258 @@
+schema_version: '2.0'
+id: UOS-M20-03
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: UOS
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 분류
+points: 100
+time_estimate_min: null
+key_idea: |
+  $g=\min(\lvert f\rvert,\lvert x\rvert)$를 $\lvert f\rvert<\lvert x\rvert\iff a^2-1<x^2<a^2+1$로 구간별로 쓰고, $a$를 $a>1$, $0<a\le1$, $a=0$으로 나누어 꺾임점을 찾는다.
+stuck: |
+  두 거리의 대소 비교를 $\lvert x^2-a^2\rvert<1$로 바꾸고 $a$의 범위를 세 경우로 나누는 것
+tags:
+- 미분가능성
+- 절댓값 함수
+- 경우 분류
+elements:
+  materials:
+  - $f(x)=x^3-a^2x$, $g(x)=\min(\lvert f(x)\rvert,\lvert x\rvert)$
+  concepts:
+  - 미분가능성과 꺾임점
+  - 절댓값 함수의 그래프
+  - 정적분과 넓이
+  tools:
+  - 경우 분류
+  - 구간별로 정의된 함수
+  - 정적분으로 넓이 구하기
+  conditions:
+  - $a\ge0$
+  - P에서 $x$축까지의 거리와 $y$축까지의 거리 중 크지 않은 값
+  stimuli_used: {}
+  subpart_links:
+  - 3-2는 3-1에서 그린 $f$, $g$의 그래프(구간별 식)를 이용한다
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학Ⅱ
+  scope_2028: common
+  scope_confirmed: false
+  content_area: 미분법 – 미분가능성, 적분법 – 넓이
+  behavior_domain: 문제해결
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 서울시립대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 서울시립대학교
+  admission_year: 2020
+  admission_type: 수시 모의논술고사
+  track: 자연계열
+  question_no: 3
+  official_url: https://admission.uos.ac.kr/admissionNew/freeBoard/view.do?list_id=OF1&menuid=2002001005000000000&seq=38
+  retrieved_at: '2026-11-23'
+  original_points:
+  - 60
+  - 40
+  rights_notice: 미확인
+  transcribed_from: 2020학년도 모의논술고사 문제지(자연계열) p.3
+verify: verify/UOS-M20.py::p03
+stimuli: []
+stem: |
+  [문제 3] (총 100점)
+  함수 $f(x)=x^3-a^2x$의 그래프의 점 $\mathrm{P}(x,f(x))$에 대하여, P에서 $x$축까지의 거리와 P에서 $y$축까지의 거리 중 크지 않은 값을 함숫값으로 하는 함수를 $g(x)$라고 하자. 다음 물음에 답하여라. (단, $a\ge0$이다.)
+subparts:
+- id: 3-1
+  stem: |
+    a) $a$의 범위에 따라 함수 $g(x)$가 미분가능하지 않은 $x$를 모두 구하여라. [60점]
+  points: 60
+  depends_on: []
+  answer:
+    kind: set
+    value: a=0 -> x=+-1; 0<a<=1 -> x=0,+-a,+-sqrt(a**2+1); a>1 -> x=0,+-sqrt(a**2-1),+-a,+-sqrt(a**2+1)
+    equivalents:
+    - '$a=0$: $x=\pm1$ / $0<a\le1$: $x=0,\ \pm a,\ \pm\sqrt{a^2+1}$ / $a>1$: $x=0,\ \pm\sqrt{a^2-1},\ \pm a,\ \pm\sqrt{a^2+1}$'
+    tolerance: null
+  solutions:
+  - id: S31-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 31b-1
+      content: |
+        점 $\mathrm{P}(x,x^3-a^2x)$에서 $x$축까지의 거리는 $\lvert x^3-a^2x\rvert$이고 P에서 $y$축까지의 거리는 $\lvert x\rvert$이다. 또
+        $\lvert x^3-a^2x\rvert<\lvert x\rvert\iff\lvert x^2-a^2\rvert<1\iff a^2-1<x^2<a^2+1$
+        이므로 다음이 성립한다.
+      source_flow: 해설지 p.4 예시 답안
+      criteria:
+      - 3-1.M1
+      - 3-1.M2
+    - id: 31b-2
+      content: |
+        [1] $a>1$일 때 $\lvert x^3-a^2x\rvert<\lvert x\rvert\iff\sqrt{a^2-1}<\lvert x\rvert<\sqrt{a^2+1}$이므로
+        $g(x)=\lvert x\rvert$ ($\lvert x\rvert\ge\sqrt{a^2+1}$), $g(x)=\lvert x^3-a^2x\rvert$ ($\sqrt{a^2-1}<\lvert x\rvert<\sqrt{a^2+1}$), $g(x)=\lvert x\rvert$ ($\lvert x\rvert\le\sqrt{a^2-1}$)이다.
+        [2] $0<a\le1$일 때 $\lvert x^3-a^2x\rvert<\lvert x\rvert\iff\lvert x\rvert<\sqrt{a^2+1}$이므로
+        $g(x)=\lvert x\rvert$ ($\lvert x\rvert\ge\sqrt{a^2+1}$), $g(x)=\lvert x^3-a^2x\rvert$ ($\lvert x\rvert<\sqrt{a^2+1}$)이다.
+        [3] $a=0$일 때 $g(x)=\lvert x\rvert$ ($\lvert x\rvert\ge1$), $g(x)=\lvert x^3\rvert$ ($\lvert x\rvert<1$)이다.
+        또 방정식 $x^3-a^2x=0$의 근은 $0,\pm a$이다.
+      source_flow: 해설지 p.4 예시 답안
+      criteria:
+      - 3-1.M3
+      - 3-1.A1
+    - id: 31b-3
+      content: |
+        위에서 보인 바에 의해 $a$의 값의 범위에 따라 $g(x)$가 미분가능하지 않은 $x$는 다음과 같다.
+        $a>1$: $0,\ \pm\sqrt{a^2-1},\ \pm a,\ \pm\sqrt{a^2+1}$ / $0<a\le1$: $0,\ \pm a,\ \pm\sqrt{a^2+1}$ / $a=0$: $\pm1$
+      source_flow: 해설지 p.4 예시 답안
+      criteria:
+      - 3-1.R1
+      - 3-1.A2
+  # 채점기준 미공개 — 단계별 추정
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 3-1.M1
+      mark_type: M
+      points: 10
+      evidence: |
+        두 거리를 $\lvert x^3-a^2x\rvert$, $\lvert x\rvert$로 나타내고 $g$를 둘 중 작은 값으로 두었다.
+      steps:
+      - 31b-1
+    - id: 3-1.M2
+      mark_type: M
+      points: 10
+      evidence: |
+        $\lvert f(x)\rvert<\lvert x\rvert$를 $\lvert x^2-a^2\rvert<1$ 또는 $a^2-1<x^2<a^2+1$ 꼴로 바꾼 식이 있다.
+      steps:
+      - 31b-1
+    - id: 3-1.M3
+      mark_type: M
+      points: 10
+      evidence: |
+        $a>1$, $0<a\le1$, $a=0$(또는 이와 같은 분류)으로 경우를 나누었다.
+      steps:
+      - 31b-2
+    - id: 3-1.A1
+      mark_type: A
+      points: 10
+      evidence: |
+        각 경우의 $g(x)$를 구간별 식으로 바르게 나타냈다.
+      steps:
+      - 31b-2
+      depends_on:
+      - 3-1.M3
+    - id: 3-1.R1
+      mark_type: R
+      points: 10
+      evidence: |
+        $\lvert f\rvert$의 영점($0,\pm a$)과 $\lvert f\rvert=\lvert x\rvert$인 점에서 좌우 기울기가 다름(꺾임)을 근거로 미분불가를 판정했다.
+      steps:
+      - 31b-3
+    - id: 3-1.A2
+      mark_type: A
+      points: 10
+      evidence: |
+        세 경우의 미분가능하지 않은 $x$를 모두 바르게 적었다.
+      steps:
+      - 31b-3
+      depends_on:
+      - 3-1.R1
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+- id: 3-2
+  stem: |
+    b) 두 함수 $y=f(x)$와 $y=g(x)$의 그래프로 둘러싸인 영역의 넓이를 구하여라. [40점]
+  points: 40
+  depends_on:
+  - 3-1
+  answer:
+    kind: expression
+    value: a**4/2
+    equivalents:
+    - $\dfrac{a^4}{2}$
+    tolerance: null
+  solutions:
+  - id: S32-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 32b-1
+      content: |
+        위에서 그린 그래프를 보면 둘러싸인 영역의 넓이는 모든 경우에 대해 $2\int_0^a(a^2x-x^3)\,dx$와 같다.
+      source_flow: 해설지 p.4 예시 답안
+      criteria:
+      - 3-2.M1
+      - 3-2.M2
+    - id: 32b-2
+      content: |
+        $2\int_0^a(a^2x-x^3)\,dx=2\left[\dfrac{a^2x^2}{2}-\dfrac{x^4}{4}\right]_0^a=\dfrac{a^4}{2}$이다.
+      source_flow: 해설지 p.4 예시 답안
+      criteria:
+      - 3-2.A1
+  # 채점기준 미공개 — 단계별 추정
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 3-2.M1
+      mark_type: M
+      points: 15
+      evidence: |
+        3-1의 그래프에서 $f$와 $g$가 둘러싸는 영역(구간 $[-a,a]$ 부근, $x=\pm a$와 $0$에서 만남)을 파악했다.
+      steps:
+      - 32b-1
+    - id: 3-2.M2
+      mark_type: M
+      points: 15
+      evidence: |
+        넓이를 정적분(예: $2\int_0^a(a^2x-x^3)\,dx$ 또는 이와 같은 값)으로 세웠다.
+      steps:
+      - 32b-1
+    - id: 3-2.A1
+      mark_type: A
+      points: 10
+      evidence: |
+        넓이 $\dfrac{a^4}{2}$을 적었다.
+      steps:
+      - 32b-2
+      depends_on:
+      - 3-2.M2
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: past-v2-lean
+  item_version: 1
+  verdict: pass
+  date: &id001 2026-11-23
+created: *id001
+updated: *id001

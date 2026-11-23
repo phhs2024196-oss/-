@@ -1,0 +1,213 @@
+# 채점기준 미공개 — 단계별 추정
+schema_version: '2.0'
+id: UOS-M27-02
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: UOS
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 추론
+points: 95
+time_estimate_min: null
+key_idea: 두 접선의 기울기 $m_1,m_2$가 $m$에 관한 이차방정식 $\alpha m^2-\beta m+1=0$의 두 근임을 이용해 접점을 $m_1,m_2$로 나타내고 근과
+  계수의 관계로 내적을 $\alpha,\beta$의 식으로 바꾼다.
+stuck: 접점의 좌표를 접선의 기울기로 매개화하고 대칭식을 근과 계수의 관계로 바꾸는 발상
+tags: []
+elements:
+  materials:
+  - 포물선 $y^2=4x$
+  - 점 P에서 그은 두 접선
+  concepts:
+  - 접선의 방정식
+  - 판별식
+  - 근과 계수의 관계
+  - 벡터의 내적
+  tools:
+  - 접선 기울기와 접점의 관계 $2/y_1$
+  - 내적의 성분 표현
+  conditions:
+  - Q≠R
+  - $\angle QPR=90^\circ$
+  stimuli_used: {}
+  subpart_links:
+  - 2-1의 내적식을 2-2에서 0으로 놓음
+curriculum:
+  version: '2015'
+  subjects:
+  - 기하
+  - 수학Ⅱ
+  scope_2028: unknown
+  scope_confirmed: false
+  behavior_domain: 문제해결
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 서울시립대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 서울시립대학교
+  admission_year: 2027
+  admission_type: 수시 모의논술고사
+  track: 자연계열
+  question_no: 2
+  official_url: https://admission.uos.ac.kr/admissionNew/freeBoard/view.do?list_id=OF1&menuid=2002001005000000000&seq=53
+  retrieved_at: '2026-11-23'
+  original_points:
+  - 70
+  - 25
+  rights_notice: 미확인
+  transcribed_from: 2027학년도 모의 논술고사 문제지(자연계열) p.2
+verify: verify/UOS-M27.py::p02
+stimuli: []
+stem: |
+  [문제 2] (총 95점)
+  점 $\mathrm{P}(\alpha,\beta)$를 지나는 두 직선이 포물선 $y^2=4x$ 위의 서로 다른 두 점 Q, R에서 각각 접한다.
+subparts:
+- id: 2-1
+  stem: |
+    (a) 두 벡터 $\overrightarrow{PQ}$와 $\overrightarrow{PR}$의 내적을 $\alpha$와 $\beta$에 대한 식으로 표현하여라. (70점)
+  points: 70
+  depends_on: []
+  answer:
+    kind: expression
+    value: 4*alpha**2+4*alpha-alpha*beta**2-beta**2
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S21-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 21b-1
+      content: |
+        점 $\mathrm{P}(\alpha,\beta)$를 지나는 직선 $y=mx+\beta-m\alpha$가 포물선과 접한다고 하자. 이 접선의 방정식을 포물선의 방정식에 대입하여 얻은 이차방정식 $m^2x^2+2\{m(\beta-\alpha m)-2\}x+(\beta-\alpha m)^2=0$의 판별식이 $0$이어야 하므로 $\alpha m^2-\beta m+1=0$이다.
+      source_flow: 해설지 p.3 예시 답안
+      criteria:
+      - 2-1.M1
+    - id: 21b-2
+      content: |
+        점 P를 지나며 서로 다른 두 점에서 각각 접하는 두 접선의 기울기는 서로 달라야 하므로 이 $m$에 관한 이차방정식은 서로 다른 두 실근을 가져야 한다. 따라서 $\beta^2-4\alpha>0$이어야 한다. 또한 두 접선의 기울기 $m_1$과 $m_2$는 $m_1m_2=\dfrac1\alpha$과 $m_1+m_2=\dfrac\beta\alpha$를 만족한다.
+      source_flow: 해설지 p.3 예시 답안
+      criteria:
+      - 2-1.M1
+    - id: 21b-3
+      content: |
+        포물선 위의 점 $(x_1,y_1)$에서 접선의 기울기는 $\dfrac{2}{y_1}$이므로 두 접점은 $\mathrm{Q}\left(\dfrac{1}{m_1^2},\dfrac{2}{m_1}\right)$와 $\mathrm{R}\left(\dfrac{1}{m_2^2},\dfrac{2}{m_2}\right)$이고
+      source_flow: 해설지 p.3 예시 답안
+      criteria:
+      - 2-1.M2
+    - id: 21b-4
+      content: |
+        $\overrightarrow{PQ}\cdot\overrightarrow{PR}=\left(\dfrac{1}{m_1^2}-\alpha,\dfrac{2}{m_1}-\beta\right)\cdot\left(\dfrac{1}{m_2^2}-\alpha,\dfrac{2}{m_2}-\beta\right)=4\alpha^2+4\alpha-\alpha\beta^2-\beta^2$이다.
+      source_flow: 해설지 p.3 예시 답안
+      criteria:
+      - 2-1.A1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 2-1.M1
+      mark_type: M
+      points: 25
+      evidence: 접선 조건에서 $m$에 관한 이차방정식 $\alpha m^2-\beta m+1=0$을 얻고, 서로 다른 두 실근 조건 $\beta^2-4\alpha>0$과
+        근과 계수의 관계를 썼다.
+      steps:
+      - 21b-1
+      - 21b-2
+    - id: 2-1.M2
+      mark_type: M
+      points: 20
+      evidence: 접점 Q, R의 좌표를 $m_1,m_2$로 나타냈다.
+      steps:
+      - 21b-3
+    - id: 2-1.A1
+      mark_type: A
+      points: 25
+      evidence: 내적을 $4\alpha^2+4\alpha-\alpha\beta^2-\beta^2$으로 구했다.
+      depends_on:
+      - 2-1.M1
+      - 2-1.M2
+      steps:
+      - 21b-4
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+- id: 2-2
+  stem: |
+    (b) $\angle\mathrm{QPR}$가 직각이 되는 점 P를 모두 구하여라. (25점)
+  points: 25
+  depends_on: []
+  answer:
+    kind: set
+    value: alpha=-1
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S22-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 22b-1
+      content: |
+        $\angle\mathrm{QPR}$가 직각이 되기 위해서는 $\overrightarrow{PQ}\cdot\overrightarrow{PR}=0$이어야 한다. (a)에 의하여 $\overrightarrow{PQ}\cdot\overrightarrow{PR}=4\alpha^2+(4-\beta^2)\alpha-\beta^2=(\alpha+1)(4\alpha-\beta^2)=0$이다.
+      source_flow: 해설지 p.3 예시 답안
+      criteria:
+      - 2-2.M1
+    - id: 22b-2
+      content: |
+        (a)의 답안에서 $\beta^2-4\alpha>0$이므로 $\alpha=-1$이다. 따라서 정답은 직선 $x=-1$ 위의 모든 점이다.
+      source_flow: 해설지 p.3 예시 답안
+      criteria:
+      - 2-2.A1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 2-2.M1
+      mark_type: M
+      points: 10
+      evidence: 직각 조건을 내적 $=0$으로 바꾸고 $(\alpha+1)(4\alpha-\beta^2)=0$으로 인수분해했다.
+      steps:
+      - 22b-1
+    - id: 2-2.A1
+      mark_type: A
+      points: 15
+      evidence: $\beta^2-4\alpha>0$을 이용해 $\alpha=-1$, 즉 직선 $x=-1$ 위의 모든 점을 구했다.
+      depends_on:
+      - 2-2.M1
+      steps:
+      - 22b-2
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: past-v2-lean
+  item_version: 1
+  verdict: pass
+  date: 2026-11-23
+created: 2026-11-23
+updated: 2026-11-23

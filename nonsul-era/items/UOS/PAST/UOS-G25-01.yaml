@@ -1,0 +1,233 @@
+schema_version: '2.0'
+id: UOS-G25-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: UOS
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 일반화
+points: 85
+time_estimate_min: 20
+key_idea: 12와 서로소인 수가 $6m+1,\ 6m+5$ 꼴임을 이용해 $a_{2m-1}=6m+7,\ a_{2m}=6m+11$로 일반항을 구하고 시그마로 합한다.
+stuck: 2나 3의 배수가 아닌 수의 규칙(법 6)을 찾아 홀수·짝수 번째 항의 일반항으로 나타내는 발상
+tags: []
+elements:
+  materials:
+  - 12와 서로소인 수의 나열 $a_k$
+  - $\sum_{k=1}^{2n}(a_ka_{k+1}-a_{k+2})$
+  concepts:
+  - 서로소
+  - 수열의 일반항
+  - 시그마
+  tools:
+  - 시그마의 성질
+  - 자연수 거듭제곱의 합
+  conditions:
+  - 12보다 큰 자연수
+  - $n$은 자연수
+  stimuli_used: {}
+  subpart_links:
+  - 1-2는 1-1에서 구한 $a_{2m-1},\ a_{2m}$의 일반항을 사용
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학Ⅰ
+  scope_2028: common
+  scope_confirmed: false
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 서울시립대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 서울시립대학교
+  admission_year: 2025
+  admission_type: 수시 논술전형
+  track: 자연계열
+  question_no: 1
+  official_url: https://admission.uos.ac.kr/admissionNew/freeBoard/view.do?list_id=OF1&menuid=2002001005000000000&seq=50
+  retrieved_at: '2026-11-23'
+  original_points:
+  - 30
+  - 55
+  rights_notice: 미확인
+  transcribed_from: 2025 논술고사 문제지(자연계열) p.1
+verify: verify/UOS-G25.py::p01
+stimuli: []
+stem: |
+  12보다 큰 자연수 중에서 12와 서로소인 수를 작은 수부터 차례로 나열할 때, $k$번째 값을 $a_k$라 하자.
+subparts:
+- id: 1-1
+  stem: |
+    (a) $a_k\ge100$을 만족하는 자연수 $k$의 최솟값을 구하여라. (30점)
+  points: 30
+  depends_on: []
+  answer:
+    kind: value
+    value: '30'
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S11-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 11b-1
+      content: |
+        $12=2^2\times3$이므로 12와 서로소인 수는 2의 배수도 아니고 3의 배수도 아니다. 임의의 자연수 $n$이 2 또는 3의 배수가 아니면 어떤 자연수 $m$에 대하여 $n=6m+1$ 또는 $n=6m+5$의 형태로 표현된다.
+      source_flow: 해설지 p.1 풀이
+      criteria:
+      - 1-1.M1
+    - id: 11b-2
+      content: |
+        12보다 큰 자연수만을 고려하므로 $a_1=13,\ a_2=17$이다. 따라서 $a_{2m-1}=6(m+1)+1,\ a_{2m}=6(m+1)+5$이다.
+      source_flow: 해설지 p.1 풀이
+      criteria:
+      - 1-1.A1
+    - id: 11b-3
+      content: |
+        $a_{2m-1}=6m+7\ge100$ 또는 $a_{2m}=6m+11\ge100$을 만족하려면 $m\ge15$이다. $a_{29}=6\times15+7=97,\ a_{30}=6\times15+11=101$이므로 $a_k\ge100$을 만족하는 $k$의 최솟값은 30이다.
+      source_flow: 해설지 p.1 풀이
+      criteria:
+      - 1-1.A2
+  # 채점기준 미공개 — 단계별 추정
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 1-1.M1
+      mark_type: M
+      points: 10
+      evidence: 12와 서로소인 수가 2, 3의 배수가 아닌 수, 즉 $6m+1,\ 6m+5$ 꼴임을 이용했다.
+      steps:
+      - 11b-1
+    - id: 1-1.A1
+      mark_type: A
+      points: 10
+      evidence: $a_{2m-1}=6m+7,\ a_{2m}=6m+11$을 구했다.
+      depends_on:
+      - 1-1.M1
+      steps:
+      - 11b-2
+    - id: 1-1.A2
+      mark_type: A
+      points: 10
+      evidence: $a_{29}=97,\ a_{30}=101$을 확인하고 $k$의 최솟값 30을 구했다.
+      depends_on:
+      - 1-1.M1
+      - 1-1.A1
+      steps:
+      - 11b-3
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+- id: 1-2
+  stem: |
+    (b) 자연수 $n$에 대하여 $\displaystyle\sum_{k=1}^{2n}(a_ka_{k+1}-a_{k+2})$를 구하여라. (55점)
+  points: 55
+  depends_on:
+  - 1-1
+  answer:
+    kind: value
+    value: 2*n*(12*n**2+78*n+161)
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S12-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 12b-1
+      content: |
+        (a)에 의하여 $a_{2m-1}=6m+7,\ a_{2m}=6m+11$이므로
+        $$\sum_{k=1}^{2n}(a_ka_{k+1}-a_{k+2})=\sum_{m=1}^{n}\{(a_{2m-1}a_{2m}-a_{2m+1})+(a_{2m}a_{2m+1}-a_{2m+2})\}$$
+      source_flow: 해설지 p.1 풀이
+      criteria:
+      - 1-2.M1
+    - id: 12b-2
+      content: |
+        $$=\sum_{m=1}^{n}\{(6m+7)(6m+11)-(6m+13)+(6m+11)(6m+13)-(6m+17)\}=\sum_{m=1}^{n}(72m^2+240m+190)$$
+      source_flow: 해설지 p.1 풀이
+      criteria:
+      - 1-2.A1
+    - id: 12b-3
+      content: |
+        $$=72\sum_{m=1}^{n}m^2+240\sum_{m=1}^{n}m+190n=72\times\dfrac{n(n+1)(2n+1)}{6}+240\times\dfrac{n(n+1)}{2}+190n$$
+      source_flow: 해설지 p.1 풀이
+      criteria:
+      - 1-2.M2
+    - id: 12b-4
+      content: |
+        $$=2n(12n^2+78n+161)$$
+        이다.
+      source_flow: 해설지 p.1 풀이
+      criteria:
+      - 1-2.A2
+  # 채점기준 미공개 — 단계별 추정
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 1-2.M1
+      mark_type: M
+      points: 15
+      evidence: 합을 $k=2m-1,\ 2m$ 두 항씩 묶어 $\sum_{m=1}^{n}$ 꼴로 바꾸었다.
+      steps:
+      - 12b-1
+    - id: 1-2.A1
+      mark_type: A
+      points: 15
+      evidence: 일반항을 대입해 $72m^2+240m+190$으로 정리했다.
+      depends_on:
+      - 1-2.M1
+      steps:
+      - 12b-2
+    - id: 1-2.M2
+      mark_type: M
+      points: 15
+      evidence: $\sum m^2,\ \sum m$ 공식을 적용했다.
+      steps:
+      - 12b-3
+    - id: 1-2.A2
+      mark_type: A
+      points: 10
+      evidence: $2n(12n^2+78n+161)$로 정리했다.
+      depends_on:
+      - 1-2.M2
+      - 1-2.A1
+      steps:
+      - 12b-4
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: past-v2-lean
+  item_version: 1
+  verdict: pass
+  date: &id001 2026-11-23
+created: *id001
+updated: *id001

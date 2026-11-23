@@ -1,0 +1,293 @@
+# 채점기준 미공개 — 단계별 추정
+schema_version: '2.0'
+id: UOS-G19-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: UOS
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 분류
+points: 100
+time_estimate_min: null
+key_idea: 계수 비교로 $A,B$를 구해 $f=pq$로 인수분해한 뒤, 두 이차식의 판별식이 같음을 이용해 $f\ge0$일 조건을 $a^2-a\le0$ 또는 $p=q$로 분류한다.
+stuck: 사차식이 모든 실수에서 $0$ 이상이려면 두 이차식의 부호가 같아야 한다는 조건 해석과, $a^2-a>0$일 때 $p=q$여야 한다는 분류
+tags: []
+elements:
+  materials:
+  - 사차함수
+  - 두 이차식의 곱
+  concepts:
+  - 항등식(계수 비교)
+  - 이차방정식의 판별식
+  - $f(x)\ge0$인 조건
+  - 경우 분류
+  tools:
+  - 계수 비교
+  - 판별식
+  - 경우 분류
+  conditions:
+  - $a$는 상수
+  - $m_a$는 $f$의 최솟값
+  stimuli_used: {}
+  subpart_links:
+  - from: 1-1
+    to: 1-2
+    relation: (a)의 인수분해를 (b)에서 이용
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학Ⅱ
+  - 수학
+  scope_2028: common
+  scope_confirmed: false
+  content_area: 다항식의 인수분해, 이차방정식의 판별식, 함수의 최솟값
+  behavior_domain: 추론
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 서울시립대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 서울시립대학교
+  admission_year: 2019
+  admission_type: 수시 논술전형
+  track: 자연계열
+  question_no: 1
+  official_url: https://admission.uos.ac.kr/admissionNew/freeBoard/view.do?list_id=OF1&menuid=2002001005000000000&seq=37
+  retrieved_at: '2026-11-23'
+  original_points:
+  - 20
+  - 80
+  rights_notice: 미확인
+  transcribed_from: 2019학년도 논술고사 문제지(자연계열) p.1
+verify: verify/UOS-G19.py::p01
+stimuli: []
+stem: |
+  함수
+  $$f(x)=x^4+(6a+2)x^3+(11a^2+10a+1)x^2+(6a^3+14a^2+4a)x+3a^3+5a^2+a$$
+  에 대하여 다음 물음에 답하여라. (단, $a$는 상수이다.)
+subparts:
+- id: 1-1
+  stem: |
+    (a) $f(x)=(x^2+Ax+3a^2+5a+1)(x^2+Bx+a)$를 만족시키는 $A,\ B$를 $a$를 사용하여 나타내어라. (20점)
+  points: 20
+  depends_on: []
+  answer:
+    kind: expression
+    value: A = 4*a+2; B = 2*a
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S11-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 11b-1
+      content: |
+        항등식 $(x^2+Ax+3a^2+5a+1)(x^2+Bx+a)=x^4+(6a+2)x^3+(11a^2+10a+1)x^2+(6a^3+14a^2+4a)x+3a^3+5a^2+a$에서 이차항의 계수를 비교하면 $a+AB+3a^2+5a+1=11a^2+10a+1$이므로
+        $$AB=(11a^2+10a+1)-a-(3a^2+5a+1)=8a^2+4a\quad\cdots\cdots\ \text{㉠}$$
+        이다. 삼차항의 계수를 비교하면
+        $$A+B=6a+2\quad\cdots\cdots\ \text{㉡}$$
+        이다.
+      source_flow: 해설지 p.1 예시 답안
+      criteria:
+      - 1-1.M1
+      - 1-1.A1
+    - id: 11b-2
+      content: |
+        따라서 ㉠과 ㉡에 의해 $B(6a+2)=BA+B^2=8a^2+4a+B^2$이다. 즉,
+        $$B^2-(6a+2)B+8a^2+4a=0$$
+        이므로 $B=2a$ 또는 $B=4a+2$이다.
+      source_flow: 해설지 p.1 예시 답안
+      criteria:
+      - 1-1.M2
+    - id: 11b-3
+      content: |
+        ㉡에 의해 $A=2a,\ B=4a+2$이거나 $A=4a+2,\ B=2a$인데, $A=4a+2$이고 $B=2a$인 경우에만 주어진 등식을 만족시킨다. 그러므로
+        $$A=4a+2,\quad B=2a$$
+        이다.
+      source_flow: 해설지 p.1 예시 답안
+      criteria:
+      - 1-1.A2
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 1-1.M1
+      mark_type: M
+      points: 5
+      evidence: 항등식의 $x^3,\ x^2$의 계수를 비교하는 식을 세웠다.
+      depends_on: []
+      steps:
+      - 11b-1
+    - id: 1-1.A1
+      mark_type: A
+      points: 5
+      evidence: $A+B=6a+2,\ AB=8a^2+4a$를 얻었다.
+      depends_on:
+      - 1-1.M1
+      steps:
+      - 11b-1
+    - id: 1-1.M2
+      mark_type: M
+      points: 5
+      evidence: $A$를 소거해 $B^2-(6a+2)B+8a^2+4a=0$을 세워 $B=2a$ 또는 $4a+2$를 구했다.
+      depends_on:
+      - 1-1.A1
+      steps:
+      - 11b-2
+    - id: 1-1.A2
+      mark_type: A
+      points: 5
+      evidence: 나머지 계수(일차항·상수항) 조건 등으로 $(A,B)=(4a+2,\ 2a)$만 가능함을 확인해 답을 구했다.
+      depends_on:
+      - 1-1.M2
+      steps:
+      - 11b-3
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+- id: 1-2
+  stem: |
+    (b) 함수 $f(x)$의 최솟값을 $m_a$라 할 때 집합 $\{a\mid m_a\ge0\}$을 구하여라. (80점)
+  points: 80
+  depends_on:
+  - 1-1
+  answer:
+    kind: set
+    value: '{a | a=-1 또는 0<=a<=1}'
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S12-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 12b-1
+      content: |
+        (a)에 의해 $f(x)=\left(x^2+(4a+2)x+3a^2+5a+1\right)\left(x^2+2ax+a\right)$이므로
+        $$p(x)=x^2+(4a+2)x+3a^2+5a+1,\qquad q(x)=x^2+2ax+a$$
+        라 하자. $m_a\ge0$이면 모든 실수 $x$에 대하여 $f(x)\ge0$이므로, 모든 실수 $x$에 대하여 $p(x)$와 $q(x)$의 부호는 서로 같아야만 한다.
+      source_flow: 해설지 p.1 예시 답안
+      criteria:
+      - 1-2.M1
+    - id: 12b-2
+      content: |
+        이제 두 이차방정식 $p(x)=0,\ q(x)=0$의 판별식을 각각 $D_1,\ D_2$라 하면 $\dfrac{D_1}{4}=\dfrac{D_2}{4}=a^2-a$이다.
+      source_flow: 해설지 p.1 예시 답안
+      criteria:
+      - 1-2.A1
+    - id: 12b-3
+      content: |
+        (i) $a^2-a\le0$인 경우 : 모든 실수 $x$에 대하여 $p(x)\ge0,\ q(x)\ge0$이다. 따라서 $0\le a\le1$이다.
+      source_flow: 해설지 p.1 예시 답안
+      criteria:
+      - 1-2.M2
+      - 1-2.A2
+    - id: 12b-4
+      content: |
+        (ii) $a^2-a>0$인 경우 : 두 방정식 $p(x)=0,\ q(x)=0$이 각각 서로 다른 두 실근을 가지므로, 두 부등식 $p(x)\le0,\ q(x)\le0$을 만족시키는 해의 범위가 같을 때에만 $f(x)=p(x)q(x)\ge0$이다. 그런데 $p(x)$와 $q(x)$의 이차항의 계수가 모두 1이므로 $p(x)=q(x)$, 즉 $4a+2=2a$와 $3a^2+5a+1=a$이다. 따라서 $a=-1$이다.
+      source_flow: 해설지 p.1 예시 답안
+      criteria:
+      - 1-2.M3
+      - 1-2.A3
+    - id: 12b-5
+      content: |
+        그러므로 (i)과 (ii)에 의해 $\{a\mid m_a\ge0\}=\{a\mid a=-1\ \text{또는}\ 0\le a\le1\}$이다.
+      source_flow: 해설지 p.1 예시 답안
+      criteria:
+      - 1-2.A4
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 1-2.M1
+      mark_type: M
+      points: 15
+      evidence: $f=p\,q$로 놓고 $m_a\ge0$이면 $f(x)\ge0$이므로 모든 $x$에서 $p,q$의 부호가 같아야 함을 서술했다.
+      depends_on: []
+      steps:
+      - 12b-1
+    - id: 1-2.A1
+      mark_type: A
+      points: 10
+      evidence: 두 이차방정식의 판별식 $\dfrac{D_1}{4}=\dfrac{D_2}{4}=a^2-a$를 구했다.
+      depends_on:
+      - 1-2.M1
+      steps:
+      - 12b-2
+    - id: 1-2.M2
+      mark_type: M
+      points: 10
+      evidence: $a^2-a\le0$인 경우로 나누어 $p\ge0,\ q\ge0$임을 밝혔다.
+      depends_on:
+      - 1-2.A1
+      steps:
+      - 12b-3
+    - id: 1-2.A2
+      mark_type: A
+      points: 10
+      evidence: 이 경우의 범위 $0\le a\le1$을 구했다.
+      depends_on:
+      - 1-2.M2
+      steps:
+      - 12b-3
+    - id: 1-2.M3
+      mark_type: M
+      points: 20
+      evidence: $a^2-a>0$인 경우 두 이차식이 서로 다른 두 실근을 가지므로 $p\le0$, $q\le0$의 해 범위가 같아야, 즉 $p=q$여야 함을 보였다.
+      depends_on:
+      - 1-2.A1
+      steps:
+      - 12b-4
+    - id: 1-2.A3
+      mark_type: A
+      points: 10
+      evidence: $p=q$의 계수 비교로 $a=-1$을 구했다.
+      depends_on:
+      - 1-2.M3
+      steps:
+      - 12b-4
+    - id: 1-2.A4
+      mark_type: A
+      points: 5
+      evidence: 두 경우를 합쳐 $\{a\mid a=-1\ \text{또는}\ 0\le a\le1\}$로 답을 썼다.
+      depends_on:
+      - 1-2.A2
+      - 1-2.A3
+      steps:
+      - 12b-5
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: past-v2-lean
+  item_version: 1
+  verdict: pass
+  date: &id001 2026-11-23
+created: *id001
+updated: *id001

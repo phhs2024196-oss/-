@@ -1,0 +1,196 @@
+# 채점기준 미공개 — 단계별 추정
+schema_version: '2.0'
+id: UOS-G21B-02
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: UOS
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 분류
+points: 95
+time_estimate_min: null
+key_idea: $f(n-2)=f(n-1)=f(n)=1$일 때 조건 (3)을 깨는 경우를 여사건으로 세면 $(n-3)(n-4)(n-8)/6$이고, 이는 $f=1$인 세 위치와 무관하다.
+stuck: 조건 (3)이 실제로 문제 되는 경우를 가려내고, 1의 위치가 조건 (3)에 영향을 주지 않음을 보이는 발상
+tags: []
+elements:
+  materials:
+  - 함수의 개수
+  - 집합 $A_n$에서 $\{0,1,2\}$로의 함수
+  concepts:
+  - 조합
+  - 여사건
+  - 누적합 조건
+  tools:
+  - 여사건 세기
+  - 경우 분류
+  conditions:
+  - $n\ge9$
+  - $f(k)=0$인 $k$가 3개
+  - $f(k)=1$인 $k$가 3개
+  - $\sum_{i=1}^k f(i)\ge k$
+  stimuli_used: {}
+  subpart_links: []
+curriculum:
+  version: '2015'
+  subjects:
+  - 확률과통계
+  - 수학Ⅰ
+  scope_2028: common
+  scope_confirmed: false
+  content_area: 경우의 수 – 조합, 수열의 합
+  behavior_domain: 문제해결
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 서울시립대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 서울시립대학교
+  admission_year: 2021
+  admission_type: 수시 논술전형
+  track: 자연계열Ⅱ
+  question_no: 2
+  official_url: https://admission.uos.ac.kr/admissionNew/freeBoard/view.do?list_id=OF1&menuid=2002001005000000000&seq=42
+  retrieved_at: '2026-11-23'
+  original_points:
+  - 95
+  rights_notice: 미확인
+  transcribed_from: 2021학년도 논술고사 문제지(자연계열Ⅱ) p.1
+verify: verify/UOS-G21B.py::p02
+stimuli: []
+stem: |
+  자연수 $n\ (n\ge9)$에 대하여 $n$ 이하의 자연수 전체의 집합을 $A_n$이라 하자.
+subparts:
+- id: 2-1
+  stem: |
+    다음을 모두 만족시키는 함수 $f:A_n\to\{0,1,2\}$의 개수를 구하여라.
+
+    (1) 집합 $\{k\mid f(k)=0,\ k\in A_n\}$의 원소의 개수는 3이다.
+    (2) 집합 $\{k\mid f(k)=1,\ k\in A_n\}$의 원소의 개수는 3이다.
+    (3) $n$ 이하의 모든 자연수 $k$에 대하여 $\sum_{i=1}^{k}f(i)\ge k$이다.
+  points: 95
+  depends_on: []
+  answer:
+    kind: expression
+    value: n*(n-1)*(n-2)*(n-3)*(n-4)*(n-8)/36
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S21-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 21b-1
+      content: |
+        (i) $f(n-2)=f(n-1)=f(n)=1$일 경우를 생각하자. 그러면 조건 (1)과 (2)를 모두 만족시키지만 조건 (3)을 만족시키지 않는 함수의 개수는 다음과 같다.
+        - $f(1)=0$의 경우 함수의 개수는 ${}_{n-4}\mathrm{C}_2$이다.
+        - $f(1)=2,\ f(2)=0,\ f(3)=0$의 경우 함수의 개수는 ${}_{n-6}\mathrm{C}_1$이다.
+        - $f(1)=2,\ f(2)=0,\ f(3)=2,\ f(4)=0,\ f(5)=0$의 경우 함수의 개수는 1이다.
+        - $f(1)=2,\ f(2)=2,\ f(3)=0,\ f(4)=0,\ f(5)=0$의 경우 함수의 개수는 1이다.
+      source_flow: 해설지 p.2 예시 답안
+      criteria:
+      - 2-1.M1
+      - 2-1.A1
+    - id: 21b-2
+      content: |
+        따라서 이 경우에 문제의 조건을 모두 만족시키는 함수의 개수는 조건 (1)과 (2)를 모두 만족시키는 함수의 개수에서 위 네 가지 경우에 해당하는 함수의 개수를 뺀 것과 같다. 즉
+        $${}_{n-3}\mathrm{C}_3-\left({}_{n-4}\mathrm{C}_2+{}_{n-6}\mathrm{C}_1+1+1\right)=\frac{(n-3)(n-4)(n-8)}{6}$$
+        이다.
+      source_flow: 해설지 p.2 예시 답안
+      criteria:
+      - 2-1.M2
+      - 2-1.A2
+    - id: 21b-3
+      content: |
+        (ii) 일반적으로 $1\le a<b<c\le n$인 $a,b,c$에서 $f(a)=f(b)=f(c)=1$일 경우는 $a,b,c$의 선택이 조건 (3)의 부등식의 성립여부에 영향을 주지 않는다. 따라서 주어진 조건을 모두 만족시키는 함수의 개수도 $\dfrac{(n-3)(n-4)(n-8)}{6}$이다.
+      source_flow: 해설지 p.2 예시 답안
+      criteria:
+      - 2-1.M3
+    - id: 21b-4
+      content: |
+        따라서 문제의 조건을 모두 만족시키는 함수의 개수는
+        $${}_{n}\mathrm{C}_3\times\frac{(n-3)(n-4)(n-8)}{6}=\frac{n(n-1)(n-2)(n-3)(n-4)(n-8)}{36}$$
+        이다.
+      source_flow: 해설지 p.2 예시 답안
+      criteria:
+      - 2-1.A3
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 2-1.M1
+      mark_type: M
+      points: 25
+      evidence: $f(n-2)=f(n-1)=f(n)=1$인 경우에서 조건 (3)을 깨는 경우를 $f(1)$ 등의 값으로 분류해 세려 했다.
+      depends_on: []
+      steps:
+      - 21b-1
+    - id: 2-1.A1
+      mark_type: A
+      points: 20
+      evidence: 조건 (3)을 깨는 네 경우의 수 ${}_{n-4}\mathrm{C}_2,\ {}_{n-6}\mathrm{C}_1,\ 1,\ 1$을 바르게 구했다.
+      depends_on:
+      - 2-1.M1
+      steps:
+      - 21b-1
+    - id: 2-1.M2
+      mark_type: M
+      points: 10
+      evidence: ${}_{n-3}\mathrm{C}_3$에서 위 경우의 수를 빼는 식을 세웠다.
+      depends_on:
+      - 2-1.A1
+      steps:
+      - 21b-2
+    - id: 2-1.A2
+      mark_type: A
+      points: 10
+      evidence: $\dfrac{(n-3)(n-4)(n-8)}{6}$을 얻었다.
+      depends_on:
+      - 2-1.M2
+      steps:
+      - 21b-2
+    - id: 2-1.M3
+      mark_type: M
+      points: 20
+      evidence: 1이 놓이는 세 위치는 조건 (3)의 성립 여부에 영향을 주지 않음을 서술해 위치 선택의 경우의 수 ${}_n\mathrm{C}_3$을 곱하는 근거를 밝혔다.
+      depends_on: []
+      steps:
+      - 21b-3
+    - id: 2-1.A3
+      mark_type: A
+      points: 10
+      evidence: 답 $\dfrac{n(n-1)(n-2)(n-3)(n-4)(n-8)}{36}$을 구했다.
+      depends_on:
+      - 2-1.M2
+      - 2-1.M3
+      steps:
+      - 21b-4
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: past-v2-lean
+  item_version: 1
+  verdict: pass
+  date: &id001 2026-11-23
+created: *id001
+updated: *id001

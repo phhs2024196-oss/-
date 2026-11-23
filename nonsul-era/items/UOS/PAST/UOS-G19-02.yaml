@@ -1,0 +1,183 @@
+# 채점기준 미공개 — 단계별 추정
+schema_version: '2.0'
+id: UOS-G19-02
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: UOS
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 분류
+points: 100
+time_estimate_min: null
+key_idea: A가 $k$번째 시행(전체 $2k-1$번째 뽑기)에서 처음 당첨을 뽑을 확률을 $k=1,\cdots,n-1$에 대해 구해 합한다.
+stuck: A가 당첨을 뽑는 사건을 '앞의 $2k-2$번은 모두 비당첨, $2k-1$번째가 당첨'으로 분류해 확률을 곱으로 쓰는 발상
+tags: []
+elements:
+  materials:
+  - 당첨 제비 3개를 포함한 $2n$개의 제비
+  - 비복원 교대 추출
+  concepts:
+  - 확률의 곱셈정리
+  - 배반사건의 확률의 합
+  - 시그마의 성질
+  tools:
+  - 경우 분류
+  - $\sum k,\ \sum k^2$ 공식
+  conditions:
+  - $n$은 1보다 큰 자연수
+  - 꺼낸 제비는 다시 넣지 않는다
+  - A부터 시작
+  stimuli_used: {}
+  subpart_links: []
+curriculum:
+  version: '2015'
+  subjects:
+  - 확률과통계
+  - 수학Ⅰ
+  scope_2028: common
+  scope_confirmed: false
+  content_area: 확률 – 조건부확률(비복원추출), 수열의 합
+  behavior_domain: 문제해결
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 서울시립대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 서울시립대학교
+  admission_year: 2019
+  admission_type: 수시 논술전형
+  track: 자연계열
+  question_no: 2
+  official_url: https://admission.uos.ac.kr/admissionNew/freeBoard/view.do?list_id=OF1&menuid=2002001005000000000&seq=37
+  retrieved_at: '2026-11-23'
+  original_points:
+  - 100
+  rights_notice: 미확인
+  transcribed_from: 2019학년도 논술고사 문제지(자연계열) p.1
+verify: verify/UOS-G19.py::p02
+stimuli: []
+stem: |
+  3개의 당첨 제비를 포함하여 $2n$개의 제비가 들어 있는 상자가 있다. 이 상자에서 A, B 두 사람이 A부터 시작하여 A와 B가 교대로 제비를 한 개씩 임의로 뽑는다. 당첨 제비가 처음 나오면 이 시행을 멈추기로 할 때,
+subparts:
+- id: 2-1
+  stem: |
+    A가 당첨 제비를 뽑을 확률을 구하여라. (단, $n$은 1보다 큰 자연수이고, 꺼낸 제비는 상자 안에 다시 넣지 않는다.)
+  points: 100
+  depends_on: []
+  answer:
+    kind: expression
+    value: (4*n+1)/(4*(2*n-1))
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S21-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 21b-1
+      content: |
+        A는 최대 $n-1$회까지 제비를 뽑을 수 있다. 당첨 제비를 ○, 비당첨 제비를 ×로 나타내면 A가 당첨 제비를 뽑는 경우와 확률은 다음과 같다.
+        - 1회째(A): ○ $\to\ \dfrac{3}{2n}$
+        - 2회째(A): $\times\times\bigcirc$ $\to\ \dfrac{2n-3}{2n}\times\dfrac{2n-4}{2n-1}\times\dfrac{3}{2n-2}=\dfrac{3(n-2)(2n-3)}{2n(n-1)(2n-1)}$
+        - 3회째(A): $\times\times\times\times\bigcirc$ $\to\ \dfrac{2n-3}{2n}\times\dfrac{2n-4}{2n-1}\times\dfrac{2n-5}{2n-2}\times\dfrac{2n-6}{2n-3}\times\dfrac{3}{2n-4}=\dfrac{3(n-3)(2n-5)}{2n(n-1)(2n-1)}$
+        - $\vdots$
+        - $(n-1)$회째(A): $\times\cdots\times\bigcirc$ $\to\ \dfrac{2n-3}{2n}\times\dfrac{2n-4}{2n-1}\times\cdots\times\dfrac36\times\dfrac25\times\dfrac34=\dfrac{9}{2n(n-1)(2n-1)}$
+      source_flow: 해설지 p.2 예시 답안
+      criteria:
+      - 2-1.M1
+    - id: 21b-2
+      content: |
+        A가 $k\ (1\le k\le n-1)$번 만에 당첨 제비를 뽑을 확률은
+        $$\frac{3(n-k)(2n-2k+1)}{2n(n-1)(2n-1)}$$
+        이다.
+      source_flow: 해설지 p.2 예시 답안
+      criteria:
+      - 2-1.A1
+    - id: 21b-3
+      content: |
+        따라서 A가 당첨 제비를 뽑을 확률 $p$는
+        $$p=\sum_{k=1}^{n-1}\left\{\frac{3(n-k)(2n-2k+1)}{2n(n-1)(2n-1)}\right\}=\frac{3}{2n(n-1)(2n-1)}\sum_{k=1}^{n-1}\left\{2k^2-(4n+1)k+n(2n+1)\right\}$$
+      source_flow: 해설지 p.2 예시 답안
+      criteria:
+      - 2-1.M2
+    - id: 21b-4
+      content: |
+        $$=\frac{4n+1}{4(2n-1)}$$
+        이다.
+      source_flow: 해설지 p.2 예시 답안
+      criteria:
+      - 2-1.M3
+      - 2-1.A2
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 2-1.M1
+      mark_type: M
+      points: 25
+      evidence: A가 $k$번째 뽑기(전체 $2k-1$번째)에서 처음 당첨을 뽑는 사건을 '앞의 $2k-2$번은 비당첨'과 곱셈정리로 세웠다.
+      depends_on: []
+      steps:
+      - 21b-1
+    - id: 2-1.A1
+      mark_type: A
+      points: 20
+      evidence: 일반항 $\dfrac{3(n-k)(2n-2k+1)}{2n(n-1)(2n-1)}\ (1\le k\le n-1)$(또는 동치식)를 얻었다.
+      depends_on:
+      - 2-1.M1
+      steps:
+      - 21b-2
+    - id: 2-1.M2
+      mark_type: M
+      points: 15
+      evidence: $k=1,\cdots,n-1$에 대한 확률의 합을 $\sum$로 세웠다.
+      depends_on:
+      - 2-1.A1
+      steps:
+      - 21b-3
+    - id: 2-1.M3
+      mark_type: M
+      points: 15
+      evidence: $\sum k,\ \sum k^2$의 공식을 써서 합을 계산했다.
+      depends_on:
+      - 2-1.M2
+      steps:
+      - 21b-4
+    - id: 2-1.A2
+      mark_type: A
+      points: 25
+      evidence: 답 $\dfrac{4n+1}{4(2n-1)}$를 구했다.
+      depends_on:
+      - 2-1.M3
+      steps:
+      - 21b-4
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: past-v2-lean
+  item_version: 1
+  verdict: pass
+  date: &id001 2026-11-23
+created: *id001
+updated: *id001

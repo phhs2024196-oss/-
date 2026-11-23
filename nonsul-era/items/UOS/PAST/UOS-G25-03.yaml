@@ -1,0 +1,259 @@
+schema_version: '2.0'
+id: UOS-G25-03
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: UOS
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 전수
+points: 105
+time_estimate_min: 30
+key_idea: $n\times n$ 격자의 칸을 이웃한 칸의 수(2, 3, 4)로 분류해 승리하는 경우의 수를 세고, 순서쌍 개수로 나누어 확률을 구한다.
+stuck: 첫 영역의 위치(모서리 칸·변 칸·안쪽 칸)에 따라 이웃 칸 수가 달라지는 경우 분류와, (b)에서 시립이가 승리하지 않는 조건의 반영
+tags: []
+elements:
+  materials:
+  - $n\times n$ 격자 전광판
+  - 서울이와 시립이가 번갈아 버튼을 누르는 게임
+  concepts:
+  - 경우의 수
+  - 확률의 덧셈정리
+  - 곱의 법칙
+  tools:
+  - 경우 분류
+  - 순열
+  conditions:
+  - $n\ge3$
+  - 모서리를 공유하는 영역
+  stimuli_used: {}
+  subpart_links:
+  - 3-2는 3-1과 같은 경우 분류(이웃 칸이 2·3·4개)를 사용하되 시립이가 승리하지 않는 조건을 더함
+curriculum:
+  version: '2015'
+  subjects:
+  - 확률과통계
+  scope_2028: common
+  scope_confirmed: false
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 서울시립대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 서울시립대학교
+  admission_year: 2025
+  admission_type: 수시 논술전형
+  track: 자연계열
+  question_no: 3
+  official_url: https://admission.uos.ac.kr/admissionNew/freeBoard/view.do?list_id=OF1&menuid=2002001005000000000&seq=50
+  retrieved_at: '2026-11-23'
+  original_points:
+  - 40
+  - 65
+  rights_notice: 미확인
+  transcribed_from: 2025 논술고사 문제지(자연계열) p.2
+verify: verify/UOS-G25.py::p03
+stimuli: []
+stem: |
+  그림과 같이 $n^2$개의 영역으로 이루어진 한 개의 전광판이 있다. 이 전광판에 연결된 버튼을 이용하여 서울이와 시립이가 다음과 같은 규칙으로 게임을 하려고 한다. (단, $n$은 3 이상의 자연수이다.)
+  (1) 게임을 시작할 때, 전광판의 모든 영역은 불이 꺼져있다.
+  (2) 게임이 끝날 때까지 두 사람이 버튼을 번갈아 누른다.
+  (3) 한 사람이 버튼을 누르면 불이 꺼져있는 영역 중 임의의 한 영역에 불이 켜지며, 이때 불이 켜진 영역은 버튼을 누른 사람의 소유가 된다.
+  (4) 한 사람이 버튼을 눌렀을 때, 상대방이 소유한 영역과 한 모서리를 공유하는 영역에 불이 켜지면, 이때 버튼을 누른 사람이 승리하고 게임이 끝난다.
+  [그림 1: 가로 $n$개, 세로 $n$개의 정사각형 영역으로 이루어진 전광판(격자)과 그 아래에 연결된 버튼]
+  서울이부터 게임을 시작하여 진행할 때, 다음 물음에 답하여라.
+subparts:
+- id: 3-1
+  stem: |
+    (a) 시립이가 버튼을 한 번 눌러서 승리할 확률을 구하여라. (40점)
+  points: 40
+  depends_on: []
+  answer:
+    kind: value
+    value: 4/(n*(n+1))
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S31-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 31b-1
+      content: |
+        시립이가 버튼을 한 번 눌러서 승리하는 경우는 서울이가 소유한 영역과 한 모서리를 공유하는 영역이 2개인 경우, 3개인 경우, 4개인 경우로 나누어 생각할 수 있다.
+      source_flow: 해설지 p.3 풀이
+      criteria:
+      - 3-1.M1
+    - id: 31b-2
+      content: |
+        (i) 2개인 경우(전광판의 모서리 4칸): 조건을 만족하는 영역은 4개이므로 시립이가 승리할 경우의 수는 $4\times2=8$이다.
+        (ii) 3개인 경우: 조건을 만족하는 영역은 $4\times(n-2)$개이므로 경우의 수는 $4(n-2)\times3$이다.
+        (iii) 4개인 경우: 조건을 만족하는 영역은 $(n-2)^2$개이므로 경우의 수는 $(n-2)^2\times4$이다.
+      source_flow: 해설지 p.3 풀이
+      criteria:
+      - 3-1.A1
+    - id: 31b-3
+      content: |
+        따라서 확률의 덧셈정리에 의해 구하는 확률은 $\dfrac{8}{n^2(n^2-1)}+\dfrac{12(n-2)}{n^2(n^2-1)}+\dfrac{4(n-2)^2}{n^2(n^2-1)}=\dfrac{4}{n(n+1)}$이다.
+      source_flow: 해설지 p.3 풀이
+      criteria:
+      - 3-1.A2
+  # 채점기준 미공개 — 단계별 추정
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 3-1.M1
+      mark_type: M
+      points: 15
+      evidence: 서울이가 소유한 영역과 모서리를 공유하는 영역의 수(2, 3, 4)로 경우를 나누었다.
+      steps:
+      - 31b-1
+    - id: 3-1.A1
+      mark_type: A
+      points: 15
+      evidence: 각 경우의 경우의 수 $8,\ 12(n-2),\ 4(n-2)^2$을 구했다.
+      depends_on:
+      - 3-1.M1
+      steps:
+      - 31b-2
+    - id: 3-1.A2
+      mark_type: A
+      points: 10
+      evidence: 전체 경우의 수 $n^2(n^2-1)$로 나누어 합하고 $\dfrac{4}{n(n+1)}$을 구했다.
+      depends_on:
+      - 3-1.M1
+      - 3-1.A1
+      steps:
+      - 31b-3
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+- id: 3-2
+  stem: |
+    (b) 서울이가 버튼을 두 번 눌러서 승리할 확률을 구하여라. (65점)
+  points: 65
+  depends_on:
+  - 3-1
+  answer:
+    kind: value
+    value: 4*(n**4-n**3-5*n**2+8*n-2)/(n**2*(n**2-1)*(n**2-2))
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S32-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 32b-1
+      content: |
+        서울이가 버튼을 두 번 눌러서 승리하려면, 시립이가 버튼을 한 번 눌러서 승리하지 않아야 한다. (a)와 같은 방법으로 시립이가 소유한 영역과 한 모서리를 공유하는 영역의 개수 $d$에 따라 경우를 나눈다. 이때 서울이가 첫 번째로 소유한 영역은 시립이가 소유한 영역이 아니면서 시립이가 소유한 영역과 모서리를 공유하지 않는 $n^2-1-d$개의 영역 중 하나여야 하고, 서울이가 두 번째로 소유하는 영역은 시립이가 소유한 영역과 한 모서리를 공유하는 $d$개의 영역 중 하나여야 한다.
+      source_flow: 해설지 p.3 풀이
+      criteria:
+      - 3-2.M1
+    - id: 32b-2
+      content: |
+        (i) $d=2$인 경우: 위 조건을 만족하는 영역은 4개이고, 서울이가 첫 번째로 소유할 수 있는 영역은 $n^2-3$개이므로 경우의 수는 $4\times(n^2-3)\times2=8(n^2-3)$이다.
+      source_flow: 해설지 p.3 풀이
+      criteria:
+      - 3-2.A1
+    - id: 32b-3
+      content: |
+        (ii) $d=3$인 경우: 경우의 수는 $4(n-2)\times(n^2-4)\times3=12(n-2)^2(n+2)$이다.
+      source_flow: 해설지 p.3 풀이
+      criteria:
+      - 3-2.A2
+    - id: 32b-4
+      content: |
+        (iii) $d=4$인 경우: 경우의 수는 $(n-2)^2\times(n^2-5)\times4=4(n-2)^2(n^2-5)$이다.
+      source_flow: 해설지 p.3 풀이
+      criteria:
+      - 3-2.A3
+    - id: 32b-5
+      content: |
+        따라서 확률의 덧셈정리에 의해 구하는 확률은
+        $$\dfrac{8(n^2-3)}{n^2(n^2-1)(n^2-2)}+\dfrac{12(n-2)^2(n+2)}{n^2(n^2-1)(n^2-2)}+\dfrac{4(n-2)^2(n^2-5)}{n^2(n^2-1)(n^2-2)}=\dfrac{4(n^4-n^3-5n^2+8n-2)}{n^2(n^2-1)(n^2-2)}$$
+        이다.
+      source_flow: 해설지 p.3 풀이
+      criteria:
+      - 3-2.A4
+  # 채점기준 미공개 — 단계별 추정
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 3-2.M1
+      mark_type: M
+      points: 20
+      evidence: 시립이가 승리하지 않는 조건을 반영해 이웃 칸 수 $d$별로 (서울의 첫 영역)$\times$(서울의 둘째 영역) 구조로 경우를 세는 방법을 세웠다.
+      steps:
+      - 32b-1
+    - id: 3-2.A1
+      mark_type: A
+      points: 10
+      evidence: (i) $8(n^2-3)$을 구했다.
+      depends_on:
+      - 3-2.M1
+      steps:
+      - 32b-2
+    - id: 3-2.A2
+      mark_type: A
+      points: 10
+      evidence: (ii) $12(n-2)^2(n+2)$를 구했다.
+      depends_on:
+      - 3-2.M1
+      steps:
+      - 32b-3
+    - id: 3-2.A3
+      mark_type: A
+      points: 10
+      evidence: (iii) $4(n-2)^2(n^2-5)$를 구했다.
+      depends_on:
+      - 3-2.M1
+      steps:
+      - 32b-4
+    - id: 3-2.A4
+      mark_type: A
+      points: 15
+      evidence: 전체 경우의 수 $n^2(n^2-1)(n^2-2)$로 나누어 합하고 최종 확률을 구했다.
+      depends_on:
+      - 3-2.M1
+      - 3-2.A1
+      - 3-2.A2
+      - 3-2.A3
+      steps:
+      - 32b-5
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: past-v2-lean
+  item_version: 1
+  verdict: pass
+  date: &id001 2026-11-23
+created: *id001
+updated: *id001

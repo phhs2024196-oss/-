@@ -1,0 +1,207 @@
+schema_version: '2.0'
+id: UOS-G26-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: UOS
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 최적2단
+points: 85
+time_estimate_min: 25
+key_idea: $|\sin x-a|$의 주기성과 부호 분석으로 정적분을 $\theta$($\sin\theta=a$)의 함수 $g(\theta)$로 바꾸어 증감표로 최소를 구한다.
+stuck: $a$가 미지수인 절댓값 적분에서 교점 $x=\theta$를 새 변수로 잡아 적분 구간을 나누는 발상
+tags: []
+elements:
+  materials:
+  - $\int_0^{3\pi}|\sin x-a|\,dx$
+  - $0\le a\le1$
+  concepts:
+  - 절댓값 함수의 정적분
+  - 주기함수
+  - 증감표
+  tools:
+  - 정적분
+  - 삼각함수의 적분
+  - 도함수
+  conditions:
+  - $0\le a\le1$
+  - 구간 $[0,\pi/2]$에서 $\sin\theta=a$의 근은 하나
+  stimuli_used: {}
+  subpart_links: []
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학Ⅱ
+  - 미적분
+  scope_2028: calc2
+  scope_confirmed: false
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 서울시립대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 서울시립대학교
+  admission_year: 2026
+  admission_type: 수시 논술전형
+  track: 자연계열
+  question_no: 1
+  official_url: https://admission.uos.ac.kr/admissionNew/freeBoard/view.do?list_id=OF1&menuid=2002001005000000000&seq=52
+  retrieved_at: '2026-11-23'
+  original_points:
+  - 85
+  rights_notice: 미확인
+  transcribed_from: 2026 논술고사 문제지(자연계열) p.1
+verify: verify/UOS-G26.py::p01
+stimuli: []
+stem: |
+  $0\le a\le 1$일 때, 정적분 $\displaystyle\int_0^{3\pi}|\sin x-a|\,dx$의 값이 최소가 되는 $a$의 값과 정적분의 최솟값을 구하여라.
+subparts:
+- id: 1-1
+  stem: ''
+  points: 85
+  depends_on: []
+  answer:
+    kind: value
+    value: a=sin(pi/8); min=8*cos(pi/8)-2
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S11-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 11b-1
+      content: |
+        $f(x)=\sin x-a$는 주기가 $2\pi$이므로
+        $$\int_0^{3\pi}|f(x)|\,dx=2\int_0^{\pi}|f(x)|\,dx+\int_{\pi}^{2\pi}|f(x)|\,dx$$
+        이다.
+      source_flow: 해설지 p.1 예시 답안
+      criteria:
+      - 1-1.M1
+    - id: 11b-2
+      content: |
+        $0\le a\le1$이므로 구간 $\left[0,\dfrac{\pi}{2}\right]$에서 곡선 $y=\sin x$와 직선 $y=a$의 교점은 하나뿐이다. 그 교점의 $x$좌표를 $\theta$라 하면 $\sin\theta=a$이다. 구간 $[0,\theta]$와 $[\pi-\theta,\pi]$에서 $f(x)\le0$이고, 구간 $[\theta,\pi-\theta]$에서 $f(x)\ge0$이다.
+      source_flow: 해설지 p.1 예시 답안
+      criteria:
+      - 1-1.M2
+    - id: 11b-3
+      content: |
+        $$\int_0^{\pi}|f(x)|\,dx=\int_0^{\theta}(\sin\theta-\sin x)\,dx+\int_{\theta}^{\pi-\theta}(\sin x-\sin\theta)\,dx+\int_{\pi-\theta}^{\pi}(\sin\theta-\sin x)\,dx=(4\theta-\pi)\sin\theta+4\cos\theta-2$$
+      source_flow: 해설지 p.1 예시 답안
+      criteria:
+      - 1-1.A1
+    - id: 11b-4
+      content: |
+        구간 $[\pi,2\pi]$에서 $f(x)\le0$이므로
+        $$\int_{\pi}^{2\pi}|f(x)|\,dx=\int_{\pi}^{2\pi}(\sin\theta-\sin x)\,dx=\pi\sin\theta+2$$
+      source_flow: 해설지 p.1 예시 답안
+      criteria:
+      - 1-1.A2
+    - id: 11b-5
+      content: |
+        따라서
+        $$\int_0^{3\pi}|f(x)|\,dx=2\{(4\theta-\pi)\sin\theta+4\cos\theta-2\}+\pi\sin\theta+2=(8\theta-\pi)\sin\theta+8\cos\theta-2$$
+        이다.
+      source_flow: 해설지 p.1 예시 답안
+      criteria:
+      - 1-1.A3
+    - id: 11b-6
+      content: |
+        $g(\theta)=(8\theta-\pi)\sin\theta+8\cos\theta-2$라 하면 $g'(\theta)=(8\theta-\pi)\cos\theta$이다. $0\le\theta\le\dfrac{\pi}{2}$에서 $\cos\theta\ge0$이므로 증감표는 $\theta=0$에서 $g=6$, $\theta=\dfrac{\pi}{8}$에서 $g'=0$($0<\theta<\dfrac{\pi}{8}$에서 $-$, $\dfrac{\pi}{8}<\theta<\dfrac{\pi}{2}$에서 $+$), $\theta=\dfrac{\pi}{2}$에서 $g=3\pi-2$이다.
+      source_flow: 해설지 p.1 예시 답안
+      criteria:
+      - 1-1.M3
+    - id: 11b-7
+      content: |
+        따라서 $g(\theta)$는 $\theta=\dfrac{\pi}{8}$에서 최솟값을 갖는다. 그러므로 $a=\sin\dfrac{\pi}{8}$일 때 정적분의 최솟값은 $8\cos\dfrac{\pi}{8}-2$이다.
+      source_flow: 해설지 p.1 예시 답안
+      criteria:
+      - 1-1.A4
+  # 채점기준 미공개 — 단계별 추정
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 1-1.M1
+      mark_type: M
+      points: 10
+      evidence: $|\sin x-a|$의 주기 $2\pi$를 이용해 $[0,3\pi]$의 적분을 $2\int_0^\pi+\int_\pi^{2\pi}$로 바꾸었다.
+      steps:
+      - 11b-1
+    - id: 1-1.M2
+      mark_type: M
+      points: 15
+      evidence: 교점 $\sin\theta=a$를 잡고 부호에 따라 구간을 나누었다.
+      steps:
+      - 11b-2
+    - id: 1-1.A1
+      mark_type: A
+      points: 20
+      evidence: $\int_0^\pi|f|\,dx=(4\theta-\pi)\sin\theta+4\cos\theta-2$를 구했다.
+      depends_on:
+      - 1-1.M2
+      steps:
+      - 11b-3
+    - id: 1-1.A2
+      mark_type: A
+      points: 10
+      evidence: $\int_\pi^{2\pi}|f|\,dx=\pi\sin\theta+2$를 구했다.
+      depends_on:
+      - 1-1.M2
+      steps:
+      - 11b-4
+    - id: 1-1.A3
+      mark_type: A
+      points: 5
+      evidence: $g(\theta)=(8\theta-\pi)\sin\theta+8\cos\theta-2$로 정리했다.
+      depends_on:
+      - 1-1.M2
+      - 1-1.A1
+      - 1-1.A2
+      steps:
+      - 11b-5
+    - id: 1-1.M3
+      mark_type: M
+      points: 10
+      evidence: $g'(\theta)=(8\theta-\pi)\cos\theta$를 구하고 증감을 조사했다.
+      steps:
+      - 11b-6
+    - id: 1-1.A4
+      mark_type: A
+      points: 15
+      evidence: $\theta=\dfrac{\pi}{8}$에서의 최소, 즉 $a=\sin\dfrac{\pi}{8}$와 최솟값 $8\cos\dfrac{\pi}{8}-2$를 구했다.
+      depends_on:
+      - 1-1.M3
+      - 1-1.A3
+      steps:
+      - 11b-7
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: past-v2-lean
+  item_version: 1
+  verdict: pass
+  date: &id001 2026-11-23
+created: *id001
+updated: *id001

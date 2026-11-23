@@ -1,0 +1,198 @@
+schema_version: '2.0'
+id: UOS-G17-02
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: proof
+origin: past_exam
+school: UOS
+type: null
+variant_of: null
+replaces: null
+level: L3
+form: 일반화
+points: 100
+time_estimate_min: null
+key_idea: $x\cdot{}_{n}\mathrm{C}_{x}=n\cdot{}_{n-1}\mathrm{C}_{x-1}$ 등의 조합 항등식으로 합을 이항정리 $(p+q)^{m}$의
+  꼴로 바꾼다.
+stuck: $E(X^2)$를 $x(x-1)+x$로 쪼개 이항정리가 적용되는 꼴로 만드는 발상
+tags: []
+elements:
+  materials:
+  - 이항분포 B(n,p)
+  - 평균 E(X)
+  - 분산 V(X)
+  concepts:
+  - 이항정리
+  - 조합의 항등식
+  - 확률질량함수
+  tools:
+  - 시그마의 변형
+  - V(X)=E(X^2)-{E(X)}^2
+  conditions:
+  - q=1-p
+  stimuli_used: {}
+  subpart_links:
+  - 2-2는 2-1의 E(X)를 이용
+curriculum:
+  version: '2015'
+  subjects:
+  - 확률과통계
+  scope_2028: unknown
+  scope_confirmed: false
+  behavior_domain: 문제해결
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 서울시립대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 서울시립대학교
+  admission_year: 2017
+  admission_type: 수시 논술전형
+  track: 자연계열
+  question_no: 2
+  official_url: https://admission.uos.ac.kr/admissionNew/freeBoard/view.do?list_id=OF1&menuid=2002001005000000000&seq=32
+  retrieved_at: '2026-11-23'
+  original_points:
+  - 50
+  - 50
+  rights_notice: 미확인
+  transcribed_from: 2017 논술고사 문제지(자연계열) p.2
+verify: verify/UOS-G17.py::p02
+stimuli: []
+stem: |
+  [문제 2] (총 100점)
+  확률변수 $X$가 이항분포 $\mathrm{B}(n,p)$를 따를 때, 다음이 성립함을 보여라.
+subparts:
+- id: 2-1
+  stem: |
+    (a) $\mathrm{E}(X)=np$ (50점)
+  points: 50
+  depends_on: []
+  answer:
+    kind: proof
+    value: n*p
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S21-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 21b-1
+      content: |
+        $n$ 이하의 자연수 $x$에 대하여 $x\cdot{}_{n}\mathrm{C}_{x}=x\cdot\dfrac{n!}{(n-x)!\,x!}=x\cdot\dfrac{n(n-1)!}{x\{(n-1)-(x-1)\}!\,(x-1)!}=n\cdot{}_{n-1}\mathrm{C}_{x-1}$이 성립한다.
+      source_flow: 해설지 p.7 예시 답안
+      criteria:
+      - 2-1.M1
+    - id: 21b-2
+      content: |
+        $q=1-p$라 하면 $\mathrm{P}(X=x)={}_{n}\mathrm{C}_{x}p^{x}q^{n-x}$ $(x=0,1,2,\cdots,n)$이므로 $\mathrm{E}(X)=\displaystyle\sum_{x=0}^{n}x\cdot{}_{n}\mathrm{C}_{x}p^{x}q^{n-x}=\sum_{x=1}^{n}n\cdot{}_{n-1}\mathrm{C}_{x-1}p^{x}q^{n-x}=np\sum_{x=1}^{n}{}_{n-1}\mathrm{C}_{x-1}p^{x-1}q^{(n-1)-(x-1)}=np(p+q)^{n-1}=np$이다.
+      source_flow: 해설지 p.7 예시 답안
+      criteria:
+      - 2-1.R1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 2-1.M1
+      mark_type: M
+      points: 20
+      evidence: 이항정리(조합의 항등식)를 활용하여 $x\cdot{}_{n}\mathrm{C}_{x}=n\cdot{}_{n-1}\mathrm{C}_{x-1}$ 꼴로 변형했다.
+      steps:
+      - 21b-1
+    - id: 2-1.R1
+      mark_type: R
+      points: 30
+      evidence: 평균을 구하는 과정을 $\sum$와 이항정리 $(p+q)^{n-1}=1$로 논리적으로 보였다.
+      depends_on:
+      - 2-1.M1
+      steps:
+      - 21b-2
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+- id: 2-2
+  stem: |
+    (b) $\mathrm{V}(X)=np(1-p)$ (50점)
+  points: 50
+  depends_on: []
+  answer:
+    kind: proof
+    value: n*p*(1-p)
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S22-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 22b-1
+      content: |
+        $2\le x\le n$인 자연수 $x$에 대하여 $x(x-1)\cdot{}_{n}\mathrm{C}_{x}=x(x-1)\cdot\dfrac{n!}{(n-x)!\,x!}=n(n-1)\cdot\dfrac{(n-2)!}{\{(n-2)-(x-2)\}!\,(x-2)!}=n(n-1)\cdot{}_{n-2}\mathrm{C}_{x-2}$가 성립한다.
+      source_flow: 해설지 p.7 예시 답안
+      criteria:
+      - 2-2.M1
+    - id: 22b-2
+      content: |
+        따라서 $\mathrm{E}(X^2)=\displaystyle\sum_{x=0}^{n}\{x(x-1)+x\}\cdot{}_{n}\mathrm{C}_{x}p^{x}q^{n-x}=n(n-1)p^2\sum_{x=2}^{n}{}_{n-2}\mathrm{C}_{x-2}p^{x-2}q^{(n-2)-(x-2)}+\sum_{x=0}^{n}x\cdot{}_{n}\mathrm{C}_{x}p^{x}q^{n-x}=n(n-1)p^2(p+q)^{n-2}+np=n(n-1)p^2+np$이다.
+      source_flow: 해설지 p.7 예시 답안
+      criteria:
+      - 2-2.R1
+    - id: 22b-3
+      content: |
+        이므로 $\mathrm{V}(X)=\mathrm{E}(X^2)-\{\mathrm{E}(X)\}^2=n(n-1)p^2+np-n^2p^2=np(1-p)$이다.
+      source_flow: 해설지 p.7 예시 답안
+      criteria:
+      - 2-2.R1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 2-2.M1
+      mark_type: M
+      points: 20
+      evidence: 이항정리(조합의 항등식)를 활용하여 $x(x-1)\cdot{}_{n}\mathrm{C}_{x}=n(n-1)\cdot{}_{n-2}\mathrm{C}_{x-2}$
+        꼴로 변형했다.
+      steps:
+      - 22b-1
+    - id: 2-2.R1
+      mark_type: R
+      points: 30
+      evidence: 분산을 구하는 과정($\mathrm{E}(X^2)$ 계산과 $\mathrm{V}(X)=\mathrm{E}(X^2)-\{\mathrm{E}(X)\}^2$)을
+        논리적으로 보였다.
+      depends_on:
+      - 2-2.M1
+      steps:
+      - 22b-2
+      - 22b-3
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: past-v2-lean
+  item_version: 1
+  verdict: pass
+  date: 2026-11-23
+created: 2026-11-23
+updated: 2026-11-23

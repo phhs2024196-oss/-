@@ -1,0 +1,166 @@
+# 채점기준 미공개 — 단계별 추정
+schema_version: '2.0'
+id: UOS-M25-03
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: UOS
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 구성
+points: 105
+time_estimate_min: null
+key_idea: $S(\theta)$를 삼각형 $\mathrm{PQO}$와 부채꼴 $\mathrm{OBP}$의 합으로 나타내고, 사인법칙으로 $\sin\alpha=\overline{QT}\sin\theta$를
+  얻어 $\dfrac{S(\theta)}{\theta}$의 각 항의 극한을 구한다.
+stuck: 선분 PQ와 원의 또 다른 교점 T와 각 $\alpha$를 도입해 $\angle\mathrm{POB}=2\theta+\alpha$를 얻는 보조선
+tags: []
+elements:
+  materials:
+  - 원 $x^2+y^2=1$
+  - 점 $\mathrm{Q}(-2,0)$
+  - 부채꼴과 삼각형
+  concepts:
+  - 이등변삼각형의 외각
+  - 사인법칙
+  - 삼각함수의 극한
+  - 부채꼴의 넓이
+  tools:
+  - $\lim\dfrac{\sin x}{x}=1$
+  conditions:
+  - 점 P는 제1사분면
+  stimuli_used: {}
+  subpart_links: []
+curriculum:
+  version: '2015'
+  subjects:
+  - 미적분
+  - 수학Ⅰ
+  scope_2028: unknown
+  scope_confirmed: false
+  behavior_domain: 문제해결
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 서울시립대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 서울시립대학교
+  admission_year: 2025
+  admission_type: 수시 모의논술고사
+  track: 자연계열
+  question_no: 3
+  official_url: https://admission.uos.ac.kr/admissionNew/freeBoard/view.do?list_id=OF1&menuid=2002001005000000000&seq=49
+  retrieved_at: '2026-11-23'
+  original_points:
+  - 105
+  rights_notice: 미확인
+  transcribed_from: 2025학년도 모의 논술고사 문제지(자연계열) p.3
+verify: verify/UOS-M25.py::p03
+stimuli: []
+stem: |
+  [문제 3] (105점)
+  좌표평면에서 제$1$사분면에 있는 점 $\mathrm{P}$가 점 $\mathrm{A}(-1,\ 0)$, $\mathrm{B}(1,\ 0)$을 지름의 양 끝점으로 하는 원 위에 있다. 이때, 점 $\mathrm{Q}$의 좌표를 $(-2,\ 0)$이라 하고, $\angle\mathrm{PQB}=\theta$라 하자.
+subparts:
+- id: 3-1
+  stem: |
+    선분 PQ와 선분 QB와 호 BP로 둘러싸인 도형의 넓이를 $S(\theta)$라 할 때, $\displaystyle\lim_{\theta\to0+}\dfrac{S(\theta)}{\theta}$의 값을 구하여라.
+  points: 105
+  depends_on: []
+  answer:
+    kind: value
+    value: 9/2
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S31-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 31b-1
+      content: |
+        선분 PQ가 주어진 원과 만나는 제$2$사분면 점을 T, $\angle\mathrm{TOQ}=\alpha$라 하고, 점 P에서 $x$축에 내린 수선의 발을 H라 하자. 그러면 $\angle\mathrm{PTO}=\angle\mathrm{OPT}=\theta+\alpha$이므로 $\angle\mathrm{POH}=2\theta+\alpha$이고, $\overline{PH}=\sin(2\theta+\alpha)$이다.
+      source_flow: 해설지 p.4 예시 답안
+      criteria:
+      - 3-1.M1
+    - id: 31b-2
+      content: |
+        $S(\theta)=\triangle\mathrm{PQO}$의 넓이$+$부채꼴 $\mathrm{OBP}$의 넓이$=\dfrac12\times\overline{QO}\times\overline{PH}+\dfrac12\times\overline{OB}^2\times\angle\mathrm{POB}=\sin(2\theta+\alpha)+\theta+\dfrac\alpha2=\sin(2\theta)\cos\alpha+\cos(2\theta)\sin\alpha+\theta+\dfrac\alpha2$이다.
+      source_flow: 해설지 p.4 예시 답안
+      criteria:
+      - 3-1.M2
+    - id: 31b-3
+      content: |
+        $\triangle\mathrm{TQO}$에 사인법칙을 적용하면 $\dfrac{\overline{QT}}{\sin\alpha}=\dfrac{1}{\sin\theta}$를 얻으므로 $\sin\alpha=\overline{QT}\times\sin\theta$이다. $\dfrac{S(\theta)}{\theta}=\dfrac{\sin(2\theta)}{\theta}\times\cos\alpha+\cos(2\theta)\times\dfrac{\sin\alpha}{\theta}+1+\dfrac{\alpha}{2\theta}$이고, $\dfrac{\sin\alpha}{\theta}=\dfrac{\overline{QT}\times\sin\theta}{\theta}=\overline{QT}\times\dfrac{\sin\theta}{\theta}$, $\dfrac\alpha\theta=\dfrac{\alpha}{\sin\alpha}\times\dfrac{\sin\alpha}{\theta}=\dfrac{\alpha}{\sin\alpha}\times\overline{QT}\times\dfrac{\sin\theta}{\theta}$이다.
+      source_flow: 해설지 p.4 예시 답안
+      criteria:
+      - 3-1.M3
+    - id: 31b-4
+      content: |
+        한편 $\theta\to0+$이면 $\alpha\to0+$이고 $\overline{QT}\to1$이므로, $\displaystyle\lim_{\theta\to0+}\dfrac{S(\theta)}{\theta}=2+1+1+\dfrac12=\dfrac92$이다.
+      source_flow: 해설지 p.4 예시 답안
+      criteria:
+      - 3-1.A1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 3-1.M1
+      mark_type: M
+      points: 25
+      evidence: 점 T와 각 $\alpha$를 도입해 $\angle\mathrm{POH}=2\theta+\alpha$, $\overline{PH}=\sin(2\theta+\alpha)$를
+        얻었다.
+      steps:
+      - 31b-1
+    - id: 3-1.M2
+      mark_type: M
+      points: 25
+      evidence: $S(\theta)=\sin(2\theta+\alpha)+\theta+\dfrac\alpha2$로 나타냈다.
+      depends_on:
+      - 3-1.M1
+      steps:
+      - 31b-2
+    - id: 3-1.M3
+      mark_type: M
+      points: 25
+      evidence: 사인법칙으로 $\sin\alpha=\overline{QT}\sin\theta$를 얻어 $\dfrac{S(\theta)}{\theta}$를 극한 가능한 꼴로
+        정리했다.
+      depends_on:
+      - 3-1.M2
+      steps:
+      - 31b-3
+    - id: 3-1.A1
+      mark_type: A
+      points: 30
+      evidence: 각 극한을 계산해 $\dfrac92$를 구했다.
+      depends_on:
+      - 3-1.M3
+      steps:
+      - 31b-4
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: past-v2-lean
+  item_version: 1
+  verdict: pass
+  date: 2026-11-23
+created: 2026-11-23
+updated: 2026-11-23

@@ -1,0 +1,218 @@
+schema_version: '2.0'
+id: UOS-M22-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: numeric
+origin: mock_exam
+school: UOS
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 추론
+points: 85
+time_estimate_min: null
+key_idea: 두 도형의 넓이의 합이 곡선 아래 넓이 $\dfrac{2}{3t}$로 고정됨을 이용해 $A$를 $B$로 나타내고, $tp(t)\to\sqrt{2}-1$을 이용해 극한을 구한다.
+stuck: (b)에서 $A$를 직접 구하지 않고 $A+B$가 곡선과 두 축으로 둘러싸인 넓이임을 알아차리는 것, $B$를 $p(t)$에 대한 식으로 두고 $tp(t)$의 극한으로 정리하는 것
+tags:
+- 넓이
+- 극한
+- 이차방정식의 근
+elements:
+  materials:
+  - 포물선 $y=-t^2x^2+1$과 직선 $y=(2\tan t)x$
+  concepts:
+  - 정적분과 넓이
+  - 함수의 극한
+  - 이차방정식의 근
+  tools:
+  - 정적분
+  - 극한값 계산
+  conditions:
+  - 0<t<π/2
+  stimuli_used: {}
+  subpart_links:
+  - 1-2는 1-1의 극한값을 이용
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학Ⅱ
+  - 미적분
+  scope_2028: unknown
+  scope_confirmed: false
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 서울시립대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 서울시립대학교
+  admission_year: 2022
+  admission_type: 수시 모의논술고사
+  track: 자연계열
+  question_no: 1
+  official_url: https://admission.uos.ac.kr/admissionNew/freeBoard/view.do?list_id=OF1&menuid=2002001005000000000&seq=43
+  retrieved_at: '2026-11-23'
+  original_points:
+  - 35
+  - 50
+  rights_notice: 미확인
+  transcribed_from: 2022학년도 수시 논술전형 모의 논술고사 문제지(자연계열) p.2
+verify: verify/UOS-M22.py::p01
+stimuli: []
+stem: |
+  $0<t<\dfrac{\pi}{2}$에 대하여 곡선 $y=-t^2x^2+1$과 직선 $y=(2\tan t)x$ 및 $y$축의 양의 부분으로 둘러싸인 도형의 넓이를 $A(t)$라 하고, 곡선 $y=-t^2x^2+1$과 직선 $y=(2\tan t)x$ 및 $x$축의 양의 부분으로 둘러싸인 도형의 넓이를 $B(t)$라 할 때, 다음 물음에 답하여라.
+subparts:
+- id: 1-1
+  stem: |
+    (a) 곡선 $y=-t^2x^2+1$과 직선 $y=(2\tan t)x$의 교점 중 제1사분면에 있는 점의 $x$좌표를 $p(t)$라 할 때, 극한값 $\displaystyle\lim_{t\to 0+}t\,p(t)$를 구하여라.
+  points: 35
+  depends_on: []
+  answer:
+    kind: value
+    value: sqrt(2) - 1
+    equivalents:
+    - $\sqrt{2}-1$
+    tolerance: null
+  solutions:
+  - id: S11-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 11b-1
+      content: |
+        $p(t)>0$이고 $-t^2\{p(t)\}^2+1=(2\tan t)\,p(t)$이므로 $p(t)=\dfrac{-\tan t+\sqrt{\tan^2 t+t^2}}{t^2}$이다.
+      source_flow: 해설지 p.2 예시 답안
+      criteria:
+      - 1-1.M1
+    - id: 11b-2
+      content: |
+        따라서 $\displaystyle\lim_{t\to 0+}t\,p(t)=\lim_{t\to 0+}\dfrac{-\tan t+\sqrt{\tan^2 t+t^2}}{t}=\lim_{t\to 0+}\left(-\dfrac{\tan t}{t}+\sqrt{\dfrac{\tan^2 t}{t^2}+1}\right)=\sqrt{2}-1$이다.
+      source_flow: 해설지 p.2 예시 답안
+      criteria:
+      - 1-1.A1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 1-1.M1
+      mark_type: M
+      points: 15
+      evidence: 교점 조건 $t^2p^2+2(\tan t)p-1=0$에서 양의 근 $p(t)=\dfrac{-\tan t+\sqrt{\tan^2 t+t^2}}{t^2}$을 구했다.
+      steps:
+      - 11b-1
+    - id: 1-1.A1
+      mark_type: A
+      points: 20
+      evidence: $\dfrac{\tan t}{t}\to 1$을 이용해 $\displaystyle\lim_{t\to 0+}t\,p(t)=\sqrt{2}-1$을 구했다.
+      depends_on:
+      - 1-1.M1
+      steps:
+      - 11b-2
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+- id: 1-2
+  stem: |
+    (b) 극한값 $\displaystyle\lim_{t\to 0+}\dfrac{A(t)}{B(t)}$를 구하여라.
+  points: 50
+  depends_on:
+  - 1-1
+  answer:
+    kind: value
+    value: (8*sqrt(2) - 3)/17
+    equivalents:
+    - $\dfrac{8\sqrt{2}-3}{17}$
+    tolerance: null
+  solutions:
+  - id: S12-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 12b-1
+      content: |
+        $A(t)+B(t)=\displaystyle\int_0^{\frac{1}{t}}(-t^2x^2+1)\,dx=\dfrac{2}{3t}$이므로 $A(t)=\dfrac{2}{3t}-B(t)$이다.
+      source_flow: 해설지 p.2 예시 답안
+      criteria:
+      - 1-2.M1
+    - id: 12b-2
+      content: |
+        $B(t)=\displaystyle\int_0^{p(t)}(2\tan t)x\,dx+\int_{p(t)}^{\frac{1}{t}}(-t^2x^2+1)\,dx=\{p(t)\}^2\tan t+\dfrac{t^2\{p(t)\}^3}{3}-p(t)+\dfrac{2}{3t}$이다.
+      source_flow: 해설지 p.2 예시 답안
+      criteria:
+      - 1-2.M2
+    - id: 12b-3
+      content: |
+        따라서 $t>0$일 때 $\dfrac{A(t)}{B(t)}=\dfrac{\frac{2}{3t}}{B(t)}-1=\dfrac{2}{3\{t\,p(t)\}^2\dfrac{\tan t}{t}+\{t\,p(t)\}^3-3t\,p(t)+2}-1$이다.
+      source_flow: 해설지 p.2 예시 답안
+      criteria:
+      - 1-2.M3
+    - id: 12b-4
+      content: |
+        $\displaystyle\lim_{t\to 0+}t\,p(t)=\sqrt{2}-1$, $\displaystyle\lim_{t\to 0+}\dfrac{\tan t}{t}=1$이므로 $\displaystyle\lim_{t\to 0+}\dfrac{A(t)}{B(t)}=\dfrac{2}{3(\sqrt{2}-1)^2\cdot 1+(\sqrt{2}-1)^3-3(\sqrt{2}-1)+2}-1=\dfrac{8\sqrt{2}-3}{17}$이다.
+      source_flow: 해설지 p.2 예시 답안
+      criteria:
+      - 1-2.A1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 1-2.M1
+      mark_type: M
+      points: 10
+      evidence: $A(t)+B(t)=\dfrac{2}{3t}$를 구하고 $A(t)=\dfrac{2}{3t}-B(t)$로 나타냈다.
+      steps:
+      - 12b-1
+    - id: 1-2.M2
+      mark_type: M
+      points: 15
+      evidence: $B(t)$를 직선 아래 넓이와 곡선 아래 넓이의 합으로 적분해 $p(t)$에 대한 식으로 나타냈다.
+      steps:
+      - 12b-2
+    - id: 1-2.M3
+      mark_type: M
+      points: 10
+      evidence: $\dfrac{A(t)}{B(t)}$를 $t\,p(t)$와 $\dfrac{\tan t}{t}$로 정리했다.
+      depends_on:
+      - 1-2.M1
+      - 1-2.M2
+      steps:
+      - 12b-3
+    - id: 1-2.A1
+      mark_type: A
+      points: 15
+      evidence: 극한을 대입해 $\dfrac{8\sqrt{2}-3}{17}$을 구했다.
+      depends_on:
+      - 1-2.M3
+      steps:
+      - 12b-4
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: past-v2-lean
+  item_version: 1
+  verdict: pass
+  date: 2026-11-23
+created: 2026-11-23
+updated: 2026-11-23

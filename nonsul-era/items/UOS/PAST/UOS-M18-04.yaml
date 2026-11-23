@@ -1,0 +1,271 @@
+schema_version: '2.0'
+id: UOS-M18-04
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: UOS
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 일반화
+points: 100
+time_estimate_min: null
+key_idea: |
+  $f(x)=x2^x$의 증감·극값으로 그래프를 그리고, $g\circ f$는 $f$를 $y$축으로 $-k$만큼 옮긴 톱니 모양이므로 직선 $y=\dfrac xn$과의 교점 수를 $f(n)-1$로 세어 $a_n=n2^n$을 얻는다.
+stuck: |
+  $g\circ f$의 그래프(톱니)와 $y=h(x)$의 교점 수를 $f$의 값의 정수 구간으로 나누어 세는 것, $x<0$에서 교점이 1개임을 보이는 것
+tags:
+- 합성함수의 그래프
+- 가우스 기호
+- 교점의 개수
+- 부분분수
+elements:
+  materials:
+  - $f(x)=x2^x$, $g(x)=x-[x]$, $h(x)=\dfrac xn\ (x\ge0),\ -x\ (x<0)$
+  concepts:
+  - 도함수와 그래프의 개형
+  - 가우스 기호와 합성함수
+  - 교점의 개수
+  - 급수의 합(부분분수)
+  tools:
+  - 증감표
+  - 그래프의 평행이동
+  - 구간별 교점 세기
+  - 부분분수 분해
+  conditions:
+  - 자연수 $n$
+  - $[x]$는 $x$를 넘지 않는 최대 정수
+  stimuli_used: {}
+  subpart_links:
+  - 4-2는 4-1의 그래프 개형($f$의 치역·증가성)을 이용해 교점을 센다
+curriculum:
+  version: '2015'
+  subjects:
+  - 미적분
+  scope_2028: calc2
+  scope_confirmed: false
+  content_area: 미분법 – 그래프의 개형, 급수
+  behavior_domain: 추론
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 서울시립대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 서울시립대학교
+  admission_year: 2018
+  admission_type: 수시 모의논술고사
+  track: 자연계열
+  question_no: 4
+  official_url: https://admission.uos.ac.kr/admissionNew/freeBoard/view.do?list_id=OF1&menuid=2002001005000000000&seq=33
+  retrieved_at: '2026-11-23'
+  original_points:
+  - 40
+  - 60
+  rights_notice: 미확인
+  transcribed_from: 2018학년도 수시모집 논술전형 모의 논술고사 문제지(자연계열) (HWP 변환본 M18_Q)
+verify: verify/UOS-M18.py::p04
+stimuli: []
+stem: |
+  [문제 4] (총 100점)
+  자연수 $n$과 세 함수
+  $f(x)=x2^{x}$, $g(x)=x-[x]$, $h(x)=\begin{cases}\dfrac xn&(x\ge0)\\-x&(x<0)\end{cases}$
+  에 대하여, 합성함수 $y=g\circ f(x)$의 그래프와 함수 $y=h(x)$의 그래프와의 교점의 개수를 $a_n$이라 하자. (단, $[x]$는 $x$를 넘지 않는 최대 정수이다.)
+subparts:
+- id: 4-1
+  stem: |
+    (a) 필요하면 $\lim_{x\to-\infty}x2^x=0$을 이용해서, 함수 $y=f(x)$의 그래프의 개형을 그려라. (40점)
+  points: 40
+  depends_on: []
+  answer:
+    kind: expression
+    value: xmin=-1/log(2); fmin=-1/(E*log(2)); xinf=-2/log(2); finf=-2/(E**2*log(2))
+    equivalents:
+    - 극솟값 $f\left(-\dfrac1{\ln2}\right)=-\dfrac1{e\ln2}$, 변곡점 $x=-\dfrac2{\ln2}$, $x\to-\infty$에서 $0$에 접근, $x\to\infty$에서 $\infty$
+    tolerance: null
+  solutions:
+  - id: S41-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 41b-1
+      content: |
+        $f'(x)=2^x(1+x\ln2)$이고 $f''(x)=2^x(2+x\ln2)\ln2$이다. 따라서 $x=-\dfrac1{\ln2}$일 때 $f'(x)=0$이고 $f\left(-\dfrac1{\ln2}\right)=-\dfrac1{\ln2}2^{-\frac1{\ln2}}=-\dfrac1{2^{\log_2e}\ln2}=-\dfrac1{e\ln2}$이므로, 함수 $f(x)$의 증가와 감소를 표로 나타내면 다음과 같다.
+        $x<-\dfrac2{\ln2}$: $f'<0$, $f''<0$ / $x=-\dfrac2{\ln2}$: $f''=0$, $f=-\dfrac2{e^2\ln2}$ / $-\dfrac2{\ln2}<x<-\dfrac1{\ln2}$: $f'<0$, $f''>0$ / $x=-\dfrac1{\ln2}$: $f'=0$, $f=-\dfrac1{e\ln2}$ / $-\dfrac1{\ln2}<x<0$: $f'>0$, $f''>0$ / $x=0$: $f'(0)=1$, $f(0)=0$ / $x>0$: $f'>0$, $f''>0$
+      source_flow: 해설지 예시 답안
+      criteria:
+      - 4-1.M1
+      - 4-1.A1
+    - id: 41b-2
+      content: |
+        그런데 $2<e<4$이므로 $1<\log_2e=\dfrac1{\ln2}<2$이고 $0<\dfrac1{e\ln2}<1$이다. 또한 $\lim_{x\to-\infty}f(x)=0$이고 $\lim_{x\to\infty}f(x)=\infty$이므로, 함수 $y=f(x)$의 그래프의 개형은 $x\to-\infty$에서 $0$에 접근하며 내려가 $x=-\dfrac1{\ln2}$에서 극솟값 $-\dfrac1{e\ln2}$를 갖고, 원점을 지나 증가하며 아래로 볼록한 모양이다.
+      source_flow: 해설지 예시 답안
+      criteria:
+      - 4-1.M2
+      - 4-1.R1
+  # 채점기준 미공개 — 단계별 추정
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 4-1.M1
+      mark_type: M
+      points: 10
+      evidence: |
+        $f'(x)=2^x(1+x\ln2)$와 $f''(x)=2^x(2+x\ln2)\ln2$를 구했다.
+      steps:
+      - 41b-1
+    - id: 4-1.A1
+      mark_type: A
+      points: 10
+      evidence: |
+        극값 $x=-\dfrac1{\ln2}$, $f=-\dfrac1{e\ln2}$와 변곡점 $x=-\dfrac2{\ln2}$를 구했다.
+      steps:
+      - 41b-1
+      depends_on:
+      - 4-1.M1
+    - id: 4-1.M2
+      mark_type: M
+      points: 10
+      evidence: |
+        $\lim_{x\to-\infty}f(x)=0$, $\lim_{x\to\infty}f(x)=\infty$와 $f(0)=0$ 등 끝 거동·특이점을 밝혔다.
+      steps:
+      - 41b-2
+    - id: 4-1.R1
+      mark_type: R
+      points: 10
+      evidence: |
+        증감·오목 정보를 종합해 개형을 바르게 그리고 $-1<-\dfrac1{e\ln2}<0$임을 밝혔다.
+      steps:
+      - 41b-2
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+- id: 4-2
+  stem: |
+    (b) $\sum_{k=1}^{n}\dfrac{a_{k+1}^{2}}{a_ka_{k+2}}$을 구하여라. (60점)
+  points: 60
+  depends_on:
+  - 4-1
+  answer:
+    kind: expression
+    value: n + 3/4 - (2*n+3)/(2*(n+1)*(n+2))
+    equivalents:
+    - $\dfrac34+n-\dfrac{2n+3}{2(n+1)(n+2)}$
+    tolerance: null
+  solutions:
+  - id: S42-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 42b-1
+      content: |
+        고정된 정수 $k$에 대해서 어떤 구간에 포함되는 모든 $x$가 $k\le f(x)<k+1$을 만족시키면 $g\circ f(x)=f(x)-[f(x)]=f(x)-k$이므로, 주어진 그 구간에서 $y=g\circ f(x)$의 그래프는 $y=f(x)$의 그래프를 $y$축으로 $-k$만큼 평행이동한 그래프와 같다. 따라서 함수 $y=g\circ f(x)$의 그래프의 개형은 $f$의 그래프를 정수 높이마다 잘라 아래로 옮긴 톱니 모양이다.
+      source_flow: 해설지 예시 답안
+      criteria:
+      - 4-2.M1
+    - id: 42b-2
+      content: |
+        (i) $x<0$일 때, $g\circ f(x)=f(x)+1$이므로 $x<0$에서 $y=g\circ f(x)$의 그래프와 $y=-x$의 그래프와의 교점의 개수는 1이다.
+      source_flow: 해설지 예시 답안
+      criteria:
+      - 4-2.R1
+    - id: 42b-3
+      content: |
+        (ii) $x\ge0$일 때, $f(0)=0$, $f(n)=n2^n$, $f'(0)=1$이므로 $x\ge0$에서 $y=g\circ f(x)$의 그래프와 $y=\dfrac xn$의 그래프와의 교점의 개수는 $f(n)-1=n2^n-1$이다.
+      source_flow: 해설지 예시 답안
+      criteria:
+      - 4-2.R2
+    - id: 42b-4
+      content: |
+        따라서 $a_n=n2^n$이므로
+        $$\sum_{k=1}^{n}\dfrac{a_{k+1}^2}{a_ka_{k+2}}=\sum_{k=1}^{n}\dfrac{(k+1)^2}{k(k+2)}=\sum_{k=1}^{n}\left(1+\dfrac1{k(k+2)}\right)=n+\dfrac12\sum_{k=1}^{n}\left(\dfrac1k-\dfrac1{k+2}\right)=\dfrac34+n-\dfrac{2n+3}{2(n+1)(n+2)}$$
+        이다.
+      source_flow: 해설지 예시 답안
+      criteria:
+      - 4-2.A1
+      - 4-2.M2
+      - 4-2.A2
+  # 채점기준 미공개 — 단계별 추정
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 4-2.M1
+      mark_type: M
+      points: 15
+      evidence: |
+        $k\le f(x)<k+1$인 구간에서 $g\circ f=f-k$임을 이용해 $y=g\circ f(x)$의 그래프를 $f$의 그래프를 평행이동한 톱니 꼴로 파악했다.
+      steps:
+      - 42b-1
+    - id: 4-2.R1
+      mark_type: R
+      points: 10
+      evidence: |
+        $x<0$에서 $g\circ f=f+1$이고 $y=-x$와 교점이 1개임을 근거와 함께 밝혔다.
+      steps:
+      - 42b-2
+    - id: 4-2.R2
+      mark_type: R
+      points: 10
+      evidence: |
+        $x\ge0$에서 $f(0)=0$, $f'(0)=1$, $f(n)=n2^n$으로 교점의 개수 $n2^n-1$을 근거와 함께 구했다.
+      steps:
+      - 42b-3
+    - id: 4-2.A1
+      mark_type: A
+      points: 5
+      evidence: |
+        $a_n=n2^n$을 구했다.
+      steps:
+      - 42b-4
+      depends_on:
+      - 4-2.M2
+    - id: 4-2.M2
+      mark_type: M
+      points: 10
+      evidence: |
+        $\dfrac{a_{k+1}^2}{a_ka_{k+2}}=\dfrac{(k+1)^2}{k(k+2)}=1+\dfrac1{k(k+2)}$로 정리하고 부분분수로 분해했다.
+      steps:
+      - 42b-4
+    - id: 4-2.A2
+      mark_type: A
+      points: 10
+      evidence: |
+        합 $\dfrac34+n-\dfrac{2n+3}{2(n+1)(n+2)}$를 구했다.
+      steps:
+      - 42b-4
+      depends_on:
+      - 4-2.M2
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: past-v2-lean
+  item_version: 1
+  verdict: pass
+  date: &id001 2026-11-23
+created: *id001
+updated: *id001

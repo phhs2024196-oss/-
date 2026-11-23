@@ -1,0 +1,164 @@
+# 채점기준 미공개 — 단계별 추정
+schema_version: '2.0'
+id: UOS-M26-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: UOS
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 구성
+points: 85
+time_estimate_min: null
+key_idea: $0,a,a^2$이 $f(x)-x^2=0$의 세 근이므로 $f(x)-x^2=x(x-a)(x-a^2)$로 두고, 두 영역의 넓이가 같다는 조건을 $\displaystyle\int_0^{a^2}\{f(x)-x^2\}dx=0$으로
+  바꾼다.
+stuck: 조건 (2)를 $f(x)-x^2$의 세 근으로 읽고, 부호가 반대인 두 넓이의 같음을 한 구간의 정적분 $=0$으로 합치는 발상
+tags: []
+elements:
+  materials:
+  - 삼차함수
+  - 곡선 $y=x^2$와 $y=f(x)$로 둘러싸인 두 영역
+  concepts:
+  - 인수정리
+  - 정적분과 넓이
+  - 두 영역의 넓이가 같다
+  tools:
+  - 다항함수의 정적분
+  conditions:
+  - $a>1$
+  - 최고차항의 계수 1
+  stimuli_used: {}
+  subpart_links: []
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학Ⅱ
+  scope_2028: unknown
+  scope_confirmed: false
+  behavior_domain: 문제해결
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 서울시립대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 서울시립대학교
+  admission_year: 2026
+  admission_type: 수시 모의논술고사
+  track: 자연계열
+  question_no: 1
+  official_url: https://admission.uos.ac.kr/admissionNew/freeBoard/view.do?list_id=OF1&menuid=2002001005000000000&seq=51
+  retrieved_at: '2026-11-23'
+  original_points:
+  - 85
+  rights_notice: 미확인
+  transcribed_from: 2026학년도 모의 논술고사 문제지(자연계열) p.2
+verify: verify/UOS-M26.py::p01
+stimuli: []
+stem: |
+  [문제 1] (85점)
+  $1$보다 큰 실수 $a$에 대하여, 다음 조건을 만족하는 $f(x)$를 구하여라.
+subparts:
+- id: 1-1
+  stem: |
+    (1) $f(x)$는 최고차항의 계수가 $1$인 삼차식이다.
+    (2) $f(0)=0,\ f(a)=a^2,\ f(a^2)=a^4$이다.
+    (3) 두 곡선 $y=f(x)$와 $y=x^2$으로 둘러싸인 두 영역의 넓이가 같다.
+  points: 85
+  depends_on: []
+  answer:
+    kind: expression
+    value: x**3-5*x**2+8*x
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S11-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 11b-1
+      content: |
+        조건으로부터 $0,\ a,\ a^2$은 $f(x)-x^2=0$을 만족하는 서로 다른 세 개의 근이고, $f(x)$의 최고차항이 $1$이므로 $f(x)-x^2=x(x-a)(x-a^2)$이다. $f(x)$의 최고차항이 양수이고 $0<a<a^2$이므로 $y=f(x)$와 $y=x^2$로 둘러싸인 두 영역의 넓이는 각각 $\displaystyle\int_0^{a}\{f(x)-x^2\}dx$와 $\displaystyle\int_a^{a^2}\{x^2-f(x)\}dx$이다.
+      source_flow: 해설지 p.2 예시 답안
+      criteria:
+      - 1-1.M1
+    - id: 11b-2
+      content: |
+        $\displaystyle\int_0^{a}\{f(x)-x^2\}dx=\int_a^{a^2}\{x^2-f(x)\}dx$이므로 $\displaystyle\int_0^{a}\{f(x)-x^2\}dx+\int_a^{a^2}\{f(x)-x^2\}dx=\int_0^{a^2}\{f(x)-x^2\}dx=\int_0^{a^2}x(x-a)(x-a^2)dx=0$이다.
+      source_flow: 해설지 p.2 예시 답안
+      criteria:
+      - 1-1.M2
+    - id: 11b-3
+      content: |
+        이를 계산하면 $\displaystyle\int_0^{a^2}x(x-a)(x-a^2)dx=\int_0^{a^2}\{x^3-(a+a^2)x^2+a^3x\}dx=\left[\dfrac14x^4-\dfrac{a+a^2}{3}x^3+\dfrac{a^3}{2}x^2\right]_0^{a^2}=\dfrac14a^8-\dfrac{a+a^2}{3}a^6+\dfrac12a^7=\dfrac{1}{12}(3a^8-4a^7-4a^8+6a^7)=\dfrac{a^7(-a+2)}{12}=0$이다.
+      source_flow: 해설지 p.2 예시 답안
+      criteria:
+      - 1-1.A1
+    - id: 11b-4
+      content: |
+        따라서 $a=2$이고, $f(x)=x(x-2)(x-4)+x^2=x^3-5x^2+8x$이다.
+      source_flow: 해설지 p.2 예시 답안
+      criteria:
+      - 1-1.A2
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 1-1.M1
+      mark_type: M
+      points: 25
+      evidence: 세 근 $0,a,a^2$로부터 $f(x)-x^2=x(x-a)(x-a^2)$를 세우고 두 영역의 넓이를 적분으로 나타냈다.
+      steps:
+      - 11b-1
+    - id: 1-1.M2
+      mark_type: M
+      points: 25
+      evidence: 두 넓이가 같음을 $\displaystyle\int_0^{a^2}\{f(x)-x^2\}dx=0$으로 바꾸었다.
+      depends_on:
+      - 1-1.M1
+      steps:
+      - 11b-2
+    - id: 1-1.A1
+      mark_type: A
+      points: 20
+      evidence: 정적분을 계산하여 $\dfrac{a^7(2-a)}{12}=0$을 얻었다.
+      depends_on:
+      - 1-1.M2
+      steps:
+      - 11b-3
+    - id: 1-1.A2
+      mark_type: A
+      points: 15
+      evidence: $a=2$를 구하고 $f(x)=x^3-5x^2+8x$를 얻었다.
+      depends_on:
+      - 1-1.A1
+      steps:
+      - 11b-4
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: past-v2-lean
+  item_version: 1
+  verdict: pass
+  date: 2026-11-23
+created: 2026-11-23
+updated: 2026-11-23

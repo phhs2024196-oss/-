@@ -1,0 +1,179 @@
+schema_version: '2.0'
+id: UOS-G23B-04
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: proof
+origin: past_exam
+school: UOS
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 추론
+points: 115
+time_estimate_min: null
+key_idea: 곡선 $y=\dfrac{1}{x}$ 위의 점 $\left(k+1,\dfrac{1}{k+1}\right)$에서의 접선과 두 점 $\left(k,\dfrac{1}{k}\right)$, $\left(k+1,\dfrac{1}{k+1}\right)$을 지나는 직선으로 $\dfrac{1}{x}$를 아래·위에서 누르고 적분하여 $\ln\dfrac{k+1}{k}$를 평가한다.
+stuck: $\dfrac{1}{x}$를 접선(아래)과 현(위)으로 샌드위치하는 발상, 닫힌구간 $[k,k+1]$에서의 부등식 증명
+tags: []
+elements:
+  materials: []
+  concepts:
+  - 볼록함수의 접선과 현
+  - 정적분의 부등식
+  - 합의 합산
+  tools:
+  - 접선의 방정식
+  - 정적분
+  - 로그함수의 적분
+  - 시그마
+  conditions:
+  - 모든 자연수 n
+  stimuli_used: {}
+  subpart_links: []
+curriculum:
+  version: '2015'
+  subjects:
+  - 미적분
+  scope_2028: calc2
+  scope_confirmed: false
+  content_area: 적분법 – 정적분과 부등식
+  behavior_domain: 문제해결
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 서울시립대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 서울시립대학교
+  admission_year: 2023
+  admission_type: 수시 논술전형
+  track: 자연계열Ⅱ
+  question_no: 4
+  official_url: https://admission.uos.ac.kr/admissionNew/freeBoard/view.do?list_id=OF1&menuid=2002001005000000000&seq=46
+  retrieved_at: '2026-11-23'
+  original_points:
+  - 115
+  rights_notice: 미확인
+  transcribed_from: 2023 논술고사 문제지(자연계열Ⅱ) p.2
+verify: verify/UOS-G23B.py::p04
+stimuli: []
+stem: |
+  모든 자연수 $n$에 대하여 다음 부등식이 성립함을 보여라.
+  $$\sum_{k=1}^{n}\left\{\dfrac{1}{k+1}+\dfrac{1}{2(k+1)^2}\right\}\le\ln(n+1)\le\sum_{k=1}^{n}\dfrac{1}{2}\left(\dfrac{1}{k}+\dfrac{1}{k+1}\right)$$
+subparts:
+- id: 4-1
+  stem: ''
+  points: 115
+  depends_on: []
+  answer:
+    kind: proof
+    value: proof
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S41-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 41b-1
+      content: |
+        자연수 $k$에 대해 닫힌구간 $[k,k+1]$을 생각한다. $y=f(x)$를 곡선 $y=\dfrac{1}{x}$ 위의 점 $\left(k+1,\dfrac{1}{k+1}\right)$에서의 접선이라 하고, $y=g(x)$를 곡선 $y=\dfrac{1}{x}$ 위의 두 점 $\left(k,\dfrac{1}{k}\right)$와 $\left(k+1,\dfrac{1}{k+1}\right)$을 지나는 직선이라 하자. 그러면
+        $$f(x)=-\dfrac{1}{(k+1)^2}\{x-(k+1)\}+\dfrac{1}{k+1},\qquad g(x)=-\dfrac{1}{k(k+1)}(x-k)+\dfrac{1}{k}$$
+        이다.
+      source_flow: 해설지 p.4 예시 답안
+      criteria:
+      - 4-1.M1
+    - id: 41b-2
+      content: |
+        이때 닫힌구간 $[k,k+1]$에서
+        $$\dfrac{1}{x}-f(x)=\dfrac{(x-k-1)^2}{x(k+1)^2}\ge0,\qquad g(x)-\dfrac{1}{x}=-\dfrac{(x-k)(x-k-1)}{xk(k+1)}\ge0$$
+        이다. 즉 닫힌구간 $[k,k+1]$에서 $f(x)\le\dfrac{1}{x}\le g(x)$이므로 $\displaystyle\int_k^{k+1}f(x)\,dx\le\int_k^{k+1}\dfrac{1}{x}\,dx\le\int_k^{k+1}g(x)\,dx$이다.
+      source_flow: 해설지 p.4 예시 답안
+      criteria:
+      - 4-1.M2
+    - id: 41b-3
+      content: |
+        이때
+        $$\int_k^{k+1}f(x)\,dx=\int_k^{k+1}\left[-\dfrac{1}{(k+1)^2}\{x-(k+1)\}+\dfrac{1}{k+1}\right]dx=\dfrac{1}{k+1}+\dfrac{1}{2(k+1)^2}$$
+        $$\int_k^{k+1}g(x)\,dx=\int_k^{k+1}\left\{-\dfrac{1}{k(k+1)}(x-k)+\dfrac{1}{k}\right\}dx=\dfrac{1}{2}\left(\dfrac{1}{k}+\dfrac{1}{k+1}\right)$$
+        $$\int_k^{k+1}\dfrac{1}{x}\,dx=\ln(k+1)-\ln k$$
+        이므로 $\dfrac{1}{k+1}+\dfrac{1}{2(k+1)^2}\le\ln(k+1)-\ln k\le\dfrac{1}{2}\left(\dfrac{1}{k}+\dfrac{1}{k+1}\right)$이다.
+      source_flow: 해설지 p.4 예시 답안
+      criteria:
+      - 4-1.M3
+      - 4-1.A1
+    - id: 41b-4
+      content: |
+        위의 부등식을 $k=1,2,\cdots,n$에 대하여 변끼리 더하면 가운데 항이 $\sum_{k=1}^{n}\{\ln(k+1)-\ln k\}=\ln(n+1)$이므로
+        $$\sum_{k=1}^{n}\left\{\dfrac{1}{k+1}+\dfrac{1}{2(k+1)^2}\right\}\le\ln(n+1)\le\sum_{k=1}^{n}\dfrac{1}{2}\left(\dfrac{1}{k}+\dfrac{1}{k+1}\right)$$
+        이 성립한다. ■
+      source_flow: 해설지 p.4 예시 답안
+      criteria:
+      - 4-1.R1
+  # 채점기준 미공개 — 단계별 추정
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 4-1.M1
+      mark_type: M
+      points: 20
+      evidence: 접선 $y=f(x)$ 와 현 $y=g(x)$ 의 방정식을 구했다.
+      steps:
+      - 41b-1
+    - id: 4-1.M2
+      mark_type: M
+      points: 30
+      evidence: $[k,k+1]$ 에서 $f(x)\le\dfrac{1}{x}\le g(x)$ 를 대수적으로 보이고 적분 부등식을 세웠다.
+      depends_on:
+      - 4-1.M1
+      steps:
+      - 41b-2
+    - id: 4-1.M3
+      mark_type: M
+      points: 25
+      evidence: 세 함수의 정적분을 계산하는 식을 세웠다.
+      steps:
+      - 41b-3
+    - id: 4-1.A1
+      mark_type: A
+      points: 15
+      evidence: 세 정적분 값을 바르게 구해 구간별 부등식을 얻었다.
+      depends_on:
+      - 4-1.M3
+      steps:
+      - 41b-3
+    - id: 4-1.R1
+      mark_type: R
+      points: 25
+      evidence: $k=1,\cdots,n$ 에 대해 합하여 $\sum\{\ln(k+1)-\ln k\}=\ln(n+1)$ 로 결론을 이끌었다.
+      depends_on:
+      - 4-1.M2
+      - 4-1.A1
+      steps:
+      - 41b-4
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: past-v2-lean
+  item_version: 1
+  verdict: pass
+  date: 2026-11-23
+created: 2026-11-23
+updated: 2026-11-23

@@ -1,0 +1,205 @@
+schema_version: '2.0'
+id: UOS-G23A-03
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: UOS
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 분류
+points: 105
+time_estimate_min: 30
+key_idea: 식을 $(a+4b)c^2=3\cdot2^{100}$로 정리해 $c=2^r$로 놓고 순서쌍을 센 뒤, 서로 다른 조건에서 $a=b$, $a=c$, $b=c$인 경우를 빼 준다.
+stuck: $c^2\mid3\cdot2^{100}$에서 $c=2^r$로 한정하고, 서로 다르다는 조건을 포함배제식으로 처리하는 발상
+tags: []
+elements:
+  materials:
+  - 등식 $\log_2(a+4b)+2\log_2c-\log_23=100$
+  - 서로 다른 세 자연수의 순서쌍 $(a,b,c)$
+  concepts:
+  - 로그의 성질
+  - 약수·소인수분해
+  - 경우의 수의 합
+  tools:
+  - 로그
+  - 소인수분해
+  - 등비수열의 합
+  conditions:
+  - $a,\ b,\ c$는 서로 다른 자연수
+  stimuli_used: {}
+  subpart_links: []
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학Ⅰ
+  scope_2028: common
+  scope_confirmed: false
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 서울시립대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 서울시립대학교
+  admission_year: 2023
+  admission_type: 수시 논술전형
+  track: 자연계열Ⅰ
+  question_no: 3
+  official_url: https://admission.uos.ac.kr/admissionNew/freeBoard/view.do?list_id=OF1&menuid=2002001005000000000&seq=46
+  retrieved_at: '2026-11-23'
+  original_points:
+  - 105
+  rights_notice: 미확인
+  transcribed_from: 2023 논술고사 문제지(자연계열Ⅰ) p.2
+verify: verify/UOS-G23A.py::p03
+stimuli: []
+stem: |
+  다음을 만족시키는 서로 다른 세 자연수 $a,\ b,\ c$의 모든 순서쌍 $(a,b,c)$의 개수를 구하여라.
+  $\log_2(a+4b)+2\log_2c-\log_23=100$
+subparts:
+- id: 3-1
+  stem: ''
+  points: 105
+  depends_on: []
+  answer:
+    kind: value
+    value: 2**100-117
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S31-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 31b-1
+      content: |
+        조건에서 주어진 식을 정리하면 $(a+4b)c^2=3\cdot2^{100}$ ……①이다. 따라서 $c=2^r\ (r=0,\ 1,\ \cdots,\ 49)$이다. $r=0,\ 1,\ \cdots,\ 49$에 대해 $a=4\cdot(3\cdot2^{98-2r}-b)$이므로 ①을 만족시키는 순서쌍의 개수는 $3\cdot2^{98-2r}-1$이다.
+      source_flow: 해설지 p.3 예시답안
+      criteria:
+      - 3-1.M1
+    - id: 31b-2
+      content: |
+        따라서 ①을 만족시키는 자연수의 모든 순서쌍의 개수는 $\displaystyle\sum_{r=0}^{49}(3\cdot2^{98-2r}-1)=2^{100}-51$이다. $a,\ b,\ c$는 서로 다른 자연수이므로 아래 (i), (ii), (iii), (iv)를 생각해야 한다.
+      source_flow: 해설지 p.3 예시답안
+      criteria:
+      - 3-1.A1
+    - id: 31b-3
+      content: |
+        (i) $a=b$인 경우: $a+4b=5a$이므로 ①의 좌변은 5의 배수이지만 우변은 5의 배수가 아니다. 따라서 ①을 만족시키는 자연수의 순서쌍은 없다.
+        (iv) $a=b=c$인 경우: (i)에 의해서 ①을 만족시키는 자연수의 순서쌍은 없다.
+      source_flow: 해설지 p.3 예시답안
+      criteria:
+      - 3-1.M2
+      - 3-1.A2
+    - id: 31b-4
+      content: |
+        (ii) $a=c$인 경우: $(a+4b)a^2=3\cdot2^{100}$이므로 $a^3<3\cdot2^{100}$이고 $a=2^r\ (r=0,\ 1,\ \cdots,\ 33)$이다. 이때 $b=3\cdot2^{98-2r}-2^{r-2}$이고 $b$는 자연수이므로 $r=2,\ 3,\ \cdots,\ 33$이다. 따라서 구하는 순서쌍의 개수는 32이다.
+      source_flow: 해설지 p.3 예시답안
+      criteria:
+      - 3-1.M2
+      - 3-1.A3
+    - id: 31b-5
+      content: |
+        (iii) $b=c$인 경우: $(a+4b)b^2=3\cdot2^{100}$이므로 $4b^3<3\cdot2^{100}$이고 $b=2^r\ (r=0,\ 1,\ \cdots,\ 33)$이다. 이때 $a=3\cdot2^{100-2r}-2^{r+2}$이고 $a$는 자연수이므로 $r=0,\ 1,\ 2,\ \cdots,\ 33$이다. 따라서 구하는 순서쌍의 개수는 34이다.
+      source_flow: 해설지 p.3 예시답안
+      criteria:
+      - 3-1.M2
+      - 3-1.A4
+    - id: 31b-6
+      content: |
+        따라서 구하는 순서쌍 $(a,b,c)$의 개수는 $2^{100}-51-32-34=2^{100}-117$이다.
+      source_flow: 해설지 p.3 예시답안
+      criteria:
+      - 3-1.A5
+  # 채점기준 미공개 — 단계별 추정
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 3-1.M1
+      mark_type: M
+      points: 15
+      evidence: 식을 $(a+4b)c^2=3\cdot2^{100}$으로 정리하고 $c=2^r$임을 보였다.
+      steps:
+      - 31b-1
+    - id: 3-1.A1
+      mark_type: A
+      points: 20
+      evidence: 각 $r$에 대한 순서쌍의 수 $3\cdot2^{98-2r}-1$과 합 $2^{100}-51$을 구했다.
+      depends_on:
+      - 3-1.M1
+      steps:
+      - 31b-2
+    - id: 3-1.M2
+      mark_type: M
+      points: 15
+      evidence: 서로 다른 조건을 위해 $a=b$, $a=c$, $b=c$, $a=b=c$인 경우로 나누었다.
+      steps:
+      - 31b-3
+      - 31b-4
+      - 31b-5
+    - id: 3-1.A2
+      mark_type: A
+      points: 15
+      evidence: $a=b$ 및 $a=b=c$인 경우가 불가능함(5의 배수)을 보였다.
+      depends_on:
+      - 3-1.M2
+      steps:
+      - 31b-3
+    - id: 3-1.A3
+      mark_type: A
+      points: 20
+      evidence: $a=c$인 경우의 수 32를 구했다.
+      depends_on:
+      - 3-1.M2
+      - 3-1.A1
+      steps:
+      - 31b-4
+    - id: 3-1.A4
+      mark_type: A
+      points: 15
+      evidence: $b=c$인 경우의 수 34를 구했다.
+      depends_on:
+      - 3-1.M2
+      - 3-1.A1
+      steps:
+      - 31b-5
+    - id: 3-1.A5
+      mark_type: A
+      points: 5
+      evidence: 최종 개수 $2^{100}-117$을 구했다.
+      depends_on:
+      - 3-1.M1
+      - 3-1.A1
+      - 3-1.A3
+      - 3-1.A4
+      steps:
+      - 31b-6
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: past-v2-lean
+  item_version: 1
+  verdict: pass
+  date: &id001 2026-11-23
+created: *id001
+updated: *id001

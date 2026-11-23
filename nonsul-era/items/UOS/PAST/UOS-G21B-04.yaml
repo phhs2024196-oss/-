@@ -1,0 +1,188 @@
+# 채점기준 미공개 — 단계별 추정
+schema_version: '2.0'
+id: UOS-G21B-04
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: UOS
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 이중세기
+points: 115
+time_estimate_min: null
+key_idea: 각 $m$에 대해 $\dfrac1{k^3}x^2=8^m$이 구간 $[64^{m-1},64^m)$에서 해를 가질 조건을 $k$의 범위로 바꾸고, $\sum a_k$를 그 조건을 만족하는 순서쌍 $(k,m)$의 개수로 센다.
+stuck: 교점의 개수를 $k$별이 아니라 $m$별로 세어(순서 바꾸기) $k$의 범위 $2^{3m-4}\le k<2^{3m}$로 바꾸는 발상
+tags: []
+elements:
+  materials:
+  - 계단함수
+  - 포물선족 $y=x^2/k^3$
+  concepts:
+  - 그래프의 교점의 개수
+  - 순서쌍 개수로의 환원
+  - 등비수열의 합
+  tools:
+  - 이중세기(합의 순서 바꾸기)
+  - 지수 부등식
+  - 등비수열의 합
+  conditions:
+  - $x\ge1$
+  - $n=2^{300}$
+  stimuli_used: {}
+  subpart_links: []
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학Ⅱ
+  - 수학Ⅰ
+  scope_2028: common
+  scope_confirmed: false
+  content_area: 지수·거듭제곱, 수열의 합, 함수의 그래프
+  behavior_domain: 문제해결
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 서울시립대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 서울시립대학교
+  admission_year: 2021
+  admission_type: 수시 논술전형
+  track: 자연계열Ⅱ
+  question_no: 4
+  official_url: https://admission.uos.ac.kr/admissionNew/freeBoard/view.do?list_id=OF1&menuid=2002001005000000000&seq=42
+  retrieved_at: '2026-11-23'
+  original_points:
+  - 115
+  rights_notice: 미확인
+  transcribed_from: 2021학년도 논술고사 문제지(자연계열Ⅱ) p.2
+verify: verify/UOS-G21B.py::p04
+stimuli: []
+stem: |
+  함수 $y=f(x)\ (x\ge1)$가 다음을 만족시킨다.
+
+  모든 자연수 $m$에 대하여 $64^{m-1}\le x<64^m$이면 $f(x)=8^m$이다.
+
+  자연수 $k$에 대하여 함수 $y=\dfrac{1}{k^3}x^2$의 그래프와 함수 $y=f(x)$의 그래프의 교점의 개수를 $a_k$라 하자.
+subparts:
+- id: 4-1
+  stem: |
+    $n=2^{300}$일 때, $\displaystyle\sum_{k=1}^{n}a_k$를 구하여라.
+  points: 115
+  depends_on: []
+  answer:
+    kind: expression
+    value: (11*2**300-4)/7
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S41-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 41b-1
+      content: |
+        자연수 $m$에 대하여 $64^{m-1}\le x<64^m$에서 포물선 $y=\dfrac1{k^3}x^2$과 직선 $y=8^m$의 교점의 개수는 0 혹은 1이다. 교점의 개수가 1일 필요충분조건은 $\dfrac{64^{2m-2}}{k^3}\le8^m<\dfrac{64^{2m}}{k^3}$이다. 즉
+        $$2^{3m-4}\le k<2^{3m}\quad(1\le k\le2^{300})\qquad\cdots\ \text{①}$$
+        이다.
+      source_flow: 해설지 p.4 예시 답안
+      criteria:
+      - 4-1.M1
+      - 4-1.A1
+    - id: 41b-2
+      content: |
+        $\displaystyle\sum_{k=1}^{2^{300}}a_k$는 ①을 만족시키는 자연수의 순서쌍 $(k,m)$의 개수와 같다. 따라서 각 $m$에 대하여 $b_m$을 ①을 만족시키는 $k$의 개수라 하면
+        $$b_m=n\left(\{k\mid1\le k\le2^{300},\ 2^{3m-4}\le k<2^{3m}\}\right)=\begin{cases}7&(m=1)\\2^{3m}-2^{3m-4}&(2\le m\le100)\\2^{300}-2^{299}+1&(m=101)\\0&(m>101)\end{cases}$$
+        이다.
+      source_flow: 해설지 p.4 예시 답안
+      criteria:
+      - 4-1.M2
+      - 4-1.A2
+    - id: 41b-3
+      content: |
+        이므로
+        $$\sum_{k=1}^{2^{300}}a_k=\sum_{m=1}^{101}b_m=7+\sum_{m=2}^{100}(2^{3m}-2^{3m-4})+2^{300}-2^{299}+1=\frac{11\cdot2^{300}-4}{7}$$
+        이다.
+      source_flow: 해설지 p.4 예시 답안
+      criteria:
+      - 4-1.M3
+      - 4-1.A3
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 4-1.M1
+      mark_type: M
+      points: 25
+      evidence: 구간 $64^{m-1}\le x<64^m$에서 교점이 최대 1개임을 보고, 교점이 존재할 조건을 $\dfrac{64^{2m-2}}{k^3}\le8^m<\dfrac{64^{2m}}{k^3}$ 꼴의 부등식으로 세웠다.
+      depends_on: []
+      steps:
+      - 41b-1
+    - id: 4-1.A1
+      mark_type: A
+      points: 10
+      evidence: 조건을 $2^{3m-4}\le k<2^{3m}$으로 정리했다.
+      depends_on:
+      - 4-1.M1
+      steps:
+      - 41b-1
+    - id: 4-1.M2
+      mark_type: M
+      points: 25
+      evidence: $\sum a_k$를 조건을 만족시키는 순서쌍 $(k,m)$의 개수로 보고 $m$별 $k$의 개수 $b_m$을 세우는 방향을 택했다.
+      depends_on:
+      - 4-1.A1
+      steps:
+      - 41b-2
+    - id: 4-1.A2
+      mark_type: A
+      points: 20
+      evidence: $b_m$을 $m=1,\ 2\le m\le100,\ m=101,\ m>101$로 나누어 바르게 구했다($m=1$에서 7, $m=101$에서 $2^{300}-2^{299}+1$).
+      depends_on:
+      - 4-1.M2
+      steps:
+      - 41b-2
+    - id: 4-1.M3
+      mark_type: M
+      points: 15
+      evidence: $\sum b_m$을 등비수열의 합 등으로 계산하는 식을 세웠다.
+      depends_on:
+      - 4-1.A2
+      steps:
+      - 41b-3
+    - id: 4-1.A3
+      mark_type: A
+      points: 20
+      evidence: 답 $\dfrac{11\cdot2^{300}-4}{7}$을 구했다.
+      depends_on:
+      - 4-1.M3
+      steps:
+      - 41b-3
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: past-v2-lean
+  item_version: 1
+  verdict: pass
+  date: &id001 2026-11-23
+created: *id001
+updated: *id001
