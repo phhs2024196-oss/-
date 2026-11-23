@@ -1,0 +1,333 @@
+schema_version: '2.0'
+id: SWU-M27-03
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: SWU
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 분류
+points: 35
+time_estimate_min: null
+key_idea: 숫자 묶음을 블록으로 보고 위치를 정한 뒤 나머지 자리를 순열로 채운다. (3)은 3의 이웃이 2인 경우와 4(이면서 2는 아님)인 경우로 나누어 중복을 제외한다.
+stuck: (3)에서 3이 2와 이웃하는 경우와 4와 이웃하면서 2와는 이웃하지 않는 경우의 분류 및 중복 제외
+tags:
+- 경우의 수
+- 순열
+- 블록
+- 이웃하는 경우
+elements:
+  materials:
+  - 1부터 9까지의 자연수 중 서로 다른 다섯 개의 숫자로 만든 다섯 자리 자연수
+  concepts:
+  - 합의 법칙과 곱의 법칙
+  - 순열
+  - 이웃하는 숫자를 묶는 블록
+  - 경우의 분류와 중복 제외
+  tools:
+  - 순열 ${}_6\mathrm{P}_2$
+  - 블록 배열
+  - 경우 나누기
+  conditions:
+  - (1) 연속한 세 자리가 왼쪽부터 1, 2, 3
+  - (2) 1, 2, 3이 왼쪽부터 차례로 나타나고 1과 3 사이에 정확히 두 개의 숫자
+  - (3) 1과 2가 이웃하고 3이 2 또는 4와 이웃
+  stimuli_used: {}
+  subpart_links:
+  - from: '1'
+    to: '2'
+    via: 블록과 나머지 자리를 순열로 채우는 방법을 활용
+  - from: '1'
+    to: '3'
+    via: 123/321 블록과 ${}_6\mathrm{P}_2$ 계산을 재사용
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학
+  scope_2028: unknown
+  scope_confirmed: false
+  standards:
+  - code: 10수학05-01
+    text: 합의 법칙과 곱의 법칙을 이해하고, 이를 이용하여 경우의 수를 구할 수 있다.
+    verified: true
+  - code: 10수학05-02
+    text: 순열의 의미를 이해하고, 순열의 수를 구할 수 있다.
+    verified: true
+  - code: 10수학05-03
+    text: 조합의 의미를 이해하고, 조합의 수를 구할 수 있다.
+    verified: true
+  content_area: 경우의 수 – 순열과 조합
+  behavior_domain: 문제해결
+  unit_path:
+  - 수학
+  - 경우의 수
+  - 순열
+  - 이웃하는 조건의 분류와 계산
+  key_concepts:
+  - 순열
+  - 곱의 법칙
+  - 경우 분류
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 서울여자대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 서울여자대학교
+  admission_year: 2027
+  admission_type: 모의논술고사(자연계열)
+  track: 자연계열
+  question_no: 3
+  official_url: https://admission.swu.ac.kr/bbs/board.php?bo_table=notice&wr_id=29277
+  retrieved_at: '2026-11-22'
+  original_points:
+  - 8
+  - 12
+  - 15
+  rights_notice: 미확인
+  transcribed_from: 서울여대 입학처「2027학년도 모의논술 자연계열」p.10
+verify: verify/SWU-M27.py::p03
+stimuli: []
+stem: |
+  1부터 9까지의 자연수 중 서로 다른 다섯개의 숫자를 선택하여 다섯 자리 자연수를 만든다. 다음 물음에 답하시오.
+subparts:
+- id: '1'
+  stem: |
+    다섯 자리 자연수에서 연속한 세 자리 숫자가 왼쪽부터 차례대로 1, 2, 3인 경우의 수를 구하시오.
+  points: 8
+  depends_on: []
+  answer:
+    kind: value
+    value: '90'
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S1-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        숫자 123을 하나의 블록으로 생각한다. 나머지 두 자리는 4부터 9까지의 숫자 중 서로 다른 두 숫자를 선택하여 채워야 하므로 그 경우의 수는 ${}_6\mathrm{P}_2=6\times5=30$이다.
+      source_flow: 대학 제시 답안 p.13
+      criteria:
+      - 1.M1
+    - id: 1b-2
+      content: |
+        또한 블록 123은 $123\square\square$ 또는 $\square123\square$ 또는 $\square\square123$의 세 위치에 놓일 수 있다. 따라서 가능한 다섯 자리 자연수의 개수는 $3\times{}_6\mathrm{P}_2=3\times6\times5=90$이다.
+      source_flow: 대학 제시 답안 p.13
+      criteria:
+      - 1.M2
+      - 1.A1
+  # 채점기준 미공개 — 단계별 추정(소문항 배점·배점 합도 추정)
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 3
+      evidence: 123을 하나의 블록으로 보고 나머지 두 자리를 채우는 경우의 수 ${}_6\mathrm{P}_2=30$을 구했다.
+      steps:
+      - 1b-1
+    - id: 1.M2
+      mark_type: M
+      points: 2
+      evidence: 블록이 놓일 수 있는 위치가 3가지임을 밝혔다.
+      steps:
+      - 1b-2
+    - id: 1.A1
+      mark_type: A
+      points: 3
+      evidence: 곱의 법칙으로 90을 구했다.
+      depends_on:
+      - 1.M2
+      steps:
+      - 1b-2
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+- id: '2'
+  stem: |
+    다섯 자리 자연수에서 숫자 1, 2, 3이 왼쪽부터 차례대로 나타나고, 숫자 1과 숫자 3 사이에 정확히 두 개의 숫자가 있는 경우의 수를 구하시오.
+  points: 12
+  depends_on: []
+  answer:
+    kind: value
+    value: '120'
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S2-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 2b-1
+      content: |
+        숫자 1과 숫자 3 사이에 정확히 두 개의 숫자가 있어야 하므로, 숫자 1과 숫자 3의 위치는 $1\square\square3\square$ 또는 $\square1\square\square3$의 두 가지뿐이다.
+      source_flow: 대학 제시 답안 p.13
+      criteria:
+      - 2.M1
+    - id: 2b-2
+      content: |
+        첫 번째의 경우, 숫자 2는 둘째 자리 또는 셋째 자리에 올 수 있다. 따라서 숫자 2의 위치는 2가지 경우가 가능하다. 나머지 두 자리는 4, 5, 6, 7, 8, 9 중 서로 다른 두 숫자를 선택하여 배열하므로 ${}_6\mathrm{P}_2=6\times5=30$가지이다. 따라서 이 경우 원하는 배열을 얻는 경우의 수는 $2\times30=60$가지이다.
+      source_flow: 대학 제시 답안 p.13
+      criteria:
+      - 2.M2
+    - id: 2b-3
+      content: |
+        두 번째의 경우도 같은 방식으로 경우의 수가 60임을 보일 수 있다. 따라서 가능한 다섯 자리 자연수의 개수는 $60+60=120$이다.
+      source_flow: 대학 제시 답안 p.13
+      criteria:
+      - 2.M2
+      - 2.A1
+  # 채점기준 미공개 — 단계별 추정(소문항 배점·배점 합도 추정)
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 4
+      evidence: 1과 3의 위치가 두 가지뿐임을 찾았다.
+      steps:
+      - 2b-1
+    - id: 2.M2
+      mark_type: M
+      points: 4
+      evidence: 2의 위치(2가지)와 나머지 두 자리의 순열 ${}_6\mathrm{P}_2=30$으로 한 경우의 수 60을 구했다.
+      steps:
+      - 2b-2
+      - 2b-3
+    - id: 2.A1
+      mark_type: A
+      points: 4
+      evidence: 두 경우를 더해 120을 구했다.
+      depends_on:
+      - 2.M2
+      steps:
+      - 2b-3
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+- id: '3'
+  stem: |
+    다섯 자리 자연수에서 숫자 1과 숫자 2가 서로 이웃하여 나타나고, 숫자 3이 숫자 2 또는 숫자 4와 이웃하여 나타나는 경우의 수를 구하시오.
+  points: 15
+  depends_on: []
+  answer:
+    kind: value
+    value: '280'
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S3-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 3b-1
+      content: |
+        먼저 숫자 3이 숫자 2와 이웃하는 경우를 생각하자. 숫자 1과 숫자 2도 서로 이웃해야 하므로, 숫자 1, 2, 3은 반드시 $1\,2\,3$ 또는 $3\,2\,1$의 형태로 연속하여 나타난다. 이를 하나의 블록으로 생각하면, 이 블록의 위치를 정하는 경우의 수는 3이고, 나머지 두 자리를 4부터 9까지의 숫자로 채우는 경우의 수는 ${}_6\mathrm{P}_2=30$이다. 따라서 이 경우 원하는 배열을 얻는 경우의 수는 $2\times3\times{}_6\mathrm{P}_2=2\times3\times30=180$이다.
+      source_flow: 대학 제시 답안 p.13
+      criteria:
+      - 3.M1
+      - 3.A1
+    - id: 3b-2
+      content: |
+        다음으로 숫자 3이 숫자 4와 이웃하고, 숫자 2와는 이웃하지 않는 경우를 생각하자. 이 경우에는 12 또는 21을 하나의 블록으로, 34 또는 43을 하나의 블록으로 생각할 수 있다. 두 블록을 12와 34로 정하거나, 21과 43으로 정할 경우, 또한 두 블록이 1234 혹은 4321로 붙어 있으면 숫자 3과 숫자 2가 이웃하게 되므로, 앞의 경우에서 고려한 경우와 중복된다. 이 경우를 제외하고 가능한 배열은
+      source_flow: 대학 제시 답안 p.13
+      criteria:
+      - 3.M2
+    - id: 3b-3
+      content: |
+        12, 34를 선택한 경우: $12\square34$, $\square3412$, $34\square12$, $3412\square$,
+        12, 43을 선택한 경우: $\square1243$, $12\square43$, $1243\square$, $\square4312$, $43\square12$, $4312\square$,
+        21, 34를 선택한 경우: $\square2134$, $21\square34$, $2134\square$, $\square3421$, $34\square21$, $3421\square$,
+        21, 43을 선택한 경우: $\square2143$, $21\square43$, $2143\square$, $43\square21$
+        의 20가지이다.
+      source_flow: 대학 제시 답안 p.13
+      criteria:
+      - 3.M3
+    - id: 3b-4
+      content: |
+        빈 자리에 들어갈 숫자는 5부터 9까지의 숫자 중 하나이므로 각 경우마다 5가지 방법으로 빈 자리를 채울 수 있다. 따라서 원하는 배열을 얻는 경우의 수는 $20\times5=100$이다. 따라서 문제에서 원하는 배열을 모두 얻는 경우의 수는 $180+100=280$이다.
+      source_flow: 대학 제시 답안 p.13
+      criteria:
+      - 3.A2
+  # 채점기준 미공개 — 단계별 추정(소문항 배점·배점 합도 추정)
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 3
+      evidence: 1, 2, 3이 123 또는 321로 연속함을 밝히고 이를 블록으로 보아 블록의 위치(3)와 나머지 ${}_6\mathrm{P}_2$를 이용했다.
+      steps:
+      - 3b-1
+    - id: 3.A1
+      mark_type: A
+      points: 2
+      evidence: 3이 2와 이웃하는 경우의 수 180을 구했다.
+      depends_on:
+      - 3.M1
+      steps:
+      - 3b-1
+    - id: 3.M2
+      mark_type: M
+      points: 4
+      evidence: 3이 4와 이웃하고 2와는 이웃하지 않는 경우를 12/21, 34/43 블록으로 구성하고 1234, 4321(앞의 경우와 중복)을 제외했다.
+      steps:
+      - 3b-2
+    - id: 3.M3
+      mark_type: M
+      points: 3
+      evidence: 가능한 배열 20가지를 빠짐없이 분류했다.
+      steps:
+      - 3b-3
+    - id: 3.A2
+      mark_type: A
+      points: 3
+      evidence: 빈 자리 5가지를 곱해 100을 구하고 합 280을 얻었다.
+      depends_on:
+      - 3.M3
+      steps:
+      - 3b-4
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: past-v2-lean
+  item_version: 1
+  verdict: pass
+  date: &id001 2026-11-23
+created: *id001
+updated: *id001
