@@ -1,5 +1,5 @@
 # 숭실대 2017학년도 모의논술고사(자연) 문제 1 — 원문은 내부 분석용(allowed_use: internal_only)
-# 원문 문제 1 = 문제 1-A(30점) + 문제 1-B(30점). 소문항 id: A1·A2 = 1-A (1)(2), B = 1-B. points 60(원문 배점 합).
+# 원문 문제 1 = 문제 1-A(30점) + 문제 1-B(20점). 소문항 id: A1·A2 = 1-A (1)(2), B = 1-B. points 50(원문 배점 합). 2026-11-23 입학처 원본 대조로 1-B 30→20 수정, B 채점 단계는 비례 축소.
 # [확인필요] 1-A 의 (1)(2) 배점 표기 없음 → 15·15 임의 배분.
 # 원문 1-B 의 유입 속도 식은 「4(t+2)·ln(t+2)」로 ln 이 이탤릭(ln)으로 조판되어 있음 — 자연로그로 옮김.
 schema_version: '2.0'
@@ -16,7 +16,7 @@ variant_of: null
 replaces: null
 level: L4
 form: 분류
-points: 60
+points: 50
 time_estimate_min: 30
 intent: (A) 연립 일차방정식의 자연수 해를 변수 소거와 합의 분류로 세고, (B) 유입·배출 속도의 차를 치환적분·부분적분으로 적분해 물의 양을 구하는 능력을 본다.
 key_idea: '(A1) 두 식을 빼면 $x+y=40$, $z=20$. (A2) $x+y=k$로 두면 $z=2(50-k)$이므로 $2\le k\le49$, $\sum(k-1)=1176$에서 39를 뺀다. (B) $10+\int_0^2(f-g)\,dt$.'
@@ -72,7 +72,7 @@ source:
   question_no: 1
   official_url: https://iphak.ssu.ac.kr   # [확인필요] 입학처 기출 게시물 주소로 교체
   retrieved_at: 2026-11-21
-  original_points: 60
+  original_points: 50
   rights_notice: 미확인(대치 수리 논술 연구소 「2027학년도 대비 수리논술 숭실대 기출 및 모의 문제」 p.74~75, 해설교재 p.99~100에서 옮김)
 
 verify: verify/SSU-M17.py::p01
@@ -227,10 +227,10 @@ subparts:
     remedy: [RL-2]
 - id: B
   stem: |
-    문제 1- B 다음 논제에 답하시오. (30점)
+    문제 1- B 다음 논제에 답하시오. (20점)
 
     시각 $t=0$(초)에 10L의 물이 들어있는 물탱크의 유입구와 배출구를 모두 열었다. 시각 $t>0$(초)에서 $f(t)=4(t+2)\cdot\ln(t+2)$ (L/초)의 속도로 새로운 물이 유입되고 $g(t)=\dfrac{2\ln(t+1)}{(t+1)}$ (L/초)의 속도로 물탱크의 물이 배출된다. 시각 $t=2$(초)에 물탱크에 들어있는 물의 양(L)을 구하시오.
-  points: 30
+  points: 20
   depends_on: []
   answer: {kind: value, value: '56*log(2) - 2 - log(3)**2', equivalents: ['56ln2-2-(ln3)^2'], tolerance: null}
   solutions:
@@ -272,34 +272,34 @@ subparts:
     criteria:
     - id: B.M1
       mark_type: M
-      points: 6
+      points: 4
       evidence: 물의 양을 $10+\int_0^2(f-g)\,dt$로 세웠다.
       steps: [bb-1]
     - id: B.M2
       mark_type: M
-      points: 5
+      points: 3
       evidence: $\int(t+2)\ln(t+2)\,dt$를 부분적분으로 계산하는 식을 썼다.
       steps: [bb-2]
     - id: B.A1
       mark_type: A
-      points: 6
+      points: 4
       evidence: $\int_0^2f(t)\,dt=56\ln2-12$.
       depends_on: [B.M2]
       steps: [bb-2]
     - id: B.M3
       mark_type: M
-      points: 4
+      points: 3
       evidence: $u=\ln(t+1)$ 치환을 썼다.
       steps: [bb-3]
     - id: B.A2
       mark_type: A
-      points: 5
+      points: 3
       evidence: $\int_0^2g(t)\,dt=(\ln3)^2$.
       depends_on: [B.M3]
       steps: [bb-3]
     - id: B.A3
       mark_type: A
-      points: 4
+      points: 3
       evidence: $56\ln2-2-(\ln3)^2$ (L).
       depends_on: [B.M1, B.M2, B.M3]
       cao: true
