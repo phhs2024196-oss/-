@@ -1,5 +1,5 @@
 # 숭실대 2024학년도 논술고사(자연) 문제 1 — 원문은 내부 분석용(allowed_use: internal_only)
-# 소문항 배점은 원문에 없음(문제 전체 25점) → (1) 13점, (2) 12점으로 내부 배분. [확인필요]
+# 소문항 배점: 원본 채점기준표(파일 p.41) 배점 (1)15 (2)10.
 # (1) answer.value 는 직선 ℓ 의 y = (우변) 식(x, t 의 식).
 # [판독확인] 문제 (2) 적분 위끝: 문제지는 $\frac{\sqrt2}{2}$, 해설교재는 $1/\sqrt2$ 로 표기(같은 값).
 schema_version: '2.0'
@@ -68,7 +68,9 @@ source:
   question_no: 1
   official_url: https://iphak.ssu.ac.kr   # [확인필요] 입학처 기출 게시물 주소로 교체
   retrieved_at: 2026-11-21
-  original_points: 25
+  original_points:  # 원본 채점기준표 파일 p.41 (원본 문항 총점 25)
+  - 15
+  - 10
   rights_notice: 미확인(「숭실대 수리논술 문제교재(2026)」 p.24에서 옮김, 해설교재 pp.24~25 참고)
 
 verify: verify/SSU-G24.py::p01
@@ -90,7 +92,7 @@ subparts:
 - id: '1'
   stem: |
     직선 $\ell$의 방정식을 구하시오.
-  points: 13
+  points: 15
   depends_on: []
   answer: {kind: expression, value: '-t*x/sqrt(1 - t**2) + (t**2 + 1)/(2*sqrt(1 - t**2))', equivalents: ['$y=-\dfrac{t}{\sqrt{1-t^2}}x+\dfrac{t^2+1}{2\sqrt{1-t^2}}$'], tolerance: null}
   solutions:
@@ -138,12 +140,12 @@ subparts:
       steps: [1b-1]
     - id: 1.M1
       mark_type: M
-      points: 3
+      points: 4
       evidence: 접점 반지름이 접선에 수직이어서 생기는 두 직각삼각형의 닮음비 식을 세웠다.
       steps: [1b-2]
     - id: 1.A1
       mark_type: A
-      points: 3
+      points: 4
       evidence: $x$절편 $x_0=\frac{t^2+1}{2t}$.
       depends_on: [1.M1]
       steps: [1b-3]
@@ -176,7 +178,7 @@ subparts:
 - id: '2'
   stem: |
     직선 $\ell$의 $y$절편을 $f(t)$라고 할 때, $\displaystyle\int_{\frac12}^{\frac{\sqrt2}{2}}f(t)\,dt$를 구하시오.
-  points: 12
+  points: 10
   depends_on: ['1']
   answer: {kind: value, value: '(pi - 2 + sqrt(3))/16', equivalents: ['$\dfrac{\pi-2+\sqrt3}{16}$'], tolerance: null}
   solutions:
@@ -221,7 +223,7 @@ subparts:
       steps: [2b-1]
     - id: 2.M2
       mark_type: M
-      points: 4
+      points: 3
       evidence: $t=\sin\theta$로 치환하고 적분 구간을 $[\frac{\pi}{6},\frac{\pi}{4}]$로 바꾸었다.
       steps: [2b-2]
     - id: 2.B1
@@ -231,7 +233,7 @@ subparts:
       steps: [2b-3]
     - id: 2.A1
       mark_type: A
-      points: 3
+      points: 2
       evidence: $\frac{\pi-2+\sqrt3}{16}$.
       depends_on: [2.M2]
       cao: true

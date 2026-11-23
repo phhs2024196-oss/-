@@ -1,5 +1,5 @@
 # 숭실대 2025학년도 모의논술고사(자연) 문제 3 — 원문은 내부 분석용(allowed_use: internal_only)
-# 소문항 배점은 원문에 없음(문제 전체 25점) → (1) 12점, (2) 13점으로 내부 배분. [확인필요]
+# 소문항 배점: 원본 채점기준표(파일 p.40) 배점 (1)10 (2)15.
 # answer.value 는 sympy 논리식(a, b 는 실수). (2)는 해설교재 표기 「(a>0, 2a+b=0) 또는 a=b=0」과 동치인 「a≥0, b=-2a」로 적음.
 schema_version: '2.0'
 id: SSU-M25-03
@@ -63,7 +63,9 @@ source:
   question_no: 3
   official_url: https://iphak.ssu.ac.kr   # [확인필요] 입학처 기출 게시물 주소로 교체
   retrieved_at: 2026-11-21
-  original_points: 25
+  original_points:  # 원본 채점기준표 파일 p.40 (원본 문항 총점 25)
+  - 10
+  - 15
   rights_notice: 미확인(「숭실대 수리논술 문제교재(2026)」 p.22에서 옮김, 해설교재 p.22 참고)
 
 verify: verify/SSU-M25.py::p03
@@ -95,7 +97,7 @@ subparts:
 - id: '1'
   stem: |
     부등식 $a(x-1)(x-3)+b\ge1$을 만족시키는 실수 $x$가 존재하기 위한 실수 $a$와 $b$의 조건을 구하시오.
-  points: 12
+  points: 10
   depends_on: []
   answer: {kind: set, value: 'Or(a > 0, And(a <= 0, b >= a + 1))', equivalents: ['$a>0$ 또는 ($a\le0$, $b\ge a+1$)'], tolerance: null}
   solutions:
@@ -162,12 +164,12 @@ subparts:
       steps: [1b-3]
     - id: 1.M2
       mark_type: M
-      points: 4
+      points: 3
       evidence: $a<0$에서 실근 조건(판별식 $\ge0$ 또는 $(x-2)^2\le\frac{a-b+1}a$)으로 $b\ge a+1$을 얻었다.
       steps: [1b-4, 1c-1]
     - id: 1.A1
       mark_type: A
-      points: 2
+      points: 1
       evidence: 종합한 조건 「$a>0$ 또는 ($a\le0$, $b\ge a+1$)」을 적었다.
       depends_on: [1.M2]
       steps: [1b-5]
@@ -189,7 +191,7 @@ subparts:
 - id: '2'
   stem: |
     모든 실수 $x$에 대하여 부등식 $a(x-1)(x-3)+b\ge bx$가 성립하도록 하는 실수 $a$와 $b$의 조건을 구하시오.
-  points: 13
+  points: 15
   depends_on: []
   answer: {kind: set, value: 'And(a >= 0, Eq(b, -2*a))', equivalents: ['($a>0$, $2a+b=0$) 또는 $a=b=0$', '$a\ge0$, $b=-2a$'], tolerance: null}
   solutions:
@@ -232,12 +234,12 @@ subparts:
     criteria:
     - id: 2.M1
       mark_type: M
-      points: 2
+      points: 3
       evidence: $f(x)=ax^2-(4a+b)x+(3a+b)\ge0$으로 정리하고 $a$의 부호로 나누었다.
       steps: [2b-1]
     - id: 2.M2
       mark_type: M
-      points: 5
+      points: 6
       evidence: $a>0$에서 $D\le0$을 세우고 $D=(2a+b)^2$으로 정리해 $2a+b=0$을 얻었다.
       steps: [2b-2]
     - id: 2.B1

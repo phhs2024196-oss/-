@@ -1,5 +1,5 @@
 # 숭실대 2025학년도 모의논술고사(자연) 문제 2 — 원문은 내부 분석용(allowed_use: internal_only)
-# 소문항 배점은 원문에 없음(문제 전체 25점) → (1) 10점, (2) 15점으로 내부 배분. [확인필요]
+# 소문항 배점: 원본 채점기준표(파일 p.38) (1)15+5 (2)10 — 원본 채점표 합 30 ≠ 총점 25(원본 모순), 비율 환산 → (1)17 (2)8.
 schema_version: '2.0'
 id: SSU-M25-02
 legacy_id: null
@@ -61,7 +61,9 @@ source:
   question_no: 2
   official_url: https://iphak.ssu.ac.kr   # [확인필요] 입학처 기출 게시물 주소로 교체
   retrieved_at: 2026-11-21
-  original_points: 25
+  original_points:  # 원본 채점기준표 파일 p.38 (원본 문항 총점 25, (1)=15+5)
+  - 20
+  - 10
   rights_notice: 미확인(「숭실대 수리논술 문제교재(2026)」 p.21에서 옮김, 해설교재 p.21 참고)
 
 verify: verify/SSU-M25.py::p02
@@ -87,7 +89,7 @@ subparts:
 - id: '1'
   stem: |
     $\displaystyle\lim_{x\to\infty}\frac{d}{dx}\int_1^xu\tan\frac1u\,du$를 구하시오.
-  points: 10
+  points: 17
   depends_on: []
   answer: {kind: value, value: '1', equivalents: [], tolerance: null}
   solutions:
@@ -122,17 +124,17 @@ subparts:
     criteria:
     - id: 1.M1
       mark_type: M
-      points: 4
+      points: 7
       evidence: 미분과 적분의 관계로 $\frac{d}{dx}\int_1^xu\tan\frac1u\,du=x\tan\frac1x$를 얻었다.
       steps: [1b-1]
     - id: 1.M2
       mark_type: M
-      points: 3
+      points: 5
       evidence: $\theta=\frac1x$로 치환해 $\frac{\tan\theta}{\theta}$ 꼴로 바꾸었다.
       steps: [1b-2]
     - id: 1.A1
       mark_type: A
-      points: 3
+      points: 5
       evidence: $\frac{\sin\theta}{\theta}\to1$, $\cos\theta\to1$을 써서 극한값 1을 구했다.
       depends_on: [1.M2]
       steps: [1b-3]
@@ -154,7 +156,7 @@ subparts:
 - id: '2'
   stem: |
     $\displaystyle\lim_{x\to\infty}\int_x^{x+1}u\tan\frac1u\,du$를 구하시오.
-  points: 15
+  points: 8
   depends_on: ['1']
   answer: {kind: value, value: '1', equivalents: [], tolerance: null}
   solutions:
@@ -202,23 +204,23 @@ subparts:
     criteria:
     - id: 2.M1
       mark_type: M
-      points: 3
+      points: 2
       evidence: 정적분을 $F(x+1)-F(x)$로 나타냈다.
       steps: [2b-1]
     - id: 2.M2
       mark_type: M
-      points: 5
+      points: 3
       evidence: 평균값 정리로 $F(x+1)-F(x)=f(c)$, $x<c<x+1$인 $c$의 존재를 적었다(연속·미분가능 조건 언급).
       steps: [2b-2]
     - id: 2.R1
       mark_type: R
-      points: 4
+      points: 2
       evidence: $x\to\infty$이면 $c\to\infty$임을 밝히고 (1)의 극한을 연결했다.
-      ft: {allowed: true, from: [1.A1], max_points: 4}
+      ft: {allowed: true, from: [1.A1], max_points: 2}
       steps: [2b-3, 2c-1]
     - id: 2.A1
       mark_type: A
-      points: 3
+      points: 1
       evidence: 극한값 1.
       depends_on: [2.M2, 2.R1]
       steps: [2b-4]

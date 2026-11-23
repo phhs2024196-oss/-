@@ -1,5 +1,5 @@
 # 숭실대 2025학년도 모의논술고사(자연) 문제 1 — 원문은 내부 분석용(allowed_use: internal_only)
-# 소문항 배점은 원문에 없음(문제 전체 25점) → (1) 15점, (2) 10점으로 내부 배분. [확인필요]
+# 소문항 배점: 원본 채점기준표(파일 p.36) 배점 (1)10 (2)15.
 # type: SSU T01~T10 에 「평면 운동의 속력·거리」 유형이 없어 null.
 schema_version: '2.0'
 id: SSU-M25-01
@@ -62,7 +62,9 @@ source:
   question_no: 1
   official_url: https://iphak.ssu.ac.kr   # [확인필요] 입학처 기출 게시물 주소로 교체
   retrieved_at: 2026-11-21
-  original_points: 25
+  original_points:  # 원본 채점기준표 파일 p.36 (원본 문항 총점 25)
+  - 10
+  - 15
   rights_notice: 미확인(「숭실대 수리논술 문제교재(2026)」 p.20에서 옮김, 해설교재 p.20 참고)
 
 verify: verify/SSU-M25.py::p01
@@ -90,7 +92,7 @@ subparts:
 - id: '1'
   stem: |
     미사일이 땅에 도달할 때의 속력이 5가 되도록 하는 $a$를 구하시오.
-  points: 15
+  points: 10
   depends_on: []
   answer: {kind: value, value: '2', equivalents: [], tolerance: null}
   solutions:
@@ -129,22 +131,22 @@ subparts:
     criteria:
     - id: 1.M1
       mark_type: M
-      points: 4
+      points: 3
       evidence: $y(t)=0$에서 $t^2+4a=9$, 착지 시각 $t=\sqrt{9-4a}$를 구했다.
       steps: [1b-1]
     - id: 1.M2
       mark_type: M
-      points: 4
+      points: 3
       evidence: $\frac{dx}{dt}=2a$, $\frac{dy}{dt}=-t(t^2+4a)^{1/2}$를 구했다.
       steps: [1b-2]
     - id: 1.B1
       mark_type: B
-      points: 4
+      points: 2
       evidence: 속력이 $t^2+2a$ (완전제곱식)임을 보였다.
       steps: [1b-3]
     - id: 1.A1
       mark_type: A
-      points: 3
+      points: 2
       evidence: 착지 속력 $9-2a=5$에서 $a=2$.
       depends_on: [1.M1, 1.M2]
       steps: [1b-4]
@@ -166,7 +168,7 @@ subparts:
 - id: '2'
   stem: |
     위에서 구한 $a$에 대하여 발사 후 땅에 도달할 때까지 미사일이 움직인 거리를 구하시오.
-  points: 10
+  points: 15
   depends_on: ['1']
   answer: {kind: value, value: '13/3', equivalents: [], tolerance: null}
   solutions:
@@ -197,18 +199,18 @@ subparts:
     criteria:
     - id: 2.M1
       mark_type: M
-      points: 3
+      points: 5
       evidence: 착지 시각 $t=1$을 구했다.
       ft: {allowed: true, from: [1.A1], max_points: 3}
       steps: [2b-1]
     - id: 2.M2
       mark_type: M
-      points: 4
+      points: 6
       evidence: 움직인 거리를 $\int_0^1(t^2+4)\,dt$로 세웠다.
       steps: [2b-2]
     - id: 2.A1
       mark_type: A
-      points: 3
+      points: 4
       evidence: $\frac{13}3$.
       depends_on: [2.M2]
       steps: [2b-2]

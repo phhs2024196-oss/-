@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""숭실대 SSU-G19-01 — sympy 검산. 규칙(db/제작지침.md §6): 정답 하드코딩 비교 금지, 설정으로부터 독립 재계산.
+"""숭실대 SSU-G19-01·02 — sympy 검산. 규칙(db/제작지침.md §6): 정답 하드코딩 비교 금지, 설정으로부터 독립 재계산.
 p<번호>() 함수는 자동 실행된다. 소문항 정답은 yaml 의 subparts[].answer.value 에서 읽는다."""
 import re
 import sys
@@ -43,6 +43,40 @@ def p01():
         Av = sp.integrate(f, (tt, 0, sp.Rational(1, 2))); Bv = sp.integrate(f, (tt, sp.Rational(1, 2), 1))
         ok2 &= sp.simplify(d - expr.subs({A_: Av, B_: Bv})) == 0
     report(1, ok1 and ok2, f"(1) F(1/2)={F1} md={ans['1']} | (2) 무작위 다항식 20개 F'(1/2)=A-B 일치={ok2}")
+
+
+def p02():
+    """문제 1-B: 평면(등거리 조건)·수선의 발·단면 원·거리 최솟값을 독립 재계산. (3)은 원 위 점을 매개변수로 두고 수치 최소화로 교차 확인."""
+    ans = load_answers(2)
+    X = sp.Matrix(sp.symbols("X Y Z", real=True))
+    A, B = sp.Matrix([1, -2, 3]), sp.Matrix([3, 2, -1])
+    C1, r1 = sp.Matrix([3, 1, -2]), 5
+    P = sp.Matrix([4, -3, 8])
+    plane = sp.expand((X - A).dot(X - A) - (X - B).dot(X - B))          # = 0 이 S2
+    nvec = sp.Matrix([sp.diff(plane, v) for v in X])                      # 법선
+    s = sp.Symbol("s", real=True)
+    def foot(Q):
+        L = Q + s * nvec
+        sol = sp.solve(plane.subs(dict(zip(X, L))), s)[0]
+        return L.subs(s, sol)
+    T = foot(P)
+    ok1 = list(T) == list(sp.sympify(ans["1"]))
+    C = foot(C1); d = (C1 - C).norm(); r = sp.sqrt(r1**2 - d**2)
+    c_ans, r_ans = sp.sympify(ans["2"])
+    ok2 = list(C) == list(c_ans) and sp.simplify(r - r_ans) == 0
+    # (3) 원 위의 점: C + r(cos u e1 + sin u e2), e1,e2 는 평면 위 정규직교
+    nn = nvec / nvec.norm()
+    e1 = sp.Matrix([2, -1, 0]); e1 = e1 - e1.dot(nn) * nn; e1 = e1 / e1.norm()
+    e2 = nn.cross(e1)
+    u = sp.Symbol("u", real=True)
+    Xu = C + r * (sp.cos(u) * e1 + sp.sin(u) * e2)
+    assert sp.simplify(plane.subs(dict(zip(X, Xu)))) == 0 and sp.simplify((Xu - C1).dot(Xu - C1) - r1**2) == 0
+    D2 = sp.lambdify(u, (Xu - P).dot(Xu - P))
+    import math
+    mn = min(math.sqrt(D2(2 * math.pi * k / 200000)) for k in range(200000))
+    exact = sp.sqrt((P - T).norm()**2 + ((T - C).norm() - r)**2)
+    ok3 = sp.simplify(exact - sp.sympify(ans["3"])) == 0 and abs(mn - float(exact)) < 1e-6
+    report(2, ok1 and ok2 and ok3, f"(1) T={tuple(T)} | (2) C={tuple(C)}, r={r} | (3) 정확값 {exact}, 수치최소 {mn:.8f}")
 
 
 if __name__ == "__main__":

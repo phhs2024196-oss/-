@@ -1,5 +1,5 @@
 # 숭실대 2021학년도 논술고사(자연2) 문제 1 — 원문은 내부 분석용(allowed_use: internal_only)
-# 소문항 배점 (1)12 (2)18 은 원문에 없어 임의 배분(원문은 문제 전체 30점).
+# 소문항 배점: 원본 채점기준표(파일 p.54) 배점 (1)9 (2)21.
 schema_version: '2.0'
 id: SSU-G21B-01
 legacy_id: null
@@ -72,7 +72,9 @@ source:
   question_no: 1
   official_url: https://iphak.ssu.ac.kr   # [확인필요] 입학처 기출 게시물 주소로 교체
   retrieved_at: 2026-11-21
-  original_points: 30
+  original_points:  # 원본 채점기준표 파일 p.54 (원본 문항 총점 30)
+  - 9
+  - 21
   rights_notice: 미확인(대치 수리 논술 연구소 「2027학년도 대비 수리논술 숭실대 기출 및 모의 문제」 p.59, 해설 p.79~80에서 옮김)
 
 verify: verify/SSU-G21B.py::p01
@@ -93,7 +95,7 @@ subparts:
 - id: '1'
   stem: |
     임의의 자연수 $k$에 대하여, 함수 $g(x)$가 $x=k$에서 연속이 되도록 상수 $a$의 값을 정하시오.
-  points: 12
+  points: 9
   depends_on: []
   answer: {kind: value, value: '1', equivalents: [], tolerance: null}
   solutions:
@@ -138,17 +140,17 @@ subparts:
       steps: [1b-1]
     - id: 1.M1
       mark_type: M
-      points: 5
+      points: 4
       evidence: 가우스 기호의 값을 구간별로 정해 $x=k$에서의 좌극한과 우극한(함숫값)을 각각 구했다.
       steps: [1b-2]
     - id: 1.M2
       mark_type: M
-      points: 3
+      points: 2
       evidence: 좌극한 $=$ 우극한 $=$ 함숫값 조건으로 $a-1=0$을 이끌었다.
       steps: [1b-3]
     - id: 1.A1
       mark_type: A
-      points: 2
+      points: 1
       evidence: $a=1$.
       depends_on: [1.M2]
       cao: true
@@ -171,7 +173,7 @@ subparts:
 - id: '2'
   stem: |
     문항 (1)에서 구한 상수 $a$에 대하여, $n$이 자연수일 때 $\displaystyle\int_0^ng(x)\lvert\sin\pi x\rvert\,dx$를 $n$의 식으로 나타내시오.
-  points: 18
+  points: 21
   depends_on: ['1']
   answer: {kind: expression, value: '4*n/(pi**2*(n+1))', equivalents: ['\dfrac{4n}{\pi^2(n+1)}'], tolerance: null}
   solutions:
@@ -211,17 +213,17 @@ subparts:
     criteria:
     - id: 2.M1
       mark_type: M
-      points: 4
+      points: 5
       evidence: 적분 구간을 $[k-1,k]$로 나누고 각 구간에서 $g(x)=\dfrac{f(x)}{k(k+1)}$로 바꾸었다.
       steps: [2b-1]
     - id: 2.M2
       mark_type: M
-      points: 4
+      points: 5
       evidence: 치환과 주기성으로 각 구간의 적분이 $\displaystyle\int_0^1f(t)\sin\pi t\,dt$로 같음을 보였다.
       steps: [2b-2]
     - id: 2.M3
       mark_type: M
-      points: 3
+      points: 4
       evidence: 부분적분(또는 대칭 치환 후 부분적분)으로 $\displaystyle\int_0^1f(t)\sin\pi t\,dt$를 계산하는 식을 세웠다.
       steps: [2b-3]
     - id: 2.A1

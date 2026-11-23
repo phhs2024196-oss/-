@@ -1,5 +1,5 @@
 # 숭실대 2026학년도 모의논술고사(자연) 문제 3 — 원문은 내부 분석용(allowed_use: internal_only)
-# [확인필요] 소문항 배점: 원문은 문제 전체 25점만 표시. (1) 10점, (2) 15점으로 임의 배분
+# 소문항 배점: 원본 채점기준표(파일 p.36) 배점 — 원본 7.5/17.5, 정수 반올림 → (1)8 (2)17.
 # 해설교재 p.12 (2)(다)(i)의 「14 ≤ a_3 < 15」는 a_1의 오식이고, 끝의 「최솟값은 14」는 묻지 않은 내용(답 범위 14 ≤ a_1 < 15는 동일)
 schema_version: '2.0'
 id: SSU-M26-03
@@ -62,7 +62,9 @@ source:
   question_no: 3
   official_url: https://iphak.ssu.ac.kr   # [확인필요] 입학처 기출 게시물 주소로 교체
   retrieved_at: 2026-11-21
-  original_points: 25
+  original_points:  # 원본 채점기준표 파일 p.36 (원본 문항 총점 25)
+  - 7.5
+  - 17.5
   rights_notice: 미확인(대치 수리 논술 연구소 「2027학년도 대비 수리논술 숭실대 기출 및 모의 문제」 p.14에서 옮김, 해설교재 p.12 참고)
 
 verify: verify/SSU-M26.py::p03
@@ -88,7 +90,7 @@ subparts:
 - id: '1'
   stem: |
     수열의 첫째항 $a_1$이 임의의 실수일 때, $a_2$가 될 수 있는 값의 범위를 구하시오.
-  points: 10
+  points: 8
   depends_on: []
   answer: {kind: set, value: 'Union(Interval.open(-oo, 16), Interval(30, oo))', equivalents: ['$a_2<16$ 또는 $a_2\ge30$'], tolerance: null}
   solutions:
@@ -126,7 +128,7 @@ subparts:
     criteria:
     - id: 1.M1
       mark_type: M
-      points: 3
+      points: 2
       evidence: $f(x)<0\iff2<x<15$을 구했다.
       steps: [1b-1]
     - id: 1.A1
@@ -137,7 +139,7 @@ subparts:
       steps: [1b-2]
     - id: 1.A2
       mark_type: A
-      points: 3
+      points: 2
       evidence: $a_1\le2$ 또는 $a_1\ge15$일 때 $a_2\le4$ 또는 $a_2\ge30$ (등호 포함).
       depends_on: [1.M1]
       steps: [1b-3]
@@ -167,7 +169,7 @@ subparts:
 - id: '2'
   stem: |
     $a_3<32\le a_4$를 만족시킬 때, $a_1$이 될 수 있는 값의 범위를 구하시오.
-  points: 15
+  points: 17
   depends_on: []
   answer: {kind: set, value: 'Interval.Ropen(14, 15)', equivalents: ['$14\le a_1<15$'], tolerance: null}
   solutions:
@@ -206,12 +208,12 @@ subparts:
     criteria:
     - id: 2.M1
       mark_type: M
-      points: 3
+      points: 4
       evidence: $a_4$에서 거꾸로 각 단계의 규칙(어느 경우인지)을 판단하는 방법을 택했다.
       steps: [2b-1]
     - id: 2.A1
       mark_type: A
-      points: 3
+      points: 4
       evidence: $16\le a_3<32$.
       depends_on: [2.M1]
       steps: [2b-1]

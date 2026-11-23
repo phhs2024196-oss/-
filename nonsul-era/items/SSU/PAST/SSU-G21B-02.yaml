@@ -1,5 +1,5 @@
 # 숭실대 2021학년도 논술고사(자연2) 문제 2 — 원문은 내부 분석용(allowed_use: internal_only)
-# 소문항 배점 (1)10 (2)10 은 원문에 없어 임의 배분(원문은 문제 전체 20점).
+# 소문항 배점: 원본 채점기준표(파일 p.56) 배점 (1)8 (2)12.
 # (2) 는 b>0(b→∞)인 경우이며, 이때 직선 - 곡선 = (x+2b)^2(4b-x) 로 a 와 무관 → K/L=5/11 (상수). 해설교재와 같은 답.
 schema_version: '2.0'
 id: SSU-G21B-02
@@ -63,7 +63,9 @@ source:
   question_no: 2
   official_url: https://iphak.ssu.ac.kr   # [확인필요] 입학처 기출 게시물 주소로 교체
   retrieved_at: 2026-11-21
-  original_points: 20
+  original_points:  # 원본 채점기준표 파일 p.56 (원본 문항 총점 20)
+  - 8
+  - 12
   rights_notice: 미확인(대치 수리 논술 연구소 「2027학년도 대비 수리논술 숭실대 기출 및 모의 문제」 p.60, 해설 p.81에서 옮김)
 
 verify: verify/SSU-G21B.py::p02
@@ -82,7 +84,7 @@ subparts:
 - id: '1'
   stem: |
     점 $P$와 점 $Q$의 $x$좌표를 각각 $b$의 식으로 나타내시오.
-  points: 10
+  points: 8
   depends_on: []
   answer: {kind: expression, value: '[-2*b, 4*b]', equivalents: ['P의 $x$좌표 $-2b$, Q의 $x$좌표 $4b$'], tolerance: null}
   solutions:
@@ -117,12 +119,12 @@ subparts:
     criteria:
     - id: 1.M1
       mark_type: M
-      points: 3
+      points: 2
       evidence: 접선 $\ell$의 방정식 $y=(3t^2+a)x-2t^3$을 세웠다.
       steps: [1b-1]
     - id: 1.M2
       mark_type: M
-      points: 3
+      points: 2
       evidence: 연립하여 $(x-t)^2(x+2t)=0$을 얻고 $Q$의 $x$좌표를 $-2t$로 구했다.
       steps: [1b-2]
     - id: 1.A1
@@ -155,7 +157,7 @@ subparts:
 - id: '2'
   stem: |
     곡선 $C$와 선분 $PR$ 및 직선 $x=b$로 둘러싸인 도형의 넓이를 $K$, 곡선 $C$와 선분 $QR$ 및 직선 $x=b$로 둘러싸인 도형의 넓이를 $L$이라 할 때, 극한값 $\displaystyle\lim_{b\to\infty}\dfrac KL$을 구하시오.
-  points: 10
+  points: 12
   depends_on: ['1']
   answer: {kind: value, value: '5/11', equivalents: [], tolerance: null}
   solutions:
@@ -194,12 +196,12 @@ subparts:
     criteria:
     - id: 2.M1
       mark_type: M
-      points: 3
+      points: 4
       evidence: $K$, $L$을 접선과 곡선의 차 $(x+2b)^2(4b-x)$(또는 $-x^3+12b^2x+16b^3$)의 정적분으로 세웠다.
       steps: [2b-1]
     - id: 2.A1
       mark_type: A
-      points: 3
+      points: 4
       evidence: $K=\dfrac{135}4b^4$.
       depends_on: [2.M1]
       steps: [2b-2]
