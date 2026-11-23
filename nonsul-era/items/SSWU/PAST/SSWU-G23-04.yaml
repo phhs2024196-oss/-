@@ -1,0 +1,386 @@
+# 채점기준: 가이드북은 하위문항 배점(7·10·8)과 등급제(①~⑤ 단계)만 제시. criteria 의 단계별 배점 분할은 추정
+schema_version: '2.0'
+id: SSWU-G23-04
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: SSWU
+type: null
+variant_of: null
+replaces: null
+level: L3
+form: 분류
+points: 25
+time_estimate_min: null
+intent: 하나의 조건에서 다른 조건을 추가함에 따라 각각 해당 조건들을 만족하는 경우의 수를 계산하는 능력이 있는지 평가한다. 이러한 조건들을 조합하여 하나의 정책으로 적용했을 때, 수학적 의미를 이해하여 해당하는 경우의 수를 구할 수 있는지 평가한다.
+key_idea: 같은 숫자 $a$가 세 번 이상이면 그 숫자는 하나뿐이므로 $a$가 $3,4,5$번 나오는 경우를 나누어 $10$배 한다. 연속 3회 이상은 $aaa$의 위치(앞·가운데·뒤)와 양옆이 $a$가 아니라는 조건으로 나눈다. (3)은 연속 3회 이상이 없는 5자리 $97200$과 있는 5자리에 두 자리를 붙인 $2800\times10^2$의 합.
+stuck: 연속 조건에서 $aaa$ 앞뒤 칸에 $a$가 오지 않도록 위치별로 나누어 세는 단계, (3)에서 5자리와 7자리 비밀번호의 경우를 분리하는 단계
+idea_tags: []
+tags:
+- 경우의 수
+- 순열과 조합
+- 합의 법칙
+- 곱의 법칙
+elements:
+  materials:
+  - 각 자리에 $0\sim9$ 중 하나의 숫자를 사용하는 비밀번호
+  - 같은 숫자가 세 번 이상 들어있는 다섯 자리 비밀번호(예 00111, 50559)
+  - 같은 숫자가 세 번 이상 연속하는 다섯 자리 비밀번호(예 01111, 12223)
+  - 연속 조건 위반 시 뒤쪽에 두 자리를 추가하는 보안정책
+  concepts:
+  - 합의 법칙
+  - 곱의 법칙
+  - 조합 ${}_5\mathrm{C}_n$
+  - 중복순열
+  tools:
+  - 숫자 $a$가 $n$번 들어있는 경우의 수 ${}_5\mathrm{C}_n\times9^{5-n}$
+  - '연속 $aaa$의 위치별 분류: $aaa\square\square$, $\square aaa\square$, $\square\square aaa$'
+  - 전체 $10^5$에서 (2)의 $2800$을 제외
+  - $2800\times10^2$
+  conditions:
+  - 각 자리 숫자는 $0\sim9$
+  - (1) 같은 숫자 3번 이상(연속 무관), (2) 3번 이상 연속
+  - (3) 연속 3회 이상이면 뒤에 두 자리 추가
+  stimuli_used: []
+  subpart_links: (3)은 (2)의 $2800$을 사용
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학
+  - 확률과통계
+  scope_2028: common
+  scope_confirmed: true
+  standards:
+  - code: 10수학05-01
+    text: 합의 법칙과 곱의 법칙을 이해하고, 이를 이용하여 경우의 수를 구할 수 있다.
+    verified: true
+  - code: 10수학05-02
+    text: 순열의 의미를 이해하고, 순열의 수를 구할 수 있다.
+    verified: true
+  - code: 10수학05-03
+    text: 조합의 의미를 이해하고, 조합의 수를 구할 수 있다.
+    verified: true
+  - code: 12확통01-01
+    text: 원순열, 중복순열, 같은 것이 있는 순열을 이해하고, 그 순열의 수를 구할 수 있다.
+    verified: true
+  content_area: 경우의 수 – 순열과 조합
+  behavior_domain: 문제해결
+  unit_path:
+  - 확률과 통계
+  - 경우의 수
+  - 순열과 조합
+  key_concepts:
+  - 합의 법칙
+  - 곱의 법칙
+  - 순열
+  - 조합
+  - 중복순열
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 성신여자대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 성신여자대학교
+  admission_year: 2023
+  admission_type: 수시 논술우수자전형
+  track: 자연계열
+  question_no: 4
+  official_url: https://ipsi.sungshin.ac.kr/guide/dataroom.htm?bbsid=dataroom&ctg_cd=all&mode=view&bltn_seq=30457
+  retrieved_at: '2026-11-22'
+  original_points:
+  - 7
+  - 10
+  - 8
+  rights_notice: 성신여자대학교 입학처 공개 자료(내부 분석용)
+  transcribed_from: g24.pdf p.68 (이미지 대조 2026-11-22)
+verify: verify/SSWU-G23.py::p04
+stimuli: []
+stem: 수정이가 인터넷 사이트에 가입하기 위해서 아이디를 만들고 비밀번호를 정하고 있다. 이 사이트는 비밀번호의 각 자리에 $0, 1, 2, 3, 4, 5, 6, 7, 8, 9$ 중 하나의 숫자를 사용하도록 한다고 하자. 다음 질문에 답하시오. [총 25점]
+subparts:
+- id: '1'
+  stem: (1) 같은 숫자가 세 번 이상 들어있는 다섯 자리 비밀번호(예를 들어 $00111$, $50559$ 등)의 가짓수를 구하시오. [7점]
+  points: 7
+  depends_on: []
+  answer:
+    kind: value
+    value: '8560'
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: 세 번 이상 들어가는 숫자는 하나뿐이므로 $a$가 $3,4,5$번 나오는 경우를 세어 $10$배.
+    steps:
+    - id: 1a
+      content: $10\times(810+45+1)=8560$
+      criteria:
+      - 1.M1
+      - 1.M2
+      - 1.M3
+      - 1.A1
+  - id: S1-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: 다섯 자리 비밀번호를 만들 때 세 번 이상 들어있는 숫자는 하나만 선택할 수 있다.
+      source_flow: g24.pdf p.70 문제 해설·p.73 예시 답안 문제 4(1)
+      criteria:
+      - 1.M1
+    - id: 1b-2
+      content: 임의의 숫자 $a$가 $n$번만 들어있는 경우의 수는 다섯 개의 자리에서 $n$개를 골라 $a$를 쓰고, 나머지 $5-n$개의 자리에 숫자 $a$가 아닌 숫자를 각각 선택하는 수이므로 ${}_5\mathrm{C}_n\times9^{5-n}$이다.
+      source_flow: g24.pdf p.70 문제 해설·p.73 예시 답안 문제 4(1)
+      criteria:
+      - 1.M2
+    - id: 1b-3
+      content: 숫자 $a$가 세 번만 들어있는 경우는 ${}_5\mathrm{C}_3\times9^2=10\times81=810$가지, 숫자 $a$가 네 번만 들어있는 경우는 ${}_5\mathrm{C}_4\times9=5\times9=45$가지, 숫자 $a$가 다섯 번 들어있는 경우는 $1$가지이다.
+      source_flow: g24.pdf p.70 문제 해설·p.73 예시 답안 문제 4(1)
+      criteria:
+      - 1.M3
+    - id: 1b-4
+      content: 숫자 $a$를 선택하는 경우의 수는 $10$가지이므로 임의의 같은 숫자가 세 번 이상 들어있는 모든 다섯 자리 비밀번호의 가짓수는 $10\times(810+45+1)=8560$가지이다.
+      source_flow: g24.pdf p.70 문제 해설·p.73 예시 답안 문제 4(1)
+      criteria:
+      - 1.A1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 1
+      evidence: 세 번 이상 들어있는 숫자는 하나만 선택할 수 있음을 서술했다.
+      steps:
+      - 1b-1
+    - id: 1.M2
+      mark_type: M
+      points: 2
+      evidence: 숫자 $a$가 $n$번만 들어있는 경우의 수 ${}_5\mathrm{C}_n\times9^{5-n}$을 서술했다.
+      steps:
+      - 1b-2
+    - id: 1.M3
+      mark_type: M
+      points: 2
+      evidence: $a$가 $3,4,5$번 들어있는 경우 $810$, $45$, $1$을 계산했다.
+      steps:
+      - 1b-3
+    - id: 1.A1
+      mark_type: A
+      points: 2
+      evidence: $10\times(810+45+1)=8560$을 구했다.
+      depends_on:
+      - 1.M1
+      - 1.M2
+      - 1.M3
+      steps:
+      - 1b-4
+    deductions: []
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+- id: '2'
+  stem: (2) 같은 숫자가 세 번 이상 연속하여 나타나는 다섯 자리 비밀번호(예를 들어 $01111$, $12223$ 등)의 가짓수를 구하시오. [10점]
+  points: 10
+  depends_on: []
+  answer:
+    kind: value
+    value: '2800'
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: $aaa$의 위치별로 앞뒤 칸이 $a$가 아닌 경우를 세고, 네 번·다섯 번 연속인 경우를 더해 $10$배.
+    steps:
+    - id: 2a
+      content: $10\times(261+18+1)=2800$
+      criteria:
+      - 2.M1
+      - 2.M2
+      - 2.M3
+      - 2.A1
+  - id: S2-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 2b-1
+      content: 다섯 자리의 비밀번호에서 숫자 $a$가 세 번만 연속하여 나타나는 것은 $aaa\square\square$, $\square aaa\square$, $\square\square aaa$의 꼴로 배열되는 경우이다. 여기에서 $a$는 세 번만 연속이므로 $a$의 앞이나 뒤의 $\square$에는 $a$가 올 수 없다. 따라서 가능한 가짓수는 $(9\times10)+(9\times9)+(10\times9)=261$가지이다.
+      source_flow: g24.pdf p.70 문제 해설·p.73 예시 답안 문제 4(2)
+      criteria:
+      - 2.M1
+    - id: 2b-2
+      content: 마찬가지로, 숫자 $a$가 네 번만 연속하여 나타나는 것은 $aaaa\square$, $\square aaaa$의 꼴로 배열되는 경우이다. 따라서 가능한 가짓수는 $9+9=18$가지이다.
+      source_flow: g24.pdf p.70 문제 해설·p.73 예시 답안 문제 4(2)
+      criteria:
+      - 2.M2
+    - id: 2b-3
+      content: 숫자 $a$가 다섯 번 반복되는 경우는 $1$가지이다.
+      source_flow: g24.pdf p.70 문제 해설·p.73 예시 답안 문제 4(2)
+      criteria:
+      - 2.M3
+    - id: 2b-4
+      content: 숫자 $a$를 선택하는 경우의 수는 $10$가지이므로 임의의 같은 숫자가 세 번 이상 연속하여 나타나는 모든 다섯 자리 비밀번호의 가짓수는 $10\times(261+18+1)=2800$가지이다.
+      source_flow: g24.pdf p.70 문제 해설·p.73 예시 답안 문제 4(2)
+      criteria:
+      - 2.A1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 4
+      evidence: 세 번만 연속하는 경우의 수 $261$을 구했다.
+      steps:
+      - 2b-1
+    - id: 2.M2
+      mark_type: M
+      points: 2
+      evidence: 네 번만 연속하는 경우의 수 $18$을 구했다.
+      steps:
+      - 2b-2
+    - id: 2.M3
+      mark_type: M
+      points: 1
+      evidence: 다섯 번 반복되는 경우 $1$가지를 구했다.
+      steps:
+      - 2b-3
+    - id: 2.A1
+      mark_type: A
+      points: 3
+      evidence: $10\times(261+18+1)=2800$을 구했다.
+      depends_on:
+      - 2.M1
+      - 2.M2
+      - 2.M3
+      steps:
+      - 2b-4
+    deductions: []
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+- id: '3'
+  stem: (3) 이 사이트의 보안정책은 사용자가 다섯 자리 비밀번호를 사용하도록 하지만, 사용자가 선택한 비밀번호에 같은 숫자가 세 번 이상 연속하여 나타나면 뒤쪽에 두 자리를 추가하여 일곱 자리의 비밀번호를 사용하도록 강제한다. 이러한 보안정책에 따라 수정이가 선택할 수 있는 모든 비밀번호의 가짓수를 구하시오. [8점]
+  points: 8
+  depends_on:
+  - '2'
+  answer:
+    kind: value
+    value: '377200'
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: 연속 조건을 어기지 않는 5자리 $10^5-2800$과, 연속 조건을 만족하는 5자리 $2800$에 두 자리를 붙인 $2800\times10^2$의 합.
+    steps:
+    - id: 3a
+      content: $97200+280000=377200$
+      criteria:
+      - 3.M1
+      - 3.M2
+      - 3.M3
+      - 3.A1
+  - id: S3-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 3b-1
+      content: 주어진 보안정책에 따라 수정이가 비밀번호를 정할 때 가능한 비밀번호의 길이는 다섯 자리(같은 숫자가 세 번 이상 연속해서 나타나지 않는 비밀번호)와 일곱 자리(앞 다섯 자리에 같은 숫자가 세 번 이상 연속해서 나타나는 비밀번호)이다.
+      source_flow: g24.pdf p.70 문제 해설·p.73 예시 답안 문제 4(3)
+      criteria:
+      - 3.M1
+    - id: 3b-2
+      content: 일곱 자리의 비밀번호는 앞의 다섯 자리에 같은 숫자가 세 번 이상 연속해서 나타나고 뒤에 두 자리가 추가된 비밀번호이다.
+      source_flow: g24.pdf p.70 문제 해설·p.73 예시 답안 문제 4(3)
+      criteria:
+      - 3.M1
+    - id: 3b-3
+      content: 아무 숫자나 사용할 수 있는 모든 다섯 자리 비밀번호의 가짓수는 $10^5=100000$이고, 여기에서 같은 숫자가 세 번 이상 연속해서 나타나는 비밀번호는 허용되지 않으므로 (2)에서 구한 $2800$개를 제외하여 허용된 다섯 자리의 비밀번호의 가짓수 $100000-2800=97200$가지를 구할 수 있다.
+      source_flow: g24.pdf p.70 문제 해설·p.73 예시 답안 문제 4(3)
+      criteria:
+      - 3.M2
+    - id: 3b-4
+      content: 일곱 자리의 비밀번호는 같은 숫자가 세 번 이상 연속해서 나타나는 다섯 자리 비밀번호의 뒤쪽에 두 자리가 더해졌으므로 가능한 가짓수는 $2800\times10^2=280000$가지로 구할 수 있다.
+      source_flow: g24.pdf p.70 문제 해설·p.73 예시 답안 문제 4(3)
+      criteria:
+      - 3.M3
+    - id: 3b-5
+      content: 따라서 모든 가능한 비밀번호의 가짓수는 $97200+280000=377200$가지이다.
+      source_flow: g24.pdf p.70 문제 해설·p.73 예시 답안 문제 4(3)
+      criteria:
+      - 3.A1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 2
+      evidence: 가능한 비밀번호가 다섯 자리(연속 3회 미만)와 일곱 자리(앞 다섯 자리에 연속 3회 이상)임을 서술했다.
+      steps:
+      - 3b-1
+      - 3b-2
+    - id: 3.M2
+      mark_type: M
+      points: 2
+      evidence: 허용되는 다섯 자리 $100000-2800=97200$을 구했다.
+      steps:
+      - 3b-3
+    - id: 3.M3
+      mark_type: M
+      points: 2
+      evidence: 일곱 자리의 가짓수 $2800\times10^2=280000$을 구했다.
+      steps:
+      - 3b-4
+    - id: 3.A1
+      mark_type: A
+      points: 2
+      evidence: $97200+280000=377200$을 구했다.
+      depends_on:
+      - 3.M1
+      - 3.M2
+      - 3.M3
+      steps:
+      - 3b-5
+    deductions: []
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: p3-past-v1
+  item_version: 1
+  verdict: pass
+  date: 2026-11-22
+created: 2026-11-22
+updated: 2026-11-22

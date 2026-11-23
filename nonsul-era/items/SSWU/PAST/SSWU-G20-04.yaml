@@ -1,0 +1,387 @@
+schema_version: '2.0'
+id: SSWU-G20-04
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: SSWU
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 일반화
+points: 25
+time_estimate_min: null
+key_idea: |
+  최단 경로는 왼쪽 아래 $a$ $(n-k)$번, 오른쪽 아래 $b$ $k$번으로만 이루어지므로 $f(k)={}_n\mathrm{C}_k$(파스칼 삼각형). $g(n)=\sum{}_n\mathrm{C}_k=2^n$이고 $\sum\frac1{2^n}=1$. 가장 긴 경로는 모든 꼭짓점을 지나는 경로이고, 꼭짓점 수 $\frac{(n+1)(n+2)}2$에서 1을 뺀 $\frac{n(n+3)}2$가 상한이며 실제로 구현된다.
+stuck: |
+  (3)에서 길이의 상한이 꼭짓점 수 $-1$임을 보이고, 그 길이의 경로가 실제로 존재함을 구성하는 단계
+tags:
+- 최단경로
+- 조합
+- 이항정리
+- 등비급수
+- 최장경로
+elements:
+  materials:
+  - 한 변의 길이가 1인 $n^2$개의 합동인 정삼각형으로 분할된 정삼각형 OAB (그림 $\mathrm{R}_n$)
+  - B에서 점 $(k,0)$에 이르는 최단 경로의 개수 $f(k)$
+  - $g(n)=\sum_{k=0}^{n}f(k)$
+  concepts:
+  - 최단 경로의 수와 조합
+  - 이항정리 $\sum_{k=0}^{n}{}_n\mathrm{C}_k=2^n$
+  - 등비급수의 합
+  - 한 번 지난 점을 다시 지나지 않는 최장 경로(꼭짓점 수)
+  tools:
+  - $a$($n-k$개), $b$($k$개)를 일렬로 나열하는 같은 것이 있는 순열 ${}_n\mathrm{C}_k$
+  - $\displaystyle\sum_{n=1}^{\infty}\dfrac1{2^n}=\dfrac{\frac12}{1-\frac12}=1$
+  - 꼭짓점의 수 $\displaystyle\sum_{k=1}^{n+1}k=\dfrac{(n+1)(n+2)}2$
+  - $x$축에 평행한 선분 $\frac{n(n+1)}{2}$개를 이용한 경로 구성
+  conditions:
+  - $n$은 자연수, $k=0,1,\cdots,n$
+  - (3) 한 번 지난 점은 다시 지나지 않고 B에서 A로 가는 경로
+  stimuli_used: []
+  subpart_links: (1)의 $f(k)$를 (2)에서 합하여 $g(n)$을 구한다. (3)은 (1)(2)와 독립
+curriculum:
+  version: '2015'
+  subjects:
+  - 확률과통계
+  - 수학Ⅰ
+  - 미적분
+  scope_2028: calc2
+  scope_confirmed: true
+  standards:
+  - code: 확통1122
+    text: 조합의 뜻을 알고 조합의 수를 구할 수 있다.
+    verified: true
+  - code: 확통1123-3
+    text: 같은 것이 있는 순열을 이해하고, 그 순열의 수를 구할 수 있다.
+    verified: true
+  - code: 확통1141/1142
+    text: 이항정리를 이해하고 이를 이용하여 여러 가지 문제를 해결할 수 있다.
+    verified: true
+  - code: 수학2322
+    text: 여러 가지 수열의 첫째항부터 제 $n$항까지의 합을 구할 수 있다.
+    verified: true
+  - code: 미적1122
+    text: 등비급수의 뜻을 알고 그 합을 구할 수 있다.
+    verified: true
+  content_area: 경우의 수 – 순열과 조합 / 수열 / 급수
+  behavior_domain: 문제해결
+  unit_path:
+  - 확률과통계
+  - 순열과 조합
+  - 이항정리
+  - 최단경로와 급수
+  key_concepts:
+  - 최단경로
+  - 조합
+  - 이항정리
+  - 등비급수
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 성신여자대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 성신여자대학교
+  admission_year: 2020
+  admission_type: 수시 논술우수자전형
+  track: 자연계열
+  question_no: 4
+  official_url: https://ipsi.sungshin.ac.kr/guide/dataroom.htm?bbsid=dataroom&ctg_cd=all&mode=view&bltn_seq=22396
+  retrieved_at: '2026-11-22'
+  original_points:
+  - 5
+  - 10
+  - 10
+  rights_notice: 성신여자대학교 입학처 공개 자료(내부 분석용)
+  transcribed_from: g21.pdf p.23 (문제) / p.24, 26, 31~32 (출제개요·평가기준) / p.35~37 (예시답안) (이미지 대조 2026-11-22)
+verify: verify/SSWU-G20.py::p04
+stimuli: []
+stem: |
+  $n$이 자연수일 때 좌표평면에서 원점 O와 점 $\mathrm{A}(n,0)$을 두 꼭짓점으로 하는 정삼각형 OAB를 그리고, 이것을 아래 그림 $\mathrm{R}_n$과 같이 한 변의 길이가 1인 $n^2$개의 합동인 정삼각형으로 분할하였다.
+
+  [그림 2: 세 그림 $\mathrm{R}_1$, $\mathrm{R}_2$, ⋯, $\mathrm{R}_n$. 각 그림은 원점 O와 점 A(n,0)을 밑변의 양 끝으로 하는 정삼각형 OAB를 한 변의 길이 1인 $n^2$개의 정삼각형으로 분할한 것이다. $x$축 위에 점 $1,2,3,\cdots,n-1,n$이 표시되어 있고 꼭대기가 B이다. $\mathrm{R}_1$은 O, 1(=A), B, $\mathrm{R}_2$는 $x$축 위의 1, 2(=A)가 표시됨]
+
+  다음 물음에 답하시오. [총 25점]
+subparts:
+- id: '1'
+  stem: |
+    (1) 그려진 삼각형들의 변을 따라 B에서 점 $(k,0)$에 이르는 최단 경로의 개수를 $f(k)$라 할 때, 그림 $\mathrm{R}_1$의 $f(0)$, $f(1)$의 값과 그림 $\mathrm{R}_2$의 $f(0)$, $f(1)$, $f(2)$의 값을 각각 구하고, 그림 $\mathrm{R}_n$의 $f(k)$를 $k$에 대한 식으로 나타내시오. $(k=0,1,\cdots,n)$.
+  points: 5
+  depends_on: []
+  answer:
+    kind: expression
+    value: R1=1,1; R2=1,2,1; f=binomial(n,k)
+    equivalents:
+    - '$\mathrm{R}_1$: $f(0)=1,\ f(1)=1$; $\mathrm{R}_2$: $f(0)=1,\ f(1)=2,\ f(2)=1$; $f(k)={}_n\mathrm{C}_k=\frac{n!}{k!(n-k)!}$'
+    tolerance: null
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: B에서 내려오는 최단 경로는 왼쪽 아래 $a$와 오른쪽 아래 $b$ 두 방향만 쓰며, $(n-k)$개의 $a$와 $k$개의 $b$를 나열한다.
+    steps:
+    - id: 1a
+      content: $f(k)={}_n\mathrm{C}_k=\dfrac{n!}{k!(n-k)!}$
+      criteria:
+      - 1.B1
+      - 1.M1
+      - 1.A1
+  - id: S1-B
+    audience: B
+    source_flow: g21.pdf p.35~36 예시답안 문제 4(1)
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        $n=1$인 경우: $f(0)=1,\ f(1)=1$
+      criteria:
+      - 1.B1
+    - id: 1b-2
+      content: |
+        $n=2$인 경우: $f(0)=1,\ f(1)=2,\ f(2)=1$
+      criteria:
+      - 1.B1
+    - id: 1b-3
+      content: |
+        왼쪽 아래로 한 칸 이동하는 것을 $a$, 오른쪽 아래로 한 칸 이동하는 것을 $b$라 하면, B에서 $(k,0)$으로 가는 최단경로는 $a$와 $b$ 형태의 선분만 사용하여 $(k,0)$에 도달해야 하므로 최단경로의 가짓수는 $(n-k)$개의 $a$와 $k$개의 $b$를 일렬로 늘어놓는 순열의 수이다. (또는 $n$개의 자리 중에서 $b$를 놓을 $k$개의 자리를 선택하는 조합의 수로 설명해도 됨.)
+      criteria:
+      - 1.M1
+    - id: 1b-4
+      content: |
+        따라서 $f(k)={}_n\mathrm{C}_k=\dfrac{n!}{k!(n-k)!}$이다.
+      criteria:
+      - 1.A1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 1.B1
+      mark_type: B
+      points: 2
+      evidence: |
+        $\mathrm{R}_1$: $f(0)=f(1)=1$, $\mathrm{R}_2$: $f(0)=1,\ f(1)=2,\ f(2)=1$을 구했다.
+      depends_on: []
+      steps:
+      - 1b-1
+      - 1b-2
+    - id: 1.M1
+      mark_type: M
+      points: 2
+      evidence: |
+        최단 경로가 $a$ $(n-k)$개와 $b$ $k$개를 일렬로 나열하는 것임을 설명했다.
+      depends_on: []
+      steps:
+      - 1b-3
+      implied_ok: false
+    - id: 1.A1
+      mark_type: A
+      points: 1
+      evidence: |
+        $f(k)={}_n\mathrm{C}_k$를 구했다.
+      depends_on:
+      - 1.M1
+      steps:
+      - 1b-4
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+- id: '2'
+  stem: |
+    (2) 그림 $\mathrm{R}_n$에서 $g(n)=\displaystyle\sum_{k=0}^{n}f(k)$를 $n$에 대한 식으로 나타내고, $\displaystyle\sum_{n=1}^{\infty}\dfrac{1}{g(n)}$의 값을 구하시오.
+  points: 10
+  depends_on: []
+  answer:
+    kind: expression
+    value: g=2**n; sum=1
+    equivalents:
+    - $g(n)=2^n$, $\sum_{n=1}^{\infty}\frac1{g(n)}=1$
+    tolerance: null
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: $g(n)=\sum{}_n\mathrm{C}_k=2^n$, 공비 $\frac12$인 등비급수.
+    steps:
+    - id: 2a
+      content: $\sum_{n=1}^{\infty}\frac1{2^n}=\frac{1/2}{1-1/2}=1$
+      criteria:
+      - 2.M1
+      - 2.B1
+      - 2.M2
+      - 2.A1
+  - id: S2-B
+    audience: B
+    source_flow: g21.pdf p.36 예시답안 문제 4(2)
+    method_no: 1
+    steps:
+    - id: 2b-1
+      content: |
+        $g(n)=\displaystyle\sum_{k=0}^{n}f(k)=\sum_{k=0}^{n}{}_n\mathrm{C}_k={}_n\mathrm{C}_0+{}_n\mathrm{C}_1+\cdots+{}_n\mathrm{C}_n=2^n$이다.
+      criteria:
+      - 2.M1
+      - 2.B1
+    - id: 2b-2
+      content: |
+        이로부터 $\displaystyle\sum_{n=1}^{\infty}\dfrac1{g(n)}=\sum_{n=1}^{\infty}\dfrac1{2^n}=\dfrac{\frac12}{1-\frac12}=1$이다.
+      criteria:
+      - 2.M2
+      - 2.A1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 3
+      evidence: |
+        $g(n)=\sum_{k=0}^{n}{}_n\mathrm{C}_k$로 나타냈다.
+      depends_on: []
+      steps:
+      - 2b-1
+      implied_ok: false
+    - id: 2.B1
+      mark_type: B
+      points: 2
+      evidence: |
+        이항정리로 $g(n)=2^n$을 구했다.
+      depends_on: []
+      steps:
+      - 2b-1
+    - id: 2.M2
+      mark_type: M
+      points: 3
+      evidence: |
+        $\sum\frac1{2^n}$을 공비 $\frac12$인 등비급수로 보았다.
+      depends_on: []
+      steps:
+      - 2b-2
+      implied_ok: false
+    - id: 2.A1
+      mark_type: A
+      points: 2
+      evidence: |
+        급수의 합 $1$을 구했다.
+      depends_on:
+      - 2.M2
+      - 2.B1
+      steps:
+      - 2b-2
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+- id: '3'
+  stem: |
+    (3) 그림 $\mathrm{R}_n$에서 한 번 지난 점은 다시 지나지 않고, 그려진 삼각형들의 변을 따라 B에서 A로 가는 경로 중 가장 긴 것의 길이를 $n$에 대한 식으로 나타내시오.
+  points: 10
+  depends_on: []
+  answer:
+    kind: expression
+    value: n*(n+3)/2
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: 모든 꼭짓점 $\frac{(n+1)(n+2)}2$개를 지나는 경로가 가장 길고 길이는 꼭짓점 수 $-1$. 그런 경로가 실제로 존재함을 보인다.
+    steps:
+    - id: 3a
+      content: $\frac{(n+1)(n+2)}2-1=\frac{n(n+3)}2$
+      criteria:
+      - 3.M1
+      - 3.M2
+      - 3.R1
+  - id: S3-B
+    audience: B
+    source_flow: g21.pdf p.36 예시답안 문제 4(3)
+    method_no: 1
+    steps:
+    - id: 3b-1
+      content: |
+        $n^2$개의 합동인 정삼각형으로 분할된 정삼각형 OAB에는 $\displaystyle\sum_{k=1}^{n+1}k=\dfrac{(n+1)(n+2)}{2}$개의 꼭짓점이 있다.
+      criteria:
+      - 3.M1
+    - id: 3b-2
+      content: |
+        한 번 지난 점은 다시 지나지 않고 모든 꼭짓점을 지나는 경로가 존재하면 이 경로가 가장 긴 경로이고, 이 경로에는 길이가 1인 선분이 $\dfrac{(n+1)(n+2)}{2}-1=\dfrac{n(n+3)}{2}$개 있다.
+      criteria:
+      - 3.M2
+    - id: 3b-3
+      content: |
+        이제 점 B에서 점 A로 가는 길이가 $\dfrac{n(n+3)}{2}$인 경로가 존재함을 보이자. $x$축과 평행한 선분은 $\dfrac{n(n+1)}{2}$개가 있다. $x$축과 평행한 모든 선분을 변 OB 또는 AB 위의 $n$개의 선분을 이용해 연결하여 B에서 A로 가는 하나의 경로로 만들면 길이가 $\dfrac{n(n+3)}{2}$인 경로가 된다. (다른 형태의 경로를 제시해도 됨.) [그림 3: $n=5$인 경우 B에서 A로 가는 최장경로 예시 3가지. 첫째 그림은 $x$축에 평행한 선분을 모두 지나며 변 OB, AB 위의 선분으로 번갈아 연결한 경로이고, 나머지 둘은 같은 길이의 다른 형태의 경로]
+      criteria:
+      - 3.R1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 3
+      evidence: |
+        꼭짓점의 개수 $\frac{(n+1)(n+2)}2$를 구했다.
+      depends_on: []
+      steps:
+      - 3b-1
+      implied_ok: false
+    - id: 3.M2
+      mark_type: M
+      points: 3
+      evidence: |
+        모든 꼭짓점을 지나는 경로가 가장 길며 길이가 $\frac{n(n+3)}2$임을 보였다.
+      depends_on:
+      - 3.M1
+      steps:
+      - 3b-2
+      implied_ok: false
+    - id: 3.R1
+      mark_type: R
+      points: 4
+      evidence: |
+        길이 $\frac{n(n+3)}2$인 경로가 실제로 존재함을 예(그림 또는 구성)로 보였다.
+      depends_on:
+      - 3.M2
+      steps:
+      - 3b-3
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: p3-past-v1
+  item_version: 1
+  verdict: pass
+  date: '2026-11-22'
+created: '2026-11-22'
+updated: '2026-11-22'
+intent: |
+  실생활에서의 최대 최소 문제 및 이의 해결 능력을, 주어진 상황을 수학적으로 해석하고 논리적으로 추론하며 경우의 수, 중복순열 혹은 조합, 이항정리, 등비급수의 합 등 다양한 수학 지식을 활용해 해결할 수 있는지를 복합적으로 평가한다.
+idea_tags:
+- IDEA-TRIANGLE-GRID-SHORTEST-LONGEST-PATH

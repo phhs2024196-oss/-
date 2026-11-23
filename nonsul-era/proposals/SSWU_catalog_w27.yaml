@@ -1,0 +1,73 @@
+# w27 오개념 후보 (g27.pdf) — 공용 카탈로그 미수정
+- id: MC-CAL-82601
+  name: 접선 기울기 곱의 제곱근에서 음수 근을 버리지 않음
+  concepts:
+  - CON-CAL-DIFF-EXP
+  used_in: SSWU-G26-01#1
+  outcome_code: '71'
+  wrong_work: $e^{\frac{x_0}{2}}-e^{-\frac{x_0}{2}}=-\left(e-\frac1e\right)$까지 근으로 남겨 $x_0=-2$ 또는 $a$를 잘못 구함
+  detect_cue: $x_0<0$ 또는 $x_0>0$ 조건 없이 부호가 두 개로 남는다
+  feedback: 제1사분면이므로 $x_0>0$이고 $e^{\frac{x_0}{2}}-e^{-\frac{x_0}{2}}>0$입니다.
+- id: MC-CAL-82602
+  name: h(c)>0인 점의 존재를 보이지 않고 사잇값의 정리를 적용
+  concepts:
+  - CON-CAL-IVT
+  used_in: SSWU-G26-02#1
+  outcome_code: '71'
+  wrong_work: $h(0)=0$, $h(r)<0$만으로 사잇값의 정리를 적용
+  detect_cue: $h(c)>0$인 $c$를 찾는 단계(귀류법)가 없다
+  feedback: $h(0)=0$이므로 부호가 바뀌는 구간을 얻으려면 $h^{\prime}(0)>0$으로 $h(c)>0$인 $c$의 존재를 먼저 보여야 합니다.
+- id: MC-CAL-82603
+  name: 최솟값 후보를 축의 위치로 나누지 않고 한 끝점만 대입
+  concepts:
+  - CON-ALG-QUAD-EXTREMA
+  used_in: SSWU-G26-03#1
+  outcome_code: '71'
+  wrong_work: $h(3)=4$만 풀어 $b=-\frac{13}{3}$을 답으로 함
+  detect_cue: $b>-4$, $b\le-4$ 구분이 없다
+  feedback: 축 $x=-\frac b2$가 2보다 작은지에 따라 $x=3$ 또는 $x=1$에서 최솟값을 가지므로 경우를 나눠 확인하세요.
+- id: MC-CAL-82604
+  name: 일반각 BAO 를 두 각의 차로 나타내지 못함
+  concepts:
+  - CON-TRIG-ADDITION
+  used_in: SSWU-G26-04#3
+  outcome_code: '71'
+  wrong_work: $\tan\theta=\frac{t}{1/2+1}$처럼 한 직각삼각형으로만 $\tan\theta$를 구함
+  detect_cue: $\alpha-\beta$ 분해와 덧셈정리가 없다
+  feedback: $\theta=\alpha-\beta$이므로 $\tan\theta=\frac{\tan\alpha-\tan\beta}{1+\tan\alpha\tan\beta}$를 쓰세요.
+- id: MC-GEO-82651
+  name: 접선 조건을 두 곡선 모두에 적용하지 않음
+  concepts:
+  - CON-ALG-DISCRIMINANT
+  used_in: SSWU-M27-01#1
+  outcome_code: '71'
+  wrong_work: $D_1=0$만 쓰고 $g$에 대한 조건을 빠뜨려 $a$, $b$를 한 식으로 구함
+  detect_cue: 판별식이 하나뿐이다
+  feedback: 직선은 두 곡선 모두에 접하므로 $D_1=0$, $D_2=0$ 두 식을 연립해야 합니다.
+- id: MC-GEO-82652
+  name: 원주각과 중심각 관계에서 BPA 를 잘못 둠
+  concepts:
+  - CON-GEO-INSCRIBED-ANGLE
+  used_in: SSWU-M27-02#1
+  outcome_code: '71'
+  wrong_work: $\angle\mathrm{BPA}=\alpha$로 두어 $\overline{\mathrm{AP}}=10\sin(\pi-\alpha-\theta)$ 꼴로 계산
+  detect_cue: $\angle\mathrm{ABP}=\pi-\alpha-\theta$ 사용
+  feedback: P가 작은 호 위에 있으므로 $\angle\mathrm{BPA}=\pi-\alpha$입니다.
+- id: MC-CAL-82653
+  name: 평균값 정리 후 e^z 를 양 끝 값 사이에 끼우지 않음
+  concepts:
+  - CON-CAL-MVT
+  used_in: SSWU-M27-03#3
+  outcome_code: '71'
+  wrong_work: $e^z$의 $z$가 극한에서 어디로 가는지 밝히지 않고 결과만 씀
+  detect_cue: $g(x)<z<f(x)$와 $e^t$ 증가성에 의한 부등식이 없다
+  feedback: $g(x)<z<f(x)$이고 $e^t$가 증가함수이므로 $e^{g(x)}<e^z<e^{f(x)}$로 끼워 극한을 구하세요.
+- id: MC-ALG-82654
+  name: 부분분수 합에서 남는 항을 잘못 셈
+  concepts:
+  - CON-SEQ-TELESCOPING
+  used_in: SSWU-M27-04#2
+  outcome_code: '71'
+  wrong_work: $S_n=\frac13-\frac1{n+2}$로 마지막 항을 잘못 씀
+  detect_cue: $S_n$의 마지막 항이 $\frac1{n+2}$이다
+  feedback: $\sum_{k=1}^n\left(\frac1{k+2}-\frac1{k+3}\right)=\frac13-\frac1{n+3}$입니다.

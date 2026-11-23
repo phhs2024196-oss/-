@@ -1,0 +1,441 @@
+# 성신여대 2025학년도 논술 실전 자연계열 문제 4 — 기출 원문은 내부 분석용(allowed_use: internal_only)
+# 채점기준 미공개(점수 환산표 없음) — 가이드북은 단계별 1~7등급 기준만 제시. rubric criteria 의 배점 분할은 단계별 추정(소문항 총점은 원 배점)
+schema_version: '2.0'
+id: SSWU-G25-04
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: SSWU
+type: null
+variant_of: null
+replaces: null
+level: L5
+form: 추론
+points: 25
+time_estimate_min: null
+intent: |
+  유리함수의 성질을 이해하고 이를 이용하여 주어진 조건을 만족하는 유리함수를 구할 수 있는지 살펴보고자 한다. 또한 도형의 이동과 정적분을 활용하여 곡선으로 둘러싸인 영역의 넓이를 구할 수 있는지 확인한다. 그리고 부등식을 이용하여 요구하는 조건을 만족하는 자연수의 범위를 구할 수 있는지 평가한다.
+key_idea: |
+  점근선 $x=n,\ y=0$으로 $f(x)=\dfrac{k}{x-n}$ 꼴임을 알고 외분점·삼각형의 넓이로 $k=\dfrac1{n^2}$을 구한다. $n=1$일 때 $y=\dfrac1{x-1}$과 그 대칭곡선 $y=\dfrac1x+1$ 사이의 넓이는 교점 $\left(\dfrac{1+\sqrt5}{2},\dfrac{1+\sqrt5}{2}\right)$에서 둘로 나누어 적분한다. (3)은 $x>n+1$에서 $\dfrac{1}{x-n-1}\ge\dfrac{(n+1)^2}{n^2(x-n)}$을 풀어 $x\le\dfrac{3n^2+3n+1}{2n+1}$를 얻는다.
+stuck: (2)에서 두 곡선의 교점을 경계로 적분구간을 나누고 선분 $\mathrm{AB}$($y=x-1$)를 아래 경계로 잡는 단계, (3)에서 구간 $[n+2,n+3]$ 전체가 부등식의 해에 들어갈 조건 $n+3\le\dfrac{3n^2+3n+1}{2n+1}$로 바꾸는 단계
+tags:
+- 유리함수
+- 외분점
+- 대칭이동
+- 정적분과 넓이
+- 부등식
+elements:
+  materials:
+  - $f(x)=\dfrac{ax+b}{cx+d}$ ($ad-bc\ne0$, $c\ne0$)와 점근선 $x=n$, $y=0$
+  - $\mathrm{N}(n,0)$, $\mathrm{P}(2n,f(2n))$, $\overline{\mathrm{PN}}$을 $2:1$로 외분하는 점 $\mathrm{Q}$로 만든 직각삼각형의 넓이 $\dfrac2{n^2}$
+  - $n=1$일 때 $y=f(x)$와 직선 $y=x$에 대하여 대칭이동한 곡선, 직선 $x=1$, 선분 $\mathrm{AB}$로 둘러싸인 도형
+  - 부등식 $(n+1)^2f(x)\le n^2f(x-1)$ ($n+2\le x\le n+3$)
+  concepts:
+  - 유리함수의 그래프와 점근선
+  - 선분의 외분점
+  - 직선 $y=x$에 대한 대칭이동
+  - 정적분과 곡선으로 둘러싸인 도형의 넓이
+  - 이차부등식
+  tools:
+  - $f(x)=\dfrac{k}{x-p}+q$ 꼴과 점근선으로 $p=n,\ q=0$
+  - 외분점 $\mathrm{Q}(0,-\dfrac kn)$와 직각삼각형의 넓이 $\dfrac12\times2n\times\dfrac{2k}{n}$
+  - $A_1=\int_1^{\frac{1+\sqrt5}2}\left\{1+\dfrac1x-(x-1)\right\}dx$, $A_2=\int_{\frac{1+\sqrt5}2}^{2}\left\{\dfrac1{x-1}-(x-1)\right\}dx$
+  - $n^2-4n-2\ge0$의 해와 자연수 조건
+  conditions:
+  - $f(2n)>0$
+  - $n$은 자연수
+  - $n=1$일 때 $\mathrm{A}(1,0)$, $\mathrm{B}(2,1)$
+  subpart_links: (2), (3)은 (1)의 $f(x)=\dfrac{1}{n^2(x-n)}$($n=1$일 때 $\dfrac1{x-1}$)를 사용
+  stimuli_used: []
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학
+  - 미적분
+  scope_2028: calc2
+  scope_confirmed: true
+  standards:
+  - code: 10수학02-02
+    text: 선분의 내분과 외분을 이해하고, 내분점과 외분점의 좌표를 구할 수 있다.
+    verified: true
+  - code: 10수학02-04
+    text: 두 직선의 평행 조건과 수직 조건을 이해한다.
+    verified: true
+  - code: 10수학04-04
+    text: 유리함수 $y=\dfrac{ax+b}{cx+d}$의 그래프를 그릴 수 있고, 그 그래프의 성질을 이해한다.
+    verified: true
+  - code: 10수학02-09
+    text: 원점, $x$축, $y$축, 직선 $y=x$에 대한 대칭이동의 의미를 이해한다.
+    verified: true
+  - code: 12미적03-03
+    text: 여러 가지 함수의 부정적분과 정적분을 구할 수 있다.
+    verified: true
+  - code: 12미적03-05
+    text: 곡선으로 둘러싸인 도형의 넓이를 구할 수 있다.
+    verified: true
+  - code: 10수학01-14
+    text: 미지수가 1개인 연립일차부등식을 풀 수 있다.
+    verified: true
+  - code: 10수학01-16
+    text: 이차부등식과 이차함수의 관계를 이해하고, 이차부등식과 연립이차부등식을 풀 수 있다.
+    verified: true
+  content_area: 함수 – 유리함수 / 도형의 방정식 / 적분법 – 정적분의 활용 / 부등식
+  behavior_domain: 문제해결
+  unit_path:
+  - 수학
+  - 함수
+  - 유리함수와 무리함수
+  - 유리함수의 그래프와 넓이
+  key_concepts:
+  - 유리함수
+  - 외분점
+  - 대칭이동
+  - 정적분과 넓이
+  - 이차부등식
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 성신여자대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 성신여자대학교
+  admission_year: 2025
+  admission_type: 수시 논술우수자전형
+  track: 자연계열
+  question_no: 4
+  official_url: https://ipsi.sungshin.ac.kr/guide/dataroom.htm?bbsid=notice&ctg_cd=all&mode=view&bltn_seq=34122
+  retrieved_at: '2026-11-22'
+  original_points:
+  - 8
+  - 8
+  - 9
+  rights_notice: 성신여자대학교 입학처 공개 자료(내부 분석용)
+  transcribed_from: g26.pdf p.63 (문제지) / p.64~66 (출제 의도·근거) / p.77~79 (채점 기준) / p.83~84 (예시답안) (이미지 대조 2026-11-22)
+verify: verify/SSWU-G25.py::p04
+stimuli: []
+stem: |
+  함수 $f(x)=\dfrac{ax+b}{cx+d}$ (단, $ad-bc\ne0,\ c\ne0$)가 자연수 $n$에 대하여 다음 조건을 만족한다.
+
+  (가) 함수 $y=f(x)$의 그래프의 점근선은 두 직선 $x=n,\ y=0$이다.
+
+  (나) 점 $\mathrm{N}(n,\ 0)$과 함수 $y=f(x)$의 그래프 위의 점 $\mathrm{P}(2n,\ f(2n))$에 대하여 선분 $\mathrm{PN}$을 $2:1$로 외분하는 점을 $\mathrm{Q}$라 하자. 이때 직선 $\mathrm{PQ}$와 점 $\mathrm{P}$를 지나고 $y$축에 평행한 직선 및 점 $\mathrm{Q}$를 지나고 $x$축에 평행한 직선으로 둘러싸인 도형의 넓이는 $\dfrac{2}{n^2}$이다. (단, $f(2n)>0$이다.)
+
+  다음 물음에 답하시오. [총 25점]
+subparts:
+- id: '1'
+  stem: |
+    (1) $f(x)$를 구하시오.
+  points: 8
+  depends_on: []
+  answer:
+    kind: expression
+    value: 1/(n**2*(x-n))
+    equivalents:
+    - $f(x)=\dfrac{1}{n^2(x-n)}$
+    tolerance: null
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: 점근선으로 $f(x)=\dfrac{k}{x-n}$, $\mathrm{P}\left(2n,\dfrac kn\right)$, $\mathrm{Q}\left(0,-\dfrac kn\right)$, 넓이 $2k=\dfrac{2}{n^2}$
+    steps:
+    - id: 1a
+      content: $f(x)=\dfrac{1}{n^2(x-n)}$
+      criteria:
+      - 1.M1
+      - 1.B1
+      - 1.B2
+      - 1.A1
+  - id: S1-B
+    audience: B
+    source_flow: g26.pdf p.83 예시답안 문제 4(1)
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        구하는 유리함수는 $y=\dfrac{k}{x-p}+q$ (단, $k\ne0$인 상수) 형태로 표현되고 조건 (가)에 의하여 $p=n,\ q=0$이다.
+      criteria:
+      - 1.M1
+      - 1.B1
+    - id: 1b-2
+      content: |
+        조건 (나)로부터 $\mathrm{P}\left(2n,\ \dfrac kn\right)$, $\mathrm{Q}\left(0,\ -\dfrac kn\right)$이고
+      criteria:
+      - 1.B2
+    - id: 1b-3
+      content: |
+        $k>0$이므로 주어진 도형의 넓이는 $\dfrac12\times(2n)\times\dfrac{2k}{n}\left(=2k\right)=\dfrac{2}{n^2}$이고 $k=\dfrac1{n^2}$이다.
+      criteria:
+      - 1.B2
+    - id: 1b-4
+      content: |
+        따라서 $f(x)=\dfrac{\frac1{n^2}}{x-n}=\dfrac{1}{n^2(x-n)}$이다.
+      criteria:
+      - 1.A1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 2
+      evidence: |
+        $f(x)=\dfrac{k}{x-p}+q$ ($k\ne0$) 꼴로 표현했다.
+      depends_on: []
+      steps:
+      - 1b-1
+    - id: 1.B1
+      mark_type: B
+      points: 2
+      evidence: |
+        점근선 조건 (가)로 $p=n,\ q=0$을 구했다.
+      depends_on:
+      - 1.M1
+      steps:
+      - 1b-1
+    - id: 1.B2
+      mark_type: B
+      points: 2
+      evidence: |
+        조건 (나)로 $\mathrm{P}\left(2n,\dfrac kn\right)$, $\mathrm{Q}\left(0,-\dfrac kn\right)$를 구하고 넓이식을 세웠다.
+      depends_on:
+      - 1.M1
+      steps:
+      - 1b-2
+      - 1b-3
+    - id: 1.A1
+      mark_type: A
+      points: 2
+      evidence: |
+        $k=\dfrac1{n^2}$, $f(x)=\dfrac{1}{n^2(x-n)}$을 구했다.
+      depends_on:
+      - 1.M1
+      - 1.B2
+      steps:
+      - 1b-4
+    deductions: []
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+- id: '2'
+  stem: |
+    (2) $n=1$일 때, 곡선 $y=f(x)$와 이 곡선을 직선 $y=x$에 대하여 대칭이동한 곡선, 직선 $x=1$ 및 두 점 $\mathrm{A}(1,\,0)$, $\mathrm{B}(2,\,1)$을 이은 선분 $\mathrm{AB}$로 둘러싸인 도형의 넓이를 구하시오.
+  points: 8
+  depends_on:
+  - '1'
+  answer:
+    kind: expression
+    value: (-2+sqrt(5))/2 + 2*log((1+sqrt(5))/2)
+    equivalents:
+    - $\dfrac{-2+\sqrt5}{2}+2\ln\left(\dfrac{1+\sqrt5}{2}\right)$
+    tolerance: null
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: $y=\dfrac1{x-1}$과 대칭곡선 $y=\dfrac1x+1$의 교점 $\left(\dfrac{1+\sqrt5}2,\dfrac{1+\sqrt5}2\right)$를 경계로 $A_1+A_2$를 적분
+    steps:
+    - id: 2a
+      content: $\dfrac{-2+\sqrt5}{2}+2\ln\dfrac{1+\sqrt5}{2}$
+      criteria:
+      - 2.M1
+      - 2.B1
+      - 2.M2
+      - 2.A1
+  - id: S2-B
+    audience: B
+    source_flow: g26.pdf p.83 예시답안 문제 4(2)
+    method_no: 1
+    steps:
+    - id: 2b-1
+      content: |
+        $n=1$일 때 $f(x)=\dfrac1{x-1}$이다.
+      criteria:
+      - 2.M1
+    - id: 2b-2
+      content: |
+        곡선 $y=\dfrac{1}{x-1}$을 직선 $y=x$에 대하여 대칭이동한 곡선은 $y=\dfrac1x+1$이다.
+      criteria:
+      - 2.M1
+    - id: 2b-3
+      content: |
+        이 두 곡선의 교점은 직선 $y=x$ 위에 있으므로 $\dfrac{1}{x-1}=x$로부터 $\left(\dfrac{1+\sqrt5}{2},\ \dfrac{1+\sqrt5}{2}\right)$, $\left(\dfrac{1-\sqrt5}{2},\ \dfrac{1-\sqrt5}{2}\right)$이고 제1사분면 위의 점은 $\left(\dfrac{1+\sqrt5}{2},\ \dfrac{1+\sqrt5}{2}\right)$이다.
+      criteria:
+      - 2.B1
+    - id: 2b-4
+      content: |
+        도형의 넓이는 $A_1+A_2$이고 $A_1=\displaystyle\int_1^{\frac{1+\sqrt5}{2}}\left\{1+\dfrac1x-(x-1)\right\}dx=\left[\ln|x|+2x-\dfrac{x^2}{2}\right]_1^{\frac{1+\sqrt5}{2}}=\dfrac{-5+3\sqrt5}{4}+\ln\left(\dfrac{1+\sqrt5}{2}\right)$, $A_2=\displaystyle\int_{\frac{1+\sqrt5}{2}}^{2}\left\{\dfrac1{x-1}-(x-1)\right\}dx=\left[\ln|x-1|-\dfrac{x^2}{2}+x\right]_{\frac{1+\sqrt5}{2}}^{2}=\dfrac{1-\sqrt5}{4}+\ln\left(\dfrac{1+\sqrt5}{2}\right)$이므로 도형의 넓이는 $A_1+A_2=\dfrac{-2+\sqrt5}{2}+2\ln\left(\dfrac{1+\sqrt5}{2}\right)$이다. (별해: $\displaystyle\int_1^{\frac{1+\sqrt5}{2}}\left(\dfrac1x+1\right)dx+\int_{\frac{1+\sqrt5}{2}}^{2}\dfrac1{x-1}dx-\dfrac12$을 계산하여도 된다.)
+      criteria:
+      - 2.M2
+      - 2.A1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 2
+      evidence: |
+        $n=1$일 때 $f(x)=\dfrac1{x-1}$과 대칭이동한 곡선 $y=\dfrac1x+1$을 구했다.
+      depends_on: []
+      steps:
+      - 2b-1
+      - 2b-2
+    - id: 2.B1
+      mark_type: B
+      points: 2
+      evidence: |
+        두 곡선의 제1사분면 교점 $\left(\dfrac{1+\sqrt5}2,\dfrac{1+\sqrt5}2\right)$를 구했다.
+      depends_on:
+      - 2.M1
+      steps:
+      - 2b-3
+    - id: 2.M2
+      mark_type: M
+      points: 2
+      evidence: |
+        도형의 넓이를 $A_1+A_2$의 정적분으로 세웠다.
+      depends_on:
+      - 2.B1
+      steps:
+      - 2b-4
+    - id: 2.A1
+      mark_type: A
+      points: 2
+      evidence: |
+        넓이 $\dfrac{-2+\sqrt5}{2}+2\ln\dfrac{1+\sqrt5}{2}$를 구했다.
+      depends_on:
+      - 2.M1
+      - 2.M2
+      steps:
+      - 2b-4
+    deductions: []
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+- id: '3'
+  stem: |
+    (3) $n+2\le x\le n+3$인 모든 실수 $x$에 대하여 $(n+1)^2f(x)\le n^2f(x-1)$이 성립하는 자연수 $n$의 최솟값을 구하시오.
+  points: 9
+  depends_on:
+  - '1'
+  answer:
+    kind: value
+    value: '5'
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: $x>n+1$에서 부등식을 풀면 $x\le\dfrac{3n^2+3n+1}{2n+1}$이므로 $n+3\le\dfrac{3n^2+3n+1}{2n+1}$, 즉 $n^2-4n-2\ge0$
+    steps:
+    - id: 3a
+      content: $5$
+      criteria:
+      - 3.M1
+      - 3.B1
+      - 3.M2
+      - 3.A1
+  - id: S3-B
+    audience: B
+    source_flow: g26.pdf p.83 예시답안 문제 4(3) (p.84)
+    method_no: 1
+    steps:
+    - id: 3b-1
+      content: |
+        $f(x)=\dfrac{1}{n^2(x-n)}$, $\dfrac{n^2}{(n+1)^2}f(x-1)=\dfrac{1}{(n+1)^2\{x-(n+1)\}}$이므로 $x>n+1$이면 $f(x)>0,\ f(x-1)>0$이다. $x>n+1$일 때 $n^2f(x-1)\ge(n+1)^2f(x)$가 성립하는 $x$의 범위를 구하면 $\dfrac{1}{(n+1)^2x-(n+1)^3}\ge\dfrac{1}{n^2x-n^3}$이므로 $n^2x-n^3\ge(n+1)^2x-(n+1)^3$이고 이를 정리하면 $(2n+1)x\le3n^2+3n+1$이다.
+      criteria:
+      - 3.M1
+    - id: 3b-2
+      content: |
+        $n$이 자연수이므로 $2n+1>0$이고 양변을 $2n+1$로 나누면 $x\le\dfrac{3n^2+3n+1}{2n+1}$이다.
+      criteria:
+      - 3.B1
+    - id: 3b-3
+      content: |
+        $n+2\le x\le n+3$인 모든 실수 $x$에 대하여 $n^2f(x-1)\ge(n+1)^2f(x)$가 성립하려면 $n+3\le\dfrac{3n^2+3n+1}{2n+1}$이어야 하고, 이를 정리하면 $n^2-4n-2\ge0$이다.
+      criteria:
+      - 3.M2
+    - id: 3b-4
+      content: |
+        따라서 $n\le2-\sqrt6$ 또는 $n\ge2+\sqrt6$이므로 이를 만족하는 자연수 $n$의 최솟값은 $5$이다.
+      criteria:
+      - 3.A1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 3
+      evidence: |
+        $x>n+1$에서 $f(x)>0$, $f(x-1)>0$임을 이용해 부등식을 $(2n+1)x\le3n^2+3n+1$로 정리했다.
+      depends_on: []
+      steps:
+      - 3b-1
+    - id: 3.B1
+      mark_type: B
+      points: 2
+      evidence: |
+        $x\le\dfrac{3n^2+3n+1}{2n+1}$을 구했다.
+      depends_on:
+      - 3.M1
+      steps:
+      - 3b-2
+    - id: 3.M2
+      mark_type: M
+      points: 3
+      evidence: |
+        구간 $[n+2,n+3]$이 해에 포함될 조건 $n+3\le\dfrac{3n^2+3n+1}{2n+1}$, 즉 $n^2-4n-2\ge0$을 얻었다.
+      depends_on:
+      - 3.B1
+      steps:
+      - 3b-3
+    - id: 3.A1
+      mark_type: A
+      points: 1
+      evidence: |
+        자연수 $n$의 최솟값 $5$를 구했다.
+      depends_on:
+      - 3.M1
+      - 3.M2
+      steps:
+      - 3b-4
+    deductions: []
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: p3-past-v1
+  item_version: 1
+  verdict: pass
+  date: '2026-11-22'
+created: '2026-11-22'
+updated: '2026-11-22'

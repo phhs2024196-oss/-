@@ -1,0 +1,360 @@
+schema_version: '2.0'
+id: SSWU-M23-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: SSWU
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 분류
+points: 25
+key_idea: $f$의 최고차항 비교로 $f(x)=6x-12$, $g(x)=x(x-a)^2(x+2a-6)$. $\lvert g\rvert=g$이면 $a=3$, $\lvert g\rvert$는 차수 1인(단순) 영점에서만 미분불가능.
+stuck: $g(x)$를 $x(x-a)^2(x+2a-6)$로 인수분해한 뒤 단순근 개수로 $\lvert g\rvert$의 미분불가능한 점을 세는 단계
+tags:
+- 정적분
+- 사차함수
+- 절댓값 함수
+- 미분가능성
+- 넓이
+elements:
+  materials:
+  - $f(0)=-12$인 다항함수 $f(x)$
+  - $g(x)=\displaystyle\int_a^x(x^2-tx)f(t)dt$ (최고차항의 계수가 1인 사차함수)
+  - $y=\lvert g(x)\rvert$
+  concepts:
+  - 정적분으로 정의된 함수
+  - 다항함수의 차수 비교
+  - 절댓값 함수의 미분가능성
+  - 곡선으로 둘러싸인 도형의 넓이
+  tools:
+  - 최고차항 비교로 $\frac p{n+1}-\frac p{n+2}$
+  - $g(x)=x\displaystyle\int_a^x(x-t)f(t)dt$ 전개와 인수분해
+  - 영점의 중복도(단순근에서만 $\lvert g\rvert$ 미분불가)
+  - $\int_0^3x^2(x-3)^2dx$
+  conditions:
+  - $g$의 최고차항 계수 1, 사차
+  - (2) $\lvert g(x)\rvert=g(x)$
+  - (3) 미분불가능한 점 1개 이하
+  stimuli_used: []
+  subpart_links: (2), (3)은 (1)의 $g(x)=x(x-a)^2(x+2a-6)$을 사용한다
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학Ⅱ
+  scope_2028: common
+  scope_confirmed: true
+  standards:
+  - code: 12수학II 02-03
+    text: 미분가능성과 연속성의 관계를 이해한다.
+    verified: true
+  - code: 12수학II 02-09
+    text: 함수의 그래프의 개형을 그릴 수 있다.
+    verified: true
+  - code: 12수학II 03-05
+    text: 곡선으로 둘러싸인 도형의 넓이를 구할 수 있다.
+    verified: true
+  content_area: 미분 – 미분계수·도함수의 활용 / 적분 – 정적분·정적분의 활용
+  behavior_domain: 문제해결
+  unit_path:
+  - 수학Ⅱ
+  - 적분
+  - 정적분
+  - 정적분으로 정의된 함수와 절댓값 함수
+  key_concepts:
+  - 정적분
+  - 미분가능성
+  - 넓이
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 성신여자대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 성신여자대학교
+  admission_year: 2023
+  admission_type: 수시 모의논술
+  track: 자연계열
+  question_no: 1
+  official_url: https://ipsi.sungshin.ac.kr/highschool_ties/guidebook.php?bbsid=guidebook (2023학년도 논술가이드북 file_seq=2337)
+  retrieved_at: '2026-11-22'
+  original_points:
+  - 10
+  - 7
+  - 8
+  rights_notice: 성신여자대학교 입학처 공개 자료(내부 분석용)
+  transcribed_from: g23.pdf p.66 (이미지 대조 2026-11-22)
+verify: verify/SSWU-M23.py::p01
+stimuli: []
+stem: |-
+  $f(0)=-12$인 다항함수 $f(x)$에 대하여 최고차항의 계수가 $1$인 사차함수 $g(x)$를
+
+  $$g(x)=\int_a^x(x^2-tx)f(t)dt\quad(\text{단, }a\text{는 상수})$$
+
+  라 할 때, 다음 물음에 답하시오. [총25점]
+subparts:
+- id: '1'
+  stem: '[10점] $f(x)$와 $g(x)$를 구하시오.'
+  points: 10
+  depends_on: []
+  answer:
+    kind: value
+    value: f=6*x-12; g=x*(x-a)**2*(x+2*a-6)
+    equivalents:
+    - $f(x)=6x-12$, $g(x)=x(x-a)^2(x+2a-6)$
+    tolerance: null
+  solutions:
+  - id: S1-A
+    audience: A
+    method_no: 1
+    key_idea: 최고차항 비교로 $f(x)=6x-12$, 대입해 $g(x)=x(x-a)^2(x+2a-6)$.
+    steps:
+    - id: 1a
+      content: $f(x)=6x-12$, $g(x)=x(x-a)^2(x+2a-6)$
+      criteria:
+      - 1.M1
+      - 1.M2
+      - 1.A1
+  - id: S1-B
+    audience: B
+    source_flow: g23.pdf p.72 채점기준 문제 1(1)
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: $f(x)$의 최고차항을 $px^n$이라고 하자. 그러면, $g(x)=\displaystyle\int_a^x(x^2-tx)(pt^n+\cdots)dt$이므로 $g(x)$의 최고차항을 보면 $\left(\dfrac p{n+1}-\dfrac p{n+2}\right)x^{n+3}$이 된다. 한편, $g(x)$의 최고차항은 문제에서 $x^4$이라고 했으므로 이 둘을 비교해보면 $n=1$이고 $p=6$이 되므로, $f(x)=6x-12$가 된다.
+      criteria:
+      - 1.M1
+    - id: 1b-2
+      content: $f(x)=6x-12$를 $g(x)$의 식에 대입하면 $g(x)=x\displaystyle\int_a^x(x-t)(6t-12)dt=x\int_a^x(-6t^2+12t+6xt-12x)dt=x\left[-2t^3+6t^2+3xt^2-12xt\right]_a^x=x(-2x^3+2a^3)+x(6x^2-6a^2)+3x^2(x^2-a^2)-12x^2(x-a)=x(x-a)(-2x^2-2ax-2a^2+6(x+a)+3x(x+a)-12x)=x(x-a)(x^2+(a-6)x-2a^2+6a)=x(x-a)^2(x+2a-6)$
+      criteria:
+      - 1.M2
+      - 1.A1
+  # 채점기준 미공개(등급제 1~7등급, 단계별 배점 없음) — 단계별 추정
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 4
+      evidence: 최고차항 비교로 $n=1$, $p=6$, $f(x)=6x-12$를 구했다.
+      steps:
+      - 1b-1
+    - id: 1.M2
+      mark_type: M
+      points: 3
+      evidence: $f(x)$를 대입해 $g(x)$를 적분·전개했다.
+      steps:
+      - 1b-2
+    - id: 1.A1
+      mark_type: A
+      points: 3
+      evidence: $g(x)=x(x-a)^2(x+2a-6)$을 구했다.
+      depends_on:
+      - 1.M1
+      - 1.M2
+      steps:
+      - 1b-2
+    deductions: []
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+- id: '2'
+  stem: '[7점] 모든 실수 $x$에 대해 $\lvert g(x)\rvert=g(x)$가 성립할 때, 곡선 $y=g(x)$와 $x$축으로 둘러싸인 부분의 넓이를 구하시오.'
+  points: 7
+  depends_on: []
+  answer:
+    kind: value
+    value: 81/10
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S2-A
+    audience: A
+    method_no: 1
+    key_idea: $g(x)\ge0$이려면 $a=3$, $g(x)=x^2(x-3)^2$, 넓이 $\int_0^3x^2(x-3)^2dx$.
+    steps:
+    - id: 2a
+      content: $a=3$, $\int_0^3x^2(x-3)^2dx=\frac{81}{10}$
+      criteria:
+      - 2.M1
+      - 2.B1
+      - 2.M2
+      - 2.A1
+  - id: S2-B
+    audience: B
+    source_flow: g23.pdf p.73 채점기준 문제 1(2)
+    method_no: 1
+    steps:
+    - id: 2b-1
+      content: '$g(x)=x(x-a)^2(x+2a-6)$이기 때문에 모든 실수 $x$에 대하여 $\lvert g(x)\rvert=g(x)$가 성립하려면 아래와 같은 그래프가 그려져야만 한다. [그림 4: $y=x^2(x-3)^2$의 그래프. 원점 O와 $(3,0)$에서 $x$축에 접하고 그 사이에서 위로 볼록한 사차함수]'
+      criteria:
+      - 2.M1
+    - id: 2b-2
+      content: 따라서, $2a-6=0$ 즉, $a=3$이 되고, $g(x)=x^2(x-3)^2$이 된다.
+      criteria:
+      - 2.B1
+    - id: 2b-3
+      content: 그래프의 개형을 통해 구하고자 하는 넓이는 $\displaystyle\int_0^3x^2(x-3)^2dx$이다.
+      criteria:
+      - 2.M2
+    - id: 2b-4
+      content: 이를 계산하면 $\displaystyle\int_0^3x^2(x-3)^2dx=\int_0^3(x^4-6x^3+9x^2)dx=\left[\dfrac{x^5}5-\dfrac{3x^4}2+3x^3\right]_0^3=\dfrac{81}{10}$이 된다.
+      criteria:
+      - 2.A1
+  # 채점기준 미공개(등급제 1~7등급, 단계별 배점 없음) — 단계별 추정
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 2
+      evidence: $\lvert g\rvert=g$가 되는 그래프 개형을 그렸다.
+      steps:
+      - 2b-1
+    - id: 2.B1
+      mark_type: B
+      points: 1
+      evidence: $a=3$, $g(x)=x^2(x-3)^2$을 구했다.
+      steps:
+      - 2b-2
+    - id: 2.M2
+      mark_type: M
+      points: 2
+      evidence: 넓이를 $\int_0^3x^2(x-3)^2dx$로 세웠다.
+      steps:
+      - 2b-3
+    - id: 2.A1
+      mark_type: A
+      points: 2
+      evidence: 넓이 $\frac{81}{10}$을 구했다.
+      depends_on:
+      - 2.M1
+      - 2.M2
+      steps:
+      - 2b-4
+    deductions: []
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+- id: '3'
+  stem: '[8점] 함수 $y=\lvert g(x)\rvert$가 미분가능하지 않은 점이 $1$개 이하가 되도록 하는 $a$의 값을 모두 구하시오.'
+  points: 8
+  depends_on: []
+  answer:
+    kind: value
+    value: 0, 2, 3
+    equivalents:
+    - $a=0$ 또는 $a=2$ 또는 $a=3$
+    tolerance: null
+  solutions:
+  - id: S3-A
+    audience: A
+    method_no: 1
+    key_idea: 영점 $0,a,6-2a$의 중복도를 보아 단순근이 1개 이하이려면 $a=0,2,3$.
+    steps:
+    - id: 3a
+      content: $a=0$, $a=2$, $a=3$
+      criteria:
+      - 3.M1
+      - 3.M2
+      - 3.B1
+      - 3.B2
+      - 3.B3
+  - id: S3-B
+    audience: B
+    source_flow: g23.pdf p.73 채점기준 문제 1(3)
+    method_no: 1
+    steps:
+    - id: 3b-1
+      content: $g(x)=x(x-a)^2(x+2a-6)$이므로 $g(x)=0$의 해는 $x=0,a,-2a+6$이다.
+      criteria:
+      - 3.M1
+    - id: 3b-2
+      content: $y=\lvert g(x)\rvert$가 미분가능하지 않은 점이 $0$개, $1$개인 경우로 나누어서 생각하자.
+      criteria:
+      - 3.M2
+    - id: 3b-3
+      content: $y=\lvert g(x)\rvert$가 미분가능하지 않은 점이 $1$개라면, 삼중근을 가져야 한다. 즉, $a=0$이거나 $a=-2a+6$을 만족해야한다. 따라서, $a=0$ 또는 $a=2$이다.
+      criteria:
+      - 3.B1
+      - 3.B2
+    - id: 3b-4
+      content: 미분가능하지 않은 점이 $0$개이기 위해서는 〈문제 1〉(2)의 경우에 해당되므로 이 경우에는 $a=3$이 된다.
+      criteria:
+      - 3.B3
+  # 채점기준 미공개(등급제 1~7등급, 단계별 배점 없음) — 단계별 추정
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 1
+      evidence: $g(x)=0$의 해 $0,a,-2a+6$을 구했다.
+      steps:
+      - 3b-1
+    - id: 3.M2
+      mark_type: M
+      points: 1
+      evidence: 미분불가능한 점이 $0$개, $1$개인 경우로 나누었다.
+      steps:
+      - 3b-2
+    - id: 3.B1
+      mark_type: B
+      points: 2
+      evidence: $a=0$을 구했다.
+      steps:
+      - 3b-3
+    - id: 3.B2
+      mark_type: B
+      points: 2
+      evidence: $a=2$를 구했다.
+      steps:
+      - 3b-3
+    - id: 3.B3
+      mark_type: B
+      points: 2
+      evidence: $a=3$을 구했다.
+      steps:
+      - 3b-4
+    deductions: []
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: p3-past-v1
+  item_version: 1
+  verdict: pass
+  date: '2026-11-22'
+created: '2026-11-22'
+updated: '2026-11-22'
+intent: 다항함수에 대한 적분식이 주어져 있을 때 다항함수의 식을 찾을 수 있는지를 확인한다. 사차함수에 절댓값을 취한 함수의 그래프를 그릴 수 있는지를 알아보고, 미분가능성을 조사할 수 있는지에 대해서도 확인한다.

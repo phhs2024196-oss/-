@@ -1,0 +1,77 @@
+# w23 제안 오개념 (공용 카탈로그 미수정)
+- id: MC-CAL-82201
+  name: 극한 조건에서 최고차 계수 오판
+  concepts:
+  - 다항함수의 극한
+  used_in: SSWU-G22-01#1
+  outcome_code: '71'
+  wrong_work: $\lim\left\{\frac{f(x)}{x^2}-x\right\}=-1$에서 $f$를 이차함수로 놓음
+  detect_cue: $f(x)=ax^2+bx+c$로 시작한다
+  feedback: $f(x)/x^2-x$가 유한하려면 $f$의 최고차항은 $x^3$이어야 합니다.
+- id: MC-CAL-82202
+  name: 치환 후 적분 구간·부호 처리 오류
+  concepts:
+  - 치환적분
+  used_in: SSWU-G22-02#2
+  outcome_code: '71'
+  wrong_work: $2n-x=u$ 치환에서 적분 구간을 $[n,2n]$ 그대로 두거나 $-du$ 부호를 빠뜨림
+  detect_cue: $H(n)$이 $\int_0^n\{f'g+fg'\}$ 꼴로 나온다
+  feedback: 구간이 $[0,n]$으로 바뀌고 $-du$가 적분 방향을 뒤집어 $f'g-fg'$가 됩니다.
+- id: MC-GEO-82203
+  name: 접선의 기울기와 교점 영역 혼동
+  concepts:
+  - 원의 접선
+  - 넓이
+  used_in: SSWU-G22-03#2
+  outcome_code: '71'
+  wrong_work: 부채꼴과 곡선-접선 영역을 빼지 않고 사각형 넓이 $\sqrt3$ 또는 원 아랫부분만 계산
+  detect_cue: 답에 $\pi/3$ 항이 없거나 $\sqrt{3}/4$ 항이 없다
+  feedback: 구하는 영역은 사각형에서 부채꼴과 곡선·접선 사이 영역을 모두 뺀 부분입니다.
+- id: MC-PRB-82204
+  name: 만나는 경우 곱 대신 합
+  concepts:
+  - 조합
+  - 독립시행
+  used_in: SSWU-G22-04#1
+  outcome_code: '71'
+  wrong_work: 만나는 점에서 ${}_4C_i$ 만 세어 $1+4+6+4+1=16$ 으로 계산
+  detect_cue: 분자가 16 이다
+  feedback: 두 사람의 경로는 독립이므로 점마다 ${}_4C_i\times{}_4C_i$ 입니다.
+- id: MC-CAL-82651
+  name: 절댓값 함수 미분불가 점을 모든 영점으로 계산
+  concepts:
+  - 절댓값 함수의 미분가능성
+  used_in: SSWU-M23-01#3
+  outcome_code: '71'
+  wrong_work: $g(x)=0$의 서로 다른 근 개수를 미분불가능한 점의 개수로 셈
+  detect_cue: $a=0$, $2$ 를 빠뜨린다(삼중근 미고려)
+  feedback: 중복도가 홀수 3 이상인 영점에서는 $\lvert g\rvert$도 미분가능하고 중복도 1인 근에서만 미분불가능합니다.
+- id: MC-ALG-82652
+  name: 부등식 $n-1<b_n<n$에서 y좌표 비교 누락
+  concepts:
+  - 지수함수와 직선
+  used_in: SSWU-M23-02#2
+  outcome_code: '71'
+  wrong_work: $n=2,3$ 대입으로만 확인
+  detect_cue: 특정 자연수 대입만 있다
+  feedback: 교점의 $y$좌표 $n-b_n$이 $y=2^{-x}$의 $y$절편 1보다 작음을 일반 $n$에 대해 보여야 합니다.
+- id: MC-GEO-82653
+  name: 공비를 반지름 비로 착각
+  concepts:
+  - 닮음
+  - 등비급수
+  used_in: SSWU-M23-03#3
+  outcome_code: '71'
+  wrong_work: $S_n$의 공비를 $r_2/r_1$ 으로 둠
+  detect_cue: 공비가 $\frac{4}{3\sqrt5}$ 이다
+  feedback: 넓이는 닮음비의 제곱이므로 공비는 $(r_2/r_1)^2=\frac{16}{45}$ 입니다.
+- id: MC-PRB-82654
+  name: 같은 눈일 때 추가 던짐 경우 미반영
+  concepts:
+  - 합의 법칙
+  - 곱의 법칙
+  used_in: SSWU-M23-04#2
+  outcome_code: '71'
+  wrong_work: 같은 눈이 나온 6가지를 그대로 두 눈의 합으로만 세어 전체를 36으로 둠
+  detect_cue: 표의 합계가 36 이다
+  feedback: 같은 눈 6가지는 한 번 더 던져 각각 6가지가 되므로 전체는 66가지입니다.
