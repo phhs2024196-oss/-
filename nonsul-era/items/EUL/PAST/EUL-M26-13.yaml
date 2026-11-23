@@ -1,0 +1,174 @@
+# 소문항 배점·M/A 분할은 공식 채점기준 미공개 — 추정
+schema_version: '2.0'
+id: EUL-M26-13
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: short_answer
+origin: mock_exam
+school: EUL
+type: null
+variant_of: null
+replaces: null
+level: L3
+form: 추론
+points: 10
+time_estimate_min: null
+key_idea: 삼각함수의 변환으로 $\sin\theta\cos\theta$를 구하고 곱셈공식과 부호 조건으로 $\sin\theta+\cos\theta$와 세제곱의 합을 구한다.
+stuck: $\cos\left(\dfrac\pi2+\theta\right)<0$에서 $\sin\theta>0$을 읽고 $\sin\theta+\cos\theta$의 부호를 정하는 것
+tags: []
+elements:
+  materials:
+  - $\sin(\pi-\theta)\cos(\pi+\theta)=-\dfrac12$
+  concepts:
+  - 삼각함수의 변환
+  - $\sin^2\theta+\cos^2\theta=1$
+  - 세제곱의 합 공식
+  tools:
+  - 삼각함수의 성질
+  conditions:
+  - $\cos\left(\dfrac\pi2+\theta\right)<0$
+  stimuli_used: {}
+  subpart_links:
+  - from: '1'
+    to: '2'
+    kind: $\sin\theta+\cos\theta$ 사용
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학Ⅰ
+  scope_2028: common
+  scope_confirmed: false
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 을지대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 을지대학교
+  admission_year: 2026
+  admission_type: 수시 모의논술고사
+  track: 공통(국어+수학) 모의
+  question_no: 13
+  official_url: https://admission.eulji.ac.kr/index.html?menuno=8005 (통합 자료실 bbsno=190 「2026학년도 수시모집 논술고사 대비 모의고사 문항공개」)
+  retrieved_at: '2026-11-22'
+  original_points:
+  - 5
+  - 5
+  rights_notice: 미확인
+  transcribed_from: 을지대 입학처「2026학년도 대비 모의논술고사 문제지(m26.pdf)」p.18 이미지 판독(2026-11-22)
+verify: verify/EUL-M26.py::p13
+stimuli: []
+stem: |
+  $\sin(\pi-\theta)\cos(\pi+\theta)=-\dfrac12$이고, $\cos\left(\dfrac\pi2+\theta\right)<0$일 때, $\sin^3\theta+\cos^3\theta$의 값을 구하는 과정을 아래의 단계에 따라 서술하시오.
+subparts:
+- id: '1'
+  stem: $\sin\theta+\cos\theta$의 값을 구하시오.
+  points: 5
+  depends_on: []
+  answer:
+    kind: value
+    value: sqrt(2)
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S1-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: $\sin(\pi-\theta)=\sin\theta$, $\cos(\pi+\theta)=-\cos\theta$이므로 $-\sin\theta\cos\theta=-\dfrac12$, 즉 $\sin\theta\cos\theta=\dfrac12$이다.
+        $(\sin\theta+\cos\theta)^2=1+2\sin\theta\cos\theta=2$이다. $\cos\left(\dfrac\pi2+\theta\right)=-\sin\theta<0$이므로 $\sin\theta>0$이고,
+        $\sin\theta\cos\theta>0$이므로 $\cos\theta>0$이다. 따라서 $\sin\theta+\cos\theta=\sqrt2$이다.
+      source_flow: 공식 풀이 미공개 — 빠른 정답(p.20) 기준 작성
+      criteria:
+      - 1.M1
+      - 1.A1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 3
+      evidence: 변환 공식으로 $\sin\theta\cos\theta=\dfrac12$을 구하고 $(\sin\theta+\cos\theta)^2=2$를 세웠다.
+      steps:
+      - 1b-1
+    - id: 1.A1
+      mark_type: A
+      points: 2
+      evidence: 부호 조건을 근거로 $\sin\theta+\cos\theta=\sqrt2$를 구했다. (소문항 배점 5/5 및 M/A 분할은 문제지에 표기가 없어 추정, 채점기준 미공개)
+      depends_on:
+      - 1.M1
+      steps:
+      - 1b-1
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+- id: '2'
+  stem: $\sin^3\theta+\cos^3\theta$의 값을 구하시오.
+  points: 5
+  depends_on: []
+  answer:
+    kind: value
+    value: sqrt(2)/2
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S2-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 2b-1
+      content: $\sin^3\theta+\cos^3\theta=(\sin\theta+\cos\theta)(\sin^2\theta-\sin\theta\cos\theta+\cos^2\theta)=\sqrt2\left(1-\dfrac12\right)=\dfrac{\sqrt2}2$이다.
+      source_flow: 공식 풀이 미공개 — 빠른 정답(p.20) 기준 작성
+      criteria:
+      - 2.M1
+      - 2.A1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 3
+      evidence: 세제곱의 합 공식에 $\sin\theta+\cos\theta$, $\sin\theta\cos\theta$ 값을 대입하는 식이 있다.
+      steps:
+      - 2b-1
+    - id: 2.A1
+      mark_type: A
+      points: 2
+      evidence: $\dfrac{\sqrt2}2$를 구했다. (소문항 배점 5/5 및 M/A 분할은 문제지에 표기가 없어 추정, 채점기준 미공개)
+      depends_on:
+      - 2.M1
+      steps:
+      - 2b-1
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: past-v2-lean
+  item_version: 1
+  verdict: pass
+  date: &id001 2026-11-22
+created: *id001
+updated: *id001

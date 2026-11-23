@@ -1,0 +1,226 @@
+# 소문항 배점·M/A 분할은 공식 채점기준 미공개 — 추정
+schema_version: '2.0'
+id: EUL-M26-09
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: short_answer
+origin: mock_exam
+school: EUL
+type: null
+variant_of: null
+replaces: null
+level: L3
+form: 추론
+points: 10
+time_estimate_min: null
+key_idea: 점화식에서 공차 5인 등차수열임을 파악하고 합의 조건으로 첫째항을 구한다.
+stuck: $a_{n+1}=a_n+5$를 공차 5인 등차수열로 읽고 등차수열의 합 공식에 연결하는 것
+tags: []
+elements:
+  materials:
+  - 점화식 $a_{n+1}=a_n+5$
+  concepts:
+  - 등차수열
+  - 등차수열의 합
+  - 일반항
+  tools:
+  - 합의 공식
+  conditions:
+  - $\sum_{n=1}^{15}a_n=600$
+  stimuli_used: {}
+  subpart_links:
+  - from: '1'
+    to: '2'
+    kind: $a_1$ 사용
+  - from: '2'
+    to: '3'
+    kind: 일반항 사용
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학Ⅰ
+  scope_2028: common
+  scope_confirmed: false
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 을지대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 을지대학교
+  admission_year: 2026
+  admission_type: 수시 모의논술고사
+  track: 공통(국어+수학) 모의
+  question_no: 9
+  official_url: https://admission.eulji.ac.kr/index.html?menuno=8005 (통합 자료실 bbsno=190 「2026학년도 수시모집 논술고사 대비 모의고사 문항공개」)
+  retrieved_at: '2026-11-22'
+  original_points:
+  - 3
+  - 3
+  - 4
+  rights_notice: 미확인
+  transcribed_from: 을지대 입학처「2026학년도 대비 모의논술고사 문제지(m26.pdf)」p.16 이미지 판독(2026-11-22)
+verify: verify/EUL-M26.py::p09
+stimuli: []
+stem: |
+  수열 $\{a_n\}$이 모든 자연수 $n$에 대하여
+  $$a_{n+1}=a_n+5$$
+  를 만족시킨다. $\displaystyle\sum_{n=1}^{15}a_n=600$일 때, $a_{20}$의 값을 구하는 과정을 아래 단계에 따라 서술하시오.
+subparts:
+- id: '1'
+  stem: 수열 $\{a_n\}$의 첫째항 $a_1$을 구하시오.
+  points: 3
+  depends_on: []
+  answer:
+    kind: value
+    value: '5'
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S1-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: $a_{n+1}-a_n=5$이므로 $\{a_n\}$은 공차 5인 등차수열이다. $\displaystyle\sum_{n=1}^{15}a_n=\dfrac{15\{2a_1+14\times5\}}2=600$에서
+        $2a_1+70=80$, 즉 $a_1=5$이다.
+      source_flow: 공식 풀이 미공개 — 빠른 정답(p.20) 기준 작성
+      criteria:
+      - 1.M1
+      - 1.A1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 2
+      evidence: 공차 5인 등차수열임을 밝히고 합의 공식으로 $a_1$에 대한 식을 세웠다.
+      steps:
+      - 1b-1
+    - id: 1.A1
+      mark_type: A
+      points: 1
+      evidence: $a_1=5$를 구했다. (소문항 배점 3/3/4 및 M/A 분할은 문제지에 표기가 없어 추정, 채점기준 미공개)
+      depends_on:
+      - 1.M1
+      steps:
+      - 1b-1
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+- id: '2'
+  stem: 수열 $\{a_n\}$의 일반항 $a_n$을 구하시오.
+  points: 3
+  depends_on: []
+  answer:
+    kind: expression
+    value: 5*n
+    equivalents:
+    - 5n
+    tolerance: null
+  solutions:
+  - id: S2-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 2b-1
+      content: $a_n=5+(n-1)\times5=5n$이다.
+      source_flow: 공식 풀이 미공개 — 빠른 정답(p.20) 기준 작성
+      criteria:
+      - 2.M1
+      - 2.A1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 2
+      evidence: 일반항 공식에 $a_1=5$, $d=5$를 대입했다.
+      steps:
+      - 2b-1
+    - id: 2.A1
+      mark_type: A
+      points: 1
+      evidence: $a_n=5n$을 구했다. (소문항 배점 3/3/4 및 M/A 분할은 문제지에 표기가 없어 추정, 채점기준 미공개)
+      depends_on:
+      - 2.M1
+      steps:
+      - 2b-1
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+- id: '3'
+  stem: $a_{20}$ 의 값을 구하시오.
+  points: 4
+  depends_on: []
+  answer:
+    kind: value
+    value: '100'
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S3-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 3b-1
+      content: $a_{20}=5\times20=100$이다.
+      source_flow: 공식 풀이 미공개 — 빠른 정답(p.20) 기준 작성
+      criteria:
+      - 3.M1
+      - 3.A1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 2
+      evidence: 일반항에 $n=20$을 대입했다.
+      steps:
+      - 3b-1
+    - id: 3.A1
+      mark_type: A
+      points: 2
+      evidence: $a_{20}=100$을 구했다. (소문항 배점 3/3/4 및 M/A 분할은 문제지에 표기가 없어 추정, 채점기준 미공개)
+      depends_on:
+      - 3.M1
+      steps:
+      - 3b-1
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: past-v2-lean
+  item_version: 1
+  verdict: pass
+  date: &id001 2026-11-22
+created: *id001
+updated: *id001

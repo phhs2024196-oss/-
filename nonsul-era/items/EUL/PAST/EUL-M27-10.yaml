@@ -1,0 +1,162 @@
+schema_version: '2.0'
+id: EUL-M27-10
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: EUL
+type: null
+variant_of: null
+replaces: null
+level: L3
+form: 추론
+points: 10
+time_estimate_min: null
+key_idea: $\{b_n\}$ 이 첫째항 $ar^2$, 공비 $r^2$ 인 등비수열임을 이용해 $S_{10}=6T_5$ 를 $r$ 의 이차방정식으로 바꾼다.
+stuck: $b_n$ 이 공비 $r^2$ 인 등비수열임을 알아보고 공통인자 $1-r^{10}$ 을 약분하는 계산
+tags: []
+elements:
+  materials:
+  - 등비수열 $\{a_n\}$
+  - 수열 $b_n=a_{2n+1}$
+  - 부분합 $S_n$, $T_n$
+  concepts:
+  - 등비수열의 일반항
+  - 등비수열의 합
+  - 등비수열의 항 사이의 관계
+  tools:
+  - 등비수열의 합 공식
+  - 이차방정식의 풀이
+  conditions:
+  - 모든 항이 서로 다른 양수
+  - $S_{10}=6T_5$
+  stimuli_used: {}
+  subpart_links: []
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학Ⅰ
+  scope_2028: unknown
+  scope_confirmed: false
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 을지대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 을지대학교
+  admission_year: 2027
+  admission_type: 수시 모의논술고사
+  track: 공통(국어+수학) 모의
+  question_no: 10
+  official_url: https://admission.eulji.ac.kr/index.html?menuno=8005 (통합 자료실 bbsno=199 「2027학년도 수시모집 논술고사 대비 모의고사 문항공개」)
+  retrieved_at: '2026-11-22'
+  original_points:
+  - 5
+  - 5
+  rights_notice: 미확인
+  transcribed_from: 을지대 입학처「2027학년도 모의논술 문제지 m27.pdf」p.18 이미지 판독(2026-11-22)
+verify: verify/EUL-M27.py::p10
+stimuli: []
+stem: |
+  모든 항이 서로 다른 양수인 등비수열 $\{a_n\}$에 대하여 수열 $\{b_n\}$을 $b_n=a_{2n+1}$이라 하자. 수열 $\{a_n\}$의 첫째항부터 제 $n$항까지의 합을 $S_n$이라 하고, 수열 $\{b_n\}$의 첫째항부터 제 $n$항까지의 합을 $T_n$이라 할 때, $S_{10}=6T_5$를 만족시킨다. $\dfrac{b_3}{a_3}$의 값을 계산하는 과정을 아래 단계에 따라 서술하시오.
+subparts:
+- id: '1'
+  stem: |
+    수열 $\{a_n\}$의 첫째항을 $a$, 공비를 $r$이라 할 때, $T_5$의 값을 $a$와 $r$에 대한 식으로 나타내시오.
+  points: 5
+  depends_on: []
+  answer:
+    kind: value
+    value: a*r**2*(1-r**10)/(1-r**2)
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S1-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        $b_n=a_{2n+1}=ar^{2n}$ 이므로 $\{b_n\}$ 은 첫째항 $ar^2$, 공비 $r^2$ 인 등비수열이다. 항이 서로 다르므로 $r\ne1$, $r^2\ne1$ 이고 $T_5=\dfrac{ar^2(1-r^{10})}{1-r^2}$.
+      source_flow: 공식 풀이 미공개 — 빠른 정답(p.22) 기준 작성
+      criteria:
+      - 1.M1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 5
+      evidence: |-
+        # 채점기준 미공개 — 단계별 추정 (소문항 배점 5/5 는 문제지에 표기 없어 추정)
+        $b_n=ar^{2n}$ 으로 $\{b_n\}$ 이 첫째항 $ar^2$, 공비 $r^2$ 임을 파악한다. $T_5$ 를 $a,r$ 의 식으로 나타낸다.
+      steps:
+      - 1b-1
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+- id: '2'
+  stem: |
+    $\dfrac{b_3}{a_3}$의 값을 구하시오.
+  points: 5
+  depends_on: []
+  answer:
+    kind: value
+    value: 1/16
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S2-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 2b-1
+      content: |
+        $S_{10}=\dfrac{a(1-r^{10})}{1-r}=6\cdot\dfrac{ar^2(1-r^{10})}{1-r^2}$. $a(1-r^{10})\ne0$ 이므로 양변을 나누면 $\dfrac{1}{1-r}=\dfrac{6r^2}{(1-r)(1+r)}$, 곧 $1+r=6r^2$. $(3r+1)(2r-1)=0$ 이고 $r>0$ 이므로 $r=\dfrac12$. $\dfrac{b_3}{a_3}=\dfrac{a_7}{a_3}=r^4=\dfrac1{16}$.
+      source_flow: 공식 풀이 미공개 — 빠른 정답(p.22) 기준 작성
+      criteria:
+      - 2.M1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 5
+      evidence: |-
+        # 채점기준 미공개 — 단계별 추정 (소문항 배점 5/5 는 문제지에 표기 없어 추정)
+        $S_{10}=6T_5$ 에서 $1+r=6r^2$ 을 얻고 $r>0$ 으로 $r=\dfrac12$ 를 고른다. $\dfrac{b_3}{a_3}=r^4=\dfrac1{16}$ 을 답한다.
+      steps:
+      - 2b-1
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: past-v2-lean
+  item_version: 1
+  verdict: pass
+  date: &id001 2026-11-22
+created: *id001
+updated: *id001

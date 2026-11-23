@@ -1,0 +1,227 @@
+# 소문항 배점·M/A 분할은 공식 채점기준 미공개 — 추정
+schema_version: '2.0'
+id: EUL-M25-05
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: short_answer
+origin: mock_exam
+school: EUL
+type: null
+variant_of: null
+replaces: null
+level: L3
+form: 추론
+points: 10
+time_estimate_min: null
+key_idea: $a$에 대한 항등식 조건으로 정점 P를 구하고, 접선의 두 절편으로 삼각형의 넓이를 구한다.
+stuck: $a$의 값에 관계없이 지난다는 조건을 $a$에 대한 항등식($a$의 계수와 상수항이 모두 0)으로 바꾸는 발상
+tags: []
+elements:
+  materials:
+  - 삼차함수 $f(x)=2x^3+(4a+7)x^2+(4a+5)x+a+2$
+  concepts:
+  - 항등식
+  - 접선의 방정식
+  - 미분계수
+  - 절편
+  tools:
+  - 도함수
+  - 삼각형의 넓이
+  conditions:
+  - $a$는 실수
+  stimuli_used: {}
+  subpart_links:
+  - from: '1'
+    to: '2'
+    kind: 점 P의 좌표 사용
+  - from: '2'
+    to: '3'
+    kind: 접선의 절편 사용
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학Ⅱ
+  scope_2028: common
+  scope_confirmed: false
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 을지대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 을지대학교
+  admission_year: 2025
+  admission_type: 수시 모의논술고사
+  track: 공통(국어+수학) 모의
+  question_no: 5
+  official_url: https://admission.eulji.ac.kr/index.html?menuno=2750 (공지사항 bbsno=60678 「2025학년도 을지대학교 모의논술고사 문제지 및 해설지 공개」)
+  retrieved_at: '2026-11-22'
+  original_points:
+  - 3
+  - 3
+  - 4
+  rights_notice: 미확인
+  transcribed_from: 을지대 입학처「2025학년도 모의논술고사 문제지(M25_Q.pdf)」p.10 이미지 판독(2026-11-22)
+verify: verify/EUL-M25.py::p05
+stimuli: []
+stem: |
+  함수 $f(x)=2x^3+(4a+7)x^2+(4a+5)x+a+2$의 그래프가 $a$의 값에 관계없이 항상 지나는 점을 P라 하자. 곡선 $y=f(x)$ 위의 점 P에서의 접선과 $x$축, $y$축으로 둘러싸인 부분의 넓이를 구하는 과정을 아래의 단계에 따라 서술하시오. (단, $a$는 실수이다.)
+subparts:
+- id: '1'
+  stem: 점 P의 좌표를 구하시오.
+  points: 3
+  depends_on: []
+  answer:
+    kind: value
+    value: (-1/2, 1)
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S1-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: $f(x)=(4x^2+4x+1)a+2x^3+7x^2+5x+2$에서 $a$의 값에 관계없이 지나려면 $4x^2+4x+1=(2x+1)^2=0$, 즉 $x=-\dfrac12$이다. 이때 $y=2\left(-\dfrac12\right)^3+7\left(-\dfrac12\right)^2+5\left(-\dfrac12\right)+2=1$이므로
+        $\mathrm{P}\left(-\dfrac12,\ 1\right)$이다.
+      source_flow: 모범답안(M25_S.pdf) p.7
+      criteria:
+      - 1.M1
+      - 1.A1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 2
+      evidence: $f(x)$를 $a$에 대하여 정리하여 $a$의 계수 $4x^2+4x+1$ 또는 $(2x+1)^2=0$을 세웠다.
+      steps:
+      - 1b-1
+    - id: 1.A1
+      mark_type: A
+      points: 1
+      evidence: $x=-\dfrac12$, $y=1$, 즉 P의 좌표를 구했다. (소문항 배점 3/3/4 및 M/A 분할은 문제지·해설지에 표기가 없어 추정)
+      depends_on:
+      - 1.M1
+      steps:
+      - 1b-1
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+- id: '2'
+  stem: 점 P에서의 접선의 방정식을 구하시오.
+  points: 3
+  depends_on: []
+  answer:
+    kind: expression
+    value: y = -x/2 + 3/4
+    equivalents:
+    - y = -1/2*x + 3/4
+    tolerance: null
+  solutions:
+  - id: S2-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 2b-1
+      content: $f'(x)=6x^2+2(4a+7)x+4a+5$이므로 $f'\left(-\dfrac12\right)=\dfrac64-(4a+7)+4a+5=-\dfrac12$이다. 따라서 접선은 $y-1=-\dfrac12\left(x+\dfrac12\right)$,
+        즉 $y=-\dfrac12x+\dfrac34$이다.
+      source_flow: 모범답안(M25_S.pdf) p.7
+      criteria:
+      - 2.M1
+      - 2.A1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 2
+      evidence: $f'(x)$를 구하고 $x=-\dfrac12$를 대입하여 기울기를 계산하는 식이 있다.
+      steps:
+      - 2b-1
+    - id: 2.A1
+      mark_type: A
+      points: 1
+      evidence: 기울기 $-\dfrac12$와 접선의 방정식 $y=-\dfrac12x+\dfrac34$를 구했다. (소문항 배점 3/3/4 및 M/A 분할은 문제지·해설지에 표기가 없어 추정)
+      depends_on:
+      - 2.M1
+      steps:
+      - 2b-1
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+- id: '3'
+  stem: 곡선 $y=f(x)$ 위의 점 P에서의 접선과 $x$축, $y$축으로 둘러싸인 부분의 넓이를 구하시오.
+  points: 4
+  depends_on: []
+  answer:
+    kind: value
+    value: 9/16
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S3-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 3b-1
+      content: 접선 $y=-\dfrac12x+\dfrac34$의 $x$절편은 $\dfrac32$, $y$절편은 $\dfrac34$이므로 구하는 넓이는 $\dfrac12\times\dfrac32\times\dfrac34=\dfrac9{16}$이다.
+      source_flow: 모범답안(M25_S.pdf) p.7
+      criteria:
+      - 3.M1
+      - 3.A1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 2
+      evidence: 접선의 $x$절편과 $y$절편을 구하고 삼각형의 넓이 식을 세웠다.
+      steps:
+      - 3b-1
+    - id: 3.A1
+      mark_type: A
+      points: 2
+      evidence: 넓이 $\dfrac9{16}$을 구했다. (소문항 배점 3/3/4 및 M/A 분할은 문제지·해설지에 표기가 없어 추정)
+      depends_on:
+      - 3.M1
+      steps:
+      - 3b-1
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: past-v2-lean
+  item_version: 1
+  verdict: pass
+  date: &id001 2026-11-22
+created: *id001
+updated: *id001

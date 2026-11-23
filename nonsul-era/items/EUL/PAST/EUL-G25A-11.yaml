@@ -1,0 +1,203 @@
+schema_version: '2.0'
+id: EUL-G25A-11
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: short_answer
+origin: past_exam
+school: EUL
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 추론
+points: 10
+time_estimate_min: null
+key_idea: $\int_0^x xf(t)dt=x\int_0^x f(t)dt$로 보고 양변을 미분하여 $\int_0^x f(t)dt$와 $f(x)$의 관계식을 얻는다.
+stuck: 피적분함수의 $x$를 밖으로 빼고 미분하여 $\int_0^x f$의 식을 만드는 것, $f$가 일차식임을 차수 비교로 알아내는 것
+tags: []
+elements:
+  materials: []
+  concepts:
+  - 정적분과 미분의 관계
+  - 다항함수의 차수 비교
+  - 정적분의 계산
+  tools:
+  - 양변 미분
+  - x=0 대입
+  conditions:
+  - $a\ne0$
+  stimuli_used: {}
+  subpart_links: []
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학Ⅱ
+  scope_2028: unknown
+  scope_confirmed: false
+  behavior_domain: 추론
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 을지대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 을지대학교
+  admission_year: 2025
+  admission_type: 수시 논술우수자전형
+  track: 공통(국어+수학) 1교시
+  question_no: 11
+  official_url: https://admission.eulji.ac.kr/index.html?menuno=8005 (통합 자료실 bbsno=191 「2025학년도 수시모집 논술고사 기출문항 공개」 zip)
+  retrieved_at: '2026-11-22'
+  original_points:
+  - 3
+  - 3
+  - 4
+  rights_notice: 미확인
+  transcribed_from: 을지대 입학처「2025학년도 수시모집 논술고사 기출문항 공개」G25_1_Q.pdf p.17 이미지 판독(2026-11-22)
+verify: verify/EUL-G25A.py::p11
+stimuli: []
+stem: |
+  다항함수 $f(x)$가 모든 실수 $x$에 대하여
+  $\displaystyle\int_0^x xf(t)dt=\dfrac13x^3-8x-\dfrac{32}{3}+2\int_a^x f(t)dt+\int_a^x tf(t)dt$를 만족시킨다.
+  $f(a)$의 값을 구하는 과정을 아래의 단계에 따라 서술하시오. (단, $a$는 $0$이 아닌 상수이다.)
+subparts:
+- id: '1'
+  stem: |
+    $f(0)$의 값을 구하시오.
+  points: 3
+  depends_on: []
+  answer:
+    kind: value
+    value: '4'
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S1-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        양변을 미분하면 $xf(x)+\displaystyle\int_0^x f(t)dt=x^2-8+2f(x)+xf(x)$
+        $\displaystyle\int_0^x f(t)dt=x^2-8+2f(x)\cdots$ ㉠
+        양변에 $x=0$을 대입하면 $2f(0)=8$이므로 $f(0)=4$
+      source_flow: 문항카드(수학) 1교시 G25_1_C.pdf p.41
+      criteria:
+      - 1.M1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 3
+      evidence: 주어진 다항함수의 양변을 미분하고, 양변에 $x=0$을 대입하여 $f(0)=4$를 구함.
+      steps:
+      - 1b-1
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+- id: '2'
+  stem: |
+    $\displaystyle\int_0^a f(x)dx=0$인 $a$의 값을 구하시오.
+  points: 3
+  depends_on: []
+  answer:
+    kind: value
+    value: '-4'
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S2-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 2b-1
+      content: |
+        ㉠의 식의 양변을 한번 더 미분하면 $f(x)=2x+2f'(x)$. $f'(x)$는 $f(x)$보다 차수가 작으므로 $f(x)$는 1차식이고 $f'(x)$는 상수이다.
+        $f(0)=4$이므로 $2f'(0)=4$, $f'(x)=2,\ f(x)=2x+4$
+        $\displaystyle\int_0^a f(x)dx=0$이고 $\left[x^2+4x\right]_0^a=a^2+4a=0$이다.
+        $a(a+4)=0$이므로 $a=0,\ a=-4$이고 $a\ne0$이므로 $a=-4$
+      source_flow: 문항카드(수학) 1교시 G25_1_C.pdf p.41
+      criteria:
+      - 2.M1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 3
+      evidence: 주어진 함수 $f(x)$를 정적분하여 $0$을 만족하는 $a$ 값 $-4$를 구함.
+      steps:
+      - 2b-1
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+- id: '3'
+  stem: |
+    $f(a)$의 값을 구하시오.
+  points: 4
+  depends_on: []
+  answer:
+    kind: value
+    value: '-4'
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S3-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 3b-1
+      content: |
+        $f(a)=f(-4)=2\times(-4)+4=-4$
+      source_flow: 문항카드(수학) 1교시 G25_1_C.pdf p.41
+      criteria:
+      - 3.M1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 4
+      evidence: $f(a)=f(-4)=-4$를 구함.
+      steps:
+      - 3b-1
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: past-v2-lean
+  item_version: 1
+  verdict: pass
+  date: 2026-11-23
+created: 2026-11-23
+updated: 2026-11-23
+intent: 정적분의 적분과 미분의 관계를 이용하여 주어진 문제를 해결할 수 있다.

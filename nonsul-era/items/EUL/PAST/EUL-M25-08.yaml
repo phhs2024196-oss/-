@@ -1,0 +1,227 @@
+# 소문항 배점·M/A 분할은 공식 채점기준 미공개 — 추정
+schema_version: '2.0'
+id: EUL-M25-08
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: short_answer
+origin: mock_exam
+school: EUL
+type: null
+variant_of: null
+replaces: null
+level: L3
+form: 추론
+points: 10
+time_estimate_min: null
+key_idea: 극한값이 존재하기 위한 조건으로 $f(2)$, $g(2)$를 정하고 미분계수의 정의로 $f'(2)$, $g'(2)$를 구한 뒤 곱의 미분법을 쓴다.
+stuck: 분모가 0으로 가는 극한에서 분자도 0이 되어야 함($f(2)=3$)과, $\lim\dfrac{x-2}{g(x)}$가 존재하려면 $g(2)=0$이어야 함을 읽는 것
+tags: []
+elements:
+  materials:
+  - 두 다항함수 $f(x)$, $g(x)$
+  - $h(x)=f(x)g(x)$
+  concepts:
+  - 극한값의 존재 조건
+  - 미분계수의 정의
+  - 곱의 미분법
+  tools:
+  - 미분계수
+  conditions:
+  - $\lim_{x\to2}\dfrac{f(x)-3}{x^2-4}=2$
+  - $\lim_{x\to2}\dfrac{x-2}{g(x)}=6$
+  stimuli_used: {}
+  subpart_links:
+  - from: '1'
+    to: '3'
+    kind: $f'(2)$ 사용
+  - from: '2'
+    to: '3'
+    kind: $g'(2)$ 사용
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학Ⅱ
+  scope_2028: common
+  scope_confirmed: false
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 을지대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 을지대학교
+  admission_year: 2025
+  admission_type: 수시 모의논술고사
+  track: 공통(국어+수학) 모의
+  question_no: 8
+  official_url: https://admission.eulji.ac.kr/index.html?menuno=2750 (공지사항 bbsno=60678 「2025학년도 을지대학교 모의논술고사 문제지 및 해설지 공개」)
+  retrieved_at: '2026-11-22'
+  original_points:
+  - 3
+  - 3
+  - 4
+  rights_notice: 미확인
+  transcribed_from: 을지대 입학처「2025학년도 모의논술고사 문제지(M25_Q.pdf)」p.11 이미지 판독(2026-11-22)
+verify: verify/EUL-M25.py::p08
+stimuli: []
+stem: |
+  두 다항함수 $f(x)$, $g(x)$가 $\displaystyle\lim_{x\to2}\dfrac{f(x)-3}{x^2-4}=2$, $\displaystyle\lim_{x\to2}\dfrac{x-2}{g(x)}=6$ 을 만족한다.
+  함수 $h(x)=f(x)g(x)$라 할 때, $h'(2)$의 값을 구하는 과정을 서술하시오.
+subparts:
+- id: '1'
+  stem: $f'(2)$의 값을 구하시오.
+  points: 3
+  depends_on: []
+  answer:
+    kind: value
+    value: '8'
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S1-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: $x\to2$일 때 (분모)$\to0$이고 극한이 존재하므로 $f(2)=3$이다. 따라서 $\displaystyle\lim_{x\to2}\dfrac{f(x)-3}{x^2-4}=\lim_{x\to2}\dfrac{f(x)-3}{x-2}\times\dfrac1{x+2}=2$에서
+        $f'(2)\times\dfrac14=2$, 즉 $f'(2)=8$이다.
+      source_flow: 모범답안(M25_S.pdf) p.10
+      criteria:
+      - 1.M1
+      - 1.A1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 2
+      evidence: 극한이 존재하므로 $f(2)=3$임을 밝히고 미분계수의 정의 꼴로 바꾸었다.
+      steps:
+      - 1b-1
+    - id: 1.A1
+      mark_type: A
+      points: 1
+      evidence: $f'(2)=8$을 구했다. (소문항 배점 3/3/4 및 M/A 분할은 문제지·해설지에 표기가 없어 추정)
+      depends_on:
+      - 1.M1
+      steps:
+      - 1b-1
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+- id: '2'
+  stem: $g'(2)$의 값을 구하시오.
+  points: 3
+  depends_on: []
+  answer:
+    kind: value
+    value: 1/6
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S2-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 2b-1
+      content: $\displaystyle\lim_{x\to2}\dfrac{x-2}{g(x)}$의 극한이 존재하므로 $g(2)=0$이다. $\displaystyle\lim_{x\to2}\dfrac{x-2}{g(x)}=\dfrac1{g'(2)}=6$에서
+        $g'(2)=\dfrac16$이다.
+      source_flow: 모범답안(M25_S.pdf) p.10
+      criteria:
+      - 2.M1
+      - 2.A1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 2
+      evidence: $g(2)=0$을 밝히고 $\dfrac{x-2}{g(x)-g(2)}$ 꼴로 보아 $\dfrac1{g'(2)}=6$을 세웠다.
+      steps:
+      - 2b-1
+    - id: 2.A1
+      mark_type: A
+      points: 1
+      evidence: $g'(2)=\dfrac16$을 구했다. (소문항 배점 3/3/4 및 M/A 분할은 문제지·해설지에 표기가 없어 추정)
+      depends_on:
+      - 2.M1
+      steps:
+      - 2b-1
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+- id: '3'
+  stem: $h'(2)$의 값을 구하시오.
+  points: 4
+  depends_on: []
+  answer:
+    kind: value
+    value: 1/2
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S3-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 3b-1
+      content: $h'(x)=f'(x)g(x)+f(x)g'(x)$이므로 $h'(2)=f(2)g'(2)+f'(2)g(2)=3\times\dfrac16+8\times0=\dfrac12$이다.
+      source_flow: 모범답안(M25_S.pdf) p.10
+      criteria:
+      - 3.M1
+      - 3.A1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 2
+      evidence: 곱의 미분법 $h'(x)=f'(x)g(x)+f(x)g'(x)$에 $x=2$의 값들을 대입하는 식이 있다.
+      steps:
+      - 3b-1
+    - id: 3.A1
+      mark_type: A
+      points: 2
+      evidence: $h'(2)=\dfrac12$을 구했다. (소문항 배점 3/3/4 및 M/A 분할은 문제지·해설지에 표기가 없어 추정)
+      depends_on:
+      - 3.M1
+      steps:
+      - 3b-1
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: past-v2-lean
+  item_version: 1
+  verdict: pass
+  date: &id001 2026-11-22
+created: *id001
+updated: *id001

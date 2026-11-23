@@ -1,0 +1,164 @@
+schema_version: '2.0'
+id: EUL-G26A-12
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: EUL
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 추론
+points: 10
+time_estimate_min: 5
+intent: 함수의 극한에 대한 성질을 이해하고, 함수의 극한값을 구할 수 있다.
+key_idea: (가)에서 $\frac1x=t$로 치환하면 $\lim_{t\to\infty}\frac{f(t)}{t^2}=3$이므로 $f$는 최고차항 계수 $3$인 이차식이고, (나)에서 $f-3g$는 일차식이다.
+stuck: $\frac1x=t$로 치환하여 $x\to0+$를 $t\to\infty$로 바꿔 $f$의 차수와 최고차항 계수를 읽어내는 것
+tags: []
+elements:
+  materials: []
+  concepts:
+  - 다항함수의 극한
+  - 치환을 이용한 극한
+  tools:
+  - 치환
+  - 연립방정식
+  conditions:
+  - (가) $\lim x^2f(1/x)=3$
+  - (나) $\lim\frac{f-3g}{x}=5$
+  - $f(1)=2$, $f(2)=16$, $g(0)=-3$
+  stimuli_used: {}
+  subpart_links: []
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학Ⅱ
+  scope_2028: unknown
+  scope_confirmed: false
+  content_area: 함수의 극한과 연속
+  behavior_domain: 계산
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 을지대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 을지대학교
+  admission_year: 2026
+  admission_type: 수시 논술우수자전형
+  track: 공통(국어+수학) 1교시
+  question_no: 12
+  official_url: https://admission.eulji.ac.kr/index.html?menuno=8005 (통합 자료실 bbsno=198 「2027학년도 수시모집 대비 논술고사 기출문항 공개」 2026학년도 수시모집 논술고사.zip)
+  retrieved_at: '2026-11-22'
+  original_points:
+  - 5
+  - 5
+  rights_notice: 미확인
+  transcribed_from: 을지대 입학처「2026학년도 수시모집 논술고사 1교시 문제지 G26_1_Q.pdf」p.18 이미지 판독(2026-11-22)
+verify: verify/EUL-G26A.py::p12
+stimuli: []
+stem: |
+  12. 두 다항함수 $f(x)$, $g(x)$가 다음 조건을 만족시킨다.
+
+  (가) $\displaystyle\lim_{x\to0+}x^2f\left(\dfrac1x\right)=3$
+
+  (나) $\displaystyle\lim_{x\to\infty}\frac{f(x)-3g(x)}{x}=5$
+
+  $f(1)=2$, $f(2)=16$, $g(0)=-3$일 때, $g(3)$의 값을 계산하는 과정을 아래 단계에 따라 서술하시오.
+subparts:
+- id: '1'
+  stem: |
+    (1) 함수 $f(x)$를 구하시오.
+  points: 5
+  depends_on: []
+  answer:
+    kind: value
+    value: 3*x**2+5*x-6
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S1-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        조건 (가)에서 $\dfrac1x=t$로 놓으면 $x^2=\dfrac1{t^2}$이고 $x\to0+$일 때 $t\to\infty$이므로 $\displaystyle\lim_{x\to0+}x^2f\left(\dfrac1x\right)=\lim_{t\to\infty}\dfrac{f(t)}{t^2}$. $\displaystyle\lim_{t\to\infty}\dfrac{f(t)}{t^2}=3$이므로 $f(x)=3x^2+ax+b$ ($a$, $b$는 상수)로 놓을 수 있다. $f(1)=2$이므로 $3+a+b=2$, $f(2)=16$이므로 $12+2a+b=16$. 두 식을 연립하면 $a=5$, $b=-6$. 그러므로 $f(x)=3x^2+5x-6$.
+      source_flow: 문항카드(수학) 1교시 G26_1_MATH.pdf p.15
+      criteria:
+      - 1.M1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 5
+      evidence: 극한 조건 (가)에서 $f(x)$를 최고차항 계수가 $3$인 이차함수로 놓고, $f(1)=2$, $f(2)=16$으로 $f(x)=3x^2+5x-6$을 구한 과정이 적혀 있다.
+      steps:
+      - 1b-1
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+- id: '2'
+  stem: |
+    (2) $g(3)$의 값을 구하시오.
+  points: 5
+  depends_on: []
+  answer:
+    kind: value
+    value: '6'
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S2-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 2b-1
+      content: |
+        조건 (나)에서 $\displaystyle\lim_{x\to\infty}\dfrac{f(x)-3g(x)}{x}=5$이므로 $f(x)-3g(x)=5x+c$ ($c$는 상수)로 놓을 수 있다. 이 식에 $x=0$을 대입하면 $f(0)-3g(0)=c$에서 $c=-6-3\times(-3)=3$. $f(x)-3g(x)=5x+3$이고 $f(x)=3x^2+5x-6$이므로 $3g(x)=f(x)-5x-3=3x^2+5x-6-5x-3=3x^2-9$. 그러므로 $g(x)=x^2-3$, 따라서 $g(3)=6$.
+      source_flow: 문항카드(수학) 1교시 G26_1_MATH.pdf p.15
+      criteria:
+      - 2.M1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 5
+      evidence: 조건 (나)에서 $f(x)-3g(x)=5x+c$로 놓고 $x=0$을 대입해 $c=3$을 구한 뒤 $g(x)=x^2-3$, $g(3)=6$을 구한 과정이 적혀 있다.
+      steps:
+      - 2b-1
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: past-v2-lean
+  item_version: 1
+  verdict: pass
+  date: &id001 2026-11-22
+created: *id001
+updated: *id001
