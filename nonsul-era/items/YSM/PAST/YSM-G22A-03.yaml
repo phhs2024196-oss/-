@@ -1,0 +1,310 @@
+schema_version: '2.0'
+id: YSM-G22A-03
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: YSM
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 추론
+points: 40
+time_estimate_min: null
+key_idea: 매달 재활용량은 첫째항 $1500\times0.52$, 공비 $0.52$인 등비수열이므로 무한등비급수의 합으로 구하고, $\displaystyle\int(10t^2-9t-9)e^{-t}dt$는 부분적분을 두 번 쓰며, 변곡점은 이계도함수의 부호가 바뀌는 점이므로 정의역 $t\ge1.5$를 확인해 $f''(t)=0$의 두 근 중 하나를 고른다.
+stuck: $\int(\text{이차식})e^{-t}dt$에서 부분적분을 두 번 적용하는 단계와, $f''(t)=0$의 두 근 중 정의역 $t\ge1.5$에 속하고 부호가 바뀌는 근을 고르는 단계.
+tags:
+- 서술형
+- 공식 출제의도·문제해설·채점기준(상·중·하) 있음
+- 자연계열(창의인재) 문제 3
+- 등비급수
+- 부분적분
+elements:
+  materials:
+  - 매달 쓰레기 1500톤, 선별 통과 65%, 재활용 80%를 반복하는 재생산·재활용 과정
+  - 재활용되는 플라스틱 쓰레기의 양 $f(t)=(10t^2-9t-9)e^{-t}$ $(t\ge1.5)$
+  concepts:
+  - 무한등비급수
+  - 부분적분법
+  - 이계도함수와 변곡점
+  - 지수함수의 극한
+  tools:
+  - 무한등비급수의 합 $\dfrac{ar}{1-r}$
+  - 부분적분법(두 번)
+  - $\displaystyle\lim_{x\to\infty}x^2e^{-x}=0$
+  - 이계도함수의 부호 조사(증감표)
+  conditions:
+  - $t\ge1.5$
+  - $\displaystyle\lim_{x\to\infty}x^2e^{-x}=0$ [문제 3-2]
+  stimuli_used: {}
+  subpart_links:
+  - 3-1은 제시문 (가), 3-2·3-3은 제시문 (나)를 사용하여 서로 독립
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학Ⅰ
+  - 수학Ⅱ
+  - 미적분
+  scope_2028: unknown
+  scope_confirmed: false
+  content_area: 적분법 – 정적분
+  behavior_domain: 계산
+  unit_path:
+  - 미적분
+  - 적분법
+  - 부분적분법
+  key_concepts:
+  - 무한등비급수
+  - 부분적분법
+  - 변곡점
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 연세대학교 미래캠퍼스
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 연세대학교 미래캠퍼스
+  admission_year: 2022
+  admission_type: 수시 논술우수자
+  track: 자연계열(창의인재)
+  question_no: 3
+  official_url: https://admission.yonsei.ac.kr/mirae/admission/html/rolling/previousView.asp?BBS_NO=1688
+  retrieved_at: '2026-11-23'
+  original_points:
+  - 10
+  - 15
+  - 15
+  rights_notice: 미확인
+  transcribed_from: 연세대 미래입학처 기출문제 게시판 공식 PDF「2022학년도 연세대학교 미래캠퍼스 논술시험 문제지 [창의인재]」p.5
+verify: verify/YSM-G22A.py::p03
+stimuli: []
+stem: |-
+  【문제 3】아래의 제시문을 읽고 문항별로 풀이와 함께 답하시오. (40점)
+
+  (가) 어느 플라스틱 쓰레기 수집 업체에서는 매달 플라스틱 쓰레기 1500톤을 수거하여 재활용 가능한 플라스틱으로 재생산한다고 한다. 매달 플라스틱 쓰레기의 65%가 선별 과정을 통과하고 그중 80%가 재활용된다고 한다. 또 재생산된 플라스틱 쓰레기의 65%가 선별 과정을 통과하고 그중 80%가 재활용된다고 한다.
+
+  (나) 어느 지역에서 시각 $t$ $(t\ge1.5)$에서의 재활용되는 플라스틱 쓰레기의 양 $f(t)$톤은 $f(t)=(10t^2-9t-9)e^{-t}$ 라고 한다.
+subparts:
+- id: 3-1
+  stem: '[문제 3-1] 제시문 (가)에서 이번 달에 수거한 플라스틱 쓰레기 1500톤에 대해서 재생산과 재활용 과정을 매달 한없이 반복할 때, 재활용하게 되는 플라스틱의 양은 모두 몇 톤인지 구하시오. (10점)'
+  points: 10
+  depends_on: []
+  answer:
+    kind: value
+    value: '1625'
+    equivalents:
+    - 1625톤
+    tolerance: null
+  solutions:
+  - id: S31-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 31b-1
+      content: 플라스틱 쓰레기 1500톤을 재활용하게 되는 플라스틱의 양을 모두 구하면 $1500\times(0.65\times0.8)+1500\times(0.65\times0.8)^2+1500\times(0.65\times0.8)^3+\cdots$이다.
+      source_flow: 문제해설·채점기준 p.6
+      criteria:
+      - 3-1.M1
+    - id: 31b-2
+      content: $=\displaystyle\sum_{n=1}^{\infty}(1500\times0.52^n)=\dfrac{1500\times0.52}{1-0.52}=1625$이다. 그러므로 답은 1625톤이다.
+      source_flow: 문제해설·채점기준 p.6
+      criteria:
+      - 3-1.A1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 3-1.M1
+      mark_type: M
+      points: 5
+      evidence: '재활용량을 첫째항 $1500\times0.52$, 공비 $0.52$인 등비급수로 나타냈다. # 채점기준 미공개 — 단계별 추정'
+      steps:
+      - 31b-1
+    - id: 3-1.A1
+      mark_type: A
+      points: 5
+      evidence: '등비급수의 합 $1625$톤을 구했다. # 채점기준 미공개 — 단계별 추정'
+      depends_on:
+      - 3-1.M1
+      steps:
+      - 31b-2
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+- id: 3-2
+  stem: '[문제 3-2] 제시문 (나)에서 시각 $t$가 1.5에서 $x$가 될 때까지 $(1.5\le t\le x)$ 재활용하게 되는 플라스틱의 양을 $A(x)$라고 하자. 이때 $\displaystyle\lim_{x\to\infty}A(x)$을 구하시오. (단, $\displaystyle\lim_{x\to\infty}x^2e^{-x}=0$) (15점)'
+  points: 15
+  depends_on: []
+  answer:
+    kind: value
+    value: 41*exp(-3/2)
+    equivalents:
+    - $41e^{-1.5}$
+    tolerance: null
+  solutions:
+  - id: S32-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 32b-1
+      content: (i) $A(x)=\displaystyle\int_{1.5}^{x}(10t^2-9t-9)e^{-t}dt$이고 두 함수의 곱의 정적분이므로 부분적분법을 이용한다. $\alpha(t)=10t^2-9t-9$, $\beta'(t)=e^{-t}$로 놓으면 $\alpha'(t)=20t-9$, $\beta(t)=-e^{-t}$이므로
+      source_flow: 문제해설·채점기준 p.6
+      criteria:
+      - 3-2.M1
+    - id: 32b-2
+      content: $A(x)=\displaystyle\int_{1.5}^{x}(10t^2-9t-9)e^{-t}dt=\left[-(10t^2-9t-9)e^{-t}\right]_{1.5}^{x}-\int_{1.5}^{x}(20t-9)(-e^{-t})dt=-(10x^2-9x-9)e^{-x}+\int_{1.5}^{x}(20t-9)e^{-t}dt$이다.
+      source_flow: 문제해설·채점기준 p.6
+      criteria:
+      - 3-2.M2
+    - id: 32b-3
+      content: 같은 방법으로 $\displaystyle\int_{1.5}^{x}(20t-9)e^{-t}dt$에서 $\alpha(t)=20t-9$, $\beta'(t)=e^{-t}$로 놓으면 $\alpha'(t)=20$, $\beta(t)=-e^{-t}$이므로 $\displaystyle\int_{1.5}^{x}(20t-9)e^{-t}dt=\left[-(20t-9)e^{-t}\right]_{1.5}^{x}-\int_{1.5}^{x}20(-e^{-t})dt=-(20x+11)e^{-x}+41e^{-1.5}$이다.
+      source_flow: 문제해설·채점기준 p.6
+      criteria:
+      - 3-2.M2
+    - id: 32b-4
+      content: 따라서 $A(x)=(-10x^2+9x+9)e^{-x}+\displaystyle\int_{1.5}^{x}(20t-9)e^{-t}dt=(-10x^2-11x-2)e^{-x}+41e^{-1.5}$이다.
+      source_flow: 문제해설·채점기준 p.6
+      criteria:
+      - 3-2.A1
+    - id: 32b-5
+      content: (ii) $\displaystyle\lim_{x\to\infty}A(x)$를 구하면 $\displaystyle\lim_{x\to\infty}\left\{(-10x^2-11x-2)e^{-x}+41e^{-1.5}\right\}=41e^{-1.5}$이다.
+      source_flow: 문제해설·채점기준 p.6
+      criteria:
+      - 3-2.A2
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 3-2.M1
+      mark_type: M
+      points: 4
+      evidence: '재활용량을 정적분 $A(x)=\displaystyle\int_{1.5}^{x}(10t^2-9t-9)e^{-t}dt$로 나타냈다. # 채점기준 미공개 — 단계별 추정'
+      steps:
+      - 32b-1
+    - id: 3-2.M2
+      mark_type: M
+      points: 5
+      evidence: '부분적분법을 두 번 적용했다. # 채점기준 미공개 — 단계별 추정'
+      depends_on:
+      - 3-2.M1
+      steps:
+      - 32b-2
+      - 32b-3
+    - id: 3-2.A1
+      mark_type: A
+      points: 3
+      evidence: '$A(x)=(-10x^2-11x-2)e^{-x}+41e^{-1.5}$를 얻었다. # 채점기준 미공개 — 단계별 추정'
+      depends_on:
+      - 3-2.M2
+      steps:
+      - 32b-4
+    - id: 3-2.A2
+      mark_type: A
+      points: 3
+      evidence: '극한 $41e^{-1.5}$를 구했다. # 채점기준 미공개 — 단계별 추정'
+      depends_on:
+      - 3-2.A1
+      steps:
+      - 32b-5
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+- id: 3-3
+  stem: '[문제 3-3] 제시문 (나)에서 주어진 함수 $f(t)$에서 변곡점의 좌표를 $(a,b)$라고 할 때 $a$를 구하고 그 이유를 명확히 설명하시오. (15점)'
+  points: 15
+  depends_on: []
+  answer:
+    kind: value
+    value: (49+sqrt(1241))/20
+    equivalents:
+    - $a=\dfrac{49+\sqrt{1241}}{20}$
+    tolerance: null
+  solutions:
+  - id: S33-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 33b-1
+      content: 함수 $f(t)=(10t^2-9t-9)e^{-t}$ $(t\ge1.5)$에서 $f'(t)=(20t-9)e^{-t}-(10t^2-9t-9)e^{-t}=(-10t^2+29t)e^{-t}$이고 $f''(t)=(-20t+29)e^{-t}-(-10t^2+29t)e^{-t}=(10t^2-49t+29)e^{-t}$이다.
+      source_flow: 문제해설·채점기준 p.7
+      criteria:
+      - 3-3.M1
+    - id: 33b-2
+      content: $f''(t)=0$에서 $t=\dfrac{49-\sqrt{49^2-40\times29}}{20}=\dfrac{49-\sqrt{1241}}{20}$ 또는 $t=\dfrac{49+\sqrt{1241}}{20}$이다.
+      source_flow: 문제해설·채점기준 p.7
+      criteria:
+      - 3-3.M2
+    - id: 33b-3
+      content: $t>1.5$이므로 $t=\dfrac{49+\sqrt{1241}}{20}$의 좌우에서 $f''(t)$의 부호를 조사하여 표로 나타내면 $t=1.5$에서 $f''(t)=-22e^{1.5}$(공식 풀이의 표기), 구간 $\left(1.5,\dfrac{49+\sqrt{1241}}{20}\right)$에서 $-$, $t=\dfrac{49+\sqrt{1241}}{20}$에서 $0$, 그 뒤에서 $+$이다.
+      source_flow: 문제해설·채점기준 p.7
+      criteria:
+      - 3-3.A1
+    - id: 33b-4
+      content: $f''(t)=0$인 점 $t=\dfrac{49+\sqrt{1241}}{20}$의 좌우에서 $f''(t)$의 부호가 바뀌므로 $a=\dfrac{49+\sqrt{1241}}{20}$이다.
+      source_flow: 문제해설·채점기준 p.7
+      criteria:
+      - 3-3.A1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 3-3.M1
+      mark_type: M
+      points: 5
+      evidence: '이계도함수 $f''''(t)=(10t^2-49t+29)e^{-t}$를 구했다. # 채점기준 미공개 — 단계별 추정'
+      steps:
+      - 33b-1
+    - id: 3-3.M2
+      mark_type: M
+      points: 4
+      evidence: '$f''''(t)=0$의 해를 구하고 정의역 $t\ge1.5$에서 가능한 값을 가렸다. # 채점기준 미공개 — 단계별 추정'
+      depends_on:
+      - 3-3.M1
+      steps:
+      - 33b-2
+    - id: 3-3.A1
+      mark_type: A
+      points: 6
+      evidence: '$f''''(t)$의 부호 변화를 표로 보여 이유를 설명하고 $a=\dfrac{49+\sqrt{1241}}{20}$을 구했다. # 채점기준 미공개 — 단계별 추정'
+      depends_on:
+      - 3-3.M2
+      steps:
+      - 33b-3
+      - 33b-4
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: past-v2-lean
+  item_version: 1
+  verdict: pass
+  date: 2026-11-23
+created: 2026-11-23
+updated: 2026-11-23
+intent: 지수함수와 등비급수의 뜻을 알고 이를 활용, 부분적분법을 이해하고 이를 활용, 이계도함수와 함수의 그래프 개형을 이해하고 변곡점을 찾는 문제 해결 능력과 의사소통 능력을 갖추고 있는지 평가하고자 하였다.
