@@ -1,0 +1,334 @@
+schema_version: '2.0'
+id: TUK-M23-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: TUK
+type: null
+variant_of: null
+replaces: null
+level: L3
+form: 추론
+points: 45
+time_estimate_min: null
+key_idea: $a_n=S_n-S_{n-1}$로 일반항을 구하고, $c_n=2n$으로 간단히 한 뒤 시그마 공식과 이차함수의 최솟값, 두 직선의 교점으로 만든 삼각형의 넓이의 합을 계산한다.
+stuck: $n=1$인 경우를 따로 확인하는 것, $f(x)$를 시그마 공식으로 전개해 $x$에 대한 이차식으로 정리하는 것, $\mathrm{A}_n,\mathrm{B}_n,\mathrm{C}_n$의 좌표를 $n$으로 나타내는 것
+tags:
+- 모의논술
+- TUK
+- '2023'
+elements:
+  materials:
+  - 합 $S_n=\dfrac32(n+n^2)$인 수열 $\{a_n\}$
+  - $c_n=(a_{n+1}/3)^2-(a_n/3)^2-1$로 정의된 수열
+  - 직선 $x+3y=(a_n)^2$, $x-\dfrac1ny=1$
+  concepts:
+  - 수열의 합과 일반항
+  - 시그마 공식
+  - 이차함수의 최솟값
+  - 두 직선의 교점
+  - 삼각형의 넓이
+  tools:
+  - $a_n=S_n-S_{n-1}$
+  - $\sum k,\ \sum k^2,\ \sum k^3$ 공식
+  - 완전제곱식
+  conditions:
+  - $n$은 자연수
+  stimuli_used: {}
+  subpart_links:
+  - '2<-1: (1)의 $a_n=3n$으로 $c_n=2n$'
+  - '3<-1: (1)의 $a_n=3n$으로 $f(x)$ 전개'
+  - '4<-1: (1)의 $a_n=3n$으로 교점 좌표'
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학Ⅰ
+  - 수학Ⅱ
+  scope_2028: unknown
+  scope_confirmed: false
+  content_area: 수열
+  behavior_domain: 계산
+  unit_path:
+  - 수학Ⅰ
+  - 수열
+  - 수열의 합과 일반항
+  key_concepts:
+  - 수열의 합과 일반항
+  - 시그마 공식
+  - 이차함수의 최솟값
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 한국공학대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 한국공학대학교
+  admission_year: 2023
+  admission_type: 수시 모의논술
+  track: 모의논술
+  question_no: 1
+  official_url: https://iphak.tukorea.ac.kr/guide/pds.htm?bbsid=pds&mode=view&bltn_seq=10260
+  retrieved_at: '2026-11-23'
+  original_points:
+  - 10
+  - 10
+  - 10
+  - 15
+  rights_notice: 미확인
+  transcribed_from: 한국공학대 2023학년도 모의 논술고사 문제 p.2-5 / 답안 p.2-3
+verify: verify/TUK-M23.py::p01
+stimuli: []
+stem: |
+  문제 1 (45점)
+  수열 $\{a_n\}$의 첫째항부터 제 $n$항까지의 합이 $S_n=\dfrac32(n+n^2)$이고
+  수열 $\{c_n\}$의 일반[판독확인: 원문 "일반" 뒤 "항" 누락 오식, 원문 그대로 둠]$c_n=\left(\dfrac{a_{n+1}}{3}\right)^2-\left(\dfrac{a_n}{3}\right)^2-1$일 때, 다음 물음에 답하시오. ($n$은 자연수)
+subparts:
+- id: '1'
+  stem: |
+    1.(10점) 수열 $\{a_n\}$의 일반항을 구하시오.
+  points: 10
+  depends_on: []
+  answer:
+    kind: expression
+    value: 3*n
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S1-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        $n\ge2$일 때 $a_n=S_n-S_{n-1}=\dfrac32(n+n^2)-\dfrac32\{(n-1)+(n-1)^2\}=3n$
+      source_flow: 2023학년도 한국공학대학교 모의 논술고사 답안 p.2
+      criteria:
+      - 1.M1
+    - id: 1b-2
+      content: |
+        $a_1=S_1=\dfrac32(1+1)=3$이므로 $n=1$일 때도 성립한다. 따라서 $a_n=3n$
+      source_flow: 2023학년도 한국공학대학교 모의 논술고사 답안 p.2
+      criteria:
+      - 1.A1
+  # 채점기준 미공개 — 단계별 추정
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 6
+      evidence: $a_n=S_n-S_{n-1}$ ($n\ge2$)을 이용해 식을 세웠다.
+      steps:
+      - 1b-1
+    - id: 1.A1
+      mark_type: A
+      points: 4
+      evidence: $a_1=S_1=3$을 확인하고 $a_n=3n$을 구했다.
+      depends_on:
+      - 1.M1
+      steps:
+      - 1b-2
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+- id: '2'
+  stem: |
+    2.(10점) 수열 $\{c_n\}$에 대하여 $\displaystyle\sum_{n=1}^{10}c_n$을 구하시오.
+  points: 10
+  depends_on: []
+  answer:
+    kind: value
+    value: '110'
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S2-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 2b-1
+      content: |
+        $a_n=3n$이므로 $c_n=\left(\dfrac{3(n+1)}{3}\right)^2-\left(\dfrac{3n}{3}\right)^2-1=(n+1)^2-n^2-1=2n$
+      source_flow: 2023학년도 한국공학대학교 모의 논술고사 답안 p.2
+      criteria:
+      - 2.M1
+    - id: 2b-2
+      content: |
+        $\displaystyle\sum_{n=1}^{10}c_n=\sum_{n=1}^{10}2n=2\cdot\dfrac{10\cdot11}{2}=110$
+      source_flow: 2023학년도 한국공학대학교 모의 논술고사 답안 p.2
+      criteria:
+      - 2.A1
+  # 채점기준 미공개 — 단계별 추정
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 5
+      evidence: $c_n=2n$을 구했다.
+      steps:
+      - 2b-1
+    - id: 2.A1
+      mark_type: A
+      points: 5
+      evidence: 합 $110$을 구했다.
+      depends_on:
+      - 2.M1
+      steps:
+      - 2b-2
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+- id: '3'
+  stem: |
+    3.(10점) 함수 $f(x)=\displaystyle\sum_{n=1}^{7}\dfrac17(x-a_n)^2$의 최솟값을 구하시오.
+  points: 10
+  depends_on: []
+  answer:
+    kind: value
+    value: '36'
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S3-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 3b-1
+      content: |
+        $f(x)=\displaystyle\sum_{n=1}^{7}\dfrac17(x-3n)^2=\sum_{n=1}^{7}\dfrac17(x^2-6nx+9n^2)=\dfrac17\left(7x^2-6x\cdot\dfrac{7\cdot8}{2}+9\cdot\dfrac{7\cdot8\cdot15}{6}\right)=x^2-24x+180$
+      source_flow: 2023학년도 한국공학대학교 모의 논술고사 답안 p.2
+      criteria:
+      - 3.M1
+    - id: 3b-2
+      content: |
+        $f'(x)=2x-24$이므로 $x=12$일 때 최솟값 $f(12)=36$
+      source_flow: 2023학년도 한국공학대학교 모의 논술고사 답안 p.2
+      criteria:
+      - 3.A1
+  # 채점기준 미공개 — 단계별 추정
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 5
+      evidence: 시그마 공식으로 $f(x)=x^2-24x+180$을 구했다.
+      steps:
+      - 3b-1
+    - id: 3.A1
+      mark_type: A
+      points: 5
+      evidence: 최솟값 $f(12)=36$을 구했다.
+      depends_on:
+      - 3.M1
+      steps:
+      - 3b-2
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+- id: '4'
+  stem: |
+    4.(15점) 좌표평면 위의 직선 $x+3y=(a_n)^2$와 직선 $x-\dfrac1ny=1$이 만나는 점을 $\mathrm{A}_n$, 두 직선이 $y$축과 만나는 점을 각각 $\mathrm{B}_n$과 $\mathrm{C}_n$이라 하자. 삼각형 $\triangle\mathrm{A}_n\mathrm{B}_n\mathrm{C}_n$의 넓이를 $M_n$이라 할 때, $\displaystyle\sum_{n=1}^{5}\dfrac{M_n}{3}$을 구하시오.
+  points: 15
+  depends_on: []
+  answer:
+    kind: value
+    value: '365'
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S4-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 4b-1
+      content: |
+        두 직선의 교점은 $\mathrm{A}_n(3n,\,3n^2-n)$이고, $y$축과 만나는 점은 $\mathrm{B}_n(0,\,3n^2)$, $\mathrm{C}_n(0,\,-n)$이다.
+      source_flow: 2023학년도 한국공학대학교 모의 논술고사 답안 p.3
+      criteria:
+      - 4.M1
+    - id: 4b-2
+      content: |
+        삼각형 $\mathrm{A}_n\mathrm{B}_n\mathrm{C}_n$의 넓이는 $M_n=\dfrac12(3n^2+n)\cdot3n=\dfrac12(9n^3+3n^2)$
+      source_flow: 2023학년도 한국공학대학교 모의 논술고사 답안 p.3
+      criteria:
+      - 4.A1
+    - id: 4b-3
+      content: |
+        $\displaystyle\sum_{n=1}^{5}\dfrac{M_n}{3}=\dfrac16\sum_{n=1}^{5}(9n^3+3n^2)=\dfrac16\left\{9\left(\dfrac{5\cdot6}{2}\right)^2+3\cdot\dfrac{5\cdot6\cdot11}{6}\right\}=365$
+      source_flow: 2023학년도 한국공학대학교 모의 논술고사 답안 p.3
+      criteria:
+      - 4.A2
+  # 채점기준 미공개 — 단계별 추정
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 4.M1
+      mark_type: M
+      points: 6
+      evidence: $a_n=3n$을 대입해 교점과 $y$절편의 좌표를 구했다.
+      steps:
+      - 4b-1
+    - id: 4.A1
+      mark_type: A
+      points: 4
+      evidence: 밑변 $3n^2+n$, 높이 $3n$으로 $M_n$을 구했다.
+      depends_on:
+      - 4.M1
+      steps:
+      - 4b-2
+    - id: 4.A2
+      mark_type: A
+      points: 5
+      evidence: 시그마 공식으로 $365$를 구했다.
+      depends_on:
+      - 4.M1
+      steps:
+      - 4b-3
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: past-v2-lean
+  item_version: 1
+  verdict: pass
+  date: &id001 2026-11-23
+created: *id001
+updated: *id001
+intent: 수열의 합과 일반항의 관계, 시그마 계산, 이차함수의 최솟값, 두 직선의 교점으로 만든 도형의 넓이의 합을 하나의 수열 설정 아래 종합해 평가한다.

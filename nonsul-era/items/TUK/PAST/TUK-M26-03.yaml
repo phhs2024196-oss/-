@@ -1,0 +1,159 @@
+schema_version: '2.0'
+id: TUK-M26-03
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: TUK
+type: null
+variant_of: null
+replaces: null
+level: L3
+form: 추론
+points: 10
+time_estimate_min: null
+key_idea: 접선의 방정식으로 $y$절편 $\mathrm{Q}$를 구해 밑변 $t$, 높이 $3t^2+3$으로 넓이 함수를 세우고 미분한다.
+stuck: $0<t<1$이므로 밑변 $\mathrm{OQ}$의 길이를 $3t^2+3$, 높이를 $t$로 잡는 것
+tags:
+- 모의논술
+- TUK
+- '2026'
+elements:
+  materials:
+  - $f(x)=-3x^2+3$
+  - 접선과 $y$축의 교점 Q
+  concepts:
+  - 접선의 방정식
+  - 삼각형의 넓이
+  - 도함수
+  tools:
+  - 다항함수의 미분
+  conditions:
+  - $0<t<1$
+  stimuli_used: {}
+  subpart_links: []
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학Ⅰ
+  - 수학Ⅱ
+  scope_2028: unknown
+  scope_confirmed: false
+  content_area: 미분법
+  behavior_domain: 계산
+  unit_path:
+  - 수학Ⅱ
+  - 미분
+  - 접선과 넓이 함수
+  key_concepts:
+  - 접선의 방정식
+  - 삼각형의 넓이
+  - 도함수
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 한국공학대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 한국공학대학교
+  admission_year: 2026
+  admission_type: 수시 모의논술
+  track: 모의논술
+  question_no: 3
+  official_url: https://iphak.tukorea.ac.kr/guide/pds.htm?bbsid=pds&mode=view&bltn_seq=12702
+  retrieved_at: '2026-11-23'
+  original_points:
+  - 10
+  rights_notice: 미확인
+  transcribed_from: 한국공학대 2026학년도 모의논술고사 문제 p.4 / 답안 p.4
+verify: verify/TUK-M26.py::p03
+stimuli: []
+stem: |
+  [문제3] [10점]
+subparts:
+- id: '1'
+  stem: |
+    함수 $f(x)=-3x^2+3$에 대하여 곡선 $y=f(x)$ 위의 점 $\mathrm{P}(t,f(t))$에서의 접선이 $y$축과 만나는 점을 $\mathrm{Q}$라 할 때, 삼각형 OPQ의 넓이를 $g(t)$라 하자. $g'\left(\dfrac12\right)$의 값을 구하고 그 과정을 서술하시오. (단, $0<t<1$이고 O는 원점이다.)
+  points: 10
+  depends_on: []
+  answer:
+    kind: value
+    value: 21/8
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S1-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        $f'(x)=-6x$이므로 점 $(t,f(t))$에서의 접선은 $y-(-3t^2+3)=-6t(x-t)$이고 $y$축과 만나는 점은 $\mathrm{Q}(0,\,3t^2+3)$
+      source_flow: 2026학년도 한국공학대학교 모의논술고사 답안 p.4
+      criteria:
+      - 1.M1
+    - id: 1b-2
+      content: |
+        삼각형 OPQ의 넓이는 $g(t)=\dfrac12\cdot t\cdot(3t^2+3)=\dfrac32t^3+\dfrac32t$
+      source_flow: 2026학년도 한국공학대학교 모의논술고사 답안 p.4
+      criteria:
+      - 1.A1
+    - id: 1b-3
+      content: |
+        $g'(t)=\dfrac92t^2+\dfrac32$이므로 $g'\left(\dfrac12\right)=\dfrac98+\dfrac32=\dfrac{21}8$
+      source_flow: 2026학년도 한국공학대학교 모의논술고사 답안 p.4
+      criteria:
+      - 1.A2
+  # 채점기준 미공개 — 단계별 추정
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 4
+      evidence: 접선의 방정식과 $\mathrm{Q}(0,3t^2+3)$을 구했다.
+      steps:
+      - 1b-1
+    - id: 1.A1
+      mark_type: A
+      points: 3
+      evidence: $g(t)=\dfrac32t^3+\dfrac32t$를 구했다.
+      depends_on:
+      - 1.M1
+      steps:
+      - 1b-2
+    - id: 1.A2
+      mark_type: A
+      points: 3
+      evidence: $g'\left(\dfrac12\right)=\dfrac{21}{8}$을 구했다.
+      depends_on:
+      - 1.M1
+      steps:
+      - 1b-3
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: past-v2-lean
+  item_version: 1
+  verdict: pass
+  date: &id001 2026-11-23
+created: *id001
+updated: *id001
+intent: 접선의 방정식으로 도형의 넓이를 변수 $t$의 함수로 나타내고 미분계수를 구하는 능력을 평가한다.

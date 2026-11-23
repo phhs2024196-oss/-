@@ -1,0 +1,145 @@
+schema_version: '2.0'
+id: TUK-M25-04
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: TUK
+type: null
+variant_of: null
+replaces: null
+level: L3
+form: 추론
+points: 10
+time_estimate_min: null
+key_idea: 구간 $[n-1,n]$을 $[0,1]$로 옮겨 $A_n=\dfrac1n\cdot\dfrac16$을 얻고 역수의 합을 구한다.
+stuck: 적분 구간과 피적분함수를 함께 평행이동해 $n$에 무관한 적분 $\int_0^1-x(x-1)dx$로 바꾸는 것
+tags:
+- 모의논술
+- TUK
+- '2025'
+elements:
+  materials:
+  - $A_n=\int_{n-1}^{n}-\dfrac1n(x-n+1)(x-n)dx$
+  concepts:
+  - 정적분의 계산
+  - 정적분의 평행이동
+  - 시그마 공식
+  tools:
+  - 치환적분 없이 구간 이동
+  - 자연수의 합 공식
+  conditions: []
+  stimuli_used: {}
+  subpart_links: []
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학Ⅰ
+  - 수학Ⅱ
+  scope_2028: unknown
+  scope_confirmed: false
+  content_area: 적분법·수열
+  behavior_domain: 계산
+  unit_path:
+  - 수학Ⅱ
+  - 적분
+  - 정적분과 수열의 합
+  key_concepts:
+  - 정적분의 계산
+  - 정적분의 평행이동
+  - 시그마 공식
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 한국공학대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 한국공학대학교
+  admission_year: 2025
+  admission_type: 수시 모의논술
+  track: 모의논술
+  question_no: 4
+  official_url: https://iphak.tukorea.ac.kr/guide/pds.htm?bbsid=pds&mode=view&bltn_seq=11714
+  retrieved_at: '2026-11-23'
+  original_points:
+  - 10
+  rights_notice: 미확인
+  transcribed_from: 한국공학대 2025학년도 모의 논술고사 문제 p.5 / 답안 p.5
+verify: verify/TUK-M25.py::p04
+stimuli: []
+stem: |
+  문제4 (10점)
+subparts:
+- id: '1'
+  stem: |
+    자연수 $n$에 대하여 수열 $A_n=\displaystyle\int_{n-1}^{n}-\dfrac1n(x-n+1)(x-n)dx$ 일 때,
+    $\displaystyle\sum_{n=1}^{10}\dfrac1{A_n}$ 값을 구하시오.
+  points: 10
+  depends_on: []
+  answer:
+    kind: value
+    value: '330'
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S1-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        $A_1=\displaystyle\int_0^1-x(x-1)dx=\left[\dfrac12x^2-\dfrac13x^3\right]_0^1=\dfrac16$이고 $x-n+1=u$로 치환하면 $A_n=\displaystyle\int_0^1-\dfrac1nu(u-1)du=\dfrac1n\times\dfrac16$
+      source_flow: 2025학년도 한국공학대학교 모의 논술고사 답안 p.5
+      criteria:
+      - 1.M1
+    - id: 1b-2
+      content: |
+        $\displaystyle\sum_{n=1}^{10}\dfrac1{A_n}=6(1+2+\cdots+10)=6\times55=330$
+      source_flow: 2025학년도 한국공학대학교 모의 논술고사 답안 p.5
+      criteria:
+      - 1.A1
+  # 채점기준 미공개 — 단계별 추정
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 6
+      evidence: 치환 또는 평행이동으로 $A_n=\dfrac1n\cdot\dfrac16$을 구했다.
+      steps:
+      - 1b-1
+    - id: 1.A1
+      mark_type: A
+      points: 4
+      evidence: 합 $330$을 구했다.
+      depends_on:
+      - 1.M1
+      steps:
+      - 1b-2
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: past-v2-lean
+  item_version: 1
+  verdict: pass
+  date: &id001 2026-11-23
+created: *id001
+updated: *id001
+intent: 이차함수의 정적분을 $n$에 무관한 값으로 정리해 수열의 역수의 합을 구하는 능력을 평가한다.

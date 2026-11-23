@@ -1,0 +1,157 @@
+schema_version: '2.0'
+id: TUK-M27-03
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: TUK
+type: null
+variant_of: null
+replaces: null
+level: L3
+form: 추론
+points: 10
+time_estimate_min: null
+key_idea: 두 점이 직선 위에 있다는 조건에서 $\log_3a$, $\log_3b$에 대한 연립방정식을 세워 푼다.
+stuck: $\log_3ab=\log_3a+\log_3b$, $\log_3\dfrac ba=\log_3b-\log_3a$로 풀어 쓰는 것
+tags:
+- 모의논술
+- TUK
+- '2027'
+elements:
+  materials:
+  - 직선 $y=2x+1$
+  - 두 점 A, B
+  concepts:
+  - 로그의 성질
+  - 직선의 방정식
+  - 연립방정식
+  tools:
+  - 로그의 합·차 성질
+  conditions:
+  - $a>0,\ b>0$
+  stimuli_used: {}
+  subpart_links: []
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학Ⅰ
+  - 수학Ⅱ
+  scope_2028: unknown
+  scope_confirmed: false
+  content_area: 로그
+  behavior_domain: 계산
+  unit_path:
+  - 수학Ⅰ
+  - 지수함수와 로그함수
+  - 로그의 성질
+  key_concepts:
+  - 로그의 성질
+  - 직선의 방정식
+  - 연립방정식
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 한국공학대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 한국공학대학교
+  admission_year: 2027
+  admission_type: 수시 모의논술
+  track: 모의논술
+  question_no: 3
+  official_url: https://iphak.tukorea.ac.kr/guide/pds.htm?bbsid=pds&mode=view&bltn_seq=13784
+  retrieved_at: '2026-11-23'
+  original_points:
+  - 10
+  rights_notice: 미확인
+  transcribed_from: 한국공학대 2027학년도 모의논술고사 문제 p.4 / 답안 p.4
+verify: verify/TUK-M27.py::p03
+stimuli: []
+stem: |
+  [문제3] [10점]
+subparts:
+- id: '1'
+  stem: |
+    두 양수 $a,b$에 대하여 직선 $y=2x+1$이 두 점 $\mathrm{A}(0,\log_3ab)$, $\mathrm{B}\left(1,\log_3\dfrac ba\right)$를 지날 때, $a,b$의 값을 구하고 그 과정을 서술하시오.
+  points: 10
+  depends_on: []
+  answer:
+    kind: value
+    value: a=1/3; b=9
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S1-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        점 $\mathrm{A}(0,\log_3ab)$가 직선 $y=2x+1$ 위에 있으므로 $\log_3ab=1$, $\log_3a+\log_3b=1\ \cdots\ ㉠$
+      source_flow: 2027학년도 한국공학대학교 모의논술고사 답안 p.4
+      criteria:
+      - 1.M1
+    - id: 1b-2
+      content: |
+        점 $\mathrm{B}\left(1,\log_3\dfrac ba\right)$가 직선 위에 있으므로 $\log_3\dfrac ba=3$, $\log_3b-\log_3a=3\ \cdots\ ㉡$
+      source_flow: 2027학년도 한국공학대학교 모의논술고사 답안 p.4
+      criteria:
+      - 1.M2
+    - id: 1b-3
+      content: |
+        ㉠과 ㉡을 변끼리 더하면 $2\log_3b=4$, $\log_3b=2$, $b=9$이고 이를 ㉠에 대입하면 $\log_3a=-1$, $a=\dfrac13$
+      source_flow: 2027학년도 한국공학대학교 모의논술고사 답안 p.4
+      criteria:
+      - 1.A1
+  # 채점기준 미공개 — 단계별 추정
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 3
+      evidence: 점 A를 대입해 $\log_3a+\log_3b=1$을 얻었다.
+      steps:
+      - 1b-1
+    - id: 1.M2
+      mark_type: M
+      points: 3
+      evidence: 점 B를 대입해 $\log_3b-\log_3a=3$을 얻었다.
+      steps:
+      - 1b-2
+    - id: 1.A1
+      mark_type: A
+      points: 4
+      evidence: $a=\dfrac13$, $b=9$를 구했다.
+      depends_on:
+      - 1.M1
+      steps:
+      - 1b-3
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: past-v2-lean
+  item_version: 1
+  verdict: pass
+  date: &id001 2026-11-23
+created: *id001
+updated: *id001
+intent: 좌표에 로그가 포함된 두 점이 직선 위에 있을 조건을 로그의 성질로 연립해 푸는 능력을 평가한다.

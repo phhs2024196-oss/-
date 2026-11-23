@@ -1,0 +1,179 @@
+schema_version: '2.0'
+id: TUK-G26B-05
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: TUK
+type: null
+variant_of: null
+replaces: null
+level: L3
+form: 추론
+points: 10
+time_estimate_min: null
+key_idea: 주어진 등식에 $x=1$을 대입하면 $\int_{-1}^1f(t)dt$가 양변에서 소거되어 $a$를 얻고, 양변을 $x$에 대하여 미분하여 $f(x)$를 구한 뒤 $g(3)$을 계산한다.
+stuck: $x=1$을 대입하면 상수 $\int_{-1}^1f(t)dt$가 소거되어 $a$만 남는다는 것을 알아차리는 것
+tags:
+- 기출
+- TUK
+- '2026'
+- 전 계열(수학)
+- 오후
+elements:
+  materials:
+  - $\int_{-1}^xf(t)dt=x^3+ax^2+\int_{-1}^1f(t)dt$
+  - $g(x)=\int_{-1}^xf(t)dt$
+  concepts:
+  - 정적분으로 정의된 함수의 미분
+  - 정적분의 상수성
+  - 다항함수의 정적분
+  tools:
+  - $x=1$ 대입
+  - 양변의 미분
+  - 정적분의 계산
+  conditions:
+  - $f(x)$는 다항함수
+  - 모든 실수 $x$에 대하여 성립
+  - $a$는 상수
+  stimuli_used: {}
+  subpart_links: []
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학
+  - 수학Ⅱ
+  scope_2028: common
+  scope_confirmed: true
+  standards:
+  - code: 12수학Ⅱ03-04
+    text: 다항함수의 정적분을 구할 수 있다.
+    verified: true
+  content_area: 적분
+  behavior_domain: 계산
+  unit_path:
+  - 수학Ⅱ
+  - 적분
+  - 정적분과 미분의 관계
+  key_concepts:
+  - 정적분으로 정의된 함수
+  - 미적분의 기본 정리
+  - 다항함수의 정적분
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 한국공학대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 한국공학대학교
+  admission_year: 2026
+  admission_type: 수시 논술우수자
+  track: 전 계열(수학) 오후
+  question_no: 5
+  official_url: https://iphak.tukorea.ac.kr/guide/pds.htm?bbsid=pds&mode=view&bltn_seq=13556
+  retrieved_at: '2026-11-23'
+  original_points:
+  - 10
+  rights_notice: 미확인
+  transcribed_from: 한국공학대 2026학년도 선행학습 영향평가 보고서 문항카드 14 (report2026.pdf p.68-70)
+verify: verify/TUK-G26B.py::p05
+stimuli: []
+stem: |
+  [문제 5] [10점]
+subparts:
+- id: '1'
+  stem: |
+    다항함수 $f(x)$가 모든 실수 $x$에 대하여
+    $$\int_{-1}^xf(t)dt=x^3+ax^2+\int_{-1}^1f(t)dt$$
+    를 만족시킨다. 함수 $g(x)$를 $g(x)=\displaystyle\int_{-1}^xf(t)dt$라 할 때, $g(3)$의 값을 구하고 그 과정을 서술하시오. (단, $a$는 상수이다.)
+  points: 10
+  depends_on: []
+  answer:
+    kind: value
+    value: '20'
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S1-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        $\displaystyle\int_{-1}^xf(t)dt=x^3+ax^2+\int_{-1}^1f(t)dt$ ㉠의 양변에 $x=1$을 대입하면 $\displaystyle\int_{-1}^1f(t)dt=1+a+\int_{-1}^1f(t)dt$에서 $a=-1$
+      source_flow: 예시답안 p.70
+      criteria:
+      - 1.M1
+    - id: 1b-2
+      content: |
+        ㉠의 양변을 $x$에 대하여 미분하면 $f(x)=3x^2+2ax=3x^2-2x$
+      source_flow: 예시답안 p.70
+      criteria:
+      - 1.M2
+    - id: 1b-3
+      content: |
+        $$g(3)=\int_{-1}^3f(t)dt=\int_{-1}^3\left(3t^2-2t\right)dt=\left[t^3-t^2\right]_{-1}^3$$
+      source_flow: 예시답안 p.70
+      criteria:
+      - 1.M3
+    - id: 1b-4
+      content: |
+        $$\left[t^3-t^2\right]_{-1}^3=20$$
+      source_flow: 예시답안 p.70
+      criteria:
+      - 1.A1
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 3
+      evidence: $x=1$을 대입하여 $a=-1$을 구했다.
+      steps:
+      - 1b-1
+    - id: 1.M2
+      mark_type: M
+      points: 3
+      evidence: 양변을 미분하여 $f(x)=3x^2-2x$를 구했다.
+      steps:
+      - 1b-2
+    - id: 1.M3
+      mark_type: M
+      points: 2
+      evidence: $g(3)=\int_{-1}^3\left(3t^2-2t\right)dt$를 세웠다.
+      steps:
+      - 1b-3
+    - id: 1.A1
+      mark_type: A
+      points: 2
+      evidence: $g(3)=20$을 구했다.
+      depends_on:
+      - 1.M3
+      steps:
+      - 1b-4
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: past-v2-lean
+  item_version: 1
+  verdict: pass
+  date: &id001 2026-11-23
+created: *id001
+updated: *id001

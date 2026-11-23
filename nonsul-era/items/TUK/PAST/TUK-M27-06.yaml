@@ -1,0 +1,174 @@
+schema_version: '2.0'
+id: TUK-M27-06
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: TUK
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 추론
+points: 15
+time_estimate_min: null
+key_idea: 접선의 두 절편으로 삼각형의 넓이를 $t$의 삼차함수로 나타내고 증감표로 최댓값을 구한다.
+stuck: $x$절편 $\dfrac{t+2}2$와 $y$절편 $-t^2+4$를 $0<t<2$에서 양수로 잡아 넓이를 세우는 것
+tags:
+- 모의논술
+- TUK
+- '2027'
+elements:
+  materials:
+  - $f(x)=x^2-4x+4$
+  - 접선과 좌표축의 교점 P, Q
+  concepts:
+  - 접선의 방정식
+  - 삼각형의 넓이
+  - 극대와 최대
+  tools:
+  - 미분
+  - 증감표
+  conditions:
+  - $0<t<2$
+  stimuli_used: {}
+  subpart_links: []
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학Ⅰ
+  - 수학Ⅱ
+  scope_2028: unknown
+  scope_confirmed: false
+  content_area: 미분법
+  behavior_domain: 문제해결
+  unit_path:
+  - 수학Ⅱ
+  - 미분
+  - 접선과 넓이의 최대
+  key_concepts:
+  - 접선의 방정식
+  - 삼각형의 넓이
+  - 극대와 최대
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 한국공학대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 한국공학대학교
+  admission_year: 2027
+  admission_type: 수시 모의논술
+  track: 모의논술
+  question_no: 6
+  official_url: https://iphak.tukorea.ac.kr/guide/pds.htm?bbsid=pds&mode=view&bltn_seq=13784
+  retrieved_at: '2026-11-23'
+  original_points:
+  - 15
+  rights_notice: 미확인
+  transcribed_from: 한국공학대 2027학년도 모의논술고사 문제 p.7 / 답안 p.7
+verify: verify/TUK-M27.py::p06
+stimuli: []
+stem: |
+  [문제6] [15점]
+subparts:
+- id: '1'
+  stem: |
+    함수 $f(x)=x^2-4x+4$에 대하여 곡선 $y=f(x)$ 위의 점 $(t,f(t))$에서의 접선이 $x$축, $y$축과 만나는 점을 각각 $\mathrm{P},\ \mathrm{Q}$라 하자. 삼각형 OPQ의 넓이의 최댓값을 구하고 그 과정을 서술하시오. (단, $0<t<2$이고 O는 원점이다.)
+  points: 15
+  depends_on: []
+  answer:
+    kind: value
+    value: 64/27
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S1-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        $f'(x)=2x-4$이므로 점 $(t,f(t))$에서의 접선은 $y-(t^2-4t+4)=(2t-4)(x-t)$이다. 접선이 $x$축과 만나는 점은 $\mathrm{P}\left(\dfrac{t+2}2,0\right)$, $y$축과 만나는 점은 $\mathrm{Q}(0,\,-t^2+4)$
+      source_flow: 2027학년도 한국공학대학교 모의논술고사 답안 p.7
+      criteria:
+      - 1.M1
+    - id: 1b-2
+      content: |
+        삼각형 OPQ의 넓이는 $g(t)=\dfrac12\cdot\dfrac{t+2}2\cdot(-t^2+4)=\dfrac14(-t^3-2t^2+4t+8)$
+      source_flow: 2027학년도 한국공학대학교 모의논술고사 답안 p.7
+      criteria:
+      - 1.A1
+    - id: 1b-3
+      content: |
+        $g'(t)=\dfrac14(-3t^2-4t+4)=-\dfrac14(t+2)(3t-2)$에서 $0<t<2$일 때 $t=\dfrac23$에서 극대(증감표: $g'>0\to g'<0$)이므로 최대
+      source_flow: 2027학년도 한국공학대학교 모의논술고사 답안 p.7
+      criteria:
+      - 1.A2
+    - id: 1b-4
+      content: |
+        따라서 넓이의 최댓값은 $g\left(\dfrac23\right)=\dfrac{64}{27}$
+      source_flow: 2027학년도 한국공학대학교 모의논술고사 답안 p.7
+      criteria:
+      - 1.A3
+  # 채점기준 미공개 — 단계별 추정
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 5
+      evidence: 접선의 방정식과 두 절편 P, Q의 좌표를 구했다.
+      steps:
+      - 1b-1
+    - id: 1.A1
+      mark_type: A
+      points: 3
+      evidence: 넓이 함수 $g(t)$를 $t$에 대한 식으로 나타냈다.
+      depends_on:
+      - 1.M1
+      steps:
+      - 1b-2
+    - id: 1.A2
+      mark_type: A
+      points: 4
+      evidence: $g'(t)=0$인 $t=\dfrac23$에서 증감표로 최대임을 보였다.
+      depends_on:
+      - 1.M1
+      steps:
+      - 1b-3
+    - id: 1.A3
+      mark_type: A
+      points: 3
+      evidence: 최댓값 $\dfrac{64}{27}$를 구했다.
+      depends_on:
+      - 1.M1
+      steps:
+      - 1b-4
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: past-v2-lean
+  item_version: 1
+  verdict: pass
+  date: &id001 2026-11-23
+created: *id001
+updated: *id001
+intent: 접선의 절편으로 만든 삼각형 넓이 함수의 최댓값을 미분으로 구하는 능력을 평가한다.

@@ -1,0 +1,142 @@
+schema_version: '2.0'
+id: TUK-M25-01
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: TUK
+type: null
+variant_of: null
+replaces: null
+level: L3
+form: 추론
+points: 10
+time_estimate_min: null
+key_idea: 로그함수가 증가함수임을 이용해 $2\sin x+a$의 최솟값·최댓값이 생기는 $x$에서 $a,b$를 정한다.
+stuck: $0\le x<\pi$에서 $\sin x$의 범위가 $0\le\sin x\le1$임을 읽고 최솟값이 $x=0$에서 생기는 것을 잡는 것
+tags:
+- 모의논술
+- TUK
+- '2025'
+elements:
+  materials:
+  - $f(x)=\log_2(2\sin x+a)+b$
+  concepts:
+  - 로그함수의 증가성
+  - 삼각함수의 최대·최소
+  tools:
+  - 밑이 2인 로그의 성질
+  conditions:
+  - $0\le x<\pi$
+  stimuli_used: {}
+  subpart_links: []
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학Ⅰ
+  - 수학Ⅱ
+  scope_2028: unknown
+  scope_confirmed: false
+  content_area: 로그함수·삼각함수
+  behavior_domain: 계산
+  unit_path:
+  - 수학Ⅰ
+  - 지수함수와 로그함수
+  - 삼각함수의 그래프
+  key_concepts:
+  - 로그함수의 증가성
+  - 삼각함수의 최대·최소
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 한국공학대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 한국공학대학교
+  admission_year: 2025
+  admission_type: 수시 모의논술
+  track: 모의논술
+  question_no: 1
+  official_url: https://iphak.tukorea.ac.kr/guide/pds.htm?bbsid=pds&mode=view&bltn_seq=11714
+  retrieved_at: '2026-11-23'
+  original_points:
+  - 10
+  rights_notice: 미확인
+  transcribed_from: 한국공학대 2025학년도 모의 논술고사 문제 p.2 / 답안 p.2
+verify: verify/TUK-M25.py::p01
+stimuli: []
+stem: |
+  문제1 (10점)
+subparts:
+- id: '1'
+  stem: |
+    함수 $f(x)=\log_2(2\sin x+a)+b$는 $0\le x<\pi$ 구간에서 최댓값 5, 최솟값 4를 갖는다. $f\left(\dfrac\pi6\right)$값을 구하시오. (단, $a$와 $b$는 상수이다.)
+  points: 10
+  depends_on: []
+  answer:
+    kind: expression
+    value: 3+log(3)/log(2)
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S1-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        $f(x)=\log_2(2\sin x+a)+b$는 $2\sin x+a$의 값이 증가하면 $f(x)$도 증가하므로 $0\le x<\pi$에서 $2\sin x+a$는 $x=0$에서 최솟값, $x=\dfrac\pi2$에서 최댓값을 갖는다. 따라서 $x=0$에서 $\log_2a+b=4$, $x=\dfrac\pi2$에서 $\log_2(2+a)+b=5$
+      source_flow: 2025학년도 한국공학대학교 모의 논술고사 답안 p.2
+      criteria:
+      - 1.M1
+    - id: 1b-2
+      content: |
+        두 식에서 $a=2$, $b=3$이므로 $f\left(\dfrac\pi6\right)=\log_2(1+2)+3=3+\log_23$
+      source_flow: 2025학년도 한국공학대학교 모의 논술고사 답안 p.2
+      criteria:
+      - 1.A1
+  # 채점기준 미공개 — 단계별 추정
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 5
+      evidence: 로그함수의 증가성으로 최솟값·최댓값이 생기는 $x$를 찾아 $a,b$에 대한 두 식을 세웠다.
+      steps:
+      - 1b-1
+    - id: 1.A1
+      mark_type: A
+      points: 5
+      evidence: $a=2$, $b=3$을 구해 $f\left(\dfrac\pi6\right)=3+\log_23$을 구했다.
+      depends_on:
+      - 1.M1
+      steps:
+      - 1b-2
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: past-v2-lean
+  item_version: 1
+  verdict: pass
+  date: &id001 2026-11-23
+created: *id001
+updated: *id001
+intent: 로그함수의 증가성과 사인함수의 값의 범위로 최댓값·최솟값 조건에서 상수를 결정하는 능력을 평가한다.

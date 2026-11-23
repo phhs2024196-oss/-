@@ -1,0 +1,179 @@
+schema_version: '2.0'
+id: TUK-M26-06
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: TUK
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 추론
+points: 15
+time_estimate_min: null
+key_idea: 두 조건으로 $a,b$를 정하고 $g'(x)=f(x)$의 부호 변화로 극대·극소의 위치를 찾은 뒤 $g(x)$의 값을 구한다.
+stuck: $g'(x)=f(x)$임을 이용해 $f$의 부호 변화에서 극대·극소를 판정하는 것, $x=\pm\dfrac1{\sqrt2}$에서의 값을 계산하는 것
+tags:
+- 모의논술
+- TUK
+- '2026'
+elements:
+  materials:
+  - $f(x)=x^3+2ax+b$와 조건 (가), (나)
+  - $g(x)=\int_0^xf(t)dt$
+  concepts:
+  - 미분계수의 정의
+  - 정적분
+  - 극대·극소
+  - 증감표
+  tools:
+  - 미분계수의 정의
+  - 증감표
+  - 인수분해
+  conditions: []
+  stimuli_used: {}
+  subpart_links: []
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학Ⅰ
+  - 수학Ⅱ
+  scope_2028: unknown
+  scope_confirmed: false
+  content_area: 미분법·적분법
+  behavior_domain: 추론
+  unit_path:
+  - 수학Ⅱ
+  - 미분·적분
+  - 정적분으로 정의된 함수의 극값
+  key_concepts:
+  - 미분계수의 정의
+  - 정적분
+  - 극대·극소
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 한국공학대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 한국공학대학교
+  admission_year: 2026
+  admission_type: 수시 모의논술
+  track: 모의논술
+  question_no: 6
+  official_url: https://iphak.tukorea.ac.kr/guide/pds.htm?bbsid=pds&mode=view&bltn_seq=12702
+  retrieved_at: '2026-11-23'
+  original_points:
+  - 15
+  rights_notice: 미확인
+  transcribed_from: 한국공학대 2026학년도 모의논술고사 문제 p.7 / 답안 p.7
+verify: verify/TUK-M26.py::p06
+stimuli: []
+stem: |
+  [문제6] [15점]
+subparts:
+- id: '1'
+  stem: |
+    다항함수 $f(x)=x^3+2ax+b$가 다음 조건을 만족시킨다.
+    (가) $\displaystyle\lim_{x\to0}\dfrac{f(1+x)-f(1)}{x}=\dfrac52$
+    (나) $\displaystyle\int_0^2f(x)dx=3$
+    함수 $g(x)=\displaystyle\int_0^xf(t)dt$의 극댓값과 극솟값을 모두 구하고 그 과정을 서술하시오.
+    (단, $a,b$는 상수이다.)
+  points: 15
+  depends_on: []
+  answer:
+    kind: value
+    value: max=0; min=-1/16
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S1-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        조건 (가)에서 $f'(1)=\dfrac52$이고 $f'(x)=3x^2+2a$이므로 $3+2a=\dfrac52$, $a=-\dfrac14$, $f(x)=x^3-\dfrac12x+b$
+      source_flow: 2026학년도 한국공학대학교 모의논술고사 답안 p.7
+      criteria:
+      - 1.M1
+    - id: 1b-2
+      content: |
+        조건 (나)에서 $\displaystyle\int_0^2\left(x^3-\dfrac12x+b\right)dx=\left[\dfrac14x^4-\dfrac14x^2+bx\right]_0^2=4-1+2b=3$이므로 $b=0$, $f(x)=x^3-\dfrac12x$
+      source_flow: 2026학년도 한국공학대학교 모의논술고사 답안 p.7
+      criteria:
+      - 1.A1
+    - id: 1b-3
+      content: |
+        $g'(x)=f(x)=x\left(x+\dfrac1{\sqrt2}\right)\left(x-\dfrac1{\sqrt2}\right)$이므로 $g'(x)=0$에서 $x=-\dfrac1{\sqrt2},0,\dfrac1{\sqrt2}$이고 증감표를 만들면 $x=-\dfrac1{\sqrt2}$, $x=\dfrac1{\sqrt2}$에서 극소, $x=0$에서 극대이다.
+      source_flow: 2026학년도 한국공학대학교 모의논술고사 답안 p.7
+      criteria:
+      - 1.A2
+    - id: 1b-4
+      content: |
+        $g(x)=\displaystyle\int_0^x\left(t^3-\dfrac12t\right)dt=\dfrac14(x^4-x^2)$이므로 $x=\pm\dfrac1{\sqrt2}$에서 극솟값 $g\left(\pm\dfrac1{\sqrt2}\right)=-\dfrac1{16}$, $x=0$에서 극댓값 $g(0)=0$
+      source_flow: 2026학년도 한국공학대학교 모의논술고사 답안 p.7
+      criteria:
+      - 1.A3
+  # 채점기준 미공개 — 단계별 추정
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 3
+      evidence: (가)에서 $f'(1)=\dfrac52$로 $a=-\dfrac14$를 구했다.
+      steps:
+      - 1b-1
+    - id: 1.A1
+      mark_type: A
+      points: 3
+      evidence: (나)에서 $b=0$을 구했다.
+      depends_on:
+      - 1.M1
+      steps:
+      - 1b-2
+    - id: 1.A2
+      mark_type: A
+      points: 5
+      evidence: $g'(x)=f(x)$의 부호 변화를 증감표로 조사해 극대·극소인 $x$를 구했다.
+      depends_on:
+      - 1.M1
+      steps:
+      - 1b-3
+    - id: 1.A3
+      mark_type: A
+      points: 4
+      evidence: 극솟값 $-\dfrac1{16}$, 극댓값 $0$을 구했다.
+      depends_on:
+      - 1.M1
+      steps:
+      - 1b-4
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: past-v2-lean
+  item_version: 1
+  verdict: pass
+  date: &id001 2026-11-23
+created: *id001
+updated: *id001
+intent: 미분계수와 정적분 조건으로 다항함수를 결정하고 정적분으로 정의된 함수의 극값을 구하는 능력을 평가한다.

@@ -1,0 +1,333 @@
+schema_version: '2.0'
+id: TUK-M23-02
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: TUK
+type: null
+variant_of: null
+replaces: null
+level: L3
+form: 추론
+points: 45
+time_estimate_min: null
+key_idea: 도함수를 적분해 구간별 식을 세우고 연속성과 $f(2)=0$으로 적분상수를 정한다. 미분계수의 정의로 극한을 계산하고, $f(x)$의 부호에 따라 절댓값이 든 정적분의 구간을 나눈다.
+stuck: $x=1$에서 미분가능하면 연속임을 써서 $x\le1$의 상수를 정하는 것, 극한의 분자를 $f(x)-f(3)$ 꼴로 만드는 것, $f(x)+\lvert f(x)\rvert$를 부호별로 처리하는 것
+tags:
+- 모의논술
+- TUK
+- '2023'
+elements:
+  materials:
+  - 구간별로 정의된 도함수 $f'(x)$
+  - $f(2)=0$
+  concepts:
+  - 미분가능성과 연속성
+  - 부정적분
+  - 미분계수의 정의
+  - 정적분과 넓이
+  - 절댓값이 포함된 정적분
+  tools:
+  - 미분계수의 정의
+  - 정적분의 구간 나누기
+  - 이차함수의 꼭짓점
+  conditions:
+  - $f$는 실수 전체에서 미분가능
+  - $f(2)=0$
+  stimuli_used: {}
+  subpart_links:
+  - '2<-1: (1)의 $f(1)=-3$으로 $x\le1$의 식'
+  - '3<-2: (2)에서 구한 $f(x)$로 $f''(3)$, $f(3)$'
+  - '4<-2: (2)에서 구한 $f(x)$의 부호 판정'
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학Ⅱ
+  scope_2028: unknown
+  scope_confirmed: false
+  content_area: 미분법·적분법
+  behavior_domain: 계산
+  unit_path:
+  - 수학Ⅱ
+  - 미분
+  - 도함수와 적분
+  key_concepts:
+  - 미분가능성과 연속성
+  - 부정적분
+  - 미분계수의 정의
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 한국공학대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 한국공학대학교
+  admission_year: 2023
+  admission_type: 수시 모의논술
+  track: 모의논술
+  question_no: 2
+  official_url: https://iphak.tukorea.ac.kr/guide/pds.htm?bbsid=pds&mode=view&bltn_seq=10260
+  retrieved_at: '2026-11-23'
+  original_points:
+  - 10
+  - 10
+  - 10
+  - 15
+  rights_notice: 미확인
+  transcribed_from: 한국공학대 2023학년도 모의 논술고사 문제 p.6-9 / 답안 p.4-5
+verify: verify/TUK-M23.py::p02
+stimuli: []
+stem: |
+  문제2 (45점)
+  실수 전체에서 미분 가능한 함수 $f(x)$에 대하여 도함수 $f'(x)=\begin{cases}4&,\ x\le1\\6-2x&,\ x\ge1\end{cases}$이고, $f(2)=0$이다.
+subparts:
+- id: '1'
+  stem: |
+    1.(10점) $f(1)$ 값을 구하시오.
+  points: 10
+  depends_on: []
+  answer:
+    kind: value
+    value: '-3'
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S1-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        $x\ge1$에서 $f(x)=6x-x^2+d$이고 $f(2)=0$이므로 $12-4+d=0$, $d=-8$
+      source_flow: 2023학년도 한국공학대학교 모의 논술고사 답안 p.4
+      criteria:
+      - 1.M1
+    - id: 1b-2
+      content: |
+        $f(1)=6-1-8=-3$
+      source_flow: 2023학년도 한국공학대학교 모의 논술고사 답안 p.4
+      criteria:
+      - 1.A1
+  # 채점기준 미공개 — 단계별 추정
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 5
+      evidence: $f(2)=0$으로 $x\ge1$에서의 식의 적분상수를 구했다.
+      steps:
+      - 1b-1
+    - id: 1.A1
+      mark_type: A
+      points: 5
+      evidence: $f(1)=-3$을 구했다.
+      depends_on:
+      - 1.M1
+      steps:
+      - 1b-2
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+- id: '2'
+  stem: |
+    2.(10점) $f(x)$의 최댓값을 구하시오..
+  points: 10
+  depends_on: []
+  answer:
+    kind: value
+    value: '1'
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S2-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 2b-1
+      content: |
+        $f(1)=-3$이고 $x\le1$에서 $f(x)=4x+c$이므로 $4+c=-3$, $c=-7$이다. 따라서 $f(x)=\begin{cases}4x-7&(x\le1)\\-x^2+6x-8&(x\ge1)\end{cases}$
+      source_flow: 2023학년도 한국공학대학교 모의 논술고사 답안 p.4
+      criteria:
+      - 2.M1
+    - id: 2b-2
+      content: |
+        $x\le1$에서 $f(x)$는 증가하고 $x\ge1$에서 $f(x)=-(x-3)^2+1$이므로 $x=3$에서 최댓값 $f(3)=1$을 가진다.
+      source_flow: 2023학년도 한국공학대학교 모의 논술고사 답안 p.4
+      criteria:
+      - 2.A1
+  # 채점기준 미공개 — 단계별 추정
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 5
+      evidence: 연속성으로 $x\le1$에서의 식 $4x-7$을 구했다.
+      steps:
+      - 2b-1
+    - id: 2.A1
+      mark_type: A
+      points: 5
+      evidence: 최댓값 $f(3)=1$을 구했다.
+      depends_on:
+      - 2.M1
+      steps:
+      - 2b-2
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+- id: '3'
+  stem: |
+    3.(10점) 극한값 $\displaystyle\lim_{x\to3}\dfrac{3f(x)-xf(3)}{x^2-9}$ 의 값을 구하라.
+  points: 10
+  depends_on: []
+  answer:
+    kind: value
+    value: -1/6
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S3-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 3b-1
+      content: |
+        $\displaystyle\lim_{x\to3}\dfrac{3f(x)-xf(3)}{x^2-9}=\lim_{x\to3}\dfrac{3\{f(x)-f(3)\}+(3-x)f(3)}{(x-3)(x+3)}$
+      source_flow: 2023학년도 한국공학대학교 모의 논술고사 답안 p.4
+      criteria:
+      - 3.M1
+    - id: 3b-2
+      content: |
+        $=\dfrac36f'(3)-\dfrac{f(3)}{6}=-\dfrac16$ ($f'(3)=6-6=0$, $f(3)=1$)
+      source_flow: 2023학년도 한국공학대학교 모의 논술고사 답안 p.4
+      criteria:
+      - 3.A1
+  # 채점기준 미공개 — 단계별 추정
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 5
+      evidence: 분자를 $f(x)-f(3)$과 $(3-x)f(3)$으로 나누어 미분계수 꼴로 정리했다.
+      steps:
+      - 3b-1
+    - id: 3.A1
+      mark_type: A
+      points: 5
+      evidence: $f'(3)=0$, $f(3)=1$을 대입해 $-\dfrac16$을 구했다.
+      depends_on:
+      - 3.M1
+      steps:
+      - 3b-2
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+- id: '4'
+  stem: |
+    4.(15점) 다음 정적분 값을 구하라.
+    $$\int_0^3f(x)+\lvert f(x)\rvert dx$$
+  points: 15
+  depends_on: []
+  answer:
+    kind: value
+    value: 4/3
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S4-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 4b-1
+      content: |
+        $0\le x\le2$일 때 $f(x)\le0$, $2\le x\le3$일 때 $f(x)\ge0$이므로 부호에 따라 구간을 나눈다.
+      source_flow: 2023학년도 한국공학대학교 모의 논술고사 답안 p.5
+      criteria:
+      - 4.M1
+    - id: 4b-2
+      content: |
+        $\displaystyle\int_0^3f(x)+\lvert f(x)\rvert dx=\int_0^2\{f(x)-f(x)\}dx+\int_2^3\{f(x)+f(x)\}dx=0+2\int_2^3f(x)dx$
+      source_flow: 2023학년도 한국공학대학교 모의 논술고사 답안 p.5
+      criteria:
+      - 4.A1
+    - id: 4b-3
+      content: |
+        $=2\displaystyle\int_2^3(-x^2+6x-8)dx=\dfrac43$
+      source_flow: 2023학년도 한국공학대학교 모의 논술고사 답안 p.5
+      criteria:
+      - 4.A2
+  # 채점기준 미공개 — 단계별 추정
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 4.M1
+      mark_type: M
+      points: 5
+      evidence: $f(x)$의 부호가 바뀌는 $x=2$에서 구간을 나눴다.
+      steps:
+      - 4b-1
+    - id: 4.A1
+      mark_type: A
+      points: 5
+      evidence: $0\le x\le2$에서 피적분함수가 $0$, $2\le x\le3$에서 $2f(x)$임을 보였다.
+      depends_on:
+      - 4.M1
+      steps:
+      - 4b-2
+    - id: 4.A2
+      mark_type: A
+      points: 5
+      evidence: 정적분을 계산해 $\dfrac43$을 구했다.
+      depends_on:
+      - 4.M1
+      steps:
+      - 4b-3
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: past-v2-lean
+  item_version: 1
+  verdict: pass
+  date: &id001 2026-11-23
+created: *id001
+updated: *id001
+intent: 도함수에서 원함수를 복원하는 과정과 미분가능성·연속성, 미분계수의 정의를 이용한 극한, 절댓값이 있는 정적분을 하나의 함수 아래에서 평가한다.

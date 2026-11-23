@@ -1,0 +1,161 @@
+schema_version: '2.0'
+id: TUK-M25-03
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: TUK
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 추론
+points: 10
+time_estimate_min: null
+key_idea: 평행이동된 함숫값을 삼각함수의 성질로 정리해 $\sin3x$에 대한 이차방정식으로 만들고 $3x$의 범위를 넓혀 해를 모두 구한다.
+stuck: $\sin\left(3x\pm\dfrac{3\pi}2\right)$를 $\pm\cos3x$로 바꾸는 것, $3x$의 범위가 $0\le3x\le3\pi$로 늘어남을 놓치지 않는 것
+tags:
+- 모의논술
+- TUK
+- '2025'
+elements:
+  materials:
+  - $f(x)=1+\sin3x$
+  concepts:
+  - 삼각함수의 성질
+  - 삼각방정식
+  - 삼각함수의 주기
+  tools:
+  - $\sin^2+\cos^2=1$
+  - 인수분해
+  conditions:
+  - $0\le x\le\pi$
+  stimuli_used: {}
+  subpart_links: []
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학Ⅰ
+  - 수학Ⅱ
+  scope_2028: unknown
+  scope_confirmed: false
+  content_area: 삼각함수
+  behavior_domain: 계산
+  unit_path:
+  - 수학Ⅰ
+  - 삼각함수
+  - 삼각방정식
+  key_concepts:
+  - 삼각함수의 성질
+  - 삼각방정식
+  - 삼각함수의 주기
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 한국공학대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 한국공학대학교
+  admission_year: 2025
+  admission_type: 수시 모의논술
+  track: 모의논술
+  question_no: 3
+  official_url: https://iphak.tukorea.ac.kr/guide/pds.htm?bbsid=pds&mode=view&bltn_seq=11714
+  retrieved_at: '2026-11-23'
+  original_points:
+  - 10
+  rights_notice: 미확인
+  transcribed_from: 한국공학대 2025학년도 모의 논술고사 문제 p.4 / 답안 p.4
+verify: verify/TUK-M25.py::p03
+stimuli: []
+stem: |
+  문제3 (10점)
+subparts:
+- id: '1'
+  stem: |
+    함수 $f(x)=1+\sin3x$라 할 때, $0\le x\le\pi$에서 방정식
+    $$2f\left(x-\dfrac\pi2\right)f\left(x+\dfrac\pi2\right)-f(x-\pi)=0$$을
+    만족시키는 해를 모두 구하시오.
+  points: 10
+  depends_on: []
+  answer:
+    kind: set
+    value: pi/18, 5*pi/18, pi/2, 13*pi/18, 17*pi/18
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S1-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        $f\left(x-\dfrac\pi2\right)=1+\sin\left(3x-\dfrac{3\pi}2\right)=1+\cos3x$, $f\left(x+\dfrac\pi2\right)=1+\sin\left(3x+\dfrac{3\pi}2\right)=1-\cos3x$, $f(x-\pi)=1+\sin(3x-3\pi)=1-\sin3x$
+      source_flow: 2025학년도 한국공학대학교 모의 논술고사 답안 p.4
+      criteria:
+      - 1.M1
+    - id: 1b-2
+      content: |
+        $2(1-\cos^23x)-1+\sin3x=2\sin^23x+\sin3x-1=(2\sin3x-1)(\sin3x+1)=0$
+      source_flow: 2025학년도 한국공학대학교 모의 논술고사 답안 p.4
+      criteria:
+      - 1.A1
+    - id: 1b-3
+      content: |
+        $0\le3x\le3\pi$에서 $\sin3x=-1$이면 $3x=\dfrac{3\pi}2$, $x=\dfrac\pi2$이고 $\sin3x=\dfrac12$이면 $3x=\dfrac\pi6,\dfrac{5\pi}6,\dfrac{13\pi}6,\dfrac{17\pi}6$, $x=\dfrac\pi{18},\dfrac{5\pi}{18},\dfrac{13\pi}{18},\dfrac{17\pi}{18}$
+      source_flow: 2025학년도 한국공학대학교 모의 논술고사 답안 p.4
+      criteria:
+      - 1.A2
+  # 채점기준 미공개 — 단계별 추정
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 4
+      evidence: 세 함숫값을 $\cos3x$, $\sin3x$로 정리했다.
+      steps:
+      - 1b-1
+    - id: 1.A1
+      mark_type: A
+      points: 3
+      evidence: 방정식을 $(2\sin3x-1)(\sin3x+1)=0$으로 인수분해했다.
+      depends_on:
+      - 1.M1
+      steps:
+      - 1b-2
+    - id: 1.A2
+      mark_type: A
+      points: 3
+      evidence: $3x$의 범위 $0\le3x\le3\pi$를 확인해 해 5개를 모두 구했다.
+      depends_on:
+      - 1.M1
+      steps:
+      - 1b-3
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: past-v2-lean
+  item_version: 1
+  verdict: pass
+  date: &id001 2026-11-23
+created: *id001
+updated: *id001
+intent: 삼각함수의 평행이동·대칭 성질로 식을 정리하고 범위에 맞는 삼각방정식의 해를 빠짐없이 구하는 능력을 평가한다.

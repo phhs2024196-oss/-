@@ -1,0 +1,331 @@
+schema_version: '2.0'
+id: TUK-G23A-03
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: past_exam
+school: TUK
+type: null
+variant_of: null
+replaces: null
+level: L4
+form: 추론
+points: 60
+time_estimate_min: null
+key_idea: $f'(x)=3(x+3)(x-1)$ 로 극값을 구하고, 정적분으로 정의된 함수의 미분, 삼차함수가 역함수를 가질 조건(증가함수), 역함수와의 교점이 $y=x$ 위에 있다는 사실을 차례로 쓴다.
+stuck: (3-3)에서 역함수 존재 조건을 $p'(x)\ge0$ 으로 바꾸고 판별식 조건을 세우는 것, (3-4)에서 $y=h(x)$ 와 역함수의 교점을 $y=x$ 와의 교점으로 바꾸고 넓이를 2배 하는 것
+tags:
+- 기출
+- TUK
+- '2023'
+- 전계열
+- 오전
+elements:
+  materials:
+  - 삼차함수 $f(x)=x^3+3x^2-9x+2$
+  - '$g(x)$: $\frac{d}{dx}\int_1^xg(t)dt=(x^4-x^2+1)f(x)$'
+  - $p(x)=f(x)+mx^2+10x-2$
+  - $h(x)=f(x)-4x^2+10x-2$ 와 역함수 $k(x)$
+  concepts:
+  - 극값과 증감표
+  - 미분과 적분의 관계
+  - 곱의 미분법
+  - 역함수의 존재 조건
+  - 이차부등식과 판별식
+  - 역함수의 그래프와 직선 $y=x$ 에 대한 대칭
+  - 정적분과 넓이
+  tools:
+  - 증감표
+  - 판별식
+  - 대칭성을 이용한 넓이 2배
+  conditions:
+  - $m$은 정수
+  - $g(x)$는 다항함수
+  stimuli_used: {}
+  subpart_links: []
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학Ⅱ
+  scope_2028: common
+  scope_confirmed: false
+  content_area: 미분법·적분법
+  behavior_domain: 계산
+  unit_path:
+  - 수학Ⅱ
+  - 미분
+  - 도함수의 활용·역함수와 넓이
+  key_concepts:
+  - 극값
+  - 정적분과 미분
+  - 역함수의 존재
+  - 역함수와 넓이
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 한국공학대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 한국공학대학교
+  admission_year: 2023
+  admission_type: 수시 논술우수자
+  track: 전 계열(수학) 오전
+  question_no: 3
+  official_url: https://iphak.tukorea.ac.kr/guide/pds.htm?bbsid=pds&mode=view&bltn_seq=10917
+  retrieved_at: '2026-11-23'
+  original_points:
+  - 10
+  - 10
+  - 20
+  - 20
+  rights_notice: 미확인
+  transcribed_from: 2023학년도 논술고사(오전) 문제지 p.9-12 · 모범답안 p.9-12 (이미지 대조 2026-11-23)
+verify: verify/TUK-G23A.py::p03
+stimuli: []
+stem: |
+  [문제 3] (60점)
+  함수 $f(x)=x^3+3x^2-9x+2$에 대하여 다음 물음에 답하시오.
+subparts:
+- id: '1'
+  stem: |
+    [문제 3-1] (10점)
+    함수 $f(x)$의 극솟값을 구하시오.
+  points: 10
+  depends_on: []
+  answer:
+    kind: value
+    value: '-3'
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S1-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: $f'(x)=3x^2+6x-9=3(x+3)(x-1)$ 이고 증감표는 $x=-3$ 에서 극대, $x=1$ 에서 극소이다.
+      source_flow: 모범답안 p.9-12
+      criteria:
+      - 1.M1
+    - id: 1b-2
+      content: 따라서 극솟값은 $f(1)=-3$ 이다.
+      source_flow: 모범답안 p.9-12
+      criteria:
+      - 1.A1
+  # 채점기준 미공개 — 단계별 추정
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 6
+      evidence: $f'(x)=3(x+3)(x-1)$ 을 구하고 증감표로 극소가 되는 $x=1$ 을 찾았다.
+      steps:
+      - 1b-1
+    - id: 1.A1
+      mark_type: A
+      points: 4
+      evidence: 극솟값 $f(1)=-3$ 을 구했다.
+      depends_on:
+      - 1.M1
+      steps:
+      - 1b-2
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+- id: '2'
+  stem: |
+    [문제 3-2] (10점)
+    다항함수 $g(x)$가 모든 실수 $x$에 대하여
+    $$\dfrac{d}{dx}\int_1^xg(t)\,dt=(x^4-x^2+1)f(x)$$
+    를 만족시킬 때, $g'(1)$의 값을 구하시오.
+  points: 10
+  depends_on: []
+  answer:
+    kind: value
+    value: '-6'
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S2-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 2b-1
+      content: 적분과 미분의 관계에서 좌변은 $g(x)$ 이므로 $g(x)=(x^4-x^2+1)f(x)$ 이다.
+      source_flow: 모범답안 p.9-12
+      criteria:
+      - 2.M1
+    - id: 2b-2
+      content: 양변을 미분하면 $g'(x)=(4x^3-2x)f(x)+(x^4-x^2+1)f'(x)$ 이다. 따라서 $g'(1)=2f(1)+f'(1)=-6$ 이다.
+      source_flow: 모범답안 p.9-12
+      criteria:
+      - 2.A1
+  # 채점기준 미공개 — 단계별 추정
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 2.M1
+      mark_type: M
+      points: 6
+      evidence: 미분과 적분의 관계로 좌변을 $g(x)$ 로 놓고 곱의 미분법으로 $g'(x)$ 를 세웠다.
+      steps:
+      - 2b-1
+    - id: 2.A1
+      mark_type: A
+      points: 4
+      evidence: $f(1)=-3$, $f'(1)=0$ 을 대입하여 $g'(1)=-6$ 을 구했다.
+      depends_on:
+      - 2.M1
+      steps:
+      - 2b-2
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+- id: '3'
+  stem: |
+    [문제 3-3] (20점)
+    함수 $p(x)=f(x)+mx^2+10x-2$의 역함수가 존재하도록 하는 정수 $m$의 값을 모두 구하시오.
+  points: 20
+  depends_on: []
+  answer:
+    kind: set
+    value: -4, -3, -2
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S3-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 3b-1
+      content: $p(x)=x^3+(m+3)x^2+x$ 이다. 최고차항의 계수가 양수이므로 역함수를 가지려면 $p(x)$ 가 증가해야 한다.
+      source_flow: 모범답안 p.9-12
+      criteria:
+      - 3.M1
+    - id: 3b-2
+      content: 따라서 $p'(x)=3x^2+2(m+3)x+1\ge0$ 이고 $D=4(m+3)^2-12\le0$ 이므로 $-3-\sqrt3\le m\le-3+\sqrt3$ 이다.
+      source_flow: 모범답안 p.9-12
+      criteria:
+      - 3.M1
+    - id: 3b-3
+      content: 정수 $m$ 은 $m=-4,\,-3,\,-2$ 이다.
+      source_flow: 모범답안 p.9-12
+      criteria:
+      - 3.A1
+  # 채점기준 미공개 — 단계별 추정
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 3.M1
+      mark_type: M
+      points: 12
+      evidence: $p(x)$ 를 정리하고 역함수가 존재하려면 $p'(x)\ge0$ 이어야 함을 이용해 판별식 조건 $D\le0$ 을 세웠다.
+      steps:
+      - 3b-1
+      - 3b-2
+    - id: 3.A1
+      mark_type: A
+      points: 8
+      evidence: $-3-\sqrt3\le m\le-3+\sqrt3$ 에서 정수 $m=-4,-3,-2$ 를 구했다.
+      depends_on:
+      - 3.M1
+      steps:
+      - 3b-3
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+- id: '4'
+  stem: |
+    [문제 3-4] (20점)
+    함수 $h(x)=f(x)-4x^2+10x-2$의 역함수를 $k(x)$라고 할 때, 두 곡선 $y=h(x)$와 $y=k(x)$로 둘러싸인 도형의 넓이를 구하시오.
+  points: 20
+  depends_on: []
+  answer:
+    kind: value
+    value: 1/6
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S4-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 4b-1
+      content: $h(x)=x^3-x^2+x$ 이다. $y=h(x)$ 와 $y=k(x)$ 의 교점은 $y=h(x)$ 와 $y=x$ 의 교점과 같으므로 $x=0,\,1$ 이다.
+      source_flow: 모범답안 p.9-12
+      criteria:
+      - 4.M1
+    - id: 4b-2
+      content: $x=0$ 에서 $y=h(x)$ 의 접선이 $y=x$ 이므로 도형은 $y=h(x)$ 와 $y=x$ 로 둘러싸인 도형의 넓이의 두 배이다.
+      source_flow: 모범답안 p.9-12
+      criteria:
+      - 4.M1
+    - id: 4b-3
+      content: 따라서 넓이는 $2\displaystyle\int_0^1\{x-(x^3-x^2+x)\}dx=\dfrac16$ 이다.
+      source_flow: 모범답안 p.9-12
+      criteria:
+      - 4.A1
+  # 채점기준 미공개 — 단계별 추정
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 4.M1
+      mark_type: M
+      points: 12
+      evidence: $h(x)=x^3-x^2+x$ 를 구하고 교점이 $y=h(x)$ 와 $y=x$ 의 교점 $x=0,1$ 임을 밝혔으며 넓이가 $y=h(x)$ 와 $y=x$ 사이 넓이의 두 배임을 서술했다.
+      steps:
+      - 4b-1
+      - 4b-2
+    - id: 4.A1
+      mark_type: A
+      points: 8
+      evidence: $2\int_0^1(x-h(x))dx=\dfrac16$ 을 계산했다.
+      depends_on:
+      - 4.M1
+      steps:
+      - 4b-3
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: past-v2-lean
+  item_version: 1
+  verdict: pass
+  date: &id001 2026-11-23
+created: *id001
+updated: *id001

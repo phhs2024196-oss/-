@@ -1,0 +1,157 @@
+schema_version: '2.0'
+id: TUK-M25-02
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: TUK
+type: null
+variant_of: null
+replaces: null
+level: L3
+form: 추론
+points: 10
+time_estimate_min: null
+key_idea: $a_n=S_n-S_{n-1}$로 일반항을 구하고 주어진 식을 $\dfrac1{a_k}-16a_k$로 쪼개 시그마 공식과 $S_5$를 이용한다.
+stuck: $\dfrac{1-16a_k^2}{a_k}$를 $\dfrac1{a_k}-16a_k$로 분리하는 것, $\sum a_k=S_5$로 바로 쓰는 것
+tags:
+- 모의논술
+- TUK
+- '2025'
+elements:
+  materials:
+  - $S_n=\dfrac{n}{3n+1}$인 수열
+  concepts:
+  - 수열의 합과 일반항
+  - 시그마 공식
+  tools:
+  - $a_n=S_n-S_{n-1}$
+  - $\sum k,\ \sum k^2$ 공식
+  conditions: []
+  stimuli_used: {}
+  subpart_links: []
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학Ⅰ
+  - 수학Ⅱ
+  scope_2028: unknown
+  scope_confirmed: false
+  content_area: 수열
+  behavior_domain: 계산
+  unit_path:
+  - 수학Ⅰ
+  - 수열
+  - 수열의 합과 일반항
+  key_concepts:
+  - 수열의 합과 일반항
+  - 시그마 공식
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 한국공학대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 한국공학대학교
+  admission_year: 2025
+  admission_type: 수시 모의논술
+  track: 모의논술
+  question_no: 2
+  official_url: https://iphak.tukorea.ac.kr/guide/pds.htm?bbsid=pds&mode=view&bltn_seq=11714
+  retrieved_at: '2026-11-23'
+  original_points:
+  - 10
+  rights_notice: 미확인
+  transcribed_from: 한국공학대 2025학년도 모의 논술고사 문제 p.3 / 답안 p.3
+verify: verify/TUK-M25.py::p02
+stimuli: []
+stem: |
+  문제2 (10점)
+subparts:
+- id: '1'
+  stem: |
+    수열 $\{a_n\}$의 첫째항부터 제 $n$항까지 합을 $S_n$이라 하자.
+    모든 자연수 $n$에 대하여 $S_n=\dfrac{n}{3n+1}$일 때, $\displaystyle\sum_{k=1}^{5}\dfrac{1-16a_k^2}{a_k}$를 구하시오.
+  points: 10
+  depends_on: []
+  answer:
+    kind: value
+    value: '435'
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S1-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        $a_1=S_1=\dfrac14$, $n\ge2$일 때 $a_n=S_n-S_{n-1}=\dfrac{n}{3n+1}-\dfrac{n-1}{3n-2}=\dfrac1{(3n+1)(3n-2)}$이고 $a_1=\dfrac1{4\cdot1}$도 이 식을 만족시킨다.
+      source_flow: 2025학년도 한국공학대학교 모의 논술고사 답안 p.3
+      criteria:
+      - 1.M1
+    - id: 1b-2
+      content: |
+        $\displaystyle\sum_{k=1}^{5}\dfrac{1-16a_k^2}{a_k}=\sum_{k=1}^{5}\dfrac1{a_k}-16\sum_{k=1}^{5}a_k$이고 $\dfrac1{a_k}=(3k+1)(3k-2)=9k^2-3k-2$
+      source_flow: 2025학년도 한국공학대학교 모의 논술고사 답안 p.3
+      criteria:
+      - 1.A1
+    - id: 1b-3
+      content: |
+        $\displaystyle\sum_{k=1}^{5}(9k^2-3k-2)-16S_5=\left\{9\cdot\dfrac{5\cdot6\cdot11}{6}-3\cdot\dfrac{5\cdot6}{2}-2\cdot5\right\}-16\cdot\dfrac5{16}=440-5=435$
+      source_flow: 2025학년도 한국공학대학교 모의 논술고사 답안 p.3
+      criteria:
+      - 1.A2
+  # 채점기준 미공개 — 단계별 추정
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 4
+      evidence: $a_n=S_n-S_{n-1}$로 일반항 $a_n=\dfrac1{(3n+1)(3n-2)}$을 구했다.
+      steps:
+      - 1b-1
+    - id: 1.A1
+      mark_type: A
+      points: 3
+      evidence: 식을 $\sum\dfrac1{a_k}-16\sum a_k$로 나누고 $\dfrac1{a_k}=9k^2-3k-2$를 구했다.
+      depends_on:
+      - 1.M1
+      steps:
+      - 1b-2
+    - id: 1.A2
+      mark_type: A
+      points: 3
+      evidence: $S_5=\dfrac5{16}$을 이용해 $435$를 구했다.
+      depends_on:
+      - 1.M1
+      steps:
+      - 1b-3
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: past-v2-lean
+  item_version: 1
+  verdict: pass
+  date: &id001 2026-11-23
+created: *id001
+updated: *id001
+intent: 수열의 합과 일반항의 관계, 분수식 분리, 시그마 공식을 이용한 합의 계산을 평가한다.

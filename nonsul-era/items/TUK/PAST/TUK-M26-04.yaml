@@ -1,0 +1,157 @@
+schema_version: '2.0'
+id: TUK-M26-04
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: TUK
+type: null
+variant_of: null
+replaces: null
+level: L3
+form: 추론
+points: 10
+time_estimate_min: null
+key_idea: 위치는 속도의 정적분으로 $k$를 구하고, 가속도는 속도의 도함수이다.
+stuck: 출발 위치가 원점이므로 위치 $=\int_0^3v(t)dt$로 놓는 것
+tags:
+- 모의논술
+- TUK
+- '2026'
+elements:
+  materials:
+  - 속도 $v(t)=kt^2+t$
+  concepts:
+  - 속도와 위치
+  - 가속도
+  tools:
+  - 정적분
+  - 미분
+  conditions:
+  - $t\ge0$
+  stimuli_used: {}
+  subpart_links: []
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학Ⅰ
+  - 수학Ⅱ
+  scope_2028: unknown
+  scope_confirmed: false
+  content_area: 미분법·적분법
+  behavior_domain: 계산
+  unit_path:
+  - 수학Ⅱ
+  - 적분
+  - 속도와 가속도
+  key_concepts:
+  - 속도와 위치
+  - 가속도
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 한국공학대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 한국공학대학교
+  admission_year: 2026
+  admission_type: 수시 모의논술
+  track: 모의논술
+  question_no: 4
+  official_url: https://iphak.tukorea.ac.kr/guide/pds.htm?bbsid=pds&mode=view&bltn_seq=12702
+  retrieved_at: '2026-11-23'
+  original_points:
+  - 10
+  rights_notice: 미확인
+  transcribed_from: 한국공학대 2026학년도 모의논술고사 문제 p.5 / 답안 p.5
+verify: verify/TUK-M26.py::p04
+stimuli: []
+stem: |
+  [문제4] [10점]
+subparts:
+- id: '1'
+  stem: |
+    시각 $t=0$에서 원점을 출발하여 수직선 위를 움직이는 점 $\mathrm{P}$의 시각 $t\ (t\ge0)$에서의 속도 $v(t)$가 $v(t)=kt^2+t$이다. 시각 $t=3$에서 점 P의 위치가 9일 때, 시각 $t=4$에서 점 P의 가속도를 구하고 그 과정을 서술하시오. (단, $k$는 상수이다.)
+  points: 10
+  depends_on: []
+  answer:
+    kind: value
+    value: '5'
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S1-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 1b-1
+      content: |
+        시각 $t=3$에서 P의 위치는 $0+\displaystyle\int_0^3v(t)dt=\int_0^3(kt^2+t)dt=\left[\dfrac k3t^3+\dfrac12t^2\right]_0^3=9k+\dfrac92$
+      source_flow: 2026학년도 한국공학대학교 모의논술고사 답안 p.5
+      criteria:
+      - 1.M1
+    - id: 1b-2
+      content: |
+        $9k+\dfrac92=9$에서 $k=\dfrac12$이고 $v(t)=\dfrac12t^2+t$
+      source_flow: 2026학년도 한국공학대학교 모의논술고사 답안 p.5
+      criteria:
+      - 1.A1
+    - id: 1b-3
+      content: |
+        가속도 $a(t)=\dfrac{d}{dt}v(t)=t+1$이므로 $a(4)=5$
+      source_flow: 2026학년도 한국공학대학교 모의논술고사 답안 p.5
+      criteria:
+      - 1.A2
+  # 채점기준 미공개 — 단계별 추정
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 1.M1
+      mark_type: M
+      points: 4
+      evidence: 위치를 속도의 정적분으로 나타냈다.
+      steps:
+      - 1b-1
+    - id: 1.A1
+      mark_type: A
+      points: 3
+      evidence: $k=\dfrac12$을 구했다.
+      depends_on:
+      - 1.M1
+      steps:
+      - 1b-2
+    - id: 1.A2
+      mark_type: A
+      points: 3
+      evidence: 가속도 $a(4)=5$를 구했다.
+      depends_on:
+      - 1.M1
+      steps:
+      - 1b-3
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: past-v2-lean
+  item_version: 1
+  verdict: pass
+  date: &id001 2026-11-23
+created: *id001
+updated: *id001
+intent: 속도·위치·가속도의 관계를 적분과 미분으로 연결해 평가한다.

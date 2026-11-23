@@ -1,0 +1,296 @@
+schema_version: '2.0'
+id: TUK-M24-02
+legacy_id: null
+version: 1
+status: draft
+exam_family: math_nonsul
+item_type: derivation
+origin: mock_exam
+school: TUK
+type: null
+variant_of: null
+replaces: null
+level: L3
+form: 추론
+points: 30
+time_estimate_min: null
+key_idea: 등비수열의 공비를 구해 부등식을 풀고, 미분계수의 정의로 극한을 $f'$로 바꿔 다항함수를 구하며, 위치가 같을 조건으로 $a$를 정한 뒤 속도의 부호에 따라 이동 거리를 구한다.
+stuck: (2-1)에서 $r>0$로 $r=-3$을 버리는 것, (2-2)에서 $x=0$을 대입해 $f'(0)$의 부호로 값을 정하는 것, (2-3)에서 $\lvert v_1(t)\rvert$를 $t=2$에서 나누는 것
+tags:
+- 모의논술
+- TUK
+- '2024'
+elements:
+  materials:
+  - $a_1=\dfrac13$, $a_2+a_3=2$인 등비수열
+  - 극한 조건식을 만족시키는 다항함수 $f(x)$
+  - 속도 $v_1(t)=3t^2-6t$, $v_2(t)=4t$
+  concepts:
+  - 등비수열의 일반항
+  - 미분계수의 정의
+  - 부정적분
+  - 위치와 이동 거리
+  tools:
+  - 이차방정식
+  - 미분계수의 정의
+  - 정적분의 구간 나누기
+  conditions:
+  - $a_n>0$
+  - $f'(0)>0$
+  - $a>0$
+  stimuli_used: {}
+  subpart_links: []
+curriculum:
+  version: '2015'
+  subjects:
+  - 수학Ⅰ
+  - 수학Ⅱ
+  scope_2028: unknown
+  scope_confirmed: false
+  content_area: 수열·미분법·적분법
+  behavior_domain: 계산
+  unit_path:
+  - 수학Ⅰ·수학Ⅱ
+  - 등비수열
+  - 미분계수·속도와 거리
+  key_concepts:
+  - 등비수열의 일반항
+  - 미분계수의 정의
+  - 부정적분
+difficulty:
+  rater: author
+  p_value: null
+  n: 0
+source:
+  rights_holder: 한국공학대학교
+  license: all_rights_reserved
+  permission_status: not_requested
+  allowed_use: internal_only
+  derivative_level: verbatim
+  institution: 한국공학대학교
+  admission_year: 2024
+  admission_type: 수시 모의논술
+  track: 모의논술
+  question_no: 2
+  official_url: https://iphak.tukorea.ac.kr/guide/pds.htm?bbsid=pds&mode=view&bltn_seq=11002
+  retrieved_at: '2026-11-23'
+  original_points:
+  - 10
+  - 10
+  - 10
+  rights_notice: 미확인
+  transcribed_from: 한국공학대 2024학년도 모의 논술고사 문제 p.4-6 / 답안 p.4-5
+verify: verify/TUK-M24.py::p02
+stimuli: []
+stem: |
+  [문제 2] [총 30점]
+subparts:
+- id: 2-1
+  stem: |
+    [2-1] [10점]
+    모든 항이 양수인 등비수열 $\{a_n\}$에 대하여 $a_1=\dfrac13$, $a_2+a_3=2$일 때, 부등식 $a_n>40$을 만족시키는 자연수 $n$의 최솟값을 구하는 과정을 서술하시오.
+  points: 10
+  depends_on: []
+  answer:
+    kind: value
+    value: '8'
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S21-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 21b-1
+      content: |
+        공비를 $r\ (r>0)$이라 하면 $a_2+a_3=\dfrac13r+\dfrac13r^2=2$에서 $r^2+r-6=0$, $(r+3)(r-2)=0$이므로 $r=2$ ($r>0$)
+      source_flow: 2024학년도 수시모집 모의논술고사 문제 답안 p.4
+      criteria:
+      - 2-1.M1
+    - id: 21b-2
+      content: |
+        $a_n=\dfrac13\times2^{n-1}>40$에서 $2^{n-1}>120$이고 $2^6=64$, $2^7=128$이므로 $n-1=7$에서 $n=8$
+      source_flow: 2024학년도 수시모집 모의논술고사 문제 답안 p.4
+      criteria:
+      - 2-1.A1
+  # 채점기준 미공개 — 단계별 추정
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 2-1.M1
+      mark_type: M
+      points: 5
+      evidence: 공비 $r$에 대한 방정식을 세워 $r>0$에서 $r=2$를 구했다.
+      steps:
+      - 21b-1
+    - id: 2-1.A1
+      mark_type: A
+      points: 5
+      evidence: 부등식을 풀어 $n$의 최솟값 $8$을 구했다.
+      depends_on:
+      - 2-1.M1
+      steps:
+      - 21b-2
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+- id: 2-2
+  stem: |
+    [2-2] [10점]
+    다항함수 $f(x)$가 모든 실수 $x$에 대하여
+    $$\lim_{h\to0}\dfrac{f(h)}{h}\times\lim_{h\to0}\dfrac{f(x+2h)-f(x)}{h}=2x^2+18$$
+    를 만족시킨다. 함수 $y=f(x)$의 그래프 위의 점 $(0,0)$에서의 접선의 기울기가 양수일 때, 함수 $f(x)$를 구하는 과정을 서술하시오.
+  points: 10
+  depends_on: []
+  answer:
+    kind: expression
+    value: x**3/9+3*x
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S22-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 22b-1
+      content: |
+        $f(0)=0$, $f'(0)>0$이므로 $\displaystyle\lim_{h\to0}\dfrac{f(h)}{h}=f'(0)$, $\displaystyle\lim_{h\to0}\dfrac{f(x+2h)-f(x)}{h}=2f'(x)$이다.
+      source_flow: 2024학년도 수시모집 모의논술고사 문제 답안 p.4-5
+      criteria:
+      - 2-2.M1
+    - id: 22b-2
+      content: |
+        $f'(0)\times2f'(x)=2x^2+18$에서 $f'(0)f'(x)=x^2+9$이고 $x=0$을 대입하면 $f'(0)^2=9$, $f'(0)>0$이므로 $f'(0)=3$, $f'(x)=\dfrac{x^2}3+3$
+      source_flow: 2024학년도 수시모집 모의논술고사 문제 답안 p.4-5
+      criteria:
+      - 2-2.A1
+    - id: 22b-3
+      content: |
+        $f(x)=\dfrac{x^3}9+3x+C$이고 $f(0)=0$이므로 $C=0$, 따라서 $f(x)=\dfrac{x^3}9+3x$
+      source_flow: 2024학년도 수시모집 모의논술고사 문제 답안 p.4-5
+      criteria:
+      - 2-2.A2
+  # 채점기준 미공개 — 단계별 추정
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 2-2.M1
+      mark_type: M
+      points: 4
+      evidence: 미분계수의 정의로 두 극한을 $f'(0)$, $2f'(x)$로 나타냈다.
+      steps:
+      - 22b-1
+    - id: 2-2.A1
+      mark_type: A
+      points: 3
+      evidence: $f'(0)=3$과 $f'(x)=\dfrac{x^2}{3}+3$을 구했다.
+      depends_on:
+      - 2-2.M1
+      steps:
+      - 22b-2
+    - id: 2-2.A2
+      mark_type: A
+      points: 3
+      evidence: 적분상수를 정해 $f(x)=\dfrac{x^3}{9}+3x$를 구했다.
+      depends_on:
+      - 2-2.M1
+      steps:
+      - 22b-3
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+- id: 2-3
+  stem: |
+    [2-3] [10점]
+    시각 $t=0$일 때 동시에 원점을 출발하여 수직선 위를 움직이는 두 점 $\mathrm{P},\mathrm{Q}$의 시각 $t\ (t\ge0)$에서의 속도가 각각
+    $$v_1(t)=3t^2-6t,\quad v_2(t)=4t$$
+    이고, 출발한 후 두 점 $\mathrm{P},\mathrm{Q}$가 시각 $t=a$에서 만난다. 점 P가 시각 $t=0$에서 $t=a$까지 움직인 거리를 $s$라 할 때, $s$를 구하는 과정을 서술하시오. (단, $a>0$)
+  points: 10
+  depends_on: []
+  answer:
+    kind: value
+    value: '58'
+    equivalents: []
+    tolerance: null
+  solutions:
+  - id: S23-B
+    audience: B
+    method_no: 1
+    steps:
+    - id: 23b-1
+      content: |
+        시각 $t=a$에서 P의 위치는 $\displaystyle\int_0^a(3t^2-6t)dt=a^3-3a^2$, Q의 위치는 $\displaystyle\int_0^a4t\,dt=2a^2$이다.
+      source_flow: 2024학년도 수시모집 모의논술고사 문제 답안 p.5
+      criteria:
+      - 2-3.M1
+    - id: 23b-2
+      content: |
+        두 점이 만나므로 $a^3-3a^2=2a^2$, $a^2(a-5)=0$이고 $a>0$이므로 $a=5$
+      source_flow: 2024학년도 수시모집 모의논술고사 문제 답안 p.5
+      criteria:
+      - 2-3.A1
+    - id: 23b-3
+      content: |
+        $s=\displaystyle\int_0^5\lvert3t^2-6t\rvert dt=\int_0^2(-3t^2+6t)dt+\int_2^5(3t^2-6t)dt=4+54=58$
+      source_flow: 2024학년도 수시모집 모의논술고사 문제 답안 p.5
+      criteria:
+      - 2-3.A2
+  # 채점기준 미공개 — 단계별 추정
+  rubric:
+    rules:
+      ft_scope: cross_subpart_only
+      ft_requires_working: true
+      a_requires_m: true
+      misread_penalty: 2
+      isw: true
+    criteria:
+    - id: 2-3.M1
+      mark_type: M
+      points: 3
+      evidence: 두 점의 위치를 정적분으로 구했다.
+      steps:
+      - 23b-1
+    - id: 2-3.A1
+      mark_type: A
+      points: 3
+      evidence: $a=5$를 구했다.
+      depends_on:
+      - 2-3.M1
+      steps:
+      - 23b-2
+    - id: 2-3.A2
+      mark_type: A
+      points: 4
+      evidence: 속도의 부호가 바뀌는 $t=2$에서 구간을 나눠 거리 $58$을 구했다.
+      depends_on:
+      - 2-3.M1
+      steps:
+      - 23b-3
+  outcome_codes:
+  - code: '20'
+    meaning: 만점
+  misconceptions: []
+remedy_links: []
+reviews:
+- stage: compose
+  actor_type: model
+  actor_id: sonnet
+  prompt_version: past-v2-lean
+  item_version: 1
+  verdict: pass
+  date: &id001 2026-11-23
+created: *id001
+updated: *id001
+intent: 등비수열의 일반항, 미분계수의 정의를 이용한 다항함수 결정, 속도와 위치·이동 거리를 서로 다른 단원에서 하나씩 평가한다.
